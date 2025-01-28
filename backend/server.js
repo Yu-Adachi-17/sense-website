@@ -13,7 +13,7 @@ const FormData = require('form-data');
 const app = express();
 
 // CORS設定（環境変数で制御）
-const allowedOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:3000';
+const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
 app.use(cors({
     origin: allowedOrigin,
     methods: ['GET', 'POST', 'OPTIONS'],
@@ -126,6 +126,16 @@ app.post('/transcribe', upload.single('file'), async (req, res) => {
         console.error('エラー:', error);
         res.status(500).json({ error: '文字起こしおよび議事録生成に失敗しました' });
     }
+});
+
+// デフォルトルート
+app.get('/', (req, res) => {
+    res.send('Welcome to Minutes AI API!');
+});
+
+// 不明なエンドポイントへの対応
+app.use((req, res) => {
+    res.status(404).json({ error: 'Endpoint not found' });
 });
 
 // サーバーの起動

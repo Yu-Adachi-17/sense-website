@@ -2,10 +2,14 @@
 
 import axios from 'axios';
 
-// バックエンドAPIのベースURL
-const BACKEND_API_BASE_URL = 'http://localhost:5002'; // 必要に応じて変更
+// 環境変数からバックエンドAPIのベースURLを取得
+const BACKEND_API_BASE_URL =
+    process.env.REACT_APP_API_BASE_URL || 'http://localhost:5002';
 
-// transcribeAudio 関数をバックエンドに対応
+// 環境変数が正しく設定されているかを確認
+console.log('BACKEND_API_BASE_URL:', BACKEND_API_BASE_URL);
+
+// 音声文字起こしと議事録生成の処理
 export const transcribeAudio = async (
     file,
     setTranscription,
@@ -46,4 +50,3 @@ export const transcribeAudio = async (
         setShowFullScreen(true);
     }
 };
-
