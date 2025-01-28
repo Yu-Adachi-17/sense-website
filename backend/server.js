@@ -38,6 +38,15 @@ app.use((req, res, next) => {
 // Multerの設定
 const upload = multer({ storage: multer.memoryStorage() });
 
+// 静的ファイルの提供設定
+const staticPath = path.join(__dirname, 'frontend/build');
+app.use(express.static(staticPath));
+
+// 未定義ルートをフロントエンドにリダイレクト
+app.get('*', (req, res) => {
+    res.sendFile(path.join(staticPath, 'index.html'));
+});
+
 // OpenAIのAPIエンドポイント
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
 const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
@@ -127,18 +136,6 @@ app.post('/transcribe', upload.single('file'), async (req, res) => {
         console.error('[DEBUG] Error in /transcribe:', error);
         res.status(500).json({ error: '文字起こしおよび議事録生成に失敗しました' });
     }
-});
-
-// デフォルトルート
-app.get('/', (req, res) => {
-    console.log('[DEBUG] GET / endpoint accessed');
-    res.send('Welcome to Minutes AI API!');
-});
-
-// 不明なエンドポイントへの対応
-app.use((req, res) => {
-    console.log(`[DEBUG] 404 Not Found: ${req.method} ${req.url}`);
-    res.status(404).json({ error: 'Endpoint not found' });
 });
 
 // サーバーの起動
