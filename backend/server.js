@@ -1,5 +1,3 @@
-// server.js
-
 require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
@@ -29,10 +27,11 @@ app.options('*', (req, res) => {
     res.sendStatus(204);
 });
 
-// HTTPリクエストログ
+// HTTPリクエストログ（デバッグ用）
 app.use((req, res, next) => {
-    console.log(`${req.method} ${req.url}`);
-    console.log('Headers:', req.headers);
+    console.log(`[DEBUG] Received request: ${req.method} ${req.url}`);
+    console.log('[DEBUG] Headers:', req.headers);
+    console.log('[DEBUG] Body:', req.body);
     next();
 });
 
@@ -56,7 +55,7 @@ const generateMinutes = async (transcription) => {
     };
 
     try {
-        console.log('ChatGPT API に送信するデータ:', data);
+        console.log('[DEBUG] Sending data to ChatGPT API:', data);
         const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
             headers: {
                 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
@@ -64,10 +63,10 @@ const generateMinutes = async (transcription) => {
             },
             timeout: 600000, // 10分
         });
-        console.log('ChatGPT API のレスポンス:', response.data);
+        console.log('[DEBUG] ChatGPT API response:', response.data);
         return response.data.choices[0].message.content.trim();
     } catch (error) {
-        console.error('ChatGPT API エラー:', error.response?.data || error.message);
+        console.error('[DEBUG] ChatGPT API error:', error.response?.data || error.message);
         throw new Error('ChatGPT API による議事録生成に失敗しました');
     }
 };
@@ -79,7 +78,7 @@ const transcribeWithOpenAI = async (filePath) => {
         formData.append('file', fs.createReadStream(filePath));
         formData.append('model', 'whisper-1');
 
-        console.log(`Whisper API に送信するファイル: ${filePath}`);
+        console.log(`[DEBUG] Sending file to Whisper API: ${filePath}`);
 
         const response = await axios.post(OPENAI_API_ENDPOINT_TRANSCRIPTION, formData, {
             headers: {
@@ -91,10 +90,10 @@ const transcribeWithOpenAI = async (filePath) => {
             maxBodyLength: Infinity,
         });
 
-        console.log('Whisper API のレスポンス:', response.data);
+        console.log('[DEBUG] Whisper API response:', response.data);
         return response.data.text;
     } catch (error) {
-        console.error('Whisper API エラー:', error.response?.data || error.message);
+        console.error('[DEBUG] Whisper API error:', error.response?.data || error.message);
         throw new Error('Whisper API による文字起こしに失敗しました');
     }
 };
@@ -116,6 +115,8 @@ app.post('/transcribe', upload.single('file'), async (req, res) => {
         const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
         fs.writeFileSync(tempFilePath, file.buffer);
 
+        console.log('[DEBUG] File saved temporarily at:', tempFilePath);
+
         const transcription = await transcribeWithOpenAI(tempFilePath);
         fs.unlinkSync(tempFilePath);
 
@@ -123,24 +124,26 @@ app.post('/transcribe', upload.single('file'), async (req, res) => {
         res.json({ transcription: transcription.trim(), minutes });
 
     } catch (error) {
-        console.error('エラー:', error);
+        console.error('[DEBUG] Error in /transcribe:', error);
         res.status(500).json({ error: '文字起こしおよび議事録生成に失敗しました' });
     }
 });
 
 // デフォルトルート
 app.get('/', (req, res) => {
+    console.log('[DEBUG] GET / endpoint accessed');
     res.send('Welcome to Minutes AI API!');
 });
 
 // 不明なエンドポイントへの対応
 app.use((req, res) => {
+    console.log(`[DEBUG] 404 Not Found: ${req.method} ${req.url}`);
     res.status(404).json({ error: 'Endpoint not found' });
 });
 
 // サーバーの起動
 const PORT = process.env.PORT || 8080;
-console.log(`API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
+console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
 app.listen(PORT, () => {
-    console.log(`サーバーがポート ${PORT} で起動しました`);
+    console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
 });
