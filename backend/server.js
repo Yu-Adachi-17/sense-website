@@ -40,7 +40,9 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 // 静的ファイルの提供設定
 const staticPath = path.join(__dirname, 'frontend/build');
+console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
+
 
 // 未定義ルートをフロントエンドにリダイレクト
 app.get('*', (req, res) => {
