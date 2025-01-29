@@ -10,7 +10,7 @@ const FormData = require('form-data');
 
 const app = express();
 
-// CORS設定（環境変数で制御）
+// ✅ CORS設定（環境変数で制御）
 const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
 app.use(cors({
     origin: allowedOrigin,
@@ -19,7 +19,10 @@ app.use(cors({
     credentials: true,
 }));
 
-// プリフライトリクエストに対応
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// ✅ プリフライトリクエスト対応
 app.options('*', (req, res) => {
     res.header('Access-Control-Allow-Origin', allowedOrigin);
     res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -27,33 +30,24 @@ app.options('*', (req, res) => {
     res.sendStatus(204);
 });
 
-// HTTPリクエストログ（デバッグ用）
+// ✅ HTTPリクエストログ（デバッグ用）
 app.use((req, res, next) => {
     console.log(`[DEBUG] Received request: ${req.method} ${req.url}`);
     console.log('[DEBUG] Headers:', req.headers);
-    console.log('[DEBUG] Body:', req.body);
     next();
 });
 
-// Multerの設定
-const upload = multer({ storage: multer.memoryStorage() });
-
-// 静的ファイルの提供設定
-const staticPath = path.join(__dirname, 'frontend/build');
-console.log(`[DEBUG] Static files served from: ${staticPath}`);
-app.use(express.static(staticPath));
-
-
-// 未定義ルートをフロントエンドにリダイレクト
-app.get('*', (req, res) => {
-    res.sendFile(path.join(staticPath, 'index.html'));
+// ✅ Multerの設定（100MBまでのファイルを受け付ける）
+const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: { fileSize: 100 * 1024 * 1024 } // 100MBまでOK
 });
 
-// OpenAIのAPIエンドポイント
+// ✅ OpenAI APIエンドポイント
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
 const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
 
-// ChatGPTを使用して議事録を生成する関数
+// ✅ ChatGPTを使用して議事録を生成する関数
 const generateMinutes = async (transcription) => {
     const data = {
         model: 'gpt-4',
@@ -77,12 +71,12 @@ const generateMinutes = async (transcription) => {
         console.log('[DEBUG] ChatGPT API response:', response.data);
         return response.data.choices[0].message.content.trim();
     } catch (error) {
-        console.error('[DEBUG] ChatGPT API error:', error.response?.data || error.message);
+        console.error('[ERROR] ChatGPT API failed:', error.response?.data || error.message);
         throw new Error('ChatGPT API による議事録生成に失敗しました');
     }
 };
 
-// OpenAI Whisper APIを使用して文字起こしを行う関数
+// ✅ Whisper APIを使用して文字起こしを行う関数
 const transcribeWithOpenAI = async (filePath) => {
     try {
         const formData = new FormData();
@@ -104,20 +98,30 @@ const transcribeWithOpenAI = async (filePath) => {
         console.log('[DEBUG] Whisper API response:', response.data);
         return response.data.text;
     } catch (error) {
-        console.error('[DEBUG] Whisper API error:', error.response?.data || error.message);
+        console.error('[ERROR] Whisper API error:', error.response?.data || error.message);
         throw new Error('Whisper API による文字起こしに失敗しました');
     }
 };
 
-// エンドポイント: 音声ファイルの受け取りと文字起こしおよび議事録生成
-app.post('/transcribe', upload.single('file'), async (req, res) => {
+// ✅ `/api/transcribe` が登録されていることを明示的に確認
+console.log('[DEBUG] Registering /api/transcribe route');
+
+// ✅ APIエンドポイント定義
+app.get('/api/hello', (req, res) => {
+    res.json({ message: "Hello from backend!" });
+});
+
+app.post('/api/transcribe', upload.single('file'), async (req, res) => {
+    console.log('[DEBUG] /api/transcribe called');
+
     try {
         const file = req.file;
-
         if (!file) {
+            console.error('[ERROR] ファイルがアップロードされていません');
             return res.status(400).json({ error: 'ファイルがアップロードされていません' });
         }
 
+        console.log(`[DEBUG] File received: ${file.originalname}`);
         const tempDir = path.join(__dirname, 'temp');
         if (!fs.existsSync(tempDir)) {
             fs.mkdirSync(tempDir, { recursive: true });
@@ -125,23 +129,50 @@ app.post('/transcribe', upload.single('file'), async (req, res) => {
 
         const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
         fs.writeFileSync(tempFilePath, file.buffer);
-
         console.log('[DEBUG] File saved temporarily at:', tempFilePath);
 
-        const transcription = await transcribeWithOpenAI(tempFilePath);
+        let transcription;
+        try {
+            transcription = await transcribeWithOpenAI(tempFilePath);
+            console.log('[DEBUG] Transcription result:', transcription);
+        } catch (error) {
+            console.error('[ERROR] Whisper API failed:', error);
+            return res.status(500).json({ error: 'Whisper API による文字起こしに失敗しました' });
+        }
+
         fs.unlinkSync(tempFilePath);
 
-        const minutes = await generateMinutes(transcription.trim());
+        let minutes;
+        try {
+            minutes = await generateMinutes(transcription.trim());
+            console.log('[DEBUG] ChatGPT result:', minutes);
+        } catch (error) {
+            console.error('[ERROR] ChatGPT API failed:', error);
+            return res.status(500).json({ error: 'ChatGPT API による議事録生成に失敗しました' });
+        }
+
         res.json({ transcription: transcription.trim(), minutes });
 
     } catch (error) {
-        console.error('[DEBUG] Error in /transcribe:', error);
-        res.status(500).json({ error: '文字起こしおよび議事録生成に失敗しました' });
+        console.error('[ERROR] /api/transcribe internal error:', error);
+        res.status(500).json({ error: 'サーバー内部エラー' });
     }
 });
 
-// サーバーの起動
-const PORT = process.env.PORT || 5002;
+// ✅ フロントエンドの静的ファイルを提供
+const staticPath = path.join(__dirname, 'frontend/build');
+console.log(`[DEBUG] Static files served from: ${staticPath}`);
+app.use(express.static(staticPath));
+
+// ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
+app.get('*', (req, res) => {
+    if (!req.url.startsWith('/api')) {
+        res.sendFile(path.join(staticPath, 'index.html'));
+    }
+});
+
+// ✅ サーバーの起動
+const PORT = process.env.PORT;
 console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
 app.listen(PORT, () => {
     console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
