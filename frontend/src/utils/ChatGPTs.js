@@ -3,7 +3,8 @@
 import axios from 'axios';
 
 // 環境変数からバックエンドAPIのベースURLを取得
-const BACKEND_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const BACKEND_API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://www.sense-ai.world/api";
+
 if (!BACKEND_API_BASE_URL) {
     console.error("[ERROR] BACKEND_API_BASE_URL が設定されていません");
 } else {
