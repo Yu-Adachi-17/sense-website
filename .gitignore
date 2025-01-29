@@ -4,8 +4,7 @@ node_modules/
 # 環境変数ファイル（秘密情報を含む）
 .env
 
-# buildフォルダを追跡対象にする
-!build/
+
 
 dist/
 
