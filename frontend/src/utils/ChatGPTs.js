@@ -3,8 +3,13 @@
 import axios from 'axios';
 
 // 環境変数からバックエンドAPIのベースURLを取得
-const BACKEND_API_BASE_URL =
-    process.env.REACT_APP_API_BASE_URL || 'http://localhost:5002';
+const BACKEND_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+if (!BACKEND_API_BASE_URL) {
+    console.error("[ERROR] BACKEND_API_BASE_URL が設定されていません");
+} else {
+    console.log("[DEBUG] BACKEND_API_BASE_URL:", BACKEND_API_BASE_URL);
+}
+
 
 // 環境変数が正しく設定されているかを確認
 console.log('BACKEND_API_BASE_URL:', BACKEND_API_BASE_URL);
