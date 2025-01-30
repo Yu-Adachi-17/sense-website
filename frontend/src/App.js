@@ -1,6 +1,5 @@
 // App.js
 import React, { useState, useRef, useEffect } from 'react';
-import { TbClipboardList, TbClipboardText } from 'react-icons/tb';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
@@ -27,11 +26,6 @@ function App() {
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
 
-  const baseSize = 300;
-  const borderWidth = 10;
-  const outerGradientSize = baseSize + 2 * borderWidth;
-  const innerSize = baseSize * (2 / 3);
-  const buttonSize = innerSize * 0.4;
 
   const toggleRecording = async () => {
     if (isRecording) {
@@ -187,9 +181,10 @@ function App() {
   };
 
   useEffect(() => {
+    const interval = progressIntervalRef.current; // ローカル変数にコピー
     return () => {
       stopRecording();
-      clearInterval(progressIntervalRef.current);
+      clearInterval(interval);
     };
   }, []);
 

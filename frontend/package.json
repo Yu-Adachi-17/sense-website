@@ -34,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.18.6"
   }
 }
