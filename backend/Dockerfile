@@ -1,19 +1,19 @@
 # 1. ベースイメージ
 FROM node:18-alpine
 
-# 2. 作業ディレクトリを設定
+# 2. 作業ディレクトリを `/app` に設定
 WORKDIR /app
 
-# 3. パッケージをコピーしてインストール
-COPY package*.json ./
-RUN npm install
+# 3. `backend/` ディレクトリをコンテナにコピー
+COPY backend /app/backend
 
-# 4. 残りのファイルをコピー
-COPY . .
+# 4. `backend/package.json` をコピーして `npm install`（依存関係をインストール）
+WORKDIR /app/backend
+COPY backend/package*.json ./
+RUN npm install
 
 # 5. ポートを公開
 EXPOSE 3000
 
-# 6. ビルド時に `RUN node backend/server.js` は実行しない！
-# 代わりに、コンテナが実行されるときに `server.js` を起動する
-CMD ["node", "server.js"]
+# 6. `server.js` を正しく実行
+CMD ["node", "backend/server.js"]
