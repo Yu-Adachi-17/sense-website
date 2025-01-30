@@ -106,6 +106,11 @@ const transcribeWithOpenAI = async (filePath) => {
 // ✅ `/api/transcribe` が登録されていることを明示的に確認
 console.log('[DEBUG] Registering /api/transcribe route');
 
+// ✅ ヘルスチェック用エンドポイント
+app.get('/api/health', (req, res) => {
+    res.status(200).json({ status: 'OK', message: 'API is running smoothly' });
+});
+
 // ✅ APIエンドポイント定義
 app.get('/api/hello', (req, res) => {
     res.json({ message: "Hello from backend!" });
