@@ -5,5 +5,4 @@ nixpkgs = ["nodejs_22", "npm-9_x"]
 cmds = ["npm install --prefix backend"]
 
 [phases.start]
-cmds = ["node backend/server.js"]
-
+cmds = ["node server.js"]  # ← backend/ を削除して修正！
