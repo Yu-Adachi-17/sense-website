@@ -6,17 +6,17 @@ WORKDIR /app
 
 # 3. バックエンドの `package.json` をコピー＆インストール
 COPY backend/package*.json ./backend/
-RUN cd backend && npm install
+WORKDIR /app/backend
+RUN npm install
 
-# 4. フロントエンドをビルド（`frontend/` に `package.json` がある場合）
+# 4. フロントエンドの全ファイルをコピー＆ビルド
 WORKDIR /app/frontend
-COPY frontend/package*.json ./frontend/
-RUN cd frontend && npm install && npm run build
+COPY frontend/ /app/frontend
+RUN npm install && npm run build
 
 # 5. `frontend/build` と `backend` を `/app/` にコピー
 WORKDIR /app
 COPY backend /app/backend
-COPY --from=frontend /app/frontend/build /app/frontend/build
 
 # 6. ポートを公開
 EXPOSE 3000
