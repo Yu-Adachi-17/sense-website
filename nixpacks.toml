@@ -1,8 +1,8 @@
 [phases.setup]
-cmds = ["echo 'Using Dockerfile'"]
+nixpkgs = ["nodejs_22", "npm-9_x"]
 
 [phases.build]
 cmds = ["docker build -t my-backend ."]
 
 [phases.start]
-cmds = ["docker run -p 3000:3000 my-backend"]
+cmds = ["node backend/server.js"]
