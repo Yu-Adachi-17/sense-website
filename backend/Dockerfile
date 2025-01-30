@@ -1,39 +1,39 @@
-# nodeイメージをベースに
-FROM node:18-alpine
+# ---------------------------------------
+# (1) フロントエンドをビルドするステージ
+# ---------------------------------------
+    FROM node:18-alpine AS frontend-build
 
-# 作業ディレクトリを /app に
-WORKDIR /app
-
-# -----------------------------------
-# 1. バックエンドをインストール
-# -----------------------------------
-# backend/package.json と package-lock.json をコピー
-COPY backend/package*.json /app/
-RUN npm install
-
-# サーバーコードをコピー
-COPY backend/ /app/
-
-# -----------------------------------
-# 2. フロントエンドをビルド
-# -----------------------------------
-# frontend/package.json と package-lock.json を先にコピーしてnpm install
-WORKDIR /app/frontend
-COPY frontend/package*.json ./
-RUN npm install
-
-# フロントエンドのソースコードをコピー
-COPY frontend/ ./
-
-# npm run build 実行
-RUN npm run build
-
-# -----------------------------------
-# 3. 最終的に server.js を起動
-# -----------------------------------
-# ポートを解放
-EXPOSE 3000
-
-# CMD 実行時に /app(=back) に戻して node server.js
-WORKDIR /app
-CMD ["node", "server.js"]
+    WORKDIR /app/frontend
+    COPY frontend/package*.json ./
+    RUN npm install
+    
+    COPY frontend/ .
+    RUN npm run build
+    
+    # **デバッグ: ビルド後のファイル構成を確認**
+    RUN ls -l /app/frontend/build || (echo "ERROR: frontend build folder missing!" && exit 1)
+    
+    
+    # ---------------------------------------
+    # (2) バックエンド用ステージ
+    # ---------------------------------------
+    FROM node:18-alpine
+    
+    WORKDIR /app/backend
+    
+    # バックエンドの依存をインストール
+    COPY backend/package*.json ./
+    RUN npm install
+    
+    # バックエンドのソースコードをコピー
+    COPY backend/ .
+    
+    # 先ほどのフロントエンドビルドステージの成果物を public/ にコピー
+    COPY --from=frontend-build /app/frontend/build ./public
+    
+    # ポートを公開
+    EXPOSE 3000
+    
+    # 最後にアプリを起動
+    CMD ["node", "server.js"]
+    
