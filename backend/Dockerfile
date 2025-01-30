@@ -1,15 +1,15 @@
 # 1. ベースイメージ
 FROM node:18-alpine
 
-# 2. 作業ディレクトリを `/app` に設定
+# 2. 作業ディレクトリを設定
 WORKDIR /app
 
 # 3. 必要なファイルをコピー
-COPY package*.json ./
+COPY backend/package*.json ./
 RUN npm install
 
-# 4. `backend` ディレクトリをコピーして中身を `/app` に展開
-COPY backend/server.js ./server.js
+# 4. `server.js` を正しい場所からコピー
+COPY backend/server.js /app/server.js
 
 # 5. ポートを公開
 EXPOSE 3000
