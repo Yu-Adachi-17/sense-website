@@ -1,21 +1,19 @@
-# 1. Node.jsの軽量イメージを使う
+# 1. ベースイメージ
 FROM node:18-alpine
 
-# 2. 作業ディレクトリを /app にする
+# 2. 作業ディレクトリを設定
 WORKDIR /app
 
-# 3. package.json をコピー（キャッシュを活用するため最初にコピー）
+# 3. パッケージをコピーしてインストール
 COPY package*.json ./
-
-# 4. 依存関係をインストール
 RUN npm install
 
-# 5. 残りのソースコードをコピー
+# 4. 残りのファイルをコピー
 COPY . .
 
-# 6. アプリのポートを公開
+# 5. ポートを公開
 EXPOSE 3000
 
-# 7. コンテナ起動時にサーバーを実行
+# 6. ビルド時に `RUN node backend/server.js` は実行しない！
+# 代わりに、コンテナが実行されるときに `server.js` を起動する
 CMD ["node", "server.js"]
-
