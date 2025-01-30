@@ -11,9 +11,9 @@ RUN npm install
 
 # 4. **フロントエンドの全ファイルを確実にコピー**
 WORKDIR /app/frontend
-COPY frontend /app/frontend
+COPY ./frontend /app/frontend
 
-# 5. **デバッグ: フロントエンドの中身を確認**
+# 5. **デバッグ: `frontend/` に正しくファイルがあるか確認**
 RUN ls -l /app/frontend || (echo "ERROR: frontend folder missing!" && exit 1)
 
 # 6. フロントエンドの依存関係をインストール
