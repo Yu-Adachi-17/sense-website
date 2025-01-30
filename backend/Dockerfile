@@ -4,14 +4,25 @@
     FROM node:18-alpine AS frontend-build
 
     WORKDIR /app/frontend
+    
+    # デバッグ: /app/ 内のディレクトリを確認
+    RUN ls -la /app/
+    
+    # フロントエンドの依存関係をインストール
     COPY frontend/package*.json ./
     RUN npm install
     
-    COPY frontend/ .
+    # フロントエンドのソースコードをコピー
+    COPY frontend /app/frontend
+    
+    # デバッグ: /app/frontend にファイルがコピーされているか確認
+    RUN ls -la /app/frontend
+    
+    # フロントエンドをビルド
     RUN npm run build
     
-    # **デバッグ: ビルド後のファイル構成を確認**
-    RUN ls -l /app/frontend/build || (echo "ERROR: frontend build folder missing!" && exit 1)
+    # デバッグ: ビルド後の `build/` フォルダが生成されているか確認
+    RUN ls -la /app/frontend/build || (echo "ERROR: frontend build folder missing!" && exit 1)
     
     
     # ---------------------------------------
@@ -26,10 +37,16 @@
     RUN npm install
     
     # バックエンドのソースコードをコピー
-    COPY backend/ .
+    COPY backend /app/backend
     
-    # 先ほどのフロントエンドビルドステージの成果物を public/ にコピー
-    COPY --from=frontend-build /app/frontend/build ./public
+    # デバッグ: バックエンドが正しくコピーされているか確認
+    RUN ls -la /app/backend
+    
+    # 先ほどのフロントエンドビルドステージの成果物を `backend/public/` にコピー
+    COPY --from=frontend-build /app/frontend/build /app/backend/public
+    
+    # デバッグ: フロントエンドの `build/` が `public/` にコピーされているか確認
+    RUN ls -la /app/backend/public || (echo "ERROR: frontend build not copied to backend/public!" && exit 1)
     
     # ポートを公開
     EXPOSE 3000
