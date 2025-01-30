@@ -4,32 +4,31 @@ FROM node:18-alpine
 # 2. 作業ディレクトリを設定
 WORKDIR /app
 
-# 3. バックエンドの `package.json` をコピー＆インストール
-COPY backend/package*.json /app/backend/
-WORKDIR /app/backend
-RUN npm install
+# 3. **フロントエンドの全ファイルを確実にコピー**
+COPY frontend /app/frontend
 
-# 4. **フロントエンドの全ファイルを確実にコピー**
-WORKDIR /app/frontend
-COPY frontend/ /app/frontend
-
-# 5. **デバッグ: `frontend/` に正しくファイルがあるか確認**
+# 4. **デバッグ: `frontend/` に正しくファイルがあるか確認**
 RUN ls -l /app/frontend || (echo "ERROR: frontend folder missing!" && exit 1)
 
-# 6. フロントエンドの依存関係をインストール
+# 5. フロントエンドの依存関係をインストール
+WORKDIR /app/frontend
 RUN npm install
 
-# 7. **デバッグ: `node_modules/` が作成されたか確認**
+# 6. **デバッグ: `node_modules/` が作成されたか確認**
 RUN ls -l /app/frontend/node_modules || (echo "ERROR: npm install failed!" && exit 1)
 
-# 8. フロントエンドをビルド
+# 7. フロントエンドをビルド
 RUN npm run build || (echo "ERROR: Frontend build failed!" && exit 1)
 
-# 9. **デバッグ: `frontend/build/` が作成されたか確認**
+# 8. **デバッグ: `frontend/build/` が作成されたか確認**
 RUN ls -l /app/frontend/build || (echo "ERROR: frontend/build folder missing!" && exit 1)
 
-# 10. `frontend/build` を `backend/public/` にコピー（バックエンドで提供）
+# 9. バックエンドの `package.json` をコピー＆インストール
 WORKDIR /app/backend
+COPY backend/package*.json /app/backend/
+RUN npm install
+
+# 10. `frontend/build` を `backend/public/` にコピー（バックエンドで提供）
 COPY --from=0 /app/frontend/build /app/backend/public
 
 # 11. ポートを公開
