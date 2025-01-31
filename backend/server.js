@@ -191,6 +191,7 @@ app.post('/create-checkout-session', async (req, res) => {
             success_url: 'https://sense-ai.world/success',
             cancel_url: 'https://sense-ai.world/cancel',
         });
+        console.log("Generated Checkout URL:", session.url);
 
         res.json({ url: session.url });
     } catch (error) {
