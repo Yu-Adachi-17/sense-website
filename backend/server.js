@@ -7,7 +7,6 @@ const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
 const cors = require('cors');
 const FormData = require('form-data');
-const Stripe = require('stripe'); // Stripeライブラリのインポート
 
 const app = express();
 
@@ -47,9 +46,6 @@ const upload = multer({
 // ✅ OpenAI APIエンドポイント
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
 const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
-
-// ✅ Stripeの初期化
-const stripe = Stripe(process.env.STRIPE_TEST_KEY); // Railwayにセットしたキーを使用
 
 // ✅ ChatGPTを使用して議事録を生成する関数
 const generateMinutes = async (transcription) => {
@@ -168,34 +164,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     }
 });
 
-// ✅ Stripe Checkout Session作成エンドポイントの追加
-app.post('/create-checkout-session', async (req, res) => {
-    try {
-        const priceId = process.env.STRIPE_PRICE_ID; // 環境変数からPrice IDを取得
-
-        // ここでユーザー情報を取得する場合は、必要に応じて処理を追加
-        // 例: const { userId } = req.body;
-
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            mode: 'subscription',
-            line_items: [
-                {
-                    price: priceId, // 環境変数から取得したPrice IDを使用
-                    quantity: 1,
-                },
-            ],
-            success_url: 'https://sense-ai.world/success',
-            cancel_url: 'https://sense-ai.world/cancel',
-        });
-
-        res.json({ url: session.url });
-    } catch (error) {
-        console.error('[ERROR] /create-checkout-session:', error);
-        res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました' });
-    }
-});
-
 // ✅ フロントエンドの静的ファイルを提供
 const staticPath = path.join(__dirname, 'frontend/build');
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
@@ -203,7 +171,7 @@ app.use(express.static(staticPath));
 
 // ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
 app.get('*', (req, res) => {
-    if (!req.url.startsWith('/api') && !req.url.startsWith('/create-checkout-session')) {
+    if (!req.url.startsWith('/api')) {
         res.sendFile(path.join(staticPath, 'index.html'));
     }
 });
