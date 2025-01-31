@@ -4,10 +4,18 @@ import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment'; // 成功画面とキャンセル画面の名前付きインポート
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+
 import './App.css'; // CSSファイルをインポート
 
+function DebugRouter() {
+  const location = useLocation();
+  console.log("[DEBUG] Current path:", location.pathname);
+  return null;
+}
+
 function App() {
+  console.log("[DEBUG] App component loaded");
   const [isRecording, setIsRecording] = useState(false);
   const [audioLevel, setAudioLevel] = useState(1);
   const [audioURL, setAudioURL] = useState(null);
@@ -197,11 +205,11 @@ function App() {
     }
   }, [showFullScreen]);
 
-
   return (
-    <Router>
+    <Router basename="/">
+        <DebugRouter />
       <Routes>
-        {/* 既存の機能 */}
+        {/* ホームページ */}
         <Route
           path="/"
           element={
@@ -236,13 +244,14 @@ function App() {
             </div>
           }
         />
-
+  
         {/* 決済後のページ */}
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
       </Routes>
     </Router>
   );
+  
 }
 
 export default App;

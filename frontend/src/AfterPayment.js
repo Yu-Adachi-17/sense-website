@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export function Success() {
+  useEffect(() => {
+    console.log("[DEBUG] Success component rendered");
+  }, []);
+
   return (
     <div
       style={{
@@ -19,6 +23,7 @@ export function Success() {
     </div>
   );
 }
+
 
 export function Cancel() {
   return (
