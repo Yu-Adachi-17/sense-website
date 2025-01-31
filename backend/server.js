@@ -206,23 +206,11 @@ console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
 // ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
-// ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
 app.get('*', (req, res) => {
-    const excludedPaths = ['/api', '/create-checkout-session'];
-    const isExcluded = excludedPaths.some(path => req.url.startsWith(path));
-    
-    if (!isExcluded) {
-        console.log(`[DEBUG] Serving index.html for ${req.url}`);
-        res.sendFile(path.join(staticPath, 'index.html'), (err) => {
-            if (err) {
-                res.status(500).send(err);
-            }
-        });
-    } else {
-        res.status(404).send('Not Found');
+    if (!req.url.startsWith('/api') && !req.url.startsWith('/create-checkout-session')) {
+        res.sendFile(path.join(staticPath, 'index.html'));
     }
-});
-
+}); 
 
 // ✅ サーバーの起動
 const PORT = process.env.PORT || 3000; 
