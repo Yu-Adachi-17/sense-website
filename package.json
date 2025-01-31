@@ -6,6 +6,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^5.6.0",
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -17,7 +18,8 @@
     "path": "^0.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "stripe": "^17.6.0"
   },
   "devDependencies": {
     "typescript": "^4.9.5"
