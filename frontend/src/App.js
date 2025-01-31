@@ -238,6 +238,7 @@ function App() {
         />
 
         {/* 決済後のページ */}
+        <Route path="/" element={<Home />} /> 
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
       </Routes>
