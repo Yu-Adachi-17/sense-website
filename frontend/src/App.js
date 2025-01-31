@@ -3,8 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
-import Success from './AfterPayment'; // 成功画面のインポート
-import Cancel from './AfterPayment'; // キャンセル画面のインポート
+import { Success, Cancel } from './AfterPayment'; // 成功画面とキャンセル画面の名前付きインポート
 import './App.css'; // CSSファイルをインポート
 
 function App() {
