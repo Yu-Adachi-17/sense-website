@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
+import Success from './AfterPayment'; // 成功画面のインポート
+import Cancel from './AfterPayment'; // キャンセル画面のインポート
 import './App.css'; // CSSファイルをインポート
 
 function App() {
@@ -195,49 +197,51 @@ function App() {
     }
   }, [showFullScreen]);
 
+
   return (
-    <div className="container">
-      {/* グラデーションの外周 */}
-      <div
-        className="outer-gradient"
-        style={{
-          transform: `scale(${audioLevel})`,
-        }}
-      >
-        {/* outerCircle を outerGradient の内側に配置 */}
-        <div className="outer-circle"></div>
-      </div>
-
-      {/* 波紋効果 */}
-      {isRecording && <div className="ripple"></div>}
-
-      {/* 内側の要素を中央に配置 */}
-      <div className="inner-container">
-        {/* 内側のサークル */}
-        <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-          {/* 中央のボタン */}
-          <button
-            className={`center-button ${isRecording ? 'recording' : ''}`}
-            onClick={toggleRecording}
-          ></button>
-        </div>
-      </div>
-
-      {/* 全画面オーバーレイ */}
-      {showFullScreen && (
-        <FullScreenOverlay
-          setShowFullScreen={setShowFullScreen}
-          isExpanded={isExpanded}
-          setIsExpanded={setIsExpanded}
-          transcription={transcription}
-          minutes={minutes}
-          audioURL={audioURL} // ダウンロード用のURLを渡す
+    <Router>
+      <Routes>
+        {/* 既存の機能 */}
+        <Route
+          path="/"
+          element={
+            <div className="container">
+              <div
+                className="outer-gradient"
+                style={{
+                  transform: `scale(${audioLevel})`,
+                }}
+              >
+                <div className="outer-circle"></div>
+              </div>
+              <div className="inner-container">
+                <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
+                  <button
+                    className={`center-button ${isRecording ? 'recording' : ''}`}
+                    onClick={toggleRecording}
+                  ></button>
+                </div>
+              </div>
+              {showFullScreen && (
+                <FullScreenOverlay
+                  setShowFullScreen={setShowFullScreen}
+                  isExpanded={isExpanded}
+                  setIsExpanded={setIsExpanded}
+                  transcription={transcription}
+                  minutes={minutes}
+                  audioURL={audioURL}
+                />
+              )}
+              {isProcessing && <ProgressIndicator progress={progress} />}
+            </div>
+          }
         />
-      )}
 
-      {/* 進捗インジケーター */}
-      {isProcessing && <ProgressIndicator progress={progress} />}
-    </div>
+        {/* 決済後のページ */}
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
+      </Routes>
+    </Router>
   );
 }
 
