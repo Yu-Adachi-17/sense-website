@@ -1,4 +1,7 @@
 require('dotenv').config();
+console.log("✅ STRIPE_TEST_KEY:", process.env.STRIPE_TEST_KEY ? "Loaded" : "Not found");
+console.log("✅ STRIPE_PRICE_ID:", process.env.STRIPE_PRICE_ID ? "Loaded" : "Not found");
+
 const express = require('express');
 const multer = require('multer');
 const axios = require('axios');
