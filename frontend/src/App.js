@@ -206,7 +206,7 @@ function App() {
   }, [showFullScreen]);
 
   return (
-    <Router>  {/* ✅ `BrowserRouter` を統一 */}
+    <Router basename="/">  {/* ✅ `BrowserRouter` を統一 */}
       <DebugRouter />
       <Routes>
         {/* ホームページ */}
