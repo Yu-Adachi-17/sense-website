@@ -6,7 +6,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend/build:/app/build  # ✅ `build` フォルダのみをマウント
+      - ./frontend/build:/app/frontend/build
     command: ["npx", "serve", "-s", "/app/build", "-l", "3000"]  # ✅ `serve -s` で React Router のルーティングをサポート
 
   backend:
