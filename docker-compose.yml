@@ -7,7 +7,7 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend/build:/app/build  # ✅ `build` フォルダのみをマウント
-    command: ["npx", "serve", "-s", "/app/build", "-l", "3000"]  # ✅ インデント修正
+    command: ["npx", "serve", "-s", "/app/build", "-l", "3000"]  # ✅ `serve -s` で React Router のルーティングをサポート
 
   backend:
     build:
@@ -16,7 +16,7 @@ services:
     ports:
       - "5001:5000"  # ✅ 5001 で外部公開し、内部は 5000
     environment:
-      - PORT=5000    # ✅ これを追加
+      - PORT=5000    # ✅ これを追加（Express のポート設定）
     volumes:
       - ./backend:/app/backend
       - /app/backend/node_modules
