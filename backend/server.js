@@ -200,25 +200,22 @@ app.post('/create-checkout-session', async (req, res) => {
     }
 });
 
-// ✅ フロントエンドの静的ファイルを提供
-const staticPath = path.join(__dirname, 'frontend/build');
+// ✅ フロントエンドのビルドファイルを提供する
+const staticPath = path.resolve(__dirname, "../frontend/build");  // ✅ `../frontend/build` に変更
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
-// ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
-app.use('/api', (req, res, next) => {
-    res.status(404).json({ error: 'API route not found' });
-});
-
 // ✅ すべての未定義ルートは React の `index.html` にリダイレクト
-app.get('*', (req, res) => {
-    console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
-    res.sendFile(path.join(staticPath, "index.html"));
+app.get("*", (req, res) => {
+    if (!req.url.startsWith('/api')) {
+        console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
+        res.sendFile(path.join(staticPath, "index.html"));
+    }
 });
 
 // ✅ サーバーの起動
-const PORT = process.env.PORT || 5000; 
-console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
+const PORT = process.env.PORT || 5000;
+console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
 app.listen(PORT, () => {
     console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
 });
