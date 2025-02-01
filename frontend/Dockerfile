@@ -12,4 +12,4 @@ FROM node:18-alpine
 WORKDIR /app
 COPY --from=build /app/build /app/build
 RUN npm install -g serve
-CMD ["npx", "serve", "-s", "/app/build", "-l", "3001"]  # ✅ `-s /app/build` に変更
+CMD ["npx", "serve", "-s", "/app/build", "-l", "3000"]  # ✅ `-s /app/build` に変更
