@@ -206,16 +206,15 @@ console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
 // ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
-app.get('/success', (req, res) => {
-    console.log("[DEBUG] Serving success page");
-    res.sendFile(path.join(staticPath, 'index.html'));
+app.use('/api', (req, res, next) => {
+    res.status(404).json({ error: 'API route not found' });
 });
 
+// ✅ すべての未定義ルートは React の `index.html` にリダイレクト
 app.get('*', (req, res) => {
-    if (!req.url.startsWith('/api') && !req.url.startsWith('/create-checkout-session')) {
-        res.sendFile(path.join(staticPath, 'index.html'));
-    }
-}); 
+    console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
+    res.sendFile(path.join(staticPath, "index.html"));
+});
 
 // ✅ サーバーの起動
 const PORT = process.env.PORT || 5000; 
