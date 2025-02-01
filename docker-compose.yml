@@ -4,10 +4,10 @@ services:
       context: ./frontend  # ✅ `frontend` を明示的に指定
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3001:3001"
     volumes:
       - ./frontend/build:/app/build  # ✅ `build` フォルダのみをマウント
-    command: ["npx", "serve", "-s", "/app/build", "-l", "3000"]  # ✅ `serve -s` で React Router のルーティングをサポート
+    command: ["npx", "serve", "-s", "/app/build", "-l", "3001"]  # ✅ `serve -s` で React Router のルーティングをサポート
 
   backend:
     build:
