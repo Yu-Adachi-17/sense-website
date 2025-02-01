@@ -201,20 +201,29 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // ✅ フロントエンドの静的ファイルを提供
-const staticPath = path.join(__dirname, 'frontend/build');
+const staticPath = path.join(__dirname, "../frontend/build");
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
-// ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
-app.use('/api', (req, res, next) => {
-    res.status(404).json({ error: 'API route not found' });
-});
-
-// ✅ すべての未定義ルートは React の `index.html` にリダイレクト
-app.get('*', (req, res) => {
-    console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
+// ✅ `/success` に GET / HEAD でアクセスが来たら React の `index.html` を返す
+app.get("/success", (req, res) => {
+    console.log("[DEBUG] GET request received for /success");
     res.sendFile(path.join(staticPath, "index.html"));
 });
+
+app.head("/success", (req, res) => {
+    console.log("[DEBUG] HEAD request received for /success");
+    res.sendFile(path.join(staticPath, "index.html"));
+});
+
+// ✅ すべての未定義ルートは `index.html` にリダイレクト（React Router 用）
+app.get("*", (req, res) => {
+    if (!req.url.startsWith('/api') && !req.url.startsWith('/create-checkout-session')) {
+        console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
+        res.sendFile(path.join(staticPath, "index.html"));
+    }
+});
+
 
 // ✅ サーバーの起動
 const PORT = process.env.PORT || 5000; 
