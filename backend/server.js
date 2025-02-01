@@ -203,22 +203,24 @@ app.post('/create-checkout-session', async (req, res) => {
 // ✅ フロントエンドの静的ファイルを提供
 const staticPath = path.join(__dirname, 'frontend/build');
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
-app.use(express.static(staticPath, { maxAge: '1d' }));
+app.use(express.static(staticPath));
 
-// ✅ APIエンドポイントの404ハンドリング
+// ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
 app.use('/api', (req, res, next) => {
     res.status(404).json({ error: 'API route not found' });
 });
 
-// ✅ すべての未定義ルートは React の `index.html` にリダイレクト
+// ✅ React のルート (`/success` など) を正しくハンドリング
+app.get(["/success", "/cancel"], (req, res) => {
+    res.sendFile(path.join(staticPath, "index.html"));
+});
+
+// ✅ その他の未定義ルートも `index.html` にリダイレクト
 app.get('*', (req, res) => {
     console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
-    if (req.accepts('html')) {
-        res.sendFile(path.resolve(staticPath, 'index.html'));
-    } else {
-        res.status(404).send('Not Found');
-    }
+    res.sendFile(path.join(staticPath, "index.html"));
 });
+
 
 // ✅ サーバーの起動
 const PORT = process.env.PORT || 5000; 

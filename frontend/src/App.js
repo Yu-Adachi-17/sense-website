@@ -4,7 +4,8 @@ import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment'; // 成功画面とキャンセル画面の名前付きインポート
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
+
 
 import './App.css'; // CSSファイルをインポート
 
