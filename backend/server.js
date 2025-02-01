@@ -171,10 +171,13 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     }
 });
 
-// ✅ Stripe Checkout Session作成エンドポイント
+// ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/create-checkout-session', async (req, res) => {
     try {
         const priceId = process.env.STRIPE_PRICE_ID; // 環境変数からPrice IDを取得
+
+        // ここでユーザー情報を取得する場合は、必要に応じて処理を追加
+        // 例: const { userId } = req.body;
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
@@ -185,15 +188,11 @@ app.post('/create-checkout-session', async (req, res) => {
                     quantity: 1,
                 },
             ],
-            success_url: process.env.NODE_ENV === 'production' 
-                ? 'https://sense-ai.world/success' 
-                : 'http://localhost:3000/success',
-            cancel_url: process.env.NODE_ENV === 'production' 
-                ? 'https://sense-ai.world/cancel' 
-                : 'http://localhost:3000/cancel',
+            success_url: 'https://sense-ai.world/success',
+            cancel_url: 'https://sense-ai.world/cancel',
         });
+        console.log("Generated Checkout URL:", session.url);
 
-        console.log("[DEBUG] Generated Checkout URL:", session.url);
         res.json({ url: session.url });
     } catch (error) {
         console.error('[ERROR] /create-checkout-session:', error);
@@ -202,17 +201,21 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // ✅ フロントエンドの静的ファイルを提供
-const staticPath = path.join(__dirname, "frontend/build");
+const staticPath = path.join(__dirname, 'frontend/build');
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
-// ✅ すべての未定義ルートは `index.html` にリダイレクト（React Router のため）
-app.get("*", (req, res) => {
-    if (!req.url.startsWith('/api') && !req.url.startsWith('/create-checkout-session')) {
-        console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
-        res.sendFile(path.join(staticPath, "index.html"));
-    }
+// ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
+app.get('/success', (req, res) => {
+    console.log("[DEBUG] Serving success page");
+    res.sendFile(path.join(staticPath, 'index.html'));
 });
+
+app.get('*', (req, res) => {
+    if (!req.url.startsWith('/api') && !req.url.startsWith('/create-checkout-session')) {
+        res.sendFile(path.join(staticPath, 'index.html'));
+    }
+}); 
 
 // ✅ サーバーの起動
 const PORT = process.env.PORT || 5000; 
