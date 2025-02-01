@@ -2,8 +2,11 @@
 
 import axios from 'axios';
 
-// 環境変数からバックエンドAPIのベースURLを取得
-const BACKEND_API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://www.sense-ai.world/api";
+// ✅ 本番環境かローカル開発環境かを自動判別して API ベース URL を設定
+const BACKEND_API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://www.sense-ai.world/api"  // ✅ 本番環境
+    : process.env.REACT_APP_BACKEND_URL || "http://localhost:5001"; // ✅ ローカル開発環境
 
 if (!BACKEND_API_BASE_URL) {
     console.error("[ERROR] BACKEND_API_BASE_URL が設定されていません");

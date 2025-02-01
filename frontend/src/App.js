@@ -4,7 +4,7 @@ import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment'; // 成功画面とキャンセル画面の名前付きインポート
-import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import './App.css'; // CSSファイルをインポート
 
@@ -206,8 +206,8 @@ function App() {
   }, [showFullScreen]);
 
   return (
-    <Router basename="/">
-        <DebugRouter />
+    <Router basename="/">  {/* ✅ `BrowserRouter` を統一 */}
+      <DebugRouter />
       <Routes>
         {/* ホームページ */}
         <Route
@@ -244,7 +244,7 @@ function App() {
             </div>
           }
         />
-  
+
         {/* 決済後のページ */}
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
