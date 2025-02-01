@@ -53,7 +53,7 @@ export const transcribeAudio = async (
         setShowFullScreen(true);
     } catch (error) {
         console.error('文字起こしおよび議事録生成中にエラーが発生しました:', error);
-        setMinutes('議事録の生成中にエラーが発生しました。');
+        setMinutes('apiが反応していません');
         setIsProcessing(false);
         setProgress(100);
         setShowFullScreen(true);
