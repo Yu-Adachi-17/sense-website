@@ -233,3 +233,5 @@ console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'
 app.listen(PORT, () => {
     console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
 });
+
+module.exports = app;
