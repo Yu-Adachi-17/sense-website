@@ -168,6 +168,11 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
         res.status(500).json({ error: 'サーバー内部エラー' });
     }
 });
+// ✅ デバッグ用に GET /api/transcribe を追加
+app.get('/api/transcribe', (req, res) => {
+    res.json({ message: "API is working!" });
+});
+
 
 // ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/create-checkout-session', async (req, res) => {
