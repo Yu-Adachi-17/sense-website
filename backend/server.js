@@ -206,9 +206,10 @@ console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
 // ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
-app.use('/api', (req, res, next) => {
-    res.status(404).json({ error: 'API route not found' });
+app.use('/api', (req, res) => {
+    res.json({ message: 'API is working!' });
 });
+
 
 // ✅ React のルート (`/success` など) を正しくハンドリング
 app.get(["/success", "/cancel"], (req, res) => {
