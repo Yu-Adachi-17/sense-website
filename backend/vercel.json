@@ -1,8 +1,9 @@
 {
-    "rewrites": [
+    "redirects": [
       {
         "source": "/api/:path*",
-        "destination": "https://sense-website-production.up.railway.app/api/:path*"
+        "destination": "https://sense-website-production.up.railway.app/api/:path*",
+        "permanent": false
       }
     ]
   }

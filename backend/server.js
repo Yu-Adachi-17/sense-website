@@ -16,27 +16,29 @@ const app = express();
 
 // ✅ CORS設定（環境変数で制御）
 const allowedOrigin = 'https://sense-ai.world';  // ここで明示的に指定
+// ✅ すべてのリクエストに CORS を適用（Vercel からのアクセス許可）
 app.use(cors({
-    origin: allowedOrigin,  // フロントエンドのURL
+    origin: '*',  // まずはワイルドカードで開放（本番では 'https://sense-ai.world' に変更）
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
-    credentials: true,
+    credentials: true
 }));
 
-// ✅ プリフライトリクエスト（OPTIONSメソッド）に明示的に対応
+// ✅ すべてのレスポンスに CORS ヘッダーを強制適用
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');  // 一旦ワイルドカードで開放
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
+
+// ✅ OPTIONS メソッド（プリフライトリクエスト）への対応
 app.options('*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', allowedOrigin);
+    res.header('Access-Control-Allow-Origin', '*');  // 一旦ワイルドカードで開放
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
     res.sendStatus(204);
-});
-
-// ✅ APIレスポンスにも CORS ヘッダーを追加
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', allowedOrigin);
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
-    next();
 });
 
 // ✅ Multerの設定（100MBまでのファイルを受け付ける）
