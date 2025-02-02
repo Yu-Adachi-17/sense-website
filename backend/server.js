@@ -14,11 +14,18 @@ const Stripe = require('stripe'); // Stripeライブラリのインポート
 
 const app = express();
 
-// ✅ CORS設定（環境変数で制御）
-const allowedOrigin = 'https://sense-ai.world';  // ここで明示的に指定
+// ✅ CORS設定（複数のオリジンを許可）
+const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
+
 // ✅ すべてのリクエストに CORS を適用（Vercel からのアクセス許可）
 app.use(cors({
-    origin: '*',  // まずはワイルドカードで開放（本番では 'https://sense-ai.world' に変更）
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
     credentials: true
@@ -26,7 +33,10 @@ app.use(cors({
 
 // ✅ すべてのレスポンスに CORS ヘッダーを強制適用
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');  // 一旦ワイルドカードで開放
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin);
+    }
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -35,7 +45,10 @@ app.use((req, res, next) => {
 
 // ✅ OPTIONS メソッド（プリフライトリクエスト）への対応
 app.options('*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');  // 一旦ワイルドカードで開放
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin);
+    }
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
     res.sendStatus(204);
