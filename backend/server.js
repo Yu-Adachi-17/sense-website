@@ -15,29 +15,27 @@ const Stripe = require('stripe'); // Stripeライブラリのインポート
 const app = express();
 
 // ✅ CORS設定（環境変数で制御）
-const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
+const allowedOrigin = 'https://sense-ai.world';  // ここで明示的に指定
 app.use(cors({
-    origin: allowedOrigin,
+    origin: allowedOrigin,  // フロントエンドのURL
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
     credentials: true,
 }));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// ✅ プリフライトリクエスト対応
+// ✅ プリフライトリクエスト（OPTIONSメソッド）に明示的に対応
 app.options('*', (req, res) => {
     res.header('Access-Control-Allow-Origin', allowedOrigin);
-    res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
     res.sendStatus(204);
 });
 
-// ✅ HTTPリクエストログ（デバッグ用）
+// ✅ APIレスポンスにも CORS ヘッダーを追加
 app.use((req, res, next) => {
-    console.log(`[DEBUG] Received request: ${req.method} ${req.url}`);
-    console.log('[DEBUG] Headers:', req.headers);
+    res.header('Access-Control-Allow-Origin', allowedOrigin);
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
     next();
 });
 
@@ -206,10 +204,9 @@ console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
 // ✅ 最後のフォールバックとしてReactを返す（APIリクエストでは適用しない）
-app.use('/api', (req, res) => {
-    res.json({ message: 'API is working!' });
+app.use('/api', (req, res, next) => {
+    res.status(404).json({ error: 'API route not found' });
 });
-
 
 // ✅ React のルート (`/success` など) を正しくハンドリング
 app.get(["/success", "/cancel"], (req, res) => {
