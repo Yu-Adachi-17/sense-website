@@ -1,8 +1,15 @@
 {
-    "rewrites": [
+    "version": 2,
+    "builds": [
       {
-        "source": "/api/:path*",
-        "destination": "https://sense-website-production.up.railway.app/api/:path*"
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/:path*",
+        "dest": "/server.js"
       }
     ]
   }
