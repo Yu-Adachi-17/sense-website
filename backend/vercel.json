@@ -1,27 +1,16 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "server.js",
-            "use": "@vercel/node"
-        }
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-        {
-            "src": "/api/(.*)",
-            "dest": "/server.js"
-        }
-    ],
-    "redirects": [
-        {
-            "source": "/(.*)",
-            "destination": "https://www.sense-ai.world/$1",
-            "permanent": true
-        },
-        {
-            "source": "/api/(.*)",
-            "destination": "https://api.sense-ai.world/$1",
-            "permanent": true
-        }
+      {
+        "src": "/api/(.*)",
+        "dest": "/server.js"
+      }
     ]
-}
+  }
+  
