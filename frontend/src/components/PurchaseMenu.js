@@ -76,8 +76,7 @@ export function PurchaseMenu() {
             boxSizing: 'border-box',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'center', // ✅ 中央揃え
+            alignItems: 'flex-start', // ✅ 左寄せに変更
             zIndex: 1200,
             transform: showSideMenu ? 'translateX(0)' : 'translateX(100%)',
             transition: 'transform 0.5s ease-out',
@@ -88,28 +87,29 @@ export function PurchaseMenu() {
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
             fontSize: '16px',
             fontWeight: 'bold',
-            opacity: loading ? 0.3 : 1, // ✅ SwiftUI の opacity を再現
+            opacity: loading ? 0.7 : 1,
+            marginTop: '40px', // ✅ ハンバーガーメニューより少し下に配置
+            marginLeft: '10px', // ✅ 左端から少し余裕を持たせる
         },
         ticketIcon: {
             color: 'yellow',
             fontSize: '20px',
             marginRight: '8px',
-            opacity: loading ? 0.3 : 1, // ✅ SwiftUI の opacity を再現
+            opacity: loading ? 0.7 : 1,
         },
         text: {
             color: 'yellow',
             fontSize: '16px',
             fontWeight: 'bold',
-            opacity: loading ? 0.3 : 1, // ✅ SwiftUI の opacity を再現
+            opacity: loading ? 0.7 : 1,
         },
         loadingIcon: {
             color: 'orange',
             fontSize: '7px',
             marginLeft: '8px',
-        }
+        },
     };
 
     const stopPropagation = (e) => {
@@ -127,7 +127,7 @@ export function PurchaseMenu() {
             {showSideMenu && (
                 <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
                     <div style={styles.sideMenu} onClick={stopPropagation}>
-                        {/* ✅ HStack 風にアイコンとテキストを並列に配置 */}
+                        {/* ✅ ボタンの位置を左寄せ、ハンバーガーメニューより少し下に配置 */}
                         <button onClick={handleBuyClick} style={styles.buyButton} disabled={loading}>
                             <FaTicketAlt style={styles.ticketIcon} />
                             <span style={styles.text}>アイテムを購入</span>
