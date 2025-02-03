@@ -42,30 +42,37 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
     res.header('Access-Control-Allow-Credentials', 'true');
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(204); // プリフライトリクエストにはステータス204を返す
+    }
     next();
 });
 
 // ✅ OPTIONS メソッド（プリフライトリクエスト）への対応
 app.options('*', (req, res) => {
+    console.log('[DEBUG] プリフライトリクエストを受信:', req.headers);
     const origin = req.headers.origin;
-    if (!origin || allowedOrigins.includes(origin)) {
-        res.header('Access-Control-Allow-Origin', origin || '*');
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin);
     }
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
     res.header('Access-Control-Allow-Credentials', 'true');
-    res.sendStatus(204); // プリフライトリクエストに対して204を返す
+    res.sendStatus(204); // プリフライトリクエストを処理
 });
+
 
 // ✅ デバッグ用ログを追加
 app.use((req, res, next) => {
-    console.log(`[DEBUG] リクエスト詳細:`);
-    console.log(`  - メソッド: ${req.method}`);
-    console.log(`  - オリジン: ${req.headers.origin}`);
-    console.log(`  - パス: ${req.path}`);
-    console.log(`  - ヘッダー:`, req.headers);
+    console.log(`[DEBUG] リクエスト詳細:
+  - メソッド: ${req.method}
+  - オリジン: ${req.headers.origin || '未設定'}
+  - パス: ${req.path}
+  - ヘッダー: ${JSON.stringify(req.headers, null, 2)}
+`);
     next();
 });
+
 
 
 // ✅ Multerの設定（100MBまでのファイルを受け付ける）
