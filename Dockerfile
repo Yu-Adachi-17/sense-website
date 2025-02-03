@@ -49,7 +49,7 @@
     RUN ls -la /app/backend/public || (echo "ERROR: frontend build not copied to backend/public!" && exit 1)
     
     # ポートを公開
-    EXPOSE 3000
+    EXPOSE 5001
     
     # 最後にアプリを起動
     CMD ["node", "server.js"]
