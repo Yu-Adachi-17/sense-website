@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
-import { Success, Cancel } from './AfterPayment'; // 成功画面とキャンセル画面の名前付きインポート
+import { Success, Cancel, ItemButton } from './AfterPayment'; // ✅ 追加：ItemButton をインポート
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import './App.css'; // CSSファイルをインポート
@@ -35,7 +35,6 @@ function App() {
   const streamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
-
 
   const toggleRecording = async () => {
     if (isRecording) {
@@ -72,7 +71,6 @@ function App() {
         setAudioURL(url);
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
-
 
         // バックエンドに音声ファイルを送信
         await transcribeAudio(
@@ -137,7 +135,7 @@ function App() {
   const updateAudioLevel = () => {
     if (analyserRef.current && dataArrayRef.current) {
       analyserRef.current.getByteTimeDomainData(dataArrayRef.current);
-  
+
       let sumSquares = 0;
       for (let i = 0; i < dataArrayRef.current.length; i++) {
         const normalized = dataArrayRef.current[i] / 128 - 1;
@@ -145,31 +143,31 @@ function App() {
       }
       const rms = Math.sqrt(sumSquares / dataArrayRef.current.length);
       const normalizedRms = Math.min(Math.max(rms * 40, 1), 2);
-  
+
       const alpha = 0.2;
       setAudioLevel((prev) => alpha * normalizedRms + (1 - alpha) * prev);
-  
+
       // 閾値を超えた場合に波紋を生成
       if (normalizedRms > 1.5) {
         const container = document.querySelector('.container');
         const existingRipples = container.getElementsByClassName('ripple');
-  
+
         // 波紋が存在しない場合のみ新しい波紋を作成
         if (existingRipples.length === 0) {
           const ripple = document.createElement('div');
           ripple.classList.add('ripple');
-  
+
           // .containerの中央に配置
           const containerRect = container.getBoundingClientRect();
           ripple.style.top = `${containerRect.height / 2}px`;
           ripple.style.left = `${containerRect.width / 2}px`;
-  
+
           container.appendChild(ripple);
-  
+
           // アニメーション終了後に要素を削除し、新しい波紋を作成
           ripple.addEventListener('animationend', () => {
             ripple.remove();
-  
+
             // 音声レベルがまだ閾値を超えている場合は新しい波紋を作成
             if (normalizedRms > 1.5) {
               const newRipple = document.createElement('div');
@@ -177,7 +175,7 @@ function App() {
               newRipple.style.top = `${containerRect.height / 2}px`;
               newRipple.style.left = `${containerRect.width / 2}px`;
               container.appendChild(newRipple);
-  
+
               newRipple.addEventListener('animationend', () => {
                 newRipple.remove();
               });
@@ -185,7 +183,7 @@ function App() {
           });
         }
       }
-  
+
       animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
     }
   };
@@ -206,14 +204,17 @@ function App() {
   }, [showFullScreen]);
 
   return (
-    <Router basename="/">  {/* ✅ `BrowserRouter` を統一 */}
+    <Router basename="/">
       <DebugRouter />
       <Routes>
         {/* ホームページ */}
         <Route
           path="/"
           element={
-            <div className="container">
+            <div className="container" style={{ backgroundColor: '#000' }}>
+              {/* ✅ 右上にボタンを追加 */}
+              <ItemButton />
+
               <div
                 className="outer-gradient"
                 style={{
@@ -251,7 +252,6 @@ function App() {
       </Routes>
     </Router>
   );
-  
 }
 
 export default App;
