@@ -5,8 +5,9 @@ import axios from 'axios';
 // ✅ 一時的に直接バックエンドURLを使用
 const BACKEND_API_BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://sense-ai-backend.railway.app/api" // ✅ Railwayバックエンドを直接指定
+    ? "https://sense-website-production.up.railway.app/api" // ✅ Railwayで公開されている正しいバックエンドURL
     : process.env.REACT_APP_BACKEND_URL || "http://localhost:5001"; // ✅ ローカル開発環境
+
 
 if (!BACKEND_API_BASE_URL) {
     console.error("[ERROR] BACKEND_API_BASE_URL が設定されていません");
