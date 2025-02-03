@@ -10,8 +10,10 @@ const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
 const cors = require('cors');
 const FormData = require('form-data');
-const Stripe = require('stripe')(process.env.STRIPE_TEST_KEY);
+const Stripe = require('stripe'); // Stripeライブラリのインポート
 const app = express();
+
+app.use(express.json()); // ✅ JSONリクエストをパース
 
 // ✅ 許可するオリジンを定義
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
@@ -225,32 +227,33 @@ app.post('/api/transcribe', (req, res) => {
 });
 
 // ✅ Stripe Checkout Session作成エンドポイントの追加
-app.post('/api/create-checkout-session', async (req, res) => { // ✅ `/api/` プレフィックスを統一
+app.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const priceId = process.env.STRIPE_PRICE_ID;
-        console.log("[DEBUG] Checkout session requested for price:", priceId);
+        const priceId = process.env.STRIPE_PRICE_ID; // 環境変数からPrice IDを取得
+
+        // ここでユーザー情報を取得する場合は、必要に応じて処理を追加
+        // 例: const { userId } = req.body;
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            mode: 'payment', // ✅ 単発決済に変更
+            mode: 'subscription',
             line_items: [
                 {
-                    price: priceId,
+                    price: priceId, // 環境変数から取得したPrice IDを使用
                     quantity: 1,
                 },
             ],
             success_url: 'https://sense-ai.world/success',
             cancel_url: 'https://sense-ai.world/cancel',
         });
+        console.log("Generated Checkout URL:", session.url);
 
-        console.log("[DEBUG] Generated Checkout URL:", session.url);
-        res.json({ url: session.url }); // ✅ 明示的に `{ url: session.url }` を返す
+        res.json({ url: session.url });
     } catch (error) {
-        console.error('[ERROR] /api/create-checkout-session:', error);
+        console.error('[ERROR] /create-checkout-session:', error);
         res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました' });
     }
 });
-
 
 // ✅ フロントエンドの静的ファイルを提供
 const staticPath = path.join(__dirname, 'frontend/build');
