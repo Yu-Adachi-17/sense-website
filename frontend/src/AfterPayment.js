@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-
 // ----------------------
 // 決済成功時の画面
 export function Success() {

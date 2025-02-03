@@ -1,5 +1,5 @@
-import { GiHamburgerMenu } from "react-icons/gi";
-
+import React, { useEffect, useState } from 'react'; // ✅ 1. React関連の標準ライブラリ
+import { GiHamburgerMenu } from "react-icons/gi";  // ✅ 2. 外部ライブラリ
 
 // ----------------------
 // 右上のハンバーガーメニューをクリックするとサイドメニューが表示され、
