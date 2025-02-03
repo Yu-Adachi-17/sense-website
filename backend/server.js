@@ -153,6 +153,7 @@ app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'OK', message: 'Health check passed!' });
 });
 
+
 // ✅ すべてのリクエストをログ出力
 app.use((req, res, next) => {
     console.log(`[DEBUG] リクエスト受信: ${req.method} ${req.path}`);
