@@ -88,6 +88,52 @@ export function Cancel() {
   );
 }
 
+export function ItemButton() {
+  const [loading, setLoading] = useState(false); // ✅ ローディング状態を管理
+
+  const handleClick = async () => {
+    setLoading(true); // ✅ ボタンを押したらローディング開始
+
+    try {
+      const response = await fetch('https://sense-website-production.up.railway.app/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({}),
+        credentials: 'include'
+      });
+
+      const data = await response.json();
+      console.log("[DEBUG] Stripe Response:", data);
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error('[ERROR] Checkout session URL not found', data);
+      }
+    } catch (error) {
+      console.error('[ERROR] Error during checkout:', error);
+    } finally {
+      setLoading(false); // ✅ 決済 URL に遷移したらローディング終了
+    }
+  };
+
+  return (
+    <button onClick={handleClick} style={{
+      position: 'fixed', top: '10px', right: '10px',
+      backgroundColor: '#fff', color: '#000', padding: '10px 20px',
+      fontSize: '16px', fontWeight: 'bold', border: 'none',
+      borderRadius: '5px', cursor: 'pointer',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '150px'
+    }} disabled={loading}>
+      {loading ? '処理中...' : 'アイテムを購入'}
+    </button>
+  );
+}
+
+
+
 // ----------------------
 // 右上のハンバーガーメニューをクリックするとサイドメニューが表示され、
 // サイドメニュー内に「アイテムを購入」ボタンが配置される実装例
