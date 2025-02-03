@@ -19,18 +19,12 @@ const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
 // ✅ すべてのリクエストに CORS を適用（Vercel からのアクセス許可）
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.error(`[CORS ERROR] オリジンが許可されていません: ${origin}`);
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: '*',
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
     credentials: true
 }));
+
 
 // ✅ すべてのレスポンスに CORS ヘッダーを強制適用
 app.use((req, res, next) => {
