@@ -1,10 +1,4 @@
 {
-    "redirects": [
-      {
-        "source": "/api/:path*",
-        "destination": "https://sense-ai-backend.railway.app/api/:path*",
-        "permanent": true
-      }
-    ]
+    "redirects": []
   }
   
