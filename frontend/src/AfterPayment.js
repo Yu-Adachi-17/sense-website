@@ -67,16 +67,22 @@ export function ItemButton() {
     try {
       const response = await fetch('https://sense-website-production.up.railway.app/api/create-checkout-session', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({}) // ✅ 空でもいいので body を入れる
       });
+
       const data = await response.json();
-      if (data.url) {
+      console.log("[DEBUG] Stripe Response:", data); // ✅ デバッグ用ログ
+
+      if (data && data.url) {
         window.location.href = data.url;
       } else {
-        console.error('Checkout session URL not found');
+        console.error('[ERROR] Checkout session URL not found', data);
       }
     } catch (error) {
-      console.error('Error during checkout:', error);
+      console.error('[ERROR] Error during checkout:', error);
     }
   };
 
