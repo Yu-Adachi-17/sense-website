@@ -1,7 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 
 
-
 // ----------------------
 // 右上のハンバーガーメニューをクリックするとサイドメニューが表示され、
 // サイドメニュー内に「アイテムを購入」ボタンが配置される実装例
@@ -144,3 +143,4 @@ export function PurchaseMenu() {
     );
   }
   
+  export default PurchaseMenu;
