@@ -15,7 +15,6 @@ const Stripe = require('stripe'); // Stripeライブラリのインポート
 const app = express();
 
 // ✅ 許可するオリジンを定義
-// ✅ 許可するオリジンを定義
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
 // ✅ すべてのリクエストに CORS を適用
@@ -60,9 +59,11 @@ app.options('*', (req, res) => {
 
 // ✅ デバッグ用ログを追加
 app.use((req, res, next) => {
-    console.log(`[DEBUG] リクエストオリジン: ${req.headers.origin}`);
-    console.log(`[DEBUG] リクエストメソッド: ${req.method}`);
-    console.log(`[DEBUG] リクエストヘッダー:`, req.headers);
+    console.log(`[DEBUG] リクエスト詳細:`);
+    console.log(`  - メソッド: ${req.method}`);
+    console.log(`  - オリジン: ${req.headers.origin}`);
+    console.log(`  - パス: ${req.path}`);
+    console.log(`  - ヘッダー:`, req.headers);
     next();
 });
 
