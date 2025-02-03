@@ -201,7 +201,12 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 app.get('/api/transcribe', (req, res) => {
     res.json({ message: "API is working!" });
 });
-
+app.get('/api/transcribe', (req, res) => {
+    res.status(200).json({ message: 'GET /api/transcribe is working!' });
+});
+app.post('/api/transcribe', (req, res) => {
+    res.status(200).json({ message: 'API is working!' });
+});
 
 // ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/create-checkout-session', async (req, res) => {
