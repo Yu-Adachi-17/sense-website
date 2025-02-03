@@ -15,6 +15,7 @@ const Stripe = require('stripe'); // Stripeライブラリのインポート
 const app = express();
 
 // ✅ 許可するオリジンを定義
+// ✅ 許可するオリジンを定義
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
 // ✅ すべてのリクエストに CORS を適用
