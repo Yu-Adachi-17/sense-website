@@ -147,10 +147,18 @@ const transcribeWithOpenAI = async (filePath) => {
 // ✅ `/api/transcribe` が登録されていることを明示的に確認
 console.log('[DEBUG] Registering /api/transcribe route');
 
-// ✅ ヘルスチェック用エンドポイント
+// ✅ デバッグ用ヘルスチェックAPI
 app.get('/api/health', (req, res) => {
-    res.status(200).json({ status: 'OK', message: 'API is running smoothly' });
+    console.log('[DEBUG] /api/health was accessed');
+    res.status(200).json({ status: 'OK', message: 'Health check passed!' });
 });
+
+// ✅ すべてのリクエストをログ出力
+app.use((req, res, next) => {
+    console.log(`[DEBUG] リクエスト受信: ${req.method} ${req.path}`);
+    next();
+});
+
 
 // ✅ APIエンドポイント定義
 app.get('/api/hello', (req, res) => {
