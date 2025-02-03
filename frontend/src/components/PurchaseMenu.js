@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaTicketAlt, FaCircle } from "react-icons/fa"; // ✅ チケットアイコンと処理中マーク
 
-// ----------------------
-// 右上のハンバーガーメニューをクリックするとサイドメニューが表示され、
-// サイドメニュー内に「アイテムを購入」ボタンが配置される実装例
 export function PurchaseMenu() {
     const [showSideMenu, setShowSideMenu] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [loading, setLoading] = useState(false);
 
-    // 画面幅の変更に応じたサイドメニューの幅設定
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -18,7 +15,6 @@ export function PurchaseMenu() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // アイテム購入ボタン押下時の処理
     const handleBuyClick = async () => {
         setLoading(true);
         try {
@@ -44,7 +40,6 @@ export function PurchaseMenu() {
         }
     };
 
-    // FullScreenOverlay のサイドメニューと同様のスタイル
     const styles = {
         hamburgerButton: {
             position: 'fixed',
@@ -63,7 +58,7 @@ export function PurchaseMenu() {
             left: 0,
             width: '100%',
             height: '100%',
-            background: 'rgba(0, 0, 0, 0.5)', // ✅ 背景の透明度を調整
+            background: 'rgba(0, 0, 0, 0.5)',
             zIndex: 1100,
             display: showSideMenu ? 'block' : 'none',
             transition: 'opacity 0.5s ease',
@@ -75,36 +70,48 @@ export function PurchaseMenu() {
             right: 0,
             width: isMobile ? '66.66%' : '33%',
             height: '100%',
-            background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(128, 128, 128, 0.2))', // ✅ SwiftUIのグラデーションを再現
+            background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(128, 128, 128, 0.2))',
             color: '#FFF',
             padding: '20px',
             boxSizing: 'border-box',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-start',
+            alignItems: 'center', // ✅ 中央揃え
             zIndex: 1200,
             transform: showSideMenu ? 'translateX(0)' : 'translateX(100%)',
             transition: 'transform 0.5s ease-out',
         },
-        // サイドメニュー内に配置する「アイテムを購入」ボタンのスタイル（既存と同様の配色）
         buyButton: {
-            backgroundColor: '#fff',
-            color: '#000',
-            padding: '10px 20px',
-            fontSize: '16px',
-            fontWeight: 'bold',
+            backgroundColor: 'transparent',
             border: 'none',
-            borderRadius: '5px',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            minWidth: '150px',
-            marginTop: '20px'
+            fontSize: '16px',
+            fontWeight: 'bold',
+            opacity: loading ? 0.3 : 1, // ✅ SwiftUI の opacity を再現
         },
+        ticketIcon: {
+            color: 'yellow',
+            fontSize: '20px',
+            marginRight: '8px',
+            opacity: loading ? 0.3 : 1, // ✅ SwiftUI の opacity を再現
+        },
+        text: {
+            color: 'yellow',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            opacity: loading ? 0.3 : 1, // ✅ SwiftUI の opacity を再現
+        },
+        loadingIcon: {
+            color: 'orange',
+            fontSize: '7px',
+            marginLeft: '8px',
+        }
     };
 
-    // サイドメニュー内のクリックイベントがオーバーレイ全体に伝播しないようにする
     const stopPropagation = (e) => {
         e.stopPropagation();
     };
@@ -120,10 +127,11 @@ export function PurchaseMenu() {
             {showSideMenu && (
                 <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
                     <div style={styles.sideMenu} onClick={stopPropagation}>
-                        {/* ✅ 閉じるボタン削除 */}
-                        {/* 既存の「アイテムを購入」ボタン（動作はそのまま） */}
+                        {/* ✅ HStack 風にアイコンとテキストを並列に配置 */}
                         <button onClick={handleBuyClick} style={styles.buyButton} disabled={loading}>
-                            {loading ? '処理中...' : 'アイテムを購入'}
+                            <FaTicketAlt style={styles.ticketIcon} />
+                            <span style={styles.text}>アイテムを購入</span>
+                            {loading && <FaCircle style={styles.loadingIcon} />} {/* ✅ 処理中アイコン */}
                         </button>
                     </div>
                 </div>
