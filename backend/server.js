@@ -23,6 +23,7 @@ app.use(cors({
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
+            console.error(`[CORS ERROR] オリジンが許可されていません: ${origin}`);
             callback(new Error('Not allowed by CORS'));
         }
     },
@@ -46,13 +47,23 @@ app.use((req, res, next) => {
 // ✅ OPTIONS メソッド（プリフライトリクエスト）への対応
 app.options('*', (req, res) => {
     const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.header('Access-Control-Allow-Origin', origin);
+    if (!origin || allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin || '*');
     }
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
+    res.header('Access-Control-Allow-Credentials', 'true');
     res.sendStatus(204);
 });
+
+// ✅ デバッグ用ログ
+app.use((req, res, next) => {
+    console.log(`[DEBUG] リクエストオリジン: ${req.headers.origin}`);
+    console.log(`[DEBUG] リクエストメソッド: ${req.method}`);
+    console.log(`[DEBUG] リクエストヘッダー:`, req.headers);
+    next();
+});
+
 
 // ✅ Multerの設定（100MBまでのファイルを受け付ける）
 const upload = multer({
