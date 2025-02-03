@@ -82,8 +82,8 @@ export function ItemButton() {
 
   return (
     <button onClick={handleClick} style={{
-      position: 'absolute', top: '10px', right: '10px',
-      backgroundColor: '#ffcc00', color: '#000', padding: '10px 20px',
+      position: 'fixed', top: '10px', right: '10px',
+      backgroundColor: '#fff', color: '#000', padding: '10px 20px',
       fontSize: '16px', fontWeight: 'bold', border: 'none',
       borderRadius: '5px', cursor: 'pointer'
     }}>
