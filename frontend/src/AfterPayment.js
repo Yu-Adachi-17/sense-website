@@ -62,8 +62,6 @@ export function Cancel() {
   );
 }
 
-import React, { useState } from 'react';
-
 export function ItemButton() {
   const [loading, setLoading] = useState(false); // ✅ ローディング状態
 
