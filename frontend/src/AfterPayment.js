@@ -14,7 +14,7 @@ export function Success() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontFamily: 'sans-serif',
+        fontFamily: 'Impact, sans-serif',
       }}
     >
       <h1 style={{ fontWeight: 300, letterSpacing: '0.05em' }}>
@@ -23,7 +23,6 @@ export function Success() {
     </div>
   );
 }
-
 
 export function Cancel() {
   return (
@@ -35,7 +34,7 @@ export function Cancel() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontFamily: 'sans-serif',
+        fontFamily: 'Impact, sans-serif',
       }}
     >
       <h1 style={{ fontWeight: 300, letterSpacing: '0.05em' }}>
