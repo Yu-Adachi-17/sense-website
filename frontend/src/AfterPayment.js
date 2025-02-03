@@ -70,13 +70,14 @@ export function ItemButton() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({}) // ✅ 空でもいいので body を入れる
+        body: JSON.stringify({}), // ✅ 空のオブジェクトを送信
+        credentials: 'include' // ✅ CORS対策
       });
 
       const data = await response.json();
-      console.log("[DEBUG] Stripe Response:", data); // ✅ デバッグ用ログ
+      console.log("[DEBUG] Stripe Response:", data); // ✅ レスポンス確認
 
-      if (data && data.url) {
+      if (data.url) {
         window.location.href = data.url;
       } else {
         console.error('[ERROR] Checkout session URL not found', data);
