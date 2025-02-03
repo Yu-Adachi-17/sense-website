@@ -3,6 +3,13 @@ import React, { useEffect } from 'react';
 export function Success() {
   useEffect(() => {
     console.log("[DEBUG] Success component rendered");
+
+    // 2秒後にリダイレクト
+    const timer = setTimeout(() => {
+      window.location.href = "https://sense-ai.world";
+    }, 2000);
+
+    return () => clearTimeout(timer); // クリーンアップ
   }, []);
 
   return (
@@ -23,6 +30,7 @@ export function Success() {
     </div>
   );
 }
+
 
 export function Cancel() {
   return (
