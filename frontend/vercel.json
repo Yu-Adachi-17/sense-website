@@ -1,0 +1,10 @@
+{
+    "redirects": [
+      {
+        "source": "/api/:path*",
+        "destination": "https://www.sense-ai.world/api/:path*",
+        "permanent": true
+      }
+    ]
+  }
+  
