@@ -62,20 +62,26 @@ export function Cancel() {
   );
 }
 
+import React, { useState } from 'react';
+
 export function ItemButton() {
+  const [loading, setLoading] = useState(false); // ✅ ローディング状態
+
   const handleClick = async () => {
+    setLoading(true); // ✅ ローディング開始
+
     try {
       const response = await fetch('https://sense-website-production.up.railway.app/api/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({}), // ✅ 空のオブジェクトを送信
-        credentials: 'include' // ✅ CORS対策
+        body: JSON.stringify({}),
+        credentials: 'include'
       });
 
       const data = await response.json();
-      console.log("[DEBUG] Stripe Response:", data); // ✅ レスポンス確認
+      console.log("[DEBUG] Stripe Response:", data);
 
       if (data.url) {
         window.location.href = data.url;
@@ -84,17 +90,23 @@ export function ItemButton() {
       }
     } catch (error) {
       console.error('[ERROR] Error during checkout:', error);
+    } finally {
+      setLoading(false); // ✅ ローディング終了
     }
   };
 
   return (
-    <button onClick={handleClick} style={{
-      position: 'fixed', top: '10px', right: '10px',
-      backgroundColor: '#fff', color: '#000', padding: '10px 20px',
-      fontSize: '16px', fontWeight: 'bold', border: 'none',
-      borderRadius: '5px', cursor: 'pointer'
-    }}>
-      アイテムを購入
+    <button 
+      onClick={handleClick} 
+      className="loading-button" 
+      disabled={loading} 
+    >
+      {loading ? (
+        <>
+          <div className="loading-spinner"></div> {/* ✅ スピナー表示 */}
+          <span style={{ marginLeft: '10px' }}>処理中...</span>
+        </>
+      ) : 'アイテムを購入'}
     </button>
   );
 }
