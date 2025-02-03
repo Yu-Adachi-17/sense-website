@@ -1,8 +1,8 @@
 {
     "redirects": [
       {
-        "source": "https://sense-ai.world/api/:path*",
-        "destination": "https://www.sense-ai.world/api/:path*",
+        "source": "/api/:path*",
+        "destination": "https://sense-ai-backend.railway.app/api/:path*",
         "permanent": true
       }
     ]
