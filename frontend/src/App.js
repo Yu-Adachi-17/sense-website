@@ -3,8 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
-import { Success, Cancel, ItemButton } from './AfterPayment'; // ✅ 追加：ItemButton をインポート
+import { Success, Cancel } from './AfterPayment';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import PurchaseMenu from './components/PurchaseMenu'; 
 
 import './App.css'; // CSSファイルをインポート
 
@@ -203,6 +204,7 @@ function App() {
     }
   }, [showFullScreen]);
 
+
   return (
     <Router basename="/">
       <DebugRouter />
@@ -212,8 +214,8 @@ function App() {
           path="/"
           element={
             <div className="container" style={{ backgroundColor: '#000' }}>
-              {/* ✅ 右上にボタンを追加 */}
-              <ItemButton />
+              {/* ✅ 右上にハンバーガーメニューを追加 */}
+              <PurchaseMenu />
 
               <div
                 className="outer-gradient"
