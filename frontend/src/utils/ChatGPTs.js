@@ -14,11 +14,7 @@ if (!BACKEND_API_BASE_URL) {
     console.log("[DEBUG] BACKEND_API_BASE_URL:", BACKEND_API_BASE_URL);
 }
 
-
-// 環境変数が正しく設定されているかを確認
-console.log('BACKEND_API_BASE_URL:', BACKEND_API_BASE_URL);
-
-// 音声文字起こしと議事録生成の処理
+// ✅ ここを `fetch` に置き換える
 export const transcribeAudio = async (
     file,
     setTranscription,
@@ -34,26 +30,30 @@ export const transcribeAudio = async (
         const formData = new FormData();
         formData.append('file', file);
 
-        // バックエンドの /transcribe エンドポイントにPOSTリクエスト
-        const response = await axios.post(`${BACKEND_API_BASE_URL}/transcribe`, formData, {
+        // ✅ `fetch` を使ってAPIリクエストを送る
+        const response = await fetch(`${BACKEND_API_BASE_URL}/transcribe`, {
+            method: 'POST',
             headers: {
-                'Content-Type': 'multipart/form-data',
+                // `multipart/form-data` は `fetch` の場合、ブラウザが自動的にセットするので削除
             },
-            onUploadProgress: (progressEvent) => {
-                const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                setProgress(percentCompleted);
-            },
+            body: formData,
+            mode: 'cors', // CORS対策
+            credentials: 'include' // 必要に応じて認証情報を送信
         });
 
-        const { transcription, minutes } = response.data;
-        setTranscription(transcription);
-        setMinutes(minutes);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setTranscription(data.transcription);
+        setMinutes(data.minutes);
         setProgress(100);
         setIsProcessing(false);
         setShowFullScreen(true);
     } catch (error) {
         console.error('文字起こしおよび議事録生成中にエラーが発生しました:', error);
-        setMinutes('apiが反応していません');
+        setMinutes('APIが反応していません');
         setIsProcessing(false);
         setProgress(100);
         setShowFullScreen(true);
