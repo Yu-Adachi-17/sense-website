@@ -147,7 +147,6 @@ const MinutesList = () => {
   />
 </div>
 
-
 {/* 議事録の一覧表示 */}
 {sortedDateKeys.length === 0 ? (
   <p style={{ color: 'gray', textAlign: 'center' }}>議事録がありません</p>
@@ -158,8 +157,8 @@ const MinutesList = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',  // ❗ 120px→200px に変更
-          maxWidth: 'calc(4 * 250px)',  // ❗ 最大4列に制限しつつ適切なサイズに調整
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, min(23vw, 1fr)))', // ❗ 最大を「画面幅の23%」に設定
+          maxWidth: '92vw', // ❗ 4列までに制限（23vw * 4 = 92vw）
           gap: 15,
           marginTop: 10,
           margin: '0 auto'  // ❗ 中央揃え
