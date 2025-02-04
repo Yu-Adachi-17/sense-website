@@ -1,4 +1,3 @@
-// src/firebaseAuth.js
 import {
     getAuth,
     signInWithEmailAndPassword,
@@ -40,7 +39,7 @@ import {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       console.log("Googleサインイン成功:", result.user);
-      return result.user;
+      return result.user; // ユーザー情報を返す
     } catch (error) {
       console.error("Googleサインインエラー:", error);
       throw error;
@@ -52,7 +51,7 @@ import {
     try {
       const result = await signInWithPopup(auth, appleProvider);
       console.log("Appleサインイン成功:", result.user);
-      return result.user;
+      return result.user; // ユーザー情報を返す
     } catch (error) {
       console.error("Appleサインインエラー:", error);
       throw error;
