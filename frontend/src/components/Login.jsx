@@ -1,4 +1,3 @@
-// src/components/Login.jsx
 import React, { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -29,16 +28,83 @@ const Login = () => {
   };
 
   return (
-    <div style={{ backgroundColor: "#000", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", color: "white" }}>
-      <h1 style={{ fontSize: "50px", fontWeight: "700", background: "linear-gradient(to right, cyan, blue, indigo, purple, red)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+    <div
+      style={{
+        width: "100vw",
+        minHeight: "100vh",
+        backgroundColor: "#000",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        color: "white",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "50px",
+          fontWeight: "700",
+          background: "linear-gradient(to right, cyan, blue, indigo, purple, red)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}
+      >
         Log in
       </h1>
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "300px", height: "40px", paddingLeft: "10px", borderRadius: "15px", border: "1px solid gray", marginBottom: "20px" }} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: "300px", height: "40px", paddingLeft: "10px", borderRadius: "15px", border: "1px solid gray", marginBottom: "20px" }} />
-      <button onClick={handleLogin} style={{ padding: "10px 20px", borderRadius: "20px", border: "2px solid", borderImage: "linear-gradient(to right, cyan, blue, indigo, purple, red) 1", background: "transparent", color: "white", cursor: isLoading ? "not-allowed" : "pointer", opacity: isLoading ? 0.5 : 1, marginBottom: "20px" }} disabled={isLoading}>
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{
+          width: "300px",
+          height: "40px",
+          paddingLeft: "10px",
+          borderRadius: "15px",
+          border: "1px solid gray",
+          marginBottom: "20px",
+        }}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        style={{
+          width: "300px",
+          height: "40px",
+          paddingLeft: "10px",
+          borderRadius: "15px",
+          border: "1px solid gray",
+          marginBottom: "20px",
+        }}
+      />
+      <button
+        onClick={handleLogin}
+        style={{
+          padding: "10px 20px",
+          borderRadius: "20px",
+          border: "2px solid",
+          borderImage: "linear-gradient(to right, cyan, blue, indigo, purple, red) 1",
+          background: "transparent",
+          color: "white",
+          cursor: isLoading ? "not-allowed" : "pointer",
+          opacity: isLoading ? 0.5 : 1,
+          marginBottom: "20px",
+        }}
+        disabled={isLoading}
+      >
         Login
       </button>
-      <button onClick={() => navigate("/signup")} style={{ color: "red", background: "none", border: "none", cursor: "pointer" }}>
+      <button
+        onClick={() => navigate("/signup")}
+        style={{
+          color: "red",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
         まだアカウントをお持ちでないですか？こちらをクリック
       </button>
       {showAlert && <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>}
