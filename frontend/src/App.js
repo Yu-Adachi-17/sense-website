@@ -6,6 +6,7 @@ import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import PurchaseMenu from './components/PurchaseMenu'; 
+import Login from "./components/Login";
 
 import './App.css'; // CSSファイルをインポート
 
@@ -214,15 +215,8 @@ function App() {
           path="/"
           element={
             <div className="container" style={{ backgroundColor: '#000' }}>
-              {/* ✅ 右上にハンバーガーメニューを追加 */}
               <PurchaseMenu />
-
-              <div
-                className="outer-gradient"
-                style={{
-                  transform: `scale(${audioLevel})`,
-                }}
-              >
+              <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
                 <div className="outer-circle"></div>
               </div>
               <div className="inner-container">
@@ -247,13 +241,17 @@ function App() {
             </div>
           }
         />
-
+  
+        {/* ✅ ログインページ */}
+        <Route path="/login" element={<Login />} />
+  
         {/* 決済後のページ */}
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
       </Routes>
     </Router>
   );
+  
 }
 
 export default App;
