@@ -45,7 +45,7 @@ const MinutesList = () => {
         // Firestore クエリを作成
         const q = query(
           collection(db, 'meetingRecords'),
-          where('uid', '==', user.uid),
+        //   where('uid', '==', user.uid),
           orderBy('createdAt', 'desc')
         );
 
