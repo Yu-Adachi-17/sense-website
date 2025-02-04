@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth"; // 追加
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMXPYc83E8AASYYb6D94Bu_XskVduXSUU",
@@ -16,6 +17,7 @@ const firebaseConfig = {
 // Firebase 初期化
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const db = getFirestore(app); // Firestoreを追加
+const db = getFirestore(app);
+const auth = getAuth(app); // 追加
 
-export { app, analytics, db };
+export { app, analytics, db, auth }; // auth をエクスポート
