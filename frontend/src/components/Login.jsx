@@ -45,7 +45,7 @@ const Login = () => {
         style={{
           fontSize: "40px",
           fontWeight: "700",
-          background: "linear-gradient(to right, cyan, blue, indigo, purple, red)",
+          background: "linear-gradient(to right, white)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           margin: 0,

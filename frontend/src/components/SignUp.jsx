@@ -38,7 +38,7 @@ const SignUp = () => {
 
   return (
     <div style={{ backgroundColor: "#000", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", color: "white" }}>
-      <h1 style={{ fontSize: "40px", fontWeight: "700", background: "linear-gradient(to right, cyan, blue, indigo, purple, red)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+      <h1 style={{ fontSize: "40px", fontWeight: "700", background: "linear-gradient(to right, white)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
         Create Account
       </h1>
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "300px", height: "40px", paddingLeft: "10px", borderRadius: "25px", border: "1px solid gray", marginBottom: "20px" }} />
