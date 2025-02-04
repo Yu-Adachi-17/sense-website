@@ -82,20 +82,22 @@ const Login = () => {
       />
       {/* 下部のLoginボタン：背景白、文字黒、角丸なし（四角） */}
       <button
-        onClick={handleLogin}
-        disabled={isLoading}
-        style={{
-          padding: "10px 20px",
-          background: "white",
-          color: "black",
-          border: "none",
-          cursor: isLoading ? "not-allowed" : "pointer",
-          opacity: isLoading ? 0.5 : 1,
-          marginBottom: "20px",
-        }}
-      >
-        Login
-      </button>
+  onClick={handleLogin}
+  disabled={isLoading}
+  style={{
+    padding: "10px 20px",
+    background: "white",
+    color: "black",
+    border: "none",
+    cursor: isLoading ? "not-allowed" : "pointer",
+    opacity: isLoading ? 0.5 : 1,
+    marginBottom: "20px",
+    fontWeight: "bold",  // ここを追加
+  }}
+>
+  Login
+</button>
+
       <button
         onClick={() => navigate("/signup")}
         style={{
