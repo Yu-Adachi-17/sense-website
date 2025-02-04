@@ -1,3 +1,4 @@
+// src/firebaseAuth.js
 import {
     getAuth,
     signInWithEmailAndPassword,
@@ -6,7 +7,7 @@ import {
     GoogleAuthProvider,
     OAuthProvider,
   } from "firebase/auth";
-  import { app } from "./firebaseConfig";
+  import { app } from "./firebaseConfig";  // 修正済み
   
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
