@@ -127,7 +127,7 @@ const MinutesList = () => {
       </div>
 
 {/* 検索フィールド */}
-<div style={{ marginBottom: 20 }}>
+<div style={{ marginBottom: 20, display: 'flex', justifyContent: 'center' }}>
   <input
     type="text"
     placeholder="Search..."
@@ -139,9 +139,10 @@ const MinutesList = () => {
       borderRadius: 8,
       border: 'none',
       fontSize: 16,
-      backgroundColor: 'gray',  // 背景色を gray に設定
-      color: 'white',           // 入力文字色を white に設定
-      outline: 'none'           // フォーカス時の青枠を削除（任意）
+      backgroundColor: '#1e1e1e',  // 各議事録アイテムと同じ黒に近いグレー
+      color: 'white',              // 入力文字色を白
+      outline: 'none',             // フォーカス時の青枠を削除（任意）
+      textAlign: 'left'            // 入力文字は左揃え（中央揃えしたい場合は 'center'）
     }}
   />
 </div>
