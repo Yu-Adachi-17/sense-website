@@ -214,38 +214,52 @@ function App() {
   }, [showFullScreen]);
 
   // 議事録が作成されFullScreenOverlayが表示されたタイミングでFirebaseに保存
-  useEffect(() => {
-    const saveMeetingRecord = async () => {
-      try {
-        // ログイン中の場合のみ保存を実施
-        if (auth.currentUser) {
-          const paperID = uuidv4();
-          const creationDate = new Date();
-          const recordData = {
-            paperID,
-            transcription,
-            minutes,
-            createdAt: creationDate,
-            // 必要に応じて、ユーザーIDなども保存可能
-            uid: auth.currentUser.uid,
-          };
+// App.js の useEffect にデバッグ用の console.log を追加
+useEffect(() => {
+  const saveMeetingRecord = async () => {
+    try {
+      console.log("🟡 [DEBUG] saveMeetingRecord が呼ばれました");
 
-          await addDoc(collection(db, 'meetingRecords'), recordData);
-          console.log("議事録データをFirebaseに保存しました。");
-        } else {
-          console.log("ログインしていないため、Firebaseには保存しません。");
-        }
-      } catch (err) {
-        console.error("議事録データの保存に失敗しました: ", err);
+      if (!auth.currentUser) {
+        console.log("🔴 [ERROR] ユーザーがログインしていません");
+        return;
       }
-    };
 
-    // showFullScreenがtrueかつ、transcriptionとminutesに値がある場合に保存
-    if (showFullScreen && transcription && minutes && !hasSavedRecord) {
-      saveMeetingRecord();
-      setHasSavedRecord(true);
+      console.log("🟢 [DEBUG] ユーザーはログインしています:", auth.currentUser.uid);
+      console.log("🟢 [DEBUG] transcription:", transcription);
+      console.log("🟢 [DEBUG] minutes:", minutes);
+
+      if (!transcription || !minutes) {
+        console.log("🔴 [ERROR] transcription または minutes が空のため保存しません");
+        return;
+      }
+
+      const paperID = uuidv4();
+      const creationDate = new Date();
+      const recordData = {
+        paperID,
+        transcription,
+        minutes,
+        createdAt: creationDate,
+        uid: auth.currentUser.uid,
+      };
+
+      console.log("🟢 [DEBUG] Firestore に保存するデータ:", recordData);
+
+      await addDoc(collection(db, 'meetingRecords'), recordData);
+      console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました");
+    } catch (err) {
+      console.error("🔴 [ERROR] Firebase Firestore の保存中にエラー発生:", err);
     }
-  }, [showFullScreen, transcription, minutes, hasSavedRecord]);
+  };
+
+  if (showFullScreen && transcription && minutes && !hasSavedRecord) {
+    console.log("🟢 [DEBUG] showFullScreen が true になったので saveMeetingRecord を実行");
+    saveMeetingRecord();
+    setHasSavedRecord(true);
+  }
+}, [showFullScreen, transcription, minutes, hasSavedRecord]);
+
 
   return (
     <Router basename="/">
