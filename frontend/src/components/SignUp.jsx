@@ -35,13 +35,6 @@ const SignUp = () => {
     setShowAlert(true);
   };
 
-  // グラデーションテキスト用のスタイル
-  const gradientTextStyle = {
-    background: "linear-gradient(to right, cyan, blue, indigo, purple, red)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-  };
-
   return (
     <div
       style={{
@@ -54,7 +47,7 @@ const SignUp = () => {
         color: "white",
       }}
     >
-      {/* トップ見出しは白に変更 */}
+      {/* トップ見出し：白文字 */}
       <h1
         style={{
           fontSize: "40px",
@@ -93,38 +86,36 @@ const SignUp = () => {
           marginBottom: "20px",
         }}
       />
-      {/* 「Email verification」ボタンにグラデーションテキストと角丸BOXを適用 */}
+      {/* Email verification ボタン：背景白、文字黒、角丸なし（四角） */}
       <button
         onClick={handleSignUp}
         disabled={isLoading}
         style={{
           padding: "10px 20px",
-          borderRadius: "25px",
-          border: "2px solid",
-          borderImage: "linear-gradient(to right, cyan, blue, indigo, purple, red) 1",
-          background: "transparent",
+          background: "white",
+          color: "black",
+          border: "none",
           cursor: isLoading ? "not-allowed" : "pointer",
           opacity: isLoading ? 0.5 : 1,
           marginBottom: "20px",
         }}
       >
-        <span style={gradientTextStyle}>Email verification</span>
+        Email verification
       </button>
       {showRegisterButton && (
-        // 「Register」ボタンにも同様の処理
+        /* Registerボタンも同様のスタイル */
         <button
           onClick={handleRegister}
           style={{
             padding: "10px 20px",
-            borderRadius: "25px",
-            border: "2px solid",
-            borderImage: "linear-gradient(to right, cyan, blue, indigo, purple, red) 1",
-            background: "transparent",
+            background: "white",
+            color: "black",
+            border: "none",
             cursor: "pointer",
             marginBottom: "20px",
           }}
         >
-          <span style={gradientTextStyle}>Register</span>
+          Register
         </button>
       )}
       <button
