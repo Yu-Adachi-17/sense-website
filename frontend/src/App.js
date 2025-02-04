@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useRef, useEffect } from 'react';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
@@ -206,7 +205,6 @@ function App() {
     }
   }, [showFullScreen]);
 
-
   return (
     <Router basename="/">
       <DebugRouter />
@@ -216,7 +214,9 @@ function App() {
           path="/"
           element={
             <div className="container" style={{ backgroundColor: '#000' }}>
-              <PurchaseMenu />
+              {/* 議事録生成後はFullScreenOverlay内のハンバーガーを利用するため、PurchaseMenuは表示 */}
+              {/* FullScreenOverlayが表示される場合はPurchaseMenuを非表示にする */}
+              {!showFullScreen && <PurchaseMenu />}
               <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
                 <div className="outer-circle"></div>
               </div>
@@ -258,7 +258,6 @@ function App() {
       </Routes>
     </Router>
   );
-  
 }
 
 export default App;
