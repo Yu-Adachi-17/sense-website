@@ -5,14 +5,10 @@ import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestor
 import { useNavigate } from 'react-router-dom';
 import { RxArrowLeft } from 'react-icons/rx';
 
-// ユーザーの議事録データ1件の表示コンポーネント
 const PaperItem = ({ paper }) => {
-  // createdAt は Firestore の Timestamp 型の場合、toDate() で Date 型に変換可能
-  const createdDate = paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
-  // 日付のフォーマット（例：2025-02-04）
+  const createdDate =
+    paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
   const dateString = createdDate.toLocaleDateString();
-
-  // 議事録の本文（assistantResponseContent）を最大15文字で表示（長い場合は末尾に "…" を付与）
   const truncatedText =
     paper.minutes.length <= 15 ? paper.minutes : paper.minutes.slice(0, 15) + '…';
 
@@ -38,41 +34,53 @@ const MinutesList = () => {
   const [searchText, setSearchText] = useState('');
   const navigate = useNavigate();
 
-  // Firestore から現在ログイン中のユーザーの議事録（meetingRecords コレクション）を取得
   useEffect(() => {
-    if (!auth.currentUser) {
-      console.error('ユーザーがログインしていません');
-      return;
-    }
+    // onAuthStateChanged を利用して、ユーザーの認証状態を監視
+    const unsubscribeAuth = auth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log("🟢 [DEBUG] ユーザーがログインしています:", user.uid);
 
-    const q = query(
-      collection(db, 'meetingRecords'),
-      where('uid', '==', auth.currentUser.uid),
-      orderBy('createdAt', 'desc')
-    );
+        // Firestore のクエリを作成
+        const q = query(
+          collection(db, 'meetingRecords'),
+          where('uid', '==', user.uid),
+          orderBy('createdAt', 'desc')
+        );
 
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const fetchedPapers = [];
-      querySnapshot.forEach((doc) => {
-        // Firestore に保存したフィールドはそのまま利用
-        fetchedPapers.push({ id: doc.id, ...doc.data() });
-      });
-      setPapers(fetchedPapers);
-    }, (error) => {
-      console.error("Firestore からの取得に失敗:", error);
+        const unsubscribeSnapshot = onSnapshot(
+          q,
+          (querySnapshot) => {
+            console.log("🟢 [DEBUG] Snapshot 取得, 件数:", querySnapshot.size);
+            const fetchedPapers = [];
+            querySnapshot.forEach((doc) => {
+              console.log("🟢 [DEBUG] ドキュメント取得:", doc.id, doc.data());
+              fetchedPapers.push({ id: doc.id, ...doc.data() });
+            });
+            setPapers(fetchedPapers);
+          },
+          (error) => {
+            console.error("🔴 [ERROR] Firestore からの取得に失敗:", error);
+          }
+        );
+
+        // ユーザーがログインしている場合は、Firestore のリスナーの unsubscribe を返す
+        return () => unsubscribeSnapshot();
+      } else {
+        console.log("🔴 [DEBUG] ユーザーがログインしていません");
+      }
     });
 
-    return () => unsubscribe();
+    // onAuthStateChanged のリスナーもクリーンアップ
+    return () => unsubscribeAuth();
   }, []);
 
-  // 検索テキストに応じてフィルタリング
+  // 検索フィールドでフィルタリング
   const filteredPapers = papers.filter((paper) =>
     paper.minutes.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // 日付ごとにグループ化
+  // 日付でグループ化（シンプルな例）
   const groupedPapers = filteredPapers.reduce((groups, paper) => {
-    // createdAt が Firestore の Timestamp 型の場合は toDate() する
     const date = paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
     const key = date.toLocaleDateString();
     if (!groups[key]) groups[key] = [];
@@ -80,8 +88,9 @@ const MinutesList = () => {
     return groups;
   }, {});
 
-  // 日付キーを降順にソート（最新の日付順）
-  const sortedDateKeys = Object.keys(groupedPapers).sort((a, b) => new Date(b) - new Date(a));
+  const sortedDateKeys = Object.keys(groupedPapers).sort(
+    (a, b) => new Date(b) - new Date(a)
+  );
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
@@ -120,7 +129,7 @@ const MinutesList = () => {
         />
       </div>
 
-      {/* グループごとに議事録カードを表示 */}
+      {/* グループごとの表示 */}
       {sortedDateKeys.map((dateKey) => (
         <div key={dateKey} style={{ marginBottom: 30 }}>
           <h3 style={{ borderBottom: '1px solid #555', paddingBottom: 5 }}>{dateKey}</h3>
@@ -134,7 +143,6 @@ const MinutesList = () => {
           >
             {groupedPapers[dateKey]
               .sort((a, b) => {
-                // 並び順は createdAt の降順
                 const dateA = a.createdAt?.toDate ? a.createdAt.toDate() : new Date();
                 const dateB = b.createdAt?.toDate ? b.createdAt.toDate() : new Date();
                 return dateB - dateA;
