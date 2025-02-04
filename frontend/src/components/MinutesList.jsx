@@ -35,27 +35,37 @@ const MinutesList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // onAuthStateChanged を利用して、ユーザーの認証状態を監視
+    console.log("🟡 [DEBUG] MinutesList がマウントされました");
+
+    // Firebase 認証状態を監視
     const unsubscribeAuth = auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log("🟢 [DEBUG] ユーザーがログインしています:", user.uid);
+        console.log("🟢 [DEBUG] ログインユーザー:", user.uid);
 
-        // Firestore のクエリを作成
+        // Firestore クエリを作成
         const q = query(
           collection(db, 'meetingRecords'),
           where('uid', '==', user.uid),
           orderBy('createdAt', 'desc')
         );
 
+        console.log("🟡 [DEBUG] Firestore クエリを実行します");
+
+        // Firestore のリアルタイムリスナーを設定
         const unsubscribeSnapshot = onSnapshot(
           q,
           (querySnapshot) => {
-            console.log("🟢 [DEBUG] Snapshot 取得, 件数:", querySnapshot.size);
+            console.log(`🟢 [DEBUG] Firestore から ${querySnapshot.size} 件のデータを取得`);
             const fetchedPapers = [];
             querySnapshot.forEach((doc) => {
-              console.log("🟢 [DEBUG] ドキュメント取得:", doc.id, doc.data());
+              console.log("🟢 [DEBUG] 取得したドキュメント:", doc.id, doc.data());
               fetchedPapers.push({ id: doc.id, ...doc.data() });
             });
+
+            if (fetchedPapers.length === 0) {
+              console.warn("⚠️ [WARNING] Firestore にはデータがありません");
+            }
+
             setPapers(fetchedPapers);
           },
           (error) => {
@@ -63,23 +73,27 @@ const MinutesList = () => {
           }
         );
 
-        // ユーザーがログインしている場合は、Firestore のリスナーの unsubscribe を返す
-        return () => unsubscribeSnapshot();
+        return () => {
+          console.log("🟡 [DEBUG] Firestore リスナーを解除");
+          unsubscribeSnapshot();
+        };
       } else {
-        console.log("🔴 [DEBUG] ユーザーがログインしていません");
+        console.warn("⚠️ [WARNING] ユーザーがログインしていません");
       }
     });
 
-    // onAuthStateChanged のリスナーもクリーンアップ
-    return () => unsubscribeAuth();
+    return () => {
+      console.log("🟡 [DEBUG] onAuthStateChanged のリスナーを解除");
+      unsubscribeAuth();
+    };
   }, []);
 
-  // 検索フィールドでフィルタリング
+  // 検索フィルタリング
   const filteredPapers = papers.filter((paper) =>
     paper.minutes.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // 日付でグループ化（シンプルな例）
+  // 日付ごとにグループ化
   const groupedPapers = filteredPapers.reduce((groups, paper) => {
     const date = paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
     const key = date.toLocaleDateString();
@@ -94,7 +108,7 @@ const MinutesList = () => {
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
-      {/* ヘッダー部分：戻るボタン */}
+      {/* ヘッダー部分 */}
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 20 }}>
         <button
           onClick={() => navigate(-1)}
@@ -129,30 +143,28 @@ const MinutesList = () => {
         />
       </div>
 
-      {/* グループごとの表示 */}
-      {sortedDateKeys.map((dateKey) => (
-        <div key={dateKey} style={{ marginBottom: 30 }}>
-          <h3 style={{ borderBottom: '1px solid #555', paddingBottom: 5 }}>{dateKey}</h3>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-              gap: 15,
-              marginTop: 10
-            }}
-          >
-            {groupedPapers[dateKey]
-              .sort((a, b) => {
-                const dateA = a.createdAt?.toDate ? a.createdAt.toDate() : new Date();
-                const dateB = b.createdAt?.toDate ? b.createdAt.toDate() : new Date();
-                return dateB - dateA;
-              })
-              .map((paper) => (
+      {/* 議事録の一覧表示 */}
+      {sortedDateKeys.length === 0 ? (
+        <p style={{ color: 'gray', textAlign: 'center' }}>議事録がありません</p>
+      ) : (
+        sortedDateKeys.map((dateKey) => (
+          <div key={dateKey} style={{ marginBottom: 30 }}>
+            <h3 style={{ borderBottom: '1px solid #555', paddingBottom: 5 }}>{dateKey}</h3>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+                gap: 15,
+                marginTop: 10
+              }}
+            >
+              {groupedPapers[dateKey].map((paper) => (
                 <PaperItem key={paper.id} paper={paper} />
               ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
 };
