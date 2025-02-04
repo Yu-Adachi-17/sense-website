@@ -7,6 +7,7 @@ import { Success, Cancel } from './AfterPayment';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import PurchaseMenu from './components/PurchaseMenu'; 
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 import './App.css'; // CSSファイルをインポート
 
@@ -210,7 +211,7 @@ function App() {
     <Router basename="/">
       <DebugRouter />
       <Routes>
-        {/* ホームページ */}
+        {/* ✅ ホームページ */}
         <Route
           path="/"
           element={
@@ -241,13 +242,19 @@ function App() {
             </div>
           }
         />
-  
+
+        {/* ✅ サインアップページ */}
+        <Route path="/signup" element={<SignUp />} />
+
         {/* ✅ ログインページ */}
         <Route path="/login" element={<Login />} />
-  
-        {/* 決済後のページ */}
+
+        {/* ✅ 決済後のページ */}
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
+
+        {/* ✅ 404 Not Found（存在しないページ） */}
+        <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
       </Routes>
     </Router>
   );
