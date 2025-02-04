@@ -10,7 +10,7 @@ const PaperItem = ({ paper }) => {
     paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
   const dateString = createdDate.toLocaleDateString();
   const truncatedText =
-    paper.minutes.length <= 15 ? paper.minutes : paper.minutes.slice(0, 15) + '…';
+    paper.minutes.length <= 100 ? paper.minutes : paper.minutes.slice(0, 100) + '…';
 
   return (
     <div
@@ -23,7 +23,7 @@ const PaperItem = ({ paper }) => {
         cursor: 'pointer'
       }}
     >
-      <div style={{ fontSize: 12, marginBottom: 5 }}>{dateString}</div>
+      
       <div style={{ fontWeight: 'bold' }}>{truncatedText}</div>
     </div>
   );
@@ -134,7 +134,7 @@ const MinutesList = () => {
     value={searchText}
     onChange={(e) => setSearchText(e.target.value)}
     style={{
-      width: '90%',
+      width: '100%',
       padding: 10,
       borderRadius: 8,
       border: 'none',
