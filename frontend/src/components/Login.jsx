@@ -18,10 +18,9 @@ const Login = () => {
     if (!email || !password) return;
     setIsLoading(true);
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      // ※メール認証済みかのチェック等の処理を入れるとより実運用に近くなります
-      console.log("Logged in:", userCredential.user);
-      // ログイン成功後の処理（例：ダッシュボードへ遷移）を追加
+      await signInWithEmailAndPassword(auth, email, password);
+      setAlertMessage("ログイン成功！");
+      setShowAlert(true);
     } catch (error) {
       setAlertMessage(error.message);
       setShowAlert(true);
@@ -29,75 +28,20 @@ const Login = () => {
     setIsLoading(false);
   };
 
-  const titleStyle = {
-    fontSize: "50px",
-    fontWeight: "700",
-    background: "linear-gradient(to right, cyan, blue, indigo, purple, red)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    textAlign: "center",
-    marginBottom: "20px"
-  };
-
-  const inputStyle = {
-    width: "300px",
-    height: "40px",
-    paddingLeft: "10px",
-    borderRadius: "15px",
-    border: "1px solid gray",
-    marginBottom: "20px"
-  };
-
-  const buttonStyle = {
-    padding: "10px 20px",
-    borderRadius: "20px",
-    border: "2px solid",
-    borderImage: "linear-gradient(to right, cyan, blue, indigo, purple, red) 1",
-    background: "transparent",
-    color: "black",
-    cursor: (!email || !password || isLoading) ? "not-allowed" : "pointer",
-    opacity: (!email || !password || isLoading) ? 0.5 : 1,
-    marginBottom: "20px"
-  };
-
-  const linkStyle = {
-    color: "blue",
-    background: "none",
-    border: "none",
-    cursor: "pointer"
-  };
-
   return (
-    <div style={{ display:"flex", flexDirection:"column", alignItems:"center", padding:"20px" }}>
-      <div style={titleStyle}>Log in</div>
-      <input 
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e)=>setEmail(e.target.value)}
-        style={inputStyle}
-      />
-      <input 
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e)=>setPassword(e.target.value)}
-        style={inputStyle}
-      />
-      <button onClick={handleLogin} style={buttonStyle} disabled={!email || !password || isLoading}>
+    <div style={{ backgroundColor: "#000", height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", color: "white" }}>
+      <h1 style={{ fontSize: "50px", fontWeight: "700", background: "linear-gradient(to right, cyan, blue, indigo, purple, red)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+        Log in
+      </h1>
+      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: "300px", height: "40px", paddingLeft: "10px", borderRadius: "15px", border: "1px solid gray", marginBottom: "20px" }} />
+      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: "300px", height: "40px", paddingLeft: "10px", borderRadius: "15px", border: "1px solid gray", marginBottom: "20px" }} />
+      <button onClick={handleLogin} style={{ padding: "10px 20px", borderRadius: "20px", border: "2px solid", borderImage: "linear-gradient(to right, cyan, blue, indigo, purple, red) 1", background: "transparent", color: "white", cursor: isLoading ? "not-allowed" : "pointer", opacity: isLoading ? 0.5 : 1, marginBottom: "20px" }} disabled={isLoading}>
         Login
       </button>
-      <button 
-        onClick={()=>{
-          /* パスワードリセット画面表示などの処理 */
-        }} 
-        style={{ marginBottom:"20px", color:"blue", background:"none", border:"none", cursor:"pointer" }}>
-        Forget password?
-      </button>
-      <button onClick={()=> navigate("/signup")} style={linkStyle}>
+      <button onClick={() => navigate("/signup")} style={{ color: "red", background: "none", border: "none", cursor: "pointer" }}>
         まだアカウントをお持ちでないですか？こちらをクリック
       </button>
-      {showAlert && <div style={{ color:"red", marginTop:"20px" }}>{alertMessage}</div>}
+      {showAlert && <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>}
     </div>
   );
 };
