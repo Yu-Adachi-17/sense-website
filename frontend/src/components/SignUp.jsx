@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
-import { signInWithGoogle, signInWithApple } from "../auth"; // ✅ Google & Apple の認証を追加
+import { signInWithGoogle, signInWithApple } from "../firebaseAuth"; // ✅ Google & Apple の認証を追加
 
 const auth = getAuth(app);
 
