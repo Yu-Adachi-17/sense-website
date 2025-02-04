@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
-import { signInWithGoogle, signInWithApple } from "../firebaseAuth"; // ✅ Google & Apple の認証を追加
+import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
+import { FcGoogle } from "react-icons/fc"; // ✅ Googleアイコン
+import { FaApple } from "react-icons/fa"; // ✅ Appleアイコン
 
 const auth = getAuth(app);
 
@@ -29,11 +31,6 @@ const SignUp = () => {
       setShowAlert(true);
     }
     setIsLoading(false);
-  };
-
-  const handleRegister = async () => {
-    setAlertMessage("登録完了です。メール認証後、ログインしてください。");
-    setShowAlert(true);
   };
 
   return (
@@ -96,35 +93,25 @@ const SignUp = () => {
         Email verification
       </button>
 
-      {showRegisterButton && (
-        <button
-          onClick={handleRegister}
-          style={{
-            padding: "10px 20px",
-            background: "white",
-            color: "black",
-            border: "none",
-            cursor: "pointer",
-            marginBottom: "20px",
-          }}
-        >
-          Register
-        </button>
-      )}
-
       {/* Googleサインイン */}
       <button
         onClick={signInWithGoogle}
         style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           padding: "10px 20px",
-          background: "#4285F4",
-          color: "white",
-          border: "none",
+          background: "white",
+          color: "black",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
           cursor: "pointer",
+          width: "300px",
           marginBottom: "10px",
           fontWeight: "bold",
         }}
       >
+        <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
         Googleでサインイン
       </button>
 
@@ -132,15 +119,21 @@ const SignUp = () => {
       <button
         onClick={signInWithApple}
         style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           padding: "10px 20px",
           background: "black",
           color: "white",
           border: "1px solid white",
+          borderRadius: "5px",
           cursor: "pointer",
+          width: "300px",
           marginBottom: "20px",
           fontWeight: "bold",
         }}
       >
+        <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
         Appleでサインイン
       </button>
 
