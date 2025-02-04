@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTicketAlt, FaCircle } from "react-icons/fa"; // ✅ チケットアイコンと処理中マーク
 
@@ -6,35 +7,36 @@ export function PurchaseMenu() {
     const [showSideMenu, setShowSideMenu] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate(); // ✅ ページ遷移用
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     const handleBuyClick = async () => {
         setLoading(true);
         try {
-            const response = await fetch('https://sense-website-production.up.railway.app/api/create-checkout-session', {
-                method: 'POST',
+            const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({}),
-                credentials: 'include'
+                credentials: "include",
             });
             const data = await response.json();
             console.log("[DEBUG] Stripe Response:", data);
             if (data.url) {
                 window.location.href = data.url;
             } else {
-                console.error('[ERROR] Checkout session URL not found', data);
+                console.error("[ERROR] Checkout session URL not found", data);
             }
         } catch (error) {
-            console.error('[ERROR] Error during checkout:', error);
+            console.error("[ERROR] Error during checkout:", error);
         } finally {
             setLoading(false);
         }
@@ -42,73 +44,83 @@ export function PurchaseMenu() {
 
     const styles = {
         hamburgerButton: {
-            position: 'fixed',
-            top: '20px',
-            right: '30px',
-            fontSize: '30px',
-            background: 'none',
-            border: 'none',
-            color: '#FFFFFF',
-            cursor: 'pointer',
+            position: "fixed",
+            top: "20px",
+            right: "30px",
+            fontSize: "30px",
+            background: "none",
+            border: "none",
+            color: "#FFFFFF",
+            cursor: "pointer",
             zIndex: 1300,
         },
         sideMenuOverlay: {
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'rgba(0, 0, 0, 0.5)',
+            width: "100%",
+            height: "100%",
+            background: "rgba(0, 0, 0, 0.5)",
             zIndex: 1100,
-            display: showSideMenu ? 'block' : 'none',
-            transition: 'opacity 0.5s ease',
+            display: showSideMenu ? "block" : "none",
+            transition: "opacity 0.5s ease",
             opacity: showSideMenu ? 1 : 0,
         },
         sideMenu: {
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             right: 0,
-            width: isMobile ? '66.66%' : '33%',
-            height: '100%',
-            background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(128, 128, 128, 0.2))',
-            color: '#FFF',
-            padding: '20px',
-            boxSizing: 'border-box',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start', // ✅ 左寄せに変更
+            width: isMobile ? "66.66%" : "33%",
+            height: "100%",
+            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(128, 128, 128, 0.2))",
+            color: "#FFF",
+            padding: "20px",
+            boxSizing: "border-box",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
             zIndex: 1200,
-            transform: showSideMenu ? 'translateX(0)' : 'translateX(100%)',
-            transition: 'transform 0.5s ease-out',
+            transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
+            transition: "transform 0.5s ease-out",
+        },
+        loginButton: {
+            backgroundColor: "#fff",
+            color: "#000",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontWeight: "bold",
+            marginBottom: "20px", // ✅ アイテム購入ボタンとの間隔を調整
         },
         buyButton: {
-            backgroundColor: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            fontSize: '16px',
-            fontWeight: 'bold',
+            backgroundColor: "transparent",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            fontSize: "16px",
+            fontWeight: "bold",
             opacity: loading ? 0.7 : 1,
-            marginTop: '40px', // ✅ ハンバーガーメニューより少し下に配置
-            marginLeft: '10px', // ✅ 左端から少し余裕を持たせる
+            marginTop: "20px", // ✅ ログインボタンの下に配置
+            marginLeft: "10px",
         },
         ticketIcon: {
-            color: 'yellow',
-            fontSize: '20px',
-            marginRight: '8px',
+            color: "yellow",
+            fontSize: "20px",
+            marginRight: "8px",
             opacity: loading ? 0.7 : 1,
         },
         text: {
-            color: 'yellow',
-            fontSize: '16px',
-            fontWeight: 'bold',
+            color: "yellow",
+            fontSize: "16px",
+            fontWeight: "bold",
             opacity: loading ? 0.7 : 1,
         },
         loadingIcon: {
-            color: 'orange',
-            fontSize: '7px',
-            marginLeft: '8px',
+            color: "orange",
+            fontSize: "7px",
+            marginLeft: "8px",
         },
     };
 
@@ -127,11 +139,16 @@ export function PurchaseMenu() {
             {showSideMenu && (
                 <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
                     <div style={styles.sideMenu} onClick={stopPropagation}>
-                        {/* ✅ ボタンの位置を左寄せ、ハンバーガーメニューより少し下に配置 */}
+                        {/* ✅ 追加：ログインボタン（サイドメニューの一番上） */}
+                        <button style={styles.loginButton} onClick={() => navigate("/login")}>
+                            ログイン
+                        </button>
+
+                        {/* ✅ アイテム購入ボタン */}
                         <button onClick={handleBuyClick} style={styles.buyButton} disabled={loading}>
                             <FaTicketAlt style={styles.ticketIcon} />
                             <span style={styles.text}>アイテムを購入</span>
-                            {loading && <FaCircle style={styles.loadingIcon} />} {/* ✅ 処理中アイコン */}
+                            {loading && <FaCircle style={styles.loadingIcon} />}
                         </button>
                     </div>
                 </div>
