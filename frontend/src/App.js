@@ -15,6 +15,8 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
+import { RxViewGrid } from "react-icons/rx";
+
 
 function DebugRouter() {
   const location = useLocation();
