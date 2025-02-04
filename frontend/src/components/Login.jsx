@@ -1,4 +1,3 @@
-// src/components/Login.jsx
 import React, { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -28,6 +27,13 @@ const Login = () => {
     setIsLoading(false);
   };
 
+  // グラデーションテキスト用のスタイル
+  const gradientTextStyle = {
+    background: "linear-gradient(to right, cyan, blue, indigo, purple, red)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  };
+
   return (
     <div
       style={{
@@ -41,13 +47,12 @@ const Login = () => {
         color: "white",
       }}
     >
+      {/* トップ見出しは白に変更 */}
       <h1
         style={{
           fontSize: "40px",
           fontWeight: "700",
-          background: "linear-gradient(to right, white)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
+          color: "white",
           margin: 0,
           marginBottom: "20px",
         }}
@@ -82,22 +87,22 @@ const Login = () => {
           marginBottom: "20px",
         }}
       />
+      {/* 下部のLoginボタン：テキストにグラデーション、ボタンBOXに角丸を適用 */}
       <button
         onClick={handleLogin}
         disabled={isLoading}
         style={{
           padding: "10px 20px",
-          borderRadius: "20px",
+          borderRadius: "25px", // 角丸の強調
           border: "2px solid",
           borderImage: "linear-gradient(to right, cyan, blue, indigo, purple, red) 1",
           background: "transparent",
-          color: "white",
           cursor: isLoading ? "not-allowed" : "pointer",
           opacity: isLoading ? 0.5 : 1,
           marginBottom: "20px",
         }}
       >
-        Login
+        <span style={gradientTextStyle}>Login</span>
       </button>
       <button
         onClick={() => navigate("/signup")}
