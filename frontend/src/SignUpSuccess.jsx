@@ -34,3 +34,5 @@ export function SignUpSuccess() {
     </div>
   );
 }
+
+export default SignUpSuccess;
