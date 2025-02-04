@@ -302,12 +302,11 @@ return (
             </div>
             <div className="inner-container">
               <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-                <button
-                  className={`center-button ${isRecording ? 'recording' : ''}`}
-                  onClick={() => {
-                    // toggleRecording() 等、録音開始／停止の処理
-                  }}
-                ></button>
+              <button
+  className={`center-button ${isRecording ? 'recording' : ''}`}
+  onClick={toggleRecording}
+></button>
+
               </div>
             </div>
             {showFullScreen && (
