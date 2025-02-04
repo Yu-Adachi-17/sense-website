@@ -14,7 +14,8 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState(""); // ✅ 修正: メッセージの状態を保持
+  const [showAlert, setShowAlert] = useState(false); // ✅ 修正: アラート表示の状態を管理
 
   // Email サインアップ処理
   const handleSignUp = async () => {
@@ -26,6 +27,7 @@ const SignUp = () => {
       setIsSignUpSuccess(true); // サインアップ成功
     } catch (error) {
       setAlertMessage(error.message);
+      setShowAlert(true); // ✅ 修正: アラートを表示
     } finally {
       setIsLoading(false);
     }
@@ -39,6 +41,7 @@ const SignUp = () => {
       setIsSignUpSuccess(true); // サインイン成功
     } catch (error) {
       setAlertMessage("Googleサインインに失敗しました");
+      setShowAlert(true); // ✅ 修正: アラートを表示
     } finally {
       setIsLoading(false);
     }
@@ -52,6 +55,7 @@ const SignUp = () => {
       setIsSignUpSuccess(true); // サインイン成功
     } catch (error) {
       setAlertMessage("Appleサインインに失敗しました");
+      setShowAlert(true); // ✅ 修正: アラートを表示
     } finally {
       setIsLoading(false);
     }
