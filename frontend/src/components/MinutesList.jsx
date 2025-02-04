@@ -158,11 +158,11 @@ const MinutesList = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',  // ❗ 120px→200px に変更
+          maxWidth: 'calc(4 * 250px)',  // ❗ 最大4列に制限しつつ適切なサイズに調整
           gap: 15,
           marginTop: 10,
-          maxWidth: 'calc(4 * 140px)',  // 最大4列になるように制限（120px + gap）
-          margin: '0 auto'  // 中央揃え
+          margin: '0 auto'  // ❗ 中央揃え
         }}
       >
         {groupedPapers[dateKey].map((paper) => (
