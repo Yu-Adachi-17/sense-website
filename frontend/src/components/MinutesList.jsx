@@ -45,7 +45,7 @@ const MinutesList = () => {
         // Firestore クエリを作成
         const q = query(
           collection(db, 'meetingRecords'),
-        //   where('uid', '==', user.uid),
+          where('uid', '==', user.uid),
           orderBy('createdAt', 'desc')
         );
 
@@ -123,7 +123,7 @@ const MinutesList = () => {
         >
           <RxArrowLeft />
         </button>
-        <h2>My Minutes</h2>
+        <h2>List</h2>
       </div>
 
       {/* 検索フィールド */}
