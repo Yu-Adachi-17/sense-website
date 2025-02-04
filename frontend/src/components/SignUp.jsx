@@ -5,6 +5,7 @@ import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { SignUpSuccess } from "./SignUpSuccess"; // ✅ SignUpSuccessコンポーネントをインポート
 
 const auth = getAuth(app);
 
@@ -13,6 +14,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isSignUpSuccess, setIsSignUpSuccess] = useState(false); // ✅ サインアップ成功フラグ
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
@@ -22,11 +24,7 @@ const SignUp = () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       await sendEmailVerification(userCredential.user);
-      setAlertMessage("確認メールを送信しました。メールをご確認ください。");
-      setShowAlert(true);
-
-      // サインアップ成功時にホーム画面にリダイレクト
-      navigate("/");
+      setIsSignUpSuccess(true); // ✅ 成功フラグをON
     } catch (error) {
       setAlertMessage(error.message);
       setShowAlert(true);
@@ -35,31 +33,10 @@ const SignUp = () => {
     }
   };
 
-  const handleGoogleSignIn = async () => {
-    setIsLoading(true);
-    try {
-      await signInWithGoogle();
-      navigate("/"); // Googleサインイン成功時にホーム画面にリダイレクト
-    } catch (error) {
-      setAlertMessage("Googleサインインに失敗しました");
-      setShowAlert(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleAppleSignIn = async () => {
-    setIsLoading(true);
-    try {
-      await signInWithApple();
-      navigate("/"); // Appleサインイン成功時にホーム画面にリダイレクト
-    } catch (error) {
-      setAlertMessage("Appleサインインに失敗しました");
-      setShowAlert(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  if (isSignUpSuccess) {
+    // ✅ サインアップ成功時に専用画面を表示
+    return <SignUpSuccess />;
+  }
 
   return (
     <div
@@ -120,9 +97,8 @@ const SignUp = () => {
       >
         Email verification
       </button>
-
       <button
-        onClick={handleGoogleSignIn}
+        onClick={signInWithGoogle}
         style={{
           display: "flex",
           alignItems: "center",
@@ -141,9 +117,8 @@ const SignUp = () => {
         <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
         Googleでサインイン
       </button>
-
       <button
-        onClick={handleAppleSignIn}
+        onClick={signInWithApple}
         style={{
           display: "flex",
           alignItems: "center",
@@ -162,7 +137,6 @@ const SignUp = () => {
         <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
         Appleでサインイン
       </button>
-
       <button
         onClick={() => navigate("/login")}
         style={{
