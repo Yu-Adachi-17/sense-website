@@ -14,6 +14,7 @@ import { db, auth } from './firebaseConfig';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
+import MinutesList from './components/MinutesList';
 
 function DebugRouter() {
   const location = useLocation();
@@ -261,59 +262,81 @@ useEffect(() => {
 }, [showFullScreen, transcription, minutes, hasSavedRecord]);
 
 
-  return (
-    <Router basename="/">
-      <DebugRouter />
-      <Routes>
-        {/* ✅ ホームページ */}
-        <Route
-          path="/"
-          element={
-            <div className="container" style={{ backgroundColor: '#000' }}>
-              {/* 議事録生成後はFullScreenOverlay内のハンバーガーを利用するため、PurchaseMenuは表示 */}
-              {/* FullScreenOverlayが表示される場合はPurchaseMenuを非表示にする */}
-              {!showFullScreen && <PurchaseMenu />}
-              <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
-                <div className="outer-circle"></div>
-              </div>
-              <div className="inner-container">
-                <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-                  <button
-                    className={`center-button ${isRecording ? 'recording' : ''}`}
-                    onClick={toggleRecording}
-                  ></button>
-                </div>
-              </div>
-              {showFullScreen && (
-                <FullScreenOverlay
-                  setShowFullScreen={setShowFullScreen}
-                  isExpanded={isExpanded}
-                  setIsExpanded={setIsExpanded}
-                  transcription={transcription}
-                  minutes={minutes}
-                  audioURL={audioURL}
-                />
-              )}
-              {isProcessing && <ProgressIndicator progress={progress} />}
+return (
+  <Router basename="/">
+    {/* ルーティング用 */}
+    <Routes>
+      {/* ホームページ */}
+      <Route
+        path="/"
+        element={
+          <div className="container" style={{ backgroundColor: '#000', position: 'relative' }}>
+            {/* 左上に RxViewGrid ボタンを配置 */}
+            <button
+              onClick={() => {
+                // react-router-dom の useNavigate を用いる場合は、
+                // 下記のようにカスタムフック内で navigate() を呼び出すか、
+                // App 内にヘッダーコンポーネントを作成して useNavigate を利用してください
+                window.location.href = '/minutes-list';
+              }}
+              style={{
+                position: 'absolute',
+                top: 10,
+                left: 10,
+                background: 'none',
+                border: 'none',
+                color: 'white',
+                fontSize: 28,
+                cursor: 'pointer'
+              }}
+            >
+              <RxViewGrid />
+            </button>
+
+            {/* 必要に応じて PurchaseMenu など */}
+            {!showFullScreen && <PurchaseMenu />}
+            <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
+              <div className="outer-circle"></div>
             </div>
-          }
-        />
+            <div className="inner-container">
+              <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
+                <button
+                  className={`center-button ${isRecording ? 'recording' : ''}`}
+                  onClick={() => {
+                    // toggleRecording() 等、録音開始／停止の処理
+                  }}
+                ></button>
+              </div>
+            </div>
+            {showFullScreen && (
+              <FullScreenOverlay
+                setShowFullScreen={setShowFullScreen}
+                isExpanded={isExpanded}
+                setIsExpanded={setIsExpanded}
+                transcription={transcription}
+                minutes={minutes}
+                audioURL={audioURL}
+              />
+            )}
+            {isProcessing && <ProgressIndicator progress={progress} />}
+          </div>
+        }
+      />
 
-        {/* ✅ サインアップページ */}
-        <Route path="/signup" element={<SignUp />} />
+      {/* サインアップ、ログイン、決済後のページ */}
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/success" element={<Success />} />
+      <Route path="/cancel" element={<Cancel />} />
 
-        {/* ✅ ログインページ */}
-        <Route path="/login" element={<Login />} />
+      {/* MinutesList のルート */}
+      <Route path="/minutes-list" element={<MinutesList />} />
 
-        {/* ✅ 決済後のページ */}
-        <Route path="/success" element={<Success />} />
-        <Route path="/cancel" element={<Cancel />} />
-
-        {/* ✅ 404 Not Found（存在しないページ） */}
-        <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
-      </Routes>
-    </Router>
-  );
+      {/* 404 */}
+      <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
+    </Routes>
+  </Router>
+);
 }
 
 export default App;
