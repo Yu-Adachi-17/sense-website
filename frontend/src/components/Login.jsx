@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
+import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
 
 const auth = getAuth(app);
 
@@ -18,13 +21,39 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setAlertMessage("ログイン成功！");
-      setShowAlert(true);
+      navigate("/"); // ✅ ログイン成功時にホーム画面へ遷移
     } catch (error) {
       setAlertMessage(error.message);
       setShowAlert(true);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
+  };
+
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      await signInWithGoogle();
+      navigate("/"); // ✅ Googleサインイン成功時にホーム画面へ遷移
+    } catch (error) {
+      setAlertMessage("Googleサインインに失敗しました");
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleAppleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      await signInWithApple();
+      navigate("/"); // ✅ Appleサインイン成功時にホーム画面へ遷移
+    } catch (error) {
+      setAlertMessage("Appleサインインに失敗しました");
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -40,7 +69,6 @@ const Login = () => {
         color: "white",
       }}
     >
-      {/* トップ見出し：白文字 */}
       <h1
         style={{
           fontSize: "40px",
@@ -80,23 +108,68 @@ const Login = () => {
           marginBottom: "20px",
         }}
       />
-      {/* 下部のLoginボタン：背景白、文字黒、角丸なし（四角） */}
+
+      {/* Email ログインボタン */}
       <button
-  onClick={handleLogin}
-  disabled={isLoading}
-  style={{
-    padding: "10px 20px",
-    background: "white",
-    color: "black",
-    border: "none",
-    cursor: isLoading ? "not-allowed" : "pointer",
-    opacity: isLoading ? 0.5 : 1,
-    marginBottom: "20px",
-    fontWeight: "bold",  // ここを追加
-  }}
->
-  Login
-</button>
+        onClick={handleLogin}
+        disabled={isLoading}
+        style={{
+          padding: "10px 20px",
+          background: "white",
+          color: "black",
+          border: "none",
+          cursor: isLoading ? "not-allowed" : "pointer",
+          opacity: isLoading ? 0.5 : 1,
+          marginBottom: "20px",
+          fontWeight: "bold",
+        }}
+      >
+        Login
+      </button>
+
+      {/* Googleサインイン */}
+      <button
+        onClick={handleGoogleSignIn}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "10px 20px",
+          background: "white",
+          color: "black",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
+          cursor: "pointer",
+          width: "300px",
+          marginBottom: "10px",
+          fontWeight: "bold",
+        }}
+      >
+        <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
+        Googleでログイン
+      </button>
+
+      {/* Appleサインイン */}
+      <button
+        onClick={handleAppleSignIn}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "10px 20px",
+          background: "black",
+          color: "white",
+          border: "1px solid white",
+          borderRadius: "5px",
+          cursor: "pointer",
+          width: "300px",
+          marginBottom: "20px",
+          fontWeight: "bold",
+        }}
+      >
+        <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
+        Appleでログイン
+      </button>
 
       <button
         onClick={() => navigate("/signup")}
@@ -109,6 +182,7 @@ const Login = () => {
       >
         まだアカウントをお持ちでないですか？こちらをクリック
       </button>
+
       {showAlert && (
         <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>
       )}
