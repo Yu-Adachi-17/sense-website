@@ -10,7 +10,7 @@ import SignUp from "./components/SignUp";
 import './App.css';
 
 // Firebase 関連のインポート
-import { db, auth } from './firebase';
+import { db, auth } from './firebaseConfig';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
