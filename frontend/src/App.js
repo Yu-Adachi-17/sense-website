@@ -283,12 +283,12 @@ return (
               }}
               style={{
                 position: 'absolute',
-                top: 10,
-                left: 10,
+                top: 20,
+                left: 30,
                 background: 'none',
                 border: 'none',
                 color: 'white',
-                fontSize: 28,
+                fontSize: 30,
                 cursor: 'pointer'
               }}
             >

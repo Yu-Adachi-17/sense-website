@@ -123,7 +123,7 @@ const MinutesList = () => {
         >
           <RxArrowLeft />
         </button>
-        <h2>List</h2>
+        <h2></h2>
       </div>
 
       {/* 検索フィールド */}
