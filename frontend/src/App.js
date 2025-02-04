@@ -7,8 +7,13 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import PurchaseMenu from './components/PurchaseMenu'; 
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import './App.css';
 
-import './App.css'; // CSSファイルをインポート
+// Firebase 関連のインポート
+import { db, auth } from './firebase';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { v4 as uuidv4 } from 'uuid';
 
 function DebugRouter() {
   const location = useLocation();
@@ -27,6 +32,8 @@ function App() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
+  // 議事録が保存済みかどうかを管理する state
+  const [hasSavedRecord, setHasSavedRecord] = useState(false);
 
   const progressIntervalRef = useRef(null);
   const animationFrameRef = useRef(null);
@@ -74,7 +81,7 @@ function App() {
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
 
-        // バックエンドに音声ファイルを送信
+        // バックエンドに音声ファイルを送信し、transcriptionとminutesがセットされる
         await transcribeAudio(
           file,
           setTranscription,
@@ -190,6 +197,7 @@ function App() {
     }
   };
 
+  // コンポーネントのアンマウント時に録音やintervalを停止
   useEffect(() => {
     const interval = progressIntervalRef.current; // ローカル変数にコピー
     return () => {
@@ -204,6 +212,40 @@ function App() {
       setIsExpanded(false);
     }
   }, [showFullScreen]);
+
+  // 議事録が作成されFullScreenOverlayが表示されたタイミングでFirebaseに保存
+  useEffect(() => {
+    const saveMeetingRecord = async () => {
+      try {
+        // ログイン中の場合のみ保存を実施
+        if (auth.currentUser) {
+          const paperID = uuidv4();
+          const creationDate = new Date();
+          const recordData = {
+            paperID,
+            transcription,
+            minutes,
+            createdAt: creationDate,
+            // 必要に応じて、ユーザーIDなども保存可能
+            uid: auth.currentUser.uid,
+          };
+
+          await addDoc(collection(db, 'meetingRecords'), recordData);
+          console.log("議事録データをFirebaseに保存しました。");
+        } else {
+          console.log("ログインしていないため、Firebaseには保存しません。");
+        }
+      } catch (err) {
+        console.error("議事録データの保存に失敗しました: ", err);
+      }
+    };
+
+    // showFullScreenがtrueかつ、transcriptionとminutesに値がある場合に保存
+    if (showFullScreen && transcription && minutes && !hasSavedRecord) {
+      saveMeetingRecord();
+      setHasSavedRecord(true);
+    }
+  }, [showFullScreen, transcription, minutes, hasSavedRecord]);
 
   return (
     <Router basename="/">
