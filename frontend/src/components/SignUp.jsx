@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
+import { signInWithGoogle, signInWithApple } from "../auth"; // ✅ Google & Apple の認証を追加
 
 const auth = getAuth(app);
 
@@ -47,15 +48,7 @@ const SignUp = () => {
         color: "white",
       }}
     >
-      {/* トップ見出し：白文字 */}
-      <h1
-        style={{
-          fontSize: "40px",
-          fontWeight: "700",
-          color: "white",
-          marginBottom: "20px",
-        }}
-      >
+      <h1 style={{ fontSize: "40px", fontWeight: "700", color: "white", marginBottom: "20px" }}>
         Create Account
       </h1>
       <input
@@ -86,7 +79,6 @@ const SignUp = () => {
           marginBottom: "20px",
         }}
       />
-      {/* Email verification ボタン：背景白、文字黒、角丸なし（四角） */}
       <button
         onClick={handleSignUp}
         disabled={isLoading}
@@ -98,12 +90,13 @@ const SignUp = () => {
           cursor: isLoading ? "not-allowed" : "pointer",
           opacity: isLoading ? 0.5 : 1,
           marginBottom: "20px",
+          fontWeight: "bold",
         }}
       >
         Email verification
       </button>
+
       {showRegisterButton && (
-        /* Registerボタンも同様のスタイル */
         <button
           onClick={handleRegister}
           style={{
@@ -118,6 +111,39 @@ const SignUp = () => {
           Register
         </button>
       )}
+
+      {/* Googleサインイン */}
+      <button
+        onClick={signInWithGoogle}
+        style={{
+          padding: "10px 20px",
+          background: "#4285F4",
+          color: "white",
+          border: "none",
+          cursor: "pointer",
+          marginBottom: "10px",
+          fontWeight: "bold",
+        }}
+      >
+        Googleでサインイン
+      </button>
+
+      {/* Appleサインイン */}
+      <button
+        onClick={signInWithApple}
+        style={{
+          padding: "10px 20px",
+          background: "black",
+          color: "white",
+          border: "1px solid white",
+          cursor: "pointer",
+          marginBottom: "20px",
+          fontWeight: "bold",
+        }}
+      >
+        Appleでサインイン
+      </button>
+
       <button
         onClick={() => navigate("/login")}
         style={{
