@@ -15,7 +15,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
-import { RxViewGrid } from "react-icons/rx";
+import { PiGridFourFill } from "react-icons/pi";
 
 
 function DebugRouter() {
@@ -292,7 +292,7 @@ return (
                 cursor: 'pointer'
               }}
             >
-              <RxViewGrid />
+              <PiGridFourFill />
             </button>
 
             {/* 必要に応じて PurchaseMenu など */}

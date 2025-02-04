@@ -126,22 +126,26 @@ const MinutesList = () => {
         <h2></h2>
       </div>
 
-      {/* 検索フィールド */}
-      <div style={{ marginBottom: 20 }}>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          style={{
-            width: '100%',
-            padding: 10,
-            borderRadius: 8,
-            border: 'none',
-            fontSize: 16
-          }}
-        />
-      </div>
+{/* 検索フィールド */}
+<div style={{ marginBottom: 20 }}>
+  <input
+    type="text"
+    placeholder="Search..."
+    value={searchText}
+    onChange={(e) => setSearchText(e.target.value)}
+    style={{
+      width: '90%',
+      padding: 10,
+      borderRadius: 8,
+      border: 'none',
+      fontSize: 16,
+      backgroundColor: 'gray',  // 背景色を gray に設定
+      color: 'white',           // 入力文字色を white に設定
+      outline: 'none'           // フォーカス時の青枠を削除（任意）
+    }}
+  />
+</div>
+
 
       {/* 議事録の一覧表示 */}
       {sortedDateKeys.length === 0 ? (
