@@ -17,18 +17,44 @@ const Login = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   const handleLogin = async () => {
-    if (!email || !password) return;
+    if (!email || !password) {
+      setAlertMessage("メールアドレスとパスワードを入力してください");
+      setShowAlert(true);
+      return;
+    }
     setIsLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/"); // ✅ ログイン成功時にホーム画面へ遷移
     } catch (error) {
-      setAlertMessage(error.message);
+      console.error("ログインエラー:", error);
+  
+      // Firebaseのエラーコードを日本語に変換
+      switch (error.code) {
+        case "auth/invalid-email":
+          setAlertMessage("無効なメールアドレスです。");
+          break;
+        case "auth/user-disabled":
+          setAlertMessage("このアカウントは無効になっています。");
+          break;
+        case "auth/user-not-found":
+          setAlertMessage("ユーザーが見つかりません。");
+          break;
+        case "auth/wrong-password":
+          setAlertMessage("パスワードが違います。");
+          break;
+        case "auth/too-many-requests":
+          setAlertMessage("短時間での試行が多すぎます。しばらく待ってください。");
+          break;
+        default:
+          setAlertMessage("ログインに失敗しました。もう一度お試しください。");
+      }
       setShowAlert(true);
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
