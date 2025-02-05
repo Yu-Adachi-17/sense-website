@@ -19,6 +19,12 @@ export function PurchaseMenu() {
 
     // ✅ 商品購入ボタンのクリック処理（購入する商品を指定）
     const handleBuyClick = async (productId) => {
+        console.log("✅ 送信する productId:", productId); // デバッグ用ログ
+        if (!productId) {
+            console.error("❌ productId が undefined です！環境変数を確認してください。");
+            return;
+        }
+    
         setLoading(true);
         try {
             const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
@@ -26,9 +32,10 @@ export function PurchaseMenu() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ productId }), // ✅ 選択した商品IDを送信
+                body: JSON.stringify({ productId }), // ✅ 送信データをログ出力
                 credentials: "include",
             });
+    
             const data = await response.json();
             console.log("[DEBUG] Stripe Response:", data);
             if (data.url) {
@@ -42,6 +49,7 @@ export function PurchaseMenu() {
             setLoading(false);
         }
     };
+    
 
     const styles = {
         hamburgerButton: {

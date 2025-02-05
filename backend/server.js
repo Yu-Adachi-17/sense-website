@@ -229,44 +229,39 @@ app.post('/api/transcribe', (req, res) => {
 // ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const { productId } = req.body; // 🔥 フロントエンドから送られてきた `productId` を取得
+        const { productId } = req.body;
+        console.log("✅ 受信した productId:", productId); // デバッグログ
 
-        // 🔥 productId に対応する Stripe の価格 ID（環境変数から取得）
+        // 🔥 環境変数マッピング
         const PRICE_MAP = {
-            [process.env.STRIPE_PRODUCT_UNLIMITED]: process.env.STRIPE_PRICE_UNLIMITED, // サブスク
-            [process.env.STRIPE_PRODUCT_120MIN]: process.env.STRIPE_PRICE_120MIN, // 120分
-            [process.env.STRIPE_PRODUCT_1200MIN]: process.env.STRIPE_PRICE_1200MIN // 1200分
+            [process.env.STRIPE_PRODUCT_UNLIMITED]: process.env.STRIPE_PRICE_UNLIMITED,
+            [process.env.STRIPE_PRODUCT_120MIN]: process.env.STRIPE_PRICE_120MIN,
+            [process.env.STRIPE_PRODUCT_1200MIN]: process.env.STRIPE_PRICE_1200MIN
         };
 
-        // 🔥 `productId` に対応する `priceId` を取得
         const priceId = PRICE_MAP[productId];
 
         if (!priceId) {
-            console.error(`❌ 無効な productId: ${productId}`);
-            return res.status(400).json({ error: 'Invalid productId' });
+            console.error("❌ productId が無効:", productId);
+            return res.status(400).json({ error: "Invalid productId" });
         }
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            mode: productId === process.env.STRIPE_PRODUCT_UNLIMITED ? 'subscription' : 'payment', // サブスク or 一回払いを自動判別
-            line_items: [
-                {
-                    price: priceId, // 🔥 適切な価格 ID をセット
-                    quantity: 1,
-                },
-            ],
+            mode: productId === process.env.STRIPE_PRODUCT_UNLIMITED ? 'subscription' : 'payment',
+            line_items: [{ price: priceId, quantity: 1 }],
             success_url: 'https://sense-ai.world/success',
             cancel_url: 'https://sense-ai.world/cancel',
         });
 
         console.log("✅ Checkout URL:", session.url);
-
         res.json({ url: session.url });
     } catch (error) {
         console.error('[ERROR] /create-checkout-session:', error);
         res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました' });
     }
 });
+
 
 // ✅ フロントエンドの静的ファイルを提供
 const staticPath = path.join(__dirname, 'frontend/build');
