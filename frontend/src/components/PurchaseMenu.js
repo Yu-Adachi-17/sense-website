@@ -17,7 +17,8 @@ export function PurchaseMenu() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const handleBuyClick = async () => {
+    // ✅ 商品購入ボタンのクリック処理（購入する商品を指定）
+    const handleBuyClick = async (productId) => {
         setLoading(true);
         try {
             const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
@@ -25,7 +26,7 @@ export function PurchaseMenu() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({}),
+                body: JSON.stringify({ productId }), // ✅ 選択した商品IDを送信
                 credentials: "include",
             });
             const data = await response.json();
@@ -102,7 +103,7 @@ export function PurchaseMenu() {
             fontSize: "16px",
             fontWeight: "bold",
             opacity: loading ? 0.7 : 1,
-            marginTop: "20px", // ✅ ログインボタンの下に配置
+            marginTop: "10px", // ✅ ログインボタンの下に配置
             marginLeft: "10px",
         },
         ticketIcon: {
@@ -139,15 +140,22 @@ export function PurchaseMenu() {
             {showSideMenu && (
                 <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
                     <div style={styles.sideMenu} onClick={stopPropagation}>
-                        {/* ✅ 追加：ログインボタン（サイドメニューの一番上） */}
+                        {/* ✅ 追加：ログインボタン */}
                         <button style={styles.loginButton} onClick={() => navigate("/login")}>
                             ログイン
                         </button>
 
-                        {/* ✅ アイテム購入ボタン */}
-                        <button onClick={handleBuyClick} style={styles.buyButton} disabled={loading}>
+                        {/* ✅ 「120分を買う」ボタン */}
+                        <button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)} style={styles.buyButton} disabled={loading}>
                             <FaTicketAlt style={styles.ticketIcon} />
-                            <span style={styles.text}>アイテムを購入</span>
+                            <span style={styles.text}>120分を買う</span>
+                            {loading && <FaCircle style={styles.loadingIcon} />}
+                        </button>
+
+                        {/* ✅ 「1200分を買う」ボタン */}
+                        <button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)} style={styles.buyButton} disabled={loading}>
+                            <FaTicketAlt style={styles.ticketIcon} />
+                            <span style={styles.text}>1200分を買う</span>
                             {loading && <FaCircle style={styles.loadingIcon} />}
                         </button>
                     </div>
