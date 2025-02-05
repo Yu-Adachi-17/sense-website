@@ -12,6 +12,10 @@ const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe'); // Stripeライブラリのインポート
 const app = express();
+// メインサーバーコード (app.js)
+const webhookRouter = require('./routes/webhook'); // 必ず正しいパス
+app.use('/api', webhookRouter); // `/api/stripe` を作成
+
 
 app.use(express.json()); // ✅ JSONリクエストをパース
 
