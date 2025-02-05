@@ -1,6 +1,6 @@
 require('dotenv').config();
-console.log("✅ STRIPE_TEST_KEY:", process.env.STRIPE_TEST_KEY ? "Loaded" : "Not found");
-console.log("✅ STRIPE_PRICE_ID:", process.env.STRIPE_PRICE_ID ? "Loaded" : "Not found");
+console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
+console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 
 const express = require('express');
 const multer = require('multer');
@@ -87,7 +87,7 @@ const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/trans
 const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
 
 // ✅ Stripeの初期化
-const stripe = Stripe(process.env.STRIPE_TEST_KEY); // Railwayにセットしたキーを使用
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Railwayにセットしたキーを使用
 
 // ✅ ChatGPTを使用して議事録を生成する関数
 const generateMinutes = async (transcription) => {
@@ -229,7 +229,7 @@ app.post('/api/transcribe', (req, res) => {
 // ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const priceId = process.env.STRIPE_PRICE_ID; // 環境変数からPrice IDを取得
+        const priceId = process.env.STRIPE_PRICE_UNLIMITED; // 環境変数からPrice IDを取得
 
         // ここでユーザー情報を取得する場合は、必要に応じて処理を追加
         // 例: const { userId } = req.body;
