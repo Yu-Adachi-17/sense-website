@@ -158,6 +158,13 @@ export function PurchaseMenu() {
                             <span style={styles.text}>1200分を買う</span>
                             {loading && <FaCircle style={styles.loadingIcon} />}
                         </button>
+
+                        {/* ✅ 「サブスクリプションに登録」ボタン */}
+                        <button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)} style={styles.buyButton} disabled={loading}>
+                            <FaTicketAlt style={styles.ticketIcon} />
+                            <span style={styles.text}>サブスクリプションに登録</span>
+                            {loading && <FaCircle style={styles.loadingIcon} />}
+                        </button>
                     </div>
                 </div>
             )}
