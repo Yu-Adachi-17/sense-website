@@ -17,6 +17,14 @@ export function PurchaseMenu() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+        // ✅ 環境変数チェック
+        useEffect(() => {
+            console.log("🔍 環境変数チェック:");
+            console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
+            console.log("REACT_APP_STRIPE_PRODUCT_1200MIN:", process.env.REACT_APP_STRIPE_PRODUCT_1200MIN);
+            console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
+        }, []); // コンポーネントマウント時に実行
+
     // ✅ 商品購入ボタンのクリック処理（購入する商品を指定）
     const handleBuyClick = async (productId) => {
         console.log("✅ 送信する productId:", productId); // デバッグ用ログ
