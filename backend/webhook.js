@@ -35,41 +35,44 @@ for (const [key, value] of Object.entries(PRODUCT_MAP)) {
 }
 
 // 🎯 `handleCheckoutSessionCompleted()` を定義（ここが追加部分！）
-async function handleCheckoutSessionCompleted(session) {
-  try {
-    const userId = session.client_reference_id;
-    const productId = session.metadata.product_id; // メタデータから Product ID を取得
-
-    // 商品タイプを判定
-    const minutesToAdd = PRODUCT_MAP[productId];
-    if (!minutesToAdd) {
-      console.error(`Unknown product_id: ${productId}`);
-      return;
+const handleCheckoutSessionCompleted = async (session) => {
+    try {
+      console.log("🔍 Webhook received session:", session); // セッションデータを確認
+  
+      const userId = session.client_reference_id; // クライアント側から送信されたユーザーID
+      const productId = session.metadata.product_id; // メタデータから商品IDを取得
+      console.log("✅ userId:", userId);
+      console.log("✅ productId:", productId);
+  
+      const minutesToAdd = PRODUCT_MAP[productId];
+      if (!minutesToAdd) {
+        console.error(`❌ Unknown product_id: ${productId}`);
+        return;
+      }
+  
+      const userRef = db.collection('users').doc(userId);
+      const userDoc = await userRef.get();
+      console.log("🔍 Firebase user document:", userDoc.exists ? userDoc.data() : "Document not found");
+  
+      if (!userDoc.exists) {
+        console.error(`❌ User not found in Firestore: ${userId}`);
+        return;
+      }
+  
+      const currentMinutes = userDoc.data().remainingMinutes || 0;
+      const newMinutes = currentMinutes + minutesToAdd;
+  
+      await userRef.update({
+        remainingMinutes: newMinutes,
+        lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
+      });
+  
+      console.log(`✅ Firebase updated: userId=${userId}, addedMinutes=${minutesToAdd}`);
+    } catch (error) {
+      console.error("❌ Error updating Firebase:", error);
     }
-
-    const userRef = db.collection('users').doc(userId);
-    const userDoc = await userRef.get();
-
-    if (!userDoc.exists) {
-      console.error(`User not found: ${userId}`);
-      return;
-    }
-
-    // 既存の残り時間を取得
-    const currentMinutes = userDoc.data().remainingMinutes || 0;
-    const newMinutes = currentMinutes + minutesToAdd;
-
-    await userRef.update({
-      remainingMinutes: newMinutes,
-      lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
-    });
-
-    console.log(`✅ ${minutesToAdd} 分を user ${userId} に追加！`);
-
-  } catch (error) {
-    console.error("🔥 Error processing checkout.session.completed:", error);
-  }
-}
+  };
+  
 
 // 🎯 Webhook エンドポイント
 router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
