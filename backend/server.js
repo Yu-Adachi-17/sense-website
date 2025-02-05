@@ -229,24 +229,37 @@ app.post('/api/transcribe', (req, res) => {
 // ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const priceId = process.env.STRIPE_PRICE_UNLIMITED; // 環境変数からPrice IDを取得
+        const { productId } = req.body; // 🔥 フロントエンドから送られてきた `productId` を取得
 
-        // ここでユーザー情報を取得する場合は、必要に応じて処理を追加
-        // 例: const { userId } = req.body;
+        // 🔥 productId に対応する Stripe の価格 ID（環境変数から取得）
+        const PRICE_MAP = {
+            [process.env.STRIPE_PRODUCT_UNLIMITED]: process.env.STRIPE_PRICE_UNLIMITED, // サブスク
+            [process.env.STRIPE_PRODUCT_120MIN]: process.env.STRIPE_PRICE_120MIN, // 120分
+            [process.env.STRIPE_PRODUCT_1200MIN]: process.env.STRIPE_PRICE_1200MIN // 1200分
+        };
+
+        // 🔥 `productId` に対応する `priceId` を取得
+        const priceId = PRICE_MAP[productId];
+
+        if (!priceId) {
+            console.error(`❌ 無効な productId: ${productId}`);
+            return res.status(400).json({ error: 'Invalid productId' });
+        }
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            mode: 'subscription',
+            mode: productId === process.env.STRIPE_PRODUCT_UNLIMITED ? 'subscription' : 'payment', // サブスク or 一回払いを自動判別
             line_items: [
                 {
-                    price: priceId, // 環境変数から取得したPrice IDを使用
+                    price: priceId, // 🔥 適切な価格 ID をセット
                     quantity: 1,
                 },
             ],
             success_url: 'https://sense-ai.world/success',
             cancel_url: 'https://sense-ai.world/cancel',
         });
-        console.log("Generated Checkout URL:", session.url);
+
+        console.log("✅ Checkout URL:", session.url);
 
         res.json({ url: session.url });
     } catch (error) {
