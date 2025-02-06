@@ -31,11 +31,12 @@ const SignUp = () => {
       // Firestore にユーザードキュメントを作成（初期値 remainingMinutes: 0 など）
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
-        subscription: false, // 初期状態では未加入
+        subscription: false, // 初期状態では未加入 (merge: true で確実に作成)
         displayName: user.displayName || "",
         remainingSeconds: 180, // 初期値: 180秒 (秒単位のInt)
         createdAt: serverTimestamp(),
-      });
+      }, { merge: true }); // ✅ 追加: merge オプションを有効にする
+      
       
       console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
 
