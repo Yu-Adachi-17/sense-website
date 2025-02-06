@@ -358,28 +358,38 @@ function App() {
   {isUserDataLoaded && (
   <div style={{
     position: 'absolute',
-    bottom: 'calc((50vh - 160px) / 2)',  // 位置調整
+    bottom: 'calc((50vh - 160px) / 2)',  // 外側サークル下端と画面下端の中間
     left: '50%',
     transform: 'translateX(-50%)',
     color: 'white',
-    fontSize: '72px',
-    zIndex: 10
+    fontSize: '72px',  // 一貫したフォントサイズ
+    zIndex: 10,
+    display: 'flex',         // ★ フレックスボックスを使用して整列
+    alignItems: 'center',    // ★ 垂直方向の中央揃え
+    justifyContent: 'center',// ★ 水平方向の中央揃え
+    height: '80px'           // ★ 高さを固定（フォントサイズによるズレを防ぐ）
   }}>
     {userSubscription ? (
       <span style={{
         background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
         WebkitBackgroundClip: 'text',
         color: 'transparent',
-        fontSize: '144px',
-        fontFamily: 'Impact, sans-serif'  // Impactフォント適用
+        fontSize: '72px',   // ★ 時間と同じフォントサイズに変更（144px→72px）
+        fontFamily: 'Impact, sans-serif',
+        lineHeight: '1'     // ★ フォントの高さを揃える
       }}>♾️</span>
     ) : (
-      <span style={{ fontFamily: 'Impact, sans-serif', fontSize: '48px' }}> {/* 数値に適用 */}
+      <span style={{
+        fontFamily: 'Impact, sans-serif',
+        fontSize: '72px',  // ★ フォントサイズを統一（48px→72px）
+        lineHeight: '1'    // ★ フォントの高さを揃える
+      }}>
         {formatTime(userRemainingSeconds)}
       </span>
     )}
   </div>
 )}
+
 
 
 </div>
