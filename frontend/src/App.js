@@ -12,7 +12,7 @@ import './App.css';
 // Firebase 関連のインポート
 import { db, auth } from './firebaseConfig';
 import { getFirestore, collection, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
 import { PiGridFourFill } from "react-icons/pi";
@@ -38,6 +38,7 @@ function App() {
   const [hasSavedRecord, setHasSavedRecord] = useState(false);
 
   // ★ 追加: ユーザーのサブスクリプション情報と残秒数を保持する state
+  // 初期値は Firestore に書かれている値（例：7200）ではなく、仮の値として 180 を設定
   const [userSubscription, setUserSubscription] = useState(false);
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(180);
 
@@ -59,12 +60,12 @@ function App() {
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
-  // 現在ログイン中のユーザーの情報を Firestore から取得
+  // ★ Firebase Auth の状態変化を監視してユーザーデータを取得する
   useEffect(() => {
-    const fetchUserData = async () => {
-      if (auth.currentUser) {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
         try {
-          const docRef = doc(db, "users", auth.currentUser.uid);
+          const docRef = doc(db, "users", user.uid);
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             const data = docSnap.data();
@@ -75,8 +76,8 @@ function App() {
           console.error("ユーザーデータ取得エラー:", error);
         }
       }
-    };
-    fetchUserData();
+    });
+    return unsubscribe;
   }, []);
 
   // toggleRecording を async 化して、録音開始・停止時の処理を await できるようにする
@@ -339,9 +340,6 @@ function App() {
               {/* 左上に RxViewGrid ボタンを配置 */}
               <button
                 onClick={() => {
-                  // react-router-dom の useNavigate を用いる場合は、
-                  // 下記のようにカスタムフック内で navigate() を呼び出すか、
-                  // App 内にヘッダーコンポーネントを作成して useNavigate を利用してください
                   window.location.href = '/minutes-list';
                 }}
                 style={{
@@ -358,7 +356,6 @@ function App() {
                 <PiGridFourFill />
               </button>
 
-              {/* 必要に応じて PurchaseMenu など */}
               {!showFullScreen && <PurchaseMenu />}
               <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
                 <div className="outer-circle"></div>
@@ -400,16 +397,11 @@ function App() {
           }
         />
 
-        {/* サインアップ、ログイン、決済後のページ */}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
-
-        {/* MinutesList のルート */}
         <Route path="/minutes-list" element={<MinutesList />} />
-
-        {/* 404 */}
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
       </Routes>
     </Router>
