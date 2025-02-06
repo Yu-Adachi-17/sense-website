@@ -355,15 +355,14 @@ function App() {
     {isProcessing && <ProgressIndicator progress={progress} />}
   </div>
 
-  // App.js（抜粋）
-{isUserDataLoaded && (
+  {isUserDataLoaded && (
   <div style={{
     position: 'absolute',
-    bottom: 'calc((50vh - 160px) / 2)',  // ← ここで下端と外側サークル下端の中間に配置
+    bottom: 'calc((50vh - 160px) / 2)',  // 位置調整
     left: '50%',
     transform: 'translateX(-50%)',
     color: 'white',
-    fontSize: '24px',
+    fontSize: '72px',
     zIndex: 10
   }}>
     {userSubscription ? (
@@ -371,13 +370,17 @@ function App() {
         background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
         WebkitBackgroundClip: 'text',
         color: 'transparent',
-        fontSize: '48px'
+        fontSize: '144px',
+        fontFamily: 'Impact, sans-serif'  // Impactフォント適用
       }}>♾️</span>
     ) : (
-      <span>{formatTime(userRemainingSeconds)}</span>
+      <span style={{ fontFamily: 'Impact, sans-serif', fontSize: '48px' }}> {/* 数値に適用 */}
+        {formatTime(userRemainingSeconds)}
+      </span>
     )}
   </div>
 )}
+
 
 </div>
           }
