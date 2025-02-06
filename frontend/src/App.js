@@ -11,12 +11,11 @@ import './App.css';
 
 // Firebase 関連のインポート
 import { db, auth } from './firebaseConfig';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
 import { PiGridFourFill } from "react-icons/pi";
-
 
 function DebugRouter() {
   const location = useLocation();
@@ -38,7 +37,12 @@ function App() {
   // 議事録が保存済みかどうかを管理する state
   const [hasSavedRecord, setHasSavedRecord] = useState(false);
 
+  // ★ 追加: ユーザーのサブスクリプション情報と残秒数を保持する state
+  const [userSubscription, setUserSubscription] = useState(false);
+  const [userRemainingSeconds, setUserRemainingSeconds] = useState(180);
+
   const progressIntervalRef = useRef(null);
+  const timerIntervalRef = useRef(null); // ★ カウントダウン用の interval を保持
   const animationFrameRef = useRef(null);
   const audioContextRef = useRef(null);
   const analyserRef = useRef(null);
@@ -48,9 +52,37 @@ function App() {
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
 
+  // mm:ss形式にフォーマットするヘルパー関数
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
+
+  // 現在ログイン中のユーザーの情報を Firestore から取得
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (auth.currentUser) {
+        try {
+          const docRef = doc(db, "users", auth.currentUser.uid);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            setUserSubscription(data.subscription);
+            setUserRemainingSeconds(data.remainingSeconds);
+          }
+        } catch (error) {
+          console.error("ユーザーデータ取得エラー:", error);
+        }
+      }
+    };
+    fetchUserData();
+  }, []);
+
+  // toggleRecording を async 化して、録音開始・停止時の処理を await できるようにする
   const toggleRecording = async () => {
     if (isRecording) {
-      stopRecording();
+      await stopRecording();
     } else {
       await startRecording();
     }
@@ -113,13 +145,30 @@ function App() {
       source.connect(analyser);
 
       updateAudioLevel();
+
+      // ★ サブスクライバーでなければ、録音開始と同時に残秒数のカウントダウンを開始
+      if (!userSubscription) {
+        timerIntervalRef.current = setInterval(() => {
+          setUserRemainingSeconds(prev => {
+            if (prev <= 1) {
+              clearInterval(timerIntervalRef.current);
+              timerIntervalRef.current = null;
+              // 残秒が0になったら自動的に録音停止
+              toggleRecording();
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      }
+
     } catch (err) {
       console.error('マイクへのアクセスに失敗しました:', err);
       alert('マイクへのアクセスが拒否されました。設定を確認してください。');
     }
   };
 
-  const stopRecording = () => {
+  const stopRecording = async () => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
     }
@@ -142,6 +191,19 @@ function App() {
     mediaRecorderRef.current = null;
 
     setAudioLevel(1);
+
+    // ★ カウントダウンの interval をクリアし、Firebaseに新たな残秒数を反映
+    if (!userSubscription) {
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+        timerIntervalRef.current = null;
+      }
+      try {
+        await setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: userRemainingSeconds }, { merge: true });
+      } catch (err) {
+        console.error("残時間更新エラー:", err);
+      }
+    }
   };
 
   const updateAudioLevel = () => {
@@ -200,12 +262,15 @@ function App() {
     }
   };
 
-  // コンポーネントのアンマウント時に録音やintervalを停止
+  // コンポーネントのアンマウント時に録音や interval を停止
   useEffect(() => {
     const interval = progressIntervalRef.current; // ローカル変数にコピー
     return () => {
       stopRecording();
       clearInterval(interval);
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+      }
     };
   }, []);
 
@@ -216,128 +281,139 @@ function App() {
     }
   }, [showFullScreen]);
 
-  // 議事録が作成されFullScreenOverlayが表示されたタイミングでFirebaseに保存
-// App.js の useEffect にデバッグ用の console.log を追加
-useEffect(() => {
-  const saveMeetingRecord = async () => {
-    try {
-      console.log("🟡 [DEBUG] saveMeetingRecord が呼ばれました");
+  // 議事録が作成され FullScreenOverlay が表示されたタイミングで Firebase に保存
+  useEffect(() => {
+    const saveMeetingRecord = async () => {
+      try {
+        console.log("🟡 [DEBUG] saveMeetingRecord が呼ばれました");
 
-      if (!auth.currentUser) {
-        console.log("🔴 [ERROR] ユーザーがログインしていません");
-        return;
-      }
-
-      console.log("🟢 [DEBUG] ユーザーはログインしています:", auth.currentUser.uid);
-      console.log("🟢 [DEBUG] transcription:", transcription);
-      console.log("🟢 [DEBUG] minutes:", minutes);
-
-      if (!transcription || !minutes) {
-        console.log("🔴 [ERROR] transcription または minutes が空のため保存しません");
-        return;
-      }
-
-      const paperID = uuidv4();
-      const creationDate = new Date();
-      const recordData = {
-        paperID,
-        transcription,
-        minutes,
-        createdAt: creationDate,
-        uid: auth.currentUser.uid,
-      };
-
-      console.log("🟢 [DEBUG] Firestore に保存するデータ:", recordData);
-
-      await addDoc(collection(db, 'meetingRecords'), recordData);
-      console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました");
-    } catch (err) {
-      console.error("🔴 [ERROR] Firebase Firestore の保存中にエラー発生:", err);
-    }
-  };
-
-  if (showFullScreen && transcription && minutes && !hasSavedRecord) {
-    console.log("🟢 [DEBUG] showFullScreen が true になったので saveMeetingRecord を実行");
-    saveMeetingRecord();
-    setHasSavedRecord(true);
-  }
-}, [showFullScreen, transcription, minutes, hasSavedRecord]);
-
-
-return (
-  <Router basename="/">
-    {/* ルーティング用 */}
-    <Routes>
-      {/* ホームページ */}
-      <Route
-        path="/"
-        element={
-          <div className="container" style={{ backgroundColor: '#000', position: 'relative' }}>
-            {/* 左上に RxViewGrid ボタンを配置 */}
-            <button
-              onClick={() => {
-                // react-router-dom の useNavigate を用いる場合は、
-                // 下記のようにカスタムフック内で navigate() を呼び出すか、
-                // App 内にヘッダーコンポーネントを作成して useNavigate を利用してください
-                window.location.href = '/minutes-list';
-              }}
-              style={{
-                position: 'absolute',
-                top: 20,
-                left: 30,
-                background: 'none',
-                border: 'none',
-                color: 'white',
-                fontSize: 30,
-                cursor: 'pointer'
-              }}
-            >
-              <PiGridFourFill />
-            </button>
-
-            {/* 必要に応じて PurchaseMenu など */}
-            {!showFullScreen && <PurchaseMenu />}
-            <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
-              <div className="outer-circle"></div>
-            </div>
-            <div className="inner-container">
-              <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-              <button
-  className={`center-button ${isRecording ? 'recording' : ''}`}
-  onClick={toggleRecording}
-></button>
-
-              </div>
-            </div>
-            {showFullScreen && (
-              <FullScreenOverlay
-                setShowFullScreen={setShowFullScreen}
-                isExpanded={isExpanded}
-                setIsExpanded={setIsExpanded}
-                transcription={transcription}
-                minutes={minutes}
-                audioURL={audioURL}
-              />
-            )}
-            {isProcessing && <ProgressIndicator progress={progress} />}
-          </div>
+        if (!auth.currentUser) {
+          console.log("🔴 [ERROR] ユーザーがログインしていません");
+          return;
         }
-      />
 
-      {/* サインアップ、ログイン、決済後のページ */}
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/success" element={<Success />} />
-      <Route path="/cancel" element={<Cancel />} />
+        console.log("🟢 [DEBUG] ユーザーはログインしています:", auth.currentUser.uid);
+        console.log("🟢 [DEBUG] transcription:", transcription);
+        console.log("🟢 [DEBUG] minutes:", minutes);
 
-      {/* MinutesList のルート */}
-      <Route path="/minutes-list" element={<MinutesList />} />
+        if (!transcription || !minutes) {
+          console.log("🔴 [ERROR] transcription または minutes が空のため保存しません");
+          return;
+        }
 
-      {/* 404 */}
-      <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
-    </Routes>
-  </Router>
-);
+        const paperID = uuidv4();
+        const creationDate = new Date();
+        const recordData = {
+          paperID,
+          transcription,
+          minutes,
+          createdAt: creationDate,
+          uid: auth.currentUser.uid,
+        };
+
+        console.log("🟢 [DEBUG] Firestore に保存するデータ:", recordData);
+
+        await addDoc(collection(db, 'meetingRecords'), recordData);
+        console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました");
+      } catch (err) {
+        console.error("🔴 [ERROR] Firebase Firestore の保存中にエラー発生:", err);
+      }
+    };
+
+    if (showFullScreen && transcription && minutes && !hasSavedRecord) {
+      console.log("🟢 [DEBUG] showFullScreen が true になったので saveMeetingRecord を実行");
+      saveMeetingRecord();
+      setHasSavedRecord(true);
+    }
+  }, [showFullScreen, transcription, minutes, hasSavedRecord]);
+
+  return (
+    <Router basename="/">
+      {/* ルーティング用 */}
+      <Routes>
+        {/* ホームページ */}
+        <Route
+          path="/"
+          element={
+            <div className="container" style={{ backgroundColor: '#000', position: 'relative' }}>
+              {/* 左上に RxViewGrid ボタンを配置 */}
+              <button
+                onClick={() => {
+                  // react-router-dom の useNavigate を用いる場合は、
+                  // 下記のようにカスタムフック内で navigate() を呼び出すか、
+                  // App 内にヘッダーコンポーネントを作成して useNavigate を利用してください
+                  window.location.href = '/minutes-list';
+                }}
+                style={{
+                  position: 'absolute',
+                  top: 20,
+                  left: 30,
+                  background: 'none',
+                  border: 'none',
+                  color: 'white',
+                  fontSize: 30,
+                  cursor: 'pointer'
+                }}
+              >
+                <PiGridFourFill />
+              </button>
+
+              {/* 必要に応じて PurchaseMenu など */}
+              {!showFullScreen && <PurchaseMenu />}
+              <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
+                <div className="outer-circle"></div>
+              </div>
+              <div className="inner-container">
+                <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
+                  <button
+                    className={`center-button ${isRecording ? 'recording' : ''}`}
+                    onClick={toggleRecording}
+                  ></button>
+                </div>
+              </div>
+              {/* ★ 録音ボタンの下に残時間 or ♾️ マークを表示 */}
+              <div style={{ textAlign: 'center', marginTop: '20px', color: 'white', fontSize: '24px' }}>
+                {userSubscription ? (
+                  <span style={{
+                    background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                    WebkitBackgroundClip: 'text',
+                    color: 'transparent',
+                    fontSize: '48px'
+                  }}>♾️</span>
+                ) : (
+                  <span>{formatTime(userRemainingSeconds)}</span>
+                )}
+              </div>
+
+              {showFullScreen && (
+                <FullScreenOverlay
+                  setShowFullScreen={setShowFullScreen}
+                  isExpanded={isExpanded}
+                  setIsExpanded={setIsExpanded}
+                  transcription={transcription}
+                  minutes={minutes}
+                  audioURL={audioURL}
+                />
+              )}
+              {isProcessing && <ProgressIndicator progress={progress} />}
+            </div>
+          }
+        />
+
+        {/* サインアップ、ログイン、決済後のページ */}
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
+
+        {/* MinutesList のルート */}
+        <Route path="/minutes-list" element={<MinutesList />} />
+
+        {/* 404 */}
+        <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
