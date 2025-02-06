@@ -21,6 +21,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
 
 // 🔧 商品IDマッピング
+// unlimited の場合は文字列、それ以外は分数（数値）
 const PRODUCT_MAP = {
   [process.env.STRIPE_PRODUCT_UNLIMITED]: 'unlimited',
   [process.env.STRIPE_PRODUCT_120MIN]: 120,
@@ -34,51 +35,61 @@ for (const [key, value] of Object.entries(PRODUCT_MAP)) {
   }
 }
 
-// 🎯 `handleCheckoutSessionCompleted()` を定義（ここが追加部分！）
+// 🎯 Checkout Session 完了時の処理
 const handleCheckoutSessionCompleted = async (session) => {
   try {
-      console.log("🔍 Webhook received session:", session);
+    console.log("🔍 Webhook received session:", session);
 
-      const userId = session.client_reference_id;
-      const productId = session.metadata.product_id;
-      console.log("✅ userId:", userId);
-      console.log("✅ productId:", productId);
+    const userId = session.client_reference_id;
+    const productId = session.metadata.product_id;
+    console.log("✅ userId:", userId);
+    console.log("✅ productId:", productId);
 
-      // userId が取得できなければ処理を中断
-      if (!userId) {
-          console.error("❌ userId がセットされていません。Firebase の更新をスキップします。");
-          return;
-      }
+    // userId が取得できなければ処理を中断
+    if (!userId) {
+      console.error("❌ userId がセットされていません。Firebase の更新をスキップします。");
+      return;
+    }
 
-      const minutesToAdd = PRODUCT_MAP[productId];
-      if (!minutesToAdd) {
-          console.error(`❌ Unknown product_id: ${productId}`);
-          return;
-      }
+    const productValue = PRODUCT_MAP[productId];
+    if (!productValue) {
+      console.error(`❌ Unknown product_id: ${productId}`);
+      return;
+    }
 
-      const userRef = db.collection('users').doc(userId);
-      const userDoc = await userRef.get();
-      console.log("🔍 Firebase user document:", userDoc.exists ? userDoc.data() : "Document not found");
+    const userRef = db.collection('users').doc(userId);
+    const userDoc = await userRef.get();
+    console.log("🔍 Firebase user document:", userDoc.exists ? userDoc.data() : "Document not found");
 
-      if (!userDoc.exists) {
-          console.error(`❌ User not found in Firestore: ${userId}`);
-          return;
-      }
+    if (!userDoc.exists) {
+      console.error(`❌ User not found in Firestore: ${userId}`);
+      return;
+    }
 
-      const currentMinutes = userDoc.data().remainingMinutes || 0;
-      const newMinutes = currentMinutes + minutesToAdd;
+    // unlimited購入の場合：時間はそのままで、subscriptionフラグのみ更新
+    if (productValue === 'unlimited') {
+      await userRef.update({
+        subscription: true,
+        lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
+      });
+      console.log(`✅ Firebase updated: userId=${userId}, subscription enabled`);
+    } else {
+      // 数値の場合は購入された分数を秒に変換（分 * 60）
+      const secondsToAdd = productValue * 60;
+      // Firestoreでは、初期設定時に remainingSeconds で管理している前提
+      const currentSeconds = userDoc.data().remainingSeconds || 0;
+      const newSeconds = currentSeconds + secondsToAdd;
 
       await userRef.update({
-          remainingMinutes: newMinutes,
-          lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
+        remainingSeconds: newSeconds,
+        lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
       });
-
-      console.log(`✅ Firebase updated: userId=${userId}, addedMinutes=${minutesToAdd}`);
+      console.log(`✅ Firebase updated: userId=${userId}, addedSeconds=${secondsToAdd}`);
+    }
   } catch (error) {
-      console.error("❌ Error updating Firebase:", error);
+    console.error("❌ Error updating Firebase:", error);
   }
 };
-
 
 // 🎯 Webhook エンドポイント
 router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
@@ -101,10 +112,10 @@ router.post('/stripe', express.raw({ type: 'application/json' }), async (req, re
         await handleCheckoutSessionCompleted(event.data.object);
         break;
       case 'customer.subscription.updated':
-        // ここに `handleSubscriptionUpdated(event.data.object);` を追加予定
+        // ここに handleSubscriptionUpdated(event.data.object); を追加予定
         break;
       case 'customer.subscription.deleted':
-        // ここに `handleSubscriptionDeleted(event.data.object);` を追加予定
+        // ここに handleSubscriptionDeleted(event.data.object); を追加予定
         break;
       default:
         console.log(`⚠️ 未処理の Webhook イベント: ${event.type}`);
