@@ -39,12 +39,16 @@ const handleCheckoutSessionCompleted = async (session) => {
   try {
       console.log("🔍 Webhook received session:", session);
 
-      // クライアント側から送信されたユーザーIDを取得
       const userId = session.client_reference_id;
-      // メタデータから商品IDを取得
       const productId = session.metadata.product_id;
       console.log("✅ userId:", userId);
       console.log("✅ productId:", productId);
+
+      // userId が取得できなければ処理を中断
+      if (!userId) {
+          console.error("❌ userId がセットされていません。Firebase の更新をスキップします。");
+          return;
+      }
 
       const minutesToAdd = PRODUCT_MAP[productId];
       if (!minutesToAdd) {
