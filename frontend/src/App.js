@@ -11,7 +11,7 @@ import './App.css';
 
 // Firebase 関連のインポート
 import { db, auth } from './firebaseConfig';
-import { getFirestore, collection, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
@@ -37,8 +37,9 @@ function App() {
   // 議事録が保存済みかどうかを管理する state
   const [hasSavedRecord, setHasSavedRecord] = useState(false);
 
-  // ★ 追加: ユーザーのサブスクリプション情報と残秒数を保持する state
-  // 初期値は Firestore に書かれている値（例：7200）ではなく、仮の値として 180 を設定
+  // ★ ユーザーデータ取得完了かどうかを示す state（false の場合は表示しない）
+  const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
+  // ★ ユーザーのサブスクリプション情報と残秒数を保持する state
   const [userSubscription, setUserSubscription] = useState(false);
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(180);
 
@@ -76,6 +77,8 @@ function App() {
           console.error("ユーザーデータ取得エラー:", error);
         }
       }
+      // ユーザー情報のフェッチ完了（user がいなくても完了）
+      setIsUserDataLoaded(true);
     });
     return unsubscribe;
   }, []);
@@ -117,7 +120,7 @@ function App() {
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
 
-        // バックエンドに音声ファイルを送信し、transcriptionとminutesがセットされる
+        // バックエンドに音声ファイルを送信し、transcription と minutes をセット
         await transcribeAudio(
           file,
           setTranscription,
@@ -193,7 +196,7 @@ function App() {
 
     setAudioLevel(1);
 
-    // ★ カウントダウンの interval をクリアし、Firebaseに新たな残秒数を反映
+    // ★ カウントダウンの interval をクリアし、Firebase に新たな残秒数を反映
     if (!userSubscription) {
       if (timerIntervalRef.current) {
         clearInterval(timerIntervalRef.current);
@@ -227,23 +230,20 @@ function App() {
         const container = document.querySelector('.container');
         const existingRipples = container.getElementsByClassName('ripple');
 
-        // 波紋が存在しない場合のみ新しい波紋を作成
         if (existingRipples.length === 0) {
           const ripple = document.createElement('div');
           ripple.classList.add('ripple');
 
-          // .containerの中央に配置
+          // .container の中央に配置
           const containerRect = container.getBoundingClientRect();
           ripple.style.top = `${containerRect.height / 2}px`;
           ripple.style.left = `${containerRect.width / 2}px`;
 
           container.appendChild(ripple);
 
-          // アニメーション終了後に要素を削除し、新しい波紋を作成
           ripple.addEventListener('animationend', () => {
             ripple.remove();
 
-            // 音声レベルがまだ閾値を超えている場合は新しい波紋を作成
             if (normalizedRms > 1.5) {
               const newRipple = document.createElement('div');
               newRipple.classList.add('ripple');
@@ -265,7 +265,7 @@ function App() {
 
   // コンポーネントのアンマウント時に録音や interval を停止
   useEffect(() => {
-    const interval = progressIntervalRef.current; // ローカル変数にコピー
+    const interval = progressIntervalRef.current;
     return () => {
       stopRecording();
       clearInterval(interval);
@@ -332,67 +332,81 @@ function App() {
     <Router basename="/">
       {/* ルーティング用 */}
       <Routes>
-        {/* ホームページ */}
         <Route
           path="/"
           element={
-            <div className="container" style={{ backgroundColor: '#000', position: 'relative' }}>
-              {/* 左上に RxViewGrid ボタンを配置 */}
-              <button
-                onClick={() => {
-                  window.location.href = '/minutes-list';
-                }}
-                style={{
-                  position: 'absolute',
-                  top: 20,
-                  left: 30,
-                  background: 'none',
-                  border: 'none',
-                  color: 'white',
-                  fontSize: 30,
-                  cursor: 'pointer'
-                }}
-              >
-                <PiGridFourFill />
-              </button>
+            // ★ ZStack 的なイメージ：container を relative にし、
+            //   中央コンテンツはそのまま配置、残時間表示は absolute で下部中央に重ねる
+            <div className="container">
+              {/* 背景や中央のコンテンツ */}
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                {/* 左上のボタン */}
+                <button
+                  onClick={() => { window.location.href = '/minutes-list'; }}
+                  style={{
+                    position: 'absolute',
+                    top: 20,
+                    left: 30,
+                    background: 'none',
+                    border: 'none',
+                    color: 'white',
+                    fontSize: 30,
+                    cursor: 'pointer'
+                  }}
+                >
+                  <PiGridFourFill />
+                </button>
 
-              {!showFullScreen && <PurchaseMenu />}
-              <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
-                <div className="outer-circle"></div>
-              </div>
-              <div className="inner-container">
-                <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-                  <button
-                    className={`center-button ${isRecording ? 'recording' : ''}`}
-                    onClick={toggleRecording}
-                  ></button>
+                {!showFullScreen && <PurchaseMenu />}
+
+                <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
+                  <div className="outer-circle"></div>
                 </div>
-              </div>
-              {/* ★ 録音ボタンの下に残時間 or ♾️ マークを表示 */}
-              <div style={{ textAlign: 'center', marginTop: '20px', color: 'white', fontSize: '24px' }}>
-                {userSubscription ? (
-                  <span style={{
-                    background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent',
-                    fontSize: '48px'
-                  }}>♾️</span>
-                ) : (
-                  <span>{formatTime(userRemainingSeconds)}</span>
+                <div className="inner-container">
+                  <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
+                    <button
+                      className={`center-button ${isRecording ? 'recording' : ''}`}
+                      onClick={toggleRecording}
+                    ></button>
+                  </div>
+                </div>
+
+                {showFullScreen && (
+                  <FullScreenOverlay
+                    setShowFullScreen={setShowFullScreen}
+                    isExpanded={isExpanded}
+                    setIsExpanded={setIsExpanded}
+                    transcription={transcription}
+                    minutes={minutes}
+                    audioURL={audioURL}
+                  />
                 )}
+                {isProcessing && <ProgressIndicator progress={progress} />}
               </div>
 
-              {showFullScreen && (
-                <FullScreenOverlay
-                  setShowFullScreen={setShowFullScreen}
-                  isExpanded={isExpanded}
-                  setIsExpanded={setIsExpanded}
-                  transcription={transcription}
-                  minutes={minutes}
-                  audioURL={audioURL}
-                />
+              {/* ★ ユーザーデータが取得済みの場合のみ、残時間 or ♾️ マークを下部中央に表示 */}
+              {isUserDataLoaded && (
+                <div style={{
+                  position: 'absolute',
+                  bottom: 20,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  color: 'white',
+                  fontSize: '24px',
+                  zIndex: 10
+                }}>
+                  {userSubscription ? (
+                    <span style={{
+                      background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                      WebkitBackgroundClip: 'text',
+                      color: 'transparent',
+                      fontSize: '48px'
+                    }}>♾️</span>
+                  ) : (
+                    <span>{formatTime(userRemainingSeconds)}</span>
+                  )}
+                </div>
               )}
-              {isProcessing && <ProgressIndicator progress={progress} />}
             </div>
           }
         />
