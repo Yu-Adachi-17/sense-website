@@ -225,40 +225,6 @@ function App() {
       const alpha = 0.2;
       setAudioLevel((prev) => alpha * normalizedRms + (1 - alpha) * prev);
 
-      // 閾値を超えた場合に波紋を生成
-      // if (normalizedRms > 1.5) {
-      //   const container = document.querySelector('.container');
-      //   const existingRipples = container.getElementsByClassName('ripple');
-
-      //   if (existingRipples.length === 0) {
-      //     const ripple = document.createElement('div');
-      //     ripple.classList.add('ripple');
-
-      //     // .container の中央に配置
-      //     const containerRect = container.getBoundingClientRect();
-      //     ripple.style.top = `${containerRect.height / 2}px`;
-      //     ripple.style.left = `${containerRect.width / 2}px`;
-
-      //     container.appendChild(ripple);
-
-      //     ripple.addEventListener('animationend', () => {
-      //       ripple.remove();
-
-      //       if (normalizedRms > 1.5) {
-      //         const newRipple = document.createElement('div');
-      //         newRipple.classList.add('ripple');
-      //         newRipple.style.top = `${containerRect.height / 2}px`;
-      //         newRipple.style.left = `${containerRect.width / 2}px`;
-      //         container.appendChild(newRipple);
-
-      //         newRipple.addEventListener('animationend', () => {
-      //           newRipple.remove();
-      //         });
-      //       }
-      //     });
-      //   }
-      // }
-
       animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
     }
   };
@@ -337,77 +303,81 @@ function App() {
           element={
             // ★ ZStack 的なイメージ：container を relative にし、
             //   中央コンテンツはそのまま配置、残時間表示は absolute で下部中央に重ねる
-            <div className="container">
-              {/* 背景や中央のコンテンツ */}
-              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                {/* 左上のボタン */}
-                <button
-                  onClick={() => { window.location.href = '/minutes-list'; }}
-                  style={{
-                    position: 'absolute',
-                    top: 20,
-                    left: 30,
-                    background: 'none',
-                    border: 'none',
-                    color: 'white',
-                    fontSize: 30,
-                    cursor: 'pointer'
-                  }}
-                >
-                  <PiGridFourFill />
-                </button>
+<div className="container">
+  {/* 背景や中央のコンテンツ */}
+  <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+    {/* 左上のボタンなど */}
+    <button
+      onClick={() => { window.location.href = '/minutes-list'; }}
+      style={{
+        position: 'absolute',
+        top: 20,
+        left: 30,
+        background: 'none',
+        border: 'none',
+        color: 'white',
+        fontSize: 30,
+        cursor: 'pointer'
+      }}
+    >
+      <PiGridFourFill />
+    </button>
 
-                {!showFullScreen && <PurchaseMenu />}
+    {!showFullScreen && <PurchaseMenu />}
 
-                <div className="outer-gradient" style={{ transform: `scale(${audioLevel})` }}>
-                  <div className="outer-circle"></div>
-                </div>
-                <div className="inner-container">
-                  <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-                    <button
-                      className={`center-button ${isRecording ? 'recording' : ''}`}
-                      onClick={toggleRecording}
-                    ></button>
-                  </div>
-                </div>
+    {/* outer-gradient を中央に配置 */}
+    <div
+      className="outer-gradient"
+      style={{ transform: `translate(-50%, -50%) scale(${audioLevel})` }}
+    >
+      <div className="outer-circle"></div>
+    </div>
 
-                {showFullScreen && (
-                  <FullScreenOverlay
-                    setShowFullScreen={setShowFullScreen}
-                    isExpanded={isExpanded}
-                    setIsExpanded={setIsExpanded}
-                    transcription={transcription}
-                    minutes={minutes}
-                    audioURL={audioURL}
-                  />
-                )}
-                {isProcessing && <ProgressIndicator progress={progress} />}
-              </div>
+    <div className="inner-container">
+      <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
+        <button
+          className={`center-button ${isRecording ? 'recording' : ''}`}
+          onClick={toggleRecording}
+        ></button>
+      </div>
+    </div>
 
-              {/* ★ ユーザーデータが取得済みの場合のみ、残時間 or ♾️ マークを下部中央に表示 */}
-              {isUserDataLoaded && (
-                <div style={{
-                  position: 'absolute',
-                  bottom: 20,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  color: 'white',
-                  fontSize: '24px',
-                  zIndex: 10
-                }}>
-                  {userSubscription ? (
-                    <span style={{
-                      background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                      WebkitBackgroundClip: 'text',
-                      color: 'transparent',
-                      fontSize: '48px'
-                    }}>♾️</span>
-                  ) : (
-                    <span>{formatTime(userRemainingSeconds)}</span>
-                  )}
-                </div>
-              )}
-            </div>
+    {showFullScreen && (
+      <FullScreenOverlay
+        setShowFullScreen={setShowFullScreen}
+        isExpanded={isExpanded}
+        setIsExpanded={setIsExpanded}
+        transcription={transcription}
+        minutes={minutes}
+        audioURL={audioURL}
+      />
+    )}
+    {isProcessing && <ProgressIndicator progress={progress} />}
+  </div>
+
+  {isUserDataLoaded && (
+    <div style={{
+      position: 'absolute',
+      bottom: 20,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      color: 'white',
+      fontSize: '24px',
+      zIndex: 10
+    }}>
+      {userSubscription ? (
+        <span style={{
+          background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+          WebkitBackgroundClip: 'text',
+          color: 'transparent',
+          fontSize: '48px'
+        }}>♾️</span>
+      ) : (
+        <span>{formatTime(userRemainingSeconds)}</span>
+      )}
+    </div>
+  )}
+</div>
           }
         />
 
