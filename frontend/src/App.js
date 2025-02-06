@@ -226,38 +226,38 @@ function App() {
       setAudioLevel((prev) => alpha * normalizedRms + (1 - alpha) * prev);
 
       // 閾値を超えた場合に波紋を生成
-      if (normalizedRms > 1.5) {
-        const container = document.querySelector('.container');
-        const existingRipples = container.getElementsByClassName('ripple');
+      // if (normalizedRms > 1.5) {
+      //   const container = document.querySelector('.container');
+      //   const existingRipples = container.getElementsByClassName('ripple');
 
-        if (existingRipples.length === 0) {
-          const ripple = document.createElement('div');
-          ripple.classList.add('ripple');
+      //   if (existingRipples.length === 0) {
+      //     const ripple = document.createElement('div');
+      //     ripple.classList.add('ripple');
 
-          // .container の中央に配置
-          const containerRect = container.getBoundingClientRect();
-          ripple.style.top = `${containerRect.height / 2}px`;
-          ripple.style.left = `${containerRect.width / 2}px`;
+      //     // .container の中央に配置
+      //     const containerRect = container.getBoundingClientRect();
+      //     ripple.style.top = `${containerRect.height / 2}px`;
+      //     ripple.style.left = `${containerRect.width / 2}px`;
 
-          container.appendChild(ripple);
+      //     container.appendChild(ripple);
 
-          ripple.addEventListener('animationend', () => {
-            ripple.remove();
+      //     ripple.addEventListener('animationend', () => {
+      //       ripple.remove();
 
-            if (normalizedRms > 1.5) {
-              const newRipple = document.createElement('div');
-              newRipple.classList.add('ripple');
-              newRipple.style.top = `${containerRect.height / 2}px`;
-              newRipple.style.left = `${containerRect.width / 2}px`;
-              container.appendChild(newRipple);
+      //       if (normalizedRms > 1.5) {
+      //         const newRipple = document.createElement('div');
+      //         newRipple.classList.add('ripple');
+      //         newRipple.style.top = `${containerRect.height / 2}px`;
+      //         newRipple.style.left = `${containerRect.width / 2}px`;
+      //         container.appendChild(newRipple);
 
-              newRipple.addEventListener('animationend', () => {
-                newRipple.remove();
-              });
-            }
-          });
-        }
-      }
+      //         newRipple.addEventListener('animationend', () => {
+      //           newRipple.remove();
+      //         });
+      //       }
+      //     });
+      //   }
+      // }
 
       animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
     }
