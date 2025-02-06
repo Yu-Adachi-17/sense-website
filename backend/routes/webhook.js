@@ -36,43 +36,45 @@ for (const [key, value] of Object.entries(PRODUCT_MAP)) {
 
 // 🎯 `handleCheckoutSessionCompleted()` を定義（ここが追加部分！）
 const handleCheckoutSessionCompleted = async (session) => {
-    try {
-      console.log("🔍 Webhook received session:", session); // セッションデータを確認
-  
-      const userId = session.client_reference_id; // クライアント側から送信されたユーザーID
-      const productId = session.metadata.product_id; // メタデータから商品IDを取得
+  try {
+      console.log("🔍 Webhook received session:", session);
+
+      // クライアント側から送信されたユーザーIDを取得
+      const userId = session.client_reference_id;
+      // メタデータから商品IDを取得
+      const productId = session.metadata.product_id;
       console.log("✅ userId:", userId);
       console.log("✅ productId:", productId);
-  
+
       const minutesToAdd = PRODUCT_MAP[productId];
       if (!minutesToAdd) {
-        console.error(`❌ Unknown product_id: ${productId}`);
-        return;
+          console.error(`❌ Unknown product_id: ${productId}`);
+          return;
       }
-  
+
       const userRef = db.collection('users').doc(userId);
       const userDoc = await userRef.get();
       console.log("🔍 Firebase user document:", userDoc.exists ? userDoc.data() : "Document not found");
-  
+
       if (!userDoc.exists) {
-        console.error(`❌ User not found in Firestore: ${userId}`);
-        return;
+          console.error(`❌ User not found in Firestore: ${userId}`);
+          return;
       }
-  
+
       const currentMinutes = userDoc.data().remainingMinutes || 0;
       const newMinutes = currentMinutes + minutesToAdd;
-  
+
       await userRef.update({
-        remainingMinutes: newMinutes,
-        lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
+          remainingMinutes: newMinutes,
+          lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
       });
-  
+
       console.log(`✅ Firebase updated: userId=${userId}, addedMinutes=${minutesToAdd}`);
-    } catch (error) {
+  } catch (error) {
       console.error("❌ Error updating Firebase:", error);
-    }
-  };
-  
+  }
+};
+
 
 // 🎯 Webhook エンドポイント
 router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
