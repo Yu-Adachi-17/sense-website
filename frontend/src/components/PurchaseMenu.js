@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import firebase from 'firebase/app'; // Firebase をインポート
-import 'firebase/auth'; // Firebase Authentication をインポート
+import * as firebase from 'firebase/app'; // ✅ 名前空間インポートに変更
+import 'firebase/auth'; // ✅ こちらは変更なし
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTicketAlt, FaCircle } from "react-icons/fa"; // ✅ チケットアイコンと処理中マーク
 
@@ -22,7 +22,7 @@ export function PurchaseMenu() {
 
     // ✅ Firebase 認証状態を監視し、userId を取得 (useEffect を使用)
     useEffect(() => {
-        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => { // ✅ firebase.auth() は変更なし
             if (user) {
                 // ユーザーがログインしている場合、UID を取得し state にセット
                 setUserId(user.uid);
