@@ -355,28 +355,30 @@ function App() {
     {isProcessing && <ProgressIndicator progress={progress} />}
   </div>
 
-  {isUserDataLoaded && (
-    <div style={{
-      position: 'absolute',
-      bottom: 20,
-      left: '50%',
-      transform: 'translateX(-50%)',
-      color: 'white',
-      fontSize: '24px',
-      zIndex: 10
-    }}>
-      {userSubscription ? (
-        <span style={{
-          background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-          WebkitBackgroundClip: 'text',
-          color: 'transparent',
-          fontSize: '48px'
-        }}>♾️</span>
-      ) : (
-        <span>{formatTime(userRemainingSeconds)}</span>
-      )}
-    </div>
-  )}
+  // App.js（抜粋）
+{isUserDataLoaded && (
+  <div style={{
+    position: 'absolute',
+    bottom: 'calc((50vh - 160px) / 2)',  // ← ここで下端と外側サークル下端の中間に配置
+    left: '50%',
+    transform: 'translateX(-50%)',
+    color: 'white',
+    fontSize: '24px',
+    zIndex: 10
+  }}>
+    {userSubscription ? (
+      <span style={{
+        background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+        fontSize: '48px'
+      }}>♾️</span>
+    ) : (
+      <span>{formatTime(userRemainingSeconds)}</span>
+    )}
+  </div>
+)}
+
 </div>
           }
         />
