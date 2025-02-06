@@ -1,218 +1,227 @@
+// src/components/PurchaseMenu.js
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as firebase from 'firebase/app'; // ✅ 名前空間インポートに変更
-import 'firebase/auth'; // ✅ こちらは変更なし
+// firebaseConfig.js が src/ にある場合、components からは ../firebaseConfig になります
+import { auth } from "../firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaTicketAlt, FaCircle } from "react-icons/fa"; // ✅ チケットアイコンと処理中マーク
+import { FaTicketAlt, FaCircle } from "react-icons/fa"; // チケットアイコンと処理中マーク
 
 export function PurchaseMenu() {
-    const [showSideMenu, setShowSideMenu] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-    const [loading, setLoading] = useState(false);
-    const [userId, setUserId] = useState(null); // ✅ userId を保持するステート変数を追加
-    const navigate = useNavigate(); // ✅ ページ遷移用
+  const [showSideMenu, setShowSideMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [loading, setLoading] = useState(false);
+  const [userId, setUserId] = useState(null); // ユーザーID保持用の state
+  const navigate = useNavigate(); // ページ遷移用
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    // ✅ Firebase 認証状態を監視し、userId を取得 (useEffect を使用)
-    useEffect(() => {
-        const unsubscribe = firebase.auth().onAuthStateChanged(user => { // ✅ firebase.auth() は変更なし
-            if (user) {
-                // ユーザーがログインしている場合、UID を取得し state にセット
-                setUserId(user.uid);
-                console.log("✅ Firebase ログインユーザーの UID:", user.uid); // デバッグログ
-            } else {
-                // ユーザーがログアウトしている場合、userId を null に設定
-                setUserId(null);
-                console.log("❌ ユーザーはログアウトしています。"); // デバッグログ
-            }
-        });
-
-        // コンポーネントがアンマウントされたら監視を解除
-        return () => unsubscribe();
-    }, []); // 空の依存配列を渡して、マウント時のみ実行
-
-    // ✅ 環境変数チェック
-    useEffect(() => {
-        console.log("🔍 環境変数チェック:");
-        console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
-        console.log("REACT_APP_STRIPE_PRODUCT_1200MIN:", process.env.REACT_APP_STRIPE_PRODUCT_1200MIN);
-        console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
-    }, []); // コンポーネントマウント時に実行
-
-    // ✅ 商品購入ボタンのクリック処理（購入する商品を指定）
-    const handleBuyClick = async (productId) => {
-        console.log("✅ 送信する productId:", productId); // デバッグ用ログ
-        if (!productId) {
-            console.error("❌ productId が undefined です！環境変数を確認してください。");
-            return;
-        }
-
-        if (!userId) { // ✅ userId が取得できているか確認 (ログインしていない場合は処理を中断)
-            console.error("❌ userId が取得できません。ログイン状態を確認してください。");
-            alert("購入処理を行うにはログインが必要です。"); // 例：ログインを促すアラートを表示
-            return; // 購入処理を中断
-        }
-
-        setLoading(true);
-        try {
-            const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ productId, userId }), // ✅ リクエストボディに userId を追加！
-                credentials: "include",
-            });
-
-            const data = await response.json();
-            console.log("[DEBUG] Stripe Response:", data);
-            if (data.url) {
-                window.location.href = data.url;
-            } else {
-                console.error("[ERROR] Checkout session URL not found", data);
-            }
-        } catch (error) {
-            console.error("[ERROR] Error during checkout:", error);
-        } finally {
-            setLoading(false);
-        }
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
     };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
+  // Firebase の認証状態を監視して userId を取得
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserId(user.uid);
+        console.log("✅ Firebase ログインユーザーの UID:", user.uid);
+      } else {
+        setUserId(null);
+        console.log("❌ ユーザーはログアウトしています。");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
-    const styles = {
-        hamburgerButton: {
-            position: "fixed",
-            top: "20px",
-            right: "30px",
-            fontSize: "30px",
-            background: "none",
-            border: "none",
-            color: "#FFFFFF",
-            cursor: "pointer",
-            zIndex: 1300,
-        },
-        sideMenuOverlay: {
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "rgba(0, 0, 0, 0.5)",
-            zIndex: 1100,
-            display: showSideMenu ? "block" : "none",
-            transition: "opacity 0.5s ease",
-            opacity: showSideMenu ? 1 : 0,
-        },
-        sideMenu: {
-            position: "fixed",
-            top: 0,
-            right: 0,
-            width: isMobile ? "66.66%" : "33%",
-            height: "100%",
-            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(128, 128, 128, 0.2))",
-            color: "#FFF",
-            padding: "20px",
-            boxSizing: "border-box",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            zIndex: 1200,
-            transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
-            transition: "transform 0.5s ease-out",
-        },
-        loginButton: {
-            backgroundColor: "#fff",
-            color: "#000",
-            padding: "10px 20px",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "16px",
-            fontWeight: "bold",
-            marginBottom: "20px", // ✅ アイテム購入ボタンとの間隔を調整
-        },
-        buyButton: {
-            backgroundColor: "transparent",
-            border: "none",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            fontSize: "16px",
-            fontWeight: "bold",
-            opacity: loading ? 0.7 : 1,
-            marginTop: "10px", // ✅ ログインボタンの下に配置
-            marginLeft: "10px",
-        },
-        ticketIcon: {
-            color: "yellow",
-            fontSize: "20px",
-            marginRight: "8px",
-            opacity: loading ? 0.7 : 1,
-        },
-        text: {
-            color: "yellow",
-            fontSize: "16px",
-            fontWeight: "bold",
-            opacity: loading ? 0.7 : 1,
-        },
-        loadingIcon: {
-            color: "orange",
-            fontSize: "7px",
-            marginLeft: "8px",
-        },
-    };
+  // 環境変数のチェック
+  useEffect(() => {
+    console.log("🔍 環境変数チェック:");
+    console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
+    console.log("REACT_APP_STRIPE_PRODUCT_1200MIN:", process.env.REACT_APP_STRIPE_PRODUCT_1200MIN);
+    console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
+  }, []);
 
-    const stopPropagation = (e) => {
-        e.stopPropagation();
-    };
+  // 商品購入ボタンのクリック処理（購入する商品を指定）
+  const handleBuyClick = async (productId) => {
+    console.log("✅ 送信する productId:", productId);
+    if (!productId) {
+      console.error("❌ productId が undefined です！環境変数を確認してください。");
+      return;
+    }
 
-    return (
-        <>
-            {/* 右上のハンバーガーメニューアイコン */}
-            <button style={styles.hamburgerButton} onClick={() => setShowSideMenu(true)}>
-                <GiHamburgerMenu size={24} />
+    if (!userId) {
+      console.error("❌ userId が取得できません。ログイン状態を確認してください。");
+      alert("購入処理を行うにはログインが必要です。");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ productId, userId }),
+        credentials: "include",
+      });
+
+      const data = await response.json();
+      console.log("[DEBUG] Stripe Response:", data);
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("[ERROR] Checkout session URL not found", data);
+      }
+    } catch (error) {
+      console.error("[ERROR] Error during checkout:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const styles = {
+    hamburgerButton: {
+      position: "fixed",
+      top: "20px",
+      right: "30px",
+      fontSize: "30px",
+      background: "none",
+      border: "none",
+      color: "#FFFFFF",
+      cursor: "pointer",
+      zIndex: 1300,
+    },
+    sideMenuOverlay: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0, 0, 0, 0.5)",
+      zIndex: 1100,
+      display: showSideMenu ? "block" : "none",
+      transition: "opacity 0.5s ease",
+      opacity: showSideMenu ? 1 : 0,
+    },
+    sideMenu: {
+      position: "fixed",
+      top: 0,
+      right: 0,
+      width: isMobile ? "66.66%" : "33%",
+      height: "100%",
+      background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(128, 128, 128, 0.2))",
+      color: "#FFF",
+      padding: "20px",
+      boxSizing: "border-box",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      zIndex: 1200,
+      transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
+      transition: "transform 0.5s ease-out",
+    },
+    loginButton: {
+      backgroundColor: "#fff",
+      color: "#000",
+      padding: "10px 20px",
+      borderRadius: "5px",
+      cursor: "pointer",
+      fontSize: "16px",
+      fontWeight: "bold",
+      marginBottom: "20px",
+    },
+    buyButton: {
+      backgroundColor: "transparent",
+      border: "none",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      fontSize: "16px",
+      fontWeight: "bold",
+      opacity: loading ? 0.7 : 1,
+      marginTop: "10px",
+      marginLeft: "10px",
+    },
+    ticketIcon: {
+      color: "yellow",
+      fontSize: "20px",
+      marginRight: "8px",
+      opacity: loading ? 0.7 : 1,
+    },
+    text: {
+      color: "yellow",
+      fontSize: "16px",
+      fontWeight: "bold",
+      opacity: loading ? 0.7 : 1,
+    },
+    loadingIcon: {
+      color: "orange",
+      fontSize: "7px",
+      marginLeft: "8px",
+    },
+  };
+
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
+  return (
+    <>
+      {/* 右上のハンバーガーメニューアイコン */}
+      <button style={styles.hamburgerButton} onClick={() => setShowSideMenu(true)}>
+        <GiHamburgerMenu size={24} />
+      </button>
+
+      {/* サイドメニュー用オーバーレイ */}
+      {showSideMenu && (
+        <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
+          <div style={styles.sideMenu} onClick={stopPropagation}>
+            {/* ログインボタン */}
+            <button style={styles.loginButton} onClick={() => navigate("/login")}>
+              ログイン
             </button>
 
-            {/* サイドメニュー用オーバーレイ */}
-            {showSideMenu && (
-                <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
-                    <div style={styles.sideMenu} onClick={stopPropagation}>
-                        {/* ✅ 追加：ログインボタン */}
-                        <button style={styles.loginButton} onClick={() => navigate("/login")}>
-                            ログイン
-                        </button>
+            {/* 「120分を買う」ボタン */}
+            <button
+              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
+              style={styles.buyButton}
+              disabled={loading}
+            >
+              <FaTicketAlt style={styles.ticketIcon} />
+              <span style={styles.text}>120分を買う</span>
+              {loading && <FaCircle style={styles.loadingIcon} />}
+            </button>
 
-                        {/* ✅ 「120分を買う」ボタン */}
-                        <button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)} style={styles.buyButton} disabled={loading}>
-                            <FaTicketAlt style={styles.ticketIcon} />
-                            <span style={styles.text}>120分を買う</span>
-                            {loading && <FaCircle style={styles.loadingIcon} />}
-                        </button>
+            {/* 「1200分を買う」ボタン */}
+            <button
+              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
+              style={styles.buyButton}
+              disabled={loading}
+            >
+              <FaTicketAlt style={styles.ticketIcon} />
+              <span style={styles.text}>1200分を買う</span>
+              {loading && <FaCircle style={styles.loadingIcon} />}
+            </button>
 
-                        {/* ✅ 「1200分を買う」ボタン */}
-                        <button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)} style={styles.buyButton} disabled={loading}>
-                            <FaTicketAlt style={styles.ticketIcon} />
-                            <span style={styles.text}>1200分を買う</span>
-                            {loading && <FaCircle style={styles.loadingIcon} />}
-                        </button>
-
-                        {/* ✅ 「サブスクリプションに登録」ボタン */}
-                        <button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)} style={styles.buyButton} disabled={loading}>
-                            <FaTicketAlt style={styles.ticketIcon} />
-                            <span style={styles.text}>サブスクリプションに登録</span>
-                            {loading && <FaCircle style={styles.loadingIcon} />}
-                        </button>
-                    </div>
-                </div>
-            )}
-        </>
-    );
+            {/* 「サブスクリプションに登録」ボタン */}
+            <button
+              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
+              style={styles.buyButton}
+              disabled={loading}
+            >
+              <FaTicketAlt style={styles.ticketIcon} />
+              <span style={styles.text}>サブスクリプションに登録</span>
+              {loading && <FaCircle style={styles.loadingIcon} />}
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
 
 export default PurchaseMenu;
