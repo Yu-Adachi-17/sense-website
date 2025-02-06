@@ -14,6 +14,10 @@ const Stripe = require('stripe'); // Stripeライブラリのインポート
 const webhookRouter = require('./routes/webhook');
 const app = express();
 
+// ✅ Webhook 用ルートを登録
+app.use('/api', webhookRouter);
+
+
 app.use(express.json()); // ✅ JSONリクエストをパース
 
 // ✅ 許可するオリジンを定義
@@ -163,8 +167,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// ✅ Webhook 用ルートを登録
-app.use('/api', webhookRouter);
 
 // ✅ APIエンドポイント定義
 app.get('/api/hello', (req, res) => {
