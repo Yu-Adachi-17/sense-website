@@ -234,8 +234,9 @@ app.post('/api/transcribe', (req, res) => {
 // ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const { productId } = req.body;
+        const { productId, userId } = req.body; // クライアント側から userId も渡すようにする
         console.log("✅ 受信した productId:", productId);
+        console.log("✅ 受信した userId:", userId);
 
         // 環境変数から Stripe の Price ID を取得
         const PRICE_MAP = {
@@ -264,6 +265,11 @@ app.post('/api/create-checkout-session', async (req, res) => {
                     quantity: 1,
                 },
             ],
+            // ここでユーザーIDや商品情報をセット
+            client_reference_id: userId, // クライアント側から渡されたユーザーID
+            metadata: {
+                product_id: productId  // 購入した商品の ID
+            },
             success_url: 'https://sense-ai.world/success',
             cancel_url: 'https://sense-ai.world/cancel',
         });
