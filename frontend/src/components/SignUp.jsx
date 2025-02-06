@@ -31,10 +31,12 @@ const SignUp = () => {
       // Firestore にユーザードキュメントを作成（初期値 remainingMinutes: 0 など）
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
+        subscription: false, // 初期状態では未加入
         displayName: user.displayName || "",
-        remainingMinutes: 0,  // 初期値（必要に応じて変更してください）
+        remainingSeconds: 180, // 初期値: 180秒 (秒単位のInt)
         createdAt: serverTimestamp(),
       });
+      
       console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
 
       // メール認証を送信
