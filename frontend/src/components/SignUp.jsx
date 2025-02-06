@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore"; // Firestore のインポート
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
@@ -7,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 
 const auth = getAuth(app);
+const db = getFirestore(app); // Firestore 初期化
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -14,20 +16,33 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
-  const [alertMessage, setAlertMessage] = useState(""); // ✅ 修正: メッセージの状態を保持
-  const [showAlert, setShowAlert] = useState(false); // ✅ 修正: アラート表示の状態を管理
+  const [alertMessage, setAlertMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
 
   // Email サインアップ処理
   const handleSignUp = async () => {
     if (!email || !password) return;
     setIsLoading(true);
     try {
+      // ユーザー作成
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await sendEmailVerification(userCredential.user);
+      const user = userCredential.user;
+      
+      // Firestore にユーザードキュメントを作成（初期値 remainingMinutes: 0 など）
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        displayName: user.displayName || "",
+        remainingMinutes: 0,  // 初期値（必要に応じて変更してください）
+        createdAt: serverTimestamp(),
+      });
+      console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
+
+      // メール認証を送信
+      await sendEmailVerification(user);
       setIsSignUpSuccess(true); // サインアップ成功
     } catch (error) {
       setAlertMessage(error.message);
-      setShowAlert(true); // ✅ 修正: アラートを表示
+      setShowAlert(true);
     } finally {
       setIsLoading(false);
     }
@@ -41,7 +56,7 @@ const SignUp = () => {
       setIsSignUpSuccess(true); // サインイン成功
     } catch (error) {
       setAlertMessage("Googleサインインに失敗しました");
-      setShowAlert(true); // ✅ 修正: アラートを表示
+      setShowAlert(true);
     } finally {
       setIsLoading(false);
     }
@@ -55,7 +70,7 @@ const SignUp = () => {
       setIsSignUpSuccess(true); // サインイン成功
     } catch (error) {
       setAlertMessage("Appleサインインに失敗しました");
-      setShowAlert(true); // ✅ 修正: アラートを表示
+      setShowAlert(true);
     } finally {
       setIsLoading(false);
     }
