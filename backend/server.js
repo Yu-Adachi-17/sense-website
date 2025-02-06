@@ -234,7 +234,8 @@ app.post('/api/transcribe', (req, res) => {
 // ✅ Stripe Checkout Session作成エンドポイントの追加
 app.post('/api/create-checkout-session', async (req, res) => {
     try {
-        const { productId, userId } = req.body; // クライアント側から userId も渡すようにする
+        // クライアントから productId と userId を受け取る
+        const { productId, userId } = req.body;
         console.log("✅ 受信した productId:", productId);
         console.log("✅ 受信した userId:", userId);
 
@@ -255,7 +256,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
         // モードを判定（Unlimited は `subscription`、その他は `payment`）
         const mode = productId === process.env.STRIPE_PRODUCT_UNLIMITED ? 'subscription' : 'payment';
 
-        // Stripe セッションを作成
+        // Checkout Session 作成時に client_reference_id と metadata に値をセットする
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             mode: mode,
@@ -265,10 +266,9 @@ app.post('/api/create-checkout-session', async (req, res) => {
                     quantity: 1,
                 },
             ],
-            // ここでユーザーIDや商品情報をセット
-            client_reference_id: userId, // クライアント側から渡されたユーザーID
+            client_reference_id: userId, // ユーザーIDをここにセット
             metadata: {
-                product_id: productId  // 購入した商品の ID
+                product_id: productId  // 商品IDをセット
             },
             success_url: 'https://sense-ai.world/success',
             cancel_url: 'https://sense-ai.world/cancel',
