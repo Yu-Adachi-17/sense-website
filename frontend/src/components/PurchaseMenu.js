@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import firebase from 'firebase/app'; // Firebase をインポート
+import 'firebase/auth'; // Firebase Authentication をインポート
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTicketAlt, FaCircle } from "react-icons/fa"; // ✅ チケットアイコンと処理中マーク
 
@@ -7,6 +9,7 @@ export function PurchaseMenu() {
     const [showSideMenu, setShowSideMenu] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [loading, setLoading] = useState(false);
+    const [userId, setUserId] = useState(null); // ✅ userId を保持するステート変数を追加
     const navigate = useNavigate(); // ✅ ページ遷移用
 
     useEffect(() => {
@@ -17,13 +20,31 @@ export function PurchaseMenu() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-        // ✅ 環境変数チェック
-        useEffect(() => {
-            console.log("🔍 環境変数チェック:");
-            console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
-            console.log("REACT_APP_STRIPE_PRODUCT_1200MIN:", process.env.REACT_APP_STRIPE_PRODUCT_1200MIN);
-            console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
-        }, []); // コンポーネントマウント時に実行
+    // ✅ Firebase 認証状態を監視し、userId を取得 (useEffect を使用)
+    useEffect(() => {
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // ユーザーがログインしている場合、UID を取得し state にセット
+                setUserId(user.uid);
+                console.log("✅ Firebase ログインユーザーの UID:", user.uid); // デバッグログ
+            } else {
+                // ユーザーがログアウトしている場合、userId を null に設定
+                setUserId(null);
+                console.log("❌ ユーザーはログアウトしています。"); // デバッグログ
+            }
+        });
+
+        // コンポーネントがアンマウントされたら監視を解除
+        return () => unsubscribe();
+    }, []); // 空の依存配列を渡して、マウント時のみ実行
+
+    // ✅ 環境変数チェック
+    useEffect(() => {
+        console.log("🔍 環境変数チェック:");
+        console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
+        console.log("REACT_APP_STRIPE_PRODUCT_1200MIN:", process.env.REACT_APP_STRIPE_PRODUCT_1200MIN);
+        console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
+    }, []); // コンポーネントマウント時に実行
 
     // ✅ 商品購入ボタンのクリック処理（購入する商品を指定）
     const handleBuyClick = async (productId) => {
@@ -32,7 +53,13 @@ export function PurchaseMenu() {
             console.error("❌ productId が undefined です！環境変数を確認してください。");
             return;
         }
-    
+
+        if (!userId) { // ✅ userId が取得できているか確認 (ログインしていない場合は処理を中断)
+            console.error("❌ userId が取得できません。ログイン状態を確認してください。");
+            alert("購入処理を行うにはログインが必要です。"); // 例：ログインを促すアラートを表示
+            return; // 購入処理を中断
+        }
+
         setLoading(true);
         try {
             const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
@@ -40,10 +67,10 @@ export function PurchaseMenu() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ productId }), // ✅ 送信データをログ出力
+                body: JSON.stringify({ productId, userId }), // ✅ リクエストボディに userId を追加！
                 credentials: "include",
             });
-    
+
             const data = await response.json();
             console.log("[DEBUG] Stripe Response:", data);
             if (data.url) {
@@ -57,7 +84,7 @@ export function PurchaseMenu() {
             setLoading(false);
         }
     };
-    
+
 
     const styles = {
         hamburgerButton: {
