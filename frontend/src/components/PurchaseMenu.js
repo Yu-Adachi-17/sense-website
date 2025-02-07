@@ -234,45 +234,52 @@ export function PurchaseMenu() {
     },
     // プロフィールオーバーレイ（プロフィールアイコンタップ時）
     profileOverlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      background: "rgba(0, 0, 0, 0.5)",
-      zIndex: 1400,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    // プロフィールモーダル本体
-    profileModal: {
-      width: "300px",
-      height: "400px",
-      background: "#FFF",
-      borderRadius: "8px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: "20px",
-      boxSizing: "border-box",
-    },
-    // 各オーバーレイ共通の「閉じる」ボタン
-    closeButton: {
-      background: "transparent",
-      border: "none",
-      fontSize: "16px",
-      alignSelf: "flex-end",
-      cursor: "pointer",
-      marginBottom: "10px",
-    },
-    // プロフィール情報表示用
-    profileInfo: {
-      textAlign: "center",
-      fontSize: "16px",
-      color: "#000",
-    },
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        background: "rgba(0, 0, 0, 0.9)", // 背景を黒に（少し透過）
+        zIndex: 1400,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      },
+      profileModal: {
+        width: "300px",
+        height: "400px",
+        background: "rgba(20, 20, 20, 1)", // ダークグレーで高級感を
+        borderRadius: "8px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "20px",
+        boxSizing: "border-box",
+        position: "relative",
+      },
+      logoutButton: {
+        position: "absolute",
+        top: "10px",
+        right: "10px",
+        background: "none",
+        border: "none",
+        color: "#FFF",
+        fontSize: "14px",
+        fontFamily: "Impact, sans-serif",
+        cursor: "pointer",
+      },
+      profileIcon: {
+        fontSize: "80px", // 大きめのアイコン
+        color: "gray",
+        marginBottom: "20px",
+        marginTop: "10%", // 上部1/3あたりに配置
+      },
+      profileInfo: {
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#FFF",
+        fontFamily: "Impact, sans-serif",
+      },
   };
 
   // クリックイベントのバブリング防止用
@@ -300,7 +307,7 @@ export function PurchaseMenu() {
       {/* トップ右のハンバーガー／プロフィールボタン */}
       <button style={styles.hamburgerButton} onClick={handleHamburgerClick}>
         {showSideMenu ? (
-          <IoPersonCircleOutline size={24} />
+          <IoPersonCircleOutline size={30} />
         ) : (
           <GiHamburgerMenu size={24} />
         )}
@@ -374,20 +381,39 @@ export function PurchaseMenu() {
         </div>
       )}
 
-      {/* プロフィールオーバーレイ */}
-      {showProfileOverlay && (
-        <div style={styles.profileOverlay} onClick={() => setShowProfileOverlay(false)}>
-          <div style={styles.profileModal} onClick={stopPropagation}>
-            <button style={styles.closeButton} onClick={() => setShowProfileOverlay(false)}>
-              閉じる
-            </button>
-            <div style={styles.profileInfo}>
-              <p>Email: {userEmail}</p>
-              <p>Remaining Seconds: {profileRemainingSeconds}</p>
-            </div>
-          </div>
-        </div>
-      )}
+
+{/* プロフィールオーバーレイ */}
+{showProfileOverlay && (
+  <div style={styles.profileOverlay} onClick={() => setShowProfileOverlay(false)}>
+    <div style={styles.profileModal} onClick={stopPropagation}>
+
+      {/* ログアウトボタン（右上） */}
+      <button 
+        style={styles.logoutButton} 
+        onClick={() => {
+          const confirmLogout = window.confirm("ログアウトしますか？");
+          if (confirmLogout) {
+            auth.signOut();
+            setShowProfileOverlay(false);
+          }
+        }}
+      >
+        ログアウト
+      </button>
+
+      {/* IoPersonCircleOutline のアイコン（上部1/3に配置） */}
+      <IoPersonCircleOutline style={styles.profileIcon} />
+
+      {/* ユーザー情報 */}
+      <div style={styles.profileInfo}>
+        <p>Email: {userEmail}</p>
+        <p>Remaining Seconds: {profileRemainingSeconds}</p>
+      </div>
+
+    </div>
+  </div>
+)}
+
     </>
   );
 }
