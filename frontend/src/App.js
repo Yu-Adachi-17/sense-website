@@ -6,6 +6,7 @@ import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import PurchaseMenu from './components/PurchaseMenu'; 
+import BuyTicketsPage from "./components/BuyTicketsPage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import './App.css';
@@ -398,6 +399,7 @@ function App() {
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/buy-tickets" element={<BuyTicketsPage />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
         <Route path="/minutes-list" element={<MinutesList />} />
