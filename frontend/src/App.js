@@ -403,8 +403,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
-        <Route path="/minutes-list" element={<MinutesList />} />
-        <Route path="/minutes/:id" element={<MinutesDetail />} />
+        <Route path="/minutes" element={<MinutesList />} />
+        {/* ここで :id が渡される */}
+        <Route path="/minutes/:id" element={<FullScreenOverlay />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
       </Routes>
     </Router>
