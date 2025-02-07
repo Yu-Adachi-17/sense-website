@@ -6,8 +6,8 @@ import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
 
 // Firebase Firestore の更新用モジュール
-import { doc, updateDoc } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";  // Firebase 初期化済みの Firestore インスタンス
 
 const FullScreenOverlay = ({
