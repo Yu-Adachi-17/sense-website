@@ -8,7 +8,6 @@ import { RxArrowLeft } from 'react-icons/rx';
 const PaperItem = ({ paper }) => {
   const createdDate =
     paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
-  const dateString = createdDate.toLocaleDateString();
   const truncatedText =
     paper.minutes.length <= 100 ? paper.minutes : paper.minutes.slice(0, 100) + '…';
 
@@ -23,7 +22,6 @@ const PaperItem = ({ paper }) => {
         cursor: 'pointer'
       }}
     >
-      
       <div style={{ fontWeight: 'bold' }}>{truncatedText}</div>
     </div>
   );
@@ -126,30 +124,29 @@ const MinutesList = () => {
         <h2></h2>
       </div>
 
-{/* 検索フィールド */}
-<div style={{ marginBottom: 20, display: 'flex', justifyContent: 'center' }}>
-  <input
-    type="text"
-    placeholder="Search..."
-    value={searchText}
-    onChange={(e) => setSearchText(e.target.value)}
-    style={{
-      width: '100%',
-      padding: 10,
-      borderRadius: 8,
-      border: 'none',
-      fontSize: 16,
-      backgroundColor: '#1e1e1e',  // 各議事録アイテムと同じ黒に近いグレー
-      color: 'white',              // 入力文字色を白
-      outline: 'none',             // フォーカス時の青枠を削除（任意）
-      textAlign: 'left'            // 入力文字は左揃え（中央揃えしたい場合は 'center'）
-    }}
-  />
-</div>
+      {/* 検索フィールド */}
+      <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'center' }}>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          style={{
+            width: '100%',
+            padding: 10,
+            borderRadius: 8,
+            border: 'none',
+            fontSize: 16,
+            backgroundColor: '#1e1e1e',
+            color: 'white',
+            outline: 'none',
+            textAlign: 'left'
+          }}
+        />
+      </div>
 
-
-{/* 議事録の一覧表示 */}
-{sortedDateKeys.length === 0 ? (
+      {/* 議事録の一覧表示 */}
+      {sortedDateKeys.length === 0 ? (
         <p style={{ color: 'gray', textAlign: 'center' }}>議事録がありません</p>
       ) : (
         sortedDateKeys.map((dateKey) => (
@@ -158,9 +155,11 @@ const MinutesList = () => {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(20vw, 1fr))',
+                // gridTemplateColumns を固定で 20vw に設定することで、たとえ1件の場合でも横幅は20%に
+                gridTemplateColumns: 'repeat(auto-fit, minmax(20vw, 20vw))',
                 gap: 15,
-                marginTop: 10
+                marginTop: 10,
+                justifyContent: 'start'  // 左寄せにして余白ができるように
               }}
             >
               {groupedPapers[dateKey].map((paper) => (
@@ -168,9 +167,8 @@ const MinutesList = () => {
               ))}
             </div>
           </div>
-  ))
-)}
-
+        ))
+      )}
     </div>
   );
 };
