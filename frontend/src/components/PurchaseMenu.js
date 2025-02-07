@@ -261,18 +261,20 @@ export function PurchaseMenu() {
         position: "absolute",
         top: "10px",
         right: "10px",
-        background: "none",
+        background: "#FFF", // 白背景
+        color: "#000", // 黒文字
+        fontWeight: "bold", // ボールド
+        padding: "8px 12px",
+        borderRadius: "5px",
         border: "none",
-        color: "#FFF",
-        fontSize: "14px",
-        fontFamily: "Impact, sans-serif",
         cursor: "pointer",
+        fontFamily: "Impact, sans-serif",
       },
       profileIcon: {
-        fontSize: "80px", // 大きめのアイコン
+        fontSize: "120px", // さらに大きく (元は 80px)
         color: "gray",
         marginBottom: "20px",
-        marginTop: "10%", // 上部1/3あたりに配置
+        marginTop: "5%", // 上部1/2あたりに配置
       },
       profileInfo: {
         textAlign: "center",
@@ -401,7 +403,7 @@ export function PurchaseMenu() {
         ログアウト
       </button>
 
-      {/* IoPersonCircleOutline のアイコン（上部1/3に配置） */}
+      {/* IoPersonCircleOutline のアイコン（上部1/2に配置 & 大きく） */}
       <IoPersonCircleOutline style={styles.profileIcon} />
 
       {/* ユーザー情報 */}
@@ -413,6 +415,7 @@ export function PurchaseMenu() {
     </div>
   </div>
 )}
+
 
     </>
   );
