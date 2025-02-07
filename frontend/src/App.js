@@ -15,9 +15,10 @@ import { collection, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
-import { PiGridFourFill } from "react-icons/pi";
-import MinutesList from './components/MinutesList';
 import MinutesDetail from './components/MinutesDetail';
+import { PiGridFourFill } from "react-icons/pi";
+
+
 
 function DebugRouter() {
   const location = useLocation();
