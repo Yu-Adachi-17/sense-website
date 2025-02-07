@@ -219,12 +219,12 @@ export function PurchaseMenu() {
       justifyContent: "center",
       alignItems: "center",
     },
-    // 購入モーダル本体（縦4横3＝300px×400px の例）
+    // 購入モーダル本体（全画面表示に変更）
     purchaseModal: {
-      width: "300px",
-      height: "400px",
+      width: "100%",
+      height: "100%",
       background: "#FFF",
-      borderRadius: "8px",
+      position: "relative",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
@@ -234,54 +234,66 @@ export function PurchaseMenu() {
     },
     // プロフィールオーバーレイ（プロフィールアイコンタップ時）
     profileOverlay: {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        background: "rgba(0, 0, 0, 0.9)", // 背景を黒に（少し透過）
-        zIndex: 1400,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      },
-      profileModal: {
-        width: "300px",
-        height: "400px",
-        background: "rgba(20, 20, 20, 1)", // ダークグレーで高級感を
-        borderRadius: "8px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "20px",
-        boxSizing: "border-box",
-        position: "relative",
-      },
-      logoutButton: {
-        position: "absolute",
-        top: "10px",
-        right: "10px",
-        background: "transparent", // 背景透明
-        color: "red", // 赤文字
-        fontWeight: "bold", // ボールド
-        padding: "8px 12px",
-        borderRadius: "5px",
-        border: "2px solid red", // 枠線赤
-        cursor: "pointer",
-        fontFamily: "Impact, sans-serif",
-      },
-      profileIcon: {
-        fontSize: "160px", // さらに大きく (元は 80px)
-        color: "gray",
-        marginBottom: "20px",
-        marginTop: "5%", // 上部1/2あたりに配置
-      },
-      profileInfo: {
-        textAlign: "center",
-        fontSize: "16px",
-        color: "#FFF",
-        fontFamily: "Impact, sans-serif",
-      },
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0, 0, 0, 0.9)", // 背景を黒に（少し透過）
+      zIndex: 1400,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    profileModal: {
+      width: "300px",
+      height: "400px",
+      background: "rgba(20, 20, 20, 1)", // ダークグレーで高級感を
+      borderRadius: "8px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: "20px",
+      boxSizing: "border-box",
+      position: "relative",
+    },
+    logoutButton: {
+      position: "absolute",
+      top: "10px",
+      right: "10px",
+      background: "transparent", // 背景透明
+      color: "red", // 赤文字
+      fontWeight: "bold", // ボールド
+      padding: "8px 12px",
+      borderRadius: "5px",
+      border: "2px solid red", // 枠線赤
+      cursor: "pointer",
+      fontFamily: "Impact, sans-serif",
+    },
+    profileIcon: {
+      fontSize: "160px", // さらに大きく (元は 80px)
+      color: "gray",
+      marginBottom: "20px",
+      marginTop: "5%", // 上部1/2あたりに配置
+    },
+    profileInfo: {
+      textAlign: "center",
+      fontSize: "16px",
+      color: "#FFF",
+      fontFamily: "Impact, sans-serif",
+    },
+    // 追加: 購入オーバーレイ内の「×」ボタンのスタイル
+    closeButton: {
+      position: "absolute",
+      top: "20px",
+      left: "20px",
+      background: "none",
+      border: "none",
+      fontSize: "30px",
+      color: "#000",
+      cursor: "pointer",
+      zIndex: 1500,
+    },
   };
 
   // クリックイベントのバブリング防止用
@@ -347,10 +359,11 @@ export function PurchaseMenu() {
 
       {/* 購入オーバーレイ（モーダル） */}
       {showPurchaseOverlay && (
-        <div style={styles.purchaseOverlay} onClick={() => setShowPurchaseOverlay(false)}>
+        <div style={styles.purchaseOverlay}>
           <div style={styles.purchaseModal} onClick={stopPropagation}>
+            {/* 左上の「×」ボタンでオーバーレイを閉じる */}
             <button style={styles.closeButton} onClick={() => setShowPurchaseOverlay(false)}>
-              閉じる
+              ×
             </button>
             <button
               onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
@@ -383,40 +396,33 @@ export function PurchaseMenu() {
         </div>
       )}
 
-
-{/* プロフィールオーバーレイ */}
-{showProfileOverlay && (
-  <div style={styles.profileOverlay} onClick={() => setShowProfileOverlay(false)}>
-    <div style={styles.profileModal} onClick={stopPropagation}>
-
-      {/* ログアウトボタン（右上） */}
-      <button 
-        style={styles.logoutButton} 
-        onClick={() => {
-          const confirmLogout = window.confirm("ログアウトしますか？");
-          if (confirmLogout) {
-            auth.signOut();
-            setShowProfileOverlay(false);
-          }
-        }}
-      >
-        ログアウト
-      </button>
-
-      {/* IoPersonCircleOutline のアイコン（上部1/2に配置 & 大きく） */}
-      <IoPersonCircleOutline style={styles.profileIcon} />
-
-      {/* ユーザー情報 */}
-      <div style={styles.profileInfo}>
-        <p>Email: {userEmail}</p>
-        <p>Remaining Seconds: {profileRemainingSeconds}</p>
-      </div>
-
-    </div>
-  </div>
-)}
-
-
+      {/* プロフィールオーバーレイ */}
+      {showProfileOverlay && (
+        <div style={styles.profileOverlay} onClick={() => setShowProfileOverlay(false)}>
+          <div style={styles.profileModal} onClick={stopPropagation}>
+            {/* ログアウトボタン（右上） */}
+            <button 
+              style={styles.logoutButton} 
+              onClick={() => {
+                const confirmLogout = window.confirm("ログアウトしますか？");
+                if (confirmLogout) {
+                  auth.signOut();
+                  setShowProfileOverlay(false);
+                }
+              }}
+            >
+              ログアウト
+            </button>
+            {/* IoPersonCircleOutline のアイコン（上部1/2に配置 & 大きく） */}
+            <IoPersonCircleOutline style={styles.profileIcon} />
+            {/* ユーザー情報 */}
+            <div style={styles.profileInfo}>
+              <p>Email: {userEmail}</p>
+              <p>Remaining Seconds: {profileRemainingSeconds}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
