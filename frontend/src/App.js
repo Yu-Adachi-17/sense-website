@@ -16,6 +16,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
 import { PiGridFourFill } from "react-icons/pi";
+import MinutesList from './components/MinutesList';
+import MinutesDetail from './components/MinutesDetail';
 
 function DebugRouter() {
   const location = useLocation();
@@ -401,6 +403,7 @@ function App() {
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
         <Route path="/minutes-list" element={<MinutesList />} />
+        <Route path="/minutes/:id" element={<MinutesDetail />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
       </Routes>
     </Router>
