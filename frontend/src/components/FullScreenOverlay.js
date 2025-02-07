@@ -1,4 +1,3 @@
-// src/components/FullScreenOverlay.js
 import React, { useState, useEffect } from 'react';
 import { TbClipboardList, TbClipboardText } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -6,9 +5,11 @@ import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
 
 // Firebase Firestore の更新用モジュール
-
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";  // Firebase 初期化済みの Firestore インスタンス
+
+// react-router-dom から useLocation をインポート
+import { useLocation } from 'react-router-dom';
 
 const FullScreenOverlay = ({
   setShowFullScreen,
@@ -18,6 +19,11 @@ const FullScreenOverlay = ({
   minutes,
   audioURL,
 }) => {
+  // ① useLocation を利用して、遷移時に渡された paper を取得
+  const location = useLocation();
+  const paper = location.state?.paper;  // MinutesList.jsx から渡された paper オブジェクト
+  const docId = paper?.id; // 対象のドキュメントID
+
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -30,7 +36,6 @@ const FullScreenOverlay = ({
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -74,7 +79,7 @@ const FullScreenOverlay = ({
 
   // 議事録または全文をクリップボードにコピーする処理
   const handleShare = () => {
-    const content = editedText; // 表示中の内容（※編集後の内容も含む）を取得
+    const content = editedText;
     navigator.clipboard.writeText(content).then(() => {
       alert('クリップボードにコピーしました！');
     }).catch(() => {
@@ -82,10 +87,15 @@ const FullScreenOverlay = ({
     });
   };
 
-  // Firebase に保存する処理（isExpanded が true のときは全文（transcription）、false のときは議事録（minutes））
+  // Firestore に保存する処理（MinutesList で取得したドキュメントIDを利用）
   const handleSave = async () => {
+    if (!docId) {
+      alert("更新する議事録のIDが取得できませんでした");
+      return;
+    }
     try {
-      const docRef = doc(db, 'meetings', 'defaultDoc');
+      // ② コレクション名は MinutesList と合わせて 'meetingRecords' を使用
+      const docRef = doc(db, 'meetingRecords', docId);
       if (isExpanded) {
         await setDoc(docRef, { transcription: editedText }, { merge: true });
       } else {
@@ -104,7 +114,7 @@ const FullScreenOverlay = ({
     e.stopPropagation();
   };
 
-  // スタイル定義
+  // スタイル定義（※ここは既存のスタイルコードをそのまま利用）
   const styles = {
     fullScreenOverlay: {
       position: 'fixed',
@@ -149,8 +159,8 @@ const FullScreenOverlay = ({
     },
     shareButton: {
       position: 'absolute',
-      top: '7px', // グレーボックスの上部からの距離
-      right: '20px', // グレーボックスの右端からの距離
+      top: '7px',
+      right: '20px',
       fontSize: '20px',
       background: 'none',
       border: 'none',
@@ -183,21 +193,18 @@ const FullScreenOverlay = ({
       maxHeight: 'none',
       overflowY: 'auto',
     },
-    // タイトルのスタイル（※元コードでは marginLeft で位置調整しているので必要に応じて修正）
     title: {
       marginBottom: '20px',
       paddingTop: '20px',
       fontSize: '30px',
       fontWeight: 'bold',
     },
-    // タイトルとボタンを横並びにするためのコンテナ
     titleContainer: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
     },
-    // 編集モードでの Save ボタン（白背景・黒文字）
     saveButton: {
       backgroundColor: '#FFFFFF',
       color: '#000000',
@@ -207,7 +214,6 @@ const FullScreenOverlay = ({
       marginLeft: '10px',
       borderRadius: '5px',
     },
-    // 編集モードに入る前の Edit ボタン（シンプルな見た目）
     editButton: {
       backgroundColor: 'transparent',
       color: '#FFFFFF',
@@ -217,7 +223,6 @@ const FullScreenOverlay = ({
       marginLeft: '10px',
       borderRadius: '5px',
     },
-    // テキストエディタ（textarea）のスタイル
     textEditor: {
       width: '100%',
       height: '100%',
@@ -291,17 +296,12 @@ const FullScreenOverlay = ({
   return (
     <>
       <div style={styles.fullScreenOverlay}>
-        {/* 閉じるボタン */}
         <button style={styles.closeButton} onClick={() => setShowFullScreen(false)}>
           &times;
         </button>
-
-        {/* ハンバーガーメニュー */}
         <button style={styles.hamburgerButton} onClick={() => setShowSideMenu(true)}>
           <GiHamburgerMenu size={24} />
         </button>
-
-        {/* タイトルと編集／保存ボタン */}
         <div style={styles.titleContainer}>
           <h2 style={styles.title}>
             {isExpanded ? '全文' : '議事録'}
@@ -316,20 +316,15 @@ const FullScreenOverlay = ({
             </button>
           )}
         </div>
-
-        {/* テキスト描写範囲ボックス */}
         <div
           style={{
             ...styles.fullScreenContent,
             ...(isExpanded ? styles.fullText : styles.summaryText),
           }}
         >
-          {/* シェアボタン */}
           <button style={styles.shareButton} onClick={handleShare}>
             <FaRegCopy size={20} />
           </button>
-
-          {/* 編集モードの場合は textarea、非編集時は p タグで表示 */}
           {isEditing ? (
             <textarea
               style={styles.textEditor}
@@ -341,12 +336,9 @@ const FullScreenOverlay = ({
           )}
         </div>
       </div>
-
-      {/* サイドメニューオーバーレイ */}
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* 全文と議事録の切り替えボタン */}
             {!isExpanded ? (
               <button style={styles.sideMenuButton} onClick={handleSwitchView}>
                 <TbClipboardText size={24} />
@@ -358,8 +350,6 @@ const FullScreenOverlay = ({
                 <span style={styles.iconSpacing}>議事録を表示</span>
               </button>
             )}
-
-            {/* 音声データのダウンロードボタン */}
             <button style={styles.sideMenuButton} onClick={handleDownload}>
               <IoIosDownload size={24} />
               <span style={styles.iconSpacing}>音声データをダウンロード</span>
