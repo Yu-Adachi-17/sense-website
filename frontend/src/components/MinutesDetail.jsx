@@ -1,4 +1,4 @@
-// src/components/MinutesDetail.jsx
+// MinutesDetail.jsx
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FullScreenOverlay from './FullScreenOverlay';
@@ -34,6 +34,7 @@ const MinutesDetail = () => {
       transcription={paper.transcription || ''}
       minutes={paper.minutes || ''}
       audioURL={paper.audioURL || ''}
+      docId={paper.id} 
     />
   );
 };

@@ -1,3 +1,4 @@
+// App.js
 import React, { useState, useRef, useEffect } from 'react';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
@@ -18,8 +19,6 @@ import MinutesList from './components/MinutesList';
 import MinutesDetail from './components/MinutesDetail';
 import { PiGridFourFill } from "react-icons/pi";
 
-
-
 function DebugRouter() {
   const location = useLocation();
   console.log("[DEBUG] Current path:", location.pathname);
@@ -39,6 +38,8 @@ function App() {
   const [progress, setProgress] = useState(0);
   // 議事録が保存済みかどうかを管理する state
   const [hasSavedRecord, setHasSavedRecord] = useState(false);
+  // 新規保存時に生成された議事録のドキュメントIDを保持する state
+  const [meetingRecordId, setMeetingRecordId] = useState(null);
 
   // ★ ユーザーデータ取得完了かどうかを示す state（false の場合は表示しない）
   const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
@@ -279,12 +280,15 @@ function App() {
           minutes,
           createdAt: creationDate,
           uid: auth.currentUser.uid,
+          // audioURL など必要なデータがあれば追加
         };
 
         console.log("🟢 [DEBUG] Firestore に保存するデータ:", recordData);
 
-        await addDoc(collection(db, 'meetingRecords'), recordData);
+        const docRef = await addDoc(collection(db, 'meetingRecords'), recordData);
         console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました");
+        // 生成したドキュメントのIDを state に保持
+        setMeetingRecordId(docRef.id);
       } catch (err) {
         console.error("🔴 [ERROR] Firebase Firestore の保存中にエラー発生:", err);
       }
@@ -304,101 +308,94 @@ function App() {
         <Route
           path="/"
           element={
-            // ★ ZStack 的なイメージ：container を relative にし、
-            //   中央コンテンツはそのまま配置、残時間表示は absolute で下部中央に重ねる
-<div className="container">
-  {/* 背景や中央のコンテンツ */}
-  <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-    {/* 左上のボタンなど */}
-    <button
-      onClick={() => { window.location.href = '/minutes-list'; }}
-      style={{
-        position: 'absolute',
-        top: 20,
-        left: 30,
-        background: 'none',
-        border: 'none',
-        color: 'white',
-        fontSize: 30,
-        cursor: 'pointer'
-      }}
-    >
-      <PiGridFourFill />
-    </button>
+            <div className="container">
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <button
+                  onClick={() => { window.location.href = '/minutes-list'; }}
+                  style={{
+                    position: 'absolute',
+                    top: 20,
+                    left: 30,
+                    background: 'none',
+                    border: 'none',
+                    color: 'white',
+                    fontSize: 30,
+                    cursor: 'pointer'
+                  }}
+                >
+                  <PiGridFourFill />
+                </button>
 
-    {!showFullScreen && <PurchaseMenu />}
+                {!showFullScreen && <PurchaseMenu />}
 
-    {/* outer-gradient を中央に配置 */}
-    <div
-      className="outer-gradient"
-      style={{ transform: `translate(-50%, -50%) scale(${audioLevel})` }}
-    >
-      <div className="outer-circle"></div>
-    </div>
+                <div
+                  className="outer-gradient"
+                  style={{ transform: `translate(-50%, -50%) scale(${audioLevel})` }}
+                >
+                  <div className="outer-circle"></div>
+                </div>
 
-    <div className="inner-container">
-      <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-        <button
-          className={`center-button ${isRecording ? 'recording' : ''}`}
-          onClick={toggleRecording}
-        ></button>
-      </div>
-    </div>
+                <div className="inner-container">
+                  <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
+                    <button
+                      className={`center-button ${isRecording ? 'recording' : ''}`}
+                      onClick={toggleRecording}
+                    ></button>
+                  </div>
+                </div>
 
-    {showFullScreen && (
-      <FullScreenOverlay
-        setShowFullScreen={setShowFullScreen}
-        isExpanded={isExpanded}
-        setIsExpanded={setIsExpanded}
-        transcription={transcription}
-        minutes={minutes}
-        audioURL={audioURL}
-      />
-    )}
-    {isProcessing && <ProgressIndicator progress={progress} />}
-  </div>
+                {/* FullScreenOverlay に meetingRecordId を渡す */}
+                {showFullScreen && (
+                  <FullScreenOverlay
+                    setShowFullScreen={setShowFullScreen}
+                    isExpanded={isExpanded}
+                    setIsExpanded={setIsExpanded}
+                    transcription={transcription}
+                    minutes={minutes}
+                    audioURL={audioURL}
+                    docId={meetingRecordId} 
+                  />
+                )}
+                {isProcessing && <ProgressIndicator progress={progress} />}
+              </div>
 
-  {isUserDataLoaded && (
-  <div style={{
-    position: 'absolute',
-    bottom: 'calc((50vh - 160px) / 2)',  // 外側サークル下端と画面下端の中間
-    left: '50%',
-    transform: 'translateX(-50%)',
-    color: 'white',
-    fontSize: '72px',  // 一貫したフォントサイズ
-    zIndex: 10,
-    display: 'flex',         // ★ フレックスボックスを使用して整列
-    alignItems: 'center',    // ★ 垂直方向の中央揃え
-    justifyContent: 'center',// ★ 水平方向の中央揃え
-    height: '80px'           // ★ 高さを固定（フォントサイズによるズレを防ぐ）
-  }}>
-    {userSubscription ? (
-      <span style={{
-        background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-        WebkitBackgroundClip: 'text',
-        color: 'transparent',
-        fontSize: '72px',   // ★ 時間と同じフォントサイズに変更（144px→72px）
-        fontFamily: 'Impact, sans-serif',
-        lineHeight: '1'     // ★ フォントの高さを揃える
-      }}>♾️</span>
-    ) : (
-      <span style={{
-        fontFamily: 'Impact, sans-serif',
-        fontSize: '72px',  // ★ フォントサイズを統一（48px→72px）
-        lineHeight: '1'    // ★ フォントの高さを揃える
-      }}>
-        {formatTime(userRemainingSeconds)}
-      </span>
-    )}
-  </div>
-)}
-
-
-
-</div>
+              {isUserDataLoaded && (
+                <div style={{
+                  position: 'absolute',
+                  bottom: 'calc((50vh - 160px) / 2)',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  color: 'white',
+                  fontSize: '72px',
+                  zIndex: 10,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: '80px'
+                }}>
+                  {userSubscription ? (
+                    <span style={{
+                      background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                      WebkitBackgroundClip: 'text',
+                      color: 'transparent',
+                      fontSize: '72px',
+                      fontFamily: 'Impact, sans-serif',
+                      lineHeight: '1'
+                    }}>♾️</span>
+                  ) : (
+                    <span style={{
+                      fontFamily: 'Impact, sans-serif',
+                      fontSize: '72px',
+                      lineHeight: '1'
+                    }}>
+                      {formatTime(userRemainingSeconds)}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
           }
         />
-
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/success" element={<Success />} />

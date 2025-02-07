@@ -1,4 +1,4 @@
-// src/components/FullScreenOverlay.js
+// FullScreenOverlay.js
 import React, { useState, useEffect } from 'react';
 import { TbClipboardList, TbClipboardText } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -6,8 +6,7 @@ import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
 
 // Firebase Firestore の更新用モジュール
-
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";  // Firebase 初期化済みの Firestore インスタンス
 
 const FullScreenOverlay = ({
@@ -17,6 +16,7 @@ const FullScreenOverlay = ({
   transcription,
   minutes,
   audioURL,
+  docId  // 追加：更新対象のドキュメントID
 }) => {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -74,7 +74,7 @@ const FullScreenOverlay = ({
 
   // 議事録または全文をクリップボードにコピーする処理
   const handleShare = () => {
-    const content = editedText; // 表示中の内容（※編集後の内容も含む）を取得
+    const content = editedText;
     navigator.clipboard.writeText(content).then(() => {
       alert('クリップボードにコピーしました！');
     }).catch(() => {
@@ -82,14 +82,18 @@ const FullScreenOverlay = ({
     });
   };
 
-  // Firebase に保存する処理（isExpanded が true のときは全文（transcription）、false のときは議事録（minutes））
+  // Firebase に更新する処理（isExpanded が true のときは全文（transcription）、false のときは議事録（minutes））
   const handleSave = async () => {
+    if (!docId) {
+      alert('保存対象のドキュメントIDがありません');
+      return;
+    }
     try {
-      const docRef = doc(db, 'meetings', 'defaultDoc');
+      const docRef = doc(db, 'meetingRecords', docId);
       if (isExpanded) {
-        await setDoc(docRef, { transcription: editedText }, { merge: true });
+        await updateDoc(docRef, { transcription: editedText });
       } else {
-        await setDoc(docRef, { minutes: editedText }, { merge: true });
+        await updateDoc(docRef, { minutes: editedText });
       }
       setIsEditing(false);
       alert('保存に成功しました');
@@ -104,7 +108,7 @@ const FullScreenOverlay = ({
     e.stopPropagation();
   };
 
-  // スタイル定義
+  // 以下はスタイルなどの定義（省略せずそのまま）
   const styles = {
     fullScreenOverlay: {
       position: 'fixed',
@@ -149,8 +153,8 @@ const FullScreenOverlay = ({
     },
     shareButton: {
       position: 'absolute',
-      top: '7px', // グレーボックスの上部からの距離
-      right: '20px', // グレーボックスの右端からの距離
+      top: '7px',
+      right: '20px',
       fontSize: '20px',
       background: 'none',
       border: 'none',
@@ -183,21 +187,18 @@ const FullScreenOverlay = ({
       maxHeight: 'none',
       overflowY: 'auto',
     },
-    // タイトルのスタイル（※元コードでは marginLeft で位置調整しているので必要に応じて修正）
     title: {
       marginBottom: '20px',
       paddingTop: '20px',
       fontSize: '30px',
       fontWeight: 'bold',
     },
-    // タイトルとボタンを横並びにするためのコンテナ
     titleContainer: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
     },
-    // 編集モードでの Save ボタン（白背景・黒文字）
     saveButton: {
       backgroundColor: '#FFFFFF',
       color: '#000000',
@@ -207,7 +208,6 @@ const FullScreenOverlay = ({
       marginLeft: '10px',
       borderRadius: '5px',
     },
-    // 編集モードに入る前の Edit ボタン（シンプルな見た目）
     editButton: {
       backgroundColor: 'transparent',
       color: '#FFFFFF',
@@ -217,7 +217,6 @@ const FullScreenOverlay = ({
       marginLeft: '10px',
       borderRadius: '5px',
     },
-    // テキストエディタ（textarea）のスタイル
     textEditor: {
       width: '100%',
       height: '100%',
