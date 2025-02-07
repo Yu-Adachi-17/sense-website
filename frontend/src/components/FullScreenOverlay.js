@@ -7,7 +7,7 @@ import { FaRegCopy } from "react-icons/fa";
 
 // Firebase Firestore の更新用モジュール
 import { doc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase";  // Firebase 初期化済みの Firestore インスタンス
+import { db } from "../firebaseConfig";  // Firebase 初期化済みの Firestore インスタンス
 
 const FullScreenOverlay = ({
   setShowFullScreen,
