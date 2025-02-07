@@ -6,7 +6,7 @@ import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
 
 // Firebase Firestore の更新用モジュール
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebaseConfig";  // Firebase 初期化済みの Firestore インスタンス
 
 const FullScreenOverlay = ({
@@ -25,6 +25,20 @@ const FullScreenOverlay = ({
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(isExpanded ? transcription : minutes);
 
+  useEffect(() => {
+    if (docId && !isEditing) {  // 編集中でなければ外部の変更を反映する
+      const docRef = doc(db, 'meetingRecords', docId);
+      const unsubscribe = onSnapshot(docRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          // isExpanded の状態に合わせて適切なテキストを更新
+          setEditedText(isExpanded ? data.transcription : data.minutes);
+        }
+      });
+      return unsubscribe;
+    }
+  }, [docId, isExpanded, isEditing]);
+  
   // 画面サイズの変更を監視
   useEffect(() => {
     const handleResize = () => {
@@ -41,6 +55,8 @@ const FullScreenOverlay = ({
       setEditedText(isExpanded ? transcription : minutes);
     }
   }, [isExpanded, transcription, minutes, isEditing]);
+
+  
 
   // 音声データのダウンロード処理
   const handleDownload = () => {
