@@ -202,7 +202,7 @@ const MinutesList = () => {
     borderRadius: 4,
     marginRight: 10,
     cursor: 'pointer',
-    fontSize: 20  // 🔹 ここで変更！
+    fontSize: 18  // 🔹 ここで変更！
   }}
 >
   キャンセル
@@ -217,7 +217,7 @@ const MinutesList = () => {
     padding: '10px 15px',
     borderRadius: 4,
     cursor: 'pointer',
-    fontSize: 20,  // 🔹 ここで変更！
+    fontSize: 18,  // 🔹 ここで変更！
     fontWeight: 'bold'  // 🔹 文字を太くする
   }}
 >
@@ -235,7 +235,7 @@ const MinutesList = () => {
     padding: '10px 15px',
     borderRadius: 4,
     cursor: 'pointer',
-    fontSize: 20  // 🔹 ここで変更！
+    fontSize: 18  // 🔹 ここで変更！
   }}
 >
   選択
