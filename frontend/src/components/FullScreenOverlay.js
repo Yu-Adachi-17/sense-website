@@ -84,17 +84,16 @@ const FullScreenOverlay = ({
   // Firebase に保存する処理（isExpanded が true のときは全文（transcription）、false のときは議事録（minutes））
   const handleSave = async () => {
     try {
-      // ※必要に応じてコレクション名やドキュメントIDは変更してください
       const docRef = doc(db, 'meetings', 'defaultDoc');
       if (isExpanded) {
-        await updateDoc(docRef, { transcription: editedText });
+        await setDoc(docRef, { transcription: editedText }, { merge: true });
       } else {
-        await updateDoc(docRef, { minutes: editedText });
+        await setDoc(docRef, { minutes: editedText }, { merge: true });
       }
       setIsEditing(false);
       alert('保存に成功しました');
     } catch (error) {
-      console.error("Error updating document: ", error);
+      console.error("Error saving document: ", error);
       alert('保存に失敗しました: ' + error.message);
     }
   };
