@@ -156,7 +156,7 @@ const MinutesList = () => {
               style={{
                 display: 'grid',
                 // gridTemplateColumns を固定で 20vw に設定することで、たとえ1件の場合でも横幅は20%に
-                gridTemplateColumns: 'repeat(auto-fit, minmax(25vw, 25vw))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(24vw, 24vw))',
                 gap: 15,
                 marginTop: 10,
                 justifyContent: 'start'  // 左寄せにして余白ができるように
