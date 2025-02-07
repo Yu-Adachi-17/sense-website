@@ -1,7 +1,38 @@
-// src/comonents/BuyTicketsPage.js
-import React from "react";
+// src/components/BuyTicketsPage.js
+import React, { useState } from "react";
 
 export default function BuyTicketsPage() {
+  const [loading, setLoading] = useState(false);
+
+  // 商品購入処理（Stripe API を呼び出す）
+  const handleBuyClick = async (productId) => {
+    console.log("✅ 送信する productId:", productId);
+    if (!productId) {
+      console.error("❌ productId が undefined です！環境変数を確認してください。");
+      return;
+    }
+    setLoading(true);
+    try {
+      const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId }),
+        credentials: "include",
+      });
+      const data = await response.json();
+      console.log("[DEBUG] Stripe Response:", data);
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("[ERROR] Checkout session URL not found", data);
+      }
+    } catch (error) {
+      console.error("[ERROR] Error during checkout:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const styles = {
     container: {
       backgroundColor: "#000",
@@ -37,7 +68,6 @@ export default function BuyTicketsPage() {
       marginBottom: "20px",
       textAlign: "center",
     },
-    // ボックスの外枠（グラデーションの枠線）
     boxContainer: {
       width: "100%",
       maxWidth: "400px",
@@ -52,7 +82,6 @@ export default function BuyTicketsPage() {
       boxSizing: "border-box",
       backgroundColor: "transparent",
     },
-    // 各ボタンのスタイル
     button: {
       backgroundColor: "transparent",
       color: "#FFF",
@@ -71,19 +100,6 @@ export default function BuyTicketsPage() {
     },
   };
 
-  // ダミーのクリックハンドラ（実際の処理は適宜追加してください）
-  const handleBuy120 = () => {
-    console.log("120分を買うボタンがクリックされました");
-  };
-
-  const handleBuy1200 = () => {
-    console.log("1200分を買うボタンがクリックされました");
-  };
-
-  const handleSubscription = () => {
-    console.log("サブスクリプションに登録ボタンがクリックされました");
-  };
-
   return (
     <div style={styles.container}>
       {/* 画面上部中央のタイトル */}
@@ -95,10 +111,18 @@ export default function BuyTicketsPage() {
         <div style={styles.column}>
           <div style={styles.subTitle}>Buy Time</div>
           <div style={styles.boxContainer}>
-            <button style={styles.button} onClick={handleBuy120}>
+            <button
+              style={styles.button}
+              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
+              disabled={loading}
+            >
               120分を買う
             </button>
-            <button style={styles.button} onClick={handleBuy1200}>
+            <button
+              style={styles.button}
+              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
+              disabled={loading}
+            >
               1200分を買う
             </button>
           </div>
@@ -108,7 +132,11 @@ export default function BuyTicketsPage() {
         <div style={styles.column}>
           <div style={styles.subTitle}>Subscription</div>
           <div style={styles.boxContainer}>
-            <button style={styles.button} onClick={handleSubscription}>
+            <button
+              style={styles.button}
+              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
+              disabled={loading}
+            >
               サブスクリプションに登録
             </button>
           </div>
