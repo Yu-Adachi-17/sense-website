@@ -261,17 +261,17 @@ export function PurchaseMenu() {
         position: "absolute",
         top: "10px",
         right: "10px",
-        background: "#FFF", // 白背景
-        color: "#000", // 黒文字
+        background: "transparent", // 背景透明
+        color: "red", // 赤文字
         fontWeight: "bold", // ボールド
         padding: "8px 12px",
         borderRadius: "5px",
-        border: "none",
+        border: "2px solid red", // 枠線赤
         cursor: "pointer",
         fontFamily: "Impact, sans-serif",
       },
       profileIcon: {
-        fontSize: "120px", // さらに大きく (元は 80px)
+        fontSize: "160px", // さらに大きく (元は 80px)
         color: "gray",
         marginBottom: "20px",
         marginTop: "5%", // 上部1/2あたりに配置
