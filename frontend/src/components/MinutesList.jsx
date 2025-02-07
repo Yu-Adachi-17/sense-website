@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { RxArrowLeft } from 'react-icons/rx';
 
 const PaperItem = ({ paper }) => {
+  // ここで useNavigate を利用して、タップ時に議事録詳細画面へ遷移する
+  const navigate = useNavigate();
+
   const createdDate =
     paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
   const truncatedText =
@@ -13,6 +16,7 @@ const PaperItem = ({ paper }) => {
 
   return (
     <div
+      onClick={() => navigate(`/minutes/${paper.id}`, { state: { paper } })}
       style={{
         backgroundColor: '#1e1e1e',
         borderRadius: 10,
@@ -35,12 +39,10 @@ const MinutesList = () => {
   useEffect(() => {
     console.log("🟡 [DEBUG] MinutesList がマウントされました");
 
-    // Firebase 認証状態を監視
     const unsubscribeAuth = auth.onAuthStateChanged((user) => {
       if (user) {
         console.log("🟢 [DEBUG] ログインユーザー:", user.uid);
 
-        // Firestore クエリを作成
         const q = query(
           collection(db, 'meetingRecords'),
           where('uid', '==', user.uid),
@@ -49,7 +51,6 @@ const MinutesList = () => {
 
         console.log("🟡 [DEBUG] Firestore クエリを実行します");
 
-        // Firestore のリアルタイムリスナーを設定
         const unsubscribeSnapshot = onSnapshot(
           q,
           (querySnapshot) => {
@@ -155,11 +156,10 @@ const MinutesList = () => {
             <div
               style={{
                 display: 'grid',
-                // gridTemplateColumns を固定で 20vw に設定することで、たとえ1件の場合でも横幅は20%に
-                gridTemplateColumns: 'repeat(auto-fit, minmax(24vw, 24vw))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(23vw, 23vw))',
                 gap: 15,
                 marginTop: 10,
-                justifyContent: 'start'  // 左寄せにして余白ができるように
+                justifyContent: 'start'
               }}
             >
               {groupedPapers[dateKey].map((paper) => (
