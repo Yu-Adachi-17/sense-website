@@ -150,24 +150,24 @@ const MinutesList = () => {
 
 {/* 議事録の一覧表示 */}
 {sortedDateKeys.length === 0 ? (
-  <p style={{ color: 'gray', textAlign: 'center' }}>議事録がありません</p>
-) : (
-  sortedDateKeys.map((dateKey) => (
-    <div key={dateKey} style={{ marginBottom: 30 }}>
-      <h3 style={{ borderBottom: '1px solid #555', paddingBottom: 5 }}>{dateKey}</h3>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(20vw, 1fr))', // 画面幅の20%に変更
-          gap: 15,
-          marginTop: 10
-        }}
-      >
-        {groupedPapers[dateKey].map((paper) => (
-          <PaperItem key={paper.id} paper={paper} />
-        ))}
-      </div>
-    </div>
+        <p style={{ color: 'gray', textAlign: 'center' }}>議事録がありません</p>
+      ) : (
+        sortedDateKeys.map((dateKey) => (
+          <div key={dateKey} style={{ marginBottom: 30 }}>
+            <h3 style={{ borderBottom: '1px solid #555', paddingBottom: 5 }}>{dateKey}</h3>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(20vw, 1fr))',
+                gap: 15,
+                marginTop: 10
+              }}
+            >
+              {groupedPapers[dateKey].map((paper) => (
+                <PaperItem key={paper.id} paper={paper} />
+              ))}
+            </div>
+          </div>
   ))
 )}
 
