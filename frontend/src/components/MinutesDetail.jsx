@@ -1,5 +1,5 @@
 // src/components/MinutesDetail.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FullScreenOverlay from './FullScreenOverlay';
 
@@ -8,14 +8,18 @@ const MinutesDetail = () => {
   const navigate = useNavigate();
   const { paper } = location.state || {};
 
-  // 万が一 paper が存在しない場合はリスト画面へ戻す
-  if (!paper) {
-    navigate('/minutes-list');
-    return null;
-  }
-
   // FullScreenOverlay で全文表示切替用の state
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // paper がない場合にリスト画面へ戻す処理を useEffect 内で実行
+  useEffect(() => {
+    if (!paper) {
+      navigate('/minutes-list');
+    }
+  }, [paper, navigate]);
+
+  // paper が null の場合は何も表示しない（リダイレクトを待つ）
+  if (!paper) return null;
 
   // FullScreenOverlay の閉じる処理（閉じると前の画面に戻る）
   const handleClose = () => {
