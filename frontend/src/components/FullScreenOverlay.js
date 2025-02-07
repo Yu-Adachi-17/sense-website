@@ -5,6 +5,10 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
 
+// Firebase Firestore の更新用モジュール
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";  // Firebase 初期化済みの Firestore インスタンス
+
 const FullScreenOverlay = ({
   setShowFullScreen,
   isExpanded,
@@ -16,6 +20,10 @@ const FullScreenOverlay = ({
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  // 編集モード状態と、編集中のテキスト（minutes または transcription）
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedText, setEditedText] = useState(isExpanded ? transcription : minutes);
+
   // 画面サイズの変更を監視
   useEffect(() => {
     const handleResize = () => {
@@ -25,6 +33,13 @@ const FullScreenOverlay = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // isExpanded や props の内容が変わったとき、編集中でなければ表示内容を更新
+  useEffect(() => {
+    if (!isEditing) {
+      setEditedText(isExpanded ? transcription : minutes);
+    }
+  }, [isExpanded, transcription, minutes, isEditing]);
 
   // 音声データのダウンロード処理
   const handleDownload = () => {
@@ -40,30 +55,48 @@ const FullScreenOverlay = ({
     }
   };
 
-  // 全文と議事録の表示を切り替える処理
+  // 全文と議事録の表示を切り替える処理（編集モード終了も同時に）
   const handleSwitchView = () => {
     setIsExpanded(!isExpanded);
-    setShowSideMenu(false); // サイドメニューを閉じる
+    setShowSideMenu(false);
+    setIsEditing(false);
   };
 
-  // 議事録表示に切り替える処理
+  // 議事録表示に切り替える処理（編集モード終了も同時に）
   const handleSwitchToMinutes = () => {
     if (isExpanded) {
       setIsExpanded(false);
       setShowSideMenu(false);
+      setIsEditing(false);
     }
   };
 
   // 議事録または全文をクリップボードにコピーする処理
   const handleShare = () => {
-    const content = isExpanded ? transcription : minutes; // 表示中の内容を取得
-
-    // クリップボードにコピー
+    const content = editedText; // 表示中の内容（※編集後の内容も含む）を取得
     navigator.clipboard.writeText(content).then(() => {
       alert('クリップボードにコピーしました！');
     }).catch(() => {
       alert('クリップボードへのコピーに失敗しました。');
     });
+  };
+
+  // Firebase に保存する処理（isExpanded が true のときは全文（transcription）、false のときは議事録（minutes））
+  const handleSave = async () => {
+    try {
+      // ※必要に応じてコレクション名やドキュメントIDは変更してください
+      const docRef = doc(db, 'meetings', 'defaultDoc');
+      if (isExpanded) {
+        await updateDoc(docRef, { transcription: editedText });
+      } else {
+        await updateDoc(docRef, { minutes: editedText });
+      }
+      setIsEditing(false);
+      alert('保存に成功しました');
+    } catch (error) {
+      console.error("Error updating document: ", error);
+      alert('保存に失敗しました: ' + error.message);
+    }
   };
 
   // サイドメニュー内のクリックがオーバーレイに伝わらないようにする
@@ -140,7 +173,7 @@ const FullScreenOverlay = ({
       textAlign: 'left',
       transition: 'max-height 0.5s ease',
       marginBottom: '20px',
-      position: 'relative', // 追加
+      position: 'relative',
     },
     summaryText: {
       maxHeight: 'none',
@@ -150,12 +183,53 @@ const FullScreenOverlay = ({
       maxHeight: 'none',
       overflowY: 'auto',
     },
+    // タイトルのスタイル（※元コードでは marginLeft で位置調整しているので必要に応じて修正）
     title: {
       marginBottom: '20px',
       paddingTop: '20px',
-      marginLeft: '-75%',
       fontSize: '30px',
       fontWeight: 'bold',
+    },
+    // タイトルとボタンを横並びにするためのコンテナ
+    titleContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+    },
+    // 編集モードでの Save ボタン（白背景・黒文字）
+    saveButton: {
+      backgroundColor: '#FFFFFF',
+      color: '#000000',
+      border: 'none',
+      padding: '5px 10px',
+      cursor: 'pointer',
+      marginLeft: '10px',
+      borderRadius: '5px',
+    },
+    // 編集モードに入る前の Edit ボタン（シンプルな見た目）
+    editButton: {
+      backgroundColor: 'transparent',
+      color: '#FFFFFF',
+      border: '1px solid #FFFFFF',
+      padding: '5px 10px',
+      cursor: 'pointer',
+      marginLeft: '10px',
+      borderRadius: '5px',
+    },
+    // テキストエディタ（textarea）のスタイル
+    textEditor: {
+      width: '100%',
+      height: '100%',
+      backgroundColor: '#222222',
+      color: '#FFFFFF',
+      border: '1px solid #555',
+      borderRadius: '10px',
+      padding: '20px',
+      boxSizing: 'border-box',
+      fontSize: '16px',
+      outline: 'none',
+      resize: 'none',
     },
     sideMenuOverlay: {
       position: 'fixed',
@@ -227,10 +301,21 @@ const FullScreenOverlay = ({
           <GiHamburgerMenu size={24} />
         </button>
 
-        {/* タイトルの表示 */}
-        <h2 style={styles.title}>
-          {isExpanded ? '全文' : '議事録'}
-        </h2>
+        {/* タイトルと編集／保存ボタン */}
+        <div style={styles.titleContainer}>
+          <h2 style={styles.title}>
+            {isExpanded ? '全文' : '議事録'}
+          </h2>
+          {isEditing ? (
+            <button style={styles.saveButton} onClick={handleSave}>
+              Save
+            </button>
+          ) : (
+            <button style={styles.editButton} onClick={() => setIsEditing(true)}>
+              Edit
+            </button>
+          )}
+        </div>
 
         {/* テキスト描写範囲ボックス */}
         <div
@@ -244,15 +329,22 @@ const FullScreenOverlay = ({
             <FaRegCopy size={20} />
           </button>
 
-          {/* 議事録または全文の表示 */}
-          <p>{isExpanded ? transcription : minutes}</p>
+          {/* 編集モードの場合は textarea、非編集時は p タグで表示 */}
+          {isEditing ? (
+            <textarea
+              style={styles.textEditor}
+              value={editedText}
+              onChange={(e) => setEditedText(e.target.value)}
+            />
+          ) : (
+            <p>{editedText}</p>
+          )}
         </div>
       </div>
 
       {/* サイドメニューオーバーレイ */}
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
-          {/* サイドメニュー */}
           <div style={styles.sideMenu} onClick={stopPropagation}>
             {/* 全文と議事録の切り替えボタン */}
             {!isExpanded ? (

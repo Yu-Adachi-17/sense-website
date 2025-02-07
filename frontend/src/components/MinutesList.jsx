@@ -184,57 +184,63 @@ const MinutesList = () => {
           >
             <RxArrowLeft />
           </button>
-          <h2>議事録一覧</h2>
+          <h2></h2>
         </div>
         <div>
           {selectionMode ? (
             <>
-              <button
-                onClick={() => {
-                  // キャンセル時は選択状態をリセットし、選択モードを解除
-                  setSelectionMode(false);
-                  setSelectedIds([]);
-                }}
-                style={{
-                  backgroundColor: '#1e1e1e',
-                  color: 'white',
-                  border: 'none',
-                  padding: '8px 12px',
-                  borderRadius: 4,
-                  marginRight: 10,
-                  cursor: 'pointer'
-                }}
-              >
-                キャンセル
-              </button>
-              <button
-                onClick={handleDelete}
-                style={{
-                  backgroundColor: '#ff4d4d',
-                  color: 'white',
-                  border: 'none',
-                  padding: '8px 12px',
-                  borderRadius: 4,
-                  cursor: 'pointer'
-                }}
-              >
-                削除する
-              </button>
+<button
+  onClick={() => {
+    setSelectionMode(false);
+    setSelectedIds([]);
+  }}
+  style={{
+    backgroundColor: '#1e1e1e',
+    color: 'white',
+    border: 'none',
+    padding: '10px 15px',
+    borderRadius: 4,
+    marginRight: 10,
+    cursor: 'pointer',
+    fontSize: 20  // 🔹 ここで変更！
+  }}
+>
+  キャンセル
+</button>
+
+<button
+  onClick={handleDelete}
+  style={{
+    backgroundColor: '#ff4d4d',
+    color: 'white',
+    border: 'none',
+    padding: '10px 15px',
+    borderRadius: 4,
+    cursor: 'pointer',
+    fontSize: 20,  // 🔹 ここで変更！
+    fontWeight: 'bold'  // 🔹 文字を太くする
+  }}
+>
+  削除する
+</button>
+
             </>
           ) : (
-            <button
-              onClick={() => setSelectionMode(true)}
-              style={{
-                backgroundColor: '#1e1e1e',
-                color: 'white',
-                border: 'none',
-                padding: '8px 12px',
-                borderRadius: 4,
-                cursor: 'pointer'
-              }}
-            >
-              選択
-            </button>
+<button
+  onClick={() => setSelectionMode(true)}
+  style={{
+    backgroundColor: '#1e1e1e',
+    color: 'white',
+    border: 'none',
+    padding: '10px 15px',
+    borderRadius: 4,
+    cursor: 'pointer',
+    fontSize: 20  // 🔹 ここで変更！
+  }}
+>
+  選択
+</button>
+
           )}
         </div>
       </div>
@@ -266,7 +272,7 @@ const MinutesList = () => {
       ) : (
         sortedDateKeys.map((dateKey) => (
           <div key={dateKey} style={{ marginBottom: 30 }}>
-            <h3 style={{ borderBottom: '1px solid #555', paddingBottom: 5 }}>{dateKey}</h3>
+            <h2 style={{ borderBottom: '1px solid #555', paddingBottom: 5 }}>{dateKey}</h2>
             <div
               style={{
                 display: 'grid',
