@@ -19,8 +19,7 @@ export function PurchaseMenu() {
   const [userEmail, setUserEmail] = useState(null);
   // Firestore のユーザードキュメントから取得する remainingSeconds
   const [profileRemainingSeconds, setProfileRemainingSeconds] = useState(null);
-  // 購入用モーダル／プロフィール用モーダルの表示切替用 state
-  const [showPurchaseOverlay, setShowPurchaseOverlay] = useState(false);
+  // 購入用モーダル／プロフィール用モーダルの表示切替用 state（今回の遷移用では購入オーバーレイは使用しない）
   const [showProfileOverlay, setShowProfileOverlay] = useState(false);
 
   const navigate = useNavigate();
@@ -77,39 +76,7 @@ export function PurchaseMenu() {
     console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
   }, []);
 
-  // 商品購入処理（既存の処理をそのまま利用）
-  const handleBuyClick = async (productId) => {
-    console.log("✅ 送信する productId:", productId);
-    if (!productId) {
-      console.error("❌ productId が undefined です！環境変数を確認してください。");
-      return;
-    }
-    if (!userId) {
-      console.error("❌ userId が取得できません。ログイン状態を確認してください。");
-      alert("購入処理を行うにはログインが必要です。");
-      return;
-    }
-    setLoading(true);
-    try {
-      const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productId, userId }),
-        credentials: "include",
-      });
-      const data = await response.json();
-      console.log("[DEBUG] Stripe Response:", data);
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        console.error("[ERROR] Checkout session URL not found", data);
-      }
-    } catch (error) {
-      console.error("[ERROR] Error during checkout:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // （※既存の購入処理 handleBuyClick は、今回の画面遷移では不要なため省略可）
 
   // 各種スタイル定義
   const styles = {
@@ -177,61 +144,6 @@ export function PurchaseMenu() {
       fontSize: "16px",
       fontWeight: "bold",
     },
-    // 既存の購入ボタン用スタイル（購入オーバーレイ内のボタン）
-    buyButton: {
-      backgroundColor: "transparent",
-      border: "none",
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center",
-      fontSize: "16px",
-      fontWeight: "bold",
-      opacity: loading ? 0.7 : 1,
-      marginTop: "10px",
-    },
-    ticketIcon: {
-      color: "yellow",
-      fontSize: "20px",
-      marginRight: "8px",
-      opacity: loading ? 0.7 : 1,
-    },
-    text: {
-      color: "yellow",
-      fontSize: "16px",
-      fontWeight: "bold",
-      opacity: loading ? 0.7 : 1,
-    },
-    loadingIcon: {
-      color: "orange",
-      fontSize: "7px",
-      marginLeft: "8px",
-    },
-    // 購入オーバーレイ（「アイテムを購入」ボタンタップ時に表示するモーダルの背景）
-    purchaseOverlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      background: "rgba(0, 0, 0, 0.5)",
-      zIndex: 1400,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    // 購入モーダル本体（全画面表示に変更）
-    purchaseModal: {
-      width: "100%",
-      height: "100%",
-      background: "#FFF",
-      position: "relative",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: "20px",
-      boxSizing: "border-box",
-    },
     // プロフィールオーバーレイ（プロフィールアイコンタップ時）
     profileOverlay: {
       position: "fixed",
@@ -239,7 +151,7 @@ export function PurchaseMenu() {
       left: 0,
       width: "100%",
       height: "100%",
-      background: "rgba(0, 0, 0, 0.9)", // 背景を黒に（少し透過）
+      background: "rgba(0, 0, 0, 0.9)",
       zIndex: 1400,
       display: "flex",
       justifyContent: "center",
@@ -248,7 +160,7 @@ export function PurchaseMenu() {
     profileModal: {
       width: "300px",
       height: "400px",
-      background: "rgba(20, 20, 20, 1)", // ダークグレーで高級感を
+      background: "rgba(20, 20, 20, 1)",
       borderRadius: "8px",
       display: "flex",
       flexDirection: "column",
@@ -261,38 +173,26 @@ export function PurchaseMenu() {
       position: "absolute",
       top: "10px",
       right: "10px",
-      background: "transparent", // 背景透明
-      color: "red", // 赤文字
-      fontWeight: "bold", // ボールド
+      background: "transparent",
+      color: "red",
+      fontWeight: "bold",
       padding: "8px 12px",
       borderRadius: "5px",
-      border: "2px solid red", // 枠線赤
+      border: "2px solid red",
       cursor: "pointer",
       fontFamily: "Impact, sans-serif",
     },
     profileIcon: {
-      fontSize: "160px", // さらに大きく (元は 80px)
+      fontSize: "160px",
       color: "gray",
       marginBottom: "20px",
-      marginTop: "5%", // 上部1/2あたりに配置
+      marginTop: "5%",
     },
     profileInfo: {
       textAlign: "center",
       fontSize: "16px",
       color: "#FFF",
       fontFamily: "Impact, sans-serif",
-    },
-    // 追加: 購入オーバーレイ内の「×」ボタンのスタイル
-    closeButton: {
-      position: "absolute",
-      top: "20px",
-      left: "20px",
-      background: "none",
-      border: "none",
-      fontSize: "30px",
-      color: "#000",
-      cursor: "pointer",
-      zIndex: 1500,
     },
   };
 
@@ -331,7 +231,7 @@ export function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* ログインしていない場合はログインボタン、ログイン済みなら「アイテムを購入」ボタンを表示 */}
+            {/* ログインしていない場合はログインボタン */}
             {!userId ? (
               <button
                 style={styles.loginButton}
@@ -343,11 +243,12 @@ export function PurchaseMenu() {
                 ログイン
               </button>
             ) : (
+              // ユーザーがログインしている場合は、購入ページ（BuyTicketsPage）へ遷移
               <button
                 style={styles.purchaseButton}
                 onClick={() => {
-                  setShowPurchaseOverlay(true);
                   setShowSideMenu(false);
+                  navigate("/buy-tickets");
                 }}
               >
                 アイテムを購入
@@ -357,52 +258,13 @@ export function PurchaseMenu() {
         </div>
       )}
 
-      {/* 購入オーバーレイ（モーダル） */}
-      {showPurchaseOverlay && (
-        <div style={styles.purchaseOverlay}>
-          <div style={styles.purchaseModal} onClick={stopPropagation}>
-            {/* 左上の「×」ボタンでオーバーレイを閉じる */}
-            <button style={styles.closeButton} onClick={() => setShowPurchaseOverlay(false)}>
-              ×
-            </button>
-            <button
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
-              style={styles.buyButton}
-              disabled={loading}
-            >
-              <FaTicketAlt style={styles.ticketIcon} />
-              <span style={styles.text}>120分を買う</span>
-              {loading && <FaCircle style={styles.loadingIcon} />}
-            </button>
-            <button
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
-              style={styles.buyButton}
-              disabled={loading}
-            >
-              <FaTicketAlt style={styles.ticketIcon} />
-              <span style={styles.text}>1200分を買う</span>
-              {loading && <FaCircle style={styles.loadingIcon} />}
-            </button>
-            <button
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
-              style={styles.buyButton}
-              disabled={loading}
-            >
-              <FaTicketAlt style={styles.ticketIcon} />
-              <span style={styles.text}>サブスクリプションに登録</span>
-              {loading && <FaCircle style={styles.loadingIcon} />}
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* プロフィールオーバーレイ */}
       {showProfileOverlay && (
         <div style={styles.profileOverlay} onClick={() => setShowProfileOverlay(false)}>
           <div style={styles.profileModal} onClick={stopPropagation}>
             {/* ログアウトボタン（右上） */}
-            <button 
-              style={styles.logoutButton} 
+            <button
+              style={styles.logoutButton}
               onClick={() => {
                 const confirmLogout = window.confirm("ログアウトしますか？");
                 if (confirmLogout) {
@@ -413,7 +275,7 @@ export function PurchaseMenu() {
             >
               ログアウト
             </button>
-            {/* IoPersonCircleOutline のアイコン（上部1/2に配置 & 大きく） */}
+            {/* アイコン */}
             <IoPersonCircleOutline style={styles.profileIcon} />
             {/* ユーザー情報 */}
             <div style={styles.profileInfo}>
