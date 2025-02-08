@@ -186,8 +186,9 @@ function App() {
             if (prev <= 1) {
               clearInterval(timerIntervalRef.current);
               timerIntervalRef.current = null;
-              // 残秒が 0 になったら自動的に録音停止
-              toggleRecording();
+              // 残秒が0になったら自動的に録音停止＋議事録生成
+              stopRecording();
+              setIsRecording(false);
               return 0;
             }
             return prev - 1;
