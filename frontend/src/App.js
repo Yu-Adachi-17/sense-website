@@ -112,9 +112,9 @@ function App() {
     return () => clearInterval(checkDateInterval);
   }, [userRemainingSeconds, userSubscription]);
 
-  // 録音ボタン（中央のボタン）を押した際の処理
+  // 録音ボタン（中央のボタン）押下時の処理
   const toggleRecording = async () => {
-    // 「Recovering...」状態（残秒数が 0）の場合は、以下の挙動に切り替える
+    // 「Recovering...」（残秒数0）の状態の場合
     if (userRemainingSeconds === 0) {
       if (!auth.currentUser) {
         // 非ログインユーザーならログイン画面へ
@@ -123,7 +123,7 @@ function App() {
         // ログインユーザーならアイテム購入画面へ
         window.location.href = '/buy-tickets';
       }
-      return; // ここで通常の録音処理は実行しない
+      return; // 通常の録音処理は実行しない
     }
 
     if (isRecording) {
@@ -199,7 +199,7 @@ function App() {
               clearInterval(timerIntervalRef.current);
               timerIntervalRef.current = null;
               // 残秒が0になったら自動的に録音停止＋議事録生成
-              stopRecording();
+              stopRecording(0); // ここで Firebase 更新にも 0 を渡す
               setIsRecording(false);
               return 0;
             }
@@ -214,7 +214,8 @@ function App() {
     }
   };
 
-  const stopRecording = async () => {
+  // stopRecording にオプション引数 finalRemaining を追加（デフォルトは現在の userRemainingSeconds）
+  const stopRecording = async (finalRemaining = userRemainingSeconds) => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
     }
@@ -245,7 +246,7 @@ function App() {
         timerIntervalRef.current = null;
       }
       try {
-        await setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: userRemainingSeconds }, { merge: true });
+        await setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: finalRemaining }, { merge: true });
       } catch (err) {
         console.error("残時間更新エラー:", err);
       }
