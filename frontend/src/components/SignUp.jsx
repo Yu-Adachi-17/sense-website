@@ -1,3 +1,4 @@
+// SignUp.js
 import React, { useState } from "react";
 import {
   getAuth,
@@ -20,7 +21,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // サインアップ完了ではなく「メール送信完了」状態のフラグ
+  // 「メール送信完了」状態のフラグ
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
@@ -54,7 +55,6 @@ const SignUp = () => {
         handleCodeInApp: true,
       };
       
-  
       // 認証メールを送信（設定付き）
       await sendEmailVerification(user, actionCodeSettings);
   
@@ -71,8 +71,7 @@ const SignUp = () => {
     }
   };
   
-
-  // Google サインイン処理（メール認証は不要なケースが多いのでそのままリダイレクト）
+  // Google サインイン処理
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
@@ -119,9 +118,9 @@ const SignUp = () => {
           確認メールを送信しました
         </h1>
         <p style={{ fontSize: "0.8em", marginTop: "10px" }}>
-          メール内のリンクをクリックして、アカウントの認証とログインを完了してください。
+          メール内のリンクをクリックしてアカウントの認証をし、ログインを完了してください。
         </p>
-        {/* <button
+        <button
           onClick={() => navigate("/login")}
           style={{
             marginTop: "20px",
@@ -132,8 +131,8 @@ const SignUp = () => {
             cursor: "pointer",
           }}
         >
-          ログインページへ
-        </button> */}
+          アカウント認証後にログイン
+        </button>
       </div>
     );
   }
