@@ -119,7 +119,7 @@ const SignUp = () => {
           確認メールを送信しました
         </h1>
         <p style={{ fontSize: "0.8em", marginTop: "10px" }}>
-          メール内のリンクをクリックして、アカウントの認証を完了してください。
+          メール内のリンクをクリックして、アカウントの認証とログインを完了してください。
         </p>
         {/* <button
           onClick={() => navigate("/login")}
