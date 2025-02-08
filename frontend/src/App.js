@@ -19,6 +19,7 @@ import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
 import MinutesDetail from './components/MinutesDetail';
 import { PiGridFourFill } from "react-icons/pi";
+import EmailVerification from "./components/EmailVerification"; // ← ここ
 
 function DebugRouter() {
   const location = useLocation();
@@ -444,6 +445,7 @@ function App() {
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/email-verification" element={<EmailVerification />} /> 
         <Route path="/buy-tickets" element={<BuyTicketsPage />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
