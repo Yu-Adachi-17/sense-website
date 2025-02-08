@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
-import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore"; // Firestore のインポート
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  signOut,
+} from "firebase/auth";
+import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
@@ -8,14 +13,15 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 
 const auth = getAuth(app);
-const db = getFirestore(app); // Firestore 初期化
+const db = getFirestore(app);
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
+  // サインアップ完了ではなく「メール送信完了」状態のフラグ
+  const [isEmailSent, setIsEmailSent] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
@@ -25,24 +31,33 @@ const SignUp = () => {
     setIsLoading(true);
     try {
       // ユーザー作成
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
-      
-      // Firestore にユーザードキュメントを作成（初期値 remainingMinutes: 0 など）
-      await setDoc(doc(db, "users", user.uid), {
-        email: user.email,
-        subscription: false, // 初期状態では未加入 (merge: true で確実に作成)
-        displayName: user.displayName || "",
-        remainingSeconds: 180, // 初期値: 180秒 (秒単位のInt)
-        createdAt: serverTimestamp(),
-      }, { merge: true }); // ✅ 追加: merge オプションを有効にする
-      
-      
+
+      // Firestore にユーザードキュメントを作成（必要な初期値をセット）
+      await setDoc(
+        doc(db, "users", user.uid),
+        {
+          email: user.email,
+          subscription: false,
+          displayName: user.displayName || "",
+          remainingSeconds: 180,
+          createdAt: serverTimestamp(),
+        },
+        { merge: true }
+      );
       console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
 
-      // メール認証を送信
+      // 認証メールを送信
       await sendEmailVerification(user);
-      setIsSignUpSuccess(true); // サインアップ成功
+      // ユーザーをサインアウト（※認証済みになってほしくないため）
+      await signOut(auth);
+      // 「メール送信完了」の状態にする
+      setIsEmailSent(true);
     } catch (error) {
       setAlertMessage(error.message);
       setShowAlert(true);
@@ -51,12 +66,12 @@ const SignUp = () => {
     }
   };
 
-  // Google サインイン処理
+  // Google サインイン処理（メール認証は不要なケースが多いのでそのままリダイレクト）
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
       await signInWithGoogle();
-      setIsSignUpSuccess(true); // サインイン成功
+      navigate("/");
     } catch (error) {
       setAlertMessage("Googleサインインに失敗しました");
       setShowAlert(true);
@@ -70,7 +85,7 @@ const SignUp = () => {
     setIsLoading(true);
     try {
       await signInWithApple();
-      setIsSignUpSuccess(true); // サインイン成功
+      navigate("/");
     } catch (error) {
       setAlertMessage("Appleサインインに失敗しました");
       setShowAlert(true);
@@ -79,11 +94,8 @@ const SignUp = () => {
     }
   };
 
-  // サインアップ成功画面の表示
-  if (isSignUpSuccess) {
-    setTimeout(() => {
-      navigate("/"); // 2秒後にホーム画面に遷移
-    }, 2000);
+  // 「メール送信完了」後の画面表示
+  if (isEmailSent) {
     return (
       <div
         style={{
@@ -98,15 +110,29 @@ const SignUp = () => {
         }}
       >
         <h1 style={{ fontWeight: 300, letterSpacing: "0.05em" }}>
-          Sign Up Successful
+          確認メールを送信しました
         </h1>
         <p style={{ fontSize: "0.8em", marginTop: "10px" }}>
-          Redirecting to home in a few seconds...
+          メール内のリンクをクリックして、アカウントの認証を完了してください。
         </p>
+        <button
+          onClick={() => navigate("/login")}
+          style={{
+            marginTop: "20px",
+            color: "white",
+            background: "none",
+            border: "1px solid white",
+            padding: "10px 20px",
+            cursor: "pointer",
+          }}
+        >
+          ログインページへ
+        </button>
       </div>
     );
   }
 
+  // 通常のサインアップ画面
   return (
     <div
       style={{
@@ -119,7 +145,14 @@ const SignUp = () => {
         color: "white",
       }}
     >
-      <h1 style={{ fontSize: "40px", fontWeight: "700", color: "white", marginBottom: "20px" }}>
+      <h1
+        style={{
+          fontSize: "40px",
+          fontWeight: "700",
+          color: "white",
+          marginBottom: "20px",
+        }}
+      >
         Create Account
       </h1>
       <input
