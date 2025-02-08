@@ -58,8 +58,6 @@ function App() {
   const streamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
-  // ★ 日付跨ぎでリセット判定用：最後にチェックした日付を保持する ref
-  const lastResetDateRef = useRef(new Date().toDateString());
 
   // mm:ss形式にフォーマットするヘルパー関数
   const formatTime = (seconds) => {
@@ -89,28 +87,6 @@ function App() {
     });
     return unsubscribe;
   }, []);
-
-  // ★ 日付跨ぎで残時間が 0 の場合、再び 180 にリセットする処理（非購読ユーザーのみ）
-  useEffect(() => {
-    if (userSubscription) return; // 購読ユーザーは対象外
-    const checkDateInterval = setInterval(() => {
-      if (userRemainingSeconds === 0) {
-        const currentDate = new Date().toDateString();
-        if (lastResetDateRef.current !== currentDate) {
-          setUserRemainingSeconds(180);
-          if (auth.currentUser) {
-            setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: 180 }, { merge: true })
-              .catch(err => console.error("Firebase更新エラー:", err));
-          }
-          lastResetDateRef.current = currentDate;
-        }
-      } else {
-        // 残時間が 0 でなければ最新の日付を保持
-        lastResetDateRef.current = new Date().toDateString();
-      }
-    }, 1000);
-    return () => clearInterval(checkDateInterval);
-  }, [userRemainingSeconds, userSubscription]);
 
   // toggleRecording を async 化して、録音開始・停止時の処理を await できるようにする
   const toggleRecording = async () => {
@@ -179,14 +155,14 @@ function App() {
 
       updateAudioLevel();
 
-      // ★ サブスクライバー（購読ユーザー）でなければ、録音開始と同時に残秒数のカウントダウンを開始
+      // ★ サブスクライバーでなければ、録音開始と同時に残秒数のカウントダウンを開始
       if (!userSubscription) {
         timerIntervalRef.current = setInterval(() => {
           setUserRemainingSeconds(prev => {
             if (prev <= 1) {
               clearInterval(timerIntervalRef.current);
               timerIntervalRef.current = null;
-              // 残秒が 0 になったら自動的に録音停止
+              // 残秒が0になったら自動的に録音停止
               toggleRecording();
               return 0;
             }
@@ -225,7 +201,7 @@ function App() {
 
     setAudioLevel(1);
 
-    // ★ カウントダウンの interval をクリアし、非購読ユーザーの場合は Firebase に新たな残秒数を反映
+    // ★ カウントダウンの interval をクリアし、Firebase に新たな残秒数を反映
     if (!userSubscription) {
       if (timerIntervalRef.current) {
         clearInterval(timerIntervalRef.current);
@@ -413,7 +389,7 @@ function App() {
                       fontSize: '72px',
                       lineHeight: '1'
                     }}>
-                      {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
+                      {formatTime(userRemainingSeconds)}
                     </span>
                   )}
                 </div>
