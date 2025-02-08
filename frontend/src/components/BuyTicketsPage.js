@@ -1,24 +1,42 @@
-// src/components/BuyTicketsPage.js
 import React, { useState } from "react";
+import { getAuth } from "firebase/auth";  // Firebase Auth をインポート
 
 export default function BuyTicketsPage() {
   const [loading, setLoading] = useState(false);
+  const auth = getAuth();  // Firebase Auth のインスタンスを取得
 
   // 商品購入処理（Stripe API を呼び出す）
   const handleBuyClick = async (productId) => {
     console.log("✅ 送信する productId:", productId);
+
     if (!productId) {
       console.error("❌ productId が undefined です！環境変数を確認してください。");
       return;
     }
+
+    // 👇 ユーザーの認証情報を取得
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("ログインが必要です。先にログインしてください。");
+      return;
+    }
+
+    const userId = user.uid;  // ユーザーの UID を取得
+    console.log("✅ 送信する userId:", userId);
+
     setLoading(true);
     try {
       const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productId }),
+        body: JSON.stringify({
+          productId,
+          userId,  // ✅ userId を含める
+        }),
         credentials: "include",
       });
+
       const data = await response.json();
       console.log("[DEBUG] Stripe Response:", data);
       if (data.url) {
