@@ -1,5 +1,6 @@
+// EmailVerification.js
 import React, { useEffect, useState } from "react";
-import { getAuth, applyActionCode, signOut } from "firebase/auth";
+import { getAuth, applyActionCode } from "firebase/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const EmailVerification = () => {
@@ -16,23 +17,16 @@ const EmailVerification = () => {
     if (oobCode) {
       applyActionCode(auth, oobCode)
         .then(() => {
-          setStatusMessage("メール認証に成功しました。ログイン画面にリダイレクトします…");
-          // 念のためサインアウトして、ユーザーが確実に非認証状態になるようにする
-          signOut(auth).then(() => {
-            // 3秒後にログイン画面へリダイレクト
-            setTimeout(() => {
-              navigate("/login");
-            }, 3000);
-          });
+          setStatusMessage("メール認証に成功しました。アカウント認証後にログインしてください。");
         })
         .catch((error) => {
-          console.error(error);
+          console.error("認証エラー:", error);
           setStatusMessage("メール認証に失敗しました。コードが無効か、既に認証済みかもしれません。");
         });
     } else {
       setStatusMessage("認証コードが見つかりません。");
     }
-  }, [auth, location.search, navigate]);
+  }, [auth, location.search]);
 
   return (
     <div
@@ -49,6 +43,23 @@ const EmailVerification = () => {
     >
       <h1>Email Verification</h1>
       <p>{statusMessage}</p>
+      {statusMessage.includes("成功") && (
+        <button
+          onClick={() => navigate("/login")}
+          style={{
+            marginTop: "20px",
+            padding: "10px 20px",
+            fontSize: "16px",
+            cursor: "pointer",
+            backgroundColor: "white",
+            color: "black",
+            border: "none",
+            borderRadius: "5px",
+          }}
+        >
+          アカウント認証後にログイン
+        </button>
+      )}
     </div>
   );
 };
