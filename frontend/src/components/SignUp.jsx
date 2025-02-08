@@ -50,12 +50,13 @@ const SignUp = () => {
       
       // 認証メールのリンク設定
       const actionCodeSettings = {
-        url: "https://www.sense-ai.world/email-verification", // 修正
+        url: "https://www.sense-ai.world/email-verification",
         handleCodeInApp: true,
+        dynamicLinkDomain: "www.sense-ai.world" // 追加
       };
-  
-      // 認証メールを送信（設定付き）
       await sendEmailVerification(user, actionCodeSettings);
+      
+
   
       // ユーザーをサインアウト（※認証済みになってほしくないため）
       await signOut(auth);
