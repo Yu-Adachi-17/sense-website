@@ -50,7 +50,7 @@ const SignUp = () => {
       
       // 認証メールのリンク設定
       const actionCodeSettings = {
-        url: "https://sense-ai.world/email-verification", // 修正
+        url: "https://www.sense-ai.world/email-verification", // 修正
         handleCodeInApp: true,
       };
   
