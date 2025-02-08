@@ -112,8 +112,20 @@ function App() {
     return () => clearInterval(checkDateInterval);
   }, [userRemainingSeconds, userSubscription]);
 
-  // toggleRecording を async 化して、録音開始・停止時の処理を await できるようにする
+  // 録音ボタン（中央のボタン）を押した際の処理
   const toggleRecording = async () => {
+    // 「Recovering...」状態（残秒数が 0）の場合は、以下の挙動に切り替える
+    if (userRemainingSeconds === 0) {
+      if (!auth.currentUser) {
+        // 非ログインユーザーならログイン画面へ
+        window.location.href = '/login';
+      } else {
+        // ログインユーザーならアイテム購入画面へ
+        window.location.href = '/buy-tickets';
+      }
+      return; // ここで通常の録音処理は実行しない
+    }
+
     if (isRecording) {
       await stopRecording();
     } else {
@@ -337,7 +349,14 @@ function App() {
             <div className="container">
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <button
-                  onClick={() => { window.location.href = '/minutes-list'; }}
+                  onClick={() => {
+                    // グリッドアイコンタップ時：非ログインユーザーの場合はログイン画面へ、それ以外は通常の議事録一覧へ
+                    if (!auth.currentUser) {
+                      window.location.href = '/login';
+                    } else {
+                      window.location.href = '/minutes-list';
+                    }
+                  }}
                   style={{
                     position: 'absolute',
                     top: 20,
