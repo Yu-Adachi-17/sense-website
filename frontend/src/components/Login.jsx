@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
@@ -69,8 +73,6 @@ const Login = () => {
     }
   };
   
-  
-
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
@@ -91,6 +93,27 @@ const Login = () => {
       navigate("/"); // ✅ Appleサインイン成功時にホーム画面へ遷移
     } catch (error) {
       setAlertMessage("Appleサインインに失敗しました");
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // パスワード再設定メール送信処理
+  const handlePasswordReset = async () => {
+    if (!email) {
+      setAlertMessage("メールアドレスを入力してください");
+      setShowAlert(true);
+      return;
+    }
+    setIsLoading(true);
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setAlertMessage("パスワード再設定メールを送信しました。メールをご確認ください。");
+      setShowAlert(true);
+    } catch (error) {
+      console.error("パスワード再設定メール送信エラー:", error);
+      setAlertMessage("パスワード再設定メールの送信に失敗しました。");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -210,6 +233,22 @@ const Login = () => {
       >
         <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
         Appleでログイン
+      </button>
+
+      {/* パスワード再設定メール送信用ボタン */}
+      <button
+        onClick={handlePasswordReset}
+        disabled={isLoading}
+        style={{
+          color: "red",
+          background: "none",
+          border: "none",
+          cursor: isLoading ? "not-allowed" : "pointer",
+          marginBottom: "20px",
+          fontWeight: "bold",
+        }}
+      >
+        パスワードを忘れた人用の再設定メールを送る
       </button>
 
       <button
