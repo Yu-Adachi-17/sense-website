@@ -31,13 +31,9 @@ const SignUp = () => {
     setIsLoading(true);
     try {
       // ユーザー作成
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
+  
       // Firestore にユーザードキュメントを作成（必要な初期値をセット）
       await setDoc(
         doc(db, "users", user.uid),
@@ -51,11 +47,19 @@ const SignUp = () => {
         { merge: true }
       );
       console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
-
-      // 認証メールを送信
-      await sendEmailVerification(user);
+      
+      // 認証メールのリンク設定
+      const actionCodeSettings = {
+        url: "https://sense-ai.world/email-verification", // 修正
+        handleCodeInApp: true,
+      };
+  
+      // 認証メールを送信（設定付き）
+      await sendEmailVerification(user, actionCodeSettings);
+  
       // ユーザーをサインアウト（※認証済みになってほしくないため）
       await signOut(auth);
+  
       // 「メール送信完了」の状態にする
       setIsEmailSent(true);
     } catch (error) {
@@ -65,6 +69,7 @@ const SignUp = () => {
       setIsLoading(false);
     }
   };
+  
 
   // Google サインイン処理（メール認証は不要なケースが多いのでそのままリダイレクト）
   const handleGoogleSignIn = async () => {
