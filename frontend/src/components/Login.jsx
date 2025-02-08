@@ -24,12 +24,25 @@ const Login = () => {
     }
     setIsLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/"); // ✅ ログイン成功時にホーム画面へ遷移
+      // サインイン処理
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+  
+      // メール認証が完了していない場合
+      if (!user.emailVerified) {
+        // ログイン状態にさせないためサインアウト
+        await signOut(auth);
+        setAlertMessage("メール認証が完了していません。メール内のリンクをクリックして認証してください。");
+        setShowAlert(true);
+        return;
+      }
+  
+      // 認証済みの場合のみホーム画面へ遷移
+      navigate("/");
     } catch (error) {
       console.error("ログインエラー:", error);
   
-      // Firebaseのエラーコードを日本語に変換
+      // Firebase のエラーコードに応じたメッセージ表示
       switch (error.code) {
         case "auth/invalid-email":
           setAlertMessage("無効なメールアドレスです。");
@@ -54,6 +67,7 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+  
   
 
   const handleGoogleSignIn = async () => {
