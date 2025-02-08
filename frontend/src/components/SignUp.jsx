@@ -1,4 +1,3 @@
-// SignUp.js
 import React, { useState } from "react";
 import {
   getAuth,
@@ -21,7 +20,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // 「メール送信完了」状態のフラグ
+  // サインアップ完了ではなく「メール送信完了」状態のフラグ
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
@@ -32,9 +31,13 @@ const SignUp = () => {
     setIsLoading(true);
     try {
       // ユーザー作成
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
-  
+
       // Firestore にユーザードキュメントを作成（必要な初期値をセット）
       await setDoc(
         doc(db, "users", user.uid),
@@ -48,19 +51,11 @@ const SignUp = () => {
         { merge: true }
       );
       console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
-      
-      // 認証メールのリンク設定
-      const actionCodeSettings = {
-        url: "https://www.sense-ai.world/#/email-verification",
-        handleCodeInApp: true,
-      };
-      
-      // 認証メールを送信（設定付き）
-      await sendEmailVerification(user, actionCodeSettings);
-  
+
+      // 認証メールを送信
+      await sendEmailVerification(user);
       // ユーザーをサインアウト（※認証済みになってほしくないため）
       await signOut(auth);
-  
       // 「メール送信完了」の状態にする
       setIsEmailSent(true);
     } catch (error) {
@@ -70,8 +65,8 @@ const SignUp = () => {
       setIsLoading(false);
     }
   };
-  
-  // Google サインイン処理
+
+  // Google サインイン処理（メール認証は不要なケースが多いのでそのままリダイレクト）
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
@@ -118,7 +113,7 @@ const SignUp = () => {
           確認メールを送信しました
         </h1>
         <p style={{ fontSize: "0.8em", marginTop: "10px" }}>
-          メール内のリンクをクリックしてアカウントの認証をし、ログインを完了してください。
+        メール内のリンクをクリックしてアカウントの認証をし、ログインを完了してください。
         </p>
         <button
           onClick={() => navigate("/login")}
