@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAuth, applyActionCode } from "firebase/auth";
+import { getAuth, applyActionCode, signOut } from "firebase/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const EmailVerification = () => {
@@ -16,11 +16,14 @@ const EmailVerification = () => {
     if (oobCode) {
       applyActionCode(auth, oobCode)
         .then(() => {
-          setStatusMessage("メール認証に成功しました。ホーム画面にリダイレクトします…");
-          // 数秒後にホーム画面へリダイレクト
-          setTimeout(() => {
-            navigate("/login");
-          }, 3000);
+          setStatusMessage("メール認証に成功しました。ログイン画面にリダイレクトします…");
+          // 念のためサインアウトして、ユーザーが確実に非認証状態になるようにする
+          signOut(auth).then(() => {
+            // 3秒後にログイン画面へリダイレクト
+            setTimeout(() => {
+              navigate("/login");
+            }, 3000);
+          });
         })
         .catch((error) => {
           console.error(error);
