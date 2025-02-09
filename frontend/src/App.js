@@ -50,6 +50,10 @@ function App() {
   const [userSubscription, setUserSubscription] = useState(false);
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(180);
 
+  // ★ 追加：ユーザーが選択した会議フォーマット情報（MeetingFormatsList から選択）
+  // ここでは初期値は null としています。必要に応じて Context や localStorage 経由で値をセットしてください。
+  const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
+
   const progressIntervalRef = useRef(null);
   const timerIntervalRef = useRef(null); // ★ カウントダウン用の interval を保持
   const animationFrameRef = useRef(null);
@@ -163,9 +167,16 @@ function App() {
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
 
-        // バックエンドに音声ファイルを送信し、transcription と minutes をセット
+        // ★ 会議フォーマットが選択されていなければアラート表示
+        if (!selectedMeetingFormat) {
+          alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
+          return;
+        }
+
+        // バックエンドに音声ファイルと会議フォーマット情報（ここではテンプレート文字列）を送信し、transcription と minutes をセット
         await transcribeAudio(
           file,
+          selectedMeetingFormat.template, // ※ 必要に応じて .id に変更可能
           setTranscription,
           setMinutes,
           setIsProcessing,

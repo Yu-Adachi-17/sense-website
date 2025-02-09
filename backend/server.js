@@ -95,33 +95,37 @@ const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions'
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Railwayにセットしたキーを使用
 
 // ✅ ChatGPTを使用して議事録を生成する関数
-const generateMinutes = async (transcription) => {
+const generateMinutes = async (transcription, formatTemplate) => {
+    // ユーザー選択のテンプレートがあればシステムメッセージとして使用、なければデフォルトを使用
+    const systemMessage = formatTemplate || 'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
+  
     const data = {
-        model: 'gpt-4',
-        messages: [
-            { role: 'system', content: 'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。' },
-            { role: 'user', content: transcription },
-        ],
-        max_tokens: 2000,
-        temperature: 0.5,
+      model: 'gpt-4',
+      messages: [
+        { role: 'system', content: systemMessage },
+        { role: 'user', content: transcription },
+      ],
+      max_tokens: 2000,
+      temperature: 0.5,
     };
-
+  
     try {
-        console.log('[DEBUG] Sending data to ChatGPT API:', data);
-        const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-            headers: {
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-                'Content-Type': 'application/json',
-            },
-            timeout: 600000, // 10分
-        });
-        console.log('[DEBUG] ChatGPT API response:', response.data);
-        return response.data.choices[0].message.content.trim();
+      console.log('[DEBUG] Sending data to ChatGPT API:', data);
+      const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+        headers: {
+          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        timeout: 600000, // 10分
+      });
+      console.log('[DEBUG] ChatGPT API response:', response.data);
+      return response.data.choices[0].message.content.trim();
     } catch (error) {
-        console.error('[ERROR] ChatGPT API failed:', error.response?.data || error.message);
-        throw new Error('ChatGPT API による議事録生成に失敗しました');
+      console.error('[ERROR] ChatGPT API failed:', error.response?.data || error.message);
+      throw new Error('ChatGPT API による議事録生成に失敗しました');
     }
-};
+  };
+  
 
 // ✅ Whisper APIを使用して文字起こしを行う関数
 const transcribeWithOpenAI = async (filePath) => {
@@ -175,51 +179,53 @@ app.get('/api/hello', (req, res) => {
 
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log('[DEBUG] /api/transcribe called');
-
+  
     try {
-        const file = req.file;
-        if (!file) {
-            console.error('[ERROR] ファイルがアップロードされていません');
-            return res.status(400).json({ error: 'ファイルがアップロードされていません' });
-        }
-
-        console.log(`[DEBUG] File received: ${file.originalname}`);
-        const tempDir = path.join(__dirname, 'temp');
-        if (!fs.existsSync(tempDir)) {
-            fs.mkdirSync(tempDir, { recursive: true });
-        }
-
-        const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
-        fs.writeFileSync(tempFilePath, file.buffer);
-        console.log('[DEBUG] File saved temporarily at:', tempFilePath);
-
-        let transcription;
-        try {
-            transcription = await transcribeWithOpenAI(tempFilePath);
-            console.log('[DEBUG] Transcription result:', transcription);
-        } catch (error) {
-            console.error('[ERROR] Whisper API failed:', error);
-            return res.status(500).json({ error: 'Whisper API による文字起こしに失敗しました' });
-        }
-
-        fs.unlinkSync(tempFilePath);
-
-        let minutes;
-        try {
-            minutes = await generateMinutes(transcription.trim());
-            console.log('[DEBUG] ChatGPT result:', minutes);
-        } catch (error) {
-            console.error('[ERROR] ChatGPT API failed:', error);
-            return res.status(500).json({ error: 'ChatGPT API による議事録生成に失敗しました' });
-        }
-
-        res.json({ transcription: transcription.trim(), minutes });
-
+      const file = req.file;
+      if (!file) {
+        console.error('[ERROR] ファイルがアップロードされていません');
+        return res.status(400).json({ error: 'ファイルがアップロードされていません' });
+      }
+  
+      // フロントエンドから送られてくる meetingFormat (テンプレートそのものまたはID)
+      const meetingFormat = req.body.meetingFormat; // ※ フォームデータに追加して送信する
+  
+      // もしIDで送信している場合は、サーバー側でフォーマットを選別する処理を追加します
+      // 例：meetingFormats.find(f => f.id === meetingFormat) など
+  
+      console.log(`[DEBUG] Meeting format received: ${meetingFormat}`);
+  
+      // ファイルの一時保存などの処理はそのまま
+      const tempDir = path.join(__dirname, 'temp');
+      if (!fs.existsSync(tempDir)) {
+        fs.mkdirSync(tempDir, { recursive: true });
+      }
+      const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
+      fs.writeFileSync(tempFilePath, file.buffer);
+      console.log('[DEBUG] File saved temporarily at:', tempFilePath);
+  
+      let transcription;
+      try {
+        transcription = await transcribeWithOpenAI(tempFilePath);
+        console.log('[DEBUG] Transcription result:', transcription);
+      } catch (error) {
+        console.error('[ERROR] Whisper API failed:', error);
+        return res.status(500).json({ error: 'Whisper API による文字起こしに失敗しました' });
+      }
+  
+      fs.unlinkSync(tempFilePath);
+  
+      // generateMinutes にフォーマットのテンプレートも渡す
+      const minutes = await generateMinutes(transcription.trim(), meetingFormat);
+      console.log('[DEBUG] ChatGPT result:', minutes);
+  
+      res.json({ transcription: transcription.trim(), minutes });
     } catch (error) {
-        console.error('[ERROR] /api/transcribe internal error:', error);
-        res.status(500).json({ error: 'サーバー内部エラー' });
+      console.error('[ERROR] /api/transcribe internal error:', error);
+      res.status(500).json({ error: 'サーバー内部エラー' });
     }
-});
+  });
+  
 // ✅ デバッグ用に GET /api/transcribe を追加
 app.get('/api/transcribe', (req, res) => {
     res.json({ message: "API is working!" });
