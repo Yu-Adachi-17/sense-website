@@ -10,8 +10,7 @@ const MeetingFormatsList = () => {
   const [newTemplate, setNewTemplate] = useState('');
   const [editingFormat, setEditingFormat] = useState(null); // 現在編集中のフォーマット
   const [editingText, setEditingText] = useState('');         // 編集用テキスト
-  const [selectionMode, setSelectionMode] = useState(false);
-  const [selectedIds, setSelectedIds] = useState([]);
+  const [selectionMode, setSelectionMode] = useState(false);    // 選択モード（必要な場合）
   const dbRef = useRef(null);
 
   /* ===== IndexedDB 関連 ===== */
@@ -89,19 +88,69 @@ const MeetingFormatsList = () => {
       format.template.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // 各フォーマット項目をタップしたときの処理
+  // 並び順のソート
+  const sortedFormats = [...filteredFormats].sort((a, b) => {
+    // 優先度を決める関数（低い数値ほど優先）
+    const getPriority = (format) => {
+      if (format.selected) return 0; // チェックがついているものが最優先
+      if (format.title.toLowerCase() === 'general') return 1; // 次に "General"
+      return 2; // それ以外
+    };
+
+    const aPriority = getPriority(a);
+    const bPriority = getPriority(b);
+
+    if (aPriority !== bPriority) {
+      return aPriority - bPriority;
+    } else {
+      // 同じ優先度の場合はタイトルを localeCompare で比較（日本語の場合は 'ja' を指定）
+      return a.title.localeCompare(b.title, 'ja');
+    }
+  });
+
+  // --- 単一選択にするための共通ロジック ---
+  // 対象が既に選択されている場合はすべて unselected、そうでなければ対象のみ selected にする
+  const updateSingleSelection = (targetId) => {
+    const target = formats.find((format) => format.id === targetId);
+    const updatedFormats = formats.map((format) => {
+      if (target && target.selected) {
+        return { ...format, selected: false };
+      } else {
+        return { ...format, selected: format.id === targetId };
+      }
+    });
+    setFormats(updatedFormats);
+    updatedFormats.forEach((f) => {
+      if (dbRef.current) {
+        putFormat(dbRef.current, f).catch((err) =>
+          console.error('Error updating selection:', err)
+        );
+      }
+    });
+  };
+
+  // チェックボックス変更時（クリックの伝播を止める）
+  const handleSelectionChange = (id, event) => {
+    event.stopPropagation();
+    updateSingleSelection(id);
+  };
+
+  // 選択モード時、項目タップで選択状態のトグル
+  const toggleSelect = (id) => {
+    updateSingleSelection(id);
+  };
+
+  // 各フォーマット項目をタップしたときの処理（編集用オーバーレイを表示）
   const handleItemClick = (format) => {
     if (selectionMode) {
-      // 選択モードの場合は選択状態をトグル
       toggleSelect(format.id);
     } else {
-      // 編集モードの場合はオーバーレイを表示
       setEditingFormat(format);
       setEditingText(format.template);
     }
   };
 
-  // 編集モーダルで「保存」ボタンを押したとき
+  // 編集用オーバーレイの「保存」ボタン
   const handleSaveEdit = () => {
     if (!editingFormat) return;
     const updatedFormat = { ...editingFormat, template: editingText };
@@ -118,37 +167,10 @@ const MeetingFormatsList = () => {
     setEditingText('');
   };
 
-  // 編集モーダルで「キャンセル」ボタンまたは背景タップ時
+  // 編集用オーバーレイの「キャンセル」または背景タップ時
   const handleCancelEdit = () => {
     setEditingFormat(null);
     setEditingText('');
-  };
-
-  // チェックボックス変更時（クリックイベントの伝播を止める）
-  const handleSelectionChange = (id, event) => {
-    event.stopPropagation();
-    const selected = event.target.checked;
-    const updatedFormats = formats.map((format) =>
-      format.id === id ? { ...format, selected } : format
-    );
-    setFormats(updatedFormats);
-    const updatedFormat = updatedFormats.find((format) => format.id === id);
-    if (dbRef.current) {
-      putFormat(dbRef.current, updatedFormat).catch((err) =>
-        console.error('Error updating selection:', err)
-      );
-    }
-  };
-
-  // 選択モード時のトグル処理
-  const toggleSelect = (id) => {
-    setSelectedIds((prevSelected) => {
-      if (prevSelected.includes(id)) {
-        return prevSelected.filter((item) => item !== id);
-      } else {
-        return [...prevSelected, id];
-      }
-    });
   };
 
   // 新規フォーマット追加
@@ -174,7 +196,7 @@ const MeetingFormatsList = () => {
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
-      {/* ヘッダー：タイトルと「＋」ボタン（新規追加）を同列に配置 */}
+      {/* ヘッダー：タイトルと「＋」ボタン（＋ボタン押下で新規追加オーバーレイを表示） */}
       <div
         style={{
           display: 'flex',
@@ -185,9 +207,9 @@ const MeetingFormatsList = () => {
           marginBottom: 20,
         }}
       >
-        <h1 style={{ margin: 0 }}>Meeting Formats</h1>
+        <h1 style={{ margin: 0, fontSize: '38px' }}>Meeting Formats</h1>
         <button
-          onClick={() => setShowAddForm(!showAddForm)}
+          onClick={() => setShowAddForm(true)}
           style={{
             backgroundColor: '#1e1e1e',
             color: 'white',
@@ -202,7 +224,7 @@ const MeetingFormatsList = () => {
         </button>
       </div>
 
-      {/* 検索ボックス（幅 90%） */}
+      {/* 検索ボックス */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
         <input
           type="text"
@@ -210,7 +232,7 @@ const MeetingFormatsList = () => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           style={{
-            width: '90%',
+            width: '99%',
             padding: 10,
             borderRadius: 8,
             border: 'none',
@@ -223,64 +245,7 @@ const MeetingFormatsList = () => {
         />
       </div>
 
-      {/* 新規フォーマット追加フォーム */}
-      {showAddForm && (
-        <div style={{ marginBottom: 20, maxWidth: 600, margin: '0 auto' }}>
-          <input
-            type="text"
-            placeholder="タイトル"
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-            style={{
-              width: '100%',
-              padding: 10,
-              borderRadius: 8,
-              border: 'none',
-              fontSize: 16,
-              marginBottom: 10,
-              backgroundColor: '#1e1e1e',
-              color: 'white',
-              outline: 'none',
-            }}
-          />
-          <textarea
-            placeholder="テンプレート内容"
-            value={newTemplate}
-            onChange={(e) => setNewTemplate(e.target.value)}
-            style={{
-              width: '100%',
-              padding: 10,
-              borderRadius: 8,
-              border: 'none',
-              fontSize: 16,
-              marginBottom: 10,
-              backgroundColor: '#1e1e1e',
-              color: 'white',
-              outline: 'none',
-              minHeight: 150,
-              resize: 'vertical',
-            }}
-          />
-          <div style={{ textAlign: 'center' }}>
-            <button
-              onClick={handleAddNewFormat}
-              style={{
-                backgroundColor: '#1e1e1e',
-                color: 'white',
-                border: 'none',
-                padding: '10px 15px',
-                borderRadius: 4,
-                cursor: 'pointer',
-                fontSize: 18,
-              }}
-            >
-              追加
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* フォーマット一覧（グリッドレイアウト） */}
+      {/* フォーマット一覧（タイトルはボックス外、内容はダークグレーのボックス内に表示） */}
       <div
         style={{
           display: 'grid',
@@ -288,21 +253,13 @@ const MeetingFormatsList = () => {
           gap: 15,
         }}
       >
-        {filteredFormats.map((format) => (
+        {sortedFormats.map((format) => (
           <div
             key={format.id}
+            style={{ cursor: 'pointer' }}
             onClick={() => handleItemClick(format)}
-            style={{
-              backgroundColor: '#1e1e1e',
-              borderRadius: 10,
-              padding: 10,
-              display: 'flex',
-              flexDirection: 'column',
-              minHeight: 150,
-              cursor: 'pointer',
-            }}
           >
-            {/* ヘッダー部分：タイトルとチェックボックス */}
+            {/* タイトルとチェックボックス（ボックス外に独立して表示） */}
             <div
               style={{
                 display: 'flex',
@@ -310,7 +267,7 @@ const MeetingFormatsList = () => {
                 alignItems: 'center',
               }}
             >
-              <h3 style={{ margin: 0 }}>{format.title}</h3>
+              <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>{format.title}</h3>
               <input
                 type="checkbox"
                 checked={!!format.selected}
@@ -318,20 +275,29 @@ const MeetingFormatsList = () => {
                 onChange={(e) => handleSelectionChange(format.id, e)}
               />
             </div>
-            {/* 内容の一部（オーバーフロー時は省略表示） */}
+            {/* テンプレート内容を表示するダークグレーのボックス */}
             <div
+              style={{
+                backgroundColor: '#1e1e1e',
+                borderRadius: 10,
+                padding: 10,
+                minHeight: 150,
+                marginTop: 5,
+              }}
+            >
+<div
   style={{
-    marginTop: 10,
     color: '#ccc',
     fontSize: 14,
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    whiteSpace: 'pre-wrap', // ← ここを変更！
+    whiteSpace: 'pre-line', // 'pre-wrap' から 'pre-line' に変更
   }}
 >
   {format.template}
 </div>
 
+            </div>
           </div>
         ))}
       </div>
@@ -409,6 +375,104 @@ const MeetingFormatsList = () => {
                 }}
               >
                 保存
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 新規フォーマット追加オーバーレイ */}
+      {showAddForm && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.7)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+          }}
+          onClick={() => setShowAddForm(false)}
+        >
+          <div
+            style={{
+              backgroundColor: '#1e1e1e',
+              padding: 20,
+              borderRadius: 10,
+              width: '90%',
+              maxWidth: 600,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 style={{ marginTop: 0 }}>新規フォーマット追加</h2>
+            <input
+              type="text"
+              placeholder="タイトル"
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+              style={{
+                width: '100%',
+                padding: 10,
+                borderRadius: 8,
+                border: 'none',
+                fontSize: 16,
+                marginBottom: 10,
+                backgroundColor: '#1e1e1e',
+                color: 'white',
+                outline: 'none',
+              }}
+            />
+            <textarea
+              placeholder="テンプレート内容"
+              value={newTemplate}
+              onChange={(e) => setNewTemplate(e.target.value)}
+              style={{
+                width: '100%',
+                padding: 10,
+                borderRadius: 8,
+                border: 'none',
+                fontSize: 16,
+                marginBottom: 10,
+                backgroundColor: '#1e1e1e',
+                color: 'white',
+                outline: 'none',
+                minHeight: 150,
+                resize: 'vertical',
+              }}
+            />
+            <div style={{ textAlign: 'right' }}>
+              <button
+                onClick={() => setShowAddForm(false)}
+                style={{
+                  backgroundColor: '#555',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 15px',
+                  borderRadius: 4,
+                  cursor: 'pointer',
+                  fontSize: 16,
+                  marginRight: 10,
+                }}
+              >
+                キャンセル
+              </button>
+              <button
+                onClick={handleAddNewFormat}
+                style={{
+                  backgroundColor: 'black',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 15px',
+                  borderRadius: 4,
+                  cursor: 'pointer',
+                  fontSize: 16,
+                }}
+              >
+                追加
               </button>
             </div>
           </div>

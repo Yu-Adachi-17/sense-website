@@ -106,3 +106,15 @@
   word-wrap: break-word;
 }
 
+input::-webkit-input-placeholder {
+  color: white;
+}
+input::-moz-placeholder {
+  color: white;
+}
+input:-ms-input-placeholder {
+  color: white;
+}
+input:-moz-placeholder {
+  color: white;
+}
