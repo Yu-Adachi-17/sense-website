@@ -121,7 +121,6 @@ export default function BuyTicketsPage() {
   return (
     <Container>
       <Title>Buy Tickets</Title>
-      
       <CardsWrapper>
         <Card>
           <CardTitle>Trial</CardTitle>
@@ -136,8 +135,10 @@ export default function BuyTicketsPage() {
             1200 min / $11.99
           </Button>
         </Card>
-        
-        <Title>Unlimited</Title>
+      </CardsWrapper>
+      
+      <Title>Unlimited</Title>
+      <CardsWrapper>
         <Card blue>
           <CardTitle>Monthly Subscription</CardTitle>
           <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)} disabled={loading}>
