@@ -118,13 +118,17 @@ export default function BuyTicketsPage() {
       <Title>Buy Tickets</Title>
       <CardsWrapper>
         <Card>
-          <CardTitle>Buy Time</CardTitle>
+          <CardTitle>Trial</CardTitle>
           <Button
             onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
             disabled={loading}
           >
             120 min / $1.99
           </Button>
+        </Card>
+        
+        <Card>
+          <CardTitle>Light</CardTitle>
           <Button
             onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
             disabled={loading}
@@ -134,13 +138,17 @@ export default function BuyTicketsPage() {
         </Card>
 
         <Card>
-          <CardTitle>UNLIMITED</CardTitle>
+          <CardTitle>Monthly Subscription</CardTitle>
           <Button
             onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
             disabled={loading}
           >
             Unlimited / $16.99 per month
           </Button>
+        </Card>
+        
+        <Card>
+          <CardTitle>Yearly Subscription</CardTitle>
           <Button
             onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
             disabled={loading}
