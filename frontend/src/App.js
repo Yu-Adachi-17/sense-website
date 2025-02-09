@@ -18,6 +18,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
 import MinutesDetail from './components/MinutesDetail';
+import MeetingFormatsList from './components/MeetingFormatsList'; // ← 新たに追加
 import { PiGridFourFill } from "react-icons/pi";
 import EmailVerification from "./components/EmailVerification"; // ← ここ
 
@@ -373,6 +374,27 @@ function App() {
                   <PiGridFourFill />
                 </button>
 
+                {/* 追加：議事録フォーマット一覧へ遷移するボタン */}
+                <button
+                  onClick={() => {
+                    window.location.href = '/meeting-formats';
+                  }}
+                  style={{
+                    position: 'absolute',
+                    bottom: 20,
+                    right: 20,
+                    backgroundColor: '#1e1e1e',
+                    border: 'none',
+                    padding: '10px 15px',
+                    borderRadius: '4px',
+                    color: 'white',
+                    fontSize: '18px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  議事録フォーマット確認
+                </button>
+
                 {!showFullScreen && <PurchaseMenu />}
 
                 <div
@@ -451,6 +473,8 @@ function App() {
         <Route path="/cancel" element={<Cancel />} />
         <Route path="/minutes-list" element={<MinutesList />} />
         <Route path="/minutes/:id" element={<MinutesDetail />} />
+        {/* 追加：議事録フォーマット一覧のルート */}
+        <Route path="/meeting-formats" element={<MeetingFormatsList />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
       </Routes>
     </Router>

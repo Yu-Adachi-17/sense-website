@@ -248,7 +248,7 @@ const Login = () => {
           fontWeight: "bold",
         }}
       >
-        パスワードを忘れた人用の再設定メールを送る
+        パスワードを忘れましたか？再設定メールを送ります。
       </button>
 
       <button
