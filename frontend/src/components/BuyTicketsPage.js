@@ -50,7 +50,15 @@ export default function BuyTicketsPage() {
     }
   };
 
-  // スタイル定義（必要に応じて調整してください）
+  // グラデーションテキスト用の共通スタイル（既存のグラデーションカラー）
+  const gradientTextStyle = {
+    background: "linear-gradient(90deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontWeight: "bold",
+  };
+
+  // 各種スタイル定義
   const styles = {
     container: {
       backgroundColor: "#000",
@@ -63,11 +71,7 @@ export default function BuyTicketsPage() {
       padding: "40px 20px",
       boxSizing: "border-box",
     },
-    title: {
-      fontSize: "48px",
-      marginBottom: "40px",
-      textAlign: "center",
-    },
+    // トップタイトルは削除（もともと "Buy Tickets!!" でした）
     columns: {
       display: "flex",
       width: "100%",
@@ -81,18 +85,19 @@ export default function BuyTicketsPage() {
       flexDirection: "column",
       alignItems: "center",
     },
+    // サブタイトルはグラデーションテキストにする
     subTitle: {
       fontSize: "32px",
       marginBottom: "20px",
       textAlign: "center",
+      ...gradientTextStyle,
     },
+    // ボックスの枠は白
     boxContainer: {
       width: "100%",
       maxWidth: "400px",
       padding: "20px",
-      border: "4px solid transparent",
-      borderImage:
-        "linear-gradient(90deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76)) 1",
+      border: "4px solid #FFF",
       borderRadius: "8px",
       display: "flex",
       flexDirection: "column",
@@ -100,10 +105,10 @@ export default function BuyTicketsPage() {
       boxSizing: "border-box",
       backgroundColor: "transparent",
     },
+    // ボタンは白背景、枠はなし
     button: {
-      backgroundColor: "transparent",
-      color: "#FFF",
-      border: "2px solid #FFF",
+      backgroundColor: "#FFF",
+      border: "none",
       padding: "10px 20px",
       margin: "10px 0",
       fontSize: "18px",
@@ -111,59 +116,75 @@ export default function BuyTicketsPage() {
       fontFamily: "Impact, sans-serif",
       width: "100%",
       borderRadius: "4px",
-      transition: "background-color 0.3s",
     },
-    buttonHover: {
-      backgroundColor: "rgba(255,255,255,0.1)",
+    // ボタン内のテキストにグラデーション（太字）を適用
+    buttonText: {
+      ...gradientTextStyle,
+    },
+    // 価格表示用のスタイル（白、太字）
+    priceText: {
+      marginTop: "5px",
+      color: "#FFF",
+      fontWeight: "bold",
     },
   };
 
   return (
     <div style={styles.container}>
-      {/* 画面上部中央のタイトル */}
-      <div style={styles.title}>Buy Tickets!!</div>
+      {/* トップタイトル "Buy Tickets!!" は削除しました */}
 
-      {/* 左右に分割したレイアウト */}
       <div style={styles.columns}>
-        {/* 左側：Buy Time */}
+        {/* 左側：Buy Ticket */}
         <div style={styles.column}>
-          <div style={styles.subTitle}>Buy Time</div>
+          <div style={styles.subTitle}>Buy Ticket</div>
           <div style={styles.boxContainer}>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
-              disabled={loading}
-            >
-              120分を買う
-            </button>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
-              disabled={loading}
-            >
-              1200分を買う
-            </button>
+            <div style={{ width: "100%", textAlign: "center" }}>
+              <button
+                style={styles.button}
+                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
+                disabled={loading}
+              >
+                <span style={styles.buttonText}>120分を買う</span>
+              </button>
+              <div style={styles.priceText}>120min: 1.99$</div>
+            </div>
+            <div style={{ width: "100%", textAlign: "center" }}>
+              <button
+                style={styles.button}
+                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
+                disabled={loading}
+              >
+                <span style={styles.buttonText}>1200分を買う</span>
+              </button>
+              <div style={styles.priceText}>1200min: 11.99$</div>
+            </div>
           </div>
         </div>
 
-        {/* 右側：Subscription */}
+        {/* 右側：UNLIMITED */}
         <div style={styles.column}>
-          <div style={styles.subTitle}>Subscription</div>
+          <div style={styles.subTitle}>UNLIMITED</div>
           <div style={styles.boxContainer}>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
-              disabled={loading}
-            >
-              月額サブスクリプションに登録
-            </button>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
-              disabled={loading}
-            >
-              年額サブスクリプションに登録
-            </button>
+            <div style={{ width: "100%", textAlign: "center" }}>
+              <button
+                style={styles.button}
+                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
+                disabled={loading}
+              >
+                <span style={styles.buttonText}>月額サブスクリプションに登録</span>
+              </button>
+              <div style={styles.priceText}>subs: 17.99$</div>
+            </div>
+            <div style={{ width: "100%", textAlign: "center" }}>
+              <button
+                style={styles.button}
+                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
+                disabled={loading}
+              >
+                <span style={styles.buttonText}>年額サブスクリプションに登録</span>
+              </button>
+              <div style={styles.priceText}>年間subs: 149.99$</div>
+            </div>
           </div>
         </div>
       </div>
