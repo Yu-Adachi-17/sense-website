@@ -3,15 +3,15 @@ import defaultMeetingFormats from './MeetingFormatElements';
 import HomeIcon from './HomeIcon'; 
 
 const MeetingFormatsList = () => {
-  // State 管理
+  // State 管理など（省略せずにそのまま利用）
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newTemplate, setNewTemplate] = useState('');
-  const [editingFormat, setEditingFormat] = useState(null); // 現在編集中のフォーマット
-  const [editingText, setEditingText] = useState('');         // 編集用テキスト
-  const [selectionMode, setSelectionMode] = useState(false);    // 選択モード（必要な場合）
+  const [editingFormat, setEditingFormat] = useState(null); 
+  const [editingText, setEditingText] = useState('');         
+  const [selectionMode, setSelectionMode] = useState(false);    
   const dbRef = useRef(null);
 
   /* ===== IndexedDB 関連 ===== */
@@ -49,7 +49,6 @@ const MeetingFormatsList = () => {
     });
   };
 
-  // コンポーネント初回マウント時に IndexedDB をオープンし、データを取得する
   useEffect(() => {
     let isMounted = true;
     openDB()
@@ -62,8 +61,6 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // 初回起動時は default のフォーマットに selected プロパティを追加して保存
-            // 「General」をデフォルト選択する
             const initialFormats = defaultMeetingFormats.map((format) => ({
               ...format,
               selected: format.title.toLowerCase() === 'general'
@@ -83,7 +80,6 @@ const MeetingFormatsList = () => {
     };
   }, []);
 
-  // formats の変更時に、選択中のフォーマットをローカルストレージに保存
   useEffect(() => {
     const selected = formats.find((f) => f.selected);
     if (selected) {
@@ -91,20 +87,17 @@ const MeetingFormatsList = () => {
     }
   }, [formats]);
 
-  // 検索フィルタリング（タイトル or テンプレート内容）
   const filteredFormats = formats.filter(
     (format) =>
       format.title.toLowerCase().includes(searchText.toLowerCase()) ||
       format.template.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // 並び順のソート
   const sortedFormats = [...filteredFormats].sort((a, b) => {
-    // 優先度を決める関数（低い数値ほど優先）
     const getPriority = (format) => {
-      if (format.selected) return 0; // チェックがついているものが最優先
-      if (format.title.toLowerCase() === 'general') return 1; // 次に "General"
-      return 2; // それ以外
+      if (format.selected) return 0;
+      if (format.title.toLowerCase() === 'general') return 1;
+      return 2;
     };
 
     const aPriority = getPriority(a);
@@ -113,13 +106,10 @@ const MeetingFormatsList = () => {
     if (aPriority !== bPriority) {
       return aPriority - bPriority;
     } else {
-      // 同じ優先度の場合はタイトルを localeCompare で比較（日本語の場合は 'ja' を指定）
       return a.title.localeCompare(b.title, 'ja');
     }
   });
 
-  // --- 単一選択にするための共通ロジック ---
-  // 対象が既に選択されている場合はすべて unselected、そうでなければ対象のみ selected にする
   const updateSingleSelection = (targetId) => {
     const target = formats.find((format) => format.id === targetId);
     const updatedFormats = formats.map((format) => {
@@ -130,22 +120,17 @@ const MeetingFormatsList = () => {
       }
     });
     setFormats(updatedFormats);
-    // ※ ここでも useEffect で自動的にローカルストレージに保存されるので不要ですが、
-    //     必要ならここで selected を更新する処理を入れてもよいです。
   };
 
-  // チェックボックス変更時（クリックの伝播を止める）
   const handleSelectionChange = (id, event) => {
     event.stopPropagation();
     updateSingleSelection(id);
   };
 
-  // 選択モード時、項目タップで選択状態のトグル
   const toggleSelect = (id) => {
     updateSingleSelection(id);
   };
 
-  // 各フォーマット項目をタップしたときの処理（編集用オーバーレイを表示）
   const handleItemClick = (format) => {
     if (selectionMode) {
       toggleSelect(format.id);
@@ -155,7 +140,6 @@ const MeetingFormatsList = () => {
     }
   };
 
-  // 編集用オーバーレイの「保存」ボタン
   const handleSaveEdit = () => {
     if (!editingFormat) return;
     const updatedFormat = { ...editingFormat, template: editingText };
@@ -172,13 +156,11 @@ const MeetingFormatsList = () => {
     setEditingText('');
   };
 
-  // 編集用オーバーレイの「キャンセル」または背景タップ時
   const handleCancelEdit = () => {
     setEditingFormat(null);
     setEditingText('');
   };
 
-  // 新規フォーマット追加
   const handleAddNewFormat = () => {
     const newId = `custom-${Date.now()}`;
     const newFormat = {
@@ -201,113 +183,129 @@ const MeetingFormatsList = () => {
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
-      {/* ヘッダー：タイトルと「＋」ボタン（＋ボタン押下で新規追加オーバーレイを表示） */}
-      {/* 左上に HomeIcon を固定配置 */}
-      <div style={{ position: 'fixed', top: 10, left: 10, zIndex: 1500 }}>
-        <HomeIcon size="50px" />
-      </div>
+      {/* ヘッダー：HomeIcon / Meeting Formats / ＋ ボタン */}
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
-          width: '90%',
-          margin: '0 auto',
-          marginBottom: 20,
+          justifyContent: 'space-between',
+          height: '70px', // 各アイテムの高さを統一
+          padding: '0 20px',
+          backgroundColor: '#000',
+          position: 'fixed',
+          top: 10,
+          left: 10,
+          right: 10,
+          zIndex: 1500,
         }}
       >
-        <h1 style={{ margin: 0, fontSize: '38px' }}>Meeting Formats</h1>
-        <button
-          onClick={() => setShowAddForm(true)}
+        {/* 左側：HomeIcon */}
+        <div style={{ width: '70px' }}>
+          <HomeIcon size="50px" color="white" />
+        </div>
+        {/* 中央：Meeting Formats タイトル（中央寄せ） */}
+        <div style={{ flexGrow: 1, textAlign: 'center' }}>
+          <h1 style={{ margin: 0, fontSize: '38px' }}>Meeting Formats</h1>
+        </div>
+        {/* 右側：＋ ボタン */}
+        <div style={{ width: '70px', textAlign: 'right' }}>
+          <button
+            onClick={() => setShowAddForm(true)}
+            style={{
+              backgroundColor: '#1e1e1e',
+              color: 'white',
+              border: 'none',
+              padding: '10px 15px',
+              borderRadius: 4,
+              fontSize: 24,
+              cursor: 'pointer',
+            }}
+          >
+            ＋
+          </button>
+        </div>
+      </div>
+
+      {/* 固定ヘッダー分の余白を確保 */}
+      <div style={{ marginTop: '90px' }}>
+        {/* 検索ボックス */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{
+              width: '100%',
+              padding: 10,
+              borderRadius: 8,
+              border: 'none',
+              fontSize: 16,
+              backgroundColor: '#1e1e1e',
+              color: 'white',
+              outline: 'none',
+              textAlign: 'left',
+            }}
+          />
+        </div>
+
+        {/* フォーマット一覧 */}
+        <div
           style={{
-            backgroundColor: '#1e1e1e',
-            color: 'white',
-            border: 'none',
-            padding: '10px 15px',
-            borderRadius: 4,
-            fontSize: 24,
-            cursor: 'pointer',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 15,
           }}
         >
-          ＋
-        </button>
-      </div>
-
-      {/* 検索ボックス */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          style={{
-            width: '100%',
-            padding: 10,
-            borderRadius: 8,
-            border: 'none',
-            fontSize: 16,
-            backgroundColor: '#1e1e1e',
-            color: 'white',
-            outline: 'none',
-            textAlign: 'left',
-          }}
-        />
-      </div>
-
-      {/* フォーマット一覧（タイトルはボックス外、内容はダークグレーのボックス内に表示） */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: 15,
-        }}
-      >
-        {sortedFormats.map((format) => (
-          <div
-            key={format.id}
-            style={{ cursor: 'pointer' }}
-            onClick={() => handleItemClick(format)}
-          >
-            {/* タイトルとチェックボックス（ボックス外に独立して表示） */}
+          {sortedFormats.map((format) => (
             <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
+              key={format.id}
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleItemClick(format)}
             >
-              <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>{format.title}</h3>
-              <input
-                type="checkbox"
-                checked={!!format.selected}
-                onClick={(e) => e.stopPropagation()}
-                onChange={(e) => handleSelectionChange(format.id, e)}
-              />
-            </div>
-            {/* テンプレート内容を表示するダークグレーのボックス */}
-            <div
-              style={{
-                backgroundColor: '#1e1e1e',
-                borderRadius: 10,
-                padding: 10,
-                minHeight: 150,
-                marginTop: 5,
-              }}
-            >
+              {/* タイトルとチェックボックス */}
               <div
                 style={{
-                  color: '#ccc',
-                  fontSize: 14,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'pre-line',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
                 }}
               >
-                {format.template}
+                <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>
+                  {format.title}
+                </h3>
+                <input
+                  type="checkbox"
+                  checked={!!format.selected}
+                  onClick={(e) => e.stopPropagation()}
+                  onChange={(e) => handleSelectionChange(format.id, e)}
+                />
+              </div>
+              {/* テンプレート内容のボックス */}
+              <div
+                style={{
+                  backgroundColor: '#1e1e1e',
+                  borderRadius: 10,
+                  padding: 10,
+                  minHeight: 150,
+                  marginTop: 5,
+                }}
+              >
+                <div
+                  style={{
+                    color: '#ccc',
+                    fontSize: 14,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'pre-line',
+                  }}
+                >
+                  {format.template}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* 編集用オーバーレイ（モーダル） */}

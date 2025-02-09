@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { getAuth } from "firebase/auth";  // Firebase Auth をインポート
+import { getAuth } from "firebase/auth";
 
 export default function BuyTicketsPage() {
   const [loading, setLoading] = useState(false);
-  const auth = getAuth();  // Firebase Auth のインスタンスを取得
+  const auth = getAuth();
 
   // 商品購入処理（Stripe API を呼び出す）
   const handleBuyClick = async (productId) => {
@@ -14,15 +14,14 @@ export default function BuyTicketsPage() {
       return;
     }
 
-    // 👇 ユーザーの認証情報を取得
+    // ユーザーの認証情報を取得
     const user = auth.currentUser;
-
     if (!user) {
       alert("ログインが必要です。先にログインしてください。");
       return;
     }
 
-    const userId = user.uid;  // ユーザーの UID を取得
+    const userId = user.uid;
     console.log("✅ 送信する userId:", userId);
 
     setLoading(true);
@@ -32,7 +31,7 @@ export default function BuyTicketsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           productId,
-          userId,  // ✅ userId を含める
+          userId, // userId を含める
         }),
         credentials: "include",
       });
@@ -51,6 +50,7 @@ export default function BuyTicketsPage() {
     }
   };
 
+  // スタイル定義（必要に応じて調整してください）
   const styles = {
     container: {
       backgroundColor: "#000",
@@ -155,7 +155,14 @@ export default function BuyTicketsPage() {
               onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
               disabled={loading}
             >
-              サブスクリプションに登録
+              月額サブスクリプションに登録
+            </button>
+            <button
+              style={styles.button}
+              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
+              disabled={loading}
+            >
+              年額サブスクリプションに登録
             </button>
           </div>
         </div>

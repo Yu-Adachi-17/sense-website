@@ -248,8 +248,9 @@ app.post('/api/create-checkout-session', async (req, res) => {
         const PRICE_MAP = {
             [process.env.STRIPE_PRODUCT_UNLIMITED]: process.env.STRIPE_PRICE_UNLIMITED,
             [process.env.STRIPE_PRODUCT_120MIN]: process.env.STRIPE_PRICE_120MIN,
-            [process.env.STRIPE_PRODUCT_1200MIN]: process.env.STRIPE_PRICE_1200MIN
-        };
+            [process.env.STRIPE_PRODUCT_1200MIN]: process.env.STRIPE_PRICE_1200MIN,
+            [process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED]: process.env.REACT_APP_STRIPE_PRICE_YEARLY_UNLIMITED // 新規追加
+          };
 
         const priceId = PRICE_MAP[productId];
 
@@ -258,7 +259,10 @@ app.post('/api/create-checkout-session', async (req, res) => {
             return res.status(400).json({ error: "Invalid productId" });
         }
 
-        const mode = productId === process.env.STRIPE_PRODUCT_UNLIMITED ? 'subscription' : 'payment';
+        const mode = (productId === process.env.STRIPE_PRODUCT_UNLIMITED ||
+            productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
+           ? 'subscription'
+           : 'payment';
 
         // Checkout Session 作成時に client_reference_id と metadata を設定する
         const session = await stripe.checkout.sessions.create({
