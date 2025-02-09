@@ -8,15 +8,19 @@ export default function BuyTicketsPage() {
   // 商品購入処理（Stripe API を呼び出す）
   const handleBuyClick = async (productId) => {
     console.log("✅ 送信する productId:", productId);
+
     if (!productId) {
       console.error("❌ productId が undefined です！環境変数を確認してください。");
       return;
     }
+
+    // ユーザーの認証情報を取得
     const user = auth.currentUser;
     if (!user) {
       alert("ログインが必要です。先にログインしてください。");
       return;
     }
+
     const userId = user.uid;
     console.log("✅ 送信する userId:", userId);
 
@@ -27,10 +31,11 @@ export default function BuyTicketsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           productId,
-          userId,
+          userId, // userId を含める
         }),
         credentials: "include",
       });
+
       const data = await response.json();
       console.log("[DEBUG] Stripe Response:", data);
       if (data.url) {
@@ -45,14 +50,7 @@ export default function BuyTicketsPage() {
     }
   };
 
-  // グラデーションテキスト用の共通スタイル
-  const gradientTextStyle = {
-    background: "linear-gradient(90deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    fontWeight: "bold",
-  };
-
+  // スタイル定義（必要に応じて調整してください）
   const styles = {
     container: {
       backgroundColor: "#000",
@@ -65,7 +63,11 @@ export default function BuyTicketsPage() {
       padding: "40px 20px",
       boxSizing: "border-box",
     },
-    // 左右のカラムレイアウト（外枠などは変更せずそのまま）
+    title: {
+      fontSize: "48px",
+      marginBottom: "40px",
+      textAlign: "center",
+    },
     columns: {
       display: "flex",
       width: "100%",
@@ -83,14 +85,14 @@ export default function BuyTicketsPage() {
       fontSize: "32px",
       marginBottom: "20px",
       textAlign: "center",
-      ...gradientTextStyle,
     },
-    // 外側の白い四角い枠（グループ用）はそのまま
     boxContainer: {
       width: "100%",
       maxWidth: "400px",
       padding: "20px",
-      border: "4px solid #FFF",
+      border: "4px solid transparent",
+      borderImage:
+        "linear-gradient(90deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76)) 1",
       borderRadius: "8px",
       display: "flex",
       flexDirection: "column",
@@ -98,87 +100,69 @@ export default function BuyTicketsPage() {
       boxSizing: "border-box",
       backgroundColor: "transparent",
     },
-    // 各購入オプション部分を円形にするスタイル
-    circleButton: {
-      backgroundColor: "#FFF",
-      border: "none",
-      width: "150px",
-      height: "150px",
-      borderRadius: "50%",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
+    button: {
+      backgroundColor: "transparent",
+      color: "#FFF",
+      border: "2px solid #FFF",
+      padding: "10px 20px",
+      margin: "10px 0",
+      fontSize: "18px",
       cursor: "pointer",
       fontFamily: "Impact, sans-serif",
-      margin: "10px auto",
-      padding: "10px",
-      textAlign: "center",
+      width: "100%",
+      borderRadius: "4px",
+      transition: "background-color 0.3s",
     },
-    // 円内の上段・下段のテキストはグラデーション（太字）
-    gradientText: {
-      ...gradientTextStyle,
-    },
-    // 円内の中央の価格部分は黒（太字）
-    blackText: {
-      fontWeight: "bold",
-      color: "#000",
+    buttonHover: {
+      backgroundColor: "rgba(255,255,255,0.1)",
     },
   };
 
   return (
     <div style={styles.container}>
+      {/* 画面上部中央のタイトル */}
+      <div style={styles.title}>Buy Tickets!!</div>
+
+      {/* 左右に分割したレイアウト */}
       <div style={styles.columns}>
-        {/* 左側：Buy Ticket */}
+        {/* 左側：Buy Time */}
         <div style={styles.column}>
-          <div style={styles.subTitle}>Buy Ticket</div>
+          <div style={styles.subTitle}>Buy Time</div>
           <div style={styles.boxContainer}>
-            {/* 上段（左上）: Trial / $1.99 / 120min */}
             <button
-              style={styles.circleButton}
+              style={styles.button}
               onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
               disabled={loading}
             >
-              <div style={styles.gradientText}>Trial</div>
-              <div style={styles.blackText}>$1.99</div>
-              <div style={styles.gradientText}>120min</div>
+              120分を買う
             </button>
-            {/* 下段（左下）: Light / $11.99 / 1200min */}
             <button
-              style={styles.circleButton}
+              style={styles.button}
               onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
               disabled={loading}
             >
-              <div style={styles.gradientText}>Light</div>
-              <div style={styles.blackText}>$11.99</div>
-              <div style={styles.gradientText}>1200min</div>
+              1200分を買う
             </button>
           </div>
         </div>
 
-        {/* 右側：UNLIMITED */}
+        {/* 右側：Subscription */}
         <div style={styles.column}>
           <div style={styles.subTitle}>UNLIMITED</div>
           <div style={styles.boxContainer}>
-            {/* 上段（右上）: Monthly Subscription / $16.99 / Unlimited usage */}
             <button
-              style={styles.circleButton}
+              style={styles.button}
               onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
               disabled={loading}
             >
-              <div style={styles.gradientText}>Monthly Subscription</div>
-              <div style={styles.blackText}>$16.99</div>
-              <div style={styles.gradientText}>Unlimited usage</div>
+              月額サブスクリプションに登録
             </button>
-            {/* 下段（右下）: Yearly Subscription / $149.99 / Unlimited usage */}
             <button
-              style={styles.circleButton}
+              style={styles.button}
               onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
               disabled={loading}
             >
-              <div style={styles.gradientText}>Yearly Subscription</div>
-              <div style={styles.blackText}>$149.99</div>
-              <div style={styles.gradientText}>Unlimited usage</div>
+              年額サブスクリプションに登録
             </button>
           </div>
         </div>
