@@ -2,17 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import defaultMeetingFormats from './MeetingFormatElements';
 
 const MeetingFormatsList = () => {
-  // state: フォーマット一覧、追加フォーム表示切替、新規追加用フィールド
+  // State 管理
   const [formats, setFormats] = useState([]);
+  const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newTemplate, setNewTemplate] = useState('');
-  // IndexedDB のインスタンスを保持する ref
+  // IndexedDB の DB インスタンスを保持する ref
   const dbRef = useRef(null);
 
-  /* === IndexedDB 関連のユーティリティ関数 === */
+  /* ===== IndexedDB 関連のユーティリティ関数 ===== */
 
-  // データベースをオープン。なければ onupgradeneeded で objectStore を作成。
+  // データベースオープン（なければ objectStore を作成）
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open('MeetingFormatsDB', 1);
@@ -31,7 +32,7 @@ const MeetingFormatsList = () => {
     });
   };
 
-  // オブジェクトストアからすべてのフォーマットを取得
+  // 全フォーマットの取得
   const getAllFormats = (db) => {
     return new Promise((resolve, reject) => {
       const transaction = db.transaction('formats', 'readonly');
@@ -46,7 +47,7 @@ const MeetingFormatsList = () => {
     });
   };
 
-  // １件のフォーマットを（新規もしくは更新として）保存
+  // 1 件のフォーマットを保存（新規追加・更新）
   const putFormat = (db, format) => {
     return new Promise((resolve, reject) => {
       const transaction = db.transaction('formats', 'readwrite');
@@ -57,34 +58,34 @@ const MeetingFormatsList = () => {
     });
   };
 
-  /* === コンポーネント初回マウント時に IndexedDB を初期化＆データ取得 === */
+  /* ===== コンポーネント初回マウント時に IndexedDB を初期化＆データ取得 ===== */
   useEffect(() => {
     let isMounted = true;
     openDB()
-      .then(db => {
+      .then((db) => {
         dbRef.current = db;
         return getAllFormats(db);
       })
-      .then(savedFormats => {
+      .then((savedFormats) => {
         if (isMounted) {
           if (savedFormats && savedFormats.length > 0) {
-            // IndexedDB に保存済みのデータがあればそれを利用
             setFormats(savedFormats);
           } else {
-            // 初回起動時：default のフォーマットに selected プロパティを追加して保存
-            const initialFormats = defaultMeetingFormats.map(format => ({
+            // 初回起動時：default のフォーマットに selected プロパティを追加
+            const initialFormats = defaultMeetingFormats.map((format) => ({
               ...format,
               selected: false,
             }));
             setFormats(initialFormats);
-            initialFormats.forEach(format => {
-              putFormat(dbRef.current, format)
-                .catch(err => console.error('Error saving default format:', err));
+            initialFormats.forEach((format) => {
+              putFormat(dbRef.current, format).catch((err) =>
+                console.error('Error saving default format:', err)
+              );
             });
           }
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.error('Error opening IndexedDB:', err);
       });
     return () => {
@@ -92,37 +93,41 @@ const MeetingFormatsList = () => {
     };
   }, []);
 
-  /* === フォーマット内容（テンプレート）の編集ハンドラ === */
+  /* ===== 各種ハンドラ ===== */
+
+  // テンプレート内容編集時
   const handleContentChange = (id, event) => {
     const newText = event.target.value;
-    const updatedFormats = formats.map(format =>
+    const updatedFormats = formats.map((format) =>
       format.id === id ? { ...format, template: newText } : format
     );
     setFormats(updatedFormats);
-    const updatedFormat = updatedFormats.find(format => format.id === id);
+    const updatedFormat = updatedFormats.find((format) => format.id === id);
     if (dbRef.current) {
-      putFormat(dbRef.current, updatedFormat)
-        .catch(err => console.error('Error updating format:', err));
+      putFormat(dbRef.current, updatedFormat).catch((err) =>
+        console.error('Error updating format:', err)
+      );
     }
   };
 
-  /* === チェックボックス選択状態変更ハンドラ === */
+  // チェックボックス選択変更時（表示／非表示の切り替え）
   const handleSelectionChange = (id, event) => {
     const selected = event.target.checked;
-    const updatedFormats = formats.map(format =>
+    const updatedFormats = formats.map((format) =>
       format.id === id ? { ...format, selected } : format
     );
     setFormats(updatedFormats);
-    const updatedFormat = updatedFormats.find(format => format.id === id);
+    const updatedFormat = updatedFormats.find((format) => format.id === id);
     if (dbRef.current) {
-      putFormat(dbRef.current, updatedFormat)
-        .catch(err => console.error('Error updating selection:', err));
+      putFormat(dbRef.current, updatedFormat).catch((err) =>
+        console.error('Error updating selection:', err)
+      );
     }
   };
 
-  /* === 新規フォーマット追加ハンドラ === */
+  // 新規フォーマット追加
   const handleAddNewFormat = () => {
-    // id はタイムスタンプを利用してユニークなものとする
+    // id はタイムスタンプでユニークに
     const newId = `custom-${Date.now()}`;
     const newFormat = {
       id: newId,
@@ -133,80 +138,167 @@ const MeetingFormatsList = () => {
     const updatedFormats = [...formats, newFormat];
     setFormats(updatedFormats);
     if (dbRef.current) {
-      putFormat(dbRef.current, newFormat)
-        .catch(err => console.error('Error adding new format:', err));
+      putFormat(dbRef.current, newFormat).catch((err) =>
+        console.error('Error adding new format:', err)
+      );
     }
-    // 入力フォームをリセットして非表示にする
+    // 入力フォームリセット＆非表示に
     setNewTitle('');
     setNewTemplate('');
     setShowAddForm(false);
   };
 
-  return (
-    <div>
-      {/* 新規フォーマット追加フォーム */}
-      <div style={{ marginBottom: '20px' }}>
-        <button onClick={() => setShowAddForm(!showAddForm)}>
-          {showAddForm ? 'キャンセル' : '新規フォーマット追加'}
-        </button>
-        {showAddForm && (
-          <div style={{ marginTop: '10px' }}>
-            <input
-              type="text"
-              placeholder="タイトル"
-              value={newTitle}
-              onChange={e => setNewTitle(e.target.value)}
-              style={{ marginRight: '10px' }}
-            />
-            <br />
-            <textarea
-              placeholder="テンプレート内容"
-              value={newTemplate}
-              onChange={e => setNewTemplate(e.target.value)}
-              style={{
-                width: '300px',
-                height: '150px',
-                display: 'block',
-                marginTop: '10px',
-                marginBottom: '10px'
-              }}
-            />
-            <button onClick={handleAddNewFormat}>追加</button>
-          </div>
-        )}
-      </div>
+  // 検索によるフィルタリング（タイトル or テンプレート内容）
+  const filteredFormats = formats.filter(
+    (format) =>
+      format.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      format.template.toLowerCase().includes(searchText.toLowerCase())
+  );
 
-      {/* フォーマット一覧の表示（横スクロールレイアウト） */}
-      <div
+  /* ===== レンダリング ===== */
+  return (
+    <div
+      style={{
+        backgroundColor: '#000',
+        minHeight: '100vh',
+        padding: 20,
+        color: 'white',
+      }}
+    >
+      {/* ヘッダー部分 */}
+      <header
         style={{
           display: 'flex',
-          flexDirection: 'row',
-          overflowX: 'auto',
-          height: '60vh',            // 画面の 0.6 倍の高さ
-          gap: '15px',
-          padding: '10px',
-          backgroundColor: '#f0f0f0'
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginBottom: 20,
         }}
       >
-        {formats.map(format => (
+        <h1 style={{ margin: '0 0 10px 0' }}>Meeting Formats</h1>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          style={{
+            width: '100%',
+            maxWidth: 600,
+            padding: 10,
+            borderRadius: 8,
+            border: 'none',
+            fontSize: 16,
+            backgroundColor: '#1e1e1e',
+            color: 'white',
+            outline: 'none',
+            textAlign: 'left',
+          }}
+        />
+      </header>
+
+      {/* 新規フォーマット追加フォーム */}
+      <div style={{ marginBottom: 20, textAlign: 'center' }}>
+        <button
+          onClick={() => setShowAddForm(!showAddForm)}
+          style={{
+            backgroundColor: '#1e1e1e',
+            color: 'white',
+            border: 'none',
+            padding: '10px 15px',
+            borderRadius: 4,
+            cursor: 'pointer',
+            fontSize: 18,
+          }}
+        >
+          {showAddForm ? 'キャンセル' : '新規フォーマット追加'}
+        </button>
+      </div>
+
+      {showAddForm && (
+        <div style={{ marginBottom: 20, maxWidth: 600, margin: '0 auto' }}>
+          <input
+            type="text"
+            placeholder="タイトル"
+            value={newTitle}
+            onChange={(e) => setNewTitle(e.target.value)}
+            style={{
+              width: '100%',
+              padding: 10,
+              borderRadius: 8,
+              border: 'none',
+              fontSize: 16,
+              marginBottom: 10,
+              backgroundColor: '#1e1e1e',
+              color: 'white',
+              outline: 'none',
+            }}
+          />
+          <textarea
+            placeholder="テンプレート内容"
+            value={newTemplate}
+            onChange={(e) => setNewTemplate(e.target.value)}
+            style={{
+              width: '100%',
+              padding: 10,
+              borderRadius: 8,
+              border: 'none',
+              fontSize: 16,
+              marginBottom: 10,
+              backgroundColor: 'white',
+              color: '#000',
+              outline: 'none',
+              minHeight: 150,
+              resize: 'vertical',
+            }}
+          />
+          <div style={{ textAlign: 'center' }}>
+            <button
+              onClick={handleAddNewFormat}
+              style={{
+                backgroundColor: '#1e1e1e',
+                color: 'white',
+                border: 'none',
+                padding: '10px 15px',
+                borderRadius: 4,
+                cursor: 'pointer',
+                fontSize: 18,
+              }}
+            >
+              追加
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ミーティングフォーマットの一覧表示（グリッドレイアウト） */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: 15,
+        }}
+      >
+        {filteredFormats.map((format) => (
           <div
             key={format.id}
             style={{
-              minWidth: '300px',      // 各ボックスの最小幅（必要に応じて調整）
-              height: '100%',
-              border: '1px solid #ccc',
-              borderRadius: '8px',
-              padding: '10px',
-              backgroundColor: 'white',
+              backgroundColor: '#1e1e1e',
+              borderRadius: 10,
+              padding: 10,
               display: 'flex',
-              flexDirection: 'column'
+              flexDirection: 'column',
+              minHeight: 300,
             }}
           >
-            {/* タイトルとチェックボックス */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <h3 style={{ margin: '0 0 10px 0', textAlign: 'center', flex: 1 }}>
-                {format.title}
-              </h3>
+            {/* ヘッダー：タイトルとチェックボックス */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: 10,
+              }}
+            >
+              <h3 style={{ margin: 0 }}>{format.title}</h3>
               <input
                 type="checkbox"
                 checked={!!format.selected}
@@ -216,16 +308,19 @@ const MeetingFormatsList = () => {
             </div>
             {/* 編集可能なテンプレート内容 */}
             <textarea
-              style={{
-                flex: 1,
-                resize: 'none',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
-                padding: '5px',
-                fontFamily: 'monospace'
-              }}
               value={format.template}
               onChange={(e) => handleContentChange(format.id, e)}
+              style={{
+                flex: 1,
+                resize: 'vertical',
+                border: '1px solid #ddd',
+                borderRadius: 4,
+                padding: 5,
+                fontFamily: 'monospace',
+                fontSize: 14,
+                color: '#000',
+                backgroundColor: 'white',
+              }}
             />
           </div>
         ))}
