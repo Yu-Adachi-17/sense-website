@@ -77,18 +77,21 @@ const Button = styled.button`
 
 const Footer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 20px;
+  padding: 20px 40px;
   position: absolute;
   bottom: 20px;
+  gap: 20px;
 `;
 
 const Link = styled.a`
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  padding: 10px;
   &:hover {
     text-decoration: underline;
   }
@@ -176,7 +179,6 @@ export default function BuyTicketsPage() {
       
       <Footer>
         <Link href="#">Privacy Policy</Link>
-        <span>Spacer</span>
         <Link href="#">Terms of Use</Link>
       </Footer>
     </Container>
