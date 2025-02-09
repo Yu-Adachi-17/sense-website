@@ -320,17 +320,18 @@ const MeetingFormatsList = () => {
             </div>
             {/* 内容の一部（オーバーフロー時は省略表示） */}
             <div
-              style={{
-                marginTop: 10,
-                color: '#ccc',
-                fontSize: 14,
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {format.template}
-            </div>
+  style={{
+    marginTop: 10,
+    color: '#ccc',
+    fontSize: 14,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'pre-wrap', // ← ここを変更！
+  }}
+>
+  {format.template}
+</div>
+
           </div>
         ))}
       </div>
