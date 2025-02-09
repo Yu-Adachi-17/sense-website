@@ -8,15 +8,20 @@ const BACKEND_API_BASE_URL =
     ? "https://sense-website-production.up.railway.app/api" // ✅ Railwayで公開されている正しいバックエンドURL
     : process.env.REACT_APP_BACKEND_URL || "http://localhost:5001"; // ✅ ローカル開発環境
 
-
 if (!BACKEND_API_BASE_URL) {
     console.error("[ERROR] BACKEND_API_BASE_URL が設定されていません");
 } else {
     console.log("[DEBUG] BACKEND_API_BASE_URL:", BACKEND_API_BASE_URL);
 }
 
+/**
+ * 修正ポイント：
+ *  - 第2引数として meetingFormat を受け取る
+ *  - FormData に meetingFormat を追加
+ */
 export const transcribeAudio = async (
     file,
+    meetingFormat,      // 追加：選択された議事録フォーマットのテンプレート（またはID）
     setTranscription,
     setMinutes,
     setIsProcessing,
@@ -29,10 +34,12 @@ export const transcribeAudio = async (
     try {
         const formData = new FormData();
         formData.append('file', file);
+        // meetingFormat を FormData に追加（ここではテンプレート文字列を送る場合）
+        formData.append('meetingFormat', meetingFormat);
 
         console.log("[DEBUG] Sending request to:", `${BACKEND_API_BASE_URL}/transcribe`);
 
-        // ✅ `fetch` を使用してAPIリクエストを送る
+        // fetch を使用してAPIリクエストを送る
         const response = await fetch(`${BACKEND_API_BASE_URL}/transcribe`, {
             method: 'POST',
             body: formData,
