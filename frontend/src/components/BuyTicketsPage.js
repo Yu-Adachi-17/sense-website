@@ -8,34 +8,31 @@ export default function BuyTicketsPage() {
   // 商品購入処理（Stripe API を呼び出す）
   const handleBuyClick = async (productId) => {
     console.log("✅ 送信する productId:", productId);
-
     if (!productId) {
       console.error("❌ productId が undefined です！環境変数を確認してください。");
       return;
     }
-
-    // ユーザーの認証情報を取得
     const user = auth.currentUser;
     if (!user) {
       alert("ログインが必要です。先にログインしてください。");
       return;
     }
-
     const userId = user.uid;
     console.log("✅ 送信する userId:", userId);
-
     setLoading(true);
     try {
-      const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          productId,
-          userId, // userId を含める
-        }),
-        credentials: "include",
-      });
-
+      const response = await fetch(
+        "https://sense-website-production.up.railway.app/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            productId,
+            userId,
+          }),
+          credentials: "include",
+        }
+      );
       const data = await response.json();
       console.log("[DEBUG] Stripe Response:", data);
       if (data.url) {
@@ -50,7 +47,7 @@ export default function BuyTicketsPage() {
     }
   };
 
-  // グラデーションテキスト用の共通スタイル（既存のグラデーションカラー）
+  // 共通のグラデーションテキストスタイル
   const gradientTextStyle = {
     background: "linear-gradient(90deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))",
     WebkitBackgroundClip: "text",
@@ -71,122 +68,97 @@ export default function BuyTicketsPage() {
       padding: "40px 20px",
       boxSizing: "border-box",
     },
-    // トップタイトルは削除（もともと "Buy Tickets!!" でした）
-    columns: {
+    // 4つの円をグリッド表示するコンテナ
+    grid: {
       display: "flex",
-      width: "100%",
-      maxWidth: "1000px",
-      justifyContent: "space-between",
+      flexWrap: "wrap",
+      justifyContent: "center",
       gap: "20px",
+      maxWidth: "1000px",
     },
-    column: {
-      flex: 1,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    // サブタイトルはグラデーションテキストにする
-    subTitle: {
-      fontSize: "32px",
-      marginBottom: "20px",
-      textAlign: "center",
-      ...gradientTextStyle,
-    },
-    // ボックスの枠は白
-    boxContainer: {
-      width: "100%",
-      maxWidth: "400px",
-      padding: "20px",
-      border: "4px solid #FFF",
-      borderRadius: "8px",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      boxSizing: "border-box",
-      backgroundColor: "transparent",
-    },
-    // ボタンは白背景、枠はなし
-    button: {
+    // 円形のボタン（クリック可能）
+    circle: {
+      width: "200px",
+      height: "200px",
       backgroundColor: "#FFF",
-      border: "none",
-      padding: "10px 20px",
-      margin: "10px 0",
-      fontSize: "18px",
+      borderRadius: "50%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
       cursor: "pointer",
-      fontFamily: "Impact, sans-serif",
-      width: "100%",
-      borderRadius: "4px",
+      padding: "10px",
+      boxSizing: "border-box",
+      textAlign: "center",
     },
-    // ボタン内のテキストにグラデーション（太字）を適用
-    buttonText: {
+    // 円内上段のテキスト（商品名）
+    nameText: {
       ...gradientTextStyle,
+      fontSize: "18px",
+      margin: "5px 0",
+      lineHeight: "1.2",
     },
-    // 価格表示用のスタイル（白、太字）
+    // 円内中段のテキスト（価格・黒）
     priceText: {
-      marginTop: "5px",
-      color: "#FFF",
+      color: "#000",
       fontWeight: "bold",
+      fontSize: "16px",
+      margin: "5px 0",
+      lineHeight: "1.2",
+    },
+    // 円内下段のテキスト（説明）
+    descText: {
+      ...gradientTextStyle,
+      fontSize: "16px",
+      margin: "5px 0",
+      lineHeight: "1.2",
     },
   };
 
+  // 4つの商品の定義
+  const products = [
+    {
+      id: process.env.REACT_APP_STRIPE_PRODUCT_120MIN,
+      name: "Trial",
+      price: "$1.99",
+      desc: "120min",
+    },
+    {
+      id: process.env.REACT_APP_STRIPE_PRODUCT_1200MIN,
+      name: "Light",
+      price: "$11.99",
+      desc: "1200min",
+    },
+    {
+      id: process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED,
+      name: "Monthly Subscription",
+      price: "$16.99",
+      desc: "Unlimited usage",
+    },
+    {
+      id: process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED,
+      name: "Yearly Subscription",
+      price: "$149.99",
+      desc: "Unlimited usage",
+    },
+  ];
+
   return (
     <div style={styles.container}>
-      {/* トップタイトル "Buy Tickets!!" は削除しました */}
-
-      <div style={styles.columns}>
-        {/* 左側：Buy Ticket */}
-        <div style={styles.column}>
-          <div style={styles.subTitle}>Buy Ticket</div>
-          <div style={styles.boxContainer}>
-            <div style={{ width: "100%", textAlign: "center" }}>
-              <button
-                style={styles.button}
-                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
-                disabled={loading}
-              >
-                <span style={styles.buttonText}>120分を買う</span>
-              </button>
-              <div style={styles.priceText}>120min: 1.99$</div>
-            </div>
-            <div style={{ width: "100%", textAlign: "center" }}>
-              <button
-                style={styles.button}
-                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
-                disabled={loading}
-              >
-                <span style={styles.buttonText}>1200分を買う</span>
-              </button>
-              <div style={styles.priceText}>1200min: 11.99$</div>
-            </div>
+      <div style={styles.grid}>
+        {products.map((product, index) => (
+          <div
+            key={index}
+            style={styles.circle}
+            onClick={() => {
+              if (!loading) handleBuyClick(product.id);
+            }}
+          >
+            <div style={styles.nameText}>{product.name}</div>
+            <div style={styles.priceText}>{product.price}</div>
+            <div style={styles.descText}>{product.desc}</div>
           </div>
-        </div>
-
-        {/* 右側：UNLIMITED */}
-        <div style={styles.column}>
-          <div style={styles.subTitle}>UNLIMITED</div>
-          <div style={styles.boxContainer}>
-            <div style={{ width: "100%", textAlign: "center" }}>
-              <button
-                style={styles.button}
-                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
-                disabled={loading}
-              >
-                <span style={styles.buttonText}>月額サブスクリプションに登録</span>
-              </button>
-              <div style={styles.priceText}>subs: 17.99$</div>
-            </div>
-            <div style={{ width: "100%", textAlign: "center" }}>
-              <button
-                style={styles.button}
-                onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
-                disabled={loading}
-              >
-                <span style={styles.buttonText}>年額サブスクリプションに登録</span>
-              </button>
-              <div style={styles.priceText}>年間subs: 149.99$</div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
