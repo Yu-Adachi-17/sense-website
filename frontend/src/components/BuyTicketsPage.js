@@ -1,20 +1,94 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { getAuth } from "firebase/auth";
+
+// 画面全体のコンテナ
+const Container = styled.div`
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+`;
+
+// ページタイトル
+const Title = styled.h1`
+  font-size: 3rem;
+  margin-bottom: 40px;
+  text-align: center;
+`;
+
+// カードを横並びに配置するラッパー
+const CardsWrapper = styled.div`
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+// 各カードのスタイル
+const Card = styled.div`
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+// カード内のタイトル
+const CardTitle = styled.h2`
+  font-size: 2rem;
+  margin-bottom: 20px;
+`;
+
+// ボタンのスタイル
+const Button = styled.button`
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border-radius: 5px;
+  width: 100%;
+  margin: 10px 0;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+`;
 
 export default function BuyTicketsPage() {
   const [loading, setLoading] = useState(false);
   const auth = getAuth();
 
-  // 商品購入処理（Stripe API を呼び出す）
+  // 購入処理（Stripe API 呼び出し）
   const handleBuyClick = async (productId) => {
-    console.log("✅ 送信する productId:", productId);
-
     if (!productId) {
-      console.error("❌ productId が undefined です！環境変数を確認してください。");
+      console.error(
+        "❌ productId が undefined です。環境変数を確認してください。"
+      );
       return;
     }
 
-    // ユーザーの認証情報を取得
+    // ユーザーの認証状態を確認
     const user = auth.currentUser;
     if (!user) {
       alert("ログインが必要です。先にログインしてください。");
@@ -22,151 +96,84 @@ export default function BuyTicketsPage() {
     }
 
     const userId = user.uid;
-    console.log("✅ 送信する userId:", userId);
+    console.log("送信する productId:", productId, "userId:", userId);
 
     setLoading(true);
     try {
-      const response = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          productId,
-          userId, // userId を含める
-        }),
-        credentials: "include",
-      });
-
+      const response = await fetch(
+        "https://sense-website-production.up.railway.app/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            productId,
+            userId,
+          }),
+          credentials: "include",
+        }
+      );
       const data = await response.json();
-      console.log("[DEBUG] Stripe Response:", data);
+      console.log("Stripe Response:", data);
       if (data.url) {
         window.location.href = data.url;
       } else {
-        console.error("[ERROR] Checkout session URL not found", data);
+        console.error("Checkout session URL not found", data);
       }
     } catch (error) {
-      console.error("[ERROR] Error during checkout:", error);
+      console.error("Error during checkout:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  // スタイル定義（必要に応じて調整してください）
-  const styles = {
-    container: {
-      backgroundColor: "#000",
-      color: "#FFF",
-      minHeight: "100vh",
-      fontFamily: "Impact, sans-serif",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      padding: "40px 20px",
-      boxSizing: "border-box",
-    },
-    title: {
-      fontSize: "48px",
-      marginBottom: "40px",
-      textAlign: "center",
-    },
-    columns: {
-      display: "flex",
-      width: "100%",
-      maxWidth: "1000px",
-      justifyContent: "space-between",
-      gap: "20px",
-    },
-    column: {
-      flex: 1,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    subTitle: {
-      fontSize: "32px",
-      marginBottom: "20px",
-      textAlign: "center",
-    },
-    boxContainer: {
-      width: "100%",
-      maxWidth: "400px",
-      padding: "20px",
-      border: "4px solid transparent",
-      borderImage:
-        "linear-gradient(90deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76)) 1",
-      borderRadius: "8px",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      boxSizing: "border-box",
-      backgroundColor: "transparent",
-    },
-    button: {
-      backgroundColor: "transparent",
-      color: "#FFF",
-      border: "2px solid #FFF",
-      padding: "10px 20px",
-      margin: "10px 0",
-      fontSize: "18px",
-      cursor: "pointer",
-      fontFamily: "Impact, sans-serif",
-      width: "100%",
-      borderRadius: "4px",
-      transition: "background-color 0.3s",
-    },
-    buttonHover: {
-      backgroundColor: "rgba(255,255,255,0.1)",
-    },
-  };
-
   return (
-    <div style={styles.container}>
-      {/* 画面上部中央のタイトル */}
-      <div style={styles.title}>Buy Tickets!!</div>
+    <Container>
+      <Title>Buy Tickets</Title>
+      <CardsWrapper>
+        {/* 左側カード：Buy Time */}
+        <Card>
+          <CardTitle>Buy Time</CardTitle>
+          <Button
+            onClick={() =>
+              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)
+            }
+            disabled={loading}
+          >
+            120分を買う
+          </Button>
+          <Button
+            onClick={() =>
+              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)
+            }
+            disabled={loading}
+          >
+            1200分を買う
+          </Button>
+        </Card>
 
-      {/* 左右に分割したレイアウト */}
-      <div style={styles.columns}>
-        {/* 左側：Buy Time */}
-        <div style={styles.column}>
-          <div style={styles.subTitle}>Buy Time</div>
-          <div style={styles.boxContainer}>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
-              disabled={loading}
-            >
-              120分を買う
-            </button>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
-              disabled={loading}
-            >
-              1200分を買う
-            </button>
-          </div>
-        </div>
-
-        {/* 右側：Subscription */}
-        <div style={styles.column}>
-          <div style={styles.subTitle}>UNLIMITED</div>
-          <div style={styles.boxContainer}>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
-              disabled={loading}
-            >
-              月額サブスクリプションに登録
-            </button>
-            <button
-              style={styles.button}
-              onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
-              disabled={loading}
-            >
-              年額サブスクリプションに登録
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+        {/* 右側カード：Subscription */}
+        <Card>
+          <CardTitle>UNLIMITED</CardTitle>
+          <Button
+            onClick={() =>
+              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)
+            }
+            disabled={loading}
+          >
+            月額サブスクリプションに登録
+          </Button>
+          <Button
+            onClick={() =>
+              handleBuyClick(
+                process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED
+              )
+            }
+            disabled={loading}
+          >
+            年額サブスクリプションに登録
+          </Button>
+        </Card>
+      </CardsWrapper>
+    </Container>
   );
 }
