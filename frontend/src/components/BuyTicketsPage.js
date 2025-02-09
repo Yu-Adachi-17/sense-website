@@ -63,6 +63,9 @@ const Button = styled.button`
   transition: background 0.3s, transform 0.2s;
   cursor: pointer;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -75,7 +78,21 @@ const Button = styled.button`
   }
 `;
 
-// Divider（区切り線）のコンポーネント
+// Spinner コンポーネント（CSS アニメーションで回転）
+const Spinner = styled.div`
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+
 const Divider = styled.hr`
   width: 100%;
   max-width: 1200px;
@@ -95,7 +112,6 @@ const Footer = styled.div`
   bottom: 20px;
 `;
 
-// Spacer（間隔用）のコンポーネント。必要に応じて width を調整してください。
 const Spacer = styled.div`
   width: 20px;
 `;
@@ -110,7 +126,8 @@ const Link = styled.a`
 `;
 
 export default function BuyTicketsPage() {
-  const [loading, setLoading] = useState(false);
+  // どのボタンが押されたかを管理する状態。押されたボタンの productId を保存
+  const [loadingProductId, setLoadingProductId] = useState(null);
   const auth = getAuth();
 
   const handleBuyClick = async (productId) => {
@@ -128,7 +145,8 @@ export default function BuyTicketsPage() {
     const userId = user.uid;
     console.log("送信する productId:", productId, "userId:", userId);
 
-    setLoading(true);
+    // どのボタンがクリックされたかを記録
+    setLoadingProductId(productId);
     try {
       const response = await fetch(
         "https://sense-website-production.up.railway.app/api/create-checkout-session",
@@ -149,7 +167,7 @@ export default function BuyTicketsPage() {
     } catch (error) {
       console.error("Error during checkout:", error);
     } finally {
-      setLoading(false);
+      setLoadingProductId(null);
     }
   };
 
@@ -163,9 +181,13 @@ export default function BuyTicketsPage() {
             onClick={() =>
               handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)
             }
-            disabled={loading}
+            disabled={loadingProductId !== null}
           >
-            120 min / $1.99
+            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_120MIN ? (
+              <Spinner />
+            ) : (
+              "120 min / $1.99"
+            )}
           </Button>
         </Card>
 
@@ -175,9 +197,13 @@ export default function BuyTicketsPage() {
             onClick={() =>
               handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)
             }
-            disabled={loading}
+            disabled={loadingProductId !== null}
           >
-            1200 min / $11.99
+            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_1200MIN ? (
+              <Spinner />
+            ) : (
+              "1200 min / $11.99"
+            )}
           </Button>
         </Card>
       </CardsWrapper>
@@ -190,9 +216,13 @@ export default function BuyTicketsPage() {
             onClick={() =>
               handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)
             }
-            disabled={loading}
+            disabled={loadingProductId !== null}
           >
-            $16.99/mo
+            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED ? (
+              <Spinner />
+            ) : (
+              "$16.99/mo"
+            )}
           </Button>
         </Card>
 
@@ -202,14 +232,17 @@ export default function BuyTicketsPage() {
             onClick={() =>
               handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
             }
-            disabled={loading}
+            disabled={loadingProductId !== null}
           >
-            $149.99/yr
+            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED ? (
+              <Spinner />
+            ) : (
+              "$149.99/yr"
+            )}
           </Button>
         </Card>
       </CardsWrapper>
 
-      {/* カード部分とフッター部分の間に Divider を追加 */}
       <Divider />
 
       <Footer>
