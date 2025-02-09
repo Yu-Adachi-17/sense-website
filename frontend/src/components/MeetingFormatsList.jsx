@@ -8,12 +8,13 @@ const MeetingFormatsList = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newTemplate, setNewTemplate] = useState('');
-  // IndexedDB の DB インスタンスを保持する ref
+  const [editingFormat, setEditingFormat] = useState(null); // 現在編集中のフォーマット
+  const [editingText, setEditingText] = useState('');         // 編集用テキスト
+  const [selectionMode, setSelectionMode] = useState(false);
+  const [selectedIds, setSelectedIds] = useState([]);
   const dbRef = useRef(null);
 
-  /* ===== IndexedDB 関連のユーティリティ関数 ===== */
-
-  // データベースオープン（なければ objectStore を作成）
+  /* ===== IndexedDB 関連 ===== */
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open('MeetingFormatsDB', 1);
@@ -23,31 +24,21 @@ const MeetingFormatsList = () => {
           db.createObjectStore('formats', { keyPath: 'id' });
         }
       };
-      request.onsuccess = (event) => {
-        resolve(event.target.result);
-      };
-      request.onerror = (event) => {
-        reject(event.target.error);
-      };
+      request.onsuccess = (event) => resolve(event.target.result);
+      request.onerror = (event) => reject(event.target.error);
     });
   };
 
-  // 全フォーマットの取得
   const getAllFormats = (db) => {
     return new Promise((resolve, reject) => {
       const transaction = db.transaction('formats', 'readonly');
       const store = transaction.objectStore('formats');
       const request = store.getAll();
-      request.onsuccess = (event) => {
-        resolve(event.target.result);
-      };
-      request.onerror = (event) => {
-        reject(event.target.error);
-      };
+      request.onsuccess = (event) => resolve(event.target.result);
+      request.onerror = (event) => reject(event.target.error);
     });
   };
 
-  // 1 件のフォーマットを保存（新規追加・更新）
   const putFormat = (db, format) => {
     return new Promise((resolve, reject) => {
       const transaction = db.transaction('formats', 'readwrite');
@@ -58,7 +49,7 @@ const MeetingFormatsList = () => {
     });
   };
 
-  /* ===== コンポーネント初回マウント時に IndexedDB を初期化＆データ取得 ===== */
+  // コンポーネント初回マウント時に IndexedDB をオープンし、データを取得する
   useEffect(() => {
     let isMounted = true;
     openDB()
@@ -71,7 +62,7 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // 初回起動時：default のフォーマットに selected プロパティを追加
+            // 初回起動時は default のフォーマットに selected プロパティを追加して保存
             const initialFormats = defaultMeetingFormats.map((format) => ({
               ...format,
               selected: false,
@@ -85,33 +76,57 @@ const MeetingFormatsList = () => {
           }
         }
       })
-      .catch((err) => {
-        console.error('Error opening IndexedDB:', err);
-      });
+      .catch((err) => console.error('Error opening IndexedDB:', err));
     return () => {
       isMounted = false;
     };
   }, []);
 
-  /* ===== 各種ハンドラ ===== */
+  // 検索フィルタリング（タイトル or テンプレート内容）
+  const filteredFormats = formats.filter(
+    (format) =>
+      format.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      format.template.toLowerCase().includes(searchText.toLowerCase())
+  );
 
-  // テンプレート内容編集時
-  const handleContentChange = (id, event) => {
-    const newText = event.target.value;
-    const updatedFormats = formats.map((format) =>
-      format.id === id ? { ...format, template: newText } : format
-    );
-    setFormats(updatedFormats);
-    const updatedFormat = updatedFormats.find((format) => format.id === id);
-    if (dbRef.current) {
-      putFormat(dbRef.current, updatedFormat).catch((err) =>
-        console.error('Error updating format:', err)
-      );
+  // 各フォーマット項目をタップしたときの処理
+  const handleItemClick = (format) => {
+    if (selectionMode) {
+      // 選択モードの場合は選択状態をトグル
+      toggleSelect(format.id);
+    } else {
+      // 編集モードの場合はオーバーレイを表示
+      setEditingFormat(format);
+      setEditingText(format.template);
     }
   };
 
-  // チェックボックス選択変更時（表示／非表示の切り替え）
+  // 編集モーダルで「保存」ボタンを押したとき
+  const handleSaveEdit = () => {
+    if (!editingFormat) return;
+    const updatedFormat = { ...editingFormat, template: editingText };
+    const updatedFormats = formats.map((format) =>
+      format.id === updatedFormat.id ? updatedFormat : format
+    );
+    setFormats(updatedFormats);
+    if (dbRef.current) {
+      putFormat(dbRef.current, updatedFormat).catch((err) =>
+        console.error('Error saving edited format:', err)
+      );
+    }
+    setEditingFormat(null);
+    setEditingText('');
+  };
+
+  // 編集モーダルで「キャンセル」ボタンまたは背景タップ時
+  const handleCancelEdit = () => {
+    setEditingFormat(null);
+    setEditingText('');
+  };
+
+  // チェックボックス変更時（クリックイベントの伝播を止める）
   const handleSelectionChange = (id, event) => {
+    event.stopPropagation();
     const selected = event.target.checked;
     const updatedFormats = formats.map((format) =>
       format.id === id ? { ...format, selected } : format
@@ -125,9 +140,19 @@ const MeetingFormatsList = () => {
     }
   };
 
+  // 選択モード時のトグル処理
+  const toggleSelect = (id) => {
+    setSelectedIds((prevSelected) => {
+      if (prevSelected.includes(id)) {
+        return prevSelected.filter((item) => item !== id);
+      } else {
+        return [...prevSelected, id];
+      }
+    });
+  };
+
   // 新規フォーマット追加
   const handleAddNewFormat = () => {
-    // id はタイムスタンプでユニークに
     const newId = `custom-${Date.now()}`;
     const newFormat = {
       id: newId,
@@ -142,47 +167,50 @@ const MeetingFormatsList = () => {
         console.error('Error adding new format:', err)
       );
     }
-    // 入力フォームリセット＆非表示に
     setNewTitle('');
     setNewTemplate('');
     setShowAddForm(false);
   };
 
-  // 検索によるフィルタリング（タイトル or テンプレート内容）
-  const filteredFormats = formats.filter(
-    (format) =>
-      format.title.toLowerCase().includes(searchText.toLowerCase()) ||
-      format.template.toLowerCase().includes(searchText.toLowerCase())
-  );
-
-  /* ===== レンダリング ===== */
   return (
-    <div
-      style={{
-        backgroundColor: '#000',
-        minHeight: '100vh',
-        padding: 20,
-        color: 'white',
-      }}
-    >
-      {/* ヘッダー部分 */}
-      <header
+    <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
+      {/* ヘッダー：タイトルと「＋」ボタン（新規追加）を同列に配置 */}
+      <div
         style={{
           display: 'flex',
-          flexDirection: 'column',
+          justifyContent: 'space-between',
           alignItems: 'center',
+          width: '90%',
+          margin: '0 auto',
           marginBottom: 20,
         }}
       >
-        <h1 style={{ margin: '0 0 10px 0' }}>Meeting Formats</h1>
+        <h1 style={{ margin: 0 }}>Meeting Formats</h1>
+        <button
+          onClick={() => setShowAddForm(!showAddForm)}
+          style={{
+            backgroundColor: '#1e1e1e',
+            color: 'white',
+            border: 'none',
+            padding: '10px 15px',
+            borderRadius: 4,
+            fontSize: 24,
+            cursor: 'pointer',
+          }}
+        >
+          ＋
+        </button>
+      </div>
+
+      {/* 検索ボックス（幅 90%） */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
         <input
           type="text"
           placeholder="Search..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           style={{
-            width: '100%',
-            maxWidth: 600,
+            width: '90%',
             padding: 10,
             borderRadius: 8,
             border: 'none',
@@ -193,26 +221,9 @@ const MeetingFormatsList = () => {
             textAlign: 'left',
           }}
         />
-      </header>
-
-      {/* 新規フォーマット追加フォーム */}
-      <div style={{ marginBottom: 20, textAlign: 'center' }}>
-        <button
-          onClick={() => setShowAddForm(!showAddForm)}
-          style={{
-            backgroundColor: '#1e1e1e',
-            color: 'white',
-            border: 'none',
-            padding: '10px 15px',
-            borderRadius: 4,
-            cursor: 'pointer',
-            fontSize: 18,
-          }}
-        >
-          {showAddForm ? 'キャンセル' : '新規フォーマット追加'}
-        </button>
       </div>
 
+      {/* 新規フォーマット追加フォーム */}
       {showAddForm && (
         <div style={{ marginBottom: 20, maxWidth: 600, margin: '0 auto' }}>
           <input
@@ -243,8 +254,8 @@ const MeetingFormatsList = () => {
               border: 'none',
               fontSize: 16,
               marginBottom: 10,
-              backgroundColor: 'white',
-              color: '#000',
+              backgroundColor: '#1e1e1e',
+              color: 'white',
               outline: 'none',
               minHeight: 150,
               resize: 'vertical',
@@ -269,7 +280,7 @@ const MeetingFormatsList = () => {
         </div>
       )}
 
-      {/* ミーティングフォーマットの一覧表示（グリッドレイアウト） */}
+      {/* フォーマット一覧（グリッドレイアウト） */}
       <div
         style={{
           display: 'grid',
@@ -280,51 +291,128 @@ const MeetingFormatsList = () => {
         {filteredFormats.map((format) => (
           <div
             key={format.id}
+            onClick={() => handleItemClick(format)}
             style={{
               backgroundColor: '#1e1e1e',
               borderRadius: 10,
               padding: 10,
               display: 'flex',
               flexDirection: 'column',
-              minHeight: 300,
+              minHeight: 150,
+              cursor: 'pointer',
             }}
           >
-            {/* ヘッダー：タイトルとチェックボックス */}
+            {/* ヘッダー部分：タイトルとチェックボックス */}
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                marginBottom: 10,
               }}
             >
               <h3 style={{ margin: 0 }}>{format.title}</h3>
               <input
                 type="checkbox"
                 checked={!!format.selected}
+                onClick={(e) => e.stopPropagation()}
                 onChange={(e) => handleSelectionChange(format.id, e)}
-                title="表示/非表示選択"
               />
             </div>
-            {/* 編集可能なテンプレート内容 */}
-            <textarea
-              value={format.template}
-              onChange={(e) => handleContentChange(format.id, e)}
+            {/* 内容の一部（オーバーフロー時は省略表示） */}
+            <div
               style={{
-                flex: 1,
-                resize: 'vertical',
-                border: '1px solid #ddd',
-                borderRadius: 4,
-                padding: 5,
-                fontFamily: 'monospace',
+                marginTop: 10,
+                color: '#ccc',
                 fontSize: 14,
-                color: '#000',
-                backgroundColor: 'white',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
               }}
-            />
+            >
+              {format.template}
+            </div>
           </div>
         ))}
       </div>
+
+      {/* 編集用オーバーレイ（モーダル） */}
+      {editingFormat && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.7)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+          }}
+          onClick={handleCancelEdit}
+        >
+          <div
+            style={{
+              backgroundColor: '#1e1e1e',
+              padding: 20,
+              borderRadius: 10,
+              width: '90%',
+              maxWidth: 600,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 style={{ marginTop: 0 }}>{editingFormat.title}</h2>
+            <textarea
+              value={editingText}
+              onChange={(e) => setEditingText(e.target.value)}
+              style={{
+                width: '100%',
+                minHeight: 200,
+                padding: 10,
+                borderRadius: 8,
+                border: 'none',
+                fontSize: 16,
+                backgroundColor: '#1e1e1e',
+                color: 'white',
+                outline: 'none',
+                resize: 'vertical',
+              }}
+            />
+            <div style={{ marginTop: 10, textAlign: 'right' }}>
+              <button
+                onClick={handleCancelEdit}
+                style={{
+                  backgroundColor: '#555',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 15px',
+                  borderRadius: 4,
+                  cursor: 'pointer',
+                  fontSize: 16,
+                  marginRight: 10,
+                }}
+              >
+                キャンセル
+              </button>
+              <button
+                onClick={handleSaveEdit}
+                style={{
+                  backgroundColor: '#1e1e1e',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 15px',
+                  borderRadius: 4,
+                  cursor: 'pointer',
+                  fontSize: 16,
+                }}
+              >
+                保存
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
