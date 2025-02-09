@@ -40,7 +40,10 @@ const CardsWrapper = styled.div`
 `;
 
 const Card = styled.div`
-  background: rgba(255, 255, 255, 0.05);
+  background: ${(props) =>
+    props.blue
+      ? "linear-gradient(135deg, rgba(0, 0, 128, 0.8), rgba(0, 0, 255, 0.2))"
+      : "linear-gradient(135deg, rgba(0, 128, 0, 0.8), rgba(0, 255, 0, 0.2))"};
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 30px;
@@ -51,8 +54,8 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   font-weight: bold;
-  ${(props) => props.blue && "background: rgba(0, 0, 255, 0.1);"}
 `;
+
 
 const CardTitle = styled.h2`
   font-size: 2rem;
