@@ -50,9 +50,36 @@ function App() {
   const [userSubscription, setUserSubscription] = useState(false);
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(180);
 
-  // ★ 追加：ユーザーが選択した会議フォーマット情報（MeetingFormatsList から選択）
-  // ここでは初期値は null としています。必要に応じて Context や localStorage 経由で値をセットしてください。
+  // ★ 追加：ユーザーが選択した会議フォーマット情報（MeetingFormatsList で選択されたもの）
+  // 初回は localStorage から読み込むか、なければデフォルト（General）を設定する
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
+
+  // ★ App.js マウント時に localStorage から selectedMeetingFormat を読み込む
+  useEffect(() => {
+    const storedFormat = localStorage.getItem("selectedMeetingFormat");
+    if (storedFormat) {
+      const parsedFormat = JSON.parse(storedFormat);
+      console.log("[DEBUG] Retrieved selectedMeetingFormat from localStorage:", parsedFormat);
+      setSelectedMeetingFormat(parsedFormat);
+    } else {
+      // localStorage になければ「General」をデフォルトとして設定（MeetingFormatElements 側の定義に合わせてください）
+      const defaultFormat = {
+        id: "general",
+        title: "General",
+        template: `【Meeting Name】
+【Date】
+【Location】
+【Attendees】
+【Agenda(1)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(2)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(3)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem・・・・（Repeat the agenda items (4), (5), (6), and (7), if any, below.）・・`,
+        selected: true,
+      };
+      console.log("[DEBUG] No selectedMeetingFormat in localStorage. Setting default:", defaultFormat);
+      setSelectedMeetingFormat(defaultFormat);
+      localStorage.setItem("selectedMeetingFormat", JSON.stringify(defaultFormat));
+    }
+  }, []);
 
   const progressIntervalRef = useRef(null);
   const timerIntervalRef = useRef(null); // ★ カウントダウン用の interval を保持
@@ -167,7 +194,8 @@ function App() {
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
 
-        // ★ 会議フォーマットが選択されていなければアラート表示
+        // ★ 選択された会議フォーマットの存在をチェック
+        console.log("[DEBUG] selectedMeetingFormat in onstop:", selectedMeetingFormat);
         if (!selectedMeetingFormat) {
           alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
           return;
