@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { getAuth } from "firebase/auth";
+import HomeIcon from "./HomeIcon"; 
 
 const Container = styled.div`
   background-color: #000;
@@ -12,6 +13,14 @@ const Container = styled.div`
   align-items: center;
   font-family: "Helvetica Neue", Arial, sans-serif;
   position: relative;
+`;
+
+// HomeIcon を左上に配置するためのスタイル
+const HomeIconWrapper = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 70px;
 `;
 
 const Title = styled.h1`
@@ -78,21 +87,6 @@ const Button = styled.button`
   }
 `;
 
-// Spinner コンポーネント（CSS アニメーションで回転）
-const Spinner = styled.div`
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid #fff;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-`;
-
 const Divider = styled.hr`
   width: 100%;
   max-width: 1200px;
@@ -126,7 +120,6 @@ const Link = styled.a`
 `;
 
 export default function BuyTicketsPage() {
-  // どのボタンが押されたかを管理する状態。押されたボタンの productId を保存
   const [loadingProductId, setLoadingProductId] = useState(null);
   const auth = getAuth();
 
@@ -145,7 +138,6 @@ export default function BuyTicketsPage() {
     const userId = user.uid;
     console.log("送信する productId:", productId, "userId:", userId);
 
-    // どのボタンがクリックされたかを記録
     setLoadingProductId(productId);
     try {
       const response = await fetch(
@@ -173,6 +165,11 @@ export default function BuyTicketsPage() {
 
   return (
     <Container>
+      {/* Home アイコンを左上に配置 */}
+      <HomeIconWrapper>
+        <HomeIcon size="50px" color="white" />
+      </HomeIconWrapper>
+
       <Title>Buy Tickets</Title>
       <CardsWrapper>
         <Card>
@@ -183,11 +180,7 @@ export default function BuyTicketsPage() {
             }
             disabled={loadingProductId !== null}
           >
-            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_120MIN ? (
-              <Spinner />
-            ) : (
-              "120 min / $1.99"
-            )}
+            120 min / $1.99
           </Button>
         </Card>
 
@@ -199,11 +192,7 @@ export default function BuyTicketsPage() {
             }
             disabled={loadingProductId !== null}
           >
-            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_1200MIN ? (
-              <Spinner />
-            ) : (
-              "1200 min / $11.99"
-            )}
+            1200 min / $11.99
           </Button>
         </Card>
       </CardsWrapper>
@@ -218,11 +207,7 @@ export default function BuyTicketsPage() {
             }
             disabled={loadingProductId !== null}
           >
-            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED ? (
-              <Spinner />
-            ) : (
-              "$16.99/mo"
-            )}
+            $16.99/mo
           </Button>
         </Card>
 
@@ -234,11 +219,7 @@ export default function BuyTicketsPage() {
             }
             disabled={loadingProductId !== null}
           >
-            {loadingProductId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED ? (
-              <Spinner />
-            ) : (
-              "$149.99/yr"
-            )}
+            $149.99/yr
           </Button>
         </Card>
       </CardsWrapper>
