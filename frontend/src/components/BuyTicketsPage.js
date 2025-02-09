@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { getAuth } from "firebase/auth";
-import HomeIcon from "./HomeIcon"; 
+import HomeIcon from "./HomeIcon";
+import { useNavigate } from "react-router-dom"; // React Router を利用する場合
 
 const Container = styled.div`
   background-color: #000;
@@ -15,7 +16,6 @@ const Container = styled.div`
   position: relative;
 `;
 
-// HomeIcon を左上に配置するためのスタイル
 const HomeIconWrapper = styled.div`
   position: absolute;
   top: 20px;
@@ -55,7 +55,6 @@ const Card = styled.div`
   align-items: center;
   font-weight: bold;
 `;
-
 
 const CardTitle = styled.h2`
   font-size: 2rem;
@@ -125,6 +124,7 @@ const Link = styled.a`
 export default function BuyTicketsPage() {
   const [loadingProductId, setLoadingProductId] = useState(null);
   const auth = getAuth();
+  const navigate = useNavigate(); // React Router を利用する場合
 
   const handleBuyClick = async (productId) => {
     if (!productId) {
@@ -168,12 +168,11 @@ export default function BuyTicketsPage() {
 
   return (
     <Container>
-      {/* Home アイコンを左上に配置 */}
       <HomeIconWrapper>
         <HomeIcon size="50px" color="white" />
       </HomeIconWrapper>
 
-      <Title>Buy Tickets</Title>
+      <Title>Buy Time</Title>
       <CardsWrapper>
         <Card>
           <CardTitle>Trial</CardTitle>
@@ -231,9 +230,9 @@ export default function BuyTicketsPage() {
 
       <Footer>
         <Spacer />
-        <Link href="#">Privacy Policy</Link>
+        <Link onClick={() => navigate("/privacy-policy")}>Privacy Policy</Link>
         <Spacer />
-        <Link href="#">Terms of Use</Link>
+        <Link onClick={() => navigate("/terms-of-use")}>Terms of Use</Link>
         <Spacer />
       </Footer>
     </Container>
