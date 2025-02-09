@@ -21,6 +21,8 @@ import MinutesDetail from './components/MinutesDetail';
 import MeetingFormatsList from './components/MeetingFormatsList'; // ← 新たに追加
 import { PiGridFourFill } from "react-icons/pi";
 import EmailVerification from "./components/EmailVerification"; // ← ここ
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfUse from "./components/TermsOfUse";
 
 function DebugRouter() {
   const location = useLocation();
@@ -508,6 +510,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/email-verification" element={<EmailVerification />} /> 
         <Route path="/buy-tickets" element={<BuyTicketsPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/success" element={<Success />} />
         <Route path="/cancel" element={<Cancel />} />
         <Route path="/minutes-list" element={<MinutesList />} />
