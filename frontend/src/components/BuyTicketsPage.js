@@ -75,23 +75,35 @@ const Button = styled.button`
   }
 `;
 
-const Footer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// Divider（区切り線）のコンポーネント
+const Divider = styled.hr`
   width: 100%;
   max-width: 1200px;
-  padding: 20px 40px;
+  border: none;
+  border-top: 1px solid #fff;
+  margin: 40px 0;
+`;
+
+const Footer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
   position: absolute;
   bottom: 20px;
-  gap: 20px;
+`;
+
+// Spacer（間隔用）のコンポーネント。必要に応じて width を調整してください。
+const Spacer = styled.div`
+  width: 20px;
 `;
 
 const Link = styled.a`
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  padding: 10px;
   &:hover {
     text-decoration: underline;
   }
@@ -147,39 +159,65 @@ export default function BuyTicketsPage() {
       <CardsWrapper>
         <Card>
           <CardTitle>Trial</CardTitle>
-          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)} disabled={loading}>
+          <Button
+            onClick={() =>
+              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)
+            }
+            disabled={loading}
+          >
             120 min / $1.99
           </Button>
         </Card>
-        
+
         <Card>
           <CardTitle>Light</CardTitle>
-          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)} disabled={loading}>
+          <Button
+            onClick={() =>
+              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)
+            }
+            disabled={loading}
+          >
             1200 min / $11.99
           </Button>
         </Card>
       </CardsWrapper>
-      
+
       <Title>Unlimited</Title>
       <CardsWrapper>
         <Card blue>
           <CardTitle>Monthly Subscription</CardTitle>
-          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)} disabled={loading}>
+          <Button
+            onClick={() =>
+              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)
+            }
+            disabled={loading}
+          >
             $16.99/mo
           </Button>
         </Card>
-        
+
         <Card blue>
           <CardTitle>Yearly Subscription</CardTitle>
-          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)} disabled={loading}>
+          <Button
+            onClick={() =>
+              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
+            }
+            disabled={loading}
+          >
             $149.99/yr
           </Button>
         </Card>
       </CardsWrapper>
-      
+
+      {/* カード部分とフッター部分の間に Divider を追加 */}
+      <Divider />
+
       <Footer>
+        <Spacer />
         <Link href="#">Privacy Policy</Link>
+        <Spacer />
         <Link href="#">Terms of Use</Link>
+        <Spacer />
       </Footer>
     </Container>
   );
