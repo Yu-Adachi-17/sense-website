@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import defaultMeetingFormats from './MeetingFormatElements';
+import HomeIcon from './HomeIcon'; 
 
 const MeetingFormatsList = () => {
   // State 管理
@@ -201,6 +202,10 @@ const MeetingFormatsList = () => {
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
       {/* ヘッダー：タイトルと「＋」ボタン（＋ボタン押下で新規追加オーバーレイを表示） */}
+      {/* 左上に HomeIcon を固定配置 */}
+      <div style={{ position: 'fixed', top: 10, left: 10, zIndex: 1500 }}>
+        <HomeIcon size="50px" />
+      </div>
       <div
         style={{
           display: 'flex',
