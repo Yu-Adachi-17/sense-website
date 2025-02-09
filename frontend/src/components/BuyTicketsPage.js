@@ -17,6 +17,7 @@ const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 40px;
   text-align: center;
+  font-weight: bold;
 `;
 
 const CardsWrapper = styled.div`
@@ -39,11 +40,14 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: bold;
+  ${(props) => props.blue && "background: rgba(0, 0, 255, 0.1);"}
 `;
 
 const CardTitle = styled.h2`
   font-size: 2rem;
   margin-bottom: 20px;
+  font-weight: bold;
 `;
 
 const Button = styled.button`
@@ -57,6 +61,7 @@ const Button = styled.button`
   margin: 10px 0;
   transition: background 0.3s, transform 0.2s;
   cursor: pointer;
+  font-weight: bold;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -119,41 +124,29 @@ export default function BuyTicketsPage() {
       <CardsWrapper>
         <Card>
           <CardTitle>Trial</CardTitle>
-          <Button
-            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
-            disabled={loading}
-          >
+          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)} disabled={loading}>
             120 min / $1.99
           </Button>
         </Card>
         
         <Card>
           <CardTitle>Light</CardTitle>
-          <Button
-            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
-            disabled={loading}
-          >
+          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)} disabled={loading}>
             1200 min / $11.99
           </Button>
         </Card>
 
-        <Card>
+        <Card blue>
           <CardTitle>Monthly Subscription</CardTitle>
-          <Button
-            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
-            disabled={loading}
-          >
-            Unlimited / $16.99 per month
+          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)} disabled={loading}>
+            Unlimited / $16.99/mo
           </Button>
         </Card>
         
-        <Card>
+        <Card blue>
           <CardTitle>Yearly Subscription</CardTitle>
-          <Button
-            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
-            disabled={loading}
-          >
-            Unlimited / $149.99 per year
+          <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)} disabled={loading}>
+            Unlimited / $149.99/yr
           </Button>
         </Card>
       </CardsWrapper>
