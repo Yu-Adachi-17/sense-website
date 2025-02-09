@@ -1,4 +1,3 @@
-// src/components/PurchaseMenu.js
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // Firebase
@@ -19,7 +18,7 @@ export function PurchaseMenu() {
   const [userEmail, setUserEmail] = useState(null);
   // Firestore のユーザードキュメントから取得する remainingSeconds
   const [profileRemainingSeconds, setProfileRemainingSeconds] = useState(null);
-  // 購入用モーダル／プロフィール用モーダルの表示切替用 state（今回の遷移用では購入オーバーレイは使用しない）
+  // 購入用モーダル／プロフィール用モーダルの表示切替用 state
   const [showProfileOverlay, setShowProfileOverlay] = useState(false);
 
   const navigate = useNavigate();
@@ -74,13 +73,11 @@ export function PurchaseMenu() {
     console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
     console.log("REACT_APP_STRIPE_PRODUCT_1200MIN:", process.env.REACT_APP_STRIPE_PRODUCT_1200MIN);
     console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
+    console.log("REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED);
   }, []);
-
-  // （※既存の購入処理 handleBuyClick は、今回の画面遷移では不要なため省略可）
 
   // 各種スタイル定義
   const styles = {
-    // トップ右のボタン
     hamburgerButton: {
       position: "fixed",
       top: "20px",
@@ -92,7 +89,6 @@ export function PurchaseMenu() {
       cursor: "pointer",
       zIndex: 1300,
     },
-    // サイドメニュー用のオーバーレイ（背景）
     sideMenuOverlay: {
       position: "fixed",
       top: 0,
@@ -105,7 +101,6 @@ export function PurchaseMenu() {
       transition: "opacity 0.5s ease",
       opacity: showSideMenu ? 1 : 0,
     },
-    // サイドメニュー本体
     sideMenu: {
       position: "fixed",
       top: 0,
@@ -123,7 +118,6 @@ export function PurchaseMenu() {
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
       transition: "transform 0.5s ease-out",
     },
-    // ログインボタン（ログインしていない場合）
     loginButton: {
       backgroundColor: "#fff",
       color: "#000",
@@ -134,7 +128,6 @@ export function PurchaseMenu() {
       fontWeight: "bold",
       marginBottom: "20px",
     },
-    // 購入ボタン（サイドメニュー内に表示する「アイテムを購入」ボタン）
     purchaseButton: {
       backgroundColor: "#fff",
       color: "#000",
@@ -144,7 +137,6 @@ export function PurchaseMenu() {
       fontSize: "16px",
       fontWeight: "bold",
     },
-    // プロフィールオーバーレイ（プロフィールアイコンタップ時）
     profileOverlay: {
       position: "fixed",
       top: 0,
@@ -202,7 +194,6 @@ export function PurchaseMenu() {
   };
 
   // トップ右のボタンタップ時の処理
-  // ・サイドメニューが非表示なら表示、表示中なら（ログイン済みなら）プロフィールオーバーレイを表示
   const handleHamburgerClick = () => {
     if (!showSideMenu) {
       setShowSideMenu(true);
@@ -243,7 +234,7 @@ export function PurchaseMenu() {
                 ログイン
               </button>
             ) : (
-              // ユーザーがログインしている場合は、購入ページ（BuyTicketsPage）へ遷移
+              // ユーザーがログインしている場合は、購入ページへ遷移
               <button
                 style={styles.purchaseButton}
                 onClick={() => {

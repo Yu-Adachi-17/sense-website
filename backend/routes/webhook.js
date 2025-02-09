@@ -25,7 +25,8 @@ const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
 const PRODUCT_MAP = {
   [process.env.STRIPE_PRODUCT_UNLIMITED]: 'unlimited',
   [process.env.STRIPE_PRODUCT_120MIN]: 120,
-  [process.env.STRIPE_PRODUCT_1200MIN]: 1200
+  [process.env.STRIPE_PRODUCT_1200MIN]: 1200,
+  [process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED]: 'yearly-unlimited' // 新規追加
 };
 
 // 環境変数のバリデーション
@@ -67,16 +68,18 @@ const handleCheckoutSessionCompleted = async (session) => {
     }
 
     // unlimited購入の場合：時間はそのままで、subscriptionフラグのみ更新
-    if (productValue === 'unlimited') {
+
+    // サブスクリプションの場合（無制限／年額無制限）
+    if (productValue === 'unlimited' || productValue === 'yearly-unlimited') {
       await userRef.update({
         subscription: true,
         lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
       });
       console.log(`✅ Firebase updated: userId=${userId}, subscription enabled`);
-    } else {
-      // 数値の場合は購入された分数を秒に変換（分 * 60）
+    }
+    // 分数（分）で購入する場合
+    else if (typeof productValue === 'number') {
       const secondsToAdd = productValue * 60;
-      // Firestoreでは、初期設定時に remainingSeconds で管理している前提
       const currentSeconds = userDoc.data().remainingSeconds || 0;
       const newSeconds = currentSeconds + secondsToAdd;
 
@@ -85,6 +88,8 @@ const handleCheckoutSessionCompleted = async (session) => {
         lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
       });
       console.log(`✅ Firebase updated: userId=${userId}, addedSeconds=${secondsToAdd}`);
+    } else {
+      console.error(`❌ Unhandled product type for productValue: ${productValue}`);
     }
   } catch (error) {
     console.error("❌ Error updating Firebase:", error);
