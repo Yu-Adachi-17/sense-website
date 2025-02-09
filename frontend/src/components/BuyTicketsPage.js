@@ -11,6 +11,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: "Helvetica Neue", Arial, sans-serif;
+  position: relative;
 `;
 
 const Title = styled.h1`
@@ -71,6 +72,25 @@ const Button = styled.button`
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+`;
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  position: absolute;
+  bottom: 20px;
+`;
+
+const Link = styled.a`
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -153,6 +173,12 @@ export default function BuyTicketsPage() {
           </Button>
         </Card>
       </CardsWrapper>
+      
+      <Footer>
+        <Link href="#">Privacy Policy</Link>
+        <span>Spacer</span>
+        <Link href="#">Terms of Use</Link>
+      </Footer>
     </Container>
   );
 }
