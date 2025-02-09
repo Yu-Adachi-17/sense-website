@@ -232,7 +232,7 @@ const MeetingFormatsList = () => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           style={{
-            width: '99%',
+            width: '100%',
             padding: 10,
             borderRadius: 8,
             border: 'none',
