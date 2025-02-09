@@ -121,6 +121,7 @@ export default function BuyTicketsPage() {
   return (
     <Container>
       <Title>Buy Tickets</Title>
+      <Title>Unlimited</Title>
       <CardsWrapper>
         <Card>
           <CardTitle>Trial</CardTitle>
@@ -139,14 +140,14 @@ export default function BuyTicketsPage() {
         <Card blue>
           <CardTitle>Monthly Subscription</CardTitle>
           <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)} disabled={loading}>
-            Unlimited / $16.99/mo
+            $16.99/mo
           </Button>
         </Card>
         
         <Card blue>
           <CardTitle>Yearly Subscription</CardTitle>
           <Button onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)} disabled={loading}>
-            Unlimited / $149.99/yr
+            $149.99/yr
           </Button>
         </Card>
       </CardsWrapper>
