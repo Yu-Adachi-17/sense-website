@@ -62,9 +62,10 @@ const MeetingFormatsList = () => {
             setFormats(savedFormats);
           } else {
             // 初回起動時は default のフォーマットに selected プロパティを追加して保存
+            // 「General」をデフォルト選択する
             const initialFormats = defaultMeetingFormats.map((format) => ({
               ...format,
-              selected: false,
+              selected: format.title.toLowerCase() === 'general'
             }));
             setFormats(initialFormats);
             initialFormats.forEach((format) => {
@@ -80,6 +81,14 @@ const MeetingFormatsList = () => {
       isMounted = false;
     };
   }, []);
+
+  // formats の変更時に、選択中のフォーマットをローカルストレージに保存
+  useEffect(() => {
+    const selected = formats.find((f) => f.selected);
+    if (selected) {
+      localStorage.setItem('selectedMeetingFormat', JSON.stringify(selected));
+    }
+  }, [formats]);
 
   // 検索フィルタリング（タイトル or テンプレート内容）
   const filteredFormats = formats.filter(
@@ -120,13 +129,8 @@ const MeetingFormatsList = () => {
       }
     });
     setFormats(updatedFormats);
-    updatedFormats.forEach((f) => {
-      if (dbRef.current) {
-        putFormat(dbRef.current, f).catch((err) =>
-          console.error('Error updating selection:', err)
-        );
-      }
-    });
+    // ※ ここでも useEffect で自動的にローカルストレージに保存されるので不要ですが、
+    //     必要ならここで selected を更新する処理を入れてもよいです。
   };
 
   // チェックボックス変更時（クリックの伝播を止める）
@@ -285,18 +289,17 @@ const MeetingFormatsList = () => {
                 marginTop: 5,
               }}
             >
-<div
-  style={{
-    color: '#ccc',
-    fontSize: 14,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'pre-line', // 'pre-wrap' から 'pre-line' に変更
-  }}
->
-  {format.template}
-</div>
-
+              <div
+                style={{
+                  color: '#ccc',
+                  fontSize: 14,
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                {format.template}
+              </div>
             </div>
           </div>
         ))}
