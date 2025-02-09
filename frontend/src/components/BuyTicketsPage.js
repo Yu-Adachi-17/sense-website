@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { getAuth } from "firebase/auth";
 
-// 画面全体のコンテナ
 const Container = styled.div`
   background-color: #000;
   color: #fff;
@@ -14,14 +13,12 @@ const Container = styled.div`
   font-family: "Helvetica Neue", Arial, sans-serif;
 `;
 
-// ページタイトル
 const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 40px;
   text-align: center;
 `;
 
-// 商品カードを並べるラッパー（レスポンシブ対応）
 const CardsWrapper = styled.div`
   display: flex;
   gap: 40px;
@@ -31,41 +28,24 @@ const CardsWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-// 各商品カード
 const Card = styled.div`
-  background: rgba(255, 0, 0, 0.05); /* ほんのり赤 */
-  border: 1px solid rgba(255, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 30px;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-// 商品タイトル
-const ProductTitle = styled.h2`
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  text-align: center;
-`;
-
-// 価格表示
-const Price = styled.p`
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-`;
-
-// 商品説明（例：使用時間・無制限利用など）
-const Description = styled.p`
-  font-size: 1rem;
+const CardTitle = styled.h2`
+  font-size: 2rem;
   margin-bottom: 20px;
 `;
 
-// 購入ボタン
 const Button = styled.button`
   background: transparent;
   border: 2px solid #fff;
@@ -74,7 +54,7 @@ const Button = styled.button`
   padding: 12px 24px;
   border-radius: 5px;
   width: 100%;
-  margin-top: auto;
+  margin: 10px 0;
   transition: background 0.3s, transform 0.2s;
   cursor: pointer;
 
@@ -93,21 +73,18 @@ export default function BuyTicketsPage() {
   const [loading, setLoading] = useState(false);
   const auth = getAuth();
 
-  // 購入処理（Stripe API 呼び出し）
   const handleBuyClick = async (productId) => {
     if (!productId) {
-      console.error(
-        "❌ productId が undefined です。環境変数を確認してください。"
-      );
+      console.error("❌ productId が undefined です。環境変数を確認してください。");
       return;
     }
 
-    // ユーザーの認証状態を確認
     const user = auth.currentUser;
     if (!user) {
       alert("ログインが必要です。先にログインしてください。");
       return;
     }
+
     const userId = user.uid;
     console.log("送信する productId:", productId, "userId:", userId);
 
@@ -140,65 +117,35 @@ export default function BuyTicketsPage() {
     <Container>
       <Title>Buy Tickets</Title>
       <CardsWrapper>
-        {/* Trial 商品 */}
         <Card>
-          <ProductTitle>Trial</ProductTitle>
-          <Price>$1.99</Price>
-          <Description>120min</Description>
+          <CardTitle>Buy Time</CardTitle>
           <Button
-            onClick={() =>
-              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)
-            }
+            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)}
             disabled={loading}
           >
-            Buy
+            120 min / $1.99
+          </Button>
+          <Button
+            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)}
+            disabled={loading}
+          >
+            1200 min / $11.99
           </Button>
         </Card>
 
-        {/* Light 商品 */}
         <Card>
-          <ProductTitle>Light</ProductTitle>
-          <Price>$11.99</Price>
-          <Description>1200min</Description>
+          <CardTitle>UNLIMITED</CardTitle>
           <Button
-            onClick={() =>
-              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)
-            }
+            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)}
             disabled={loading}
           >
-            Buy
+            Unlimited / $16.99 per month
           </Button>
-        </Card>
-
-        {/* 月額サブスクリプション */}
-        <Card>
-          <ProductTitle>Monthly Subscription</ProductTitle>
-          <Price>$16.99</Price>
-          <Description>Unlimited usage</Description>
           <Button
-            onClick={() =>
-              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)
-            }
+            onClick={() => handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)}
             disabled={loading}
           >
-            Subscribe
-          </Button>
-        </Card>
-
-        {/* 年額サブスクリプション */}
-        <Card>
-          <ProductTitle>Yearly Subscription</ProductTitle>
-          <Price>$149.99</Price>
-          <Description>Unlimited usage</Description>
-          <Button
-            onClick={() =>
-              handleBuyClick(
-                process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED
-              )
-            }
-            disabled={loading}
-          >
-            Subscribe
+            Unlimited / $149.99 per year
           </Button>
         </Card>
       </CardsWrapper>
