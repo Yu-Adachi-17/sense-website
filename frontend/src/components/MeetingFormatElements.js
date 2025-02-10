@@ -100,8 +100,26 @@ const meetingFormats = [
   【Next Actions】
   ⚫︎ Selected Ideas & Next Steps (Validation, Prototyping, etc.)
   ⚫︎ Who, What, By When`
+    },
+    {
+      id: 'lecture',
+      title: 'Lecture/Speech',
+      template: `【Lecture Title】
+  【Date】
+  【Location】
+  【Speaker】
+  【Audience】
+  【Key Topics】
+  ⚫︎ Main Subject & Purpose
+  ⚫︎ Key Arguments & Supporting Points
+  ⚫︎ Notable Quotes & Highlights
+  【Summary】
+  ⚫︎ Key Takeaways
+  ⚫︎ Impact & Implications
+  【Q&A / Feedback】
+  ⚫︎ Key Questions from Audience
+  ⚫︎ Responses & Additional Clarifications`
     }
   ];
   
   export default meetingFormats;
-  
