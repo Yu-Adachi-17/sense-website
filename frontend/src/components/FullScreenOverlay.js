@@ -38,7 +38,7 @@ const FullScreenOverlay = ({
       return unsubscribe;
     }
   }, [docId, isExpanded, isEditing]);
-  
+
   // 画面サイズの変更を監視
   useEffect(() => {
     const handleResize = () => {
@@ -345,15 +345,16 @@ const FullScreenOverlay = ({
           </button>
 
           {/* 編集モードの場合は textarea、非編集時は p タグで表示 */}
-          {isEditing ? (
-            <textarea
-              style={styles.textEditor}
-              value={editedText}
-              onChange={(e) => setEditedText(e.target.value)}
-            />
-          ) : (
-            <p>{editedText}</p>
-          )}
+{isEditing ? (
+  <textarea
+    style={styles.textEditor}
+    value={editedText}
+    onChange={(e) => setEditedText(e.target.value)}
+  />
+) : (
+  <p style={{ whiteSpace: 'pre-wrap' }}>{editedText}</p>
+)}
+
         </div>
       </div>
 
