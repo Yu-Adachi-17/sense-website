@@ -11,7 +11,7 @@ const TermsOfUse = () => {
     lineHeight: 1.8,
     fontFamily: 'Arial, sans-serif',
     textAlign: 'left',
-    border: '1px solid #444',
+    // border: '1px solid #444',
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
   };
