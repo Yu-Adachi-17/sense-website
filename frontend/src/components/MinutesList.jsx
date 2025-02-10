@@ -14,40 +14,45 @@ import { useNavigate } from 'react-router-dom';
 import { RxArrowLeft } from 'react-icons/rx';
 
 // 議事録項目コンポーネント（選択モード対応版）
+// 議事録項目コンポーネント（選択モード対応版）
 const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
-  const navigate = useNavigate();
-
-  const createdDate =
-    paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
-  const truncatedText =
-    paper.minutes.length <= 100 ? paper.minutes : paper.minutes.slice(0, 100) + '…';
-
-  // 選択モードの場合は選択状態を切り替え、通常時は詳細画面へ遷移
-  const handleClick = () => {
-    if (selectionMode) {
-      toggleSelect(paper.id);
-    } else {
-      navigate(`/minutes/${paper.id}`, { state: { paper } });
-    }
+    const navigate = useNavigate();
+  
+    const createdDate =
+      paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
+    const truncatedText =
+      paper.minutes.length <= 100 ? paper.minutes : paper.minutes.slice(0, 100) + '…';
+  
+    // 選択モードの場合は選択状態を切り替え、通常時は詳細画面へ遷移
+    const handleClick = () => {
+      if (selectionMode) {
+        toggleSelect(paper.id);
+      } else {
+        navigate(`/minutes/${paper.id}`, { state: { paper } });
+      }
+    };
+  
+    return (
+      <div
+        onClick={handleClick}
+        style={{
+          backgroundColor: isSelected ? '#555' : '#1e1e1e',
+          border: isSelected ? '2px solid red' : 'none',
+          borderRadius: 10,
+          padding: 10,
+          color: 'white',
+          textAlign: 'center',
+          cursor: 'pointer'
+        }}
+      >
+        {/* white-space: pre-wrap を追加 */}
+        <div style={{ fontWeight: 'bold', whiteSpace: 'pre-wrap' }}>
+          {truncatedText}
+        </div>
+      </div>
+    );
   };
-
-  return (
-    <div
-      onClick={handleClick}
-      style={{
-        backgroundColor: isSelected ? '#555' : '#1e1e1e',
-        border: isSelected ? '2px solid red' : 'none',
-        borderRadius: 10,
-        padding: 10,
-        color: 'white',
-        textAlign: 'center',
-        cursor: 'pointer'
-      }}
-    >
-      <div style={{ fontWeight: 'bold' }}>{truncatedText}</div>
-    </div>
-  );
-};
+  
 
 const MinutesList = () => {
   const [papers, setPapers] = useState([]);
