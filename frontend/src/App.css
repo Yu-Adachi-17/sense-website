@@ -127,9 +127,3 @@ html, body {
   background-color: #000; /* 全画面の背景を黒にする */
 }
 
-* {
-  border: none; /* すべての要素の枠線を削除 */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
