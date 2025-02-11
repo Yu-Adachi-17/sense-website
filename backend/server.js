@@ -276,6 +276,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
       console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
       transcription = await transcribeWithOpenAI(tempFilePath);
+      console.log('[DEBUG] 一括文字起こし結果:', transcription);
     } else {
       console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンクに分割して処理します');
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
@@ -284,9 +285,18 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       let transcriptionChunks = [];
       // 各チャンクを順番に文字起こし（STT）処理
       for (let i = 0; i < chunkPaths.length; i++) {
-        console.log(`[DEBUG] チャンク ${i + 1} の文字起こしを開始`);
-        const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
-        transcriptionChunks.push(chunkTranscription);
+        try {
+          console.log(`[DEBUG] チャンク ${i + 1} の文字起こしを開始（ファイル: ${chunkPaths[i]}）`);
+          const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
+          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし結果: ${chunkTranscription}`);
+          transcriptionChunks.push(chunkTranscription);
+        } catch (error) {
+          console.error(
+            `[ERROR] チャンク ${i + 1} の文字起こし中にエラーが発生しました:`,
+            error.response?.data || error.message
+          );
+          throw new Error(`チャンク ${i + 1} の文字起こしに失敗しました: ${error.message}`);
+        }
       }
       // 順番通りに文字起こし結果を連結
       transcription = transcriptionChunks.join(" ");
@@ -308,7 +318,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     res.json({ transcription: transcription.trim(), minutes });
   } catch (error) {
     console.error('[ERROR] /api/transcribe internal error:', error);
-    res.status(500).json({ error: 'サーバー内部エラー' });
+    res.status(500).json({ error: 'サーバー内部エラー', details: error.message });
   }
 });
 
@@ -363,7 +373,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
     res.json({ url: session.url });
   } catch (error) {
     console.error('[ERROR] /api/create-checkout-session:', error);
-    res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました' });
+    res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました', details: error.message });
   }
 });
 
