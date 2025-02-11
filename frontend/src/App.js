@@ -240,65 +240,61 @@ function App() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
-
-      let mimeType = 'audio/mp4';
+  
+      let mimeType = 'audio/webm;codecs=opus'; // 低ビットレートの圧縮形式
       if (!MediaRecorder.isTypeSupported(mimeType)) {
-        mimeType = 'audio/webm';
+        mimeType = 'audio/mp4'; // WebM が使えない場合は m4a
       }
-      const options = { mimeType };
+      
+      const options = { mimeType, audioBitsPerSecond: 32000 }; // 32kbps に設定
       const mediaRecorder = new MediaRecorder(stream, options);
       mediaRecorderRef.current = mediaRecorder;
       recordedChunksRef.current = [];
-
+  
       mediaRecorder.ondataavailable = (event) => {
         if (event.data.size > 0) {
           recordedChunksRef.current.push(event.data);
         }
       };
-
+  
       mediaRecorder.onstop = async () => {
         const blob = new Blob(recordedChunksRef.current, { type: mimeType });
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
-        // ファイルオブジェクトを生成（録音の場合は File にする）
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
-
-        // 会議フォーマットが未選択の場合はエラー
+  
         if (!selectedMeetingFormat) {
           alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
           return;
         }
-        // 共通処理を呼び出し
         await processAudioFile(file);
       };
-
+  
       mediaRecorder.start();
-
+  
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
       audioContextRef.current = audioContext;
-
+  
       const source = audioContext.createMediaStreamSource(stream);
       sourceRef.current = source;
-
+  
       const analyser = audioContext.createAnalyser();
       analyser.fftSize = 256;
       const bufferLength = analyser.frequencyBinCount;
       const dataArray = new Uint8Array(bufferLength);
       analyserRef.current = analyser;
       dataArrayRef.current = dataArray;
-
+  
       source.connect(analyser);
-
       updateAudioLevel();
-
-      // ★ サブスクライバー（購読ユーザー）でなければ、録音開始と同時に残秒数のカウントダウンを開始
+  
+      // ⏳ 残り時間のカウントダウン
       if (!userSubscription) {
         timerIntervalRef.current = setInterval(() => {
           setUserRemainingSeconds(prev => {
             if (prev <= 1) {
               clearInterval(timerIntervalRef.current);
               timerIntervalRef.current = null;
-              // 残秒が0になったら自動的に録音停止＋議事録生成
-              stopRecording(0); // Firebase 更新にも 0 を渡す
+              stopRecording(0);
               setIsRecording(false);
               return 0;
             }
@@ -306,12 +302,13 @@ function App() {
           });
         }, 1000);
       }
-
+  
     } catch (err) {
       console.error('マイクへのアクセスに失敗しました:', err);
       alert('マイクへのアクセスが拒否されました。設定を確認してください。');
     }
   };
+  
 
   // stopRecording にオプション引数 finalRemaining を追加（デフォルトは現在の userRemainingSeconds）
   const stopRecording = async (finalRemaining = userRemainingSeconds) => {
