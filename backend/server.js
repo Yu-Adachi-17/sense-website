@@ -73,9 +73,25 @@ app.options('*', (req, res) => {
   res.sendStatus(204);
 });
 
+// ------------- ここからデバッグ用エンドポイントの追加 -------------
+const { exec } = require('child_process');
+
+app.get('/api/debug/ffprobe', (req, res) => {
+  exec('which ffprobe', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error finding ffprobe: ${stderr}`);
+      return res.status(500).json({ error: 'ffprobe not found', details: stderr });
+    }
+    const ffprobePathDetected = stdout.trim();
+    console.log(`Detected ffprobe path: ${ffprobePathDetected}`);
+    res.json({ ffprobePath: ffprobePathDetected });
+  });
+});
+// ------------- ここまでデバッグ用エンドポイントの追加 -------------
+
 // ✅ リクエスト詳細のデバッグログ
 app.use((req, res, next) => {
-  console.log(`[DEBUG] リクエスト詳細:
+  console.log(`[DEBUG] リクエスト受信:
   - メソッド: ${req.method}
   - オリジン: ${req.headers.origin || '未設定'}
   - パス: ${req.path}
@@ -223,12 +239,6 @@ const splitAudioFile = (filePath, maxFileSize) => {
 app.get('/api/health', (req, res) => {
   console.log('[DEBUG] /api/health was accessed');
   res.status(200).json({ status: 'OK', message: 'Health check passed!' });
-});
-
-// ✅ すべてのリクエストのログ出力
-app.use((req, res, next) => {
-  console.log(`[DEBUG] リクエスト受信: ${req.method} ${req.path}`);
-  next();
 });
 
 // ✅ シンプルなテストエンドポイント
