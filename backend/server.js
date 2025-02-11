@@ -10,8 +10,8 @@ const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
 
 // ffmpeg / ffprobe のパスを明示的に設定する
-const ffmpegPath = '/opt/homebrew/bin/ffmpeg';
-const ffprobePath = '/opt/homebrew/bin/ffprobe';  // シンボリックリンクのパスを使用
+const ffmpegPath = '/usr/bin/ffmpeg';
+const ffprobePath = '/usr/bin/ffprobe';  // シンボリックリンクのパスを使用
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
