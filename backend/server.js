@@ -12,8 +12,9 @@ const ffmpeg = require('fluent-ffmpeg');
 // ffmpeg / ffprobe のパスを明示的に設定する
 const ffmpegPath = '/usr/bin/ffmpeg';
 const ffprobePath = '/usr/bin/ffprobe';  // シンボリックリンクのパスを使用
-ffmpeg.setFfmpegPath(ffmpegPath);
-ffmpeg.setFfprobePath(ffprobePath);
+ffmpeg.setFfmpegPath('ffmpeg');
+ffmpeg.setFfprobePath('ffprobe');
+
 
 console.log("[DEBUG] ffmpeg path set to:", ffmpegPath);
 console.log("[DEBUG] ffprobe path set to:", ffprobePath);
