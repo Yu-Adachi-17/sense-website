@@ -374,7 +374,8 @@ function App() {
   // ------------- ファイルアップロード時のハンドラー ------------- //
   // ※ アップロード後、processAudioFile() を呼び出して録音停止時と同じ処理（STT 経由の議事録生成）を行います。
   const handleFileUpload = async (file) => {
-    if (file.type !== 'audio/webm') {
+    // file.type に "webm" が含まれているかチェック（"audio/webm" や "video/webm" の両方を許可）
+    if (!file.type.includes("webm")) {
       alert('アップロード可能なファイル形式は .webm です');
       return;
     }
@@ -384,6 +385,7 @@ function App() {
     }
     await processAudioFile(file);
   };
+  
 
   // コンポーネントのアンマウント時に録音や interval を停止
   useEffect(() => {
