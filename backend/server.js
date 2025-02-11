@@ -110,7 +110,7 @@ const generateMinutes = async (transcription, formatTemplate) => {
       { role: 'system', content: systemMessage },
       { role: 'user', content: transcription },
     ],
-    max_tokens: 200000,
+    max_tokens: 4000,
     temperature: 0.5,
   };
   
