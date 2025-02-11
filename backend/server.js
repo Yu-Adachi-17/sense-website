@@ -9,11 +9,14 @@ const fs = require('fs');
 const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
 // ffmpeg / ffprobe のパスを明示的に設定する
-ffmpeg.setFfmpegPath('/opt/homebrew/bin/ffmpeg'); // `which ffmpeg` の結果
-ffmpeg.setFfprobePath('/opt/homebrew/bin/ffprobe'); // `which ffprobe` の結果
+const ffmpegPath = '/opt/homebrew/bin/ffmpeg';  // which ffmpeg の結果
+const ffprobePath = '/opt/homebrew/bin/ffprobe';  // which ffprobe の結果
+ffmpeg.setFfmpegPath(ffmpegPath);
+ffmpeg.setFfprobePath(ffprobePath);
 
-console.log("[DEBUG] ffmpeg path:", ffmpeg._getFfmpegPath());
-console.log("[DEBUG] ffprobe path:", ffmpeg._getFfprobePath());
+console.log("[DEBUG] ffmpeg path set to:", ffmpegPath);
+console.log("[DEBUG] ffprobe path set to:", ffprobePath);
+
 const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
@@ -99,7 +102,6 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 // ✅ ChatGPT を使用して議事録を生成する関数
 const generateMinutes = async (transcription, formatTemplate) => {
-  // ユーザー選択のテンプレートがあればシステムメッセージとして使用、なければデフォルト
   const systemMessage = formatTemplate || 'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
   
   const data = {
