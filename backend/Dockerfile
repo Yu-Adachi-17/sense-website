@@ -1,8 +1,10 @@
 # Node.js の軽量版を使用
 FROM node:16-alpine
 
-# ffmpeg をインストール
-RUN apk add --no-cache ffmpeg
+# ffmpeg をインストールし、ffprobe の場所とバージョンを出力して確認する
+RUN apk add --no-cache ffmpeg && \
+    echo "ffprobe location:" && which ffprobe && \
+    echo "ffprobe version:" && ffprobe -version
 
 # 作業ディレクトリを設定
 WORKDIR /app
