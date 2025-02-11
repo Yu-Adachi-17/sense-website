@@ -19,34 +19,16 @@ const Stripe = require('stripe');
 const webhookRouter = require('./routes/webhook');
 const app = express();
 
-// ★★★ Multer のストレージを memoryStorage から diskStorage に変更 ★★★
-// 一時保存先ディレクトリ（なければ作成）
-const tempDir = path.join(__dirname, 'temp');
-if (!fs.existsSync(tempDir)) {
-  fs.mkdirSync(tempDir, { recursive: true });
-  console.log("[DEBUG] 一時保存ディレクトリ作成:", tempDir);
-}
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, tempDir);
-  },
-  filename: (req, file, cb) => {
-    const filename = `${Date.now()}_${file.originalname}`;
-    cb(null, filename);
-  }
-});
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 500 * 1024 * 1024 } // 500MB まで
-});
+// ★★★ Webhook 用ルートの登録 ★★★
+app.use('/api', webhookRouter);
 
-// ✅ JSON リクエストのパース
+// ★★★ JSON リクエストのパース ★★★
 app.use(express.json());
 
-// ✅ 許可するオリジンの定義
+// ★★★ 許可するオリジンの定義 ★★★
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
-// ✅ CORS 設定
+// ★★★ CORS 設定 ★★★
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -71,7 +53,7 @@ app.use((req, res, next) => {
   next();
 });
 app.options('*', (req, res) => {
-  console.log('[DEBUG] プリフライトリクエスト受信:', req.headers);
+  console.log('[DEBUG] プリフライトリクエストを受信:', req.headers);
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -80,21 +62,21 @@ app.options('*', (req, res) => {
   res.sendStatus(204);
 });
 
-// ------------- デバッグ用エンドポイント -------------
+// ★★★ デバッグ用エンドポイント ★★★
 const { exec } = require('child_process');
 app.get('/api/debug/ffprobe', (req, res) => {
   exec('which ffprobe', (error, stdout, stderr) => {
     if (error) {
-      console.error("ffprobe 探索エラー:", stderr);
+      console.error(`Error finding ffprobe: ${stderr}`);
       return res.status(500).json({ error: 'ffprobe not found', details: stderr });
     }
     const ffprobePathDetected = stdout.trim();
-    console.log("Detected ffprobe path:", ffprobePathDetected);
+    console.log(`Detected ffprobe path: ${ffprobePathDetected}`);
     res.json({ ffprobePath: ffprobePathDetected });
   });
 });
 
-// ✅ リクエスト詳細ログ
+// ★★★ リクエスト詳細ログ ★★★
 app.use((req, res, next) => {
   console.log(`[DEBUG] リクエスト受信:
   - メソッド: ${req.method}
@@ -105,14 +87,21 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ OpenAI API エンドポイント
+// ★★★ Multer の設定 ★★★
+// ※ 大容量の場合、memoryStorage ではなく diskStorage も検討しますが、ここでは元の設定のままにしています。
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 500 * 1024 * 1024 }
+});
+
+// ★★★ OpenAI API エンドポイント ★★★
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
 const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
 
-// ✅ Stripe 初期化
+// ★★★ Stripe の初期化 ★★★
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-// ✅ 議事録生成関数
+// ★★★ ChatGPT を使用して議事録を生成する関数 ★★★
 const generateMinutes = async (transcription, formatTemplate) => {
   const systemMessage = formatTemplate || 'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
   const data = {
@@ -131,17 +120,17 @@ const generateMinutes = async (transcription, formatTemplate) => {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      timeout: 600000,
+      timeout: 600000, // 10分
     });
-    console.log('[DEBUG] ChatGPT API 応答:', response.data);
+    console.log('[DEBUG] ChatGPT API の応答:', response.data);
     return response.data.choices[0].message.content.trim();
   } catch (error) {
-    console.error('[ERROR] ChatGPT API 呼び出し失敗:', error.response?.data || error.message);
-    throw new Error('ChatGPT API による議事録生成に失敗');
+    console.error('[ERROR] ChatGPT API の呼び出しに失敗:', error.response?.data || error.message);
+    throw new Error('ChatGPT API による議事録生成に失敗しました');
   }
 };
 
-// ✅ Whisper API 呼び出し関数
+// ★★★ Whisper API を使用して文字起こしを行う関数 ★★★
 const transcribeWithOpenAI = async (filePath) => {
   try {
     const formData = new FormData();
@@ -157,21 +146,27 @@ const transcribeWithOpenAI = async (filePath) => {
       maxContentLength: Infinity,
       maxBodyLength: Infinity,
     });
-    console.log('[DEBUG] Whisper API 応答:', response.data);
+    console.log('[DEBUG] Whisper API の応答:', response.data);
     return response.data.text;
   } catch (error) {
-    console.error('[ERROR] Whisper API 呼び出し失敗:', error.response?.data || error.message);
-    throw new Error('Whisper API による文字起こしに失敗');
+    console.error('[ERROR] Whisper API の呼び出しに失敗:', error.response?.data || error.message);
+    throw new Error('Whisper API による文字起こしに失敗しました');
   }
 };
 
-// ✅ チャンク分割用定数（4.5MB）
-const TRANSCRIPTION_CHUNK_THRESHOLD = 4.5 * 1024 * 1024;
+// ★★★ チャンク分割用の定数 ★★★
+const TRANSCRIPTION_CHUNK_THRESHOLD = 4.5 * 1024 * 1024; // 4.5MB
 
-// ★★★ ffmpeg を用いて音声ファイルをチャンク分割 ★★★
+/**
+ * ffmpeg を使用して音声ファイルをチャンクに分割する関数  
+ * ffprobe の結果や各チャンクのパラメータをログ出力します。
+ * @param {string} filePath - 分割対象のファイルパス
+ * @param {number} maxFileSize - チャンクあたりの最大バイト数
+ * @returns {Promise<string[]>} - 分割後のチャンクファイルパスの配列
+ */
 const splitAudioFile = (filePath, maxFileSize) => {
   return new Promise((resolve, reject) => {
-    console.log('[DEBUG] ffprobe 実行開始:', filePath);
+    console.log('[DEBUG] ffprobe を実行中:', filePath);
     ffmpeg.ffprobe(filePath, (err, metadata) => {
       if (err) {
         console.error('[ERROR] ffprobe エラー:', err);
@@ -209,11 +204,11 @@ const splitAudioFile = (filePath, maxFileSize) => {
             .setDuration(chunkDuration)
             .output(outputPath)
             .on('end', () => {
-              console.log(`[DEBUG] チャンク ${i+1}/${numChunks} エクスポート完了: ${outputPath}`);
+              console.log(`[DEBUG] チャンク ${i+1}/${numChunks} のエクスポート完了: ${outputPath}`);
               resolveTask();
             })
             .on('error', (err) => {
-              console.error(`[ERROR] チャンク ${i+1} エクスポート失敗:`, err);
+              console.error(`[ERROR] チャンク ${i+1} のエクスポート失敗:`, err);
               rejectTask(err);
             })
             .run();
@@ -221,68 +216,93 @@ const splitAudioFile = (filePath, maxFileSize) => {
       }
       Promise.all(tasks)
         .then(() => {
-          console.log('[DEBUG] 全チャンクエクスポート完了');
+          console.log('[DEBUG] 全チャンクのエクスポートが完了しました');
           resolve(chunkPaths);
         })
         .catch((err) => {
-          console.error('[ERROR] チャンク生成中エラー:', err);
+          console.error('[ERROR] チャンク生成中にエラーが発生:', err);
           reject(err);
         });
     });
   });
 };
 
-// ★★★ ヘルスチェック / テストエンドポイント ★★★
+// ★★★ デバッグ用ヘルスチェック API ★★★
 app.get('/api/health', (req, res) => {
-  console.log('[DEBUG] /api/health アクセス');
+  console.log('[DEBUG] /api/health がアクセスされました');
   res.status(200).json({ status: 'OK', message: 'Health check passed!' });
 });
+
+// ★★★ シンプルなテストエンドポイント ★★★
 app.get('/api/hello', (req, res) => {
   res.json({ message: "Hello from backend!" });
 });
 
-// ★★★ 文字起こし／議事録生成エンドポイント ★★★
+// ★★★ 文字起こしおよび議事録生成のエンドポイント ★★★
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
-  console.log('[DEBUG] /api/transcribe エンドポイント呼び出し');
+  console.log('[DEBUG] /api/transcribe が呼び出されました');
   try {
-    if (!req.file) {
+    const file = req.file;
+    if (!file) {
       console.error('[ERROR] ファイルがアップロードされていません');
       return res.status(400).json({ error: 'ファイルがアップロードされていません' });
     }
-    console.log('[DEBUG] multer により受信したファイル:', req.file);
-
-    const fileSizeMB = (req.file.size / (1024 * 1024)).toFixed(2);
-    console.log(`[DEBUG] アップロードファイルサイズ: ${fileSizeMB} MB`);
-
+    
+    console.log('[DEBUG] multer により受信したファイル:', file);
+    const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+    console.log(`[DEBUG] アップロードされたファイルサイズ: ${fileSizeMB} MB`);
     const meetingFormat = req.body.meetingFormat;
-    console.log(`[DEBUG] 受信 meetingFormat: ${meetingFormat}`);
-
-    // req.file.path にアップロード済みのファイルパスが格納されているので、それを利用
-    const tempFilePath = req.file.path;
-    console.log('[DEBUG] 一時ファイルパス:', tempFilePath);
-
-    let transcription = '';
-    if (req.file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
-      console.log('[DEBUG] ファイルサイズが4.5MB未満 → 一括処理');
-      transcription = await transcribeWithOpenAI(tempFilePath);
-      console.log('[DEBUG] 一括文字起こし結果:', transcription);
+    console.log(`[DEBUG] 受信した meetingFormat: ${meetingFormat}`);
+    
+    // 一時保存先ディレクトリ（temp）は既に作成済みとする
+    // ※ここでは、multer.memoryStorage() を使用しているのでファイルは buffer にありますが、
+    // 100MB程度の大容量の場合、ディスクに書き出してから処理する方が安全です。
+    const tempDir = path.join(__dirname, 'temp');
+    const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
+    console.log('[DEBUG] 一時ファイル書き出し開始:', tempFilePath);
+    const writeStart = Date.now();
+    fs.writeFileSync(tempFilePath, file.buffer);
+    console.log('[DEBUG] 一時ファイル書き出し完了:', tempFilePath, '所要時間:', Date.now() - writeStart, 'ms');
+    
+    let finalTranscription = "";
+    let finalMinutes = "";
+    
+    // ※ここで、ファイルサイズが閾値以上の場合、内部でチャンクに分割し、
+    // 各チャンクについて STT と議事録生成の処理（①STT、②議事録生成）を行います。
+    if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
+      console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
+      finalTranscription = await transcribeWithOpenAI(tempFilePath);
+      finalMinutes = await generateMinutes(finalTranscription, meetingFormat);
+      console.log('[DEBUG] 一括文字起こし結果:', finalTranscription);
+      console.log('[DEBUG] 一括議事録生成結果:', finalMinutes);
     } else {
-      console.log('[DEBUG] ファイルサイズが4.5MB以上 → チャンク分割して処理');
+      console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンク分割して処理します');
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
       console.log(`[DEBUG] 生成されたチャンク数: ${chunkPaths.length}`);
+      
+      // 各チャンクごとに「①文字起こし」と「②議事録生成」を実施する
       let transcriptionChunks = [];
+      let minutesChunks = [];
       for (let i = 0; i < chunkPaths.length; i++) {
         try {
-          console.log(`[DEBUG] チャンク ${i+1} 文字起こし開始 (ファイル: ${chunkPaths[i]})`);
+          console.log(`[DEBUG] チャンク ${i+1} の文字起こし開始 (ファイル: ${chunkPaths[i]})`);
           const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
-          console.log(`[DEBUG] チャンク ${i+1} 文字起こし結果:`, chunkTranscription);
+          console.log(`[DEBUG] チャンク ${i+1} の文字起こし結果:`, chunkTranscription);
           transcriptionChunks.push(chunkTranscription);
+          
+          console.log(`[DEBUG] チャンク ${i+1} の議事録生成開始`);
+          const chunkMinutes = await generateMinutes(chunkTranscription, meetingFormat);
+          console.log(`[DEBUG] チャンク ${i+1} の議事録生成結果:`, chunkMinutes);
+          minutesChunks.push(chunkMinutes);
         } catch (error) {
-          console.error(`[ERROR] チャンク ${i+1} 文字起こし中エラー:`, error.response?.data || error.message);
-          throw new Error(`チャンク ${i+1} の文字起こしに失敗: ${error.message}`);
+          console.error(`[ERROR] チャンク ${i+1} の処理中にエラー発生:`, error.response?.data || error.message);
+          throw new Error(`チャンク ${i+1} の処理に失敗: ${error.message}`);
         }
       }
-      transcription = transcriptionChunks.join(" ");
+      finalTranscription = transcriptionChunks.join("\n");
+      finalMinutes = minutesChunks.join("\n");
+      
+      // チャンクファイルの削除
       for (const chunkPath of chunkPaths) {
         try {
           fs.unlinkSync(chunkPath);
@@ -292,28 +312,40 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
         }
       }
     }
+    
+    // 一時ファイルの削除
     try {
       fs.unlinkSync(tempFilePath);
       console.log('[DEBUG] 一時ファイル削除:', tempFilePath);
     } catch (err) {
       console.error('[ERROR] 一時ファイル削除失敗:', tempFilePath, err);
     }
-    console.log('[DEBUG] 最終文字起こし結果:', transcription);
-    const minutes = await generateMinutes(transcription.trim(), meetingFormat);
-    console.log('[DEBUG] 議事録生成結果:', minutes);
-    return res.json({ transcription: transcription.trim(), minutes });
+    
+    console.log('[DEBUG] 最終的な文字起こし結果:', finalTranscription);
+    console.log('[DEBUG] 最終的な議事録生成結果:', finalMinutes);
+    
+    return res.json({ transcription: finalTranscription.trim(), minutes: finalMinutes });
   } catch (error) {
     console.error('[ERROR] /api/transcribe 内部エラー:', error);
     return res.status(500).json({ error: 'サーバー内部エラー', details: error.message });
   }
 });
 
-// ★★★ Stripe Checkout Session エンドポイント ★★★
+// ★★★ デバッグ用 GET/POST エンドポイント ★★★
+app.get('/api/transcribe', (req, res) => {
+  res.status(200).json({ message: 'GET /api/transcribe is working!' });
+});
+app.post('/api/transcribe', (req, res) => {
+  res.status(200).json({ message: 'POST /api/transcribe is working!' });
+});
+
+// ★★★ Stripe Checkout Session 作成エンドポイント ★★★
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const { productId, userId } = req.body;
-    console.log("✅ 受信 productId:", productId);
-    console.log("✅ 受信 userId:", userId);
+    console.log("✅ 受信した productId:", productId);
+    console.log("✅ 受信した userId:", userId);
+    
     const PRICE_MAP = {
       [process.env.STRIPE_PRODUCT_UNLIMITED]: process.env.STRIPE_PRICE_UNLIMITED,
       [process.env.STRIPE_PRODUCT_120MIN]: process.env.STRIPE_PRICE_120MIN,
@@ -332,10 +364,12 @@ app.post('/api/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: mode,
-      line_items: [{
-        price: priceId,
-        quantity: 1,
-      }],
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
       client_reference_id: userId,
       metadata: { product_id: productId },
       success_url: 'https://sense-ai.world/success',
@@ -345,21 +379,21 @@ app.post('/api/create-checkout-session', async (req, res) => {
     return res.json({ url: session.url });
   } catch (error) {
     console.error('[ERROR] /api/create-checkout-session:', error);
-    return res.status(500).json({ error: 'Checkoutセッション作成失敗', details: error.message });
+    return res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました', details: error.message });
   }
 });
 
-// ★★★ フロントエンド静的ファイル提供 ★★★
+// ★★★ フロントエンドの静的ファイルの提供 ★★★
 const staticPath = path.join(__dirname, 'frontend/build');
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
-// ★★★ 未定義 API ルートは 404 エラー ★★★
+// ★★★ 未定義の API ルートは 404 エラーを返す ★★★
 app.use('/api', (req, res, next) => {
   res.status(404).json({ error: 'API route not found' });
 });
 
-// ★★★ React ルート (/success, /cancel 等) のハンドリング ★★★
+// ★★★ React のルート (/success など) のハンドリング ★★★
 app.get(["/success", "/cancel"], (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
@@ -378,7 +412,7 @@ app.use((err, req, res, next) => {
   res.json({ error: err.message || 'Internal Server Error' });
 });
 
-// ★★★ サーバー起動 ★★★
+// ★★★ サーバーの起動 ★★★
 const PORT = process.env.PORT || 5001;
 console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
 app.listen(PORT, () => {
