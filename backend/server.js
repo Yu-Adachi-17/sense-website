@@ -7,7 +7,6 @@ const multer = require('multer');
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-// server.js の冒頭部分（修正例）
 const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath('ffmpeg');
 ffmpeg.setFfprobePath('ffprobe');
@@ -29,7 +28,7 @@ app.use(express.json());
 // ✅ 許可するオリジンの定義
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
-// ✅ CORS 設定（リクエスト全体に適用）
+// ✅ CORS 設定
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -169,8 +168,8 @@ const transcribeWithOpenAI = async (filePath) => {
   }
 };
 
-// ✅ チャンク分割用の定数（1MB ごとに分割）
-const TRANSCRIPTION_CHUNK_THRESHOLD = 1024 * 1024; // 1MB
+// ✅ チャンク分割用の定数（4.5MB）
+const TRANSCRIPTION_CHUNK_THRESHOLD = 4.5 * 1024 * 1024; // 4.5MB in bytes
 
 /**
  * ffmpeg を使用して音声ファイルをチャンクに分割する関数  
@@ -255,6 +254,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       return res.status(400).json({ error: 'ファイルがアップロードされていません' });
     }
   
+    // ファイルサイズのログ（MB 表示）
+    const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+    console.log(`[DEBUG] アップロードされたファイルサイズ: ${fileSizeMB} MB`);
+  
     // フロントエンドから送られてくる meetingFormat（テンプレートまたはID）
     const meetingFormat = req.body.meetingFormat;
     console.log(`[DEBUG] Meeting format received: ${meetingFormat}`);
@@ -269,21 +272,23 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log('[DEBUG] File saved temporarily at:', tempFilePath);
   
     let transcription = '';
-    // ファイルサイズが閾値以下なら一括処理
-    if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
-      console.log('[DEBUG] ファイルサイズが小さいため、一括処理します');
+    // ファイルサイズが閾値未満なら一括処理
+    if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
+      console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
       transcription = await transcribeWithOpenAI(tempFilePath);
     } else {
-      console.log('[DEBUG] ファイルサイズが大きいため、チャンクに分割して処理します');
+      console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンクに分割して処理します');
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
       console.log(`[DEBUG] チャンク数: ${chunkPaths.length}`);
   
       let transcriptionChunks = [];
+      // 各チャンクを順番に文字起こし（STT）処理
       for (let i = 0; i < chunkPaths.length; i++) {
         console.log(`[DEBUG] チャンク ${i + 1} の文字起こしを開始`);
         const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
         transcriptionChunks.push(chunkTranscription);
       }
+      // 順番通りに文字起こし結果を連結
       transcription = transcriptionChunks.join(" ");
   
       // チャンクファイルの削除
@@ -330,17 +335,14 @@ app.post('/api/create-checkout-session', async (req, res) => {
     };
 
     const priceId = PRICE_MAP[productId];
-
     if (!priceId) {
       console.error("❌ 無効な productId:", productId);
       return res.status(400).json({ error: "Invalid productId" });
     }
-
     const mode = (productId === process.env.STRIPE_PRODUCT_UNLIMITED ||
-      productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
-      ? 'subscription'
-      : 'payment';
-
+                  productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
+                  ? 'subscription'
+                  : 'payment';
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: mode,
@@ -357,11 +359,10 @@ app.post('/api/create-checkout-session', async (req, res) => {
       success_url: 'https://sense-ai.world/success',
       cancel_url: 'https://sense-ai.world/cancel',
     });
-
     console.log("✅ Checkout URL:", session.url);
     res.json({ url: session.url });
   } catch (error) {
-    console.error('[ERROR] /create-checkout-session:', error);
+    console.error('[ERROR] /api/create-checkout-session:', error);
     res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました' });
   }
 });
@@ -388,11 +389,9 @@ app.get('*', (req, res) => {
 // ✅ **グローバルエラーハンドラー（すべてのエラーに CORS ヘッダーを追加）**
 app.use((err, req, res, next) => {
   console.error('[GLOBAL ERROR HANDLER]', err);
-  // リクエストのオリジンが許可されている場合、そのオリジンを返す
   const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
   res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Credentials', 'true');
-  // ステータスコードが指定されていなければ 500 を返す
   res.status(err.status || 500);
   res.json({ error: err.message || 'Internal Server Error' });
 });
