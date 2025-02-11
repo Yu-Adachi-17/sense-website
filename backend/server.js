@@ -8,6 +8,12 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
+// ffmpeg / ffprobe のパスを明示的に設定する
+ffmpeg.setFfmpegPath('/opt/homebrew/bin/ffmpeg'); // `which ffmpeg` の結果
+ffmpeg.setFfprobePath('/opt/homebrew/bin/ffprobe'); // `which ffprobe` の結果
+
+console.log("[DEBUG] ffmpeg path:", ffmpeg._getFfmpegPath());
+console.log("[DEBUG] ffprobe path:", ffmpeg._getFfprobePath());
 const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
