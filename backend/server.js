@@ -99,24 +99,10 @@ app.use((req, res, next) => {
 });
 
 // ✅ Multer の設定（最大 500MB までのファイルを受け付ける）
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      const tempDir = path.join(__dirname, 'temp');
-      if (!fs.existsSync(tempDir)) {
-        fs.mkdirSync(tempDir, { recursive: true });
-      }
-      cb(null, tempDir);
-    },
-    filename: function (req, file, cb) {
-      cb(null, `${Date.now()}_${file.originalname}`);
-    }
-  });
-  
-  const upload = multer({
-    storage: storage,
-    limits: { fileSize: 500 * 1024 * 1024 } // 最大 500MB
-  });
-  
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 500 * 1024 * 1024 }
+});
 
 // ✅ OpenAI API エンドポイント
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
@@ -260,66 +246,66 @@ app.get('/api/hello', (req, res) => {
 
 // ✅ 文字起こしおよび議事録生成のエンドポイント（チャンク処理あり）
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
-    console.log('[DEBUG] /api/transcribe called');
+  console.log('[DEBUG] /api/transcribe called');
   
-    try {
-      const file = req.file;
-      if (!file) {
-        console.error('[ERROR] ファイルがアップロードされていません');
-        return res.status(400).json({ error: 'ファイルがアップロードされていません' });
-      }
-  
-      // フロント側から送られてくる meetingFormat（テンプレートまたはID）
-      const meetingFormat = req.body.meetingFormat;
-      console.log(`[DEBUG] Meeting format received: ${meetingFormat}`);
-  
-      // 一時保存用ディレクトリの作成
-      const tempDir = path.join(__dirname, 'temp');
-      if (!fs.existsSync(tempDir)) {
-        fs.mkdirSync(tempDir, { recursive: true });
-      }
-      // もし大容量ファイルの場合は diskStorage を利用する検討も
-      const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
-      fs.writeFileSync(tempFilePath, file.buffer);
-      console.log('[DEBUG] File saved temporarily at:', tempFilePath);
-  
-      let transcription = '';
-      if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
-        console.log('[DEBUG] ファイルサイズが小さいため、一括処理します');
-        transcription = await transcribeWithOpenAI(tempFilePath);
-      } else {
-        console.log('[DEBUG] ファイルサイズが大きいため、チャンクに分割して処理します');
-        const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
-        console.log(`[DEBUG] チャンク数: ${chunkPaths.length}`);
-  
-        let transcriptionChunks = [];
-        for (let i = 0; i < chunkPaths.length; i++) {
-          console.log(`[DEBUG] チャンク ${i + 1} の文字起こしを開始`);
-          const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
-          transcriptionChunks.push(chunkTranscription);
-        }
-        transcription = transcriptionChunks.join(" ");
-  
-        // チャンクファイルの削除
-        for (const chunkPath of chunkPaths) {
-          fs.unlinkSync(chunkPath);
-        }
-      }
-  
-      // 元の一時ファイルの削除
-      fs.unlinkSync(tempFilePath);
-  
-      console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
-      const minutes = await generateMinutes(transcription.trim(), meetingFormat);
-      console.log('[DEBUG] ChatGPT API による議事録生成結果:', minutes);
-  
-      res.json({ transcription: transcription.trim(), minutes });
-    } catch (error) {
-      console.error('[ERROR] /api/transcribe internal error:', error);
-      // エラー時も必ずCORSヘッダーを付与する（グローバルエラーハンドラーでも実施）
-      res.status(500).json({ error: 'サーバー内部エラー' });
+  try {
+    const file = req.file;
+    if (!file) {
+      console.error('[ERROR] ファイルがアップロードされていません');
+      return res.status(400).json({ error: 'ファイルがアップロードされていません' });
     }
-  });
+  
+    // フロントエンドから送られてくる meetingFormat（テンプレートまたはID）
+    const meetingFormat = req.body.meetingFormat;
+    console.log(`[DEBUG] Meeting format received: ${meetingFormat}`);
+  
+    // 一時保存用ディレクトリ作成
+    const tempDir = path.join(__dirname, 'temp');
+    if (!fs.existsSync(tempDir)) {
+      fs.mkdirSync(tempDir, { recursive: true });
+    }
+    const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
+    fs.writeFileSync(tempFilePath, file.buffer);
+    console.log('[DEBUG] File saved temporarily at:', tempFilePath);
+  
+    let transcription = '';
+    // ファイルサイズが閾値以下なら一括処理
+    if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
+      console.log('[DEBUG] ファイルサイズが小さいため、一括処理します');
+      transcription = await transcribeWithOpenAI(tempFilePath);
+    } else {
+      console.log('[DEBUG] ファイルサイズが大きいため、チャンクに分割して処理します');
+      const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
+      console.log(`[DEBUG] チャンク数: ${chunkPaths.length}`);
+  
+      let transcriptionChunks = [];
+      for (let i = 0; i < chunkPaths.length; i++) {
+        console.log(`[DEBUG] チャンク ${i + 1} の文字起こしを開始`);
+        const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
+        transcriptionChunks.push(chunkTranscription);
+      }
+      transcription = transcriptionChunks.join(" ");
+  
+      // チャンクファイルの削除
+      for (const chunkPath of chunkPaths) {
+        fs.unlinkSync(chunkPath);
+      }
+    }
+  
+    // 元の一時ファイル削除
+    fs.unlinkSync(tempFilePath);
+  
+    console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
+    // 議事録生成（meetingFormat があればテンプレートとして渡す）
+    const minutes = await generateMinutes(transcription.trim(), meetingFormat);
+    console.log('[DEBUG] ChatGPT API による議事録生成結果:', minutes);
+  
+    res.json({ transcription: transcription.trim(), minutes });
+  } catch (error) {
+    console.error('[ERROR] /api/transcribe internal error:', error);
+    res.status(500).json({ error: 'サーバー内部エラー' });
+  }
+});
 
 // ✅ デバッグ用の GET/POST エンドポイント（API 動作確認用）
 app.get('/api/transcribe', (req, res) => {
