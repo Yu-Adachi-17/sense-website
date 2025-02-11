@@ -99,10 +99,24 @@ app.use((req, res, next) => {
 });
 
 // ✅ Multer の設定（最大 500MB までのファイルを受け付ける）
-const upload = multer({
-  storage: multer.memoryStorage(),
-  limits: { fileSize: 500 * 1024 * 1024 }
-});
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      const tempDir = path.join(__dirname, 'temp');
+      if (!fs.existsSync(tempDir)) {
+        fs.mkdirSync(tempDir, { recursive: true });
+      }
+      cb(null, tempDir);
+    },
+    filename: function (req, file, cb) {
+      cb(null, `${Date.now()}_${file.originalname}`);
+    }
+  });
+  
+  const upload = multer({
+    storage: storage,
+    limits: { fileSize: 500 * 1024 * 1024 } // 最大 500MB
+  });
+  
 
 // ✅ OpenAI API エンドポイント
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
