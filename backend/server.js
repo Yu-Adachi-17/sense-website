@@ -139,34 +139,37 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 // ✅ ChatGPT を使用して議事録を生成する関数
 const generateMinutes = async (transcription, formatTemplate) => {
-  const systemMessage = formatTemplate || 'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
-  
-  const data = {
-    model: 'gpt-4',
-    messages: [
-      { role: 'system', content: systemMessage },
-      { role: 'user', content: transcription },
-    ],
-    max_tokens: 4000,
-    temperature: 0.5,
+    const systemMessage = formatTemplate || 'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
+    
+    const data = {
+      // モデル名を GPT-4o mini に変更
+      model: 'gpt-4o-mini',
+      messages: [
+        { role: 'system', content: systemMessage },
+        { role: 'user', content: transcription },
+      ],
+      // GPT-4o mini の最大出力トークン数（16,384）に修正
+      max_tokens: 15000,
+      temperature: 0.5,
+    };
+    
+    try {
+      console.log('[DEBUG] ChatGPT API に送信するデータ:', data);
+      const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+        headers: {
+          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        timeout: 600000, // 10分
+      });
+      console.log('[DEBUG] ChatGPT API の応答:', response.data);
+      return response.data.choices[0].message.content.trim();
+    } catch (error) {
+      console.error('[ERROR] ChatGPT API の呼び出しに失敗:', error.response?.data || error.message);
+      throw new Error('ChatGPT API による議事録生成に失敗しました');
+    }
   };
   
-  try {
-    console.log('[DEBUG] ChatGPT API に送信するデータ:', data);
-    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      timeout: 600000, // 10分
-    });
-    console.log('[DEBUG] ChatGPT API の応答:', response.data);
-    return response.data.choices[0].message.content.trim();
-  } catch (error) {
-    console.error('[ERROR] ChatGPT API の呼び出しに失敗:', error.response?.data || error.message);
-    throw new Error('ChatGPT API による議事録生成に失敗しました');
-  }
-};
 
 // ✅ Whisper API を使用して文字起こしを行う関数
 const transcribeWithOpenAI = async (filePath) => {
