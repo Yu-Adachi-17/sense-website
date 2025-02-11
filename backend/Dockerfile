@@ -1,6 +1,9 @@
 # Node.js の軽量版を使用
 FROM node:16-alpine
 
+# ffmpeg をインストール
+RUN apk add --no-cache ffmpeg
+
 # 作業ディレクトリを設定
 WORKDIR /app
 
