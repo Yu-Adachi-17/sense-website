@@ -125,7 +125,7 @@ const generateMinutes = async (transcription, formatTemplate) => {
   };
   
   try {
-    console.log('[DEBUG] Sending data to ChatGPT API:', data);
+    console.log('[DEBUG] ChatGPT API に送信するデータ:', data);
     const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
       headers: {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
@@ -133,10 +133,10 @@ const generateMinutes = async (transcription, formatTemplate) => {
       },
       timeout: 600000, // 10分
     });
-    console.log('[DEBUG] ChatGPT API response:', response.data);
+    console.log('[DEBUG] ChatGPT API の応答:', response.data);
     return response.data.choices[0].message.content.trim();
   } catch (error) {
-    console.error('[ERROR] ChatGPT API failed:', error.response?.data || error.message);
+    console.error('[ERROR] ChatGPT API の呼び出しに失敗:', error.response?.data || error.message);
     throw new Error('ChatGPT API による議事録生成に失敗しました');
   }
 };
@@ -148,7 +148,7 @@ const transcribeWithOpenAI = async (filePath) => {
     formData.append('file', fs.createReadStream(filePath));
     formData.append('model', 'whisper-1');
 
-    console.log(`[DEBUG] Sending file to Whisper API: ${filePath}`);
+    console.log(`[DEBUG] Whisper API に送信するファイル: ${filePath}`);
 
     const response = await axios.post(OPENAI_API_ENDPOINT_TRANSCRIPTION, formData, {
       headers: {
@@ -160,10 +160,10 @@ const transcribeWithOpenAI = async (filePath) => {
       maxBodyLength: Infinity,
     });
 
-    console.log('[DEBUG] Whisper API response:', response.data);
+    console.log('[DEBUG] Whisper API の応答:', response.data);
     return response.data.text;
   } catch (error) {
-    console.error('[ERROR] Whisper API error:', error.response?.data || error.message);
+    console.error('[ERROR] Whisper API の呼び出しに失敗:', error.response?.data || error.message);
     throw new Error('Whisper API による文字起こしに失敗しました');
   }
 };
@@ -173,37 +173,50 @@ const TRANSCRIPTION_CHUNK_THRESHOLD = 4.5 * 1024 * 1024; // 4.5MB in bytes
 
 /**
  * ffmpeg を使用して音声ファイルをチャンクに分割する関数  
- * ファイルサイズと全体の duration から1チャンクあたりの再生時間を算出します。
+ * ファイルサイズと全体の duration から1チャンクあたりの再生時間を算出し、チャンクごとに出力します。
+ * 追加のログを挿入して、ffprobe の結果や各チャンクのパラメータを出力します。
  * @param {string} filePath - 分割対象のファイルパス
  * @param {number} maxFileSize - チャンクあたりの最大バイト数
  * @returns {Promise<string[]>} - 分割後のチャンクファイルパスの配列
  */
 const splitAudioFile = (filePath, maxFileSize) => {
   return new Promise((resolve, reject) => {
+    console.log('[DEBUG] ffprobe を実行中:', filePath);
     ffmpeg.ffprobe(filePath, (err, metadata) => {
       if (err) {
+        console.error('[ERROR] ffprobe エラー:', err);
         return reject(err);
       }
-      const duration = metadata.format.duration; // 秒単位
+      if (!metadata || !metadata.format) {
+        const errMsg = 'ffprobe が有効なメタデータを返しませんでした';
+        console.error('[ERROR]', errMsg);
+        return reject(new Error(errMsg));
+      }
+      const duration = metadata.format.duration;
       const fileSize = fs.statSync(filePath).size;
+      console.log('[DEBUG] ffprobe 結果 - duration:', duration, '秒, fileSize:', fileSize, 'bytes');
+      
       // ファイルサイズが閾値以下なら分割不要
       if (fileSize <= maxFileSize) {
+        console.log('[DEBUG] ファイルサイズが閾値以下のため、分割せずそのまま返します');
         return resolve([filePath]);
       }
       
       // 全体の duration とファイルサイズから 1チャンクあたりの再生時間を推定
       let chunkDuration = duration * (maxFileSize / fileSize);
       if (chunkDuration < 5) chunkDuration = 5; // 最低5秒は確保
-      
       const numChunks = Math.ceil(duration / chunkDuration);
+      
+      console.log(`[DEBUG] チャンク分割開始: chunkDuration=${chunkDuration}秒, numChunks=${numChunks}`);
+      
       let chunkPaths = [];
       let tasks = [];
       
       for (let i = 0; i < numChunks; i++) {
         const startTime = i * chunkDuration;
-        // 一意なファイル名を生成（同一ディレクトリ内）
         const outputPath = path.join(path.dirname(filePath), `${Date.now()}_chunk_${i}.m4a`);
         chunkPaths.push(outputPath);
+        console.log(`[DEBUG] チャンク ${i + 1}: startTime=${startTime}秒, outputPath=${outputPath}`);
         
         tasks.push(new Promise((resolveTask, rejectTask) => {
           ffmpeg(filePath)
@@ -224,17 +237,20 @@ const splitAudioFile = (filePath, maxFileSize) => {
       
       Promise.all(tasks)
         .then(() => {
-          // チャンクは作成順（＝開始時刻順）で保存されている前提
+          console.log('[DEBUG] 全チャンクのエクスポートが完了しました');
           resolve(chunkPaths);
         })
-        .catch(reject);
+        .catch((err) => {
+          console.error('[ERROR] チャンク生成中にエラーが発生:', err);
+          reject(err);
+        });
     });
   });
 };
 
 // ✅ デバッグ用ヘルスチェック API
 app.get('/api/health', (req, res) => {
-  console.log('[DEBUG] /api/health was accessed');
+  console.log('[DEBUG] /api/health がアクセスされました');
   res.status(200).json({ status: 'OK', message: 'Health check passed!' });
 });
 
@@ -245,7 +261,7 @@ app.get('/api/hello', (req, res) => {
 
 // ✅ 文字起こしおよび議事録生成のエンドポイント（チャンク処理あり）
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
-  console.log('[DEBUG] /api/transcribe called');
+  console.log('[DEBUG] /api/transcribe が呼び出されました');
   
   try {
     const file = req.file;
@@ -254,70 +270,60 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       return res.status(400).json({ error: 'ファイルがアップロードされていません' });
     }
   
-    // ファイルサイズのログ（MB 表示）
     const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
     console.log(`[DEBUG] アップロードされたファイルサイズ: ${fileSizeMB} MB`);
   
-    // フロントエンドから送られてくる meetingFormat（テンプレートまたはID）
     const meetingFormat = req.body.meetingFormat;
-    console.log(`[DEBUG] Meeting format received: ${meetingFormat}`);
+    console.log(`[DEBUG] 受信した meetingFormat: ${meetingFormat}`);
   
-    // 一時保存用ディレクトリ作成
     const tempDir = path.join(__dirname, 'temp');
     if (!fs.existsSync(tempDir)) {
       fs.mkdirSync(tempDir, { recursive: true });
     }
     const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
     fs.writeFileSync(tempFilePath, file.buffer);
-    console.log('[DEBUG] File saved temporarily at:', tempFilePath);
+    console.log('[DEBUG] 一時ファイルを保存:', tempFilePath);
   
     let transcription = '';
-    // ファイルサイズが閾値未満なら一括処理
     if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
       console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
       transcription = await transcribeWithOpenAI(tempFilePath);
       console.log('[DEBUG] 一括文字起こし結果:', transcription);
     } else {
-      console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンクに分割して処理します');
+      console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンク分割して処理します');
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
-      console.log(`[DEBUG] チャンク数: ${chunkPaths.length}`);
+      console.log(`[DEBUG] 生成されたチャンク数: ${chunkPaths.length}`);
   
       let transcriptionChunks = [];
-      // 各チャンクを順番に文字起こし（STT）処理
       for (let i = 0; i < chunkPaths.length; i++) {
         try {
-          console.log(`[DEBUG] チャンク ${i + 1} の文字起こしを開始（ファイル: ${chunkPaths[i]}）`);
+          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし開始 (ファイル: ${chunkPaths[i]})`);
           const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
-          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし結果: ${chunkTranscription}`);
+          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし結果:`, chunkTranscription);
           transcriptionChunks.push(chunkTranscription);
         } catch (error) {
-          console.error(
-            `[ERROR] チャンク ${i + 1} の文字起こし中にエラーが発生しました:`,
-            error.response?.data || error.message
-          );
-          throw new Error(`チャンク ${i + 1} の文字起こしに失敗しました: ${error.message}`);
+          console.error(`[ERROR] チャンク ${i + 1} の文字起こし中にエラー発生:`, error.response?.data || error.message);
+          throw new Error(`チャンク ${i + 1} の文字起こしに失敗: ${error.message}`);
         }
       }
-      // 順番通りに文字起こし結果を連結
       transcription = transcriptionChunks.join(" ");
   
-      // チャンクファイルの削除
       for (const chunkPath of chunkPaths) {
         fs.unlinkSync(chunkPath);
+        console.log(`[DEBUG] チャンクファイル削除: ${chunkPath}`);
       }
     }
   
-    // 元の一時ファイル削除
     fs.unlinkSync(tempFilePath);
+    console.log('[DEBUG] 一時ファイル削除:', tempFilePath);
   
     console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
-    // 議事録生成（meetingFormat があればテンプレートとして渡す）
     const minutes = await generateMinutes(transcription.trim(), meetingFormat);
-    console.log('[DEBUG] ChatGPT API による議事録生成結果:', minutes);
+    console.log('[DEBUG] 議事録生成結果:', minutes);
   
     res.json({ transcription: transcription.trim(), minutes });
   } catch (error) {
-    console.error('[ERROR] /api/transcribe internal error:', error);
+    console.error('[ERROR] /api/transcribe 内部エラー:', error);
     res.status(500).json({ error: 'サーバー内部エラー', details: error.message });
   }
 });
@@ -396,7 +402,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
 
-// ✅ **グローバルエラーハンドラー（すべてのエラーに CORS ヘッダーを追加）**
+// ✅ グローバルエラーハンドラー（すべてのエラーに CORS ヘッダーを追加）
 app.use((err, req, res, next) => {
   console.error('[GLOBAL ERROR HANDLER]', err);
   const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
