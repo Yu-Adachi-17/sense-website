@@ -19,6 +19,20 @@ const Stripe = require('stripe');
 const webhookRouter = require('./routes/webhook');
 const app = express();
 
+// ★ リクエストタイムアウトを延長（例：10分）
+app.use((req, res, next) => {
+  req.setTimeout(600000, () => {
+    console.error('リクエストがタイムアウトしました。');
+    // タイムアウト時も CORS ヘッダーを付与
+    res.set({
+      'Access-Control-Allow-Origin': req.headers.origin || '*',
+      'Access-Control-Allow-Credentials': 'true'
+    });
+    res.status(503).send('Service Unavailable: request timed out.');
+  });
+  next();
+});
+
 // ✅ Webhook 用ルートの登録
 app.use('/api', webhookRouter);
 
@@ -28,7 +42,7 @@ app.use(express.json());
 // ✅ 許可するオリジンの定義
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
-// ✅ CORS 設定
+// ✅ CORS 設定（エラーレスポンスでもヘッダーが付くように注意）
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -72,7 +86,6 @@ app.options('*', (req, res) => {
 
 // ------------- ここからデバッグ用エンドポイントの追加 -------------
 const { exec } = require('child_process');
-
 app.get('/api/debug/ffprobe', (req, res) => {
   exec('which ffprobe', (error, stdout, stderr) => {
     if (error) {
@@ -97,10 +110,23 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ Multer の設定（最大 500MB までのファイルを受け付ける）
-// ※ 大容量の場合、memoryStorage ではなく diskStorage を利用することも検討してください。
+// ★ multer の設定：diskStorage を利用して temp ディレクトリに保存
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const tempDir = path.join(__dirname, 'temp');
+    if (!fs.existsSync(tempDir)) {
+      fs.mkdirSync(tempDir, { recursive: true });
+      console.log('[DEBUG] 一時保存ディレクトリを作成:', tempDir);
+    }
+    cb(null, tempDir);
+  },
+  filename: (req, file, cb) => {
+    // タイムスタンプ付きで保存
+    cb(null, `${Date.now()}_${file.originalname}`);
+  }
+});
 const upload = multer({
-  storage: multer.memoryStorage(),
+  storage: storage,
   limits: { fileSize: 500 * 1024 * 1024 }
 });
 
@@ -260,6 +286,7 @@ app.get('/api/hello', (req, res) => {
 });
 
 // ✅ 文字起こしおよび議事録生成のエンドポイント（チャンク処理あり）
+// ※ diskStorage によりアップロードファイルは req.file.path に保存済み
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe が呼び出されました');
   
@@ -270,99 +297,76 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       return res.status(400).json({ error: 'ファイルがアップロードされていません' });
     }
     
-    console.log('[DEBUG] multer により受信したファイルサイズ（バッファ長）:', file.buffer.length);
+    console.log('[DEBUG] multer により保存されたファイル:', file.path);
     const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
     console.log(`[DEBUG] アップロードされたファイルサイズ: ${fileSizeMB} MB`);
   
     const meetingFormat = req.body.meetingFormat;
     console.log(`[DEBUG] 受信した meetingFormat: ${meetingFormat}`);
   
-    // 一時保存先ディレクトリの作成
-    const tempDir = path.join(__dirname, 'temp');
-    if (!fs.existsSync(tempDir)) {
-      fs.mkdirSync(tempDir, { recursive: true });
-      console.log('[DEBUG] 一時保存ディレクトリを作成:', tempDir);
-    }
-    const tempFilePath = path.join(tempDir, `${Date.now()}_${file.originalname}`);
-    console.log('[DEBUG] 一時ファイル書き出し開始:', tempFilePath);
-    const writeStart = Date.now();
-    
-    // 非同期でファイルを書き出し
-    fs.writeFile(tempFilePath, file.buffer, (err) => {
-      if (err) {
-        console.error('[ERROR] ファイル保存中にエラー:', err);
-        return res.status(500).json({ error: 'ファイル保存エラー', details: err.message });
-      }
-      console.log('[DEBUG] 一時ファイル書き出し完了:', tempFilePath, '所要時間:', Date.now() - writeStart, 'ms');
+    // アップロードされたファイルは diskStorage により既に temp/ 内に保存されている
+    const tempFilePath = file.path;
+  
+    let transcription = "";
+    let minutes = "";
+    if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
+      console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
+      transcription = await transcribeWithOpenAI(tempFilePath);
+      console.log('[DEBUG] 一括文字起こし結果:', transcription);
+      minutes = await generateMinutes(transcription.trim(), meetingFormat);
+      console.log('[DEBUG] 一括議事録生成結果:', minutes);
+    } else {
+      console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンク分割して処理します');
+      const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
+      console.log(`[DEBUG] 生成されたチャンク数: ${chunkPaths.length}`);
       
-      // 以降の処理をファイル書き出し完了後に実施
-      (async () => {
+      let transcriptionChunks = [];
+      let minutesChunks = [];
+      for (let i = 0; i < chunkPaths.length; i++) {
         try {
-          let transcription = "";
-          let minutes = "";
-          if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
-            console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
-            transcription = await transcribeWithOpenAI(tempFilePath);
-            console.log('[DEBUG] 一括文字起こし結果:', transcription);
-            minutes = await generateMinutes(transcription.trim(), meetingFormat);
-            console.log('[DEBUG] 一括議事録生成結果:', minutes);
-          } else {
-            console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンク分割して処理します');
-            const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
-            console.log(`[DEBUG] 生成されたチャンク数: ${chunkPaths.length}`);
-      
-            let transcriptionChunks = [];
-            let minutesChunks = [];
-            for (let i = 0; i < chunkPaths.length; i++) {
-              try {
-                console.log(`[DEBUG] チャンク ${i + 1} の文字起こし開始 (ファイル: ${chunkPaths[i]})`);
-                const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
-                console.log(`[DEBUG] チャンク ${i + 1} の文字起こし結果:`, chunkTranscription);
-                transcriptionChunks.push(chunkTranscription);
-                
-                // 各チャンクごとに議事録生成を実施
-                const chunkMinutes = await generateMinutes(chunkTranscription.trim(), meetingFormat);
-                console.log(`[DEBUG] チャンク ${i + 1} の議事録生成結果:`, chunkMinutes);
-                minutesChunks.push(chunkMinutes);
-              } catch (error) {
-                console.error(`[ERROR] チャンク ${i + 1} の処理中にエラー発生:`, error.response?.data || error.message);
-                throw new Error(`チャンク ${i + 1} の処理に失敗: ${error.message}`);
-              }
-            }
-            transcription = transcriptionChunks.join(" ");
-            minutes = minutesChunks.join("\n\n");
-      
-            for (const chunkPath of chunkPaths) {
-              try {
-                fs.unlinkSync(chunkPath);
-                console.log(`[DEBUG] チャンクファイル削除: ${chunkPath}`);
-              } catch (err) {
-                console.error(`[ERROR] チャンクファイル削除失敗: ${chunkPath}`, err);
-              }
-            }
-          }
-      
-          try {
-            fs.unlinkSync(tempFilePath);
-            console.log('[DEBUG] 一時ファイル削除:', tempFilePath);
-          } catch (err) {
-            console.error('[ERROR] 一時ファイル削除失敗:', tempFilePath, err);
-          }
-      
-          console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
-          console.log('[DEBUG] 最終的な議事録生成結果:', minutes);
-      
-          return res.json({ transcription: transcription.trim(), minutes });
-        } catch (err) {
-          console.error('[ERROR] /api/transcribe 内部エラー（非同期処理内）:', err);
-          return res.status(500).json({ error: 'サーバー内部エラー', details: err.message });
+          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし開始 (ファイル: ${chunkPaths[i]})`);
+          const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
+          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし結果:`, chunkTranscription);
+          transcriptionChunks.push(chunkTranscription);
+          
+          // 各チャンクごとに議事録生成を実施
+          const chunkMinutes = await generateMinutes(chunkTranscription.trim(), meetingFormat);
+          console.log(`[DEBUG] チャンク ${i + 1} の議事録生成結果:`, chunkMinutes);
+          minutesChunks.push(chunkMinutes);
+        } catch (error) {
+          console.error(`[ERROR] チャンク ${i + 1} の処理中にエラー発生:`, error.response?.data || error.message);
+          throw new Error(`チャンク ${i + 1} の処理に失敗: ${error.message}`);
         }
-      })();
+      }
+      transcription = transcriptionChunks.join(" ");
+      minutes = minutesChunks.join("\n\n");
       
-    });
-  } catch (error) {
-    console.error('[ERROR] /api/transcribe 内部エラー:', error);
-    res.status(500).json({ error: 'サーバー内部エラー', details: error.message });
+      // チャンクファイルの削除
+      for (const chunkPath of chunkPaths) {
+        try {
+          fs.unlinkSync(chunkPath);
+          console.log(`[DEBUG] チャンクファイル削除: ${chunkPath}`);
+        } catch (err) {
+          console.error(`[ERROR] チャンクファイル削除失敗: ${chunkPath}`, err);
+        }
+      }
+    }
+  
+    // 一時ファイル（アップロードされた元ファイル）の削除
+    try {
+      fs.unlinkSync(tempFilePath);
+      console.log('[DEBUG] 一時ファイル削除:', tempFilePath);
+    } catch (err) {
+      console.error('[ERROR] 一時ファイル削除失敗:', tempFilePath, err);
+    }
+  
+    console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
+    console.log('[DEBUG] 最終的な議事録生成結果:', minutes);
+  
+    return res.json({ transcription: transcription.trim(), minutes });
+  } catch (err) {
+    console.error('[ERROR] /api/transcribe 内部エラー:', err);
+    return res.status(500).json({ error: 'サーバー内部エラー', details: err.message });
   }
 });
 
