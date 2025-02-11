@@ -375,23 +375,36 @@ app.use(express.static(staticPath));
 
 // ✅ 未定義の API ルートは 404 エラーを返す
 app.use('/api', (req, res, next) => {
-  res.status(404).json({ error: 'API route not found' });
-});
-
-// ✅ React のルート (/success など) のハンドリング
-app.get(["/success", "/cancel"], (req, res) => {
-  res.sendFile(path.join(staticPath, "index.html"));
-});
-app.get('*', (req, res) => {
-  console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
-  res.sendFile(path.join(staticPath, "index.html"));
-});
-
-// ✅ サーバーの起動
-const PORT = process.env.PORT || 5001;
-console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
-app.listen(PORT, () => {
-  console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
-});
-
-module.exports = app;
+    res.status(404).json({ error: 'API route not found' });
+  });
+  
+  // ✅ React のルート (/success など) のハンドリング
+  app.get(["/success", "/cancel"], (req, res) => {
+    res.sendFile(path.join(staticPath, "index.html"));
+  });
+  app.get('*', (req, res) => {
+    console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
+    res.sendFile(path.join(staticPath, "index.html"));
+  });
+  
+  // ✅ **グローバルエラーハンドラー（すべてのエラーに CORS ヘッダーを追加）**
+  app.use((err, req, res, next) => {
+    console.error('[GLOBAL ERROR HANDLER]', err);
+    // リクエストのオリジンが許可されている場合、そのオリジンを返す
+    const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Credentials', 'true');
+    // ステータスコードが指定されていなければ 500 を返す
+    res.status(err.status || 500);
+    res.json({ error: err.message || 'Internal Server Error' });
+  });
+  
+  // ✅ サーバーの起動
+  const PORT = process.env.PORT || 5001;
+  console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
+  app.listen(PORT, () => {
+    console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
+  });
+  
+  module.exports = app;
+  
