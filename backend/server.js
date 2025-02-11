@@ -8,14 +8,16 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
+
 // ffmpeg / ffprobe のパスを明示的に設定する
 const ffmpegPath = '/opt/homebrew/bin/ffmpeg';
-const ffprobePath = '/opt/homebrew/Cellar/ffmpeg/7.1_4/bin/ffprobe'; // 実体のパス
+const ffprobePath = '/opt/homebrew/bin/ffprobe';  // シンボリックリンクのパスを使用
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
 console.log("[DEBUG] ffmpeg path set to:", ffmpegPath);
 console.log("[DEBUG] ffprobe path set to:", ffprobePath);
+
 
 const cors = require('cors');
 const FormData = require('form-data');
