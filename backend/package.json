@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "build": "echo 'No build step required for backend'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "apk add --no-cache ffmpeg"
   },
   "dependencies": {
     "axios": "^1.7.9",
