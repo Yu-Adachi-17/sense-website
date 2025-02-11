@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useRef, useEffect } from 'react';
 import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
@@ -24,6 +23,54 @@ import EmailVerification from "./components/EmailVerification"; // ← ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 
+// ----------------------
+// ファイルアップロード用コンポーネント
+// ----------------------
+function FileUploadButton({ onFileSelected }) {
+  const fileInputRef = useRef(null);
+
+  const handleButtonClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      onFileSelected(file);
+    }
+  };
+
+  return (
+    <div style={{ position: 'absolute', top: 20, right: 30 }}>
+      {/* 隠しファイル入力 */}
+      <input
+        type="file"
+        accept=".webm"
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        onChange={handleFileChange}
+      />
+      {/* ボタンとして表示 */}
+      <button 
+        onClick={handleButtonClick} 
+        style={{
+          padding: '10px 15px',
+          borderRadius: '4px',
+          fontSize: '16px',
+          cursor: 'pointer'
+        }}
+      >
+        .webm ファイルをアップロード
+      </button>
+    </div>
+  );
+}
+
+// ----------------------
+// DebugRouter（ルートのデバッグ用）
+// ----------------------
 function DebugRouter() {
   const location = useLocation();
   console.log("[DEBUG] Current path:", location.pathname);
@@ -315,6 +362,31 @@ function App() {
     }
   };
 
+  // ----------------------
+  // ファイルアップロード時のハンドラー
+  // ----------------------
+  const handleFileUpload = async (file) => {
+    // ファイル形式のチェック（任意）
+    if (file.type !== 'audio/webm') {
+      alert('アップロード可能なファイル形式は .webm です');
+      return;
+    }
+    // 会議フォーマットが選択されていなければエラーチェック
+    if (!selectedMeetingFormat) {
+      alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
+      return;
+    }
+    await transcribeAudio(
+      file,
+      selectedMeetingFormat.template,
+      setTranscription,
+      setMinutes,
+      setIsProcessing,
+      setProgress,
+      setShowFullScreen
+    );
+  };
+
   // コンポーネントのアンマウント時に録音や interval を停止
   useEffect(() => {
     const interval = progressIntervalRef.current;
@@ -414,6 +486,9 @@ function App() {
                 >
                   <PiGridFourFill />
                 </button>
+
+                {/* ここでファイルアップロード用コンポーネントを表示 */}
+                <FileUploadButton onFileSelected={handleFileUpload} />
 
                 {/* 追加：議事録フォーマット一覧へ遷移するボタン */}
                 <button
