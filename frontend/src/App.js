@@ -194,6 +194,26 @@ function App() {
     return () => clearInterval(checkDateInterval);
   }, [userRemainingSeconds, userSubscription]);
 
+  // ----- 共通処理：アップロードファイル／録音停止時に STT で議事録生成 ----- //
+  const processAudioFile = async (file) => {
+    // 録音停止時と同様に、blob URL を生成して audioURL を設定
+    const url = URL.createObjectURL(file);
+    setAudioURL(url);
+
+    // ※ ここでは file.type が 'audio/mp4' なら m4a、それ以外は webm とする例
+    // （既存録音処理と同じロジック）
+    // ※ ファイルが File オブジェクトであればそのままで OK
+    await transcribeAudio(
+      file,
+      selectedMeetingFormat.template,
+      setTranscription,
+      setMinutes,
+      setIsProcessing,
+      setProgress,
+      setShowFullScreen
+    );
+  };
+
   // 録音ボタン（中央のボタン）押下時の処理
   const toggleRecording = async () => {
     // 「Recovering...」（残秒数0）の状態の場合
@@ -238,28 +258,17 @@ function App() {
 
       mediaRecorder.onstop = async () => {
         const blob = new Blob(recordedChunksRef.current, { type: mimeType });
-        const url = URL.createObjectURL(blob);
-        setAudioURL(url);
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
+        // ファイルオブジェクトを生成（録音の場合は File にする）
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
 
-        // ★ 選択された会議フォーマットの存在をチェック
-        console.log("[DEBUG] selectedMeetingFormat in onstop:", selectedMeetingFormat);
+        // 会議フォーマットが未選択の場合はエラー
         if (!selectedMeetingFormat) {
           alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
           return;
         }
-
-        // バックエンドに音声ファイルと会議フォーマット情報（ここではテンプレート文字列）を送信し、transcription と minutes をセット
-        await transcribeAudio(
-          file,
-          selectedMeetingFormat.template, // ※ 必要に応じて .id に変更可能
-          setTranscription,
-          setMinutes,
-          setIsProcessing,
-          setProgress,
-          setShowFullScreen
-        );
+        // 共通処理を呼び出し
+        await processAudioFile(file);
       };
 
       mediaRecorder.start();
@@ -289,7 +298,7 @@ function App() {
               clearInterval(timerIntervalRef.current);
               timerIntervalRef.current = null;
               // 残秒が0になったら自動的に録音停止＋議事録生成
-              stopRecording(0); // ここで Firebase 更新にも 0 を渡す
+              stopRecording(0); // Firebase 更新にも 0 を渡す
               setIsRecording(false);
               return 0;
             }
@@ -362,29 +371,18 @@ function App() {
     }
   };
 
-  // ----------------------
-  // ファイルアップロード時のハンドラー
-  // ----------------------
+  // ------------- ファイルアップロード時のハンドラー ------------- //
+  // ※ アップロード後、processAudioFile() を呼び出して録音停止時と同じ処理（STT 経由の議事録生成）を行います。
   const handleFileUpload = async (file) => {
-    // ファイル形式のチェック（任意）
     if (file.type !== 'audio/webm') {
       alert('アップロード可能なファイル形式は .webm です');
       return;
     }
-    // 会議フォーマットが選択されていなければエラーチェック
     if (!selectedMeetingFormat) {
       alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
       return;
     }
-    await transcribeAudio(
-      file,
-      selectedMeetingFormat.template,
-      setTranscription,
-      setMinutes,
-      setIsProcessing,
-      setProgress,
-      setShowFullScreen
-    );
+    await processAudioFile(file);
   };
 
   // コンポーネントのアンマウント時に録音や interval を停止
@@ -487,7 +485,7 @@ function App() {
                   <PiGridFourFill />
                 </button>
 
-                {/* ここでファイルアップロード用コンポーネントを表示 */}
+                {/* ファイルアップロード用コンポーネント */}
                 <FileUploadButton onFileSelected={handleFileUpload} />
 
                 {/* 追加：議事録フォーマット一覧へ遷移するボタン */}
