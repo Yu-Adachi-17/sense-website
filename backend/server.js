@@ -298,29 +298,39 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       // 以降の処理をファイル書き出し完了後に実施
       (async () => {
         try {
-          let transcription = '';
+          let transcription = "";
+          let minutes = "";
           if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
             console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
             transcription = await transcribeWithOpenAI(tempFilePath);
             console.log('[DEBUG] 一括文字起こし結果:', transcription);
+            minutes = await generateMinutes(transcription.trim(), meetingFormat);
+            console.log('[DEBUG] 一括議事録生成結果:', minutes);
           } else {
             console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンク分割して処理します');
             const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
             console.log(`[DEBUG] 生成されたチャンク数: ${chunkPaths.length}`);
       
             let transcriptionChunks = [];
+            let minutesChunks = [];
             for (let i = 0; i < chunkPaths.length; i++) {
               try {
                 console.log(`[DEBUG] チャンク ${i + 1} の文字起こし開始 (ファイル: ${chunkPaths[i]})`);
                 const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
                 console.log(`[DEBUG] チャンク ${i + 1} の文字起こし結果:`, chunkTranscription);
                 transcriptionChunks.push(chunkTranscription);
+                
+                // 各チャンクごとに議事録生成を実施
+                const chunkMinutes = await generateMinutes(chunkTranscription.trim(), meetingFormat);
+                console.log(`[DEBUG] チャンク ${i + 1} の議事録生成結果:`, chunkMinutes);
+                minutesChunks.push(chunkMinutes);
               } catch (error) {
-                console.error(`[ERROR] チャンク ${i + 1} の文字起こし中にエラー発生:`, error.response?.data || error.message);
-                throw new Error(`チャンク ${i + 1} の文字起こしに失敗: ${error.message}`);
+                console.error(`[ERROR] チャンク ${i + 1} の処理中にエラー発生:`, error.response?.data || error.message);
+                throw new Error(`チャンク ${i + 1} の処理に失敗: ${error.message}`);
               }
             }
             transcription = transcriptionChunks.join(" ");
+            minutes = minutesChunks.join("\n\n");
       
             for (const chunkPath of chunkPaths) {
               try {
@@ -340,8 +350,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
           }
       
           console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
-          const minutes = await generateMinutes(transcription.trim(), meetingFormat);
-          console.log('[DEBUG] 議事録生成結果:', minutes);
+          console.log('[DEBUG] 最終的な議事録生成結果:', minutes);
       
           return res.json({ transcription: transcription.trim(), minutes });
         } catch (err) {
