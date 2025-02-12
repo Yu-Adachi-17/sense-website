@@ -221,7 +221,20 @@ const splitAudioFile = (filePath, maxFileSize) => {
         console.error('[ERROR]', errMsg);
         return reject(new Error(errMsg));
       }
-      const duration = metadata.format.duration;
+      
+      // duration を数値として取得。もし metadata.format.duration が無効な場合は
+      // streams から取得、またはフォールバック値を設定する
+      let duration = parseFloat(metadata.format.duration);
+      if (isNaN(duration)) {
+        if (metadata.streams && metadata.streams.length > 0 && metadata.streams[0].duration) {
+          duration = parseFloat(metadata.streams[0].duration);
+        }
+      }
+      if (isNaN(duration)) {
+        console.warn('[WARN] 有効な duration が見つかりませんでした。デフォルト値 60秒 を使用します。');
+        duration = 60;
+      }
+      
       const fileSize = fs.statSync(filePath).size;
       console.log('[DEBUG] ffprobe 結果 - duration:', duration, '秒, fileSize:', fileSize, 'bytes');
       
@@ -243,6 +256,7 @@ const splitAudioFile = (filePath, maxFileSize) => {
       
       for (let i = 0; i < numChunks; i++) {
         const startTime = i * chunkDuration;
+        // 同一ループ内で Date.now() が同じ値にならないよう、i を含める
         const outputPath = path.join(path.dirname(filePath), `${Date.now()}_chunk_${i}.m4a`);
         chunkPaths.push(outputPath);
         console.log(`[DEBUG] チャンク ${i + 1}: startTime=${startTime}秒, outputPath=${outputPath}`);
