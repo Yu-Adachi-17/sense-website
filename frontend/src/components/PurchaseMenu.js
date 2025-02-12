@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// Firebase
+// Firebase 関連
 import { auth, db } from "../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-// アイコン
+// アイコン類
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { FaTicketAlt, FaCircle } from "react-icons/fa";
+import { BsWrenchAdjustable } from "react-icons/bs";
 
 export function PurchaseMenu() {
   // 各種 state 定義
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [loading, setLoading] = useState(false);
   const [userId, setUserId] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   // Firestore のユーザードキュメントから取得する remainingSeconds
   const [profileRemainingSeconds, setProfileRemainingSeconds] = useState(null);
-  // 購入用モーダル／プロフィール用モーダルの表示切替用 state
+  // プロフィールモーダル表示用
   const [showProfileOverlay, setShowProfileOverlay] = useState(false);
 
   const navigate = useNavigate();
 
-  // ウィンドウサイズ変更時の処理
+  // ウィンドウリサイズ時の処理
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -48,7 +48,7 @@ export function PurchaseMenu() {
     return () => unsubscribe();
   }, []);
 
-  // Firestore からユーザーの remainingSeconds を取得
+  // Firestore からユーザーデータ（remainingSeconds）を取得
   useEffect(() => {
     if (userId) {
       const fetchUserData = async () => {
@@ -67,7 +67,7 @@ export function PurchaseMenu() {
     }
   }, [userId]);
 
-  // 環境変数のチェック（デバッグ用）
+  // 環境変数チェック（デバッグ用）
   useEffect(() => {
     console.log("🔍 環境変数チェック:");
     console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
@@ -118,24 +118,32 @@ export function PurchaseMenu() {
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
       transition: "transform 0.5s ease-out",
     },
-    loginButton: {
-      backgroundColor: "#fff",
-      color: "#000",
-      padding: "10px 20px",
-      borderRadius: "5px",
-      cursor: "pointer",
-      fontSize: "16px",
-      fontWeight: "bold",
-      marginBottom: "20px",
-    },
+    // 「アイテムを購入」ボタン（黄色表記・左詰め）
     purchaseButton: {
-      backgroundColor: "#fff",
-      color: "#000",
-      padding: "10px 20px",
-      borderRadius: "5px",
-      cursor: "pointer",
+      background: "none",
+      border: "none",
+      color: "yellow",
+      padding: "10px 0",
       fontSize: "16px",
       fontWeight: "bold",
+      display: "flex",
+      alignItems: "center",
+      cursor: "pointer",
+      textAlign: "left",
+      marginBottom: "16px",
+    },
+    // 「議事録フォーマット」ボタン
+    formatButton: {
+      background: "none",
+      border: "none",
+      color: "#FFF",
+      padding: "10px 0",
+      fontSize: "16px",
+      fontWeight: "bold",
+      display: "flex",
+      alignItems: "center",
+      cursor: "pointer",
+      textAlign: "left",
     },
     profileOverlay: {
       position: "fixed",
@@ -193,7 +201,7 @@ export function PurchaseMenu() {
     e.stopPropagation();
   };
 
-  // トップ右のボタンタップ時の処理
+  // トップ右のハンバーガー／プロフィールボタン押下時の処理
   const handleHamburgerClick = () => {
     if (!showSideMenu) {
       setShowSideMenu(true);
@@ -222,29 +230,36 @@ export function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* ログインしていない場合はログインボタン */}
-            {!userId ? (
-              <button
-                style={styles.loginButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  navigate("/login");
-                }}
-              >
-                ログイン
-              </button>
-            ) : (
-              // ユーザーがログインしている場合は、購入ページへ遷移
-              <button
-                style={styles.purchaseButton}
-                onClick={() => {
-                  setShowSideMenu(false);
+            {/* SideMenu上部にプロフィールアイコン */}
+            <IoPersonCircleOutline size={30} style={{ marginBottom: "16px" }} />
+
+            {/* アイテムを購入ボタン（常に表示、ログイン状態に応じて遷移先を変更） */}
+            <button
+              style={styles.purchaseButton}
+              onClick={() => {
+                setShowSideMenu(false);
+                if (userId) {
                   navigate("/buy-tickets");
-                }}
-              >
-                アイテムを購入
-              </button>
-            )}
+                } else {
+                  navigate("/login");
+                }
+              }}
+            >
+              <FaTicketAlt style={{ marginRight: "8px" }} />
+              アイテムを購入
+            </button>
+
+            {/* 議事録フォーマット確認ボタン */}
+            <button
+              style={styles.formatButton}
+              onClick={() => {
+                setShowSideMenu(false);
+                navigate("/meeting-formats");
+              }}
+            >
+              <BsWrenchAdjustable style={{ marginRight: "8px" }} />
+              議事録フォーマット
+            </button>
           </div>
         </div>
       )}
@@ -253,7 +268,6 @@ export function PurchaseMenu() {
       {showProfileOverlay && (
         <div style={styles.profileOverlay} onClick={() => setShowProfileOverlay(false)}>
           <div style={styles.profileModal} onClick={stopPropagation}>
-            {/* ログアウトボタン（右上） */}
             <button
               style={styles.logoutButton}
               onClick={() => {
@@ -266,9 +280,7 @@ export function PurchaseMenu() {
             >
               ログアウト
             </button>
-            {/* アイコン */}
             <IoPersonCircleOutline style={styles.profileIcon} />
-            {/* ユーザー情報 */}
             <div style={styles.profileInfo}>
               <p>Email: {userEmail}</p>
               <p>Remaining Seconds: {profileRemainingSeconds}</p>
