@@ -199,7 +199,7 @@ const transcribeWithOpenAI = async (filePath) => {
 };
 
 // ✅ チャンク分割用の定数（4.5MB）
-const TRANSCRIPTION_CHUNK_THRESHOLD = 4.5 * 1024 * 1024; // 4.5MB in bytes
+const TRANSCRIPTION_CHUNK_THRESHOLD = 1 * 1024 * 1024; // 4.5MB in bytes
 
 /**
  * ffmpeg を使用して音声ファイルをチャンクに分割する関数  
