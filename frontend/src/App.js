@@ -52,8 +52,8 @@ function FileUploadButton({ onFileSelected }) {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-      {/* ボタンとして表示 */}
-      <button 
+      {/* 隠しコマンドボタン！ */}
+      {/* <button 
         onClick={handleButtonClick} 
         style={{
           padding: '10px 15px',
@@ -63,7 +63,7 @@ function FileUploadButton({ onFileSelected }) {
         }}
       >
         .webm ファイルをアップロード
-      </button>
+      </button> */}
     </div>
   );
 }
