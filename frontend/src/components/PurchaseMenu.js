@@ -222,7 +222,7 @@ export function PurchaseMenu() {
         {showSideMenu ? (
           <IoPersonCircleOutline size={30} />
         ) : (
-          <GiHamburgerMenu size={24} />
+          <GiHamburgerMenu size={30} />
         )}
       </button>
 
@@ -230,8 +230,6 @@ export function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* SideMenu上部にプロフィールアイコン */}
-            <IoPersonCircleOutline size={30} style={{ marginBottom: "16px" }} />
 
             {/* アイテムを購入ボタン（常に表示、ログイン状態に応じて遷移先を変更） */}
             <button
@@ -249,7 +247,17 @@ export function PurchaseMenu() {
               アイテムを購入
             </button>
 
-
+            {/* 議事録フォーマット確認ボタン */}
+            <button
+              style={styles.formatButton}
+              onClick={() => {
+                setShowSideMenu(false);
+                navigate("/meeting-formats");
+              }}
+            >
+              <BsWrenchAdjustable style={{ marginRight: "8px" }} />
+              議事録フォーマット
+            </button>
           </div>
         </div>
       )}

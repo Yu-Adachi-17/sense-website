@@ -491,26 +491,7 @@ function App() {
                 {/* ファイルアップロード用コンポーネント */}
                 <FileUploadButton onFileSelected={handleFileUpload} />
 
-                {/* 追加：議事録フォーマット一覧へ遷移するボタン */}
-                <button
-                  onClick={() => {
-                    window.location.href = '/meeting-formats';
-                  }}
-                  style={{
-                    position: 'absolute',
-                    bottom: 20,
-                    right: 20,
-                    backgroundColor: '#1e1e1e',
-                    border: 'none',
-                    padding: '10px 15px',
-                    borderRadius: '4px',
-                    color: 'white',
-                    fontSize: '18px',
-                    cursor: 'pointer'
-                  }}
-                >
-                  議事録フォーマット確認
-                </button>
+
 
                 {!showFullScreen && <PurchaseMenu />}
 
