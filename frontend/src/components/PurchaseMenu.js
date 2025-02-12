@@ -249,17 +249,7 @@ export function PurchaseMenu() {
               アイテムを購入
             </button>
 
-            {/* 議事録フォーマット確認ボタン */}
-            <button
-              style={styles.formatButton}
-              onClick={() => {
-                setShowSideMenu(false);
-                navigate("/meeting-formats");
-              }}
-            >
-              <BsWrenchAdjustable style={{ marginRight: "8px" }} />
-              議事録フォーマット
-            </button>
+
           </div>
         </div>
       )}
