@@ -351,6 +351,30 @@ const splitAudioFile = (filePath, maxFileSize) => {
   });
 };
 
+/**
+ * ★ ここから追加：convertToM4A
+ * 入力ファイルが m4a でない場合に、ffmpeg を用いて m4a に変換する関数
+ * @param {string} inputFilePath - 入力ファイルパス
+ * @returns {Promise<string>} - 変換後の m4a ファイルパス
+ */
+const convertToM4A = async (inputFilePath) => {
+  return new Promise((resolve, reject) => {
+    const outputFilePath = path.join(path.dirname(inputFilePath), `${Date.now()}_converted.m4a`);
+    console.log(`[DEBUG] convertToM4A: 入力ファイル ${inputFilePath} を ${outputFilePath} に変換します`);
+    ffmpeg(inputFilePath)
+      .toFormat('m4a')
+      .on('end', () => {
+         console.log(`[DEBUG] ファイル変換完了: ${outputFilePath}`);
+         resolve(outputFilePath);
+      })
+      .on('error', (err) => {
+         console.error('[ERROR] ファイル変換失敗:', err);
+         reject(err);
+      })
+      .save(outputFilePath);
+  });
+};
+
 // ✅ デバッグ用ヘルスチェック API
 app.get('/api/health', (req, res) => {
   console.log('[DEBUG] /api/health がアクセスされました');
@@ -365,11 +389,10 @@ app.get('/api/hello', (req, res) => {
 /**
  * 文字起こしおよび議事録生成のエンドポイント（チャンク処理あり）
  * 【処理の流れ】
- * ① アップロードされた音声ファイルのサイズをチェックし、1MB 以下なら一括処理、
- *     1MB 超の場合は ffmpeg でチャンク分割し、各チャンクを並列処理して文字起こしを行う。
- * ② 得られた文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
- *     10,000 文字超の場合は splitText() により分割し、各部分ごとに議事録生成後、
- *     combineMinutes() により再統合する。
+ * ① アップロードされた音声ファイルの形式をチェックし、m4a 以外なら convertToM4A により変換
+ * ② その後、ファイルサイズに応じて一括またはチャンク処理で文字起こしを実施し、
+ *     得られた文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
+ *     10,000 文字超の場合は splitText() により分割して各部分で議事録生成後、combineMinutes() により再統合する。
  */
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe が呼び出されました');
@@ -389,7 +412,14 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log(`[DEBUG] 受信した meetingFormat: ${meetingFormat}`);
   
     // アップロードされたファイルは diskStorage により既に temp/ 内に保存されている
-    const tempFilePath = file.path;
+    let tempFilePath = file.path;
+    
+    // ★ ここでファイル形式をチェック。拡張子が .m4a でない場合は変換する。
+    if (path.extname(tempFilePath).toLowerCase() !== '.m4a') {
+      console.log('[DEBUG] 入力ファイルは m4a ではありません。変換を開始します。');
+      tempFilePath = await convertToM4A(tempFilePath);
+      console.log('[DEBUG] 変換後のファイルパス:', tempFilePath);
+    }
   
     let transcription = "";
     let minutes = "";
@@ -437,10 +467,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   
     // 一時ファイル（アップロードされた元ファイル）の削除
     try {
-      fs.unlinkSync(tempFilePath);
-      console.log('[DEBUG] 一時ファイル削除:', tempFilePath);
+      fs.unlinkSync(file.path);
+      console.log('[DEBUG] 元の一時ファイル削除:', file.path);
     } catch (err) {
-      console.error('[ERROR] 一時ファイル削除失敗:', tempFilePath, err);
+      console.error('[ERROR] 一時ファイル削除失敗:', file.path, err);
     }
   
     console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
