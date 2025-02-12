@@ -22,6 +22,8 @@ import { PiGridFourFill } from "react-icons/pi";
 import EmailVerification from "./components/EmailVerification"; // ← ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
+import TransactionsLaw from "./TransactionsLaw";
+
 
 // ----------------------
 // ファイルアップロード用コンポーネント
@@ -573,6 +575,7 @@ function App() {
         <Route path="/cancel" element={<Cancel />} />
         <Route path="/minutes-list" element={<MinutesList />} />
         <Route path="/minutes/:id" element={<MinutesDetail />} />
+        <Route path="/transactions-law" element={<TransactionsLaw />} />
         {/* 追加：議事録フォーマット一覧のルート */}
         <Route path="/meeting-formats" element={<MeetingFormatsList />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
