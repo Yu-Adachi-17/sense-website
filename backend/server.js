@@ -331,14 +331,14 @@ const splitAudioFile = (filePath, maxFileSize) => {
 };
 
 /**
- * ★ convertToM4A: 入力ファイルが m4a でない場合、ffmpeg を使用して m4a（実質 ipod フォーマット）に変換する
+ * ★ convertToM4A: 入力ファイルが m4a でない場合、ffmpeg を使用して m4a（ipod フォーマット）に変換する
  */
 const convertToM4A = async (inputFilePath) => {
   return new Promise((resolve, reject) => {
     const outputFilePath = path.join(path.dirname(inputFilePath), `${Date.now()}_converted.m4a`);
     console.log(`[DEBUG] convertToM4A: 入力ファイル ${inputFilePath} を ${outputFilePath} に変換します`);
     ffmpeg(inputFilePath)
-      .toFormat('ipod') // "ipod" フォーマットで変換（m4a と同等）
+      .toFormat('ipod') // ipod フォーマットは m4a と同等
       .on('end', () => {
          console.log(`[DEBUG] ファイル変換完了: ${outputFilePath}`);
          resolve(outputFilePath);
@@ -365,10 +365,10 @@ app.get('/api/hello', (req, res) => {
 /**
  * /api/transcribe エンドポイント
  * 【処理の流れ】
- * ① 受信ファイルの形式をチェックし、m4a でない場合は convertToM4A で変換
+ * ① 受信ファイルの形式をチェックし、拡張子が .m4a でない、または mimetype が "audio/mp4" の場合は convertToM4A で変換
  * ② ファイルサイズに応じ、一括またはチャンク処理で文字起こし実施
  * ③ 得られた文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
- *     10,000 文字超の場合は splitText() で分割後、各部分で議事録生成し、combineMinutes() で統合
+ *     10,000 文字超の場合は splitText() で分割後、各部分で生成し、combineMinutes() で統合
  */
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe が呼び出されました');
@@ -390,9 +390,9 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     // アップロードされたファイルは既に temp/ に保存されている
     let tempFilePath = file.path;
     
-    // ★ ファイル形式チェック：拡張子が .m4a でない場合は変換を実施
-    if (path.extname(tempFilePath).toLowerCase() !== '.m4a') {
-      console.log('[DEBUG] 入力ファイルは m4a ではありません。変換を開始します。');
+    // ★ ファイル形式チェック：拡張子が .m4a でない、または mimetype が "audio/mp4" の場合は変換を実施
+    if (path.extname(tempFilePath).toLowerCase() !== '.m4a' || file.mimetype === 'audio/mp4') {
+      console.log('[DEBUG] 入力ファイルは m4a ではないか、mimetype が audio/mp4 です。変換を開始します。');
       tempFilePath = await convertToM4A(tempFilePath);
       console.log('[DEBUG] 変換後のファイルパス:', tempFilePath);
     }
