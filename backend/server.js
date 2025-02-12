@@ -23,7 +23,6 @@ const app = express();
 app.use((req, res, next) => {
   req.setTimeout(600000, () => {
     console.error('リクエストがタイムアウトしました。');
-    // タイムアウト時も CORS ヘッダーを付与
     res.set({
       'Access-Control-Allow-Origin': req.headers.origin || '*',
       'Access-Control-Allow-Credentials': 'true'
@@ -42,7 +41,7 @@ app.use(express.json());
 // ✅ 許可するオリジンの定義
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
-// ✅ CORS 設定（エラーレスポンスでもヘッダーが付くように注意）
+// ✅ CORS 設定
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -71,7 +70,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ OPTIONS メソッド（プリフライトリクエスト）への対応
+// ✅ OPTIONS メソッドへの対応
 app.options('*', (req, res) => {
   console.log('[DEBUG] プリフライトリクエストを受信:', req.headers);
   const origin = req.headers.origin;
@@ -84,7 +83,7 @@ app.options('*', (req, res) => {
   res.sendStatus(204);
 });
 
-// ------------- ここからデバッグ用エンドポイントの追加 -------------
+// ------------- デバッグ用エンドポイント -------------
 const { exec } = require('child_process');
 app.get('/api/debug/ffprobe', (req, res) => {
   exec('which ffprobe', (error, stdout, stderr) => {
@@ -97,9 +96,8 @@ app.get('/api/debug/ffprobe', (req, res) => {
     res.json({ ffprobePath: ffprobePathDetected });
   });
 });
-// ------------- ここまでデバッグ用エンドポイントの追加 -------------
 
-// ✅ リクエスト詳細のデバッグログ
+// リクエスト詳細のデバッグログ
 app.use((req, res, next) => {
   console.log(`[DEBUG] リクエスト受信:
   - メソッド: ${req.method}
@@ -110,7 +108,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ★ multer の設定：diskStorage を利用して temp ディレクトリに保存
+// ★ multer の設定：temp ディレクトリに保存
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const tempDir = path.join(__dirname, 'temp');
@@ -121,7 +119,6 @@ const storage = multer.diskStorage({
     cb(null, tempDir);
   },
   filename: (req, file, cb) => {
-    // タイムスタンプ付きで保存
     cb(null, `${Date.now()}_${file.originalname}`);
   }
 });
@@ -138,11 +135,7 @@ const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions'
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 /**
- * 【共通処理】
- * 1. テキストを指定した文字数（chunkSize）ごとに分割する（Swift版 splitText() 相当）
- * @param {string} text - 分割対象テキスト
- * @param {number} chunkSize - 最大文字数（例：10000文字）
- * @returns {string[]} - 分割されたテキスト配列
+ * splitText: テキストを指定文字数ごとに分割する
  */
 function splitText(text, chunkSize) {
   const chunks = [];
@@ -156,12 +149,7 @@ function splitText(text, chunkSize) {
 }
 
 /**
- * 【共通処理】
- * 部分議事録（複数のチャンクで生成された結果）を統合する処理（Swift版 combineMinutes() 相当）
- * AI による再統合処理を実施するため、システムメッセージを付与して ChatGPT API を呼び出す
- * @param {string} combinedText - 改行区切りで結合された部分議事録
- * @param {string} meetingFormat - 議事録フォーマット（テンプレート）
- * @returns {Promise<string>} - 統合後の最終議事録
+ * combineMinutes: 部分議事録を統合するため、ChatGPT API を呼び出す
  */
 async function combineMinutes(combinedText, meetingFormat) {
   const systemMessage = meetingFormat
@@ -196,7 +184,7 @@ async function combineMinutes(combinedText, meetingFormat) {
 }
 
 /**
- * ChatGPT を使用して議事録を生成する関数
+ * generateMinutes: ChatGPT API を使用して議事録生成
  */
 const generateMinutes = async (transcription, formatTemplate) => {
   const systemMessage = formatTemplate ||
@@ -219,7 +207,7 @@ const generateMinutes = async (transcription, formatTemplate) => {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      timeout: 600000, // 10分
+      timeout: 600000,
     });
     console.log('[DEBUG] ChatGPT API の応答:', response.data);
     return response.data.choices[0].message.content.trim();
@@ -230,7 +218,7 @@ const generateMinutes = async (transcription, formatTemplate) => {
 };
 
 /**
- * Whisper API を使用して文字起こしを行う関数
+ * transcribeWithOpenAI: Whisper API を使用して文字起こし
  */
 const transcribeWithOpenAI = async (filePath) => {
   try {
@@ -258,16 +246,11 @@ const transcribeWithOpenAI = async (filePath) => {
   }
 };
 
-// ✅ チャンク分割用の定数（1MB 以下の場合は一括処理する）
+// ✅ チャンク分割用の定数（1MB 以下なら一括処理）
 const TRANSCRIPTION_CHUNK_THRESHOLD = 1 * 1024 * 1024; // 1MB in bytes
 
 /**
- * ffmpeg を使用して音声ファイルをチャンクに分割する関数  
- * ffprobe によりファイルの duration とサイズを取得し、1チャンクあたりの再生時間を推定する。
- * ファイルサイズが閾値以下なら分割せずそのまま返す。
- * @param {string} filePath - 分割対象のファイルパス
- * @param {number} maxFileSize - チャンクあたりの最大バイト数
- * @returns {Promise<string[]>} - 分割後のチャンクファイルパスの配列
+ * splitAudioFile: ffmpeg を使用して音声ファイルをチャンク分割する
  */
 const splitAudioFile = (filePath, maxFileSize) => {
   return new Promise((resolve, reject) => {
@@ -283,7 +266,6 @@ const splitAudioFile = (filePath, maxFileSize) => {
         return reject(new Error(errMsg));
       }
       
-      // duration を数値として取得。metadata.format.duration が無効な場合は streams から取得
       let duration = parseFloat(metadata.format.duration);
       if (isNaN(duration)) {
         if (metadata.streams && metadata.streams.length > 0 && metadata.streams[0].duration) {
@@ -298,15 +280,13 @@ const splitAudioFile = (filePath, maxFileSize) => {
       const fileSize = fs.statSync(filePath).size;
       console.log('[DEBUG] ffprobe 結果 - duration:', duration, '秒, fileSize:', fileSize, 'bytes');
       
-      // ファイルサイズが閾値以下なら分割不要
       if (fileSize <= maxFileSize) {
         console.log('[DEBUG] ファイルサイズが閾値以下のため、分割せずそのまま返します');
         return resolve([filePath]);
       }
       
-      // 全体の duration とファイルサイズから、1チャンクあたりの再生時間を推定
       let chunkDuration = duration * (maxFileSize / fileSize);
-      if (chunkDuration < 5) chunkDuration = 5; // 最低5秒は確保
+      if (chunkDuration < 5) chunkDuration = 5;
       const numChunks = Math.ceil(duration / chunkDuration);
       
       console.log(`[DEBUG] チャンク分割開始: chunkDuration=${chunkDuration}秒, numChunks=${numChunks}`);
@@ -316,7 +296,6 @@ const splitAudioFile = (filePath, maxFileSize) => {
       
       for (let i = 0; i < numChunks; i++) {
         const startTime = i * chunkDuration;
-        // 同一ループ内で Date.now() が同じ値にならないよう、i を含める
         const outputPath = path.join(path.dirname(filePath), `${Date.now()}_chunk_${i}.m4a`);
         chunkPaths.push(outputPath);
         console.log(`[DEBUG] チャンク ${i + 1}: startTime=${startTime}秒, outputPath=${outputPath}`);
@@ -352,17 +331,14 @@ const splitAudioFile = (filePath, maxFileSize) => {
 };
 
 /**
- * ★ ここから追加：convertToM4A
- * 入力ファイルが m4a でない場合に、ffmpeg を用いて m4a に変換する関数
- * @param {string} inputFilePath - 入力ファイルパス
- * @returns {Promise<string>} - 変換後の m4a ファイルパス
+ * ★ convertToM4A: 入力ファイルが m4a でない場合、ffmpeg を使用して m4a（実質 ipod フォーマット）に変換する
  */
 const convertToM4A = async (inputFilePath) => {
   return new Promise((resolve, reject) => {
     const outputFilePath = path.join(path.dirname(inputFilePath), `${Date.now()}_converted.m4a`);
     console.log(`[DEBUG] convertToM4A: 入力ファイル ${inputFilePath} を ${outputFilePath} に変換します`);
     ffmpeg(inputFilePath)
-      .toFormat('m4a')
+      .toFormat('ipod') // "ipod" フォーマットで変換（m4a と同等）
       .on('end', () => {
          console.log(`[DEBUG] ファイル変換完了: ${outputFilePath}`);
          resolve(outputFilePath);
@@ -387,12 +363,12 @@ app.get('/api/hello', (req, res) => {
 });
 
 /**
- * 文字起こしおよび議事録生成のエンドポイント（チャンク処理あり）
+ * /api/transcribe エンドポイント
  * 【処理の流れ】
- * ① アップロードされた音声ファイルの形式をチェックし、m4a 以外なら convertToM4A により変換
- * ② その後、ファイルサイズに応じて一括またはチャンク処理で文字起こしを実施し、
- *     得られた文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
- *     10,000 文字超の場合は splitText() により分割して各部分で議事録生成後、combineMinutes() により再統合する。
+ * ① 受信ファイルの形式をチェックし、m4a でない場合は convertToM4A で変換
+ * ② ファイルサイズに応じ、一括またはチャンク処理で文字起こし実施
+ * ③ 得られた文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
+ *     10,000 文字超の場合は splitText() で分割後、各部分で議事録生成し、combineMinutes() で統合
  */
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe が呼び出されました');
@@ -411,10 +387,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     const meetingFormat = req.body.meetingFormat;
     console.log(`[DEBUG] 受信した meetingFormat: ${meetingFormat}`);
   
-    // アップロードされたファイルは diskStorage により既に temp/ 内に保存されている
+    // アップロードされたファイルは既に temp/ に保存されている
     let tempFilePath = file.path;
     
-    // ★ ここでファイル形式をチェック。拡張子が .m4a でない場合は変換する。
+    // ★ ファイル形式チェック：拡張子が .m4a でない場合は変換を実施
     if (path.extname(tempFilePath).toLowerCase() !== '.m4a') {
       console.log('[DEBUG] 入力ファイルは m4a ではありません。変換を開始します。');
       tempFilePath = await convertToM4A(tempFilePath);
@@ -452,7 +428,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     }
   
     // ② 文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
-    //     10,000 文字超の場合はテキストを分割して各部分で議事録生成後、再統合
+    //     10,000 文字超の場合は splitText() で分割後、各部分で生成し、combineMinutes() で統合
     if (transcription.length <= 10000) {
       minutes = await generateMinutes(transcription, meetingFormat);
     } else {
@@ -483,7 +459,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   }
 });
 
-// ✅ デバッグ用の GET/POST エンドポイント（API 動作確認用）
+// ✅ デバッグ用の GET/POST エンドポイント
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
 });
@@ -557,7 +533,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
 
-// ✅ グローバルエラーハンドラー（すべてのエラーに CORS ヘッダーを追加）
+// ✅ グローバルエラーハンドラー
 app.use((err, req, res, next) => {
   console.error('[GLOBAL ERROR HANDLER]', err);
   const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
