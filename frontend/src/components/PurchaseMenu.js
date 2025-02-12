@@ -194,6 +194,25 @@ export function PurchaseMenu() {
       color: "#FFF",
       fontFamily: "Impact, sans-serif",
     },
+    // 右下に配置する Privacy Policy / Terms of Use 用コンテナ
+    policyButtonContainer: {
+      position: "absolute",
+      bottom: "20px",
+      right: "20px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-end",
+      gap: "8px",
+    },
+    // 小さめのボタンスタイル
+    policyButton: {
+      background: "none",
+      border: "none",
+      color: "#FFF",
+      fontSize: "14px",
+      cursor: "pointer",
+      padding: "4px 8px",
+    },
   };
 
   // クリックイベントのバブリング防止用
@@ -230,10 +249,10 @@ export function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* プロフィールアイコンを削除する代わりに、元の高さ分（30px + 16px のマージン）を確保するスペーサー */}
+            {/* 不要なプロフィールアイコンの代わりに同等の高さのスペーサー */}
             <div style={{ height: "46px" }} />
 
-            {/* アイテムを購入ボタン（常に表示、ログイン状態に応じて遷移先を変更） */}
+            {/* アイテムを購入ボタン（常に表示、ログイン状態に応じて遷移） */}
             <button
               style={styles.purchaseButton}
               onClick={() => {
@@ -260,6 +279,28 @@ export function PurchaseMenu() {
               <BsWrenchAdjustable style={{ marginRight: "8px" }} />
               議事録フォーマット
             </button>
+
+            {/* 右下に配置する小サイズのポリシーボタン群 */}
+            <div style={styles.policyButtonContainer}>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  navigate("/privacy-policy");
+                }}
+              >
+                Privacy Policy
+              </button>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  navigate("/terms-of-use");
+                }}
+              >
+                Terms of Use
+              </button>
+            </div>
           </div>
         </div>
       )}

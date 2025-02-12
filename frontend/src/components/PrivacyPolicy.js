@@ -94,7 +94,7 @@ const PrivacyPolicy = () => {
       <p style={paragraphStyle}>
         For inquiries regarding this privacy policy, please contact us at the following email address:
       </p>
-      <p style={{ ...paragraphStyle, fontWeight: 'bold' }}>[Contact Information]</p>
+      <p style={{ ...paragraphStyle, fontWeight: 'bold' }}>[info@sense-ai.world]</p>
     </div>
   );
 };
