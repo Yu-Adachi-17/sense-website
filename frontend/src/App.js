@@ -533,7 +533,7 @@ function App() {
                   left: '50%',
                   transform: 'translateX(-50%)',
                   color: 'white',
-                  fontSize: '72px',
+                  fontSize: '54px',
                   zIndex: 10,
                   display: 'flex',
                   alignItems: 'center',
