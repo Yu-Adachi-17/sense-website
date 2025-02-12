@@ -241,10 +241,17 @@ function App() {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
   
-      let mimeType = 'audio/webm;codecs=opus'; // 低ビットレートの圧縮形式
+      let mimeType = 'audio/webm;codecs=opus';
       if (!MediaRecorder.isTypeSupported(mimeType)) {
-        mimeType = 'audio/mp4'; // WebM が使えない場合は m4a
+        mimeType = 'audio/mp4'; 
       }
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = 'audio/ogg';
+      }
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = 'audio/wav';
+      }
+      
       
       const options = { mimeType, audioBitsPerSecond: 32000 }; // 32kbps に設定
       const mediaRecorder = new MediaRecorder(stream, options);
@@ -371,17 +378,14 @@ function App() {
   // ------------- ファイルアップロード時のハンドラー ------------- //
   // ※ アップロード後、processAudioFile() を呼び出して録音停止時と同じ処理（STT 経由の議事録生成）を行います。
   const handleFileUpload = async (file) => {
-    // file.type に "webm" が含まれているかチェック（"audio/webm" や "video/webm" の両方を許可）
-    if (!file.type.includes("webm")) {
-      alert('アップロード可能なファイル形式は .webm です');
-      return;
-    }
-    if (!selectedMeetingFormat) {
-      alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
+    const allowedFormats = ["audio/webm", "audio/mp4", "audio/mpeg", "audio/wav", "audio/ogg"];
+    if (!allowedFormats.includes(file.type)) {
+      alert('サポートされていないファイル形式です。m4a, webm, mp3, wav, ogg を使用してください。');
       return;
     }
     await processAudioFile(file);
   };
+  
   
 
   // コンポーネントのアンマウント時に録音や interval を停止
