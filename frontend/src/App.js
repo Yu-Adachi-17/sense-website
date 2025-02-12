@@ -22,7 +22,7 @@ import { PiGridFourFill } from "react-icons/pi";
 import EmailVerification from "./components/EmailVerification"; // ← ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
-import TransactionsLaw from "./TransactionsLaw";
+import TransactionsLaw from "./components/TransactionsLaw";
 
 
 // ----------------------
