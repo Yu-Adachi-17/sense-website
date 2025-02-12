@@ -280,17 +280,8 @@ export function PurchaseMenu() {
               議事録フォーマット
             </button>
 
-            {/* 右下に配置する小サイズのポリシーボタン群 */}
+            {/* 右下に配置する小サイズのポリシーボタン群（上下の順序を逆に） */}
             <div style={styles.policyButtonContainer}>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  navigate("/privacy-policy");
-                }}
-              >
-                Privacy Policy
-              </button>
               <button
                 style={styles.policyButton}
                 onClick={() => {
@@ -299,6 +290,15 @@ export function PurchaseMenu() {
                 }}
               >
                 Terms of Use
+              </button>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  navigate("/privacy-policy");
+                }}
+              >
+                Privacy Policy
               </button>
             </div>
           </div>
