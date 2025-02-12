@@ -230,6 +230,8 @@ export function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
+            {/* プロフィールアイコンを削除する代わりに、元の高さ分（30px + 16px のマージン）を確保するスペーサー */}
+            <div style={{ height: "46px" }} />
 
             {/* アイテムを購入ボタン（常に表示、ログイン状態に応じて遷移先を変更） */}
             <button
