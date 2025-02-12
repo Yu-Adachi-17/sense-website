@@ -169,7 +169,7 @@ export default function BuyTicketsPage() {
   return (
     <Container>
       <HomeIconWrapper>
-        <HomeIcon size="50px" color="white" />
+        <HomeIcon size="30px" color="white" />
       </HomeIconWrapper>
 
       <Title>Buy Time</Title>

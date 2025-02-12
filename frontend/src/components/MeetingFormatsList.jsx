@@ -201,7 +201,7 @@ const MeetingFormatsList = () => {
       >
         {/* 左側：HomeIcon */}
         <div style={{ width: '70px' }}>
-          <HomeIcon size="50px" color="white" />
+          <HomeIcon size="30px" color="white" />
         </div>
         {/* 中央：Meeting Formats タイトル（中央寄せ） */}
         <div style={{ flexGrow: 1, textAlign: 'center' }}>
