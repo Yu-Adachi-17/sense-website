@@ -137,41 +137,101 @@ const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions'
 // ✅ Stripe の初期化
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-// ✅ ChatGPT を使用して議事録を生成する関数
-const generateMinutes = async (transcription, formatTemplate) => {
-    const systemMessage = formatTemplate || 'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
-    
-    const data = {
-      // モデル名を GPT-4o mini に変更
-      model: 'gpt-4o-mini',
-      messages: [
-        { role: 'system', content: systemMessage },
-        { role: 'user', content: transcription },
-      ],
-      // GPT-4o mini の最大出力トークン数（16,384）に修正
-      max_tokens: 15000,
-      temperature: 0.5,
-    };
-    
-    try {
-      console.log('[DEBUG] ChatGPT API に送信するデータ:', data);
-      const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-        headers: {
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        timeout: 600000, // 10分
-      });
-      console.log('[DEBUG] ChatGPT API の応答:', response.data);
-      return response.data.choices[0].message.content.trim();
-    } catch (error) {
-      console.error('[ERROR] ChatGPT API の呼び出しに失敗:', error.response?.data || error.message);
-      throw new Error('ChatGPT API による議事録生成に失敗しました');
-    }
-  };
-  
+/**
+ * 【共通処理】
+ * 1. テキストを指定した文字数（chunkSize）ごとに分割する（Swift版 splitText() 相当）
+ * @param {string} text - 分割対象テキスト
+ * @param {number} chunkSize - 最大文字数（例：10000文字）
+ * @returns {string[]} - 分割されたテキスト配列
+ */
+function splitText(text, chunkSize) {
+  const chunks = [];
+  let startIndex = 0;
+  while (startIndex < text.length) {
+    const chunk = text.slice(startIndex, startIndex + chunkSize);
+    chunks.push(chunk);
+    startIndex += chunkSize;
+  }
+  return chunks;
+}
 
-// ✅ Whisper API を使用して文字起こしを行う関数
+/**
+ * 【共通処理】
+ * 部分議事録（複数のチャンクで生成された結果）を統合する処理（Swift版 combineMinutes() 相当）
+ * AI による再統合処理を実施するため、システムメッセージを付与して ChatGPT API を呼び出す
+ * @param {string} combinedText - 改行区切りで結合された部分議事録
+ * @param {string} meetingFormat - 議事録フォーマット（テンプレート）
+ * @returns {Promise<string>} - 統合後の最終議事録
+ */
+async function combineMinutes(combinedText, meetingFormat) {
+  const systemMessage = meetingFormat
+    ? `以下は部分議事録です。これらを統合し、最終的な議事録を生成してください。`
+    : 'あなたは優秀な議事録作成アシスタントです。以下の部分議事録を統合してください。';
+
+  const data = {
+    model: 'gpt-4o-mini',
+    messages: [
+      { role: 'system', content: systemMessage },
+      { role: 'user', content: combinedText },
+    ],
+    max_tokens: 15000,
+    temperature: 0.5,
+  };
+
+  try {
+    console.log('[DEBUG] ChatGPT API (統合用) に送信するデータ:', data);
+    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      timeout: 600000,
+    });
+    console.log('[DEBUG] 統合用 ChatGPT API の応答:', response.data);
+    return response.data.choices[0].message.content.trim();
+  } catch (error) {
+    console.error('[ERROR] 議事録統合 API 呼び出しに失敗:', error.response?.data || error.message);
+    throw new Error('議事録統合に失敗しました');
+  }
+}
+
+/**
+ * ChatGPT を使用して議事録を生成する関数
+ */
+const generateMinutes = async (transcription, formatTemplate) => {
+  const systemMessage = formatTemplate ||
+    'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
+    
+  const data = {
+    model: 'gpt-4o-mini',
+    messages: [
+      { role: 'system', content: systemMessage },
+      { role: 'user', content: transcription },
+    ],
+    max_tokens: 15000,
+    temperature: 0.5,
+  };
+    
+  try {
+    console.log('[DEBUG] ChatGPT API に送信するデータ:', data);
+    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      timeout: 600000, // 10分
+    });
+    console.log('[DEBUG] ChatGPT API の応答:', response.data);
+    return response.data.choices[0].message.content.trim();
+  } catch (error) {
+    console.error('[ERROR] ChatGPT API の呼び出しに失敗:', error.response?.data || error.message);
+    throw new Error('ChatGPT API による議事録生成に失敗しました');
+  }
+};
+
+/**
+ * Whisper API を使用して文字起こしを行う関数
+ */
 const transcribeWithOpenAI = async (filePath) => {
   try {
     const formData = new FormData();
@@ -198,12 +258,13 @@ const transcribeWithOpenAI = async (filePath) => {
   }
 };
 
-// ✅ チャンク分割用の定数（4.5MB）
-const TRANSCRIPTION_CHUNK_THRESHOLD = 1 * 1024 * 1024; // 4.5MB in bytes
+// ✅ チャンク分割用の定数（1MB 以下の場合は一括処理する）
+const TRANSCRIPTION_CHUNK_THRESHOLD = 1 * 1024 * 1024; // 1MB in bytes
 
 /**
  * ffmpeg を使用して音声ファイルをチャンクに分割する関数  
- * ffprobe の結果や各チャンクのパラメータをログ出力します。
+ * ffprobe によりファイルの duration とサイズを取得し、1チャンクあたりの再生時間を推定する。
+ * ファイルサイズが閾値以下なら分割せずそのまま返す。
  * @param {string} filePath - 分割対象のファイルパス
  * @param {number} maxFileSize - チャンクあたりの最大バイト数
  * @returns {Promise<string[]>} - 分割後のチャンクファイルパスの配列
@@ -222,8 +283,7 @@ const splitAudioFile = (filePath, maxFileSize) => {
         return reject(new Error(errMsg));
       }
       
-      // duration を数値として取得。もし metadata.format.duration が無効な場合は
-      // streams から取得、またはフォールバック値を設定する
+      // duration を数値として取得。metadata.format.duration が無効な場合は streams から取得
       let duration = parseFloat(metadata.format.duration);
       if (isNaN(duration)) {
         if (metadata.streams && metadata.streams.length > 0 && metadata.streams[0].duration) {
@@ -244,7 +304,7 @@ const splitAudioFile = (filePath, maxFileSize) => {
         return resolve([filePath]);
       }
       
-      // 全体の duration とファイルサイズから 1チャンクあたりの再生時間を推定
+      // 全体の duration とファイルサイズから、1チャンクあたりの再生時間を推定
       let chunkDuration = duration * (maxFileSize / fileSize);
       if (chunkDuration < 5) chunkDuration = 5; // 最低5秒は確保
       const numChunks = Math.ceil(duration / chunkDuration);
@@ -302,8 +362,15 @@ app.get('/api/hello', (req, res) => {
   res.json({ message: "Hello from backend!" });
 });
 
-// ✅ 文字起こしおよび議事録生成のエンドポイント（チャンク処理あり）
-// ※ diskStorage によりアップロードファイルは req.file.path に保存済み
+/**
+ * 文字起こしおよび議事録生成のエンドポイント（チャンク処理あり）
+ * 【処理の流れ】
+ * ① アップロードされた音声ファイルのサイズをチェックし、1MB 以下なら一括処理、
+ *     1MB 超の場合は ffmpeg でチャンク分割し、各チャンクを並列処理して文字起こしを行う。
+ * ② 得られた文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
+ *     10,000 文字超の場合は splitText() により分割し、各部分ごとに議事録生成後、
+ *     combineMinutes() により再統合する。
+ */
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe が呼び出されました');
   
@@ -326,37 +393,22 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   
     let transcription = "";
     let minutes = "";
-    if (file.size < TRANSCRIPTION_CHUNK_THRESHOLD) {
-      console.log('[DEBUG] ファイルサイズが4.5MB未満のため、一括処理します');
+  
+    // ① 音声ファイルの文字起こし処理（ファイルサイズで分岐）
+    if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
+      console.log('[DEBUG] ファイルサイズが閾値以下のため、一括処理します');
       transcription = await transcribeWithOpenAI(tempFilePath);
-      console.log('[DEBUG] 一括文字起こし結果:', transcription);
-      minutes = await generateMinutes(transcription.trim(), meetingFormat);
-      console.log('[DEBUG] 一括議事録生成結果:', minutes);
+      transcription = transcription.trim();
     } else {
-      console.log('[DEBUG] ファイルサイズが4.5MB以上のため、チャンク分割して処理します');
+      console.log('[DEBUG] ファイルサイズが閾値を超えているため、チャンク分割して処理します');
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
       console.log(`[DEBUG] 生成されたチャンク数: ${chunkPaths.length}`);
       
-      let transcriptionChunks = [];
-      let minutesChunks = [];
-      for (let i = 0; i < chunkPaths.length; i++) {
-        try {
-          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし開始 (ファイル: ${chunkPaths[i]})`);
-          const chunkTranscription = await transcribeWithOpenAI(chunkPaths[i]);
-          console.log(`[DEBUG] チャンク ${i + 1} の文字起こし結果:`, chunkTranscription);
-          transcriptionChunks.push(chunkTranscription);
-          
-          // 各チャンクごとに議事録生成を実施
-          const chunkMinutes = await generateMinutes(chunkTranscription.trim(), meetingFormat);
-          console.log(`[DEBUG] チャンク ${i + 1} の議事録生成結果:`, chunkMinutes);
-          minutesChunks.push(chunkMinutes);
-        } catch (error) {
-          console.error(`[ERROR] チャンク ${i + 1} の処理中にエラー発生:`, error.response?.data || error.message);
-          throw new Error(`チャンク ${i + 1} の処理に失敗: ${error.message}`);
-        }
-      }
-      transcription = transcriptionChunks.join(" ");
-      minutes = minutesChunks.join("\n\n");
+      // 各チャンクの文字起こしを並列処理
+      const transcriptionChunks = await Promise.all(
+        chunkPaths.map(chunkPath => transcribeWithOpenAI(chunkPath))
+      );
+      transcription = transcriptionChunks.join(" ").trim();
       
       // チャンクファイルの削除
       for (const chunkPath of chunkPaths) {
@@ -367,6 +419,20 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
           console.error(`[ERROR] チャンクファイル削除失敗: ${chunkPath}`, err);
         }
       }
+    }
+  
+    // ② 文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
+    //     10,000 文字超の場合はテキストを分割して各部分で議事録生成後、再統合
+    if (transcription.length <= 10000) {
+      minutes = await generateMinutes(transcription, meetingFormat);
+    } else {
+      console.log('[DEBUG] 文字起こし結果が 10,000 文字超のため、テキスト分割して議事録生成します');
+      const textChunks = splitText(transcription, 10000);
+      const partialMinutes = await Promise.all(
+        textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
+      );
+      const combinedPartialMinutes = partialMinutes.join("\n\n");
+      minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
     }
   
     // 一時ファイル（アップロードされた元ファイル）の削除
