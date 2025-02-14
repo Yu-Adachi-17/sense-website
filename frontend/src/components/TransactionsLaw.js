@@ -61,11 +61,25 @@ const TransactionsLaw = () => {
       <h2 style={h2Style}>販売価格</h2>
       <p style={paragraphStyle}>Trial: $1.99</p>
       <p style={paragraphStyle}>Light: $11.99</p>
-      <p style={paragraphStyle}>月額サブスク: $17.99</p>
-      <p style={paragraphStyle}>年間サブスク: $149.99</p>
+      <p style={paragraphStyle}>月額サブスクリプション: $17.99</p>
+      <p style={paragraphStyle}>年間サブスクリプション: $149.99</p>
 
-      <h2 style={h2Style}>関連リンク</h2>
-      <p style={paragraphStyle}><a href="/transactions-law" style={{ color: '#fff', textDecoration: 'underline' }}>特定商取引法に基づく表記</a></p>
+      <h2 style={h2Style}>追加手数料等の追加料金</h2>
+      <p style={paragraphStyle}>追加の手数料は発生しません。</p>
+
+      <h2 style={h2Style}>交換および返品（返金ポリシー）</h2>
+      <p style={paragraphStyle}>
+        デジタルサービスの性質上、購入後の返金は原則対応しておりません。ただし、技術的な不具合等が発生した場合には個別に対応いたします。
+      </p>
+
+      <h2 style={h2Style}>引渡時期</h2>
+      <p style={paragraphStyle}>決済完了後、即時サービスを利用可能となります。</p>
+
+      <h2 style={h2Style}>決済期間</h2>
+      <p style={paragraphStyle}>クレジットカード決済は即時処理されます。</p>
+
+      <h2 style={h2Style}>サポート受付時間</h2>
+      <p style={paragraphStyle}>メール対応: 平日9:00 - 18:00（日本時間）</p>
     </div>
   );
 };
