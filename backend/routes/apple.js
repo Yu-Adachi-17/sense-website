@@ -39,12 +39,17 @@ async function updateSubscriptionStatus(userId, subscriptionActive) {
  * Apple Server-to-Server Notification エンドポイント
  * 受信した通知に基づいて、ユーザーのサブスクリプション状態を Firebase に更新します。
  */
-router.post('/notifications', async (req, res) => {
+router.post('/notifications', express.json(), async (req, res) => {
   try {
+    console.log("📥 Raw Request Body:", req.body); // デバッグログ追加
     const notification = req.body;
-    console.log("📥 Received Apple S2S notification:", notification);
+    
+    if (!notification || !notification.data) {
+      console.error("❌ Invalid notification format or missing data");
+      return res.status(400).send("Invalid request format");
+    }
 
-    const originalTransactionId = notification.data && notification.data.originalTransactionId;
+    const originalTransactionId = notification.data.originalTransactionId;
     if (!originalTransactionId) {
       console.error("❌ originalTransactionId not found in notification");
       return res.status(400).send("Missing originalTransactionId");
@@ -54,9 +59,9 @@ router.post('/notifications', async (req, res) => {
     console.log("🔔 notificationType:", notificationType);
 
     let subscriptionActive = false;
-    if (notificationType === "INITIAL_BUY" || notificationType === "DID_RENEW" || notificationType === "INTERACTIVE_RENEWAL") {
+    if (["INITIAL_BUY", "DID_RENEW", "INTERACTIVE_RENEWAL"].includes(notificationType)) {
       subscriptionActive = true;
-    } else if (notificationType === "CANCEL" || notificationType === "EXPIRED" || notificationType === "DID_FAIL_TO_RENEW") {
+    } else if (["CANCEL", "EXPIRED", "DID_FAIL_TO_RENEW"].includes(notificationType)) {
       subscriptionActive = false;
     } else {
       console.log("⚠️ Unhandled notificationType. No update performed.");

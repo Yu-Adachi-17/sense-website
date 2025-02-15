@@ -17,8 +17,18 @@ const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
 const webhookRouter = require('./routes/webhook');
-const appleRouter = require('./routes/apple'); // ✅ 追加
+const appleRouter = require('./routes/apple'); // ✅ Apple ルート追加
 const app = express();
+
+app.use(express.json()); // ✅ JSON ボディのパース（Apple 用に raw を使う可能性あり）
+
+// Apple Webhook のリクエスト形式に合わせる
+app.use('/api/apple/notifications', express.raw({ type: 'application/json' })); // ✅ Apple Webhook 専用の raw パースを追加
+
+// Webhook 用ルートの登録
+app.use('/api', webhookRouter);
+app.use('/api/apple', appleRouter); // ✅ Apple Webhook のルートを適用
+
 
 // ★ リクエストタイムアウトを延長（例：10分）
 app.use((req, res, next) => {
