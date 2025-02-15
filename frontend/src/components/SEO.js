@@ -50,17 +50,27 @@ const SEOPage = () => {
   };
 
   const thStyle = {
-    backgroundColor: '#fff',
-    color: '#000',
+    backgroundColor: '#000',
+    color: '#fff',
     border: '1px solid #fff',
     padding: '10px',
     textAlign: 'center',
+    fontWeight: 'bold',
   };
 
   const tdStyle = {
     border: '1px solid #fff',
     padding: '10px',
     textAlign: 'center',
+  };
+
+  const linkStyle = {
+    color: '#00f',
+    textDecoration: 'underline',
+    cursor: 'pointer',
+    display: 'block',
+    textAlign: 'center',
+    marginTop: '10px',
   };
 
   return (
@@ -117,7 +127,8 @@ const SEOPage = () => {
       <p style={paragraphStyle}>※ゲストユーザーでも1日あたり3分間の録音が可能です</p>
 
       <h2 style={h2Style}>導入実績</h2>
-      <p style={paragraphStyle}>iOS版リリース6ヶ月で全世界15000ダウンロード突破！</p>
+      <p style={paragraphStyle}>iOS版リリース6ヶ月で全世界15000DL突破</p>
+      <a href="https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901" style={linkStyle}>▶︎製品を見てみる</a>
     </div>
   );
 };
