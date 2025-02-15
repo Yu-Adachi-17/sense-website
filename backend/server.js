@@ -34,6 +34,7 @@ app.use((req, res, next) => {
 
 // ✅ Webhook 用ルートの登録
 app.use('/api', webhookRouter);
+app.use('/api/apple', appleRouter); // ✅ 追加
 
 // ✅ JSON リクエストのパース
 app.use(express.json());
