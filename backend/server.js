@@ -17,6 +17,7 @@ const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
 const webhookRouter = require('./routes/webhook');
+const appleRouter = require('./routes/apple'); // ✅ 追加
 const app = express();
 
 // ★ リクエストタイムアウトを延長（例：10分）
