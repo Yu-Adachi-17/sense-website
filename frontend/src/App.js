@@ -482,17 +482,19 @@ function App() {
     top: 20,
     left: '50%',
     transform: 'translateX(-50%)',
-    background: '#000000', // 背景色を黒に変更
-    border: 'none',
+    background: '#000000', // 背景色を黒に
+    border: '2px solid white', // 白色の枠線を追加
     padding: '10px 20px',
-    borderRadius: '30px', // 楕円形にするために角を大きく丸める
+    borderRadius: '30px', // 楕円形に
     color: 'white',
     fontSize: '16px',
+    fontWeight: 'bold', // 文字を太字に
     cursor: 'pointer'
   }}
 >
   サービスと料金表
 </button>
+
 
 
                 {!showFullScreen && <PurchaseMenu />}
