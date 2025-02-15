@@ -476,23 +476,24 @@ function App() {
 
                 {/* 画面上部中央：サービスと料金表ボタン */}
                 <button
-                  onClick={() => window.location.href = '/seo'}
-                  style={{
-                    position: 'absolute',
-                    top: 20,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: '#007BFF',
-                    border: 'none',
-                    padding: '10px 20px',
-                    borderRadius: '4px',
-                    color: 'white',
-                    fontSize: '16px',
-                    cursor: 'pointer'
-                  }}
-                >
-                  サービスと料金表
-                </button>
+  onClick={() => window.location.href = '/seo'}
+  style={{
+    position: 'absolute',
+    top: 20,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#000000', // 背景色を黒に変更
+    border: 'none',
+    padding: '10px 20px',
+    borderRadius: '30px', // 楕円形にするために角を大きく丸める
+    color: 'white',
+    fontSize: '16px',
+    cursor: 'pointer'
+  }}
+>
+  サービスと料金表
+</button>
+
 
                 {!showFullScreen && <PurchaseMenu />}
 
