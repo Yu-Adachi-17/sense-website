@@ -49,7 +49,15 @@ const SEOPage = () => {
     marginTop: '20px',
   };
 
-  const thTdStyle = {
+  const thStyle = {
+    backgroundColor: '#fff',
+    color: '#000',
+    border: '1px solid #fff',
+    padding: '10px',
+    textAlign: 'center',
+  };
+
+  const tdStyle = {
     border: '1px solid #fff',
     padding: '10px',
     textAlign: 'center',
@@ -62,43 +70,51 @@ const SEOPage = () => {
       <p style={paragraphStyle}>人工知能を活用して、会議の議事録を自動作成。ワンタッチで高精度な議事録を生成するAIツール。</p>
 
       <h2 style={h2Style}>サービスの特長</h2>
-      <p style={paragraphStyle}>■高精度なAIによる音声認識</p>
-      <p style={paragraphStyle}>■議事録フォーマットカスタマイズ</p>
-      <p style={paragraphStyle}>■複数言語対応</p>
-      <p style={paragraphStyle}>■クラウド保存＆共有機能</p>
+      <h3>高精度なAIによる音声認識</h3>
+      <p>最新のAI技術を活用し、会話の文脈を理解しながら高精度な音声認識を実現。</p>
+      
+      <h3>議事録フォーマットカスタマイズ</h3>
+      <p>用途に応じたフォーマットで議事録を自動生成し、編集の手間を削減。</p>
+      
+      <h3>複数言語対応</h3>
+      <p>多言語対応で、グローバルなチームや海外会議でも活用可能。</p>
+      
+      <h3>クラウド保存＆共有機能</h3>
+      <p>議事録をクラウドに自動保存し、チームメンバーと簡単に共有。</p>
 
       <h2 style={h2Style}>料金プラン</h2>
       <table style={tableStyle}>
         <thead>
           <tr>
-            <th style={thTdStyle}>プラン</th>
-            <th style={thTdStyle}>価格</th>
-            <th style={thTdStyle}>録音時間</th>
+            <th style={thStyle}>プラン</th>
+            <th style={thStyle}>価格</th>
+            <th style={thStyle}>録音時間</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={thTdStyle}>Trial</td>
-            <td style={thTdStyle}>$1.99</td>
-            <td style={thTdStyle}>120分</td>
+            <td style={tdStyle}>Trial</td>
+            <td style={tdStyle}>$1.99</td>
+            <td style={tdStyle}>120分</td>
           </tr>
           <tr>
-            <td style={thTdStyle}>Light</td>
-            <td style={thTdStyle}>$11.99</td>
-            <td style={thTdStyle}>1200分</td>
+            <td style={tdStyle}>Light</td>
+            <td style={tdStyle}>$11.99</td>
+            <td style={tdStyle}>1200分</td>
           </tr>
           <tr>
-            <td style={thTdStyle}>月額サブスクリプション</td>
-            <td style={thTdStyle}>$17.99</td>
-            <td style={thTdStyle}>無制限</td>
+            <td style={tdStyle}>月額サブスクリプション</td>
+            <td style={tdStyle}>$17.99</td>
+            <td style={tdStyle}>無制限</td>
           </tr>
           <tr>
-            <td style={thTdStyle}>年間サブスクリプション</td>
-            <td style={thTdStyle}>$149.99</td>
-            <td style={thTdStyle}>無制限</td>
+            <td style={tdStyle}>年間サブスクリプション</td>
+            <td style={tdStyle}>$149.99</td>
+            <td style={tdStyle}>無制限</td>
           </tr>
         </tbody>
       </table>
+      <p style={paragraphStyle}>※ゲストユーザーでも1日あたり3分間の録音が可能です</p>
 
       <h2 style={h2Style}>導入実績</h2>
       <p style={paragraphStyle}>iOS版リリース6ヶ月で全世界15000ダウンロード突破！</p>
