@@ -1,4 +1,3 @@
-// src/components/ProgressIndicator.js
 import React from 'react';
 
 const ProgressIndicator = ({ progress }) => {
@@ -53,6 +52,9 @@ const ProgressIndicator = ({ progress }) => {
       color: '#FFFFFF',
       fontSize: '18px',
     },
+    boldText: {
+      fontWeight: 'bold',
+    },
   };
 
   return (
@@ -82,10 +84,11 @@ const ProgressIndicator = ({ progress }) => {
         </svg>
         <div style={styles.progressText}>{Math.min(Math.floor(progress), 100)}%</div>
       </div>
-      <div style={styles.progressLabel}>議事録を生成しています...</div>
+      <div style={styles.progressLabel}>
+        <span style={styles.boldText}>Taking minutes takes about 3 minutes for a 30-minute meeting...</span>
+      </div>
     </div>
   );
 };
 
 export default ProgressIndicator;
-
