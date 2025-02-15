@@ -52,24 +52,24 @@ const SEOPage = () => {
   const thStyle = {
     backgroundColor: '#000',
     color: '#fff',
-    border: '1px solid #fff',
+    border: '1px solid #777',
     padding: '10px',
     textAlign: 'center',
     fontWeight: 'bold',
   };
 
   const tdStyle = {
-    border: '1px solid #fff',
+    border: '1px solid #777',
     padding: '10px',
     textAlign: 'center',
   };
 
   const linkStyle = {
-    color: '#00f',
+    color: '#fff',
     textDecoration: 'underline',
     cursor: 'pointer',
     display: 'block',
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: '10px',
   };
 
