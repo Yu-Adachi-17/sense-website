@@ -1,7 +1,4 @@
-
-
 import React from 'react';
-
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
@@ -152,11 +149,11 @@ const SEOPage = () => {
       <p style={paragraphStyle}>iOS版リリース6ヶ月で全世界15000DL突破</p>
       <a href="https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901" style={linkStyle}>▶︎製品を見てみる</a>
 
-      {/* フッターリンク */}
+      {/* フッターリンクとコンポーネントの追加 */}
       <div style={footerLinksContainerStyle}>
-        <a href="/privacy-policy" style={footerLinkStyle}>PrivacyPolicy</a>
-        <a href="/terms-of-use" style={footerLinkStyle}>Terms of Use</a>
-        <a href="/transactions-law" style={footerLinkStyle}>特定商取引法に基づく表記</a>
+        <PrivacyPolicy />
+        <TermsOfUse />
+        <TransactionsLaw />
       </div>
     </div>
   );
