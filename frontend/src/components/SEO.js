@@ -1,3 +1,7 @@
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfUse from "./components/TermsOfUse";
+import TransactionsLaw from "./components/TransactionsLaw";
+
 import React from 'react';
 
 const SEOPage = () => {
@@ -73,6 +77,22 @@ const SEOPage = () => {
     marginTop: '10px',
   };
 
+  // 3つのリンクボタン用のスタイル
+  const footerLinksContainerStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: '40px',
+    paddingTop: '20px',
+    borderTop: '1px solid #777',
+  };
+
+  const footerLinkStyle = {
+    color: '#fff',
+    textDecoration: 'underline',
+    cursor: 'pointer',
+  };
+
   return (
     <div style={containerStyle}>
       <div style={centerTextStyle}>サービスと料金表</div>
@@ -129,6 +149,13 @@ const SEOPage = () => {
       <h2 style={h2Style}>導入実績</h2>
       <p style={paragraphStyle}>iOS版リリース6ヶ月で全世界15000DL突破</p>
       <a href="https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901" style={linkStyle}>▶︎製品を見てみる</a>
+
+      {/* フッターリンク */}
+      <div style={footerLinksContainerStyle}>
+        <a href="/privacy-policy" style={footerLinkStyle}>PrivacyPolicy</a>
+        <a href="/terms-of-use" style={footerLinkStyle}>Terms of Use</a>
+        <a href="/transactions-law" style={footerLinkStyle}>特定商取引法に基づく表記</a>
+      </div>
     </div>
   );
 };
