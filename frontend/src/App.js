@@ -23,7 +23,7 @@ import EmailVerification from "./components/EmailVerification"; // ← ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
-import SEOPage from './SEOPage';
+import SEOPage from "./components/SEO";
 
 // ----------------------
 // ファイルアップロード用コンポーネント
