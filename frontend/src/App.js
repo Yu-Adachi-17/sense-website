@@ -77,7 +77,8 @@ function App() {
   const [showFullScreen, setShowFullScreen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [progress, setProgress] = useState(0);
+  // progressStep の状態（進捗フェーズ）を追加
+  const [progressStep, setProgressStep] = useState("start");
   // 議事録が保存済みかどうかを管理する state
   const [hasSavedRecord, setHasSavedRecord] = useState(false);
   // 新規保存時に生成された議事録のドキュメントIDを保持する state
@@ -89,11 +90,10 @@ function App() {
   const [userSubscription, setUserSubscription] = useState(false);
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(180);
 
-  // ★ 追加：ユーザーが選択した会議フォーマット情報（MeetingFormatsList で選択されたもの）
-  // 初回は localStorage から読み込むか、なければデフォルト（General）を設定する
+  // ★ 追加：ユーザーが選択した会議フォーマット情報
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
 
-  // ★ App.js マウント時に localStorage から selectedMeetingFormat を読み込む
+  // App.js マウント時に localStorage から selectedMeetingFormat を読み込む
   useEffect(() => {
     const storedFormat = localStorage.getItem("selectedMeetingFormat");
     if (storedFormat) {
@@ -101,7 +101,6 @@ function App() {
       console.log("[DEBUG] Retrieved selectedMeetingFormat from localStorage:", parsedFormat);
       setSelectedMeetingFormat(parsedFormat);
     } else {
-      // localStorage になければ「General」をデフォルトとして設定（MeetingFormatElements 側の定義に合わせてください）
       const defaultFormat = {
         id: "general",
         title: "General",
@@ -130,7 +129,7 @@ function App() {
   const streamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
-  // ★ 日付跨ぎでリセット判定用：最後にチェックした日付を保持する ref
+  // ★ 日付跨ぎでリセット判定用
   const lastResetDateRef = useRef(new Date().toDateString());
 
   // mm:ss形式にフォーマットするヘルパー関数
@@ -156,7 +155,6 @@ function App() {
           console.error("ユーザーデータ取得エラー:", error);
         }
       }
-      // ユーザー情報のフェッチ完了（user がいなくても完了）
       setIsUserDataLoaded(true);
     });
     return unsubscribe;
@@ -164,7 +162,7 @@ function App() {
 
   // ★ 日付跨ぎで残時間が 0 の場合、再び 180 にリセットする処理（非購読ユーザーのみ）
   useEffect(() => {
-    if (userSubscription) return; // 購読ユーザーは対象外
+    if (userSubscription) return;
     const checkDateInterval = setInterval(() => {
       if (userRemainingSeconds === 0) {
         const currentDate = new Date().toDateString();
@@ -177,7 +175,6 @@ function App() {
           lastResetDateRef.current = currentDate;
         }
       } else {
-        // 残時間が 0 でなければ最新の日付を保持
         lastResetDateRef.current = new Date().toDateString();
       }
     }, 1000);
@@ -186,38 +183,51 @@ function App() {
 
   // ----- 共通処理：アップロードファイル／録音停止時に STT で議事録生成 ----- //
   const processAudioFile = async (file) => {
-    // 録音停止時と同様に、blob URL を生成して audioURL を設定
+    // blob URL 生成
     const url = URL.createObjectURL(file);
     setAudioURL(url);
 
-    await transcribeAudio(
-      file,
-      selectedMeetingFormat.template,
-      setTranscription,
-      setMinutes,
-      setIsProcessing,
-      setProgress,
-      setShowFullScreen
-    );
+    // 録音完了直後 → アップロード中のフェーズ
+    setProgressStep("uploading");
+
+    // 少し待ってから STT 処理へ（必要に応じてここでアップロード処理なども実装）
+    setTimeout(async () => {
+      // STT 処理開始：フェーズを更新
+      setProgressStep("transcribing");
+
+      await transcribeAudio(
+        file,
+        selectedMeetingFormat.template,
+        setTranscription,
+        setMinutes,
+        setIsProcessing,
+        // progress 用のコールバックはここでは使用せず、progressStep で管理
+        (p) => { /* （必要なら p を参考にする） */ },
+        setShowFullScreen
+      );
+
+      // STT 完了時のフェーズ
+      setProgressStep("transcriptionComplete");
+    }, 500);
   };
 
-  // 録音ボタン（中央のボタン）押下時の処理
+  // 録音ボタン押下時の処理
   const toggleRecording = async () => {
-    // 「Recovering...」（残秒数0）の状態の場合
     if (userRemainingSeconds === 0) {
       if (!auth.currentUser) {
-        // 非ログインユーザーならログイン画面へ
         window.location.href = '/login';
       } else {
-        // ログインユーザーならアイテム購入画面へ
         window.location.href = '/buy-tickets';
       }
-      return; // 通常の録音処理は実行しない
+      return;
     }
 
     if (isRecording) {
+      // 録音停止時：フェーズを更新
       await stopRecording();
+      setProgressStep("recordingComplete");
     } else {
+      // 録音開始前は "start" のまま
       await startRecording();
     }
     setIsRecording(!isRecording);
@@ -239,7 +249,7 @@ function App() {
         mimeType = 'audio/wav';
       }
       
-      const options = { mimeType, audioBitsPerSecond: 32000 }; // 32kbps に設定
+      const options = { mimeType, audioBitsPerSecond: 32000 };
       const mediaRecorder = new MediaRecorder(stream, options);
       mediaRecorderRef.current = mediaRecorder;
       recordedChunksRef.current = [];
@@ -280,7 +290,7 @@ function App() {
       source.connect(analyser);
       updateAudioLevel();
   
-      // ⏳ 残り時間のカウントダウン
+      // 残り時間のカウントダウン
       if (!userSubscription) {
         timerIntervalRef.current = setInterval(() => {
           setUserRemainingSeconds(prev => {
@@ -302,8 +312,7 @@ function App() {
     }
   };
   
-
-  // stopRecording にオプション引数 finalRemaining を追加（デフォルトは現在の userRemainingSeconds）
+  // stopRecording にオプション引数 finalRemaining を追加
   const stopRecording = async (finalRemaining = userRemainingSeconds) => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
@@ -328,7 +337,6 @@ function App() {
 
     setAudioLevel(1);
 
-    // ★ カウントダウンの interval をクリアし、非購読ユーザーの場合は Firebase に新たな残秒数を反映
     if (!userSubscription) {
       if (timerIntervalRef.current) {
         clearInterval(timerIntervalRef.current);
@@ -371,7 +379,7 @@ function App() {
     await processAudioFile(file);
   };
   
-  // コンポーネントのアンマウント時に録音や interval を停止
+  // コンポーネントのアンマウント時の処理
   useEffect(() => {
     const interval = progressIntervalRef.current;
     return () => {
@@ -390,7 +398,7 @@ function App() {
     }
   }, [showFullScreen]);
 
-  // 議事録が作成され FullScreenOverlay が表示されたタイミングで Firebase に保存
+  // 議事録生成完了時に Firebase へ保存
   useEffect(() => {
     const saveMeetingRecord = async () => {
       try {
@@ -418,15 +426,15 @@ function App() {
           minutes,
           createdAt: creationDate,
           uid: auth.currentUser.uid,
-          // audioURL など必要なデータがあれば追加
         };
 
         console.log("🟢 [DEBUG] Firestore に保存するデータ:", recordData);
 
         const docRef = await addDoc(collection(db, 'meetingRecords'), recordData);
         console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました");
-        // 生成したドキュメントのIDを state に保持
         setMeetingRecordId(docRef.id);
+        // すべて完了したら progressStep を "completed" に更新
+        setProgressStep("completed");
       } catch (err) {
         console.error("🔴 [ERROR] Firebase Firestore の保存中にエラー発生:", err);
       }
@@ -450,7 +458,6 @@ function App() {
                 {/* 左上：グリッドアイコン */}
                 <button
                   onClick={() => {
-                    // グリッドアイコンタップ時：非ログインユーザーの場合はログイン画面へ、それ以外は通常の議事録一覧へ
                     if (!auth.currentUser) {
                       window.location.href = '/login';
                     } else {
@@ -476,26 +483,24 @@ function App() {
 
                 {/* 画面上部中央：サービスと料金表ボタン */}
                 <button
-  onClick={() => window.location.href = '/seo'}
-  style={{
-    position: 'absolute',
-    top: 20,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    background: '#000000', // 背景色を黒に
-    border: '2px solid white', // 白色の枠線を追加
-    padding: '10px 20px',
-    borderRadius: '30px', // 楕円形に
-    color: 'white',
-    fontSize: '16px',
-    fontWeight: 'bold', // 文字を太字に
-    cursor: 'pointer'
-  }}
->
-  サービスと料金表
-</button>
-
-
+                  onClick={() => window.location.href = '/seo'}
+                  style={{
+                    position: 'absolute',
+                    top: 20,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: '#000000',
+                    border: '2px solid white',
+                    padding: '10px 20px',
+                    borderRadius: '30px',
+                    color: 'white',
+                    fontSize: '16px',
+                    fontWeight: 'bold',
+                    cursor: 'pointer'
+                  }}
+                >
+                  サービスと料金表
+                </button>
 
                 {!showFullScreen && <PurchaseMenu />}
 
@@ -527,7 +532,8 @@ function App() {
                     docId={meetingRecordId} 
                   />
                 )}
-                {isProcessing && <ProgressIndicator progress={progress} />}
+                {/* isProcessing が true の間、進捗表示 */}
+                {isProcessing && <ProgressIndicator progressStep={progressStep} />}
               </div>
 
               {isUserDataLoaded && (
@@ -578,7 +584,6 @@ function App() {
         <Route path="/minutes-list" element={<MinutesList />} />
         <Route path="/minutes/:id" element={<MinutesDetail />} />
         <Route path="/transactions-law" element={<TransactionsLaw />} />
-        {/* 追加：議事録フォーマット一覧のルート */}
         <Route path="/meeting-formats" element={<MeetingFormatsList />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
         <Route path="/seo" element={<SEOPage />} />
