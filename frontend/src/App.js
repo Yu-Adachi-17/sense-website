@@ -23,7 +23,7 @@ import EmailVerification from "./components/EmailVerification"; // ← ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
-
+import SEOPage from './SEOPage';
 
 // ----------------------
 // ファイルアップロード用コンポーネント
@@ -54,18 +54,6 @@ function FileUploadButton({ onFileSelected }) {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-      {/* 隠しコマンドボタン！ */}
-      {/* <button 
-        onClick={handleButtonClick} 
-        style={{
-          padding: '10px 15px',
-          borderRadius: '4px',
-          fontSize: '16px',
-          cursor: 'pointer'
-        }}
-      >
-        .webm ファイルをアップロード
-      </button> */}
     </div>
   );
 }
@@ -202,9 +190,6 @@ function App() {
     const url = URL.createObjectURL(file);
     setAudioURL(url);
 
-    // ※ ここでは file.type が 'audio/mp4' なら m4a、それ以外は webm とする例
-    // （既存録音処理と同じロジック）
-    // ※ ファイルが File オブジェクトであればそのままで OK
     await transcribeAudio(
       file,
       selectedMeetingFormat.template,
@@ -253,7 +238,6 @@ function App() {
       if (!MediaRecorder.isTypeSupported(mimeType)) {
         mimeType = 'audio/wav';
       }
-      
       
       const options = { mimeType, audioBitsPerSecond: 32000 }; // 32kbps に設定
       const mediaRecorder = new MediaRecorder(stream, options);
@@ -378,7 +362,6 @@ function App() {
   };
 
   // ------------- ファイルアップロード時のハンドラー ------------- //
-  // ※ アップロード後、processAudioFile() を呼び出して録音停止時と同じ処理（STT 経由の議事録生成）を行います。
   const handleFileUpload = async (file) => {
     const allowedFormats = ["audio/webm", "audio/mp4", "audio/mpeg", "audio/wav", "audio/ogg"];
     if (!allowedFormats.includes(file.type)) {
@@ -388,8 +371,6 @@ function App() {
     await processAudioFile(file);
   };
   
-  
-
   // コンポーネントのアンマウント時に録音や interval を停止
   useEffect(() => {
     const interval = progressIntervalRef.current;
@@ -460,13 +441,13 @@ function App() {
 
   return (
     <Router basename="/">
-      {/* ルーティング用 */}
       <Routes>
         <Route
           path="/"
           element={
             <div className="container">
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                {/* 左上：グリッドアイコン */}
                 <button
                   onClick={() => {
                     // グリッドアイコンタップ時：非ログインユーザーの場合はログイン画面へ、それ以外は通常の議事録一覧へ
@@ -490,10 +471,28 @@ function App() {
                   <PiGridFourFill />
                 </button>
 
-                {/* ファイルアップロード用コンポーネント */}
+                {/* 右上：ファイルアップロードボタン */}
                 <FileUploadButton onFileSelected={handleFileUpload} />
 
-
+                {/* 画面上部中央：サービスと料金表ボタン */}
+                <button
+                  onClick={() => window.location.href = '/seo'}
+                  style={{
+                    position: 'absolute',
+                    top: 20,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: '#007BFF',
+                    border: 'none',
+                    padding: '10px 20px',
+                    borderRadius: '4px',
+                    color: 'white',
+                    fontSize: '16px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  サービスと料金表
+                </button>
 
                 {!showFullScreen && <PurchaseMenu />}
 
@@ -579,6 +578,7 @@ function App() {
         {/* 追加：議事録フォーマット一覧のルート */}
         <Route path="/meeting-formats" element={<MeetingFormatsList />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
+        <Route path="/seo" element={<SEOPage />} />
       </Routes>
     </Router>
   );
