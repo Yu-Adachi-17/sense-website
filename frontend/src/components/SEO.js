@@ -1,8 +1,10 @@
+
+
+import React from 'react';
+
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
-
-import React from 'react';
 
 const SEOPage = () => {
   const containerStyle = {
