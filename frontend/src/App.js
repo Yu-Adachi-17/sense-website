@@ -17,9 +17,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
 import MinutesDetail from './components/MinutesDetail';
-import MeetingFormatsList from './components/MeetingFormatsList'; // ← 新たに追加
+import MeetingFormatsList from './components/MeetingFormatsList'; // 新たに追加
 import { PiGridFourFill } from "react-icons/pi";
-import EmailVerification from "./components/EmailVerification"; // ← ここ
+import EmailVerification from "./components/EmailVerification"; // ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
@@ -67,6 +67,13 @@ function DebugRouter() {
   return null;
 }
 
+// ★ ローカルストレージ用のキー設定（ゲスト用）
+const LOCAL_REMAINING_KEY = "guestRemainingSeconds";
+const LOCAL_LAST_RESET_KEY = "guestLastResetDate";
+
+// ----------------------
+// App コンポーネント
+// ----------------------
 function App() {
   console.log("[DEBUG] App component loaded");
   const [isRecording, setIsRecording] = useState(false);
@@ -88,7 +95,9 @@ function App() {
   const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
   // ★ ユーザーのサブスクリプション情報と残秒数を保持する state
   const [userSubscription, setUserSubscription] = useState(false);
-  const [userRemainingSeconds, setUserRemainingSeconds] = useState(180);
+  // ★ ゲストの場合は1日3分（180秒）をデフォルトにする
+  const DEFAULT_REMAINING = 180;
+  const [userRemainingSeconds, setUserRemainingSeconds] = useState(DEFAULT_REMAINING);
 
   // ★ 追加：ユーザーが選択した会議フォーマット情報
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
@@ -129,7 +138,7 @@ function App() {
   const streamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
-  // ★ 日付跨ぎでリセット判定用
+  // ★ 日付跨ぎでリセット判定用（Firebase 連携済みの場合は使用）
   const lastResetDateRef = useRef(new Date().toDateString());
 
   // mm:ss形式にフォーマットするヘルパー関数
@@ -160,16 +169,37 @@ function App() {
     return unsubscribe;
   }, []);
 
-  // ★ 日付跨ぎで残時間が 0 の場合、再び 180 にリセットする処理（非購読ユーザーのみ）
+  // ★ ゲストユーザーの場合、マウント時に localStorage から残り秒数を復元する
+  useEffect(() => {
+    if (userSubscription) return; // 購読ユーザーは対象外
+    const today = new Date().toDateString();
+    const storedDate = localStorage.getItem(LOCAL_LAST_RESET_KEY);
+    const storedRemaining = localStorage.getItem(LOCAL_REMAINING_KEY);
+    if (storedDate === today && storedRemaining !== null) {
+      setUserRemainingSeconds(parseInt(storedRemaining, 10));
+    } else {
+      setUserRemainingSeconds(DEFAULT_REMAINING);
+      localStorage.setItem(LOCAL_REMAINING_KEY, DEFAULT_REMAINING);
+      localStorage.setItem(LOCAL_LAST_RESET_KEY, today);
+    }
+  }, [userSubscription]);
+
+  // ★ 残り秒数が変化するたびに localStorage を更新する（ゲストの場合）
+  useEffect(() => {
+    if (userSubscription) return;
+    localStorage.setItem(LOCAL_REMAINING_KEY, userRemainingSeconds);
+  }, [userRemainingSeconds, userSubscription]);
+
+  // ★ 日付跨ぎで残時間が 0 の場合、再び 180 にリセットする処理（Firebase 利用時のみ実施）
   useEffect(() => {
     if (userSubscription) return;
     const checkDateInterval = setInterval(() => {
       if (userRemainingSeconds === 0) {
         const currentDate = new Date().toDateString();
         if (lastResetDateRef.current !== currentDate) {
-          setUserRemainingSeconds(180);
+          setUserRemainingSeconds(DEFAULT_REMAINING);
           if (auth.currentUser) {
-            setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: 180 }, { merge: true })
+            setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: DEFAULT_REMAINING }, { merge: true })
               .catch(err => console.error("Firebase更新エラー:", err));
           }
           lastResetDateRef.current = currentDate;
@@ -290,7 +320,7 @@ function App() {
       source.connect(analyser);
       updateAudioLevel();
   
-      // 残り時間のカウントダウン
+      // 残り時間のカウントダウン（ゲストの場合のみ）
       if (!userSubscription) {
         timerIntervalRef.current = setInterval(() => {
           setUserRemainingSeconds(prev => {
@@ -343,7 +373,9 @@ function App() {
         timerIntervalRef.current = null;
       }
       try {
-        await setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: finalRemaining }, { merge: true });
+        if (auth.currentUser) {
+          await setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: finalRemaining }, { merge: true });
+        }
       } catch (err) {
         console.error("残時間更新エラー:", err);
       }

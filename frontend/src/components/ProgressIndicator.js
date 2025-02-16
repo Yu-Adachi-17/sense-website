@@ -1,30 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
 const ProgressIndicator = ({ progressStep }) => {
-  // 各フェーズに対応する基本進捗パーセンテージの定義
+  // 各フェーズに対応する進捗パーセンテージの定義
   const stepMapping = {
     start: 0,
     recordingComplete: 10,
     uploading: 20,
-    // "transcribing" はシミュレーションで変化させるので初期値のみ定義
     transcribing: 25,
-    transcriptionComplete: 50,  
+    transcriptionComplete: 50,  // transcribe完了で50%
     processing: 80,
     completed: 100,
   };
 
-  // シミュレーション進捗（transcribing時のみ使用）
-  const [simulatedProgress, setSimulatedProgress] = useState(stepMapping.transcribing);
-  // ProgressIndicator 内部でスムーズなアニメーション用の state
-  const [internalProgress, setInternalProgress] = useState(
-    progressStep === "transcribing" ? simulatedProgress : stepMapping[progressStep] ?? 0
-  );
+  // progressStep が存在しない場合は 0 を採用
+  const targetProgress = stepMapping[progressStep] ?? 0;
+  // スムーズなアニメーション用の内部状態
+  const [internalProgress, setInternalProgress] = useState(targetProgress);
 
-  // progressStep が変わった場合、または transcribing のシミュレーション進捗が変化した場合の target 値
-  const targetProgress =
-    progressStep === "transcribing" ? simulatedProgress : stepMapping[progressStep] ?? 0;
-
-  // 外部からの targetProgress に合わせたスムーズなアニメーション更新
   useEffect(() => {
     const duration = 500; // アニメーションの総時間 (ms)
     const stepTime = 20;  // 補間の更新間隔 (ms)
@@ -34,6 +26,7 @@ const ProgressIndicator = ({ progressStep }) => {
     
     const interval = setInterval(() => {
       currentStep++;
+      // 線形補間で progress を更新
       const newProgress = internalProgress + (progressDiff * currentStep) / steps;
       setInternalProgress(newProgress);
       
@@ -45,28 +38,7 @@ const ProgressIndicator = ({ progressStep }) => {
     return () => clearInterval(interval);
   }, [targetProgress]);
 
-  // 「transcribing」状態なら内部で徐々に進捗を上げるシミュレーション処理
-  useEffect(() => {
-    if (progressStep === "transcribing") {
-      // 300ms ごとに 1% ずつ上昇させ、上限 49% で止める
-      const interval = setInterval(() => {
-        setSimulatedProgress(prev => {
-          if (prev < 49) {
-            return prev + 1;
-          } else {
-            clearInterval(interval);
-            return prev;
-          }
-        });
-      }, 300);
-      return () => clearInterval(interval);
-    } else {
-      // transcribing 以外の場合はシミュレーション進捗をリセット
-      setSimulatedProgress(stepMapping.transcribing);
-    }
-  }, [progressStep]);
-
-  // スタイル定義（変更はなし）
+  // スタイル定義
   const styles = {
     progressOverlay: {
       position: 'fixed',
@@ -125,6 +97,7 @@ const ProgressIndicator = ({ progressStep }) => {
 
   const radius = 60;
   const circumference = 2 * Math.PI * radius;
+  // progress に合わせた strokeDashoffset の計算
   const dashOffset = circumference * (1 - Math.min(internalProgress, 100) / 100);
 
   return (
@@ -137,7 +110,12 @@ const ProgressIndicator = ({ progressStep }) => {
               <stop offset="100%" stopColor="white" stopOpacity="0.9" />
             </linearGradient>
           </defs>
-          <circle style={styles.progressBackground} cx="75" cy="75" r={radius} />
+          <circle
+            style={styles.progressBackground}
+            cx="75"
+            cy="75"
+            r={radius}
+          />
           <circle
             style={styles.progressBar}
             cx="75"
