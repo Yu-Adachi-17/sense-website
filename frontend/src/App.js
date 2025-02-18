@@ -96,7 +96,7 @@ function App() {
   // ★ ユーザーのサブスクリプション情報と残秒数を保持する state
   const [userSubscription, setUserSubscription] = useState(false);
   // ★ ゲストの場合は1日3分（180秒）をデフォルトにする
-  const DEFAULT_REMAINING = 180;
+  const DEFAULT_REMAINING = 18000;
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(DEFAULT_REMAINING);
 
   // ★ 追加：ユーザーが選択した会議フォーマット情報
