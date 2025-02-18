@@ -20,15 +20,31 @@ const webhookRouter = require('./routes/webhook');
 const appleRouter = require('./routes/apple'); // ✅ Apple ルート追加
 const app = express();
 
-app.use(express.json()); // ✅ JSON ボディのパース（Apple 用に raw を使う可能性あり）
+/*==============================================
+=            ミドルウェアの適用順序            =
+==============================================*/
 
-// Apple Webhook のリクエスト形式に合わせる
-app.use('/api/apple/notifications', express.raw({ type: 'application/json' })); // ✅ Apple Webhook 専用の raw パースを追加
+// ① Stripe Webhook 用: /api/stripe は raw body を利用する（JSON パース前に適用）
+app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
-// Webhook 用ルートの登録
+// ② Apple Webhook 用: /api/apple/notifications は raw body を利用する
+app.use('/api/apple/notifications', express.raw({ type: 'application/json' }));
+
+// ③ その他のエンドポイント用: JSON ボディのパース
+app.use(express.json());
+
+/*==============================================
+=            ルーターの登録                     =
+==============================================*/
+
+// Webhook ルート（Stripe 関連を含む）
 app.use('/api', webhookRouter);
-app.use('/api/apple', appleRouter); // ✅ Apple Webhook のルートを適用
+// Apple Webhook のルート
+app.use('/api/apple', appleRouter);
 
+/*==============================================
+=            その他のミドルウェア              =
+==============================================*/
 
 // ★ リクエストタイムアウトを延長（例：10分）
 app.use((req, res, next) => {
@@ -42,13 +58,6 @@ app.use((req, res, next) => {
   });
   next();
 });
-
-// ✅ Webhook 用ルートの登録
-app.use('/api', webhookRouter);
-app.use('/api/apple', appleRouter); // ✅ 追加
-
-// ✅ JSON リクエストのパース
-app.use(express.json());
 
 // ✅ 許可するオリジンの定義
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
