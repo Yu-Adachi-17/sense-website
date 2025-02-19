@@ -20,6 +20,29 @@ import { FaApple } from "react-icons/fa";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+const createUserDocument = async (user) => {
+  // user.email から3文字を取得（SwiftUI側の String(emailField.prefix(3)) に相当）
+  const email = user.email || "";
+  await setDoc(
+    doc(db, "users", user.uid),
+    {
+      createdAt: serverTimestamp(),
+      userName: email.substring(0, 3),
+      email: email,
+      recordingDevice: null,         // SwiftUIでは NSNull() に相当
+      recordingTimestamp: null,      // 同上
+      originalTransactionId: null,   // 同上
+      subscriptionPlan: null,        // 同上
+      subscriptionStartDate: null,   // 同上
+      subscriptionEndDate: null,     // 同上
+      lastSubscriptionUpdate: null,  // 同上
+      remainingSeconds: 0,           // 存在する場合はその値、なければ 0
+      subscription: false,           // 初期値 false（SwiftUI側は @AppStorage("userIsUnlimited") と同期）
+    },
+    { merge: true }
+  );
+};
+
 const SignUp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -43,25 +66,8 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      // Firestore にユーザードキュメントを作成（SwiftUI側と同じフィールド定義にする）
-      await setDoc(
-        doc(db, "users", user.uid),
-        {
-          createdAt: serverTimestamp(),
-          userName: email.substring(0, 3), // SwiftUI: String(emailField.prefix(3))
-          email: email,
-          recordingDevice: null,         // SwiftUIでは NSNull() に相当
-          recordingTimestamp: null,      // 同上
-          originalTransactionId: null,   // 同上
-          subscriptionPlan: null,        // 同上
-          subscriptionStartDate: null,   // 同上
-          subscriptionEndDate: null,     // 同上
-          lastSubscriptionUpdate: null,  // 同上
-          remainingSeconds: 0,           // SwiftUI側は存在する場合はその値、なければ 0
-          subscription: false,           // SwiftUI側では @AppStorage("userIsUnlimited") と同期（初期値 false）
-        },
-        { merge: true }
-      );
+      // Firestore にユーザードキュメントを作成
+      await createUserDocument(user);
       console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
 
       // 認証メールを送信
@@ -78,11 +84,18 @@ const SignUp = () => {
     }
   };
 
-  // Google サインイン処理（メール認証は不要なケースが多いのでそのままリダイレクト）
+  // Google サインイン処理
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
+      // Googleサインインを実施
       await signInWithGoogle();
+      const user = auth.currentUser;
+      if (user) {
+        // サインイン後にもFirestoreにユーザードキュメントを作成（または更新）
+        await createUserDocument(user);
+        console.log("✅ GoogleサインインでFirestoreにユーザードキュメントを作成しました: ", user.uid);
+      }
       navigate("/");
     } catch (error) {
       setAlertMessage("Googleサインインに失敗しました");
@@ -96,7 +109,14 @@ const SignUp = () => {
   const handleAppleSignIn = async () => {
     setIsLoading(true);
     try {
+      // Appleサインインを実施
       await signInWithApple();
+      const user = auth.currentUser;
+      if (user) {
+        // サインイン後にもFirestoreにユーザードキュメントを作成（または更新）
+        await createUserDocument(user);
+        console.log("✅ AppleサインインでFirestoreにユーザードキュメントを作成しました: ", user.uid);
+      }
       navigate("/");
     } catch (error) {
       setAlertMessage("Appleサインインに失敗しました");
