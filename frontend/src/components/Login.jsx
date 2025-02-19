@@ -1,3 +1,4 @@
+// Login.js
 import React, { useState } from "react";
 import {
   getAuth,
@@ -10,6 +11,7 @@ import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { syncUserData } from "../firebaseUserSync"; // ユーザーデータ同期用の関数をインポート
 
 const auth = getAuth(app);
 
@@ -29,25 +31,27 @@ const Login = () => {
     }
     setIsLoading(true);
     try {
-      // サインイン処理
+      // Email/Passwordでサインイン
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-  
-      // メール認証が完了していない場合
+
+      // メール認証が完了していない場合はサインアウトしてエラー表示
       if (!user.emailVerified) {
-        // ログイン状態にさせないためサインアウト
         await signOut(auth);
         setAlertMessage("メール認証が完了していません。メール内のリンクをクリックして認証してください。");
         setShowAlert(true);
         return;
       }
-  
-      // 認証済みの場合のみホーム画面へ遷移
+
+      // ログイン成功後、Firestore にユーザーデータを同期する
+      // ※ 第3引数（userIsUnlimited）や第4引数（currentCountdown）は必要に応じて設定してください
+      await syncUserData(user, email, false, 0);
+
+      // ホーム画面へ遷移
       navigate("/");
     } catch (error) {
       console.error("ログインエラー:", error);
-  
-      // Firebase のエラーコードに応じたメッセージ表示
+      // エラーコードに応じたエラーメッセージの設定
       switch (error.code) {
         case "auth/invalid-email":
           setAlertMessage("無効なメールアドレスです。");
@@ -72,12 +76,12 @@ const Login = () => {
       setIsLoading(false);
     }
   };
-  
+
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
       await signInWithGoogle();
-      navigate("/"); // ✅ Googleサインイン成功時にホーム画面へ遷移
+      navigate("/"); // Googleサインイン成功時にホーム画面へ遷移
     } catch (error) {
       setAlertMessage("Googleサインインに失敗しました");
       setShowAlert(true);
@@ -90,7 +94,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithApple();
-      navigate("/"); // ✅ Appleサインイン成功時にホーム画面へ遷移
+      navigate("/"); // Appleサインイン成功時にホーム画面へ遷移
     } catch (error) {
       setAlertMessage("Appleサインインに失敗しました");
       setShowAlert(true);
@@ -99,7 +103,6 @@ const Login = () => {
     }
   };
 
-  // パスワード再設定メール送信処理
   const handlePasswordReset = async () => {
     if (!email) {
       setAlertMessage("メールアドレスを入力してください");
@@ -173,7 +176,7 @@ const Login = () => {
         }}
       />
 
-      {/* Email ログインボタン */}
+      {/* Emailログインボタン */}
       <button
         onClick={handleLogin}
         disabled={isLoading}
@@ -235,7 +238,7 @@ const Login = () => {
         Appleでログイン
       </button>
 
-      {/* パスワード再設定メール送信用ボタン */}
+      {/* パスワード再設定メール送信ボタン */}
       <button
         onClick={handlePasswordReset}
         disabled={isLoading}
