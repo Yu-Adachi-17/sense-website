@@ -26,7 +26,7 @@ import TransactionsLaw from "./components/TransactionsLaw";
 import SEOPage from "./components/SEO";
 
 // ----------------------
-// ファイルアップロード用コンポーネント
+// 重要：ファイルアップロード用コンポーネント
 // ----------------------
 function FileUploadButton({ onFileSelected }) {
   const fileInputRef = useRef(null);
@@ -40,6 +40,8 @@ function FileUploadButton({ onFileSelected }) {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
+      console.log("Selected file:", file.name);
+      console.log("Detected MIME type:", file.type);
       onFileSelected(file);
     }
   };
@@ -64,6 +66,7 @@ function FileUploadButton({ onFileSelected }) {
     </div>
   );
 }
+
 
 // ----------------------
 // DebugRouter（ルートのデバッグ用）
