@@ -170,18 +170,21 @@ function App() {
   }, []);
 
   // ★ Firebase Firestore のリアルタイムリスナーで残り秒数を検知する（ログインユーザーのみ）
-  useEffect(() => {
-    if (auth.currentUser) {
-      const userDocRef = doc(db, "users", auth.currentUser.uid);
-      const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          setUserRemainingSeconds(data.remainingSeconds);
-        }
-      });
-      return () => unsubscribe();
-    }
-  }, [auth.currentUser]);
+// Firebase Firestore のリアルタイムリスナーでサブスクリプション状態も検知する
+useEffect(() => {
+  if (auth.currentUser) {
+    const userDocRef = doc(db, "users", auth.currentUser.uid);
+    const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setUserRemainingSeconds(data.remainingSeconds);
+        setUserSubscription(data.subscription); // ここでサブスクリプション状態を更新
+      }
+    });
+    return () => unsubscribe();
+  }
+}, [auth.currentUser]);
+
 
   // ★ ゲストユーザーの場合、マウント時に localStorage から残り秒数を復元する
   useEffect(() => {

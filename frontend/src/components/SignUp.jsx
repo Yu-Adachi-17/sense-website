@@ -36,7 +36,7 @@ const createUserDocument = async (user) => {
       subscriptionStartDate: null,   // 同上
       subscriptionEndDate: null,     // 同上
       lastSubscriptionUpdate: null,  // 同上
-      remainingSeconds: 0,           // 存在する場合はその値、なければ 0
+      remainingSeconds: 180,           // 存在する場合はその値、なければ 0
       subscription: false,           // 初期値 false（SwiftUI側は @AppStorage("userIsUnlimited") と同期）
     },
     { merge: true }
