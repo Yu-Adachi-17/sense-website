@@ -12,7 +12,7 @@ import './App.css';
 
 // Firebase 関連のインポート
 import { db, auth } from './firebaseConfig';
-import { collection, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc, getDoc, onSnapshot } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
@@ -148,7 +148,6 @@ function App() {
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
   
-
   // ★ Firebase Auth の状態変化を監視してユーザーデータを取得する
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -169,6 +168,20 @@ function App() {
     });
     return unsubscribe;
   }, []);
+
+  // ★ Firebase Firestore のリアルタイムリスナーで残り秒数を検知する（ログインユーザーのみ）
+  useEffect(() => {
+    if (auth.currentUser) {
+      const userDocRef = doc(db, "users", auth.currentUser.uid);
+      const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setUserRemainingSeconds(data.remainingSeconds);
+        }
+      });
+      return () => unsubscribe();
+    }
+  }, [auth.currentUser]);
 
   // ★ ゲストユーザーの場合、マウント時に localStorage から残り秒数を復元する
   useEffect(() => {
