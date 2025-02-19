@@ -12,7 +12,7 @@ import './App.css';
 
 // Firebase 関連のインポート
 import { db, auth } from './firebaseConfig';
-import { collection, addDoc, doc, setDoc, getDoc, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc, getDoc, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
@@ -277,7 +277,46 @@ function App() {
     setIsRecording(!isRecording);
   };
 
+  // 録音開始前に、ログインユーザーの場合はFirestoreで多重録音チェックを実施
   const startRecording = async () => {
+    // ログインユーザーの場合のみチェックを実施
+    if (auth.currentUser) {
+      // デバイスIDは localStorage に保存（無ければ生成）
+      let currentDeviceId = localStorage.getItem("deviceId");
+      if (!currentDeviceId) {
+        currentDeviceId = uuidv4();
+        localStorage.setItem("deviceId", currentDeviceId);
+      }
+
+      try {
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        const docSnap = await getDoc(userRef);
+        const data = docSnap.data();
+        const storedDeviceId = data?.recordingDevice;
+        const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
+        // 30分（1800秒）未満の場合は他のデバイスで録音中かチェック
+        if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 1800 * 1000)) {
+          if (storedDeviceId && storedDeviceId !== currentDeviceId) {
+            alert("他のデバイスで録音中のため、録音を開始できません。");
+            return;
+          }
+        } else {
+          // 30分以上経過していれば、古い情報をリセット
+          await setDoc(userRef, { recordingDevice: null }, { merge: true });
+        }
+        // 自分のデバイスでの録音としてFirestoreを更新
+        await setDoc(userRef, {
+          recordingDevice: currentDeviceId,
+          recordingTimestamp: serverTimestamp()
+        }, { merge: true });
+        console.log("✅ Firestoreの録音データ更新完了");
+      } catch (error) {
+        console.error("Firestoreの録音チェックに失敗:", error);
+        return;
+      }
+    }
+    // チェック完了後、実際の録音開始処理へ
+
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
