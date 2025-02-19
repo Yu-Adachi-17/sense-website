@@ -267,17 +267,21 @@ function App() {
     }
 
     if (isRecording) {
-      // 録音停止時：フェーズを更新
+      // 録音停止時
       await stopRecording();
       setProgressStep("recordingComplete");
+      setIsRecording(false);
     } else {
-      // 録音開始前は "start" のまま
-      await startRecording();
+      // 録音開始処理が成功した場合のみ isRecording を更新する
+      const started = await startRecording();
+      if (started) {
+        setIsRecording(true);
+      }
     }
-    setIsRecording(!isRecording);
   };
 
   // 録音開始前に、ログインユーザーの場合はFirestoreで多重録音チェックを実施
+  // 成功時は true、失敗時は false を返す
   const startRecording = async () => {
     // ログインユーザーの場合のみチェックを実施
     if (auth.currentUser) {
@@ -298,7 +302,7 @@ function App() {
         if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 1800 * 1000)) {
           if (storedDeviceId && storedDeviceId !== currentDeviceId) {
             alert("他のデバイスで録音中のため、録音を開始できません。");
-            return;
+            return false;
           }
         } else {
           // 30分以上経過していれば、古い情報をリセット
@@ -312,11 +316,10 @@ function App() {
         console.log("✅ Firestoreの録音データ更新完了");
       } catch (error) {
         console.error("Firestoreの録音チェックに失敗:", error);
-        return;
+        return false;
       }
     }
     // チェック完了後、実際の録音開始処理へ
-
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
@@ -389,9 +392,13 @@ function App() {
         }, 1000);
       }
   
+      // 録音開始成功
+      return true;
+  
     } catch (err) {
       console.error('マイクへのアクセスに失敗しました:', err);
       alert('マイクへのアクセスが拒否されました。設定を確認してください。');
+      return false;
     }
   };
   
