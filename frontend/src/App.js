@@ -49,7 +49,7 @@ function FileUploadButton({ onFileSelected }) {
       {/* 重要なデバッグ用隠しファイル入力 */}
       <input
         type="file"
-        accept=".webm"
+        accept="*/*"
         ref={fileInputRef}
         style={{ display: 'none' }}
         onChange={handleFileChange}
