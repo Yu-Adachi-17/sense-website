@@ -144,9 +144,10 @@ function App() {
   // mm:ss形式にフォーマットするヘルパー関数
   const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60);
-    const s = seconds % 60;
+    const s = Math.floor(seconds % 60); // 切り捨て処理を追加
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
+  
 
   // ★ Firebase Auth の状態変化を監視してユーザーデータを取得する
   useEffect(() => {
