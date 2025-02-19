@@ -42,6 +42,8 @@ function FileUploadButton({ onFileSelected }) {
     if (file) {
       console.log("Selected file:", file.name);
       console.log("Detected MIME type:", file.type);
+      
+      // 特定のファイルタイプのチェックを無効化
       onFileSelected(file);
     }
   };
@@ -66,6 +68,7 @@ function FileUploadButton({ onFileSelected }) {
     </div>
   );
 }
+
 
 
 // ----------------------
