@@ -440,6 +440,15 @@ function App() {
         console.error("残時間更新エラー:", err);
       }
     }
+    // ★ 追加：録音終了時に Firestore の recordingDevice をリセット
+    if (auth.currentUser) {
+      try {
+        await setDoc(doc(db, "users", auth.currentUser.uid), { recordingDevice: null, recordingTimestamp: null }, { merge: true });
+        console.log("✅ recordingDevice をリセットしました");
+      } catch (error) {
+        console.error("recordingDevice のリセットに失敗:", error);
+      }
+    }
   };
 
   const updateAudioLevel = () => {
