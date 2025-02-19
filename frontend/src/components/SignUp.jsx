@@ -5,12 +5,7 @@ import {
   sendEmailVerification,
   signOut,
 } from "firebase/auth";
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
@@ -43,22 +38,15 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      // Firestore にユーザードキュメントを作成（SwiftUI側と同じフィールド定義にする）
+      // Firestore にユーザードキュメントを作成（必要な初期値をセット）
       await setDoc(
         doc(db, "users", user.uid),
         {
+          email: user.email,
+          subscription: false,
+          displayName: user.displayName || "",
+          remainingSeconds: 180,
           createdAt: serverTimestamp(),
-          userName: email.substring(0, 3), // SwiftUI: String(emailField.prefix(3))
-          email: email,
-          recordingDevice: null,         // SwiftUIでは NSNull() に相当
-          recordingTimestamp: null,      // 同上
-          originalTransactionId: null,   // 同上
-          subscriptionPlan: null,        // 同上
-          subscriptionStartDate: null,   // 同上
-          subscriptionEndDate: null,     // 同上
-          lastSubscriptionUpdate: null,  // 同上
-          remainingSeconds: 0,           // SwiftUI側は存在する場合はその値、なければ 0
-          subscription: false,           // SwiftUI側では @AppStorage("userIsUnlimited") と同期（初期値 false）
         },
         { merge: true }
       );
@@ -125,7 +113,7 @@ const SignUp = () => {
           確認メールを送信しました
         </h1>
         <p style={{ fontSize: "0.8em", marginTop: "10px" }}>
-          メール内のリンクをクリックしてアカウントの認証をし、ログインを完了してください。
+        メール内のリンクをクリックしてアカウントの認証をし、ログインを完了してください。
         </p>
         <button
           onClick={() => navigate("/login")}
