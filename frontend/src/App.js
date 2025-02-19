@@ -46,7 +46,7 @@ function FileUploadButton({ onFileSelected }) {
 
   return (
     <div style={{ position: 'absolute', top: 20, right: 30 }}>
-      {/* 隠しファイル入力 */}
+      {/* 重要なデバッグ用隠しファイル入力 */}
       <input
         type="file"
         accept=".webm"
@@ -54,6 +54,13 @@ function FileUploadButton({ onFileSelected }) {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
+      {/* 実際に表示するデバッグ用のボタン */}
+      <button 
+        onClick={handleButtonClick} 
+        style={{ background: 'red', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}
+      >
+        Debug Upload
+      </button>
     </div>
   );
 }
