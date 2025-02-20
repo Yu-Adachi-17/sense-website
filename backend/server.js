@@ -516,7 +516,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
                     mode: mode,
                     line_items: [ { price: priceId, quantity: 1 } ],
                     client_reference_id: userId,
-                    customer_email: userEmail, // 顧客のメールアドレス
                     metadata: {
                       product_id: productId,
                       userId: userId  // ここで userId を追加
