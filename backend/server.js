@@ -511,22 +511,20 @@ app.post('/api/create-checkout-session', async (req, res) => {
                   productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
                   ? 'subscription'
                   : 'payment';
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      mode: mode,
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      client_reference_id: userId,
-      metadata: {
-        product_id: productId
-      },
-      success_url: 'https://sense-ai.world/success',
-      cancel_url: 'https://sense-ai.world/cancel',
-    });
+                  const session = await stripe.checkout.sessions.create({
+                    payment_method_types: ['card'],
+                    mode: mode,
+                    line_items: [ { price: priceId, quantity: 1 } ],
+                    client_reference_id: userId,
+                    customer_email: userEmail, // 顧客のメールアドレス
+                    metadata: {
+                      product_id: productId,
+                      userId: userId  // ここで userId を追加
+                    },
+                    success_url: 'https://sense-ai.world/success',
+                    cancel_url: 'https://sense-ai.world/cancel',
+                  });
+                  
     console.log("✅ Checkout URL:", session.url);
     res.json({ url: session.url });
   } catch (error) {
