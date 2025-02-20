@@ -4,7 +4,6 @@ import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import PurchaseMenu from './components/PurchaseMenu'; 
 import BuyTicketsPage from "./components/BuyTicketsPage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -24,6 +23,65 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
 import SEOPage from "./components/SEO";
+
+// ============================
+// ハンバーガーメニュー（PurchaseMenu）
+// ============================
+const PurchaseMenu = () => {
+  const menuStyle = {
+    position: 'absolute',
+    top: 20,
+    left: 30,
+    background: 'rgba(0,0,0,0.8)',
+    padding: '10px',
+    borderRadius: '8px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+    zIndex: 100,
+  };
+
+  const buttonStyle = {
+    background: 'none',
+    border: '1px solid white',
+    color: 'white',
+    padding: '10px 20px',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+  };
+
+  return (
+    <div style={menuStyle}>
+      {/* 上段：サービスと料金表を中央配置 */}
+      <div style={{ textAlign: 'center' }}>
+        <button 
+          onClick={() => window.location.href = '/seo'}
+          style={buttonStyle}
+        >
+          サービスと料金表
+        </button>
+      </div>
+      {/* アイテム購入エリア：PiGridFourFill と「議事録リスト」 */}
+      <div>
+        <button 
+          onClick={() => {
+            if (!auth.currentUser) {
+              window.location.href = '/login';
+            } else {
+              window.location.href = '/minutes-list';
+            }
+          }}
+          style={buttonStyle}
+        >
+          <PiGridFourFill style={{ marginRight: '8px' }} />
+          議事録リスト
+        </button>
+      </div>
+      {/* 他のメニュー項目があれば、ここに追加可能 */}
+    </div>
+  );
+};
 
 // ----------------------
 // 重要：ファイルアップロード用コンポーネント
@@ -68,7 +126,6 @@ function FileUploadButton({ onFileSelected }) {
     </div>
   );
 }
-
 
 // ----------------------
 // DebugRouter（ルートのデバッグ用）
@@ -571,53 +628,10 @@ useEffect(() => {
           element={
             <div className="container">
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                {/* 左上：グリッドアイコン */}
-                <button
-                  onClick={() => {
-                    if (!auth.currentUser) {
-                      window.location.href = '/login';
-                    } else {
-                      window.location.href = '/minutes-list';
-                    }
-                  }}
-                  style={{
-                    position: 'absolute',
-                    top: 20,
-                    left: 30,
-                    background: 'none',
-                    border: 'none',
-                    color: 'white',
-                    fontSize: 30,
-                    cursor: 'pointer'
-                  }}
-                >
-                  <PiGridFourFill />
-                </button>
-
                 {/* 右上：ファイルアップロードボタン */}
                 <FileUploadButton onFileSelected={handleFileUpload} />
 
-                {/* 画面上部中央：サービスと料金表ボタン */}
-                <button
-                  onClick={() => window.location.href = '/seo'}
-                  style={{
-                    position: 'absolute',
-                    top: 20,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: '#000000',
-                    border: '2px solid white',
-                    padding: '10px 20px',
-                    borderRadius: '30px',
-                    color: 'white',
-                    fontSize: '16px',
-                    fontWeight: 'bold',
-                    cursor: 'pointer'
-                  }}
-                >
-                  サービスと料金表
-                </button>
-
+                {/* ハンバーガーメニュー内に「サービスと料金表」＆「議事録リスト」を配置 */}
                 {!showFullScreen && <PurchaseMenu />}
 
                 <div
