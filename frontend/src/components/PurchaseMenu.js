@@ -1,3 +1,4 @@
+// PurchaseMenu.js
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // Firebase 関連
@@ -9,6 +10,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { FaTicketAlt, FaCircle } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
+import { PiGridFourFill } from "react-icons/pi";  // 追加：議事録リスト用アイコン
 
 export function PurchaseMenu() {
   // 各種 state 定義
@@ -213,6 +215,13 @@ export function PurchaseMenu() {
       cursor: "pointer",
       padding: "4px 8px",
     },
+    // 新規：トップ行のコンテナ
+    topRow: {
+      position: "relative",
+      width: "100%",
+      height: "50px",
+      marginBottom: "16px",
+    },
   };
 
   // クリックイベントのバブリング防止用
@@ -249,10 +258,57 @@ export function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* 不要なプロフィールアイコンの代わりに同等の高さのスペーサー */}
-            <div style={{ height: "46px" }} />
+            {/* 新規：最上段のトップ行（左：議事録リスト、中央：サービスと料金表） */}
+            <div style={styles.topRow}>
+              <button
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "white",
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                  cursor: "pointer",
+                  position: "absolute",
+                  left: 0,
+                }}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  if (userId) {
+                    navigate("/minutes-list");
+                  } else {
+                    navigate("/login");
+                  }
+                }}
+              >
+                <PiGridFourFill style={{ marginRight: "8px" }} />
+                議事録リスト
+              </button>
+              <button
+                style={{
+                  background: "none",
+                  border: "2px solid white",
+                  borderRadius: "30px",
+                  color: "white",
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  padding: "10px 20px",
+                  cursor: "pointer",
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)"
+                }}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  navigate("/seo");
+                }}
+              >
+                サービスと料金表
+              </button>
+            </div>
 
-            {/* アイテムを購入ボタン（常に表示、ログイン状態に応じて遷移） */}
+            {/* 以下、既存のボタン群 */}
             <button
               style={styles.purchaseButton}
               onClick={() => {
@@ -268,7 +324,6 @@ export function PurchaseMenu() {
               アイテムを購入
             </button>
 
-            {/* 議事録フォーマット確認ボタン */}
             <button
               style={styles.formatButton}
               onClick={() => {
@@ -282,34 +337,34 @@ export function PurchaseMenu() {
 
             {/* 右下に配置する小サイズのポリシーボタン群（上下の順序を逆に） */}
             <div style={styles.policyButtonContainer}>
-  <button
-    style={styles.policyButton}
-    onClick={() => {
-      setShowSideMenu(false);
-      navigate("/terms-of-use");
-    }}
-  >
-    Terms of Use
-  </button>
-  <button
-    style={styles.policyButton}
-    onClick={() => {
-      setShowSideMenu(false);
-      navigate("/privacy-policy");
-    }}
-  >
-    Privacy Policy
-  </button>
-  <button
-    style={styles.policyButton}
-    onClick={() => {
-      setShowSideMenu(false);
-      navigate("/transactions-law");
-    }}
-  >
-    特定商取引法に基づく表記
-  </button>
-</div>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  navigate("/terms-of-use");
+                }}
+              >
+                Terms of Use
+              </button>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  navigate("/privacy-policy");
+                }}
+              >
+                Privacy Policy
+              </button>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  navigate("/transactions-law");
+                }}
+              >
+                特定商取引法に基づく表記
+              </button>
+            </div>
 
           </div>
         </div>
