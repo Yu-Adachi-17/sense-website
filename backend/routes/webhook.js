@@ -43,14 +43,21 @@ const handleCheckoutSessionCompleted = async (session) => {
 
     const userId = session.client_reference_id;
     const productId = session.metadata.product_id;
+    const customerId = session.customer;
+
     console.log("✅ userId:", userId);
     console.log("✅ productId:", productId);
+    console.log("✅ customerId:", customerId);
 
-    // userId が取得できなければ処理を中断
-    if (!userId) {
-      console.error("❌ userId がセットされていません。Firebase の更新をスキップします。");
+    if (!userId || !customerId) {
+      console.error("❌ userId または customerId が取得できません。Firebase の更新をスキップします。");
       return;
     }
+
+    // ✅ Stripe の顧客情報に userId をセット
+    await stripe.customers.update(customerId, {
+      metadata: { userId }
+    });
 
     const productValue = PRODUCT_MAP[productId];
     if (!productValue) {
@@ -67,27 +74,12 @@ const handleCheckoutSessionCompleted = async (session) => {
       return;
     }
 
-    // サブスクリプションの場合（無制限／年額無制限）
     if (productValue === 'unlimited' || productValue === 'yearly-unlimited') {
       await userRef.update({
         subscription: true,
         lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
       });
       console.log(`✅ Firebase updated: userId=${userId}, subscription enabled`);
-    }
-    // 分数（分）で購入する場合
-    else if (typeof productValue === 'number') {
-      const secondsToAdd = productValue * 60;
-      const currentSeconds = userDoc.data().remainingSeconds || 0;
-      const newSeconds = currentSeconds + secondsToAdd;
-
-      await userRef.update({
-        remainingSeconds: newSeconds,
-        lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
-      });
-      console.log(`✅ Firebase updated: userId=${userId}, addedSeconds=${secondsToAdd}`);
-    } else {
-      console.error(`❌ Unhandled product type for productValue: ${productValue}`);
     }
   } catch (error) {
     console.error("❌ Error updating Firebase:", error);
@@ -129,8 +121,15 @@ const handleSubscriptionUpdated = async (subscription) => {
 const handleSubscriptionDeleted = async (subscription) => {
   try {
     const customerId = subscription.customer;
+
+    if (!customerId) {
+      console.error("❌ customerId が取得できません");
+      return;
+    }
+
+    // ✅ Stripe の顧客情報を取得して metadata から userId を取得
     const customer = await stripe.customers.retrieve(customerId);
-    const userId = customer.metadata.userId;
+    const userId = customer.metadata?.userId;
 
     console.log("✅ 解約処理開始: userId=", userId);
 
@@ -160,6 +159,44 @@ const handleSubscriptionDeleted = async (subscription) => {
     console.error("❌ 解約時の Firebase 更新エラー:", error);
   }
 };
+
+// 🎯 Webhook のエンドポイントを修正
+router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(
+      req.body,
+      req.headers['stripe-signature'],
+      endpointSecret
+    );
+  } catch (err) {
+    console.error("🚨 Webhook の署名検証に失敗:", err.message);
+    return res.status(400).json({ error: "Webhook verification failed", details: err.message });
+  }
+
+  try {
+    switch (event.type) {
+      case 'checkout.session.completed':
+        await handleCheckoutSessionCompleted(event.data.object);
+        break;
+      case 'customer.subscription.updated':
+        await handleSubscriptionUpdated(event.data.object);
+        break;
+      case 'customer.subscription.deleted':
+        await handleSubscriptionDeleted(event.data.object);
+        break;
+      default:
+        console.log(`⚠️ 未処理の Webhook イベント: ${event.type}`);
+    }
+  } catch (err) {
+    console.error(`🔥 Webhook の処理中にエラーが発生 (${event.type}):`, err);
+    return res.status(500).json({ error: "Internal Server Error", details: err.message });
+  }
+
+  res.sendStatus(200);
+});
+
 
 // 🎯 Webhook エンドポイント
 router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
