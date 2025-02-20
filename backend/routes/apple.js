@@ -19,17 +19,19 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 /**
- * ユーザーのサブスクリプション状態を更新する関数
+ * ユーザーのサブスクリプション状態と originalTransactionId を更新する関数
  * @param {string} userId - Firestore のユーザードキュメントID
  * @param {boolean} subscriptionActive - 有効なら true、無効なら false
+ * @param {string} originalTransactionId - Apple から受け取った originalTransactionId
  */
-async function updateSubscriptionStatus(userId, subscriptionActive) {
+async function updateSubscriptionStatus(userId, subscriptionActive, originalTransactionId) {
   try {
     await db.collection('users').doc(userId).update({
       subscription: subscriptionActive,
+      originalTransactionId: originalTransactionId,  // ここで更新
       lastUpdated: admin.firestore.FieldValue.serverTimestamp()
     });
-    console.log(`✅ [DEBUG] ユーザー ${userId} のサブスクリプション状態を ${subscriptionActive} に更新`);
+    console.log(`✅ [DEBUG] ユーザー ${userId} のサブスクリプション状態を ${subscriptionActive} に、originalTransactionId を ${originalTransactionId} に更新`);
   } catch (error) {
     console.error(`❌ [ERROR] Firestore の更新に失敗 (User ID: ${userId}):`, error);
     throw error;
@@ -38,7 +40,7 @@ async function updateSubscriptionStatus(userId, subscriptionActive) {
 
 /**
  * Apple Server-to-Server Notification エンドポイント
- * 受信した通知に基づいて、ユーザーのサブスクリプション状態を Firebase に更新します。
+ * 受信した通知に基づいて、ユーザーのサブスクリプション状態および originalTransactionId を Firebase に更新します。
  */
 router.post('/notifications', express.json(), async (req, res) => {
   try {
@@ -47,13 +49,11 @@ router.post('/notifications', express.json(), async (req, res) => {
     console.log("📥 [DEBUG] リクエストボディ (raw):", req.body);
 
     let body = req.body;
-
     // Buffer の場合は JSON に変換
     if (Buffer.isBuffer(body)) {
       console.log("📥 [DEBUG] `req.body` は Buffer でした。JSON に変換します。");
       body = JSON.parse(body.toString());
     }
-
     console.log("📥 [DEBUG] Apple通知受信 (変換後):", body);
 
     // Apple の通知は signedPayload にエンコードされている
@@ -72,13 +72,12 @@ router.post('/notifications', express.json(), async (req, res) => {
       return res.status(400).send("Invalid JWT payload");
     }
 
-    // 必須フィールドの存在をチェック
     if (!decodedPayload || !decodedPayload.notificationType || !decodedPayload.data) {
       console.error("❌ [ERROR] 必須フィールドが不足しています:", decodedPayload);
       return res.status(400).send("Invalid request format: missing required fields");
     }
 
-    // originalTransactionId が直接取得できない場合、signedTransactionInfo から取得する
+    // originalTransactionId の取得
     let originalTransactionId = decodedPayload.data.originalTransactionId;
     if (!originalTransactionId && decodedPayload.data.signedTransactionInfo) {
       const innerPayload = jwt.decode(decodedPayload.data.signedTransactionInfo);
@@ -97,8 +96,7 @@ router.post('/notifications', express.json(), async (req, res) => {
 
     // サブスクリプション状態の判定
     let subscriptionActive = false;
-    if (["INITIAL_BUY", "DID_RENEW", "INTERACTIVE_RENEWAL", "SUBSCRIBED"].includes(notificationType)) {
-      // SUBSCRIBED (または RESUBSCRIBE など) は新規・更新とみなす
+    if (["INITIAL_BUY", "DID_RENEW", "INTERACTIVE_RENEWAL", "SUBSCRIBED", "DID_CHANGE_RENEWAL_PREF"].includes(notificationType)) {
       subscriptionActive = true;
     } else if (["CANCEL", "EXPIRED", "DID_FAIL_TO_RENEW"].includes(notificationType)) {
       subscriptionActive = false;
@@ -121,7 +119,8 @@ router.post('/notifications', express.json(), async (req, res) => {
     const userId = userDoc.id;
     console.log("✅ [DEBUG] Firestore ユーザー ID:", userId);
 
-    await updateSubscriptionStatus(userId, subscriptionActive);
+    // 更新処理（originalTransactionId も更新）
+    await updateSubscriptionStatus(userId, subscriptionActive, originalTransactionId);
 
     console.log("✅ [DEBUG] ユーザーのサブスクリプション状態を更新完了");
     return res.status(200).send("OK");
