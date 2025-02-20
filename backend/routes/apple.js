@@ -1,4 +1,3 @@
-// routes/apple.js
 const express = require('express');
 const router = express.Router();
 const admin = require('firebase-admin');
@@ -19,42 +18,52 @@ if (!admin.apps.length) {
 const db = admin.firestore();
 
 /**
- * ユーザーのサブスクリプション状態と originalTransactionId を更新する関数
+ * Firestore のユーザー情報を更新
  * @param {string} userId - Firestore のユーザードキュメントID
- * @param {boolean} subscriptionActive - 有効なら true、無効なら false
- * @param {string} originalTransactionId - Apple から受け取った originalTransactionId
+ * @param {boolean} subscriptionActive - サブスクリプションの有効状態
+ * @param {string} originalTransactionId - Apple の originalTransactionId
+ * @param {string} productId - 購入されたプロダクトID
+ * @param {Date} expiresDate - サブスクリプションの有効期限
  */
-async function updateSubscriptionStatus(userId, subscriptionActive, originalTransactionId) {
+async function updateSubscriptionStatus(userId, subscriptionActive, originalTransactionId, productId, expiresDate) {
   try {
-    await db.collection('users').doc(userId).update({
+    const userRef = db.collection('users').doc(userId);
+    const userDoc = await userRef.get();
+    
+    if (!userDoc.exists) {
+      console.error(`❌ [ERROR] Firestore に該当ユーザーが存在しません (User ID: ${userId})`);
+      return;
+    }
+
+    let updateData = {
       subscription: subscriptionActive,
-      originalTransactionId: originalTransactionId,  // ここで更新
-      lastUpdated: admin.firestore.FieldValue.serverTimestamp()
-    });
-    console.log(`✅ [DEBUG] ユーザー ${userId} のサブスクリプション状態を ${subscriptionActive} に、originalTransactionId を ${originalTransactionId} に更新`);
+      subscriptionPlan: productId,
+      subscriptionEndDate: expiresDate ? admin.firestore.Timestamp.fromDate(expiresDate) : null,
+      lastSubscriptionUpdate: admin.firestore.FieldValue.serverTimestamp(),
+    };
+
+    // originalTransactionId が未登録の場合のみ追加
+    if (!userDoc.data().originalTransactionId) {
+      updateData.originalTransactionId = originalTransactionId;
+    }
+
+    await userRef.update(updateData);
+    console.log(`✅ [DEBUG] ユーザー ${userId} のサブスクリプションを更新`);
   } catch (error) {
-    console.error(`❌ [ERROR] Firestore の更新に失敗 (User ID: ${userId}):`, error);
-    throw error;
+    console.error(`❌ [ERROR] Firestore 更新エラー (User ID: ${userId}):`, error);
   }
 }
 
 /**
  * Apple Server-to-Server Notification エンドポイント
- * 受信した通知に基づいて、ユーザーのサブスクリプション状態および originalTransactionId を Firebase に更新します。
  */
 router.post('/notifications', express.json(), async (req, res) => {
   try {
     console.log("📥 [DEBUG] Apple通知リクエスト受信");
     console.log("📥 [DEBUG] リクエストヘッダー:", JSON.stringify(req.headers, null, 2));
-    console.log("📥 [DEBUG] リクエストボディ (raw):", req.body);
+    console.log("📥 [DEBUG] リクエストボディ:", req.body);
 
     let body = req.body;
-    // Buffer の場合は JSON に変換
-    if (Buffer.isBuffer(body)) {
-      console.log("📥 [DEBUG] `req.body` は Buffer でした。JSON に変換します。");
-      body = JSON.parse(body.toString());
-    }
-    console.log("📥 [DEBUG] Apple通知受信 (変換後):", body);
 
     // Apple の通知は signedPayload にエンコードされている
     if (!body || !body.signedPayload) {
@@ -79,10 +88,21 @@ router.post('/notifications', express.json(), async (req, res) => {
 
     // originalTransactionId の取得
     let originalTransactionId = decodedPayload.data.originalTransactionId;
+    let productId = null;
+    let expiresDate = null;
+
     if (!originalTransactionId && decodedPayload.data.signedTransactionInfo) {
-      const innerPayload = jwt.decode(decodedPayload.data.signedTransactionInfo);
-      console.log("📥 [DEBUG] デコード済み signedTransactionInfo:", innerPayload);
-      originalTransactionId = innerPayload && innerPayload.originalTransactionId;
+      try {
+        const innerPayload = jwt.decode(decodedPayload.data.signedTransactionInfo);
+        console.log("📥 [DEBUG] デコード済み signedTransactionInfo:", innerPayload);
+        if (innerPayload) {
+          originalTransactionId = innerPayload.originalTransactionId;
+          productId = innerPayload.productId;
+          expiresDate = innerPayload.expiresDate ? new Date(innerPayload.expiresDate) : null;
+        }
+      } catch (err) {
+        console.error("🚨 [ERROR] signedTransactionInfo のデコード失敗:", err);
+      }
     }
 
     if (!originalTransactionId) {
@@ -110,17 +130,18 @@ router.post('/notifications', express.json(), async (req, res) => {
     const usersRef = db.collection('users');
     const querySnapshot = await usersRef.where("originalTransactionId", "==", originalTransactionId).limit(1).get();
 
-    if (querySnapshot.empty) {
+    let userId;
+    if (!querySnapshot.empty) {
+      userId = querySnapshot.docs[0].id;
+    } else {
       console.error("❌ [ERROR] Firestore にユーザーが見つかりません:", originalTransactionId);
       return res.status(404).send("User not found");
     }
 
-    const userDoc = querySnapshot.docs[0];
-    const userId = userDoc.id;
     console.log("✅ [DEBUG] Firestore ユーザー ID:", userId);
 
-    // 更新処理（originalTransactionId も更新）
-    await updateSubscriptionStatus(userId, subscriptionActive, originalTransactionId);
+    // Firestore のサブスクリプション情報を更新
+    await updateSubscriptionStatus(userId, subscriptionActive, originalTransactionId, productId, expiresDate);
 
     console.log("✅ [DEBUG] ユーザーのサブスクリプション状態を更新完了");
     return res.status(200).send("OK");
