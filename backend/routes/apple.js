@@ -1,9 +1,9 @@
-// routes/apple.js
 const express = require('express');
 const router = express.Router();
 const admin = require('firebase-admin');
+const jwt = require('jsonwebtoken'); // ✅ JWT デコード用
 
-// Firebase の初期化（既に初期化済みの場合は再初期化されません）
+// Firebase の初期化
 if (!admin.apps.length) {
   try {
     admin.initializeApp({
@@ -28,45 +28,47 @@ async function updateSubscriptionStatus(userId, subscriptionActive) {
       subscription: subscriptionActive,
       lastUpdated: admin.firestore.FieldValue.serverTimestamp()
     });
-    console.log(`✅ Updated subscription for user ${userId} to ${subscriptionActive}`);
+    console.log(`✅ [DEBUG] ユーザー ${userId} のサブスクリプション状態を ${subscriptionActive} に更新`);
   } catch (error) {
-    console.error(`❌ Failed to update subscription for user ${userId}:`, error);
+    console.error(`❌ [ERROR] Firestore の更新に失敗 (User ID: ${userId}):`, error);
     throw error;
   }
 }
 
 /**
  * Apple Server-to-Server Notification エンドポイント
- * 受信した通知に基づいて、ユーザーのサブスクリプション状態を Firebase に更新します。
  */
-router.post('/notifications', async (req, res) => {
+router.post('/notifications', express.json(), async (req, res) => {
   try {
     console.log("📥 [DEBUG] Apple通知リクエスト受信");
     console.log("📥 [DEBUG] リクエストヘッダー:", JSON.stringify(req.headers, null, 2));
-    console.log("📥 [DEBUG] リクエストボディ (raw):", req.body);
 
     let body = req.body;
+    console.log("📥 [DEBUG] リクエストボディ (raw):", body);
 
-    // Buffer の場合は JSON に変換
-    if (Buffer.isBuffer(body)) {
-      console.log("📥 [DEBUG] `req.body` は Buffer でした。JSON に変換します。");
-      body = JSON.parse(body.toString());
+    // Apple の通知は `signedPayload` に入っているのでデコードする
+    if (!body || !body.signedPayload) {
+      console.error("❌ [ERROR] signedPayload が見つかりません:", body);
+      return res.status(400).send("Invalid request format: signedPayload is missing");
     }
 
-    console.log("📥 [DEBUG] Apple通知受信 (変換後):", body);
-
-    if (!body || typeof body !== 'object') {
-      console.error("❌ [ERROR] `req.body` がオブジェクトではありません:", body);
-      return res.status(400).send("Invalid request format");
+    // JWT をデコード
+    let decodedPayload;
+    try {
+      decodedPayload = jwt.decode(body.signedPayload);
+      console.log("📥 [DEBUG] デコード済み Payload:", decodedPayload);
+    } catch (err) {
+      console.error("🚨 [ERROR] JWT デコードに失敗:", err);
+      return res.status(400).send("Invalid JWT payload");
     }
 
-    if (!body.data || !body.data.originalTransactionId) {
-      console.error("❌ [ERROR] 必須フィールドが不足しています:", body);
-      return res.status(400).send("Invalid request format");
+    if (!decodedPayload || !decodedPayload.notificationType || !decodedPayload.data || !decodedPayload.data.originalTransactionId) {
+      console.error("❌ [ERROR] 必須フィールドが不足しています:", decodedPayload);
+      return res.status(400).send("Invalid request format: missing required fields");
     }
 
-    const originalTransactionId = body.data.originalTransactionId;
-    const notificationType = body.notificationType;
+    const originalTransactionId = decodedPayload.data.originalTransactionId;
+    const notificationType = decodedPayload.notificationType;
     console.log("🔔 [DEBUG] notificationType:", notificationType);
     console.log("🔑 [DEBUG] originalTransactionId:", originalTransactionId);
 
@@ -76,7 +78,7 @@ router.post('/notifications', async (req, res) => {
     } else if (["CANCEL", "EXPIRED", "DID_FAIL_TO_RENEW"].includes(notificationType)) {
       subscriptionActive = false;
     } else {
-      console.log("⚠️ [DEBUG] Unhandled notificationType. No update performed.");
+      console.log("⚠️ [DEBUG] 未対応の notificationType:", notificationType);
       return res.status(200).send("Unhandled notificationType");
     }
 
@@ -86,7 +88,7 @@ router.post('/notifications', async (req, res) => {
     const querySnapshot = await usersRef.where("originalTransactionId", "==", originalTransactionId).limit(1).get();
 
     if (querySnapshot.empty) {
-      console.error("❌ [ERROR] No user found with originalTransactionId:", originalTransactionId);
+      console.error("❌ [ERROR] Firestore にユーザーが見つかりません:", originalTransactionId);
       return res.status(404).send("User not found");
     }
 
@@ -99,11 +101,9 @@ router.post('/notifications', async (req, res) => {
     console.log("✅ [DEBUG] ユーザーのサブスクリプション状態を更新完了");
     return res.status(200).send("OK");
   } catch (error) {
-    console.error("🚨 [ERROR] Apple S2S Webhook 処理中にエラー:", error);
+    console.error("🚨 [ERROR] Apple通知処理中にエラー発生:", error);
     return res.status(500).send("Error processing notification");
   }
 });
-
-
 
 module.exports = router;
