@@ -67,8 +67,6 @@ const handleCheckoutSessionCompleted = async (session) => {
       return;
     }
 
-    // unlimited購入の場合：時間はそのままで、subscriptionフラグのみ更新
-
     // サブスクリプションの場合（無制限／年額無制限）
     if (productValue === 'unlimited' || productValue === 'yearly-unlimited') {
       await userRef.update({
@@ -96,6 +94,73 @@ const handleCheckoutSessionCompleted = async (session) => {
   }
 };
 
+// 🎯 サブスクリプション更新時の処理
+const handleSubscriptionUpdated = async (subscription) => {
+  try {
+    const customerId = subscription.customer;
+    const customer = await stripe.customers.retrieve(customerId);
+    const userId = customer.metadata.userId;
+
+    console.log("✅ サブスクリプション更新処理開始: userId=", userId);
+
+    if (!userId) {
+      console.error("❌ ユーザーIDが見つかりません");
+      return;
+    }
+
+    const userRef = db.collection('users').doc(userId);
+    const currentPeriodEnd = subscription.current_period_end * 1000; // ミリ秒変換
+    const now = Date.now();
+
+    if (subscription.cancel_at_period_end) {
+      // 解約予約の場合、有効期限を記録する
+      await userRef.update({
+        subscription: true,
+        subscriptionExpiresAt: new Date(currentPeriodEnd)
+      });
+      console.log(`✅ Firebase updated: userId=${userId}, subscriptionExpiresAt=${new Date(currentPeriodEnd)}`);
+    }
+  } catch (error) {
+    console.error("❌ Subscription 更新時の Firebase 更新エラー:", error);
+  }
+};
+
+// 🎯 サブスクリプション削除時の処理
+const handleSubscriptionDeleted = async (subscription) => {
+  try {
+    const customerId = subscription.customer;
+    const customer = await stripe.customers.retrieve(customerId);
+    const userId = customer.metadata.userId;
+
+    console.log("✅ 解約処理開始: userId=", userId);
+
+    if (!userId) {
+      console.error("❌ 解約処理エラー: userId が取得できません");
+      return;
+    }
+
+    const userRef = db.collection('users').doc(userId);
+    const userDoc = await userRef.get();
+    const subscriptionExpiresAt = userDoc.data()?.subscriptionExpiresAt?.toDate();
+
+    const now = new Date();
+
+    if (subscriptionExpiresAt && subscriptionExpiresAt > now) {
+      // 利用期間がまだ残っている場合は、解約予約済み状態としフラグは維持
+      console.log(`✅ サブスクリプションは ${subscriptionExpiresAt} まで有効`);
+    } else {
+      // 期間が終了している場合は、subscription フラグを false に更新
+      await userRef.update({
+        subscription: false,
+        subscriptionCancelledAt: admin.firestore.FieldValue.serverTimestamp()
+      });
+      console.log(`✅ Firebase updated: userId=${userId}, subscription disabled`);
+    }
+  } catch (error) {
+    console.error("❌ 解約時の Firebase 更新エラー:", error);
+  }
+};
+
 // 🎯 Webhook エンドポイント
 router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
   let event;
@@ -117,10 +182,10 @@ router.post('/stripe', express.raw({ type: 'application/json' }), async (req, re
         await handleCheckoutSessionCompleted(event.data.object);
         break;
       case 'customer.subscription.updated':
-        // ここに handleSubscriptionUpdated(event.data.object); を追加予定
+        await handleSubscriptionUpdated(event.data.object);
         break;
       case 'customer.subscription.deleted':
-        // ここに handleSubscriptionDeleted(event.data.object); を追加予定
+        await handleSubscriptionDeleted(event.data.object);
         break;
       default:
         console.log(`⚠️ 未処理の Webhook イベント: ${event.type}`);
