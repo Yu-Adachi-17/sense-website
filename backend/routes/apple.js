@@ -1,9 +1,10 @@
+// routes/apple.js
 const express = require('express');
 const router = express.Router();
 const admin = require('firebase-admin');
-const jwt = require('jsonwebtoken'); // ✅ JWT デコード用
+const jwt = require('jsonwebtoken'); // JWT デコード用
 
-// Firebase の初期化
+// Firebase の初期化（既に初期化済みの場合は再初期化されません）
 if (!admin.apps.length) {
   try {
     admin.initializeApp({
@@ -37,16 +38,25 @@ async function updateSubscriptionStatus(userId, subscriptionActive) {
 
 /**
  * Apple Server-to-Server Notification エンドポイント
+ * 受信した通知に基づいて、ユーザーのサブスクリプション状態を Firebase に更新します。
  */
 router.post('/notifications', express.json(), async (req, res) => {
   try {
     console.log("📥 [DEBUG] Apple通知リクエスト受信");
     console.log("📥 [DEBUG] リクエストヘッダー:", JSON.stringify(req.headers, null, 2));
+    console.log("📥 [DEBUG] リクエストボディ (raw):", req.body);
 
     let body = req.body;
-    console.log("📥 [DEBUG] リクエストボディ (raw):", body);
 
-    // Apple の通知は `signedPayload` に入っているのでデコードする
+    // Buffer の場合は JSON に変換
+    if (Buffer.isBuffer(body)) {
+      console.log("📥 [DEBUG] `req.body` は Buffer でした。JSON に変換します。");
+      body = JSON.parse(body.toString());
+    }
+
+    console.log("📥 [DEBUG] Apple通知受信 (変換後):", body);
+
+    // Apple の通知は signedPayload にエンコードされている
     if (!body || !body.signedPayload) {
       console.error("❌ [ERROR] signedPayload が見つかりません:", body);
       return res.status(400).send("Invalid request format: signedPayload is missing");
@@ -62,22 +72,22 @@ router.post('/notifications', express.json(), async (req, res) => {
       return res.status(400).send("Invalid JWT payload");
     }
 
-    // `signedTransactionInfo` も JWT でエンコードされているため、追加でデコード
-    let transactionInfo;
-    if (decodedPayload.signedTransactionInfo) {
-      try {
-        transactionInfo = jwt.decode(decodedPayload.signedTransactionInfo);
-        console.log("📥 [DEBUG] デコード済み Transaction Info:", transactionInfo);
-      } catch (err) {
-        console.error("🚨 [ERROR] `signedTransactionInfo` の JWT デコードに失敗:", err);
-        return res.status(400).send("Invalid transaction JWT");
-      }
+    // 必須フィールドの存在をチェック
+    if (!decodedPayload || !decodedPayload.notificationType || !decodedPayload.data) {
+      console.error("❌ [ERROR] 必須フィールドが不足しています:", decodedPayload);
+      return res.status(400).send("Invalid request format: missing required fields");
     }
 
-    // `originalTransactionId` を取得
-    const originalTransactionId = transactionInfo?.originalTransactionId;
+    // originalTransactionId が直接取得できない場合、signedTransactionInfo から取得する
+    let originalTransactionId = decodedPayload.data.originalTransactionId;
+    if (!originalTransactionId && decodedPayload.data.signedTransactionInfo) {
+      const innerPayload = jwt.decode(decodedPayload.data.signedTransactionInfo);
+      console.log("📥 [DEBUG] デコード済み signedTransactionInfo:", innerPayload);
+      originalTransactionId = innerPayload && innerPayload.originalTransactionId;
+    }
+
     if (!originalTransactionId) {
-      console.error("❌ [ERROR] `originalTransactionId` が取得できません:", transactionInfo);
+      console.error("❌ [ERROR] originalTransactionId が取得できませんでした:", decodedPayload);
       return res.status(400).send("Invalid request format: originalTransactionId is missing");
     }
 
@@ -85,8 +95,10 @@ router.post('/notifications', express.json(), async (req, res) => {
     console.log("🔔 [DEBUG] notificationType:", notificationType);
     console.log("🔑 [DEBUG] originalTransactionId:", originalTransactionId);
 
+    // サブスクリプション状態の判定
     let subscriptionActive = false;
-    if (["SUBSCRIBED", "DID_RENEW", "INTERACTIVE_RENEWAL"].includes(notificationType)) {
+    if (["INITIAL_BUY", "DID_RENEW", "INTERACTIVE_RENEWAL", "SUBSCRIBED"].includes(notificationType)) {
+      // SUBSCRIBED (または RESUBSCRIBE など) は新規・更新とみなす
       subscriptionActive = true;
     } else if (["CANCEL", "EXPIRED", "DID_FAIL_TO_RENEW"].includes(notificationType)) {
       subscriptionActive = false;
@@ -95,7 +107,7 @@ router.post('/notifications', express.json(), async (req, res) => {
       return res.status(200).send("Unhandled notificationType");
     }
 
-    // Firestore で `originalTransactionId` を検索
+    // Firestore で originalTransactionId を検索
     console.log("🔎 [DEBUG] Firestore で `originalTransactionId` を検索...");
     const usersRef = db.collection('users');
     const querySnapshot = await usersRef.where("originalTransactionId", "==", originalTransactionId).limit(1).get();
