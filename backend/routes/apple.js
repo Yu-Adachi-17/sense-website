@@ -62,18 +62,31 @@ router.post('/notifications', express.json(), async (req, res) => {
       return res.status(400).send("Invalid JWT payload");
     }
 
-    if (!decodedPayload || !decodedPayload.notificationType || !decodedPayload.data || !decodedPayload.data.originalTransactionId) {
-      console.error("❌ [ERROR] 必須フィールドが不足しています:", decodedPayload);
-      return res.status(400).send("Invalid request format: missing required fields");
+    // `signedTransactionInfo` も JWT でエンコードされているため、追加でデコード
+    let transactionInfo;
+    if (decodedPayload.signedTransactionInfo) {
+      try {
+        transactionInfo = jwt.decode(decodedPayload.signedTransactionInfo);
+        console.log("📥 [DEBUG] デコード済み Transaction Info:", transactionInfo);
+      } catch (err) {
+        console.error("🚨 [ERROR] `signedTransactionInfo` の JWT デコードに失敗:", err);
+        return res.status(400).send("Invalid transaction JWT");
+      }
     }
 
-    const originalTransactionId = decodedPayload.data.originalTransactionId;
+    // `originalTransactionId` を取得
+    const originalTransactionId = transactionInfo?.originalTransactionId;
+    if (!originalTransactionId) {
+      console.error("❌ [ERROR] `originalTransactionId` が取得できません:", transactionInfo);
+      return res.status(400).send("Invalid request format: originalTransactionId is missing");
+    }
+
     const notificationType = decodedPayload.notificationType;
     console.log("🔔 [DEBUG] notificationType:", notificationType);
     console.log("🔑 [DEBUG] originalTransactionId:", originalTransactionId);
 
     let subscriptionActive = false;
-    if (["INITIAL_BUY", "DID_RENEW", "INTERACTIVE_RENEWAL"].includes(notificationType)) {
+    if (["SUBSCRIBED", "DID_RENEW", "INTERACTIVE_RENEWAL"].includes(notificationType)) {
       subscriptionActive = true;
     } else if (["CANCEL", "EXPIRED", "DID_FAIL_TO_RENEW"].includes(notificationType)) {
       subscriptionActive = false;
