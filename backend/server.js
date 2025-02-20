@@ -1,3 +1,4 @@
+// server.js
 require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
@@ -28,10 +29,20 @@ const app = express();
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
 // ② Apple Webhook 用: /api/apple/notifications は raw body を利用する
-app.use('/api/apple/notifications', express.raw({ type: 'application/json' }));
+// Apple Webhook 用: JSON をパースするように修正
+app.use('/api/apple/notifications', express.json());
+
 
 // ③ その他のエンドポイント用: JSON ボディのパース
 app.use(express.json());
+
+/* ✅ ここでリクエストの詳細をログに記録する */
+app.use((req, res, next) => {
+  console.log(`[DEBUG] ${req.method} ${req.url}`);
+  console.log(`[DEBUG] Headers: ${JSON.stringify(req.headers)}`);
+  console.log(`[DEBUG] Body: ${JSON.stringify(req.body)}`);
+  next();
+});
 
 /*==============================================
 =            ルーターの登録                     =
