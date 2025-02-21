@@ -60,16 +60,15 @@ function FileUploadButton({ onFileSelected }) {
         onChange={handleFileChange}
       />
       {/* 実際に表示するデバッグ用のボタン */}
-      <button 
+      {/* <button 
         onClick={handleButtonClick} 
         style={{ background: 'red', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}
       >
         Debug Upload
-      </button>
+      </button> */}
     </div>
   );
 }
-
 
 // ----------------------
 // DebugRouter（ルートのデバッグ用）
@@ -273,7 +272,8 @@ useEffect(() => {
 
   // 録音ボタン押下時の処理
   const toggleRecording = async () => {
-    if (userRemainingSeconds === 0) {
+    // サブスクリプション加入中の場合は残り秒数チェックをスキップする
+    if (!userSubscription && userRemainingSeconds === 0) {
       if (!auth.currentUser) {
         window.location.href = '/login';
       } else {
