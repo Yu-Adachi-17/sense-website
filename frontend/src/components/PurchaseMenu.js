@@ -7,7 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 // アイコン類
 import { GiHamburgerMenu } from "react-icons/gi";
-// import { IoPersonCircleOutline } from "react-icons/io5"; // 削除しました
+import { IoPersonCircleOutline } from "react-icons/io5"; // 残します
 import { FaTicketAlt, FaCircle } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
 import { PiGridFourFill } from "react-icons/pi";  // 追加：議事録リスト用アイコン
@@ -198,7 +198,7 @@ export function PurchaseMenu() {
       cursor: "pointer",
       fontFamily: "Impact, sans-serif",
     },
-    // 新規：グラデーション円形要素
+    // グラデーションリング用の外側の円
     profileCircle: {
       position: "absolute",
       top: "50%",
@@ -209,13 +209,22 @@ export function PurchaseMenu() {
       maxHeight: "320px",
       borderRadius: "50%",
       background: "linear-gradient(to bottom right, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))",
-      padding: "10px",
+      padding: "10px", // リングの太さ調整用
       boxSizing: "border-box",
       transform: "translate(-50%, -50%)",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      flexDirection: "column",
+    },
+    // innerCircle：overLay背景色と同じ色で塗り潰し、リングに見せる
+    innerCircle: {
+      width: "100%",
+      height: "100%",
+      borderRadius: "50%",
+      background: "rgba(0, 0, 0, 0.9)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     },
     profileInfo: {
       textAlign: "center",
@@ -314,7 +323,7 @@ export function PurchaseMenu() {
                   }
                 }}
               >
-                <FaCircle size={30} />
+                <IoPersonCircleOutline size={30} />
               </button>
             </div>
 
@@ -410,11 +419,13 @@ export function PurchaseMenu() {
             >
               ログアウト
             </button>
-            {/* グラデーション円形要素を中央に配置し、その中にプロフィール情報を表示 */}
+            {/* グラデーションリングとしての外側の円と、内側の innerCircle */}
             <div style={styles.profileCircle}>
-              <div style={styles.profileInfo}>
-                <p>Email: {userEmail}</p>
-                <p>Remaining Seconds: {profileRemainingSeconds}</p>
+              <div style={styles.innerCircle}>
+                <div style={styles.profileInfo}>
+                  <p>Email: {userEmail}</p>
+                  <p>Remaining Seconds: {profileRemainingSeconds}</p>
+                </div>
               </div>
             </div>
           </div>
