@@ -120,6 +120,20 @@ export function PurchaseMenu() {
       transition: "transform 0.5s ease-out",
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
     },
+        // 「議事録リスト」ボタン（黄色表記・左詰め）
+        minutesListButton: {
+          background: "none",
+          border: "none",
+          color: "white",
+          padding: "10px 0",
+          fontSize: "16px",
+          fontWeight: "bold",
+          display: "flex",
+          alignItems: "center",
+          cursor: "pointer",
+          textAlign: "left",
+          marginBottom: "16px",
+        },
     // 「アイテムを購入」ボタン（黄色表記・左詰め）
     purchaseButton: {
       background: "none",
@@ -293,7 +307,7 @@ export function PurchaseMenu() {
 
             {/* 以下、縦並びのメニュー項目 */}
             <button
-              style={styles.purchaseButton}
+              style={styles.minutesListButton}
               onClick={() => {
                 setShowSideMenu(false);
                 if (userId) {

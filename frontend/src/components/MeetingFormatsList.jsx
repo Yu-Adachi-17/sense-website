@@ -192,16 +192,14 @@ const MeetingFormatsList = () => {
           height: '70px', // 各アイテムの高さを統一
           padding: '0 20px',
           backgroundColor: '#000',
-          position: 'fixed',
-          top: 10,
-          left: 10,
-          right: 10,
+          // fixed ではなく通常のレイアウトに戻す
+          // position, top, left, right の指定を削除
           zIndex: 1500,
         }}
       >
         {/* 左側：HomeIcon */}
         <div style={{ width: '70px' }}>
-          <HomeIcon size="30px" color="white" />
+          <HomeIcon size={30} color="white" />
         </div>
         {/* 中央：Meeting Formats タイトル（中央寄せ） */}
         <div style={{ flexGrow: 1, textAlign: 'center' }}>
@@ -226,8 +224,8 @@ const MeetingFormatsList = () => {
         </div>
       </div>
 
-      {/* 固定ヘッダー分の余白を確保 */}
-      <div style={{ marginTop: '90px' }}>
+      {/* ヘッダー分の余白削除（通常レイアウトなので不要） */}
+      <div>
         {/* 検索ボックス */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <input
