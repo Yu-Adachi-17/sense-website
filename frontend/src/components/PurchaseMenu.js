@@ -7,7 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 // アイコン類
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoPersonCircleOutline } from "react-icons/io5";
+// import { IoPersonCircleOutline } from "react-icons/io5";  ← 削除
 import { FaTicketAlt, FaCircle } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
 import { PiGridFourFill } from "react-icons/pi";  // 追加：議事録リスト用アイコン
@@ -120,20 +120,20 @@ export function PurchaseMenu() {
       transition: "transform 0.5s ease-out",
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
     },
-        // 「議事録リスト」ボタン（黄色表記・左詰め）
-        minutesListButton: {
-          background: "none",
-          border: "none",
-          color: "white",
-          padding: "10px 0",
-          fontSize: "16px",
-          fontWeight: "bold",
-          display: "flex",
-          alignItems: "center",
-          cursor: "pointer",
-          textAlign: "left",
-          marginBottom: "16px",
-        },
+    // 「議事録リスト」ボタン（黄色表記・左詰め）
+    minutesListButton: {
+      background: "none",
+      border: "none",
+      color: "white",
+      padding: "10px 0",
+      fontSize: "16px",
+      fontWeight: "bold",
+      display: "flex",
+      alignItems: "center",
+      cursor: "pointer",
+      textAlign: "left",
+      marginBottom: "16px",
+    },
     // 「アイテムを購入」ボタン（黄色表記・左詰め）
     purchaseButton: {
       background: "none",
@@ -175,7 +175,7 @@ export function PurchaseMenu() {
     },
     profileModal: {
       width: "450px",
-      height: "600px",
+      height: "500px",
       background: "rgba(20, 20, 20, 1)",
       borderRadius: "8px",
       display: "flex",
@@ -184,6 +184,7 @@ export function PurchaseMenu() {
       padding: "20px",
       boxSizing: "border-box",
       position: "relative",
+      overflow: "hidden"
     },
     logoutButton: {
       position: "absolute",
@@ -197,12 +198,6 @@ export function PurchaseMenu() {
       border: "2px solid red",
       cursor: "pointer",
       fontFamily: "Impact, sans-serif",
-    },
-    profileIcon: {
-      fontSize: "160px",
-      color: "gray",
-      marginBottom: "20px",
-      marginTop: "5%",
     },
     profileInfo: {
       textAlign: "center",
@@ -248,6 +243,33 @@ export function PurchaseMenu() {
     setShowSideMenu(!showSideMenu);
   };
 
+  // 新規：グラデーションサークルのインラインスタイル
+  const outerGradientStyle = {
+    position: "absolute", // relative から absolute に変更
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "80vw", // 画面横幅の8割
+    height: "80vw", // 正方形（円形）にするため同じ値
+    borderRadius: "50%",
+    background: "linear-gradient(to bottom right, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))",
+    padding: "10px",
+    boxSizing: "border-box",
+  };
+
+  // サークル内のテキスト用スタイル
+  const innerTextStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    color: "#FFF",
+    fontFamily: "Impact, sans-serif",
+    fontSize: "16px",
+    textAlign: "center",
+  };
+
   return (
     <>
       {/* サイドメニューが閉じている場合のみハンバーガーアイコンを表示 */}
@@ -261,7 +283,7 @@ export function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* 新規：上段ヘッダー（中央：サービスと料金表、右：人アイコン） */}
+            {/* 新規：上段ヘッダー（中央：サービスと料金表、右：プロフィールボタン） */}
             <div style={styles.topRow}>
               <button
                 style={{
@@ -289,7 +311,7 @@ export function PurchaseMenu() {
                   background: "none",
                   border: "none",
                   color: "white",
-                  fontSize: "30px",
+                  fontSize: "16px",
                   cursor: "pointer"
                 }}
                 onClick={() => {
@@ -301,7 +323,7 @@ export function PurchaseMenu() {
                   }
                 }}
               >
-                <IoPersonCircleOutline size={30} />
+                プロフィール
               </button>
             </div>
 
@@ -397,10 +419,12 @@ export function PurchaseMenu() {
             >
               ログアウト
             </button>
-            <IoPersonCircleOutline style={styles.profileIcon} />
-            <div style={styles.profileInfo}>
-              <p>Email: {userEmail}</p>
-              <p>Remaining Seconds: {profileRemainingSeconds}</p>
+            {/* グラデーションサークル */}
+            <div style={outerGradientStyle}>
+              <div style={innerTextStyle}>
+                <p>Email: {userEmail}</p>
+                <p>Remaining Seconds: {profileRemainingSeconds}</p>
+              </div>
             </div>
           </div>
         </div>
