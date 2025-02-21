@@ -174,8 +174,8 @@ export function PurchaseMenu() {
       alignItems: "center",
     },
     profileModal: {
-      width: "300px",
-      height: "400px",
+      width: "450px",
+      height: "600px",
       background: "rgba(20, 20, 20, 1)",
       borderRadius: "8px",
       display: "flex",
