@@ -4,13 +4,14 @@ import { useNavigate } from "react-router-dom";
 // Firebase 関連
 import { auth, db } from "../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 // アイコン類
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoPersonCircleOutline } from "react-icons/io5"; // 残します
 import { FaTicketAlt, FaCircle } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
 import { PiGridFourFill } from "react-icons/pi";  // 追加：議事録リスト用アイコン
+import { HiOutlineDotsCircleHorizontal } from "react-icons/hi"; // 右上アクションメニュー用アイコン
 
 export function PurchaseMenu() {
   // 各種 state 定義
@@ -20,8 +21,12 @@ export function PurchaseMenu() {
   const [userEmail, setUserEmail] = useState(null);
   // Firestore のユーザードキュメントから取得する remainingSeconds
   const [profileRemainingSeconds, setProfileRemainingSeconds] = useState(null);
+  // Firebase上の subscription 状態（true: unlimited, false: 有限時間）
+  const [subscription, setSubscription] = useState(false);
   // プロフィールモーダル表示用
   const [showProfileOverlay, setShowProfileOverlay] = useState(false);
+  // アクションメニュー表示用
+  const [showActionMenu, setShowActionMenu] = useState(false);
 
   const navigate = useNavigate();
 
@@ -50,7 +55,7 @@ export function PurchaseMenu() {
     return () => unsubscribe();
   }, []);
 
-  // Firestore からユーザーデータ（remainingSeconds）を取得
+  // Firestore からユーザーデータ（remainingSeconds, subscription）を取得
   useEffect(() => {
     if (userId) {
       const fetchUserData = async () => {
@@ -60,6 +65,7 @@ export function PurchaseMenu() {
           if (docSnap.exists()) {
             const data = docSnap.data();
             setProfileRemainingSeconds(data.remainingSeconds);
+            setSubscription(data.subscription === true);
           }
         } catch (error) {
           console.error("ユーザーデータ取得エラー:", error);
@@ -77,6 +83,14 @@ export function PurchaseMenu() {
     console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
     console.log("REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED);
   }, []);
+
+  // 時間（秒）を mm:ss 形式に変換する関数
+  const formatTime = (seconds) => {
+    const sec = Math.floor(Number(seconds));
+    const minutes = Math.floor(sec / 60);
+    const remainingSeconds = sec % 60;
+    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+  };
 
   // 各種スタイル定義
   const styles = {
@@ -189,12 +203,9 @@ export function PurchaseMenu() {
       position: "absolute",
       top: "10px",
       right: "10px",
-      background: "transparent",
-      color: "red",
-      fontWeight: "bold",
-      padding: "8px 12px",
-      borderRadius: "5px",
-      border: "2px solid red",
+      // 今回はアイコンボタン用に背景・境界線を除去
+      background: "none",
+      border: "none",
       cursor: "pointer",
       fontFamily: "Impact, sans-serif",
     },
@@ -258,6 +269,22 @@ export function PurchaseMenu() {
       height: "50px",
       marginBottom: "16px",
     },
+    // 新規：アクションメニュー用スタイル
+    actionMenu: {
+      position: "absolute",
+      top: "40px",
+      right: "10px",
+      backgroundColor: "#FFF",
+      color: "#000",
+      borderRadius: "4px",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+      zIndex: 1500,
+    },
+    actionMenuItem: {
+      padding: "8px 12px",
+      cursor: "pointer",
+      borderBottom: "1px solid #eee",
+    },
   };
 
   // クリックイベントのバブリング防止用
@@ -268,6 +295,55 @@ export function PurchaseMenu() {
   // ハンバーガーボタン押下時の処理
   const handleHamburgerClick = () => {
     setShowSideMenu(!showSideMenu);
+  };
+
+  // Edit Profile 処理（window.promptを利用してユーザー名更新）
+  const handleEditProfile = async () => {
+    setShowActionMenu(false);
+    const newUserName = window.prompt("Enter new username:");
+    if (newUserName) {
+      try {
+        const userDocRef = doc(db, "users", userId);
+        await setDoc(userDocRef, { userName: newUserName }, { merge: true });
+        alert("Username updated successfully.");
+      } catch (error) {
+        console.error("Error updating username:", error);
+        alert("Error updating username.");
+      }
+    }
+  };
+
+  // Logout 処理
+  const handleLogout = async () => {
+    setShowActionMenu(false);
+    if (window.confirm("ログアウトしますか？")) {
+      try {
+        await auth.signOut();
+        setShowProfileOverlay(false);
+      } catch (error) {
+        console.error("Error during logout:", error);
+      }
+    }
+  };
+
+  // Delete account 処理
+  const handleDeleteAccount = async () => {
+    setShowActionMenu(false);
+    if (window.confirm("本当にアカウントを削除しますか？ この操作は元に戻せません。")) {
+      try {
+        // Firestoreからユーザーデータ削除
+        await deleteDoc(doc(db, "users", userId));
+        // Authenticationからユーザー削除
+        if (auth.currentUser) {
+          await auth.currentUser.delete();
+        }
+        setShowProfileOverlay(false);
+        navigate("/");
+      } catch (error) {
+        console.error("Error deleting account:", error);
+        alert("アカウント削除に失敗しました。");
+      }
+    }
   };
 
   return (
@@ -405,26 +481,48 @@ export function PurchaseMenu() {
 
       {/* プロフィールオーバーレイ */}
       {showProfileOverlay && (
-        <div style={styles.profileOverlay} onClick={() => setShowProfileOverlay(false)}>
+        <div
+          style={styles.profileOverlay}
+          onClick={() => {
+            setShowProfileOverlay(false);
+            setShowActionMenu(false);
+          }}
+        >
           <div style={styles.profileModal} onClick={stopPropagation}>
+            {/* 右上のアイコンボタン */}
             <button
               style={styles.logoutButton}
-              onClick={() => {
-                const confirmLogout = window.confirm("ログアウトしますか？");
-                if (confirmLogout) {
-                  auth.signOut();
-                  setShowProfileOverlay(false);
-                }
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowActionMenu(!showActionMenu);
               }}
             >
-              ログアウト
+              <HiOutlineDotsCircleHorizontal size={30} />
             </button>
+            {/* アクション選択メニュー */}
+            {showActionMenu && (
+              <div style={styles.actionMenu}>
+                <div style={styles.actionMenuItem} onClick={handleEditProfile}>
+                  Edit Profile
+                </div>
+                <div style={styles.actionMenuItem} onClick={handleLogout}>
+                  Logout
+                </div>
+                <div style={{ ...styles.actionMenuItem, borderBottom: "none" }} onClick={handleDeleteAccount}>
+                  Delete account
+                </div>
+              </div>
+            )}
             {/* グラデーションリングとしての外側の円と、内側の innerCircle */}
             <div style={styles.profileCircle}>
               <div style={styles.innerCircle}>
                 <div style={styles.profileInfo}>
                   <p>Email: {userEmail}</p>
-                  <p>Remaining Seconds: {profileRemainingSeconds}</p>
+                  {subscription ? (
+                    <p>unlimited</p>
+                  ) : (
+                    <p>Remaining Time: {profileRemainingSeconds !== null ? formatTime(profileRemainingSeconds) : "00:00"}</p>
+                  )}
                 </div>
               </div>
             </div>
