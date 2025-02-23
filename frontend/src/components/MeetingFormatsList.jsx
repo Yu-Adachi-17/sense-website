@@ -111,13 +111,14 @@ const MeetingFormatsList = () => {
   });
 
   const updateSingleSelection = (targetId) => {
-    const target = formats.find((format) => format.id === targetId);
     const updatedFormats = formats.map((format) => {
-      if (target && target.selected) {
-        return { ...format, selected: false };
-      } else {
-        return { ...format, selected: format.id === targetId };
+      const isSelected = format.id === targetId;
+      if (format.selected !== isSelected && dbRef.current) {
+        putFormat(dbRef.current, { ...format, selected: isSelected }).catch((err) =>
+          console.error('Error updating format selection:', err)
+        );
       }
+      return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
   };
