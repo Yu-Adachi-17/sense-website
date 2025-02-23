@@ -203,11 +203,11 @@ export function PurchaseMenu() {
       position: "absolute",
       top: "10px",
       right: "10px",
-      // 今回はアイコンボタン用に背景・境界線を除去
       background: "none",
       border: "none",
       cursor: "pointer",
       fontFamily: "Impact, sans-serif",
+      color: "#FFF" // アイコンを白に設定
     },
     // グラデーションリング用の外側の円
     profileCircle: {
@@ -269,13 +269,13 @@ export function PurchaseMenu() {
       height: "50px",
       marginBottom: "16px",
     },
-    // 新規：アクションメニュー用スタイル
+    // 新規：アクションメニュー用スタイル（黒背景・白文字）
     actionMenu: {
       position: "absolute",
       top: "40px",
       right: "10px",
-      backgroundColor: "#FFF",
-      color: "#000",
+      backgroundColor: "#000",
+      color: "#FFF",
       borderRadius: "4px",
       boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
       zIndex: 1500,
@@ -283,7 +283,15 @@ export function PurchaseMenu() {
     actionMenuItem: {
       padding: "8px 12px",
       cursor: "pointer",
-      borderBottom: "1px solid #eee",
+      borderBottom: "1px solid #333",
+    },
+    // 新規：unlimited用テキストスタイル（大きなフォント＆グラデーション）
+    unlimitedText: {
+      fontSize: "32px",
+      fontWeight: "bold",
+      background: "linear-gradient(90deg, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
     },
   };
 
@@ -519,7 +527,7 @@ export function PurchaseMenu() {
                 <div style={styles.profileInfo}>
                   <p>Email: {userEmail}</p>
                   {subscription ? (
-                    <p>unlimited</p>
+                    <p style={styles.unlimitedText}>unlimited</p>
                   ) : (
                     <p>Remaining Time: {profileRemainingSeconds !== null ? formatTime(profileRemainingSeconds) : "00:00"}</p>
                   )}
