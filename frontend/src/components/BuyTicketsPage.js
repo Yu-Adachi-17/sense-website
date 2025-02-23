@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { getAuth } from "firebase/auth";
 import HomeIcon from "./HomeIcon";
@@ -172,7 +173,7 @@ export default function BuyTicketsPage() {
         <HomeIcon size="30px" color="white" />
       </HomeIconWrapper>
       
-      <Title>t("Buy Time")</Title>
+      <Title>{t("Buy Time")}</Title>  {/* ✅ t("Buy Time") を適用 */}
       <CardsWrapper>
         <Card>
           <CardTitle>Trial</CardTitle>
