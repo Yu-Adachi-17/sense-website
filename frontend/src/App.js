@@ -60,14 +60,15 @@ function FileUploadButton({ onFileSelected }) {
         onChange={handleFileChange}
       />
       {/* 実際に表示するデバッグ用のボタン */}
-      {/* <button 
+      <button
         onClick={handleButtonClick} 
         style={{ background: 'red', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}
       >
         Debug Upload
-      </button> */}
+      </button>
     </div>
   );
+  
 }
 
 // ----------------------
@@ -314,14 +315,14 @@ useEffect(() => {
         const data = docSnap.data();
         const storedDeviceId = data?.recordingDevice;
         const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
-        // 30分（1800秒）未満の場合は他のデバイスで録音中かチェック
-        if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 1800 * 1000)) {
+        // 5分（300秒）未満の場合は他のデバイスで録音中かチェック
+        if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 300 * 1000)) {
           if (storedDeviceId && storedDeviceId !== currentDeviceId) {
             alert("他のデバイスで録音中のため、録音を開始できません。");
             return false;
           }
         } else {
-          // 30分以上経過していれば、古い情報をリセット
+          // 5分以上経過していれば、古い情報をリセット
           await setDoc(userRef, { recordingDevice: null }, { merge: true });
         }
         // 自分のデバイスでの録音としてFirestoreを更新
