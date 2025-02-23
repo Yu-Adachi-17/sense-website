@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import defaultMeetingFormats from './MeetingFormatElements';
-import HomeIcon from './HomeIcon'; 
+import HomeIcon from './HomeIcon';
 
 const MeetingFormatsList = () => {
   // State management, etc. (use as is without omitting)
@@ -9,9 +9,9 @@ const MeetingFormatsList = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newTemplate, setNewTemplate] = useState('');
-  const [editingFormat, setEditingFormat] = useState(null); 
-  const [editingText, setEditingText] = useState('');         
-  const [selectionMode, setSelectionMode] = useState(false);    
+  const [editingFormat, setEditingFormat] = useState(null);
+  const [editingText, setEditingText] = useState('');
+  const [selectionMode, setSelectionMode] = useState(false);
   const dbRef = useRef(null);
 
   /* ===== IndexedDB Related ===== */
@@ -111,16 +111,25 @@ const MeetingFormatsList = () => {
   });
 
   const updateSingleSelection = (targetId) => {
+    const updatePromises = [];
     const updatedFormats = formats.map((format) => {
       const isSelected = format.id === targetId;
       if (format.selected !== isSelected && dbRef.current) {
-        putFormat(dbRef.current, { ...format, selected: isSelected }).catch((err) =>
-          console.error('Error updating format selection:', err)
+        updatePromises.push(
+          putFormat(dbRef.current, { ...format, selected: isSelected }).catch((err) =>
+            console.error('Error updating format selection:', err)
+          )
         );
       }
       return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
+    // After updating IndexedDB, reload the page (simulating Command+R)
+    Promise.all(updatePromises)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((err) => console.error('Error in selection update:', err));
   };
 
   const handleSelectionChange = (id, event) => {
