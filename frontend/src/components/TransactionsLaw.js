@@ -52,7 +52,7 @@ const TransactionsLaw = () => {
       </div>
       
       <div style={containerStyle}>
-        <h1 style={h1Style}>特定商取引法に基づく表記</h1>
+        <h1 style={h1Style}>特定商取引法に基づく表記 - Japan Only</h1>
 
         <h2 style={h2Style}>販売事業者の名称</h2>
         <p style={paragraphStyle}>安達 悠</p>

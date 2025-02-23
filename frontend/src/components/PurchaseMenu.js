@@ -479,7 +479,7 @@ export function PurchaseMenu() {
                   navigate("/transactions-law");
                 }}
               >
-                Legal Notice
+                Legal Notice - Japan Only
               </button>
             </div>
           </div>
