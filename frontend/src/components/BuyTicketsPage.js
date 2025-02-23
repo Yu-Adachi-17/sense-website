@@ -123,6 +123,7 @@ const Link = styled.a`
 `;
 
 export default function BuyTicketsPage() {
+  const { t } = useTranslation(); 
   const [loadingProductId, setLoadingProductId] = useState(null);
   const auth = getAuth();
   const navigate = useNavigate(); // Using React Router
