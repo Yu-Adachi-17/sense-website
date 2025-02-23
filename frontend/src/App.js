@@ -573,7 +573,7 @@ function App() {
             <div className="container">
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 {/* FileUploadButton は右上に配置 */}
-                <FileUploadButton onFileSelected={handleFileUpload} />
+                {/* <FileUploadButton onFileSelected={handleFileUpload} /> */}
 
                 {!showFullScreen && <PurchaseMenu />}
 

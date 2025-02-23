@@ -3,7 +3,7 @@ import defaultMeetingFormats from './MeetingFormatElements';
 import HomeIcon from './HomeIcon'; 
 
 const MeetingFormatsList = () => {
-  // State 管理など（省略せずにそのまま利用）
+  // State management, etc. (use as is without omitting)
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -14,7 +14,7 @@ const MeetingFormatsList = () => {
   const [selectionMode, setSelectionMode] = useState(false);    
   const dbRef = useRef(null);
 
-  /* ===== IndexedDB 関連 ===== */
+  /* ===== IndexedDB Related ===== */
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open('MeetingFormatsDB', 1);
@@ -184,29 +184,28 @@ const MeetingFormatsList = () => {
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
-      {/* ヘッダー：HomeIcon / Meeting Formats / ＋ ボタン */}
+      {/* Header: HomeIcon / Meeting Formats / Plus Button */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '70px', // 各アイテムの高さを統一
+          height: '70px', // Unified height for each item
           padding: '0 20px',
           backgroundColor: '#000',
-          // fixed ではなく通常のレイアウトに戻す
-          // position, top, left, right の指定を削除
+          // Removed fixed positioning for normal layout
           zIndex: 1500,
         }}
       >
-        {/* 左側：HomeIcon */}
+        {/* Left: HomeIcon */}
         <div style={{ width: '70px' }}>
           <HomeIcon size={30} color="white" />
         </div>
-        {/* 中央：Meeting Formats タイトル（中央寄せ） */}
+        {/* Center: Meeting Formats Title (center-aligned) */}
         <div style={{ flexGrow: 1, textAlign: 'center' }}>
           <h1 style={{ margin: 0, fontSize: '38px' }}>Meeting Formats</h1>
         </div>
-        {/* 右側：＋ ボタン */}
+        {/* Right: Plus Button */}
         <div style={{ width: '70px', textAlign: 'right' }}>
           <button
             onClick={() => setShowAddForm(true)}
@@ -225,9 +224,9 @@ const MeetingFormatsList = () => {
         </div>
       </div>
 
-      {/* ヘッダー分の余白削除（通常レイアウトなので不要） */}
+      {/* No extra margin for header (not needed in normal layout) */}
       <div>
-        {/* 検索ボックス */}
+        {/* Search box */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <input
             type="text"
@@ -248,7 +247,7 @@ const MeetingFormatsList = () => {
           />
         </div>
 
-        {/* フォーマット一覧 */}
+        {/* List of formats */}
         <div
           style={{
             display: 'grid',
@@ -262,7 +261,7 @@ const MeetingFormatsList = () => {
               style={{ cursor: 'pointer' }}
               onClick={() => handleItemClick(format)}
             >
-              {/* タイトルとチェックボックス */}
+              {/* Title and checkbox */}
               <div
                 style={{
                   display: 'flex',
@@ -280,7 +279,7 @@ const MeetingFormatsList = () => {
                   onChange={(e) => handleSelectionChange(format.id, e)}
                 />
               </div>
-              {/* テンプレート内容のボックス */}
+              {/* Template content box */}
               <div
                 style={{
                   backgroundColor: '#1e1e1e',
@@ -307,7 +306,7 @@ const MeetingFormatsList = () => {
         </div>
       </div>
 
-      {/* 編集用オーバーレイ（モーダル） */}
+      {/* Editing overlay (modal) */}
       {editingFormat && (
         <div
           style={{
@@ -365,7 +364,7 @@ const MeetingFormatsList = () => {
                   marginRight: 10,
                 }}
               >
-                キャンセル
+                Cancel
               </button>
               <button
                 onClick={handleSaveEdit}
@@ -379,14 +378,14 @@ const MeetingFormatsList = () => {
                   fontSize: 16,
                 }}
               >
-                保存
+                Save
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* 新規フォーマット追加オーバーレイ */}
+      {/* New Format Addition Overlay */}
       {showAddForm && (
         <div
           style={{
@@ -413,10 +412,10 @@ const MeetingFormatsList = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 style={{ marginTop: 0 }}>新規フォーマット追加</h2>
+            <h2 style={{ marginTop: 0 }}>Add New Format</h2>
             <input
               type="text"
-              placeholder="タイトル"
+              placeholder="Title"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
               style={{
@@ -432,7 +431,7 @@ const MeetingFormatsList = () => {
               }}
             />
             <textarea
-              placeholder="テンプレート内容"
+              placeholder="Template Content"
               value={newTemplate}
               onChange={(e) => setNewTemplate(e.target.value)}
               style={{
@@ -463,7 +462,7 @@ const MeetingFormatsList = () => {
                   marginRight: 10,
                 }}
               >
-                キャンセル
+                Cancel
               </button>
               <button
                 onClick={handleAddNewFormat}
@@ -477,7 +476,7 @@ const MeetingFormatsList = () => {
                   fontSize: 16,
                 }}
               >
-                追加
+                Add
               </button>
             </div>
           </div>

@@ -7,24 +7,24 @@ const EmailVerification = () => {
   const auth = getAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const [statusMessage, setStatusMessage] = useState("認証中...");
+  const [statusMessage, setStatusMessage] = useState("Verifying...");
 
   useEffect(() => {
-    // URL から oobCode を取得
+    // Retrieve oobCode from the URL
     const query = new URLSearchParams(location.search);
     const oobCode = query.get("oobCode");
 
     if (oobCode) {
       applyActionCode(auth, oobCode)
         .then(() => {
-          setStatusMessage("メール認証に成功しました。アカウント認証後にログインしてください。");
+          setStatusMessage("Email verification successful. Please log in after your account is verified.");
         })
         .catch((error) => {
-          console.error("認証エラー:", error);
-          setStatusMessage("メール認証に失敗しました。コードが無効か、既に認証済みかもしれません。");
+          console.error("Verification error:", error);
+          setStatusMessage("Email verification failed. The code may be invalid or already verified.");
         });
     } else {
-      setStatusMessage("認証コードが見つかりません。");
+      setStatusMessage("Verification code not found.");
     }
   }, [auth, location.search]);
 
@@ -43,7 +43,7 @@ const EmailVerification = () => {
     >
       <h1>Email Verification</h1>
       <p>{statusMessage}</p>
-      {statusMessage.includes("成功") && (
+      {statusMessage.includes("successful") && (
         <button
           onClick={() => navigate("/login")}
           style={{
@@ -57,7 +57,7 @@ const EmailVerification = () => {
             borderRadius: "5px",
           }}
         >
-          アカウント認証後にログイン
+          Log In After Verification
         </button>
       )}
     </div>

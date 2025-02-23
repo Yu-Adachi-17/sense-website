@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { getAuth } from "firebase/auth";
 import HomeIcon from "./HomeIcon";
-import { useNavigate } from "react-router-dom"; // React Router を利用する場合
+import { useNavigate } from "react-router-dom"; // Using React Router
 
 const Container = styled.div`
   background-color: #000;
@@ -124,22 +124,22 @@ const Link = styled.a`
 export default function BuyTicketsPage() {
   const [loadingProductId, setLoadingProductId] = useState(null);
   const auth = getAuth();
-  const navigate = useNavigate(); // React Router を利用する場合
+  const navigate = useNavigate(); // Using React Router
 
   const handleBuyClick = async (productId) => {
     if (!productId) {
-      console.error("❌ productId が undefined です。環境変数を確認してください。");
+      console.error("❌ productId is undefined. Please check your environment variables.");
       return;
     }
 
     const user = auth.currentUser;
     if (!user) {
-      alert("ログインが必要です。先にログインしてください。");
+      alert("Login required. Please log in first.");
       return;
     }
 
     const userId = user.uid;
-    console.log("送信する productId:", productId, "userId:", userId);
+    console.log("Sending productId:", productId, "userId:", userId);
 
     setLoadingProductId(productId);
     try {
