@@ -5,7 +5,7 @@ import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import PurchaseMenu from './components/PurchaseMenu'; 
+import PurchaseMenu from './components/PurchaseMenu';
 import BuyTicketsPage from "./components/BuyTicketsPage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -58,7 +58,7 @@ function FileUploadButton({ onFileSelected }) {
         onChange={handleFileChange}
       />
       <button
-        onClick={handleButtonClick} 
+        onClick={handleButtonClick}
         style={{ background: 'red', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}
       >
         Debug Upload
@@ -111,7 +111,7 @@ function App() {
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
 
   // ★ 新規追加：録音の最大時間（60分＝3600秒）のカウントダウン用 state と interval 用 ref
-  const [recordingCountdown, setRecordingCountdown] = useState(10);
+  const [recordingCountdown, setRecordingCountdown] = useState(3600);
   const recordingTimerIntervalRef = useRef(null);
 
   // mm:ss形式にフォーマットするヘルパー関数
@@ -125,7 +125,7 @@ function App() {
   useEffect(() => {
     if (isRecording) {
       // 録音開始時に60分にリセット
-      setRecordingCountdown(10);
+      setRecordingCountdown(3600);
       recordingTimerIntervalRef.current = setInterval(() => {
         setRecordingCountdown(prev => {
           if (prev <= 1) {
@@ -200,7 +200,7 @@ function App() {
             setUserRemainingSeconds(data.remainingSeconds);
           }
         } catch (error) {
-          console.error("ユーザーデータ取得エラー:", error);
+          console.error("User data retrieval error:", error);
         }
       }
       setIsUserDataLoaded(true);
@@ -254,7 +254,7 @@ function App() {
           setUserRemainingSeconds(DEFAULT_REMAINING);
           if (auth.currentUser) {
             setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: DEFAULT_REMAINING }, { merge: true })
-              .catch(err => console.error("Firebase更新エラー:", err));
+              .catch(err => console.error("Firestore update error:", err));
           }
           lastResetDateRef.current = currentDate;
         }
@@ -313,7 +313,7 @@ function App() {
           await saveMeetingRecord(newTranscription, newMinutes);
         }
       } catch (error) {
-        console.error("STT 処理中にエラーが発生しました:", error);
+        console.error("An error occurred during STT processing:", error);
         setProgressStep("error");
       }
       setProgressStep("transcriptionComplete");
@@ -326,11 +326,11 @@ function App() {
   const saveMeetingRecord = async (transcription, minutes) => {
     try {
       if (!auth.currentUser) {
-        console.error("ユーザーがログインしていません。保存を中止します。");
+        console.error("User is not logged in. Aborting save.");
         return;
       }
       if (!transcription || !minutes) {
-        console.error("transcription または minutes が空です。保存を中止します。");
+        console.error("Transcription or minutes is empty. Aborting save.");
         return;
       }
       const paperID = uuidv4();
@@ -344,11 +344,11 @@ function App() {
       };
 
       const docRef = await addDoc(collection(db, 'meetingRecords'), recordData);
-      console.log("✅ 議事録が保存されました。ドキュメントID:", docRef.id);
+      console.log("✅ Meeting record saved. Document ID:", docRef.id);
       setMeetingRecordId(docRef.id);
       setProgressStep("completed");
     } catch (error) {
-      console.error("議事録保存中にエラーが発生しました:", error);
+      console.error("Error occurred while saving meeting record:", error);
     }
   };
 
@@ -392,7 +392,7 @@ function App() {
         const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
         if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 300 * 1000)) {
           if (storedDeviceId && storedDeviceId !== currentDeviceId) {
-            alert("他のデバイスで録音中のため、録音を開始できません。");
+            alert("Recording cannot be started because another device is currently recording.");
             return false;
           }
         } else {
@@ -404,17 +404,17 @@ function App() {
         }, { merge: true });
         console.log("✅ Firestoreの録音データ更新完了");
       } catch (error) {
-        console.error("Firestoreの録音チェックに失敗:", error);
+        console.error("Failed to check recording status in Firestore:", error);
         return false;
       }
     }
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
-  
+
       let mimeType = 'audio/webm;codecs=opus';
       if (!MediaRecorder.isTypeSupported(mimeType)) {
-        mimeType = 'audio/mp4'; 
+        mimeType = 'audio/mp4';
       }
       if (!MediaRecorder.isTypeSupported(mimeType)) {
         mimeType = 'audio/ogg';
@@ -422,48 +422,48 @@ function App() {
       if (!MediaRecorder.isTypeSupported(mimeType)) {
         mimeType = 'audio/wav';
       }
-      
+
       const options = { mimeType, audioBitsPerSecond: 32000 };
       const mediaRecorder = new MediaRecorder(stream, options);
       mediaRecorderRef.current = mediaRecorder;
       recordedChunksRef.current = [];
-  
+
       mediaRecorder.ondataavailable = (event) => {
         if (event.data.size > 0) {
           recordedChunksRef.current.push(event.data);
         }
       };
-  
+
       mediaRecorder.onstop = async () => {
         const blob = new Blob(recordedChunksRef.current, { type: mimeType });
         const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
         const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
-  
+
         if (!selectedMeetingFormat) {
-          alert("議事録フォーマットが選択されていません。MeetingFormatsList から選択してください。");
+          alert("No meeting format selected. Please select one from MeetingFormatsList.");
           return;
         }
         await processAudioFile(file);
       };
-  
+
       mediaRecorder.start();
-  
+
       const audioContext = new (window.AudioContext || window.webkitAudioContext)();
       audioContextRef.current = audioContext;
-  
+
       const source = audioContext.createMediaStreamSource(stream);
       sourceRef.current = source;
-  
+
       const analyser = audioContext.createAnalyser();
       analyser.fftSize = 256;
       const bufferLength = analyser.frequencyBinCount;
       const dataArray = new Uint8Array(bufferLength);
       analyserRef.current = analyser;
       dataArrayRef.current = dataArray;
-  
+
       source.connect(analyser);
       updateAudioLevel();
-  
+
       if (!userSubscription) {
         timerIntervalRef.current = setInterval(() => {
           setUserRemainingSeconds(prev => {
@@ -478,16 +478,16 @@ function App() {
           });
         }, 1000);
       }
-  
+
       return true;
-  
+
     } catch (err) {
-      console.error('マイクへのアクセスに失敗しました:', err);
-      alert('マイクへのアクセスが拒否されました。設定を確認してください。');
+      console.error("Failed to access the microphone:", err);
+      alert("Microphone access was denied. Please check your settings.");
       return false;
     }
   };
-  
+
   const stopRecording = async (finalRemaining = userRemainingSeconds) => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
@@ -522,15 +522,15 @@ function App() {
           await setDoc(doc(db, "users", auth.currentUser.uid), { remainingSeconds: finalRemaining }, { merge: true });
         }
       } catch (err) {
-        console.error("残時間更新エラー:", err);
+        console.error("Error updating remaining time:", err);
       }
     }
     if (auth.currentUser) {
       try {
         await setDoc(doc(db, "users", auth.currentUser.uid), { recordingDevice: null, recordingTimestamp: null }, { merge: true });
-        console.log("✅ recordingDevice をリセットしました");
+        console.log("✅ recordingDevice has been reset");
       } catch (error) {
-        console.error("recordingDevice のリセットに失敗:", error);
+        console.error("Failed to reset recordingDevice:", error);
       }
     }
   };
@@ -558,12 +558,12 @@ function App() {
   const handleFileUpload = async (file) => {
     const allowedFormats = ["audio/webm", "audio/mp4", "audio/mpeg", "audio/wav", "audio/ogg"];
     if (!allowedFormats.includes(file.type)) {
-      alert('サポートされていないファイル形式です。m4a, webm, mp3, wav, ogg を使用してください。');
+      alert("Unsupported file format. Please use m4a, webm, mp3, wav, or ogg.");
       return;
     }
     await processAudioFile(file);
   };
-  
+
   return (
     <Router basename="/">
       <Routes>
@@ -602,7 +602,7 @@ function App() {
                     transcription={transcription}
                     minutes={minutes}
                     audioURL={audioURL}
-                    docId={meetingRecordId} 
+                    docId={meetingRecordId}
                   />
                 )}
                 {/* isProcessing が true の間、進捗表示 */}
@@ -645,24 +645,71 @@ function App() {
                   </div>
                   {/* 追加：録音の最大60分カウントダウン表示（白文字・指定グラデーション背景・角丸） */}
                   <div style={{
-  position: 'absolute',
-  bottom: 'calc((50vh - 160px) / 2 - 100px)',
-  left: '50%',
-  transform: 'translateX(-50%)',
-  background: 'transparent', // 背景は透明
-  border: '2px solid',        // 枠線を追加
-  borderImage: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76)) 1', // 枠線にグラデーション
-  borderRadius: '15px',         // 角をさらに丸める
-  padding: '10px 20px',
-  color: 'white',
-  fontSize: '18px',             // 少し小さめのフォントサイズ
-  fontFamily: 'Impact, sans-serif', // Impactフォント
-  zIndex: 10,
-  textAlign: 'center'
-}}>
-  <div>β版  一度の録音の最長時間は60分です</div>
-  <div>{formatTime(recordingCountdown)}</div>
-</div>
+                    position: 'absolute',
+                    top: '20px',
+                    left: '20px',
+                    width: 'fit-content',
+                    zIndex: 10,
+                  }}>
+                    {/* 最下層：グラデーションの枠 */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                      borderRadius: '40px',
+                    }} />
+                    {/* 中間層：内側の黒背景（枠線として見えるように余白を設ける） */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '2px',
+                      left: '2px',
+                      right: '2px',
+                      bottom: '2px',
+                      background: 'black',
+                      borderRadius: '38px',
+                    }} />
+                    {/* 最上層：テキスト */}
+                    <div style={{
+                      position: 'relative',
+                      padding: '10px 20px',
+                      color: 'white',
+                      fontSize: '15px',
+                      textAlign: 'center',
+                    }}>
+                      {/* Beta の文字をグラデーションにしつつイタリックに */}
+                      <div style={{
+                        background: 'linear-gradient(45deg, rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        fontStyle: 'italic',
+                        fontWeight: 'bold',
+                        fontSize: '20px' // 少し強調
+                      }}>Beta</div>
+
+                      {/* 中央のテキストを.boldに */}
+                      <div style={{
+                        background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        fontStyle: 'italic',
+                        fontWeight: 'bold',
+                        fontSize: '16px' // 少し強調
+                      }}>The maximum duration for a single recording is 60 minutes</div>
+
+
+                      {/* mm:ss のフォントサイズを大きく & Impactに */}
+                      <div style={{
+                        fontSize: '22px', // 大きく
+                        fontFamily: 'Impact, sans-serif', // Impactフォント
+                        marginTop: '5px' // ちょっと間隔を空ける
+                      }}>
+                        {formatTime(recordingCountdown)}
+                      </div>
+                    </div>
+                  </div>
 
                 </>
               )}
@@ -671,7 +718,7 @@ function App() {
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/email-verification" element={<EmailVerification />} /> 
+        <Route path="/email-verification" element={<EmailVerification />} />
         <Route path="/buy-tickets" element={<BuyTicketsPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
