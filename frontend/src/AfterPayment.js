@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // ----------------------
-// 決済成功時の画面
+// Screen displayed upon successful payment
 export function Success() {
   useEffect(() => {
     console.log("[DEBUG] Success component rendered");
@@ -33,7 +33,7 @@ export function Success() {
 }
 
 // ----------------------
-// 決済キャンセル時の画面
+// Screen displayed when payment is canceled
 export function Cancel() {
   const handleRetry = () => {
     window.location.href = "/create-checkout-session";
@@ -55,7 +55,7 @@ export function Cancel() {
         Payment Canceled
       </h1>
       <p style={{ marginBottom: '20px' }}>
-        お支払いが完了しませんでした。再度お試しください。
+        The payment was not completed. Please try again.
       </p>
       <div>
         <button onClick={handleRetry} style={{
@@ -69,7 +69,7 @@ export function Cancel() {
           cursor: 'pointer',
           marginRight: '10px'
         }}>
-          決済を再試行する
+          Retry Payment
         </button>
         <a href="https://sense-ai.world" style={{
           backgroundColor: '#555',
@@ -80,11 +80,9 @@ export function Cancel() {
           textDecoration: 'none',
           borderRadius: '5px'
         }}>
-          トップページに戻る
+          Return to Home Page
         </a>
       </div>
     </div>
   );
 }
-
-
