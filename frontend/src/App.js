@@ -111,7 +111,7 @@ function App() {
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
 
   // ★ 新規追加：録音の最大時間（60分＝3600秒）のカウントダウン用 state と interval 用 ref
-  const [recordingCountdown, setRecordingCountdown] = useState(3600);
+  const [recordingCountdown, setRecordingCountdown] = useState(10);
   const recordingTimerIntervalRef = useRef(null);
 
   // mm:ss形式にフォーマットするヘルパー関数
@@ -125,7 +125,7 @@ function App() {
   useEffect(() => {
     if (isRecording) {
       // 録音開始時に60分にリセット
-      setRecordingCountdown(3600);
+      setRecordingCountdown(10);
       recordingTimerIntervalRef.current = setInterval(() => {
         setRecordingCountdown(prev => {
           if (prev <= 1) {
@@ -645,21 +645,25 @@ function App() {
                   </div>
                   {/* 追加：録音の最大60分カウントダウン表示（白文字・指定グラデーション背景・角丸） */}
                   <div style={{
-                    position: 'absolute',
-                    bottom: 'calc((50vh - 160px) / 2 - 100px)',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                    borderRadius: '10px',
-                    padding: '10px 20px',
-                    color: 'white',
-                    fontSize: '24px',
-                    zIndex: 10,
-                    textAlign: 'center'
-                  }}>
-                    <div>β版  一度の録音の最長時間は60分です</div>
-                    <div>{formatTime(recordingCountdown)}</div>
-                  </div>
+  position: 'absolute',
+  bottom: 'calc((50vh - 160px) / 2 - 100px)',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  background: 'transparent', // 背景は透明
+  border: '2px solid',        // 枠線を追加
+  borderImage: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76)) 1', // 枠線にグラデーション
+  borderRadius: '15px',         // 角をさらに丸める
+  padding: '10px 20px',
+  color: 'white',
+  fontSize: '18px',             // 少し小さめのフォントサイズ
+  fontFamily: 'Impact, sans-serif', // Impactフォント
+  zIndex: 10,
+  textAlign: 'center'
+}}>
+  <div>β版  一度の録音の最長時間は60分です</div>
+  <div>{formatTime(recordingCountdown)}</div>
+</div>
+
                 </>
               )}
             </div>
