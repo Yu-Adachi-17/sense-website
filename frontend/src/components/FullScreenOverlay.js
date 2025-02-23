@@ -8,6 +8,7 @@ import { FaRegCopy } from "react-icons/fa";
 // Firebase Firestore update module
 import { doc, updateDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebaseConfig";  // Initialized Firestore instance
+import { useTranslation } from "react-i18next";
 
 const FullScreenOverlay = ({
   setShowFullScreen,
@@ -18,6 +19,7 @@ const FullScreenOverlay = ({
   audioURL,
   docId  // Document ID to update
 }) => {
+  const { t } = useTranslation();
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -66,7 +68,7 @@ const FullScreenOverlay = ({
       link.click();
       document.body.removeChild(link);
     } else {
-      alert('No downloadable audio data available.');
+      alert(t("No downloadable audio data available."));
     }
   };
 
@@ -90,16 +92,16 @@ const FullScreenOverlay = ({
   const handleShare = () => {
     const content = editedText;
     navigator.clipboard.writeText(content).then(() => {
-      alert('Copied to clipboard!');
+      alert(t("Copied to clipboard!"));
     }).catch(() => {
-      alert('Failed to copy to clipboard.');
+      alert(t("Failed to copy to clipboard."));
     });
   };
 
   // Update Firebase (if isExpanded is true, update transcription; otherwise, update minutes)
   const handleSave = async () => {
     if (!docId) {
-      alert('No document ID available for saving.');
+      alert(t("No document ID available for saving."));
       return;
     }
     try {
@@ -110,10 +112,10 @@ const FullScreenOverlay = ({
         await updateDoc(docRef, { minutes: editedText });
       }
       setIsEditing(false);
-      alert('Save successful.');
+      alert(t("Save successful."));
     } catch (error) {
       console.error("Error saving document: ", error);
-      alert('Save failed: ' + error.message);
+      alert(t("Save failed: ") + error.message);
     }
   };
 
@@ -317,15 +319,15 @@ const FullScreenOverlay = ({
         {/* Title and Edit/Save buttons */}
         <div style={styles.titleContainer}>
           <h2 style={styles.title}>
-            {isExpanded ? 'Full Transcript' : 'Minutes'}
+            {isExpanded ? t("Full Transcript") : t("Minutes")}
           </h2>
           {isEditing ? (
             <button style={styles.saveButton} onClick={handleSave}>
-              Save
+              {t("Save")}
             </button>
           ) : (
             <button style={styles.editButton} onClick={() => setIsEditing(true)}>
-              Edit
+              {t("Edit")}
             </button>
           )}
         </div>
@@ -363,19 +365,19 @@ const FullScreenOverlay = ({
             {!isExpanded ? (
               <button style={styles.sideMenuButton} onClick={handleSwitchView}>
                 <TbClipboardText size={24} />
-                <span style={styles.iconSpacing}>Show Full Transcript</span>
+                <span style={styles.iconSpacing}>{t("Show Full Transcript")}</span>
               </button>
             ) : (
               <button style={styles.sideMenuButton} onClick={handleSwitchToMinutes}>
                 <TbClipboardList size={24} />
-                <span style={styles.iconSpacing}>Show Minutes</span>
+                <span style={styles.iconSpacing}>{t("Show Minutes")}</span>
               </button>
             )}
 
             {/* Audio data download button */}
             <button style={styles.sideMenuButton} onClick={handleDownload}>
               <IoIosDownload size={24} />
-              <span style={styles.iconSpacing}>Download Audio Data</span>
+              <span style={styles.iconSpacing}>{t("Download Audio Data")}</span>
             </button>
           </div>
         </div>

@@ -2,31 +2,36 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, applyActionCode } from "firebase/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const EmailVerification = () => {
   const auth = getAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const [statusMessage, setStatusMessage] = useState("Verifying...");
+  const { t } = useTranslation();
+  const [statusMessage, setStatusMessage] = useState(t("Verifying..."));
 
   useEffect(() => {
-    // Retrieve oobCode from the URL
     const query = new URLSearchParams(location.search);
     const oobCode = query.get("oobCode");
 
     if (oobCode) {
       applyActionCode(auth, oobCode)
         .then(() => {
-          setStatusMessage("Email verification successful. Please log in after your account is verified.");
+          setStatusMessage(
+            t("Email verification successful. Please log in after your account is verified.")
+          );
         })
         .catch((error) => {
           console.error("Verification error:", error);
-          setStatusMessage("Email verification failed. The code may be invalid or already verified.");
+          setStatusMessage(
+            t("Email verification failed. The code may be invalid or already verified.")
+          );
         });
     } else {
-      setStatusMessage("Verification code not found.");
+      setStatusMessage(t("Verification code not found."));
     }
-  }, [auth, location.search]);
+  }, [auth, location.search, t]);
 
   return (
     <div
@@ -41,7 +46,7 @@ const EmailVerification = () => {
         fontFamily: "Impact, sans-serif",
       }}
     >
-      <h1>Email Verification</h1>
+      <h1>{t("Email Verification")}</h1>
       <p>{statusMessage}</p>
       {statusMessage.includes("successful") && (
         <button
@@ -57,7 +62,7 @@ const EmailVerification = () => {
             borderRadius: "5px",
           }}
         >
-          Log In After Verification
+          {t("Log In After Verification")}
         </button>
       )}
     </div>
