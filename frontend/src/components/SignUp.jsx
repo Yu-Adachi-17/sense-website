@@ -21,7 +21,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const createUserDocument = async (user) => {
-  // user.email から3文字を取得（SwiftUI側の String(emailField.prefix(3)) に相当）
+  // Retrieve the first 3 characters of user.email (equivalent to String(emailField.prefix(3)) in SwiftUI)
   const email = user.email || "";
   await setDoc(
     doc(db, "users", user.uid),
@@ -29,15 +29,15 @@ const createUserDocument = async (user) => {
       createdAt: serverTimestamp(),
       userName: email.substring(0, 3),
       email: email,
-      recordingDevice: null,         // SwiftUIでは NSNull() に相当
-      recordingTimestamp: null,      // 同上
-      originalTransactionId: null,   // 同上
-      subscriptionPlan: null,        // 同上
-      subscriptionStartDate: null,   // 同上
-      subscriptionEndDate: null,     // 同上
-      lastSubscriptionUpdate: null,  // 同上
-      remainingSeconds: 180,           // 存在する場合はその値、なければ 0
-      subscription: false,           // 初期値 false（SwiftUI側は @AppStorage("userIsUnlimited") と同期）
+      recordingDevice: null,         // Equivalent to NSNull() in SwiftUI
+      recordingTimestamp: null,        // Same as above
+      originalTransactionId: null,     // Same as above
+      subscriptionPlan: null,          // Same as above
+      subscriptionStartDate: null,     // Same as above
+      subscriptionEndDate: null,       // Same as above
+      lastSubscriptionUpdate: null,    // Same as above
+      remainingSeconds: 180,           // Use existing value if present; otherwise, 0
+      subscription: false,             // Initial value false (synchronized with @AppStorage("userIsUnlimited") in SwiftUI)
     },
     { merge: true }
   );
@@ -48,17 +48,17 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // サインアップ完了ではなく「メール送信完了」状態のフラグ
+  // Flag indicating that the verification email has been sent (not that sign-up is complete)
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  // Email サインアップ処理
+  // Email sign-up handler
   const handleSignUp = async () => {
     if (!email || !password) return;
     setIsLoading(true);
     try {
-      // ユーザー作成
+      // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -66,15 +66,15 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      // Firestore にユーザードキュメントを作成
+      // Create a user document in Firestore
       await createUserDocument(user);
-      console.log("✅ Firestore にユーザードキュメントを作成しました: ", user.uid);
+      console.log("✅ Created user document in Firestore:", user.uid);
 
-      // 認証メールを送信
+      // Send verification email
       await sendEmailVerification(user);
-      // ユーザーをサインアウト（※認証済みになってほしくないため）
+      // Sign out the user so they don't become authenticated immediately
       await signOut(auth);
-      // 「メール送信完了」の状態にする
+      // Set the state to indicate that the email has been sent
       setIsEmailSent(true);
     } catch (error) {
       setAlertMessage(error.message);
@@ -84,49 +84,49 @@ const SignUp = () => {
     }
   };
 
-  // Google サインイン処理
+  // Google sign-in handler
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
-      // Googleサインインを実施
+      // Perform Google sign-in
       await signInWithGoogle();
       const user = auth.currentUser;
       if (user) {
-        // サインイン後にもFirestoreにユーザードキュメントを作成（または更新）
+        // Create or update the user document in Firestore after sign-in
         await createUserDocument(user);
-        console.log("✅ GoogleサインインでFirestoreにユーザードキュメントを作成しました: ", user.uid);
+        console.log("✅ Created user document in Firestore via Google sign-in:", user.uid);
       }
       navigate("/");
     } catch (error) {
-      setAlertMessage("Googleサインインに失敗しました");
+      setAlertMessage("Google sign-in failed");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Apple サインイン処理
+  // Apple sign-in handler
   const handleAppleSignIn = async () => {
     setIsLoading(true);
     try {
-      // Appleサインインを実施
+      // Perform Apple sign-in
       await signInWithApple();
       const user = auth.currentUser;
       if (user) {
-        // サインイン後にもFirestoreにユーザードキュメントを作成（または更新）
+        // Create or update the user document in Firestore after sign-in
         await createUserDocument(user);
-        console.log("✅ AppleサインインでFirestoreにユーザードキュメントを作成しました: ", user.uid);
+        console.log("✅ Created user document in Firestore via Apple sign-in:", user.uid);
       }
       navigate("/");
     } catch (error) {
-      setAlertMessage("Appleサインインに失敗しました");
+      setAlertMessage("Apple sign-in failed");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // 「メール送信完了」後の画面表示
+  // Display screen after verification email is sent
   if (isEmailSent) {
     return (
       <div
@@ -142,10 +142,10 @@ const SignUp = () => {
         }}
       >
         <h1 style={{ fontWeight: 300, letterSpacing: "0.05em" }}>
-          確認メールを送信しました
+          Verification Email Sent
         </h1>
         <p style={{ fontSize: "0.8em", marginTop: "10px" }}>
-          メール内のリンクをクリックしてアカウントの認証をし、ログインを完了してください。
+          Please click the link in the email to verify your account and then log in.
         </p>
         <button
           onClick={() => navigate("/login")}
@@ -158,13 +158,13 @@ const SignUp = () => {
             cursor: "pointer",
           }}
         >
-          アカウント認証後にログイン
+          Log In After Verification
         </button>
       </div>
     );
   }
 
-  // 通常のサインアップ画面
+  // Regular sign-up screen
   return (
     <div
       style={{
@@ -229,7 +229,7 @@ const SignUp = () => {
           fontWeight: "bold",
         }}
       >
-        Email verification
+        Email Verification
       </button>
 
       <button
@@ -250,7 +250,7 @@ const SignUp = () => {
         }}
       >
         <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
-        Googleでサインイン
+        Sign in with Google
       </button>
 
       <button
@@ -271,7 +271,7 @@ const SignUp = () => {
         }}
       >
         <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
-        Appleでサインイン
+        Sign in with Apple
       </button>
       <button
         onClick={() => navigate("/login")}
@@ -282,7 +282,7 @@ const SignUp = () => {
           cursor: "pointer",
         }}
       >
-        すでにアカウントをお持ちですか？こちらをクリック
+        Already have an account? Click here.
       </button>
       {showAlert && (
         <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>
