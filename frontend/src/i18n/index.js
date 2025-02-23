@@ -1,9 +1,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// 翻訳リソース（ローカライズデータ）
-import en from '../locales/en.json';
-import ja from '../locales/ja.json';
+// ✅ locales のパスを修正（ `./locales/en.json` にする）
+import en from './locales/en.json';
+import ja from './locales/ja.json';
 
 i18n
   .use(initReactI18next) // React 用に i18next を初期化
