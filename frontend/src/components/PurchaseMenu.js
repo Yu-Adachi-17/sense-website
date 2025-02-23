@@ -1,36 +1,35 @@
-// PurchaseMenu.js
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// Firebase 関連
+// Firebase-related
 import { auth, db } from "../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
-// アイコン類
+// Icon components
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoPersonCircleOutline } from "react-icons/io5"; // 残します
+import { IoPersonCircleOutline } from "react-icons/io5"; // Keep this one
 import { FaTicketAlt, FaCircle } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
-import { PiGridFourFill } from "react-icons/pi";  // 追加：議事録リスト用アイコン
-import { HiOutlineDotsCircleHorizontal } from "react-icons/hi"; // 右上アクションメニュー用アイコン
+import { PiGridFourFill } from "react-icons/pi";  // Added: Icon for meeting records list
+import { HiOutlineDotsCircleHorizontal } from "react-icons/hi"; // Icon for top-right action menu
 
 export function PurchaseMenu() {
-  // 各種 state 定義
+  // Define various states
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [userId, setUserId] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
-  // Firestore のユーザードキュメントから取得する remainingSeconds
+  // remainingSeconds fetched from the Firestore user document
   const [profileRemainingSeconds, setProfileRemainingSeconds] = useState(null);
-  // Firebase上の subscription 状態（true: unlimited, false: 有限時間）
+  // Subscription status on Firebase (true: unlimited, false: limited time)
   const [subscription, setSubscription] = useState(false);
-  // プロフィールモーダル表示用
+  // For displaying the profile modal
   const [showProfileOverlay, setShowProfileOverlay] = useState(false);
-  // アクションメニュー表示用
+  // For displaying the action menu
   const [showActionMenu, setShowActionMenu] = useState(false);
 
   const navigate = useNavigate();
 
-  // ウィンドウリサイズ時の処理
+  // Handle window resize events
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -39,23 +38,23 @@ export function PurchaseMenu() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Firebase の認証状態監視
+  // Monitor Firebase authentication state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserId(user.uid);
         setUserEmail(user.email);
-        console.log("✅ Firebase ログインユーザーの UID:", user.uid);
+        console.log("✅ Firebase logged-in user UID:", user.uid);
       } else {
         setUserId(null);
         setUserEmail(null);
-        console.log("❌ ユーザーはログアウトしています。");
+        console.log("❌ User is logged out.");
       }
     });
     return () => unsubscribe();
   }, []);
 
-  // Firestore からユーザーデータ（remainingSeconds, subscription）を取得
+  // Fetch user data (remainingSeconds, subscription) from Firestore
   useEffect(() => {
     if (userId) {
       const fetchUserData = async () => {
@@ -68,23 +67,23 @@ export function PurchaseMenu() {
             setSubscription(data.subscription === true);
           }
         } catch (error) {
-          console.error("ユーザーデータ取得エラー:", error);
+          console.error("Error fetching user data:", error);
         }
       };
       fetchUserData();
     }
   }, [userId]);
 
-  // 環境変数チェック（デバッグ用）
+  // Environment variable check (for debugging)
   useEffect(() => {
-    console.log("🔍 環境変数チェック:");
+    console.log("🔍 Environment Variable Check:");
     console.log("REACT_APP_STRIPE_PRODUCT_120MIN:", process.env.REACT_APP_STRIPE_PRODUCT_120MIN);
     console.log("REACT_APP_STRIPE_PRODUCT_1200MIN:", process.env.REACT_APP_STRIPE_PRODUCT_1200MIN);
     console.log("REACT_APP_STRIPE_PRODUCT_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED);
     console.log("REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED:", process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED);
   }, []);
 
-  // 時間（秒）を mm:ss 形式に変換する関数
+  // Function to format seconds to mm:ss
   const formatTime = (seconds) => {
     const sec = Math.floor(Number(seconds));
     const minutes = Math.floor(sec / 60);
@@ -92,7 +91,7 @@ export function PurchaseMenu() {
     return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
   };
 
-  // 各種スタイル定義
+  // Define various styles
   const styles = {
     hamburgerButton: {
       position: "fixed",
@@ -134,7 +133,7 @@ export function PurchaseMenu() {
       transition: "transform 0.5s ease-out",
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
     },
-    // 「議事録リスト」ボタン（黄色表記・左詰め）
+    // "Meeting Records List" button (yellow text, left-aligned)
     minutesListButton: {
       background: "none",
       border: "none",
@@ -148,7 +147,7 @@ export function PurchaseMenu() {
       textAlign: "left",
       marginBottom: "16px",
     },
-    // 「アイテムを購入」ボタン（黄色表記・左詰め）
+    // "Purchase Items" button (yellow text, left-aligned)
     purchaseButton: {
       background: "none",
       border: "none",
@@ -162,7 +161,7 @@ export function PurchaseMenu() {
       textAlign: "left",
       marginBottom: "16px",
     },
-    // 「議事録フォーマット」ボタン
+    // "Meeting Formats" button
     formatButton: {
       background: "none",
       border: "none",
@@ -207,9 +206,9 @@ export function PurchaseMenu() {
       border: "none",
       cursor: "pointer",
       fontFamily: "Impact, sans-serif",
-      color: "#FFF" // アイコンを白に設定
+      color: "#FFF" // Set icon color to white
     },
-    // グラデーションリング用の外側の円
+    // Outer circle for gradient ring
     profileCircle: {
       position: "absolute",
       top: "50%",
@@ -220,14 +219,14 @@ export function PurchaseMenu() {
       maxHeight: "320px",
       borderRadius: "50%",
       background: "linear-gradient(to bottom right, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))",
-      padding: "10px", // リングの太さ調整用
+      padding: "10px", // Adjust ring thickness
       boxSizing: "border-box",
       transform: "translate(-50%, -50%)",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
     },
-    // innerCircle：overLay背景色と同じ色で塗り潰し、リングに見せる
+    // innerCircle: filled with the same color as the overlay background to appear as a ring
     innerCircle: {
       width: "100%",
       height: "100%",
@@ -243,7 +242,7 @@ export function PurchaseMenu() {
       color: "#FFF",
       fontFamily: "Impact, sans-serif",
     },
-    // 右下に配置する Privacy Policy / Terms of Use 用コンテナ
+    // Container for Privacy Policy / Terms of Use buttons at bottom-right
     policyButtonContainer: {
       position: "absolute",
       bottom: "20px",
@@ -253,7 +252,7 @@ export function PurchaseMenu() {
       alignItems: "flex-end",
       gap: "8px",
     },
-    // 小さめのボタンスタイル
+    // Small button style
     policyButton: {
       background: "none",
       border: "none",
@@ -262,14 +261,14 @@ export function PurchaseMenu() {
       cursor: "pointer",
       padding: "4px 8px",
     },
-    // 新規：トップ行のコンテナ（上段ヘッダー）
+    // New: Container for the top row (upper header)
     topRow: {
       position: "relative",
       width: "100%",
       height: "50px",
       marginBottom: "16px",
     },
-    // 新規：アクションメニュー用スタイル（黒背景・白文字）
+    // New: Style for the action menu (black background, white text)
     actionMenu: {
       position: "absolute",
       top: "40px",
@@ -285,7 +284,7 @@ export function PurchaseMenu() {
       cursor: "pointer",
       borderBottom: "1px solid #333",
     },
-    // 新規：unlimited用テキストスタイル（大きなフォント＆グラデーション）
+    // New: unlimited text style (large font & gradient)
     unlimitedText: {
       fontSize: "32px",
       fontWeight: "bold",
@@ -295,17 +294,17 @@ export function PurchaseMenu() {
     },
   };
 
-  // クリックイベントのバブリング防止用
+  // Prevent event bubbling
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
 
-  // ハンバーガーボタン押下時の処理
+  // Handler for hamburger button click
   const handleHamburgerClick = () => {
     setShowSideMenu(!showSideMenu);
   };
 
-  // Edit Profile 処理（window.promptを利用してユーザー名更新）
+  // Edit Profile handler (using window.prompt to update username)
   const handleEditProfile = async () => {
     setShowActionMenu(false);
     const newUserName = window.prompt("Enter new username:");
@@ -321,10 +320,10 @@ export function PurchaseMenu() {
     }
   };
 
-  // Logout 処理
+  // Logout handler
   const handleLogout = async () => {
     setShowActionMenu(false);
-    if (window.confirm("ログアウトしますか？")) {
+    if (window.confirm("Are you sure you want to log out?")) {
       try {
         await auth.signOut();
         setShowProfileOverlay(false);
@@ -334,14 +333,14 @@ export function PurchaseMenu() {
     }
   };
 
-  // Delete account 処理
+  // Delete account handler
   const handleDeleteAccount = async () => {
     setShowActionMenu(false);
-    if (window.confirm("本当にアカウントを削除しますか？ この操作は元に戻せません。")) {
+    if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
       try {
-        // Firestoreからユーザーデータ削除
+        // Delete user data from Firestore
         await deleteDoc(doc(db, "users", userId));
-        // Authenticationからユーザー削除
+        // Delete user from Authentication
         if (auth.currentUser) {
           await auth.currentUser.delete();
         }
@@ -349,25 +348,25 @@ export function PurchaseMenu() {
         navigate("/");
       } catch (error) {
         console.error("Error deleting account:", error);
-        alert("アカウント削除に失敗しました。");
+        alert("Failed to delete account.");
       }
     }
   };
 
   return (
     <>
-      {/* サイドメニューが閉じている場合のみハンバーガーアイコンを表示 */}
+      {/* Show hamburger icon only when side menu is closed */}
       { !showSideMenu && (
         <button style={styles.hamburgerButton} onClick={handleHamburgerClick}>
           <GiHamburgerMenu size={30} />
         </button>
       )}
 
-      {/* サイドメニュー用オーバーレイ */}
+      {/* Side menu overlay */}
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* 新規：上段ヘッダー（中央：サービスと料金表、右：人アイコン） */}
+            {/* New: Top row header (center: "Services and Pricing", right: profile icon) */}
             <div style={styles.topRow}>
               <button
                 style={{
@@ -386,7 +385,7 @@ export function PurchaseMenu() {
                   navigate("/seo");
                 }}
               >
-                サービスと料金表
+                Services and Pricing
               </button>
               <button
                 style={{
@@ -411,7 +410,7 @@ export function PurchaseMenu() {
               </button>
             </div>
 
-            {/* 以下、縦並びのメニュー項目 */}
+            {/* Vertical menu items */}
             <button
               style={styles.minutesListButton}
               onClick={() => {
@@ -424,7 +423,7 @@ export function PurchaseMenu() {
               }}
             >
               <PiGridFourFill style={{ marginRight: "8px" }} />
-              議事録リスト
+              Meeting Records List
             </button>
 
             <button
@@ -439,7 +438,7 @@ export function PurchaseMenu() {
               }}
             >
               <FaTicketAlt style={{ marginRight: "8px" }} />
-              アイテムを購入
+              Purchase Items
             </button>
 
             <button
@@ -450,10 +449,10 @@ export function PurchaseMenu() {
               }}
             >
               <BsWrenchAdjustable style={{ marginRight: "8px" }} />
-              議事録フォーマット
+              Meeting Formats
             </button>
 
-            {/* 右下に配置する小サイズのポリシーボタン群 */}
+            {/* Policy buttons at bottom-right */}
             <div style={styles.policyButtonContainer}>
               <button
                 style={styles.policyButton}
@@ -480,14 +479,14 @@ export function PurchaseMenu() {
                   navigate("/transactions-law");
                 }}
               >
-                特定商取引法に基づく表記
+                Legal Notice
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* プロフィールオーバーレイ */}
+      {/* Profile Overlay */}
       {showProfileOverlay && (
         <div
           style={styles.profileOverlay}
@@ -497,7 +496,7 @@ export function PurchaseMenu() {
           }}
         >
           <div style={styles.profileModal} onClick={stopPropagation}>
-            {/* 右上のアイコンボタン */}
+            {/* Top-right icon button */}
             <button
               style={styles.logoutButton}
               onClick={(e) => {
@@ -507,7 +506,7 @@ export function PurchaseMenu() {
             >
               <HiOutlineDotsCircleHorizontal size={30} />
             </button>
-            {/* アクション選択メニュー */}
+            {/* Action menu */}
             {showActionMenu && (
               <div style={styles.actionMenu}>
                 <div style={styles.actionMenuItem} onClick={handleEditProfile}>
@@ -521,7 +520,7 @@ export function PurchaseMenu() {
                 </div>
               </div>
             )}
-            {/* グラデーションリングとしての外側の円と、内側の innerCircle */}
+            {/* Outer gradient ring and inner circle */}
             <div style={styles.profileCircle}>
               <div style={styles.innerCircle}>
                 <div style={styles.profileInfo}>
