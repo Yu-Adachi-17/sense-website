@@ -9,7 +9,7 @@
     "cra-template": "1.2.0",
     "dotenv": "^16.4.7",
     "firebase": "^11.2.0",
-    "i18next": "^24.2.2",
+    "i18next": "23.2.15", 
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.1",
