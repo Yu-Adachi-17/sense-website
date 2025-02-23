@@ -43,7 +43,6 @@ function FileUploadButton({ onFileSelected }) {
     if (file) {
       console.log("Selected file:", file.name);
       console.log("Detected MIME type:", file.type);
-      
       // ファイル形式のバリデーションを完全に削除
       onFileSelected(file);
     }
@@ -51,7 +50,6 @@ function FileUploadButton({ onFileSelected }) {
 
   return (
     <div style={{ position: 'absolute', top: 20, right: 30 }}>
-      {/* 重要なデバッグ用隠しファイル入力 */}
       <input
         type="file"
         accept="*/*"
@@ -59,7 +57,6 @@ function FileUploadButton({ onFileSelected }) {
         style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-      {/* 実際に表示するデバッグ用のボタン */}
       <button
         onClick={handleButtonClick} 
         style={{ background: 'red', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}
@@ -68,7 +65,6 @@ function FileUploadButton({ onFileSelected }) {
       </button>
     </div>
   );
-  
 }
 
 // ----------------------
@@ -97,9 +93,8 @@ function App() {
   const [showFullScreen, setShowFullScreen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  // progressStep の状態（進捗フェーズ）を追加
   const [progressStep, setProgressStep] = useState("start");
-  // 議事録が保存済みかどうかを管理する state
+  // 議事録が保存済みかどうかを管理する state（今回の実装では useEffect は削除）
   const [hasSavedRecord, setHasSavedRecord] = useState(false);
   // 新規保存時に生成された議事録のドキュメントIDを保持する state
   const [meetingRecordId, setMeetingRecordId] = useState(null);
@@ -157,7 +152,7 @@ function App() {
   // mm:ss形式にフォーマットするヘルパー関数
   const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60);
-    const s = Math.floor(seconds % 60); // 切り捨て処理を追加
+    const s = Math.floor(seconds % 60);
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
   
@@ -182,26 +177,24 @@ function App() {
     return unsubscribe;
   }, []);
 
-  // ★ Firebase Firestore のリアルタイムリスナーで残り秒数を検知する（ログインユーザーのみ）
-// Firebase Firestore のリアルタイムリスナーでサブスクリプション状態も検知する
-useEffect(() => {
-  if (auth.currentUser) {
-    const userDocRef = doc(db, "users", auth.currentUser.uid);
-    const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        setUserRemainingSeconds(data.remainingSeconds);
-        setUserSubscription(data.subscription); // ここでサブスクリプション状態を更新
-      }
-    });
-    return () => unsubscribe();
-  }
-}, [auth.currentUser]);
-
-
-  // ★ ゲストユーザーの場合、マウント時に localStorage から残り秒数を復元する
+  // ★ Firebase Firestore のリアルタイムリスナーで残り秒数・サブスクリプション状態を検知
   useEffect(() => {
-    if (userSubscription) return; // 購読ユーザーは対象外
+    if (auth.currentUser) {
+      const userDocRef = doc(db, "users", auth.currentUser.uid);
+      const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setUserRemainingSeconds(data.remainingSeconds);
+          setUserSubscription(data.subscription);
+        }
+      });
+      return () => unsubscribe();
+    }
+  }, [auth.currentUser]);
+
+  // ★ ゲストユーザーの場合、マウント時に localStorage から残り秒数を復元
+  useEffect(() => {
+    if (userSubscription) return;
     const today = new Date().toDateString();
     const storedDate = localStorage.getItem(LOCAL_LAST_RESET_KEY);
     const storedRemaining = localStorage.getItem(LOCAL_REMAINING_KEY);
@@ -214,13 +207,13 @@ useEffect(() => {
     }
   }, [userSubscription]);
 
-  // ★ 残り秒数が変化するたびに localStorage を更新する（ゲストの場合）
+  // ★ 残り秒数が変化するたびに localStorage を更新（ゲストの場合）
   useEffect(() => {
     if (userSubscription) return;
     localStorage.setItem(LOCAL_REMAINING_KEY, userRemainingSeconds);
   }, [userRemainingSeconds, userSubscription]);
 
-  // ★ 日付跨ぎで残時間が 0 の場合、再び 180 にリセットする処理（Firebase 利用時のみ実施）
+  // ★ 日付跨ぎで残時間が 0 の場合、再度 180 にリセット（Firebase 利用時のみ）
   useEffect(() => {
     if (userSubscription) return;
     const checkDateInterval = setInterval(() => {
@@ -241,51 +234,73 @@ useEffect(() => {
     return () => clearInterval(checkDateInterval);
   }, [userRemainingSeconds, userSubscription]);
 
-  // ----- 共通処理：アップロードファイル／録音停止時に STT で議事録生成 ----- //
+  // ----- 【変更箇所】transcribeAudio() の完了時点で議事録保存を実行する processAudioFile 関数 -----
   const processAudioFile = async (file) => {
-    try {
-      // blob URL 生成
-      const url = URL.createObjectURL(file);
-      setAudioURL(url);
-  
-      // 録音完了直後 → アップロード中のフェーズ
-      setProgressStep("uploading");
-  
-      // STT 処理開始
+    // blob URL 生成
+    const url = URL.createObjectURL(file);
+    setAudioURL(url);
+    setProgressStep("uploading");
+
+    // 少し待ってから STT 処理へ
+    setTimeout(async () => {
       setProgressStep("transcribing");
-  
-      const transcriptionResult = await transcribeAudio(
-        file,
-        selectedMeetingFormat.template
-      );
-  
-      if (transcriptionResult) {
-        const { transcription, minutes } = transcriptionResult;
-  
-        // STT 完了時のフェーズ更新
-        setTranscription(transcription);
-        setMinutes(minutes);
-        setProgressStep("transcriptionComplete");
-  
-        // --- ここで Firestore に即時保存 ---
-        const recordId = await saveMeetingRecord(transcription, minutes);
-        if (recordId) {
-          setMeetingRecordId(recordId); // Firestore のIDをセット
+      try {
+        // transcribeAudio() は Promise を返し、{ transcription, minutes } を解決する
+        const { transcription: newTranscription, minutes: newMinutes } = await transcribeAudio(
+          file,
+          selectedMeetingFormat.template,
+          setIsProcessing
+        );
+        // state を更新
+        setTranscription(newTranscription);
+        setMinutes(newMinutes);
+
+        // 結果が存在すれば議事録を保存
+        if (newTranscription && newMinutes) {
+          await saveMeetingRecord(newTranscription, newMinutes);
         }
-  
-        setHasSavedRecord(true); // 保存済みフラグを立てる
-      } else {
-        console.error("🔴 [ERROR] STT で transcriptionResult が取得できませんでした");
+      } catch (error) {
+        console.error("STT 処理中にエラーが発生しました:", error);
+        setProgressStep("error");
       }
-  
+      setProgressStep("transcriptionComplete");
+      // 議事録生成完了後、FullScreenOverlay を表示
+      setShowFullScreen(true);
+    }, 500);
+  };
+
+  // ----- 【変更箇所】transcribeAudio() の結果を利用して即保存する saveMeetingRecord 関数 -----
+  const saveMeetingRecord = async (transcription, minutes) => {
+    try {
+      if (!auth.currentUser) {
+        console.error("ユーザーがログインしていません。保存を中止します。");
+        return;
+      }
+      if (!transcription || !minutes) {
+        console.error("transcription または minutes が空です。保存を中止します。");
+        return;
+      }
+      const paperID = uuidv4();
+      const creationDate = new Date();
+      const recordData = {
+        paperID,
+        transcription,
+        minutes,
+        createdAt: creationDate,
+        uid: auth.currentUser.uid,
+      };
+
+      const docRef = await addDoc(collection(db, 'meetingRecords'), recordData);
+      console.log("✅ 議事録が保存されました。ドキュメントID:", docRef.id);
+      setMeetingRecordId(docRef.id);
+      setProgressStep("completed");
     } catch (error) {
-      console.error("🔴 [ERROR] processAudioFile 内でエラー発生:", error);
+      console.error("議事録保存中にエラーが発生しました:", error);
     }
   };
 
   // 録音ボタン押下時の処理
   const toggleRecording = async () => {
-    // サブスクリプション加入中の場合は残り秒数チェックをスキップする
     if (!userSubscription && userRemainingSeconds === 0) {
       if (!auth.currentUser) {
         window.location.href = '/login';
@@ -296,12 +311,10 @@ useEffect(() => {
     }
 
     if (isRecording) {
-      // 録音停止時
       await stopRecording();
       setProgressStep("recordingComplete");
       setIsRecording(false);
     } else {
-      // 録音開始処理が成功した場合のみ isRecording を更新する
       const started = await startRecording();
       if (started) {
         setIsRecording(true);
@@ -309,12 +322,9 @@ useEffect(() => {
     }
   };
 
-  // 録音開始前に、ログインユーザーの場合はFirestoreで多重録音チェックを実施
-  // 成功時は true、失敗時は false を返す
+  // 録音開始前に、ログインユーザーの場合は Firestore で多重録音チェック
   const startRecording = async () => {
-    // ログインユーザーの場合のみチェックを実施
     if (auth.currentUser) {
-      // デバイスIDは localStorage に保存（無ければ生成）
       let currentDeviceId = localStorage.getItem("deviceId");
       if (!currentDeviceId) {
         currentDeviceId = uuidv4();
@@ -327,17 +337,14 @@ useEffect(() => {
         const data = docSnap.data();
         const storedDeviceId = data?.recordingDevice;
         const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
-        // 5分（300秒）未満の場合は他のデバイスで録音中かチェック
         if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 300 * 1000)) {
           if (storedDeviceId && storedDeviceId !== currentDeviceId) {
             alert("他のデバイスで録音中のため、録音を開始できません。");
             return false;
           }
         } else {
-          // 5分以上経過していれば、古い情報をリセット
           await setDoc(userRef, { recordingDevice: null }, { merge: true });
         }
-        // 自分のデバイスでの録音としてFirestoreを更新
         await setDoc(userRef, {
           recordingDevice: currentDeviceId,
           recordingTimestamp: serverTimestamp()
@@ -348,7 +355,6 @@ useEffect(() => {
         return false;
       }
     }
-    // チェック完了後、実際の録音開始処理へ
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;
@@ -405,7 +411,6 @@ useEffect(() => {
       source.connect(analyser);
       updateAudioLevel();
   
-      // 残り時間のカウントダウン（ゲストの場合のみ）
       if (!userSubscription) {
         timerIntervalRef.current = setInterval(() => {
           setUserRemainingSeconds(prev => {
@@ -421,7 +426,6 @@ useEffect(() => {
         }, 1000);
       }
   
-      // 録音開始成功
       return true;
   
     } catch (err) {
@@ -431,7 +435,6 @@ useEffect(() => {
     }
   };
   
-  // stopRecording にオプション引数 finalRemaining を追加
   const stopRecording = async (finalRemaining = userRemainingSeconds) => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
@@ -469,7 +472,6 @@ useEffect(() => {
         console.error("残時間更新エラー:", err);
       }
     }
-    // ★ 追加：録音終了時に Firestore の recordingDevice をリセット
     if (auth.currentUser) {
       try {
         await setDoc(doc(db, "users", auth.currentUser.uid), { recordingDevice: null, recordingTimestamp: null }, { merge: true });
@@ -528,52 +530,6 @@ useEffect(() => {
     }
   }, [showFullScreen]);
 
-  // 議事録生成完了時に Firebase へ保存
-  useEffect(() => {
-    const saveMeetingRecord = async (transcription, minutes) => {
-      try {
-        console.log("🟡 [DEBUG] saveMeetingRecord が呼ばれました");
-    
-        if (!auth.currentUser) {
-          console.error("🔴 [ERROR] ユーザーがログインしていません。保存を中止します");
-          return;
-        }
-    
-        if (!transcription || !minutes) {
-          console.error("🔴 [ERROR] transcription または minutes が空です。保存しません");
-          return;
-        }
-    
-        const paperID = uuidv4();
-        const creationDate = new Date();
-        const recordData = {
-          paperID,
-          transcription,
-          minutes,
-          createdAt: creationDate,
-          uid: auth.currentUser.uid,
-        };
-    
-        console.log("🟢 [DEBUG] Firestore に保存するデータ:", recordData);
-    
-        const docRef = await addDoc(collection(db, 'meetingRecords'), recordData);
-        console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました。ID:", docRef.id);
-        
-        return docRef.id; // Firestore のドキュメントIDを返す
-    
-      } catch (err) {
-        console.error("🔴 [ERROR] Firebase Firestore の保存中にエラー発生:", err);
-        return null;
-      }
-    };
-
-    if (showFullScreen && transcription && minutes && !hasSavedRecord) {
-      console.log("🟢 [DEBUG] showFullScreen が true になったので saveMeetingRecord を実行");
-      saveMeetingRecord();
-      setHasSavedRecord(true);
-    }
-  }, [showFullScreen, transcription, minutes, hasSavedRecord]);
-
   return (
     <Router basename="/">
       <Routes>
@@ -582,7 +538,7 @@ useEffect(() => {
           element={
             <div className="container">
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                {/* FileUploadButton は右上に引き続き配置 */}
+                {/* FileUploadButton は右上に配置 */}
                 <FileUploadButton onFileSelected={handleFileUpload} />
 
                 {!showFullScreen && <PurchaseMenu />}
