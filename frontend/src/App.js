@@ -110,6 +110,44 @@ function App() {
   // ★ 追加：ユーザーが選択した会議フォーマット情報
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
 
+  // ★ 新規追加：録音の最大時間（60分＝3600秒）のカウントダウン用 state と interval 用 ref
+  const [recordingCountdown, setRecordingCountdown] = useState(3600);
+  const recordingTimerIntervalRef = useRef(null);
+
+  // mm:ss形式にフォーマットするヘルパー関数
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
+
+  // 録音中の最大時間カウントダウンの開始／リセット（isRecording で管理）
+  useEffect(() => {
+    if (isRecording) {
+      // 録音開始時に60分にリセット
+      setRecordingCountdown(3600);
+      recordingTimerIntervalRef.current = setInterval(() => {
+        setRecordingCountdown(prev => {
+          if (prev <= 1) {
+            clearInterval(recordingTimerIntervalRef.current);
+            recordingTimerIntervalRef.current = null;
+            // 最大時間に達したら強制停止
+            stopRecording();
+            setIsRecording(false);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } else {
+      if (recordingTimerIntervalRef.current) {
+        clearInterval(recordingTimerIntervalRef.current);
+        recordingTimerIntervalRef.current = null;
+      }
+      setRecordingCountdown(3600);
+    }
+  }, [isRecording]);
+
   // App.js マウント時に localStorage から selectedMeetingFormat を読み込む
   useEffect(() => {
     const storedFormat = localStorage.getItem("selectedMeetingFormat");
@@ -149,13 +187,6 @@ function App() {
   // ★ 日付跨ぎでリセット判定用（Firebase 連携済みの場合は使用）
   const lastResetDateRef = useRef(new Date().toDateString());
 
-  // mm:ss形式にフォーマットするヘルパー関数
-  const formatTime = (seconds) => {
-    const m = Math.floor(seconds / 60);
-    const s = Math.floor(seconds % 60);
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-  };
-  
   // ★ Firebase Auth の状態変化を監視してユーザーデータを取得する
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -233,6 +264,28 @@ function App() {
     }, 1000);
     return () => clearInterval(checkDateInterval);
   }, [userRemainingSeconds, userSubscription]);
+
+  // コンポーネントのアンマウント時の処理
+  useEffect(() => {
+    const interval = progressIntervalRef.current;
+    return () => {
+      stopRecording();
+      clearInterval(interval);
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current);
+      }
+      if (recordingTimerIntervalRef.current) {
+        clearInterval(recordingTimerIntervalRef.current);
+      }
+    };
+  }, []);
+
+  // FullScreenOverlay を開く際に isExpanded を false にリセット
+  useEffect(() => {
+    if (showFullScreen) {
+      setIsExpanded(false);
+    }
+  }, [showFullScreen]);
 
   // ----- 【変更箇所】transcribeAudio() の完了時点で議事録保存を実行する processAudioFile 関数 -----
   const processAudioFile = async (file) => {
@@ -511,25 +564,6 @@ function App() {
     await processAudioFile(file);
   };
   
-  // コンポーネントのアンマウント時の処理
-  useEffect(() => {
-    const interval = progressIntervalRef.current;
-    return () => {
-      stopRecording();
-      clearInterval(interval);
-      if (timerIntervalRef.current) {
-        clearInterval(timerIntervalRef.current);
-      }
-    };
-  }, []);
-
-  // FullScreenOverlay を開く際に isExpanded を false にリセット
-  useEffect(() => {
-    if (showFullScreen) {
-      setIsExpanded(false);
-    }
-  }, [showFullScreen]);
-
   return (
     <Router basename="/">
       <Routes>
@@ -576,38 +610,57 @@ function App() {
               </div>
 
               {isUserDataLoaded && (
-                <div style={{
-                  position: 'absolute',
-                  bottom: 'calc((50vh - 160px) / 2)',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  color: 'white',
-                  fontSize: '54px',
-                  zIndex: 10,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  height: '80px'
-                }}>
-                  {userSubscription ? (
-                    <span style={{
-                      background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                      WebkitBackgroundClip: 'text',
-                      color: 'transparent',
-                      fontSize: '72px',
-                      fontFamily: 'Impact, sans-serif',
-                      lineHeight: '1'
-                    }}>♾️</span>
-                  ) : (
-                    <span style={{
-                      fontFamily: 'Impact, sans-serif',
-                      fontSize: '72px',
-                      lineHeight: '1'
-                    }}>
-                      {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
-                    </span>
-                  )}
-                </div>
+                <>
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 'calc((50vh - 160px) / 2)',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    color: 'white',
+                    fontSize: '54px',
+                    zIndex: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '80px'
+                  }}>
+                    {userSubscription ? (
+                      <span style={{
+                        background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        fontSize: '72px',
+                        fontFamily: 'Impact, sans-serif',
+                        lineHeight: '1'
+                      }}>♾️</span>
+                    ) : (
+                      <span style={{
+                        fontFamily: 'Impact, sans-serif',
+                        fontSize: '72px',
+                        lineHeight: '1'
+                      }}>
+                        {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
+                      </span>
+                    )}
+                  </div>
+                  {/* 追加：録音の最大60分カウントダウン表示（白文字・指定グラデーション背景・角丸） */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 'calc((50vh - 160px) / 2 - 100px)',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                    borderRadius: '10px',
+                    padding: '10px 20px',
+                    color: 'white',
+                    fontSize: '24px',
+                    zIndex: 10,
+                    textAlign: 'center'
+                  }}>
+                    <div>β版  一度の録音の最長時間は60分です</div>
+                    <div>{formatTime(recordingCountdown)}</div>
+                  </div>
+                </>
               )}
             </div>
           }
