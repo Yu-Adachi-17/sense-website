@@ -11,7 +11,7 @@ import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
-import { syncUserData } from "../firebaseUserSync"; // ユーザーデータ同期用の関数をインポート
+import { syncUserData } from "../firebaseUserSync"; // Import function for syncing user data
 
 const auth = getAuth(app);
 
@@ -25,51 +25,51 @@ const Login = () => {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      setAlertMessage("メールアドレスとパスワードを入力してください");
+      setAlertMessage("Please enter your email and password.");
       setShowAlert(true);
       return;
     }
     setIsLoading(true);
     try {
-      // Email/Passwordでサインイン
+      // Sign in with Email/Password
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // メール認証が完了していない場合はサインアウトしてエラー表示
+      // If email verification is not complete, sign out and display an error
       if (!user.emailVerified) {
         await signOut(auth);
-        setAlertMessage("メール認証が完了していません。メール内のリンクをクリックして認証してください。");
+        setAlertMessage("Your email has not been verified. Please click the link in the email to verify your account.");
         setShowAlert(true);
         return;
       }
 
-      // ログイン成功後、Firestore にユーザーデータを同期する
-      // ※ 第3引数（userIsUnlimited）や第4引数（currentCountdown）は必要に応じて設定してください
+      // After successful login, sync user data to Firestore
+      // ※ Set the 3rd parameter (userIsUnlimited) and 4th parameter (currentCountdown) as needed
       await syncUserData(user, email, false, 0);
 
-      // ホーム画面へ遷移
+      // Navigate to the home screen
       navigate("/");
     } catch (error) {
-      console.error("ログインエラー:", error);
-      // エラーコードに応じたエラーメッセージの設定
+      console.error("Login error:", error);
+      // Set error message based on error code
       switch (error.code) {
         case "auth/invalid-email":
-          setAlertMessage("無効なメールアドレスです。");
+          setAlertMessage("The email address is invalid.");
           break;
         case "auth/user-disabled":
-          setAlertMessage("このアカウントは無効になっています。");
+          setAlertMessage("This account has been disabled.");
           break;
         case "auth/user-not-found":
-          setAlertMessage("ユーザーが見つかりません。");
+          setAlertMessage("User not found.");
           break;
         case "auth/wrong-password":
-          setAlertMessage("パスワードが違います。");
+          setAlertMessage("Incorrect password.");
           break;
         case "auth/too-many-requests":
-          setAlertMessage("短時間での試行が多すぎます。しばらく待ってください。");
+          setAlertMessage("Too many attempts in a short period. Please wait and try again.");
           break;
         default:
-          setAlertMessage("ログインに失敗しました。もう一度お試しください。");
+          setAlertMessage("Login failed. Please try again.");
       }
       setShowAlert(true);
     } finally {
@@ -81,9 +81,9 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithGoogle();
-      navigate("/"); // Googleサインイン成功時にホーム画面へ遷移
+      navigate("/"); // Navigate to home screen after successful Google sign-in
     } catch (error) {
-      setAlertMessage("Googleサインインに失敗しました");
+      setAlertMessage("Google sign-in failed.");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -94,9 +94,9 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithApple();
-      navigate("/"); // Appleサインイン成功時にホーム画面へ遷移
+      navigate("/"); // Navigate to home screen after successful Apple sign-in
     } catch (error) {
-      setAlertMessage("Appleサインインに失敗しました");
+      setAlertMessage("Apple sign-in failed.");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -105,18 +105,18 @@ const Login = () => {
 
   const handlePasswordReset = async () => {
     if (!email) {
-      setAlertMessage("メールアドレスを入力してください");
+      setAlertMessage("Please enter your email address.");
       setShowAlert(true);
       return;
     }
     setIsLoading(true);
     try {
       await sendPasswordResetEmail(auth, email);
-      setAlertMessage("パスワード再設定メールを送信しました。メールをご確認ください。");
+      setAlertMessage("A password reset email has been sent. Please check your email.");
       setShowAlert(true);
     } catch (error) {
-      console.error("パスワード再設定メール送信エラー:", error);
-      setAlertMessage("パスワード再設定メールの送信に失敗しました。");
+      console.error("Error sending password reset email:", error);
+      setAlertMessage("Failed to send password reset email.");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -176,7 +176,7 @@ const Login = () => {
         }}
       />
 
-      {/* Emailログインボタン */}
+      {/* Email login button */}
       <button
         onClick={handleLogin}
         disabled={isLoading}
@@ -194,7 +194,7 @@ const Login = () => {
         Login
       </button>
 
-      {/* Googleサインイン */}
+      {/* Google sign-in */}
       <button
         onClick={handleGoogleSignIn}
         style={{
@@ -213,10 +213,10 @@ const Login = () => {
         }}
       >
         <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
-        Googleでログイン
+        Sign in with Google
       </button>
 
-      {/* Appleサインイン */}
+      {/* Apple sign-in */}
       <button
         onClick={handleAppleSignIn}
         style={{
@@ -235,10 +235,10 @@ const Login = () => {
         }}
       >
         <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
-        Appleでログイン
+        Sign in with Apple
       </button>
 
-      {/* パスワード再設定メール送信ボタン */}
+      {/* Password reset email button */}
       <button
         onClick={handlePasswordReset}
         disabled={isLoading}
@@ -251,7 +251,7 @@ const Login = () => {
           fontWeight: "bold",
         }}
       >
-        パスワードを忘れましたか？再設定メールを送ります。
+        Forgot your password? Send a reset email.
       </button>
 
       <button
@@ -263,7 +263,7 @@ const Login = () => {
           cursor: "pointer",
         }}
       >
-        まだアカウントをお持ちでないですか？こちらをクリック
+        Don't have an account? Click here.
       </button>
 
       {showAlert && (

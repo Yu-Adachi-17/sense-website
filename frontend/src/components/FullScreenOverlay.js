@@ -5,9 +5,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
 
-// Firebase Firestore の更新用モジュール
+// Firebase Firestore update module
 import { doc, updateDoc, onSnapshot } from "firebase/firestore";
-import { db } from "../firebaseConfig";  // Firebase 初期化済みの Firestore インスタンス
+import { db } from "../firebaseConfig";  // Initialized Firestore instance
 
 const FullScreenOverlay = ({
   setShowFullScreen,
@@ -16,22 +16,22 @@ const FullScreenOverlay = ({
   transcription,
   minutes,
   audioURL,
-  docId  // 追加：更新対象のドキュメントID
+  docId  // Document ID to update
 }) => {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // 編集モード状態と、編集中のテキスト（minutes または transcription）
+  // Editing mode state and the text being edited (either minutes or transcription)
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(isExpanded ? transcription : minutes);
 
   useEffect(() => {
-    if (docId && !isEditing) {  // 編集中でなければ外部の変更を反映する
+    if (docId && !isEditing) {  // If not editing, reflect external changes
       const docRef = doc(db, 'meetingRecords', docId);
       const unsubscribe = onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
           const data = docSnap.data();
-          // isExpanded の状態に合わせて適切なテキストを更新
+          // Update the text based on the state of isExpanded
           setEditedText(isExpanded ? data.transcription : data.minutes);
         }
       });
@@ -39,7 +39,7 @@ const FullScreenOverlay = ({
     }
   }, [docId, isExpanded, isEditing]);
 
-  // 画面サイズの変更を監視
+  // Monitor changes in screen size
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -49,37 +49,35 @@ const FullScreenOverlay = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // isExpanded や props の内容が変わったとき、編集中でなければ表示内容を更新
+  // Update displayed content when isExpanded or props change, if not editing
   useEffect(() => {
     if (!isEditing) {
       setEditedText(isExpanded ? transcription : minutes);
     }
   }, [isExpanded, transcription, minutes, isEditing]);
 
-  
-
-  // 音声データのダウンロード処理
+  // Audio data download handler
   const handleDownload = () => {
     if (audioURL) {
       const link = document.createElement('a');
       link.href = audioURL;
-      link.download = '議事録音声データ.webm';
+      link.download = 'meeting_recording.webm';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } else {
-      alert('ダウンロード可能な音声データがありません。');
+      alert('No downloadable audio data available.');
     }
   };
 
-  // 全文と議事録の表示を切り替える処理（編集モード終了も同時に）
+  // Toggle between full transcript and minutes (also exits editing mode)
   const handleSwitchView = () => {
     setIsExpanded(!isExpanded);
     setShowSideMenu(false);
     setIsEditing(false);
   };
 
-  // 議事録表示に切り替える処理（編集モード終了も同時に）
+  // Switch to minutes view (also exits editing mode)
   const handleSwitchToMinutes = () => {
     if (isExpanded) {
       setIsExpanded(false);
@@ -88,20 +86,20 @@ const FullScreenOverlay = ({
     }
   };
 
-  // 議事録または全文をクリップボードにコピーする処理
+  // Copy minutes or full transcript to clipboard
   const handleShare = () => {
     const content = editedText;
     navigator.clipboard.writeText(content).then(() => {
-      alert('クリップボードにコピーしました！');
+      alert('Copied to clipboard!');
     }).catch(() => {
-      alert('クリップボードへのコピーに失敗しました。');
+      alert('Failed to copy to clipboard.');
     });
   };
 
-  // Firebase に更新する処理（isExpanded が true のときは全文（transcription）、false のときは議事録（minutes））
+  // Update Firebase (if isExpanded is true, update transcription; otherwise, update minutes)
   const handleSave = async () => {
     if (!docId) {
-      alert('保存対象のドキュメントIDがありません');
+      alert('No document ID available for saving.');
       return;
     }
     try {
@@ -112,19 +110,19 @@ const FullScreenOverlay = ({
         await updateDoc(docRef, { minutes: editedText });
       }
       setIsEditing(false);
-      alert('保存に成功しました');
+      alert('Save successful.');
     } catch (error) {
       console.error("Error saving document: ", error);
-      alert('保存に失敗しました: ' + error.message);
+      alert('Save failed: ' + error.message);
     }
   };
 
-  // サイドメニュー内のクリックがオーバーレイに伝わらないようにする
+  // Prevent clicks inside the side menu from propagating to the overlay
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
 
-  // 以下はスタイルなどの定義（省略せずそのまま）
+  // Below are style definitions (kept as is)
   const styles = {
     fullScreenOverlay: {
       position: 'fixed',
@@ -306,20 +304,20 @@ const FullScreenOverlay = ({
   return (
     <>
       <div style={styles.fullScreenOverlay}>
-        {/* 閉じるボタン */}
+        {/* Close button */}
         <button style={styles.closeButton} onClick={() => setShowFullScreen(false)}>
           &times;
         </button>
 
-        {/* ハンバーガーメニュー */}
+        {/* Hamburger menu */}
         <button style={styles.hamburgerButton} onClick={() => setShowSideMenu(true)}>
           <GiHamburgerMenu size={24} />
         </button>
 
-        {/* タイトルと編集／保存ボタン */}
+        {/* Title and Edit/Save buttons */}
         <div style={styles.titleContainer}>
           <h2 style={styles.title}>
-            {isExpanded ? '全文' : '議事録'}
+            {isExpanded ? 'Full Transcript' : 'Minutes'}
           </h2>
           {isEditing ? (
             <button style={styles.saveButton} onClick={handleSave}>
@@ -332,53 +330,52 @@ const FullScreenOverlay = ({
           )}
         </div>
 
-        {/* テキスト描写範囲ボックス */}
+        {/* Text display area */}
         <div
           style={{
             ...styles.fullScreenContent,
             ...(isExpanded ? styles.fullText : styles.summaryText),
           }}
         >
-          {/* シェアボタン */}
+          {/* Share button */}
           <button style={styles.shareButton} onClick={handleShare}>
             <FaRegCopy size={20} />
           </button>
 
-          {/* 編集モードの場合は textarea、非編集時は p タグで表示 */}
-{isEditing ? (
-  <textarea
-    style={styles.textEditor}
-    value={editedText}
-    onChange={(e) => setEditedText(e.target.value)}
-  />
-) : (
-  <p style={{ whiteSpace: 'pre-wrap' }}>{editedText}</p>
-)}
-
+          {/* If in editing mode, display a textarea; otherwise, display a paragraph */}
+          {isEditing ? (
+            <textarea
+              style={styles.textEditor}
+              value={editedText}
+              onChange={(e) => setEditedText(e.target.value)}
+            />
+          ) : (
+            <p style={{ whiteSpace: 'pre-wrap' }}>{editedText}</p>
+          )}
         </div>
       </div>
 
-      {/* サイドメニューオーバーレイ */}
+      {/* Side menu overlay */}
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* 全文と議事録の切り替えボタン */}
+            {/* Button to toggle between full transcript and minutes */}
             {!isExpanded ? (
               <button style={styles.sideMenuButton} onClick={handleSwitchView}>
                 <TbClipboardText size={24} />
-                <span style={styles.iconSpacing}>全文を表示</span>
+                <span style={styles.iconSpacing}>Show Full Transcript</span>
               </button>
             ) : (
               <button style={styles.sideMenuButton} onClick={handleSwitchToMinutes}>
                 <TbClipboardList size={24} />
-                <span style={styles.iconSpacing}>議事録を表示</span>
+                <span style={styles.iconSpacing}>Show Minutes</span>
               </button>
             )}
 
-            {/* 音声データのダウンロードボタン */}
+            {/* Audio data download button */}
             <button style={styles.sideMenuButton} onClick={handleDownload}>
               <IoIosDownload size={24} />
-              <span style={styles.iconSpacing}>音声データをダウンロード</span>
+              <span style={styles.iconSpacing}>Download Audio Data</span>
             </button>
           </div>
         </div>

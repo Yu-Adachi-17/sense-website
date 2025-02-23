@@ -13,61 +13,59 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { RxArrowLeft } from 'react-icons/rx';
 
-// 議事録項目コンポーネント（選択モード対応版）
-// 議事録項目コンポーネント（選択モード対応版）
+// Meeting Record Item Component (Selection Mode Version)
 const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
-    const navigate = useNavigate();
-  
-    const createdDate =
-      paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
-    const truncatedText =
-      paper.minutes.length <= 100 ? paper.minutes : paper.minutes.slice(0, 100) + '…';
-  
-    // 選択モードの場合は選択状態を切り替え、通常時は詳細画面へ遷移
-    const handleClick = () => {
-      if (selectionMode) {
-        toggleSelect(paper.id);
-      } else {
-        navigate(`/minutes/${paper.id}`, { state: { paper } });
-      }
-    };
-  
-    return (
-      <div
-        onClick={handleClick}
-        style={{
-          backgroundColor: isSelected ? '#555' : '#1e1e1e',
-          border: isSelected ? '2px solid red' : 'none',
-          borderRadius: 10,
-          padding: 10,
-          color: 'white',
-          textAlign: 'center',
-          cursor: 'pointer'
-        }}
-      >
-        {/* white-space: pre-wrap を追加 */}
-        <div style={{ fontWeight: 'bold', whiteSpace: 'pre-wrap' }}>
-          {truncatedText}
-        </div>
-      </div>
-    );
+  const navigate = useNavigate();
+
+  const createdDate =
+    paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
+  const truncatedText =
+    paper.minutes.length <= 100 ? paper.minutes : paper.minutes.slice(0, 100) + '…';
+
+  // In selection mode, toggle selection; otherwise, navigate to the detail screen
+  const handleClick = () => {
+    if (selectionMode) {
+      toggleSelect(paper.id);
+    } else {
+      navigate(`/minutes/${paper.id}`, { state: { paper } });
+    }
   };
-  
+
+  return (
+    <div
+      onClick={handleClick}
+      style={{
+        backgroundColor: isSelected ? '#555' : '#1e1e1e',
+        border: isSelected ? '2px solid red' : 'none',
+        borderRadius: 10,
+        padding: 10,
+        color: 'white',
+        textAlign: 'center',
+        cursor: 'pointer'
+      }}
+    >
+      {/* Added white-space: pre-wrap */}
+      <div style={{ fontWeight: 'bold', whiteSpace: 'pre-wrap' }}>
+        {truncatedText}
+      </div>
+    </div>
+  );
+};
 
 const MinutesList = () => {
   const [papers, setPapers] = useState([]);
   const [searchText, setSearchText] = useState('');
-  // 選択モードと選択済みの議事録IDの管理
+  // Manage selection mode and selected meeting record IDs
   const [selectionMode, setSelectionMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("🟡 [DEBUG] MinutesList がマウントされました");
+    console.log("🟡 [DEBUG] MinutesList mounted");
 
     const unsubscribeAuth = auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log("🟢 [DEBUG] ログインユーザー:", user.uid);
+        console.log("🟢 [DEBUG] Logged in user:", user.uid);
 
         const q = query(
           collection(db, 'meetingRecords'),
@@ -75,50 +73,50 @@ const MinutesList = () => {
           orderBy('createdAt', 'desc')
         );
 
-        console.log("🟡 [DEBUG] Firestore クエリを実行します");
+        console.log("🟡 [DEBUG] Executing Firestore query");
 
         const unsubscribeSnapshot = onSnapshot(
           q,
           (querySnapshot) => {
-            console.log(`🟢 [DEBUG] Firestore から ${querySnapshot.size} 件のデータを取得`);
+            console.log(`🟢 [DEBUG] Retrieved ${querySnapshot.size} documents from Firestore`);
             const fetchedPapers = [];
             querySnapshot.forEach((docSnapshot) => {
-              console.log("🟢 [DEBUG] 取得したドキュメント:", docSnapshot.id, docSnapshot.data());
+              console.log("🟢 [DEBUG] Retrieved document:", docSnapshot.id, docSnapshot.data());
               fetchedPapers.push({ id: docSnapshot.id, ...docSnapshot.data() });
             });
 
             if (fetchedPapers.length === 0) {
-              console.warn("⚠️ [WARNING] Firestore にはデータがありません");
+              console.warn("⚠️ [WARNING] No data in Firestore");
             }
 
             setPapers(fetchedPapers);
           },
           (error) => {
-            console.error("🔴 [ERROR] Firestore からの取得に失敗:", error);
+            console.error("🔴 [ERROR] Failed to retrieve data from Firestore:", error);
           }
         );
 
         return () => {
-          console.log("🟡 [DEBUG] Firestore リスナーを解除");
+          console.log("🟡 [DEBUG] Unsubscribing Firestore listener");
           unsubscribeSnapshot();
         };
       } else {
-        console.warn("⚠️ [WARNING] ユーザーがログインしていません");
+        console.warn("⚠️ [WARNING] User is not logged in");
       }
     });
 
     return () => {
-      console.log("🟡 [DEBUG] onAuthStateChanged のリスナーを解除");
+      console.log("🟡 [DEBUG] Unsubscribing onAuthStateChanged listener");
       unsubscribeAuth();
     };
   }, []);
 
-  // 検索フィルタリング
+  // Filtering for search
   const filteredPapers = papers.filter((paper) =>
     paper.minutes.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  // 日付ごとにグループ化
+  // Group by date
   const groupedPapers = filteredPapers.reduce((groups, paper) => {
     const date = paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
     const key = date.toLocaleDateString();
@@ -131,7 +129,7 @@ const MinutesList = () => {
     (a, b) => new Date(b) - new Date(a)
   );
 
-  // 議事録選択のトグル処理
+  // Toggle selection for meeting record
   const toggleSelect = (id) => {
     setSelectedIds((prevSelected) => {
       if (prevSelected.includes(id)) {
@@ -142,31 +140,31 @@ const MinutesList = () => {
     });
   };
 
-  // 削除処理（確認アラート経由）
+  // Delete process (via confirmation alert)
   const handleDelete = async () => {
     if (selectedIds.length === 0) {
-      alert("削除する議事録を選択してください。");
+      alert("Please select meeting records to delete.");
       return;
     }
-    const confirmed = window.confirm("削除しますか？この動作は戻せません");
+    const confirmed = window.confirm("Are you sure you want to delete? This action cannot be undone.");
     if (!confirmed) return;
 
     try {
       for (const id of selectedIds) {
         await deleteDoc(doc(db, 'meetingRecords', id));
       }
-      // 削除後は選択状態をリセットし、選択モードを解除
+      // Reset selection state and exit selection mode after deletion
       setSelectedIds([]);
       setSelectionMode(false);
     } catch (error) {
-      console.error("削除中にエラーが発生しました", error);
-      alert("削除中にエラーが発生しました");
+      console.error("An error occurred during deletion", error);
+      alert("An error occurred during deletion");
     }
   };
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
-      {/* ヘッダー部分 */}
+      {/* Header */}
       <div
         style={{
           display: 'flex',
@@ -194,63 +192,61 @@ const MinutesList = () => {
         <div>
           {selectionMode ? (
             <>
-<button
-  onClick={() => {
-    setSelectionMode(false);
-    setSelectedIds([]);
-  }}
-  style={{
-    backgroundColor: '#1e1e1e',
-    color: 'white',
-    border: 'none',
-    padding: '10px 15px',
-    borderRadius: 4,
-    marginRight: 10,
-    cursor: 'pointer',
-    fontSize: 18  // 🔹 ここで変更！
-  }}
->
-  キャンセル
-</button>
+              <button
+                onClick={() => {
+                  setSelectionMode(false);
+                  setSelectedIds([]);
+                }}
+                style={{
+                  backgroundColor: '#1e1e1e',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 15px',
+                  borderRadius: 4,
+                  marginRight: 10,
+                  cursor: 'pointer',
+                  fontSize: 18 // Changed here!
+                }}
+              >
+                Cancel
+              </button>
 
-<button
-  onClick={handleDelete}
-  style={{
-    backgroundColor: '#ff4d4d',
-    color: 'white',
-    border: 'none',
-    padding: '10px 15px',
-    borderRadius: 4,
-    cursor: 'pointer',
-    fontSize: 18,  // 🔹 ここで変更！
-    fontWeight: 'bold'  // 🔹 文字を太くする
-  }}
->
-  削除する
-</button>
-
+              <button
+                onClick={handleDelete}
+                style={{
+                  backgroundColor: '#ff4d4d',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 15px',
+                  borderRadius: 4,
+                  cursor: 'pointer',
+                  fontSize: 18, // Changed here!
+                  fontWeight: 'bold' // Make text bold
+                }}
+              >
+                Delete
+              </button>
             </>
           ) : (
-<button
-  onClick={() => setSelectionMode(true)}
-  style={{
-    backgroundColor: '#1e1e1e',
-    color: 'white',
-    border: 'none',
-    padding: '10px 15px',
-    borderRadius: 4,
-    cursor: 'pointer',
-    fontSize: 18  // 🔹 ここで変更！
-  }}
->
-  選択
-</button>
-
+            <button
+              onClick={() => setSelectionMode(true)}
+              style={{
+                backgroundColor: '#1e1e1e',
+                color: 'white',
+                border: 'none',
+                padding: '10px 15px',
+                borderRadius: 4,
+                cursor: 'pointer',
+                fontSize: 18 // Changed here!
+              }}
+            >
+              Select
+            </button>
           )}
         </div>
       </div>
 
-      {/* 検索フィールド */}
+      {/* Search Field */}
       <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'center' }}>
         <input
           type="text"
@@ -271,9 +267,9 @@ const MinutesList = () => {
         />
       </div>
 
-      {/* 議事録の一覧表示 */}
+      {/* List of meeting records */}
       {sortedDateKeys.length === 0 ? (
-        <p style={{ color: 'gray', textAlign: 'center' }}>議事録がありません</p>
+        <p style={{ color: 'gray', textAlign: 'center' }}>No meeting records available</p>
       ) : (
         sortedDateKeys.map((dateKey) => (
           <div key={dateKey} style={{ marginBottom: 30 }}>
