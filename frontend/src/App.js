@@ -243,32 +243,44 @@ useEffect(() => {
 
   // ----- 共通処理：アップロードファイル／録音停止時に STT で議事録生成 ----- //
   const processAudioFile = async (file) => {
-    // blob URL 生成
-    const url = URL.createObjectURL(file);
-    setAudioURL(url);
-
-    // 録音完了直後 → アップロード中のフェーズ
-    setProgressStep("uploading");
-
-    // 少し待ってから STT 処理へ（必要に応じてここでアップロード処理なども実装）
-    setTimeout(async () => {
-      // STT 処理開始：フェーズを更新
+    try {
+      // blob URL 生成
+      const url = URL.createObjectURL(file);
+      setAudioURL(url);
+  
+      // 録音完了直後 → アップロード中のフェーズ
+      setProgressStep("uploading");
+  
+      // STT 処理開始
       setProgressStep("transcribing");
-
-      await transcribeAudio(
+  
+      const transcriptionResult = await transcribeAudio(
         file,
-        selectedMeetingFormat.template,
-        setTranscription,
-        setMinutes,
-        setIsProcessing,
-        // progress 用のコールバックはここでは使用せず、progressStep で管理
-        (p) => { /* （必要なら p を参考にする） */ },
-        setShowFullScreen
+        selectedMeetingFormat.template
       );
-
-      // STT 完了時のフェーズ
-      setProgressStep("transcriptionComplete");
-    }, 500);
+  
+      if (transcriptionResult) {
+        const { transcription, minutes } = transcriptionResult;
+  
+        // STT 完了時のフェーズ更新
+        setTranscription(transcription);
+        setMinutes(minutes);
+        setProgressStep("transcriptionComplete");
+  
+        // --- ここで Firestore に即時保存 ---
+        const recordId = await saveMeetingRecord(transcription, minutes);
+        if (recordId) {
+          setMeetingRecordId(recordId); // Firestore のIDをセット
+        }
+  
+        setHasSavedRecord(true); // 保存済みフラグを立てる
+      } else {
+        console.error("🔴 [ERROR] STT で transcriptionResult が取得できませんでした");
+      }
+  
+    } catch (error) {
+      console.error("🔴 [ERROR] processAudioFile 内でエラー発生:", error);
+    }
   };
 
   // 録音ボタン押下時の処理
@@ -518,24 +530,20 @@ useEffect(() => {
 
   // 議事録生成完了時に Firebase へ保存
   useEffect(() => {
-    const saveMeetingRecord = async () => {
+    const saveMeetingRecord = async (transcription, minutes) => {
       try {
         console.log("🟡 [DEBUG] saveMeetingRecord が呼ばれました");
-
+    
         if (!auth.currentUser) {
-          console.log("🔴 [ERROR] ユーザーがログインしていません");
+          console.error("🔴 [ERROR] ユーザーがログインしていません。保存を中止します");
           return;
         }
-
-        console.log("🟢 [DEBUG] ユーザーはログインしています:", auth.currentUser.uid);
-        console.log("🟢 [DEBUG] transcription:", transcription);
-        console.log("🟢 [DEBUG] minutes:", minutes);
-
+    
         if (!transcription || !minutes) {
-          console.log("🔴 [ERROR] transcription または minutes が空のため保存しません");
+          console.error("🔴 [ERROR] transcription または minutes が空です。保存しません");
           return;
         }
-
+    
         const paperID = uuidv4();
         const creationDate = new Date();
         const recordData = {
@@ -545,16 +553,17 @@ useEffect(() => {
           createdAt: creationDate,
           uid: auth.currentUser.uid,
         };
-
+    
         console.log("🟢 [DEBUG] Firestore に保存するデータ:", recordData);
-
+    
         const docRef = await addDoc(collection(db, 'meetingRecords'), recordData);
-        console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました");
-        setMeetingRecordId(docRef.id);
-        // すべて完了したら progressStep を "completed" に更新
-        setProgressStep("completed");
+        console.log("✅ [SUCCESS] Firebase Firestore にデータが格納されました。ID:", docRef.id);
+        
+        return docRef.id; // Firestore のドキュメントIDを返す
+    
       } catch (err) {
         console.error("🔴 [ERROR] Firebase Firestore の保存中にエラー発生:", err);
+        return null;
       }
     };
 
