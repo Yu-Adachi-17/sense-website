@@ -1,4 +1,3 @@
-// server.js
 require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
@@ -18,25 +17,24 @@ const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
 const webhookRouter = require('./routes/webhook');
-const appleRouter = require('./routes/apple'); // ✅ Apple ルート追加
+const appleRouter = require('./routes/apple'); // Apple route added
 const app = express();
 
 /*==============================================
-=            ミドルウェアの適用順序            =
+=            Middleware Order                  =
 ==============================================*/
 
-// ① Stripe Webhook 用: /api/stripe は raw body を利用する（JSON パース前に適用）
+// ① For Stripe Webhook: Use raw body for /api/stripe (applied before JSON parsing)
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
-// ② Apple Webhook 用: /api/apple/notifications は raw body を利用する
-// Apple Webhook 用: JSON をパースするように修正
+// ② For Apple Webhook: Use raw body for /api/apple/notifications
+// Apple Webhook: Now parse JSON
 app.use('/api/apple/notifications', express.json());
 
-
-// ③ その他のエンドポイント用: JSON ボディのパース
+// ③ For all other endpoints: Parse JSON body
 app.use(express.json());
 
-/* ✅ ここでリクエストの詳細をログに記録する */
+/* Log detailed request information */
 app.use((req, res, next) => {
   console.log(`[DEBUG] ${req.method} ${req.url}`);
   console.log(`[DEBUG] Headers: ${JSON.stringify(req.headers)}`);
@@ -45,22 +43,22 @@ app.use((req, res, next) => {
 });
 
 /*==============================================
-=            ルーターの登録                     =
+=            Router Registration               =
 ==============================================*/
 
-// Webhook ルート（Stripe 関連を含む）
+// Webhook routes (including Stripe-related routes)
 app.use('/api', webhookRouter);
-// Apple Webhook のルート
+// Apple Webhook route
 app.use('/api/apple', appleRouter);
 
 /*==============================================
-=            その他のミドルウェア              =
+=            Other Middleware                  =
 ==============================================*/
 
-// ★ リクエストタイムアウトを延長（例：10分）
+// Extend request timeout (e.g., 10 minutes)
 app.use((req, res, next) => {
   req.setTimeout(600000, () => {
-    console.error('リクエストがタイムアウトしました。');
+    console.error('Request timed out.');
     res.set({
       'Access-Control-Allow-Origin': req.headers.origin || '*',
       'Access-Control-Allow-Credentials': 'true'
@@ -70,16 +68,16 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ 許可するオリジンの定義
+// Define allowed origins
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
-// ✅ CORS 設定
+// CORS settings
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.error(`[CORS ERROR] 許可されていないオリジン: ${origin}`);
+      console.error(`[CORS ERROR] Disallowed origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -102,9 +100,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ OPTIONS メソッドへの対応
+// Handle OPTIONS method
 app.options('*', (req, res) => {
-  console.log('[DEBUG] プリフライトリクエストを受信:', req.headers);
+  console.log('[DEBUG] Received preflight request:', req.headers);
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
@@ -115,7 +113,7 @@ app.options('*', (req, res) => {
   res.sendStatus(204);
 });
 
-// ------------- デバッグ用エンドポイント -------------
+// Debug endpoint
 const { exec } = require('child_process');
 app.get('/api/debug/ffprobe', (req, res) => {
   exec('which ffprobe', (error, stdout, stderr) => {
@@ -129,24 +127,24 @@ app.get('/api/debug/ffprobe', (req, res) => {
   });
 });
 
-// リクエスト詳細のデバッグログ
+// Detailed request debug logging
 app.use((req, res, next) => {
-  console.log(`[DEBUG] リクエスト受信:
-  - メソッド: ${req.method}
-  - オリジン: ${req.headers.origin || '未設定'}
-  - パス: ${req.path}
-  - ヘッダー: ${JSON.stringify(req.headers, null, 2)}
+  console.log(`[DEBUG] Request received:
+  - Method: ${req.method}
+  - Origin: ${req.headers.origin || 'Not set'}
+  - Path: ${req.path}
+  - Headers: ${JSON.stringify(req.headers, null, 2)}
 `);
   next();
 });
 
-// ★ multer の設定：temp ディレクトリに保存
+// ★ multer configuration: Save files to temp directory
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const tempDir = path.join(__dirname, 'temp');
     if (!fs.existsSync(tempDir)) {
       fs.mkdirSync(tempDir, { recursive: true });
-      console.log('[DEBUG] 一時保存ディレクトリを作成:', tempDir);
+      console.log('[DEBUG] Created temporary directory:', tempDir);
     }
     cb(null, tempDir);
   },
@@ -159,15 +157,15 @@ const upload = multer({
   limits: { fileSize: 500 * 1024 * 1024 }
 });
 
-// ✅ OpenAI API エンドポイント
+// OpenAI API endpoints
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
 const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
 
-// ✅ Stripe の初期化
+// Stripe initialization
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 /**
- * splitText: テキストを指定文字数ごとに分割する
+ * splitText: Splits text into chunks of specified size.
  */
 function splitText(text, chunkSize) {
   const chunks = [];
@@ -181,12 +179,10 @@ function splitText(text, chunkSize) {
 }
 
 /**
- * combineMinutes: 部分議事録を統合するため、ChatGPT API を呼び出す
+ * combineMinutes: Calls the ChatGPT API to combine partial meeting minutes.
  */
 async function combineMinutes(combinedText, meetingFormat) {
-  const systemMessage = meetingFormat
-    ? `以下は部分議事録です。これらを統合し、最終的な議事録を生成してください。`
-    : 'あなたは優秀な議事録作成アシスタントです。以下の部分議事録を統合してください。';
+  const systemMessage = `The following multiple sentences are minutes discussed in a single meeting. Because they are long, they have been divided. Please combine them into one, ensuring there are no omissions or excesses in the content. Remove duplicates such as "Meeting Name" and summarize them at the beginning. Here are the format and rules: %@. Rules: To ensure a good appearance, always start a new line for each item (such as 【Meeting Name】, etc.) indicated by 【】 or ⚫︎. To conduct quantitative analysis, please ensure that mentioned figures are recorded in the minutes.`;
 
   const data = {
     model: 'gpt-4o-mini',
@@ -199,7 +195,7 @@ async function combineMinutes(combinedText, meetingFormat) {
   };
 
   try {
-    console.log('[DEBUG] ChatGPT API (統合用) に送信するデータ:', data);
+    console.log('[DEBUG] Sending data to ChatGPT API for combination:', data);
     const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
       headers: {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
@@ -207,20 +203,20 @@ async function combineMinutes(combinedText, meetingFormat) {
       },
       timeout: 600000,
     });
-    console.log('[DEBUG] 統合用 ChatGPT API の応答:', response.data);
+    console.log('[DEBUG] Response from ChatGPT API for combination:', response.data);
     return response.data.choices[0].message.content.trim();
   } catch (error) {
-    console.error('[ERROR] 議事録統合 API 呼び出しに失敗:', error.response?.data || error.message);
-    throw new Error('議事録統合に失敗しました');
+    console.error('[ERROR] Failed to call ChatGPT API for combining minutes:', error.response?.data || error.message);
+    throw new Error('Failed to combine meeting minutes');
   }
 }
 
 /**
- * generateMinutes: ChatGPT API を使用して議事録生成
+ * generateMinutes: Uses ChatGPT API to generate meeting minutes.
  */
 const generateMinutes = async (transcription, formatTemplate) => {
   const systemMessage = formatTemplate ||
-    'あなたは優秀な議事録作成アシスタントです。以下のテキストを基に議事録を作成してください。';
+    'You are an excellent meeting minutes assistant. Please generate meeting minutes based on the following text.';
     
   const data = {
     model: 'gpt-4o-mini',
@@ -233,7 +229,7 @@ const generateMinutes = async (transcription, formatTemplate) => {
   };
     
   try {
-    console.log('[DEBUG] ChatGPT API に送信するデータ:', data);
+    console.log('[DEBUG] Sending data to ChatGPT API:', data);
     const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
       headers: {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
@@ -241,16 +237,16 @@ const generateMinutes = async (transcription, formatTemplate) => {
       },
       timeout: 600000,
     });
-    console.log('[DEBUG] ChatGPT API の応答:', response.data);
+    console.log('[DEBUG] ChatGPT API response:', response.data);
     return response.data.choices[0].message.content.trim();
   } catch (error) {
-    console.error('[ERROR] ChatGPT API の呼び出しに失敗:', error.response?.data || error.message);
-    throw new Error('ChatGPT API による議事録生成に失敗しました');
+    console.error('[ERROR] Failed to call ChatGPT API:', error.response?.data || error.message);
+    throw new Error('Failed to generate meeting minutes using ChatGPT API');
   }
 };
 
 /**
- * transcribeWithOpenAI: Whisper API を使用して文字起こし
+ * transcribeWithOpenAI: Uses the Whisper API for transcription.
  */
 const transcribeWithOpenAI = async (filePath) => {
   try {
@@ -258,7 +254,7 @@ const transcribeWithOpenAI = async (filePath) => {
     formData.append('file', fs.createReadStream(filePath));
     formData.append('model', 'whisper-1');
 
-    console.log(`[DEBUG] Whisper API に送信するファイル: ${filePath}`);
+    console.log(`[DEBUG] Sending file to Whisper API: ${filePath}`);
 
     const response = await axios.post(OPENAI_API_ENDPOINT_TRANSCRIPTION, formData, {
       headers: {
@@ -270,30 +266,30 @@ const transcribeWithOpenAI = async (filePath) => {
       maxBodyLength: Infinity,
     });
 
-    console.log('[DEBUG] Whisper API の応答:', response.data);
+    console.log('[DEBUG] Whisper API response:', response.data);
     return response.data.text;
   } catch (error) {
-    console.error('[ERROR] Whisper API の呼び出しに失敗:', error.response?.data || error.message);
-    throw new Error('Whisper API による文字起こしに失敗しました');
+    console.error('[ERROR] Failed to call Whisper API:', error.response?.data || error.message);
+    throw new Error('Transcription with Whisper API failed');
   }
 };
 
-// ✅ チャンク分割用の定数（1MB 以下なら一括処理）
-const TRANSCRIPTION_CHUNK_THRESHOLD = 5 * 1024 * 1024; // 1MB in bytes
+// Constant for chunk splitting (process in one batch if file is below this size)
+const TRANSCRIPTION_CHUNK_THRESHOLD = 5 * 1024 * 1024; // 5MB in bytes
 
 /**
- * splitAudioFile: ffmpeg を使用して音声ファイルをチャンク分割する
+ * splitAudioFile: Uses ffmpeg to split an audio file into chunks.
  */
 const splitAudioFile = (filePath, maxFileSize) => {
   return new Promise((resolve, reject) => {
-    console.log('[DEBUG] ffprobe を実行中:', filePath);
+    console.log('[DEBUG] Running ffprobe on:', filePath);
     ffmpeg.ffprobe(filePath, (err, metadata) => {
       if (err) {
-        console.error('[ERROR] ffprobe エラー:', err);
+        console.error('[ERROR] ffprobe error:', err);
         return reject(err);
       }
       if (!metadata || !metadata.format) {
-        const errMsg = 'ffprobe が有効なメタデータを返しませんでした';
+        const errMsg = 'ffprobe did not return valid metadata';
         console.error('[ERROR]', errMsg);
         return reject(new Error(errMsg));
       }
@@ -305,15 +301,15 @@ const splitAudioFile = (filePath, maxFileSize) => {
         }
       }
       if (isNaN(duration)) {
-        console.warn('[WARN] 有効な duration が見つかりませんでした。デフォルト値 60秒 を使用します。');
+        console.warn('[WARN] No valid duration found. Using default of 60 seconds.');
         duration = 60;
       }
       
       const fileSize = fs.statSync(filePath).size;
-      console.log('[DEBUG] ffprobe 結果 - duration:', duration, '秒, fileSize:', fileSize, 'bytes');
+      console.log('[DEBUG] ffprobe result - duration:', duration, 'seconds, fileSize:', fileSize, 'bytes');
       
       if (fileSize <= maxFileSize) {
-        console.log('[DEBUG] ファイルサイズが閾値以下のため、分割せずそのまま返します');
+        console.log('[DEBUG] File size is below threshold; returning file as is');
         return resolve([filePath]);
       }
       
@@ -321,7 +317,7 @@ const splitAudioFile = (filePath, maxFileSize) => {
       if (chunkDuration < 5) chunkDuration = 5;
       const numChunks = Math.ceil(duration / chunkDuration);
       
-      console.log(`[DEBUG] チャンク分割開始: chunkDuration=${chunkDuration}秒, numChunks=${numChunks}`);
+      console.log(`[DEBUG] Starting chunk split: chunkDuration=${chunkDuration} seconds, numChunks=${numChunks}`);
       
       let chunkPaths = [];
       let tasks = [];
@@ -330,7 +326,7 @@ const splitAudioFile = (filePath, maxFileSize) => {
         const startTime = i * chunkDuration;
         const outputPath = path.join(path.dirname(filePath), `${Date.now()}_chunk_${i}.m4a`);
         chunkPaths.push(outputPath);
-        console.log(`[DEBUG] チャンク ${i + 1}: startTime=${startTime}秒, outputPath=${outputPath}`);
+        console.log(`[DEBUG] Chunk ${i + 1}: startTime=${startTime} seconds, outputPath=${outputPath}`);
         
         tasks.push(new Promise((resolveTask, rejectTask) => {
           ffmpeg(filePath)
@@ -338,11 +334,11 @@ const splitAudioFile = (filePath, maxFileSize) => {
             .setDuration(chunkDuration)
             .output(outputPath)
             .on('end', () => {
-              console.log(`[DEBUG] チャンク ${i + 1}/${numChunks} のエクスポート完了: ${outputPath}`);
+              console.log(`[DEBUG] Export of chunk ${i + 1}/${numChunks} completed: ${outputPath}`);
               resolveTask();
             })
             .on('error', (err) => {
-              console.error(`[ERROR] チャンク ${i + 1} のエクスポート失敗:`, err);
+              console.error(`[ERROR] Export of chunk ${i + 1} failed:`, err);
               rejectTask(err);
             })
             .run();
@@ -351,11 +347,11 @@ const splitAudioFile = (filePath, maxFileSize) => {
       
       Promise.all(tasks)
         .then(() => {
-          console.log('[DEBUG] 全チャンクのエクスポートが完了しました');
+          console.log('[DEBUG] All chunk exports completed');
           resolve(chunkPaths);
         })
         .catch((err) => {
-          console.error('[ERROR] チャンク生成中にエラーが発生:', err);
+          console.error('[ERROR] Error occurred during chunk generation:', err);
           reject(err);
         });
     });
@@ -363,108 +359,108 @@ const splitAudioFile = (filePath, maxFileSize) => {
 };
 
 /**
- * ★ convertToM4A: 入力ファイルが m4a でない場合、ffmpeg を使用して m4a（ipod フォーマット）に変換する
+ * ★ convertToM4A: Converts the input file to m4a (ipod format) if it isn't already.
  */
 const convertToM4A = async (inputFilePath) => {
   return new Promise((resolve, reject) => {
     const outputFilePath = path.join(path.dirname(inputFilePath), `${Date.now()}_converted.m4a`);
-    console.log(`[DEBUG] convertToM4A: 入力ファイル ${inputFilePath} を ${outputFilePath} に変換します`);
+    console.log(`[DEBUG] convertToM4A: Converting input file ${inputFilePath} to ${outputFilePath}`);
     ffmpeg(inputFilePath)
-      .toFormat('ipod') // ipod フォーマットは m4a と同等
+      .toFormat('ipod') // ipod format is equivalent to m4a
       .on('end', () => {
-         console.log(`[DEBUG] ファイル変換完了: ${outputFilePath}`);
+         console.log(`[DEBUG] File conversion completed: ${outputFilePath}`);
          resolve(outputFilePath);
       })
       .on('error', (err) => {
-         console.error('[ERROR] ファイル変換失敗:', err);
+         console.error('[ERROR] File conversion failed:', err);
          reject(err);
       })
       .save(outputFilePath);
   });
 };
 
-// ✅ デバッグ用ヘルスチェック API
+// Health check API for debugging
 app.get('/api/health', (req, res) => {
-  console.log('[DEBUG] /api/health がアクセスされました');
+  console.log('[DEBUG] /api/health was accessed');
   res.status(200).json({ status: 'OK', message: 'Health check passed!' });
 });
 
-// ✅ シンプルなテストエンドポイント
+// Simple test endpoints
 app.get('/api/hello', (req, res) => {
   res.json({ message: "Hello from backend!" });
 });
 
 /**
- * /api/transcribe エンドポイント
- * 【処理の流れ】
- * ① 受信ファイルの形式をチェックし、拡張子が .m4a でない、または mimetype が "audio/mp4" の場合は convertToM4A で変換
- * ② ファイルサイズに応じ、一括またはチャンク処理で文字起こし実施
- * ③ 得られた文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
- *     10,000 文字超の場合は splitText() で分割後、各部分で生成し、combineMinutes() で統合
+ * /api/transcribe endpoint
+ * [Processing Flow]
+ * ① Check the format of the received file. If the extension is not .m4a or the mimetype is "audio/mp4", convert it using convertToM4A.
+ * ② Depending on the file size, perform transcription in one batch or via chunk processing.
+ * ③ If the resulting transcription is 10,000 characters or less, generate meeting minutes directly;
+ *     if it exceeds 10,000 characters, split the text using splitText(), generate minutes for each part, and then combine them using combineMinutes().
  */
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
-  console.log('[DEBUG] /api/transcribe が呼び出されました');
+  console.log('[DEBUG] /api/transcribe endpoint called');
   
   try {
     const file = req.file;
     if (!file) {
-      console.error('[ERROR] ファイルがアップロードされていません');
-      return res.status(400).json({ error: 'ファイルがアップロードされていません' });
+      console.error('[ERROR] No file was uploaded');
+      return res.status(400).json({ error: 'No file uploaded' });
     }
     
-    console.log('[DEBUG] multer により保存されたファイル:', file.path);
+    console.log('[DEBUG] File saved by multer:', file.path);
     const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
-    console.log(`[DEBUG] アップロードされたファイルサイズ: ${fileSizeMB} MB`);
+    console.log(`[DEBUG] Uploaded file size: ${fileSizeMB} MB`);
   
     const meetingFormat = req.body.meetingFormat;
-    console.log(`[DEBUG] 受信した meetingFormat: ${meetingFormat}`);
+    console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
   
-    // アップロードされたファイルは既に temp/ に保存されている
+    // The uploaded file is already saved in temp/
     let tempFilePath = file.path;
     
-    // ★ ファイル形式チェック：拡張子が .m4a でない、または mimetype が "audio/mp4" の場合は変換を実施
+    // ★ File format check: If the extension is not .m4a or mimetype is "audio/mp4", perform conversion.
     if (path.extname(tempFilePath).toLowerCase() !== '.m4a' || file.mimetype === 'audio/mp4') {
-      console.log('[DEBUG] 入力ファイルは m4a ではないか、mimetype が audio/mp4 です。変換を開始します。');
+      console.log('[DEBUG] Input file is not m4a or mimetype is audio/mp4. Starting conversion.');
       tempFilePath = await convertToM4A(tempFilePath);
-      console.log('[DEBUG] 変換後のファイルパス:', tempFilePath);
+      console.log('[DEBUG] File path after conversion:', tempFilePath);
     }
   
     let transcription = "";
     let minutes = "";
   
-    // ① 音声ファイルの文字起こし処理（ファイルサイズで分岐）
+    // ① Transcription process based on file size
     if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
-      console.log('[DEBUG] ファイルサイズが閾値以下のため、一括処理します');
+      console.log('[DEBUG] File size is below threshold; processing in one batch');
       transcription = await transcribeWithOpenAI(tempFilePath);
       transcription = transcription.trim();
     } else {
-      console.log('[DEBUG] ファイルサイズが閾値を超えているため、チャンク分割して処理します');
+      console.log('[DEBUG] File size exceeds threshold; processing by splitting into chunks');
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
-      console.log(`[DEBUG] 生成されたチャンク数: ${chunkPaths.length}`);
+      console.log(`[DEBUG] Number of generated chunks: ${chunkPaths.length}`);
       
-      // 各チャンクの文字起こしを並列処理
+      // Process transcription for each chunk in parallel
       const transcriptionChunks = await Promise.all(
         chunkPaths.map(chunkPath => transcribeWithOpenAI(chunkPath))
       );
       transcription = transcriptionChunks.join(" ").trim();
       
-      // チャンクファイルの削除
+      // Delete chunk files
       for (const chunkPath of chunkPaths) {
         try {
           fs.unlinkSync(chunkPath);
-          console.log(`[DEBUG] チャンクファイル削除: ${chunkPath}`);
+          console.log(`[DEBUG] Deleted chunk file: ${chunkPath}`);
         } catch (err) {
-          console.error(`[ERROR] チャンクファイル削除失敗: ${chunkPath}`, err);
+          console.error(`[ERROR] Failed to delete chunk file: ${chunkPath}`, err);
         }
       }
     }
   
-    // ② 文字起こし結果が 10,000 文字以下ならそのまま議事録生成、
-    //     10,000 文字超の場合は splitText() で分割後、各部分で生成し、combineMinutes() で統合
+    // ② If the transcription is 10,000 characters or less, generate minutes directly.
+    //     If it exceeds 10,000 characters, split the text and combine the generated minutes.
     if (transcription.length <= 10000) {
       minutes = await generateMinutes(transcription, meetingFormat);
     } else {
-      console.log('[DEBUG] 文字起こし結果が 10,000 文字超のため、テキスト分割して議事録生成します');
+      console.log('[DEBUG] Transcription exceeds 10,000 characters; splitting text and generating meeting minutes');
       const textChunks = splitText(transcription, 10000);
       const partialMinutes = await Promise.all(
         textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
@@ -473,25 +469,25 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
     }
   
-    // 一時ファイル（アップロードされた元ファイル）の削除
+    // Delete the original temporary file
     try {
       fs.unlinkSync(file.path);
-      console.log('[DEBUG] 元の一時ファイル削除:', file.path);
+      console.log('[DEBUG] Deleted original temporary file:', file.path);
     } catch (err) {
-      console.error('[ERROR] 一時ファイル削除失敗:', file.path, err);
+      console.error('[ERROR] Failed to delete temporary file:', file.path, err);
     }
   
-    console.log('[DEBUG] 最終的な文字起こし結果:', transcription);
-    console.log('[DEBUG] 最終的な議事録生成結果:', minutes);
+    console.log('[DEBUG] Final transcription result:', transcription);
+    console.log('[DEBUG] Final meeting minutes result:', minutes);
   
     return res.json({ transcription: transcription.trim(), minutes });
   } catch (err) {
-    console.error('[ERROR] /api/transcribe 内部エラー:', err);
-    return res.status(500).json({ error: 'サーバー内部エラー', details: err.message });
+    console.error('[ERROR] Internal error in /api/transcribe:', err);
+    return res.status(500).json({ error: 'Internal server error', details: err.message });
   }
 });
 
-// ✅ デバッグ用の GET/POST エンドポイント
+// Debug GET/POST endpoints
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
 });
@@ -499,12 +495,12 @@ app.post('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'POST /api/transcribe is working!' });
 });
 
-// ✅ Stripe Checkout Session 作成エンドポイント
+// Stripe Checkout Session creation endpoint
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const { productId, userId } = req.body;
-    console.log("✅ 受信した productId:", productId);
-    console.log("✅ 受信した userId:", userId);
+    console.log("✅ Received productId:", productId);
+    console.log("✅ Received userId:", userId);
 
     const PRICE_MAP = {
       [process.env.STRIPE_PRODUCT_UNLIMITED]: process.env.STRIPE_PRICE_UNLIMITED,
@@ -515,45 +511,45 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
     const priceId = PRICE_MAP[productId];
     if (!priceId) {
-      console.error("❌ 無効な productId:", productId);
+      console.error("❌ Invalid productId:", productId);
       return res.status(400).json({ error: "Invalid productId" });
     }
     const mode = (productId === process.env.STRIPE_PRODUCT_UNLIMITED ||
                   productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
                   ? 'subscription'
                   : 'payment';
-                  const session = await stripe.checkout.sessions.create({
-                    payment_method_types: ['card'],
-                    mode: mode,
-                    line_items: [ { price: priceId, quantity: 1 } ],
-                    client_reference_id: userId,
-                    metadata: {
-                      product_id: productId,
-                      userId: userId  // ここで userId を追加
-                    },
-                    success_url: 'https://sense-ai.world/success',
-                    cancel_url: 'https://sense-ai.world/cancel',
-                  });
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      mode: mode,
+      line_items: [ { price: priceId, quantity: 1 } ],
+      client_reference_id: userId,
+      metadata: {
+        product_id: productId,
+        userId: userId
+      },
+      success_url: 'https://sense-ai.world/success',
+      cancel_url: 'https://sense-ai.world/cancel',
+    });
                   
     console.log("✅ Checkout URL:", session.url);
     res.json({ url: session.url });
   } catch (error) {
     console.error('[ERROR] /api/create-checkout-session:', error);
-    res.status(500).json({ error: 'Checkoutセッションの作成に失敗しました', details: error.message });
+    res.status(500).json({ error: 'Failed to create checkout session', details: error.message });
   }
 });
 
-// ✅ フロントエンドの静的ファイルの提供
+// Serve static files for the frontend
 const staticPath = path.join(__dirname, 'frontend/build');
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
-// ✅ 未定義の API ルートは 404 エラーを返す
+// Undefined API routes return a 404 error
 app.use('/api', (req, res, next) => {
   res.status(404).json({ error: 'API route not found' });
 });
 
-// ✅ React のルート (/success など) のハンドリング
+// Handle React routes (e.g., /success)
 app.get(["/success", "/cancel"], (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
@@ -562,7 +558,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
 
-// ✅ グローバルエラーハンドラー
+// Global error handler
 app.use((err, req, res, next) => {
   console.error('[GLOBAL ERROR HANDLER]', err);
   const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
@@ -572,11 +568,11 @@ app.use((err, req, res, next) => {
   res.json({ error: err.message || 'Internal Server Error' });
 });
 
-// ✅ サーバーの起動
+// Start the server
 const PORT = process.env.PORT || 5001;
 console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
 app.listen(PORT, () => {
-  console.log(`[DEBUG] サーバーがポート ${PORT} で起動しました`);
+  console.log(`[DEBUG] Server started on port ${PORT}`);
 });
 
 module.exports = app;
