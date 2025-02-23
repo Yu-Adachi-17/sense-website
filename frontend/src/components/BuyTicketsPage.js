@@ -171,8 +171,8 @@ export default function BuyTicketsPage() {
       <HomeIconWrapper>
         <HomeIcon size="30px" color="white" />
       </HomeIconWrapper>
-
-      <Title>Buy Time</Title>
+      
+      <Title>t("Buy Time")</Title>
       <CardsWrapper>
         <Card>
           <CardTitle>Trial</CardTitle>

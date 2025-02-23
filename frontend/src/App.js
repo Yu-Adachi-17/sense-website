@@ -686,7 +686,7 @@ function App() {
                         color: 'transparent',
                         fontStyle: 'italic',
                         fontWeight: 'bold',
-                        fontSize: '20px' // 少し強調
+                        fontSize: '25px' // 少し強調
                       }}>Beta</div>
 
                       {/* 中央のテキストを.boldに */}
