@@ -1,5 +1,15 @@
 {
-    "Buy Time": "ユーザーデータ取得エラー",
-    "unsupported_file_format": "サポートされていないファイル形式です。m4a, webm, mp3, wav, ogg を使用してください。"
-  }
-  
+  "Full Transcript": "全文",
+  "Minutes": "議事録",
+  "Save": "保存",
+  "Edit": "編集",
+  "Show Full Transcript": "全文表示",
+  "Show Minutes": "議事録表示",
+  "Download Audio Data": "オーディオデータをダウンロード",
+  "No downloadable audio data available.": "ダウンロード可能なオーディオデータがありません。",
+  "Copied to clipboard!": "クリップボードにコピーしました！",
+  "Failed to copy to clipboard.": "クリップボードへのコピーに失敗しました。",
+  "Save successful.": "保存に成功しました。",
+  "Save failed: ": "保存に失敗しました: ",
+  "No document ID available for saving.": "保存可能なドキュメントIDがありません。"
+}
