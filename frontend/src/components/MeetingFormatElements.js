@@ -1,7 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
 const useLocalizedMeetingFormats = () => {
-  const { t } = useTranslation();
+    const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
+  
+      // ✅ アラビア語の場合に `dir="rtl"` を適用
+      useEffect(() => {
+        document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+      }, [i18n.language]);
 
   const meetingFormats = [
     {

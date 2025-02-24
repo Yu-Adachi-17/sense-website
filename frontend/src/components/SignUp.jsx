@@ -278,7 +278,7 @@ const SignUp = () => {
       <button
         onClick={() => navigate("/login")}
         style={{
-          color: "red",
+          color: "white",
           background: "none",
           border: "none",
           cursor: "pointer",

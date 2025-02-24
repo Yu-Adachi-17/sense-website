@@ -17,12 +17,17 @@ const auth = getAuth(app);
 
 const Login = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+    const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
+  
+      // ✅ アラビア語の場合に `dir="rtl"` を適用
+      useEffect(() => {
+        document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+      }, [i18n.language]);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -260,7 +265,7 @@ const Login = () => {
       <button
         onClick={() => navigate("/signup")}
         style={{
-          color: "red",
+          color: "white",
           background: "none",
           border: "none",
           cursor: "pointer",
