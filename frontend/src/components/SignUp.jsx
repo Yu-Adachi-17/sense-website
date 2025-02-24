@@ -17,6 +17,7 @@ import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import { getDoc } from "firebase/firestore";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
