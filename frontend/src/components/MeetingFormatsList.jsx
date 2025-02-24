@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import useLocalizedMeetingFormats from './useLocalizedMeetingFormats';
+import defaultMeetingFormats from './MeetingFormatElements';
 import HomeIcon from './HomeIcon';
 import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
   const { t } = useTranslation();
-  // カスタムフックでローカライズ済み meetingFormats を取得
-  const meetingFormats = useLocalizedMeetingFormats();
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -64,8 +62,8 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // defaultMeetingFormats をローカライズ済み meetingFormats で初期化
-            const initialFormats = meetingFormats.map((format) => ({
+            // 初期状態は defaultMeetingFormats をもとに、General を選択状態にする
+            const initialFormats = defaultMeetingFormats.map((format) => ({
               ...format,
               selected: format.title.toLowerCase() === 'general'
             }));
@@ -82,7 +80,7 @@ const MeetingFormatsList = () => {
     return () => {
       isMounted = false;
     };
-  }, [meetingFormats]);
+  }, []);
 
   useEffect(() => {
     const selected = formats.find((f) => f.selected);
@@ -114,6 +112,13 @@ const MeetingFormatsList = () => {
     }
   });
 
+  // 表示直前に、各項目（title, template）をローカライズする
+  const localizedFormats = sortedFormats.map((format) => ({
+    ...format,
+    title: t(format.title),
+    template: t(format.template)
+  }));
+
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
     const updatedFormats = formats.map((format) => {
@@ -128,7 +133,7 @@ const MeetingFormatsList = () => {
       return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
-    // After updating IndexedDB, reload the page (simulating Command+R)
+    // IndexedDB の更新後にページを再読み込み（疑似的な Command+R）
     Promise.all(updatePromises)
       .then(() => {
         window.location.reload();
@@ -266,7 +271,7 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {meetingFormats.map((format) => (
+          {localizedFormats.map((format) => (
             <div
               key={format.id}
               style={{ cursor: 'pointer' }}
