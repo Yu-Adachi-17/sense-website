@@ -55,7 +55,7 @@ const Login = () => {
       // After successful login, sync user data to Firestore
       // ※ Set the 3rd parameter (userIsUnlimited) and 4th parameter (currentCountdown) as needed
       await syncUserData(user, email, false, 0);
-
+      await fixNewUserRemainingSeconds(user);
       // Navigate to the home screen
       navigate("/");
     } catch (error) {
