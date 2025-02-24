@@ -17,7 +17,7 @@ const MeetingFormatsList = () => {
   const [selectionMode, setSelectionMode] = useState(false);
   const dbRef = useRef(null);
 
-  /* ===== IndexedDB 関連 ===== */
+  /* ===== IndexedDB Related ===== */
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open('MeetingFormatsDB', 1);
@@ -64,7 +64,8 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // defaultMeetingFormats をローカライズ済み meetingFormats で初期化
+            // defaultMeetingFormats をローカライズ済み meetingFormats で初期化し、
+            // “General” を初期選択にする
             const initialFormats = meetingFormats.map((format) => ({
               ...format,
               selected: format.title.toLowerCase() === 'general'
@@ -91,12 +92,15 @@ const MeetingFormatsList = () => {
     }
   }, [formats]);
 
+  // 検索テキストによるフィルタ
   const filteredFormats = formats.filter(
     (format) =>
       format.title.toLowerCase().includes(searchText.toLowerCase()) ||
       format.template.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  // 「選択されているものを先頭」「General を次に」「その他を後ろ」に並べ替え、
+  // さらにタイトルを日本語ロケールでソート
   const sortedFormats = [...filteredFormats].sort((a, b) => {
     const getPriority = (format) => {
       if (format.selected) return 0;
@@ -114,6 +118,7 @@ const MeetingFormatsList = () => {
     }
   });
 
+  // 単一選択に更新する関数
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
     const updatedFormats = formats.map((format) => {
@@ -128,12 +133,13 @@ const MeetingFormatsList = () => {
       return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
-    // ページの再読み込みは行わず、状態更新をそのまま反映する
-    // Promise.all(updatePromises)
-    //   .then(() => {
-    //     window.location.reload();
-    //   })
-    //   .catch((err) => console.error('Error in selection update:', err));
+
+    // IndexedDB 更新完了後にリロード（Command+R 相当）
+    Promise.all(updatePromises)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((err) => console.error('Error in selection update:', err));
   };
 
   const handleSelectionChange = (id, event) => {
