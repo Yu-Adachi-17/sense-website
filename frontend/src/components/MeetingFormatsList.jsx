@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import useLocalizedMeetingFormats from './useLocalizedMeetingFormats';
+import useLocalizedMeetingFormats, { localizeFormat } from './useLocalizedMeetingFormats';
 import HomeIcon from './HomeIcon';
 import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
   const { t } = useTranslation();
-  // カスタムフックでローカライズ済み meetingFormats を取得
-  const meetingFormats = useLocalizedMeetingFormats();
+  // フックからはキー情報のみのデフォルトフォーマットを取得
+  const defaultFormats = useLocalizedMeetingFormats();
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -64,11 +64,10 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // defaultMeetingFormats をローカライズ済み meetingFormats で初期化し、
-            // “General” を初期選択にする
-            const initialFormats = meetingFormats.map((format) => ({
+            // 初回はデフォルトフォーマットのキー情報を使って初期化し、"general" を初期選択にする
+            const initialFormats = defaultFormats.map((format) => ({
               ...format,
-              selected: format.title.toLowerCase() === 'general'
+              selected: format.id === 'general',
             }));
             setFormats(initialFormats);
             initialFormats.forEach((format) => {
@@ -83,7 +82,7 @@ const MeetingFormatsList = () => {
     return () => {
       isMounted = false;
     };
-  }, [meetingFormats]);
+  }, [defaultFormats]);
 
   useEffect(() => {
     const selected = formats.find((f) => f.selected);
@@ -92,33 +91,44 @@ const MeetingFormatsList = () => {
     }
   }, [formats]);
 
-  // 検索テキストによるフィルタ
-  const filteredFormats = formats.filter(
-    (format) =>
-      format.title.toLowerCase().includes(searchText.toLowerCase()) ||
-      format.template.toLowerCase().includes(searchText.toLowerCase())
-  );
+  // フォーマットをレンダー前にローカライズ（デフォルトの場合はキーを t() で翻訳）
+  const getDisplayFormat = (format) => {
+    if (format.titleKey && format.templateKey) {
+      return localizeFormat(format, t);
+    }
+    return format;
+  };
 
-  // 「選択されているものを先頭」「General を次に」「その他を後ろ」に並べ替え、
-  // さらにタイトルを日本語ロケールでソート
+  // 検索テキストでフィルタリング（表示時にローカライズ済み値で比較）
+  const filteredFormats = formats.filter((format) => {
+    const localized = getDisplayFormat(format);
+    return (
+      localized.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      localized.template.toLowerCase().includes(searchText.toLowerCase())
+    );
+  });
+
+  // ソート処理：選択中、"general"、その他の順
   const sortedFormats = [...filteredFormats].sort((a, b) => {
     const getPriority = (format) => {
-      if (format.selected) return 0;
-      if (format.title.toLowerCase() === 'general') return 1;
+      const localized = getDisplayFormat(format);
+      if (localized.selected) return 0;
+      if (localized.id === 'general') return 1;
       return 2;
     };
 
     const aPriority = getPriority(a);
     const bPriority = getPriority(b);
-
     if (aPriority !== bPriority) {
       return aPriority - bPriority;
     } else {
-      return a.title.localeCompare(b.title, 'ja');
+      const localizedA = getDisplayFormat(a);
+      const localizedB = getDisplayFormat(b);
+      return localizedA.title.localeCompare(localizedB.title, 'ja');
     }
   });
 
-  // 単一選択に更新する関数
+  // 単一選択の更新処理
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
     const updatedFormats = formats.map((format) => {
@@ -133,8 +143,6 @@ const MeetingFormatsList = () => {
       return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
-
-    // IndexedDB 更新完了後にリロード（Command+R 相当）
     Promise.all(updatePromises)
       .then(() => {
         window.location.reload();
@@ -156,7 +164,7 @@ const MeetingFormatsList = () => {
       toggleSelect(format.id);
     } else {
       setEditingFormat(format);
-      setEditingText(format.template);
+      setEditingText(getDisplayFormat(format).template);
     }
   };
 
@@ -183,6 +191,7 @@ const MeetingFormatsList = () => {
 
   const handleAddNewFormat = () => {
     const newId = `custom-${Date.now()}`;
+    // 新規追加の場合は、ユーザー入力値をそのまま保存（ローカライズ対象外）
     const newFormat = {
       id: newId,
       title: newTitle || 'New Format',
@@ -203,7 +212,7 @@ const MeetingFormatsList = () => {
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
-      {/* Header: HomeIcon / Meeting Formats / Plus Button */}
+      {/* Header */}
       <div
         style={{
           display: 'flex',
@@ -215,15 +224,12 @@ const MeetingFormatsList = () => {
           zIndex: 1500,
         }}
       >
-        {/* Left: HomeIcon */}
         <div style={{ width: '70px' }}>
           <HomeIcon size={30} color="white" />
         </div>
-        {/* Center: Meeting Formats Title (center-aligned) */}
         <div style={{ flexGrow: 1, textAlign: 'center' }}>
           <h1 style={{ margin: 0, fontSize: '38px' }}>{t("Minutes Formats")}</h1>
         </div>
-        {/* Right: Plus Button */}
         <div style={{ width: '70px', textAlign: 'right' }}>
           <button
             onClick={() => setShowAddForm(true)}
@@ -243,7 +249,7 @@ const MeetingFormatsList = () => {
       </div>
 
       <div>
-        {/* Search box */}
+        {/* Search Box */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <input
             type="text"
@@ -264,7 +270,7 @@ const MeetingFormatsList = () => {
           />
         </div>
 
-        {/* List of formats */}
+        {/* フォーマット一覧 */}
         <div
           style={{
             display: 'grid',
@@ -272,58 +278,59 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {sortedFormats.map((format) => (
-            <div
-              key={format.id}
-              style={{ cursor: 'pointer' }}
-              onClick={() => handleItemClick(format)}
-            >
-              {/* Title and checkbox */}
+          {sortedFormats.map((format) => {
+            const displayFormat = getDisplayFormat(format);
+            return (
               <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>
-                  {format.title}
-                </h3>
-                <input
-                  type="checkbox"
-                  checked={!!format.selected}
-                  onClick={(e) => e.stopPropagation()}
-                  onChange={(e) => handleSelectionChange(format.id, e)}
-                />
-              </div>
-              {/* Template content box */}
-              <div
-                style={{
-                  backgroundColor: '#1e1e1e',
-                  borderRadius: 10,
-                  padding: 10,
-                  minHeight: 150,
-                  marginTop: 5,
-                }}
+                key={displayFormat.id}
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleItemClick(format)}
               >
                 <div
                   style={{
-                    color: '#ccc',
-                    fontSize: 14,
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'pre-line',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
                   }}
                 >
-                  {format.template}
+                  <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>
+                    {displayFormat.title}
+                  </h3>
+                  <input
+                    type="checkbox"
+                    checked={!!displayFormat.selected}
+                    onClick={(e) => e.stopPropagation()}
+                    onChange={(e) => handleSelectionChange(displayFormat.id, e)}
+                  />
+                </div>
+                <div
+                  style={{
+                    backgroundColor: '#1e1e1e',
+                    borderRadius: 10,
+                    padding: 10,
+                    minHeight: 150,
+                    marginTop: 5,
+                  }}
+                >
+                  <div
+                    style={{
+                      color: '#ccc',
+                      fontSize: 14,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'pre-line',
+                    }}
+                  >
+                    {displayFormat.template}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
-      {/* Editing overlay (modal) */}
+      {/* 編集モーダル */}
       {editingFormat && (
         <div
           style={{
@@ -350,7 +357,7 @@ const MeetingFormatsList = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 style={{ marginTop: 0 }}>{editingFormat.title}</h2>
+            <h2 style={{ marginTop: 0 }}>{getDisplayFormat(editingFormat).title}</h2>
             <textarea
               value={editingText}
               onChange={(e) => setEditingText(e.target.value)}
@@ -402,7 +409,7 @@ const MeetingFormatsList = () => {
         </div>
       )}
 
-      {/* New Format Addition Overlay */}
+      {/* 新規フォーマット追加モーダル */}
       {showAddForm && (
         <div
           style={{
