@@ -25,6 +25,7 @@ const HomeIconWrapper = styled.div`
 `;
 
 const Title = styled.h1`
+  font-family: Impact, sans-serif;
   font-size: 3rem;
   margin-bottom: 40px;
   text-align: center;
@@ -58,6 +59,7 @@ const Card = styled.div`
 `;
 
 const CardTitle = styled.h2`
+  font-family: Impact, sans-serif;
   font-size: 2rem;
   margin-bottom: 20px;
   font-weight: bold;

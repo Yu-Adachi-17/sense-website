@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import defaultMeetingFormats from './MeetingFormatElements';
 import HomeIcon from './HomeIcon';
+import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
-  // State management, etc. (use as is without omitting)
+  const { t } = useTranslation();
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -199,10 +200,9 @@ const MeetingFormatsList = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          height: '70px', // Unified height for each item
+          height: '70px',
           padding: '0 20px',
           backgroundColor: '#000',
-          // Removed fixed positioning for normal layout
           zIndex: 1500,
         }}
       >
@@ -212,7 +212,7 @@ const MeetingFormatsList = () => {
         </div>
         {/* Center: Meeting Formats Title (center-aligned) */}
         <div style={{ flexGrow: 1, textAlign: 'center' }}>
-          <h1 style={{ margin: 0, fontSize: '38px' }}>Meeting Formats</h1>
+          <h1 style={{ margin: 0, fontSize: '38px' }}>{t("Minutes Formats")}</h1>
         </div>
         {/* Right: Plus Button */}
         <div style={{ width: '70px', textAlign: 'right' }}>
@@ -233,13 +233,12 @@ const MeetingFormatsList = () => {
         </div>
       </div>
 
-      {/* No extra margin for header (not needed in normal layout) */}
       <div>
         {/* Search box */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <input
             type="text"
-            placeholder="Search..."
+            placeholder={t("Search...")}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             style={{
@@ -373,7 +372,7 @@ const MeetingFormatsList = () => {
                   marginRight: 10,
                 }}
               >
-                Cancel
+                {t("Cancel")}
               </button>
               <button
                 onClick={handleSaveEdit}
@@ -387,7 +386,7 @@ const MeetingFormatsList = () => {
                   fontSize: 16,
                 }}
               >
-                Save
+                {t("Save")}
               </button>
             </div>
           </div>
@@ -421,10 +420,10 @@ const MeetingFormatsList = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 style={{ marginTop: 0 }}>Add New Format</h2>
+            <h2 style={{ marginTop: 0 }}>{t("Add New Format")}</h2>
             <input
               type="text"
-              placeholder="Title"
+              placeholder={t("Title")}
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
               style={{
@@ -440,7 +439,7 @@ const MeetingFormatsList = () => {
               }}
             />
             <textarea
-              placeholder="Template Content"
+              placeholder={t("Template Content")}
               value={newTemplate}
               onChange={(e) => setNewTemplate(e.target.value)}
               style={{
@@ -471,7 +470,7 @@ const MeetingFormatsList = () => {
                   marginRight: 10,
                 }}
               >
-                Cancel
+                {t("Cancel")}
               </button>
               <button
                 onClick={handleAddNewFormat}
@@ -485,7 +484,7 @@ const MeetingFormatsList = () => {
                   fontSize: 16,
                 }}
               >
-                Add
+                {t("Add")}
               </button>
             </div>
           </div>

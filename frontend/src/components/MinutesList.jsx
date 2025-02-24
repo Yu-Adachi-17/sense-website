@@ -1,4 +1,3 @@
-// src/components/MinutesList.jsx
 import React, { useEffect, useState } from 'react';
 import { db, auth } from '../firebaseConfig';
 import {
@@ -12,6 +11,7 @@ import {
 } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { RxArrowLeft } from 'react-icons/rx';
+import { useTranslation } from "react-i18next";
 
 // Meeting Record Item Component (Selection Mode Version)
 const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
@@ -53,6 +53,7 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
 };
 
 const MinutesList = () => {
+  const { t } = useTranslation();
   const [papers, setPapers] = useState([]);
   const [searchText, setSearchText] = useState('');
   // Manage selection mode and selected meeting record IDs
@@ -143,10 +144,10 @@ const MinutesList = () => {
   // Delete process (via confirmation alert)
   const handleDelete = async () => {
     if (selectedIds.length === 0) {
-      alert("Please select meeting records to delete.");
+      alert(t("Please select meeting records to delete."));
       return;
     }
-    const confirmed = window.confirm("Are you sure you want to delete? This action cannot be undone.");
+    const confirmed = window.confirm(t("Are you sure you want to delete? This action cannot be undone."));
     if (!confirmed) return;
 
     try {
@@ -158,7 +159,7 @@ const MinutesList = () => {
       setSelectionMode(false);
     } catch (error) {
       console.error("An error occurred during deletion", error);
-      alert("An error occurred during deletion");
+      alert(t("An error occurred during deletion"));
     }
   };
 
@@ -205,10 +206,10 @@ const MinutesList = () => {
                   borderRadius: 4,
                   marginRight: 10,
                   cursor: 'pointer',
-                  fontSize: 18 // Changed here!
+                  fontSize: 18
                 }}
               >
-                Cancel
+                {t("Cancel")}
               </button>
 
               <button
@@ -220,11 +221,11 @@ const MinutesList = () => {
                   padding: '10px 15px',
                   borderRadius: 4,
                   cursor: 'pointer',
-                  fontSize: 18, // Changed here!
-                  fontWeight: 'bold' // Make text bold
+                  fontSize: 18,
+                  fontWeight: 'bold'
                 }}
               >
-                Delete
+                {t("Delete")}
               </button>
             </>
           ) : (
@@ -237,10 +238,10 @@ const MinutesList = () => {
                 padding: '10px 15px',
                 borderRadius: 4,
                 cursor: 'pointer',
-                fontSize: 18 // Changed here!
+                fontSize: 18
               }}
             >
-              Select
+              {t("Select")}
             </button>
           )}
         </div>
@@ -250,7 +251,7 @@ const MinutesList = () => {
       <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'center' }}>
         <input
           type="text"
-          placeholder="Search..."
+          placeholder={t("Search...")}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           style={{
@@ -269,7 +270,7 @@ const MinutesList = () => {
 
       {/* List of meeting records */}
       {sortedDateKeys.length === 0 ? (
-        <p style={{ color: 'gray', textAlign: 'center' }}>No meeting records available</p>
+        <p style={{ color: 'gray', textAlign: 'center' }}>{t("No meeting records available")}</p>
       ) : (
         sortedDateKeys.map((dateKey) => (
           <div key={dateKey} style={{ marginBottom: 30 }}>

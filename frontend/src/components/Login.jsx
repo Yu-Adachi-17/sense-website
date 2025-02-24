@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from "react";
 import {
   getAuth,
@@ -12,11 +11,13 @@ import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { syncUserData } from "../firebaseUserSync"; // Import function for syncing user data
+import { useTranslation } from "react-i18next";
 
 const auth = getAuth(app);
 
 const Login = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +26,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     if (!email || !password) {
-      setAlertMessage("Please enter your email and password.");
+      setAlertMessage(t("Please enter your email and password."));
       setShowAlert(true);
       return;
     }
@@ -38,7 +39,9 @@ const Login = () => {
       // If email verification is not complete, sign out and display an error
       if (!user.emailVerified) {
         await signOut(auth);
-        setAlertMessage("Your email has not been verified. Please click the link in the email to verify your account.");
+        setAlertMessage(
+          t("Your email has not been verified. Please click the link in the email to verify your account.")
+        );
         setShowAlert(true);
         return;
       }
@@ -54,22 +57,22 @@ const Login = () => {
       // Set error message based on error code
       switch (error.code) {
         case "auth/invalid-email":
-          setAlertMessage("The email address is invalid.");
+          setAlertMessage(t("The email address is invalid."));
           break;
         case "auth/user-disabled":
-          setAlertMessage("This account has been disabled.");
+          setAlertMessage(t("This account has been disabled."));
           break;
         case "auth/user-not-found":
-          setAlertMessage("User not found.");
+          setAlertMessage(t("User not found."));
           break;
         case "auth/wrong-password":
-          setAlertMessage("Incorrect password.");
+          setAlertMessage(t("Incorrect password."));
           break;
         case "auth/too-many-requests":
-          setAlertMessage("Too many attempts in a short period. Please wait and try again.");
+          setAlertMessage(t("Too many attempts in a short period. Please wait and try again."));
           break;
         default:
-          setAlertMessage("Login failed. Please try again.");
+          setAlertMessage(t("Login failed. Please try again."));
       }
       setShowAlert(true);
     } finally {
@@ -83,7 +86,7 @@ const Login = () => {
       await signInWithGoogle();
       navigate("/"); // Navigate to home screen after successful Google sign-in
     } catch (error) {
-      setAlertMessage("Google sign-in failed.");
+      setAlertMessage(t("Google sign-in failed."));
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -96,7 +99,7 @@ const Login = () => {
       await signInWithApple();
       navigate("/"); // Navigate to home screen after successful Apple sign-in
     } catch (error) {
-      setAlertMessage("Apple sign-in failed.");
+      setAlertMessage(t("Apple sign-in failed."));
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -105,18 +108,18 @@ const Login = () => {
 
   const handlePasswordReset = async () => {
     if (!email) {
-      setAlertMessage("Please enter your email address.");
+      setAlertMessage(t("Please enter your email address."));
       setShowAlert(true);
       return;
     }
     setIsLoading(true);
     try {
       await sendPasswordResetEmail(auth, email);
-      setAlertMessage("A password reset email has been sent. Please check your email.");
+      setAlertMessage(t("A password reset email has been sent. Please check your email."));
       setShowAlert(true);
     } catch (error) {
       console.error("Error sending password reset email:", error);
-      setAlertMessage("Failed to send password reset email.");
+      setAlertMessage(t("Failed to send password reset email."));
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -145,11 +148,11 @@ const Login = () => {
           marginBottom: "20px",
         }}
       >
-        Log in
+        {t("Log in")}
       </h1>
       <input
         type="email"
-        placeholder="Email"
+        placeholder={t("Email")}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         style={{
@@ -163,7 +166,7 @@ const Login = () => {
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder={t("Password")}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         style={{
@@ -191,7 +194,7 @@ const Login = () => {
           fontWeight: "bold",
         }}
       >
-        Login
+        {t("Login")}
       </button>
 
       {/* Google sign-in */}
@@ -213,7 +216,7 @@ const Login = () => {
         }}
       >
         <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
-        Sign in with Google
+        {t("Sign in with Google")}
       </button>
 
       {/* Apple sign-in */}
@@ -235,7 +238,7 @@ const Login = () => {
         }}
       >
         <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
-        Sign in with Apple
+        {t("Sign in with Apple")}
       </button>
 
       {/* Password reset email button */}
@@ -251,7 +254,7 @@ const Login = () => {
           fontWeight: "bold",
         }}
       >
-        Forgot your password? Send a reset email.
+        {t("Forgot your password? Send a reset email.")}
       </button>
 
       <button
@@ -263,7 +266,7 @@ const Login = () => {
           cursor: "pointer",
         }}
       >
-        Don't have an account? Click here.
+        {t("Don't have an account? Click here.")}
       </button>
 
       {showAlert && (

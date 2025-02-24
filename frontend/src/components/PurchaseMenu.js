@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // 追加
 // Firebase-related
 import { auth, db } from "../firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
@@ -13,6 +14,8 @@ import { PiGridFourFill } from "react-icons/pi";  // Added: Icon for meeting rec
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi"; // Icon for top-right action menu
 
 export function PurchaseMenu() {
+  const { t } = useTranslation(); // 追加
+
   // Define various states
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -307,15 +310,15 @@ export function PurchaseMenu() {
   // Edit Profile handler (using window.prompt to update username)
   const handleEditProfile = async () => {
     setShowActionMenu(false);
-    const newUserName = window.prompt("Enter new username:");
+    const newUserName = window.prompt(t("Enter new username:"));
     if (newUserName) {
       try {
         const userDocRef = doc(db, "users", userId);
         await setDoc(userDocRef, { userName: newUserName }, { merge: true });
-        alert("Username updated successfully.");
+        alert(t("Username updated successfully."));
       } catch (error) {
         console.error("Error updating username:", error);
-        alert("Error updating username.");
+        alert(t("Error updating username:"));
       }
     }
   };
@@ -323,7 +326,7 @@ export function PurchaseMenu() {
   // Logout handler
   const handleLogout = async () => {
     setShowActionMenu(false);
-    if (window.confirm("Are you sure you want to log out?")) {
+    if (window.confirm(t("Are you sure you want to log out?"))) {
       try {
         await auth.signOut();
         setShowProfileOverlay(false);
@@ -336,7 +339,7 @@ export function PurchaseMenu() {
   // Delete account handler
   const handleDeleteAccount = async () => {
     setShowActionMenu(false);
-    if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+    if (window.confirm(t("Are you sure you want to delete your account? This action cannot be undone."))) {
       try {
         // Delete user data from Firestore
         await deleteDoc(doc(db, "users", userId));
@@ -348,7 +351,7 @@ export function PurchaseMenu() {
         navigate("/");
       } catch (error) {
         console.error("Error deleting account:", error);
-        alert("Failed to delete account.");
+        alert(t("Failed to delete account."));
       }
     }
   };
@@ -376,7 +379,7 @@ export function PurchaseMenu() {
                   background: "none",
                   border: "none",
                   color: "white",
-                  fontSize: "16px",
+                  fontSize: "20px",
                   fontWeight: "bold",
                   cursor: "pointer"
                 }}
@@ -385,7 +388,7 @@ export function PurchaseMenu() {
                   navigate("/seo");
                 }}
               >
-                Services and Pricing
+                {t("Services and Pricing")}
               </button>
               <button
                 style={{
@@ -423,7 +426,7 @@ export function PurchaseMenu() {
               }}
             >
               <PiGridFourFill style={{ marginRight: "8px" }} />
-              Meeting Records List
+            {t("Minutes List")}
             </button>
 
             <button
@@ -438,7 +441,7 @@ export function PurchaseMenu() {
               }}
             >
               <FaTicketAlt style={{ marginRight: "8px" }} />
-              Purchase Items
+              {t("Purchase Items")}
             </button>
 
             <button
@@ -449,7 +452,7 @@ export function PurchaseMenu() {
               }}
             >
               <BsWrenchAdjustable style={{ marginRight: "8px" }} />
-              Meeting Formats
+              {t("Minutes Formats")}
             </button>
 
             {/* Policy buttons at bottom-right */}
@@ -461,7 +464,7 @@ export function PurchaseMenu() {
                   navigate("/terms-of-use");
                 }}
               >
-                Terms of Use
+                {t("Terms of Use")}
               </button>
               <button
                 style={styles.policyButton}
@@ -470,7 +473,7 @@ export function PurchaseMenu() {
                   navigate("/privacy-policy");
                 }}
               >
-                Privacy Policy
+                {t("Privacy Policy")}
               </button>
               <button
                 style={styles.policyButton}
@@ -479,7 +482,7 @@ export function PurchaseMenu() {
                   navigate("/transactions-law");
                 }}
               >
-                Legal Notice - Japan Only
+                {t("Legal Notice - Japan Only")}
               </button>
             </div>
           </div>
@@ -510,13 +513,13 @@ export function PurchaseMenu() {
             {showActionMenu && (
               <div style={styles.actionMenu}>
                 <div style={styles.actionMenuItem} onClick={handleEditProfile}>
-                  Edit Profile
+                  {t("Edit Profile")}
                 </div>
                 <div style={styles.actionMenuItem} onClick={handleLogout}>
-                  Logout
+                  {t("Logout")}
                 </div>
                 <div style={{ ...styles.actionMenuItem, borderBottom: "none" }} onClick={handleDeleteAccount}>
-                  Delete account
+                  {t("Delete account")}
                 </div>
               </div>
             )}
@@ -524,11 +527,11 @@ export function PurchaseMenu() {
             <div style={styles.profileCircle}>
               <div style={styles.innerCircle}>
                 <div style={styles.profileInfo}>
-                  <p>Email: {userEmail}</p>
+                  <p>{t("Email")}: {userEmail}</p>
                   {subscription ? (
-                    <p style={styles.unlimitedText}>unlimited</p>
+                    <p style={styles.unlimitedText}>{t("unlimited")}</p>
                   ) : (
-                    <p>Remaining Time: {profileRemainingSeconds !== null ? formatTime(profileRemainingSeconds) : "00:00"}</p>
+                    <p>{t("Remaining Time:")} {profileRemainingSeconds !== null ? formatTime(profileRemainingSeconds) : "00:00"}</p>
                   )}
                 </div>
               </div>

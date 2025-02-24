@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 // ----------------------
 // Screen displayed upon successful payment
 export function Success() {
+  const { t } = useTranslation();
+  
   useEffect(() => {
     console.log("[DEBUG] Success component rendered");
     const timer = setTimeout(() => {
@@ -22,11 +25,11 @@ export function Success() {
       flexDirection: 'column',
       fontFamily: 'Impact, sans-serif'
     }}>
-      <h1 style={{ fontWeight: 300, letterSpacing: '0.05em' }}>
-        Payment Successful
+      <h1 style={{ fontWeight: 300, letterSpacing: '0.05em', fontSize: '4em' }}>
+        {t("Payment Successful")}
       </h1>
-      <p style={{ fontSize: '0.8em', marginTop: '10px' }}>
-        You will be redirected automatically in a few seconds...
+      <p style={{ fontSize: '1.6em', marginTop: '10px' }}>
+        {t("You will be redirected automatically in a few seconds...")}
       </p>
     </div>
   );
@@ -35,6 +38,7 @@ export function Success() {
 // ----------------------
 // Screen displayed when payment is canceled
 export function Cancel() {
+  const { t } = useTranslation();
   const handleRetry = () => {
     window.location.href = "/create-checkout-session";
   };
@@ -51,36 +55,36 @@ export function Cancel() {
       fontFamily: 'Impact, sans-serif',
       textAlign: 'center'
     }}>
-      <h1 style={{ fontWeight: 300, letterSpacing: '0.05em' }}>
-        Payment Canceled
+      <h1 style={{ fontWeight: 300, letterSpacing: '0.05em', fontSize: '4em' }}>
+        {t("Payment Canceled")}
       </h1>
-      <p style={{ marginBottom: '20px' }}>
-        The payment was not completed. Please try again.
+      <p style={{ fontSize: '1.6em', marginBottom: '20px' }}>
+        {t("The payment was not completed. Please try again.")}
       </p>
       <div>
         <button onClick={handleRetry} style={{
           backgroundColor: '#ffcc00',
           color: '#000',
           padding: '10px 20px',
-          fontSize: '16px',
+          fontSize: '32px',
           fontWeight: 'bold',
           border: 'none',
           borderRadius: '5px',
           cursor: 'pointer',
           marginRight: '10px'
         }}>
-          Retry Payment
+          {t("Retry Payment")}
         </button>
         <a href="https://sense-ai.world" style={{
           backgroundColor: '#555',
           color: '#fff',
           padding: '10px 20px',
-          fontSize: '16px',
+          fontSize: '32px',
           fontWeight: 'bold',
           textDecoration: 'none',
           borderRadius: '5px'
         }}>
-          Return to Home Page
+          {t("Return to Home Page")}
         </a>
       </div>
     </div>

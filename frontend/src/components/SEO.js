@@ -7,6 +7,14 @@ import TermsOfUse from "../components/TermsOfUse";
 import TransactionsLaw from "../components/TransactionsLaw";
 
 const SEOPage = () => {
+  // グラデーションスタイルを定義
+  const gradientStyle = {
+    background: 'linear-gradient(90deg, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    color: 'transparent',
+  };
+
   const containerStyle = {
     maxWidth: '900px',
     margin: '40px auto',
@@ -28,11 +36,13 @@ const SEOPage = () => {
     cursor: 'pointer',
   };
 
+  // 各見出しにグラデーションを適用
   const centerTextStyle = {
     textAlign: 'center',
     fontSize: '48px',
     fontWeight: 'bold',
     marginBottom: '40px',
+    ...gradientStyle,
   };
 
   const headingStyle = {
@@ -43,6 +53,7 @@ const SEOPage = () => {
     fontSize: '40px',
     marginBottom: '20px',
     ...headingStyle,
+    ...gradientStyle,
   };
 
   const h2Style = {
@@ -50,6 +61,7 @@ const SEOPage = () => {
     marginTop: '30px',
     marginBottom: '10px',
     ...headingStyle,
+    ...gradientStyle,
   };
 
   const paragraphStyle = {
@@ -109,7 +121,7 @@ const SEOPage = () => {
 
   return (
     <div>
-      {/* Position HomeIcon at the top left */}
+      {/* HomeIcon を左上に配置 */}
       <div style={homeIconStyle}>
         <HomeIcon size={30} />
       </div>
@@ -117,7 +129,7 @@ const SEOPage = () => {
       <div style={containerStyle}>
         <div style={centerTextStyle}>Minutes AI Service & Pricing</div>
         
-        <h1 style={h1Style}>AI Tool That Automatically Creates Meeting Minutes</h1>
+        <h2 style={h2Style}>AI Tool That Automatically Creates Meeting Minutes</h2>
         
         <p style={paragraphStyle}>
           Minutes AI leverages cutting-edge artificial intelligence technology to instantly analyze meeting audio and automatically generate highly accurate meeting minutes. With just one tap, it efficiently converts speech to text and shares it via the cloud, significantly reducing post-meeting tasks.

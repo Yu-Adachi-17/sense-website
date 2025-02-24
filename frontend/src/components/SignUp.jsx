@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -44,6 +45,7 @@ const createUserDocument = async (user) => {
 };
 
 const SignUp = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -142,10 +144,10 @@ const SignUp = () => {
         }}
       >
         <h1 style={{ fontWeight: 300, letterSpacing: "0.05em" }}>
-          Verification Email Sent
+          {t("Verification Email Sent")}
         </h1>
         <p style={{ fontSize: "0.8em", marginTop: "10px" }}>
-          Please click the link in the email to verify your account and then log in.
+          {t("Please click the link in the email to verify your account and then log in.")}
         </p>
         <button
           onClick={() => navigate("/login")}
@@ -158,7 +160,7 @@ const SignUp = () => {
             cursor: "pointer",
           }}
         >
-          Log In After Verification
+          {t("Log In After Verification")}
         </button>
       </div>
     );
@@ -185,11 +187,11 @@ const SignUp = () => {
           marginBottom: "20px",
         }}
       >
-        Create Account
+        {t("Create Account")}
       </h1>
       <input
         type="email"
-        placeholder="Email"
+        placeholder={t("Email")}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         style={{
@@ -203,7 +205,7 @@ const SignUp = () => {
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder={t("Password")}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         style={{
@@ -229,7 +231,7 @@ const SignUp = () => {
           fontWeight: "bold",
         }}
       >
-        Email Verification
+        {t("Email Verification")}
       </button>
 
       <button
@@ -250,7 +252,7 @@ const SignUp = () => {
         }}
       >
         <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
-        Sign in with Google
+        {t("Sign in with Google")}
       </button>
 
       <button
@@ -271,7 +273,7 @@ const SignUp = () => {
         }}
       >
         <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
-        Sign in with Apple
+        {t("Sign in with Apple")}
       </button>
       <button
         onClick={() => navigate("/login")}
@@ -282,7 +284,7 @@ const SignUp = () => {
           cursor: "pointer",
         }}
       >
-        Already have an account? Click here.
+        {t("Already have an account? Click here.")}
       </button>
       {showAlert && (
         <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>
