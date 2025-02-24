@@ -17,6 +17,7 @@ import {
   setDoc,
   getDoc,
   serverTimestamp,
+  runTransaction,
 } from "firebase/firestore";
 
 import { app } from "../firebaseConfig";
@@ -25,21 +26,17 @@ import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-/**
- * ユーザーの Firestore ドキュメントを作成または更新する関数
- * ・ドキュメントが存在しなければ全フィールド（remainingSeconds: 180 も含む）をセット
- * ・既に存在する場合、remainingSeconds が 0 なら 180 に更新、それ以外のフィールドは merge: true で null をセット
- */
+
 const createUserDocument = async (user) => {
   const userRef = doc(db, "users", user.uid);
   const userSnap = await getDoc(userRef);
 
   if (!userSnap.exists()) {
-    // ドキュメントが存在しない場合（新規ユーザー）→ 全フィールドを上書きセット
+    // まだこのユーザーのドキュメントが存在しない → 初回作成
     await setDoc(userRef, {
       createdAt: serverTimestamp(),
-      userName: user.email.substring(0, 3),
-      email: user.email,
+      userName: user.email?.substring(0, 3) || "",
+      email: user.email || "",
       recordingDevice: null,
       recordingTimestamp: null,
       originalTransactionId: null,
@@ -47,62 +44,65 @@ const createUserDocument = async (user) => {
       subscriptionStartDate: null,
       subscriptionEndDate: null,
       lastSubscriptionUpdate: null,
-      remainingSeconds: 180, // 新規ユーザーは 180 をセット
+      remainingSeconds: 180,
       subscription: false,
     });
+    console.log("🔥 [createUserDocument] New doc created with remainingSeconds=180:", user.uid);
   } else {
-    // 既にドキュメントが存在する場合
+    // 既存ユーザーのドキュメントが存在する
+    console.log("⚠️ [createUserDocument] Doc already exists:", user.uid, userSnap.data());
+    // 既存ユーザーには基本的に何もしない。nullフィールドを付与したいなら必要に応じて setDoc する
+    // ただし「remainingSeconds = 0 or null」のときに 180 にしたい場合は↓例
     const data = userSnap.data();
-    // remainingSeconds が 0 なら更新（0 の場合は新規作成時の Cloud Function などの影響と想定）
-    if (data.remainingSeconds === 0) {
-      await setDoc(userRef, { remainingSeconds: 180 }, { merge: true });
+    if (data.remainingSeconds == null || data.remainingSeconds === 0) {
+      await setDoc(
+        userRef,
+        { remainingSeconds: 180 },
+        { merge: true }
+      );
+      console.log("✅ [createUserDocument] Updated remainingSeconds to 180:", user.uid);
     }
-    // null を明示したいフィールドは merge: true で更新
-    await setDoc(
-      userRef,
-      {
-        recordingDevice: null,
-        recordingTimestamp: null,
-        originalTransactionId: null,
-        subscriptionPlan: null,
-        subscriptionStartDate: null,
-        subscriptionEndDate: null,
-        lastSubscriptionUpdate: null,
-      },
-      { merge: true }
-    );
   }
 };
 
 const SignUp = () => {
-  const { t, i18n } = useTranslation();
+      const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
+    
+                // ✅ アラビア語の場合に `dir="rtl"` を適用
+                useEffect(() => {
+                  document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+                }, [i18n.language]);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  // Flag indicating that the verification email has been sent (not that sign-up is complete)
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
-  }, [i18n.language]);
-
-  // Email サインアップハンドラー
+  // Email sign-up handler
   const handleSignUp = async () => {
     if (!email || !password) return;
     setIsLoading(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // Create user with email and password
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
-      // Firestore にユーザードキュメントを作成または更新
+      // Create a user document in Firestore
       await createUserDocument(user);
       console.log("✅ Created user document in Firestore:", user.uid);
 
-      // 認証メールを送信しサインアウト
+      // Send verification email
       await sendEmailVerification(user);
+      // Sign out the user so they don't become authenticated immediately
       await signOut(auth);
+      // Set the state to indicate that the email has been sent
       setIsEmailSent(true);
     } catch (error) {
       setAlertMessage(error.message);
@@ -112,15 +112,17 @@ const SignUp = () => {
     }
   };
 
-  // Google サインインハンドラー
+  // Google sign-in handler
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
+      // Perform Google sign-in
       await signInWithGoogle();
       const user = auth.currentUser;
       if (user) {
+        // Create or update the user document in Firestore after sign-in
         await createUserDocument(user);
-        console.log("✅ Created user document via Google sign-in:", user.uid);
+        console.log("✅ Created user document in Firestore via Google sign-in:", user.uid);
       }
       navigate("/");
     } catch (error) {
@@ -131,15 +133,17 @@ const SignUp = () => {
     }
   };
 
-  // Apple サインインハンドラー
+  // Apple sign-in handler
   const handleAppleSignIn = async () => {
     setIsLoading(true);
     try {
+      // Perform Apple sign-in
       await signInWithApple();
       const user = auth.currentUser;
       if (user) {
+        // Create or update the user document in Firestore after sign-in
         await createUserDocument(user);
-        console.log("✅ Created user document via Apple sign-in:", user.uid);
+        console.log("✅ Created user document in Firestore via Apple sign-in:", user.uid);
       }
       navigate("/");
     } catch (error) {
@@ -150,6 +154,7 @@ const SignUp = () => {
     }
   };
 
+  // Display screen after verification email is sent
   if (isEmailSent) {
     return (
       <div
@@ -187,6 +192,7 @@ const SignUp = () => {
     );
   }
 
+  // Regular sign-up screen
   return (
     <div
       style={{
@@ -199,7 +205,14 @@ const SignUp = () => {
         color: "white",
       }}
     >
-      <h1 style={{ fontSize: "40px", fontWeight: "700", color: "white", marginBottom: "20px" }}>
+      <h1
+        style={{
+          fontSize: "40px",
+          fontWeight: "700",
+          color: "white",
+          marginBottom: "20px",
+        }}
+      >
         {t("Create Account")}
       </h1>
       <input
@@ -246,6 +259,7 @@ const SignUp = () => {
       >
         {t("Email Verification")}
       </button>
+
       <button
         onClick={handleGoogleSignIn}
         style={{
@@ -266,6 +280,7 @@ const SignUp = () => {
         <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
         {t("Sign in with Google")}
       </button>
+
       <button
         onClick={handleAppleSignIn}
         style={{
@@ -288,11 +303,18 @@ const SignUp = () => {
       </button>
       <button
         onClick={() => navigate("/login")}
-        style={{ color: "white", background: "none", border: "none", cursor: "pointer" }}
+        style={{
+          color: "white",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+        }}
       >
         {t("Already have an account? Click here.")}
       </button>
-      {showAlert && <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>}
+      {showAlert && (
+        <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>
+      )}
     </div>
   );
 };
