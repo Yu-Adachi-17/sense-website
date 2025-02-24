@@ -43,7 +43,13 @@ const handleCheckoutSessionCompleted = async (session) => {
 
     const userId = session.client_reference_id;
     const productId = session.metadata.product_id;
-    const customerId = session.customer;
+    let customerId = session.customer;
+
+    // 追加: 消耗アイテムの場合、customer が null の場合は PaymentIntent から取得する
+    if (!customerId && session.payment_intent) {
+      const paymentIntent = await stripe.paymentIntents.retrieve(session.payment_intent);
+      customerId = paymentIntent.customer;
+    }
 
     console.log("✅ userId:", userId);
     console.log("✅ productId:", productId);
