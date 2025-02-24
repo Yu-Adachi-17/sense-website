@@ -1,5 +1,5 @@
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "./firebaseConfig";
+import { db } from "../firebaseConfig";
 
 export const fixNewUserRemainingSeconds = async (user) => {
   const userRef = doc(db, "users", user.uid);
