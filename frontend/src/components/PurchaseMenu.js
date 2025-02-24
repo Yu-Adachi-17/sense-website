@@ -14,8 +14,6 @@ import { PiGridFourFill } from "react-icons/pi";  // Added: Icon for meeting rec
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi"; // Icon for top-right action menu
 
 export function PurchaseMenu() {
-  
-
   // Define various states
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -34,10 +32,10 @@ export function PurchaseMenu() {
 
   const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
 
-            // ✅ アラビア語の場合に `dir="rtl"` を適用
-            useEffect(() => {
-              document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
-            }, [i18n.language]);
+  // ✅ アラビア語の場合に `dir="rtl"` を適用
+  useEffect(() => {
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+  }, [i18n.language]);
 
   // Handle window resize events
   useEffect(() => {
@@ -336,6 +334,8 @@ export function PurchaseMenu() {
     if (window.confirm(t("Are you sure you want to log out?"))) {
       try {
         await auth.signOut();
+        // サインアウト完了後、ローカルデバイス内の userRemainingSeconds を 180 にリセット
+        localStorage.setItem("guestRemainingSeconds", "180");
         setShowProfileOverlay(false);
       } catch (error) {
         console.error("Error during logout:", error);
@@ -433,7 +433,7 @@ export function PurchaseMenu() {
               }}
             >
               <PiGridFourFill style={{ marginRight: "8px" }} />
-            {t("Minutes List")}
+              {t("Minutes List")}
             </button>
 
             <button
