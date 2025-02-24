@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from "react"; // ✅ useEffect を追加
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
   sendEmailVerification,
   signOut,
 } from "firebase/auth";
+
 import {
   getFirestore,
   doc,
   setDoc,
+  getDoc,
   serverTimestamp,
+  runTransaction,
 } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
-import { FcGoogle } from "react-icons/fc";
-import { FaApple } from "react-icons/fa";
-import { runTransaction, getDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
