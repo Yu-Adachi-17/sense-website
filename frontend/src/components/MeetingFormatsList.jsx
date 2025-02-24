@@ -111,7 +111,7 @@ const MeetingFormatsList = () => {
     }
   });
 
-  // meetingFormats の各項目を表示直前にローカライズ
+  // meetingFormats の各項目を表示直前にローカライズ（title, template に t() を適用）
   const localizedFormats = sortedFormats.map((format) => ({
     ...format,
     title: t(format.title),
