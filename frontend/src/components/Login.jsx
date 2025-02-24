@@ -12,6 +12,8 @@ import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { syncUserData } from "../firebaseUserSync"; // Import function for syncing user data
+import { fixNewUserRemainingSeconds } from "../utils/fixNewUserRemainingSeconds";
+
 import { useTranslation } from "react-i18next";
 
 const auth = getAuth(app);
