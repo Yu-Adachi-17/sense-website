@@ -10,24 +10,25 @@ import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
-import { syncUserData, addExtraTimeOnLogin } from "../firebaseUserSync"; // 両方の関数をインポート
+import { syncUserData } from "../firebaseUserSync"; // Import function for syncing user data
 import { useTranslation } from "react-i18next";
 
 const auth = getAuth(app);
 
 const Login = () => {
   const navigate = useNavigate();
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-  const { t, i18n } = useTranslation();
-
-  // アラビア語の場合に dir="rtl" を適用
-  useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
-  }, [i18n.language]);
+    const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
+  
+      // ✅ アラビア語の場合に `dir="rtl"` を適用
+      useEffect(() => {
+        document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+      }, [i18n.language]);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -37,11 +38,11 @@ const Login = () => {
     }
     setIsLoading(true);
     try {
-      // Email/Password でサインイン
+      // Sign in with Email/Password
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Email 認証が完了していない場合はサインアウトしてエラー表示
+      // If email verification is not complete, sign out and display an error
       if (!user.emailVerified) {
         await signOut(auth);
         setAlertMessage(
@@ -51,16 +52,15 @@ const Login = () => {
         return;
       }
 
-      // ログイン後にユーザーデータを同期（初期設定として remainingSeconds は currentCountdown の値、ここでは 0 ）
+      // After successful login, sync user data to Firestore
+      // ※ Set the 3rd parameter (userIsUnlimited) and 4th parameter (currentCountdown) as needed
       await syncUserData(user, email, false, 0);
 
-      // ログイン時に追加で 3 分（180秒）を加算
-      await addExtraTimeOnLogin(user, 180);
-
-      // ホーム画面に遷移
+      // Navigate to the home screen
       navigate("/");
     } catch (error) {
       console.error("Login error:", error);
+      // Set error message based on error code
       switch (error.code) {
         case "auth/invalid-email":
           setAlertMessage(t("The email address is invalid."));
@@ -90,7 +90,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithGoogle();
-      navigate("/"); // Google サインイン成功後にホーム画面に遷移
+      navigate("/"); // Navigate to home screen after successful Google sign-in
     } catch (error) {
       setAlertMessage(t("Google sign-in failed."));
       setShowAlert(true);
@@ -103,7 +103,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithApple();
-      navigate("/"); // Apple サインイン成功後にホーム画面に遷移
+      navigate("/"); // Navigate to home screen after successful Apple sign-in
     } catch (error) {
       setAlertMessage(t("Apple sign-in failed."));
       setShowAlert(true);
@@ -185,7 +185,7 @@ const Login = () => {
         }}
       />
 
-      {/* Email ログインボタン */}
+      {/* Email login button */}
       <button
         onClick={handleLogin}
         disabled={isLoading}
@@ -203,7 +203,7 @@ const Login = () => {
         {t("Login")}
       </button>
 
-      {/* Google サインイン */}
+      {/* Google sign-in */}
       <button
         onClick={handleGoogleSignIn}
         style={{
@@ -225,7 +225,7 @@ const Login = () => {
         {t("Sign in with Google")}
       </button>
 
-      {/* Apple サインイン */}
+      {/* Apple sign-in */}
       <button
         onClick={handleAppleSignIn}
         style={{
@@ -247,7 +247,7 @@ const Login = () => {
         {t("Sign in with Apple")}
       </button>
 
-      {/* パスワードリセットメールボタン */}
+      {/* Password reset email button */}
       <button
         onClick={handlePasswordReset}
         disabled={isLoading}
