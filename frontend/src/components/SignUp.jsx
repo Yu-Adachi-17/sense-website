@@ -18,6 +18,7 @@ import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { getDoc } from "firebase/firestore";
+import { runTransaction, getDoc, doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -25,29 +26,15 @@ const db = getFirestore(app);
 
 const createUserDocument = async (user) => {
   const userRef = doc(db, "users", user.uid);
-  const userSnap = await getDoc(userRef);
 
-  if (!userSnap.exists()) {
-    // 初回作成時に remainingSeconds: 180 をセット
-    await setDoc(userRef, {
-      createdAt: serverTimestamp(),
-      userName: user.email.substring(0, 3),
-      email: user.email,
-      recordingDevice: null,
-      recordingTimestamp: null,
-      originalTransactionId: null,
-      subscriptionPlan: null,
-      subscriptionStartDate: null,
-      subscriptionEndDate: null,
-      lastSubscriptionUpdate: null,
-      remainingSeconds: 180,  // 新規ユーザーのみ 180
-      subscription: false,
-    });
-  } else {
-    // 既存ユーザーなら上書きはせず、nullフィールドを維持する
-    await setDoc(
-      userRef,
-      {
+  await runTransaction(db, async (transaction) => {
+    const userSnap = await transaction.get(userRef);
+    if (!userSnap.exists()) {
+      // ドキュメントが存在しない場合は、新規作成時として全てのフィールドをセット
+      transaction.set(userRef, {
+        createdAt: serverTimestamp(),
+        userName: user.email.substring(0, 3),
+        email: user.email,
         recordingDevice: null,
         recordingTimestamp: null,
         originalTransactionId: null,
@@ -55,10 +42,32 @@ const createUserDocument = async (user) => {
         subscriptionStartDate: null,
         subscriptionEndDate: null,
         lastSubscriptionUpdate: null,
-      },
-      { merge: true }
-    );
-  }
+        remainingSeconds: 180, // 新規ユーザーには 180 をセット
+        subscription: false,
+      });
+    } else {
+      // ドキュメントが既に存在している場合
+      const data = userSnap.data();
+      // remainingSeconds が未設定（null/undefined）または 0 なら更新する
+      if (data.remainingSeconds == null || data.remainingSeconds === 0) {
+        transaction.update(userRef, { remainingSeconds: 180 });
+      }
+      // 他のフィールドは merge して null をセット（nullフィールドも存在させたい場合）
+      transaction.set(
+        userRef,
+        {
+          recordingDevice: null,
+          recordingTimestamp: null,
+          originalTransactionId: null,
+          subscriptionPlan: null,
+          subscriptionStartDate: null,
+          subscriptionEndDate: null,
+          lastSubscriptionUpdate: null,
+        },
+        { merge: true }
+      );
+    }
+  });
 };
 
 
