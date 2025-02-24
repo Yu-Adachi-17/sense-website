@@ -8,8 +8,13 @@ const EmailVerification = () => {
   const auth = getAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  const { t } = useTranslation();
   const [statusMessage, setStatusMessage] = useState(t("Verifying..."));
+  const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
+
+    // ✅ アラビア語の場合に `dir="rtl"` を適用
+    useEffect(() => {
+      document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+    }, [i18n.language]);
 
   useEffect(() => {
     const query = new URLSearchParams(location.search);

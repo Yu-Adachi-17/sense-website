@@ -1,5 +1,6 @@
-import HomeIcon from '../components/HomeIcon';
 import React from 'react';
+import { useTranslation } from "react-i18next";
+import HomeIcon from '../components/HomeIcon';
 import { FaApple } from "react-icons/fa";
 
 import PrivacyPolicy from "../components/PrivacyPolicy";
@@ -7,6 +8,8 @@ import TermsOfUse from "../components/TermsOfUse";
 import TransactionsLaw from "../components/TransactionsLaw";
 
 const SEOPage = () => {
+  const { t } = useTranslation();
+
   // グラデーションスタイルを定義
   const gradientStyle = {
     background: 'linear-gradient(90deg, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))',
@@ -127,75 +130,75 @@ const SEOPage = () => {
       </div>
 
       <div style={containerStyle}>
-        <div style={centerTextStyle}>Minutes AI Service & Pricing</div>
+        <div style={centerTextStyle}>{t("Minutes AI Service & Pricing")}</div>
         
-        <h2 style={h2Style}>AI Tool That Automatically Creates Meeting Minutes</h2>
+        <h2 style={h2Style}>{t("AI Tool That Automatically Creates Meeting Minutes")}</h2>
         
         <p style={paragraphStyle}>
-          Minutes AI leverages cutting-edge artificial intelligence technology to instantly analyze meeting audio and automatically generate highly accurate meeting minutes. With just one tap, it efficiently converts speech to text and shares it via the cloud, significantly reducing post-meeting tasks.
+          {t("Minutes AI leverages cutting-edge artificial intelligence technology to instantly analyze meeting audio and automatically generate highly accurate meeting minutes. With just one tap, it efficiently converts speech to text and shares it via the cloud, significantly reducing post-meeting tasks.")}
         </p>
 
-        <h2 style={h2Style}>Features</h2>
+        <h2 style={h2Style}>{t("Features")}</h2>
         
-        <h3>State-of-the-Art Speech Recognition AI</h3>
+        <h3>{t("State-of-the-Art Speech Recognition AI")}</h3>
         <p>
-          It employs advanced natural language processing to accurately capture conversational nuances. Diverse statements are converted into text with minimal errors, producing highly accurate meeting minutes.
+          {t("It employs advanced natural language processing to accurately capture conversational nuances. Diverse statements are converted into text with minimal errors, producing highly accurate meeting minutes.")}
         </p>
         
-        <h3>Flexible Meeting Minutes Formats</h3>
+        <h3>{t("Flexible Meeting Minutes Formats")}</h3>
         <p>
-          Automatically formats minutes according to your needs. It efficiently generates meeting minutes suitable for regular meetings, online conferences, and more.
+          {t("Automatically formats minutes according to your needs. It efficiently generates meeting minutes suitable for regular meetings, online conferences, and more.")}
         </p>
         
-        <h3>Multilingual Support</h3>
+        <h3>{t("Multilingual Support")}</h3>
         <p>
-          Supports English and other languages, making it easy for AI to assist in creating minutes for global meetings.
+          {t("Supports English and other languages, making it easy for AI to assist in creating minutes for global meetings.")}
         </p>
         
-        <h3>Cloud Storage & Sharing Features</h3>
+        <h3>{t("Cloud Storage & Sharing Features")}</h3>
         <p>
-          The generated meeting minutes are stored in the cloud and can be quickly shared with team members. Version control is also managed effortlessly.
+          {t("The generated meeting minutes are stored in the cloud and can be quickly shared with team members. Version control is also managed effortlessly.")}
         </p>
 
-        <h2 style={h2Style}>Pricing Plans</h2>
+        <h2 style={h2Style}>{t("Pricing Plans")}</h2>
         <table style={tableStyle}>
           <thead>
             <tr>
-              <th style={thStyle}>Plan</th>
-              <th style={thStyle}>Price</th>
-              <th style={thStyle}>Recording Time</th>
+              <th style={thStyle}>{t("Plan")}</th>
+              <th style={thStyle}>{t("Price")}</th>
+              <th style={thStyle}>{t("Recording Time")}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style={tdStyle}>Trial</td>
-              <td style={tdStyle}>$1.99</td>
-              <td style={tdStyle}>120 minutes</td>
+              <td style={tdStyle}>{t("Trial")}</td>
+              <td style={tdStyle}>{t("$1.99")}</td>
+              <td style={tdStyle}>{t("120 minutes")}</td>
             </tr>
             <tr>
-              <td style={tdStyle}>Light</td>
-              <td style={tdStyle}>$11.99</td>
-              <td style={tdStyle}>1200 minutes</td>
+              <td style={tdStyle}>{t("Light")}</td>
+              <td style={tdStyle}>{t("$11.99")}</td>
+              <td style={tdStyle}>{t("1200 minutes")}</td>
             </tr>
             <tr>
-              <td style={tdStyle}>Monthly Subscription</td>
-              <td style={tdStyle}>$17.99</td>
-              <td style={tdStyle}>Unlimited</td>
+              <td style={tdStyle}>{t("Monthly Subscription")}</td>
+              <td style={tdStyle}>{t("$17.99")}</td>
+              <td style={tdStyle}>{t("Unlimited")}</td>
             </tr>
             <tr>
-              <td style={tdStyle}>Yearly Subscription</td>
-              <td style={tdStyle}>$149.99</td>
-              <td style={tdStyle}>Unlimited</td>
+              <td style={tdStyle}>{t("Yearly Subscription")}</td>
+              <td style={tdStyle}>{t("$149.99")}</td>
+              <td style={tdStyle}>{t("Unlimited")}</td>
             </tr>
           </tbody>
         </table>
         <p style={paragraphStyle}>
-          Note: Guest users can record up to 3 minutes per day.
+          {t("Note: Guest users can record up to 3 minutes per day.")}
         </p>
 
-        <h2 style={h2Style}>Track Record</h2>
+        <h2 style={h2Style}>{t("Track Record")}</h2>
         <p style={paragraphStyle}>
-          Within just 6 months of the iOS version release, Minutes AI achieved 15,000 downloads worldwide and has been adopted in over 160 countries.
+          {t("Within just 6 months of the iOS version release, Minutes AI achieved 15,000 downloads worldwide and has been adopted in over 160 countries.")}
         </p>
         
         {/* App Store Button */}
@@ -204,14 +207,14 @@ const SEOPage = () => {
           style={appStoreButtonStyle}
         >
           <FaApple size={20} />
-          <span style={{ fontSize: '18px', fontWeight: 'bold' }}>App Store</span>
+          <span style={{ fontSize: '18px', fontWeight: 'bold' }}>{t("App Store")}</span>
         </a>
 
         {/* Footer Links */}
         <div style={footerLinksContainerStyle}>
-          <a href="/privacy-policy" style={footerLinkStyle}>Privacy Policy</a>
-          <a href="/terms-of-use" style={footerLinkStyle}>Terms of Use</a>
-          <a href="/transactions-law" style={footerLinkStyle}>Legal Notice</a>
+          <a href="/privacy-policy" style={footerLinkStyle}>{t("Privacy Policy")}</a>
+          <a href="/terms-of-use" style={footerLinkStyle}>{t("Terms of Use")}</a>
+          <a href="/transactions-law" style={footerLinkStyle}>{t("Legal Notice")}</a>
         </div>
       </div>
     </div>

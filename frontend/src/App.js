@@ -25,6 +25,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
 import SEOPage from "./components/SEO";
+import { useTranslation } from "react-i18next";
 
 // ----------------------
 // 重要：ファイルアップロード用コンポーネント
@@ -120,6 +121,7 @@ function App() {
     const s = Math.floor(seconds % 60);
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
+  const { t } = useTranslation();
 
   // 録音中の最大時間カウントダウンの開始／リセット（isRecording で管理）
   useEffect(() => {
@@ -697,7 +699,7 @@ function App() {
                         fontStyle: 'italic',
                         fontWeight: 'bold',
                         fontSize: '16px' // 少し強調
-                      }}>The maximum duration for a single recording is 60 minutes</div>
+                      }}>{t("The maximum duration for a single recording is 60 minutes")}</div>
 
 
                       {/* mm:ss のフォントサイズを大きく & Impactに */}

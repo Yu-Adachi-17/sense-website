@@ -19,13 +19,19 @@ const FullScreenOverlay = ({
   audioURL,
   docId  // Document ID to update
 }) => {
-  const { t } = useTranslation();
+  
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   // Editing mode state and the text being edited (either minutes or transcription)
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(isExpanded ? transcription : minutes);
+    const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
+  
+      // ✅ アラビア語の場合に `dir="rtl"` を適用
+      useEffect(() => {
+        document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+      }, [i18n.language]);
 
   useEffect(() => {
     if (docId && !isEditing) {  // If not editing, reflect external changes
