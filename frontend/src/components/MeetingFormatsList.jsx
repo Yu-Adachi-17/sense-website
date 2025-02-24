@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import defaultMeetingFormats from './MeetingFormatElements';
+import useLocalizedMeetingFormats from './useLocalizedMeetingFormats';
 import HomeIcon from './HomeIcon';
 import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
   const { t } = useTranslation();
+  // カスタムフックでローカライズ済み meetingFormats を取得
+  const meetingFormats = useLocalizedMeetingFormats();
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -62,7 +64,8 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            const initialFormats = defaultMeetingFormats.map((format) => ({
+            // defaultMeetingFormats をローカライズ済み meetingFormats で初期化
+            const initialFormats = meetingFormats.map((format) => ({
               ...format,
               selected: format.title.toLowerCase() === 'general'
             }));
@@ -79,7 +82,7 @@ const MeetingFormatsList = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [meetingFormats]);
 
   useEffect(() => {
     const selected = formats.find((f) => f.selected);
@@ -110,13 +113,6 @@ const MeetingFormatsList = () => {
       return a.title.localeCompare(b.title, 'ja');
     }
   });
-
-  // meetingFormats の各項目を表示直前にローカライズ（title, template に t() を適用）
-  const localizedFormats = sortedFormats.map((format) => ({
-    ...format,
-    title: t(format.title),
-    template: t(format.template)
-  }));
 
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
@@ -270,7 +266,7 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {localizedFormats.map((format) => (
+          {meetingFormats.map((format) => (
             <div
               key={format.id}
               style={{ cursor: 'pointer' }}
