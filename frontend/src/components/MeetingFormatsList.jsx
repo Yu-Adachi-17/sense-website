@@ -64,10 +64,10 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // 初期状態：defaultMeetingFormats をもとに、id が 'general' の項目を選択状態にする
+            // defaultMeetingFormats をローカライズ済み meetingFormats で初期化
             const initialFormats = meetingFormats.map((format) => ({
               ...format,
-              selected: format.id === 'general'
+              selected: format.title.toLowerCase() === 'general'
             }));
             setFormats(initialFormats);
             initialFormats.forEach((format) => {
@@ -100,7 +100,7 @@ const MeetingFormatsList = () => {
   const sortedFormats = [...filteredFormats].sort((a, b) => {
     const getPriority = (format) => {
       if (format.selected) return 0;
-      if (format.id === 'general') return 1;
+      if (format.title.toLowerCase() === 'general') return 1;
       return 2;
     };
 
@@ -113,10 +113,6 @@ const MeetingFormatsList = () => {
       return a.title.localeCompare(b.title, 'ja');
     }
   });
-
-  // meetingFormats の各項目は useLocalizedMeetingFormats で既にローカライズ済み
-  // そのため、ここでは sortedFormats をそのまま利用します。
-  const localizedFormats = sortedFormats;
 
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
@@ -132,8 +128,12 @@ const MeetingFormatsList = () => {
       return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
-    // state の更新だけで再レンダリングする
-    Promise.all(updatePromises).catch((err) => console.error('Error in selection update:', err));
+    // After updating IndexedDB, reload the page (simulating Command+R)
+    Promise.all(updatePromises)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((err) => console.error('Error in selection update:', err));
   };
 
   const handleSelectionChange = (id, event) => {
@@ -266,7 +266,7 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {localizedFormats.map((format) => (
+          {meetingFormats.map((format) => (
             <div
               key={format.id}
               style={{ cursor: 'pointer' }}
