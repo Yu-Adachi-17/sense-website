@@ -21,28 +21,45 @@ import { FaApple } from "react-icons/fa";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+
 const createUserDocument = async (user) => {
-  // Retrieve the first 3 characters of user.email (equivalent to String(emailField.prefix(3)) in SwiftUI)
-  const email = user.email || "";
-  await setDoc(
-    doc(db, "users", user.uid),
-    {
+  const userRef = doc(db, "users", user.uid);
+  const userSnap = await getDoc(userRef);
+
+  if (!userSnap.exists()) {
+    // 初回作成時に remainingSeconds: 180 をセット
+    await setDoc(userRef, {
       createdAt: serverTimestamp(),
-      userName: email.substring(0, 3),
-      email: email,
-      recordingDevice: null,         // Equivalent to NSNull() in SwiftUI
-      recordingTimestamp: null,        // Same as above
-      originalTransactionId: null,     // Same as above
-      subscriptionPlan: null,          // Same as above
-      subscriptionStartDate: null,     // Same as above
-      subscriptionEndDate: null,       // Same as above
-      lastSubscriptionUpdate: null,    // Same as above
-      remainingSeconds: 180,           // Use existing value if present; otherwise, 0
-      subscription: false,             // Initial value false (synchronized with @AppStorage("userIsUnlimited") in SwiftUI)
-    },
-    { merge: true }
-  );
+      userName: user.email.substring(0, 3),
+      email: user.email,
+      recordingDevice: null,
+      recordingTimestamp: null,
+      originalTransactionId: null,
+      subscriptionPlan: null,
+      subscriptionStartDate: null,
+      subscriptionEndDate: null,
+      lastSubscriptionUpdate: null,
+      remainingSeconds: 180,  // 新規ユーザーのみ 180
+      subscription: false,
+    });
+  } else {
+    // 既存ユーザーなら上書きはせず、nullフィールドを維持する
+    await setDoc(
+      userRef,
+      {
+        recordingDevice: null,
+        recordingTimestamp: null,
+        originalTransactionId: null,
+        subscriptionPlan: null,
+        subscriptionStartDate: null,
+        subscriptionEndDate: null,
+        lastSubscriptionUpdate: null,
+      },
+      { merge: true }
+    );
+  }
 };
+
 
 const SignUp = () => {
       const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
