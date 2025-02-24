@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import defaultMeetingFormats from './MeetingFormatElements';
+import useLocalizedMeetingFormats from './useLocalizedMeetingFormats';
 import HomeIcon from './HomeIcon';
 import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
   const { t } = useTranslation();
+  // カスタムフックでローカライズ済み meetingFormats を取得
+  const meetingFormats = useLocalizedMeetingFormats();
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -62,10 +64,10 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // 初期状態は defaultMeetingFormats をもとに、General を選択状態にする
-            const initialFormats = defaultMeetingFormats.map((format) => ({
+            // 初期状態：defaultMeetingFormats をもとに、id が 'general' の項目を選択状態にする
+            const initialFormats = meetingFormats.map((format) => ({
               ...format,
-              selected: format.title.toLowerCase() === 'general'
+              selected: format.id === 'general'
             }));
             setFormats(initialFormats);
             initialFormats.forEach((format) => {
@@ -80,7 +82,7 @@ const MeetingFormatsList = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [meetingFormats]);
 
   useEffect(() => {
     const selected = formats.find((f) => f.selected);
@@ -98,7 +100,7 @@ const MeetingFormatsList = () => {
   const sortedFormats = [...filteredFormats].sort((a, b) => {
     const getPriority = (format) => {
       if (format.selected) return 0;
-      if (format.title.toLowerCase() === 'general') return 1;
+      if (format.id === 'general') return 1;
       return 2;
     };
 
@@ -112,12 +114,9 @@ const MeetingFormatsList = () => {
     }
   });
 
-  // 表示直前に、各項目（title, template）をローカライズする
-  const localizedFormats = sortedFormats.map((format) => ({
-    ...format,
-    title: t(format.title),
-    template: t(format.template)
-  }));
+  // meetingFormats の各項目は useLocalizedMeetingFormats で既にローカライズ済み
+  // そのため、ここでは sortedFormats をそのまま利用します。
+  const localizedFormats = sortedFormats;
 
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
@@ -133,12 +132,8 @@ const MeetingFormatsList = () => {
       return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
-    // IndexedDB の更新後にページを再読み込み（疑似的な Command+R）
-    Promise.all(updatePromises)
-      .then(() => {
-        window.location.reload();
-      })
-      .catch((err) => console.error('Error in selection update:', err));
+    // state の更新だけで再レンダリングする
+    Promise.all(updatePromises).catch((err) => console.error('Error in selection update:', err));
   };
 
   const handleSelectionChange = (id, event) => {
