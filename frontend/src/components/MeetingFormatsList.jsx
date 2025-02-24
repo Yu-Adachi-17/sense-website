@@ -1,147 +1,134 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HomeIcon from './HomeIcon';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
   const { t } = useTranslation();
 
-  // デフォルトフォーマットは翻訳キーとして保持する
+  // ハードコードされたデフォルトフォーマット（useLocalizedMeetingFormats の内容を inline 化）
   const defaultMeetingFormats = [
     {
       id: 'general',
-      titleKey: 'General',
-      templateKey: `【{Meeting Name}】
-【{Date}】
-【{Location}】
-【{Attendees}】
-【{Agenda(1)}】⚫︎{Discussion}⚫︎{Decision items}⚫︎{Pending problem}
-【{Agenda(2)}】⚫︎{Discussion}⚫︎{Decision items}⚫︎{Pending problem}
-【{Agenda(3)}】⚫︎{Discussion}⚫︎{Decision items}⚫︎{Pending problem}・・・・（{Repeat the agenda items (4), (5), (6), and (7), if any, below.}）・・`
+      title: t("General"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda(1)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}
+【${t("Agenda(2)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}
+【${t("Agenda(3)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}・・・・（${t("Repeat the agenda items (4), (5), (6), and (7), if any, below.")}）・・`
     },
     {
       id: '1on1',
-      titleKey: '1on1',
-      templateKey: `【{Meeting Name}】
-【{Date}】
-【{Location}】
-【{Attendees}】
-【{Agenda}】（{Purpose & Key Points}）
-【{Review}】
-⚫︎ {Previous Initiatives (Achievements & Challenges)}
-⚫︎ {Self-Assessment}
-【{Feedback}】
-⚫︎ {Strengths & Positive Points}
-⚫︎ {Areas for Improvement & Growth Points}
-【{Future Goals & Actions}】
-⚫︎ {Specific Growth Plan}
-⚫︎ {Support & Follow-up Actions}`
+      title: t("1on1"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Review")}】
+⚫︎ ${t("Previous Initiatives (Achievements & Challenges)")}
+⚫︎ ${t("Self-Assessment")}
+【${t("Feedback")}】
+⚫︎ ${t("Strengths & Positive Points")}
+⚫︎ ${t("Areas for Improvement & Growth Points")}
+【${t("Future Goals & Actions")}】
+⚫︎ ${t("Specific Growth Plan")}
+⚫︎ ${t("Support & Follow-up Actions")}`
     },
     {
       id: 'business-negotiation',
-      titleKey: 'Business negotiation',
-      templateKey: `【{Deel Name}】
-【{Date}】
-【{Location}】
-【{Attendees}】
-【{Agenda}】（{Background, Purpose & Key Points}）
-【{Discussion}】
-⚫︎ {Proposal Details}
-⚫︎ {Client’s Response / Requests & Concerns}
-⚫︎ {Additional Confirmation Items}
-【{Decision Items}】
-⚫︎ {Agreed Points}
-⚫︎ {Next Action Plan (Who, What, By When)}
-【{Follow-up Actions}】
-⚫︎ {Additional Actions Needed (e.g., Sending Documents, Internal Review, etc.)}
-⚫︎ {Next Meeting Schedule}`
+      title: t("Business negotiation"),
+      template: `【${t("Deel Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Background, Purpose & Key Points")}）
+【${t("Discussion")}】
+⚫︎ ${t("Proposal Details")}
+⚫︎ ${t("Client’s Response / Requests & Concerns")}
+⚫︎ ${t("Additional Confirmation Items")}
+【${t("Decision Items")}】
+⚫︎ ${t("Agreed Points")}
+⚫︎ ${t("Next Action Plan (Who, What, By When)")}
+【${t("Follow-up Actions")}】
+⚫︎ ${t("Additional Actions Needed (e.g., Sending Documents, Internal Review, etc.)")}
+⚫︎ ${t("Next Meeting Schedule")}`
     },
     {
       id: 'project-progress',
-      titleKey: 'Project Progress',
-      templateKey: `【{Meeting Name}】
-【{Date}】
-【{Location}】
-【{Attendees}】
-【{Agenda}】（{Purpose & Key Points}）
-【{Progress Report}】
-⚫︎ {Current Progress Status}
-⚫︎ {Recent Achievements}
-【{Challenges & Risks}】
-⚫︎ {Current Issues & Risks}
-⚫︎ {Solutions & Countermeasures}
-【{Upcoming Schedule}】
-⚫︎ {Next Key Milestones}
-⚫︎ {Who, What, By When}`
+      title: t("Project Progress"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Progress Report")}】
+⚫︎ ${t("Current Progress Status")}
+⚫︎ ${t("Recent Achievements")}
+【${t("Challenges & Risks")}】
+⚫︎ ${t("Current Issues & Risks")}
+⚫︎ ${t("Solutions & Countermeasures")}
+【${t("Upcoming Schedule")}】
+⚫︎ ${t("Next Key Milestones")}
+⚫︎ ${t("Who, What, By When")}`
     },
     {
       id: 'actual-progress',
-      titleKey: 'Actual Progress',
-      templateKey: `【{Meeting Name}】
-【{Date}】
-【{Location}】
-【{Attendees}】
-【{Agenda}】（{Purpose & Key Points}）
-【{Performance Report}】
-⚫︎ {Target vs. Actual Performance}
-⚫︎ {KPI Achievement Status}
-【{Challenges & Improvements}】
-⚫︎ {Successes & Challenges}
-⚫︎ {Future Improvement Measures}
-【{Action Plan}】
-⚫︎ {Who, What, By When}`
+      title: t("Actual Progress"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Performance Report")}】
+⚫︎ ${t("Target vs. Actual Performance")}
+⚫︎ ${t("KPI Achievement Status")}
+【${t("Challenges & Improvements")}】
+⚫︎ ${t("Successes & Challenges")}
+⚫︎ ${t("Future Improvement Measures")}
+【${t("Action Plan")}】
+⚫︎ ${t("Who, What, By When")}`
     },
     {
       id: 'brainstorming',
-      titleKey: 'brainstorming',
-      templateKey: `【{Meeting Name}】
-【{Date}】
-【{Location}】
-【{Attendees}】
-【{Agenda}】（{Purpose & Key Points}）
-【{Idea List}】
-⚫︎ {Proposed Ideas}
-⚫︎ {Pros & Cons of Each Idea}
-【{Discussion}】
-⚫︎ {Key Points & Considerations}
-⚫︎ {Feasibility & Priority}
-【{Next Actions}】
-⚫︎ {Selected Ideas & Next Steps (Validation, Prototyping, etc.)}
-⚫︎ {Who, What, By When}`
+      title: t("brainstorming"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Idea List")}】
+⚫︎ ${t("Proposed Ideas")}
+⚫︎ ${t("Pros & Cons of Each Idea")}
+【${t("Discussion")}】
+⚫︎ ${t("Key Points & Considerations")}
+⚫︎ ${t("Feasibility & Priority")}
+【${t("Next Actions")}】
+⚫︎ ${t("Selected Ideas & Next Steps (Validation, Prototyping, etc.)")}
+⚫︎ ${t("Who, What, By When")}`
     },
     {
       id: 'lecture',
-      titleKey: 'Lecture/Speech',
-      templateKey: `【{Lecture Title}】
-【{Date}】
-【{Location}】
-【{Speaker}】
-【{Audience}】
-【{Key Topics}】
-⚫︎ {Main Subject & Purpose}
-⚫︎ {Key Arguments & Supporting Points}
-⚫︎ {Notable Quotes & Highlights}
-【{Summary}】
-⚫︎ {Key Takeaways}
-⚫︎ {Impact & Implications}
-【{Q&A / Feedback}】
-⚫︎ {Key Questions from Audience}
-⚫︎ {Responses & Additional Clarifications}`
+      title: t("Lecture/Speech"),
+      template: `【${t("Lecture Title")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Speaker")}】
+【${t("Audience")}】
+【${t("Key Topics")}】
+⚫︎ ${t("Main Subject & Purpose")}
+⚫︎ ${t("Key Arguments & Supporting Points")}
+⚫︎ ${t("Notable Quotes & Highlights")}
+【${t("Summary")}】
+⚫︎ ${t("Key Takeaways")}
+⚫︎ ${t("Impact & Implications")}
+【${t("Q&A / Feedback")}】
+⚫︎ ${t("Key Questions from Audience")}
+⚫︎ ${t("Responses & Additional Clarifications")}`
     }
   ];
 
-  // ローカライズ関数：キーが存在する場合はその都度 t() で変換する
-  const localizeFormat = (format) => {
-    if (format.titleKey && format.templateKey) {
-      return {
-        ...format,
-        title: t(format.titleKey),
-        template: format.templateKey.replace(/{([^}]+)}/g, (_, key) => t(key))
-      };
-    }
-    return format;
-  };
-
-  // state 定義
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -187,8 +174,7 @@ const MeetingFormatsList = () => {
     });
   };
 
-  // マウント時に IndexedDB からフォーマットを読み込み、
-  // 保存データがなければ defaultMeetingFormats を初期値として保存する
+  // ★★★ ここを [defaultMeetingFormats] から [t] に変更 ★★★
   useEffect(() => {
     let isMounted = true;
     openDB()
@@ -201,9 +187,10 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
+            // 初回：デフォルトフォーマットをキー情報から初期化し "general" を選択状態にする
             const initialFormats = defaultMeetingFormats.map((format) => ({
               ...format,
-              selected: format.id === 'general'
+              selected: format.id === 'general',
             }));
             setFormats(initialFormats);
             initialFormats.forEach((format) => {
@@ -218,7 +205,7 @@ const MeetingFormatsList = () => {
     return () => {
       isMounted = false;
     };
-  }, [defaultMeetingFormats, t]);
+  }, [t]); // ←★★★ 変更ポイント
 
   useEffect(() => {
     const selected = formats.find((f) => f.selected);
@@ -227,22 +214,11 @@ const MeetingFormatsList = () => {
     }
   }, [formats]);
 
-  // レンダリング直前に、もしキー情報があれば再翻訳して表示する
-  const getDisplayFormat = (format) => {
-    if (format.titleKey && format.templateKey) {
-      return localizeFormat(format);
-    }
-    return format;
-  };
-
-  // 検索＆ソート（比較には再翻訳後の文字列を使用）
-  const filteredFormats = formats.filter((format) => {
-    const display = getDisplayFormat(format);
-    return (
-      display.title.toLowerCase().includes(searchText.toLowerCase()) ||
-      display.template.toLowerCase().includes(searchText.toLowerCase())
-    );
-  });
+  // 検索＆ソート
+  const filteredFormats = formats.filter((format) =>
+    format.title.toLowerCase().includes(searchText.toLowerCase()) ||
+    format.template.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   const sortedFormats = [...filteredFormats].sort((a, b) => {
     const getPriority = (format) => {
@@ -250,18 +226,17 @@ const MeetingFormatsList = () => {
       if (format.id === 'general') return 1;
       return 2;
     };
+
     const aPriority = getPriority(a);
     const bPriority = getPriority(b);
     if (aPriority !== bPriority) {
       return aPriority - bPriority;
     } else {
-      const displayA = getDisplayFormat(a);
-      const displayB = getDisplayFormat(b);
-      return displayA.title.localeCompare(displayB.title, 'ja');
+      return a.title.localeCompare(b.title, 'ja');
     }
   });
 
-  // 単一選択更新処理
+  // 単一選択更新
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
     const updatedFormats = formats.map((format) => {
@@ -410,59 +385,56 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {sortedFormats.map((format) => {
-            const displayFormat = getDisplayFormat(format);
-            return (
+          {sortedFormats.map((format) => (
+            <div
+              key={format.id}
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleItemClick(format)}
+            >
               <div
-                key={displayFormat.id}
-                style={{ cursor: 'pointer' }}
-                onClick={() => handleItemClick(format)}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>
+                  {format.title}
+                </h3>
+                <input
+                  type="checkbox"
+                  checked={!!format.selected}
+                  onClick={(e) => e.stopPropagation()}
+                  onChange={(e) => handleSelectionChange(format.id, e)}
+                />
+              </div>
+              <div
+                style={{
+                  backgroundColor: '#1e1e1e',
+                  borderRadius: 10,
+                  padding: 10,
+                  minHeight: 150,
+                  marginTop: 5,
+                }}
               >
                 <div
                   style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    color: '#ccc',
+                    fontSize: 14,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'pre-line',
                   }}
                 >
-                  <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>
-                    {displayFormat.title}
-                  </h3>
-                  <input
-                    type="checkbox"
-                    checked={!!displayFormat.selected}
-                    onClick={(e) => e.stopPropagation()}
-                    onChange={(e) => handleSelectionChange(displayFormat.id, e)}
-                  />
-                </div>
-                <div
-                  style={{
-                    backgroundColor: '#1e1e1e',
-                    borderRadius: 10,
-                    padding: 10,
-                    minHeight: 150,
-                    marginTop: 5,
-                  }}
-                >
-                  <div
-                    style={{
-                      color: '#ccc',
-                      fontSize: 14,
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'pre-line',
-                    }}
-                  >
-                    {displayFormat.template}
-                  </div>
+                  {format.template}
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* 編集モーダル */}
+      {/* 編集用モーダル */}
       {editingFormat && (
         <div
           style={{
@@ -489,7 +461,7 @@ const MeetingFormatsList = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 style={{ marginTop: 0 }}>{getDisplayFormat(editingFormat).title}</h2>
+            <h2 style={{ marginTop: 0 }}>{editingFormat.title}</h2>
             <textarea
               value={editingText}
               onChange={(e) => setEditingText(e.target.value)}
