@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // ✅ useEffect を追加
+
 import {
   getAuth,
   signInWithEmailAndPassword,
