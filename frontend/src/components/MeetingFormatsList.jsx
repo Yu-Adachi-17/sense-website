@@ -111,6 +111,13 @@ const MeetingFormatsList = () => {
     }
   });
 
+  // meetingFormats の各項目を表示直前にローカライズ
+  const localizedFormats = sortedFormats.map((format) => ({
+    ...format,
+    title: t(format.title),
+    template: t(format.template)
+  }));
+
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
     const updatedFormats = formats.map((format) => {
@@ -263,7 +270,7 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {sortedFormats.map((format) => (
+          {localizedFormats.map((format) => (
             <div
               key={format.id}
               style={{ cursor: 'pointer' }}
