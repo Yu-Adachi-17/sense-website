@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"; // ✅ useEffect を追加
-
+import React, { useState, useEffect } from "react";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -11,9 +10,7 @@ import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
-import { syncUserData } from "../firebaseUserSync"; // Import function for syncing user data
-import { fixNewUserRemainingSeconds } from "../utils/fixNewUserRemainingSeconds";
-
+import { syncUserData, addExtraTimeOnLogin } from "../firebaseUserSync"; // 両方の関数をインポート
 import { useTranslation } from "react-i18next";
 
 const auth = getAuth(app);
@@ -25,12 +22,12 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-    const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
-  
-      // ✅ アラビア語の場合に `dir="rtl"` を適用
-      useEffect(() => {
-        document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
-      }, [i18n.language]);
+  const { t, i18n } = useTranslation();
+
+  // アラビア語の場合に dir="rtl" を適用
+  useEffect(() => {
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+  }, [i18n.language]);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -40,11 +37,11 @@ const Login = () => {
     }
     setIsLoading(true);
     try {
-      // Sign in with Email/Password
+      // Email/Password でサインイン
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // If email verification is not complete, sign out and display an error
+      // Email 認証が完了していない場合はサインアウトしてエラー表示
       if (!user.emailVerified) {
         await signOut(auth);
         setAlertMessage(
@@ -54,15 +51,16 @@ const Login = () => {
         return;
       }
 
-      // After successful login, sync user data to Firestore
-      // ※ Set the 3rd parameter (userIsUnlimited) and 4th parameter (currentCountdown) as needed
+      // ログイン後にユーザーデータを同期（初期設定として remainingSeconds は currentCountdown の値、ここでは 0 ）
       await syncUserData(user, email, false, 0);
-      await fixNewUserRemainingSeconds(user);
-      // Navigate to the home screen
+
+      // ログイン時に追加で 3 分（180秒）を加算
+      await addExtraTimeOnLogin(user, 180);
+
+      // ホーム画面に遷移
       navigate("/");
     } catch (error) {
       console.error("Login error:", error);
-      // Set error message based on error code
       switch (error.code) {
         case "auth/invalid-email":
           setAlertMessage(t("The email address is invalid."));
@@ -92,7 +90,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithGoogle();
-      navigate("/"); // Navigate to home screen after successful Google sign-in
+      navigate("/"); // Google サインイン成功後にホーム画面に遷移
     } catch (error) {
       setAlertMessage(t("Google sign-in failed."));
       setShowAlert(true);
@@ -105,7 +103,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       await signInWithApple();
-      navigate("/"); // Navigate to home screen after successful Apple sign-in
+      navigate("/"); // Apple サインイン成功後にホーム画面に遷移
     } catch (error) {
       setAlertMessage(t("Apple sign-in failed."));
       setShowAlert(true);
@@ -187,7 +185,7 @@ const Login = () => {
         }}
       />
 
-      {/* Email login button */}
+      {/* Email ログインボタン */}
       <button
         onClick={handleLogin}
         disabled={isLoading}
@@ -205,7 +203,7 @@ const Login = () => {
         {t("Login")}
       </button>
 
-      {/* Google sign-in */}
+      {/* Google サインイン */}
       <button
         onClick={handleGoogleSignIn}
         style={{
@@ -227,7 +225,7 @@ const Login = () => {
         {t("Sign in with Google")}
       </button>
 
-      {/* Apple sign-in */}
+      {/* Apple サインイン */}
       <button
         onClick={handleAppleSignIn}
         style={{
@@ -249,7 +247,7 @@ const Login = () => {
         {t("Sign in with Apple")}
       </button>
 
-      {/* Password reset email button */}
+      {/* パスワードリセットメールボタン */}
       <button
         onClick={handlePasswordReset}
         disabled={isLoading}
