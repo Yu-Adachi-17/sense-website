@@ -17,7 +17,7 @@ const MeetingFormatsList = () => {
   const [selectionMode, setSelectionMode] = useState(false);
   const dbRef = useRef(null);
 
-  /* ===== IndexedDB Related ===== */
+  /* ===== IndexedDB 関連 ===== */
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open('MeetingFormatsDB', 1);
@@ -128,12 +128,12 @@ const MeetingFormatsList = () => {
       return { ...format, selected: isSelected };
     });
     setFormats(updatedFormats);
-    // After updating IndexedDB, reload the page (simulating Command+R)
-    Promise.all(updatePromises)
-      .then(() => {
-        window.location.reload();
-      })
-      .catch((err) => console.error('Error in selection update:', err));
+    // ページの再読み込みは行わず、状態更新をそのまま反映する
+    // Promise.all(updatePromises)
+    //   .then(() => {
+    //     window.location.reload();
+    //   })
+    //   .catch((err) => console.error('Error in selection update:', err));
   };
 
   const handleSelectionChange = (id, event) => {
@@ -266,7 +266,7 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {meetingFormats.map((format) => (
+          {sortedFormats.map((format) => (
             <div
               key={format.id}
               style={{ cursor: 'pointer' }}
