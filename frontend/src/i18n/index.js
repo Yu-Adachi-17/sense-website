@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 
 // ✅ 各言語のインポート（デバッグ用に `console.log` を追加）
 import en from './locales/en.json';
-import ja from './locales/ja.json';
+// import ja from './locales/ja.json';
 import de from './locales/de.json';
 import nl from './locales/nl.json';
 import ko from './locales/ko.json';
@@ -22,7 +22,7 @@ import ar from './locales/ar.json';
 
 console.log("📌 Checking language files...");
 console.log("🇺🇸 en:", en);
-console.log("🇯🇵 ja:", ja);
+// console.log("🇯🇵 ja:", ja);
 console.log("🇩🇪 de:", de);
 console.log("🇳🇱 nl:", nl);
 console.log("🇰🇷 ko:", ko);
@@ -42,7 +42,7 @@ console.log("🇸🇦 ar:", ar);
 i18n.use(initReactI18next).init({
   resources: {
     en: en ? { translation: en } : {}, // ✅ エラー回避: `undefined` なら空オブジェクト
-    ja: ja ? { translation: ja } : {},
+    // ja: ja ? { translation: ja } : {},
     de: de ? { translation: de } : {},
     nl: nl ? { translation: nl } : {},
     ko: ko ? { translation: ko } : {},
