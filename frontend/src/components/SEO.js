@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react"; // ✅ useEffect を追加
 import { useTranslation } from "react-i18next";
 import HomeIcon from '../components/HomeIcon';
 import { FaApple } from "react-icons/fa";
@@ -8,7 +8,12 @@ import TermsOfUse from "../components/TermsOfUse";
 import TransactionsLaw from "../components/TransactionsLaw";
 
 const SEOPage = () => {
-  const { t } = useTranslation();
+    const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
+  
+              // ✅ アラビア語の場合に `dir="rtl"` を適用
+              useEffect(() => {
+                document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+              }, [i18n.language]);
 
   // グラデーションスタイルを定義
   const gradientStyle = {

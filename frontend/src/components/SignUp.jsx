@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // ✅ useEffect を追加
 import { useTranslation } from "react-i18next";
 import {
   getAuth,
@@ -45,7 +45,12 @@ const createUserDocument = async (user) => {
 };
 
 const SignUp = () => {
-  const { t } = useTranslation();
+      const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
+    
+                // ✅ アラビア語の場合に `dir="rtl"` を適用
+                useEffect(() => {
+                  document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+                }, [i18n.language]);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

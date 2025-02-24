@@ -53,13 +53,20 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
 };
 
 const MinutesList = () => {
-  const { t } = useTranslation();
+    const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
+  
+
   const [papers, setPapers] = useState([]);
   const [searchText, setSearchText] = useState('');
   // Manage selection mode and selected meeting record IDs
   const [selectionMode, setSelectionMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
   const navigate = useNavigate();
+
+          // ✅ アラビア語の場合に `dir="rtl"` を適用
+          useEffect(() => {
+            document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+          }, [i18n.language]);
 
   useEffect(() => {
     console.log("🟡 [DEBUG] MinutesList mounted");

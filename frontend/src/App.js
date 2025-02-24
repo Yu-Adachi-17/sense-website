@@ -121,7 +121,12 @@ function App() {
     const s = Math.floor(seconds % 60);
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
-  const { t } = useTranslation();
+        const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
+      
+                  // ✅ アラビア語の場合に `dir="rtl"` を適用
+                  useEffect(() => {
+                    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+                  }, [i18n.language]);
 
   // 録音中の最大時間カウントダウンの開始／リセット（isRecording で管理）
   useEffect(() => {
