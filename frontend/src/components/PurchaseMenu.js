@@ -14,7 +14,7 @@ import { PiGridFourFill } from "react-icons/pi";  // Added: Icon for meeting rec
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi"; // Icon for top-right action menu
 
 export function PurchaseMenu() {
-  const { t } = useTranslation(); // 追加
+  
 
   // Define various states
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -31,6 +31,13 @@ export function PurchaseMenu() {
   const [showActionMenu, setShowActionMenu] = useState(false);
 
   const navigate = useNavigate();
+
+  const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
+
+            // ✅ アラビア語の場合に `dir="rtl"` を適用
+            useEffect(() => {
+              document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+            }, [i18n.language]);
 
   // Handle window resize events
   useEffect(() => {

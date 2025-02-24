@@ -1,9 +1,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// ✅ 各言語のインポート（デバッグ用に `console.log` を追加）
+// ✅ 各言語のインポート
 import en from './locales/en.json';
-// import ja from './locales/ja.json';
+import ja from './locales/ja.json';
 import de from './locales/de.json';
 import nl from './locales/nl.json';
 import ko from './locales/ko.json';
@@ -22,7 +22,7 @@ import ar from './locales/ar.json';
 
 console.log("📌 Checking language files...");
 console.log("🇺🇸 en:", en);
-// console.log("🇯🇵 ja:", ja);
+console.log("🇯🇵 ja:", ja);
 console.log("🇩🇪 de:", de);
 console.log("🇳🇱 nl:", nl);
 console.log("🇰🇷 ko:", ko);
@@ -41,32 +41,41 @@ console.log("🇸🇦 ar:", ar);
 
 i18n.use(initReactI18next).init({
   resources: {
-    en: en ? { translation: en } : {}, // ✅ エラー回避: `undefined` なら空オブジェクト
-    // ja: ja ? { translation: ja } : {},
-    de: de ? { translation: de } : {},
-    nl: nl ? { translation: nl } : {},
-    ko: ko ? { translation: ko } : {},
-    fr: fr ? { translation: fr } : {},
-    'pt-BR': ptBR ? { translation: ptBR } : {},
-    'pt-PT': ptPT ? { translation: ptPT } : {},
-    'es-ES': esES ? { translation: esES } : {},
-    'es-MX': esMX ? { translation: esMX } : {},
-    da: da ? { translation: da } : {},
-    sv: sv ? { translation: sv } : {},
-    tr: tr ? { translation: tr } : {},
-    'zh-CN': zhCN ? { translation: zhCN } : {},
-    'zh-TW': zhTW ? { translation: zhTW } : {},
-    no: no ? { translation: no } : {},
-    ar: ar ? { translation: ar } : {},
+    en: { translation: en },
+    ja: { translation: ja },
+    de: { translation: de },
+    nl: { translation: nl },
+    ko: { translation: ko },
+    fr: { translation: fr },
+    'pt-BR': { translation: ptBR },
+    'pt-PT': { translation: ptPT },
+    'es-ES': { translation: esES },
+    'es-MX': { translation: esMX },
+    da: { translation: da },
+    sv: { translation: sv },
+    tr: { translation: tr },
+    'zh-CN': { translation: zhCN },
+    'zh-TW': { translation: zhTW },
+    no: { translation: no },
+    ar: { translation: ar },
   },
-  lng: (()=>{
-    const lang = navigator.language;
-    if (i18n.options.resources[lang]) return lang;
-    const shortLang = lang.split('-')[0];
-    return i18n.options.resources[shortLang] ? shortLang : 'en';
-  })(),
   fallbackLng: 'en',
   interpolation: { escapeValue: false },
 });
+
+// ✅ `i18n.init()` の後に言語を決定
+const getLang = () => {
+  const lang = navigator.language;
+  console.log("🌍 Detected language:", lang);
+
+  if (i18n.hasResourceBundle(lang, 'translation')) {
+    return lang;
+  }
+
+  const shortLang = lang.split('-')[0];
+  return i18n.hasResourceBundle(shortLang, 'translation') ? shortLang : 'en';
+};
+
+i18n.changeLanguage(getLang());
 
 export default i18n;

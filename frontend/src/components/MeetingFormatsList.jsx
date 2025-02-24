@@ -3,8 +3,12 @@ import HomeIcon from './HomeIcon';
 import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
 
+      // ✅ アラビア語の場合に `dir="rtl"` を適用
+      useEffect(() => {
+        document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+      }, [i18n.language]);
   // ハードコードされたデフォルトフォーマット（useLocalizedMeetingFormats の内容を inline 化）
   const defaultMeetingFormats = [
     {
