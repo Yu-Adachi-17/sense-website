@@ -1,12 +1,134 @@
 import React, { useState, useEffect, useRef } from 'react';
-import useLocalizedMeetingFormats, { localizeFormat } from './useLocalizedMeetingFormats';
 import HomeIcon from './HomeIcon';
 import { useTranslation } from "react-i18next";
 
 const MeetingFormatsList = () => {
   const { t } = useTranslation();
-  // フックからはキー情報のみのデフォルトフォーマットを取得
-  const defaultFormats = useLocalizedMeetingFormats();
+
+  // ハードコードされたデフォルトフォーマット（useLocalizedMeetingFormats の内容を inline 化）
+  const defaultMeetingFormats = [
+    {
+      id: 'general',
+      title: t("General"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda(1)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}
+【${t("Agenda(2)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}
+【${t("Agenda(3)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}・・・・（${t("Repeat the agenda items (4), (5), (6), and (7), if any, below.")}）・・`
+    },
+    {
+      id: '1on1',
+      title: t("1on1"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Review")}】
+⚫︎ ${t("Previous Initiatives (Achievements & Challenges)")}
+⚫︎ ${t("Self-Assessment")}
+【${t("Feedback")}】
+⚫︎ ${t("Strengths & Positive Points")}
+⚫︎ ${t("Areas for Improvement & Growth Points")}
+【${t("Future Goals & Actions")}】
+⚫︎ ${t("Specific Growth Plan")}
+⚫︎ ${t("Support & Follow-up Actions")}`
+    },
+    {
+      id: 'business-negotiation',
+      title: t("Business negotiation"),
+      template: `【${t("Deel Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Background, Purpose & Key Points")}）
+【${t("Discussion")}】
+⚫︎ ${t("Proposal Details")}
+⚫︎ ${t("Client’s Response / Requests & Concerns")}
+⚫︎ ${t("Additional Confirmation Items")}
+【${t("Decision Items")}】
+⚫︎ ${t("Agreed Points")}
+⚫︎ ${t("Next Action Plan (Who, What, By When)")}
+【${t("Follow-up Actions")}】
+⚫︎ ${t("Additional Actions Needed (e.g., Sending Documents, Internal Review, etc.)")}
+⚫︎ ${t("Next Meeting Schedule")}`
+    },
+    {
+      id: 'project-progress',
+      title: t("Project Progress"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Progress Report")}】
+⚫︎ ${t("Current Progress Status")}
+⚫︎ ${t("Recent Achievements")}
+【${t("Challenges & Risks")}】
+⚫︎ ${t("Current Issues & Risks")}
+⚫︎ ${t("Solutions & Countermeasures")}
+【${t("Upcoming Schedule")}】
+⚫︎ ${t("Next Key Milestones")}
+⚫︎ ${t("Who, What, By When")}`
+    },
+    {
+      id: 'actual-progress',
+      title: t("Actual Progress"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Performance Report")}】
+⚫︎ ${t("Target vs. Actual Performance")}
+⚫︎ ${t("KPI Achievement Status")}
+【${t("Challenges & Improvements")}】
+⚫︎ ${t("Successes & Challenges")}
+⚫︎ ${t("Future Improvement Measures")}
+【${t("Action Plan")}】
+⚫︎ ${t("Who, What, By When")}`
+    },
+    {
+      id: 'brainstorming',
+      title: t("brainstorming"),
+      template: `【${t("Meeting Name")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Attendees")}】
+【${t("Agenda")}】（${t("Purpose & Key Points")}）
+【${t("Idea List")}】
+⚫︎ ${t("Proposed Ideas")}
+⚫︎ ${t("Pros & Cons of Each Idea")}
+【${t("Discussion")}】
+⚫︎ ${t("Key Points & Considerations")}
+⚫︎ ${t("Feasibility & Priority")}
+【${t("Next Actions")}】
+⚫︎ ${t("Selected Ideas & Next Steps (Validation, Prototyping, etc.)")}
+⚫︎ ${t("Who, What, By When")}`
+    },
+    {
+      id: 'lecture',
+      title: t("Lecture/Speech"),
+      template: `【${t("Lecture Title")}】
+【${t("Date")}】
+【${t("Location")}】
+【${t("Speaker")}】
+【${t("Audience")}】
+【${t("Key Topics")}】
+⚫︎ ${t("Main Subject & Purpose")}
+⚫︎ ${t("Key Arguments & Supporting Points")}
+⚫︎ ${t("Notable Quotes & Highlights")}
+【${t("Summary")}】
+⚫︎ ${t("Key Takeaways")}
+⚫︎ ${t("Impact & Implications")}
+【${t("Q&A / Feedback")}】
+⚫︎ ${t("Key Questions from Audience")}
+⚫︎ ${t("Responses & Additional Clarifications")}`
+    }
+  ];
+
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
@@ -17,7 +139,7 @@ const MeetingFormatsList = () => {
   const [selectionMode, setSelectionMode] = useState(false);
   const dbRef = useRef(null);
 
-  /* ===== IndexedDB Related ===== */
+  /* ===== IndexedDB 関連 ===== */
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open('MeetingFormatsDB', 1);
@@ -64,8 +186,8 @@ const MeetingFormatsList = () => {
           if (savedFormats && savedFormats.length > 0) {
             setFormats(savedFormats);
           } else {
-            // 初回はデフォルトフォーマットのキー情報を使って初期化し、"general" を初期選択にする
-            const initialFormats = defaultFormats.map((format) => ({
+            // 初回：デフォルトフォーマットをキー情報から初期化し "general" を選択状態にする
+            const initialFormats = defaultMeetingFormats.map((format) => ({
               ...format,
               selected: format.id === 'general',
             }));
@@ -82,7 +204,7 @@ const MeetingFormatsList = () => {
     return () => {
       isMounted = false;
     };
-  }, [defaultFormats]);
+  }, [defaultMeetingFormats]);
 
   useEffect(() => {
     const selected = formats.find((f) => f.selected);
@@ -91,29 +213,16 @@ const MeetingFormatsList = () => {
     }
   }, [formats]);
 
-  // フォーマットをレンダー前にローカライズ（デフォルトの場合はキーを t() で翻訳）
-  const getDisplayFormat = (format) => {
-    if (format.titleKey && format.templateKey) {
-      return localizeFormat(format, t);
-    }
-    return format;
-  };
+  // 検索＆ソート
+  const filteredFormats = formats.filter((format) =>
+    format.title.toLowerCase().includes(searchText.toLowerCase()) ||
+    format.template.toLowerCase().includes(searchText.toLowerCase())
+  );
 
-  // 検索テキストでフィルタリング（表示時にローカライズ済み値で比較）
-  const filteredFormats = formats.filter((format) => {
-    const localized = getDisplayFormat(format);
-    return (
-      localized.title.toLowerCase().includes(searchText.toLowerCase()) ||
-      localized.template.toLowerCase().includes(searchText.toLowerCase())
-    );
-  });
-
-  // ソート処理：選択中、"general"、その他の順
   const sortedFormats = [...filteredFormats].sort((a, b) => {
     const getPriority = (format) => {
-      const localized = getDisplayFormat(format);
-      if (localized.selected) return 0;
-      if (localized.id === 'general') return 1;
+      if (format.selected) return 0;
+      if (format.id === 'general') return 1;
       return 2;
     };
 
@@ -122,13 +231,11 @@ const MeetingFormatsList = () => {
     if (aPriority !== bPriority) {
       return aPriority - bPriority;
     } else {
-      const localizedA = getDisplayFormat(a);
-      const localizedB = getDisplayFormat(b);
-      return localizedA.title.localeCompare(localizedB.title, 'ja');
+      return a.title.localeCompare(b.title, 'ja');
     }
   });
 
-  // 単一選択の更新処理
+  // 単一選択更新
   const updateSingleSelection = (targetId) => {
     const updatePromises = [];
     const updatedFormats = formats.map((format) => {
@@ -164,7 +271,7 @@ const MeetingFormatsList = () => {
       toggleSelect(format.id);
     } else {
       setEditingFormat(format);
-      setEditingText(getDisplayFormat(format).template);
+      setEditingText(format.template);
     }
   };
 
@@ -191,7 +298,6 @@ const MeetingFormatsList = () => {
 
   const handleAddNewFormat = () => {
     const newId = `custom-${Date.now()}`;
-    // 新規追加の場合は、ユーザー入力値をそのまま保存（ローカライズ対象外）
     const newFormat = {
       id: newId,
       title: newTitle || 'New Format',
@@ -212,7 +318,7 @@ const MeetingFormatsList = () => {
 
   return (
     <div style={{ backgroundColor: '#000', minHeight: '100vh', padding: 20, color: 'white' }}>
-      {/* Header */}
+      {/* ヘッダー */}
       <div
         style={{
           display: 'flex',
@@ -249,7 +355,7 @@ const MeetingFormatsList = () => {
       </div>
 
       <div>
-        {/* Search Box */}
+        {/* 検索ボックス */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
           <input
             type="text"
@@ -278,59 +384,56 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {sortedFormats.map((format) => {
-            const displayFormat = getDisplayFormat(format);
-            return (
+          {sortedFormats.map((format) => (
+            <div
+              key={format.id}
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleItemClick(format)}
+            >
               <div
-                key={displayFormat.id}
-                style={{ cursor: 'pointer' }}
-                onClick={() => handleItemClick(format)}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>
+                  {format.title}
+                </h3>
+                <input
+                  type="checkbox"
+                  checked={!!format.selected}
+                  onClick={(e) => e.stopPropagation()}
+                  onChange={(e) => handleSelectionChange(format.id, e)}
+                />
+              </div>
+              <div
+                style={{
+                  backgroundColor: '#1e1e1e',
+                  borderRadius: 10,
+                  padding: 10,
+                  minHeight: 150,
+                  marginTop: 5,
+                }}
               >
                 <div
                   style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    color: '#ccc',
+                    fontSize: 14,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'pre-line',
                   }}
                 >
-                  <h3 style={{ margin: 0, fontSize: '28px', textAlign: 'center', width: '100%' }}>
-                    {displayFormat.title}
-                  </h3>
-                  <input
-                    type="checkbox"
-                    checked={!!displayFormat.selected}
-                    onClick={(e) => e.stopPropagation()}
-                    onChange={(e) => handleSelectionChange(displayFormat.id, e)}
-                  />
-                </div>
-                <div
-                  style={{
-                    backgroundColor: '#1e1e1e',
-                    borderRadius: 10,
-                    padding: 10,
-                    minHeight: 150,
-                    marginTop: 5,
-                  }}
-                >
-                  <div
-                    style={{
-                      color: '#ccc',
-                      fontSize: 14,
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'pre-line',
-                    }}
-                  >
-                    {displayFormat.template}
-                  </div>
+                  {format.template}
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* 編集モーダル */}
+      {/* 編集用モーダル */}
       {editingFormat && (
         <div
           style={{
@@ -357,7 +460,7 @@ const MeetingFormatsList = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 style={{ marginTop: 0 }}>{getDisplayFormat(editingFormat).title}</h2>
+            <h2 style={{ marginTop: 0 }}>{editingFormat.title}</h2>
             <textarea
               value={editingText}
               onChange={(e) => setEditingText(e.target.value)}
