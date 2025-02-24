@@ -29,41 +29,50 @@ const db = getFirestore(app);
 
 const createUserDocument = async (user) => {
   const userRef = doc(db, "users", user.uid);
-  const userSnap = await getDoc(userRef);
 
-  if (!userSnap.exists()) {
-    // まだこのユーザーのドキュメントが存在しない → 初回作成
-    await setDoc(userRef, {
-      createdAt: serverTimestamp(),
-      userName: user.email?.substring(0, 3) || "",
-      email: user.email || "",
-      recordingDevice: null,
-      recordingTimestamp: null,
-      originalTransactionId: null,
-      subscriptionPlan: null,
-      subscriptionStartDate: null,
-      subscriptionEndDate: null,
-      lastSubscriptionUpdate: null,
-      remainingSeconds: 180,
-      subscription: false,
-    });
-    console.log("🔥 [createUserDocument] New doc created with remainingSeconds=180:", user.uid);
-  } else {
-    // 既存ユーザーのドキュメントが存在する
-    console.log("⚠️ [createUserDocument] Doc already exists:", user.uid, userSnap.data());
-    // 既存ユーザーには基本的に何もしない。nullフィールドを付与したいなら必要に応じて setDoc する
-    // ただし「remainingSeconds = 0 or null」のときに 180 にしたい場合は↓例
-    const data = userSnap.data();
-    if (data.remainingSeconds == null || data.remainingSeconds === 0) {
-      await setDoc(
+  await runTransaction(db, async (transaction) => {
+    const userSnap = await transaction.get(userRef);
+    if (!userSnap.exists()) {
+      // ドキュメントが存在しない場合は、新規作成時として全てのフィールドをセット
+      transaction.set(userRef, {
+        createdAt: serverTimestamp(),
+        userName: user.email.substring(0, 3),
+        email: user.email,
+        recordingDevice: null,
+        recordingTimestamp: null,
+        originalTransactionId: null,
+        subscriptionPlan: null,
+        subscriptionStartDate: null,
+        subscriptionEndDate: null,
+        lastSubscriptionUpdate: null,
+        remainingSeconds: 180, // 新規ユーザーには 180 をセット
+        subscription: false,
+      });
+    } else {
+      // ドキュメントが既に存在している場合
+      const data = userSnap.data();
+      // remainingSeconds が未設定（null/undefined）または 0 なら更新する
+      if (data.remainingSeconds == null || data.remainingSeconds === 0) {
+        transaction.update(userRef, { remainingSeconds: 180 });
+      }
+      // 他のフィールドは merge して null をセット（nullフィールドも存在させたい場合）
+      transaction.set(
         userRef,
-        { remainingSeconds: 180 },
+        {
+          recordingDevice: null,
+          recordingTimestamp: null,
+          originalTransactionId: null,
+          subscriptionPlan: null,
+          subscriptionStartDate: null,
+          subscriptionEndDate: null,
+          lastSubscriptionUpdate: null,
+        },
         { merge: true }
       );
-      console.log("✅ [createUserDocument] Updated remainingSeconds to 180:", user.uid);
     }
-  }
+  });
 };
+
 
 const SignUp = () => {
       const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得

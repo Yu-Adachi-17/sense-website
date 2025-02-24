@@ -6,13 +6,14 @@ import { db } from "./firebaseConfig";
  * ログイン後にユーザーの初期データを同期する関数
  * @param {object} user Firebase Auth のユーザーオブジェクト
  * @param {string} email ユーザーのメールアドレス
- * @param {boolean} userIsUnlimited サブスクリプション状態（例: @AppStorage("userIsUnlimited") と同等）
- * @param {number|null} currentCountdown サブスクリプションのカウントダウン秒数（存在しない場合は 0）
+ * @param {boolean} userIsUnlimited サブスクリプション状態
+ * @param {number|null|undefined} currentCountdown サブスクリプションのカウントダウン秒数（存在しない場合は更新しない）
  */
 export const syncUserData = async (user, email, userIsUnlimited, currentCountdown) => {
+  // まず、更新したいデータの基本部分を定義
   const dataToUpdate = {
-    createdAt: serverTimestamp(), // ユーザー作成日時（既存の場合は上書きされないよう merge オプションを利用）
-    userName: email.substring(0, 3), // 例としてメールアドレスの先頭3文字をユーザー名に
+    createdAt: serverTimestamp(),
+    userName: email.substring(0, 3),
     email: email,
     recordingDevice: null,
     recordingTimestamp: null,
@@ -21,9 +22,14 @@ export const syncUserData = async (user, email, userIsUnlimited, currentCountdow
     subscriptionStartDate: null,
     subscriptionEndDate: null,
     lastSubscriptionUpdate: null,
-    remainingSeconds: currentCountdown !== null ? currentCountdown : 0,
     subscription: userIsUnlimited
   };
+
+  // currentCountdown が数値であれば remainingSeconds を更新する
+  if (typeof currentCountdown === "number") {
+    dataToUpdate.remainingSeconds = currentCountdown;
+  }
+  // もし currentCountdown が undefined や null なら remainingSeconds フィールドは更新しない
 
   try {
     await setDoc(doc(db, "users", user.uid), dataToUpdate, { merge: true });
