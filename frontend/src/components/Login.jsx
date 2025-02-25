@@ -23,100 +23,98 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-    const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
+  const { t, i18n } = useTranslation(); // ✅ `i18n` を useTranslation() から取得
   
-      // ✅ アラビア語の場合に `dir="rtl"` を適用
-      useEffect(() => {
-        document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
-      }, [i18n.language]);
+  // ✅ アラビア語の場合に `dir="rtl"` を適用
+  useEffect(() => {
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+  }, [i18n.language]);
 
-      const handleLogin = async () => {
-        if (!email || !password) {
-          setAlertMessage(t("Please enter your email and password."));
-          setShowAlert(true);
-          return;
-        }
-        setIsLoading(true);
-        try {
-          // Email/Passwordでサインイン
-          const userCredential = await signInWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user;
-      
-          // メール認証が完了していない場合はサインアウトしてエラーを表示
-          if (!user.emailVerified) {
-            await signOut(auth);
-            setAlertMessage(
-              t("Your email has not been verified. Please click the link in the email to verify your account.")
-            );
-            setShowAlert(true);
-            return;
-          }
-      
-          // ログイン成功後、Firestoreにユーザーデータを同期
-          await syncUserData(user, email, false, 0);
-      
-          // ホーム画面へナビゲート
-          navigate("/");
-      
-          // ナビゲーション後にページをリロード
-          window.location.reload();
-        } catch (error) {
-          console.error("Login error:", error);
-          switch (error.code) {
-            case "auth/invalid-email":
-              setAlertMessage(t("The email address is invalid."));
-              break;
-            case "auth/user-disabled":
-              setAlertMessage(t("This account has been disabled."));
-              break;
-            case "auth/user-not-found":
-              setAlertMessage(t("User not found."));
-              break;
-            case "auth/wrong-password":
-              setAlertMessage(t("Incorrect password."));
-              break;
-            case "auth/too-many-requests":
-              setAlertMessage(t("Too many attempts in a short period. Please wait and try again."));
-              break;
-            default:
-              setAlertMessage(t("Login failed. Please try again."));
-          }
-          setShowAlert(true);
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      
+  const handleLogin = async () => {
+    if (!email || !password) {
+      setAlertMessage(t("Please enter your email and password."));
+      setShowAlert(true);
+      return;
+    }
+    setIsLoading(true);
+    try {
+      // Email/Passwordでサインイン
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+  
+      // メール認証が完了していない場合はサインアウトしてエラーを表示
+      if (!user.emailVerified) {
+        await signOut(auth);
+        setAlertMessage(
+          t("Your email has not been verified. Please click the link in the email to verify your account.")
+        );
+        setShowAlert(true);
+        return;
+      }
+  
+      // ログイン成功後、Firestoreにユーザーデータを同期
+      // ※修正箇所：ここで remainingSeconds として 0 ではなく 180 を渡すように変更
+      await syncUserData(user, email, false, 180);
+  
+      // ホーム画面へナビゲート
+      navigate("/");
+  
+      // ナビゲーション後にページをリロード
+      window.location.reload();
+    } catch (error) {
+      console.error("Login error:", error);
+      switch (error.code) {
+        case "auth/invalid-email":
+          setAlertMessage(t("The email address is invalid."));
+          break;
+        case "auth/user-disabled":
+          setAlertMessage(t("This account has been disabled."));
+          break;
+        case "auth/user-not-found":
+          setAlertMessage(t("User not found."));
+          break;
+        case "auth/wrong-password":
+          setAlertMessage(t("Incorrect password."));
+          break;
+        case "auth/too-many-requests":
+          setAlertMessage(t("Too many attempts in a short period. Please wait and try again."));
+          break;
+        default:
+          setAlertMessage(t("Login failed. Please try again."));
+      }
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-      const handleGoogleSignIn = async () => {
-        setIsLoading(true);
-        try {
-          await signInWithGoogle();
-          navigate("/");
-          window.location.reload();
-        } catch (error) {
-          setAlertMessage(t("Google sign-in failed."));
-          setShowAlert(true);
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      await signInWithGoogle();
+      navigate("/");
+      window.location.reload();
+    } catch (error) {
+      setAlertMessage(t("Google sign-in failed."));
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-      const handleAppleSignIn = async () => {
-        setIsLoading(true);
-        try {
-          await signInWithApple();
-          navigate("/"); // Appleサインイン成功後にホーム画面へ遷移
-          window.location.reload(); // 遷移直後にページをリロード
-        } catch (error) {
-          setAlertMessage(t("Apple sign-in failed."));
-          setShowAlert(true);
-        } finally {
-          setIsLoading(false);
-        }
-      };
-      
+  const handleAppleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      await signInWithApple();
+      navigate("/"); // Appleサインイン成功後にホーム画面へ遷移
+      window.location.reload(); // 遷移直後にページをリロード
+    } catch (error) {
+      setAlertMessage(t("Apple sign-in failed."));
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handlePasswordReset = async () => {
     if (!email) {
