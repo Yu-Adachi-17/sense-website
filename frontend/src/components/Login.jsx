@@ -38,9 +38,11 @@ const Login = () => {
         }
         setIsLoading(true);
         try {
+          // Email/Passwordでサインイン
           const userCredential = await signInWithEmailAndPassword(auth, email, password);
           const user = userCredential.user;
       
+          // メール認証が完了していない場合はサインアウトしてエラーを表示
           if (!user.emailVerified) {
             await signOut(auth);
             setAlertMessage(
@@ -50,14 +52,14 @@ const Login = () => {
             return;
           }
       
+          // ログイン成功後、Firestoreにユーザーデータを同期
           await syncUserData(user, email, false, 0);
       
+          // ホーム画面へナビゲート
           navigate("/");
       
-          // ナビゲーション完了後、1秒後にページをリロードする
-          setTimeout(() => {
-            window.location.reload();
-          }, 1000);
+          // ナビゲーション後にページをリロード
+          window.location.reload();
         } catch (error) {
           console.error("Login error:", error);
           switch (error.code) {
@@ -85,15 +87,13 @@ const Login = () => {
         }
       };
       
+
       const handleGoogleSignIn = async () => {
         setIsLoading(true);
         try {
           await signInWithGoogle();
           navigate("/");
-          // ナビゲーション完了後、1秒後にページをリロードする
-          setTimeout(() => {
-            window.location.reload();
-          }, 1000);
+          window.location.reload();
         } catch (error) {
           setAlertMessage(t("Google sign-in failed."));
           setShowAlert(true);
@@ -102,15 +102,13 @@ const Login = () => {
         }
       };
       
+
       const handleAppleSignIn = async () => {
         setIsLoading(true);
         try {
           await signInWithApple();
-          navigate("/");
-          // ナビゲーション完了後、1秒後にページをリロードする
-          setTimeout(() => {
-            window.location.reload();
-          }, 1000);
+          navigate("/"); // Appleサインイン成功後にホーム画面へ遷移
+          window.location.reload(); // 遷移直後にページをリロード
         } catch (error) {
           setAlertMessage(t("Apple sign-in failed."));
           setShowAlert(true);
@@ -118,7 +116,6 @@ const Login = () => {
           setIsLoading(false);
         }
       };
-      
       
 
   const handlePasswordReset = async () => {

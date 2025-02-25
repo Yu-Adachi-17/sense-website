@@ -26,7 +26,6 @@ import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-
 const createUserDocument = async (user) => {
   const userRef = doc(db, "users", user.uid);
 
@@ -73,29 +72,38 @@ const createUserDocument = async (user) => {
   });
 };
 
-
 const SignUp = () => {
-      const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
-    
-                // ✅ アラビア語の場合に `dir="rtl"` を適用
-                useEffect(() => {
-                  document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
-                }, [i18n.language]);
+  const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
+
+  // ✅ アラビア語の場合に `dir="rtl"` を適用
+  useEffect(() => {
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+  }, [i18n.language]);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // Flag indicating that the verification email has been sent (not that sign-up is complete)
+  // Email認証用のフラグ（サインアップ完了＝検証メール送信済み）
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  // Email sign-up handler
+  // コンポーネントマウント時に、ローカルストレージのフラグをチェック
+  useEffect(() => {
+    const emailSentFlag = localStorage.getItem("isEmailSent");
+    if (emailSentFlag === "true") {
+      setIsEmailSent(true);
+      localStorage.removeItem("isEmailSent");
+    }
+  }, []);
+
+  // Emailサインアップハンドラー
   const handleSignUp = async () => {
     if (!email || !password) return;
     setIsLoading(true);
     try {
-      // Create user with email and password
+      // メールとパスワードでユーザー作成
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -103,16 +111,18 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      // Create a user document in Firestore
+      // Firestoreにユーザードキュメントを作成
       await createUserDocument(user);
       console.log("✅ Created user document in Firestore:", user.uid);
 
-      // Send verification email
+      // 認証メールを送信
       await sendEmailVerification(user);
-      // Sign out the user so they don't become authenticated immediately
+      // ユーザーをサインアウト（直ちに認証状態にならないように）
       await signOut(auth);
-      // Set the state to indicate that the email has been sent
-      setIsEmailSent(true);
+      // サインアップ完了のフラグをローカルストレージに保存
+      localStorage.setItem("isEmailSent", "true");
+      // リロードすることで最新の状態に更新
+      window.location.reload();
     } catch (error) {
       setAlertMessage(error.message);
       setShowAlert(true);
@@ -121,19 +131,20 @@ const SignUp = () => {
     }
   };
 
-  // Google sign-in handler
+  // Googleサインインハンドラー
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
-      // Perform Google sign-in
+      // Googleサインインの実行
       await signInWithGoogle();
       const user = auth.currentUser;
       if (user) {
-        // Create or update the user document in Firestore after sign-in
+        // サインイン後、Firestoreにユーザードキュメントを作成または更新
         await createUserDocument(user);
         console.log("✅ Created user document in Firestore via Google sign-in:", user.uid);
       }
       navigate("/");
+      window.location.reload();
     } catch (error) {
       setAlertMessage("Google sign-in failed");
       setShowAlert(true);
@@ -142,19 +153,20 @@ const SignUp = () => {
     }
   };
 
-  // Apple sign-in handler
+  // Appleサインインハンドラー
   const handleAppleSignIn = async () => {
     setIsLoading(true);
     try {
-      // Perform Apple sign-in
+      // Appleサインインの実行
       await signInWithApple();
       const user = auth.currentUser;
       if (user) {
-        // Create or update the user document in Firestore after sign-in
+        // サインイン後、Firestoreにユーザードキュメントを作成または更新
         await createUserDocument(user);
         console.log("✅ Created user document in Firestore via Apple sign-in:", user.uid);
       }
       navigate("/");
+      window.location.reload();
     } catch (error) {
       setAlertMessage("Apple sign-in failed");
       setShowAlert(true);
@@ -163,7 +175,7 @@ const SignUp = () => {
     }
   };
 
-  // Display screen after verification email is sent
+  // 検証メール送信済み画面の表示
   if (isEmailSent) {
     return (
       <div
@@ -201,7 +213,7 @@ const SignUp = () => {
     );
   }
 
-  // Regular sign-up screen
+  // 通常のサインアップ画面
   return (
     <div
       style={{
