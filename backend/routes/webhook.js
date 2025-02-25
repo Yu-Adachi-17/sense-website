@@ -45,7 +45,6 @@ const handleCheckoutSessionCompleted = async (session) => {
     const productId = session.metadata.product_id;
     let customerId = session.customer;
 
-    // 追加: 消耗アイテムの場合、customer が null の場合は PaymentIntent から取得する
     if (!customerId && session.payment_intent) {
       const paymentIntent = await stripe.paymentIntents.retrieve(session.payment_intent);
       customerId = paymentIntent.customer;
@@ -60,7 +59,6 @@ const handleCheckoutSessionCompleted = async (session) => {
       return;
     }
 
-    // ✅ Stripe の顧客情報に userId をセット
     await stripe.customers.update(customerId, {
       metadata: { userId }
     });
@@ -80,7 +78,16 @@ const handleCheckoutSessionCompleted = async (session) => {
       return;
     }
 
-    if (productValue === 'unlimited' || productValue === 'yearly-unlimited') {
+    // 消耗アイテムの場合は remainingSeconds を加算する処理を追加
+    if (typeof productValue === 'number') {
+      // 例：productValueが 120 なら、120分×60秒 = 7200秒を加算する
+      const secondsToAdd = productValue * 60;
+      await userRef.update({
+        remainingSeconds: admin.firestore.FieldValue.increment(secondsToAdd),
+        lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
+      });
+      console.log(`✅ Firebase updated: userId=${userId}, remainingSeconds increased by ${secondsToAdd}`);
+    } else if (productValue === 'unlimited' || productValue === 'yearly-unlimited') {
       await userRef.update({
         subscription: true,
         lastPurchaseAt: admin.firestore.FieldValue.serverTimestamp()
@@ -91,6 +98,7 @@ const handleCheckoutSessionCompleted = async (session) => {
     console.error("❌ Error updating Firebase:", error);
   }
 };
+
 
 // 🎯 サブスクリプション更新時の処理
 const handleSubscriptionUpdated = async (subscription) => {
