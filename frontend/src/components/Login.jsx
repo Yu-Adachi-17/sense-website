@@ -12,8 +12,10 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { syncUserData } from "../firebaseUserSync"; // Import function for syncing user data
 import { useTranslation } from "react-i18next";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 const Login = () => {
   const navigate = useNavigate();
@@ -51,10 +53,21 @@ const Login = () => {
         setShowAlert(true);
         return;
       }
+      
+      // 既存ユーザーの場合、Firestoreから remainingSeconds を取得する
+      const userDocRef = doc(db, "users", user.uid);
+      const userDocSnap = await getDoc(userDocRef);
+      let remainingSecondsFromFirebase = 180; // デフォルトは180（新規の場合用）
+      if (userDocSnap.exists()) {
+         const data = userDocSnap.data();
+         // Firestoreに有効な remainingSeconds があればそれを利用する
+         if (data.remainingSeconds != null && data.remainingSeconds > 0) {
+           remainingSecondsFromFirebase = data.remainingSeconds;
+         }
+      }
   
-      // ログイン成功後、Firestoreにユーザーデータを同期
-      // ※修正箇所：ここで remainingSeconds として 0 ではなく 180 を渡すように変更
-      await syncUserData(user, email, false, 180);
+      // ログイン成功後、Firestoreにユーザーデータを同期（既存ユーザーの場合は取得した値を利用）
+      await syncUserData(user, email, false, remainingSecondsFromFirebase);
   
       // ホーム画面へナビゲート
       navigate("/");
