@@ -514,14 +514,26 @@ app.post('/api/create-checkout-session', async (req, res) => {
       console.error("❌ Invalid productId:", productId);
       return res.status(400).json({ error: "Invalid productId" });
     }
+
+    // サブスクリプションか一回払いかでモードを決定
     const mode = (productId === process.env.STRIPE_PRODUCT_UNLIMITED ||
                   productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
                   ? 'subscription'
                   : 'payment';
-    const session = await stripe.checkout.sessions.create({
+
+    // payment モードの場合は、あらかじめ顧客を作成しておく
+    let customer;
+    if (mode === 'payment') {
+      customer = await stripe.customers.create({
+        metadata: { userId }
+      });
+    }
+
+    // Checkout Session のパラメータ作成
+    const sessionParams = {
       payment_method_types: ['card'],
       mode: mode,
-      line_items: [ { price: priceId, quantity: 1 } ],
+      line_items: [{ price: priceId, quantity: 1 }],
       client_reference_id: userId,
       metadata: {
         product_id: productId,
@@ -529,8 +541,14 @@ app.post('/api/create-checkout-session', async (req, res) => {
       },
       success_url: 'https://sense-ai.world/success',
       cancel_url: 'https://sense-ai.world/cancel',
-    });
-                  
+    };
+
+    // 顧客情報があればセッションに渡す
+    if (customer) {
+      sessionParams.customer = customer.id;
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionParams);
     console.log("✅ Checkout URL:", session.url);
     res.json({ url: session.url });
   } catch (error) {
@@ -538,6 +556,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
     res.status(500).json({ error: 'Failed to create checkout session', details: error.message });
   }
 });
+
 
 // Serve static files for the frontend
 const staticPath = path.join(__dirname, 'frontend/build');
