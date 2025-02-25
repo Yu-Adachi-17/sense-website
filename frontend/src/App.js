@@ -122,7 +122,11 @@ function App() {
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
         const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
-      
+        // ✅ タイトルを言語ごとに更新
+  useEffect(() => {
+    document.title = t("Minutes.AI"); // 言語変更時にタイトルを更新
+  }, [t, i18n.language]); // 言語が変わるたびに更新
+  
                   // ✅ アラビア語の場合に `dir="rtl"` を適用
                   useEffect(() => {
                     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
