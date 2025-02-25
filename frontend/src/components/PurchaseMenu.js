@@ -329,19 +329,23 @@ export function PurchaseMenu() {
   };
 
   // Logout handler
-  const handleLogout = async () => {
-    setShowActionMenu(false);
-    if (window.confirm(t("Are you sure you want to log out?"))) {
-      try {
-        await auth.signOut();
-        // サインアウト完了後、ローカルデバイス内の userRemainingSeconds を 180 にリセット
-        localStorage.setItem("guestRemainingSeconds", "180");
-        setShowProfileOverlay(false);
-      } catch (error) {
-        console.error("Error during logout:", error);
-      }
+// Logout handler
+const handleLogout = async () => {
+  setShowActionMenu(false);
+  if (window.confirm(t("Are you sure you want to log out?"))) {
+    try {
+      await auth.signOut();
+      // サインアウト完了後、ローカルデバイス内の userRemainingSeconds を 180 にリセット
+      localStorage.setItem("guestRemainingSeconds", "180");
+      setShowProfileOverlay(false);
+      // ログアウト成功直後にページをリロードする
+      window.location.reload();
+    } catch (error) {
+      console.error("Error during logout:", error);
     }
-  };
+  }
+};
+
 
   // Delete account handler
   const handleDeleteAccount = async () => {

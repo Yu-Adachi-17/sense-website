@@ -25,10 +25,10 @@ export function Success() {
       flexDirection: 'column',
       fontFamily: 'Impact, sans-serif'
     }}>
-      <h1 style={{ fontWeight: 300, letterSpacing: '0.05em', fontSize: '4em' }}>
+      <h1 style={{ fontWeight: 225, letterSpacing: '0.05em', fontSize: '3em' }}>
         {t("Payment Successful")}
       </h1>
-      <p style={{ fontSize: '1.6em', marginTop: '10px' }}>
+      <p style={{ fontSize: '1.2em', marginTop: '10px' }}>
         {t("You will be redirected automatically in a few seconds...")}
       </p>
     </div>
