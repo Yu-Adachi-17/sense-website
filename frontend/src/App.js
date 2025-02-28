@@ -24,7 +24,7 @@ import EmailVerification from "./components/EmailVerification"; // ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
-import SEOPage from "./components/SEO";
+import ServicesPage from "./components/Services";
 import { useTranslation } from "react-i18next";
 
 // ----------------------
@@ -740,7 +740,7 @@ function App() {
         <Route path="/transactions-law" element={<TransactionsLaw />} />
         <Route path="/meeting-formats" element={<MeetingFormatsList />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
-        <Route path="/seo" element={<SEOPage />} />
+        <Route path="/services" element={<servicesPage />} />
       </Routes>
     </Router>
   );
