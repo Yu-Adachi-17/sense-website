@@ -9,9 +9,9 @@ import nl from './locales/nl.json';
 import ko from './locales/ko.json';
 import fr from './locales/fr.json';
 import ptBR from './locales/pt-BR.json';
-import ptPT from './locales/pt-BR.json'; // ✅ 修正！ポルトガルポルトガル語を独立
+import ptPT from './locales/pt-PT.json';
 import esES from './locales/es-ES.json';
-import esMX from './locales/es-ES.json'; // ✅ 修正！メキシコスペイン語を独立
+import esMX from './locales/es-MX.json';
 import da from './locales/da.json';
 import sv from './locales/sv.json';
 import tr from './locales/tr.json';
@@ -19,6 +19,8 @@ import zhCN from './locales/zh-CN.json';
 import zhTW from './locales/zh-TW.json';
 import no from './locales/no.json';
 import ar from './locales/ar.json';
+import ms from './locales/ms.json'; // ✅ 追加！マレー語（マレーシア）
+import id from './locales/id.json'; // ✅ 追加！インドネシア語
 
 console.log("📌 Checking language files...");
 console.log("🇺🇸 en:", en);
@@ -38,6 +40,8 @@ console.log("🇨🇳 zh-CN:", zhCN);
 console.log("🇹🇼 zh-TW:", zhTW);
 console.log("🇳🇴 no:", no);
 console.log("🇸🇦 ar:", ar);
+console.log("🇲🇾 ms:", ms);
+console.log("🇮🇩 id:", id);
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -58,6 +62,8 @@ i18n.use(initReactI18next).init({
     'zh-TW': { translation: zhTW },
     no: { translation: no },
     ar: { translation: ar },
+    ms: { translation: ms }, // ✅ 追加
+    id: { translation: id }, // ✅ 追加
   },
   fallbackLng: 'en',
   interpolation: { escapeValue: false },
