@@ -20,12 +20,12 @@ import id from './locales/id.json'; // ✅ 追加！インドネシア語
 
 import React, { useState, useEffect } from "react"; // ✅ useEffect を追加
 import { useTranslation } from "react-i18next";
-import HomeIcon from '../components/HomeIcon';
+import HomeIcon from './HomeIcon';
 import { FaApple } from "react-icons/fa";
 
-import PrivacyPolicy from "../components/PrivacyPolicy";
-import TermsOfUse from "../components/TermsOfUse";
-import TransactionsLaw from "../components/TransactionsLaw";
+import PrivacyPolicy from "./PrivacyPolicy";
+import TermsOfUse from "./TermsOfUse";
+import TransactionsLaw from "./TransactionsLaw";
 
 // ▼▼▼ 追加: react-helmet を用いて <head> 内の要素を制御 ▼▼▼
 import { Helmet } from "react-helmet";
