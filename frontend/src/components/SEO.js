@@ -1,3 +1,22 @@
+import en from './locales/en.json';
+import ja from './locales/ja.json';
+import de from './locales/de.json';
+import nl from './locales/nl.json';
+import ko from './locales/ko.json';
+import fr from './locales/fr.json';
+import ptBR from './locales/pt-BR.json';
+import ptPT from './locales/pt-PT.json';
+import esES from './locales/es-ES.json';
+import esMX from './locales/es-MX.json';
+import da from './locales/da.json';
+import sv from './locales/sv.json';
+import tr from './locales/tr.json';
+import zhCN from './locales/zh-CN.json';
+import zhTW from './locales/zh-TW.json';
+import no from './locales/no.json';
+import ar from './locales/ar.json';
+import ms from './locales/ms.json'; // ✅ 追加！マレー語（マレーシア）
+import id from './locales/id.json'; // ✅ 追加！インドネシア語
 
 import React, { useState, useEffect } from "react"; // ✅ useEffect を追加
 import { useTranslation } from "react-i18next";
@@ -11,7 +30,7 @@ import TransactionsLaw from "../components/TransactionsLaw";
 // ▼▼▼ 追加: react-helmet を用いて <head> 内の要素を制御 ▼▼▼
 import { Helmet } from "react-helmet";
 
-const SEOPage = () => {
+const ServicesPage = () => {
     const { t, i18n } = useTranslation(); // ✅ useTranslation() から `i18n` を取得
   
     // ✅ アラビア語の場合に `dir="rtl"` を適用
@@ -258,4 +277,4 @@ const SEOPage = () => {
     );
 };
 
-export default SEOPage;
+export default ServicesPage;
