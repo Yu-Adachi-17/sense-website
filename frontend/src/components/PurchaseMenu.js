@@ -396,7 +396,7 @@ const handleLogout = async () => {
                 }}
                 onClick={() => {
                   setShowSideMenu(false);
-                  navigate("/survices");
+                  navigate("/services");
                 }}
               >
                 {t("Services and Pricing")}

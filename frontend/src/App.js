@@ -739,8 +739,9 @@ function App() {
         <Route path="/minutes/:id" element={<MinutesDetail />} />
         <Route path="/transactions-law" element={<TransactionsLaw />} />
         <Route path="/meeting-formats" element={<MeetingFormatsList />} />
-        <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
+
       </Routes>
     </Router>
   );
