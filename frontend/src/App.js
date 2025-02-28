@@ -740,7 +740,7 @@ function App() {
         <Route path="/transactions-law" element={<TransactionsLaw />} />
         <Route path="/meeting-formats" element={<MeetingFormatsList />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
-        <Route path="/services" element={<servicesPage />} />
+        <Route path="/services" element={<ServicesPage />} />
       </Routes>
     </Router>
   );
