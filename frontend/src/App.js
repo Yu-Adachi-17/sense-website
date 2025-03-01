@@ -340,20 +340,20 @@ function App() {
         console.error("User is not logged in. Aborting save.");
         return;
       }
-      if (!transcription || !minutes) {
-        console.error("Transcription or minutes is empty. Aborting save.");
-        return;
-      }
+      // 空の場合はプレースホルダーを設定する
+      const finalTranscription = transcription || "No transcription available.";
+      const finalMinutes = minutes || "No minutes available.";
+  
       const paperID = uuidv4();
       const creationDate = new Date();
       const recordData = {
         paperID,
-        transcription,
-        minutes,
+        transcription: finalTranscription,
+        minutes: finalMinutes,
         createdAt: creationDate,
         uid: auth.currentUser.uid,
       };
-
+  
       const docRef = await addDoc(collection(db, 'meetingRecords'), recordData);
       console.log("✅ Meeting record saved. Document ID:", docRef.id);
       setMeetingRecordId(docRef.id);
@@ -362,6 +362,7 @@ function App() {
       console.error("Error occurred while saving meeting record:", error);
     }
   };
+  
 
   // 録音ボタン押下時の処理
   const toggleRecording = async () => {
