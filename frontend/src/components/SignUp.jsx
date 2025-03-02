@@ -13,11 +13,13 @@ import {
 
 import {
   getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
   doc,
   setDoc,
-  getDoc,
   serverTimestamp,
-  runTransaction,
 } from "firebase/firestore";
 
 import { app } from "../firebaseConfig";
@@ -26,49 +28,31 @@ import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// ユーザードキュメント作成時に、同じ email のドキュメントが既に存在する場合はエラーを throw する
 const createUserDocument = async (user) => {
+  const usersRef = collection(db, "users");
+  const q = query(usersRef, where("email", "==", user.email));
+  const querySnapshot = await getDocs(q);
+  if (!querySnapshot.empty) {
+    // 既に同じ email のドキュメントが存在する場合は、処理を中断
+    throw new Error("このアカウントは既に登録されています。");
+  }
+  
+  // ドキュメントが存在しなければ、新規にユーザーデータを作成
   const userRef = doc(db, "users", user.uid);
-
-  await runTransaction(db, async (transaction) => {
-    const userSnap = await transaction.get(userRef);
-    if (!userSnap.exists()) {
-      // ドキュメントが存在しない場合は、新規作成時として全てのフィールドをセット
-      transaction.set(userRef, {
-        createdAt: serverTimestamp(),
-        userName: user.email.substring(0, 3),
-        email: user.email,
-        recordingDevice: null,
-        recordingTimestamp: null,
-        originalTransactionId: null,
-        subscriptionPlan: null,
-        subscriptionStartDate: null,
-        subscriptionEndDate: null,
-        lastSubscriptionUpdate: null,
-        remainingSeconds: 180, // 新規ユーザーには 180 をセット
-        subscription: false,
-      });
-    } else {
-      // ドキュメントが既に存在している場合
-      const data = userSnap.data();
-      // remainingSeconds が未設定（null/undefined）または 0 なら更新する
-      if (data.remainingSeconds == null || data.remainingSeconds === 0) {
-        transaction.update(userRef, { remainingSeconds: 180 });
-      }
-      // 他のフィールドは merge して null をセット（nullフィールドも存在させたい場合）
-      transaction.set(
-        userRef,
-        {
-          recordingDevice: null,
-          recordingTimestamp: null,
-          originalTransactionId: null,
-          subscriptionPlan: null,
-          subscriptionStartDate: null,
-          subscriptionEndDate: null,
-          lastSubscriptionUpdate: null,
-        },
-        { merge: true }
-      );
-    }
+  await setDoc(userRef, {
+    createdAt: serverTimestamp(),
+    userName: user.email.substring(0, 3),
+    email: user.email,
+    recordingDevice: null,
+    recordingTimestamp: null,
+    originalTransactionId: null,
+    subscriptionPlan: null,
+    subscriptionStartDate: null,
+    subscriptionEndDate: null,
+    lastSubscriptionUpdate: null,
+    remainingSeconds: 180, // 新規ユーザーには 180 をセット
+    subscription: false,
   });
 };
 
@@ -111,7 +95,7 @@ const SignUp = () => {
       );
       const user = userCredential.user;
 
-      // Firestoreにユーザードキュメントを作成
+      // Firestoreにユーザードキュメントを作成（同じ email があればエラーとなる）
       await createUserDocument(user);
       console.log("✅ Created user document in Firestore:", user.uid);
 
@@ -139,14 +123,14 @@ const SignUp = () => {
       await signInWithGoogle();
       const user = auth.currentUser;
       if (user) {
-        // サインイン後、Firestoreにユーザードキュメントを作成または更新
+        // サインイン後、Firestoreにユーザードキュメントを作成または更新（同じ email があればエラーとなる）
         await createUserDocument(user);
         console.log("✅ Created user document in Firestore via Google sign-in:", user.uid);
       }
       navigate("/");
       window.location.reload();
     } catch (error) {
-      setAlertMessage("Google sign-in failed");
+      setAlertMessage(error.message || "Google sign-in failed");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -161,14 +145,14 @@ const SignUp = () => {
       await signInWithApple();
       const user = auth.currentUser;
       if (user) {
-        // サインイン後、Firestoreにユーザードキュメントを作成または更新
+        // サインイン後、Firestoreにユーザードキュメントを作成または更新（同じ email があればエラーとなる）
         await createUserDocument(user);
         console.log("✅ Created user document in Firestore via Apple sign-in:", user.uid);
       }
       navigate("/");
       window.location.reload();
     } catch (error) {
-      setAlertMessage("Apple sign-in failed");
+      setAlertMessage(error.message || "Apple sign-in failed");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
