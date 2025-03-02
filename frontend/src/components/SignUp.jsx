@@ -35,7 +35,7 @@ const createUserDocument = async (user) => {
   const querySnapshot = await getDocs(q);
   if (!querySnapshot.empty) {
     // 既に同じ email のドキュメントが存在する場合は、処理を中断
-    throw new Error("このアカウントは既に登録されています。");
+    throw new Error("This account is already registered.");
   }
   
   // ドキュメントが存在しなければ、新規にユーザーデータを作成
