@@ -26,6 +26,8 @@ import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
 import ServicesPage from "./components/Services";
 import { useTranslation } from "react-i18next";
+import ServicesWrapper from "./routes/ServicesWrapper";  // ✅ 追加
+import RedirectToServices from "./routes/RedirectToServices";  // ✅ 追加
 
 // ----------------------
 // 重要：ファイルアップロード用コンポーネント
@@ -740,6 +742,8 @@ function App() {
         <Route path="/minutes/:id" element={<MinutesDetail />} />
         <Route path="/transactions-law" element={<TransactionsLaw />} />
         <Route path="/meeting-formats" element={<MeetingFormatsList />} />
+        <Route path="/:lang/services" element={<ServicesWrapper />} />
+        <Route path="/:lang" element={<RedirectToServices />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
 
