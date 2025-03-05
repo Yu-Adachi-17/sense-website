@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import ServicesPage from "./components/Services";
+import ServicesPage from "../components/Services";
 
 const ServicesWrapper = () => {
   const { lang } = useParams(); // URLから言語を取得
