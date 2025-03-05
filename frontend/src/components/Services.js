@@ -136,31 +136,32 @@ const ServicesPage = () => {
       <div>
         {/* ▼▼▼ ここで react-helmet を使って hreflang を設定 ▼▼▼ */}
         <Helmet>
-          {/* ページ言語（htmlタグ）の設定 */}
-          <html lang={i18n.language} />
+  {/* ページ言語（htmlタグ）の設定 */}
+  <html lang={i18n.language} />
 
-          {/* ▼ hreflang タグ一覧（各言語ページURLは適宜書き換えてください） */}
-          <link rel="alternate" hrefLang="en" href="https://www.sense-ai.world/en/" />
-          <link rel="alternate" hrefLang="ja" href="https://www.sense-ai.world/ja/" />
-          <link rel="alternate" hrefLang="de" href="https://www.sense-ai.world/de/" />
-          <link rel="alternate" hrefLang="nl" href="https://www.sense-ai.world/nl/" />
-          <link rel="alternate" hrefLang="ko" href="https://www.sense-ai.world/ko/" />
-          <link rel="alternate" hrefLang="fr" href="https://www.sense-ai.world/fr/" />
-          <link rel="alternate" hrefLang="pt-BR" href="https://www.sense-ai.world/pt-BR/" />
-          <link rel="alternate" hrefLang="pt-PT" href="https://www.sense-ai.world/pt-PT/" />
-          <link rel="alternate" hrefLang="es-ES" href="https://www.sense-ai.world/es-ES/" />
-          <link rel="alternate" hrefLang="es-MX" href="https://www.sense-ai.world/es-MX/" />
-          <link rel="alternate" hrefLang="da" href="https://www.sense-ai.world/da/" />
-          <link rel="alternate" hrefLang="sv" href="https://www.sense-ai.world/sv/" />
-          <link rel="alternate" hrefLang="tr" href="https://www.sense-ai.world/tr/" />
-          <link rel="alternate" hrefLang="zh-CN" href="https://www.sense-ai.world/zh-CN/" />
-          <link rel="alternate" hrefLang="zh-TW" href="https://www.sense-ai.world/zh-TW/" />
-          <link rel="alternate" hrefLang="no" href="https://www.sense-ai.world/no/" />
-          <link rel="alternate" hrefLang="ar" href="https://www.sense-ai.world/ar/" />
-          <link rel="alternate" hrefLang="ms" href="https://www.sense-ai.world/ms/" />
-          <link rel="alternate" hrefLang="id" href="https://www.sense-ai.world/id/" />
-          <link rel="alternate" hrefLang="x-default" href="https://www.sense-ai.world/" />
-        </Helmet>
+  {/* ▼ hreflang タグ一覧（各言語ページURLを正しく修正） */}
+  <link rel="alternate" hrefLang="en" href="https://www.sense-ai.world/en/services" />
+  <link rel="alternate" hrefLang="ja" href="https://www.sense-ai.world/ja/services" />
+  <link rel="alternate" hrefLang="de" href="https://www.sense-ai.world/de/services" />
+  <link rel="alternate" hrefLang="nl" href="https://www.sense-ai.world/nl/services" />
+  <link rel="alternate" hrefLang="ko" href="https://www.sense-ai.world/ko/services" />
+  <link rel="alternate" hrefLang="fr" href="https://www.sense-ai.world/fr/services" />
+  <link rel="alternate" hrefLang="pt-BR" href="https://www.sense-ai.world/pt-BR/services" />
+  <link rel="alternate" hrefLang="pt-PT" href="https://www.sense-ai.world/pt-PT/services" />
+  <link rel="alternate" hrefLang="es-ES" href="https://www.sense-ai.world/es-ES/services" />
+  <link rel="alternate" hrefLang="es-MX" href="https://www.sense-ai.world/es-MX/services" />
+  <link rel="alternate" hrefLang="da" href="https://www.sense-ai.world/da/services" />
+  <link rel="alternate" hrefLang="sv" href="https://www.sense-ai.world/sv/services" />
+  <link rel="alternate" hrefLang="tr" href="https://www.sense-ai.world/tr/services" />
+  <link rel="alternate" hrefLang="zh-CN" href="https://www.sense-ai.world/zh-CN/services" />
+  <link rel="alternate" hrefLang="zh-TW" href="https://www.sense-ai.world/zh-TW/services" />
+  <link rel="alternate" hrefLang="no" href="https://www.sense-ai.world/no/services" />
+  <link rel="alternate" hrefLang="ar" href="https://www.sense-ai.world/ar/services" />
+  <link rel="alternate" hrefLang="ms" href="https://www.sense-ai.world/ms/services" />
+  <link rel="alternate" hrefLang="id" href="https://www.sense-ai.world/id/services" />
+  <link rel="alternate" hrefLang="x-default" href="https://www.sense-ai.world/services" />
+</Helmet>
+
 
         {/* HomeIcon を左上に配置 */}
         <div style={homeIconStyle}>
