@@ -28,8 +28,10 @@ const News = () => {
         {articles.map(article => (
           <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
             <h2 className="news-title">{article.title}</h2>
-            {/* 画像をタイトルの下に表示。floatで回り込みさせる */}
-            <img src="/example.jpg" alt="Example" className="news-image" />
+            {/* バックエンドで取得した imageUrl を利用 */}
+            {article.imageUrl && (
+              <img src={article.imageUrl} alt="Article" className="news-image" />
+            )}
             <p className="news-summary">{article.summary}</p>
           </div>
         ))}

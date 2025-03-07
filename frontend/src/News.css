@@ -23,7 +23,7 @@
     grid-gap: 30px;
   }
   
-  /* カードはブロックレベル（フレックスではなく）にして、内部で浮動配置を利用 */
+  /* カードはブロックレベルで配置 */
   .news-card {
     background: #222;
     padding: 25px;
@@ -31,7 +31,7 @@
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    overflow: hidden; /* float要素を含む場合に高さを安定させる */
+    overflow: hidden;
   }
   
   .news-card:hover {
@@ -46,17 +46,17 @@
     font-family: Impact, sans-serif !important;
   }
   
-  /* 画像は左上に配置。floatで本文の回り込みを実現 */
+  /* 画像は左上に配置し、floatで本文が回り込む */
   .news-image {
     float: left;
-    width: 100px; /* 必要に応じて調整 */
+    width: 100px;
     height: auto;
     margin-right: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
   }
   
-  /* 本文は画像を避けて配置される */
+  /* 本文は画像を避けて配置 */
   .news-summary {
     font-size: 1rem;
     line-height: 1.6;
