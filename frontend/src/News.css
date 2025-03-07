@@ -4,8 +4,8 @@
 .news-page {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     padding: 40px;
-    background-color: #111; /* ダーク背景 */
-    color: #f5f7fa; /* 明るい文字色 */
+    background-color: #111;
+    color: #f5f7fa;
   }
   
   .news-header {
@@ -23,16 +23,15 @@
     grid-gap: 30px;
   }
   
-  /* カードを縦方向（VStack）に配置 */
+  /* カードはブロックレベル（フレックスではなく）にして、内部で浮動配置を利用 */
   .news-card {
-    display: flex;
-    flex-direction: column;
     background: #222;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    overflow: hidden; /* float要素を含む場合に高さを安定させる */
   }
   
   .news-card:hover {
@@ -47,22 +46,21 @@
     font-family: Impact, sans-serif !important;
   }
   
-  /* 画像を左上に配置し、テキストが回り込むように */
+  /* 画像は左上に配置。floatで本文の回り込みを実現 */
   .news-image {
     float: left;
-    width: 100px;
+    width: 100px; /* 必要に応じて調整 */
     height: auto;
     margin-right: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
   }
   
-  /* clear fix: 画像の浮動配置を回避して、テキストを適切に配置 */
+  /* 本文は画像を避けて配置される */
   .news-summary {
     font-size: 1rem;
     line-height: 1.6;
     color: #ccc;
-    overflow: hidden;
   }
   
   /* オーバーレイのスタイル（詳細表示） */
