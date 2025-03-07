@@ -23,11 +23,11 @@
     grid-gap: 30px;
   }
   
-  /* 横長カード：flexレイアウトで左右に配置 */
+  /* カードを縦並び（VStack）に変更 */
   .news-card {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     background: #222;  /* カード自体はやや明るめのダークカラー */
     padding: 25px;
     border-radius: 12px;
@@ -41,22 +41,11 @@
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
   }
   
-  /* 左側：タイトル領域 */
-  .news-card-left {
-    flex: 0 0 40%;
-    margin-right: 20px;
-  }
-  
   .news-title {
     font-size: 1.5rem;
-    margin: 0;
+    margin: 0 0 10px;
     color: #f5f7fa;
     font-family: Impact, sans-serif !important;
-  }
-  
-  /* 右側：要約領域 */
-  .news-card-right {
-    flex: 1;
   }
   
   .news-summary {
