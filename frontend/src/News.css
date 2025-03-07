@@ -1,64 +1,78 @@
 /* News.css */
 
-body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .news-page {
+/* 全体のダークテーマ設定 */
+.news-page {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     padding: 40px;
-    background-color: #f5f7fa;
-    color: #333;
+    background-color: #111; /* ダーク背景 */
+    color: #f5f7fa; /* 明るい文字色 */
   }
   
   .news-header {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.5rem;
-    color: #222;
+    color: #f5f7fa;
+    font-family: 'Impact, sans-serif'; /* ヘッダーにImpactフォントを適用 */
   }
   
+  /* グリッドレイアウト */
   .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     grid-gap: 30px;
   }
   
+  /* 横長カード：flexレイアウトで左右に配置 */
   .news-card {
-    background: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #222;  /* カード自体はやや明るめのダークカラー */
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
   
   .news-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+  }
+  
+  /* 左側：タイトル領域 */
+  .news-card-left {
+    flex: 0 0 40%;
+    margin-right: 20px;
   }
   
   .news-title {
     font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #1a1a1a;
+    margin: 0;
+    color: #f5f7fa;
+    font-family: 'Impact, sans-serif'; /* 各カードのタイトルにImpactフォントを適用 */
+  }
+  
+  /* 右側：要約領域 */
+  .news-card-right {
+    flex: 1;
   }
   
   .news-summary {
     font-size: 1rem;
     line-height: 1.6;
-    color: #555;
+    color: #ccc;
   }
   
-  /* オーバーレイのスタイル */
+  /* オーバーレイのスタイル（詳細表示） */
   .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,14 +80,15 @@ body {
   }
   
   .overlay-content {
-    background: #fff;
+    background: #222;
     border-radius: 12px;
     padding: 30px;
     width: 80%;
     max-width: 600px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     position: relative;
     animation: fadeIn 0.3s ease;
+    color: #f5f7fa;
   }
   
   .overlay-close {
@@ -84,36 +99,37 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #888;
+    color: #ccc;
   }
   
   .overlay-close:hover {
-    color: #333;
+    color: #f5f7fa;
   }
   
   .overlay-title {
     margin-top: 0;
     font-size: 1.8rem;
-    color: #222;
+    color: #f5f7fa;
+    font-family: 'Impact, sans-serif'; /* オーバーレイのタイトルにもImpactフォントを適用 */
   }
   
   .overlay-summary {
     margin: 20px 0;
     font-size: 1rem;
     line-height: 1.6;
-    color: #555;
+    color: #ccc;
   }
   
   .overlay-link {
     font-size: 1rem;
     text-decoration: none;
-    color: #007acc;
+    color: #4da6ff;
     border-bottom: 1px solid transparent;
     transition: border-bottom 0.2s ease;
   }
   
   .overlay-link:hover {
-    border-bottom: 1px solid #007acc;
+    border-bottom: 1px solid #4da6ff;
   }
   
   @keyframes fadeIn {
