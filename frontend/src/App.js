@@ -28,6 +28,7 @@ import ServicesPage from "./components/Services";
 import { useTranslation } from "react-i18next";
 import ServicesWrapper from "./routes/ServicesWrapper";  // ✅ 追加
 import RedirectToServices from "./routes/RedirectToServices";  // ✅ 追加
+import NewsPage from "./News";
 
 // ----------------------
 // 重要：ファイルアップロード用コンポーネント
@@ -745,6 +746,7 @@ function App() {
         <Route path="/:lang/services" element={<ServicesWrapper />} />
         <Route path="/:lang" element={<RedirectToServices />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/news" element={<NewsPage />} />
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
 
       </Routes>
