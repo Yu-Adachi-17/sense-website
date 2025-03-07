@@ -49,7 +49,7 @@
   /* 画像は左上に配置し、floatで本文が回り込む */
   .news-image {
     float: left;
-    width: 100px;
+    width: 200px;
     height: auto;
     margin-right: 15px;
     margin-bottom: 10px;
