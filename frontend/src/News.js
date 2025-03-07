@@ -33,7 +33,10 @@ const News = () => {
 
   return (
     <div className="news-page">
-      <h1 className="news-header">One Minutes News</h1>
+      <h1 className="news-header">
+  One Minutes <span className="gradient-text">AI</span> News
+</h1>
+
       <div className="news-grid">
         {currentArticles.map(article => (
           <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
