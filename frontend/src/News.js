@@ -9,7 +9,7 @@ const News = () => {
 
   useEffect(() => {
     // ニュースAPIのエンドポイントに合わせてURLを変更してください
-    axios.get('https://news-api.example.com/api/news')
+    axios.get('https://ai-news-production-a7b7.up.railway.app/api/news')
       .then(response => setArticles(response.data))
       .catch(error => console.error("ニュース取得エラー:", error));
   }, []);
