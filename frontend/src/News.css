@@ -63,6 +63,33 @@
     color: #ccc;
   }
   
+  /* ページネーション */
+  .pagination {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .pagination-button {
+    background: #222;
+    border: none;
+    color: #f5f7fa;
+    font-size: 1rem;
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .pagination-button:hover {
+    background: #444;
+  }
+  
+  .pagination-button.active {
+    background: #4da6ff;
+    color: #fff;
+  }
+  
   /* オーバーレイのスタイル（詳細表示） */
   .overlay {
     position: fixed;

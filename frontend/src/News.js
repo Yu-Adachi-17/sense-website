@@ -6,12 +6,22 @@ import './News.css';
 const News = () => {
   const [articles, setArticles] = useState([]);
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 20;
 
   useEffect(() => {
     axios.get('https://ai-news-production-a7b7.up.railway.app/api/news')
       .then(response => setArticles(response.data))
       .catch(error => console.error("ニュース取得エラー:", error));
   }, []);
+
+  // ページ番号に応じた記事を抽出
+  const totalPages = Math.ceil(articles.length / itemsPerPage);
+  const currentArticles = articles.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const openArticle = (article) => {
     setSelectedArticle(article);
@@ -25,10 +35,9 @@ const News = () => {
     <div className="news-page">
       <h1 className="news-header">One Minutes News</h1>
       <div className="news-grid">
-        {articles.map(article => (
+        {currentArticles.map(article => (
           <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
             <h2 className="news-title">{article.title}</h2>
-            {/* バックエンドで取得した imageUrl を利用 */}
             {article.imageUrl && (
               <img src={article.imageUrl} alt="Article" className="news-image" />
             )}
@@ -36,6 +45,21 @@ const News = () => {
           </div>
         ))}
       </div>
+
+      {/* ページネーション */}
+      {totalPages > 1 && (
+        <div className="pagination">
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`pagination-button ${currentPage === i + 1 ? 'active' : ''}`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      )}
 
       {selectedArticle && (
         <div className="overlay" onClick={closeOverlay}>
