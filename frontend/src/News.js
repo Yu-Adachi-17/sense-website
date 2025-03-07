@@ -8,8 +8,8 @@ const News = () => {
   const [selectedArticle, setSelectedArticle] = useState(null);
 
   useEffect(() => {
-    // ニュースAPIのエンドポイントに合わせてURLを変更してください
-    axios.get('https://ai-news-production-a7b7.up.railway.app/api/news')
+    // バックエンドのニュースAPIのエンドポイントに合わせてURLを変更してください
+    axios.get('https://your-news-backend.example.com/api/news')
       .then(response => setArticles(response.data))
       .catch(error => console.error("ニュース取得エラー:", error));
   }, []);
@@ -24,12 +24,16 @@ const News = () => {
 
   return (
     <div className="news-page">
-      <h1 className="news-header">Latest News</h1>
+      <h1 className="news-header">One Minutes News</h1>
       <div className="news-grid">
         {articles.map(article => (
           <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
-            <h2 className="news-title">{article.title}</h2>
-            <p className="news-summary">{article.summary}</p>
+            <div className="news-card-left">
+              <h2 className="news-title">{article.title}</h2>
+            </div>
+            <div className="news-card-right">
+              <p className="news-summary">{article.summary}</p>
+            </div>
           </div>
         ))}
       </div>
