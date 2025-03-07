@@ -8,7 +8,6 @@ const News = () => {
   const [selectedArticle, setSelectedArticle] = useState(null);
 
   useEffect(() => {
-    // APIエンドポイントを指定
     axios.get('https://ai-news-production-a7b7.up.railway.app/api/news')
       .then(response => setArticles(response.data))
       .catch(error => console.error("ニュース取得エラー:", error));
@@ -28,12 +27,8 @@ const News = () => {
       <div className="news-grid">
         {articles.map(article => (
           <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
-            <div className="news-card-left">
-              <h2 className="news-title">{article.title}</h2>
-            </div>
-            <div className="news-card-right">
-              <p className="news-summary">{article.summary}</p>
-            </div>
+            <h2 className="news-title">{article.title}</h2>
+            <p className="news-summary">{article.summary}</p>
           </div>
         ))}
       </div>
