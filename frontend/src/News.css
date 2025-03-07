@@ -23,12 +23,11 @@
     grid-gap: 30px;
   }
   
-  /* カードを縦並び（VStack）に変更 */
+  /* カードを縦方向（VStack）に配置 */
   .news-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    background: #222;  /* カード自体はやや明るめのダークカラー */
+    background: #222;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
@@ -48,10 +47,22 @@
     font-family: Impact, sans-serif !important;
   }
   
+  /* 画像を左上に配置し、テキストが回り込むように */
+  .news-image {
+    float: left;
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  /* clear fix: 画像の浮動配置を回避して、テキストを適切に配置 */
   .news-summary {
     font-size: 1rem;
     line-height: 1.6;
     color: #ccc;
+    overflow: hidden;
   }
   
   /* オーバーレイのスタイル（詳細表示） */
