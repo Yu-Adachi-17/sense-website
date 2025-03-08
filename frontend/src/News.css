@@ -1,5 +1,3 @@
-/* News.css */
-
 /* 全体のダークテーマ設定 */
 .news-page {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -110,6 +108,8 @@
     padding: 30px;
     width: 80%;
     max-width: 600px;
+    max-height: 80vh; /* オーバーレイ内が画面内に収まるように高さ制限 */
+    overflow-y: auto; /* コンテンツが溢れた場合にスクロール可能 */
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     position: relative;
     animation: fadeIn 0.3s ease;
@@ -156,7 +156,7 @@
   .overlay-link:hover {
     border-bottom: 1px solid #4da6ff;
   }
-
+  
   .gradient-text {
     background: linear-gradient(120deg, 
       rgb(153, 184, 255),
@@ -167,8 +167,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
-  
   
   @keyframes fadeIn {
     from {
@@ -181,7 +179,7 @@
     }
   }
   
-.subheading {
+  .subheading {
     font-size: 1.5rem;  /* 必要に応じて調整 */
     font-weight: bold;
     display: block;
