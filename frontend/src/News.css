@@ -181,4 +181,9 @@
     }
   }
   
+  .heading {
+    font-size: 1.2em;  /* 通常のテキストより1段階大きく */
+    font-weight: bold;
+    margin-top: 1em;
+  }
   
