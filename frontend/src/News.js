@@ -5,13 +5,15 @@ import './News.css';
 
 // 文字列を整形する関数
 function formatSummary(text) {
-  // 中見出し（■Point, ■Lecture, ■Original Forecast）の前後に改行タグとspanタグを追加
+  // 中見出し（■Point, ■Lecture, ■Original Forecast）の前に改行タグとspanタグを追加（改行は1つ）
   let formatted = text.replace(
     /(■(?:Point|Lecture|Original Forecast))/g,
-    '<br/><br/><span class="subheading">$1</span>'
+    '<br/><span class="subheading">$1</span>'
   );
-  // 箇条書き部分（例：・で始まる行）の後にも改行タグを挿入
+  // 箇条書き部分（例：・で始まる行）の後に改行タグを挿入
   formatted = formatted.replace(/(・.+)(\n|$)/g, '$1<br/>');
+  // 連続する改行タグがあれば1つにまとめる
+  formatted = formatted.replace(/(<br\/>\s*)+/g, '<br/>');
   return formatted;
 }
 
