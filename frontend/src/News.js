@@ -1,4 +1,3 @@
-// News.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './News.css';
@@ -31,11 +30,40 @@ const News = () => {
     setSelectedArticle(null);
   };
 
+  // 改行と中見出しのスタイル変換用の関数
+  const formatSummary = (text) => {
+    if (!text) return null;
+    return text.split('\n').map((line, index) => {
+      // 空行の場合は改行タグだけ出力
+      if (line.trim() === '') {
+        return <br key={index} />;
+      }
+      // 中見出し部分の検出（■Point/■Lecture/■Original Forecast）
+      if (
+        line.startsWith('■Point') ||
+        line.startsWith('■Lecture') ||
+        line.startsWith('■Original Forecast')
+      ) {
+        return (
+          <div key={index} className="heading">
+            {line}
+          </div>
+        );
+      }
+      // 通常の行の場合
+      return (
+        <div key={index}>
+          {line}
+        </div>
+      );
+    });
+  };
+
   return (
     <div className="news-page">
       <h1 className="news-header">
-  One Minutes <span className="gradient-text">AI</span> News
-</h1>
+        One Minutes <span className="gradient-text">AI</span> News
+      </h1>
 
       <div className="news-grid">
         {currentArticles.map(article => (
@@ -44,7 +72,9 @@ const News = () => {
             {article.imageUrl && (
               <img src={article.imageUrl} alt="Article" className="news-image" />
             )}
-            <p className="news-summary">{article.summary}</p>
+            <div className="news-summary">
+              {formatSummary(article.summary)}
+            </div>
           </div>
         ))}
       </div>
@@ -69,7 +99,9 @@ const News = () => {
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
             <button className="overlay-close" onClick={closeOverlay}>×</button>
             <h2 className="overlay-title">{selectedArticle.title}</h2>
-            <p className="overlay-summary">{selectedArticle.summary}</p>
+            <div className="overlay-summary">
+              {formatSummary(selectedArticle.summary)}
+            </div>
             <a className="overlay-link" href={selectedArticle.link} target="_blank" rel="noopener noreferrer">
               Read Full Article
             </a>
