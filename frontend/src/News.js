@@ -5,17 +5,15 @@ import './News.css';
 
 // 文字列を整形する関数
 function formatSummary(text) {
-  // 改行と空白を適切に処理
-  let formatted = text
-    .replace(/\n+/g, '\n') // 連続する改行を1つに統一
-    .replace(/\s+$/, '')   // 文末の余分なスペースを削除
-
-    // 中見出しの前後に1つの改行だけを挿入
-    .replace(/(■(?:Point|Lecture|Original Forecast))/g, '<br/><span class="subheading">$1</span><br/>')
-
-    // 箇条書きの後にも改行を1つだけ挿入
-    .replace(/(・.+?)(\n|$)/g, '$1<br/>');
-
+  // 中見出し（■Point, ■Lecture, ■Original Forecast）の前に改行タグとspanタグを追加（改行は1つ）
+  let formatted = text.replace(
+    /(■(?:Point|Lecture|Original Forecast))/g,
+    '<br/><span class="subheading">$1</span>'
+  );
+  // 箇条書き部分（例：・で始まる行）の後に改行タグを挿入
+  formatted = formatted.replace(/(・.+)(\n|$)/g, '$1<br/>');
+  // 連続する改行タグがあれば1つにまとめる
+  formatted = formatted.replace(/(<br\/>\s*)+/g, '<br/>');
   return formatted;
 }
 
