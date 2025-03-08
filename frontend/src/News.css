@@ -181,3 +181,15 @@
     }
   }
   
+.subheading {
+    font-size: 1.5rem;  /* 必要に応じて調整 */
+    font-weight: bold;
+    display: block;
+    margin-top: 1em;
+  }
+  
+  .overlay-summary {
+    line-height: 1.6;
+    white-space: pre-wrap;  /* 改行を反映 */
+  }
+  
