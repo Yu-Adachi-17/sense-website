@@ -34,23 +34,22 @@ const News = () => {
   const formatSummary = (text) => {
     if (!text) return null;
     return text.split('\n').map((line, index) => {
-      // 空行の場合は改行タグだけ出力
-      if (line.trim() === '') {
-        return <br key={index} />;
-      }
-      // 中見出し部分の検出（■Point/■Lecture/■Original Forecast）
+      // 空行はそのまま改行
+
+      // 行全体が特定の見出しラベル（末尾にコロン付き）と一致する場合のみ見出しとする
+      const trimmedLine = line.trim();
       if (
-        line.startsWith('■Point') ||
-        line.startsWith('■Lecture') ||
-        line.startsWith('■Original Forecast')
+        trimmedLine === 'Points:' ||
+        trimmedLine === 'Lecture:' ||
+        trimmedLine === 'Original Forecast:'
       ) {
         return (
           <div key={index} className="heading">
-            {line}
+            {trimmedLine}
           </div>
         );
       }
-      // 通常の行の場合
+      // 通常の行
       return (
         <div key={index}>
           {line}
@@ -58,6 +57,7 @@ const News = () => {
       );
     });
   };
+  
 
   return (
     <div className="news-page">
