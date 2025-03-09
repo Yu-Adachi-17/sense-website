@@ -635,21 +635,27 @@ function App() {
                 gap: '20px',
                 zIndex: 1000
               }}>
-<Link href="/services" style={{
-  padding: '10px 20px',
-  color: '#fff',
-  textDecoration: 'none',
-}}>
-  Services and Pricing
+<Link href="/services">
+  <a style={{
+    padding: '10px 20px',
+    color: '#fff',
+    textDecoration: 'none',
+  }}>
+    Services and Pricing
+  </a>
 </Link>
 
-                <Link href="/news" style={{
-  padding: '10px 20px',
-  color: '#fff',
-  textDecoration: 'none',
-}}>
-  AI News
+
+<Link href="/news">
+  <a style={{
+    padding: '10px 20px',
+    color: '#fff',
+    textDecoration: 'none',
+  }}>
+    AI News
+  </a>
 </Link>
+
               </div>
 
               {isUserDataLoaded && (
