@@ -14,10 +14,11 @@ if (!fs.existsSync(publicDir)) {
 // サイトマップの保存先
 const OUTPUT_PATH = path.join(publicDir, "sitemap.xml");
 
-// 追加するURLリスト
+// 追加する重要なURLリスト
 const additionalUrls = [
     "https://www.sense-ai.world/",
-    "https://www.sense-ai.world/services"
+    "https://www.sense-ai.world/services",
+    "https://www.sense-ai.world/news"
 ];
 
 // サイトマップのジェネレーターを作成
