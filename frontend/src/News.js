@@ -62,7 +62,7 @@ const News = () => {
   };
 
   // 一覧表示用のサマリー整形関数
-  const formatSummaryForList = (text) => {
+  const formatSummaryForList = (text, date) => {
     if (!text) return null;
     const lectureIndex = text.indexOf('Lecture:');
     let pointsText;
@@ -74,7 +74,7 @@ const News = () => {
     if (pointsText.length > 400) {
       pointsText = pointsText.substring(0, 400) + '...';
     }
-    return pointsText.split('\n').map((line, index) => {
+    const lines = pointsText.split('\n').map((line, index) => {
       const trimmedLine = line.trim();
       if (
         trimmedLine === 'Points:' ||
@@ -98,7 +98,33 @@ const News = () => {
         <div key={index}>{line}</div>
       );
     });
+  
+    // 日付が存在する場合、英語表記でフォーマット
+    let formattedDate = "";
+    if (date) {
+      formattedDate = new Date(date).toLocaleDateString("en-US", {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    }
+  
+    return (
+      <div style={{ position: "relative" }}>
+        {lines}
+        <div style={{
+          position: "absolute",
+          bottom: 0,
+          right: 0,
+          fontFamily: "Impact, sans-serif",
+          fontSize: "1rem" // ニュース本文と同じ大きさ
+        }}>
+          {formattedDate}
+        </div>
+      </div>
+    );
   };
+  
 
   return (
     <div className="news-page">
