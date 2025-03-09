@@ -6,21 +6,29 @@ const News = () => {
   const [articles, setArticles] = useState([]);
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const itemsPerPage = 20;
 
-  useEffect(() => {
-    axios.get('https://ai-news-production-a7b7.up.railway.app/api/news')
-      .then(response => setArticles(response.data))
+  // 現在のページに応じた記事を取得する関数
+  const fetchArticles = (page) => {
+    axios
+      .get(`https://ai-news-production-a7b7.up.railway.app/api/news?page=${page}&limit=${itemsPerPage}`)
+      .then(response => {
+        // バックエンド側が下記のような形式で返すことを想定しています:
+        // {
+        //   articles: [...], // 該当ページの記事リスト
+        //   totalPages: 数値 // 全体のページ数
+        // }
+        setArticles(response.data.articles);
+        setTotalPages(response.data.totalPages);
+      })
       .catch(error => console.error("ニュース取得エラー:", error));
-  }, []);
+  };
 
-  // ページ番号に応じた記事を抽出
-  const totalPages = Math.ceil(articles.length / itemsPerPage);
-  const currentArticles = articles.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  useEffect(() => {
+    fetchArticles(currentPage);
+  }, [currentPage]);
 
   const openArticle = (article) => {
     setSelectedArticle(article);
@@ -99,7 +107,6 @@ const News = () => {
       );
     });
   
-    // 日付が存在する場合、英語表記でフォーマット
     let formattedDate = "";
     if (date) {
       formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -110,11 +117,10 @@ const News = () => {
     }
   
     return (
-      <div style={{ position: "relative", width: "100%" }}>
+      <div style={{ position: "relative", paddingBottom: "2rem" }}>
         {lines}
         <div style={{
           position: "absolute",
-          bottom: "-40px", // ボックス枠外に出すため負の値を指定
           right: "10px",
           fontFamily: "Impact, sans-serif",
           fontSize: "1rem"
@@ -124,7 +130,6 @@ const News = () => {
       </div>
     );
   };
-  
 
   return (
     <div className="news-page">
@@ -133,16 +138,15 @@ const News = () => {
       </h1>
 
       <div className="news-grid">
-        {currentArticles.map(article => (
+        {articles.map(article => (
           <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
             <h2 className="news-title">{article.title}</h2>
             {article.imageUrl && (
               <img src={article.imageUrl} alt="Article" className="news-image" />
             )}
-<div className="news-summary">
-  {formatSummaryForList(article.summary, article.date)}
-</div>
-
+            <div className="news-summary">
+              {formatSummaryForList(article.summary, article.date)}
+            </div>
           </div>
         ))}
       </div>
