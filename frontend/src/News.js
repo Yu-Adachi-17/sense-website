@@ -110,11 +110,11 @@ const News = () => {
     }
   
     return (
-      <div style={{ position: "relative", width: "100%", paddingBottom: "2rem" }}>
+      <div style={{ position: "relative", width: "100%" }}>
         {lines}
         <div style={{
           position: "absolute",
-          bottom: "-20px",
+          bottom: "-20px", // ボックス枠外に出すため負の値を指定
           right: "10px",
           fontFamily: "Impact, sans-serif",
           fontSize: "1rem"
@@ -124,7 +124,6 @@ const News = () => {
       </div>
     );
   };
-  
   
 
   return (
