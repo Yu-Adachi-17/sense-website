@@ -636,19 +636,15 @@ function App() {
               }}>
                 <Link to="/services" style={{
                   padding: '10px 20px',
-                  backgroundColor: '#333',
                   color: '#fff',
                   textDecoration: 'none',
-                  borderRadius: '5px'
                 }}>
                   Services and Pricing
                 </Link>
                 <Link to="/news" style={{
                   padding: '10px 20px',
-                  backgroundColor: '#333',
                   color: '#fff',
                   textDecoration: 'none',
-                  borderRadius: '5px'
                 }}>
                   AI News
                 </Link>
