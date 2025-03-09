@@ -129,16 +129,13 @@
     background: #222;
     border-radius: 12px;
     padding: 30px;
-    width: 80%;           /* 元の設定（縮尺変更前） */
-    max-width: 600px;      /* 元の設定 */
-    max-height: 80vh;      /* 画面内に収まらない場合は縦スクロール */
-    overflow-y: auto;      /* スクロールを有効化 */
+    width: 75vw;      /* ビューポートの幅の75% */
+    max-height: 75vh; /* ビューポートの高さの75% */
+    overflow-y: auto; /* 内容がはみ出したら縦スクロール */
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     position: relative;
     animation: fadeIn 0.3s ease;
     color: #f5f7fa;
-    transform: scale(0.75);        /* 全体を0.75倍に縮小 */
-    transform-origin: center;      /* 中心を基準に縮小 */
   }
   
   .overlay-close {
