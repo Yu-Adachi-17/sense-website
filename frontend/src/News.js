@@ -79,7 +79,7 @@ const News = () => {
       if (
         trimmedLine === 'Points:' ||
         trimmedLine === 'Lecture:' ||
-        trimmedLine === 'Original Forecast:'
+        trimmedLine === 'Our Forecast:'
       ) {
         const label = trimmedLine.slice(0, -1);
         return (
