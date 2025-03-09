@@ -4,7 +4,7 @@ import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import PurchaseMenu from './components/PurchaseMenu';
 import BuyTicketsPage from "./components/BuyTicketsPage";
 import Login from "./components/Login";
