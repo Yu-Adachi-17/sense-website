@@ -105,12 +105,34 @@
     z-index: 1000;
   }
   
+  /* オーバーレイ下部の追加テキスト */
+  .overlay-extra {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .overlay-extra a {
+    color: #4da6ff;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+  }
+  
+  .overlay-extra a:hover {
+    border-bottom: 1px solid #4da6ff;
+  }
+  
   .overlay-content {
     background: #222;
     border-radius: 12px;
     padding: 30px;
-    width: 80%;
-    max-width: 600px;
+    width: 60%;           /* 変更前：80% → 0.75倍 */
+    max-width: 450px;      /* 変更前：600px → 0.75倍 */
+    max-height: 80vh;      /* 画面内に収まらない場合は縦スクロール */
+    overflow-y: auto;      /* スクロールを有効化 */
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     position: relative;
     animation: fadeIn 0.3s ease;
