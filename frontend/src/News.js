@@ -110,14 +110,14 @@ const News = () => {
     }
   
     return (
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", paddingBottom: "2rem" }}>
         {lines}
         <div style={{
           position: "absolute",
-          bottom: "10px", // 下から10pxの余白
-          right: "10px",  // 右から10pxの余白
+          bottom: "10px",
+          right: "10px",
           fontFamily: "Impact, sans-serif",
-          fontSize: "1rem" // ニュース本文と同じ大きさ
+          fontSize: "1rem"
         }}>
           {formattedDate}
         </div>
