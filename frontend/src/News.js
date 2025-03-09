@@ -57,27 +57,53 @@ const News = () => {
       );
     });
   };
+
+  // 一覧表示用のサマリー整形関数
+const formatSummaryForList = (text) => {
+    if (!text) return null;
+    
+    // 「Lecture:」の位置を探す
+    const lectureIndex = text.indexOf('Lecture:');
+    let pointsText;
+    if (lectureIndex !== -1) {
+      pointsText = text.substring(0, lectureIndex);
+    } else {
+      pointsText = text;
+    }
+    
+    // 400文字を超える場合はカットして「...」を追加
+    if (pointsText.length > 400) {
+      pointsText = pointsText.substring(0, 400) + '...';
+    }
+    
+    // 改行ごとに<div>でラップして返す
+    return pointsText.split('\n').map((line, index) => (
+      <div key={index}>{line}</div>
+    ));
+  };
+  
   
 
   return (
     <div className="news-page">
       <h1 className="news-header">
-        One Minutes <span className="gradient-text">AI</span> News
+        One Minute <span className="gradient-text">AI</span> News
       </h1>
 
       <div className="news-grid">
-        {currentArticles.map(article => (
-          <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
-            <h2 className="news-title">{article.title}</h2>
-            {article.imageUrl && (
-              <img src={article.imageUrl} alt="Article" className="news-image" />
-            )}
-            <div className="news-summary">
-              {formatSummary(article.summary)}
-            </div>
-          </div>
-        ))}
+  {currentArticles.map(article => (
+    <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
+      <h2 className="news-title">{article.title}</h2>
+      {article.imageUrl && (
+        <img src={article.imageUrl} alt="Article" className="news-image" />
+      )}
+      <div className="news-summary">
+        {formatSummaryForList(article.summary)}
       </div>
+    </div>
+  ))}
+</div>
+
 
       {/* ページネーション */}
       {totalPages > 1 && (
