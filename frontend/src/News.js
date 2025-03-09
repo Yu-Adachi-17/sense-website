@@ -71,8 +71,8 @@ const News = () => {
     } else {
       pointsText = text;
     }
-    if (pointsText.length > 150) {
-      pointsText = pointsText.substring(0, 150) + '...';
+    if (pointsText.length > 400) {
+      pointsText = pointsText.substring(0, 400) + '...';
     }
     const lines = pointsText.split('\n').map((line, index) => {
       const trimmedLine = line.trim();
@@ -114,8 +114,8 @@ const News = () => {
         {lines}
         <div style={{
           position: "absolute",
-          bottom: 0,
-          right: 0,
+          bottom: "10px", // 下から10pxの余白
+          right: "10px",  // 右から10pxの余白
           fontFamily: "Impact, sans-serif",
           fontSize: "1rem" // ニュース本文と同じ大きさ
         }}>
