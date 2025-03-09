@@ -4,7 +4,8 @@ import FullScreenOverlay from './components/FullScreenOverlay.js';
 import ProgressIndicator from './components/ProgressIndicator';
 import { transcribeAudio } from './utils/ChatGPTs';
 import { Success, Cancel } from './AfterPayment';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Link from 'next/link';
 import PurchaseMenu from './components/PurchaseMenu';
 import BuyTicketsPage from "./components/BuyTicketsPage";
 import Login from "./components/Login";
@@ -634,20 +635,21 @@ function App() {
                 gap: '20px',
                 zIndex: 1000
               }}>
-                <Link to="/services" style={{
-                  padding: '10px 20px',
-                  color: '#fff',
-                  textDecoration: 'none',
-                }}>
-                  Services and Pricing
-                </Link>
-                <Link to="/news" style={{
-                  padding: '10px 20px',
-                  color: '#fff',
-                  textDecoration: 'none',
-                }}>
-                  AI News
-                </Link>
+<Link href="/services" style={{
+  padding: '10px 20px',
+  color: '#fff',
+  textDecoration: 'none',
+}}>
+  Services and Pricing
+</Link>
+
+                <Link href="/news" style={{
+  padding: '10px 20px',
+  color: '#fff',
+  textDecoration: 'none',
+}}>
+  AI News
+</Link>
               </div>
 
               {isUserDataLoaded && (
@@ -772,7 +774,7 @@ function App() {
         <Route path="/:lang/services" element={<ServicesWrapper />} />
         <Route path="/:lang" element={<RedirectToServices />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/news" element={<NewsPage />} />
+        {/* <Route path="/news" element={<NewsPage />} /> */}
         <Route path="*" element={<h1 style={{ color: "white", textAlign: "center" }}>404 Not Found</h1>} />
 
       </Routes>
