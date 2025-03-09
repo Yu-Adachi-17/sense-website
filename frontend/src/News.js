@@ -114,7 +114,7 @@ const News = () => {
         {lines}
         <div style={{
           position: "absolute",
-          bottom: "-20px", // ボックス枠外に出すため負の値を指定
+          bottom: "-40px", // ボックス枠外に出すため負の値を指定
           right: "10px",
           fontFamily: "Impact, sans-serif",
           fontSize: "1rem"
