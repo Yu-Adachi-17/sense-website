@@ -110,7 +110,7 @@ const News = () => {
     }
   
     return (
-      <div style={{ position: "relative", paddingBottom: "2rem" }}>
+      <div style={{ position: "relative", width: "100%", paddingBottom: "2rem" }}>
         {lines}
         <div style={{
           position: "absolute",
@@ -124,6 +124,7 @@ const News = () => {
       </div>
     );
   };
+  
   
 
   return (
