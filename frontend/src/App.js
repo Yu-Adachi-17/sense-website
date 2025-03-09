@@ -593,6 +593,48 @@ function App() {
                 {!showFullScreen && <PurchaseMenu />}
 
                 <div
+  style={{
+    position: 'fixed',
+    bottom: 20,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    display: 'flex',
+    gap: '20px',
+    zIndex: 1000,
+  }}
+>
+  <Link to="/services">
+    <button
+      style={{
+        padding: '10px 15px',
+        background: '#4a90e2',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+      }}
+    >
+      Services and Pricing
+    </Link>
+  <Link to="/news">
+    <button
+      style={{
+        background: '#333',
+        color: 'white',
+        padding: '10px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        fontWeight: 'bold',
+      }}
+    >
+      AI News
+    </button>
+  </Link>
+</div>
+
+
+                <div
                   className="outer-gradient"
                   style={{ transform: `translate(-50%, -50%) scale(${audioLevel})` }}
                 >
