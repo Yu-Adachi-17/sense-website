@@ -114,7 +114,7 @@ const News = () => {
         {lines}
         <div style={{
           position: "absolute",
-          bottom: "10px",
+          bottom: "-20px",
           right: "10px",
           fontFamily: "Impact, sans-serif",
           fontSize: "1rem"
