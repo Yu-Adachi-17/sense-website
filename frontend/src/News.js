@@ -40,7 +40,6 @@ const News = () => {
         trimmedLine === 'Lecture:' ||
         trimmedLine === 'Original Forecast:'
       ) {
-        // コロンを除いたテキストと、透明なコロンを分けてレンダリング
         const label = trimmedLine.slice(0, -1);
         return (
           <div key={index} className="heading">
@@ -54,7 +53,6 @@ const News = () => {
           </div>
         );
       }
-      // 通常の行はそのまま返す
       return (
         <div key={index}>
           {line}
@@ -66,8 +64,6 @@ const News = () => {
   // 一覧表示用のサマリー整形関数
   const formatSummaryForList = (text) => {
     if (!text) return null;
-    
-    // 「Lecture:」の位置を探し、そこまでのテキスト（＝Pointsのみ）を抽出
     const lectureIndex = text.indexOf('Lecture:');
     let pointsText;
     if (lectureIndex !== -1) {
@@ -75,13 +71,9 @@ const News = () => {
     } else {
       pointsText = text;
     }
-    
-    // 400文字を超える場合はカットして「...」を追加
     if (pointsText.length > 400) {
       pointsText = pointsText.substring(0, 400) + '...';
     }
-    
-    // 改行ごとに<div>でラップして返す
     return pointsText.split('\n').map((line, index) => {
       const trimmedLine = line.trim();
       if (
@@ -128,7 +120,6 @@ const News = () => {
         ))}
       </div>
 
-      {/* ページネーション */}
       {totalPages > 1 && (
         <div className="pagination">
           {Array.from({ length: totalPages }, (_, i) => (
@@ -154,6 +145,9 @@ const News = () => {
             <a className="overlay-link" href={selectedArticle.link} target="_blank" rel="noopener noreferrer">
               Read Full Article
             </a>
+          </div>
+          <div className="overlay-extra">
+            この話題、<a href="https://www.sense-ai.world/" target="_blank" rel="noopener noreferrer">議事録AI</a>で議論してみませんか？
           </div>
         </div>
       )}

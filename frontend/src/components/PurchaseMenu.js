@@ -159,7 +159,7 @@ export function PurchaseMenu() {
     purchaseButton: {
       background: "none",
       border: "none",
-      color: "yellow",
+      color: "#FFF",
       padding: "10px 0",
       fontSize: "16px",
       fontWeight: "bold",
