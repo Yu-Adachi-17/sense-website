@@ -86,9 +86,10 @@
   }
   
   .pagination-button.active {
-    background: #4da6ff;
-    color: #fff;
-  }
+    background: #fff;
+    color: #000;
+}
+
   
   /* オーバーレイのスタイル（詳細表示） */
   .overlay {
