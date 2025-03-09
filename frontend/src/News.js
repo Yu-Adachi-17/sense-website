@@ -71,8 +71,8 @@ const News = () => {
     } else {
       pointsText = text;
     }
-    if (pointsText.length > 400) {
-      pointsText = pointsText.substring(0, 400) + '...';
+    if (pointsText.length > 150) {
+      pointsText = pointsText.substring(0, 150) + '...';
     }
     const lines = pointsText.split('\n').map((line, index) => {
       const trimmedLine = line.trim();
@@ -139,9 +139,10 @@ const News = () => {
             {article.imageUrl && (
               <img src={article.imageUrl} alt="Article" className="news-image" />
             )}
-            <div className="news-summary">
-              {formatSummaryForList(article.summary)}
-            </div>
+<div className="news-summary">
+  {formatSummaryForList(article.summary, article.date)}
+</div>
+
           </div>
         ))}
       </div>
