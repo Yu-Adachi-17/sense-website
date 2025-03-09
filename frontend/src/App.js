@@ -593,48 +593,6 @@ function App() {
                 {!showFullScreen && <PurchaseMenu />}
 
                 <div
-  style={{
-    position: 'fixed',
-    bottom: 20,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    display: 'flex',
-    gap: '20px',
-    zIndex: 1000,
-  }}
->
-  <Link to="/services">
-    <button
-      style={{
-        padding: '10px 15px',
-        background: '#4a90e2',
-        color: 'white',
-        border: 'none',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-      }}
-    >
-      Services and Pricing
-    </Link>
-  <Link to="/news">
-    <button
-      style={{
-        background: '#333',
-        color: 'white',
-        padding: '10px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        fontWeight: 'bold',
-      }}
-    >
-      AI News
-    </button>
-  </Link>
-</div>
-
-
-                <div
                   className="outer-gradient"
                   style={{ transform: `translate(-50%, -50%) scale(${audioLevel})` }}
                 >
@@ -664,6 +622,36 @@ function App() {
                 )}
                 {/* isProcessing が true の間、進捗表示 */}
                 {isProcessing && <ProgressIndicator progressStep={progressStep} />}
+              </div>
+
+                            {/* 下部中央にボタンを追加 */}
+                            <div style={{
+                position: 'fixed',
+                bottom: '20px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                gap: '20px',
+                zIndex: 1000
+              }}>
+                <Link to="/services" style={{
+                  padding: '10px 20px',
+                  backgroundColor: '#333',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  borderRadius: '5px'
+                }}>
+                  Services and Pricing
+                </Link>
+                <Link to="/news" style={{
+                  padding: '10px 20px',
+                  backgroundColor: '#333',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  borderRadius: '5px'
+                }}>
+                  AI News
+                </Link>
               </div>
 
               {isUserDataLoaded && (
