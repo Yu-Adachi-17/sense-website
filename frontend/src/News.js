@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './News.css';
+import HomeIcon from './components/HomeIcon';
 
 const News = () => {
   const [articles, setArticles] = useState([]);
@@ -46,7 +47,7 @@ const News = () => {
       if (
         trimmedLine === 'Points:' ||
         trimmedLine === 'Lecture:' ||
-        trimmedLine === 'Original Forecast:'
+        trimmedLine === 'Our Forecast:'
       ) {
         const label = trimmedLine.slice(0, -1);
         return (
@@ -67,6 +68,13 @@ const News = () => {
         </div>
       );
     });
+  };
+
+  const homeIconStyle = {
+    position: 'absolute',
+    top: '20px',
+    left: '20px',
+    cursor: 'pointer',
   };
 
   // 一覧表示用のサマリー整形関数
@@ -133,6 +141,9 @@ const News = () => {
 
   return (
     <div className="news-page">
+      <div style={homeIconStyle}>
+        <HomeIcon size={30} />
+      </div>
       <h1 className="news-header">
         One Minute <span className="gradient-text">AI</span> News
       </h1>

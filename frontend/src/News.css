@@ -108,7 +108,7 @@
   /* オーバーレイ下部の追加テキスト */
   .overlay-extra {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     width: 100%;
     text-align: center;
     font-size: 1rem;
