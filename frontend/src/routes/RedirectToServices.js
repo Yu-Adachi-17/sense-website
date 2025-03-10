@@ -1,8 +1,17 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const RedirectToServices = () => {
-  const { lang } = useParams();
-  return <Navigate to={`/${lang}/services`} replace />;
+  const router = useRouter();
+  const { lang } = router.query; // URLのクエリパラメータからlangを取得
+
+  useEffect(() => {
+    if (lang) {
+      router.replace(`/${lang}/services`);
+    }
+  }, [lang, router]);
+
+  return null; // リダイレクト処理中は何も描画しない
 };
 
 export default RedirectToServices;

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import ServicesPage from "../components/Services";
 
 const ServicesWrapper = () => {
-  const { lang } = useParams(); // URLから言語を取得
+  const router = useRouter();
+  const { lang } = router.query; // URLのクエリパラメータから言語を取得
   const { i18n } = useTranslation();
 
   useEffect(() => {

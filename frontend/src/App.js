@@ -19,7 +19,6 @@ import { v4 as uuidv4 } from 'uuid';
 import MinutesList from './components/MinutesList';
 import MinutesDetail from './components/MinutesDetail';
 import MeetingFormatsList from './components/MeetingFormatsList'; // 新たに追加
-import { PiGridFourFill } from "react-icons/pi";
 import EmailVerification from "./components/EmailVerification"; // ここ
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";

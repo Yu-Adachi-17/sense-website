@@ -19,8 +19,8 @@ import zhCN from './locales/zh-CN.json';
 import zhTW from './locales/zh-TW.json';
 import no from './locales/no.json';
 import ar from './locales/ar.json';
-import ms from './locales/ms.json'; // ✅ 追加！マレー語（マレーシア）
-import id from './locales/id.json'; // ✅ 追加！インドネシア語
+import ms from './locales/ms.json'; // ✅ マレー語（マレーシア）
+import id from './locales/id.json'; // ✅ インドネシア語
 
 console.log("📌 Checking language files...");
 console.log("🇺🇸 en:", en);
@@ -71,6 +71,7 @@ i18n.use(initReactI18next).init({
 
 // ✅ `i18n.init()` の後に言語を決定
 const getLang = () => {
+  if (typeof window === "undefined") return "en"; // Next.jsのSSR対応
   const lang = navigator.language;
   console.log("🌍 Detected language:", lang);
 

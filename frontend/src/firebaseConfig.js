@@ -5,18 +5,18 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth"; // 追加
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAMXPYc83E8AASYYb6D94Bu_XskVduXSUU",
-  authDomain: "miniutesai.firebaseapp.com",
-  projectId: "miniutesai",
-  storageBucket: "miniutesai.firebasestorage.app",
-  messagingSenderId: "829934411933",
-  appId: "1:829934411933:web:f55ef7205123425f5f3474",
-  measurementId: "G-0DJ5W7SD82"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
 // Firebase 初期化
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
 const db = getFirestore(app);
 const auth = getAuth(app); // 追加
 
