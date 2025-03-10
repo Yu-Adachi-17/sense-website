@@ -1,4 +1,5 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
 import HomeIcon from './homeIcon';
 
 export default function TermsOfUse() {
@@ -8,7 +9,7 @@ export default function TermsOfUse() {
     padding: '30px',
     backgroundColor: '#000',
     color: '#fff',
-    fontSize: '18px', // 基本のフォントサイズをやや大きめに設定
+    fontSize: '18px',
     lineHeight: 1.8,
     fontFamily: 'Arial, sans-serif',
     textAlign: 'left',
@@ -28,13 +29,13 @@ export default function TermsOfUse() {
   };
 
   const h1Style = {
-    fontSize: '40px', // 元の32pxより大きく
+    fontSize: '40px',
     marginBottom: '20px',
     ...headingStyle,
   };
 
   const h2Style = {
-    fontSize: '28px', // 元の24pxより大きく
+    fontSize: '28px',
     marginTop: '30px',
     marginBottom: '10px',
     ...headingStyle,
@@ -111,3 +112,11 @@ export default function TermsOfUse() {
     </div>
   );
 }
+
+// getStaticProps を追加して、ビルド時に静的HTMLを生成
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 10, // ISR: 10秒ごとにページを再生成
+  };
+};
