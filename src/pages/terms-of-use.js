@@ -107,16 +107,26 @@ export default function TermsOfUse() {
         <p style={paragraphStyle}>
           For inquiries regarding these terms, please contact us at the following email address:
         </p>
-        <p style={{ ...paragraphStyle, fontWeight: 'bold' }}>[info@sense-ai.worldあ]</p>
+        <p style={{ ...paragraphStyle, fontWeight: 'bold' }}>[info@sense-ai.world]</p>
       </div>
     </div>
   );
 }
 
-// getStaticProps を追加して、ビルド時に静的HTMLを生成
-export const getStaticProps: GetStaticProps = async () => {
+// ✅ `getStaticProps` の修正：TypeScript の型指定を削除
+export const getStaticProps = async () => {
   return {
-    props: {},
-    revalidate: 10, // ISR: 10秒ごとにページを再生成
+    props: {
+      terms: `
+        <h2 style="font-size:28px;margin-top:30px;margin-bottom:10px;font-weight:bold;">1. Introduction</h2>
+        <p>These terms define the conditions for using the Meeting Minutes AI...</p>
+        <h2 style="font-size:28px;margin-top:30px;margin-bottom:10px;font-weight:bold;">2. Usage Conditions</h2>
+        <ul>
+          <li>The Service can be used by both individuals and corporations.</li>
+          <li>Users must use the Service in a lawful and appropriate manner.</li>
+        </ul>
+      `
+    },
+    revalidate: 10, // ISR を有効化
   };
 };

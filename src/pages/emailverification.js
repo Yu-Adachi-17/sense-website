@@ -4,10 +4,17 @@ import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 
 export default function EmailVerification() {
-  const auth = getAuth();
   const router = useRouter();
   const { t, i18n } = useTranslation();
   const [statusMessage, setStatusMessage] = useState(t("Verifying..."));
+  const [authInstance, setAuthInstance] = useState(null);
+
+  // クライアントサイドで Firebase Auth のインスタンスを取得
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setAuthInstance(getAuth());
+    }
+  }, []);
 
   // アラビア語の場合に dir="rtl" を適用
   useEffect(() => {
@@ -15,11 +22,11 @@ export default function EmailVerification() {
   }, [i18n.language]);
 
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!router.isReady || !authInstance) return;
     const { oobCode } = router.query;
 
     if (oobCode) {
-      applyActionCode(auth, oobCode)
+      applyActionCode(authInstance, oobCode)
         .then(() => {
           setStatusMessage(
             t("Email verification successful. Please log in after your account is verified.")
@@ -34,7 +41,7 @@ export default function EmailVerification() {
     } else {
       setStatusMessage(t("Verification code not found."));
     }
-  }, [router.isReady, router.query, auth, t]);
+  }, [router.isReady, router.query, authInstance, t]);
 
   return (
     <div

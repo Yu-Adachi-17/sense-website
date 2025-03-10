@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 const defaultMeetingFormats = [
   {
@@ -123,20 +124,26 @@ const defaultMeetingFormats = [
   }
 ];
 
-// ローカライズ処理：各フォーマットのキーを t() を使って翻訳する
-export const localizeFormat = (format, t) => ({
-  id: format.id,
-  title: t(format.titleKey),
-  template: format.templateKey.replace(/{([^}]+)}/g, (_, key) => t(key)),
-  selected: format.selected,
-  // 保存時にキー情報を残しておくため
-  titleKey: format.titleKey,
-  templateKey: format.templateKey,
-});
 
-// フック自体はキー情報のみを返す（IndexedDB にはローカライズ済み文字列ではなくキーが保存される）
-const useLocalizedMeetingFormats = () => {
-  return defaultMeetingFormats;
-};
-
-export default useLocalizedMeetingFormats;
+// **ローカライズ処理**
+const localizeFormat = (format, t) => ({
+    id: format.id,
+    title: t(format.titleKey),
+    template: format.templateKey.replace(/{([^}]+)}/g, (_, key) => t(key)),
+    titleKey: format.titleKey,
+    templateKey: format.templateKey
+  });
+  
+  // **カスタムフック**
+  const useLocalizedMeetingFormats = () => {
+    const { t } = useTranslation();
+    const [localizedFormats, setLocalizedFormats] = useState([]);
+  
+    useEffect(() => {
+      setLocalizedFormats(defaultMeetingFormats.map(format => localizeFormat(format, t)));
+    }, [t]); // `t` が変更された場合に再実行
+  
+    return localizedFormats;
+  };
+  
+  export default useLocalizedMeetingFormats;
