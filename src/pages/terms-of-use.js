@@ -107,7 +107,7 @@ export default function TermsOfUse() {
         <p style={paragraphStyle}>
           For inquiries regarding these terms, please contact us at the following email address:
         </p>
-        <p style={{ ...paragraphStyle, fontWeight: 'bold' }}>[info@sense-ai.world]</p>
+        <p style={{ ...paragraphStyle, fontWeight: 'bold' }}>[info@sense-ai.worldあ]</p>
       </div>
     </div>
   );
