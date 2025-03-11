@@ -9,7 +9,7 @@ import { Success, Cancel } from '../AfterPayment';
 import PurchaseMenu from './purchasemenu';
 
 
-import MinutesList from './minuteslist';
+import MinutesList from './minutes-list';
 import MinutesDetail from './minutesdetail';
 
 
