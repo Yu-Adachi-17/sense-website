@@ -8,11 +8,6 @@ import { transcribeAudio } from '../utils/ChatGPTs';
 import { Success, Cancel } from '../AfterPayment';
 import PurchaseMenu from './purchasemenu';
 
-import SignUp from './signup';
-import MinutesList from './minuteslist';
-import MinutesDetail from './minutesdetail';
-
-
 
 import ServicesWrapper from '../routes/ServicesWrapper';
 import RedirectToServices from '../routes/RedirectToServices';

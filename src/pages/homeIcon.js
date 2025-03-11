@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 
-const HomeIcon = ({ size = '40px' }) => {
-  const router = useRouter();
+const HomeIconNext = ({ size = '40px' }) => {
+    const router = useRouter();
 
   return (
     <div
-      onClick={() => router.push('/')} // ✅ 修正: navigate → router.push
+      onClick={() => navigate('/')}
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -18,7 +18,7 @@ const HomeIcon = ({ size = '40px' }) => {
       <svg
         width={size}
         height={size}
-        viewBox="0 0 512 512"
+        viewBox="0 0 512 512" // FaRegCircle の元の SVG サイズ
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -40,4 +40,4 @@ const HomeIcon = ({ size = '40px' }) => {
   );
 };
 
-export default HomeIcon;
+export default HomeIconNext;
