@@ -9,6 +9,11 @@ import { Success, Cancel } from '../AfterPayment';
 import PurchaseMenu from './purchasemenu';
 
 
+import MinutesList from './minuteslist';
+import MinutesDetail from './minutesdetail';
+
+
+
 import ServicesWrapper from '../routes/ServicesWrapper';
 import RedirectToServices from '../routes/RedirectToServices';
 import { db, auth } from '../firebaseConfig';
