@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-const HomeIconNext = ({ size = '40px' }) => {
+const HomeIcon = ({ size = '40px' }) => {
     const router = useRouter();
 
   return (
@@ -40,4 +40,5 @@ const HomeIconNext = ({ size = '40px' }) => {
   );
 };
 
-export default HomeIconNext;
+export default HomeIcon;
+
