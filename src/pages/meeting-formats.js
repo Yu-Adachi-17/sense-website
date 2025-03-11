@@ -4,14 +4,14 @@ import { useTranslation } from "react-i18next";
 import Head from "next/head";
 
 const MeetingFormatsList = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation(); // useTranslation() から t, i18n を取得
 
-  // アラビア語の場合に `dir="rtl"` を適用
+  // アラビア語の場合に dir="rtl" を適用
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
-  // デフォルトの議事録フォーマット
+  // ハードコードされたデフォルトフォーマット（useLocalizedMeetingFormats の内容を inline 化）
   const defaultMeetingFormats = [
     {
       id: "general",
@@ -22,7 +22,9 @@ const MeetingFormatsList = () => {
 【${t("Attendees")}】
 【${t("Agenda(1)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}
 【${t("Agenda(2)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}
-【${t("Agenda(3)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}・・・・（${t("Repeat the agenda items (4), (5), (6), and (7), if any, below.")}）・・`
+【${t("Agenda(3)")}】⚫︎${t("Discussion")}⚫︎${t("Decision items")}⚫︎${t("Pending problem")}・・・・（${t(
+        "Repeat the agenda items (4), (5), (6), and (7), if any, below."
+      )}）・・`
     },
     {
       id: "1on1",
@@ -135,11 +137,18 @@ const MeetingFormatsList = () => {
     }
   ];
 
+  // 各種 state 定義
   const [formats, setFormats] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [newTitle, setNewTitle] = useState("");
+  const [newTemplate, setNewTemplate] = useState("");
+  const [editingFormat, setEditingFormat] = useState(null);
+  const [editingText, setEditingText] = useState("");
+  const [selectionMode, setSelectionMode] = useState(false);
   const dbRef = useRef(null);
 
-  // IndexedDBを開く
+  /* ===== IndexedDB 関連 ===== */
   const openDB = () => {
     return new Promise((resolve, reject) => {
       const request = window.indexedDB.open("MeetingFormatsDB", 1);
@@ -164,6 +173,16 @@ const MeetingFormatsList = () => {
     });
   };
 
+  const putFormat = (db, format) => {
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction("formats", "readwrite");
+      const store = transaction.objectStore("formats");
+      const request = store.put(format);
+      request.onsuccess = () => resolve();
+      request.onerror = (event) => reject(event.target.error);
+    });
+  };
+
   useEffect(() => {
     let isMounted = true;
     openDB()
@@ -173,49 +192,178 @@ const MeetingFormatsList = () => {
       })
       .then((savedFormats) => {
         if (isMounted) {
-          setFormats(savedFormats.length > 0 ? savedFormats : defaultMeetingFormats);
+          if (savedFormats && savedFormats.length > 0) {
+            setFormats(savedFormats);
+          } else {
+            // 初回：デフォルトフォーマットを初期化し "general" を選択状態にする
+            const initialFormats = defaultMeetingFormats.map((format) => ({
+              ...format,
+              selected: format.id === "general",
+            }));
+            setFormats(initialFormats);
+            initialFormats.forEach((format) => {
+              putFormat(dbRef.current, format).catch((err) =>
+                console.error("Error saving default format:", err)
+              );
+            });
+          }
         }
       })
       .catch((err) => console.error("Error opening IndexedDB:", err));
-
     return () => {
       isMounted = false;
     };
   }, [t]);
 
-  const filteredFormats = formats.filter(
-    (format) =>
-      format.title.toLowerCase().includes(searchText.toLowerCase()) ||
-      format.template.toLowerCase().includes(searchText.toLowerCase())
+  useEffect(() => {
+    const selected = formats.find((f) => f.selected);
+    if (selected) {
+      localStorage.setItem("selectedMeetingFormat", JSON.stringify(selected));
+    }
+  }, [formats]);
+
+  // 検索＆ソート
+  const filteredFormats = formats.filter((format) =>
+    format.title.toLowerCase().includes(searchText.toLowerCase()) ||
+    format.template.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  const sortedFormats = [...filteredFormats].sort((a, b) => {
+    const getPriority = (format) => {
+      if (format.selected) return 0;
+      if (format.id === "general") return 1;
+      return 2;
+    };
+
+    const aPriority = getPriority(a);
+    const bPriority = getPriority(b);
+    if (aPriority !== bPriority) {
+      return aPriority - bPriority;
+    } else {
+      return a.title.localeCompare(b.title, "ja");
+    }
+  });
+
+  // 単一選択更新
+  const updateSingleSelection = (targetId) => {
+    const updatePromises = [];
+    const updatedFormats = formats.map((format) => {
+      const isSelected = format.id === targetId;
+      if (format.selected !== isSelected && dbRef.current) {
+        updatePromises.push(
+          putFormat(dbRef.current, { ...format, selected: isSelected }).catch((err) =>
+            console.error("Error updating format selection:", err)
+          )
+        );
+      }
+      return { ...format, selected: isSelected };
+    });
+    setFormats(updatedFormats);
+    Promise.all(updatePromises)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((err) => console.error("Error in selection update:", err));
+  };
+
+  const handleSelectionChange = (id, event) => {
+    event.stopPropagation();
+    updateSingleSelection(id);
+  };
+
+  const toggleSelect = (id) => {
+    updateSingleSelection(id);
+  };
+
+  const handleItemClick = (format) => {
+    if (selectionMode) {
+      toggleSelect(format.id);
+    } else {
+      setEditingFormat(format);
+      setEditingText(format.template);
+    }
+  };
+
+  const handleSaveEdit = () => {
+    if (!editingFormat) return;
+    const updatedFormat = { ...editingFormat, template: editingText };
+    const updatedFormats = formats.map((format) =>
+      format.id === updatedFormat.id ? updatedFormat : format
+    );
+    setFormats(updatedFormats);
+    if (dbRef.current) {
+      putFormat(dbRef.current, updatedFormat).catch((err) =>
+        console.error("Error saving edited format:", err)
+      );
+    }
+    setEditingFormat(null);
+    setEditingText("");
+  };
+
+  const handleCancelEdit = () => {
+    setEditingFormat(null);
+    setEditingText("");
+  };
+
+  const handleAddNewFormat = () => {
+    const newId = `custom-${Date.now()}`;
+    const newFormat = {
+      id: newId,
+      title: newTitle || "New Format",
+      template: newTemplate || "",
+      selected: false,
+    };
+    const updatedFormats = [...formats, newFormat];
+    setFormats(updatedFormats);
+    if (dbRef.current) {
+      putFormat(dbRef.current, newFormat).catch((err) =>
+        console.error("Error adding new format:", err)
+      );
+    }
+    setNewTitle("");
+    setNewTemplate("");
+    setShowAddForm(false);
+  };
+
   return (
-    <>
-      <Head>
-        <title>{t("Meeting Formats List")}</title>
-      </Head>
-
-      <div style={{ backgroundColor: "#000", minHeight: "100vh", padding: 20, color: "white" }}>
-        {/* ヘッダー */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            height: "70px",
-            padding: "0 20px",
-            backgroundColor: "#000",
-            zIndex: 1500,
-          }}
-        >
-          <div style={{ width: "70px" }}>
-            <HomeIcon size={30} color="white" />
-          </div>
-          <div style={{ flexGrow: 1, textAlign: "center" }}>
-            <h1 style={{ margin: 0, fontSize: "38px" }}>{t("Meeting Formats")}</h1>
-          </div>
+    <div style={{ backgroundColor: "#000", minHeight: "100vh", padding: 20, color: "white" }}>
+      {/* ヘッダー */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: "70px",
+          padding: "0 20px",
+          backgroundColor: "#000",
+          zIndex: 1500,
+        }}
+      >
+        <div style={{ width: "70px" }}>
+          <HomeIcon size={30} color="white" />
         </div>
+        <div style={{ flexGrow: 1, textAlign: "center" }}>
+          <h1 style={{ margin: 0, fontSize: "38px" }}>{t("Minutes Formats")}</h1>
+        </div>
+        <div style={{ width: "70px", textAlign: "right" }}>
+          <button
+            onClick={() => setShowAddForm(true)}
+            style={{
+              backgroundColor: "#1e1e1e",
+              color: "white",
+              border: "none",
+              padding: "10px 15px",
+              borderRadius: 4,
+              fontSize: 24,
+              cursor: "pointer",
+            }}
+          >
+            ＋
+          </button>
+        </div>
+      </div>
 
+      <div>
         {/* 検索ボックス */}
         <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
           <input
@@ -245,18 +393,29 @@ const MeetingFormatsList = () => {
             gap: 15,
           }}
         >
-          {filteredFormats.map((format) => (
-            <div key={format.id} style={{ cursor: "pointer" }}>
-              <h3
+          {sortedFormats.map((format) => (
+            <div
+              key={format.id}
+              style={{ cursor: "pointer" }}
+              onClick={() => handleItemClick(format)}
+            >
+              <div
                 style={{
-                  margin: 0,
-                  fontSize: "28px",
-                  textAlign: "center",
-                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                {format.title}
-              </h3>
+                <h3 style={{ margin: 0, fontSize: "28px", textAlign: "center", width: "100%" }}>
+                  {format.title}
+                </h3>
+                <input
+                  type="checkbox"
+                  checked={!!format.selected}
+                  onClick={(e) => e.stopPropagation()}
+                  onChange={(e) => handleSelectionChange(format.id, e)}
+                />
+              </div>
               <div
                 style={{
                   backgroundColor: "#1e1e1e",
@@ -282,7 +441,184 @@ const MeetingFormatsList = () => {
           ))}
         </div>
       </div>
-    </>
+
+      {/* 編集用モーダル */}
+      {editingFormat && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.7)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+          onClick={handleCancelEdit}
+        >
+          <div
+            style={{
+              backgroundColor: "#1e1e1e",
+              padding: 20,
+              borderRadius: 10,
+              width: "90%",
+              maxWidth: 600,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 style={{ marginTop: 0 }}>{editingFormat.title}</h2>
+            <textarea
+              value={editingText}
+              onChange={(e) => setEditingText(e.target.value)}
+              style={{
+                width: "100%",
+                minHeight: 200,
+                padding: 10,
+                borderRadius: 8,
+                border: "none",
+                fontSize: 16,
+                backgroundColor: "#1e1e1e",
+                color: "white",
+                outline: "none",
+                resize: "vertical",
+              }}
+            />
+            <div style={{ marginTop: 10, textAlign: "right" }}>
+              <button
+                onClick={handleCancelEdit}
+                style={{
+                  backgroundColor: "#555",
+                  color: "white",
+                  border: "none",
+                  padding: "10px 15px",
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  fontSize: 16,
+                  marginRight: 10,
+                }}
+              >
+                {t("Cancel")}
+              </button>
+              <button
+                onClick={handleSaveEdit}
+                style={{
+                  backgroundColor: "#1e1e1e",
+                  color: "white",
+                  border: "none",
+                  padding: "10px 15px",
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  fontSize: 16,
+                }}
+              >
+                {t("Save")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 新規フォーマット追加モーダル */}
+      {showAddForm && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.7)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000,
+          }}
+          onClick={() => setShowAddForm(false)}
+        >
+          <div
+            style={{
+              backgroundColor: "#1e1e1e",
+              padding: 20,
+              borderRadius: 10,
+              width: "90%",
+              maxWidth: 600,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 style={{ marginTop: 0 }}>{t("Add New Format")}</h2>
+            <input
+              type="text"
+              placeholder={t("Title")}
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+              style={{
+                width: "100%",
+                padding: 10,
+                borderRadius: 8,
+                border: "none",
+                fontSize: 16,
+                marginBottom: 10,
+                backgroundColor: "#1e1e1e",
+                color: "white",
+                outline: "none",
+              }}
+            />
+            <textarea
+              placeholder={t("Template Content")}
+              value={newTemplate}
+              onChange={(e) => setNewTemplate(e.target.value)}
+              style={{
+                width: "100%",
+                padding: 10,
+                borderRadius: 8,
+                border: "none",
+                fontSize: 16,
+                marginBottom: 10,
+                backgroundColor: "#1e1e1e",
+                color: "white",
+                outline: "none",
+                minHeight: 150,
+                resize: "vertical",
+              }}
+            />
+            <div style={{ textAlign: "right" }}>
+              <button
+                onClick={() => setShowAddForm(false)}
+                style={{
+                  backgroundColor: "#555",
+                  color: "white",
+                  border: "none",
+                  padding: "10px 15px",
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  fontSize: 16,
+                  marginRight: 10,
+                }}
+              >
+                {t("Cancel")}
+              </button>
+              <button
+                onClick={handleAddNewFormat}
+                style={{
+                  backgroundColor: "black",
+                  color: "white",
+                  border: "none",
+                  padding: "10px 15px",
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  fontSize: 16,
+                }}
+              >
+                {t("Add")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
