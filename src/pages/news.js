@@ -4,34 +4,30 @@ import axios from 'axios';
 import HomeIcon from './homeIcon';
 
 export async function getServerSideProps(context) {
-  const { query } = context;
-  const currentPage = query.page ? parseInt(query.page, 10) : 1;
-  const itemsPerPage = 20;
-
-  try {
-    const response = await axios.get(
-      `https://ai-news-production-a7b7.up.railway.app/api/news?page=${currentPage}&limit=${itemsPerPage}`
-    );
-
-    return {
-      props: {
-        articles: response.data.articles || [],
-        totalPages: response.data.totalPages || 1,
-        currentPage,
-      },
-    };
-  } catch (error) {
-    console.error("ニュース取得エラー:", error);
-    return {
-      props: {
-        articles: [],
-        totalPages: 1,
-        currentPage,
-      },
-    };
-  }
-}
-
+    try {
+      const response = await axios.get(
+        `https://ai-news-production-a7b7.up.railway.app/api/news?page=1&limit=5`
+      );
+  
+      return {
+        props: {
+          articles: response.data.articles || [],
+          totalPages: 1, // ページネーション無効化
+          currentPage: 1,
+        },
+      };
+    } catch (error) {
+      console.error("ニュース取得エラー:", error);
+      return {
+        props: {
+          articles: [],
+          totalPages: 1,
+          currentPage: 1,
+        },
+      };
+    }
+  };
+  
 const News = ({ articles, totalPages, currentPage }) => {
     const [selectedArticle, setSelectedArticle] = useState(null);
     
