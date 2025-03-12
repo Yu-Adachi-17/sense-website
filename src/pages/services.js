@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import HomeIcon from "./homeIcon";
 import { FaApple } from "react-icons/fa";
 import PrivacyPolicy from "./privacy-policy";
 import TermsOfUse from "./terms-of-use";
 import TransactionsLaw from "./transactions-law";
-// react-helmet を利用して <head> 内の要素を制御
-import { Helmet } from "react-helmet";
 import Link from "next/link";
 
 export default function ServicesPage() {
@@ -126,29 +124,7 @@ export default function ServicesPage() {
 
   return (
     <div>
-      <Helmet>
-        <html lang={i18n.language} />
-        <link rel="alternate" hrefLang="en" href="https://www.sense-ai.world/en/services" />
-        <link rel="alternate" hrefLang="ja" href="https://www.sense-ai.world/ja/services" />
-        <link rel="alternate" hrefLang="de" href="https://www.sense-ai.world/de/services" />
-        <link rel="alternate" hrefLang="nl" href="https://www.sense-ai.world/nl/services" />
-        <link rel="alternate" hrefLang="ko" href="https://www.sense-ai.world/ko/services" />
-        <link rel="alternate" hrefLang="fr" href="https://www.sense-ai.world/fr/services" />
-        <link rel="alternate" hrefLang="pt-BR" href="https://www.sense-ai.world/pt-BR/services" />
-        <link rel="alternate" hrefLang="pt-PT" href="https://www.sense-ai.world/pt-PT/services" />
-        <link rel="alternate" hrefLang="es-ES" href="https://www.sense-ai.world/es-ES/services" />
-        <link rel="alternate" hrefLang="es-MX" href="https://www.sense-ai.world/es-MX/services" />
-        <link rel="alternate" hrefLang="da" href="https://www.sense-ai.world/da/services" />
-        <link rel="alternate" hrefLang="sv" href="https://www.sense-ai.world/sv/services" />
-        <link rel="alternate" hrefLang="tr" href="https://www.sense-ai.world/tr/services" />
-        <link rel="alternate" hrefLang="zh-CN" href="https://www.sense-ai.world/zh-CN/services" />
-        <link rel="alternate" hrefLang="zh-TW" href="https://www.sense-ai.world/zh-TW/services" />
-        <link rel="alternate" hrefLang="no" href="https://www.sense-ai.world/no/services" />
-        <link rel="alternate" hrefLang="ar" href="https://www.sense-ai.world/ar/services" />
-        <link rel="alternate" hrefLang="ms" href="https://www.sense-ai.world/ms/services" />
-        <link rel="alternate" hrefLang="id" href="https://www.sense-ai.world/id/services" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.sense-ai.world/services" />
-      </Helmet>
+      {/* react-helmet を削除 */}
 
       <div style={homeIconStyle}>
         <HomeIcon size={30} />
