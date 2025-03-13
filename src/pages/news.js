@@ -34,6 +34,11 @@ export async function getServerSideProps(context) {
 
 const News = ({ articles, totalPages, currentPage }) => {
   const [selectedArticle, setSelectedArticle] = useState(null);
+
+  // Sort articles so that the newest date comes first
+  const sortedArticles = [...articles].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
   
   const openArticle = (article) => setSelectedArticle(article);
   const closeOverlay = () => setSelectedArticle(null);
@@ -108,7 +113,7 @@ const News = ({ articles, totalPages, currentPage }) => {
       </h1>
 
       <div className="news-grid">
-        {articles.map(article => (
+        {sortedArticles.map(article => (
           <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
             <h2 className="news-title">{article.title}</h2>
             <div className="news-summary">{formatSummaryForList(article.summary, article.date)}</div>
