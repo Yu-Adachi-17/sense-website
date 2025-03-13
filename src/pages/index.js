@@ -602,7 +602,7 @@ function App() {
     Services and Pricing
   </span>
 </Link>
-<Link href="/news">
+<Link href="/ai-news">
   <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
     AI News
   </span>
