@@ -96,7 +96,7 @@ const News = ({ articles, totalPages, currentPage }) => {
       <div className="news-page">
         <Head>
           <title>One Minute AI News</title>
-          <meta name="description" content="最新のAI関連ニュースを毎日更新。" />
+          <meta name="description" content="Daily updates on the latest AI news." />
           <meta name="robots" content="index, follow" />
         </Head>
   
@@ -108,12 +108,9 @@ const News = ({ articles, totalPages, currentPage }) => {
         </h1>
   
         <div className="news-grid">
-          {articles.map(article => (
+          {articles.slice().reverse().map(article => (
             <div key={article.link} className="news-card" onClick={() => openArticle(article)}>
               <h2 className="news-title">{article.title}</h2>
-              {article.imageUrl && (
-                <img src={article.imageUrl} alt="Article" className="news-image" />
-              )}
               <div className="news-summary">{formatSummaryForList(article.summary, article.date)}</div>
             </div>
           ))}
@@ -151,4 +148,5 @@ const News = ({ articles, totalPages, currentPage }) => {
       </div>
     );
   };
-  export default News;
+  
+export default News;
