@@ -597,7 +597,7 @@ function App() {
         gap: '20px',
         zIndex: 1000
       }}>
-<Link href="/service">
+<Link href="/pricing">
   <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
     Services and Pricing
   </span>

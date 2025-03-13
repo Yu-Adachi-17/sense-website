@@ -382,7 +382,7 @@ export default function PurchaseMenu() {
                 }}
                 onClick={() => {
                   setShowSideMenu(false);
-                  router.push("/service");
+                  router.push("/pricing");
                 }}
               >
                 {t("Services and Pricing")}
