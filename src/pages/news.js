@@ -5,19 +5,38 @@ import HomeIcon from './homeIcon';
 
 export async function getServerSideProps(context) {
   const { query } = context;
-  const currentPage = query.page ? parseInt(query.page, 10) : 1;
+  const desiredPage = query.page ? parseInt(query.page, 10) : 1;
   const itemsPerPage = 20;
+
+  // First call: fetch page 1 to get the totalPages value.
+  let totalPages = 1;
+  try {
+    const initialResponse = await axios.get(
+      `https://ai-news-production-a7b7.up.railway.app/api/news?page=1&limit=${itemsPerPage}`
+    );
+    totalPages = initialResponse.data.totalPages || 1;
+  } catch (error) {
+    console.error("初回ニュース取得エラー:", error);
+  }
+
+  // Calculate the reversed page number.
+  // For example, if totalPages=5 then:
+  // desiredPage 1 should fetch API page 5,
+  // desiredPage 2 should fetch API page 4, etc.
+  const actualPage = totalPages - desiredPage + 1;
 
   try {
     const response = await axios.get(
-      `https://ai-news-production-a7b7.up.railway.app/api/news?page=${currentPage}&limit=${itemsPerPage}`
+      `https://ai-news-production-a7b7.up.railway.app/api/news?page=${actualPage}&limit=${itemsPerPage}`
     );
 
     return {
       props: {
+        // The API returns articles in ascending order;
+        // we'll reverse them in the component to show the newest first.
         articles: response.data.articles || [],
-        totalPages: response.data.totalPages || 1,
-        currentPage,
+        totalPages,
+        currentPage: desiredPage,
       },
     };
   } catch (error) {
@@ -26,7 +45,7 @@ export async function getServerSideProps(context) {
       props: {
         articles: [],
         totalPages: 1,
-        currentPage,
+        currentPage: desiredPage,
       },
     };
   }
@@ -35,11 +54,9 @@ export async function getServerSideProps(context) {
 const News = ({ articles, totalPages, currentPage }) => {
   const [selectedArticle, setSelectedArticle] = useState(null);
 
-  // Sort articles so that the newest date comes first
-  const sortedArticles = [...articles].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
-  
+  // Reverse the articles array so that the newest article (by date) appears at the top of the page.
+  const sortedArticles = [...articles].reverse();
+
   const openArticle = (article) => setSelectedArticle(article);
   const closeOverlay = () => setSelectedArticle(null);
 
@@ -77,7 +94,7 @@ const News = ({ articles, totalPages, currentPage }) => {
     const lectureIndex = text.indexOf('Lecture:');
     let pointsText = lectureIndex !== -1 ? text.substring(0, lectureIndex) : text;
     if (pointsText.length > 400) pointsText = pointsText.substring(0, 400) + '...';
-    
+
     let formattedDate = "";
     if (date) {
       formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -86,7 +103,7 @@ const News = ({ articles, totalPages, currentPage }) => {
         year: 'numeric'
       });
     }
-    
+
     return (
       <div style={{ position: "relative", paddingBottom: "2rem" }}>
         {pointsText.split('\n').map((line, index) => <div key={index}>{line}</div>)}
