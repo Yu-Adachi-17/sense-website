@@ -11,7 +11,8 @@ RUN npm install
 COPY frontend /app/frontend
 
 # フロントエンドをビルド
-RUN npm run build
+RUN next build
+
 
 # ビルド結果を確認
 RUN ls -la /app/frontend/build || (echo "ERROR: frontend build folder missing!" && exit 1)
