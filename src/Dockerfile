@@ -4,11 +4,11 @@ FROM node:18-alpine AS frontend-build
 WORKDIR /app/frontend
 
 # 依存関係をインストール
-COPY frontend/package*.json ./
+COPY ./package*.json ./
 RUN npm install --legacy-peer-deps
 
 # フロントエンドのソースコードをコピー
-COPY frontend/src/ /app/frontend/src/
+COPY ./src/ /app/frontend/src/
 
 # フロントエンドをビルド
 RUN npm run build
@@ -19,11 +19,11 @@ FROM node:18-alpine
 WORKDIR /app/backend
 
 # バックエンドの依存をインストール
-COPY backend/package*.json ./
+COPY ./package*.json ./
 RUN npm install --legacy-peer-deps
 
 # バックエンドのソースコードをコピー
-COPY backend/ /app/backend/
+COPY ./ /app/backend/
 
 # フロントエンドのビルド成果物を `backend/public/` にコピー
 COPY --from=frontend-build /app/frontend/.next /app/backend/public
