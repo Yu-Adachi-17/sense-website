@@ -11,7 +11,8 @@ RUN npm install
 COPY frontend /app/frontend
 
 # フロントエンドをビルド
-RUN next build
+RUN npm run build
+
 
 
 # ビルド結果を確認
