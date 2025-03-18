@@ -9,7 +9,7 @@
     RUN ls -la /app/
     
     # フロントエンドの依存関係をインストール
-    COPY frontend/package*.json frontend/package-lock.json ./
+    COPY ./frontend/package*.json ./frontend/package-lock.json ./
     
     # メモリ制限回避のための環境変数
     ENV NODE_OPTIONS="--max_old_space_size=1024"
@@ -17,8 +17,8 @@
     # `npm install` 実行（依存関係の競合を回避）
     RUN npm install --legacy-peer-deps
     
-    # フロントエンドのソースコードをコピー（/frontend の中身を正しくコピー）
-    COPY frontend/ /app/frontend/
+    # フロントエンドのソースコードをコピー（./frontend の中身を正しくコピー）
+    COPY ./frontend/ /app/frontend/
     
     # デバッグ: /app/frontend に `pages/` または `app/` が存在するか確認
     RUN ls -la /app/frontend
@@ -38,11 +38,11 @@
     WORKDIR /app/backend
     
     # バックエンドの依存をインストール
-    COPY backend/package*.json backend/package-lock.json ./
+    COPY ./backend/package*.json ./backend/package-lock.json ./
     RUN npm install --legacy-peer-deps
     
     # バックエンドのソースコードをコピー
-    COPY backend/ /app/backend/
+    COPY ./backend/ /app/backend/
     
     # デバッグ: バックエンドが正しくコピーされているか確認
     RUN ls -la /app/backend
