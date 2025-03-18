@@ -5,7 +5,8 @@ WORKDIR /app/frontend
 
 # フロントエンドの依存関係をインストール
 COPY frontend/package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
+
 
 # 確認: `next` がインストールされているか
 RUN ls -la node_modules/.bin/
