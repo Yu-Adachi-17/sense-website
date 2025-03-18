@@ -8,8 +8,8 @@ import { transcribeAudio } from '../utils/ChatGPTs';
 import { Success, Cancel } from '../AfterPayment';
 import PurchaseMenu from './purchasemenu';
 
-import SignUp from './signup';
-import MinutesList from './minuteslist';
+
+import MinutesList from './minutes-list';
 import MinutesDetail from './minutesdetail';
 
 
@@ -597,12 +597,12 @@ function App() {
         gap: '20px',
         zIndex: 1000
       }}>
-<Link href="/services">
+<Link href="/pricing">
   <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
     Services and Pricing
   </span>
 </Link>
-<Link href="/news">
+<Link href="/ai-news">
   <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
     AI News
   </span>

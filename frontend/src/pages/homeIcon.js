@@ -5,7 +5,7 @@ const HomeIcon = ({ size = '40px' }) => {
 
   return (
     <div
-      onClick={() => router.push('/')} // ✅ 修正: navigate → router.push
+      onClick={() => router.push('/')} 
       style={{
         display: 'flex',
         alignItems: 'center',

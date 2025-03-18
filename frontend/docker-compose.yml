@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build:
+      context: ./frontend  # ✅ `frontend` を明示的に指定
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/build:/app/build  # ✅ `build` フォルダのみをマウント
+    command: ["npx", "serve", "-s", "/app/build", "-l", "3000"]  # ✅ `serve -s` で React Router のルーティングをサポート
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"  # ✅ 5001 で外部公開し、内部は 5000
+    environment:
+      - PORT=5000    # ✅ これを追加（Express のポート設定）
+    volumes:
+      - ./backend:/app/backend
+      - /app/backend/node_modules
+    command: ["node", "server.js"]

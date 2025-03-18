@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { getAuth } from "firebase/auth";
-import HomeIcon from './homeIcon';
-import { useRouter } from "next/router"; // React Router から Next.js のルーターに変更
-import Link from 'next/link';
+import HomeIcon from "./homeIcon";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Container = styled.div`
   background-color: #000;
@@ -44,7 +44,7 @@ const CardsWrapper = styled.div`
 
 const Card = styled.div`
   background: ${(props) =>
-    props.blue
+    props.$blue
       ? "linear-gradient(315deg, rgba(0, 0, 128, 0.2), rgba(0, 0, 255, 0.01))"
       : "linear-gradient(315deg, rgba(0, 128, 0, 0.2), rgba(0, 255, 0, 0.01))"};
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -116,20 +116,18 @@ const Spacer = styled.div`
   width: 20px;
 `;
 
-const Link = styled.a`
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 export default function BuyTicketsPage() {
   const { t } = useTranslation();
   const [loadingProductId, setLoadingProductId] = useState(null);
-  const auth = getAuth();
-  const router = useRouter(); // Next.js のルーター
+  const [authInstance, setAuthInstance] = useState(null);
+  const router = useRouter();
+
+  // クライアントサイドで Firebase Auth を初期化
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setAuthInstance(getAuth());
+    }
+  }, []);
 
   const handleBuyClick = async (productId) => {
     if (!productId) {
@@ -137,13 +135,12 @@ export default function BuyTicketsPage() {
       return;
     }
 
-    const user = auth.currentUser;
-    if (!user) {
+    if (!authInstance || !authInstance.currentUser) {
       alert("Login required. Please log in first.");
       return;
     }
 
-    const userId = user.uid;
+    const userId = authInstance.currentUser.uid;
     console.log("Sending productId:", productId, "userId:", userId);
 
     setLoadingProductId(productId);
@@ -159,7 +156,7 @@ export default function BuyTicketsPage() {
       );
       const data = await response.json();
       console.log("Stripe Response:", data);
-      if (data.url) {
+      if (data.url && typeof window !== "undefined") {
         window.location.href = data.url;
       } else {
         console.error("Checkout session URL not found", data);
@@ -183,7 +180,7 @@ export default function BuyTicketsPage() {
           <CardTitle>Trial</CardTitle>
           <Button
             onClick={() =>
-              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_120MIN)
+              handleBuyClick(process.env.NEXT_PUBLIC_STRIPE_PRODUCT_120MIN)
             }
             disabled={loadingProductId !== null}
           >
@@ -195,7 +192,7 @@ export default function BuyTicketsPage() {
           <CardTitle>Light</CardTitle>
           <Button
             onClick={() =>
-              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_1200MIN)
+              handleBuyClick(process.env.NEXT_PUBLIC_STRIPE_PRODUCT_1200MIN)
             }
             disabled={loadingProductId !== null}
           >
@@ -206,11 +203,11 @@ export default function BuyTicketsPage() {
 
       <Title>Unlimited</Title>
       <CardsWrapper>
-        <Card blue>
+        <Card $blue>
           <CardTitle>Monthly Subscription</CardTitle>
           <Button
             onClick={() =>
-              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_UNLIMITED)
+              handleBuyClick(process.env.NEXT_PUBLIC_STRIPE_PRODUCT_UNLIMITED)
             }
             disabled={loadingProductId !== null}
           >
@@ -218,11 +215,11 @@ export default function BuyTicketsPage() {
           </Button>
         </Card>
 
-        <Card blue>
+        <Card $blue>
           <CardTitle>Yearly Subscription</CardTitle>
           <Button
             onClick={() =>
-              handleBuyClick(process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
+              handleBuyClick(process.env.NEXT_PUBLIC_STRIPE_PRODUCT_YEARLY_UNLIMITED)
             }
             disabled={loadingProductId !== null}
           >
@@ -235,9 +232,9 @@ export default function BuyTicketsPage() {
 
       <Footer>
         <Spacer />
-        <Link onClick={() => router.push("/privacy-policy")}>Privacy Policy</Link>
+        <Link href="/privacy-policy">Privacy Policy</Link>
         <Spacer />
-        <Link onClick={() => router.push("/terms-of-use")}>Terms of Use</Link>
+        <Link href="/terms-of-use">Terms of Use</Link>
         <Spacer />
       </Footer>
     </Container>

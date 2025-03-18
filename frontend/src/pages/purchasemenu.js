@@ -10,6 +10,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { FaTicketAlt, FaCircle } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
+import { CiGlobe } from "react-icons/ci";
 import { PiGridFourFill } from "react-icons/pi";
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
 
@@ -381,7 +382,7 @@ export default function PurchaseMenu() {
                 }}
                 onClick={() => {
                   setShowSideMenu(false);
-                  router.push("/services");
+                  router.push("/pricing");
                 }}
               >
                 {t("Services and Pricing")}
@@ -449,6 +450,18 @@ export default function PurchaseMenu() {
             >
               <BsWrenchAdjustable style={{ marginRight: "8px" }} />
               {t("Minutes Formats")}
+            </button>
+
+
+            <button
+              style={styles.formatButton}
+              onClick={() => {
+                setShowSideMenu(false);
+                router.push("/ai-news");
+              }}
+            >
+              <CiGlobe style={{ marginRight: "8px" }} />
+              {t("AI News")}
             </button>
 
             {/* Policy ボタン（右下） */}

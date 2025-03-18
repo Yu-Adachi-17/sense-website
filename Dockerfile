@@ -19,7 +19,7 @@
     RUN ls -la /app/frontend
     
     # フロントエンドをビルド
-    RUN npm run build
+    RUN next build
     
     # デバッグ: ビルド後の `build/` フォルダが生成されているか確認
     RUN ls -la /app/frontend/build || (echo "ERROR: frontend build folder missing!" && exit 1)

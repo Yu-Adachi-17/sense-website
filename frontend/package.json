@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "sense-website",
+  "version": "1.0.0",
   "private": true,
   "homepage": "/",
   "dependencies": {
@@ -10,13 +10,13 @@
     "i18next": "23.4.9",
     "next": "^15.2.1",
     "next-sitemap": "^4.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-helmet": "^6.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
     "react-i18next": "^15.4.1",
     "react-icons": "^5.4.0",
-    "sitemap-generator": "^8.5.1",
     "styled-components": "^6.1.15",
+    "uuid": "^11.1.0",
     "web-vitals": "^4.2.4"
   },
   "devDependencies": {
@@ -25,10 +25,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "sitemap": "node sitemap-builder.js"
+    "build": "next build && next-sitemap",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=16.x",
+    "npm": ">=8.x"
   }
 }
