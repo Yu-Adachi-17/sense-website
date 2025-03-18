@@ -7,16 +7,17 @@ WORKDIR /app/frontend
 COPY frontend/package*.json ./
 RUN npm install
 
+# 確認: `next` がインストールされているか
+RUN ls -la node_modules/.bin/
+
 # フロントエンドのソースコードをコピー
 COPY frontend /app/frontend
 
-# フロントエンドをビルド
+# ✅ フロントエンドをビルド
 RUN npm run build
 
-
-
-# ビルド結果を確認
-RUN ls -la /app/frontend/build || (echo "ERROR: frontend build folder missing!" && exit 1)
+# 確認: `.next/` が作成されているか
+RUN ls -la /app/frontend/.next || (echo "ERROR: frontend build folder missing!" && exit 1)
 
 
 # ✅ バックエンドの設定
@@ -31,10 +32,10 @@ RUN npm install
 # バックエンドのソースコードをコピー
 COPY backend /app/backend
 
-# フロントエンドのビルド成果物をバックエンドの `public/` にコピー
-COPY --from=frontend-build /app/frontend/build /app/backend/public
+# ✅ フロントエンドのビルド成果物をバックエンドの `public/` にコピー
+COPY --from=frontend-build /app/frontend/.next /app/backend/public
 
-# フロントエンドビルドが正しくコピーされたか確認
+# 確認: フロントエンドビルドがバックエンドに正しくコピーされたか
 RUN ls -la /app/backend/public || (echo "ERROR: frontend build not copied to backend/public!" && exit 1)
 
 # ポートを公開
