@@ -27,10 +27,7 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
     if (selectionMode) {
       toggleSelect(paper.id);
     } else {
-      router.push({
-        pathname: `/minutes/${paper.id}`,
-        query: { paper: JSON.stringify(paper) }
-      });
+      router.push(`/minutes/${paper.id}`);
     }
   };
 

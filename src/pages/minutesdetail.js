@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebaseConfig';
 import FullScreenOverlay from './fullscreenoverlay';
 
 export default function MinutesDetail() {
   const router = useRouter();
-  const { paper: paperQuery } = router.query;
+  const { id } = router.query;
   const [paper, setPaper] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // クエリパラメータから paper 情報を取得（JSON文字列をパース）
+  // URLのIDからFirebaseの議事録データを取得
   useEffect(() => {
-    if (!router.isReady) return;
-    if (paperQuery) {
+    if (!router.isReady || !id) return;
+    const fetchPaper = async () => {
       try {
-        const parsedPaper = JSON.parse(paperQuery);
-        setPaper(parsedPaper);
+        const docRef = doc(db, "meetingRecords", id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setPaper({ id: docSnap.id, ...docSnap.data() });
+        } else {
+          console.error("No such document!");
+          setPaper(null);
+        }
       } catch (error) {
-        console.error("Failed to parse paper data:", error);
+        console.error("Error fetching paper data:", error);
         setPaper(null);
       }
-    } else {
-      setPaper(null);
-    }
-  }, [router.isReady, paperQuery]);
+    };
+    fetchPaper();
+  }, [router.isReady, id]);
 
   // paper がない場合は /minutes-list へリダイレクト
   useEffect(() => {
