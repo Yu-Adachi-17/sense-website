@@ -37,6 +37,9 @@
     
     WORKDIR /app/backend
     
+    # 🔁 .env を読み込ませる（dev用）※ 本番では Railway のVariables推奨
+    COPY ./backend/.env .env
+    
     # バックエンドの依存をインストール
     COPY ./backend/package*.json ./backend/package-lock.json ./
     RUN npm install --legacy-peer-deps
