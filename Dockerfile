@@ -17,10 +17,10 @@
     # `npm install` 実行（依存関係の競合を回避）
     RUN npm install --legacy-peer-deps
     
-    # フロントエンドのソースコードをコピー（./frontend の中身を正しくコピー）
-    COPY ./frontend/ /app/frontend/
+    # フロントエンドのソースコードをコピー（`./frontend/` の中身を `/app/frontend/` へコピー）
+    COPY ./frontend /app/frontend
     
-    # デバッグ: /app/frontend に `pages/` または `app/` が存在するか確認
+    # デバッグ: `/app/frontend` に `pages/` または `app/` が存在するか確認
     RUN ls -la /app/frontend
     
     # ✅ フロントエンドをビルド（next build）
@@ -42,7 +42,7 @@
     RUN npm install --legacy-peer-deps
     
     # バックエンドのソースコードをコピー
-    COPY ./backend/ /app/backend/
+    COPY ./backend /app/backend
     
     # デバッグ: バックエンドが正しくコピーされているか確認
     RUN ls -la /app/backend
