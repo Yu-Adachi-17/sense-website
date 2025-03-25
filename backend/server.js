@@ -557,6 +557,31 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
+// Stripe サブスクリプション解約用エンドポイント
+app.post('/api/cancel-subscription', async (req, res) => {
+  const { subscriptionId } = req.body;
+
+  if (!subscriptionId) {
+    return res.status(400).json({ error: 'Missing subscriptionId' });
+  }
+
+  try {
+    const canceled = await stripe.subscriptions.update(subscriptionId, {
+      cancel_at_period_end: true,
+    });
+
+    console.log(`✅ 解約予約完了: subscriptionId=${subscriptionId}`);
+    return res.status(200).json({
+      message: 'Subscription cancellation scheduled at period end',
+      current_period_end: new Date(canceled.current_period_end * 1000),
+    });
+  } catch (error) {
+    console.error('[ERROR] 解約API:', error);
+    return res.status(500).json({ error: 'Failed to cancel subscription', details: error.message });
+  }
+});
+
+
 
 // Serve static files for the frontend
 const staticPath = path.join(__dirname, 'frontend/build');
