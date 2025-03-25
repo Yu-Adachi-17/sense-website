@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
-import FullScreenOverlay from '../../components/fullscreenoverlay'; //←必要に応じてパス調整
+import FullScreenOverlay from '../fullscreenoverlay'; //←必要に応じてパス調整
 
 export default function MinutesDetailPage() {
   const router = useRouter();
