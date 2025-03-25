@@ -13,7 +13,6 @@ import MinutesList from './minutes-list';
 import MinutesDetail from './minutesdetail';
 
 
-
 import ServicesWrapper from '../routes/ServicesWrapper';
 import RedirectToServices from '../routes/RedirectToServices';
 import { db, auth } from '../firebaseConfig';
