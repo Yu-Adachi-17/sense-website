@@ -5,6 +5,23 @@
 
     WORKDIR /app/frontend
     
+    # 🔁 Railwayの環境変数を受け取る（NEXT_PUBLIC_... 系）
+    ARG NEXT_PUBLIC_FIREBASE_API_KEY
+    ARG NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    ARG NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    ARG NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    ARG NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    ARG NEXT_PUBLIC_FIREBASE_APP_ID
+    ARG NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    
+    ENV NEXT_PUBLIC_FIREBASE_API_KEY=$NEXT_PUBLIC_FIREBASE_API_KEY
+    ENV NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=$NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    ENV NEXT_PUBLIC_FIREBASE_PROJECT_ID=$NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    ENV NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=$NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    ENV NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=$NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    ENV NEXT_PUBLIC_FIREBASE_APP_ID=$NEXT_PUBLIC_FIREBASE_APP_ID
+    ENV NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=$NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    
     # デバッグ: /app/ 内のディレクトリを確認
     RUN ls -la /app/
     
@@ -14,19 +31,19 @@
     # メモリ制限回避のための環境変数
     ENV NODE_OPTIONS="--max_old_space_size=1024"
     
-    # `npm install` 実行（依存関係の競合を回避）
+    # 依存インストール（競合回避）
     RUN npm install --legacy-peer-deps
     
-    # フロントエンドのソースコードをコピー（`./frontend/` の中身を `/app/frontend/` へコピー）
+    # ソースコードをコピー
     COPY ./frontend /app/frontend
     
-    # デバッグ: `/app/frontend` に `pages/` または `app/` が存在するか確認
+    # デバッグ: `pages/` または `app/` 確認
     RUN ls -la /app/frontend
     
-    # ✅ フロントエンドをビルド（next build）
+    # ✅ ビルド（ここで環境変数が必要）
     RUN npm run build
     
-    # デバッグ: `.next/` フォルダが生成されているか確認
+    # デバッグ: `.next/` フォルダの確認
     RUN ls -la /app/frontend/.next || (echo "ERROR: frontend build folder missing!" && exit 1)
     
     
@@ -37,28 +54,28 @@
     
     WORKDIR /app/backend
     
-    # 🔁 .env を読み込ませる（dev用）※ 本番では Railway のVariables推奨
-   # COPY ./backend/.env .env
+    # 🔁 .env は dev用。本番は Railwayの Variables を使う
+    # COPY ./backend/.env .env
     
-    # バックエンドの依存をインストール
+    # 依存をインストール
     COPY ./backend/package*.json ./backend/package-lock.json ./
     RUN npm install --legacy-peer-deps
     
-    # バックエンドのソースコードをコピー
+    # ソースコードをコピー
     COPY ./backend /app/backend
     
-    # デバッグ: バックエンドが正しくコピーされているか確認
+    # デバッグ: backend 確認
     RUN ls -la /app/backend
     
-    # 先ほどのフロントエンドビルドステージの成果物を `backend/public/` にコピー
+    # フロントビルドの成果物をコピー
     COPY --from=frontend-build /app/frontend/.next /app/backend/public
     
-    # デバッグ: フロントエンドの `.next/` が `public/` にコピーされているか確認
+    # デバッグ: コピー確認
     RUN ls -la /app/backend/public || (echo "ERROR: frontend build not copied to backend/public!" && exit 1)
     
-    # ポートを公開
+    # 公開ポート
     EXPOSE 5001
     
-    # 最後にアプリを起動
+    # サーバー起動
     CMD ["node", "server.js"]
     
