@@ -175,7 +175,7 @@ const handleSubscriptionDeleted = async (subscription) => {
 };
 
 // 🎯 Webhook のエンドポイントを修正
-router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
+router.post('/', express.raw({ type: 'application/json' }), async (req, res) => {
   let event;
 
   try {
