@@ -16,6 +16,7 @@ console.log("[DEBUG] ffprobe path set to 'ffprobe'");
 const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
+// ※ webhookRouter の登録パスを /api/stripe に変更
 const webhookRouter = require('./routes/webhook');
 const appleRouter = require('./routes/apple'); // Apple route added
 const app = express();
@@ -46,8 +47,8 @@ app.use((req, res, next) => {
 =            Router Registration               =
 ==============================================*/
 
-// Webhook routes (including Stripe-related routes)
-app.use('/api', webhookRouter);
+// Webhook routes (register under /api/stripe to avoid衝突)
+app.use('/api/stripe', webhookRouter);
 // Apple Webhook route
 app.use('/api/apple', appleRouter);
 
@@ -591,7 +592,6 @@ app.post('/api/get-subscription-id', async (req, res) => {
   }
 });
 
-
 // Stripe サブスクリプション解約用エンドポイント
 app.post('/api/cancel-subscription', async (req, res) => {
   const { subscriptionId } = req.body;
@@ -615,8 +615,6 @@ app.post('/api/cancel-subscription', async (req, res) => {
     return res.status(500).json({ error: 'Failed to cancel subscription', details: error.message });
   }
 });
-
-
 
 // Serve static files for the frontend
 const staticPath = path.join(__dirname, 'frontend/build');
