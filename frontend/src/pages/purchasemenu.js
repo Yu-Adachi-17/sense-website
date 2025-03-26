@@ -353,6 +353,52 @@ export default function PurchaseMenu() {
     }
   };
 
+  // サブスクリプション解約処理
+const handleCancelSubscription = async () => {
+  setShowActionMenu(false);
+  if (!userId) {
+    alert(t("You must be logged in."));
+    return;
+  }
+
+  const confirm = window.confirm(t("Are you sure you want to cancel your subscription?"));
+  if (!confirm) return;
+
+  try {
+    // ① subscriptionId を取得
+    const subRes = await fetch("/api/get-subscription-id", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId }),
+    });
+    const subData = await subRes.json();
+
+    if (!subRes.ok || !subData.subscriptionId) {
+      throw new Error(subData.error || "Failed to retrieve subscription ID.");
+    }
+
+    // ② 解約リクエストを送信
+    const cancelRes = await fetch("/api/cancel-subscription", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subscriptionId: subData.subscriptionId }),
+    });
+    const cancelData = await cancelRes.json();
+
+    if (!cancelRes.ok) {
+      throw new Error(cancelData.error || "Failed to cancel subscription.");
+    }
+
+    alert(t("Your subscription has been scheduled for cancellation."));
+    setSubscription(true); // 解約予約中のままにする
+    setShowProfileOverlay(false);
+  } catch (err) {
+    console.error("❌ Subscription cancellation failed:", err);
+    alert(t("An error occurred while canceling your subscription."));
+  }
+};
+
+
   return (
     <>
       {/* ハンバーガーアイコン（サイドメニューが非表示の場合のみ） */}
@@ -533,6 +579,10 @@ export default function PurchaseMenu() {
                 >
                   {t("Delete account")}
                 </div>
+                <div style={styles.actionMenuItem} onClick={handleCancelSubscription}>
+  {t("Cancel Subscription")}
+</div>
+
               </div>
             )}
             {/* 外側のグラデーションリングと内側の円 */}
