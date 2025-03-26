@@ -557,6 +557,41 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
+// Stripe サブスクリプションID取得用エンドポイント
+app.post('/api/get-subscription-id', async (req, res) => {
+  const { userId } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({ error: 'Missing userId' });
+  }
+
+  try {
+    const customers = await stripe.customers.list({ limit: 100 });
+    const customer = customers.data.find(c => c.metadata.userId === userId);
+
+    if (!customer) {
+      return res.status(404).json({ error: 'Customer not found for this userId' });
+    }
+
+    const subscriptions = await stripe.subscriptions.list({
+      customer: customer.id,
+      status: 'all',
+    });
+
+    if (!subscriptions.data.length) {
+      return res.status(404).json({ error: 'No active subscription found' });
+    }
+
+    const subscriptionId = subscriptions.data[0].id;
+    console.log(`✅ Subscription ID found for userId=${userId}: ${subscriptionId}`);
+    return res.status(200).json({ subscriptionId });
+  } catch (error) {
+    console.error('[ERROR] /api/get-subscription-id:', error);
+    return res.status(500).json({ error: 'Failed to fetch subscription ID', details: error.message });
+  }
+});
+
+
 // Stripe サブスクリプション解約用エンドポイント
 app.post('/api/cancel-subscription', async (req, res) => {
   const { subscriptionId } = req.body;
