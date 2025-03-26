@@ -560,6 +560,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
 // Stripe サブスクリプションID取得用エンドポイント
 app.post('/api/get-subscription-id', async (req, res) => {
+  console.log("✅ hit /api/get-subscription-id");
   const { userId } = req.body;
 
   if (!userId) {
