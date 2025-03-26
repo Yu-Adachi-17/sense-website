@@ -394,7 +394,7 @@ const handleCancelSubscription = async () => {
     setShowProfileOverlay(false);
   } catch (err) {
     console.error("❌ Subscription cancellation failed:", err);
-    alert(t("An error occurred while canceling your subscription."));
+    alert(t("An error occurred while canceling your subscription. Contact: info@sense-ai.world"));
   }
 };
 
