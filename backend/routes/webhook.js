@@ -21,7 +21,6 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
 
 // 🔧 商品IDマッピング
-// unlimited の場合は文字列、それ以外は分数（数値）
 const PRODUCT_MAP = {
   [process.env.STRIPE_PRODUCT_UNLIMITED]: 'unlimited',
   [process.env.STRIPE_PRODUCT_120MIN]: 120,
@@ -78,9 +77,7 @@ const handleCheckoutSessionCompleted = async (session) => {
       return;
     }
 
-    // 消耗アイテムの場合は remainingSeconds を加算する処理を追加
     if (typeof productValue === 'number') {
-      // 例：productValueが 120 なら、120分×60秒 = 7200秒を加算する
       const secondsToAdd = productValue * 60;
       await userRef.update({
         remainingSeconds: admin.firestore.FieldValue.increment(secondsToAdd),
@@ -98,7 +95,6 @@ const handleCheckoutSessionCompleted = async (session) => {
     console.error("❌ Error updating Firebase:", error);
   }
 };
-
 
 // 🎯 サブスクリプション更新時の処理
 const handleSubscriptionUpdated = async (subscription) => {
@@ -119,7 +115,6 @@ const handleSubscriptionUpdated = async (subscription) => {
     const now = Date.now();
 
     if (subscription.cancel_at_period_end) {
-      // 解約予約の場合、有効期限を記録する
       await userRef.update({
         subscription: true,
         subscriptionExpiresAt: new Date(currentPeriodEnd)
@@ -141,7 +136,6 @@ const handleSubscriptionDeleted = async (subscription) => {
       return;
     }
 
-    // ✅ Stripe の顧客情報を取得して metadata から userId を取得
     const customer = await stripe.customers.retrieve(customerId);
     const userId = customer.metadata?.userId;
 
@@ -159,10 +153,8 @@ const handleSubscriptionDeleted = async (subscription) => {
     const now = new Date();
 
     if (subscriptionExpiresAt && subscriptionExpiresAt > now) {
-      // 利用期間がまだ残っている場合は、解約予約済み状態としフラグは維持
       console.log(`✅ サブスクリプションは ${subscriptionExpiresAt} まで有効`);
     } else {
-      // 期間が終了している場合は、subscription フラグを false に更新
       await userRef.update({
         subscription: false,
         subscriptionCancelledAt: admin.firestore.FieldValue.serverTimestamp()
@@ -174,8 +166,8 @@ const handleSubscriptionDeleted = async (subscription) => {
   }
 };
 
-// 🎯 Webhook のエンドポイントを修正
-router.post('/', express.raw({ type: 'application/json' }), async (req, res) => {
+// ここで webhook のエンドポイントは一度だけ定義
+router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
   let event;
 
   try {
@@ -210,7 +202,5 @@ router.post('/', express.raw({ type: 'application/json' }), async (req, res) => 
 
   res.sendStatus(200);
 });
-
-
 
 module.exports = router;
