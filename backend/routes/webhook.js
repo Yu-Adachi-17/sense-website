@@ -212,41 +212,5 @@ router.post('/stripe', express.raw({ type: 'application/json' }), async (req, re
 });
 
 
-// 🎯 Webhook エンドポイント
-router.post('/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
-  let event;
-
-  try {
-    event = stripe.webhooks.constructEvent(
-      req.body,
-      req.headers['stripe-signature'],
-      endpointSecret
-    );
-  } catch (err) {
-    console.error("🚨 Webhook の署名検証に失敗:", err.message);
-    return res.status(400).json({ error: "Webhook verification failed", details: err.message });
-  }
-
-  try {
-    switch (event.type) {
-      case 'checkout.session.completed':
-        await handleCheckoutSessionCompleted(event.data.object);
-        break;
-      case 'customer.subscription.updated':
-        await handleSubscriptionUpdated(event.data.object);
-        break;
-      case 'customer.subscription.deleted':
-        await handleSubscriptionDeleted(event.data.object);
-        break;
-      default:
-        console.log(`⚠️ 未処理の Webhook イベント: ${event.type}`);
-    }
-  } catch (err) {
-    console.error(`🔥 Webhook の処理中にエラーが発生 (${event.type}):`, err);
-    return res.status(500).json({ error: "Internal Server Error", details: err.message });
-  }
-
-  res.sendStatus(200);
-});
 
 module.exports = router;
