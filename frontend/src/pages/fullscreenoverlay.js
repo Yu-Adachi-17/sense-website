@@ -62,6 +62,10 @@ export default function FullScreenOverlay({
     if (!isEditing) {
       setEditedText(isExpanded ? transcription : minutes);
     }
+    // full transcript以外（minutes表示）の場合は編集モードを解除
+    if (!isExpanded && isEditing) {
+      setIsEditing(false);
+    }
   }, [isExpanded, transcription, minutes, isEditing]);
 
   // オーディオデータのダウンロード処理
@@ -325,12 +329,12 @@ export default function FullScreenOverlay({
           <GiHamburgerMenu size={24} />
         </button>
 
-        {/* タイトルと Edit/Save ボタン */}
+        {/* タイトルと (全文表示時のみ) Edit/Save ボタン */}
         <div style={styles.titleContainer}>
           <h2 style={styles.title}>
             {isExpanded ? t("Full Transcript") : t("Minutes")}
           </h2>
-          {isEditing ? (
+          {isExpanded && (isEditing ? (
             <button style={styles.saveButton} onClick={handleSave}>
               {t("Save")}
             </button>
@@ -338,7 +342,7 @@ export default function FullScreenOverlay({
             <button style={styles.editButton} onClick={() => setIsEditing(true)}>
               {t("Edit")}
             </button>
-          )}
+          ))}
         </div>
 
         {/* テキスト表示エリア */}
@@ -353,7 +357,7 @@ export default function FullScreenOverlay({
             <FaRegCopy size={20} />
           </button>
 
-          {isEditing ? (
+          {(isExpanded && isEditing) ? (
             <textarea
               style={styles.textEditor}
               value={editedText}
