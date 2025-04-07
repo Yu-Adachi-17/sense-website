@@ -353,7 +353,6 @@ export default function FullScreenOverlay({
             <FaRegCopy size={20} />
           </button>
 
-          {/* 編集モードの場合は textarea、通常時は段落で表示 */}
           {isEditing ? (
             <textarea
               style={styles.textEditor}
@@ -361,7 +360,155 @@ export default function FullScreenOverlay({
               onChange={(e) => setEditedText(e.target.value)}
             />
           ) : (
-            <p style={{ whiteSpace: "pre-wrap" }}>{editedText}</p>
+            // JSONのRawデータをパースし、SwiftUIのレンダリングに近い形式で表示
+            (() => {
+              let meeting;
+              try {
+                meeting = JSON.parse(editedText);
+              } catch (error) {
+                // パースに失敗した場合はそのまま表示
+                return <p style={{ whiteSpace: "pre-wrap" }}>{editedText}</p>;
+              }
+              return (
+                <div style={{ whiteSpace: "pre-wrap" }}>
+                  {meeting.meetingTitle && (
+                    <>
+                      <h1
+                        style={{
+                          fontSize: "30px",
+                          fontWeight: "bold",
+                          paddingTop: "20px",
+                          paddingBottom: "8px",
+                          margin: 0,
+                        }}
+                      >
+                        {meeting.meetingTitle}
+                      </h1>
+                      {meeting.date && (
+                        <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.date}</p>
+                      )}
+                      {meeting.location && (
+                        <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.location}</p>
+                      )}
+                      {meeting.attendees &&
+                        Array.isArray(meeting.attendees) &&
+                        meeting.attendees.length > 0 && (
+                          <p style={{ fontWeight: "bold", margin: 0 }}>
+                            {meeting.attendees.join(", ")}
+                          </p>
+                        )}
+                      <hr
+                        style={{
+                          height: "1px",
+                          backgroundColor: "rgba(255,255,255,0.3)",
+                          border: "none",
+                          margin: "16px 0",
+                        }}
+                      />
+                    </>
+                  )}
+                  {meeting.topics &&
+                    meeting.topics.length > 0 &&
+                    meeting.topics.map((topic, topicIndex) => (
+                      <div key={topicIndex} style={{ marginBottom: "16px" }}>
+                        <h2 style={{ fontSize: "24px", fontWeight: "bold", margin: 0 }}>
+                          {topicIndex + 1}. {topic.topic}
+                        </h2>
+                        {topic.discussion && topic.discussion.length > 0 && (
+                          <div>
+                            <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "8px" }}>
+                              Discussion
+                            </h3>
+                            {topic.discussion.map((item, index) => (
+                              <p key={index}>- {item}</p>
+                            ))}
+                          </div>
+                        )}
+                        {topic.proposals &&
+                          topic.proposals.length > 0 &&
+                          topic.proposals.map((item, index) => (
+                            <div key={index} style={{ marginTop: "8px" }}>
+                              <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
+                                Proposal {item.proposedBy ? `(${item.proposedBy})` : ""}
+                              </h3>
+                              <p style={{ fontWeight: "bold", margin: 0 }}>{item.proposal}</p>
+                              {item.proposalReasons &&
+                                item.proposalReasons.length > 0 && (
+                                  <div>
+                                    <h4
+                                      style={{
+                                        fontSize: "16px",
+                                        fontWeight: "bold",
+                                        marginTop: "8px",
+                                        marginBottom: "4px",
+                                      }}
+                                    >
+                                      Background
+                                    </h4>
+                                    {item.proposalReasons.map((reason, i) => (
+                                      <p key={i}>- {reason}</p>
+                                    ))}
+                                  </div>
+                                )}
+                              {item.keyDiscussion &&
+                                item.keyDiscussion.length > 0 && (
+                                  <div>
+                                    <h4
+                                      style={{
+                                        fontSize: "16px",
+                                        fontWeight: "bold",
+                                        marginTop: "8px",
+                                        marginBottom: "4px",
+                                      }}
+                                    >
+                                      Discussion Points
+                                    </h4>
+                                    {item.keyDiscussion.map((point, i) => (
+                                      <p key={i}>- {point}</p>
+                                    ))}
+                                  </div>
+                                )}
+                            </div>
+                          ))}
+                        {topic.decisionsAndTasks &&
+                          topic.decisionsAndTasks.length > 0 && (
+                            <div style={{ marginTop: "8px" }}>
+                              <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
+                                Decisions & Tasks
+                              </h3>
+                              {topic.decisionsAndTasks.map((task, i) => (
+                                <p key={i}>
+                                  {i + 1}. {task}
+                                </p>
+                              ))}
+                            </div>
+                          )}
+                        {topicIndex < meeting.topics.length - 1 && (
+                          <hr
+                            style={{
+                              height: "1px",
+                              backgroundColor: "rgba(255,255,255,0.3)",
+                              border: "none",
+                              margin: "16px 0",
+                            }}
+                          />
+                        )}
+                      </div>
+                    ))}
+                  {meeting.coreMessage && meeting.coreMessage !== "" && (
+                    <p
+                      style={{
+                        fontStyle: "italic",
+                        fontWeight: "bold",
+                        marginTop: "10px",
+                      }}
+                    >
+                      {meeting.coreMessage}
+                    </p>
+                  )}
+                </div>
+              );
+            })()
           )}
         </div>
       </div>
