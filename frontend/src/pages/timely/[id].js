@@ -1,8 +1,8 @@
 // pages/timely/[id].js
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { doc, getDoc } from 'firebase/firestore'
-import { db } from '../../../src/lib/firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
 
 export default function TimelyViewPage() {
   const router = useRouter()
