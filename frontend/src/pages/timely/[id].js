@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { doc, getDoc } from 'firebase/firestore'
-import { db } from '../../src/lib/firebaseConfig' // 適宜調整
+import { db } from '../../../src/lib/firebaseConfig';
 
 export default function TimelyViewPage() {
   const router = useRouter()
