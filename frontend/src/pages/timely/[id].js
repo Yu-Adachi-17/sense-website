@@ -1,42 +1,38 @@
-// pages/timely/[id].js
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { doc, getDoc } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 
 export default function TimelyViewPage() {
-  const router = useRouter()
-  const { id } = router.query
-  const [transcript, setTranscript] = useState(null)
-  const [updatedAt, setUpdatedAt] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const router = useRouter();
+  const { id } = router.query;
+  const [transcript, setTranscript] = useState('');
+  const [updatedAt, setUpdatedAt] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!router.isReady || !id) return;
 
-    const fetchData = async () => {
-      try {
-        const ref = doc(db, 'timelyNotes', id)
-        const snap = await getDoc(ref)
-        if (snap.exists()) {
-          setTranscript(snap.data().transcript || '')
-          setUpdatedAt(snap.data().updatedAt?.toDate().toISOString() || '')
-        } else {
-          setTranscript(null)
-        }
-      } catch (e) {
-        console.error('Fetch error', e)
-        setTranscript(null)
-      } finally {
-        setLoading(false)
+    const ref = doc(db, 'timelyNotes', id);
+    const unsubscribe = onSnapshot(ref, (snap) => {
+      if (snap.exists()) {
+        const data = snap.data();
+        setTranscript(data.transcript || '');
+        setUpdatedAt(data.updatedAt?.toDate().toISOString() || '');
+      } else {
+        setTranscript('（この議事録は存在しません）');
       }
-    }
+      setLoading(false);
+    }, (error) => {
+      console.error('リアルタイム監視中にエラー:', error);
+      setTranscript('（読み込みエラー）');
+      setLoading(false);
+    });
 
-    fetchData()
-  }, [router.isReady, id])
+    return () => unsubscribe(); // 🔁 クリーンアップ
+  }, [router.isReady, id]);
 
-  if (loading) return <div style={{ padding: 40 }}>Loading...</div>
-  if (!transcript) return <div style={{ padding: 40 }}>議事録が存在しません。</div>
+  if (loading) return <div style={{ padding: 40 }}>Loading...</div>;
 
   return (
     <div style={{ padding: 40 }}>
@@ -46,5 +42,5 @@ export default function TimelyViewPage() {
         {transcript}
       </pre>
     </div>
-  )
+  );
 }
