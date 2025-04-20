@@ -81,19 +81,22 @@ export default function TimelyViewPage() {
 
       {divider}
 
-      {/* 2. 過去トピックを新しい順に逆並び */}
+      {/*      {/* 2. 過去トピックを新しい順に逆並び（通し番号付き） */}
       {Array.isArray(minutes.pastTopics) && minutes.pastTopics.length>0 ? (
-        [...minutes.pastTopics].reverse().map((topic,i) => (
-          <section key={i} style={{marginBottom:32}}>
-            <h3 style={{fontSize:'1.2rem',fontWeight:'bold'}}>{topic.topic || '（無題）'}</h3>
-            {topic.summary && <p>{topic.summary}</p>}
-            {Array.isArray(topic.decisions) && topic.decisions.length>0 && (
-              <><h4>決定事項</h4><ul>{topic.decisions.map((d,j)=><li key={j}>{d}</li>)}</ul></>)}
-            {Array.isArray(topic.actionItems) && topic.actionItems.length>0 && (
-              <><h4>TODO</h4><ul>{topic.actionItems.map((d,j)=><li key={j}>{d}</li>)}</ul></>)}
-            {i !== minutes.pastTopics.length-1 && divider}
-          </section>
-        ))
+        [...minutes.pastTopics].reverse().map((topic, i, arr) => {
+          const displayNo = arr.length - i; // 1,2,3… を古い順ではなく新しい順で振る
+          return (
+            <section key={i} style={{marginBottom:32}}>
+              <h3 style={{fontSize:'1.2rem',fontWeight:'bold'}}>{displayNo}. {topic.topic || '（無題）'}</h3>
+              {topic.summary && <p>{topic.summary}</p>}
+              {Array.isArray(topic.decisions) && topic.decisions.length>0 && (
+                <><h4>決定事項</h4><ul>{topic.decisions.map((d,j)=><li key={j}>{d}</li>)}</ul></>)}
+              {Array.isArray(topic.actionItems) && topic.actionItems.length>0 && (
+                <><h4>TODO</h4><ul>{topic.actionItems.map((d,j)=><li key={j}>{d}</li>)}</ul></>)}
+              {i !== arr.length-1 && divider}
+            </section>
+          );
+        })
       ) : <p style={{opacity:0.7}}>（過去トピックはまだありません）</p>}
     </div>
   );
