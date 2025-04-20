@@ -39,16 +39,26 @@ export default function TimelyViewPage() {
   return (
     <div style={{ padding: 40 }}>
       <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>📋 タイムリー議事録</h1>
-      <p><strong>最終更新:</strong> {new Date(minutes.updatedAt?.seconds * 1000).toLocaleString()}</p>
+      <p><strong>最終更新:</strong> {minutes.updatedAt?.seconds ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString() : '不明'}</p>
       <hr style={{ margin: '1rem 0', opacity: 0.3 }} />
 
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{minutes.meetingTitle}</h2>
-      <p style={{ fontWeight: 'bold', marginBottom: '1.5rem' }}>{minutes.date}</p>
+      {minutes.meetingTitle && (
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{minutes.meetingTitle}</h2>
+      )}
+      {minutes.date && (
+        <p style={{ fontWeight: 'bold', marginBottom: '1.5rem' }}>{minutes.date}</p>
+      )}
 
-      {Array.isArray(minutes.pastTopics) && minutes.pastTopics.map((topic, i) => (
+      {Array.isArray(minutes.pastTopics) && minutes.pastTopics.length > 0 && minutes.pastTopics.map((topic, i) => (
         <div key={i} style={{ marginBottom: '2rem' }}>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{i + 1}. {topic.topic}</h3>
-          <p>{topic.summary}</p>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{i + 1}. {topic.topic || '（無題のトピック）'}</h3>
+
+          {topic.summary && (
+            <div style={{ marginTop: '0.5rem' }}>
+              <h4 style={{ fontWeight: 'bold' }}>要点まとめ</h4>
+              <p>{topic.summary}</p>
+            </div>
+          )}
 
           {Array.isArray(topic.decisions) && topic.decisions.length > 0 && (
             <div style={{ marginTop: '1rem' }}>
@@ -68,8 +78,11 @@ export default function TimelyViewPage() {
 
       {minutes.currentTopic && (
         <div style={{ marginBottom: '2rem' }}>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>🕒 現在進行中: {minutes.currentTopic.topic}</h3>
-          <p>{minutes.currentTopic.summarySoFar}</p>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>🕒 現在進行中: {minutes.currentTopic.topic || '（無題のトピック）'}</h3>
+
+          {minutes.currentTopic.summarySoFar && (
+            <p>{minutes.currentTopic.summarySoFar}</p>
+          )}
 
           {Array.isArray(minutes.currentTopic.confirmedMatters) && minutes.currentTopic.confirmedMatters.length > 0 && (
             <div style={{ marginTop: '1rem' }}>
