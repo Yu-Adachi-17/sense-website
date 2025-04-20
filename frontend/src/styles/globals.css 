@@ -1,0 +1,4 @@
+/* globals.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Arial", sans-serif;
+}

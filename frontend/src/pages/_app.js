@@ -3,6 +3,8 @@ import '../News.css';
 import '../i18n/index'; // ✅ i18next の初期化
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import '../styles/globals.css'; // ← これが無ければ追加
+
 
 function MyApp({ Component, pageProps }) {
   const { i18n } = useTranslation();
