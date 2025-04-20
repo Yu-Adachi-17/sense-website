@@ -53,7 +53,7 @@ export default function TimelyViewPage() {
       {/* 現在進行中 */}
       {minutes.currentTopic && (
         <section style={{marginBottom:32}}>
-          <h2 style={{fontSize:'1.4rem',fontWeight:'bold',margin:0}}>現在進行中</h2>
+          <h2 style={{fontSize:'1.8rem',fontWeight:'bold',margin:0}}>現在進行中</h2>
           <h3 style={{fontSize:'1.8rem',fontWeight:'bold',margin:'4px 0 12px 0'}}>{minutes.currentTopic.topic || '（無題）'}</h3>
           {minutes.currentTopic.summarySoFar && <p>{minutes.currentTopic.summarySoFar}</p>}
 
