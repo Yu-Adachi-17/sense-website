@@ -7,36 +7,48 @@ export default function TimelyViewPage() {
   const router = useRouter();
   const { id } = router.query;
 
-  const [minutes, setMinutes]   = useState(null);
+  const [rawData, setRawData]   = useState(null);   // Firestore からそのまま取得
+  const [minutes, setMinutes]   = useState(null);   // 解析後の JSON 構造
   const [loading, setLoading]   = useState(true);
-  const [rawJson, setRawJson]   = useState('');   // 取得データを文字列で保持
+  const [parseError, setParseError] = useState('');
 
-  // ───────────────────────────
-  // Firestore リアルタイム取得
-  // ───────────────────────────
+  // ────────────────────────────
+  // Firestore 監視
+  // ────────────────────────────
   useEffect(() => {
     if (!router.isReady || !id) return;
 
-    console.log('▶️ onSnapshot start, doc id =', id);
     const ref = doc(db, 'timelyNotes', id);
-
     const unsubscribe = onSnapshot(
       ref,
       snap => {
         if (snap.exists()) {
           const data = snap.data();
-          console.log('📥 Firestore data fetched:', data);
-          setMinutes(data);
-          setRawJson(JSON.stringify(data, null, 2)); // 画面にも出す用
+          setRawData(data); // デバッグ用 RAW
+
+          // --- transcript フィールドに文字列 JSON が入っているケースに対応
+          if (typeof data.transcript === 'string') {
+            try {
+              const parsed = JSON.parse(data.transcript);
+              setMinutes({ ...parsed, updatedAt: data.updatedAt });
+            } catch (e) {
+              console.error('JSON parse error:', e);
+              setParseError('JSON 解析に失敗しました');
+              setMinutes(null);
+            }
+          } else {
+            // すでにオブジェクト構造の場合はこちらを使う
+            setMinutes(data);
+          }
         } else {
-          console.warn('⚠️ Document not found');
-          setMinutes({ error: 'この議事録は存在しません' });
+          setParseError('この議事録は存在しません');
+          setMinutes(null);
         }
         setLoading(false);
       },
       error => {
-        console.error('❌ Firestore onSnapshot error:', error);
-        setMinutes({ error: '読み込みエラー' });
+        console.error('Firestore onSnapshot error:', error);
+        setParseError('読み込みエラー');
         setLoading(false);
       }
     );
@@ -44,47 +56,40 @@ export default function TimelyViewPage() {
     return () => unsubscribe();
   }, [router.isReady, id]);
 
-  // ───────────────────────────
-  // UI レンダリング
-  // ───────────────────────────
-  if (loading) return <div style={{ padding: 32 }}>Loading...</div>;
-  if (!minutes || minutes.error) return <div style={{ padding: 32 }}>{minutes?.error}</div>;
+  // ──────────────  UI ──────────────
+  if (loading) return <div style={{ padding: 32, color: '#fff' }}>Loading...</div>;
+  if (parseError)  return <div style={{ padding: 32, color: '#fff' }}>{parseError}</div>;
+  if (!minutes)    return <div style={{ padding: 32, color: '#fff' }}>データがありません</div>;
+
+  const textColor = { color: '#fff' };
 
   return (
-    <div style={{ padding: 40 }}>
-      {/* 1. 取得した JSON をそのまま表示（デバッグ用） */}
+    <div style={{ padding: 40, ...textColor }}>
+      {/* RAW JSON デバッグ */}
       <details style={{ marginBottom: 32 }}>
         <summary style={{ cursor: 'pointer', fontWeight: 'bold' }}>RAW JSON（クリックで展開）</summary>
         <pre style={{ background: '#111', color: '#0f0', padding: 16, overflowX: 'auto' }}>
-          {rawJson}
+          {JSON.stringify(rawData, null, 2)}
         </pre>
       </details>
 
-      {/* 2. 通常の議事録レンダリング  */}
       <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>📋 タイムリー議事録</h1>
       <p><strong>最終更新:</strong>{' '}
-        {minutes.updatedAt?.seconds
-          ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString()
-          : '不明'}
-      </p>
+        {minutes.updatedAt?.seconds ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString() : '不明'}</p>
       <hr style={{ margin: '1rem 0', opacity: 0.3 }} />
 
       {minutes.meetingTitle && (
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-          {minutes.meetingTitle}
-        </h2>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{minutes.meetingTitle}</h2>
       )}
       {minutes.date && (
         <p style={{ fontWeight: 'bold', marginBottom: '1.5rem' }}>{minutes.date}</p>
       )}
 
-      {/* ───── Past Topics ───── */}
+      {/* pastTopics */}
       {Array.isArray(minutes.pastTopics) && minutes.pastTopics.length > 0 ? (
         minutes.pastTopics.map((topic, i) => (
           <div key={i} style={{ marginBottom: '2rem' }}>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
-              {i + 1}. {topic.topic || '（無題のトピック）'}
-            </h3>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{i + 1}. {topic.topic || '（無題のトピック）'}</h3>
 
             {topic.summary && (
               <div style={{ marginTop: '0.5rem' }}>
@@ -109,15 +114,13 @@ export default function TimelyViewPage() {
           </div>
         ))
       ) : (
-        <p style={{ opacity: 0.6 }}>（過去トピックはまだありません）</p>
+        <p style={{ opacity: 0.7 }}>（過去トピックはまだありません）</p>
       )}
 
-      {/* ───── Current Topic ───── */}
+      {/* currentTopic */}
       {minutes.currentTopic ? (
         <div style={{ marginBottom: '2rem' }}>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
-            🕒 現在進行中: {minutes.currentTopic.topic || '（無題のトピック）'}
-          </h3>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>🕒 現在進行中: {minutes.currentTopic.topic || '（無題のトピック）'}</h3>
 
           {minutes.currentTopic.summarySoFar && <p>{minutes.currentTopic.summarySoFar}</p>}
 
@@ -143,7 +146,7 @@ export default function TimelyViewPage() {
           )}
         </div>
       ) : (
-        <p style={{ opacity: 0.6 }}>（現在進行中のトピックはありません）</p>
+        <p style={{ opacity: 0.7 }}>（現在進行中のトピックはありません）</p>
       )}
     </div>
   );
