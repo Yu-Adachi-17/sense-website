@@ -7,50 +7,45 @@ export default function TimelyViewPage() {
   const router = useRouter();
   const { id } = router.query;
 
-  const [rawData, setRawData]   = useState(null);
-  const [minutes, setMinutes]   = useState(null);
-  const [loading, setLoading]   = useState(true);
-  const [parseError, setParseError] = useState('');
+  const [minutes, setMinutes] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [errorMsg, setErrorMsg] = useState('');
 
+  /* ───────── Firestore ───────── */
   useEffect(() => {
     if (!router.isReady || !id) return;
+
     const ref = doc(db, 'timelyNotes', id);
-    const unsubscribe = onSnapshot(
+    const unsub = onSnapshot(
       ref,
       snap => {
-        if (!snap.exists()) { setParseError('この議事録は存在しません'); setLoading(false); return; }
+        if (!snap.exists()) { setErrorMsg('この議事録は存在しません'); setLoading(false); return; }
         const data = snap.data();
-        setRawData(data);
         if (typeof data.transcript === 'string') {
           try { setMinutes({ ...JSON.parse(data.transcript), updatedAt: data.updatedAt }); }
-          catch { setParseError('JSON 解析に失敗しました'); }
-        } else { setMinutes(data); }
+          catch { setErrorMsg('JSON 解析に失敗しました'); }
+        } else {
+          setMinutes(data);
+        }
         setLoading(false);
       },
-      err => { console.error(err); setParseError('読み込みエラー'); setLoading(false);} );
-    return () => unsubscribe();
+      err => { console.error(err); setErrorMsg('読み込みエラー'); setLoading(false);} );
+    return () => unsub();
   }, [router.isReady, id]);
 
-  if (loading)    return <div style={{ padding: 32, color:'#fff' }}>Loading...</div>;
-  if (parseError) return <div style={{ padding: 32, color:'#fff' }}>{parseError}</div>;
-  if (!minutes)   return <div style={{ padding: 32, color:'#fff' }}>データがありません</div>;
+  /* ───────── UI ───────── */
+  if (loading)  return <div style={{ padding:32, color:'#fff' }}>Loading...</div>;
+  if (errorMsg) return <div style={{ padding:32, color:'#fff' }}>{errorMsg}</div>;
+  if (!minutes) return <div style={{ padding:32, color:'#fff' }}>データがありません</div>;
 
   const white   = { color:'#fff' };
-  const divider = <hr style={{ border:'none', borderTop:'1px solid #555', margin:'24px 0' }} />;
+  const divider = <hr style={{border:'none',borderTop:'1px solid #555',margin:'24px 0'}} />;
 
   return (
     <div style={{ padding:40, ...white }}>
-      {/* RAW JSON */}
-      <details style={{ marginBottom:32 }}>
-        <summary style={{cursor:'pointer',fontWeight:'bold'}}>RAW JSON</summary>
-        <pre style={{background:'#111',color:'#0f0',padding:16,overflowX:'auto'}}>
-          {JSON.stringify(rawData,null,2)}
-        </pre>
-      </details>
-
       {/* ヘッダー */}
       <h1 style={{fontSize:'2rem',fontWeight:'bold'}}>
-        📋 {minutes.meetingTitle ? `${minutes.meetingTitle}（速報）` : 'タイムリー議事録'}
+        {minutes.meetingTitle ? `${minutes.meetingTitle}（速報）` : 'タイムリー議事録'}
       </h1>
       <p><strong>最終更新:</strong> {minutes.updatedAt?.seconds ? new Date(minutes.updatedAt.seconds*1000).toLocaleString() : '不明'}</p>
       {divider}
@@ -58,12 +53,16 @@ export default function TimelyViewPage() {
       {/* 現在進行中 */}
       {minutes.currentTopic && (
         <section style={{marginBottom:32}}>
-          <h3 style={{fontSize:'1.2rem',fontWeight:'bold'}}>🕒 現在進行中: {minutes.currentTopic.topic || '（無題）'}</h3>
+          <h2 style={{fontSize:'1.4rem',fontWeight:'bold',margin:0}}>現在進行中</h2>
+          <h3 style={{fontSize:'1.8rem',fontWeight:'bold',margin:'4px 0 12px 0'}}>{minutes.currentTopic.topic || '（無題）'}</h3>
           {minutes.currentTopic.summarySoFar && <p>{minutes.currentTopic.summarySoFar}</p>}
+
           {Array.isArray(minutes.currentTopic.confirmedMatters) && minutes.currentTopic.confirmedMatters.length>0 && (
             <><h4>合意された事項</h4><ul>{minutes.currentTopic.confirmedMatters.map((t,i)=><li key={i}>{t}</li>)}</ul></>)}
+
           {Array.isArray(minutes.currentTopic.pendingPoints) && minutes.currentTopic.pendingPoints.length>0 && (
             <><h4>検討中のポイント</h4><ul>{minutes.currentTopic.pendingPoints.map((t,i)=><li key={i}>{t}</li>)}</ul></>)}
+
           {Array.isArray(minutes.currentTopic.nextActionables) && minutes.currentTopic.nextActionables.length>0 && (
             <><h4>次のアクション</h4><ul>{minutes.currentTopic.nextActionables.map((t,i)=><li key={i}>{t}</li>)}</ul></>)}
         </section>
