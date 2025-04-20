@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../../lib/firebaseConfig';
+import { db } from '../../firebaseConfig';
 
 export default function TimelyViewPage() {
   const router = useRouter();
@@ -9,15 +9,13 @@ export default function TimelyViewPage() {
   const [minutes, setMinutes] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  console.log('▶️ TimelyViewPage rendered, id=', id, 'minutes=', minutes);
-
   useEffect(() => {
     if (!router.isReady || !id) return;
 
     const ref = doc(db, 'timelyNotes', id);
     const unsubscribe = onSnapshot(
       ref,
-      snap => {
+      (snap) => {
         if (snap.exists()) {
           setMinutes(snap.data());
         } else {
@@ -25,7 +23,7 @@ export default function TimelyViewPage() {
         }
         setLoading(false);
       },
-      error => {
+      (error) => {
         console.error('リアルタイム監視中にエラー:', error);
         setMinutes({ error: '読み込みエラー' });
         setLoading(false);
@@ -40,27 +38,20 @@ export default function TimelyViewPage() {
 
   return (
     <div style={{ padding: 40 }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>📋 タイムリー議事録</h1>
-      <p><strong>最終更新:</strong> {minutes.updatedAt?.seconds 
-          ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString() 
-          : '不明'}</p>
+      <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>📋 タイムリー議事録📋</h1>
+      <p><strong>最終更新:</strong> {minutes.updatedAt?.seconds ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString() : '不明'}</p>
       <hr style={{ margin: '1rem 0', opacity: 0.3 }} />
 
       {minutes.meetingTitle && (
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-          {minutes.meetingTitle}
-        </h2>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{minutes.meetingTitle}</h2>
       )}
       {minutes.date && (
         <p style={{ fontWeight: 'bold', marginBottom: '1.5rem' }}>{minutes.date}</p>
       )}
 
-      {/* 過去トピック */}
-      {Array.isArray(minutes.pastTopics) && minutes.pastTopics.map((topic, i) => (
+      {Array.isArray(minutes.pastTopics) && minutes.pastTopics.length > 0 && minutes.pastTopics.map((topic, i) => (
         <div key={i} style={{ marginBottom: '2rem' }}>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
-            {i + 1}. {topic.topic || '（無題のトピック）'}
-          </h3>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{i + 1}. {topic.topic || '（無題のトピック）'}</h3>
 
           {topic.summary && (
             <div style={{ marginTop: '0.5rem' }}>
@@ -85,12 +76,9 @@ export default function TimelyViewPage() {
         </div>
       ))}
 
-      {/* 現在進行中 */}
       {minutes.currentTopic && (
         <div style={{ marginBottom: '2rem' }}>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>
-            🕒 現在進行中: {minutes.currentTopic.topic || '（無題のトピック）'}
-          </h3>
+          <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>🕒 現在進行中: {minutes.currentTopic.topic || '（無題のトピック）'}</h3>
 
           {minutes.currentTopic.summarySoFar && (
             <p>{minutes.currentTopic.summarySoFar}</p>
