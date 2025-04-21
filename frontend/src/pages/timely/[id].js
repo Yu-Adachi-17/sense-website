@@ -22,7 +22,7 @@ export default function TimelyViewPage() {
         if (!snap.exists()) { setErrorMsg('この議事録は存在しません'); setLoading(false); return; }
         const data = snap.data();
         if (typeof data.transcript === 'string') {
-          try { setMinutes({ ...JSON.parse(data.transcript), updatedAt: data.updatedAt }); }
+          try { setMinutes({ ...JSON.parse(data.minutes), updatedAt: data.updatedAt }); }
           catch { setErrorMsg('JSON 解析に失敗しました'); }
         } else {
           setMinutes(data);
