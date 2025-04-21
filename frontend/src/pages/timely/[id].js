@@ -21,12 +21,19 @@ export default function TimelyViewPage() {
       snap => {
         if (!snap.exists()) { setErrorMsg('この議事録は存在しません'); setLoading(false); return; }
         const data = snap.data();
-        if (typeof data.transcript === 'string') {
-          try { setMinutes({ ...JSON.parse(data.minutes), updatedAt: data.updatedAt }); }
-          catch { setErrorMsg('JSON 解析に失敗しました'); }
+        if (typeof data.minutes === 'string') {
+          try {
+            const parsed = JSON.parse(data.minutes);
+            // ✅ updatedAt を明示的に追加
+            setMinutes({ ...parsed, updatedAt: data.updatedAt });
+          } catch (e) {
+            console.error("⚠️ JSON解析エラー:", e, "\n入力:", data.minutes);
+            setErrorMsg('JSON 解析に失敗しました');
+          }
         } else {
           setMinutes(data);
         }
+        
         setLoading(false);
       },
       err => { console.error(err); setErrorMsg('読み込みエラー'); setLoading(false);} );
