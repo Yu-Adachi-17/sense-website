@@ -8,7 +8,7 @@ export default function TimelyViewPage() {
   const { id } = router.query;
 
   const [minutes, setMinutes] = useState(null);
-  const [updatedAt, setUpdatedAt] = useState(null); // 🔹 updatedAtを独立管理
+  const [updatedAt, setUpdatedAt] = useState(null); // 🔹 updatedAt を独立管理
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -25,16 +25,16 @@ export default function TimelyViewPage() {
           setLoading(false);
           return;
         }
+
         const data = snap.data();
         try {
           if (typeof data.minutes === 'string') {
             const parsed = JSON.parse(data.minutes);
-            setMinutes(parsed);               // 🔹 JSON本体
-            setUpdatedAt(data.updatedAt);     // 🔹 updatedAtを分離しても必ず更新
+            setMinutes(parsed);            // JSON 本体
           } else {
             setMinutes(data);
-            setUpdatedAt(data.updatedAt);
           }
+          setUpdatedAt(data.updatedAt);    // updatedAt は必ずここで上書き
         } catch (e) {
           console.error("⚠️ JSON parse error:", e, "\nInput:", data.minutes);
           setErrorMsg('Failed to parse JSON');
@@ -48,6 +48,7 @@ export default function TimelyViewPage() {
         setLoading(false);
       }
     );
+
     return () => unsub();
   }, [router.isReady, id]);
 
@@ -69,10 +70,10 @@ export default function TimelyViewPage() {
         <strong>Last updated:</strong>{' '}
         {updatedAt?.seconds
           ? new Date(updatedAt.seconds * 1000).toLocaleString(undefined, {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-              hour: '2-digit',
+              year:   'numeric',
+              month:  'long',
+              day:    'numeric',
+              hour:   '2-digit',
               minute: '2-digit',
               second: '2-digit',
             })
@@ -84,36 +85,68 @@ export default function TimelyViewPage() {
       {minutes.currentTopic && (
         <section style={{marginBottom:32}}>
           <h2 style={{fontSize:'1.8rem',fontWeight:'bold',margin:0}}>Currently Ongoing: </h2>
-          <h3 style={{fontSize:'1.8rem',fontWeight:'bold',margin:'4px 0 12px 0'}}>{minutes.currentTopic.topic || '(Untitled)'}</h3>
+          <h3 style={{fontSize:'1.8rem',fontWeight:'bold',margin:'4px 0 12px 0'}}>
+            {minutes.currentTopic.topic || '(Untitled)'}
+          </h3>
           {minutes.currentTopic.summarySoFar && <p>{minutes.currentTopic.summarySoFar}</p>}
 
-          {Array.isArray(minutes.currentTopic.confirmedMatters) && minutes.currentTopic.confirmedMatters.length>0 && (
-            <><h4>Confirmed Matters</h4><ul>{minutes.currentTopic.confirmedMatters.map((t,i)=><li key={i}>{t}</li>)}</ul></>)}
+          {Array.isArray(minutes.currentTopic.confirmedMatters) && minutes.currentTopic.confirmedMatters.length > 0 && (
+            <>
+              <h4>Confirmed Matters</h4>
+              <ul>
+                {minutes.currentTopic.confirmedMatters.map((t, i) => <li key={i}>{t}</li>)}
+              </ul>
+            </>
+          )}
 
-          {Array.isArray(minutes.currentTopic.pendingPoints) && minutes.currentTopic.pendingPoints.length>0 && (
-            <><h4>Pending Points</h4><ul>{minutes.currentTopic.pendingPoints.map((t,i)=><li key={i}>{t}</li>)}</ul></>)}
+          {Array.isArray(minutes.currentTopic.pendingPoints) && minutes.currentTopic.pendingPoints.length > 0 && (
+            <>
+              <h4>Pending Points</h4>
+              <ul>
+                {minutes.currentTopic.pendingPoints.map((t, i) => <li key={i}>{t}</li>)}
+              </ul>
+            </>
+          )}
 
-          {Array.isArray(minutes.currentTopic.nextActionables) && minutes.currentTopic.nextActionables.length>0 && (
-            <><h4>Next Actions</h4><ul>{minutes.currentTopic.nextActionables.map((t,i)=><li key={i}>{t}</li>)}</ul></>)}
+          {Array.isArray(minutes.currentTopic.nextActionables) && minutes.currentTopic.nextActionables.length > 0 && (
+            <>
+              <h4>Next Actions</h4>
+              <ul>
+                {minutes.currentTopic.nextActionables.map((t, i) => <li key={i}>{t}</li>)}
+              </ul>
+            </>
+          )}
         </section>
       )}
 
       {divider}
 
       {/* Past Topics (Newest → Oldest) */}
-      {Array.isArray(minutes.pastTopics) && minutes.pastTopics.length>0 ? (
+      {Array.isArray(minutes.pastTopics) && minutes.pastTopics.length > 0 ? (
         [...minutes.pastTopics].reverse().map((topic, i, arr) => (
           <section key={i} style={{marginBottom:32}}>
-            <h3 style={{fontSize:'1.2rem',fontWeight:'bold'}}>{arr.length - i}. {topic.topic || '(Untitled)'}</h3>
+            <h3 style={{fontSize:'1.2rem',fontWeight:'bold'}}>
+              {arr.length - i}. {topic.topic || '(Untitled)'}
+            </h3>
             {topic.summary && <p>{topic.summary}</p>}
-            {Array.isArray(topic.decisions) && topic.decisions.length>0 && (
-              <><h4>Decisions</h4><ul>{topic.decisions.map((d,j)=><li key={j}>{d}</li>)}</ul></>)}
-            {Array.isArray(topic.actionItems) && topic.actionItems.length>0 && (
-              <><h4>TODO</h4><ul>{topic.actionItems.map((d,j)=><li key={j}>{d}</li>)}</ul></>)}
-            {i!==arr.length-1 && divider}
+            {Array.isArray(topic.decisions) && topic.decisions.length > 0 && (
+              <>
+                <h4>Decisions</h4>
+                <ul>{topic.decisions.map((d, j) => <li key={j}>{d}</li>)}</ul>
+              </>
+            )}
+            {Array.isArray(topic.actionItems) && topic.actionItems.length > 0 && (
+              <>
+                <h4>TODO</h4>
+                <ul>{topic.actionItems.map((d, j) => <li key={j}>{d}</li>)}</ul>
+              </>
+            )}
+            {i !== arr.length - 1 && divider}
           </section>
         ))
-      ) : <p style={{opacity:0.7}}>(No past topics yet)</p>}
+      ) : (
+        <p style={{opacity:0.7}}>(No past topics yet)</p>
+      )}
     </div>
   );
 }
