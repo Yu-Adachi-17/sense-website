@@ -7,8 +7,7 @@ export default function TimelyViewPage() {
   const router = useRouter();
   const { id } = router.query;
 
-  const [minutes, setMinutes] = useState(null);
-  const [updatedAt, setUpdatedAt] = useState(null); // 🔹 updatedAt を独立管理
+  const [minutes, setMinutes] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -28,13 +27,16 @@ export default function TimelyViewPage() {
 
         const data = snap.data();
         try {
-          if (typeof data.minutes === 'string') {
-            const parsed = JSON.parse(data.minutes);
-            setMinutes(parsed);            // JSON 本体
-          } else {
-            setMinutes(data);
-          }
-          setUpdatedAt(data.updatedAt);    // updatedAt は必ずここで上書き
+          // JSON部分をパースするか、そのままオブジェクトを使うか
+          const parsed = typeof data.minutes === 'string'
+            ? JSON.parse(data.minutes)
+            : { ...data };
+
+          // updatedAt を常にマージして state にセット
+          setMinutes({
+            ...parsed,
+            updatedAt: data.updatedAt,
+          });
         } catch (e) {
           console.error("⚠️ JSON parse error:", e, "\nInput:", data.minutes);
           setErrorMsg('Failed to parse JSON');
@@ -68,8 +70,8 @@ export default function TimelyViewPage() {
       </h1>
       <p>
         <strong>Last updated:</strong>{' '}
-        {updatedAt?.seconds
-          ? new Date(updatedAt.seconds * 1000).toLocaleString(undefined, {
+        {minutes.updatedAt?.seconds
+          ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString(undefined, {
               year:   'numeric',
               month:  'long',
               day:    'numeric',
@@ -94,7 +96,7 @@ export default function TimelyViewPage() {
             <>
               <h4>Confirmed Matters</h4>
               <ul>
-                {minutes.currentTopic.confirmedMatters.map((t, i) => <li key={i}>{t}</li>)}
+                {minutes.currentTopic.confirmedMatters.map((t: string, i: number) => <li key={i}>{t}</li>)}
               </ul>
             </>
           )}
@@ -103,7 +105,7 @@ export default function TimelyViewPage() {
             <>
               <h4>Pending Points</h4>
               <ul>
-                {minutes.currentTopic.pendingPoints.map((t, i) => <li key={i}>{t}</li>)}
+                {minutes.currentTopic.pendingPoints.map((t: string, i: number) => <li key={i}>{t}</li>)}
               </ul>
             </>
           )}
@@ -112,7 +114,7 @@ export default function TimelyViewPage() {
             <>
               <h4>Next Actions</h4>
               <ul>
-                {minutes.currentTopic.nextActionables.map((t, i) => <li key={i}>{t}</li>)}
+                {minutes.currentTopic.nextActionables.map((t: string, i: number) => <li key={i}>{t}</li>)}
               </ul>
             </>
           )}
@@ -123,7 +125,7 @@ export default function TimelyViewPage() {
 
       {/* Past Topics (Newest → Oldest) */}
       {Array.isArray(minutes.pastTopics) && minutes.pastTopics.length > 0 ? (
-        [...minutes.pastTopics].reverse().map((topic, i, arr) => (
+        [...minutes.pastTopics].reverse().map((topic: any, i: number, arr: any[]) => (
           <section key={i} style={{marginBottom:32}}>
             <h3 style={{fontSize:'1.2rem',fontWeight:'bold'}}>
               {arr.length - i}. {topic.topic || '(Untitled)'}
@@ -132,13 +134,13 @@ export default function TimelyViewPage() {
             {Array.isArray(topic.decisions) && topic.decisions.length > 0 && (
               <>
                 <h4>Decisions</h4>
-                <ul>{topic.decisions.map((d, j) => <li key={j}>{d}</li>)}</ul>
+                <ul>{topic.decisions.map((d: string, j: number) => <li key={j}>{d}</li>)}</ul>
               </>
             )}
             {Array.isArray(topic.actionItems) && topic.actionItems.length > 0 && (
               <>
                 <h4>TODO</h4>
-                <ul>{topic.actionItems.map((d, j) => <li key={j}>{d}</li>)}</ul>
+                <ul>{topic.actionItems.map((d: string, j: number) => <li key={j}>{d}</li>)}</ul>
               </>
             )}
             {i !== arr.length - 1 && divider}
