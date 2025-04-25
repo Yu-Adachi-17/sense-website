@@ -54,7 +54,19 @@ export default function TimelyViewPage() {
       <h1 style={{fontSize:'2rem',fontWeight:'bold'}}>
         {minutes.meetingTitle ? `${minutes.meetingTitle} (Live)` : 'Timely Minutes'}
       </h1>
-      <p><strong>Last updated:</strong> {minutes.updatedAt?.seconds ? new Date(minutes.updatedAt.seconds*1000).toLocaleString() : 'Unknown'}</p>
+      <p>
+        <strong>Last updated:</strong>{' '}
+        {minutes.updatedAt?.seconds
+          ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString(undefined, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+            })
+          : 'Unknown'}
+      </p>
       {divider}
 
       {/* Currently Ongoing */}
