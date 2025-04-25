@@ -21,15 +21,22 @@ export default function TimelyViewPage() {
       snap => {
         if (!snap.exists()) { setErrorMsg('This meeting note does not exist'); setLoading(false); return; }
         const data = snap.data();
-        if (typeof data.minutes === 'string') {
-          try {
+        try {
+          if (typeof data.minutes === 'string') {
             const parsed = JSON.parse(data.minutes);
-            // ✅ explicitly add updatedAt
-            setMinutes({ ...parsed, updatedAt: data.updatedAt });
-          } catch (e) {
-            console.error("⚠️ JSON parse error:", e, "\nInput:", data.minutes);
-            setErrorMsg('Failed to parse JSON');
+            // 🔁 FirestoreのJSONが同じでもupdatedAtが変わっていれば再描画
+            setMinutes(prev => {
+              const next = { ...parsed, updatedAt: data.updatedAt };
+              return JSON.stringify(prev) !== JSON.stringify(next) ? next : prev;
+            });
+          } else {
+            setMinutes(data);
           }
+        } catch (e) {
+          console.error("⚠️ JSON parse error:", e, "\nInput:", data.minutes);
+          setErrorMsg('Failed to parse JSON');
+        }
+        
         } else {
           setMinutes(data);
         }
