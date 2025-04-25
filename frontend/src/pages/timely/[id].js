@@ -8,6 +8,7 @@ export default function TimelyViewPage() {
   const { id } = router.query;
 
   const [minutes, setMinutes] = useState(null);
+  const [updatedAt, setUpdatedAt] = useState(null); // 🔹 updatedAtを独立管理
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -19,31 +20,34 @@ export default function TimelyViewPage() {
     const unsub = onSnapshot(
       ref,
       snap => {
-        if (!snap.exists()) { setErrorMsg('This meeting note does not exist'); setLoading(false); return; }
+        if (!snap.exists()) {
+          setErrorMsg('This meeting note does not exist');
+          setLoading(false);
+          return;
+        }
         const data = snap.data();
         try {
           if (typeof data.minutes === 'string') {
             const parsed = JSON.parse(data.minutes);
-            // 🔁 FirestoreのJSONが同じでもupdatedAtが変わっていれば再描画
-            setMinutes(prev => {
-              const next = { ...parsed, updatedAt: data.updatedAt };
-              return JSON.stringify(prev) !== JSON.stringify(next) ? next : prev;
-            });
+            setMinutes(parsed);               // 🔹 JSON本体
+            setUpdatedAt(data.updatedAt);     // 🔹 updatedAtを分離しても必ず更新
           } else {
             setMinutes(data);
+            setUpdatedAt(data.updatedAt);
           }
         } catch (e) {
           console.error("⚠️ JSON parse error:", e, "\nInput:", data.minutes);
           setErrorMsg('Failed to parse JSON');
         }
-        
-        } else {
-          setMinutes(data);
-        }
-        
+
         setLoading(false);
       },
-      err => { console.error(err); setErrorMsg('Load error'); setLoading(false);} );
+      err => {
+        console.error(err);
+        setErrorMsg('Load error');
+        setLoading(false);
+      }
+    );
     return () => unsub();
   }, [router.isReady, id]);
 
@@ -63,8 +67,8 @@ export default function TimelyViewPage() {
       </h1>
       <p>
         <strong>Last updated:</strong>{' '}
-        {minutes.updatedAt?.seconds
-          ? new Date(minutes.updatedAt.seconds * 1000).toLocaleString(undefined, {
+        {updatedAt?.seconds
+          ? new Date(updatedAt.seconds * 1000).toLocaleString(undefined, {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
