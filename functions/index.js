@@ -54,35 +54,38 @@ https://apps.apple.com/sg/app/minutes-ai/id6504087901
   }
 });
 
-// ✅ 24時間以内＆isActive=true のときだけ取得を許可
+// ✅ 24時間以内＆isActive=true のときだけ取得を許可（独自ドメイン対応）
 exports.getTimelyNote = functions.https.onRequest(async (req, res) => {
-  const docId = req.query.id;
-  if (!docId) return res.status(400).send("Missing id");
-
-  try {
-    const docRef = admin.firestore().collection("timelyNotes").doc(docId);
-    const docSnap = await docRef.get();
-
-    if (!docSnap.exists) {
-      return res.status(404).send("Document not found");
+    // ── ① パス末尾 (/timely/xxxx) から id を取り出す ──
+    const parts = req.path.split("/");               // ["", "timely", "{id}"]
+    const docId = parts.length >= 3 ? parts[2] : "";
+    if (!docId) return res.status(400).send("Missing id");
+  
+    try {
+      const snap = await admin.firestore()
+                                .collection("timelyNotes")
+                                .doc(docId)
+                                .get();
+      if (!snap.exists) return res.status(404).send("Document not found");
+  
+      const data      = snap.data();
+      const now       = admin.firestore.Timestamp.now();
+      const updatedAt = data.updatedAt;
+      const isActive  = data.isActive !== false;   // デフォルト true
+      const diffSec   = now.seconds - updatedAt.seconds;
+  
+      if (diffSec > 30 || !isActive) {
+        return res.status(403).send("Link expired or deactivated");
+      }
+  
+      // ── ② JSON をそのまま見せるだけならこれで OK ──
+      return res.status(200).json(data);
+    } catch (e) {
+      console.error(e);
+      return res.status(500).send("Internal Server Error");
     }
-
-    const data = docSnap.data();
-    const now = admin.firestore.Timestamp.now();
-    const updatedAt = data.updatedAt;
-    const isActive = data.isActive !== false; // デフォルト true
-
-    const diffSeconds = now.seconds - updatedAt.seconds;
-    if (diffSeconds > 86400 || !isActive) {
-      return res.status(403).send("Link expired or deactivated");
-    }
-
-    return res.status(200).json(data);
-  } catch (error) {
-    console.error("取得エラー:", error);
-    return res.status(500).send("Internal Server Error");
-  }
-});
+  });
+  
 
 // ✅ 手動で該当リンクを即時無効化する callable 関数
 exports.deactivateTimelyNote = functions.https.onCall(async (data, context) => {
