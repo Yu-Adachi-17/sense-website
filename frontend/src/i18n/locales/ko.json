@@ -174,6 +174,23 @@
     "App Store": "App Store",
     "Privacy Policy": "개인정보 처리방침",
     "Terms of Use": "이용 약관",
-    "Legal Notice": "특정 상거래법에 따른 표기"
+    "Legal Notice": "특정 상거래법에 따른 표기",
+    "This meeting note does not exist": "이 회의 기록은 존재하지 않습니다",
+    "Failed to parse JSON": "JSON을 파싱하지 못했습니다",
+    "Load error": "로드 오류",
+    "Loading...": "로딩 중...",
+    "No data available": "사용 가능한 데이터가 없습니다",
+    "Live": "실시간",
+    "Timely Minutes": "실시간 회의록",
+    "Last updated:": "마지막 업데이트:",
+    "Unknown": "알 수 없음",
+    "Currently Ongoing:": "현재 진행 중:",
+    "(Untitled)": "(제목 없음)",
+    "Confirmed Matters": "확정된 사항",
+    "Pending Points": "보류된 항목",
+    "Next Actions": "다음 조치",
+    "Decisions": "결정 사항",
+    "TODO": "할 일",
+    "(No past topics yet)": "(이전 주제가 없습니다)"
   }
   

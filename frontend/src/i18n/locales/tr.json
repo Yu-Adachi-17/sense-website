@@ -174,6 +174,23 @@
     "App Store": "App Store",
     "Privacy Policy": "Gizlilik Politikası",
     "Terms of Use": "Kullanım Şartları",
-    "Legal Notice": "Yasal Uyarı"
+    "Legal Notice": "Yasal Uyarı",
+    "This meeting note does not exist": "Bu toplantı notu mevcut değil",
+    "Failed to parse JSON": "JSON ayrıştırılamadı",
+    "Load error": "Yükleme hatası",
+    "Loading...": "Yükleniyor...",
+    "No data available": "Kullanılabilir veri yok",
+    "Live": "Canlı",
+    "Timely Minutes": "Anlık toplantı notu",
+    "Last updated:": "Son güncelleme:",
+    "Unknown": "Bilinmiyor",
+    "Currently Ongoing:": "Şu anda devam ediyor:",
+    "(Untitled)": "(Başlıksız)",
+    "Confirmed Matters": "Onaylanan konular",
+    "Pending Points": "Bekleyen konular",
+    "Next Actions": "Sonraki adımlar",
+    "Decisions": "Kararlar",
+    "TODO": "Yapılacaklar",
+    "(No past topics yet)": "(Henüz önceki konular yok)"
   }
   

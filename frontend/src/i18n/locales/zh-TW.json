@@ -174,6 +174,23 @@
     "App Store": "App Store",
     "Privacy Policy": "隱私政策",
     "Terms of Use": "使用條款",
-    "Legal Notice": "法律聲明"
+    "Legal Notice": "法律聲明",
+    "This meeting note does not exist": "此會議記錄不存在",
+    "Failed to parse JSON": "解析 JSON 失敗",
+    "Load error": "載入錯誤",
+    "Loading...": "載入中...",
+    "No data available": "無可用資料",
+    "Live": "即時",
+    "Timely Minutes": "即時會議記錄",
+    "Last updated:": "最後更新：",
+    "Unknown": "未知",
+    "Currently Ongoing:": "目前進行中：",
+    "(Untitled)": "（無標題）",
+    "Confirmed Matters": "已確認事項",
+    "Pending Points": "待處理事項",
+    "Next Actions": "下一步行動",
+    "Decisions": "決策",
+    "TODO": "待辦事項",
+    "(No past topics yet)": "（尚無過往主題）"
   }
   

@@ -174,6 +174,23 @@
     "App Store": "متجر التطبيقات",
     "Privacy Policy": "سياسة الخصوصية",
     "Terms of Use": "شروط الاستخدام",
-    "Legal Notice": "الإشعار القانوني"
+    "Legal Notice": "الإشعار القانوني",
+    "This meeting note does not exist": "هذه الملاحظة الخاصة بالاجتماع غير موجودة",
+    "Failed to parse JSON": "فشل في تحليل JSON",
+    "Load error": "خطأ في التحميل",
+    "Loading...": "جارٍ التحميل...",
+    "No data available": "لا توجد بيانات متاحة",
+    "Live": "مباشر",
+    "Timely Minutes": "محضر الاجتماع الفوري",
+    "Last updated:": "آخر تحديث:",
+    "Unknown": "غير معروف",
+    "Currently Ongoing:": "قيد المناقشة حالياً:",
+    "(Untitled)": "(بدون عنوان)",
+    "Confirmed Matters": "المسائل المؤكدة",
+    "Pending Points": "النقاط المعلقة",
+    "Next Actions": "الإجراءات التالية",
+    "Decisions": "القرارات",
+    "TODO": "المهام",
+    "(No past topics yet)": "(لا توجد مواضيع سابقة حتى الآن)"
   }
   

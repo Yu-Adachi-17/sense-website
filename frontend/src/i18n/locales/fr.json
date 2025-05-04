@@ -174,6 +174,23 @@
     "App Store": "App Store",
     "Privacy Policy": "Politique de confidentialité",
     "Terms of Use": "Conditions d'utilisation",
-    "Legal Notice": "Mentions légales"
+    "Legal Notice": "Mentions légales",
+    "This meeting note does not exist": "Cette note de réunion n'existe pas",
+    "Failed to parse JSON": "Échec de l'analyse du JSON",
+    "Load error": "Erreur de chargement",
+    "Loading...": "Chargement...",
+    "No data available": "Aucune donnée disponible",
+    "Live": "En direct",
+    "Timely Minutes": "Compte rendu en temps réel",
+    "Last updated:": "Dernière mise à jour :",
+    "Unknown": "Inconnu",
+    "Currently Ongoing:": "En cours :",
+    "(Untitled)": "(Sans titre)",
+    "Confirmed Matters": "Points confirmés",
+    "Pending Points": "Points en attente",
+    "Next Actions": "Actions suivantes",
+    "Decisions": "Décisions",
+    "TODO": "Tâches",
+    "(No past topics yet)": "(Aucun sujet précédent pour le moment)"
   }
   

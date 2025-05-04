@@ -1,7 +1,8 @@
-const functions = require("firebase-functions");
+const functions = require('firebase-functions/v1');
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+
 
 admin.initializeApp();
 
@@ -95,14 +96,44 @@ exports.deactivateTimelyNote = functions.https.onCall(async (data, context) => {
     }
   
     try {
-      await admin.firestore().collection("timelyNotes").doc(noteNumber).update({
-        isActive: false
-      });
+      await admin.firestore().collection("timelyNotes").doc(noteNumber).delete();
       return { success: true };
     } catch (error) {
-      console.error("無効化エラー:", error);
-      throw new functions.https.HttpsError("internal", "Failed to deactivate");
+      console.error("削除エラー:", error);
+      throw new functions.https.HttpsError("internal", "Failed to delete");
     }
   });
   
   
+  
+// ✅ 24時間経過したtimelyNotesを自動削除するスケジュール関数
+exports.deleteExpiredTimelyNotes = functions.pubsub.schedule('every 60 minutes')
+  .timeZone('Asia/Tokyo') // （日本時間ベースで動かす）
+  .onRun(async (context) => {
+    const now = admin.firestore.Timestamp.now();
+    const cutoff = admin.firestore.Timestamp.fromDate(new Date(Date.now() - 24 * 60 * 60 * 1000)); // 24時間前
+
+    try {
+      const snapshot = await admin.firestore()
+        .collection("timelyNotes")
+        .where("updatedAt", "<", cutoff)
+        .get();
+
+      if (snapshot.empty) {
+        console.log("削除対象なし。");
+        return null;
+      }
+
+      const batch = admin.firestore().batch();
+      snapshot.forEach(doc => {
+        batch.delete(doc.ref);
+      });
+
+      await batch.commit();
+      console.log(`削除完了: ${snapshot.size}件`);
+      return null;
+    } catch (error) {
+      console.error("削除エラー:", error);
+      return null;
+    }
+});

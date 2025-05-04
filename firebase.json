@@ -1,4 +1,12 @@
 {
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "/timely/**",
+        "function": "getTimelyNote"
+      }
+    ]
+  },
   "functions": [
     {
       "source": "functions",

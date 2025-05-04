@@ -174,5 +174,22 @@
   "App Store": "App Store",
   "Privacy Policy": "プライバシーポリシー",
   "Terms of Use": "利用規約",
-  "Legal Notice": "特定商取引法に基づく表記"
+  "Legal Notice": "特定商取引法に基づく表記",
+  "This meeting note does not exist": "この会議メモは存在しません",
+  "Failed to parse JSON": "JSONの解析に失敗しました",
+  "Load error": "読み込みエラー",
+  "Loading...": "読み込み中...",
+  "No data available": "利用可能なデータがありません",
+  "Live": "ライブ",
+  "Timely Minutes": "タイムリー議事録",
+  "Last updated:": "最終更新:",
+  "Unknown": "不明",
+  "Currently Ongoing:": "現在進行中:",
+  "(Untitled)": "（無題）",
+  "Confirmed Matters": "確定事項",
+  "Pending Points": "保留中のポイント",
+  "Next Actions": "次のアクション",
+  "Decisions": "決定事項",
+  "TODO": "やること",
+  "(No past topics yet)": "（過去のトピックはまだありません）"
 }
