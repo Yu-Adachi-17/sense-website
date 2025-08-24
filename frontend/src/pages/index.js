@@ -549,8 +549,8 @@ function App() {
   };
 
 // ===== 円形カウントダウン（左上）用の計算値 =====
-const RING_SIZE = 140;       // 直径
-const STROKE = 5;            // 線の太さ
+const RING_SIZE = 80;       // 直径
+const STROKE = 4;            // 線の太さ
 const R = (RING_SIZE - STROKE) / 2;
 const C = 2 * Math.PI * R;   // 周長
 const remainRatio = recordingCountdown / 3600; // 1 → 0
