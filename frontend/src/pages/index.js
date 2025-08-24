@@ -54,7 +54,7 @@ function FileUploadButton({ onFileSelected }) {
       />
       <button
         onClick={handleButtonClick}
-        style={{ background: 'red', color: 'white', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}
+        style={{ background: 'red', color: 'black', padding: '10px', borderRadius: '5px', cursor: 'pointer' }}
       >
         Debug Upload
       </button>
@@ -616,7 +616,7 @@ function App() {
             bottom: 'calc((50vh - 160px) / 2)',
             left: '50%',
             transform: 'translateX(-50%)',
-            color: 'white',
+            color: 'black',
             fontSize: '54px',
             zIndex: 10,
             display: 'flex',
@@ -665,13 +665,13 @@ function App() {
               left: '2px',
               right: '2px',
               bottom: '2px',
-              background: 'black',
+              background: 'white',
               borderRadius: '38px',
             }} />
             <div style={{
               position: 'relative',
               padding: '10px 20px',
-              color: 'white',
+              color: 'black',
               fontSize: '15px',
               textAlign: 'center',
             }}>
