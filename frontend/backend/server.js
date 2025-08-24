@@ -457,17 +457,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   
     // ② If the transcription is 10,000 characters or less, generate minutes directly.
     //     If it exceeds 10,000 characters, split the text and combine the generated minutes.
-    // === ここで強制上書き（STT結果を無視） ===
-if (process.env.FORCE_FAKE_TRANSCRIPT === '1') {
-  transcription = `
-佐藤: 本日の議題は新規プロジェクトの進捗確認です。まず先週立てたスケジュールとの比較をお願いします。
-鈴木: はい、営業チームでは新規顧客へのアプローチを開始し、5社と面談を実施しました。うち2社は前向きな回答を得ています。
-田中: 開発チームですが、基本設計が完了し実装フェーズに入っています。ただ一部の仕様変更が発生し、来週までに調整が必要です。
-佐藤: なるほど。ではリスク要因を洗い出し、次回までに改善案を整理してください。
-  `.trim();
-  console.log('[DEBUG] OVERRIDE transcription with hardcoded text (len=%d)', transcription.length);
-}
-
     if (transcription.length <= 10000) {
       minutes = await generateMinutes(transcription, meetingFormat);
     } else {
