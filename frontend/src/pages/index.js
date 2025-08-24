@@ -646,7 +646,7 @@ function App() {
       </div>
 
       {/* Bottom centered navigation links */}
-      <div style={{
+      {/* <div style={{
         position: 'fixed',
         bottom: '20px',
         left: '50%',
@@ -665,7 +665,7 @@ function App() {
             AI News
           </span>
         </Link>
-      </div>
+      </div> */}
 
       {isUserDataLoaded && (
         <>
@@ -673,7 +673,7 @@ function App() {
             position: 'absolute',
             bottom: 'calc((50vh - 160px) / 2)',
             left: '50%',
-            transform: 'translate(-50%, 10px)',
+            transform: 'translate(-50%, 60px)',
             color: 'black',
             fontSize: '54px',
             zIndex: 10,
