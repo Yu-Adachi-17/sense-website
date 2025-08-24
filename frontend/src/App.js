@@ -708,7 +708,7 @@ function App() {
                       left: '2px',
                       right: '2px',
                       bottom: '2px',
-                      background: 'black',
+                      background: 'white',
                       borderRadius: '38px',
                     }} />
                     {/* 最上層：テキスト */}

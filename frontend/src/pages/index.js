@@ -665,7 +665,7 @@ function App() {
               left: '2px',
               right: '2px',
               bottom: '2px',
-              background: 'white',
+              background: 'black',
               borderRadius: '38px',
             }} />
             <div style={{
