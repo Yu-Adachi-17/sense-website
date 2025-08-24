@@ -548,205 +548,213 @@ function App() {
     await processAudioFile(file);
   };
 
-  // ===== 円形カウントダウン（左上）用の計算値 =====
-  const RING_SIZE = 140;       // 直径
-  const STROKE = 5;           // 線の太さ
-  const R = (RING_SIZE - STROKE) / 2;
-  const C = 2 * Math.PI * R;   // 周長
-  const remainRatio = recordingCountdown / 3600; // 1 → 0
-  const dashoffset = C * (1 - remainRatio);      // 経過に応じて増える
+// ===== 円形カウントダウン（左上）用の計算値 =====
+const RING_SIZE = 140;       // 直径
+const STROKE = 5;            // 線の太さ
+const R = (RING_SIZE - STROKE) / 2;
+const C = 2 * Math.PI * R;   // 周長
+const remainRatio = recordingCountdown / 3600; // 1 → 0
+const dashoffset = C * (1 - remainRatio);      // 経過に応じて増える
 
-  return (
-    <div
-      className="container"
-      style={{
-        minHeight: '100vh',
-        background:
-          'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F8F7F4'
-      }}
-    >
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-        {/* FileUploadButton is currently commented out */}
-        {/* <FileUploadButton onFileSelected={handleFileUpload} /> */}
+return (
+  <div
+    className="container"
+    style={{
+      minHeight: '100vh',
+      background:
+        'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F8F7F4'
+    }}
+  >
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      {/* FileUploadButton is currently commented out */}
+      {/* <FileUploadButton onFileSelected={handleFileUpload} /> */}
 
-        {!showFullScreen && <PurchaseMenu />}
+      {!showFullScreen && <PurchaseMenu />}
 
-        {/* 待機中パルス付きの録音ボタン（画像） */}
+      {/* 待機中パルス付きの録音ボタン（画像） */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 5,
+        }}
+      >
+        {/* 音量スケールはこのラッパーで担当 */}
         <div
           style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            zIndex: 5,
+            transform: `scale(${audioLevel})`,
+            transition: 'transform 120ms linear',
+            willChange: 'transform',
           }}
         >
-          {/* 音量スケールはこのラッパーで担当 */}
-          <div
-            style={{
-              transform: `scale(${audioLevel})`,
-              transition: 'transform 120ms linear',
-              willChange: 'transform',
-            }}
-          >
-            {/* 録音待機中のみパルス */}
-            <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
-              <button
-                onClick={toggleRecording}
-                aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-                style={{
-                  width: 420,
-                  height: 420,
-                  border: 'none',
-                  padding: 0,
-                  background: 'transparent',
-                  borderRadius: '50%',
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transform: isRecording ? 'scale(0.98)' : 'none',
-                  transition: 'transform 120ms ease',
-                }}
-              >
-                <img
-                  src="/record-gradient.png"
-                  alt=""
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                    pointerEvents: 'none',
-                    userSelect: 'none',
-                  }}
-                />
-              </button>
-            </div>
-          </div>
-
-          {/* パルス用スタイル（styled-jsx） */}
-          <style jsx>{`
-            @keyframes pulse {
-              0%, 100% { transform: scale(0.90); }
-              50%      { transform: scale(1.30); }
-            }
-            .pulse {
-              animation: pulse 6s ease-in-out infinite;
-            }
-            @media (prefers-reduced-motion: reduce) {
-              .pulse { animation: none; }
-            }
-          `}</style>
-        </div>
-
-        {showFullScreen && (
-          <FullScreenOverlay
-            setShowFullScreen={setShowFullScreen}
-            isExpanded={isExpanded}
-            setIsExpanded={setIsExpanded}
-            transcription={transcription}
-            minutes={minutes}
-            audioURL={audioURL}
-            docId={meetingRecordId}
-          />
-        )}
-        {isProcessing && <ProgressIndicator progressStep={progressStep} />}
-      </div>
-
-      {/* Bottom centered navigation links (非表示のまま残置) */}
-      {/* ...（省略：前回のままコメントアウト） ... */}
-
-      {isUserDataLoaded && (
-        <>
-          {/* 中央下の大きい残時間（既存のまま） */}
-          <div style={{
-            position: 'absolute',
-            bottom: 'calc((50vh - 160px) / 2)',
-            left: '50%',
-            transform: 'translate(-50%, 60px)',
-            color: 'black',
-            fontSize: '54px',
-            zIndex: 10,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '80px'
-          }}>
-            {userSubscription ? (
-              <span style={{
-                background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                fontSize: '72px',
-                fontFamily: 'Impact, sans-serif',
-                lineHeight: '1'
-              }}>♾️</span>
-            ) : (
-              <span style={{
-                fontFamily: 'Impact, sans-serif',
-                fontSize: '72px',
-                lineHeight: '1'
-              }}>
-                {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
-              </span>
-            )}
-          </div>
-
-          {/* ←← ここが新しい左上カウントダウン（説明不要の時計UI） */}
-          <div
-            aria-label="Recording countdown"
-            style={{
-              position: 'absolute',
-              top: 20,
-              left: 20,
-              width: RING_SIZE,
-              height: RING_SIZE,
-              zIndex: 10,
-              pointerEvents: 'none', // UI操作の邪魔をしない
-            }}
-          >
-            <svg
-              width={RING_SIZE}
-              height={RING_SIZE}
-              viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}
-              style={{ display: 'block' }}
-            >
-              <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
-                {/* 黒い円（残量ぶんだけ表示） */}
-                <circle
-                  cx={RING_SIZE / 2}
-                  cy={RING_SIZE / 2}
-                  r={R}
-                  fill="none"
-                  stroke="#000"
-                  strokeWidth={STROKE}
-                  strokeLinecap="butt"
-                  strokeDasharray={C}
-                  strokeDashoffset={dashoffset}
-                />
-              </g>
-            </svg>
-            {/* 中央の 60:00 文字 */}
-            <div
+          {/* 録音待機中のみパルス */}
+          <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
+            <button
+              onClick={toggleRecording}
+              aria-label={isRecording ? 'Stop recording' : 'Start recording'}
               style={{
-                position: 'absolute',
-                inset: 0,
-                display: 'grid',
-                placeItems: 'center',
-                fontFamily: 'Impact, sans-serif',
-                fontWeight: 900,
-                fontSize: 28,
-                color: '#000',
-                lineHeight: 1,
+                width: 420,
+                height: 420,
+                border: 'none',
+                padding: 0,
+                background: 'transparent',
+                borderRadius: '50%',
+                cursor: 'pointer',
+                position: 'relative',
+                overflow: 'hidden',
+                transform: isRecording ? 'scale(0.98)' : 'none',
+                transition: 'transform 120ms ease',
               }}
             >
+              <img
+                src="/record-gradient.png"
+                alt=""
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                }}
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* パルス用スタイル（styled-jsx） */}
+        <style jsx>{`
+          @keyframes pulse {
+            0%, 100% { transform: scale(0.90); }
+            50%      { transform: scale(1.30); }
+          }
+          .pulse {
+            animation: pulse 6s ease-in-out infinite;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .pulse { animation: none; }
+          }
+        `}</style>
+      </div>
+
+      {showFullScreen && (
+        <FullScreenOverlay
+          setShowFullScreen={setShowFullScreen}
+          isExpanded={isExpanded}
+          setIsExpanded={setIsExpanded}
+          transcription={transcription}
+          minutes={minutes}
+          audioURL={audioURL}
+          docId={meetingRecordId}
+        />
+      )}
+      {isProcessing && <ProgressIndicator progressStep={progressStep} />}
+    </div>
+
+    {/* Bottom centered navigation links (非表示のまま残置) */}
+    {/* ...（省略：前回のままコメントアウト） ... */}
+
+    {isUserDataLoaded && (
+      <>
+        {/* 中央下の大きい残時間（既存のまま） */}
+        <div style={{
+          position: 'absolute',
+          bottom: 'calc((50vh - 160px) / 2)',
+          left: '50%',
+          transform: 'translate(-50%, 60px)',
+          color: 'black',
+          fontSize: '54px',
+          zIndex: 10,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '80px'
+        }}>
+          {userSubscription ? (
+            <span style={{
+              background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+              fontSize: '72px',
+              fontFamily: 'Impact, sans-serif',
+              lineHeight: '1'
+            }}>♾️</span>
+          ) : (
+            <span style={{
+              fontFamily: 'Impact, sans-serif',
+              fontSize: '72px',
+              lineHeight: '1'
+            }}>
+              {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
+            </span>
+          )}
+        </div>
+
+        {/* ←← 新しい左上カウントダウン（MAX / 60:00 の縦並び） */}
+        <div
+          aria-label="Recording countdown (max 60:00)"
+          style={{
+            position: 'absolute',
+            top: 20,
+            left: 20,
+            width: RING_SIZE,
+            height: RING_SIZE,
+            zIndex: 10,
+            pointerEvents: 'none',
+          }}
+        >
+          <svg
+            width={RING_SIZE}
+            height={RING_SIZE}
+            viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}
+            style={{ display: 'block' }}
+          >
+            {/* 進捗（黒）※時計回り・上から開始 */}
+            <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
+              <circle
+                cx={RING_SIZE / 2}
+                cy={RING_SIZE / 2}
+                r={R}
+                fill="none"
+                stroke="#000"
+                strokeWidth={STROKE}
+                strokeLinecap="butt"
+                strokeDasharray={C}
+                strokeDashoffset={dashoffset}
+              />
+            </g>
+          </svg>
+
+          {/* 中央のテキストを縦並び（VStack） */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 2,
+              color: '#000',
+              userSelect: 'none',
+              pointerEvents: 'none',
+              lineHeight: 1.05,
+            }}
+          >
+            <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700 }}>
+              MAX
+            </div>
+            <div style={{ fontFamily: 'Impact, sans-serif', fontWeight: 900, fontSize: 22 }}>
               {formatTime(recordingCountdown)}
             </div>
           </div>
-        </>
-      )}
-    </div>
-  );
+        </div>
+      </>
+    )}
+  </div>
+);
 }
 
 export default App;
