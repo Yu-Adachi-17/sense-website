@@ -113,8 +113,7 @@ const amp = activity === 0 ? 0 : AMP_MIN + activity * (AMP_MAX - AMP_MIN);
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, [activity]);
 
-  // 振幅：音が大きいほど大きく、でも破綻しない範囲で
-  const amp = activity === 0 ? 0 : 6 + activity * 46; // 0 / 6〜52px
+
 
   // 円内部で波を描く
   const padding = Math.floor(size * 0.18);
