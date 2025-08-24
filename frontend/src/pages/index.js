@@ -63,23 +63,31 @@ function FileUploadButton({ onFileSelected }) {
 }
 
 /* ============================================================
-   ★ 追加：GlassRecordButton（録音中だけ使う）
-   - 外側は静止、白ラインのみ動作
-   - 白ラインは音量で振幅・速度が変化
-   - 無音しきい値以下では完全静止（一定リズムを排除）
+   ★ 録音中だけ使うボタン（SwiftUIの見た目をJS/CSSで再現）
+   - 白に近い均一面 + 1px白ストローク
+   - 外側：白の持ち上げシャドウ / 黒の落ち影
+   - 下側だけに出る 8px の極薄リング（blur+mask）
+   - 外側は静止、動くのは白ラインのみ
    ============================================================ */
 function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
   const [phase, setPhase] = useState(0);
   const phaseRef = useRef(0);
   const rafRef = useRef(null);
 
+  // === 音量→アクティビティ変換（しきい値＆感度） ===
+  // audioLevel: 1.0〜2.0（既存の実装）
+  // DEAD_ZONE を 0.02 に設定：1.02 未満は完全静止（無音時の“勝手に動く”を防止）
+  const DEAD_ZONE = 0.02;
+  const SENSITIVITY = 1.35; // しきい値通過後の伸びをやや強める
+  const norm = Math.max(0, audioLevel - 1 - DEAD_ZONE);
+  const activity = Math.min(1, (norm / (1 - DEAD_ZONE)) * SENSITIVITY);
+
   useEffect(() => {
     const tick = () => {
-      // audioLevel: 1.0〜2.0 -> 0〜1
-      const activity = Math.max(0, Math.min(1, audioLevel - 1));
-      const shouldMove = activity > 0.04;               // 無音しきい値
-      if (shouldMove) {
-        const speed = 0.10 + activity * 0.75;          // 0.10〜0.85
+      // activity が 0 のときは位相を更新しない＝完全静止
+      if (activity > 0) {
+        // 音が大きいほど速く
+        const speed = 0.06 + activity * 0.90; // 0.06〜0.96 rad/frame
         phaseRef.current = (phaseRef.current + speed) % (Math.PI * 2);
         setPhase(phaseRef.current);
       }
@@ -87,27 +95,28 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     };
     rafRef.current = requestAnimationFrame(tick);
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [audioLevel]);
+  }, [activity]);
 
-  const activity = Math.max(0, Math.min(1, audioLevel - 1));
-  const amp = activity === 0 ? 0 : 8 + activity * 48;   // 0 / 8〜56px
+  // 振幅：音が大きいほど大きく、でも破綻しない範囲で
+  const amp = activity === 0 ? 0 : 6 + activity * 46; // 0 / 6〜52px
 
+  // 円内部で波を描く
   const padding = Math.floor(size * 0.18);
   const w = size - padding * 2;
   const cy = Math.floor(size / 2);
 
   const makeWavePath = (A, ph) => {
-    const steps = 120;
+    const steps = 140;
     let d = `M ${padding} ${cy}`;
     for (let i = 0; i <= steps; i++) {
       const x = padding + (w * i) / steps;
       const t = (i / steps) * Math.PI * 2;
-      const env = 0.8 + 0.2 * Math.cos((t - Math.PI) * 0.6);
+      const env = 0.85 + 0.15 * Math.cos((t - Math.PI) * 0.6);
       const y =
         cy +
         env * (
-          Math.sin(t * 1.2 + ph) * A * 0.62 +
-          Math.sin(t * 2.4 - ph * 1.1) * A * 0.38
+          Math.sin(t * 1.25 + ph) * A * 0.62 +
+          Math.sin(t * 2.3  - ph * 1.05) * A * 0.38
         );
       d += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;
     }
@@ -120,10 +129,10 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     <button
       onClick={onClick}
       aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-      className={`glassBtn ${isRecording ? 'recording' : 'idle'}`}
+      className={`neuBtn ${isRecording ? 'recording' : ''}`}
       style={{ width: size, height: size }}
     >
-      {/* 白ライン（グロー＋シャープの二重） */}
+      {/* 白ライン（下＝グロー / 上＝シャープ） */}
       <svg
         width={size}
         height={size}
@@ -132,25 +141,23 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
       >
         <defs>
           <clipPath id="circle-clip">
-            <circle cx={size / 2} cy={size / 2} r={(size / 2) - 8} />
+            <circle cx={size / 2} cy={size / 2} r={(size / 2) - 1} />
           </clipPath>
           <filter id="line-glow" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="2.0" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2.0" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
           <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%"  stopColor="#ffffff" stopOpacity="0"/>
-            <stop offset="15%" stopColor="#ffffff" stopOpacity="0.35"/>
-            <stop offset="50%" stopColor="#ffffff" stopOpacity="0.98"/>
-            <stop offset="85%" stopColor="#ffffff" stopOpacity="0.35"/>
+            <stop offset="18%" stopColor="#ffffff" stopOpacity="0.40"/>
+            <stop offset="50%" stopColor="#ffffff" stopOpacity="1"/>
+            <stop offset="82%" stopColor="#ffffff" stopOpacity="0.40"/>
             <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
           </linearGradient>
         </defs>
 
         <g clipPath="url(#circle-clip)">
+          {/* 1) ソフトグロー（太め） */}
           <path
             d={pathD}
             fill="none"
@@ -159,8 +166,9 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
             strokeLinecap="round"
             strokeLinejoin="round"
             opacity={0.45}
-            style={{ mixBlendMode: 'screen', filter: 'url(#line-glow)' }}
+            style={{ filter: 'url(#line-glow)', mixBlendMode: 'screen' }}
           />
+          {/* 2) シャープな本線（細め） */}
           <path
             d={pathD}
             fill="none"
@@ -168,66 +176,54 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
             strokeWidth={6}
             strokeLinecap="round"
             strokeLinejoin="round"
-            style={{ mixBlendMode: 'screen' }}
             opacity={0.98}
+            style={{ mixBlendMode: 'screen' }}
           />
         </g>
       </svg>
 
-      {/* すりガラス球体（鮮やか・均一・滑らか） */}
+      {/* SwiftUI スタイルの見た目をCSSで再現 */}
       <style jsx>{`
-        .glassBtn {
+        .neuBtn {
           position: relative;
           border: none;
           border-radius: 9999px;
           padding: 0;
           cursor: pointer;
           overflow: hidden;
-          transform: translateZ(0);
-          transition: transform 120ms ease, box-shadow 300ms ease;
           outline: none;
 
+          /* Fill(Color(white: 0.98)) に近い均一面 + ほんのりピンクのトーン */
           background:
-            radial-gradient(140% 140% at 30% 18%, rgba(255,255,255,0.30), rgba(255,255,255,0.08) 48%, rgba(255,255,255,0) 62%),
-            linear-gradient(180deg, rgba(255,120,140,0.78), rgba(255,90,120,0.78) 55%, rgba(255,75,105,0.78));
-          -webkit-backdrop-filter: blur(24px) saturate(165%);
-          backdrop-filter: blur(24px) saturate(165%);
+            linear-gradient(180deg, rgba(255,120,136,0.14), rgba(255,120,136,0.14)),
+            #f9fafb; /* ほぼ白 */
 
+          /* overlay: Circle().stroke(Color.white.opacity(0.7), lineWidth: 1) */
           box-shadow:
-            0 36px 120px rgba(255, 64, 116, 0.38),
-            0 18px 40px rgba(255, 77, 77, 0.26),
-            inset 0 1px 0.5px rgba(255,255,255,0.95),
-            inset 0 -24px 48px rgba(255, 30, 60, 0.28);
-          border: 1px solid rgba(255,255,255,0.38);
-        }
-        .glassBtn::before {
-          content: '';
-          position: absolute;
-          inset: 12px;
-          border-radius: 9999px;
-          background:
-            radial-gradient(90% 50% at 50% 18%, rgba(255,255,255,0.45), rgba(255,255,255,0.04) 60%),
-            radial-gradient(120% 80% at 50% 100%, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
-          pointer-events: none;
-          mix-blend-mode: screen;
-        }
-        .glassBtn::after {
-          content: '';
-          position: absolute;
-          left: 6%;
-          right: 6%;
-          bottom: 10%;
-          height: 28%;
-          border-radius: 50% / 65%;
-          background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
-          filter: blur(1px);
-          opacity: 0.9;
-          pointer-events: none;
-          mix-blend-mode: screen;
+            /* .shadow(color: .white.opacity(0.9),  radius: 8,  x: -4, y: -4) */
+            -4px -4px 8px rgba(255,255,255,0.9),
+            /* .shadow(color: .black.opacity(0.12), radius: 16, x:  6, y: 10) */
+            6px 10px 16px rgba(0,0,0,0.12);
+          border: 1px solid rgba(255,255,255,0.7);
         }
 
-        /* 録音中は外側の大小アニメなし（静止） */
-        .glassBtn.recording { animation: none; transform: none; }
+        /* 下側にのみ出る極薄リング (stroke black 0.03, blur 6, offset y: 2, mask top->bottom) */
+        .neuBtn::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 9999px;
+          border: 8px solid rgba(0,0,0,0.03);
+          filter: blur(6px);
+          transform: translateY(2px);
+          pointer-events: none;
+          /* マスクで下側だけ見せる */
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+          -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+        }
+
+        /* 録音中：外側は静止 */
+        .neuBtn.recording { animation: none; }
       `}</style>
     </button>
   );
@@ -743,7 +739,7 @@ return (
 
       {!showFullScreen && <PurchaseMenu />}
 
-      {/* 中央：非録音中は元の画像、録音中のみガラスボタン */}
+      {/* 中央：非録音中は元画像、録音中だけ上のコンポーネント */}
       <div
         style={{
           position: 'absolute',
@@ -761,7 +757,7 @@ return (
             willChange: 'transform',
           }}
         >
-          {/* 待機中のみパルス。録音中はOFF */}
+          {/* 待機中のみパルス（録音中OFF） */}
           <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
             {isRecording ? (
               <GlassRecordButton
@@ -805,7 +801,7 @@ return (
           </div>
         </div>
 
-        {/* パルス用スタイル（非録音時のみ適用） */}
+        {/* パルスは非録音時のみ */}
         <style jsx>{`
           @keyframes pulse {
             0%, 100% { transform: scale(0.92); }
