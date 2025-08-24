@@ -556,21 +556,49 @@ function App() {
 
         {!showFullScreen && <PurchaseMenu />}
 
-        <div
-          className="outer-gradient"
-          style={{ transform: `translate(-50%, -50%) scale(${audioLevel})` }}
-        >
-          <div className="outer-circle"></div>
-        </div>
+{/* 新しい録音ボタン（グラデーション画像を使用） */}
+<div
+  style={{
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: `translate(-50%, -50%) scale(${audioLevel})`,
+    zIndex: 5,
+  }}
+>
+  <button
+    onClick={toggleRecording}
+    aria-label={isRecording ? 'Stop recording' : 'Start recording'}
+    style={{
+      width: 280,   // 必要に応じて調整
+      height: 280,
+      border: 'none',
+      padding: 0,
+      background: 'transparent',
+      borderRadius: '50%',
+      cursor: 'pointer',
+      position: 'relative',
+      overflow: 'hidden',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+      transform: isRecording ? 'scale(0.98)' : 'none', // 押下や録音中の演出
+      transition: 'transform 120ms ease',
+    }}
+  >
+    <img
+      src="/record-gradient.png"   // public フォルダに置いたグラデーション画像
+      alt=""
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        display: 'block',
+        pointerEvents: 'none',
+        userSelect: 'none',
+      }}
+    />
+  </button>
+</div>
 
-        <div className="inner-container">
-          <div className={`inner-circle ${isRecording ? 'recording' : ''}`}>
-            <button
-              className={`center-button ${isRecording ? 'recording' : ''}`}
-              onClick={toggleRecording}
-            ></button>
-          </div>
-        </div>
 
         {showFullScreen && (
           <FullScreenOverlay
