@@ -63,25 +63,23 @@ function FileUploadButton({ onFileSelected }) {
 }
 
 /* ============================================================
-   ★ 追加：GlassRecordButton（赤いすりガラス＋白ライン）
-   - 録音中：外側アニメ停止。白ラインのみ可動。
-   - 白ライン：音量で振幅＆速度増。無音しきい値未満で完全静止。
+   ★ 追加：GlassRecordButton（録音中だけ使う）
+   - 外側は静止、白ラインのみ動作
+   - 白ラインは音量で振幅・速度が変化
+   - 無音しきい値以下では完全静止（一定リズムを排除）
    ============================================================ */
 function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
-  // 位相（横方向の進み）。無音時は更新しない（静止）
   const [phase, setPhase] = useState(0);
   const phaseRef = useRef(0);
   const rafRef = useRef(null);
 
   useEffect(() => {
     const tick = () => {
-      // audioLevel 1.0〜2.0 → 0〜1 に正規化
-      const activity = Math.max(0, Math.min(1, (audioLevel - 1)));
-      // 無音に近いときは完全停止（“一定のリズム”を消す）
-      const shouldMove = activity > 0.04;        // しきい値
+      // audioLevel: 1.0〜2.0 -> 0〜1
+      const activity = Math.max(0, Math.min(1, audioLevel - 1));
+      const shouldMove = activity > 0.04;               // 無音しきい値
       if (shouldMove) {
-        // 音が大きいほど速く（よりダイナミックに）
-        const speed = 0.10 + activity * 0.75;    // 0.10〜0.85 rad/frame
+        const speed = 0.10 + activity * 0.75;          // 0.10〜0.85
         phaseRef.current = (phaseRef.current + speed) % (Math.PI * 2);
         setPhase(phaseRef.current);
       }
@@ -91,11 +89,9 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, [audioLevel]);
 
-  // 振幅：無音で0、最大で大きく（ただしクリップ内で安全）
-  const activity = Math.max(0, Math.min(1, (audioLevel - 1)));
-  const amp = activity === 0 ? 0 : 8 + activity * 48; // 0 / 8〜56px
+  const activity = Math.max(0, Math.min(1, audioLevel - 1));
+  const amp = activity === 0 ? 0 : 8 + activity * 48;   // 0 / 8〜56px
 
-  // 円内部の波を描く領域（上下の余白を広めに）
   const padding = Math.floor(size * 0.18);
   const w = size - padding * 2;
   const cy = Math.floor(size / 2);
@@ -106,7 +102,6 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     for (let i = 0; i <= steps; i++) {
       const x = padding + (w * i) / steps;
       const t = (i / steps) * Math.PI * 2;
-      // 2つの正弦を重ね、中央でわずかに強調するエンベロープ
       const env = 0.8 + 0.2 * Math.cos((t - Math.PI) * 0.6);
       const y =
         cy +
@@ -128,7 +123,7 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
       className={`glassBtn ${isRecording ? 'recording' : 'idle'}`}
       style={{ width: size, height: size }}
     >
-      {/* 白ライン（下にグロー、上にシャープな線の二重構成） */}
+      {/* 白ライン（グロー＋シャープの二重） */}
       <svg
         width={size}
         height={size}
@@ -149,14 +144,13 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%"  stopColor="#ffffff" stopOpacity="0"/>
             <stop offset="15%" stopColor="#ffffff" stopOpacity="0.35"/>
-            <stop offset="50%" stopColor="#ffffff" stopOpacity="0.95"/>
+            <stop offset="50%" stopColor="#ffffff" stopOpacity="0.98"/>
             <stop offset="85%" stopColor="#ffffff" stopOpacity="0.35"/>
             <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
           </linearGradient>
         </defs>
 
         <g clipPath="url(#circle-clip)">
-          {/* 1) ソフトグロー（太め） */}
           <path
             d={pathD}
             fill="none"
@@ -167,7 +161,6 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
             opacity={0.45}
             style={{ mixBlendMode: 'screen', filter: 'url(#line-glow)' }}
           />
-          {/* 2) シャープな本線（細めでくっきり） */}
           <path
             d={pathD}
             fill="none"
@@ -181,7 +174,7 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
         </g>
       </svg>
 
-      {/* すりガラス球体（均一・高彩度・滑らか） */}
+      {/* すりガラス球体（鮮やか・均一・滑らか） */}
       <style jsx>{`
         .glassBtn {
           position: relative;
@@ -194,14 +187,12 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           transition: transform 120ms ease, box-shadow 300ms ease;
           outline: none;
 
-          /* より均一で鮮やかな面。軽い反射と高彩度グラデ */
           background:
             radial-gradient(140% 140% at 30% 18%, rgba(255,255,255,0.30), rgba(255,255,255,0.08) 48%, rgba(255,255,255,0) 62%),
             linear-gradient(180deg, rgba(255,120,140,0.78), rgba(255,90,120,0.78) 55%, rgba(255,75,105,0.78));
           -webkit-backdrop-filter: blur(24px) saturate(165%);
           backdrop-filter: blur(24px) saturate(165%);
 
-          /* 均一なツヤ感：外側ソフト影＋内側リムライト */
           box-shadow:
             0 36px 120px rgba(255, 64, 116, 0.38),
             0 18px 40px rgba(255, 77, 77, 0.26),
@@ -210,7 +201,6 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           border: 1px solid rgba(255,255,255,0.38);
         }
         .glassBtn::before {
-          /* 均一な表面を強める上部ハイライト */
           content: '';
           position: absolute;
           inset: 12px;
@@ -222,7 +212,6 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           mix-blend-mode: screen;
         }
         .glassBtn::after {
-          /* 下部のガラス反射帯（均一・なめらか） */
           content: '';
           position: absolute;
           left: 6%;
@@ -237,24 +226,8 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           mix-blend-mode: screen;
         }
 
-        /* 待機中だけ外側にゆっくり鼓動（元画像のふわっと感） */
-        .glassBtn.idle {
-          animation: idlePulse 6s ease-in-out infinite;
-        }
-        /* 録音中は完全静止（外側の大小アニメOFF） */
-        .glassBtn.recording {
-          animation: none;
-          transform: none;
-        }
-
-        @keyframes idlePulse {
-          0%, 100% { transform: scale(0.92); }
-          50%      { transform: scale(1.10); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .glassBtn.idle, .glassBtn.recording { animation: none; }
-        }
+        /* 録音中は外側の大小アニメなし（静止） */
+        .glassBtn.recording { animation: none; transform: none; }
       `}</style>
     </button>
   );
@@ -770,7 +743,7 @@ return (
 
       {!showFullScreen && <PurchaseMenu />}
 
-      {/* 中央：録音ボタン（赤いすりガラス＋白ラインのみ可動） */}
+      {/* 中央：非録音中は元の画像、録音中のみガラスボタン */}
       <div
         style={{
           position: 'absolute',
@@ -780,26 +753,59 @@ return (
           zIndex: 5,
         }}
       >
-        {/* 音量スケールはこのラッパーで担当（既存のまま） */}
+        {/* 非録音中は元の音量スケール。録音中は外側スケール停止 */}
         <div
           style={{
-            transform: `scale(${audioLevel})`,
+            transform: isRecording ? 'none' : `scale(${audioLevel})`,
             transition: 'transform 120ms linear',
             willChange: 'transform',
           }}
         >
-          {/* 待機中のみ外側パルス。録音中は停止 */}
+          {/* 待機中のみパルス。録音中はOFF */}
           <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
-            <GlassRecordButton
-              isRecording={isRecording}
-              audioLevel={audioLevel}
-              onClick={toggleRecording}
-              size={420}
-            />
+            {isRecording ? (
+              <GlassRecordButton
+                isRecording={isRecording}
+                audioLevel={audioLevel}
+                onClick={toggleRecording}
+                size={420}
+              />
+            ) : (
+              <button
+                onClick={toggleRecording}
+                aria-label="Start recording"
+                style={{
+                  width: 420,
+                  height: 420,
+                  border: 'none',
+                  padding: 0,
+                  background: 'transparent',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transform: 'none',
+                  transition: 'transform 120ms ease',
+                }}
+              >
+                <img
+                  src="/record-gradient.png"
+                  alt=""
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                  }}
+                />
+              </button>
+            )}
           </div>
         </div>
 
-        {/* パルス用スタイル（待機中のみ） */}
+        {/* パルス用スタイル（非録音時のみ適用） */}
         <style jsx>{`
           @keyframes pulse {
             0%, 100% { transform: scale(0.92); }
