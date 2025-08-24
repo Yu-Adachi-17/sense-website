@@ -554,7 +554,7 @@ function App() {
       style={{
         minHeight: '100vh',
         background:
-          'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F7F6F3'
+          'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F8F7F4'
       }}
     >
   
