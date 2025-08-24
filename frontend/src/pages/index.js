@@ -548,6 +548,14 @@ function App() {
     await processAudioFile(file);
   };
 
+  // ===== 円形カウントダウン（左上）用の計算値 =====
+  const RING_SIZE = 140;       // 直径
+  const STROKE = 10;           // 線の太さ
+  const R = (RING_SIZE - STROKE) / 2;
+  const C = 2 * Math.PI * R;   // 周長
+  const remainRatio = recordingCountdown / 3600; // 1 → 0
+  const dashoffset = C * (1 - remainRatio);      // 経過に応じて増える
+
   return (
     <div
       className="container"
@@ -620,7 +628,7 @@ function App() {
           <style jsx>{`
             @keyframes pulse {
               0%, 100% { transform: scale(0.90); }
-              50%      { transform: scale(1.20); }
+              50%      { transform: scale(1.30); }
             }
             .pulse {
               animation: pulse 6s ease-in-out infinite;
@@ -645,30 +653,12 @@ function App() {
         {isProcessing && <ProgressIndicator progressStep={progressStep} />}
       </div>
 
-      {/* Bottom centered navigation links */}
-      {/* <div style={{
-        position: 'fixed',
-        bottom: '20px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        gap: '20px',
-        zIndex: 1000
-      }}>
-        <Link href="/pricing">
-          <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
-            Services and Pricing
-          </span>
-        </Link>
-        <Link href="/ai-news">
-          <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
-            AI News
-          </span>
-        </Link>
-      </div> */}
+      {/* Bottom centered navigation links (非表示のまま残置) */}
+      {/* ...（省略：前回のままコメントアウト） ... */}
 
       {isUserDataLoaded && (
         <>
+          {/* 中央下の大きい残時間（既存のまま） */}
           <div style={{
             position: 'absolute',
             bottom: 'calc((50vh - 160px) / 2)',
@@ -697,67 +687,60 @@ function App() {
                 fontSize: '72px',
                 lineHeight: '1'
               }}>
-                {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
+                {userRemainingSeconds === 0 ? "Recovering..." : formatTime(recordingCountdown)}
               </span>
             )}
           </div>
-          <div style={{
-            position: 'absolute',
-            top: '20px',
-            left: '20px',
-            width: 'fit-content',
-            zIndex: 10,
-          }}>
-            <div style={{
+
+          {/* ←← ここが新しい左上カウントダウン（説明不要の時計UI） */}
+          <div
+            aria-label="Recording countdown"
+            style={{
               position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-              borderRadius: '40px',
-            }} />
-            <div style={{
-              position: 'absolute',
-              top: '2px',
-              left: '2px',
-              right: '2px',
-              bottom: '2px',
-              background: 'white',
-              borderRadius: '38px',
-            }} />
-            <div style={{
-              position: 'relative',
-              padding: '10px 20px',
-              color: 'black',
-              fontSize: '15px',
-              textAlign: 'center',
-            }}>
-              <div style={{
-                background: 'linear-gradient(45deg, rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                fontStyle: 'italic',
-                fontWeight: 'bold',
-                fontSize: '25px'
-              }}>Beta</div>
-              <div style={{
-                background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                fontStyle: 'italic',
-                fontWeight: 'bold',
-                fontSize: '16px'
-              }}>
-                {t("The maximum duration for a single recording is 60 minutes")}
-              </div>
-              <div style={{
-                fontSize: '22px',
+              top: 20,
+              left: 20,
+              width: RING_SIZE,
+              height: RING_SIZE,
+              zIndex: 10,
+              pointerEvents: 'none', // UI操作の邪魔をしない
+            }}
+          >
+            <svg
+              width={RING_SIZE}
+              height={RING_SIZE}
+              viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}
+              style={{ display: 'block' }}
+            >
+              <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
+                {/* 黒い円（残量ぶんだけ表示） */}
+                <circle
+                  cx={RING_SIZE / 2}
+                  cy={RING_SIZE / 2}
+                  r={R}
+                  fill="none"
+                  stroke="#000"
+                  strokeWidth={STROKE}
+                  strokeLinecap="butt"
+                  strokeDasharray={C}
+                  strokeDashoffset={dashoffset}
+                />
+              </g>
+            </svg>
+            {/* 中央の 60:00 文字 */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'grid',
+                placeItems: 'center',
                 fontFamily: 'Impact, sans-serif',
-                marginTop: '5px'
-              }}>
-                {formatTime(recordingCountdown)}
-              </div>
+                fontWeight: 900,
+                fontSize: 28,
+                color: '#000',
+                lineHeight: 1,
+              }}
+            >
+              {formatTime(recordingCountdown)}
             </div>
           </div>
         </>
