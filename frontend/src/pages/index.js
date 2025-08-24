@@ -184,47 +184,50 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
 
       {/* SwiftUI スタイルの見た目をCSSで再現 */}
       <style jsx>{`
-        .neuBtn {
-          position: relative;
-          border: none;
-          border-radius: 9999px;
-          padding: 0;
-          cursor: pointer;
-          overflow: hidden;
-          outline: none;
+  .neuBtn {
+    position: relative;
+    border: none;
+    border-radius: 9999px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
 
-          /* Fill(Color(white: 0.98)) に近い均一面 + ほんのりピンクのトーン */
-          background:
-            linear-gradient(180deg, rgba(255,120,136,0.14), rgba(255,120,136,0.14)),
-            #f9fafb; /* ほぼ白 */
+    /* ← 赤みをしっかり追加（上から順に強い順で効きます） */
+    background:
+      radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
+      linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
+      #ffe9ee; /* 旧: #f9fafb（ほぼ白）→薄いピンクに */
 
-          /* overlay: Circle().stroke(Color.white.opacity(0.7), lineWidth: 1) */
-          box-shadow:
-            /* .shadow(color: .white.opacity(0.9),  radius: 8,  x: -4, y: -4) */
-            -4px -4px 8px rgba(255,255,255,0.9),
-            /* .shadow(color: .black.opacity(0.12), radius: 16, x:  6, y: 10) */
-            6px 10px 16px rgba(0,0,0,0.12);
-          border: 1px solid rgba(255,255,255,0.7);
-        }
+    /* ほんのり赤い外側グローを1本追加 */
+    box-shadow:
+      -4px -4px 8px rgba(255,255,255,0.9),
+      6px 10px 16px rgba(0,0,0,0.12),
+      0 34px 110px rgba(255, 64, 116, 0.30);
 
-        /* 下側にのみ出る極薄リング (stroke black 0.03, blur 6, offset y: 2, mask top->bottom) */
-        .neuBtn::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 9999px;
-          border: 8px solid rgba(0,0,0,0.03);
-          filter: blur(6px);
-          transform: translateY(2px);
-          pointer-events: none;
-          /* マスクで下側だけ見せる */
-          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-          -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-        }
+    border: 1px solid rgba(255,255,255,0.7);
 
-        /* 録音中：外側は静止 */
-        .neuBtn.recording { animation: none; }
-      `}</style>
+    /* 全体を少しだけ彩度アップ（やり過ぎ注意） */
+    filter: saturate(120%);
+  }
+
+  /* 下側リングも赤寄りに（ニュアンス強化） */
+  .neuBtn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 8px solid rgba(255,72,96,0.10); /* 旧: rgba(0,0,0,0.03) */
+    filter: blur(6px);
+    transform: translateY(2px);
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+  }
+
+  .neuBtn.recording { animation: none; }
+`}</style>
+
     </button>
   );
 }
