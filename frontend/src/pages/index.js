@@ -71,6 +71,37 @@ function FileUploadButton({ onFileSelected }) {
    ============================================================ */
 // ★ New: RippleRecordButton（白ライン波形は完全に排除）
 function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
+  // ── 残像リング管理（最大3） ───────────────────────────
+  const [rings, setRings] = React.useState([]);
+  const ringCountRef = React.useRef(0);
+  const lastSpawnRef = React.useRef(0);
+  React.useEffect(() => { ringCountRef.current = rings.length; }, [rings]);
+
+  // audioLevel(1.0〜2.0想定) → 0〜1の振幅
+  const amp = Math.max(0, Math.min(1, audioLevel - 1));       // 0..1
+  const centerScale = 1 + amp * 0.48;                          // 中心赤円の拡大率
+
+  // 大きい音ほどリングの発生頻度↑、無音なら発生しない
+  React.useEffect(() => {
+    if (!isRecording) { setRings([]); return; }
+    let rafId;
+    const loop = () => {
+      const now = performance.now();
+      const THRESH = 0.05;                       // 無音域
+      const interval = 900 - amp * 620;          // 280ms〜900ms
+      if (amp > THRESH && now - lastSpawnRef.current > interval && ringCountRef.current < 3) {
+        lastSpawnRef.current = now;
+        const id = now + Math.random();
+        setRings(prev => [...prev.slice(-2), { id }]); // 古いものは自動的に捨てる
+      }
+      rafId = requestAnimationFrame(loop);
+    };
+    rafId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(rafId);
+  }, [isRecording, amp]);
+
+  const onRingEnd = (id) => setRings(prev => prev.filter(r => r.id !== id));
+
   return (
     <button
       onClick={onClick}
@@ -78,13 +109,23 @@ function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
       className={`neuBtn ${isRecording ? 'recording' : ''}`}
       style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
     >
-      {/* 中央の赤いマーク */}
-      <span className="centerDot" aria-hidden="true" />
+      {/* 背景で外へ広がる“残像の波紋”（最大3） */}
+      {rings.map(r => (
+        <span
+          key={r.id}
+          className="rippleBlob"
+          onAnimationEnd={() => onRingEnd(r.id)}
+          style={{ animationDuration: `${1200 + (1 - amp) * 600}ms` }} // 小さい音ほどゆっくり
+          aria-hidden="true"
+        />
+      ))}
 
-      {/* Shazamライクな波紋：3本の同心円を位相ずらしで循環 */}
-      <span className="ring ring1" aria-hidden="true" />
-      <span className="ring ring2" aria-hidden="true" />
-      <span className="ring ring3" aria-hidden="true" />
+      {/* 中心の赤い円：音量に連動して拡大（これが“元の赤円”） */}
+      <span
+        className="centerDot"
+        aria-hidden="true"
+        style={{ transform: `translate(-50%, -50%) scale(${centerScale})` }}
+      />
 
       <style jsx>{`
         .neuBtn {
@@ -123,54 +164,57 @@ function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
         }
 
-        /* 中央の赤いマーク（軽いグラデ＋グロー） */
+        /* 中心の赤円（“元の円”が拡大する） */
         .centerDot {
           position: absolute;
           top: 50%; left: 50%;
-          transform: translate(-50%, -50%);
-          width: 24%;
-          height: 24%;
+          width: 26%;
+          height: 26%;
           border-radius: 9999px;
           background:
             radial-gradient(120% 120% at 35% 30%, #ff4b5f, #e3002b);
           box-shadow:
-            0 0 20px rgba(255, 64, 116, 0.45),
-            inset 0 4px 10px rgba(255, 190, 200, 0.6),
-            inset 0 -8px 16px rgba(140, 0, 30, 0.35);
+            0 0 22px rgba(255, 64, 116, 0.42),
+            inset 0 5px 12px rgba(255, 190, 200, 0.60),
+            inset 0 -10px 18px rgba(140, 0, 30, 0.35);
           z-index: 2;
+          will-change: transform;
+          transition: transform 90ms linear;
         }
 
-        /* 波紋アニメーション */
-        @keyframes ripple {
-          0%   { transform: translate(-50%, -50%) scale(0.55); opacity: 0.85; }
-          60%  { opacity: 0.45; }
-          100% { transform: translate(-50%, -50%) scale(1.45); opacity: 0; }
+        /* 残像の波紋：塗りつぶしグラデが外へ拡大しつつ薄くなる */
+        @keyframes blob {
+          0%   { transform: translate(-50%, -50%) scale(0.65); opacity: 0.42; }
+          100% { transform: translate(-50%, -50%) scale(1.85); opacity: 0; }
         }
-        .ring {
+        .rippleBlob {
           position: absolute;
           top: 50%; left: 50%;
-          width: 72%;
-          height: 72%;
+          width: 78%;
+          height: 78%;
           border-radius: 9999px;
-          transform: translate(-50%, -50%) scale(0.55);
-          border: 6px solid rgba(255, 32, 64, 0.55);
-          box-shadow:
-            0 0 28px rgba(255, 64, 116, 0.35);
+          transform: translate(-50%, -50%) scale(0.65);
+          background: radial-gradient(
+            circle,
+            rgba(255, 78, 98, 0.38) 0%,
+            rgba(255, 78, 98, 0.22) 45%,
+            rgba(255, 78, 98, 0.10) 75%,
+            rgba(255, 78, 98, 0) 100%
+          );
+          box-shadow: 0 0 28px rgba(255, 64, 116, 0.22);
           z-index: 1;
-          animation: ripple 2.4s ease-out infinite;
+          animation: blob 1.6s ease-out forwards;
+          pointer-events: none;
         }
-        .ring2 { animation-delay: 0.8s; }
-        .ring3 { animation-delay: 1.6s; }
 
-        /* 低速ユーザーの配慮 */
         @media (prefers-reduced-motion: reduce) {
-          .ring { animation: none; opacity: 0.6; }
+          .rippleBlob { animation: none; opacity: 0.18; }
+          .centerDot { transition: none; }
         }
       `}</style>
     </button>
   );
 }
-
 
 
 // ----------------------
