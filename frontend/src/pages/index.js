@@ -63,31 +63,39 @@ function FileUploadButton({ onFileSelected }) {
 }
 
 /* ============================================================
-   ★ 追加：GlassRecordButton（赤いすりガラス＋透明ラインの波形）
-   既存の isRecording / audioLevel / toggleRecording をそのまま使用
+   ★ 追加：GlassRecordButton（赤いすりガラス＋白ライン）
+   - 録音中：外側アニメ停止。白ラインのみ可動。
+   - 白ライン：音量で振幅＆速度増。無音しきい値未満で完全静止。
    ============================================================ */
 function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
+  // 位相（横方向の進み）。無音時は更新しない（静止）
   const [phase, setPhase] = useState(0);
   const phaseRef = useRef(0);
   const rafRef = useRef(null);
 
   useEffect(() => {
     const tick = () => {
-      const speed = isRecording ? 0.22 : 0.08; // 録音中は速く
-      phaseRef.current = (phaseRef.current + speed) % (Math.PI * 2);
-      setPhase(phaseRef.current);
+      // audioLevel 1.0〜2.0 → 0〜1 に正規化
+      const activity = Math.max(0, Math.min(1, (audioLevel - 1)));
+      // 無音に近いときは完全停止（“一定のリズム”を消す）
+      const shouldMove = activity > 0.04;        // しきい値
+      if (shouldMove) {
+        // 音が大きいほど速く（よりダイナミックに）
+        const speed = 0.10 + activity * 0.75;    // 0.10〜0.85 rad/frame
+        phaseRef.current = (phaseRef.current + speed) % (Math.PI * 2);
+        setPhase(phaseRef.current);
+      }
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [isRecording]);
+  }, [audioLevel]);
 
-  // audioLevel(1.0〜2.0) → 6〜40pxへマップ
-  const baseAmp = 6;
-  const maxAmp  = 40;
-  const amp = Math.min(maxAmp, baseAmp + (audioLevel - 1) * 34);
+  // 振幅：無音で0、最大で大きく（ただしクリップ内で安全）
+  const activity = Math.max(0, Math.min(1, (audioLevel - 1)));
+  const amp = activity === 0 ? 0 : 8 + activity * 48; // 0 / 8〜56px
 
-  // 円内部の波を描く領域
+  // 円内部の波を描く領域（上下の余白を広めに）
   const padding = Math.floor(size * 0.18);
   const w = size - padding * 2;
   const cy = Math.floor(size / 2);
@@ -98,12 +106,13 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     for (let i = 0; i <= steps; i++) {
       const x = padding + (w * i) / steps;
       const t = (i / steps) * Math.PI * 2;
-      const env = 0.75 + 0.25 * Math.cos((t - Math.PI) * 0.5); // 中央やや強調
+      // 2つの正弦を重ね、中央でわずかに強調するエンベロープ
+      const env = 0.8 + 0.2 * Math.cos((t - Math.PI) * 0.6);
       const y =
         cy +
         env * (
-          Math.sin(t * 1.0 + ph) * A * 0.55 +
-          Math.sin(t * 2.0 - ph * 1.3) * A * 0.35
+          Math.sin(t * 1.2 + ph) * A * 0.62 +
+          Math.sin(t * 2.4 - ph * 1.1) * A * 0.38
         );
       d += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;
     }
@@ -119,7 +128,7 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
       className={`glassBtn ${isRecording ? 'recording' : 'idle'}`}
       style={{ width: size, height: size }}
     >
-      {/* 透明ライン（ガラス上で発光して見える） */}
+      {/* 白ライン（下にグロー、上にシャープな線の二重構成） */}
       <svg
         width={size}
         height={size}
@@ -130,35 +139,49 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           <clipPath id="circle-clip">
             <circle cx={size / 2} cy={size / 2} r={(size / 2) - 8} />
           </clipPath>
-          <filter id="line-blur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" />
+          <filter id="line-glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2.0" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
           </filter>
           <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"  stopOpacity="0.0" stopColor="#ffffff"/>
-            <stop offset="20%" stopOpacity="0.35" stopColor="#ffffff"/>
-            <stop offset="50%" stopOpacity="0.65" stopColor="#ffffff"/>
-            <stop offset="80%" stopOpacity="0.35" stopColor="#ffffff"/>
-            <stop offset="100%" stopOpacity="0.0" stopColor="#ffffff"/>
+            <stop offset="0%"  stopColor="#ffffff" stopOpacity="0"/>
+            <stop offset="15%" stopColor="#ffffff" stopOpacity="0.35"/>
+            <stop offset="50%" stopColor="#ffffff" stopOpacity="0.95"/>
+            <stop offset="85%" stopColor="#ffffff" stopOpacity="0.35"/>
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
           </linearGradient>
         </defs>
 
         <g clipPath="url(#circle-clip)">
+          {/* 1) ソフトグロー（太め） */}
+          <path
+            d={pathD}
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth={10}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            opacity={0.45}
+            style={{ mixBlendMode: 'screen', filter: 'url(#line-glow)' }}
+          />
+          {/* 2) シャープな本線（細めでくっきり） */}
           <path
             d={pathD}
             fill="none"
             stroke="url(#line-grad)"
-            strokeWidth={5}
+            strokeWidth={6}
             strokeLinecap="round"
-            style={{
-              mixBlendMode: 'screen',
-              filter: 'url(#line-blur)',
-              opacity: 0.95,
-            }}
+            strokeLinejoin="round"
+            style={{ mixBlendMode: 'screen' }}
+            opacity={0.98}
           />
         </g>
       </svg>
 
-      {/* すりガラス本体 */}
+      {/* すりガラス球体（均一・高彩度・滑らか） */}
       <style jsx>{`
         .glassBtn {
           position: relative;
@@ -168,55 +191,70 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           cursor: pointer;
           overflow: hidden;
           transform: translateZ(0);
-          transition: transform 120ms ease;
+          transition: transform 120ms ease, box-shadow 300ms ease;
           outline: none;
+
+          /* より均一で鮮やかな面。軽い反射と高彩度グラデ */
           background:
-            radial-gradient(120% 120% at 30% 18%, rgba(255,255,255,0.28), rgba(255,255,255,0.06) 45%, rgba(255,255,255,0) 60%),
-            linear-gradient(160deg, rgba(255,105,97,0.62), rgba(255,70,112,0.62));
-          -webkit-backdrop-filter: blur(22px) saturate(140%);
-          backdrop-filter: blur(22px) saturate(140%);
+            radial-gradient(140% 140% at 30% 18%, rgba(255,255,255,0.30), rgba(255,255,255,0.08) 48%, rgba(255,255,255,0) 62%),
+            linear-gradient(180deg, rgba(255,120,140,0.78), rgba(255,90,120,0.78) 55%, rgba(255,75,105,0.78));
+          -webkit-backdrop-filter: blur(24px) saturate(165%);
+          backdrop-filter: blur(24px) saturate(165%);
+
+          /* 均一なツヤ感：外側ソフト影＋内側リムライト */
           box-shadow:
-            0 28px 80px rgba(255, 64, 116, 0.35),
-            0 16px 28px rgba(255, 77, 77, 0.25),
-            inset 0 2px 12px rgba(255,255,255,0.9),
-            inset 0 -22px 40px rgba(255, 30, 60, 0.28);
-          border: 1px solid rgba(255,255,255,0.35);
+            0 36px 120px rgba(255, 64, 116, 0.38),
+            0 18px 40px rgba(255, 77, 77, 0.26),
+            inset 0 1px 0.5px rgba(255,255,255,0.95),
+            inset 0 -24px 48px rgba(255, 30, 60, 0.28);
+          border: 1px solid rgba(255,255,255,0.38);
         }
         .glassBtn::before {
+          /* 均一な表面を強める上部ハイライト */
           content: '';
           position: absolute;
-          inset: 10px;
+          inset: 12px;
           border-radius: 9999px;
-          box-shadow:
-            inset 0 0 0 1px rgba(255,255,255,0.35),
-            inset 0 18px 28px rgba(255,255,255,0.22);
+          background:
+            radial-gradient(90% 50% at 50% 18%, rgba(255,255,255,0.45), rgba(255,255,255,0.04) 60%),
+            radial-gradient(120% 80% at 50% 100%, rgba(255,255,255,0.20), rgba(255,255,255,0) 70%);
           pointer-events: none;
+          mix-blend-mode: screen;
         }
         .glassBtn::after {
+          /* 下部のガラス反射帯（均一・なめらか） */
           content: '';
           position: absolute;
-          inset: -10%;
-          background: linear-gradient(35deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
-          transform: translateY(-30%) rotate(10deg);
-          mix-blend-mode: screen;
+          left: 6%;
+          right: 6%;
+          bottom: 10%;
+          height: 28%;
+          border-radius: 50% / 65%;
+          background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+          filter: blur(1px);
+          opacity: 0.9;
           pointer-events: none;
+          mix-blend-mode: screen;
         }
-        .glassBtn.idle { animation: idlePulse 6s ease-in-out infinite; }
-        .glassBtn.recording { transform: scale(0.98); animation: glow 2.4s ease-in-out infinite; }
-        @keyframes idlePulse { 0%,100%{transform:scale(0.90);} 50%{transform:scale(1.10);} }
-        @keyframes glow {
-          0%,100% { box-shadow:
-            0 28px 80px rgba(255, 64, 116, 0.35),
-            0 16px 28px rgba(255, 77, 77, 0.25),
-            inset 0 2px 12px rgba(255,255,255,0.9),
-            inset 0 -22px 40px rgba(255, 30, 60, 0.28); }
-          50% { box-shadow:
-            0 36px 110px rgba(255, 64, 116, 0.50),
-            0 20px 40px rgba(255, 77, 77, 0.30),
-            inset 0 3px 16px rgba(255,255,255,1.0),
-            inset 0 -28px 52px rgba(255, 30, 60, 0.36); }
+
+        /* 待機中だけ外側にゆっくり鼓動（元画像のふわっと感） */
+        .glassBtn.idle {
+          animation: idlePulse 6s ease-in-out infinite;
         }
-        @media (prefers-reduced-motion: reduce) { .glassBtn.idle, .glassBtn.recording { animation: none; } }
+        /* 録音中は完全静止（外側の大小アニメOFF） */
+        .glassBtn.recording {
+          animation: none;
+          transform: none;
+        }
+
+        @keyframes idlePulse {
+          0%, 100% { transform: scale(0.92); }
+          50%      { transform: scale(1.10); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .glassBtn.idle, .glassBtn.recording { animation: none; }
+        }
       `}</style>
     </button>
   );
@@ -732,7 +770,7 @@ return (
 
       {!showFullScreen && <PurchaseMenu />}
 
-      {/* 中央：録音ボタン（赤いすりガラス＋透明ライン） */}
+      {/* 中央：録音ボタン（赤いすりガラス＋白ラインのみ可動） */}
       <div
         style={{
           position: 'absolute',
@@ -750,7 +788,7 @@ return (
             willChange: 'transform',
           }}
         >
-          {/* 録音待機中のみ外側ゆっくりパルス */}
+          {/* 待機中のみ外側パルス。録音中は停止 */}
           <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
             <GlassRecordButton
               isRecording={isRecording}
@@ -761,18 +799,14 @@ return (
           </div>
         </div>
 
-        {/* パルス用スタイル（styled-jsx） */}
+        {/* パルス用スタイル（待機中のみ） */}
         <style jsx>{`
           @keyframes pulse {
-            0%, 100% { transform: scale(0.90); }
-            50%      { transform: scale(1.30); }
+            0%, 100% { transform: scale(0.92); }
+            50%      { transform: scale(1.18); }
           }
-          .pulse {
-            animation: pulse 6s ease-in-out infinite;
-          }
-          @media (prefers-reduced-motion: reduce) {
-            .pulse { animation: none; }
-          }
+          .pulse { animation: pulse 6s ease-in-out infinite; }
+          @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
         `}</style>
       </div>
 
