@@ -69,108 +69,53 @@ function FileUploadButton({ onFileSelected }) {
    - 下側だけに出る 8px の極薄リング（blur+mask）
    - 外側は静止、動くのは白ラインのみ
    ============================================================ */
-   function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
-    // audioLevel は 1.0（無音）〜 2.0（大音量）想定 → 0..1 に正規化
-    const norm = Math.min(1, Math.max(0, audioLevel - 1));
-  
-    // どのくらい大きくするか（必要なら数値だけ触ればOK）
-    const MIN_SCALE = 1.00;  // 無音時の大きさ
-    const MAX_SCALE = 1.45;  // 大音量時の上限
-    const targetScale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * norm;
-  
-    // ちょっとだけスムージング（ガクつき防止）
-    const [scale, setScale] = React.useState(MIN_SCALE);
-    const rafRef = React.useRef(null);
-    React.useEffect(() => {
-      cancelAnimationFrame(rafRef.current);
-      const tick = () => {
-        setScale(prev => {
-          const next = prev + (targetScale - prev) * 0.25; // 追従率
-          if (Math.abs(next - targetScale) < 0.001) return targetScale;
-          rafRef.current = requestAnimationFrame(tick);
-          return next;
-        });
-      };
-      rafRef.current = requestAnimationFrame(tick);
-      return () => cancelAnimationFrame(rafRef.current);
-    }, [targetScale]);
-  
-    return (
-      <button
-        onClick={onClick}
-        aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-        className={`neuBtn ${isRecording ? 'recording' : ''}`}
-        style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
-      >
-        {/* 音量に応じて拡大する“円”だけ */}
-        <span
-          className="disc"
-          style={{ transform: `translate(-50%, -50%) scale(${scale})` }}
-          aria-hidden="true"
-        />
-  
-        <style jsx>{`
-          .neuBtn {
-            position: relative;
-            border: none;
-            border-radius: 9999px;
-            padding: 0;
-            cursor: pointer;
-            overflow: hidden;
-            outline: none;
-  
-            /* ベースのニューモーフィック外観（元コードそのまま） */
-            background:
-              radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
-              linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
-              #ffe9ee;
-  
-            box-shadow:
-              -4px -4px 8px rgba(255,255,255,0.9),
-              6px 10px 16px rgba(0,0,0,0.12),
-              0 34px 110px rgba(255, 64, 116, 0.30);
-  
-            border: 1px solid rgba(255,255,255,0.7);
-            filter: saturate(120%);
-          }
-          .neuBtn::after{
-            content:'';
-            position:absolute;
-            inset:0;
-            border-radius:9999px;
-            border:8px solid rgba(255,72,96,0.10);
-            filter:blur(6px);
-            transform:translateY(2px);
-            pointer-events:none;
-            z-index:0;
-            mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-            -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-          }
-  
-          /* スケール対象の“円”。画像は使わずCSSグラデで不透明に（下が透けない） */
-          .disc {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 88%;
-            height: 88%;
-            transform: translate(-50%, -50%) scale(1);
-            will-change: transform;
-            border-radius: 9999px;
-            pointer-events: none;
-            z-index: 1;
-            background:
-              radial-gradient(120% 120% at 45% 35%, #ff98aa 0%, #ff687e 58%, #ff687e 100%);
-            box-shadow: 0 14px 40px rgba(255, 64, 116, 0.22);
-          }
-  
-          @media (prefers-reduced-motion: reduce) {
-            .disc { transition: none; }
-          }
-        `}</style>
-      </button>
-    );
-  }
-  
+// ⬇︎ これで置き換え（円は1つだけ）
+function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
+  // audioLevel: 1.0(無音)〜2.0(大きい)
+  const norm = Math.min(1, Math.max(0, audioLevel - 1));
+  const MIN_SCALE = 1.00;   // 無音時
+  const MAX_SCALE = 1.45;   // 最大拡大
+  const scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * norm;
+
+  return (
+    <button
+      onClick={onClick}
+      aria-label={isRecording ? 'Stop recording' : 'Start recording'}
+      className="micBtn"
+      style={{
+        width: size,
+        height: size,
+        transform: `scale(${scale})`,
+      }}
+    >
+      <style jsx>{`
+        .micBtn {
+          display: block;
+          border: none;
+          border-radius: 9999px;
+          padding: 0;
+          cursor: pointer;
+          outline: none;
+
+          /* 円はこれ1つだけ（不透明グラデで下が透けない） */
+          background: radial-gradient(120% 120% at 45% 35%, #ff98aa 0%, #ff687e 68%, #ff5a74 100%);
+
+          /* スケールだけに反応させる */
+          transition: transform 90ms linear;
+          will-change: transform;
+
+          /* 外周の“汚いリム”を完全排除 */
+          box-shadow: none;
+        }
+
+        /* 念のため、疑似要素で外周が出ないように潰す */
+        .micBtn::before, .micBtn::after { content: none !important; }
+      `}</style>
+    </button>
+  );
+}
+
+
 // ----------------------
 // Constants for localStorage keys (guest user)
 // ----------------------
