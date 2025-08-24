@@ -551,18 +551,14 @@ function App() {
   return (
     <div
       className="container"
+      // 中央にごく薄いラジアル。ベースはオフホワイト寄り。
       style={{
         minHeight: '100vh',
-        // 中央付近にごく薄いラジアル、ベースはオフホワイト
-        background: `
-          radial-gradient(
-            520px 520px at 50% calc(50% - 40px),
-            rgba(0,0,0,0.035),
-            rgba(0,0,0,0) 60%
-          ), #FBFAF7
-        `,
+        background:
+          'radial-gradient(520px 520px at 50% calc(50% - 40px), rgba(0,0,0,0.035), rgba(0,0,0,0) 60%), #FBFAF7'
       }}
->
+    >
+  
 
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         {/* FileUploadButton is currently commented out */}
