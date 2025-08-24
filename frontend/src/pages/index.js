@@ -549,7 +549,14 @@ function App() {
   };
 
   return (
-    <div className="container" style={{ backgroundColor: 'white', minHeight: '100vh' }}>
+    <div
+  className="container"
+  style={{
+    backgroundColor: '#F9F9F6',  // ←白すぎないベージュ寄り
+    minHeight: '100vh',
+  }}
+>
+
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         {/* FileUploadButton is currently commented out */}
         {/* <FileUploadButton onFileSelected={handleFileUpload} /> */}
