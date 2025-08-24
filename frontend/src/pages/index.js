@@ -673,7 +673,7 @@ function App() {
             position: 'absolute',
             bottom: 'calc((50vh - 160px) / 2)',
             left: '50%',
-            transform: 'translateX(-50%)',
+            transform: 'translate(-50%, 10px)',
             color: 'black',
             fontSize: '54px',
             zIndex: 10,

@@ -404,8 +404,13 @@ const handleCancelSubscription = async () => {
       {/* ハンバーガーアイコン（サイドメニューが非表示の場合のみ） */}
       {!showSideMenu && (
         <button style={styles.hamburgerButton} onClick={handleHamburgerClick}>
-          <GiHamburgerMenu size={30} color="#000" />
-        </button>
+  <GiHamburgerMenu
+    size={30}
+    color="#000000"
+    style={{ transform: 'scaleX(1.2)', transformOrigin: 'center' }}
+  />
+</button>
+
       )}
 
       {/* サイドメニューオーバーレイ */}
