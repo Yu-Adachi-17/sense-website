@@ -70,37 +70,38 @@ function FileUploadButton({ onFileSelected }) {
    - 外側は静止、動くのは白ラインのみ
    ============================================================ */
 // ★ New: RippleRecordButton（白ライン波形は完全に排除）
+// 置換版：中心ドットなし。元のピンク円そのものが拡大し、残像(最大3)が外へフェードアウト。
 function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
-  // ── 残像リング管理（最大3） ───────────────────────────
-  const [rings, setRings] = React.useState([]);
-  const ringCountRef = React.useRef(0);
+  const [trails, setTrails] = React.useState([]);
+  const trailsRef = React.useRef(trails);
   const lastSpawnRef = React.useRef(0);
-  React.useEffect(() => { ringCountRef.current = rings.length; }, [rings]);
 
-  // audioLevel(1.0〜2.0想定) → 0〜1の振幅
-  const amp = Math.max(0, Math.min(1, audioLevel - 1));       // 0..1
-  const centerScale = 1 + amp * 0.48;                          // 中心赤円の拡大率
+  React.useEffect(() => { trailsRef.current = trails; }, [trails]);
 
-  // 大きい音ほどリングの発生頻度↑、無音なら発生しない
+  // App側の audioLevel は 1.0〜2.0 を想定 → 0〜1 に正規化
+  const amp = Math.min(1, Math.max(0, audioLevel - 1));     // 0..1
+  const discScale = 1 + amp * 0.45;                          // 元の円の拡大率
+
+  // 音が大きいほど残像の発生頻度↑／無音なら発生しない。最大3枚キープ。
   React.useEffect(() => {
-    if (!isRecording) { setRings([]); return; }
+    if (!isRecording) { setTrails([]); return; }
     let rafId;
     const loop = () => {
       const now = performance.now();
-      const THRESH = 0.05;                       // 無音域
-      const interval = 900 - amp * 620;          // 280ms〜900ms
-      if (amp > THRESH && now - lastSpawnRef.current > interval && ringCountRef.current < 3) {
+      const THRESH = 0.04;
+      const interval = 900 - amp * 650; // 250ms〜900ms
+      if (amp > THRESH && now - lastSpawnRef.current > interval && trailsRef.current.length < 3) {
         lastSpawnRef.current = now;
         const id = now + Math.random();
-        setRings(prev => [...prev.slice(-2), { id }]); // 古いものは自動的に捨てる
+        setTrails(prev => [...prev.slice(-2), { id, startScale: discScale }]);
       }
       rafId = requestAnimationFrame(loop);
     };
     rafId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(rafId);
-  }, [isRecording, amp]);
+  }, [isRecording, amp, discScale]);
 
-  const onRingEnd = (id) => setRings(prev => prev.filter(r => r.id !== id));
+  const onTrailEnd = (id) => setTrails(prev => prev.filter(t => t.id !== id));
 
   return (
     <button
@@ -109,22 +110,28 @@ function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
       className={`neuBtn ${isRecording ? 'recording' : ''}`}
       style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
     >
-      {/* 背景で外へ広がる“残像の波紋”（最大3） */}
-      {rings.map(r => (
-        <span
-          key={r.id}
-          className="rippleBlob"
-          onAnimationEnd={() => onRingEnd(r.id)}
-          style={{ animationDuration: `${1200 + (1 - amp) * 600}ms` }} // 小さい音ほどゆっくり
-          aria-hidden="true"
+      {/* 残像（元のピンク円と同じ画像を拡大＆フェード） */}
+      {trails.map(t => (
+        <img
+          key={t.id}
+          src="/record-gradient.png"
+          alt=""
+          className="trail"
+          onAnimationEnd={() => onTrailEnd(t.id)}
+          style={{
+            // CSSカスタムプロパティで開始スケールを注入
+            ['--startScale']: t.startScale,
+            animationDuration: `${1200 + (1 - amp) * 600}ms`
+          }}
         />
       ))}
 
-      {/* 中心の赤い円：音量に連動して拡大（これが“元の赤円”） */}
-      <span
-        className="centerDot"
-        aria-hidden="true"
-        style={{ transform: `translate(-50%, -50%) scale(${centerScale})` }}
+      {/* 元の大きいピンク円そのもの（画像）を拡大。これ以外の赤い点は存在しない */}
+      <img
+        src="/record-gradient.png"
+        alt=""
+        className="disc"
+        style={{ transform: `translate(-50%, -50%) scale(${discScale})` }}
       />
 
       <style jsx>{`
@@ -137,16 +144,15 @@ function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           overflow: hidden;
           outline: none;
 
+          /* 外枠のニューモーフィック調は現状維持 */
           background:
             radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
             linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
             #ffe9ee;
-
           box-shadow:
             -4px -4px 8px rgba(255,255,255,0.9),
             6px 10px 16px rgba(0,0,0,0.12),
             0 34px 110px rgba(255, 64, 116, 0.30);
-
           border: 1px solid rgba(255,255,255,0.7);
           filter: saturate(120%);
         }
@@ -164,52 +170,48 @@ function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
           -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
         }
 
-        /* 中心の赤円（“元の円”が拡大する） */
-        .centerDot {
+        /* 元のピンク円（ベース）。画像をスケールさせるだけ。 */
+        .disc {
           position: absolute;
           top: 50%; left: 50%;
-          width: 26%;
-          height: 26%;
-          border-radius: 9999px;
-          background:
-            radial-gradient(120% 120% at 35% 30%, #ff4b5f, #e3002b);
-          box-shadow:
-            0 0 22px rgba(255, 64, 116, 0.42),
-            inset 0 5px 12px rgba(255, 190, 200, 0.60),
-            inset 0 -10px 18px rgba(140, 0, 30, 0.35);
-          z-index: 2;
-          will-change: transform;
+          width: 88%;
+          height: 88%;
+          transform: translate(-50%, -50%) scale(1);
           transition: transform 90ms linear;
+          will-change: transform;
+          object-fit: cover;
+          border-radius: 9999px;
+          pointer-events: none;
+          z-index: 2;
+          box-shadow:
+            0 14px 40px rgba(255, 64, 116, 0.22),
+            inset 0 0 0 rgba(0,0,0,0); /* 実質シャドウ無し＝内部の赤い点は出さない */
         }
 
-        /* 残像の波紋：塗りつぶしグラデが外へ拡大しつつ薄くなる */
-        @keyframes blob {
-          0%   { transform: translate(-50%, -50%) scale(0.65); opacity: 0.42; }
-          100% { transform: translate(-50%, -50%) scale(1.85); opacity: 0; }
+        /* 残像（trail）：元の画像を薄くして大きくしながらフェードアウト */
+        @keyframes trailGrow {
+          0%   { transform: translate(-50%, -50%) scale(var(--startScale)); opacity: 0.25; }
+          100% { transform: translate(-50%, -50%) scale(2.0);              opacity: 0; }
         }
-        .rippleBlob {
+        .trail {
           position: absolute;
           top: 50%; left: 50%;
-          width: 78%;
-          height: 78%;
+          width: 88%;
+          height: 88%;
+          transform: translate(-50%, -50%) scale(1);
+          object-fit: cover;
           border-radius: 9999px;
-          transform: translate(-50%, -50%) scale(0.65);
-          background: radial-gradient(
-            circle,
-            rgba(255, 78, 98, 0.38) 0%,
-            rgba(255, 78, 98, 0.22) 45%,
-            rgba(255, 78, 98, 0.10) 75%,
-            rgba(255, 78, 98, 0) 100%
-          );
-          box-shadow: 0 0 28px rgba(255, 64, 116, 0.22);
-          z-index: 1;
-          animation: blob 1.6s ease-out forwards;
           pointer-events: none;
+          z-index: 1;
+          filter: saturate(0.95) brightness(1.02) blur(0.2px);
+          animation-name: trailGrow;
+          animation-timing-function: ease-out;
+          animation-fill-mode: forwards;
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .rippleBlob { animation: none; opacity: 0.18; }
-          .centerDot { transition: none; }
+          .disc { transition: none; }
+          .trail { animation: none; opacity: 0.12; }
         }
       `}</style>
     </button>
