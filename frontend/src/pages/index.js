@@ -556,7 +556,7 @@ function App() {
 
         {!showFullScreen && <PurchaseMenu />}
 
-{/* 新しい録音ボタン（グラデーション画像を使用） */}
+{/* 新しい録音ボタン（グラデーション画像を使用、枠なし・大サイズ） */}
 <div
   style={{
     position: 'absolute',
@@ -570,8 +570,8 @@ function App() {
     onClick={toggleRecording}
     aria-label={isRecording ? 'Stop recording' : 'Start recording'}
     style={{
-      width: 280,   // 必要に応じて調整
-      height: 280,
+      width: 420,   // 280px → 1.5倍の420px
+      height: 420,
       border: 'none',
       padding: 0,
       background: 'transparent',
@@ -579,13 +579,12 @@ function App() {
       cursor: 'pointer',
       position: 'relative',
       overflow: 'hidden',
-      boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-      transform: isRecording ? 'scale(0.98)' : 'none', // 押下や録音中の演出
+      transform: isRecording ? 'scale(0.98)' : 'none',
       transition: 'transform 120ms ease',
     }}
   >
     <img
-      src="/record-gradient.png"   // public フォルダに置いたグラデーション画像
+      src="/record-gradient.png"
       alt=""
       style={{
         width: '100%',
