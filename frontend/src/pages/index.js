@@ -69,127 +69,108 @@ function FileUploadButton({ onFileSelected }) {
    - 下側だけに出る 8px の極薄リング（blur+mask）
    - 外側は静止、動くのは白ラインのみ
    ============================================================ */
-// ★ New: RippleRecordButton（白ライン波形は完全に排除）
-// 置換版：中心ドットなし。元のピンク円そのものが拡大し、残像(最大3)が外へフェードアウト。
-function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
-  const [trails, setTrails] = React.useState([]);
-  const trailsRef = React.useRef(trails);
-  const lastSpawnRef = React.useRef(0);
-  React.useEffect(() => { trailsRef.current = trails; }, [trails]);
-
-  // audioLevel(1.0〜2.0想定) → 0..1
-  const amp = Math.min(1, Math.max(0, audioLevel - 1));
-  const discScale = 1 + amp * 0.45;
-
-  // 大きい音ほど残像頻度↑（最大3枚）
-  React.useEffect(() => {
-    if (!isRecording) { setTrails([]); return; }
-    let rafId;
-    const loop = () => {
-      const now = performance.now();
-      const THRESH = 0.04;
-      const interval = 900 - amp * 650; // 250ms〜900ms
-      if (amp > THRESH && now - lastSpawnRef.current > interval && trailsRef.current.length < 3) {
-        lastSpawnRef.current = now;
-        const id = now + Math.random();
-        setTrails(prev => [...prev.slice(-2), { id, startScale: discScale }]);
-      }
-      rafId = requestAnimationFrame(loop);
-    };
-    rafId = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafId);
-  }, [isRecording, amp, discScale]);
-
-  const onTrailEnd = (id) => setTrails(prev => prev.filter(t => t.id !== id));
-
-  return (
-    <button
-      onClick={onClick}
-      aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-      className="neuBtn"
-      style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
-    >
-      {/* 残像（CSSグラデ、完全不透明からフェード） */}
-      {trails.map(t => (
+   function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
+    // audioLevel は 1.0（無音）〜 2.0（大音量）想定 → 0..1 に正規化
+    const norm = Math.min(1, Math.max(0, audioLevel - 1));
+  
+    // どのくらい大きくするか（必要なら数値だけ触ればOK）
+    const MIN_SCALE = 1.00;  // 無音時の大きさ
+    const MAX_SCALE = 1.45;  // 大音量時の上限
+    const targetScale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * norm;
+  
+    // ちょっとだけスムージング（ガクつき防止）
+    const [scale, setScale] = React.useState(MIN_SCALE);
+    const rafRef = React.useRef(null);
+    React.useEffect(() => {
+      cancelAnimationFrame(rafRef.current);
+      const tick = () => {
+        setScale(prev => {
+          const next = prev + (targetScale - prev) * 0.25; // 追従率
+          if (Math.abs(next - targetScale) < 0.001) return targetScale;
+          rafRef.current = requestAnimationFrame(tick);
+          return next;
+        });
+      };
+      rafRef.current = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(rafRef.current);
+    }, [targetScale]);
+  
+    return (
+      <button
+        onClick={onClick}
+        aria-label={isRecording ? 'Stop recording' : 'Start recording'}
+        className={`neuBtn ${isRecording ? 'recording' : ''}`}
+        style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
+      >
+        {/* 音量に応じて拡大する“円”だけ */}
         <span
-          key={t.id}
-          className="trail"
-          onAnimationEnd={() => onTrailEnd(t.id)}
-          style={{
-            ['--startScale']: t.startScale,
-            animationDuration: `${1200 + (1 - amp) * 600}ms`
-          }}
+          className="disc"
+          style={{ transform: `translate(-50%, -50%) scale(${scale})` }}
           aria-hidden="true"
         />
-      ))}
-
-      {/* 元の大円（画像は使わない） */}
-      <span
-        className="disc"
-        style={{ transform: `translate(-50%, -50%) scale(${discScale})` }}
-        aria-hidden="true"
-      />
-
-      <style jsx>{`
-        .neuBtn{
-          position:relative;border:none;border-radius:9999px;padding:0;cursor:pointer;overflow:hidden;outline:none;
-          background:
-            radial-gradient(140% 140% at 50% 35%, rgba(255,82,110,0.26), rgba(255,82,110,0) 60%),
-            linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
-            #ffe9ee;
-          box-shadow:
-            -4px -4px 8px rgba(255,255,255,0.9),
-            6px 10px 16px rgba(0,0,0,0.12),
-            0 34px 110px rgba(255,64,116,0.30);
-          border:1px solid rgba(255,255,255,0.7);
-          filter:saturate(120%);
-        }
-        .neuBtn::after{
-          content:'';position:absolute;inset:0;border-radius:9999px;border:8px solid rgba(255,72,96,0.10);
-          filter:blur(6px);transform:translateY(2px);pointer-events:none;z-index:0;
-          mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-          -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-        }
-
-        /* 大円：完全不透明のCSSグラデ（透けない） */
-        .disc{
-          position:absolute;top:50%;left:50%;
-          width:88%;height:88%;
-          transform:translate(-50%, -50%) scale(1);
-          transition:transform 90ms linear;will-change:transform;
-          border-radius:9999px;pointer-events:none;z-index:2;
-          background:
-            radial-gradient(120% 120% at 45% 35%, rgba(255,140,160,1), rgba(255,100,120,1) 58%, rgba(255,100,120,1) 100%);
-          box-shadow:
-            0 14px 40px rgba(255,64,116,0.22);
-        }
-
-        /* 残像（外へ拡大しつつ透明化） */
-        @keyframes trailGrow{
-          0%   { transform:translate(-50%, -50%) scale(var(--startScale)); opacity: .28; }
-          100% { transform:translate(-50%, -50%) scale(2.0);               opacity: 0; }
-        }
-        .trail{
-          position:absolute;top:50%;left:50%;width:88%;height:88%;
-          transform:translate(-50%, -50%) scale(1);border-radius:9999px;pointer-events:none;z-index:1;
-          background: radial-gradient(circle,
-            rgba(255,120,140,0.40) 0%,
-            rgba(255,120,140,0.22) 45%,
-            rgba(255,120,140,0.10) 75%,
-            rgba(255,120,140,0) 100%);
-          animation-name:trailGrow;animation-timing-function:ease-out;animation-fill-mode:forwards;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .disc{ transition:none; }
-          .trail{ animation:none; opacity:.12; }
-        }
-      `}</style>
-    </button>
-  );
-}
-
-
+  
+        <style jsx>{`
+          .neuBtn {
+            position: relative;
+            border: none;
+            border-radius: 9999px;
+            padding: 0;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+  
+            /* ベースのニューモーフィック外観（元コードそのまま） */
+            background:
+              radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
+              linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
+              #ffe9ee;
+  
+            box-shadow:
+              -4px -4px 8px rgba(255,255,255,0.9),
+              6px 10px 16px rgba(0,0,0,0.12),
+              0 34px 110px rgba(255, 64, 116, 0.30);
+  
+            border: 1px solid rgba(255,255,255,0.7);
+            filter: saturate(120%);
+          }
+          .neuBtn::after{
+            content:'';
+            position:absolute;
+            inset:0;
+            border-radius:9999px;
+            border:8px solid rgba(255,72,96,0.10);
+            filter:blur(6px);
+            transform:translateY(2px);
+            pointer-events:none;
+            z-index:0;
+            mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+            -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+          }
+  
+          /* スケール対象の“円”。画像は使わずCSSグラデで不透明に（下が透けない） */
+          .disc {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 88%;
+            height: 88%;
+            transform: translate(-50%, -50%) scale(1);
+            will-change: transform;
+            border-radius: 9999px;
+            pointer-events: none;
+            z-index: 1;
+            background:
+              radial-gradient(120% 120% at 45% 35%, #ff98aa 0%, #ff687e 58%, #ff687e 100%);
+            box-shadow: 0 14px 40px rgba(255, 64, 116, 0.22);
+          }
+  
+          @media (prefers-reduced-motion: reduce) {
+            .disc { transition: none; }
+          }
+        `}</style>
+      </button>
+    );
+  }
+  
 // ----------------------
 // Constants for localStorage keys (guest user)
 // ----------------------
@@ -697,7 +678,7 @@ return (
       {/* FileUploadButton is currently commented out */}
       {/* <FileUploadButton onFileSelected={handleFileUpload} /> */}
 
-      {!showFullScreen && !isRecording && <PurchaseMenu />}
+      {!showFullScreen && <PurchaseMenu />}
 
       {/* 中央：非録音中は元画像、録音中だけ上のコンポーネント */}
       <div
@@ -719,46 +700,45 @@ return (
         >
           {/* 待機中のみパルス（録音中OFF） */}
           <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
-          {isRecording ? (
-  <RippleRecordButton
-    isRecording={isRecording}
-    audioLevel={audioLevel}   // 渡しても内部では使いません（API互換のために残置）
-    onClick={toggleRecording}
-    size={420}
-  />
-) : (
-  <button
-    onClick={toggleRecording}
-    aria-label="Start recording"
-    style={{
-      width: 420,
-      height: 420,
-      border: 'none',
-      padding: 0,
-      background: 'transparent',
-      borderRadius: '50%',
-      cursor: 'pointer',
-      position: 'relative',
-      overflow: 'hidden',
-      transform: 'none',
-      transition: 'transform 120ms ease',
-    }}
-  >
-    <img
-      src="/record-gradient.png"
-      alt=""
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-        display: 'block',
-        pointerEvents: 'none',
-        userSelect: 'none',
-      }}
-    />
-  </button>
-)}
-
+            {isRecording ? (
+              <GlassRecordButton
+                isRecording={isRecording}
+                audioLevel={audioLevel}
+                onClick={toggleRecording}
+                size={420}
+              />
+            ) : (
+              <button
+                onClick={toggleRecording}
+                aria-label="Start recording"
+                style={{
+                  width: 420,
+                  height: 420,
+                  border: 'none',
+                  padding: 0,
+                  background: 'transparent',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transform: 'none',
+                  transition: 'transform 120ms ease',
+                }}
+              >
+                <img
+                  src="/record-gradient.png"
+                  alt=""
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                  }}
+                />
+              </button>
+            )}
           </div>
         </div>
 
