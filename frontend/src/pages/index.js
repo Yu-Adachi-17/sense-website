@@ -551,11 +551,10 @@ function App() {
   return (
     <div
       className="container"
-      // 中央にごく薄いラジアル。ベースはオフホワイト寄り。
       style={{
         minHeight: '100vh',
         background:
-          'radial-gradient(520px 520px at 50% calc(50% - 40px), rgba(0,0,0,0.035), rgba(0,0,0,0) 60%), #FBFAF7'
+          'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F7F6F3'
       }}
     >
   
