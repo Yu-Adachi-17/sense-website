@@ -106,10 +106,10 @@ export default function PurchaseMenu() {
       fontSize: "30px",
       background: "none",
       border: "none",
-      color: "#FFFFFF",
+      color: "#000000",   // ← ここを白(#FFFFFF)から黒(#000000)へ
       cursor: "pointer",
       zIndex: 1300,
-    },
+    },    
     sideMenuOverlay: {
       position: "fixed",
       top: 0,
@@ -404,7 +404,7 @@ const handleCancelSubscription = async () => {
       {/* ハンバーガーアイコン（サイドメニューが非表示の場合のみ） */}
       {!showSideMenu && (
         <button style={styles.hamburgerButton} onClick={handleHamburgerClick}>
-          <GiHamburgerMenu size={30} />
+          <GiHamburgerMenu size={30} color="#000" />
         </button>
       )}
 
