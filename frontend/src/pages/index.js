@@ -557,56 +557,79 @@ function App() {
           'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F8F7F4'
       }}
     >
-  
-
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
         {/* FileUploadButton is currently commented out */}
         {/* <FileUploadButton onFileSelected={handleFileUpload} /> */}
 
         {!showFullScreen && <PurchaseMenu />}
 
-{/* 新しい録音ボタン（グラデーション画像を使用、枠なし・大サイズ） */}
-<div
-  style={{
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: `translate(-50%, -50%) scale(${audioLevel})`,
-    zIndex: 5,
-  }}
->
-  <button
-    onClick={toggleRecording}
-    aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-    style={{
-      width: 420,   // 280px → 1.5倍の420px
-      height: 420,
-      border: 'none',
-      padding: 0,
-      background: 'transparent',
-      borderRadius: '50%',
-      cursor: 'pointer',
-      position: 'relative',
-      overflow: 'hidden',
-      transform: isRecording ? 'scale(0.98)' : 'none',
-      transition: 'transform 120ms ease',
-    }}
-  >
-    <img
-      src="/record-gradient.png"
-      alt=""
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-        display: 'block',
-        pointerEvents: 'none',
-        userSelect: 'none',
-      }}
-    />
-  </button>
-</div>
+        {/* 待機中パルス付きの録音ボタン（画像） */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 5,
+          }}
+        >
+          {/* 音量スケールはこのラッパーで担当 */}
+          <div
+            style={{
+              transform: `scale(${audioLevel})`,
+              transition: 'transform 120ms linear',
+              willChange: 'transform',
+            }}
+          >
+            {/* 録音待機中のみパルス */}
+            <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
+              <button
+                onClick={toggleRecording}
+                aria-label={isRecording ? 'Stop recording' : 'Start recording'}
+                style={{
+                  width: 420,
+                  height: 420,
+                  border: 'none',
+                  padding: 0,
+                  background: 'transparent',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  transform: isRecording ? 'scale(0.98)' : 'none',
+                  transition: 'transform 120ms ease',
+                }}
+              >
+                <img
+                  src="/record-gradient.png"
+                  alt=""
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    pointerEvents: 'none',
+                    userSelect: 'none',
+                  }}
+                />
+              </button>
+            </div>
+          </div>
 
+          {/* パルス用スタイル（styled-jsx） */}
+          <style jsx>{`
+            @keyframes pulse {
+              0%, 100% { transform: scale(0.90); }
+              50%      { transform: scale(1.10); }
+            }
+            .pulse {
+              animation: pulse 3s ease-in-out infinite;
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .pulse { animation: none; }
+            }
+          `}</style>
+        </div>
 
         {showFullScreen && (
           <FullScreenOverlay
@@ -632,17 +655,16 @@ function App() {
         gap: '20px',
         zIndex: 1000
       }}>
-<Link href="/pricing">
-  <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
-    Services and Pricing
-  </span>
-</Link>
-<Link href="/ai-news">
-  <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
-    AI News
-  </span>
-</Link>
-
+        <Link href="/pricing">
+          <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
+            Services and Pricing
+          </span>
+        </Link>
+        <Link href="/ai-news">
+          <span style={{ padding: '10px 20px', color: '#fff', textDecoration: 'none', cursor: 'pointer' }}>
+            AI News
+          </span>
+        </Link>
       </div>
 
       {isUserDataLoaded && (
