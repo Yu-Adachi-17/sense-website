@@ -562,8 +562,6 @@ function App() {
           ), #FBFAF7
         `,
       }}
-    >
-  
 >
 
       <div style={{ position: 'relative', width: '100%', height: '100%' }}>
