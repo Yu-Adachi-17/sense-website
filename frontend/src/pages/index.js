@@ -62,6 +62,167 @@ function FileUploadButton({ onFileSelected }) {
   );
 }
 
+/* ============================================================
+   ★ 追加：GlassRecordButton（赤いすりガラス＋透明ラインの波形）
+   既存の isRecording / audioLevel / toggleRecording をそのまま使用
+   ============================================================ */
+function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
+  const [phase, setPhase] = useState(0);
+  const phaseRef = useRef(0);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    const tick = () => {
+      const speed = isRecording ? 0.22 : 0.08; // 録音中は速く
+      phaseRef.current = (phaseRef.current + speed) % (Math.PI * 2);
+      setPhase(phaseRef.current);
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [isRecording]);
+
+  // audioLevel(1.0〜2.0) → 6〜40pxへマップ
+  const baseAmp = 6;
+  const maxAmp  = 40;
+  const amp = Math.min(maxAmp, baseAmp + (audioLevel - 1) * 34);
+
+  // 円内部の波を描く領域
+  const padding = Math.floor(size * 0.18);
+  const w = size - padding * 2;
+  const cy = Math.floor(size / 2);
+
+  const makeWavePath = (A, ph) => {
+    const steps = 120;
+    let d = `M ${padding} ${cy}`;
+    for (let i = 0; i <= steps; i++) {
+      const x = padding + (w * i) / steps;
+      const t = (i / steps) * Math.PI * 2;
+      const env = 0.75 + 0.25 * Math.cos((t - Math.PI) * 0.5); // 中央やや強調
+      const y =
+        cy +
+        env * (
+          Math.sin(t * 1.0 + ph) * A * 0.55 +
+          Math.sin(t * 2.0 - ph * 1.3) * A * 0.35
+        );
+      d += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;
+    }
+    return d;
+  };
+
+  const pathD = makeWavePath(amp, phase);
+
+  return (
+    <button
+      onClick={onClick}
+      aria-label={isRecording ? 'Stop recording' : 'Start recording'}
+      className={`glassBtn ${isRecording ? 'recording' : 'idle'}`}
+      style={{ width: size, height: size }}
+    >
+      {/* 透明ライン（ガラス上で発光して見える） */}
+      <svg
+        width={size}
+        height={size}
+        viewBox={`0 0 ${size} ${size}`}
+        style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}
+      >
+        <defs>
+          <clipPath id="circle-clip">
+            <circle cx={size / 2} cy={size / 2} r={(size / 2) - 8} />
+          </clipPath>
+          <filter id="line-blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" />
+          </filter>
+          <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"  stopOpacity="0.0" stopColor="#ffffff"/>
+            <stop offset="20%" stopOpacity="0.35" stopColor="#ffffff"/>
+            <stop offset="50%" stopOpacity="0.65" stopColor="#ffffff"/>
+            <stop offset="80%" stopOpacity="0.35" stopColor="#ffffff"/>
+            <stop offset="100%" stopOpacity="0.0" stopColor="#ffffff"/>
+          </linearGradient>
+        </defs>
+
+        <g clipPath="url(#circle-clip)">
+          <path
+            d={pathD}
+            fill="none"
+            stroke="url(#line-grad)"
+            strokeWidth={5}
+            strokeLinecap="round"
+            style={{
+              mixBlendMode: 'screen',
+              filter: 'url(#line-blur)',
+              opacity: 0.95,
+            }}
+          />
+        </g>
+      </svg>
+
+      {/* すりガラス本体 */}
+      <style jsx>{`
+        .glassBtn {
+          position: relative;
+          border: none;
+          border-radius: 9999px;
+          padding: 0;
+          cursor: pointer;
+          overflow: hidden;
+          transform: translateZ(0);
+          transition: transform 120ms ease;
+          outline: none;
+          background:
+            radial-gradient(120% 120% at 30% 18%, rgba(255,255,255,0.28), rgba(255,255,255,0.06) 45%, rgba(255,255,255,0) 60%),
+            linear-gradient(160deg, rgba(255,105,97,0.62), rgba(255,70,112,0.62));
+          -webkit-backdrop-filter: blur(22px) saturate(140%);
+          backdrop-filter: blur(22px) saturate(140%);
+          box-shadow:
+            0 28px 80px rgba(255, 64, 116, 0.35),
+            0 16px 28px rgba(255, 77, 77, 0.25),
+            inset 0 2px 12px rgba(255,255,255,0.9),
+            inset 0 -22px 40px rgba(255, 30, 60, 0.28);
+          border: 1px solid rgba(255,255,255,0.35);
+        }
+        .glassBtn::before {
+          content: '';
+          position: absolute;
+          inset: 10px;
+          border-radius: 9999px;
+          box-shadow:
+            inset 0 0 0 1px rgba(255,255,255,0.35),
+            inset 0 18px 28px rgba(255,255,255,0.22);
+          pointer-events: none;
+        }
+        .glassBtn::after {
+          content: '';
+          position: absolute;
+          inset: -10%;
+          background: linear-gradient(35deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+          transform: translateY(-30%) rotate(10deg);
+          mix-blend-mode: screen;
+          pointer-events: none;
+        }
+        .glassBtn.idle { animation: idlePulse 6s ease-in-out infinite; }
+        .glassBtn.recording { transform: scale(0.98); animation: glow 2.4s ease-in-out infinite; }
+        @keyframes idlePulse { 0%,100%{transform:scale(0.90);} 50%{transform:scale(1.10);} }
+        @keyframes glow {
+          0%,100% { box-shadow:
+            0 28px 80px rgba(255, 64, 116, 0.35),
+            0 16px 28px rgba(255, 77, 77, 0.25),
+            inset 0 2px 12px rgba(255,255,255,0.9),
+            inset 0 -22px 40px rgba(255, 30, 60, 0.28); }
+          50% { box-shadow:
+            0 36px 110px rgba(255, 64, 116, 0.50),
+            0 20px 40px rgba(255, 77, 77, 0.30),
+            inset 0 3px 16px rgba(255,255,255,1.0),
+            inset 0 -28px 52px rgba(255, 30, 60, 0.36); }
+        }
+        @media (prefers-reduced-motion: reduce) { .glassBtn.idle, .glassBtn.recording { animation: none; } }
+      `}</style>
+    </button>
+  );
+}
+
+
 // ----------------------
 // Constants for localStorage keys (guest user)
 // ----------------------
@@ -571,7 +732,7 @@ return (
 
       {!showFullScreen && <PurchaseMenu />}
 
-      {/* 待機中パルス付きの録音ボタン（画像） */}
+      {/* 中央：録音ボタン（赤いすりガラス＋透明ライン） */}
       <div
         style={{
           position: 'absolute',
@@ -581,7 +742,7 @@ return (
           zIndex: 5,
         }}
       >
-        {/* 音量スケールはこのラッパーで担当 */}
+        {/* 音量スケールはこのラッパーで担当（既存のまま） */}
         <div
           style={{
             transform: `scale(${audioLevel})`,
@@ -589,38 +750,14 @@ return (
             willChange: 'transform',
           }}
         >
-          {/* 録音待機中のみパルス */}
+          {/* 録音待機中のみ外側ゆっくりパルス */}
           <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
-            <button
+            <GlassRecordButton
+              isRecording={isRecording}
+              audioLevel={audioLevel}
               onClick={toggleRecording}
-              aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-              style={{
-                width: 420,
-                height: 420,
-                border: 'none',
-                padding: 0,
-                background: 'transparent',
-                borderRadius: '50%',
-                cursor: 'pointer',
-                position: 'relative',
-                overflow: 'hidden',
-                transform: isRecording ? 'scale(0.98)' : 'none',
-                transition: 'transform 120ms ease',
-              }}
-            >
-              <img
-                src="/record-gradient.png"
-                alt=""
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block',
-                  pointerEvents: 'none',
-                  userSelect: 'none',
-                }}
-              />
-            </button>
+              size={420}
+            />
           </div>
         </div>
 
