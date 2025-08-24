@@ -75,14 +75,13 @@ function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
   const [trails, setTrails] = React.useState([]);
   const trailsRef = React.useRef(trails);
   const lastSpawnRef = React.useRef(0);
-
   React.useEffect(() => { trailsRef.current = trails; }, [trails]);
 
-  // App側の audioLevel は 1.0〜2.0 を想定 → 0〜1 に正規化
-  const amp = Math.min(1, Math.max(0, audioLevel - 1));     // 0..1
-  const discScale = 1 + amp * 0.45;                          // 元の円の拡大率
+  // audioLevel(1.0〜2.0想定) → 0..1
+  const amp = Math.min(1, Math.max(0, audioLevel - 1));
+  const discScale = 1 + amp * 0.45;
 
-  // 音が大きいほど残像の発生頻度↑／無音なら発生しない。最大3枚キープ。
+  // 大きい音ほど残像頻度↑（最大3枚）
   React.useEffect(() => {
     if (!isRecording) { setTrails([]); return; }
     let rafId;
@@ -107,111 +106,83 @@ function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     <button
       onClick={onClick}
       aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-      className={`neuBtn ${isRecording ? 'recording' : ''}`}
+      className="neuBtn"
       style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
     >
-      {/* 残像（元のピンク円と同じ画像を拡大＆フェード） */}
+      {/* 残像（CSSグラデ、完全不透明からフェード） */}
       {trails.map(t => (
-        <img
+        <span
           key={t.id}
-          src="/record-gradient.png"
-          alt=""
           className="trail"
           onAnimationEnd={() => onTrailEnd(t.id)}
           style={{
-            // CSSカスタムプロパティで開始スケールを注入
             ['--startScale']: t.startScale,
             animationDuration: `${1200 + (1 - amp) * 600}ms`
           }}
+          aria-hidden="true"
         />
       ))}
 
-      {/* 元の大きいピンク円そのもの（画像）を拡大。これ以外の赤い点は存在しない */}
-      <img
-        src="/record-gradient.png"
-        alt=""
+      {/* 元の大円（画像は使わない） */}
+      <span
         className="disc"
         style={{ transform: `translate(-50%, -50%) scale(${discScale})` }}
+        aria-hidden="true"
       />
 
       <style jsx>{`
-        .neuBtn {
-          position: relative;
-          border: none;
-          border-radius: 9999px;
-          padding: 0;
-          cursor: pointer;
-          overflow: hidden;
-          outline: none;
-
-          /* 外枠のニューモーフィック調は現状維持 */
+        .neuBtn{
+          position:relative;border:none;border-radius:9999px;padding:0;cursor:pointer;overflow:hidden;outline:none;
           background:
-            radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
+            radial-gradient(140% 140% at 50% 35%, rgba(255,82,110,0.26), rgba(255,82,110,0) 60%),
             linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
             #ffe9ee;
           box-shadow:
             -4px -4px 8px rgba(255,255,255,0.9),
             6px 10px 16px rgba(0,0,0,0.12),
-            0 34px 110px rgba(255, 64, 116, 0.30);
-          border: 1px solid rgba(255,255,255,0.7);
-          filter: saturate(120%);
+            0 34px 110px rgba(255,64,116,0.30);
+          border:1px solid rgba(255,255,255,0.7);
+          filter:saturate(120%);
         }
         .neuBtn::after{
-          content:'';
-          position:absolute;
-          inset:0;
-          border-radius:9999px;
-          border:8px solid rgba(255,72,96,0.10);
-          filter:blur(6px);
-          transform:translateY(2px);
-          pointer-events:none;
-          z-index:0;
+          content:'';position:absolute;inset:0;border-radius:9999px;border:8px solid rgba(255,72,96,0.10);
+          filter:blur(6px);transform:translateY(2px);pointer-events:none;z-index:0;
           mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
           -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
         }
 
-        /* 元のピンク円（ベース）。画像をスケールさせるだけ。 */
-        .disc {
-          position: absolute;
-          top: 50%; left: 50%;
-          width: 88%;
-          height: 88%;
-          transform: translate(-50%, -50%) scale(1);
-          transition: transform 90ms linear;
-          will-change: transform;
-          object-fit: cover;
-          border-radius: 9999px;
-          pointer-events: none;
-          z-index: 2;
+        /* 大円：完全不透明のCSSグラデ（透けない） */
+        .disc{
+          position:absolute;top:50%;left:50%;
+          width:88%;height:88%;
+          transform:translate(-50%, -50%) scale(1);
+          transition:transform 90ms linear;will-change:transform;
+          border-radius:9999px;pointer-events:none;z-index:2;
+          background:
+            radial-gradient(120% 120% at 45% 35%, rgba(255,140,160,1), rgba(255,100,120,1) 58%, rgba(255,100,120,1) 100%);
           box-shadow:
-            0 14px 40px rgba(255, 64, 116, 0.22),
-            inset 0 0 0 rgba(0,0,0,0); /* 実質シャドウ無し＝内部の赤い点は出さない */
+            0 14px 40px rgba(255,64,116,0.22);
         }
 
-        /* 残像（trail）：元の画像を薄くして大きくしながらフェードアウト */
-        @keyframes trailGrow {
-          0%   { transform: translate(-50%, -50%) scale(var(--startScale)); opacity: 0.25; }
-          100% { transform: translate(-50%, -50%) scale(2.0);              opacity: 0; }
+        /* 残像（外へ拡大しつつ透明化） */
+        @keyframes trailGrow{
+          0%   { transform:translate(-50%, -50%) scale(var(--startScale)); opacity: .28; }
+          100% { transform:translate(-50%, -50%) scale(2.0);               opacity: 0; }
         }
-        .trail {
-          position: absolute;
-          top: 50%; left: 50%;
-          width: 88%;
-          height: 88%;
-          transform: translate(-50%, -50%) scale(1);
-          object-fit: cover;
-          border-radius: 9999px;
-          pointer-events: none;
-          z-index: 1;
-          filter: saturate(0.95) brightness(1.02) blur(0.2px);
-          animation-name: trailGrow;
-          animation-timing-function: ease-out;
-          animation-fill-mode: forwards;
+        .trail{
+          position:absolute;top:50%;left:50%;width:88%;height:88%;
+          transform:translate(-50%, -50%) scale(1);border-radius:9999px;pointer-events:none;z-index:1;
+          background: radial-gradient(circle,
+            rgba(255,120,140,0.40) 0%,
+            rgba(255,120,140,0.22) 45%,
+            rgba(255,120,140,0.10) 75%,
+            rgba(255,120,140,0) 100%);
+          animation-name:trailGrow;animation-timing-function:ease-out;animation-fill-mode:forwards;
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .disc { transition: none; }
-          .trail { animation: none; opacity: 0.12; }
+          .disc{ transition:none; }
+          .trail{ animation:none; opacity:.12; }
         }
       `}</style>
     </button>
@@ -726,7 +697,7 @@ return (
       {/* FileUploadButton is currently commented out */}
       {/* <FileUploadButton onFileSelected={handleFileUpload} /> */}
 
-      {!showFullScreen && <PurchaseMenu />}
+      {!showFullScreen && !isRecording && <PurchaseMenu />}
 
       {/* 中央：非録音中は元画像、録音中だけ上のコンポーネント */}
       <div
