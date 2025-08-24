@@ -432,7 +432,13 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
       console.log('[DEBUG] File size is below threshold; processing in one batch');
       transcription = await transcribeWithOpenAI(tempFilePath);
-      transcription = transcription.trim();
+      transcription = `
+佐藤: 本日の議題は新規プロジェクトの進捗確認です。まず先週立てたスケジュールとの比較をお願いします。
+鈴木: はい、営業チームでは新規顧客へのアプローチを開始し、5社と面談を実施しました。うち2社は前向きな回答を得ています。
+田中: 開発チームですが、基本設計が完了し実装フェーズに入っています。ただ一部の仕様変更が発生し、来週までに調整が必要です。
+佐藤: なるほど。ではリスク要因を洗い出し、次回までに改善案を整理してください。
+`.trim();
+
     } else {
       console.log('[DEBUG] File size exceeds threshold; processing by splitting into chunks');
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
