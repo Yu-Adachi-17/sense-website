@@ -620,10 +620,10 @@ function App() {
           <style jsx>{`
             @keyframes pulse {
               0%, 100% { transform: scale(0.90); }
-              50%      { transform: scale(1.10); }
+              50%      { transform: scale(1.20); }
             }
             .pulse {
-              animation: pulse 3s ease-in-out infinite;
+              animation: pulse 6s ease-in-out infinite;
             }
             @media (prefers-reduced-motion: reduce) {
               .pulse { animation: none; }
