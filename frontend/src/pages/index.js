@@ -69,151 +69,108 @@ function FileUploadButton({ onFileSelected }) {
    - 下側だけに出る 8px の極薄リング（blur+mask）
    - 外側は静止、動くのは白ラインのみ
    ============================================================ */
-   function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
-    const [phase, setPhase] = useState(0);
-    const phaseRef = useRef(0);
-    const rafRef = useRef(null);
-  
-    // ---- しきい値 & 感度（ここだけ触ればOK） ----
-    const LVL_BASE   = 1.0;   // 無音基準（App側のaudioLevelの最小値）
-    const THRESHOLD  = 0.004; // ← 小さいほど反応しやすい（0.003〜0.015目安）
-    const GAIN       = 2.2;   // ← 大きいほど振幅/速度UP（1.2〜2.5）
-    const SPEED_BASE = 0.04;  // 最低速度
-    const SPEED_GAIN = 1.05;  // 入力に応じた加速
-    const AMP_MIN    = 0;     // 無音時0で完全停止（常に揺らすなら 4など）
-    const AMP_MAX    = 56;    // 最大振幅
-    // ---------------------------------------------
-  
-    // activity計算（0〜1）
-    const raw = Math.max(0, audioLevel - (LVL_BASE + THRESHOLD));
-    const activity = Math.min(1, raw * (GAIN / (2 - LVL_BASE))); // audioLevelの上限~2想定
-  
-    // ★ 重要：最新のactivityをrefに保持して、RAFは一度だけ回す
-    const activityRef = useRef(0);
-    useEffect(() => { activityRef.current = activity; }, [activity]);
-  
-    useEffect(() => {
-      const tick = () => {
-        const a = activityRef.current;
-        if (a > 0) {
-          const speed = SPEED_BASE + a * SPEED_GAIN;
-          phaseRef.current += speed;
-          if (phaseRef.current > Math.PI * 2) phaseRef.current -= Math.PI * 2;
-          setPhase(phaseRef.current);
+// ★ New: RippleRecordButton（白ライン波形は完全に排除）
+function RippleRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
+  return (
+    <button
+      onClick={onClick}
+      aria-label={isRecording ? 'Stop recording' : 'Start recording'}
+      className={`neuBtn ${isRecording ? 'recording' : ''}`}
+      style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
+    >
+      {/* 中央の赤いマーク */}
+      <span className="centerDot" aria-hidden="true" />
+
+      {/* Shazamライクな波紋：3本の同心円を位相ずらしで循環 */}
+      <span className="ring ring1" aria-hidden="true" />
+      <span className="ring ring2" aria-hidden="true" />
+      <span className="ring ring3" aria-hidden="true" />
+
+      <style jsx>{`
+        .neuBtn {
+          position: relative;
+          border: none;
+          border-radius: 9999px;
+          padding: 0;
+          cursor: pointer;
+          overflow: hidden;
+          outline: none;
+
+          background:
+            radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
+            linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
+            #ffe9ee;
+
+          box-shadow:
+            -4px -4px 8px rgba(255,255,255,0.9),
+            6px 10px 16px rgba(0,0,0,0.12),
+            0 34px 110px rgba(255, 64, 116, 0.30);
+
+          border: 1px solid rgba(255,255,255,0.7);
+          filter: saturate(120%);
         }
-        rafRef.current = requestAnimationFrame(tick);
-      };
-      rafRef.current = requestAnimationFrame(tick);
-      return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-    }, []); // ← 依存なし：一回だけ
-  
-    // 振幅（activityから一度だけ算出）
-    const amp = activity === 0 ? 0 : AMP_MIN + activity * (AMP_MAX - AMP_MIN);
-  
-    // 円内部の波形パス
-    const padding = Math.floor(size * 0.18);
-    const w = size - padding * 2;
-    const cy = Math.floor(size / 2);
-  
-    const makeWavePath = (A, ph) => {
-      const steps = 140;
-      let d = `M ${padding} ${cy}`;
-      for (let i = 0; i <= steps; i++) {
-        const x = padding + (w * i) / steps;
-        const t = (i / steps) * Math.PI * 2;
-        const env = 0.85 + 0.15 * Math.cos((t - Math.PI) * 0.6);
-        const y =
-          cy +
-          env * (
-            Math.sin(t * 1.25 + ph) * A * 0.62 +
-            Math.sin(t * 2.3  - ph * 1.05) * A * 0.38
-          );
-        d += ` L ${x.toFixed(2)} ${y.toFixed(2)}`;
-      }
-      return d;
-    };
-  
-    const pathD = makeWavePath(amp, phase);
-  
-    return (
-      <button
-        onClick={onClick}
-        aria-label={isRecording ? 'Stop recording' : 'Start recording'}
-        className={`neuBtn ${isRecording ? 'recording' : ''}`}
-        style={{ width: size, height: size, position: 'relative', overflow: 'hidden' }}
-      >
-        {/* 白ライン：最前面に固定（zIndex: 3） */}
-        <svg
-          width={size}
-          height={size}
-          viewBox={`0 0 ${size} ${size}`}
-          style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 3 }}
-        >
-          <defs>
-            <clipPath id="circle-clip">
-              <circle cx={size / 2} cy={size / 2} r={(size / 2) - 1} />
-            </clipPath>
-            <filter id="line-glow" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="2.0" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"  stopColor="#ffffff" stopOpacity="0"/>
-              <stop offset="18%" stopColor="#ffffff" stopOpacity="0.40"/>
-              <stop offset="50%" stopColor="#ffffff" stopOpacity="1"/>
-              <stop offset="82%" stopColor="#ffffff" stopOpacity="0.40"/>
-              <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
-            </linearGradient>
-          </defs>
-  
-          <g clipPath="url(#circle-clip)">
-            <path d={pathD} fill="none" stroke="#ffffff" strokeWidth={10} strokeLinecap="round" strokeLinejoin="round" opacity={0.45} style={{ filter: 'url(#line-glow)' }} />
-            <path d={pathD} fill="none" stroke="url(#line-grad)" strokeWidth={6}  strokeLinecap="round" strokeLinejoin="round" opacity={1} />
-          </g>
-        </svg>
-  
-        <style jsx>{`
-          .neuBtn {
-            position: relative;
-            border: none;
-            border-radius: 9999px;
-            padding: 0;
-            cursor: pointer;
-            overflow: hidden;
-            outline: none;
-  
-            background:
-              radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
-              linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
-              #ffe9ee;
-  
-            box-shadow:
-              -4px -4px 8px rgba(255,255,255,0.9),
-              6px 10px 16px rgba(0,0,0,0.12),
-              0 34px 110px rgba(255, 64, 116, 0.30);
-  
-            border: 1px solid rgba(255,255,255,0.7);
-            filter: saturate(120%);
-          }
-          .neuBtn::after{
-            content:'';
-            position:absolute;
-            inset:0;
-            border-radius:9999px;
-            border:8px solid rgba(255,72,96,0.10);
-            filter:blur(6px);
-            transform:translateY(2px);
-            pointer-events:none;
-            z-index:1; /* ← wave(SVG)より下 */
-            mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-            -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-          }
-          .neuBtn.recording{ animation:none; }
-        `}</style>
-      </button>
-    );
-  }
-  
+        .neuBtn::after{
+          content:'';
+          position:absolute;
+          inset:0;
+          border-radius:9999px;
+          border:8px solid rgba(255,72,96,0.10);
+          filter:blur(6px);
+          transform:translateY(2px);
+          pointer-events:none;
+          z-index:0;
+          mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+          -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+        }
+
+        /* 中央の赤いマーク（軽いグラデ＋グロー） */
+        .centerDot {
+          position: absolute;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          width: 24%;
+          height: 24%;
+          border-radius: 9999px;
+          background:
+            radial-gradient(120% 120% at 35% 30%, #ff4b5f, #e3002b);
+          box-shadow:
+            0 0 20px rgba(255, 64, 116, 0.45),
+            inset 0 4px 10px rgba(255, 190, 200, 0.6),
+            inset 0 -8px 16px rgba(140, 0, 30, 0.35);
+          z-index: 2;
+        }
+
+        /* 波紋アニメーション */
+        @keyframes ripple {
+          0%   { transform: translate(-50%, -50%) scale(0.55); opacity: 0.85; }
+          60%  { opacity: 0.45; }
+          100% { transform: translate(-50%, -50%) scale(1.45); opacity: 0; }
+        }
+        .ring {
+          position: absolute;
+          top: 50%; left: 50%;
+          width: 72%;
+          height: 72%;
+          border-radius: 9999px;
+          transform: translate(-50%, -50%) scale(0.55);
+          border: 6px solid rgba(255, 32, 64, 0.55);
+          box-shadow:
+            0 0 28px rgba(255, 64, 116, 0.35);
+          z-index: 1;
+          animation: ripple 2.4s ease-out infinite;
+        }
+        .ring2 { animation-delay: 0.8s; }
+        .ring3 { animation-delay: 1.6s; }
+
+        /* 低速ユーザーの配慮 */
+        @media (prefers-reduced-motion: reduce) {
+          .ring { animation: none; opacity: 0.6; }
+        }
+      `}</style>
+    </button>
+  );
+}
+
 
 
 // ----------------------
@@ -745,45 +702,46 @@ return (
         >
           {/* 待機中のみパルス（録音中OFF） */}
           <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
-            {isRecording ? (
-              <GlassRecordButton
-                isRecording={isRecording}
-                audioLevel={audioLevel}
-                onClick={toggleRecording}
-                size={420}
-              />
-            ) : (
-              <button
-                onClick={toggleRecording}
-                aria-label="Start recording"
-                style={{
-                  width: 420,
-                  height: 420,
-                  border: 'none',
-                  padding: 0,
-                  background: 'transparent',
-                  borderRadius: '50%',
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transform: 'none',
-                  transition: 'transform 120ms ease',
-                }}
-              >
-                <img
-                  src="/record-gradient.png"
-                  alt=""
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                    pointerEvents: 'none',
-                    userSelect: 'none',
-                  }}
-                />
-              </button>
-            )}
+          {isRecording ? (
+  <RippleRecordButton
+    isRecording={isRecording}
+    audioLevel={audioLevel}   // 渡しても内部では使いません（API互換のために残置）
+    onClick={toggleRecording}
+    size={420}
+  />
+) : (
+  <button
+    onClick={toggleRecording}
+    aria-label="Start recording"
+    style={{
+      width: 420,
+      height: 420,
+      border: 'none',
+      padding: 0,
+      background: 'transparent',
+      borderRadius: '50%',
+      cursor: 'pointer',
+      position: 'relative',
+      overflow: 'hidden',
+      transform: 'none',
+      transition: 'transform 120ms ease',
+    }}
+  >
+    <img
+      src="/record-gradient.png"
+      alt=""
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        display: 'block',
+        pointerEvents: 'none',
+        userSelect: 'none',
+      }}
+    />
+  </button>
+)}
+
           </div>
         </div>
 
