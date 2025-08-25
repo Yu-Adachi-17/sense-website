@@ -63,23 +63,122 @@ function FileUploadButton({ onFileSelected }) {
 }
 
 /* ============================================================
-   ★ 録音中だけ使うボタン（SwiftUIの見た目をJS/CSSで再現）
-   - 白に近い均一面 + 1px白ストローク
-   - 外側：白の持ち上げシャドウ / 黒の落ち影
-   - 下側だけに出る 8px の極薄リング（blur+mask）
-   - 外側は静止、動くのは白ラインのみ
+   ★ 音声レベル同期リップル
+   - audioLevel(1.0〜2.0)→ activity(0〜1) にマップ
+   - activity に応じて：
+     ・発生頻度（pulses/sec）
+     ・終端スケール（広がり量）
+     ・初期不透明度（見え方）
+   - 無音（しきい値以下）は新規発生停止
+   - prefers-reduced-motion は自動停止
    ============================================================ */
    function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
+    const [now, setNow] = React.useState(0);
+    const [ripples, setRipples] = React.useState([]);
+  
+    const rafRef = React.useRef(null);
+    const lastRef = React.useRef(0);
+    const emitAccRef = React.useRef(0);
+    const idRef = React.useRef(0);
+    const reduceMotionRef = React.useRef(false);
+  
+    // ==== 音量→アクティビティ ====
+    const DEAD_ZONE = 0.03;       // しきい値（この分だけ無視）
+    const SENSITIVITY = 1.35;     // 立ち上がりの鋭さ
+    const norm = Math.max(0, audioLevel - 1 - DEAD_ZONE);
+    const activity = Math.min(1, (norm / (1 - DEAD_ZONE)) * SENSITIVITY);
+  
+    // ==== ユーティリティ ====
+    const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+    const lerp = (a, b, t) => a + (b - a) * t;
+  
+    // ==== リップル発生＆更新 ====
+    React.useEffect(() => {
+      // reduce motion
+      if (typeof window !== "undefined") {
+        reduceMotionRef.current = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches || false;
+      }
+  
+      if (!isRecording || reduceMotionRef.current) {
+        // 停止時：既存リップルだけフェードアウトさせて自然消滅
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+        lastRef.current = 0;
+        emitAccRef.current = 0;
+        return;
+      }
+  
+      const tick = (t) => {
+        if (!lastRef.current) lastRef.current = t;
+        const dt = (t - lastRef.current) / 1000; // sec
+        lastRef.current = t;
+  
+        // activity→ 発生頻度（pulses/sec）
+        // 無音: 0、最大音: ~2.6回/秒
+        const pulsesPerSec = activity <= 0 ? 0 : lerp(0.7, 2.6, activity);
+        emitAccRef.current += dt * pulsesPerSec;
+  
+        // activity→ 波紋の終端スケール/初期不透明度/寿命
+        const endScale = lerp(2.2, 3.2, activity);         // 大きい音ほど遠くまで
+        const baseOpacity = lerp(0.55, 0.9, activity);     // 大きい音ほど濃く
+        const life = lerp(1800, 1300, activity);           // 大きい音ほど速く消える(ms)
+  
+        // 発生（acc が 1 を超えるたびに1枚追加）
+        while (emitAccRef.current >= 1) {
+          emitAccRef.current -= 1;
+          setRipples((prev) => {
+            const id = idRef.current++;
+            const born = performance.now();
+            const next = [...prev, { id, born, life, endScale, baseOpacity }];
+            // 過密対策で上限
+            if (next.length > 8) next.shift();
+            return next;
+          });
+        }
+  
+        // 古いものを掃除
+        const nowTime = performance.now();
+        setRipples((prev) => prev.filter((r) => nowTime - r.born < r.life));
+  
+        // 再描画トリガ（時間ベースでスタイル更新）
+        setNow(t);
+  
+        rafRef.current = requestAnimationFrame(tick);
+      };
+  
+      rafRef.current = requestAnimationFrame(tick);
+      return () => {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+        lastRef.current = 0;
+        emitAccRef.current = 0;
+      };
+    }, [isRecording, activity]);
+  
     return (
       <div className="recordWrap" style={{ width: size, height: size }} aria-live="polite">
-        {isRecording && (
+        {/* 録音中：外周リップル（音同期） */}
+        {isRecording && !reduceMotionRef.current && (
           <div className="ripples" aria-hidden="true">
-            <span className="ring r1" />
-            <span className="ring r2" />
-            <span className="ring r3" />
+            {ripples.map((r) => {
+              const progress = clamp((performance.now() - r.born) / r.life, 0, 1);
+              const scale = lerp(1, r.endScale, progress);
+              const opacity = r.baseOpacity * (1 - progress);
+              return (
+                <span
+                  key={r.id}
+                  className="ring"
+                  style={{
+                    transform: `translate(-50%, -50%) scale(${scale})`,
+                    opacity,
+                  }}
+                />
+              );
+            })}
           </div>
         )}
   
+        {/* 中央の本体ボタン（1個だけ） */}
         <button
           onClick={onClick}
           aria-label={isRecording ? 'Stop recording' : 'Start recording'}
@@ -87,15 +186,15 @@ function FileUploadButton({ onFileSelected }) {
           style={{ width: size, height: size }}
         />
   
+        {/* ===== スタイル ===== */}
         <style jsx>{`
           .recordWrap {
             position: relative;
             display: inline-block;
             overflow: visible;
-            /* 調整しやすいように変数化（ベースより少し薄いが従来より濃い） */
-            --ripple-color: rgba(255, 92, 125, 0.78); /* 線色（濃く） */
-            --ripple-halo:  rgba(255, 92, 125, 0.14); /* 外側ハロー */
-            --ripple-glow:  rgba(255, 72,  96,  0.38); /* ドロップシャドウ */
+            --ripple-color: rgba(255, 92, 125, 0.86); /* 音が強いほど opacity 側でさらに濃く見える */
+            --ripple-halo:  rgba(255, 92, 125, 0.16);
+            --ripple-glow:  rgba(255, 72,  96,  0.38);
           }
   
           .ripples {
@@ -112,31 +211,12 @@ function FileUploadButton({ onFileSelected }) {
             width: 100%;
             height: 100%;
             border-radius: 9999px;
+            border: 3px solid var(--ripple-color);
+            box-shadow: 0 0 0 6px var(--ripple-halo);
             transform: translate(-50%, -50%) scale(1);
             opacity: 0;
-            /* ★ 濃度アップ：線幅 3px、色を濃く、ハローを追加 */
-            border: 3px solid var(--ripple-color);
-            box-sizing: border-box;
-            /* ハロー（薄い外縁） */
-            box-shadow: 0 0 0 6px var(--ripple-halo);
             will-change: transform, opacity;
-            animation: ripple 2.4s ease-out infinite;
             mix-blend-mode: screen;
-          }
-          .r1 { animation-delay: 0s; }
-          .r2 { animation-delay: 0.8s; }
-          .r3 { animation-delay: 1.6s; }
-  
-          @keyframes ripple {
-            0% {
-              opacity: 0.78; /* ★ 初期不透明度も上げる */
-              transform: translate(-50%, -50%) scale(1);
-            }
-            70% { opacity: 0.42; }
-            100% {
-              opacity: 0;
-              transform: translate(-50%, -50%) scale(2.6);
-            }
           }
   
           .neuBtn {
@@ -173,7 +253,7 @@ function FileUploadButton({ onFileSelected }) {
           .neuBtn.recording { animation: none; }
   
           @media (prefers-reduced-motion: reduce) {
-            .ring { animation: none; display: none; }
+            .ripples { display: none; }
           }
         `}</style>
       </div>
