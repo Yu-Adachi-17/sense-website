@@ -69,21 +69,9 @@ function FileUploadButton({ onFileSelected }) {
    - 下側だけに出る 8px の極薄リング（blur+mask）
    - 外側は静止、動くのは白ラインのみ
    ============================================================ */
-/* ============================================================
-   ★ 録音中だけ外側へ波紋を広げる Shazam ライク演出
-   - 内部の白ラインは完全削除
-   - 中央の “本体の円” は1つだけ（既存ニューモーフィック調を維持）
-   - 録音中のみ、外側へ薄いリングが連続して拡散
-   - prefers-reduced-motion に配慮（アニメ無効）
-   ============================================================ */
    function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     return (
-      <div
-        className="recordWrap"
-        style={{ width: size, height: size }}
-        aria-live="polite"
-      >
-        {/* 録音中のみ：外周リップル（本体とは別要素。ボタンは1個のまま） */}
+      <div className="recordWrap" style={{ width: size, height: size }} aria-live="polite">
         {isRecording && (
           <div className="ripples" aria-hidden="true">
             <span className="ring r1" />
@@ -92,7 +80,6 @@ function FileUploadButton({ onFileSelected }) {
           </div>
         )}
   
-        {/* 中央の本体ボタン（従来の見た目は維持） */}
         <button
           onClick={onClick}
           aria-label={isRecording ? 'Stop recording' : 'Start recording'}
@@ -100,21 +87,23 @@ function FileUploadButton({ onFileSelected }) {
           style={{ width: size, height: size }}
         />
   
-        {/* ===== スタイル ===== */}
         <style jsx>{`
           .recordWrap {
             position: relative;
             display: inline-block;
-            overflow: visible; /* 波紋が外へ出るため必須 */
+            overflow: visible;
+            /* 調整しやすいように変数化（ベースより少し薄いが従来より濃い） */
+            --ripple-color: rgba(255, 92, 125, 0.78); /* 線色（濃く） */
+            --ripple-halo:  rgba(255, 92, 125, 0.14); /* 外側ハロー */
+            --ripple-glow:  rgba(255, 72,  96,  0.38); /* ドロップシャドウ */
           }
   
-          /* ---- リップル（外側へ拡散する薄いリング） ---- */
           .ripples {
             position: absolute;
             inset: 0;
             pointer-events: none;
             overflow: visible;
-            filter: drop-shadow(0 0 24px rgba(255, 72, 96, 0.24));
+            filter: drop-shadow(0 0 32px var(--ripple-glow));
           }
           .ring {
             position: absolute;
@@ -125,30 +114,31 @@ function FileUploadButton({ onFileSelected }) {
             border-radius: 9999px;
             transform: translate(-50%, -50%) scale(1);
             opacity: 0;
-            border: 2px solid rgba(255, 255, 255, 0.55); /* 細い白リング */
+            /* ★ 濃度アップ：線幅 3px、色を濃く、ハローを追加 */
+            border: 3px solid var(--ripple-color);
             box-sizing: border-box;
+            /* ハロー（薄い外縁） */
+            box-shadow: 0 0 0 6px var(--ripple-halo);
             will-change: transform, opacity;
             animation: ripple 2.4s ease-out infinite;
+            mix-blend-mode: screen;
           }
-          .r1 { animation-delay: 0s;   }
+          .r1 { animation-delay: 0s; }
           .r2 { animation-delay: 0.8s; }
           .r3 { animation-delay: 1.6s; }
   
           @keyframes ripple {
             0% {
-              opacity: 0.55;
+              opacity: 0.78; /* ★ 初期不透明度も上げる */
               transform: translate(-50%, -50%) scale(1);
             }
-            70% {
-              opacity: 0.25;
-            }
+            70% { opacity: 0.42; }
             100% {
               opacity: 0;
-              transform: translate(-50%, -50%) scale(2.6); /* 外へ拡散 */
+              transform: translate(-50%, -50%) scale(2.6);
             }
           }
   
-          /* ---- ボタン本体（既存ニュアンスは維持しつつ微調整） ---- */
           .neuBtn {
             position: relative;
             border: none;
@@ -168,8 +158,6 @@ function FileUploadButton({ onFileSelected }) {
             border: 1px solid rgba(255,255,255,0.7);
             filter: saturate(120%);
           }
-  
-          /* 下側だけの薄いリング（従来のニュアンスを継承） */
           .neuBtn::after {
             content: '';
             position: absolute;
@@ -182,11 +170,8 @@ function FileUploadButton({ onFileSelected }) {
             mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
           }
-  
-          /* 録音中はボタン自身のアニメは無し（外周リップルに任せる） */
           .neuBtn.recording { animation: none; }
   
-          /* 低モーション環境では装飾アニメを停止 */
           @media (prefers-reduced-motion: reduce) {
             .ring { animation: none; display: none; }
           }
@@ -195,7 +180,6 @@ function FileUploadButton({ onFileSelected }) {
     );
   }
   
-
 
 // ----------------------
 // Constants for localStorage keys (guest user)
