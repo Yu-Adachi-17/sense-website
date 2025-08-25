@@ -77,26 +77,10 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
   // === 音量→アクティビティ変換（しきい値＆感度） ===
   // audioLevel: 1.0〜2.0（既存の実装）
   // DEAD_ZONE を 0.02 に設定：1.02 未満は完全静止（無音時の“勝手に動く”を防止）
-// ==== 👇ここが閾値＆感度のつまみ ====
-const LVL_BASE = 1.0;       // audioLevel の無音基準（既存ロジックで 1）
-const THRESHOLD = 0.008;    // ← 閾値。小さくすると反応しやすい（例: 0.003〜0.015）
-const GAIN = 1.9;           // ← 感度。大きくすると振幅/速度が増える（例: 1.2〜2.5）
-const SPEED_BASE = 0.04;    // 最低速度（微小入力時）
-const SPEED_GAIN = 1.0;     // 入力に応じた加速
-const AMP_MIN = 0;          // 無音時に完全停止したいなら 0（少しでも揺らしたいなら 4 など）
-const AMP_MAX = 56;         // 最大振幅
-// ====================================
-
-// 0〜1 に正規化した “activity”
-const raw = Math.max(0, audioLevel - (LVL_BASE + THRESHOLD));
-const activity = Math.min(1, (raw * GAIN) / (2 - LVL_BASE)); // audioLevel の上限は ~2
-
-// 位相（速度）：activity が 0 の時は更新しない＝完全静止
-const speed = SPEED_BASE + activity * SPEED_GAIN;
-
-// 振幅：activity に比例（無音は AMP_MIN）
-const amp = activity === 0 ? 0 : AMP_MIN + activity * (AMP_MAX - AMP_MIN);
-
+  const DEAD_ZONE = 0.02;
+  const SENSITIVITY = 1.35; // しきい値通過後の伸びをやや強める
+  const norm = Math.max(0, audioLevel - 1 - DEAD_ZONE);
+  const activity = Math.min(1, (norm / (1 - DEAD_ZONE)) * SENSITIVITY);
 
   useEffect(() => {
     const tick = () => {
@@ -113,7 +97,8 @@ const amp = activity === 0 ? 0 : AMP_MIN + activity * (AMP_MAX - AMP_MIN);
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, [activity]);
 
-
+  // 振幅：音が大きいほど大きく、でも破綻しない範囲で
+  const amp = activity === 0 ? 0 : 6 + activity * 46; // 0 / 6〜52px
 
   // 円内部で波を描く
   const padding = Math.floor(size * 0.18);
@@ -198,7 +183,7 @@ const amp = activity === 0 ? 0 : AMP_MIN + activity * (AMP_MAX - AMP_MIN);
       </svg>
 
       {/* SwiftUI スタイルの見た目をCSSで再現 */}
-      <style jsx>{`
+<style jsx>{`
   .neuBtn {
     position: relative;
     border: none;
