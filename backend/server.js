@@ -183,34 +183,38 @@ function splitText(text, chunkSize) {
  * combineMinutes: Calls the ChatGPT API to combine partial meeting minutes.
  */
 async function combineMinutes(combinedText, meetingFormat) {
-  const systemMessage = `The following multiple sentences are minutes discussed in a single meeting. Because they are long, they have been divided. Please combine them into one, ensuring there are no omissions or excesses in the content. Remove duplicates such as "Meeting Name" and summarize them at the beginning. Here are the format and rules: %@. Rules: To ensure a good appearance, always start a new line for each item (such as 【Meeting Name】, etc.) indicated by 【】 or ⚫︎. To conduct quantitative analysis, please ensure that mentioned figures are recorded in the minutes.`;
+  const template = (meetingFormat && meetingFormat.trim()) || '';
+  const systemMessage =
+`以下は同一会議の分割議事録です。重複や矛盾を統合し、**次のテンプレート**に正規化してください。
+・テンプレの見出しはそのまま。未知は『—』
+・前置き・後置きなし。本文のみ
+
+<MINUTES_TEMPLATE>
+${template}
+</MINUTES_TEMPLATE>`;
 
   const data = {
     model: 'gpt-4o-mini',
+    temperature: 0,
+    max_tokens: 6000,
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: combinedText },
     ],
-    max_tokens: 15000,
-    temperature: 0.5,
   };
 
   try {
-    console.log('[DEBUG] Sending data to ChatGPT API for combination:', data);
     const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
       timeout: 600000,
     });
-    console.log('[DEBUG] Response from ChatGPT API for combination:', response.data);
     return response.data.choices[0].message.content.trim();
   } catch (error) {
     console.error('[ERROR] Failed to call ChatGPT API for combining minutes:', error.response?.data || error.message);
     throw new Error('Failed to combine meeting minutes');
   }
 }
+
 
 /**
  * generateMinutes: Uses ChatGPT API to generate meeting minutes.
