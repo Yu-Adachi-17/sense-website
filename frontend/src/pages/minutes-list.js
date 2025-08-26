@@ -11,7 +11,8 @@ import {
 } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { RxArrowLeft } from "react-icons/rx";
-import { GiMagnifyingGlass } from "react-icons/gi";
+import { IoIosSearch } from "react-icons/io";
+
 import { useTranslation } from "react-i18next";
 
 /* ============================================================
@@ -431,7 +432,7 @@ export default function MinutesList() {
             paddingBottom: 8
           }}
         >
-          <GiMagnifyingGlass
+          <IoIosSearch
             aria-hidden
             style={{ opacity: 0.55, fontSize: 18 }}
           />
