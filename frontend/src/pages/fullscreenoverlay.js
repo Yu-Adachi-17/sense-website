@@ -421,9 +421,6 @@ export default function FullScreenOverlay({
                     {/* サマリー */}
                     {meeting.summary && (
                       <>
-                        <h3 style={{ fontSize: "18px", fontWeight: "bold", margin: "4px 0 6px 0" }}>
-                          {t("Summary")}
-                        </h3>
                         <p style={{ whiteSpace: "pre-wrap", marginTop: 0 }}>{meeting.summary}</p>
                         <hr
                           style={{
