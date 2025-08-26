@@ -63,11 +63,10 @@ function FileUploadButton({ onFileSelected }) {
 }
 
 /* ============================================================
-   ★ 音声同期リップル（軽量版）
-   - activity の算出は白ライン版と同じ：DEAD_ZONE=0.02 / SENSITIVITY=1.35
-   - RAFは「発生管理」のみ（setStateは発生時/終了時だけ）
-   - 拡散・フェードは CSS keyframes（GPU transform/opacity）
-   - onAnimationEnd で自然消滅（毎フレームのフィルタ削除を撤廃）
+   ★ 音声同期リップル（軽量版・オフスクリーンまで一定速度）
+   - activity: DEAD_ZONE=0.02 / SENSITIVITY=1.35（従来通り）
+   - 発生管理だけRAF、拡散はCSS keyframes（GPU）
+   - 画面対角に基づく farScale まで直線速度で拡大
    ============================================================ */
    function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     const [ripples, setRipples] = React.useState([]);
@@ -111,17 +110,24 @@ function FileUploadButton({ onFileSelected }) {
         const pulsesPerSec = act <= 0 ? 0 : lerp(0.6, 3.0, act);
         emitAccRef.current += dt * pulsesPerSec;
   
-        // act に応じた見た目パラメータ（生成時に固定）
-        const endScale    = lerp(2.0, 3.4, act);
+        // ★ 画面外まで行くための farScale を算出（ビューポート対角）
+        const w = typeof window !== 'undefined' ? window.innerWidth  : size;
+        const h = typeof window !== 'undefined' ? window.innerHeight : size;
+        const diag = Math.hypot(w, h);
+        const farScale = Math.max(4, (diag / size) * 1.1); // 余裕をもってオフスクリーンへ
+  
+        // 見た目パラメータ（生成時に固定）
         const baseOpacity = lerp(0.55, 0.92, act);
-        const life        = lerp(1700, 900, act); // ms
+        const baseLife    = lerp(1700, 900, act); // もともとの尺
+        // ★ スケール距離に比例して尺も延長（速度一定化）
+        const life = Math.round(baseLife * (farScale / 3.4)); // 3.4 は従来の最大endScale基準
   
         // 発生（acc 1超で1枚）
         while (emitAccRef.current >= 1) {
           emitAccRef.current -= 1;
           setRipples((prev) => {
             const id = idRef.current++;
-            const next = [...prev, { id, endScale, baseOpacity, life }];
+            const next = [...prev, { id, farScale, baseOpacity, life }];
             // 過密対策：上限10
             return next.length > 10 ? next.slice(-10) : next;
           });
@@ -132,9 +138,9 @@ function FileUploadButton({ onFileSelected }) {
   
       rafRef.current = requestAnimationFrame(tick);
       return () => { cancelAnimationFrame(rafRef.current); rafRef.current = null; };
-    }, [isRecording]);
+    }, [isRecording, size]);
   
-    // アニメ終了で1枚削除（毎フレームのフィルタ削除を撤廃）
+    // アニメ終了で1枚削除
     const handleEnd = (id) => {
       setRipples((prev) => prev.filter((r) => r.id !== id));
     };
@@ -149,8 +155,7 @@ function FileUploadButton({ onFileSelected }) {
                 className="ring"
                 onAnimationEnd={() => handleEnd(r.id)}
                 style={{
-                  // CSS変数で個別パラメータを渡し、keyframes で参照
-                  '--endScale': r.endScale,
+                  '--farScale': r.farScale,
                   '--baseOpacity': r.baseOpacity,
                   '--duration': `${r.life}ms`,
                 }}
@@ -180,7 +185,7 @@ function FileUploadButton({ onFileSelected }) {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            overflow: visible;
+            overflow: visible;                      /* 画面外まで見せる */
             filter: drop-shadow(0 0 28px var(--ripple-glow));
             transform: translateZ(0);
             will-change: transform, opacity;
@@ -199,21 +204,19 @@ function FileUploadButton({ onFileSelected }) {
             contain: paint;
             will-change: transform, opacity;
   
-            /* ★ CSSアニメ（個別 duration / endScale / baseOpacity） */
-            animation: ripple var(--duration) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            /* ★ 一定速度でオフスクリーンまで（線形） */
+            animation: ripple var(--duration) linear forwards;
             mix-blend-mode: screen;
           }
   
+          /* ★ 中間点を廃止し、開始→終了を一直線で */
           @keyframes ripple {
             0% {
               transform: translate(-50%, -50%) scale(1);
               opacity: var(--baseOpacity);
             }
-            70% {
-              opacity: calc(var(--baseOpacity) * 0.42);
-            }
             100% {
-              transform: translate(-50%, -50%) scale(var(--endScale));
+              transform: translate(-50%, -50%) scale(var(--farScale));
               opacity: 0;
             }
           }
