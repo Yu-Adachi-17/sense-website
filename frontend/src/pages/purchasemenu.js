@@ -492,7 +492,7 @@ const handleCancelSubscription = async () => {
               {t("Purchase Items")}
             </button>
 
-            <button
+            {/* <button
               style={styles.formatButton}
               onClick={() => {
                 setShowSideMenu(false);
@@ -501,10 +501,10 @@ const handleCancelSubscription = async () => {
             >
               <BsWrenchAdjustable style={{ marginRight: "8px" }} />
               {t("Minutes Formats")}
-            </button>
+            </button> */}
 
 
-            <button
+            {/* <button
               style={styles.formatButton}
               onClick={() => {
                 setShowSideMenu(false);
@@ -513,7 +513,7 @@ const handleCancelSubscription = async () => {
             >
               <CiGlobe style={{ marginRight: "8px" }} />
               {t("AI News")}
-            </button>
+            </button> */}
 
             {/* Policy ボタン（右下） */}
             <div style={styles.policyButtonContainer}>
