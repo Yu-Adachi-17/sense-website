@@ -21,6 +21,9 @@ const webhookRouter = require('./routes/webhook');
 const appleRouter = require('./routes/apple'); // Apple route added
 const app = express();
 
+// ★ Flexible Minutes 用プロンプト（外部ファイル）
+const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
+
 /*==============================================
 =            Middleware Order                  =
 ==============================================*/
@@ -321,6 +324,101 @@ ${transcription}
 };
 
 
+/* ================================
+   Flexible Minutes(JSON) 生成系
+   ================================ */
+
+// Flexible JSON の簡易検証
+function isValidFlexibleJSON(str) {
+  try {
+    const obj = JSON.parse(str);
+    if (!obj) return false;
+    const must = ["meetingTitle","date","summary","sections"];
+    return must.every(k => Object.prototype.hasOwnProperty.call(obj, k));
+  } catch {
+    return false;
+  }
+}
+
+// JSON 修復（ワンリトライ）
+async function repairFlexibleJSON(badOutput, langHint) {
+  const data = {
+    model: 'gpt-4o-mini',
+    response_format: { type: "json_object" },
+    temperature: 0,
+    max_tokens: 3500,
+    messages: [
+      {
+        role: 'system',
+        content:
+`You repair malformed JSON that should match the schema:
+{
+  "meetingTitle": "",
+  "date": "",
+  "summary": "",
+  "sections": [
+    { "title": "", "topics": [ { "subTitle": "", "details": [] } ] }
+  ]
+}
+Rules: Return JSON only. Do not add comments. Keep keys and order. No trailing commas.`
+      },
+      {
+        role: 'user',
+        content:
+`Language hint: ${langHint || 'auto'}
+
+Fix this into valid JSON per schema, preserving semantic content:
+
+<MODEL_OUTPUT>
+${badOutput}
+</MODEL_OUTPUT>`
+      }
+    ]
+  };
+
+  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+    headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
+    timeout: 600000,
+  });
+  return resp.data.choices[0].message.content.trim();
+}
+
+// Flexible 本体
+async function generateFlexibleMinutes(transcription, langHint) {
+  const messages = buildFlexibleMessages({
+    transcript: transcription,
+    lang: langHint,
+    currentDateISO: new Date().toISOString(),
+  });
+
+  const data = {
+    model: 'gpt-4o-mini',
+    response_format: { type: "json_object" },
+    temperature: 0,
+    max_tokens: 6000,
+    messages,
+  };
+
+  try {
+    const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+      headers: {
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      timeout: 600000,
+    });
+    let out = resp.data.choices[0].message.content.trim();
+    if (!isValidFlexibleJSON(out)) {
+      out = await repairFlexibleJSON(out, langHint);
+    }
+    return out;
+  } catch (err) {
+    console.error('[ERROR] generateFlexibleMinutes:', err.response?.data || err.message);
+    throw new Error('Failed to generate flexible minutes');
+  }
+}
+
+
 /**
  * transcribeWithOpenAI: Uses the Whisper API for transcription.
  */
@@ -490,6 +588,11 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   
     const meetingFormat = req.body.meetingFormat;
     console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
+
+    // ★ Flexible / Classic 切替（追加）
+    const outputType = (req.body.outputType || 'classic').toLowerCase();
+    const langHint   = req.body.lang || null;
+    console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
   
     // The uploaded file is already saved in temp/
     let tempFilePath = file.path;
@@ -534,15 +637,24 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     // ② If the transcription is 10,000 characters or less, generate minutes directly.
     //     If it exceeds 10,000 characters, split the text and combine the generated minutes.
     if (transcription.length <= 10000) {
-      minutes = await generateMinutes(transcription, meetingFormat);
+      if (outputType === 'flexible') {
+        minutes = await generateFlexibleMinutes(transcription, langHint);
+      } else {
+        minutes = await generateMinutes(transcription, meetingFormat);
+      }
     } else {
-      console.log('[DEBUG] Transcription exceeds 10,000 characters; splitting text and generating meeting minutes');
-      const textChunks = splitText(transcription, 10000);
-      const partialMinutes = await Promise.all(
-        textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
-      );
-      const combinedPartialMinutes = partialMinutes.join("\n\n");
-      minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
+      console.log('[DEBUG] Transcription exceeds 10,000 characters; processing for output type');
+      if (outputType === 'flexible') {
+        // Flexible は単発生成（まずはシンプル運用）
+        minutes = await generateFlexibleMinutes(transcription, langHint);
+      } else {
+        const textChunks = splitText(transcription, 10000);
+        const partialMinutes = await Promise.all(
+          textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
+        );
+        const combinedPartialMinutes = partialMinutes.join("\n\n");
+        minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
+      }
     }
   
     // Delete the original temporary file
