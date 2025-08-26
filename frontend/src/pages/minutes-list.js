@@ -11,22 +11,136 @@ import {
 } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { RxArrowLeft } from "react-icons/rx";
+import { GiMagnifyingGlass } from "react-icons/gi";
 import { useTranslation } from "react-i18next";
 
-// iOSライト風のカード影（多層）
+/* ============================================================
+   iOSライト風のカード影（多層）
+============================================================ */
 const cardShadow =
   "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
-// Meeting Record Item Component (Selection Mode Version)
+/* ============================================================
+   JSON 整形 → タイトル/日付/トピック抽出ロジック
+   - ```json ... ``` コードブロック対応
+   - 余計な制御文字/BOM/コメント削除
+   - "}json{" 連結分割
+   - 失敗時はフォールバック
+============================================================ */
+const removeInvisibles = (text) =>
+  text.replace(/\uFEFF/g, "").replace(/[\u0000-\u001F\u007F]/g, "");
+
+const cleanJSON = (json) => {
+  let s = removeInvisibles(json);
+  s = s.replace(/```json/gi, "").replace(/```/g, "");
+  // // コメント行を削除
+  s = s.replace(/^\s*\/\/.*$/gm, "");
+  // 先頭の { 〜 末尾の } を抽出
+  const first = s.indexOf("{");
+  const last = s.lastIndexOf("}");
+  if (first !== -1 && last !== -1 && last > first) s = s.slice(first, last + 1);
+  return s.trim();
+};
+
+const extractJSONCandidates = (text) => {
+  const candidates = [];
+  // コードブロック優先
+  const blockRe = /```json\s*([\s\S]*?)\s*```/gi;
+  let m;
+  while ((m = blockRe.exec(text))) candidates.push(m[1]);
+
+  if (!candidates.length) {
+    const cleaned = cleanJSON(text);
+    if (/}\s*json\s*{/i.test(cleaned)) {
+      const parts = cleaned.split(/}\s*json\s*{/i);
+      parts.forEach((p, i) => {
+        const piece = i === 0 ? p + "}" : "{" + p;
+        candidates.push(piece);
+      });
+    } else {
+      candidates.push(cleaned);
+    }
+  }
+  return candidates;
+};
+
+const parseMinutesJSON = (minutes) => {
+  // すでにオブジェクトならそのまま
+  if (minutes && typeof minutes === "object") return minutes;
+
+  const text = String(minutes ?? "").trim();
+  const candidates = extractJSONCandidates(text);
+  for (const c of candidates) {
+    try {
+      const obj = JSON.parse(c);
+      if (obj && (obj.meetingTitle || obj.meeting_name || obj.title)) return obj;
+    } catch (_) {
+      // 次の候補へ
+    }
+  }
+  return null;
+};
+
+const formatDate = (d) => {
+  try {
+    return new Intl.DateTimeFormat(undefined, {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(d);
+  } catch {
+    return d?.toString?.() ?? "";
+  }
+};
+
+const renderFromMinutes = (minutes, createdAtDate) => {
+  const obj = parseMinutesJSON(minutes);
+  if (obj) {
+    const title =
+      obj.meetingTitle || obj.meeting_name || obj.title || "Meeting";
+    const dateStr =
+      obj.date ||
+      obj.meetingDate ||
+      (createdAtDate ? formatDate(createdAtDate) : "");
+    const topicsArray =
+      Array.isArray(obj.topics)
+        ? obj.topics
+            .map((t) => t?.topic)
+            .filter(Boolean)
+        : [];
+
+    return {
+      ok: true,
+      title,
+      date: dateStr,
+      topicsText: topicsArray.map((t) => `• ${t}`).join("\n")
+    };
+  }
+
+  // フォールバック：先頭100文字
+  const plain = String(minutes ?? "");
+  const fallback =
+    plain.length <= 100 ? plain : plain.slice(0, 100) + "…";
+  return { ok: false, fallback, title: "", date: "", topicsText: "" };
+};
+
+/* ============================================================
+   Meeting Record Item Component (Selection Mode Version)
+============================================================ */
 const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
   const router = useRouter();
 
-  // paper.createdAt が Timestamp の場合は toDate() を利用
-  const createdDate = paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
-  const truncatedText =
-    paper.minutes.length <= 100 ? paper.minutes : paper.minutes.slice(0, 100) + "…";
+  const createdDate = paper.createdAt?.toDate
+    ? paper.createdAt.toDate()
+    : new Date();
 
-  // 選択モードの場合は選択状態を切り替え、通常時は詳細画面へ遷移（paper 情報は query で渡す）
+  const { ok, title, date, topicsText, fallback } = renderFromMinutes(
+    paper.minutes,
+    createdDate
+  );
+
   const handleClick = () => {
     if (selectionMode) {
       toggleSelect(paper.id);
@@ -48,7 +162,9 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
         cursor: "pointer",
         boxShadow: cardShadow,
         transition: "transform 120ms ease, box-shadow 120ms ease",
-        userSelect: "none"
+        userSelect: "none",
+        whiteSpace: "pre-wrap",
+        lineHeight: 1.45
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow =
@@ -58,9 +174,26 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
         e.currentTarget.style.boxShadow = cardShadow;
       }}
     >
-      <div style={{ fontWeight: 700, whiteSpace: "pre-wrap", lineHeight: 1.4 }}>
-        {truncatedText}
-      </div>
+      {ok ? (
+        <>
+          {/* タイトル */}
+          <div style={{ fontWeight: 600, fontSize: 18, marginBottom: 4 }}>
+            {title}
+          </div>
+          {/* 日付 */}
+          {date && (
+            <div style={{ fontSize: 13, opacity: 0.8, marginBottom: 6 }}>
+              {date}
+            </div>
+          )}
+          {/* topics（複数行） */}
+          {topicsText && (
+            <div style={{ fontSize: 13, opacity: 0.95 }}>{topicsText}</div>
+          )}
+        </>
+      ) : (
+        <div style={{ fontWeight: 700 }}>{fallback}</div>
+      )}
     </div>
   );
 };
@@ -76,7 +209,10 @@ export default function MinutesList() {
 
   // アラビア語の場合に dir="rtl" を適用
   useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute(
+      "dir",
+      i18n.language === "ar" ? "rtl" : "ltr"
+    );
   }, [i18n.language]);
 
   useEffect(() => {
@@ -97,11 +233,15 @@ export default function MinutesList() {
         const unsubscribeSnapshot = onSnapshot(
           q,
           (querySnapshot) => {
-            console.log(`🟢 [DEBUG] Retrieved ${querySnapshot.size} documents from Firestore`);
+            console.log(
+              `🟢 [DEBUG] Retrieved ${querySnapshot.size} documents from Firestore`
+            );
             const fetchedPapers = [];
             querySnapshot.forEach((docSnapshot) => {
-              console.log("🟢 [DEBUG] Retrieved document:", docSnapshot.id, docSnapshot.data());
-              fetchedPapers.push({ id: docSnapshot.id, ...docSnapshot.data() });
+              fetchedPapers.push({
+                id: docSnapshot.id,
+                ...docSnapshot.data()
+              });
             });
 
             if (fetchedPapers.length === 0) {
@@ -111,7 +251,10 @@ export default function MinutesList() {
             setPapers(fetchedPapers);
           },
           (error) => {
-            console.error("🔴 [ERROR] Failed to retrieve data from Firestore:", error);
+            console.error(
+              "🔴 [ERROR] Failed to retrieve data from Firestore:",
+              error
+            );
           }
         );
 
@@ -132,7 +275,9 @@ export default function MinutesList() {
 
   // 検索によるフィルタリング
   const filteredPapers = papers.filter((paper) =>
-    (paper.minutes || "").toLowerCase().includes(searchText.toLowerCase())
+    String(paper.minutes || "")
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
   );
 
   // 日付ごとにグループ化
@@ -165,14 +310,15 @@ export default function MinutesList() {
       alert(t("Please select meeting records to delete."));
       return;
     }
-    const confirmed = window.confirm(t("Are you sure you want to delete? This action cannot be undone."));
+    const confirmed = window.confirm(
+      t("Are you sure you want to delete? This action cannot be undone.")
+    );
     if (!confirmed) return;
 
     try {
       for (const id of selectedIds) {
         await deleteDoc(doc(db, "meetingRecords", id));
       }
-      // 削除後、選択状態をリセットし選択モードを終了
       setSelectedIds([]);
       setSelectionMode(false);
     } catch (error) {
@@ -184,10 +330,10 @@ export default function MinutesList() {
   return (
     <div
       style={{
-        backgroundColor: "#ffffff",   // 全面白背景
+        backgroundColor: "#ffffff", // 全面白背景
         minHeight: "100vh",
         padding: 20,
-        color: "#111111"              // テキストは黒
+        color: "#111111"
       }}
     >
       {/* Header */}
@@ -225,7 +371,7 @@ export default function MinutesList() {
                   setSelectedIds([]);
                 }}
                 style={{
-                  backgroundColor: "#F2F2F7", // iOSのsystemGray6っぽい
+                  backgroundColor: "#F2F2F7",
                   color: "#111111",
                   border: "1px solid rgba(0,0,0,0.08)",
                   padding: "10px 14px",
@@ -240,7 +386,7 @@ export default function MinutesList() {
               <button
                 onClick={handleDelete}
                 style={{
-                  backgroundColor: "#FF3B30", // iOS Red
+                  backgroundColor: "#FF3B30",
                   color: "#ffffff",
                   border: "none",
                   padding: "10px 14px",
@@ -273,7 +419,7 @@ export default function MinutesList() {
         </div>
       </div>
 
-      {/* Search Field（下線のみ） */}
+      {/* Search Field（下線のみ／アイコンは react-icons/gi） */}
       <div style={{ marginBottom: 22 }}>
         <div
           style={{
@@ -281,16 +427,14 @@ export default function MinutesList() {
             display: "flex",
             alignItems: "center",
             gap: 8,
-            borderBottom: "1px solid rgba(0,0,0,0.22)", // 下線のみ
+            borderBottom: "1px solid rgba(0,0,0,0.22)",
             paddingBottom: 8
           }}
         >
-          <span
+          <GiMagnifyingGlass
             aria-hidden
-            style={{ color: "rgba(0,0,0,0.35)", fontSize: 18, lineHeight: 1 }}
-          >
-            🔍
-          </span>
+            style={{ opacity: 0.55, fontSize: 18 }}
+          />
           <input
             type="text"
             placeholder={t("Search...")}
