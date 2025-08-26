@@ -590,7 +590,8 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
 
     // ★ Flexible / Classic 切替（追加）
-    const outputType = (req.body.outputType || 'classic').toLowerCase();
+    // これに変更（既定を flexible に）
+const outputType = (req.body.outputType || 'flexible').toLowerCase();
     const langHint   = req.body.lang || null;
     console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
   
