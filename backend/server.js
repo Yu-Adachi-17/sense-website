@@ -196,7 +196,7 @@ ${template}
   const data = {
     model: 'gpt-4o-mini',
     temperature: 0,
-    max_tokens: 6000,
+    max_tokens: 15000,
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: combinedText },
@@ -219,36 +219,107 @@ ${template}
 /**
  * generateMinutes: Uses ChatGPT API to generate meeting minutes.
  */
-const generateMinutes = async (transcription, formatTemplate) => {
-  const systemMessage = formatTemplate ||
-    'You are an excellent meeting minutes assistant. Please generate meeting minutes based on the following text.';
-    
+// ===== 強制フォーマット検証 =====
+function isValidMinutes(out) {
+  if (!out) return false;
+  // 必須見出しの存在チェック（必要に応じて増やす）
+  const must = ["【Meeting Name】", "【Date】", "【Location】", "【Attendees】", "【Agenda(1)】", "【Agenda(2)】", "【Agenda(3)】"];
+  return must.every(k => out.includes(k));
+}
+
+// ===== 失敗時の整形（ワンリトライ用） =====
+async function repairToTemplate(badOutput, template) {
+  const systemMessage =
+`あなたは議事録のフォーマッタです。以下のテンプレートに厳密に従って変換してください。
+必ずテンプレートの各見出し（例：『【Meeting Name】』）をそのまま残し、内容だけを埋めます。
+未知の項目は『—』と記入。前置き・後置き・説明文は出力禁止。出力はテンプレート本文だけ。
+
+<MINUTES_TEMPLATE>
+${template.trim()}
+</MINUTES_TEMPLATE>`;
+
   const data = {
     model: 'gpt-4o-mini',
+    temperature: 0,
+    max_tokens: 3000,
     messages: [
       { role: 'system', content: systemMessage },
-      { role: 'user', content: transcription },
-    ],
-    max_tokens: 15000,
-    temperature: 0.5,
+      { role: 'user', content:
+`これをテンプレートに整形してください（本文のみを出力）:
+
+<MODEL_OUTPUT>
+${badOutput}
+</MODEL_OUTPUT>` }
+    ]
   };
-    
+
+  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+    headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
+    timeout: 600000,
+  });
+  return resp.data.choices[0].message.content.trim();
+}
+
+// ===== 本体：テンプレ厳守で生成 =====
+const generateMinutes = async (transcription, formatTemplate) => {
+  const template = (formatTemplate && formatTemplate.trim()) || 
+`【Meeting Name】
+【Date】
+【Location】
+【Attendees】
+【Agenda(1)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(2)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(3)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem`;
+
+  const systemMessage =
+`あなたはプロの議事録作成アシスタントです。以下の厳格なルールに従い、日本語で出力してください。
+・出力は **次のテンプレート本文のみ**。前置き・後置き・挨拶・説明文は一切禁止
+・見出し（『【…】』、『⚫︎』記号、(1)(2)(3) 等）を **一字一句** 変えずに残す
+・不明点は『—』と記入（例：日時が不明→『【Date】—』）
+・議題は最低3つ（テンプレにある分）を必ず埋める。内容が薄くても『—』で可
+・数値等の定量情報は可能な限り保持
+・本文は日本語（テンプレ中の英語ラベルはそのまま）
+
+テンプレートは以下です。これを**丸ごと**出力枠として使い、各項目を埋めて返してください。
+
+<MINUTES_TEMPLATE>
+${template}
+</MINUTES_TEMPLATE>`;
+
+  const userMessage =
+`以下は会議の文字起こしです。テンプレートに従って要約・整形してください。
+<TRANSCRIPT>
+${transcription}
+</TRANSCRIPT>`;
+
+  const data = {
+    model: 'gpt-4o-mini',
+    temperature: 0,
+    max_tokens: 3000,
+    messages: [
+      { role: 'system', content: systemMessage },
+      { role: 'user', content: userMessage },
+    ],
+  };
+
   try {
-    console.log('[DEBUG] Sending data to ChatGPT API:', data);
     const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
       timeout: 600000,
     });
-    console.log('[DEBUG] ChatGPT API response:', response.data);
-    return response.data.choices[0].message.content.trim();
+    let out = response.data.choices[0].message.content.trim();
+
+    // バリデーション→NGならワンリトライ（整形）
+    if (!isValidMinutes(out)) {
+      out = await repairToTemplate(out, template);
+    }
+    return out;
   } catch (error) {
     console.error('[ERROR] Failed to call ChatGPT API:', error.response?.data || error.message);
     throw new Error('Failed to generate meeting minutes using ChatGPT API');
   }
 };
+
 
 /**
  * transcribeWithOpenAI: Uses the Whisper API for transcription.
