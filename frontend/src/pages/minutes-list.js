@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { RxArrowLeft } from "react-icons/rx";
-import { GiMagnifyingGlass } from "react-icons/gi";
+import { CiSearch } from "react-icons/ci";
 import { useTranslation } from "react-i18next";
 
 /* iOSライト風のカード影 */
@@ -237,7 +237,7 @@ export default function MinutesList() {
       {/* Search（下線のみ / react-icons） */}
       <div style={{ marginBottom: 22 }}>
         <div style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, borderBottom: "1px solid rgba(0,0,0,0.22)", paddingBottom: 8 }}>
-          <GiMagnifyingGlass aria-hidden style={{ opacity: 0.55, fontSize: 18 }} />
+          <CiSearch aria-hidden style={{ opacity: 0.55, fontSize: 18 }} />
           <input
             type="text"
             placeholder={t("Search...")}
