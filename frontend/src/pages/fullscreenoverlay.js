@@ -343,9 +343,6 @@ export default function FullScreenOverlay({
 
         {/* タイトルと (全文表示時のみ) Edit/Save ボタン */}
         <div style={styles.titleContainer}>
-          <h2 style={styles.title}>
-            {isExpanded ? t("Full Transcript") : t("Minutes")}
-          </h2>
           {isExpanded && (isEditing ? (
             <button style={styles.saveButton} onClick={handleSave}>
               {t("Save")}
