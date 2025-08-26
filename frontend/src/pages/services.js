@@ -27,7 +27,7 @@ export default function Services() {
           </nav>
         </header>
 
-        {/* ===== Hero ===== */}
+        {/* ===== Main ===== */}
         <main className="hero">
           <div className="copy">
             <h1 className="line1">Just Record.</h1>
@@ -41,15 +41,15 @@ export default function Services() {
           </div>
         </main>
 
-        {/* ===== Bottom Center CTA & Legal ===== */}
-        <div className="bottomBar">
+        {/* ===== Footer (通常フローの最下部) ===== */}
+        <footer className="bottomBar">
           <a href={LINK_MAIN} className="cta">Get Started</a>
           <div className="legal">
             <a href="/terms-of-use" className="legalLink">{t("Terms of Use")}</a>
             <span className="sep">·</span>
             <a href="/privacy-policy" className="legalLink">{t("Privacy Policy")}</a>
           </div>
-        </div>
+        </footer>
       </div>
 
       <style jsx>{`
@@ -57,6 +57,8 @@ export default function Services() {
           background: #000;
           color: #eaf4f7;
           min-height: 100vh;
+          display: flex;
+          flex-direction: column; /* 最下部にフッターを寄せるため */
         }
 
         /* Header */
@@ -93,14 +95,14 @@ export default function Services() {
           opacity: 0.95;
         }
 
-        /* Hero */
+        /* Main */
         .hero {
+          flex: 1; /* ここで余白を吸収し、フッターを下へ */
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 32px;
           align-items: center;
-          padding: 20px 28px 120px; /* 下部にボトムバー分の余白 */
-          min-height: calc(100vh - 96px); /* ヘッダー分を差し引き */
+          padding: 20px 28px 48px; /* 下の固定余白は不要に */
         }
         .copy .line1 {
           font-size: clamp(40px, 8vw, 96px);
@@ -136,17 +138,13 @@ export default function Services() {
           border-radius: 22px;
         }
 
-        /* Bottom Center */
+        /* Footer */
         .bottomBar {
-          position: fixed;
-          left: 50%;
-          bottom: 38px;
-          transform: translateX(-50%);
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 10px;
-          z-index: 10;
+          padding: 20px 0 32px; /* 画面最下部に自然に配置 */
         }
         .cta {
           display: inline-block;
@@ -176,7 +174,6 @@ export default function Services() {
           .hero {
             grid-template-columns: 1fr;
             gap: 20px;
-            padding-bottom: 140px; /* モバイルでボトムバー余白多め */
           }
           .visual { order: -1; } /* モバイルで画像を上に */
           .top { padding: 16px 18px; }
