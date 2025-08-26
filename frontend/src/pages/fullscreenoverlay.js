@@ -220,7 +220,7 @@ export default function FullScreenOverlay({
       transition: "max-height 0.5s ease",
       marginBottom: "20px",
       position: "relative",
-      border: "1px solid #e5e5e5"
+      border: "none"
     },
     summaryText: {
       maxHeight: "none",
