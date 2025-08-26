@@ -22,6 +22,10 @@ const cardShadow =
 
 /* ============================================================
    JSON 整形 → タイトル/日付/トピック抽出ロジック
+   - ```json ... ``` コードブロック対応
+   - 余計な制御文字/BOM/コメント削除
+   - "}json{" 連結分割
+   - 失敗時はフォールバック
 ============================================================ */
 const removeInvisibles = (text) =>
   text.replace(/\uFEFF/g, "").replace(/[\u0000-\u001F\u007F]/g, "");
@@ -29,7 +33,9 @@ const removeInvisibles = (text) =>
 const cleanJSON = (json) => {
   let s = removeInvisibles(json);
   s = s.replace(/```json/gi, "").replace(/```/g, "");
+  // // コメント行を削除
   s = s.replace(/^\s*\/\/.*$/gm, "");
+  // 先頭の { 〜 末尾の } を抽出
   const first = s.indexOf("{");
   const last = s.lastIndexOf("}");
   if (first !== -1 && last !== -1 && last > first) s = s.slice(first, last + 1);
@@ -38,6 +44,7 @@ const cleanJSON = (json) => {
 
 const extractJSONCandidates = (text) => {
   const candidates = [];
+  // コードブロック優先
   const blockRe = /```json\s*([\s\S]*?)\s*```/gi;
   let m;
   while ((m = blockRe.exec(text))) candidates.push(m[1]);
@@ -58,14 +65,18 @@ const extractJSONCandidates = (text) => {
 };
 
 const parseMinutesJSON = (minutes) => {
+  // すでにオブジェクトならそのまま
   if (minutes && typeof minutes === "object") return minutes;
+
   const text = String(minutes ?? "").trim();
   const candidates = extractJSONCandidates(text);
   for (const c of candidates) {
     try {
       const obj = JSON.parse(c);
       if (obj && (obj.meetingTitle || obj.meeting_name || obj.title)) return obj;
-    } catch {}
+    } catch (_) {
+      // 次の候補へ
+    }
   }
   return null;
 };
@@ -93,9 +104,13 @@ const renderFromMinutes = (minutes, createdAtDate) => {
       obj.date ||
       obj.meetingDate ||
       (createdAtDate ? formatDate(createdAtDate) : "");
-    const topicsArray = Array.isArray(obj.topics)
-      ? obj.topics.map((t) => t?.topic).filter(Boolean)
-      : [];
+    const topicsArray =
+      Array.isArray(obj.topics)
+        ? obj.topics
+            .map((t) => t?.topic)
+            .filter(Boolean)
+        : [];
+
     return {
       ok: true,
       title,
@@ -103,8 +118,11 @@ const renderFromMinutes = (minutes, createdAtDate) => {
       topicsText: topicsArray.map((t) => `• ${t}`).join("\n")
     };
   }
+
+  // フォールバック：先頭100文字
   const plain = String(minutes ?? "");
-  const fallback = plain.length <= 100 ? plain : plain.slice(0, 100) + "…";
+  const fallback =
+    plain.length <= 100 ? plain : plain.slice(0, 100) + "…";
   return { ok: false, fallback, title: "", date: "", topicsText: "" };
 };
 
@@ -189,6 +207,7 @@ export default function MinutesList() {
   const [selectionMode, setSelectionMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
 
+  // アラビア語の場合に dir="rtl" を適用
   useEffect(() => {
     document.documentElement.setAttribute(
       "dir",
@@ -197,16 +216,26 @@ export default function MinutesList() {
   }, [i18n.language]);
 
   useEffect(() => {
+    console.log("🟡 [DEBUG] MinutesList mounted");
+
     const unsubscribeAuth = auth.onAuthStateChanged((user) => {
       if (user) {
+        console.log("🟢 [DEBUG] Logged in user:", user.uid);
+
         const q = query(
           collection(db, "meetingRecords"),
           where("uid", "==", user.uid),
           orderBy("createdAt", "desc")
         );
+
+        console.log("🟡 [DEBUG] Executing Firestore query");
+
         const unsubscribeSnapshot = onSnapshot(
           q,
           (querySnapshot) => {
+            console.log(
+              `🟢 [DEBUG] Retrieved ${querySnapshot.size} documents from Firestore`
+            );
             const fetchedPapers = [];
             querySnapshot.forEach((docSnapshot) => {
               fetchedPapers.push({
@@ -214,24 +243,44 @@ export default function MinutesList() {
                 ...docSnapshot.data()
               });
             });
+
+            if (fetchedPapers.length === 0) {
+              console.warn("⚠️ [WARNING] No data in Firestore");
+            }
+
             setPapers(fetchedPapers);
           },
           (error) => {
-            console.error("Failed to retrieve data from Firestore:", error);
+            console.error(
+              "🔴 [ERROR] Failed to retrieve data from Firestore:",
+              error
+            );
           }
         );
-        return () => unsubscribeSnapshot();
+
+        return () => {
+          console.log("🟡 [DEBUG] Unsubscribing Firestore listener");
+          unsubscribeSnapshot();
+        };
+      } else {
+        console.warn("⚠️ [WARNING] User is not logged in");
       }
     });
-    return () => unsubscribeAuth();
+
+    return () => {
+      console.log("🟡 [DEBUG] Unsubscribing onAuthStateChanged listener");
+      unsubscribeAuth();
+    };
   }, []);
 
+  // 検索によるフィルタリング
   const filteredPapers = papers.filter((paper) =>
     String(paper.minutes || "")
       .toLowerCase()
       .includes(searchText.toLowerCase())
   );
 
+  // 日付ごとにグループ化
   const groupedPapers = filteredPapers.reduce((groups, paper) => {
     const date = paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
     const key = date.toLocaleDateString();
@@ -244,14 +293,18 @@ export default function MinutesList() {
     (a, b) => new Date(b) - new Date(a)
   );
 
+  // 選択状態の切り替え
   const toggleSelect = (id) => {
-    setSelectedIds((prevSelected) =>
-      prevSelected.includes(id)
-        ? prevSelected.filter((x) => x !== id)
-        : [...prevSelected, id]
-    );
+    setSelectedIds((prevSelected) => {
+      if (prevSelected.includes(id)) {
+        return prevSelected.filter((item) => item !== id);
+      } else {
+        return [...prevSelected, id];
+      }
+    });
   };
 
+  // 選択中の meeting record の削除処理
   const handleDelete = async () => {
     if (selectedIds.length === 0) {
       alert(t("Please select meeting records to delete."));
@@ -277,7 +330,7 @@ export default function MinutesList() {
   return (
     <div
       style={{
-        backgroundColor: "#ffffff",
+        backgroundColor: "#ffffff", // 全面白背景
         minHeight: "100vh",
         padding: 20,
         color: "#111111"
@@ -366,7 +419,7 @@ export default function MinutesList() {
         </div>
       </div>
 
-      {/* Search Field（下線のみ） */}
+      {/* Search Field（下線のみ／アイコンは react-icons/gi） */}
       <div style={{ marginBottom: 22 }}>
         <div
           style={{
@@ -378,7 +431,10 @@ export default function MinutesList() {
             paddingBottom: 8
           }}
         >
-          <GiMagnifyingGlass aria-hidden style={{ opacity: 0.55, fontSize: 18 }} />
+          <GiMagnifyingGlass
+            aria-hidden
+            style={{ opacity: 0.55, fontSize: 18 }}
+          />
           <input
             type="text"
             placeholder={t("Search...")}
