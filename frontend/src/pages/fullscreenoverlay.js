@@ -137,6 +137,18 @@ export default function FullScreenOverlay({
     e.stopPropagation();
   };
 
+  // ===== JSON スキーマ判定（追記） =====
+  const isFlexibleSchema = (obj) =>
+    obj &&
+    typeof obj === "object" &&
+    typeof obj.meetingTitle === "string" &&
+    typeof obj.summary === "string" &&
+    Array.isArray(obj.sections);
+
+  // 旧（レガシー）JSON互換: topics ベース
+  const isLegacySchema = (obj) =>
+    obj && typeof obj === "object" && Array.isArray(obj.topics);
+
   // 以下、スタイル定義（元の定義をそのまま維持）
   const styles = {
     fullScreenOverlay: {
@@ -364,153 +376,263 @@ export default function FullScreenOverlay({
               onChange={(e) => setEditedText(e.target.value)}
             />
           ) : (
-            // JSONのRawデータをパースし、SwiftUIのレンダリングに近い形式で表示
+            // JSONのRawデータをパースし、Flexible or Legacy を綺麗に表示
             (() => {
-              let meeting;
+              let parsed;
               try {
-                meeting = JSON.parse(editedText);
+                parsed = JSON.parse(editedText);
               } catch (error) {
-                // パースに失敗した場合はそのまま表示
+                // パースに失敗した場合はそのまま表示（従来動作）
                 return <p style={{ whiteSpace: "pre-wrap" }}>{editedText}</p>;
               }
-              return (
-                <div style={{ whiteSpace: "pre-wrap" }}>
-                  {meeting.meetingTitle && (
-                    <>
+
+              // ---- Flexible(JSON) レンダリング ----
+              if (isFlexibleSchema(parsed)) {
+                const meeting = parsed;
+                return (
+                  <div style={{ whiteSpace: "normal", width: "100%" }}>
+                    {/* タイトル／日付 */}
+                    {meeting.meetingTitle && (
                       <h1
                         style={{
                           fontSize: "30px",
                           fontWeight: "bold",
-                          paddingTop: "20px",
+                          paddingTop: "4px",
                           paddingBottom: "8px",
                           margin: 0,
                         }}
                       >
                         {meeting.meetingTitle}
                       </h1>
-                      {meeting.date && (
-                        <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.date}</p>
-                      )}
-                      {meeting.location && (
-                        <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.location}</p>
-                      )}
-                      {meeting.attendees &&
-                        Array.isArray(meeting.attendees) &&
-                        meeting.attendees.length > 0 && (
-                          <p style={{ fontWeight: "bold", margin: 0 }}>
+                    )}
+                    {(meeting.date || meeting.location || meeting.attendees) && (
+                      <div style={{ opacity: 0.9, marginBottom: "12px" }}>
+                        {meeting.date && (
+                          <p style={{ margin: "0 0 4px 0", fontWeight: "bold" }}>{meeting.date}</p>
+                        )}
+                        {meeting.location && (
+                          <p style={{ margin: "0 0 4px 0", fontWeight: "bold" }}>{meeting.location}</p>
+                        )}
+                        {Array.isArray(meeting.attendees) && meeting.attendees.length > 0 && (
+                          <p style={{ margin: 0, fontWeight: "bold" }}>
                             {meeting.attendees.join(", ")}
                           </p>
                         )}
-                      <hr
-                        style={{
-                          height: "1px",
-                          backgroundColor: "rgba(255,255,255,0.3)",
-                          border: "none",
-                          margin: "16px 0",
-                        }}
-                      />
-                    </>
-                  )}
-                  {meeting.topics &&
-                    meeting.topics.length > 0 &&
-                    meeting.topics.map((topic, topicIndex) => (
-                      <div key={topicIndex} style={{ marginBottom: "16px" }}>
-                        <h2 style={{ fontSize: "24px", fontWeight: "bold", margin: 0 }}>
-                          {topicIndex + 1}. {topic.topic}
-                        </h2>
-                        {topic.discussion && topic.discussion.length > 0 && (
-                          <div>
-                            <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "8px" }}>
-                              Discussion
-                            </h3>
-                            {topic.discussion.map((item, index) => (
-                              <p key={index}>- {item}</p>
+                      </div>
+                    )}
+
+                    {/* サマリー */}
+                    {meeting.summary && (
+                      <>
+                        <h3 style={{ fontSize: "18px", fontWeight: "bold", margin: "4px 0 6px 0" }}>
+                          {t("Summary")}
+                        </h3>
+                        <p style={{ whiteSpace: "pre-wrap", marginTop: 0 }}>{meeting.summary}</p>
+                        <hr
+                          style={{
+                            height: "1px",
+                            backgroundColor: "rgba(255,255,255,0.3)",
+                            border: "none",
+                            margin: "16px 0",
+                          }}
+                        />
+                      </>
+                    )}
+
+                    {/* セクション */}
+                    {Array.isArray(meeting.sections) &&
+                      meeting.sections.map((sec, sIdx) => (
+                        <div key={sIdx} style={{ marginBottom: "18px" }}>
+                          {sec.title && (
+                            <h2 style={{ fontSize: "22px", fontWeight: "bold", margin: "0 0 6px 0" }}>
+                              {sec.title}
+                            </h2>
+                          )}
+
+                          {Array.isArray(sec.topics) &&
+                            sec.topics.map((topic, tIdx) => (
+                              <div key={tIdx} style={{ marginBottom: "10px" }}>
+                                {topic.subTitle && (
+                                  <h3 style={{ fontSize: "18px", fontWeight: "bold", margin: "6px 0 4px 0" }}>
+                                    {topic.subTitle}
+                                  </h3>
+                                )}
+                                {Array.isArray(topic.details) && topic.details.length > 0 && (
+                                  <ul style={{ margin: "4px 0 0 18px", padding: 0 }}>
+                                    {topic.details.map((line, lIdx) => (
+                                      <li key={lIdx} style={{ marginBottom: "4px" }}>
+                                        {line}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
                             ))}
-                          </div>
+                          {sIdx < meeting.sections.length - 1 && (
+                            <hr
+                              style={{
+                                height: "1px",
+                                backgroundColor: "rgba(255,255,255,0.2)",
+                                border: "none",
+                                margin: "14px 0",
+                              }}
+                            />
+                          )}
+                        </div>
+                      ))}
+                  </div>
+                );
+              }
+
+              // ---- レガシー（topicsベース）JSON レンダリング（後方互換）----
+              if (isLegacySchema(parsed)) {
+                const meeting = parsed;
+                return (
+                  <div style={{ whiteSpace: "pre-wrap" }}>
+                    {meeting.meetingTitle && (
+                      <>
+                        <h1
+                          style={{
+                            fontSize: "30px",
+                            fontWeight: "bold",
+                            paddingTop: "20px",
+                            paddingBottom: "8px",
+                            margin: 0,
+                          }}
+                        >
+                          {meeting.meetingTitle}
+                        </h1>
+                        {meeting.date && (
+                          <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.date}</p>
                         )}
-                        {topic.proposals &&
-                          topic.proposals.length > 0 &&
-                          topic.proposals.map((item, index) => (
-                            <div key={index} style={{ marginTop: "8px" }}>
-                              <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
-                                Proposal {item.proposedBy ? `(${item.proposedBy})` : ""}
+                        {meeting.location && (
+                          <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.location}</p>
+                        )}
+                        {meeting.attendees &&
+                          Array.isArray(meeting.attendees) &&
+                          meeting.attendees.length > 0 && (
+                            <p style={{ fontWeight: "bold", margin: 0 }}>
+                              {meeting.attendees.join(", ")}
+                            </p>
+                          )}
+                        <hr
+                          style={{
+                            height: "1px",
+                            backgroundColor: "rgba(255,255,255,0.3)",
+                            border: "none",
+                            margin: "16px 0",
+                          }}
+                        />
+                      </>
+                    )}
+                    {meeting.topics &&
+                      meeting.topics.length > 0 &&
+                      meeting.topics.map((topic, topicIndex) => (
+                        <div key={topicIndex} style={{ marginBottom: "16px" }}>
+                          <h2 style={{ fontSize: "24px", fontWeight: "bold", margin: 0 }}>
+                            {topicIndex + 1}. {topic.topic}
+                          </h2>
+                          {topic.discussion && topic.discussion.length > 0 && (
+                            <div>
+                              <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "8px" }}>
+                                Discussion
                               </h3>
-                              <p style={{ fontWeight: "bold", margin: 0 }}>{item.proposal}</p>
-                              {item.proposalReasons &&
-                                item.proposalReasons.length > 0 && (
-                                  <div>
-                                    <h4
-                                      style={{
-                                        fontSize: "16px",
-                                        fontWeight: "bold",
-                                        marginTop: "8px",
-                                        marginBottom: "4px",
-                                      }}
-                                    >
-                                      Background
-                                    </h4>
-                                    {item.proposalReasons.map((reason, i) => (
-                                      <p key={i}>- {reason}</p>
-                                    ))}
-                                  </div>
-                                )}
-                              {item.keyDiscussion &&
-                                item.keyDiscussion.length > 0 && (
-                                  <div>
-                                    <h4
-                                      style={{
-                                        fontSize: "16px",
-                                        fontWeight: "bold",
-                                        marginTop: "8px",
-                                        marginBottom: "4px",
-                                      }}
-                                    >
-                                      Discussion Points
-                                    </h4>
-                                    {item.keyDiscussion.map((point, i) => (
-                                      <p key={i}>- {point}</p>
-                                    ))}
-                                  </div>
-                                )}
-                            </div>
-                          ))}
-                        {topic.decisionsAndTasks &&
-                          topic.decisionsAndTasks.length > 0 && (
-                            <div style={{ marginTop: "8px" }}>
-                              <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
-                                Decisions & Tasks
-                              </h3>
-                              {topic.decisionsAndTasks.map((task, i) => (
-                                <p key={i}>
-                                  {i + 1}. {task}
-                                </p>
+                              {topic.discussion.map((item, index) => (
+                                <p key={index}>- {item}</p>
                               ))}
                             </div>
                           )}
-                        {topicIndex < meeting.topics.length - 1 && (
-                          <hr
-                            style={{
-                              height: "1px",
-                              backgroundColor: "rgba(255,255,255,0.3)",
-                              border: "none",
-                              margin: "16px 0",
-                            }}
-                          />
-                        )}
-                      </div>
-                    ))}
-                  {meeting.coreMessage && meeting.coreMessage !== "" && (
-                    <p
-                      style={{
-                        fontStyle: "italic",
-                        fontWeight: "bold",
-                        marginTop: "10px",
-                      }}
-                    >
-                      {meeting.coreMessage}
-                    </p>
-                  )}
-                </div>
+                          {topic.proposals &&
+                            topic.proposals.length > 0 &&
+                            topic.proposals.map((item, index) => (
+                              <div key={index} style={{ marginTop: "8px" }}>
+                                <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
+                                  Proposal {item.proposedBy ? `(${item.proposedBy})` : ""}
+                                </h3>
+                                <p style={{ fontWeight: "bold", margin: 0 }}>{item.proposal}</p>
+                                {item.proposalReasons &&
+                                  item.proposalReasons.length > 0 && (
+                                    <div>
+                                      <h4
+                                        style={{
+                                          fontSize: "16px",
+                                          fontWeight: "bold",
+                                          marginTop: "8px",
+                                          marginBottom: "4px",
+                                        }}
+                                      >
+                                        Background
+                                      </h4>
+                                      {item.proposalReasons.map((reason, i) => (
+                                        <p key={i}>- {reason}</p>
+                                      ))}
+                                    </div>
+                                  )}
+                                {item.keyDiscussion &&
+                                  item.keyDiscussion.length > 0 && (
+                                    <div>
+                                      <h4
+                                        style={{
+                                          fontSize: "16px",
+                                          fontWeight: "bold",
+                                          marginTop: "8px",
+                                          marginBottom: "4px",
+                                        }}
+                                      >
+                                        Discussion Points
+                                      </h4>
+                                      {item.keyDiscussion.map((point, i) => (
+                                        <p key={i}>- {point}</p>
+                                      ))}
+                                    </div>
+                                  )}
+                              </div>
+                            ))}
+                          {topic.decisionsAndTasks &&
+                            topic.decisionsAndTasks.length > 0 && (
+                              <div style={{ marginTop: "8px" }}>
+                                <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
+                                  Decisions & Tasks
+                                </h3>
+                                {topic.decisionsAndTasks.map((task, i) => (
+                                  <p key={i}>
+                                    {i + 1}. {task}
+                                  </p>
+                                ))}
+                              </div>
+                            )}
+                          {topicIndex < meeting.topics.length - 1 && (
+                            <hr
+                              style={{
+                                height: "1px",
+                                backgroundColor: "rgba(255,255,255,0.3)",
+                                border: "none",
+                                margin: "16px 0",
+                              }}
+                            />
+                          )}
+                        </div>
+                      ))}
+                    {meeting.coreMessage && meeting.coreMessage !== "" && (
+                      <p
+                        style={{
+                          fontStyle: "italic",
+                          fontWeight: "bold",
+                          marginTop: "10px",
+                        }}
+                      >
+                        {meeting.coreMessage}
+                      </p>
+                    )}
+                  </div>
+                );
+              }
+
+              // ---- 不明スキーマ：JSON をそのまま表示 ----
+              return (
+                <pre style={{ whiteSpace: "pre-wrap", margin: 0 }}>
+                  {typeof parsed === "object" ? JSON.stringify(parsed, null, 2) : editedText}
+                </pre>
               );
             })()
           )}
