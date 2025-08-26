@@ -98,7 +98,7 @@ export default function FullScreenOverlay({
     }
   };
 
-  // クリップボードにコピー
+  // クリップボードにコピー（※ ハンバーガーメニュー内に移動）
   const handleShare = () => {
     const content = editedText;
     navigator.clipboard
@@ -149,7 +149,7 @@ export default function FullScreenOverlay({
   const isLegacySchema = (obj) =>
     obj && typeof obj === "object" && Array.isArray(obj.topics);
 
-  // 以下、スタイル定義（元の定義をそのまま維持）
+  // 以下、スタイル定義（必要箇所のみ白黒反転）
   const styles = {
     fullScreenOverlay: {
       position: "fixed",
@@ -157,8 +157,8 @@ export default function FullScreenOverlay({
       left: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.95)",
-      color: "#FFFFFF",
+      backgroundColor: "#FFFFFF", // 反転：白背景
+      color: "#000000",           // 反転：黒文字
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -178,7 +178,7 @@ export default function FullScreenOverlay({
       fontSize: "30px",
       background: "none",
       border: "none",
-      color: "#FFFFFF",
+      color: "#000000", // 反転
       cursor: "pointer",
     },
     hamburgerButton: {
@@ -188,10 +188,11 @@ export default function FullScreenOverlay({
       fontSize: "30px",
       background: "none",
       border: "none",
-      color: "#FFFFFF",
+      color: "#000000", // 反転
       cursor: "pointer",
       zIndex: 1300,
     },
+    // （コピーのフローティングボタンは削除：ハンバーガー内に移動）
     shareButton: {
       position: "absolute",
       top: "7px",
@@ -199,7 +200,7 @@ export default function FullScreenOverlay({
       fontSize: "20px",
       background: "none",
       border: "none",
-      color: "#FFFFFF",
+      color: "#000000",
       cursor: "pointer",
       zIndex: 1300,
     },
@@ -207,7 +208,7 @@ export default function FullScreenOverlay({
       width: "90%",
       height: "85%",
       overflowY: "auto",
-      backgroundColor: "#222222",
+      backgroundColor: "#FFFFFF", // 反転：本文のグレー→白
       padding: "20px",
       borderRadius: "10px",
       boxSizing: "border-box",
@@ -219,6 +220,7 @@ export default function FullScreenOverlay({
       transition: "max-height 0.5s ease",
       marginBottom: "20px",
       position: "relative",
+      border: "1px solid #e5e5e5"
     },
     summaryText: {
       maxHeight: "none",
@@ -241,8 +243,8 @@ export default function FullScreenOverlay({
       width: "100%",
     },
     saveButton: {
-      backgroundColor: "#FFFFFF",
-      color: "#000000",
+      backgroundColor: "#000000", // 白黒反転に合わせて黒地×白字でもOKだが、要件は白背景黒文字なのでここは白地黒字維持でも可
+      color: "#FFFFFF",
       border: "none",
       padding: "5px 10px",
       cursor: "pointer",
@@ -251,8 +253,8 @@ export default function FullScreenOverlay({
     },
     editButton: {
       backgroundColor: "transparent",
-      color: "#FFFFFF",
-      border: "1px solid #FFFFFF",
+      color: "#000000",             // 反転
+      border: "1px solid #000000",  // 反転
       padding: "5px 10px",
       cursor: "pointer",
       marginLeft: "10px",
@@ -261,9 +263,9 @@ export default function FullScreenOverlay({
     textEditor: {
       width: "100%",
       height: "100%",
-      backgroundColor: "#222222",
-      color: "#FFFFFF",
-      border: "1px solid #555",
+      backgroundColor: "#FFFFFF", // 反転
+      color: "#000000",           // 反転
+      border: "1px solid #CCCCCC",
       borderRadius: "10px",
       padding: "20px",
       boxSizing: "border-box",
@@ -277,7 +279,7 @@ export default function FullScreenOverlay({
       left: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      backgroundColor: "rgba(0, 0, 0, 0.5)", // 背景を薄暗く（そのまま）
       zIndex: 1100,
       display: showSideMenu ? "block" : "none",
       transition: "opacity 0.5s ease",
@@ -289,8 +291,8 @@ export default function FullScreenOverlay({
       right: 0,
       width: isMobile ? "66.66%" : "33%",
       height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      color: "#FFF",
+      backgroundColor: "#FFFFFF", // 反転
+      color: "#000000",           // 反転
       padding: "20px",
       boxSizing: "border-box",
       display: "flex",
@@ -299,11 +301,12 @@ export default function FullScreenOverlay({
       zIndex: 1200,
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
       transition: "transform 0.5s ease-out",
+      borderLeft: "1px solid #e5e5e5"
     },
     sideMenuButton: {
       background: "none",
       border: "none",
-      color: "#FFFFFF",
+      color: "#000000", // 反転
       fontSize: "24px",
       cursor: "pointer",
       margin: "10px 0",
@@ -318,7 +321,7 @@ export default function FullScreenOverlay({
       fontSize: "30px",
       background: "none",
       border: "none",
-      color: "#FFFFFF",
+      color: "#000000", // 反転
       cursor: "pointer",
     },
     iconSpacing: {
@@ -361,10 +364,7 @@ export default function FullScreenOverlay({
             ...(isExpanded ? styles.fullText : styles.summaryText),
           }}
         >
-          {/* シェアボタン */}
-          <button style={styles.shareButton} onClick={handleShare}>
-            <FaRegCopy size={20} />
-          </button>
+          {/* （コピーのフローティングボタンは削除：ハンバーガー内に移動） */}
 
           {(isExpanded && isEditing) ? (
             <textarea
@@ -425,7 +425,7 @@ export default function FullScreenOverlay({
                         <hr
                           style={{
                             height: "1px",
-                            backgroundColor: "rgba(255,255,255,0.3)",
+                            backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
                             border: "none",
                             margin: "16px 0",
                           }}
@@ -466,7 +466,7 @@ export default function FullScreenOverlay({
                             <hr
                               style={{
                                 height: "1px",
-                                backgroundColor: "rgba(255,255,255,0.2)",
+                                backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
                                 border: "none",
                                 margin: "14px 0",
                               }}
@@ -512,7 +512,7 @@ export default function FullScreenOverlay({
                         <hr
                           style={{
                             height: "1px",
-                            backgroundColor: "rgba(255,255,255,0.3)",
+                            backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
                             border: "none",
                             margin: "16px 0",
                           }}
@@ -599,7 +599,7 @@ export default function FullScreenOverlay({
                             <hr
                               style={{
                                 height: "1px",
-                                backgroundColor: "rgba(255,255,255,0.3)",
+                                backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
                                 border: "none",
                                 margin: "16px 0",
                               }}
@@ -654,6 +654,12 @@ export default function FullScreenOverlay({
             <button style={styles.sideMenuButton} onClick={handleDownload}>
               <IoIosDownload size={24} />
               <span style={styles.iconSpacing}>{t("Download Audio Data")}</span>
+            </button>
+
+            {/* コピー（ハンバーガーメニュー内に移動） */}
+            <button style={styles.sideMenuButton} onClick={handleShare}>
+              <FaRegCopy size={24} />
+              <span style={styles.iconSpacing}>{t("Copy to Clipboard")}</span>
             </button>
           </div>
         </div>
