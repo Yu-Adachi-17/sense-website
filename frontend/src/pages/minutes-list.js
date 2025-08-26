@@ -13,6 +13,10 @@ import { useRouter } from "next/router";
 import { RxArrowLeft } from "react-icons/rx";
 import { useTranslation } from "react-i18next";
 
+// iOSライト風のカード影（多層）
+const cardShadow =
+  "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
+
 // Meeting Record Item Component (Selection Mode Version)
 const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
   const router = useRouter();
@@ -35,16 +39,26 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
     <div
       onClick={handleClick}
       style={{
-        backgroundColor: isSelected ? "#555" : "#1e1e1e",
-        border: isSelected ? "2px solid red" : "none",
-        borderRadius: 10,
-        padding: 10,
-        color: "white",
-        textAlign: "center",
-        cursor: "pointer"
+        backgroundColor: "#ffffff",
+        border: isSelected ? "2px solid #0A84FF" : "1px solid rgba(0,0,0,0.04)",
+        borderRadius: 16,
+        padding: 14,
+        color: "#111111",
+        textAlign: "left",
+        cursor: "pointer",
+        boxShadow: cardShadow,
+        transition: "transform 120ms ease, box-shadow 120ms ease",
+        userSelect: "none"
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow =
+          "0 2px 2px rgba(0,0,0,0.06), 0 10px 18px rgba(0,0,0,0.10), 0 18px 30px rgba(0,0,0,0.08)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = cardShadow;
       }}
     >
-      <div style={{ fontWeight: "bold", whiteSpace: "pre-wrap" }}>
+      <div style={{ fontWeight: 700, whiteSpace: "pre-wrap", lineHeight: 1.4 }}>
         {truncatedText}
       </div>
     </div>
@@ -118,7 +132,7 @@ export default function MinutesList() {
 
   // 検索によるフィルタリング
   const filteredPapers = papers.filter((paper) =>
-    paper.minutes.toLowerCase().includes(searchText.toLowerCase())
+    (paper.minutes || "").toLowerCase().includes(searchText.toLowerCase())
   );
 
   // 日付ごとにグループ化
@@ -168,14 +182,21 @@ export default function MinutesList() {
   };
 
   return (
-    <div style={{ backgroundColor: "#000", minHeight: "100vh", padding: 20, color: "white" }}>
+    <div
+      style={{
+        backgroundColor: "#ffffff",   // 全面白背景
+        minHeight: "100vh",
+        padding: 20,
+        color: "#111111"              // テキストは黒
+      }}
+    >
       {/* Header */}
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: 20
+          marginBottom: 16
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -184,15 +205,16 @@ export default function MinutesList() {
             style={{
               background: "none",
               border: "none",
-              color: "white",
+              color: "#111111",
               fontSize: 24,
               cursor: "pointer",
               marginRight: 10
             }}
+            aria-label="Back"
           >
             <RxArrowLeft />
           </button>
-          <h2></h2>
+          <h2 style={{ margin: 0 }}></h2>
         </div>
         <div>
           {selectionMode ? (
@@ -203,14 +225,14 @@ export default function MinutesList() {
                   setSelectedIds([]);
                 }}
                 style={{
-                  backgroundColor: "#1e1e1e",
-                  color: "white",
-                  border: "none",
-                  padding: "10px 15px",
-                  borderRadius: 4,
+                  backgroundColor: "#F2F2F7", // iOSのsystemGray6っぽい
+                  color: "#111111",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  padding: "10px 14px",
+                  borderRadius: 10,
                   marginRight: 10,
                   cursor: "pointer",
-                  fontSize: 18
+                  fontSize: 16
                 }}
               >
                 {t("Cancel")}
@@ -218,14 +240,15 @@ export default function MinutesList() {
               <button
                 onClick={handleDelete}
                 style={{
-                  backgroundColor: "#ff4d4d",
-                  color: "white",
+                  backgroundColor: "#FF3B30", // iOS Red
+                  color: "#ffffff",
                   border: "none",
-                  padding: "10px 15px",
-                  borderRadius: 4,
+                  padding: "10px 14px",
+                  borderRadius: 10,
                   cursor: "pointer",
-                  fontSize: 18,
-                  fontWeight: "bold"
+                  fontSize: 16,
+                  fontWeight: 700,
+                  boxShadow: "0 6px 12px rgba(255,59,48,0.2)"
                 }}
               >
                 {t("Delete")}
@@ -235,13 +258,13 @@ export default function MinutesList() {
             <button
               onClick={() => setSelectionMode(true)}
               style={{
-                backgroundColor: "#1e1e1e",
-                color: "white",
-                border: "none",
-                padding: "10px 15px",
-                borderRadius: 4,
+                backgroundColor: "#F2F2F7",
+                color: "#111111",
+                border: "1px solid rgba(0,0,0,0.08)",
+                padding: "10px 14px",
+                borderRadius: 10,
                 cursor: "pointer",
-                fontSize: 18
+                fontSize: 16
               }}
             >
               {t("Select")}
@@ -250,40 +273,69 @@ export default function MinutesList() {
         </div>
       </div>
 
-      {/* Search Field */}
-      <div style={{ marginBottom: 20, display: "flex", justifyContent: "center" }}>
-        <input
-          type="text"
-          placeholder={t("Search...")}
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+      {/* Search Field（下線のみ） */}
+      <div style={{ marginBottom: 22 }}>
+        <div
           style={{
             width: "100%",
-            padding: 10,
-            borderRadius: 8,
-            border: "none",
-            fontSize: 16,
-            backgroundColor: "#1e1e1e",
-            color: "white",
-            outline: "none",
-            textAlign: "left"
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            borderBottom: "1px solid rgba(0,0,0,0.22)", // 下線のみ
+            paddingBottom: 8
           }}
-        />
+        >
+          <span
+            aria-hidden
+            style={{ color: "rgba(0,0,0,0.35)", fontSize: 18, lineHeight: 1 }}
+          >
+            🔍
+          </span>
+          <input
+            type="text"
+            placeholder={t("Search...")}
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "4px 0",
+              borderRadius: 0,
+              border: "none",
+              outline: "none",
+              backgroundColor: "transparent",
+              color: "#111111",
+              fontSize: 16
+            }}
+          />
+        </div>
       </div>
 
       {/* List of meeting records */}
       {sortedDateKeys.length === 0 ? (
-        <p style={{ color: "gray", textAlign: "center" }}>{t("No meeting records available")}</p>
+        <p style={{ color: "rgba(0,0,0,0.35)", textAlign: "center" }}>
+          {t("No meeting records available")}
+        </p>
       ) : (
         sortedDateKeys.map((dateKey) => (
-          <div key={dateKey} style={{ marginBottom: 30 }}>
-            <h2 style={{ borderBottom: "1px solid #555", paddingBottom: 5 }}>{dateKey}</h2>
+          <div key={dateKey} style={{ marginBottom: 28 }}>
+            <h2
+              style={{
+                borderBottom: "1px solid rgba(0,0,0,0.08)",
+                paddingBottom: 6,
+                margin: "0 0 10px 0",
+                fontSize: 18,
+                color: "#111111",
+                fontWeight: 700
+              }}
+            >
+              {dateKey}
+            </h2>
             <div
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(23vw, 23vw))",
-                gap: 15,
-                marginTop: 10,
+                gap: 16,
+                marginTop: 6,
                 justifyContent: "start"
               }}
             >
