@@ -134,7 +134,6 @@ export default function Services() {
           max-width: 560px;
           width: 100%;
           height: auto;
-          filter: drop-shadow(0 30px 40px rgba(0, 120, 255, 0.35));
           border-radius: 22px;
         }
 
