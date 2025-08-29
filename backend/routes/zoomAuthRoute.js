@@ -4,14 +4,11 @@ const { issueZoomSdkJwt } = require('../lib/zoomAuth');
 
 const router = express.Router();
 
-/**
- * POST /api/zoom/sdk-jwt
- * レスポンス: { token: string, expiresInSec: number }
- *
- * 重要: 本番では認証・レート制限を必ず付けてください。
- * ここでは最小構成（開発用）として公開しています。
- */
 router.post('/zoom/sdk-jwt', (req, res) => {
+  const hdr = req.headers['x-internal-token']; // header名は小文字で参照
+  if (!hdr || hdr !== process.env.ZOOM_JWT_ROUTE_TOKEN) {
+    return res.status(401).json({ error: 'unauthorized' });
+  }
   try {
     const token = issueZoomSdkJwt();
     return res.json({ token, expiresInSec: 300 });
