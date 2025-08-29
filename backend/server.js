@@ -1,3 +1,5 @@
+// server.js
+
 require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
@@ -41,11 +43,14 @@ app.use(express.json());
 
 /* Log detailed request information */
 app.use((req, res, next) => {
+  const safeHeaders = { ...req.headers };
+  if (safeHeaders['x-internal-token']) safeHeaders['x-internal-token'] = '***';
   console.log(`[DEBUG] ${req.method} ${req.url}`);
-  console.log(`[DEBUG] Headers: ${JSON.stringify(req.headers)}`);
+  console.log(`[DEBUG] Headers: ${JSON.stringify(safeHeaders)}`);
   console.log(`[DEBUG] Body: ${JSON.stringify(req.body)}`);
   next();
 });
+
 
 /*==============================================
 =            Router Registration               =
@@ -83,18 +88,15 @@ const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
 // CORS settings
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.error(`[CORS ERROR] Disallowed origin: ${origin}`);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: (origin, callback) => { /* 既存 */ },
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
+  allowedHeaders: [
+    'Content-Type', 'Authorization', 'Accept', 'X-Requested-With',
+    'X-Internal-Token' // ← 追加
+  ],
   credentials: true
 };
+
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
   const origin = req.headers.origin;
@@ -102,7 +104,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', origin);
   }
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
+  res.header('Access-Control-Allow-Headers',
+    'Content-Type, Authorization, Accept, X-Requested-With, X-Internal-Token');  
   res.header('Access-Control-Allow-Credentials', 'true');
   if (req.method === 'OPTIONS') {
     return res.sendStatus(204);
@@ -118,7 +121,8 @@ app.options('*', (req, res) => {
     res.header('Access-Control-Allow-Origin', origin);
   }
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
+  res.header('Access-Control-Allow-Headers',
+    'Content-Type, Authorization, Accept, X-Requested-With, X-Internal-Token');  
   res.header('Access-Control-Allow-Credentials', 'true');
   res.sendStatus(204);
 });
