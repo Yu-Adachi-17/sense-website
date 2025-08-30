@@ -1,25 +1,27 @@
 // lib/zoomAuth.js
 const jwt = require('jsonwebtoken');
 
+function requireEnv(k) {
+  if (!process.env[k]) throw new Error(`Missing env: ${k}`);
+  return process.env[k];
+}
+
 /**
- * Zoom Meeting SDK 用の短命JWTを発行（HS256）
- * - ZOOM_SDK_KEY   = Zoom Marketplace の Client ID  (= SDK Key)
- * - ZOOM_SDK_SECRET= Zoom Marketplace の Client Secret (= SDK Secret)
- * - 有効期限は 5 分（Join直前に毎回発行）
+ * Zoom Meeting SDK 用 JWT（HS256）
+ * 必須: appKey, iat, exp, tokenExp（すべて秒）
+ * ルール: exp は iat + 1800 以上（推奨は 3600 以上）、最大 48h 程度
  */
 function issueZoomSdkJwt() {
+  const SDK_KEY    = requireEnv('ZOOM_SDK_KEY');    // Meeting SDK の Client ID / SDK Key
+  const SDK_SECRET = requireEnv('ZOOM_SDK_SECRET'); // Meeting SDK の Client Secret / SDK Secret
+
   const now = Math.floor(Date.now() / 1000);
-  const iat = now - 30;        // 端末時計のズレ吸収
-  const exp = iat + 60 * 5;    // 5分
+  const iat = now - 30;          // 時計ズレ吸収
+  const exp = iat + 3600;        // ★ 1時間（>=1800 必須）
+  const tokenExp = exp;          // Desktop/Mobile は exp と同値でOK
 
-  const payload = {
-    appKey: process.env.ZOOM_SDK_KEY,
-    iat,
-    exp,
-    tokenExp: exp,             // 一部SDK実装が参照するフィールド
-  };
-
-  return jwt.sign(payload, process.env.ZOOM_SDK_SECRET, { algorithm: 'HS256' });
+  const payload = { appKey: SDK_KEY, iat, exp, tokenExp };
+  return jwt.sign(payload, SDK_SECRET, { algorithm: 'HS256' });
 }
 
 module.exports = { issueZoomSdkJwt };
