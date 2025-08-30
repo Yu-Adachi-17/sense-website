@@ -5,6 +5,7 @@ console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" :
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 
 const zoomAuthRoute = require('./routes/zoomAuthRoute');
+const zoomJoinTokenRoute = require('./routes/zoomJoinTokenRoute');
 const express = require('express');
 const multer = require('multer');
 const axios = require('axios');
@@ -65,6 +66,7 @@ app.use('/api/apple', appleRouter);
 // - エンドポイント: POST /api/zoom/sdk-jwt
 // - 注意: 本番では認証＆レート制限を付けること（無制限公開はNG）
 app.use('/api', zoomAuthRoute);
+app.use('/api/zoom', zoomJoinTokenRoute);
 
 /*==============================================
 =            Other Middleware                  =
