@@ -7,7 +7,7 @@ export default function Services() {
   const { t } = useTranslation();
   const LINK_MAIN = "https://www.sense-ai.world";
   const LINK_IOS =
-    "https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901";
+    "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
   return (
     <>
@@ -24,11 +24,11 @@ export default function Services() {
           </a>
           <nav className="nav">
             <a href={LINK_MAIN} className="navLink">
-              <span className="gradText">Home</span>
+              <span className="navText gradText">Home</span>
             </a>
             <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
-              <FaApple className="apple" aria-label="Apple" />
-              <span className="gradText">iOS</span>
+              <FaApple className="apple" aria-hidden="true" />
+              <span className="navText gradText">iOS</span>
             </a>
           </nav>
         </header>
@@ -64,7 +64,6 @@ export default function Services() {
           min-height: 100vh;
           display: flex;
           flex-direction: column;
-          /* ▼ テキスト全体の下げ幅（PCでしっかり下げ、モバイルは控えめ） */
           --copy-offset: clamp(24px, 16vh, 240px);
         }
 
@@ -93,32 +92,39 @@ export default function Services() {
           background: rgba(20, 40, 60, 0.7);
           padding: 10px 18px;
           border-radius: 999px;
+          display: flex;
+          align-items: center;
         }
         .navLink {
-          color: #fff; /* ベース色（テキストは下の .gradText で上書き） */
           text-decoration: none;
-          font-weight: 700;
           margin: 0 8px;
           opacity: 0.95;
           display: inline-flex;
-          align-items: center;
+          align-items: center; /* ← アイコン有無でのズレ防止 */
           gap: 6px;
-          line-height: 1;
+          line-height: 1;      /* ← 行高を固定 */
+        }
+        .navText {
+          font-weight: 800;
+          font-size: clamp(14px, 1.6vw, 18px);
+          line-height: 1;      /* ← ベースライン共通化 */
+          display: inline-block;
         }
 
-        /* 見出し側のグラデと同色 */
+        /* 見出しと同色のグラデ */
         .gradText {
           background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
         }
-        /* Apple ロゴ（SVG）は currentColor を使うので個別に色付け */
+
+        /* Apple ロゴを1pxだけ下げて視覚的に揃える（必要なら数値で微調整） */
         .navLink .apple {
-          font-size: 16px;
+          font-size: clamp(14px, 1.55vw, 17px);
+          line-height: 1;
+          transform: translateY(1px); /* ← ここを 0〜2px で調整可 */
           color: #eaf4f7;
-          opacity: 0.95;
-          transform: translateY(0.5px);
         }
 
         /* Main */
@@ -130,10 +136,7 @@ export default function Services() {
           align-items: start;
           padding: 20px 28px 48px;
         }
-        .copy {
-          align-self: start;
-          margin-top: var(--copy-offset); /* ← テキスト全体を下に下げる */
-        }
+        .copy { margin-top: var(--copy-offset); }
         .visual {
           display: flex;
           justify-content: center;
@@ -148,22 +151,9 @@ export default function Services() {
           display: block;
         }
 
-        .copy .line1 {
-          font-size: clamp(40px, 8vw, 96px);
-          margin: 0;
-          line-height: 1;
-        }
-        .copy .line2 {
-          font-size: clamp(36px, 7vw, 84px);
-          margin: clamp(28px, 5.5vw, 88px) 0 0; /* 1行目との間隔は維持 */
-          line-height: 1.05;
-          opacity: 0.98;
-        }
-        .copy .line3 {
-          font-size: clamp(36px, 7vw, 84px);
-          margin: clamp(10px, 2.2vw, 28px) 0 0;
-          line-height: 1;
-        }
+        .copy .line1 { font-size: clamp(40px, 8vw, 96px); margin: 0; line-height: 1; }
+        .copy .line2 { font-size: clamp(36px, 7vw, 84px); margin: clamp(28px, 5.5vw, 88px) 0 0; line-height: 1.05; opacity: 0.98; }
+        .copy .line3 { font-size: clamp(36px, 7vw, 84px); margin: clamp(10px, 2.2vw, 28px) 0 0; line-height: 1; }
         .gradient {
           background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
           -webkit-background-clip: text;
@@ -204,7 +194,7 @@ export default function Services() {
           .hero { grid-template-columns: 1fr; gap: 20px; }
           .visual { order: -1; }
           .top { padding: 16px 18px; }
-          .page { --copy-offset: clamp(12px, 4vh, 48px); } /* モバイルの下げ幅 */
+          .page { --copy-offset: clamp(12px, 4vh, 48px); }
           .copy .line2 { margin: clamp(20px, 6vw, 56px) 0 0; }
         }
       `}</style>
