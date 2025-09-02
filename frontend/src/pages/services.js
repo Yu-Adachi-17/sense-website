@@ -100,18 +100,34 @@ export default function Services() {
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 32px;
-          align-items: center;
+          align-items: start;        /* ← 上端を揃える */
           padding: 20px 28px 48px;
         }
+        .copy {
+          align-self: start;          /* ← 念のため個別にも指定 */
+        }
+        .visual {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;    /* ← 画像の上端を上に */
+          align-self: start;
+        }
+        .visual img {
+          max-width: 560px;
+          width: 100%;
+          height: auto;
+          border-radius: 22px;
+          display: block;             /* ← インライン余白を排除 */
+        }
+
         .copy .line1 {
           font-size: clamp(40px, 8vw, 96px);
-          margin: 0; /* 間隔は line2 側で調整 */
+          margin: 0;                  /* 間隔は line2 で調整 */
           line-height: 1;
         }
-        /* ▼ AI Makes を他と同じサイズに（line3と同じクランプ値）＋ ほんの少しの上マージン */
         .copy .line2 {
           font-size: clamp(36px, 7vw, 84px);
-          margin: 12px 0 0; /* Just Record. と AI Makes の間に余白 */
+          margin: 12px 0 0;           /* Just Record. との間に余白 */
           line-height: 1.05;
           opacity: 0.98;
         }
@@ -125,16 +141,6 @@ export default function Services() {
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
-        }
-        .visual {
-          display: flex;
-          justify-content: center;
-        }
-        .visual img {
-          max-width: 560px;
-          width: 100%;
-          height: auto;
-          border-radius: 22px;
         }
 
         /* Footer */
