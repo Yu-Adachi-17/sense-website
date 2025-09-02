@@ -1,6 +1,7 @@
 // frontend/src/pages/services.js
 import Head from "next/head";
 import { useTranslation } from "react-i18next";
+import { FaApple } from "react-icons/fa";
 
 export default function Services() {
   const { t } = useTranslation();
@@ -22,8 +23,13 @@ export default function Services() {
             Minutes.<span className="ai">AI</span>
           </a>
           <nav className="nav">
-            <a href={LINK_MAIN} className="navLink">Home</a>
-            <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">iOS</a>
+            <a href={LINK_MAIN} className="navLink">
+              <span className="gradText">Home</span>
+            </a>
+            <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
+              <FaApple className="apple" aria-label="Apple" />
+              <span className="gradText">iOS</span>
+            </a>
           </nav>
         </header>
 
@@ -89,11 +95,30 @@ export default function Services() {
           border-radius: 999px;
         }
         .navLink {
-          color: #fff;
+          color: #fff; /* ベース色（テキストは下の .gradText で上書き） */
           text-decoration: none;
-          font-weight: 600;
+          font-weight: 700;
           margin: 0 8px;
           opacity: 0.95;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          line-height: 1;
+        }
+
+        /* 見出し側のグラデと同色 */
+        .gradText {
+          background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+        /* Apple ロゴ（SVG）は currentColor を使うので個別に色付け */
+        .navLink .apple {
+          font-size: 16px;
+          color: #eaf4f7;
+          opacity: 0.95;
+          transform: translateY(0.5px);
         }
 
         /* Main */
