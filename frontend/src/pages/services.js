@@ -121,13 +121,13 @@ export default function Services() {
         .copy .line1 {
           font-size: clamp(40px, 8vw, 96px);
           margin: 0;                 /* line2 側で間隔を作る */
-          line-height: 1;
+          line-height: 1.02;
         }
         /* ←← ここを大きめにして “Just Record.” との距離を確保 */
         .copy .line2 {
           font-size: clamp(36px, 7vw, 84px);
           margin: clamp(28px, 5.5vw, 88px) 0 0;
-          line-height: 1.05;
+          line-height: 1.08;
           opacity: 0.98;
         }
         .copy .line3 {
