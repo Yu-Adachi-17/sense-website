@@ -58,6 +58,8 @@ export default function Services() {
           min-height: 100vh;
           display: flex;
           flex-direction: column;
+          /* ▼ テキスト全体の下げ幅（PCでしっかり下げ、モバイルは控えめ） */
+          --copy-offset: clamp(24px, 8vh, 140px);
         }
 
         /* Header */
@@ -100,10 +102,13 @@ export default function Services() {
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 32px;
-          align-items: start;        /* 上端を揃える（line1 と画像の上端一致） */
+          align-items: start;
           padding: 20px 28px 48px;
         }
-        .copy { align-self: start; }
+        .copy {
+          align-self: start;
+          margin-top: var(--copy-offset); /* ← テキスト全体を下に下げる */
+        }
         .visual {
           display: flex;
           justify-content: center;
@@ -120,14 +125,13 @@ export default function Services() {
 
         .copy .line1 {
           font-size: clamp(40px, 8vw, 96px);
-          margin: 0;                 /* line2 側で間隔を作る */
-          line-height: 1.02;
+          margin: 0;
+          line-height: 1;
         }
-        /* ←← ここを大きめにして “Just Record.” との距離を確保 */
         .copy .line2 {
           font-size: clamp(36px, 7vw, 84px);
-          margin: clamp(28px, 5.5vw, 88px) 0 0;
-          line-height: 1.08;
+          margin: clamp(28px, 5.5vw, 88px) 0 0; /* 1行目との間隔は維持 */
+          line-height: 1.05;
           opacity: 0.98;
         }
         .copy .line3 {
@@ -175,7 +179,7 @@ export default function Services() {
           .hero { grid-template-columns: 1fr; gap: 20px; }
           .visual { order: -1; }
           .top { padding: 16px 18px; }
-          /* モバイルは空きが出すぎないよう少し詰める */
+          .page { --copy-offset: clamp(12px, 4vh, 48px); } /* モバイルの下げ幅 */
           .copy .line2 { margin: clamp(20px, 6vw, 56px) 0 0; }
         }
       `}</style>
