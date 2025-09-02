@@ -36,12 +36,11 @@ export default function Services() {
           </div>
 
           <div className="visual">
-            {/* 画像は frontend/public/images/hero-phone.png に配置 */}
             <img src="/images/hero-phone.png" alt="Minutes.AI app mock" />
           </div>
         </main>
 
-        {/* ===== Footer (通常フローの最下部) ===== */}
+        {/* ===== Footer ===== */}
         <footer className="bottomBar">
           <a href={LINK_MAIN} className="cta">Get Started</a>
           <div className="legal">
@@ -58,7 +57,7 @@ export default function Services() {
           color: #eaf4f7;
           min-height: 100vh;
           display: flex;
-          flex-direction: column; /* 最下部にフッターを寄せるため */
+          flex-direction: column;
         }
 
         /* Header */
@@ -97,23 +96,24 @@ export default function Services() {
 
         /* Main */
         .hero {
-          flex: 1; /* ここで余白を吸収し、フッターを下へ */
+          flex: 1;
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 32px;
           align-items: center;
-          padding: 20px 28px 48px; /* 下の固定余白は不要に */
+          padding: 20px 28px 48px;
         }
         .copy .line1 {
           font-size: clamp(40px, 8vw, 96px);
-          margin: 0 0 8px;
+          margin: 0; /* 間隔は line2 側で調整 */
           line-height: 1;
         }
+        /* ▼ AI Makes を他と同じサイズに（line3と同じクランプ値）＋ ほんの少しの上マージン */
         .copy .line2 {
-          font-size: clamp(28px, 5vw, 56px);
-          margin: 0;
-          line-height: 1.1;
-          opacity: 0.95;
+          font-size: clamp(36px, 7vw, 84px);
+          margin: 12px 0 0; /* Just Record. と AI Makes の間に余白 */
+          line-height: 1.05;
+          opacity: 0.98;
         }
         .copy .line3 {
           font-size: clamp(36px, 7vw, 84px);
@@ -143,7 +143,7 @@ export default function Services() {
           flex-direction: column;
           align-items: center;
           gap: 10px;
-          padding: 20px 0 32px; /* 画面最下部に自然に配置 */
+          padding: 20px 0 32px;
         }
         .cta {
           display: inline-block;
@@ -161,7 +161,7 @@ export default function Services() {
           align-items: center;
           justify-content: center;
           font-size: 13px;
-          opacity: 0.55; /* 薄い白字で邪魔しない */
+          opacity: 0.55;
         }
         .legalLink {
           color: #ffffff;
@@ -174,7 +174,7 @@ export default function Services() {
             grid-template-columns: 1fr;
             gap: 20px;
           }
-          .visual { order: -1; } /* モバイルで画像を上に */
+          .visual { order: -1; }
           .top { padding: 16px 18px; }
         }
       `}</style>
