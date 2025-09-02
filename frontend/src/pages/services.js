@@ -100,16 +100,14 @@ export default function Services() {
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
           gap: 32px;
-          align-items: start;        /* ← 上端を揃える */
+          align-items: start;        /* 上端を揃える（line1 と画像の上端一致） */
           padding: 20px 28px 48px;
         }
-        .copy {
-          align-self: start;          /* ← 念のため個別にも指定 */
-        }
+        .copy { align-self: start; }
         .visual {
           display: flex;
           justify-content: center;
-          align-items: flex-start;    /* ← 画像の上端を上に */
+          align-items: flex-start;
           align-self: start;
         }
         .visual img {
@@ -117,23 +115,24 @@ export default function Services() {
           width: 100%;
           height: auto;
           border-radius: 22px;
-          display: block;             /* ← インライン余白を排除 */
+          display: block;
         }
 
         .copy .line1 {
           font-size: clamp(40px, 8vw, 96px);
-          margin: 0;                  /* 間隔は line2 で調整 */
+          margin: 0;                 /* line2 側で間隔を作る */
           line-height: 1;
         }
+        /* ←← ここを大きめにして “Just Record.” との距離を確保 */
         .copy .line2 {
           font-size: clamp(36px, 7vw, 84px);
-          margin: 12px 0 0;           /* Just Record. との間に余白 */
+          margin: clamp(28px, 5.5vw, 88px) 0 0;
           line-height: 1.05;
           opacity: 0.98;
         }
         .copy .line3 {
           font-size: clamp(36px, 7vw, 84px);
-          margin: 12px 0 0;
+          margin: clamp(10px, 2.2vw, 28px) 0 0;
           line-height: 1;
         }
         .gradient {
@@ -169,19 +168,15 @@ export default function Services() {
           font-size: 13px;
           opacity: 0.55;
         }
-        .legalLink {
-          color: #ffffff;
-          text-decoration: none;
-        }
+        .legalLink { color: #ffffff; text-decoration: none; }
         .sep { opacity: 0.5; }
 
         @media (max-width: 900px) {
-          .hero {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
+          .hero { grid-template-columns: 1fr; gap: 20px; }
           .visual { order: -1; }
           .top { padding: 16px 18px; }
+          /* モバイルは空きが出すぎないよう少し詰める */
+          .copy .line2 { margin: clamp(20px, 6vw, 56px) 0 0; }
         }
       `}</style>
     </>
