@@ -59,7 +59,7 @@ export default function Services() {
           display: flex;
           flex-direction: column;
           /* ▼ テキスト全体の下げ幅（PCでしっかり下げ、モバイルは控えめ） */
-          --copy-offset: clamp(24px, 8vh, 140px);
+          --copy-offset: clamp(24px, 9vh, 160px);
         }
 
         /* Header */
