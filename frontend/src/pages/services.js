@@ -95,15 +95,16 @@ export default function Services() {
           display: flex;
           align-items: center;
         }
-        .navLink {
-          text-decoration: none;
-          margin: 0 8px;
-          opacity: 0.95;
-          display: inline-flex;
-          align-items: center; /* ← アイコン有無でのズレ防止 */
-          gap: 6px;
-          line-height: 1;      /* ← 行高を固定 */
-        }
+.navLink {
+  color: #eaf4f7;             /* ← これで Apple アイコンは白に固定 */
+  text-decoration: none;
+  margin: 0 8px;
+  opacity: 0.95;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
         .navText {
           font-weight: 800;
           font-size: clamp(14px, 1.6vw, 18px);
