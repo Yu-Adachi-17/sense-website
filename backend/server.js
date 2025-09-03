@@ -11,33 +11,7 @@ const multer = require('multer');
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-// 先頭の ffmpeg 設定の直後～付け替え
 const ffmpeg = require('fluent-ffmpeg');
-
-try {
-  const ffmpegBin = require('ffmpeg-static');
-  if (ffmpegBin) {
-    ffmpeg.setFfmpegPath(ffmpegBin);
-    console.log("[DEBUG] ffmpeg path set to ffmpeg-static");
-  } else {
-    ffmpeg.setFfmpegPath('ffmpeg');
-  }
-} catch {
-  ffmpeg.setFfmpegPath('ffmpeg');
-}
-
-try {
-  const ffprobeBin = require('ffprobe-static')?.path;
-  if (ffprobeBin) {
-    ffmpeg.setFfprobePath(ffprobeBin);
-    console.log("[DEBUG] ffprobe path set to ffprobe-static");
-  } else {
-    ffmpeg.setFfprobePath('ffprobe');
-  }
-} catch {
-  ffmpeg.setFfprobePath('ffprobe');
-}
-
 ffmpeg.setFfmpegPath('ffmpeg');
 ffmpeg.setFfprobePath('ffprobe');
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
@@ -53,6 +27,19 @@ const app = express();
 
 // ★ Flexible Minutes 用プロンプト（外部ファイル）
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
+// server.js (ヘルパの近くに追加)
+const { spawn } = require('child_process'); // 既にあれば重複定義は削除
+
+async function copyOutWavFromContainer(containerName, remotePath) {
+  const tempDir = path.join(__dirname, 'temp');
+  await fs.promises.mkdir(tempDir, { recursive: true });
+  const localPath = path.join(tempDir, `zoom_${Date.now()}.wav`);
+  await new Promise((resolve, reject) => {
+    const cp = spawn('docker', ['cp', `${containerName}:${remotePath}`, localPath]);
+    cp.on('close', (code) => code === 0 ? resolve() : reject(new Error(`docker cp exit ${code}`)));
+  });
+  return localPath;
+}
 
 /*==============================================
 =            Middleware Order                  =
@@ -811,15 +798,55 @@ app.post('/api/recordings/zoom/start', async (req, res) => {
     child.stderr.on('data', (d) => { err += d.toString(); });
 
     child.on('close', (code) => {
-      if (code !== 0) {
-        console.error('[ZOOM] bot exit code:', code, err);
-        return res.status(500).json({ error: 'Bot exited with error', code, stderr: err, tail: out.slice(-4000) });
-      }
-      return res.json({
-        bot_session_id: `${Date.now()}`,
-        meeting_id: meetingId,
-        out: out.slice(-4000)
+      child.on('close', async (code) => {
+        try {
+          if (code !== 0) {
+            console.error('[ZOOM] bot exit code:', code, err);
+            return res.status(500).json({
+              error: 'Bot exited with error',
+              code,
+              stderr: err,
+              tail: out.slice(-4000)
+            });
+          }
+      
+          // 1) コンテナからWAVを取得
+          const localWav = await copyOutWavFromContainer(container, outWav);
+          console.log('[DEBUG] copied wav ->', localWav);
+      
+          // 2) m4aに変換（Railwayでffmpegが無い環境なら ffmpeg-static の導入を検討）
+          const m4a = await convertToM4A(localWav);
+      
+          // 3) 分割→STT（5MB超なら分割）
+          const chunks = await splitAudioFile(m4a, TRANSCRIPTION_CHUNK_THRESHOLD);
+          let transcript = '';
+          for (const ch of chunks) {
+            const t = await transcribeWithOpenAI(ch);
+            transcript += (t.trim() + '\n');
+          }
+      
+          // 4) JSON議事録（Flexible）生成
+          const flexibleJson = await generateFlexibleMinutes(transcript, 'ja');
+      
+          // 5) 応答（ログの末尾もデバッグ用に添付）
+          return res.json({
+            meeting_id: meetingId,
+            transcript,
+            flexibleMinutes: JSON.parse(flexibleJson),
+            logTail: out.slice(-4000)
+          });
+        } catch (e) {
+          console.error('[ERROR] post-recording pipeline:', e);
+          return res.status(500).json({
+            error: 'post-recording failed',
+            details: String(e),
+            tail: out.slice(-4000)
+          });
+        } finally {
+          // 後始末（必要なら temp の掃除など）
+        }
       });
+      
     });
 
   } catch (err) {
