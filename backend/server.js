@@ -11,7 +11,33 @@ const multer = require('multer');
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+// 先頭の ffmpeg 設定の直後～付け替え
 const ffmpeg = require('fluent-ffmpeg');
+
+try {
+  const ffmpegBin = require('ffmpeg-static');
+  if (ffmpegBin) {
+    ffmpeg.setFfmpegPath(ffmpegBin);
+    console.log("[DEBUG] ffmpeg path set to ffmpeg-static");
+  } else {
+    ffmpeg.setFfmpegPath('ffmpeg');
+  }
+} catch {
+  ffmpeg.setFfmpegPath('ffmpeg');
+}
+
+try {
+  const ffprobeBin = require('ffprobe-static')?.path;
+  if (ffprobeBin) {
+    ffmpeg.setFfprobePath(ffprobeBin);
+    console.log("[DEBUG] ffprobe path set to ffprobe-static");
+  } else {
+    ffmpeg.setFfprobePath('ffprobe');
+  }
+} catch {
+  ffmpeg.setFfprobePath('ffprobe');
+}
+
 ffmpeg.setFfmpegPath('ffmpeg');
 ffmpeg.setFfprobePath('ffprobe');
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
