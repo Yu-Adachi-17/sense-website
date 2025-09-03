@@ -576,226 +576,117 @@ app.get('/api/hello', (req, res) => {
   res.json({ message: "Hello from backend!" });
 });
 
-/* =========================================================================
- * NEW: Zoom 録音Bot起動 API（Joinトークン取得→minutesai-raw に docker exec）
- *      POST /api/recordings/zoom/start
- *      body: { meeting_link: "https://zoom.us/j/xxxx?pwd=....", bypass_waiting_room?: true }
- *      env : ZOOM_OAUTH_TOKEN, SDK_KEY, SDK_SECRET, BOT_CONTAINER_NAME(optional)
- * ========================================================================= */
-// ---- SAFE: spawn + stdin 版 ----
-app.post('/api/recordings/zoom/start', async (req, res) => {
+/**
+ * /api/transcribe endpoint
+ * [Processing Flow]
+ * ① Check the format of the received file. If the extension is not .m4a or the mimetype is "audio/mp4", convert it using convertToM4A.
+ * ② Depending on the file size, perform transcription in one batch or via chunk processing.
+ * ③ If the resulting transcription is 10,000 characters or less, generate meeting minutes directly;
+ *     if it exceeds 10,000 characters, split the text using splitText(), generate minutes for each part, and then combine them using combineMinutes().
+ */
+app.post('/api/transcribe', upload.single('file'), async (req, res) => {
+  console.log('[DEBUG] /api/transcribe endpoint called');
+  
   try {
-    const { meeting_link, bypass_waiting_room = true } = req.body || {};
-    if (!meeting_link) return res.status(400).json({ error: 'meeting_link is required' });
+    const file = req.file;
+    if (!file) {
+      console.error('[ERROR] No file was uploaded');
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+    
+    console.log('[DEBUG] File saved by multer:', file.path);
+    const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+    console.log(`[DEBUG] Uploaded file size: ${fileSizeMB} MB`);
+  
+    const meetingFormat = req.body.meetingFormat;
+    console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
 
-    const m = /\/j\/(\d+)/.exec(meeting_link);
-    if (!m) return res.status(400).json({ error: 'invalid Zoom meeting_link (missing /j/{id})' });
-    const meetingId = m[1];
-
-    const accessToken = process.env.ZOOM_OAUTH_TOKEN;
-    if (!accessToken) return res.status(500).json({ error: 'ZOOM_OAUTH_TOKEN is not set on server' });
-
-    // 1) Zoom Join Token
-    const apiUrl = `https://api.zoom.us/v2/meetings/${meetingId}/jointoken/local_recording${bypass_waiting_room ? '?bypass_waiting_room=true' : ''}`;
-    const z = await axios.get(apiUrl, { headers: { Authorization: `Bearer ${accessToken}` } });
-    const joinToken = z.data && z.data.token;
-    if (!joinToken) return res.status(502).json({ error: 'Failed to fetch join token', details: z.data });
-
-    // 2) minutesai-raw で Bot を起動（spawn + stdin）
-    const SDK_KEY  = process.env.SDK_KEY;
-    const SDK_SECRET = process.env.SDK_SECRET;
-    if (!SDK_KEY || !SDK_SECRET) return res.status(500).json({ error: 'SDK_KEY/SDK_SECRET are not set' });
-
-    const container = process.env.BOT_CONTAINER_NAME || 'minutesai-raw';
-    const outWav    = process.env.BOT_OUT_WAV  || '/tmp/mixed.wav';
-    const runSecs   = process.env.BOT_RUN_SECS || '180';
-    const botName   = process.env.BOT_NAME     || 'MinutesAI Bot';
-
-    // --- スクリプト本文（${} は使わない） ---
-    const script = [
-      'set -Ee -o pipefail',
-      'SDK_KEY="$SDK_KEY"; SDK_SECRET="$SDK_SECRET"',
-      'MEETING_NUMBER="$MEETING_NUMBER"; MEETING_PSW="$MEETING_PSW"',
-      'JOIN_TOKEN="$JOIN_TOKEN"; BOT_NAME="$BOT_NAME"',
-      'OUT_WAV="$OUT_WAV"; RUN_SECS="$RUN_SECS"',
-      'if [ -z "$BOT_NAME" ]; then BOT_NAME="MinutesAI Bot"; fi',
-      'if [ -z "$OUT_WAV" ]; then OUT_WAV="/tmp/mixed.wav"; fi',
-      'if [ -z "$RUN_SECS" ]; then RUN_SECS="180"; fi',
-      'if [ -z "$MEETING_PSW" ]; then MEETING_PSW=""; fi',
-      '',
-      'export DEBIAN_FRONTEND=noninteractive',
-      'apt-get update -y',
-      'apt-get install -y --no-install-recommends pulseaudio g++ pkg-config libglib2.0-dev python3',
-      'pulseaudio --check || pulseaudio -D --exit-idle-time=-1 || true',
-      '',
-      "cat >/tmp/zoom_join_audio.cpp <<'CPP'",
-      '#include <glib.h>',
-      '#include <unistd.h>',
-      '#include <cstdio>',
-      '#include <cstdint>',
-      '#include <cstdlib>',
-      '#include <string>',
-      '#include "zoom_sdk.h"',
-      '#include "auth_service_interface.h"',
-      '#include "meeting_service_interface.h"',
-      '#include "meeting_service_components/meeting_audio_interface.h"',
-      '#include "meeting_service_components/meeting_recording_interface.h"',
-      '#include "rawdata/rawdata_audio_helper_interface.h"',
-      '#include "rawdata/zoom_rawdata_api.h"',
-      '#include "zoom_sdk_raw_data_def.h"',
-      'using namespace ZOOM_SDK_NAMESPACE;',
-      '',
-      'static FILE* g_fp=nullptr; static uint64_t g_bytes=0; static int g_rate=0, g_ch=0;',
-      'static bool g_sub_ok=false; static bool g_sub_retry_scheduled=false;',
-      'static IMeetingService* g_ms=nullptr;',
-      '',
-      'static void wav_start(const char* path, int rate, int ch){',
-      '  g_fp=fopen(path,"wb");',
-      '  uint8_t h[44]={\'R\',\'I\',\'F\',\'F\',0,0,0,0,\'W\',\'A\',\'V\',\'E\',\'f\',\'m\',\'t\',\' \',16,0,0,0,1,0,(uint8_t)ch,0,(uint8_t)(rate&0xFF),(uint8_t)((rate>>8)&0xFF),(uint8_t)((rate>>16)&0xFF),(uint8_t)((rate>>24)&0xFF),0,0,0,0,(uint8_t)(ch*2),0,16,0,\'d\',\'a\',\'t\',\'a\',0,0,0,0};',
-      '  uint32_t br=rate*ch*2; h[28]=br&0xFF; h[29]=(br>>8)&0xFF; h[30]=(br>>16)&0xFF; h[31]=(br>>24)&0xFF;',
-      '  fwrite(h,1,44,g_fp); g_rate=rate; g_ch=ch;',
-      '}',
-      'static void wav_append(const void* b, unsigned len){ if(g_fp){ fwrite(b,1,len,g_fp); g_bytes+=len; } }',
-      'static void wav_close(){ if(!g_fp) return; fseek(g_fp,4,SEEK_SET); uint32_t riff=(uint32_t)(36+g_bytes); fwrite(&riff,4,1,g_fp); fseek(g_fp,40,SEEK_SET); uint32_t dsz=(uint32_t)g_bytes; fwrite(&dsz,4,1,g_fp); fclose(g_fp); g_fp=nullptr; }',
-      '',
-      'struct AudioDelegate: public IZoomSDKAudioRawDataDelegate{',
-      '  void onMixedAudioRawDataReceived(AudioRawData* d) override{',
-      '    static bool init=false;',
-      '    if(!init){ const char* p=getenv("OUT_WAV"); wav_start(p?p:"/tmp/mixed.wav",(int)d->GetSampleRate(),(int)d->GetChannelNum()); g_printerr("AUDIO_MIXED: start rate=%d ch=%d\\n",(int)d->GetSampleRate(),(int)d->GetChannelNum()); init=true; }',
-      '    wav_append(d->GetBuffer(), d->GetBufferLen());',
-      '    if(g_rate>0){ double sec=(double)g_bytes/(g_rate*g_ch*2); if(((uint64_t)sec)%3==0 && d->GetBufferLen()>0) g_printerr("AUDIO_MIXED: bytes=%llu (~%.1fs)\\n",(unsigned long long)g_bytes,sec); }',
-      '  }',
-      '  void onOneWayAudioRawDataReceived(AudioRawData*, uint32_t) override{}',
-      '  void onShareAudioRawDataReceived(AudioRawData*, uint32_t) override{}',
-      '  void onOneWayInterpreterAudioRawDataReceived(AudioRawData*, const zchar_t*) override{}',
-      '} g_audio;',
-      '',
-      'static gboolean try_subscribe(gpointer){',
-      '  if(g_sub_ok) return FALSE;',
-      '  if(auto ah=GetAudioRawdataHelper()){ int r=ah->subscribe(&g_audio,true); g_printerr("AUDIO_SUB:%d\\n",r); if(r==0){ g_sub_ok=true; g_printerr("AUDIO_SUB_OK\\n"); return FALSE; } }',
-      '  else{ g_printerr("AUDIO_SUB:helper=null\\n"); }',
-      '  return TRUE;',
-      '}',
-      '',
-      'struct RecEvents: public IMeetingRecordingCtrlEvent{',
-      '  void onRecordingStatus(RecordingStatus s) override{ g_printerr("REC_STATUS:%d\\n",(int)s); }',
-      '  void onCloudRecordingStatus(RecordingStatus s) override{ g_printerr("REC_STATUS_CLOUD:%d\\n",(int)s); }',
-      '  void onRecordPrivilegeChanged(bool b) override{',
-      '    g_printerr("REC_PRIV:%d\\n",(int)b);',
-      '    if(b && g_ms){ if(auto rc=g_ms->GetMeetingRecordingController()){ auto er=rc->StartRawRecording(); g_printerr("RAWREC:START_AFTER_PRIV:%d\\n",(int)er); } if(!g_sub_retry_scheduled){ g_sub_retry_scheduled=true; g_timeout_add(500, try_subscribe, nullptr); } }',
-      '  }',
-      '} g_rec;',
-      '',
-      'struct MEvent: public IMeetingServiceEvent{',
-      '  void onMeetingStatusChanged(MeetingStatus s, int e) override{',
-      '    g_printerr("STATUS:%d ERR:%d\\n",(int)s,e);',
-      '    if(s==MEETING_STATUS_INMEETING){',
-      '      if(auto ac=g_ms->GetMeetingAudioController()){ ac->EnablePlayMeetingAudio(true); ac->JoinVoip(); }',
-      '      if(auto rc=g_ms->GetMeetingRecordingController()){ rc->SetEvent(&g_rec); if(rc->CanStartRawRecording()==SDKERR_SUCCESS){ auto er=rc->StartRawRecording(); g_printerr("RAWREC:START:%d\\n",(int)er); } else if(rc->IsSupportRequestLocalRecordingPrivilege()==SDKERR_SUCCESS){ auto er=rc->RequestLocalRecordingPrivilege(); g_printerr("RAWREC:REQ_PRIV:%d\\n",(int)er); } }',
-      '      if(!g_sub_retry_scheduled){ g_sub_retry_scheduled=true; g_timeout_add(500, try_subscribe, nullptr); }',
-      '    }',
-      '    if(s==MEETING_STATUS_ENDED||s==MEETING_STATUS_FAILED){ if(auto ah=GetAudioRawdataHelper()){ ah->unSubscribe(); } wav_close(); _exit(0); }',
-      '  }',
-      '} g_mevt;',
-      '',
-      'struct AudioEvents: public IMeetingAudioCtrlEvent{',
-      '  void onUserAudioStatusChange(IList<IUserAudioStatus*>*, const zchar_t*) override{ g_printerr("AUDIO_STATUS_CHANGED\\n"); }',
-      '} g_ae;',
-      '',
-      'struct AuthEv: public IAuthServiceEvent{',
-      '  GMainLoop* loop=nullptr; int rc=-1;',
-      '  void onAuthenticationReturn(AuthResult r) override{ rc=(int)r; if(loop) g_main_loop_quit(loop); }',
-      '} g_auth;',
-      '',
-      'int main(){',
-      '  const char* jwt=getenv("SDK_JWT"); if(!jwt||!*jwt){ g_printerr("NO_JWT\\n"); return 2; }',
-      '  InitParam p; p.strWebDomain="https://zoom.us"; p.strSupportUrl="https://zoom.us";',
-      '  if(InitSDK(p)!=SDKERR_SUCCESS){ g_printerr("INIT_FAIL\\n"); return 3; }',
-      '  IAuthService* as=nullptr; if(CreateAuthService(&as)!=SDKERR_SUCCESS||!as){ g_printerr("CREATE_AUTH_FAIL\\n"); return 4; }',
-      '  as->SetEvent(&g_auth); g_auth.loop=g_main_loop_new(nullptr,false);',
-      '  AuthContext c; c.jwt_token=jwt; as->SDKAuth(c); g_main_loop_run(g_auth.loop);',
-      '  if(g_auth.rc!=AUTHRET_SUCCESS){ g_printerr("AUTH_FAIL:%d\\n",g_auth.rc); return 7; }',
-      '  if(CreateMeetingService(&g_ms)!=SDKERR_SUCCESS||!g_ms){ g_printerr("CREATE_MS_FAIL\\n"); return 5; }',
-      '  g_ms->SetEvent(&g_mevt); if(auto ac=g_ms->GetMeetingAudioController()) ac->SetEvent(&g_ae);',
-      '  JoinParam jp; jp.userType=SDK_UT_WITHOUT_LOGIN; JoinParam4WithoutLogin j4={0};',
-      '  const char* mnum=getenv("MEETING_NUMBER"); j4.meetingNumber=(UINT64)strtoull(mnum?mnum:"0",nullptr,10);',
-      '  std::string uname=getenv("BOT_NAME")?getenv("BOT_NAME"):"bot"; j4.userName=uname.c_str();',
-      '  std::string psw=getenv("MEETING_PSW")?getenv("MEETING_PSW"):""; if(!psw.empty()) j4.psw=psw.c_str();',
-      '  std::string jtok=getenv("JOIN_TOKEN")?getenv("JOIN_TOKEN"):""; if(!jtok.empty()) j4.join_token=jtok.c_str();',
-      '  j4.isVideoOff=true; j4.isAudioOff=false; j4.isMyVoiceInMix=false; j4.eAudioRawdataSamplingRate=AudioRawdataSamplingRate_32K;',
-      '  jp.param.withoutloginuserJoin=j4;',
-      '  SDKError je=g_ms->Join(jp); g_printerr("JOIN_RC:%d\\n",(int)je);',
-      '  GMainLoop* loop=g_main_loop_new(nullptr,false);',
-      '  int runsecs=300; const char* rs=getenv("RUN_SECS"); if(rs) runsecs=atoi(rs);',
-      '  if(runsecs>0) g_timeout_add_seconds(runsecs,[](gpointer)->gboolean{ if(auto ah=GetAudioRawdataHelper()){ ah->unSubscribe(); } wav_close(); _exit(0); },nullptr);',
-      '  g_main_loop_run(loop); return 0;',
-      '}',
-      'CPP',
-      '',
-      'g++ -std=c++17 -fPIC -fno-PIE /tmp/zoom_join_audio.cpp -o /tmp/zoom-join \\',
-      '  -I/opt/zoom-sdk/h $(pkg-config --cflags --libs glib-2.0) /opt/zoom-sdk/libmeetingsdk.so -Wl,-rpath,/opt/zoom-sdk -Wl,-no-pie',
-      '',
-      '# SDK_JWT を生成（未指定なら）',
-      'if [ -z "$SDK_JWT" ]; then',
-      "  SDK_JWT=$(python3 - <<'PY'",
-      'import base64,hmac,hashlib,json,time,os',
-      'b=lambda x: base64.urlsafe_b64encode(x).rstrip(b"=")',
-      'h=b(b\'{"alg":"HS256","typ":"JWT"}\');now=int(time.time());exp=now+3600',
-      'p=b(json.dumps({"appKey":os.environ.get("SDK_KEY",""),"iat":now,"exp":exp,"tokenExp":exp},separators=(",",":")).encode())',
-      's=b(hmac.new(os.environ.get("SDK_SECRET","").encode(),h+b"."+p,hashlib.sha256).digest())',
-      'print((h+b"."+p+b"."+s).decode())',
-      'PY',
-      '  )',
-      'fi',
-      '',
-      'export SDK_JWT MEETING_NUMBER MEETING_PSW BOT_NAME JOIN_TOKEN OUT_WAV RUN_SECS',
-      '/tmp/zoom-join 2>&1 | tee /tmp/zoom-join.log || true',
-      'tail -n 150 /tmp/zoom-join.log',
-      '[ -f "$OUT_WAV" ] && ls -lh "$OUT_WAV" && head -c 64 "$OUT_WAV" | hexdump -C || true'
-    ].join('\n');
-
-    // docker exec 引数。テンプレ文字列を使わない
-    const { spawn } = require('child_process'); // 既に宣言済みなら削除OK
-    const args = [
-      'exec', '-i',
-      '--env', `SDK_KEY=${SDK_KEY}`,
-      '--env', `SDK_SECRET=${SDK_SECRET}`,
-      '--env', `MEETING_NUMBER=${meetingId}`,
-      '--env', `JOIN_TOKEN=${joinToken}`,
-      '--env', `BOT_NAME=${botName}`,
-      '--env', `OUT_WAV=${outWav}`,
-      '--env', `RUN_SECS=${runSecs}`,
-      container,
-      'bash', '-lc', 'bash -s'
-    ];
-
-    const child = spawn('docker', args, { stdio: ['pipe', 'pipe', 'pipe'] });
-    // スクリプトを stdin へ流し込む
-    child.stdin.end(script);
-
-    let out = '', err = '';
-    child.stdout.on('data', (d) => { out += d.toString(); });
-    child.stderr.on('data', (d) => { err += d.toString(); });
-
-    child.on('close', (code) => {
-      if (code !== 0) {
-        console.error('[ZOOM] bot exit code:', code, err);
-        return res.status(500).json({ error: 'Bot exited with error', code, stderr: err, tail: out.slice(-4000) });
+    // ★ Flexible / Classic 切替（追加）
+    // これに変更（既定を flexible に）
+const outputType = (req.body.outputType || 'flexible').toLowerCase();
+    const langHint   = req.body.lang || null;
+    console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
+  
+    // The uploaded file is already saved in temp/
+    let tempFilePath = file.path;
+    
+    // ★ File format check: If the extension is not .m4a or mimetype is "audio/mp4", perform conversion.
+    if (path.extname(tempFilePath).toLowerCase() !== '.m4a' || file.mimetype === 'audio/mp4') {
+      console.log('[DEBUG] Input file is not m4a or mimetype is audio/mp4. Starting conversion.');
+      tempFilePath = await convertToM4A(tempFilePath);
+      console.log('[DEBUG] File path after conversion:', tempFilePath);
+    }
+  
+    let transcription = "";
+    let minutes = "";
+  
+    // ① Transcription process based on file size
+    if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
+      console.log('[DEBUG] File size is below threshold; processing in one batch');
+      transcription = await transcribeWithOpenAI(tempFilePath);
+      transcription = transcription.trim();
+    } else {
+      console.log('[DEBUG] File size exceeds threshold; processing by splitting into chunks');
+      const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
+      console.log(`[DEBUG] Number of generated chunks: ${chunkPaths.length}`);
+      
+      // Process transcription for each chunk in parallel
+      const transcriptionChunks = await Promise.all(
+        chunkPaths.map(chunkPath => transcribeWithOpenAI(chunkPath))
+      );
+      transcription = transcriptionChunks.join(" ").trim();
+      
+      // Delete chunk files
+      for (const chunkPath of chunkPaths) {
+        try {
+          fs.unlinkSync(chunkPath);
+          console.log(`[DEBUG] Deleted chunk file: ${chunkPath}`);
+        } catch (err) {
+          console.error(`[ERROR] Failed to delete chunk file: ${chunkPath}`, err);
+        }
       }
-      return res.json({
-        bot_session_id: `${Date.now()}`,
-        meeting_id: meetingId,
-        out: out.slice(-4000)
-      });
-    });
-
+    }
+  
+    // ② If the transcription is 10,000 characters or less, generate minutes directly.
+    //     If it exceeds 10,000 characters, split the text and combine the generated minutes.
+    if (transcription.length <= 10000) {
+      if (outputType === 'flexible') {
+        minutes = await generateFlexibleMinutes(transcription, langHint);
+      } else {
+        minutes = await generateMinutes(transcription, meetingFormat);
+      }
+    } else {
+      console.log('[DEBUG] Transcription exceeds 10,000 characters; processing for output type');
+      if (outputType === 'flexible') {
+        // Flexible は単発生成（まずはシンプル運用）
+        minutes = await generateFlexibleMinutes(transcription, langHint);
+      } else {
+        const textChunks = splitText(transcription, 10000);
+        const partialMinutes = await Promise.all(
+          textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
+        );
+        const combinedPartialMinutes = partialMinutes.join("\n\n");
+        minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
+      }
+    }
+  
+    // Delete the original temporary file
+    try {
+      fs.unlinkSync(file.path);
+      console.log('[DEBUG] Deleted original temporary file:', file.path);
+    } catch (err) {
+      console.error('[ERROR] Failed to delete temporary file:', file.path, err);
+    }
+  
+    console.log('[DEBUG] Final transcription result:', transcription);
+    console.log('[DEBUG] Final meeting minutes result:', minutes);
+  
+    return res.json({ transcription: transcription.trim(), minutes });
   } catch (err) {
-    console.error('[ERROR] /api/recordings/zoom/start:', err.response?.data || err.message);
-    return res.status(500).json({ error: 'Internal error', details: err.response?.data || err.message });
+    console.error('[ERROR] Internal error in /api/transcribe:', err);
+    return res.status(500).json({ error: 'Internal server error', details: err.message });
   }
 });
-// ---- /SAFE ----
-
 
 // Debug GET/POST endpoints
 app.get('/api/transcribe', (req, res) => {
