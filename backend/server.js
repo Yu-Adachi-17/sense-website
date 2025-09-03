@@ -90,20 +90,20 @@ const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
 
 // CORS settings
 const corsOptions = {
-  origin(origin, cb) {
-    // モバイルアプリや curl など Origin ヘッダが無いアクセスは許可
-    if (!origin) return cb(null, true);
-    // ホワイトリストに一致なら許可
-    if (allowedOrigins.includes(origin)) return cb(null, true);
-    // それ以外は拒否（必要なら true にして暫定許可も可）
-    return cb(new Error('Not allowed by CORS'));
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.error(`[CORS ERROR] Disallowed origin: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
   },
-  credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: [
     'Content-Type', 'Authorization', 'Accept', 'X-Requested-With',
-    'X-Internal-Token'
+    'X-Internal-Token' // ← 追加
   ],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
