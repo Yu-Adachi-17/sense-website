@@ -637,8 +637,8 @@ app.post('/api/recordings/zoom/start', async (req, res) => {
     if (!joinToken) return res.status(502).json({ error: 'Failed to fetch join token', details: z.data });
 
     // 2) minutesai-raw で Bot を起動（spawn + stdin）
-    const SDK_KEY  = process.env.SDK_KEY;
-    const SDK_SECRET = process.env.SDK_SECRET;
+    const SDK_KEY  = process.env.ZOOM_SDK_KEY;
+    const SDK_SECRET = process.env.ZOOM_SDK_SECRET;
     if (!SDK_KEY || !SDK_SECRET) return res.status(500).json({ error: 'SDK_KEY/SDK_SECRET are not set' });
 
     const container = process.env.BOT_CONTAINER_NAME || 'minutesai-raw';
