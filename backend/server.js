@@ -820,6 +820,12 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     const meetingFormat = req.body.meetingFormat;
     console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
 
+    // ★ Flexible / Classic 切替（追加）
+    // これに変更（既定を flexible に）
+const outputType = (req.body.outputType || 'flexible').toLowerCase();
+    const langHint   = req.body.lang || null;
+    console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
+
     // The uploaded file is already saved in temp/
     let tempFilePath = file.path;
 
@@ -863,15 +869,24 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     // ② If the transcription is 10,000 characters or less, generate minutes directly.
     //     If it exceeds 10,000 characters, split the text and combine the generated minutes.
     if (transcription.length <= 10000) {
-      minutes = await generateMinutes(transcription, meetingFormat);
+      if (outputType === 'flexible') {
+        minutes = await generateFlexibleMinutes(transcription, langHint);
+      } else {
+        minutes = await generateMinutes(transcription, meetingFormat);
+      }
     } else {
-      console.log('[DEBUG] Transcription exceeds 10,000 characters; splitting text and generating meeting minutes');
-      const textChunks = splitText(transcription, 10000);
-      const partialMinutes = await Promise.all(
-        textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
-      );
-      const combinedPartialMinutes = partialMinutes.join("\n\n");
-      minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
+      console.log('[DEBUG] Transcription exceeds 10,000 characters; processing for output type');
+      if (outputType === 'flexible') {
+        // Flexible は単発生成（まずはシンプル運用）
+        minutes = await generateFlexibleMinutes(transcription, langHint);
+      } else {
+        const textChunks = splitText(transcription, 10000);
+        const partialMinutes = await Promise.all(
+          textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
+        );
+        const combinedPartialMinutes = partialMinutes.join("\n\n");
+        minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
+      }
     }
 
     // Delete the original temporary file
