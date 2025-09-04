@@ -572,73 +572,6 @@ const convertToM4A = async (inputFilePath) => {
   });
 };
 
-// ===== ADD: STT main endpoint =====
-app.post('/api/stt', upload.single('file'), async (req, res) => {
-  try {
-    // 1) 入力検証 & ログ
-    const ct = req.headers['content-type'] || '';
-    console.log(`[STT] /api/stt hit. content-type=${ct}`);
-    console.log(`[STT] req.body keys(after multer):`, Object.keys(req.body || {}));
-    if (!req.file) {
-      console.error('[STT] No file received');
-      return res.status(400).json({ error: 'file is required (multipart/form-data with field name "file")' });
-    }
-    const meetingTemplate = (req.body.meetingTemplate || '').toString();
-    const mode = (req.body.mode || 'template'); // 'template' or 'flexible'
-    const langHint = req.body.lang || 'ja';
-
-    const inputPath = req.file.path; // temp/xxx_original
-    console.log('[STT] received file:', {
-      path: inputPath,
-      mimetype: req.file.mimetype,
-      size: req.file.size,
-      originalname: req.file.originalname
-    });
-
-    // 2) m4a へ統一変換（ipod フォーマット）
-    let workPath = inputPath;
-    if (path.extname(inputPath).toLowerCase() !== '.m4a') {
-      workPath = await convertToM4A(inputPath);
-    }
-
-    // 3) 分割（5MB 超えのみ）
-    const st = fs.statSync(workPath);
-    const parts = (st.size <= TRANSCRIPTION_CHUNK_THRESHOLD)
-      ? [workPath]
-      : await splitAudioFile(workPath, TRANSCRIPTION_CHUNK_THRESHOLD);
-
-    // 4) Whisper 呼び出し（順次）
-    let transcript = '';
-    for (let i = 0; i < parts.length; i++) {
-      const p = parts[i];
-      console.log(`[STT] transcribing chunk ${i+1}/${parts.length}: ${p}`);
-      const t = await transcribeWithOpenAI(p);
-      transcript += (transcript ? '\n' : '') + t;
-    }
-    console.log(`[STT] transcription length=${transcript.length}`);
-
-    // 5) 議事録生成（テンプレ or Flexible JSON）
-    let minutesOut = '';
-    if (mode === 'flexible') {
-      minutesOut = await generateFlexibleMinutes(transcript, langHint);
-    } else {
-      minutesOut = await generateMinutes(transcript, meetingTemplate);
-    }
-
-    // 6) 返却
-    return res.status(200).json({
-      ok: true,
-      mode,
-      transcription: transcript,
-      minutes: minutesOut
-    });
-  } catch (err) {
-    console.error('[STT] ERROR:', err.response?.data || err.message || err);
-    return res.status(500).json({ error: 'STT failed', details: err.message || 'unknown' });
-  }
-});
-
-
 // Health check API for debugging
 app.get('/api/health', (req, res) => {
   console.log('[DEBUG] /api/health was accessed');
@@ -870,6 +803,94 @@ app.post('/api/recordings/zoom/start', async (req, res) => {
 });
 // ---- /SAFE ----
 
+app.post('/api/transcribe', upload.single('file'), async (req, res) => {
+  console.log('[DEBUG] /api/transcribe endpoint called');
+
+  try {
+    const file = req.file;
+    if (!file) {
+      console.error('[ERROR] No file was uploaded');
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    console.log('[DEBUG] File saved by multer:', file.path);
+    const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+    console.log(`[DEBUG] Uploaded file size: ${fileSizeMB} MB`);
+
+    const meetingFormat = req.body.meetingFormat;
+    console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
+
+    // The uploaded file is already saved in temp/
+    let tempFilePath = file.path;
+
+    // ★ File format check: If the extension is not .m4a or mimetype is "audio/mp4", perform conversion.
+    if (path.extname(tempFilePath).toLowerCase() !== '.m4a' || file.mimetype === 'audio/mp4') {
+      console.log('[DEBUG] Input file is not m4a or mimetype is audio/mp4. Starting conversion.');
+      tempFilePath = await convertToM4A(tempFilePath);
+      console.log('[DEBUG] File path after conversion:', tempFilePath);
+    }
+
+    let transcription = "";
+    let minutes = "";
+
+    // ① Transcription process based on file size
+    if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
+      console.log('[DEBUG] File size is below threshold; processing in one batch');
+      transcription = await transcribeWithOpenAI(tempFilePath);
+      transcription = transcription.trim();
+    } else {
+      console.log('[DEBUG] File size exceeds threshold; processing by splitting into chunks');
+      const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
+      console.log(`[DEBUG] Number of generated chunks: ${chunkPaths.length}`);
+
+      // Process transcription for each chunk in parallel
+      const transcriptionChunks = await Promise.all(
+        chunkPaths.map(chunkPath => transcribeWithOpenAI(chunkPath))
+      );
+      transcription = transcriptionChunks.join(" ").trim();
+
+      // Delete chunk files
+      for (const chunkPath of chunkPaths) {
+        try {
+          fs.unlinkSync(chunkPath);
+          console.log(`[DEBUG] Deleted chunk file: ${chunkPath}`);
+        } catch (err) {
+          console.error(`[ERROR] Failed to delete chunk file: ${chunkPath}`, err);
+        }
+      }
+    }
+
+    // ② If the transcription is 10,000 characters or less, generate minutes directly.
+    //     If it exceeds 10,000 characters, split the text and combine the generated minutes.
+    if (transcription.length <= 10000) {
+      minutes = await generateMinutes(transcription, meetingFormat);
+    } else {
+      console.log('[DEBUG] Transcription exceeds 10,000 characters; splitting text and generating meeting minutes');
+      const textChunks = splitText(transcription, 10000);
+      const partialMinutes = await Promise.all(
+        textChunks.map(chunk => generateMinutes(chunk.trim(), meetingFormat))
+      );
+      const combinedPartialMinutes = partialMinutes.join("\n\n");
+      minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
+    }
+
+    // Delete the original temporary file
+    try {
+      fs.unlinkSync(file.path);
+      console.log('[DEBUG] Deleted original temporary file:', file.path);
+    } catch (err) {
+      console.error('[ERROR] Failed to delete temporary file:', file.path, err);
+    }
+
+    console.log('[DEBUG] Final transcription result:', transcription);
+    console.log('[DEBUG] Final meeting minutes result:', minutes);
+
+    return res.json({ transcription: transcription.trim(), minutes });
+  } catch (err) {
+    console.error('[ERROR] Internal error in /api/transcribe:', err);
+    return res.status(500).json({ error: 'Internal server error', details: err.message });
+  }
+});
 
 // Debug GET/POST endpoints
 app.get('/api/transcribe', (req, res) => {
