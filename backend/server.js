@@ -28,6 +28,11 @@ const app = express();
 // ★ Flexible Minutes 用プロンプト（外部ファイル）
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
 
+const qs = require('querystring');
+
+let cachedZoomToken = null;
+let cachedZoomTokenExp = 0; // epoch sec
+
 /*==============================================
 =            Middleware Order                  =
 ==============================================*/
@@ -590,6 +595,30 @@ app.get('/api/hello', (req, res) => {
  *      env : ZOOM_OAUTH_TOKEN, SDK_KEY, SDK_SECRET, BOT_CONTAINER_NAME(optional)
  * ========================================================================= */
 // ---- SAFE: spawn + stdin 版 ----
+
+async function getZoomAccessToken() {
+  const now = Math.floor(Date.now()/1000);
+  if (cachedZoomToken && now < cachedZoomTokenExp - 60) {
+    return cachedZoomToken;
+  }
+  const accountId = process.env.ZOOM_ACCOUNT_ID;
+  const clientId  = process.env.ZOOM_CLIENT_ID;
+  const clientSecret = process.env.ZOOM_CLIENT_SECRET;
+  if (!accountId || !clientId || !clientSecret) {
+    throw new Error('Zoom S2S credentials are not set (ZOOM_ACCOUNT_ID/ZOOM_CLIENT_ID/ZOOM_CLIENT_SECRET)');
+  }
+  const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+  const resp = await axios.post(
+    'https://zoom.us/oauth/token',
+    qs.stringify({ grant_type: 'account_credentials', account_id: accountId }),
+    { headers: { 'Authorization': `Basic ${basic}`, 'Content-Type': 'application/x-www-form-urlencoded' }, timeout: 15000 }
+  );
+  // resp.data: { access_token, token_type, expires_in, ... }
+  cachedZoomToken = resp.data.access_token;
+  cachedZoomTokenExp = now + (resp.data.expires_in || 3600);
+  return cachedZoomToken;
+}
+
 app.post('/api/recordings/zoom/start', async (req, res) => {
   try {
     const { meeting_link, bypass_waiting_room = true } = req.body || {};
@@ -599,8 +628,7 @@ app.post('/api/recordings/zoom/start', async (req, res) => {
     if (!m) return res.status(400).json({ error: 'invalid Zoom meeting_link (missing /j/{id})' });
     const meetingId = m[1];
 
-    const accessToken = process.env.ZOOM_OAUTH_TOKEN;
-    if (!accessToken) return res.status(500).json({ error: 'ZOOM_OAUTH_TOKEN is not set on server' });
+    const accessToken = await getZoomAccessToken();
 
     // 1) Zoom Join Token
     const apiUrl = `https://api.zoom.us/v2/meetings/${meetingId}/jointoken/local_recording${bypass_waiting_room ? '?bypass_waiting_room=true' : ''}`;
