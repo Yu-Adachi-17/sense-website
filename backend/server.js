@@ -27,19 +27,6 @@ const app = express();
 
 // ★ Flexible Minutes 用プロンプト（外部ファイル）
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
-// server.js (ヘルパの近くに追加)
-const { spawn } = require('child_process'); // 既にあれば重複定義は削除
-
-async function copyOutWavFromContainer(containerName, remotePath) {
-  const tempDir = path.join(__dirname, 'temp');
-  await fs.promises.mkdir(tempDir, { recursive: true });
-  const localPath = path.join(tempDir, `zoom_${Date.now()}.wav`);
-  await new Promise((resolve, reject) => {
-    const cp = spawn('docker', ['cp', `${containerName}:${remotePath}`, localPath]);
-    cp.on('close', (code) => code === 0 ? resolve() : reject(new Error(`docker cp exit ${code}`)));
-  });
-  return localPath;
-}
 
 /*==============================================
 =            Middleware Order                  =
@@ -585,6 +572,73 @@ const convertToM4A = async (inputFilePath) => {
   });
 };
 
+// ===== ADD: STT main endpoint =====
+app.post('/api/stt', upload.single('file'), async (req, res) => {
+  try {
+    // 1) 入力検証 & ログ
+    const ct = req.headers['content-type'] || '';
+    console.log(`[STT] /api/stt hit. content-type=${ct}`);
+    console.log(`[STT] req.body keys(after multer):`, Object.keys(req.body || {}));
+    if (!req.file) {
+      console.error('[STT] No file received');
+      return res.status(400).json({ error: 'file is required (multipart/form-data with field name "file")' });
+    }
+    const meetingTemplate = (req.body.meetingTemplate || '').toString();
+    const mode = (req.body.mode || 'template'); // 'template' or 'flexible'
+    const langHint = req.body.lang || 'ja';
+
+    const inputPath = req.file.path; // temp/xxx_original
+    console.log('[STT] received file:', {
+      path: inputPath,
+      mimetype: req.file.mimetype,
+      size: req.file.size,
+      originalname: req.file.originalname
+    });
+
+    // 2) m4a へ統一変換（ipod フォーマット）
+    let workPath = inputPath;
+    if (path.extname(inputPath).toLowerCase() !== '.m4a') {
+      workPath = await convertToM4A(inputPath);
+    }
+
+    // 3) 分割（5MB 超えのみ）
+    const st = fs.statSync(workPath);
+    const parts = (st.size <= TRANSCRIPTION_CHUNK_THRESHOLD)
+      ? [workPath]
+      : await splitAudioFile(workPath, TRANSCRIPTION_CHUNK_THRESHOLD);
+
+    // 4) Whisper 呼び出し（順次）
+    let transcript = '';
+    for (let i = 0; i < parts.length; i++) {
+      const p = parts[i];
+      console.log(`[STT] transcribing chunk ${i+1}/${parts.length}: ${p}`);
+      const t = await transcribeWithOpenAI(p);
+      transcript += (transcript ? '\n' : '') + t;
+    }
+    console.log(`[STT] transcription length=${transcript.length}`);
+
+    // 5) 議事録生成（テンプレ or Flexible JSON）
+    let minutesOut = '';
+    if (mode === 'flexible') {
+      minutesOut = await generateFlexibleMinutes(transcript, langHint);
+    } else {
+      minutesOut = await generateMinutes(transcript, meetingTemplate);
+    }
+
+    // 6) 返却
+    return res.status(200).json({
+      ok: true,
+      mode,
+      transcription: transcript,
+      minutes: minutesOut
+    });
+  } catch (err) {
+    console.error('[STT] ERROR:', err.response?.data || err.message || err);
+    return res.status(500).json({ error: 'STT failed', details: err.message || 'unknown' });
+  }
+});
+
+
 // Health check API for debugging
 app.get('/api/health', (req, res) => {
   console.log('[DEBUG] /api/health was accessed');
@@ -798,55 +852,15 @@ app.post('/api/recordings/zoom/start', async (req, res) => {
     child.stderr.on('data', (d) => { err += d.toString(); });
 
     child.on('close', (code) => {
-      child.on('close', async (code) => {
-        try {
-          if (code !== 0) {
-            console.error('[ZOOM] bot exit code:', code, err);
-            return res.status(500).json({
-              error: 'Bot exited with error',
-              code,
-              stderr: err,
-              tail: out.slice(-4000)
-            });
-          }
-      
-          // 1) コンテナからWAVを取得
-          const localWav = await copyOutWavFromContainer(container, outWav);
-          console.log('[DEBUG] copied wav ->', localWav);
-      
-          // 2) m4aに変換（Railwayでffmpegが無い環境なら ffmpeg-static の導入を検討）
-          const m4a = await convertToM4A(localWav);
-      
-          // 3) 分割→STT（5MB超なら分割）
-          const chunks = await splitAudioFile(m4a, TRANSCRIPTION_CHUNK_THRESHOLD);
-          let transcript = '';
-          for (const ch of chunks) {
-            const t = await transcribeWithOpenAI(ch);
-            transcript += (t.trim() + '\n');
-          }
-      
-          // 4) JSON議事録（Flexible）生成
-          const flexibleJson = await generateFlexibleMinutes(transcript, 'ja');
-      
-          // 5) 応答（ログの末尾もデバッグ用に添付）
-          return res.json({
-            meeting_id: meetingId,
-            transcript,
-            flexibleMinutes: JSON.parse(flexibleJson),
-            logTail: out.slice(-4000)
-          });
-        } catch (e) {
-          console.error('[ERROR] post-recording pipeline:', e);
-          return res.status(500).json({
-            error: 'post-recording failed',
-            details: String(e),
-            tail: out.slice(-4000)
-          });
-        } finally {
-          // 後始末（必要なら temp の掃除など）
-        }
+      if (code !== 0) {
+        console.error('[ZOOM] bot exit code:', code, err);
+        return res.status(500).json({ error: 'Bot exited with error', code, stderr: err, tail: out.slice(-4000) });
+      }
+      return res.json({
+        bot_session_id: `${Date.now()}`,
+        meeting_id: meetingId,
+        out: out.slice(-4000)
       });
-      
     });
 
   } catch (err) {
