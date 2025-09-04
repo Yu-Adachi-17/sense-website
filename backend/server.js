@@ -263,7 +263,7 @@ ${template.trim()}
   const data = {
     model: 'gpt-4o-mini',
     temperature: 0,
-    max_tokens: 3000,
+    max_tokens: 15000,
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content:
@@ -284,14 +284,7 @@ ${badOutput}
 
 // ===== 本体：テンプレ厳守で生成 =====
 const generateMinutes = async (transcription, formatTemplate) => {
-  const template = (formatTemplate && formatTemplate.trim()) || 
-`【Meeting Name】
-【Date】
-【Location】
-【Attendees】
-【Agenda(1)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
-【Agenda(2)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
-【Agenda(3)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem`;
+  const template = (meetingFormat && meetingFormat.trim()) || '';
 
   const systemMessage =
 `あなたはプロの議事録作成アシスタントです。以下の厳格なルールに従い、日本語で出力してください。
@@ -317,7 +310,7 @@ ${transcription}
   const data = {
     model: 'gpt-4o-mini',
     temperature: 0,
-    max_tokens: 3000,
+    max_tokens: 15000,
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: userMessage },
