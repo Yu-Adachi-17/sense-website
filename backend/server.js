@@ -284,7 +284,14 @@ ${badOutput}
 
 // ===== 本体：テンプレ厳守で生成 =====
 const generateMinutes = async (transcription, formatTemplate) => {
-  const template = (meetingFormat && meetingFormat.trim()) || '';
+  const template = (formatTemplate && formatTemplate.trim()) || 
+`【Meeting Name】
+【Date】
+【Location】
+【Attendees】
+【Agenda(1)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(2)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(3)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem`;
 
   const systemMessage =
 `あなたはプロの議事録作成アシスタントです。以下の厳格なルールに従い、日本語で出力してください。
@@ -358,7 +365,7 @@ async function repairFlexibleJSON(badOutput, langHint) {
     model: 'gpt-4o-mini',
     response_format: { type: "json_object" },
     temperature: 0,
-    max_tokens: 3500,
+    max_tokens: 15000,
     messages: [
       {
         role: 'system',
@@ -407,7 +414,7 @@ async function generateFlexibleMinutes(transcription, langHint) {
     model: 'gpt-4o-mini',
     response_format: { type: "json_object" },
     temperature: 0,
-    max_tokens: 6000,
+    max_tokens: 15000,
     messages,
   };
 
