@@ -602,8 +602,8 @@ async function getZoomAccessToken() {
     return cachedZoomToken;
   }
   const accountId = process.env.ZOOM_ACCOUNT_ID;
-  const clientId  = process.env.ZOOM_CLIENT_ID;
-  const clientSecret = process.env.ZOOM_CLIENT_SECRET;
+  const clientId  = process.env.ZOOM_S2S_CLIENT_ID;
+  const clientSecret = process.env.ZOOM_S2S_CLIENT_SECRET;
   if (!accountId || !clientId || !clientSecret) {
     throw new Error('Zoom S2S credentials are not set (ZOOM_ACCOUNT_ID/ZOOM_CLIENT_ID/ZOOM_CLIENT_SECRET)');
   }
