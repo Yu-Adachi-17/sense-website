@@ -791,22 +791,6 @@ app.post('/api/recordings/zoom/start', async (req, res) => {
 
     // docker exec 引数。テンプレ文字列を使わない
     const { spawn } = require('child_process'); // 既に宣言済みなら削除OK
-
-    async function hasDocker() {
-      return await new Promise((resolve) => {
-        const p = spawn('sh', ['-lc', 'command -v docker']);
-        p.on('error', () => resolve(false));
-        p.on('close', (code) => resolve(code === 0));
-      });
-    }
-    
-    // ルート内（docker を使う直前）
-    if (!(await hasDocker())) {
-      return res.status(501).json({
-        error: 'Bot launcher disabled on this environment: docker not available'
-      });
-    }
-
     const args = [
       'exec', '-i',
       '--env', `SDK_KEY=${SDK_KEY}`,
@@ -821,10 +805,6 @@ app.post('/api/recordings/zoom/start', async (req, res) => {
     ];
 
     const child = spawn('docker', args, { stdio: ['pipe', 'pipe', 'pipe'] });
-    child.on('error', (e) => {
-      console.error('[ZOOM] failed to spawn docker:', e);
-      return res.status(500).json({ error: 'Cannot start bot', details: e.code });
-    });
     // スクリプトを stdin へ流し込む
     child.stdin.end(script);
 
