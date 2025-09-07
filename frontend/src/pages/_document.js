@@ -6,21 +6,19 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en"> {/* 言語設定はそのまま */}
         <Head>
-          {/* ▼ アイコン関連（追加） */}
-          {/* ブラウザ用ファビコン（ICOに16/32/48を同梱） */}
-          <link rel="icon" href="/favicon.ico" sizes="any" />
+          {/* Favicon（PNGを直接指定） */}
+          <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
 
-          {/* iOS「ホーム画面に追加」用（180x180） */}
+          {/* iOS ホーム追加 */}
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-          {/* PWA/Android 用（manifest.json 内で 192 / 512 と purpose:any maskable を指定） */}
+          {/* PWA */}
           <link rel="manifest" href="/manifest.json" />
-
-          {/* Safari ピン留め（SVG を用意したときに有効化） */}
-          {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0B1220" /> */}
         </Head>
         <body>
-          <Main /> {/* ページ内容 */}
+          <Main />
           <NextScript />
         </body>
       </Html>
