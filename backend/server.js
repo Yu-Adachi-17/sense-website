@@ -33,6 +33,31 @@ const qs = require('querystring');
 let cachedZoomToken = null;
 let cachedZoomTokenExp = 0; // epoch sec
 
+const helmet = require('helmet');
+
+// --- Security headers (Helmet) ---
+// Zoom の Surface/埋め込みに備え、X-Frame-Options は無効化し、CSP の frame-ancestors で許可先を制御
+app.use(helmet({
+  frameguard: false, // X-Frame-Options を出さない（CSPの frame-ancestors を優先） :contentReference[oaicite:1]{index=1}
+  contentSecurityPolicy: {
+    useDefaults: true,
+    directives: {
+      "default-src": ["'self'"],
+      // Zoom クライアントからの埋め込みを許可
+      "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],  // CSPで親フレームを制御 :contentReference[oaicite:2]{index=2}
+    },
+  },
+  referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+}));
+
+// 念のため（旧ブラウザ向け/明示）
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  next();
+});
+// --- /Security headers ---
+
+
 /*==============================================
 =            Middleware Order                  =
 ==============================================*/
