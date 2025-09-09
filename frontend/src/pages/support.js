@@ -114,16 +114,6 @@ Your name:
             )}
           >Email Support</a>
 
-          <a
-            style={btn}
-            href={mailTo(
-              'Data Deletion Request',
-              `This is a request to delete data.
-Registered email address: 
-Items to delete (minutes / audio files / other): 
-`
-            )}
-          >Request Data Deletion</a>
         </div>
 
         <h2 style={h2}>Support Policy</h2>
