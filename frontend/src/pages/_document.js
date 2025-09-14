@@ -6,8 +6,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en"> {/* 言語設定はそのまま */}
         <Head>
-          {/* Favicon（PNGを直接指定） */}
-          <link rel="icon" href="/favicon-48.png" type="image/png" />
+          {/* 検索結果用：安定URLの 96×96 PNG（1本だけ） */}
+          <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
 
           {/* iOS ホーム追加 */}
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
