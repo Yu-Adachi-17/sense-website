@@ -1,100 +1,65 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
-/** ====== 設定（.env で上書き可・クライアント参照なので NEXT_PUBLIC_） ====== */
-const GATEWAY_BASE =
-  process.env.NEXT_PUBLIC_GATEWAY_BASE || 'https://minutesai-bot-gw-production.up.railway.app';
-const INTERNAL_TOKEN = process.env.NEXT_PUBLIC_INTERNAL_TOKEN || '';
-const START_TICKET_BEARER = process.env.NEXT_PUBLIC_START_TICKET_BEARER || ''; // 使わないなら空
+/** ====== 同一オリジンの API ベース ====== */
+const API_BASE = '/api/zoom-bot';
 
 /** ====== 永続キー ====== */
 const LAST_SID_KEY = 'minutesai.lastSessionId';
 const LAST_MEETING_ID_KEY = 'minutesai.lastMeetingId';
 const LAST_PASSCODE_KEY = 'minutesai.lastPasscode';
 
-/** ====== 共通ヘッダ ====== */
-function authHeadersJSON() {
-  return START_TICKET_BEARER
-    ? { 'Content-Type': 'application/json', Authorization: `Bearer ${START_TICKET_BEARER}` }
-    : { 'Content-Type': 'application/json', 'X-Internal-Token': INTERNAL_TOKEN };
-}
-function authHeaders() {
-  return START_TICKET_BEARER
-    ? { Authorization: `Bearer ${START_TICKET_BEARER}` }
-    : { 'X-Internal-Token': INTERNAL_TOKEN };
-}
+/** ====== ユーティリティ ====== */
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const backoffMs = n => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
+const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 
-/** ====== ヘルパ ====== */
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-function backoffMs(n) {
-  const base = Math.min(5000, 300 * Math.pow(2, n)); // max 5s
-  const jitter = base * (0.2 * (Math.random() * 2 - 1));
-  return Math.max(200, base + jitter);
-}
-function now() {
-  const d = new Date();
-  return d.toISOString().replace('T',' ').slice(0,19);
-}
-
-/** ====== API ラッパ（全て console に詳細ログ出力） ====== */
+/** ====== API ラッパ（ログ込み） ====== */
 async function apiStart(meetingNumber, meetingPasscode, runSecs = 21600) {
-  const url = `${GATEWAY_BASE}/start`;
-  console.log(`[${now()}] POST ${url}`, { meetingNumber, meetingPasscodeMasked: !!meetingPasscode, runSecs });
+  const url = `${API_BASE}/start`;
+  console.log(`[${now()}] POST ${url}`, { meetingNumber, passcode: !!meetingPasscode, runSecs });
   const r = await fetch(url, {
     method: 'POST',
-    headers: authHeadersJSON(),
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ meetingNumber, meetingPasscode, botName: 'MinutesAI Bot', runSecs }),
-    mode: 'cors',
-    credentials: 'omit',
   });
   const text = await r.text();
-  console.log(`[${now()}] /start status=${r.status} body=${text}`);
-  if (!r.ok) throw new Error(`start bad status ${r.status}: ${text}`);
-  let j; try { j = JSON.parse(text); } catch { throw new Error(`start JSON parse error: ${text}`); }
+  console.log(`[${now()}] -> ${r.status} ${text}`);
+  if (!r.ok) throw new Error(`start bad ${r.status}: ${text}`);
+  const j = JSON.parse(text);
   if (!j.sessionId) throw new Error('start response missing sessionId');
   return j.sessionId;
 }
 
 async function apiStop(sid) {
-  const url = `${GATEWAY_BASE}/stop/${encodeURIComponent(sid)}`;
-  console.log(`[${now()}] POST ${url}`);
-  const r = await fetch(url, { method: 'POST', headers: authHeaders(), mode: 'cors', credentials: 'omit' });
-  const text = await r.text();
-  console.log(`[${now()}] /stop status=${r.status} body=${text}`);
-  if (!r.ok) throw new Error(`stop bad status ${r.status}: ${text}`);
+  const r = await fetch(`${API_BASE}/stop/${encodeURIComponent(sid)}`, { method: 'POST' });
+  const t = await r.text();
+  console.log(`[${now()}] POST stop -> ${r.status} ${t}`);
+  if (!r.ok) throw new Error(`stop bad ${r.status}: ${t}`);
 }
 
 async function apiStatus(sid) {
-  const url = `${GATEWAY_BASE}/status/${encodeURIComponent(sid)}`;
-  const r = await fetch(url, { headers: authHeaders(), mode: 'cors', credentials: 'omit' });
-  const text = await r.text();
-  if (!r.ok) {
-    console.log(`[${now()}] /status ${r.status} ${text}`);
-    throw new Error(`status bad ${r.status}: ${text}`);
-  }
-  let j; try { j = JSON.parse(text); } catch { throw new Error(`status JSON parse error: ${text}`); }
-  console.log(`[${now()}] /status OK`, j);
-  return j;
+  const r = await fetch(`${API_BASE}/status/${encodeURIComponent(sid)}`);
+  const t = await r.text();
+  if (!r.ok) throw new Error(`status bad ${r.status}: ${t}`);
+  return JSON.parse(t);
 }
 
 async function apiFiles(sid) {
-  const url = `${GATEWAY_BASE}/files/${encodeURIComponent(sid)}`;
-  const r = await fetch(url, { headers: authHeaders(), mode: 'cors', credentials: 'omit' });
-  const text = await r.text();
-  if (!r.ok) throw new Error(`files bad ${r.status}: ${text}`);
-  let j; try { j = JSON.parse(text); } catch { throw new Error(`files JSON parse error: ${text}`); }
-  console.log(`[${now()}] /files OK`, j);
-  return j.files || [];
+  const r = await fetch(`${API_BASE}/files/${encodeURIComponent(sid)}`);
+  const t = await r.text();
+  if (!r.ok) throw new Error(`files bad ${r.status}: ${t}`);
+  return JSON.parse(t).files || [];
 }
 
 async function headLen(url) {
-  const r = await fetch(url, { method: 'HEAD', headers: authHeaders(), mode: 'cors', credentials: 'omit' });
+  const r = await fetch(url, { method: 'HEAD' });
   const len = r.headers.get('content-length');
   console.log(`[${now()}] HEAD ${url} -> ${r.status} len=${len}`);
   if (!r.ok) return -1;
   return len ? parseInt(len, 10) : -1;
 }
 
-/** ====== ページ本体 ====== */
+/** ====== 画面 ====== */
 export default function ZoomAppHome() {
   const [meetingId, setMeetingId] = useState('');
   const [passcode, setPasscode] = useState('');
@@ -104,8 +69,8 @@ export default function ZoomAppHome() {
   const [inputLocked, setInputLocked] = useState(false);
   const [overlay, setOverlay] = useState({ show: false, msg: '', progress: 0 });
   const [logs, setLogs] = useState([]);
+  const [audioList, setAudioList] = useState([]);
   const [restored, setRestored] = useState(null);
-  const [audioList, setAudioList] = useState([]); // {name,url}[]
 
   const canJoin = useMemo(
     () => !!meetingId && !!passcode && !inputLocked && phase !== 'starting' && phase !== 'joining',
@@ -133,7 +98,6 @@ export default function ZoomAppHome() {
     console.log(line);
     setLogs(prev => [...prev, line]);
   }
-
   function setOverlayStage(msg, progress) {
     setOverlay({ show: true, msg, progress: Math.max(0, Math.min(100, progress)) });
   }
@@ -147,10 +111,10 @@ export default function ZoomAppHome() {
       setPhase('starting');
       setAudioList([]);
       setOverlayStage('起動しています…', 5);
-      push('JOIN: calling /start');
+      push('JOIN: calling /api/zoom-bot/start');
 
       const sid = await apiStart(meetingId, passcode, 21600);
-      push(`JOIN: /start OK sid=${sid}`);
+      push(`JOIN OK: sid=${sid}`);
       setSessionId(sid);
       localStorage.setItem(LAST_SID_KEY, sid);
       localStorage.setItem(LAST_MEETING_ID_KEY, meetingId);
@@ -158,7 +122,7 @@ export default function ZoomAppHome() {
       setInputLocked(true);
       setPhase('joining');
 
-      // 軽い状態監視（最大 3 分）
+      // 軽く監視（最大3分）
       setOverlayStage('参加リクエスト送信。ホストに許可を依頼してください…', 15);
       const begin = Date.now();
       let attempt = 0;
@@ -190,7 +154,7 @@ export default function ZoomAppHome() {
     try {
       setPhase('polling');
       setOverlayStage('サーバで録音を最終化しています…', 10);
-      push('FINISH: calling /stop');
+      push('FINISH: calling /api/zoom-bot/stop');
       await apiStop(sessionId);
 
       const begin = Date.now();
@@ -209,8 +173,8 @@ export default function ZoomAppHome() {
             if (pick) {
               const safe = encodeURIComponent(pick.split('/').pop());
               const url = pick.startsWith('segments/')
-                ? `${GATEWAY_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
-                : `${GATEWAY_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
+                ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
+                : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
               const s1 = await headLen(url);
               await sleep(1000);
               const s2 = await headLen(url);
@@ -241,13 +205,12 @@ export default function ZoomAppHome() {
         const p = plan[i];
         const safe = encodeURIComponent(p.split('/').pop());
         const path = p.startsWith('segments/')
-          ? `/files/${encodeURIComponent(sessionId)}/segments/${safe}`
-          : `/files/${encodeURIComponent(sessionId)}/${safe}`;
-        const r = await fetch(`${GATEWAY_BASE}${path}`, { headers: authHeaders(), mode: 'cors', credentials: 'omit' });
+          ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
+          : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
+        const r = await fetch(path);
         if (!r.ok) throw new Error(`download bad ${r.status}`);
         const blob = await r.blob();
-        const url = URL.createObjectURL(blob);
-        downloaded.push({ name: `${sessionId}_${p.split('/').pop()}`, url });
+        downloaded.push({ name: `${sessionId}_${p.split('/').pop()}`, url: URL.createObjectURL(blob) });
         const prog = 20 + ((i + 1) / plan.length) * 30;
         setOverlayStage('音声データをダウンロードしています…', Math.min(50, prog));
         push(`DL OK: ${p}`);
@@ -275,39 +238,15 @@ export default function ZoomAppHome() {
 
   async function onReset() {
     if (!window.confirm('会議の紐付けをリセットしますか？\n録音情報は全て失われます')) return;
-    try {
-      if (sessionId) await apiStop(sessionId).catch(() => {});
-    } finally {
-      setSessionId(null);
-      setInputLocked(false);
-      setPhase('idle');
-      setAudioList([]);
-      setOverlay({ show: false, msg: '', progress: 0 });
-      setRestored(null);
-      setMeetingId('');
-      setPasscode('');
+    try { if (sessionId) await apiStop(sessionId).catch(() => {}); }
+    finally {
+      setSessionId(null); setInputLocked(false); setPhase('idle');
+      setAudioList([]); setOverlay({ show: false, msg: '', progress: 0 });
+      setRestored(null); setMeetingId(''); setPasscode('');
       localStorage.removeItem(LAST_SID_KEY);
       localStorage.removeItem(LAST_MEETING_ID_KEY);
       localStorage.removeItem(LAST_PASSCODE_KEY);
-      setLogs([]);
-      push('RESET done');
-    }
-  }
-
-  /** Deep Link（検証用ボタン） */
-  function openZoomDeepLink() {
-    const url = `zoommtg://zoom.us/join?action=join&confno=${encodeURIComponent(meetingId)}&pwd=${encodeURIComponent(passcode)}`;
-    push(`DEEPLINK: ${url}`);
-    try {
-      window.location.href = url;
-      // 起動できない環境向けに 1.5秒後 Web Join へフォールバック
-      setTimeout(() => {
-        const webUrl = `https://zoom.us/j/${encodeURIComponent(meetingId)}?pwd=${encodeURIComponent(passcode)}`;
-        push(`DEEPLINK fallback -> ${webUrl}`);
-        window.open(webUrl, '_blank', 'noopener,noreferrer');
-      }, 1500);
-    } catch (e) {
-      push(`DEEPLINK error: ${e.message || e}`);
+      setLogs([]); push('RESET done');
     }
   }
 
@@ -318,21 +257,10 @@ export default function ZoomAppHome() {
 
       <section style={styles.card}>
         <Label>Meeting ID</Label>
-        <UnderlinedInput
-          value={meetingId}
-          onChange={e => setMeetingId(e.target.value)}
-          placeholder="e.g. 9815129794"
-          disabled={inputLocked}
-          type="tel"
-        />
+        <Underline value={meetingId} onChange={e => setMeetingId(e.target.value)} placeholder="e.g. 9815129794" disabled={inputLocked} />
         <div style={{ height: 10 }} />
         <Label>Passcode</Label>
-        <UnderlinedInput
-          value={passcode}
-          onChange={e => setPasscode(e.target.value)}
-          placeholder="Passcode"
-          disabled={inputLocked}
-        />
+        <Underline value={passcode} onChange={e => setPasscode(e.target.value)} placeholder="Passcode" disabled={inputLocked} />
 
         {sessionId && (
           <div style={styles.metaRow}>
@@ -344,26 +272,13 @@ export default function ZoomAppHome() {
 
         <div style={{ height: 14 }} />
         <div style={styles.center}>
-          <button
-            onClick={onJoin}
-            disabled={!canJoin}
-            style={merge(styles.btnBase, styles.btnJoin, !canJoin && styles.btnDisabled)}
-          >
+          <button onClick={onJoin} disabled={!canJoin} style={merge(styles.btnBase, styles.btnJoin, !canJoin && styles.btnDisabled)}>
             {phase === 'starting' ? 'Starting…' : inputLocked ? 'Joined' : 'Join with Bot'}
           </button>
 
           <div style={{ height: 10 }} />
-          <button
-            onClick={onFinish}
-            disabled={!canFinish}
-            style={merge(styles.btnBase, styles.btnRaised, !canFinish && styles.btnDisabled)}
-          >
+          <button onClick={onFinish} disabled={!canFinish} style={merge(styles.btnBase, styles.btnRaised, !canFinish && styles.btnDisabled)}>
             {phase === 'polling' ? 'Fetching…' : 'Finish'}
-          </button>
-
-          <div style={{ height: 10 }} />
-          <button onClick={openZoomDeepLink} style={merge(styles.linkBtn)}>
-            Open in Zoom app (test)
           </button>
 
           {inputLocked && (
@@ -397,12 +312,10 @@ export default function ZoomAppHome() {
         <div style={styles.overlay}>
           <div style={styles.overlayBox}>
             <div style={styles.circleOuter}>
-              <div
-                style={{
-                  ...styles.circleInner,
-                  background: `conic-gradient(#3b82f6 ${overlay.progress * 3.6}deg, rgba(255,255,255,0.15) 0deg)`,
-                }}
-              />
+              <div style={{
+                ...styles.circleInner,
+                background: `conic-gradient(#3b82f6 ${overlay.progress * 3.6}deg, rgba(255,255,255,0.15) 0deg)`,
+              }} />
               <div style={styles.circleHole} />
               <div style={styles.circleText}>{Math.round(overlay.progress)}%</div>
             </div>
@@ -415,30 +328,22 @@ export default function ZoomAppHome() {
   );
 }
 
-/** ====== UI 部品 ====== */
+/** 小物 */
 function Label({ children }) { return <div style={{ fontSize: 12, opacity: 0.8, marginBottom: 4 }}>{children}</div>; }
-function UnderlinedInput(props) {
+function Underline(props) {
   const { disabled } = props;
   return (
     <div>
-      <input
-        {...props}
-        style={{
-          width: '100%',
-          border: 'none',
-          outline: 'none',
-          fontSize: 16,
-          padding: '8px 0',
-          color: disabled ? 'rgba(107,114,128,0.7)' : 'inherit',
-          background: 'transparent',
-        }}
-      />
+      <input {...props} style={{
+        width: '100%', border: 'none', outline: 'none', fontSize: 16, padding: '8px 0',
+        color: disabled ? 'rgba(107,114,128,0.7)' : 'inherit', background: 'transparent',
+      }}/>
       <div style={{ height: 1, background: disabled ? 'rgba(107,114,128,0.28)' : 'rgba(107,114,128,0.38)' }} />
     </div>
   );
 }
 
-/** ====== スタイル ====== */
+/** スタイル */
 const styles = {
   main: { maxWidth: 620, margin: '0 auto', padding: 20, fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif' },
   title: { margin: 0, textAlign: 'center', fontSize: 20 },
@@ -451,7 +356,6 @@ const styles = {
   btnRaised: { color: '#111827', background: '#f7f7f9', boxShadow: '0 10px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.03)' },
   btnReset: { color: '#fff', background: 'linear-gradient(135deg,#ef4444,rgba(239,68,68,.85))', boxShadow: '0 12px 20px rgba(239,68,68,.25)' },
   btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
-  linkBtn: { background: 'transparent', border: 'none', color: '#2563eb', cursor: 'pointer', textDecoration: 'underline', fontSize: 13, opacity: 0.85 },
 
   metaRow: { marginTop: 8, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   meta: { fontSize: 12, opacity: 0.75 },
