@@ -1,7 +1,8 @@
 // frontend/src/pages/api/transcribe.js
 export const config = { api: { bodyParser: false } };
 
-import { ZOOM_BOT_BASE, TRANSCRIBE_PROXY_URL, INTERNAL_TOKEN } from '@/lib/api';
+import { TRANSCRIBE_PROXY_URL, ZOOM_BOT_BASE, INTERNAL_TOKEN, authHeaders } from '@/lib/api';
+
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

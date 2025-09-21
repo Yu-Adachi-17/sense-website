@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": "src",
+      "paths": {
+        "@/*": ["*"],
+        "@/lib/*": ["lib/*"]
+      }
+    },
+    "include": ["next-env.d.ts", "src/**/*", "src/**/*.tsx", "src/**/*.ts", "src/**/*.jsx", "src/**/*.js"]
+  }
+  
