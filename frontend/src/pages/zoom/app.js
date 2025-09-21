@@ -1,4 +1,10 @@
+// pages/zoom/app.js
+
 import React, { useEffect, useMemo, useState } from 'react';
+import FullScreenOverlay from './fullscreenoverlay';
+import { db, auth } from '../firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
+import { v4 as uuidv4 } from 'uuid';
 
 /** ====== Same-origin API base ====== */
 const API_BASE = '/api/zoom-bot';
@@ -9,8 +15,7 @@ const LAST_MEETING_ID_KEY = 'minutesai.lastMeetingId';
 const LAST_PASSCODE_KEY = 'minutesai.lastPasscode';
 
 /** ====== Feature flags ====== */
-// ※ 本番UIではデバッグを見せない（Railwayへ console.log 出力のみ）
-const SHOW_DEBUG = false; // 一時的にUIで見たいときは true に
+const SHOW_DEBUG = false;
 
 /** ====== Utils ====== */
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -55,7 +60,28 @@ async function headLen(url) {
   return len ? parseInt(len, 10) : -1;
 }
 
-/** ====== Screen ====== */
+/** ====== Transcribe helpers (frontend → backend) ====== */
+async function transcribeSingle(file, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('meetingFormat', meetingFormat || '');
+  fd.append('outputType', outputType);
+  fd.append('lang', lang);
+  const r = await fetch('/api/transcribe', { method: 'POST', body: fd });
+  if (!r.ok) throw new Error(`transcribe failed ${r.status}`);
+  return r.json(); // { transcription, minutes }
+}
+async function transcribeMulti(files, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
+  const fd = new FormData();
+  files.forEach((f, i) => fd.append('files', f, f.name || `segment_${i}.m4a`));
+  fd.append('meetingFormat', meetingFormat || '');
+  fd.append('outputType', outputType);
+  fd.append('lang', lang);
+  const r = await fetch('/api/transcribe-multi', { method: 'POST', body: fd });
+  if (!r.ok) throw new Error(`multi transcribe failed ${r.status}`);
+  return r.json(); // { transcription, minutes }
+}
+
 export default function ZoomAppHome() {
   const [meetingId, setMeetingId] = useState('');
   const [passcode, setPasscode] = useState('');
@@ -68,13 +94,21 @@ export default function ZoomAppHome() {
   const [audioList, setAudioList] = useState([]);
   const [restored, setRestored] = useState(null);
 
+  // === オフラインと同じ “結果表示” 用 ===
+  const [showFullScreen, setShowFullScreen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [transcription, setTranscription] = useState('');
+  const [minutes, setMinutes] = useState('');
+  const [meetingRecordId, setMeetingRecordId] = useState(null);
+  const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
+
   const canJoin = useMemo(
     () => !!meetingId && !!passcode && !inputLocked && phase !== 'starting' && phase !== 'joining',
     [meetingId, passcode, inputLocked, phase]
   );
   const canFinish = useMemo(() => !!sessionId && phase !== 'polling', [sessionId, phase]);
 
-  // ★ 全画面を確実に白背景に（親の黒を上書き）
+  // 全画面白背景
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
@@ -88,7 +122,7 @@ export default function ZoomAppHome() {
     };
   }, []);
 
-  // 復元
+  // localStorage 復元
   useEffect(() => {
     const mid = localStorage.getItem(LAST_MEETING_ID_KEY);
     const pwd = localStorage.getItem(LAST_PASSCODE_KEY);
@@ -101,20 +135,33 @@ export default function ZoomAppHome() {
       setRestored(`restored sid=${sid}`);
       push(`restored sid=${sid}`);
     }
+    // 議事録テンプレ（オフラインと同一）
+    const storedFormat = localStorage.getItem('selectedMeetingFormat');
+    if (storedFormat) {
+      setSelectedMeetingFormat(JSON.parse(storedFormat));
+    } else {
+      const defaultFormat = {
+        id: 'general',
+        title: 'General',
+        template: `【Meeting Name】
+【Date】
+【Location】
+【Attendees】
+【Agenda(1)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(2)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem
+【Agenda(3)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem・・・・（Repeat the agenda items (4), (5), (6), and (7), if any, below.）・・`,
+        selected: true,
+      };
+      setSelectedMeetingFormat(defaultFormat);
+      localStorage.setItem('selectedMeetingFormat', JSON.stringify(defaultFormat));
+    }
   }, []);
 
-  // Railway出力（console.log）。UI表示は SHOW_DEBUG のみ
   function push(s) {
     const line = `[${now()}] ${s}`;
-    // 出力：Railway（コンソール）
-    // eslint-disable-next-line no-console
     console.log(line);
-    // 任意：UIのデバッグ欄
-    if (SHOW_DEBUG) {
-      setLogs(prev => [...prev, line]);
-    }
+    if (SHOW_DEBUG) setLogs(prev => [...prev, line]);
   }
-
   function setOverlayStage(msg, progress) {
     setOverlay({ show: true, msg, progress: Math.max(0, Math.min(100, progress)) });
   }
@@ -150,9 +197,7 @@ export default function ZoomAppHome() {
             setOverlayStage('Joined the meeting (bot running)', 25);
             break;
           }
-        } catch (e) {
-          push(`POLL(join) error: ${e.message || e}`);
-        }
+        } catch (e) { push(`POLL(join) error: ${e.message || e}`); }
         attempt++;
         await sleep(backoffMs(attempt));
       }
@@ -198,9 +243,7 @@ export default function ZoomAppHome() {
               if (s1 > 0 && s1 === s2) break;
             }
           }
-        } catch (e) {
-          push(`POLL(stop) error: ${e.message || e}`);
-        }
+        } catch (e) { push(`POLL(stop) error: ${e.message || e}`); }
         attempt++;
         await sleep(backoffMs(attempt));
       }
@@ -226,17 +269,54 @@ export default function ZoomAppHome() {
         const r = await fetch(path);
         if (!r.ok) throw new Error(`download bad ${r.status}`);
         const blob = await r.blob();
-        downloaded.push({ name: `${sessionId}_${p.split('/').pop()}`, url: URL.createObjectURL(blob) });
+        downloaded.push({
+          name: `${sessionId}_${p.split('/').pop()}`,
+          url: URL.createObjectURL(blob),
+          blob, // ← 後段のアップロード用に保持
+        });
         const prog = 20 + ((i + 1) / plan.length) * 30;
         setOverlayStage('Downloading audio…', Math.min(50, prog));
         push(`DL OK: ${p}`);
       }
       setAudioList(downloaded);
 
+      // === STT → 議事録 ===
       setOverlayStage('Transcribing audio…', 60);
-      await sleep(500);
+      const lang = (navigator.language || 'ja').slice(0, 2); // 'ja' など
+      const fmt = selectedMeetingFormat?.template || '';
+      const blobs = downloaded.map(d => new File([d.blob], d.name, { type: d.blob.type || 'audio/webm' }));
+
+      // Flexible(JSON) を既定。Classic テンプレが良ければ 'classic' に変える
+      const OUTPUT_TYPE = 'flexible';
+
+      const result = blobs.length === 1
+        ? await transcribeSingle(blobs[0], { meetingFormat: fmt, outputType: OUTPUT_TYPE, lang })
+        : await transcribeMulti(blobs, { meetingFormat: fmt, outputType: OUTPUT_TYPE, lang });
+
       setOverlayStage('Generating minutes…', 80);
-      await sleep(500);
+
+      const { transcription: tr, minutes: mm } = result || {};
+      setTranscription(tr || '');
+      setMinutes(mm || '');
+
+      // Firestore 保存（ログイン時のみ）
+      try {
+        if (auth.currentUser) {
+          const docRef = await addDoc(collection(db, 'meetingRecords'), {
+            paperID: uuidv4(),
+            transcription: tr || 'No transcription available.',
+            minutes: mm || 'No minutes available.',
+            createdAt: new Date(),
+            uid: auth.currentUser.uid,
+          });
+          setMeetingRecordId(docRef.id);
+          push(`SAVE OK: ${docRef.id}`);
+        } else {
+          push('SKIP SAVE: not logged in');
+        }
+      } catch (e) {
+        push(`SAVE ERR: ${e.message || e}`);
+      }
 
       setOverlayStage('Done', 100);
       setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 700);
@@ -244,6 +324,10 @@ export default function ZoomAppHome() {
       localStorage.removeItem(LAST_MEETING_ID_KEY);
       localStorage.removeItem(LAST_PASSCODE_KEY);
       setPhase('finished');
+
+      // 画面起動（オフライン同様）
+      setShowFullScreen(true);
+      setIsExpanded(false); // 既定：議事録（要約）ビュー
     } catch (e) {
       push(`FINISH ERROR: ${e.message || e}`);
       setOverlayStage('An error occurred', 100);
@@ -263,6 +347,7 @@ export default function ZoomAppHome() {
       localStorage.removeItem(LAST_MEETING_ID_KEY);
       localStorage.removeItem(LAST_PASSCODE_KEY);
       setLogs([]); push('RESET done');
+      setShowFullScreen(false); setTranscription(''); setMinutes(''); setMeetingRecordId(null);
     }
   }
 
@@ -348,7 +433,6 @@ export default function ZoomAppHome() {
             </section>
           )}
 
-          {/* デバッグ欄は本番UIでは非表示（SHOW_DEBUG=false） */}
           {SHOW_DEBUG && (
             <section style={styles.card}>
               <h3 style={{ margin: 0, fontSize: 16 }}>Debug Logs</h3>
@@ -357,6 +441,19 @@ export default function ZoomAppHome() {
           )}
         </div>
       </main>
+
+      {/* ★ ここでオフラインと同じ全画面ビューを起動 */}
+      {showFullScreen && (
+        <FullScreenOverlay
+          setShowFullScreen={setShowFullScreen}
+          isExpanded={isExpanded}
+          setIsExpanded={setIsExpanded}
+          transcription={transcription}
+          minutes={minutes}
+          audioURL={audioList[0]?.url || null}
+          docId={meetingRecordId}
+        />
+      )}
 
       {overlay.show && (
         <div style={styles.overlay}>
@@ -412,10 +509,7 @@ function Underline(props) {
 
 /** Styles */
 const styles = {
-  // 全画面ホワイトの“敷き紙”
   fullBleed: { position: 'fixed', inset: 0, background: '#ffffff', zIndex: 0 },
-
-  // 上下左右の中央揃えフレーム
   main: {
     position: 'relative',
     zIndex: 1,
@@ -426,11 +520,7 @@ const styles = {
     background: 'transparent',
     fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif',
   },
-
-  // 中身の幅制御カード束
   wrap: { width: '100%', maxWidth: 620 },
-
-  // グラデ文字の大見出し（大きめ）
   hero: {
     margin: '6px 0 10px',
     textAlign: 'center',
@@ -438,15 +528,12 @@ const styles = {
     fontWeight: 900,
     lineHeight: 1.05,
     letterSpacing: 0.2,
-    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #0b1a45 100%)', // 水色→青→紺
+    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #0b1a45 100%)',
     WebkitBackgroundClip: 'text',
     backgroundClip: 'text',
     color: 'transparent',
   },
-
   title: { margin: 0, textAlign: 'center', fontSize: 18, fontWeight: 700, color: '#111827' },
-
-  // 改行を効かせるため pre-line
   note: {
     textAlign: 'center',
     opacity: 0.75,
@@ -454,7 +541,6 @@ const styles = {
     whiteSpace: 'pre-line',
     fontSize: 13.5,
   },
-
   card: {
     padding: 16,
     border: '1px solid rgba(0,0,0,0.08)',
@@ -463,7 +549,6 @@ const styles = {
     marginBottom: 14,
   },
   center: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
-
   btnBase: {
     width: '70%',
     padding: '12px 16px',
@@ -490,11 +575,9 @@ const styles = {
     border: 'none',
   },
   btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
-
   metaRow: { marginTop: 8, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   meta: { fontSize: 12, opacity: 0.75 },
   code: { fontSize: 12, background: 'rgba(0,0,0,.05)', padding: '2px 6px', borderRadius: 6 },
-
   restoreText: {
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
     fontSize: 12,
@@ -511,7 +594,6 @@ const styles = {
     padding: 10,
     borderRadius: 8,
   },
-
   overlay: { position: 'fixed', inset: 0, background: 'rgba(0,0,0,.55)', display: 'grid', placeItems: 'center', zIndex: 1000 },
   overlayBox: { padding: 22, borderRadius: 18, background: 'rgba(17,24,39,.85)', color: '#fff', textAlign: 'center', width: 260 },
   overlayText: { fontWeight: 700, letterSpacing: 0.2 },

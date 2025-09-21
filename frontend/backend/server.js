@@ -495,6 +495,61 @@ app.post('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'POST /api/transcribe is working!' });
 });
 
+// server.js 内：既存の require / ヘルパ類（convertToM4A, transcribeWithOpenAI,
+// generateFlexibleMinutes, generateMinutes, upload など）が上に定義済みである前提。
+
+// --- 複数ファイル一括 STT + 議事録生成 ---
+app.post('/api/transcribe-multi', upload.array('files'), async (req, res) => {
+  console.log('[DEBUG] /api/transcribe-multi called');
+
+  try {
+    const files = req.files || [];
+    if (!files.length) {
+      return res.status(400).json({ error: 'No files uploaded' });
+    }
+
+    const meetingFormat = req.body.meetingFormat || '';
+    const outputType = (req.body.outputType || 'flexible').toLowerCase(); // 'flexible' | 'classic'
+    const langHint = req.body.lang || null;
+
+    // 1) すべて m4a に正規化 → Whisper
+    let transcribedParts = [];
+    for (let i = 0; i < files.length; i++) {
+      const f = files[i];
+      console.log(`[DEBUG] part ${i + 1}/${files.length}: path=${f.path}, mimetype=${f.mimetype}, size=${f.size}`);
+
+      // 可能なら m4a に変換（WebM/OGG などを吸収）
+      let inputPath = f.path;
+      const ext = (inputPath.split('.').pop() || '').toLowerCase();
+      if (ext !== 'm4a' || f.mimetype === 'audio/mp4') {
+        inputPath = await convertToM4A(inputPath);
+        console.log(`[DEBUG] converted -> ${inputPath}`);
+      }
+
+      const text = await transcribeWithOpenAI(inputPath); // Whisper API
+      transcribedParts.push(text || '');
+    }
+
+    // 2) 全文へ結合（順序通り）
+    const combinedTranscript = transcribedParts.join('\n---\n');
+
+    // 3) 1回だけ議事録生成（Flexible 既定 / Classic テンプレ）
+    let minutesOut = '';
+    if (outputType === 'flexible') {
+      minutesOut = await generateFlexibleMinutes(combinedTranscript, langHint);
+    } else {
+      minutesOut = await generateMinutes(combinedTranscript, meetingFormat);
+    }
+
+    console.log('[DEBUG] multi transcription done. length=', combinedTranscript.length);
+    return res.json({ transcription: combinedTranscript, minutes: minutesOut });
+  } catch (err) {
+    console.error('[ERROR] /api/transcribe-multi:', err.response?.data || err.message);
+    return res.status(500).json({ error: 'Internal error', details: err.response?.data || err.message });
+  }
+});
+
+
 // Stripe Checkout Session creation endpoint
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
