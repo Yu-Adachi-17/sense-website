@@ -1,49 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebaseConfig';
-import FullScreenOverlay from '../fullscreenoverlay';
+
+// FullScreenOverlay はブラウザ API に触れる可能性があるので SSR を無効化
+const FullScreenOverlay = dynamic(() => import('../fullscreenoverlay'), { ssr: false });
 
 export default function MinutesDetailPage() {
   const router = useRouter();
-  const { id } = router.query;
-  const [paper, setPaper] = useState(null);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // ← 新しく追加
+  const { id } = router.query || {};
 
+  // undefined=読み込み中, null=見つからず, object=OK
+  const [paper, setPaper] = useState(undefined);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Firestore はクライアント側でだけ import/実行（SSRに載せない）
   useEffect(() => {
     if (!router.isReady || !id) return;
-    const fetchPaper = async () => {
+
+    (async () => {
       try {
-        const docRef = doc(db, "meetingRecords", id);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setPaper({ id: docSnap.id, ...docSnap.data() });
-        } else {
-          setPaper(null);
-        }
-      } catch (error) {
-        console.error("Error fetching paper data:", error);
+        const { doc, getDoc } = await import('firebase/firestore');
+        const { db } = await import('../firebaseConfig');
+        const ref = doc(db, 'meetingRecords', String(id));
+        const snap = await getDoc(ref);
+        setPaper(snap.exists() ? { id: snap.id, ...snap.data() } : null);
+      } catch (err) {
+        console.error('MinutesDetail fetch error:', err);
         setPaper(null);
-      } finally {
-        setIsLoading(false); // ← 読み込み完了
       }
-    };
-    fetchPaper();
+    })();
   }, [router.isReady, id]);
 
-  // 読み込み完了後に paper が null ならリダイレクト
-  useEffect(() => {
-    if (!isLoading && !paper) {
-      router.push('/minutes-list');
-    }
-  }, [isLoading, paper]);
+  const handleClose = () => router.back();
 
-  if (isLoading || !paper) return null; // ← 読み込み中やリダイレクト準備中は何も表示しない
-
-  const handleClose = () => {
-    router.back();
-  };
+  if (paper === undefined) return null; // SSR/初期レンダリングでは何も描かない
+  if (paper === null) {
+    if (typeof window !== 'undefined') router.replace('/minutes-list');
+    return null;
+  }
 
   return (
     <FullScreenOverlay

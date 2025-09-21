@@ -10,7 +10,6 @@ import PurchaseMenu from './purchasemenu';
 
 
 import MinutesList from './minutes-list';
-import MinutesDetail from './minutesdetail';
 
 
 import ServicesWrapper from '../routes/ServicesWrapper';
