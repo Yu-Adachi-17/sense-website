@@ -1,3 +1,4 @@
+// src/pages/minutes/[id].js
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
@@ -20,6 +21,7 @@ export default function MinutesDetailPage() {
     (async () => {
       try {
         const { doc, getDoc } = await import('firebase/firestore');
+        // ★ ここを修正（minutes/[id].js → 2つ上に戻る）
         const { db } = await import('../../firebaseConfig');
         const ref = doc(db, 'meetingRecords', String(id));
         const snap = await getDoc(ref);
