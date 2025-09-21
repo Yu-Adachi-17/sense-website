@@ -1,91 +1,71 @@
-export const config = { api: { bodyParser: false } }; // 生のBodyは使わない（自前で読む）
+// frontend/src/pages/api/transcribe.js
+export const config = { api: { bodyParser: false } };
+
+import { ZOOM_BOT_BASE, TRANSCRIBE_PROXY_URL, INTERNAL_TOKEN } from '@/lib/api';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
   try {
-    const { sid, language = 'ja', outputType = 'flexible', meetingFormat = '' } =
-      await readJson(req);
+    const { sid, language = 'ja', outputType = 'flexible', meetingFormat = '' } = await readJson(req);
+    if (!sid) return res.status(400).json({ error: 'missing_sid' });
 
-    // -------------------------------
-    // どの Origin に取りに行くかを決定
-    // 優先: NEXT_PUBLIC_API_BASE_URL > NEXT_PUBLIC_API_BASE > 現在のホスト
-    // -------------------------------
-    const envBase =
-      process.env.NEXT_PUBLIC_API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE || '';
-    const headerProto = req.headers['x-forwarded-proto'] || 'https';
-    const headerHost = req.headers['x-forwarded-host'] || req.headers.host;
-    const fallbackBase = `${headerProto}://${headerHost}`;
-    const baseUrl = (envBase || fallbackBase).replace(/\/+$/, '');
-
-    // -------------------------------
-    // フロントの files API から最初のセグメント名を取得
-    // -------------------------------
-    const listUrl = `${baseUrl}/api/zoom-bot/files/${encodeURIComponent(sid)}`;
+    // 1) セグメント一覧
+    const listUrl = `${ZOOM_BOT_BASE}/api/zoom-bot/files/${encodeURIComponent(sid)}`;
     const listRes = await fetch(listUrl, {
-      headers: { 'x-internal-token': process.env.INTERNAL_TOKEN || '' },
+      headers: authHeaders(),
+      // ネットワーク障害で固まらないよう保険
+      signal: AbortSignal.timeout(15000),
     });
-    const listJson = await listRes.json().catch(() => ({}));
+
+    const list = await safeJson(listRes);
     if (!listRes.ok) {
-      return res.status(listRes.status).json(listJson);
+      return res.status(listRes.status).json({ error: 'list_failed', detail: list });
     }
 
-    const files = Array.isArray(listJson.files) ? listJson.files : [];
-    // 先頭を使用（必要なら webm 優先に絞る）
-    const first = files.find((f) => typeof f === 'string') || null;
-    if (!first) {
-      return res.status(409).json({ error: 'no_audio_ready_yet' });
-    }
+    const first = Array.isArray(list.files) ? list.files[0] : null;
+    if (!first) return res.status(409).json({ error: 'no_audio_ready_yet' });
 
-    // セグメント本体を取得（webm想定だが実際は何でもOK、MIMEはここで付与）
-    const audioUrl = `${baseUrl}/api/zoom-bot/files/${encodeURIComponent(
-      sid
-    )}/${first}`;
+    // 2) 最初のセグメントを取得（webm 想定だが中身は何でも良い）
+    const audioUrl = `${ZOOM_BOT_BASE}/api/zoom-bot/files/${encodeURIComponent(sid)}/${first}`;
     const audioRes = await fetch(audioUrl, {
-      headers: { 'x-internal-token': process.env.INTERNAL_TOKEN || '' },
+      headers: authHeaders(),
+      signal: AbortSignal.timeout(15000),
     });
     if (!audioRes.ok) {
       const t = await audioRes.text().catch(() => '');
-      return res
-        .status(audioRes.status)
-        .json({ error: 'fetch_segment_failed', detail: t.slice(0, 200) });
+      return res.status(audioRes.status).json({ error: 'fetch_segment_failed', detail: t.slice(0, 400) });
     }
-    const buf = Buffer.from(await audioRes.arrayBuffer()); // webm バイナリ
+    const buf = Buffer.from(await audioRes.arrayBuffer());
 
-    // -------------------------------
-    // “実在の API”（backend/server.js の /api/transcribe）にプロキシ
-    // TRANSCRIBE_PROXY_URL は絶対URLで:
-    //   例) https://sense-website-production.up.railway.app/api/transcribe
-    //       または https://api.sense-ai.world/api/transcribe
-    // -------------------------------
-    const target = process.env.TRANSCRIBE_PROXY_URL;
-    if (!target) {
-      return res.status(500).json({ error: 'TRANSCRIBE_PROXY_URL not set' });
-    }
+    // 3) 実在のバックエンド（Railway）へプロキシ
+    const target = TRANSCRIBE_PROXY_URL; // 例: https://sense-website-production.up.railway.app/api/transcribe
+    if (!target) return res.status(500).json({ error: 'TRANSCRIBE_PROXY_URL not set' });
 
-    // Node 18+ の fetch / FormData / Blob を利用
     const fd = new FormData();
-    // Blob の MIME は webm を付与（Whisper 側で問題あればサーバが m4a 変換してくれる方針）
-    fd.append('file', new Blob([buf], { type: 'audio/webm' }), 'segment.webm');
+    fd.append('file', new Blob([buf], { type: 'audio/webm' }), first || 'segment.webm');
     fd.append('lang', language);
     fd.append('outputType', outputType);
     if (meetingFormat) fd.append('meetingFormat', meetingFormat);
 
-    const proxied = await fetch(target, { method: 'POST', body: fd });
+    const proxied = await fetch(target, {
+      method: 'POST',
+      body: fd,
+      // バックエンド側で INTERNAL_TOKEN を見るなら必要（CORSは同ドメインなので不要）
+      headers: authHeaders(),
+      signal: AbortSignal.timeout(600000), // Whisper/要約は時間がかかるので長め
+    });
+
     const text = await proxied.text();
     let json;
-    try {
-      json = JSON.parse(text);
-    } catch {
-      json = { raw: text };
-    }
+    try { json = JSON.parse(text); } catch { json = { raw: text }; }
+
     return res.status(proxied.status).json(json);
   } catch (e) {
-    return res
-      .status(500)
-      .json({ error: 'transcribe_proxy_failed', detail: String(e?.message || e) });
+    return res.status(500).json({ error: 'transcribe_proxy_failed', detail: String(e?.message || e) });
   }
 }
 
@@ -95,12 +75,19 @@ function readJson(req) {
     let data = '';
     req.on('data', (c) => (data += c));
     req.on('end', () => {
-      try {
-        resolve(JSON.parse(data || '{}'));
-      } catch (e) {
-        reject(e);
-      }
+      try { resolve(JSON.parse(data || '{}')); }
+      catch (err) { reject(err); }
     });
     req.on('error', reject);
   });
+}
+
+async function safeJson(res) {
+  try { return await res.json(); } catch { return {}; }
+}
+
+function authHeaders(extra) {
+  const h = Object.assign({}, extra || {});
+  if (INTERNAL_TOKEN) h['x-internal-token'] = INTERNAL_TOKEN;
+  return h;
 }
