@@ -20,7 +20,7 @@ export default function MinutesDetailPage() {
     (async () => {
       try {
         const { doc, getDoc } = await import('firebase/firestore');
-        const { db } = await import('../firebaseConfig');
+        const { db } = await import('../../firebaseConfig');
         const ref = doc(db, 'meetingRecords', String(id));
         const snap = await getDoc(ref);
         setPaper(snap.exists() ? { id: snap.id, ...snap.data() } : null);
