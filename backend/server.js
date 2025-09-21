@@ -968,6 +968,8 @@ app.post('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'POST /api/transcribe is working!' });
 });
 
+
+
 // Stripe Checkout Session creation endpoint
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
