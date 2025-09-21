@@ -1,11 +1,11 @@
+// frontend/jsconfig.json
 {
     "compilerOptions": {
       "baseUrl": "src",
       "paths": {
-        "@/*": ["*"],
-        "@/lib/*": ["lib/*"]
+        "@/*": ["*"]
       }
     },
-    "include": ["next-env.d.ts", "src/**/*", "src/**/*.tsx", "src/**/*.ts", "src/**/*.jsx", "src/**/*.js"]
+    "exclude": ["node_modules", ".next"]
   }
   
