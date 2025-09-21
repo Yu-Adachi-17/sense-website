@@ -1,6 +1,7 @@
 // pages/api/transcribe.js
 export const config = { api: { bodyParser: false } };
 export const runtime = 'nodejs';
+export const maxDuration = 300; // ← 5分まで許可（ダッシュボード設定と併用）
 
 import formidable from 'formidable';
 import fs from 'fs';
@@ -36,11 +37,15 @@ async function forwardToProxy({ blobs, fields }) {
   fd.append('outputType', String(fields.outputType ?? 'flexible'));
   fd.append('lang', String(fields.lang ?? 'ja'));
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort('client-timeout'), 110000); // 110s の自衛（Vercelの実行上限未満）
   const res = await fetch(TRANSCRIBE_PROXY_URL, {
     method: 'POST',
     headers: authHeaders?.() || undefined,
     body: fd,
-  });
+    signal: controller.signal,
+  }).catch((e) => ({ ok: false, status: 504, _timeout: true, _err: String(e) }));
+  clearTimeout(timeout);
   const txt = await res.text();
   let json;
   try { json = JSON.parse(txt); } catch { json = { raw: txt }; }
