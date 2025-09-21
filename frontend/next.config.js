@@ -1,11 +1,12 @@
 // frontend/next.config.js
-// Next 15+: experimental.appDir は削除
+// Next 15+: experimental.appDir は削除（App Router はそのまま使用）
+
 const csp = [
   "default-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
 
-  // Zoom を <iframe> で読み込む想定
+  // Zoom を <iframe> で読み込む想定（埋め込みの許可先）
   "frame-ancestors 'self' https://*.zoom.us https://*.zoom.com",
   "frame-src https://*.zoom.us https://*.zoom.com",
 
