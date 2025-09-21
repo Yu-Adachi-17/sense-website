@@ -1,67 +1,65 @@
-// frontend/src/pages/api/trascribe.js
+// frontend/src/pages/api/transcribe.js
+// Pages Router の API Route。multipart を受けるので bodyParser を切る
+export const config = { api: { bodyParser: false } };
 
-export const config = { api: { bodyParser: false } }; // 生のBodyは使わない
+import { TRANSCRIBE_PROXY_URL, authHeaders } from '@/lib/api'; // 既存のまま
 
-// ここで '@/lib/api' を使いたい場合は import する（重複定義禁止）
-import { TRANSCRIBE_PROXY_URL, authHeaders } from '@/lib/api'; // ← 既存なら残す
+import formidable from 'formidable';
+import fs from 'fs';
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
-
-  try {
-    const { sid, language = 'ja', outputType = 'flexible', meetingFormat = '' } = await readJson(req);
-
-    // フロントの files API から最初のセグメントを取得
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE ||
-      `${req.headers['x-forwarded-proto'] || 'https'}://${req.headers['x-forwarded-host'] || req.headers.host}`;
-
-    const listUrl = `${baseUrl}/api/zoom-bot/files/${encodeURIComponent(sid)}`;
-    const listRes = await fetch(listUrl, { headers: authHeaders() }); // ← 重複定義していた authHeaders は import を使う
-    const list = await listRes.json().catch(()=> ({}));
-    if (!listRes.ok) return res.status(listRes.status).json(list);
-
-    const first = Array.isArray(list.files) ? list.files[0] : null;
-    if (!first) return res.status(409).json({ error: 'no_audio_ready_yet' });
-
-    const audioUrl = `${baseUrl}/api/zoom-bot/files/${encodeURIComponent(sid)}/${first}`;
-    const audioRes = await fetch(audioUrl, { headers: authHeaders() });
-    if (!audioRes.ok) {
-      const t = await audioRes.text().catch(()=> '');
-      return res.status(audioRes.status).json({ error: 'fetch_segment_failed', detail: t.slice(0,200) });
-    }
-    const buf = Buffer.from(await audioRes.arrayBuffer()); // webm バイナリ
-
-    // ← ここが“実在のAPI”（既存 backend/server.js の /api/transcribe）
-    const target = TRANSCRIBE_PROXY_URL;
-    if (!target) return res.status(500).json({ error: 'TRANSCRIBE_PROXY_URL not set' });
-
-    // Node18 の Web FormData/Blob を利用（境界は自動）
-    const fd = new FormData();
-    fd.append('file', new Blob([buf], { type: 'audio/webm' }), 'segment.webm');
-    fd.append('lang', language);
-    fd.append('outputType', outputType);
-    if (meetingFormat) fd.append('meetingFormat', meetingFormat);
-
-    const proxied = await fetch(target, { method: 'POST', body: fd });
-    const text = await proxied.text(); // Whisper/要約の出力は JSON を期待
-    let json;
-    try { json = JSON.parse(text); } catch { json = { raw: text }; }
-
-    return res.status(proxied.status).json(json);
-  } catch (e) {
-    return res.status(500).json({ error: 'transcribe_proxy_failed', detail: String(e?.message || e) });
-  }
+function parseMultipart(req) {
+  return new Promise((resolve, reject) => {
+    const form = formidable({ multiples: true, keepExtensions: true });
+    form.parse(req, (err, fields, files) => {
+      if (err) return reject(err);
+      resolve({ fields, files });
+    });
+  });
 }
 
-/* ---- helpers ---- */
-function readJson(req) {
-  return new Promise((resolve, reject) => {
-    let data = '';
-    req.on('data', (c) => (data += c));
-    req.on('end', () => {
-      try { resolve(JSON.parse(data || '{}')); }
-      catch (e) { reject(e); }
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+  try {
+    if (!TRANSCRIBE_PROXY_URL) {
+      return res.status(500).json({ error: 'TRANSCRIBE_PROXY_URL not set' });
+    }
+
+    // 1) 受信した multipart を読む
+    const { fields, files } = await parseMultipart(req);
+
+    // file or files（単一/複数どちらも許可）
+    const toArray = (v) => (Array.isArray(v) ? v : v ? [v] : []);
+    const fileList = [
+      ...toArray(files.file),
+      ...toArray(files.files),
+    ];
+    if (fileList.length === 0) {
+      return res.status(400).json({ error: 'no_file' });
+    }
+
+    // 2) Whisperプロキシへ転送する multipart を組み立て
+    const fd = new FormData();
+    for (const f of fileList) {
+      fd.append('files', new Blob([fs.readFileSync(f.filepath)], { type: f.mimetype || 'application/octet-stream' }), f.originalFilename || 'audio.webm');
+    }
+    fd.append('meetingFormat', String(fields.meetingFormat || ''));
+    fd.append('outputType', String(fields.outputType || 'flexible'));
+    fd.append('lang', String(fields.lang || 'ja'));
+
+    // 3) 転送
+    const proxied = await fetch(TRANSCRIBE_PROXY_URL, {
+      method: 'POST',
+      headers: authHeaders(),        // 使っていなければ削除OK
+      body: fd,
     });
-    req.on('error', reject);
-  });
+
+    const text = await proxied.text();
+    let json;
+    try { json = JSON.parse(text); } catch { json = { raw: text }; }
+    return res.status(proxied.status).json(json);
+  } catch (e) {
+    return res.status(500).json({ error: 'transcribe_failed', detail: String(e?.message || e) });
+  }
 }
