@@ -1,46 +1,29 @@
-# ✅ フロントエンドのビルド用
-FROM node:18-alpine AS frontend-build
-
-WORKDIR /app/frontend
-
-# フロントエンドの依存関係をインストール
-COPY frontend/package*.json ./
-RUN npm install --legacy-peer-deps
-
-
-# 確認: `next` がインストールされているか
-RUN ls -la node_modules/.bin/
-
-# フロントエンドのソースコードをコピー
-COPY frontend /app/frontend
-
-# ✅ フロントエンドをビルド
-RUN npm run build
-
-# 確認: `.next/` が作成されているか
-RUN ls -la /app/frontend/.next || (echo "ERROR: frontend build folder missing!" && exit 1)
-
-
-# ✅ バックエンドの設定
-FROM node:18-alpine
-
-WORKDIR /app/backend
-
-# バックエンドの依存をインストール
-COPY backend/package*.json ./
-RUN npm install
-
-# バックエンドのソースコードをコピー
-COPY backend /app/backend
-
-# ✅ フロントエンドのビルド成果物をバックエンドの `public/` にコピー
-COPY --from=frontend-build /app/frontend/.next /app/backend/public
-
-# 確認: フロントエンドビルドがバックエンドに正しくコピーされたか
-RUN ls -la /app/backend/public || (echo "ERROR: frontend build not copied to backend/public!" && exit 1)
-
-# ポートを公開
-EXPOSE 5001
-
-# 最後にアプリを起動
-CMD ["node", "server.js"]
+# --- Build stage ---
+    FROM node:20-alpine AS build
+    WORKDIR /app
+    
+    # 依存 → ソース の順でコピー
+    COPY frontend/package*.json ./frontend/
+    WORKDIR /app/frontend
+    RUN npm ci
+    COPY frontend/ ./
+    
+    # 省サイズ: スタンドアロン出力
+    # next.config.js に { output: 'standalone' } を入れておくと最適
+    RUN npm run build
+    
+    # --- Runtime stage ---
+    FROM node:20-alpine AS runner
+    WORKDIR /app
+    
+    # スタンドアロン出力だけコピー（依存も同梱されます）
+    # 公式: .next/standalone + .next/static + public を配ればOK
+    # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
+    COPY --from=build /app/frontend/.next/standalone ./
+    COPY --from=build /app/frontend/.next/static ./frontend/.next/static
+    COPY --from=build /app/frontend/public ./frontend/public
+    
+    # ポートは 3000
+    EXPOSE 3000
+    CMD ["node", "server.js"]
+    
