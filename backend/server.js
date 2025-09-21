@@ -116,7 +116,14 @@ app.use((req, res, next) => {
 });
 
 // Define allowed origins
-const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
+// もとの allowedOrigins を置き換え
+const allowedOrigins = [
+  'https://sense-ai.world',
+  'https://www.sense-ai.world',
+  'https://sense-website-production.up.railway.app', // ← オフライン(静的+API)の Origin
+  'http://localhost:3000' // ← ローカル開発時
+];
+
 
 // CORS settings
 const corsOptions = {
