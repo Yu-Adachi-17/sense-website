@@ -64,32 +64,26 @@ async function headLen(url) {
 /** ====== Transcribe helpers (frontend → backend) ====== */
 async function transcribeBySid(
   sid,
-  { meetingFormat = '', outputType = 'flexible', lang = 'ja' }
+  { meetingFormat = '', outputType = 'flexible', lang = 'ja', preferred = '' }
 ) {
-  // デバッグ：投げる内容を見える化（超重要）
-  const payload = { sid, lang, outputType, meetingFormat };
+  const payload = { sid, lang, outputType, meetingFormat, preferred };
   console.log('[transcribeBySid] request payload =', payload);
 
   const r = await fetch('/api/transcribe', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' }, // ← JSON 経路なのでOK
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
-
   const text = await r.text();
   console.log('[transcribeBySid] status =', r.status, 'raw =', text.slice(0, 200));
 
   if (!r.ok) {
-    // 失敗時は Content-Type とエラー本文を必ず見たい
     const ct = r.headers.get('content-type');
     throw new Error(`transcribe failed ${r.status} (ct=${ct}): ${text}`);
   }
-  try {
-    return JSON.parse(text); // { transcription, minutes }
-  } catch {
-    return { raw: text };
-  }
+  try { return JSON.parse(text); } catch { return { raw: text }; }
 }
+
 
 
 export default function ZoomAppHome() {
@@ -297,10 +291,15 @@ const fmt = selectedMeetingFormat?.template || '';
 const OUTPUT_TYPE = 'flexible';
 
 // ここを置き換え
+const preferred = (downloaded[0]?.name || '')
+  // sessionId_xxx という保存名なので元のパスを復元
+  .replace(`${sessionId}_`, '')                // 例: "1758451533519_seg_000.webm" → "seg_000.webm"
+  .replace(/^([^/]+)$/, 'segments/$1');        // 先頭に "segments/" を付与
 const result = await transcribeBySid(sessionId, {
   meetingFormat: fmt,
   outputType: OUTPUT_TYPE,
-  lang
+  lang,
+  preferred, // ← 追加
 });
 
 setOverlayStage('Generating minutes…', 80);
