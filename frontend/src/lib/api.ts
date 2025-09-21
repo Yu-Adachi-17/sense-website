@@ -1,34 +1,25 @@
-// 共通: API ベースURLとパス結合ヘルパ
-// 優先順位: NEXT_PUBLIC_API_BASE_URL > NEXT_PUBLIC_API_BASE > 空文字
-const RAW_BASE =
-  (process.env.NEXT_PUBLIC_API_BASE_URL ||
-    process.env.NEXT_PUBLIC_API_BASE ||
-    '').trim();
+// frontend/src/lib/api.ts
+// すべての API ベース URL をここで一元管理
+export const API_BASE =
+  process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5001';
 
-export const API_BASE = RAW_BASE.replace(/\/+$/, ''); // 末尾スラッシュ除去
+// Zoom録音Bot(segments/files)を配信しているゲートウェイのベース
+// 同居なら API_BASE と同じでOK。別ホストなら個別に設定。
+export const ZOOM_BOT_BASE =
+  process.env.NEXT_PUBLIC_ZOOM_BOT_BASE || API_BASE;
 
-export function apiUrl(path: string): string {
-  const p = path.startsWith('/') ? path : `/${path}`;
-  return API_BASE ? `${API_BASE}${p}` : p; // BASE 未設定なら相対パスを返す
-}
+// Whisper など文字起こしを担当する最終バックエンド
+export const TRANSCRIBE_PROXY_URL =
+  process.env.NEXT_PUBLIC_TRANSCRIBE_PROXY_URL ||
+  process.env.TRANSCRIBE_PROXY_URL || // サーバ側ENVで注入してもOK
+  `${API_BASE}/api/transcribe`;
 
-// 便利関数（必要なら使ってください）
-export async function postJson<T = any>(
-  path: string,
-  body: unknown,
-  init?: RequestInit
-): Promise<T> {
-  const res = await fetch(apiUrl(path), {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', ...(init?.headers || {}) },
-    body: JSON.stringify(body ?? {}),
-    ...init,
-  });
-  const txt = await res.text();
-  try {
-    return JSON.parse(txt);
-  } catch {
-    // JSONでない場合のフォールバック
-    return { raw: txt } as unknown as T;
-  }
+// 内部トークン（必要なときだけ付ける）
+export const INTERNAL_TOKEN = process.env.NEXT_PUBLIC_INTERNAL_TOKEN || '';
+
+// 便利ヘルパ
+export function authHeaders(extra?: HeadersInit): HeadersInit {
+  const h: Record<string, string> = { ...(extra as any) };
+  if (INTERNAL_TOKEN) h['x-internal-token'] = INTERNAL_TOKEN;
+  return h;
 }
