@@ -1,10 +1,11 @@
 // pages/zoom/app.js
 
 import React, { useEffect, useMemo, useState } from 'react';
-import FullScreenOverlay from './fullscreenoverlay';
-import { db, auth } from '../firebaseConfig';
+import FullScreenOverlay from '../fullscreenoverlay'
+import { db, auth } from '../../firebaseConfig'
 import { collection, addDoc } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
+
 
 /** ====== Same-origin API base ====== */
 const API_BASE = '/api/zoom-bot';

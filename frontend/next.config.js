@@ -19,7 +19,7 @@ const securityHeaders = [
 
 module.exports = {
   reactStrictMode: true,
-  // experimental: { appDir: true },
+  experimental: { appDir: true },
   pageExtensions: ['tsx','ts','jsx','js'],
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
