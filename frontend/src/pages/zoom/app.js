@@ -6,7 +6,6 @@ import { db, auth } from '../../firebaseConfig'
 import { collection, addDoc } from 'firebase/firestore';
 import { v4 as uuidv4 } from 'uuid';
 
-
 /** ====== Same-origin API base ====== */
 const API_BASE = '/api/zoom-bot';
 
@@ -62,6 +61,21 @@ async function headLen(url) {
 }
 
 /** ====== Transcribe helpers (frontend → backend) ====== */
+// ブラウザでDL済みの Blob/File をそのまま転送（推奨）
+async function transcribeFromBlobs(blobs, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
+  const fd = new FormData();
+  blobs.forEach((b, i) => fd.append('files', b, b.name || `segment_${i}.webm`));
+  fd.append('meetingFormat', meetingFormat || '');
+  fd.append('outputType', outputType);
+  fd.append('lang', lang);
+
+  const r = await fetch('/api/transcribe', { method: 'POST', body: fd });
+  const text = await r.text();
+  if (!r.ok) throw new Error(`transcribe failed ${r.status}: ${text}`);
+  return JSON.parse(text);
+}
+
+// 旧 JSON 経由のフォールバック（残しておくが本流では未使用）
 async function transcribeBySid(
   sid,
   { meetingFormat = '', outputType = 'flexible', lang = 'ja', preferred = '' }
@@ -83,8 +97,6 @@ async function transcribeBySid(
   }
   try { return JSON.parse(text); } catch { return { raw: text }; }
 }
-
-
 
 export default function ZoomAppHome() {
   const [meetingId, setMeetingId] = useState('');
@@ -284,29 +296,30 @@ export default function ZoomAppHome() {
       }
       setAudioList(downloaded);
 
-// === STT → 議事録 ===
-setOverlayStage('Transcribing audio…', 60);
-const lang = (navigator.language || 'ja').slice(0, 2);
-const fmt = selectedMeetingFormat?.template || '';
-const OUTPUT_TYPE = 'flexible';
+      // === STT → 議事録（Blob を直接送る） ===
+      setOverlayStage('Transcribing audio…', 60);
+      const lang = (navigator.language || 'ja').slice(0, 2);
+      const fmt = selectedMeetingFormat?.template || '';
+      const OUTPUT_TYPE = 'flexible';
 
-// ここを置き換え
-const preferred = (downloaded[0]?.name || '')
-  // sessionId_xxx という保存名なので元のパスを復元
-  .replace(`${sessionId}_`, '')                // 例: "1758451533519_seg_000.webm" → "seg_000.webm"
-  .replace(/^([^/]+)$/, 'segments/$1');        // 先頭に "segments/" を付与
-const result = await transcribeBySid(sessionId, {
-  meetingFormat: fmt,
-  outputType: OUTPUT_TYPE,
-  lang,
-  preferred, // ← 追加
-});
+      // downloaded[] -> File[] に変換して送信
+      const filesToSend = downloaded.map((d, i) =>
+        new File([d.blob], d.name || `segment_${i}.webm`, { type: d.blob?.type || 'audio/webm' })
+      );
+      console.log('[transcribe] sending files =',
+        filesToSend.map(f => ({ name: f.name, type: f.type, size: f.size }))
+      );
 
-setOverlayStage('Generating minutes…', 80);
-const { transcription: tr, minutes: mm } = result || {};
-setTranscription(tr || '');
-setMinutes(mm || '');
+      const result = await transcribeFromBlobs(filesToSend, {
+        meetingFormat: fmt,
+        outputType: OUTPUT_TYPE,
+        lang,
+      });
 
+      setOverlayStage('Generating minutes…', 80);
+      const { transcription: tr, minutes: mm } = result || {};
+      setTranscription(tr || '');
+      setMinutes(mm || '');
 
       // Firestore 保存（ログイン時のみ）
       try {
