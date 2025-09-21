@@ -1,10 +1,7 @@
-// frontend/jsconfig.json
 {
     "compilerOptions": {
       "baseUrl": "src",
-      "paths": {
-        "@/*": ["*"]
-      }
+      "paths": { "@/*": ["*"] }
     },
     "exclude": ["node_modules", ".next"]
   }
