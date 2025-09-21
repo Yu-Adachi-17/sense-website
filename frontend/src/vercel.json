@@ -1,7 +1,15 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "build": {
     "env": {
       "NPM_FLAGS": "--legacy-peer-deps"
+    }
+  },
+  "functions": {
+    "src/pages/api/transcribe.js": {
+      "runtime": "nodejs18.x",
+      "maxDuration": 300,
+      "memory": 2048
     }
   }
 }
