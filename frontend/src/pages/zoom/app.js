@@ -1,19 +1,19 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
-/** ====== 同一オリジンの API ベース ====== */
+/** ====== Same-origin API base ====== */
 const API_BASE = '/api/zoom-bot';
 
-/** ====== 永続キー ====== */
+/** ====== Persistence keys ====== */
 const LAST_SID_KEY = 'minutesai.lastSessionId';
 const LAST_MEETING_ID_KEY = 'minutesai.lastMeetingId';
 const LAST_PASSCODE_KEY = 'minutesai.lastPasscode';
 
-/** ====== ユーティリティ ====== */
+/** ====== Utils ====== */
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const backoffMs = n => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
 const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 
-/** ====== API ラッパ（ログ込み） ====== */
+/** ====== API wrappers (with logs) ====== */
 async function apiStart(meetingNumber, meetingPasscode, runSecs = 21600) {
   const url = `${API_BASE}/start`;
   console.log(`[${now()}] POST ${url}`, { meetingNumber, passcode: !!meetingPasscode, runSecs });
@@ -59,7 +59,7 @@ async function headLen(url) {
   return len ? parseInt(len, 10) : -1;
 }
 
-/** ====== 画面 ====== */
+/** ====== Screen ====== */
 export default function ZoomAppHome() {
   const [meetingId, setMeetingId] = useState('');
   const [passcode, setPasscode] = useState('');
@@ -104,13 +104,13 @@ export default function ZoomAppHome() {
 
   async function onJoin() {
     if (!canJoin) return;
-    const ok = window.confirm('"MinutesAI Bot"参加のリクエストが会議のホストに通知されます');
+    const ok = window.confirm('A request to add “MinutesAI Bot” will be sent to the meeting host.');
     if (!ok) return;
 
     try {
       setPhase('starting');
       setAudioList([]);
-      setOverlayStage('起動しています…', 5);
+      setOverlayStage('Starting up…', 5);
       push('JOIN: calling /api/zoom-bot/start');
 
       const sid = await apiStart(meetingId, passcode, 21600);
@@ -122,8 +122,8 @@ export default function ZoomAppHome() {
       setInputLocked(true);
       setPhase('joining');
 
-      // 軽く監視（最大3分）
-      setOverlayStage('参加リクエスト送信。ホストに許可を依頼してください…', 15);
+      // Light watchdog (max 3 min)
+      setOverlayStage('Join request sent. Ask the host to approve…', 15);
       const begin = Date.now();
       let attempt = 0;
       while (Date.now() - begin < 180000) {
@@ -131,7 +131,7 @@ export default function ZoomAppHome() {
           const st = await apiStatus(sid);
           push(`POLL(join): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
           if (st.status === 'running') {
-            setOverlayStage('ミーティングに参加しました（Bot稼働中）', 25);
+            setOverlayStage('Joined the meeting (bot running)', 25);
             break;
           }
         } catch (e) {
@@ -144,7 +144,7 @@ export default function ZoomAppHome() {
     } catch (e) {
       setPhase('error');
       push(`JOIN ERROR: ${e.message || e}`);
-      setOverlayStage(`起動失敗: ${e.message || 'network error'}`, 100);
+      setOverlayStage(`Failed to start: ${e.message || 'network error'}`, 100);
       setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 1800);
     }
   }
@@ -153,7 +153,7 @@ export default function ZoomAppHome() {
     if (!sessionId) return;
     try {
       setPhase('polling');
-      setOverlayStage('サーバで録音を最終化しています…', 10);
+      setOverlayStage('Finalizing recording on server…', 10);
       push('FINISH: calling /api/zoom-bot/stop');
       await apiStop(sessionId);
 
@@ -189,7 +189,7 @@ export default function ZoomAppHome() {
         await sleep(backoffMs(attempt));
       }
 
-      setOverlayStage('音声データをダウンロードしています…', 20);
+      setOverlayStage('Downloading audio…', 20);
       const files = await apiFiles(sessionId);
       const segments = files.filter(f => f.startsWith('segments/')).sort();
       const singleWebm = files.find(f => f.endsWith('.webm') && !f.includes('seg_'));
@@ -212,17 +212,17 @@ export default function ZoomAppHome() {
         const blob = await r.blob();
         downloaded.push({ name: `${sessionId}_${p.split('/').pop()}`, url: URL.createObjectURL(blob) });
         const prog = 20 + ((i + 1) / plan.length) * 30;
-        setOverlayStage('音声データをダウンロードしています…', Math.min(50, prog));
+        setOverlayStage('Downloading audio…', Math.min(50, prog));
         push(`DL OK: ${p}`);
       }
       setAudioList(downloaded);
 
-      setOverlayStage('音声をテキスト化しています…', 60);
+      setOverlayStage('Transcribing audio…', 60);
       await sleep(500);
-      setOverlayStage('議事録を生成しています…', 80);
+      setOverlayStage('Generating minutes…', 80);
       await sleep(500);
 
-      setOverlayStage('完了しました', 100);
+      setOverlayStage('Done', 100);
       setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 700);
       localStorage.removeItem(LAST_SID_KEY);
       localStorage.removeItem(LAST_MEETING_ID_KEY);
@@ -230,14 +230,14 @@ export default function ZoomAppHome() {
       setPhase('finished');
     } catch (e) {
       push(`FINISH ERROR: ${e.message || e}`);
-      setOverlayStage('エラーが発生しました', 100);
+      setOverlayStage('An error occurred', 100);
       setPhase('error');
       setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 800);
     }
   }
 
   async function onReset() {
-    if (!window.confirm('会議の紐付けをリセットしますか？\n録音情報は全て失われます')) return;
+    if (!window.confirm('Reset the meeting link? All recording info will be lost.')) return;
     try { if (sessionId) await apiStop(sessionId).catch(() => {}); }
     finally {
       setSessionId(null); setInputLocked(false); setPhase('idle');
@@ -252,8 +252,14 @@ export default function ZoomAppHome() {
 
   return (
     <main style={styles.main}>
-      <h1 style={styles.title}>Minutes.AI for Zoom</h1>
-      <p style={styles.note}>Recording needs host OK or token; Waiting Room/Auth may require approval or sign-in.</p>
+      {/* Big blue headline at the very top */}
+      <h1 style={styles.hero}>Join a Zoom Meeting</h1>
+
+      {/* Sub title & note */}
+      <h2 style={styles.title}>Minutes.AI for Zoom</h2>
+      <p style={styles.note}>
+        Recording may require host approval or a valid token. Waiting Room/Auth can also require approval or sign-in.
+      </p>
 
       <section style={styles.card}>
         <Label>Meeting ID</Label>
@@ -328,7 +334,7 @@ export default function ZoomAppHome() {
   );
 }
 
-/** 小物 */
+/** Bits */
 function Label({ children }) { return <div style={{ fontSize: 12, opacity: 0.8, marginBottom: 4 }}>{children}</div>; }
 function Underline(props) {
   const { disabled } = props;
@@ -343,18 +349,26 @@ function Underline(props) {
   );
 }
 
-/** スタイル */
+/** Styles */
 const styles = {
-  main: { maxWidth: 620, margin: '0 auto', padding: 20, fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif' },
-  title: { margin: 0, textAlign: 'center', fontSize: 20 },
+  // Full white background, full-height
+  main: { maxWidth: 620, margin: '0 auto', padding: 20, minHeight: '100vh', background: '#ffffff',
+          fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif' },
+
+  // Big blue headline
+  hero: { margin: '6px 0 10px', textAlign: 'center', fontSize: 34, fontWeight: 800, color: '#2563eb', letterSpacing: 0.2 },
+
+  // Sub title (kept minimal)
+  title: { margin: 0, textAlign: 'center', fontSize: 18, fontWeight: 700, color: '#111827' },
   note: { textAlign: 'center', opacity: 0.7, margin: '12px 0 18px' },
-  card: { padding: 16, border: '1px solid rgba(0,0,0,0.08)', borderRadius: 16, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(6px)', marginBottom: 14 },
+
+  card: { padding: 16, border: '1px solid rgba(0,0,0,0.08)', borderRadius: 16, background: '#ffffff', marginBottom: 14 },
   center: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
 
-  btnBase: { width: '70%', padding: '12px 16px', borderRadius: 22, border: '1px solid rgba(255,255,255,0.22)', fontWeight: 600 },
-  btnJoin: { color: '#fff', background: 'linear-gradient(135deg,#2563eb,#06b6d4)', boxShadow: '0 10px 20px rgba(37,99,235,.25)' },
+  btnBase: { width: '70%', padding: '12px 16px', borderRadius: 22, border: '1px solid rgba(0,0,0,0.08)', fontWeight: 600, background: '#fff' },
+  btnJoin: { color: '#fff', background: 'linear-gradient(135deg,#2563eb,#06b6d4)', boxShadow: '0 10px 20px rgba(37,99,235,.25)', border: 'none' },
   btnRaised: { color: '#111827', background: '#f7f7f9', boxShadow: '0 10px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.03)' },
-  btnReset: { color: '#fff', background: 'linear-gradient(135deg,#ef4444,rgba(239,68,68,.85))', boxShadow: '0 12px 20px rgba(239,68,68,.25)' },
+  btnReset: { color: '#fff', background: 'linear-gradient(135deg,#ef4444,rgba(239,68,68,.85))', boxShadow: '0 12px 20px rgba(239,68,68,.25)', border: 'none' },
   btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
 
   metaRow: { marginTop: 8, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
