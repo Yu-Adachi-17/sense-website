@@ -8,12 +8,16 @@ const LAST_SID_KEY = 'minutesai.lastSessionId';
 const LAST_MEETING_ID_KEY = 'minutesai.lastMeetingId';
 const LAST_PASSCODE_KEY = 'minutesai.lastPasscode';
 
+/** ====== Feature flags ====== */
+// ※ 本番UIではデバッグを見せない（Railwayへ console.log 出力のみ）
+const SHOW_DEBUG = false; // 一時的にUIで見たいときは true に
+
 /** ====== Utils ====== */
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const backoffMs = n => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
 const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 
-/** ====== API wrappers (with logs) ====== */
+/** ====== API wrappers ====== */
 async function apiStart(meetingNumber, meetingPasscode, runSecs = 21600) {
   const url = `${API_BASE}/start`;
   const r = await fetch(url, {
@@ -84,6 +88,7 @@ export default function ZoomAppHome() {
     };
   }, []);
 
+  // 復元
   useEffect(() => {
     const mid = localStorage.getItem(LAST_MEETING_ID_KEY);
     const pwd = localStorage.getItem(LAST_PASSCODE_KEY);
@@ -98,10 +103,18 @@ export default function ZoomAppHome() {
     }
   }, []);
 
+  // Railway出力（console.log）。UI表示は SHOW_DEBUG のみ
   function push(s) {
     const line = `[${now()}] ${s}`;
-    setLogs(prev => [...prev, line]);
+    // 出力：Railway（コンソール）
+    // eslint-disable-next-line no-console
+    console.log(line);
+    // 任意：UIのデバッグ欄
+    if (SHOW_DEBUG) {
+      setLogs(prev => [...prev, line]);
+    }
   }
+
   function setOverlayStage(msg, progress) {
     setOverlay({ show: true, msg, progress: Math.max(0, Math.min(100, progress)) });
   }
@@ -253,139 +266,251 @@ export default function ZoomAppHome() {
     }
   }
 
+  const noteText =
+    'Recording may require host approval or a valid token.\n' +
+    'Waiting Room/Auth can also require approval or sign-in.';
+
   return (
     <>
-      {/* ★ 画面全体に白を敷く（親が黒でも必ず白になる） */}
+      {/* ★ 画面全体ホワイト */}
       <div style={styles.fullBleed} />
 
+      {/* 上下中央揃えのフレーム */}
       <main style={styles.main}>
-        <h1 style={styles.hero}>Join a Zoom Meeting</h1>
-        <h2 style={styles.title}>Minutes.AI for Zoom</h2>
-        <p style={styles.note}>
-          Recording may require host approval or a valid token. Waiting Room/Auth can also require approval or sign-in.
-        </p>
+        <div style={styles.wrap}>
+          <h1 style={styles.hero}>Join a Zoom Meeting</h1>
+          <h2 style={styles.title}>Minutes.AI for Zoom</h2>
+          <div style={styles.note}>{noteText}</div>
 
-        <section style={styles.card}>
-          <Label>Meeting ID</Label>
-          <Underline value={meetingId} onChange={e => setMeetingId(e.target.value)} placeholder="e.g. 9815129794" disabled={inputLocked} />
-          <div style={{ height: 10 }} />
-          <Label>Passcode</Label>
-          <Underline value={passcode} onChange={e => setPasscode(e.target.value)} placeholder="Passcode" disabled={inputLocked} />
-
-          {sessionId && (
-            <div style={styles.metaRow}>
-              <span style={styles.meta}>sessionId:</span>
-              <code style={styles.code}>{sessionId}</code>
-            </div>
-          )}
-          {restored && <div style={styles.restoreText}>{restored}</div>}
-
-          <div style={{ height: 14 }} />
-          <div style={styles.center}>
-            <button onClick={onJoin} disabled={!canJoin} style={merge(styles.btnBase, styles.btnJoin, !canJoin && styles.btnDisabled)}>
-              {phase === 'starting' ? 'Starting…' : inputLocked ? 'Joined' : 'Join with Bot'}
-            </button>
-
-            <div style={{ height: 10 }} />
-            <button onClick={onFinish} disabled={!canFinish} style={merge(styles.btnBase, styles.btnRaised, !canFinish && styles.btnDisabled)}>
-              {phase === 'polling' ? 'Fetching…' : 'Finish'}
-            </button>
-
-            {inputLocked && (
-              <>
-                <div style={{ height: 10 }} />
-                <button onClick={onReset} style={merge(styles.btnBase, styles.btnReset)}>Reset</button>
-              </>
-            )}
-          </div>
-        </section>
-
-        {audioList.length > 0 && (
           <section style={styles.card}>
-            <h3 style={{ margin: 0, fontSize: 16 }}>Recording</h3>
-            <div style={{ height: 8 }} />
-            {audioList.map((a, i) => (
-              <div key={i} style={{ marginBottom: 12 }}>
-                <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 4, wordBreak: 'break-all' }}>{a.name}</div>
-                <audio controls src={a.url} style={{ width: '100%' }} />
+            <Label>Meeting ID</Label>
+            <Underline
+              value={meetingId}
+              onChange={e => setMeetingId(e.target.value)}
+              placeholder="e.g. 9815129794"
+              disabled={inputLocked}
+            />
+            <div style={{ height: 10 }} />
+            <Label>Passcode</Label>
+            <Underline
+              value={passcode}
+              onChange={e => setPasscode(e.target.value)}
+              placeholder="Passcode"
+              disabled={inputLocked}
+            />
+
+            {sessionId && (
+              <div style={styles.metaRow}>
+                <span style={styles.meta}>sessionId:</span>
+                <code style={styles.code}>{sessionId}</code>
               </div>
-            ))}
+            )}
+            {restored && <div style={styles.restoreText}>{restored}</div>}
+
+            <div style={{ height: 14 }} />
+            <div style={styles.center}>
+              <button
+                onClick={onJoin}
+                disabled={!canJoin}
+                style={merge(styles.btnBase, styles.btnJoin, !canJoin && styles.btnDisabled)}
+              >
+                {phase === 'starting' ? 'Starting…' : inputLocked ? 'Joined' : 'Join with Bot'}
+              </button>
+
+              <div style={{ height: 10 }} />
+              <button
+                onClick={onFinish}
+                disabled={!canFinish}
+                style={merge(styles.btnBase, styles.btnRaised, !canFinish && styles.btnDisabled)}
+              >
+                {phase === 'polling' ? 'Fetching…' : 'Finish'}
+              </button>
+
+              {inputLocked && (
+                <>
+                  <div style={{ height: 10 }} />
+                  <button onClick={onReset} style={merge(styles.btnBase, styles.btnReset)}>Reset</button>
+                </>
+              )}
+            </div>
           </section>
-        )}
 
-        <section style={styles.card}>
-          <h3 style={{ margin: 0, fontSize: 16 }}>Debug Logs</h3>
-          <pre style={styles.logs}>{logs.join('\n')}</pre>
-        </section>
+          {audioList.length > 0 && (
+            <section style={styles.card}>
+              <h3 style={{ margin: 0, fontSize: 16 }}>Recording</h3>
+              <div style={{ height: 8 }} />
+              {audioList.map((a, i) => (
+                <div key={i} style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 4, wordBreak: 'break-all' }}>{a.name}</div>
+                  <audio controls src={a.url} style={{ width: '100%' }} />
+                </div>
+              ))}
+            </section>
+          )}
 
-        {overlay.show && (
-          <div style={styles.overlay}>
-            <div style={styles.overlayBox}>
-              <div style={styles.circleOuter}>
-                <div style={{
+          {/* デバッグ欄は本番UIでは非表示（SHOW_DEBUG=false） */}
+          {SHOW_DEBUG && (
+            <section style={styles.card}>
+              <h3 style={{ margin: 0, fontSize: 16 }}>Debug Logs</h3>
+              <pre style={styles.logs}>{logs.join('\n')}</pre>
+            </section>
+          )}
+        </div>
+      </main>
+
+      {overlay.show && (
+        <div style={styles.overlay}>
+          <div style={styles.overlayBox}>
+            <div style={styles.circleOuter}>
+              <div
+                style={{
                   ...styles.circleInner,
                   background: `conic-gradient(#3b82f6 ${overlay.progress * 3.6}deg, rgba(255,255,255,0.15) 0deg)`,
-                }} />
-                <div style={styles.circleHole} />
-                <div style={styles.circleText}>{Math.round(overlay.progress)}%</div>
-              </div>
-              <div style={{ height: 12 }} />
-              <div style={styles.overlayText}>{overlay.msg}</div>
+                }}
+              />
+              <div style={styles.circleHole} />
+              <div style={styles.circleText}>{Math.round(overlay.progress)}%</div>
             </div>
+            <div style={{ height: 12 }} />
+            <div style={styles.overlayText}>{overlay.msg}</div>
           </div>
-        )}
-      </main>
+        </div>
+      )}
     </>
   );
 }
 
 /** Bits */
-function Label({ children }) { return <div style={{ fontSize: 12, opacity: 0.8, marginBottom: 4 }}>{children}</div>; }
+function Label({ children }) {
+  return <div style={{ fontSize: 12, opacity: 0.8, marginBottom: 4 }}>{children}</div>;
+}
 function Underline(props) {
   const { disabled } = props;
   return (
     <div>
-      <input {...props} style={{
-        width: '100%', border: 'none', outline: 'none', fontSize: 16, padding: '8px 0',
-        color: disabled ? 'rgba(107,114,128,0.7)' : 'inherit', background: 'transparent',
-      }}/>
-      <div style={{ height: 1, background: disabled ? 'rgba(107,114,128,0.28)' : 'rgba(107,114,128,0.38)' }} />
+      <input
+        {...props}
+        style={{
+          width: '100%',
+          border: 'none',
+          outline: 'none',
+          fontSize: 16,
+          padding: '8px 0',
+          color: disabled ? 'rgba(107,114,128,0.7)' : 'inherit',
+          background: 'transparent',
+        }}
+      />
+      <div
+        style={{
+          height: 1,
+          background: disabled ? 'rgba(107,114,128,0.28)' : 'rgba(107,114,128,0.38)',
+        }}
+      />
     </div>
   );
 }
 
 /** Styles */
 const styles = {
-  // ★ これが全画面ホワイトの“敷き紙”
+  // 全画面ホワイトの“敷き紙”
   fullBleed: { position: 'fixed', inset: 0, background: '#ffffff', zIndex: 0 },
 
+  // 上下左右の中央揃えフレーム
   main: {
-    position: 'relative', zIndex: 1,
-    maxWidth: 620, margin: '0 auto', padding: 20,
-    minHeight: '100svh', // iOS対策
+    position: 'relative',
+    zIndex: 1,
+    minHeight: '100svh',
+    display: 'grid',
+    placeItems: 'center',
+    padding: 20,
     background: 'transparent',
-    fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif'
+    fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif',
   },
 
-  hero: { margin: '6px 0 10px', textAlign: 'center', fontSize: 34, fontWeight: 800, color: '#2563eb', letterSpacing: 0.2 },
-  title: { margin: 0, textAlign: 'center', fontSize: 18, fontWeight: 700, color: '#111827' },
-  note: { textAlign: 'center', opacity: 0.7, margin: '12px 0 18px' },
+  // 中身の幅制御カード束
+  wrap: { width: '100%', maxWidth: 620 },
 
-  card: { padding: 16, border: '1px solid rgba(0,0,0,0.08)', borderRadius: 16, background: '#ffffff', marginBottom: 14 },
+  // グラデ文字の大見出し（大きめ）
+  hero: {
+    margin: '6px 0 10px',
+    textAlign: 'center',
+    fontSize: 44,
+    fontWeight: 900,
+    lineHeight: 1.05,
+    letterSpacing: 0.2,
+    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #0b1a45 100%)', // 水色→青→紺
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    color: 'transparent',
+  },
+
+  title: { margin: 0, textAlign: 'center', fontSize: 18, fontWeight: 700, color: '#111827' },
+
+  // 改行を効かせるため pre-line
+  note: {
+    textAlign: 'center',
+    opacity: 0.75,
+    margin: '12px 0 18px',
+    whiteSpace: 'pre-line',
+    fontSize: 13.5,
+  },
+
+  card: {
+    padding: 16,
+    border: '1px solid rgba(0,0,0,0.08)',
+    borderRadius: 16,
+    background: '#ffffff',
+    marginBottom: 14,
+  },
   center: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
 
-  btnBase: { width: '70%', padding: '12px 16px', borderRadius: 22, border: '1px solid rgba(0,0,0,0.08)', fontWeight: 600, background: '#fff' },
-  btnJoin: { color: '#fff', background: 'linear-gradient(135deg,#2563eb,#06b6d4)', boxShadow: '0 10px 20px rgba(37,99,235,.25)', border: 'none' },
-  btnRaised: { color: '#111827', background: '#f7f7f9', boxShadow: '0 10px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.03)' },
-  btnReset: { color: '#fff', background: 'linear-gradient(135deg,#ef4444,rgba(239,68,68,.85))', boxShadow: '0 12px 20px rgba(239,68,68,.25)', border: 'none' },
+  btnBase: {
+    width: '70%',
+    padding: '12px 16px',
+    borderRadius: 22,
+    border: '1px solid rgba(0,0,0,0.08)',
+    fontWeight: 700,
+    background: '#fff',
+  },
+  btnJoin: {
+    color: '#fff',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
+    boxShadow: '0 10px 20px rgba(37,99,235,.25)',
+    border: 'none',
+  },
+  btnRaised: {
+    color: '#111827',
+    background: '#f7f7f9',
+    boxShadow: '0 10px 18px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.03)',
+  },
+  btnReset: {
+    color: '#fff',
+    background: 'linear-gradient(135deg,#ef4444,rgba(239,68,68,.85))',
+    boxShadow: '0 12px 20px rgba(239,68,68,.25)',
+    border: 'none',
+  },
   btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
 
   metaRow: { marginTop: 8, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   meta: { fontSize: 12, opacity: 0.75 },
   code: { fontSize: 12, background: 'rgba(0,0,0,.05)', padding: '2px 6px', borderRadius: 6 },
 
-  restoreText: { fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: 12, opacity: 0.7, marginTop: 6 },
-  logs: { fontSize: 12, whiteSpace: 'pre-wrap', margin: 0, maxHeight: 280, overflow: 'auto', background: 'rgba(0,0,0,.04)', padding: 10, borderRadius: 8 },
+  restoreText: {
+    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+    fontSize: 12,
+    opacity: 0.7,
+    marginTop: 6,
+  },
+  logs: {
+    fontSize: 12,
+    whiteSpace: 'pre-wrap',
+    margin: 0,
+    maxHeight: 280,
+    overflow: 'auto',
+    background: 'rgba(0,0,0,.04)',
+    padding: 10,
+    borderRadius: 8,
+  },
 
   overlay: { position: 'fixed', inset: 0, background: 'rgba(0,0,0,.55)', display: 'grid', placeItems: 'center', zIndex: 1000 },
   overlayBox: { padding: 22, borderRadius: 18, background: 'rgba(17,24,39,.85)', color: '#fff', textAlign: 'center', width: 260 },
@@ -393,7 +518,7 @@ const styles = {
   circleOuter: { position: 'relative', width: 150, height: 150 },
   circleInner: { position: 'absolute', inset: 0, borderRadius: '50%' },
   circleHole: { position: 'absolute', inset: 10, borderRadius: '50%', background: 'rgba(17,24,39,1)' },
-  circleText: { position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', fontSize: 28, fontWeight: 800 }
+  circleText: { position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', fontSize: 28, fontWeight: 800 },
 };
 
 function merge(...xs) { return Object.assign({}, ...xs.filter(Boolean)); }
