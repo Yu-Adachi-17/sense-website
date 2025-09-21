@@ -1,40 +1,39 @@
 // frontend/next.config.js
-// Next 15: experimental.appDir は無効キーなので入れない
+// Next 15+: experimental.appDir は削除
 const csp = [
-  // 基本
   "default-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
-  "object-src 'none'",
 
-  // Zoom を <iframe> で読み込む場合
+  // Zoom を <iframe> で読み込む想定
   "frame-ancestors 'self' https://*.zoom.us https://*.zoom.com",
   "frame-src https://*.zoom.us https://*.zoom.com",
 
-  // スクリプト（gtag/GA を許可）
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
-
-  // CSS / フォント
+  // CSS / Fonts
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: https://fonts.gstatic.com",
 
   // 画像・blob
   "img-src 'self' https: data: blob:",
 
-  // 音声/動画（<audio src='blob:...'> 等）
+  // <audio src='blob:...'> や Firebase の音声URL
   "media-src 'self' blob: https://firebasestorage.googleapis.com https://*.sense-ai.world",
 
-  // Web Worker / OffscreenCanvas など
+  // Web Worker / OffscreenCanvas で blob:
   "worker-src 'self' blob:",
 
-  // API/SSE/WebSocket 等（バックエンド・GA・Zoom・Firebase Installations を許可）
-  "connect-src 'self' https://api.sense-ai.world https://*.sense-ai.world https://*.zoom.us https://*.zoom.com https://firebasestorage.googleapis.com https://www.google-analytics.com https://www.googletagmanager.com https://firebaseinstallations.googleapis.com wss: blob:"
+  // 外部スクリプト（必要な分だけ）
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+
+  // API / SSE / WebSocket
+  // ★ Railway(オフラインAPI) と FirebaseInstallations / GA を追加
+  "connect-src 'self' https://api.sense-ai.world https://*.sense-ai.world https://sense-website-production.up.railway.app https://*.zoom.us https://*.zoom.com https://firebasestorage.googleapis.com https://firebaseinstallations.googleapis.com https://www.google-analytics.com wss: blob:"
 ].join('; ');
 
 const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-  { key: 'Content-Security-Policy', value: csp }
+  { key: 'Content-Security-Policy', value: csp },
 ];
 
 module.exports = {
@@ -42,5 +41,5 @@ module.exports = {
   pageExtensions: ['tsx','ts','jsx','js'],
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
-  }
+  },
 };
