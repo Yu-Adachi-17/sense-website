@@ -1,4 +1,3 @@
-frontend/next.config.js
 // Next 15+: experimental.appDir は削除
 const csp = [
   "default-src 'self'",
