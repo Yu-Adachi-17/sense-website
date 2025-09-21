@@ -8,7 +8,7 @@
   "functions": {
     "src/pages/api/transcribe.js": {
       "runtime": "nodejs18.x",
-      "maxDuration": 300,
+      "maxDuration": 60,
       "memory": 2048
     }
   }

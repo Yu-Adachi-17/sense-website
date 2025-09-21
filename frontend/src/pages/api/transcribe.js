@@ -1,7 +1,7 @@
 // pages/api/transcribe.js
 export const config = { api: { bodyParser: false } };
 export const runtime = 'nodejs';
-export const maxDuration = 300; // ← 5分まで許可（ダッシュボード設定と併用）
+export const maxDuration = 60; // ← 5分まで許可（ダッシュボード設定と併用）
 
 import formidable from 'formidable';
 import fs from 'fs';
