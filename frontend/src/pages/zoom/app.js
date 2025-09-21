@@ -62,20 +62,33 @@ async function headLen(url) {
 }
 
 /** ====== Transcribe helpers (frontend → backend) ====== */
-async function transcribeBySid(sid, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
+async function transcribeBySid(
+  sid,
+  { meetingFormat = '', outputType = 'flexible', lang = 'ja' }
+) {
+  // デバッグ：投げる内容を見える化（超重要）
+  const payload = { sid, lang, outputType, meetingFormat };
+  console.log('[transcribeBySid] request payload =', payload);
+
   const r = await fetch('/api/transcribe', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      sid,
-      language: lang,
-      outputType,
-      meetingFormat: meetingFormat || ''
-    })
+    headers: { 'Content-Type': 'application/json' }, // ← JSON 経路なのでOK
+    body: JSON.stringify(payload),
   });
-  const t = await r.text();
-  if (!r.ok) throw new Error(`transcribe failed ${r.status}: ${t}`);
-  return JSON.parse(t); // { transcription, minutes }
+
+  const text = await r.text();
+  console.log('[transcribeBySid] status =', r.status, 'raw =', text.slice(0, 200));
+
+  if (!r.ok) {
+    // 失敗時は Content-Type とエラー本文を必ず見たい
+    const ct = r.headers.get('content-type');
+    throw new Error(`transcribe failed ${r.status} (ct=${ct}): ${text}`);
+  }
+  try {
+    return JSON.parse(text); // { transcription, minutes }
+  } catch {
+    return { raw: text };
+  }
 }
 
 
