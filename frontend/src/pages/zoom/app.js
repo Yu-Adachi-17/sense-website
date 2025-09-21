@@ -16,45 +16,37 @@ const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 /** ====== API wrappers (with logs) ====== */
 async function apiStart(meetingNumber, meetingPasscode, runSecs = 21600) {
   const url = `${API_BASE}/start`;
-  console.log(`[${now()}] POST ${url}`, { meetingNumber, passcode: !!meetingPasscode, runSecs });
   const r = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ meetingNumber, meetingPasscode, botName: 'MinutesAI Bot', runSecs }),
   });
   const text = await r.text();
-  console.log(`[${now()}] -> ${r.status} ${text}`);
   if (!r.ok) throw new Error(`start bad ${r.status}: ${text}`);
   const j = JSON.parse(text);
   if (!j.sessionId) throw new Error('start response missing sessionId');
   return j.sessionId;
 }
-
 async function apiStop(sid) {
   const r = await fetch(`${API_BASE}/stop/${encodeURIComponent(sid)}`, { method: 'POST' });
   const t = await r.text();
-  console.log(`[${now()}] POST stop -> ${r.status} ${t}`);
   if (!r.ok) throw new Error(`stop bad ${r.status}: ${t}`);
 }
-
 async function apiStatus(sid) {
   const r = await fetch(`${API_BASE}/status/${encodeURIComponent(sid)}`);
   const t = await r.text();
   if (!r.ok) throw new Error(`status bad ${r.status}: ${t}`);
   return JSON.parse(t);
 }
-
 async function apiFiles(sid) {
   const r = await fetch(`${API_BASE}/files/${encodeURIComponent(sid)}`);
   const t = await r.text();
   if (!r.ok) throw new Error(`files bad ${r.status}: ${t}`);
   return JSON.parse(t).files || [];
 }
-
 async function headLen(url) {
   const r = await fetch(url, { method: 'HEAD' });
   const len = r.headers.get('content-length');
-  console.log(`[${now()}] HEAD ${url} -> ${r.status} len=${len}`);
   if (!r.ok) return -1;
   return len ? parseInt(len, 10) : -1;
 }
@@ -78,12 +70,25 @@ export default function ZoomAppHome() {
   );
   const canFinish = useMemo(() => !!sessionId && phase !== 'polling', [sessionId, phase]);
 
+  // ★ 全画面を確実に白背景に（親の黒を上書き）
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlBg = html.style.background;
+    const prevBodyBg = body.style.background;
+    html.style.background = '#ffffff';
+    body.style.background = '#ffffff';
+    return () => {
+      html.style.background = prevHtmlBg;
+      body.style.background = prevBodyBg;
+    };
+  }, []);
+
   useEffect(() => {
     const mid = localStorage.getItem(LAST_MEETING_ID_KEY);
     const pwd = localStorage.getItem(LAST_PASSCODE_KEY);
     if (mid) setMeetingId(mid);
     if (pwd) setPasscode(pwd);
-
     const sid = localStorage.getItem(LAST_SID_KEY);
     if (sid) {
       setSessionId(sid);
@@ -95,7 +100,6 @@ export default function ZoomAppHome() {
 
   function push(s) {
     const line = `[${now()}] ${s}`;
-    console.log(line);
     setLogs(prev => [...prev, line]);
   }
   function setOverlayStage(msg, progress) {
@@ -122,7 +126,6 @@ export default function ZoomAppHome() {
       setInputLocked(true);
       setPhase('joining');
 
-      // Light watchdog (max 3 min)
       setOverlayStage('Join request sent. Ask the host to approve…', 15);
       const begin = Date.now();
       let attempt = 0;
@@ -251,86 +254,88 @@ export default function ZoomAppHome() {
   }
 
   return (
-    <main style={styles.main}>
-      {/* Big blue headline at the very top */}
-      <h1 style={styles.hero}>Join a Zoom Meeting</h1>
+    <>
+      {/* ★ 画面全体に白を敷く（親が黒でも必ず白になる） */}
+      <div style={styles.fullBleed} />
 
-      {/* Sub title & note */}
-      <h2 style={styles.title}>Minutes.AI for Zoom</h2>
-      <p style={styles.note}>
-        Recording may require host approval or a valid token. Waiting Room/Auth can also require approval or sign-in.
-      </p>
+      <main style={styles.main}>
+        <h1 style={styles.hero}>Join a Zoom Meeting</h1>
+        <h2 style={styles.title}>Minutes.AI for Zoom</h2>
+        <p style={styles.note}>
+          Recording may require host approval or a valid token. Waiting Room/Auth can also require approval or sign-in.
+        </p>
 
-      <section style={styles.card}>
-        <Label>Meeting ID</Label>
-        <Underline value={meetingId} onChange={e => setMeetingId(e.target.value)} placeholder="e.g. 9815129794" disabled={inputLocked} />
-        <div style={{ height: 10 }} />
-        <Label>Passcode</Label>
-        <Underline value={passcode} onChange={e => setPasscode(e.target.value)} placeholder="Passcode" disabled={inputLocked} />
+        <section style={styles.card}>
+          <Label>Meeting ID</Label>
+          <Underline value={meetingId} onChange={e => setMeetingId(e.target.value)} placeholder="e.g. 9815129794" disabled={inputLocked} />
+          <div style={{ height: 10 }} />
+          <Label>Passcode</Label>
+          <Underline value={passcode} onChange={e => setPasscode(e.target.value)} placeholder="Passcode" disabled={inputLocked} />
 
-        {sessionId && (
-          <div style={styles.metaRow}>
-            <span style={styles.meta}>sessionId:</span>
-            <code style={styles.code}>{sessionId}</code>
+          {sessionId && (
+            <div style={styles.metaRow}>
+              <span style={styles.meta}>sessionId:</span>
+              <code style={styles.code}>{sessionId}</code>
+            </div>
+          )}
+          {restored && <div style={styles.restoreText}>{restored}</div>}
+
+          <div style={{ height: 14 }} />
+          <div style={styles.center}>
+            <button onClick={onJoin} disabled={!canJoin} style={merge(styles.btnBase, styles.btnJoin, !canJoin && styles.btnDisabled)}>
+              {phase === 'starting' ? 'Starting…' : inputLocked ? 'Joined' : 'Join with Bot'}
+            </button>
+
+            <div style={{ height: 10 }} />
+            <button onClick={onFinish} disabled={!canFinish} style={merge(styles.btnBase, styles.btnRaised, !canFinish && styles.btnDisabled)}>
+              {phase === 'polling' ? 'Fetching…' : 'Finish'}
+            </button>
+
+            {inputLocked && (
+              <>
+                <div style={{ height: 10 }} />
+                <button onClick={onReset} style={merge(styles.btnBase, styles.btnReset)}>Reset</button>
+              </>
+            )}
+          </div>
+        </section>
+
+        {audioList.length > 0 && (
+          <section style={styles.card}>
+            <h3 style={{ margin: 0, fontSize: 16 }}>Recording</h3>
+            <div style={{ height: 8 }} />
+            {audioList.map((a, i) => (
+              <div key={i} style={{ marginBottom: 12 }}>
+                <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 4, wordBreak: 'break-all' }}>{a.name}</div>
+                <audio controls src={a.url} style={{ width: '100%' }} />
+              </div>
+            ))}
+          </section>
+        )}
+
+        <section style={styles.card}>
+          <h3 style={{ margin: 0, fontSize: 16 }}>Debug Logs</h3>
+          <pre style={styles.logs}>{logs.join('\n')}</pre>
+        </section>
+
+        {overlay.show && (
+          <div style={styles.overlay}>
+            <div style={styles.overlayBox}>
+              <div style={styles.circleOuter}>
+                <div style={{
+                  ...styles.circleInner,
+                  background: `conic-gradient(#3b82f6 ${overlay.progress * 3.6}deg, rgba(255,255,255,0.15) 0deg)`,
+                }} />
+                <div style={styles.circleHole} />
+                <div style={styles.circleText}>{Math.round(overlay.progress)}%</div>
+              </div>
+              <div style={{ height: 12 }} />
+              <div style={styles.overlayText}>{overlay.msg}</div>
+            </div>
           </div>
         )}
-        {restored && <div style={styles.restoreText}>{restored}</div>}
-
-        <div style={{ height: 14 }} />
-        <div style={styles.center}>
-          <button onClick={onJoin} disabled={!canJoin} style={merge(styles.btnBase, styles.btnJoin, !canJoin && styles.btnDisabled)}>
-            {phase === 'starting' ? 'Starting…' : inputLocked ? 'Joined' : 'Join with Bot'}
-          </button>
-
-          <div style={{ height: 10 }} />
-          <button onClick={onFinish} disabled={!canFinish} style={merge(styles.btnBase, styles.btnRaised, !canFinish && styles.btnDisabled)}>
-            {phase === 'polling' ? 'Fetching…' : 'Finish'}
-          </button>
-
-          {inputLocked && (
-            <>
-              <div style={{ height: 10 }} />
-              <button onClick={onReset} style={merge(styles.btnBase, styles.btnReset)}>Reset</button>
-            </>
-          )}
-        </div>
-      </section>
-
-      {audioList.length > 0 && (
-        <section style={styles.card}>
-          <h3 style={{ margin: 0, fontSize: 16 }}>Recording</h3>
-          <div style={{ height: 8 }} />
-          {audioList.map((a, i) => (
-            <div key={i} style={{ marginBottom: 12 }}>
-              <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 4, wordBreak: 'break-all' }}>{a.name}</div>
-              <audio controls src={a.url} style={{ width: '100%' }} />
-            </div>
-          ))}
-        </section>
-      )}
-
-      <section style={styles.card}>
-        <h3 style={{ margin: 0, fontSize: 16 }}>Debug Logs</h3>
-        <pre style={styles.logs}>{logs.join('\n')}</pre>
-      </section>
-
-      {overlay.show && (
-        <div style={styles.overlay}>
-          <div style={styles.overlayBox}>
-            <div style={styles.circleOuter}>
-              <div style={{
-                ...styles.circleInner,
-                background: `conic-gradient(#3b82f6 ${overlay.progress * 3.6}deg, rgba(255,255,255,0.15) 0deg)`,
-              }} />
-              <div style={styles.circleHole} />
-              <div style={styles.circleText}>{Math.round(overlay.progress)}%</div>
-            </div>
-            <div style={{ height: 12 }} />
-            <div style={styles.overlayText}>{overlay.msg}</div>
-          </div>
-        </div>
-      )}
-    </main>
+      </main>
+    </>
   );
 }
 
@@ -351,14 +356,18 @@ function Underline(props) {
 
 /** Styles */
 const styles = {
-  // Full white background, full-height
-  main: { maxWidth: 620, margin: '0 auto', padding: 20, minHeight: '100vh', background: '#ffffff',
-          fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif' },
+  // ★ これが全画面ホワイトの“敷き紙”
+  fullBleed: { position: 'fixed', inset: 0, background: '#ffffff', zIndex: 0 },
 
-  // Big blue headline
+  main: {
+    position: 'relative', zIndex: 1,
+    maxWidth: 620, margin: '0 auto', padding: 20,
+    minHeight: '100svh', // iOS対策
+    background: 'transparent',
+    fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif'
+  },
+
   hero: { margin: '6px 0 10px', textAlign: 'center', fontSize: 34, fontWeight: 800, color: '#2563eb', letterSpacing: 0.2 },
-
-  // Sub title (kept minimal)
   title: { margin: 0, textAlign: 'center', fontSize: 18, fontWeight: 700, color: '#111827' },
   note: { textAlign: 'center', opacity: 0.7, margin: '12px 0 18px' },
 
