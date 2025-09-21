@@ -1,3 +1,5 @@
+// frontend/src/pages/api/trascribe.js
+
 export const config = { api: { bodyParser: false } }; // 生のBodyは使わない
 
 // ここで '@/lib/api' を使いたい場合は import する（重複定義禁止）

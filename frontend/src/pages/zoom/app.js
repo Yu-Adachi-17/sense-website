@@ -62,26 +62,22 @@ async function headLen(url) {
 }
 
 /** ====== Transcribe helpers (frontend → backend) ====== */
-async function transcribeSingle(file, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
-  const fd = new FormData();
-  fd.append('file', file);
-  fd.append('meetingFormat', meetingFormat || '');
-  fd.append('outputType', outputType);
-  fd.append('lang', lang);
-  const r = await fetch('/api/transcribe', { method: 'POST', body: fd });
-  if (!r.ok) throw new Error(`transcribe failed ${r.status}`);
-  return r.json(); // { transcription, minutes }
+async function transcribeBySid(sid, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
+  const r = await fetch('/api/transcribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      sid,
+      language: lang,
+      outputType,
+      meetingFormat: meetingFormat || ''
+    })
+  });
+  const t = await r.text();
+  if (!r.ok) throw new Error(`transcribe failed ${r.status}: ${t}`);
+  return JSON.parse(t); // { transcription, minutes }
 }
-async function transcribeMulti(files, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
-  const fd = new FormData();
-  files.forEach((f, i) => fd.append('files', f, f.name || `segment_${i}.m4a`));
-  fd.append('meetingFormat', meetingFormat || '');
-  fd.append('outputType', outputType);
-  fd.append('lang', lang);
-  const r = await fetch('/api/transcribe-multi', { method: 'POST', body: fd });
-  if (!r.ok) throw new Error(`multi transcribe failed ${r.status}`);
-  return r.json(); // { transcription, minutes }
-}
+
 
 export default function ZoomAppHome() {
   const [meetingId, setMeetingId] = useState('');
@@ -281,24 +277,24 @@ export default function ZoomAppHome() {
       }
       setAudioList(downloaded);
 
-      // === STT → 議事録 ===
-      setOverlayStage('Transcribing audio…', 60);
-      const lang = (navigator.language || 'ja').slice(0, 2); // 'ja' など
-      const fmt = selectedMeetingFormat?.template || '';
-      const blobs = downloaded.map(d => new File([d.blob], d.name, { type: d.blob.type || 'audio/webm' }));
+// === STT → 議事録 ===
+setOverlayStage('Transcribing audio…', 60);
+const lang = (navigator.language || 'ja').slice(0, 2);
+const fmt = selectedMeetingFormat?.template || '';
+const OUTPUT_TYPE = 'flexible';
 
-      // Flexible(JSON) を既定。Classic テンプレが良ければ 'classic' に変える
-      const OUTPUT_TYPE = 'flexible';
+// ここを置き換え
+const result = await transcribeBySid(sessionId, {
+  meetingFormat: fmt,
+  outputType: OUTPUT_TYPE,
+  lang
+});
 
-      const result = blobs.length === 1
-        ? await transcribeSingle(blobs[0], { meetingFormat: fmt, outputType: OUTPUT_TYPE, lang })
-        : await transcribeMulti(blobs, { meetingFormat: fmt, outputType: OUTPUT_TYPE, lang });
+setOverlayStage('Generating minutes…', 80);
+const { transcription: tr, minutes: mm } = result || {};
+setTranscription(tr || '');
+setMinutes(mm || '');
 
-      setOverlayStage('Generating minutes…', 80);
-
-      const { transcription: tr, minutes: mm } = result || {};
-      setTranscription(tr || '');
-      setMinutes(mm || '');
 
       // Firestore 保存（ログイン時のみ）
       try {
