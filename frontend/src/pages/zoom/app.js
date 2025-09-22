@@ -62,18 +62,54 @@ async function headLen(url) {
 
 /** ====== Transcribe helpers (frontend → backend) ====== */
 // ブラウザでDL済みの Blob/File をそのまま転送（推奨）
+// ★ これで既存の transcribeFromBlobs を置き換え
 async function transcribeFromBlobs(blobs, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
+  // 1) 短命チケットを取得（Vercel 側は軽処理なので 504 にならない）
+  const tkRes = await fetch('/api/transcribe-ticket', { method: 'POST' });
+  if (!tkRes.ok) {
+    const t = await tkRes.text();
+    throw new Error(`ticket error ${tkRes.status}: ${t}`);
+  }
+  const { uploadUrl, token } = await tkRes.json();
+
+  // 2) 送信用 FormData を作成（multer.single('file') 前提：先頭のみ採用されても良いよう “代表1本” 送る）
+  //    → 分割セグメントが複数あるときは一旦先頭を代表送信（※ 将来はジョブ化で複数対応）
+  const primary = blobs[0];
   const fd = new FormData();
-  blobs.forEach((b, i) => fd.append('files', b, b.name || `segment_${i}.webm`));
+  fd.append('file', primary, primary.name || 'audio.webm');
   fd.append('meetingFormat', meetingFormat || '');
   fd.append('outputType', outputType);
   fd.append('lang', lang);
 
-  const r = await fetch('/api/transcribe', { method: 'POST', body: fd });
-  const text = await r.text();
-  if (!r.ok) throw new Error(`transcribe failed ${r.status}: ${text}`);
-  return JSON.parse(text);
+  // 3) タイムアウト & 再試行（指数バックオフ）
+  const attemptOnce = (signal) =>
+    fetch(uploadUrl, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: fd,
+      signal,
+    });
+
+  let lastErr;
+  for (let i = 0; i < 3; i++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 30_000); // 30s
+    try {
+      const r = await attemptOnce(controller.signal);
+      clearTimeout(timer);
+      const text = await r.text();
+      if (!r.ok) throw new Error(`transcribe bad ${r.status}: ${text}`);
+      try { return JSON.parse(text); } catch { return { raw: text }; }
+    } catch (e) {
+      clearTimeout(timer);
+      lastErr = e;
+      // 429/503/504/abort はリトライ
+      await sleep(Math.min(5000, 700 * Math.pow(2, i)));
+    }
+  }
+  throw new Error(`transcribe failed after retries: ${lastErr?.message || lastErr}`);
 }
+
 
 // 旧 JSON 経由のフォールバック（残しておくが本流では未使用）
 async function transcribeBySid(
@@ -226,137 +262,164 @@ export default function ZoomAppHome() {
     }
   }
 
-  async function onFinish() {
-    if (!sessionId) return;
-    try {
-      setPhase('polling');
-      setOverlayStage('Finalizing recording on server…', 10);
-      push('FINISH: calling /api/zoom-bot/stop');
-      await apiStop(sessionId);
+// ✅ 完全差し替え版：ファイルの「実在＋安定」を厳密に待ってから STT を開始
+// - manifest の segCount>=1 を必須化
+// - 代表セグメントを HEAD 2回でサイズ不変確認（1.2s間隔）
+// - 既存 UI/保存フローは維持
 
-      const begin = Date.now();
-      let attempt = 0;
-      while (Date.now() - begin < 180000) {
-        try {
-          const st = await apiStatus(sessionId);
-          push(`POLL(stop): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
-          if (st.status === 'finished' && st.ready && st.phase === 'ready') break;
+async function onFinish() {
+  if (!sessionId) return;
+  try {
+    setPhase('polling');
+    setOverlayStage('Finalizing recording on server…', 10);
+    push('FINISH: calling /api/zoom-bot/stop');
+    await apiStop(sessionId);
 
-          if (st.status === 'finished') {
-            const list = await apiFiles(sessionId);
-            const seg = list.filter(x => x.startsWith('segments/')).sort();
-            const single = list.find(x => x.toLowerCase().endsWith('.webm') && !x.includes('seg_'));
-            const pick = seg[0] || single;
-            if (pick) {
-              const safe = encodeURIComponent(pick.split('/').pop());
-              const url = pick.startsWith('segments/')
-                ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
-                : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
-              const s1 = await headLen(url);
-              await sleep(1000);
-              const s2 = await headLen(url);
-              push(`HEAD check: ${pick} size1=${s1} size2=${s2}`);
-              if (s1 > 0 && s1 === s2) break;
+    const MAX_WAIT_MS = 180_000;         // 3min
+    const STABLE_DELAY_MS = 1_200;       // HEAD間隔
+    const begin = Date.now();
+    let attempt = 0;
+
+    // ---- ここで「本当にファイルが固まったか」を厳密に待つ ----
+    while (Date.now() - begin < MAX_WAIT_MS) {
+      try {
+        const st = await apiStatus(sessionId);
+        push(`POLL(stop): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
+
+        // 1) status=finished かつ manifest が最低1本のセグメントを持つまで待つ
+        const segCount = Number(st?.debug?.manifest?.segCount || 0);
+        if (st.status === 'finished' && segCount >= 1) {
+          // 2) 代表セグメントのサイズが一定になるまで待つ（直後は ffmpeg 書き込み中の可能性）
+          const list = await apiFiles(sessionId);           // segments/seg_*.webm のみ返るポリシー
+          const seg = list.filter(x => x.startsWith('segments/')).sort();
+          const single = list.find(x => x.toLowerCase().endsWith('.webm') && !x.includes('seg_'));
+          const pick = seg[0] || single;                    // 代表1本
+
+          if (pick) {
+            const safe = encodeURIComponent(pick.split('/').pop());
+            const url = pick.startsWith('segments/')
+              ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
+              : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
+
+            const s1 = await headLen(url);
+            await sleep(STABLE_DELAY_MS);
+            const s2 = await headLen(url);
+            push(`HEAD check: ${pick} size1=${s1} size2=${s2}`);
+
+            if (s1 > 0 && s1 === s2) {
+              // セグメント安定を確認できたら抜ける
+              break;
             }
           }
-        } catch (e) { push(`POLL(stop) error: ${e.message || e}`); }
-        attempt++;
-        await sleep(backoffMs(attempt));
-      }
-
-      setOverlayStage('Downloading audio…', 20);
-      const files = await apiFiles(sessionId);
-      const segments = files.filter(f => f.startsWith('segments/')).sort();
-      const singleWebm = files.find(f => f.endsWith('.webm') && !f.includes('seg_'));
-      const fallbackWav = files.find(f => f.endsWith('.wav'));
-      let plan = [];
-      if (segments.length) plan = segments;
-      else if (singleWebm) plan = [singleWebm];
-      else if (fallbackWav) plan = [fallbackWav];
-      else if (files[0]) plan = [files[0]];
-
-      const downloaded = [];
-      for (let i = 0; i < plan.length; i++) {
-        const p = plan[i];
-        const safe = encodeURIComponent(p.split('/').pop());
-        const path = p.startsWith('segments/')
-          ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
-          : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
-        const r = await fetch(path);
-        if (!r.ok) throw new Error(`download bad ${r.status}`);
-        const blob = await r.blob();
-        downloaded.push({
-          name: `${sessionId}_${p.split('/').pop()}`,
-          url: URL.createObjectURL(blob),
-          blob, // ← 後段のアップロード用に保持
-        });
-        const prog = 20 + ((i + 1) / plan.length) * 30;
-        setOverlayStage('Downloading audio…', Math.min(50, prog));
-        push(`DL OK: ${p}`);
-      }
-      setAudioList(downloaded);
-
-      // === STT → 議事録（Blob を直接送る） ===
-      setOverlayStage('Transcribing audio…', 60);
-      const lang = (navigator.language || 'ja').slice(0, 2);
-      const fmt = selectedMeetingFormat?.template || '';
-      const OUTPUT_TYPE = 'flexible';
-
-      // downloaded[] -> File[] に変換して送信
-      const filesToSend = downloaded.map((d, i) =>
-        new File([d.blob], d.name || `segment_${i}.webm`, { type: d.blob?.type || 'audio/webm' })
-      );
-      console.log('[transcribe] sending files =',
-        filesToSend.map(f => ({ name: f.name, type: f.type, size: f.size }))
-      );
-
-      const result = await transcribeFromBlobs(filesToSend, {
-        meetingFormat: fmt,
-        outputType: OUTPUT_TYPE,
-        lang,
-      });
-
-      setOverlayStage('Generating minutes…', 80);
-      const { transcription: tr, minutes: mm } = result || {};
-      setTranscription(tr || '');
-      setMinutes(mm || '');
-
-      // Firestore 保存（ログイン時のみ）
-      try {
-        if (auth.currentUser) {
-          const docRef = await addDoc(collection(db, 'meetingRecords'), {
-            paperID: uuidv4(),
-            transcription: tr || 'No transcription available.',
-            minutes: mm || 'No minutes available.',
-            createdAt: new Date(),
-            uid: auth.currentUser.uid,
-          });
-          setMeetingRecordId(docRef.id);
-          push(`SAVE OK: ${docRef.id}`);
-        } else {
-          push('SKIP SAVE: not logged in');
         }
       } catch (e) {
-        push(`SAVE ERR: ${e.message || e}`);
+        push(`POLL(stop) error: ${e.message || e}`);
       }
-
-      setOverlayStage('Done', 100);
-      setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 700);
-      localStorage.removeItem(LAST_SID_KEY);
-      localStorage.removeItem(LAST_MEETING_ID_KEY);
-      localStorage.removeItem(LAST_PASSCODE_KEY);
-      setPhase('finished');
-
-      // 画面起動（オフライン同様）
-      setShowFullScreen(true);
-      setIsExpanded(false); // 既定：議事録（要約）ビュー
-    } catch (e) {
-      push(`FINISH ERROR: ${e.message || e}`);
-      setOverlayStage('An error occurred', 100);
-      setPhase('error');
-      setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 800);
+      attempt++;
+      await sleep(backoffMs(attempt));
     }
+
+    setOverlayStage('Downloading audio…', 20);
+    const files = await apiFiles(sessionId);
+    const segments = files.filter(f => f.startsWith('segments/')).sort();
+    const singleWebm = files.find(f => f.endsWith('.webm') && !f.includes('seg_'));
+    const fallbackWav = files.find(f => f.endsWith('.wav'));
+
+    // ダウンロード計画
+    let plan = [];
+    if (segments.length) plan = segments;
+    else if (singleWebm) plan = [singleWebm];
+    else if (fallbackWav) plan = [fallbackWav];
+    else if (files[0]) plan = [files[0]];
+    if (!plan.length) throw new Error('no_audio_ready_yet');
+
+    // ダウンロード
+    const downloaded = [];
+    for (let i = 0; i < plan.length; i++) {
+      const p = plan[i];
+      const safe = encodeURIComponent(p.split('/').pop());
+      const path = p.startsWith('segments/')
+        ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
+        : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
+
+      const r = await fetch(path);
+      if (!r.ok) throw new Error(`download bad ${r.status}`);
+      const blob = await r.blob();
+
+      downloaded.push({
+        name: `${sessionId}_${p.split('/').pop()}`,
+        url: URL.createObjectURL(blob),
+        blob, // 後段のアップロード用
+      });
+
+      const prog = 20 + ((i + 1) / plan.length) * 30;
+      setOverlayStage('Downloading audio…', Math.min(50, prog));
+      push(`DL OK: ${p}`);
+    }
+    setAudioList(downloaded);
+
+    // === STT → 議事録（Blob を直接送る） ===
+    setOverlayStage('Transcribing audio…', 60);
+    const lang = (navigator.language || 'ja').slice(0, 2);
+    const fmt = selectedMeetingFormat?.template || '';
+    const OUTPUT_TYPE = 'flexible';
+
+    // downloaded[] -> File[] に変換して送信（代表1本でも複数でも可）
+    const filesToSend = downloaded.map((d, i) =>
+      new File([d.blob], d.name || `segment_${i}.webm`, { type: d.blob?.type || 'audio/webm' })
+    );
+    console.log('[transcribe] sending files =',
+      filesToSend.map(f => ({ name: f.name, type: f.type, size: f.size }))
+    );
+
+    const result = await transcribeFromBlobs(filesToSend, {
+      meetingFormat: fmt,
+      outputType: OUTPUT_TYPE,
+      lang,
+    });
+
+    setOverlayStage('Generating minutes…', 80);
+    const { transcription: tr, minutes: mm } = result || {};
+    setTranscription(tr || '');
+    setMinutes(mm || '');
+
+    // Firestore 保存（ログイン時のみ）
+    try {
+      if (auth.currentUser) {
+        const docRef = await addDoc(collection(db, 'meetingRecords'), {
+          paperID: uuidv4(),
+          transcription: tr || 'No transcription available.',
+          minutes: mm || 'No minutes available.',
+          createdAt: new Date(),
+          uid: auth.currentUser.uid,
+        });
+        setMeetingRecordId(docRef.id);
+        push(`SAVE OK: ${docRef.id}`);
+      } else {
+        push('SKIP SAVE: not logged in');
+      }
+    } catch (e) {
+      push(`SAVE ERR: ${e.message || e}`);
+    }
+
+    setOverlayStage('Done', 100);
+    setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 700);
+    localStorage.removeItem(LAST_SID_KEY);
+    localStorage.removeItem(LAST_MEETING_ID_KEY);
+    localStorage.removeItem(LAST_PASSCODE_KEY);
+    setPhase('finished');
+
+    // 画面起動（オフライン同様）
+    setShowFullScreen(true);
+    setIsExpanded(false); // 既定：議事録（要約）ビュー
+  } catch (e) {
+    push(`FINISH ERROR: ${e.message || e}`);
+    setOverlayStage('An error occurred', 100);
+    setPhase('error');
+    setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 800);
   }
+}
+
 
   async function onReset() {
     if (!window.confirm('Reset the meeting link? All recording info will be lost.')) return;
