@@ -1,6 +1,6 @@
 // src/firebaseConfig.js
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// ※ analytics は SSR/非対応環境で落ちないよう dynamic import で扱う
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth"; // 追加
 
@@ -16,9 +16,40 @@ const firebaseConfig = {
 
 // Firebase 初期化
 const app = initializeApp(firebaseConfig);
-const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
+
+// Firestore / Auth は通常どおり
 const db = getFirestore(app);
 const auth = getAuth(app);
-await setPersistence(auth, browserLocalPersistence);
+
+// ---- Analytics はブラウザ&対応環境のみ安全に初期化（SSR回避）----
+let analytics = null;
+if (typeof window !== "undefined") {
+  (async () => {
+    try {
+      const { isSupported, getAnalytics } = await import("firebase/analytics");
+      if (await isSupported()) {
+        analytics = getAnalytics(app);
+      }
+    } catch (e) {
+      // 非対応環境やブロック時は何もしない
+      // console.debug("Analytics init skipped:", e);
+    }
+  })();
+}
+
+// ---- Auth 永続化の“クライアント専用”初期化（トップレベルでは呼ばない）----
+let _persistenceSet = false;
+/**
+ * クライアントで一度だけ Auth 永続化を設定する。
+ * SSR では実行しない。dynamic import でサーバーバンドルから除外。
+ */
+export async function initAuthPersistence() {
+  if (_persistenceSet) return;
+  if (typeof window === "undefined") return;
+
+  const { setPersistence, browserLocalPersistence } = await import("firebase/auth");
+  await setPersistence(auth, browserLocalPersistence);
+  _persistenceSet = true;
+}
 
 export { app, analytics, db, auth }; // auth をエクスポート
