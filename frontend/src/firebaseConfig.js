@@ -18,6 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
 const db = getFirestore(app);
-const auth = getAuth(app); // 追加
+const auth = getAuth(app);
+await setPersistence(auth, browserLocalPersistence);
 
 export { app, analytics, db, auth }; // auth をエクスポート

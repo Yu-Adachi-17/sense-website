@@ -127,8 +127,7 @@ export default function SignUp() {
         await createUserDocument(user);
         console.log("✅ Created user document in Firestore via Google sign-in:", user.uid);
       }
-      router.push("/");
-      window.location.reload();
+      await router.replace("/");
     } catch (error) {
       setAlertMessage(error.message || "Google sign-in failed");
       setShowAlert(true);
@@ -149,8 +148,7 @@ export default function SignUp() {
         await createUserDocument(user);
         console.log("✅ Created user document in Firestore via Apple sign-in:", user.uid);
       }
-      router.push("/");
-      window.location.reload();
+      await router.replace("/");
     } catch (error) {
       setAlertMessage(error.message || "Apple sign-in failed");
       setShowAlert(true);

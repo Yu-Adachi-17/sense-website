@@ -68,9 +68,7 @@ export default function Login() {
       await syncUserData(user, email, false, remainingSecondsFromFirebase);
 
       // ホーム画面へナビゲート
-      router.push("/");
-      // ナビゲーション後にページをリロード
-      window.location.reload();
+      await router.replace("/");
     } catch (error) {
       console.error("Login error:", error);
       switch (error.code) {
@@ -102,8 +100,7 @@ export default function Login() {
     setIsLoading(true);
     try {
       await signInWithGoogle();
-      router.push("/");
-      window.location.reload();
+      await router.replace("/");
     } catch (error) {
       setAlertMessage(t("Google sign-in failed."));
       setShowAlert(true);
@@ -116,8 +113,7 @@ export default function Login() {
     setIsLoading(true);
     try {
       await signInWithApple();
-      router.push("/");
-      window.location.reload();
+      await router.replace("/");
     } catch (error) {
       setAlertMessage(t("Apple sign-in failed."));
       setShowAlert(true);

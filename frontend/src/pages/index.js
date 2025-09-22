@@ -18,7 +18,7 @@ import { db, auth } from '../firebaseConfig';
 import { collection, addDoc, doc, setDoc, getDoc, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { v4 as uuidv4 } from 'uuid';
-
+import { useAuthGate } from "../hooks/useAuthGate";
 
 // ----------------------
 // FileUploadButton Component (for debugging file uploads)
@@ -277,7 +277,8 @@ function App() {
   console.log("[DEBUG] App component loaded");
   const router = useRouter();
   const { t, i18n } = useTranslation();
-
+  const { ready } = useAuthGate(false);
+  if (!ready) return null;
   // State declarations
   const [isRecording, setIsRecording] = useState(false);
   const [audioLevel, setAudioLevel] = useState(1);
