@@ -39,11 +39,9 @@ export default function Login() {
     }
     setIsLoading(true);
     try {
-      // Email/Password でサインイン
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // メール認証が完了していない場合はサインアウトしてエラーを表示
       if (!user.emailVerified) {
         await signOut(auth);
         setAlertMessage(
@@ -53,10 +51,9 @@ export default function Login() {
         return;
       }
 
-      // 既存ユーザーの場合、Firestore から remainingSeconds を取得する
       const userDocRef = doc(db, "users", user.uid);
       const userDocSnap = await getDoc(userDocRef);
-      let remainingSecondsFromFirebase = 180; // デフォルトは 180（新規の場合用）
+      let remainingSecondsFromFirebase = 180; // デフォルト
       if (userDocSnap.exists()) {
         const data = userDocSnap.data();
         if (data.remainingSeconds != null && data.remainingSeconds > 0) {
@@ -64,12 +61,9 @@ export default function Login() {
         }
       }
 
-      // ログイン成功後、Firestore にユーザーデータを同期（既存ユーザーの場合は取得した値を利用）
       await syncUserData(user, email, false, remainingSecondsFromFirebase);
-
-      // ホーム画面へナビゲート
       await router.replace("/");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login error:", error);
       switch (error.code) {
         case "auth/invalid-email":
@@ -145,27 +139,28 @@ export default function Login() {
   return (
     <div
       style={{
-        backgroundColor: "#000",
+        backgroundColor: "#fff",
         width: "100vw",
         height: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        color: "white",
+        color: "#000",
       }}
     >
       <h1
         style={{
           fontSize: "40px",
-          fontWeight: "700",
-          color: "white",
+          fontWeight: 700,
+          color: "#000",
           margin: 0,
           marginBottom: "20px",
         }}
       >
         {t("Log in")}
       </h1>
+
       <input
         type="email"
         placeholder={t("Email")}
@@ -176,10 +171,13 @@ export default function Login() {
           height: "40px",
           paddingLeft: "10px",
           borderRadius: "25px",
-          border: "1px solid gray",
+          border: "1px solid #333",
+          color: "#000",
+          background: "#fff",
           marginBottom: "20px",
         }}
       />
+
       <input
         type="password"
         placeholder={t("Password")}
@@ -190,26 +188,33 @@ export default function Login() {
           height: "40px",
           paddingLeft: "10px",
           borderRadius: "25px",
-          border: "1px solid gray",
+          border: "1px solid #333",
+          color: "#000",
+          background: "#fff",
           marginBottom: "20px",
         }}
       />
+
       <button
         onClick={handleLogin}
         disabled={isLoading}
         style={{
           padding: "10px 20px",
-          background: "white",
-          color: "black",
-          border: "none",
+          background: "#fff",
+          color: "#000",
+          border: "1px solid #000",
+          borderRadius: "6px",
           cursor: isLoading ? "not-allowed" : "pointer",
-          opacity: isLoading ? 0.5 : 1,
+          opacity: isLoading ? 0.6 : 1,
           marginBottom: "20px",
-          fontWeight: "bold",
+          fontWeight: 700,
+          width: "300px",
+          height: "44px",
         }}
       >
         {t("Login")}
       </button>
+
       <button
         onClick={handleGoogleSignIn}
         style={{
@@ -217,19 +222,21 @@ export default function Login() {
           alignItems: "center",
           justifyContent: "center",
           padding: "10px 20px",
-          background: "white",
-          color: "black",
+          background: "#fff",
+          color: "#000",
           border: "1px solid #ccc",
-          borderRadius: "5px",
+          borderRadius: "6px",
           cursor: "pointer",
           width: "300px",
+          height: "44px",
           marginBottom: "10px",
-          fontWeight: "bold",
+          fontWeight: 700,
         }}
       >
         <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
         {t("Sign in with Google")}
       </button>
+
       <button
         onClick={handleAppleSignIn}
         style={{
@@ -237,46 +244,53 @@ export default function Login() {
           alignItems: "center",
           justifyContent: "center",
           padding: "10px 20px",
-          background: "black",
-          color: "white",
-          border: "1px solid white",
-          borderRadius: "5px",
+          background: "#fff",
+          color: "#000",
+          border: "1px solid #000",
+          borderRadius: "6px",
           cursor: "pointer",
           width: "300px",
+          height: "44px",
           marginBottom: "20px",
-          fontWeight: "bold",
+          fontWeight: 700,
         }}
       >
         <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
         {t("Sign in with Apple")}
       </button>
+
       <button
         onClick={handlePasswordReset}
         disabled={isLoading}
         style={{
-          color: "red",
+          color: "#b00020",
           background: "none",
           border: "none",
           cursor: isLoading ? "not-allowed" : "pointer",
           marginBottom: "20px",
-          fontWeight: "bold",
+          fontWeight: 700,
         }}
       >
         {t("Forgot your password? Send a reset email.")}
       </button>
+
       <button
         onClick={() => router.push("/signup")}
         style={{
-          color: "white",
+          color: "#000",
           background: "none",
           border: "none",
           cursor: "pointer",
+          fontWeight: 600,
         }}
       >
         {t("Don't have an account? Click here.")}
       </button>
+
       {showAlert && (
-        <div style={{ color: "red", marginTop: "20px" }}>{alertMessage}</div>
+        <div style={{ color: "#b00020", marginTop: "20px", fontWeight: 600 }}>
+          {alertMessage}
+        </div>
       )}
     </div>
   );
