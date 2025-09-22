@@ -24,18 +24,16 @@ import {
 
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
+import HomeIcon from "./homeIcon";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// 同一 email のドキュメントが存在する場合はエラー
 const createUserDocument = async (user) => {
   const usersRef = collection(db, "users");
   const q = query(usersRef, where("email", "==", user.email));
   const querySnapshot = await getDocs(q);
-  if (!querySnapshot.empty) {
-    throw new Error("This account is already registered.");
-  }
+  if (!querySnapshot.empty) throw new Error("This account is already registered.");
 
   const userRef = doc(db, "users", user.uid);
   await setDoc(userRef, {
@@ -49,7 +47,7 @@ const createUserDocument = async (user) => {
     subscriptionStartDate: null,
     subscriptionEndDate: null,
     lastSubscriptionUpdate: null,
-    remainingSeconds: 180, // 新規ユーザーは 180
+    remainingSeconds: 180,
     subscription: false,
   });
 };
@@ -57,7 +55,6 @@ const createUserDocument = async (user) => {
 export default function SignUp() {
   const { t, i18n } = useTranslation();
 
-  // アラビア語は RTL
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
@@ -70,7 +67,6 @@ export default function SignUp() {
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  // 初回マウント時にローカルフラグ確認
   useEffect(() => {
     const emailSentFlag = localStorage.getItem("isEmailSent");
     if (emailSentFlag === "true") {
@@ -79,7 +75,6 @@ export default function SignUp() {
     }
   }, []);
 
-  // Email サインアップ
   const handleSignUp = async () => {
     if (!email || !password) return;
     setIsLoading(true);
@@ -101,15 +96,12 @@ export default function SignUp() {
     }
   };
 
-  // Google サインイン
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
       await signInWithGoogle();
       const user = auth.currentUser;
-      if (user) {
-        await createUserDocument(user);
-      }
+      if (user) await createUserDocument(user);
       await router.replace("/");
     } catch (error) {
       setAlertMessage(error.message || "Google sign-in failed");
@@ -119,15 +111,12 @@ export default function SignUp() {
     }
   };
 
-  // Apple サインイン
   const handleAppleSignIn = async () => {
     setIsLoading(true);
     try {
       await signInWithApple();
       const user = auth.currentUser;
-      if (user) {
-        await createUserDocument(user);
-      }
+      if (user) await createUserDocument(user);
       await router.replace("/");
     } catch (error) {
       setAlertMessage(error.message || "Apple sign-in failed");
@@ -137,7 +126,6 @@ export default function SignUp() {
     }
   };
 
-  // 検証メール送信済み画面
   if (isEmailSent) {
     return (
       <div
@@ -151,8 +139,14 @@ export default function SignUp() {
           flexDirection: "column",
           color: "#000",
           fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
+          position: "relative",
         }}
       >
+        {/* ← 左上固定のホーム（外部） */}
+        <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
+          <HomeIcon size={30} href="https://sense-ai.world" />
+        </div>
+
         <h1 style={{ fontWeight: 700, letterSpacing: "0.02em", margin: 0 }}>
           {t("Verification Email Sent")}
         </h1>
@@ -178,7 +172,6 @@ export default function SignUp() {
     );
   }
 
-  // 通常のサインアップ画面
   return (
     <div
       style={{
@@ -190,8 +183,14 @@ export default function SignUp() {
         alignItems: "center",
         flexDirection: "column",
         color: "#000",
+        position: "relative",
       }}
     >
+      {/* ← 左上固定のホーム（外部） */}
+      <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
+        <HomeIcon size={30} href="https://sense-ai.world" />
+      </div>
+
       <h1
         style={{
           fontSize: "40px",
@@ -246,12 +245,13 @@ export default function SignUp() {
           color: "#000",
           border: "1px solid #000",
           borderRadius: "6px",
-          cursor: isLoading ? "not-allowed" : "pointer",
+          cursor: "not-allowed",
           opacity: isLoading ? 0.6 : 1,
           marginBottom: "20px",
           fontWeight: 700,
           width: "300px",
           height: "44px",
+          cursor: isLoading ? "not-allowed" : "pointer",
         }}
       >
         {t("Email Verification")}
@@ -288,7 +288,7 @@ export default function SignUp() {
           padding: "10px 20px",
           background: "#fff",
           color: "#000",
-          border: "1px solid #000", // Appleの white outline 互換
+          border: "1px solid #000",
           borderRadius: "6px",
           cursor: "pointer",
           width: "300px",

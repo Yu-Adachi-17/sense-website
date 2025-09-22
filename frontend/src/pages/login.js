@@ -13,6 +13,7 @@ import { FaApple } from "react-icons/fa";
 import { syncUserData } from "../firebaseUserSync";
 import { useTranslation } from "react-i18next";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import HomeIcon from "./homeIcon";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -26,7 +27,6 @@ export default function Login() {
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  // アラビア語の場合に dir="rtl" を適用
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
@@ -53,7 +53,7 @@ export default function Login() {
 
       const userDocRef = doc(db, "users", user.uid);
       const userDocSnap = await getDoc(userDocRef);
-      let remainingSecondsFromFirebase = 180; // デフォルト
+      let remainingSecondsFromFirebase = 180;
       if (userDocSnap.exists()) {
         const data = userDocSnap.data();
         if (data.remainingSeconds != null && data.remainingSeconds > 0) {
@@ -65,7 +65,6 @@ export default function Login() {
       await router.replace("/");
     } catch (error) {
       console.error("Login error:", error);
-      // error.code が無いケースもあるため安全に参照
       const code = (error && typeof error === "object" && "code" in error) ? error.code : undefined;
       switch (code) {
         case "auth/invalid-email":
@@ -149,8 +148,14 @@ export default function Login() {
         alignItems: "center",
         flexDirection: "column",
         color: "#000",
+        position: "relative",
       }}
     >
+      {/* ← 左上固定のホーム（外部） */}
+      <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
+        <HomeIcon size={30} href="https://sense-ai.world" />
+      </div>
+
       <h1
         style={{
           fontSize: "40px",
