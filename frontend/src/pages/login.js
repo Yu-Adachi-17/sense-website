@@ -14,6 +14,7 @@ import { syncUserData } from "../firebaseUserSync";
 import { useTranslation } from "react-i18next";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import HomeIcon from "./homeIcon";
+import Image from "next/image";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -27,6 +28,7 @@ export default function Login() {
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
+  // RTL対応
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
@@ -60,7 +62,6 @@ export default function Login() {
           remainingSecondsFromFirebase = data.remainingSeconds;
         }
       }
-
       await syncUserData(user, email, false, remainingSecondsFromFirebase);
       await router.replace("/");
     } catch (error) {
@@ -96,7 +97,7 @@ export default function Login() {
     try {
       await signInWithGoogle();
       await router.replace("/");
-    } catch (error) {
+    } catch {
       setAlertMessage(t("Google sign-in failed."));
       setShowAlert(true);
     } finally {
@@ -109,7 +110,7 @@ export default function Login() {
     try {
       await signInWithApple();
       await router.replace("/");
-    } catch (error) {
+    } catch {
       setAlertMessage(t("Apple sign-in failed."));
       setShowAlert(true);
     } finally {
@@ -144,161 +145,181 @@ export default function Login() {
         width: "100vw",
         height: "100vh",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
+        flexDirection: "row",
         color: "#000",
         position: "relative",
+        overflow: "hidden",
       }}
     >
-      {/* ← 左上固定のホーム（外部） */}
+      {/* 左上ホーム固定 */}
       <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
         <HomeIcon size={30} href="https://sense-ai.world" />
       </div>
 
-      <h1
-        style={{
-          fontSize: "40px",
-          fontWeight: 700,
-          color: "#000",
-          margin: 0,
-          marginBottom: "20px",
-        }}
-      >
-        {t("Log in")}
-      </h1>
+      {/* 左：画像 2/3 */}
+      <div style={{ flex: "2 1 0%", position: "relative", minWidth: 0 }}>
+        {/* fill + sizes で最適化・安定表示（CLS対策） */}
+        <Image
+          src="/loginAndSignup.png"
+          alt="Login / Signup Visual"
+          fill
+          sizes="(max-width: 900px) 100vw, 66vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          priority
+        />
+      </div>
 
-      <input
-        type="email"
-        placeholder={t("Email")}
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        style={{
-          width: "300px",
-          height: "40px",
-          paddingLeft: "10px",
-          borderRadius: "25px",
-          border: "1px solid #333",
-          color: "#000",
-          background: "#fff",
-          marginBottom: "20px",
-        }}
-      />
+      {/* 縦の黒線 */}
+      <div style={{ width: "2px", background: "#000", height: "100%" }} />
 
-      <input
-        type="password"
-        placeholder={t("Password")}
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+      {/* 右：フォーム 1/3 */}
+      <div
         style={{
-          width: "300px",
-          height: "40px",
-          paddingLeft: "10px",
-          borderRadius: "25px",
-          border: "1px solid #333",
-          color: "#000",
-          background: "#fff",
-          marginBottom: "20px",
-        }}
-      />
-
-      <button
-        onClick={handleLogin}
-        disabled={isLoading}
-        style={{
-          padding: "10px 20px",
-          background: "#fff",
-          color: "#000",
-          border: "1px solid #000",
-          borderRadius: "6px",
-          cursor: isLoading ? "not-allowed" : "pointer",
-          opacity: isLoading ? 0.6 : 1,
-          marginBottom: "20px",
-          fontWeight: 700,
-          width: "300px",
-          height: "44px",
-        }}
-      >
-        {t("Login")}
-      </button>
-
-      <button
-        onClick={handleGoogleSignIn}
-        style={{
+          flex: "1 1 0%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          padding: "10px 20px",
-          background: "#fff",
-          color: "#000",
-          border: "1px solid #ccc",
-          borderRadius: "6px",
-          cursor: "pointer",
-          width: "300px",
-          height: "44px",
-          marginBottom: "10px",
-          fontWeight: 700,
+          padding: "24px",
+          gap: "12px",
+          overflowY: "auto",
         }}
       >
-        <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
-        {t("Sign in with Google")}
-      </button>
+        <h1 style={{ fontSize: "40px", fontWeight: 700, margin: 0, marginBottom: 20 }}>
+          {t("Log in")}
+        </h1>
 
-      <button
-        onClick={handleAppleSignIn}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "10px 20px",
-          background: "#fff",
-          color: "#000",
-          border: "1px solid #000",
-          borderRadius: "6px",
-          cursor: "pointer",
-          width: "300px",
-          height: "44px",
-          marginBottom: "20px",
-          fontWeight: 700,
-        }}
-      >
-        <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
-        {t("Sign in with Apple")}
-      </button>
+        <input
+          type="email"
+          placeholder={t("Email")}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{
+            width: "300px",
+            height: "40px",
+            paddingLeft: "10px",
+            borderRadius: "25px",
+            border: "1px solid #333",
+            color: "#000",
+            background: "#fff",
+            marginBottom: "16px",
+          }}
+        />
+        <input
+          type="password"
+          placeholder={t("Password")}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={{
+            width: "300px",
+            height: "40px",
+            paddingLeft: "10px",
+            borderRadius: "25px",
+            border: "1px solid #333",
+            color: "#000",
+            background: "#fff",
+            marginBottom: "16px",
+          }}
+        />
 
-      <button
-        onClick={handlePasswordReset}
-        disabled={isLoading}
-        style={{
-          color: "#b00020",
-          background: "none",
-          border: "none",
-          cursor: isLoading ? "not-allowed" : "pointer",
-          marginBottom: "20px",
-          fontWeight: 700,
-        }}
-      >
-        {t("Forgot your password? Send a reset email.")}
-      </button>
+        <button
+          onClick={handleLogin}
+          disabled={isLoading}
+          style={{
+            padding: "10px 20px",
+            background: "#fff",
+            color: "#000",
+            border: "1px solid #000",
+            borderRadius: "6px",
+            cursor: isLoading ? "not-allowed" : "pointer",
+            opacity: isLoading ? 0.6 : 1,
+            marginBottom: "16px",
+            fontWeight: 700,
+            width: "300px",
+            height: "44px",
+          }}
+        >
+          {t("Login")}
+        </button>
 
-      <button
-        onClick={() => router.push("/signup")}
-        style={{
-          color: "#000",
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          fontWeight: 600,
-        }}
-      >
-        {t("Don't have an account? Click here.")}
-      </button>
+        <button
+          onClick={handleGoogleSignIn}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "10px 20px",
+            background: "#fff",
+            color: "#000",
+            border: "1px solid #ccc",
+            borderRadius: "6px",
+            cursor: "pointer",
+            width: "300px",
+            height: "44px",
+            marginBottom: "10px",
+            fontWeight: 700,
+          }}
+        >
+          <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
+          {t("Sign in with Google")}
+        </button>
 
-      {showAlert && (
-        <div style={{ color: "#b00020", marginTop: "20px", fontWeight: 600 }}>
-          {alertMessage}
-        </div>
-      )}
+        <button
+          onClick={handleAppleSignIn}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "10px 20px",
+            background: "#fff",
+            color: "#000",
+            border: "1px solid #000",
+            borderRadius: "6px",
+            cursor: "pointer",
+            width: "300px",
+            height: "44px",
+            marginBottom: "16px",
+            fontWeight: 700,
+          }}
+        >
+          <FaApple style={{ marginRight: 10, fontSize: 20 }} />
+          {t("Sign in with Apple")}
+        </button>
+
+        <button
+          onClick={handlePasswordReset}
+          disabled={isLoading}
+          style={{
+            color: "#b00020",
+            background: "none",
+            border: "none",
+            cursor: isLoading ? "not-allowed" : "pointer",
+            marginBottom: "16px",
+            fontWeight: 700,
+          }}
+        >
+          {t("Forgot your password? Send a reset email.")}
+        </button>
+
+        <button
+          onClick={() => router.push("/signup")}
+          style={{
+            color: "#000",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            fontWeight: 600,
+          }}
+        >
+          {t("Don't have an account? Click here.")}
+        </button>
+
+        {showAlert && (
+          <div style={{ color: "#b00020", marginTop: "8px", fontWeight: 600 }}>
+            {alertMessage}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

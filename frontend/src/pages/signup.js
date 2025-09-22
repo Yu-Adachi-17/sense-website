@@ -25,6 +25,7 @@ import {
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import HomeIcon from "./homeIcon";
+import Image from "next/image";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -126,37 +127,71 @@ export default function SignUp() {
     }
   };
 
-  if (isEmailSent) {
-    return (
+  // 2カラム共通レイアウト（画像左2/3 + 縦ライン + 右1/3）
+  const TwoColumn = ({ children }) => (
+    <div
+      style={{
+        backgroundColor: "#fff",
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "row",
+        color: "#000",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* 左上ホーム固定 */}
+      <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
+        <HomeIcon size={30} href="https://sense-ai.world" />
+      </div>
+
+      {/* 左：画像 2/3 */}
+      <div style={{ flex: "2 1 0%", position: "relative", minWidth: 0 }}>
+        <Image
+          src="/loginAndSignup.png"
+          alt="Create Account Visual"
+          fill
+          sizes="(max-width: 900px) 100vw, 66vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          priority
+        />
+      </div>
+
+      {/* 縦の黒線 */}
+      <div style={{ width: "2px", background: "#000", height: "100%" }} />
+
+      {/* 右：内容 1/3 */}
       <div
         style={{
-          backgroundColor: "#fff",
-          height: "100vh",
-          width: "100vw",
+          flex: "1 1 0%",
           display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
           flexDirection: "column",
-          color: "#000",
-          fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
-          position: "relative",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "24px",
+          gap: "12px",
+          overflowY: "auto",
         }}
       >
-        {/* ← 左上固定のホーム（外部） */}
-        <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
-          <HomeIcon size={30} href="https://sense-ai.world" />
-        </div>
+        {children}
+      </div>
+    </div>
+  );
 
+  if (isEmailSent) {
+    return (
+      <TwoColumn>
         <h1 style={{ fontWeight: 700, letterSpacing: "0.02em", margin: 0 }}>
           {t("Verification Email Sent")}
         </h1>
-        <p style={{ fontSize: "0.95rem", marginTop: "12px", textAlign: "center", maxWidth: 520 }}>
+        <p style={{ fontSize: "0.95rem", marginTop: 12, textAlign: "center", maxWidth: 520 }}>
           {t("Please click the link in the email to verify your account and then log in.")}
         </p>
         <button
           onClick={() => router.push("/login")}
           style={{
-            marginTop: "20px",
+            marginTop: 20,
             color: "#000",
             background: "#fff",
             border: "1px solid #000",
@@ -168,38 +203,13 @@ export default function SignUp() {
         >
           {t("Log In After Verification")}
         </button>
-      </div>
+      </TwoColumn>
     );
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: "#fff",
-        height: "100vh",
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        color: "#000",
-        position: "relative",
-      }}
-    >
-      {/* ← 左上固定のホーム（外部） */}
-      <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
-        <HomeIcon size={30} href="https://sense-ai.world" />
-      </div>
-
-      <h1
-        style={{
-          fontSize: "40px",
-          fontWeight: 700,
-          color: "#000",
-          margin: 0,
-          marginBottom: "20px",
-        }}
-      >
+    <TwoColumn>
+      <h1 style={{ fontSize: "40px", fontWeight: 700, margin: 0, marginBottom: 20 }}>
         {t("Create Account")}
       </h1>
 
@@ -216,7 +226,7 @@ export default function SignUp() {
           border: "1px solid #333",
           color: "#000",
           background: "#fff",
-          marginBottom: "20px",
+          marginBottom: "16px",
         }}
       />
       <input
@@ -232,7 +242,7 @@ export default function SignUp() {
           border: "1px solid #333",
           color: "#000",
           background: "#fff",
-          marginBottom: "20px",
+          marginBottom: "16px",
         }}
       />
 
@@ -245,13 +255,12 @@ export default function SignUp() {
           color: "#000",
           border: "1px solid #000",
           borderRadius: "6px",
-          cursor: "not-allowed",
+          cursor: isLoading ? "not-allowed" : "pointer",
           opacity: isLoading ? 0.6 : 1,
-          marginBottom: "20px",
+          marginBottom: "16px",
           fontWeight: 700,
           width: "300px",
           height: "44px",
-          cursor: isLoading ? "not-allowed" : "pointer",
         }}
       >
         {t("Email Verification")}
@@ -275,7 +284,7 @@ export default function SignUp() {
           fontWeight: 700,
         }}
       >
-        <FcGoogle style={{ marginRight: "10px", fontSize: "20px" }} />
+        <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
         {t("Sign in with Google")}
       </button>
 
@@ -293,11 +302,11 @@ export default function SignUp() {
           cursor: "pointer",
           width: "300px",
           height: "44px",
-          marginBottom: "20px",
+          marginBottom: "16px",
           fontWeight: 700,
         }}
       >
-        <FaApple style={{ marginRight: "10px", fontSize: "20px" }} />
+        <FaApple style={{ marginRight: 10, fontSize: 20 }} />
         {t("Sign in with Apple")}
       </button>
 
@@ -315,10 +324,10 @@ export default function SignUp() {
       </button>
 
       {showAlert && (
-        <div style={{ color: "#b00020", marginTop: "20px", fontWeight: 600 }}>
+        <div style={{ color: "#b00020", marginTop: "8px", fontWeight: 600 }}>
           {alertMessage}
         </div>
       )}
-    </div>
+    </TwoColumn>
   );
 }
