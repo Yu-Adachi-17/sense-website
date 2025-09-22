@@ -277,8 +277,7 @@ function App() {
   console.log("[DEBUG] App component loaded");
   const router = useRouter();
   const { t, i18n } = useTranslation();
-  const { ready } = useAuthGate(false);
-  if (!ready) return null;
+
   // State declarations
   const [isRecording, setIsRecording] = useState(false);
   const [audioLevel, setAudioLevel] = useState(1);
@@ -758,6 +757,9 @@ const R = (RING_SIZE - STROKE) / 2;
 const C = 2 * Math.PI * R;   // 周長
 const remainRatio = recordingCountdown / 3600; // 1 → 0
 const dashoffset = C * (1 - remainRatio);      // 経過に応じて増える
+
+const { ready } = useAuthGate(false);
+if (!ready) return null;
 
 return (
   <div
