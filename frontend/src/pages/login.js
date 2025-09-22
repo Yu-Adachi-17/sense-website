@@ -63,9 +63,11 @@ export default function Login() {
 
       await syncUserData(user, email, false, remainingSecondsFromFirebase);
       await router.replace("/");
-    } catch (error: any) {
+    } catch (error) {
       console.error("Login error:", error);
-      switch (error.code) {
+      // error.code が無いケースもあるため安全に参照
+      const code = (error && typeof error === "object" && "code" in error) ? error.code : undefined;
+      switch (code) {
         case "auth/invalid-email":
           setAlertMessage(t("The email address is invalid."));
           break;
