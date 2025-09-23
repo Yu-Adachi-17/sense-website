@@ -2,9 +2,10 @@ require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 
-const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+
 const express = require('express');
 const cors = require('cors');
+const app = express();
 
 const multer = require('multer');
 const axios = require('axios');
@@ -15,13 +16,13 @@ ffmpeg.setFfmpegPath('ffmpeg');
 ffmpeg.setFfprobePath('ffprobe');
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
 console.log("[DEBUG] ffprobe path set to 'ffprobe'");
-const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+
 
 const FormData = require('form-data');
 const Stripe = require('stripe');
 const webhookRouter = require('./routes/webhook');
 const appleRouter = require('./routes/apple'); // Apple route added
-const app = express();
+
 
 // ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
 const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
@@ -37,7 +38,7 @@ app.use(cors({
 // 追加で全体の OPTIONS を明示的に 204 返し（なくても OK）
 app.options('*', cors());
 
-app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
+
 
 /*==============================================
 =            Middleware Order                  =
@@ -60,6 +61,10 @@ app.use((req, res, next) => {
   console.log(`[DEBUG] Body: ${JSON.stringify(req.body)}`);
   next();
 });
+
+const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
+
 
 /*==============================================
 =            Router Registration               =
