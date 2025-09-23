@@ -1,12 +1,16 @@
+// server.js
+
 require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 
-
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+
 const app = express();
 
+// ===== 依存モジュール =====
 const multer = require('multer');
 const axios = require('axios');
 const fs = require('fs');
@@ -17,82 +21,137 @@ ffmpeg.setFfprobePath('ffprobe');
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
 console.log("[DEBUG] ffprobe path set to 'ffprobe'");
 
-
 const FormData = require('form-data');
 const Stripe = require('stripe');
-const webhookRouter = require('./routes/webhook');
-const appleRouter = require('./routes/apple'); // Apple route added
 
+// ===== ルーター =====
+const webhookRouter = require('./routes/webhook');     // Stripe などのWebhookを束ねるルーター
+const appleRouter   = require('./routes/apple');       // Appleの通知ルーター
+const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute'); // Zoom OAuth の code->token 交換API
 
-// ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
-const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
+/*==============================================
+=            セキュリティヘッダ(Helmet)         =
+==============================================*/
+// Zoom からの埋め込み想定: X-Frame-Optionsは無効化し、frame-ancestorsで許可先を制御
+app.use(helmet({
+  frameguard: false,
+  contentSecurityPolicy: {
+    useDefaults: true,
+    directives: {
+      "default-src": ["'self'"],
+      "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],
+      "font-src": ["'self'", "https:", "data:"],
+      "img-src": ["'self'", "data:"],
+      "object-src": ["'none'"],
+      "script-src": ["'self'"],
+      "script-src-attr": ["'none'"],
+      "style-src": ["'self'", "https:", "'unsafe-inline'"],
+      "base-uri": ["'self'"],
+      "form-action": ["'self'"],
+      "upgrade-insecure-requests": [],
+    }
+  },
+  referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+  crossOriginOpenerPolicy: { policy: "same-origin" },
+  crossOriginResourcePolicy: { policy: "same-origin" },
+  dnsPrefetchControl: { allow: false },
+  xssFilter: false,
+}));
+
+// 念のため（旧ブラウザ向け/明示）
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  next();
+});
+
+/*==============================================
+=            CORS（最優先で適用）               =
+==============================================*/
+const allowedOrigins = [
+  'https://sense-ai.world',
+  'https://www.sense-ai.world'
+];
+
 app.use(cors({
   origin: (origin, cb) => {
     if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-    cb(new Error('Not allowed by CORS'));
+    return cb(new Error('Not allowed by CORS'));
   },
   credentials: true,
-  methods: ['GET','POST','OPTIONS'],
-  allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
 }));
-// 追加で全体の OPTIONS を明示的に 204 返し（なくても OK）
-app.options('*', cors());
 
-
+// 明示的に全体の preflight を許可（204）
+app.options('*', (req, res) => {
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  return res.sendStatus(204);
+});
 
 /*==============================================
-=            Middleware Order                  =
+=            Body Parser の順序                  =
 ==============================================*/
-
-// ① For Stripe Webhook: Use raw body for /api/stripe (applied before JSON parsing)
+// ⚠️ Stripe Webhook は署名検証のため raw ボディが必要。
+//    ここだけ express.raw を先に噛ませ、他ルートの JSON パースより前に定義する。
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
-// ② For Apple Webhook: Use raw body for /api/apple/notifications
-// Apple Webhook: Now parse JSON
+// Apple 通知は JSON で受けたいので、このエンドポイントに限って先に json() を当てる
 app.use('/api/apple/notifications', express.json());
 
-// ③ For all other endpoints: Parse JSON body
+// 上記以外の通常APIはここで JSON をパース
 app.use(express.json());
 
-/* Log detailed request information */
+/*==============================================
+=            リクエスト詳細ログ                  =
+==============================================*/
 app.use((req, res, next) => {
+  const safeHeaders = { ...req.headers };
+  // 内部用トークンなどはマスク
+  if (safeHeaders['x-internal-token']) safeHeaders['x-internal-token'] = '***';
   console.log(`[DEBUG] ${req.method} ${req.url}`);
-  console.log(`[DEBUG] Headers: ${JSON.stringify(req.headers)}`);
+  console.log(`[DEBUG] Headers: ${JSON.stringify(safeHeaders)}`);
   console.log(`[DEBUG] Body: ${JSON.stringify(req.body)}`);
   next();
 });
 
-const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+/*==============================================
+=            ルーター登録                        =
+==============================================*/
+// Zoom OAuth code -> token 交換API（CORS/JSON 適用後に登録）
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
 
+// Stripe Webhook群は raw ボディで受けたいので、上の express.raw と同じプレフィックスでここに登録
+app.use('/api/stripe', webhookRouter);
 
-/*==============================================
-=            Router Registration               =
-==============================================*/
-
-// Webhook routes (including Stripe-related routes)
-app.use('/api', webhookRouter);
-// Apple Webhook route
+// Apple 通知（/api/apple/notifications はすでに json() 済み）
 app.use('/api/apple', appleRouter);
 
 /*==============================================
 =            Other Middleware                  =
 ==============================================*/
-
-// Extend request timeout (e.g., 10 minutes)
+// 長時間処理に備えてタイムアウト延長（例：10分）
 app.use((req, res, next) => {
   req.setTimeout(600000, () => {
     console.error('Request timed out.');
-    res.set({
-      'Access-Control-Allow-Origin': req.headers.origin || '*',
-      'Access-Control-Allow-Credentials': 'true'
-    });
+    const origin = req.headers.origin;
+    if (origin && allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    } else {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    }
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.status(503).send('Service Unavailable: request timed out.');
   });
   next();
 });
 
-
+// ── ここから先（STTやStripe決済、静的配信など）は既存コードを続けてOK ──
 
 
 // Debug endpoint

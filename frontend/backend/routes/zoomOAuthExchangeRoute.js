@@ -4,51 +4,37 @@ const axios = require('axios');
 
 const router = express.Router();
 
-// Preflight（念のため個別でも204を返す）
-router.options('/exchange', (req, res) => res.sendStatus(204));
-
 router.post('/exchange', async (req, res) => {
   try {
-    const { code, redirectUri, state } = req.body || {};
+    // デバッグ：何が来たか確認
+    console.log('[oauth/exchange] headers=', req.headers);
+    console.log('[oauth/exchange] body=', req.body);
+
+    const { code, redirectUri /*, state*/ } = req.body || {};
     if (!code || !redirectUri) {
-      return res.status(400).json({ ok: false, error: 'missing code or redirectUri' });
+      return res.status(400).json({ ok:false, error: 'missing code or redirectUri' });
     }
 
-    // （必要なら）state 検証をここで行う
+    // Zoom OAuth (Authorization Code) 交換
+    const cid = process.env.ZOOM_CLIENT_ID;
+    const secret = process.env.ZOOM_CLIENT_SECRET;
+    if (!cid || !secret) {
+      return res.status(500).json({ ok:false, error: 'missing env ZOOM_CLIENT_ID/ZOOM_CLIENT_SECRET' });
+    }
+    const basic = Buffer.from(`${cid}:${secret}`).toString('base64');
 
-    const basic = Buffer.from(
-      `${process.env.ZOOM_CLIENT_ID}:${process.env.ZOOM_CLIENT_SECRET}`
-    ).toString('base64');
-
-    // Zoom の認可コード → アクセストークン交換
-    // OAuth2 標準どおり、application/x-www-form-urlencoded で送ります
-    const params = new URLSearchParams({
-      grant_type: 'authorization_code',
-      code,
-      redirect_uri: redirectUri, // ← Zoom 側に登録したものと完全一致が必須
-    });
-
-    const token = await axios.post(
+    // grant_type=authorization_code、redirect_uri は Zoom App 設定値と完全一致
+    const tokenResp = await axios.post(
       'https://zoom.us/oauth/token',
-      params.toString(),
-      {
-        headers: {
-          'Authorization': `Basic ${basic}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        timeout: 15000,
-      }
+      new URLSearchParams({ grant_type: 'authorization_code', code, redirect_uri: redirectUri }),
+      { headers: { Authorization: `Basic ${basic}`, 'Content-Type': 'application/x-www-form-urlencoded' }, timeout: 15000 }
     );
 
-    // 必要なら保存して下さい。まずは返すだけ。
-    return res.json({ ok: true, tokens: token.data });
+    return res.status(200).json({ ok: true, tokens: tokenResp.data });
   } catch (e) {
-    console.error('[zoom oauth exchange] error:', e.response?.data || e.message);
-    return res.status(400).json({
-      ok: false,
-      error: 'token_exchange_failed',
-      detail: e.response?.data || e.message,
-    });
+    const detail = e.response?.data || e.message;
+    console.error('[oauth/exchange] error=', detail);
+    return res.status(500).json({ ok:false, error: 'token_exchange_failed', detail });
   }
 });
 
