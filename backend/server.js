@@ -4,27 +4,51 @@ require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 
-const zoomAuthRoute = require('./routes/zoomAuthRoute');
-const zoomJoinTokenRoute = require('./routes/zoomJoinTokenRoute');
 const express = require('express');
 const cors = require('cors');
-const app = express();
+const helmet = require('helmet');
+
+
 const multer = require('multer');
 const axios = require('axios');
 
 const fs = require('fs');
 const path = require('path');
-const ffmpeg = require('fluent-ffmpeg');
-ffmpeg.setFfmpegPath('ffmpeg');
-ffmpeg.setFfprobePath('ffprobe');
+
+
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
 console.log("[DEBUG] ffprobe path set to 'ffprobe'");
 
 const FormData = require('form-data');
 const Stripe = require('stripe');
+
+const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+const zoomAuthRoute = require('./routes/zoomAuthRoute');
+const zoomJoinTokenRoute = require('./routes/zoomJoinTokenRoute');
 // ※ webhookRouter の登録パスを /api/stripe に変更
 const webhookRouter = require('./routes/webhook');
 const appleRouter = require('./routes/apple'); // Apple route added
+
+const ffmpeg = require('fluent-ffmpeg');
+ffmpeg.setFfmpegPath('ffmpeg');
+ffmpeg.setFfprobePath('ffprobe');
+
+const app = express();
+
+// --- Security headers (Helmet) ---
+// Zoom の Surface/埋め込みに備え、X-Frame-Options は無効化し、CSP の frame-ancestors で許可先を制御
+app.use(helmet({
+  frameguard: false, // X-Frame-Options を出さない（CSPの frame-ancestors を優先） :contentReference[oaicite:1]{index=1}
+  contentSecurityPolicy: {
+    useDefaults: true,
+    directives: {
+      "default-src": ["'self'"],
+      // Zoom クライアントからの埋め込みを許可
+      "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],  // CSPで親フレームを制御 :contentReference[oaicite:2]{index=2}
+    },
+  },
+  referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+}));
 
 // ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
 const allowedOrigins = [
@@ -55,7 +79,7 @@ const qs = require('querystring');
 let cachedZoomToken = null;
 let cachedZoomTokenExp = 0; // epoch sec
 
-const helmet = require('helmet');
+
 const router = express.Router();
 
 
@@ -108,20 +132,7 @@ module.exports = router;
 
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute); // ← 追加
 
-// --- Security headers (Helmet) ---
-// Zoom の Surface/埋め込みに備え、X-Frame-Options は無効化し、CSP の frame-ancestors で許可先を制御
-app.use(helmet({
-  frameguard: false, // X-Frame-Options を出さない（CSPの frame-ancestors を優先） :contentReference[oaicite:1]{index=1}
-  contentSecurityPolicy: {
-    useDefaults: true,
-    directives: {
-      "default-src": ["'self'"],
-      // Zoom クライアントからの埋め込みを許可
-      "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],  // CSPで親フレームを制御 :contentReference[oaicite:2]{index=2}
-    },
-  },
-  referrerPolicy: { policy: "strict-origin-when-cross-origin" },
-}));
+
 
 // 念のため（旧ブラウザ向け/明示）
 app.use((req, res, next) => {
@@ -144,7 +155,7 @@ app.use('/api/apple/notifications', express.json());
 
 // ③ For all other endpoints: Parse JSON body
 app.use(express.json());
-const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
 
 /* Log detailed request information */
