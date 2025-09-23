@@ -2,7 +2,10 @@ require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 
+const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
 const express = require('express');
+const cors = require('cors');
+
 const multer = require('multer');
 const axios = require('axios');
 const fs = require('fs');
@@ -12,13 +15,29 @@ ffmpeg.setFfmpegPath('ffmpeg');
 ffmpeg.setFfprobePath('ffprobe');
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
 console.log("[DEBUG] ffprobe path set to 'ffprobe'");
+const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
 
-const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
 const webhookRouter = require('./routes/webhook');
 const appleRouter = require('./routes/apple'); // Apple route added
 const app = express();
+
+// ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
+const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+    cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET','POST','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With'],
+}));
+// 追加で全体の OPTIONS を明示的に 204 返し（なくても OK）
+app.options('*', cors());
+
+app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
 
 /*==============================================
 =            Middleware Order                  =
@@ -68,8 +87,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Define allowed origins
-const allowedOrigins = ['https://sense-ai.world', 'https://www.sense-ai.world'];
+
 
 // CORS settings
 const corsOptions = {
