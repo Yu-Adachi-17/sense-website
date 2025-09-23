@@ -20,7 +20,6 @@ ffmpeg.setFfprobePath('ffprobe');
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
 console.log("[DEBUG] ffprobe path set to 'ffprobe'");
 
-const cors = require('cors');
 const FormData = require('form-data');
 const Stripe = require('stripe');
 // ※ webhookRouter の登録パスを /api/stripe に変更
