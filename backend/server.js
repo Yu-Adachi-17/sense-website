@@ -154,7 +154,14 @@ app.use('/api/stripe', express.raw({ type: 'application/json' }));
 app.use('/api/apple/notifications', express.json());
 
 // ③ For all other endpoints: Parse JSON body
-app.use(express.json());
+// 🔒 JSONボディを確実に解析しつつ、生データを req._rawBody に保存
+app.use(express.json({
+  verify: (req, res, buf) => {
+    req._rawBody = buf ? buf.toString('utf8') : '';
+  },
+  limit: '2mb', // 安全に上限明示
+}));
+
 
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
 
@@ -183,6 +190,24 @@ app.use('/api/apple', appleRouter);
 // - 注意: 本番では認証＆レート制限を付けること（無制限公開はNG）
 app.use('/api', zoomAuthRoute);
 app.use('/api/zoom', zoomJoinTokenRoute);
+
+app.post('/api/_debug/echo', (req, res) => {
+  res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.set('Access-Control-Allow-Credentials', 'true');
+  console.log('[ECHO] content-type=', req.headers['content-type']);
+  console.log('[ECHO] _rawBody=', req._rawBody);
+  console.log('[ECHO] body=', req.body);
+  return res.json({
+    ok: true,
+    headers: {
+      'content-type': req.headers['content-type'] || null,
+      origin: req.headers.origin || null,
+    },
+    raw: req._rawBody || null,
+    parsed: req.body || null,
+  });
+});
+
 
 /*==============================================
 =            Other Middleware                  =
