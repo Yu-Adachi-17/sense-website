@@ -227,7 +227,6 @@ app.use((req, res, next) => {
 });
 
 
-
 // Debug endpoint
 const { exec } = require('child_process');
 app.get('/api/debug/ffprobe', (req, res) => {
