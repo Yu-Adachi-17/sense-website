@@ -83,53 +83,6 @@ let cachedZoomTokenExp = 0; // epoch sec
 const router = express.Router();
 
 
-router.post('/exchange', async (req, res) => {
-  try {
-    const { code, redirectUri /*, state*/ } = req.body || {};
-    if (!code || !redirectUri) {
-      return res.status(400).json({ error: 'missing code/redirectUri' });
-    }
-
-    // （任意）state 検証：authorize 開始時にセッションへ保存しておき、ここで照合する
-    // if (state !== req.session?.zoom_oauth_state) {
-    //   return res.status(400).json({ error: 'invalid state' });
-    // }
-
-    const cid = process.env.ZOOM_CLIENT_ID;
-    const secret = process.env.ZOOM_CLIENT_SECRET;
-    if (!cid || !secret) {
-      return res.status(500).json({ error: 'missing env ZOOM_CLIENT_ID/ZOOM_CLIENT_SECRET' });
-    }
-    const basic = Buffer.from(`${cid}:${secret}`).toString('base64');
-
-    // Zoom のトークンエンドポイントに Authorization Code を交換（Basic 認証）
-    // 要件：grant_type=authorization_code, redirect_uri は “登録値と完全一致”
-    const resp = await axios.post(
-      'https://zoom.us/oauth/token',
-      new URLSearchParams({
-        grant_type: 'authorization_code',
-        code,
-        redirect_uri: redirectUri
-      }),
-      {
-        headers: {
-          'Authorization': `Basic ${basic}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        timeout: 15000
-      }
-    );
-
-    // 返り値例: { access_token, refresh_token, expires_in, token_type, scope ... }
-    return res.status(200).json({ ok: true, tokens: resp.data });
-  } catch (e) {
-    const msg = e.response?.data || e.message;
-    return res.status(500).json({ error: 'token_exchange_failed', detail: msg });
-  }
-});
-
-module.exports = router;
-
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute); // ← 追加
 
 
