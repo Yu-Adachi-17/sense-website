@@ -83,6 +83,53 @@ let cachedZoomTokenExp = 0; // epoch sec
 const router = express.Router();
 
 
+router.post('/exchange', async (req, res) => {
+  try {
+    const { code, redirectUri /*, state*/ } = req.body || {};
+    if (!code || !redirectUri) {
+      return res.status(400).json({ error: 'missing code/redirectUri' });
+    }
+
+    // （任意）state 検証：authorize 開始時にセッションへ保存しておき、ここで照合する
+    // if (state !== req.session?.zoom_oauth_state) {
+    //   return res.status(400).json({ error: 'invalid state' });
+    // }
+
+    const cid = process.env.ZOOM_CLIENT_ID;
+    const secret = process.env.ZOOM_CLIENT_SECRET;
+    if (!cid || !secret) {
+      return res.status(500).json({ error: 'missing env ZOOM_CLIENT_ID/ZOOM_CLIENT_SECRET' });
+    }
+    const basic = Buffer.from(`${cid}:${secret}`).toString('base64');
+
+    // Zoom のトークンエンドポイントに Authorization Code を交換（Basic 認証）
+    // 要件：grant_type=authorization_code, redirect_uri は “登録値と完全一致”
+    const resp = await axios.post(
+      'https://zoom.us/oauth/token',
+      new URLSearchParams({
+        grant_type: 'authorization_code',
+        code,
+        redirect_uri: redirectUri
+      }),
+      {
+        headers: {
+          'Authorization': `Basic ${basic}`,
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        timeout: 15000
+      }
+    );
+
+    // 返り値例: { access_token, refresh_token, expires_in, token_type, scope ... }
+    return res.status(200).json({ ok: true, tokens: resp.data });
+  } catch (e) {
+    const msg = e.response?.data || e.message;
+    return res.status(500).json({ error: 'token_exchange_failed', detail: msg });
+  }
+});
+
+module.exports = router;
+
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute); // ← 追加
 
 
@@ -251,9 +298,9 @@ function splitText(text, chunkSize) {
 async function combineMinutes(combinedText, meetingFormat) {
   const template = (meetingFormat && meetingFormat.trim()) || '';
   const systemMessage =
-`以下は同一会議の分割議事録です。重複や矛盾を統合し、**次のテンプレート**に正規化してください。
-・テンプレの見出しはそのまま。未知は『—』
-・前置き・後置きなし。本文のみ
+`Below are split meeting minutes from the same meeting. Please merge duplicates and contradictions, and normalize them according to the following template.
+・Keep the template headings exactly as they are. Unknown items should be written as “—”.
+・No preface or appendix. Only the body text.
 
 <MINUTES_TEMPLATE>
 ${template}
@@ -296,9 +343,9 @@ function isValidMinutes(out) {
 // ===== 失敗時の整形（ワンリトライ用） =====
 async function repairToTemplate(badOutput, template) {
   const systemMessage =
-`あなたは議事録のフォーマッタです。以下のテンプレートに厳密に従って変換してください。
-必ずテンプレートの各見出し（例：『【Meeting Name】』）をそのまま残し、内容だけを埋めます。
-未知の項目は『—』と記入。前置き・後置き・説明文は出力禁止。出力はテンプレート本文だけ。
+`You are a minutes formatter. Please strictly convert according to the template below.
+Be sure to keep each heading in the template (e.g., “【Meeting Name】”) exactly as they are, and only fill in the content.
+Unknown items should be written as “—”. Preface, appendix, or explanatory text are prohibited. Output only the template body.
 
 <MINUTES_TEMPLATE>
 ${template.trim()}
@@ -311,7 +358,7 @@ ${template.trim()}
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content:
-`これをテンプレートに整形してください（本文のみを出力）:
+`Please format this into the template (output only the body).:
 
 <MODEL_OUTPUT>
 ${badOutput}
@@ -338,22 +385,21 @@ const generateMinutes = async (transcription, formatTemplate) => {
 【Agenda(3)】⚫︎Discussion⚫︎Decision items⚫︎Pending problem`;
 
   const systemMessage =
-`あなたはプロの議事録作成アシスタントです。以下の厳格なルールに従い、日本語で出力してください。
-・出力は **次のテンプレート本文のみ**。前置き・後置き・挨拶・説明文は一切禁止
-・見出し（『【…】』、『⚫︎』記号、(1)(2)(3) 等）を **一字一句** 変えずに残す
-・不明点は『—』と記入（例：日時が不明→『【Date】—』）
-・議題は最低3つ（テンプレにある分）を必ず埋める。内容が薄くても『—』で可
-・数値等の定量情報は可能な限り保持
-・本文は日本語（テンプレ中の英語ラベルはそのまま）
-
-テンプレートは以下です。これを**丸ごと**出力枠として使い、各項目を埋めて返してください。
+`You are a professional minutes-taking assistant. Please follow the strict rules below and output in English.
+・Output must be only the following template body. Absolutely no preface, appendix, greetings, or explanations.
+・Keep headings (such as “【…】”, “⚫︎”, “(1)(2)(3)”) exactly unchanged.
+・Write “—” for unknown items (e.g., if the date is unknown → “【Date】—”).
+・Fill in at least three agenda items (as required in the template). Even if content is thin, use “—” if necessary.
+・Preserve quantitative information (numbers, etc.) as much as possible.
+・Body text must be in English (but English labels in the template must remain as they are).
+・The template is as follows. Use it as the complete output frame, and fill in each item.
 
 <MINUTES_TEMPLATE>
 ${template}
 </MINUTES_TEMPLATE>`;
 
   const userMessage =
-`以下は会議の文字起こしです。テンプレートに従って要約・整形してください。
+`Below is the meeting transcript. Please summarize and format it according to the template.
 <TRANSCRIPT>
 ${transcription}
 </TRANSCRIPT>`;
