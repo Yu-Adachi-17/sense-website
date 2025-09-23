@@ -10,7 +10,7 @@ export default function ZoomOAuthCallback() {
     (async () => {
       try {
         if (!code) throw new Error('missing code');
-        const r = await fetch('/api/zoom/oauth/exchange', {
+        const r = await fetch('https://sense-website-production.up.railway.app/api/zoom/oauth/exchange', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
