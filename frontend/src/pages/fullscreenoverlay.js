@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
 import { doc, updateDoc, onSnapshot } from "firebase/firestore";
-import { db } from "../firebaseConfig";  // Firebase の初期化済み Firestore インスタンス
+import { db } from "../firebaseConfig";
 import { useTranslation } from "react-i18next";
 
 export default function FullScreenOverlay({
@@ -14,61 +14,94 @@ export default function FullScreenOverlay({
   transcription,
   minutes,
   audioURL,
-  docId  // 更新対象のドキュメントID
+  docId
 }) {
   const { t, i18n } = useTranslation();
   const [showSideMenu, setShowSideMenu] = useState(false);
-  // SSR対策：初回は false とし、useEffect で window.innerWidth の値をセット
   const [isMobile, setIsMobile] = useState(false);
-  // 編集モードと、編集中のテキスト（isExpanded に応じて transcription または minutes）
   const [isEditing, setIsEditing] = useState(false);
-  const [editedText, setEditedText] = useState(isExpanded ? transcription : minutes);
 
-  // アラビア語の場合に dir="rtl" を適用
+  /** ---------- 追加: ユーティリティ（安全にパース/整形） ---------- */
+  const stripCodeFences = (raw) => {
+    if (typeof raw !== "string") return raw;
+    let s = raw.trim().replace(/^\uFEFF/, ""); // BOM除去
+    // ```json ... ``` / ``` ... ``` の除去（全面/前後どちらでも）
+    const fenced = s.match(/^```(?:json|javascript|js|ts)?\s*([\s\S]*?)\s*```$/i);
+    if (fenced) return fenced[1].trim();
+    s = s.replace(/^```(?:json|javascript|js|ts)?\s*/i, "");
+    s = s.replace(/```$/i, "");
+    return s.trim();
+  };
+
+  const tryParseJSON = (value) => {
+    // すでにオブジェクトならそのまま
+    if (value && typeof value === "object") return value;
+    if (typeof value !== "string") return null;
+    const s = stripCodeFences(value);
+    try {
+      return JSON.parse(s);
+    } catch {
+      return null;
+    }
+  };
+
+  const toDisplayText = (value) => {
+    // テキストエリア/内表示用は常に文字列に正規化
+    if (value && typeof value === "object") {
+      try {
+        return JSON.stringify(value, null, 2);
+      } catch {
+        return String(value);
+      }
+    }
+    if (typeof value === "string") return value;
+    return value == null ? "" : String(value);
+  };
+
+  // 編集テキスト: isExpanded に応じて transcription / minutes を文字列で保持
+  const [editedText, setEditedText] = useState(
+    isExpanded ? toDisplayText(transcription) : toDisplayText(minutes)
+  );
+
+  // アラビア語のdir切替
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
-  // Firestore のリアルタイム更新を反映（編集中でない場合）
+  // Firestore リアルタイム反映（非編集中のみ）
   useEffect(() => {
     if (docId && !isEditing) {
       const docRef = doc(db, "meetingRecords", docId);
-      const unsubscribe = onSnapshot(docRef, (docSnap) => {
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          // isExpanded の状態に応じて更新
-          setEditedText(isExpanded ? data.transcription : data.minutes);
+      const unsubscribe = onSnapshot(docRef, (snap) => {
+        if (snap.exists()) {
+          const data = snap.data();
+          const incoming = isExpanded ? data.transcription : data.minutes;
+          setEditedText(toDisplayText(incoming));
         }
       });
       return unsubscribe;
     }
   }, [docId, isExpanded, isEditing]);
 
-  // 画面サイズの変化を監視
+  // 画面サイズ
   useEffect(() => {
-    // 初回のレンダリング後に window.innerWidth を取得
     setIsMobile(window.innerWidth <= 768);
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // isExpanded や props の変更時に、編集中でなければ表示内容を更新
+  // prop変更・表示切替時の同期（非編集中のみ）
   useEffect(() => {
     if (!isEditing) {
-      setEditedText(isExpanded ? transcription : minutes);
+      setEditedText(isExpanded ? toDisplayText(transcription) : toDisplayText(minutes));
     }
-    // full transcript以外（minutes表示）の場合は編集モードを解除
     if (!isExpanded && isEditing) {
       setIsEditing(false);
     }
   }, [isExpanded, transcription, minutes, isEditing]);
 
-  // オーディオデータのダウンロード処理
+  // ダウンロード
   const handleDownload = () => {
     if (audioURL) {
       const link = document.createElement("a");
@@ -82,14 +115,12 @@ export default function FullScreenOverlay({
     }
   };
 
-  // 全文と議事録の切り替え（編集モード終了）
   const handleSwitchView = () => {
     setIsExpanded(!isExpanded);
     setShowSideMenu(false);
     setIsEditing(false);
   };
 
-  // 議事録表示に切り替え（編集モード終了）
   const handleSwitchToMinutes = () => {
     if (isExpanded) {
       setIsExpanded(false);
@@ -98,20 +129,14 @@ export default function FullScreenOverlay({
     }
   };
 
-  // クリップボードにコピー（※ ハンバーガーメニュー内に移動）
   const handleShare = () => {
-    const content = editedText;
     navigator.clipboard
-      .writeText(content)
-      .then(() => {
-        alert(t("Copied to clipboard!"));
-      })
-      .catch(() => {
-        alert(t("Failed to copy to clipboard."));
-      });
+      .writeText(editedText)
+      .then(() => alert(t("Copied to clipboard!")))
+      .catch(() => alert(t("Failed to copy to clipboard.")));
   };
 
-  // Firebase に更新（isExpanded の状態に応じて transcription または minutes を更新）
+  // 保存（minutes/transcriptionは文字列で保存）
   const handleSave = async () => {
     if (!docId) {
       alert(t("No document ID available for saving."));
@@ -132,12 +157,9 @@ export default function FullScreenOverlay({
     }
   };
 
-  // サイドメニュー内でクリックイベントがオーバーレイに伝播しないようにする
-  const stopPropagation = (e) => {
-    e.stopPropagation();
-  };
+  const stopPropagation = (e) => e.stopPropagation();
 
-  // ===== JSON スキーマ判定（追記） =====
+  // スキーマ判定
   const isFlexibleSchema = (obj) =>
     obj &&
     typeof obj === "object" &&
@@ -145,11 +167,8 @@ export default function FullScreenOverlay({
     typeof obj.summary === "string" &&
     Array.isArray(obj.sections);
 
-  // 旧（レガシー）JSON互換: topics ベース
-  const isLegacySchema = (obj) =>
-    obj && typeof obj === "object" && Array.isArray(obj.topics);
+  const isLegacySchema = (obj) => obj && typeof obj === "object" && Array.isArray(obj.topics);
 
-  // 以下、スタイル定義（必要箇所のみ白黒反転）
   const styles = {
     fullScreenOverlay: {
       position: "fixed",
@@ -157,8 +176,8 @@ export default function FullScreenOverlay({
       left: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: "#FFFFFF", // 反転：白背景
-      color: "#000000",           // 反転：黒文字
+      backgroundColor: "#FFFFFF",
+      color: "#000000",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -178,7 +197,7 @@ export default function FullScreenOverlay({
       fontSize: "30px",
       background: "none",
       border: "none",
-      color: "#000000", // 反転
+      color: "#000000",
       cursor: "pointer",
     },
     hamburgerButton: {
@@ -186,18 +205,6 @@ export default function FullScreenOverlay({
       top: "20px",
       right: "30px",
       fontSize: "30px",
-      background: "none",
-      border: "none",
-      color: "#000000", // 反転
-      cursor: "pointer",
-      zIndex: 1300,
-    },
-    // （コピーのフローティングボタンは削除：ハンバーガー内に移動）
-    shareButton: {
-      position: "absolute",
-      top: "7px",
-      right: "20px",
-      fontSize: "20px",
       background: "none",
       border: "none",
       color: "#000000",
@@ -208,7 +215,7 @@ export default function FullScreenOverlay({
       width: "90%",
       height: "85%",
       overflowY: "auto",
-      backgroundColor: "#FFFFFF", // 反転：本文のグレー→白
+      backgroundColor: "#FFFFFF",
       padding: "20px",
       borderRadius: "10px",
       boxSizing: "border-box",
@@ -220,22 +227,10 @@ export default function FullScreenOverlay({
       transition: "max-height 0.5s ease",
       marginBottom: "20px",
       position: "relative",
-      border: "none"
+      border: "none",
     },
-    summaryText: {
-      maxHeight: "none",
-      overflowY: "auto",
-    },
-    fullText: {
-      maxHeight: "none",
-      overflowY: "auto",
-    },
-    title: {
-      marginBottom: "20px",
-      paddingTop: "20px",
-      fontSize: "30px",
-      fontWeight: "bold",
-    },
+    summaryText: { maxHeight: "none", overflowY: "auto" },
+    fullText: { maxHeight: "none", overflowY: "auto" },
     titleContainer: {
       display: "flex",
       alignItems: "center",
@@ -243,7 +238,7 @@ export default function FullScreenOverlay({
       width: "100%",
     },
     saveButton: {
-      backgroundColor: "#000000", // 白黒反転に合わせて黒地×白字でもOKだが、要件は白背景黒文字なのでここは白地黒字維持でも可
+      backgroundColor: "#000000",
       color: "#FFFFFF",
       border: "none",
       padding: "5px 10px",
@@ -253,8 +248,8 @@ export default function FullScreenOverlay({
     },
     editButton: {
       backgroundColor: "transparent",
-      color: "#000000",             // 反転
-      border: "1px solid #000000",  // 反転
+      color: "#000000",
+      border: "1px solid #000000",
       padding: "5px 10px",
       cursor: "pointer",
       marginLeft: "10px",
@@ -263,8 +258,8 @@ export default function FullScreenOverlay({
     textEditor: {
       width: "100%",
       height: "100%",
-      backgroundColor: "#FFFFFF", // 反転
-      color: "#000000",           // 反転
+      backgroundColor: "#FFFFFF",
+      color: "#000000",
       border: "1px solid #CCCCCC",
       borderRadius: "10px",
       padding: "20px",
@@ -279,7 +274,7 @@ export default function FullScreenOverlay({
       left: 0,
       width: "100%",
       height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.5)", // 背景を薄暗く（そのまま）
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
       zIndex: 1100,
       display: showSideMenu ? "block" : "none",
       transition: "opacity 0.5s ease",
@@ -291,8 +286,8 @@ export default function FullScreenOverlay({
       right: 0,
       width: isMobile ? "66.66%" : "33%",
       height: "100%",
-      backgroundColor: "#FFFFFF", // 反転
-      color: "#000000",           // 反転
+      backgroundColor: "#FFFFFF",
+      color: "#000000",
       padding: "20px",
       boxSizing: "border-box",
       display: "flex",
@@ -301,12 +296,12 @@ export default function FullScreenOverlay({
       zIndex: 1200,
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
       transition: "transform 0.5s ease-out",
-      borderLeft: "1px solid #e5e5e5"
+      borderLeft: "1px solid #e5e5e5",
     },
     sideMenuButton: {
       background: "none",
       border: "none",
-      color: "#000000", // 反転
+      color: "#000000",
       fontSize: "24px",
       cursor: "pointer",
       margin: "10px 0",
@@ -321,51 +316,42 @@ export default function FullScreenOverlay({
       fontSize: "30px",
       background: "none",
       border: "none",
-      color: "#000000", // 反転
+      color: "#000000",
       cursor: "pointer",
     },
-    iconSpacing: {
-      marginLeft: "10px",
-      fontWeight: "bold",
-      fontSize: "16px",
-    },
+    iconSpacing: { marginLeft: "10px", fontWeight: "bold", fontSize: "16px" },
   };
 
   return (
     <>
       <div style={styles.fullScreenOverlay}>
-        {/* Close ボタン */}
         <button style={styles.closeButton} onClick={() => setShowFullScreen(false)}>
           &times;
         </button>
 
-        {/* ハンバーガーメニュー */}
         <button style={styles.hamburgerButton} onClick={() => setShowSideMenu(true)}>
           <GiHamburgerMenu size={24} />
         </button>
 
-        {/* タイトルと (全文表示時のみ) Edit/Save ボタン */}
         <div style={styles.titleContainer}>
-          {isExpanded && (isEditing ? (
-            <button style={styles.saveButton} onClick={handleSave}>
-              {t("Save")}
-            </button>
-          ) : (
-            <button style={styles.editButton} onClick={() => setIsEditing(true)}>
-              {t("Edit")}
-            </button>
-          ))}
+          {isExpanded &&
+            (isEditing ? (
+              <button style={styles.saveButton} onClick={handleSave}>
+                {t("Save")}
+              </button>
+            ) : (
+              <button style={styles.editButton} onClick={() => setIsEditing(true)}>
+                {t("Edit")}
+              </button>
+            ))}
         </div>
 
-        {/* テキスト表示エリア */}
         <div
           style={{
             ...styles.fullScreenContent,
             ...(isExpanded ? styles.fullText : styles.summaryText),
           }}
         >
-          {/* （コピーのフローティングボタンは削除：ハンバーガー内に移動） */}
-
           {(isExpanded && isEditing) ? (
             <textarea
               style={styles.textEditor}
@@ -373,22 +359,14 @@ export default function FullScreenOverlay({
               onChange={(e) => setEditedText(e.target.value)}
             />
           ) : (
-            // JSONのRawデータをパースし、Flexible or Legacy を綺麗に表示
             (() => {
-              let parsed;
-              try {
-                parsed = JSON.parse(editedText);
-              } catch (error) {
-                // パースに失敗した場合はそのまま表示（従来動作）
-                return <p style={{ whiteSpace: "pre-wrap" }}>{editedText}</p>;
-              }
+              // ここを安全化：コードフェンス除去 + 既オブジェ/文字列どちらでもOK
+              const parsed = tryParseJSON(editedText);
 
-              // ---- Flexible(JSON) レンダリング ----
-              if (isFlexibleSchema(parsed)) {
+              if (parsed && isFlexibleSchema(parsed)) {
                 const meeting = parsed;
                 return (
                   <div style={{ whiteSpace: "normal", width: "100%" }}>
-                    {/* タイトル／日付 */}
                     {meeting.meetingTitle && (
                       <h1
                         style={{
@@ -402,13 +380,18 @@ export default function FullScreenOverlay({
                         {meeting.meetingTitle}
                       </h1>
                     )}
+
                     {(meeting.date || meeting.location || meeting.attendees) && (
                       <div style={{ opacity: 0.9, marginBottom: "12px" }}>
                         {meeting.date && (
-                          <p style={{ margin: "0 0 4px 0", fontWeight: "bold" }}>{meeting.date}</p>
+                          <p style={{ margin: "0 0 4px 0", fontWeight: "bold" }}>
+                            {meeting.date}
+                          </p>
                         )}
                         {meeting.location && (
-                          <p style={{ margin: "0 0 4px 0", fontWeight: "bold" }}>{meeting.location}</p>
+                          <p style={{ margin: "0 0 4px 0", fontWeight: "bold" }}>
+                            {meeting.location}
+                          </p>
                         )}
                         {Array.isArray(meeting.attendees) && meeting.attendees.length > 0 && (
                           <p style={{ margin: 0, fontWeight: "bold" }}>
@@ -418,14 +401,13 @@ export default function FullScreenOverlay({
                       </div>
                     )}
 
-                    {/* サマリー */}
                     {meeting.summary && (
                       <>
                         <p style={{ whiteSpace: "pre-wrap", marginTop: 0 }}>{meeting.summary}</p>
                         <hr
                           style={{
                             height: "1px",
-                            backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
+                            backgroundColor: "#e5e5e5",
                             border: "none",
                             margin: "16px 0",
                           }}
@@ -433,7 +415,6 @@ export default function FullScreenOverlay({
                       </>
                     )}
 
-                    {/* セクション */}
                     {Array.isArray(meeting.sections) &&
                       meeting.sections.map((sec, sIdx) => (
                         <div key={sIdx} style={{ marginBottom: "18px" }}>
@@ -466,7 +447,7 @@ export default function FullScreenOverlay({
                             <hr
                               style={{
                                 height: "1px",
-                                backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
+                                backgroundColor: "#e5e5e5",
                                 border: "none",
                                 margin: "14px 0",
                               }}
@@ -478,8 +459,7 @@ export default function FullScreenOverlay({
                 );
               }
 
-              // ---- レガシー（topicsベース）JSON レンダリング（後方互換）----
-              if (isLegacySchema(parsed)) {
+              if (parsed && isLegacySchema(parsed)) {
                 const meeting = parsed;
                 return (
                   <div style={{ whiteSpace: "pre-wrap" }}>
@@ -496,9 +476,7 @@ export default function FullScreenOverlay({
                         >
                           {meeting.meetingTitle}
                         </h1>
-                        {meeting.date && (
-                          <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.date}</p>
-                        )}
+                        {meeting.date && <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.date}</p>}
                         {meeting.location && (
                           <p style={{ fontWeight: "bold", margin: 0 }}>{meeting.location}</p>
                         )}
@@ -512,7 +490,7 @@ export default function FullScreenOverlay({
                         <hr
                           style={{
                             height: "1px",
-                            backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
+                            backgroundColor: "#e5e5e5",
                             border: "none",
                             margin: "16px 0",
                           }}
@@ -544,62 +522,57 @@ export default function FullScreenOverlay({
                                   Proposal {item.proposedBy ? `(${item.proposedBy})` : ""}
                                 </h3>
                                 <p style={{ fontWeight: "bold", margin: 0 }}>{item.proposal}</p>
-                                {item.proposalReasons &&
-                                  item.proposalReasons.length > 0 && (
-                                    <div>
-                                      <h4
-                                        style={{
-                                          fontSize: "16px",
-                                          fontWeight: "bold",
-                                          marginTop: "8px",
-                                          marginBottom: "4px",
-                                        }}
-                                      >
-                                        Background
-                                      </h4>
-                                      {item.proposalReasons.map((reason, i) => (
-                                        <p key={i}>- {reason}</p>
-                                      ))}
-                                    </div>
-                                  )}
-                                {item.keyDiscussion &&
-                                  item.keyDiscussion.length > 0 && (
-                                    <div>
-                                      <h4
-                                        style={{
-                                          fontSize: "16px",
-                                          fontWeight: "bold",
-                                          marginTop: "8px",
-                                          marginBottom: "4px",
-                                        }}
-                                      >
-                                        Discussion Points
+                                {item.proposalReasons && item.proposalReasons.length > 0 && (
+                                  <div>
+                                    <h4
+                                      style={{
+                                        fontSize: "16px",
+                                        fontWeight: "bold",
+                                        marginTop: "8px",
+                                        marginBottom: "4px",
+                                      }}
+                                    >
+                                      Background
+                                    </h4>
+                                    {item.proposalReasons.map((reason, i) => (
+                                      <p key={i}>- {reason}</p>
+                                    ))}
+                                  </div>
+                                )}
+                                {item.keyDiscussion && item.keyDiscussion.length > 0 && (
+                                  <div>
+                                    <h4
+                                      style={{
+                                        fontSize: "16px",
+                                        fontWeight: "bold",
+                                        marginTop: "8px",
+                                        marginBottom: "4px",
+                                      }}
+                                    >
+                                      Discussion Points
                                       </h4>
                                       {item.keyDiscussion.map((point, i) => (
                                         <p key={i}>- {point}</p>
                                       ))}
-                                    </div>
-                                  )}
+                                  </div>
+                                )}
                               </div>
                             ))}
-                          {topic.decisionsAndTasks &&
-                            topic.decisionsAndTasks.length > 0 && (
-                              <div style={{ marginTop: "8px" }}>
-                                <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
-                                  Decisions & Tasks
-                                </h3>
-                                {topic.decisionsAndTasks.map((task, i) => (
-                                  <p key={i}>
-                                    {i + 1}. {task}
-                                  </p>
-                                ))}
-                              </div>
-                            )}
+                          {topic.decisionsAndTasks && topic.decisionsAndTasks.length > 0 && (
+                            <div style={{ marginTop: "8px" }}>
+                              <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
+                                Decisions & Tasks
+                              </h3>
+                              {topic.decisionsAndTasks.map((task, i) => (
+                                <p key={i}>{i + 1}. {task}</p>
+                              ))}
+                            </div>
+                          )}
                           {topicIndex < meeting.topics.length - 1 && (
                             <hr
                               style={{
                                 height: "1px",
-                                backgroundColor: "#e5e5e5", // 反転に合わせて薄グレー
+                                backgroundColor: "#e5e5e5",
                                 border: "none",
                                 margin: "16px 0",
                               }}
@@ -608,13 +581,7 @@ export default function FullScreenOverlay({
                         </div>
                       ))}
                     {meeting.coreMessage && meeting.coreMessage !== "" && (
-                      <p
-                        style={{
-                          fontStyle: "italic",
-                          fontWeight: "bold",
-                          marginTop: "10px",
-                        }}
-                      >
+                      <p style={{ fontStyle: "italic", fontWeight: "bold", marginTop: "10px" }}>
                         {meeting.coreMessage}
                       </p>
                     )}
@@ -622,22 +589,17 @@ export default function FullScreenOverlay({
                 );
               }
 
-              // ---- 不明スキーマ：JSON をそのまま表示 ----
-              return (
-                <pre style={{ whiteSpace: "pre-wrap", margin: 0 }}>
-                  {typeof parsed === "object" ? JSON.stringify(parsed, null, 2) : editedText}
-                </pre>
-              );
+              // パース不可/未知スキーマはそのまま（ただしコードフェンスは除去）
+              const plain = typeof editedText === "string" ? stripCodeFences(editedText) : editedText;
+              return <pre style={{ whiteSpace: "pre-wrap", margin: 0 }}>{toDisplayText(plain)}</pre>;
             })()
           )}
         </div>
       </div>
 
-      {/* サイドメニューオーバーレイ */}
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* 全文と議事録の切替ボタン */}
             {!isExpanded ? (
               <button style={styles.sideMenuButton} onClick={handleSwitchView}>
                 <TbClipboardText size={24} />
@@ -650,13 +612,11 @@ export default function FullScreenOverlay({
               </button>
             )}
 
-            {/* オーディオデータダウンロードボタン */}
             <button style={styles.sideMenuButton} onClick={handleDownload}>
               <IoIosDownload size={24} />
               <span style={styles.iconSpacing}>{t("Download Audio Data")}</span>
             </button>
 
-            {/* コピー（ハンバーガーメニュー内に移動） */}
             <button style={styles.sideMenuButton} onClick={handleShare}>
               <FaRegCopy size={24} />
               <span style={styles.iconSpacing}>{t("Copy to Clipboard")}</span>
