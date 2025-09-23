@@ -3,6 +3,7 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
+router.use(express.json({ limit: '1mb' }));
 
 // Preflight（念のため個別でも204を返す）
 router.options('/exchange', (req, res) => res.sendStatus(204));
