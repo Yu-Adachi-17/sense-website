@@ -7,6 +7,8 @@ console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? 
 const zoomAuthRoute = require('./routes/zoomAuthRoute');
 const zoomJoinTokenRoute = require('./routes/zoomJoinTokenRoute');
 const express = require('express');
+const cors = require('cors');
+const app = express();
 const multer = require('multer');
 const axios = require('axios');
 
@@ -24,7 +26,27 @@ const Stripe = require('stripe');
 // ※ webhookRouter の登録パスを /api/stripe に変更
 const webhookRouter = require('./routes/webhook');
 const appleRouter = require('./routes/apple'); // Apple route added
-const app = express();
+
+// ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
+const allowedOrigins = [
+  'https://sense-ai.world',
+  'https://www.sense-ai.world',
+  'https://sense-website-production.up.railway.app', // ← オフライン(静的+API)の Origin
+  'http://localhost:3000' // ← ローカル開発時
+];
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+    cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET','POST','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With'],
+}));
+// 追加で全体の OPTIONS を明示的に 204 返し（なくても OK）
+app.options('*', cors());
+
+
 
 // ★ Flexible Minutes 用プロンプト（外部ファイル）
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
@@ -124,6 +146,8 @@ app.use('/api/apple/notifications', express.json());
 
 // ③ For all other endpoints: Parse JSON body
 app.use(express.json());
+const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
 
 /* Log detailed request information */
 app.use((req, res, next) => {
@@ -168,63 +192,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Define allowed origins
-// もとの allowedOrigins を置き換え
-const allowedOrigins = [
-  'https://sense-ai.world',
-  'https://www.sense-ai.world',
-  'https://sense-website-production.up.railway.app', // ← オフライン(静的+API)の Origin
-  'http://localhost:3000' // ← ローカル開発時
-];
 
-
-// CORS settings
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.error(`[CORS ERROR] Disallowed origin: ${origin}`);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: [
-    'Content-Type', 'Authorization', 'Accept', 'X-Requested-With',
-    'X-Internal-Token' // ← 追加
-  ],
-  credentials: true
-};
-
-app.use(cors(corsOptions));
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers',
-    'Content-Type, Authorization, Accept, X-Requested-With, X-Internal-Token');  
-  res.header('Access-Control-Allow-Credentials', 'true');
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(204);
-  }
-  next();
-});
-
-// Handle OPTIONS method
-app.options('*', (req, res) => {
-  console.log('[DEBUG] Received preflight request:', req.headers);
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
-  }
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers',
-    'Content-Type, Authorization, Accept, X-Requested-With, X-Internal-Token');  
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.sendStatus(204);
-});
 
 // Debug endpoint
 const { exec } = require('child_process');
