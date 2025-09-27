@@ -1169,6 +1169,53 @@ app.post('/api/cancel-subscription', async (req, res) => {
   }
 });
 
+// --- Zoom OAuth callback: return HTTP 200 "Connected" (NO app-login here) ---
+app.get('/zoom/oauth/callback', async (req, res) => {
+  const { code, state } = req.query || {};
+  if (!code) return res.status(400).send('Missing code');
+
+  try {
+    const cid = process.env.ZOOM_CLIENT_ID;
+    const secret = process.env.ZOOM_CLIENT_SECRET;
+    if (!cid || !secret) return res.status(500).send('Missing Zoom client credentials');
+
+    // Zoomコンソールの「Redirect URL for OAuth（Production）」と 完全一致 させる
+    // 例：Homeが www 側なら www に寄せる（wwwを使わない運用なら下行を非wwwに変えてください）
+    const redirectUri = 'https://www.sense-ai.world/zoom/oauth/callback';
+
+    const basic = Buffer.from(`${cid}:${secret}`).toString('base64');
+    const tokenResp = await axios.post(
+      'https://zoom.us/oauth/token',
+      new URLSearchParams({
+        grant_type: 'authorization_code',
+        code,
+        redirect_uri: redirectUri
+      }),
+      {
+        headers: {
+          Authorization: `Basic ${basic}`,
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        timeout: 15000
+      }
+    );
+
+    // （審査用はここで十分：成功を“その場で”見せる。保存/ログイン誘導はしない）
+    res.status(200).send(`<!doctype html><meta charset="utf-8">
+<title>Connected to Zoom</title>
+<body style="font-family: system-ui; margin: 40px;">
+  <h1>Connected to Zoom ✓</h1>
+  <p>Authorization completed successfully.</p>
+  <p><a href="/zoom/app">Continue</a></p>
+</body>`);
+  } catch (e) {
+    console.error('[ZOOM] token exchange failed:', e.response?.data || e.message);
+    res.status(500).send('Zoom authorization failed. Please try again.');
+  }
+});
+
+
+
 // Serve static files for the frontend
 const staticPath = path.join(__dirname, 'frontend/build');
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
