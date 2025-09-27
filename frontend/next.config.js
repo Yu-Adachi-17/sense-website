@@ -28,12 +28,6 @@ const csp = [
   "script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com https://www.gstatic.com/firebasejs/",
 
   // API / SSE / WebSocket（Firebase/Zoom/GA/自社/任意 https:・wss:・blob: を広めに許可）
-  // - Firebase Auth/Token: identitytoolkit & securetoken
-  // - Firestore REST: firestore.googleapis.com
-  // - Installations: firebaseinstallations.googleapis.com
-  // - Storage: firebasestorage.googleapis.com
-  // - GA/GTM: google-analytics.com / googletagmanager.com
-  // - 自社 API: sense-ai.world / Railway
   "connect-src 'self' https: wss: blob: " +
     "https://api.sense-ai.world https://*.sense-ai.world " +
     "https://sense-website-production.up.railway.app " +
@@ -58,6 +52,16 @@ module.exports = {
   pageExtensions: ['tsx','ts','jsx','js'],
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
+  },
+
+  // ✅ ここだけ追加：OAuthコールバックをRailwayのExpressへプロキシ
+  async rewrites() {
+    return [
+      {
+        source: '/zoom/oauth/callback',
+        destination: 'https://sense-website-production.up.railway.app/zoom/oauth/callback',
+      },
+    ];
   },
 
   // ✅ ビルド時の ESLint / TS エラーで落とさない（恒久対策が整うまで）
