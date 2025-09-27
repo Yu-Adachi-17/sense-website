@@ -1181,7 +1181,7 @@ app.get('/zoom/oauth/callback', async (req, res) => {
 
     // Zoomコンソールの「Redirect URL for OAuth（Production）」と 完全一致 させる
     // 例：Homeが www 側なら www に寄せる（wwwを使わない運用なら下行を非wwwに変えてください）
-    const redirectUri = 'https://www.sense-ai.world/zoom/oauth/callback';
+    const redirectUri = 'https://sense-ai.world/zoom/oauth/callback';
 
     const basic = Buffer.from(`${cid}:${secret}`).toString('base64');
     const tokenResp = await axios.post(
