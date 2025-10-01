@@ -10,8 +10,8 @@ export default function Home() {
       </Head>
 
       <main className="scene">
-        {/* ▼ 見出し：球体の“上”に配置 */}
-        <h1 className="heroTop gradText">Just Record.</h1>
+        {/* ▼ ヒーロー見出し（球体の上・白・1.5倍） */}
+        <h1 className="heroTop">Just Record.</h1>
 
         {/* 背景の奥行き */}
         <div className="space" aria-hidden />
@@ -28,11 +28,17 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "4.8s" }} />
         </div>
 
+        {/* ▼ 次セクション（球体の直下） */}
+        <section className="below">
+          <div className="line1">AI Makes</div>
+          <div className="line2 gradText">Beautiful Minutes</div>
+        </section>
+
         {/* 反射の霞 */}
         <div className="reflection" aria-hidden />
 
         <style jsx>{`
-          /* 変数は .scene に置く（styled-JSXのスコープ対策） */
+          /* 変数は .scene に配置（styled-JSX対策） */
           .scene {
             --bg-1: #05060e;
             --bg-2: #0b1030;
@@ -47,6 +53,9 @@ export default function Home() {
 
             position: relative;
             min-height: 100vh;
+            /* 下のセクションが切れないよう余白を確保 */
+            padding-bottom: calc((var(--core-size) / 2) + 28vh);
+
             overflow: hidden;
             color: #fff;
             background:
@@ -58,27 +67,26 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
-          /* ▼ 見出し（球体の上） */
+          /* ヒーロー見出し（球体の上） */
           .heroTop {
             position: relative;
             z-index: 3;
             text-align: center;
             margin: 0;
-            padding-top: clamp(48px, 9vh, 120px); /* 初期の位置感に戻す */
+            padding-top: clamp(48px, 9vh, 120px);
             letter-spacing: -0.02em;
             line-height: 1.02;
             font-weight: 800;
-
-            /* 1.5倍サイズ（前回指定を踏襲） */
+            color: #fff; /* ←真っ白に */
+            /* 1.5倍サイズ（前回比） */
             font-size: clamp(42px, 9.3vw, 129px);
-
-            /* 輪郭のほのかな発光 */
+            /* ほのかな発光 */
             filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
                     drop-shadow(0 0 2px rgba(130,150,255,0.2));
             pointer-events: none;
           }
 
-          /* ご指定のグラデ文字（Safari対応込み） */
+          /* グラデ文字（指定どおり＋Safari対応） */
           .gradText {
             background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
             -webkit-background-clip: text;
@@ -100,11 +108,11 @@ export default function Home() {
             animation: spin 120s linear infinite;
           }
 
-          /* ▼ 球体は少し下げて重なりを回避（中心=60vh） */
+          /* 球体は少し下げて重なり回避（中心=60vh） */
           .core {
             position: absolute;
             left: 50%;
-            top: 60vh;                            /* ←ここで上との距離を確保 */
+            top: 60vh;
             transform: translate(-50%, -50%);
             width: var(--core-size);
             height: var(--core-size);
@@ -182,6 +190,32 @@ export default function Home() {
             animation-delay: var(--d);
           }
 
+          /* ▼ 球体の直下に固定表示 */
+          .below {
+            position: absolute;
+            left: 50%;
+            top: calc(60vh + (var(--core-size) / 2) + 6vh); /* 球体の底から少し下 */
+            transform: translateX(-50%);
+            z-index: 3;
+            text-align: center;
+            pointer-events: none;
+          }
+          .below .line1 {
+            margin: 0;
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.06;
+            font-size: clamp(28px, 4.6vw, 64px);
+          }
+          .below .line2 {
+            margin: 6px 0 0;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.06;
+            font-size: clamp(34px, 5.6vw, 80px);
+          }
+
           .reflection {
             position: absolute;
             left: 50%;
@@ -212,6 +246,8 @@ export default function Home() {
           @media (max-width: 640px) {
             .scene { --core-size: clamp(320px, 86vmin, 80vh); }
             .heroTop { font-size: clamp(33px, 11.1vw, 90px); padding-top: 12vh; }
+            .below .line1 { font-size: clamp(22px, 6.2vw, 44px); }
+            .below .line2 { font-size: clamp(26px, 7.2vw, 56px); }
           }
         `}</style>
       </main>
