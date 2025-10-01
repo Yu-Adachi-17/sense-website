@@ -10,26 +10,27 @@ export default function Home() {
       </Head>
 
       <main className="scene">
-        {/* ヒーロー（球体の上・白） */}
+        {/* ヒーロー（球体の上・白・1.5倍） */}
         <h1 className="heroTop">Just Record.</h1>
 
-        {/* 背景（直線光線は無し） */}
+        {/* 背景（直線光線は削除） */}
         <div className="space" aria-hidden />
 
         {/* 球体 */}
         <div className="core" aria-hidden>
           <div className="coreGlow" />
           <div className="shine" />
+          {/* 薄い軌道（円弧イメージ）。“無限に伸びる直線”は無し */}
           <div className="orbits" />
 
-          {/* 放射エミッタ（星屑） */}
+          {/* ★ 放射エミッタ（星屑を中心→外へ） */}
           <div className="starEmitter" aria-hidden>
             {Array.from({ length: 36 }).map((_, i) => {
-              const spd = 2.4 + (i % 7) * 0.15;
-              const delay = -((i * 173) % 900) / 300;
-              const size = 1 + ((i * 37) % 3) * 0.4;
-              const alpha = 0.55 + (((i * 29) % 40) / 100);
-              const tail = 20 + ((i * 67) % 24);
+              const spd = 2.4 + (i % 7) * 0.15;                         // 2.4s〜3.3s
+              const delay = -((i * 173) % 900) / 300;                   // 0〜-3.0s（デスパ）
+              const size = 1 + ((i * 37) % 3) * 0.4;                    // 1.0〜1.8px
+              const alpha = 0.55 + (((i * 29) % 40) / 100);             // 0.55〜0.95
+              const tail = 20 + ((i * 67) % 24);                        // 20〜44px
               return (
                 <i
                   key={i}
@@ -54,7 +55,7 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "3.6s" }} />
           <div className="ring" style={{ ["--d"]: "4.8s" }} />
 
-          {/* 波紋縁の星帯（控えめ） */}
+          {/* ★ 波紋の“周囲だけ”に星を散りばめた細いベルト（控えめ） */}
           <div className="starsBelt" />
         </div>
 
@@ -69,12 +70,8 @@ export default function Home() {
 
         <style jsx>{`
           .scene {
-            /* ===== テーマ色（紫系を強調） ===== */
-            --bg-1: #070815;     /* 最暗 */
-            --bg-2: #0d0a23;     /* 背景インディゴ */
-            --violet-1: 173, 98, 255;   /* 明るいバイオレット */
-            --violet-2: 142, 76, 255;   /* コア外周の紫 */
-            --violet-3: 96, 55, 214;    /* 深い紫 */
+            --bg-1: #05060e;
+            --bg-2: #0b1030;
             --halo: 255, 255, 255;
 
             /* 球体サイズ（必ず画面に収まる） */
@@ -90,13 +87,10 @@ export default function Home() {
             overflow: hidden;
             color: #fff;
 
-            /* 背景（紫トーン） */
+            /* 背景。放射状の直線は入れない */
             background:
-              radial-gradient(130vmax 130vmax at 50% 120%, #15103a 0%, var(--bg-2) 50%, var(--bg-1) 100%),
-              radial-gradient(90vmax 60vmax at 50% -10%,
-                rgba(var(--violet-2),0.20) 0%,
-                rgba(0,0,0,0) 60%),
-              radial-gradient(1px 1px at 20% 30%, rgba(var(--halo),0.20) 99%, transparent 100%),
+              radial-gradient(130vmax 130vmax at 50% 120%, #10163a 0%, var(--bg-2) 50%, var(--bg-1) 100%),
+              radial-gradient(1px 1px at 20% 30%, rgba(var(--halo),0.22) 99%, transparent 100%),
               radial-gradient(1px 1px at 80% 20%, rgba(var(--halo),0.12) 99%, transparent 100%),
               radial-gradient(1px 1px at 30% 70%, rgba(var(--halo),0.14) 99%, transparent 100%),
               radial-gradient(1px 1px at 60% 50%, rgba(var(--halo),0.10) 99%, transparent 100%),
@@ -113,14 +107,14 @@ export default function Home() {
             line-height: 1.02;
             font-weight: 800;
             color: #fff;
+            /* “1.5倍”サイズ */
             font-size: clamp(42px, 9.3vw, 129px);
-            filter:
-              drop-shadow(0 0 22px rgba(var(--violet-1),0.35))
-              drop-shadow(0 0 2px rgba(130,150,255,0.18));
+            filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
+                    drop-shadow(0 0 2px rgba(130,150,255,0.2));
             pointer-events: none;
           }
 
-          /* 下セクション */
+          /* 下セクション（球体の底から少し下） */
           .below {
             position: absolute;
             left: 50%;
@@ -131,6 +125,7 @@ export default function Home() {
             pointer-events: none;
           }
           .sameSize {
+            /* ヒーローと同じサイズに統一 */
             font-weight: 800;
             letter-spacing: -0.02em;
             line-height: 1.06;
@@ -140,13 +135,9 @@ export default function Home() {
           .line1 { color: #fff; }
           .line2 { margin-top: 8px; }
 
-          /* グラデ文字（紫→アクアの輝き） */
+          /* 指定のグラデ文字（Safari対応込み） */
           .gradText {
-            background: linear-gradient(90deg,
-              #cda8ff 0%,
-              #a97aff 35%,
-              #8a55ff 55%,
-              #69e4d2 100%);
+            background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -156,8 +147,9 @@ export default function Home() {
           .space {
             position: absolute;
             inset: -20vmin;
+            /* 直線の光線は無し（repeating-conic-gradientを削除） */
             background:
-              radial-gradient(closest-side, transparent 56%, rgba(255,255,255,0.05) 57%, transparent 58%)
+              radial-gradient(closest-side, transparent 56%, rgba(var(--halo),0.05) 57%, transparent 58%)
                 center/120vmin 120vmin no-repeat;
             filter: blur(0.4px);
             opacity: 0.35;
@@ -166,7 +158,7 @@ export default function Home() {
           .core {
             position: absolute;
             left: 50%;
-            top: 60vh;
+            top: 60vh; /* 見出しと重なりにくい位置 */
             transform: translate(-50%, -50%);
             width: var(--core-size);
             height: var(--core-size);
@@ -175,48 +167,34 @@ export default function Home() {
             z-index: 1;
           }
 
-          /* ====== コアの配色を全面刷新（白→鮮やかな紫） ====== */
           .coreGlow {
             position: absolute;
             inset: 0;
             border-radius: 50%;
             background:
-              /* 眩しい中心 */
               radial-gradient(circle at 50% 50%,
-                rgba(255,255,255,1) 0%,
-                rgba(255,255,255,0.98) 7%,
-                #f6f2ff 11%,
-                #eee6ff 16%,
-                #e4d7ff 22%,
-                #d7c2ff 30%,
-                #caa8ff 40%,
-                #b985ff 52%,
-                #a463ff 64%,
-                rgba(var(--violet-2),0.38) 72%,
-                rgba(0,0,0,0) 79%),
-              /* 外周の紫グロー */
-              radial-gradient(75% 75% at 50% 50%,
-                rgba(var(--violet-1),0.55) 0%,
-                rgba(var(--violet-1),0.00) 70%);
-            filter: blur(8px) saturate(145%) contrast(112%);
-            box-shadow:
-              0 0 80px rgba(var(--violet-1),0.55),
-              0 0 160px rgba(var(--violet-1),0.25),
-              inset 0 0 120px rgba(255,255,255,0.35);
+                rgba(var(--halo),1) 0%,
+                rgba(242,238,255,0.98) 8%,
+                rgba(206,196,255,0.92) 18%,
+                rgba(178,164,255,0.80) 32%,
+                rgba(131,146,255,0.58) 48%,
+                rgba(92,118,255,0.38) 62%,
+                rgba(55,88,255,0.22) 72%,
+                rgba(0,0,0,0) 78%);
+            filter: blur(10px) saturate(125%) contrast(105%);
             animation: breathe 6s ease-in-out infinite;
           }
 
-          /* ハイライト（白の照り返しを強調） */
           .shine {
             position: absolute;
             inset: 0;
             border-radius: 50%;
             background:
-              radial-gradient(60% 18% at 50% 48%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 100%),
-              radial-gradient(28% 10% at 50% 50%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 100%);
+              radial-gradient(60% 18% at 50% 50%, rgba(var(--halo),0.95) 0%, rgba(var(--halo),0) 100%),
+              radial-gradient(28% 10% at 50% 50%, rgba(var(--halo),0.85) 0%, rgba(var(--halo),0) 100%);
             mix-blend-mode: screen;
-            filter: blur(5px);
-            opacity: 0.85;
+            filter: blur(6px);
+            opacity: 0.7;
             animation: breathe 6s ease-in-out infinite reverse;
           }
 
@@ -224,11 +202,12 @@ export default function Home() {
             position: absolute;
             inset: -3%;
             border-radius: 50%;
+            /* 線は“円弧感”のみ。直線ラジアルは無し */
             background:
-              radial-gradient(closest-side, rgba(255,255,255,0.05) 55%, transparent 56%) center/100% 100% no-repeat;
+              radial-gradient(closest-side, rgba(255,255,255,0.04) 55%, transparent 56%) center/100% 100% no-repeat;
             mix-blend-mode: screen;
             filter: blur(0.5px);
-            opacity: 0.5;
+            opacity: 0.45;
           }
 
           /* ========= 放射エミッタ ========= */
@@ -237,8 +216,8 @@ export default function Home() {
             inset: 0;
             border-radius: 50%;
             pointer-events: none;
-            z-index: 2;
-            --N: 36;
+            z-index: 2; /* リングより手前に */
+            --N: 36; /* 角度分割数（JS側と合わせる） */
             --emit-radius: calc(var(--core-size) * 0.96);
           }
           .starEmitter i {
@@ -248,17 +227,20 @@ export default function Home() {
             width: var(--sz, 1.4px);
             height: var(--sz, 1.4px);
             border-radius: 50%;
+            /* 小さな光点（周囲ほど薄く） */
             background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0) 70%);
-            box-shadow: 0 0 6px rgba(var(--violet-1),0.65);
+            box-shadow: 0 0 6px rgba(180,200,255,0.55);
             opacity: 0;
             mix-blend-mode: screen;
             backface-visibility: hidden;
             will-change: transform, opacity;
+            /* 角度をCSS変数にしてキーフレーム内で使い回す */
             --a: calc(360deg * (var(--i) / var(--N)));
             transform: rotate(var(--a)) translateX(0) scale(1);
             animation: shoot var(--spd, 2.8s) linear infinite;
             animation-delay: var(--delay, 0s);
           }
+          /* 尾（控えめの流れ）*/
           .starEmitter i::after {
             content: "";
             position: absolute;
@@ -267,20 +249,19 @@ export default function Home() {
             transform: translateY(-50%);
             width: var(--tail, 28px);
             height: 1px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0));
+            background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0));
             filter: blur(0.6px);
-            opacity: calc(var(--alpha, 0.9) * 0.7);
+            opacity: calc(var(--alpha, 0.8) * 0.7);
             pointer-events: none;
           }
           @keyframes shoot {
-            0%   { transform: rotate(var(--a)) translateX(0) scale(1);   opacity: 0; }
-            8%   { opacity: var(--alpha, 0.9); }
+            0%   { transform: rotate(var(--a)) translateX(0)       scale(1);   opacity: 0; }
+            8%   {                                                   opacity: var(--alpha, 0.9); }
             60%  { transform: rotate(var(--a)) translateX(calc(var(--emit-radius) * 0.66)) scale(0.9); opacity: calc(var(--alpha, 0.9) * 0.5); }
-            100% { transform: rotate(var(--a)) translateX(var(--emit-radius)) scale(0.82); opacity: 0; }
+            100% { transform: rotate(var(--a)) translateX(var(--emit-radius))               scale(0.82); opacity: 0; }
           }
           /* ========= 放射エミッタ ここまで ========= */
 
-          /* 紫のリングを強調 */
           .ring {
             --size: calc(var(--core-size) * 0.82);
             position: absolute;
@@ -291,22 +272,21 @@ export default function Home() {
             height: var(--size);
             border-radius: 50%;
             box-shadow:
-              0 0 60px rgba(var(--violet-1),0.45),
-              inset 0 0 46px rgba(var(--violet-2),0.35);
+              0 0 42px rgba(188,166,255,0.45),
+              inset 0 0 38px rgba(107,134,255,0.28);
             background:
               radial-gradient(circle at 50% 50%,
                 rgba(255,255,255,0.95) 0%,
-                rgba(240,230,255,0.75) 18%,
-                rgba(var(--violet-2),0.55) 36%,
-                rgba(var(--violet-3),0.20) 52%,
+                rgba(188,166,255,0.55) 30%,
+                rgba(120,140,255,0.22) 52%,
                 rgba(0,0,0,0) 62%);
             filter: blur(0.25px);
-            opacity: 0.92;
+            opacity: 0.9;
             animation: ripple var(--ripple-period) cubic-bezier(0.16, 0.66, 0.38, 1) infinite;
             animation-delay: var(--d);
           }
 
-          /* 波紋の“縁”の周囲だけに星 */
+          /* ★ 波紋の“縁”の周囲だけに星を露出させるベルト（控えめ） */
           .starsBelt {
             position: absolute;
             left: 50%;
@@ -338,7 +318,6 @@ export default function Home() {
             animation: twinkle 4s ease-in-out infinite alternate;
           }
 
-          /* 紫がかった床反射 */
           .reflection {
             position: absolute;
             left: 50%;
@@ -348,20 +327,20 @@ export default function Home() {
             height: 40vh;
             background:
               radial-gradient(120vmin 60% at 50% 0%,
-                rgba(var(--violet-1),0.38) 0%,
-                rgba(var(--violet-1),0.14) 42%,
+                rgba(140,150,255,0.28) 0%,
+                rgba(140,150,255,0.10) 40%,
                 transparent 75%);
             filter: blur(14px);
-            opacity: 0.78;
+            opacity: 0.7;
           }
 
           @keyframes breathe {
-            0%, 100% { transform: scale(1); filter: blur(8px) saturate(145%) contrast(112%); }
-            50% { transform: scale(1.02); filter: blur(10px) saturate(160%) contrast(116%); }
+            0%, 100% { transform: scale(1); filter: blur(10px) saturate(125%) contrast(105%); }
+            50% { transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%); }
           }
           @keyframes ripple {
-            0%   { transform: translate(-50%, -50%) scale(var(--ring-start-scale)); opacity: 0.95; }
-            70%  { opacity: 0.24; }
+            0%   { transform: translate(-50%, -50%) scale(var(--ring-start-scale)); opacity: 0.9; }
+            70%  { opacity: 0.22; }
             100% { transform: translate(-50%, -50%) scale(var(--ring-end-scale)); opacity: 0; }
           }
           @keyframes twinkle {
