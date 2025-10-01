@@ -20,17 +20,16 @@ export default function Home() {
         <div className="core" aria-hidden>
           <div className="coreGlow" />
           <div className="shine" />
-          {/* 薄い軌道（円弧イメージ）。“無限に伸びる直線”は無し */}
           <div className="orbits" />
 
-          {/* ★ 放射エミッタ（星屑を中心→外へ） */}
+          {/* 放射エミッタ */}
           <div className="starEmitter" aria-hidden>
             {Array.from({ length: 36 }).map((_, i) => {
-              const spd = 2.4 + (i % 7) * 0.15;                         // 2.4s〜3.3s
-              const delay = -((i * 173) % 900) / 300;                   // 0〜-3.0s（デスパ）
-              const size = 1 + ((i * 37) % 3) * 0.4;                    // 1.0〜1.8px
-              const alpha = 0.55 + (((i * 29) % 40) / 100);             // 0.55〜0.95
-              const tail = 20 + ((i * 67) % 24);                        // 20〜44px
+              const spd = 2.4 + (i % 7) * 0.15;
+              const delay = -((i * 173) % 900) / 300;
+              const size = 1 + ((i * 37) % 3) * 0.4;
+              const alpha = 0.55 + (((i * 29) % 40) / 100);
+              const tail = 20 + ((i * 67) % 24);
               return (
                 <i
                   key={i}
@@ -48,14 +47,14 @@ export default function Home() {
             })}
           </div>
 
-          {/* 波紋（ディレイ違い） */}
+          {/* 波紋 */}
           <div className="ring" style={{ ["--d"]: "0s" }} />
           <div className="ring" style={{ ["--d"]: "1.2s" }} />
           <div className="ring" style={{ ["--d"]: "2.4s" }} />
           <div className="ring" style={{ ["--d"]: "3.6s" }} />
           <div className="ring" style={{ ["--d"]: "4.8s" }} />
 
-          {/* ★ 波紋の“周囲だけ”に星を散りばめた細いベルト（控えめ） */}
+          {/* 波紋の縁の星ベルト */}
           <div className="starsBelt" />
         </div>
 
@@ -64,14 +63,14 @@ export default function Home() {
           <div className="line1 sameSize">AI Makes</div>
           <div className="line2 gradText sameSize">Beautiful&nbsp;Minutes</div>
 
-          {/* ▼ ここから：ガラス調デバイス・セクション（iPad/モバイルはiPhone） */}
+          {/* ▼ ガラス調デバイス（iPad / iPhone） */}
           <div className="deviceStage">
             <div className="deviceGlass" aria-label="Minutes preview surface">
-              {/* 将来ここに議事録のイメージや要素を配置します */}
-              {/* 例）<img src="/minutes-placeholder.png" alt="" className="fit" /> */}
+              {/* 後で議事録プレビューを入れる想定 */}
+              {/* <img src="/minutes-placeholder.png" alt="" className="fit" /> */}
             </div>
           </div>
-          {/* ▲ ここまで */}
+          {/* ▲ ガラス調デバイス */}
         </section>
 
         {/* 反射の霞 */}
@@ -79,9 +78,15 @@ export default function Home() {
 
         <style jsx>{`
           .scene {
+            /* ====== トーン ====== */
             --bg-1: #05060e;
             --bg-2: #0b1030;
             --halo: 255, 255, 255;
+
+            /* 彩度の高いライトブルー＆エメラルド（好みに応じて微調整） */
+            --mint: 98, 232, 203;   /* #62e8cb */
+            --sky:  152, 209, 255;  /* #98d1ff */
+            --ice:  204, 244, 255;  /* #ccf4ff */
 
             /* 球体サイズ（必ず画面に収まる） */
             --core-size: clamp(420px, 70vmin, 80vh);
@@ -92,12 +97,15 @@ export default function Home() {
 
             position: relative;
             min-height: 100vh;
-            /* 下のガラスデバイス分の余白を少し増やす */
-            padding-bottom: calc((var(--core-size) / 2) + 48vh);
+
+            /* ▼ デバイス全体が必ず見切れないよう下余白を増量 */
+            /* （端末差を吸収するため多めに確保） */
+            padding-bottom: calc((var(--core-size) / 2) + 110vh);
+
             overflow: hidden;
             color: #fff;
 
-            /* 背景。放射状の直線は入れない */
+            /* 背景。放射直線なし */
             background:
               radial-gradient(130vmax 130vmax at 50% 120%, #10163a 0%, var(--bg-2) 50%, var(--bg-1) 100%),
               radial-gradient(1px 1px at 20% 30%, rgba(var(--halo),0.22) 99%, transparent 100%),
@@ -117,14 +125,12 @@ export default function Home() {
             line-height: 1.02;
             font-weight: 800;
             color: #fff;
-            /* “1.5倍”サイズ */
             font-size: clamp(42px, 9.3vw, 129px);
             filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
                     drop-shadow(0 0 2px rgba(130,150,255,0.2));
             pointer-events: none;
           }
 
-          /* 下セクション（球体の底から少し下） */
           .below {
             position: absolute;
             left: 50%;
@@ -136,7 +142,6 @@ export default function Home() {
             width: 100%;
           }
           .sameSize {
-            /* ヒーローと同じサイズに統一 */
             font-weight: 800;
             letter-spacing: -0.02em;
             line-height: 1.06;
@@ -146,7 +151,6 @@ export default function Home() {
           .line1 { color: #fff; }
           .line2 { margin-top: 8px; }
 
-          /* 指定のグラデ文字（Safari対応込み） */
           .gradText {
             background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
             -webkit-background-clip: text;
@@ -155,64 +159,76 @@ export default function Home() {
             -webkit-text-fill-color: transparent;
           }
 
-          /* ===== デバイス風・ガラスパネル ===== */
+          /* ===== デバイス風ガラスパネル ===== */
           .deviceStage {
-            pointer-events: auto;    /* 子要素は触れるように */
+            pointer-events: auto;
             margin: clamp(16px, 5vh, 44px) auto 0;
-            width: min(92vw, 1160px);  /* デスクトップはiPad想定 */
+            width: min(94vw, 1280px); /* デスクトップ：iPad幅感 */
           }
           .deviceGlass {
-            --top: #2b3753;   /* 添付の淡い紺〜青み */
-            --bot: #4a6270;
+            /* ベースの深い紺グラデ */
+            --baseTop: #1e2b46;
+            --baseBot: #3f5969;
+
             position: relative;
             width: 100%;
-            aspect-ratio: 4 / 3;           /* iPad比率 */
+            aspect-ratio: 4 / 3;                 /* iPad比率 */
             border-radius: clamp(22px, 3.2vmax, 44px);
             overflow: hidden;
 
-            /* すりガラス感：背景ブラー＋淡い青グラデ */
+            /* ▼ 淡いライトブルー→エメラルドの“鮮やか”なヴェールを重ねる */
             background:
-              linear-gradient(180deg, var(--top) 0%, var(--bot) 100%);
-            -webkit-backdrop-filter: blur(10px) saturate(140%);
-            backdrop-filter: blur(10px) saturate(140%);
+              linear-gradient(
+                150deg,
+                rgba(var(--ice), 0.52) 0%,
+                rgba(var(--sky), 0.42) 28%,
+                rgba(var(--mint),0.36) 68%,
+                rgba(255,255,255,0.00) 100%
+              ),
+              linear-gradient(180deg, var(--baseTop) 0%, var(--baseBot) 100%);
+
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            backdrop-filter: blur(12px) saturate(150%);
 
             /* 枠・立体感 */
-            border: 1px solid rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.18);
             box-shadow:
-              0 30px 90px rgba(10,20,60,0.40),
-              0 10px 24px rgba(0,0,0,0.35),
-              inset 0 1px 0 rgba(255,255,255,0.25),
+              0 36px 110px rgba(10,20,60,0.45),
+              0 14px 32px rgba(0,0,0,0.35),
+              inset 0 1px 0 rgba(255,255,255,0.28),
               inset 0 -1px 0 rgba(0,0,0,0.25);
           }
-          /* 上面の柔らかい反射 */
+          /* 上縁のハイライト（スッと走る光） */
           .deviceGlass::before {
             content: "";
             position: absolute;
             inset: 0;
             border-radius: inherit;
             background:
-              radial-gradient(70% 55% at 50% -10%,
-                rgba(255,255,255,0.38) 0%,
-                rgba(255,255,255,0.00) 70%)
+              /* 上端〜右上にかけて淡いシアン光 */
+              radial-gradient(110% 80% at 70% -20%,
+                rgba(210, 255, 255, 0.55) 0%,
+                rgba(210, 255, 255, 0.20) 38%,
+                rgba(255, 255, 255, 0.00) 70%)
               ,
-              radial-gradient(50% 35% at 25% 110%,
-                rgba(255,255,255,0.10) 0%,
-                rgba(255,255,255,0.00) 70%);
+              /* 左下からエメラルドの滲み */
+              radial-gradient(120% 85% at -10% 110%,
+                rgba(var(--mint), 0.22) 0%,
+                rgba(var(--mint), 0.00) 70%);
             mix-blend-mode: screen;
             pointer-events: none;
           }
-          /* 微細な内側ライン＆うっすら周辺減光 */
+          /* 微細な内側ライン＆周辺減光 */
           .deviceGlass::after {
             content: "";
             position: absolute;
             inset: 0;
             border-radius: inherit;
             box-shadow:
-              inset 0 0 0 1px rgba(255,255,255,0.06),
-              inset 0 0 40px rgba(0,0,0,0.20);
+              inset 0 0 0 1px rgba(255,255,255,0.08),
+              inset 0 0 46px rgba(0,0,0,0.22);
             pointer-events: none;
           }
-          /* 画像を入れるときに使うユーティリティ */
           .fit {
             position: absolute;
             inset: 0;
@@ -221,10 +237,10 @@ export default function Home() {
             object-fit: cover;
           }
 
+          /* 背景の薄い装飾 */
           .space {
             position: absolute;
             inset: -20vmin;
-            /* 直線の光線は無し（repeating-conic-gradientを削除） */
             background:
               radial-gradient(closest-side, transparent 56%, rgba(var(--halo),0.05) 57%, transparent 58%)
                 center/120vmin 120vmin no-repeat;
@@ -235,7 +251,7 @@ export default function Home() {
           .core {
             position: absolute;
             left: 50%;
-            top: 60vh; /* 見出しと重なりにくい位置 */
+            top: 60vh;
             transform: translate(-50%, -50%);
             width: var(--core-size);
             height: var(--core-size);
@@ -279,7 +295,6 @@ export default function Home() {
             position: absolute;
             inset: -3%;
             border-radius: 50%;
-            /* 線は“円弧感”のみ。直線ラジアルは無し */
             background:
               radial-gradient(closest-side, rgba(255,255,255,0.04) 55%, transparent 56%) center/100% 100% no-repeat;
             mix-blend-mode: screen;
@@ -287,14 +302,14 @@ export default function Home() {
             opacity: 0.45;
           }
 
-          /* ========= 放射エミッタ ========= */
+          /* 放射エミッタ */
           .starEmitter {
             position: absolute;
             inset: 0;
             border-radius: 50%;
             pointer-events: none;
-            z-index: 2; /* リングより手前に */
-            --N: 36; /* 角度分割数（JS側と合わせる） */
+            z-index: 2;
+            --N: 36;
             --emit-radius: calc(var(--core-size) * 0.96);
           }
           .starEmitter i {
@@ -304,20 +319,17 @@ export default function Home() {
             width: var(--sz, 1.4px);
             height: var(--sz, 1.4px);
             border-radius: 50%;
-            /* 小さな光点（周囲ほど薄く） */
             background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0) 70%);
             box-shadow: 0 0 6px rgba(180,200,255,0.55);
             opacity: 0;
             mix-blend-mode: screen;
             backface-visibility: hidden;
             will-change: transform, opacity;
-            /* 角度をCSS変数にしてキーフレーム内で使い回す */
             --a: calc(360deg * (var(--i) / var(--N)));
             transform: rotate(var(--a)) translateX(0) scale(1);
             animation: shoot var(--spd, 2.8s) linear infinite;
             animation-delay: var(--delay, 0s);
           }
-          /* 尾（控えめの流れ）*/
           .starEmitter i::after {
             content: "";
             position: absolute;
@@ -337,7 +349,6 @@ export default function Home() {
             60%  { transform: rotate(var(--a)) translateX(calc(var(--emit-radius) * 0.66)) scale(0.9); opacity: calc(var(--alpha, 0.9) * 0.5); }
             100% { transform: rotate(var(--a)) translateX(var(--emit-radius))               scale(0.82); opacity: 0; }
           }
-          /* ========= 放射エミッタ ここまで ========= */
 
           .ring {
             --size: calc(var(--core-size) * 0.82);
@@ -363,7 +374,6 @@ export default function Home() {
             animation-delay: var(--d);
           }
 
-          /* ★ 波紋の“縁”の周囲だけに星を露出させるベルト（控えめ） */
           .starsBelt {
             position: absolute;
             left: 50%;
@@ -413,27 +423,30 @@ export default function Home() {
 
           @keyframes breathe {
             0%, 100% { transform: scale(1); filter: blur(10px) saturate(125%) contrast(105%); }
-            50% { transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%); }
+            50%      { transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%); }
           }
           @keyframes ripple {
             0%   { transform: translate(-50%, -50%) scale(var(--ring-start-scale)); opacity: 0.9; }
             70%  { opacity: 0.22; }
-            100% { transform: translate(-50%, -50%) scale(var(--ring-end-scale)); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(var(--ring-end-scale));   opacity: 0; }
           }
           @keyframes twinkle {
             from { opacity: 0.45; }
             to   { opacity: 0.85; }
           }
 
-          /* ===== モバイル最適化：iPhone比率（縦長） ===== */
+          /* ===== モバイル：iPhone比率＆余白さらに確保 ===== */
           @media (max-width: 640px) {
-            .scene { --core-size: clamp(320px, 86vmin, 80vh); padding-bottom: calc((var(--core-size) / 2) + 60vh); }
-            .heroTop { font-size: clamp(33px, 11.1vw, 90px); padding-top: 12vh; }
+            .scene {
+              --core-size: clamp(320px, 86vmin, 80vh);
+              padding-bottom: calc((var(--core-size) / 2) + 130vh);
+            }
+            .heroTop  { font-size: clamp(33px, 11.1vw, 90px); padding-top: 12vh; }
             .sameSize { font-size: clamp(33px, 11.1vw, 90px); }
 
             .deviceStage { width: min(92vw, 520px); }
             .deviceGlass {
-              aspect-ratio: 9 / 19.5;                 /* iPhone比率（縦） */
+              aspect-ratio: 9 / 19.5;       /* iPhone縦比率 */
               border-radius: clamp(26px, 7.5vw, 40px);
             }
           }
