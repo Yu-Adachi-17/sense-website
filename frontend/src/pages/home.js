@@ -37,7 +37,7 @@ export default function Home() {
         {/* 球体の下セクション */}
         <section className="below">
           <div className="line1 sameSize">AI Makes</div>
-          <div className="line2 gradText sameSize">Beautiful Minutes</div>
+          <div className="line2 gradText sameSize">Beautiful&nbsp;Minutes</div>
         </section>
 
         {/* 反射の霞 */}
