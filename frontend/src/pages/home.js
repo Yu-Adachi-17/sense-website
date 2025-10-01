@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className="scene">
         {/* 球体ど真ん中に配置する見出し（1行） */}
-        <h1 className="heroCenter">Think better with Minutes.AI＞Just Record.</h1>
+        <h1 className="heroCenter">Just Record.</h1>
 
         {/* 奥行き（星＋軌道） */}
         <div className="space" aria-hidden />
