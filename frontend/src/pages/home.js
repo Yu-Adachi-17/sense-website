@@ -10,8 +10,8 @@ export default function Home() {
       </Head>
 
       <main className="scene">
-        {/* 球体ど真ん中に配置する見出し（1行） */}
-        <h1 className="heroCenter">Just Record.</h1>
+        {/* 球体の“ど真ん中”に配置されたグラデ文字 */}
+        <h1 className="heroCenter gradText">Just Record.</h1>
 
         {/* 奥行き（星＋軌道） */}
         <div className="space" aria-hidden />
@@ -34,16 +34,13 @@ export default function Home() {
         <style jsx>{`
           /* 変数は .scene に置く（styled-JSXのスコープ対策） */
           .scene {
-            /* 背景トーン */
             --bg-1: #05060e;
             --bg-2: #0b1030;
             --halo: 255, 255, 255;
 
-            /* 球体サイズは画面に必ず収まるようにクランプ */
-            /* 直径: 最小420px / 推奨70vmin / 最大80vh */
+            /* 球体サイズ（常に画面に収まる） */
             --core-size: clamp(420px, 70vmin, 80vh);
 
-            /* リップル挙動 */
             --ring-start-scale: 0.78;
             --ring-end-scale: 1.75;
             --ripple-period: 6s;
@@ -61,11 +58,11 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
-          /* 見出し：球体の中心にピタ置き（常時中央） */
+          /* 見出し：球体の中心と同一座標に固定 */
           .heroCenter {
             position: absolute;
             left: 50%;
-            top: 50vh;                 /* ビューポート中央 */
+            top: 50vh;                 /* 画面中央＝球体中心 */
             transform: translate(-50%, -50%);
             margin: 0;
             z-index: 3;
@@ -73,12 +70,24 @@ export default function Home() {
             letter-spacing: -0.02em;
             line-height: 1.02;
             font-weight: 800;
-            font-size: clamp(28px, 6.2vw, 86px);
-            text-shadow:
-              0 0 36px rgba(188,166,255,0.45),
-              0 0 10px rgba(107,134,255,0.25);
-            pointer-events: none;      /* 文字で操作を邪魔しない */
+
+            /* ▼ 以前より1.5倍に拡大（28→42px, 6.2→9.3vw, 86→129px） */
+            font-size: clamp(42px, 9.3vw, 129px);
+
+            /* 輪郭をほんのり発光（グラデを邪魔しない程度） */
+            filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
+                    drop-shadow(0 0 2px rgba(130,150,255,0.2));
             white-space: nowrap;
+            pointer-events: none;
+          }
+
+          /* ご指定のグラデ文字（Safari対応込み） */
+          .gradText {
+            background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent; /* Safari */
           }
 
           .space {
@@ -94,11 +103,10 @@ export default function Home() {
             animation: spin 120s linear infinite;
           }
 
-          /* 球体：中心を画面中央に固定 */
           .core {
             position: absolute;
             left: 50%;
-            top: 50vh;                                  /* 画面中央 */
+            top: 50vh;
             transform: translate(-50%, -50%);
             width: var(--core-size);
             height: var(--core-size);
@@ -205,7 +213,8 @@ export default function Home() {
 
           @media (max-width: 640px) {
             .scene { --core-size: clamp(320px, 86vmin, 80vh); }
-            .heroCenter { font-size: clamp(22px, 7.4vw, 60px); white-space: normal; padding: 0 16px; }
+            /* 文字も1.5倍相当を維持 */
+            .heroCenter { font-size: clamp(33px, 11.1vw, 90px); white-space: normal; padding: 0 16px; }
           }
         `}</style>
       </main>
