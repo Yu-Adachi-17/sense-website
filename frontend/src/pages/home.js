@@ -10,10 +10,10 @@ export default function Home() {
       </Head>
 
       <main className="scene">
-        {/* 球体の“ど真ん中”に配置されたグラデ文字 */}
-        <h1 className="heroCenter gradText">Just Record.</h1>
+        {/* ▼ 見出し：球体の“上”に配置 */}
+        <h1 className="heroTop gradText">Just Record.</h1>
 
-        {/* 奥行き（星＋軌道） */}
+        {/* 背景の奥行き */}
         <div className="space" aria-hidden />
 
         {/* 球体（完全な円） */}
@@ -58,26 +58,23 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
-          /* 見出し：球体の中心と同一座標に固定 */
-          .heroCenter {
-            position: absolute;
-            left: 50%;
-            top: 50vh;                 /* 画面中央＝球体中心 */
-            transform: translate(-50%, -50%);
-            margin: 0;
+          /* ▼ 見出し（球体の上） */
+          .heroTop {
+            position: relative;
             z-index: 3;
             text-align: center;
+            margin: 0;
+            padding-top: clamp(48px, 9vh, 120px); /* 初期の位置感に戻す */
             letter-spacing: -0.02em;
             line-height: 1.02;
             font-weight: 800;
 
-            /* ▼ 以前より1.5倍に拡大（28→42px, 6.2→9.3vw, 86→129px） */
+            /* 1.5倍サイズ（前回指定を踏襲） */
             font-size: clamp(42px, 9.3vw, 129px);
 
-            /* 輪郭をほんのり発光（グラデを邪魔しない程度） */
+            /* 輪郭のほのかな発光 */
             filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
                     drop-shadow(0 0 2px rgba(130,150,255,0.2));
-            white-space: nowrap;
             pointer-events: none;
           }
 
@@ -87,7 +84,7 @@ export default function Home() {
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            -webkit-text-fill-color: transparent; /* Safari */
+            -webkit-text-fill-color: transparent;
           }
 
           .space {
@@ -103,10 +100,11 @@ export default function Home() {
             animation: spin 120s linear infinite;
           }
 
+          /* ▼ 球体は少し下げて重なりを回避（中心=60vh） */
           .core {
             position: absolute;
             left: 50%;
-            top: 50vh;
+            top: 60vh;                            /* ←ここで上との距離を確保 */
             transform: translate(-50%, -50%);
             width: var(--core-size);
             height: var(--core-size);
@@ -213,8 +211,7 @@ export default function Home() {
 
           @media (max-width: 640px) {
             .scene { --core-size: clamp(320px, 86vmin, 80vh); }
-            /* 文字も1.5倍相当を維持 */
-            .heroCenter { font-size: clamp(33px, 11.1vw, 90px); white-space: normal; padding: 0 16px; }
+            .heroTop { font-size: clamp(33px, 11.1vw, 90px); padding-top: 12vh; }
           }
         `}</style>
       </main>
