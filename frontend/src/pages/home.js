@@ -23,6 +23,31 @@ export default function Home() {
           {/* 薄い軌道（円弧イメージ）。“無限に伸びる直線”は無し */}
           <div className="orbits" />
 
+          {/* ★ 放射エミッタ（星屑を中心→外へ） */}
+          <div className="starEmitter" aria-hidden>
+            {Array.from({ length: 36 }).map((_, i) => {
+              const spd = 2.4 + (i % 7) * 0.15;                         // 2.4s〜3.3s
+              const delay = -((i * 173) % 900) / 300;                   // 0〜-3.0s（デスパ）
+              const size = 1 + ((i * 37) % 3) * 0.4;                    // 1.0〜1.8px
+              const alpha = 0.55 + (((i * 29) % 40) / 100);             // 0.55〜0.95
+              const tail = 20 + ((i * 67) % 24);                        // 20〜44px
+              return (
+                <i
+                  key={i}
+                  style={{
+                    ["--i"]: i,
+                    ["--N"]: 36,
+                    ["--spd"]: `${spd}s`,
+                    ["--delay"]: `${delay}s`,
+                    ["--sz"]: `${size}px`,
+                    ["--alpha"]: alpha,
+                    ["--tail"]: `${tail}px`,
+                  }}
+                />
+              );
+            })}
+          </div>
+
           {/* 波紋（ディレイ違い） */}
           <div className="ring" style={{ ["--d"]: "0s" }} />
           <div className="ring" style={{ ["--d"]: "1.2s" }} />
@@ -30,7 +55,7 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "3.6s" }} />
           <div className="ring" style={{ ["--d"]: "4.8s" }} />
 
-          {/* ★ 波紋の“周囲だけ”に星を散りばめた細いベルト */}
+          {/* ★ 波紋の“周囲だけ”に星を散りばめた細いベルト（控えめ） */}
           <div className="starsBelt" />
         </div>
 
@@ -185,6 +210,58 @@ export default function Home() {
             opacity: 0.45;
           }
 
+          /* ========= 放射エミッタ ========= */
+          .starEmitter {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2; /* リングより手前に */
+            --N: 36; /* 角度分割数（JS側と合わせる） */
+            --emit-radius: calc(var(--core-size) * 0.96);
+          }
+          .starEmitter i {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: var(--sz, 1.4px);
+            height: var(--sz, 1.4px);
+            border-radius: 50%;
+            /* 小さな光点（周囲ほど薄く） */
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0) 70%);
+            box-shadow: 0 0 6px rgba(180,200,255,0.55);
+            opacity: 0;
+            mix-blend-mode: screen;
+            backface-visibility: hidden;
+            will-change: transform, opacity;
+            /* 角度をCSS変数にしてキーフレーム内で使い回す */
+            --a: calc(360deg * (var(--i) / var(--N)));
+            transform: rotate(var(--a)) translateX(0) scale(1);
+            animation: shoot var(--spd, 2.8s) linear infinite;
+            animation-delay: var(--delay, 0s);
+          }
+          /* 尾（控えめの流れ）*/
+          .starEmitter i::after {
+            content: "";
+            position: absolute;
+            left: calc(-1 * var(--tail, 28px));
+            top: 50%;
+            transform: translateY(-50%);
+            width: var(--tail, 28px);
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0));
+            filter: blur(0.6px);
+            opacity: calc(var(--alpha, 0.8) * 0.7);
+            pointer-events: none;
+          }
+          @keyframes shoot {
+            0%   { transform: rotate(var(--a)) translateX(0)       scale(1);   opacity: 0; }
+            8%   {                                                   opacity: var(--alpha, 0.9); }
+            60%  { transform: rotate(var(--a)) translateX(calc(var(--emit-radius) * 0.66)) scale(0.9); opacity: calc(var(--alpha, 0.9) * 0.5); }
+            100% { transform: rotate(var(--a)) translateX(var(--emit-radius))               scale(0.82); opacity: 0; }
+          }
+          /* ========= 放射エミッタ ここまで ========= */
+
           .ring {
             --size: calc(var(--core-size) * 0.82);
             position: absolute;
@@ -209,7 +286,7 @@ export default function Home() {
             animation-delay: var(--d);
           }
 
-          /* ★ 波紋の“縁”の周囲だけに星を露出させるベルト */
+          /* ★ 波紋の“縁”の周囲だけに星を露出させるベルト（控えめ） */
           .starsBelt {
             position: absolute;
             left: 50%;
@@ -220,8 +297,7 @@ export default function Home() {
             border-radius: 50%;
             pointer-events: none;
             mix-blend-mode: screen;
-            opacity: 0.65;
-            /* ランダム点（コスト低めの手描きドット） */
+            opacity: 0.55;
             background:
               radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,0.95) 99%, transparent 100%),
               radial-gradient(1.2px 1.2px at 22% 36%, rgba(255,255,255,0.85) 99%, transparent 100%),
@@ -235,12 +311,10 @@ export default function Home() {
               radial-gradient(1.2px 1.2px at 88% 64%, rgba(255,255,255,0.75) 99%, transparent 100%),
               radial-gradient(1.2px 1.2px at 38% 86%, rgba(255,255,255,0.9) 99%, transparent 100%),
               radial-gradient(1.2px 1.2px at 70% 86%, rgba(255,255,255,0.8) 99%, transparent 100%);
-            /* マスクで細い“環”だけ表示（Safari/他ブラウザ両対応） */
             -webkit-mask: radial-gradient(circle at 50% 50%,
               transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
             mask: radial-gradient(circle at 50% 50%,
               transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
-            /* きらめき */
             animation: twinkle 4s ease-in-out infinite alternate;
           }
 
