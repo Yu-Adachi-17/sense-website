@@ -10,13 +10,13 @@ export default function Home() {
       </Head>
 
       <main className="scene">
-        <header className="heroCopy">
-          <h1>Think better with Minutes.AI</h1>
-          <p>Never miss a note, idea or connection.</p>
-        </header>
+        {/* 球体ど真ん中に配置する見出し（1行） */}
+        <h1 className="heroCenter">Think better with Minutes.AI＞Just Record.</h1>
 
+        {/* 奥行き（星＋軌道） */}
         <div className="space" aria-hidden />
 
+        {/* 球体（完全な円） */}
         <div className="core" aria-hidden>
           <div className="coreGlow" />
           <div className="shine" />
@@ -28,18 +28,22 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "4.8s" }} />
         </div>
 
+        {/* 反射の霞 */}
         <div className="reflection" aria-hidden />
 
         <style jsx>{`
-          /* ▼ 変数は :root ではなく .scene に置く（styled-JSXのスコープ問題回避） */
+          /* 変数は .scene に置く（styled-JSXのスコープ対策） */
           .scene {
+            /* 背景トーン */
             --bg-1: #05060e;
             --bg-2: #0b1030;
-            --violet: #bca6ff;
-            --indigo: #6b86ff;
             --halo: 255, 255, 255;
 
-            --core-size: 84vmin;
+            /* 球体サイズは画面に必ず収まるようにクランプ */
+            /* 直径: 最小420px / 推奨70vmin / 最大80vh */
+            --core-size: clamp(420px, 70vmin, 80vh);
+
+            /* リップル挙動 */
             --ring-start-scale: 0.78;
             --ring-end-scale: 1.75;
             --ripple-period: 6s;
@@ -57,26 +61,24 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
-          .heroCopy {
-            position: relative;
+          /* 見出し：球体の中心にピタ置き（常時中央） */
+          .heroCenter {
+            position: absolute;
+            left: 50%;
+            top: 50vh;                 /* ビューポート中央 */
+            transform: translate(-50%, -50%);
+            margin: 0;
             z-index: 3;
             text-align: center;
-            padding-top: clamp(48px, 8vh, 112px);
-          }
-          .heroCopy h1 {
-            margin: 0 16px;
-            font-weight: 800;
             letter-spacing: -0.02em;
             line-height: 1.02;
-            font-size: clamp(36px, 6.5vw, 96px);
+            font-weight: 800;
+            font-size: clamp(28px, 6.2vw, 86px);
             text-shadow:
               0 0 36px rgba(188,166,255,0.45),
               0 0 10px rgba(107,134,255,0.25);
-          }
-          .heroCopy p {
-            margin: 14px 16px 0;
-            opacity: 0.95;
-            font-size: clamp(14px, 1.6vw, 22px);
+            pointer-events: none;      /* 文字で操作を邪魔しない */
+            white-space: nowrap;
           }
 
           .space {
@@ -92,11 +94,11 @@ export default function Home() {
             animation: spin 120s linear infinite;
           }
 
-          /* 完全な球体（下で切れない） */
+          /* 球体：中心を画面中央に固定 */
           .core {
             position: absolute;
             left: 50%;
-            top: 56vh;                     /* 画面中央よりやや下 */
+            top: 50vh;                                  /* 画面中央 */
             transform: translate(-50%, -50%);
             width: var(--core-size);
             height: var(--core-size);
@@ -202,8 +204,8 @@ export default function Home() {
           }
 
           @media (max-width: 640px) {
-            .scene { --core-size: 92vmin; }
-            .heroCopy h1 { font-size: clamp(32px, 8.5vw, 64px); }
+            .scene { --core-size: clamp(320px, 86vmin, 80vh); }
+            .heroCenter { font-size: clamp(22px, 7.4vw, 60px); white-space: normal; padding: 0 16px; }
           }
         `}</style>
       </main>
