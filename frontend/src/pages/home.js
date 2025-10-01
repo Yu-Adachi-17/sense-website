@@ -83,7 +83,7 @@ export default function Home() {
             font-weight: 800;
             color: #fff;
             /* “1.5倍”サイズ */
-            font-size: clamp(42px, 9.3vw, 129px);
+            font-size: clamp(36px, 9.3vw, 129px);
             filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
                     drop-shadow(0 0 2px rgba(130,150,255,0.2));
             pointer-events: none;
@@ -104,7 +104,7 @@ export default function Home() {
             font-weight: 800;
             letter-spacing: -0.02em;
             line-height: 1.06;
-            font-size: clamp(42px, 9.3vw, 129px);
+            font-size: clamp(36px, 9.3vw, 129px);
             margin: 0;
           }
           .line1 { color: #fff; }
