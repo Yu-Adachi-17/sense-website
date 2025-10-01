@@ -15,15 +15,12 @@ export default function Home() {
           <p>Never miss a note, idea or connection.</p>
         </header>
 
-        {/* 宇宙の奥行き（星＋軌道ライン） */}
         <div className="space" aria-hidden />
 
-        {/* ブラックホール本体（完全な球体） */}
         <div className="core" aria-hidden>
           <div className="coreGlow" />
           <div className="shine" />
           <div className="orbits" />
-          {/* リップル波紋（明るめ／Reflect寄せ） */}
           <div className="ring" style={{ ["--d"]: "0s" }} />
           <div className="ring" style={{ ["--d"]: "1.2s" }} />
           <div className="ring" style={{ ["--d"]: "2.4s" }} />
@@ -31,28 +28,22 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "4.8s" }} />
         </div>
 
-        {/* 地面方向の余韻（反射の霞） */}
         <div className="reflection" aria-hidden />
 
         <style jsx>{`
-          :root {
-            /* トーン（Reflect寄り：中心は白に近い強発光） */
+          /* ▼ 変数は :root ではなく .scene に置く（styled-JSXのスコープ問題回避） */
+          .scene {
             --bg-1: #05060e;
             --bg-2: #0b1030;
-
-            --violet: #bca6ff;   /* 明るめの紫 */
-            --indigo: #6b86ff;   /* 明るめの青 */
+            --violet: #bca6ff;
+            --indigo: #6b86ff;
             --halo: 255, 255, 255;
 
-            --core-size: 84vmin; /* 球体のサイズ */
+            --core-size: 84vmin;
             --ring-start-scale: 0.78;
             --ring-end-scale: 1.75;
-            --ripple-period: 6s; /* リップル周期 */
-          }
+            --ripple-period: 6s;
 
-          * { box-sizing: border-box; }
-
-          .scene {
             position: relative;
             min-height: 100vh;
             overflow: hidden;
@@ -92,9 +83,7 @@ export default function Home() {
             position: absolute;
             inset: -20vmin;
             background:
-              /* ごく薄い同心円の軌道 */
               radial-gradient(closest-side, transparent 56%, rgba(var(--halo),0.05) 57%, transparent 58%) center/120vmin 120vmin no-repeat,
-              /* 放射状の細い線（回転させる） */
               repeating-conic-gradient(from 0deg,
                 rgba(var(--halo),0.045) 0deg 0.6deg,
                 transparent 0.6deg 12deg);
@@ -103,11 +92,11 @@ export default function Home() {
             animation: spin 120s linear infinite;
           }
 
-          /* ====== 球体（画面中央寄り・完全な円） ====== */
+          /* 完全な球体（下で切れない） */
           .core {
             position: absolute;
             left: 50%;
-            top: clamp(54vh, 56vh, 58vh); /* 下で切れない位置に */
+            top: 56vh;                     /* 画面中央よりやや下 */
             transform: translate(-50%, -50%);
             width: var(--core-size);
             height: var(--core-size);
@@ -116,7 +105,6 @@ export default function Home() {
             z-index: 1;
           }
 
-          /* 強い中心発光＋紫〜青のハロー（明るめ設定） */
           .coreGlow {
             position: absolute;
             inset: 0;
@@ -124,43 +112,36 @@ export default function Home() {
             background:
               radial-gradient(circle at 50% 50%,
                 rgba(var(--halo),1) 0%,
-                rgba(242, 238, 255, 0.98) 8%,
-                rgba(206, 196, 255, 0.92) 18%,
-                rgba(178, 164, 255, 0.80) 32%,
-                rgba(131, 146, 255, 0.58) 48%,
-                rgba(92, 118, 255, 0.38) 62%,
-                rgba(55, 88, 255, 0.22) 72%,
+                rgba(242,238,255,0.98) 8%,
+                rgba(206,196,255,0.92) 18%,
+                rgba(178,164,255,0.80) 32%,
+                rgba(131,146,255,0.58) 48%,
+                rgba(92,118,255,0.38) 62%,
+                rgba(55,88,255,0.22) 72%,
                 rgba(0,0,0,0) 78%);
             filter: blur(10px) saturate(125%) contrast(105%);
             animation: breathe 6s ease-in-out infinite;
           }
 
-          /* 中心の“白い刃”のような強ハイライト */
           .shine {
             position: absolute;
             inset: 0;
             border-radius: 50%;
             background:
-              radial-gradient(60% 18% at 50% 50%,
-                rgba(var(--halo),0.95) 0%,
-                rgba(var(--halo),0.0) 100%),
-              radial-gradient(28% 10% at 50% 50%,
-                rgba(var(--halo),0.85) 0%,
-                rgba(var(--halo),0) 100%);
+              radial-gradient(60% 18% at 50% 50%, rgba(var(--halo),0.95) 0%, rgba(var(--halo),0) 100%),
+              radial-gradient(28% 10% at 50% 50%, rgba(var(--halo),0.85) 0%, rgba(var(--halo),0) 100%);
             mix-blend-mode: screen;
             filter: blur(6px);
             opacity: 0.7;
             animation: breathe 6s ease-in-out infinite reverse;
           }
 
-          /* 極薄の軌道ラインを回転（球体の上に重ねる） */
           .orbits {
             position: absolute;
             inset: -3%;
             border-radius: 50%;
             background:
-              repeating-conic-gradient(
-                from 0deg,
+              repeating-conic-gradient(from 0deg,
                 rgba(var(--halo),0.05) 0deg 0.6deg,
                 transparent 0.6deg 12deg);
             mix-blend-mode: screen;
@@ -169,7 +150,6 @@ export default function Home() {
             animation: spin 90s linear infinite;
           }
 
-          /* リップル（輪郭が光る広がり） */
           .ring {
             --size: calc(var(--core-size) * 0.82);
             position: absolute;
@@ -179,7 +159,6 @@ export default function Home() {
             width: var(--size);
             height: var(--size);
             border-radius: 50%;
-            /* 外側と内側に光が回る */
             box-shadow:
               0 0 42px rgba(188,166,255,0.45),
               inset 0 0 38px rgba(107,134,255,0.28);
@@ -195,7 +174,6 @@ export default function Home() {
             animation-delay: var(--d);
           }
 
-          /* 地面側の反射（明るめ） */
           .reflection {
             position: absolute;
             left: 50%;
@@ -205,17 +183,14 @@ export default function Home() {
             height: 40vh;
             background:
               radial-gradient(120vmin 60% at 50% 0%,
-                rgba(140, 150, 255, 0.28) 0%,
-                rgba(140, 150, 255, 0.10) 40%,
+                rgba(140,150,255,0.28) 0%,
+                rgba(140,150,255,0.10) 40%,
                 transparent 75%);
             filter: blur(14px);
             opacity: 0.7;
           }
 
-          /* ===== Animations */
-          @keyframes spin {
-            to { transform: rotate(360deg); }
-          }
+          @keyframes spin { to { transform: rotate(360deg); } }
           @keyframes breathe {
             0%, 100% { transform: scale(1); filter: blur(10px) saturate(125%) contrast(105%); }
             50% { transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%); }
@@ -227,7 +202,7 @@ export default function Home() {
           }
 
           @media (max-width: 640px) {
-            :root { --core-size: 92vmin; }
+            .scene { --core-size: 92vmin; }
             .heroCopy h1 { font-size: clamp(32px, 8.5vw, 64px); }
           }
         `}</style>
