@@ -63,6 +63,15 @@ export default function Home() {
         <section className="below">
           <div className="line1 sameSize">AI Makes</div>
           <div className="line2 gradText sameSize">Beautiful&nbsp;Minutes</div>
+
+          {/* ▼ ここから：ガラス調デバイス・セクション（iPad/モバイルはiPhone） */}
+          <div className="deviceStage">
+            <div className="deviceGlass" aria-label="Minutes preview surface">
+              {/* 将来ここに議事録のイメージや要素を配置します */}
+              {/* 例）<img src="/minutes-placeholder.png" alt="" className="fit" /> */}
+            </div>
+          </div>
+          {/* ▲ ここまで */}
         </section>
 
         {/* 反射の霞 */}
@@ -83,7 +92,8 @@ export default function Home() {
 
             position: relative;
             min-height: 100vh;
-            padding-bottom: calc((var(--core-size) / 2) + 28vh);
+            /* 下のガラスデバイス分の余白を少し増やす */
+            padding-bottom: calc((var(--core-size) / 2) + 48vh);
             overflow: hidden;
             color: #fff;
 
@@ -123,6 +133,7 @@ export default function Home() {
             z-index: 3;
             text-align: center;
             pointer-events: none;
+            width: 100%;
           }
           .sameSize {
             /* ヒーローと同じサイズに統一 */
@@ -142,6 +153,72 @@ export default function Home() {
             background-clip: text;
             color: transparent;
             -webkit-text-fill-color: transparent;
+          }
+
+          /* ===== デバイス風・ガラスパネル ===== */
+          .deviceStage {
+            pointer-events: auto;    /* 子要素は触れるように */
+            margin: clamp(16px, 5vh, 44px) auto 0;
+            width: min(92vw, 1160px);  /* デスクトップはiPad想定 */
+          }
+          .deviceGlass {
+            --top: #2b3753;   /* 添付の淡い紺〜青み */
+            --bot: #4a6270;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;           /* iPad比率 */
+            border-radius: clamp(22px, 3.2vmax, 44px);
+            overflow: hidden;
+
+            /* すりガラス感：背景ブラー＋淡い青グラデ */
+            background:
+              linear-gradient(180deg, var(--top) 0%, var(--bot) 100%);
+            -webkit-backdrop-filter: blur(10px) saturate(140%);
+            backdrop-filter: blur(10px) saturate(140%);
+
+            /* 枠・立体感 */
+            border: 1px solid rgba(255,255,255,0.14);
+            box-shadow:
+              0 30px 90px rgba(10,20,60,0.40),
+              0 10px 24px rgba(0,0,0,0.35),
+              inset 0 1px 0 rgba(255,255,255,0.25),
+              inset 0 -1px 0 rgba(0,0,0,0.25);
+          }
+          /* 上面の柔らかい反射 */
+          .deviceGlass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background:
+              radial-gradient(70% 55% at 50% -10%,
+                rgba(255,255,255,0.38) 0%,
+                rgba(255,255,255,0.00) 70%)
+              ,
+              radial-gradient(50% 35% at 25% 110%,
+                rgba(255,255,255,0.10) 0%,
+                rgba(255,255,255,0.00) 70%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+          }
+          /* 微細な内側ライン＆うっすら周辺減光 */
+          .deviceGlass::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow:
+              inset 0 0 0 1px rgba(255,255,255,0.06),
+              inset 0 0 40px rgba(0,0,0,0.20);
+            pointer-events: none;
+          }
+          /* 画像を入れるときに使うユーティリティ */
+          .fit {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           .space {
@@ -348,10 +425,17 @@ export default function Home() {
             to   { opacity: 0.85; }
           }
 
+          /* ===== モバイル最適化：iPhone比率（縦長） ===== */
           @media (max-width: 640px) {
-            .scene { --core-size: clamp(320px, 86vmin, 80vh); }
+            .scene { --core-size: clamp(320px, 86vmin, 80vh); padding-bottom: calc((var(--core-size) / 2) + 60vh); }
             .heroTop { font-size: clamp(33px, 11.1vw, 90px); padding-top: 12vh; }
             .sameSize { font-size: clamp(33px, 11.1vw, 90px); }
+
+            .deviceStage { width: min(92vw, 520px); }
+            .deviceGlass {
+              aspect-ratio: 9 / 19.5;                 /* iPhone比率（縦） */
+              border-radius: clamp(26px, 7.5vw, 40px);
+            }
           }
         `}</style>
       </main>
