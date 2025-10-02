@@ -36,28 +36,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* ===== ヘッダー（参考ページから移植・固定配置） ===== */}
+      {/* ===== Header（servicesの見た目を移植・固定） ===== */}
       <header className="top">
-  <a href="/" className="brand">
-    Minutes.<span className="ai">AI</span>
-  </a>
-  <nav className="nav">
-    <a href="/" className="navLink">
-      <span className="navText gradHeader">Home</span>
-    </a>
-    <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
-      <FaApple className="apple" aria-hidden="true" />
-      <span className="navText gradHeader">iOS</span>
-    </a>
-  </nav>
-</header>
-
+        <a href="/" className="brand">
+          Minutes.<span className="ai">AI</span>
+        </a>
+        <nav className="nav">
+          <a href="/" className="navLink">
+            <span className="navText gradHeader">Home</span>
+          </a>
+          <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
+            <FaApple className="apple" aria-hidden="true" />
+            <span className="navText gradHeader">iOS</span>
+          </a>
+        </nav>
+      </header>
 
       <main className="scene">
-        {/* ヒーロー（球体の上・白） */}
+        {/* ヒーロー */}
         <h1 className="heroTop">Just Record.</h1>
 
-        {/* 背景（直線光線は削除） */}
+        {/* 背景 */}
         <div className="space" aria-hidden />
 
         {/* 球体 */}
@@ -98,7 +97,6 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "3.6s" }} />
           <div className="ring" style={{ ["--d"]: "4.8s" }} />
 
-          {/* 波紋の縁の星ベルト */}
           <div className="starsBelt" />
         </div>
 
@@ -107,14 +105,14 @@ export default function Home() {
           <div className="line1 sameSize">AI Makes</div>
           <div className="line2 gradText sameSize">Beautiful&nbsp;Minutes</div>
 
-          {/* ▼ ガラス調デバイス（iPad / iPhone） */}
+          {/* ▼ ガラス調デバイス */}
           <div className="deviceStage">
             <div
               className="deviceGlass"
               aria-label="Minutes preview surface"
               ref={deviceRef}
             >
-              {/* ▼ デバイス内レンダリング（下端は見切れOK） */}
+              {/* ▼ デバイス内レンダリング */}
               <article className="minutesWrap" ref={wrapRef}>
                 <h2 className="mtitle gradDevice">
                   AI Minutes Meeting — Product Launch Planning
@@ -159,73 +157,8 @@ export default function Home() {
         {/* 反射の霞 */}
         <div className="reflection" aria-hidden />
 
+        {/* ===== Scoped styles ===== */}
         <style jsx>{`
-/* ===== Header（services と同ルック） ===== */
-.top {
-  position: fixed;
-  left: 0; top: 0; right: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 22px;
-}
-
-.brand {
-  font-weight: 800;
-  font-size: 24px;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-  color: #b6eaff;
-}
-.brand .ai {
-  background: linear-gradient(90deg, #7cc7ff, #65e0c4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.nav {
-  backdrop-filter: blur(12px);
-  background: rgba(20,40,60,0.7);
-  padding: 10px 18px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-}
-
-.navLink {
-  color: #eaf4f7;
-  text-decoration: none;
-  margin: 0 8px;
-  opacity: 0.95;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  line-height: 1;
-}
-.navLink:hover { opacity: 1; }
-
-.navText {
-  font-weight: 800;
-  font-size: clamp(14px, 1.6vw, 18px);
-  line-height: 1;
-  display: inline-block;
-}
-.gradHeader {
-  background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.navLink .apple {
-  font-size: clamp(14px, 1.55vw, 17px);
-  line-height: 1;
-  transform: translateY(1px);
-  color: #eaf4f7;
-}
-
-
           .scene {
             --bg-1: #05060e;
             --bg-2: #0b1030;
@@ -255,13 +188,12 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
-          /* 80%に縮小（上段ヒーローは前回のまま） */
           .heroTop {
             position: relative;
             z-index: 3;
             text-align: center;
             margin: 0;
-            padding-top: clamp(64px, 11vh, 132px); /* ヘッダー重なり余白を少し増やす */
+            padding-top: clamp(64px, 11vh, 132px); /* ヘッダーかぶり回避 */
             letter-spacing: -0.02em;
             line-height: 1.02;
             font-weight: 800;
@@ -293,7 +225,6 @@ export default function Home() {
           .line1 { color: #fff; }
           .line2 { margin-top: 8px; }
 
-          /* ▼ タイトル/セクションのグラデ（反転版） */
           .gradText,
           .gradDevice {
             background: linear-gradient(90deg, #65e0c4 0%, #8db4ff 65%, #7cc7ff 100%);
@@ -311,12 +242,12 @@ export default function Home() {
           }
 
           .deviceGlass {
-            --glassA: 36, 48, 72;   /* #243048 */
-            --glassB: 56, 78, 96;   /* #384e60 */
+            --glassA: 36, 48, 72;
+            --glassB: 56, 78, 96;
 
             position: relative;
             width: 100%;
-            aspect-ratio: 4 / 3; /* iPad比率 */
+            aspect-ratio: 4 / 3;
             border-radius: clamp(22px, 3.2vmax, 44px);
             overflow: hidden;
 
@@ -362,7 +293,7 @@ export default function Home() {
             pointer-events: none;
           }
 
-          /* ▼ デバイス内テキスト（2倍フォント＆フェード＋フルスクリーン風リビール） */
+          /* ▼ デバイス内テキスト（フェード&リビール） */
           .minutesWrap{
             position: absolute;
             inset: 0;
@@ -371,22 +302,22 @@ export default function Home() {
             color: rgba(255,255,255,0.92);
             line-height: 1.55;
             text-align: left !important;
-            overflow: hidden;     /* 下端はカット */
+            overflow: hidden;
             pointer-events: none;
 
-            /* 初期は下から上へ覆い隠す（inviewで開く） */
+            /* 初期は下→上で覆い隠す（inviewで開く） */
             clip-path: inset(100% 0 0 0);
             transform: translateY(8%);
             opacity: 0.001;
 
-            /* 上位20%は不透明=1を維持し、その後100%までで0へフェード（演出用） */
+            /* 上位20%は不透明=1を維持 → 100%で0へ */
             -webkit-mask-image: linear-gradient(
               to bottom,
               rgba(0,0,0,1) 0%,
               rgba(0,0,0,1) 20%,
               rgba(0,0,0,0) 100%
             );
-                    mask-image: linear-gradient(
+            mask-image: linear-gradient(
               to bottom,
               rgba(0,0,0,1) 0%,
               rgba(0,0,0,1) 20%,
@@ -427,7 +358,7 @@ export default function Home() {
             margin: clamp(10px, 1.6vw, 16px) 0 8px 0;
           }
 
-          /* 子要素を段階的に立ち上げ（下→上の錯覚を強調） */
+          /* 子要素の順次立ち上がり（下→上の錯覚を強調） */
           .minutesFlow > * { opacity: 0; transform: translateY(18px); }
           .minutesWrap.inview .minutesFlow > * {
             animation: rise 700ms cubic-bezier(0.16, 0.66, 0.38, 1) forwards;
@@ -612,7 +543,7 @@ export default function Home() {
               radial-gradient(1.2px 1.2px at 70% 86%, rgba(255,255,255,0.8) 99%, transparent 100%);
             -webkit-mask: radial-gradient(circle at 50% 50%,
               transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
-                    mask: radial-gradient(circle at 50% 50%,
+            mask: radial-gradient(circle at 50% 50%,
               transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
             animation: twinkle 4s ease-in-out infinite alternate;
           }
@@ -663,7 +594,6 @@ export default function Home() {
 
           /* ===== モバイル ===== */
           @media (max-width: 640px) {
-            .top { padding: 12px 14px; }
             .scene {
               --core-size: clamp(320px, 86vmin, 80vh);
               padding-bottom: calc((var(--core-size) / 2) + 130vh);
@@ -674,7 +604,7 @@ export default function Home() {
             .deviceStage { width: min(calc(92vw * 0.8), 416px); }
 
             .deviceGlass {
-              aspect-ratio: 9 / 19.5;   /* iPhone縦比率 */
+              aspect-ratio: 9 / 19.5;
               border-radius: clamp(26px, 7.5vw, 40px);
             }
 
@@ -684,49 +614,50 @@ export default function Home() {
             .fline  { font-size: clamp(24px, 7.6vw, 30px); }
           }
         `}</style>
-      </main>
-      <style jsx global>{`
-  /* ===== Header (global) ===== */
-  header.top{
-    position:fixed; left:0; top:0; right:0;
-    z-index:10; display:flex; justify-content:space-between; align-items:center;
-    padding:16px 22px;
-  }
-  header.top .brand{
-    font-weight:800; font-size:24px; letter-spacing:0.2px; text-decoration:none;
-    color:#b6eaff;
-  }
-  header.top .brand .ai{
-    background:linear-gradient(90deg,#7cc7ff,#65e0c4);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  header.top .nav{
-    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-    background:rgba(20,40,60,0.7);
-    padding:10px 18px; border-radius:999px; display:flex; align-items:center;
-  }
-  header.top .navLink,
-  header.top .navLink:visited,
-  header.top .navLink:hover,
-  header.top .navLink:active{
-    color:#eaf4f7 !important;
-    text-decoration:none !important;
-    margin:0 8px; opacity:0.95;
-    display:inline-flex; align-items:center; gap:6px; line-height:1;
-  }
-  header.top .navLink:hover{ opacity:1; }
-  header.top .navText{
-    font-weight:800; font-size:clamp(14px,1.6vw,18px); line-height:1; display:inline-block;
-  }
-  header.top .gradHeader{
-    background:linear-gradient(90deg,#7cc7ff 0%,#8db4ff 35%,#65e0c4 100%);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  header.top .apple{
-    font-size:clamp(14px,1.55vw,17px); line-height:1; transform:translateY(1px); color:#eaf4f7;
-  }
-`}</style>
 
+        {/* ===== Global styles for header（styled-jsx のスコープ外対策） ===== */}
+        <style jsx global>{`
+          header.top{
+            position:fixed; left:0; top:0; right:0;
+            z-index:10; display:flex; justify-content:space-between; align-items:center;
+            padding:16px 22px;
+          }
+          header.top .brand{
+            font-weight:800; font-size:24px; letter-spacing:0.2px; text-decoration:none;
+            color:#b6eaff;
+          }
+          header.top .brand .ai{
+            background:linear-gradient(90deg,#7cc7ff,#65e0c4);
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+          }
+          header.top .nav{
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            background:rgba(20,40,60,0.7);
+            padding:10px 18px; border-radius:999px; display:flex; align-items:center;
+          }
+          header.top .navLink,
+          header.top .navLink:visited,
+          header.top .navLink:hover,
+          header.top .navLink:active{
+            color:#eaf4f7 !important;
+            text-decoration:none !important;
+            margin:0 8px; opacity:0.95;
+            display:inline-flex; align-items:center; gap:6px; line-height:1;
+          }
+          header.top .navLink:hover{ opacity:1; }
+          header.top .navText{
+            font-weight:800; font-size:clamp(14px,1.6vw,18px); line-height:1; display:inline-block;
+          }
+          header.top .gradHeader{
+            background:linear-gradient(90deg,#7cc7ff 0%,#8db4ff 35%,#65e0c4 100%);
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+          }
+          header.top .apple{
+            font-size:clamp(14px,1.55vw,17px); line-height:1; transform:translateY(1px); color:#eaf4f7;
+          }
+        `}</style>
+      </main>
     </>
   );
 }
