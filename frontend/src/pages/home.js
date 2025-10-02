@@ -37,7 +37,11 @@ export default function Home() {
       </Head>
 
       {/* ===== Header（servicesの見た目を移植・固定） ===== */}
-      <header className="top">
+      <header
+  className="top"
+  style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}
+>
+
         <a href="/" className="brand">
           Minutes.<span className="ai">AI</span>
         </a>
