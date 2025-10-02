@@ -38,19 +38,20 @@ export default function Home() {
 
       {/* ===== ヘッダー（参考ページから移植・固定配置） ===== */}
       <header className="top">
-        <a href={LINK_MAIN} className="brand">
-          Minutes.<span className="ai">AI</span>
-        </a>
-        <nav className="nav">
-          <a href="/" className="navLink">
-            <span className="navText gradHeader">Home</span>
-          </a>
-          <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
-            <FaApple className="apple" aria-hidden="true" />
-            <span className="navText gradHeader">iOS</span>
-          </a>
-        </nav>
-      </header>
+  <a href="/" className="brand">
+    Minutes.<span className="ai">AI</span>
+  </a>
+  <nav className="nav">
+    <a href="/" className="navLink">
+      <span className="navText gradHeader">Home</span>
+    </a>
+    <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
+      <FaApple className="apple" aria-hidden="true" />
+      <span className="navText gradHeader">iOS</span>
+    </a>
+  </nav>
+</header>
+
 
       <main className="scene">
         {/* ヒーロー（球体の上・白） */}
@@ -159,67 +160,71 @@ export default function Home() {
         <div className="reflection" aria-hidden />
 
         <style jsx>{`
-          /* ===== Header（参考の見た目を維持しつつ固定） ===== */
-          .top {
-            position: fixed;
-            inset: 0 auto auto 0;
-            width: 100%;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 22px;
-            pointer-events: auto;
-          }
-          .brand {
-            font-weight: 800;
-            font-size: 24px;
-            letter-spacing: 0.2px;
-            text-decoration: none;
-            color: #b6eaff;
-          }
-          .brand .ai {
-            background: linear-gradient(90deg, #7cc7ff, #65e0c4);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-          }
-          .nav {
-            backdrop-filter: blur(12px);
-            background: rgba(20, 40, 60, 0.7);
-            padding: 10px 18px;
-            border-radius: 999px;
-            display: flex;
-            align-items: center;
-          }
-          .navLink {
-            color: #eaf4f7;
-            text-decoration: none;
-            margin: 0 8px;
-            opacity: 0.95;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            line-height: 1;
-          }
-          .navText {
-            font-weight: 800;
-            font-size: clamp(14px, 1.6vw, 18px);
-            line-height: 1;
-            display: inline-block;
-          }
-          .gradHeader {
-            background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-          }
-          .navLink .apple {
-            font-size: clamp(14px, 1.55vw, 17px);
-            line-height: 1;
-            transform: translateY(1px);
-            color: #eaf4f7;
-          }
+/* ===== Header（services と同ルック） ===== */
+.top {
+  position: fixed;
+  left: 0; top: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  color: #b6eaff;
+}
+.brand .ai {
+  background: linear-gradient(90deg, #7cc7ff, #65e0c4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav {
+  backdrop-filter: blur(12px);
+  background: rgba(20,40,60,0.7);
+  padding: 10px 18px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  color: #eaf4f7;
+  text-decoration: none;
+  margin: 0 8px;
+  opacity: 0.95;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+.navLink:hover { opacity: 1; }
+
+.navText {
+  font-weight: 800;
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1;
+  display: inline-block;
+}
+.gradHeader {
+  background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.navLink .apple {
+  font-size: clamp(14px, 1.55vw, 17px);
+  line-height: 1;
+  transform: translateY(1px);
+  color: #eaf4f7;
+}
+
 
           .scene {
             --bg-1: #05060e;
