@@ -1,13 +1,56 @@
 // frontend/src/pages/home.js
 import Head from "next/head";
+import { useEffect, useRef } from "react";
+import { FaApple } from "react-icons/fa";
 
 export default function Home() {
+  const deviceRef = useRef(null);
+  const wrapRef = useRef(null);
+
+  useEffect(() => {
+    const el = deviceRef.current;
+    const wrap = wrapRef.current;
+    if (!el || !wrap) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          wrap.classList.add("inview");
+          io.disconnect();
+        }
+      },
+      { threshold: 0.55 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const LINK_MAIN = "https://www.sense-ai.world";
+  const LINK_IOS =
+    "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+
   return (
     <>
       <Head>
         <title>Minutes.AI — Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+
+      {/* ===== ヘッダー（参考ページから移植・固定配置） ===== */}
+      <header className="top">
+        <a href={LINK_MAIN} className="brand">
+          Minutes.<span className="ai">AI</span>
+        </a>
+        <nav className="nav">
+          <a href="/" className="navLink">
+            <span className="navText gradHeader">Home</span>
+          </a>
+          <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
+            <FaApple className="apple" aria-hidden="true" />
+            <span className="navText gradHeader">iOS</span>
+          </a>
+        </nav>
+      </header>
 
       <main className="scene">
         {/* ヒーロー（球体の上・白） */}
@@ -65,9 +108,13 @@ export default function Home() {
 
           {/* ▼ ガラス調デバイス（iPad / iPhone） */}
           <div className="deviceStage">
-            <div className="deviceGlass" aria-label="Minutes preview surface">
+            <div
+              className="deviceGlass"
+              aria-label="Minutes preview surface"
+              ref={deviceRef}
+            >
               {/* ▼ デバイス内レンダリング（下端は見切れOK） */}
-              <article className="minutesWrap">
+              <article className="minutesWrap" ref={wrapRef}>
                 <h2 className="mtitle gradDevice">
                   AI Minutes Meeting — Product Launch Planning
                 </h2>
@@ -112,6 +159,68 @@ export default function Home() {
         <div className="reflection" aria-hidden />
 
         <style jsx>{`
+          /* ===== Header（参考の見た目を維持しつつ固定） ===== */
+          .top {
+            position: fixed;
+            inset: 0 auto auto 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 22px;
+            pointer-events: auto;
+          }
+          .brand {
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: 0.2px;
+            text-decoration: none;
+            color: #b6eaff;
+          }
+          .brand .ai {
+            background: linear-gradient(90deg, #7cc7ff, #65e0c4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+          }
+          .nav {
+            backdrop-filter: blur(12px);
+            background: rgba(20, 40, 60, 0.7);
+            padding: 10px 18px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+          }
+          .navLink {
+            color: #eaf4f7;
+            text-decoration: none;
+            margin: 0 8px;
+            opacity: 0.95;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1;
+          }
+          .navText {
+            font-weight: 800;
+            font-size: clamp(14px, 1.6vw, 18px);
+            line-height: 1;
+            display: inline-block;
+          }
+          .gradHeader {
+            background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+          }
+          .navLink .apple {
+            font-size: clamp(14px, 1.55vw, 17px);
+            line-height: 1;
+            transform: translateY(1px);
+            color: #eaf4f7;
+          }
+
           .scene {
             --bg-1: #05060e;
             --bg-2: #0b1030;
@@ -147,7 +256,7 @@ export default function Home() {
             z-index: 3;
             text-align: center;
             margin: 0;
-            padding-top: clamp(48px, 9vh, 120px);
+            padding-top: clamp(64px, 11vh, 132px); /* ヘッダー重なり余白を少し増やす */
             letter-spacing: -0.02em;
             line-height: 1.02;
             font-weight: 800;
@@ -179,7 +288,7 @@ export default function Home() {
           .line1 { color: #fff; }
           .line2 { margin-top: 8px; }
 
-          /* ▼ グラデーション（反転版） */
+          /* ▼ タイトル/セクションのグラデ（反転版） */
           .gradText,
           .gradDevice {
             background: linear-gradient(90deg, #65e0c4 0%, #8db4ff 65%, #7cc7ff 100%);
@@ -248,43 +357,56 @@ export default function Home() {
             pointer-events: none;
           }
 
-          /* ▼ デバイス内テキスト（2倍フォント＆フェード演出） */
-.minutesWrap{
-  position: absolute;
-  inset: 0;
-  box-sizing: border-box;
-  padding: clamp(14px, 3vw, 28px);
-  color: rgba(255,255,255,0.92);
-  line-height: 1.55;
-  text-align: left !important;
-  overflow: hidden;     /* 下端はカット */
-  pointer-events: none;
+          /* ▼ デバイス内テキスト（2倍フォント＆フェード＋フルスクリーン風リビール） */
+          .minutesWrap{
+            position: absolute;
+            inset: 0;
+            box-sizing: border-box;
+            padding: clamp(14px, 3vw, 28px);
+            color: rgba(255,255,255,0.92);
+            line-height: 1.55;
+            text-align: left !important;
+            overflow: hidden;     /* 下端はカット */
+            pointer-events: none;
 
-  /* 上位20%は不透明=1を維持し、その後100%までで0へフェード */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 20%,
-    rgba(0,0,0,0) 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 20%,
-    rgba(0,0,0,0) 100%
-  );
-}
+            /* 初期は下から上へ覆い隠す（inviewで開く） */
+            clip-path: inset(100% 0 0 0);
+            transform: translateY(8%);
+            opacity: 0.001;
+
+            /* 上位20%は不透明=1を維持し、その後100%までで0へフェード（演出用） */
+            -webkit-mask-image: linear-gradient(
+              to bottom,
+              rgba(0,0,0,1) 0%,
+              rgba(0,0,0,1) 20%,
+              rgba(0,0,0,0) 100%
+            );
+                    mask-image: linear-gradient(
+              to bottom,
+              rgba(0,0,0,1) 0%,
+              rgba(0,0,0,1) 20%,
+              rgba(0,0,0,0) 100%
+            );
+          }
+          .minutesWrap.inview{
+            animation: fullReveal 900ms cubic-bezier(0.16, 0.66, 0.38, 1) forwards;
+          }
+          @keyframes fullReveal{
+            0%   { clip-path: inset(100% 0 0 0); transform: translateY(12%); opacity: 0.001; }
+            60%  { clip-path: inset(0 0 0 0);    transform: translateY(0%);  opacity: 1; }
+            100% { clip-path: inset(0 0 0 0);    transform: translateY(0%);  opacity: 1; }
+          }
 
           .mtitle{
             font-weight: 800;
             letter-spacing: -0.01em;
-            font-size: clamp(36px, 4.2vw, 56px);   /* ← 2倍 */
+            font-size: clamp(36px, 4.2vw, 56px);
             margin: 0 0 6px 0;
           }
           .mdate{
             font-weight: 600;
             opacity: 0.85;
-            font-size: clamp(26px, 2.7vw, 32px);   /* ← 2倍 */
+            font-size: clamp(26px, 2.7vw, 32px);
             margin-bottom: clamp(12px, 1.6vw, 16px);
           }
           .mhr{
@@ -296,23 +418,30 @@ export default function Home() {
           }
           .mhead{
             font-weight: 800;
-            font-size: clamp(28px, 3vw, 36px);     /* ← 2倍 */
+            font-size: clamp(28px, 3vw, 36px);
             margin: clamp(10px, 1.6vw, 16px) 0 8px 0;
           }
 
-          /* 段階的に薄くする（上→下） */
-          .minutesFlow > *:nth-child(1) { opacity: 0.96; }
-          .minutesFlow > *:nth-child(2) { opacity: 0.90; }
-          .minutesFlow > *:nth-child(3) { opacity: 0.84; }
-          .minutesFlow > *:nth-child(4) { opacity: 0.78; }
-          .minutesFlow > *:nth-child(5) { opacity: 0.70; }
-          .minutesFlow > *:nth-child(6) { opacity: 0.62; }
-          .minutesFlow > *:nth-child(7) { opacity: 0.54; }
-          .minutesFlow > *:nth-child(8) { opacity: 0.46; }
+          /* 子要素を段階的に立ち上げ（下→上の錯覚を強調） */
+          .minutesFlow > * { opacity: 0; transform: translateY(18px); }
+          .minutesWrap.inview .minutesFlow > * {
+            animation: rise 700ms cubic-bezier(0.16, 0.66, 0.38, 1) forwards;
+          }
+          .minutesWrap.inview .minutesFlow > *:nth-child(1) { animation-delay: 80ms; }
+          .minutesWrap.inview .minutesFlow > *:nth-child(2) { animation-delay: 150ms; }
+          .minutesWrap.inview .minutesFlow > *:nth-child(3) { animation-delay: 220ms; }
+          .minutesWrap.inview .minutesFlow > *:nth-child(4) { animation-delay: 290ms; }
+          .minutesWrap.inview .minutesFlow > *:nth-child(5) { animation-delay: 360ms; }
+          .minutesWrap.inview .minutesFlow > *:nth-child(6) { animation-delay: 430ms; }
+          .minutesWrap.inview .minutesFlow > *:nth-child(7) { animation-delay: 500ms; }
+          @keyframes rise {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
 
           .fline{
             font-weight: 700;
-            font-size: clamp(24px, 2.5vw, 30px);   /* ← 2倍 */
+            font-size: clamp(24px, 2.5vw, 30px);
             margin: 0 0 clamp(16px, 2.4vw, 22px) 0;
           }
 
@@ -513,13 +642,28 @@ export default function Home() {
             to   { opacity: 0.85; }
           }
 
+          /* モーション配慮 */
+          @media (prefers-reduced-motion: reduce) {
+            .minutesWrap,
+            .minutesWrap.inview,
+            .minutesFlow > *,
+            .minutesWrap.inview .minutesFlow > * {
+              animation: none !important;
+              transition: none !important;
+              clip-path: inset(0 0 0 0) !important;
+              transform: none !important;
+              opacity: 1 !important;
+            }
+          }
+
           /* ===== モバイル ===== */
           @media (max-width: 640px) {
+            .top { padding: 12px 14px; }
             .scene {
               --core-size: clamp(320px, 86vmin, 80vh);
               padding-bottom: calc((var(--core-size) / 2) + 130vh);
             }
-            .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); padding-top: 12vh; }
+            .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); padding-top: 14vh; }
             .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
 
             .deviceStage { width: min(calc(92vw * 0.8), 416px); }
@@ -529,7 +673,6 @@ export default function Home() {
               border-radius: clamp(26px, 7.5vw, 40px);
             }
 
-            /* 2倍版（モバイル用） */
             .mtitle { font-size: clamp(32px, 10.4vw, 44px); }
             .mdate  { font-size: clamp(24px, 7.6vw, 30px); }
             .mhead  { font-size: clamp(26px, 8.4vw, 34px); }
