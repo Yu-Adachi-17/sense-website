@@ -617,11 +617,11 @@ export default function Home() {
 
         {/* ===== Global styles for header（styled-jsx のスコープ外対策） ===== */}
         <style jsx global>{`
-          header.top{
-            position:fixed; left:0; top:0; right:0;
-            z-index:10; display:flex; justify-content:space-between; align-items:center;
-            padding:16px 22px;
-          }
+  header.top{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;                 /* 背景やヒーローより前に */
+  }
           header.top .brand{
             font-weight:800; font-size:24px; letter-spacing:0.2px; text-decoration:none;
             color:#b6eaff;
