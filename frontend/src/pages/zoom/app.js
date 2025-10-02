@@ -22,6 +22,22 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const backoffMs = n => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
 const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 
+function openZoomClientJoinIn(helperWin, meetingId, passcode) {
+  const id  = String(meetingId || '').replace(/\D/g, '');
+  const pwd = encodeURIComponent(passcode || '');
+  const deep = `zoommtg://zoom.us/join?confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
+  // Deep Link を優先（クライアントが入っていればこちらが起動）
+  try { helperWin.location.href = deep; } catch (e) {}
+  // 1.5 秒後にブラウザ参加ページへフォールバック（パスコードは手入力想定）
+  setTimeout(() => {
+    try { helperWin.location.href = 'https://zoom.us/join'; } catch (e) {
+      // もし同一タブに変更できない場合は新規タブで開く
+      window.open('https://zoom.us/join', '_blank', 'noopener,noreferrer');
+    }
+  }, 1500);
+}
+
+
 /** ====== API wrappers ====== */
 async function apiStart(meetingNumber, meetingPasscode, runSecs = 21600) {
   const url = `${API_BASE}/start`;
@@ -220,16 +236,25 @@ export default function ZoomAppHome() {
 
   async function onJoin() {
     if (!canJoin) return;
-    const ok = window.confirm('A request to add “MinutesAI Bot” will be sent to the meeting host.');
-    if (!ok) return;
 
+    // ←←← ここを追加（ユーザー操作に同期して“空タブ”を確保）
+    const helper = window.open('about:blank', '_blank', 'noopener,noreferrer');
+  
+    const ok = window.confirm('A request to add “MinutesAI Bot” will be sent to the meeting host.');
+    if (!ok) { try { helper && helper.close(); } catch {} return; }
+  
     try {
       setPhase('starting');
       setAudioList([]);
       setOverlayStage('Starting up…', 5);
       push('JOIN: calling /api/zoom-bot/start');
-
+  
+      // Bot起動をバックグラウンドで実行
       const sid = await apiStart(meetingId, passcode, 21600);
+  
+      // ←←← Bot起動が返ってきたタイミングで、先に開いたタブを Deep Link へ
+      openZoomClientJoinIn(helper, meetingId, passcode);
+  
       push(`JOIN OK: sid=${sid}`);
       setSessionId(sid);
       localStorage.setItem(LAST_SID_KEY, sid);
@@ -237,7 +262,7 @@ export default function ZoomAppHome() {
       localStorage.setItem(LAST_PASSCODE_KEY, passcode);
       setInputLocked(true);
       setPhase('joining');
-
+  
       setOverlayStage('Join request sent. Ask the host to approve…', 15);
       const begin = Date.now();
       let attempt = 0;
