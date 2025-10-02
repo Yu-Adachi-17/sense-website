@@ -27,12 +27,13 @@ function openZoomClientJoinIn(helperWin, meetingId, passcode) {
   const pwd = encodeURIComponent(passcode || '');
   const deep = `zoommtg://zoom.us/join?confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
   // Deep Link を優先（クライアントが入っていればこちらが起動）
-  try { helperWin.location.href = deep; } catch (e) {}
+  const target = helperWin || window; // ポップアップがブロックされたら同一タブ
+  try { target.location.href = deep; } catch {}
   // 1.5 秒後にブラウザ参加ページへフォールバック（パスコードは手入力想定）
   setTimeout(() => {
-    try { helperWin.location.href = 'https://zoom.us/join'; } catch (e) {
+    try { (helperWin || window).location.href = 'https://zoom.us/join'; } catch {
       // もし同一タブに変更できない場合は新規タブで開く
-      window.open('https://zoom.us/join', '_blank', 'noopener,noreferrer');
+      window.open('https://zoom.us/join', '_blank');
     }
   }, 1500);
 }
@@ -238,7 +239,7 @@ export default function ZoomAppHome() {
     if (!canJoin) return;
 
     // ←←← ここを追加（ユーザー操作に同期して“空タブ”を確保）
-    const helper = window.open('about:blank', '_blank', 'noopener,noreferrer');
+    const helper = window.open('', 'zoom-join');
   
     const ok = window.confirm('A request to add “MinutesAI Bot” will be sent to the meeting host.');
     if (!ok) { try { helper && helper.close(); } catch {} return; }
@@ -249,11 +250,10 @@ export default function ZoomAppHome() {
       setOverlayStage('Starting up…', 5);
       push('JOIN: calling /api/zoom-bot/start');
   
-      // Bot起動をバックグラウンドで実行
-      const sid = await apiStart(meetingId, passcode, 21600);
-  
+     
       // ←←← Bot起動が返ってきたタイミングで、先に開いたタブを Deep Link へ
       openZoomClientJoinIn(helper, meetingId, passcode);
+      const sid = await apiStart(meetingId, passcode, 21600);
   
       push(`JOIN OK: sid=${sid}`);
       setSessionId(sid);
