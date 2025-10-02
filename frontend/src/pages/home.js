@@ -685,6 +685,48 @@ export default function Home() {
           }
         `}</style>
       </main>
+      <style jsx global>{`
+  /* ===== Header (global) ===== */
+  header.top{
+    position:fixed; left:0; top:0; right:0;
+    z-index:10; display:flex; justify-content:space-between; align-items:center;
+    padding:16px 22px;
+  }
+  header.top .brand{
+    font-weight:800; font-size:24px; letter-spacing:0.2px; text-decoration:none;
+    color:#b6eaff;
+  }
+  header.top .brand .ai{
+    background:linear-gradient(90deg,#7cc7ff,#65e0c4);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header.top .nav{
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    background:rgba(20,40,60,0.7);
+    padding:10px 18px; border-radius:999px; display:flex; align-items:center;
+  }
+  header.top .navLink,
+  header.top .navLink:visited,
+  header.top .navLink:hover,
+  header.top .navLink:active{
+    color:#eaf4f7 !important;
+    text-decoration:none !important;
+    margin:0 8px; opacity:0.95;
+    display:inline-flex; align-items:center; gap:6px; line-height:1;
+  }
+  header.top .navLink:hover{ opacity:1; }
+  header.top .navText{
+    font-weight:800; font-size:clamp(14px,1.6vw,18px); line-height:1; display:inline-block;
+  }
+  header.top .gradHeader{
+    background:linear-gradient(90deg,#7cc7ff 0%,#8db4ff 35%,#65e0c4 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  header.top .apple{
+    font-size:clamp(14px,1.55vw,17px); line-height:1; transform:translateY(1px); color:#eaf4f7;
+  }
+`}</style>
+
     </>
   );
 }
