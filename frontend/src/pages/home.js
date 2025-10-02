@@ -76,42 +76,31 @@ export default function Home() {
                 </div>
                 <div className="mhr" />
 
-                <h3 className="mhead gradDevice">Meeting Objective</h3>
-                <ul className="mbullets">
-                  <li>
-                    Define scope for search-optimized content around “AI meeting minutes”
-                    and reflect it in site copy.
-                  </li>
-                  <li>
-                    Confirm Minutes.AI pipeline: Zoom bot → transcription → JSON → clean,
-                    human-readable minutes.
-                  </li>
-                  <li>
-                    Establish homepage structure using a JSON-structured minutes excerpt.
-                  </li>
-                </ul>
+                <div className="minutesFlow">
+                  <h3 className="mhead gradDevice">Meeting Objective</h3>
+                  <p className="fline">
+                    We agreed to create overwhelmingly beautiful minutes by using
+                    cutting-edge AI. Every voice is captured, distilled, and structured so
+                    decisions, intent, and ownership are obvious at a glance, while the
+                    wording stays natural and search-friendly for wider discovery.
+                  </p>
 
-                <h3 className="mhead gradDevice">Decisions</h3>
-                <ul className="mbullets">
-                  <li>
-                    Use “AI meeting minutes” as the primary keyword family across web pages.
-                  </li>
-                  <li>
-                    Publish an English example rendered directly in the device frame from
-                    JSON-structured data.
-                  </li>
-                  <li>
-                    Proceed with demo/video notes for Zoom Marketplace and keep the page
-                    indexable.
-                  </li>
-                </ul>
+                  <h3 className="mhead gradDevice">Decisions</h3>
+                  <p className="fline">
+                    We decided to rely on advanced transcription and summarization to
+                    deliver clean, human-ready minutes. Headings and highlights are
+                    formatted for SEO without losing nuance, ensuring effortless reading,
+                    sharing, and trust across mobile and desktop.
+                  </p>
 
-                <h3 className="mhead gradDevice">Next Steps</h3>
-                <ul className="mbullets">
-                  <li>Ship the “Send Bot” flow and capture sample meetings.</li>
-                  <li>Iterate on the JSON schema for summaries and decisions.</li>
-                  <li>Release the browser preview with clipped overflow as shown.</li>
-                </ul>
+                  <h3 className="mhead gradDevice">Next Steps</h3>
+                  <p className="fline">
+                    We will record real meetings, refine prompts and layout, and publish a
+                    live showcase. The priority is speed to value: frictionless capture,
+                    instant clarity, and a polished look that proves AI makes minutes
+                    people actually enjoy reading.
+                  </p>
+                </div>
               </article>
               {/* ▲ デバイス内レンダリング */}
             </div>
@@ -190,9 +179,10 @@ export default function Home() {
           .line1 { color: #fff; }
           .line2 { margin-top: 8px; }
 
+          /* ▼ グラデーション（反転版） */
           .gradText,
           .gradDevice {
-            background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
+            background: linear-gradient(90deg, #65e0c4 0%, #8db4ff 65%, #7cc7ff 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -258,7 +248,7 @@ export default function Home() {
             pointer-events: none;
           }
 
-          /* ▼ デバイス内テキスト（要求：フォント2倍、タイトル/中見出しにグラデ） */
+          /* ▼ デバイス内テキスト（2倍フォント＆フェード演出） */
           .minutesWrap{
             position: absolute;
             inset: 0;
@@ -269,6 +259,22 @@ export default function Home() {
             text-align: left;
             overflow: hidden;     /* 下端はカット */
             pointer-events: none;
+
+            /* 下に行くほど薄くなるマスク */
+            -webkit-mask-image: linear-gradient(
+              to bottom,
+              rgba(0,0,0,0.95) 0%,
+              rgba(0,0,0,0.75) 35%,
+              rgba(0,0,0,0.45) 70%,
+              rgba(0,0,0,0.10) 100%
+            );
+                    mask-image: linear-gradient(
+              to bottom,
+              rgba(0,0,0,0.95) 0%,
+              rgba(0,0,0,0.75) 35%,
+              rgba(0,0,0,0.45) 70%,
+              rgba(0,0,0,0.10) 100%
+            );
           }
           .mtitle{
             font-weight: 800;
@@ -294,15 +300,21 @@ export default function Home() {
             font-size: clamp(28px, 3vw, 36px);     /* ← 2倍 */
             margin: clamp(10px, 1.6vw, 16px) 0 8px 0;
           }
-          .mbullets{
-            margin: 0 0 clamp(16px, 2.4vw, 22px) 0;
-            padding-left: 1.2em;
-          }
-          .mbullets li{
+
+          /* 段階的に薄くする（上→下） */
+          .minutesFlow > *:nth-child(1) { opacity: 0.96; }
+          .minutesFlow > *:nth-child(2) { opacity: 0.90; }
+          .minutesFlow > *:nth-child(3) { opacity: 0.84; }
+          .minutesFlow > *:nth-child(4) { opacity: 0.78; }
+          .minutesFlow > *:nth-child(5) { opacity: 0.70; }
+          .minutesFlow > *:nth-child(6) { opacity: 0.62; }
+          .minutesFlow > *:nth-child(7) { opacity: 0.54; }
+          .minutesFlow > *:nth-child(8) { opacity: 0.46; }
+
+          .fline{
             font-weight: 700;
             font-size: clamp(24px, 2.5vw, 30px);   /* ← 2倍 */
-            margin: 0 0 8px 0;
-            opacity: 0.96;
+            margin: 0 0 clamp(16px, 2.4vw, 22px) 0;
           }
 
           /* 背景の薄い装飾 */
@@ -467,7 +479,7 @@ export default function Home() {
               radial-gradient(1.2px 1.2px at 70% 86%, rgba(255,255,255,0.8) 99%, transparent 100%);
             -webkit-mask: radial-gradient(circle at 50% 50%,
               transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
-            mask: radial-gradient(circle at 50% 50%,
+                    mask: radial-gradient(circle at 50% 50%,
               transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
             animation: twinkle 4s ease-in-out infinite alternate;
           }
@@ -522,7 +534,7 @@ export default function Home() {
             .mtitle { font-size: clamp(32px, 10.4vw, 44px); }
             .mdate  { font-size: clamp(24px, 7.6vw, 30px); }
             .mhead  { font-size: clamp(26px, 8.4vw, 34px); }
-            .mbullets li { font-size: clamp(24px, 7.6vw, 30px); }
+            .fline  { font-size: clamp(24px, 7.6vw, 30px); }
           }
         `}</style>
       </main>
