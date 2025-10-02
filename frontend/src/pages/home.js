@@ -249,33 +249,24 @@ export default function Home() {
           }
 
           /* ▼ デバイス内テキスト（2倍フォント＆フェード演出） */
-          .minutesWrap{
-            position: absolute;
-            inset: 0;
-            box-sizing: border-box;
-            padding: clamp(14px, 3vw, 28px);
-            color: rgba(255,255,255,0.92);
-            line-height: 1.55;
-            text-align: left;
-            overflow: hidden;     /* 下端はカット */
-            pointer-events: none;
+.minutesWrap{
+  /* ...既存プロパティ... */
 
-            /* 下に行くほど薄くなるマスク */
-            -webkit-mask-image: linear-gradient(
-              to bottom,
-              rgba(0,0,0,0.95) 0%,
-              rgba(0,0,0,0.75) 35%,
-              rgba(0,0,0,0.45) 70%,
-              rgba(0,0,0,0.10) 100%
-            );
-                    mask-image: linear-gradient(
-              to bottom,
-              rgba(0,0,0,0.95) 0%,
-              rgba(0,0,0,0.75) 35%,
-              rgba(0,0,0,0.45) 70%,
-              rgba(0,0,0,0.10) 100%
-            );
-          }
+  /* 下に行くほど薄くなるが、上位20%は不透明を維持 */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 20%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 20%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
           .mtitle{
             font-weight: 800;
             letter-spacing: -0.01em;
