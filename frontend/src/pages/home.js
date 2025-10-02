@@ -66,19 +66,21 @@ export default function Home() {
           {/* ▼ ガラス調デバイス（iPad / iPhone） */}
           <div className="deviceStage">
             <div className="deviceGlass" aria-label="Minutes preview surface">
-              {/* ▼ デバイス内レンダリング（SEO対象のプレーンテキスト。下端は見切れ） */}
+              {/* ▼ デバイス内レンダリング（下端は見切れOK） */}
               <article className="minutesWrap">
-                <h2 className="mtitle">AI Minutes Meeting — Product Launch Planning</h2>
+                <h2 className="mtitle gradDevice">
+                  AI Minutes Meeting — Product Launch Planning
+                </h2>
                 <div className="mdate">
                   <time dateTime="2025-10-02">Oct 2, 2025 (JST)</time>
                 </div>
                 <div className="mhr" />
 
-                <h3 className="mhead">Meeting Objective</h3>
+                <h3 className="mhead gradDevice">Meeting Objective</h3>
                 <ul className="mbullets">
                   <li>
                     Define scope for search-optimized content around “AI meeting minutes”
-                    (<span lang="ja">議事録AI会議</span>) and reflect it in site copy.
+                    and reflect it in site copy.
                   </li>
                   <li>
                     Confirm Minutes.AI pipeline: Zoom bot → transcription → JSON → clean,
@@ -89,11 +91,10 @@ export default function Home() {
                   </li>
                 </ul>
 
-                <h3 className="mhead">Decisions</h3>
+                <h3 className="mhead gradDevice">Decisions</h3>
                 <ul className="mbullets">
                   <li>
-                    Use “AI meeting minutes” and <span lang="ja">議事録AI会議</span> as the
-                    primary keyword family across web pages.
+                    Use “AI meeting minutes” as the primary keyword family across web pages.
                   </li>
                   <li>
                     Publish an English example rendered directly in the device frame from
@@ -105,8 +106,7 @@ export default function Home() {
                   </li>
                 </ul>
 
-                {/* 以下は意図的に下端で見切れる可能性あり（実機風） */}
-                <h3 className="mhead">Next Steps</h3>
+                <h3 className="mhead gradDevice">Next Steps</h3>
                 <ul className="mbullets">
                   <li>Ship the “Send Bot” flow and capture sample meetings.</li>
                   <li>Iterate on the JSON schema for summaries and decisions.</li>
@@ -152,7 +152,7 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
-          /* 80%に縮小 */
+          /* 80%に縮小（上段ヒーローは前回のまま） */
           .heroTop {
             position: relative;
             z-index: 3;
@@ -180,7 +180,6 @@ export default function Home() {
             width: 100%;
           }
 
-          /* 80%に縮小 */
           .sameSize {
             font-weight: 800;
             letter-spacing: -0.02em;
@@ -191,7 +190,8 @@ export default function Home() {
           .line1 { color: #fff; }
           .line2 { margin-top: 8px; }
 
-          .gradText {
+          .gradText,
+          .gradDevice {
             background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%);
             -webkit-background-clip: text;
             background-clip: text;
@@ -200,14 +200,12 @@ export default function Home() {
           }
 
           /* ===== デバイス風ガラスパネル ===== */
-          /* 幅を80%に縮小（元: min(94vw, 1280px)） */
           .deviceStage {
             pointer-events: auto;
             margin: clamp(16px, 5vh, 44px) auto 0;
             width: min(calc(94vw * 0.8), 1024px);
           }
 
-          /* 落ち着いた・高透過・少色数 */
           .deviceGlass {
             --glassA: 36, 48, 72;   /* #243048 */
             --glassB: 56, 78, 96;   /* #384e60 */
@@ -260,7 +258,7 @@ export default function Home() {
             pointer-events: none;
           }
 
-          /* ▼ デバイス内テキスト（見切れ演出） */
+          /* ▼ デバイス内テキスト（要求：フォント2倍、タイトル/中見出しにグラデ） */
           .minutesWrap{
             position: absolute;
             inset: 0;
@@ -270,41 +268,41 @@ export default function Home() {
             line-height: 1.55;
             text-align: left;
             overflow: hidden;     /* 下端はカット */
-            pointer-events: none; /* 触らせたいなら auto に */
+            pointer-events: none;
           }
           .mtitle{
             font-weight: 800;
             letter-spacing: -0.01em;
-            font-size: clamp(18px, 2.1vw, 28px);
-            margin: 0 0 2px 0;
+            font-size: clamp(36px, 4.2vw, 56px);   /* ← 2倍 */
+            margin: 0 0 6px 0;
           }
           .mdate{
             font-weight: 600;
             opacity: 0.85;
-            font-size: clamp(13px, 1.35vw, 16px);
-            margin-bottom: clamp(8px, 1.2vw, 12px);
+            font-size: clamp(26px, 2.7vw, 32px);   /* ← 2倍 */
+            margin-bottom: clamp(12px, 1.6vw, 16px);
           }
           .mhr{
             height: 1px;
             background: linear-gradient(90deg,
               rgba(255,255,255,0.22),
               rgba(255,255,255,0.08));
-            margin: clamp(8px, 1.4vw, 14px) 0;
+            margin: clamp(10px, 1.8vw, 18px) 0;
           }
           .mhead{
             font-weight: 800;
-            font-size: clamp(14px, 1.5vw, 18px);
-            margin: clamp(8px, 1.2vw, 12px) 0 6px 0;
+            font-size: clamp(28px, 3vw, 36px);     /* ← 2倍 */
+            margin: clamp(10px, 1.6vw, 16px) 0 8px 0;
           }
           .mbullets{
-            margin: 0 0 clamp(12px, 2vw, 18px) 0;
-            padding-left: 1.15em;
+            margin: 0 0 clamp(16px, 2.4vw, 22px) 0;
+            padding-left: 1.2em;
           }
           .mbullets li{
             font-weight: 700;
-            font-size: clamp(12px, 1.25vw, 15px);
-            margin: 0 0 6px 0;
-            opacity: 0.95;
+            font-size: clamp(24px, 2.5vw, 30px);   /* ← 2倍 */
+            margin: 0 0 8px 0;
+            opacity: 0.96;
           }
 
           /* 背景の薄い装飾 */
@@ -513,7 +511,6 @@ export default function Home() {
             .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); padding-top: 12vh; }
             .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
 
-            /* モバイル時のデバイス幅も80% */
             .deviceStage { width: min(calc(92vw * 0.8), 416px); }
 
             .deviceGlass {
@@ -521,11 +518,11 @@ export default function Home() {
               border-radius: clamp(26px, 7.5vw, 40px);
             }
 
-            /* モバイルでの読みやすさ微調整 */
-            .mtitle { font-size: clamp(16px, 5.2vw, 22px); }
-            .mdate  { font-size: clamp(12px, 3.8vw, 15px); }
-            .mhead  { font-size: clamp(13px, 4.2vw, 17px); }
-            .mbullets li { font-size: clamp(12px, 3.8vw, 15px); }
+            /* 2倍版（モバイル用） */
+            .mtitle { font-size: clamp(32px, 10.4vw, 44px); }
+            .mdate  { font-size: clamp(24px, 7.6vw, 30px); }
+            .mhead  { font-size: clamp(26px, 8.4vw, 34px); }
+            .mbullets li { font-size: clamp(24px, 7.6vw, 30px); }
           }
         `}</style>
       </main>
