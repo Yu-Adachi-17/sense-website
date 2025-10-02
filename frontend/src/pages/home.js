@@ -66,7 +66,54 @@ export default function Home() {
           {/* ▼ ガラス調デバイス（iPad / iPhone） */}
           <div className="deviceStage">
             <div className="deviceGlass" aria-label="Minutes preview surface">
-              {/* 後で議事録プレビューを入れる想定 */}
+              {/* ▼ デバイス内レンダリング（SEO対象のプレーンテキスト。下端は見切れ） */}
+              <article className="minutesWrap">
+                <h2 className="mtitle">AI Minutes Meeting — Product Launch Planning</h2>
+                <div className="mdate">
+                  <time dateTime="2025-10-02">Oct 2, 2025 (JST)</time>
+                </div>
+                <div className="mhr" />
+
+                <h3 className="mhead">Meeting Objective</h3>
+                <ul className="mbullets">
+                  <li>
+                    Define scope for search-optimized content around “AI meeting minutes”
+                    (<span lang="ja">議事録AI会議</span>) and reflect it in site copy.
+                  </li>
+                  <li>
+                    Confirm Minutes.AI pipeline: Zoom bot → transcription → JSON → clean,
+                    human-readable minutes.
+                  </li>
+                  <li>
+                    Establish homepage structure using a JSON-structured minutes excerpt.
+                  </li>
+                </ul>
+
+                <h3 className="mhead">Decisions</h3>
+                <ul className="mbullets">
+                  <li>
+                    Use “AI meeting minutes” and <span lang="ja">議事録AI会議</span> as the
+                    primary keyword family across web pages.
+                  </li>
+                  <li>
+                    Publish an English example rendered directly in the device frame from
+                    JSON-structured data.
+                  </li>
+                  <li>
+                    Proceed with demo/video notes for Zoom Marketplace and keep the page
+                    indexable.
+                  </li>
+                </ul>
+
+                {/* 以下は意図的に下端で見切れる可能性あり（実機風） */}
+                <h3 className="mhead">Next Steps</h3>
+                <ul className="mbullets">
+                  <li>Ship the “Send Bot” flow and capture sample meetings.</li>
+                  <li>Iterate on the JSON schema for summaries and decisions.</li>
+                  <li>Release the browser preview with clipped overflow as shown.</li>
+                </ul>
+              </article>
+              {/* ▲ デバイス内レンダリング */}
             </div>
           </div>
           {/* ▲ ガラス調デバイス */}
@@ -77,29 +124,22 @@ export default function Home() {
 
         <style jsx>{`
           .scene {
-            /* ====== トーン ====== */
             --bg-1: #05060e;
             --bg-2: #0b1030;
             --halo: 255, 255, 255;
 
-            /* 彩度の高いライトブルー＆エメラルド */
-            --mint: 98, 232, 203;   /* #62e8cb */
-            --sky:  152, 209, 255;  /* #98d1ff */
-            --ice:  204, 244, 255;  /* #ccf4ff */
+            --mint: 98, 232, 203;
+            --sky: 152, 209, 255;
+            --ice: 204, 244, 255;
 
-            /* 球体サイズ（必ず画面に収まる） */
             --core-size: clamp(420px, 70vmin, 80vh);
-
             --ring-start-scale: 0.78;
             --ring-end-scale: 1.75;
             --ripple-period: 6s;
 
             position: relative;
             min-height: 100vh;
-
-            /* デバイス全体が見切れないよう下余白を多めに確保 */
             padding-bottom: calc((var(--core-size) / 2) + 110vh);
-
             overflow: hidden;
             color: #fff;
 
@@ -112,7 +152,7 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
-          /* ★ フォントを80%に縮小（元: clamp(42px, 9.3vw, 129px)） */
+          /* 80%に縮小 */
           .heroTop {
             position: relative;
             z-index: 3;
@@ -140,7 +180,7 @@ export default function Home() {
             width: 100%;
           }
 
-          /* ★ こちらも80%（元: clamp(42px, 9.3vw, 129px)） */
+          /* 80%に縮小 */
           .sameSize {
             font-weight: 800;
             letter-spacing: -0.02em;
@@ -160,82 +200,111 @@ export default function Home() {
           }
 
           /* ===== デバイス風ガラスパネル ===== */
-          /* ★ 幅を80%に縮小（元: min(94vw, 1280px)） */
+          /* 幅を80%に縮小（元: min(94vw, 1280px)） */
           .deviceStage {
             pointer-events: auto;
             margin: clamp(16px, 5vh, 44px) auto 0;
             width: min(calc(94vw * 0.8), 1024px);
           }
-/* ▼ ガラス調デバイス（落ち着いた・高透過・少色数） */
-.deviceGlass {
-  /* 深いネイビー系2色のみで構成 */
-  --glassA: 36, 48, 72;   /* #243048 */
-  --glassB: 56, 78, 96;   /* #384e60 */
 
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;                 /* iPad比率のまま */
-  border-radius: clamp(22px, 3.2vmax, 44px);
-  overflow: hidden;
+          /* 落ち着いた・高透過・少色数 */
+          .deviceGlass {
+            --glassA: 36, 48, 72;   /* #243048 */
+            --glassB: 56, 78, 96;   /* #384e60 */
 
-  /* 余計な色を排し、透け感を強めた2ストップのグラデだけ */
-  background:
-    linear-gradient(
-      180deg,
-      rgba(var(--glassA), 0.55) 0%,
-      rgba(var(--glassB), 0.50) 100%
-    );
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3; /* iPad比率 */
+            border-radius: clamp(22px, 3.2vmax, 44px);
+            overflow: hidden;
 
-  /* 背景の影響をしっかり通す（=透け感） */
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  backdrop-filter: blur(18px) saturate(120%);
+            background:
+              linear-gradient(180deg,
+                rgba(var(--glassA), 0.55) 0%,
+                rgba(var(--glassB), 0.50) 100%);
 
-  /* フレームは控えめ・上品に */
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow:
-    0 30px 90px rgba(10,20,60,0.35),
-    0 12px 26px rgba(0,0,0,0.30),
-    inset 0 1px 0 rgba(255,255,255,0.18),
-    inset 0 -1px 0 rgba(0,0,0,0.20);
-}
+            -webkit-backdrop-filter: blur(18px) saturate(120%);
+            backdrop-filter: blur(18px) saturate(120%);
 
-/* 上辺にだけ薄いシアー感（白のにじみ） */
-.deviceGlass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(140% 100% at 12% -10%,
-      rgba(255,255,255,0.10) 0%,
-      rgba(255,255,255,0.04) 36%,
-      rgba(255,255,255,0.00) 60%)
-    ,
-    linear-gradient(180deg,
-      rgba(255,255,255,0.06) 0%,
-      rgba(255,255,255,0.00) 40%);
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-
-/* 内側にごく薄いライン＋周辺の落ち影（ビネット） */
-.deviceGlass::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.05),
-    inset 0 0 60px rgba(0,0,0,0.24);
-  pointer-events: none;
-}
-
-          .fit {
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow:
+              0 30px 90px rgba(10,20,60,0.35),
+              0 12px 26px rgba(0,0,0,0.30),
+              inset 0 1px 0 rgba(255,255,255,0.18),
+              inset 0 -1px 0 rgba(0,0,0,0.20);
+          }
+          .deviceGlass::before {
+            content: "";
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            border-radius: inherit;
+            background:
+              radial-gradient(140% 100% at 12% -10%,
+                rgba(255,255,255,0.10) 0%,
+                rgba(255,255,255,0.04) 36%,
+                rgba(255,255,255,0.00) 60%),
+              linear-gradient(180deg,
+                rgba(255,255,255,0.06) 0%,
+                rgba(255,255,255,0.00) 40%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+          }
+          .deviceGlass::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow:
+              inset 0 0 0 1px rgba(255,255,255,0.05),
+              inset 0 0 60px rgba(0,0,0,0.24);
+            pointer-events: none;
+          }
+
+          /* ▼ デバイス内テキスト（見切れ演出） */
+          .minutesWrap{
+            position: absolute;
+            inset: 0;
+            box-sizing: border-box;
+            padding: clamp(14px, 3vw, 28px);
+            color: rgba(255,255,255,0.92);
+            line-height: 1.55;
+            text-align: left;
+            overflow: hidden;     /* 下端はカット */
+            pointer-events: none; /* 触らせたいなら auto に */
+          }
+          .mtitle{
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            font-size: clamp(18px, 2.1vw, 28px);
+            margin: 0 0 2px 0;
+          }
+          .mdate{
+            font-weight: 600;
+            opacity: 0.85;
+            font-size: clamp(13px, 1.35vw, 16px);
+            margin-bottom: clamp(8px, 1.2vw, 12px);
+          }
+          .mhr{
+            height: 1px;
+            background: linear-gradient(90deg,
+              rgba(255,255,255,0.22),
+              rgba(255,255,255,0.08));
+            margin: clamp(8px, 1.4vw, 14px) 0;
+          }
+          .mhead{
+            font-weight: 800;
+            font-size: clamp(14px, 1.5vw, 18px);
+            margin: clamp(8px, 1.2vw, 12px) 0 6px 0;
+          }
+          .mbullets{
+            margin: 0 0 clamp(12px, 2vw, 18px) 0;
+            padding-left: 1.15em;
+          }
+          .mbullets li{
+            font-weight: 700;
+            font-size: clamp(12px, 1.25vw, 15px);
+            margin: 0 0 6px 0;
+            opacity: 0.95;
           }
 
           /* 背景の薄い装飾 */
@@ -435,24 +504,28 @@ export default function Home() {
             to   { opacity: 0.85; }
           }
 
-          /* ===== モバイル：iPhone比率＆余白さらに確保 ===== */
+          /* ===== モバイル ===== */
           @media (max-width: 640px) {
             .scene {
               --core-size: clamp(320px, 86vmin, 80vh);
               padding-bottom: calc((var(--core-size) / 2) + 130vh);
             }
-
-            /* ★ こちらも80%（元: clamp(33px, 11.1vw, 90px)） */
             .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); padding-top: 12vh; }
             .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
 
-            /* ★ モバイル時のデバイス幅も80%（元: min(92vw, 520px)） */
+            /* モバイル時のデバイス幅も80% */
             .deviceStage { width: min(calc(92vw * 0.8), 416px); }
 
             .deviceGlass {
-              aspect-ratio: 9 / 19.5;       /* iPhone縦比率 */
+              aspect-ratio: 9 / 19.5;   /* iPhone縦比率 */
               border-radius: clamp(26px, 7.5vw, 40px);
             }
+
+            /* モバイルでの読みやすさ微調整 */
+            .mtitle { font-size: clamp(16px, 5.2vw, 22px); }
+            .mdate  { font-size: clamp(12px, 3.8vw, 15px); }
+            .mhead  { font-size: clamp(13px, 4.2vw, 17px); }
+            .mbullets li { font-size: clamp(12px, 3.8vw, 15px); }
           }
         `}</style>
       </main>
