@@ -166,62 +166,70 @@ export default function Home() {
             margin: clamp(16px, 5vh, 44px) auto 0;
             width: min(calc(94vw * 0.8), 1024px);
           }
-          .deviceGlass {
-            --baseTop: #1e2b46;
-            --baseBot: #3f5969;
+/* ▼ ガラス調デバイス（落ち着いた・高透過・少色数） */
+.deviceGlass {
+  /* 深いネイビー系2色のみで構成 */
+  --glassA: 36, 48, 72;   /* #243048 */
+  --glassB: 56, 78, 96;   /* #384e60 */
 
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 3;                 /* iPad比率 */
-            border-radius: clamp(22px, 3.2vmax, 44px);
-            overflow: hidden;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;                 /* iPad比率のまま */
+  border-radius: clamp(22px, 3.2vmax, 44px);
+  overflow: hidden;
 
-            background:
-              linear-gradient(
-                150deg,
-                rgba(var(--ice), 0.52) 0%,
-                rgba(var(--sky), 0.42) 28%,
-                rgba(var(--mint),0.36) 68%,
-                rgba(255,255,255,0.00) 100%
-              ),
-              linear-gradient(180deg, var(--baseTop) 0%, var(--baseBot) 100%);
+  /* 余計な色を排し、透け感を強めた2ストップのグラデだけ */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--glassA), 0.55) 0%,
+      rgba(var(--glassB), 0.50) 100%
+    );
 
-            -webkit-backdrop-filter: blur(12px) saturate(150%);
-            backdrop-filter: blur(12px) saturate(150%);
+  /* 背景の影響をしっかり通す（=透け感） */
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
 
-            border: 1px solid rgba(255,255,255,0.18);
-            box-shadow:
-              0 36px 110px rgba(10,20,60,0.45),
-              0 14px 32px rgba(0,0,0,0.35),
-              inset 0 1px 0 rgba(255,255,255,0.28),
-              inset 0 -1px 0 rgba(0,0,0,0.25);
-          }
-          .deviceGlass::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background:
-              radial-gradient(110% 80% at 70% -20%,
-                rgba(210, 255, 255, 0.55) 0%,
-                rgba(210, 255, 255, 0.20) 38%,
-                rgba(255, 255, 255, 0.00) 70%),
-              radial-gradient(120% 85% at -10% 110%,
-                rgba(var(--mint), 0.22) 0%,
-                rgba(var(--mint), 0.00) 70%);
-            mix-blend-mode: screen;
-            pointer-events: none;
-          }
-          .deviceGlass::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            box-shadow:
-              inset 0 0 0 1px rgba(255,255,255,0.08),
-              inset 0 0 46px rgba(0,0,0,0.22);
-            pointer-events: none;
-          }
+  /* フレームは控えめ・上品に */
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow:
+    0 30px 90px rgba(10,20,60,0.35),
+    0 12px 26px rgba(0,0,0,0.30),
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    inset 0 -1px 0 rgba(0,0,0,0.20);
+}
+
+/* 上辺にだけ薄いシアー感（白のにじみ） */
+.deviceGlass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(140% 100% at 12% -10%,
+      rgba(255,255,255,0.10) 0%,
+      rgba(255,255,255,0.04) 36%,
+      rgba(255,255,255,0.00) 60%)
+    ,
+    linear-gradient(180deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.00) 40%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* 内側にごく薄いライン＋周辺の落ち影（ビネット） */
+.deviceGlass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    inset 0 0 60px rgba(0,0,0,0.24);
+  pointer-events: none;
+}
+
           .fit {
             position: absolute;
             inset: 0;
