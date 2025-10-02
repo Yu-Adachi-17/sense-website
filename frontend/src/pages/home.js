@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main className="scene">
-        {/* ヒーロー（球体の上・白・1.5倍） */}
+        {/* ヒーロー（球体の上・白） */}
         <h1 className="heroTop">Just Record.</h1>
 
         {/* 背景（直線光線は削除） */}
@@ -67,7 +67,6 @@ export default function Home() {
           <div className="deviceStage">
             <div className="deviceGlass" aria-label="Minutes preview surface">
               {/* 後で議事録プレビューを入れる想定 */}
-              {/* <img src="/minutes-placeholder.png" alt="" className="fit" /> */}
             </div>
           </div>
           {/* ▲ ガラス調デバイス */}
@@ -83,7 +82,7 @@ export default function Home() {
             --bg-2: #0b1030;
             --halo: 255, 255, 255;
 
-            /* 彩度の高いライトブルー＆エメラルド（好みに応じて微調整） */
+            /* 彩度の高いライトブルー＆エメラルド */
             --mint: 98, 232, 203;   /* #62e8cb */
             --sky:  152, 209, 255;  /* #98d1ff */
             --ice:  204, 244, 255;  /* #ccf4ff */
@@ -98,14 +97,12 @@ export default function Home() {
             position: relative;
             min-height: 100vh;
 
-            /* ▼ デバイス全体が必ず見切れないよう下余白を増量 */
-            /* （端末差を吸収するため多めに確保） */
+            /* デバイス全体が見切れないよう下余白を多めに確保 */
             padding-bottom: calc((var(--core-size) / 2) + 110vh);
 
             overflow: hidden;
             color: #fff;
 
-            /* 背景。放射直線なし */
             background:
               radial-gradient(130vmax 130vmax at 50% 120%, #10163a 0%, var(--bg-2) 50%, var(--bg-1) 100%),
               radial-gradient(1px 1px at 20% 30%, rgba(var(--halo),0.22) 99%, transparent 100%),
@@ -115,6 +112,7 @@ export default function Home() {
               radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
           }
 
+          /* ★ フォントを80%に縮小（元: clamp(42px, 9.3vw, 129px)） */
           .heroTop {
             position: relative;
             z-index: 3;
@@ -125,7 +123,7 @@ export default function Home() {
             line-height: 1.02;
             font-weight: 800;
             color: #fff;
-            font-size: clamp(42px, 9.3vw, 129px);
+            font-size: clamp(33.6px, 7.44vw, 103.2px);
             filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
                     drop-shadow(0 0 2px rgba(130,150,255,0.2));
             pointer-events: none;
@@ -141,11 +139,13 @@ export default function Home() {
             pointer-events: none;
             width: 100%;
           }
+
+          /* ★ こちらも80%（元: clamp(42px, 9.3vw, 129px)） */
           .sameSize {
             font-weight: 800;
             letter-spacing: -0.02em;
             line-height: 1.06;
-            font-size: clamp(42px, 9.3vw, 129px);
+            font-size: clamp(33.6px, 7.44vw, 103.2px);
             margin: 0;
           }
           .line1 { color: #fff; }
@@ -160,13 +160,13 @@ export default function Home() {
           }
 
           /* ===== デバイス風ガラスパネル ===== */
+          /* ★ 幅を80%に縮小（元: min(94vw, 1280px)） */
           .deviceStage {
             pointer-events: auto;
             margin: clamp(16px, 5vh, 44px) auto 0;
-            width: min(94vw, 1280px); /* デスクトップ：iPad幅感 */
+            width: min(calc(94vw * 0.8), 1024px);
           }
           .deviceGlass {
-            /* ベースの深い紺グラデ */
             --baseTop: #1e2b46;
             --baseBot: #3f5969;
 
@@ -176,7 +176,6 @@ export default function Home() {
             border-radius: clamp(22px, 3.2vmax, 44px);
             overflow: hidden;
 
-            /* ▼ 淡いライトブルー→エメラルドの“鮮やか”なヴェールを重ねる */
             background:
               linear-gradient(
                 150deg,
@@ -190,7 +189,6 @@ export default function Home() {
             -webkit-backdrop-filter: blur(12px) saturate(150%);
             backdrop-filter: blur(12px) saturate(150%);
 
-            /* 枠・立体感 */
             border: 1px solid rgba(255,255,255,0.18);
             box-shadow:
               0 36px 110px rgba(10,20,60,0.45),
@@ -198,27 +196,22 @@ export default function Home() {
               inset 0 1px 0 rgba(255,255,255,0.28),
               inset 0 -1px 0 rgba(0,0,0,0.25);
           }
-          /* 上縁のハイライト（スッと走る光） */
           .deviceGlass::before {
             content: "";
             position: absolute;
             inset: 0;
             border-radius: inherit;
             background:
-              /* 上端〜右上にかけて淡いシアン光 */
               radial-gradient(110% 80% at 70% -20%,
                 rgba(210, 255, 255, 0.55) 0%,
                 rgba(210, 255, 255, 0.20) 38%,
-                rgba(255, 255, 255, 0.00) 70%)
-              ,
-              /* 左下からエメラルドの滲み */
+                rgba(255, 255, 255, 0.00) 70%),
               radial-gradient(120% 85% at -10% 110%,
                 rgba(var(--mint), 0.22) 0%,
                 rgba(var(--mint), 0.00) 70%);
             mix-blend-mode: screen;
             pointer-events: none;
           }
-          /* 微細な内側ライン＆周辺減光 */
           .deviceGlass::after {
             content: "";
             position: absolute;
@@ -302,7 +295,6 @@ export default function Home() {
             opacity: 0.45;
           }
 
-          /* 放射エミッタ */
           .starEmitter {
             position: absolute;
             inset: 0;
@@ -441,10 +433,14 @@ export default function Home() {
               --core-size: clamp(320px, 86vmin, 80vh);
               padding-bottom: calc((var(--core-size) / 2) + 130vh);
             }
-            .heroTop  { font-size: clamp(33px, 11.1vw, 90px); padding-top: 12vh; }
-            .sameSize { font-size: clamp(33px, 11.1vw, 90px); }
 
-            .deviceStage { width: min(92vw, 520px); }
+            /* ★ こちらも80%（元: clamp(33px, 11.1vw, 90px)） */
+            .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); padding-top: 12vh; }
+            .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
+
+            /* ★ モバイル時のデバイス幅も80%（元: min(92vw, 520px)） */
+            .deviceStage { width: min(calc(92vw * 0.8), 416px); }
+
             .deviceGlass {
               aspect-ratio: 9 / 19.5;       /* iPhone縦比率 */
               border-radius: clamp(26px, 7.5vw, 40px);
