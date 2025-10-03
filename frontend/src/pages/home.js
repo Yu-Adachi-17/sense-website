@@ -48,8 +48,26 @@ export default function Home() {
       <FixedHeaderPortal>
         <header className="top">
           <a href="/" className="brand" aria-label="Minutes.AI Home">
-            Minutes.<span className="ai">AI</span>
+            {/* 参考①：左にアイコン */}
+            <span className="brandIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="logoSvg" focusable="false">
+                <defs>
+                  <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#7cc7ff" />
+                    <stop offset="100%" stopColor="#65e0c4" />
+                  </linearGradient>
+                </defs>
+                {/* 外側リング */}
+                <circle cx="12" cy="12" r="9" stroke="url(#brandGrad)" strokeWidth="2" fill="none" />
+                {/* 内側の“録音ドット” */}
+                <circle cx="12" cy="12" r="5" fill="url(#brandGrad)" />
+              </svg>
+            </span>
+            <span className="brandText">
+              Minutes.<span className="ai">AI</span>
+            </span>
           </a>
+
           <nav className="nav" aria-label="Primary">
             <a href="/" className="navLink">
               <span className="navText gradHeader">Home</span>
@@ -153,6 +171,11 @@ export default function Home() {
                 </div>
               </article>
             </div>
+
+            {/* 参考②：deviceGlass の下に CTA */}
+            <a href={LINK_MAIN} className="ctaBig" rel="noopener noreferrer">
+              Get Started
+            </a>
           </div>
           {/* ▲ ガラス調デバイス */}
         </section>
@@ -175,7 +198,7 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ===== styles: すべて “ルート直下” に配置 ===== */}
+      {/* ===== styles: すべて “ルート直下” に配置（ネスト禁止） ===== */}
       <style jsx>{`
         .scene {
           --bg-1: #05060e;
@@ -194,7 +217,7 @@ export default function Home() {
           position: relative;
           min-height: 100vh;
 
-          /* ヘッダー“実寸”高さ分（content高 + 上下padding + safe-area）だけ下げる */
+          /* ヘッダー実寸分を押し下げ：重なり解消 */
           padding-top: var(--header-offset);
 
           padding-bottom: calc((var(--core-size) / 2) + 110vh);
@@ -374,6 +397,22 @@ export default function Home() {
           background: radial-gradient(120vmin 60% at 50% 0%, rgba(140,150,255,0.28) 0%, rgba(140,150,255,0.10) 40%, transparent 75%);
           filter: blur(14px); opacity: 0.7; }
 
+        /* ===== CTA（deviceGlassの下） ===== */
+        .ctaBig {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 14px 28px;
+          border-radius: 999px;
+          background: #0b2b3a;
+          color: #eaf4f7;
+          text-decoration: none;
+          font-weight: 700;
+          box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+                      0 8px 24px rgba(0, 0, 0, 0.25);
+          margin: clamp(16px, 3.5vh, 28px) auto 0;
+        }
+
         @keyframes breathe { 0%,100%{ transform: scale(1); filter: blur(10px) saturate(125%) contrast(105%);}
                              50%{ transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%);} }
         @keyframes ripple { 0%{ transform: translate(-50%,-50%) scale(var(--ring-start-scale)); opacity:0.9;}
@@ -403,7 +442,7 @@ export default function Home() {
 
       <style jsx global>{`
         :root {
-          --header-h: clamp(56px, 7.2vh, 72px);     /* ヘッダーの「内容」高さ */
+          --header-h: clamp(56px, 7.2vh, 72px);     /* ヘッダーの内容高さ */
           --header-py: 10px;                        /* ヘッダー上下padding */
           /* ヘッダー全体の実寸（内容高さ + 上下padding + safe-area）*/
           --header-offset: calc(
@@ -419,7 +458,6 @@ export default function Home() {
           z-index: 2147483647;
           display: flex; justify-content: space-between; align-items: center;
 
-          /* height は content 高さ。padding は別枠で足される点に注意 */
           height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
           padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px var(--header-py);
 
@@ -429,14 +467,22 @@ export default function Home() {
           border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
+        /* ===== Brand with icon ===== */
         header.top .brand {
-          font-weight: 800; font-size: 24px; letter-spacing: 0.2px; text-decoration: none;
-          color: #b6eaff;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+        }
+        header.top .brandText {
+          font-weight: 800; font-size: 24px; letter-spacing: 0.2px; color: #b6eaff;
         }
         header.top .brand .ai {
           background: linear-gradient(90deg, #7cc7ff, #65e0c4);
           -webkit-background-clip: text; background-clip: text; color: transparent;
         }
+        header.top .brand .brandIcon { width: 26px; height: 26px; display: inline-flex; }
+        header.top .brand .logoSvg { width: 26px; height: 26px; display: block; }
 
         header.top .nav {
           background: rgba(20,40,60,0.7);
