@@ -12,6 +12,67 @@ function FixedHeaderPortal({ children }) {
   return createPortal(children, document.body);
 }
 
+/** 右の青い四角に投影する短尺動画 */
+function HoverVideo({ playing, mp4, poster, assignRef }) {
+  const ref = useRef(null);
+
+  // 親から直接 play() できるよう参照を返す
+  useEffect(() => {
+    if (assignRef) assignRef(ref.current);
+  }, [assignRef]);
+
+  // in-view でのみ再生 / 外れたら停止
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (!e.isIntersecting) {
+          v.pause();
+          v.currentTime = 0;
+        } else if (
+          playing &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          const p = v.play();
+          if (p?.catch) p.catch(() => {}); // 自動再生ブロックは握りつぶし
+        }
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, [playing]);
+
+  // アクティブ切替時の制御
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    if (playing) {
+      v.currentTime = 0;
+      const p = v.play();
+      if (p?.catch) p.catch(() => {});
+    } else {
+      v.pause();
+      v.currentTime = 0;
+    }
+  }, [playing]);
+
+  return (
+    <video
+      ref={ref}
+      className={`shot${playing ? " isOn" : ""}`}
+      muted
+      playsInline
+      loop
+      preload="metadata"
+      poster={poster}
+    >
+      <source src={mp4} type="video/mp4" />
+    </video>
+  );
+}
+
 export default function Home() {
   const deviceRef = useRef(null);
   const wrapRef = useRef(null);
@@ -34,27 +95,29 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
-  // ▼ Simply ultimate. セクション用（小見出し sub を追加）
+  // ▼ Simply ultimate. セクション（動画連動）
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
+  const videoRefs = useRef({}); // { tap: HTMLVideoElement, stop: ..., wrap: ... }
+
   const steps = [
     {
       key: "tap",
       label: "Tap",
-      img: "/images/demo-tap.png",
       sub: "Tap to start recording.",
+      mp4: "/videos/Recording1.mp4",
     },
     {
       key: "stop",
       label: "Stop",
-      img: "/images/demo-stop.png",
       sub: "Stop when you’re done.",
+      mp4: "/videos/Recording2.mp4",
     },
     {
       key: "wrap",
       label: "Wrap",
-      img: "/images/demo-wrap.png",
       sub: "AI writes the minutes—automatically.",
+      mp4: "/videos/Recording3.mp4",
     },
   ];
   const idx = steps.findIndex((s) => s.key === active);
@@ -238,6 +301,9 @@ export default function Home() {
                         onFocus={() => setActive(s.key)}
                         onKeyDown={onRadioKey}
                         onClick={() => setActive(s.key)}
+                        onPointerDown={() =>
+                          videoRefs.current[s.key]?.play()?.catch(() => {})
+                        }
                         type="button"
                       >
                         <span className="row">
@@ -251,14 +317,14 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 右：モック画面（フェード切替 / 画像は仮） */}
+              {/* 右：青い四角の内部に動画を投影（フェード切替） */}
               <div className="simplyRight" aria-live="polite">
                 {steps.map((s) => (
-                  <div
+                  <HoverVideo
                     key={s.key}
-                    className={`shot${active === s.key ? " isOn" : ""}`}
-                    style={{ ["--img"]: `url(${s.img})`, ["--shotLabel"]: `"${s.label}"` }}
-                    aria-hidden={active !== s.key}
+                    playing={active === s.key}
+                    mp4={s.mp4}
+                    assignRef={(el) => (videoRefs.current[s.key] = el)}
                   />
                 ))}
               </div>
@@ -536,13 +602,13 @@ export default function Home() {
           gap: clamp(16px, 3.5vw, 36px);
         }
         .simplyLeft { text-align: left; }
-        /* ① 「Simply ultimate.」を最大に */
+        /* 「Simply ultimate.」は Just Record と同程度のサイズに */
         .simplyH2 {
           margin: 0 0 12px 0;
           font-weight: 900;
           letter-spacing: -0.02em;
           line-height: 1.02;
-          font-size: clamp(48px, 9vw, 128px);
+          font-size: clamp(33.6px, 7.44vw, 103.2px);
           color: #fff;
         }
         .stepList { display: flex; flex-direction: column; gap: clamp(4px, 1vh, 8px); }
@@ -562,11 +628,9 @@ export default function Home() {
           transform: scale(0.9);
         }
         .stepBtn.isActive .dot { background: linear-gradient(90deg,#65e0c4,#8db4ff); transform: scale(1); }
-        /* ① Tap/Stop/Wrap は一段下げたサイズに */
         .stepBtn .lbl {
           font-weight: 900; letter-spacing: -0.02em; line-height: 1.02;
           font-size: clamp(28px, 6vw, 64px); color: #eaf4f7;
-          -webkit-text-fill-color: currentColor;
         }
         .stepBtn.isActive .lbl,
         .stepBtn:hover .lbl {
@@ -574,7 +638,6 @@ export default function Home() {
           -webkit-background-clip: text; background-clip: text; color: transparent;
           -webkit-text-fill-color: transparent;
         }
-        /* ② 小見出し */
         .stepBtn .sub {
           margin-left: 22px;
           margin-top: 4px;
@@ -598,23 +661,14 @@ export default function Home() {
           border: 1px solid rgba(255,255,255,0.10);
           box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
         }
-        .shot {
-          position: absolute; inset: 0; opacity: 0; transition: opacity 320ms ease;
-          background-image:
-            var(--img),
-            radial-gradient(140% 100% at 12% -10%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 60%);
-          background-size: cover; background-position: center;
+        /* video を青枠内でフェード表示 */
+        video.shot {
+          position: absolute; inset: 0;
+          width: 100%; height: 100%; object-fit: cover;
+          opacity: 0; transition: opacity 320ms ease;
+          pointer-events: none; /* 操作は左のボタンで */
         }
-        .shot::after {
-          content: var(--shotLabel);
-          position: absolute; left: 14px; top: 12px;
-          font-weight: 800; font-size: 14px; letter-spacing: 0.6px;
-          padding: 6px 10px; border-radius: 999px;
-          background: rgba(20,40,60,0.65);
-          border: 1px solid rgba(255,255,255,0.10);
-          color: #eaf4f7;
-        }
-        .shot.isOn { opacity: 1; }
+        video.shot.isOn { opacity: 1; }
 
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
@@ -680,6 +734,7 @@ export default function Home() {
             animation: none !important; transition: none !important; clip-path: inset(0 0 0 0) !important;
             transform: none !important; opacity: 1 !important;
           }
+          video.shot { transition: none !important; }
         }
 
         @media (max-width: 1024px) {
