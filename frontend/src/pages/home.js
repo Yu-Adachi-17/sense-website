@@ -13,38 +13,33 @@ function FixedHeaderPortal({ children }) {
 }
 
 /** 右の青い四角に投影する短尺動画 */
-function HoverVideo({ playing, mp4, poster, assignRef }) {
+// 旧 HoverVideo を削除して、代わりにこれを入れる
+function SimplyVideo({ playing, mp4, poster, assignRef }) {
   const ref = useRef(null);
 
-  // 親から直接 play() できるよう参照を返す
-  useEffect(() => {
-    if (assignRef) assignRef(ref.current);
-  }, [assignRef]);
+  useEffect(() => { if (assignRef) assignRef(ref.current); }, [assignRef]);
 
-  // in-view でのみ再生 / 外れたら停止
+  // in-view 以外は停止（無駄な再生を抑制）
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (!e.isIntersecting) {
-          v.pause();
-          v.currentTime = 0;
-        } else if (
-          playing &&
-          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ) {
-          const p = v.play();
-          if (p?.catch) p.catch(() => {}); // 自動再生ブロックは握りつぶし
-        }
-      },
-      { threshold: 0.35 }
-    );
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) {
+        v.pause();
+        v.currentTime = 0;
+      } else if (
+        playing &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        const p = v.play();
+        if (p?.catch) p.catch(() => {});
+      }
+    }, { threshold: 0.35 });
     io.observe(v);
     return () => io.disconnect();
   }, [playing]);
 
-  // アクティブ切替時の制御
+  // アクティブ切替で再生/停止
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
@@ -61,17 +56,18 @@ function HoverVideo({ playing, mp4, poster, assignRef }) {
   return (
     <video
       ref={ref}
-      className={`shot${playing ? " isOn" : ""}`}
+      className={`simplyVideo${playing ? " isOn" : ""}`}
       muted
       playsInline
       loop
-      preload="metadata"
+      preload="auto"
       poster={poster}
     >
       <source src={mp4} type="video/mp4" />
     </video>
   );
 }
+
 
 export default function Home() {
   const deviceRef = useRef(null);
@@ -297,13 +293,16 @@ export default function Home() {
                         aria-checked={checked}
                         tabIndex={checked ? 0 : -1}
                         className={`stepBtn${checked ? " isActive" : ""}`}
-                        onMouseEnter={() => setActive(s.key)}
-                        onFocus={() => setActive(s.key)}
-                        onKeyDown={onRadioKey}
-                        onClick={() => setActive(s.key)}
-                        onPointerDown={() =>
-                          videoRefs.current[s.key]?.play()?.catch(() => {})
-                        }
+// steps.map(...) の <button> に付けるハンドラを以下のように
+onMouseEnter={() => {
+  setActive(s.key);
+  // ホバー直後に対象動画の play() を明示呼び出し（autoplay ブロックされても無視）
+  requestAnimationFrame(() => videoRefs.current[s.key]?.play()?.catch(() => {}));
+}}
+onFocus={() => setActive(s.key)}
+onClick={() => setActive(s.key)}
+onPointerDown={() => videoRefs.current[s.key]?.play()?.catch(() => {})}
+
                         type="button"
                       >
                         <span className="row">
@@ -319,15 +318,16 @@ export default function Home() {
 
               {/* 右：青い四角の内部に動画を投影（フェード切替） */}
               <div className="simplyRight" aria-live="polite">
-                {steps.map((s) => (
-                  <HoverVideo
-                    key={s.key}
-                    playing={active === s.key}
-                    mp4={s.mp4}
-                    assignRef={(el) => (videoRefs.current[s.key] = el)}
-                  />
-                ))}
-              </div>
+  {steps.map((s) => (
+    <SimplyVideo
+      key={s.key}
+      playing={active === s.key}
+      mp4={s.mp4}
+      assignRef={(el) => (videoRefs.current[s.key] = el)}
+    />
+  ))}
+</div>
+
             </div>
           </section>
 
@@ -650,25 +650,40 @@ export default function Home() {
         .stepBtn.isActive .sub,
         .stepBtn:hover .sub { color: #eaf6ff; }
 
-        .simplyRight {
-          position: relative;
-          border-radius: clamp(18px, 2.2vmax, 28px);
-          min-height: 340px;
-          aspect-ratio: 16 / 11;
-          overflow: hidden;
-          background: linear-gradient(180deg, rgba(36,48,72,0.55) 0%, rgba(56,78,96,0.50) 100%);
-          -webkit-backdrop-filter: blur(14px) saturate(120%); backdrop-filter: blur(14px) saturate(120%);
-          border: 1px solid rgba(255,255,255,0.10);
-          box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
-        }
-        /* video を青枠内でフェード表示 */
-        video.shot {
-          position: absolute; inset: 0;
-          width: 100%; height: 100%; object-fit: cover;
-          opacity: 0; transition: opacity 320ms ease;
-          pointer-events: none; /* 操作は左のボタンで */
-        }
-        video.shot.isOn { opacity: 1; }
+/* 旧 .shot 系の定義が残っていたら削除 */
+
+/* 右の青枠はそのまま */
+.simplyRight {
+  position: relative;
+  border-radius: clamp(18px, 2.2vmax, 28px);
+  min-height: 340px;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(36,48,72,0.55) 0%, rgba(56,78,96,0.50) 100%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+}
+
+/* 新：動画の描画レイヤー */
+.simplyVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* 16:9 動画でも青枠に気持ちよくフィット */
+  object-position: 50% 50%;  /* 左上に寄る現象を抑止 */
+  opacity: 0;
+  transition: opacity 320ms ease;
+  pointer-events: none;      /* クリック等は左のボタン側で */
+}
+.simplyVideo.isOn { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .simplyVideo { transition: none; }
+}
+
 
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
