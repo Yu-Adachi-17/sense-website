@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { FaApple } from "react-icons/fa";
-import HomeIcon from "./homeIcon"; // ← 自前アイコンを使用
+import HomeIcon from "./homeIcon"; // 自前アイコン
 
 function FixedHeaderPortal({ children }) {
   const [mounted, setMounted] = useState(false);
@@ -45,11 +45,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* ===== Fixed Header (Portal to <body>) ===== */}
+      {/* ===== Fixed Header ===== */}
       <FixedHeaderPortal>
         <header className="top">
           <a href="/" className="brand" aria-label="Minutes.AI Home">
-            {/* 自前アイコン（左）。色は currentColor 継承 */}
             <span className="brandIcon" aria-hidden="true">
               <HomeIcon size={26} color="currentColor" />
             </span>
@@ -110,7 +109,7 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "1.2s" }} />
           <div className="ring" style={{ ["--d"]: "2.4s" }} />
           <div className="ring" style={{ ["--d"]: "3.6s" }} />
-          <div className="ring" style={{ ["--d"]: "4.8s" }} />
+          <div className="ring" style={{ ["--d"] : "4.8s" }} />
           <div className="starsBelt" />
         </div>
 
@@ -162,12 +161,43 @@ export default function Home() {
               </article>
             </div>
 
-            {/* deviceGlass の下に CTA（※ユーザー要望済みのまま） */}
+            {/* CTA */}
             <a href={LINK_MAIN} className="ctaBig" rel="noopener noreferrer">
               Get Started
             </a>
           </div>
           {/* ▲ ガラス調デバイス */}
+
+          {/* ▼ 追加：iPhoneアプリ訴求セクション（Get Startedの直下） */}
+          <section className="appPromo" aria-labelledby="appPromoHead">
+            <div className="promoGrid">
+              <div className="promoCopy">
+                <h2 id="appPromoHead" className="promoH2">
+                  iPhone App is <span className="gradText">Available</span>
+                </h2>
+                <p className="promoSub">
+                  Record on iPhone and get Beautiful Minutes instantly.
+                </p>
+                <a
+                  href={LINK_IOS}
+                  className="promoCta"
+                  rel="noopener noreferrer"
+                >
+                  <FaApple aria-hidden="true" />
+                  <span>Download on iOS</span>
+                </a>
+              </div>
+
+              <div className="promoVisual">
+                <img
+                  src="/images/hero-phone.png"
+                  alt="Minutes.AI iPhone App"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </section>
+          {/* ▲ iPhoneアプリ訴求セクション */}
         </section>
 
         {/* 反射の霞 */}
@@ -188,7 +218,7 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ===== styles: すべて “ルート直下” に配置（ネスト禁止） ===== */}
+      {/* ===== styles ===== */}
       <style jsx>{`
         .scene {
           --bg-1: #05060e;
@@ -207,9 +237,7 @@ export default function Home() {
           position: relative;
           min-height: 100vh;
 
-          /* ヘッダー実寸分を押し下げ：重なり解消 */
           padding-top: var(--header-offset);
-
           padding-bottom: calc((var(--core-size) / 2) + 110vh);
           overflow: hidden;
           color: #fff;
@@ -245,7 +273,7 @@ export default function Home() {
           transform: translateX(-50%);
           z-index: 3;
           text-align: center;
-          pointer-events: none;
+          pointer-events: none; /* 子要素は必要に応じて auto */
           width: 100%;
         }
 
@@ -387,7 +415,7 @@ export default function Home() {
           background: radial-gradient(120vmin 60% at 50% 0%, rgba(140,150,255,0.28) 0%, rgba(140,150,255,0.10) 40%, transparent 75%);
           filter: blur(14px); opacity: 0.7; }
 
-        /* ===== CTA（deviceGlassの下） ===== */
+        /* CTA */
         .ctaBig {
           display: inline-flex;
           align-items: center;
@@ -403,6 +431,62 @@ export default function Home() {
           margin: clamp(16px, 3.5vh, 28px) auto 0;
         }
 
+        /* ===== iPhone App 訴求セクション ===== */
+        .appPromo {
+          pointer-events: auto;
+          margin: clamp(18px, 4vh, 36px) auto 0;
+          padding: 0 22px;
+          max-width: 1200px;
+          text-align: left;
+        }
+        .promoGrid {
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          align-items: center;
+          gap: clamp(16px, 3vw, 32px);
+        }
+        .promoH2 {
+          margin: 0 0 10px 0;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          line-height: 1.05;
+          font-size: clamp(36px, 7vw, 84px);
+          color: #eaf4f7;
+        }
+        .promoSub {
+          margin: 0 0 18px 0;
+          opacity: 0.85;
+          font-weight: 700;
+          font-size: clamp(16px, 2.2vw, 20px);
+        }
+        .promoCta {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 20px;
+          border-radius: 999px;
+          background: rgba(20,40,60,0.8);
+          color: #eaf4f7;
+          text-decoration: none;
+          font-weight: 800;
+          border: 1px solid rgba(255,255,255,0.08);
+          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+        }
+        .promoCta:hover { background: rgba(20,40,60,0.92); }
+        .promoVisual {
+          display: flex;
+          justify-content: center;
+        }
+        .promoVisual img {
+          width: 100%;
+          max-width: 560px;
+          height: auto;
+          display: block;
+          border-radius: 22px;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
         @keyframes breathe { 0%,100%{ transform: scale(1); filter: blur(10px) saturate(125%) contrast(105%);}
                              50%{ transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%);} }
         @keyframes ripple { 0%{ transform: translate(-50%,-50%) scale(var(--ring-start-scale)); opacity:0.9;}
@@ -414,6 +498,11 @@ export default function Home() {
             animation: none !important; transition: none !important; clip-path: inset(0 0 0 0) !important;
             transform: none !important; opacity: 1 !important;
           }
+        }
+
+        @media (max-width: 900px) {
+          .promoGrid { grid-template-columns: 1fr; gap: 18px; }
+          .promoVisual { order: -1; } /* モバイルでは画像を先頭へ */
         }
 
         @media (max-width: 640px) {
@@ -432,9 +521,8 @@ export default function Home() {
 
       <style jsx global>{`
         :root {
-          --header-h: clamp(56px, 7.2vh, 72px);     /* ヘッダーの内容高さ */
-          --header-py: 10px;                        /* ヘッダー上下padding */
-          /* ヘッダー全体の実寸（内容高さ + 上下padding + safe-area）*/
+          --header-h: clamp(56px, 7.2vh, 72px);
+          --header-py: 10px;
           --header-offset: calc(
             var(--header-h)
             + env(safe-area-inset-top, 0px)
@@ -457,13 +545,12 @@ export default function Home() {
           border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
-        /* ===== Brand with icon ===== */
         header.top .brand {
           display: inline-flex;
           align-items: center;
           gap: 10px;
           text-decoration: none;
-          color: #b6eaff; /* ← icon とテキストを同色に（currentColor を供給） */
+          color: #b6eaff;
         }
         header.top .brandText {
           font-weight: 800; font-size: 24px; letter-spacing: 0.2px;
