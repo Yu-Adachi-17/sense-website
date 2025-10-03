@@ -253,14 +253,14 @@ export default function Home() {
 
               {/* 右：モック画面（フェード切替 / 画像は仮） */}
               <div className="simplyRight" aria-live="polite">
-                {steps.map((s) => (
-                  <div
-                    key={s.key}
-                    className={`shot${active === s.key ? " isOn" : ""}`}
-                    style={{ ["--img"]: `url(${s.img})`, ["--shotLabel"]: `"${s.label}"` }}
-                    aria-hidden={active !== s.key}
-                  />
-                ))}
+  {steps.map((s) => (
+    <div
+      key={s.key}
+      className={`shot${active === s.key ? " isOn" : ""}`}
+      style={{ backgroundImage: `url(${s.img})` }}
+      aria-hidden={active !== s.key}
+    />
+  ))}
               </div>
             </div>
           </section>
@@ -605,15 +605,17 @@ export default function Home() {
             radial-gradient(140% 100% at 12% -10%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 60%);
           background-size: cover; background-position: center;
         }
-        .shot::after {
-          content: var(--shotLabel);
-          position: absolute; left: 14px; top: 12px;
-          font-weight: 800; font-size: 14px; letter-spacing: 0.6px;
-          padding: 6px 10px; border-radius: 999px;
-          background: rgba(20,40,60,0.65);
-          border: 1px solid rgba(255,255,255,0.10);
-          color: #eaf4f7;
-        }
+.shot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 280ms ease;
+
+  /* 画像を“画面内に投影”するための設定 */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70% auto;   /* ★ 幅を枠の70%に、縦は比率維持 */
+}
         .shot.isOn { opacity: 1; }
 
         /* ===== iPhone App 訴求 ===== */
