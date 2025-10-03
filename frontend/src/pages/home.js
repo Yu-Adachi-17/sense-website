@@ -109,16 +109,16 @@ export default function Home() {
           <div className="ring" style={{ ["--d"]: "1.2s" }} />
           <div className="ring" style={{ ["--d"]: "2.4s" }} />
           <div className="ring" style={{ ["--d"]: "3.6s" }} />
-          <div className="ring" style={{ ["--d"] : "4.8s" }} />
+          <div className="ring" style={{ ["--d"]: "4.8s" }} />
           <div className="starsBelt" />
         </div>
 
-        {/* 球体の下セクション */}
+        {/* ▼ 球体の下（通常フロー化：スクロールできるように） */}
         <section className="below">
           <div className="line1 sameSize">AI Makes</div>
           <div className="line2 gradText sameSize">Beautiful&nbsp;Minutes</div>
 
-          {/* ▼ ガラス調デバイス */}
+          {/* ガラス調デバイス */}
           <div className="deviceStage">
             <div
               className="deviceGlass"
@@ -166,9 +166,8 @@ export default function Home() {
               Get Started
             </a>
           </div>
-          {/* ▲ ガラス調デバイス */}
 
-          {/* ▼ 追加：iPhoneアプリ訴求セクション（Get Startedの直下） */}
+          {/* iPhoneアプリ訴求 */}
           <section className="appPromo" aria-labelledby="appPromoHead">
             <div className="promoGrid">
               <div className="promoCopy">
@@ -197,7 +196,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-          {/* ▲ iPhoneアプリ訴求セクション */}
         </section>
 
         {/* 反射の霞 */}
@@ -238,7 +236,9 @@ export default function Home() {
           min-height: 100vh;
 
           padding-top: var(--header-offset);
-          padding-bottom: calc((var(--core-size) / 2) + 110vh);
+          /* ↓ below を通常フローにしたので下の余白は控えめでOK */
+          padding-bottom: 24vh;
+
           overflow: hidden;
           color: #fff;
 
@@ -266,15 +266,16 @@ export default function Home() {
           pointer-events: none;
         }
 
+        /* ▼ ここを absolute → relative + margin-top に変更 */
         .below {
-          position: absolute;
-          left: 50%;
-          top: calc(60vh + (var(--core-size) / 2) + 6vh);
-          transform: translateX(-50%);
+          position: relative;
           z-index: 3;
           text-align: center;
-          pointer-events: none; /* 子要素は必要に応じて auto */
+          pointer-events: auto;
           width: 100%;
+          margin: 0 auto;
+          /* 球体の中心(60vh)＋半径(=core/2)＋余白 */
+          margin-top: calc(60vh + (var(--core-size) / 2) + 6vh);
         }
 
         .sameSize { font-weight: 800; letter-spacing: -0.02em; line-height: 1.06;
@@ -431,10 +432,10 @@ export default function Home() {
           margin: clamp(16px, 3.5vh, 28px) auto 0;
         }
 
-        /* ===== iPhone App 訴求セクション ===== */
+        /* ===== iPhone App 訴求 ===== */
         .appPromo {
           pointer-events: auto;
-          margin: clamp(18px, 4vh, 36px) auto 0;
+          margin: clamp(18px, 4vh, 36px) auto clamp(64px, 10vh, 120px); /* 下に余白を持たせてフッターに被らない */
           padding: 0 22px;
           max-width: 1200px;
           text-align: left;
@@ -507,7 +508,7 @@ export default function Home() {
 
         @media (max-width: 640px) {
           .scene { --core-size: clamp(320px, 86vmin, 80vh);
-            padding-bottom: calc((var(--core-size) / 2) + 130vh); }
+            padding-bottom: 28vh; } /* モバイルも控えめでOK */
           .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); }
           .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
           .deviceStage { width: min(calc(92vw * 0.8), 416px); }
