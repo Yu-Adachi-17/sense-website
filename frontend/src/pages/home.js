@@ -12,59 +12,6 @@ function FixedHeaderPortal({ children }) {
   return createPortal(children, document.body);
 }
 
-/** 右の青い四角に投影する短尺動画 */
-function SimplyVideo({ isActive, src, assignRef }) {
-  const ref = useRef(null);
-
-  // 親へ ref を渡す
-  useEffect(() => {
-    if (assignRef) assignRef(ref.current);
-  }, [assignRef]);
-
-  // アクティブ切替で再生/停止（属性 autoPlay に頼らない）
-  useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
-    if (isActive) {
-      // Safari 向けに load→play を安定化
-      const doPlay = async () => {
-        try {
-          // すでに読み込まれていれば load() は即時
-          if (v.readyState < 2) v.load();
-          v.muted = true; // 保険
-          await v.play();
-        } catch {
-          // ユーザー操作まで保留（hover/click でも play() を叩く）
-        }
-      };
-      v.currentTime = 0;
-      doPlay();
-    } else {
-      try {
-        v.pause();
-      } catch {}
-      v.currentTime = 0;
-    }
-  }, [isActive]);
-
-  return (
-    <video
-      ref={ref}
-      className={`simplyVideo${isActive ? " isOn" : ""}`}
-      playsInline
-      loop
-      preload="metadata"
-      // controls は不要。ダウンロードや再生速度 UI も出さない
-      controls={false}
-      controlsList="nodownload noplaybackrate noremoteplayback"
-      // iOS での描画安定
-      disablePictureInPicture
-    >
-      <source src={src} type="video/mp4" />
-    </video>
-  );
-}
-
 export default function Home() {
   const deviceRef = useRef(null);
   const wrapRef = useRef(null);
@@ -87,33 +34,29 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
-  // ▼ Simply ultimate. セクション（動画連動）
+  // ▼ Simply ultimate. セクション用（小見出し sub を追加）
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
-  const videoRefs = useRef({}); // { tap: HTMLVideoElement, stop: HTMLVideoElement, wrap: HTMLVideoElement }
-
   const steps = [
     {
       key: "tap",
       label: "Tap",
+      img: "/images/demo-tap.png",
       sub: "Tap to start recording.",
-      src: "/videos/Recording1.mp4", // ← public/videos に配置
     },
     {
       key: "stop",
       label: "Stop",
+      img: "/images/demo-stop.png",
       sub: "Stop when you’re done.",
-      src: "/videos/Recording2.mp4",
     },
     {
       key: "wrap",
       label: "Wrap",
+      img: "/images/demo-wrap.png",
       sub: "AI writes the minutes—automatically.",
-      src: "/videos/Recording3.mp4",
     },
   ];
-
-  // キーボード操作で移動
   const idx = steps.findIndex((s) => s.key === active);
   const move = (delta) => {
     const n = (idx + delta + steps.length) % steps.length;
@@ -133,16 +76,7 @@ export default function Home() {
     } else if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
       setActive(steps[idx].key);
-      videoRefs.current[steps[idx].key]?.play?.();
     }
-  };
-
-  // hover/click で確実に play()（Safari の gesture requirement 対策）
-  const activate = (k) => {
-    setActive(k);
-    requestAnimationFrame(() => {
-      videoRefs.current[k]?.play?.().catch(() => {});
-    });
   };
 
   const LINK_MAIN = "https://www.sense-ai.world";
@@ -204,27 +138,27 @@ export default function Home() {
                 <i
                   key={i}
                   style={{
-                    "--i": i,
-                    "--N": 36,
-                    "--spd": `${spd}s`,
-                    "--delay": `${delay}s`,
-                    "--sz": `${size}px`,
-                    "--alpha": alpha,
-                    "--tail": `${tail}px`,
+                    ["--i"]: i,
+                    ["--N"]: 36,
+                    ["--spd"]: `${spd}s`,
+                    ["--delay"]: `${delay}s`,
+                    ["--sz"]: `${size}px`,
+                    ["--alpha"]: alpha,
+                    ["--tail"]: `${tail}px`,
                   }}
                 />
               );
             })}
           </div>
-          <div className="ring" style={{ "--d": "0s" }} />
-          <div className="ring" style={{ "--d": "1.2s" }} />
-          <div className="ring" style={{ "--d": "2.4s" }} />
-          <div className="ring" style={{ "--d": "3.6s" }} />
-          <div className="ring" style={{ "--d": "4.8s" }} />
+          <div className="ring" style={{ ["--d"]: "0s" }} />
+          <div className="ring" style={{ ["--d"]: "1.2s" }} />
+          <div className="ring" style={{ ["--d"]: "2.4s" }} />
+          <div className="ring" style={{ ["--d"]: "3.6s" }} />
+          <div className="ring" style={{ ["--d"]: "4.8s" }} />
           <div className="starsBelt" />
         </div>
 
-        {/* ▼ 球体の下 */}
+        {/* ▼ 球体の下（通常フロー化：スクロールできるように） */}
         <section className="below">
           <div className="line1 sameSize">AI Makes</div>
           <div className="line2 gradText sameSize">Beautiful&nbsp;Minutes</div>
@@ -283,18 +217,15 @@ export default function Home() {
             <div className="simplyGrid">
               {/* 左：タイトル＋3アクション */}
               <div className="simplyLeft">
-                <h2 id="simplyTitle" className="simplyH2">
-                  Simply ultimate.
-                </h2>
+                <h2 id="simplyTitle" className="simplyH2">Simply ultimate.</h2>
 
                 <div
                   className="stepList"
                   role="radiogroup"
                   aria-label="Actions"
                   ref={radioGroupRef}
-                  onKeyDown={onRadioKey}
                 >
-                  {steps.map((s) => {
+                  {steps.map((s, i) => {
                     const checked = active === s.key;
                     return (
                       <button
@@ -303,11 +234,11 @@ export default function Home() {
                         aria-checked={checked}
                         tabIndex={checked ? 0 : -1}
                         className={`stepBtn${checked ? " isActive" : ""}`}
+                        onMouseEnter={() => setActive(s.key)}
+                        onFocus={() => setActive(s.key)}
+                        onKeyDown={onRadioKey}
+                        onClick={() => setActive(s.key)}
                         type="button"
-                        onMouseEnter={() => activate(s.key)}
-                        onFocus={() => activate(s.key)}
-                        onClick={() => activate(s.key)}
-                        onPointerDown={() => activate(s.key)}
                       >
                         <span className="row">
                           <span className="dot" aria-hidden="true" />
@@ -320,14 +251,14 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 右：青い四角の内部に動画を投影（フェード切替） */}
+              {/* 右：モック画面（フェード切替 / 画像は仮） */}
               <div className="simplyRight" aria-live="polite">
                 {steps.map((s) => (
-                  <SimplyVideo
+                  <div
                     key={s.key}
-                    isActive={active === s.key}
-                    src={s.src}
-                    assignRef={(el) => (videoRefs.current[s.key] = el)}
+                    className={`shot${active === s.key ? " isOn" : ""}`}
+                    style={{ ["--img"]: `url(${s.img})`, ["--shotLabel"]: `"${s.label}"` }}
+                    aria-hidden={active !== s.key}
                   />
                 ))}
               </div>
@@ -373,15 +304,13 @@ export default function Home() {
       <footer className="pageFooter" role="contentinfo">
         <div className="footInner">
           <div className="legal">
-            <a href="/terms-of-use" className="legalLink">
-              Terms of Use
-            </a>
+            <a href="/terms-of-use" className="legalLink">Terms of Use</a>
             <span className="sep">·</span>
-            <a href="/privacy-policy" className="legalLink">
-              Privacy Policy
-            </a>
+            <a href="/privacy-policy" className="legalLink">Privacy Policy</a>
           </div>
-          <div className="copyright">&copy; Sense LLC All Rights Reserved</div>
+          <div className="copyright">
+            &copy; Sense LLC All Rights Reserved
+          </div>
         </div>
       </footer>
 
@@ -410,37 +339,13 @@ export default function Home() {
           overflow: hidden;
           color: #fff;
 
-          background: radial-gradient(
-              130vmax 130vmax at 50% 120%,
-              #10163a 0%,
-              var(--bg-2) 50%,
-              var(--bg-1) 100%
-            ),
-            radial-gradient(
-              1px 1px at 20% 30%,
-              rgba(var(--halo), 0.22) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1px 1px at 80% 20%,
-              rgba(var(--halo), 0.12) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1px 1px at 30% 70%,
-              rgba(var(--halo), 0.14) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1px 1px at 60% 50%,
-              rgba(var(--halo), 0.1) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1px 1px at 75% 80%,
-              rgba(var(--halo), 0.1) 99%,
-              transparent 100%
-            );
+          background:
+            radial-gradient(130vmax 130vmax at 50% 120%, #10163a 0%, var(--bg-2) 50%, var(--bg-1) 100%),
+            radial-gradient(1px 1px at 20% 30%, rgba(var(--halo),0.22) 99%, transparent 100%),
+            radial-gradient(1px 1px at 80% 20%, rgba(var(--halo),0.12) 99%, transparent 100%),
+            radial-gradient(1px 1px at 30% 70%, rgba(var(--halo),0.14) 99%, transparent 100%),
+            radial-gradient(1px 1px at 60% 50%, rgba(var(--halo),0.10) 99%, transparent 100%),
+            radial-gradient(1px 1px at 75% 80%, rgba(var(--halo),0.10) 99%, transparent 100%);
         }
 
         .heroTop {
@@ -453,8 +358,8 @@ export default function Home() {
           font-weight: 800;
           color: #fff;
           font-size: clamp(33.6px, 7.44vw, 103.2px);
-          filter: drop-shadow(0 0 10px rgba(160, 145, 255, 0.35))
-            drop-shadow(0 0 2px rgba(130, 150, 255, 0.2));
+          filter: drop-shadow(0 0 10px rgba(160,145,255,0.35))
+                  drop-shadow(0 0 2px rgba(130,150,255,0.2));
           pointer-events: none;
         }
 
@@ -468,484 +373,143 @@ export default function Home() {
           margin-top: calc(60vh + (var(--core-size) / 2) + 6vh);
         }
 
-        .sameSize {
-          font-weight: 800;
-          letter-spacing: -0.02em;
-          line-height: 1.06;
-          font-size: clamp(33.6px, 7.44vw, 103.2px);
-          margin: 0;
-        }
-        .line1 {
-          color: #fff;
-        }
-        .line2 {
-          margin-top: 8px;
-        }
+        .sameSize { font-weight: 800; letter-spacing: -0.02em; line-height: 1.06;
+          font-size: clamp(33.6px, 7.44vw, 103.2px); margin: 0; }
+        .line1 { color: #fff; }
+        .line2 { margin-top: 8px; }
 
-        .gradText,
-        .gradDevice {
-          background: linear-gradient(
-            90deg,
-            #65e0c4 0%,
-            #8db4ff 65%,
-            #7cc7ff 100%
-          );
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+        .gradText, .gradDevice {
+          background: linear-gradient(90deg, #65e0c4 0%, #8db4ff 65%, #7cc7ff 100%);
+          -webkit-background-clip: text; background-clip: text; color: transparent;
           -webkit-text-fill-color: transparent;
         }
 
-        .deviceStage {
-          pointer-events: auto;
-          margin: clamp(16px, 5vh, 44px) auto 0;
-          width: min(calc(94vw * 0.8), 1024px);
-        }
+        .deviceStage { pointer-events: auto; margin: clamp(16px, 5vh, 44px) auto 0;
+          width: min(calc(94vw * 0.8), 1024px); }
 
         .deviceGlass {
-          --glassA: 36, 48, 72;
-          --glassB: 56, 78, 96;
-          position: relative;
-          width: 100%;
-          aspect-ratio: 4 / 3;
-          border-radius: clamp(22px, 3.2vmax, 44px);
-          overflow: hidden;
-          background: linear-gradient(
-            180deg,
-            rgba(var(--glassA), 0.55) 0%,
-            rgba(var(--glassB), 0.5) 100%
-          );
-          -webkit-backdrop-filter: blur(18px) saturate(120%);
-          backdrop-filter: blur(18px) saturate(120%);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          box-shadow: 0 30px 90px rgba(10, 20, 60, 0.35),
-            0 12px 26px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.18),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+          --glassA: 36, 48, 72; --glassB: 56, 78, 96;
+          position: relative; width: 100%; aspect-ratio: 4 / 3;
+          border-radius: clamp(22px, 3.2vmax, 44px); overflow: hidden;
+          background: linear-gradient(180deg, rgba(var(--glassA),0.55) 0%, rgba(var(--glassB),0.50) 100%);
+          -webkit-backdrop-filter: blur(18px) saturate(120%); backdrop-filter: blur(18px) saturate(120%);
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: 0 30px 90px rgba(10,20,60,0.35), 0 12px 26px rgba(0,0,0,0.30),
+            inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.20);
         }
-        .deviceGlass::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-radius: inherit;
-          background: radial-gradient(
-              140% 100% at 12% -10%,
-              rgba(255, 255, 255, 0.1) 0%,
-              rgba(255, 255, 255, 0.04) 36%,
-              rgba(255, 255, 255, 0) 60%
-            ),
-            linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0.06) 0%,
-              rgba(255, 255, 255, 0) 40%
-            );
-          mix-blend-mode: screen;
-          pointer-events: none;
+        .deviceGlass::before { content:""; position:absolute; inset:0; border-radius:inherit;
+          background: radial-gradient(140% 100% at 12% -10%, rgba(255,255,255,0.10) 0%,
+            rgba(255,255,255,0.04) 36%, rgba(255,255,255,0.00) 60%),
+            linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.00) 40%);
+          mix-blend-mode: screen; pointer-events: none; }
+        .deviceGlass::after { content:""; position:absolute; inset:0; border-radius:inherit;
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05), inset 0 0 60px rgba(0,0,0,0.24);
+          pointer-events:none; }
+
+        .minutesWrap{ position:absolute; inset:0; box-sizing:border-box;
+          padding: clamp(14px, 3vw, 28px); color: rgba(255,255,255,0.92);
+          line-height: 1.55; text-align: left !important; overflow: hidden; pointer-events: none;
+          clip-path: inset(100% 0 0 0); transform: translateY(8%); opacity: 0.001;
+          -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
         }
-        .deviceGlass::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-radius: inherit;
-          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-            inset 0 0 60px rgba(0, 0, 0, 0.24);
-          pointer-events: none;
+        .minutesWrap.inview{ animation: fullReveal 900ms cubic-bezier(0.16,0.66,0.38,1) forwards; }
+        @keyframes fullReveal{
+          0% { clip-path: inset(100% 0 0 0); transform: translateY(12%); opacity: 0.001; }
+          60%{ clip-path: inset(0 0 0 0);    transform: translateY(0%);   opacity: 1; }
+          100%{clip-path: inset(0 0 0 0);    transform: translateY(0%);   opacity: 1; }
         }
 
-        .minutesWrap {
-          position: absolute;
-          inset: 0;
-          box-sizing: border-box;
-          padding: clamp(14px, 3vw, 28px);
-          color: rgba(255, 255, 255, 0.92);
-          line-height: 1.55;
-          text-align: left !important;
-          overflow: hidden;
-          pointer-events: none;
-          clip-path: inset(100% 0 0 0);
-          transform: translateY(8%);
-          opacity: 0.001;
-          -webkit-mask-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 1) 20%,
-            rgba(0, 0, 0, 0) 100%
-          );
-          mask-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 1) 20%,
-            rgba(0, 0, 0, 0) 100%
-          );
-        }
-        .minutesWrap.inview {
-          animation: fullReveal 900ms cubic-bezier(0.16, 0.66, 0.38, 1) forwards;
-        }
-        @keyframes fullReveal {
-          0% {
-            clip-path: inset(100% 0 0 0);
-            transform: translateY(12%);
-            opacity: 0.001;
-          }
-          60% {
-            clip-path: inset(0 0 0 0);
-            transform: translateY(0%);
-            opacity: 1;
-          }
-          100% {
-            clip-path: inset(0 0 0 0);
-            transform: translateY(0%);
-            opacity: 1;
-          }
-        }
+        .mtitle{ font-weight: 800; letter-spacing: -0.01em; font-size: clamp(36px, 4.2vw, 56px); margin: 0 0 6px 0; }
+        .mdate{ font-weight: 600; opacity: 0.85; font-size: clamp(26px, 2.7vw, 32px); margin-bottom: clamp(12px, 1.6vw, 16px); }
+        .mhr{ height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08));
+          margin: clamp(10px, 1.8vw, 18px) 0; }
+        .mhead{ font-weight: 800; font-size: clamp(28px, 3vw, 36px); margin: clamp(10px, 1.6vw, 16px) 0 8px 0; }
 
-        .mtitle {
-          font-weight: 800;
-          letter-spacing: -0.01em;
-          font-size: clamp(36px, 4.2vw, 56px);
-          margin: 0 0 6px 0;
-        }
-        .mdate {
-          font-weight: 600;
-          opacity: 0.85;
-          font-size: clamp(26px, 2.7vw, 32px);
-          margin-bottom: clamp(12px, 1.6vw, 16px);
-        }
-        .mhr {
-          height: 1px;
-          background: linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.22),
-            rgba(255, 255, 255, 0.08)
-          );
-          margin: clamp(10px, 1.8vw, 18px) 0;
-        }
-        .mhead {
-          font-weight: 800;
-          font-size: clamp(28px, 3vw, 36px);
-          margin: clamp(10px, 1.6vw, 16px) 0 8px 0;
-        }
+        .minutesFlow > * { opacity: 0; transform: translateY(18px); }
+        .minutesWrap.inview .minutesFlow > * { animation: rise 700ms cubic-bezier(0.16,0.66,0.38,1) forwards; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(1) { animation-delay: 80ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(2) { animation-delay: 150ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(3) { animation-delay: 220ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(4) { animation-delay: 290ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(5) { animation-delay: 360ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(6) { animation-delay: 430ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(7) { animation-delay: 500ms; }
+        @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
-        .minutesFlow > * {
-          opacity: 0;
-          transform: translateY(18px);
-        }
-        .minutesWrap.inview .minutesFlow > * {
-          animation: rise 700ms cubic-bezier(0.16, 0.66, 0.38, 1) forwards;
-        }
-        .minutesWrap.inview .minutesFlow > *:nth-child(1) {
-          animation-delay: 80ms;
-        }
-        .minutesWrap.inview .minutesFlow > *:nth-child(2) {
-          animation-delay: 150ms;
-        }
-        .minutesWrap.inview .minutesFlow > *:nth-child(3) {
-          animation-delay: 220ms;
-        }
-        .minutesWrap.inview .minutesFlow > *:nth-child(4) {
-          animation-delay: 290ms;
-        }
-        .minutesWrap.inview .minutesFlow > *:nth-child(5) {
-          animation-delay: 360ms;
-        }
-        .minutesWrap.inview .minutesFlow > *:nth-child(6) {
-          animation-delay: 430ms;
-        }
-        .minutesWrap.inview .minutesFlow > *:nth-child(7) {
-          animation-delay: 500ms;
-        }
-        @keyframes rise {
-          from {
-            opacity: 0;
-            transform: translateY(18px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+        .fline{ font-weight: 700; font-size: clamp(24px, 2.5vw, 30px); margin: 0 0 clamp(16px, 2.4vw, 22px) 0; }
 
-        .fline {
-          font-weight: 700;
-          font-size: clamp(24px, 2.5vw, 30px);
-          margin: 0 0 clamp(16px, 2.4vw, 22px) 0;
-        }
+        .space { position:absolute; inset:-20vmin;
+          background: radial-gradient(closest-side, transparent 56%, rgba(var(--halo),0.05) 57%, transparent 58%) center/120vmin 120vmin no-repeat;
+          filter: blur(0.4px); opacity: 0.35; }
 
-        .space {
-          position: absolute;
-          inset: -20vmin;
-          background: radial-gradient(
-              closest-side,
-              transparent 56%,
-              rgba(var(--halo), 0.05) 57%,
-              transparent 58%
-            )
-            center/120vmin 120vmin no-repeat;
-          filter: blur(0.4px);
-          opacity: 0.35;
-        }
+        .core { position:absolute; left:50%; top:60vh; transform: translate(-50%, -50%);
+          width: var(--core-size); height: var(--core-size); border-radius: 50%; pointer-events: none; z-index: 1; }
 
-        .core {
-          position: absolute;
-          left: 50%;
-          top: 60vh;
-          transform: translate(-50%, -50%);
-          width: var(--core-size);
-          height: var(--core-size);
-          border-radius: 50%;
-          pointer-events: none;
-          z-index: 1;
-        }
+        .coreGlow { position:absolute; inset:0; border-radius:50%;
+          background: radial-gradient(circle at 50% 50%, rgba(var(--halo),1) 0%,
+            rgba(242,238,255,0.98) 8%, rgba(206,196,255,0.92) 18%, rgba(178,164,255,0.80) 32%,
+            rgba(131,146,255,0.58) 48%, rgba(92,118,255,0.38) 62%, rgba(55,88,255,0.22) 72%, rgba(0,0,0,0) 78%);
+          filter: blur(10px) saturate(125%) contrast(105%); animation: breathe 6s ease-in-out infinite; }
 
-        .coreGlow {
-          position: absolute;
-          inset: 0;
-          border-radius: 50%;
-          background: radial-gradient(
-            circle at 50% 50%,
-            rgba(var(--halo), 1) 0%,
-            rgba(242, 238, 255, 0.98) 8%,
-            rgba(206, 196, 255, 0.92) 18%,
-            rgba(178, 164, 255, 0.8) 32%,
-            rgba(131, 146, 255, 0.58) 48%,
-            rgba(92, 118, 255, 0.38) 62%,
-            rgba(55, 88, 255, 0.22) 72%,
-            rgba(0, 0, 0, 0) 78%
-          );
-          filter: blur(10px) saturate(125%) contrast(105%);
-          animation: breathe 6s ease-in-out infinite;
-        }
+        .shine { position:absolute; inset:0; border-radius:50%;
+          background: radial-gradient(60% 18% at 50% 50%, rgba(var(--halo),0.95) 0%, rgba(var(--halo),0) 100%),
+                      radial-gradient(28% 10% at 50% 50%, rgba(var(--halo),0.85) 0%, rgba(var(--halo),0) 100%);
+          mix-blend-mode: screen; filter: blur(6px); opacity: 0.7; animation: breathe 6s ease-in-out infinite reverse; }
 
-        .shine {
-          position: absolute;
-          inset: 0;
-          border-radius: 50%;
-          background: radial-gradient(
-              60% 18% at 50% 50%,
-              rgba(var(--halo), 0.95) 0%,
-              rgba(var(--halo), 0) 100%
-            ),
-            radial-gradient(
-              28% 10% at 50% 50%,
-              rgba(var(--halo), 0.85) 0%,
-              rgba(var(--halo), 0) 100%
-            );
-          mix-blend-mode: screen;
-          filter: blur(6px);
-          opacity: 0.7;
-          animation: breathe 6s ease-in-out infinite reverse;
-        }
+        .orbits { position:absolute; inset:-3%; border-radius:50%;
+          background: radial-gradient(closest-side, rgba(255,255,255,0.04) 55%, transparent 56%) center/100% 100% no-repeat;
+          mix-blend-mode: screen; filter: blur(0.5px); opacity: 0.45; }
 
-        .orbits {
-          position: absolute;
-          inset: -3%;
-          border-radius: 50%;
-          background: radial-gradient(
-              closest-side,
-              rgba(255, 255, 255, 0.04) 55%,
-              transparent 56%
-            )
-            center/100% 100% no-repeat;
-          mix-blend-mode: screen;
-          filter: blur(0.5px);
-          opacity: 0.45;
-        }
-
-        .starEmitter {
-          position: absolute;
-          inset: 0;
-          border-radius: 50%;
-          pointer-events: none;
-          z-index: 2;
-          --N: 36;
-          --emit-radius: calc(var(--core-size) * 0.96);
-        }
-        .starEmitter i {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: var(--sz, 1.4px);
-          height: var(--sz, 1.4px);
-          border-radius: 50%;
-          background: radial-gradient(
-            circle,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.65) 60%,
-            rgba(255, 255, 255, 0) 70%
-          );
-          box-shadow: 0 0 6px rgba(180, 200, 255, 0.55);
-          opacity: 0;
-          mix-blend-mode: screen;
-          backface-visibility: hidden;
-          will-change: transform, opacity;
-          --a: calc(360deg * (var(--i) / var(--N)));
-          transform: rotate(var(--a)) translateX(0) scale(1);
-          animation: shoot var(--spd, 2.8s) linear infinite;
-          animation-delay: var(--delay, 0s);
-        }
-        .starEmitter i::after {
-          content: "";
-          position: absolute;
-          left: calc(-1 * var(--tail, 28px));
-          top: 50%;
-          transform: translateY(-50%);
-          width: var(--tail, 28px);
-          height: 1px;
-          background: linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.85),
-            rgba(255, 255, 255, 0)
-          );
-          filter: blur(0.6px);
-          opacity: calc(var(--alpha, 0.8) * 0.7);
-          pointer-events: none;
-        }
+        .starEmitter { position:absolute; inset:0; border-radius:50%; pointer-events:none; z-index:2; --N:36; --emit-radius: calc(var(--core-size) * 0.96); }
+        .starEmitter i { position:absolute; left:50%; top:50%; width:var(--sz,1.4px); height:var(--sz,1.4px); border-radius:50%;
+          background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0) 70%);
+          box-shadow: 0 0 6px rgba(180,200,255,0.55); opacity:0; mix-blend-mode: screen; backface-visibility:hidden;
+          will-change: transform, opacity; --a: calc(360deg * (var(--i) / var(--N)));
+          transform: rotate(var(--a)) translateX(0) scale(1); animation: shoot var(--spd,2.8s) linear infinite;
+          animation-delay: var(--delay,0s); }
+        .starEmitter i::after { content:""; position:absolute; left: calc(-1 * var(--tail,28px)); top:50%;
+          transform: translateY(-50%); width: var(--tail,28px); height:1px;
+          background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0));
+          filter: blur(0.6px); opacity: calc(var(--alpha,0.8) * 0.7); pointer-events:none; }
         @keyframes shoot {
-          0% {
-            transform: rotate(var(--a)) translateX(0) scale(1);
-            opacity: 0;
-          }
-          8% {
-            opacity: var(--alpha, 0.9);
-          }
-          60% {
-            transform: rotate(var(--a))
-              translateX(calc(var(--emit-radius) * 0.66)) scale(0.9);
-            opacity: calc(var(--alpha, 0.9) * 0.5);
-          }
-          100% {
-            transform: rotate(var(--a)) translateX(var(--emit-radius)) scale(0.82);
-            opacity: 0;
-          }
+          0%   { transform: rotate(var(--a)) translateX(0) scale(1); opacity: 0; }
+          8%   { opacity: var(--alpha, 0.9); }
+          60%  { transform: rotate(var(--a)) translateX(calc(var(--emit-radius) * 0.66)) scale(0.9); opacity: calc(var(--alpha, 0.9) * 0.5); }
+          100% { transform: rotate(var(--a)) translateX(var(--emit-radius)) scale(0.82); opacity: 0; }
         }
 
-        .ring {
-          --size: calc(var(--core-size) * 0.82);
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%) scale(var(--ring-start-scale));
-          width: var(--size);
-          height: var(--size);
-          border-radius: 50%;
-          box-shadow: 0 0 42px rgba(188, 166, 255, 0.45),
-            inset 0 0 38px rgba(107, 134, 255, 0.28);
-          background: radial-gradient(
-            circle at 50% 50%,
-            rgba(255, 255, 255, 0.95) 0%,
-            rgba(188, 166, 255, 0.55) 30%,
-            rgba(120, 140, 255, 0.22) 52%,
-            rgba(0, 0, 0, 0) 62%
-          );
-          filter: blur(0.25px);
-          opacity: 0.9;
-          animation: ripple var(--ripple-period)
-            cubic-bezier(0.16, 0.66, 0.38, 1) infinite;
-          animation-delay: var(--d);
-        }
+        .ring { --size: calc(var(--core-size) * 0.82); position:absolute; left:50%; top:50%;
+          transform: translate(-50%, -50%) scale(var(--ring-start-scale)); width:var(--size); height:var(--size); border-radius:50%;
+          box-shadow: 0 0 42px rgba(188,166,255,0.45), inset 0 0 38px rgba(107,134,255,0.28);
+          background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(188,166,255,0.55) 30%, rgba(120,140,255,0.22) 52%, rgba(0,0,0,0) 62%);
+          filter: blur(0.25px); opacity: 0.9;
+          animation: ripple var(--ripple-period) cubic-bezier(0.16,0.66,0.38,1) infinite; animation-delay: var(--d); }
 
-        .starsBelt {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: calc(var(--core-size) * 1.06);
-          height: calc(var(--core-size) * 1.06);
-          border-radius: 50%;
-          pointer-events: none;
-          mix-blend-mode: screen;
-          opacity: 0.55;
-          background: radial-gradient(
-              1.2px 1.2px at 12% 18%,
-              rgba(255, 255, 255, 0.95) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 22% 36%,
-              rgba(255, 255, 255, 0.85) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 32% 64%,
-              rgba(255, 255, 255, 0.9) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 44% 26%,
-              rgba(255, 255, 255, 0.8) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 58% 72%,
-              rgba(255, 255, 255, 0.75) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 66% 40%,
-              rgba(255, 255, 255, 0.85) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 74% 58%,
-              rgba(255, 255, 255, 0.9) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 82% 30%,
-              rgba(255, 255, 255, 0.8) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 16% 76%,
-              rgba(255, 255, 255, 0.85) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 88% 64%,
-              rgba(255, 255, 255, 0.75) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 38% 86%,
-              rgba(255, 255, 255, 0.9) 99%,
-              transparent 100%
-            ),
-            radial-gradient(
-              1.2px 1.2px at 70% 86%,
-              rgba(255, 255, 255, 0.8) 99%,
-              transparent 100%
-            );
-          -webkit-mask: radial-gradient(
-            circle at 50% 50%,
-            transparent 0 62%,
-            #fff 64% 70%,
-            transparent 72% 100%
-          );
-          mask: radial-gradient(
-            circle at 50% 50%,
-            transparent 0 62%,
-            #fff 64% 70%,
-            transparent 72% 100%
-          );
-          animation: twinkle 4s ease-in-out infinite alternate;
-        }
+        .starsBelt { position:absolute; left:50%; top:50%; transform: translate(-50%, -50%);
+          width: calc(var(--core-size) * 1.06); height: calc(var(--core-size) * 1.06); border-radius:50%; pointer-events:none;
+          mix-blend-mode: screen; opacity: 0.55;
+          background:
+            radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,0.95) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 22% 36%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 32% 64%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 44% 26%, rgba(255,255,255,0.8) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 58% 72%, rgba(255,255,255,0.75) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 66% 40%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 74% 58%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 82% 30%, rgba(255,255,255,0.8) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 16% 76%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 88% 64%, rgba(255,255,255,0.75) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 38% 86%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 70% 86%, rgba(255,255,255,0.8) 99%, transparent 100%);
+          -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
+          mask: radial-gradient(circle at 50% 50%, transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
+          animation: twinkle 4s ease-in-out infinite alternate; }
 
-        .reflection {
-          position: absolute;
-          left: 50%;
-          bottom: 0;
-          transform: translateX(-50%);
-          width: 200vmax;
-          height: 40vh;
-          background: radial-gradient(
-            120vmin 60% at 50% 0%,
-            rgba(140, 150, 255, 0.28) 0%,
-            rgba(140, 150, 255, 0.1) 40%,
-            transparent 75%
-          );
-          filter: blur(14px);
-          opacity: 0.7;
-        }
+        .reflection { position:absolute; left:50%; bottom:0; transform: translateX(-50%);
+          width: 200vmax; height: 40vh;
+          background: radial-gradient(120vmin 60% at 50% 0%, rgba(140,150,255,0.28) 0%, rgba(140,150,255,0.10) 40%, transparent 75%);
+          filter: blur(14px); opacity: 0.7; }
 
         /* CTA */
         .ctaBig {
@@ -959,90 +523,58 @@ export default function Home() {
           text-decoration: none;
           font-weight: 700;
           box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-            0 8px 24px rgba(0, 0, 0, 0.25);
+                      0 8px 24px rgba(0, 0, 0, 0.25);
           margin: clamp(16px, 3.5vh, 28px) auto 0;
         }
 
         /* ===== Simply ultimate. ===== */
-        .simply {
-          margin: clamp(28px, 8vh, 80px) auto;
-          padding: 0 22px;
-          max-width: 1200px;
-        }
+        .simply { margin: clamp(28px, 8vh, 80px) auto; padding: 0 22px; max-width: 1200px; }
         .simplyGrid {
           display: grid;
           grid-template-columns: 0.9fr 1.1fr;
           align-items: center;
           gap: clamp(16px, 3.5vw, 36px);
         }
-        .simplyLeft {
-          text-align: left;
-        }
+        .simplyLeft { text-align: left; }
+        /* ① 「Simply ultimate.」を最大に */
         .simplyH2 {
           margin: 0 0 12px 0;
           font-weight: 900;
           letter-spacing: -0.02em;
           line-height: 1.02;
-          font-size: clamp(33.6px, 7.44vw, 103.2px);
+          font-size: clamp(48px, 9vw, 128px);
           color: #fff;
         }
-        .stepList {
-          display: flex;
-          flex-direction: column;
-          gap: clamp(4px, 1vh, 8px);
-        }
+        .stepList { display: flex; flex-direction: column; gap: clamp(4px, 1vh, 8px); }
         .stepBtn {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          background: transparent;
-          border: 0;
-          padding: 12px 10px;
-          cursor: pointer;
-          text-align: left;
-          border-radius: 14px;
+          display: flex; flex-direction: column; align-items: flex-start;
+          background: transparent; border: 0; padding: 12px 10px;
+          cursor: pointer; text-align: left; border-radius: 14px;
           transition: background 200ms ease, transform 200ms ease;
         }
-        .stepBtn:hover {
-          background: rgba(255, 255, 255, 0.05);
-          transform: translateY(-1px);
-        }
-        .stepBtn:focus-visible {
-          outline: 2px solid rgba(140, 170, 255, 0.8);
-          outline-offset: 2px;
-        }
-        .stepBtn .row {
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-        }
+        .stepBtn:hover { background: rgba(255,255,255,0.05); transform: translateY(-1px); }
+        .stepBtn:focus-visible { outline: 2px solid rgba(140,170,255,0.8); outline-offset: 2px; }
+        .stepBtn .row { display: inline-flex; align-items: center; gap: 12px; }
         .stepBtn .dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
-          background: rgba(255, 255, 255, 0.35);
+          width: 10px; height: 10px; border-radius: 50%;
+          box-shadow: 0 0 0 2px rgba(255,255,255,0.2) inset;
+          background: rgba(255,255,255,0.35);
           transform: scale(0.9);
         }
-        .stepBtn.isActive .dot {
-          background: linear-gradient(90deg, #65e0c4, #8db4ff);
-          transform: scale(1);
-        }
+        .stepBtn.isActive .dot { background: linear-gradient(90deg,#65e0c4,#8db4ff); transform: scale(1); }
+        /* ① Tap/Stop/Wrap は一段下げたサイズに */
         .stepBtn .lbl {
-          font-weight: 900;
-          letter-spacing: -0.02em;
-          line-height: 1.02;
-          font-size: clamp(28px, 6vw, 64px);
-          color: #eaf4f7;
+          font-weight: 900; letter-spacing: -0.02em; line-height: 1.02;
+          font-size: clamp(28px, 6vw, 64px); color: #eaf4f7;
+          -webkit-text-fill-color: currentColor;
         }
         .stepBtn.isActive .lbl,
         .stepBtn:hover .lbl {
           background: linear-gradient(90deg, #65e0c4, #8db4ff 65%, #7cc7ff);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+          -webkit-background-clip: text; background-clip: text; color: transparent;
           -webkit-text-fill-color: transparent;
         }
+        /* ② 小見出し */
         .stepBtn .sub {
           margin-left: 22px;
           margin-top: 4px;
@@ -1053,48 +585,36 @@ export default function Home() {
           font-size: clamp(14px, 1.8vw, 18px);
         }
         .stepBtn.isActive .sub,
-        .stepBtn:hover .sub {
-          color: #eaf6ff;
-        }
+        .stepBtn:hover .sub { color: #eaf6ff; }
 
         .simplyRight {
           position: relative;
           border-radius: clamp(18px, 2.2vmax, 28px);
           min-height: 340px;
-          aspect-ratio: 16 / 9; /* 動画の実寸に揃える */
+          aspect-ratio: 16 / 11;
           overflow: hidden;
-          background: linear-gradient(
-            180deg,
-            rgba(36, 48, 72, 0.55) 0%,
-            rgba(56, 78, 96, 0.5) 100%
-          );
-          -webkit-backdrop-filter: blur(14px) saturate(120%);
-          backdrop-filter: blur(14px) saturate(120%);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35),
-            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+          background: linear-gradient(180deg, rgba(36,48,72,0.55) 0%, rgba(56,78,96,0.50) 100%);
+          -webkit-backdrop-filter: blur(14px) saturate(120%); backdrop-filter: blur(14px) saturate(120%);
+          border: 1px solid rgba(255,255,255,0.10);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
         }
-        .simplyVideo {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;     /* 左上拡大を防ぎ、全体表示 */
-          object-position: center; /* 中央固定 */
-          opacity: 0;
-          transition: opacity 260ms ease;
-          pointer-events: none;
-          background: transparent;
+        .shot {
+          position: absolute; inset: 0; opacity: 0; transition: opacity 320ms ease;
+          background-image:
+            var(--img),
+            radial-gradient(140% 100% at 12% -10%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 60%);
+          background-size: cover; background-position: center;
         }
-        .simplyVideo.isOn {
-          opacity: 1;
+        .shot::after {
+          content: var(--shotLabel);
+          position: absolute; left: 14px; top: 12px;
+          font-weight: 800; font-size: 14px; letter-spacing: 0.6px;
+          padding: 6px 10px; border-radius: 999px;
+          background: rgba(20,40,60,0.65);
+          border: 1px solid rgba(255,255,255,0.10);
+          color: #eaf4f7;
         }
-
-        @media (prefers-reduced-motion: reduce) {
-          .simplyVideo {
-            transition: none;
-          }
-        }
+        .shot.isOn { opacity: 1; }
 
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
@@ -1130,133 +650,59 @@ export default function Home() {
           gap: 8px;
           padding: 12px 20px;
           border-radius: 999px;
-          background: rgba(20, 40, 60, 0.8);
+          background: rgba(20,40,60,0.8);
           color: #eaf4f7;
           text-decoration: none;
           font-weight: 800;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255,255,255,0.08);
           -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
         }
-        .promoCta:hover {
-          background: rgba(20, 40, 60, 0.92);
-        }
-        .promoVisual {
-          display: flex;
-          justify-content: center;
-        }
+        .promoCta:hover { background: rgba(20,40,60,0.92); }
+        .promoVisual { display: flex; justify-content: center; }
         .promoVisual img {
           width: 100%;
           max-width: 560px;
           height: auto;
           display: block;
           border-radius: 22px;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
-        @keyframes breathe {
-          0% {
-            transform: scale(1);
-            filter: blur(10px) saturate(125%) contrast(105%);
-          }
-          50% {
-            transform: scale(1.02);
-            filter: blur(12px) saturate(140%) contrast(110%);
-          }
-          100% {
-            transform: scale(1);
-            filter: blur(10px) saturate(125%) contrast(105%);
-          }
-        }
-        @keyframes ripple {
-          0% {
-            transform: translate(-50%, -50%) scale(var(--ring-start-scale));
-            opacity: 0.9;
-          }
-          70% {
-            opacity: 0.22;
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(var(--ring-end-scale));
-            opacity: 0;
-          }
-        }
-        @keyframes twinkle {
-          from {
-            opacity: 0.45;
-          }
-          to {
-            opacity: 0.85;
-          }
-        }
+        @keyframes breathe { 0%,100%{ transform: scale(1); filter: blur(10px) saturate(125%) contrast(105%);}
+                             50%{ transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%);} }
+        @keyframes ripple { 0%{ transform: translate(-50%,-50%) scale(var(--ring-start-scale)); opacity:0.9;}
+                            70%{ opacity:0.22;} 100%{ transform: translate(-50%,-50%) scale(var(--ring-end-scale)); opacity:0;} }
+        @keyframes twinkle { from{opacity:0.45;} to{opacity:0.85;} }
 
         @media (prefers-reduced-motion: reduce) {
-          .minutesWrap,
-          .minutesWrap.inview,
-          .minutesFlow > *,
-          .minutesWrap.inview .minutesFlow > * {
-            animation: none !important;
-            transition: none !important;
-            clip-path: inset(0 0 0 0) !important;
-            transform: none !important;
-            opacity: 1 !important;
+          .minutesWrap, .minutesWrap.inview, .minutesFlow > *, .minutesWrap.inview .minutesFlow > * {
+            animation: none !important; transition: none !important; clip-path: inset(0 0 0 0) !important;
+            transform: none !important; opacity: 1 !important;
           }
         }
 
         @media (max-width: 1024px) {
-          .simplyGrid {
-            grid-template-columns: 1fr;
-          }
-          .simplyRight {
-            order: -1;
-            margin-bottom: 10px;
-          }
+          .simplyGrid { grid-template-columns: 1fr; }
+          .simplyRight { order: -1; margin-bottom: 10px; }
         }
         @media (max-width: 900px) {
-          .promoGrid {
-            grid-template-columns: 1fr;
-            gap: 18px;
-          }
-          .promoVisual {
-            order: -1;
-          }
+          .promoGrid { grid-template-columns: 1fr; gap: 18px; }
+          .promoVisual { order: -1; }
         }
         @media (max-width: 640px) {
-          .scene {
-            --core-size: clamp(320px, 86vmin, 80vh);
-            padding-bottom: 28vh;
-          }
-          .heroTop {
-            font-size: clamp(26.4px, 8.88vw, 72px);
-          }
-          .sameSize {
-            font-size: clamp(26.4px, 8.88vw, 72px);
-          }
-          .deviceStage {
-            width: min(calc(92vw * 0.8), 416px);
-          }
-          .deviceGlass {
-            aspect-ratio: 9 / 19.5;
-            border-radius: clamp(26px, 7.5vw, 40px);
-          }
-          .mtitle {
-            font-size: clamp(32px, 10.4vw, 44px);
-          }
-          .mdate {
-            font-size: clamp(24px, 7.6vw, 30px);
-          }
-          .mhead {
-            font-size: clamp(26px, 8.4vw, 34px);
-          }
-          .fline {
-            font-size: clamp(24px, 7.6vw, 30px);
-          }
-          .stepBtn .lbl {
-            font-size: clamp(26px, 10.5vw, 52px);
-          }
-          .stepBtn .sub {
-            font-size: clamp(13px, 3.7vw, 16px);
-          }
+          .scene { --core-size: clamp(320px, 86vmin, 80vh);
+            padding-bottom: 28vh; }
+          .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); }
+          .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
+          .deviceStage { width: min(calc(92vw * 0.8), 416px); }
+          .deviceGlass { aspect-ratio: 9 / 19.5; border-radius: clamp(26px, 7.5vw, 40px); }
+          .mtitle { font-size: clamp(32px, 10.4vw, 44px); }
+          .mdate  { font-size: clamp(24px, 7.6vw, 30px); }
+          .mhead  { font-size: clamp(26px, 8.4vw, 34px); }
+          .fline  { font-size: clamp(24px, 7.6vw, 30px); }
+          .stepBtn .lbl { font-size: clamp(26px, 10.5vw, 52px); }
+          .stepBtn .sub { font-size: clamp(13px, 3.7vw, 16px); }
         }
       `}</style>
 
@@ -1265,33 +711,25 @@ export default function Home() {
           --header-h: clamp(56px, 7.2vh, 72px);
           --header-py: 10px;
           --header-offset: calc(
-            var(--header-h) + env(safe-area-inset-top, 0px) +
-              (var(--header-py) * 2)
+            var(--header-h)
+            + env(safe-area-inset-top, 0px)
+            + (var(--header-py) * 2)
           );
         }
 
         header.top {
           position: fixed;
-          left: 0;
-          right: 0;
-          top: 0;
+          left: 0; right: 0; top: 0;
           z-index: 2147483647;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+          display: flex; justify-content: space-between; align-items: center;
 
           height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
-          padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px
-            var(--header-py);
+          padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px var(--header-py);
 
           -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
-          background: linear-gradient(
-            180deg,
-            rgba(10, 14, 28, 0.75) 0%,
-            rgba(10, 14, 28, 0.45) 100%
-          );
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          background: linear-gradient(180deg, rgba(10,14,28,0.75) 0%, rgba(10,14,28,0.45) 100%);
+          border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
         header.top .brand {
@@ -1302,31 +740,20 @@ export default function Home() {
           color: #b6eaff;
         }
         header.top .brandText {
-          font-weight: 800;
-          font-size: 24px;
-          letter-spacing: 0.2px;
+          font-weight: 800; font-size: 24px; letter-spacing: 0.2px;
         }
         header.top .brand .ai {
           background: linear-gradient(90deg, #7cc7ff, #65e0c4);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+          -webkit-background-clip: text; background-clip: text; color: transparent;
         }
-        header.top .brand .brandIcon {
-          width: 26px;
-          height: 26px;
-          display: inline-flex;
-        }
+        header.top .brand .brandIcon { width: 26px; height: 26px; display: inline-flex; }
 
         header.top .nav {
-          background: rgba(20, 40, 60, 0.7);
+          background: rgba(20,40,60,0.7);
           -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
-          padding: 10px 18px;
-          border-radius: 999px;
-          display: flex;
-          align-items: center;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 10px 18px; border-radius: 999px; display: flex; align-items: center;
+          border: 1px solid rgba(255,255,255,0.08);
         }
         header.top .navLink,
         header.top .navLink:visited,
@@ -1334,47 +761,20 @@ export default function Home() {
         header.top .navLink:active {
           color: #eaf4f7 !important;
           text-decoration: none !important;
-          margin: 0 8px;
-          opacity: 0.95;
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          line-height: 1;
+          margin: 0 8px; opacity: 0.95;
+          display: inline-flex; align-items: center; gap: 6px; line-height: 1;
         }
-        header.top .navLink:hover {
-          opacity: 1;
-        }
-        header.top .navText {
-          font-weight: 800;
-          font-size: clamp(14px, 1.6vw, 18px);
-          line-height: 1;
-          display: inline-block;
-        }
+        header.top .navLink:hover { opacity: 1; }
+        header.top .navText { font-weight: 800; font-size: clamp(14px,1.6vw,18px); line-height: 1; display: inline-block; }
         header.top .gradHeader {
-          background: linear-gradient(
-            90deg,
-            #7cc7ff 0%,
-            #8db4ff 35%,
-            #65e0c4 100%
-          );
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+          background: linear-gradient(90deg,#7cc7ff 0%,#8db4ff 35%,#65e0c4 100%);
+          -webkit-background-clip: text; background-clip: text; color: transparent;
         }
-        header.top .apple {
-          font-size: clamp(14px, 1.55vw, 17px);
-          line-height: 1;
-          transform: translateY(1px);
-          color: #eaf4f7;
-        }
+        header.top .apple { font-size: clamp(14px,1.55vw,17px); line-height: 1; transform: translateY(1px); color: #eaf4f7; }
 
         @supports not (backdrop-filter: blur(12px)) {
-          header.top {
-            background: rgba(10, 14, 28, 0.92);
-          }
-          header.top .nav {
-            background: rgba(20, 40, 60, 0.92);
-          }
+          header.top { background: rgba(10,14,28,0.92); }
+          header.top .nav { background: rgba(20,40,60,0.92); }
         }
       `}</style>
 
@@ -1383,12 +783,8 @@ export default function Home() {
           position: relative;
           z-index: 3;
           padding: 20px 22px 28px;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
-          background: linear-gradient(
-            0deg,
-            rgba(10, 14, 28, 0.6) 0%,
-            rgba(10, 14, 28, 0.3) 100%
-          );
+          border-top: 1px solid rgba(255,255,255,0.06);
+          background: linear-gradient(0deg, rgba(10,14,28,0.60) 0%, rgba(10,14,28,0.30) 100%);
           color: #eaf4f7;
         }
         .footInner {
@@ -1406,23 +802,15 @@ export default function Home() {
           font-size: 13px;
           opacity: 0.7;
         }
-        .legalLink {
-          color: #ffffff;
-          text-decoration: none;
-        }
-        .sep {
-          opacity: 0.55;
-        }
+        .legalLink { color: #ffffff; text-decoration: none; }
+        .sep { opacity: 0.55; }
         .copyright {
           font-size: 13px;
           opacity: 0.7;
           white-space: nowrap;
         }
         @media (max-width: 640px) {
-          .footInner {
-            flex-direction: column;
-            gap: 8px;
-          }
+          .footInner { flex-direction: column; gap: 8px; }
         }
       `}</style>
     </>
