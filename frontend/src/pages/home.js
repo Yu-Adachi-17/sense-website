@@ -178,8 +178,8 @@ export default function Home() {
             position: relative;
             min-height: 100vh;
 
-            /* ヘッダー高さぶん余白を確保（安全領域込み） */
-            padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+            /* ← ヘッダー“実寸”高さ分（height + 上下padding + safe-area）だけ下げる */
+            padding-top: var(--header-offset);
 
             padding-bottom: calc((var(--core-size) / 2) + 110vh);
             overflow: hidden;
@@ -387,15 +387,27 @@ export default function Home() {
 
         {/* ===== Global styles (header only) ===== */}
         <style jsx global>{`
-          :root { --header-h: clamp(56px, 7.2vh, 72px); }
+          :root {
+            --header-h: clamp(56px, 7.2vh, 72px);     /* ヘッダーの「内容」高さ */
+            --header-py: 10px;                        /* ヘッダー上下padding */
+            /* ヘッダー全体の実寸（内容高さ + 上下padding + safe-area）*/
+            --header-offset: calc(
+              var(--header-h)
+              + env(safe-area-inset-top, 0px)
+              + (var(--header-py) * 2)
+            );
+          }
 
           header.top {
             position: fixed;
             left: 0; right: 0; top: 0;
-            z-index: 2147483647; /* 最上位に固定 */
+            z-index: 2147483647;
             display: flex; justify-content: space-between; align-items: center;
+
+            /* height は content 高さ。padding は別枠で足される点に注意 */
             height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
-            padding: calc(10px + env(safe-area-inset-top, 0px)) 22px 10px;
+            padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px var(--header-py);
+
             -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
             background: linear-gradient(180deg, rgba(10,14,28,0.75) 0%, rgba(10,14,28,0.45) 100%);
@@ -441,6 +453,56 @@ export default function Home() {
           }
         `}</style>
       </main>
+
+      {/* ===== Page Footer ===== */}
+      <footer className="pageFooter" role="contentinfo">
+        <div className="footInner">
+          <div className="legal">
+            <a href="/terms-of-use" className="legalLink">Terms of Use</a>
+            <span className="sep">·</span>
+            <a href="/privacy-policy" className="legalLink">Privacy Policy</a>
+          </div>
+          <div className="copyright">
+            &copy; Sense LLC All Rights Reserved
+          </div>
+        </div>
+      </footer>
+
+      <style jsx>{`
+        .pageFooter {
+          position: relative;
+          z-index: 3;
+          padding: 20px 22px 28px;
+          border-top: 1px solid rgba(255,255,255,0.06);
+          background: linear-gradient(0deg, rgba(10,14,28,0.60) 0%, rgba(10,14,28,0.30) 100%);
+          color: #eaf4f7;
+        }
+        .footInner {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+        }
+        .legal {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          font-size: 13px;
+          opacity: 0.7;
+        }
+        .legalLink { color: #ffffff; text-decoration: none; }
+        .sep { opacity: 0.55; }
+        .copyright {
+          font-size: 13px;
+          opacity: 0.7;
+          white-space: nowrap;
+        }
+        @media (max-width: 640px) {
+          .footInner { flex-direction: column; gap: 8px; }
+        }
+      `}</style>
     </>
   );
 }
