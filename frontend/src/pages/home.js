@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { FaApple } from "react-icons/fa";
+import HomeIcon from "./homeIcon"; // ← 自前アイコンを使用
 
 function FixedHeaderPortal({ children }) {
   const [mounted, setMounted] = useState(false);
@@ -48,20 +49,9 @@ export default function Home() {
       <FixedHeaderPortal>
         <header className="top">
           <a href="/" className="brand" aria-label="Minutes.AI Home">
-            {/* 参考①：左にアイコン */}
+            {/* 自前アイコン（左）。色は currentColor 継承 */}
             <span className="brandIcon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" className="logoSvg" focusable="false">
-                <defs>
-                  <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#7cc7ff" />
-                    <stop offset="100%" stopColor="#65e0c4" />
-                  </linearGradient>
-                </defs>
-                {/* 外側リング */}
-                <circle cx="12" cy="12" r="9" stroke="url(#brandGrad)" strokeWidth="2" fill="none" />
-                {/* 内側の“録音ドット” */}
-                <circle cx="12" cy="12" r="5" fill="url(#brandGrad)" />
-              </svg>
+              <HomeIcon size={26} color="currentColor" />
             </span>
             <span className="brandText">
               Minutes.<span className="ai">AI</span>
@@ -172,7 +162,7 @@ export default function Home() {
               </article>
             </div>
 
-            {/* 参考②：deviceGlass の下に CTA */}
+            {/* deviceGlass の下に CTA（※ユーザー要望済みのまま） */}
             <a href={LINK_MAIN} className="ctaBig" rel="noopener noreferrer">
               Get Started
             </a>
@@ -473,16 +463,16 @@ export default function Home() {
           align-items: center;
           gap: 10px;
           text-decoration: none;
+          color: #b6eaff; /* ← icon とテキストを同色に（currentColor を供給） */
         }
         header.top .brandText {
-          font-weight: 800; font-size: 24px; letter-spacing: 0.2px; color: #b6eaff;
+          font-weight: 800; font-size: 24px; letter-spacing: 0.2px;
         }
         header.top .brand .ai {
           background: linear-gradient(90deg, #7cc7ff, #65e0c4);
           -webkit-background-clip: text; background-clip: text; color: transparent;
         }
         header.top .brand .brandIcon { width: 26px; height: 26px; display: inline-flex; }
-        header.top .brand .logoSvg { width: 26px; height: 26px; display: block; }
 
         header.top .nav {
           background: rgba(20,40,60,0.7);
