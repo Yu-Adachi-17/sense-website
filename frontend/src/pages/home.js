@@ -34,19 +34,33 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
-  // ▼ Simply ultimate. セクション用
+  // ▼ Simply ultimate. セクション用（小見出し sub を追加）
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
   const steps = [
-    { key: "tap", label: "Tap", img: "/images/demo-tap.png" },
-    { key: "stop", label: "Stop", img: "/images/demo-stop.png" },
-    { key: "wrap", label: "Wrap", img: "/images/demo-wrap.png" },
+    {
+      key: "tap",
+      label: "Tap",
+      img: "/images/demo-tap.png",
+      sub: "Tap to start recording.",
+    },
+    {
+      key: "stop",
+      label: "Stop",
+      img: "/images/demo-stop.png",
+      sub: "Stop when you’re done.",
+    },
+    {
+      key: "wrap",
+      label: "Wrap",
+      img: "/images/demo-wrap.png",
+      sub: "AI writes the minutes—automatically.",
+    },
   ];
   const idx = steps.findIndex((s) => s.key === active);
   const move = (delta) => {
     const n = (idx + delta + steps.length) % steps.length;
     setActive(steps[n].key);
-    // 次のラジオにフォーカス移動
     requestAnimationFrame(() => {
       const nodes = radioGroupRef.current?.querySelectorAll('[role="radio"]');
       nodes?.[n]?.focus();
@@ -198,10 +212,10 @@ export default function Home() {
             </a>
           </div>
 
-          {/* ====== 追加：Simply ultimate. セクション（Get Started の直下） ====== */}
+          {/* ====== Simply ultimate.（Get Started の直下） ====== */}
           <section className="simply" aria-labelledby="simplyTitle">
             <div className="simplyGrid">
-              {/* 左：タイトル＋3アクション（ラジオ相当 / ホバー切替） */}
+              {/* 左：タイトル＋3アクション */}
               <div className="simplyLeft">
                 <h2 id="simplyTitle" className="simplyH2">Simply ultimate.</h2>
 
@@ -226,8 +240,11 @@ export default function Home() {
                         onClick={() => setActive(s.key)}
                         type="button"
                       >
-                        <span className="dot" aria-hidden="true" />
-                        <span className="lbl">{s.label}</span>
+                        <span className="row">
+                          <span className="dot" aria-hidden="true" />
+                          <span className="lbl">{s.label}</span>
+                        </span>
+                        <span className="sub">{s.sub}</span>
                       </button>
                     );
                   })}
@@ -519,24 +536,25 @@ export default function Home() {
           gap: clamp(16px, 3.5vw, 36px);
         }
         .simplyLeft { text-align: left; }
+        /* ① 「Simply ultimate.」を最大に */
         .simplyH2 {
-          margin: 0 0 10px 0;
+          margin: 0 0 12px 0;
           font-weight: 900;
           letter-spacing: -0.02em;
-          line-height: 1.03;
-          font-size: clamp(28px, 4.6vw, 54px);
+          line-height: 1.02;
+          font-size: clamp(48px, 9vw, 128px);
           color: #fff;
         }
-        .stepList { display: flex; flex-direction: column; gap: clamp(2px, 0.8vh, 6px); margin-top: clamp(6px, 1vh, 10px); }
+        .stepList { display: flex; flex-direction: column; gap: clamp(4px, 1vh, 8px); }
         .stepBtn {
-          display: inline-flex; align-items: center; gap: 12px;
-          background: transparent; border: 0; padding: 10px 8px;
-          cursor: pointer; text-align: left;
-          border-radius: 14px;
+          display: flex; flex-direction: column; align-items: flex-start;
+          background: transparent; border: 0; padding: 12px 10px;
+          cursor: pointer; text-align: left; border-radius: 14px;
           transition: background 200ms ease, transform 200ms ease;
         }
         .stepBtn:hover { background: rgba(255,255,255,0.05); transform: translateY(-1px); }
         .stepBtn:focus-visible { outline: 2px solid rgba(140,170,255,0.8); outline-offset: 2px; }
+        .stepBtn .row { display: inline-flex; align-items: center; gap: 12px; }
         .stepBtn .dot {
           width: 10px; height: 10px; border-radius: 50%;
           box-shadow: 0 0 0 2px rgba(255,255,255,0.2) inset;
@@ -544,9 +562,10 @@ export default function Home() {
           transform: scale(0.9);
         }
         .stepBtn.isActive .dot { background: linear-gradient(90deg,#65e0c4,#8db4ff); transform: scale(1); }
+        /* ① Tap/Stop/Wrap は一段下げたサイズに */
         .stepBtn .lbl {
           font-weight: 900; letter-spacing: -0.02em; line-height: 1.02;
-          font-size: clamp(36px, 6.5vw, 92px); color: #eaf4f7;
+          font-size: clamp(28px, 6vw, 64px); color: #eaf4f7;
           -webkit-text-fill-color: currentColor;
         }
         .stepBtn.isActive .lbl,
@@ -555,6 +574,18 @@ export default function Home() {
           -webkit-background-clip: text; background-clip: text; color: transparent;
           -webkit-text-fill-color: transparent;
         }
+        /* ② 小見出し */
+        .stepBtn .sub {
+          margin-left: 22px;
+          margin-top: 4px;
+          font-weight: 700;
+          line-height: 1.35;
+          color: #cfe7ff;
+          opacity: 0.92;
+          font-size: clamp(14px, 1.8vw, 18px);
+        }
+        .stepBtn.isActive .sub,
+        .stepBtn:hover .sub { color: #eaf6ff; }
 
         .simplyRight {
           position: relative;
@@ -670,7 +701,8 @@ export default function Home() {
           .mdate  { font-size: clamp(24px, 7.6vw, 30px); }
           .mhead  { font-size: clamp(26px, 8.4vw, 34px); }
           .fline  { font-size: clamp(24px, 7.6vw, 30px); }
-          .stepBtn .lbl { font-size: clamp(32px, 12vw, 64px); }
+          .stepBtn .lbl { font-size: clamp(26px, 10.5vw, 52px); }
+          .stepBtn .sub { font-size: clamp(13px, 3.7vw, 16px); }
         }
       `}</style>
 
