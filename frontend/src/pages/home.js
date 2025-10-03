@@ -19,26 +19,6 @@ function SimplyVideo({ playing, mp4, poster, assignRef }) {
 
   useEffect(() => { if (assignRef) assignRef(ref.current); }, [assignRef]);
 
-  // in-view 以外は停止（無駄な再生を抑制）
-  useEffect(() => {
-    const v = ref.current;
-    if (!v) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) {
-        v.pause();
-        v.currentTime = 0;
-      } else if (
-        playing &&
-        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) {
-        const p = v.play();
-        if (p?.catch) p.catch(() => {});
-      }
-    }, { threshold: 0.35 });
-    io.observe(v);
-    return () => io.disconnect();
-  }, [playing]);
-
   // アクティブ切替で再生/停止
   useEffect(() => {
     const v = ref.current;
@@ -59,6 +39,7 @@ function SimplyVideo({ playing, mp4, poster, assignRef }) {
       className={`simplyVideo${playing ? " isOn" : ""}`}
       muted
       playsInline
+      autoPlay               // ★ 追加：Safari/iOS でも確実に走らせる
       loop
       preload="auto"
       poster={poster}
@@ -67,6 +48,7 @@ function SimplyVideo({ playing, mp4, poster, assignRef }) {
     </video>
   );
 }
+
 
 
 export default function Home() {
@@ -665,20 +647,19 @@ onPointerDown={() => videoRefs.current[s.key]?.play()?.catch(() => {})}
   border: 1px solid rgba(255,255,255,0.10);
   box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
 }
-
-/* 新：動画の描画レイヤー */
 .simplyVideo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* 16:9 動画でも青枠に気持ちよくフィット */
-  object-position: 50% 50%;  /* 左上に寄る現象を抑止 */
+  object-fit: cover;        /* 枠いっぱいに */
+  object-position: 50% 50%; /* 左上固定を防ぐ */
   opacity: 0;
   transition: opacity 320ms ease;
-  pointer-events: none;      /* クリック等は左のボタン側で */
+  pointer-events: none;
 }
 .simplyVideo.isOn { opacity: 1; }
+
 
 @media (prefers-reduced-motion: reduce) {
   .simplyVideo { transition: none; }
