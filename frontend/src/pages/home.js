@@ -34,6 +34,37 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
+  // ▼ Simply ultimate. セクション用
+  const [active, setActive] = useState("tap");
+  const radioGroupRef = useRef(null);
+  const steps = [
+    { key: "tap", label: "Tap", img: "/images/demo-tap.png" },
+    { key: "stop", label: "Stop", img: "/images/demo-stop.png" },
+    { key: "wrap", label: "Wrap", img: "/images/demo-wrap.png" },
+  ];
+  const idx = steps.findIndex((s) => s.key === active);
+  const move = (delta) => {
+    const n = (idx + delta + steps.length) % steps.length;
+    setActive(steps[n].key);
+    // 次のラジオにフォーカス移動
+    requestAnimationFrame(() => {
+      const nodes = radioGroupRef.current?.querySelectorAll('[role="radio"]');
+      nodes?.[n]?.focus();
+    });
+  };
+  const onRadioKey = (e) => {
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      move(1);
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      move(-1);
+    } else if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      setActive(steps[idx].key);
+    }
+  };
+
   const LINK_MAIN = "https://www.sense-ai.world";
   const LINK_IOS =
     "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
@@ -167,6 +198,56 @@ export default function Home() {
             </a>
           </div>
 
+          {/* ====== 追加：Simply ultimate. セクション（Get Started の直下） ====== */}
+          <section className="simply" aria-labelledby="simplyTitle">
+            <div className="simplyGrid">
+              {/* 左：タイトル＋3アクション（ラジオ相当 / ホバー切替） */}
+              <div className="simplyLeft">
+                <h2 id="simplyTitle" className="simplyH2">Simply ultimate.</h2>
+
+                <div
+                  className="stepList"
+                  role="radiogroup"
+                  aria-label="Actions"
+                  ref={radioGroupRef}
+                >
+                  {steps.map((s, i) => {
+                    const checked = active === s.key;
+                    return (
+                      <button
+                        key={s.key}
+                        role="radio"
+                        aria-checked={checked}
+                        tabIndex={checked ? 0 : -1}
+                        className={`stepBtn${checked ? " isActive" : ""}`}
+                        onMouseEnter={() => setActive(s.key)}
+                        onFocus={() => setActive(s.key)}
+                        onKeyDown={onRadioKey}
+                        onClick={() => setActive(s.key)}
+                        type="button"
+                      >
+                        <span className="dot" aria-hidden="true" />
+                        <span className="lbl">{s.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* 右：モック画面（フェード切替 / 画像は仮） */}
+              <div className="simplyRight" aria-live="polite">
+                {steps.map((s) => (
+                  <div
+                    key={s.key}
+                    className={`shot${active === s.key ? " isOn" : ""}`}
+                    style={{ ["--img"]: `url(${s.img})`, ["--shotLabel"]: `"${s.label}"` }}
+                    aria-hidden={active !== s.key}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* iPhoneアプリ訴求 */}
           <section className="appPromo" aria-labelledby="appPromoHead">
             <div className="promoGrid">
@@ -236,7 +317,6 @@ export default function Home() {
           min-height: 100vh;
 
           padding-top: var(--header-offset);
-          /* ↓ below を通常フローにしたので下の余白は控えめでOK */
           padding-bottom: 24vh;
 
           overflow: hidden;
@@ -266,7 +346,6 @@ export default function Home() {
           pointer-events: none;
         }
 
-        /* ▼ ここを absolute → relative + margin-top に変更 */
         .below {
           position: relative;
           z-index: 3;
@@ -274,7 +353,6 @@ export default function Home() {
           pointer-events: auto;
           width: 100%;
           margin: 0 auto;
-          /* 球体の中心(60vh)＋半径(=core/2)＋余白 */
           margin-top: calc(60vh + (var(--core-size) / 2) + 6vh);
         }
 
@@ -432,10 +510,85 @@ export default function Home() {
           margin: clamp(16px, 3.5vh, 28px) auto 0;
         }
 
+        /* ===== Simply ultimate. ===== */
+        .simply { margin: clamp(28px, 8vh, 80px) auto; padding: 0 22px; max-width: 1200px; }
+        .simplyGrid {
+          display: grid;
+          grid-template-columns: 0.9fr 1.1fr;
+          align-items: center;
+          gap: clamp(16px, 3.5vw, 36px);
+        }
+        .simplyLeft { text-align: left; }
+        .simplyH2 {
+          margin: 0 0 10px 0;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          line-height: 1.03;
+          font-size: clamp(28px, 4.6vw, 54px);
+          color: #fff;
+        }
+        .stepList { display: flex; flex-direction: column; gap: clamp(2px, 0.8vh, 6px); margin-top: clamp(6px, 1vh, 10px); }
+        .stepBtn {
+          display: inline-flex; align-items: center; gap: 12px;
+          background: transparent; border: 0; padding: 10px 8px;
+          cursor: pointer; text-align: left;
+          border-radius: 14px;
+          transition: background 200ms ease, transform 200ms ease;
+        }
+        .stepBtn:hover { background: rgba(255,255,255,0.05); transform: translateY(-1px); }
+        .stepBtn:focus-visible { outline: 2px solid rgba(140,170,255,0.8); outline-offset: 2px; }
+        .stepBtn .dot {
+          width: 10px; height: 10px; border-radius: 50%;
+          box-shadow: 0 0 0 2px rgba(255,255,255,0.2) inset;
+          background: rgba(255,255,255,0.35);
+          transform: scale(0.9);
+        }
+        .stepBtn.isActive .dot { background: linear-gradient(90deg,#65e0c4,#8db4ff); transform: scale(1); }
+        .stepBtn .lbl {
+          font-weight: 900; letter-spacing: -0.02em; line-height: 1.02;
+          font-size: clamp(36px, 6.5vw, 92px); color: #eaf4f7;
+          -webkit-text-fill-color: currentColor;
+        }
+        .stepBtn.isActive .lbl,
+        .stepBtn:hover .lbl {
+          background: linear-gradient(90deg, #65e0c4, #8db4ff 65%, #7cc7ff);
+          -webkit-background-clip: text; background-clip: text; color: transparent;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .simplyRight {
+          position: relative;
+          border-radius: clamp(18px, 2.2vmax, 28px);
+          min-height: 340px;
+          aspect-ratio: 16 / 11;
+          overflow: hidden;
+          background: linear-gradient(180deg, rgba(36,48,72,0.55) 0%, rgba(56,78,96,0.50) 100%);
+          -webkit-backdrop-filter: blur(14px) saturate(120%); backdrop-filter: blur(14px) saturate(120%);
+          border: 1px solid rgba(255,255,255,0.10);
+          box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
+        }
+        .shot {
+          position: absolute; inset: 0; opacity: 0; transition: opacity 320ms ease;
+          background-image:
+            var(--img),
+            radial-gradient(140% 100% at 12% -10%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 60%);
+          background-size: cover; background-position: center;
+        }
+        .shot::after {
+          content: var(--shotLabel);
+          position: absolute; left: 14px; top: 12px;
+          font-weight: 800; font-size: 14px; letter-spacing: 0.6px;
+          padding: 6px 10px; border-radius: 999px;
+          background: rgba(20,40,60,0.65);
+          border: 1px solid rgba(255,255,255,0.10);
+          color: #eaf4f7;
+        }
+        .shot.isOn { opacity: 1; }
+
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
           pointer-events: auto;
-          margin: clamp(18px, 4vh, 36px) auto clamp(64px, 10vh, 120px); /* 下に余白を持たせてフッターに被らない */
+          margin: clamp(18px, 4vh, 36px) auto clamp(64px, 10vh, 120px);
           padding: 0 22px;
           max-width: 1200px;
           text-align: left;
@@ -475,10 +628,7 @@ export default function Home() {
           backdrop-filter: blur(12px);
         }
         .promoCta:hover { background: rgba(20,40,60,0.92); }
-        .promoVisual {
-          display: flex;
-          justify-content: center;
-        }
+        .promoVisual { display: flex; justify-content: center; }
         .promoVisual img {
           width: 100%;
           max-width: 560px;
@@ -501,14 +651,17 @@ export default function Home() {
           }
         }
 
+        @media (max-width: 1024px) {
+          .simplyGrid { grid-template-columns: 1fr; }
+          .simplyRight { order: -1; margin-bottom: 10px; }
+        }
         @media (max-width: 900px) {
           .promoGrid { grid-template-columns: 1fr; gap: 18px; }
-          .promoVisual { order: -1; } /* モバイルでは画像を先頭へ */
+          .promoVisual { order: -1; }
         }
-
         @media (max-width: 640px) {
           .scene { --core-size: clamp(320px, 86vmin, 80vh);
-            padding-bottom: 28vh; } /* モバイルも控えめでOK */
+            padding-bottom: 28vh; }
           .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); }
           .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
           .deviceStage { width: min(calc(92vw * 0.8), 416px); }
@@ -517,6 +670,7 @@ export default function Home() {
           .mdate  { font-size: clamp(24px, 7.6vw, 30px); }
           .mhead  { font-size: clamp(26px, 8.4vw, 34px); }
           .fline  { font-size: clamp(24px, 7.6vw, 30px); }
+          .stepBtn .lbl { font-size: clamp(32px, 12vw, 64px); }
         }
       `}</style>
 
