@@ -175,7 +175,7 @@ export default function Home() {
                   AI Minutes Meeting — Product Launch Planning
                 </h2>
                 <div className="mdate">
-                  <time dateTime="2025-10-02">Oct 2, 2025 (JST)</time>
+                  <time dateTime="2025-10-01">Oct 1, 2025 (JST)</time>
                 </div>
                 <div className="mhr" />
                 <div className="minutesFlow">
