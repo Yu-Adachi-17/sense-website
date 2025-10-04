@@ -23,31 +23,53 @@ const backoffMs = n => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
 const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 
 // pages/zoom/app.js から既存の openZoomClientJoinIn(...) を削除し、以下を追加
+// ── 完全置換：ネイティブ Zoom クライアントを最優先で開く ──
 function openZoomClientJoin(meetingId, passcode) {
   const id  = String(meetingId || '').replace(/\D/g, '');
   const pwd = encodeURIComponent(passcode || '');
-  const ua  = navigator.userAgent;
+  const ua  = navigator.userAgent || '';
 
-  const isiOS = /iP(hone|ad|od)/.test(ua);
+  const isIOS     = /iP(hone|ad|od)/.test(ua);
   const isAndroid = /Android/.test(ua);
+  const isChrome  = /Chrome\/\d+/.test(ua) && !/Edg\//.test(ua);
+  const isAndroidChrome = isAndroid && isChrome;
 
-  // iOS/Android は zoomus、デスクトップは zoommtg
-  const scheme = (isiOS || isAndroid) ? 'zoomus' : 'zoommtg';
-  const base   = `${scheme}://zoom.us/join`;
-  const action = scheme === 'zoommtg' ? 'action=join&' : ''; // ← Desktopのみ action=join を付与
-  const deep   = `${base}?${action}confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
+  // Web クライアントのフォールバック（※ web の ?pwd は暗号化値が必要。平文は不可）
+  // → ここではパスコード未付与で wc に誘導し、UI側で入力させる
+  const fallbackWeb = `https://zoom.us/wc/join/${id}`;
 
-  // ユーザー操作直後のトップレベル遷移で開く（別窓やiframeは避ける）
-  try { window.location.href = deep; } catch {}
+  // deep link を端末別に構築
+  let deeplink;
+  if (isAndroidChrome) {
+    // Android Chrome は intent:// が最も確実（未インストール時は自動フォールバック）
+    // 例: intent://zoom.us/join?confno=...&pwd=...#Intent;scheme=zoomus;package=us.zoom.videomeetings;S.browser_fallback_url=...;end
+    deeplink =
+      `intent://zoom.us/join?confno=${id}${pwd ? `&pwd=${pwd}` : ''}` +
+      '#Intent;scheme=zoomus;package=us.zoom.videomeetings;' +
+      `S.browser_fallback_url=${encodeURIComponent(fallbackWeb)};end`;
+  } else if (isIOS || isAndroid) {
+    // iOS / Android（Chrome 以外）は zoomus:// を使用
+    deeplink = `zoomus://zoom.us/join?confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
+  } else {
+    // デスクトップは zoommtg:// を使用（Zoom クライアントが登録したプロトコルが処理する）
+    deeplink = `zoommtg://zoom.us/join?action=join&confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
+  }
 
-  // フォールバック：Webクライアント直行（パスコードはUIで入力）
-  setTimeout(() => {
-    const wc = `https://zoom.us/wc/join/${id}`;
-    try { window.location.href = wc; }
-    catch { window.open(wc, '_blank'); }
-  }, 1500);
+  // ユーザー操作直後の同期遷移で実行（別タブ/iframe は使わない）
+  const openedAt = Date.now();
+  try { window.location.href = deeplink; } catch {}
+
+  // Android Chrome の intent:// はブラウザ側でフォールバックを担保するため待機不要
+  if (!isAndroidChrome) {
+    // 1.5s 待って可視のまま＝起動失敗とみなし、Web クライアントに退避
+    setTimeout(() => {
+      if (document.visibilityState === 'visible' && Date.now() - openedAt >= 1400) {
+        try { window.location.href = fallbackWeb; }
+        catch { window.open(fallbackWeb, '_blank'); }
+      }
+    }, 1500);
+  }
 }
-
 
 
 /** ====== API wrappers ====== */
