@@ -6,8 +6,8 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 const API_BASE = '/api/zoom-bot';
 
 /** ==== ハードコード（必要なら書き換えOK） ==== */
-const MEETING_ID = '9815129794';
-const PASSCODE   = 'euYa3X';
+const MEETING_ID = '7635676767';
+const PASSCODE   = 'XUVPh1';
 const BOT_NAME   = 'MinutesAI Bot';
 const RUN_SECS   = 21600; // 6h
 
