@@ -22,21 +22,32 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const backoffMs = n => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
 const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 
-function openZoomClientJoinIn(helperWin, meetingId, passcode) {
+// pages/zoom/app.js から既存の openZoomClientJoinIn(...) を削除し、以下を追加
+function openZoomClientJoin(meetingId, passcode) {
   const id  = String(meetingId || '').replace(/\D/g, '');
   const pwd = encodeURIComponent(passcode || '');
-  const deep = `zoommtg://zoom.us/join?confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
-  // Deep Link を優先（クライアントが入っていればこちらが起動）
-  const target = helperWin || window; // ポップアップがブロックされたら同一タブ
-  try { target.location.href = deep; } catch {}
-  // 1.5 秒後にブラウザ参加ページへフォールバック（パスコードは手入力想定）
+  const ua  = navigator.userAgent;
+
+  const isiOS = /iP(hone|ad|od)/.test(ua);
+  const isAndroid = /Android/.test(ua);
+
+  // iOS/Android は zoomus、デスクトップは zoommtg
+  const scheme = (isiOS || isAndroid) ? 'zoomus' : 'zoommtg';
+  const base   = `${scheme}://zoom.us/join`;
+  const action = scheme === 'zoommtg' ? 'action=join&' : ''; // ← Desktopのみ action=join を付与
+  const deep   = `${base}?${action}confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
+
+  // ユーザー操作直後のトップレベル遷移で開く（別窓やiframeは避ける）
+  try { window.location.href = deep; } catch {}
+
+  // フォールバック：Webクライアント直行（パスコードはUIで入力）
   setTimeout(() => {
-    try { (helperWin || window).location.href = 'https://zoom.us/join'; } catch {
-      // もし同一タブに変更できない場合は新規タブで開く
-      window.open('https://zoom.us/join', '_blank');
-    }
+    const wc = `https://zoom.us/wc/join/${id}`;
+    try { window.location.href = wc; }
+    catch { window.open(wc, '_blank'); }
   }, 1500);
 }
+
 
 
 /** ====== API wrappers ====== */
@@ -235,57 +246,59 @@ export default function ZoomAppHome() {
     setOverlay({ show: true, msg, progress: Math.max(0, Math.min(100, progress)) });
   }
 
-  async function onJoin() {
-    if (!canJoin) return;
+// pages/zoom/app.js の onJoin を丸ごと置き換え
+async function onJoin() {
+  if (!canJoin) return;
+  const ok = window.confirm('“MinutesAI Bot”の参加リクエストをホストに送信します。');
+  if (!ok) return;
 
-    // ←←← ここを追加（ユーザー操作に同期して“空タブ”を確保）
-    const helper = window.open('', 'zoom-join');
-  
-    const ok = window.confirm('A request to add “MinutesAI Bot” will be sent to the meeting host.');
-    if (!ok) { try { helper && helper.close(); } catch {} return; }
-  
-    try {
-      setPhase('starting');
-      setAudioList([]);
-      setOverlayStage('Starting up…', 5);
-      push('JOIN: calling /api/zoom-bot/start');
-  
-     
-      // ←←← Bot起動が返ってきたタイミングで、先に開いたタブを Deep Link へ
-      openZoomClientJoinIn(helper, meetingId, passcode);
-      const sid = await apiStart(meetingId, passcode, 21600);
-  
-      push(`JOIN OK: sid=${sid}`);
-      setSessionId(sid);
-      localStorage.setItem(LAST_SID_KEY, sid);
-      localStorage.setItem(LAST_MEETING_ID_KEY, meetingId);
-      localStorage.setItem(LAST_PASSCODE_KEY, passcode);
-      setInputLocked(true);
-      setPhase('joining');
-  
-      setOverlayStage('Join request sent. Ask the host to approve…', 15);
-      const begin = Date.now();
-      let attempt = 0;
-      while (Date.now() - begin < 180000) {
-        try {
-          const st = await apiStatus(sid);
-          push(`POLL(join): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
-          if (st.status === 'running') {
-            setOverlayStage('Joined the meeting (bot running)', 25);
-            break;
-          }
-        } catch (e) { push(`POLL(join) error: ${e.message || e}`); }
-        attempt++;
-        await sleep(backoffMs(attempt));
+  try {
+    setPhase('starting');
+    setAudioList([]);
+    setOverlayStage('Starting up…', 5);
+    push('JOIN: calling /api/zoom-bot/start');
+
+    // ① まず Bot を起動（iOSと同じ順序に揃える）
+    const sid = await apiStart(meetingId, passcode, 21600);
+
+    push(`JOIN OK: sid=${sid}`);
+    setSessionId(sid);
+    localStorage.setItem(LAST_SID_KEY, sid);
+    localStorage.setItem(LAST_MEETING_ID_KEY, meetingId);
+    localStorage.setItem(LAST_PASSCODE_KEY, passcode);
+    setInputLocked(true);
+    setPhase('joining');
+
+    // ② Deep Link を同一タブで開く（OS別スキーム）
+    openZoomClientJoin(meetingId, passcode);
+
+    setOverlayStage('Join request sent. Ask the host to approve…', 15);
+
+    // ③ 起動確認のポーリングは従来通り
+    const begin = Date.now();
+    let attempt = 0;
+    while (Date.now() - begin < 180000) {
+      try {
+        const st = await apiStatus(sid);
+        push(`POLL(join): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
+        if (st.status === 'running') {
+          setOverlayStage('Joined the meeting (bot running)', 25);
+          break;
+        }
+      } catch (e) {
+        push(`POLL(join) error: ${e.message || e}`);
       }
-      setOverlay({ show: false, msg: '', progress: 0 });
-    } catch (e) {
-      setPhase('error');
-      push(`JOIN ERROR: ${e.message || e}`);
-      setOverlayStage(`Failed to start: ${e.message || 'network error'}`, 100);
-      setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 1800);
+      attempt++;
+      await sleep(backoffMs(attempt));
     }
+    setOverlay({ show: false, msg: '', progress: 0 });
+  } catch (e) {
+    setPhase('error');
+    push(`JOIN ERROR: ${e.message || e}`);
+    setOverlayStage(`Failed to start: ${e.message || 'network error'}`, 100);
+    setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 1800);
   }
+}
 
 // ✅ 完全差し替え版：ファイルの「実在＋安定」を厳密に待ってから STT を開始
 // - manifest の segCount>=1 を必須化
