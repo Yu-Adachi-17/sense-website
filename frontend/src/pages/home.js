@@ -217,11 +217,13 @@ function CalloutPie({ data, size = 380 }) {
           const placed = [...left, ...right];
 
           // ★ 個別の水平微調整（px）
-          const nudgeMap = {
-            German: -10, // 強めに左へ（グラフ寄り）
-            Arabic: +14, // 大きく右へ
-            Malay:  +6, // 右へ
-          };
+// ★ 個別の水平微調整（px）
+const nudgeMap = {
+  German: +18, // 左列は + がグラフ寄り（右）に動く
+  Malay:  +10, // 右列は + でさらに右へ
+  Arabic: +22, // 右列を大きめに右へ
+};
+
 
           return placed.map((it, i) => {
             let tx = clamp(it.xBase, PAD, W - PAD);
