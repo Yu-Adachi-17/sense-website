@@ -199,6 +199,21 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
   fitColumn(right, yMinR, yMaxR);
 
   const placed = [...left, ...right];
+  // テキストのX座標を安全領域にクランプして、はみ出し防止
+const rawX = right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx);
+let tx = clamp(rawX, PAD, W - PAD);
+
+// ---- ラベル別の水平微調整（px）----
+// 右に寄せたい場合は +、左に寄せたい場合は -
+const nudgeMap = {
+  German: -40,  // もっと左へ（グラフ寄り）
+  Arabic: +26,  // 右へ
+  Malay:  +22,  // 右へ
+};
+if (nudgeMap[d.label]) {
+  tx = clamp(tx + nudgeMap[d.label], PAD, W - PAD);
+}
+
 
   return placed.map((it, i) => {
     const tx = clamp(it.xBase, PAD, W - PAD);
