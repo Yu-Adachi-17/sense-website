@@ -30,9 +30,9 @@ function CalloutPie({ data, size = 420 }) {
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
 
   const W = size, H = size, cx = W / 2, cy = H / 2;
-  const r = Math.min(W, H) * 0.36;   // 外周
+  const r = Math.min(W, H) * 0.36;   // 外周リング半径
   const rInner = r * 0.82;           // 内側リング
-  const rCore = r * 0.14;            // 中心グロー
+  const rEnd = r - 8;                // コメット終点を外周より内側へ（はみ出し防止）
 
   const polar = (deg, rad) => {
     const a = (deg - 90) * (Math.PI / 180);
@@ -45,16 +45,13 @@ function CalloutPie({ data, size = 420 }) {
     return `M ${cx} ${cy} L ${x0} ${y0} A ${radius} ${radius} 0 ${large} 1 ${x1} ${y1} Z`;
   };
 
-  // 継ぎ目角度（start = 扇の開始角）
+  // 角度・強度
   let acc = 0;
   const seams = sorted.map((d) => {
     const ang = (d.value / total) * 360;
-    const start = acc;
-    acc += ang;
-    return { ...d, start, end: acc, mid: start + ang / 2 };
+    const start = acc; acc += ang;
+    return { ...d, start, end: acc };
   });
-
-  // 値に応じた強度（最大 = English）
   const maxVal = sorted[0].value;
   const scale = (v, a, b) => a + (b - a) * (v / maxVal);
 
@@ -62,8 +59,7 @@ function CalloutPie({ data, size = 420 }) {
     <figure className="calloutPie">
       <svg
         width="100%" height="100%"
-        viewBox={`0 0 ${W} ${H}`} role="img"
-        style={{ overflow: "visible" }}
+        viewBox={`0 0 ${W} ${H}`} role="img" style={{ overflow: "visible" }}
         aria-label={"Language share: " + sorted.map((d) => `${d.label} ${d.value}%`).join(", ")}
       >
         <defs>
@@ -74,7 +70,7 @@ function CalloutPie({ data, size = 420 }) {
             <stop offset="100%" stopColor="rgba(140,210,255,0.00)" />
           </radialGradient>
 
-          {/* おうぎ面のごく薄いフィル（スクリーン合成で淡く発光） */}
+          {/* 扇フィル（ごく薄い発光） */}
           <radialGradient id="sectorGrad" cx="50%" cy="50%" r="50%">
             <stop offset="0%"  stopColor="rgba(130,200,255,0.00)" />
             <stop offset="55%" stopColor="rgba(130,200,255,0.06)" />
@@ -82,17 +78,9 @@ function CalloutPie({ data, size = 420 }) {
             <stop offset="100%" stopColor="rgba(160,230,255,0.00)" />
           </radialGradient>
 
-          {/* 中心コアの発光 */}
-          <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"   stopColor="rgba(200,245,255,0.95)" />
-            <stop offset="40%"  stopColor="rgba(180,235,255,0.40)" />
-            <stop offset="85%"  stopColor="rgba(150,220,255,0.10)" />
-            <stop offset="100%" stopColor="rgba(150,220,255,0.00)" />
-          </radialGradient>
-
-          {/* 継ぎ目ごとの放射グラデ（中心→外周 = 透明→発光） */}
+          {/* 継ぎ目ライン用 放射グラデ（中心→外周 = 透明→発光） */}
           {seams.map((s, i) => {
-            const [x2, y2] = polar(s.start, r);
+            const [x2, y2] = polar(s.start, rEnd);
             return (
               <linearGradient
                 key={`lg-${i}`} id={`lg-${i}`} gradientUnits="userSpaceOnUse"
@@ -100,7 +88,7 @@ function CalloutPie({ data, size = 420 }) {
               >
                 <stop offset="0%"  stopColor="rgba(130,200,255,0)" />
                 <stop offset="70%" stopColor="rgba(130,200,255,0.22)" />
-                <stop offset="100%" stopColor="rgba(160,230,255,0.95)" />
+                <stop offset="100%" stopColor="rgba(170,240,255,0.95)" />
               </linearGradient>
             );
           })}
@@ -108,46 +96,53 @@ function CalloutPie({ data, size = 420 }) {
           {/* ネオン・グロー（値で強度可変） */}
           {seams.map((s, i) => (
             <filter id={`neon-${i}`} key={`f-${i}`} x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation={scale(s.value, 2.5, 4.5)} result="b" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation={scale(s.value, 2.2, 4.0)} result="b" />
               <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
           ))}
         </defs>
 
-        {/* おうぎ面（薄いフィル） */}
+        {/* 扇フィル（薄く光らせる） */}
         <g style={{ mixBlendMode: "screen" }}>
           {seams.map((s, i) => (
             <path
               key={`sector-${i}`} d={arcPath(s.start, s.end, r)}
-              fill="url(#sectorGrad)" stroke="none" opacity={scale(s.value, 0.28, 0.45)}
+              fill="url(#sectorGrad)" stroke="none" opacity={scale(s.value, 0.26, 0.42)}
               filter={`url(#neon-${i})`}
             />
           ))}
         </g>
 
         {/* 外周リング（骨格） */}
-        <circle cx={cx} cy={cy} r={r} fill="none" stroke="url(#ringGrad)" strokeWidth="8" opacity="0.55" />
+        <circle cx={cx} cy={cy} r={r}      fill="none" stroke="url(#ringGrad)" strokeWidth="8" opacity="0.55" />
         <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="5" opacity="0.30" />
 
-        {/* 中心コアの発光 */}
-        <g style={{ mixBlendMode: "screen" }}>
-          <circle cx={cx} cy={cy} r={rCore} fill="url(#coreGlow)" />
-          <circle cx={cx} cy={cy} r={rCore * 0.35} fill="rgba(255,255,255,0.9)" />
-        </g>
-
-        {/* 継ぎ目（中心→外周）。Englishほど“強く”かつ“太く” */}
+        {/* 継ぎ目ライン＋先端キャップ（内側終点へ変更） */}
         {seams.map((s, i) => {
-          const [x, y] = polar(s.start, r);
-          const strokeW = scale(s.value, 2.6, 5.0);        // ← 前回より細め
+          const [x, y] = polar(s.start, rEnd);
+          const strokeW = scale(s.value, 2.4, 4.8); // 前回より細め
+          const capR = strokeW * 0.48;
           return (
             <g key={`seam-${i}`} style={{ mixBlendMode: "screen" }} filter={`url(#neon-${i})`}>
               <line x1={cx} y1={cy} x2={x} y2={y} stroke={`url(#lg-${i})`} strokeWidth={strokeW} strokeLinecap="round" />
-              <circle cx={x} cy={y} r={strokeW * 0.48} fill="rgba(170,240,255,0.95)" />
+              <circle cx={x} cy={y} r={capR} fill="rgba(170,240,255,0.95)" />
             </g>
           );
         })}
 
-        {/* ラベル＆ガイド（従来） */}
+        {/* 中心点：外周ポイントと“同一処理・同一見た目” */}
+        {(() => {
+          const v = maxVal;                         // 最大値＝English相当
+          const strokeW = scale(v, 2.4, 4.8);
+          const capR = strokeW * 0.48;
+          return (
+            <g style={{ mixBlendMode: "screen" }} filter={`url(#neon-0)`}>
+              <circle cx={cx} cy={cy} r={capR} fill="rgba(170,240,255,0.95)" />
+            </g>
+          );
+        })()}
+
+        {/* ラベル＆ガイド（そのまま） */}
         {(() => {
           let acc2 = 0;
           const ro = r + 10, elbow = 20, rLabel = r + 78;
