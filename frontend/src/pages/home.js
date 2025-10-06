@@ -815,6 +815,38 @@ export default function Home() {
         .sep { opacity: 0.55; }
         .copyright { font-size: 13px; opacity: 0.7; white-space: nowrap; }
         @media (max-width: 640px) { .footInner { flex-direction: column; gap: 8px; } }
+        /* ===== モバイル専用調整（PCは無変更） ===== */
+@media (max-width: 640px) {
+
+  /* 1) 「Just Record.」を下へ */
+  .heroTop { margin-top: clamp(18px, 6vh, 72px); }
+
+  /* 2) Simply：見出しを「画像の上」に重ねる＆画像を見切れさせない */
+  .simplyGrid { position: relative; }
+  .simplyRight { order: 2; }                 /* 画像ブロック */
+  .simplyH2 {
+    position: absolute; z-index: 3;
+    left: 16px; right: 16px; top: 12px;
+    margin: 0; pointer-events: none;
+    text-shadow: 0 4px 18px rgba(0,0,0,.45);
+    /* フォントは既存の clamp に従うので追加不要 */
+  }
+  .simplyRight { padding-top: 76px; }        /* 見出しと被らない余白を確保 */
+  .shotCaption { bottom: 10px; }             /* キャプションも少し上げる */
+  .simplyRight { aspect-ratio: 16 / 11; }    /* ボックス比率を固定してCLS回避 */
+  .simplyRight img { object-fit: contain; }  /* 画像の切れを防止 */
+
+  /* 3) マップ＆円グラフを縮小し、注記が被らないように下げる */
+  .mapChart { justify-content: center; align-items: center; }
+  .mapChart .calloutPie { max-width: 300px; } /* ← 360px → 300px に縮小 */
+  .mapChart { padding-right: 12px; }          /* 右側安全余白 */
+  .mapNote { bottom: 4px; }                    /* 注記をさらに下へ */
+
+  /* 4) iPhone App：見出しを画像の上（前）に出す */
+  .promoCopy { order: 1; }
+  .promoVisual { order: 2; }                   /* 既存の order:-1 を打ち消す */
+}
+
       `}</style>
     </>
   );
