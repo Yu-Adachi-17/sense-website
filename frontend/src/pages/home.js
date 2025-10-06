@@ -424,28 +424,30 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ===== World map background セクション（新レイアウト） ===== */}
-          <section className="reachMap" aria-labelledby="reachTitle">
-            <div className="reachMapInner">
-              <div className="mapCopy">
-                <h2 id="reachTitle" className="mapHeadline">
-                  <span>
-                    <span className="gradText onlyNum">30,000</span> users
-                  </span>
-                  <br />
-                  <span>worldwide</span>
-                </h2>
-              </div>
-              <div className="mapChart">
-                <CalloutPie data={LANGUAGE_PIE} size={360} />
-              </div>
+{/* ===== World map background セクション（新レイアウト） ===== */}
+<section className="reachMap" aria-labelledby="reachTitle">
+  <div className="reachMapInner">
+    <div className="mapCopy">
+      <h2 id="reachTitle" className="mapHeadline">
+        <span className="mapKicker">Supports all major languages</span>  {/* ← 追加 */}
+        <span>
+          <span className="gradText onlyNum">30,000</span> users
+        </span>
+        <br />
+        <span>worldwide</span>
+      </h2>
+    </div>
+    <div className="mapChart">
+      <CalloutPie data={LANGUAGE_PIE} size={360} />
+    </div>
 
-              {/* 左下の英語注記 */}
-              <p className="mapNote" aria-label="note">
-                Estimated from iOS download counts as of Oct&nbsp;2025.
-              </p>
-            </div>
-          </section>
+    {/* 左下の英語注記 */}
+    <p className="mapNote" aria-label="note">
+      Estimated from iOS download counts as of Oct&nbsp;2025.
+    </p>
+  </div>
+</section>
+
 
           {/* iPhoneアプリ訴求 */}
           <section className="appPromo" aria-labelledby="appPromoHead">
@@ -722,6 +724,16 @@ export default function Home() {
   align-items: center;
   overflow: visible;
   padding-right: clamp(12px, 4vw, 36px); /* ← 右側に安全余白 */
+}
+.mapKicker{
+  display: block;
+  font-weight: 800;                 /* users と同じ太さ */
+  font-size: clamp(14px, 2.2vw, 20px);
+  line-height: 1.1;
+  color: #eaf4f7;                   /* 読みやすい白系 */
+  opacity: 0.92;
+  margin: 0 0 6px;                  /* 数字との間隔 */
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
 
