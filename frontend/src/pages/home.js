@@ -151,19 +151,21 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
         /* ラベル＆ガイド（棒線ナシ、衝突回避つき） */
 
 {/* ラベル＆ガイド（放射座標＋個別XY微調整） */}
+{/* ラベル＆ガイド（XY一発調整＋強制スナップ） */}
 {(() => {
   const LABEL_H = 34;
   const PAD = 14;
   const R_LABEL = r + 44;
   const R_LABEL_RIGHT = r + 38;
 
-  // ← ここで個別の X/Y 微調整（px）。+X=右 / -X=左、+Y=下 / -Y=上
+  // +X=右 / -X=左, +Y=下 / -Y=上（スクショ準拠）
   const offsetMap = {
-    German: { dx: -22, dy: -30 }, // ちょい左下
-    Arabic: { dx:  20, dy: -40 }, // 下へ
-    Malay:  { dx:  10, dy: -40 }, // 右下
-    Dutch:  { dx:  18, dy: -18 }, // 右下
+    German: { dx: -28, dy:  12 }, // ちょい左下
+    Arabic: { dx:   6, dy:  54 }, // 真下へ寄せる
+    Malay:  { dx:  28, dy:  24 }, // 右下
+    Dutch:  { dx:  24, dy:  12 }, // 右下
   };
+  const stickSnapPx = 10; // 衝突回避後に y を目標±この範囲に“固定”してブレ防止
 
   let acc = 0;
   const items = sorted.map((d) => {
@@ -175,16 +177,19 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
     const right = Math.cos(rad) >= 0;
     const rLab = right ? R_LABEL_RIGHT : R_LABEL;
 
+    // 極座標→基準位置
     const xRad = cx + rLab * Math.cos(rad);
     const yRad = cy + rLab * Math.sin(rad);
 
+    // 個別オフセット適用（XY）
     const off = offsetMap[d.label] ?? { dx: 0, dy: 0 };
-    const xBase = xRad + off.dx;       // X はここで確定
-    const yTarget = yRad + off.dy;     // Y の理想位置（この後、重なり解消のみ）
+    const xBase = xRad + off.dx;
+    const yTarget = yRad + off.dy; // これを“狙い”として保持
 
-    return { d, right, xBase, yTarget };
+    return { d, right, xBase, yTarget, hasOffset: !!offsetMap[d.label] };
   });
 
+  // 左右に分割して縦方向だけ重なり解消
   const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
   const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
 
@@ -198,10 +203,19 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
       y = arr[i].y;
     }
   };
+
   const yMin = cy - (r + 6), yMax = cy + (r + 6);
   fitColumn(left,  yMin, yMax);
   fitColumn(right, yMin, yMax);
 
+  // ===== 仕上げ：個別指定のものは y を“狙い”に強めにスナップ（±stickSnapPx）
+  for (const it of [...left, ...right]) {
+    if (it.hasOffset) {
+      it.y = clamp(it.y, it.yTarget - stickSnapPx, it.yTarget + stickSnapPx);
+    }
+  }
+
+  // 描画
   return [...left, ...right].map((it, i) => {
     const tx = clamp(it.xBase, PAD, W - PAD);
     const ty = it.y;
@@ -210,14 +224,16 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
       <g key={`lbl-${i}`}>
         <text
           x={tx} y={ty} textAnchor={anchor} dominantBaseline="middle"
-          style={{ fontWeight:800, fontSize:18, fill:"rgba(230,245,255,0.98)",
-                   paintOrder:"stroke", stroke:"rgba(10,20,40,0.45)", strokeWidth:1.2 }}
+          style={{
+            fontWeight: 800, fontSize: 18, fill: "rgba(230,245,255,0.98)",
+            paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2
+          }}
         >
           {it.d.label}
         </text>
         <text
           x={tx} y={ty + 18} textAnchor={anchor} dominantBaseline="hanging"
-          style={{ fontWeight:700, fontSize:14, fill:"rgba(200,225,255,0.92)" }}
+          style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
         >
           {it.d.value}%
         </text>
@@ -225,6 +241,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
     );
   });
 })()}
+
 
 
         <g
