@@ -30,37 +30,33 @@ function CalloutPie({ data, size = 420 }) {
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
 
   const W = size, H = size, cx = W / 2, cy = H / 2;
-  const r = Math.min(W, H) * 0.36; // 外周半径（少しだけ拡張）
-  const rInner = r * 0.84;         // 内側の薄いグロー用
+  const r = Math.min(W, H) * 0.36;   // 外周
+  const rInner = r * 0.82;           // 内側リング
+  const rCore = r * 0.14;            // 中心グロー
 
   const polar = (deg, rad) => {
     const a = (deg - 90) * (Math.PI / 180);
     return [cx + rad * Math.cos(a), cy + rad * Math.sin(a)];
   };
+  const arcPath = (a0, a1, radius) => {
+    const [x0, y0] = polar(a0, radius);
+    const [x1, y1] = polar(a1, radius);
+    const large = a1 - a0 > 180 ? 1 : 0;
+    return `M ${cx} ${cy} L ${x0} ${y0} A ${radius} ${radius} 0 ${large} 1 ${x1} ${y1} Z`;
+  };
 
-  // 角度リスト（累積）。継ぎ目の角度 = 各扇の開始角
+  // 継ぎ目角度（start = 扇の開始角）
   let acc = 0;
-  const seams = sorted.map((d, i) => {
+  const seams = sorted.map((d) => {
     const ang = (d.value / total) * 360;
     const start = acc;
     acc += ang;
-    return { label: d.label, value: d.value, start, end: acc };
+    return { ...d, start, end: acc, mid: start + ang / 2 };
   });
 
-  // ネオン色（青系だが僅かに色相を振る）
-  const hueBase = 200;
-  const seamColors = seams.map((s, i) => {
-    const hue = hueBase + i * 6; // 200〜230くらいをゆるく周回
-    return {
-      id: `gl-${i}`,
-      stroke: `hsl(${hue} 95% 62%)`,
-      strokeEdge: `hsl(${hue} 100% 75%)`
-    };
-  });
-
-  // 英語ほど強く＝stroke 幅・グロー強度を拡大
-  const maxStroke = 9, minStroke = 4;
-  const maxBlur = 5.5, minBlur = 3;
+  // 値に応じた強度（最大 = English）
+  const maxVal = sorted[0].value;
+  const scale = (v, a, b) => a + (b - a) * (v / maxVal);
 
   return (
     <figure className="calloutPie">
@@ -71,73 +67,94 @@ function CalloutPie({ data, size = 420 }) {
         aria-label={"Language share: " + sorted.map((d) => `${d.label} ${d.value}%`).join(", ")}
       >
         <defs>
-          {/* 外周リング用のラジアルグロー */}
+          {/* 外周リング */}
           <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
             <stop offset="78%" stopColor="rgba(140,210,255,0.00)" />
-            <stop offset="95%" stopColor="rgba(140,210,255,0.65)" />
+            <stop offset="95%" stopColor="rgba(140,210,255,0.55)" />
             <stop offset="100%" stopColor="rgba(140,210,255,0.00)" />
           </radialGradient>
 
-          {/* 継ぎ目ラインごとの線形グラデ（中心→外周：透明→発光） */}
+          {/* おうぎ面のごく薄いフィル（スクリーン合成で淡く発光） */}
+          <radialGradient id="sectorGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"  stopColor="rgba(130,200,255,0.00)" />
+            <stop offset="55%" stopColor="rgba(130,200,255,0.06)" />
+            <stop offset="85%" stopColor="rgba(160,230,255,0.10)" />
+            <stop offset="100%" stopColor="rgba(160,230,255,0.00)" />
+          </radialGradient>
+
+          {/* 中心コアの発光 */}
+          <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stopColor="rgba(200,245,255,0.95)" />
+            <stop offset="40%"  stopColor="rgba(180,235,255,0.40)" />
+            <stop offset="85%"  stopColor="rgba(150,220,255,0.10)" />
+            <stop offset="100%" stopColor="rgba(150,220,255,0.00)" />
+          </radialGradient>
+
+          {/* 継ぎ目ごとの放射グラデ（中心→外周 = 透明→発光） */}
           {seams.map((s, i) => {
-            const [x1, y1] = [cx, cy];
             const [x2, y2] = polar(s.start, r);
             return (
               <linearGradient
-                key={`lg-${i}`}
-                id={`lg-${i}`}
-                gradientUnits="userSpaceOnUse"
-                x1={x1} y1={y1} x2={x2} y2={y2}
+                key={`lg-${i}`} id={`lg-${i}`} gradientUnits="userSpaceOnUse"
+                x1={cx} y1={cy} x2={x2} y2={y2}
               >
-                <stop offset="0%" stopColor="rgba(130,200,255,0)" />
-                <stop offset="70%" stopColor="rgba(130,200,255,0.25)" />
+                <stop offset="0%"  stopColor="rgba(130,200,255,0)" />
+                <stop offset="70%" stopColor="rgba(130,200,255,0.22)" />
                 <stop offset="100%" stopColor="rgba(160,230,255,0.95)" />
               </linearGradient>
             );
           })}
 
-          {/* グロー（ぼかし→元描画をマージ） */}
+          {/* ネオン・グロー（値で強度可変） */}
           {seams.map((s, i) => (
             <filter id={`neon-${i}`} key={`f-${i}`} x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation={
-                ((maxBlur - minBlur) * (s.value / sorted[0].value)) + minBlur
-              } result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+              <feGaussianBlur in="SourceGraphic" stdDeviation={scale(s.value, 2.5, 4.5)} result="b" />
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
           ))}
         </defs>
 
-        {/* 外周の薄いリング（ベースのスケルトン感） */}
-        <circle cx={cx} cy={cy} r={r} fill="none" stroke="url(#ringGrad)" strokeWidth="10" opacity="0.55" />
-        <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="6" opacity="0.35" />
+        {/* おうぎ面（薄いフィル） */}
+        <g style={{ mixBlendMode: "screen" }}>
+          {seams.map((s, i) => (
+            <path
+              key={`sector-${i}`} d={arcPath(s.start, s.end, r)}
+              fill="url(#sectorGrad)" stroke="none" opacity={scale(s.value, 0.28, 0.45)}
+              filter={`url(#neon-${i})`}
+            />
+          ))}
+        </g>
 
-        {/* 継ぎ目（中心→外周の放射ライン）。Englishほど太く強い */}
+        {/* 外周リング（骨格） */}
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke="url(#ringGrad)" strokeWidth="8" opacity="0.55" />
+        <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="5" opacity="0.30" />
+
+        {/* 中心コアの発光 */}
+        <g style={{ mixBlendMode: "screen" }}>
+          <circle cx={cx} cy={cy} r={rCore} fill="url(#coreGlow)" />
+          <circle cx={cx} cy={cy} r={rCore * 0.35} fill="rgba(255,255,255,0.9)" />
+        </g>
+
+        {/* 継ぎ目（中心→外周）。Englishほど“強く”かつ“太く” */}
         {seams.map((s, i) => {
           const [x, y] = polar(s.start, r);
-          const strokeW = ((maxStroke - minStroke) * (s.value / sorted[0].value)) + minStroke;
+          const strokeW = scale(s.value, 2.6, 5.0);        // ← 前回より細め
           return (
             <g key={`seam-${i}`} style={{ mixBlendMode: "screen" }} filter={`url(#neon-${i})`}>
-              {/* 透明→光 のグラデで線を引く */}
-              <line x1={cx} y1={cy} x2={x} y2={y}
-                stroke={`url(#lg-${i})`} strokeWidth={strokeW} strokeLinecap="round" />
-              {/* 線の先端をさらに光らせるキャップ */}
-              <circle cx={x} cy={y} r={strokeW * 0.55} fill={seamColors[i].strokeEdge} opacity="0.9" />
+              <line x1={cx} y1={cy} x2={x} y2={y} stroke={`url(#lg-${i})`} strokeWidth={strokeW} strokeLinecap="round" />
+              <circle cx={x} cy={y} r={strokeW * 0.48} fill="rgba(170,240,255,0.95)" />
             </g>
           );
         })}
 
-        {/* ラベル・ガイド（従来のまま） */}
+        {/* ラベル＆ガイド（従来） */}
         {(() => {
           let acc2 = 0;
+          const ro = r + 10, elbow = 20, rLabel = r + 78;
           return sorted.map((d, i) => {
             const ang = (d.value / total) * 360;
             const a0 = acc2, a1 = acc2 + ang; acc2 += ang;
             const amid = a0 + ang / 2;
-            const ro = r + 10, elbow = 20, rLabel = r + 78;
-
             const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
             const [sx, sy] = polar(amid, ro);
             const [mx, my] = polar(amid, ro + elbow);
@@ -179,13 +196,7 @@ function CalloutPie({ data, size = 420 }) {
       </svg>
 
       <style jsx>{`
-        .calloutPie {
-          margin: 0;
-          width: 100%;
-          max-width: 560px;
-          aspect-ratio: 1 / 1;
-          overflow: visible;
-        }
+        .calloutPie { margin: 0; width: 100%; max-width: 560px; aspect-ratio: 1 / 1; overflow: visible; }
         @media (max-width: 900px) { .calloutPie { max-width: 520px; } }
         @media (max-width: 640px) { .calloutPie { max-width: 100%; } }
       `}</style>
