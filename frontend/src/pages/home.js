@@ -19,7 +19,15 @@ function FixedHeaderPortal({ children }) {
  *  - 青系の透け感、上位ほど濃く→下位ほど薄く
  * ========================= */
 function CalloutPie({ data, size = 420 }) {
-  const sorted = useMemo(() => [...data].sort((a, b) => b.value - a.value), [data]);
+  
+  const sorted = useMemo(() => {
+    const isOther = (s) =>
+      String(s.label).toLowerCase() === "other" || s.label === "その他";
+    const main = data.filter((d) => !isOther(d)).sort((a, b) => b.value - a.value);
+    const others = data.filter(isOther);
+    return [...main, ...others];
+  }, [data]);
+
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
 
   const colors = useMemo(() => {
@@ -79,6 +87,7 @@ function CalloutPie({ data, size = 420 }) {
         height="100%"
         viewBox={`0 0 ${W} ${H}`}
         role="img"
+        style={{ overflow: "visible" }}   // ← 追加
         aria-label={
           "Language share: " +
           sorted.map((d) => `${d.label} ${d.value}%`).join(", ")
@@ -142,19 +151,17 @@ function CalloutPie({ data, size = 420 }) {
         ))}
       </svg>
       <style jsx>{`
-        .calloutPie {
-          margin: 0;
-          width: 100%;
-          max-width: 640px;
-          aspect-ratio: 1 / 1;
-        }
-        @media (max-width: 900px) {
-          .calloutPie { max-width: 520px; }
-        }
-        @media (max-width: 640px) {
-          .calloutPie { max-width: 100%; }
-        }
-      `}</style>
+  .calloutPie {
+    margin: 0;
+    width: 100%;
+    max-width: 560px;      /* 少し縮小 */
+    aspect-ratio: 1 / 1;
+    overflow: visible;     /* ← 追加：はみ出しOKに */
+  }
+  @media (max-width: 900px) { .calloutPie { max-width: 520px; } }
+  @media (max-width: 640px) { .calloutPie { max-width: 100%; } }
+`}</style>
+
     </figure>
   );
 }
@@ -501,28 +508,37 @@ export default function Home() {
           font-weight:700; line-height:1.35; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); border-radius:12px; padding:10px 12px; }
 
         /* ===== World map background layout ===== */
-        .reachMap { position: relative; margin: clamp(32px, 12vh, 140px) 0; }
-        .reachMap::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: url('/images/worldmap.png') center / cover no-repeat;
-          opacity: 0.5; /* 指定の50% */
-          filter: saturate(110%) contrast(105%);
-        }
-        .reachMap::after {
-          /* 視認性を上げるほんのりビネット */
-          content: "";
-          position: absolute; inset: 0;
-          background: radial-gradient(90vmax 90vmax at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%);
-        }
-        .reachMapInner {
-          position: relative; z-index: 1;
-          max-width: 1200px; margin: 0 auto; padding: 0 22px;
-          display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center;
-          gap: clamp(16px, 3vw, 32px);
-          min-height: clamp(320px, 44vw, 520px);
-        }
+.reachMap {
+  position: relative;
+  margin: clamp(24px, 10vh, 120px) 0;
+}
+
+.reachMap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/images/worldmap.png') center / contain no-repeat; /* ← contain に */
+  opacity: 0.5;   /* 50% */
+  filter: saturate(110%) contrast(105%);
+}
+
+.reachMap::after {
+  content: "";
+  position: absolute; inset: 0;
+  /* 視認性用のごく薄いビネット（強ければ削ってOK） */
+  background: radial-gradient(90vmax 90vmax at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%);
+}
+
+.reachMapInner {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto; padding: 0 22px;
+  display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center;
+  gap: clamp(16px, 3vw, 32px);
+  min-height: clamp(360px, 40vw, 520px);
+  overflow: visible;          /* ← 円グラフのはみ出しOK */
+  transform: scale(0.9);      /* ← 全体縮小 */
+  transform-origin: center;
+}
         .mapCopy { display: flex; align-items: center; }
         .mapHeadline {
           margin: 0;
@@ -562,7 +578,12 @@ export default function Home() {
         }
         @media (max-width: 1024px) { .simplyGrid { grid-template-columns: 1fr; } .simplyRight { order: -1; margin-bottom: 10px; } }
         @media (max-width: 900px)  { .promoGrid { grid-template-columns: 1fr; gap: 18px; } .promoVisual { order: -1; } }
-        @media (max-width: 820px)  { .reachMapInner { grid-template-columns: 1fr; gap: 22px; } .mapHeadline { text-align: center; } }
+        @media (max-width: 820px) {
+  .reachMapInner {
+    grid-template-columns: 1fr;
+    transform: scale(0.95);   /* モバイルでは縮小率弱め */
+  }
+}
         @media (max-width: 640px)  {
           .scene { --core-size: clamp(320px, 86vmin, 80vh); padding-bottom: 28vh; }
           .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); }
