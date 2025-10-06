@@ -174,10 +174,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
     return (
       <g key={`lbl-${i}`}>
-        <g stroke="rgba(200,220,255,0.75)" fill="none">
-          <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth="2" />
-          <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
-        </g>
+
 
         <text
           x={tx}
