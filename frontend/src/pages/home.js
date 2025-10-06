@@ -515,9 +515,27 @@ export default function Home() {
           clip-path: inset(100% 0 0 0); transform: translateY(8%); opacity: 0.001;
           -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
           mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%); }
-        .minutesWrap.inview{ animation: fullReveal 900ms cubic-bezier(0.16,0.66,0.38,1) forwards; }
-        @keyframes fullReveal{ 0%{clip-path:inset(100% 0 0 0); transform:translateY(12%); opacity:0.001;}
-                               60%{clip-path:inset(0 0 0 0); transform:translateY(0%); opacity:1;} 100%{clip-path:inset(0 0 0 0);} }
+.minutesWrap.inview{
+  animation: fullReveal 900ms cubic-bezier(0.16,0.66,0.38,1) forwards;
+}
+
+@keyframes fullReveal{
+  0%{
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(12%);
+    opacity: 0.001;
+  }
+  60%{
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100%{
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0%);  /* ← これを維持 */
+    opacity: 1;                 /* ← これを維持 */
+  }
+}
 
         .mtitle{ font-weight: 800; letter-spacing: -0.01em; font-size: clamp(36px, 4.2vw, 56px); margin: 0 0 6px 0; }
         .mdate{ font-weight: 600; opacity: 0.85; font-size: clamp(26px, 2.7vw, 32px); margin-bottom: clamp(12px, 1.6vw, 16px); }
