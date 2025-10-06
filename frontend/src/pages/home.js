@@ -149,7 +149,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
         {/* ラベル＆ガイド */}
         // ラベル＆ガイドの IIFE 内を、このように差し替え
         /* ラベル＆ガイド（棒線ナシ、衝突回避つき） */
-{(() => {
+        {(() => {
   // ---- tunables ----
   const LABEL_H = 34;          // ラベルブロックの縦サイズ（見出し+%の合計）
   const PAD = 14;              // 左右の安全マージン
@@ -177,37 +177,32 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
   const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
   const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
 
-  // 1D の重なり解消（上から詰め→下から詰め）
+  // 1D の重なり解消
   const fitColumn = (arr, yMin, yMax) => {
     if (!arr.length) return;
-    // 上から
     let y = yMin;
     for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
-    // 下から
     y = yMax;
     for (let i = arr.length - 1; i >= 0; i--) {
       arr[i].y = Math.min(arr[i].y, y - LABEL_H);
       y = arr[i].y;
     }
-    // 仕上げ（元の位置に少し戻す）
     for (const it of arr) {
       it.y = clamp(it.y, it.yTarget - LABEL_H*0.75, it.yTarget + LABEL_H*0.75);
     }
   };
 
-  // 円の上下に収める範囲
   const yMinL = cy - (r + 6), yMaxL = cy + (r + 6);
   const yMinR = yMinL,        yMaxR = yMaxL;
 
   fitColumn(left,  yMinL, yMaxL);
   fitColumn(right, yMinR, yMaxR);
 
-  // 再結合（描画順はどうでも良いのでそのまま）
   const placed = [...left, ...right];
 
   return placed.map((it, i) => {
     const tx = clamp(it.xBase, PAD, W - PAD);
-    const ty = it.y;                // 見出し行のY
+    const ty = it.y;
     const anchor = it.right ? "start" : "end";
 
     return (
@@ -241,6 +236,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
     );
   });
 })()}
+
 
         <g
           className="centerLabel"
