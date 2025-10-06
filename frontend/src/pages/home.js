@@ -56,6 +56,8 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
   });
   const maxVal = sorted[0].value;
   const scale = (v, a, b) => a + (b - a) * (v / maxVal);
+  const labelSize = Math.max(12, Math.min(26, size * 0.07));
+  const labelStroke = 1.6;
 
   return (
     <figure className="calloutPie">
@@ -204,7 +206,43 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
     );
   });
 })()}
-
+        <g
+          className="centerLabel"
+          style={{ pointerEvents: "none", mixBlendMode: "normal" }}
+        >
+          <text
+            x={cx}
+            y={cy - (labelSize * 0.6)}           // 上段を少し上に
+            textAnchor="middle"
+            dominantBaseline="baseline"
+            style={{
+              fontWeight: 800,
+              fontSize: labelSize,
+              fill: "rgba(245,250,255,0.98)",
+              paintOrder: "stroke",
+              stroke: "rgba(10,20,40,0.55)",
+              strokeWidth: labelStroke
+            }}
+          >
+            User
+          </text>
+          <text
+            x={cx}
+            y={cy + (labelSize * 0.2)}            // 下段を少し下に
+            textAnchor="middle"
+            dominantBaseline="hanging"
+            style={{
+              fontWeight: 800,
+              fontSize: labelSize,
+              fill: "rgba(245,250,255,0.98)",
+              paintOrder: "stroke",
+              stroke: "rgba(10,20,40,0.55)",
+              strokeWidth: labelStroke
+            }}
+          >
+            Language
+          </text>
+        </g>
       </svg>
 
       <style jsx>{`
@@ -727,7 +765,7 @@ export default function Home() {
 }
 .mapKicker{
   display: block;
-  font-weight: 900;     /* users と同じ */
+  font-weight: 700;     /* users と同じ */
   font-size: 1em;       /* 親(.mapHeadline)の clamp を継承 */
   line-height: 1.02;    /* 見出しと揃える */
   letter-spacing: -0.02em;
