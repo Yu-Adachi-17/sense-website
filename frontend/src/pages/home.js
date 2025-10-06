@@ -696,18 +696,16 @@ export default function Home() {
             radial-gradient(140% 100% at 12% -10%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 60%);
           background-size: cover; background-position: center;
         }
-.shot {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 280ms ease;
-
-  /* 画像を“画面内に投影”するための設定 */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 70% auto;   /* ★ 幅を枠の70%に、縦は比率維持 */
+.shot { position: absolute; inset: 0; opacity: 0; transition: opacity .28s ease; }
+.shot.isOn { opacity: 1; }
+.shotCaption {
+  position: absolute; left: 16px; bottom: 16px;
+  max-width: 80%;
+  font-weight: 700; line-height: 1.35;
+  background: rgba(0,0,0,.45); backdrop-filter: blur(6px);
+  border-radius: 12px; padding: 10px 12px;
 }
-        .shot.isOn { opacity: 1; }
+
 
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
