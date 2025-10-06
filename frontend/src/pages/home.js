@@ -519,10 +519,103 @@ export default function Home() {
         @keyframes fullReveal{ 0%{clip-path:inset(100% 0 0 0); transform:translateY(12%); opacity:0.001;}
                                60%{clip-path:inset(0 0 0 0); transform:translateY(0%); opacity:1;} 100%{clip-path:inset(0 0 0 0);} }
 
+        .mtitle{ font-weight: 800; letter-spacing: -0.01em; font-size: clamp(36px, 4.2vw, 56px); margin: 0 0 6px 0; }
+        .mdate{ font-weight: 600; opacity: 0.85; font-size: clamp(26px, 2.7vw, 32px); margin-bottom: clamp(12px, 1.6vw, 16px); }
+        .mhr{ height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.22), rgba(255,255,255,0.08));
+          margin: clamp(10px, 1.8vw, 18px) 0; }
+        .mhead{ font-weight: 800; font-size: clamp(28px, 3vw, 36px); margin: clamp(10px, 1.6vw, 16px) 0 8px 0; }
+
+        .minutesFlow > * { opacity: 0; transform: translateY(18px); }
+        .minutesWrap.inview .minutesFlow > * { animation: rise 700ms cubic-bezier(0.16,0.66,0.38,1) forwards; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(1) { animation-delay: 80ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(2) { animation-delay: 150ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(3) { animation-delay: 220ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(4) { animation-delay: 290ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(5) { animation-delay: 360ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(6) { animation-delay: 430ms; }
+        .minutesWrap.inview .minutesFlow > *:nth-child(7) { animation-delay: 500ms; }
+        @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+        .fline{ font-weight: 700; font-size: clamp(24px, 2.5vw, 30px); margin: 0 0 clamp(16px, 2.4vw, 22px) 0; }
+
+        .space { position:absolute; inset:-20vmin;
+          background: radial-gradient(closest-side, transparent 56%, rgba(var(--halo),0.05) 57%, transparent 58%) center/120vmin 120vmin no-repeat;
+          filter: blur(0.4px); opacity: 0.35; }
+
+        .core { position:absolute; left:50%; top:60vh; transform: translate(-50%, -50%);
+          width: var(--core-size); height: var(--core-size); border-radius: 50%; pointer-events: none; z-index: 1; }
+
+        .coreGlow { position:absolute; inset:0; border-radius:50%;
+          background: radial-gradient(circle at 50% 50%, rgba(var(--halo),1) 0%,
+            rgba(242,238,255,0.98) 8%, rgba(206,196,255,0.92) 18%, rgba(178,164,255,0.80) 32%,
+            rgba(131,146,255,0.58) 48%, rgba(92,118,255,0.38) 62%, rgba(55,88,255,0.22) 72%, rgba(0,0,0,0) 78%);
+          filter: blur(10px) saturate(125%) contrast(105%); animation: breathe 6s ease-in-out infinite; }
+
+        .shine { position:absolute; inset:0; border-radius:50%;
+          background: radial-gradient(60% 18% at 50% 50%, rgba(var(--halo),0.95) 0%, rgba(var(--halo),0) 100%),
+                      radial-gradient(28% 10% at 50% 50%, rgba(var(--halo),0.85) 0%, rgba(var(--halo),0) 100%);
+          mix-blend-mode: screen; filter: blur(6px); opacity: 0.7; animation: breathe 6s ease-in-out infinite reverse; }
+
+        .orbits { position:absolute; inset:-3%; border-radius:50%;
+          background: radial-gradient(closest-side, rgba(255,255,255,0.04) 55%, transparent 56%) center/100% 100% no-repeat;
+          mix-blend-mode: screen; filter: blur(0.5px); opacity: 0.45; }
+
+        .starEmitter { position:absolute; inset:0; border-radius:50%; pointer-events:none; z-index:2; --N:36; --emit-radius: calc(var(--core-size) * 0.96); }
+        .starEmitter i { position:absolute; left:50%; top:50%; width:var(--sz,1.4px); height:var(--sz,1.4px); border-radius:50%;
+          background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0) 70%);
+          box-shadow: 0 0 6px rgba(180,200,255,0.55); opacity:0; mix-blend-mode: screen; backface-visibility:hidden;
+          will-change: transform, opacity; --a: calc(360deg * (var(--i) / var(--N)));
+          transform: rotate(var(--a)) translateX(0) scale(1); animation: shoot var(--spd,2.8s) linear infinite;
+          animation-delay: var(--delay,0s); }
+        .starEmitter i::after { content:""; position:absolute; left: calc(-1 * var(--tail,28px)); top:50%;
+          transform: translateY(-50%); width: var(--tail,28px); height:1px;
+          background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0));
+          filter: blur(0.6px); opacity: calc(var(--alpha,0.8) * 0.7); pointer-events:none; }
+        @keyframes shoot {
+          0%   { transform: rotate(var(--a)) translateX(0) scale(1); opacity: 0; }
+          8%   { opacity: var(--alpha, 0.9); }
+          60%  { transform: rotate(var(--a)) translateX(calc(var(--emit-radius) * 0.66)) scale(0.9); opacity: calc(var(--alpha, 0.9) * 0.5); }
+          100% { transform: rotate(var(--a)) translateX(var(--emit-radius)) scale(0.82); opacity: 0; }
+        }
+
+        .ring { --size: calc(var(--core-size) * 0.82); position:absolute; left:50%; top:50%;
+          transform: translate(-50%, -50%) scale(var(--ring-start-scale)); width:var(--size); height:var(--size); border-radius:50%;
+          box-shadow: 0 0 42px rgba(188,166,255,0.45), inset 0 0 38px rgba(107,134,255,0.28);
+          background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(188,166,255,0.55) 30%, rgba(120,140,255,0.22) 52%, rgba(0,0,0,0) 62%);
+          filter: blur(0.25px); opacity: 0.9;
+          animation: ripple var(--ripple-period) cubic-bezier(0.16,0.66,0.38,1) infinite; animation-delay: var(--d); }
+
+        .starsBelt { position:absolute; left:50%; top:50%; transform: translate(-50%, -50%);
+          width: calc(var(--core-size) * 1.06); height: calc(var(--core-size) * 1.06); border-radius:50%; pointer-events:none;
+          mix-blend-mode: screen; opacity: 0.55;
+          background:
+            radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,0.95) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 22% 36%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 32% 64%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 44% 26%, rgba(255,255,255,0.8) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 58% 72%, rgba(255,255,255,0.75) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 66% 40%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 74% 58%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 82% 30%, rgba(255,255,255,0.8) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 16% 76%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 88% 64%, rgba(255,255,255,0.75) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 38% 86%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 70% 86%, rgba(255,255,255,0.8) 99%, transparent 100%);
+          -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
+          mask: radial-gradient(circle at 50% 50%, transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
+          animation: twinkle 4s ease-in-out infinite alternate; }
+
+        .reflection { position:absolute; left:50%; bottom:0; transform: translateX(-50%);
+          width: 200vmax; height: 40vh;
+          background: radial-gradient(120vmin 60% at 50% 0%, rgba(140,150,255,0.28) 0%, rgba(140,150,255,0.10) 40%, transparent 75%);
+          filter: blur(14px); opacity: 0.7; }
+
         .ctaBig { display:inline-flex; align-items:center; justify-content:center; padding:14px 28px; border-radius:999px;
           background:#0b2b3a; color:#eaf4f7; text-decoration:none; font-weight:700;
           box-shadow:0 0 0 1px rgba(255,255,255,0.08) inset, 0 8px 24px rgba(0,0,0,0.25);
           margin: clamp(16px, 3.5vh, 28px) auto 0; }
+
+
 
         /* ===== Simply ===== */
         .simply { margin: clamp(28px, 8vh, 80px) auto; padding: 0 22px; max-width: 1200px; }
