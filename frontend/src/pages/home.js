@@ -1,6 +1,6 @@
 // frontend/src/pages/home.js
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { FaApple } from "react-icons/fa";
 import HomeIcon from "./homeIcon"; // 自前アイコン
@@ -10,6 +10,228 @@ function FixedHeaderPortal({ children }) {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
   return createPortal(children, document.body);
+}
+
+/** =========================
+ *  言語別コールアウト・パイチャート
+ *  - 背景ボックスなし（グラフのみ）
+ *  - ラベルはパイ外周から棒線で表示
+ *  - 青系の透け感、上位ほど濃く→下位ほど薄く
+ * ========================= */
+function CalloutPie({ data, size = 360 }) {
+  // data: [{label, value}, ...] 合計100想定（端数OK）
+  const svgRef = useRef(null);
+  const sorted = useMemo(() => {
+    // 値降順（「Other」も値順に含める）
+    return [...data].sort((a, b) => b.value - a.value);
+  }, [data]);
+
+  const total = useMemo(
+    () => sorted.reduce((acc, d) => acc + d.value, 0),
+    [sorted]
+  );
+
+  // 色：青系で上位から順に薄く（Lightness↑ ＆ Alpha↓）
+  const colors = useMemo(() => {
+    const n = sorted.length;
+    // 上位ほど l(=明度)を低め＆alpha高め、下位ほど明るく＆透明に
+    const baseHue = 208; // 青
+    const sat = 88; // %
+    const maxL = 66; // 最も薄い（下位）
+    const minL = 48; // 最も濃い（上位）
+    const maxA = 0.95; // 上位の不透明度
+    const minA = 0.45; // 下位の不透明度
+    return sorted.map((_, i) => {
+      const t = i / Math.max(1, n - 1); // 0..1
+      const l = minL + (maxL - minL) * t; // 上位→下位で明るく
+      const a = maxA + (minA - maxA) * t; // 上位→下位で薄く
+      return `hsla(${baseHue} ${sat}% ${l}% / ${a})`;
+    });
+  }, [sorted]);
+
+  // ジオメトリ
+  const W = size;
+  const H = size;
+  const cx = W / 2;
+  const cy = H / 2;
+  const r = Math.min(W, H) * 0.30;       // 内側パイ半径
+  const ro = r + 10;                      // 棒線の起点半径
+  const rLabel = r + 72;                  // ラベル中心半径
+  const elbow = 18;                       // 折れ曲がり長さ
+  const stroke = 2;
+
+  // 角度→座標
+  const polar = (angDeg, rad) => {
+    const a = (angDeg - 90) * (Math.PI / 180); // 0度を上から開始
+    return [cx + rad * Math.cos(a), cy + rad * Math.sin(a)];
+  };
+
+  // 扇形パス
+  const arcPath = (a0, a1, radius) => {
+    const [x0, y0] = polar(a0, radius);
+    const [x1, y1] = polar(a1, radius);
+    const large = a1 - a0 > 180 ? 1 : 0;
+    return `M ${cx} ${cy} L ${x0} ${y0} A ${radius} ${radius} 0 ${large} 1 ${x1} ${y1} Z`;
+    // 円弧の向きは 1=時計回り（上から右回り）
+  };
+
+  // 各スライスの角度とコールアウト
+  let acc = 0;
+  const slices = sorted.map((d, i) => {
+    const ang = (d.value / total) * 360;
+    const a0 = acc;
+    const a1 = acc + ang;
+    acc += ang;
+    const amid = a0 + ang / 2;
+
+    // 棒線（ローカル→肘→水平）
+    const [sx, sy] = polar(amid, ro);
+    const [mx, my] = polar(amid, ro + elbow);
+    const isRight = Math.cos((amid - 90) * (Math.PI / 180)) >= 0; // 右側か
+    const hx = isRight ? mx + 24 : mx - 24;
+    const labelX = isRight ? hx + 8 : hx - 8;
+    const [lx, ly] = polar(amid, rLabel);
+
+    // ラベル配置は水平ライン終点の近辺（上下は極座標優先）
+    const finalLabelX = isRight ? Math.max(labelX, lx) : Math.min(labelX, lx);
+    const finalLabelY = ly;
+
+    return {
+      d,
+      a0,
+      a1,
+      amid,
+      path: arcPath(a0, a1, r),
+      line: { sx, sy, mx, my, hx, hy: my },
+      label: { x: finalLabelX, y: finalLabelY, right: isRight },
+      color: colors[i],
+    };
+  });
+
+  return (
+    <figure className="calloutPie">
+      <svg
+        ref={svgRef}
+        width="100%"
+        height="100%"
+        viewBox={`0 0 ${W} ${H}`}
+        role="img"
+        aria-label={
+          "Language share: " +
+          sorted.map((d) => `${d.label} ${d.value}%`).join(", ")
+        }
+      >
+        {/* ドロップシャドウ用フィルタ（薄め） */}
+        <defs>
+          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.26" />
+          </filter>
+        </defs>
+
+        {/* セグメント */}
+        {slices.map((s, i) => (
+          <path
+            key={`seg-${i}`}
+            d={s.path}
+            fill={s.color}
+            stroke="rgba(255,255,255,0.08)"
+            strokeWidth="1"
+            filter="url(#softShadow)"
+          />
+        ))}
+
+        {/* 中央の薄いハイライト（ガラス感） */}
+        <circle
+          cx={cx}
+          cy={cy}
+          r={r * 0.86}
+          fill="url(#glow)"
+          opacity="0.28"
+          style={{ mixBlendMode: "screen" }}
+        />
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.85)" />
+            <stop offset="65%" stopColor="rgba(255,255,255,0.15)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+          </radialGradient>
+        </defs>
+
+        {/* コールアウト（棒線） */}
+        {slices.map((s, i) => (
+          <g key={`co-${i}`} stroke={`rgba(200,220,255,0.75)`} fill="none">
+            <path
+              d={`M ${s.line.sx} ${s.line.sy} L ${s.line.mx} ${s.line.my} L ${s.line.hx} ${s.line.hy}`}
+              strokeWidth={stroke}
+            />
+            {/* 先端に小さな点 */}
+            <circle cx={s.line.sx} cy={s.line.sy} r={2.6} fill={s.color} />
+          </g>
+        ))}
+
+        {/* ラベル（言語名 + %） */}
+        {slices.map((s, i) => (
+          <g key={`lbl-${i}`}>
+            <text
+              x={s.label.x}
+              y={s.label.y}
+              textAnchor={s.label.right ? "start" : "end"}
+              dominantBaseline="middle"
+              style={{
+                fontWeight: 800,
+                fontSize: 16,
+                fill: "rgba(230,245,255,0.98)",
+                paintOrder: "stroke",
+                stroke: "rgba(10,20,40,0.45)",
+                strokeWidth: 1.2,
+              }}
+            >
+              {s.d.label}
+            </text>
+            <text
+              x={s.label.x}
+              y={s.label.y + 16}
+              textAnchor={s.label.right ? "start" : "end"}
+              dominantBaseline="hanging"
+              style={{
+                fontWeight: 700,
+                fontSize: 13,
+                fill: "rgba(200,225,255,0.92)",
+              }}
+            >
+              {s.d.value}%
+            </text>
+          </g>
+        ))}
+      </svg>
+      <figcaption className="pieCap">Languages (approx.)</figcaption>
+
+      <style jsx>{`
+        .calloutPie {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          max-width: 820px;
+          aspect-ratio: 16 / 11; /* レスポンシブに縦も確保 */
+          display: block;
+          margin-inline: auto;
+          /* 背景ボックスなし：影・枠なし */
+        }
+        .pieCap {
+          text-align: center;
+          font-weight: 800;
+          margin: 8px 0 0;
+          color: #eaf4f7;
+        }
+        @media (max-width: 640px) {
+          .calloutPie {
+            max-width: 100%;
+            aspect-ratio: 1 / 1; /* モバイルは正方形に寄せる */
+          }
+        }
+      `}</style>
+    </figure>
+  );
 }
 
 export default function Home() {
@@ -34,70 +256,23 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
-  // ▼ グラフ用データ（整数%：あなたのリストから算出）
-const COUNTRY_PIE = [
-  { label: "United States", value: 15 },
-  { label: "Germany", value: 7 },
-  { label: "Malaysia", value: 7 },
-  { label: "Netherlands", value: 6 },
-  { label: "United Kingdom", value: 5 },
-  { label: "Other", value: 60 },    // 端数調整ずみ（合計100%）
-];
+  // ▼ 言語別のみ（国別は削除）
+  const LANGUAGE_PIE = [
+    { label: "English", value: 40 },
+    { label: "German", value: 9 },
+    { label: "Arabic", value: 8 },
+    { label: "Malay", value: 7 },
+    { label: "Dutch", value: 6 },
+    { label: "Other", value: 30 },
+  ];
 
-const LANGUAGE_PIE = [
-  { label: "English", value: 40 },
-  { label: "German", value: 9 },
-  { label: "Arabic", value: 8 },
-  { label: "Malay", value: 7 },
-  { label: "Dutch", value: 6 },
-  { label: "Other", value: 30 },    // 合計100%
-];
-
-// conic-gradient の color スキーム（6色）
-const PIE_COLORS = [
-  "hsl(200 90% 60%)",
-  "hsl(160 70% 55%)",
-  "hsl(260 70% 65%)",
-  "hsl(20 85% 60%)",
-  "hsl(45 90% 60%)",
-  "hsl(0 0% 70%)",
-];
-
-// パーセント配列 → conic-gradient() 文字列に変換
-function makeConic(data) {
-  let acc = 0;
-  return data
-    .map((d, i) => {
-      const start = acc;
-      acc += d.value;
-      return `${PIE_COLORS[i % PIE_COLORS.length]} ${start}% ${acc}%`;
-    })
-    .join(", ");
-}
-
-
-  // ▼ Simply ultimate. セクション用（小見出し sub を追加）
+  // ▼ Simply ultimate. セクション（そのまま）
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
   const steps = [
-    {
-      key: "tap",
-      label: "Tap",
-      img: "/images/demo-tap.png",
-      sub: "Tap to start recording.",
-    },
-    {
-      key: "stop",
-      label: "Stop",
-      img: "/images/demo-stop.png",
-      sub: "Stop when you’re done.",
-    },
-    {
-      key: "wrap",
-      label: "Wrap",
-      img: "/images/demo-wrap.png",
-      sub: "AI writes the minutes—automatically.",
-    },
+    { key: "tap", label: "Tap", img: "/images/demo-tap.png", sub: "Tap to start recording." },
+    { key: "stop", label: "Stop", img: "/images/demo-stop.png", sub: "Stop when you’re done." },
+    { key: "wrap", label: "Wrap", img: "/images/demo-wrap.png", sub: "AI writes the minutes—automatically." },
   ];
   const idx = steps.findIndex((s) => s.key === active);
   const move = (delta) => {
@@ -110,14 +285,11 @@ function makeConic(data) {
   };
   const onRadioKey = (e) => {
     if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-      e.preventDefault();
-      move(1);
+      e.preventDefault(); move(1);
     } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-      e.preventDefault();
-      move(-1);
+      e.preventDefault(); move(-1);
     } else if (e.key === " " || e.key === "Enter") {
-      e.preventDefault();
-      setActive(steps[idx].key);
+      e.preventDefault(); setActive(steps[idx].key);
     }
   };
 
@@ -132,14 +304,13 @@ function makeConic(data) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* ▼ ここから追加（英語版） */}
-        {/* Basics */}
         <meta
           name="description"
           content="Automatically create beautiful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web."
         />
         <link rel="canonical" href="https://www.sense-ai.world/" />
 
-        {/* OGP / Twitter (kept concise; OG/Twitter meta must live in <head>) */}
+        {/* OGP / Twitter */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.sense-ai.world/" />
         <meta property="og:title" content="Minutes.AI — AI Meeting Minutes" />
@@ -147,19 +318,9 @@ function makeConic(data) {
           property="og:description"
           content="Record your meeting and let AI produce clean, human-ready minutes—decisions and to-dos at a glance."
         />
-        <meta
-          property="og:image"
-          content="https://www.sense-ai.world/og-image.jpg"
-        />
+        <meta property="og:image" content="https://www.sense-ai.world/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@your_brand" />
-        {/* ▲ OGP/Twitter: in <head> per Open Graph & X docs. */}
-
-        {/* (Enable when i18n goes live)
-        <link rel="alternate" hrefLang="en" href="https://www.sense-ai.world/" />
-        <link rel="alternate" hrefLang="ja" href="https://www.sense-ai.world/ja" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.sense-ai.world/" />
-        */}
 
         {/* Structured Data */}
         <script
@@ -192,9 +353,7 @@ function makeConic(data) {
             })
           }}
         />
-        {/* ▲ ここまで追加 */}
       </Head>
-
 
       {/* ===== Fixed Header ===== */}
       <FixedHeaderPortal>
@@ -264,22 +423,16 @@ function makeConic(data) {
           <div className="starsBelt" />
         </div>
 
-        {/* ▼ 球体の下（通常フロー化：スクロールできるように） */}
+        {/* ▼ 球体の下 */}
         <section className="below">
           <div className="line1 sameSize">AI Makes</div>
           <div className="line2 gradText sameSize">Beautiful&nbsp;Minutes</div>
 
           {/* ガラス調デバイス */}
           <div className="deviceStage">
-            <div
-              className="deviceGlass"
-              aria-label="Minutes preview surface"
-              ref={deviceRef}
-            >
+            <div className="deviceGlass" aria-label="Minutes preview surface" ref={deviceRef}>
               <article className="minutesWrap" ref={wrapRef}>
-                <h2 className="mtitle gradDevice">
-                  AI Minutes Meeting — Product Launch Planning
-                </h2>
+                <h2 className="mtitle gradDevice">AI Minutes Meeting — Product Launch Planning</h2>
                 <div className="mdate">
                   <time dateTime="2025-10-01">Oct 1, 2025 (JST)</time>
                 </div>
@@ -331,7 +484,7 @@ function makeConic(data) {
                   aria-label="Actions"
                   ref={radioGroupRef}
                 >
-                  {steps.map((s, i) => {
+                  {steps.map((s) => {
                     const checked = active === s.key;
                     return (
                       <button
@@ -357,101 +510,51 @@ function makeConic(data) {
                 </div>
               </div>
 
-              {/* 右：モック画面（フェード切替 / 画像は仮） */}
+              {/* 右：モック画面 */}
               <div className="simplyRight" aria-live="polite">
-  {steps.map((s) => (
-    <figure
-      key={s.key}
-      className={`shot${active === s.key ? " isOn" : ""}`}
-      aria-hidden={active !== s.key}
-      style={{ margin: 0 }}
-    >
-      {/* 意味のあるビジュアルは <img> で */}
-      <img
-        src={s.img}
-        alt={
-          s.key === "tap"
-            ? "Tap to start recording"
-            : s.key === "stop"
-            ? "Stop the recording"
-            : "AI creates minutes automatically"
-        }
-        loading="lazy"
-        style={{ width: "100%", height: "100%", objectFit: "contain" }}
-      />
-      {/* 説明テキスト（ここが検索にも効く） */}
-      <figcaption className="shotCaption">
-        {s.key === "tap" && (
-          <p>Press the button to start recording.</p>
-        )}
-        {s.key === "stop" && (
-          <p>Press to finish; AI transcribes and drafts minutes automatically.</p>
-        )}
-        {s.key === "wrap" && (
-          <p>Get beautifully formatted minutes, a To-Do list, and the full transcript.</p>
-        )}
-      </figcaption>
-    </figure>
-  ))}
-</div>
-
+                {steps.map((s) => (
+                  <figure
+                    key={s.key}
+                    className={`shot${active === s.key ? " isOn" : ""}`}
+                    aria-hidden={active !== s.key}
+                    style={{ margin: 0 }}
+                  >
+                    <img
+                      src={s.img}
+                      alt={
+                        s.key === "tap"
+                          ? "Tap to start recording"
+                          : s.key === "stop"
+                          ? "Stop the recording"
+                          : "AI creates minutes automatically"
+                      }
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                    />
+                    <figcaption className="shotCaption">
+                      {s.key === "tap" && <p>Press the button to start recording.</p>}
+                      {s.key === "stop" && <p>Press to finish; AI transcribes and drafts minutes automatically.</p>}
+                      {s.key === "wrap" && <p>Get beautifully formatted minutes, a To-Do list, and the full transcript.</p>}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
           </section>
-          {/* ===== Global footprint ===== */}
-<section className="reach" aria-labelledby="reachTitle">
-  <div className="reachInner">
-    <h2 id="reachTitle" className="reachH2">
-      30,000 iOS downloads worldwide
-    </h2>
-    <p className="reachNote">
-      * App Store cumulative downloads. Percentages are computed from the
-      country list you provided (n=26,100). Language shares are aggregated by each territory’s primary language.
-    </p>
 
-    <div className="reachGrid">
-      {/* 左：国別（トップ5＋その他） */}
-      <figure className="pieCard">
-        <div
-          className="pie"
-          role="img"
-          aria-label="Top countries share of installs: United States 15%, Germany 7%, Malaysia 7%, Netherlands 6%, United Kingdom 5%, Other 60%"
-          style={{ background: `conic-gradient(${makeConic(COUNTRY_PIE)})` }}
-        />
-        <figcaption className="pieCap">Top countries (share of installs)</figcaption>
-        <ul className="legend">
-          {COUNTRY_PIE.map((d, i) => (
-            <li key={d.label}>
-              <i style={{ background: PIE_COLORS[i % PIE_COLORS.length] }} />
-              <span className="lgName">{d.label}</span>
-              <span className="lgVal">{d.value}%</span>
-            </li>
-          ))}
-        </ul>
-      </figure>
+          {/* ===== Global footprint（言語のみ／国別は削除） ===== */}
+          <section className="reach" aria-labelledby="reachTitle">
+            <div className="reachInner">
+              <h2 id="reachTitle" className="reachH2">30,000 iOS downloads worldwide</h2>
+              <p className="reachNote">
+                * App Store cumulative downloads. Percentages are computed from the
+                list you provided (n=26,100). Language shares are aggregated by each territory’s primary language.
+              </p>
 
-      {/* 右：言語別（トップ5＋その他） */}
-      <figure className="pieCard">
-        <div
-          className="pie"
-          role="img"
-          aria-label="Languages coverage: English 40%, German 9%, Arabic 8%, Malay 7%, Dutch 6%, Other 30%"
-          style={{ background: `conic-gradient(${makeConic(LANGUAGE_PIE)})` }}
-        />
-        <figcaption className="pieCap">Languages (approx.)</figcaption>
-        <ul className="legend">
-          {LANGUAGE_PIE.map((d, i) => (
-            <li key={d.label}>
-              <i style={{ background: PIE_COLORS[i % PIE_COLORS.length] }} />
-              <span className="lgName">{d.label}</span>
-              <span className="lgVal">{d.value}%</span>
-            </li>
-          ))}
-        </ul>
-      </figure>
-    </div>
-  </div>
-</section>
-
+              {/* 背景ボックスなし、グラフのみ */}
+              <CalloutPie data={LANGUAGE_PIE} />
+            </div>
+          </section>
 
           {/* iPhoneアプリ訴求 */}
           <section className="appPromo" aria-labelledby="appPromoHead">
@@ -460,25 +563,14 @@ function makeConic(data) {
                 <h2 id="appPromoHead" className="promoH2">
                   iPhone App is <span className="gradText">Available</span>
                 </h2>
-                <p className="promoSub">
-                  Record on iPhone and get Beautiful Minutes instantly.
-                </p>
-                <a
-                  href={LINK_IOS}
-                  className="promoCta"
-                  rel="noopener noreferrer"
-                >
+                <p className="promoSub">Record on iPhone and get Beautiful Minutes instantly.</p>
+                <a href={LINK_IOS} className="promoCta" rel="noopener noreferrer">
                   <FaApple aria-hidden="true" />
                   <span>Download on iOS</span>
                 </a>
               </div>
-
               <div className="promoVisual">
-                <img
-                  src="/images/hero-phone.png"
-                  alt="Minutes.AI iPhone App"
-                  loading="lazy"
-                />
+                <img src="/images/hero-phone.png" alt="Minutes.AI iPhone App" loading="lazy" />
               </div>
             </div>
           </section>
@@ -496,9 +588,7 @@ function makeConic(data) {
             <span className="sep">·</span>
             <a href="/privacy-policy" className="legalLink">Privacy Policy</a>
           </div>
-          <div className="copyright">
-            &copy; Sense LLC All Rights Reserved
-          </div>
+          <div className="copyright">&copy; Sense LLC All Rights Reserved</div>
         </div>
       </footer>
 
@@ -724,7 +814,6 @@ function makeConic(data) {
           gap: clamp(16px, 3.5vw, 36px);
         }
         .simplyLeft { text-align: left; }
-        /* ① 「Simply ultimate.」を最大に */
         .simplyH2 {
           margin: 0 0 12px 0;
           font-weight: 900;
@@ -750,7 +839,6 @@ function makeConic(data) {
           transform: scale(0.9);
         }
         .stepBtn.isActive .dot { background: linear-gradient(90deg,#65e0c4,#8db4ff); transform: scale(1); }
-        /* ① Tap/Stop/Wrap は一段下げたサイズに */
         .stepBtn .lbl {
           font-weight: 900; letter-spacing: -0.02em; line-height: 1.02;
           font-size: clamp(28px, 6vw, 64px); color: #eaf4f7;
@@ -762,7 +850,6 @@ function makeConic(data) {
           -webkit-background-clip: text; background-clip: text; color: transparent;
           -webkit-text-fill-color: transparent;
         }
-        /* ② 小見出し */
         .stepBtn .sub {
           margin-left: 22px;
           margin-top: 4px;
@@ -786,72 +873,31 @@ function makeConic(data) {
           border: 1px solid rgba(255,255,255,0.10);
           box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18);
         }
-        .shot {
-          position: absolute; inset: 0; opacity: 0; transition: opacity 320ms ease;
-          background-image:
-            var(--img),
-            radial-gradient(140% 100% at 12% -10%, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.00) 60%);
-          background-size: cover; background-position: center;
+        .shot { position: absolute; inset: 0; opacity: 0; transition: opacity .28s ease; }
+        .shot.isOn { opacity: 1; }
+        .shotCaption {
+          position: absolute;
+          left: 50%;
+          bottom: 16px;
+          transform: translateX(-50%);
+          max-width: 86%;
+          text-align: center;
+          font-weight: 700;
+          line-height: 1.35;
+          background: rgba(0,0,0,.45);
+          backdrop-filter: blur(6px);
+          border-radius: 12px;
+          padding: 10px 12px;
         }
-.shot { position: absolute; inset: 0; opacity: 0; transition: opacity .28s ease; }
-.shot.isOn { opacity: 1; }
-.shotCaption {
-  position: absolute;
-  left: 50%;
-  bottom: 16px;            /* ここはお好みで */
-  transform: translateX(-50%);
-  max-width: 86%;
-  text-align: center;       /* テキストも中央寄せ */
-  font-weight: 700;
-  line-height: 1.35;
-  background: rgba(0,0,0,.45);
-  backdrop-filter: blur(6px);
-  border-radius: 12px;
-  padding: 10px 12px;
-}
-.reach { margin: clamp(28px, 10vh, 120px) auto; padding: 0 22px; max-width: 1200px; }
-.reachInner { display: grid; gap: 12px; }
-.reachH2 {
-  margin: 0; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05;
-  font-size: clamp(28px, 6vw, 56px); color: #fff;
-}
-.reachNote { margin: 2px 0 10px; opacity: .7; font-size: 13px; }
 
-.reachGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(16px, 3vw, 28px);
-}
-
-.pieCard {
-  margin: 0; padding: 16px; border-radius: 18px;
-  background: linear-gradient(180deg, rgba(36,48,72,0.55), rgba(56,78,96,0.50));
-  backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.18);
-}
-
-.pie {
-  width: min(320px, 66vw);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  margin: 10px auto 12px;
-  box-shadow: inset 0 0 0 8px rgba(0,0,0,.25);
-}
-
-.pieCap { text-align: center; font-weight: 800; margin: 0 0 10px; }
-
-.legend {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px;
-}
-.legend li { display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 8px; }
-.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
-.legend .lgName { opacity: .92; }
-.legend .lgVal { opacity: .8; font-weight: 800; }
-
-@media (max-width: 900px) {
-  .reachGrid { grid-template-columns: 1fr; }
-}
+        /* ===== Downloads / Language reach ===== */
+        .reach { margin: clamp(28px, 10vh, 120px) auto; padding: 0 22px; max-width: 1200px; }
+        .reachInner { display: grid; gap: 12px; }
+        .reachH2 {
+          margin: 0; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05;
+          font-size: clamp(28px, 6vw, 56px); color: #fff;
+        }
+        .reachNote { margin: 2px 0 10px; opacity: .7; font-size: 13px; }
 
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
@@ -928,8 +974,7 @@ function makeConic(data) {
           .promoVisual { order: -1; }
         }
         @media (max-width: 640px) {
-          .scene { --core-size: clamp(320px, 86vmin, 80vh);
-            padding-bottom: 28vh; }
+          .scene { --core-size: clamp(320px, 86vmin, 80vh); padding-bottom: 28vh; }
           .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); }
           .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
           .deviceStage { width: min(calc(92vw * 0.8), 416px); }
@@ -947,11 +992,7 @@ function makeConic(data) {
         :root {
           --header-h: clamp(56px, 7.2vh, 72px);
           --header-py: 10px;
-          --header-offset: calc(
-            var(--header-h)
-            + env(safe-area-inset-top, 0px)
-            + (var(--header-py) * 2)
-          );
+          --header-offset: calc(var(--header-h) + env(safe-area-inset-top, 0px) + (var(--header-py) * 2));
         }
 
         header.top {
@@ -1041,11 +1082,7 @@ function makeConic(data) {
         }
         .legalLink { color: #ffffff; text-decoration: none; }
         .sep { opacity: 0.55; }
-        .copyright {
-          font-size: 13px;
-          opacity: 0.7;
-          white-space: nowrap;
-        }
+        .copyright { font-size: 13px; opacity: 0.7; white-space: nowrap; }
         @media (max-width: 640px) {
           .footInner { flex-direction: column; gap: 8px; }
         }
