@@ -218,12 +218,14 @@ export default function Home() {
 
   // 言語別のみ（国別は排除）
   const LANGUAGE_PIE = [
-    { label: "English", value: 35 },
-    { label: "German", value: 29 },
-    { label: "Arabic", value: 11 },
-    { label: "Malay", value: 10 },
-    { label: "Dutch", value: 8 },
-    { label: "Other", value: 7 },
+    { label: "English", value: 40 },
+    { label: "German", value: 9 },
+    { label: "Arabic", value: 8 },
+    { label: "Malay", value: 7 },
+    { label: "Dutch", value: 6 },
+    { label: "Chinese", value: 5 },
+    { label: "Portuguese", value: 4 },
+    { label: "Other", value: 21 }
   ];
 
   // Simply セクション（既存）
