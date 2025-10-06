@@ -159,10 +159,10 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
   // ← ここで個別の X/Y 微調整（px）。+X=右 / -X=左、+Y=下 / -Y=上
   const offsetMap = {
-    German: { dx: -22, dy: 30 }, // ちょい左下
-    Arabic: { dx:  20, dy: 40 }, // 下へ
-    Malay:  { dx:  10, dy: 40 }, // 右下
-    Dutch:  { dx:  18, dy: 18 }, // 右下
+    German: { dx: -22, dy: -30 }, // ちょい左下
+    Arabic: { dx:  20, dy: -40 }, // 下へ
+    Malay:  { dx:  10, dy: -40 }, // 右下
+    Dutch:  { dx:  18, dy: -18 }, // 右下
   };
 
   let acc = 0;
