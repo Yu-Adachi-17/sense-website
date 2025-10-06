@@ -151,8 +151,8 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 {(() => {
   let acc2 = 0;
   const ro = r + 10, elbow = 20;
-  const rLabelBase = r + 78;   // 既存値
-  const rLabelRight = r + 64;  // 右半分だけわずかに内側に寄せる
+  const rLabelBase = r + 52;   // 既存値
+  const rLabelRight = r + 46;  // 右半分だけわずかに内側に寄せる
   const PAD = 14;              // キャンバスの安全マージン
 
   return sorted.map((d, i) => {
