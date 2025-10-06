@@ -1,3 +1,4 @@
+// frontend/src/pages/home.js
 import Head from "next/head";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
@@ -27,9 +28,8 @@ function CalloutPie({ data, size = 380 }) {
   }, [data]);
 
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
-
-  // 追加: はみ出し防止に使う汎用 clamp
-  const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+// 先頭の関数群の近くに追加
+const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
   const W = size, H = size, cx = W / 2, cy = H / 2;
   const r = Math.min(W, H) * 0.36;   // 外周リング半径
@@ -132,7 +132,7 @@ function CalloutPie({ data, size = 380 }) {
           );
         })}
 
-        {/* 中心点 */}
+        {/* 中心点：外周ポイントと“同一処理・同一見た目” */}
         {(() => {
           const v = sorted[0]?.value ?? 1;
           const strokeW = scale(v, 2.4, 4.8);
@@ -144,60 +144,67 @@ function CalloutPie({ data, size = 380 }) {
           );
         })()}
 
-        {/* ラベル＆ガイド（右側のはみ出しを抑制） */}
-        {(() => {
-          let acc2 = 0;
-          const ro = r + 10, elbow = 20;
-          const rLabelBase = r + 78;
-          const rLabelRight = r + 64;
-          const PAD = 14;
+        {/* ラベル＆ガイド */}
+        // ラベル＆ガイドの IIFE 内を、このように差し替え
+{(() => {
+  let acc2 = 0;
+  const ro = r + 10, elbow = 20;
+  const rLabelBase = r + 78;   // 既存値
+  const rLabelRight = r + 64;  // 右半分だけわずかに内側に寄せる
+  const PAD = 14;              // キャンバスの安全マージン
 
-          return sorted.map((d, i) => {
-            const ang = (d.value / total) * 360;
-            const a0 = acc2, a1 = acc2 + ang; acc2 += ang;
-            const amid = a0 + ang / 2;
-            const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
+  return sorted.map((d, i) => {
+    const ang = (d.value / total) * 360;
+    const a0 = acc2, a1 = acc2 + ang; acc2 += ang;
+    const amid = a0 + ang / 2;
+    const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
 
-            const [sx, sy] = polar(amid, ro);
-            const [mx, my] = polar(amid, ro + elbow);
-            const hx = right ? mx + 26 : mx - 26;
+    const [sx, sy] = polar(amid, ro);
+    const [mx, my] = polar(amid, ro + elbow);
+    const hx = right ? mx + 26 : mx - 26;
 
-            const [lx, ly] = polar(amid, right ? rLabelRight : rLabelBase);
-            const rawX = right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx);
-            const tx = clamp(rawX, PAD, W - PAD);
+    // 右側だけラベル半径を少し小さく
+    const [lx, ly] = polar(amid, right ? rLabelRight : rLabelBase);
 
-            return (
-              <g key={`lbl-${i}`}>
-                <g stroke="rgba(200,220,255,0.75)" fill="none">
-                  <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth="2" />
-                  <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
-                </g>
-                <text
-                  x={tx}
-                  y={ly}
-                  textAnchor={right ? "start" : "end"}
-                  dominantBaseline="middle"
-                  style={{
-                    fontWeight: 800, fontSize: 18,
-                    fill: "rgba(230,245,255,0.98)",
-                    paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
-                  }}
-                >
-                  {d.label}
-                </text>
-                <text
-                  x={tx}
-                  y={ly + 18}
-                  textAnchor={right ? "start" : "end"}
-                  dominantBaseline="hanging"
-                  style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
-                >
-                  {d.value}%
-                </text>
-              </g>
-            );
-          });
-        })()}
+    // テキストのX座標を安全領域にクランプして、はみ出し防止
+    const rawX = right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx);
+    const tx = clamp(rawX, PAD, W - PAD);
+
+    return (
+      <g key={`lbl-${i}`}>
+        <g stroke="rgba(200,220,255,0.75)" fill="none">
+          <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth="2" />
+          <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
+        </g>
+
+        <text
+          x={tx}
+          y={ly}
+          textAnchor={right ? "start" : "end"}
+          dominantBaseline="middle"
+          style={{
+            fontWeight: 800, fontSize: 18,
+            fill: "rgba(230,245,255,0.98)",
+            paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
+          }}
+        >
+          {d.label}
+        </text>
+
+        <text
+          x={tx}
+          y={ly + 18}
+          textAnchor={right ? "start" : "end"}
+          dominantBaseline="hanging"
+          style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
+        >
+          {d.value}%
+        </text>
+      </g>
+    );
+  });
+})()}
+
       </svg>
 
       <style jsx>{`
@@ -225,7 +232,7 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
-  // 言語別のみ
+  // 言語別のみ（国別は排除）
   const LANGUAGE_PIE = [
     { label: "English", value: 40 },
     { label: "German", value: 9 },
@@ -235,7 +242,7 @@ export default function Home() {
     { label: "Other", value: 30 }
   ];
 
-  // Simply セクション
+  // Simply セクション（既存）
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
   const steps = [
@@ -417,7 +424,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ===== World map background セクション ===== */}
+          {/* ===== World map background セクション（新レイアウト） ===== */}
           <section className="reachMap" aria-labelledby="reachTitle">
             <div className="reachMapInner">
               <div className="mapCopy">
@@ -525,14 +532,27 @@ export default function Home() {
           clip-path: inset(100% 0 0 0); transform: translateY(8%); opacity: 0.001;
           -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
           mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%); }
-        .minutesWrap.inview{
-          animation: fullReveal 900ms cubic-bezier(0.16,0.66,0.38,1) forwards;
-        }
-        @keyframes fullReveal{
-          0%{ clip-path: inset(100% 0 0 0); transform: translateY(12%); opacity: 0.001; }
-          60%{ clip-path: inset(0 0 0 0); transform: translateY(0%); opacity: 1; }
-          100%{ clip-path: inset(0 0 0 0); transform: translateY(0%); opacity: 1; }
-        }
+.minutesWrap.inview{
+  animation: fullReveal 900ms cubic-bezier(0.16,0.66,0.38,1) forwards;
+}
+
+@keyframes fullReveal{
+  0%{
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(12%);
+    opacity: 0.001;
+  }
+  60%{
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100%{
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0%);  /* ← これを維持 */
+    opacity: 1;                 /* ← これを維持 */
+  }
+}
 
         .mtitle{ font-weight: 800; letter-spacing: -0.01em; font-size: clamp(36px, 4.2vw, 56px); margin: 0 0 6px 0; }
         .mdate{ font-weight: 600; opacity: 0.85; font-size: clamp(26px, 2.7vw, 32px); margin-bottom: clamp(12px, 1.6vw, 16px); }
@@ -605,20 +625,51 @@ export default function Home() {
           mix-blend-mode: screen; opacity: 0.55;
           background:
             radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,0.95) 99%, transparent 100%),
-            ...
-        }
+            radial-gradient(1.2px 1.2px at 22% 36%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 32% 64%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 44% 26%, rgba(255,255,255,0.8) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 58% 72%, rgba(255,255,255,0.75) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 66% 40%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 74% 58%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 82% 30%, rgba(255,255,255,0.8) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 16% 76%, rgba(255,255,255,0.85) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 88% 64%, rgba(255,255,255,0.75) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 38% 86%, rgba(255,255,255,0.9) 99%, transparent 100%),
+            radial-gradient(1.2px 1.2px at 70% 86%, rgba(255,255,255,0.8) 99%, transparent 100%);
+          -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
+          mask: radial-gradient(circle at 50% 50%, transparent 0 62%, #fff 64% 70%, transparent 72% 100%);
+          animation: twinkle 4s ease-in-out infinite alternate; }
+
+        .reflection { position:absolute; left:50%; bottom:0; transform: translateX(-50%);
+          width: 200vmax; height: 40vh;
+          background: radial-gradient(120vmin 60% at 50% 0%, rgba(140,150,255,0.28) 0%, rgba(140,150,255,0.10) 40%, transparent 75%);
+          filter: blur(14px); opacity: 0.7; }
 
         .ctaBig { display:inline-flex; align-items:center; justify-content:center; padding:14px 28px; border-radius:999px;
           background:#0b2b3a; color:#eaf4f7; text-decoration:none; font-weight:700;
           box-shadow:0 0 0 1px rgba(255,255,255,0.08) inset, 0 8px 24px rgba(0,0,0,0.25);
           margin: clamp(16px, 3.5vh, 28px) auto 0; }
 
+
+
         /* ===== Simply ===== */
         .simply { margin: clamp(28px, 8vh, 80px) auto; padding: 0 22px; max-width: 1200px; }
-        .simplyGrid { display:grid; grid-template-columns: 0.9fr 1.1fr; align-items:center; gap: clamp(16px, 3.5vw, 36px); position: relative; }
+        .simplyGrid { display:grid; grid-template-columns: 0.9fr 1.1fr; align-items:center; gap: clamp(16px, 3.5vw, 36px); }
         .simplyLeft { text-align:left; }
         .simplyH2 { margin:0 0 12px 0; font-weight:900; letter-spacing:-0.02em; line-height:1.02; font-size: clamp(48px, 9vw, 128px); color:#fff; }
         .stepList { display:flex; flex-direction:column; gap: clamp(4px, 1vh, 8px); }
+        .stepBtn { display:flex; flex-direction:column; align-items:flex-start; background:transparent; border:0; padding:12px 10px;
+          cursor:pointer; text-align:left; border-radius:14px; transition: background 200ms ease, transform 200ms ease; }
+        .stepBtn:hover { background: rgba(255,255,255,0.05); transform: translateY(-1px); }
+        .stepBtn .row { display:inline-flex; align-items:center; gap:12px; }
+        .stepBtn .dot { width:10px; height:10px; border-radius:50%; box-shadow:0 0 0 2px rgba(255,255,255,0.2) inset; background:rgba(255,255,255,0.35); }
+        .stepBtn.isActive .dot { background: linear-gradient(90deg,#65e0c4,#8db4ff); }
+        .stepBtn .lbl { font-weight:900; letter-spacing:-0.02em; line-height:1.02; font-size: clamp(28px, 6vw, 64px); color:#eaf4f7; }
+        .stepBtn.isActive .lbl, .stepBtn:hover .lbl {
+          background: linear-gradient(90deg, #65e0c4, #8db4ff 65%, #7cc7ff);
+          -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+        .stepBtn .sub { margin-left:22px; margin-top:4px; font-weight:700; line-height:1.35; color:#cfe7ff; opacity:.92; font-size: clamp(14px, 1.8vw, 18px); }
+
         .simplyRight { position:relative; border-radius: clamp(18px, 2.2vmax, 28px); min-height:340px; aspect-ratio:16 / 11; overflow:hidden;
           background: linear-gradient(180deg, rgba(36,48,72,0.55) 0%, rgba(56,78,96,0.50) 100%);
           -webkit-backdrop-filter: blur(14px) saturate(120%); backdrop-filter: blur(14px) saturate(120%);
@@ -630,16 +681,56 @@ export default function Home() {
 
         /* ===== World map background layout ===== */
         .reachMap { position: relative; margin: clamp(24px, 10vh, 120px) 0; }
-        .reachMap::before { content: ""; position: absolute; inset: 0; background: url('/images/worldmap.png') center / contain no-repeat; opacity: .5; filter: saturate(110%) contrast(105%); }
-        .reachMap::after  { content: ""; position: absolute; inset: 0; background: radial-gradient(90vmax 90vmax at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%); }
-        .reachMapInner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 22px;
-          display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: clamp(16px, 3vw, 32px);
-          min-height: clamp(360px, 40vw, 520px); overflow: visible; transform: translateY(-4%); }
+        .reachMap::before {
+          content: "";
+          position: absolute; inset: 0;
+          background: url('/images/worldmap.png') center / contain no-repeat;
+          opacity: 0.5;   /* 50% */
+          filter: saturate(110%) contrast(105%);
+        }
+        .reachMap::after {
+          content: "";
+          position: absolute; inset: 0;
+          background: radial-gradient(90vmax 90vmax at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%);
+        }
+        .reachMapInner {
+          position: relative; z-index: 1;
+          max-width: 1200px; margin: 0 auto; padding: 0 22px;
+          display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center;
+          gap: clamp(16px, 3vw, 32px);
+          min-height: clamp(360px, 40vw, 520px);
+          overflow: visible;
+
+          /* ↓ セクション全体が下に寄って見える問題を微調整（視線の中央へ） */
+          transform: translateY(-4%);      /* 上へ数％持ち上げる */
+        }
         .mapCopy { display: flex; align-items: center; }
-        .mapHeadline { margin: 0; font-weight: 900; letter-spacing: -0.02em; line-height: 1.02; font-size: clamp(32px, 6vw, 80px); color: #ffffff;
-          background: transparent; padding: 0; border-radius: 0; box-shadow: none; text-shadow: 0 2px 10px rgba(0,0,0,0.35); }
-        .mapChart { display: flex; justify-content: center; align-items: center; overflow: visible; padding-right: clamp(12px, 4vw, 36px); }
-        .mapNote { position: absolute; left: 22px; bottom: 10px; z-index: 2; font-size: 12px; line-height: 1.4; opacity: 0.75; color: rgba(230,245,255,0.9); user-select: none; }
+        .mapHeadline {
+          margin: 0;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          line-height: 1.02;
+          font-size: clamp(32px, 6vw, 80px);
+          color: #ffffff;
+          background: transparent; padding: 0; border-radius: 0; box-shadow: none;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+        }
+       /* 既存の styles 内の .mapChart に追記 or 置き換え */
+.mapChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  padding-right: clamp(12px, 4vw, 36px); /* ← 右側に安全余白 */
+}
+
+
+        /* 左下の注記 */
+        .mapNote {
+          position: absolute; left: 22px; bottom: 10px; z-index: 2;
+          font-size: 12px; line-height: 1.4; opacity: 0.75; color: rgba(230,245,255,0.9);
+          user-select: none;
+        }
 
         /* ===== App promo ===== */
         .appPromo { margin: clamp(18px, 4vh, 36px) auto clamp(64px, 10vh, 120px); padding: 0 22px; max-width: 1200px; text-align: left; }
@@ -649,6 +740,7 @@ export default function Home() {
         .promoCta { display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:999px;
           background: rgba(20,40,60,0.8); color:#eaf4f7; text-decoration:none; font-weight:800; border:1px solid rgba(255,255,255,0.08);
           -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+        .promoCta:hover { background: rgba(20,40,60,0.92); }
         .promoVisual { display:flex; justify-content:center; }
         .promoVisual img { width:100%; max-width:560px; height:auto; display:block; border-radius:22px; box-shadow:0 10px 40px rgba(0,0,0,0.5); }
 
@@ -666,41 +758,16 @@ export default function Home() {
           .simplyRight { order: -1; margin-bottom: 10px; }
         }
         @media (max-width: 900px)  { .promoGrid { grid-template-columns: 1fr; gap: 18px; } .promoVisual { order: -1; } }
-        @media (max-width: 820px)  { .reachMapInner { grid-template-columns: 1fr; transform: translateY(-2%); } }
-
-        /* ====== ここからモバイル最終調整（ご要望反映） ====== */
-        @media (max-width: 640px) {
-
-          /* 1) 「Just Record.」を下へ */
-          .heroTop { margin-top: clamp(18px, 6vh, 72px); }
-
-          /* 2) Simply：見出しを「画像の上」に重ねる＆画像を見切れさせない */
-          .simplyGrid { position: relative; }
-          .simplyRight { order: 2; } /* 画像ブロックは見出しの後 */
-          .simplyH2 {
-            position: absolute; z-index: 3;
-            left: 16px; right: 16px; top: 12px;
-            margin: 0; pointer-events: none;
-            text-shadow: 0 4px 18px rgba(0,0,0,.45);
-          }
-          /* ガラス枠が“薄っぺらく”ならないよう最小高さを確保 */
-          .simplyRight {
-            padding-top: 88px;                 /* 見出しと被らない余白 */
-            aspect-ratio: 16 / 11;             /* 比率固定（安定） */
-            min-height: clamp(280px, 56vh, 520px);
-            max-height: none;                  /* 以前の高さ制約を解除 */
-          }
-          .simplyRight img { width:100%; height:100%; object-fit: contain; } /* 切れ防止 */
-          .shotCaption { bottom: 12px; }
-
-          /* 3) マップ＆円グラフ：さらに小さく（約95%）＆注記をもっと下へ */
-          .mapChart .calloutPie { max-width: min(280px, 82vw); } /* 300px → 280px */
-          .reachMap { padding-bottom: 68px; }   /* 注記のための底余白 */
-          .mapNote { bottom: -36px; font-size: 11px; } /* さらに下へ */
-
-          /* 4) iPhone App：見出しを画像より前に */
-          .promoCopy { order: 1; }
-          .promoVisual { order: 2; }
+        @media (max-width: 820px) {
+          .reachMapInner { grid-template-columns: 1fr; transform: translateY(-2%); }
+        }
+        @media (max-width: 640px)  {
+          .scene { --core-size: clamp(320px, 86vmin, 80vh); padding-bottom: 28vh; }
+          .heroTop  { font-size: clamp(26.4px, 8.88vw, 72px); }
+          .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
+          .deviceStage { width: min(calc(92vw * 0.8), 416px); }
+          .deviceGlass { aspect-ratio: 9 / 19.5; border-radius: clamp(26px, 7.5vw, 40px); }
+          .mapNote { left: 16px; bottom: 8px; font-size: 11px; }
         }
       `}</style>
 
@@ -721,7 +788,8 @@ export default function Home() {
         }
         header.top .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#b6eaff; }
         header.top .brandText { font-weight:800; font-size:24px; letter-spacing:0.2px; }
-        header.top .brand .ai { background: linear-gradient(90deg, #7cc7ff, #65e0c4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        header.top .brand .ai { background: linear-gradient(90deg, #7cc7ff, #65e0c4);
+          -webkit-background-clip: text; background-clip: text; color: transparent; }
         header.top .brand .brandIcon { width: 26px; height: 26px; display: inline-flex; }
         header.top .nav { background: rgba(20,40,60,0.7); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
           padding:10px 18px; border-radius:999px; display:flex; align-items:center; border:1px solid rgba(255,255,255,0.08); }
@@ -747,6 +815,77 @@ export default function Home() {
         .sep { opacity: 0.55; }
         .copyright { font-size: 13px; opacity: 0.7; white-space: nowrap; }
         @media (max-width: 640px) { .footInner { flex-direction: column; gap: 8px; } }
+        /* ===== モバイル専用調整（PCは無変更） ===== */
+
+/* ===== Mobile-only fixes (<=640px). Desktopには一切影響しません ===== */
+@media (max-width: 640px) {
+
+  /* 1) 「Just Record.」を下へ */
+  .heroTop { margin-top: clamp(18px, 6vh, 72px); }
+
+  /* 2) Simply：見出し → 画像 → 中項目 の順にして、重なり/はみ出しを防止 */
+  .simplyGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    align-items: start;
+    position: relative;
+  }
+  /* 子をグリッド直下に昇格して並べ替え（DOM変更なし） */
+  .simplyLeft{ display: contents; }
+
+  /* 1段目：見出し（重ねない・自然に上に来る） */
+  .simplyH2{
+    grid-row: 1;
+    margin: 0 0 8px;
+    padding: 0 16px;
+    position: relative; z-index: 3;
+    text-shadow: 0 4px 18px rgba(0,0,0,.45);
+  }
+
+  /* 2段目：画像カード（枠内に完全収まる） */
+  .simplyRight{
+    grid-row: 2;
+    margin: 8px 0 12px;
+    padding: 10px;
+    min-height: 48vh;      /* ← 薄くならないよう “min-height” に変更 */
+    aspect-ratio: auto;     /* 縦長に順応 */
+    overflow: visible;
+  }
+  .simplyRight img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;    /* 画像の切れ防止（歪み無し） */
+  }
+  .shotCaption{ bottom: 10px; }
+
+  /* 3段目：中項目リスト */
+  .stepList{
+    grid-row: 3;
+    margin-top: 4px;
+  }
+
+  /* 3) マップ＆円グラフ：縮小し、注釈はさらに下へ */
+  .reachMapInner{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .mapChart{
+    max-width: 86vw;
+    margin-inline: auto;
+    padding-right: 0;
+  }
+  .mapChart :global(.calloutPie){ max-width: 86vw; } /* ← styled-jsx の一発グローバル上書き。:contentReference[oaicite:1]{index=1} */
+  .reachMap{ padding-bottom: 34px; }
+  .mapNote{ bottom: -12px; font-size: 11px; }
+
+  /* 4) iPhone App：見出しを画像より上に */
+  .promoGrid{ grid-template-columns: 1fr; }
+  .promoCopy{ order: 1; }
+  .promoVisual{ order: 2; }
+}
+
+
       `}</style>
     </>
   );
