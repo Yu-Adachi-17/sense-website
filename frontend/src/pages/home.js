@@ -221,26 +221,37 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
     const tx = clamp(it.xBase, PAD, W - PAD);
     const ty = it.y;
     const anchor = it.right ? "start" : "end";
-    const [sx, sy] = polar(amid, ro); 
-    const [mx, my] = polar(amid, ro + elbow); 
-    const hx = right ? mx + 26 : mx - 26;
+    const [sx, sy] = polar(amid, ro);
+    const [mx, my] = polar(amid, ro + elbow);
+    const hx = it.right ? mx + 26 : mx - 26;
+  
     return (
       <g key={`lbl-${i}`}>
-        <g stroke="rgba(200,220,255,0.75)" fill="none"> 
-          <path d={M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}} strokeWidth="2" /> 
-          <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" /> 
-          </g>
+        <g stroke="rgba(200,220,255,0.75)" fill="none">
+          <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth={2} />
+          <circle cx={sx} cy={sy} r={2.6} fill="rgba(160,230,255,0.95)" />
+        </g>
         <text
-          x={tx} y={ty} textAnchor={anchor} dominantBaseline="middle"
+          x={tx}
+          y={ty}
+          textAnchor={anchor}
+          dominantBaseline="middle"
           style={{
-            fontWeight: 800, fontSize: 18, fill: "rgba(230,245,255,0.98)",
-            paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2
+            fontWeight: 800,
+            fontSize: 18,
+            fill: "rgba(230,245,255,0.98)",
+            paintOrder: "stroke",
+            stroke: "rgba(10,20,40,0.45)",
+            strokeWidth: 1.2,
           }}
         >
           {it.d.label}
         </text>
         <text
-          x={tx} y={ty + 18} textAnchor={anchor} dominantBaseline="hanging"
+          x={tx}
+          y={ty + 18}
+          textAnchor={anchor}
+          dominantBaseline="hanging"
           style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
         >
           {it.d.value}%
@@ -248,6 +259,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
       </g>
     );
   });
+  
 })()}
 
 
