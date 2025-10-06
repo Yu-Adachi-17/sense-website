@@ -13,23 +13,26 @@ function FixedHeaderPortal({ children }) {
 }
 
 /** =========================
- * 言語別コールアウト・パイチャート（ネオン）
+ *  言語別コールアウト・パイチャート
+ *  - 背景ボックスなし（グラフのみ）
+ *  - ラベルはパイ外周から棒線で表示
+ *  - 青系の透け感、上位ほど濃く→下位ほど薄く（English が最も暗く不透明）
  * ========================= */
-function CalloutPie({ data, size = 420 }) {
+function CalloutPie({ data, size = 380 }) {
   const sorted = useMemo(() => {
     const isOther = (s) =>
       String(s.label).toLowerCase() === "other" || s.label === "その他";
     const main = data.filter((d) => !isOther(d)).sort((a, b) => b.value - a.value);
     const others = data.filter(isOther);
-    return [...main, ...others];
+    return [...main, ...others]; // “Other” を末尾へ
   }, [data]);
 
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
 
   const W = size, H = size, cx = W / 2, cy = H / 2;
-  const r = Math.min(W, H) * 0.36;
-  const rInner = r * 0.82;
-  const rEnd = r - 4;
+  const r = Math.min(W, H) * 0.36;   // 外周リング半径
+  const rInner = r * 0.82;           // 内側リング
+  const rEnd = r - 4;                // コメット終点を外周より内側へ（はみ出し防止）
 
   const polar = (deg, rad) => {
     const a = (deg - 90) * (Math.PI / 180);
@@ -42,6 +45,7 @@ function CalloutPie({ data, size = 420 }) {
     return `M ${cx} ${cy} L ${x0} ${y0} A ${radius} ${radius} 0 ${large} 1 ${x1} ${y1} Z`;
   };
 
+  // 角度・強度
   let acc = 0;
   const seams = sorted.map((d) => {
     const ang = (d.value / total) * 360;
@@ -59,12 +63,14 @@ function CalloutPie({ data, size = 420 }) {
         aria-label={"Language share: " + sorted.map((d) => `${d.label} ${d.value}%`).join(", ")}
       >
         <defs>
+          {/* 外周リング */}
           <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
             <stop offset="78%" stopColor="rgba(140,210,255,0.00)" />
             <stop offset="95%" stopColor="rgba(140,210,255,0.55)" />
             <stop offset="100%" stopColor="rgba(140,210,255,0.00)" />
           </radialGradient>
 
+          {/* 扇フィル（ごく薄い発光） */}
           <radialGradient id="sectorGrad" cx="50%" cy="50%" r="50%">
             <stop offset="0%"  stopColor="rgba(130,200,255,0.00)" />
             <stop offset="55%" stopColor="rgba(130,200,255,0.06)" />
@@ -72,12 +78,13 @@ function CalloutPie({ data, size = 420 }) {
             <stop offset="100%" stopColor="rgba(160,230,255,0.00)" />
           </radialGradient>
 
+          {/* 継ぎ目ライン用 放射グラデ（中心→外周 = 透明→発光） */}
           {seams.map((s, i) => {
             const [x2, y2] = polar(s.start, rEnd);
             return (
               <linearGradient
                 key={`lg-${i}`} id={`lg-${i}`} gradientUnits="userSpaceOnUse"
-                x1={W/2} y1={H/2} x2={x2} y2={y2}
+                x1={cx} y1={cy} x2={x2} y2={y2}
               >
                 <stop offset="0%"  stopColor="rgba(130,200,255,0)" />
                 <stop offset="70%" stopColor="rgba(130,200,255,0.22)" />
@@ -86,6 +93,7 @@ function CalloutPie({ data, size = 420 }) {
             );
           })}
 
+          {/* ネオン・グロー（値で強度可変） */}
           {seams.map((s, i) => (
             <filter id={`neon-${i}`} key={`f-${i}`} x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur in="SourceGraphic" stdDeviation={scale(s.value, 2.2, 4.0)} result="b" />
@@ -94,6 +102,7 @@ function CalloutPie({ data, size = 420 }) {
           ))}
         </defs>
 
+        {/* 扇フィル（薄く光らせる） */}
         <g style={{ mixBlendMode: "screen" }}>
           {seams.map((s, i) => (
             <path
@@ -104,34 +113,36 @@ function CalloutPie({ data, size = 420 }) {
           ))}
         </g>
 
-        <circle cx={W/2} cy={H/2} r={r}      fill="none" stroke="url(#ringGrad)" strokeWidth="8" opacity="0.55" />
-        <circle cx={W/2} cy={H/2} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="5" opacity="0.30" />
+        {/* 外周リング（骨格） */}
+        <circle cx={cx} cy={cy} r={r}      fill="none" stroke="url(#ringGrad)" strokeWidth="8"  opacity="0.55" />
+        <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="5"  opacity="0.30" />
 
+        {/* 継ぎ目ライン＋先端キャップ（内側終点へ変更） */}
         {seams.map((s, i) => {
           const [x, y] = polar(s.start, rEnd);
           const strokeW = scale(s.value, 2.4, 4.8);
           const capR = strokeW * 0.48;
           return (
             <g key={`seam-${i}`} style={{ mixBlendMode: "screen" }} filter={`url(#neon-${i})`}>
-              <line x1={W/2} y1={H/2} x2={x} y2={y} stroke={`url(#lg-${i})`} strokeWidth={strokeW} strokeLinecap="round" />
+              <line x1={cx} y1={cy} x2={x} y2={y} stroke={`url(#lg-${i})`} strokeWidth={strokeW} strokeLinecap="round" />
               <circle cx={x} cy={y} r={capR} fill="rgba(170,240,255,0.95)" />
             </g>
           );
         })}
 
-        {/* 中心点：周縁ポイントと同一見た目 */}
+        {/* 中心点：外周ポイントと“同一処理・同一見た目” */}
         {(() => {
-          const v = maxVal;
+          const v = sorted[0]?.value ?? 1;
           const strokeW = scale(v, 2.4, 4.8);
           const capR = strokeW * 0.48;
           return (
             <g style={{ mixBlendMode: "screen" }} filter={`url(#neon-0)`}>
-              <circle cx={W/2} cy={H/2} r={capR} fill="rgba(170,240,255,0.95)" />
+              <circle cx={cx} cy={cy} r={capR} fill="rgba(170,240,255,0.95)" />
             </g>
           );
         })()}
 
-        {/* ラベル */}
+        {/* ラベル＆ガイド */}
         {(() => {
           let acc2 = 0;
           const ro = r + 10, elbow = 20, rLabel = r + 78;
@@ -204,6 +215,7 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
+  // 言語別のみ（国別は排除）
   const LANGUAGE_PIE = [
     { label: "English", value: 40 },
     { label: "German", value: 9 },
@@ -213,6 +225,7 @@ export default function Home() {
     { label: "Other", value: 30 }
   ];
 
+  // Simply セクション（既存）
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
   const steps = [
@@ -394,24 +407,26 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ===== World map background セクション（バランス補正） ===== */}
+          {/* ===== World map background セクション（新レイアウト） ===== */}
           <section className="reachMap" aria-labelledby="reachTitle">
             <div className="reachMapInner">
               <div className="mapCopy">
                 <h2 id="reachTitle" className="mapHeadline">
                   <span>
-                    <span className="gradBurst onlyNum">30,000</span> users
+                    <span className="gradText onlyNum">30,000</span> users
                   </span>
                   <br />
                   <span>worldwide</span>
                 </h2>
               </div>
               <div className="mapChart">
-                <CalloutPie data={LANGUAGE_PIE} size={380} />
+                <CalloutPie data={LANGUAGE_PIE} size={360} />
               </div>
 
-              {/* 右下注記（英語） */}
-              <small className="mapNote">Calculated from iOS downloads as of Oct 2025.</small>
+              {/* 左下の英語注記 */}
+              <p className="mapNote" aria-label="note">
+                Estimated from iOS download counts as of Oct&nbsp;2025.
+              </p>
             </div>
           </section>
 
@@ -477,20 +492,15 @@ export default function Home() {
         .heroTop { position: relative; z-index: 3; text-align: center; margin: 0; letter-spacing: -0.02em; line-height: 1.02;
           font-weight: 800; color: #fff; font-size: clamp(33.6px, 7.44vw, 103.2px);
           filter: drop-shadow(0 0 10px rgba(160,145,255,0.35)) drop-shadow(0 0 2px rgba(130,150,255,0.2)); pointer-events: none; }
-        .below { position: relative; z-index: 3; text-align: center; width: 100%; margin: 0 auto;
+        .below { position: relative; z-index: 3; text-align: center; pointer-events: auto; width: 100%; margin: 0 auto;
           margin-top: calc(60vh + (var(--core-size) / 2) + 6vh); }
         .sameSize { font-weight: 800; letter-spacing: -0.02em; line-height: 1.06; font-size: clamp(33.6px, 7.44vw, 103.2px); margin: 0; }
         .line1 { color: #fff; } .line2 { margin-top: 8px; }
         .gradText, .gradDevice { background: linear-gradient(90deg, #65e0c4 0%, #8db4ff 65%, #7cc7ff 100%);
           -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 
-        /* 数値特化の明るいグラデーション（発光寄り） */
-        .gradBurst {
-          background: linear-gradient(90deg, #9ff8ff 0%, #c7e5ff 40%, #f0fdff 70%, #b6e4ff 100%);
-          -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
-          filter: drop-shadow(0 0 18px rgba(180,235,255,0.35));
-        }
-        .onlyNum { display: inline-block; font-size: clamp(56px, 11vw, 148px); letter-spacing: -0.03em; }
+        /* ← “30,000”だけを相対拡大 */
+        .mapHeadline .onlyNum { font-size: 1.35em; letter-spacing: -0.02em; font-weight: 900; display: inline-block; }
 
         .deviceStage { margin: clamp(16px, 5vh, 44px) auto 0; width: min(calc(94vw * 0.8), 1024px); }
         .deviceGlass { --glassA: 36, 48, 72; --glassB: 56, 78, 96; position: relative; width: 100%; aspect-ratio: 4 / 3;
@@ -541,33 +551,32 @@ export default function Home() {
         .shotCaption { position:absolute; left:50%; bottom:16px; transform: translateX(-50%); max-width:86%; text-align:center;
           font-weight:700; line-height:1.35; background: rgba(0,0,0,.45); backdrop-filter: blur(6px); border-radius:12px; padding:10px 12px; }
 
-        /* ===== World map background layout（上寄せ補正） ===== */
+        /* ===== World map background layout ===== */
         .reachMap { position: relative; margin: clamp(24px, 10vh, 120px) 0; }
         .reachMap::before {
           content: "";
           position: absolute; inset: 0;
-          background: url('/images/worldmap.png') center 46% / contain no-repeat; /* 46%でわずかに上寄せ */
-          opacity: 0.5;
+          background: url('/images/worldmap.png') center / contain no-repeat;
+          opacity: 0.5;   /* 50% */
           filter: saturate(110%) contrast(105%);
         }
         .reachMap::after {
           content: "";
           position: absolute; inset: 0;
-          background: radial-gradient(90vmax 90vmax at 50% 42%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%); /* 中心も少し上へ */
+          background: radial-gradient(90vmax 90vmax at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%);
         }
         .reachMapInner {
           position: relative; z-index: 1;
-          max-width: 1200px; margin: 0 auto; padding: 5vh 22px 3vh; /* 上を多めにして視覚重心UP */
+          max-width: 1200px; margin: 0 auto; padding: 0 22px;
           display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center;
           gap: clamp(16px, 3vw, 32px);
           min-height: clamp(360px, 40vw, 520px);
           overflow: visible;
-          transform: scale(0.9);
-          transform-origin: center;
+
+          /* ↓ セクション全体が下に寄って見える問題を微調整（視線の中央へ） */
+          transform: translateY(-4%);      /* 上へ数％持ち上げる */
         }
-        /* カラムをほんの少しだけ上に持ち上げる */
-        .mapCopy, .mapChart { transform: translateY(-6%); }
-        .mapCopy { display: flex; align-items: center; justify-content: center; }
+        .mapCopy { display: flex; align-items: center; }
         .mapHeadline {
           margin: 0;
           font-weight: 900;
@@ -575,22 +584,16 @@ export default function Home() {
           line-height: 1.02;
           font-size: clamp(32px, 6vw, 80px);
           color: #ffffff;
-          background: transparent;
-          padding: 0;
-          border-radius: 0;
-          box-shadow: none;
+          background: transparent; padding: 0; border-radius: 0; box-shadow: none;
           text-shadow: 0 2px 10px rgba(0,0,0,0.35);
         }
         .mapChart { display: flex; justify-content: center; align-items: center; overflow: visible; }
 
-        /* 右下注記 */
+        /* 左下の注記 */
         .mapNote {
-          position: absolute; right: 22px; bottom: 10px;
-          font-size: 12px; line-height: 1.4; letter-spacing: 0.1px;
-          color: rgba(220,235,255,0.75);
-          background: rgba(0,0,0,0.25);
-          -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-          padding: 6px 8px; border-radius: 8px;
+          position: absolute; left: 22px; bottom: 10px; z-index: 2;
+          font-size: 12px; line-height: 1.4; opacity: 0.75; color: rgba(230,245,255,0.9);
+          user-select: none;
         }
 
         /* ===== App promo ===== */
@@ -614,11 +617,13 @@ export default function Home() {
             transform: none !important; opacity: 1 !important;
           }
         }
-        @media (max-width: 1024px) { .simplyGrid { grid-template-columns: 1fr; } .simplyRight { order: -1; margin-bottom: 10px; } }
+        @media (max-width: 1024px) {
+          .simplyGrid { grid-template-columns: 1fr; }
+          .simplyRight { order: -1; margin-bottom: 10px; }
+        }
         @media (max-width: 900px)  { .promoGrid { grid-template-columns: 1fr; gap: 18px; } .promoVisual { order: -1; } }
         @media (max-width: 820px) {
-          .reachMapInner { grid-template-columns: 1fr; transform: scale(0.95); }
-          .mapCopy, .mapChart { transform: translateY(-4%); }
+          .reachMapInner { grid-template-columns: 1fr; transform: translateY(-2%); }
         }
         @media (max-width: 640px)  {
           .scene { --core-size: clamp(320px, 86vmin, 80vh); padding-bottom: 28vh; }
@@ -626,6 +631,7 @@ export default function Home() {
           .sameSize { font-size: clamp(26.4px, 8.88vw, 72px); }
           .deviceStage { width: min(calc(92vw * 0.8), 416px); }
           .deviceGlass { aspect-ratio: 9 / 19.5; border-radius: clamp(26px, 7.5vw, 40px); }
+          .mapNote { left: 16px; bottom: 8px; font-size: 11px; }
         }
       `}</style>
 
