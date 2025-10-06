@@ -29,133 +29,153 @@ function CalloutPie({ data, size = 420 }) {
 
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
 
-  // English(先頭)ほど暗く&高不透明、末尾(Other)ほど明るく&低不透明
-  const colors = useMemo(() => {
-    const n = sorted.length;
-    const hue = 208, sat = 88, minL = 44, maxL = 70, maxA = 0.95, minA = 0.40;
-    return sorted.map((_, i) => {
-      const t = i / Math.max(1, n - 1);
-      const l = minL + (maxL - minL) * t;        // 先頭 = 暗い, 末尾 = 明るい
-      const a = maxA + (minA - maxA) * t;        // 先頭 = 不透明, 末尾 = 透け
-      return `hsla(${hue} ${sat}% ${l}% / ${a})`;
-    });
-  }, [sorted]);
-
   const W = size, H = size, cx = W / 2, cy = H / 2;
-  const r = Math.min(W, H) * 0.34; // 扇形半径
-  const ro = r + 10;               // 棒線開始
-  const elbow = 20;
-  const rLabel = r + 78;
+  const r = Math.min(W, H) * 0.36; // 外周半径（少しだけ拡張）
+  const rInner = r * 0.84;         // 内側の薄いグロー用
 
   const polar = (deg, rad) => {
     const a = (deg - 90) * (Math.PI / 180);
     return [cx + rad * Math.cos(a), cy + rad * Math.sin(a)];
   };
-  const arcPath = (a0, a1, radius) => {
-    const [x0, y0] = polar(a0, radius);
-    const [x1, y1] = polar(a1, radius);
-    const large = a1 - a0 > 180 ? 1 : 0;
-    return `M ${cx} ${cy} L ${x0} ${y0} A ${radius} ${radius} 0 ${large} 1 ${x1} ${y1} Z`;
-  };
 
+  // 角度リスト（累積）。継ぎ目の角度 = 各扇の開始角
   let acc = 0;
-  const slices = sorted.map((d, i) => {
+  const seams = sorted.map((d, i) => {
     const ang = (d.value / total) * 360;
-    const a0 = acc, a1 = acc + ang;
+    const start = acc;
     acc += ang;
-    const amid = a0 + ang / 2;
+    return { label: d.label, value: d.value, start, end: acc };
+  });
 
-    const [sx, sy] = polar(amid, ro);
-    const [mx, my] = polar(amid, ro + elbow);
-    const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
-    const hx = right ? mx + 26 : mx - 26;
-    const [lx, ly] = polar(amid, rLabel);
-
+  // ネオン色（青系だが僅かに色相を振る）
+  const hueBase = 200;
+  const seamColors = seams.map((s, i) => {
+    const hue = hueBase + i * 6; // 200〜230くらいをゆるく周回
     return {
-      d, a0, a1, amid,
-      path: arcPath(a0, a1, r),
-      line: { sx, sy, mx, my, hx, hy: my },
-      label: { x: right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx), y: ly, right },
-      color: colors[i],
+      id: `gl-${i}`,
+      stroke: `hsl(${hue} 95% 62%)`,
+      strokeEdge: `hsl(${hue} 100% 75%)`
     };
   });
+
+  // 英語ほど強く＝stroke 幅・グロー強度を拡大
+  const maxStroke = 9, minStroke = 4;
+  const maxBlur = 5.5, minBlur = 3;
 
   return (
     <figure className="calloutPie">
       <svg
-        width="100%"
-        height="100%"
-        viewBox={`0 0 ${W} ${H}`}
-        role="img"
+        width="100%" height="100%"
+        viewBox={`0 0 ${W} ${H}`} role="img"
         style={{ overflow: "visible" }}
-        aria-label={
-          "Language share: " +
-          sorted.map((d) => `${d.label} ${d.value}%`).join(", ")
-        }
+        aria-label={"Language share: " + sorted.map((d) => `${d.label} ${d.value}%`).join(", ")}
       >
         <defs>
-          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="2" stdDeviation="4" floodOpacity="0.26" />
-          </filter>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.85)" />
-            <stop offset="65%" stopColor="rgba(255,255,255,0.15)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+          {/* 外周リング用のラジアルグロー */}
+          <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="78%" stopColor="rgba(140,210,255,0.00)" />
+            <stop offset="95%" stopColor="rgba(140,210,255,0.65)" />
+            <stop offset="100%" stopColor="rgba(140,210,255,0.00)" />
           </radialGradient>
+
+          {/* 継ぎ目ラインごとの線形グラデ（中心→外周：透明→発光） */}
+          {seams.map((s, i) => {
+            const [x1, y1] = [cx, cy];
+            const [x2, y2] = polar(s.start, r);
+            return (
+              <linearGradient
+                key={`lg-${i}`}
+                id={`lg-${i}`}
+                gradientUnits="userSpaceOnUse"
+                x1={x1} y1={y1} x2={x2} y2={y2}
+              >
+                <stop offset="0%" stopColor="rgba(130,200,255,0)" />
+                <stop offset="70%" stopColor="rgba(130,200,255,0.25)" />
+                <stop offset="100%" stopColor="rgba(160,230,255,0.95)" />
+              </linearGradient>
+            );
+          })}
+
+          {/* グロー（ぼかし→元描画をマージ） */}
+          {seams.map((s, i) => (
+            <filter id={`neon-${i}`} key={`f-${i}`} x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation={
+                ((maxBlur - minBlur) * (s.value / sorted[0].value)) + minBlur
+              } result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          ))}
         </defs>
 
-        {slices.map((s, i) => (
-          <path
-            key={`seg-${i}`}
-            d={s.path}
-            fill={s.color}
-            stroke="rgba(255,255,255,0.08)"
-            strokeWidth="1"
-            filter="url(#softShadow)"
-          />
-        ))}
-        <circle
-          cx={cx}
-          cy={cy}
-          r={r * 0.86}
-          fill="url(#glow)"
-          opacity="0.28"
-          style={{ mixBlendMode: "screen" }}
-        />
+        {/* 外周の薄いリング（ベースのスケルトン感） */}
+        <circle cx={cx} cy={cy} r={r} fill="none" stroke="url(#ringGrad)" strokeWidth="10" opacity="0.55" />
+        <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="6" opacity="0.35" />
 
-        {slices.map((s, i) => (
-          <g key={`co-${i}`} stroke="rgba(200,220,255,0.75)" fill="none">
-            <path d={`M ${s.line.sx} ${s.line.sy} L ${s.line.mx} ${s.line.my} L ${s.line.hx} ${s.line.hy}`} strokeWidth="2" />
-            <circle cx={s.line.sx} cy={s.line.sy} r={2.6} fill={s.color} />
-          </g>
-        ))}
+        {/* 継ぎ目（中心→外周の放射ライン）。Englishほど太く強い */}
+        {seams.map((s, i) => {
+          const [x, y] = polar(s.start, r);
+          const strokeW = ((maxStroke - minStroke) * (s.value / sorted[0].value)) + minStroke;
+          return (
+            <g key={`seam-${i}`} style={{ mixBlendMode: "screen" }} filter={`url(#neon-${i})`}>
+              {/* 透明→光 のグラデで線を引く */}
+              <line x1={cx} y1={cy} x2={x} y2={y}
+                stroke={`url(#lg-${i})`} strokeWidth={strokeW} strokeLinecap="round" />
+              {/* 線の先端をさらに光らせるキャップ */}
+              <circle cx={x} cy={y} r={strokeW * 0.55} fill={seamColors[i].strokeEdge} opacity="0.9" />
+            </g>
+          );
+        })}
 
-        {slices.map((s, i) => (
-          <g key={`lbl-${i}`}>
-            <text
-              x={s.label.x}
-              y={s.label.y}
-              textAnchor={s.label.right ? "start" : "end"}
-              dominantBaseline="middle"
-              style={{
-                fontWeight: 800, fontSize: 18,
-                fill: "rgba(230,245,255,0.98)",
-                paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
-              }}
-            >
-              {s.d.label}
-            </text>
-            <text
-              x={s.label.x}
-              y={s.label.y + 18}
-              textAnchor={s.label.right ? "start" : "end"}
-              dominantBaseline="hanging"
-              style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
-            >
-              {s.d.value}%
-            </text>
-          </g>
-        ))}
+        {/* ラベル・ガイド（従来のまま） */}
+        {(() => {
+          let acc2 = 0;
+          return sorted.map((d, i) => {
+            const ang = (d.value / total) * 360;
+            const a0 = acc2, a1 = acc2 + ang; acc2 += ang;
+            const amid = a0 + ang / 2;
+            const ro = r + 10, elbow = 20, rLabel = r + 78;
+
+            const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
+            const [sx, sy] = polar(amid, ro);
+            const [mx, my] = polar(amid, ro + elbow);
+            const hx = right ? mx + 26 : mx - 26;
+            const [lx, ly] = polar(amid, rLabel);
+
+            return (
+              <g key={`lbl-${i}`}>
+                <g stroke="rgba(200,220,255,0.75)" fill="none">
+                  <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth="2" />
+                  <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
+                </g>
+                <text
+                  x={right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx)}
+                  y={ly}
+                  textAnchor={right ? "start" : "end"}
+                  dominantBaseline="middle"
+                  style={{
+                    fontWeight: 800, fontSize: 18,
+                    fill: "rgba(230,245,255,0.98)",
+                    paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
+                  }}
+                >
+                  {d.label}
+                </text>
+                <text
+                  x={right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx)}
+                  y={ly + 18}
+                  textAnchor={right ? "start" : "end"}
+                  dominantBaseline="hanging"
+                  style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
+                >
+                  {d.value}%
+                </text>
+              </g>
+            );
+          });
+        })()}
       </svg>
 
       <style jsx>{`
@@ -172,6 +192,7 @@ function CalloutPie({ data, size = 420 }) {
     </figure>
   );
 }
+
 
 export default function Home() {
   const deviceRef = useRef(null);
