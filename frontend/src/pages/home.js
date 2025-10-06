@@ -415,7 +415,7 @@ export default function Home() {
               <div className="mapCopy">
                 <h2 id="reachTitle" className="mapHeadline">
                   <span>
-                    <span className="gradText onlyNum">30,000</span> iOS downloads
+                    <span className="gradText onlyNum">30,000</span> users
                   </span>
                   <br />
                   <span>worldwide</span>
