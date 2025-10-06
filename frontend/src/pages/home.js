@@ -34,6 +34,48 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
+  // ▼ グラフ用データ（整数%：あなたのリストから算出）
+const COUNTRY_PIE = [
+  { label: "United States", value: 15 },
+  { label: "Germany", value: 7 },
+  { label: "Malaysia", value: 7 },
+  { label: "Netherlands", value: 6 },
+  { label: "United Kingdom", value: 5 },
+  { label: "Other", value: 60 },    // 端数調整ずみ（合計100%）
+];
+
+const LANGUAGE_PIE = [
+  { label: "English", value: 40 },
+  { label: "German", value: 9 },
+  { label: "Arabic", value: 8 },
+  { label: "Malay", value: 7 },
+  { label: "Dutch", value: 6 },
+  { label: "Other", value: 30 },    // 合計100%
+];
+
+// conic-gradient の color スキーム（6色）
+const PIE_COLORS = [
+  "hsl(200 90% 60%)",
+  "hsl(160 70% 55%)",
+  "hsl(260 70% 65%)",
+  "hsl(20 85% 60%)",
+  "hsl(45 90% 60%)",
+  "hsl(0 0% 70%)",
+];
+
+// パーセント配列 → conic-gradient() 文字列に変換
+function makeConic(data) {
+  let acc = 0;
+  return data
+    .map((d, i) => {
+      const start = acc;
+      acc += d.value;
+      return `${PIE_COLORS[i % PIE_COLORS.length]} ${start}% ${acc}%`;
+    })
+    .join(", ");
+}
+
+
   // ▼ Simply ultimate. セクション用（小見出し sub を追加）
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
@@ -351,6 +393,61 @@ export default function Home() {
       </figcaption>
     </figure>
   ))}
+  {/* ===== Global footprint ===== */}
+<section className="reach" aria-labelledby="reachTitle">
+  <div className="reachInner">
+    <h2 id="reachTitle" className="reachH2">
+      30,000 iOS downloads worldwide
+    </h2>
+    <p className="reachNote">
+      * App Store cumulative downloads. Percentages are computed from the
+      country list you provided (n=26,100). Language shares are aggregated by each territory’s primary language.
+    </p>
+
+    <div className="reachGrid">
+      {/* 左：国別（トップ5＋その他） */}
+      <figure className="pieCard">
+        <div
+          className="pie"
+          role="img"
+          aria-label="Top countries share of installs: United States 15%, Germany 7%, Malaysia 7%, Netherlands 6%, United Kingdom 5%, Other 60%"
+          style={{ background: `conic-gradient(${makeConic(COUNTRY_PIE)})` }}
+        />
+        <figcaption className="pieCap">Top countries (share of installs)</figcaption>
+        <ul className="legend">
+          {COUNTRY_PIE.map((d, i) => (
+            <li key={d.label}>
+              <i style={{ background: PIE_COLORS[i % PIE_COLORS.length] }} />
+              <span className="lgName">{d.label}</span>
+              <span className="lgVal">{d.value}%</span>
+            </li>
+          ))}
+        </ul>
+      </figure>
+
+      {/* 右：言語別（トップ5＋その他） */}
+      <figure className="pieCard">
+        <div
+          className="pie"
+          role="img"
+          aria-label="Languages coverage: English 40%, German 9%, Arabic 8%, Malay 7%, Dutch 6%, Other 30%"
+          style={{ background: `conic-gradient(${makeConic(LANGUAGE_PIE)})` }}
+        />
+        <figcaption className="pieCap">Languages (approx.)</figcaption>
+        <ul className="legend">
+          {LANGUAGE_PIE.map((d, i) => (
+            <li key={d.label}>
+              <i style={{ background: PIE_COLORS[i % PIE_COLORS.length] }} />
+              <span className="lgName">{d.label}</span>
+              <span className="lgVal">{d.value}%</span>
+            </li>
+          ))}
+        </ul>
+      </figure>
+    </div>
+  </div>
+</section>
+
 </div>
 
             </div>
@@ -711,6 +808,49 @@ export default function Home() {
   backdrop-filter: blur(6px);
   border-radius: 12px;
   padding: 10px 12px;
+}
+.reach { margin: clamp(28px, 10vh, 120px) auto; padding: 0 22px; max-width: 1200px; }
+.reachInner { display: grid; gap: 12px; }
+.reachH2 {
+  margin: 0; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05;
+  font-size: clamp(28px, 6vw, 56px); color: #fff;
+}
+.reachNote { margin: 2px 0 10px; opacity: .7; font-size: 13px; }
+
+.reachGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.pieCard {
+  margin: 0; padding: 16px; border-radius: 18px;
+  background: linear-gradient(180deg, rgba(36,48,72,0.55), rgba(56,78,96,0.50));
+  backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.pie {
+  width: min(320px, 66vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin: 10px auto 12px;
+  box-shadow: inset 0 0 0 8px rgba(0,0,0,.25);
+}
+
+.pieCap { text-align: center; font-weight: 800; margin: 0 0 10px; }
+
+.legend {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px;
+}
+.legend li { display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 8px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.legend .lgName { opacity: .92; }
+.legend .lgVal { opacity: .8; font-weight: 800; }
+
+@media (max-width: 900px) {
+  .reachGrid { grid-template-columns: 1fr; }
 }
 
         /* ===== iPhone App 訴求 ===== */
