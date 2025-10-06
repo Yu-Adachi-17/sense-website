@@ -192,6 +192,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
   // 左右に分割して縦方向だけ重なり解消
   const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
   const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
+  
 
   const fitColumn = (arr, yMin, yMax) => {
     if (!arr.length) return;
@@ -220,8 +221,15 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
     const tx = clamp(it.xBase, PAD, W - PAD);
     const ty = it.y;
     const anchor = it.right ? "start" : "end";
+    const [sx, sy] = polar(amid, ro); 
+    const [mx, my] = polar(amid, ro + elbow); 
+    const hx = right ? mx + 26 : mx - 26;
     return (
       <g key={`lbl-${i}`}>
+        <g stroke="rgba(200,220,255,0.75)" fill="none"> 
+          <path d={M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}} strokeWidth="2" /> 
+          <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" /> 
+          </g>
         <text
           x={tx} y={ty} textAnchor={anchor} dominantBaseline="middle"
           style={{
