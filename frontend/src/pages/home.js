@@ -148,38 +148,75 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
         {/* ラベル＆ガイド */}
         // ラベル＆ガイドの IIFE 内を、このように差し替え
+        /* ラベル＆ガイド（棒線ナシ、衝突回避つき） */
 {(() => {
-  let acc2 = 0;
-  const ro = r + 10, elbow = 20;
-  const rLabelBase = r + 52;   // 既存値
-  const rLabelRight = r + 46;  // 右半分だけわずかに内側に寄せる
-  const PAD = 14;              // キャンバスの安全マージン
+  // ---- tunables ----
+  const LABEL_H = 34;          // ラベルブロックの縦サイズ（見出し+%の合計）
+  const PAD = 14;              // 左右の安全マージン
+  const GAP_X = 16;            // 円とテキストの水平距離
+  const R_LABEL = r + 44;      // 円中心からラベルまでの基準半径（近づけ/離す）
+  const R_LABEL_RIGHT = r + 38;// 右側だけ少し寄せる（端切れ対策）
 
-  return sorted.map((d, i) => {
+  // 角度→y(目標) を計算
+  let acc = 0;
+  const items = sorted.map((d) => {
     const ang = (d.value / total) * 360;
-    const a0 = acc2, a1 = acc2 + ang; acc2 += ang;
+    const a0 = acc, a1 = acc + ang; acc += ang;
     const amid = a0 + ang / 2;
-    const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
+    const rad = (amid - 90) * Math.PI / 180;
+    const right = Math.cos(rad) >= 0;
 
-    const [sx, sy] = polar(amid, ro);
-    const [mx, my] = polar(amid, ro + elbow);
-    const hx = right ? mx + 26 : mx - 26;
+    const rLab = right ? R_LABEL_RIGHT : R_LABEL;
+    const yTarget = cy + rLab * Math.sin(rad);
+    const xBase = right ? cx + r + GAP_X : cx - r - GAP_X;
 
-    // 右側だけラベル半径を少し小さく
-    const [lx, ly] = polar(amid, right ? rLabelRight : rLabelBase);
+    return { d, amid, right, yTarget, xBase };
+  });
 
-    // テキストのX座標を安全領域にクランプして、はみ出し防止
-    const rawX = right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx);
-    const tx = clamp(rawX, PAD, W - PAD);
+  // 左右に分ける
+  const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
+  const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
+
+  // 1D の重なり解消（上から詰め→下から詰め）
+  const fitColumn = (arr, yMin, yMax) => {
+    if (!arr.length) return;
+    // 上から
+    let y = yMin;
+    for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
+    // 下から
+    y = yMax;
+    for (let i = arr.length - 1; i >= 0; i--) {
+      arr[i].y = Math.min(arr[i].y, y - LABEL_H);
+      y = arr[i].y;
+    }
+    // 仕上げ（元の位置に少し戻す）
+    for (const it of arr) {
+      it.y = clamp(it.y, it.yTarget - LABEL_H*0.75, it.yTarget + LABEL_H*0.75);
+    }
+  };
+
+  // 円の上下に収める範囲
+  const yMinL = cy - (r + 6), yMaxL = cy + (r + 6);
+  const yMinR = yMinL,        yMaxR = yMaxL;
+
+  fitColumn(left,  yMinL, yMaxL);
+  fitColumn(right, yMinR, yMaxR);
+
+  // 再結合（描画順はどうでも良いのでそのまま）
+  const placed = [...left, ...right];
+
+  return placed.map((it, i) => {
+    const tx = clamp(it.xBase, PAD, W - PAD);
+    const ty = it.y;                // 見出し行のY
+    const anchor = it.right ? "start" : "end";
 
     return (
       <g key={`lbl-${i}`}>
-
-
+        {/* 見出し */}
         <text
           x={tx}
-          y={ly}
-          textAnchor={right ? "start" : "end"}
+          y={ty}
+          textAnchor={anchor}
           dominantBaseline="middle"
           style={{
             fontWeight: 800, fontSize: 18,
@@ -187,22 +224,24 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
             paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
           }}
         >
-          {d.label}
+          {it.d.label}
         </text>
 
+        {/* % 値 */}
         <text
           x={tx}
-          y={ly + 18}
-          textAnchor={right ? "start" : "end"}
+          y={ty + 18}
+          textAnchor={anchor}
           dominantBaseline="hanging"
           style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
         >
-          {d.value}%
+          {it.d.value}%
         </text>
       </g>
     );
   });
 })()}
+
         <g
           className="centerLabel"
           style={{ pointerEvents: "none", mixBlendMode: "normal" }}
