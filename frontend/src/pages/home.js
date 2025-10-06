@@ -318,14 +318,41 @@ export default function Home() {
               {/* 右：モック画面（フェード切替 / 画像は仮） */}
               <div className="simplyRight" aria-live="polite">
   {steps.map((s) => (
-    <div
+    <figure
       key={s.key}
       className={`shot${active === s.key ? " isOn" : ""}`}
-      style={{ backgroundImage: `url(${s.img})` }}
       aria-hidden={active !== s.key}
-    />
+      style={{ margin: 0 }}
+    >
+      {/* 意味のあるビジュアルは <img> で */}
+      <img
+        src={s.img}
+        alt={
+          s.key === "tap"
+            ? "Tap to start recording"
+            : s.key === "stop"
+            ? "Stop the recording"
+            : "AI creates minutes automatically"
+        }
+        loading="lazy"
+        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+      />
+      {/* 説明テキスト（ここが検索にも効く） */}
+      <figcaption className="shotCaption">
+        {s.key === "tap" && (
+          <p><strong>Tap</strong> — Press the button to start recording.</p>
+        )}
+        {s.key === "stop" && (
+          <p><strong>Stop</strong> — Press to finish; AI transcribes and drafts minutes automatically.</p>
+        )}
+        {s.key === "wrap" && (
+          <p><strong>Wrap</strong> — Get beautifully formatted minutes, a To-Do list, and the full transcript.</p>
+        )}
+      </figcaption>
+    </figure>
   ))}
-              </div>
+</div>
+
             </div>
           </section>
 
