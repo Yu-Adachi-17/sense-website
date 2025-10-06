@@ -816,35 +816,73 @@ export default function Home() {
         .copyright { font-size: 13px; opacity: 0.7; white-space: nowrap; }
         @media (max-width: 640px) { .footInner { flex-direction: column; gap: 8px; } }
         /* ===== モバイル専用調整（PCは無変更） ===== */
+/* ===== Mobile-only fixes (<=640px). Desktopには一切影響しません ===== */
 @media (max-width: 640px) {
 
   /* 1) 「Just Record.」を下へ */
   .heroTop { margin-top: clamp(18px, 6vh, 72px); }
 
-  /* 2) Simply：見出しを「画像の上」に重ねる＆画像を見切れさせない */
-  .simplyGrid { position: relative; }
-  .simplyRight { order: 2; }                 /* 画像ブロック */
-  .simplyH2 {
-    position: absolute; z-index: 3;
-    left: 16px; right: 16px; top: 12px;
-    margin: 0; pointer-events: none;
-    text-shadow: 0 4px 18px rgba(0,0,0,.45);
-    /* フォントは既存の clamp に従うので追加不要 */
+  /* 2) Simply：見出し → 画像 → 中項目 の順にして、重なり/はみ出しを防止 */
+  .simplyGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    align-items: start;
+    position: relative;
   }
-  .simplyRight { padding-top: 76px; }        /* 見出しと被らない余白を確保 */
-  .shotCaption { bottom: 10px; }             /* キャプションも少し上げる */
-  .simplyRight { aspect-ratio: 16 / 11; }    /* ボックス比率を固定してCLS回避 */
-  .simplyRight img { object-fit: contain; }  /* 画像の切れを防止 */
+  /* 子をグリッド直下に昇格して並べ替え（DOM変更なし） */
+  .simplyLeft{ display: contents; }
 
-  /* 3) マップ＆円グラフを縮小し、注記が被らないように下げる */
-  .mapChart { justify-content: center; align-items: center; }
-  .mapChart .calloutPie { max-width: 300px; } /* ← 360px → 300px に縮小 */
-  .mapChart { padding-right: 12px; }          /* 右側安全余白 */
-  .mapNote { bottom: 4px; }                    /* 注記をさらに下へ */
+  /* 1段目：見出し（重ねない・自然に上に来る） */
+  .simplyH2{
+    grid-row: 1;
+    margin: 0 0 8px;
+    padding: 0 16px;
+    position: relative; z-index: 3;
+    text-shadow: 0 4px 18px rgba(0,0,0,.45);
+  }
 
-  /* 4) iPhone App：見出しを画像の上（前）に出す */
-  .promoCopy { order: 1; }
-  .promoVisual { order: 2; }                   /* 既存の order:-1 を打ち消す */
+  /* 2段目：画像カード（枠内に完全収まる） */
+  .simplyRight{
+    grid-row: 2;
+    margin: 8px 0 12px;
+    padding: 10px;
+    min-height: auto;
+    aspect-ratio: auto;     /* 固定比率を解除して縦長画面に順応 */
+    max-height: 48vh;       /* 画面に収める上限 */
+    overflow: visible;
+  }
+  .simplyRight img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;    /* 画像の切れ防止（歪み無し） */
+  }
+  .shotCaption{ bottom: 10px; }
+
+  /* 3段目：中項目リスト */
+  .stepList{
+    grid-row: 3;
+    margin-top: 4px;
+  }
+
+  /* 3) マップ＆円グラフ：縮小し、注釈はさらに下へ */
+  .reachMapInner{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .mapChart{
+    max-width: 86vw;        /* ≒ 80–86% に縮小（右ラベルも収まる） */
+    margin-inline: auto;
+    padding-right: 0;       /* 右端の切れ防止 */
+  }
+  .calloutPie{ max-width: 86vw; }
+  .reachMap{ padding-bottom: 34px; }
+  .mapNote{ bottom: -12px; font-size: 11px; }
+
+  /* 4) iPhone App：見出しを画像より上に */
+  .promoGrid{ grid-template-columns: 1fr; }
+  .promoCopy{ order: 1; }
+  .promoVisual{ order: 2; } /* 既存の order を打ち消して見出し→画像の順 */
 }
 
       `}</style>
