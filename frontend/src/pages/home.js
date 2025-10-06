@@ -340,13 +340,13 @@ export default function Home() {
       {/* 説明テキスト（ここが検索にも効く） */}
       <figcaption className="shotCaption">
         {s.key === "tap" && (
-          <p><strong>Tap</strong> — Press the button to start recording.</p>
+          <p>Press the button to start recording.</p>
         )}
         {s.key === "stop" && (
-          <p><strong>Stop</strong> — Press to finish; AI transcribes and drafts minutes automatically.</p>
+          <p>Press to finish; AI transcribes and drafts minutes automatically.</p>
         )}
         {s.key === "wrap" && (
-          <p><strong>Wrap</strong> — Get beautifully formatted minutes, a To-Do list, and the full transcript.</p>
+          <p>Get beautifully formatted minutes, a To-Do list, and the full transcript.</p>
         )}
       </figcaption>
     </figure>
@@ -699,13 +699,19 @@ export default function Home() {
 .shot { position: absolute; inset: 0; opacity: 0; transition: opacity .28s ease; }
 .shot.isOn { opacity: 1; }
 .shotCaption {
-  position: absolute; left: 16px; bottom: 16px;
-  max-width: 80%;
-  font-weight: 700; line-height: 1.35;
-  background: rgba(0,0,0,.45); backdrop-filter: blur(6px);
-  border-radius: 12px; padding: 10px 12px;
+  position: absolute;
+  left: 50%;
+  bottom: 16px;            /* ここはお好みで */
+  transform: translateX(-50%);
+  max-width: 86%;
+  text-align: center;       /* テキストも中央寄せ */
+  font-weight: 700;
+  line-height: 1.35;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 10px 12px;
 }
-
 
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
