@@ -32,7 +32,7 @@ function CalloutPie({ data, size = 420 }) {
   const W = size, H = size, cx = W / 2, cy = H / 2;
   const r = Math.min(W, H) * 0.36;   // 外周リング半径
   const rInner = r * 0.82;           // 内側リング
-  const rEnd = r - 8;                // コメット終点を外周より内側へ（はみ出し防止）
+  const rEnd = r - 4;                // コメット終点を外周より内側へ（はみ出し防止）
 
   const polar = (deg, rad) => {
     const a = (deg - 90) * (Math.PI / 180);
