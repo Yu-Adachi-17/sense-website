@@ -218,9 +218,9 @@ function CalloutPie({ data, size = 380 }) {
 
           // ★ 個別の水平微調整（px）
           const nudgeMap = {
-            German: -60, // 強めに左へ（グラフ寄り）
-            Arabic: +64, // 大きく右へ
-            Malay:  +36, // 右へ
+            German: -10, // 強めに左へ（グラフ寄り）
+            Arabic: +14, // 大きく右へ
+            Malay:  +6, // 右へ
           };
 
           return placed.map((it, i) => {
