@@ -809,6 +809,49 @@ function makeConic(data) {
   border-radius: 12px;
   padding: 10px 12px;
 }
+.reach { margin: clamp(28px, 10vh, 120px) auto; padding: 0 22px; max-width: 1200px; }
+.reachInner { display: grid; gap: 12px; }
+.reachH2 {
+  margin: 0; font-weight: 900; letter-spacing: -0.02em; line-height: 1.05;
+  font-size: clamp(28px, 6vw, 56px); color: #fff;
+}
+.reachNote { margin: 2px 0 10px; opacity: .7; font-size: 13px; }
+
+.reachGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.pieCard {
+  margin: 0; padding: 16px; border-radius: 18px;
+  background: linear-gradient(180deg, rgba(36,48,72,0.55), rgba(56,78,96,0.50));
+  backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.pie {
+  width: min(320px, 66vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin: 10px auto 12px;
+  box-shadow: inset 0 0 0 8px rgba(0,0,0,.25);
+}
+
+.pieCap { text-align: center; font-weight: 800; margin: 0 0 10px; }
+
+.legend {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px;
+}
+.legend li { display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 8px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.legend .lgName { opacity: .92; }
+.legend .lgVal { opacity: .8; font-weight: 800; }
+
+@media (max-width: 900px) {
+  .reachGrid { grid-template-columns: 1fr; }
+}
 
         /* ===== iPhone App 訴求 ===== */
         .appPromo {
