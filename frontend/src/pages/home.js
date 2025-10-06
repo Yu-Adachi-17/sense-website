@@ -876,8 +876,8 @@ export default function Home() {
     padding-right: 0;
   }
   .mapChart :global(.calloutPie){ max-width: 86vw; } /* ← styled-jsx の一発グローバル上書き。:contentReference[oaicite:1]{index=1} */
-  .reachMap{ padding-bottom: 72px; }
-  .mapNote{ bottom: -44px; font-size: 11px; }
+  .reachMap{ padding-bottom: 144px; }
+  .mapNote{ bottom: -88px; font-size: 11px; }
 
   /* 4) iPhone App：見出しを画像より上に */
   .promoGrid{ grid-template-columns: 1fr; }
