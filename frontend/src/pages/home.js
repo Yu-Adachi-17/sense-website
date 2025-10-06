@@ -384,7 +384,8 @@ export default function Home() {
                 </h2>
               </div>
               <div className="mapChart">
-                <CalloutPie data={LANGUAGE_PIE} />
+              <CalloutPie data={LANGUAGE_PIE} size={380} />
+
               </div>
             </div>
           </section>
@@ -540,20 +541,25 @@ export default function Home() {
   transform-origin: center;
 }
         .mapCopy { display: flex; align-items: center; }
-        .mapHeadline {
-          margin: 0;
-          font-weight: 900;
-          letter-spacing: -0.02em;
-          line-height: 1.02;
-          font-size: clamp(36px, 6.8vw, 86px);
-          color: #fff;
-          display: inline-block;
-          background: rgba(0,0,0,0.72);
-          padding: clamp(8px, 1vw, 12px) clamp(12px, 1.4vw, 16px);
-          border-radius: 10px;
-          box-shadow: 0 6px 24px rgba(0,0,0,0.45);
-        }
-        .mapChart { display: flex; justify-content: center; align-items: center; }
+.mapHeadline {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-size: clamp(32px, 6vw, 80px);
+  color: #ffffff;
+  /* 背景・ボックスを除去 */
+  background: transparent;         /* ← 変更 */
+  padding: 0;                      /* ← 変更 */
+  border-radius: 0;                /* ← 変更 */
+  box-shadow: none;                /* ← 変更 */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35); /* 読みやすさだけ確保 */
+}
+        .mapChart {
+  display: flex; justify-content: center; align-items: center;
+  overflow: visible;
+}
+
 
         /* ===== App promo ===== */
         .appPromo { margin: clamp(18px, 4vh, 36px) auto clamp(64px, 10vh, 120px); padding: 0 22px; max-width: 1200px; text-align: left; }
