@@ -22,7 +22,9 @@ function CalloutPie({ data, size = 380 }) {
   const sorted = useMemo(() => {
     const isOther = (s) =>
       String(s.label).toLowerCase() === "other" || s.label === "その他";
-    const main = data.filter((d) => !isOther(d)).sort((a, b) => b.value - a.value);
+    const main = data
+      .filter((d) => !isOther(d))
+      .sort((a, b) => b.value - a.value);
     const others = data.filter(isOther);
     return [...main, ...others]; // “Other” を末尾へ
   }, [data]);
@@ -155,6 +157,13 @@ function CalloutPie({ data, size = 380 }) {
           const R_LABEL = r + 44;      // 円中心からラベルまでの基準半径
           const R_LABEL_RIGHT = r + 38;// 右側だけ少し寄せる（端切れ対策）
 
+          // ★ 個別に左右の配置を強制
+          const sideOverride = {
+            German: "left",
+            Malay: "right",
+            Arabic: "right",
+          };
+
           // 角度→y(目標) を計算
           let acc = 0;
           const items = sorted.map((d) => {
@@ -162,7 +171,13 @@ function CalloutPie({ data, size = 380 }) {
             const a0 = acc, a1 = acc + ang; acc += ang;
             const amid = a0 + ang / 2;
             const rad = (amid - 90) * Math.PI / 180;
-            const right = Math.cos(rad) >= 0;
+
+            // 既定の左右判定
+            let right = Math.cos(rad) >= 0;
+            // ★ 指定があれば上書き
+            if (sideOverride[d.label]) {
+              right = sideOverride[d.label] === "right";
+            }
 
             const rLab = right ? R_LABEL_RIGHT : R_LABEL;
             const yTarget = cy + rLab * Math.sin(rad);
@@ -201,11 +216,11 @@ function CalloutPie({ data, size = 380 }) {
 
           const placed = [...left, ...right];
 
-          // 個別の水平微調整（px）
+          // ★ 個別の水平微調整（px）
           const nudgeMap = {
-            German: -40, // 左（グラフ寄り）
-            Arabic: +26, // 右
-            Malay:  +22, // 右
+            German: -60, // 強めに左へ（グラフ寄り）
+            Arabic: +64, // 大きく右へ
+            Malay:  +36, // 右へ
           };
 
           return placed.map((it, i) => {
