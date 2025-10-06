@@ -88,7 +88,71 @@ export default function Home() {
       <Head>
         <title>Minutes.AI — Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* ▼ ここから追加（英語版） */}
+        {/* Basics */}
+        <meta
+          name="description"
+          content="Automatically create beautiful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web."
+        />
+        <link rel="canonical" href="https://www.sense-ai.world/" />
+
+        {/* OGP / Twitter (kept concise; OG/Twitter meta must live in <head>) */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.sense-ai.world/" />
+        <meta property="og:title" content="Minutes.AI — AI Meeting Minutes" />
+        <meta
+          property="og:description"
+          content="Record your meeting and let AI produce clean, human-ready minutes—decisions and to-dos at a glance."
+        />
+        <meta
+          property="og:image"
+          content="https://www.sense-ai.world/og-image.jpg"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@your_brand" />
+        {/* ▲ OGP/Twitter: in <head> per Open Graph & X docs. */}
+
+        {/* (Enable when i18n goes live)
+        <link rel="alternate" hrefLang="en" href="https://www.sense-ai.world/" />
+        <link rel="alternate" hrefLang="ja" href="https://www.sense-ai.world/ja" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.sense-ai.world/" />
+        */}
+
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "name": "Sense LLC",
+                  "url": "https://www.sense-ai.world/",
+                  "logo": "https://www.sense-ai.world/logo.png"
+                },
+                {
+                  "@type": "WebSite",
+                  "url": "https://www.sense-ai.world/",
+                  "name": "Minutes.AI"
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "name": "Minutes.AI",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "iOS, Web",
+                  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+                  "downloadUrl":
+                    "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
+                }
+              ]
+            })
+          }}
+        />
+        {/* ▲ ここまで追加 */}
       </Head>
+
 
       {/* ===== Fixed Header ===== */}
       <FixedHeaderPortal>
