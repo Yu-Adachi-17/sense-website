@@ -22,16 +22,14 @@ function CalloutPie({ data, size = 380 }) {
   const sorted = useMemo(() => {
     const isOther = (s) =>
       String(s.label).toLowerCase() === "other" || s.label === "その他";
-    const main = data
-      .filter((d) => !isOther(d))
-      .sort((a, b) => b.value - a.value);
+    const main = data.filter((d) => !isOther(d)).sort((a, b) => b.value - a.value);
     const others = data.filter(isOther);
     return [...main, ...others]; // “Other” を末尾へ
   }, [data]);
 
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
-  // 先頭の関数群の近くに追加
-  const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+// 先頭の関数群の近くに追加
+const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
   const W = size, H = size, cx = W / 2, cy = H / 2;
   const r = Math.min(W, H) * 0.36;   // 外周リング半径
@@ -136,7 +134,7 @@ function CalloutPie({ data, size = 380 }) {
           );
         })}
 
-        {/* 中心点：外周ポイントと同じ見た目 */}
+        {/* 中心点：外周ポイントと“同一処理・同一見た目” */}
         {(() => {
           const v = sorted[0]?.value ?? 1;
           const strokeW = scale(v, 2.4, 4.8);
@@ -148,125 +146,106 @@ function CalloutPie({ data, size = 380 }) {
           );
         })()}
 
-        {/* ラベル＆ガイド（棒線ナシ、衝突回避つき） */}
-        {(() => {
-          // ---- tunables ----
-          const LABEL_H = 34;          // ラベルブロックの縦サイズ（見出し+% の合計）
-          const PAD = 14;              // 左右の安全マージン
-          const GAP_X = 16;            // 円とテキストの水平距離
-          const R_LABEL = r + 44;      // 円中心からラベルまでの基準半径
-          const R_LABEL_RIGHT = r + 38;// 右側だけ少し寄せる（端切れ対策）
+        {/* ラベル＆ガイド */}
+        // ラベル＆ガイドの IIFE 内を、このように差し替え
+        /* ラベル＆ガイド（棒線ナシ、衝突回避つき） */
+{/* ラベル＆ガイド（放射座標に寄せ、Y のみ重なり解消） */}
+{(() => {
+  const LABEL_H = 34;
+  const PAD = 14;
 
-          // ★ 個別に左右の配置を強制
-          const sideOverride = {
-            German: "left",
-            Malay: "right",
-            Arabic: "right",
-          };
+  // 円のすぐ外に置く半径（X/Y で同じ半径を使う＝放射方向に寄る）
+  const R_LABEL = r + 44;          // 左右共通の基本半径
+  const R_LABEL_RIGHT = r + 38;    // 右側は僅かに内寄せ（端切れ対策）
 
-          // 角度→y(目標) を計算
-          let acc = 0;
-          const items = sorted.map((d) => {
-            const ang = (d.value / total) * 360;
-            const a0 = acc, a1 = acc + ang; acc += ang;
-            const amid = a0 + ang / 2;
-            const rad = (amid - 90) * Math.PI / 180;
+  // “画面の左右”への微調整（px）。+ は画面の右へ、- は左へ。
+  const nudgeMap = {
+    German: -12, // 少し左へ（= 扇の左側なら外側方向）
+    Malay:  +10, // 右へ
+    Arabic: +22, // 大きく右へ
+  };
 
-            // 既定の左右判定
-            let right = Math.cos(rad) >= 0;
-            // ★ 指定があれば上書き
-            if (sideOverride[d.label]) {
-              right = sideOverride[d.label] === "right";
-            }
+  // 角度に応じた放射座標を基準に、X はここで確定（後工程では Y だけ動かす）
+  let acc = 0;
+  const items = sorted.map((d) => {
+    const ang = (d.value / total) * 360;
+    const a0 = acc, a1 = acc + ang; acc += ang;
+    const amid = a0 + ang / 2;
+    const rad = (amid - 90) * Math.PI / 180;
 
-            const rLab = right ? R_LABEL_RIGHT : R_LABEL;
-            const yTarget = cy + rLab * Math.sin(rad);
-            const xBase = right ? cx + r + GAP_X : cx - r - GAP_X;
+    const right = Math.cos(rad) >= 0; // 右半面？
+    const rLab  = right ? R_LABEL_RIGHT : R_LABEL;
 
-            return { d, amid, right, yTarget, xBase };
-          });
+    // 放射方向の理想位置
+    const xRad = cx + rLab * Math.cos(rad);
+    const yRad = cy + rLab * Math.sin(rad);
 
-          // 左右に分ける
-          const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
-          const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
+    // 画面左右への任意微調整（px）
+    const dx = nudgeMap[d.label] ?? 0;
+    const xBase = xRad + dx;
 
-          // 1D の重なり解消
-          const fitColumn = (arr, yMin, yMax) => {
-            if (!arr.length) return;
-            // 上から
-            let y = yMin;
-            for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
-            // 下から
-            y = yMax;
-            for (let i = arr.length - 1; i >= 0; i--) {
-              arr[i].y = Math.min(arr[i].y, y - LABEL_H);
-              y = arr[i].y;
-            }
-            // 仕上げ（元の位置に少し戻す）
-            for (const it of arr) {
-              it.y = clamp(it.y, it.yTarget - LABEL_H*0.75, it.yTarget + LABEL_H*0.75);
-            }
-          };
+    return { d, right, xBase, yTarget: yRad };
+  });
 
-          const yMinL = cy - (r + 6), yMaxL = cy + (r + 6);
-          const yMinR = yMinL,        yMaxR = yMaxL;
+  // 左右に分けて“縦だけ”重なり解消
+  const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
+  const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
 
-          fitColumn(left,  yMinL, yMaxL);
-          fitColumn(right, yMinR, yMaxR);
+  const fitColumn = (arr, yMin, yMax) => {
+    if (!arr.length) return;
+    let y = yMin;
+    for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
+    y = yMax;
+    for (let i = arr.length - 1; i >= 0; i--) {
+      arr[i].y = Math.min(arr[i].y, y - LABEL_H);
+      y = arr[i].y;
+    }
+  };
+  const yMin = cy - (r + 6), yMax = cy + (r + 6);
+  fitColumn(left,  yMin, yMax);
+  fitColumn(right, yMin, yMax);
 
-          const placed = [...left, ...right];
+  const placed = [...left, ...right];
 
-          // ★ 個別の水平微調整（px）
-// ★ 個別の水平微調整（px）
-const nudgeMap = {
-  German: +18, // 左列は + がグラフ寄り（右）に動く
-  Malay:  +10, // 右列は + でさらに右へ
-  Arabic: +22, // 右列を大きめに右へ
-};
+  return placed.map((it, i) => {
+    const tx = clamp(it.xBase, PAD, W - PAD); // X はここで確定済み、念のため安全域に収めるだけ
+    const ty = it.y;
+    const anchor = it.right ? "start" : "end";
+
+    return (
+      <g key={`lbl-${i}`}>
+        <text
+          x={tx}
+          y={ty}
+          textAnchor={anchor}
+          dominantBaseline="middle"
+          style={{
+            fontWeight: 800, fontSize: 18,
+            fill: "rgba(230,245,255,0.98)",
+            paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
+          }}
+        >
+          {it.d.label}
+        </text>
+        <text
+          x={tx}
+          y={ty + 18}
+          textAnchor={anchor}
+          dominantBaseline="hanging"
+          style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
+        >
+          {it.d.value}%
+        </text>
+      </g>
+    );
+  });
+})()}
 
 
-          return placed.map((it, i) => {
-            let tx = clamp(it.xBase, PAD, W - PAD);
-            if (nudgeMap[it.d.label]) {
-              tx = clamp(tx + nudgeMap[it.d.label], PAD, W - PAD);
-            }
-            const ty = it.y;                // 見出し行のY
-            const anchor = it.right ? "start" : "end";
-
-            return (
-              <g key={`lbl-${i}`}>
-                {/* 見出し */}
-                <text
-                  x={tx}
-                  y={ty}
-                  textAnchor={anchor}
-                  dominantBaseline="middle"
-                  style={{
-                    fontWeight: 800, fontSize: 18,
-                    fill: "rgba(230,245,255,0.98)",
-                    paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
-                  }}
-                >
-                  {it.d.label}
-                </text>
-
-                {/* % 値 */}
-                <text
-                  x={tx}
-                  y={ty + 18}
-                  textAnchor={anchor}
-                  dominantBaseline="hanging"
-                  style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
-                >
-                  {it.d.value}%
-                </text>
-              </g>
-            );
-          });
-        })()}
-
-        {/* 円中央のタイトル */}
-        <g className="centerLabel" style={{ pointerEvents: "none", mixBlendMode: "normal" }}>
+        <g
+          className="centerLabel"
+          style={{ pointerEvents: "none", mixBlendMode: "normal" }}
+        >
           <text
             x={cx}
             y={cy - (labelSize * 0.6)}           // 上段を少し上に
@@ -310,7 +289,6 @@ const nudgeMap = {
     </figure>
   );
 }
-
 
 export default function Home() {
   const deviceRef = useRef(null);
