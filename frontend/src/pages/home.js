@@ -149,23 +149,22 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
         {/* ラベル＆ガイド */}
         // ラベル＆ガイドの IIFE 内を、このように差し替え
         /* ラベル＆ガイド（棒線ナシ、衝突回避つき） */
-{/* ラベル＆ガイド（放射座標に寄せ、Y のみ重なり解消） */}
+
+{/* ラベル＆ガイド（放射座標＋個別XY微調整） */}
 {(() => {
   const LABEL_H = 34;
   const PAD = 14;
+  const R_LABEL = r + 44;
+  const R_LABEL_RIGHT = r + 38;
 
-  // 円のすぐ外に置く半径（X/Y で同じ半径を使う＝放射方向に寄る）
-  const R_LABEL = r + 44;          // 左右共通の基本半径
-  const R_LABEL_RIGHT = r + 38;    // 右側は僅かに内寄せ（端切れ対策）
-
-  // “画面の左右”への微調整（px）。+ は画面の右へ、- は左へ。
-  const nudgeMap = {
-    German: -12, // 少し左へ（= 扇の左側なら外側方向）
-    Malay:  +10, // 右へ
-    Arabic: +22, // 大きく右へ
+  // ← ここで個別の X/Y 微調整（px）。+X=右 / -X=左、+Y=下 / -Y=上
+  const offsetMap = {
+    German: { dx: -12, dy: 10 }, // ちょい左下
+    Arabic: { dx:   0, dy: 20 }, // 下へ
+    Malay:  { dx:  10, dy: 10 }, // 右下
+    Dutch:  { dx:   8, dy:  8 }, // 右下
   };
 
-  // 角度に応じた放射座標を基準に、X はここで確定（後工程では Y だけ動かす）
   let acc = 0;
   const items = sorted.map((d) => {
     const ang = (d.value / total) * 360;
@@ -173,21 +172,19 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
     const amid = a0 + ang / 2;
     const rad = (amid - 90) * Math.PI / 180;
 
-    const right = Math.cos(rad) >= 0; // 右半面？
-    const rLab  = right ? R_LABEL_RIGHT : R_LABEL;
+    const right = Math.cos(rad) >= 0;
+    const rLab = right ? R_LABEL_RIGHT : R_LABEL;
 
-    // 放射方向の理想位置
     const xRad = cx + rLab * Math.cos(rad);
     const yRad = cy + rLab * Math.sin(rad);
 
-    // 画面左右への任意微調整（px）
-    const dx = nudgeMap[d.label] ?? 0;
-    const xBase = xRad + dx;
+    const off = offsetMap[d.label] ?? { dx: 0, dy: 0 };
+    const xBase = xRad + off.dx;       // X はここで確定
+    const yTarget = yRad + off.dy;     // Y の理想位置（この後、重なり解消のみ）
 
-    return { d, right, xBase, yTarget: yRad };
+    return { d, right, xBase, yTarget };
   });
 
-  // 左右に分けて“縦だけ”重なり解消
   const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
   const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
 
@@ -205,34 +202,22 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
   fitColumn(left,  yMin, yMax);
   fitColumn(right, yMin, yMax);
 
-  const placed = [...left, ...right];
-
-  return placed.map((it, i) => {
-    const tx = clamp(it.xBase, PAD, W - PAD); // X はここで確定済み、念のため安全域に収めるだけ
+  return [...left, ...right].map((it, i) => {
+    const tx = clamp(it.xBase, PAD, W - PAD);
     const ty = it.y;
     const anchor = it.right ? "start" : "end";
-
     return (
       <g key={`lbl-${i}`}>
         <text
-          x={tx}
-          y={ty}
-          textAnchor={anchor}
-          dominantBaseline="middle"
-          style={{
-            fontWeight: 800, fontSize: 18,
-            fill: "rgba(230,245,255,0.98)",
-            paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
-          }}
+          x={tx} y={ty} textAnchor={anchor} dominantBaseline="middle"
+          style={{ fontWeight:800, fontSize:18, fill:"rgba(230,245,255,0.98)",
+                   paintOrder:"stroke", stroke:"rgba(10,20,40,0.45)", strokeWidth:1.2 }}
         >
           {it.d.label}
         </text>
         <text
-          x={tx}
-          y={ty + 18}
-          textAnchor={anchor}
-          dominantBaseline="hanging"
-          style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
+          x={tx} y={ty + 18} textAnchor={anchor} dominantBaseline="hanging"
+          style={{ fontWeight:700, fontSize:14, fill:"rgba(200,225,255,0.92)" }}
         >
           {it.d.value}%
         </text>
