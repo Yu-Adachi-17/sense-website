@@ -28,6 +28,8 @@ function CalloutPie({ data, size = 380 }) {
   }, [data]);
 
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
+// 先頭の関数群の近くに追加
+const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
   const W = size, H = size, cx = W / 2, cy = H / 2;
   const r = Math.min(W, H) * 0.36;   // 外周リング半径
@@ -143,51 +145,66 @@ function CalloutPie({ data, size = 380 }) {
         })()}
 
         {/* ラベル＆ガイド */}
-        {(() => {
-          let acc2 = 0;
-          const ro = r + 10, elbow = 20, rLabel = r + 78;
-          return sorted.map((d, i) => {
-            const ang = (d.value / total) * 360;
-            const a0 = acc2, a1 = acc2 + ang; acc2 += ang;
-            const amid = a0 + ang / 2;
-            const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
-            const [sx, sy] = polar(amid, ro);
-            const [mx, my] = polar(amid, ro + elbow);
-            const hx = right ? mx + 26 : mx - 26;
-            const [lx, ly] = polar(amid, rLabel);
+        // ラベル＆ガイドの IIFE 内を、このように差し替え
+{(() => {
+  let acc2 = 0;
+  const ro = r + 10, elbow = 20;
+  const rLabelBase = r + 78;   // 既存値
+  const rLabelRight = r + 64;  // 右半分だけわずかに内側に寄せる
+  const PAD = 14;              // キャンバスの安全マージン
 
-            return (
-              <g key={`lbl-${i}`}>
-                <g stroke="rgba(200,220,255,0.75)" fill="none">
-                  <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth="2" />
-                  <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
-                </g>
-                <text
-                  x={right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx)}
-                  y={ly}
-                  textAnchor={right ? "start" : "end"}
-                  dominantBaseline="middle"
-                  style={{
-                    fontWeight: 800, fontSize: 18,
-                    fill: "rgba(230,245,255,0.98)",
-                    paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
-                  }}
-                >
-                  {d.label}
-                </text>
-                <text
-                  x={right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx)}
-                  y={ly + 18}
-                  textAnchor={right ? "start" : "end"}
-                  dominantBaseline="hanging"
-                  style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
-                >
-                  {d.value}%
-                </text>
-              </g>
-            );
-          });
-        })()}
+  return sorted.map((d, i) => {
+    const ang = (d.value / total) * 360;
+    const a0 = acc2, a1 = acc2 + ang; acc2 += ang;
+    const amid = a0 + ang / 2;
+    const right = Math.cos((amid - 90) * (Math.PI / 180)) >= 0;
+
+    const [sx, sy] = polar(amid, ro);
+    const [mx, my] = polar(amid, ro + elbow);
+    const hx = right ? mx + 26 : mx - 26;
+
+    // 右側だけラベル半径を少し小さく
+    const [lx, ly] = polar(amid, right ? rLabelRight : rLabelBase);
+
+    // テキストのX座標を安全領域にクランプして、はみ出し防止
+    const rawX = right ? Math.max(hx + 8, lx) : Math.min(hx - 8, lx);
+    const tx = clamp(rawX, PAD, W - PAD);
+
+    return (
+      <g key={`lbl-${i}`}>
+        <g stroke="rgba(200,220,255,0.75)" fill="none">
+          <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth="2" />
+          <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
+        </g>
+
+        <text
+          x={tx}
+          y={ly}
+          textAnchor={right ? "start" : "end"}
+          dominantBaseline="middle"
+          style={{
+            fontWeight: 800, fontSize: 18,
+            fill: "rgba(230,245,255,0.98)",
+            paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2,
+          }}
+        >
+          {d.label}
+        </text>
+
+        <text
+          x={tx}
+          y={ly + 18}
+          textAnchor={right ? "start" : "end"}
+          dominantBaseline="hanging"
+          style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
+        >
+          {d.value}%
+        </text>
+      </g>
+    );
+  });
+})()}
+
       </svg>
 
       <style jsx>{`
@@ -698,7 +715,15 @@ export default function Home() {
           background: transparent; padding: 0; border-radius: 0; box-shadow: none;
           text-shadow: 0 2px 10px rgba(0,0,0,0.35);
         }
-        .mapChart { display: flex; justify-content: center; align-items: center; overflow: visible; }
+       /* 既存の styles 内の .mapChart に追記 or 置き換え */
+.mapChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  padding-right: clamp(12px, 4vw, 36px); /* ← 右側に安全余白 */
+}
+
 
         /* 左下の注記 */
         .mapNote {
