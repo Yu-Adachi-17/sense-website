@@ -727,15 +727,15 @@ export default function Home() {
 }
 .mapKicker{
   display: block;
-  font-weight: 800;                 /* users と同じ太さ */
-  font-size: clamp(14px, 2.2vw, 20px);
-  line-height: 1.1;
-  color: #eaf4f7;                   /* 読みやすい白系 */
-  opacity: 0.92;
-  margin: 0 0 6px;                  /* 数字との間隔 */
+  font-weight: 900;     /* users と同じ */
+  font-size: 1em;       /* 親(.mapHeadline)の clamp を継承 */
+  line-height: 1.02;    /* 見出しと揃える */
+  letter-spacing: -0.02em;
+  color: #eaf4f7;
+  opacity: 0.95;
+  margin: 0 0 0.12em;   /* 数字との間隔を少しだけ */
   text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
-
 
         /* 左下の注記 */
         .mapNote {
