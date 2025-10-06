@@ -28,13 +28,12 @@ function CalloutPie({ data, size = 380 }) {
   }, [data]);
 
   const total = useMemo(() => sorted.reduce((a, d) => a + d.value, 0), [sorted]);
-// 先頭の関数群の近くに追加
-const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+  const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 
   const W = size, H = size, cx = W / 2, cy = H / 2;
   const r = Math.min(W, H) * 0.36;   // 外周リング半径
   const rInner = r * 0.82;           // 内側リング
-  const rEnd = r - 4;                // コメット終点を外周より内側へ（はみ出し防止）
+  const rEnd = r - 4;                // コメット終点を外周より内側へ
 
   const polar = (deg, rad) => {
     const a = (deg - 90) * (Math.PI / 180);
@@ -106,7 +105,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
           ))}
         </defs>
 
-        {/* 扇フィル（薄く光らせる） */}
+        {/* 扇フィル */}
         <g style={{ mixBlendMode: "screen" }}>
           {seams.map((s, i) => (
             <path
@@ -117,11 +116,11 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
           ))}
         </g>
 
-        {/* 外周リング（骨格） */}
+        {/* 外周リング */}
         <circle cx={cx} cy={cy} r={r}      fill="none" stroke="url(#ringGrad)" strokeWidth="8"  opacity="0.55" />
         <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="5"  opacity="0.30" />
 
-        {/* 継ぎ目ライン＋先端キャップ（内側終点へ変更） */}
+        {/* 継ぎ目ライン＋先端キャップ */}
         {seams.map((s, i) => {
           const [x, y] = polar(s.start, rEnd);
           const strokeW = scale(s.value, 2.4, 4.8);
@@ -134,7 +133,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
           );
         })}
 
-        {/* 中心点：外周ポイントと“同一処理・同一見た目” */}
+        {/* 中心点 */}
         {(() => {
           const v = sorted[0]?.value ?? 1;
           const strokeW = scale(v, 2.4, 4.8);
@@ -146,131 +145,113 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
           );
         })()}
 
-        {/* ラベル＆ガイド */}
-        // ラベル＆ガイドの IIFE 内を、このように差し替え
-        /* ラベル＆ガイド（棒線ナシ、衝突回避つき） */
+        {/* ラベル＆ガイド（ガイド線 復活版） */}
+        {(() => {
+          const LABEL_H = 34;
+          const PAD = 14;
+          const R_LABEL = r + 44;
+          const R_LABEL_RIGHT = r + 38;
 
-{/* ラベル＆ガイド（放射座標＋個別XY微調整） */}
-{/* ラベル＆ガイド（XY一発調整＋強制スナップ） */}
-{(() => {
-  const LABEL_H = 34;
-  const PAD = 14;
-  const R_LABEL = r + 44;
-  const R_LABEL_RIGHT = r + 38;
+          // +X=右 / -X=左, +Y=下 / -Y=上
+          const offsetMap = {
+            German: { dx: -28, dy: 12 },
+            Arabic: { dx:   6, dy: 54 },
+            Malay:  { dx:  28, dy: 24 },
+            Dutch:  { dx:  24, dy: 12 },
+          };
+          const stickSnapPx = 10;
 
-  // +X=右 / -X=左, +Y=下 / -Y=上（スクショ準拠）
-  const offsetMap = {
-    German: { dx: -28, dy:  12 }, // ちょい左下
-    Arabic: { dx:   6, dy:  54 }, // 真下へ寄せる
-    Malay:  { dx:  28, dy:  24 }, // 右下
-    Dutch:  { dx:  24, dy:  12 }, // 右下
-  };
-  const stickSnapPx = 10; // 衝突回避後に y を目標±この範囲に“固定”してブレ防止
+          let acc = 0;
+          const items = sorted.map((d) => {
+            const ang = (d.value / total) * 360;
+            const a0 = acc, a1 = acc + ang; acc += ang;
+            const amid = a0 + ang / 2;
+            const rad = (amid - 90) * Math.PI / 180;
 
-  let acc = 0;
-  const items = sorted.map((d) => {
-    const ang = (d.value / total) * 360;
-    const a0 = acc, a1 = acc + ang; acc += ang;
-    const amid = a0 + ang / 2;
-    const rad = (amid - 90) * Math.PI / 180;
+            const right = Math.cos(rad) >= 0;
+            const rLab = right ? R_LABEL_RIGHT : R_LABEL;
 
-    const right = Math.cos(rad) >= 0;
-    const rLab = right ? R_LABEL_RIGHT : R_LABEL;
+            const xRad = cx + rLab * Math.cos(rad);
+            const yRad = cy + rLab * Math.sin(rad);
 
-    // 極座標→基準位置
-    const xRad = cx + rLab * Math.cos(rad);
-    const yRad = cy + rLab * Math.sin(rad);
+            const off = offsetMap[d.label] ?? { dx: 0, dy: 0 };
+            const xBase = xRad + off.dx;
+            const yTarget = yRad + off.dy;
 
-    // 個別オフセット適用（XY）
-    const off = offsetMap[d.label] ?? { dx: 0, dy: 0 };
-    const xBase = xRad + off.dx;
-    const yTarget = yRad + off.dy; // これを“狙い”として保持
+            return { d, right, amid, rad, xBase, yTarget, hasOffset: !!offsetMap[d.label] };
+          });
 
-    return { d, right, xBase, yTarget, hasOffset: !!offsetMap[d.label] };
-  });
+          // 左右で縦方向の重なり解消
+          const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
+          const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
 
-  // 左右に分割して縦方向だけ重なり解消
-  const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
-  const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
-  
+          const fitColumn = (arr, yMin, yMax) => {
+            if (!arr.length) return;
+            let y = yMin;
+            for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
+            y = yMax;
+            for (let i = arr.length - 1; i >= 0; i--) {
+              arr[i].y = Math.min(arr[i].y, y - LABEL_H);
+              y = arr[i].y;
+            }
+          };
+          const yMin = cy - (r + 6), yMax = cy + (r + 6);
+          fitColumn(left,  yMin, yMax);
+          fitColumn(right, yMin, yMax);
 
-  const fitColumn = (arr, yMin, yMax) => {
-    if (!arr.length) return;
-    let y = yMin;
-    for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
-    y = yMax;
-    for (let i = arr.length - 1; i >= 0; i--) {
-      arr[i].y = Math.min(arr[i].y, y - LABEL_H);
-      y = arr[i].y;
-    }
-  };
+          for (const it of [...left, ...right]) {
+            if (it.hasOffset) {
+              it.y = clamp(it.y, it.yTarget - stickSnapPx, it.yTarget + stickSnapPx);
+            }
+          }
 
-  const yMin = cy - (r + 6), yMax = cy + (r + 6);
-  fitColumn(left,  yMin, yMax);
-  fitColumn(right, yMin, yMax);
+          // 描画（ガイド線 + ラベル）
+          return [...left, ...right].map((it, i) => {
+            const tx = clamp(it.xBase, PAD, W - PAD);
+            const ty = it.y;
+            const anchor = it.right ? "start" : "end";
 
-  // ===== 仕上げ：個別指定のものは y を“狙い”に強めにスナップ（±stickSnapPx）
-  for (const it of [...left, ...right]) {
-    if (it.hasOffset) {
-      it.y = clamp(it.y, it.yTarget - stickSnapPx, it.yTarget + stickSnapPx);
-    }
-  }
+            // === ガイド線（扇→ひじ→水平→テキスト手前） ===
+            const ro = r + 10;     // ガイド線の最初の半径
+            const elbow = 20;      // ひじの長さ
+            const [sx, sy] = polar(it.amid, ro);
+            const [mx, my] = polar(it.amid, ro + elbow);
+            const xEnd = it.right ? tx - 8 : tx + 8; // テキストのすぐ手前で止める
 
-  // 描画
-  return [...left, ...right].map((it, i) => {
-    const tx = clamp(it.xBase, PAD, W - PAD);
-    const ty = it.y;
-    const anchor = it.right ? "start" : "end";
-    const [sx, sy] = polar(amid, ro);
-    const [mx, my] = polar(amid, ro + elbow);
-    const hx = it.right ? mx + 26 : mx - 26;
-  
-    return (
-      <g key={`lbl-${i}`}>
-        <g stroke="rgba(200,220,255,0.75)" fill="none">
-          <path d={`M ${sx} ${sy} L ${mx} ${my} L ${hx} ${my}`} strokeWidth={2} />
-          <circle cx={sx} cy={sy} r={2.6} fill="rgba(160,230,255,0.95)" />
-        </g>
-        <text
-          x={tx}
-          y={ty}
-          textAnchor={anchor}
-          dominantBaseline="middle"
-          style={{
-            fontWeight: 800,
-            fontSize: 18,
-            fill: "rgba(230,245,255,0.98)",
-            paintOrder: "stroke",
-            stroke: "rgba(10,20,40,0.45)",
-            strokeWidth: 1.2,
-          }}
-        >
-          {it.d.label}
-        </text>
-        <text
-          x={tx}
-          y={ty + 18}
-          textAnchor={anchor}
-          dominantBaseline="hanging"
-          style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
-        >
-          {it.d.value}%
-        </text>
-      </g>
-    );
-  });
-  
-})()}
+            return (
+              <g key={`lbl-${i}`}>
+                {/* guide line */}
+                <g stroke="rgba(200,220,255,0.75)" fill="none">
+                  <path d={`M ${sx} ${sy} L ${mx} ${my} L ${xEnd} ${ty}`} strokeWidth="2" />
+                  <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
+                </g>
 
+                {/* label */}
+                <text
+                  x={tx} y={ty} textAnchor={anchor} dominantBaseline="middle"
+                  style={{
+                    fontWeight: 800, fontSize: 18, fill: "rgba(230,245,255,0.98)",
+                    paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2
+                  }}
+                >
+                  {it.d.label}
+                </text>
+                <text
+                  x={tx} y={ty + 18} textAnchor={anchor} dominantBaseline="hanging"
+                  style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}
+                >
+                  {it.d.value}%
+                </text>
+              </g>
+            );
+          });
+        })()}
 
-
-        <g
-          className="centerLabel"
-          style={{ pointerEvents: "none", mixBlendMode: "normal" }}
-        >
+        {/* 円中央のタイトル */}
+        <g className="centerLabel" style={{ pointerEvents: "none", mixBlendMode: "normal" }}>
           <text
             x={cx}
-            y={cy - (labelSize * 0.6)}           // 上段を少し上に
+            y={cy - (labelSize * 0.6)}
             textAnchor="middle"
             dominantBaseline="baseline"
             style={{
@@ -286,7 +267,7 @@ const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
           </text>
           <text
             x={cx}
-            y={cy + (labelSize * 0.2)}            // 下段を少し下に
+            y={cy + (labelSize * 0.2)}
             textAnchor="middle"
             dominantBaseline="hanging"
             style={{
