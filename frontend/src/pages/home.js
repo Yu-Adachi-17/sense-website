@@ -223,9 +223,7 @@ export default function Home() {
     { label: "Arabic", value: 8 },
     { label: "Malay", value: 7 },
     { label: "Dutch", value: 6 },
-    { label: "Chinese", value: 5 },
-    { label: "Portuguese", value: 4 },
-    { label: "Other", value: 21 }
+    { label: "Other", value: 30 }
   ];
 
   // Simply セクション（既存）
