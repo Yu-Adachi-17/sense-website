@@ -433,7 +433,7 @@ const handleCancelSubscription = async () => {
                 }}
                 onClick={() => {
                   setShowSideMenu(false);
-                  router.push("/pricing");
+                  router.push("/home");
                 }}
               >
                 {t("Services and Pricing")}

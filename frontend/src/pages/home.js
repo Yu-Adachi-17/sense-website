@@ -145,19 +145,19 @@ function CalloutPie({ data, size = 380 }) {
           );
         })()}
 
-        {/* ラベル＆ガイド（ガイド線 復活版） */}
+        {/* ラベル＆ガイド（直線ガイド：扇→ラベル中心） */}
         {(() => {
           const LABEL_H = 34;
           const PAD = 14;
           const R_LABEL = r + 44;
           const R_LABEL_RIGHT = r + 38;
 
-          // +X=右 / -X=左, +Y=下 / -Y=上
+          // +X=右 / -X=左, +Y=下 / -Y=上（個別オフセット）
           const offsetMap = {
-            German: { dx: -28, dy: 12 },
-            Arabic: { dx:   6, dy: 54 },
-            Malay:  { dx:  28, dy: 24 },
-            Dutch:  { dx:  24, dy: 12 },
+            German: { dx: 28, dy: 12 },
+            Arabic: { dx: 0,  dy: 24 },
+            Malay:  { dx: -28, dy: 24 },
+            Dutch:  { dx: 0, dy: 0 },
           };
           const stickSnapPx = 10;
 
@@ -165,23 +165,25 @@ function CalloutPie({ data, size = 380 }) {
           const items = sorted.map((d) => {
             const ang = (d.value / total) * 360;
             const a0 = acc, a1 = acc + ang; acc += ang;
-            const amid = a0 + ang / 2;
+            const amid = a0 + ang / 2;                     // ← 扇の中心角
             const rad = (amid - 90) * Math.PI / 180;
 
             const right = Math.cos(rad) >= 0;
             const rLab = right ? R_LABEL_RIGHT : R_LABEL;
 
+            // 極座標→基準位置
             const xRad = cx + rLab * Math.cos(rad);
             const yRad = cy + rLab * Math.sin(rad);
 
+            // 個別オフセット
             const off = offsetMap[d.label] ?? { dx: 0, dy: 0 };
             const xBase = xRad + off.dx;
             const yTarget = yRad + off.dy;
 
-            return { d, right, amid, rad, xBase, yTarget, hasOffset: !!offsetMap[d.label] };
+            return { d, amid, right, xBase, yTarget, hasOffset: !!offsetMap[d.label] };
           });
 
-          // 左右で縦方向の重なり解消
+          // 左右に分割して縦の重なり解消
           const left  = items.filter(i => !i.right).sort((a,b)=>a.yTarget-b.yTarget);
           const right = items.filter(i =>  i.right).sort((a,b)=>a.yTarget-b.yTarget);
 
@@ -190,43 +192,35 @@ function CalloutPie({ data, size = 380 }) {
             let y = yMin;
             for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
             y = yMax;
-            for (let i = arr.length - 1; i >= 0; i--) {
-              arr[i].y = Math.min(arr[i].y, y - LABEL_H);
-              y = arr[i].y;
-            }
+            for (let i = arr.length - 1; i >= 0; i--) { arr[i].y = Math.min(arr[i].y, y - LABEL_H); y = arr[i].y; }
           };
+
           const yMin = cy - (r + 6), yMax = cy + (r + 6);
           fitColumn(left,  yMin, yMax);
           fitColumn(right, yMin, yMax);
 
           for (const it of [...left, ...right]) {
-            if (it.hasOffset) {
-              it.y = clamp(it.y, it.yTarget - stickSnapPx, it.yTarget + stickSnapPx);
-            }
+            if (it.hasOffset) it.y = clamp(it.y, it.yTarget - stickSnapPx, it.yTarget + stickSnapPx);
           }
 
-          // 描画（ガイド線 + ラベル）
           return [...left, ...right].map((it, i) => {
             const tx = clamp(it.xBase, PAD, W - PAD);
             const ty = it.y;
             const anchor = it.right ? "start" : "end";
 
-            // === ガイド線（扇→ひじ→水平→テキスト手前） ===
-            const ro = r + 10;     // ガイド線の最初の半径
-            const elbow = 20;      // ひじの長さ
-            const [sx, sy] = polar(it.amid, ro);
-            const [mx, my] = polar(it.amid, ro + elbow);
-            const xEnd = it.right ? tx - 8 : tx + 8; // テキストのすぐ手前で止める
+            const ro = r + 10;                            // 起点半径（扇の少し外）
+            const [sx, sy] = polar(it.amid, ro);          // amid を使用
+            const tcy = ty + 9;                           // 2行テキストの見た目中心
+            const gap = 8;                                // テキスト手前の余白
+            const ex = it.right ? tx - gap : tx + gap;    // アンカーに応じて左右反転
+            const ey = tcy;
 
             return (
               <g key={`lbl-${i}`}>
-                {/* guide line */}
                 <g stroke="rgba(200,220,255,0.75)" fill="none">
-                  <path d={`M ${sx} ${sy} L ${mx} ${my} L ${xEnd} ${ty}`} strokeWidth="2" />
+                  <line x1={sx} y1={sy} x2={ex} y2={ey} strokeWidth="2" />
                   <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
                 </g>
-
-                {/* label */}
                 <text
                   x={tx} y={ty} textAnchor={anchor} dominantBaseline="middle"
                   style={{
@@ -454,7 +448,7 @@ export default function Home() {
                 </div>
               </article>
             </div>
-            <a href={LINK_MAIN} className="ctaBig" rel="noopener noreferrer">Get Started</a>
+            {/* ★ ここにあった Get Started ボタンを削除しました */}
           </div>
 
           {/* ====== Simply ====== */}
@@ -501,32 +495,31 @@ export default function Home() {
             </div>
           </section>
 
-{/* ===== World map background セクション（新レイアウト） ===== */}
-<section className="reachMap" aria-labelledby="reachTitle">
-  <div className="reachMapInner">
-    <div className="mapCopy">
-      <h2 id="reachTitle" className="mapHeadline">
-        <span className="mapKicker">Supports all major languages</span>  {/* ← 追加 */}
-        <span>
-          <span className="gradText onlyNum">30,000</span> users
-        </span>
-        <br />
-        <span>worldwide</span>
-      </h2>
-    </div>
-    <div className="mapChart">
-      <CalloutPie data={LANGUAGE_PIE} size={360} />
-    </div>
+          {/* ===== World map background セクション ===== */}
+          <section className="reachMap" aria-labelledby="reachTitle">
+            <div className="reachMapInner">
+              <div className="mapCopy">
+                <h2 id="reachTitle" className="mapHeadline">
+                  <span className="mapKicker">Supports all major Languages</span>
+                  <span>
+                    <span className="gradText onlyNum">30,000</span> users
+                  </span>
+                  <br />
+                  <span>worldwide</span>
+                </h2>
+              </div>
+              <div className="mapChart">
+                <CalloutPie data={LANGUAGE_PIE} size={360} />
+              </div>
 
-    {/* 左下の英語注記 */}
-    <p className="mapNote" aria-label="note">
-      Estimated from iOS download counts as of Oct&nbsp;2025.
-    </p>
-  </div>
-</section>
+              {/* 左下の英語注記 */}
+              <p className="mapNote" aria-label="note">
+                Estimated from iOS download counts as of Oct&nbsp;2025.
+              </p>
+            </div>
+          </section>
 
-
-          {/* iPhoneアプリ訴求 */}
+          {/* ===== iPhoneアプリ訴求 ===== */}
           <section className="appPromo" aria-labelledby="appPromoHead">
             <div className="promoGrid">
               <div className="promoCopy">
@@ -540,6 +533,12 @@ export default function Home() {
                 <img src="/images/hero-phone.png" alt="Minutes.AI iPhone App" loading="lazy" />
               </div>
             </div>
+          </section>
+
+          {/* ===== ★ 最終CTA：ページ最後尾（iPhoneセクションの下） ===== */}
+          <section className="finalCta" aria-labelledby="finalCtaHead">
+            <h2 id="finalCtaHead" className="srOnly">Get Started</h2>
+            <a href={LINK_MAIN} className="ctaBig" rel="noopener noreferrer">Get Started</a>
           </section>
         </section>
 
@@ -611,27 +610,14 @@ export default function Home() {
           clip-path: inset(100% 0 0 0); transform: translateY(8%); opacity: 0.001;
           -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
           mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%); }
-.minutesWrap.inview{
-  animation: fullReveal 900ms cubic-bezier(0.16,0.66,0.38,1) forwards;
-}
-
-@keyframes fullReveal{
-  0%{
-    clip-path: inset(100% 0 0 0);
-    transform: translateY(12%);
-    opacity: 0.001;
-  }
-  60%{
-    clip-path: inset(0 0 0 0);
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  100%{
-    clip-path: inset(0 0 0 0);
-    transform: translateY(0%);  /* ← これを維持 */
-    opacity: 1;                 /* ← これを維持 */
-  }
-}
+        .minutesWrap.inview{
+          animation: fullReveal 900ms cubic-bezier(0.16,0.66,0.38,1) forwards;
+        }
+        @keyframes fullReveal{
+          0%{ clip-path: inset(100% 0 0 0); transform: translateY(12%); opacity: 0.001; }
+          60%{ clip-path: inset(0 0 0 0); transform: translateY(0%); opacity: 1; }
+          100%{ clip-path: inset(0 0 0 0); transform: translateY(0%); opacity: 1; }
+        }
 
         .mtitle{ font-weight: 800; letter-spacing: -0.01em; font-size: clamp(36px, 4.2vw, 56px); margin: 0 0 6px 0; }
         .mdate{ font-weight: 600; opacity: 0.85; font-size: clamp(26px, 2.7vw, 32px); margin-bottom: clamp(12px, 1.6vw, 16px); }
@@ -729,8 +715,6 @@ export default function Home() {
           box-shadow:0 0 0 1px rgba(255,255,255,0.08) inset, 0 8px 24px rgba(0,0,0,0.25);
           margin: clamp(16px, 3.5vh, 28px) auto 0; }
 
-
-
         /* ===== Simply ===== */
         .simply { margin: clamp(28px, 8vh, 80px) auto; padding: 0 22px; max-width: 1200px; }
         .simplyGrid { display:grid; grid-template-columns: 0.9fr 1.1fr; align-items:center; gap: clamp(16px, 3.5vw, 36px); }
@@ -779,9 +763,7 @@ export default function Home() {
           gap: clamp(16px, 3vw, 32px);
           min-height: clamp(360px, 40vw, 520px);
           overflow: visible;
-
-          /* ↓ セクション全体が下に寄って見える問題を微調整（視線の中央へ） */
-          transform: translateY(-4%);      /* 上へ数％持ち上げる */
+          transform: translateY(-4%);
         }
         .mapCopy { display: flex; align-items: center; }
         .mapHeadline {
@@ -794,29 +776,28 @@ export default function Home() {
           background: transparent; padding: 0; border-radius: 0; box-shadow: none;
           text-shadow: 0 2px 10px rgba(0,0,0,0.35);
         }
-       /* 既存の styles 内の .mapChart に追記 or 置き換え */
-.mapChart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-  padding-right: clamp(12px, 4vw, 36px); /* ← 右側に安全余白 */
-}
-.mapKicker{
-  display: block;
-  font-weight: 700;     /* users と同じ */
-  font-size: 1em;       /* 親(.mapHeadline)の clamp を継承 */
-  line-height: 1.02;    /* 見出しと揃える */
-  letter-spacing: -0.02em;
-  color: #eaf4f7;
-  opacity: 0.95;
-  margin: 0 0 0.12em;   /* 数字との間隔を少しだけ */
-  text-shadow: 0 2px 8px rgba(0,0,0,.35);
-}
+        .mapChart {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: visible;
+          padding-right: clamp(12px, 4vw, 36px);
+        }
+        .mapKicker{
+          display: block;
+          font-weight: 700;
+          font-size: 1em;
+          line-height: 1.02;
+          letter-spacing: -0.02em;
+          color: #eaf4f7;
+          opacity: 0.95;
+          margin: 0 0 0.12em;
+          text-shadow: 0 2px 8px rgba(0,0,0,.35);
+        }
 
         /* 左下の注記 */
         .mapNote {
-          position: absolute; left: 22px; bottom: 10px; z-index: 2;
+          position: absolute; left: 22px; bottom: -50px; z-index: 2;
           font-size: 12px; line-height: 1.4; opacity: 0.75; color: rgba(230,245,255,0.9);
           user-select: none;
         }
@@ -832,6 +813,15 @@ export default function Home() {
         .promoCta:hover { background: rgba(20,40,60,0.92); }
         .promoVisual { display:flex; justify-content:center; }
         .promoVisual img { width:100%; max-width:560px; height:auto; display:block; border-radius:22px; box-shadow:0 10px 40px rgba(0,0,0,0.5); }
+
+        /* ★ 最後尾CTA */
+        .finalCta{
+          margin: clamp(24px, 6vh, 72px) auto 0;
+          padding: 0 22px;
+          max-width: 1200px;
+          display: flex;
+          justify-content: center;
+        }
 
         @keyframes breathe { 0%,100%{ transform: scale(1); filter: blur(10px) saturate(125%) contrast(105%);} 50%{ transform: scale(1.02); filter: blur(12px) saturate(140%) contrast(110%);} }
         @keyframes ripple { 0%{ transform: translate(-50%,-50%) scale(var(--ring-start-scale)); opacity:0.9;} 70%{ opacity:0.22;} 100%{ transform: translate(-50%,-50%) scale(var(--ring-end-scale)); opacity:0;} }
@@ -892,6 +882,14 @@ export default function Home() {
           header.top { background: rgba(10,14,28,0.92); }
           header.top .nav { background: rgba(20,40,60,0.92); }
         }
+
+        /* アクセシビリティ：スクリーンリーダ向け */
+        .srOnly{
+          position:absolute!important;
+          width:1px!important;height:1px!important;
+          padding:0!important;margin:-1px!important;
+          overflow:hidden!important;clip:rect(0,0,0,0)!important;border:0!important;
+        }
       `}</style>
 
       <style jsx>{`
@@ -904,77 +902,29 @@ export default function Home() {
         .sep { opacity: 0.55; }
         .copyright { font-size: 13px; opacity: 0.7; white-space: nowrap; }
         @media (max-width: 640px) { .footInner { flex-direction: column; gap: 8px; } }
-        /* ===== モバイル専用調整（PCは無変更） ===== */
 
-/* ===== Mobile-only fixes (<=640px). Desktopには一切影響しません ===== */
-@media (max-width: 640px) {
+        /* ===== Mobile-only fixes (<=640px) ===== */
+        @media (max-width: 640px) {
+          .heroTop { margin-top: clamp(18px, 6vh, 72px); }
 
-  /* 1) 「Just Record.」を下へ */
-  .heroTop { margin-top: clamp(18px, 6vh, 72px); }
+          .simplyGrid{ display: grid; grid-template-columns: 1fr; grid-auto-rows: auto; align-items: start; position: relative; }
+          .simplyLeft{ display: contents; }
+          .simplyH2{ grid-row: 1; margin: 0 0 8px; padding: 0 16px; position: relative; z-index: 3; text-shadow: 0 4px 18px rgba(0,0,0,.45); }
+          .simplyRight{ grid-row: 2; margin: 8px 0 12px; padding: 10px; min-height: 48vh; aspect-ratio: auto; overflow: visible; }
+          .simplyRight img{ width: 100%; height: auto; object-fit: contain; }
+          .shotCaption{ bottom: 10px; }
 
-  /* 2) Simply：見出し → 画像 → 中項目 の順にして、重なり/はみ出しを防止 */
-  .simplyGrid{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    align-items: start;
-    position: relative;
-  }
-  /* 子をグリッド直下に昇格して並べ替え（DOM変更なし） */
-  .simplyLeft{ display: contents; }
+          .stepList{ grid-row: 3; margin-top: 4px; }
 
-  /* 1段目：見出し（重ねない・自然に上に来る） */
-  .simplyH2{
-    grid-row: 1;
-    margin: 0 0 8px;
-    padding: 0 16px;
-    position: relative; z-index: 3;
-    text-shadow: 0 4px 18px rgba(0,0,0,.45);
-  }
+          .reachMapInner{ grid-template-columns: 1fr; gap: 14px; }
+          .mapChart{ max-width: 86vw; margin-inline: auto; padding-right: 0; }
+          .reachMap{ padding-bottom: 144px; }
+          .mapNote{ bottom: -88px; font-size: 11px; }
 
-  /* 2段目：画像カード（枠内に完全収まる） */
-  .simplyRight{
-    grid-row: 2;
-    margin: 8px 0 12px;
-    padding: 10px;
-    min-height: 48vh;      /* ← 薄くならないよう “min-height” に変更 */
-    aspect-ratio: auto;     /* 縦長に順応 */
-    overflow: visible;
-  }
-  .simplyRight img{
-    width: 100%;
-    height: auto;
-    object-fit: contain;    /* 画像の切れ防止（歪み無し） */
-  }
-  .shotCaption{ bottom: 10px; }
-
-  /* 3段目：中項目リスト */
-  .stepList{
-    grid-row: 3;
-    margin-top: 4px;
-  }
-
-  /* 3) マップ＆円グラフ：縮小し、注釈はさらに下へ */
-  .reachMapInner{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .mapChart{
-    max-width: 86vw;
-    margin-inline: auto;
-    padding-right: 0;
-  }
-  .mapChart :global(.calloutPie){ max-width: 86vw; } /* ← styled-jsx の一発グローバル上書き。:contentReference[oaicite:1]{index=1} */
-  .reachMap{ padding-bottom: 144px; }
-  .mapNote{ bottom: -88px; font-size: 11px; }
-
-  /* 4) iPhone App：見出しを画像より上に */
-  .promoGrid{ grid-template-columns: 1fr; }
-  .promoCopy{ order: 1; }
-  .promoVisual{ order: 2; }
-}
-
-
+          .promoGrid { grid-template-columns: 1fr; }
+          .promoCopy { order: 1; }
+          .promoVisual { order: 2; }
+        }
       `}</style>
     </>
   );
