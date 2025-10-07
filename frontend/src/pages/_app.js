@@ -1,25 +1,29 @@
-import '../App.css'; // ✅ グローバルCSSをここで読み込む
+// pages/_app.js
+
+import '../App.css';               // ✅ グローバルCSS
 import '../News.css';
-import '../i18n/index'; // ✅ i18next の初期化
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import '../styles/globals.css';
-import { initAuthPersistence } from '../firebaseConfig'; // ★ 追加：Auth永続化のクライアント初期化
+
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next'; // ※ next-i18next でも使用OK（re-exportあり）
+import { appWithTranslation } from 'next-i18next'; // ✅ 追加：i18n HOC
+import { initAuthPersistence } from '../firebaseConfig'; // ★ 既存：Auth永続化
 
 function MyApp({ Component, pageProps }) {
   const { i18n } = useTranslation();
 
-  // ★ 追加：Auth 永続化はクライアントで一度だけ初期化
+  // ★ Auth 永続化（クライアントで一度だけ）
   useEffect(() => {
     initAuthPersistence();
   }, []);
 
-  // アラビア語対応
+  // ★ RTL（アラビア語）対応：dir 属性を自動切替
   useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute('dir', i18n.language === 'ar' ? 'rtl' : 'ltr');
   }, [i18n.language]);
 
   return <Component {...pageProps} />;
 }
 
-export default MyApp;
+// ✅ next-i18next を適用（SSR で翻訳注入）
+export default appWithTranslation(MyApp);

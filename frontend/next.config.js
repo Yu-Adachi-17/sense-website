@@ -1,6 +1,9 @@
 // next.config.js
 
-// Next 15+: experimental.appDir は削除
+// ✅ i18n（SSR翻訳）設定を next-i18next.config.js から読み込み
+const { i18n } = require('./next-i18next.config');
+
+// Next 15+: experimental.appDir は不要
 const csp = [
   // --- 既存 ---
   "default-src 'self'",
@@ -38,23 +41,26 @@ const csp = [
     "https://*.zoom.us https://*.zoom.com",
 
   // （お好みで）object-src を明示無効化
-  "object-src 'none'"
+  "object-src 'none'",
 ].join('; ');
 
 const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-  { key: 'Content-Security-Policy', value: csp }
+  { key: 'Content-Security-Policy', value: csp },
 ];
 
 module.exports = {
   reactStrictMode: true,
-  pageExtensions: ['tsx','ts','jsx','js'],
+  // ✅ i18n（サーバーサイド翻訳のために必須）
+  i18n,
+  pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
+
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
   },
 
-  // ✅ ここだけ追加：OAuthコールバックをRailwayのExpressへプロキシ
+  // ✅ OAuthコールバックをRailwayのExpressへプロキシ
   async rewrites() {
     return [
       {
@@ -66,5 +72,5 @@ module.exports = {
 
   // ✅ ビルド時の ESLint / TS エラーで落とさない（恒久対策が整うまで）
   eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true }
+  typescript: { ignoreBuildErrors: true },
 };
