@@ -114,7 +114,7 @@ function NeonCircle({ size = 560, speed = 6, children, ariaLabel }) {
  *  言語別コールアウト・パイチャート
  * ========================= */
 function CalloutPie({ data, size = 380 }) {
-  const { t } = useTranslation(); // ★ 中央ラベルもローカライズ
+  const { t } = useTranslation(['common','home','seo']);
   const sorted = useMemo(() => {
     const isOther = (s) => String(s.label).toLowerCase() === "other" || s.label === "その他";
     const main = data.filter((d) => !isOther(d)).sort((a, b) => b.value - a.value);
