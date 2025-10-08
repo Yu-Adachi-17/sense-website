@@ -12,8 +12,6 @@ import PurchaseMenu from './purchasemenu';
 import MinutesList from './minutes-list';
 
 
-import ServicesWrapper from '../routes/ServicesWrapper';
-import RedirectToServices from '../routes/RedirectToServices';
 import { db, auth } from '../firebaseConfig';
 import { collection, addDoc, doc, setDoc, getDoc, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
