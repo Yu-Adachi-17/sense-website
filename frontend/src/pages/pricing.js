@@ -232,13 +232,6 @@ export default function ServicePage() {
   );
 }
 
-export const getStaticProps = async () => {
-  return {
-    props: {},
-    revalidate: 10,
-  };
-};
-
 export async function getStaticProps({ locale }) {
   return {
     props: {
