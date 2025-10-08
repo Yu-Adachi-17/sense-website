@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import HomeIcon from './homeIcon';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 
 const MeetingFormatsList = () => {
@@ -623,3 +624,12 @@ const MeetingFormatsList = () => {
 };
 
 export default MeetingFormatsList;
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+    revalidate: 60,
+  };
+}

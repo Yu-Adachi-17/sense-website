@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import HomeIcon from "./homeIcon";
 import { FaApple } from "react-icons/fa";
 import PrivacyPolicy from "./privacy-policy";
@@ -237,3 +238,12 @@ export const getStaticProps = async () => {
     revalidate: 10,
   };
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+    revalidate: 60,
+  };
+}
