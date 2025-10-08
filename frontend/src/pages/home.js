@@ -113,7 +113,8 @@ function NeonCircle({ size = 560, speed = 6, children, ariaLabel }) {
 /** =========================
  *  言語別コールアウト・パイチャート
  * ========================= */
-function CalloutPie({ data, size = 380, ariaLabel }) {
+function CalloutPie({ data, size = 380 }) {
+  const { t } = useTranslation(); // ★ 中央ラベルもローカライズ
   const sorted = useMemo(() => {
     const isOther = (s) => String(s.label).toLowerCase() === "other" || s.label === "その他";
     const main = data.filter((d) => !isOther(d)).sort((a, b) => b.value - a.value);
@@ -152,8 +153,9 @@ function CalloutPie({ data, size = 380, ariaLabel }) {
   const labelStroke = 1.6;
 
   return (
-    <figure className="calloutPie" aria-label={ariaLabel}>
-      <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} role="img" style={{ overflow: "visible" }}>
+    <figure className="calloutPie">
+      <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} role="img" style={{ overflow: "visible" }}
+           aria-label={"Language share: " + sorted.map((d) => `${d.label} ${d.value}%`).join(", ")}>
         <defs>
           <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
             <stop offset="78%" stopColor="rgba(140,210,255,0.00)" />
@@ -166,6 +168,8 @@ function CalloutPie({ data, size = 380, ariaLabel }) {
             <stop offset="85%" stopColor="rgba(160,230,255,0.10)" />
             <stop offset="100%" stopColor="rgba(160,230,255,0.00)" />
           </radialGradient>
+
+          {/* 継ぎ目ラインのグラデ／ネオン */}
           {seams.map((s, i) => {
             const [x2, y2] = polar(s.start, rEnd);
             return (
@@ -184,15 +188,20 @@ function CalloutPie({ data, size = 380, ariaLabel }) {
           ))}
         </defs>
 
+        {/* 扇フィル */}
         <g style={{ mixBlendMode: "screen" }}>
           {seams.map((s, i) => (
-            <path key={`sector-${i}`} d={arcPath(s.start, s.end, r)} fill="url(#sectorGrad)" stroke="none" opacity={scale(s.value, 0.26, 0.42)} filter={`url(#neon-${i})`} />
+            <path key={`sector-${i}`} d={arcPath(s.start, s.end, r)}
+                  fill="url(#sectorGrad)" stroke="none"
+                  opacity={scale(s.value, 0.26, 0.42)} filter={`url(#neon-${i})`} />
           ))}
         </g>
 
+        {/* 外周リング */}
         <circle cx={cx} cy={cy} r={r} fill="none" stroke="url(#ringGrad)" strokeWidth="8" opacity="0.55" />
         <circle cx={cx} cy={cy} r={rInner} fill="none" stroke="url(#ringGrad)" strokeWidth="5" opacity="0.30" />
 
+        {/* 継ぎ目ライン＋先端キャップ */}
         {seams.map((s, i) => {
           const a = (s.start - 90) * (Math.PI / 180);
           const x = cx + rEnd * Math.cos(a);
@@ -207,27 +216,116 @@ function CalloutPie({ data, size = 380, ariaLabel }) {
           );
         })}
 
-        {/* 中央ラベル（静的英語のままでもOK） */}
-        <g className="centerLabel" style={{ pointerEvents: "none", mixBlendMode: "normal" }}>
+        {/* ★ ラベル＆ガイド（外周ラベルを復活） */}
+        {(() => {
+          const LABEL_H = 34;
+          const PAD = 14;
+          const R_LABEL = r + 44;
+          const R_LABEL_RIGHT = r + 38;
+
+          const offsetMap = {
+            German: { dx: 28, dy: 12 },
+            Arabic: { dx: 0, dy: 24 },
+            Malay:  { dx: -28, dy: 24 },
+            Dutch:  { dx: 0, dy: 0 }
+          };
+          const stickSnapPx = 10;
+
+          let acc = 0;
+          const items = sorted.map((d) => {
+            const ang = (d.value / total) * 360;
+            const a0 = acc; const a1 = acc + ang; acc += ang;
+            const amid = a0 + ang / 2;
+            const rad = (amid - 90) * (Math.PI / 180);
+
+            const right = Math.cos(rad) >= 0;
+            const rLab = right ? R_LABEL_RIGHT : R_LABEL;
+
+            const xRad = cx + rLab * Math.cos(rad);
+            const yRad = cy + rLab * Math.sin(rad);
+
+            const off = offsetMap[d.label] ?? { dx: 0, dy: 0 };
+            const xBase = xRad + off.dx;
+            const yTarget = yRad + off.dy;
+
+            return { d, amid, right, xBase, yTarget, hasOffset: !!offsetMap[d.label] };
+          });
+
+          const left  = items.filter((i) => !i.right).sort((a, b) => a.yTarget - b.yTarget);
+          const right = items.filter((i) =>  i.right).sort((a, b) => a.yTarget - b.yTarget);
+
+          const fitColumn = (arr, yMin, yMax) => {
+            if (!arr.length) return;
+            let y = yMin;
+            for (const it of arr) { it.y = Math.max(it.yTarget, y); y = it.y + LABEL_H; }
+            y = yMax;
+            for (let i = arr.length - 1; i >= 0; i--) { arr[i].y = Math.min(arr[i].y, y - LABEL_H); y = arr[i].y; }
+          };
+
+          const yMin = cy - (r + 6), yMax = cy + (r + 6);
+          fitColumn(left, yMin, yMax); fitColumn(right, yMin, yMax);
+          for (const it of [...left, ...right]) {
+            if (it.hasOffset) it.y = clamp(it.y, it.yTarget - stickSnapPx, it.yTarget + stickSnapPx);
+          }
+
+          return [...left, ...right].map((it, i) => {
+            const tx = clamp(it.xBase, PAD, W - PAD);
+            const ty = it.y;
+            const anchor = it.right ? "start" : "end";
+
+            const ro = r + 10;
+            const a = (it.amid - 90) * (Math.PI / 180);
+            const sx = cx + ro * Math.cos(a);
+            const sy = cy + ro * Math.sin(a);
+            const tcy = ty + 9;
+            const gap = 8;
+            const ex = it.right ? tx - gap : tx + gap;
+            const ey = tcy;
+
+            return (
+              <g key={`lbl-${i}`}>
+                <g stroke="rgba(200,220,255,0.75)" fill="none">
+                  <line x1={sx} y1={sy} x2={ex} y2={ey} strokeWidth="2" />
+                  <circle cx={sx} cy={sy} r="2.6" fill="rgba(160,230,255,0.95)" />
+                </g>
+                <text x={tx} y={ty} textAnchor={anchor} dominantBaseline="middle"
+                      style={{ fontWeight: 800, fontSize: 18, fill: "rgba(230,245,255,0.98)",
+                               paintOrder: "stroke", stroke: "rgba(10,20,40,0.45)", strokeWidth: 1.2 }}>
+                  {it.d.label}
+                </text>
+                <text x={tx} y={ty + 18} textAnchor={anchor} dominantBaseline="hanging"
+                      style={{ fontWeight: 700, fontSize: 14, fill: "rgba(200,225,255,0.92)" }}>
+                  {it.d.value}%
+                </text>
+              </g>
+            );
+          });
+        })()}
+
+        {/* 中央ラベル（i18n対応） */}
+        <g style={{ pointerEvents: "none", mixBlendMode: "normal" }}>
           <text x={cx} y={cy - labelSize * 0.6} textAnchor="middle" dominantBaseline="baseline"
-            style={{ fontWeight: 800, fontSize: labelSize, fill: "rgba(245,250,255,0.98)", paintOrder: "stroke", stroke: "rgba(10,20,40,0.55)", strokeWidth: labelStroke }}>
-            User
+                style={{ fontWeight: 800, fontSize: labelSize, fill: "rgba(245,250,255,0.98)",
+                         paintOrder: "stroke", stroke: "rgba(10,20,40,0.55)", strokeWidth: labelStroke }}>
+            {t("User")}
           </text>
           <text x={cx} y={cy + labelSize * 0.2} textAnchor="middle" dominantBaseline="hanging"
-            style={{ fontWeight: 800, fontSize: labelSize, fill: "rgba(245,250,255,0.98)", paintOrder: "stroke", stroke: "rgba(10,20,40,0.55)", strokeWidth: labelStroke }}>
-            Language
+                style={{ fontWeight: 800, fontSize: labelSize, fill: "rgba(245,250,255,0.98)",
+                         paintOrder: "stroke", stroke: "rgba(10,20,40,0.55)", strokeWidth: labelStroke }}>
+            {t("Language")}
           </text>
         </g>
       </svg>
 
       <style jsx>{`
-        .calloutPie { margin: 0; width: 100%; max-width: 560px; aspect-ratio: 1 / 1; overflow: visible; }
-        @media (max-width: 900px){ .calloutPie { max-width: 520px; } }
-        @media (max-width: 640px){ .calloutPie { max-width: 100%; } }
+        .calloutPie{ margin:0; width:100%; max-width:560px; aspect-ratio:1/1; overflow:visible; }
+        @media (max-width: 900px){ .calloutPie{ max-width:520px; } }
+        @media (max-width: 640px){ .calloutPie{ max-width:100%; } }
       `}</style>
     </figure>
   );
 }
+
 
 export default function Home() {
   const deviceRef = useRef(null);
