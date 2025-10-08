@@ -1,8 +1,9 @@
+// src/pages/signup.js
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
+import Image from "next/image";
 
 import {
   getAuth,
@@ -10,7 +11,6 @@ import {
   sendEmailVerification,
   signOut,
 } from "firebase/auth";
-
 import {
   getFirestore,
   collection,
@@ -25,7 +25,9 @@ import {
 import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import HomeIcon from "./homeIcon";
-import Image from "next/image";
+
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -54,13 +56,13 @@ const createUserDocument = async (user) => {
 };
 
 export default function SignUp() {
-  const { t, i18n } = useTranslation();
+  const router = useRouter();
+  const { t, i18n } = useTranslation("common");
 
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -127,7 +129,6 @@ export default function SignUp() {
     }
   };
 
-  // 2カラム共通レイアウト（画像左2/3 + 縦ライン + 右1/3）
   const TwoColumn = ({ children }) => (
     <div
       style={{
@@ -146,14 +147,14 @@ export default function SignUp() {
         <HomeIcon size={30} href="https://sense-ai.world" />
       </div>
 
-      {/* 左：画像 2/3 */}
-      <div style={{ flex: "2 1 0%", position: "relative", minWidth: 0 }}>
+      {/* 左：画像（高さ優先でトリミングなし） */}
+      <div style={{ flex: "2 1 0%", position: "relative", minWidth: 0, background: "#fff" }}>
         <Image
           src="/loginAndSignup.png"
           alt="Create Account Visual"
           fill
           sizes="(max-width: 900px) 100vw, 66vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          style={{ objectFit: "contain", objectPosition: "center center" }}
           priority
         />
       </div>
@@ -330,4 +331,14 @@ export default function SignUp() {
       )}
     </TwoColumn>
   );
+}
+
+// SSG（SSRの場合は getServerSideProps に置き換え）
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+    revalidate: 60,
+  };
 }

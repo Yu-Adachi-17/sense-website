@@ -1,3 +1,4 @@
+// src/pages/login.js
 import React, { useState, useEffect } from "react";
 import {
   getAuth,
@@ -11,7 +12,8 @@ import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { syncUserData } from "../firebaseUserSync";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import HomeIcon from "./homeIcon";
 import Image from "next/image";
@@ -21,17 +23,17 @@ const db = getFirestore(app);
 
 export default function Login() {
   const router = useRouter();
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation("common");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+  }, [i18n.language]);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
-
-  // RTL対応
-  useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
-  }, [i18n.language]);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -156,15 +158,15 @@ export default function Login() {
         <HomeIcon size={30} href="https://sense-ai.world" />
       </div>
 
-      {/* 左：画像 2/3 */}
-      <div style={{ flex: "2 1 0%", position: "relative", minWidth: 0 }}>
-        {/* fill + sizes で最適化・安定表示（CLS対策） */}
+      {/* 左：画像（高さ優先で全体表示） */}
+      <div style={{ flex: "2 1 0%", position: "relative", minWidth: 0, background: "#fff" }}>
         <Image
           src="/loginAndSignup.png"
           alt="Login / Signup Visual"
           fill
           sizes="(max-width: 900px) 100vw, 66vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
+          // ここを 'contain' にして、縦いっぱいでトリミングなし
+          style={{ objectFit: "contain", objectPosition: "center center" }}
           priority
         />
       </div>
@@ -172,7 +174,7 @@ export default function Login() {
       {/* 縦の黒線 */}
       <div style={{ width: "2px", background: "#000", height: "100%" }} />
 
-      {/* 右：フォーム 1/3 */}
+      {/* 右：フォーム */}
       <div
         style={{
           flex: "1 1 0%",
@@ -322,4 +324,13 @@ export default function Login() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+    revalidate: 60,
+  };
 }

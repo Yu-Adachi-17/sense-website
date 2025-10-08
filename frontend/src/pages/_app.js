@@ -1,30 +1,39 @@
-// pages/_app.js
+// src/pages/_app.js
 
 import '../App.css';           // グローバルCSS
 import '../News.css';
 import '../styles/globals.css';
 
 import { useEffect } from 'react';
-import { appWithTranslation, useTranslation } from 'next-i18next'; // ← ここを 'next-i18next' に統一
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { appWithTranslation } from 'next-i18next';
 import { initAuthPersistence } from '../firebaseConfig';
 
 function MyApp({ Component, pageProps }) {
-  const { i18n } = useTranslation();
+  const { locale } = useRouter();
 
   // Auth 永続化（クライアント一度だけ）
   useEffect(() => {
     initAuthPersistence();
   }, []);
 
-  // HTMLの dir / lang を現在の言語に同期（RTL対応含む）
+  // HTML の dir / lang を現在のロケールに同期（RTL対応含む）
   useEffect(() => {
     if (typeof document === 'undefined') return;
-    const lang = i18n.language || 'en';
-    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    const lang = locale || 'en';
     document.documentElement.setAttribute('lang', lang);
-  }, [i18n.language]);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  }, [locale]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default appWithTranslation(MyApp);
