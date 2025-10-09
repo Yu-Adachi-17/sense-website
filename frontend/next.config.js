@@ -1,7 +1,14 @@
 // next.config.js
 
 // ✅ i18n（SSR翻訳）設定を next-i18next.config.js から読み込み
-const { i18n } = require('./next-i18next.config');
+const { i18n: i18nRaw } = require('./next-i18next.config');
+
+// ✅ Next.js は boolean を要求するため、localeDetection を強制的に boolean 化
+// （next-i18next.config.js 側が "false"（文字列）でもここで上書きします）
+const i18n = {
+  ...i18nRaw,
+  localeDetection: false,
+};
 
 // Next 15+: experimental.appDir は不要
 const csp = [
@@ -50,10 +57,12 @@ const securityHeaders = [
   { key: 'Content-Security-Policy', value: csp },
 ];
 
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
+
   // ✅ i18n（サーバーサイド翻訳のために必須）
   i18n,
+
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
 
   async headers() {
@@ -74,3 +83,5 @@ module.exports = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
 };
+
+module.exports = nextConfig;
