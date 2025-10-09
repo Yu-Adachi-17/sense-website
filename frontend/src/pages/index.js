@@ -13,41 +13,25 @@ import { Success, Cancel } from '../AfterPayment';
 import PurchaseMenu from './purchasemenu';
 import MinutesList from './minutes-list';
 
-import { getClientAuth, getDb } from '../firebaseConfig'; // ★ 変更：auth/dbはゲッター経由
+import { getClientAuth, getDb } from '../firebaseConfig';
 
 import { v4 as uuidv4 } from 'uuid';
 import { useAuthGate } from "../hooks/useAuthGate";
 
 /** ============================================================
- *  ★ SEO共通（/home と同等の設定）
- *  - 画面表示に影響しない正当なメタのみ（隠し本文は置かない）
- *  - hreflang / canonical / OG / Twitter / JSON-LD
+ *  SEO 共通
  * ============================================================ */
 const SITE_URL = "https://www.sense-ai.world";
 
-// OGロケール（Open Graph）用マップ
 const OG_LOCALE_MAP = {
-  en: "en_US",
-  ja: "ja_JP",
-  ar: "ar_AR",
-  de: "de_DE",
-  es: "es_ES",
-  fr: "fr_FR",
-  id: "id_ID",
-  ko: "ko_KR",
-  ms: "ms_MY",
-  pt: "pt_PT",
-  sv: "sv_SE",
-  tr: "tr_TR",
-  "zh-CN": "zh_CN",
-  "zh-TW": "zh_TW",
+  en: "en_US", ja: "ja_JP", ar: "ar_AR", de: "de_DE", es: "es_ES",
+  fr: "fr_FR", id: "id_ID", ko: "ko_KR", ms: "ms_MY", pt: "pt_PT",
+  sv: "sv_SE", tr: "tr_TR", "zh-CN": "zh_CN", "zh-TW": "zh_TW",
 };
-
-// App Store リンク
 const LINK_IOS = "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
 /* ============================================================
-   ★ 音声同期リップル（軽量版・オフスクリーンまで一定速度）
+   音声同期リップル
    ============================================================ */
 function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
   const [ripples, setRipples] = React.useState([]);
@@ -85,7 +69,7 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
       const dt = (t - lastRef.current) / 1000;
       lastRef.current = t;
 
-      const act = activityRef.current; // 0..1
+      const act = activityRef.current;
       const pulsesPerSec = act <= 0 ? 0 : lerp(0.6, 3.0, act);
       emitAccRef.current += dt * pulsesPerSec;
 
@@ -145,81 +129,27 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
       />
 
       <style jsx>{`
-        .recordWrap {
-          position: relative;
-          display: inline-block;
-          overflow: visible;
-          isolation: isolate;
-          --ripple-color: rgba(255, 92, 125, 0.86);
-          --ripple-glow:  rgba(255, 72,  96,  0.34);
-        }
-        .ripples {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          overflow: visible;
-          filter: drop-shadow(0 0 28px var(--ripple-glow));
-          transform: translateZ(0);
-          will-change: transform, opacity;
-        }
-        .ring {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          width: 100%;
-          height: 100%;
-          border-radius: 9999px;
-          border: 3px solid var(--ripple-color);
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 0;
-          backface-visibility: hidden;
-          contain: paint;
-          will-change: transform, opacity;
-          animation: ripple var(--duration) linear forwards;
-          mix-blend-mode: screen;
-        }
-        @keyframes ripple {
-          0%   { transform: translate(-50%, -50%) scale(1);           opacity: var(--baseOpacity); }
-          100% { transform: translate(-50%, -50%) scale(var(--farScale)); opacity: 0; }
-        }
-        .neuBtn {
-          position: relative;
-          border: none;
-          border-radius: 9999px;
-          padding: 0;
-          cursor: pointer;
-          overflow: hidden;
-          outline: none;
-          background:
-            radial-gradient(140% 140% at 50% 35%, rgba(255, 82, 110, 0.26), rgba(255, 82, 110, 0) 60%),
-            linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)),
-            #ffe9ee;
-          box-shadow:
-            -4px -4px 8px rgba(255,255,255,0.9),
-            6px 10px 16px rgba(0,0,0,0.12),
-            0 34px 110px rgba(255, 64, 116, 0.30);
-          border: 1px solid rgba(255,255,255,0.7);
-          filter: saturate(120%);
-          transform: translateZ(0);
-          will-change: transform;
-        }
-        .neuBtn::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 9999px;
-          border: 8px solid rgba(255,72,96,0.10);
-          filter: blur(6px);
-          transform: translateY(2px);
-          pointer-events: none;
-          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
+        .recordWrap { position: relative; display: inline-block; overflow: visible; isolation: isolate;
+          --ripple-color: rgba(255, 92, 125, 0.86); --ripple-glow: rgba(255,72,96,0.34); }
+        .ripples { position: absolute; inset: 0; pointer-events: none; overflow: visible;
+          filter: drop-shadow(0 0 28px var(--ripple-glow)); transform: translateZ(0); }
+        .ring { position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; border-radius: 9999px;
+          border: 3px solid var(--ripple-color); transform: translate(-50%, -50%) scale(1); opacity: 0;
+          backface-visibility: hidden; contain: paint; animation: ripple var(--duration) linear forwards;
+          mix-blend-mode: screen; }
+        @keyframes ripple { 0%{ transform: translate(-50%,-50%) scale(1); opacity: var(--baseOpacity);}
+                            100%{ transform: translate(-50%,-50%) scale(var(--farScale)); opacity:0;} }
+        .neuBtn { position: relative; border: none; border-radius: 9999px; padding: 0; cursor: pointer; overflow: hidden; outline: none;
+          background: radial-gradient(140% 140% at 50% 35%, rgba(255,82,110,0.26), rgba(255,82,110,0) 60%),
+                      linear-gradient(180deg, rgba(255,120,136,0.42), rgba(255,90,120,0.36)), #ffe9ee;
+          box-shadow: -4px -4px 8px rgba(255,255,255,0.9), 6px 10px 16px rgba(0,0,0,0.12), 0 34px 110px rgba(255,64,116,0.30);
+          border: 1px solid rgba(255,255,255,0.7); filter: saturate(120%); transform: translateZ(0); }
+        .neuBtn::after { content: ''; position: absolute; inset: 0; border-radius: 9999px; border: 8px solid rgba(255,72,96,0.10);
+          filter: blur(6px); transform: translateY(2px); pointer-events: none;
           -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%);
-        }
+                  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 55%, rgba(0,0,0,1) 100%); }
         .neuBtn.recording { animation: none; }
-
-        @media (prefers-reduced-motion: reduce) {
-          .ripples { display: none; }
-        }
+        @media (prefers-reduced-motion: reduce) { .ripples { display: none; } }
       `}</style>
     </div>
   );
@@ -241,10 +171,7 @@ function App() {
   const { locale, locales = [router.locale], defaultLocale } = router;
   const ogLocale = OG_LOCALE_MAP[locale] || OG_LOCALE_MAP.en;
 
-  const canonical = (locale === defaultLocale)
-    ? `${SITE_URL}/`
-    : `${SITE_URL}/${locale}/`;
-
+  const canonical = (locale === defaultLocale) ? `${SITE_URL}/` : `${SITE_URL}/${locale}/`;
   const altURLs = (locales || []).map(l =>
     l === defaultLocale ? { l, href: `${SITE_URL}/` } : { l, href: `${SITE_URL}/${l}/` }
   );
@@ -254,11 +181,11 @@ function App() {
   const metaDesc = t("minutes-listful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web.");
   const ogDesc   = t("Record your meeting and let AI produce clean, human-ready minutes—decisions and to-dos at a glance.");
 
-  // ===== 新：auth / db を保持（クライアントでのみセット）
+  // ===== 新：auth / db を保持
   const [authInstance, setAuthInstance] = useState(null);
   const [dbInstance, setDbInstance] = useState(null);
 
-  // ===== 録音・表示用 state 群（元のまま）
+  // ===== 録音・表示用 state 群
   const [isRecording, setIsRecording] = useState(false);
   const [audioLevel, setAudioLevel] = useState(1);
   const [audioURL, setAudioURL] = useState(null);
@@ -297,7 +224,7 @@ function App() {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
-  // ★ auth/db をクライアントで取得
+  // ★ auth/db をクライアントで取得（ゲストでも UI は出す）
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -305,8 +232,12 @@ function App() {
       if (!mounted) return;
       setAuthInstance(a || null);
       setDbInstance(d || null);
+      // 認証が取得できなかった場合でも UI を表示する
+      if (!a) setIsUserDataLoaded(true);
     })();
-    return () => { mounted = false; };
+    // 念のため 2秒フォールバック（どのみちゲストでも出したい）
+    const t = setTimeout(() => setIsUserDataLoaded((v) => v || true), 2000);
+    return () => { mounted = false; clearTimeout(t); };
   }, []);
 
   // 録音の60分カウントダウン
@@ -334,15 +265,12 @@ function App() {
     }
   }, [isRecording]);
 
-  // ローカルに保存された meeting format を復元
+  // ローカル meeting format 復元
   useEffect(() => {
     const stored = localStorage.getItem("selectedMeetingFormat");
     if (stored) {
-      try {
-        setSelectedMeetingFormat(JSON.parse(stored));
-      } catch {
-        localStorage.removeItem("selectedMeetingFormat");
-      }
+      try { setSelectedMeetingFormat(JSON.parse(stored)); }
+      catch { localStorage.removeItem("selectedMeetingFormat"); }
     } else {
       const def = {
         id: "general",
@@ -361,7 +289,7 @@ function App() {
     }
   }, []);
 
-  // ★ Auth状態監視（動的importで onAuthStateChanged を取得）
+  // ★ Auth状態監視
   useEffect(() => {
     if (!authInstance) return;
     let unsub = () => {};
@@ -384,13 +312,14 @@ function App() {
             console.error("User data retrieval error:", e);
           }
         }
+        // ここで UI を解放
         setIsUserDataLoaded(true);
       });
     })();
     return () => { try { unsub(); } catch {} };
   }, [authInstance, dbInstance]);
 
-  // ★ Firestoreリアルタイム監視（onSnapshot も動的import）
+  // ★ Firestoreリアルタイム監視
   useEffect(() => {
     let stop = null;
     (async () => {
@@ -428,7 +357,7 @@ function App() {
     localStorage.setItem(LOCAL_REMAINING_KEY, userRemainingSeconds);
   }, [userRemainingSeconds, userSubscription]);
 
-  // 日付跨ぎリセット（Firebaseユーザー）
+  // 日付跨ぎリセット
   useEffect(() => {
     if (userSubscription) return;
     const id = setInterval(async () => {
@@ -499,7 +428,7 @@ function App() {
     }, 500);
   };
 
-  // Firestore 保存（動的import）
+  // Firestore 保存
   const saveMeetingRecord = async (transcription, minutes) => {
     try {
       if (!authInstance?.currentUser || !dbInstance) {
@@ -652,7 +581,6 @@ function App() {
     cancelAnimationFrame(animationFrameRef.current);
 
     if (audioContextRef.current) await audioContextRef.current.close();
-
     if (streamRef.current) streamRef.current.getTracks().forEach((t) => t.stop());
 
     audioContextRef.current = null;
@@ -721,17 +649,6 @@ function App() {
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
-  // ファイルアップロード
-  const handleFileUpload = async (file) => {
-    const allowedFormats = ["audio/webm", "audio/mp4", "audio/mpeg", "audio/wav", "audio/ogg"];
-    if (!allowedFormats.includes(file.type)) {
-      alert("Unsupported file format. Please use m4a, webm, mp3, wav, or ogg.");
-      return;
-    }
-    await processAudioFile(file);
-  };
-
-  // 左上リング用
   const RING_SIZE = 80;
   const STROKE = 4;
   const R = (RING_SIZE - STROKE) / 2;
@@ -791,7 +708,7 @@ function App() {
       <div
         className="container"
         style={{
-          minHeight: '100vh',
+          /* minHeight は CSS 側で svh/dvh を使って指定（ここでは外す） */
           background:
             'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F8F7F4'
         }}
@@ -859,14 +776,7 @@ function App() {
               </div>
             </div>
 
-            <style jsx>{`
-              @keyframes pulse {
-                0%, 100% { transform: scale(0.92); }
-                50%      { transform: scale(1.18); }
-              }
-              .pulse { animation: pulse 6s ease-in-out infinite; }
-              @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
-            `}</style>
+
           </div>
 
           {showFullScreen && (
@@ -909,11 +819,7 @@ function App() {
                   lineHeight: '1'
                 }}>♾️</span>
               ) : (
-                <span style={{
-                  fontFamily: 'Impact, sans-serif',
-                  fontSize: '72px',
-                  lineHeight: '1'
-                }}>
+                <span style={{ fontFamily: 'Impact, sans-serif', fontSize: '72px', lineHeight: '1' }}>
                   {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
                 </span>
               )}
@@ -977,6 +883,30 @@ function App() {
           </>
         )}
       </div>
+      <style jsx>{`
+  @keyframes pulse {
+    0%,100% { transform: scale(0.92); }
+    50%     { transform: scale(1.18); }
+  }
+  .pulse { animation: pulse 6s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
+  }
+`}</style>
+      {/* ===== グローバル修正（黒帯対策＋vhの安定化） ===== */}
+      <style jsx global>{`
+        /* 1) ルートを常に塗りつぶし（背景黒が見えないように） */
+        html, body, #__next { height: 100%; background: #F8F7F4; }
+        body { margin: 0; overflow-x: hidden; } /* 横のはみ出しを封じる（オーバーフロー原因の可視化は devtools で） */
+
+        /* 2) 100vh 問題：svh/dvh を優先して使い、未対応は vh にフォールバック */
+        .container { min-height: 100vh; }                 /* フォールバック */
+        @supports (min-height: 100svh) { .container { min-height: 100svh; } } /* アドレスバー表示時でも欠けにくい */
+        @supports (min-height: 100dvh) { .container { min-height: 100dvh; } } /* 動的に追従 */
+
+        /* 3) iOS のホームインジケータ等のセーフエリア確保 */
+        .container { padding-bottom: env(safe-area-inset-bottom); }
+      `}</style>
     </>
   );
 }

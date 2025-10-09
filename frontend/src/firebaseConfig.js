@@ -1,5 +1,11 @@
 // src/firebaseConfig.js
-import { initializeApp, getApps } from "firebase/app";
+// （pages ルーターでも問題ありません。RSC を使っていない前提）
+
+import { initializeApp, getApps, getApp } from "firebase/app";
+// 🔴 重要: Firestore をトップレベルで静的 import（provider を確実に登録）
+import { getFirestore } from "firebase/firestore";
+// Auth はここで静的 import しても OK（SSR では実行しないように返り値でガード）
+import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -11,38 +17,51 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// SSRでも安全に app を返す
+// ---- App: 既存 or 初期化 ----
 export function getAppSafe() {
-  const apps = getApps();
-  return apps.length ? apps[0] : initializeApp(firebaseConfig);
+  return getApps().length ? getApp() : initializeApp(firebaseConfig);
 }
 
-// ---- Auth: クライアント限定で返す ----
+// ---- Auth: クライアントだけ返す ----
 let _auth = null;
 export async function getClientAuth() {
   if (typeof window === "undefined") return null;
   if (_auth) return _auth;
   const app = getAppSafe();
-  const { getAuth, setPersistence, browserLocalPersistence } = await import("firebase/auth");
   _auth = getAuth(app);
   try {
     await setPersistence(_auth, browserLocalPersistence);
-  } catch {} // 既に設定済みなら無視
+  } catch {}
   return _auth;
 }
 
-// ---- Firestore: クライアント限定で返す ----
-let _db = null;
+// ---- Firestore: クライアントだけ返す ----
+// ---- Firestore: クライアント限定・1度だけ作る（Promiseで多重ガード）----
+let _dbPromise = null;
+
 export async function getDb() {
+  // SSR/Edge では絶対に実行しない
   if (typeof window === "undefined") return null;
-  if (_db) return _db;
-  const app = getAppSafe();
-  const { getFirestore } = await import("firebase/firestore");
-  _db = getFirestore(app);
-  return _db;
+  if (_dbPromise) return _dbPromise;
+
+  _dbPromise = (async () => {
+    // ← app と firestore を「同一動的 import チャンク」から読み込む
+    const { initializeApp, getApps, getApp } = await import("firebase/app");
+    const { getFirestore, initializeFirestore } = await import("firebase/firestore");
+
+    const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+
+    // provider の登録を先に強制（既登録なら try/catchで無視）
+    try { initializeFirestore(app, {}); } catch {}
+
+    return getFirestore(app);
+  })();
+
+  return _dbPromise;
 }
 
-// ---- Analytics: クライアント＋対応環境のみ ----
+
+// ---- Analytics: クライアント & 対応環境のみ ----
 let analytics = null;
 if (typeof window !== "undefined") {
   (async () => {
@@ -55,11 +74,9 @@ if (typeof window !== "undefined") {
     } catch {}
   })();
 }
-
-// 必要なら外から参照できるように
 export { analytics };
 
-// 既存のユーティリティ（必要なら）
+// ---- 任意ユーティリティ ----
 let _persistenceSet = false;
 export async function initAuthPersistence() {
   if (_persistenceSet || typeof window === "undefined") return;
