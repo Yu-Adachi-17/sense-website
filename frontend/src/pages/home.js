@@ -35,19 +35,48 @@ function FixedHeaderPortal({ children }) {
   return createPortal(children, document.body);
 }
 
+// --- responsive helper ---
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia(query);
+    const onChange = (e) => setMatches(e.matches);
+    setMatches(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, [query]);
+  return matches;
+}
+
+
 /** =========================
  *  コメット風ネオン円（360°フェード）
  * ========================= */
-function NeonCircle({ size = 560, speed = 6, children, ariaLabel }) {
-  const W = size, H = size;
+// 置き換え：NeonCircle（スマホだけ縮小＋クリップ）
+// 修正版：React. 接頭辞なしでフックを使用
+function NeonCircle({ size = 560, mobileSize = 420, speed = 6, children, ariaLabel }) {
+  const [isPhone, setIsPhone] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 640px)");
+    const onChange = () => setIsPhone(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  const S = isPhone ? mobileSize : size;
+
+  const W = S, H = S;
   const cx = W / 2, cy = H / 2;
-  const r = size * 0.46;
-  const strokeW = Math.max(4, Math.floor(size * 0.02));
-  const headR = strokeW * 1.05;
+  const r = S * 0.46;
+  const strokeW = Math.max(4, Math.floor(S * 0.01));
+  const headR = strokeW * 0.95;
   const toRad = (deg) => (Math.PI / 180) * (deg - 90);
   const pt = (deg, rad = r) => [cx + rad * Math.cos(toRad(deg)), cy + rad * Math.sin(toRad(deg))];
-  const arc = (a0, a1) => `M ${pt(a0)[0]} ${pt(a0)[1]} A ${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${pt(a1)[0]} ${pt(a1)[1]}`;
-  const HEAD = -8;
+  const arc = (a0, a1) =>
+    `M ${pt(a0)[0]} ${pt(a0)[1]} A ${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${pt(a1)[0]} ${pt(a1)[1]}`;
+  const HEAD = 0;
   const TAIL_START = HEAD - 360;
   const SEGMENTS = 1000;
   const STEP = 360 / SEGMENTS;
@@ -58,12 +87,12 @@ function NeonCircle({ size = 560, speed = 6, children, ariaLabel }) {
     const a1 = a0 + STEP;
     const t = (i + 1) / SEGMENTS;
     const alpha = 0.04 + 0.82 * ease(t);
-    const w = strokeW * (0.52 + 0.32 * ease(t));
+    const w = strokeW * (0.72 + 0.32 * ease(t));
     return { a0, a1, alpha, w };
   });
 
   return (
-    <div className="neonCircle" style={{ "--sz": `${size}px` }} aria-label={ariaLabel}>
+    <div className="neonCircle" style={{ "--sz": `${S}px` }} aria-label={ariaLabel}>
       <svg className="ringSvg" width={W} height={H} viewBox={`0 0 ${W} ${H}`} role="img" aria-hidden="true" overflow="visible">
         <defs>
           <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
@@ -97,18 +126,45 @@ function NeonCircle({ size = 560, speed = 6, children, ariaLabel }) {
       <div className="neonInner">{children}</div>
 
       <style jsx>{`
-        .neonCircle{ position: relative; width: min(100%, var(--sz)); aspect-ratio: 1 / 1; height: auto; display: grid; place-items: center; isolation: isolate; overflow: visible; }
-        .ringSvg{ position: absolute; inset: 0; overflow: visible; transform: translateZ(0); will-change: transform, opacity; mix-blend-mode: screen; image-rendering: optimizeQuality; }
+        .neonCircle{
+          position: relative;
+          width: min(100%, var(--sz));
+          aspect-ratio: 1 / 1;
+          height: auto;
+          display: grid;
+          place-items: center;
+          isolation: isolate;
+          overflow: visible; /* PCは従来通り */
+        }
+        .ringSvg{
+          position: absolute; inset: 0;
+          overflow: visible;
+          transform: translateZ(0);
+          will-change: transform, opacity;
+          mix-blend-mode: screen;
+          image-rendering: optimizeQuality;
+        }
         :global(.pCard){ place-items: start; justify-items: start; align-items: start; text-align: left; gap: 10px; width: 100%; }
         :global(.pKicker){ font-weight: 700; letter-spacing: 0.2px; opacity: 0.85; font-size: clamp(22px, calc(var(--sz) * 0.07), 42px); color: white; text-shadow: 0 2px 6px rgba(255,255,255,0.1); }
         :global(.pPrice .big){ font-size: clamp(28px, calc(var(--sz) * 0.10), 54px); }
         :global(.pPrice .unit){ font-size: clamp(14px, calc(var(--sz) * 0.038), 22px); }
         :global(.pBullets){ font-size: clamp(12px, calc(var(--sz) * 0.028), 16px); line-height: 1.5; }
         .neonInner{ position: relative; z-index: 2; width: min(86%, calc(var(--sz) * 0.9)); max-width: none; text-align: left; }
+
+        /* ▼ スマホのみ：はみ出し防止＋次セクションの被り抑止 */
+        @media (max-width: 640px){
+          .neonCircle{
+            overflow: hidden;
+            border-radius: 20px;
+          }
+          .ringSvg{ overflow: hidden; }
+        }
       `}</style>
     </div>
   );
 }
+
+
 
 /** =========================
  *  言語別コールアウト・パイチャート
@@ -333,6 +389,8 @@ export default function Home() {
   const router = useRouter();
   const { locale, locales = [router.locale], defaultLocale } = router;
   const { t } = useTranslation(); // 既定NS（例: 'home'）を使用。未訳は英語フォールバック。
+  const isPhone = useMediaQuery("(max-width: 640px)");
+const circleSize = isPhone ? 420 : 560;
 
   const dir = useMemo(() => (["ar", "fa", "he", "ur"].includes(locale) ? "rtl" : "ltr"), [locale]);
   const ogLocale = OG_LOCALE_MAP[locale] || OG_LOCALE_MAP.en;
@@ -646,7 +704,7 @@ export default function Home() {
 
             <div className="pricingGrid">
               {/* 左：使い切り */}
-              <NeonCircle size={560} ariaLabel={t("Prepaid minutes pricing")}>
+              <NeonCircle size={circleSize} ariaLabel={t("Prepaid minutes pricing")}>
                 <div className="pCard">
                   <div className="pKicker">{t("prepaid")}</div>
                   <div className="pPrice">
@@ -666,7 +724,7 @@ export default function Home() {
               </NeonCircle>
 
               {/* 右：サブスク */}
-              <NeonCircle size={560} ariaLabel={t("Subscription pricing")}>
+              <NeonCircle size={circleSize} ariaLabel={t("Subscription pricing")}>
                 <div className="pCard">
                   <div className="pKicker">{t("Subscription")}</div>
                   <div className="pPrice">
@@ -821,6 +879,13 @@ export default function Home() {
         .mapKicker { display:block; font-weight:700; font-size:1em; line-height:1.02; letter-spacing:-0.02em; color:#eaf4f7; opacity:0.95; margin:0 0 0.12em; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
         .mapNote { position:absolute; left:22px; bottom:-50px; z-index:2; font-size:12px; line-height:1.4; opacity:0.75; color: rgba(230,245,255,0.9); user-select:none; }
         .pricingSection { margin: clamp(26px, 9vh, 120px) auto; padding:0 22px; max-width:1200px; text-align:center; position:relative; isolation:isolate; overflow:visible; padding-bottom: clamp(48px, 10vh, 140px); margin-bottom: clamp(8px, 4vh, 40px); }
+        @media (max-width: 640px){
+  .pricingSection{
+    overflow: hidden;                 /* セクション外への光漏れを遮断 */
+    padding-bottom: max(20vh, 140px); /* 下方向の余白を少し厚めに */
+  }
+  .pricingGrid{ row-gap: 28px; }      /* 円同士の重なりを防ぐ余白 */
+}
         .pricingH2 { margin:0; font-weight:900; letter-spacing:-0.02em; line-height:1.02; font-size: clamp(36px, 6.3vw, 92px); }
         .pricingSub { margin:8px 0 18px 0; opacity:0.9; font-weight:700; font-size: clamp(14px, 1.9vw, 18px); }
         .pricingGrid { display:grid; grid-template-columns:1fr 1fr; gap: clamp(16px, 3vw, 40px); align-items:center; justify-items:center; margin-top: clamp(10px, 3vh, 20px); }
