@@ -390,7 +390,7 @@ export default function Home() {
   const { locale, locales = [router.locale], defaultLocale } = router;
   const { t } = useTranslation(); // 既定NS（例: 'home'）を使用。未訳は英語フォールバック。
   const isPhone = useMediaQuery("(max-width: 640px)");
-const circleSize = isPhone ? 420 : 560;
+const circleSize = isPhone ? 320 : 560;
 
   const dir = useMemo(() => (["ar", "fa", "he", "ur"].includes(locale) ? "rtl" : "ltr"), [locale]);
   const ogLocale = OG_LOCALE_MAP[locale] || OG_LOCALE_MAP.en;
