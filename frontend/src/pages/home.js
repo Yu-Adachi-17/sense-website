@@ -471,26 +471,27 @@ export default function Home() {
 
       {/* ===== Fixed Header ===== */}
       <FixedHeaderPortal>
-        <header className="top" role="banner">
-          <a href="/" className="brand" aria-label={t("Minutes.AI Home")}>
-            <span className="brandIcon" aria-hidden="true">
-              <HomeIcon size={26} color="currentColor" />
-            </span>
-            <span className="brandText">
-              Minutes.<span className="ai">AI</span>
-            </span>
-          </a>
-          <nav className="nav" aria-label={t("Primary") || "Primary"}>
-            <a href="/" className="navLink">
-              <span className="navText gradHeader">{t("Home")}</span>
-            </a>
-            <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
-              <FaApple className="apple" aria-hidden="true" />
-              <span className="navText gradHeader">{t("iOS")}</span>
-            </a>
-          </nav>
-        </header>
-      </FixedHeaderPortal>
+  <header className="top" role="banner">
+    <a href="/" className="brand" aria-label={t("Minutes.AI Home")}>
+      <span className="brandIcon" aria-hidden="true">
+        <HomeIcon size={26} color="currentColor" />
+      </span>
+      <span className="brandText">
+        {t("Minutes.AI")}
+      </span>
+    </a>
+    <nav className="nav" aria-label={t("Primary") || "Primary"}>
+      <a href="/" className="navLink">
+        <span className="navText gradHeader">{t("Home")}</span>
+      </a>
+      <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
+        <FaApple className="apple" aria-hidden="true" />
+        <span className="navText gradHeader">{t("iOS")}</span>
+      </a>
+    </nav>
+  </header>
+</FixedHeaderPortal>
+
 
       {/* ===== Main ===== */}
       <main className="scene" dir={dir}>
