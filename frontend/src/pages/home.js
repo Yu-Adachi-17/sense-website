@@ -563,7 +563,7 @@ export default function Home() {
             <div className="simplyGrid">
               <div className="simplyLeft">
                 <h2 id="simplyTitle" className="simplyH2">
-                  {t("Simply ultimate.")}
+                  {t("Ultimate simplicity.")}
                 </h2>
                 <div className="stepList" role="radiogroup" aria-label={t("Actions")} ref={radioGroupRef}>
                   {steps.map((s) => {
@@ -610,16 +610,17 @@ export default function Home() {
           {/* ===== World map background セクション ===== */}
           <section className="reachMap" aria-labelledby="reachTitle">
             <div className="reachMapInner">
-              <div className="mapCopy">
-                <h2 id="reachTitle" className="mapHeadline">
-                  <span className="mapKicker">{t("Supports all major Languages")}</span>
-                  <span>
-                    <span className="gradText onlyNum">30,000</span> {t("users")}
-                  </span>
-                  <br />
-                  <span>{t("worldwide")}</span>
-                </h2>
-              </div>
+            <div className="mapCopy">
+  <h2 id="reachTitle" className="mapHeadline">
+    <span className="mapKicker">{t("Supports all major Languages")}</span>
+    <span>
+      <span className="gradText onlyNum">30,000</span>
+      <br />
+      <span>{t("users")}</span>
+    </span>
+  </h2>
+</div>
+
               <div className="mapChart">
                 <CalloutPie
                   data={LANGUAGE_PIE}
@@ -753,7 +754,7 @@ export default function Home() {
         .sameSize { font-weight:800; letter-spacing:-0.02em; line-height:1.06; font-size: clamp(33.6px, 7.44vw, 103.2px); margin:0; }
         .line1 { color:#fff; } .line2 { margin-top:8px; }
         .gradText, .gradDevice { background: linear-gradient(90deg, #65e0c4 0%, #8db4ff 65%, #7cc7ff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
-        .mapHeadline .onlyNum { font-size:1.35em; letter-spacing:-0.02em; font-weight:900; display:inline-block; }
+        .mapHeadline .onlyNum { font-size:1.65em; letter-spacing:-0.02em; font-weight:900; display:inline-block; }
         .deviceStage { margin: clamp(16px, 5vh, 44px) auto 0; width: min(calc(94vw * 0.8), 1024px); }
         .deviceGlass { --glassA:36,48,72; --glassB:56,78,96; position:relative; width:100%; aspect-ratio: 4 / 3; border-radius: clamp(22px, 3.2vmax, 44px); overflow:hidden; background: linear-gradient(180deg, rgba(var(--glassA), 0.55) 0%, rgba(var(--glassB), 0.5) 100%); -webkit-backdrop-filter: blur(18px) saturate(120%); backdrop-filter: blur(18px) saturate(120%); border:1px solid rgba(255,255,255,0.12); box-shadow: 0 30px 90px rgba(10,20,60,0.35), 0 12px 26px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.2); }
         .minutesWrap { position:absolute; inset:0; box-sizing:border-box; padding: clamp(14px,3vw,28px); color: rgba(255,255,255,0.92); line-height:1.55; text-align:left !important; overflow:hidden; pointer-events:none; clip-path: inset(100% 0 0 0); transform: translateY(8%); opacity:0.001; -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%); mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%); }
