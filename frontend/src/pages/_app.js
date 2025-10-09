@@ -1,8 +1,11 @@
 // src/pages/_app.js
 
-import '../App.css';           // グローバルCSS
-import '../News.css';
+// ← Tailwind v4 を含む globals.css を最初に読み込む（Base/Preflight を先に適用）
 import '../styles/globals.css';
+
+// 既存のグローバルCSS（必要なら Tailwind の上に被せる目的で globals.css の後に置く）
+import '../App.css';
+import '../News.css';
 
 import { useEffect } from 'react';
 import Head from 'next/head';
@@ -29,7 +32,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
       <Component {...pageProps} />
     </>

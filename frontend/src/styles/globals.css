@@ -1,4 +1,10 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Arial", sans-serif;
-  }
-  
+/* v4の読み込みは @import "tailwindcss"; */
+@import "tailwindcss";
+
+/* 必要に応じてソースを手動追加（Nextのpages配下・MD記事など） */
+@source "./src/**/*.{js,jsx,ts,tsx,mdx}";
+@source "./content/blog/**/*.{md,mdx}";
+
+/* お好みのベース */
+html, body, #__next { height: 100%; }
+body { background: #0b0e2e; color: white; -webkit-font-smoothing: antialiased; }
