@@ -390,7 +390,7 @@ export default function Home() {
   const { locale, locales = [router.locale], defaultLocale } = router;
   const { t } = useTranslation(); // 既定NS（例: 'home'）を使用。未訳は英語フォールバック。
   const isPhone = useMediaQuery("(max-width: 640px)");
-const circleSize = isPhone ? 320 : 560;
+const circleSize = isPhone ? 420 : 560;
 
   const dir = useMemo(() => (["ar", "fa", "he", "ur"].includes(locale) ? "rtl" : "ltr"), [locale]);
   const ogLocale = OG_LOCALE_MAP[locale] || OG_LOCALE_MAP.en;
@@ -704,7 +704,7 @@ const circleSize = isPhone ? 320 : 560;
 
             <div className="pricingGrid">
               {/* 左：使い切り */}
-              <NeonCircle size={circleSize} ariaLabel={t("Prepaid minutes pricing")}>
+              <NeonCircle size={560} mobileSize={250} ariaLabel={t("Prepaid minutes pricing")}>
                 <div className="pCard">
                   <div className="pKicker">{t("prepaid")}</div>
                   <div className="pPrice">
@@ -724,7 +724,7 @@ const circleSize = isPhone ? 320 : 560;
               </NeonCircle>
 
               {/* 右：サブスク */}
-              <NeonCircle size={circleSize} ariaLabel={t("Subscription pricing")}>
+              <NeonCircle size={560} mobileSize={250} ariaLabel={t("Subscription pricing")}>
                 <div className="pCard">
                   <div className="pKicker">{t("Subscription")}</div>
                   <div className="pPrice">
