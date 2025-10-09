@@ -1,9 +1,7 @@
-// pages/zoom/app.js
-
+// src/pages/zoom/app.js
 import React, { useEffect, useMemo, useState } from 'react';
-import FullScreenOverlay from '../fullscreenoverlay'
-import { db, auth } from '../../firebaseConfig'
-import { collection, addDoc } from 'firebase/firestore';
+import FullScreenOverlay from '../fullscreenoverlay';
+import { getClientAuth, getDb } from '../../firebaseConfig'; // ★ 変更：auth/dbはゲッター経由に
 import { v4 as uuidv4 } from 'uuid';
 
 /** ====== Same-origin API base ====== */
@@ -18,59 +16,53 @@ const LAST_PASSCODE_KEY = 'minutesai.lastPasscode';
 const SHOW_DEBUG = false;
 
 /** ====== Utils ====== */
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-const backoffMs = n => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const backoffMs = (n) => Math.max(200, Math.min(5000, 300 * Math.pow(2, n)));
 const now = () => new Date().toISOString().replace('T', ' ').slice(0, 19);
 
-// pages/zoom/app.js から既存の openZoomClientJoinIn(...) を削除し、以下を追加
 // ── 完全置換：ネイティブ Zoom クライアントを最優先で開く ──
 function openZoomClientJoin(meetingId, passcode) {
-  const id  = String(meetingId || '').replace(/\D/g, '');
+  const id = String(meetingId || '').replace(/\D/g, '');
   const pwd = encodeURIComponent(passcode || '');
-  const ua  = navigator.userAgent || '';
+  const ua = navigator.userAgent || '';
 
-  const isIOS     = /iP(hone|ad|od)/.test(ua);
+  const isIOS = /iP(hone|ad|od)/.test(ua);
   const isAndroid = /Android/.test(ua);
-  const isChrome  = /Chrome\/\d+/.test(ua) && !/Edg\//.test(ua);
+  const isChrome = /Chrome\/\d+/.test(ua) && !/Edg\//.test(ua);
   const isAndroidChrome = isAndroid && isChrome;
 
-  // Web クライアントのフォールバック（※ web の ?pwd は暗号化値が必要。平文は不可）
-  // → ここではパスコード未付与で wc に誘導し、UI側で入力させる
+  // Web クライアントのフォールバック（?pwd は暗号化値が必要なため付与しない）
   const fallbackWeb = `https://zoom.us/wc/join/${id}`;
 
-  // deep link を端末別に構築
   let deeplink;
   if (isAndroidChrome) {
-    // Android Chrome は intent:// が最も確実（未インストール時は自動フォールバック）
-    // 例: intent://zoom.us/join?confno=...&pwd=...#Intent;scheme=zoomus;package=us.zoom.videomeetings;S.browser_fallback_url=...;end
     deeplink =
       `intent://zoom.us/join?confno=${id}${pwd ? `&pwd=${pwd}` : ''}` +
       '#Intent;scheme=zoomus;package=us.zoom.videomeetings;' +
       `S.browser_fallback_url=${encodeURIComponent(fallbackWeb)};end`;
   } else if (isIOS || isAndroid) {
-    // iOS / Android（Chrome 以外）は zoomus:// を使用
     deeplink = `zoomus://zoom.us/join?confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
   } else {
-    // デスクトップは zoommtg:// を使用（Zoom クライアントが登録したプロトコルが処理する）
     deeplink = `zoommtg://zoom.us/join?action=join&confno=${id}${pwd ? `&pwd=${pwd}` : ''}`;
   }
 
-  // ユーザー操作直後の同期遷移で実行（別タブ/iframe は使わない）
   const openedAt = Date.now();
-  try { window.location.href = deeplink; } catch {}
+  try {
+    window.location.href = deeplink;
+  } catch {}
 
-  // Android Chrome の intent:// はブラウザ側でフォールバックを担保するため待機不要
   if (!isAndroidChrome) {
-    // 1.5s 待って可視のまま＝起動失敗とみなし、Web クライアントに退避
     setTimeout(() => {
       if (document.visibilityState === 'visible' && Date.now() - openedAt >= 1400) {
-        try { window.location.href = fallbackWeb; }
-        catch { window.open(fallbackWeb, '_blank'); }
+        try {
+          window.location.href = fallbackWeb;
+        } catch {
+          window.open(fallbackWeb, '_blank');
+        }
       }
     }, 1500);
   }
 }
-
 
 /** ====== API wrappers ====== */
 async function apiStart(meetingNumber, meetingPasscode, runSecs = 21600) {
@@ -111,10 +103,7 @@ async function headLen(url) {
 }
 
 /** ====== Transcribe helpers (frontend → backend) ====== */
-// ブラウザでDL済みの Blob/File をそのまま転送（推奨）
-// ★ これで既存の transcribeFromBlobs を置き換え
 async function transcribeFromBlobs(blobs, { meetingFormat, outputType = 'flexible', lang = 'ja' }) {
-  // 1) 短命チケットを取得（Vercel 側は軽処理なので 504 にならない）
   const tkRes = await fetch('/api/transcribe-ticket', { method: 'POST' });
   if (!tkRes.ok) {
     const t = await tkRes.text();
@@ -122,8 +111,6 @@ async function transcribeFromBlobs(blobs, { meetingFormat, outputType = 'flexibl
   }
   const { uploadUrl, token } = await tkRes.json();
 
-  // 2) 送信用 FormData を作成（multer.single('file') 前提：先頭のみ採用されても良いよう “代表1本” 送る）
-  //    → 分割セグメントが複数あるときは一旦先頭を代表送信（※ 将来はジョブ化で複数対応）
   const primary = blobs[0];
   const fd = new FormData();
   fd.append('file', primary, primary.name || 'audio.webm');
@@ -131,7 +118,6 @@ async function transcribeFromBlobs(blobs, { meetingFormat, outputType = 'flexibl
   fd.append('outputType', outputType);
   fd.append('lang', lang);
 
-  // 3) タイムアウト & 再試行（指数バックオフ）
   const attemptOnce = (signal) =>
     fetch(uploadUrl, {
       method: 'POST',
@@ -143,25 +129,26 @@ async function transcribeFromBlobs(blobs, { meetingFormat, outputType = 'flexibl
   let lastErr;
   for (let i = 0; i < 3; i++) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 30_000); // 30s
+    const timer = setTimeout(() => controller.abort(), 30_000);
     try {
       const r = await attemptOnce(controller.signal);
       clearTimeout(timer);
       const text = await r.text();
       if (!r.ok) throw new Error(`transcribe bad ${r.status}: ${text}`);
-      try { return JSON.parse(text); } catch { return { raw: text }; }
+      try {
+        return JSON.parse(text);
+      } catch {
+        return { raw: text };
+      }
     } catch (e) {
       clearTimeout(timer);
       lastErr = e;
-      // 429/503/504/abort はリトライ
       await sleep(Math.min(5000, 700 * Math.pow(2, i)));
     }
   }
   throw new Error(`transcribe failed after retries: ${lastErr?.message || lastErr}`);
 }
 
-
-// 旧 JSON 経由のフォールバック（残しておくが本流では未使用）
 async function transcribeBySid(
   sid,
   { meetingFormat = '', outputType = 'flexible', lang = 'ja', preferred = '' }
@@ -181,7 +168,11 @@ async function transcribeBySid(
     const ct = r.headers.get('content-type');
     throw new Error(`transcribe failed ${r.status} (ct=${ct}): ${text}`);
   }
-  try { return JSON.parse(text); } catch { return { raw: text }; }
+  try {
+    return JSON.parse(text);
+  } catch {
+    return { raw: text };
+  }
 }
 
 export default function ZoomAppHome() {
@@ -203,6 +194,24 @@ export default function ZoomAppHome() {
   const [minutes, setMinutes] = useState('');
   const [meetingRecordId, setMeetingRecordId] = useState(null);
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
+
+  // ★ 新：auth / db インスタンス（クライアントでのみセット）
+  const [authInstance, setAuthInstance] = useState(null);
+  const [dbInstance, setDbInstance] = useState(null);
+
+  // クライアントで auth/db を取得
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      const [a, d] = await Promise.all([getClientAuth(), getDb()]);
+      if (!mounted) return;
+      setAuthInstance(a || null);
+      setDbInstance(d || null);
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const canJoin = useMemo(
     () => !!meetingId && !!passcode && !inputLocked && phase !== 'starting' && phase !== 'joining',
@@ -262,237 +271,231 @@ export default function ZoomAppHome() {
   function push(s) {
     const line = `[${now()}] ${s}`;
     console.log(line);
-    if (SHOW_DEBUG) setLogs(prev => [...prev, line]);
+    if (SHOW_DEBUG) setLogs((prev) => [...prev, line]);
   }
   function setOverlayStage(msg, progress) {
     setOverlay({ show: true, msg, progress: Math.max(0, Math.min(100, progress)) });
   }
 
-// pages/zoom/app.js の onJoin を丸ごと置き換え
-async function onJoin() {
-  if (!canJoin) return;
-  const ok = window.confirm('“MinutesAI Bot”の参加リクエストをホストに送信します。');
-  if (!ok) return;
+  // --- Join（Bot起動 → DeepLinkで参加） ---
+  async function onJoin() {
+    if (!canJoin) return;
+    const ok = window.confirm('“MinutesAI Bot”の参加リクエストをホストに送信します。');
+    if (!ok) return;
 
-  try {
-    setPhase('starting');
-    setAudioList([]);
-    setOverlayStage('Starting up…', 5);
-    push('JOIN: calling /api/zoom-bot/start');
+    try {
+      setPhase('starting');
+      setAudioList([]);
+      setOverlayStage('Starting up…', 5);
+      push('JOIN: calling /api/zoom-bot/start');
 
-    // ① まず Bot を起動（iOSと同じ順序に揃える）
-    const sid = await apiStart(meetingId, passcode, 21600);
+      // ① Bot 起動
+      const sid = await apiStart(meetingId, passcode, 21600);
 
-    push(`JOIN OK: sid=${sid}`);
-    setSessionId(sid);
-    localStorage.setItem(LAST_SID_KEY, sid);
-    localStorage.setItem(LAST_MEETING_ID_KEY, meetingId);
-    localStorage.setItem(LAST_PASSCODE_KEY, passcode);
-    setInputLocked(true);
-    setPhase('joining');
+      push(`JOIN OK: sid=${sid}`);
+      setSessionId(sid);
+      localStorage.setItem(LAST_SID_KEY, sid);
+      localStorage.setItem(LAST_MEETING_ID_KEY, meetingId);
+      localStorage.setItem(LAST_PASSCODE_KEY, passcode);
+      setInputLocked(true);
+      setPhase('joining');
 
-    // ② Deep Link を同一タブで開く（OS別スキーム）
-    openZoomClientJoin(meetingId, passcode);
+      // ② Deep Link を同一タブで開く
+      openZoomClientJoin(meetingId, passcode);
 
-    setOverlayStage('Join request sent. Ask the host to approve…', 15);
+      setOverlayStage('Join request sent. Ask the host to approve…', 15);
 
-    // ③ 起動確認のポーリングは従来通り
-    const begin = Date.now();
-    let attempt = 0;
-    while (Date.now() - begin < 180000) {
-      try {
-        const st = await apiStatus(sid);
-        push(`POLL(join): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
-        if (st.status === 'running') {
-          setOverlayStage('Joined the meeting (bot running)', 25);
-          break;
+      // ③ 起動確認ポーリング
+      const begin = Date.now();
+      let attempt = 0;
+      while (Date.now() - begin < 180000) {
+        try {
+          const st = await apiStatus(sid);
+          push(`POLL(join): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
+          if (st.status === 'running') {
+            setOverlayStage('Joined the meeting (bot running)', 25);
+            break;
+          }
+        } catch (e) {
+          push(`POLL(join) error: ${e.message || e}`);
         }
-      } catch (e) {
-        push(`POLL(join) error: ${e.message || e}`);
+        attempt++;
+        await sleep(backoffMs(attempt));
       }
-      attempt++;
-      await sleep(backoffMs(attempt));
+      setOverlay({ show: false, msg: '', progress: 0 });
+    } catch (e) {
+      setPhase('error');
+      push(`JOIN ERROR: ${e.message || e}`);
+      setOverlayStage(`Failed to start: ${e.message || 'network error'}`, 100);
+      setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 1800);
     }
-    setOverlay({ show: false, msg: '', progress: 0 });
-  } catch (e) {
-    setPhase('error');
-    push(`JOIN ERROR: ${e.message || e}`);
-    setOverlayStage(`Failed to start: ${e.message || 'network error'}`, 100);
-    setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 1800);
   }
-}
 
-// ✅ 完全差し替え版：ファイルの「実在＋安定」を厳密に待ってから STT を開始
-// - manifest の segCount>=1 を必須化
-// - 代表セグメントを HEAD 2回でサイズ不変確認（1.2s間隔）
-// - 既存 UI/保存フローは維持
+  // --- Finish（停止 → ファイル安定待ち → DL → STT → Firestore保存） ---
+  async function onFinish() {
+    if (!sessionId) return;
+    try {
+      setPhase('polling');
+      setOverlayStage('Finalizing recording on server…', 10);
+      push('FINISH: calling /api/zoom-bot/stop');
+      await apiStop(sessionId);
 
-async function onFinish() {
-  if (!sessionId) return;
-  try {
-    setPhase('polling');
-    setOverlayStage('Finalizing recording on server…', 10);
-    push('FINISH: calling /api/zoom-bot/stop');
-    await apiStop(sessionId);
+      const MAX_WAIT_MS = 180_000; // 3min
+      const STABLE_DELAY_MS = 1_200;
+      const begin = Date.now();
+      let attempt = 0;
 
-    const MAX_WAIT_MS = 180_000;         // 3min
-    const STABLE_DELAY_MS = 1_200;       // HEAD間隔
-    const begin = Date.now();
-    let attempt = 0;
+      while (Date.now() - begin < MAX_WAIT_MS) {
+        try {
+          const st = await apiStatus(sessionId);
+          push(`POLL(stop): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
 
-    // ---- ここで「本当にファイルが固まったか」を厳密に待つ ----
-    while (Date.now() - begin < MAX_WAIT_MS) {
-      try {
-        const st = await apiStatus(sessionId);
-        push(`POLL(stop): status=${st.status} phase=${st.phase || '-'} ready=${!!st.ready}`);
+          const segCount = Number(st?.debug?.manifest?.segCount || 0);
+          if (st.status === 'finished' && segCount >= 1) {
+            const list = await apiFiles(sessionId);
+            const seg = list.filter((x) => x.startsWith('segments/')).sort();
+            const single = list.find((x) => x.toLowerCase().endsWith('.webm') && !x.includes('seg_'));
+            const pick = seg[0] || single;
 
-        // 1) status=finished かつ manifest が最低1本のセグメントを持つまで待つ
-        const segCount = Number(st?.debug?.manifest?.segCount || 0);
-        if (st.status === 'finished' && segCount >= 1) {
-          // 2) 代表セグメントのサイズが一定になるまで待つ（直後は ffmpeg 書き込み中の可能性）
-          const list = await apiFiles(sessionId);           // segments/seg_*.webm のみ返るポリシー
-          const seg = list.filter(x => x.startsWith('segments/')).sort();
-          const single = list.find(x => x.toLowerCase().endsWith('.webm') && !x.includes('seg_'));
-          const pick = seg[0] || single;                    // 代表1本
+            if (pick) {
+              const safe = encodeURIComponent(pick.split('/').pop());
+              const url = pick.startsWith('segments/')
+                ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
+                : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
 
-          if (pick) {
-            const safe = encodeURIComponent(pick.split('/').pop());
-            const url = pick.startsWith('segments/')
-              ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
-              : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
+              const s1 = await headLen(url);
+              await sleep(STABLE_DELAY_MS);
+              const s2 = await headLen(url);
+              push(`HEAD check: ${pick} size1=${s1} size2=${s2}`);
 
-            const s1 = await headLen(url);
-            await sleep(STABLE_DELAY_MS);
-            const s2 = await headLen(url);
-            push(`HEAD check: ${pick} size1=${s1} size2=${s2}`);
-
-            if (s1 > 0 && s1 === s2) {
-              // セグメント安定を確認できたら抜ける
-              break;
+              if (s1 > 0 && s1 === s2) break;
             }
           }
+        } catch (e) {
+          push(`POLL(stop) error: ${e.message || e}`);
         }
-      } catch (e) {
-        push(`POLL(stop) error: ${e.message || e}`);
+        attempt++;
+        await sleep(backoffMs(attempt));
       }
-      attempt++;
-      await sleep(backoffMs(attempt));
-    }
 
-    setOverlayStage('Downloading audio…', 20);
-    const files = await apiFiles(sessionId);
-    const segments = files.filter(f => f.startsWith('segments/')).sort();
-    const singleWebm = files.find(f => f.endsWith('.webm') && !f.includes('seg_'));
-    const fallbackWav = files.find(f => f.endsWith('.wav'));
+      setOverlayStage('Downloading audio…', 20);
+      const files = await apiFiles(sessionId);
+      const segments = files.filter((f) => f.startsWith('segments/')).sort();
+      const singleWebm = files.find((f) => f.endsWith('.webm') && !f.includes('seg_'));
+      const fallbackWav = files.find((f) => f.endsWith('.wav'));
 
-    // ダウンロード計画
-    let plan = [];
-    if (segments.length) plan = segments;
-    else if (singleWebm) plan = [singleWebm];
-    else if (fallbackWav) plan = [fallbackWav];
-    else if (files[0]) plan = [files[0]];
-    if (!plan.length) throw new Error('no_audio_ready_yet');
+      let plan = [];
+      if (segments.length) plan = segments;
+      else if (singleWebm) plan = [singleWebm];
+      else if (fallbackWav) plan = [fallbackWav];
+      else if (files[0]) plan = [files[0]];
+      if (!plan.length) throw new Error('no_audio_ready_yet');
 
-    // ダウンロード
-    const downloaded = [];
-    for (let i = 0; i < plan.length; i++) {
-      const p = plan[i];
-      const safe = encodeURIComponent(p.split('/').pop());
-      const path = p.startsWith('segments/')
-        ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
-        : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
+      const downloaded = [];
+      for (let i = 0; i < plan.length; i++) {
+        const p = plan[i];
+        const safe = encodeURIComponent(p.split('/').pop());
+        const path = p.startsWith('segments/')
+          ? `${API_BASE}/files/${encodeURIComponent(sessionId)}/segments/${safe}`
+          : `${API_BASE}/files/${encodeURIComponent(sessionId)}/${safe}`;
 
-      const r = await fetch(path);
-      if (!r.ok) throw new Error(`download bad ${r.status}`);
-      const blob = await r.blob();
+        const r = await fetch(path);
+        if (!r.ok) throw new Error(`download bad ${r.status}`);
+        const blob = await r.blob();
 
-      downloaded.push({
-        name: `${sessionId}_${p.split('/').pop()}`,
-        url: URL.createObjectURL(blob),
-        blob, // 後段のアップロード用
+        downloaded.push({
+          name: `${sessionId}_${p.split('/').pop()}`,
+          url: URL.createObjectURL(blob),
+          blob,
+        });
+
+        const prog = 20 + ((i + 1) / plan.length) * 30;
+        setOverlayStage('Downloading audio…', Math.min(50, prog));
+        push(`DL OK: ${p}`);
+      }
+      setAudioList(downloaded);
+
+      // === STT ===
+      setOverlayStage('Transcribing audio…', 60);
+      const lang = (navigator.language || 'ja').slice(0, 2);
+      const fmt = selectedMeetingFormat?.template || '';
+      const OUTPUT_TYPE = 'flexible';
+
+      const filesToSend = downloaded.map(
+        (d, i) => new File([d.blob], d.name || `segment_${i}.webm`, { type: d.blob?.type || 'audio/webm' })
+      );
+
+      const result = await transcribeFromBlobs(filesToSend, {
+        meetingFormat: fmt,
+        outputType: OUTPUT_TYPE,
+        lang,
       });
 
-      const prog = 20 + ((i + 1) / plan.length) * 30;
-      setOverlayStage('Downloading audio…', Math.min(50, prog));
-      push(`DL OK: ${p}`);
-    }
-    setAudioList(downloaded);
+      setOverlayStage('Generating minutes…', 80);
+      const { transcription: tr, minutes: mm } = result || {};
+      setTranscription(tr || '');
+      setMinutes(mm || '');
 
-    // === STT → 議事録（Blob を直接送る） ===
-    setOverlayStage('Transcribing audio…', 60);
-    const lang = (navigator.language || 'ja').slice(0, 2);
-    const fmt = selectedMeetingFormat?.template || '';
-    const OUTPUT_TYPE = 'flexible';
-
-    // downloaded[] -> File[] に変換して送信（代表1本でも複数でも可）
-    const filesToSend = downloaded.map((d, i) =>
-      new File([d.blob], d.name || `segment_${i}.webm`, { type: d.blob?.type || 'audio/webm' })
-    );
-    console.log('[transcribe] sending files =',
-      filesToSend.map(f => ({ name: f.name, type: f.type, size: f.size }))
-    );
-
-    const result = await transcribeFromBlobs(filesToSend, {
-      meetingFormat: fmt,
-      outputType: OUTPUT_TYPE,
-      lang,
-    });
-
-    setOverlayStage('Generating minutes…', 80);
-    const { transcription: tr, minutes: mm } = result || {};
-    setTranscription(tr || '');
-    setMinutes(mm || '');
-
-    // Firestore 保存（ログイン時のみ）
-    try {
-      if (auth.currentUser) {
-        const docRef = await addDoc(collection(db, 'meetingRecords'), {
-          paperID: uuidv4(),
-          transcription: tr || 'No transcription available.',
-          minutes: mm || 'No minutes available.',
-          createdAt: new Date(),
-          uid: auth.currentUser.uid,
-        });
-        setMeetingRecordId(docRef.id);
-        push(`SAVE OK: ${docRef.id}`);
-      } else {
-        push('SKIP SAVE: not logged in');
+      // === Firestore 保存（ログイン時のみ）※動的 import
+      try {
+        if (authInstance?.currentUser && dbInstance) {
+          const { collection, addDoc } = await import('firebase/firestore');
+          const docRef = await addDoc(collection(dbInstance, 'meetingRecords'), {
+            paperID: uuidv4(),
+            transcription: tr || 'No transcription available.',
+            minutes: mm || 'No minutes available.',
+            createdAt: new Date(),
+            uid: authInstance.currentUser.uid,
+          });
+          setMeetingRecordId(docRef.id);
+          push(`SAVE OK: ${docRef.id}`);
+        } else {
+          push('SKIP SAVE: not logged in');
+        }
+      } catch (e) {
+        push(`SAVE ERR: ${e.message || e}`);
       }
-    } catch (e) {
-      push(`SAVE ERR: ${e.message || e}`);
-    }
 
-    setOverlayStage('Done', 100);
-    setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 700);
-    localStorage.removeItem(LAST_SID_KEY);
-    localStorage.removeItem(LAST_MEETING_ID_KEY);
-    localStorage.removeItem(LAST_PASSCODE_KEY);
-    setPhase('finished');
-
-    // 画面起動（オフライン同様）
-    setShowFullScreen(true);
-    setIsExpanded(false); // 既定：議事録（要約）ビュー
-  } catch (e) {
-    push(`FINISH ERROR: ${e.message || e}`);
-    setOverlayStage('An error occurred', 100);
-    setPhase('error');
-    setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 800);
-  }
-}
-
-
-  async function onReset() {
-    if (!window.confirm('Reset the meeting link? All recording info will be lost.')) return;
-    try { if (sessionId) await apiStop(sessionId).catch(() => {}); }
-    finally {
-      setSessionId(null); setInputLocked(false); setPhase('idle');
-      setAudioList([]); setOverlay({ show: false, msg: '', progress: 0 });
-      setRestored(null); setMeetingId(''); setPasscode('');
+      setOverlayStage('Done', 100);
+      setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 700);
       localStorage.removeItem(LAST_SID_KEY);
       localStorage.removeItem(LAST_MEETING_ID_KEY);
       localStorage.removeItem(LAST_PASSCODE_KEY);
-      setLogs([]); push('RESET done');
-      setShowFullScreen(false); setTranscription(''); setMinutes(''); setMeetingRecordId(null);
+      setPhase('finished');
+
+      // 画面起動（オフライン同様）
+      setShowFullScreen(true);
+      setIsExpanded(false);
+    } catch (e) {
+      push(`FINISH ERROR: ${e.message || e}`);
+      setOverlayStage('An error occurred', 100);
+      setPhase('error');
+      setTimeout(() => setOverlay({ show: false, msg: '', progress: 0 }), 800);
+    }
+  }
+
+  async function onReset() {
+    if (!window.confirm('Reset the meeting link? All recording info will be lost.')) return;
+    try {
+      if (sessionId) await apiStop(sessionId).catch(() => {});
+    } finally {
+      setSessionId(null);
+      setInputLocked(false);
+      setPhase('idle');
+      setAudioList([]);
+      setOverlay({ show: false, msg: '', progress: 0 });
+      setRestored(null);
+      setMeetingId('');
+      setPasscode('');
+      localStorage.removeItem(LAST_SID_KEY);
+      localStorage.removeItem(LAST_MEETING_ID_KEY);
+      localStorage.removeItem(LAST_PASSCODE_KEY);
+      setLogs([]);
+      push('RESET done');
+      setShowFullScreen(false);
+      setTranscription('');
+      setMinutes('');
+      setMeetingRecordId(null);
     }
   }
 
@@ -516,7 +519,7 @@ async function onFinish() {
             <Label>Meeting ID</Label>
             <Underline
               value={meetingId}
-              onChange={e => setMeetingId(e.target.value)}
+              onChange={(e) => setMeetingId(e.target.value)}
               placeholder="e.g. 9815129794"
               disabled={inputLocked}
             />
@@ -524,7 +527,7 @@ async function onFinish() {
             <Label>Passcode</Label>
             <Underline
               value={passcode}
-              onChange={e => setPasscode(e.target.value)}
+              onChange={(e) => setPasscode(e.target.value)}
               placeholder="Passcode"
               disabled={inputLocked}
             />
@@ -559,7 +562,9 @@ async function onFinish() {
               {inputLocked && (
                 <>
                   <div style={{ height: 10 }} />
-                  <button onClick={onReset} style={merge(styles.btnBase, styles.btnReset)}>Reset</button>
+                  <button onClick={onReset} style={merge(styles.btnBase, styles.btnReset)}>
+                    Reset
+                  </button>
                 </>
               )}
             </div>
@@ -739,7 +744,14 @@ const styles = {
     padding: 10,
     borderRadius: 8,
   },
-  overlay: { position: 'fixed', inset: 0, background: 'rgba(0,0,0,.55)', display: 'grid', placeItems: 'center', zIndex: 1000 },
+  overlay: {
+    position: 'fixed',
+    inset: 0,
+    background: 'rgba(0,0,0,.55)',
+    display: 'grid',
+    placeItems: 'center',
+    zIndex: 1000,
+  },
   overlayBox: { padding: 22, borderRadius: 18, background: 'rgba(17,24,39,.85)', color: '#fff', textAlign: 'center', width: 260 },
   overlayText: { fontWeight: 700, letterSpacing: 0.2 },
   circleOuter: { position: 'relative', width: 150, height: 150 },
@@ -748,4 +760,6 @@ const styles = {
   circleText: { position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', fontSize: 28, fontWeight: 800 },
 };
 
-function merge(...xs) { return Object.assign({}, ...xs.filter(Boolean)); }
+function merge(...xs) {
+  return Object.assign({}, ...xs.filter(Boolean));
+}

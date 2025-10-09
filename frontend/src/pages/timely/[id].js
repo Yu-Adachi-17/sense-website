@@ -1,8 +1,8 @@
+// src/pages/timely/[id].js
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
-import { doc, onSnapshot } from 'firebase/firestore';
-import { db } from '../../firebaseConfig';
+import { getDb } from '../../firebaseConfig'; // ★ 変更：dbはゲッター経由で取得
 
 export default function TimelyViewPage() {
   const { t } = useTranslation();
@@ -17,41 +17,68 @@ export default function TimelyViewPage() {
   useEffect(() => {
     if (!router.isReady || !id) return;
 
-    const ref = doc(db, 'timelyNotes', id);
-    const unsub = onSnapshot(
-      ref,
-      snap => {
-        if (!snap.exists()) {
-          setErrorMsg(t('This meeting note does not exist'));
-          setLoading(false);
+    let unsubscribe = () => {};
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const db = await getDb();
+        if (!db) {
+          if (!cancelled) {
+            setErrorMsg(t('Load error'));
+            setLoading(false);
+          }
           return;
         }
 
-        const data = snap.data();
-        try {
-          if (typeof data.minutes === 'string') {
-            const parsed = JSON.parse(data.minutes);
-            setMinutes(parsed);
-          } else {
-            setMinutes(data);
+        // Firestore はクライアントでのみ動的に読み込む
+        const { doc, onSnapshot } = await import('firebase/firestore');
+        const ref = doc(db, 'timelyNotes', String(id));
+
+        unsubscribe = onSnapshot(
+          ref,
+          (snap) => {
+            if (!snap.exists()) {
+              setErrorMsg(t('This meeting note does not exist'));
+              setLoading(false);
+              return;
+            }
+
+            const data = snap.data();
+            try {
+              if (typeof data.minutes === 'string') {
+                const parsed = JSON.parse(data.minutes);
+                setMinutes(parsed);
+              } else {
+                setMinutes(data);
+              }
+              setUpdatedAt(data.updatedAt);
+            } catch (e) {
+              console.error("⚠️ JSON parse error:", e, "\nInput:", data.minutes);
+              setErrorMsg(t('Failed to parse JSON'));
+            }
+            setLoading(false);
+          },
+          (err) => {
+            console.error(err);
+            setErrorMsg(t('Load error'));
+            setLoading(false);
           }
-          setUpdatedAt(data.updatedAt);
-        } catch (e) {
-          console.error("⚠️ JSON parse error:", e, "\nInput:", data.minutes);
-          setErrorMsg(t('Failed to parse JSON'));
+        );
+      } catch (e) {
+        console.error(e);
+        if (!cancelled) {
+          setErrorMsg(t('Load error'));
+          setLoading(false);
         }
-
-        setLoading(false);
-      },
-      err => {
-        console.error(err);
-        setErrorMsg(t('Load error'));
-        setLoading(false);
       }
-    );
+    })();
 
-    return () => unsub();
-  }, [router.isReady, id]);
+    return () => {
+      cancelled = true;
+      try { unsubscribe(); } catch {}
+    };
+  }, [router.isReady, id, t]);
 
   if (loading)  return <div style={{ padding:32, color:'#fff' }}>{t('Loading...')}</div>;
   if (errorMsg) return <div style={{ padding:32, color:'#fff' }}>{errorMsg}</div>;
