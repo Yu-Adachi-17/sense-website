@@ -1,9 +1,9 @@
 // src/pages/_app.js
 
-// ← Tailwind v4 を含む globals.css を最初に読み込む（Base/Preflight を先に適用）
+// Tailwind v4 を含むグローバルCSS（最優先で読み込み）
 import '../styles/globals.css';
 
-// 既存のグローバルCSS（必要なら Tailwind の上に被せる目的で globals.css の後に置く）
+// 既存CSS（Tailwindの上から被せたい場合は後ろでOK）
 import '../App.css';
 import '../News.css';
 
@@ -11,17 +11,34 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
-import { initAuthPersistence } from '../firebaseConfig';
+
+// ★ 重要：firebaseConfig を “直接” import しない（SSRで評価されて落ちるため）
+// import { initAuthPersistence } from '../firebaseConfig';
 
 function MyApp({ Component, pageProps }) {
   const { locale } = useRouter();
 
-  // Auth 永続化（クライアント一度だけ）
+  // Auth 永続化：クライアントで一度だけ。動的 import で SSR を回避
   useEffect(() => {
-    initAuthPersistence();
+    let mounted = true;
+    (async () => {
+      try {
+        const m = await import('../firebaseConfig'); // ← クライアントでだけ読み込む
+        if (!mounted) return;
+        if (typeof window !== 'undefined' && typeof m.initAuthPersistence === 'function') {
+          await m.initAuthPersistence();
+        }
+      } catch (e) {
+        // ローカル開発でFirebase未設定でも落ちないように握りつぶす
+        if (process.env.NODE_ENV !== 'production') {
+          console.warn('initAuthPersistence skipped:', e?.message || e);
+        }
+      }
+    })();
+    return () => { mounted = false; };
   }, []);
 
-  // HTML の dir / lang を現在のロケールに同期（RTL対応含む）
+  // HTML の dir / lang を現在のロケールに同期（RTL対応）
   useEffect(() => {
     if (typeof document === 'undefined') return;
     const lang = locale || 'en';

@@ -1,32 +1,30 @@
 // src/pages/login.js
 import React, { useState, useEffect } from "react";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut,
-  sendPasswordResetEmail,
-} from "firebase/auth";
 import { useRouter } from "next/router";
-import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
+import { getClientAuth, getDb } from "../firebaseConfig";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import { syncUserData } from "../firebaseUserSync";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
 import HomeIcon from "./homeIcon";
 import Image from "next/image";
 
-const auth = getAuth(app);
-const db = getFirestore(app);
-
+/**
+ * ログインページ（SSR安全版）
+ * - firebase/auth と firebase/firestore は関数内で dynamic import
+ * - Auth/DB は getClientAuth()/getDb() でクライアント時のみ初期化
+ */
 export default function Login() {
   const router = useRouter();
   const { t, i18n } = useTranslation("common");
 
   useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute(
+      "dir",
+      i18n.language === "ar" ? "rtl" : "ltr"
+    );
   }, [i18n.language]);
 
   const [email, setEmail] = useState("");
@@ -43,17 +41,29 @@ export default function Login() {
     }
     setIsLoading(true);
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      // クライアントでのみ auth を取得
+      const auth = await getClientAuth();
+      if (!auth) throw new Error("Auth is not available on server.");
+
+      const { signInWithEmailAndPassword, signOut } = await import("firebase/auth");
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      const user = cred.user;
 
       if (!user.emailVerified) {
         await signOut(auth);
         setAlertMessage(
-          t("Your email has not been verified. Please click the link in the email to verify your account.")
+          t(
+            "Your email has not been verified. Please click the link in the email to verify your account."
+          )
         );
         setShowAlert(true);
         return;
       }
+
+      // Firestore もクライアントでのみ
+      const db = await getDb();
+      if (!db) throw new Error("Firestore is not available on server.");
+      const { doc, getDoc } = await import("firebase/firestore");
 
       const userDocRef = doc(db, "users", user.uid);
       const userDocSnap = await getDoc(userDocRef);
@@ -64,11 +74,13 @@ export default function Login() {
           remainingSecondsFromFirebase = data.remainingSeconds;
         }
       }
+
       await syncUserData(user, email, false, remainingSecondsFromFirebase);
       await router.replace("/");
     } catch (error) {
       console.error("Login error:", error);
-      const code = (error && typeof error === "object" && "code" in error) ? error.code : undefined;
+      const code =
+        error && typeof error === "object" && "code" in error ? error.code : undefined;
       switch (code) {
         case "auth/invalid-email":
           setAlertMessage(t("The email address is invalid."));
@@ -83,7 +95,9 @@ export default function Login() {
           setAlertMessage(t("Incorrect password."));
           break;
         case "auth/too-many-requests":
-          setAlertMessage(t("Too many attempts in a short period. Please wait and try again."));
+          setAlertMessage(
+            t("Too many attempts in a short period. Please wait and try again.")
+          );
           break;
         default:
           setAlertMessage(t("Login failed. Please try again."));
@@ -97,7 +111,7 @@ export default function Login() {
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
-      await signInWithGoogle();
+      await signInWithGoogle(); // ← クリックハンドラ内なのでOK
       await router.replace("/");
     } catch {
       setAlertMessage(t("Google sign-in failed."));
@@ -128,8 +142,13 @@ export default function Login() {
     }
     setIsLoading(true);
     try {
+      const auth = await getClientAuth();
+      if (!auth) throw new Error("Auth is not available on server.");
+      const { sendPasswordResetEmail } = await import("firebase/auth");
       await sendPasswordResetEmail(auth, email);
-      setAlertMessage(t("A password reset email has been sent. Please check your email."));
+      setAlertMessage(
+        t("A password reset email has been sent. Please check your email.")
+      );
       setShowAlert(true);
     } catch (error) {
       console.error("Error sending password reset email:", error);
@@ -165,7 +184,6 @@ export default function Login() {
           alt="Login / Signup Visual"
           fill
           sizes="(max-width: 900px) 100vw, 66vw"
-          // ここを 'contain' にして、縦いっぱいでトリミングなし
           style={{ objectFit: "contain", objectPosition: "center center" }}
           priority
         />

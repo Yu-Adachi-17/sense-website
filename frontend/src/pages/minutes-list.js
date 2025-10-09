@@ -1,19 +1,13 @@
+// src/pages/minutes-list.js
 import React, { useEffect, useState } from "react";
-import { db, auth } from "../firebaseConfig";
-import {
-  collection,
-  query,
-  where,
-  orderBy,
-  onSnapshot,
-  deleteDoc,
-  doc
-} from "firebase/firestore";
 import { useRouter } from "next/router";
 import { RxArrowLeft } from "react-icons/rx";
 import { CiSearch } from "react-icons/ci";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+// ✅ Firebase（SSR安全化）
+import { getClientAuth, getDb } from "../firebaseConfig";
 
 /* iOSライト風のカード影 */
 const cardShadow =
@@ -65,29 +59,51 @@ const parseMinutesJSON = (minutes) => {
 const formatDate = (d) => {
   try {
     return new Intl.DateTimeFormat(undefined, {
-      year: "numeric", month: "2-digit", day: "2-digit",
-      hour: "2-digit", minute: "2-digit"
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
     }).format(d);
-  } catch { return d?.toString?.() ?? ""; }
+  } catch {
+    return d?.toString?.() ?? "";
+  }
 };
 
 const renderFromMinutes = (minutes, createdAtDate) => {
   const obj = parseMinutesJSON(minutes);
   if (obj) {
     const title = obj.meetingTitle || obj.meeting_name || obj.title || "Meeting";
-    const dateStr = obj.date || obj.meetingDate || (createdAtDate ? formatDate(createdAtDate) : "");
-    const topicsArray = Array.isArray(obj.topics) ? obj.topics.map(t => t?.topic).filter(Boolean) : [];
-    return { ok: true, title, date: dateStr, topicsText: topicsArray.map(t => `• ${t}`).join("\n") };
+    const dateStr =
+      obj.date || obj.meetingDate || (createdAtDate ? formatDate(createdAtDate) : "");
+    const topicsArray = Array.isArray(obj.topics)
+      ? obj.topics.map((t) => t?.topic).filter(Boolean)
+      : [];
+    return {
+      ok: true,
+      title,
+      date: dateStr,
+      topicsText: topicsArray.map((t) => `• ${t}`).join("\n"),
+    };
   }
   const plain = String(minutes ?? "");
-  return { ok: false, fallback: plain.length <= 100 ? plain : plain.slice(0,100) + "…", title:"", date:"", topicsText:"" };
+  return {
+    ok: false,
+    fallback: plain.length <= 100 ? plain : plain.slice(0, 100) + "…",
+    title: "",
+    date: "",
+    topicsText: "",
+  };
 };
 
 /* ---------------- Item ---------------- */
 const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
   const router = useRouter();
   const createdDate = paper.createdAt?.toDate ? paper.createdAt.toDate() : new Date();
-  const { ok, title, date, topicsText, fallback } = renderFromMinutes(paper.minutes, createdDate);
+  const { ok, title, date, topicsText, fallback } = renderFromMinutes(
+    paper.minutes,
+    createdDate
+  );
 
   const handleClick = () => {
     if (selectionMode) toggleSelect(paper.id);
@@ -110,19 +126,19 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
         userSelect: "none",
         whiteSpace: "pre-wrap",
         lineHeight: 1.45,
-
-        /* ★ ここがポイント：Gridで上下中央寄せ */
         display: "grid",
-        alignContent: "center",     // 垂直方向中央
-        justifyItems: "start",      // 左寄せ
-        height: "clamp(140px, 18vh, 200px)", // iOS風の高さ
-        rowGap: 6
+        alignContent: "center",
+        justifyItems: "start",
+        height: "clamp(140px, 18vh, 200px)",
+        rowGap: 6,
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow =
           "0 2px 2px rgba(0,0,0,0.06), 0 10px 18px rgba(0,0,0,0.10), 0 18px 30px rgba(0,0,0,0.08)";
       }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = cardShadow; }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = cardShadow;
+      }}
     >
       {ok ? (
         <>
@@ -146,26 +162,63 @@ export default function MinutesList() {
   const [selectionMode, setSelectionMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState([]);
 
+  // dir 切替
   useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute(
+      "dir",
+      i18n.language === "ar" ? "rtl" : "ltr"
+    );
   }, [i18n.language]);
 
+  // 認証監視＋ユーザーの meetingRecords を購読（SSR安全）
   useEffect(() => {
-    const unsubscribeAuth = auth.onAuthStateChanged((user) => {
-      if (!user) return;
-      const q = query(
-        collection(db, "meetingRecords"),
-        where("uid", "==", user.uid),
-        orderBy("createdAt", "desc")
+    let unsubAuth;
+    let unsubSnap;
+    let mounted = true;
+
+    (async () => {
+      const auth = await getClientAuth(); // SSRならnull
+      if (!mounted || !auth) return;
+
+      const { onAuthStateChanged } = await import("firebase/auth");
+      const { collection, query, where, orderBy, onSnapshot } = await import(
+        "firebase/firestore"
       );
-      const unsubSnap = onSnapshot(
-        q,
-        (qs) => setPapers(qs.docs.map(d => ({ id: d.id, ...d.data() }))),
-        (err) => console.error("Firestore error:", err)
-      );
-      return () => unsubSnap();
-    });
-    return () => unsubscribeAuth();
+
+      unsubAuth = onAuthStateChanged(auth, async (user) => {
+        // 既存購読をクリア
+        if (typeof unsubSnap === "function") {
+          unsubSnap();
+          unsubSnap = undefined;
+        }
+
+        if (user) {
+          const db = await getDb();
+          if (!db) return;
+          const q = query(
+            collection(db, "meetingRecords"),
+            where("uid", "==", user.uid),
+            orderBy("createdAt", "desc")
+          );
+          unsubSnap = onSnapshot(
+            q,
+            (qs) => {
+              if (!mounted) return;
+              setPapers(qs.docs.map((d) => ({ id: d.id, ...d.data() })));
+            },
+            (err) => console.error("Firestore error:", err)
+          );
+        } else {
+          setPapers([]);
+        }
+      });
+    })();
+
+    return () => {
+      mounted = false;
+      if (typeof unsubSnap === "function") unsubSnap();
+      if (typeof unsubAuth === "function") unsubAuth();
+    };
   }, []);
 
   const filteredPapers = papers.filter((p) =>
@@ -178,30 +231,58 @@ export default function MinutesList() {
     (acc[key] ||= []).push(p);
     return acc;
   }, {});
-  const sortedDateKeys = Object.keys(groupedPapers).sort((a, b) => new Date(b) - new Date(a));
+  const sortedDateKeys = Object.keys(groupedPapers).sort(
+    (a, b) => new Date(b) - new Date(a)
+  );
 
   const toggleSelect = (id) =>
-    setSelectedIds((prev) => (prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]));
+    setSelectedIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
 
   const handleDelete = async () => {
-    if (!selectedIds.length) { alert(t("Please select meeting records to delete.")); return; }
-    if (!window.confirm(t("Are you sure you want to delete? This action cannot be undone."))) return;
+    if (!selectedIds.length) {
+      alert(t("Please select meeting records to delete."));
+      return;
+    }
+    if (!window.confirm(t("Are you sure you want to delete? This action cannot be undone.")))
+      return;
+
     try {
-      for (const id of selectedIds) await deleteDoc(doc(db, "meetingRecords", id));
-      setSelectedIds([]); setSelectionMode(false);
+      const db = await getDb();
+      if (!db) return;
+      const { deleteDoc, doc } = await import("firebase/firestore");
+      for (const id of selectedIds) {
+        await deleteDoc(doc(db, "meetingRecords", id));
+      }
+      setSelectedIds([]);
+      setSelectionMode(false);
     } catch (e) {
-      console.error(e); alert(t("An error occurred during deletion"));
+      console.error(e);
+      alert(t("An error occurred during deletion"));
     }
   };
 
   return (
     <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", padding: 20, color: "#111111" }}>
       {/* Header */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 16,
+        }}
+      >
         <div style={{ display: "flex", alignItems: "center" }}>
           <button
             onClick={() => router.back()}
-            style={{ background: "none", border: "none", color: "#111111", fontSize: 24, cursor: "pointer", marginRight: 10 }}
+            style={{
+              background: "none",
+              border: "none",
+              color: "#111111",
+              fontSize: 24,
+              cursor: "pointer",
+              marginRight: 10,
+            }}
             aria-label="Back"
           >
             <RxArrowLeft />
@@ -212,14 +293,36 @@ export default function MinutesList() {
           {selectionMode ? (
             <>
               <button
-                onClick={() => { setSelectionMode(false); setSelectedIds([]); }}
-                style={{ backgroundColor: "#F2F2F7", color: "#111111", border: "1px solid rgba(0,0,0,0.08)", padding: "10px 14px", borderRadius: 10, marginRight: 10, cursor: "pointer", fontSize: 16 }}
+                onClick={() => {
+                  setSelectionMode(false);
+                  setSelectedIds([]);
+                }}
+                style={{
+                  backgroundColor: "#F2F2F7",
+                  color: "#111111",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  padding: "10px 14px",
+                  borderRadius: 10,
+                  marginRight: 10,
+                  cursor: "pointer",
+                  fontSize: 16,
+                }}
               >
                 {t("Cancel")}
               </button>
               <button
                 onClick={handleDelete}
-                style={{ backgroundColor: "#FF3B30", color: "#ffffff", border: "none", padding: "10px 14px", borderRadius: 10, cursor: "pointer", fontSize: 16, fontWeight: 700, boxShadow: "0 6px 12px rgba(255,59,48,0.2)" }}
+                style={{
+                  backgroundColor: "#FF3B30",
+                  color: "#ffffff",
+                  border: "none",
+                  padding: "10px 14px",
+                  borderRadius: 10,
+                  cursor: "pointer",
+                  fontSize: 16,
+                  fontWeight: 700,
+                  boxShadow: "0 6px 12px rgba(255,59,48,0.2)",
+                }}
               >
                 {t("Delete")}
               </button>
@@ -227,7 +330,15 @@ export default function MinutesList() {
           ) : (
             <button
               onClick={() => setSelectionMode(true)}
-              style={{ backgroundColor: "#F2F2F7", color: "#111111", border: "1px solid rgba(0,0,0,0.08)", padding: "10px 14px", borderRadius: 10, cursor: "pointer", fontSize: 16 }}
+              style={{
+                backgroundColor: "#F2F2F7",
+                color: "#111111",
+                border: "1px solid rgba(0,0,0,0.08)",
+                padding: "10px 14px",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontSize: 16,
+              }}
             >
               {t("Select")}
             </button>
@@ -237,25 +348,54 @@ export default function MinutesList() {
 
       {/* Search（下線のみ / react-icons） */}
       <div style={{ marginBottom: 22 }}>
-        <div style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, borderBottom: "1px solid rgba(0,0,0,0.22)", paddingBottom: 8 }}>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            borderBottom: "1px solid rgba(0,0,0,0.22)",
+            paddingBottom: 8,
+          }}
+        >
           <CiSearch aria-hidden style={{ opacity: 0.55, fontSize: 18 }} />
           <input
             type="text"
             placeholder={t("Search...")}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            style={{ width: "100%", padding: "4px 0", borderRadius: 0, border: "none", outline: "none", backgroundColor: "transparent", color: "#111111", fontSize: 16 }}
+            style={{
+              width: "100%",
+              padding: "4px 0",
+              borderRadius: 0,
+              border: "none",
+              outline: "none",
+              backgroundColor: "transparent",
+              color: "#111111",
+              fontSize: 16,
+            }}
           />
         </div>
       </div>
 
       {/* List */}
       {sortedDateKeys.length === 0 ? (
-        <p style={{ color: "rgba(0,0,0,0.35)", textAlign: "center" }}>{t("No meeting records available")}</p>
+        <p style={{ color: "rgba(0,0,0,0.35)", textAlign: "center" }}>
+          {t("No meeting records available")}
+        </p>
       ) : (
         sortedDateKeys.map((dateKey) => (
           <div key={dateKey} style={{ marginBottom: 28 }}>
-            <h2 style={{ borderBottom: "1px solid rgba(0,0,0,0.08)", paddingBottom: 6, margin: "0 0 10px 0", fontSize: 18, color: "#111111", fontWeight: 700 }}>
+            <h2
+              style={{
+                borderBottom: "1px solid rgba(0,0,0,0.08)",
+                paddingBottom: 6,
+                margin: "0 0 10px 0",
+                fontSize: 18,
+                color: "#111111",
+                fontWeight: 700,
+              }}
+            >
               {dateKey}
             </h2>
             <div
@@ -264,7 +404,7 @@ export default function MinutesList() {
                 gridTemplateColumns: "repeat(auto-fit, minmax(23vw, 23vw))",
                 gap: 16,
                 marginTop: 6,
-                justifyContent: "start"
+                justifyContent: "start",
               }}
             >
               {groupedPapers[dateKey].map((paper) => (

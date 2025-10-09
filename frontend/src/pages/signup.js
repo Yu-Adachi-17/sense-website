@@ -5,34 +5,31 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 import Image from "next/image";
 
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  signOut,
-} from "firebase/auth";
-import {
-  getFirestore,
-  collection,
-  query,
-  where,
-  getDocs,
-  doc,
-  setDoc,
-  serverTimestamp,
-} from "firebase/firestore";
-
-import { app } from "../firebaseConfig";
 import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
+import { getClientAuth, getDb } from "../firebaseConfig";
 import HomeIcon from "./homeIcon";
 
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const auth = getAuth(app);
-const db = getFirestore(app);
-
+/**
+ * Firestore 上にユーザーDocumentを作成（既存チェック込み）
+ * - クライアントでのみ実行（SSRでは getDb() が null を返す）
+ */
 const createUserDocument = async (user) => {
+  const db = await getDb();
+  if (!db) return; // SSR/SSG時は何もしない
+
+  const {
+    collection,
+    query,
+    where,
+    getDocs,
+    doc,
+    setDoc,
+    serverTimestamp,
+  } = await import("firebase/firestore");
+
   const usersRef = collection(db, "users");
   const q = query(usersRef, where("email", "==", user.email));
   const querySnapshot = await getDocs(q);
@@ -71,7 +68,7 @@ export default function SignUp() {
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    const emailSentFlag = localStorage.getItem("isEmailSent");
+    const emailSentFlag = typeof window !== "undefined" && localStorage.getItem("isEmailSent");
     if (emailSentFlag === "true") {
       setIsEmailSent(true);
       localStorage.removeItem("isEmailSent");
@@ -82,17 +79,33 @@ export default function SignUp() {
     if (!email || !password) return;
     setIsLoading(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      // Auth はクライアント側でのみ取得
+      const auth = await getClientAuth();
+      if (!auth) throw new Error("Auth is not available on server.");
 
+      const {
+        createUserWithEmailAndPassword,
+        sendEmailVerification,
+        signOut,
+      } = await import("firebase/auth");
+
+      // アカウント作成
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      const user = cred.user;
+
+      // Firestoreにユーザードキュメント作成（重複チェック込み）
       await createUserDocument(user);
+
+      // 確認メール送信 → 直後にサインアウト
       await sendEmailVerification(user);
       await signOut(auth);
 
+      // UI表示用フラグ
       localStorage.setItem("isEmailSent", "true");
       window.location.reload();
     } catch (error) {
-      setAlertMessage(error.message || "Sign up failed.");
+      console.error(error);
+      setAlertMessage(error?.message || "Sign up failed.");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -102,12 +115,13 @@ export default function SignUp() {
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
-      await signInWithGoogle();
-      const user = auth.currentUser;
+      // signInWithGoogle は user を返す実装（firebaseAuth.js）
+      const user = await signInWithGoogle();
       if (user) await createUserDocument(user);
       await router.replace("/");
     } catch (error) {
-      setAlertMessage(error.message || "Google sign-in failed");
+      console.error(error);
+      setAlertMessage(error?.message || "Google sign-in failed");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
@@ -117,12 +131,12 @@ export default function SignUp() {
   const handleAppleSignIn = async () => {
     setIsLoading(true);
     try {
-      await signInWithApple();
-      const user = auth.currentUser;
+      const user = await signInWithApple();
       if (user) await createUserDocument(user);
       await router.replace("/");
     } catch (error) {
-      setAlertMessage(error.message || "Apple sign-in failed");
+      console.error(error);
+      setAlertMessage(error?.message || "Apple sign-in failed");
       setShowAlert(true);
     } finally {
       setIsLoading(false);
