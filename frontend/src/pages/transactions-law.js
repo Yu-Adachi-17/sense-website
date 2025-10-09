@@ -55,7 +55,7 @@ export default function TransactionsLaw() {
         <h1 style={h1Style}>特定商取引法に基づく表記 - Japan Only</h1>
 
         <h2 style={h2Style}>販売事業者の名称</h2>
-        <p style={paragraphStyle}>安達 悠</p>
+        <p style={paragraphStyle}>Sense 合同会社</p>
 
         <h2 style={h2Style}>所在地</h2>
         <p style={paragraphStyle}>請求があったら遅滞なく開示します。</p>

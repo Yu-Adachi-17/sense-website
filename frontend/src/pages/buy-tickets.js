@@ -1,7 +1,8 @@
-// pages/buy-tickets.js
+// frontend/src/pages/buy-tickets.js
 import Head from "next/head";
-import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getAuth } from "firebase/auth";
@@ -9,17 +10,16 @@ import HomeIcon from "./homeIcon";
 
 const SITE_URL = "https://www.sense-ai.world";
 
-/** =========================
- *  コメット風ネオン円（/homeと同等）
- *  - SVGは pointer-events: none でクリック透過
- *  - スマホ時は自動縮小
- * ========================= */
-function NeonCircle({
-  size = 560,
-  mobileSize = 420,
-  children,
-  ariaLabel,
-}) {
+/* ===== FixedHeaderPortal（/home と同じ） ===== */
+function FixedHeaderPortal({ children }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return createPortal(children, document.body);
+}
+
+/* ===== NeonCircle（/home と同じ。サイズ・文字スケール込み） ===== */
+function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
   const [isPhone, setIsPhone] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -106,6 +106,12 @@ function NeonCircle({
           mix-blend-mode: screen;
           image-rendering: optimizeQuality;
         }
+        /* ★ /home と同じ文字スケール */
+        :global(.pCard){ place-items: start; justify-items: start; align-items: start; text-align: left; gap: 10px; width: 100%; }
+        :global(.pKicker){ font-weight: 700; letter-spacing: 0.2px; opacity: 0.85; font-size: clamp(22px, calc(var(--sz) * 0.07), 42px); color: white; text-shadow: 0 2px 6px rgba(255,255,255,0.1); }
+        :global(.pPrice .big){ font-size: clamp(28px, calc(var(--sz) * 0.10), 54px); }
+        :global(.pPrice .unit){ font-size: clamp(14px, calc(var(--sz) * 0.038), 22px); }
+        :global(.pBullets){ font-size: clamp(12px, calc(var(--sz) * 0.028), 16px); line-height: 1.5; }
         .neonInner{ position: relative; z-index: 2; width: min(86%, calc(var(--sz) * 0.9)); text-align: left; }
         @media (max-width: 640px){
           .neonCircle{ overflow: hidden; border-radius: 20px; }
@@ -116,58 +122,46 @@ function NeonCircle({
   );
 }
 
-/** =========================
- *  価格カード（NeonCircleの中身 / 1プラン＝1カード）
- * ========================= */
-function PriceCard({ kicker, price, unit, bullets = [], onClick, ariaLabel, disabled }) {
+/* ===== 価格テキストをボタン化（hoverで“ふわっ”） ===== */
+function PriceBtn({ onClick, disabled, children, ariaLabel }) {
   return (
-    <button type="button" className="priceCard" onClick={onClick} aria-label={ariaLabel} disabled={!!disabled}>
-      <NeonCircle size={560} mobileSize={360} ariaLabel={ariaLabel}>
-        <div className="pCard">
-          <div className="pKicker">{kicker}</div>
-          <div className="pPrice">
-            <span className="big">{price}</span>
-            <span className="unit">{unit}</span>
-          </div>
-          {bullets?.length > 0 && (
-            <ul className="pBullets">{bullets.map((b, i) => <li key={i}>{b}</li>)}</ul>
-          )}
-        </div>
-      </NeonCircle>
-
+    <button
+      type="button"
+      className="priceBtn"
+      onClick={onClick}
+      disabled={!!disabled}
+      aria-label={ariaLabel}
+    >
+      {children}
       <style jsx>{`
-        .priceCard{
-          all: unset;
-          display: grid;
-          place-items: center;
+        .priceBtn{
+          display: inline-flex;
+          align-items: baseline;
+          gap: 8px;
+          border: 0;
+          background: rgba(0,0,0,0.0);
+          color: inherit;
+          padding: 6px 10px;
+          border-radius: 12px;
           cursor: pointer;
-          transition: transform 220ms cubic-bezier(.2,.7,.2,1), box-shadow 220ms ease, filter 220ms ease;
-          will-change: transform, filter;
-          border-radius: 28px; /* hoverの影を柔らかく */
+          transition: transform 180ms ease, text-shadow 180ms ease, box-shadow 180ms ease;
         }
-        .priceCard:hover,
-        .priceCard:focus-visible{
-          transform: translateY(-6px);
-          filter: drop-shadow(0 16px 28px rgba(50,90,180,.35)) drop-shadow(0 6px 10px rgba(0,0,0,.25));
+        .priceBtn:hover,
+        .priceBtn:focus-visible{
+          transform: translateY(-3px);
+          text-shadow: 0 6px 24px rgba(100,160,255,0.35);
+          box-shadow: 0 0 0 2px rgba(255,255,255,0.06) inset;
+          outline: none;
         }
-        .priceCard:disabled{ opacity:.6; cursor: not-allowed; transform:none !important; filter:none !important; }
-
-        :global(.pCard){ place-items: start; gap: 10px; width: 100%; color:#eaf4f7; }
-        :global(.pKicker){ font-weight: 800; letter-spacing: .2px; opacity: .9; }
-        :global(.pPrice){ display:flex; align-items:baseline; gap:8px; line-height:1; }
-        :global(.pPrice .big){
-          font-weight:900; letter-spacing:-.02em;
-          font-size: clamp(28px, 5.2vw, 54px);
-          background: linear-gradient(90deg, #65e0c4, #8db4ff 60%, #7cc7ff 100%);
-          -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
-          text-shadow: 0 4px 22px rgba(100,160,255,.25);
+        .priceBtn:disabled{
+          opacity: .6;
+          cursor: not-allowed;
+          transform: none !important;
+          text-shadow: none !important;
+          box-shadow: none !important;
         }
-        :global(.pPrice .unit){ font-weight:800; opacity:.9; font-size: clamp(16px, 2.2vw, 22px); }
-        :global(.pBullets){ list-style:none; padding:0; margin:8px 0 0 0; font-weight:700; font-size: clamp(12px, 1.7vw, 16px); line-height:1.5; opacity:.95; }
-        :global(.pBullets li::before){ content:"• "; opacity:.9; }
-
         @media (prefers-reduced-motion: reduce){
-          .priceCard{ transition: none !important; }
+          .priceBtn{ transition: none !important; }
         }
       `}</style>
     </button>
@@ -180,9 +174,7 @@ export default function BuyTicketsPage() {
   const [authInstance, setAuthInstance] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setAuthInstance(getAuth());
-    }
+    if (typeof window !== "undefined") setAuthInstance(getAuth());
   }, []);
 
   const handleBuyClick = async (productId) => {
@@ -197,12 +189,15 @@ export default function BuyTicketsPage() {
     const userId = authInstance.currentUser.uid;
     setLoadingProductId(productId);
     try {
-      const res = await fetch("https://sense-website-production.up.railway.app/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ productId, userId }),
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://sense-website-production.up.railway.app/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ productId, userId }),
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       if (data.url && typeof window !== "undefined") {
         window.location.href = data.url;
@@ -216,160 +211,526 @@ export default function BuyTicketsPage() {
     }
   };
 
-  const plans = useMemo(() => ([
-    {
-      key: "trial",
-      kicker: t("prepaid"),
-      price: "$1.99",
-      unit: "/120min",
-      bullets: [t("No expiry"), t("Perfect for occasional meetings"), t("Unlimited sessions")],
-      productId: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_120MIN,
-      aria: t("Buy 120 minutes for $1.99"),
-    },
-    {
-      key: "light",
-      kicker: t("prepaid"),
-      price: "$11.99",
-      unit: "/1200min",
-      bullets: [t("No expiry"), t("Perfect for occasional meetings"), t("Unlimited sessions")],
-      productId: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_1200MIN,
-      aria: t("Buy 1200 minutes for $11.99"),
-    },
-    {
-      key: "monthly",
-      kicker: t("Subscription"),
-      price: "$16.99",
-      unit: "/month",
-      bullets: [t("Unlimited usage"), t("Best for teams with regular meetings"), t("Unlock all features on iOS")],
-      productId: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_UNLIMITED,
-      aria: t("Subscribe monthly $16.99"),
-    },
-    {
-      key: "yearly",
-      kicker: t("Subscription"),
-      price: "$149.99",
-      unit: "/year",
-      bullets: [t("Unlimited usage"), t("Best for teams with regular meetings"), t("Unlock all features on iOS")],
-      productId: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_YEARLY_UNLIMITED,
-      aria: t("Subscribe yearly $149.99"),
-    },
-  ]), [t]);
+  const plans = useMemo(
+    () => ({
+      prepaid: {
+        kicker: t("prepaid"),
+        bullets: [
+          t("No expiry"),
+          t("Perfect for occasional meetings"),
+          t("Unlimited sessions"),
+        ],
+        items: [
+          {
+            label: t("Buy 120 minutes for $1.99"),
+            price: "$1.99",
+            unit: "/120min",
+            pid: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_120MIN,
+          },
+          {
+            label: t("Buy 1200 minutes for $11.99"),
+            price: "$11.99",
+            unit: "/1200min",
+            pid: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_1200MIN,
+          },
+        ],
+      },
+      sub: {
+        kicker: t("Subscription"),
+        bullets: [
+          t("Unlimited usage"),
+          t("Best for teams with regular meetings"),
+          t("Unlock all features on iOS"),
+        ],
+        items: [
+          {
+            label: t("Subscribe monthly $16.99"),
+            price: "$16.99",
+            unit: "/month",
+            pid: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_UNLIMITED,
+          },
+          {
+            label: t("Subscribe yearly $149.99"),
+            price: "$149.99",
+            unit: "/year",
+            pid: process.env.NEXT_PUBLIC_STRIPE_PRODUCT_YEARLY_UNLIMITED,
+          },
+        ],
+      },
+    }),
+    [t]
+  );
 
   return (
     <>
       <Head>
         <title>{t("Minutes.AI — Buy Time")}</title>
-        <meta name="description" content={t("Purchase prepaid minutes or subscriptions for Minutes.AI.")} />
+        <meta
+          name="description"
+          content={t("Purchase prepaid minutes or subscriptions for Minutes.AI.")}
+        />
         <link rel="canonical" href={`${SITE_URL}/buy-tickets`} />
       </Head>
 
-      {/* ===== Header（簡易） ===== */}
-      <header className="top" role="banner" aria-label="header">
-        <a href="/" className="brand" aria-label={t("Minutes.AI Home")}>
-          <span className="brandIcon" aria-hidden="true"><HomeIcon size={26} color="currentColor" /></span>
-          <span className="brandText">{t("Minutes.AI")}</span>
-        </a>
-      </header>
+      {/* ===== /home と同じヘッダー（Fixed） ===== */}
+      <FixedHeaderPortal>
+        <header className="top" role="banner">
+          <a href="/" className="brand" aria-label={t("Minutes.AI Home")}>
+            <span className="brandIcon" aria-hidden="true">
+              <HomeIcon size={26} color="currentColor" />
+            </span>
+            <span className="brandText">{t("Minutes.AI")}</span>
+          </a>
+          <nav className="nav" aria-label={t("Primary") || "Primary"}>
+            <a href="/" className="navLink">
+              <span className="navText gradHeader">{t("Home")}</span>
+            </a>
+          </nav>
+        </header>
+      </FixedHeaderPortal>
 
-      {/* ===== Main ===== */}
-      <main className="scene">
-        <h1 className="pricingH2">{t("Minutes.AI Pricing")}</h1>
-        <p className="pricingSub">{t("Simple, predictable pricing. Flexible plans for any workflow.")}</p>
+      {/* ===== Main：/home の Pricing セクションをそのまま ===== */}
+      <main className="scene buyScene">
+        <section className="pricingSection" aria-labelledby="pricingHead">
+          <div className="pricingHeadWrap">
+          <h2 id="pricingHead" className="pricingH2 gradText">
+  {t("Upgrade")}
+</h2>
 
-        <section className="pricingGrid" aria-label={t("Pricing options")}>
-          {plans.map((p) => (
-            <PriceCard
-              key={p.key}
-              kicker={p.kicker}
-              price={p.price}
-              unit={p.unit}
-              bullets={p.bullets}
-              ariaLabel={p.aria}
-              onClick={() => handleBuyClick(p.productId)}
-              disabled={loadingProductId === p.productId}
-            />
-          ))}
+            <p className="pricingSub">
+              {t(
+                "Simple, predictable pricing. Flexible plans for any workflow."
+              )}
+            </p>
+          </div>
+
+          <div className="pricingGrid">
+            {/* 左：プリペイド */}
+            <NeonCircle
+              size={560}
+              mobileSize={360}
+              ariaLabel={t("Prepaid minutes pricing")}
+            >
+              <div className="pCard">
+                <div className="pKicker">{plans.prepaid.kicker}</div>
+
+                {plans.prepaid.items.map((it) => (
+                  <div className="pPrice" key={it.pid}>
+                    <PriceBtn
+                      ariaLabel={it.label}
+                      onClick={() => handleBuyClick(it.pid)}
+                      disabled={loadingProductId === it.pid}
+                    >
+                      <span className="big">{it.price}</span>
+                      <span className="unit">{it.unit}</span>
+                    </PriceBtn>
+                  </div>
+                ))}
+
+                <ul className="pBullets">
+                  {plans.prepaid.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </NeonCircle>
+
+            {/* 右：サブスク */}
+            <NeonCircle
+              size={560}
+              mobileSize={360}
+              ariaLabel={t("Subscription pricing")}
+            >
+              <div className="pCard">
+                <div className="pKicker">{plans.sub.kicker}</div>
+
+                {plans.sub.items.map((it) => (
+                  <div className="pPrice" key={it.pid}>
+                    <PriceBtn
+                      ariaLabel={it.label}
+                      onClick={() => handleBuyClick(it.pid)}
+                      disabled={loadingProductId === it.pid}
+                    >
+                      <span className="big">{it.price}</span>
+                      <span className="unit">{it.unit}</span>
+                    </PriceBtn>
+                  </div>
+                ))}
+
+                <ul className="pBullets">
+                  {plans.sub.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </NeonCircle>
+          </div>
+
+          <p className="pricingNote">
+            {t(
+              "Prices in USD. Taxes may apply by region. Auto-renew; cancel anytime."
+            )}
+          </p>
         </section>
-
-        <p className="pricingNote">{t("Prices in USD. Taxes may apply by region. Auto-renew; cancel anytime.")}</p>
       </main>
 
-      {/* ===== Footer（/homeのものを移植） ===== */}
+      {/* ===== /home の Footer を移植 ===== */}
       <footer className="pageFooter" role="contentinfo">
         <div className="footInner">
           <div className="legal">
-            <Link href="/terms-of-use" className="legalLink">{t("Terms of Use")}</Link>
+            <Link href="/terms-of-use" className="legalLink">
+              {t("Terms of Use")}
+            </Link>
             <span className="sep">·</span>
-            <Link href="/privacy-policy" className="legalLink">{t("Privacy Policy")}</Link>
+            <Link href="/privacy-policy" className="legalLink">
+              {t("Privacy Policy")}
+            </Link>
           </div>
           <div className="copyright">© Sense LLC All Rights Reserved</div>
         </div>
       </footer>
 
-      {/* ===== Styles ===== */}
+      {/* ===== styles（/home から必要分をそのまま） ===== */}
       <style jsx>{`
         .scene {
-          --bg-1:#05060e; --bg-2:#0b1030; --halo:255,255,255;
+          --bg-1: #05060e;
+          --bg-2: #0b1030;
+          --halo: 255, 255, 255;
+          position: relative;
           min-height: 100vh;
-          padding: calc(56px + 20px) 22px 18vh;
-          color:#fff;
-          background:
-            radial-gradient(130vmax 130vmax at 50% 120%, #10163a 0%, var(--bg-2) 50%, var(--bg-1) 100%),
-            radial-gradient(1px 1px at 20% 30%, rgba(var(--halo), 0.22) 99%, transparent 100%),
-            radial-gradient(1px 1px at 80% 20%, rgba(var(--halo), 0.12) 99%, transparent 100%),
-            radial-gradient(1px 1px at 30% 70%, rgba(var(--halo), 0.14) 99%, transparent 100%),
-            radial-gradient(1px 1px at 60% 50%, rgba(var(--halo), 0.1) 99%, transparent 100%),
-            radial-gradient(1px 1px at 75% 80%, rgba(var(--halo), 0.1) 99%, transparent 100%);
+          padding-top: var(--header-offset); /* ヘッダー分の余白 */
+          padding-bottom: 24vh;
+          overflow: hidden;
+          color: #fff;
+          background: radial-gradient(
+              130vmax 130vmax at 50% 120%,
+              #10163a 0%,
+              var(--bg-2) 50%,
+              var(--bg-1) 100%
+            ),
+            radial-gradient(
+              1px 1px at 20% 30%,
+              rgba(var(--halo), 0.22) 99%,
+              transparent 100%
+            ),
+            radial-gradient(
+              1px 1px at 80% 20%,
+              rgba(var(--halo), 0.12) 99%,
+              transparent 100%
+            ),
+            radial-gradient(
+              1px 1px at 30% 70%,
+              rgba(var(--halo), 0.14) 99%,
+              transparent 100%
+            ),
+            radial-gradient(
+              1px 1px at 60% 50%,
+              rgba(var(--halo), 0.1) 99%,
+              transparent 100%
+            ),
+            radial-gradient(
+              1px 1px at 75% 80%,
+              rgba(var(--halo), 0.1) 99%,
+              transparent 100%
+            );
         }
-        .pricingH2{ margin:0; text-align:center; font-weight:900; letter-spacing:-.02em; line-height:1.02; font-size: clamp(36px, 6.3vw, 92px); }
-        .pricingSub{ margin:8px auto 18px; text-align:center; opacity:.9; font-weight:700; font-size: clamp(14px, 1.9vw, 18px); max-width: 960px; }
-        .pricingGrid{
-          display:grid; grid-template-columns:1fr 1fr;
-          gap: clamp(16px, 3vw, 40px); align-items:center; justify-items:center;
-          max-width: 1240px; margin: clamp(10px, 3vh, 20px) auto 0;
+        .pricingSection {
+          margin: clamp(26px, 9vh, 120px) auto;
+          padding: 0 22px;
+          max-width: 1200px;
+          text-align: center;
+          position: relative;
+          isolation: isolate;
+          overflow: visible;
+          padding-bottom: clamp(48px, 10vh, 140px);
+          margin-bottom: clamp(8px, 4vh, 40px);
         }
-        .pricingNote{ margin: 12px auto 0; text-align:center; opacity:.72; font-size:12px; max-width: 960px; }
-        @media (max-width: 1220px){ .pricingGrid{ grid-template-columns:1fr; } }
+        @media (max-width: 640px) {
+          .pricingSection {
+            overflow: hidden;
+            padding-bottom: max(20vh, 140px);
+          }
+          .pricingGrid {
+            row-gap: 28px;
+          }
+        }
+        .pricingH2 {
+          margin: 0;
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          line-height: 1.02;
+          font-size: clamp(36px, 6.3vw, 92px);
+        }
+        .pricingSub {
+          margin: 8px 0 18px 0;
+          opacity: 0.9;
+          font-weight: 700;
+          font-size: clamp(14px, 1.9vw, 18px);
+        }
+        .pricingGrid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: clamp(16px, 3vw, 40px);
+          align-items: center;
+          justify-items: center;
+          margin-top: clamp(10px, 3vh, 20px);
+        }
+        @media (max-width: 1220px) {
+          .pricingGrid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .pCard {
+          display: grid;
+          gap: 8px;
+          place-items: center;
+          color: #eaf4f7;
+        }
+        .pKicker {
+          font-weight: 800;
+          letter-spacing: 0.2px;
+          opacity: 0.9;
+        }
+        .pPrice {
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          gap: 8px;
+          line-height: 1;
+        }
+        .big {
+          font-weight: 900;
+          letter-spacing: -0.02em;
+          background: linear-gradient(
+            90deg,
+            #65e0c4,
+            #8db4ff 60%,
+            #7cc7ff 100%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
+          text-shadow: 0 4px 22px rgba(100, 160, 255, 0.25);
+        }
+        .unit {
+          font-weight: 800;
+          opacity: 0.9;
+        }
+        .pBullets {
+          list-style: none;
+          padding: 0;
+          margin: 8px 0 0 0;
+          font-weight: 700;
+          line-height: 1.5;
+          opacity: 0.95;
+        }
+        .pBullets li::before {
+          content: "• ";
+          opacity: 0.9;
+        }
+
+        .pageFooter {
+          position: relative;
+          z-index: 3;
+          padding: 20px 22px 28px;
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          background: linear-gradient(
+            0deg,
+            rgba(10, 14, 28, 0.6) 0%,
+            rgba(10, 14, 28, 0.3) 100%
+          );
+          color: #eaf4f7;
+        }
+        .footInner {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+        }
+        .legal {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          font-size: 13px;
+          opacity: 0.7;
+        }
+        .legalLink {
+          color: #ffffff;
+          text-decoration: none;
+        }
+        .sep {
+          opacity: 0.55;
+        }
+        .copyright {
+          font-size: 13px;
+          opacity: 0.7;
+          white-space: nowrap;
+        }
+            .gradText{
+    background: linear-gradient(
+      90deg,
+      #7cc7ff 0%,
+      #8db4ff 35%,
+      #65e0c4 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+    .pricingH2{
+  line-height: 1.08;        /* 1.02 → 少しゆったり */
+  padding-bottom: 0.06em;   /* 描画の切れ防止クッション */
+}
+.buyScene .pricingSection{
+  margin-top: clamp(8px, 4vh, 60px); /* 元: clamp(26px, 9vh, 120px) の上側を上書き */
+}
+        @media (max-width: 640px) {
+          .footInner {
+            flex-direction: column;
+            gap: 8px;
+          }
+        }
       `}</style>
 
-      {/* Header & Footer shared styles */}
+      {/* ===== 追加修正：リンクの紫・下線を強制的にオフ／注釈下の余白調整 ===== */}
       <style jsx global>{`
-        :root { --header-h: 56px; --header-py: 10px; }
-        header.top{
-          position:fixed; left:0; right:0; top:0; z-index:9999;
-          display:flex; justify-content:space-between; align-items:center;
-          height: calc(var(--header-h)); padding: var(--header-py) 22px;
-          -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-          background: linear-gradient(180deg, rgba(10,14,28,0.75) 0%, rgba(10,14,28,0.45) 100%);
-          border-bottom:1px solid rgba(255,255,255,0.06);
+        /* フッターのリンクを常にプレーン（白・下線なし） */
+        .pageFooter .legalLink,
+        .pageFooter .legalLink:visited,
+        .pageFooter .legalLink:hover,
+        .pageFooter .legalLink:active {
+          color: #eaf4f7 !important;
+          text-decoration: none !important;
+          border-bottom: none !important;
         }
-        header.top .brand{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#b6eaff; }
-        header.top .brandText{ font-weight:800; font-size:24px; letter-spacing:.2px; }
-        header.top .brand .ai{ background: linear-gradient(90deg, #7cc7ff, #65e0c4); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        header.top .brand .brandIcon{ width:26px; height:26px; display:inline-flex; }
+        .pageFooter .legalLink:focus-visible {
+          outline: 2px solid rgba(234, 244, 247, 0.65);
+          outline-offset: 2px;
+          border-radius: 6px;
+        }
+          
 
-        .pageFooter { position:relative; z-index:3; padding:20px 22px 28px; border-top:1px solid rgba(255,255,255,0.06);
-          background: linear-gradient(0deg, rgba(10,14,28,0.6) 0%, rgba(10,14,28,0.3) 100%); color:#eaf4f7; }
-        .footInner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-        .legal { display:flex; gap:12px; align-items:center; font-size:13px; opacity:0.7; }
-        .legalLink { color:#ffffff; text-decoration:none; }
-        .sep { opacity:0.55; }
-        .copyright { font-size:13px; opacity:0.7; white-space:nowrap; }
-        @media (max-width: 640px) { .footInner { flex-direction:column; gap:8px; } }
+        /* /buy-tickets 専用：注釈〜フッターの余白を少し詰める */
+        .buyScene {
+          padding-bottom: clamp(28px, 7vh, 84px);
+        }
+        .buyScene .pricingSection {
+          padding-bottom: clamp(18px, 5vh, 60px);
+          margin-bottom: clamp(6px, 2vh, 18px);
+        }
+        .buyScene .pricingNote {
+          margin-bottom: 0;
+        }
+      `}</style>
 
-        @media (prefers-reduced-motion: reduce){
-          * { animation: none !important; transition: none !important; }
+      {/* ===== /home と同じヘッダーの共通グローバル変数／装飾 ===== */}
+      
+      <style jsx global>{`
+        :root {
+          --header-h: clamp(56px, 7.2vh, 72px);
+          --header-py: 10px;
+          --header-offset: calc(
+            var(--header-h) + env(safe-area-inset-top, 0px) + (var(--header-py) * 2)
+          );
+        }
+        header.top {
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 0;
+          z-index: 2147483647;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+          padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px
+            var(--header-py);
+          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+          background: linear-gradient(
+            180deg,
+            rgba(10, 14, 28, 0.75) 0%,
+            rgba(10, 14, 28, 0.45) 100%
+          );
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        header.top .brand {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          color: #b6eaff;
+        }
+        header.top .brandText {
+          font-weight: 800;
+          font-size: 24px;
+          letter-spacing: 0.2px;
+        }
+        header.top .brand .brandIcon {
+          width: 26px;
+          height: 26px;
+          display: inline-flex;
+        }
+        header.top .nav {
+          background: rgba(20, 40, 60, 0.7);
+          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+          padding: 10px 18px;
+          border-radius: 999px;
+          display: flex;
+          align-items: center;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        header.top .navLink,
+        header.top .navLink:visited,
+        header.top .navLink:hover,
+        header.top .navLink:active {
+          color: #eaf4f7 !important;
+          text-decoration: none !important;
+          margin: 0 8px;
+          opacity: 0.95;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+        }
+        header.top .navText {
+          font-weight: 800;
+          font-size: clamp(14px, 1.6vw, 18px);
+        }
+        header.top .gradHeader {
+          background: linear-gradient(
+            90deg,
+            #7cc7ff 0%,
+            #8db4ff 35%,
+            #65e0c4 100%
+          );
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+        @supports not (backdrop-filter: blur(12px)) {
+          header.top {
+            background: rgba(10, 14, 28, 0.92);
+          }
+          header.top .nav {
+            background: rgba(20, 40, 60, 0.92);
+          }
         }
       `}</style>
     </>
   );
 }
 
-// i18n（SSR）
+/* i18n：/home と同じ辞書を読む（タイトルが消える問題の予防） */
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common"])),
+      ...(await serverSideTranslations(locale ?? "en", ["common", "home"])),
     },
   };
 }
