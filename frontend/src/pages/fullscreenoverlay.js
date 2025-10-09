@@ -1,11 +1,13 @@
+// src/pages/fullscreenoverlay.js
 import React, { useState, useEffect } from "react";
 import { TbClipboardList, TbClipboardText } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
-import { doc, updateDoc, onSnapshot } from "firebase/firestore";
-import { db } from "../firebaseConfig";
-import { useTranslation } from "react-i18next";
+// ✅ 直 import をやめて SSR 安全ユーティリティだけ import
+import { getDb } from "../firebaseConfig";
+// i18n は next-i18next に寄せる（_app で appWithTranslation 済み）
+import { useTranslation } from "next-i18next";
 
 export default function FullScreenOverlay({
   setShowFullScreen,
@@ -14,18 +16,17 @@ export default function FullScreenOverlay({
   transcription,
   minutes,
   audioURL,
-  docId
+  docId,
 }) {
   const { t, i18n } = useTranslation();
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
-  /** ---------- 追加: ユーティリティ（安全にパース/整形） ---------- */
+  /** ---------- 文字列/JSON 安全化ユーティリティ ---------- */
   const stripCodeFences = (raw) => {
     if (typeof raw !== "string") return raw;
-    let s = raw.trim().replace(/^\uFEFF/, ""); // BOM除去
-    // ```json ... ``` / ``` ... ``` の除去（全面/前後どちらでも）
+    let s = raw.trim().replace(/^\uFEFF/, "");
     const fenced = s.match(/^```(?:json|javascript|js|ts)?\s*([\s\S]*?)\s*```$/i);
     if (fenced) return fenced[1].trim();
     s = s.replace(/^```(?:json|javascript|js|ts)?\s*/i, "");
@@ -34,7 +35,6 @@ export default function FullScreenOverlay({
   };
 
   const tryParseJSON = (value) => {
-    // すでにオブジェクトならそのまま
     if (value && typeof value === "object") return value;
     if (typeof value !== "string") return null;
     const s = stripCodeFences(value);
@@ -46,7 +46,6 @@ export default function FullScreenOverlay({
   };
 
   const toDisplayText = (value) => {
-    // テキストエリア/内表示用は常に文字列に正規化
     if (value && typeof value === "object") {
       try {
         return JSON.stringify(value, null, 2);
@@ -58,61 +57,67 @@ export default function FullScreenOverlay({
     return value == null ? "" : String(value);
   };
 
-  // 編集テキスト: isExpanded に応じて transcription / minutes を文字列で保持
+  // 編集テキスト: isExpanded に応じて初期値を決定
   const [editedText, setEditedText] = useState(
     isExpanded ? toDisplayText(transcription) : toDisplayText(minutes)
   );
 
-  // アラビア語のdir切替
+  // dir 切替（RTL対応）
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
-  // Firestore リアルタイム反映（非編集中のみ）
+  // Firestore リアルタイム購読（非編集中のみ）
   useEffect(() => {
-    if (docId && !isEditing) {
-      const docRef = doc(db, "meetingRecords", docId);
-      const unsubscribe = onSnapshot(docRef, (snap) => {
-        if (snap.exists()) {
-          const data = snap.data();
-          const incoming = isExpanded ? data.transcription : data.minutes;
-          setEditedText(toDisplayText(incoming));
-        }
+    let unsub;
+    let mounted = true;
+
+    (async () => {
+      if (!docId || isEditing) return;
+      const db = await getDb();
+      if (!db || !mounted) return;
+
+      const { doc, onSnapshot } = await import("firebase/firestore");
+      const ref = doc(db, "meetingRecords", docId);
+      unsub = onSnapshot(ref, (snap) => {
+        if (!mounted || !snap.exists()) return;
+        const data = snap.data();
+        const incoming = isExpanded ? data.transcription : data.minutes;
+        setEditedText(toDisplayText(incoming));
       });
-      return unsubscribe;
-    }
+    })();
+
+    return () => {
+      mounted = false;
+      if (typeof unsub === "function") unsub();
+    };
   }, [docId, isExpanded, isEditing]);
 
-  // 画面サイズ
+  // 画面サイズ（モバイル閾値）
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
-    const onResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    const update = () => setIsMobile(window.innerWidth <= 768);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
-  // prop変更・表示切替時の同期（非編集中のみ）
+  // prop変更時の同期（非編集中のみ）
   useEffect(() => {
     if (!isEditing) {
       setEditedText(isExpanded ? toDisplayText(transcription) : toDisplayText(minutes));
     }
-    if (!isExpanded && isEditing) {
-      setIsEditing(false);
-    }
+    if (!isExpanded && isEditing) setIsEditing(false);
   }, [isExpanded, transcription, minutes, isEditing]);
 
   // ダウンロード
   const handleDownload = () => {
-    if (audioURL) {
-      const link = document.createElement("a");
-      link.href = audioURL;
-      link.download = "meeting_recording.webm";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      alert(t("No downloadable audio data available."));
-    }
+    if (!audioURL) return alert(t("No downloadable audio data available."));
+    const link = document.createElement("a");
+    link.href = audioURL;
+    link.download = "meeting_recording.webm";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleSwitchView = () => {
@@ -122,11 +127,10 @@ export default function FullScreenOverlay({
   };
 
   const handleSwitchToMinutes = () => {
-    if (isExpanded) {
-      setIsExpanded(false);
-      setShowSideMenu(false);
-      setIsEditing(false);
-    }
+    if (!isExpanded) return;
+    setIsExpanded(false);
+    setShowSideMenu(false);
+    setIsEditing(false);
   };
 
   const handleShare = () => {
@@ -136,24 +140,24 @@ export default function FullScreenOverlay({
       .catch(() => alert(t("Failed to copy to clipboard.")));
   };
 
-  // 保存（minutes/transcriptionは文字列で保存）
+  // 保存（minutes/transcription は文字列で保存）
   const handleSave = async () => {
-    if (!docId) {
-      alert(t("No document ID available for saving."));
-      return;
-    }
+    if (!docId) return alert(t("No document ID available for saving."));
     try {
-      const docRef = doc(db, "meetingRecords", docId);
+      const db = await getDb();
+      if (!db) throw new Error("DB unavailable (SSR or not initialized).");
+      const { doc, updateDoc } = await import("firebase/firestore");
+      const ref = doc(db, "meetingRecords", docId);
       if (isExpanded) {
-        await updateDoc(docRef, { transcription: editedText });
+        await updateDoc(ref, { transcription: editedText });
       } else {
-        await updateDoc(docRef, { minutes: editedText });
+        await updateDoc(ref, { minutes: editedText });
       }
       setIsEditing(false);
       alert(t("Save successful."));
-    } catch (error) {
-      console.error("Error saving document: ", error);
-      alert(t("Save failed: ") + error.message);
+    } catch (e) {
+      console.error("Error saving document:", e);
+      alert(t("Save failed: ") + (e?.message ?? String(e)));
     }
   };
 
@@ -161,11 +165,7 @@ export default function FullScreenOverlay({
 
   // スキーマ判定
   const isFlexibleSchema = (obj) =>
-    obj &&
-    typeof obj === "object" &&
-    typeof obj.meetingTitle === "string" &&
-    typeof obj.summary === "string" &&
-    Array.isArray(obj.sections);
+    obj && typeof obj === "object" && typeof obj.meetingTitle === "string" && typeof obj.summary === "string" && Array.isArray(obj.sections);
 
   const isLegacySchema = (obj) => obj && typeof obj === "object" && Array.isArray(obj.topics);
 
@@ -352,7 +352,7 @@ export default function FullScreenOverlay({
             ...(isExpanded ? styles.fullText : styles.summaryText),
           }}
         >
-          {(isExpanded && isEditing) ? (
+          {isExpanded && isEditing ? (
             <textarea
               style={styles.textEditor}
               value={editedText}
@@ -360,7 +360,6 @@ export default function FullScreenOverlay({
             />
           ) : (
             (() => {
-              // ここを安全化：コードフェンス除去 + 既オブジェ/文字列どちらでもOK
               const parsed = tryParseJSON(editedText);
 
               if (parsed && isFlexibleSchema(parsed)) {
@@ -497,14 +496,13 @@ export default function FullScreenOverlay({
                         />
                       </>
                     )}
-                    {meeting.topics &&
-                      meeting.topics.length > 0 &&
+                    {Array.isArray(meeting.topics) &&
                       meeting.topics.map((topic, topicIndex) => (
                         <div key={topicIndex} style={{ marginBottom: "16px" }}>
                           <h2 style={{ fontSize: "24px", fontWeight: "bold", margin: 0 }}>
                             {topicIndex + 1}. {topic.topic}
                           </h2>
-                          {topic.discussion && topic.discussion.length > 0 && (
+                          {Array.isArray(topic.discussion) && topic.discussion.length > 0 && (
                             <div>
                               <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "8px" }}>
                                 Discussion
@@ -514,15 +512,14 @@ export default function FullScreenOverlay({
                               ))}
                             </div>
                           )}
-                          {topic.proposals &&
-                            topic.proposals.length > 0 &&
+                          {Array.isArray(topic.proposals) &&
                             topic.proposals.map((item, index) => (
                               <div key={index} style={{ marginTop: "8px" }}>
                                 <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
                                   Proposal {item.proposedBy ? `(${item.proposedBy})` : ""}
                                 </h3>
                                 <p style={{ fontWeight: "bold", margin: 0 }}>{item.proposal}</p>
-                                {item.proposalReasons && item.proposalReasons.length > 0 && (
+                                {Array.isArray(item.proposalReasons) && item.proposalReasons.length > 0 && (
                                   <div>
                                     <h4
                                       style={{
@@ -539,7 +536,7 @@ export default function FullScreenOverlay({
                                     ))}
                                   </div>
                                 )}
-                                {item.keyDiscussion && item.keyDiscussion.length > 0 && (
+                                {Array.isArray(item.keyDiscussion) && item.keyDiscussion.length > 0 && (
                                   <div>
                                     <h4
                                       style={{
@@ -550,21 +547,23 @@ export default function FullScreenOverlay({
                                       }}
                                     >
                                       Discussion Points
-                                      </h4>
-                                      {item.keyDiscussion.map((point, i) => (
-                                        <p key={i}>- {point}</p>
-                                      ))}
+                                    </h4>
+                                    {item.keyDiscussion.map((point, i) => (
+                                      <p key={i}>- {point}</p>
+                                    ))}
                                   </div>
                                 )}
                               </div>
                             ))}
-                          {topic.decisionsAndTasks && topic.decisionsAndTasks.length > 0 && (
+                          {Array.isArray(topic.decisionsAndTasks) && topic.decisionsAndTasks.length > 0 && (
                             <div style={{ marginTop: "8px" }}>
                               <h3 style={{ fontSize: "20px", fontWeight: "bold", margin: 0 }}>
                                 Decisions & Tasks
                               </h3>
                               {topic.decisionsAndTasks.map((task, i) => (
-                                <p key={i}>{i + 1}. {task}</p>
+                                <p key={i}>
+                                  {i + 1}. {task}
+                                </p>
                               ))}
                             </div>
                           )}
@@ -589,8 +588,8 @@ export default function FullScreenOverlay({
                 );
               }
 
-              // パース不可/未知スキーマはそのまま（ただしコードフェンスは除去）
-              const plain = typeof editedText === "string" ? stripCodeFences(editedText) : editedText;
+              const plain =
+                typeof editedText === "string" ? stripCodeFences(editedText) : editedText;
               return <pre style={{ whiteSpace: "pre-wrap", margin: 0 }}>{toDisplayText(plain)}</pre>;
             })()
           )}
