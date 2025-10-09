@@ -1,7 +1,6 @@
 // src/firebaseConfig.js
-import { initializeApp, getApps, getApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";
 
-// .env は NEXT_PUBLIC_ プレフィックスのものを使用
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -12,40 +11,59 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// multiple init を避ける
-export const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-
-/** クライアントでだけ Firestore を返す（SSRでは null） */
-export async function getDb() {
-  if (typeof window === "undefined") return null;
-  const { getFirestore } = await import("firebase/firestore");
-  return getFirestore(app);
+// SSRでも安全に app を返す
+export function getAppSafe() {
+  const apps = getApps();
+  return apps.length ? apps[0] : initializeApp(firebaseConfig);
 }
 
-/** クライアントでだけ Auth を返す（SSRでは null） */
-let _persistenceSet = false;
+// ---- Auth: クライアント限定で返す ----
+let _auth = null;
 export async function getClientAuth() {
   if (typeof window === "undefined") return null;
+  if (_auth) return _auth;
+  const app = getAppSafe();
   const { getAuth, setPersistence, browserLocalPersistence } = await import("firebase/auth");
-  const auth = getAuth(app);
-  if (!_persistenceSet) {
-    await setPersistence(auth, browserLocalPersistence);
-    _persistenceSet = true;
-  }
-  return auth;
-}
-
-/** 既存の API を残したい場合のラッパー（呼ぶ側は useEffect内で await する） */
-export async function initAuthPersistence() {
-  await getClientAuth(); // 中で setPersistence まで行う
-}
-
-/** Analytics は対応ブラウザ時のみ（既存と同じ思想） */
-export async function initAnalytics() {
-  if (typeof window === "undefined") return null;
+  _auth = getAuth(app);
   try {
-    const { isSupported, getAnalytics } = await import("firebase/analytics");
-    if (await isSupported()) return getAnalytics(app);
-  } catch {}
-  return null;
+    await setPersistence(_auth, browserLocalPersistence);
+  } catch {} // 既に設定済みなら無視
+  return _auth;
+}
+
+// ---- Firestore: クライアント限定で返す ----
+let _db = null;
+export async function getDb() {
+  if (typeof window === "undefined") return null;
+  if (_db) return _db;
+  const app = getAppSafe();
+  const { getFirestore } = await import("firebase/firestore");
+  _db = getFirestore(app);
+  return _db;
+}
+
+// ---- Analytics: クライアント＋対応環境のみ ----
+let analytics = null;
+if (typeof window !== "undefined") {
+  (async () => {
+    try {
+      const { isSupported, getAnalytics } = await import("firebase/analytics");
+      if (await isSupported()) {
+        const app = getAppSafe();
+        analytics = getAnalytics(app);
+      }
+    } catch {}
+  })();
+}
+
+// 必要なら外から参照できるように
+export { analytics };
+
+// 既存のユーティリティ（必要なら）
+let _persistenceSet = false;
+export async function initAuthPersistence() {
+  if (_persistenceSet || typeof window === "undefined") return;
+  const auth = await getClientAuth();
+  if (!auth) return;
+  _persistenceSet = true;
 }
