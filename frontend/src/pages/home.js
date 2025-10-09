@@ -704,7 +704,7 @@ const circleSize = isPhone ? 420 : 560;
 
             <div className="pricingGrid">
               {/* 左：使い切り */}
-              <NeonCircle size={560} mobileSize={300} ariaLabel={t("Prepaid minutes pricing")}>
+              <NeonCircle size={560} mobileSize={360} ariaLabel={t("Prepaid minutes pricing")}>
                 <div className="pCard">
                   <div className="pKicker">{t("prepaid")}</div>
                   <div className="pPrice">
@@ -724,7 +724,7 @@ const circleSize = isPhone ? 420 : 560;
               </NeonCircle>
 
               {/* 右：サブスク */}
-              <NeonCircle size={560} mobileSize={300} ariaLabel={t("Subscription pricing")}>
+              <NeonCircle size={560} mobileSize={360} ariaLabel={t("Subscription pricing")}>
                 <div className="pCard">
                   <div className="pKicker">{t("Subscription")}</div>
                   <div className="pPrice">
