@@ -6,7 +6,7 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// ---- 小さなUIパーツ ----
+// ---- small UI components ----
 function Kicker({ children }) {
   return (
     <span className="inline-block rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs tracking-wide text-indigo-100/90">
@@ -38,7 +38,7 @@ function StatFootnote({ children }) {
   );
 }
 
-// アクセシブルな「全文を展開」コンポーネント
+// Accessible “expand full transcript” component
 function ExpandableTranscript({ preview, full }) {
   const [open, setOpen] = useState(false);
   return (
@@ -47,7 +47,7 @@ function ExpandableTranscript({ preview, full }) {
       onToggle={(e) => setOpen(e.currentTarget.open)}
     >
       <summary className="list-none cursor-pointer select-none px-4 py-3 text-sm text-indigo-100/90 flex items-center justify-between">
-        <span>{open ? "全文を閉じる" : "全文を展開"}</span>
+        <span>{open ? "Close Full Text" : "Expand Full Text"}</span>
         <svg
           aria-hidden="true"
           className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
@@ -71,35 +71,33 @@ export default function BlogIntroduction() {
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = `${siteUrl}/blog/introduction`;
   const LINK_HOME = "/";
-  // 公式App Store（議事録AI）
   const LINK_IOS =
     "https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
   return (
     <>
       <Head>
-        <title>議事録AIとは何か？導入前に知っておくべき基礎とメリット | Minutes.AI Blog</title>
+        <title>What is Meeting-Minutes AI? Basics & Benefits Before You Adopt | Minutes.AI Blog</title>
         <meta
           name="description"
-          content="“ワンタッチで意味ある議事録” を。議事録AIの基本、他ツールとの違い、出力例をシンプルに解説。3万人以上が利用（2025年10月時点）。"
+          content="“One-tap for meaningful meeting minutes.” A simple intro to Minutes AI: basics, differences vs other tools, output examples; trusted by 30,000+ users (as of Oct 2025)."
         />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="議事録AIとは何か？導入前に知っておくべき基礎とメリット" />
+        <meta property="og:title" content="What is Meeting-Minutes AI? Basics & Benefits Before You Adopt" />
         <meta
           property="og:description"
-          content="“ワンタッチで意味ある議事録”。議事録AIの基本と差分、出力例を最短で。"
+          content="“One-tap for meaningful minutes.” Understand meeting-minutes AI, how it's different, and sample outputs."
         />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/images/hero-phone.png`} />
         <script
           type="application/ld+json"
-          // 構造化データ（Article）
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Article",
-              headline: "議事録AIとは何か？導入前に知っておくべき基礎とメリット",
+              headline: "What is Meeting-Minutes AI? Basics & Benefits Before You Adopt",
               datePublished: new Date().toISOString(),
               dateModified: new Date().toISOString(),
               mainEntityOfPage: canonical,
@@ -111,13 +109,12 @@ export default function BlogIntroduction() {
               },
               image: [`${siteUrl}/images/hero-phone.png`],
               description:
-                "“ワンタッチで意味ある議事録”。議事録AIの基本と差分、出力例を最短で。",
+                "“One-tap for meaningful meeting minutes.” A simple intro to meeting-minutes AI, its differences, and examples.",
             }),
           }}
         />
       </Head>
 
-      {/* 背景（/blog と同系統のネオン・グラデ） */}
       <div
         className={`${inter.className} min-h-screen bg-[#0b0e2e] text-white [background:radial-gradient(1200px_800px_at_10%_-20%,rgba(70,69,255,.25),transparent),radial-gradient(800px_600px_at_100%_0%,rgba(192,132,252,.18),transparent)]`}
       >
@@ -131,90 +128,85 @@ export default function BlogIntroduction() {
           </nav>
         </header>
 
-        {/* ヒーロー */}
         <section className="relative">
           <div className="mx-auto max-w-3xl px-6 pt-10 pb-6 sm:pt-12 sm:pb-8">
             <Kicker>Minutes.AI</Kicker>
             <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">
               <span className="bg-gradient-to-r from-indigo-200 via-white to-fuchsia-200 bg-clip-text text-transparent drop-shadow">
-                議事録AIとは何か？導入前に知っておくべき基礎とメリット
+                What is Meeting-Minutes AI? Basics & Benefits Before You Adopt
               </span>
             </h1>
             <p className="mt-4 text-indigo-100/90">
-              “ワンタッチで意味ある議事録”。読みやすさと本質に絞って解説します。
+              “One-tap for meaningful meeting minutes.” Clear, essential explanations for those just getting started.
             </p>
           </div>
         </section>
 
-        {/* 本文 */}
         <main className="mx-auto max-w-3xl px-6 pb-20">
-          {/* セクション1：あいさつ・共感 */}
           <SectionCard>
-            <h2 className="text-xl font-semibold tracking-tight">セクション1（あいさつ・共感）</h2>
+            <h2 className="text-xl font-semibold tracking-tight">Section 1: Greeting & Empathy</h2>
             <div className="prose prose-invert mt-4 max-w-none">
               <p>
-                みなさんこんにちは！本記事をご覧くださって、どうもありがとうございます。この記事をご覧になったということは、
-                「議事録を書くのが面倒」「書き方はわかっていても時間がかかる」「最近流行の生成AIを使ったけど、微妙な違和感が残る」
-                と感じている方が多いのではないでしょうか？
+                Hello everyone! Thank you for visiting this article. If you’re reading this, chances are you’ve felt:
+                “Taking meeting minutes is tedious,” “I know how to write them but it takes too much time,” or
+                “I tried using popular generative AI but something felt off.”
               </p>
               <p>
-                もしくは読み手になった時に、「発言が漏れている」「決定事項がうやむや」「認識がズレている」など、モヤモヤを経験されたことはありませんか？
+                Or perhaps as a reader you’ve experienced: “Some remarks were missed,” “decisions are vague,” or “people’s understanding doesn’t match.”
               </p>
               <p>
-                本記事では、そんなお悩みを持つあなたに向けて、“ワンタッチで意味ある議事録を作る”ための議事録AIをできるだけシンプルにお伝えします。
+                In this article, I’ll explain as simply as possible how a meeting-minutes AI can help you produce **meaningful minutes** with just one tap.
               </p>
             </div>
           </SectionCard>
 
-          {/* セクション2：定義・権威づけ */}
           <SectionCard className="mt-8">
-            <h2 className="text-xl font-semibold tracking-tight">セクション2：議事録AIとは何か？（説明、権威付）</h2>
+            <h2 className="text-xl font-semibold tracking-tight">Section 2: What Is Meeting-Minutes AI? (Definition & Authority)</h2>
             <div className="prose prose-invert mt-4 max-w-none">
               <p>
-                議事録AIは「AIによる全自動議事録作成ツール」です。全ての主要言語に対応し、全世界で<strong>3万ユーザー</strong>を突破※しています。
+                Meeting-minutes AI is an **“AI-powered fully automated meeting minutes creation tool.”** It supports all major languages and has surpassed <strong>30,000 users worldwide</strong>.
               </p>
-              <StatFootnote>※ 2025年10月現在（iOS公式ストアの実績に基づく）</StatFootnote>
+              <StatFootnote>※ As of October 2025 (based on iOS store data)</StatFootnote>
               <p className="mt-4">
-                議事録AIを用いれば、「要約」「決定事項」「アクション項目」などを抽出し、「意味のある議事録」を自動生成することができます。
+                With meeting-minutes AI, you can automatically generate “summaries,” “decisions,” and “action items,” producing **meaningful meeting minutes** without manual effort.
               </p>
             </div>
 
-            {/* 比較（グラスカードの中に“表”を美しく） */}
             <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
               <div className="bg-white/[0.03] px-4 py-3 text-sm text-indigo-100/90">
-                文字起こしツール／汎用生成AI／議事録AI の違い
+                Differences: Transcription Tools / Generic AI / Meeting-Minutes AI
               </div>
               <div className="divide-y divide-white/10">
                 <div className="grid grid-cols-4 gap-2 bg-white/[0.02] px-4 py-3 text-xs sm:text-sm">
-                  <div className="text-indigo-200/90">機能</div>
-                  <div className="text-indigo-200/90">単なる文字起こしツール</div>
-                  <div className="text-indigo-200/90">生成AI（汎用）</div>
-                  <div className="text-indigo-200/90">議事録AI（本サービス）</div>
+                  <div className="text-indigo-200/90">Feature</div>
+                  <div className="text-indigo-200/90">Plain Transcription Tool</div>
+                  <div className="text-indigo-200/90">Generic AI</div>
+                  <div className="text-indigo-200/90">Meeting-Minutes AI (our product)</div>
                 </div>
                 {[
                   {
-                    k: "音声インプット → テキスト化",
-                    a: "○",
-                    b: "×（入力を別途テキストに起こす必要あり）",
-                    c: "○",
+                    k: "Audio → Text",
+                    a: "Yes",
+                    b: "No (requires manual input)",
+                    c: "Yes",
                   },
                   {
-                    k: "要約・骨子化",
-                    a: "×",
-                    b: "○（ただし文脈がズレやすい）",
-                    c: "○（会議特化で文脈理解を強化）",
+                    k: "Summarization / Outline",
+                    a: "No",
+                    b: "Yes (but context may shift)",
+                    c: "Yes (optimized for meetings)",
                   },
                   {
-                    k: "決定事項・アクション抽出",
-                    a: "×",
-                    b: "○（ただし曖昧になりがち）",
-                    c: "○（明確な抽出＋タグ付けなど）",
+                    k: "Decision / Action Extraction",
+                    a: "No",
+                    b: "Yes (but often ambiguous)",
+                    c: "Yes (clear extraction + tagging)",
                   },
                   {
-                    k: "多言語対応",
-                    a: "×",
-                    b: "○（ただし構文ズレのリスク）",
-                    c: "○（主要言語対応・会議文脈に最適化）",
+                    k: "Multi-language Support",
+                    a: "No",
+                    b: "Yes (but syntax drift risk)",
+                    c: "Yes (major languages + context-aware)",
                   },
                 ].map((row) => (
                   <div key={row.k} className="grid grid-cols-4 gap-2 px-4 py-3 text-sm">
@@ -228,58 +220,55 @@ export default function BlogIntroduction() {
             </div>
           </SectionCard>
 
-          {/* セクション3：原文＞出力例 */}
           <SectionCard className="mt-8">
-            <h2 className="text-xl font-semibold tracking-tight">セクション3：原文（短く）＞出力例</h2>
-
-            {/* 会議音声例（プレビュー＋全文展開） */}
+            <h2 className="text-xl font-semibold tracking-tight">Section 3: Source Text & Sample Outputs</h2>
             <div className="mt-4 space-y-3">
-              <div className="text-sm text-indigo-200/90">会議音声例：</div>
+              <div className="text-sm text-indigo-200/90">Meeting Audio Sample:</div>
               <ExpandableTranscript
                 preview={
-                  "はい、それでは時間になりましたので会議を始めましょう。まずは先週末の「スマートウォッチ」の販売実績から振り返っていきます。最初にオンラインチャネルの報告をお願いします。（ここで省略。しようと思えば全文を展開できるボタン）"
+                  "“Alright, it’s time so let’s start the meeting. First, let’s look back at the ‘smartwatch’ sales performance from last weekend. Please begin with your online channel report.” (…preview, full text can be expanded)"
                 }
-                // full には将来、実録の長文をそのまま貼る想定
                 full={
-                  "（全文プレースホルダ）\n・オンライン：……\n・オフライン：……\n・次回までの宿題：……\n\n※ 実際の導入後、この領域に長文の原文トランスクリプトを掲載できます。"
+                  "(Full placeholder transcript)\n• Online: …\n• Offline: …\n• To do for next time: …\n\n※ In production, the full transcript will be shown here."
                 }
               />
             </div>
 
-            {/* 出力例（プレースホルダのまま） */}
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <div className="text-sm text-indigo-200/90">よくある生成AIの出力例：</div>
-                <div className="mt-2 rounded-xl bg-black/30 p-3 text-indigo-100/90">
-                  ＊＊＊＊
-                </div>
-                <p className="mt-3 text-sm text-indigo-200/80">
-                  一見読みやすいが、「誰が・いつまでに・何をするか」が曖昧になりがち。
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <div className="text-sm text-indigo-200/90">議事録AIの出力例：</div>
-                <div className="mt-2 rounded-xl bg-black/30 p-3 text-indigo-100/90">
-                  ＊＊＊＊
-                </div>
-                <p className="mt-3 text-sm text-indigo-200/80">
-                  要約に加え、発言者ごとに決定事項・アクションが明確に整理される想定。
-                </p>
-              </div>
-            </div>
+  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="text-sm text-indigo-200/90">Generic AI Output Example:</div>
+    <div className="mt-2 rounded-xl bg-black/30 p-3 text-indigo-100/90">
+      “At last, we will review last week’s smartwatch sales. Please begin with the online channel report.”
+    </div>
+    <p className="mt-3 text-sm text-indigo-200/80">
+      It looks tidy at first glance, but it tends to leave you asking, “Who is supposed to do what, by when?”
+    </p>
+  </div>
+  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="text-sm text-indigo-200/90">Meeting-Minutes AI Output Example:</div>
+    <div className="mt-2 rounded-xl bg-black/30 p-3 text-indigo-100/90">
+      “Review smartwatch sales. → Online: increase ad spend; Offline: restock units.  
+      Decision: allocate budget by Wednesday.  
+      Action: Marketing team to report actual spend by Friday.”
+    </div>
+    <p className="mt-3 text-sm text-indigo-200/80">
+      In addition to summary, it clearly organizes decisions and next actions by speaker.
+    </p>
+  </div>
+</div>
+
 
             <p className="mt-6 text-indigo-100/90">
-              いかがでしょうか。あなたが読み手になった時に、「あ、これを読んだ私は次にこのアクションをすればいいのね」とすぐに頭に入ってくると思います。では、気になる使い方を次のセクションで紹介していきます。
+              How does that feel? As a reader, you should be able to look at the output and think, “Oh, so after reading this, here’s what I do next.” Next, let’s see how to use it.
             </p>
           </SectionCard>
 
-          {/* CTA（任意で活かす） */}
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href={LINK_HOME}
               className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
             >
-              ブラウザ版をひらく
+              Open Browser Version
             </Link>
             <a
               href={LINK_IOS}
@@ -287,7 +276,7 @@ export default function BlogIntroduction() {
               rel="noopener noreferrer"
               className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
             >
-              iOS版をダウンロード
+              Download iOS Version
             </a>
           </div>
         </main>
