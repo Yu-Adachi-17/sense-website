@@ -573,10 +573,10 @@ export default function PurchaseMenu() {
                 style={styles.policyButton}
                 onClick={() => {
                   setShowSideMenu(false);
-                  router.push("/transactions-law");
+                  router.push("/company");
                 }}
               >
-                {t("Legal Notice - Japan Only")}
+                {t("Company")}
               </button>
             </div>
           </div>
