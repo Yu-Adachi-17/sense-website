@@ -1,36 +1,58 @@
 /** @type {import('next-sitemap').IConfig} */
-// next-sitemap.config.js
 const siteUrl = 'https://www.sense-ai.world';
 
-// next-i18next でも Next.js の i18n でも、いずれにせよ locales を取得
-// どちらか一方しか無い場合は存在する方を require してください
-const { i18n } = require('./next.config.js');              // ← Next.js 側
-// const { i18n } = require('./next-i18next.config.js');   // ← もしこちらに定義しているなら差し替え
-
+// Next.js 側の i18n 設定から locales と defaultLocale を取得
+const { i18n } = require('./next.config.js');
 const { locales = ['en'], defaultLocale = 'en' } = i18n || {};
+
 const localeHref = (path, l) =>
   `${siteUrl}${l === defaultLocale ? '' : `/${l}`}${path === '/' ? '' : path}`;
+
+const buildAlternateRefs = (path) => {
+  const alt = locales.map((l) => ({ href: localeHref(path, l), hreflang: l }));
+  // x-default は既定ロケールへ（運用に合わせて変更可）
+  alt.push({ href: localeHref(path, defaultLocale), hreflang: 'x-default' });
+  return alt;
+};
 
 module.exports = {
   siteUrl,
   generateRobotsTxt: true,
   autoLastmod: true,
+  sitemapSize: 50000,
 
-  // 各URLごとに hreflang を付与
+  // Next.js が検出した各 path（例: /home）に対する基本出力（既定ロケールの <loc>）
   transform: async (config, path) => {
-    const alt = locales.map((l) => ({ href: localeHref(path, l), hreflang: l }));
-    // x-default は既定ロケールに向ける（運用方針に合わせて任意で英語へ）
-    alt.push({ href: localeHref(path, defaultLocale), hreflang: 'x-default' });
-
     return {
-      loc: `${siteUrl}${path}`,
+      loc: `${siteUrl}${path}`,              // 例: https://www.sense-ai.world/home
       changefreq: 'weekly',
-      priority: 0.7,
+      priority: path === '/home' ? 0.9 : 0.7,
       lastmod: new Date().toISOString(),
-      alternateRefs: alt,
+      alternateRefs: buildAlternateRefs(path) // hreflang を全言語分
     };
   },
 
-  // （必要なら）除外したいパス
+  // ここで “各ロケールの /home” を明示的に <loc> として追加する
+  // 必要なページがあれば配列に追加して運用してください
+  additionalPaths: async (config) => {
+    const i18nPaths = ['/home']; // 例: 他にも '/pricing', '/blog' 等を追加可
+    const extra = [];
+
+    for (const p of i18nPaths) {
+      for (const l of locales) {
+        if (l === defaultLocale) continue;       // 既定ロケール分は transform で出力済み
+        extra.push({
+          loc: localeHref(p, l),                 // 例: https://www.sense-ai.world/ja/home
+          changefreq: 'weekly',
+          priority: 0.9,
+          lastmod: new Date().toISOString(),
+          alternateRefs: buildAlternateRefs(p)   // 全言語の相互参照を同梱
+        });
+      }
+    }
+    return extra;
+  },
+
+  // 除外ルール
   exclude: ['/api/*', '/_next/*'],
 };
