@@ -24,7 +24,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import TransactionsLaw from "./components/TransactionsLaw";
 import ServicesPage from "./components/Services";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'next-i18next';
 import ServicesWrapper from "./routes/ServicesWrapper";  // ✅ 追加
 import RedirectToServices from "./routes/RedirectToServices";  // ✅ 追加
 import NewsPage from "./News";
