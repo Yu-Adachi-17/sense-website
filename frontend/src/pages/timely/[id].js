@@ -1,7 +1,7 @@
 // src/pages/timely/[id].js
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next'
 import { getDb } from '../../firebaseConfig'; // ★ 変更：dbはゲッター経由で取得
 
 export default function TimelyViewPage() {
