@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { FaApple } from "react-icons/fa";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -384,29 +385,45 @@ function CalloutPie({ data, size = 380 }) {
 
 
 export default function Home() {
+  // ※ このファイルの先頭に ↓ を追加してください：
+  // import Link from "next/link";
+
   const deviceRef = useRef(null);
   const wrapRef = useRef(null);
   const router = useRouter();
-  const { locale, locales = [router.locale], defaultLocale } = router;
+  const { asPath, locale, locales = [router.locale], defaultLocale } = router;
   const { t } = useTranslation(); // 既定NS（例: 'home'）を使用。未訳は英語フォールバック。
   const isPhone = useMediaQuery("(max-width: 640px)");
-const circleSize = isPhone ? 420 : 560;
+  const circleSize = isPhone ? 420 : 560;
 
   const dir = useMemo(() => (["ar", "fa", "he", "ur"].includes(locale) ? "rtl" : "ltr"), [locale]);
   const ogLocale = OG_LOCALE_MAP[locale] || OG_LOCALE_MAP.en;
 
-  // URL生成（トップページ想定。必要なら asPath を使って調整）
-  const canonical = useMemo(() => {
-    const path = "/";
-    return locale === defaultLocale ? `${SITE_URL}${path}` : `${SITE_URL}/${locale}${path}`;
-  }, [locale, defaultLocale]);
+  // 現在のパスからクエリ/ハッシュを除去し、今のロケールprefixを剥がして "論理的な同一パス" を得る
+  const pathNoLocale = useMemo(() => {
+    const stripQueryHash = (p) => (p || "/").split("#")[0].split("?")[0] || "/";
+    const raw = stripQueryHash(asPath || "/");
+    // 例: locale=ja なら ^/ja(/|$) を除去 → "/home"
+    const re = new RegExp(`^/${locale}(?=/|$)`);
+    const cleaned = raw.replace(re, "");
+    return cleaned || "/";
+  }, [asPath, locale]);
 
+  // canonical: 既定言語はプレフィックスなし、それ以外は /{locale}
+  const canonical = useMemo(() => {
+    const prefix = locale === defaultLocale ? "" : `/${locale}`;
+    return `${SITE_URL}${prefix}${pathNoLocale}`;
+  }, [locale, defaultLocale, pathNoLocale]);
+
+  // hreflang: すべての対応ロケールに対して alternate を出す（値は推奨どおり小文字）
   const altURLs = useMemo(() => {
-    const path = "/";
-    return (locales || []).map((l) =>
-      l === defaultLocale ? { l, href: `${SITE_URL}${path}` } : { l, href: `${SITE_URL}/${l}${path}` }
-    );
-  }, [locales, defaultLocale]);
+    return (locales || []).map((l) => {
+      const prefix = l === defaultLocale ? "" : `/${l}`;
+      return { l, href: `${SITE_URL}${prefix}${pathNoLocale}` };
+    });
+  }, [locales, defaultLocale, pathNoLocale]);
+
+  const toHrefLang = (l) => String(l || "").toLowerCase();
 
   useEffect(() => {
     const el = deviceRef.current;
@@ -426,21 +443,24 @@ const circleSize = isPhone ? 420 : 560;
   }, []);
 
   // 言語別データ（ラベルもi18n）
-  const LANGUAGE_PIE = useMemo(() => ([
-    { label: t("English"), value: 40 },
-    { label: t("German"), value: 9 },
-    { label: t("Arabic"), value: 8 },
-    { label: t("Malay"), value: 7 },
-    { label: t("Dutch"), value: 6 },
-    { label: t("Other"), value: 30 }
-  ]), [t]);
+  const LANGUAGE_PIE = useMemo(
+    () => [
+      { label: t("English"), value: 40 },
+      { label: t("German"), value: 9 },
+      { label: t("Arabic"), value: 8 },
+      { label: t("Malay"), value: 7 },
+      { label: t("Dutch"), value: 6 },
+      { label: t("Other"), value: 30 },
+    ],
+    [t]
+  );
 
   const [active, setActive] = useState("tap");
   const radioGroupRef = useRef(null);
   const steps = [
-    { key: "tap",  label: t("Tap"),  img: "/images/demo-tap.png",  sub: t("Tap to start recording.") },
+    { key: "tap", label: t("Tap"), img: "/images/demo-tap.png", sub: t("Tap to start recording.") },
     { key: "stop", label: t("Stop"), img: "/images/demo-stop.png", sub: t("Stop when you’re done.") },
-    { key: "wrap", label: t("Wrap"), img: "/images/demo-wrap.png", sub: t("AI writes the minutes—automatically.") }
+    { key: "wrap", label: t("Wrap"), img: "/images/demo-wrap.png", sub: t("AI writes the minutes—automatically.") },
   ];
   const idx = steps.findIndex((s) => s.key === active);
   const move = (d) => {
@@ -452,9 +472,16 @@ const circleSize = isPhone ? 420 : 560;
     });
   };
   const onRadioKey = (e) => {
-    if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); move(1); }
-    else if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); move(-1); }
-    else if (e.key === " " || e.key === "Enter") { e.preventDefault(); setActive(steps[idx].key); }
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+      e.preventDefault();
+      move(1);
+    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      move(-1);
+    } else if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      setActive(steps[idx].key);
+    }
   };
 
   const LINK_MAIN = SITE_URL;
@@ -465,7 +492,12 @@ const circleSize = isPhone ? 420 : 560;
   const formattedDate = useMemo(() => {
     try {
       const dt = new Date(demoDateISO);
-      const fmt = new Intl.DateTimeFormat(locale, { year: "numeric", month: "short", day: "numeric", timeZoneName: "short" });
+      const fmt = new Intl.DateTimeFormat(locale, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        timeZoneName: "short",
+      });
       return fmt.format(dt);
     } catch {
       return "Oct 1, 2025 (JST)";
@@ -474,8 +506,12 @@ const circleSize = isPhone ? 420 : 560;
 
   const pageTitle = t("Minutes.AI — Home");
   const ogTitle = t("Minutes.AI — AI Meeting Minutes");
-  const metaDesc = t("Automatically create beautiful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web.");
-  const ogDesc = t("Record your meeting and let AI produce clean, human-ready minutes—decisions and to-dos at a glance.");
+  const metaDesc = t(
+    "Automatically create beautiful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web."
+  );
+  const ogDesc = t(
+    "Record your meeting and let AI produce clean, human-ready minutes—decisions and to-dos at a glance."
+  );
 
   return (
     <>
@@ -483,12 +519,14 @@ const circleSize = isPhone ? 420 : 560;
         <title>{pageTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={metaDesc} />
+
         {/* hreflang / canonical */}
         <link rel="canonical" href={canonical} />
         {altURLs.map(({ l, href }) => (
-          <link key={l} rel="alternate" hrefLang={l} href={href} />
+          <link key={l} rel="alternate" hrefLang={toHrefLang(l)} href={href} />
         ))}
-        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
+        {/* 既定言語（root）を x-default に */}
+        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${pathNoLocale}`} />
 
         {/* Open Graph / Twitter */}
         <meta property="og:type" content="website" />
@@ -497,9 +535,11 @@ const circleSize = isPhone ? 420 : 560;
         <meta property="og:description" content={ogDesc} />
         <meta property="og:image" content={`${SITE_URL}/og-image.jpg`} />
         <meta property="og:locale" content={ogLocale} />
-        {(locales || []).filter((l) => (OG_LOCALE_MAP[l] && l !== locale)).map((l) => (
-          <meta key={l} property="og:locale:alternate" content={OG_LOCALE_MAP[l]} />
-        ))}
+        {(locales || [])
+          .filter((l) => OG_LOCALE_MAP[l] && l !== locale)
+          .map((l) => (
+            <meta key={l} property="og:locale:alternate" content={OG_LOCALE_MAP[l]} />
+          ))}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@your_brand" />
 
@@ -519,37 +559,34 @@ const circleSize = isPhone ? 420 : 560;
                   applicationCategory: "BusinessApplication",
                   operatingSystem: "iOS, Web",
                   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-                  downloadUrl: LINK_IOS
-                }
-              ]
-            })
+                  downloadUrl: LINK_IOS,
+                },
+              ],
+            }),
           }}
         />
       </Head>
 
       {/* ===== Fixed Header ===== */}
       <FixedHeaderPortal>
-  <header className="top" role="banner">
-    <a href="/" className="brand" aria-label={t("Minutes.AI Home")}>
-      <span className="brandIcon" aria-hidden="true">
-        <HomeIcon size={26} color="currentColor" />
-      </span>
-      <span className="brandText">
-        {t("Minutes.AI")}
-      </span>
-    </a>
-    <nav className="nav" aria-label={t("Primary") || "Primary"}>
-      <a href="/" className="navLink">
-        <span className="navText gradHeader">{t("Home")}</span>
-      </a>
-      <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
-        <FaApple className="apple" aria-hidden="true" />
-        <span className="navText gradHeader">{t("iOS")}</span>
-      </a>
-    </nav>
-  </header>
-</FixedHeaderPortal>
-
+        <header className="top" role="banner">
+          <Link href="/" className="brand" aria-label={t("Minutes.AI Home")}>
+            <span className="brandIcon" aria-hidden="true">
+              <HomeIcon size={26} color="currentColor" />
+            </span>
+            <span className="brandText">{t("Minutes.AI")}</span>
+          </Link>
+          <nav className="nav" aria-label={t("Primary") || "Primary"}>
+            <Link href="/" className="navLink">
+              <span className="navText gradHeader">{t("Home")}</span>
+            </Link>
+            <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
+              <FaApple className="apple" aria-hidden="true" />
+              <span className="navText gradHeader">{t("iOS")}</span>
+            </a>
+          </nav>
+        </header>
+      </FixedHeaderPortal>
 
       {/* ===== Main ===== */}
       <main className="scene" dir={dir}>
@@ -565,7 +602,7 @@ const circleSize = isPhone ? 420 : 560;
               const delay = -((i * 173) % 900) / 300;
               const size = 1 + (((i * 37) % 3) * 0.4);
               const alpha = 0.55 + (((i * 29) % 40) / 100);
-              const tail = 20 + (((i * 67) % 24));
+              const tail = 20 + ((i * 67) % 24);
               return (
                 <i
                   key={i}
@@ -576,7 +613,7 @@ const circleSize = isPhone ? 420 : 560;
                     ["--delay"]: `${delay}s`,
                     ["--sz"]: `${size}px`,
                     ["--alpha"]: alpha,
-                    ["--tail"]: `${tail}px`
+                    ["--tail"]: `${tail}px`,
                   }}
                 />
               );
@@ -606,11 +643,17 @@ const circleSize = isPhone ? 420 : 560;
                 <div className="mhr" />
                 <div className="minutesFlow">
                   <h3 className="mhead gradDevice">{t("Meeting Objective")}</h3>
-                  <p className="fline">{t("We agreed to create overwhelmingly beautiful minutes by using cutting-edge AI...")}</p>
+                  <p className="fline">
+                    {t("We agreed to create overwhelmingly beautiful minutes by using cutting-edge AI...")}
+                  </p>
                   <h3 className="mhead gradDevice">{t("Decisions")}</h3>
-                  <p className="fline">{t("We decided to rely on advanced transcription and summarization to deliver clean, human-ready minutes...")}</p>
+                  <p className="fline">
+                    {t("We decided to rely on advanced transcription and summarization to deliver clean, human-ready minutes...")}
+                  </p>
                   <h3 className="mhead gradDevice">{t("Next Steps")}</h3>
-                  <p className="fline">{t("We will record real meetings, refine prompts and layout, and publish a live showcase...")}</p>
+                  <p className="fline">
+                    {t("We will record real meetings, refine prompts and layout, and publish a live showcase...")}
+                  </p>
                 </div>
               </article>
             </div>
@@ -652,7 +695,12 @@ const circleSize = isPhone ? 420 : 560;
 
               <div className="simplyRight" aria-live="polite">
                 {steps.map((s) => (
-                  <figure key={s.key} className={`shot${active === s.key ? " isOn" : ""}`} aria-hidden={active !== s.key} style={{ margin: 0 }}>
+                  <figure
+                    key={s.key}
+                    className={`shot${active === s.key ? " isOn" : ""}`}
+                    aria-hidden={active !== s.key}
+                    style={{ margin: 0 }}
+                  >
                     <img src={s.img} alt={s.label} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                     <figcaption className="shotCaption">
                       {s.key === "tap" && <p>{t("Press the button to start recording.")}</p>}
@@ -668,16 +716,16 @@ const circleSize = isPhone ? 420 : 560;
           {/* ===== World map background セクション ===== */}
           <section className="reachMap" aria-labelledby="reachTitle">
             <div className="reachMapInner">
-            <div className="mapCopy">
-  <h2 id="reachTitle" className="mapHeadline">
-    <span className="mapKicker">{t("Supports all major Languages")}</span>
-    <span>
-      <span className="gradText onlyNum">30,000</span>
-      <br />
-      <span>{t("users")}</span>
-    </span>
-  </h2>
-</div>
+              <div className="mapCopy">
+                <h2 id="reachTitle" className="mapHeadline">
+                  <span className="mapKicker">{t("Supports all major Languages")}</span>
+                  <span>
+                    <span className="gradText onlyNum">30,000</span>
+                    <br />
+                    <span>{t("users")}</span>
+                  </span>
+                </h2>
+              </div>
 
               <div className="mapChart">
                 <CalloutPie
@@ -753,7 +801,13 @@ const circleSize = isPhone ? 420 : 560;
               <div className="promoCopy">
                 <h2 id="appPromoHead" className="promoH2">
                   {t("iPhone App is Available").split(" ").map((w, i) =>
-                    w.toLowerCase() === "available" ? <span key={i} className="gradText">{w}</span> : <span key={i}>{" "}{w}</span>
+                    w.toLowerCase() === "available" ? (
+                      <span key={i} className="gradText">
+                        {w}
+                      </span>
+                    ) : (
+                      <span key={i}> {" "}{w}</span>
+                    )
                   )}
                 </h2>
                 <p className="promoSub">{t("Record on iPhone and get Beautiful Minutes instantly.")}</p>
@@ -880,12 +934,9 @@ const circleSize = isPhone ? 420 : 560;
         .mapNote { position:absolute; left:22px; bottom:-50px; z-index:2; font-size:12px; line-height:1.4; opacity:0.75; color: rgba(230,245,255,0.9); user-select:none; }
         .pricingSection { margin: clamp(26px, 9vh, 120px) auto; padding:0 22px; max-width:1200px; text-align:center; position:relative; isolation:isolate; overflow:visible; padding-bottom: clamp(48px, 10vh, 140px); margin-bottom: clamp(8px, 4vh, 40px); }
         @media (max-width: 640px){
-  .pricingSection{
-    overflow: hidden;                 /* セクション外への光漏れを遮断 */
-    padding-bottom: max(20vh, 140px); /* 下方向の余白を少し厚めに */
-  }
-  .pricingGrid{ row-gap: 28px; }      /* 円同士の重なりを防ぐ余白 */
-}
+          .pricingSection{ overflow: hidden; padding-bottom: max(20vh, 140px); }
+          .pricingGrid{ row-gap: 28px; }
+        }
         .pricingH2 { margin:0; font-weight:900; letter-spacing:-0.02em; line-height:1.02; font-size: clamp(36px, 6.3vw, 92px); }
         .pricingSub { margin:8px 0 18px 0; opacity:0.9; font-weight:700; font-size: clamp(14px, 1.9vw, 18px); }
         .pricingGrid { display:grid; grid-template-columns:1fr 1fr; gap: clamp(16px, 3vw, 40px); align-items:center; justify-items:center; margin-top: clamp(10px, 3vh, 20px); }
