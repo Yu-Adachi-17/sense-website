@@ -1,0 +1,129 @@
+{
+  "seo": {
+    "title": "What is Minutes.AI? Basics & Benefits Before You Adopt | Minutes.AI Blog",
+    "description": "One-tap for meaningful minutes. A simple intro to Minutes.AI: basics, differences vs other tools, and output examples; trusted by {{users}} users (as of {{date}}).",
+    "ogTitle": "What is Minutes.AI? Basics & Benefits Before You Adopt",
+    "ogDescription": "One-tap for meaningful minutes. Understand Minutes.AI, how it's different, and sample outputs.",
+    "ld": {
+      "headline": "What is Minutes.AI? Basics & Benefits Before You Adopt",
+      "description": "One-tap for meaningful minutes. A simple intro to Minutes.AI, its differences, and examples."
+    }
+  },
+  "nav": { "blog": "Blog", "introduction": "Introduction" },
+  "hero": {
+    "kicker": "Minutes.AI",
+    "h1": "What is Minutes.AI? Basics & Benefits Before You Adopt",
+    "tagline": "“One-tap for meaningful meeting minutes.” Clear, essential explanations for those just getting started."
+  },
+  "intro": {
+    "h2": "Introduction",
+    "p1": "Thank you for visiting this article. If you’re reading this, chances are you’ve felt: “Taking meeting minutes is tedious,” “I know how to write them but it takes too much time,” or “I tried using popular generative AI but something felt off.”",
+    "p2": "Or perhaps as a reader you’ve experienced: “Some remarks were missed,” “decisions are vague,” or “people’s understanding doesn’t match.”",
+    "p3": {
+      "pre": "In this article, we’ll show how",
+      "mid": "helps you produce",
+      "bold": "meaningful minutes",
+      "post": "with just one tap — focusing on clarity and outcomes."
+    }
+  },
+  "what": {
+    "h2": "What is Minutes.AI?",
+    "p1": "Minutes.AI is an AI-powered, fully automated meeting-minutes tool. It supports all major languages and has surpassed 30,000 users worldwide.",
+    "footnote": "※ As of {{date}} (based on iOS store data)",
+    "p2": "With Minutes.AI, you can automatically generate “summaries,” “decisions,” and “action items,” producing meaningful minutes without manual effort."
+  },
+  "compare": {
+    "title": "Differences: Transcription Tools / Generic AI / Minutes.AI",
+    "head": {
+      "feature": "Feature",
+      "transcription": "Plain Transcription Tool",
+      "generic": "Generic AI",
+      "minutes": "Minutes.AI"
+    },
+    "rows": [
+      { "k": "Audio → Text", "a": "Yes", "b": "No (requires manual input)", "c": "Yes" },
+      { "k": "Summarization / Outline", "a": "No", "b": "Yes (but context may shift)", "c": "Yes (optimized for meetings)" },
+      { "k": "Decision / Action Extraction", "a": "No", "b": "Yes (but often ambiguous)", "c": "Yes (clear extraction + tagging)" },
+      { "k": "Multi-language Support", "a": "No", "b": "Yes (risk of syntax drift)", "c": "Yes (major languages + context-aware)" }
+    ]
+  },
+  "samples": {
+    "h2": "Source Text & Sample Outputs",
+    "meetingSample": "Meeting Audio Sample",
+    "transcript": {
+      "preview": "Alright, it’s time so let’s start the meeting. First, let’s look back at the ‘smartwatch’ sales performance from last weekend. Please begin with your online channel report.",
+      "full": "Alex (Marketing Lead): Thanks for joining, everyone — Jordan (E-commerce), Sam (Retail Ops), Taylor (PM), and Riley (Data). Let’s review last weekend’s smartwatch performance. Jordan, please start with online.\n\nJordan (E-commerce): Week-over-week, sessions are up 18%. Conversion improved from 2.9% to 3.2%. Revenue rose 12%. The spike mainly came from the influencer tie-in on Saturday; ad spend was up 6%.\n\nRiley (Data): CAC remains stable at around ¥2,400. However, retargeting CTR fell from 1.8% to 1.2%. I recommend a creative refresh and an A/B test with shorter headline copy. I can deliver a quick analysis deck by Friday (2025-10-17).\n\nAlex: Sounds good. Decision: Increase online ad budget by 15% for the next two weeks. Action: Jordan, launch the A/B test on the accessories hero copy by Wednesday (2025-10-15). Action: Riley, deliver the creative CTR analysis deck by Friday (2025-10-17).\n\nSam (Retail Ops): For physical stores, we had stockouts at Shibuya, Umeda, and Sapporo. A restock of 500 units is scheduled for Monday. Foot traffic dropped 4% due to the typhoon, but average basket value was flat.\n\nAlex: Decision: Proceed with the 500-unit restock across those three stores. Action: Sam, confirm supplier ETA and logistics by Tuesday (2025-10-14). Concern: lead-time risk if the supplier backlog grows.\n\nTaylor (PM): Firmware v1.2 fixes the battery drain issue and improves step-count calibration. Release notes are ready. I propose a launch on Oct 20 with a Q4 bundle — “Watch + Band” at ¥2,000 off. Support will need to publish an FAQ.\n\nAlex: Decision: Approve the Q4 bundle launch on 2025-10-20. Actions: Taylor, finalize the release schedule by Monday (2025-10-13). Support team, publish the FAQ by Thursday (2025-10-16). Marketing, prepare a Black Friday draft plan by Saturday (2025-10-25).\n\nAlex (closing message): Let’s spend smart and keep our pace clear and steady — clarity over speed. Commit to “who does what by when,” and keep meetings within 30 minutes."
+    },
+    "generic": {
+      "h3": "Generic AI Output Example",
+      "body": "The team reviewed smartwatch sales performance. Online metrics were up (sessions, conversion).\nRetail stores faced stockouts at several locations. There was mention of a firmware update and a seasonal bundle.\nOverall outlook was positive, and several improvements were discussed.",
+      "note": "It reads clean, but it doesn’t clearly answer “who will do what by when.”"
+    },
+    "pretty": { "h3": "Minutes.AI Output Example" }
+  },
+  "minutes": {
+    "meetingTitle": "Smartwatch Weekly Sales Review",
+    "date": "2025-10-11 10:00 JST",
+    "attendees": ["Alex (Marketing Lead)", "Jordan (E-commerce)", "Sam (Retail Ops)", "Taylor (PM)", "Riley (Data)"],
+    "coreMessage": "Let’s spend smart — clarity over speed. Commit to ‘who does what by when,’ and keep meetings within 30 minutes.",
+    "topics": [
+      {
+        "topic": "Online channel performance",
+        "discussion": [
+          "Sessions +18% WoW; conversion 2.9% → 3.2%; revenue +12%",
+          "Influencer tie-in drove Saturday spike; ad spend +6%",
+          "Retargeting CTR fell 1.8% → 1.2%; propose creative refresh and A/B test"
+        ],
+        "decisions": ["Increase online ad budget by 15% for the next two weeks"],
+        "actionItems": [
+          "Jordan — launch A/B test on accessories hero copy by 2025-10-15",
+          "Riley — deliver creative CTR analysis deck by 2025-10-17"
+        ],
+        "concerns": ["Ad fatigue if creatives are not refreshed"],
+        "keyMessages": ["Grow while maintaining stable CAC; test before scaling"]
+      },
+      {
+        "topic": "Offline stock & store operations",
+        "discussion": [
+          "Stockouts at Shibuya, Umeda, Sapporo",
+          "Restock of 500 units scheduled for Monday",
+          "Foot traffic −4% due to typhoon; basket value flat"
+        ],
+        "decisions": ["Proceed with 500-unit restock across three stores"],
+        "actionItems": ["Sam — confirm supplier ETA/logistics by 2025-10-14"],
+        "concerns": ["Supplier lead-time risk if backlog increases"],
+        "keyMessages": ["Avoid lost sales by stabilizing store inventory"]
+      },
+      {
+        "topic": "Firmware v1.2 & Q4 bundle launch",
+        "discussion": [
+          "v1.2 fixes battery drain; improves step-count calibration",
+          "Release notes ready; Support to publish FAQ",
+          "Proposed Q4 bundle: Watch + Band, −¥2,000 from 2025-10-20"
+        ],
+        "decisions": ["Approve Q4 bundle launch on 2025-10-20"],
+        "actionItems": [
+          "Taylor — finalize release schedule by 2025-10-13",
+          "Support — publish FAQ by 2025-10-16",
+          "Marketing — prepare Black Friday draft plan by 2025-10-25"
+        ],
+        "keyMessages": ["Pair product improvements with timely promotions"]
+      }
+    ]
+  },
+  "minutes.labels": {
+    "discussion": "Discussion",
+    "decisions": "Decisions",
+    "actionItems": "Action Items",
+    "concerns": "Concerns",
+    "keyMessages": "Key Messages",
+    "attendees": "Attendees:",
+    "closingMessage": "Closing Message"
+  },
+  "wrap": {
+    "h2": "Wrap-up",
+    "p": "How does it look? With this structure, readers and teams can see at a glance what should happen next — the output becomes truly valuable and actionable. Give Minutes.AI a try and experience it for yourself."
+  },
+  "cta": { "openBrowser": "Open Browser Version", "downloadIOS": "Download iOS Version" },
+  "transcript": { "expand": "Expand Full Text", "close": "Close Full Text" }
+}

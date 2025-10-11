@@ -385,8 +385,6 @@ function CalloutPie({ data, size = 380 }) {
 
 
 export default function Home() {
-  // ※ このファイルの先頭に ↓ を追加してください：
-  // import Link from "next/link";
 
   const deviceRef = useRef(null);
   const wrapRef = useRef(null);

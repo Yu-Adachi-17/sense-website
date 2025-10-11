@@ -1,0 +1,129 @@
+{
+  "seo": {
+    "title": "Wat is Notulen AI? Basisprincipes en voordelen vóór je het gebruikt | Notulen AI Blog",
+    "description": "Eén tik voor betekenisvolle notulen. Een eenvoudige introductie tot Notulen AI: basisprincipes, verschillen met andere tools en voorbeeldoutput; vertrouwd door {{users}}+ gebruikers (per {{date}}).",
+    "ogTitle": "Wat is Notulen AI? Basisprincipes en voordelen vóór gebruik",
+    "ogDescription": "Eén tik voor betekenisvolle notulen. Begrijp Notulen AI, de verschillen en bekijk voorbeelden van resultaten.",
+    "ld": {
+      "headline": "Wat is Notulen AI? Basisprincipes en voordelen vóór gebruik",
+      "description": "Eén tik voor betekenisvolle notulen. Een korte introductie tot Notulen AI, de verschillen en voorbeelden."
+    }
+  },
+  "nav": { "blog": "Blog", "introduction": "Introductie" },
+  "hero": {
+    "kicker": "Notulen AI",
+    "h1": "Wat is Notulen AI? Basisprincipes en voordelen vóór gebruik",
+    "tagline": "“Eén tik voor betekenisvolle vergaderverslagen.” Duidelijke uitleg voor wie net begint."
+  },
+  "intro": {
+    "h2": "Introductie",
+    "p1": "Bedankt dat je dit artikel leest. Waarschijnlijk heb je wel eens gedacht: “Notulen maken kost te veel tijd”, “Ik weet hoe het moet, maar het is saai werk”, of “Ik heb een AI geprobeerd, maar de resultaten voelden niet goed aan.”",
+    "p2": "Of misschien als lezer gedacht: “Belangrijke opmerkingen ontbreken,” “besluiten zijn vaag,” of “iedereen lijkt iets anders te begrijpen.”",
+    "p3": {
+      "pre": "In dit artikel laten we zien hoe",
+      "mid": "je helpt om",
+      "bold": "betekenisvolle notulen",
+      "post": "te produceren met slechts één tik — gericht op helderheid en actie."
+    }
+  },
+  "what": {
+    "h2": "Wat is Notulen AI?",
+    "p1": "Notulen AI is een door AI aangedreven, volledig geautomatiseerde tool voor vergaderverslagen. Het ondersteunt alle belangrijke talen en heeft wereldwijd meer dan 30.000 gebruikers.",
+    "footnote": "※ Per {{date}} (gebaseerd op iOS App Store-gegevens)",
+    "p2": "Met Notulen AI kun je automatisch ‘samenvattingen’, ‘besluiten’ en ‘actiepunten’ genereren — zonder handmatig werk."
+  },
+  "compare": {
+    "title": "Verschillen: Transcriptietool / Generieke AI / Notulen AI",
+    "head": {
+      "feature": "Functie",
+      "transcription": "Eenvoudige transcriptietool",
+      "generic": "Generieke AI",
+      "minutes": "Notulen AI"
+    },
+    "rows": [
+      { "k": "Audio → Tekst", "a": "Ja", "b": "Nee (handmatige invoer nodig)", "c": "Ja" },
+      { "k": "Samenvatting / Structuur", "a": "Nee", "b": "Ja (maar context kan verschuiven)", "c": "Ja (geoptimaliseerd voor vergaderingen)" },
+      { "k": "Besluiten / Acties", "a": "Nee", "b": "Ja (vaak onduidelijk)", "c": "Ja (duidelijke extractie + tagging)" },
+      { "k": "Meertalige ondersteuning", "a": "Nee", "b": "Ja (risico op syntaxisfouten)", "c": "Ja (belangrijke talen + contextbewust)" }
+    ]
+  },
+  "samples": {
+    "h2": "Voorbeeldtekst & Uitvoer",
+    "meetingSample": "Vergaderaudio Voorbeeld",
+    "transcript": {
+      "preview": "Oké, laten we beginnen. Eerst bekijken we de verkoop van de ‘smartwatch’ van het afgelopen weekend. Jan, kun jij beginnen met het online rapport?",
+      "full": "Alex (Marketingmanager): Bedankt voor jullie aanwezigheid — Jan (E-commerce), Sam (Retail), Tim (Projectmanager) en Robin (Data). Laten we de prestaties van de smartwatchverkoop van het weekend bekijken. Jan, jij eerst met de online cijfers.\n\nJan (E-commerce): Ten opzichte van vorige week zijn de sessies met 18% gestegen. De conversie verbeterde van 2,9% naar 3,2%. De omzet steeg met 12%. De piek kwam vooral door de influenceractie op zaterdag; de advertentiekosten stegen met 6%.\n\nRobin (Data): De CAC blijft stabiel rond €15. Echter, de CTR van remarketing daalde van 1,8% naar 1,2%. Ik raad aan om de creatives te vernieuwen en een A/B-test te doen met kortere koppen. Ik lever een analyse voor vrijdag (2025-10-17).\n\nAlex: Goed. Besluit: Verhoog het online advertentiebudget met 15% voor de komende twee weken. Acties: Jan — start de A/B-test op de accessoirecampagne voor woensdag (2025-10-15). Robin — lever de CTR-analyse op vrijdag (2025-10-17).\n\nSam (Retail): In fysieke winkels hadden we tekorten in Amsterdam, Rotterdam en Utrecht. Een herbevoorrading van 500 stuks is gepland voor maandag. De winkelbezoeken daalden met 4% door het slechte weer, maar de gemiddelde bestelwaarde bleef gelijk.\n\nAlex: Besluit: Herbevoorrading van 500 stuks in deze drie winkels. Actie: Sam — bevestig levertijd en logistiek voor dinsdag (2025-10-14). Let op: risico op vertraging bij drukke leveranciers.\n\nTim (Projectmanager): Firmware v1.2 lost het batterijprobleem op en verbetert de stappentelling. De releasenotes zijn klaar. Ik stel een lancering voor op 20 oktober met een Q4-bundel — “Watch + Band” met €20 korting. Support moet een FAQ publiceren.\n\nAlex: Besluit: Goedgekeurd. Q4-bundel lancering op 2025-10-20. Acties: Tim — bevestig planning voor maandag (2025-10-13). Support — publiceer FAQ voor donderdag (2025-10-16). Marketing — bereid een Black Friday-plan voor zaterdag (2025-10-25) voor.\n\nAlex (afsluiting): Laten we slim werken en duidelijk blijven — helderheid boven snelheid. Zorg dat iedereen weet ‘wie wat doet tegen wanneer’, en houd de vergadering binnen 30 minuten."
+    },
+    "generic": {
+      "h3": "Voorbeeld van generieke AI-uitvoer",
+      "body": "Het team besprak de verkoop van smartwatches. De online prestaties waren positief. In winkels waren enkele voorraadproblemen. Er werd gesproken over een firmware-update en een seizoensaanbieding. De algemene stemming was positief met ruimte voor verbetering.",
+      "note": "Het leest soepel, maar mist het antwoord op: ‘wie doet wat tegen wanneer’."
+    },
+    "pretty": { "h3": "Voorbeeld van Notulen AI-uitvoer" }
+  },
+  "minutes": {
+    "meetingTitle": "Wekelijkse Evaluatie Smartwatchverkoop",
+    "date": "2025-10-11 10:00 CET",
+    "attendees": ["Alex (Marketingmanager)", "Jan (E-commerce)", "Sam (Retail)", "Tim (Projectmanager)", "Robin (Data)"],
+    "coreMessage": "Slim werken, helder blijven. Duidelijk ‘wie wat doet tegen wanneer’, en houd vergaderingen korter dan 30 minuten.",
+    "topics": [
+      {
+        "topic": "Online Kanaalprestaties",
+        "discussion": [
+          "Sessies +18%; conversie 2,9% → 3,2%; omzet +12%",
+          "Zaterdagpiek door influenceractie; advertentiekosten +6%",
+          "CTR remarketing daalde 1,8% → 1,2%; vernieuwing creatives + A/B-test aanbevolen"
+        ],
+        "decisions": ["Verhoog online advertentiebudget met 15% (2 weken)"],
+        "actionItems": [
+          "Jan — start A/B-test uiterlijk 2025-10-15",
+          "Robin — lever CTR-analyse uiterlijk 2025-10-17"
+        ],
+        "concerns": ["Advertentiemoeheid als creatives niet vernieuwd worden"],
+        "keyMessages": ["Groei met stabiele CAC; testen vóór opschalen"]
+      },
+      {
+        "topic": "Voorraad en winkeloperaties",
+        "discussion": [
+          "Tekorten in Amsterdam, Rotterdam, Utrecht",
+          "Herbevoorrading van 500 stuks gepland op maandag",
+          "Winkelverkeer −4% door storm; bestelwaarde gelijk"
+        ],
+        "decisions": ["Herbevoorrading van 500 stuks in drie winkels"],
+        "actionItems": ["Sam — bevestig logistiek uiterlijk 2025-10-14"],
+        "concerns": ["Leveringsvertraging bij toegenomen vraag"],
+        "keyMessages": ["Voorkom omzetverlies door stabiele voorraad"]
+      },
+      {
+        "topic": "Firmware v1.2 & Q4-bundellancering",
+        "discussion": [
+          "v1.2 lost batterijprobleem op; stappentelling verbeterd",
+          "Releasenotes klaar; Support publiceert FAQ",
+          "Q4-bundel: Watch + Band, −€20 vanaf 2025-10-20"
+        ],
+        "decisions": ["Lancering goedgekeurd op 2025-10-20"],
+        "actionItems": [
+          "Tim — bevestig planning vóór 2025-10-13",
+          "Support — publiceer FAQ vóór 2025-10-16",
+          "Marketing — maak Black Friday-plan vóór 2025-10-25"
+        ],
+        "keyMessages": ["Combineer productverbetering met juiste marketingtiming"]
+      }
+    ]
+  },
+  "minutes.labels": {
+    "discussion": "Discussie",
+    "decisions": "Besluiten",
+    "actionItems": "Actiepunten",
+    "concerns": "Zorgen",
+    "keyMessages": "Belangrijkste boodschappen",
+    "attendees": "Deelnemers:",
+    "closingMessage": "Afsluitende boodschap"
+  },
+  "wrap": {
+    "h2": "Afronding",
+    "p": "Wat vind je ervan? Met deze structuur zien lezers en teams in één oogopslag wat de volgende stap is — notulen worden echt bruikbaar en actiegericht. Probeer Notulen AI en ervaar het verschil zelf."
+  },
+  "cta": { "openBrowser": "Open browserversie", "downloadIOS": "Download iOS-versie" },
+  "transcript": { "expand": "Volledige tekst weergeven", "close": "Sluiten" }
+}

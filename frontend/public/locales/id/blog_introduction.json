@@ -1,0 +1,129 @@
+{
+  "seo": {
+    "title": "Apa itu Minutes AI? Dasar & manfaat sebelum mengadopsi | Blog Minutes AI",
+    "description": "Satu ketukan untuk notulen yang bermakna. Pengantar singkat Minutes AI: dasar-dasar, perbedaannya dengan alat lain, dan contoh output; dipercaya oleh {{users}}+ pengguna (per {{date}}).",
+    "ogTitle": "Apa itu Minutes AI? Dasar & manfaat sebelum mengadopsi",
+    "ogDescription": "Satu ketukan untuk notulen yang bermakna. Pahami Minutes AI, perbedaannya, dan lihat contoh hasilnya.",
+    "ld": {
+      "headline": "Apa itu Minutes AI? Dasar & manfaat sebelum mengadopsi",
+      "description": "Satu ketukan untuk notulen yang bermakna. Pengantar ringkas Minutes AI, perbedaan, dan contohnya."
+    }
+  },
+  "nav": { "blog": "Blog", "introduction": "Pendahuluan" },
+  "hero": {
+    "kicker": "Minutes AI",
+    "h1": "Apa itu Minutes AI? Dasar & manfaat sebelum mengadopsi",
+    "tagline": "“Satu ketukan untuk notulen rapat yang bermakna.” Penjelasan jelas dan esensial bagi yang baru mulai."
+  },
+  "intro": {
+    "h2": "Pendahuluan",
+    "p1": "Terima kasih telah membaca artikel ini. Jika Anda sampai di sini, mungkin Anda pernah merasa: “Mencatat notulen itu melelahkan,” “Saya bisa membuatnya, tetapi memakan terlalu banyak waktu,” atau “Saya sudah mencoba AI populer, tetapi hasilnya kurang pas.”",
+    "p2": "Atau sebagai pembaca, Anda menemukan: “Ada poin yang terlewat,” “keputusan tidak tegas,” atau “pemahaman antaranggota tidak selaras.”",
+    "p3": {
+      "pre": "Dalam artikel ini, kami menunjukkan bagaimana",
+      "mid": "membantu Anda menghasilkan",
+      "bold": "notulen yang bermakna",
+      "post": "hanya dengan satu ketukan — berfokus pada kejelasan dan hasil."
+    }
+  },
+  "what": {
+    "h2": "Apa itu Minutes AI?",
+    "p1": "Minutes AI adalah alat notulen rapat bertenaga AI yang sepenuhnya otomatis. Mendukung semua bahasa utama dan telah melampaui 30.000 pengguna di seluruh dunia.",
+    "footnote": "※ Per {{date}} (berdasarkan data App Store iOS)",
+    "p2": "Dengan Minutes AI, Anda dapat menghasil­kan “ringkasan”, “keputusan”, dan “tugas tindak lanjut” secara otomatis, sehingga notulen menjadi bernilai tanpa upaya manual."
+  },
+  "compare": {
+    "title": "Perbedaan: Alat Transkripsi / AI Generik / Minutes AI",
+    "head": {
+      "feature": "Fitur",
+      "transcription": "Alat transkripsi sederhana",
+      "generic": "AI generik",
+      "minutes": "Minutes AI"
+    },
+    "rows": [
+      { "k": "Audio → Teks", "a": "Ya", "b": "Tidak (butuh input manual)", "c": "Ya" },
+      { "k": "Ringkasan / Kerangka", "a": "Tidak", "b": "Ya (konteks bisa bergeser)", "c": "Ya (dioptimalkan untuk rapat)" },
+      { "k": "Ekstraksi keputusan / tugas", "a": "Tidak", "b": "Ya (sering ambigu)", "c": "Ya (ekstraksi jelas + penandaan)" },
+      { "k": "Dukungan multibahasa", "a": "Tidak", "b": "Ya (risiko penyimpangan sintaks)", "c": "Ya (bahasa utama + peka konteks)" }
+    ]
+  },
+  "samples": {
+    "h2": "Teks sumber & contoh output",
+    "meetingSample": "Contoh audio rapat",
+    "transcript": {
+      "preview": "Baik, waktunya mulai rapat. Pertama, mari meninjau kinerja penjualan ‘smartwatch’ akhir pekan lalu. Joko, mohon mulai dengan laporan kanal online.",
+      "full": "Andi (Kepala Marketing): Terima kasih sudah hadir — Joko (E-commerce), Sari (Operasi Ritel), Taufik (PM), dan Riko (Data). Kita tinjau penjualan smartwatch akhir pekan lalu. Joko, silakan mulai dari kanal online.\n\nJoko (E-commerce): Week-over-week, sesi naik 18%. Konversi membaik dari 2,9% ke 3,2%. Pendapatan naik 12%. Lonjakan terutama datang dari kolaborasi influencer pada hari Sabtu; belanja iklan naik 6%.\n\nRiko (Data): CAC tetap stabil sekitar Rp2.400.000. Namun, CTR retargeting turun dari 1,8% ke 1,2%. Saya sarankan penyegaran materi kreatif dan uji A/B dengan judul lebih singkat. Saya bisa kirim dek analisis cepat pada Jumat (2025-10-17).\n\nAndi: Bagus. Keputusan: Tambah anggaran iklan online 15% untuk dua minggu ke depan. Tugas: Joko — luncurkan uji A/B pada copy hero aksesori paling lambat Rabu (2025-10-15). Tugas: Riko — serahkan dek analisis CTR paling lambat Jumat (2025-10-17).\n\nSari (Ritel): Di toko fisik terjadi kehabisan stok di Jakarta, Surabaya, dan Bandung. Restok 500 unit dijadwalkan Senin. Trafik pengunjung turun 4% karena badai, tetapi nilai keranjang rata-rata stabil.\n\nAndi: Keputusan: Lanjutkan restok 500 unit untuk tiga toko tersebut. Tugas: Sari — konfirmasi ETA pemasok dan logistik paling lambat Selasa (2025-10-14). Catatan: risiko waktu tunggu bila antrean pemasok membesar.\n\nTaufik (PM): Firmware v1.2 memperbaiki isu boros baterai dan meningkatkan kalibrasi langkah. Catatan rilis siap. Saya usulkan peluncuran 20 Okt dengan bundel Q4 — “Watch + Band” diskon Rp200.000. Tim Support perlu menerbitkan FAQ.\n\nAndi: Keputusan: Setujui peluncuran bundel Q4 pada 2025-10-20. Tugas: Taufik — finalkan jadwal rilis paling lambat Senin (2025-10-13). Support — terbitkan FAQ paling lambat Kamis (2025-10-16). Marketing — siapkan draf rencana Black Friday paling lambat Sabtu (2025-10-25).\n\nAndi (penutup): Belanja dengan cerdas dan jaga arah tetap jelas — kejelasan di atas kecepatan. Pegang prinsip “siapa melakukan apa dan kapan”, dan jaga rapat dalam 30 menit."
+    },
+    "generic": {
+      "h3": "Contoh output AI generik",
+      "body": "Tim meninjau kinerja penjualan smartwatch. Metrik online naik (sesi, konversi). Toko mengalami kehabisan stok di beberapa lokasi. Disebutkan pembaruan firmware dan bundel musiman. Secara keseluruhan positif, dengan beberapa perbaikan yang didiskusikan.",
+      "note": "Terbaca rapi, tetapi tidak menjawab tegas “siapa mengerjakan apa dan kapan”."
+    },
+    "pretty": { "h3": "Contoh output Minutes AI" }
+  },
+  "minutes": {
+    "meetingTitle": "Tinjauan mingguan penjualan smartwatch",
+    "date": "2025-10-11 10:00 WIB",
+    "attendees": ["Andi (Kepala Marketing)", "Joko (E-commerce)", "Sari (Operasi Ritel)", "Taufik (PM)", "Riko (Data)"],
+    "coreMessage": "Bekerja cerdas dengan mengutamakan kejelasan dibanding kecepatan. Komit pada “siapa melakukan apa dan kapan”, dan batasi rapat hingga 30 menit.",
+    "topics": [
+      {
+        "topic": "Kinerja kanal online",
+        "discussion": [
+          "Sesi +18%; konversi 2,9% → 3,2%; pendapatan +12%",
+          "Lonjakan Sabtu dipicu influencer; belanja iklan +6%",
+          "CTR retargeting turun 1,8% → 1,2%; sarankan penyegaran kreatif + uji A/B"
+        ],
+        "decisions": ["Tambah anggaran iklan online 15% selama dua minggu"],
+        "actionItems": [
+          "Joko — luncurkan uji A/B paling lambat 2025-10-15",
+          "Riko — serahkan analisis CTR paling lambat 2025-10-17"
+        ],
+        "concerns": ["Iklan jenuh bila materi tidak disegarkan"],
+        "keyMessages": ["Tumbuh dengan CAC stabil; uji sebelum scale-up"]
+      },
+      {
+        "topic": "Stok offline & operasi toko",
+        "discussion": [
+          "Kehabisan stok di Jakarta, Surabaya, Bandung",
+          "Restok 500 unit pada hari Senin",
+          "Trafik −4% karena badai; nilai keranjang stabil"
+        ],
+        "decisions": ["Restok 500 unit di tiga toko"],
+        "actionItems": ["Sari — konfirmasi ETA/logistik paling lambat 2025-10-14"],
+        "concerns": ["Risiko lead time jika backlog pemasok meningkat"],
+        "keyMessages": ["Jaga ketersediaan untuk mencegah kehilangan penjualan"]
+      },
+      {
+        "topic": "Firmware v1.2 & peluncuran bundel Q4",
+        "discussion": [
+          "v1.2 memperbaiki baterai; kalibrasi langkah lebih akurat",
+          "Catatan rilis siap; Support akan menerbitkan FAQ",
+          "Bundel Q4: Watch + Band, −Rp200.000 mulai 2025-10-20"
+        ],
+        "decisions": ["Setujui peluncuran 2025-10-20"],
+        "actionItems": [
+          "Taufik — finalkan rencana rilis 2025-10-13",
+          "Support — terbitkan FAQ 2025-10-16",
+          "Marketing — siapkan rencana Black Friday 2025-10-25"
+        ],
+        "keyMessages": ["Padukan peningkatan produk dengan kampanye yang tepat waktu"]
+      }
+    ]
+  },
+  "minutes.labels": {
+    "discussion": "Diskusi",
+    "decisions": "Keputusan",
+    "actionItems": "Tugas",
+    "concerns": "Catatan",
+    "keyMessages": "Pesan Kunci",
+    "attendees": "Peserta:",
+    "closingMessage": "Pesan Penutup"
+  },
+  "wrap": {
+    "h2": "Penutup",
+    "p": "Bagaimana menurut Anda? Dengan struktur ini, pembaca dan tim dapat melihat langkah berikutnya secara sekilas — hasilnya benar-benar bernilai dan dapat ditindaklanjuti. Coba Minutes AI dan rasakan sendiri."
+  },
+  "cta": { "openBrowser": "Buka versi browser", "downloadIOS": "Unduh versi iOS" },
+  "transcript": { "expand": "Tampilkan teks lengkap", "close": "Tutup teks lengkap" }
+}

@@ -1,0 +1,129 @@
+{
+  "seo": {
+    "title": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo | Blog de Actas IA",
+    "description": "Un toque para generar actas con verdadero valor. Introducción sencilla a Actas IA: fundamentos, diferencias frente a otras herramientas y ejemplos de salida; de confianza para más de {{users}} usuarios (a {{date}}).",
+    "ogTitle": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo",
+    "ogDescription": "Un toque para actas significativas. Entiende Actas IA, en qué se diferencia y revisa ejemplos reales.",
+    "ld": {
+      "headline": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo",
+      "description": "Un toque para actas significativas. Introducción breve a Actas IA, sus diferencias y ejemplos."
+    }
+  },
+  "nav": { "blog": "Blog", "introduction": "Introducción" },
+  "hero": {
+    "kicker": "Actas IA",
+    "h1": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo",
+    "tagline": "“Un toque para actas de reunión con sentido.” Explicaciones claras y esenciales para quienes empiezan."
+  },
+  "intro": {
+    "h2": "Introducción",
+    "p1": "Gracias por visitar este artículo. Si estás leyendo esto, probablemente hayas sentido: “Tomar actas es tedioso”, “Sé escribirlas, pero me lleva demasiado tiempo” o “Probé con una IA popular, pero algo no encajaba”.",
+    "p2": "O quizá, como lector, te has encontrado con: “Se pasaron por alto comentarios”, “las decisiones no están claras” o “las personas no comparten el mismo entendimiento”.",
+    "p3": {
+      "pre": "En este artículo mostraremos cómo",
+      "mid": "te ayuda a producir",
+      "bold": "actas con verdadero significado",
+      "post": "con un solo toque — priorizando la claridad y los resultados."
+    }
+  },
+  "what": {
+    "h2": "¿Qué es Actas IA?",
+    "p1": "Actas IA es una herramienta de actas de reunión completamente automatizada y potenciada por IA. Admite todos los idiomas principales y supera los 30.000 usuarios en todo el mundo.",
+    "footnote": "※ A {{date}} (según datos del App Store de iOS)",
+    "p2": "Con Actas IA puedes generar automáticamente “resúmenes”, “decisiones” y “tareas”, creando actas útiles sin esfuerzo manual."
+  },
+  "compare": {
+    "title": "Diferencias: Herramienta de transcripción / IA genérica / Actas IA",
+    "head": {
+      "feature": "Función",
+      "transcription": "Transcripción simple",
+      "generic": "IA genérica",
+      "minutes": "Actas IA"
+    },
+    "rows": [
+      { "k": "Audio → Texto", "a": "Sí", "b": "No (requiere entrada manual)", "c": "Sí" },
+      { "k": "Resumen / Esquema", "a": "No", "b": "Sí (puede perder el contexto)", "c": "Sí (optimizado para reuniones)" },
+      { "k": "Extracción de decisiones / tareas", "a": "No", "b": "Sí (a menudo ambigua)", "c": "Sí (extracción clara + etiquetado)" },
+      { "k": "Soporte multilingüe", "a": "No", "b": "Sí (riesgo de desviaciones sintácticas)", "c": "Sí (idiomas principales + consciente del contexto)" }
+    ]
+  },
+  "samples": {
+    "h2": "Texto de origen y ejemplos de salida",
+    "meetingSample": "Muestra de audio de reunión",
+    "transcript": {
+      "preview": "Bien, es la hora; empecemos la reunión. Primero, revisemos el rendimiento de ventas del ‘smartwatch’ del fin de semana pasado. Jordán, comienza por favor con el informe del canal online.",
+      "full": "Alejandro (Director de Marketing): Gracias por asistir — Jordán (E-commerce), Samuel (Operaciones Retail), Tomás (PM) y Raúl (Datos). Revisemos el rendimiento de ventas del smartwatch del fin de semana pasado. Jordán, empieza con el canal online.\n\nJordán (E-commerce): Semana contra semana, las sesiones subieron un 18 %. La conversión mejoró del 2,9 % al 3,2 %. Los ingresos crecieron un 12 %. El pico vino sobre todo por la acción con influencers del sábado; el gasto en anuncios subió un 6 %.\n\nRaúl (Datos): El CAC se mantiene estable alrededor de ¥2.400. Sin embargo, la CTR de retargeting cayó del 1,8 % al 1,2 %. Recomiendo refrescar creatividades y un test A/B con titulares más cortos. Puedo entregar un informe rápido el viernes (2025-10-17).\n\nAlejandro: Suena bien. Decisión: Aumentar el presupuesto publicitario online un 15 % durante las próximas dos semanas. Tareas: Jordán — lanza el test A/B en el copy del hero de accesorios para el miércoles (2025-10-15). Raúl — entrega el informe de CTR para el viernes (2025-10-17).\n\nSamuel (Retail): En tiendas físicas, hubo roturas de stock en Madrid, Barcelona y Valencia. Se ha programado un reabastecimiento de 500 unidades para el lunes. El tráfico a tienda cayó un 4 % por el temporal, pero el ticket medio se mantuvo.\n\nAlejandro: Decisión: Proceder con el reabastecimiento de 500 unidades en esas tres tiendas. Tarea: Samuel — confirma el ETA del proveedor y la logística para el martes (2025-10-14). Aviso: riesgo de plazos si aumenta la cola del proveedor.\n\nTomás (PM): El firmware v1.2 corrige el drenaje de batería y mejora la calibración del podómetro. Las notas de versión están listas. Propongo lanzamiento el 20 de octubre con un paquete de Q4 — “Watch + Band” con 20 € de descuento. Soporte deberá publicar una FAQ.\n\nAlejandro: Decisión: Aprobar el lanzamiento del paquete de Q4 el 2025-10-20. Tareas: Tomás — cierra el calendario de lanzamiento para el lunes (2025-10-13). Soporte — publica la FAQ para el jueves (2025-10-16). Marketing — prepara un borrador de Black Friday para el sábado (2025-10-25).\n\nAlejandro (mensaje de cierre): Gastemos con cabeza y mantengamos el rumbo claro — claridad antes que velocidad. Comprometámonos con “quién hace qué y para cuándo”, y mantengamos las reuniones dentro de 30 minutos."
+    },
+    "generic": {
+      "h3": "Ejemplo de salida de una IA genérica",
+      "body": "El equipo revisó el rendimiento de ventas del smartwatch. Los indicadores online subieron (sesiones, conversión). En tiendas hubo roturas de stock en varios puntos. Se mencionó una actualización de firmware y un paquete estacional. En general, el tono fue positivo y se discutieron varias mejoras.",
+      "note": "Se lee limpio, pero no responde claramente “quién hará qué y para cuándo”."
+    },
+    "pretty": { "h3": "Ejemplo de salida de Actas IA" }
+  },
+  "minutes": {
+    "meetingTitle": "Revisión semanal de ventas de smartwatch",
+    "date": "2025-10-11 10:00 CET",
+    "attendees": ["Alejandro (Director de Marketing)", "Jordán (E-commerce)", "Samuel (Operaciones Retail)", "Tomás (PM)", "Raúl (Datos)"],
+    "coreMessage": "Trabaja con inteligencia y prioriza la claridad sobre la velocidad. Compromiso con “quién hace qué y para cuándo” y reuniones de menos de 30 minutos.",
+    "topics": [
+      {
+        "topic": "Rendimiento del canal online",
+        "discussion": [
+          "Sesiones +18 %; conversión 2,9 % → 3,2 %; ingresos +12 %",
+          "El pico del sábado vino por la acción con influencers; gasto publicitario +6 %",
+          "La CTR de retargeting bajó 1,8 % → 1,2 %; propuesto refresco creativo y A/B"
+        ],
+        "decisions": ["Aumentar el presupuesto online un 15 % por dos semanas"],
+        "actionItems": [
+          "Jordán — lanzar test A/B para 2025-10-15",
+          "Raúl — entregar análisis de CTR para 2025-10-17"
+        ],
+        "concerns": ["Fatiga publicitaria si no se renuevan creatividades"],
+        "keyMessages": ["Crecer con CAC estable; testear antes de escalar"]
+      },
+      {
+        "topic": "Stock offline y operación en tiendas",
+        "discussion": [
+          "Roturas de stock en Madrid, Barcelona y Valencia",
+          "Reabastecimiento de 500 unidades para el lunes",
+          "Tráfico −4 % por temporal; ticket medio estable"
+        ],
+        "decisions": ["Reponer 500 unidades en tres tiendas"],
+        "actionItems": ["Samuel — confirmar ETA/logística para 2025-10-14"],
+        "concerns": ["Riesgo de plazos si aumenta la carga del proveedor"],
+        "keyMessages": ["Evitar ventas perdidas estabilizando inventario"]
+      },
+      {
+        "topic": "Firmware v1.2 y lanzamiento del paquete Q4",
+        "discussion": [
+          "v1.2 corrige batería; mejor calibración de pasos",
+          "Notas de versión listas; Soporte publicará FAQ",
+          "Paquete Q4: Watch + Band, −20 € desde 2025-10-20"
+        ],
+        "decisions": ["Aprobar lanzamiento el 2025-10-20"],
+        "actionItems": [
+          "Tomás — cerrar plan de lanzamiento 2025-10-13",
+          "Soporte — publicar FAQ 2025-10-16",
+          "Marketing — preparar plan de Black Friday 2025-10-25"
+        ],
+        "keyMessages": ["Vincular mejoras de producto con campañas oportunas"]
+      }
+    ]
+  },
+  "minutes.labels": {
+    "discussion": "Debate",
+    "decisions": "Decisiones",
+    "actionItems": "Tareas",
+    "concerns": "Observaciones",
+    "keyMessages": "Mensajes clave",
+    "attendees": "Asistentes:",
+    "closingMessage": "Mensaje de cierre"
+  },
+  "wrap": {
+    "h2": "Cierre",
+    "p": "¿Qué te parece? Con esta estructura, lectores y equipos ven de un vistazo qué sigue — el resultado es realmente valioso y accionable. Prueba Actas IA y vívelo tú mismo."
+  },
+  "cta": { "openBrowser": "Abrir versión web", "downloadIOS": "Descargar versión iOS" },
+  "transcript": { "expand": "Ver texto completo", "close": "Cerrar texto completo" }
+}
