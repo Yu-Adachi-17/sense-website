@@ -1,8 +1,10 @@
-// src/pages/blog/introduction.js
+// src/pages/blog/introduction.js (fixed)
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { Inter } from "next/font/google";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,13 +40,14 @@ function StatFootnote({ children }) {
 // Accessible “expand full transcript”
 function ExpandableTranscript({ preview, full }) {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation("blog_introduction");
   return (
     <details
       className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur"
       onToggle={(e) => setOpen(e.currentTarget.open)}
     >
       <summary className="list-none cursor-pointer select-none px-4 py-3 text-sm text-indigo-100/90 flex items-center justify-between">
-        <span>{open ? "Close Full Text" : "Expand Full Text"}</span>
+        <span>{open ? t("transcript.close") : t("transcript.expand")}</span>
         <svg
           aria-hidden="true"
           className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
@@ -96,13 +99,14 @@ function ActionItemLine({ text }) {
 }
 
 function TopicBlock({ index, topic }) {
+  const { t } = useTranslation("blog_introduction");
   const {
     topic: title,
     discussion = [],
     decisions,
     actionItems,
     concerns,
-    keyMessages
+    keyMessages,
   } = topic || {};
 
   return (
@@ -113,7 +117,7 @@ function TopicBlock({ index, topic }) {
 
       {discussion?.length > 0 && (
         <>
-          <SectionLabel>Discussion</SectionLabel>
+          <SectionLabel>{t("minutes.labels.discussion")}</SectionLabel>
           <ul className="ml-4 list-disc space-y-1 text-indigo-100/90">
             {discussion.map((d, i) => (
               <li key={i}>{d}</li>
@@ -124,7 +128,7 @@ function TopicBlock({ index, topic }) {
 
       {Array.isArray(decisions) && decisions.length > 0 && (
         <>
-          <SectionLabel>Decisions</SectionLabel>
+          <SectionLabel>{t("minutes.labels.decisions")}</SectionLabel>
           <ul className="ml-4 list-disc space-y-1 text-indigo-100/90">
             {decisions.map((d, i) => (
               <li key={i} className="font-medium text-white/95">{d}</li>
@@ -135,7 +139,7 @@ function TopicBlock({ index, topic }) {
 
       {Array.isArray(actionItems) && actionItems.length > 0 && (
         <>
-          <SectionLabel>Action Items</SectionLabel>
+          <SectionLabel>{t("minutes.labels.actionItems")}</SectionLabel>
           <ul className="ml-4 list-disc space-y-1 text-indigo-100/90">
             {actionItems.map((a, i) => (
               <ActionItemLine key={i} text={a} />
@@ -146,7 +150,7 @@ function TopicBlock({ index, topic }) {
 
       {Array.isArray(concerns) && concerns.length > 0 && (
         <>
-          <SectionLabel>Concerns</SectionLabel>
+          <SectionLabel>{t("minutes.labels.concerns")}</SectionLabel>
           <ul className="ml-4 list-disc space-y-1 text-indigo-100/90">
             {concerns.map((c, i) => (
               <li key={i}>{c}</li>
@@ -157,7 +161,7 @@ function TopicBlock({ index, topic }) {
 
       {Array.isArray(keyMessages) && keyMessages.length > 0 && (
         <>
-          <SectionLabel>Key Messages</SectionLabel>
+          <SectionLabel>{t("minutes.labels.keyMessages")}</SectionLabel>
           <ul className="ml-4 list-disc space-y-1 text-indigo-100/90">
             {keyMessages.map((k, i) => (
               <li key={i} className="font-medium">{k}</li>
@@ -170,15 +174,10 @@ function TopicBlock({ index, topic }) {
 }
 
 function MinutesPrettyRender({ minutes }) {
-  if (!minutes) return null;
-  const {
-    meetingTitle,
-    date,
-    location,
-    attendees,
-    coreMessage,
-    topics = []
-  } = minutes;
+  const { t } = useTranslation("blog_introduction");
+  if (!minutes || typeof minutes !== "object" || Array.isArray(minutes)) return null;
+
+  const { meetingTitle, date, location, attendees, coreMessage, topics = [] } = minutes;
 
   return (
     <section className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6">
@@ -193,7 +192,7 @@ function MinutesPrettyRender({ minutes }) {
         </div>
         {Array.isArray(attendees) && attendees.length > 0 && (
           <p className="mt-2 text-sm text-indigo-100/90">
-            <span className="font-semibold text-indigo-200/90">Attendees:</span>{" "}
+            <span className="font-semibold text-indigo-200/90">{t("minutes.labels.attendees")}</span>{" "}
             {attendees.join(", ")}
           </p>
         )}
@@ -202,8 +201,8 @@ function MinutesPrettyRender({ minutes }) {
 
       {/* Topics */}
       <div className="space-y-4">
-        {topics.map((t, i) => (
-          <TopicBlock key={`${i}-${t.topic}`} index={i + 1} topic={t} />
+        {topics.map((tpc, i) => (
+          <TopicBlock key={`${i}-${tpc.topic}`} index={i + 1} topic={tpc} />
         ))}
       </div>
 
@@ -211,11 +210,9 @@ function MinutesPrettyRender({ minutes }) {
       {coreMessage && (
         <aside className="mt-6 rounded-xl border border-white/10 bg-black/30 p-4">
           <h5 className="mb-2 text-base sm:text-lg font-semibold tracking-wide text-indigo-200/90">
-            Closing Message
+            {t("minutes.labels.closingMessage")}
           </h5>
-          <blockquote className="text-indigo-100/90">
-            “{coreMessage}”
-          </blockquote>
+          <blockquote className="text-indigo-100/90">“{coreMessage}”</blockquote>
         </aside>
       )}
     </section>
@@ -223,33 +220,46 @@ function MinutesPrettyRender({ minutes }) {
 }
 
 export default function BlogIntroduction() {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
+  const { t } = useTranslation("blog_introduction");
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = `${siteUrl}/blog/introduction`;
   const LINK_HOME = "/";
   const LINK_IOS =
     "https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
+  // i18n objects（未定義/型不一致時のフォールバックを用意）
+  const rawMinutes = t("minutes", { returnObjects: true });
+  const minutes =
+    rawMinutes && typeof rawMinutes === "object" && !Array.isArray(rawMinutes)
+      ? rawMinutes
+      : null;
+
+  // 比較表：配列でなければ安全なデフォルトにフォールバック
+  const rawRows = t("compare.rows", { returnObjects: true });
+  const defaultRows = [
+    { k: t("compare.fallback.0.k", "Audio → Text"), a: t("compare.fallback.0.a", "Yes"), b: t("compare.fallback.0.b", "No (requires manual input)"), c: t("compare.fallback.0.c", "Yes") },
+    { k: t("compare.fallback.1.k", "Summarization / Outline"), a: t("compare.fallback.1.a", "No"), b: t("compare.fallback.1.b", "Yes (but context may shift)"), c: t("compare.fallback.1.c", "Yes (optimized for meetings)") },
+    { k: t("compare.fallback.2.k", "Decision / Action Extraction"), a: t("compare.fallback.2.a", "No"), b: t("compare.fallback.2.b", "Yes (but often ambiguous)"), c: t("compare.fallback.2.c", "Yes (clear extraction + tagging)") },
+    { k: t("compare.fallback.3.k", "Multi-language Support"), a: t("compare.fallback.3.a", "No"), b: t("compare.fallback.3.b", "Yes (risk of syntax drift)"), c: t("compare.fallback.3.c", "Yes (major languages + context-aware)") },
+  ];
+  const compareRows = Array.isArray(rawRows)
+    ? rawRows
+    : (rawRows && typeof rawRows === "object" && !Array.isArray(rawRows))
+      ? Object.values(rawRows)
+      : defaultRows;
+
   return (
     <>
       <Head>
-        <title>
-          What is Minutes.AI? Basics & Benefits Before You Adopt | Minutes.AI Blog
-        </title>
+        <title>{t("seo.title")}</title>
         <meta
           name="description"
-          content="One-tap for meaningful minutes. A simple intro to Minutes.AI: basics, differences vs other tools, and output examples; trusted by 30,000+ users (as of Oct 2025)."
+          content={t("seo.description", { users: "30,000+", date: "Oct 2025" })}
         />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="article" />
-        <meta
-          property="og:title"
-          content="What is Minutes.AI? Basics & Benefits Before You Adopt"
-        />
-        <meta
-          property="og:description"
-          content="One-tap for meaningful minutes. Understand Minutes.AI, how it's different, and sample outputs."
-        />
+        <meta property="og:title" content={t("seo.ogTitle")} />
+        <meta property="og:description" content={t("seo.ogDescription")} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/images/hero-phone.png`} />
         <script
@@ -258,8 +268,7 @@ export default function BlogIntroduction() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Article",
-              headline:
-                "What is Minutes.AI? Basics & Benefits Before You Adopt",
+              headline: t("seo.ld.headline"),
               datePublished: new Date().toISOString(),
               dateModified: new Date().toISOString(),
               mainEntityOfPage: canonical,
@@ -270,8 +279,7 @@ export default function BlogIntroduction() {
                 logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` },
               },
               image: [`${siteUrl}/images/hero-phone.png`],
-              description:
-                "One-tap for meaningful minutes. A simple intro to Minutes.AI, its differences, and examples.",
+              description: t("seo.ld.description"),
             }),
           }}
         />
@@ -284,24 +292,24 @@ export default function BlogIntroduction() {
         <header className="mx-auto max-w-7xl px-6 pt-10 sm:pt-12">
           <nav className="text-sm text-indigo-200/80">
             <Link href="/blog" className="hover:underline">
-              Blog
+              {t("nav.blog")}
             </Link>
             <span className="mx-2 text-indigo-300/50">/</span>
-            <span className="text-indigo-100">Introduction</span>
+            <span className="text-indigo-100">{t("nav.introduction")}</span>
           </nav>
         </header>
 
         {/* Hero */}
         <section className="relative">
           <div className="mx-auto max-w-3xl px-6 pt-10 pb-6 sm:pt-12 sm:pb-8">
-            <Kicker>Minutes.AI</Kicker>
+            <Kicker>{t("hero.kicker")}</Kicker>
             <h1 className="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight">
               <span className="bg-gradient-to-r from-indigo-200 via-white to-fuchsia-200 bg-clip-text text-transparent drop-shadow">
-                What is Minutes.AI? Basics & Benefits Before You Adopt
+                {t("hero.h1")}
               </span>
             </h1>
             <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">
-              “One-tap for meaningful meeting minutes.” Clear, essential explanations for those just getting started.
+              {t("hero.tagline")}
             </p>
           </div>
         </section>
@@ -310,100 +318,62 @@ export default function BlogIntroduction() {
         <main className="mx-auto max-w-3xl px-6 pb-20">
           {/* Introduction */}
           <SectionCard>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Introduction</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{t("intro.h2")}</h2>
             <div className="mt-4 space-y-4">
+              <p className="text-base leading-7 text-indigo-100/90">{t("intro.p1")}</p>
+              <p className="text-base leading-7 text-indigo-100/90">{t("intro.p2")}</p>
               <p className="text-base leading-7 text-indigo-100/90">
-                Hello everyone! Thank you for visiting this article. If you’re reading this, chances are you’ve felt:
-                “Taking meeting minutes is tedious,” “I know how to write them but it takes too much time,” or
-                “I tried using popular generative AI but something felt off.”
-              </p>
-              <p className="text-base leading-7 text-indigo-100/90">
-                Or perhaps as a reader you’ve experienced: “Some remarks were missed,” “decisions are vague,” or
-                “people’s understanding doesn’t match.”
-              </p>
-              <p className="text-base leading-7 text-indigo-100/90">
-                In this article, we’ll show how <span className="font-semibold">Minutes.AI</span> helps you produce
-                <span className="font-semibold"> meaningful minutes </span>
-                with just one tap — focusing on clarity and outcomes.
+                {t("intro.p3.pre")} <span className="font-semibold">Minutes.AI</span>{" "}
+                {t("intro.p3.mid")} <span className="font-semibold">{t("intro.p3.bold")}</span>{" "}
+                {t("intro.p3.post")}
               </p>
             </div>
           </SectionCard>
 
           {/* What is Minutes.AI? */}
           <SectionCard className="mt-8">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">What is Minutes.AI?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{t("what.h2")}</h2>
             <div className="mt-4 space-y-4">
-              <p className="text-base leading-7 text-indigo-100/90">
-                <span className="font-semibold">Minutes.AI</span> is an AI-powered, fully automated meeting-minutes tool.
-                It supports all major languages and has surpassed <span className="font-semibold">30,000 users worldwide</span>.
-              </p>
-              <StatFootnote>※ As of October 2025 (based on iOS store data)</StatFootnote>
-              <p className="text-base leading-7 text-indigo-100/90">
-                With Minutes.AI, you can automatically generate “summaries,” “decisions,” and “action items,”
-                producing <span className="font-semibold">meaningful minutes</span> without manual effort.
-              </p>
+              <p className="text-base leading-7 text-indigo-100/90">{t("what.p1")}</p>
+              <StatFootnote>{t("what.footnote", { date: "October 2025" })}</StatFootnote>
+              <p className="text-base leading-7 text-indigo-100/90">{t("what.p2")}</p>
             </div>
 
             {/* Comparison table */}
             <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
               <div className="bg-white/[0.03] px-4 py-3 text-sm text-indigo-100/90">
-                Differences: Transcription Tools / Generic AI / Minutes.AI
+                {t("compare.title")}
               </div>
               <div className="divide-y divide-white/10">
                 <div className="grid grid-cols-4 gap-2 bg-white/[0.02] px-4 py-3 text-xs sm:text-sm">
-                  <div className="text-indigo-200/90">Feature</div>
-                  <div className="text-indigo-200/90">Plain Transcription Tool</div>
-                  <div className="text-indigo-200/90">Generic AI</div>
-                  <div className="text-indigo-200/90">Minutes.AI</div>
+                  <div className="text-indigo-200/90">{t("compare.head.feature")}</div>
+                  <div className="text-indigo-200/90">{t("compare.head.transcription")}</div>
+                  <div className="text-indigo-200/90">{t("compare.head.generic")}</div>
+                  <div className="text-indigo-200/90">{t("compare.head.minutes")}</div>
                 </div>
-                {[
-                  { k: "Audio → Text", a: "Yes", b: "No (requires manual input)", c: "Yes" },
-                  { k: "Summarization / Outline", a: "No", b: "Yes (but context may shift)", c: "Yes (optimized for meetings)" },
-                  { k: "Decision / Action Extraction", a: "No", b: "Yes (but often ambiguous)", c: "Yes (clear extraction + tagging)" },
-                  { k: "Multi-language Support", a: "No", b: "Yes (risk of syntax drift)", c: "Yes (major languages + context-aware)" },
-                ].map((row) => (
-                  <div key={row.k} className="grid grid-cols-4 gap-2 px-4 py-3 text-sm">
-                    <div className="text-indigo-100/90">{row.k}</div>
-                    <div className="text-indigo-50/90">{row.a}</div>
-                    <div className="text-indigo-50/90">{row.b}</div>
-                    <div className="text-indigo-50/90">{row.c}</div>
-                  </div>
-                ))}
+                {Array.isArray(compareRows) &&
+                  compareRows.map((row, idx) => (
+                    <div key={`${row.k}-${idx}`} className="grid grid-cols-4 gap-2 px-4 py-3 text-sm">
+                      <div className="text-indigo-100/90">{row.k}</div>
+                      <div className="text-indigo-50/90">{row.a}</div>
+                      <div className="text-indigo-50/90">{row.b}</div>
+                      <div className="text-indigo-50/90">{row.c}</div>
+                    </div>
+                  ))}
               </div>
             </div>
           </SectionCard>
 
           {/* Source Text & Sample Outputs (stacked vertically) */}
           <SectionCard className="mt-8">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
-              Source Text & Sample Outputs
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{t("samples.h2")}</h2>
 
             {/* Meeting audio (preview + full expandable) */}
             <div className="mt-4 space-y-3">
-              <h3 className="text-lg sm:text-xl font-semibold">Meeting Audio Sample</h3>
+              <h3 className="text-lg sm:text-xl font-semibold">{t("samples.meetingSample")}</h3>
               <ExpandableTranscript
-                preview={
-                  "Alright, it’s time so let’s start the meeting. First, let’s look back at the ‘smartwatch’ sales performance from last weekend. Please begin with your online channel report."
-                }
-                full={`Alex (Marketing Lead): Thanks for joining, everyone — Jordan (E-commerce), Sam (Retail Ops), Taylor (PM), and Riley (Data). Let’s review last weekend’s smartwatch performance. Jordan, please start with online.
-
-Jordan (E-commerce): Week-over-week, sessions are up 18%. Conversion improved from 2.9% to 3.2%. Revenue rose 12%. The spike mainly came from the influencer tie-in on Saturday; ad spend was up 6%.
-
-Riley (Data): CAC remains stable at around ¥2,400. However, retargeting CTR fell from 1.8% to 1.2%. I recommend a creative refresh and an A/B test with shorter headline copy. I can deliver a quick analysis deck by Friday (2025-10-17).
-
-Alex: Sounds good. Decision: Increase online ad budget by 15% for the next two weeks. Action: Jordan, launch the A/B test on the accessories hero copy by Wednesday (2025-10-15). Action: Riley, deliver the creative CTR analysis deck by Friday (2025-10-17).
-
-Sam (Retail Ops): For physical stores, we had stockouts at Shibuya, Umeda, and Sapporo. A restock of 500 units is scheduled for Monday. Foot traffic dropped 4% due to the typhoon, but average basket value was flat.
-
-Alex: Decision: Proceed with the 500-unit restock across those three stores. Action: Sam, confirm supplier ETA and logistics by Tuesday (2025-10-14). Concern: lead-time risk if the supplier backlog grows.
-
-Taylor (PM): Firmware v1.2 fixes the battery drain issue and improves step-count calibration. Release notes are ready. I propose a launch on Oct 20 with a Q4 bundle — “Watch + Band” at ¥2,000 off. Support will need to publish an FAQ.
-
-Alex: Decision: Approve the Q4 bundle launch on 2025-10-20. Actions: Taylor, finalize the release schedule by Monday (2025-10-13). Support team, publish the FAQ by Thursday (2025-10-16). Marketing, prepare a Black Friday draft plan by Saturday (2025-10-25).
-
-Alex (closing message): Let’s spend smart and keep our pace clear and steady — clarity over speed. Commit to “who does what by when,” and keep meetings within 30 minutes.
-`}
+                preview={t("samples.transcript.preview")}
+                full={t("samples.transcript.full")}
               />
             </div>
 
@@ -411,95 +381,25 @@ Alex (closing message): Let’s spend smart and keep our pace clear and steady �
             <div className="mt-6 space-y-6">
               {/* Generic AI */}
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-lg sm:text-xl font-semibold">Generic AI Output Example</h3>
+                <h3 className="text-lg sm:text-xl font-semibold">{t("samples.generic.h3")}</h3>
                 <div className="mt-2 rounded-xl bg-black/30 p-3 text-indigo-100/90 whitespace-pre-wrap">
-{`The team reviewed smartwatch sales performance. Online metrics were up (sessions, conversion).
-Retail stores faced stockouts at several locations. There was mention of a firmware update and a seasonal bundle.
-Overall outlook was positive, and several improvements were discussed.`}
+                  {t("samples.generic.body")}
                 </div>
-                <p className="mt-3 text-sm leading-6 text-indigo-200/80">
-                  It reads clean, but it doesn’t clearly answer “who will do what by when.”
-                </p>
+                <p className="mt-3 text-sm leading-6 text-indigo-200/80">{t("samples.generic.note")}</p>
               </div>
 
               {/* Minutes.AI — Pretty render */}
               <div className="space-y-3">
-                <h3 className="text-lg sm:text-xl font-semibold">Minutes.AI Output Example</h3>
-
-                {(() => {
-  const minutes = {
-    meetingTitle: "Smartwatch Weekly Sales Review",
-    date: "2025-10-11 10:00 JST",
-    attendees: [
-      "Alex (Marketing Lead)",
-      "Jordan (E-commerce)",
-      "Sam (Retail Ops)",
-      "Taylor (PM)",
-      "Riley (Data)"
-    ],
-    coreMessage:
-      "Let’s spend smart — clarity over speed. Commit to ‘who does what by when,’ and keep meetings within 30 minutes.",
-    topics: [
-      {
-        topic: "Online channel performance",
-        discussion: [
-          "Sessions +18% WoW; conversion 2.9% → 3.2%; revenue +12%",
-          "Influencer tie-in drove Saturday spike; ad spend +6%",
-          "Retargeting CTR fell 1.8% → 1.2%; propose creative refresh and A/B test"
-        ],
-        decisions: [
-          "Increase online ad budget by 15% for the next two weeks"
-        ],
-        actionItems: [
-          "Jordan — launch A/B test on accessories hero copy by 2025-10-15",
-          "Riley — deliver creative CTR analysis deck by 2025-10-17"
-        ],
-        concerns: ["Ad fatigue if creatives are not refreshed"],
-        keyMessages: ["Grow while maintaining stable CAC; test before scaling"]
-      },
-      {
-        topic: "Offline stock & store operations",
-        discussion: [
-          "Stockouts at Shibuya, Umeda, Sapporo",
-          "Restock of 500 units scheduled for Monday",
-          "Foot traffic −4% due to typhoon; basket value flat"
-        ],
-        decisions: ["Proceed with 500-unit restock across three stores"],
-        actionItems: ["Sam — confirm supplier ETA/logistics by 2025-10-14"],
-        concerns: ["Supplier lead-time risk if backlog increases"],
-        keyMessages: ["Avoid lost sales by stabilizing store inventory"]
-      },
-      {
-        topic: "Firmware v1.2 & Q4 bundle launch",
-        discussion: [
-          "v1.2 fixes battery drain; improves step-count calibration",
-          "Release notes ready; Support to publish FAQ",
-          "Proposed Q4 bundle: Watch + Band, −¥2,000 from 2025-10-20"
-        ],
-        decisions: ["Approve Q4 bundle launch on 2025-10-20"],
-        actionItems: [
-          "Taylor — finalize release schedule by 2025-10-13",
-          "Support — publish FAQ by 2025-10-16",
-          "Marketing — prepare Black Friday draft plan by 2025-10-25"
-        ],
-        keyMessages: ["Pair product improvements with timely promotions"]
-      }
-    ]
-  };
-  return <MinutesPrettyRender minutes={minutes} />;
-})()}
-
+                <h3 className="text-lg sm:text-xl font-semibold">{t("samples.pretty.h3")}</h3>
+                <MinutesPrettyRender minutes={minutes} />
               </div>
             </div>
           </SectionCard>
 
           {/* Wrap-up (natural wording) */}
           <SectionCard className="mt-8">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Wrap-up</h2>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90">
-              How does it look? With this structure, readers and teams can see at a glance what should happen next —
-              the output becomes truly valuable and actionable. Give <span className="font-semibold">Minutes.AI</span> a try and experience it for yourself.
-            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{t("wrap.h2")}</h2>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90">{t("wrap.p")}</p>
           </SectionCard>
 
           {/* CTA */}
@@ -508,7 +408,7 @@ Overall outlook was positive, and several improvements were discussed.`}
               href={LINK_HOME}
               className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
             >
-              Open Browser Version
+              {t("cta.openBrowser")}
             </Link>
             <a
               href={LINK_IOS}
@@ -516,11 +416,20 @@ Overall outlook was positive, and several improvements were discussed.`}
               rel="noopener noreferrer"
               className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
             >
-              Download iOS Version
+              {t("cta.downloadIOS")}
             </a>
           </div>
         </main>
       </div>
     </>
   );
+}
+
+// SSR: load this page's namespace
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_introduction"])),
+    },
+  };
 }

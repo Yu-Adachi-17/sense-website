@@ -16,7 +16,7 @@ module.exports = {
       'ja',     // Japanese
       'ko',     // Korean
       'ms',     // Malay
-      'nl',     // Dutch ← ✅追加済
+      'nl',     // Dutch
       'no',     // Norwegian
       'pt-BR',  // Portuguese (Brazil)
       'pt-PT',  // Portuguese (Portugal)
@@ -25,17 +25,21 @@ module.exports = {
       'zh-CN',  // Chinese (Simplified)
       'zh-TW'   // Chinese (Traditional)
     ],
-    localeDetection: true,
+    localeDetection: false, // ★ Next 側と揃える
   },
 
   // モノレポでの実行位置ブレを防ぐ
   localePath: path.resolve(__dirname, 'public/locales'),
 
-  ns: ['common', 'home', 'seo'],
+  // 使用する名前空間
+  ns: ['common', 'home', 'seo', 'blog_introduction'], // ★ 追加
   defaultNS: 'common',
 
-  // 文章キーをそのまま使うために必須
-  keySeparator: false,
+  // ドット区切りで入れ子を解釈（デフォルト挙動を使用）
+  // ★ keySeparator は指定しない（falseだと "hero.h1" を1キーとして扱ってしまう）
+
+  // dev時はホットリロード
+  reloadOnPrerender: process.env.NODE_ENV === 'development',
 
   interpolation: { escapeValue: false },
 };
