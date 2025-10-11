@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["Combineer productverbetering met juiste marketingtiming"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "Discussie",
-    "decisions": "Besluiten",
-    "actionItems": "Actiepunten",
-    "concerns": "Zorgen",
-    "keyMessages": "Belangrijkste boodschappen",
-    "attendees": "Deelnemers:",
-    "closingMessage": "Afsluitende boodschap"
+    ],
+    "labels": {
+      "discussion": "Discussie",
+      "decisions": "Besluiten",
+      "actionItems": "Actiepunten",
+      "concerns": "Zorgen",
+      "keyMessages": "Belangrijkste boodschappen",
+      "attendees": "Deelnemers:",
+      "closingMessage": "Afsluitende boodschap"
+    }
   },
   "wrap": {
     "h2": "Afronding",

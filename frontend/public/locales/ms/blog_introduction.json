@@ -52,11 +52,11 @@
     "meetingSample": "Contoh Audio Mesyuarat",
     "transcript": {
       "preview": "Baik, mari kita mulakan mesyuarat. Pertama, kita tinjau prestasi jualan ‘jam pintar’ hujung minggu lepas. Amir, sila mulakan dengan laporan saluran dalam talian.",
-      "full": "Ahmad (Ketua Pemasaran): Terima kasih semua — Amir (E-dagang), Sara (Operasi Runcit), Farid (PM), dan Rina (Data). Kita akan semak semula prestasi jualan jam pintar minggu lepas. Amir, teruskan laporan dalam talian.\n\nAmir (E-dagang): Minggu ke minggu, jumlah lawatan meningkat 18%. Kadar penukaran naik dari 2.9% ke 3.2%. Hasil meningkat 12%. Lonjakan ini berpunca daripada kempen influencer pada hari Sabtu; perbelanjaan iklan naik 6%.\n\nRina (Data): CAC kekal stabil sekitar RM2,400. Namun CTR penargetan semula menurun dari 1.8% ke 1.2%. Saya cadangkan penyegaran kreatif dan ujian A/B dengan tajuk lebih pendek. Saya boleh sediakan laporan pantas menjelang Jumaat (2025-10-17).\n\nAhmad: Baik. Keputusan: Tingkatkan bajet iklan dalam talian sebanyak 15% untuk dua minggu akan datang. Tindakan: Amir — lancarkan ujian A/B sebelum Rabu (2025-10-15). Rina — sediakan laporan analisis CTR sebelum Jumaat (2025-10-17).\n\nSara (Runcit): Untuk kedai fizikal, stok habis di Kuala Lumpur, Penang, dan Johor Bahru. Restok 500 unit dijadualkan pada Isnin. Kunjungan pelanggan menurun 4% akibat ribut, tetapi nilai purata pembelian kekal stabil.\n\nAhmad: Keputusan: Teruskan restok 500 unit di tiga cawangan. Tindakan: Sara — sahkan ETA dan logistik pembekal sebelum Selasa (2025-10-14). Risiko: kelewatan penghantaran jika pembekal lambat.\n\nFarid (PM): Firmware v1.2 membetulkan masalah bateri dan menambah baik pengiraan langkah. Nota keluaran siap. Saya cadangkan pelancaran pada 20 Okt bersama pakej Q4 — “Jam + Tali” diskaun RM200. Sokongan perlu terbitkan FAQ.\n\nAhmad: Keputusan: Luluskan pelancaran Q4 pada 2025-10-20. Tindakan: Farid — sahkan jadual pelancaran sebelum Isnin (2025-10-13). Sokongan — terbitkan FAQ sebelum Khamis (2025-10-16). Pemasaran — sediakan rancangan Black Friday sebelum Sabtu (2025-10-25).\n\nAhmad (penutup): Bekerja dengan bijak, bukan cepat. Jelas siapa buat apa dan bila. Pastikan mesyuarat tidak lebih 30 minit."
+      "full": "Ahmad (Ketua Pemasaran): Terima kasih semua — Amir (E-dagang), Sara (Operasi Runcit), Farid (PM), dan Rina (Data). ... (diringkaskan)"
     },
     "generic": {
       "h3": "Contoh Hasil AI Umum",
-      "body": "Pasukan meninjau prestasi jualan jam pintar. Metrik dalam talian meningkat. Kedai fizikal mengalami kehabisan stok. Terdapat kemas kini firmware dan promosi bermusim. Secara keseluruhan, hasil positif dengan beberapa cadangan penambahbaikan.",
+      "body": "Pasukan meninjau prestasi jualan jam pintar. ...",
       "note": "Ringkas, tetapi tidak menjelaskan 'siapa buat apa dan bila'."
     },
     "pretty": { "h3": "Contoh Hasil Minutes AI" }
@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["Gabungkan peningkatan produk dengan promosi tepat masa"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "Perbincangan",
-    "decisions": "Keputusan",
-    "actionItems": "Tindakan",
-    "concerns": "Kebimbangan",
-    "keyMessages": "Mesej Utama",
-    "attendees": "Peserta:",
-    "closingMessage": "Mesej Penutup"
+    ],
+    "labels": {
+      "discussion": "Perbincangan",
+      "decisions": "Keputusan",
+      "actionItems": "Tindakan",
+      "concerns": "Kebimbangan",
+      "keyMessages": "Mesej Utama",
+      "attendees": "Peserta:",
+      "closingMessage": "Mesej Penutup"
+    }
   },
   "wrap": {
     "h2": "Penutup",

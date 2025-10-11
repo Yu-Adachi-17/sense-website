@@ -1,44 +1,24 @@
-// frontend/next-i18next.config.js
+// frontend/next-i18next.config.js 〔置き換え〕
 const path = require('path');
 
 module.exports = {
   i18n: {
     defaultLocale: 'en',
     locales: [
-      'ar',     // Arabic
-      'da',     // Danish
-      'de',     // German
-      'en',     // English
-      'es-ES',  // Spanish (Spain)
-      'es-MX',  // Spanish (Mexico)
-      'fr',     // French
-      'id',     // Indonesian
-      'ja',     // Japanese
-      'ko',     // Korean
-      'ms',     // Malay
-      'nl',     // Dutch
-      'no',     // Norwegian
-      'pt-BR',  // Portuguese (Brazil)
-      'pt-PT',  // Portuguese (Portugal)
-      'sv',     // Swedish
-      'tr',     // Turkish
-      'zh-CN',  // Chinese (Simplified)
-      'zh-TW'   // Chinese (Traditional)
+      'ar','da','de','en','es-ES','es-MX','fr','id','ja',
+      'ko','ms','nl','no','pt-BR','pt-PT','sv','tr','zh-CN','zh-TW'
     ],
-    localeDetection: false, // ★ Next 側と揃える
+    localeDetection: false,
   },
 
-  // モノレポでの実行位置ブレを防ぐ
-  localePath: path.resolve(__dirname, 'public/locales'),
+  // ★ 重要：必ず “絶対パス” にする（__dirname ではなく process.cwd を使用）
+  localePath: path.resolve(process.cwd(), 'public/locales'),
 
   // 使用する名前空間
-  ns: ['common', 'home', 'seo', 'blog_introduction'], // ★ 追加
+  ns: ['common', 'home', 'seo', 'blog_introduction'],
   defaultNS: 'common',
 
-  // ドット区切りで入れ子を解釈（デフォルト挙動を使用）
-  // ★ keySeparator は指定しない（falseだと "hero.h1" を1キーとして扱ってしまう）
-
-  // dev時はホットリロード
+  // dev 中はホットリロード
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 
   interpolation: { escapeValue: false },

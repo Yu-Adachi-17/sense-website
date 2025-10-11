@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["Ürün iyileştirmelerini doğru zamanlı pazarlama ile birleştirin"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "Görüşme",
-    "decisions": "Kararlar",
-    "actionItems": "Eylemler",
-    "concerns": "Endişeler",
-    "keyMessages": "Ana Mesajlar",
-    "attendees": "Katılımcılar:",
-    "closingMessage": "Kapanış Mesajı"
+    ],
+    "labels": {
+      "discussion": "Görüşme",
+      "decisions": "Kararlar",
+      "actionItems": "Eylemler",
+      "concerns": "Endişeler",
+      "keyMessages": "Ana Mesajlar",
+      "attendees": "Katılımcılar:",
+      "closingMessage": "Kapanış Mesajı"
+    }
   },
   "wrap": {
     "h2": "Kapanış",

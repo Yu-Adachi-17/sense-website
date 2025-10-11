@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["Associer les améliorations produit à des campagnes opportunes"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "Discussion",
-    "decisions": "Décisions",
-    "actionItems": "Actions",
-    "concerns": "Remarques",
-    "keyMessages": "Messages clés",
-    "attendees": "Participants :",
-    "closingMessage": "Message de clôture"
+    ],
+    "labels": {
+      "discussion": "Discussion",
+      "decisions": "Décisions",
+      "actionItems": "Actions",
+      "concerns": "Remarques",
+      "keyMessages": "Messages clés",
+      "attendees": "Participants :",
+      "closingMessage": "Message de clôture"
+    }
   },
   "wrap": {
     "h2": "Conclusion",

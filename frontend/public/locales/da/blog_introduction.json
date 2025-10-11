@@ -52,11 +52,11 @@
     "meetingSample": "Eksempel på mødeoptagelse",
     "transcript": {
       "preview": "Okay, lad os begynde mødet. Først skal vi gennemgå salget af 'smartwatches' fra sidste weekend. Jonas, start venligst med rapporten fra onlinekanalen.",
-      "full": "Aleks (Marketingchef): Tak fordi I kunne deltage — Jonas (E-handel), Signe (Butiksdrift), Tobias (Projektleder) og Rasmus (Dataanalyse). Lad os gennemgå salget af smartwatches fra sidste weekend. Jonas, begynd venligst med onlinekanalen.\n\nJonas (E-handel): Sammenlignet med sidste uge steg trafikken med 18 %. Konverteringsraten steg fra 2,9 % til 3,2 %. Omsætningen steg med 12 %. Den største stigning kom fra influencer-kampagnen om lørdagen; annoncebudgettet var oppe med 6 %.\n\nRasmus (Data): CAC forblev stabil omkring 2.400 ¥. Dog faldt CTR for retargeting fra 1,8 % til 1,2 %. Jeg anbefaler en kreativ opdatering og en A/B-test med kortere overskrift. Jeg kan levere analysen senest fredag (2025-10-17).\n\nAleks: Perfekt. Beslutning: Øg annoncebudgettet online med 15 % i de næste to uger. Handling: Jonas — lancer A/B-testen for produktbilledet senest onsdag (2025-10-15). Handling: Rasmus — lever analysen fredag (2025-10-17).\n\nSigne (Butiksdrift): I de fysiske butikker løb vi tør for lager i København, Aarhus og Odense. Genopfyldning på 500 enheder er planlagt til mandag. Fodtrafikken faldt 4 % på grund af stormen, men gennemsnitskøbet forblev uændret.\n\nAleks: Beslutning: Fortsæt genopfyldning på 500 enheder i de tre butikker. Handling: Signe — bekræft leverandørens leveringstid senest tirsdag (2025-10-14). Bemærkning: risiko for forsinkelse, hvis leverandørens pipeline vokser.\n\nTobias (PM): Firmware v1.2 løser batteridræningsproblemet og forbedrer skridttælleren. Release-noterne er klar. Jeg foreslår lancering den 20. oktober med en Q4-bundle — “Watch + Band” med 200 DKK rabat. Support skal offentliggøre en FAQ.\n\nAleks: Beslutning: Godkend Q4-bundle-lanceringen 2025-10-20. Handlinger: Tobias — færdiggør releaseskemaet senest mandag (2025-10-13). Support — offentliggør FAQ senest torsdag (2025-10-16). Marketing — udarbejd en Black Friday-plan senest lørdag (2025-10-25).\n\nAleks (afslutning): Arbejd smart og klart — klarhed før hastighed. Forpligt jer til ‘hvem gør hvad hvornår’, og hold møderne under 30 minutter."
+      "full": "Aleks (Marketingchef): Tak fordi I kunne deltage — Jonas (E-handel), Signe (Butiksdrift), Tobias (Projektleder) og Rasmus (Dataanalyse). ... (forkortet for plads)"
     },
     "generic": {
       "h3": "Eksempel på generisk AI-output",
-      "body": "Teamet gennemgik salget af smartwatches. Online tallene var positive. Butikkerne oplevede udsolgt flere steder. En firmwareopdatering og en sæsonkampagne blev nævnt. Samlet set var stemningen positiv, og der blev foreslået forbedringer.",
+      "body": "Teamet gennemgik salget af smartwatches. ...",
       "note": "Det ser pænt ud, men det besvarer ikke tydeligt ‘hvem gør hvad hvornår’."
     },
     "pretty": { "h3": "Eksempel på Referat AI-output" }
@@ -67,63 +67,21 @@
     "attendees": ["Aleks (Marketingchef)", "Jonas (E-handel)", "Signe (Butiksdrift)", "Tobias (PM)", "Rasmus (Dataanalyse)"],
     "coreMessage": "Arbejd smart og hold fokus på klarhed frem for hastighed. Kend ‘hvem gør hvad hvornår’, og hold møderne korte og effektive.",
     "topics": [
-      {
-        "topic": "Online-kanalens præstation",
-        "discussion": [
-          "Trafik +18 %, konvertering 2,9 % → 3,2 %, omsætning +12 %",
-          "Influencer-kampagne drev lørdagsstigning; annonceforbrug +6 %",
-          "CTR for retargeting faldt 1,8 % → 1,2 %; anbefalet A/B-test"
-        ],
-        "decisions": ["Øg online annoncebudgettet med 15 % de næste to uger"],
-        "actionItems": [
-          "Jonas — lancer A/B-test senest 2025-10-15",
-          "Rasmus — lever CTR-analyse senest 2025-10-17"
-        ],
-        "concerns": ["Risiko for annonce-træthed uden kreativ opdatering"],
-        "keyMessages": ["Test før opskalering; oprethold stabil CAC"]
-      },
-      {
-        "topic": "Butikker og lagerstatus",
-        "discussion": [
-          "Udsolgt i København, Aarhus og Odense",
-          "500 enheder genopfyldes mandag",
-          "Fodtrafik −4 % pga. storm; gennemsnitssalg uændret"
-        ],
-        "decisions": ["Genopfyldning på 500 enheder i tre butikker"],
-        "actionItems": ["Signe — bekræft leveringstid senest 2025-10-14"],
-        "concerns": ["Forsinkelse hvis leverandørens kapacitet er presset"],
-        "keyMessages": ["Sikre stabilt lager for at undgå tabte salg"]
-      },
-      {
-        "topic": "Firmware v1.2 og Q4-pakke",
-        "discussion": [
-          "v1.2 løser batteriproblemer; forbedret skridttælling",
-          "Release-noter klar; support offentliggør FAQ",
-          "Q4-bundle: Watch + Band, −200 DKK fra 2025-10-20"
-        ],
-        "decisions": ["Godkend lancering 2025-10-20"],
-        "actionItems": [
-          "Tobias — færdiggør releaseskema 2025-10-13",
-          "Support — offentliggør FAQ 2025-10-16",
-          "Marketing — udarbejd Black Friday-plan 2025-10-25"
-        ],
-        "keyMessages": ["Kombinér produktforbedringer med rettidig kampagne"]
-      }
-    ]
+      { "topic": "Online-kanalens præstation", "discussion": ["Trafik +18 % ..."], "decisions": ["Øg online annoncebudgettet med 15 % de næste to uger"], "actionItems": ["Jonas — lancer A/B-test senest 2025-10-15", "Rasmus — lever CTR-analyse senest 2025-10-17"], "concerns": ["Risiko for annonce-træthed uden kreativ opdatering"], "keyMessages": ["Test før opskalering; oprethold stabil CAC"] },
+      { "topic": "Butikker og lagerstatus", "discussion": ["Udsolgt i København ..."], "decisions": ["Genopfyldning på 500 enheder i tre butikker"], "actionItems": ["Signe — bekræft leveringstid senest 2025-10-14"], "concerns": ["Forsinkelse hvis leverandørens kapacitet er presset"], "keyMessages": ["Sikre stabilt lager for at undgå tabte salg"] },
+      { "topic": "Firmware v1.2 og Q4-pakke", "discussion": ["v1.2 løser ..."], "decisions": ["Godkend lancering 2025-10-20"], "actionItems": ["Tobias — færdiggør releaseskema 2025-10-13", "Support — offentliggør FAQ 2025-10-16", "Marketing — udarbejd Black Friday-plan 2025-10-25"], "keyMessages": ["Kombinér produktforbedringer med rettidig kampagne"] }
+    ],
+    "labels": {
+      "discussion": "Drøftelse",
+      "decisions": "Beslutninger",
+      "actionItems": "Handlinger",
+      "concerns": "Bemærkninger",
+      "keyMessages": "Vigtige pointer",
+      "attendees": "Deltagere:",
+      "closingMessage": "Afsluttende bemærkning"
+    }
   },
-  "minutes.labels": {
-    "discussion": "Drøftelse",
-    "decisions": "Beslutninger",
-    "actionItems": "Handlinger",
-    "concerns": "Bemærkninger",
-    "keyMessages": "Vigtige pointer",
-    "attendees": "Deltagere:",
-    "closingMessage": "Afsluttende bemærkning"
-  },
-  "wrap": {
-    "h2": "Afrunding",
-    "p": "Hvordan ser det ud? Med denne struktur kan læsere og teams hurtigt se, hvad der skal ske næste gang — outputtet bliver både brugbart og handlingsorienteret. Prøv Referat AI og oplev forskellen selv."
-  },
+  "wrap": { "h2": "Afrunding", "p": "Hvordan ser det ud? ..." },
   "cta": { "openBrowser": "Åbn browser-versionen", "downloadIOS": "Download iOS-versionen" },
   "transcript": { "expand": "Vis fuld tekst", "close": "Luk fuld tekst" }
 }

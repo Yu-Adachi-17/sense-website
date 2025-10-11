@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["製品改善と販促を連動させるタイミング戦略"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "議論内容",
-    "decisions": "決定事項",
-    "actionItems": "アクション項目",
-    "concerns": "懸念点",
-    "keyMessages": "主要メッセージ",
-    "attendees": "参加者：",
-    "closingMessage": "締めのメッセージ"
+    ],
+    "labels": {
+      "attendees": "出席者",
+      "discussion": "議論内容",
+      "decisions": "決定事項",
+      "actionItems": "ToDo事項",
+      "concerns": "懸案事項",
+      "keyMessages": "重要メッセージ",
+      "closingMessage": "締めのメッセージ"
+    }
   },
   "wrap": {
     "h2": "まとめ",

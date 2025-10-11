@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["将产品优化与营销时机相结合"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "讨论",
-    "decisions": "决策",
-    "actionItems": "行动项",
-    "concerns": "关注点",
-    "keyMessages": "关键信息",
-    "attendees": "参会者：",
-    "closingMessage": "会议总结"
+    ],
+    "labels": {
+      "discussion": "讨论",
+      "decisions": "决策",
+      "actionItems": "行动项",
+      "concerns": "关注点",
+      "keyMessages": "关键信息",
+      "attendees": "参会者：",
+      "closingMessage": "会议总结"
+    }
   },
   "wrap": {
     "h2": "总结",

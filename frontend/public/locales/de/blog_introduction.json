@@ -1,129 +1,32 @@
 {
-  "seo": {
-    "title": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung | Protokoll KI Blog",
-    "description": "Ein Klick für aussagekräftige Protokolle. Eine einfache Einführung in Protokoll KI: Grundlagen, Unterschiede zu anderen Tools und Beispielausgaben; vertraut von über {{users}} Nutzern (Stand {{date}}).",
-    "ogTitle": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung",
-    "ogDescription": "Ein Klick für aussagekräftige Protokolle. Verstehe Protokoll KI, seine Besonderheiten und Beispielausgaben.",
-    "ld": {
-      "headline": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung",
-      "description": "Ein Klick für aussagekräftige Protokolle. Eine kompakte Einführung in Protokoll KI, seine Unterschiede und Beispiele."
-    }
-  },
+  "seo": { "title": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung | Protokoll KI Blog", "description": "Ein Klick für aussagekräftige Protokolle. Eine einfache Einführung in Protokoll KI: Grundlagen, Unterschiede zu anderen Tools und Beispielausgaben; vertraut von über {{users}} Nutzern (Stand {{date}}).", "ogTitle": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung", "ogDescription": "Ein Klick für aussagekräftige Protokolle. Verstehe Protokoll KI, seine Besonderheiten und Beispielausgaben.", "ld": { "headline": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung", "description": "Ein Klick für aussagekräftige Protokolle. Eine kompakte Einführung in Protokoll KI, seine Unterschiede und Beispiele." } },
   "nav": { "blog": "Blog", "introduction": "Einführung" },
-  "hero": {
-    "kicker": "Protokoll KI",
-    "h1": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung",
-    "tagline": "„Ein Klick für aussagekräftige Meetingprotokolle.“ Klare, einfache Erklärungen für alle, die gerade erst anfangen."
-  },
-  "intro": {
-    "h2": "Einführung",
-    "p1": "Vielen Dank für Ihren Besuch auf diesem Artikel. Wenn Sie dies lesen, haben Sie vielleicht schon gedacht: „Protokolle zu schreiben ist mühsam“, „Ich weiß, wie man sie erstellt, aber es dauert zu lange“, oder „Ich habe KI-Tools ausprobiert, aber die Ergebnisse waren unbefriedigend.“",
-    "p2": "Oder vielleicht haben Sie als Leser erlebt: „Einige Aussagen fehlen“, „Entscheidungen sind unklar“ oder „Das Verständnis im Team ist uneinheitlich.“",
-    "p3": {
-      "pre": "In diesem Artikel zeigen wir, wie",
-      "mid": "Ihnen hilft,",
-      "bold": "aussagekräftige Protokolle",
-      "post": "mit nur einem Klick zu erstellen — mit Fokus auf Klarheit und Ergebnisorientierung."
-    }
-  },
-  "what": {
-    "h2": "Was ist Protokoll KI?",
-    "p1": "Protokoll KI ist ein KI-gestütztes, vollständig automatisiertes Tool zur Erstellung von Meetingprotokollen. Es unterstützt alle wichtigen Sprachen und wird weltweit von über 30.000 Nutzern verwendet.",
-    "footnote": "※ Stand {{date}} (basierend auf iOS Store-Daten)",
-    "p2": "Mit Protokoll KI können Sie automatisch „Zusammenfassungen“, „Entscheidungen“ und „Maßnahmen“ generieren – und damit Protokolle mit echtem Mehrwert erstellen, ganz ohne manuellen Aufwand."
-  },
-  "compare": {
-    "title": "Unterschiede: Transkription / Generische KI / Protokoll KI",
-    "head": {
-      "feature": "Funktion",
-      "transcription": "Einfaches Transkriptions-Tool",
-      "generic": "Generische KI",
-      "minutes": "Protokoll KI"
-    },
-    "rows": [
-      { "k": "Audio → Text", "a": "Ja", "b": "Nein (manuelle Eingabe nötig)", "c": "Ja" },
-      { "k": "Zusammenfassung / Gliederung", "a": "Nein", "b": "Ja (Kontext kann sich verschieben)", "c": "Ja (optimiert für Meetings)" },
-      { "k": "Entscheidungen / Aufgaben", "a": "Nein", "b": "Ja (oft unpräzise)", "c": "Ja (klare Extraktion & Tagging)" },
-      { "k": "Mehrsprachige Unterstützung", "a": "Nein", "b": "Ja (Risiko grammatikalischer Abweichung)", "c": "Ja (alle Hauptsprachen, kontextbewusst)" }
-    ]
-  },
-  "samples": {
-    "h2": "Beispieltexte & Ausgaben",
-    "meetingSample": "Beispiel eines Meeting-Audios",
-    "transcript": {
-      "preview": "Gut, es ist Zeit, das Meeting zu beginnen. Zuerst sehen wir uns die Verkaufszahlen der 'Smartwatch' vom letzten Wochenende an. Jonas, starte bitte mit dem Bericht aus dem Online-Kanal.",
-      "full": "Alexander (Marketingleiter): Danke, dass ihr alle da seid — Jonas (E-Commerce), Sebastian (Einzelhandel), Tobias (Produktmanager) und Ralf (Datenanalyse). Lasst uns die Smartwatch-Verkäufe vom letzten Wochenende überprüfen. Jonas, bitte starte mit dem Online-Kanal.\n\nJonas (E-Commerce): Im Wochenvergleich stiegen die Sitzungen um 18 %. Die Conversion-Rate verbesserte sich von 2,9 % auf 3,2 %. Der Umsatz stieg um 12 %. Der Anstieg kam hauptsächlich durch die Influencer-Kampagne am Samstag; die Werbeausgaben stiegen um 6 %.\n\nRalf (Daten): Der CAC bleibt stabil bei etwa 2.400 ¥. Allerdings sank die CTR im Retargeting von 1,8 % auf 1,2 %. Ich empfehle ein kreatives Refresh und einen A/B-Test mit kürzeren Überschriften. Ich kann die Analyse bis Freitag (2025-10-17) liefern.\n\nAlexander: Klingt gut. Entscheidung: Erhöhung des Online-Werbebudgets um 15 % für die nächsten zwei Wochen. Maßnahmen: Jonas — starte den A/B-Test für die Produktseite bis Mittwoch (2025-10-15). Ralf — liefere den CTR-Analysebericht bis Freitag (2025-10-17).\n\nSebastian (Einzelhandel): In den Filialen gab es Ausverkäufe in Berlin, München und Hamburg. Eine Nachlieferung von 500 Einheiten ist für Montag geplant. Die Besucherzahlen fielen wegen des Sturms um 4 %, der durchschnittliche Warenkorb blieb gleich.\n\nAlexander: Entscheidung: Durchführung der Nachlieferung von 500 Einheiten in diesen drei Filialen. Maßnahme: Sebastian — bestätige die Lieferzeit des Zulieferers bis Dienstag (2025-10-14). Hinweis: Risiko von Lieferverzögerungen bei erhöhtem Auftragsvolumen.\n\nTobias (Produktmanager): Firmware v1.2 behebt das Batterieproblem und verbessert die Schrittzähler-Kalibrierung. Die Release-Notes sind fertig. Ich schlage den Launch am 20. Oktober mit einem Q4-Bundle vor — „Watch + Band“ mit 20 € Rabatt. Der Support sollte eine FAQ veröffentlichen.\n\nAlexander: Entscheidung: Genehmigung des Q4-Bundle-Launches am 2025-10-20. Maßnahmen: Tobias — finalisiere den Release-Plan bis Montag (2025-10-13). Support — veröffentliche FAQ bis Donnerstag (2025-10-16). Marketing — bereite den Black-Friday-Plan bis Samstag (2025-10-25) vor.\n\nAlexander (Schlusswort): Arbeite klug und halte die Richtung klar — Klarheit vor Geschwindigkeit. Verpflichtet euch zu „wer macht was bis wann“, und haltet Meetings unter 30 Minuten."
-    },
-    "generic": {
-      "h3": "Beispiel eines generischen KI-Outputs",
-      "body": "Das Team überprüfte die Smartwatch-Verkäufe. Online-Metriken waren positiv. Im Einzelhandel gab es Lagerengpässe in mehreren Filialen. Ein Firmware-Update und ein saisonales Bundle wurden erwähnt. Insgesamt war die Stimmung positiv, und es wurden mehrere Verbesserungen diskutiert.",
-      "note": "Der Text ist sauber, beantwortet aber nicht klar „wer was bis wann“ tun soll."
-    },
-    "pretty": { "h3": "Beispiel eines Protokoll KI-Outputs" }
-  },
+  "hero": { "kicker": "Protokoll KI", "h1": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung", "tagline": "„Ein Klick für aussagekräftige Meetingprotokolle.“ Klare, einfache Erklärungen für alle, die gerade erst anfangen." },
+  "intro": { "h2": "Einführung", "p1": "Vielen Dank ...", "p2": "Oder vielleicht ...", "p3": { "pre": "In diesem Artikel zeigen wir, wie", "mid": "Ihnen hilft,", "bold": "aussagekräftige Protokolle", "post": "mit nur einem Klick zu erstellen — mit Fokus auf Klarheit und Ergebnisorientierung." } },
+  "what": { "h2": "Was ist Protokoll KI?", "p1": "Protokoll KI ist ...", "footnote": "※ Stand {{date}} (basierend auf iOS Store-Daten)", "p2": "Mit Protokoll KI ..." },
+  "compare": { "title": "Unterschiede: Transkription / Generische KI / Protokoll KI", "head": { "feature": "Funktion", "transcription": "Einfaches Transkriptions-Tool", "generic": "Generische KI", "minutes": "Protokoll KI" }, "rows": [ { "k": "Audio → Text", "a": "Ja", "b": "Nein (manuelle Eingabe nötig)", "c": "Ja" }, { "k": "Zusammenfassung / Gliederung", "a": "Nein", "b": "Ja (Kontext kann sich verschieben)", "c": "Ja (optimiert für Meetings)" }, { "k": "Entscheidungen / Aufgaben", "a": "Nein", "b": "Ja (oft unpräzise)", "c": "Ja (klare Extraktion & Tagging)" }, { "k": "Mehrsprachige Unterstützung", "a": "Nein", "b": "Ja (Risiko grammatikalischer Abweichung)", "c": "Ja (alle Hauptsprachen, kontextbewusst)" } ] },
+  "samples": { "h2": "Beispieltexte & Ausgaben", "meetingSample": "Beispiel eines Meeting-Audios", "transcript": { "preview": "Gut, es ist Zeit ...", "full": "Alexander (Marketingleiter): ... (gekürzt)" }, "generic": { "h3": "Beispiel eines generischen KI-Outputs", "body": "Das Team überprüfte ...", "note": "Der Text ist sauber, beantwortet aber nicht klar „wer was bis wann“ tun soll." }, "pretty": { "h3": "Beispiel eines Protokoll KI-Outputs" } },
   "minutes": {
     "meetingTitle": "Wöchentliche Smartwatch-Verkaufsanalyse",
     "date": "2025-10-11 10:00 MEZ",
     "attendees": ["Alexander (Marketingleiter)", "Jonas (E-Commerce)", "Sebastian (Einzelhandel)", "Tobias (Produktmanager)", "Ralf (Datenanalyse)"],
     "coreMessage": "Arbeite klug, nicht nur schnell. Klarheit vor Geschwindigkeit – wer macht was bis wann. Meetings sollten innerhalb von 30 Minuten abgeschlossen sein.",
     "topics": [
-      {
-        "topic": "Leistung des Online-Kanals",
-        "discussion": [
-          "Sitzungen +18 %, Conversion 2,9 % → 3,2 %, Umsatz +12 %",
-          "Influencer-Kampagne verursachte Samstagsanstieg; Werbebudget +6 %",
-          "CTR im Retargeting sank 1,8 % → 1,2 %; A/B-Test empfohlen"
-        ],
-        "decisions": ["Online-Werbebudget für zwei Wochen um 15 % erhöhen"],
-        "actionItems": [
-          "Jonas — starte A/B-Test bis 2025-10-15",
-          "Ralf — liefere CTR-Analyse bis 2025-10-17"
-        ],
-        "concerns": ["Risiko von Anzeigenmüdigkeit ohne kreative Erneuerung"],
-        "keyMessages": ["Wachstum bei stabilem CAC; teste vor Skalierung"]
-      },
-      {
-        "topic": "Lager & Filialbetrieb",
-        "discussion": [
-          "Ausverkauf in Berlin, München, Hamburg",
-          "Nachlieferung von 500 Einheiten am Montag geplant",
-          "Besucher −4 % durch Sturm; Warenkorbwert stabil"
-        ],
-        "decisions": ["Nachlieferung von 500 Einheiten in drei Filialen"],
-        "actionItems": ["Sebastian — bestätige Lieferzeit bis 2025-10-14"],
-        "concerns": ["Lieferverzögerung bei hoher Nachfrage möglich"],
-        "keyMessages": ["Stabile Lagerbestände sichern, um Umsätze zu halten"]
-      },
-      {
-        "topic": "Firmware v1.2 & Q4-Bundle-Start",
-        "discussion": [
-          "v1.2 behebt Batterieproblem, verbessert Schrittzähler",
-          "Release-Notes fertig; Support veröffentlicht FAQ",
-          "Q4-Bundle: Watch + Band, −20 € ab 2025-10-20"
-        ],
-        "decisions": ["Launch am 2025-10-20 genehmigt"],
-        "actionItems": [
-          "Tobias — Release-Plan bis 2025-10-13 fertigstellen",
-          "Support — FAQ bis 2025-10-16 veröffentlichen",
-          "Marketing — Black-Friday-Plan bis 2025-10-25 vorbereiten"
-        ],
-        "keyMessages": ["Produktverbesserungen mit passenden Kampagnen kombinieren"]
-      }
-    ]
+      { "topic": "Leistung des Online-Kanals", "discussion": ["Sitzungen +18 % ..."], "decisions": ["Online-Werbebudget für zwei Wochen um 15 % erhöhen"], "actionItems": ["Jonas — starte A/B-Test bis 2025-10-15", "Ralf — liefere CTR-Analyse bis 2025-10-17"], "concerns": ["Risiko von Anzeigenmüdigkeit ohne kreative Erneuerung"], "keyMessages": ["Wachstum bei stabilem CAC; teste vor Skalierung"] },
+      { "topic": "Lager & Filialbetrieb", "discussion": ["Ausverkauf in Berlin ..."], "decisions": ["Nachlieferung von 500 Einheiten in drei Filialen"], "actionItems": ["Sebastian — bestätige Lieferzeit bis 2025-10-14"], "concerns": ["Lieferverzögerung bei hoher Nachfrage möglich"], "keyMessages": ["Stabile Lagerbestände sichern, um Umsätze zu halten"] },
+      { "topic": "Firmware v1.2 & Q4-Bundle-Start", "discussion": ["v1.2 behebt ..."], "decisions": ["Launch am 2025-10-20 genehmigt"], "actionItems": ["Tobias — Release-Plan bis 2025-10-13 fertigstellen", "Support — FAQ bis 2025-10-16 veröffentlichen", "Marketing — Black-Friday-Plan bis 2025-10-25 vorbereiten"], "keyMessages": ["Produktverbesserungen mit passenden Kampagnen kombinieren"] }
+    ],
+    "labels": {
+      "discussion": "Diskussion",
+      "decisions": "Entscheidungen",
+      "actionItems": "Maßnahmen",
+      "concerns": "Anmerkungen",
+      "keyMessages": "Kernbotschaften",
+      "attendees": "Teilnehmer:",
+      "closingMessage": "Abschließende Bemerkung"
+    }
   },
-  "minutes.labels": {
-    "discussion": "Diskussion",
-    "decisions": "Entscheidungen",
-    "actionItems": "Maßnahmen",
-    "concerns": "Anmerkungen",
-    "keyMessages": "Kernbotschaften",
-    "attendees": "Teilnehmer:",
-    "closingMessage": "Abschließende Bemerkung"
-  },
-  "wrap": {
-    "h2": "Zusammenfassung",
-    "p": "Wie wirkt das Ergebnis? Mit dieser Struktur sehen Teams auf einen Blick, was als Nächstes zu tun ist – das Protokoll wird wirklich handlungsorientiert und wertvoll. Probieren Sie Protokoll KI selbst aus und erleben Sie den Unterschied."
-  },
+  "wrap": { "h2": "Zusammenfassung", "p": "Wie wirkt das Ergebnis? ..." },
   "cta": { "openBrowser": "Browser-Version öffnen", "downloadIOS": "iOS-Version herunterladen" },
   "transcript": { "expand": "Volltext anzeigen", "close": "Volltext schließen" }
 }

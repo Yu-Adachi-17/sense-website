@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["Padukan peningkatan produk dengan kampanye yang tepat waktu"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "Diskusi",
-    "decisions": "Keputusan",
-    "actionItems": "Tugas",
-    "concerns": "Catatan",
-    "keyMessages": "Pesan Kunci",
-    "attendees": "Peserta:",
-    "closingMessage": "Pesan Penutup"
+    ],
+    "labels": {
+      "discussion": "Diskusi",
+      "decisions": "Keputusan",
+      "actionItems": "Tugas",
+      "concerns": "Catatan",
+      "keyMessages": "Pesan Kunci",
+      "attendees": "Peserta:",
+      "closingMessage": "Pesan Penutup"
+    }
   },
   "wrap": {
     "h2": "Penutup",

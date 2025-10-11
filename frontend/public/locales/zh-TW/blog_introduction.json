@@ -109,16 +109,16 @@
         ],
         "keyMessages": ["將產品更新與行銷時機結合，達到最大成效"]
       }
-    ]
-  },
-  "minutes.labels": {
-    "discussion": "討論",
-    "decisions": "決策",
-    "actionItems": "行動項",
-    "concerns": "注意事項",
-    "keyMessages": "關鍵訊息",
-    "attendees": "與會者：",
-    "closingMessage": "會議結語"
+    ],
+    "labels": {
+      "discussion": "討論",
+      "decisions": "決策",
+      "actionItems": "行動項",
+      "concerns": "注意事項",
+      "keyMessages": "關鍵訊息",
+      "attendees": "與會者：",
+      "closingMessage": "會議結語"
+    }
   },
   "wrap": {
     "h2": "結語",

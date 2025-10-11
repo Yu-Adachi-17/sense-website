@@ -1,10 +1,12 @@
-// src/pages/blog/introduction.js (fixed)
+// src/pages/blog/introduction.js
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { Inter } from "next/font/google";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
+import i18nConfig from "../../../next-i18next.config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -221,8 +223,13 @@ function MinutesPrettyRender({ minutes }) {
 
 export default function BlogIntroduction() {
   const { t } = useTranslation("blog_introduction");
+  const router = useRouter(); // ★ フックはコンポーネント内で
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  const canonical = `${siteUrl}/blog/introduction`;
+  const canonical =
+    siteUrl +
+    (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) +
+    "/blog/introduction";
+
   const LINK_HOME = "/";
   const LINK_IOS =
     "https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901";
@@ -252,10 +259,7 @@ export default function BlogIntroduction() {
     <>
       <Head>
         <title>{t("seo.title")}</title>
-        <meta
-          name="description"
-          content={t("seo.description", { users: "30,000+", date: "Oct 2025" })}
-        />
+        <meta name="description" content={t("seo.description", { users: "30,000+", date: "Oct 2025" })} />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={t("seo.ogTitle")} />
@@ -405,13 +409,13 @@ export default function BlogIntroduction() {
           {/* CTA */}
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              href={LINK_HOME}
+              href="/"
               className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
             >
               {t("cta.openBrowser")}
             </Link>
             <a
-              href={LINK_IOS}
+              href="https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
@@ -429,7 +433,11 @@ export default function BlogIntroduction() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_introduction"])),
+      ...(await serverSideTranslations(
+        locale ?? "en",
+        ["common", "blog_introduction"],
+        i18nConfig // ★ 設定を渡す
+      )),
     },
   };
 }
