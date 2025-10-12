@@ -1,4 +1,4 @@
-// src/pages/purchasemenu.js 
+// src/pages/purchasemenu.js
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -42,7 +42,7 @@ export default function PurchaseMenu() {
   // ウィンドウサイズ監視
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize(); // 初期
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -62,11 +62,9 @@ export default function PurchaseMenu() {
         if (user) {
           setUserId(user.uid);
           setUserEmail(user.email);
-          console.log("✅ Firebase logged-in user UID:", user.uid);
         } else {
           setUserId(null);
           setUserEmail(null);
-          console.log("❌ User is logged out.");
         }
       });
     })();
@@ -105,7 +103,7 @@ export default function PurchaseMenu() {
     };
   }, [userId]);
 
-  // 環境変数のチェック（デバッグ用）
+  // デバッグ
   useEffect(() => {
     console.log("🔍 Environment Variable Check:");
     console.log("NEXT_PUBLIC_STRIPE_PRODUCT_120MIN:", process.env.NEXT_PUBLIC_STRIPE_PRODUCT_120MIN);
@@ -114,7 +112,7 @@ export default function PurchaseMenu() {
     console.log("NEXT_PUBLIC_STRIPE_PRODUCT_YEARLY_UNLIMITED:", process.env.NEXT_PUBLIC_STRIPE_PRODUCT_YEARLY_UNLIMITED);
   }, []);
 
-  // 時間（秒）を mm:ss にフォーマット
+  // mm:ss
   const formatTime = (seconds) => {
     const sec = Math.floor(Number(seconds || 0));
     const minutes = Math.floor(sec / 60);
@@ -124,7 +122,7 @@ export default function PurchaseMenu() {
       .padStart(2, "0")}`;
   };
 
-  // 各種スタイル
+  // スタイル
   const styles = {
     hamburgerButton: {
       position: "fixed",
@@ -167,7 +165,6 @@ export default function PurchaseMenu() {
       transition: "transform 0.5s ease-out",
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
     },
-    // ▼ 下段のポリシーと“同列デザイン”でトップへ配置
     topPolicyRow: {
       position: "absolute",
       top: "16px",
@@ -241,7 +238,8 @@ export default function PurchaseMenu() {
       display: "flex",
       alignItems: "center",
     },
-    // ▼ プロフィールのアクションメニュー（白基調）
+
+    // ▼ アクションメニュー（白基調）
     actionMenu: {
       position: "absolute",
       top: "40px",
@@ -261,43 +259,51 @@ export default function PurchaseMenu() {
       borderBottom: "1px solid #efefef",
       fontSize: "14px",
     },
+
     unlimitedText: {
       fontSize: "28px",
       fontWeight: "bold",
       color: "#000",
     },
-    // ▼ ここからプロフィールオーバーレイの新ビジュアル
+
+    // ▼ プロフィールオーバーレイ（白背景＋拡大HomeIcon＋黒文字）
     profileOverlay: {
       position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      background: "#fff", // 大外背景：白
+      inset: 0,
+      background: "#fff",
       zIndex: 1400,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       overflow: "hidden",
     },
+
+    // 背景の拡大 HomeIcon：画面全体にセンタリング・クリック透過
     overlayBgIcon: {
       position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: "min(90vw, 900px)",
-      height: "auto",
-      opacity: 0.06, // 薄く表示
-      pointerEvents: "none", // クリック干渉なし
-      zIndex: 1401,
+      inset: 0,
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
+      pointerEvents: "none", // 背景は完全に非インタラクティブ
+      zIndex: 1401,
     },
+    // HomeIcon を確実に巨大化＆薄く
+    overlayBgWrap: {
+      width: "min(95vw, 1200px)",
+      height: "auto",
+      transform: "scale(2.2)",    // HomeIconの内部が固定pxでも確実に拡大
+      transformOrigin: "center",
+      opacity: 0.06,               // 薄く
+      color: "#000",               // HomeIcon が currentColor を使う場合の保険
+      display: "block",
+    },
+
+    // モーダル本体（薄いグレーの枠線を追加）
     profileModal: {
-      width: "450px",
+      width: "480px",
       minHeight: "360px",
-      background: "transparent", // 背景なし（白地＋アイコンの上に載せる）
+      background: "transparent",
       borderRadius: "12px",
       display: "flex",
       flexDirection: "column",
@@ -306,7 +312,11 @@ export default function PurchaseMenu() {
       boxSizing: "border-box",
       position: "relative",
       zIndex: 1402,
+      border: "1px solid #e5e5e5",          // ← 薄いグレーの枠線
+      boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
+      backdropFilter: "none",
     },
+
     logoutButton: {
       position: "absolute",
       top: "10px",
@@ -314,23 +324,25 @@ export default function PurchaseMenu() {
       background: "none",
       border: "none",
       cursor: "pointer",
-      color: "#000", // アイコン黒
+      color: "#000",
     },
+
     profileInfo: {
       width: "100%",
       textAlign: "center",
       fontSize: "16px",
-      color: "#000", // 文字黒
-      fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+      color: "#000",
+      fontFamily:
+        "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
       paddingTop: "40px",
       lineHeight: 1.6,
     },
   };
 
-  // イベントの伝播を防止
+  // 伝播止め
   const stopPropagation = (e) => e.stopPropagation();
 
-  // ハンバーガーメニュー
+  // ハンバーガー
   const handleHamburgerClick = () => setShowSideMenu((v) => !v);
 
   // プロフィール編集
@@ -387,7 +399,7 @@ export default function PurchaseMenu() {
       const auth = await getClientAuth();
       if (!db || !auth || !userId) return;
 
-      const { doc, deleteDoc } = await import("firebase/firestore");
+    const { doc, deleteDoc } = await import("firebase/firestore");
       await deleteDoc(doc(db, "users", userId));
 
       if (auth.currentUser) {
@@ -402,7 +414,7 @@ export default function PurchaseMenu() {
     }
   };
 
-  // サブスクリプション解約処理（API Route 前提）
+  // サブスク解約（API Route 前提）
   const handleCancelSubscription = async () => {
     setShowActionMenu(false);
     if (!userId) {
@@ -443,7 +455,7 @@ export default function PurchaseMenu() {
 
   return (
     <>
-      {/* ハンバーガーアイコン（サイドメニューが非表示の場合のみ） */}
+      {/* ハンバーガー（サイドメニューが非表示の時のみ） */}
       {!showSideMenu && (
         <button style={styles.hamburgerButton} onClick={handleHamburgerClick}>
           <GiHamburgerMenu
@@ -454,21 +466,17 @@ export default function PurchaseMenu() {
         </button>
       )}
 
-      {/* サイドメニューオーバーレイ */}
+      {/* サイドメニュー */}
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
-          <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* ▼ トップ：下段と同列デザインの行に“引っ越し” */}
+          <div style={styles.sideMenu} onClick={e => e.stopPropagation()}>
             <div style={styles.topPolicyRow}>
               <button
                 style={styles.topProfileButton}
                 onClick={() => {
                   setShowSideMenu(false);
-                  if (userId) {
-                    setShowProfileOverlay(true);
-                  } else {
-                    router.push("/login");
-                  }
+                  if (userId) setShowProfileOverlay(true);
+                  else router.push("/login");
                 }}
                 aria-label="Profile"
                 title="Profile"
@@ -483,16 +491,12 @@ export default function PurchaseMenu() {
               </button>
             </div>
 
-            {/* 縦並びメニュー */}
             <button
               style={styles.minutesListButton}
               onClick={() => {
                 setShowSideMenu(false);
-                if (userId) {
-                  router.push("/minutes-list");
-                } else {
-                  router.push("/login");
-                }
+                if (userId) router.push("/minutes-list");
+                else router.push("/login");
               }}
             >
               <PiGridFourFill style={{ marginRight: "8px" }} />
@@ -503,11 +507,8 @@ export default function PurchaseMenu() {
               style={styles.purchaseButton}
               onClick={() => {
                 setShowSideMenu(false);
-                if (userId) {
-                  router.push("/buy-tickets");
-                } else {
-                  router.push("/login");
-                }
+                if (userId) router.push("/buy-tickets");
+                else router.push("/login");
               }}
             >
               <FaTicketAlt style={{ marginRight: "8px" }} />
@@ -538,7 +539,6 @@ export default function PurchaseMenu() {
             </button>
             */}
 
-            {/* Policy ボタン（右下） */}
             <div style={styles.policyButtonContainer}>
               <button
                 style={styles.policyButton}
@@ -581,22 +581,27 @@ export default function PurchaseMenu() {
         </div>
       )}
 
-      {/* プロフィールオーバーレイ（白背景＋拡大HomeIcon＋黒文字） */}
+      {/* プロフィールオーバーレイ */}
       {showProfileOverlay && (
         <div
           style={styles.profileOverlay}
           onClick={() => {
+            // 枠外タップでメインに戻る仕様
             setShowProfileOverlay(false);
             setShowActionMenu(false);
+            router.push("/");
           }}
         >
-          {/* 背景の拡大 HomeIcon（装飾・クリック不可） */}
+          {/* 背景に巨大化した HomeIcon（クリック透過） */}
           <div style={styles.overlayBgIcon} aria-hidden="true">
-            <HomeIcon />
+            <span style={styles.overlayBgWrap}>
+              {/* HomeIcon が width/height を受け取る場合は props を付与してもOK */}
+              <HomeIcon />
+            </span>
           </div>
 
+          {/* モーダル本体（クリックは閉じない） */}
           <div style={styles.profileModal} onClick={stopPropagation}>
-            {/* 右上アイコンボタン（黒） */}
             <button
               style={styles.logoutButton}
               onClick={(e) => {
@@ -607,9 +612,8 @@ export default function PurchaseMenu() {
               <HiOutlineDotsCircleHorizontal size={30} />
             </button>
 
-            {/* アクションメニュー（白） */}
             {showActionMenu && (
-              <div style={styles.actionMenu}>
+              <div style={styles.actionMenu} onClick={stopPropagation}>
                 <div style={styles.actionMenuItem} onClick={handleEditProfile}>
                   {t("Edit Profile")}
                 </div>
@@ -628,7 +632,6 @@ export default function PurchaseMenu() {
               </div>
             )}
 
-            {/* 情報表示（フラット・黒文字） */}
             <div style={styles.profileInfo}>
               <p>
                 {t("Email")}: {userEmail}
