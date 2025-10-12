@@ -7,6 +7,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
+import HomeIcon from "../homeIcon"; // 左上のMinutes.AIアイコン
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -223,25 +224,24 @@ function MinutesPrettyRender({ minutes }) {
 
 export default function BlogIntroduction() {
   const { t } = useTranslation("blog_introduction");
-  const router = useRouter(); // ★ フックはコンポーネント内で
+  const router = useRouter();
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical =
     siteUrl +
     (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) +
     "/blog/introduction";
 
-  const LINK_HOME = "/";
+  const LINK_HOME = "/home"; // スクロール追従なし（通常フロー内に配置）
   const LINK_IOS =
     "https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
-  // i18n objects（未定義/型不一致時のフォールバックを用意）
+  // i18n objects
   const rawMinutes = t("minutes", { returnObjects: true });
   const minutes =
     rawMinutes && typeof rawMinutes === "object" && !Array.isArray(rawMinutes)
       ? rawMinutes
       : null;
 
-  // 比較表：配列でなければ安全なデフォルトにフォールバック
   const rawRows = t("compare.rows", { returnObjects: true });
   const defaultRows = [
     { k: t("compare.fallback.0.k", "Audio → Text"), a: t("compare.fallback.0.a", "Yes"), b: t("compare.fallback.0.b", "No (requires manual input)"), c: t("compare.fallback.0.c", "Yes") },
@@ -293,8 +293,18 @@ export default function BlogIntroduction() {
       <div
         className={`${inter.className} min-h-screen bg-[#0b0e2e] text-white [background:radial-gradient(1200px_800px_at_10%_-20%,rgba(70,69,255,.25),transparent),radial-gradient(800px_600px_at_100%_0%,rgba(192,132,252,.18),transparent)]`}
       >
+        {/* 左上アイコン（通常フロー・非fixed） */}
         <header className="mx-auto max-w-7xl px-6 pt-10 sm:pt-12">
-          <nav className="text-sm text-indigo-200/80">
+          <Link
+            href={LINK_HOME}
+            aria-label={t("Minutes.AI Home") || "Minutes.AI Home"}
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+          >
+            <HomeIcon size={28} />
+          </Link>
+
+          {/* パンくずはアイコンの下に配置（スクロール追従しない） */}
+          <nav className="mt-4 text-sm text-indigo-200/80">
             <Link href="/blog" className="hover:underline">
               {t("nav.blog")}
             </Link>
@@ -436,7 +446,7 @@ export async function getStaticProps({ locale }) {
       ...(await serverSideTranslations(
         locale ?? "en",
         ["common", "blog_introduction"],
-        i18nConfig // ★ 設定を渡す
+        i18nConfig
       )),
     },
   };
