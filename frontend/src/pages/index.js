@@ -19,11 +19,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { useAuthGate } from "../hooks/useAuthGate";
 
 // ===== Debug toggle（URL ?debug=1 でオン）
-const DEBUG_REC = typeof window !== 'undefined'
-  ? (new URLSearchParams(window.location.search).get('debug') === '1')
-  : false;
+// ここを置き換え
+const isDebug = () =>
+  (typeof window !== 'undefined') &&
+  (new URLSearchParams(window.location.search).get('debug') === '1');
 
-const dbg = (...args) => { if (DEBUG_REC) console.log('[RECDBG]', ...args); };
+const dbg = (...args) => { if (isDebug()) console.log('[RECDBG]', ...args); };
+
 
 // ===== Safari/Chrome差分を安全に吸収して MIME を決める
 function pickAudioMimeType() {
@@ -314,6 +316,7 @@ function App() {
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
+useEffect(() => { if (isDebug()) console.log('[RECDBG] debug mode ON'); }, []);
 
   // ★ auth/db をクライアントで取得（ゲストでも UI は出す）
   useEffect(() => {
