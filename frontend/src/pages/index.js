@@ -20,6 +20,7 @@ import { useAuthGate } from "../hooks/useAuthGate";
 
 // ===== Debug toggle（URL ?debug=1 でオン）
 // ここを置き換え
+// 置き換え：定数ではなく関数に
 const isDebug = () =>
   (typeof window !== 'undefined') &&
   (new URLSearchParams(window.location.search).get('debug') === '1');
@@ -643,7 +644,7 @@ const startRecording = async () => {
     };
 
     // ★ デバッグ中は1秒ごとに dataavailable（0バイト検出が容易）
-    if (DEBUG_REC) { mr.start(1000); } else { mr.start(); }
+    if (isDebug()) { mr.start(1000); } else { mr.start(); }
 
     // === AudioContext / Analyser ===
     const AC = (window.AudioContext || window.webkitAudioContext);
