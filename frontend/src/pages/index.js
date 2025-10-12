@@ -21,11 +21,19 @@ import { useAuthGate } from "../hooks/useAuthGate";
 // ===== Debug toggle（URL ?debug=1 でオン）
 // ここを置き換え
 // 置き換え：定数ではなく関数に
-const isDebug = () =>
-  (typeof window !== 'undefined') &&
-  (new URLSearchParams(window.location.search).get('debug') === '1');
+// デバッグを「一度ONにしたらタブ内で維持」する
+function isDebug() {
+  if (typeof window === 'undefined') return false;
+  const qs = new URLSearchParams(window.location.search);
+  if (qs.get('debug') === '1') {
+    // 一度でも ?debug=1 で入ったらラッチON
+    localStorage.setItem('rec_debug', '1');
+  }
+  return localStorage.getItem('rec_debug') === '1';
+}
 
 const dbg = (...args) => { if (isDebug()) console.log('[RECDBG]', ...args); };
+
 
 
 // ===== Safari/Chrome差分を安全に吸収して MIME を決める
@@ -317,7 +325,15 @@ function App() {
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
-useEffect(() => { if (isDebug()) console.log('[RECDBG] debug mode ON'); }, []);
+
+useEffect(() => {
+  if (typeof window !== 'undefined') {
+    window.__recdbg_on  = () => { localStorage.setItem('rec_debug', '1');  location.reload(); };
+    window.__recdbg_off = () => { localStorage.removeItem('rec_debug');    location.reload(); };
+    if (isDebug()) console.log('[RECDBG] debug mode ON (latched)');
+  }
+}, []);
+
 
   // ★ auth/db をクライアントで取得（ゲストでも UI は出す）
   useEffect(() => {
@@ -575,6 +591,7 @@ const processAudioFile = async (file) => {
   // 録音開始
 // 録音開始（フル置き換え）
 const startRecording = async () => {
+  console.log('[RECDBG] startRecording invoked');
   try {
     // === Firestore: 他端末録音ロック（既存ロジックを欠落なく移植） ===
     if (authInstance?.currentUser && dbInstance) {
