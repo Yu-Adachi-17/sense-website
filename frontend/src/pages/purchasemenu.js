@@ -430,17 +430,28 @@ export default function PurchaseMenu() {
               {t("Upgrade")}
             </button>
 
-            {/* 復活用メニュー（必要なら） */}
-            {/*
-            <button style={styles.formatButton} onClick={() => { setShowSideMenu(false); router.push("/meeting-formats"); }}>
-              <BsWrenchAdjustable style={{ marginRight: "8px" }} />
-              {t("Minutes Formats")}
-            </button>
-            <button style={styles.formatButton} onClick={() => { setShowSideMenu(false); router.push("/ai-news"); }}>
-              <CiGlobe style={{ marginRight: "8px" }} />
-              {t("AI News")}
-            </button>
-            */}
+{/* 復活用メニュー（必要なら） */}
+<button
+  style={styles.formatButton}
+  onClick={() => {
+    setShowSideMenu(false);
+    router.push("/meeting-formats");
+  }}
+>
+  <BsWrenchAdjustable style={{ marginRight: "8px" }} />
+  {t("Minutes Formats")}
+</button>
+<button
+  style={styles.formatButton}
+  onClick={() => {
+    setShowSideMenu(false);
+    router.push("/ai-news");
+  }}
+>
+  {/* <CiGlobe style={{ marginRight: "8px" }} />
+  {t("AI News")} */}
+</button>
+
 
             <div style={styles.policyButtonContainer}>
               <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
