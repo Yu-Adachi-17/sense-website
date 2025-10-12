@@ -18,6 +18,97 @@ import { getClientAuth, getDb } from '../firebaseConfig';
 import { v4 as uuidv4 } from 'uuid';
 import { useAuthGate } from "../hooks/useAuthGate";
 
+// ===== Debug toggle（URL ?debug=1 でオン）
+const DEBUG_REC = typeof window !== 'undefined'
+  ? (new URLSearchParams(window.location.search).get('debug') === '1')
+  : false;
+
+const dbg = (...args) => { if (DEBUG_REC) console.log('[RECDBG]', ...args); };
+
+// ===== Safari/Chrome差分を安全に吸収して MIME を決める
+function pickAudioMimeType() {
+  const list = [
+    'audio/webm;codecs=opus', 'audio/webm',
+    'audio/mp4;codecs=mp4a.40.2', 'audio/mp4',
+    'audio/ogg;codecs=opus', 'audio/ogg'
+  ];
+  if (!window.MediaRecorder) return '';
+  for (const t of list) { try { if (MediaRecorder.isTypeSupported(t)) return t; } catch {} }
+  return '';
+}
+
+// ===== 環境と権限・デバイスのスナップショットをログ
+async function logEnvAndPerms() {
+  try {
+    dbg('env', {
+      ua: typeof navigator !== 'undefined' ? navigator.userAgent : 'n/a',
+      secure: typeof isSecureContext !== 'undefined' ? isSecureContext : 'n/a',
+      protocol: typeof location !== 'undefined' ? location.protocol : 'n/a',
+      iframed: (typeof window !== 'undefined') ? (window.top !== window.self) : 'n/a'
+    });
+    if (navigator?.permissions?.query) {
+      try {
+        const p = await navigator.permissions.query({ name: 'microphone' });
+        dbg('perm.microphone', p.state); // 'granted' | 'prompt' | 'denied'
+      } catch (e) { dbg('perm.microphone query failed', e?.message); }
+    }
+    const devs = (await navigator.mediaDevices?.enumerateDevices?.()) || [];
+    dbg('devices.audioinput', devs.filter(d => d.kind === 'audioinput')
+      .map(d => ({ label: d.label, deviceId: (d.deviceId || '').slice(0,6)+'…' })));
+  } catch (e) { dbg('logEnvAndPerms error', e); }
+}
+
+// ===== Recorder/Track/AudioContext の挙動を継続観測
+function attachRecorderDebug({ stream, mr, ac, analyser }) {
+  try {
+    const track = stream.getAudioTracks?.()[0];
+    if (track) {
+      dbg('track.init', { readyState: track.readyState, muted: track.muted, enabled: track.enabled, settings: track.getSettings?.() });
+      try { dbg('track.caps', track.getCapabilities?.()); } catch {}
+      track.addEventListener('mute',   () => dbg('track MUTE'));
+      track.addEventListener('unmute', () => dbg('track UNMUTE'));
+      track.addEventListener('ended',  () => dbg('track ENDED'));
+    }
+
+    mr.addEventListener('start',  () => dbg('mr START', mr.mimeType));
+    mr.addEventListener('pause',  () => dbg('mr PAUSE'));
+    mr.addEventListener('resume', () => dbg('mr RESUME'));
+    mr.addEventListener('stop',   () => dbg('mr STOP'));
+    mr.addEventListener('error',  e => dbg('mr ERROR', e?.error || e));
+
+    // 1秒ごとにレベル統計
+    let last = performance.now();
+    const tick = () => {
+      if (!analyser) return;
+      const now = performance.now();
+      if (now - last >= 1000) {
+        const buf = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteTimeDomainData(buf);
+        let sum=0; for (let i=0;i<buf.length;i++){ const x = buf[i]/128-1; sum+=x*x; }
+        const rms = Math.sqrt(sum/buf.length);
+        dbg('level.rms', Number(rms.toFixed(4)), 'ac.state=', ac?.state);
+        last = now;
+      }
+      if (ac && ac.state === 'closed') return;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    // ブラウザコンソールから確認できる便利フック
+    window.__recdbg = { stream, mr, ac, __chunks: [],
+      download: () => {
+        const type = mr.mimeType || 'audio/webm';
+        const blob = new Blob(window.__recdbg.__chunks, { type });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `debug.${type.includes('mp4') ? 'm4a' : type.includes('ogg') ? 'ogg' : 'webm'}`;
+        a.click();
+      }
+    };
+  } catch (e) { dbg('attachRecorderDebug error', e); }
+}
+
+
 /** ============================================================
  *  SEO 共通
  * ============================================================ */
@@ -401,32 +492,36 @@ function App() {
   useEffect(() => { if (showFullScreen) setIsExpanded(false); }, [showFullScreen]);
 
   // 音声ファイル → STT → Firestore保存
-  const processAudioFile = async (file) => {
-    const url = URL.createObjectURL(file);
-    setAudioURL(url);
-    setProgressStep("uploading");
+// 音声ファイル → STT → Firestore保存（フル置き換え）
+const processAudioFile = async (file) => {
+  dbg('[stt] uploading', { name: file?.name, type: file?.type, size: file?.size });
 
-    setTimeout(async () => {
-      setProgressStep("transcribing");
-      try {
-        const { transcription: newTranscription, minutes: newMinutes } = await transcribeAudio(
-          file,
-          selectedMeetingFormat?.template || "",
-          setIsProcessing
-        );
-        setTranscription(newTranscription);
-        setMinutes(newMinutes);
-        if (newTranscription && newMinutes) {
-          await saveMeetingRecord(newTranscription, newMinutes);
-        }
-      } catch (error) {
-        console.error("An error occurred during STT processing:", error);
-        setProgressStep("error");
+  const url = URL.createObjectURL(file);
+  setAudioURL(url);
+  setProgressStep("uploading");
+
+  setTimeout(async () => {
+    setProgressStep("transcribing");
+    try {
+      const { transcription: newTranscription, minutes: newMinutes } = await transcribeAudio(
+        file,
+        selectedMeetingFormat?.template || "",
+        setIsProcessing
+      );
+      setTranscription(newTranscription);
+      setMinutes(newMinutes);
+      if (newTranscription && newMinutes) {
+        await saveMeetingRecord(newTranscription, newMinutes);
       }
-      setProgressStep("transcriptionComplete");
-      setShowFullScreen(true);
-    }, 500);
-  };
+    } catch (error) {
+      console.error("An error occurred during STT processing:", error);
+      setProgressStep("error");
+    }
+    setProgressStep("transcriptionComplete");
+    setShowFullScreen(true);
+  }, 500);
+};
+
 
   // Firestore 保存
   const saveMeetingRecord = async (transcription, minutes) => {
@@ -474,109 +569,130 @@ function App() {
   };
 
   // 録音開始
-  const startRecording = async () => {
-    try {
-      if (authInstance?.currentUser && dbInstance) {
-        // 他端末録音チェック
-        let currentDeviceId = localStorage.getItem("deviceId");
-        if (!currentDeviceId) {
-          currentDeviceId = uuidv4();
-          localStorage.setItem("deviceId", currentDeviceId);
-        }
-        const { doc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
-        const userRef = doc(dbInstance, "users", authInstance.currentUser.uid);
-        const docSnap = await getDoc(userRef);
-        const data = docSnap.data();
-        const storedDeviceId = data?.recordingDevice;
-        const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
-        if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 300 * 1000)) {
-          if (storedDeviceId && storedDeviceId !== currentDeviceId) {
-            alert("Recording cannot be started because another device is currently recording.");
-            return false;
-          }
-        } else {
-          await setDoc(userRef, { recordingDevice: null }, { merge: true });
-        }
-        await setDoc(userRef, {
-          recordingDevice: currentDeviceId,
-          recordingTimestamp: serverTimestamp()
-        }, { merge: true });
+// 録音開始（フル置き換え）
+const startRecording = async () => {
+  try {
+    // === Firestore: 他端末録音ロック（既存ロジックを欠落なく移植） ===
+    if (authInstance?.currentUser && dbInstance) {
+      let currentDeviceId = localStorage.getItem("deviceId");
+      if (!currentDeviceId) {
+        currentDeviceId = uuidv4();
+        localStorage.setItem("deviceId", currentDeviceId);
       }
-
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      streamRef.current = stream;
-
-      let mimeType = 'audio/webm;codecs=opus';
-      if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = 'audio/mp4';
-      if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = 'audio/ogg';
-      if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = 'audio/wav';
-
-      const options = { mimeType, audioBitsPerSecond: 32000 };
-      const mediaRecorder = new MediaRecorder(stream, options);
-      mediaRecorderRef.current = mediaRecorder;
-      recordedChunksRef.current = [];
-
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) recordedChunksRef.current.push(event.data);
-      };
-
-      mediaRecorder.onstop = async () => {
-        const blob = new Blob(recordedChunksRef.current, { type: mimeType });
-        const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
-        const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
-
-        if (!selectedMeetingFormat) {
-          alert("No meeting format selected. Please select one from MeetingFormatsList.");
-          return;
+      const { doc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
+      const userRef = doc(dbInstance, "users", authInstance.currentUser.uid);
+      const docSnap = await getDoc(userRef);
+      const data = docSnap.data();
+      const storedDeviceId = data?.recordingDevice;
+      const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
+      if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 300 * 1000)) {
+        if (storedDeviceId && storedDeviceId !== currentDeviceId) {
+          alert("Recording cannot be started because another device is currently recording.");
+          return false;
         }
-        await processAudioFile(file);
-      };
-
-      mediaRecorder.start();
-
-      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      audioContextRef.current = audioContext;
-
-      const source = audioContext.createMediaStreamSource(stream);
-      sourceRef.current = source;
-
-      const analyser = audioContext.createAnalyser();
-      analyser.fftSize = 256;
-      const bufferLength = analyser.frequencyBinCount;
-      const dataArray = new Uint8Array(bufferLength);
-      analyserRef.current = analyser;
-      dataArrayRef.current = dataArray;
-
-      source.connect(analyser);
-      updateAudioLevel();
-
-      if (!userSubscription) {
-        timerIntervalRef.current = setInterval(() => {
-          setUserRemainingSeconds(prev => {
-            if (prev <= 1) {
-              clearInterval(timerIntervalRef.current);
-              timerIntervalRef.current = null;
-              stopRecording(0);
-              setIsRecording(false);
-              return 0;
-            }
-            return prev - 1;
-          });
-        }, 1000);
+      } else {
+        await setDoc(userRef, { recordingDevice: null }, { merge: true });
       }
-
-      return true;
-    } catch (err) {
-      console.error("Failed to start recording:", err);
-      alert("Microphone access was denied. Please check your settings.");
-      return false;
+      await setDoc(userRef, {
+        recordingDevice: currentDeviceId,
+        recordingTimestamp: serverTimestamp()
+      }, { merge: true });
     }
-  };
+
+    // === 環境情報ログ ===
+    await logEnvAndPerms();
+
+    // === 音声取得（標準プロセッシングON） ===
+    const constraints = { audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } };
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    streamRef.current = stream;
+
+    // === MediaRecorder 準備（実装に合わせて MIME を確実に選ぶ） ===
+    const wanted = pickAudioMimeType();
+    const options = wanted ? { mimeType: wanted, audioBitsPerSecond: 32000 } : { audioBitsPerSecond: 32000 };
+    const mr = new MediaRecorder(stream, options);
+    mediaRecorderRef.current = mr;
+    recordedChunksRef.current = [];
+
+    mr.ondataavailable = (ev) => {
+      const size = ev?.data?.size || 0;
+      dbg('mr CHUNK', ev?.data?.type, size);
+      if (size > 0) {
+        window.__recdbg && window.__recdbg.__chunks && window.__recdbg.__chunks.push(ev.data);
+        recordedChunksRef.current.push(ev.data);
+      } else {
+        dbg('mr ZERO_CHUNK');
+      }
+    };
+
+    mr.onstop = async () => {
+      const recordedType = mr.mimeType || wanted || 'audio/webm';
+      const ext = recordedType.includes('mp4') ? 'm4a' : recordedType.includes('ogg') ? 'ogg' : 'webm';
+      const blob = new Blob(recordedChunksRef.current, { type: recordedType });
+      const file = new File([blob], `recording.${ext}`, { type: recordedType });
+      dbg('onstop file', { name: file.name, type: file.type, size: file.size });
+
+      if (!selectedMeetingFormat) {
+        alert("No meeting format selected. Please select one from MeetingFormatsList.");
+        return;
+      }
+      await processAudioFile(file);
+    };
+
+    // ★ デバッグ中は1秒ごとに dataavailable（0バイト検出が容易）
+    if (DEBUG_REC) { mr.start(1000); } else { mr.start(); }
+
+    // === AudioContext / Analyser ===
+    const AC = (window.AudioContext || window.webkitAudioContext);
+    const ac = new AC();
+    audioContextRef.current = ac;
+
+    // Chromeのオートプレイ方針対策：ユーザー操作内でも state が suspended のことがある
+    if (ac.state === 'suspended') {
+      try { await ac.resume(); dbg('audioContext resumed'); } catch (e) { dbg('audioContext resume failed', e); }
+    }
+
+    const source = ac.createMediaStreamSource(stream);
+    sourceRef.current = source;
+    const analyser = ac.createAnalyser();
+    analyser.fftSize = 256;
+    analyserRef.current = analyser;
+    dataArrayRef.current = new Uint8Array(analyser.frequencyBinCount);
+    source.connect(analyser);
+
+    // 継続観測
+    attachRecorderDebug({ stream, mr, ac, analyser });
+
+    // === 残り秒管理（既存ロジック） ===
+    if (!userSubscription) {
+      timerIntervalRef.current = setInterval(() => {
+        setUserRemainingSeconds(prev => {
+          if (prev <= 1) {
+            clearInterval(timerIntervalRef.current); timerIntervalRef.current = null;
+            stopRecording(0); setIsRecording(false); return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+
+    return true;
+  } catch (err) {
+    console.error("Failed to start recording:", err);
+    alert("Microphone access was denied or failed. Please check your settings.");
+    return false;
+  }
+};
+
 
   // 録音停止
-  const stopRecording = async (finalRemaining = userRemainingSeconds) => {
-    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
-      mediaRecorderRef.current.stop();
+// 録音停止（フル置き換え）
+const stopRecording = async (finalRemaining = userRemainingSeconds) => {
+  try {
+    const mr = mediaRecorderRef.current;
+    if (mr && mr.state !== 'inactive') {
+      try { mr.requestData(); dbg('mr requestData()'); } catch {}
+      mr.stop();
     }
     cancelAnimationFrame(animationFrameRef.current);
 
@@ -622,7 +738,11 @@ function App() {
         console.error("Failed to reset recordingDevice:", error);
       }
     }
-  };
+  } catch (e) {
+    console.error('stopRecording error', e);
+  }
+};
+
 
   // 音量レベル（RAF）
   const updateAudioLevel = () => {
