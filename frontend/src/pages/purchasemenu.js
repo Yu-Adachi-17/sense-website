@@ -241,52 +241,71 @@ export default function PurchaseMenu() {
       display: "flex",
       alignItems: "center",
     },
+    // ▼ プロフィールのアクションメニュー（白基調）
     actionMenu: {
       position: "absolute",
       top: "40px",
       right: "10px",
-      backgroundColor: "#000",
-      color: "#FFF",
-      borderRadius: "4px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+      backgroundColor: "#fff",
+      color: "#000",
+      borderRadius: "8px",
+      boxShadow: "0 6px 24px rgba(0,0,0,0.12)",
+      border: "1px solid #eaeaea",
       zIndex: 1500,
+      overflow: "hidden",
+      minWidth: "200px",
     },
     actionMenuItem: {
-      padding: "8px 12px",
+      padding: "10px 14px",
       cursor: "pointer",
-      borderBottom: "1px solid #333",
+      borderBottom: "1px solid #efefef",
+      fontSize: "14px",
     },
     unlimitedText: {
-      fontSize: "32px",
+      fontSize: "28px",
       fontWeight: "bold",
-      background:
-        "linear-gradient(90deg, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
+      color: "#000",
     },
+    // ▼ ここからプロフィールオーバーレイの新ビジュアル
     profileOverlay: {
       position: "fixed",
       top: 0,
       left: 0,
       width: "100%",
       height: "100%",
-      background: "rgba(0, 0, 0, 0.9)",
+      background: "#fff", // 大外背景：白
       zIndex: 1400,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      overflow: "hidden",
+    },
+    overlayBgIcon: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      width: "min(90vw, 900px)",
+      height: "auto",
+      opacity: 0.06, // 薄く表示
+      pointerEvents: "none", // クリック干渉なし
+      zIndex: 1401,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     },
     profileModal: {
       width: "450px",
-      height: "500px",
-      background: "rgba(20, 20, 20, 1)",
-      borderRadius: "8px",
+      minHeight: "360px",
+      background: "transparent", // 背景なし（白地＋アイコンの上に載せる）
+      borderRadius: "12px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      padding: "20px",
+      padding: "24px",
       boxSizing: "border-box",
       position: "relative",
+      zIndex: 1402,
     },
     logoutButton: {
       position: "absolute",
@@ -295,41 +314,16 @@ export default function PurchaseMenu() {
       background: "none",
       border: "none",
       cursor: "pointer",
-      fontFamily: "Impact, sans-serif",
-      color: "#FFF",
-    },
-    profileCircle: {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      width: "80vw",
-      height: "80vw",
-      maxWidth: "320px",
-      maxHeight: "320px",
-      borderRadius: "50%",
-      background:
-        "linear-gradient(to bottom right, rgb(153, 184, 255), rgba(115, 115, 255, 1), rgba(102, 38, 153, 1), rgb(95, 13, 133), rgba(255, 38, 38, 1), rgb(199, 42, 76))",
-      padding: "10px",
-      boxSizing: "border-box",
-      transform: "translate(-50%, -50%)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    innerCircle: {
-      width: "100%",
-      height: "100%",
-      borderRadius: "50%",
-      background: "rgba(0, 0, 0, 0.9)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      color: "#000", // アイコン黒
     },
     profileInfo: {
+      width: "100%",
       textAlign: "center",
       fontSize: "16px",
-      color: "#FFF",
-      fontFamily: "Impact, sans-serif",
+      color: "#000", // 文字黒
+      fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+      paddingTop: "40px",
+      lineHeight: 1.6,
     },
   };
 
@@ -466,7 +460,6 @@ export default function PurchaseMenu() {
           <div style={styles.sideMenu} onClick={stopPropagation}>
             {/* ▼ トップ：下段と同列デザインの行に“引っ越し” */}
             <div style={styles.topPolicyRow}>
-
               <button
                 style={styles.topProfileButton}
                 onClick={() => {
@@ -480,14 +473,13 @@ export default function PurchaseMenu() {
                 aria-label="Profile"
                 title="Profile"
               >
-                               {userId ? (
-                 // HomeIcon のサイズが未定ならラッパーで幅高さを揃える
-                 <span style={{ display: "inline-flex", width: 30, height: 30 }}>
-                   <HomeIcon />
-                 </span>
-               ) : (
-                 <IoPersonCircleOutline size={30} />
-               )}
+                {userId ? (
+                  <span style={{ display: "inline-flex", width: 30, height: 30 }}>
+                    <HomeIcon />
+                  </span>
+                ) : (
+                  <IoPersonCircleOutline size={30} />
+                )}
               </button>
             </div>
 
@@ -547,51 +539,49 @@ export default function PurchaseMenu() {
             */}
 
             {/* Policy ボタン（右下） */}
-{/* Policy ボタン（右下） */}
-<div style={styles.policyButtonContainer}>
-  <button
-    style={styles.policyButton}
-    onClick={() => {
-      setShowSideMenu(false);
-      router.push("/home");
-    }}
-  >
-    {t("Services and Pricing")}
-  </button>
-  <button
-    style={styles.policyButton}
-    onClick={() => {
-      setShowSideMenu(false);
-      router.push("/terms-of-use");
-    }}
-  >
-    {t("Terms of Use")}
-  </button>
-  <button
-    style={styles.policyButton}
-    onClick={() => {
-      setShowSideMenu(false);
-      router.push("/privacy-policy");
-    }}
-  >
-    {t("Privacy Policy")}
-  </button>
-  <button
-    style={styles.policyButton}
-    onClick={() => {
-      setShowSideMenu(false);
-      router.push("/company");
-    }}
-  >
-    {t("Company")}
-  </button>
-
+            <div style={styles.policyButtonContainer}>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/home");
+                }}
+              >
+                {t("Services and Pricing")}
+              </button>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/terms-of-use");
+                }}
+              >
+                {t("Terms of Use")}
+              </button>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/privacy-policy");
+                }}
+              >
+                {t("Privacy Policy")}
+              </button>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/company");
+                }}
+              >
+                {t("Company")}
+              </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* プロフィールオーバーレイ */}
+      {/* プロフィールオーバーレイ（白背景＋拡大HomeIcon＋黒文字） */}
       {showProfileOverlay && (
         <div
           style={styles.profileOverlay}
@@ -600,8 +590,13 @@ export default function PurchaseMenu() {
             setShowActionMenu(false);
           }}
         >
+          {/* 背景の拡大 HomeIcon（装飾・クリック不可） */}
+          <div style={styles.overlayBgIcon} aria-hidden="true">
+            <HomeIcon />
+          </div>
+
           <div style={styles.profileModal} onClick={stopPropagation}>
-            {/* 右上アイコンボタン */}
+            {/* 右上アイコンボタン（黒） */}
             <button
               style={styles.logoutButton}
               onClick={(e) => {
@@ -612,7 +607,7 @@ export default function PurchaseMenu() {
               <HiOutlineDotsCircleHorizontal size={30} />
             </button>
 
-            {/* アクションメニュー */}
+            {/* アクションメニュー（白） */}
             {showActionMenu && (
               <div style={styles.actionMenu}>
                 <div style={styles.actionMenuItem} onClick={handleEditProfile}>
@@ -633,25 +628,21 @@ export default function PurchaseMenu() {
               </div>
             )}
 
-            {/* 外側のグラデーションリングと内側の円 */}
-            <div style={styles.profileCircle}>
-              <div style={styles.innerCircle}>
-                <div style={styles.profileInfo}>
-                  <p>
-                    {t("Email")}: {userEmail}
-                  </p>
-                  {subscription ? (
-                    <p style={styles.unlimitedText}>{t("unlimited")}</p>
-                  ) : (
-                    <p>
-                      {t("Remaining Time:")}{" "}
-                      {profileRemainingSeconds != null
-                        ? formatTime(profileRemainingSeconds)
-                        : "00:00"}
-                    </p>
-                  )}
-                </div>
-              </div>
+            {/* 情報表示（フラット・黒文字） */}
+            <div style={styles.profileInfo}>
+              <p>
+                {t("Email")}: {userEmail}
+              </p>
+              {subscription ? (
+                <p style={styles.unlimitedText}>{t("unlimited")}</p>
+              ) : (
+                <p>
+                  {t("Remaining Time:")}{" "}
+                  {profileRemainingSeconds != null
+                    ? formatTime(profileRemainingSeconds)
+                    : "00:00"}
+                </p>
+              )}
             </div>
           </div>
         </div>
