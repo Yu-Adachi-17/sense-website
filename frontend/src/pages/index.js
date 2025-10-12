@@ -680,11 +680,34 @@ const startRecording = async () => {
     }
 
     return true;
-  } catch (err) {
-    console.error("Failed to start recording:", err);
-    alert("Microphone access was denied or failed. Please check your settings.");
-    return false;
+} catch (err) {
+  // ここから差し替え
+  console.error("[RECDBG] getUserMedia error:", err?.name, err?.message, err);
+
+  let msg = "";
+  switch (err?.name) {
+    case "NotAllowedError":
+    case "SecurityError":
+      msg = "マイクがブラウザまたはOSによりブロックされています。\n" +
+            "1) macOS: 設定 > プライバシーとセキュリティ > マイク で Google Chrome を ON\n" +
+            "2) Chrome: アドレスバーのサイト設定で マイク=許可 / chrome://settings/content/microphone を確認";
+      break;
+    case "NotFoundError":
+      msg = "利用可能なマイクが見つかりません。macOSのサウンド入力や物理接続を確認してください。";
+      break;
+    case "NotReadableError":
+      msg = "別のアプリがマイクを使用中の可能性があります。Zoom/Meet/Discord などを終了してからお試しください。";
+      break;
+    case "OverconstrainedError":
+      msg = "指定した条件に一致するマイクがありません（deviceId等）。Chromeの設定で既定のマイクを確認してください。";
+      break;
+    default:
+      msg = "マイク取得に失敗しました。Chromeのサイト権限、OSのマイク権限、他アプリの占有を確認してください。";
   }
+  alert(msg);
+  return false;
+}
+
 };
 
 
