@@ -575,8 +575,12 @@ export default function Home() {
             <span className="brandText">{t("Minutes.AI")}</span>
           </Link>
           <nav className="nav" aria-label={t("Primary") || "Primary"}>
-            <Link href="/" className="navLink">
-              <span className="navText gradHeader">{t("Home")}</span>
+            {/* ▼ ここを変更：Home を削除し、Blog / Contact / iOS */}
+            <Link href="/blog" className="navLink">
+              <span className="navText gradHeader">{t("Blog")}</span>
+            </Link>
+            <Link href="/company" className="navLink">
+              <span className="navText gradHeader">{t("Contact")}</span>
             </Link>
             <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
               <FaApple className="apple" aria-hidden="true" />
@@ -844,6 +848,11 @@ export default function Home() {
             <span className="sep">·</span>
             <a href="/privacy-policy" className="legalLink">
               {t("Privacy Policy")}
+            </a>
+            {/* ▼ ここを追加：右側に Company */}
+            <span className="sep">·</span>
+            <a href="/company" className="legalLink">
+              {t("Company")}
             </a>
           </div>
           <div className="copyright">&copy; Sense LLC All Rights Reserved</div>

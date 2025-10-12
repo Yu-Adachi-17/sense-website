@@ -26,7 +26,10 @@
       "closingMessage": "Mensaje de cierre"
     }
   },
-  "wrap": { "h2": "Cierre", "p": "¿Qué te parece? ..." },
+  "wrap": {
+  "h2": "Cierre",
+  "p": "¿Qué te parece? Con esta estructura, cualquiera puede entender al instante quién debe hacer qué. Las actas dejan de ser algo que se lee para convertirse en algo que impulsa la acción del equipo. Prueba Actas IA por ti mismo."
+},
   "cta": { "openBrowser": "Abrir versión web", "downloadIOS": "Descargar versión iOS" },
   "transcript": { "expand": "Ver texto completo", "close": "Cerrar texto completo" }
 }

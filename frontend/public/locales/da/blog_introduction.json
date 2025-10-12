@@ -81,7 +81,10 @@
       "closingMessage": "Afsluttende bemærkning"
     }
   },
-  "wrap": { "h2": "Afrunding", "p": "Hvordan ser det ud? ..." },
+  "wrap": {
+  "h2": "Afrunding",
+  "p": "Hvordan ser det ud? Med denne struktur bliver det straks klart, hvem der skal gøre hvad. Referater bliver forvandlet fra noget, man læser, til noget, der får teamet til at handle. Prøv Referat AI selv."
+},
   "cta": { "openBrowser": "Åbn browser-versionen", "downloadIOS": "Download iOS-versionen" },
   "transcript": { "expand": "Vis fuld tekst", "close": "Luk fuld tekst" }
 }

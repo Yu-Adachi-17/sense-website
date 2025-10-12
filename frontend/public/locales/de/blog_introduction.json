@@ -26,7 +26,10 @@
       "closingMessage": "Abschließende Bemerkung"
     }
   },
-  "wrap": { "h2": "Zusammenfassung", "p": "Wie wirkt das Ergebnis? ..." },
+  "wrap": {
+  "h2": "Zusammenfassung",
+  "p": "Wie wirkt das Ergebnis? Mit dieser Struktur wird sofort klar, wer was zu tun hat. Protokolle verwandeln sich von etwas, das man liest, in etwas, das Teams in Bewegung bringt. Erleben Sie Protokoll KI selbst."
+},
   "cta": { "openBrowser": "Browser-Version öffnen", "downloadIOS": "iOS-Version herunterladen" },
   "transcript": { "expand": "Volltext anzeigen", "close": "Volltext schließen" }
 }
