@@ -154,21 +154,6 @@ function GlassRecordButton({ isRecording, audioLevel, onClick, size = 420 }) {
     </div>
   );
 }
-// ===== 追加: ブラウザの実装に合わせて安全に MIME を選ぶ =====
-function pickAudioMimeType() {
-  const candidates = [
-    'audio/webm;codecs=opus', // Chrome系の本命
-    'audio/webm',
-    'audio/mp4;codecs=mp4a.40.2', // Safariの本命（AAC）
-    'audio/mp4',
-    'audio/ogg;codecs=opus'
-  ];
-  if (!window.MediaRecorder) return '';
-  for (const t of candidates) {
-    try { if (MediaRecorder.isTypeSupported(t)) return t; } catch {}
-  }
-  return ''; // 渡さずブラウザ既定に委ねる
-}
 
 // ----------------------
 // ゲスト用 localStorage キー
@@ -416,34 +401,32 @@ function App() {
   useEffect(() => { if (showFullScreen) setIsExpanded(false); }, [showFullScreen]);
 
   // 音声ファイル → STT → Firestore保存
-// 既存: const processAudioFile = async (file) => {
-// ↓ 修正:
-const processAudioFile = async (file, recordedType) => {
-  const url = URL.createObjectURL(file);
-  setAudioURL(url);
-  setProgressStep("uploading");
+  const processAudioFile = async (file) => {
+    const url = URL.createObjectURL(file);
+    setAudioURL(url);
+    setProgressStep("uploading");
 
-  setTimeout(async () => {
-    setProgressStep("transcribing");
-    try {
-      console.log('[stt] uploading file:', file.name, file.type, ' recordedType=', recordedType);
-      const { transcription: newTranscription, minutes: newMinutes } = await transcribeAudio(
-        file,                       // ★ Chromeは "audio/webm" をそのまま渡す
-        selectedMeetingFormat?.template || "",
-        setIsProcessing
-      );
-      setTranscription(newTranscription);
-      setMinutes(newMinutes);
-      if (newTranscription && newMinutes) await saveMeetingRecord(newTranscription, newMinutes);
-    } catch (error) {
-      console.error("An error occurred during STT processing:", error);
-      setProgressStep("error");
-    }
-    setProgressStep("transcriptionComplete");
-    setShowFullScreen(true);
-  }, 500);
-};
-
+    setTimeout(async () => {
+      setProgressStep("transcribing");
+      try {
+        const { transcription: newTranscription, minutes: newMinutes } = await transcribeAudio(
+          file,
+          selectedMeetingFormat?.template || "",
+          setIsProcessing
+        );
+        setTranscription(newTranscription);
+        setMinutes(newMinutes);
+        if (newTranscription && newMinutes) {
+          await saveMeetingRecord(newTranscription, newMinutes);
+        }
+      } catch (error) {
+        console.error("An error occurred during STT processing:", error);
+        setProgressStep("error");
+      }
+      setProgressStep("transcriptionComplete");
+      setShowFullScreen(true);
+    }, 500);
+  };
 
   // Firestore 保存
   const saveMeetingRecord = async (transcription, minutes) => {
@@ -491,107 +474,104 @@ const processAudioFile = async (file, recordedType) => {
   };
 
   // 録音開始
-// 録音開始（貼り替え）
-const startRecording = async () => {
-  try {
-    if (authInstance?.currentUser && dbInstance) {
-      // （略）あなたの既存デバイスロック処理はそのまま
-      let currentDeviceId = localStorage.getItem("deviceId");
-      if (!currentDeviceId) { currentDeviceId = uuidv4(); localStorage.setItem("deviceId", currentDeviceId); }
-      const { doc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
-      const userRef = doc(dbInstance, "users", authInstance.currentUser.uid);
-      const docSnap = await getDoc(userRef);
-      const data = docSnap.data();
-      const storedDeviceId = data?.recordingDevice;
-      const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
-      if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 300 * 1000)) {
-        if (storedDeviceId && storedDeviceId !== currentDeviceId) {
-          alert("Recording cannot be started because another device is currently recording.");
-          return false;
+  const startRecording = async () => {
+    try {
+      if (authInstance?.currentUser && dbInstance) {
+        // 他端末録音チェック
+        let currentDeviceId = localStorage.getItem("deviceId");
+        if (!currentDeviceId) {
+          currentDeviceId = uuidv4();
+          localStorage.setItem("deviceId", currentDeviceId);
         }
-      } else {
-        await setDoc(userRef, { recordingDevice: null }, { merge: true });
-      }
-      await setDoc(userRef, { recordingDevice: currentDeviceId, recordingTimestamp: serverTimestamp() }, { merge: true });
-    }
-
-    // ★ Chrome でも確実にレベルが動くよう、ユーザー操作内で開始 & 後で resume
-    const stream = await navigator.mediaDevices.getUserMedia({
-      audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
-    });
-    streamRef.current = stream;
-
-    // ★ ブラウザに合わせて MIME を決定
-    const wanted = pickAudioMimeType();
-    const options = wanted ? { mimeType: wanted, audioBitsPerSecond: 32000 } : { audioBitsPerSecond: 32000 };
-
-    const mr = new MediaRecorder(stream, options);
-    mediaRecorderRef.current = mr;
-    recordedChunksRef.current = [];
-
-    mr.onstart = () => console.log('[rec] start, mime=', mr.mimeType);
-    mr.onerror = (e) => console.error('[rec] onerror', e);
-    mr.ondataavailable = (ev) => {
-      console.log('[rec] dataavailable size=', ev?.data?.size, ' type=', ev?.data?.type);
-      if (ev.data && ev.data.size > 0) recordedChunksRef.current.push(ev.data);
-    };
-    mr.onstop = async () => {
-      const recordedType = (mr.mimeType && mr.mimeType !== '' ? mr.mimeType : (wanted || 'audio/webm'));
-      const ext = recordedType.includes('mp4') ? 'm4a'
-                : recordedType.includes('ogg') ? 'ogg'
-                : 'webm';
-      const blob = new Blob(recordedChunksRef.current, { type: recordedType });
-      const file = new File([blob], `recording.${ext}`, { type: recordedType });
-
-      if (!selectedMeetingFormat) {
-        alert("No meeting format selected. Please select one from MeetingFormatsList.");
-        return;
-      }
-      await processAudioFile(file, recordedType); // ★ 型を渡す
-    };
-
-    mr.start(); // timeslice不要。stop時に1チャンク
-
-    // === レベルメータ ===
-    const AC = (window.AudioContext || window.webkitAudioContext);
-    const audioContext = new AC();
-    audioContextRef.current = audioContext;
-
-    // ★ Chromeの自動再生ポリシー対策：念のため resume を保証
-    if (audioContext.state === 'suspended') {
-      try { await audioContext.resume(); console.log('[audio] resumed'); } catch (e) { console.warn('[audio] resume failed', e); }
-    }
-
-    const source = audioContext.createMediaStreamSource(stream);
-    sourceRef.current = source;
-
-    const analyser = audioContext.createAnalyser();
-    analyser.fftSize = 256;
-    analyserRef.current = analyser;
-    dataArrayRef.current = new Uint8Array(analyser.frequencyBinCount);
-
-    source.connect(analyser);
-    updateAudioLevel();
-
-    if (!userSubscription) {
-      timerIntervalRef.current = setInterval(() => {
-        setUserRemainingSeconds(prev => {
-          if (prev <= 1) {
-            clearInterval(timerIntervalRef.current); timerIntervalRef.current = null;
-            stopRecording(0); setIsRecording(false); return 0;
+        const { doc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
+        const userRef = doc(dbInstance, "users", authInstance.currentUser.uid);
+        const docSnap = await getDoc(userRef);
+        const data = docSnap.data();
+        const storedDeviceId = data?.recordingDevice;
+        const recordingTimestamp = data?.recordingTimestamp ? data.recordingTimestamp.toDate() : null;
+        if (recordingTimestamp && (Date.now() - recordingTimestamp.getTime() < 300 * 1000)) {
+          if (storedDeviceId && storedDeviceId !== currentDeviceId) {
+            alert("Recording cannot be started because another device is currently recording.");
+            return false;
           }
-          return prev - 1;
-        });
-      }, 1000);
-    }
+        } else {
+          await setDoc(userRef, { recordingDevice: null }, { merge: true });
+        }
+        await setDoc(userRef, {
+          recordingDevice: currentDeviceId,
+          recordingTimestamp: serverTimestamp()
+        }, { merge: true });
+      }
 
-    return true;
-  } catch (err) {
-    console.error("Failed to start recording:", err);
-    alert("Microphone access was denied. Please check your settings.");
-    return false;
-  }
-};
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      streamRef.current = stream;
+
+      let mimeType = 'audio/webm;codecs=opus';
+      if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = 'audio/mp4';
+      if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = 'audio/ogg';
+      if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = 'audio/wav';
+
+      const options = { mimeType, audioBitsPerSecond: 32000 };
+      const mediaRecorder = new MediaRecorder(stream, options);
+      mediaRecorderRef.current = mediaRecorder;
+      recordedChunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) recordedChunksRef.current.push(event.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        const blob = new Blob(recordedChunksRef.current, { type: mimeType });
+        const fileExtension = mimeType === 'audio/mp4' ? 'm4a' : 'webm';
+        const file = new File([blob], `recording.${fileExtension}`, { type: mimeType });
+
+        if (!selectedMeetingFormat) {
+          alert("No meeting format selected. Please select one from MeetingFormatsList.");
+          return;
+        }
+        await processAudioFile(file);
+      };
+
+      mediaRecorder.start();
+
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      audioContextRef.current = audioContext;
+
+      const source = audioContext.createMediaStreamSource(stream);
+      sourceRef.current = source;
+
+      const analyser = audioContext.createAnalyser();
+      analyser.fftSize = 256;
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+      analyserRef.current = analyser;
+      dataArrayRef.current = dataArray;
+
+      source.connect(analyser);
+      updateAudioLevel();
+
+      if (!userSubscription) {
+        timerIntervalRef.current = setInterval(() => {
+          setUserRemainingSeconds(prev => {
+            if (prev <= 1) {
+              clearInterval(timerIntervalRef.current);
+              timerIntervalRef.current = null;
+              stopRecording(0);
+              setIsRecording(false);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      }
+
+      return true;
+    } catch (err) {
+      console.error("Failed to start recording:", err);
+      alert("Microphone access was denied. Please check your settings.");
+      return false;
+    }
+  };
 
   // 録音停止
   const stopRecording = async (finalRemaining = userRemainingSeconds) => {
