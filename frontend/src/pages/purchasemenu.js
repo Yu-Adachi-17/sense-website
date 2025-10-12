@@ -1,4 +1,4 @@
-// src/pages/purchasemenu.js  （元: PurchaseMenu）
+// src/pages/purchasemenu.js 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -15,6 +15,7 @@ import { BsWrenchAdjustable } from "react-icons/bs";
 import { CiGlobe } from "react-icons/ci";
 import { PiGridFourFill } from "react-icons/pi";
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
+import HomeIcon from "./homeIcon";
 
 export default function PurchaseMenu() {
   // 各種 state 定義
@@ -166,24 +167,33 @@ export default function PurchaseMenu() {
       transition: "transform 0.5s ease-out",
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
     },
+    // ▼ 下段のポリシーと“同列デザイン”でトップへ配置
+    topPolicyRow: {
+      position: "absolute",
+      top: "16px",
+      right: "16px",
+      display: "flex",
+      alignItems: "center",
+      gap: "12px",
+    },
     minutesListButton: {
       background: "none",
       border: "none",
       color: "white",
-      padding: "10px 0",
+      padding: "35px 0",
       fontSize: "16px",
       fontWeight: "bold",
       display: "flex",
       alignItems: "center",
       cursor: "pointer",
       textAlign: "left",
-      marginBottom: "16px",
+      marginBottom: "0px",
     },
     purchaseButton: {
       background: "none",
       border: "none",
       color: "#FFF",
-      padding: "10px 0",
+      padding: "0px 0",
       fontSize: "16px",
       fontWeight: "bold",
       display: "flex",
@@ -221,11 +231,15 @@ export default function PurchaseMenu() {
       cursor: "pointer",
       padding: "4px 8px",
     },
-    topRow: {
-      position: "relative",
-      width: "100%",
-      height: "50px",
-      marginBottom: "16px",
+    topProfileButton: {
+      background: "none",
+      border: "none",
+      color: "#FFF",
+      fontSize: "20px",
+      cursor: "pointer",
+      padding: "4px 0",
+      display: "flex",
+      alignItems: "center",
     },
     actionMenu: {
       position: "absolute",
@@ -450,37 +464,11 @@ export default function PurchaseMenu() {
       {showSideMenu && (
         <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
-            {/* トップ行（中央： "Services and Pricing"、右：プロフィールアイコン） */}
-            <div style={styles.topRow}>
+            {/* ▼ トップ：下段と同列デザインの行に“引っ越し” */}
+            <div style={styles.topPolicyRow}>
+
               <button
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  background: "none",
-                  border: "none",
-                  color: "white",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                }}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/home");
-                }}
-              >
-                {t("Services and Pricing")}
-              </button>
-              <button
-                style={{
-                  position: "absolute",
-                  right: 0,
-                  background: "none",
-                  border: "none",
-                  color: "white",
-                  fontSize: "30px",
-                  cursor: "pointer",
-                }}
+                style={styles.topProfileButton}
                 onClick={() => {
                   setShowSideMenu(false);
                   if (userId) {
@@ -489,8 +477,17 @@ export default function PurchaseMenu() {
                     router.push("/login");
                   }
                 }}
+                aria-label="Profile"
+                title="Profile"
               >
-                <IoPersonCircleOutline size={30} />
+                               {userId ? (
+                 // HomeIcon のサイズが未定ならラッパーで幅高さを揃える
+                 <span style={{ display: "inline-flex", width: 30, height: 30 }}>
+                   <HomeIcon />
+                 </span>
+               ) : (
+                 <IoPersonCircleOutline size={30} />
+               )}
               </button>
             </div>
 
@@ -522,7 +519,7 @@ export default function PurchaseMenu() {
               }}
             >
               <FaTicketAlt style={{ marginRight: "8px" }} />
-              {t("Purchase Items")}
+              {t("Upgrade")}
             </button>
 
             {/* 必要になったら復活
@@ -546,38 +543,49 @@ export default function PurchaseMenu() {
             >
               <CiGlobe style={{ marginRight: "8px" }} />
               {t("AI News")}
-            </button> 
+            </button>
             */}
 
             {/* Policy ボタン（右下） */}
-            <div style={styles.policyButtonContainer}>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/terms-of-use");
-                }}
-              >
-                {t("Terms of Use")}
-              </button>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/privacy-policy");
-                }}
-              >
-                {t("Privacy Policy")}
-              </button>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/company");
-                }}
-              >
-                {t("Company")}
-              </button>
+{/* Policy ボタン（右下） */}
+<div style={styles.policyButtonContainer}>
+  <button
+    style={styles.policyButton}
+    onClick={() => {
+      setShowSideMenu(false);
+      router.push("/home");
+    }}
+  >
+    {t("Services and Pricing")}
+  </button>
+  <button
+    style={styles.policyButton}
+    onClick={() => {
+      setShowSideMenu(false);
+      router.push("/terms-of-use");
+    }}
+  >
+    {t("Terms of Use")}
+  </button>
+  <button
+    style={styles.policyButton}
+    onClick={() => {
+      setShowSideMenu(false);
+      router.push("/privacy-policy");
+    }}
+  >
+    {t("Privacy Policy")}
+  </button>
+  <button
+    style={styles.policyButton}
+    onClick={() => {
+      setShowSideMenu(false);
+      router.push("/company");
+    }}
+  >
+    {t("Company")}
+  </button>
+
             </div>
           </div>
         </div>
