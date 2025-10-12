@@ -461,14 +461,34 @@ async function repairFlexibleJSON(badOutput, langHint) {
         role: 'system',
         content:
 `You repair malformed JSON that should match the schema:
-{
-  "meetingTitle": "",
-  "date": "",
-  "summary": "",
-  "sections": [
-    { "title": "", "topics": [ { "subTitle": "", "details": [] } ] }
-  ]
-}
+            {
+              "meetingTitle": "(A concise meeting title appropriately named by NLP)",
+              "date": "(The date and time obtained from currentDate: Date())",
+              // "location": "(Only include if the meeting location is mentioned)",
+              // "attendees": ["Name1", "Name2", ...] // Only include if mentioned
+              "coreMessage": "(If there is a message stated at the end of the meeting that indicates future policies, vision, the values of the management or speakers, or motivational words for the members, include it here)"
+
+            "topics": [
+              {
+                "topic": "(Topic name)",
+                "discussion": [
+                  "(List the discussion points covered within the topic)"
+                ],
+                "decisions": [
+                  "(List any clear agreements or approvals made during the topic)"
+                ],
+                "actionItems": [
+                  "(List specific tasks if details like 'who', 'by when', and 'what to do' are explicitly mentioned)"
+                ],
+                "concerns": [
+                  "(List any clearly mentioned concerns or risks during the topic)"
+                ],
+                "keyMessages": [
+                  "(List any summarized conclusions or summaries that were clearly mentioned within the topic)"
+                ]
+              }
+            ]
+            }
 Rules: Return JSON only. Do not add comments. Keep keys and order. No trailing commas.`
       },
       {
