@@ -32,6 +32,18 @@ const OG_LOCALE_MAP = {
 };
 const LINK_IOS = "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
+// === DEBUG transcripts ==========
+const DEBUG_TRANSCRIPTS = {
+  ja: `
+（営業定例・要約テスト）今日は新料金プランとホワイトテーマのリリース準備が中心。価格はTrial, Light, Subscription, Enterpriseの4つ。KPIは今月MAU3,000→3,500。ドイツとオランダのコンバージョンが高い。iOSの審査は通過済み、Androidは今週末。Zoom SDKの外部会議参加でエラー63の再現あり、回避策はドキュメント強化＋内部会議でのデモ動画差し替え。Next.js側は/blog/introductionのhreflang修正、/ja/home をsitemapへ明示追加。サポート面はFAQの英独蘭を優先翻訳。来週はセールス資料の簡略版を用意。`,
+  en: `
+(Sales Weekly) Focus today: new pricing & white theme release. Tiers: Trial, Light, Subscription, Enterprise. KPI: MAU 3,000 → 3,500 by month-end. Germany & Netherlands convert best. iOS passed review; Android targets this weekend. Zoom SDK external meeting join still hits error 63; mitigation is stronger docs + internal-meeting demo video. Next.js: fix hreflang on /blog/introduction and add /ja/home into sitemap. Support: prioritize FAQ translations (DE/NL). Next week: lightweight sales deck.`
+};
+
+function getDebugTranscript(lang) {
+  if (lang && DEBUG_TRANSCRIPTS[lang]) return DEBUG_TRANSCRIPTS[lang].trim();
+  return DEBUG_TRANSCRIPTS.ja.trim(); // 既定は日本語
+}
 
 // ----------------------
 // ゲスト用 localStorage キー
@@ -322,6 +334,41 @@ const processAudioFile = async (file) => {
   }, 500);
 };
 
+// === NEW: process a raw transcript (debug path) ===
+const processDebugText = async (rawText) => {
+  setProgressStep("transcribing");
+  setIsProcessing(true);
+  try {
+    const resp = await fetch("/api/generate-minutes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        transcript: rawText,
+        outputType: "flexible", // 既定：Flexible JSON。クラシックにしたければ "classic"
+        meetingFormat: selectedMeetingFormat?.template || "",
+        lang: i18n.language,
+      })
+    });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const { transcription: newTranscription, minutes: newMinutes } = await resp.json();
+
+    setTranscription(newTranscription || "");
+    setMinutes(newMinutes || "");
+
+    if (newTranscription && newMinutes) {
+      await saveMeetingRecord(newTranscription, newMinutes);
+    }
+    setProgressStep("transcriptionComplete");
+    setShowFullScreen(true);
+  } catch (e) {
+    console.error("processDebugText error:", e);
+    setProgressStep("error");
+  } finally {
+    setIsProcessing(false);
+  }
+};
+
+
 
   // Firestore 保存
   const saveMeetingRecord = async (transcription, minutes) => {
@@ -358,14 +405,25 @@ const processAudioFile = async (file) => {
       else router.push("/buy-tickets");
       return;
     }
-    if (isRecording) {
-      await stopRecording();
-      setProgressStep("recordingComplete");
+  if (isRecording) {
+    // === STOP ===
+    if (isDebug()) {
+      // デバッグ：録音結果の代わりに用意したテキストをNLPへ
       setIsRecording(false);
-    } else {
-      const started = await startRecording();
-      if (started) setIsRecording(true);
+      setProgressStep("recordingComplete");
+      const text = getDebugTranscript(i18n.language);
+      await processDebugText(text);
+      return;
     }
+
+    await stopRecording();
+    setProgressStep("recordingComplete");
+    setIsRecording(false);
+  } else {
+    // === START ===
+    const started = await startRecording();
+    if (started) setIsRecording(true);
+  }
   };
 
   // 録音開始
@@ -373,6 +431,12 @@ const processAudioFile = async (file) => {
 // 録音開始（フル置き換え）
 const startRecording = async () => {
   console.log('[RECDBG] startRecording invoked');
+
+    if (isDebug()) {
+    dbg('[RECDBG] DEBUG MODE: fake recording start (no getUserMedia)');
+    // レベルアニメ等を動かしたい場合は必要に応じてここでrequestAnimationFrame起動も可
+    return true; // そのまま isRecording=true へ
+  }
   try {
     // === Firestore: 他端末録音ロック ===
     if (authInstance?.currentUser && dbInstance) {

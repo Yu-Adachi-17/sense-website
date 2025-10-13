@@ -738,6 +738,32 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   }
 });
 
+// === デバグ用の無音ダミー生成NEW: Generate minutes directly from raw transcript (debug helper) ===
+app.post('/api/generate-minutes', async (req, res) => {
+  try {
+    const { transcript, outputType = 'flexible', meetingFormat, lang } = req.body || {};
+    if (!transcript || typeof transcript !== 'string' || transcript.trim().length === 0) {
+      return res.status(400).json({ error: 'Missing transcript' });
+    }
+
+    let minutes;
+    if ((outputType || 'flexible').toLowerCase() === 'flexible') {
+      minutes = await generateFlexibleMinutes(transcript, lang || null);
+    } else {
+      minutes = await generateMinutes(transcript, meetingFormat || '');
+    }
+
+    return res.json({
+      transcription: transcript.trim(),
+      minutes
+    });
+  } catch (err) {
+    console.error('[ERROR] /api/generate-minutes:', err);
+    return res.status(500).json({ error: 'Internal error', details: err.message });
+  }
+});
+
+
 // Debug GET endpoint
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
