@@ -277,9 +277,9 @@ ${template}
 </MINUTES_TEMPLATE>`;
 
   const data = {
-    model: 'gpt-4o-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
-    max_tokens: 15000,
+    max_tokens: 16000,
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: combinedText },
@@ -318,9 +318,9 @@ ${template.trim()}
 </MINUTES_TEMPLATE>`;
 
   const data = {
-    model: 'gpt-4o-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
-    max_tokens: 15000,
+    max_tokens: 16000,
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content:
@@ -370,9 +370,9 @@ ${transcription}
 </TRANSCRIPT>`;
 
   const data = {
-    model: 'gpt-4o-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
-    max_tokens: 15000,
+    max_tokens: 16000,
     messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: userMessage },
@@ -413,10 +413,10 @@ function isValidFlexibleJSON(str) {
 
 async function repairFlexibleJSON(badOutput, langHint) {
   const data = {
-    model: 'gpt-4o-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     response_format: { type: "json_object" },
     temperature: 0,
-    max_tokens: 15000,
+    max_tokens: 16000,
     messages: [
       {
         role: 'system',
@@ -461,10 +461,10 @@ async function generateFlexibleMinutes(transcription, langHint) {
   });
 
   const data = {
-    model: 'gpt-4o-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     response_format: { type: "json_object" },
     temperature: 0,
-    max_tokens: 15000,
+    max_tokens: 16000,
     messages,
   };
 
@@ -495,10 +495,10 @@ async function generateWithFormatJSON(transcript, fmt) {
   // fmt = { formatId, locale, schemaId, title, prompt, notes }
   // 各プロンプトは「JSON形式で出せ」と明示されている想定なので JSON モードで投げる。
   const data = {
-    model: 'gpt-4o-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     response_format: { type: "json_object" },
     temperature: 0,
-    max_tokens: 15000,
+    max_tokens: 16000,
     messages: [
       { role: 'system', content: fmt.prompt || '' },
       {
