@@ -806,20 +806,32 @@ app.get('/api/formats/:formatId/:locale', (req, res) => {
   旧形式:
     body: { transcript, outputType: 'flexible'|'classic', meetingFormat, lang }
 */
-console.log('[BOOT] registering POST /api/generate-minutes'); 
+/*==============================================
+=     FORCE-REGISTER: /api/generate-minutes    =
+==============================================*/
+
+// ここで “必ず” 最初に登録して、どの /api/* ルーターより前に通す
+console.log('[BOOT] registering POST/GET /api/generate-minutes (early)');
+
+// 存在確認用（GET は 405 を返すことで「ルートはある」を示す）
+app.get('/api/generate-minutes', (req, res) => {
+  res.set('Allow', 'POST');
+  return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
+});
+
+// 本体
 app.post('/api/generate-minutes', async (req, res) => {
   try {
     const {
       transcript,
       formatId,
       locale,
-      // 旧フィールド（後方互換）
-      outputType = 'flexible',
+      outputType = 'flexible',    // 旧互換
       meetingFormat,
       lang
     } = req.body || {};
 
-    if (!transcript || typeof transcript !== 'string' || transcript.trim().length === 0) {
+    if (!transcript || typeof transcript !== 'string' || !transcript.trim()) {
       return res.status(400).json({ error: 'Missing transcript' });
     }
 
@@ -827,13 +839,13 @@ app.post('/api/generate-minutes', async (req, res) => {
     let meta = null;
 
     if (formatId && locale) {
-      // 新：フォーマットJSONを用いた生成
+      // 新：formatLoader を使った JSON プロンプト解決
       const fmt = loadFormatJSON(formatId, locale);
       if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
       minutes = await generateWithFormatJSON(transcript, fmt);
       meta = { formatId, locale, schemaId: fmt.schemaId || null, title: fmt.title || null };
     } else {
-      // 旧：フロントからテンプレ文字列や flexible 指示が来るパス
+      // 旧：テンプレ文字列 or flexible
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
         minutes = await generateFlexibleMinutes(transcript, lang || null);
       } else {
@@ -853,6 +865,7 @@ app.post('/api/generate-minutes', async (req, res) => {
   }
 });
 
+
 // Debug GET endpoint
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
@@ -871,10 +884,6 @@ const staticPath = candidates.find(p => fs.existsSync(p)) || path.join(__dirname
 
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
-
-// Safety: ensure route is registered before the 404 catch-all (harmless if duplicate)
-app.options('/api/generate-minutes', (req, res) => res.sendStatus(204)); // CORS 下見
-app.post('/api/generate-minutes', (req, res, next) => next()); // 既存ハンドラが先にヒットするので通常は素通り
 
 // Undefined API routes return a 404 error
 app.use('/api', (req, res, next) => {
