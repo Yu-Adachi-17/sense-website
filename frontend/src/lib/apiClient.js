@@ -1,17 +1,24 @@
-// src/lib/apiClient.js
-const PUBLIC_BACKEND =
-  process.env.NEXT_PUBLIC_BACKEND_BASE ||
-  'https://sense-website-production.up.railway.app'; // 本番フォールバック
+// src/lib/apiClient.js（想定フル）
+export async function apiFetch(input, init = {}) {
+  const rel = typeof input === "string" ? input : input?.url || "";
+  const isAbs = /^https?:\/\//i.test(rel);
 
-export async function apiFetch(path, init) {
-  // 1) まず同一オリジンの Next API を叩く
-  try {
-    const r = await fetch(path, init);
-    if (r.status !== 404) return r;      // 404以外はそのまま返す
-  } catch (_) {
-    // ネットワークエラー時はフォールバックへ進む
-  }
-  // 2) 404 だったら Railway 直叩きに切り替え
-  const url = `${PUBLIC_BACKEND}${path}`;
-  return fetch(url, init);
+  const base =
+    (typeof window !== "undefined" && window.__API_BASE__) ||
+    process.env.NEXT_PUBLIC_BACKEND_BASE ||
+    process.env.BACKEND_BASE || // 念のため後方互換
+    "";
+
+  const url = isAbs ? rel : (base ? base.replace(/\/+$/,"") + rel : rel);
+
+  const res = await fetch(url, {
+    // CORS を考慮（Cookie使わないなら omit でもOK）
+    credentials: "include",
+    ...init,
+    headers: {
+      Accept: "application/json",
+      ...(init.headers || {}),
+    },
+  });
+  return res;
 }
