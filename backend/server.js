@@ -806,6 +806,7 @@ app.get('/api/formats/:formatId/:locale', (req, res) => {
   旧形式:
     body: { transcript, outputType: 'flexible'|'classic', meetingFormat, lang }
 */
+console.log('[BOOT] registering POST /api/generate-minutes'); 
 app.post('/api/generate-minutes', async (req, res) => {
   try {
     const {
@@ -870,6 +871,10 @@ const staticPath = candidates.find(p => fs.existsSync(p)) || path.join(__dirname
 
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
+
+// Safety: ensure route is registered before the 404 catch-all (harmless if duplicate)
+app.options('/api/generate-minutes', (req, res) => res.sendStatus(204)); // CORS 下見
+app.post('/api/generate-minutes', (req, res, next) => next()); // 既存ハンドラが先にヒットするので通常は素通り
 
 // Undefined API routes return a 404 error
 app.use('/api', (req, res, next) => {
