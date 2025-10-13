@@ -16,6 +16,7 @@ import GlassRecordButton from '../components/GlassRecordButton';
 import { getClientAuth, getDb } from '../firebaseConfig';
 import { useAuthGate } from "../hooks/useAuthGate";
 import { isDebug, dbg, pickAudioMimeType, logEnvAndPerms, attachRecorderDebug, RecordingIssueBanner } from '../lib/recordingKit';
+import { apiFetch } from "../lib/apiClient";
 
 /** ============================================================
  *  SEO 共通
@@ -313,7 +314,7 @@ function App() {
         );
 
         // ② 新バックエンドの minutes 生成APIを叩く
-        const gen = await fetch(`/api/generate-minutes`, {
+        const gen = await apiFetch(`/api/generate-minutes`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -346,7 +347,7 @@ function App() {
     setProgressStep("transcribing");
     setIsProcessing(true);
     try {
-      const resp = await fetch(`/api/generate-minutes`, {
+      const resp = await apiFetch(`/api/generate-minutes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { apiFetch } from "../lib/apiClient";
 
 const SITE_URL = "https://www.sense-ai.world";
 
@@ -43,7 +44,7 @@ export default function MeetingFormatsPage() {
     (async () => {
       try {
         setLoading(true);
-        const res = await fetch(`/api/formats`);
+        const res = await apiFetch(`/api/formats`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
         let list = [];
