@@ -502,7 +502,7 @@ export default function Home() {
     }
   }, [locale]);
 
-  const pageTitle = t("Minutes.AI — Home");
+  const pageTitle = t("Minutes.AI — Service Page");
   const ogTitle = t("Minutes.AI — AI Meeting Minutes");
   const metaDesc = t(
     "Automatically create beautiful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web."
