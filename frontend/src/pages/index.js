@@ -67,7 +67,7 @@ function App() {
     l === defaultLocale ? { l, href: `${SITE_URL}/` } : { l, href: `${SITE_URL}/${l}/` }
   );
 
-  const pageTitle = t("Minutes.AI — Home");
+  const pageTitle = t("Minutes.AI — Top");
   const ogTitle  = t("Minutes.AI — AI Meeting Minutes");
   const metaDesc = t("minutes-listful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web.");
   const ogDesc   = t("Record your meeting and let AI produce clean, human-ready minutes—decisions and to-dos at a glance.");
@@ -111,6 +111,19 @@ function App() {
   const [recordingIssue, setRecordingIssue] = useState(null);
   const zeroChunkCountRef = useRef(0);
   const silenceSecondsRef = useRef(0);
+
+  // ======== Textモード判定（デバッグ時はマイク不要で即テキスト処理）========
+  const shouldUseTextMode = () => {
+    try {
+      if (isDebug()) return true; // 既存のデバッグラッチ（localStorage 'rec_debug' 等）
+      if (typeof window !== 'undefined') {
+        const q = new URLSearchParams(window.location.search);
+        if (q.get('debug') === '1' || q.get('text') === '1') return true; // URL強制
+        if (localStorage.getItem('force_text_mode') === '1') return true; // 追加トグル
+      }
+    } catch {}
+    return false;
+  };
 
   // タイトルとdir
   useEffect(() => { document.title = pageTitle; }, [pageTitle]);
@@ -295,7 +308,7 @@ function App() {
   // FullScreenOverlay オープン時
   useEffect(() => { if (showFullScreen) setIsExpanded(false); }, [showFullScreen]);
 
-  // ===== 音声ファイル → STT → （★新）/api/generate-minutes =====
+  // ===== 音声ファイル → STT → /api/generate-minutes =====
   const processAudioFile = async (file) => {
     dbg('[stt] uploading', { name: file?.name, type: file?.type, size: file?.size });
 
@@ -306,14 +319,12 @@ function App() {
     setTimeout(async () => {
       setProgressStep("transcribing");
       try {
-        // ① これまで通りローカルのSTT（utils/ChatGPTs）を使って文字起こしだけ得る
-        const { transcription: newTranscription /*, minutes: oldMinutes (未使用) */ } = await transcribeAudio(
+        const { transcription: newTranscription } = await transcribeAudio(
           file,
-          "", // ← テンプレは不要（新構成）
+          "", // テンプレ不要
           setIsProcessing
         );
 
-        // ② 新バックエンドの minutes 生成APIを叩く
         const gen = await apiFetch(`/api/generate-minutes`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -342,7 +353,7 @@ function App() {
     }, 500);
   };
 
-  // === NEW: process a raw transcript (debug path) ===
+  // === テキスト直処理（デバッグ用） ===
   const processDebugText = async (rawText) => {
     setProgressStep("transcribing");
     setIsProcessing(true);
@@ -403,21 +414,24 @@ function App() {
     }
   };
 
-  // 録音トグル
+  // 録音トグル（デバッグ時は即テキスト処理／マイク不使用）
   const toggleRecording = async () => {
+    // 利用制限チェック（通常モードのみ意味がある）
     if (!userSubscription && userRemainingSeconds === 0) {
       if (!authInstance?.currentUser) router.push("/login");
       else router.push("/buy-tickets");
       return;
     }
+
+    // --- デバッグ（テキスト）モード：録音処理を完全にスキップ ---
+    if (shouldUseTextMode()) {
+      const text = getDebugTranscript(i18n.language);
+      await processDebugText(text);
+      return;
+    }
+
+    // --- 通常モード ---
     if (isRecording) {
-      if (isDebug()) {
-        setIsRecording(false);
-        setProgressStep("recordingComplete");
-        const text = getDebugTranscript(i18n.language);
-        await processDebugText(text);
-        return;
-      }
       await stopRecording();
       setProgressStep("recordingComplete");
       setIsRecording(false);
@@ -427,14 +441,10 @@ function App() {
     }
   };
 
-  // 録音開始（フル置き換え）
+  // 録音開始（通常モードのみ呼ばれる。デバッグ時は toggleRecording で分岐済み）
   const startRecording = async () => {
     console.log('[RECDBG] startRecording invoked');
 
-    if (isDebug()) {
-      dbg('[RECDBG] DEBUG MODE: fake recording start (no getUserMedia)');
-      return true;
-    }
     try {
       // === Firestore: 他端末録音ロック ===
       if (authInstance?.currentUser && dbInstance) {
@@ -533,7 +543,7 @@ function App() {
         await processAudioFile(file);
       };
 
-      if (isDebug()) { mr.start(1000); } else { mr.start(); }
+      mr.start();
 
       const AC = (window.AudioContext || window.webkitAudioContext);
       const ac = new AC();
@@ -612,7 +622,7 @@ function App() {
     }
   };
 
-  // 録音停止（フル置き換え）
+  // 録音停止
   const stopRecording = async (finalRemaining = userRemainingSeconds) => {
     try {
       const mr = mediaRecorderRef.current;
