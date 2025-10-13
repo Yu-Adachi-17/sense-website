@@ -1,25 +1,37 @@
-// src/pages/api/generate-minutes.js
+// pages/api/generate-minutes.js
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
-  try {
-    const base =
-      process.env.BACKEND_BASE ||
-      'https://sense-website-production.up.railway.app'; // ← フォールバック
+  const BACKEND_BASE =
+    process.env.BACKEND_BASE
+    || process.env.NEXT_PUBLIC_API_BASE
+    || 'https://sense-website-production.up.railway.app'; // 最後の砦
 
-    const upstream = await fetch(`${base}/api/generate-minutes`, {
+  if (!BACKEND_BASE) {
+    return res.status(500).json({ error: 'BACKEND_BASE is not set' });
+  }
+
+  const url = `${BACKEND_BASE.replace(/\/+$/, '')}/api/generate-minutes`;
+
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Allow', 'POST, OPTIONS');
+    return res.status(204).end();
+  }
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST, OPTIONS');
+    return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
+  }
+
+  try {
+    const r = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(req.body || {}),
+      body: JSON.stringify(req.body ?? {}),
     });
 
-    const text = await upstream.text();
-    let json;
-    try { json = JSON.parse(text); } catch { json = { raw: text }; }
-    return res.status(upstream.status).json(json);
+    // バックエンドのステータスをそのまま返す
+    const text = await r.text();
+    res.status(r.status).send(text);
   } catch (e) {
-    return res.status(502).json({ error: 'Bad Gateway', detail: String(e?.message || e) });
+    console.error('[proxy /api/generate-minutes] error:', e);
+    res.status(502).json({ error: 'Bad Gateway', details: String(e) });
   }
 }
