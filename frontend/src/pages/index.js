@@ -128,6 +128,19 @@ const cardShadow =
     } catch {}
     return false;
   };
+  // 追加：スマホ判定と基準サイズ
+const BASE_RECORD_SIZE = 420;
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  if (typeof window === 'undefined') return;
+  const mq = window.matchMedia('(max-width: 600px)'); // スマホ想定幅
+  const onChange = (e) => setIsMobile(e.matches);
+  setIsMobile(mq.matches);
+  mq.addEventListener('change', onChange);
+  return () => mq.removeEventListener('change', onChange);
+}, []);
+
 
   // タイトルとdir
   useEffect(() => { document.title = pageTitle; }, [pageTitle]);
@@ -819,12 +832,13 @@ const cardShadow =
             >
               <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
                 {isRecording ? (
-                  <GlassRecordButton
-                    isRecording={isRecording}
-                    audioLevel={audioLevel}
-                    onClick={toggleRecording}
-                    size={420}
-                  />
+<GlassRecordButton
+  isRecording={isRecording}
+  audioLevel={audioLevel}
+  onClick={toggleRecording}
+  size={isMobile ? Math.round(BASE_RECORD_SIZE * 0.75) : BASE_RECORD_SIZE}
+/>
+
                 ) : (
                   <button
                     onClick={toggleRecording}
