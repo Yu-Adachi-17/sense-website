@@ -18,7 +18,6 @@ console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
 console.log("[DEBUG] ffprobe path set to 'ffprobe'");
 
 const FormData = require('form-data');
-const Stripe = require('stripe');
 
 // ==== Routes (split) ====
 const webhookRouter = require('./routes/webhook');
@@ -28,6 +27,10 @@ const zoomJoinTokenRoute = require('./routes/zoomJoinTokenRoute');
 const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
 const zoomOAuthCallbackRoute = require('./routes/zoomOAuthCallbackRoute');
 const zoomRecordingRoute = require('./routes/zoomRecordingRoute');
+
+// Stripe (extracted)
+const stripeCheckoutRoute = require('./routes/stripeCheckoutRoute');
+const stripeSubscriptionRoute = require('./routes/stripeSubscriptionRoute');
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -133,6 +136,12 @@ app.use('/', zoomOAuthCallbackRoute);
 // Zoom: 録音 Bot 起動 (/api/recordings/zoom/start)
 app.use('/api', zoomRecordingRoute);
 
+// Stripe: Checkout
+app.use('/api', stripeCheckoutRoute);
+
+// Stripe: Subscription
+app.use('/api', stripeSubscriptionRoute);
+
 // デバッグエコー
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
@@ -198,7 +207,7 @@ app.use((req, res, next) => {
 ==============================================*/
 
 // multer configuration: Save files to temp directory
-const storage = multer.diskStorage({
+const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     const tempDir = path.join(__dirname, 'temp');
     if (!fs.existsSync(tempDir)) {
@@ -212,16 +221,13 @@ const storage = multer.diskStorage({
   }
 });
 const upload = multer({
-  storage: storage,
+  storage: multerStorage,
   limits: { fileSize: 500 * 1024 * 1024 } // 500MB
 });
 
 // OpenAI API endpoints
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
 const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
-
-// Stripe initialization
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 /**
  * splitText: Splits text into chunks of specified size.
@@ -276,14 +282,12 @@ ${template}
 /**
  * generateMinutes: Uses ChatGPT API to generate meeting minutes.
  */
-// 強制フォーマット検証
 function isValidMinutes(out) {
   if (!out) return false;
   const must = ["【Meeting Name】", "【Date】", "【Location】", "【Attendees】", "【Agenda(1)】", "【Agenda(2)】", "【Agenda(3)】"];
   return must.every(k => out.includes(k));
 }
 
-// 失敗時の整形（ワンリトライ用）
 async function repairToTemplate(badOutput, template) {
   const systemMessage =
 `You are a minutes formatter. Please strictly convert according to the template below.
@@ -316,7 +320,6 @@ ${badOutput}
   return resp.data.choices[0].message.content.trim();
 }
 
-// 本体：テンプレ厳守で生成
 const generateMinutes = async (transcription, formatTemplate) => {
   const template = (formatTemplate && formatTemplate.trim()) || 
 `【Meeting Name】
@@ -378,7 +381,6 @@ ${transcription}
    Flexible Minutes(JSON) 生成系
    ================================ */
 
-// Flexible JSON の簡易検証
 function isValidFlexibleJSON(str) {
   try {
     const obj = JSON.parse(str);
@@ -390,7 +392,6 @@ function isValidFlexibleJSON(str) {
   }
 }
 
-// JSON 修復（ワンリトライ）
 async function repairFlexibleJSON(badOutput, langHint) {
   const data = {
     model: 'gpt-4o-mini',
@@ -433,7 +434,6 @@ ${badOutput}
   return resp.data.choices[0].message.content.trim();
 }
 
-// Flexible 本体
 async function generateFlexibleMinutes(transcription, langHint) {
   const messages = buildFlexibleMessages({
     transcript: transcription,
@@ -644,8 +644,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     let minutes = '';
     const cleanupExtra = []; // 変換で作った一時ファイルの削除用
 
-    // ① Whisper への送信方針：
-    //    まずはオリジナルのまま送る。失敗した場合のみ m4a へ変換して再送。
+    // ① Whisper への送信方針：まずはオリジナルを送る。失敗時のみ m4a 変換して再送。
     if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
       console.log('[DEBUG] <= threshold: send original file to Whisper');
       try {
@@ -742,128 +741,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 // Debug GET endpoint
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
-});
-
-/*==============================================
-=                  Stripe APIs                 =
-==============================================*/
-
-// Checkout Session creation
-app.post('/api/create-checkout-session', async (req, res) => {
-  try {
-    const { productId, userId } = req.body;
-    console.log("✅ Received productId:", productId);
-    console.log("✅ Received userId:", userId);
-
-    const PRICE_MAP = {
-      [process.env.STRIPE_PRODUCT_UNLIMITED]: process.env.STRIPE_PRICE_UNLIMITED,
-      [process.env.STRIPE_PRODUCT_120MIN]: process.env.STRIPE_PRICE_120MIN,
-      [process.env.STRIPE_PRODUCT_1200MIN]: process.env.STRIPE_PRICE_1200MIN,
-      [process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED]: process.env.REACT_APP_STRIPE_PRICE_YEARLY_UNLIMITED
-    };
-
-    const priceId = PRICE_MAP[productId];
-    if (!priceId) {
-      console.error("❌ Invalid productId:", productId);
-      return res.status(400).json({ error: "Invalid productId" });
-    }
-
-    const mode = (productId === process.env.STRIPE_PRODUCT_UNLIMITED ||
-                  productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
-                  ? 'subscription'
-                  : 'payment';
-
-    // payment モードの場合は顧客作成
-    let customer;
-    if (mode === 'payment') {
-      customer = await stripe.customers.create({
-        metadata: { userId }
-      });
-    }
-
-    const sessionParams = {
-      payment_method_types: ['card'],
-      mode: mode,
-      line_items: [{ price: priceId, quantity: 1 }],
-      client_reference_id: userId,
-      metadata: {
-        product_id: productId,
-        userId: userId
-      },
-      success_url: 'https://sense-ai.world/success',
-      cancel_url: 'https://sense-ai.world/cancel',
-    };
-
-    if (customer) {
-      sessionParams.customer = customer.id;
-    }
-
-    const session = await stripe.checkout.sessions.create(sessionParams);
-    console.log("✅ Checkout URL:", session.url);
-    res.json({ url: session.url });
-  } catch (error) {
-    console.error('[ERROR] /api/create-checkout-session:', error);
-    res.status(500).json({ error: 'Failed to create checkout session', details: error.message });
-  }
-});
-
-// サブスクリプションID取得
-app.post('/api/get-subscription-id', async (req, res) => {
-  console.log("✅ hit /api/get-subscription-id");
-  const { userId } = req.body;
-
-  if (!userId) {
-    return res.status(400).json({ error: 'Missing userId' });
-  }
-
-  try {
-    const customers = await stripe.customers.list({ limit: 100 });
-    const customer = customers.data.find(c => c.metadata.userId === userId);
-
-    if (!customer) {
-      return res.status(404).json({ error: 'Customer not found for this userId' });
-    }
-
-    const subscriptions = await stripe.subscriptions.list({
-      customer: customer.id,
-      status: 'all',
-    });
-
-    if (!subscriptions.data.length) {
-      return res.status(404).json({ error: 'No active subscription found' });
-    }
-
-    const subscriptionId = subscriptions.data[0].id;
-    console.log(`✅ Subscription ID found for userId=${userId}: ${subscriptionId}`);
-    return res.status(200).json({ subscriptionId });
-  } catch (error) {
-    console.error('[ERROR] /api/get-subscription-id:', error);
-    return res.status(500).json({ error: 'Failed to fetch subscription ID', details: error.message });
-  }
-});
-
-// サブスクリプション解約
-app.post('/api/cancel-subscription', async (req, res) => {
-  const { subscriptionId } = req.body;
-
-  if (!subscriptionId) {
-    return res.status(400).json({ error: 'Missing subscriptionId' });
-  }
-
-  try {
-    const canceled = await stripe.subscriptions.update(subscriptionId, {
-      cancel_at_period_end: true,
-    });
-
-    console.log(`✅ 解約予約完了: subscriptionId=${subscriptionId}`);
-    return res.status(200).json({
-      message: 'Subscription cancellation scheduled at period end',
-      current_period_end: new Date(canceled.current_period_end * 1000),
-    });
-  } catch (error) {
-    console.error('[ERROR] 解約API:', error);
-    return res.status(500).json({ error: 'Failed to cancel subscription', details: error.message });
-  }
 });
 
 /*==============================================
