@@ -3,15 +3,64 @@ import React from 'react';
 /* ================================
    1) Debug helpers
    ================================ */
+// lib/recordingKit.ts (or wherever isDebug lives)
 export function isDebug() {
   if (typeof window === 'undefined') return false;
+
+  const host = window.location.hostname;
+  // ← 本番では絶対OFF。必要なら許可ホストを追加（preview環境など）
+  const isProdHost = /(^|\.)sense-ai\.world$/.test(host);
+  const allowHost =
+    !isProdHost && (
+      host === 'localhost' ||
+      host === '127.0.0.1' ||
+      /\.ngrok-free\.app$/.test(host) ||
+      /-preview\.your-domain\.com$/.test(host)
+    );
+
   const qs = new URLSearchParams(window.location.search);
-  if (qs.get('debug') === '1') {
-    // 一度でも ?debug=1 で入ったらラッチON（タブ内で維持）
-    try { localStorage.setItem('rec_debug', '1'); } catch {}
+  const q = qs.get('debug');
+
+  // 一度でも ?debug=1 を踏んだら latching。ただし allowHost のみ & 有効期限をつける
+  if (q === '1' && allowHost) {
+    const until = Date.now() + 60 * 60 * 1000; // 1時間だけ有効
+    try {
+      localStorage.setItem('rec_debug', '1');
+      localStorage.setItem('rec_debug_until', String(until));
+    } catch {}
+    // URLの ?debug=1 を取り除く（後続ナビで再度ONにならないように）
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('debug');
+      window.history.replaceState({}, '', url.toString());
+    } catch {}
   }
-  try { return localStorage.getItem('rec_debug') === '1'; } catch { return false; }
+
+  // 本番ホストに来たら強制OFF（誤ってラッチ済みでも即解除）
+  if (!allowHost) {
+    try {
+      localStorage.removeItem('rec_debug');
+      localStorage.removeItem('rec_debug_until');
+    } catch {}
+    return false;
+  }
+
+  // 期限切れ処理
+  try {
+    const flag = localStorage.getItem('rec_debug') === '1';
+    const untilStr = localStorage.getItem('rec_debug_until');
+    const notExpired = untilStr ? Date.now() < Number(untilStr) : false;
+    if (!notExpired) {
+      localStorage.removeItem('rec_debug');
+      localStorage.removeItem('rec_debug_until');
+      return false;
+    }
+    return flag && notExpired;
+  } catch {
+    return false;
+  }
 }
+
 
 export const dbg = (...args) => {
   if (isDebug() && typeof console !== 'undefined') console.log('[RECDBG]', ...args);
