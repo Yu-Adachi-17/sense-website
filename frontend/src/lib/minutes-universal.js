@@ -118,39 +118,117 @@ function mapLegacy(o) {
     meta: pickMeta(o),
     blocks: []
   };
+
   const topics = Array.isArray(o.topics) ? o.topics : [];
+
+  // ヘルパ
+  const pushList = (items, label, ordered = false) => {
+    if (!Array.isArray(items) || !items.length) return;
+    doc.blocks.push({ type: "heading", level: 3, text: label });
+    doc.blocks.push({ type: "list", ordered, items: items.map(String) });
+  };
+  const pushParagraph = (text, label) => {
+    if (!text || typeof text !== "string") return;
+    if (label) doc.blocks.push({ type: "heading", level: 3, text: label });
+    doc.blocks.push({ type: "paragraph", text });
+  };
+
   topics.forEach((tp, i) => {
     const head = `${i + 1}. ${tp.topic ?? "Topic"}`;
     doc.blocks.push({ type: "heading", level: 2, text: head });
 
+    // --- 旧キー（従来互換） ---
     if (Array.isArray(tp.discussion) && tp.discussion.length) {
-      doc.blocks.push({ type: "heading", level: 3, text: "Discussion" });
-      doc.blocks.push({ type: "list", items: tp.discussion.map(String) });
+      pushList(tp.discussion, "Discussion");
     }
 
     if (Array.isArray(tp.proposals) && tp.proposals.length) {
-      tp.proposals.forEach((p, idx) => {
+      tp.proposals.forEach((p) => {
         const label = `Proposal${p?.proposedBy ? ` (${p.proposedBy})` : ""}`;
         if (p?.proposal) {
-          doc.blocks.push({ type: "heading", level: 3, text: `${label}` });
+          doc.blocks.push({ type: "heading", level: 3, text: label });
           doc.blocks.push({ type: "paragraph", text: String(p.proposal) });
         }
         if (Array.isArray(p?.proposalReasons) && p.proposalReasons.length) {
-          doc.blocks.push({ type: "heading", level: 3, text: "Background" });
-          doc.blocks.push({ type: "list", items: p.proposalReasons.map(String) });
+          pushList(p.proposalReasons, "Background");
         }
         if (Array.isArray(p?.keyDiscussion) && p.keyDiscussion.length) {
-          doc.blocks.push({ type: "heading", level: 3, text: "Discussion Points" });
-          doc.blocks.push({ type: "list", items: p.keyDiscussion.map(String) });
+          pushList(p.keyDiscussion, "Discussion Points");
         }
       });
     }
 
-    const agg = tp.decisionsAndTasks || tp.aggregatedDecisionsAndTasks;
-    if (Array.isArray(agg) && agg.length) {
-      doc.blocks.push({ type: "heading", level: 3, text: "Decisions & Tasks" });
-      doc.blocks.push({ type: "list", ordered: true, items: agg.map(String) });
+    const legacyAgg = tp.decisionsAndTasks || tp.aggregatedDecisionsAndTasks;
+    if (Array.isArray(legacyAgg) && legacyAgg.length) {
+      pushList(legacyAgg, "Decisions & Tasks", true);
     }
+
+    // --- 新キー（presentation* 系）---
+    // 例: presentationCoreProblem: string
+    pushParagraph(tp.presentationCoreProblem, "Core Problem");
+
+    // 例: presentationProposal: string[]
+    pushList(tp.presentationProposal, "Proposal");
+
+    // 例: presentationExpectedResult: string[]
+    pushList(tp.presentationExpectedResult, "Expected Result");
+
+    // 例: presentationDecisionsAndTasks: string[]
+    pushList(tp.presentationDecisionsAndTasks, "Decisions & Tasks", true);
+
+    // --- その他よくあるキーも拾う（あるときだけ）---
+    pushList(tp.actionItems, "Action Items", true);
+    pushList(tp.decisions, "Decisions", true);
+    pushList(tp.concerns, "Concerns");
+    pushList(tp.keyMessages, "Summary");
+
+    // --- まだ残っている未対応フィールドを汎用描画で救済 ---
+    const handled = new Set([
+      "topic",
+      "discussion",
+      "proposals",
+      "decisionsAndTasks",
+      "aggregatedDecisionsAndTasks",
+      "presentationCoreProblem",
+      "presentationProposal",
+      "presentationExpectedResult",
+      "presentationDecisionsAndTasks",
+      "actionItems",
+      "decisions",
+      "concerns",
+      "keyMessages",
+    ]);
+
+    Object.keys(tp || {}).forEach((k) => {
+      if (handled.has(k)) return;
+      const v = tp[k];
+      if (v == null) return;
+
+      // 既に表示済のもの/メタっぽいものはスキップ
+      if (DROP_META_KEYS.has(k)) return;
+
+      // 型ごとにレンダ
+      if (typeof v === "string" && v.trim()) {
+        pushParagraph(v, labelize(k));
+      } else if (Array.isArray(v) && v.length) {
+        if (v.every(x => typeof x === "string")) {
+          pushList(v, labelize(k));
+        } else if (v.every(x => x && typeof x === "object" && !Array.isArray(x))) {
+          const table = arrayOfObjectsToTable(v);
+          doc.blocks.push({ type: "heading", level: 3, text: labelize(k) });
+          doc.blocks.push({ type: "table", header: table.header, rows: table.rows });
+        } else {
+          doc.blocks.push({ type: "heading", level: 3, text: labelize(k) });
+          doc.blocks.push({ type: "paragraph", text: JSON.stringify(v, null, 2) });
+        }
+      } else if (typeof v === "object") {
+        const kv = objectToKeyValuePairs(v);
+        if (kv.length) {
+          doc.blocks.push({ type: "heading", level: 3, text: labelize(k) });
+          doc.blocks.push({ type: "keyValue", pairs: kv });
+        }
+      }
+    });
 
     if (i < topics.length - 1) doc.blocks.push({ type: "divider" });
   });
@@ -161,6 +239,7 @@ function mapLegacy(o) {
   if (!doc.title) doc.title = "Minutes";
   return doc;
 }
+
 
 /** ===================== Heuristic generic mapper ===================== */
 
