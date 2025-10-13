@@ -5,8 +5,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
   try {
-    const base = process.env.BACKEND_BASE;
-    if (!base) return res.status(500).json({ error: 'BACKEND_BASE is not set' });
+    const base =
+      process.env.BACKEND_BASE ||
+      'https://sense-website-production.up.railway.app'; // ← フォールバック
 
     const upstream = await fetch(`${base}/api/generate-minutes`, {
       method: 'POST',
@@ -14,10 +15,9 @@ export default async function handler(req, res) {
       body: JSON.stringify(req.body || {}),
     });
 
-    const text = await upstream.text(); // エラーメッセ時の素の本文も見たい
+    const text = await upstream.text();
     let json;
     try { json = JSON.parse(text); } catch { json = { raw: text }; }
-
     return res.status(upstream.status).json(json);
   } catch (e) {
     return res.status(502).json({ error: 'Bad Gateway', detail: String(e?.message || e) });

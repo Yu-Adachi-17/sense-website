@@ -8,14 +8,23 @@ import { useTranslation } from "next-i18next";
 
 const SITE_URL = "https://www.sense-ai.world";
 
-// API base（index.js と同一ロジック）
-const API_BASE = '';
+// 常用表示名（バックエンドの titleKey/schema の差異を吸収）
+const DISPLAY_NAMES = {
+  general: "General",
+  negotiation: "Business Negotiation",
+  presentation: "Presentation",
+  logical1on1: "Logical 1-on-1",
+  brainStorming: "Brainstorming",
+  jobInterview: "Job Interview",
+  lecture: "Lecture",
+  flexible: "Flexible",
+};
 
 export default function MeetingFormatsPage() {
   const router = useRouter();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
-  const [registry, setRegistry] = useState(null);
+  const [formats, setFormats] = useState([]);  // ← 配列で保持
   const [loading, setLoading] = useState(true);
   const [current, setCurrent] = useState(null);
   const [error, setError] = useState("");
@@ -28,7 +37,7 @@ export default function MeetingFormatsPage() {
     } catch {}
   }, []);
 
-  // registry 読み込み
+  // registry 読み込み（/api/formats → 配列/オブジェクト両対応）
   useEffect(() => {
     let abort = false;
     (async () => {
@@ -36,8 +45,31 @@ export default function MeetingFormatsPage() {
         setLoading(true);
         const res = await fetch(`/api/formats`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json(); // { formats: { id: {schemaId, displayName}, ... } }
-        if (!abort) setRegistry(json?.formats || {});
+        const json = await res.json();
+        let list = [];
+
+        // バックエンド仕様：{ formats: [...] }（配列）を想定
+        if (Array.isArray(json?.formats)) {
+          list = json.formats.map((f) => ({
+            id: f?.id,
+            displayName: DISPLAY_NAMES[f?.id] || f?.displayName || f?.titleKey || f?.id,
+            schemaId: f?.schemaId || f?.schema || "",
+            deprecated: !!f?.deprecated,
+          }));
+        } else if (json?.formats && typeof json.formats === "object") {
+          // 互換（オブジェクトの場合）
+          list = Object.entries(json.formats).map(([id, meta]) => ({
+            id,
+            displayName: DISPLAY_NAMES[id] || meta?.displayName || id,
+            schemaId: meta?.schemaId || meta?.schema || "",
+            deprecated: !!meta?.deprecated,
+          }));
+        }
+
+        // 廃止は後ろに・現役優先で並べ替え
+        list.sort((a, b) => Number(a.deprecated) - Number(b.deprecated));
+
+        if (!abort) setFormats(list);
       } catch (e) {
         if (!abort) setError(String(e?.message || e));
       } finally {
@@ -48,11 +80,15 @@ export default function MeetingFormatsPage() {
   }, []);
 
   const pick = (id, meta) => {
-    const selected = { id, displayName: meta?.displayName || id, schemaId: meta?.schemaId || "" , selected: true };
+    const selected = {
+      id,
+      displayName: meta?.displayName || DISPLAY_NAMES[id] || id,
+      schemaId: meta?.schemaId || "",
+      selected: true
+    };
     localStorage.setItem("selectedMeetingFormat", JSON.stringify(selected));
     setCurrent(selected);
-    // 遷移：ホームに戻る（録音UI側に反映）
-    router.push("/");
+    router.push("/"); // 録音UIへ戻る
   };
 
   const title = "Choose a Minutes Format";
@@ -72,10 +108,7 @@ export default function MeetingFormatsPage() {
           padding: '40px 20px',
         }}
       >
-        <div style={{
-          maxWidth: 960,
-          margin: '0 auto'
-        }}>
+        <div style={{ maxWidth: 960, margin: '0 auto' }}>
           <div style={{
             display:'flex',
             alignItems:'center',
@@ -127,32 +160,54 @@ export default function MeetingFormatsPage() {
             </div>
           )}
 
-          {!loading && !error && registry && (
+          {!loading && !error && Array.isArray(formats) && formats.length > 0 && (
             <div style={{
               display:'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
               gap: 16
             }}>
-              {Object.entries(registry).map(([id, meta]) => (
-                <button
-                  key={id}
-                  onClick={() => pick(id, meta)}
-                  style={{
-                    textAlign:'left',
-                    padding:16,
-                    borderRadius:16,
-                    border:'1px solid rgba(0,0,0,0.08)',
-                    background:'#fff',
-                    cursor:'pointer',
-                    display:'flex',
-                    flexDirection:'column',
-                    gap:6
-                  }}
-                >
-                  <span style={{ fontWeight:700, fontSize:14 }}>{meta?.displayName || id}</span>
-                  <span style={{ fontSize:12, opacity:0.7 }}>{meta?.schemaId || '—'}</span>
-                </button>
-              ))}
+              {formats.map((meta) => {
+                const id = meta?.id;
+                const display = meta?.displayName || DISPLAY_NAMES[id] || id;
+                const schema = meta?.schemaId || '—';
+                const isDeprecated = !!meta?.deprecated;
+                return (
+                  <button
+                    key={id}
+                    onClick={() => pick(id, meta)}
+                    style={{
+                      textAlign:'left',
+                      padding:16,
+                      borderRadius:16,
+                      border:'1px solid rgba(0,0,0,0.08)',
+                      background:'#fff',
+                      cursor:'pointer',
+                      display:'flex',
+                      flexDirection:'column',
+                      gap:6,
+                      opacity: isDeprecated ? 0.5 : 1
+                    }}
+                    aria-disabled={isDeprecated}
+                    title={isDeprecated ? 'Deprecated format' : undefined}
+                  >
+                    <span style={{ fontWeight:700, fontSize:14 }}>
+                      {display} {isDeprecated ? "(Deprecated)" : ""}
+                    </span>
+                    <span style={{ fontSize:12, opacity:0.7 }}>{schema}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {!loading && !error && Array.isArray(formats) && formats.length === 0 && (
+            <div style={{
+              padding: 24,
+              background:'#fff',
+              border:'1px solid rgba(0,0,0,0.08)',
+              borderRadius: 12
+            }}>
+              No formats found.
             </div>
           )}
 
