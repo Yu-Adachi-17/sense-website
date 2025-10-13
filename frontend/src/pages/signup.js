@@ -79,7 +79,6 @@ export default function SignUp() {
     if (!email || !password) return;
     setIsLoading(true);
     try {
-      // Auth はクライアント側でのみ取得
       const auth = await getClientAuth();
       if (!auth) throw new Error("Auth is not available on server.");
 
@@ -115,7 +114,6 @@ export default function SignUp() {
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
     try {
-      // signInWithGoogle は user を返す実装（firebaseAuth.js）
       const user = await signInWithGoogle();
       if (user) await createUserDocument(user);
       await router.replace("/");
@@ -143,29 +141,61 @@ export default function SignUp() {
     }
   };
 
-  const TwoColumn = ({ children }) => (
-    <div
-      style={{
-        backgroundColor: "#fff",
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "row",
-        color: "#000",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
+  if (isEmailSent) {
+    return (
+      <div className="loginRoot">
+        <div className="homeIcon">
+          <HomeIcon size={30} href="https://sense-ai.world" />
+        </div>
+
+        {/* 左：画像（デスクトップのみ表示） */}
+        <div className="visualPane" aria-hidden="true">
+          <Image
+            src="/loginAndSignup.png"
+            alt=""
+            fill
+            sizes="(max-width: 900px) 100vw, 66vw"
+            style={{ objectFit: "contain", objectPosition: "center center" }}
+            priority
+          />
+        </div>
+
+        {/* 縦の黒線（デスクトップのみ表示） */}
+        <div className="vline" aria-hidden="true" />
+
+        {/* 右：内容 */}
+        <div className="formPane">
+          <h1 className="title">{t("Verification Email Sent")}</h1>
+          <p className="desc">
+            {t("Please click the link in the email to verify your account and then log in.")}
+          </p>
+          <button
+            onClick={() => router.push("/login")}
+            className="btn primary"
+          >
+            {t("Log In After Verification")}
+          </button>
+
+          {showAlert && <div className="alert">{alertMessage}</div>}
+        </div>
+
+        <style jsx>{styles}</style>
+      </div>
+    );
+  }
+
+  return (
+    <div className="loginRoot">
       {/* 左上ホーム固定 */}
-      <div style={{ position: "fixed", top: 20, left: 20, zIndex: 1000 }}>
+      <div className="homeIcon">
         <HomeIcon size={30} href="https://sense-ai.world" />
       </div>
 
-      {/* 左：画像（高さ優先でトリミングなし） */}
-      <div style={{ flex: "2 1 0%", position: "relative", minWidth: 0, background: "#fff" }}>
+      {/* 左：画像（デスクトップのみ表示） */}
+      <div className="visualPane" aria-hidden="true">
         <Image
           src="/loginAndSignup.png"
-          alt="Create Account Visual"
+          alt=""
           fill
           sizes="(max-width: 900px) 100vw, 66vw"
           style={{ objectFit: "contain", objectPosition: "center center" }}
@@ -173,181 +203,190 @@ export default function SignUp() {
         />
       </div>
 
-      {/* 縦の黒線 */}
-      <div style={{ width: "2px", background: "#000", height: "100%" }} />
+      {/* 縦の黒線（デスクトップのみ表示） */}
+      <div className="vline" aria-hidden="true" />
 
-      {/* 右：内容 1/3 */}
-      <div
-        style={{
-          flex: "1 1 0%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "24px",
-          gap: "12px",
-          overflowY: "auto",
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  );
+      {/* 右：フォーム（スマホでは中央フル幅） */}
+      <div className="formPane">
+        <h1 className="title">{t("Create Account")}</h1>
 
-  if (isEmailSent) {
-    return (
-      <TwoColumn>
-        <h1 style={{ fontWeight: 700, letterSpacing: "0.02em", margin: 0 }}>
-          {t("Verification Email Sent")}
-        </h1>
-        <p style={{ fontSize: "0.95rem", marginTop: 12, textAlign: "center", maxWidth: 520 }}>
-          {t("Please click the link in the email to verify your account and then log in.")}
-        </p>
+        <input
+          type="email"
+          placeholder={t("Email")}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="input"
+        />
+        <input
+          type="password"
+          placeholder={t("Password")}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="input"
+        />
+
+        <button
+          onClick={handleSignUp}
+          disabled={isLoading}
+          className="btn primary"
+        >
+          {t("Email Verification")}
+        </button>
+
+        <button onClick={handleGoogleSignIn} className="btn social">
+          <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
+          {t("Sign in with Google")}
+        </button>
+
+        <button onClick={handleAppleSignIn} className="btn social strong">
+          <FaApple style={{ marginRight: 10, fontSize: 20 }} />
+          {t("Sign in with Apple")}
+        </button>
+
         <button
           onClick={() => router.push("/login")}
-          style={{
-            marginTop: 20,
-            color: "#000",
-            background: "#fff",
-            border: "1px solid #000",
-            borderRadius: "6px",
-            padding: "10px 20px",
-            cursor: "pointer",
-            fontWeight: 700,
-          }}
+          className="link"
         >
-          {t("Log In After Verification")}
+          {t("Already have an account? Click here.")}
         </button>
-      </TwoColumn>
-    );
-  }
 
-  return (
-    <TwoColumn>
-      <h1 style={{ fontSize: "40px", fontWeight: 700, margin: 0, marginBottom: 20 }}>
-        {t("Create Account")}
-      </h1>
+        {showAlert && <div className="alert">{alertMessage}</div>}
+      </div>
 
-      <input
-        type="email"
-        placeholder={t("Email")}
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        style={{
-          width: "300px",
-          height: "40px",
-          paddingLeft: "10px",
-          borderRadius: "25px",
-          border: "1px solid #333",
-          color: "#000",
-          background: "#fff",
-          marginBottom: "16px",
-        }}
-      />
-      <input
-        type="password"
-        placeholder={t("Password")}
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        style={{
-          width: "300px",
-          height: "40px",
-          paddingLeft: "10px",
-          borderRadius: "25px",
-          border: "1px solid #333",
-          color: "#000",
-          background: "#fff",
-          marginBottom: "16px",
-        }}
-      />
-
-      <button
-        onClick={handleSignUp}
-        disabled={isLoading}
-        style={{
-          padding: "10px 20px",
-          background: "#fff",
-          color: "#000",
-          border: "1px solid #000",
-          borderRadius: "6px",
-          cursor: isLoading ? "not-allowed" : "pointer",
-          opacity: isLoading ? 0.6 : 1,
-          marginBottom: "16px",
-          fontWeight: 700,
-          width: "300px",
-          height: "44px",
-        }}
-      >
-        {t("Email Verification")}
-      </button>
-
-      <button
-        onClick={handleGoogleSignIn}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "10px 20px",
-          background: "#fff",
-          color: "#000",
-          border: "1px solid #ccc",
-          borderRadius: "6px",
-          cursor: "pointer",
-          width: "300px",
-          height: "44px",
-          marginBottom: "10px",
-          fontWeight: 700,
-        }}
-      >
-        <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
-        {t("Sign in with Google")}
-      </button>
-
-      <button
-        onClick={handleAppleSignIn}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "10px 20px",
-          background: "#fff",
-          color: "#000",
-          border: "1px solid #000",
-          borderRadius: "6px",
-          cursor: "pointer",
-          width: "300px",
-          height: "44px",
-          marginBottom: "16px",
-          fontWeight: 700,
-        }}
-      >
-        <FaApple style={{ marginRight: 10, fontSize: 20 }} />
-        {t("Sign in with Apple")}
-      </button>
-
-      <button
-        onClick={() => router.push("/login")}
-        style={{
-          color: "#000",
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          fontWeight: 600,
-        }}
-      >
-        {t("Already have an account? Click here.")}
-      </button>
-
-      {showAlert && (
-        <div style={{ color: "#b00020", marginTop: "8px", fontWeight: 600 }}>
-          {alertMessage}
-        </div>
-      )}
-    </TwoColumn>
+      <style jsx>{styles}</style>
+    </div>
   );
 }
 
-// SSG（SSRの場合は getServerSideProps に置き換え）
+const styles = `
+  .loginRoot {
+    background: #fff;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .homeIcon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+  .visualPane {
+    flex: 2 1 0%;
+    position: relative;
+    min-width: 0;
+    background: #fff;
+  }
+  .vline {
+    width: 2px;
+    background: #000;
+    height: 100%;
+  }
+  .formPane {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    gap: 12px;
+    overflow-y: auto;
+  }
+  .title {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.02em;
+  }
+  .desc {
+    font-size: 0.95rem;
+    margin-top: 12px;
+    text-align: center;
+    max-width: 520px;
+  }
+  .input {
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    color: #000;
+    background: #fff;
+    margin-bottom: 16px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 300px;
+    height: 44px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    transition: transform 120ms ease;
+  }
+  .btn:active { transform: scale(0.99); }
+  .btn.primary {
+    border: 1px solid #000;
+    margin-bottom: 16px;
+  }
+  .btn.social {
+    border: 1px solid #ccc;
+  }
+  .btn.social.strong {
+    border: 1px solid #000;
+    margin-bottom: 16px;
+  }
+  .link {
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .alert {
+    color: #b00020;
+    margin-top: 8px;
+    font-weight: 600;
+    text-align: center;
+    max-width: 320px;
+  }
+
+  /* ===== スマホ版専用（640px以下） ===== */
+  @media (max-width: 640px) {
+    .loginRoot {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100svh; /* モバイルのアドレスバー起因のvh揺れ対策 */
+    }
+    .visualPane { display: none; }  /* 画像を消す */
+    .vline { display: none; }       /* 縦線を消す */
+    .formPane {
+      width: 100%;
+      max-width: 420px;
+      padding: 24px 16px;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+    }
+    .title { font-size: 34px; margin-bottom: 18px; }
+    .input { width: min(92vw, 360px); }
+    .btn { width: min(92vw, 360px); }
+    .alert { max-width: min(92vw, 360px); }
+  }
+`;
+
 export async function getStaticProps({ locale }) {
   return {
     props: {
