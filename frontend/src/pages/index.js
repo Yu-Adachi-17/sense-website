@@ -319,6 +319,7 @@ function App() {
   const mediaRecorderRef = useRef(null);
   const recordedChunksRef = useRef([]);
   const lastResetDateRef = useRef(new Date().toDateString());
+  const sinkAudioElRef = useRef(null);
 
   // タイトルとdir
   useEffect(() => { document.title = pageTitle; }, [pageTitle]);
@@ -590,10 +591,11 @@ const processAudioFile = async (file) => {
 
   // 録音開始
 // 録音開始（フル置き換え）
+// 録音開始（フル置き換え）
 const startRecording = async () => {
   console.log('[RECDBG] startRecording invoked');
   try {
-    // === Firestore: 他端末録音ロック（既存ロジックを欠落なく移植） ===
+    // === Firestore: 他端末録音ロック ===
     if (authInstance?.currentUser && dbInstance) {
       let currentDeviceId = localStorage.getItem("deviceId");
       if (!currentDeviceId) {
@@ -623,12 +625,20 @@ const startRecording = async () => {
     // === 環境情報ログ ===
     await logEnvAndPerms();
 
-    // === 音声取得（標準プロセッシングON） ===
-    const constraints = { audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } };
+    // === 音声取得（Chrome 安定用に明示パラメータを少し強めに） ===
+    const constraints = {
+      audio: {
+        channelCount: { ideal: 1 },
+        sampleRate:   { ideal: 48000 },
+        echoCancellation: { ideal: true },
+        noiseSuppression: { ideal: true },
+        autoGainControl:  { ideal: true },
+      }
+    };
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     streamRef.current = stream;
 
-    // === MediaRecorder 準備（実装に合わせて MIME を確実に選ぶ） ===
+    // === MediaRecorder 準備 ===
     const wanted = pickAudioMimeType();
     const options = wanted ? { mimeType: wanted, audioBitsPerSecond: 32000 } : { audioBitsPerSecond: 32000 };
     const mr = new MediaRecorder(stream, options);
@@ -660,19 +670,18 @@ const startRecording = async () => {
       await processAudioFile(file);
     };
 
-    // ★ デバッグ中は1秒ごとに dataavailable（0バイト検出が容易）
+    // デバッグ時のみ 1s スライス
     if (isDebug()) { mr.start(1000); } else { mr.start(); }
 
-    // === AudioContext / Analyser ===
+    // === WebAudio ===
     const AC = (window.AudioContext || window.webkitAudioContext);
     const ac = new AC();
     audioContextRef.current = ac;
-
-    // Chromeのオートプレイ方針対策：ユーザー操作内でも state が suspended のことがある
     if (ac.state === 'suspended') {
       try { await ac.resume(); dbg('audioContext resumed'); } catch (e) { dbg('audioContext resume failed', e); }
     }
 
+    // 入力 → Analyser
     const source = ac.createMediaStreamSource(stream);
     sourceRef.current = source;
     const analyser = ac.createAnalyser();
@@ -681,10 +690,32 @@ const startRecording = async () => {
     dataArrayRef.current = new Uint8Array(analyser.frequencyBinCount);
     source.connect(analyser);
 
-    // 継続観測
+    // 🔵 重要：Chrome で“消費先”を用意（最小音量で destination へ）
+    const zero = ac.createGain();
+    zero.gain.value = 0.00001;        // 実質ミュート
+    analyser.connect(zero);
+    zero.connect(ac.destination);
+
+    // 🔵 重要：ミュートの <audio> にも流しておく（タブ最適化対策）
+    try {
+      if (!sinkAudioElRef.current) {
+        const a = new Audio();
+        a.muted = true;
+        a.srcObject = stream;
+        await a.play().catch(()=>{});
+        sinkAudioElRef.current = a;
+      } else {
+        sinkAudioElRef.current.srcObject = stream;
+      }
+    } catch (e) { dbg('sink audio attach failed', e); }
+
+    // 継続観測（デバッグ用ログ）
     attachRecorderDebug({ stream, mr, ac, analyser });
 
-    // === 残り秒管理（既存ロジック） ===
+    // 🔵 重要：UI のレベル更新ループを開始
+    animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
+
+    // 残り秒管理（既存ロジック）
     if (!userSubscription) {
       timerIntervalRef.current = setInterval(() => {
         setUserRemainingSeconds(prev => {
@@ -698,34 +729,30 @@ const startRecording = async () => {
     }
 
     return true;
-} catch (err) {
-  // ここから差し替え
-  console.error("[RECDBG] getUserMedia error:", err?.name, err?.message, err);
+  } catch (err) {
+    console.error("[RECDBG] getUserMedia error:", err?.name, err?.message, err);
 
-  let msg = "";
-  switch (err?.name) {
-    case "NotAllowedError":
-    case "SecurityError":
-      msg = "マイクがブラウザまたはOSによりブロックされています。\n" +
-            "1) macOS: 設定 > プライバシーとセキュリティ > マイク で Google Chrome を ON\n" +
-            "2) Chrome: アドレスバーのサイト設定で マイク=許可 / chrome://settings/content/microphone を確認";
-      break;
-    case "NotFoundError":
-      msg = "利用可能なマイクが見つかりません。macOSのサウンド入力や物理接続を確認してください。";
-      break;
-    case "NotReadableError":
-      msg = "別のアプリがマイクを使用中の可能性があります。Zoom/Meet/Discord などを終了してからお試しください。";
-      break;
-    case "OverconstrainedError":
-      msg = "指定した条件に一致するマイクがありません（deviceId等）。Chromeの設定で既定のマイクを確認してください。";
-      break;
-    default:
-      msg = "マイク取得に失敗しました。Chromeのサイト権限、OSのマイク権限、他アプリの占有を確認してください。";
+    let msg = "";
+    switch (err?.name) {
+      case "NotAllowedError":
+      case "SecurityError":
+        msg = "マイクがブラウザまたはOSによりブロックされています。\n1) macOS: 設定>プライバシーとセキュリティ>マイクで Chrome を ON\n2) Chrome: サイト設定で マイク=許可 / chrome://settings/content/microphone を確認";
+        break;
+      case "NotFoundError":
+        msg = "利用可能なマイクが見つかりません。macOSのサウンド入力や物理接続を確認してください。";
+        break;
+      case "NotReadableError":
+        msg = "別のアプリがマイクを使用中の可能性。Zoom/Meet/Discord を終了してからお試しください。";
+        break;
+      case "OverconstrainedError":
+        msg = "指定条件に一致するマイクがありません（deviceId等）。Chromeの既定マイクを確認してください。";
+        break;
+      default:
+        msg = "マイク取得に失敗しました。Chromeのサイト権限、OSのマイク権限、他アプリの占有を確認してください。";
+    }
+    alert(msg);
+    return false;
   }
-  alert(msg);
-  return false;
-}
-
 };
 
 
