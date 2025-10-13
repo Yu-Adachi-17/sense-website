@@ -72,8 +72,16 @@ app.use(cors({
 }));
 app.options('*', cors());
 
-// Flexible Minutes 用プロンプト（外部ファイル）
+// Flexible Minutes 用（旧）プロンプト
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
+
+// === 新規：フォーマットJSONローダ ===
+const {
+  listFormats,
+  getRegistry,
+  getFormatMeta,
+  loadFormatJSON,
+} = require('./services/formatLoader');
 
 // 念のため（旧ブラウザ向け/明示）
 app.use((req, res, next) => {
@@ -280,7 +288,7 @@ ${template}
 }
 
 /**
- * generateMinutes: Uses ChatGPT API to generate meeting minutes.
+ * generateMinutes: Uses ChatGPT API to generate meeting minutes (classic template text).
  */
 function isValidMinutes(out) {
   if (!out) return false;
@@ -378,7 +386,7 @@ ${transcription}
 };
 
 /* ================================
-   Flexible Minutes(JSON) 生成系
+   Flexible Minutes(JSON) 生成系（旧）
    ================================ */
 
 function isValidFlexibleJSON(str) {
@@ -466,6 +474,39 @@ async function generateFlexibleMinutes(transcription, langHint) {
     console.error('[ERROR] generateFlexibleMinutes:', err.response?.data || err.message);
     throw new Error('Failed to generate flexible minutes');
   }
+}
+
+/* ================================
+   新：フォーマットJSONに基づく生成（formatId/locale）
+   ================================ */
+
+async function generateWithFormatJSON(transcript, fmt) {
+  // fmt = { formatId, locale, schemaId, title, prompt, notes }
+  // 各プロンプトは「JSON形式で出せ」と明示されている想定なので JSON モードで投げる。
+  const data = {
+    model: 'gpt-4o-mini',
+    response_format: { type: "json_object" },
+    temperature: 0,
+    max_tokens: 15000,
+    messages: [
+      { role: 'system', content: fmt.prompt || '' },
+      {
+        role: 'user',
+        content:
+`currentDate: ${new Date().toISOString()}
+
+<TRANSCRIPT>
+${transcript}
+</TRANSCRIPT>`
+      }
+    ]
+  };
+
+  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+    headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
+    timeout: 600000,
+  });
+  return resp.data.choices[0].message.content.trim();
 }
 
 /**
@@ -738,31 +779,78 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   }
 });
 
-// === デバグ用の無音ダミー生成NEW: Generate minutes directly from raw transcript (debug helper) ===
+/*==============================================
+=        フォーマット関連 API（新規追加）       =
+==============================================*/
+
+// 1) レジストリ：一覧
+// GET /api/formats
+app.get('/api/formats', (_req, res) => {
+  const registry = getRegistry();
+  res.json(registry);
+});
+
+// 2) 単一フォーマット・単一言語のJSONを返す
+// GET /api/formats/:formatId/:locale
+app.get('/api/formats/:formatId/:locale', (req, res) => {
+  const { formatId, locale } = req.params;
+  const payload = loadFormatJSON(formatId, locale);
+  if (!payload) return res.status(404).json({ error: 'Format or locale not found' });
+  res.json(payload);
+});
+
+// 3) 生成API（formatId/locale に対応、旧形式とも後方互換）
+/*
+  新形式:
+    body: { transcript, formatId, locale }
+  旧形式:
+    body: { transcript, outputType: 'flexible'|'classic', meetingFormat, lang }
+*/
 app.post('/api/generate-minutes', async (req, res) => {
   try {
-    const { transcript, outputType = 'flexible', meetingFormat, lang } = req.body || {};
+    const {
+      transcript,
+      formatId,
+      locale,
+      // 旧フィールド（後方互換）
+      outputType = 'flexible',
+      meetingFormat,
+      lang
+    } = req.body || {};
+
     if (!transcript || typeof transcript !== 'string' || transcript.trim().length === 0) {
       return res.status(400).json({ error: 'Missing transcript' });
     }
 
     let minutes;
-    if ((outputType || 'flexible').toLowerCase() === 'flexible') {
-      minutes = await generateFlexibleMinutes(transcript, lang || null);
+    let meta = null;
+
+    if (formatId && locale) {
+      // 新：フォーマットJSONを用いた生成
+      const fmt = loadFormatJSON(formatId, locale);
+      if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
+      minutes = await generateWithFormatJSON(transcript, fmt);
+      meta = { formatId, locale, schemaId: fmt.schemaId || null, title: fmt.title || null };
     } else {
-      minutes = await generateMinutes(transcript, meetingFormat || '');
+      // 旧：フロントからテンプレ文字列や flexible 指示が来るパス
+      if ((outputType || 'flexible').toLowerCase() === 'flexible') {
+        minutes = await generateFlexibleMinutes(transcript, lang || null);
+      } else {
+        minutes = await generateMinutes(transcript, meetingFormat || '');
+      }
+      meta = { legacy: true, outputType, lang: lang || null };
     }
 
     return res.json({
       transcription: transcript.trim(),
-      minutes
+      minutes,
+      meta
     });
   } catch (err) {
     console.error('[ERROR] /api/generate-minutes:', err);
     return res.status(500).json({ error: 'Internal error', details: err.message });
   }
 });
-
 
 // Debug GET endpoint
 app.get('/api/transcribe', (req, res) => {
@@ -773,8 +861,13 @@ app.get('/api/transcribe', (req, res) => {
 =               Static Frontend                =
 ==============================================*/
 
-// Serve static files for the frontend
-const staticPath = path.join(__dirname, 'frontend/build');
+// 「frontend/build」 or 「public」を自動選択
+const candidates = [
+  path.join(__dirname, 'frontend', 'build'),
+  path.join(__dirname, 'public'),
+];
+const staticPath = candidates.find(p => fs.existsSync(p)) || path.join(__dirname, 'public');
+
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 

@@ -352,7 +352,7 @@ const processDebugText = async (rawText) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         transcript: rawText,
-        outputType: "flexible", // 既定：Flexible JSON。クラシックにしたければ "classic"
+        formatId: selectedMeetingFormat?.id || "general",
         meetingFormat: selectedMeetingFormat?.template || "",
         lang: i18n.language,
       })

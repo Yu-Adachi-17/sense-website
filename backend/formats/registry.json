@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "defaultLocale": "en",
+  "defaultFormatId": "general",
+  "locales": ["ar","da","de","en","es-ES","es-MX","fr","id","ja","ko","ms","nl","no","pt-BR","pt-PT","sv","tr","zh-CN","zh-TW"],
+  "formats": [
+    { "id": "general",        "titleKey": "formats.general",        "schema": "general-json@1",        "deprecated": false },
+    { "id": "negotiation",    "titleKey": "formats.negotiation",    "schema": "negotiation-json@1",    "deprecated": false },
+    { "id": "presentation",   "titleKey": "formats.presentation",   "schema": "presentation-json@1",   "deprecated": false },
+    { "id": "logical1on1",    "titleKey": "formats.logical1on1",    "schema": "oneonone-json@1",       "deprecated": false },
+    { "id": "brainStorming",  "titleKey": "formats.brainstorming",  "schema": "brainstorming-json@1",  "deprecated": false },
+    { "id": "jobInterview",   "titleKey": "formats.jobInterview",   "schema": "interview-json@1",      "deprecated": false },
+    { "id": "lecture",        "titleKey": "formats.lecture",        "schema": "lecture-json@1",        "deprecated": false },
+    { "id": "flexible",       "titleKey": "formats.flexible",       "schema": "flexible-json@1",       "deprecated": false }
+  ]
+}
