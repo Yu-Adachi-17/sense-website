@@ -40,6 +40,14 @@ const DEBUG_TRANSCRIPTS = {
 (Sales Weekly) Focus today: new pricing & white theme release. Tiers: Trial, Light, Subscription, Enterprise. KPI: MAU 3,000 → 3,500 by month-end. Germany & Netherlands convert best. iOS passed review; Android targets this weekend. Zoom SDK external meeting join still hits error 63; mitigation is stronger docs + internal-meeting demo video. Next.js: fix hreflang on /blog/introduction and add /ja/home into sitemap. Support: prioritize FAQ translations (DE/NL). Next week: lightweight sales deck.`
 };
 
+// API base: 本番は Express(railway等) のURLにする
+const API_BASE =
+  process.env.NEXT_PUBLIC_API_BASE
+  || (process.env.NODE_ENV === 'development'
+      ? 'http://localhost:5001'
+      : 'https://sense-website-production.up.railway.app'); // ←あなたのExpressの実URLに合わせる
+
+
 function getDebugTranscript(lang) {
   if (lang && DEBUG_TRANSCRIPTS[lang]) return DEBUG_TRANSCRIPTS[lang].trim();
   return DEBUG_TRANSCRIPTS.ja.trim(); // 既定は日本語
@@ -339,7 +347,7 @@ const processDebugText = async (rawText) => {
   setProgressStep("transcribing");
   setIsProcessing(true);
   try {
-    const resp = await fetch("/api/generate-minutes", {
+    const resp = await fetch(`${API_BASE}/api/generate-minutes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
