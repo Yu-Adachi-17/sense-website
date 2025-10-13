@@ -69,6 +69,29 @@ async function logEnvAndPerms() {
   } catch (e) { dbg('logEnvAndPerms error', e); }
 }
 
+// --- add near top of the file ---
+function RecordingIssueBanner({ issue, onClose }) {
+  if (!issue) return null;
+  return (
+    <div style={{
+      position: 'fixed', top: 12, left: '50%', transform: 'translateX(-50%)',
+      background: '#fff3cd', color: '#664d03', border: '1px solid #ffecb5',
+      borderRadius: 10, padding: '10px 14px', zIndex: 9999,
+      boxShadow: '0 6px 24px rgba(0,0,0,0.12)', maxWidth: 720
+    }}>
+      <strong style={{marginRight: 8}}>⚠️ Recording problem:</strong>
+      <span>{issue.message}</span>
+      {issue.hint && <span style={{opacity: .9}}> — {issue.hint}</span>}
+      <button onClick={onClose}
+        style={{ marginLeft: 10, border: 'none', background: 'transparent',
+                 textDecoration: 'underline', cursor: 'pointer' }}>
+        Dismiss
+      </button>
+    </div>
+  );
+}
+
+
 // ===== Recorder/Track/AudioContext の挙動を継続観測
 function attachRecorderDebug({ stream, mr, ac, analyser }) {
   try {
@@ -320,6 +343,9 @@ function App() {
   const recordedChunksRef = useRef([]);
   const lastResetDateRef = useRef(new Date().toDateString());
   const sinkAudioElRef = useRef(null);
+  const [recordingIssue, setRecordingIssue] = useState(null);
+const zeroChunkCountRef = useRef(0);
+const silenceSecondsRef = useRef(0);
 
   // タイトルとdir
   useEffect(() => { document.title = pageTitle; }, [pageTitle]);
@@ -642,6 +668,46 @@ const startRecording = async () => {
     const wanted = pickAudioMimeType();
     const options = wanted ? { mimeType: wanted, audioBitsPerSecond: 32000 } : { audioBitsPerSecond: 32000 };
     const mr = new MediaRecorder(stream, options);
+
+    
+zeroChunkCountRef.current = 0;
+
+// 0バイト・チャンク検知とUI通知
+mr.ondataavailable = (ev) => {
+  const size = ev?.data?.size || 0;
+  dbg('mr CHUNK', ev?.data?.type, size);
+  if (size > 0) {
+    window.__recdbg && window.__recdbg.__chunks && window.__recdbg.__chunks.push(ev.data);
+    recordedChunksRef.current.push(ev.data);
+    zeroChunkCountRef.current = 0; // 正常化したらリセット
+  } else {
+    zeroChunkCountRef.current++;
+    if (zeroChunkCountRef.current >= 3) {
+      setRecordingIssue({
+        message: "The recorder is producing empty audio chunks.",
+        hint: "Select a working input in Chrome’s site settings and ensure no other app is taking exclusive control."
+      });
+    }
+  }
+};
+
+// トラックのライフサイクルをUIへ
+const t = stream.getAudioTracks?.()[0];
+if (t) {
+  t.addEventListener('mute',   () => setRecordingIssue({
+    message: "Input was muted by the system.",
+    hint: "Unmute your mic or choose another device."
+  }));
+  t.addEventListener('unmute', () => setRecordingIssue(null));
+  t.addEventListener('ended',  () => setRecordingIssue({
+    message: "The input device was disconnected.",
+    hint: "Reconnect or pick a different microphone."
+  }));
+}
+
+// 念のため、レベル可視化ループを起動
+animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
+
     mediaRecorderRef.current = mr;
     recordedChunksRef.current = [];
 
@@ -750,8 +816,11 @@ const startRecording = async () => {
       default:
         msg = "マイク取得に失敗しました。Chromeのサイト権限、OSのマイク権限、他アプリの占有を確認してください。";
     }
-    alert(msg);
-    return false;
+ setRecordingIssue({
+   message: "Could not access the microphone.",
+   hint: msg.replace(/\n/g, " ")
+ });
+ return false;
   }
 };
 
@@ -778,6 +847,9 @@ const stopRecording = async (finalRemaining = userRemainingSeconds) => {
     mediaRecorderRef.current = null;
 
     setAudioLevel(1);
+    silenceSecondsRef.current = 0;
+zeroChunkCountRef.current = 0;
+setRecordingIssue(null);
 
     if (!userSubscription) {
       if (timerIntervalRef.current) {
@@ -829,6 +901,25 @@ const stopRecording = async (finalRemaining = userRemainingSeconds) => {
 
       const alpha = 0.2;
       setAudioLevel((prev) => alpha * normalizedRms + (1 - alpha) * prev);
+
+        // --- silence watchdog (≈ below -50 dBFS equivalent)
+  const SILENCE_TH = 0.006;      // tuned for byteTimeDomainData
+  const MAX_SILENT_SECS = 5;
+  if (rms < SILENCE_TH) {
+    silenceSecondsRef.current += 1/60; // assuming ≈60fps
+    if (silenceSecondsRef.current > MAX_SILENT_SECS && isRecording) {
+      setRecordingIssue({
+        message: "No input detected for a while.",
+        hint: "Check your mic level, input source, and noise-suppression/AGC settings."
+      });
+    }
+  } else {
+    silenceSecondsRef.current = 0;
+    // clear the issue only if it was a silence warning
+    if (recordingIssue?.message?.startsWith("No input detected")) {
+      setRecordingIssue(null);
+    }
+  }
 
       animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
     }
@@ -895,7 +986,10 @@ const stopRecording = async (finalRemaining = userRemainingSeconds) => {
           }}
         />
       </Head>
-
+    <RecordingIssueBanner
+      issue={recordingIssue}
+      onClose={() => setRecordingIssue(null)}
+    />
       <div
         className="container"
         style={{
