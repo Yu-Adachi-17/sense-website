@@ -9,11 +9,7 @@ import { useTranslation } from "next-i18next";
 const SITE_URL = "https://www.sense-ai.world";
 
 // API base（index.js と同一ロジック）
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE
-  || (process.env.NODE_ENV === 'development'
-      ? 'http://localhost:5001'
-      : 'https://sense-website-production.up.railway.app');
+const API_BASE = '';
 
 export default function MeetingFormatsPage() {
   const router = useRouter();
@@ -38,7 +34,7 @@ export default function MeetingFormatsPage() {
     (async () => {
       try {
         setLoading(true);
-        const res = await fetch(`${API_BASE}/api/formats`);
+        const res = await fetch(`/api/formats`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json(); // { formats: { id: {schemaId, displayName}, ... } }
         if (!abort) setRegistry(json?.formats || {});

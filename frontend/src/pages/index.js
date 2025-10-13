@@ -38,11 +38,7 @@ const DEBUG_TRANSCRIPTS = {
 };
 
 // API base: 本番は Express(railway等) のURLにする
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE
-  || (process.env.NODE_ENV === 'development'
-      ? 'http://localhost:5001'
-      : 'https://sense-website-production.up.railway.app'); // ←本番のExpressに合わせる
+const API_BASE = '';
 
 function getDebugTranscript(lang) {
   if (lang && DEBUG_TRANSCRIPTS[lang]) return DEBUG_TRANSCRIPTS[lang].trim();
@@ -317,7 +313,7 @@ function App() {
         );
 
         // ② 新バックエンドの minutes 生成APIを叩く
-        const gen = await fetch(`${API_BASE}/api/generate-minutes`, {
+        const gen = await fetch(`/api/generate-minutes`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -350,7 +346,7 @@ function App() {
     setProgressStep("transcribing");
     setIsProcessing(true);
     try {
-      const resp = await fetch(`${API_BASE}/api/generate-minutes`, {
+      const resp = await fetch(`/api/generate-minutes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
