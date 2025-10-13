@@ -8,13 +8,11 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
-
 const multer = require('multer');
 const axios = require('axios');
 
 const fs = require('fs');
 const path = require('path');
-
 
 console.log("[DEBUG] ffmpeg path set to 'ffmpeg'");
 console.log("[DEBUG] ffprobe path set to 'ffprobe'");
@@ -22,13 +20,16 @@ console.log("[DEBUG] ffprobe path set to 'ffprobe'");
 const FormData = require('form-data');
 const Stripe = require('stripe');
 
-const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+// ==== Routes (split) ====
+const webhookRouter = require('./routes/webhook');
+const appleRouter = require('./routes/apple');
 const zoomAuthRoute = require('./routes/zoomAuthRoute');
 const zoomJoinTokenRoute = require('./routes/zoomJoinTokenRoute');
-// ※ webhookRouter の登録パスを /api/stripe に変更
-const webhookRouter = require('./routes/webhook');
-const appleRouter = require('./routes/apple'); // Apple route added
+const zoomOAuthExchangeRoute = require('./routes/zoomOAuthExchangeRoute');
+const zoomOAuthCallbackRoute = require('./routes/zoomOAuthCallbackRoute');
+const zoomRecordingRoute = require('./routes/zoomRecordingRoute');
 
+// ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath('ffmpeg');
 ffmpeg.setFfprobePath('ffprobe');
@@ -38,13 +39,13 @@ const app = express();
 // --- Security headers (Helmet) ---
 // Zoom の Surface/埋め込みに備え、X-Frame-Options は無効化し、CSP の frame-ancestors で許可先を制御
 app.use(helmet({
-  frameguard: false, // X-Frame-Options を出さない（CSPの frame-ancestors を優先） :contentReference[oaicite:1]{index=1}
+  frameguard: false, // X-Frame-Options を出さない（CSP の frame-ancestors を優先）
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
       "default-src": ["'self'"],
       // Zoom クライアントからの埋め込みを許可
-      "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],  // CSPで親フレームを制御 :contentReference[oaicite:2]{index=2}
+      "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],
     },
   },
   referrerPolicy: { policy: "strict-origin-when-cross-origin" },
@@ -54,8 +55,8 @@ app.use(helmet({
 const allowedOrigins = [
   'https://sense-ai.world',
   'https://www.sense-ai.world',
-  'https://sense-website-production.up.railway.app', // ← オフライン(静的+API)の Origin
-  'http://localhost:3000' // ← ローカル開発時
+  'https://sense-website-production.up.railway.app', // 静的+API の Origin
+  'http://localhost:3000' // ローカル開発時
 ];
 app.use(cors({
   origin: (origin, cb) => {
@@ -66,81 +67,16 @@ app.use(cors({
   methods: ['GET','POST','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With'],
 }));
-// 追加で全体の OPTIONS を明示的に 204 返し（なくても OK）
 app.options('*', cors());
 
-
-
-// ★ Flexible Minutes 用プロンプト（外部ファイル）
+// Flexible Minutes 用プロンプト（外部ファイル）
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
-
-const qs = require('querystring');
-
-let cachedZoomToken = null;
-let cachedZoomTokenExp = 0; // epoch sec
-
-
-const router = express.Router();
-
-
-router.post('/exchange', async (req, res) => {
-  try {
-    const { code, redirectUri /*, state*/ } = req.body || {};
-    if (!code || !redirectUri) {
-      return res.status(400).json({ error: 'missing code/redirectUri' });
-    }
-
-    // （任意）state 検証：authorize 開始時にセッションへ保存しておき、ここで照合する
-    // if (state !== req.session?.zoom_oauth_state) {
-    //   return res.status(400).json({ error: 'invalid state' });
-    // }
-
-    const cid = process.env.ZOOM_CLIENT_ID;
-    const secret = process.env.ZOOM_CLIENT_SECRET;
-    if (!cid || !secret) {
-      return res.status(500).json({ error: 'missing env ZOOM_CLIENT_ID/ZOOM_CLIENT_SECRET' });
-    }
-    const basic = Buffer.from(`${cid}:${secret}`).toString('base64');
-
-    // Zoom のトークンエンドポイントに Authorization Code を交換（Basic 認証）
-    // 要件：grant_type=authorization_code, redirect_uri は “登録値と完全一致”
-    const resp = await axios.post(
-      'https://zoom.us/oauth/token',
-      new URLSearchParams({
-        grant_type: 'authorization_code',
-        code,
-        redirect_uri: redirectUri
-      }),
-      {
-        headers: {
-          'Authorization': `Basic ${basic}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        timeout: 15000
-      }
-    );
-
-    // 返り値例: { access_token, refresh_token, expires_in, token_type, scope ... }
-    return res.status(200).json({ ok: true, tokens: resp.data });
-  } catch (e) {
-    const msg = e.response?.data || e.message;
-    return res.status(500).json({ error: 'token_exchange_failed', detail: msg });
-  }
-});
-
-module.exports = router;
-
-app.use('/api/zoom/oauth', zoomOAuthExchangeRoute); // ← 追加
-
-
 
 // 念のため（旧ブラウザ向け/明示）
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   next();
 });
-// --- /Security headers ---
-
 
 /*==============================================
 =            Middleware Order                  =
@@ -149,23 +85,20 @@ app.use((req, res, next) => {
 // ① For Stripe Webhook: Use raw body for /api/stripe (applied before JSON parsing)
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
-// ② For Apple Webhook: Use raw body for /api/apple/notifications
-// Apple Webhook: Now parse JSON
+// ② For Apple Webhook: Use raw body for /api/apple/notifications → 直後に JSON 解析
 app.use('/api/apple/notifications', express.json());
 
-// ③ For all other endpoints: Parse JSON body
-// 🔒 JSONボディを確実に解析しつつ、生データを req._rawBody に保存
+// ③ For all other endpoints: Parse JSON body（生データも保持）
 app.use(express.json({
   verify: (req, res, buf) => {
     req._rawBody = buf ? buf.toString('utf8') : '';
   },
-  limit: '2mb', // 安全に上限明示
+  limit: '2mb',
 }));
 
-
-app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
-
-/* Log detailed request information */
+/*==============================================
+=            Request Debug Logging             =
+==============================================*/
 app.use((req, res, next) => {
   const safeHeaders = { ...req.headers };
   if (safeHeaders['x-internal-token']) safeHeaders['x-internal-token'] = '***';
@@ -175,22 +108,32 @@ app.use((req, res, next) => {
   next();
 });
 
-
 /*==============================================
 =            Router Registration               =
 ==============================================*/
 
-// Webhook routes (register under /api/stripe to avoid衝突)
+// Webhook routes (register under /api/stripe)
 app.use('/api/stripe', webhookRouter);
-// Apple Webhook route
+
+// Apple Webhook route (内部で /notifications を持つ想定)
 app.use('/api/apple', appleRouter);
 
-// Zoom Auth route (短命JWT発行：将来 Web Meeting SDK でのJoin用／いまは開発用)
-// - エンドポイント: POST /api/zoom/sdk-jwt
-// - 注意: 本番では認証＆レート制限を付けること（無制限公開はNG）
+// Zoom: SDK JWT 発行など（/api/zoom/sdk-jwt 等）
 app.use('/api', zoomAuthRoute);
+
+// Zoom: join token 関連
 app.use('/api/zoom', zoomJoinTokenRoute);
 
+// Zoom: OAuth トークン交換 (/api/zoom/oauth/exchange 等)
+app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
+
+// Zoom: OAuth コールバック (/zoom/oauth/callback)
+app.use('/', zoomOAuthCallbackRoute);
+
+// Zoom: 録音 Bot 起動 (/api/recordings/zoom/start)
+app.use('/api', zoomRecordingRoute);
+
+// デバッグエコー
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
   res.set('Access-Control-Allow-Credentials', 'true');
@@ -207,7 +150,6 @@ app.post('/api/_debug/echo', (req, res) => {
     parsed: req.body || null,
   });
 });
-
 
 /*==============================================
 =            Other Middleware                  =
@@ -226,8 +168,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
-// Debug endpoint
+// Debug endpoint: ffprobe path
 const { exec } = require('child_process');
 app.get('/api/debug/ffprobe', (req, res) => {
   exec('which ffprobe', (error, stdout, stderr) => {
@@ -241,7 +182,7 @@ app.get('/api/debug/ffprobe', (req, res) => {
   });
 });
 
-// Detailed request debug logging
+// Detailed request debug logging tail
 app.use((req, res, next) => {
   console.log(`[DEBUG] Request received:
   - Method: ${req.method}
@@ -252,7 +193,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// ★ multer configuration: Save files to temp directory
+/*==============================================
+=            Upload / Transcription            =
+==============================================*/
+
+// multer configuration: Save files to temp directory
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const tempDir = path.join(__dirname, 'temp');
@@ -268,7 +213,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 500 * 1024 * 1024 }
+  limits: { fileSize: 500 * 1024 * 1024 } // 500MB
 });
 
 // OpenAI API endpoints
@@ -328,19 +273,17 @@ ${template}
   }
 }
 
-
 /**
  * generateMinutes: Uses ChatGPT API to generate meeting minutes.
  */
-// ===== 強制フォーマット検証 =====
+// 強制フォーマット検証
 function isValidMinutes(out) {
   if (!out) return false;
-  // 必須見出しの存在チェック（必要に応じて増やす）
   const must = ["【Meeting Name】", "【Date】", "【Location】", "【Attendees】", "【Agenda(1)】", "【Agenda(2)】", "【Agenda(3)】"];
   return must.every(k => out.includes(k));
 }
 
-// ===== 失敗時の整形（ワンリトライ用） =====
+// 失敗時の整形（ワンリトライ用）
 async function repairToTemplate(badOutput, template) {
   const systemMessage =
 `You are a minutes formatter. Please strictly convert according to the template below.
@@ -373,7 +316,7 @@ ${badOutput}
   return resp.data.choices[0].message.content.trim();
 }
 
-// ===== 本体：テンプレ厳守で生成 =====
+// 本体：テンプレ厳守で生成
 const generateMinutes = async (transcription, formatTemplate) => {
   const template = (formatTemplate && formatTemplate.trim()) || 
 `【Meeting Name】
@@ -421,7 +364,6 @@ ${transcription}
     });
     let out = response.data.choices[0].message.content.trim();
 
-    // バリデーション→NGならワンリトライ（整形）
     if (!isValidMinutes(out)) {
       out = await repairToTemplate(out, template);
     }
@@ -431,7 +373,6 @@ ${transcription}
     throw new Error('Failed to generate meeting minutes using ChatGPT API');
   }
 };
-
 
 /* ================================
    Flexible Minutes(JSON) 生成系
@@ -527,7 +468,6 @@ async function generateFlexibleMinutes(transcription, langHint) {
   }
 }
 
-
 /**
  * transcribeWithOpenAI: Uses the Whisper API for transcription.
  */
@@ -602,8 +542,8 @@ const splitAudioFile = (filePath, maxFileSize) => {
       
       console.log(`[DEBUG] Starting chunk split: chunkDuration=${chunkDuration} seconds, numChunks=${numChunks}`);
       
-      let chunkPaths = [];
-      let tasks = [];
+      const chunkPaths = [];
+      const tasks = [];
       
       for (let i = 0; i < numChunks; i++) {
         const startTime = i * chunkDuration;
@@ -642,7 +582,7 @@ const splitAudioFile = (filePath, maxFileSize) => {
 };
 
 /**
- * ★ convertToM4A: Converts the input file to m4a (ipod format) if it isn't already.
+ * convertToM4A: Converts the input file to m4a (ipod format) if it isn't already.
  */
 const convertToM4A = async (inputFilePath) => {
   return new Promise((resolve, reject) => {
@@ -651,12 +591,12 @@ const convertToM4A = async (inputFilePath) => {
     ffmpeg(inputFilePath)
       .toFormat('ipod') // ipod format is equivalent to m4a
       .on('end', () => {
-         console.log(`[DEBUG] File conversion completed: ${outputFilePath}`);
-         resolve(outputFilePath);
+        console.log(`[DEBUG] File conversion completed: ${outputFilePath}`);
+        resolve(outputFilePath);
       })
       .on('error', (err) => {
-         console.error('[ERROR] File conversion failed:', err);
-         reject(err);
+        console.error('[ERROR] File conversion failed:', err);
+        reject(err);
       })
       .save(outputFilePath);
   });
@@ -673,248 +613,9 @@ app.get('/api/hello', (req, res) => {
   res.json({ message: "Hello from backend!" });
 });
 
-/* =========================================================================
- * NEW: Zoom 録音Bot起動 API（Joinトークン取得→minutesai-raw に docker exec）
- *      POST /api/recordings/zoom/start
- *      body: { meeting_link: "https://zoom.us/j/xxxx?pwd=....", bypass_waiting_room?: true }
- *      env : ZOOM_OAUTH_TOKEN, SDK_KEY, SDK_SECRET, BOT_CONTAINER_NAME(optional)
- * ========================================================================= */
-// ---- SAFE: spawn + stdin 版 ----
-
-async function getZoomAccessToken() {
-  const now = Math.floor(Date.now()/1000);
-  if (cachedZoomToken && now < cachedZoomTokenExp - 60) {
-    return cachedZoomToken;
-  }
-  const accountId = process.env.ZOOM_ACCOUNT_ID;
-  const clientId  = process.env.ZOOM_S2S_CLIENT_ID;
-  const clientSecret = process.env.ZOOM_S2S_CLIENT_SECRET;
-  if (!accountId || !clientId || !clientSecret) {
-    throw new Error('Zoom S2S credentials are not set (ZOOM_ACCOUNT_ID/ZOOM_CLIENT_ID/ZOOM_CLIENT_SECRET)');
-  }
-  const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
-  const resp = await axios.post(
-    'https://zoom.us/oauth/token',
-    qs.stringify({ grant_type: 'account_credentials', account_id: accountId }),
-    { headers: { 'Authorization': `Basic ${basic}`, 'Content-Type': 'application/x-www-form-urlencoded' }, timeout: 15000 }
-  );
-  // resp.data: { access_token, token_type, expires_in, ... }
-  cachedZoomToken = resp.data.access_token;
-  cachedZoomTokenExp = now + (resp.data.expires_in || 3600);
-  return cachedZoomToken;
-}
-
-app.post('/api/recordings/zoom/start', async (req, res) => {
-  try {
-    const { meeting_link, bypass_waiting_room = true } = req.body || {};
-    if (!meeting_link) return res.status(400).json({ error: 'meeting_link is required' });
-
-    const m = /\/j\/(\d+)/.exec(meeting_link);
-    if (!m) return res.status(400).json({ error: 'invalid Zoom meeting_link (missing /j/{id})' });
-    const meetingId = m[1];
-
-    const accessToken = await getZoomAccessToken();
-
-    // 1) Zoom Join Token
-    const apiUrl = `https://api.zoom.us/v2/meetings/${meetingId}/jointoken/local_recording${bypass_waiting_room ? '?bypass_waiting_room=true' : ''}`;
-    const z = await axios.get(apiUrl, { headers: { Authorization: `Bearer ${accessToken}` } });
-    const joinToken = z.data && z.data.token;
-    if (!joinToken) return res.status(502).json({ error: 'Failed to fetch join token', details: z.data });
-
-    // 2) minutesai-raw で Bot を起動（spawn + stdin）
-    const SDK_KEY  = process.env.ZOOM_SDK_KEY;
-    const SDK_SECRET = process.env.ZOOM_SDK_SECRET;
-    if (!SDK_KEY || !SDK_SECRET) return res.status(500).json({ error: 'SDK_KEY/SDK_SECRET are not set' });
-
-    const container = process.env.BOT_CONTAINER_NAME || 'minutesai-raw';
-    const outWav    = process.env.BOT_OUT_WAV  || '/tmp/mixed.wav';
-    const runSecs   = process.env.BOT_RUN_SECS || '180';
-    const botName   = process.env.BOT_NAME     || 'MinutesAI Bot';
-
-    // --- スクリプト本文（${} は使わない） ---
-    const script = [
-      'set -Ee -o pipefail',
-      'SDK_KEY="$SDK_KEY"; SDK_SECRET="$SDK_SECRET"',
-      'MEETING_NUMBER="$MEETING_NUMBER"; MEETING_PSW="$MEETING_PSW"',
-      'JOIN_TOKEN="$JOIN_TOKEN"; BOT_NAME="$BOT_NAME"',
-      'OUT_WAV="$OUT_WAV"; RUN_SECS="$RUN_SECS"',
-      'if [ -z "$BOT_NAME" ]; then BOT_NAME="MinutesAI Bot"; fi',
-      'if [ -z "$OUT_WAV" ]; then OUT_WAV="/tmp/mixed.wav"; fi',
-      'if [ -z "$RUN_SECS" ]; then RUN_SECS="180"; fi',
-      'if [ -z "$MEETING_PSW" ]; then MEETING_PSW=""; fi',
-      '',
-      'export DEBIAN_FRONTEND=noninteractive',
-      'apt-get update -y',
-      'apt-get install -y --no-install-recommends pulseaudio g++ pkg-config libglib2.0-dev python3',
-      'pulseaudio --check || pulseaudio -D --exit-idle-time=-1 || true',
-      '',
-      "cat >/tmp/zoom_join_audio.cpp <<'CPP'",
-      '#include <glib.h>',
-      '#include <unistd.h>',
-      '#include <cstdio>',
-      '#include <cstdint>',
-      '#include <cstdlib>',
-      '#include <string>',
-      '#include "zoom_sdk.h"',
-      '#include "auth_service_interface.h"',
-      '#include "meeting_service_interface.h"',
-      '#include "meeting_service_components/meeting_audio_interface.h"',
-      '#include "meeting_service_components/meeting_recording_interface.h"',
-      '#include "rawdata/rawdata_audio_helper_interface.h"',
-      '#include "rawdata/zoom_rawdata_api.h"',
-      '#include "zoom_sdk_raw_data_def.h"',
-      'using namespace ZOOM_SDK_NAMESPACE;',
-      '',
-      'static FILE* g_fp=nullptr; static uint64_t g_bytes=0; static int g_rate=0, g_ch=0;',
-      'static bool g_sub_ok=false; static bool g_sub_retry_scheduled=false;',
-      'static IMeetingService* g_ms=nullptr;',
-      '',
-      'static void wav_start(const char* path, int rate, int ch){',
-      '  g_fp=fopen(path,"wb");',
-      '  uint8_t h[44]={\'R\',\'I\',\'F\',\'F\',0,0,0,0,\'W\',\'A\',\'V\',\'E\',\'f\',\'m\',\'t\',\' \',16,0,0,0,1,0,(uint8_t)ch,0,(uint8_t)(rate&0xFF),(uint8_t)((rate>>8)&0xFF),(uint8_t)((rate>>16)&0xFF),(uint8_t)((rate>>24)&0xFF),0,0,0,0,(uint8_t)(ch*2),0,16,0,\'d\',\'a\',\'t\',\'a\',0,0,0,0};',
-      '  uint32_t br=rate*ch*2; h[28]=br&0xFF; h[29]=(br>>8)&0xFF; h[30]=(br>>16)&0xFF; h[31]=(br>>24)&0xFF;',
-      '  fwrite(h,1,44,g_fp); g_rate=rate; g_ch=ch;',
-      '}',
-      'static void wav_append(const void* b, unsigned len){ if(g_fp){ fwrite(b,1,len,g_fp); g_bytes+=len; } }',
-      'static void wav_close(){ if(!g_fp) return; fseek(g_fp,4,SEEK_SET); uint32_t riff=(uint32_t)(36+g_bytes); fwrite(&riff,4,1,g_fp); fseek(g_fp,40,SEEK_SET); uint32_t dsz=(uint32_t)g_bytes; fwrite(&dsz,4,1,g_fp); fclose(g_fp); g_fp=nullptr; }',
-      '',
-      'struct AudioDelegate: public IZoomSDKAudioRawDataDelegate{',
-      '  void onMixedAudioRawDataReceived(AudioRawData* d) override{',
-      '    static bool init=false;',
-      '    if(!init){ const char* p=getenv("OUT_WAV"); wav_start(p?p:"/tmp/mixed.wav",(int)d->GetSampleRate(),(int)d->GetChannelNum()); g_printerr("AUDIO_MIXED: start rate=%d ch=%d\\n",(int)d->GetSampleRate(),(int)d->GetChannelNum()); init=true; }',
-      '    wav_append(d->GetBuffer(), d->GetBufferLen());',
-      '    if(g_rate>0){ double sec=(double)g_bytes/(g_rate*g_ch*2); if(((uint64_t)sec)%3==0 && d->GetBufferLen()>0) g_printerr("AUDIO_MIXED: bytes=%llu (~%.1fs)\\n",(unsigned long long)g_bytes,sec); }',
-      '  }',
-      '  void onOneWayAudioRawDataReceived(AudioRawData*, uint32_t) override{}',
-      '  void onShareAudioRawDataReceived(AudioRawData*, uint32_t) override{}',
-      '  void onOneWayInterpreterAudioRawDataReceived(AudioRawData*, const zchar_t*) override{}',
-      '} g_audio;',
-      '',
-      'static gboolean try_subscribe(gpointer){',
-      '  if(g_sub_ok) return FALSE;',
-      '  if(auto ah=GetAudioRawdataHelper()){ int r=ah->subscribe(&g_audio,true); g_printerr("AUDIO_SUB:%d\\n",r); if(r==0){ g_sub_ok=true; g_printerr("AUDIO_SUB_OK\\n"); return FALSE; } }',
-      '  else{ g_printerr("AUDIO_SUB:helper=null\\n"); }',
-      '  return TRUE;',
-      '}',
-      '',
-      'struct RecEvents: public IMeetingRecordingCtrlEvent{',
-      '  void onRecordingStatus(RecordingStatus s) override{ g_printerr("REC_STATUS:%d\\n",(int)s); }',
-      '  void onCloudRecordingStatus(RecordingStatus s) override{ g_printerr("REC_STATUS_CLOUD:%d\\n",(int)s); }',
-      '  void onRecordPrivilegeChanged(bool b) override{',
-      '    g_printerr("REC_PRIV:%d\\n",(int)b);',
-      '    if(b && g_ms){ if(auto rc=g_ms->GetMeetingRecordingController()){ auto er=rc->StartRawRecording(); g_printerr("RAWREC:START_AFTER_PRIV:%d\\n",(int)er); } if(!g_sub_retry_scheduled){ g_sub_retry_scheduled=true; g_timeout_add(500, try_subscribe, nullptr); } }',
-      '  }',
-      '} g_rec;',
-      '',
-      'struct MEvent: public IMeetingServiceEvent{',
-      '  void onMeetingStatusChanged(MeetingStatus s, int e) override{',
-      '    g_printerr("STATUS:%d ERR:%d\\n",(int)s,e);',
-      '    if(s==MEETING_STATUS_INMEETING){',
-      '      if(auto ac=g_ms->GetMeetingAudioController()){ ac->EnablePlayMeetingAudio(true); ac->JoinVoip(); }',
-      '      if(auto rc=g_ms->GetMeetingRecordingController()){ rc->SetEvent(&g_rec); if(rc->CanStartRawRecording()==SDKERR_SUCCESS){ auto er=rc->StartRawRecording(); g_printerr("RAWREC:START:%d\\n",(int)er); } else if(rc->IsSupportRequestLocalRecordingPrivilege()==SDKERR_SUCCESS){ auto er=rc->RequestLocalRecordingPrivilege(); g_printerr("RAWREC:REQ_PRIV:%d\\n",(int)er); } }',
-      '      if(!g_sub_retry_scheduled){ g_sub_retry_scheduled=true; g_timeout_add(500, try_subscribe, nullptr); }',
-      '    }',
-      '    if(s==MEETING_STATUS_ENDED||s==MEETING_STATUS_FAILED){ if(auto ah=GetAudioRawdataHelper()){ ah->unSubscribe(); } wav_close(); _exit(0); }',
-      '  }',
-      '} g_mevt;',
-      '',
-      'struct AudioEvents: public IMeetingAudioCtrlEvent{',
-      '  void onUserAudioStatusChange(IList<IUserAudioStatus*>*, const zchar_t*) override{ g_printerr("AUDIO_STATUS_CHANGED\\n"); }',
-      '} g_ae;',
-      '',
-      'struct AuthEv: public IAuthServiceEvent{',
-      '  GMainLoop* loop=nullptr; int rc=-1;',
-      '  void onAuthenticationReturn(AuthResult r) override{ rc=(int)r; if(loop) g_main_loop_quit(loop); }',
-      '} g_auth;',
-      '',
-      'int main(){',
-      '  const char* jwt=getenv("SDK_JWT"); if(!jwt||!*jwt){ g_printerr("NO_JWT\\n"); return 2; }',
-      '  InitParam p; p.strWebDomain="https://zoom.us"; p.strSupportUrl="https://zoom.us";',
-      '  if(InitSDK(p)!=SDKERR_SUCCESS){ g_printerr("INIT_FAIL\\n"); return 3; }',
-      '  IAuthService* as=nullptr; if(CreateAuthService(&as)!=SDKERR_SUCCESS||!as){ g_printerr("CREATE_AUTH_FAIL\\n"); return 4; }',
-      '  as->SetEvent(&g_auth); g_auth.loop=g_main_loop_new(nullptr,false);',
-      '  AuthContext c; c.jwt_token=jwt; as->SDKAuth(c); g_main_loop_run(g_auth.loop);',
-      '  if(g_auth.rc!=AUTHRET_SUCCESS){ g_printerr("AUTH_FAIL:%d\\n",g_auth.rc); return 7; }',
-      '  if(CreateMeetingService(&g_ms)!=SDKERR_SUCCESS||!g_ms){ g_printerr("CREATE_MS_FAIL\\n"); return 5; }',
-      '  g_ms->SetEvent(&g_mevt); if(auto ac=g_ms->GetMeetingAudioController()) ac->SetEvent(&g_ae);',
-      '  JoinParam jp; jp.userType=SDK_UT_WITHOUT_LOGIN; JoinParam4WithoutLogin j4={0};',
-      '  const char* mnum=getenv("MEETING_NUMBER"); j4.meetingNumber=(UINT64)strtoull(mnum?mnum:"0",nullptr,10);',
-      '  std::string uname=getenv("BOT_NAME")?getenv("BOT_NAME"):"bot"; j4.userName=uname.c_str();',
-      '  std::string psw=getenv("MEETING_PSW")?getenv("MEETING_PSW"):""; if(!psw.empty()) j4.psw=psw.c_str();',
-      '  std::string jtok=getenv("JOIN_TOKEN")?getenv("JOIN_TOKEN"):""; if(!jtok.empty()) j4.join_token=jtok.c_str();',
-      '  j4.isVideoOff=true; j4.isAudioOff=false; j4.isMyVoiceInMix=false; j4.eAudioRawdataSamplingRate=AudioRawdataSamplingRate_32K;',
-      '  jp.param.withoutloginuserJoin=j4;',
-      '  SDKError je=g_ms->Join(jp); g_printerr("JOIN_RC:%d\\n",(int)je);',
-      '  GMainLoop* loop=g_main_loop_new(nullptr,false);',
-      '  int runsecs=300; const char* rs=getenv("RUN_SECS"); if(rs) runsecs=atoi(rs);',
-      '  if(runsecs>0) g_timeout_add_seconds(runsecs,[](gpointer)->gboolean{ if(auto ah=GetAudioRawdataHelper()){ ah->unSubscribe(); } wav_close(); _exit(0); },nullptr);',
-      '  g_main_loop_run(loop); return 0;',
-      '}',
-      'CPP',
-      '',
-      'g++ -std=c++17 -fPIC -fno-PIE /tmp/zoom_join_audio.cpp -o /tmp/zoom-join \\',
-      '  -I/opt/zoom-sdk/h $(pkg-config --cflags --libs glib-2.0) /opt/zoom-sdk/libmeetingsdk.so -Wl,-rpath,/opt/zoom-sdk -Wl,-no-pie',
-      '',
-      '# SDK_JWT を生成（未指定なら）',
-      'if [ -z "$SDK_JWT" ]; then',
-      "  SDK_JWT=$(python3 - <<'PY'",
-      'import base64,hmac,hashlib,json,time,os',
-      'b=lambda x: base64.urlsafe_b64encode(x).rstrip(b"=")',
-      'h=b(b\'{"alg":"HS256","typ":"JWT"}\');now=int(time.time());exp=now+3600',
-      'p=b(json.dumps({"appKey":os.environ.get("SDK_KEY",""),"iat":now,"exp":exp,"tokenExp":exp},separators=(",",":")).encode())',
-      's=b(hmac.new(os.environ.get("SDK_SECRET","").encode(),h+b"."+p,hashlib.sha256).digest())',
-      'print((h+b"."+p+b"."+s).decode())',
-      'PY',
-      '  )',
-      'fi',
-      '',
-      'export SDK_JWT MEETING_NUMBER MEETING_PSW BOT_NAME JOIN_TOKEN OUT_WAV RUN_SECS',
-      '/tmp/zoom-join 2>&1 | tee /tmp/zoom-join.log || true',
-      'tail -n 150 /tmp/zoom-join.log',
-      '[ -f "$OUT_WAV" ] && ls -lh "$OUT_WAV" && head -c 64 "$OUT_WAV" | hexdump -C || true'
-    ].join('\n');
-
-    // docker exec 引数。テンプレ文字列を使わない
-    const { spawn } = require('child_process'); // 既に宣言済みなら削除OK
-    const args = [
-      'exec', '-i',
-      '--env', `SDK_KEY=${SDK_KEY}`,
-      '--env', `SDK_SECRET=${SDK_SECRET}`,
-      '--env', `MEETING_NUMBER=${meetingId}`,
-      '--env', `JOIN_TOKEN=${joinToken}`,
-      '--env', `BOT_NAME=${botName}`,
-      '--env', `OUT_WAV=${outWav}`,
-      '--env', `RUN_SECS=${runSecs}`,
-      container,
-      'bash', '-lc', 'bash -s'
-    ];
-
-    const child = spawn('docker', args, { stdio: ['pipe', 'pipe', 'pipe'] });
-    // スクリプトを stdin へ流し込む
-    child.stdin.end(script);
-
-    let out = '', err = '';
-    child.stdout.on('data', (d) => { out += d.toString(); });
-    child.stderr.on('data', (d) => { err += d.toString(); });
-
-    child.on('close', (code) => {
-      if (code !== 0) {
-        console.error('[ZOOM] bot exit code:', code, err);
-        return res.status(500).json({ error: 'Bot exited with error', code, stderr: err, tail: out.slice(-4000) });
-      }
-      return res.json({
-        bot_session_id: `${Date.now()}`,
-        meeting_id: meetingId,
-        out: out.slice(-4000)
-      });
-    });
-
-  } catch (err) {
-    console.error('[ERROR] /api/recordings/zoom/start:', err.response?.data || err.message);
-    return res.status(500).json({ error: 'Internal error', details: err.response?.data || err.message });
-  }
-});
-// ---- /SAFE ----
+/*==============================================
+=                  /api/transcribe             =
+==============================================*/
 
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe endpoint called');
@@ -941,7 +642,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 
     let transcription = '';
     let minutes = '';
-    let cleanupExtra = []; // 変換で作った一時ファイルの削除用
+    const cleanupExtra = []; // 変換で作った一時ファイルの削除用
 
     // ① Whisper への送信方針：
     //    まずはオリジナルのまま送る。失敗した場合のみ m4a へ変換して再送。
@@ -958,7 +659,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     } else {
       console.log('[DEBUG] > threshold: split by duration/size and transcribe chunks');
 
-      // 分割は拡張子に依存せず ffmpeg で行う（既存の splitAudioFile を使用）
+      // 分割は拡張子に依存せず ffmpeg で行う
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
       console.log(`[DEBUG] Number of generated chunks: ${chunkPaths.length}`);
 
@@ -1038,17 +739,16 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   }
 });
 
-
-// Debug GET/POST endpoints
+// Debug GET endpoint
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
 });
-app.post('/api/transcribe', (req, res) => {
-  res.status(200).json({ message: 'POST /api/transcribe is working!' });
-});
 
+/*==============================================
+=                  Stripe APIs                 =
+==============================================*/
 
-// Stripe Checkout Session creation endpoint
+// Checkout Session creation
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const { productId, userId } = req.body;
@@ -1068,13 +768,12 @@ app.post('/api/create-checkout-session', async (req, res) => {
       return res.status(400).json({ error: "Invalid productId" });
     }
 
-    // サブスクリプションか一回払いかでモードを決定
     const mode = (productId === process.env.STRIPE_PRODUCT_UNLIMITED ||
                   productId === process.env.REACT_APP_STRIPE_PRODUCT_YEARLY_UNLIMITED)
                   ? 'subscription'
                   : 'payment';
 
-    // payment モードの場合は、あらかじめ顧客を作成しておく
+    // payment モードの場合は顧客作成
     let customer;
     if (mode === 'payment') {
       customer = await stripe.customers.create({
@@ -1082,7 +781,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
       });
     }
 
-    // Checkout Session のパラメータ作成
     const sessionParams = {
       payment_method_types: ['card'],
       mode: mode,
@@ -1096,7 +794,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
       cancel_url: 'https://sense-ai.world/cancel',
     };
 
-    // 顧客情報があればセッションに渡す
     if (customer) {
       sessionParams.customer = customer.id;
     }
@@ -1110,7 +807,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
-// Stripe サブスクリプションID取得用エンドポイント
+// サブスクリプションID取得
 app.post('/api/get-subscription-id', async (req, res) => {
   console.log("✅ hit /api/get-subscription-id");
   const { userId } = req.body;
@@ -1145,7 +842,7 @@ app.post('/api/get-subscription-id', async (req, res) => {
   }
 });
 
-// Stripe サブスクリプション解約用エンドポイント
+// サブスクリプション解約
 app.post('/api/cancel-subscription', async (req, res) => {
   const { subscriptionId } = req.body;
 
@@ -1169,52 +866,9 @@ app.post('/api/cancel-subscription', async (req, res) => {
   }
 });
 
-// --- Zoom OAuth callback: return HTTP 200 "Connected" (NO app-login here) ---
-app.get('/zoom/oauth/callback', async (req, res) => {
-  const { code, state } = req.query || {};
-  if (!code) return res.status(400).send('Missing code');
-
-  try {
-    const cid = process.env.ZOOM_CLIENT_ID;
-    const secret = process.env.ZOOM_CLIENT_SECRET;
-    if (!cid || !secret) return res.status(500).send('Missing Zoom client credentials');
-
-    // Zoomコンソールの「Redirect URL for OAuth（Production）」と 完全一致 させる
-    // 例：Homeが www 側なら www に寄せる（wwwを使わない運用なら下行を非wwwに変えてください）
-    const redirectUri = 'https://sense-ai.world/zoom/oauth/callback';
-
-    const basic = Buffer.from(`${cid}:${secret}`).toString('base64');
-    const tokenResp = await axios.post(
-      'https://zoom.us/oauth/token',
-      new URLSearchParams({
-        grant_type: 'authorization_code',
-        code,
-        redirect_uri: redirectUri
-      }),
-      {
-        headers: {
-          Authorization: `Basic ${basic}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        timeout: 15000
-      }
-    );
-
-    // （審査用はここで十分：成功を“その場で”見せる。保存/ログイン誘導はしない）
-    res.status(200).send(`<!doctype html><meta charset="utf-8">
-<title>Connected to Zoom</title>
-<body style="font-family: system-ui; margin: 40px;">
-  <h1>Connected to Zoom ✓</h1>
-  <p>Authorization completed successfully.</p>
-  <p><a href="/zoom/app">Continue</a></p>
-</body>`);
-  } catch (e) {
-    console.error('[ZOOM] token exchange failed:', e.response?.data || e.message);
-    res.status(500).send('Zoom authorization failed. Please try again.');
-  }
-});
-
-
+/*==============================================
+=               Static Frontend                =
+==============================================*/
 
 // Serve static files for the frontend
 const staticPath = path.join(__dirname, 'frontend/build');
@@ -1235,7 +889,9 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
 
-// Global error handler
+/*==============================================
+=              Global Error Handler            =
+==============================================*/
 app.use((err, req, res, next) => {
   console.error('[GLOBAL ERROR HANDLER]', err);
   const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
@@ -1245,7 +901,9 @@ app.use((err, req, res, next) => {
   res.json({ error: err.message || 'Internal Server Error' });
 });
 
-// Start the server
+/*==============================================
+=                 Start Server                 =
+==============================================*/
 const PORT = process.env.PORT || 5001;
 console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
 app.listen(PORT, () => {
