@@ -111,6 +111,10 @@ function App() {
   const [recordingIssue, setRecordingIssue] = useState(null);
   const zeroChunkCountRef = useRef(0);
   const silenceSecondsRef = useRef(0);
+  // MinutesListと同じカード影
+const cardShadow =
+  "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
+
 
   // ======== Textモード判定（デバッグ時はマイク不要で即テキスト処理）========
   const shouldUseTextMode = () => {
@@ -795,32 +799,6 @@ function App() {
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
           {!showFullScreen && <PurchaseMenu />}
 
-          {/* 左上：フォーマット選択への明示導線 */}
-          <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 15 }}>
-            <Link href="/meeting-formats" legacyBehavior>
-              <a
-                aria-label="Choose Meeting Format"
-                style={{
-                    display:'inline-flex',
-                    alignItems:'center',
-                    gap:8,
-                    padding:'8px 12px',
-                    borderRadius:12,
-                    border:'1px solid rgba(0,0,0,0.1)',
-                    background:'#fff',
-                    textDecoration:'none',
-                    color:'#111',
-                    fontSize:12,
-                    fontWeight:600
-                }}
-              >
-                {selectedMeetingFormat?.displayName || 'General'}
-                <span style={{ opacity: 0.6, fontWeight: 400 }}>
-                  ({selectedMeetingFormat?.schemaId || 'general-json@1'})
-                </span>
-              </a>
-            </Link>
-          </div>
 
           {/* 中央の録音 UI */}
           <div
@@ -896,6 +874,41 @@ function App() {
           )}
           {isProcessing && <ProgressIndicator progressStep={progressStep} />}
         </div>
+
+        {/* 中央：フォーマット名ピル（球体と時間の“あいだ”） */}
+<div
+  style={{
+    position: 'absolute',
+    left: '50%',
+    top: 'calc(50% - 330px)', // 球体420pxの真下+少し余白
+    transform: 'translateX(-50%)',
+    zIndex: 12
+  }}
+>
+  <Link href="/meeting-formats" legacyBehavior>
+    <a
+      aria-label="Choose Meeting Format"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 8,
+        padding: '10px 14px',
+        borderRadius: 12,
+        background: '#fff',
+        color: '#111',
+        textDecoration: 'none',
+        fontSize: 14,
+        fontWeight: 700,
+        border: '1px solid rgba(0,0,0,0.04)',
+        boxShadow: cardShadow    // ← MinutesListと同じ立体感
+      }}
+    >
+      {selectedMeetingFormat?.displayName || 'General'}
+      {/* JSON表示は出さない */}
+    </a>
+  </Link>
+</div>
+
 
         {/* 残時間表示 */}
         {isUserDataLoaded && (
