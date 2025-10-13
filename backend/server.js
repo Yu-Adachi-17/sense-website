@@ -865,6 +865,27 @@ app.post('/api/generate-minutes', async (req, res) => {
       meta = { legacy: true, outputType, lang: lang || null };
     }
 
+       // ===== ここからログ出力（Railway に出る）========================
+   // スイッチ条件：環境変数 or 一時的ヘッダ/クエリ
+   const shouldLog =
+     process.env.LOG_GENERATED_MINUTES === '1' ||
+     req.headers['x-debug-log'] === '1' ||
+     req.query.debug === '1';
+   if (shouldLog) {
+     // 1) 生成本文そのまま（フェンス入りや長文でも欠落しない）
+     logLong('[GENERATED_MINUTES raw]', minutes);
+     // 2) JSONとして解釈できるなら見やすく整形してもう一回
+     try {
+       const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
+       logLong('[GENERATED_MINUTES pretty]', pretty);
+     } catch { /* JSONでなければ無視 */ }
+     // 3) 参照のため入力トランスクリプトも必要なら
+     if (process.env.LOG_TRANSCRIPT === '1') {
+       logLong('[TRANSCRIPT]', transcript);
+     }
+   }
+   // ===
+
     return res.json({
       transcription: transcript.trim(),
       minutes,
