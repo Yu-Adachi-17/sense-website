@@ -277,7 +277,7 @@ ${template}
 </MINUTES_TEMPLATE>`;
 
   const data = {
-    model: "gpt-5-mini", // ★ 新モデル名
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
     max_tokens: 16000,
     messages: [
@@ -318,7 +318,7 @@ ${template.trim()}
 </MINUTES_TEMPLATE>`;
 
   const data = {
-    model: "gpt-5-mini", // ★ 新モデル名
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
     max_tokens: 16000,
     messages: [
@@ -370,7 +370,7 @@ ${transcription}
 </TRANSCRIPT>`;
 
   const data = {
-    model: "gpt-5-mini", // ★ 新モデル名
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
     max_tokens: 16000,
     messages: [
@@ -413,7 +413,7 @@ function isValidFlexibleJSON(str) {
 
 async function repairFlexibleJSON(badOutput, langHint) {
   const data = {
-    model: "gpt-5-mini", // ★ 新モデル名
+    model: "gpt-4.1-mini", // ★ 新モデル名
     response_format: { type: "json_object" },
     temperature: 0,
     max_tokens: 16000,
@@ -461,7 +461,7 @@ async function generateFlexibleMinutes(transcription, langHint) {
   });
 
   const data = {
-    model: "gpt-5-mini", // ★ 新モデル名
+    model: "gpt-4.1-mini", // ★ 新モデル名
     response_format: { type: "json_object" },
     temperature: 0,
     max_tokens: 16000,
@@ -495,7 +495,7 @@ async function generateWithFormatJSON(transcript, fmt) {
   // fmt = { formatId, locale, schemaId, title, prompt, notes }
   // 各プロンプトは「JSON形式で出せ」と明示されている想定なので JSON モードで投げる。
   const data = {
-    model: "gpt-5-mini", // ★ 新モデル名
+    model: "gpt-4.1-mini", // ★ 新モデル名
     response_format: { type: "json_object" },
     temperature: 0,
     max_tokens: 16000,
