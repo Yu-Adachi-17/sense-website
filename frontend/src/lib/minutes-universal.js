@@ -137,6 +137,40 @@ function mapLegacy(o) {
     if (label) doc.blocks.push({ type: "heading", level: 3, text: label });
     doc.blocks.push({ type: "paragraph", text });
   };
+  // 値の型に応じて自動描画
+  const pushAuto = (val, label, ordered = false) => {
+    if (val == null) return;
+    if (typeof val === "string") {
+      if (val.trim()) pushParagraph(val, label);
+    } else if (Array.isArray(val)) {
+      if (val.length) {
+        if (val.every(x => typeof x === "string")) {
+          pushList(val, label, ordered);
+        } else {
+          // 文字列以外が混在する場合は JSON 表示で救済
+          doc.blocks.push({ type: "heading", level: 3, text: label });
+          doc.blocks.push({ type: "paragraph", text: JSON.stringify(val, null, 2) });
+        }
+      }
+    } else if (typeof val === "object") {
+      // オブジェクトは KeyValue or Table で救済
+      const entries = Object.entries(val);
+      if (entries.length) {
+        const onlyPrimitives = entries.every(([_, v]) =>
+          v == null || typeof v === "string" || typeof v === "number" || typeof v === "boolean"
+        );
+        doc.blocks.push({ type: "heading", level: 3, text: label });
+        if (onlyPrimitives) {
+          const pairs = entries
+            .filter(([k]) => !DROP_META_KEYS.has(k))
+            .map(([k, v]) => [labelize(k), String(v ?? "")]);
+          if (pairs.length) doc.blocks.push({ type: "keyValue", pairs });
+        } else {
+          doc.blocks.push({ type: "paragraph", text: JSON.stringify(val, null, 2) });
+        }
+      }
+    }
+  };
 
   topics.forEach((tp, i) => {
     const head = `${i + 1}. ${tp.topic ?? "Topic"}`;
@@ -174,27 +208,110 @@ function mapLegacy(o) {
     pushList(tp.presentationExpectedResult, "Expected Result");
     pushList(tp.presentationDecisionsAndTasks, "Decisions & Tasks", true);
 
-    // --- その他よくあるキーも拾う（あるときだけ）---
+    // ========== ここから拡張マッピング ==========
+    // 1) formatted_* 系
+    pushAuto(tp.formatted_discussion, "Discussion");
+    pushAuto(tp.formatted_decisions, "Decisions", true);
+    pushAuto(tp.formatted_todolist, "Action Items", true);
+    pushAuto(tp.formatted_concerns, "Concerns");
+    pushAuto(tp.formatted_summary, "Summary");
+
+    // 2) negotiation_* 系（トピック直下でも拾う）
+    pushAuto(tp.negotiation_proposal, "Proposal");
+    pushAuto(tp.negotiation_background, "Background");
+    pushAuto(tp.negotiation_discussionPoints, "Discussion Points");
+    pushAuto(tp.negotiation_decisions, "Decisions", true);
+
+    // 3) brainstorming_* 系（snake / camel の両対応）
+    pushAuto(tp.brainstorming_problemToSolve ?? tp.brainstormingProblemToSolve, "Problem to solve");
+    pushAuto(tp.brainstorming_topIdea ?? tp.brainstormingTopIdea, "Top Idea");
+    pushAuto(tp.brainstorming_summary ?? tp.brainstormingSummary, "Summary");
+    pushAuto(tp.brainstorming_meritAndEffects ?? tp.brainstormingMeritAndEffects, "Merits and Effects");
+    pushAuto(tp.brainstorming_drawbacksAndRisks ?? tp.brainstormingDrawbacksAndRisks, "Drawbacks and Risks");
+    pushAuto(tp.brainstorming_decisionsAndTasks ?? tp.brainstormingDecisionsAndTasks, "Decisions and Tasks", true);
+    pushAuto(tp.brainstorming_RunnerUpIdea ?? tp.brainstormingRunnerUpIdea, "Runner-up Idea");
+    pushAuto(tp.brainstorming_allIdeas ?? tp.brainstormingAllIdeas, "All Ideas");
+    pushAuto(tp.brainstorming_title ?? tp.brainstormingTitle, "Idea Title");
+
+    // 4) jobInterview_* 系
+    pushAuto(tp.jobInterview_motivation, "Motivation");
+    pushAuto(tp.jobInterview_careerSummary, "Career Summary");
+    pushAuto(tp.jobInterview_successes, "Successes");
+    pushAuto(tp.jobInterview_failures, "Failures");
+    pushAuto(tp.jobInterview_strengths, "Strengths and Skills");
+    pushAuto(tp.jobInterview_weaknesses, "Weaknesses and Areas for Improvement");
+    pushAuto(tp.jobInterview_values, "Values at Work");
+    pushAuto(tp.jobInterview_careerVision, "Career Vision");
+    pushAuto(tp.jobInterview_understandingOfCompany, "Understanding of the Company");
+    pushAuto(tp.jobInterview_workStyleAndConditions, "Work Style and Conditions");
+    pushAuto(tp.jobInterview_applicantQuestions, "Questions from the Applicant (Q&A)");
+    pushAuto(tp.jobInterview_passionMessage, "Passion and Message");
+
+    // 5) 1on1_* 系（単一トピック内にも来る可能性に対応）
+    pushAuto(tp["1on1_momentOfSuccess"], "Recent Success");
+    pushAuto(tp["1on1_yourContribution"], "Contributing Factors");
+    pushAuto(tp["1on1_scalableAction"], "Scalable Action");
+    pushAuto(tp["1on1_managerFeedback"], "Manager Feedback");
+    pushAuto(tp["1on1_challengeFaced"], "Challenge Faced");
+    pushAuto(tp["1on1_whatCausedIt"] ?? tp["1on1_bottleneck"], "Bottleneck");
+    pushAuto(tp["1on1_nextTimeStrategy"], "Improvement Strategy");
+    pushAuto(tp["1on1_expectation"], "Future Expectation");
+    pushAuto(tp["1on1_whyExpectation"], "Reason for Expectation");
+    pushAuto(tp["1on1_preparation"], "Preparation for the Future");
+    pushAuto(tp["1on1_worry"], "Concern");
+    pushAuto(tp["1on1_whyWorry"], "Reason for Concern");
+    pushAuto(tp["1on1_mitigationIdeas"], "Mitigation Ideas");
+    pushAuto(tp["1on1_mental"], "Mental Aspects");
+    pushAuto(tp["1on1_emotionAndBackground"], "Feelings and Background");
+    pushAuto(tp["1on1_emotionChange"], "Emotional Change");
+    pushAuto(tp["1on1_forBetter"], "Next Action");
+
+    // 6) lecture_* 系
+    pushAuto(tp.lecture_lectureObjectives, "Lecture Objectives");
+    pushAuto(tp.lecture_lectureProcedures, "Procedures");
+    pushAuto(tp.lecture_notes, "Notes & Remarks");
+    pushAuto(tp.lecture_lectureExamples, "Examples & Scenarios");
+    pushAuto(tp.lecture_dos, "Dos");
+    pushAuto(tp.lecture_donts, "Don'ts");
+    pushAuto(tp.lecture_lectureTips, "Tips & Insights");
+
+    // 7) 汎用よくあるキー（既存）
     pushList(tp.actionItems, "Action Items", true);
     pushList(tp.decisions, "Decisions", true);
     pushList(tp.concerns, "Concerns");
     pushList(tp.keyMessages, "Summary");
+    // ========== 拡張ここまで ==========
 
     // --- 未対応フィールドを汎用描画で救済 ---
     const handled = new Set([
-      "topic",
-      "discussion",
-      "proposals",
-      "decisionsAndTasks",
-      "aggregatedDecisionsAndTasks",
-      "presentationCoreProblem",
-      "presentationProposal",
-      "presentationExpectedResult",
-      "presentationDecisionsAndTasks",
-      "actionItems",
-      "decisions",
-      "concerns",
-      "keyMessages",
+      // 基本
+      "topic","discussion","proposals","decisionsAndTasks","aggregatedDecisionsAndTasks",
+      "presentationCoreProblem","presentationProposal","presentationExpectedResult","presentationDecisionsAndTasks",
+      "actionItems","decisions","concerns","keyMessages",
+      // formatted_*
+      "formatted_discussion","formatted_decisions","formatted_todolist","formatted_concerns","formatted_summary",
+      // negotiation_*
+      "negotiation_proposal","negotiation_background","negotiation_discussionPoints","negotiation_decisions",
+      // brainstorming_*（snake & camel）
+      "brainstorming_problemToSolve","brainstorming_topIdea","brainstorming_summary","brainstorming_meritAndEffects",
+      "brainstorming_drawbacksAndRisks","brainstorming_decisionsAndTasks","brainstorming_RunnerUpIdea",
+      "brainstorming_allIdeas","brainstorming_title",
+      "brainstormingProblemToSolve","brainstormingTopIdea","brainstormingSummary","brainstormingMeritAndEffects",
+      "brainstormingDrawbacksAndRisks","brainstormingDecisionsAndTasks","brainstormingRunnerUpIdea",
+      "brainstormingAllIdeas","brainstormingTitle",
+      // jobInterview_*
+      "jobInterview_motivation","jobInterview_careerSummary","jobInterview_successes","jobInterview_failures",
+      "jobInterview_strengths","jobInterview_weaknesses","jobInterview_values","jobInterview_careerVision",
+      "jobInterview_understandingOfCompany","jobInterview_workStyleAndConditions","jobInterview_applicantQuestions",
+      "jobInterview_passionMessage",
+      // 1on1_*
+      "1on1_momentOfSuccess","1on1_yourContribution","1on1_scalableAction","1on1_managerFeedback",
+      "1on1_challengeFaced","1on1_whatCausedIt","1on1_bottleneck","1on1_nextTimeStrategy","1on1_expectation",
+      "1on1_whyExpectation","1on1_preparation","1on1_worry","1on1_whyWorry","1on1_mitigationIdeas","1on1_mental",
+      "1on1_emotionAndBackground","1on1_emotionChange","1on1_forBetter",
+      // lecture_*
+      "lecture_lectureObjectives","lecture_lectureProcedures","lecture_notes","lecture_lectureExamples",
+      "lecture_dos","lecture_donts","lecture_lectureTips",
     ]);
 
     Object.keys(tp || {}).forEach((k) => {
@@ -247,10 +364,10 @@ function mapOneOnOne(o) {
   if (o.coreEmotion && typeof o.coreEmotion === "object") {
     const emo = [];
     if (typeof o.coreEmotion.emotionAndBackground === "string" && o.coreEmotion.emotionAndBackground.trim()) {
-      emo.push(`背景と感情: ${o.coreEmotion.emotionAndBackground.trim()}`);
+      emo.push(`Feelings and Background: ${o.coreEmotion.emotionAndBackground.trim()}`);
     }
     if (typeof o.coreEmotion.managerFeedback === "string" && o.coreEmotion.managerFeedback.trim()) {
-      emo.push(`上司フィードバック: ${o.coreEmotion.managerFeedback.trim()}`);
+      emo.push(`Manager Feedback: ${o.coreEmotion.managerFeedback.trim()}`);
     }
     if (emo.length) {
       doc.blocks.push({ type: "callout", title: "Core Emotion", text: emo.join("\n"), tone: "info" });
