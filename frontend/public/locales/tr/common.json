@@ -242,7 +242,96 @@
 "Actions": "İşlemler",
 "Minutes preview surface": "Toplantı tutanağı önizleme alanı",
 "Prepaid minutes pricing": "Ön ödemeli plan fiyatları",
-"Subscription pricing": "Abonelik fiyatları"
+"Subscription pricing": "Abonelik fiyatları",
+  "minutes": {
+    "minutesTitleFallback": "Tutanak",
+    "noContentProvided": "İçerik yok",
+    "noContentProvidedTitle": "İçerik yok",
+    "topic": "Konu",
+    "topicFallback": "Konu",
 
+    "discussion": "Tartışma",
+    "decisions": "Kararlar",
+    "actionItems": "Eylem maddeleri",
+    "concerns": "Endişeler",
+    "summary": "Özet",
+    "proposal": "Öneri",
+    "background": "Arka plan",
+    "discussionPoints": "Tartışma noktaları",
+    "decisionsAndTasks": "Kararlar ve görevler",
+    "coreProblem": "Temel sorun",
+    "expectedResult": "Beklenen sonuç",
+
+    "overview": "Genel bakış",
+    "sections": "Bölümler",
+    "topics": "Konular",
+    "items": "Maddeler",
+    "content": "İçerik",
+    "body": "Metin gövdesi",
+
+    "brainstorming": {
+      "problemToSolve": "Çözülmesi gereken sorun",
+      "topIdea": "En iyi fikir",
+      "meritsAndEffects": "Artılar ve etkiler",
+      "drawbacksAndRisks": "Eksiler ve riskler",
+      "runnerUpIdea": "İkinci en iyi fikir",
+      "allIdeas": "Tüm fikirler",
+      "ideaTitle": "Fikir başlığı"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivasyon",
+      "careerSummary": "Kariyer özeti",
+      "successes": "Başarılar",
+      "failures": "Başarısızlıklar",
+      "strengths": "Güçlü yönler ve beceriler",
+      "weaknesses": "Zayıf yönler ve gelişim alanları",
+      "values": "İş değerleri",
+      "careerVision": "Kariyer vizyonu",
+      "understandingOfCompany": "Şirketi anlama",
+      "workStyleAndConditions": "Çalışma tarzı ve koşulları",
+      "applicantQuestions": "Adayın soruları (Soru-Cevap)",
+      "passionMessage": "Tutku ve mesaj"
+    },
+
+    "lecture": {
+      "objectives": "Ders hedefleri",
+      "procedures": "Prosedürler",
+      "notesAndRemarks": "Notlar ve açıklamalar",
+      "examplesAndScenarios": "Örnekler ve senaryolar",
+      "dos": "Yapılacaklar",
+      "donts": "Yapılmayacaklar",
+      "tipsAndInsights": "İpuçları ve içgörüler"
+    },
+
+    "oneonone": {
+      "title": "1'e 1",
+      "recentSuccess": "Son başarı",
+      "contributingFactors": "Katkıda bulunan faktörler",
+      "scalableAction": "Ölçeklenebilir eylem",
+      "managerFeedback": "Yönetici geri bildirimi",
+      "challengeFaced": "Karşılaşılan zorluk",
+      "bottleneck": "Darboğaz",
+      "improvementStrategy": "İyileştirme stratejisi",
+      "futureExpectation": "Gelecek beklentisi",
+      "reasonForExpectation": "Beklentinin nedeni",
+      "preparationForFuture": "Geleceğe hazırlık",
+      "concern": "Endişe",
+      "reasonForConcern": "Endişe nedeni",
+      "mitigationIdeas": "Azaltma fikirleri",
+      "mentalAspects": "Zihinsel yönler",
+      "feelingsAndBackground": "Duygular ve arka plan",
+      "emotionalChange": "Duygusal değişim",
+      "nextAction": "Sonraki eylem",
+      "coreEmotion": "Temel duygu",
+      "topicGroup": "Konu grubu",
+      "expectation": "Beklenti",
+      "worry": "Endişe",
+      "why": "Neden",
+      "whatCausedIt": "Buna ne sebep oldu",
+      "nextTimeStrategy": "Bir dahaki sefer için strateji",
+      "preparation": "Hazırlık"
+    }
+  }
   }
   

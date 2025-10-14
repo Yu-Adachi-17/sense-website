@@ -242,7 +242,97 @@
 "Actions": "Acciones",
 "Minutes preview surface": "Superficie de vista previa del acta",
 "Prepaid minutes pricing": "Precios del plan prepago",
-"Subscription pricing": "Precios de suscripción"
+"Subscription pricing": "Precios de suscripción",
+  "minutes": {
+    "minutesTitleFallback": "Acta",
+    "noContentProvided": "No hay contenido",
+    "noContentProvidedTitle": "No hay contenido",
+    "topic": "Tema",
+    "topicFallback": "Tema",
+
+    "discussion": "Discusión",
+    "decisions": "Decisiones",
+    "actionItems": "Puntos de acción",
+    "concerns": "Preocupaciones",
+    "summary": "Resumen",
+    "proposal": "Propuesta",
+    "background": "Contexto",
+    "discussionPoints": "Puntos de discusión",
+    "decisionsAndTasks": "Decisiones y tareas",
+    "coreProblem": "Problema clave",
+    "expectedResult": "Resultado esperado",
+
+    "overview": "Resumen general",
+    "sections": "Secciones",
+    "topics": "Temas",
+    "items": "Elementos",
+    "content": "Contenido",
+    "body": "Cuerpo del texto",
+
+    "brainstorming": {
+      "problemToSolve": "Problema a resolver",
+      "topIdea": "Idea principal",
+      "meritsAndEffects": "Beneficios y efectos",
+      "drawbacksAndRisks": "Desventajas y riesgos",
+      "runnerUpIdea": "Idea finalista",
+      "allIdeas": "Todas las ideas",
+      "ideaTitle": "Título de la idea"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivación",
+      "careerSummary": "Resumen profesional",
+      "successes": "Logros",
+      "failures": "Fracasos",
+      "strengths": "Fortalezas y habilidades",
+      "weaknesses": "Debilidades y áreas de mejora",
+      "values": "Valores en el trabajo",
+      "careerVision": "Visión de carrera",
+      "understandingOfCompany": "Conocimiento de la empresa",
+      "workStyleAndConditions": "Estilo y condiciones de trabajo",
+      "applicantQuestions": "Preguntas del candidato (Q&A)",
+      "passionMessage": "Pasión y mensaje"
+    },
+
+    "lecture": {
+      "objectives": "Objetivos de la clase",
+      "procedures": "Procedimientos",
+      "notesAndRemarks": "Notas y observaciones",
+      "examplesAndScenarios": "Ejemplos y escenarios",
+      "dos": "Qué hacer",
+      "donts": "Qué no hacer",
+      "tipsAndInsights": "Consejos y recomendaciones"
+    },
+
+    "oneonone": {
+      "title": "1 a 1",
+      "recentSuccess": "Éxito reciente",
+      "contributingFactors": "Factores que contribuyeron",
+      "scalableAction": "Acción escalable",
+      "managerFeedback": "Comentarios del responsable",
+      "challengeFaced": "Desafío afrontado",
+      "bottleneck": "Cuello de botella",
+      "improvementStrategy": "Estrategia de mejora",
+      "futureExpectation": "Expectativa futura",
+      "reasonForExpectation": "Motivo de la expectativa",
+      "preparationForFuture": "Preparación para el futuro",
+      "concern": "Preocupación",
+      "reasonForConcern": "Motivo de la preocupación",
+      "mitigationIdeas": "Ideas de mitigación",
+      "mentalAspects": "Aspectos mentales",
+      "feelingsAndBackground": "Sentimientos y contexto",
+      "emotionalChange": "Cambio emocional",
+      "nextAction": "Próxima acción",
+      "coreEmotion": "Emoción central",
+      "topicGroup": "Grupo de temas",
+      "expectation": "Expectativa",
+      "worry": "Preocupación",
+      "why": "Por qué",
+      "whatCausedIt": "Qué lo causó",
+      "nextTimeStrategy": "Estrategia para la próxima vez",
+      "preparation": "Preparación"
+    }
+  }
 
   }
   

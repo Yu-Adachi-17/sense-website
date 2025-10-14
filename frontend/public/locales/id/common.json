@@ -242,7 +242,97 @@
 "Actions": "Tindakan",
 "Minutes preview surface": "Area pratinjau notulen rapat",
 "Prepaid minutes pricing": "Harga paket prabayar",
-"Subscription pricing": "Harga paket langganan"
+"Subscription pricing": "Harga paket langganan",
+  "minutes": {
+    "minutesTitleFallback": "Notulen Rapat",
+    "noContentProvided": "Tidak ada konten",
+    "noContentProvidedTitle": "Tidak ada konten",
+    "topic": "Topik",
+    "topicFallback": "Topik",
+
+    "discussion": "Diskusi",
+    "decisions": "Keputusan",
+    "actionItems": "Butir tindakan",
+    "concerns": "Kekhawatiran",
+    "summary": "Ringkasan",
+    "proposal": "Usulan",
+    "background": "Latar belakang",
+    "discussionPoints": "Poin diskusi",
+    "decisionsAndTasks": "Keputusan & tugas",
+    "coreProblem": "Masalah inti",
+    "expectedResult": "Hasil yang diharapkan",
+
+    "overview": "Gambaran umum",
+    "sections": "Bagian",
+    "topics": "Topik",
+    "items": "Item",
+    "content": "Konten",
+    "body": "Isi",
+
+    "brainstorming": {
+      "problemToSolve": "Masalah yang perlu diselesaikan",
+      "topIdea": "Ide terbaik",
+      "meritsAndEffects": "Keuntungan dan dampak",
+      "drawbacksAndRisks": "Kekurangan dan risiko",
+      "runnerUpIdea": "Ide peringkat kedua",
+      "allIdeas": "Semua ide",
+      "ideaTitle": "Judul ide"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivasi",
+      "careerSummary": "Ringkasan karier",
+      "successes": "Pencapaian",
+      "failures": "Kegagalan",
+      "strengths": "Kekuatan dan keterampilan",
+      "weaknesses": "Kelemahan dan area perbaikan",
+      "values": "Nilai-nilai dalam bekerja",
+      "careerVision": "Visi karier",
+      "understandingOfCompany": "Pemahaman tentang perusahaan",
+      "workStyleAndConditions": "Gaya dan ketentuan kerja",
+      "applicantQuestions": "Pertanyaan dari pelamar (Tanya Jawab)",
+      "passionMessage": "Antusiasme dan pesan"
+    },
+
+    "lecture": {
+      "objectives": "Tujuan kuliah",
+      "procedures": "Prosedur",
+      "notesAndRemarks": "Catatan & keterangan",
+      "examplesAndScenarios": "Contoh & skenario",
+      "dos": "Yang harus dilakukan",
+      "donts": "Yang tidak boleh dilakukan",
+      "tipsAndInsights": "Tips & wawasan"
+    },
+
+    "oneonone": {
+      "title": "1on1",
+      "recentSuccess": "Keberhasilan terbaru",
+      "contributingFactors": "Faktor yang berkontribusi",
+      "scalableAction": "Tindakan yang dapat diskalakan",
+      "managerFeedback": "Umpan balik manajer",
+      "challengeFaced": "Tantangan yang dihadapi",
+      "bottleneck": "Titik hambatan",
+      "improvementStrategy": "Strategi perbaikan",
+      "futureExpectation": "Ekspektasi ke depan",
+      "reasonForExpectation": "Alasan ekspektasi",
+      "preparationForFuture": "Persiapan untuk masa depan",
+      "concern": "Kekhawatiran",
+      "reasonForConcern": "Alasan kekhawatiran",
+      "mitigationIdeas": "Ide mitigasi",
+      "mentalAspects": "Aspek mental",
+      "feelingsAndBackground": "Perasaan dan latar belakang",
+      "emotionalChange": "Perubahan emosi",
+      "nextAction": "Aksi berikutnya",
+      "coreEmotion": "Emosi inti",
+      "topicGroup": "Grup topik",
+      "expectation": "Ekspektasi",
+      "worry": "Kekhawatiran",
+      "why": "Mengapa",
+      "whatCausedIt": "Penyebabnya",
+      "nextTimeStrategy": "Strategi untuk lain kali",
+      "preparation": "Persiapan"
+    }
+  }
 
   }
   

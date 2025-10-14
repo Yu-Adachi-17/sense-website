@@ -281,7 +281,7 @@
 
     "jobInterview": {
       "motivation": "志望動機",
-      "careerSummary": "職務要約",
+      "careerSummary": "経歴",
       "successes": "成功体験",
       "failures": "失敗体験",
       "strengths": "強み・スキル",
@@ -296,7 +296,7 @@
 
     "lecture": {
       "objectives": "講義の目的",
-      "procedures": "進行手順",
+      "procedures": "オペレーション",
       "notesAndRemarks": "注意・備考",
       "examplesAndScenarios": "事例・シナリオ",
       "dos": "やるべきこと",

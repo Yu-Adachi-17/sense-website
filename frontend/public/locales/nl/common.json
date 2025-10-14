@@ -242,7 +242,96 @@
 "Actions": "Acties",
 "Minutes preview surface": "Voorvertoningsgebied voor notulen",
 "Prepaid minutes pricing": "Prijzen van het voorafbetaalde plan",
-"Subscription pricing": "Abonnementsprijzen"
+"Subscription pricing": "Abonnementsprijzen",
+  "minutes": {
+    "minutesTitleFallback": "Notulen",
+    "noContentProvided": "Geen inhoud beschikbaar",
+    "noContentProvidedTitle": "Geen inhoud beschikbaar",
+    "topic": "Onderwerp",
+    "topicFallback": "Onderwerp",
 
+    "discussion": "Discussie",
+    "decisions": "Besluiten",
+    "actionItems": "Actiepunten",
+    "concerns": "Zorgen",
+    "summary": "Samenvatting",
+    "proposal": "Voorstel",
+    "background": "Achtergrond",
+    "discussionPoints": "Discussiepunten",
+    "decisionsAndTasks": "Besluiten en taken",
+    "coreProblem": "Kernprobleem",
+    "expectedResult": "Verwacht resultaat",
+
+    "overview": "Overzicht",
+    "sections": "Secties",
+    "topics": "Onderwerpen",
+    "items": "Items",
+    "content": "Inhoud",
+    "body": "Hoofdtekst",
+
+    "brainstorming": {
+      "problemToSolve": "Op te lossen probleem",
+      "topIdea": "Beste idee",
+      "meritsAndEffects": "Pluspunten en effecten",
+      "drawbacksAndRisks": "Nadelen en risico’s",
+      "runnerUpIdea": "Tweede beste idee",
+      "allIdeas": "Alle ideeën",
+      "ideaTitle": "Titel van het idee"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivatie",
+      "careerSummary": "Loopbaanoverzicht",
+      "successes": "Successen",
+      "failures": "Mislukkingen",
+      "strengths": "Sterke punten en vaardigheden",
+      "weaknesses": "Zwakke punten en verbeterpunten",
+      "values": "Waarden op het werk",
+      "careerVision": "Loopbaanvisie",
+      "understandingOfCompany": "Inzicht in het bedrijf",
+      "workStyleAndConditions": "Werkstijl en voorwaarden",
+      "applicantQuestions": "Vragen van de kandidaat (Q&A)",
+      "passionMessage": "Passie en boodschap"
+    },
+
+    "lecture": {
+      "objectives": "Doelstellingen van de lezing",
+      "procedures": "Procedure",
+      "notesAndRemarks": "Aantekeningen en opmerkingen",
+      "examplesAndScenarios": "Voorbeelden en scenario’s",
+      "dos": "Te doen",
+      "donts": "Niet doen",
+      "tipsAndInsights": "Tips en inzichten"
+    },
+
+    "oneonone": {
+      "title": "1-op-1",
+      "recentSuccess": "Recent succes",
+      "contributingFactors": "Bijdragende factoren",
+      "scalableAction": "Schaalbare actie",
+      "managerFeedback": "Feedback van de manager",
+      "challengeFaced": "Uitdaging",
+      "bottleneck": "Knelpunt",
+      "improvementStrategy": "Verbeterstrategie",
+      "futureExpectation": "Toekomstige verwachtingen",
+      "reasonForExpectation": "Reden voor de verwachting",
+      "preparationForFuture": "Voorbereiding op de toekomst",
+      "concern": "Zorgpunt",
+      "reasonForConcern": "Reden van zorg",
+      "mitigationIdeas": "Mitigatie-ideeën",
+      "mentalAspects": "Mentale aspecten",
+      "feelingsAndBackground": "Gevoelens en achtergrond",
+      "emotionalChange": "Emotionele verandering",
+      "nextAction": "Volgende actie",
+      "coreEmotion": "Kernemotie",
+      "topicGroup": "Onderwerpgroep",
+      "expectation": "Verwachting",
+      "worry": "Zorg",
+      "why": "Waarom",
+      "whatCausedIt": "Waardoor veroorzaakt",
+      "nextTimeStrategy": "Strategie voor de volgende keer",
+      "preparation": "Voorbereiding"
+    }
+  }
   }
   

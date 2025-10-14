@@ -242,6 +242,96 @@
 "Actions": "Handlinger",
 "Minutes preview surface": "Forhåndsvisning av møtereferat",
 "Prepaid minutes pricing": "Priser for forhåndsbetalt plan",
-"Subscription pricing": "Abonnementspriser"
+"Subscription pricing": "Abonnementspriser",
+  "minutes": {
+    "minutesTitleFallback": "Møtereferat",
+    "noContentProvided": "Ingen innhold",
+    "noContentProvidedTitle": "Ingen innhold",
+    "topic": "Tema",
+    "topicFallback": "Tema",
+
+    "discussion": "Diskusjon",
+    "decisions": "Beslutninger",
+    "actionItems": "Handlingspunkter",
+    "concerns": "Bekymringer",
+    "summary": "Sammendrag",
+    "proposal": "Forslag",
+    "background": "Bakgrunn",
+    "discussionPoints": "Diskusjonspunkter",
+    "decisionsAndTasks": "Beslutninger og oppgaver",
+    "coreProblem": "Kjerneproblem",
+    "expectedResult": "Forventet resultat",
+
+    "overview": "Oversikt",
+    "sections": "Seksjoner",
+    "topics": "Emner",
+    "items": "Punkter",
+    "content": "Innhold",
+    "body": "Brødtekst",
+
+    "brainstorming": {
+      "problemToSolve": "Problemet som skal løses",
+      "topIdea": "Beste idé",
+      "meritsAndEffects": "Fordeler og effekter",
+      "drawbacksAndRisks": "Ulemper og risikoer",
+      "runnerUpIdea": "Nest beste idé",
+      "allIdeas": "Alle idéer",
+      "ideaTitle": "Idétittel"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivasjon",
+      "careerSummary": "Karriereoppsummering",
+      "successes": "Suksesser",
+      "failures": "Feil",
+      "strengths": "Styrker og ferdigheter",
+      "weaknesses": "Svakheter og forbedringsområder",
+      "values": "Verdier i arbeidet",
+      "careerVision": "Karrierevisjon",
+      "understandingOfCompany": "Forståelse av selskapet",
+      "workStyleAndConditions": "Arbeidsstil og vilkår",
+      "applicantQuestions": "Spørsmål fra søker (Q&A)",
+      "passionMessage": "Engasjement og budskap"
+    },
+
+    "lecture": {
+      "objectives": "Forelesningsmål",
+      "procedures": "Prosedyrer",
+      "notesAndRemarks": "Notater og merknader",
+      "examplesAndScenarios": "Eksempler og scenarioer",
+      "dos": "Gjør",
+      "donts": "Ikke gjør",
+      "tipsAndInsights": "Tips og innsikt"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "Nylig suksess",
+      "contributingFactors": "Medvirkende faktorer",
+      "scalableAction": "Skalerbar handling",
+      "managerFeedback": "Tilbakemelding fra leder",
+      "challengeFaced": "Utfordring",
+      "bottleneck": "Flaskehals",
+      "improvementStrategy": "Forbedringsstrategi",
+      "futureExpectation": "Fremtidige forventninger",
+      "reasonForExpectation": "Begrunnelse for forventning",
+      "preparationForFuture": "Forberedelse for fremtiden",
+      "concern": "Bekymring",
+      "reasonForConcern": "Begrunnelse for bekymring",
+      "mitigationIdeas": "Avbøtende ideer",
+      "mentalAspects": "Mentale aspekter",
+      "feelingsAndBackground": "Følelser og bakgrunn",
+      "emotionalChange": "Følelsesmessig endring",
+      "nextAction": "Neste tiltak",
+      "coreEmotion": "Kjernefølelse",
+      "topicGroup": "Emnegruppe",
+      "expectation": "Forventning",
+      "worry": "Bekymring",
+      "why": "Hvorfor",
+      "whatCausedIt": "Hva forårsaket det",
+      "nextTimeStrategy": "Strategi til neste gang",
+      "preparation": "Forberedelse"
+    }
+  }
   }
   

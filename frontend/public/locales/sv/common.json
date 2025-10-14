@@ -242,7 +242,96 @@
 "Actions": "Åtgärder",
 "Minutes preview surface": "Förhandsvisning av mötesprotokoll",
 "Prepaid minutes pricing": "Priser för förbetald plan",
-"Subscription pricing": "Priser för abonnemang"
+"Subscription pricing": "Priser för abonnemang",
+  "minutes": {
+    "minutesTitleFallback": "Protokoll",
+    "noContentProvided": "Inget innehåll",
+    "noContentProvidedTitle": "Inget innehåll",
+    "topic": "Ämne",
+    "topicFallback": "Ämne",
 
+    "discussion": "Diskussion",
+    "decisions": "Beslut",
+    "actionItems": "Åtgärdspunkter",
+    "concerns": "Oro",
+    "summary": "Sammanfattning",
+    "proposal": "Förslag",
+    "background": "Bakgrund",
+    "discussionPoints": "Diskussionspunkter",
+    "decisionsAndTasks": "Beslut och uppgifter",
+    "coreProblem": "Kärnproblem",
+    "expectedResult": "Förväntat resultat",
+
+    "overview": "Översikt",
+    "sections": "Avsnitt",
+    "topics": "Ämnen",
+    "items": "Punkter",
+    "content": "Innehåll",
+    "body": "Brödtext",
+
+    "brainstorming": {
+      "problemToSolve": "Problem att lösa",
+      "topIdea": "Bästa idé",
+      "meritsAndEffects": "Fördelar och effekter",
+      "drawbacksAndRisks": "Nackdelar och risker",
+      "runnerUpIdea": "Näst bästa idé",
+      "allIdeas": "Alla idéer",
+      "ideaTitle": "Idétitel"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivation",
+      "careerSummary": "Karriäröversikt",
+      "successes": "Framgångar",
+      "failures": "Misslyckanden",
+      "strengths": "Styrkor och färdigheter",
+      "weaknesses": "Svagheter och förbättringsområden",
+      "values": "Värderingar i arbetet",
+      "careerVision": "Karriärvision",
+      "understandingOfCompany": "Förståelse för företaget",
+      "workStyleAndConditions": "Arbetsstil och villkor",
+      "applicantQuestions": "Frågor från sökande (Q&A)",
+      "passionMessage": "Passion och budskap"
+    },
+
+    "lecture": {
+      "objectives": "Föreläsningsmål",
+      "procedures": "Tillvägagångssätt",
+      "notesAndRemarks": "Anteckningar och kommentarer",
+      "examplesAndScenarios": "Exempel och scenarier",
+      "dos": "Gör",
+      "donts": "Gör inte",
+      "tipsAndInsights": "Tips och insikter"
+    },
+
+    "oneonone": {
+      "title": "1-till-1",
+      "recentSuccess": "Senaste framgång",
+      "contributingFactors": "Bidragande faktorer",
+      "scalableAction": "Skalbar åtgärd",
+      "managerFeedback": "Feedback från chef",
+      "challengeFaced": "Utmaning",
+      "bottleneck": "Flaskhals",
+      "improvementStrategy": "Förbättringsstrategi",
+      "futureExpectation": "Framtida förväntningar",
+      "reasonForExpectation": "Skäl till förväntning",
+      "preparationForFuture": "Förberedelse för framtiden",
+      "concern": "Oro",
+      "reasonForConcern": "Orsak till oro",
+      "mitigationIdeas": "Mildringsidéer",
+      "mentalAspects": "Mentala aspekter",
+      "feelingsAndBackground": "Känslor och bakgrund",
+      "emotionalChange": "Emotionell förändring",
+      "nextAction": "Nästa åtgärd",
+      "coreEmotion": "Kärnemotion",
+      "topicGroup": "Ämnesgrupp",
+      "expectation": "Förväntning",
+      "worry": "Oro",
+      "why": "Varför",
+      "whatCausedIt": "Vad orsakade det",
+      "nextTimeStrategy": "Strategi till nästa gång",
+      "preparation": "Förberedelse"
+    }
+  }
   }
   

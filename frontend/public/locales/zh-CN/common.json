@@ -242,7 +242,96 @@
 "Actions": "操作",
 "Minutes preview surface": "会议纪要预览区域",
 "Prepaid minutes pricing": "预付费方案定价",
-"Subscription pricing": "订阅方案定价"
+"Subscription pricing": "订阅方案定价",
+  "minutes": {
+    "minutesTitleFallback": "会议纪要",
+    "noContentProvided": "暂无内容",
+    "noContentProvidedTitle": "暂无内容",
+    "topic": "议题",
+    "topicFallback": "议题",
 
+    "discussion": "讨论",
+    "decisions": "决策",
+    "actionItems": "行动项",
+    "concerns": "关注点",
+    "summary": "摘要",
+    "proposal": "提案",
+    "background": "背景",
+    "discussionPoints": "讨论要点",
+    "decisionsAndTasks": "决策与任务",
+    "coreProblem": "核心问题",
+    "expectedResult": "预期结果",
+
+    "overview": "概览",
+    "sections": "章节",
+    "topics": "主题",
+    "items": "条目",
+    "content": "内容",
+    "body": "正文",
+
+    "brainstorming": {
+      "problemToSolve": "待解决的问题",
+      "topIdea": "最佳创意",
+      "meritsAndEffects": "优点与影响",
+      "drawbacksAndRisks": "缺点与风险",
+      "runnerUpIdea": "次优创意",
+      "allIdeas": "所有创意",
+      "ideaTitle": "创意标题"
+    },
+
+    "jobInterview": {
+      "motivation": "求职动机",
+      "careerSummary": "职业概述",
+      "successes": "成功经验",
+      "failures": "失败经验",
+      "strengths": "优势与技能",
+      "weaknesses": "不足与改进点",
+      "values": "工作中的价值观",
+      "careerVision": "职业愿景",
+      "understandingOfCompany": "对公司的理解",
+      "workStyleAndConditions": "工作方式与条件",
+      "applicantQuestions": "候选人提问（Q&A）",
+      "passionMessage": "热情与信息"
+    },
+
+    "lecture": {
+      "objectives": "授课目标",
+      "procedures": "流程",
+      "notesAndRemarks": "注意与备注",
+      "examplesAndScenarios": "示例与情景",
+      "dos": "应做",
+      "donts": "不应做",
+      "tipsAndInsights": "提示与洞见"
+    },
+
+    "oneonone": {
+      "title": "1 对 1",
+      "recentSuccess": "近期成功",
+      "contributingFactors": "贡献因素",
+      "scalableAction": "可扩展行动",
+      "managerFeedback": "经理反馈",
+      "challengeFaced": "面临的挑战",
+      "bottleneck": "瓶颈",
+      "improvementStrategy": "改进策略",
+      "futureExpectation": "未来期望",
+      "reasonForExpectation": "期望的理由",
+      "preparationForFuture": "面向未来的准备",
+      "concern": "担忧",
+      "reasonForConcern": "担忧原因",
+      "mitigationIdeas": "缓解思路",
+      "mentalAspects": "心理层面",
+      "feelingsAndBackground": "感受与背景",
+      "emotionalChange": "情绪变化",
+      "nextAction": "下一步行动",
+      "coreEmotion": "核心情绪",
+      "topicGroup": "主题分组",
+      "expectation": "期望",
+      "worry": "担忧",
+      "why": "原因",
+      "whatCausedIt": "成因",
+      "nextTimeStrategy": "下次策略",
+      "preparation": "准备"
+    }
+  }
   }
   

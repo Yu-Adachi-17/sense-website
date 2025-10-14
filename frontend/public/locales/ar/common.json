@@ -242,6 +242,96 @@
 "Actions": "الإجراءات",
 "Minutes preview surface": "سطح معاينة محضر الاجتماع",
 "Prepaid minutes pricing": "أسعار الباقة المدفوعة مسبقًا",
-"Subscription pricing": "أسعار الاشتراك"
+"Subscription pricing": "أسعار الاشتراك",
+  "minutes": {
+    "minutesTitleFallback": "محضر الاجتماع",
+    "noContentProvided": "لا توجد محتويات",
+    "noContentProvidedTitle": "لا توجد محتويات",
+    "topic": "الموضوع",
+    "topicFallback": "الموضوع",
+
+    "discussion": "المناقشة",
+    "decisions": "القرارات",
+    "actionItems": "عناصر الإجراء",
+    "concerns": "المخاوف",
+    "summary": "الملخص",
+    "proposal": "المقترح",
+    "background": "الخلفية",
+    "discussionPoints": "نقاط النقاش",
+    "decisionsAndTasks": "القرارات والمهام",
+    "coreProblem": "المشكلة الجوهرية",
+    "expectedResult": "النتيجة المتوقعة",
+
+    "overview": "نظرة عامة",
+    "sections": "الأقسام",
+    "topics": "الموضوعات",
+    "items": "العناصر",
+    "content": "المحتوى",
+    "body": "النص",
+
+    "brainstorming": {
+      "problemToSolve": "المشكلة المطلوب حلها",
+      "topIdea": "الفكرة الأبرز",
+      "meritsAndEffects": "الإيجابيات والآثار",
+      "drawbacksAndRisks": "السلبيات والمخاطر",
+      "runnerUpIdea": "الفكرة الوصيفة",
+      "allIdeas": "جميع الأفكار",
+      "ideaTitle": "عنوان الفكرة"
+    },
+
+    "jobInterview": {
+      "motivation": "دافع التقدم",
+      "careerSummary": "ملخص الخبرة",
+      "successes": "تجارب النجاح",
+      "failures": "تجارب الإخفاق",
+      "strengths": "نقاط القوة والمهارات",
+      "weaknesses": "نقاط الضعف ومجالات التحسين",
+      "values": "القيم في العمل",
+      "careerVision": "الرؤية المهنية",
+      "understandingOfCompany": "فهم الشركة",
+      "workStyleAndConditions": "أسلوب العمل والشروط",
+      "applicantQuestions": "أسئلة المتقدم (سؤال وجواب)",
+      "passionMessage": "الحماس والرسالة"
+    },
+
+    "lecture": {
+      "objectives": "أهداف المحاضرة",
+      "procedures": "الإجراءات",
+      "notesAndRemarks": "ملاحظات وتعليقات",
+      "examplesAndScenarios": "أمثلة وسيناريوهات",
+      "dos": "افعل",
+      "donts": "لا تفعل",
+      "tipsAndInsights": "نصائح وأفكار"
+    },
+
+    "oneonone": {
+      "title": "1on1",
+      "recentSuccess": "نجاح حديث",
+      "contributingFactors": "عوامل المساهمة",
+      "scalableAction": "إجراء قابل للتوسيع",
+      "managerFeedback": "ملاحظات المدير",
+      "challengeFaced": "التحدي الذي واجهته",
+      "bottleneck": "عنق الزجاجة",
+      "improvementStrategy": "استراتيجية التحسين",
+      "futureExpectation": "التوقعات المستقبلية",
+      "reasonForExpectation": "سبب التوقع",
+      "preparationForFuture": "الاستعداد للمستقبل",
+      "concern": "قلق",
+      "reasonForConcern": "سبب القلق",
+      "mitigationIdeas": "أفكار التخفيف",
+      "mentalAspects": "الجوانب الذهنية",
+      "feelingsAndBackground": "المشاعر والخلفية",
+      "emotionalChange": "التغير العاطفي",
+      "nextAction": "الإجراء التالي",
+      "coreEmotion": "المشاعر الأساسية",
+      "topicGroup": "مجموعة الموضوعات",
+      "expectation": "توقع",
+      "worry": "قلق",
+      "why": "السبب",
+      "whatCausedIt": "ما سببه",
+      "nextTimeStrategy": "استراتيجية المرة القادمة",
+      "preparation": "التحضير"
+    }
+  }
   }
   

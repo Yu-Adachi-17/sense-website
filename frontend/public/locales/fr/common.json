@@ -242,7 +242,98 @@
 "Actions": "Actions",
 "Minutes preview surface": "Surface d’aperçu du procès-verbal",
 "Prepaid minutes pricing": "Tarifs du forfait prépayé",
-"Subscription pricing": "Tarifs de l’abonnement"
+"Subscription pricing": "Tarifs de l’abonnement",
+  "minutes": {
+    "minutesTitleFallback": "Compte rendu",
+    "noContentProvided": "Aucun contenu",
+    "noContentProvidedTitle": "Aucun contenu",
+    "topic": "Sujet",
+    "topicFallback": "Sujet",
+
+    "discussion": "Discussion",
+    "decisions": "Décisions",
+    "actionItems": "Actions à mener",
+    "concerns": "Préoccupations",
+    "summary": "Résumé",
+    "proposal": "Proposition",
+    "background": "Contexte",
+    "discussionPoints": "Points de discussion",
+    "decisionsAndTasks": "Décisions et tâches",
+    "coreProblem": "Problème central",
+    "expectedResult": "Résultat attendu",
+
+    "overview": "Aperçu",
+    "sections": "Sections",
+    "topics": "Sujets",
+    "items": "Éléments",
+    "content": "Contenu",
+    "body": "Corps du texte",
+
+    "brainstorming": {
+      "problemToSolve": "Problème à résoudre",
+      "topIdea": "Meilleure idée",
+      "meritsAndEffects": "Avantages et effets",
+      "drawbacksAndRisks": "Inconvénients et risques",
+      "runnerUpIdea": "Idée finaliste",
+      "allIdeas": "Toutes les idées",
+      "ideaTitle": "Titre de l’idée"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivation",
+      "careerSummary": "Résumé de carrière",
+      "successes": "Réussites",
+      "failures": "Échecs",
+      "strengths": "Forces et compétences",
+      "weaknesses": "Faiblesses et axes d’amélioration",
+      "values": "Valeurs au travail",
+      "careerVision": "Vision de carrière",
+      "understandingOfCompany": "Connaissance de l’entreprise",
+      "workStyleAndConditions": "Style et conditions de travail",
+      "applicantQuestions": "Questions du candidat (Q&R)",
+      "passionMessage": "Passion et message"
+    },
+
+    "lecture": {
+      "objectives": "Objectifs du cours",
+      "procedures": "Déroulé",
+      "notesAndRemarks": "Notes et remarques",
+      "examplesAndScenarios": "Exemples et scénarios",
+      "dos": "À faire",
+      "donts": "À ne pas faire",
+      "tipsAndInsights": "Conseils et éclairages"
+    },
+
+    "oneonone": {
+      "title": "Entretien 1:1",
+      "recentSuccess": "Réussite récente",
+      "contributingFactors": "Facteurs contributifs",
+      "scalableAction": "Action scalable",
+      "managerFeedback": "Retour du manager",
+      "challengeFaced": "Défi rencontré",
+      "bottleneck": "Goulot d’étranglement",
+      "improvementStrategy": "Stratégie d’amélioration",
+      "futureExpectation": "Attentes futures",
+      "reasonForExpectation": "Raison de l’attente",
+      "preparationForFuture": "Préparation pour l’avenir",
+      "concern": "Préoccupation",
+      "reasonForConcern": "Raison de la préoccupation",
+      "mitigationIdeas": "Idées d’atténuation",
+      "mentalAspects": "Aspects mentaux",
+      "feelingsAndBackground": "Ressenti et contexte",
+      "emotionalChange": "Évolution émotionnelle",
+      "nextAction": "Prochaine action",
+      "coreEmotion": "Émotion centrale",
+      "topicGroup": "Groupe de sujets",
+      "expectation": "Attente",
+      "worry": "Inquiétude",
+      "why": "Pourquoi",
+      "whatCausedIt": "Ce qui l’a causé",
+      "nextTimeStrategy": "Stratégie pour la prochaine fois",
+      "preparation": "Préparation"
+    }
+  }
+
 
   }
   

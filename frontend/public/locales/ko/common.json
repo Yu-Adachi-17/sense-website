@@ -242,7 +242,97 @@
 "Actions": "작업",
 "Minutes preview surface": "회의록 미리보기 영역",
 "Prepaid minutes pricing": "선불 요금제",
-"Subscription pricing": "구독 요금"
+"Subscription pricing": "구독 요금",
+  "minutes": {
+    "minutesTitleFallback": "회의록",
+    "noContentProvided": "내용이 없습니다",
+    "noContentProvidedTitle": "내용이 없습니다",
+    "topic": "의제",
+    "topicFallback": "의제",
+
+    "discussion": "논의",
+    "decisions": "결정 사항",
+    "actionItems": "실행 항목",
+    "concerns": "우려 사항",
+    "summary": "요약",
+    "proposal": "제안",
+    "background": "배경",
+    "discussionPoints": "논의 포인트",
+    "decisionsAndTasks": "결정 및 작업",
+    "coreProblem": "핵심 문제",
+    "expectedResult": "기대 결과",
+
+    "overview": "개요",
+    "sections": "섹션",
+    "topics": "주제",
+    "items": "항목",
+    "content": "콘텐츠",
+    "body": "본문",
+
+    "brainstorming": {
+      "problemToSolve": "해결해야 할 문제",
+      "topIdea": "최고의 아이디어",
+      "meritsAndEffects": "장점 및 효과",
+      "drawbacksAndRisks": "단점 및 위험",
+      "runnerUpIdea": "차선 아이디어",
+      "allIdeas": "모든 아이디어",
+      "ideaTitle": "아이디어 제목"
+    },
+
+    "jobInterview": {
+      "motivation": "지원 동기",
+      "careerSummary": "경력 요약",
+      "successes": "성공 사례",
+      "failures": "실패 사례",
+      "strengths": "강점 및 기술",
+      "weaknesses": "약점 및 개선 영역",
+      "values": "업무 가치관",
+      "careerVision": "커리어 비전",
+      "understandingOfCompany": "회사 이해",
+      "workStyleAndConditions": "근무 방식 및 조건",
+      "applicantQuestions": "지원자 질문(문답)",
+      "passionMessage": "열의와 메시지"
+    },
+
+    "lecture": {
+      "objectives": "강의 목표",
+      "procedures": "절차",
+      "notesAndRemarks": "주의사항 및 비고",
+      "examplesAndScenarios": "예시 및 시나리오",
+      "dos": "해야 할 일",
+      "donts": "하면 안 되는 일",
+      "tipsAndInsights": "팁 및 인사이트"
+    },
+
+    "oneonone": {
+      "title": "1on1",
+      "recentSuccess": "최근 성과",
+      "contributingFactors": "기여 요인",
+      "scalableAction": "확장 가능한 실행",
+      "managerFeedback": "관리자 피드백",
+      "challengeFaced": "직면한 과제",
+      "bottleneck": "병목",
+      "improvementStrategy": "개선 전략",
+      "futureExpectation": "향후 기대",
+      "reasonForExpectation": "기대 이유",
+      "preparationForFuture": "미래 대비",
+      "concern": "우려",
+      "reasonForConcern": "우려 이유",
+      "mitigationIdeas": "완화 아이디어",
+      "mentalAspects": "멘탈 측면",
+      "feelingsAndBackground": "감정과 배경",
+      "emotionalChange": "감정 변화",
+      "nextAction": "다음 액션",
+      "coreEmotion": "핵심 감정",
+      "topicGroup": "주제 그룹",
+      "expectation": "기대",
+      "worry": "걱정",
+      "why": "이유",
+      "whatCausedIt": "원인",
+      "nextTimeStrategy": "다음 번 전략",
+      "preparation": "준비"
+    }
+  }
 
   }
   

@@ -242,7 +242,96 @@
 "Actions": "Handlinger",
 "Minutes preview surface": "Forhåndsvisning af mødereferat",
 "Prepaid minutes pricing": "Priser for forudbetalt plan",
-"Subscription pricing": "Abonnementspriser"
+"Subscription pricing": "Abonnementspriser",
+  "minutes": {
+    "minutesTitleFallback": "Referat",
+    "noContentProvided": "Intet indhold",
+    "noContentProvidedTitle": "Intet indhold",
+    "topic": "Emne",
+    "topicFallback": "Emne",
 
+    "discussion": "Diskussion",
+    "decisions": "Beslutninger",
+    "actionItems": "Handlingspunkter",
+    "concerns": "Bekymringer",
+    "summary": "Resumé",
+    "proposal": "Forslag",
+    "background": "Baggrund",
+    "discussionPoints": "Diskussionspunkter",
+    "decisionsAndTasks": "Beslutninger og opgaver",
+    "coreProblem": "Kerneproblem",
+    "expectedResult": "Forventet resultat",
+
+    "overview": "Oversigt",
+    "sections": "Afsnit",
+    "topics": "Emner",
+    "items": "Punkter",
+    "content": "Indhold",
+    "body": "Brødtekst",
+
+    "brainstorming": {
+      "problemToSolve": "Problem der skal løses",
+      "topIdea": "Topidé",
+      "meritsAndEffects": "Fordele og effekter",
+      "drawbacksAndRisks": "Ulemper og risici",
+      "runnerUpIdea": "Næstbedste idé",
+      "allIdeas": "Alle idéer",
+      "ideaTitle": "Idétitel"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivation",
+      "careerSummary": "Karriereoversigt",
+      "successes": "Succeser",
+      "failures": "Fejltagelser",
+      "strengths": "Styrker og kompetencer",
+      "weaknesses": "Svagheder og forbedringsområder",
+      "values": "Værdier i arbejdet",
+      "careerVision": "Karrierevision",
+      "understandingOfCompany": "Forståelse af virksomheden",
+      "workStyleAndConditions": "Arbejdsstil og vilkår",
+      "applicantQuestions": "Spørgsmål fra ansøger (Q&A)",
+      "passionMessage": "Engagement og budskab"
+    },
+
+    "lecture": {
+      "objectives": "Forelæsningsmål",
+      "procedures": "Fremgangsmåde",
+      "notesAndRemarks": "Noter og bemærkninger",
+      "examplesAndScenarios": "Eksempler og scenarier",
+      "dos": "Gør",
+      "donts": "Gør ikke",
+      "tipsAndInsights": "Tips og indsigter"
+    },
+
+    "oneonone": {
+      "title": "1on1",
+      "recentSuccess": "Seneste succes",
+      "contributingFactors": "Bidragende faktorer",
+      "scalableAction": "Skalerbar handling",
+      "managerFeedback": "Feedback fra leder",
+      "challengeFaced": "Udfordring",
+      "bottleneck": "Flaskehals",
+      "improvementStrategy": "Forbedringsstrategi",
+      "futureExpectation": "Fremtidige forventninger",
+      "reasonForExpectation": "Begrundelse for forventning",
+      "preparationForFuture": "Forberedelse til fremtiden",
+      "concern": "Bekymring",
+      "reasonForConcern": "Begrundelse for bekymring",
+      "mitigationIdeas": "Afbødningsidéer",
+      "mentalAspects": "Mentale aspekter",
+      "feelingsAndBackground": "Følelser og baggrund",
+      "emotionalChange": "Følelsesmæssig ændring",
+      "nextAction": "Næste handling",
+      "coreEmotion": "Kernefølelse",
+      "topicGroup": "Emnegruppe",
+      "expectation": "Forventning",
+      "worry": "Bekymring",
+      "why": "Hvorfor",
+      "whatCausedIt": "Hvad forårsagede det",
+      "nextTimeStrategy": "Strategi til næste gang",
+      "preparation": "Forberedelse"
+    }
+  }
   }
   

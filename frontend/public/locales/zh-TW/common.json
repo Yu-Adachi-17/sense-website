@@ -242,7 +242,96 @@
 "Actions": "操作",
 "Minutes preview surface": "會議紀錄預覽區域",
 "Prepaid minutes pricing": "預付費方案定價",
-"Subscription pricing": "訂閱方案定價"
+"Subscription pricing": "訂閱方案定價",
+  "minutes": {
+    "minutesTitleFallback": "會議紀錄",
+    "noContentProvided": "無內容",
+    "noContentProvidedTitle": "無內容",
+    "topic": "議題",
+    "topicFallback": "議題",
 
+    "discussion": "討論",
+    "decisions": "決策",
+    "actionItems": "行動項目",
+    "concerns": "顧慮",
+    "summary": "摘要",
+    "proposal": "提案",
+    "background": "背景",
+    "discussionPoints": "討論重點",
+    "decisionsAndTasks": "決策與任務",
+    "coreProblem": "核心問題",
+    "expectedResult": "預期結果",
+
+    "overview": "總覽",
+    "sections": "章節",
+    "topics": "主題",
+    "items": "項目",
+    "content": "內容",
+    "body": "主體內文",
+
+    "brainstorming": {
+      "problemToSolve": "待解決的問題",
+      "topIdea": "最佳點子",
+      "meritsAndEffects": "優點與效益",
+      "drawbacksAndRisks": "缺點與風險",
+      "runnerUpIdea": "次佳點子",
+      "allIdeas": "所有點子",
+      "ideaTitle": "點子標題"
+    },
+
+    "jobInterview": {
+      "motivation": "求職動機",
+      "careerSummary": "經歷摘要",
+      "successes": "成功經驗",
+      "failures": "失敗經驗",
+      "strengths": "優勢與技能",
+      "weaknesses": "弱點與改進處",
+      "values": "工作價值觀",
+      "careerVision": "職涯願景",
+      "understandingOfCompany": "對公司的理解",
+      "workStyleAndConditions": "工作型態與條件",
+      "applicantQuestions": "應徵者提問（Q&A）",
+      "passionMessage": "熱情與訊息"
+    },
+
+    "lecture": {
+      "objectives": "課程目標",
+      "procedures": "流程",
+      "notesAndRemarks": "注意事項與備註",
+      "examplesAndScenarios": "範例與情境",
+      "dos": "該做",
+      "donts": "不該做",
+      "tipsAndInsights": "提示與洞見"
+    },
+
+    "oneonone": {
+      "title": "1 對 1",
+      "recentSuccess": "近期成功",
+      "contributingFactors": "貢獻因素",
+      "scalableAction": "可擴展的行動",
+      "managerFeedback": "主管回饋",
+      "challengeFaced": "面臨的挑戰",
+      "bottleneck": "瓶頸",
+      "improvementStrategy": "改善策略",
+      "futureExpectation": "未來期望",
+      "reasonForExpectation": "期望理由",
+      "preparationForFuture": "面向未來的準備",
+      "concern": "顧慮",
+      "reasonForConcern": "顧慮的原因",
+      "mitigationIdeas": "緩解點子",
+      "mentalAspects": "心理層面",
+      "feelingsAndBackground": "感受與背景",
+      "emotionalChange": "情緒變化",
+      "nextAction": "下一步行動",
+      "coreEmotion": "核心情緒",
+      "topicGroup": "主題群組",
+      "expectation": "期望",
+      "worry": "擔憂",
+      "why": "為什麼",
+      "whatCausedIt": "成因",
+      "nextTimeStrategy": "下次策略",
+      "preparation": "準備"
+    }
+  }
   }
   
