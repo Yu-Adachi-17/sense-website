@@ -212,7 +212,12 @@ app.get('/api/debug/ffprobe', (req, res) => {
 
 // Detailed request debug logging tail
 app.use((req, res, next) => {
-  console.log(`[DEBUG] Request received:\n  - Method: ${req.method}\n  - Origin: ${req.headers.origin || 'Not set'}\n  - Path: ${req.path}\n  - Headers: ${JSON.stringify(req.headers, null, 2)}\n`);
+  console.log(`[DEBUG] Request received:
+  - Method: ${req.method}
+  - Origin: ${req.headers.origin || 'Not set'}
+  - Path: ${req.path}
+  - Headers: ${JSON.stringify(req.headers, null, 2)}
+`);
   next();
 });
 
@@ -239,9 +244,9 @@ const upload = multer({
   limits: { fileSize: 500 * 1024 * 1024 } // 500MB
 });
 
-// OpenAI API endpoints (Responses API ONLY — required for GPT‑5 params)
+// OpenAI API endpoints
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
-const OPENAI_API_ENDPOINT_RESPONSES = 'https://api.openai.com/v1/responses';
+const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
 
 /**
  * splitText: Splits text into chunks of specified size.
@@ -258,7 +263,7 @@ function splitText(text, chunkSize) {
 }
 
 /**
- * combineMinutes: Uses Responses API to merge partial minutes.
+ * combineMinutes: Calls the ChatGPT API to combine partial meeting minutes.
  */
 async function combineMinutes(combinedText, meetingFormat) {
   const template = (meetingFormat && meetingFormat.trim()) || '';
@@ -272,31 +277,29 @@ ${template}
 </MINUTES_TEMPLATE>`;
 
   const data = {
-    model: 'gpt-5-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
-    reasoning_effort: 'medium',   // GPT‑5 param (Responses API)
-    verbosity: 'medium',          // GPT‑5 param (Responses API)
-    max_output_tokens: 16000,
-    input: [
+    max_tokens: 16000,
+    messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: combinedText },
-    ]
+    ],
   };
 
   try {
-    const response = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
+    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
       headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
       timeout: 600000,
     });
-    return response.data.output_text?.trim?.() || '';
+    return response.data.choices[0].message.content.trim();
   } catch (error) {
-    console.error('[ERROR] Failed to call Responses API for combining minutes:', error.response?.data || error.message);
+    console.error('[ERROR] Failed to call ChatGPT API for combining minutes:', error.response?.data || error.message);
     throw new Error('Failed to combine meeting minutes');
   }
 }
 
 /**
- * generateMinutes: Uses Responses API to generate meeting minutes (classic template text).
+ * generateMinutes: Uses ChatGPT API to generate meeting minutes (classic template text).
  */
 function isValidMinutes(out) {
   if (!out) return false;
@@ -315,12 +318,10 @@ ${template.trim()}
 </MINUTES_TEMPLATE>`;
 
   const data = {
-    model: 'gpt-5-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
-    reasoning_effort: 'minimal',  // 修復は推論最小で十分
-    verbosity: 'medium',
-    max_output_tokens: 16000,
-    input: [
+    max_tokens: 16000,
+    messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content:
 `Please format this into the template (output only the body).:
@@ -331,11 +332,11 @@ ${badOutput}
     ]
   };
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
+  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
     headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
     timeout: 600000,
   });
-  return resp.data.output_text?.trim?.() || '';
+  return resp.data.choices[0].message.content.trim();
 }
 
 const generateMinutes = async (transcription, formatTemplate) => {
@@ -369,37 +370,35 @@ ${transcription}
 </TRANSCRIPT>`;
 
   const data = {
-    model: 'gpt-5-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
     temperature: 0,
-    reasoning_effort: 'medium',
-    verbosity: 'medium',
-    max_output_tokens: 16000,
-    input: [
+    max_tokens: 16000,
+    messages: [
       { role: 'system', content: systemMessage },
-      { role: 'user', content: userMessage }, // ★ 以前の combinedText バグ修正
-    ]
+      { role: 'user', content: userMessage },
+    ],
   };
 
   try {
-    const response = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
+    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
       headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
       timeout: 600000,
     });
-    let out = response.data.output_text?.trim?.() || '';
+    let out = response.data.choices[0].message.content.trim();
 
     if (!isValidMinutes(out)) {
       out = await repairToTemplate(out, template);
     }
     return out;
   } catch (error) {
-    console.error('[ERROR] Failed to call Responses API (generateMinutes):', error.response?.data || error.message);
-    throw new Error('Failed to generate meeting minutes using OpenAI Responses API');
+    console.error('[ERROR] Failed to call ChatGPT API:', error.response?.data || error.message);
+    throw new Error('Failed to generate meeting minutes using ChatGPT API');
   }
 };
 
-/* ===============================================
+/* ================================
    Flexible Minutes(JSON) 生成系（旧）
-   =============================================== */
+   ================================ */
 
 function isValidFlexibleJSON(str) {
   try {
@@ -414,13 +413,11 @@ function isValidFlexibleJSON(str) {
 
 async function repairFlexibleJSON(badOutput, langHint) {
   const data = {
-    model: 'gpt-5-mini',
+    model: "gpt-4.1-mini", // ★ 新モデル名
+    response_format: { type: "json_object" },
     temperature: 0,
-    reasoning_effort: 'minimal',
-    verbosity: 'medium',
-    response_format: { type: 'json_object' },
-    max_output_tokens: 16000,
-    input: [
+    max_tokens: 16000,
+    messages: [
       {
         role: 'system',
         content:
@@ -449,11 +446,11 @@ ${badOutput}
     ]
   };
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
+  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
     headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
     timeout: 600000,
   });
-  return resp.data.output_text?.trim?.() || '';
+  return resp.data.choices[0].message.content.trim();
 }
 
 async function generateFlexibleMinutes(transcription, langHint) {
@@ -464,50 +461,45 @@ async function generateFlexibleMinutes(transcription, langHint) {
   });
 
   const data = {
-    model: 'gpt-5-mini',
-    response_format: { type: 'json_object' }, // JSON モード
+    model: "gpt-4.1-mini", // ★ 新モデル名
+    response_format: { type: "json_object" },
     temperature: 0,
-    reasoning_effort: 'medium',
-    verbosity: 'medium',
-    max_output_tokens: 16000,
-    // Responses API は input に chat 風配列も渡せる
-    input: messages,
+    max_tokens: 16000,
+    messages,
   };
 
   try {
-    const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
+    const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
       headers: {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
       },
       timeout: 600000,
     });
-    let out = resp.data.output_text?.trim?.() || '';
+    let out = resp.data.choices[0].message.content.trim();
     if (!isValidFlexibleJSON(out)) {
       out = await repairFlexibleJSON(out, langHint);
     }
     return out;
   } catch (err) {
-    console.error('[ERROR] generateFlexibleMinutes (Responses API):', err.response?.data || err.message);
+    console.error('[ERROR] generateFlexibleMinutes:', err.response?.data || err.message);
     throw new Error('Failed to generate flexible minutes');
   }
 }
 
-/* ===============================================
+/* ================================
    新：フォーマットJSONに基づく生成（formatId/locale）
-   =============================================== */
+   ================================ */
 
 async function generateWithFormatJSON(transcript, fmt) {
   // fmt = { formatId, locale, schemaId, title, prompt, notes }
   // 各プロンプトは「JSON形式で出せ」と明示されている想定なので JSON モードで投げる。
   const data = {
-    model: 'gpt-5-mini',
-    response_format: { type: 'json_object' },
+    model: "gpt-4.1-mini", // ★ 新モデル名
+    response_format: { type: "json_object" },
     temperature: 0,
-    reasoning_effort: 'medium',
-    verbosity: 'medium',
-    max_output_tokens: 16000,
-    input: [
+    max_tokens: 16000,
+    messages: [
       { role: 'system', content: fmt.prompt || '' },
       {
         role: 'user',
@@ -521,11 +513,11 @@ ${transcript}
     ]
   };
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
+  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
     headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
     timeout: 600000,
   });
-  return resp.data.output_text?.trim?.() || '';
+  return resp.data.choices[0].message.content.trim();
 }
 
 /**
@@ -873,25 +865,26 @@ app.post('/api/generate-minutes', async (req, res) => {
       meta = { legacy: true, outputType, lang: lang || null };
     }
 
-    // ===== ログ出力（Railway に出る）========================
-    const shouldLog =
-      process.env.LOG_GENERATED_MINUTES === '1' ||
-      req.headers['x-debug-log'] === '1' ||
-      req.query.debug === '1';
-    if (shouldLog) {
-      // 1) 生成本文そのまま（フェンス入りや長文でも欠落しない）
-      logLong('[GENERATED_MINUTES raw]', minutes);
-      // 2) JSONとして解釈できるなら見やすく整形してもう一回
-      try {
-        const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
-        logLong('[GENERATED_MINUTES pretty]', pretty);
-      } catch { /* JSONでなければ無視 */ }
-      // 3) 参照のため入力トランスクリプトも必要なら
-      if (process.env.LOG_TRANSCRIPT === '1') {
-        logLong('[TRANSCRIPT]', transcript);
-      }
-    }
-    // ===
+       // ===== ここからログ出力（Railway に出る）========================
+   // スイッチ条件：環境変数 or 一時的ヘッダ/クエリ
+   const shouldLog =
+     process.env.LOG_GENERATED_MINUTES === '1' ||
+     req.headers['x-debug-log'] === '1' ||
+     req.query.debug === '1';
+   if (shouldLog) {
+     // 1) 生成本文そのまま（フェンス入りや長文でも欠落しない）
+     logLong('[GENERATED_MINUTES raw]', minutes);
+     // 2) JSONとして解釈できるなら見やすく整形してもう一回
+     try {
+       const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
+       logLong('[GENERATED_MINUTES pretty]', pretty);
+     } catch { /* JSONでなければ無視 */ }
+     // 3) 参照のため入力トランスクリプトも必要なら
+     if (process.env.LOG_TRANSCRIPT === '1') {
+       logLong('[TRANSCRIPT]', transcript);
+     }
+   }
+   // ===
 
     return res.json({
       transcription: transcript.trim(),
@@ -899,14 +892,8 @@ app.post('/api/generate-minutes', async (req, res) => {
       meta
     });
   } catch (err) {
-    console.error('[ERROR] /api/generate-minutes:', err.response?.data || err.message);
-
-    // Upstream 400 をわかりやすく返す（本番では冗長情報は隠すなら環境変数で切替）
-    const status = err.response?.status || 500;
-    return res.status(status).json({
-      error: 'Internal error',
-      details: err.response?.data || err.message
-    });
+    console.error('[ERROR] /api/generate-minutes:', err);
+    return res.status(500).json({ error: 'Internal error', details: err.message });
   }
 });
 
