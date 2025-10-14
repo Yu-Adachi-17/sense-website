@@ -1,12 +1,13 @@
-// frontend/src/pages/buy-tickets.js
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { getAuth } from "firebase/auth";
+// ❌ 直接 getAuth は使わない
+// import { getAuth } from "firebase/auth";
 import HomeIcon from "./homeIcon";
+import { getClientAuth } from "../firebaseConfig";
 
 const SITE_URL = "https://www.sense-ai.world";
 
@@ -173,8 +174,19 @@ export default function BuyTicketsPage() {
   const [loadingProductId, setLoadingProductId] = useState(null);
   const [authInstance, setAuthInstance] = useState(null);
 
+  // ✅ Firebase Auth を SSR 安全に初期化
   useEffect(() => {
-    if (typeof window !== "undefined") setAuthInstance(getAuth());
+    let mounted = true;
+    (async () => {
+      if (typeof window === "undefined") return;
+      try {
+        const auth = await getClientAuth(); // initializeApp 済みの Auth を取得
+        if (mounted) setAuthInstance(auth);
+      } catch (e) {
+        console.error("Failed to init Firebase Auth:", e);
+      }
+    })();
+    return () => { mounted = false; };
   }, []);
 
   const handleBuyClick = async (productId) => {
@@ -293,9 +305,9 @@ export default function BuyTicketsPage() {
       <main className="scene buyScene">
         <section className="pricingSection" aria-labelledby="pricingHead">
           <div className="pricingHeadWrap">
-          <h2 id="pricingHead" className="pricingH2 gradText">
-  {t("Upgrade")}
-</h2>
+            <h2 id="pricingHead" className="pricingH2 gradText">
+              {t("Upgrade")}
+            </h2>
 
             <p className="pricingSub">
               {t(
@@ -398,7 +410,7 @@ export default function BuyTicketsPage() {
           --halo: 255, 255, 255;
           position: relative;
           min-height: 100vh;
-          padding-top: var(--header-offset); /* ヘッダー分の余白 */
+          padding-top: var(--header-offset);
           padding-bottom: 24vh;
           overflow: hidden;
           color: #fff;
@@ -458,7 +470,8 @@ export default function BuyTicketsPage() {
           margin: 0;
           font-weight: 900;
           letter-spacing: -0.02em;
-          line-height: 1.02;
+          line-height: 1.08;
+          padding-bottom: 0.06em;
           font-size: clamp(36px, 6.3vw, 92px);
         }
         .pricingSub {
@@ -570,25 +583,16 @@ export default function BuyTicketsPage() {
           opacity: 0.7;
           white-space: nowrap;
         }
-            .gradText{
-    background: linear-gradient(
-      90deg,
-      #7cc7ff 0%,
-      #8db4ff 35%,
-      #65e0c4 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
-    .pricingH2{
-  line-height: 1.08;        /* 1.02 → 少しゆったり */
-  padding-bottom: 0.06em;   /* 描画の切れ防止クッション */
-}
-.buyScene .pricingSection{
-  margin-top: clamp(8px, 4vh, 60px); /* 元: clamp(26px, 9vh, 120px) の上側を上書き */
-}
+        .gradText{
+          background: linear-gradient(90deg,#7cc7ff 0%,#8db4ff 35%,#65e0c4 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          -webkit-text-fill-color: transparent;
+        }
+        .buyScene .pricingSection{
+          margin-top: clamp(8px, 4vh, 60px);
+        }
         @media (max-width: 640px) {
           .footInner {
             flex-direction: column;
@@ -599,7 +603,6 @@ export default function BuyTicketsPage() {
 
       {/* ===== 追加修正：リンクの紫・下線を強制的にオフ／注釈下の余白調整 ===== */}
       <style jsx global>{`
-        /* フッターのリンクを常にプレーン（白・下線なし） */
         .pageFooter .legalLink,
         .pageFooter .legalLink:visited,
         .pageFooter .legalLink:hover,
@@ -613,9 +616,7 @@ export default function BuyTicketsPage() {
           outline-offset: 2px;
           border-radius: 6px;
         }
-          
 
-        /* /buy-tickets 専用：注釈〜フッターの余白を少し詰める */
         .buyScene {
           padding-bottom: clamp(28px, 7vh, 84px);
         }
@@ -629,7 +630,6 @@ export default function BuyTicketsPage() {
       `}</style>
 
       {/* ===== /home と同じヘッダーの共通グローバル変数／装飾 ===== */}
-      
       <style jsx global>{`
         :root {
           --header-h: clamp(56px, 7.2vh, 72px);
