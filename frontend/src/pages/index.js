@@ -111,10 +111,30 @@ function App() {
   const [recordingIssue, setRecordingIssue] = useState(null);
   const zeroChunkCountRef = useRef(0);
   const silenceSecondsRef = useRef(0);
-  // MinutesListと同じカード影
-const cardShadow =
-  "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
+  // ===== ロケール正規化ユーティリティ =====
+  const SUPPORTED = new Set(["en","ja","ar","de","es","fr","id","ko","ms","pt","sv","tr","zh-cn","zh-tw"]);
+  const normalize = (lng) => {
+    if (!lng) return null;
+    const lc = String(lng).toLowerCase();
+    if (lc.startsWith("zh")) {
+      if (lc.includes("tw") || lc.includes("hk")) return "zh-tw";
+      return "zh-cn";
+    }
+    return lc.split("-")[0]; // ja-JP -> ja
+  };
+  const computeEffectiveLocale = () => {
+    const pageLng =
+      normalize(router.locale) ||
+      normalize(i18n.language) ||
+      normalize(typeof navigator !== 'undefined' && navigator.language) ||
+      "en";
+    return SUPPORTED.has(pageLng) ? pageLng : "en";
+  };
+
+  // MinutesListと同じカード影
+  const cardShadow =
+    "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
   // ======== Textモード判定（デバッグ時はマイク不要で即テキスト処理）========
   const shouldUseTextMode = () => {
@@ -128,19 +148,19 @@ const cardShadow =
     } catch {}
     return false;
   };
+
   // 追加：スマホ判定と基準サイズ
-const BASE_RECORD_SIZE = 420;
-const [isMobile, setIsMobile] = useState(false);
+  const BASE_RECORD_SIZE = 420;
+  const [isMobile, setIsMobile] = useState(false);
 
-useEffect(() => {
-  if (typeof window === 'undefined') return;
-  const mq = window.matchMedia('(max-width: 600px)'); // スマホ想定幅
-  const onChange = (e) => setIsMobile(e.matches);
-  setIsMobile(mq.matches);
-  mq.addEventListener('change', onChange);
-  return () => mq.removeEventListener('change', onChange);
-}, []);
-
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(max-width: 600px)'); // スマホ想定幅
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   // タイトルとdir
   useEffect(() => { document.title = pageTitle; }, [pageTitle]);
@@ -342,13 +362,20 @@ useEffect(() => {
           setIsProcessing
         );
 
+        // ===== 有効ロケールを算出（body とヘッダに載せる）=====
+        const effectiveLocale = computeEffectiveLocale();
+
         const gen = await apiFetch(`/api/generate-minutes`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "X-User-Locale": effectiveLocale,
+            "Accept-Language": effectiveLocale
+          },
           body: JSON.stringify({
             transcript: newTranscription || "",
             formatId: selectedMeetingFormat?.id || "general",
-            locale: i18n.language || "en",
+            locale: effectiveLocale,
           })
         });
         if (!gen.ok) throw new Error(`HTTP ${gen.status}`);
@@ -375,13 +402,20 @@ useEffect(() => {
     setProgressStep("transcribing");
     setIsProcessing(true);
     try {
+      // ===== 有効ロケールを算出（body とヘッダに載せる）=====
+      const effectiveLocale = computeEffectiveLocale();
+
       const resp = await apiFetch(`/api/generate-minutes`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-User-Locale": effectiveLocale,
+          "Accept-Language": effectiveLocale
+        },
         body: JSON.stringify({
           transcript: rawText,
           formatId: selectedMeetingFormat?.id || "general",
-          locale: i18n.language || "en",
+          locale: effectiveLocale,
         })
       });
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
@@ -442,7 +476,7 @@ useEffect(() => {
 
     // --- デバッグ（テキスト）モード：録音処理を完全にスキップ ---
     if (shouldUseTextMode()) {
-      const text = getDebugTranscript(i18n.language);
+      const text = getDebugTranscript(computeEffectiveLocale());
       await processDebugText(text);
       return;
     }
@@ -614,23 +648,24 @@ useEffect(() => {
       console.error("[RECDBG] getUserMedia error:", err?.name, err?.message, err);
 
       let msg = "";
-      switch (err?.name) {
-        case "NotAllowedError":
-        case "SecurityError":
-          msg = "マイクがブラウザまたはOSによりブロックされています。 macOSのマイク権限/Chromeのサイト設定を確認してください。";
-          break;
-        case "NotFoundError":
-          msg = "利用可能なマイクが見つかりません。macOSのサウンド入力や物理接続を確認してください。";
-          break;
-        case "NotReadableError":
-          msg = "別のアプリがマイクを使用中の可能性。Zoom/Meet/Discord を終了してからお試しください。";
-          break;
-        case "OverconstrainedError":
-          msg = "指定条件に一致するマイクがありません（deviceId等）。Chromeの既定マイクを確認してください。";
-          break;
-        default:
-          msg = "マイク取得に失敗しました。Chromeのサイト権限、OSのマイク権限、他アプリの占有を確認してください。";
-      }
+switch (err?.name) {
+  case "NotAllowedError":
+  case "SecurityError":
+    msg = "The microphone is blocked by the browser or OS. Please check macOS mic permissions and Chrome’s site settings.";
+    break;
+  case "NotFoundError":
+    msg = "No available microphone was found. Check your macOS input settings and any physical connections.";
+    break;
+  case "NotReadableError":
+    msg = "Another app may be using the microphone. Close Zoom/Meet/Discord and try again.";
+    break;
+  case "OverconstrainedError":
+    msg = "No microphone matches the requested constraints (e.g., deviceId). Verify Chrome’s default input device.";
+    break;
+  default:
+    msg = "Failed to access the microphone. Check Chrome’s site permissions, macOS mic permissions, and whether another app is taking exclusive control.";
+}
+
       setRecordingIssue({
         message: "Could not access the microphone.",
         hint: msg.replace(/\n/g, " ")
@@ -812,7 +847,6 @@ useEffect(() => {
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
           {!showFullScreen && <PurchaseMenu />}
 
-
           {/* 中央の録音 UI */}
           <div
             style={{
@@ -832,13 +866,12 @@ useEffect(() => {
             >
               <div className={!isRecording ? 'pulse' : ''} style={{ display: 'inline-block' }}>
                 {isRecording ? (
-<GlassRecordButton
-  isRecording={isRecording}
-  audioLevel={audioLevel}
-  onClick={toggleRecording}
-  size={isMobile ? Math.round(BASE_RECORD_SIZE * 0.75) : BASE_RECORD_SIZE}
-/>
-
+                  <GlassRecordButton
+                    isRecording={isRecording}
+                    audioLevel={audioLevel}
+                    onClick={toggleRecording}
+                    size={isMobile ? Math.round(BASE_RECORD_SIZE * 0.75) : BASE_RECORD_SIZE}
+                  />
                 ) : (
                   <button
                     onClick={toggleRecording}
@@ -890,39 +923,38 @@ useEffect(() => {
         </div>
 
         {/* 中央：フォーマット名ピル（球体と時間の“あいだ”） */}
-<div
-  style={{
-    position: 'absolute',
-    left: '50%',
-    top: 'calc(50% - 330px)', // 球体420pxの真下+少し余白
-    transform: 'translateX(-50%)',
-    zIndex: 12
-  }}
->
-  <Link href="/meeting-formats" legacyBehavior>
-    <a
-      aria-label="Choose Meeting Format"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 8,
-        padding: '10px 14px',
-        borderRadius: 12,
-        background: '#fff',
-        color: '#111',
-        textDecoration: 'none',
-        fontSize: 14,
-        fontWeight: 700,
-        border: '1px solid rgba(0,0,0,0.04)',
-        boxShadow: cardShadow    // ← MinutesListと同じ立体感
-      }}
-    >
-      {selectedMeetingFormat?.displayName || 'General'}
-      {/* JSON表示は出さない */}
-    </a>
-  </Link>
-</div>
-
+        <div
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: 'calc(50% - 330px)', // 球体420pxの真下+少し余白
+            transform: 'translateX(-50%)',
+            zIndex: 12
+          }}
+        >
+          <Link href="/meeting-formats" legacyBehavior>
+            <a
+              aria-label="Choose Meeting Format"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '10px 14px',
+                borderRadius: 12,
+                background: '#fff',
+                color: '#111',
+                textDecoration: 'none',
+                fontSize: 14,
+                fontWeight: 700,
+                border: '1px solid rgba(0,0,0,0.04)',
+                boxShadow: cardShadow    // ← MinutesListと同じ立体感
+              }}
+            >
+              {selectedMeetingFormat?.displayName || 'General'}
+              {/* JSON表示は出さない */}
+            </a>
+          </Link>
+        </div>
 
         {/* 残時間表示 */}
         {isUserDataLoaded && (
