@@ -242,5 +242,95 @@
 "Actions": "操作",
 "Minutes preview surface": "議事録プレビュー",
 "Prepaid minutes pricing": "前払いプラン料金",
-"Subscription pricing": "サブスクリプション料金"
+"Subscription pricing": "サブスクリプション料金",
+  "minutes": {
+    "minutesTitleFallback": "議事録",
+    "noContentProvided": "内容がありません",
+    "noContentProvidedTitle": "内容がありません",
+    "topic": "議題",
+    "topicFallback": "議題",
+
+    "discussion": "議論",
+    "decisions": "決定事項",
+    "actionItems": "アクションアイテム",
+    "concerns": "懸念事項",
+    "summary": "要約",
+    "proposal": "提案",
+    "background": "背景",
+    "discussionPoints": "論点",
+    "decisionsAndTasks": "決定とタスク",
+    "coreProblem": "核心課題",
+    "expectedResult": "期待される結果",
+
+    "overview": "概要",
+    "sections": "セクション",
+    "topics": "トピック",
+    "items": "項目",
+    "content": "内容",
+    "body": "本文",
+
+    "brainstorming": {
+      "problemToSolve": "解決すべき課題",
+      "topIdea": "最有力アイデア",
+      "meritsAndEffects": "メリット・効果",
+      "drawbacksAndRisks": "デメリット・リスク",
+      "runnerUpIdea": "次点アイデア",
+      "allIdeas": "すべてのアイデア",
+      "ideaTitle": "アイデア名"
+    },
+
+    "jobInterview": {
+      "motivation": "志望動機",
+      "careerSummary": "職務要約",
+      "successes": "成功体験",
+      "failures": "失敗体験",
+      "strengths": "強み・スキル",
+      "weaknesses": "弱み・改善点",
+      "values": "仕事で大切にする価値観",
+      "careerVision": "キャリアビジョン",
+      "understandingOfCompany": "企業理解",
+      "workStyleAndConditions": "働き方・条件",
+      "applicantQuestions": "応募者からの質問（Q&A）",
+      "passionMessage": "熱意・メッセージ"
+    },
+
+    "lecture": {
+      "objectives": "講義の目的",
+      "procedures": "進行手順",
+      "notesAndRemarks": "注意・備考",
+      "examplesAndScenarios": "事例・シナリオ",
+      "dos": "やるべきこと",
+      "donts": "やってはいけないこと",
+      "tipsAndInsights": "ヒント・示唆"
+    },
+
+    "oneonone": {
+      "title": "1on1",
+      "recentSuccess": "最近の成功",
+      "contributingFactors": "貢献要因",
+      "scalableAction": "スケーラブルな行動",
+      "managerFeedback": "マネージャーからのフィードバック",
+      "challengeFaced": "直面した課題",
+      "bottleneck": "ボトルネック",
+      "improvementStrategy": "改善戦略",
+      "futureExpectation": "今後の期待",
+      "reasonForExpectation": "期待の理由",
+      "preparationForFuture": "将来に向けた準備",
+      "concern": "懸念",
+      "reasonForConcern": "懸念の理由",
+      "mitigationIdeas": "対策アイデア",
+      "mentalAspects": "メンタル面",
+      "feelingsAndBackground": "感情と背景",
+      "emotionalChange": "感情の変化",
+      "nextAction": "次のアクション",
+      "coreEmotion": "中核感情",
+      "topicGroup": "トピックグループ",
+      "expectation": "期待",
+      "worry": "不安",
+      "why": "理由",
+      "whatCausedIt": "原因",
+      "nextTimeStrategy": "次回の戦略",
+      "preparation": "準備"
+    }
+  }
 }

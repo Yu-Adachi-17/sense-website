@@ -1,5 +1,6 @@
 // src/lib/minutes-universal.js
 // あらゆる minutes JSON を UnifiedDoc(AST) に正規化するユーティリティ
+// 変更点: toUnifiedDoc 第二引数 options に { t, ns } を受け取り、すべての表示ラベルをi18n化。
 
 /** ====== 型メモ（JSなのでコメントで） ======
 UnifiedDoc = {
@@ -22,6 +23,28 @@ Block =
 const DROP_META_KEYS = new Set([
   "formatId","schemaId","locale","language","version","_meta","meta","id","uid","type"
 ]);
+
+/** ====== i18n ヘルパ ======
+ * options.t に next-i18next の t を渡す。ns はデフォルト 'common'。
+ * キーは `${ns}:minutes.<key>` を見る。見つからなければ fallback。
+ */
+function createLabeler(options) {
+  const t = options?.t;
+  const ns = options?.ns || "common";
+  return function L(key, fallback) {
+    if (typeof t === "function") {
+      const k = `minutes.${key}`;
+      const translated = t(k);
+      if (translated && translated !== k) return translated;
+      // ns 指定が無視されるケースに備えて明示呼び出しも試す
+      try {
+        const explicit = t(`${ns}:minutes.${key}`);
+        if (explicit && explicit !== `minutes.${key}`) return explicit;
+      } catch {}
+    }
+    return fallback;
+  };
+}
 
 export function stripCodeFences(raw) {
   if (typeof raw !== "string") return raw;
@@ -76,7 +99,7 @@ function isLegacy(o) {
   return o && typeof o === "object" && Array.isArray(o.topics);
 }
 
-// ★ 追加: 1on1スキーマ検出
+// 1on1スキーマ検出
 function isOneOnOne(o) {
   return o && typeof o === "object" && Array.isArray(o.groupedOneOnOneTopics);
 }
@@ -89,7 +112,7 @@ function pickMeta(o) {
   return meta;
 }
 
-function mapFlexible(o) {
+function mapFlexible(o, L) {
   /** o: {meetingTitle, summary, sections:[{title, topics:[{subTitle, details[]}] }]} */
   const doc = {
     title: o.meetingTitle || "",
@@ -116,7 +139,7 @@ function mapFlexible(o) {
   return doc;
 }
 
-function mapLegacy(o) {
+function mapLegacy(o, L) {
   /** topics: [{ topic, discussion[], proposals[], decisionsAndTasks[] ...}] */
   const doc = {
     title: typeof o.meetingTitle === "string" ? o.meetingTitle : "",
@@ -137,7 +160,6 @@ function mapLegacy(o) {
     if (label) doc.blocks.push({ type: "heading", level: 3, text: label });
     doc.blocks.push({ type: "paragraph", text });
   };
-  // 値の型に応じて自動描画
   const pushAuto = (val, label, ordered = false) => {
     if (val == null) return;
     if (typeof val === "string") {
@@ -147,13 +169,11 @@ function mapLegacy(o) {
         if (val.every(x => typeof x === "string")) {
           pushList(val, label, ordered);
         } else {
-          // 文字列以外が混在する場合は JSON 表示で救済
           doc.blocks.push({ type: "heading", level: 3, text: label });
           doc.blocks.push({ type: "paragraph", text: JSON.stringify(val, null, 2) });
         }
       }
     } else if (typeof val === "object") {
-      // オブジェクトは KeyValue or Table で救済
       const entries = Object.entries(val);
       if (entries.length) {
         const onlyPrimitives = entries.every(([_, v]) =>
@@ -173,143 +193,136 @@ function mapLegacy(o) {
   };
 
   topics.forEach((tp, i) => {
-    const head = `${i + 1}. ${tp.topic ?? "Topic"}`;
+    const head = `${i + 1}. ${tp.topic ?? L("topicFallback","Topic")}`;
     doc.blocks.push({ type: "heading", level: 2, text: head });
 
     // --- 旧キー（従来互換） ---
     if (Array.isArray(tp.discussion) && tp.discussion.length) {
-      pushList(tp.discussion, "Discussion");
+      pushList(tp.discussion, L("discussion","Discussion"));
     }
 
     if (Array.isArray(tp.proposals) && tp.proposals.length) {
       tp.proposals.forEach((p) => {
-        const label = `Proposal${p?.proposedBy ? ` (${p.proposedBy})` : ""}`;
+        const label = `${L("proposal","Proposal")}${p?.proposedBy ? ` (${p.proposedBy})` : ""}`;
         if (p?.proposal) {
           doc.blocks.push({ type: "heading", level: 3, text: label });
           doc.blocks.push({ type: "paragraph", text: String(p.proposal) });
         }
         if (Array.isArray(p?.proposalReasons) && p.proposalReasons.length) {
-          pushList(p.proposalReasons, "Background");
+          pushList(p.proposalReasons, L("background","Background"));
         }
         if (Array.isArray(p?.keyDiscussion) && p.keyDiscussion.length) {
-          pushList(p.keyDiscussion, "Discussion Points");
+          pushList(p.keyDiscussion, L("discussionPoints","Discussion Points"));
         }
       });
     }
 
     const legacyAgg = tp.decisionsAndTasks || tp.aggregatedDecisionsAndTasks;
     if (Array.isArray(legacyAgg) && legacyAgg.length) {
-      pushList(legacyAgg, "Decisions & Tasks", true);
+      pushList(legacyAgg, L("decisionsAndTasks","Decisions & Tasks"), true);
     }
 
     // --- 新キー（presentation* 系）---
-    pushParagraph(tp.presentationCoreProblem, "Core Problem");
-    pushList(tp.presentationProposal, "Proposal");
-    pushList(tp.presentationExpectedResult, "Expected Result");
-    pushList(tp.presentationDecisionsAndTasks, "Decisions & Tasks", true);
+    pushParagraph(tp.presentationCoreProblem, L("coreProblem","Core Problem"));
+    pushList(tp.presentationProposal, L("proposal","Proposal"));
+    pushList(tp.presentationExpectedResult, L("expectedResult","Expected Result"));
+    pushList(tp.presentationDecisionsAndTasks, L("decisionsAndTasks","Decisions & Tasks"), true);
 
-    // ========== ここから拡張マッピング ==========
+    // ========== 拡張マッピング ==========
     // 1) formatted_* 系
-    pushAuto(tp.formatted_discussion, "Discussion");
-    pushAuto(tp.formatted_decisions, "Decisions", true);
-    pushAuto(tp.formatted_todolist, "Action Items", true);
-    pushAuto(tp.formatted_concerns, "Concerns");
-    pushAuto(tp.formatted_summary, "Summary");
+    pushAuto(tp.formatted_discussion, L("discussion","Discussion"));
+    pushAuto(tp.formatted_decisions, L("decisions","Decisions"), true);
+    pushAuto(tp.formatted_todolist, L("actionItems","Action Items"), true);
+    pushAuto(tp.formatted_concerns, L("concerns","Concerns"));
+    pushAuto(tp.formatted_summary, L("summary","Summary"));
 
-    // 2) negotiation_* 系（トピック直下でも拾う）
-    pushAuto(tp.negotiation_proposal, "Proposal");
-    pushAuto(tp.negotiation_background, "Background");
-    pushAuto(tp.negotiation_discussionPoints, "Discussion Points");
-    pushAuto(tp.negotiation_decisions, "Decisions", true);
+    // 2) negotiation_*
+    pushAuto(tp.negotiation_proposal, L("proposal","Proposal"));
+    pushAuto(tp.negotiation_background, L("background","Background"));
+    pushAuto(tp.negotiation_discussionPoints, L("discussionPoints","Discussion Points"));
+    pushAuto(tp.negotiation_decisions, L("decisions","Decisions"), true);
 
-    // 3) brainstorming_* 系（snake / camel の両対応）
-    pushAuto(tp.brainstorming_problemToSolve ?? tp.brainstormingProblemToSolve, "Problem to solve");
-    pushAuto(tp.brainstorming_topIdea ?? tp.brainstormingTopIdea, "Top Idea");
-    pushAuto(tp.brainstorming_summary ?? tp.brainstormingSummary, "Summary");
-    pushAuto(tp.brainstorming_meritAndEffects ?? tp.brainstormingMeritAndEffects, "Merits and Effects");
-    pushAuto(tp.brainstorming_drawbacksAndRisks ?? tp.brainstormingDrawbacksAndRisks, "Drawbacks and Risks");
-    pushAuto(tp.brainstorming_decisionsAndTasks ?? tp.brainstormingDecisionsAndTasks, "Decisions and Tasks", true);
-    pushAuto(tp.brainstorming_RunnerUpIdea ?? tp.brainstormingRunnerUpIdea, "Runner-up Idea");
-    pushAuto(tp.brainstorming_allIdeas ?? tp.brainstormingAllIdeas, "All Ideas");
-    pushAuto(tp.brainstorming_title ?? tp.brainstormingTitle, "Idea Title");
+    // 3) brainstorming_*（snake / camel）
+    pushAuto(tp.brainstorming_problemToSolve ?? tp.brainstormingProblemToSolve, L("brainstorming.problemToSolve","Problem to solve"));
+    pushAuto(tp.brainstorming_topIdea ?? tp.brainstormingTopIdea, L("brainstorming.topIdea","Top Idea"));
+    pushAuto(tp.brainstorming_summary ?? tp.brainstormingSummary, L("summary","Summary"));
+    pushAuto(tp.brainstorming_meritAndEffects ?? tp.brainstormingMeritAndEffects, L("brainstorming.meritsAndEffects","Merits and Effects"));
+    pushAuto(tp.brainstorming_drawbacksAndRisks ?? tp.brainstormingDrawbacksAndRisks, L("brainstorming.drawbacksAndRisks","Drawbacks and Risks"));
+    pushAuto(tp.brainstorming_decisionsAndTasks ?? tp.brainstormingDecisionsAndTasks, L("decisionsAndTasks","Decisions and Tasks"), true);
+    pushAuto(tp.brainstorming_RunnerUpIdea ?? tp.brainstormingRunnerUpIdea, L("brainstorming.runnerUpIdea","Runner-up Idea"));
+    pushAuto(tp.brainstorming_allIdeas ?? tp.brainstormingAllIdeas, L("brainstorming.allIdeas","All Ideas"));
+    pushAuto(tp.brainstorming_title ?? tp.brainstormingTitle, L("brainstorming.ideaTitle","Idea Title"));
 
     // 4) jobInterview_* 系
-    pushAuto(tp.jobInterview_motivation, "Motivation");
-    pushAuto(tp.jobInterview_careerSummary, "Career Summary");
-    pushAuto(tp.jobInterview_successes, "Successes");
-    pushAuto(tp.jobInterview_failures, "Failures");
-    pushAuto(tp.jobInterview_strengths, "Strengths and Skills");
-    pushAuto(tp.jobInterview_weaknesses, "Weaknesses and Areas for Improvement");
-    pushAuto(tp.jobInterview_values, "Values at Work");
-    pushAuto(tp.jobInterview_careerVision, "Career Vision");
-    pushAuto(tp.jobInterview_understandingOfCompany, "Understanding of the Company");
-    pushAuto(tp.jobInterview_workStyleAndConditions, "Work Style and Conditions");
-    pushAuto(tp.jobInterview_applicantQuestions, "Questions from the Applicant (Q&A)");
-    pushAuto(tp.jobInterview_passionMessage, "Passion and Message");
+    pushAuto(tp.jobInterview_motivation, L("jobInterview.motivation","Motivation"));
+    pushAuto(tp.jobInterview_careerSummary, L("jobInterview.careerSummary","Career Summary"));
+    pushAuto(tp.jobInterview_successes, L("jobInterview.successes","Successes"));
+    pushAuto(tp.jobInterview_failures, L("jobInterview.failures","Failures"));
+    pushAuto(tp.jobInterview_strengths, L("jobInterview.strengths","Strengths and Skills"));
+    pushAuto(tp.jobInterview_weaknesses, L("jobInterview.weaknesses","Weaknesses and Areas for Improvement"));
+    pushAuto(tp.jobInterview_values, L("jobInterview.values","Values at Work"));
+    pushAuto(tp.jobInterview_careerVision, L("jobInterview.careerVision","Career Vision"));
+    pushAuto(tp.jobInterview_understandingOfCompany, L("jobInterview.understandingOfCompany","Understanding of the Company"));
+    pushAuto(tp.jobInterview_workStyleAndConditions, L("jobInterview.workStyleAndConditions","Work Style and Conditions"));
+    pushAuto(tp.jobInterview_applicantQuestions, L("jobInterview.applicantQuestions","Questions from the Applicant (Q&A)"));
+    pushAuto(tp.jobInterview_passionMessage, L("jobInterview.passionMessage","Passion and Message"));
 
-    // 5) 1on1_* 系（単一トピック内にも来る可能性に対応）
-    pushAuto(tp["1on1_momentOfSuccess"], "Recent Success");
-    pushAuto(tp["1on1_yourContribution"], "Contributing Factors");
-    pushAuto(tp["1on1_scalableAction"], "Scalable Action");
-    pushAuto(tp["1on1_managerFeedback"], "Manager Feedback");
-    pushAuto(tp["1on1_challengeFaced"], "Challenge Faced");
-    pushAuto(tp["1on1_whatCausedIt"] ?? tp["1on1_bottleneck"], "Bottleneck");
-    pushAuto(tp["1on1_nextTimeStrategy"], "Improvement Strategy");
-    pushAuto(tp["1on1_expectation"], "Future Expectation");
-    pushAuto(tp["1on1_whyExpectation"], "Reason for Expectation");
-    pushAuto(tp["1on1_preparation"], "Preparation for the Future");
-    pushAuto(tp["1on1_worry"], "Concern");
-    pushAuto(tp["1on1_whyWorry"], "Reason for Concern");
-    pushAuto(tp["1on1_mitigationIdeas"], "Mitigation Ideas");
-    pushAuto(tp["1on1_mental"], "Mental Aspects");
-    pushAuto(tp["1on1_emotionAndBackground"], "Feelings and Background");
-    pushAuto(tp["1on1_emotionChange"], "Emotional Change");
-    pushAuto(tp["1on1_forBetter"], "Next Action");
+    // 5) 1on1_* 系
+    pushAuto(tp["1on1_momentOfSuccess"], L("oneonone.recentSuccess","Recent Success"));
+    pushAuto(tp["1on1_yourContribution"], L("oneonone.contributingFactors","Contributing Factors"));
+    pushAuto(tp["1on1_scalableAction"], L("oneonone.scalableAction","Scalable Action"));
+    pushAuto(tp["1on1_managerFeedback"], L("oneonone.managerFeedback","Manager Feedback"));
+    pushAuto(tp["1on1_challengeFaced"], L("oneonone.challengeFaced","Challenge Faced"));
+    pushAuto(tp["1on1_whatCausedIt"] ?? tp["1on1_bottleneck"], L("oneonone.bottleneck","Bottleneck"));
+    pushAuto(tp["1on1_nextTimeStrategy"], L("oneonone.improvementStrategy","Improvement Strategy"));
+    pushAuto(tp["1on1_expectation"], L("oneonone.futureExpectation","Future Expectation"));
+    pushAuto(tp["1on1_whyExpectation"], L("oneonone.reasonForExpectation","Reason for Expectation"));
+    pushAuto(tp["1on1_preparation"], L("oneonone.preparationForFuture","Preparation for the Future"));
+    pushAuto(tp["1on1_worry"], L("oneonone.concern","Concern"));
+    pushAuto(tp["1on1_whyWorry"], L("oneonone.reasonForConcern","Reason for Concern"));
+    pushAuto(tp["1on1_mitigationIdeas"], L("oneonone.mitigationIdeas","Mitigation Ideas"));
+    pushAuto(tp["1on1_mental"], L("oneonone.mentalAspects","Mental Aspects"));
+    pushAuto(tp["1on1_emotionAndBackground"], L("oneonone.feelingsAndBackground","Feelings and Background"));
+    pushAuto(tp["1on1_emotionChange"], L("oneonone.emotionalChange","Emotional Change"));
+    pushAuto(tp["1on1_forBetter"], L("oneonone.nextAction","Next Action"));
 
     // 6) lecture_* 系
-    pushAuto(tp.lecture_lectureObjectives, "Lecture Objectives");
-    pushAuto(tp.lecture_lectureProcedures, "Procedures");
-    pushAuto(tp.lecture_notes, "Notes & Remarks");
-    pushAuto(tp.lecture_lectureExamples, "Examples & Scenarios");
-    pushAuto(tp.lecture_dos, "Dos");
-    pushAuto(tp.lecture_donts, "Don'ts");
-    pushAuto(tp.lecture_lectureTips, "Tips & Insights");
+    pushAuto(tp.lecture_lectureObjectives, L("lecture.objectives","Lecture Objectives"));
+    pushAuto(tp.lecture_lectureProcedures, L("lecture.procedures","Procedures"));
+    pushAuto(tp.lecture_notes, L("lecture.notesAndRemarks","Notes & Remarks"));
+    pushAuto(tp.lecture_lectureExamples, L("lecture.examplesAndScenarios","Examples & Scenarios"));
+    pushAuto(tp.lecture_dos, L("lecture.dos","Dos"));
+    pushAuto(tp.lecture_donts, L("lecture.donts","Don'ts"));
+    pushAuto(tp.lecture_lectureTips, L("lecture.tipsAndInsights","Tips & Insights"));
 
-    // 7) 汎用よくあるキー（既存）
-    pushList(tp.actionItems, "Action Items", true);
-    pushList(tp.decisions, "Decisions", true);
-    pushList(tp.concerns, "Concerns");
-    pushList(tp.keyMessages, "Summary");
+    // 7) 汎用
+    pushList(tp.actionItems, L("actionItems","Action Items"), true);
+    pushList(tp.decisions, L("decisions","Decisions"), true);
+    pushList(tp.concerns, L("concerns","Concerns"));
+    pushList(tp.keyMessages, L("summary","Summary"));
     // ========== 拡張ここまで ==========
 
     // --- 未対応フィールドを汎用描画で救済 ---
     const handled = new Set([
-      // 基本
       "topic","discussion","proposals","decisionsAndTasks","aggregatedDecisionsAndTasks",
       "presentationCoreProblem","presentationProposal","presentationExpectedResult","presentationDecisionsAndTasks",
       "actionItems","decisions","concerns","keyMessages",
-      // formatted_*
       "formatted_discussion","formatted_decisions","formatted_todolist","formatted_concerns","formatted_summary",
-      // negotiation_*
       "negotiation_proposal","negotiation_background","negotiation_discussionPoints","negotiation_decisions",
-      // brainstorming_*（snake & camel）
       "brainstorming_problemToSolve","brainstorming_topIdea","brainstorming_summary","brainstorming_meritAndEffects",
       "brainstorming_drawbacksAndRisks","brainstorming_decisionsAndTasks","brainstorming_RunnerUpIdea",
       "brainstorming_allIdeas","brainstorming_title",
       "brainstormingProblemToSolve","brainstormingTopIdea","brainstormingSummary","brainstormingMeritAndEffects",
       "brainstormingDrawbacksAndRisks","brainstormingDecisionsAndTasks","brainstormingRunnerUpIdea",
       "brainstormingAllIdeas","brainstormingTitle",
-      // jobInterview_*
       "jobInterview_motivation","jobInterview_careerSummary","jobInterview_successes","jobInterview_failures",
       "jobInterview_strengths","jobInterview_weaknesses","jobInterview_values","jobInterview_careerVision",
       "jobInterview_understandingOfCompany","jobInterview_workStyleAndConditions","jobInterview_applicantQuestions",
       "jobInterview_passionMessage",
-      // 1on1_*
       "1on1_momentOfSuccess","1on1_yourContribution","1on1_scalableAction","1on1_managerFeedback",
       "1on1_challengeFaced","1on1_whatCausedIt","1on1_bottleneck","1on1_nextTimeStrategy","1on1_expectation",
       "1on1_whyExpectation","1on1_preparation","1on1_worry","1on1_whyWorry","1on1_mitigationIdeas","1on1_mental",
       "1on1_emotionAndBackground","1on1_emotionChange","1on1_forBetter",
-      // lecture_*
       "lecture_lectureObjectives","lecture_lectureProcedures","lecture_notes","lecture_lectureExamples",
       "lecture_dos","lecture_donts","lecture_lectureTips",
     ]);
@@ -348,14 +361,14 @@ function mapLegacy(o) {
   if (typeof o.coreMessage === "string" && o.coreMessage.trim()) {
     doc.blocks.push({ type: "quote", text: o.coreMessage.trim() });
   }
-  if (!doc.title) doc.title = "Minutes";
+  if (!doc.title) doc.title = L("minutesTitleFallback","Minutes");
   return doc;
 }
 
-// ★ 追加: 1on1スキーマ用マッパ
-function mapOneOnOne(o) {
+// 1on1スキーマ用マッパ
+function mapOneOnOne(o, L) {
   const doc = {
-    title: typeof o.meetingTitle === "string" ? o.meetingTitle : "1on1",
+    title: typeof o.meetingTitle === "string" ? o.meetingTitle : L("oneonone.title","1on1"),
     meta: pickMeta(o),
     blocks: []
   };
@@ -364,13 +377,13 @@ function mapOneOnOne(o) {
   if (o.coreEmotion && typeof o.coreEmotion === "object") {
     const emo = [];
     if (typeof o.coreEmotion.emotionAndBackground === "string" && o.coreEmotion.emotionAndBackground.trim()) {
-      emo.push(`Feelings and Background: ${o.coreEmotion.emotionAndBackground.trim()}`);
+      emo.push(`${L("oneonone.feelingsAndBackground","Feelings and Background")}: ${o.coreEmotion.emotionAndBackground.trim()}`);
     }
     if (typeof o.coreEmotion.managerFeedback === "string" && o.coreEmotion.managerFeedback.trim()) {
-      emo.push(`Manager Feedback: ${o.coreEmotion.managerFeedback.trim()}`);
+      emo.push(`${L("oneonone.managerFeedback","Manager Feedback")}: ${o.coreEmotion.managerFeedback.trim()}`);
     }
     if (emo.length) {
-      doc.blocks.push({ type: "callout", title: "Core Emotion", text: emo.join("\n"), tone: "info" });
+      doc.blocks.push({ type: "callout", title: L("oneonone.coreEmotion","Core Emotion"), text: emo.join("\n"), tone: "info" });
       doc.blocks.push({ type: "divider" });
     }
   }
@@ -392,19 +405,19 @@ function mapOneOnOne(o) {
     if (label) doc.blocks.push({ type: "heading", level: 2, text: label });
 
     // よく出るキーを優先表示
-    pushParagraph(node.topic, "Topic");
-    pushParagraph(node.challengeFaced, "Challenge Faced");
-    pushParagraph(node.expectation, "Expectation");
-    pushParagraph(node.worry, "Worry");
+    pushParagraph(node.topic, L("topic","Topic"));
+    pushParagraph(node.challengeFaced, L("oneonone.challengeFaced","Challenge Faced"));
+    pushParagraph(node.expectation, L("oneonone.expectation","Expectation"));
+    pushParagraph(node.worry, L("oneonone.worry","Worry"));
 
-    pushList(node.why, "Why");
-    pushList(node.whatCausedIt, "What Caused It");
-    pushList(node.nextTimeStrategy, "Next Time Strategy");
-    pushList(node.preparation, "Preparation");
-    pushList(node.mitigationIdeas, "Mitigation Ideas");
+    pushList(node.why, L("oneonone.why","Why"));
+    pushList(node.whatCausedIt, L("oneonone.whatCausedIt","What Caused It"));
+    pushList(node.nextTimeStrategy, L("oneonone.nextTimeStrategy","Next Time Strategy"));
+    pushList(node.preparation, L("oneonone.preparation","Preparation"));
+    pushList(node.mitigationIdeas, L("oneonone.mitigationIdeas","Mitigation Ideas"));
 
     if (typeof node.managerFeedback === "string" && node.managerFeedback.trim()) {
-      doc.blocks.push({ type: "callout", title: "Manager Feedback", text: node.managerFeedback.trim(), tone: "success" });
+      doc.blocks.push({ type: "callout", title: L("oneonone.managerFeedback","Manager Feedback"), text: node.managerFeedback.trim(), tone: "success" });
     }
 
     // 未表示フィールド（プリミティブ/文字列配列のみ）を救済
@@ -426,13 +439,13 @@ function mapOneOnOne(o) {
   };
 
   groups.forEach((g, idx) => {
-    const head = `${idx + 1}. ${g?.groupTitle || "Topic Group"}`;
+    const head = `${idx + 1}. ${g?.groupTitle || L("oneonone.topicGroup","Topic Group")}`;
     doc.blocks.push({ type: "heading", level: 2, text: head });
 
-    if (g.pastPositive)  renderNode(g.pastPositive,  "Past Positive");
-    if (g.pastNegative)  renderNode(g.pastNegative,  "Past Negative");
-    if (g.futurePositive)renderNode(g.futurePositive,"Future Positive");
-    if (g.futureNegative)renderNode(g.futureNegative,"Future Negative");
+    if (g.pastPositive)  renderNode(g.pastPositive,  L("oneonone.pastPositive","Past Positive"));
+    if (g.pastNegative)  renderNode(g.pastNegative,  L("oneonone.pastNegative","Past Negative"));
+    if (g.futurePositive)renderNode(g.futurePositive,L("oneonone.futurePositive","Future Positive"));
+    if (g.futureNegative)renderNode(g.futureNegative,L("oneonone.futureNegative","Future Negative"));
 
     if (idx < groups.length - 1) doc.blocks.push({ type: "divider" });
   });
@@ -464,10 +477,9 @@ function objectToKeyValuePairs(o) {
       if (v.length && v.every(x => typeof x === "string")) {
         pairs.push([labelize(k), v.join(", ")]);
       }
-      continue; // それ以外（オブジェクト配列等）はスキップ
+      continue;
     }
     // オブジェクトは KeyValue では冗長になりやすいのでスキップ（専用マッパへ任せる）
-    // 必要なら JSON.stringify に切り替え可能
   }
   return pairs;
 }
@@ -500,28 +512,34 @@ function arrayOfObjectsToTable(arr) {
   return { header, rows };
 }
 
-function genericMap(o) {
+function genericMap(o, L) {
   const title = (typeof o?.meetingTitle === "string" && o.meetingTitle)
     || (typeof o?.title === "string" && o.title)
-    || "No Content Provided";
+    || L("noContentProvided","No Content Provided");
 
   const meta = pickMeta(o);
   const doc = { title, meta, blocks: [] };
 
   // 主要キーを優先
-  const PRIORITY = ["summary","overview","sections","topics","items","content","body"];
-  let didPriority = false;
+  const PRIORITY = [
+    ["summary", L("summary","Summary")],
+    ["overview", L("overview","Overview")],
+    ["sections", L("sections","Sections")],
+    ["topics", L("topics","Topics")],
+    ["items", L("items","Items")],
+    ["content", L("content","Content")],
+    ["body", L("body","Body")]
+  ];
 
-  for (const k of PRIORITY) {
+  for (const [k, label] of PRIORITY) {
     if (!(k in o)) continue;
-    didPriority = true;
     const v = o[k];
     if (typeof v === "string") {
-      doc.blocks.push({ type: "heading", level: 2, text: labelize(k) });
+      doc.blocks.push({ type: "heading", level: 2, text: label });
       doc.blocks.push({ type: "paragraph", text: v });
       doc.blocks.push({ type: "divider" });
     } else if (Array.isArray(v)) {
-      doc.blocks.push({ type: "heading", level: 2, text: labelize(k) });
+      doc.blocks.push({ type: "heading", level: 2, text: label });
       if (v.every(x => typeof x === "string")) {
         doc.blocks.push({ type: "list", items: v.map(String) });
       } else if (v.every(x => x && typeof x === "object" && !Array.isArray(x))) {
@@ -532,7 +550,7 @@ function genericMap(o) {
       }
       doc.blocks.push({ type: "divider" });
     } else if (v && typeof v === "object") {
-      doc.blocks.push({ type: "heading", level: 2, text: labelize(k) });
+      doc.blocks.push({ type: "heading", level: 2, text: label });
       const kv = objectToKeyValuePairs(v);
       if (kv.length) doc.blocks.push({ type: "keyValue", pairs: kv });
       else doc.blocks.push({ type: "paragraph", text: JSON.stringify(v, null, 2) });
@@ -549,17 +567,18 @@ function genericMap(o) {
 
 /** ===================== Public API ===================== */
 
-export function toUnifiedDoc(rawOrObject) {
+export function toUnifiedDoc(rawOrObject, options = {}) {
+  const L = createLabeler(options);
   const obj = safeParse(rawOrObject);
   if (!obj) {
     // JSONじゃなければプレーンテキスト扱いのASTを返す
     return {
-      title: "No Content Provided",
+      title: L("noContentProvidedTitle","No Content Provided"),
       blocks: [{ type: "paragraph", text: typeof rawOrObject === "string" ? stripCodeFences(rawOrObject) : "" }]
     };
   }
-  if (isFlexible(obj)) return mapFlexible(obj);
-  if (isLegacy(obj)) return mapLegacy(obj);
-  if (isOneOnOne(obj)) return mapOneOnOne(obj); // ★ 追加
-  return genericMap(obj);
+  if (isFlexible(obj)) return mapFlexible(obj, L);
+  if (isLegacy(obj)) return mapLegacy(obj, L);
+  if (isOneOnOne(obj)) return mapOneOnOne(obj, L);
+  return genericMap(obj, L);
 }
