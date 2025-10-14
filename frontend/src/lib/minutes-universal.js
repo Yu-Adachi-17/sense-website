@@ -76,6 +76,11 @@ function isLegacy(o) {
   return o && typeof o === "object" && Array.isArray(o.topics);
 }
 
+// ★ 追加: 1on1スキーマ検出
+function isOneOnOne(o) {
+  return o && typeof o === "object" && Array.isArray(o.groupedOneOnOneTopics);
+}
+
 function pickMeta(o) {
   const meta = {};
   if (typeof o?.date === "string") meta.date = o.date;
@@ -164,16 +169,9 @@ function mapLegacy(o) {
     }
 
     // --- 新キー（presentation* 系）---
-    // 例: presentationCoreProblem: string
     pushParagraph(tp.presentationCoreProblem, "Core Problem");
-
-    // 例: presentationProposal: string[]
     pushList(tp.presentationProposal, "Proposal");
-
-    // 例: presentationExpectedResult: string[]
     pushList(tp.presentationExpectedResult, "Expected Result");
-
-    // 例: presentationDecisionsAndTasks: string[]
     pushList(tp.presentationDecisionsAndTasks, "Decisions & Tasks", true);
 
     // --- その他よくあるキーも拾う（あるときだけ）---
@@ -182,7 +180,7 @@ function mapLegacy(o) {
     pushList(tp.concerns, "Concerns");
     pushList(tp.keyMessages, "Summary");
 
-    // --- まだ残っている未対応フィールドを汎用描画で救済 ---
+    // --- 未対応フィールドを汎用描画で救済 ---
     const handled = new Set([
       "topic",
       "discussion",
@@ -203,11 +201,8 @@ function mapLegacy(o) {
       if (handled.has(k)) return;
       const v = tp[k];
       if (v == null) return;
-
-      // 既に表示済のもの/メタっぽいものはスキップ
       if (DROP_META_KEYS.has(k)) return;
 
-      // 型ごとにレンダ
       if (typeof v === "string" && v.trim()) {
         pushParagraph(v, labelize(k));
       } else if (Array.isArray(v) && v.length) {
@@ -240,6 +235,93 @@ function mapLegacy(o) {
   return doc;
 }
 
+// ★ 追加: 1on1スキーマ用マッパ
+function mapOneOnOne(o) {
+  const doc = {
+    title: typeof o.meetingTitle === "string" ? o.meetingTitle : "1on1",
+    meta: pickMeta(o),
+    blocks: []
+  };
+
+  // coreEmotion を先頭にコールアウト表示
+  if (o.coreEmotion && typeof o.coreEmotion === "object") {
+    const emo = [];
+    if (typeof o.coreEmotion.emotionAndBackground === "string" && o.coreEmotion.emotionAndBackground.trim()) {
+      emo.push(`背景と感情: ${o.coreEmotion.emotionAndBackground.trim()}`);
+    }
+    if (typeof o.coreEmotion.managerFeedback === "string" && o.coreEmotion.managerFeedback.trim()) {
+      emo.push(`上司フィードバック: ${o.coreEmotion.managerFeedback.trim()}`);
+    }
+    if (emo.length) {
+      doc.blocks.push({ type: "callout", title: "Core Emotion", text: emo.join("\n"), tone: "info" });
+      doc.blocks.push({ type: "divider" });
+    }
+  }
+
+  const groups = Array.isArray(o.groupedOneOnOneTopics) ? o.groupedOneOnOneTopics : [];
+  const pushList = (items, label, ordered = false) => {
+    if (!Array.isArray(items) || !items.length) return;
+    doc.blocks.push({ type: "heading", level: 3, text: label });
+    doc.blocks.push({ type: "list", ordered, items: items.map(String) });
+  };
+  const pushParagraph = (text, label) => {
+    if (!text || typeof text !== "string" || !text.trim()) return;
+    if (label) doc.blocks.push({ type: "heading", level: 3, text: label });
+    doc.blocks.push({ type: "paragraph", text: text.trim() });
+  };
+
+  const renderNode = (node, label) => {
+    if (!node || typeof node !== "object") return;
+    if (label) doc.blocks.push({ type: "heading", level: 2, text: label });
+
+    // よく出るキーを優先表示
+    pushParagraph(node.topic, "Topic");
+    pushParagraph(node.challengeFaced, "Challenge Faced");
+    pushParagraph(node.expectation, "Expectation");
+    pushParagraph(node.worry, "Worry");
+
+    pushList(node.why, "Why");
+    pushList(node.whatCausedIt, "What Caused It");
+    pushList(node.nextTimeStrategy, "Next Time Strategy");
+    pushList(node.preparation, "Preparation");
+    pushList(node.mitigationIdeas, "Mitigation Ideas");
+
+    if (typeof node.managerFeedback === "string" && node.managerFeedback.trim()) {
+      doc.blocks.push({ type: "callout", title: "Manager Feedback", text: node.managerFeedback.trim(), tone: "success" });
+    }
+
+    // 未表示フィールド（プリミティブ/文字列配列のみ）を救済
+    const handled = new Set([
+      "topic","challengeFaced","expectation","worry",
+      "why","whatCausedIt","nextTimeStrategy","preparation","mitigationIdeas",
+      "managerFeedback"
+    ]);
+    Object.keys(node).forEach(k => {
+      if (handled.has(k) || DROP_META_KEYS.has(k)) return;
+      const v = node[k];
+      if (v == null) return;
+      if (typeof v === "string") {
+        pushParagraph(v, labelize(k));
+      } else if (Array.isArray(v) && v.length && v.every(x => typeof x === "string")) {
+        pushList(v, labelize(k));
+      }
+    });
+  };
+
+  groups.forEach((g, idx) => {
+    const head = `${idx + 1}. ${g?.groupTitle || "Topic Group"}`;
+    doc.blocks.push({ type: "heading", level: 2, text: head });
+
+    if (g.pastPositive)  renderNode(g.pastPositive,  "Past Positive");
+    if (g.pastNegative)  renderNode(g.pastNegative,  "Past Negative");
+    if (g.futurePositive)renderNode(g.futurePositive,"Future Positive");
+    if (g.futureNegative)renderNode(g.futureNegative,"Future Negative");
+
+    if (idx < groups.length - 1) doc.blocks.push({ type: "divider" });
+  });
+
+  return doc;
+}
 
 /** ===================== Heuristic generic mapper ===================== */
 
@@ -249,11 +331,26 @@ function objectToKeyValuePairs(o) {
     if (DROP_META_KEYS.has(k)) continue;
     const v = o[k];
     if (v == null) continue;
-    const s = typeof v === "string" ? v
-      : Array.isArray(v) ? v.join(", ")
-      : typeof v === "number" || typeof v === "boolean" ? String(v)
-      : null;
-    if (s != null) pairs.push([labelize(k), s]);
+
+    // 文字列はそのまま
+    if (typeof v === "string") {
+      if (v.trim()) pairs.push([labelize(k), v]);
+      continue;
+    }
+    // プリミティブ
+    if (typeof v === "number" || typeof v === "boolean") {
+      pairs.push([labelize(k), String(v)]);
+      continue;
+    }
+    // 配列: 文字列の配列だけ許可（オブジェクト配列は KeyValue では表示しない）
+    if (Array.isArray(v)) {
+      if (v.length && v.every(x => typeof x === "string")) {
+        pairs.push([labelize(k), v.join(", ")]);
+      }
+      continue; // それ以外（オブジェクト配列等）はスキップ
+    }
+    // オブジェクトは KeyValue では冗長になりやすいのでスキップ（専用マッパへ任せる）
+    // 必要なら JSON.stringify に切り替え可能
   }
   return pairs;
 }
@@ -278,7 +375,7 @@ function arrayOfObjectsToTable(arr) {
     const v = obj?.[k];
     if (v == null) return "";
     if (typeof v === "string") return v;
-    if (Array.isArray(v)) return v.join(", ");
+    if (Array.isArray(v)) return v.every(x => typeof x === "string") ? v.join(", ") : JSON.stringify(v);
     if (typeof v === "number" || typeof v === "boolean") return String(v);
     if (typeof v === "object") return JSON.stringify(v);
     return String(v ?? "");
@@ -287,7 +384,6 @@ function arrayOfObjectsToTable(arr) {
 }
 
 function genericMap(o) {
-  // タイトル候補
   const title = (typeof o?.meetingTitle === "string" && o.meetingTitle)
     || (typeof o?.title === "string" && o.title)
     || "No Content Provided";
@@ -295,7 +391,7 @@ function genericMap(o) {
   const meta = pickMeta(o);
   const doc = { title, meta, blocks: [] };
 
-  // 1. 主要キーと思われるものを優先的に見出し化
+  // 主要キーを優先
   const PRIORITY = ["summary","overview","sections","topics","items","content","body"];
   let didPriority = false;
 
@@ -327,7 +423,7 @@ function genericMap(o) {
     }
   }
 
-  // 2. それ以外のキーは KeyValue として一括表示
+  // 残りは KeyValue（ただし配列オブジェクト等はスキップされる）
   const restPairs = objectToKeyValuePairs(o);
   if (restPairs.length) doc.blocks.push({ type: "keyValue", pairs: restPairs });
 
@@ -347,5 +443,6 @@ export function toUnifiedDoc(rawOrObject) {
   }
   if (isFlexible(obj)) return mapFlexible(obj);
   if (isLegacy(obj)) return mapLegacy(obj);
+  if (isOneOnOne(obj)) return mapOneOnOne(obj); // ★ 追加
   return genericMap(obj);
 }
