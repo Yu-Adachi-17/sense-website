@@ -276,7 +276,7 @@ export default function BuyTicketsPage() {
   return (
     <>
       <Head>
-        <title>{t("Minutes.AI — Buy Time")}</title>
+        <title>{t("Minutes.AI — Upgrade")}</title>
         <meta
           name="description"
           content={t("Purchase prepaid minutes or subscriptions for Minutes.AI.")}
