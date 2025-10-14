@@ -422,7 +422,7 @@ export default function PurchaseMenu() {
               style={styles.purchaseButton}
               onClick={() => {
                 setShowSideMenu(false);
-                if (userId) router.push("/buy-tickets");
+                if (userId) router.push("/upgrade");
                 else router.push("/login");
               }}
             >

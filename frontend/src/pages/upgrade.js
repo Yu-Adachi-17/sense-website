@@ -281,7 +281,7 @@ export default function BuyTicketsPage() {
           name="description"
           content={t("Purchase prepaid minutes or subscriptions for Minutes.AI.")}
         />
-        <link rel="canonical" href={`${SITE_URL}/buy-tickets`} />
+        <link rel="canonical" href={`${SITE_URL}/upgrade`} />
       </Head>
 
       {/* ===== /home と同じヘッダー（Fixed） ===== */}

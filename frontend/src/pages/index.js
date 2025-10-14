@@ -505,7 +505,7 @@ function App() {
     // 利用制限チェック（通常モードのみ意味がある）
     if (!userSubscription && userRemainingSeconds === 0) {
       if (!authInstance?.currentUser) router.push("/login");
-      else router.push("/buy-tickets");
+      else router.push("/upgrade");
       return;
     }
 
