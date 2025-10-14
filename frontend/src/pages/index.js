@@ -46,6 +46,52 @@ function getDebugTranscript(lang) {
   return DEBUG_TRANSCRIPTS.ja.trim(); // 既定は日本語
 }
 
+/**
+ * ===== NLP用ロケール推定ヘルパ =====
+ * - URL/ルーターの言語 (router.locale / i18n.language)
+ * - navigator.language
+ * - テキスト中の文字スクリプトからの簡易判定（強い信号があればそれを優先）
+ */
+function normalizeLocaleTag(tag) {
+  if (!tag) return null;
+  const t = String(tag).toLowerCase();
+  // よく使うものだけ正規化
+  if (t.startsWith('ja')) return 'ja';
+  if (t.startsWith('en')) return 'en';
+  if (t.startsWith('sv')) return 'sv';
+  if (t.startsWith('de')) return 'de';
+  if (t.startsWith('fr')) return 'fr';
+  if (t.startsWith('es')) return 'es';
+  if (t.startsWith('ko')) return 'ko';
+  if (t.startsWith('zh-tw')) return 'zh-TW';
+  if (t.startsWith('zh') || t.startsWith('zh-cn')) return 'zh-CN';
+  if (t.startsWith('tr')) return 'tr';
+  if (t.startsWith('pt')) return 'pt';
+  if (t.startsWith('id')) return 'id';
+  if (t.startsWith('ms')) return 'ms';
+  return t; // その他はそのまま返す
+}
+
+function guessLocaleFromText(text, fallback) {
+  const fb = normalizeLocaleTag(fallback) || 'en';
+  if (!text || typeof text !== 'string') return fb;
+
+  // スクリプト簡易検出
+  const hasHiraganaKatakana = /[\u3040-\u30FF]/.test(text);
+  const hasCJK = /[\u4E00-\u9FFF]/.test(text);
+  const hasHangul = /[\uAC00-\uD7AF]/.test(text);
+  const hasCyrillic = /[\u0400-\u04FF]/.test(text);
+
+  if (hasHiraganaKatakana || (hasCJK && /[ぁ-んァ-ン]/.test(text))) return 'ja';
+  if (hasHangul) return 'ko';
+  // 中国語の簡易判定（CJK だが仮名が無い）
+  if (hasCJK && !hasHiraganaKatakana) return 'zh-CN';
+  if (hasCyrillic) return 'ru';
+
+  // ラテン系は具体的な言語判定が難しいのでフォールバック
+  return fb;
+}
+
 // ----------------------
 // ゲスト用 localStorage キー
 // ----------------------
@@ -111,27 +157,6 @@ function App() {
   const [recordingIssue, setRecordingIssue] = useState(null);
   const zeroChunkCountRef = useRef(0);
   const silenceSecondsRef = useRef(0);
-
-  // ===== ロケール正規化ユーティリティ =====
-  const SUPPORTED = new Set(["en","ja","ar","de","es","fr","id","ko","ms","pt","sv","tr","zh-cn","zh-tw"]);
-  const normalize = (lng) => {
-    if (!lng) return null;
-    const lc = String(lng).toLowerCase();
-    if (lc.startsWith("zh")) {
-      if (lc.includes("tw") || lc.includes("hk")) return "zh-tw";
-      return "zh-cn";
-    }
-    return lc.split("-")[0]; // ja-JP -> ja
-  };
-  const computeEffectiveLocale = () => {
-    const pageLng =
-      normalize(router.locale) ||
-      normalize(i18n.language) ||
-      normalize(typeof navigator !== 'undefined' && navigator.language) ||
-      "en";
-    return SUPPORTED.has(pageLng) ? pageLng : "en";
-  };
-
   // MinutesListと同じカード影
   const cardShadow =
     "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
@@ -362,20 +387,24 @@ function App() {
           setIsProcessing
         );
 
-        // ===== 有効ロケールを算出（body とヘッダに載せる）=====
-        const effectiveLocale = computeEffectiveLocale();
+        // ★ NLP用ロケール決定：URL言語/ブラウザ言語をフォールバックに、テキストから最終決定
+        const fallbackLocale =
+          normalizeLocaleTag(i18n.language) ||
+          normalizeLocaleTag(router.locale) ||
+          normalizeLocaleTag(typeof navigator !== 'undefined' ? navigator.language : 'en') ||
+          'en';
+        const effectiveLocale = guessLocaleFromText(newTranscription, fallbackLocale);
 
         const gen = await apiFetch(`/api/generate-minutes`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-User-Locale": effectiveLocale,
-            "Accept-Language": effectiveLocale
+            "X-User-Locale": effectiveLocale,        // ← ヘッダにも載せる（バックエンド側のフォールバック用）
           },
           body: JSON.stringify({
             transcript: newTranscription || "",
             formatId: selectedMeetingFormat?.id || "general",
-            locale: effectiveLocale,
+            locale: effectiveLocale,                // ← Body も確実に推定ロケールを送る
           })
         });
         if (!gen.ok) throw new Error(`HTTP ${gen.status}`);
@@ -402,15 +431,19 @@ function App() {
     setProgressStep("transcribing");
     setIsProcessing(true);
     try {
-      // ===== 有効ロケールを算出（body とヘッダに載せる）=====
-      const effectiveLocale = computeEffectiveLocale();
+      // ★ NLP用ロケール決定
+      const fallbackLocale =
+        normalizeLocaleTag(i18n.language) ||
+        normalizeLocaleTag(router.locale) ||
+        normalizeLocaleTag(typeof navigator !== 'undefined' ? navigator.language : 'en') ||
+        'en';
+      const effectiveLocale = guessLocaleFromText(rawText, fallbackLocale);
 
       const resp = await apiFetch(`/api/generate-minutes`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-User-Locale": effectiveLocale,
-          "Accept-Language": effectiveLocale
         },
         body: JSON.stringify({
           transcript: rawText,
@@ -476,7 +509,7 @@ function App() {
 
     // --- デバッグ（テキスト）モード：録音処理を完全にスキップ ---
     if (shouldUseTextMode()) {
-      const text = getDebugTranscript(computeEffectiveLocale());
+      const text = getDebugTranscript(i18n.language);
       await processDebugText(text);
       return;
     }
@@ -648,24 +681,23 @@ function App() {
       console.error("[RECDBG] getUserMedia error:", err?.name, err?.message, err);
 
       let msg = "";
-switch (err?.name) {
-  case "NotAllowedError":
-  case "SecurityError":
-    msg = "The microphone is blocked by the browser or OS. Please check macOS mic permissions and Chrome’s site settings.";
-    break;
-  case "NotFoundError":
-    msg = "No available microphone was found. Check your macOS input settings and any physical connections.";
-    break;
-  case "NotReadableError":
-    msg = "Another app may be using the microphone. Close Zoom/Meet/Discord and try again.";
-    break;
-  case "OverconstrainedError":
-    msg = "No microphone matches the requested constraints (e.g., deviceId). Verify Chrome’s default input device.";
-    break;
-  default:
-    msg = "Failed to access the microphone. Check Chrome’s site permissions, macOS mic permissions, and whether another app is taking exclusive control.";
-}
-
+      switch (err?.name) {
+        case "NotAllowedError":
+        case "SecurityError":
+          msg = "The microphone is blocked by the browser or OS. Please check macOS mic permissions and Chrome’s site settings.";
+          break;
+        case "NotFoundError":
+          msg = "No available microphone was found. Check your macOS input settings and any physical connections.";
+          break;
+        case "NotReadableError":
+          msg = "Another app may be using the microphone. Close Zoom/Meet/Discord and try again.";
+          break;
+        case "OverconstrainedError":
+          msg = "No microphone matches the requested constraints (e.g., deviceId). Verify Chrome’s default input device.";
+          break;
+        default:
+          msg = "Failed to access the microphone. Check Chrome’s site permissions, macOS mic permissions, and whether another app is taking exclusive control.";
+      }
       setRecordingIssue({
         message: "Could not access the microphone.",
         hint: msg.replace(/\n/g, " ")
@@ -927,7 +959,7 @@ switch (err?.name) {
           style={{
             position: 'absolute',
             left: '50%',
-            top: 'calc(50% - 330px)', // 球体420pxの真下+少し余白
+            top: 'calc(50% - 330px)',
             transform: 'translateX(-50%)',
             zIndex: 12
           }}
@@ -947,11 +979,10 @@ switch (err?.name) {
                 fontSize: 14,
                 fontWeight: 700,
                 border: '1px solid rgba(0,0,0,0.04)',
-                boxShadow: cardShadow    // ← MinutesListと同じ立体感
+                boxShadow: cardShadow
               }}
             >
               {selectedMeetingFormat?.displayName || 'General'}
-              {/* JSON表示は出さない */}
             </a>
           </Link>
         </div>
