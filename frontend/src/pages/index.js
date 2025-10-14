@@ -35,7 +35,7 @@ const DEBUG_TRANSCRIPTS = {
   ja: `
 （営業定例・要約テスト）今日は新料金プランとホワイトテーマのリリース準備が中心。価格はTrial, Light, Subscription, Enterpriseの4つ。KPIは今月MAU3,000→3,500。ドイツとオランダのコンバージョンが高い。iOSの審査は通過済み、Androidは今週末。Zoom SDKの外部会議参加でエラー63の再現あり、回避策はドキュメント強化＋内部会議でのデモ動画差し替え。Next.js側は/blog/introductionのhreflang修正、/ja/home をsitemapへ明示追加。サポート面はFAQの英独蘭を優先翻訳。来週はセールス資料の簡略版を用意。`,
   en: `
-(Sales Weekly) Focus today: new pricing & white theme release. Tiers: Trial, Light, Subscription, Enterprise. KPI: MAU 3,000 → 3,500 by month-end. Germany & Netherlands convert best. iOS passed review; Android targets this weekend. Zoom SDK external meeting join still hits error 63; mitigation is stronger docs + internal-meeting demo video. Next.js: fix hreflang on /blog/introduction and add /ja/home into sitemap. Support: prioritize FAQ translations (DE/NL). Next week: lightweight sales deck.`
+（営業定例・要約テスト）今日は新料金プランとホワイトテーマのリリース準備が中心。価格はTrial, Light, Subscription, Enterpriseの4つ。KPIは今月MAU3,000→3,500。ドイツとオランダのコンバージョンが高い。iOSの審査は通過済み、Androidは今週末。Zoom SDKの外部会議参加でエラー63の再現あり、回避策はドキュメント強化＋内部会議でのデモ動画差し替え。Next.js側は/blog/introductionのhreflang修正、/ja/home をsitemapへ明示追加。サポート面はFAQの英独蘭を優先翻訳。来週はセールス資料の簡略版を用意。`
 };
 
 // API base: 本番は Express(railway等) のURLにする
