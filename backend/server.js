@@ -51,26 +51,24 @@ function logLong(label, text, size = 8000) {
 }
 
 // --- Security headers (Helmet) ---
-// Zoom の Surface/埋め込みに備え、X-Frame-Options は無効化し、CSP の frame-ancestors で許可先を制御
 app.use(helmet({
-  frameguard: false, // X-Frame-Options を出さない（CSP の frame-ancestors を優先）
+  frameguard: false,
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
       "default-src": ["'self'"],
-      // Zoom クライアントからの埋め込みを許可
       "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],
     },
   },
   referrerPolicy: { policy: "strict-origin-when-cross-origin" },
 }));
 
-// ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
+// ── CORS ──
 const allowedOrigins = [
   'https://sense-ai.world',
   'https://www.sense-ai.world',
-  'https://sense-website-production.up.railway.app', // 静的+API の Origin
-  'http://localhost:3000' // ローカル開発時
+  'https://sense-website-production.up.railway.app',
+  'http://localhost:3000'
 ];
 app.use(cors({
   origin: (origin, cb) => {
@@ -104,13 +102,13 @@ app.use((req, res, next) => {
 =            Middleware Order                  =
 ==============================================*/
 
-// ① For Stripe Webhook: Use raw body for /api/stripe (applied before JSON parsing)
+// ① For Stripe Webhook: Use raw body for /api/stripe
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
-// ② For Apple Webhook: Use raw body for /api/apple/notifications → 直後に JSON 解析
+// ② For Apple Webhook
 app.use('/api/apple/notifications', express.json());
 
-// ③ For all other endpoints: Parse JSON body（生データも保持）
+// ③ Others: JSON
 app.use(express.json({
   verify: (req, res, buf) => {
     req._rawBody = buf ? buf.toString('utf8') : '';
@@ -134,31 +132,14 @@ app.use((req, res, next) => {
 =            Router Registration               =
 ==============================================*/
 
-// Webhook routes (register under /api/stripe)
 app.use('/api/stripe', webhookRouter);
-
-// Apple Webhook route (内部で /notifications を持つ想定)
 app.use('/api/apple', appleRouter);
-
-// Zoom: SDK JWT 発行など（/api/zoom/sdk-jwt 等）
 app.use('/api', zoomAuthRoute);
-
-// Zoom: join token 関連
 app.use('/api/zoom', zoomJoinTokenRoute);
-
-// Zoom: OAuth トークン交換 (/api/zoom/oauth/exchange 等)
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
-
-// Zoom: OAuth コールバック (/zoom/oauth/callback)
 app.use('/', zoomOAuthCallbackRoute);
-
-// Zoom: 録音 Bot 起動 (/api/recordings/zoom/start)
 app.use('/api', zoomRecordingRoute);
-
-// Stripe: Checkout
 app.use('/api', stripeCheckoutRoute);
-
-// Stripe: Subscription
 app.use('/api', stripeSubscriptionRoute);
 
 // デバッグエコー
@@ -183,7 +164,6 @@ app.post('/api/_debug/echo', (req, res) => {
 =            Other Middleware                  =
 ==============================================*/
 
-// Extend request timeout (e.g., 10 minutes)
 app.use((req, res, next) => {
   req.setTimeout(600000, () => {
     console.error('Request timed out.');
@@ -225,7 +205,6 @@ app.use((req, res, next) => {
 =            Upload / Transcription            =
 ==============================================*/
 
-// multer configuration: Save files to temp directory
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     const tempDir = path.join(__dirname, 'temp');
@@ -241,12 +220,50 @@ const multerStorage = multer.diskStorage({
 });
 const upload = multer({
   storage: multerStorage,
-  limits: { fileSize: 500 * 1024 * 1024 } // 500MB
+  limits: { fileSize: 500 * 1024 * 1024 }
 });
 
-// OpenAI API endpoints
+// === OpenAI API endpoints ===
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
-const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
+// ⚠️ Chat Completionsではなく Responses API を使用
+const OPENAI_API_ENDPOINT_RESPONSES = 'https://api.openai.com/v1/responses';
+
+// ---- Responses 共通：出力テキスト抽出ヘルパ ----
+function extractOutputText(resp) {
+  try {
+    const d = resp?.data || resp || {};
+    if (typeof d === 'string') return d;
+    if (typeof d.output_text === 'string') return d.output_text;
+    // fallback: scan output items
+    if (Array.isArray(d.output)) {
+      const parts = [];
+      for (const item of d.output) {
+        if (!item) continue;
+        // Some impl: item = { content: [ { type: 'output_text'|'text', text: '...' }, ... ] }
+        const content = item.content || [];
+        if (Array.isArray(content)) {
+          for (const c of content) {
+            if (!c) continue;
+            if (typeof c === 'string') parts.push(c);
+            else if (typeof c.text === 'string') parts.push(c.text);
+            else if (c.type && typeof c?.text === 'string') parts.push(c.text);
+            else if (c?.text?.value) parts.push(c.text.value);
+          }
+        } else if (typeof item.content?.text === 'string') {
+          parts.push(item.content.text);
+        }
+      }
+      if (parts.length) return parts.join('');
+    }
+    // ultimate fallback for chat.completions-like shapes
+    if (Array.isArray(d.choices) && d.choices[0]?.message?.content) {
+      return d.choices[0].message.content;
+    }
+  } catch (e) {
+    console.warn('[WARN] extractOutputText failed:', e);
+  }
+  return '';
+}
 
 /**
  * splitText: Splits text into chunks of specified size.
@@ -263,7 +280,7 @@ function splitText(text, chunkSize) {
 }
 
 /**
- * combineMinutes: Calls the ChatGPT API to combine partial meeting minutes.
+ * combineMinutes: merge partial minutes with the template
  */
 async function combineMinutes(combinedText, meetingFormat) {
   const template = (meetingFormat && meetingFormat.trim()) || '';
@@ -279,29 +296,35 @@ ${template}
   const data = {
     model: "gpt-5-mini",
     temperature: 0,
-    reasoning_effort: "medium",
-    verbosity: "medium",
-    max_tokens: 16000,
-    messages: [
+    max_output_tokens: 16000,
+    reasoning: { effort: "medium" },     // GPT-5 の推論深度指定
+    text: { verbosity: "medium" },       // 出力の冗長度
+    input: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: combinedText },
-    ]
+    ],
+    // JSONで返す必要はないので既定(テキスト)
   };
 
   try {
-    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+    const response = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
       headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
       timeout: 600000,
     });
-    return response.data.choices[0].message.content.trim();
+    return extractOutputText(response).trim();
   } catch (error) {
-    console.error('[ERROR] Failed to call ChatGPT API for combining minutes:', error.response?.data || error.message);
+    console.error('[ERROR] Failed to call OpenAI Responses API for combining minutes');
+    if (error?.response) {
+      logLong('[ERROR.response.data]', error.response.data);
+    } else {
+      console.error(error.message);
+    }
     throw new Error('Failed to combine meeting minutes');
   }
 }
 
 /**
- * generateMinutes: Uses ChatGPT API to generate meeting minutes (classic template text).
+ * generateMinutes: classic template text
  */
 function isValidMinutes(out) {
   if (!out) return false;
@@ -322,10 +345,10 @@ ${template.trim()}
   const data = {
     model: "gpt-5-mini",
     temperature: 0,
-    reasoning_effort: "medium",
-    verbosity: "medium",
-    max_tokens: 16000,
-    messages: [
+    max_output_tokens: 16000,
+    reasoning: { effort: "minimal" },
+    text: { verbosity: "medium" },
+    input: [
       { role: 'system', content: systemMessage },
       { role: 'user', content:
 `Please format this into the template (output only the body).:
@@ -336,11 +359,11 @@ ${badOutput}
     ]
   };
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+  const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
     headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
     timeout: 600000,
   });
-  return resp.data.choices[0].message.content.trim();
+  return extractOutputText(resp).trim();
 }
 
 const generateMinutes = async (transcription, formatTemplate) => {
@@ -376,30 +399,34 @@ ${transcription}
   const data = {
     model: "gpt-5-mini",
     temperature: 0,
-    reasoning_effort: "medium",
-    verbosity: "medium",
-    max_tokens: 16000,
-    messages: [
+    max_output_tokens: 16000,
+    reasoning: { effort: "medium" },
+    text: { verbosity: "medium" },
+    input: [
       { role: 'system', content: systemMessage },
-      // ★ ここがバグ修正点：combinedText → userMessage
-      { role: 'user', content: userMessage },
+      { role: 'user', content: userMessage }, // ← bug fix: combinedText → userMessage
     ]
   };
 
   try {
-    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+    const response = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
       headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
       timeout: 600000,
     });
-    let out = response.data.choices[0].message.content.trim();
+    let out = extractOutputText(response).trim();
 
     if (!isValidMinutes(out)) {
       out = await repairToTemplate(out, template);
     }
     return out;
   } catch (error) {
-    console.error('[ERROR] Failed to call ChatGPT API:', error.response?.data || error.message);
-    throw new Error('Failed to generate meeting minutes using ChatGPT API');
+    console.error('[ERROR] Failed to call OpenAI Responses API (generateMinutes)');
+    if (error?.response) {
+      logLong('[ERROR.response.data]', error.response.data);
+    } else {
+      console.error(error.message);
+    }
+    throw new Error('Failed to generate meeting minutes using OpenAI Responses API');
   }
 };
 
@@ -422,10 +449,11 @@ async function repairFlexibleJSON(badOutput, langHint) {
   const data = {
     model: "gpt-5-mini",
     temperature: 0,
-    reasoning_effort: "medium",
-    verbosity: "medium",
-    max_tokens: 16000,
-    messages: [
+    max_output_tokens: 16000,
+    reasoning: { effort: "minimal" },
+    text: { verbosity: "medium" },
+    response_format: { type: "json_object" },
+    input: [
       {
         role: 'system',
         content:
@@ -454,11 +482,11 @@ ${badOutput}
     ]
   };
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+  const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
     headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
     timeout: 600000,
   });
-  return resp.data.choices[0].message.content.trim();
+  return extractOutputText(resp).trim();
 }
 
 async function generateFlexibleMinutes(transcription, langHint) {
@@ -470,29 +498,34 @@ async function generateFlexibleMinutes(transcription, langHint) {
 
   const data = {
     model: "gpt-5-mini",
-    response_format: { type: "json_object" }, // JSONモード継続
+    response_format: { type: "json_object" },
     temperature: 0,
-    reasoning_effort: "medium",
-    verbosity: "medium",
-    max_tokens: 16000,
-    messages,
+    max_output_tokens: 16000,
+    reasoning: { effort: "medium" },
+    text: { verbosity: "medium" },
+    input: messages,
   };
 
   try {
-    const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+    const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
       headers: {
         'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
       },
       timeout: 600000,
     });
-    let out = resp.data.choices[0].message.content.trim();
+    let out = extractOutputText(resp).trim();
     if (!isValidFlexibleJSON(out)) {
       out = await repairFlexibleJSON(out, langHint);
     }
     return out;
   } catch (err) {
-    console.error('[ERROR] generateFlexibleMinutes:', err.response?.data || err.message);
+    console.error('[ERROR] generateFlexibleMinutes (Responses API)');
+    if (err?.response) {
+      logLong('[ERROR.response.data]', err.response.data);
+    } else {
+      console.error(err.message);
+    }
     throw new Error('Failed to generate flexible minutes');
   }
 }
@@ -503,15 +536,14 @@ async function generateFlexibleMinutes(transcription, langHint) {
 
 async function generateWithFormatJSON(transcript, fmt) {
   // fmt = { formatId, locale, schemaId, title, prompt, notes }
-  // 各プロンプトは「JSON形式で出せ」と明示されている想定なので JSON モードで投げる。
   const data = {
     model: "gpt-5-mini",
-    response_format: { type: "json_object" },
+    response_format: { type: "json_object" }, // 必要に応じて json_schema へ
     temperature: 0,
-    reasoning_effort: "medium",
-    verbosity: "medium",
-    max_tokens: 16000,
-    messages: [
+    max_output_tokens: 16000,
+    reasoning: { effort: "medium" },
+    text: { verbosity: "medium" },
+    input: [
       { role: 'system', content: fmt.prompt || '' },
       {
         role: 'user',
@@ -525,15 +557,15 @@ ${transcript}
     ]
   };
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
+  const resp = await axios.post(OPENAI_API_ENDPOINT_RESPONSES, data, {
     headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
     timeout: 600000,
   });
-  return resp.data.choices[0].message.content.trim();
+  return extractOutputText(resp).trim();
 }
 
 /**
- * transcribeWithOpenAI: Uses the Whisper API for transcription.
+ * transcribeWithOpenAI: Whisper
  */
 const transcribeWithOpenAI = async (filePath) => {
   try {
@@ -561,11 +593,10 @@ const transcribeWithOpenAI = async (filePath) => {
   }
 };
 
-// Constant for chunk splitting (process in one batch if file is below this size)
-const TRANSCRIPTION_CHUNK_THRESHOLD = 5 * 1024 * 1024; // 5MB in bytes
+const TRANSCRIPTION_CHUNK_THRESHOLD = 5 * 1024 * 1024;
 
 /**
- * splitAudioFile: Uses ffmpeg to split an audio file into chunks.
+ * splitAudioFile
  */
 const splitAudioFile = (filePath, maxFileSize) => {
   return new Promise((resolve, reject) => {
@@ -646,14 +677,14 @@ const splitAudioFile = (filePath, maxFileSize) => {
 };
 
 /**
- * convertToM4A: Converts the input file to m4a (ipod format) if it isn't already.
+ * convertToM4A
  */
 const convertToM4A = async (inputFilePath) => {
   return new Promise((resolve, reject) => {
     const outputFilePath = path.join(path.dirname(inputFilePath), `${Date.now()}_converted.m4a`);
     console.log(`[DEBUG] convertToM4A: Converting input file ${inputFilePath} to ${outputFilePath}`);
     ffmpeg(inputFilePath)
-      .toFormat('ipod') // ipod format is equivalent to m4a
+      .toFormat('ipod')
       .on('end', () => {
         console.log(`[DEBUG] File conversion completed: ${outputFilePath}`);
         resolve(outputFilePath);
@@ -666,7 +697,7 @@ const convertToM4A = async (inputFilePath) => {
   });
 };
 
-// Health check API for debugging
+// Health check
 app.get('/api/health', (req, res) => {
   console.log('[DEBUG] /api/health was accessed');
   res.status(200).json({ status: 'OK', message: 'Health check passed!' });
@@ -696,19 +727,17 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log(`[DEBUG] Uploaded file size: ${fileSizeMB} MB`);
 
     const meetingFormat = req.body.meetingFormat;
-    const outputType = (req.body.outputType || 'flexible').toLowerCase(); // 'flexible' | 'classic'
+    const outputType = (req.body.outputType || 'flexible').toLowerCase();
     const langHint = req.body.lang || null;
     console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
     console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
 
-    // multer が保存した一時ファイルパス
     let tempFilePath = file.path;
 
     let transcription = '';
     let minutes = '';
-    const cleanupExtra = []; // 変換で作った一時ファイルの削除用
+    const cleanupExtra = [];
 
-    // ① Whisper への送信方針：まずはオリジナルを送る。失敗時のみ m4a 変換して再送。
     if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
       console.log('[DEBUG] <= threshold: send original file to Whisper');
       try {
@@ -721,12 +750,9 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       }
     } else {
       console.log('[DEBUG] > threshold: split by duration/size and transcribe chunks');
-
-      // 分割は拡張子に依存せず ffmpeg で行う
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
       console.log(`[DEBUG] Number of generated chunks: ${chunkPaths.length}`);
 
-      // 可能ならまずは“そのまま”で並列文字起こし
       try {
         const transcriptionChunks = await Promise.all(
           chunkPaths.map((p) => transcribeWithOpenAI(p))
@@ -747,7 +773,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
         transcription = transcriptionChunks.join(' ').trim();
       }
 
-      // チャンクの後片付け
       for (const chunkPath of chunkPaths) {
         try {
           fs.unlinkSync(chunkPath);
@@ -758,7 +783,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       }
     }
 
-    // ② 議事録生成（Flexible が既定。Classic はテンプレ使用）
+    // ② 議事録生成
     if (transcription.length <= 10000) {
       if (outputType === 'flexible') {
         minutes = await generateFlexibleMinutes(transcription, langHint);
@@ -779,7 +804,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       }
     }
 
-    // オリジナル一時ファイル削除
     try {
       fs.unlinkSync(file.path);
       console.log('[DEBUG] Deleted original temporary file:', file.path);
@@ -787,7 +811,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       console.error('[ERROR] Failed to delete temporary file:', file.path, err);
     }
 
-    // 変換で作った一時ファイルの削除
     for (const p of cleanupExtra) {
       try { fs.unlinkSync(p); } catch {}
     }
@@ -807,14 +830,12 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 ==============================================*/
 
 // 1) レジストリ：一覧
-// GET /api/formats
 app.get('/api/formats', (_req, res) => {
   const registry = getRegistry();
   res.json(registry);
 });
 
-// 2) 単一フォーマット・単一言語のJSONを返す
-// GET /api/formats/:formatId/:locale
+// 2) 単一フォーマット・単一言語
 app.get('/api/formats/:formatId/:locale', (req, res) => {
   const { formatId, locale } = req.params;
   const payload = loadFormatJSON(formatId, locale);
@@ -822,34 +843,25 @@ app.get('/api/formats/:formatId/:locale', (req, res) => {
   res.json(payload);
 });
 
-// 3) 生成API（formatId/locale に対応、旧形式とも後方互換）
-/*
-  新形式:
-    body: { transcript, formatId, locale }
-  旧形式:
-    body: { transcript, outputType: 'flexible'|'classic', meetingFormat, lang }
-*/
+// 3) 生成API（formatId/locale 対応、旧形式とも後方互換）
 /*==============================================
 =     FORCE-REGISTER: /api/generate-minutes    =
 ==============================================*/
 
-// ここで “必ず” 最初に登録して、どの /api/* ルーターより前に通す
 console.log('[BOOT] registering POST/GET /api/generate-minutes (early)');
 
-// 存在確認用（GET は 405 を返すことで「ルートはある」を示す）
 app.get('/api/generate-minutes', (req, res) => {
   res.set('Allow', 'POST');
   return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
 });
 
-// 本体
 app.post('/api/generate-minutes', async (req, res) => {
   try {
     const {
       transcript,
       formatId,
       locale,
-      outputType = 'flexible',    // 旧互換
+      outputType = 'flexible',
       meetingFormat,
       lang
     } = req.body || {};
@@ -862,13 +874,11 @@ app.post('/api/generate-minutes', async (req, res) => {
     let meta = null;
 
     if (formatId && locale) {
-      // 新：formatLoader を使った JSON プロンプト解決
       const fmt = loadFormatJSON(formatId, locale);
       if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
       minutes = await generateWithFormatJSON(transcript, fmt);
       meta = { formatId, locale, schemaId: fmt.schemaId || null, title: fmt.title || null };
     } else {
-      // 旧：テンプレ文字列 or flexible
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
         minutes = await generateFlexibleMinutes(transcript, lang || null);
       } else {
@@ -877,7 +887,6 @@ app.post('/api/generate-minutes', async (req, res) => {
       meta = { legacy: true, outputType, lang: lang || null };
     }
 
-    // ===== ここからログ出力（Railway に出る）========================
     const shouldLog =
       process.env.LOG_GENERATED_MINUTES === '1' ||
       req.headers['x-debug-log'] === '1' ||
@@ -887,12 +896,11 @@ app.post('/api/generate-minutes', async (req, res) => {
       try {
         const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
         logLong('[GENERATED_MINUTES pretty]', pretty);
-      } catch { /* JSONでなければ無視 */ }
+      } catch { /* not JSON */ }
       if (process.env.LOG_TRANSCRIPT === '1') {
         logLong('[TRANSCRIPT]', transcript);
       }
     }
-    // ===
 
     return res.json({
       transcription: transcript.trim(),
@@ -905,8 +913,6 @@ app.post('/api/generate-minutes', async (req, res) => {
   }
 });
 
-
-// Debug GET endpoint
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
 });
@@ -915,7 +921,6 @@ app.get('/api/transcribe', (req, res) => {
 =               Static Frontend                =
 ==============================================*/
 
-// 「frontend/build」 or 「public」を自動選択
 const candidates = [
   path.join(__dirname, 'frontend', 'build'),
   path.join(__dirname, 'public'),
@@ -925,12 +930,10 @@ const staticPath = candidates.find(p => fs.existsSync(p)) || path.join(__dirname
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
-// Undefined API routes return a 404 error
 app.use('/api', (req, res, next) => {
   res.status(404).json({ error: 'API route not found' });
 });
 
-// Handle React routes (e.g., /success)
 app.get(["/success", "/cancel"], (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
