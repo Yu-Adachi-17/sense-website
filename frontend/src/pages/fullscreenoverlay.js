@@ -22,7 +22,8 @@ export default function FullScreenOverlay({
   audioURL,
   docId,
 }) {
-  const { t, i18n } = useTranslation();
+  // ← ここを 'common' に固定
+  const { t, i18n } = useTranslation("common");
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -337,7 +338,9 @@ export default function FullScreenOverlay({
             />
           ) : (
             // ✅ ここが新ロジック：どんなフォーマットでも AST に正規化して汎用レンダリング
-            <MinutesDocumentView doc={toUnifiedDoc(editedText)} />
+            <MinutesDocumentView
+              doc={toUnifiedDoc(editedText, { t, ns: "common" })}
+            />
           )}
         </div>
       </div>
