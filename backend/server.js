@@ -39,6 +39,7 @@ ffmpeg.setFfprobePath('ffprobe');
 
 const app = express();
 
+// ---- Helpers ------------------------------------------------------------
 function logLong(label, text, size = 8000) {
   const s = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
   console.log(`${label} len=${s?.length ?? 0} >>> BEGIN`);
@@ -48,6 +49,19 @@ function logLong(label, text, size = 8000) {
     }
   }
   console.log(`${label} <<< END`);
+}
+
+const pickFirstTag = (s) => (s || '').split(',')[0].trim();
+const toShort = (tag) => (tag || '').split('-')[0].toLowerCase();
+function resolveLocale(req, bodyLocale) {
+  const hxu = req.headers['x-user-locale'];
+  const hal = req.headers['accept-language'];
+  const bcp47 = bodyLocale || hxu || pickFirstTag(hal) || 'en';
+  const short = toShort(bcp47);
+  if (process.env.LOG_LOCALE === '1') {
+    console.log(`[LOCALE] body=${bodyLocale || ''} x-user-locale=${hxu || ''} accept-language=${hal || ''} -> resolved=${short}`);
+  }
+  return short;
 }
 
 // --- Security headers (Helmet) ---
@@ -79,7 +93,8 @@ app.use(cors({
   },
   credentials: true,
   methods: ['GET','POST','OPTIONS'],
-  allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With'],
+  // ★ カスタムヘッダ（X-User-Locale / X-Debug-Log）も許可
+  allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With','X-User-Locale','X-Debug-Log'],
 }));
 app.options('*', cors());
 
@@ -836,7 +851,7 @@ app.post('/api/generate-minutes', async (req, res) => {
     const {
       transcript,
       formatId,
-      locale,
+      locale: localeFromBody,
       outputType = 'flexible',    // 旧互換
       meetingFormat,
       lang
@@ -846,45 +861,53 @@ app.post('/api/generate-minutes', async (req, res) => {
       return res.status(400).json({ error: 'Missing transcript' });
     }
 
+    // ★ locale を最終決定（body > X-User-Locale > Accept-Language > 'en'）
+    const localeResolved = resolveLocale(req, localeFromBody);
+
     let minutes;
     let meta = null;
 
-    if (formatId && locale) {
+    if (formatId && localeResolved) {
       // 新：formatLoader を使った JSON プロンプト解決
-      const fmt = loadFormatJSON(formatId, locale);
+      const fmt = loadFormatJSON(formatId, localeResolved);
       if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
       minutes = await generateWithFormatJSON(transcript, fmt);
-      meta = { formatId, locale, schemaId: fmt.schemaId || null, title: fmt.title || null };
+      meta = { formatId, locale: localeResolved, schemaId: fmt.schemaId || null, title: fmt.title || null };
     } else {
       // 旧：テンプレ文字列 or flexible
+      const langHint = lang || localeResolved || null;
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
-        minutes = await generateFlexibleMinutes(transcript, lang || null);
+        minutes = await generateFlexibleMinutes(transcript, langHint);
       } else {
         minutes = await generateMinutes(transcript, meetingFormat || '');
       }
-      meta = { legacy: true, outputType, lang: lang || null };
+      meta = { legacy: true, outputType, lang: langHint };
     }
 
-       // ===== ここからログ出力（Railway に出る）========================
-   // スイッチ条件：環境変数 or 一時的ヘッダ/クエリ
-   const shouldLog =
-     process.env.LOG_GENERATED_MINUTES === '1' ||
-     req.headers['x-debug-log'] === '1' ||
-     req.query.debug === '1';
-   if (shouldLog) {
-     // 1) 生成本文そのまま（フェンス入りや長文でも欠落しない）
-     logLong('[GENERATED_MINUTES raw]', minutes);
-     // 2) JSONとして解釈できるなら見やすく整形してもう一回
-     try {
-       const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
-       logLong('[GENERATED_MINUTES pretty]', pretty);
-     } catch { /* JSONでなければ無視 */ }
-     // 3) 参照のため入力トランスクリプトも必要なら
-     if (process.env.LOG_TRANSCRIPT === '1') {
-       logLong('[TRANSCRIPT]', transcript);
-     }
-   }
-   // ===
+    // ===== ここからログ出力（Railway に出る）========================
+    // スイッチ条件：環境変数 or 一時的ヘッダ/クエリ
+    const shouldLog =
+      process.env.LOG_GENERATED_MINUTES === '1' ||
+      req.headers['x-debug-log'] === '1' ||
+      req.query.debug === '1';
+    if (shouldLog) {
+      // 1) 生成本文そのまま（フェンス入りや長文でも欠落しない）
+      logLong('[GENERATED_MINUTES raw]', minutes);
+      // 2) JSONとして解釈できるなら見やすく整形してもう一回
+      try {
+        const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
+        logLong('[GENERATED_MINUTES pretty]', pretty);
+      } catch { /* JSONでなければ無視 */ }
+      // 3) 参照のため入力トランスクリプトも必要なら
+      if (process.env.LOG_TRANSCRIPT === '1') {
+        logLong('[TRANSCRIPT]', transcript);
+      }
+      // 4) 併せて locale も
+      if (process.env.LOG_LOCALE === '1') {
+        console.log(`[GENERATE] localeResolved=${localeResolved}`);
+      }
+    }
+    // ===
 
     return res.json({
       transcription: transcript.trim(),
