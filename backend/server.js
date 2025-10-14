@@ -276,17 +276,17 @@ async function combineMinutes(combinedText, meetingFormat) {
 ${template}
 </MINUTES_TEMPLATE>`;
 
- const data = {
-   model: "gpt-5-mini",
-   temperature: 0,
-   reasoning_effort: "medium",   // ★ 推論の深さ
-   verbosity: "low",             // ★ 出力は簡潔（テンプレ外の前置きを抑止）
-   max_tokens: 16000,
-       messages: [
+  const data = {
+    model: "gpt-5-mini",
+    temperature: 0,
+    reasoning_effort: "medium",
+    verbosity: "medium",
+    max_tokens: 16000,
+    messages: [
       { role: 'system', content: systemMessage },
       { role: 'user', content: combinedText },
     ]
- };
+  };
 
   try {
     const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
@@ -322,8 +322,8 @@ ${template.trim()}
   const data = {
     model: "gpt-5-mini",
     temperature: 0,
-    reasoning_effort: "minimal",  // ★ 修復は推論最小で十分
-    verbosity: "low",
+    reasoning_effort: "medium",
+    verbosity: "medium",
     max_tokens: 16000,
     messages: [
       { role: 'system', content: systemMessage },
@@ -373,17 +373,18 @@ ${template}
 ${transcription}
 </TRANSCRIPT>`;
 
- const data = {
-   model: "gpt-5-mini",
-   temperature: 0,
-   reasoning_effort: "medium",   // ★ 推論の深さ
-   verbosity: "low",             // ★ 出力は簡潔（テンプレ外の前置きを抑止）
-   max_tokens: 16000,
-       messages: [
+  const data = {
+    model: "gpt-5-mini",
+    temperature: 0,
+    reasoning_effort: "medium",
+    verbosity: "medium",
+    max_tokens: 16000,
+    messages: [
       { role: 'system', content: systemMessage },
-      { role: 'user', content: combinedText },
+      // ★ ここがバグ修正点：combinedText → userMessage
+      { role: 'user', content: userMessage },
     ]
- };
+  };
 
   try {
     const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
@@ -421,8 +422,8 @@ async function repairFlexibleJSON(badOutput, langHint) {
   const data = {
     model: "gpt-5-mini",
     temperature: 0,
-    reasoning_effort: "minimal",  // ★ 修復は推論最小で十分
-    verbosity: "low",
+    reasoning_effort: "medium",
+    verbosity: "medium",
     max_tokens: 16000,
     messages: [
       {
@@ -467,15 +468,15 @@ async function generateFlexibleMinutes(transcription, langHint) {
     currentDateISO: new Date().toISOString(),
   });
 
- const data = {
-   model: "gpt-5-mini",
-   response_format: { type: "json_object" }, // JSONモード継続
-   temperature: 0,
-   reasoning_effort: "medium",   // 生成
-   verbosity: "low",
-   max_tokens: 16000,
-   messages,
- };
+  const data = {
+    model: "gpt-5-mini",
+    response_format: { type: "json_object" }, // JSONモード継続
+    temperature: 0,
+    reasoning_effort: "medium",
+    verbosity: "medium",
+    max_tokens: 16000,
+    messages,
+  };
 
   try {
     const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
@@ -503,13 +504,13 @@ async function generateFlexibleMinutes(transcription, langHint) {
 async function generateWithFormatJSON(transcript, fmt) {
   // fmt = { formatId, locale, schemaId, title, prompt, notes }
   // 各プロンプトは「JSON形式で出せ」と明示されている想定なので JSON モードで投げる。
- const data = {
-   model: "gpt-5-mini",
-   response_format: { type: "json_object" },
-   temperature: 0,
-   reasoning_effort: "medium",
-   verbosity: "low",
-   max_tokens: 16000,
+  const data = {
+    model: "gpt-5-mini",
+    response_format: { type: "json_object" },
+    temperature: 0,
+    reasoning_effort: "medium",
+    verbosity: "medium",
+    max_tokens: 16000,
     messages: [
       { role: 'system', content: fmt.prompt || '' },
       {
@@ -876,26 +877,22 @@ app.post('/api/generate-minutes', async (req, res) => {
       meta = { legacy: true, outputType, lang: lang || null };
     }
 
-       // ===== ここからログ出力（Railway に出る）========================
-   // スイッチ条件：環境変数 or 一時的ヘッダ/クエリ
-   const shouldLog =
-     process.env.LOG_GENERATED_MINUTES === '1' ||
-     req.headers['x-debug-log'] === '1' ||
-     req.query.debug === '1';
-   if (shouldLog) {
-     // 1) 生成本文そのまま（フェンス入りや長文でも欠落しない）
-     logLong('[GENERATED_MINUTES raw]', minutes);
-     // 2) JSONとして解釈できるなら見やすく整形してもう一回
-     try {
-       const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
-       logLong('[GENERATED_MINUTES pretty]', pretty);
-     } catch { /* JSONでなければ無視 */ }
-     // 3) 参照のため入力トランスクリプトも必要なら
-     if (process.env.LOG_TRANSCRIPT === '1') {
-       logLong('[TRANSCRIPT]', transcript);
-     }
-   }
-   // ===
+    // ===== ここからログ出力（Railway に出る）========================
+    const shouldLog =
+      process.env.LOG_GENERATED_MINUTES === '1' ||
+      req.headers['x-debug-log'] === '1' ||
+      req.query.debug === '1';
+    if (shouldLog) {
+      logLong('[GENERATED_MINUTES raw]', minutes);
+      try {
+        const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
+        logLong('[GENERATED_MINUTES pretty]', pretty);
+      } catch { /* JSONでなければ無視 */ }
+      if (process.env.LOG_TRANSCRIPT === '1') {
+        logLong('[TRANSCRIPT]', transcript);
+      }
+    }
+    // ===
 
     return res.json({
       transcription: transcript.trim(),
