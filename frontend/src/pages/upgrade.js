@@ -1,3 +1,5 @@
+// src/pages/upgrade.js（旧 buy-ticket.js）
+
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -122,6 +124,87 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
     </div>
   );
 }
+
+/* ===== OneArcCircle（プレーン枠線／線だけグラデーション） ===== */
+function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
+  const [isPhone, setIsPhone] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 640px)");
+    const onChange = () => setIsPhone(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  const S = isPhone ? mobileSize : size;
+
+  // 正方形ビューにそのまま描く
+  const strokeW = Math.max(2, Math.floor(S * 0.012));
+  const inset = strokeW / 2;                  // ストロークが切れないよう内側へ半分オフセット
+  const rx = Math.max(12, Math.floor(S * 0.08)); // 角丸半径（お好みで）
+
+  return (
+    <div className="oacWrap" style={{ "--sz": `${S}px` }} aria-label={ariaLabel}>
+      <svg
+        className="oacSvg"
+        width={S}
+        height={S}
+        viewBox={`0 0 ${S} ${S}`}
+        role="img"
+        aria-hidden="true"
+      >
+        <defs>
+          {/* 枠線カラーだけグラデーション */}
+          <linearGradient id="oacGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stopColor="#65e0c4" />
+            <stop offset="60%"  stopColor="#8db4ff" />
+            <stop offset="100%" stopColor="#7cc7ff" />
+          </linearGradient>
+        </defs>
+
+        <rect
+          x={inset}
+          y={inset}
+          width={S - strokeW}
+          height={S - strokeW}
+          rx={rx}
+          ry={rx}
+          fill="none"
+          stroke="url(#oacGrad)"
+          strokeWidth={strokeW}
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+
+      <div className="oacInner">{children}</div>
+
+      <style jsx>{`
+        .oacWrap{
+          position: relative;
+          width: min(100%, var(--sz));
+          aspect-ratio: 1 / 1;     /* 正方形固定 */
+          display: grid;
+          place-items: center;
+          isolation: isolate;
+          overflow: visible;
+        }
+        .oacSvg{
+          position: absolute; inset: 0;
+          pointer-events: none;
+        }
+        .oacInner{
+          position: relative; z-index: 1;
+          width: min(78%, calc(var(--sz) * 0.78));  /* お好みで */
+          text-align: left;
+        }
+        @media (max-width: 640px){
+          .oacWrap { overflow: hidden; border-radius: 20px; } /* セクションに合わせた角丸 */
+        }
+      `}</style>
+    </div>
+  );
+}
+
 
 /* ===== 価格テキストをボタン化（hoverで“ふわっ”） ===== */
 function PriceBtn({ onClick, disabled, children, ariaLabel }) {
@@ -384,9 +467,48 @@ export default function BuyTicketsPage() {
             )}
           </p>
         </section>
+
+        {/* ===== 追加：Custom / Tema セクション（見出しは Upgrade と同フォント） ===== */}
+<section className="customSection" aria-labelledby="customHead">
+  <h3 id="customHead" className="pricingH2 gradText">Custom / Team</h3>
+  <p className="customLead">Available worldwide for teams and individuals of all sizes</p>
+
+  <div className="customArcWrap">
+    <OneArcCircle size={560} mobileSize={360} ariaLabel="Custom plan highlight">
+      <div className="customCard">
+<ul className="customBullets">
+  <li>
+    <span className="liMain">Customizable minutes output</span>
+    <span className="liSub">Terminology, output formats, etc.</span>
+  </li>
+  <li>
+    <span className="liMain">Unlimited plan for all members</span>
+    <span className="liSub">Volume discounts by team size</span>
+  </li>
+  <li><span className="liMain">Centralized management of team minutes</span></li>
+  <li><span className="liMain">Invoice billing available</span></li>
+  <li><span className="liMain">We can accommodate other needs. Contact us to discuss.</span></li>
+</ul>
+
+
+        <a
+          className="customBtn"
+          href="mailto:info@sense-ai.world"
+          aria-label="Contact Us by Email"
+        >
+          Contact Us (Email)
+        </a>
+      </div>
+    </OneArcCircle>
+  </div>
+
+  {/* ← 枠（円弧）の“下”に改行して表示 */}
+
+</section>
+
       </main>
 
-      {/* ===== /home の Footer を移植 ===== */}
+      {/* ===== /home の Footer を移植 + company を追加 ===== */}
       <footer className="pageFooter" role="contentinfo">
         <div className="footInner">
           <div className="legal">
@@ -397,12 +519,16 @@ export default function BuyTicketsPage() {
             <Link href="/privacy-policy" className="legalLink">
               {t("Privacy Policy")}
             </Link>
+            <span className="sep">·</span>
+            <Link href="/company" className="legalLink">
+              {t("Company")}
+            </Link>
           </div>
           <div className="copyright">© Sense LLC All Rights Reserved</div>
         </div>
       </footer>
 
-      {/* ===== styles（/home から必要分をそのまま） ===== */}
+      {/* ===== styles（/home から必要分をそのまま + Custom 追記） ===== */}
       <style jsx>{`
         .scene {
           --bg-1: #05060e;
@@ -544,6 +670,77 @@ export default function BuyTicketsPage() {
           opacity: 0.9;
         }
 
+        /* ===== Custom / Tema ===== */
+        .customSection{
+          margin: clamp(12px, 6vh, 80px) auto 0;
+          padding: 0 22px;
+          max-width: 1200px;
+          text-align: center;
+          position: relative;
+        }
+        .customLead{
+          margin: 6px 0 18px 0;
+          opacity: 0.9;
+          font-weight: 700;
+          font-size: clamp(14px, 1.9vw, 18px);
+        }
+/* 余白を全体的にタイトに */
+.customArcWrap{
+  display: grid;
+  place-items: center;
+  margin-top: 8px;            /* 以前より小さく */
+}
+
+/* 箇条書き：結論を大きく、補足は小さく＆やや薄く */
+.customBullets{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.customBullets li{
+  margin: 10px 0;             /* 行間はキュッと */
+}
+.customBullets li::before{
+  content: "• ";
+  opacity: 0.9;
+  margin-right: 4px;
+}
+.customBullets .liMain{
+  display: inline;            /* ドットの横に結論 */
+  font-weight: 900;
+  font-size: clamp(16px, 2vw, 22px);
+}
+.customBullets .liSub{
+  display: block;             /* 補足は改行して小さく */
+  margin: 4px 0 0 20px;       /* ドット分のインデントを合わせる */
+  font-weight: 700;
+  font-size: clamp(12px, 1.5vw, 15px);
+  opacity: 0.85;
+}
+
+        .customBtn{
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 16px;
+          border-radius: 999px;
+          font-weight: 900;
+          letter-spacing: 0.2px;
+          text-decoration: none;
+          color: #eaf4f7;
+          border: 2px solid rgba(255,255,255,0.35);
+          box-shadow: 0 8px 30px rgba(80,140,220,0.22);
+          width: fit-content;
+          transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+          margin: 12px auto 0;
+        }
+        .customBtn:hover, .customBtn:focus-visible{
+          transform: translateY(-2px);
+          box-shadow: 0 12px 42px rgba(100,160,255,0.36);
+          border-color: rgba(255,255,255,0.6);
+          outline: none;
+        }
+
         .pageFooter {
           position: relative;
           z-index: 3;
@@ -570,6 +767,7 @@ export default function BuyTicketsPage() {
           align-items: center;
           font-size: 13px;
           opacity: 0.7;
+          flex-wrap: wrap;
         }
         .legalLink {
           color: #ffffff;
@@ -593,6 +791,64 @@ export default function BuyTicketsPage() {
         .buyScene .pricingSection{
           margin-top: clamp(8px, 4vh, 60px);
         }
+          /* ===== Custom / Team ===== */
+.customSection{
+  margin: clamp(8px, 3vh, 40px) auto 0;
+  padding: 0 22px;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+}
+.customLead{
+  margin: 6px 0 18px 0;
+  opacity: 0.9;
+  font-weight: 700;
+  font-size: clamp(14px, 1.9vw, 18px);
+}
+.customArcWrap{
+  display: grid;
+  place-items: center;
+  margin-top: clamp(8px, 2vh, 18px);
+}
+.customCard{
+  margin: 0 auto;
+  max-width: 820px;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+.customBullets{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.55;
+  opacity: 0.95;
+}
+.customBullets li{ margin: 4px 0; }
+.customBullets li::before{ content: "• "; opacity: 0.9; }
+.customBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  color: #eaf4f7;
+  border: 2px solid rgba(255,255,255,0.35);
+  box-shadow: 0 8px 30px rgba(80,140,220,0.22);
+  width: fit-content;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.customBtn:hover, .customBtn:focus-visible{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 42px rgba(100,160,255,0.36);
+  border-color: rgba(255,255,255,0.6);
+  outline: none;
+}
+
         @media (max-width: 640px) {
           .footInner {
             flex-direction: column;

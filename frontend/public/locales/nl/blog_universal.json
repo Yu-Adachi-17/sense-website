@@ -1,0 +1,125 @@
+{
+  "a11y": {
+    "home": "Terug naar de Minutes.AI-startpagina"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Waarom Minutes.AI de beste notulen levert voor elk type meeting"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Minutes.AI Blog",
+    "h1": "Waarom Minutes.AI de beste notulen levert voor elk type meeting",
+    "tagline": "De vier universele elementen verhogen de leesbaarheid. Door te optimaliseren per vergaderdoel worden notulen echter een blauwdruk voor actie—niet slechts een stuk tekst."
+  },
+  "recap": {
+    "h2": "Terugblik: wat maakt notulen “betekenisvol”?",
+    "p1": {
+      "pre": "Eerder definieerden we “betekenisvolle notulen”. Als je het gemist hebt, begin",
+      "link": "hier (Deel 1)",
+      "post": "."
+    },
+    "points": {
+      "0": "Discussion (bespreking)",
+      "1": "Decisions (besluiten)",
+      "2": "Action Items (eigenaar & deadline)",
+      "3": "Concerns (openstaande risico’s)"
+    },
+    "note": "Als deze vier direct zichtbaar zijn, is basisleesbaarheid gewaarborgd—het minimaal bruikbare raamwerk."
+  },
+  "diversity": {
+    "h2": "Vergaderingen zijn divers: ander doel, ander output",
+    "core": {
+      "h3": "Representatieve meetings",
+      "items": {
+        "0": "Periodiek/status: periodieke review van metrics, issues en acties",
+        "1": "Brainstorm: ideeën genereren en convergeren",
+        "2": "Sales/onderhandeling: belangen afstemmen en overeenstemming bereiken"
+      }
+    },
+    "wide": {
+      "h3": "Ruimer begrip van “meeting”",
+      "items": {
+        "0": "1-op-1: review, volgende doelen, zorgen delen",
+        "1": "Interview: rolvereisten en fit",
+        "2": "Presentatie: probleem en oplossing",
+        "3": "Training: overdracht van operationele knowhow"
+      }
+    },
+    "p1": "Zodra mensen een gezamenlijk doel bespreken, is er een meeting—and het meest waardevolle output verandert met het doel."
+  },
+  "limits": {
+    "h2": "Beperkingen van één formaat voor alles",
+    "p1": "De vier elementen werken breed, maar sommige meetings verliezen “temperatuur” en context—vooral 1-op-1—waardoor herlezing minder helder wordt.",
+    "generic": {
+      "h3": "Wanneer je alleen het universele formaat toepast",
+      "items": {
+        "0": "Je vangt onderwerp, besluiten, taken en zorgen—goede basis",
+        "1": "Maar toon, gewicht en achtergrond raken vaak kwijt",
+        "2": "Later wordt het “waarom” achter besluiten vager"
+      }
+    },
+    "optimized": {
+      "h3": "Wanneer je optimaliseert (1-op-1-voorbeeld)",
+      "items": {
+        "0": "Kernemotie/toon: temperatuur en psychologie samenvatten",
+        "1": "Context/achtergrond: org-wijzigingen, rollen, frictiepunten",
+        "2": "Kernbespreking (citaat × samenvatting): pad naar overeenstemming",
+        "3": "Afspraken / Volgende acties / Risico’s: genormaliseerd voor uitvoering"
+      }
+    }
+  },
+  "oneonone": {
+    "h2": "1-op-1-voorbeeld: temperatuur en besluitcontext behouden",
+    "generic": {
+      "h3": "Alleen de vier universele elementen",
+      "items": {
+        "0": "Zorg van A (teamrelaties) kwam naar voren",
+        "1": "Besluit: manager B treedt op als mediator",
+        "2": "Acties: mediatie; volgende 1-op-1 op de 15e",
+        "3": "Zorg: geen plan wanneer B afwezig is"
+      }
+    },
+    "optimized": {
+      "h3": "Geoptimaliseerd (1-op-1-formaat)",
+      "items": {
+        "0": "Kernemotie: angst/moeheid; opluchting bij concrete opties",
+        "1": "Context: rolonduidelijkheid sinds april; veel late wijzigingen",
+        "2": "Kernbespreking: standaardiseer een “verzoek-template”",
+        "3": "Afspraken: B medieert voorlopig; effectmeting over twee weken",
+        "4": "Volgende acties: B = concept vandaag; A = toepassen & feedback volgende woensdag"
+      }
+    }
+  },
+  "why": {
+    "h2": "Waarom Minutes.AI werkt voor elke meeting",
+    "items": {
+      "0": "Doel-fit: variabele secties per vergaderdoel",
+      "1": "Temperatuurbehoud: toon extraheren en context behouden",
+      "2": "Traceerbaarheid van besluiten: splitsingen tussen akkoord/in afwachting",
+      "3": "Klaar voor uitvoering: eigenaren, deadlines en criteria normaliseren",
+      "4": "Continu leren: A/B-gedreven verbeteringen"
+    }
+  },
+  "wrap": {
+    "h2": "Afronding",
+    "p": "De vier elementen vormen een sterk fundament. Met optimalisatie per meetingtype worden notulen een blauwdruk voor actie. Minutes.AI levert dit standaard—gebruik het in echte meetings."
+  },
+  "cta": {
+    "openBrowser": "Webapp openen",
+    "downloadIOS": "Downloaden voor iOS"
+  },
+  "seo": {
+    "title": "Waarom Minutes.AI werkt voor elke meeting | Minutes.AI Blog",
+    "description": "Verder dan de vier universele elementen: meeting-specifieke optimalisatie maakt notulen uitvoerbaar. Per {{date}} gebruiken meer dan {{users}} mensen Minutes.AI.",
+    "ogTitle": "Waarom Minutes.AI werkt voor elk type meeting",
+    "ogDescription": "Behoud toon en context terwijl je beslissingen en uitvoering versnelt met geoptimaliseerde outputs.",
+    "ld": {
+      "headline": "Waarom Minutes.AI werkt voor elke meeting",
+      "description": "Hoe Minutes.AI output optimaliseert per meetingtype en notulen verandert in een blauwdruk voor uitvoering."
+    }
+  }
+}

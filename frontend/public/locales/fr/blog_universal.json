@@ -1,0 +1,125 @@
+{
+  "a11y": {
+    "home": "Retour à l’accueil de Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Blog Minutes.AI",
+    "h1": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion",
+    "tagline": "Les quatre éléments universels améliorent la lisibilité. Mais l’optimisation selon l’objectif de la réunion transforme le compte rendu en plan d’exécution, et non en simple texte à lire."
+  },
+  "recap": {
+    "h2": "Rappel : qu’est-ce qu’un compte rendu « pertinent » ?",
+    "p1": {
+      "pre": "Précédemment, nous avons défini le « compte rendu pertinent ». Si vous l’avez manqué, commencez",
+      "link": "ici (Partie 1)",
+      "post": "."
+    },
+    "points": {
+      "0": "Discussion",
+      "1": "Decisions (décisions)",
+      "2": "Action Items (responsable et échéance)",
+      "3": "Concerns (risques en suspens)"
+    },
+    "note": "Si ces quatre points sont visibles d’emblée, vous garantissez un minimum de lisibilité : c’est l’ossature minimale viable."
+  },
+  "diversity": {
+    "h2": "Les réunions sont diverses : objectifs différents, outputs différents",
+    "core": {
+      "h3": "Réunions représentatives",
+      "items": {
+        "0": "Récurrentes : revue régulière des métriques, problèmes et actions",
+        "1": "Brainstorming : génération et convergence d’idées",
+        "2": "Ventes/Négociation : aligner les intérêts et conclure un accord"
+      }
+    },
+    "wide": {
+      "h3": "Au sens large du terme « réunion »",
+      "items": {
+        "0": "Entretien 1-à-1 : revue, prochains objectifs, partage des préoccupations",
+        "1": "Entretien d’embauche : exigences du poste et adéquation",
+        "2": "Présentation : exposer le problème et la solution",
+        "3": "Formation : transfert de savoir-faire opérationnel"
+      }
+    },
+    "p1": "Dès lors que des personnes discutent d’un objectif commun, c’est une réunion—et l’output le plus utile dépend de cet objectif."
+  },
+  "limits": {
+    "h2": "Limites du format unique pour tous les cas",
+    "p1": "Les quatre éléments fonctionnent largement, mais certaines réunions perdent la « température » et le contexte—surtout les 1-à-1—ce qui affaiblit la clarté lors d’une relecture.",
+    "generic": {
+      "h3": "Si vous appliquez uniquement le format universel",
+      "items": {
+        "0": "Vous saisissez sujet, décisions, tâches et préoccupations—bonne base",
+        "1": "Mais le ton, le poids et l’arrière-plan se perdent souvent",
+        "2": "Plus tard, le « pourquoi » derrière les décisions est plus flou"
+      }
+    },
+    "optimized": {
+      "h3": "Si vous optimisez (exemple 1-à-1)",
+      "items": {
+        "0": "Émotion/Ton clé : résumer la température et la psychologie",
+        "1": "Contexte/Arrière-plan : changements orga, rôles, points de friction",
+        "2": "Discussion clé (citations × résumés) : chemin vers l’accord",
+        "3": "Accords / Prochaines actions / Risques : normalisés pour l’exécution"
+      }
+    }
+  },
+  "oneonone": {
+    "h2": "Exemple 1-à-1 : préserver la température et le contexte des décisions",
+    "generic": {
+      "h3": "Les quatre universels uniquement",
+      "items": {
+        "0": "La préoccupation de A (relations d’équipe) est apparue",
+        "1": "Décision : le manager B fera la médiation",
+        "2": "Actions : médiation ; prochain 1-à-1 le 15",
+        "3": "Préoccupation : aucun plan si B est absent"
+      }
+    },
+    "optimized": {
+      "h3": "Optimisé (format 1-à-1)",
+      "items": {
+        "0": "Émotion clé : anxiété/fatigue ; soulagement face à des options concrètes",
+        "1": "Contexte : flou des rôles depuis avril ; nombreux changements tardifs",
+        "2": "Discussion clé : normaliser un modèle de demande",
+        "3": "Accords : B médie pour l’instant ; mesure d’impact dans deux semaines",
+        "4": "Prochaines actions : B = brouillon aujourd’hui ; A = appliquer & feedback mercredi prochain"
+      }
+    }
+  },
+  "why": {
+    "h2": "Pourquoi Minutes.AI fonctionne pour tout type de réunion",
+    "items": {
+      "0": "Adéquation à l’objectif : sections variables selon le but du meeting",
+      "1": "Préservation de la température : extraire le ton et conserver le contexte",
+      "2": "Traçabilité des décisions : clarifier les embranchements accord/en attente",
+      "3": "Prêt à l’exécution : normaliser responsables, échéances et critères",
+      "4": "Apprentissage continu : améliorations pilotées par A/B"
+    }
+  },
+  "wrap": {
+    "h2": "Conclusion",
+    "p": "Les quatre éléments constituent une base solide. En optimisant par type de réunion, le compte rendu devient un plan d’action. Minutes.AI intègre cette optimisation par défaut—utilisez-le dans vos réunions réelles."
+  },
+  "cta": {
+    "openBrowser": "Ouvrir la version web",
+    "downloadIOS": "Télécharger sur iOS"
+  },
+  "seo": {
+    "title": "Pourquoi Minutes.AI fonctionne pour toute réunion | Blog Minutes.AI",
+    "description": "Au-delà des quatre éléments universels : l’optimisation par type de réunion transforme le compte rendu en plan d’exécution. À {{date}}, plus de {{users}} personnes utilisent Minutes.AI.",
+    "ogTitle": "Pourquoi Minutes.AI fonctionne pour tous les types de réunions",
+    "ogDescription": "Préservez ton et contexte tout en favorisant décisions et exécution grâce à des outputs optimisés selon la réunion.",
+    "ld": {
+      "headline": "Pourquoi Minutes.AI fonctionne pour toute réunion",
+      "description": "Comment Minutes.AI optimise les outputs par type de réunion et transforme le compte rendu en plan d’exécution."
+    }
+  }
+}

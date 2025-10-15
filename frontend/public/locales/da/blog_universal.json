@@ -1,0 +1,125 @@
+{
+  "a11y": {
+    "home": "Tilbage til Minutes.AI-forsiden"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Hvorfor Minutes.AI giver de bedste referater til enhver mødetype"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Minutes.AI Blog",
+    "h1": "Hvorfor Minutes.AI giver de bedste referater til enhver mødetype",
+    "tagline": "De fire universelle elementer øger læsbarheden, men når output tilpasses mødets formål, bliver referatet en plan for handling – ikke bare noget man læser."
+  },
+  "recap": {
+    "h2": "Opsummering: Hvad gør et referat “meningsfuldt”?",
+    "p1": {
+      "pre": "Sidst definerede vi “meningsfulde referater”. Hvis du missede det, så start",
+      "link": "her (Del 1)",
+      "post": "."
+    },
+    "points": {
+      "0": "Discussion (drøftelser)",
+      "1": "Decisions (beslutninger)",
+      "2": "Action Items (ansvar & deadline)",
+      "3": "Concerns (åbne risici)"
+    },
+    "note": "Når disse fire er tydelige med det samme, har du et solidt minimums-skelet for læsbarhed."
+  },
+  "diversity": {
+    "h2": "Møder er forskellige: Forskelligt formål, forskelligt output",
+    "core": {
+      "h3": "Typiske møder",
+      "items": {
+        "0": "Status/recurring: løbende gennemgang af tal, problemer og tiltag",
+        "1": "Brainstorm: idéafsøgning og konvergens",
+        "2": "Salg/forhandling: afstem interesser og nå til enighed"
+      }
+    },
+    "wide": {
+      "h3": "Bredt forstået som “møder”",
+      "items": {
+        "0": "1-til-1: review, næste mål, del bekymringer",
+        "1": "Interview: krav til rolle og fit",
+        "2": "Præsentation: problem og løsning",
+        "3": "Oplæring/træning: overførsel af driftserfaring"
+      }
+    },
+    "p1": "Når mennesker taler om et fælles mål, er det et møde—og hvilket output der giver mest værdi, afhænger af formålet."
+  },
+  "limits": {
+    "h2": "Begrænsninger ved ét format til det hele",
+    "p1": "De fire elementer virker bredt, men visse møder mister “temperatur” og kontekst—særligt 1-til-1—hvilket svækker forståelsen ved genlæsning.",
+    "generic": {
+      "h3": "Hvis du kun bruger det universelle format",
+      "items": {
+        "0": "Du fanger emne, beslutninger, opgaver og bekymringer—fint udgangspunkt",
+        "1": "Men tone, vægt og baggrund går ofte tabt",
+        "2": "Senere bliver “hvorfor vi besluttede sådan” svagere"
+      }
+    },
+    "optimized": {
+      "h3": "Hvis du optimerer (1-til-1 eksempel)",
+      "items": {
+        "0": "Kernestemning/tonen: opsummer temperatur og psykologi",
+        "1": "Kontekst/baggrund: org-ændringer, roller, konfliktpunkter",
+        "2": "Nøgle-drøftelser (citater × resume): vejen til enighed",
+        "3": "Aftaler / næste skridt / risici: normaliseret til eksekvering"
+      }
+    }
+  },
+  "oneonone": {
+    "h2": "1-til-1 eksempel: Bevar temperatur og beslutningskontekst",
+    "generic": {
+      "h3": "Kun de fire universelle",
+      "items": {
+        "0": "Medarbejder A’s bekymring (relationer i teamet) kom frem",
+        "1": "Beslutning: leder B går ind som mediator",
+        "2": "Handlinger: mediation; næste 1-til-1 den 15.",
+        "3": "Bekymring: ingen plan hvis B er fraværende"
+      }
+    },
+    "optimized": {
+      "h3": "Optimeret (1-til-1 format)",
+      "items": {
+        "0": "Kernestemning: uro/træthed; lettelse ved konkrete muligheder",
+        "1": "Kontekst: uklare roller siden april; sene ændringer hyppige",
+        "2": "Nøgle-drøftelse: standardiser en “request-skabelon”",
+        "3": "Aftaler: B medierer foreløbigt; effektmåling om to uger",
+        "4": "Næste skridt: B = skitse i dag; A = anvend & giv feedback næste onsdag"
+      }
+    }
+  },
+  "why": {
+    "h2": "Hvorfor Minutes.AI virker på tværs af møder",
+    "items": {
+      "0": "Formåls-fit: variable sektioner efter mødetype",
+      "1": "Temperatur-bevaring: udtræk tone og behold kontekst",
+      "2": "Beslutnings-sporbarhed: tydelige grene mellem enig/afventer",
+      "3": "Klar til eksekvering: normaliser ansvar, deadlines og kriterier",
+      "4": "Kontinuerlig læring: A/B-drevne forbedringer"
+    }
+  },
+  "wrap": {
+    "h2": "Afrunding",
+    "p": "De fire elementer er et stærkt fundament. Når du optimerer per mødetype, bliver referatet en plan for handling. Minutes.AI leverer denne optimering som standard—brug det i virkelige møder."
+  },
+  "cta": {
+    "openBrowser": "Åbn webappen",
+    "downloadIOS": "Hent til iOS"
+  },
+  "seo": {
+    "title": "Hvorfor Minutes.AI virker for enhver mødetype | Minutes.AI Blog",
+    "description": "Ud over de fire universelle elementer: mødespecifik optimering gør referatet til en plan for eksekvering. Per {{date}} bruger over {{users}} personer Minutes.AI.",
+    "ogTitle": "Hvorfor Minutes.AI virker på tværs af møder",
+    "ogDescription": "Bevar temperatur og kontekst, og driv beslutninger og handling gennem møde-optimerede outputs.",
+    "ld": {
+      "headline": "Hvorfor Minutes.AI virker for enhver mødetype",
+      "description": "Sådan optimerer Minutes.AI output per mødetype og gør referatet til en eksekveringsplan."
+    }
+  }
+}

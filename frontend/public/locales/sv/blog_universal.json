@@ -1,0 +1,125 @@
+{
+  "a11y": {
+    "home": "Tillbaka till Minutes.AI:s startsida"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Varför Minutes.AI ger de bästa protokollen för alla typer av möten"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Minutes.AI Blogg",
+    "h1": "Varför Minutes.AI ger de bästa protokollen för alla typer av möten",
+    "tagline": "De fyra universella elementen ökar läsbarheten. När output optimeras efter mötets syfte blir protokollet en handlingsplan — inte bara något man läser."
+  },
+  "recap": {
+    "h2": "Sammanfattning: vad gör ett protokoll ”meningsfullt”?",
+    "p1": {
+      "pre": "Tidigare definierade vi ”meningsfulla protokoll”. Om du missade det, börja",
+      "link": "här (Del 1)",
+      "post": "."
+    },
+    "points": {
+      "0": "Discussion (diskussion)",
+      "1": "Decisions (beslut)",
+      "2": "Action Items (ansvarig & deadline)",
+      "3": "Concerns (öppna risker)"
+    },
+    "note": "Om dessa fyra är synliga direkt säkerställs grundläggande läsbarhet — det minsta användbara ramverket."
+  },
+  "diversity": {
+    "h2": "Möten är olika: olika syften, olika output",
+    "core": {
+      "h3": "Representativa möten",
+      "items": {
+        "0": "Återkommande/status: regelbunden genomgång av siffror, problem och åtgärder",
+        "1": "Brainstorm: idégenerering och konvergens",
+        "2": "Sälj/Förhandling: alignera intressen och nå överenskommelser"
+      }
+    },
+    "wide": {
+      "h3": "I bred bemärkelse ”möten”",
+      "items": {
+        "0": "1-till-1: genomgång, nästa mål, dela bekymmer",
+        "1": "Intervju: rollkrav och matchning",
+        "2": "Presentation: problem och lösning",
+        "3": "Utbildning: överföring av operativ know-how"
+      }
+    },
+    "p1": "När människor diskuterar ett gemensamt mål är det ett möte — och vilket output som ger mest värde beror på syftet."
+  },
+  "limits": {
+    "h2": "Begränsningar med ett format för allt",
+    "p1": "De fyra elementen fungerar brett, men vissa möten tappar ”temperatur” och kontext — särskilt 1-till-1 — vilket minskar tydligheten vid senare genomläsning.",
+    "generic": {
+      "h3": "Om du bara använder det universella formatet",
+      "items": {
+        "0": "Du fångar ämne, beslut, uppgifter och bekymmer — bra grund",
+        "1": "Men ton, tyngd och bakgrund går ofta förlorade",
+        "2": "Senare blir ”varför vi beslutade så” svagare"
+      }
+    },
+    "optimized": {
+      "h3": "Om du optimerar (exempel 1-till-1)",
+      "items": {
+        "0": "Kärnemosion/ton: sammanfatta temperatur och psykologi",
+        "1": "Kontext/bakgrund: org-förändringar, roller, friktionspunkter",
+        "2": "Nyckeldiskussion (citat × sammanfattningar): vägen till enighet",
+        "3": "Överenskommelser / Nästa steg / Risker: normaliserat för genomförande"
+      }
+    }
+  },
+  "oneonone": {
+    "h2": "1-till-1-exempel: behåll temperatur och besluts-kontext",
+    "generic": {
+      "h3": "Endast de fyra universella",
+      "items": {
+        "0": "A:s oro (relationer i teamet) kom upp",
+        "1": "Beslut: chef B går in som medlare",
+        "2": "Åtgärder: medling; nästa 1-till-1 den 15:e",
+        "3": "Oro: ingen plan om B är frånvarande"
+      }
+    },
+    "optimized": {
+      "h3": "Optimerat (1-till-1-format)",
+      "items": {
+        "0": "Kärnemosion: oro/trötthet; lättnad när konkreta alternativ kom",
+        "1": "Kontext: otydliga roller sedan april; många sena ändringar",
+        "2": "Nyckeldiskussion: standardisera en ”begäran-mall”",
+        "3": "Överenskommelser: B medlar tills vidare; effektmätning om två veckor",
+        "4": "Nästa steg: B = utkast idag; A = tillämpa & ge feedback nästa onsdag"
+      }
+    }
+  },
+  "why": {
+    "h2": "Varför Minutes.AI fungerar för alla möten",
+    "items": {
+      "0": "Syftes-fit: variabla sektioner efter mötets mål",
+      "1": "Temperatur-bevarande: extrahera ton och behåll kontext",
+      "2": "Spårbarhet i beslut: tydliga grenar mellan klart/väntar",
+      "3": "Redo för genomförande: normalisera ansvar, deadlines och kriterier",
+      "4": "Kontinuerligt lärande: förbättringar drivna av A/B-tester"
+    }
+  },
+  "wrap": {
+    "h2": "Avslutning",
+    "p": "De fyra elementen är en stark grund. När du optimerar per mötestyp blir protokollet en handlingsplan. Minutes.AI levererar detta som standard — använd det i verkliga möten."
+  },
+  "cta": {
+    "openBrowser": "Öppna webbappen",
+    "downloadIOS": "Ladda ned för iOS"
+  },
+  "seo": {
+    "title": "Varför Minutes.AI fungerar för alla möten | Minutes.AI Blogg",
+    "description": "Utöver de fyra universella elementen: mötesspecifik optimering gör protokollet genomförbart. Per {{date}} använder över {{users}} personer Minutes.AI.",
+    "ogTitle": "Varför Minutes.AI fungerar oavsett mötestyp",
+    "ogDescription": "Behåll ton och kontext samtidigt som beslut och genomförande drivs med mötes-optimerade outputs.",
+    "ld": {
+      "headline": "Varför Minutes.AI fungerar för alla möten",
+      "description": "Hur Minutes.AI optimerar output per mötestyp och gör protokoll till en handlingsplan."
+    }
+  }
+}

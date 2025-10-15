@@ -1,0 +1,125 @@
+{
+  "a11y": {
+    "home": "Kembali ke Laman Utama Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Mengapa Minutes.AI menghasilkan minit terbaik untuk apa jua jenis mesyuarat"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Blog Minutes.AI",
+    "h1": "Mengapa Minutes.AI menghasilkan minit terbaik untuk apa jua jenis mesyuarat",
+    "tagline": "Empat elemen universal meningkatkan keterbacaan. Tetapi pengoptimuman mengikut tujuan mesyuarat mengubah minit daripada sekadar bacaan kepada pelan tindakan."
+  },
+  "recap": {
+    "h2": "Ringkasan: Apakah itu minit yang “bermakna”?",
+    "p1": {
+      "pre": "Sebelum ini kami mentakrifkan “minit bermakna”. Jika terlepas, mula",
+      "link": "di sini (Bahagian 1)",
+      "post": "."
+    },
+    "points": {
+      "0": "Discussion (perbincangan)",
+      "1": "Decisions (keputusan)",
+      "2": "Action Items (pemilik & tarikh akhir)",
+      "3": "Concerns (risiko belum selesai)"
+    },
+    "note": "Jika keempat-empat ini jelas kelihatan, keterbacaan asas sudah terjamin—itulah rangka minimum yang boleh digunakan."
+  },
+  "diversity": {
+    "h2": "Mesyuarat pelbagai: tujuan berbeza, output berbeza",
+    "core": {
+      "h3": "Mesyuarat representatif",
+      "items": {
+        "0": "Berulang/status: semakan metrik, isu dan tindakan secara berkala",
+        "1": "Brainstorming: jana idea dan menumpukannya",
+        "2": "Jualan/Rundingan: selaraskan kepentingan dan capai persetujuan"
+      }
+    },
+    "wide": {
+      "h3": "Dalam erti kata luas sebagai “mesyuarat”",
+      "items": {
+        "0": "1-on-1: semakan, sasaran seterusnya, kongsi kebimbangan",
+        "1": "Temuduga: kehendak peranan dan kesesuaian",
+        "2": "Pembentangan: masalah dan penyelesaian",
+        "3": "Latihan: pemindahan ilmu operasi"
+      }
+    },
+    "p1": "Setiap kali orang berbincang tentang tujuan bersama, itu mesyuarat—dan output paling bernilai berubah mengikut tujuan."
+  },
+  "limits": {
+    "h2": "Had format satu-untuk-semua",
+    "p1": "Empat elemen tersebut umumnya berkesan, namun sesetengah mesyuarat kehilangan “suhu” dan konteks—terutamanya 1-on-1—menyukarkan kefahaman apabila dirujuk semula.",
+    "generic": {
+      "h3": "Jika hanya guna format universal",
+      "items": {
+        "0": "Topik, keputusan, tugas dan kebimbangan ditangkap—asas yang baik",
+        "1": "Namun nada, berat dan latar belakang sering hilang",
+        "2": "Kemudian, “mengapa” di sebalik keputusan menjadi kabur"
+      }
+    },
+    "optimized": {
+      "h3": "Jika dioptimumkan (contoh 1-on-1)",
+      "items": {
+        "0": "Emosi/Nada teras: rumuskan suhu dan psikologi perbualan",
+        "1": "Konteks/Latar: perubahan organisasi, peranan, titik geseran",
+        "2": "Perbincangan utama (petikan × ringkasan): laluan ke persetujuan",
+        "3": "Persetujuan / Tindakan seterusnya / Risiko: dinormal untuk pelaksanaan"
+      }
+    }
+  },
+  "oneonone": {
+    "h2": "Contoh 1-on-1: kekalkan “suhu” dan konteks keputusan",
+    "generic": {
+      "h3": "Hanya empat elemen universal",
+      "items": {
+        "0": "Kebimbangan A (hubungan pasukan) timbul",
+        "1": "Keputusan: Pengurus B menjadi orang tengah",
+        "2": "Tindakan: mediasi; 1-on-1 seterusnya pada 15hb",
+        "3": "Kebimbangan: tiada pelan jika B tiada"
+      }
+    },
+    "optimized": {
+      "h3": "Dioptimumkan (format 1-on-1)",
+      "items": {
+        "0": "Emosi teras: cemas/letih; lega apabila opsyen konkrit muncul",
+        "1": "Konteks: kekaburan peranan sejak April; perubahan lewat kerap",
+        "2": "Perbincangan utama: seragamkan templat permintaan",
+        "3": "Persetujuan: B memediasi buat sementara; ukur kesan dalam 2 minggu",
+        "4": "Tindakan seterusnya: B = draf hari ini; A = guna & beri maklum balas Rabu depan"
+      }
+    }
+  },
+  "why": {
+    "h2": "Mengapa Minutes.AI berkesan untuk semua jenis mesyuarat",
+    "items": {
+      "0": "Padanan tujuan: seksyen berubah mengikut objektif",
+      "1": "Kekalkan suhu: ekstrak nada dan simpan konteks",
+      "2": "Kebolehjejak keputusan: jelaskan cabang setuju/tertunda",
+      "3": "Sedia laksana: normalkan pemilik, tarikh akhir dan kriteria",
+      "4": "Pembelajaran berterusan: penambahbaikan dipacu ujian A/B"
+    }
+  },
+  "wrap": {
+    "h2": "Penutup",
+    "p": "Empat elemen ialah asas kukuh. Dengan pengoptimuman mengikut jenis mesyuarat, minit menjadi cetak biru tindakan. Minutes.AI menyediakannya secara lalai—guna dalam mesyuarat sebenar."
+  },
+  "cta": {
+    "openBrowser": "Buka aplikasi web",
+    "downloadIOS": "Muat turun di iOS"
+  },
+  "seo": {
+    "title": "Mengapa Minutes.AI berkesan untuk semua mesyuarat | Blog Minutes.AI",
+    "description": "Lebih daripada empat elemen universal: pengoptimuman khusus jenis mesyuarat menjadikan minit siap dilaksanakan. Sehingga {{date}}, lebih {{users}} pengguna menggunakan Minutes.AI.",
+    "ogTitle": "Mengapa Minutes.AI sesuai untuk semua jenis mesyuarat",
+    "ogDescription": "Kekalkan nada dan konteks sambil memacu keputusan serta pelaksanaan melalui output yang dioptimumkan.",
+    "ld": {
+      "headline": "Mengapa Minutes.AI berkesan untuk semua mesyuarat",
+      "description": "Cara Minutes.AI mengoptimumkan output mengikut jenis mesyuarat dan menukar minit kepada pelan tindakan."
+    }
+  }
+}

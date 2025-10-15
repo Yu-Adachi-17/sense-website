@@ -1,0 +1,125 @@
+{
+  "a11y": {
+    "home": "Zurück zur Minutes.AI-Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Warum Minutes.AI für jede Art von Meeting die besten Protokolle liefert"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Minutes.AI Blog",
+    "h1": "Warum Minutes.AI für jede Art von Meeting die besten Protokolle liefert",
+    "tagline": "Die vier universellen Elemente erhöhen die Lesbarkeit. Doch erst die Optimierung nach Meeting-Zweck macht aus dem Protokoll keinen Text zum Lesen, sondern einen Plan zum Handeln."
+  },
+  "recap": {
+    "h2": "Rückblick: Was macht Protokolle „bedeutungsvoll“?",
+    "p1": {
+      "pre": "Zuvor haben wir „bedeutungsvolle Protokolle“ definiert. Falls verpasst, starte",
+      "link": "hier (Teil 1)",
+      "post": "."
+    },
+    "points": {
+      "0": "Discussion (Diskussionen)",
+      "1": "Decisions (Entscheidungen)",
+      "2": "Action Items (Verantwortliche & Fristen)",
+      "3": "Concerns (offene Risiken)"
+    },
+    "note": "Sind diese vier Punkte sofort erkennbar, ist die Basislesbarkeit gesichert – das minimal tragfähige Gerüst."
+  },
+  "diversity": {
+    "h2": "Meetings sind vielfältig: Anderer Zweck, anderes Output-Format",
+    "core": {
+      "h3": "Typische Meetings",
+      "items": {
+        "0": "Regelmeetings: Kennzahlen, Probleme und Maßnahmen im Rhythmus prüfen",
+        "1": "Brainstorming: Ideen erzeugen und verdichten",
+        "2": "Sales/Verhandlung: Interessen ausgleichen und Einigungen erzielen"
+      }
+    },
+    "wide": {
+      "h3": "Im weiteren Sinne „Meetings“",
+      "items": {
+        "0": "1-zu-1: Review, nächste Ziele, Sorgen teilen",
+        "1": "Interview: Rollenanforderungen und Fit abgleichen",
+        "2": "Präsentation: Problem und Lösung vorstellen",
+        "3": "Schulung/Training: operatives Know-how übertragen"
+      }
+    },
+    "p1": "Sprechen Menschen über ein gemeinsames Ziel, ist es ein Meeting – und der wertstiftende Output ändert sich mit dem Zweck."
+  },
+  "limits": {
+    "h2": "Grenzen des One-Size-Fits-All-Formats",
+    "p1": "Die vier Elemente wirken breit, doch manche Meetings verlieren „Temperatur“ und Kontext – besonders 1-zu-1 – was die Nachvollziehbarkeit beim späteren Lesen mindert.",
+    "generic": {
+      "h3": "Nur das universelle Format angewendet",
+      "items": {
+        "0": "Thema, Entscheidungen, Aufgaben und Bedenken – solide Basis",
+        "1": "Aber Tonlage, Gewicht und Hintergrund gehen oft verloren",
+        "2": "Das „Warum“ hinter Entscheidungen wird später schwächer"
+      }
+    },
+    "optimized": {
+      "h3": "Optimiert (Beispiel 1-zu-1)",
+      "items": {
+        "0": "Kernemotion/Ton: Temperatur und Psychologie zusammenfassen",
+        "1": "Kontext/Hintergrund: Organisationsänderungen, Rollen, Konfliktpunkte",
+        "2": "Schlüssel-Diskussion (Zitat × Zusammenfassung): Weg zur Einigung",
+        "3": "Einigungen/Nächste Schritte/Risiken: für Umsetzung normalisiert"
+      }
+    }
+  },
+  "oneonone": {
+    "h2": "1-zu-1-Beispiel: Temperatur und Entscheidungskontext bewahren",
+    "generic": {
+      "h3": "Nur die vier universellen Elemente",
+      "items": {
+        "0": "Sorge von Mitglied A (Teambeziehungen) kam auf",
+        "1": "Entscheidung: Manager B moderiert als Vermittler",
+        "2": "Maßnahmen: Vermittlung; nächstes 1-zu-1 am 15.",
+        "3": "Bedenken: Kein Plan bei Abwesenheit von B"
+      }
+    },
+    "optimized": {
+      "h3": "Optimiert (1-zu-1-Format)",
+      "items": {
+        "0": "Kernemotion: Unsicherheit/Erschöpfung; Erleichterung bei konkreten Optionen",
+        "1": "Kontext: Rollenunklarheit seit April; häufige späte Änderungen",
+        "2": "Schlüssel-Diskussion: standardisierte Anforderungs-Vorlage einführen",
+        "3": "Einigungen: B vermittelt vorerst; Wirkung in zwei Wochen messen",
+        "4": "Nächste Schritte: B = Vorlage heute; A = anwenden & Feedback nächsten Mi."
+      }
+    }
+  },
+  "why": {
+    "h2": "Warum Minutes.AI für jede Meetingart funktioniert",
+    "items": {
+      "0": "Zweck-Fit: variable Sektionen je Meetingziel",
+      "1": "Temperatur-Erhalt: Ton extrahieren und Hintergrund bewahren",
+      "2": "Entscheidungs-Nachvollziehbarkeit: Abzweige klar machen",
+      "3": "Umsetzungsbereit: Verantwortliche, Fristen, Kriterien normalisieren",
+      "4": "Kontinuierliches Lernen: A/B-getriebene Output-Verbesserungen"
+    }
+  },
+  "wrap": {
+    "h2": "Fazit",
+    "p": "Die vier Elemente sind ein starkes Fundament. Mit Optimierung pro Meetingtyp wird aus dem Protokoll ein Umsetzungs-Blueprint. Minutes.AI liefert diese Optimierung standardmäßig – setze es in realen Meetings ein."
+  },
+  "cta": {
+    "openBrowser": "Web-App öffnen",
+    "downloadIOS": "Für iOS laden"
+  },
+  "seo": {
+    "title": "Warum Minutes.AI für jede Meetingart funktioniert | Minutes.AI Blog",
+    "description": "Über die vier universellen Elemente hinaus: meetingspezifische Optimierung macht aus Protokollen einen Umsetzungs-Blueprint. Stand {{date}} nutzen über {{users}} Personen Minutes.AI.",
+    "ogTitle": "Warum Minutes.AI in allen Meetings überzeugt",
+    "ogDescription": "Temperatur und Kontext bewahren und Entscheidungen/Umsetzung durch optimierte Outputs vorantreiben.",
+    "ld": {
+      "headline": "Warum Minutes.AI für jede Art von Meeting funktioniert",
+      "description": "So optimiert Minutes.AI Outputs je Meetingtyp und macht Protokolle zum Blueprint für Umsetzung."
+    }
+  }
+}

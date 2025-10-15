@@ -1,0 +1,125 @@
+{
+  "a11y": {
+    "home": "Voltar à página inicial do Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Por que o Minutes.AI produz as melhores atas para qualquer tipo de reunião"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Blog do Minutes.AI",
+    "h1": "Por que o Minutes.AI produz as melhores atas para qualquer tipo de reunião",
+    "tagline": "Os quatro elementos universais aumentam a legibilidade, mas otimizar de acordo com o objetivo da reunião transforma a ata de “algo para ler” em um plano de execução."
+  },
+  "recap": {
+    "h2": "Recapitulando: o que torna uma ata “significativa”?",
+    "p1": {
+      "pre": "No artigo anterior definimos “atas significativas”. Se você não viu, comece",
+      "link": "por aqui (Parte 1)",
+      "post": "."
+    },
+    "points": {
+      "0": "Discussion (discussões)",
+      "1": "Decisions (decisões)",
+      "2": "Action Items (responsável e prazo)",
+      "3": "Concerns (riscos em aberto)"
+    },
+    "note": "Se esses quatro pontos aparecem de imediato, a legibilidade básica está garantida — é o esqueleto mínimo viável."
+  },
+  "diversity": {
+    "h2": "Reuniões são diversas: objetivos diferentes, saídas diferentes",
+    "core": {
+      "h3": "Reuniões representativas",
+      "items": {
+        "0": "Periódicas/status: revisar métricas, problemas e ações regularmente",
+        "1": "Brainstorm: geração e convergência de ideias",
+        "2": "Vendas/Negociação: alinhar interesses e fechar acordos"
+      }
+    },
+    "wide": {
+      "h3": "No sentido amplo de “reunião”",
+      "items": {
+        "0": "1-a-1: revisão, próximos objetivos, compartilhar preocupações",
+        "1": "Entrevista: requisitos do cargo e aderência",
+        "2": "Apresentação: problema e solução",
+        "3": "Treinamento: transferência de conhecimento operacional"
+      }
+    },
+    "p1": "Sempre que pessoas discutem um objetivo comum, temos uma reunião — e a saída de maior valor muda conforme o objetivo."
+  },
+  "limits": {
+    "h2": "Limites de um formato único para tudo",
+    "p1": "Os quatro elementos funcionam em geral, mas algumas reuniões perdem “temperatura” e contexto — sobretudo 1-a-1 — reduzindo a clareza na revisão posterior.",
+    "generic": {
+      "h3": "Se você usa apenas o formato universal",
+      "items": {
+        "0": "Tema, decisões, tarefas e preocupações — boa base",
+        "1": "Mas tom, peso e pano de fundo costumam se perder",
+        "2": "Depois, o “porquê” por trás das decisões fica mais fraco"
+      }
+    },
+    "optimized": {
+      "h3": "Se você otimiza (exemplo 1-a-1)",
+      "items": {
+        "0": "Emoção/Tom central: resumir a “temperatura” e a psicologia",
+        "1": "Contexto/Histórico: mudanças organizacionais, papéis, atritos",
+        "2": "Discussão-chave (citações × resumos): caminho até o acordo",
+        "3": "Acordos / Próximas ações / Riscos: normalizado para execução"
+      }
+    }
+  },
+  "oneonone": {
+    "h2": "Exemplo 1-a-1: preservar temperatura e contexto das decisões",
+    "generic": {
+      "h3": "Apenas os quatro universais",
+      "items": {
+        "0": "Surgiu a preocupação de A (relações no time)",
+        "1": "Decisão: o gestor B atuará como mediador",
+        "2": "Ações: mediação; próximo 1-a-1 no dia 15",
+        "3": "Preocupação: sem plano caso B esteja ausente"
+      }
+    },
+    "optimized": {
+      "h3": "Otimizado (formato 1-a-1)",
+      "items": {
+        "0": "Emoção central: ansiedade/cansaço; alívio com opções concretas",
+        "1": "Contexto: ambiguidade de papéis desde abril; mudanças tardias",
+        "2": "Discussão-chave: padronizar um “template de solicitação”",
+        "3": "Acordos: B media por ora; medir impacto em duas semanas",
+        "4": "Próximas ações: B = rascunho hoje; A = aplicar & dar feedback na próxima quarta"
+      }
+    }
+  },
+  "why": {
+    "h2": "Por que o Minutes.AI funciona em qualquer reunião",
+    "items": {
+      "0": "Ajuste ao propósito: seções variáveis conforme o objetivo",
+      "1": "Preservação da temperatura: extrai o tom e mantém o contexto",
+      "2": "Rastreabilidade de decisões: clareza entre acordo/pendente",
+      "3": "Pronto para executar: normaliza responsáveis, prazos e critérios",
+      "4": "Aprendizado contínuo: melhorias guiadas por testes A/B"
+    }
+  },
+  "wrap": {
+    "h2": "Encerramento",
+    "p": "Os quatro elementos são uma base sólida. Ao otimizar por tipo de reunião, a ata vira um plano de ação. O Minutes.AI já traz isso por padrão — use em reuniões reais."
+  },
+  "cta": {
+    "openBrowser": "Abrir versão web",
+    "downloadIOS": "Baixar no iOS"
+  },
+  "seo": {
+    "title": "Por que o Minutes.AI funciona em qualquer reunião | Blog do Minutes.AI",
+    "description": "Além dos quatro elementos universais: otimização por tipo de reunião transforma a ata em um plano executável. Em {{date}}, mais de {{users}} pessoas usam o Minutes.AI.",
+    "ogTitle": "Por que o Minutes.AI funciona em qualquer tipo de reunião",
+    "ogDescription": "Preserve tom e contexto enquanto impulsiona decisões e execução com saídas otimizadas para cada reunião.",
+    "ld": {
+      "headline": "Por que o Minutes.AI funciona em qualquer reunião",
+      "description": "Como o Minutes.AI otimiza as saídas por tipo de reunião e transforma atas em planos de execução."
+    }
+  }
+}
