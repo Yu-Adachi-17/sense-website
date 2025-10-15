@@ -1,7 +1,7 @@
 ---
 title: "Zoom/Teamsとの連携ガイド（5分で完了）"
 date: "2025-10-08"
-tags: ["Reflect Workflows"]
+tags: ["Minutes.AI Workflows"]
 cover: "/images/General01.jpeg"
 excerpt: "最短の接続手順とつまずきポイントをまとめました。"
 ---
