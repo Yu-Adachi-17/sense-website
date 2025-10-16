@@ -32,6 +32,7 @@ const zoomRecordingRoute = require('./routes/zoomRecordingRoute');
 const stripeCheckoutRoute = require('./routes/stripeCheckoutRoute');
 const stripeSubscriptionRoute = require('./routes/stripeSubscriptionRoute');
 const livekitRouter = require('./routes/livekit');
+const meetingsRouter = require('./routes/meetings');
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -179,6 +180,8 @@ app.use('/api', stripeSubscriptionRoute);
 
 // LiveKit のトークン発行API
 app.use('/api/livekit', livekitRouter);
+
+app.use('/api/meetings', meetingsRouter);
 
 // デバッグエコー
 app.post('/api/_debug/echo', (req, res) => {
