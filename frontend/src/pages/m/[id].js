@@ -9,16 +9,16 @@ export default function MeetingJoinPage() {
   const router = useRouter();
   const { id } = router.query; // /m/:id
 
-  const [meeting, setMeeting] = useState(null); // { id, roomName, ... }
+  const [meeting, setMeeting] = useState(null);
   const [name, setName] = useState('');
-  const [status, setStatus] = useState('idle'); // idle|loading|connected|error
+  const [status, setStatus] = useState('idle');
   const [needAudioStart, setNeedAudioStart] = useState(false);
 
   const roomRef = useRef(null);
   const localVideoRef = useRef(null);
   const remoteGridRef = useRef(null);
 
-  // 1) ミーティング情報の解決（roomNameを取得）
+  // ===== 会議情報の取得 =====
   useEffect(() => {
     if (!id) return;
     (async () => {
@@ -26,7 +26,7 @@ export default function MeetingJoinPage() {
         const res = await fetch(`${API_BASE}/api/meetings/${id}`);
         const json = await res.json();
         if (json.error) throw new Error(json.error);
-        setMeeting(json); // { id, roomName, joinUrl, ... }
+        setMeeting(json);
       } catch (e) {
         console.error('fetch meeting failed', e);
         setStatus('error');
@@ -34,7 +34,7 @@ export default function MeetingJoinPage() {
     })();
   }, [id]);
 
-  // ローカル映像の <video> にアタッチ
+  // ===== ローカル映像の <video> にアタッチ =====
   const attachLocalPreview = () => {
     const room = roomRef.current;
     if (!room || !localVideoRef.current) return;
@@ -42,13 +42,14 @@ export default function MeetingJoinPage() {
       const t = pub.track;
       if (t) {
         t.attach(localVideoRef.current);
-        localVideoRef.current.muted = true; // 自分の声がループしないようミュート
+        localVideoRef.current.muted = true;
         localVideoRef.current.playsInline = true;
         localVideoRef.current.autoplay = true;
       }
     });
   };
 
+  // ===== リモート映像のDOM掃除 =====
   const cleanupRemoteGrid = () => {
     const grid = remoteGridRef.current;
     if (!grid) return;
@@ -60,13 +61,13 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // 2) 参加処理
+  // ===== 参加処理 =====
   const join = async () => {
     if (!meeting) return;
     try {
       setStatus('loading');
 
-      // サーバでトークン発行
+      // トークン発行
       const tokRes = await fetch(`${API_BASE}/api/livekit/token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -80,15 +81,13 @@ export default function MeetingJoinPage() {
       if (tokRes.error) throw new Error(tokRes.error);
       const { token, wsUrl } = tokRes;
 
-      // ブラウザでのみSDKを読み込む
+      // SDK読込
       const { Room, RoomEvent } = await import('livekit-client');
-
       const room = new Room();
       roomRef.current = room;
 
-      // --- イベント登録（トラックの追加/削除） ---
-      room.on(RoomEvent.TrackSubscribed, (track /* RemoteTrack */, pub, participant) => {
-        // 映像ならvideo、音声ならaudioエレメントを作ってattach
+      // ===== イベント登録 =====
+      room.on(RoomEvent.TrackSubscribed, (track, pub, participant) => {
         const grid = remoteGridRef.current;
         if (!grid) return;
 
@@ -100,7 +99,6 @@ export default function MeetingJoinPage() {
           v.style.height = '100%';
           v.style.objectFit = 'cover';
 
-          // 参加者識別用に包む
           const card = document.createElement('div');
           card.style.position = 'relative';
           card.style.aspectRatio = '16/9';
@@ -123,7 +121,6 @@ export default function MeetingJoinPage() {
           card.appendChild(v);
           card.appendChild(label);
           grid.appendChild(card);
-
           track.attach(v);
         } else if (track.kind === 'audio') {
           const a = document.createElement('audio');
@@ -133,9 +130,8 @@ export default function MeetingJoinPage() {
         }
       });
 
-      room.on(RoomEvent.TrackUnsubscribed, (track /* RemoteTrack */) => {
-        // このトラックに紐づく要素をDOMから外す
-        const els = track.detach(); // 返ってくるのは attach した要素
+      room.on(RoomEvent.TrackUnsubscribed, (track) => {
+        const els = track.detach();
         els.forEach((el) => {
           try {
             el.srcObject = null;
@@ -152,27 +148,33 @@ export default function MeetingJoinPage() {
         cleanupRemoteGrid();
       });
 
-      // ブラウザの自動再生制限に対応
       room.on(RoomEvent.AudioPlaybackStatusChanged, () => {
         setNeedAudioStart(!room.canPlaybackAudio);
       });
 
-      // 接続
-      await room.connect(wsUrl, token);
-      // カメラ＆マイクを公開
-      await room.localParticipant.setCameraEnabled(true);
-      await room.localParticipant.setMicrophoneEnabled(true);
-
-      // ローカルプレビューを載せる
-      attachLocalPreview();
-
-      setStatus('connected');
+      // ===== 接続と安全なカメラ・マイク起動 =====
+      try {
+        await room.connect(wsUrl, token);
+        try {
+          await room.localParticipant.setCameraEnabled(true);
+        } catch (err) {
+          console.warn('Camera start failed:', err);
+          // カメラ起動に失敗しても音声のみで継続
+        }
+        await room.localParticipant.setMicrophoneEnabled(true);
+        attachLocalPreview();
+        setStatus('connected');
+      } catch (e) {
+        console.error('join failed', e);
+        setStatus('error');
+      }
     } catch (e) {
       console.error('join failed', e);
       setStatus('error');
     }
   };
 
+  // ===== 退出処理 =====
   const leave = async () => {
     try {
       await roomRef.current?.disconnect();
@@ -183,6 +185,7 @@ export default function MeetingJoinPage() {
     }
   };
 
+  // ===== 自動再生許可ボタン =====
   const startAudio = async () => {
     try {
       await roomRef.current?.startAudio();
@@ -192,6 +195,7 @@ export default function MeetingJoinPage() {
     }
   };
 
+  // ===== UI =====
   return (
     <div style={styles.page}>
       <div style={styles.header}>
@@ -222,18 +226,10 @@ export default function MeetingJoinPage() {
         </div>
       )}
 
-      {/* 参加後の映像レイアウト */}
       {status === 'connected' && (
         <div style={styles.stage}>
           <div ref={remoteGridRef} style={styles.remoteGrid} />
-          {/* 右下にローカルPIP */}
-          <video
-            ref={localVideoRef}
-            style={styles.localPip}
-            muted
-            playsInline
-            autoPlay
-          />
+          <video ref={localVideoRef} style={styles.localPip} muted playsInline autoPlay />
           {needAudioStart && (
             <button onClick={startAudio} style={styles.floatingBtn}>
               Enable audio
@@ -243,14 +239,13 @@ export default function MeetingJoinPage() {
       )}
 
       {status === 'error' && (
-        <p style={{ color: 'crimson' }}>
-          Failed to join. Open DevTools console for details.
-        </p>
+        <p style={{ color: 'crimson' }}>Failed to join. Open DevTools console for details.</p>
       )}
     </div>
   );
 }
 
+// ===== スタイル =====
 const styles = {
   page: {
     padding: 16,
