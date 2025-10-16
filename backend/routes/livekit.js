@@ -4,12 +4,12 @@ const { AccessToken } = require('livekit-server-sdk');
 
 const router = express.Router();
 
-// 起動時に必須envの有無をチェック（ログのみ）
-if (!process.env.LIVEKIT_API_KEY || !process.env.LIVEKIT_API_SECRET || !process.env.LIVEKIT_WS_URL) {
+// 起動時チェック（ログのみ）
+if (!process.env.LIVEKIT_API_KEY || !process.env.LIVEKIT_API_SECRET || !process.env.LIVEKIT_URL) {
   console.warn('[LiveKit] Missing env(s): ' +
     `${!process.env.LIVEKIT_API_KEY ? 'LIVEKIT_API_KEY ' : ''}` +
     `${!process.env.LIVEKIT_API_SECRET ? 'LIVEKIT_API_SECRET ' : ''}` +
-    `${!process.env.LIVEKIT_WS_URL ? 'LIVEKIT_WS_URL ' : ''}`.trim());
+    `${!process.env.LIVEKIT_URL ? 'LIVEKIT_URL ' : ''}`.trim());
 }
 
 router.post('/token', async (req, res) => {
@@ -28,11 +28,11 @@ router.post('/token', async (req, res) => {
     if (!process.env.LIVEKIT_API_KEY || !process.env.LIVEKIT_API_SECRET) {
       return res.status(500).json({ error: 'Server misconfigured: missing API key/secret' });
     }
-    if (!process.env.LIVEKIT_WS_URL) {
-      return res.status(500).json({ error: 'Server misconfigured: LIVEKIT_WS_URL not set' });
+    if (!process.env.LIVEKIT_URL) {
+      return res.status(500).json({ error: 'Server misconfigured: LIVEKIT_URL not set' });
     }
 
-    // AccessTokenはサーバ側で発行（JWT; 期限は短め推奨）
+    // サーバ側でアクセス・トークンを発行（JWT / 例: 有効期限2h）
     const at = new AccessToken(
       process.env.LIVEKIT_API_KEY,
       process.env.LIVEKIT_API_SECRET,
@@ -43,18 +43,17 @@ router.post('/token', async (req, res) => {
       }
     );
 
-    // 参加権限付与（部屋名は文字列に確定）
+    // 参加権限
     at.addGrant({
       roomJoin: true,
       room: String(roomName),
       canPublish: !!canPublish,
       canSubscribe: !!canSubscribe,
-      // もしデータチャンネルも使うなら↓を付けてもOK
-      // canPublishData: true,
+      // canPublishData: true, // 必要なら
     });
 
     const token = await at.toJwt();
-    const wsUrl = process.env.LIVEKIT_WS_URL;
+    const wsUrl = process.env.LIVEKIT_URL; // ← ここを LIVEKIT_URL に統一
 
     return res.json({ token, wsUrl });
   } catch (e) {
