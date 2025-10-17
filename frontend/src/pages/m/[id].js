@@ -209,7 +209,7 @@ export default function MeetingJoinPage() {
           track.attach(v);
           try {
             // 必要なら明示で 720p を要求（Adaptive の上書き）
-            // pub.setVideoDimensions({ width: 1280, height: 720 });
+            pub.setVideoDimensions({ width: 1280, height: 720 });
             await v.play();
             console.log('[remote video] play() ok for', participant?.identity);
           } catch (e) {
