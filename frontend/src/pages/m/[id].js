@@ -27,7 +27,7 @@ export default function MeetingJoinPage() {
   const localVideoRef = useRef(null);
   const stageRef = useRef(null);
   const remoteGridRef = useRef(null);
-  const thumbStripRef = useRef(null); // スピーカービューの水平サムネ帯
+  const thumbStripRef = useRef(null);
   const localTracksRef = useRef({ audio: null, video: null });
 
   // 参加者カード管理（id -> DOM）
@@ -109,11 +109,10 @@ export default function MeetingJoinPage() {
   // ===== Zoom風レイアウト更新（安全化版） =====
   const relayout = () => {
     const grid = remoteGridRef.current;
-    const strip = thumbStripRef.current; // speaker のときだけ存在
-    if (!grid) return; // Grid が無ければ描けない
+    const strip = thumbStripRef.current;
+    if (!grid) return;
 
     const entries = Array.from(cardMapRef.current.values());
-    // ソート: ピン留め ＞ アクティブスピーカー ＞ それ以外（名前順）
     entries.sort((a, b) => {
       const pa = a.meta.pinned ? 1 : 0;
       const pb = b.meta.pinned ? 1 : 0;
@@ -124,18 +123,15 @@ export default function MeetingJoinPage() {
       return (a.meta.name || '').localeCompare(b.meta.name || '');
     });
 
-    // クリア（strip が未マウントでもOK）
     grid.innerHTML = '';
     if (strip) strip.innerHTML = '';
 
     if (viewMode === 'speaker') {
-      // 一番上をメイン、残りを水平サムネイル帯へ
       const main = entries[0];
       if (main) {
         main.wrapper.classList.add('lk-main');
         grid.appendChild(main.wrapper);
       }
-      // strip がまだ未マウントなら、次回呼び出し時に入る
       if (strip) {
         for (let i = 1; i < entries.length; i++) {
           const e = entries[i];
@@ -144,7 +140,6 @@ export default function MeetingJoinPage() {
         }
       }
     } else {
-      // ギャラリー
       entries.forEach(e => {
         e.wrapper.classList.remove('lk-main');
         grid.appendChild(e.wrapper);
@@ -189,9 +184,9 @@ export default function MeetingJoinPage() {
       // 前回分を解放
       hardStopLocal();
 
-      // --- ルーム生成（Zoom画面の安定描画に向けた既定）---
+      // --- ルーム生成（既定）---
       const room = new Room({
-        adaptiveStream: { pixelDensity: 'screen' }, // ギャラリー時の負荷低減
+        adaptiveStream: { pixelDensity: 'screen' },
         dynacast: true,
         autoSubscribe: true,
         videoCaptureDefaults: {
@@ -201,9 +196,9 @@ export default function MeetingJoinPage() {
         },
         publishDefaults: {
           simulcast: true,
-          videoEncoding: { maxBitrate: 2_500_000, maxFramerate: 30 }, // 720p相当
+          videoEncoding: { maxBitrate: 2_500_000, maxFramerate: 30 },
           videoSimulcastLayers: [VideoPresets.h180, VideoPresets.h360],
-          backupCodec: { codec: 'h264' }, // iOS互換の安定化
+          backupCodec: { codec: 'h264' },
           degradationPreference: 'maintain-resolution',
         },
       });
@@ -231,12 +226,11 @@ export default function MeetingJoinPage() {
         } catch {}
       }
 
-      // ===== イベント =====
+      // ===== 参加者カードDOM =====
       const ensureCard = (participant) => {
         const id = participant.identity;
         if (cardMapRef.current.has(id)) return cardMapRef.current.get(id);
 
-        // --- カードDOM生成（Zoom風）---
         const wrapper = document.createElement('div');
         wrapper.className = 'lk-card';
         wrapper.dataset.id = id;
@@ -255,7 +249,7 @@ export default function MeetingJoinPage() {
         nameBadge.textContent = participant?.name || participant?.identity || 'Guest';
 
         const micBadge = document.createElement('div');
-        micBadge.className = 'lk-mic'; // muted時に赤ドット
+        micBadge.className = 'lk-mic';
         badges.appendChild(micBadge);
         badges.appendChild(nameBadge);
 
@@ -285,22 +279,51 @@ export default function MeetingJoinPage() {
         return entry;
       };
 
+      // ===== 重要: Visibility Nudge（可視性＆サイズ確定を強制） =====
+      const visibilityNudge = (videoEl) => {
+        if (!videoEl) return;
+        // 強制レイアウト誘発（GPU合成→レイアウト→再合成）
+        videoEl.style.transform = 'translateZ(0)';
+        requestAnimationFrame(() => {
+          // reflowを発生させる
+          // eslint-disable-next-line no-unused-expressions
+          videoEl.getBoundingClientRect();
+          videoEl.style.transform = '';
+          relayout();
+        });
+      };
+
+      // ===== イベント =====
       room.on(RoomEvent.TrackSubscribed, async (track, pub, participant) => {
+        const entry = ensureCard(participant);
         if (track.kind === 'video') {
-          const entry = ensureCard(participant);
           entry.meta.publication = pub;
-          // 高品質を要求（Adaptiveより優先）
           try {
+            // attach
+            track.attach(entry.meta.videoEl);
+
+            // ★ 高品質要求（2テンポ再要求で確実に掴む）
             pub.setVideoQuality(VideoQuality.HIGH);
             pub.setVideoDimensions({ width: 1280, height: 720 });
-          } catch {}
-          track.attach(entry.meta.videoEl);
-          // 映像の最初のフレーム到達時にもレイアウトを発火
-          entry.meta.videoEl.onloadeddata = () => relayout();
-          relayout();
-          try { await entry.meta.videoEl.play(); } catch {}
+            setTimeout(() => {
+              try {
+                pub.setVideoQuality(VideoQuality.HIGH);
+                pub.setVideoDimensions({ width: 1280, height: 720 });
+              } catch {}
+            }, 200);
+
+            // 映像最初のフレームで再レイアウト
+            entry.meta.videoEl.onloadeddata = () => relayout();
+
+            // ★ 可視性ナッジ
+            visibilityNudge(entry.meta.videoEl);
+
+            await entry.meta.videoEl.play().catch(() => {});
+            relayout();
+          } catch (e) {
+            console.warn('[video attach]', e);
+          }
         } else if (track.kind === 'audio') {
-          const entry = ensureCard(participant);
           entry.wrapper.classList.toggle('is-muted', false);
         }
       });
@@ -327,7 +350,7 @@ export default function MeetingJoinPage() {
         relayout();
       });
 
-      // アクティブスピーカー（黄色枠）
+      // アクティブスピーカー
       room.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
         const activeIds = new Set(speakers.map(s => s.identity));
         cardMapRef.current.forEach((entry, id) => {
@@ -375,11 +398,10 @@ export default function MeetingJoinPage() {
       // ===== 初回 DOM マウント完了後に既存トラックを反映 =====
       await afterDomPaint(2);
 
-      // ----- 既存 publication の取りこぼし対策（SDK差分に強い版） -----
+      // ----- 既存 publication の取りこぼし対策 -----
       const attachExisting = () => {
         if (!room) return;
 
-        // v1: room.participants / v2: room.remoteParticipants に両対応
         const remoteMap =
           (room.participants && room.participants instanceof Map && room.participants) ||
           (room.remoteParticipants && room.remoteParticipants instanceof Map && room.remoteParticipants) ||
@@ -407,9 +429,8 @@ export default function MeetingJoinPage() {
               track.attach(entry.meta.videoEl);
               entry.meta.videoEl.onloadeddata = () => relayout();
               entry.meta.publication = pub;
+              visibilityNudge(entry.meta.videoEl);
               try { entry.meta.videoEl.play(); } catch {}
-            } else if (track.kind === 'audio') {
-              // 必要なら <audio/> を生成して attach してもOK
             }
           }
         }
@@ -531,7 +552,7 @@ export default function MeetingJoinPage() {
         <p style={{ color: '#aaa', marginTop: 8, whiteSpace: 'pre-wrap' }}>{deviceHint}</p>
       )}
 
-      {/* ローカルPIP（Zoomのフローティングサムネ風） */}
+      {/* ローカルPIP */}
       <video
         ref={localVideoRef}
         style={{ ...styles.localPip, visibility: status === 'connected' ? 'visible' : 'hidden' }}
@@ -542,7 +563,7 @@ export default function MeetingJoinPage() {
 
       {status === 'connected' && (
         <div ref={stageRef} style={styles.stage}>
-          {/* スピーカービュー時: メインエリア + 下部サムネストリップ */}
+          {/* スピーカービュー: メイン + 下部サムネ */}
           <div
             ref={remoteGridRef}
             style={{
@@ -563,7 +584,7 @@ export default function MeetingJoinPage() {
             </button>
           )}
 
-          {/* Zoom風ボトムツールバー */}
+          {/* ボトムツールバー */}
           <div style={styles.toolbar}>
             <button onClick={toggleMic} style={{ ...styles.toolBtn, ...(isMuted ? styles.toolOff : {}) }}>
               {isMuted ? 'Unmute' : 'Mute'}
@@ -584,7 +605,7 @@ export default function MeetingJoinPage() {
         <p style={{ color: 'crimson' }}>Failed to join. Open DevTools console for details.</p>
       )}
 
-      {/* ===== 追加CSS（カード見た目）を有効化 ===== */}
+      {/* ===== 追加CSS（カード見た目） ===== */}
       <style jsx global>{`
         .lk-card { position: relative; aspect-ratio: 16/9; background:#000; border-radius:12px; overflow:hidden; border:1px solid #1b1b1b; }
         .lk-card.lk-main { border-color:#3b82f6; box-shadow:0 0 0 2px rgba(59,130,246,.35) inset; }
@@ -656,14 +677,12 @@ const styles = {
     flexDirection: 'column',
     gap: 12,
   },
-  // ギャラリー（Zoom: グリッド）
   galleryGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
     gap: 12,
     flex: 1,
   },
-  // スピーカー（Zoom: アクティブ＋下サムネ）
   speakerMain: {
     flex: 1,
     display: 'grid',
@@ -682,7 +701,7 @@ const styles = {
   localPip: {
     position: 'fixed',
     right: 16,
-    bottom: 86, // ツールバーの上に浮かす
+    bottom: 86,
     width: 220,
     height: 140,
     objectFit: 'cover',
@@ -703,7 +722,6 @@ const styles = {
     border: 'none',
     cursor: 'pointer',
   },
-  // Zoom風ボトムツールバー
   toolbar: {
     position: 'sticky',
     bottom: 0,
