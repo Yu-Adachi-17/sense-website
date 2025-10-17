@@ -10,8 +10,7 @@ const API_BASE =
 
 // iOS ダウンロード先（必要に応じて変更）
 const LINK_IOS =
-  process.env.NEXT_PUBLIC_IOS_STORE_URL ||
-  'https://apps.apple.com/app/id6449820876';
+  'https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901';
 
 // ★ 直前のユーザー名を保存・復元するキー
 const LAST_JOIN_NAME_KEY = 'minutesai.joinName';
@@ -525,9 +524,10 @@ export default function MeetingJoinPage() {
   return (
     <>
       {/* ===== 固定ヘッダー：左=Home / 右=iOS ===== */}
+      +{status !== 'connected' && (
       <FixedHeaderPortal>
         <header style={styles.top}>
-          <Link href="/" aria-label="Minutes.AI Home" style={styles.brand}>
+          <Link href="/home" aria-label="Minutes.AI Home" style={styles.brand}>
             <span style={styles.brandIcon} aria-hidden="true">
               <HomeIcon size={22} color="currentColor" />
             </span>
@@ -541,6 +541,7 @@ export default function MeetingJoinPage() {
           </nav>
         </header>
       </FixedHeaderPortal>
+      )}
 
       {/* ===== Join セクション（“user name”の薄灰プレースホルダー＋保存/復元） ===== */}
       {status !== 'connected' && (
