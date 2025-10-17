@@ -7,20 +7,21 @@ const API_BASE =
 
 export default function MeetingJoinPage() {
   const router = useRouter();
-  const { id } = router.query; // /m/:id
+  const { id } = router.query;
 
   const [meeting, setMeeting] = useState(null);
   const [name, setName] = useState('');
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState('idle'); // idle | loading | connected | error
   const [needAudioStart, setNeedAudioStart] = useState(false);
-  const [deviceHint, setDeviceHint] = useState(''); // UI表示用
+  const [needVideoPlay, setNeedVideoPlay] = useState(false); // 自動再生解除ボタン用
+  const [deviceHint, setDeviceHint] = useState(''); // ユーザーに見せる原因
 
   const roomRef = useRef(null);
   const localVideoRef = useRef(null);
   const remoteGridRef = useRef(null);
-  const localTracksRef = useRef({ audio: null, video: null }); // 事前生成したローカルトラック
+  const localTracksRef = useRef({ audio: null, video: null });
 
-  // ===== 会議情報の取得 =====
+  // ===== 会議情報 =====
   useEffect(() => {
     if (!id) return;
     (async () => {
@@ -36,7 +37,7 @@ export default function MeetingJoinPage() {
     })();
   }, [id]);
 
-  // ===== リモート映像DOM掃除 =====
+  // ===== DOM掃除 =====
   const cleanupRemoteGrid = () => {
     const grid = remoteGridRef.current;
     if (!grid) return;
@@ -46,14 +47,24 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== ローカルプレビューを <video> にアタッチ =====
-  const attachLocalPreviewFromTrack = (videoTrack) => {
+  // ===== ローカル・プレビュー attach（playも明示）=====
+  const attachLocalPreviewFromTrack = async (videoTrack) => {
     if (!videoTrack || !localVideoRef.current) return;
-    videoTrack.attach(localVideoRef.current);
-    Object.assign(localVideoRef.current, { muted: true, playsInline: true, autoplay: true });
+    const v = localVideoRef.current;
+    videoTrack.attach(v);
+    v.muted = true;
+    v.playsInline = true;
+    v.autoplay = true;
+    try {
+      await v.play();
+      setNeedVideoPlay(false);
+    } catch (e) {
+      console.warn('local preview play() blocked', e);
+      setNeedVideoPlay(true); // クリックで解除させる
+    }
   };
 
-  // ===== 退出処理（デバイス解放を“確実に”） =====
+  // ===== 退出（デバイス解放を確実に）=====
   const hardStopLocal = () => {
     // 事前生成のトラック
     for (const k of ['audio', 'video']) {
@@ -78,6 +89,7 @@ export default function MeetingJoinPage() {
       roomRef.current = null;
       setStatus('idle');
       setDeviceHint('');
+      setNeedVideoPlay(false);
     }
   };
 
@@ -87,10 +99,11 @@ export default function MeetingJoinPage() {
 
     setStatus('loading');
     setDeviceHint('');
+    setNeedVideoPlay(false);
 
     try {
-      // --- サーバでトークン発行 ---
-      const tokRes = await fetch(`${API_BASE}/api/livekit/token`, {
+      // --- トークン ---
+      const { token, wsUrl, error } = await fetch(`${API_BASE}/api/livekit/token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -99,65 +112,54 @@ export default function MeetingJoinPage() {
           name: name || 'Guest',
         }),
       }).then((r) => r.json());
-      if (tokRes.error) throw new Error(tokRes.error);
-      const { token, wsUrl } = tokRes;
+      if (error) throw new Error(error);
 
-      // --- LiveKit SDK 読込（createLocalTracks 等を使う） ---
+      // --- SDK ---
       const {
         Room, RoomEvent,
         createLocalTracks,
         MediaDeviceFailure,
       } = await import('livekit-client');
 
-      // 既存ストリームを念のため完全解放
       hardStopLocal();
 
-      // --- 先にローカルトラックを生成（単一権限プロンプト & 失敗を分類） ---
+      // --- 先にローカルトラック生成（単一プロンプト）---
       let localAudio = null;
       let localVideo = null;
-
       try {
         const tracks = await createLocalTracks({
           audio: true,
-          video: { facingMode: 'user' }, // 基本はフロント
-        }); // 単一プロンプトで取得。失敗は catch へ
+          // 過度に厳しい制約は避けつつ実用解像度を指定
+          video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 30 } },
+        });
         for (const t of tracks) {
           if (t.kind === 'audio') localAudio = t;
           if (t.kind === 'video') localVideo = t;
         }
       } catch (err) {
-        // 失敗種別を人間可読に
         const failure = MediaDeviceFailure.getFailure?.(err);
         console.warn('[createLocalTracks failed]', failure || err);
         setDeviceHint(String(failure || err?.message || err));
-        // カメラがダメでもオーディオだけは再挑戦
+        // カメラがNGでも音声だけは再挑戦
         try {
-          localAudio = null;
-          const a = await createLocalTracks({ audio: true });
-          localAudio = a.find((t) => t.kind === 'audio') || null;
-        } catch (e2) {
-          console.warn('[audio-only tracks failed]', e2);
-        }
+          const onlyAudio = await createLocalTracks({ audio: true });
+          localAudio = onlyAudio.find(t => t.kind === 'audio') || null;
+        } catch { /* ignore */ }
       }
 
       // --- ルーム接続 ---
-      const room = new Room({
-        adaptiveStream: true,
-        dynacast: true,
-      });
+      const room = new Room({ adaptiveStream: true, dynacast: true });
       roomRef.current = room;
 
-      // ===== イベント登録 =====
-      room.on(RoomEvent.TrackSubscribed, (track, pub, participant) => {
+      // ===== イベント =====
+      room.on(RoomEvent.TrackSubscribed, async (track, pub, participant) => {
         const grid = remoteGridRef.current;
         if (!grid) return;
 
         if (track.kind === 'video') {
           const v = document.createElement('video');
-          Object.assign(v, { autoplay: true, playsInline: true });
-          Object.assign(v.style, {
-            width: '100%', height: '100%', objectFit: 'cover',
-          });
+          Object.assign(v, { autoplay: true, playsInline: true, muted: false });
+          Object.assign(v.style, { width: '100%', height: '100%', objectFit: 'cover' });
 
           const card = document.createElement('div');
           Object.assign(card.style, {
@@ -177,6 +179,7 @@ export default function MeetingJoinPage() {
           card.appendChild(label);
           grid.appendChild(card);
           track.attach(v);
+          try { await v.play(); } catch (e) { console.warn('remote play() blocked', e); }
         } else if (track.kind === 'audio') {
           const a = document.createElement('audio');
           a.autoplay = true;
@@ -194,13 +197,9 @@ export default function MeetingJoinPage() {
         });
       });
 
-      // デバイス起動エラー（NotReadable / DeviceInUse など）はここでも拾える
       room.on(RoomEvent.MediaDevicesError, (err) => {
-        const failure = (typeof err === 'object' && err) ? err : null;
-        console.warn('[RoomEvent.MediaDevicesError]', failure);
-        setDeviceHint(
-          failure?.error || failure?.message || 'Media device error'
-        );
+        console.warn('[RoomEvent.MediaDevicesError]', err);
+        setDeviceHint(err?.error || err?.message || 'Media device error');
       });
 
       room.on(RoomEvent.Disconnected, () => {
@@ -212,32 +211,32 @@ export default function MeetingJoinPage() {
         setNeedAudioStart(!room.canPlaybackAudio);
       });
 
-      // --- 接続 → トラック publish（失敗はフォールバック） ---
+      // --- 接続 ---
       await room.connect(wsUrl, token);
 
-      // 先に用意済みトラックを publish
+      // --- publish ---
       if (localAudio) {
-        try { await room.localParticipant.publishTrack(localAudio); } catch (e) { console.warn('publish audio failed', e); }
+        try { await room.localParticipant.publishTrack(localAudio); }
+        catch (e) { console.warn('publish audio failed', e); }
       }
+
       if (localVideo) {
         try {
           await room.localParticipant.publishTrack(localVideo);
-          attachLocalPreviewFromTrack(localVideo);
+          await attachLocalPreviewFromTrack(localVideo);
         } catch (e) {
           console.warn('publish video failed', e);
-          // 代替デバイス自動再試行
+          // 代替カメラ自動リトライ
           try {
             const devices = await navigator.mediaDevices.enumerateDevices();
             const cams = devices.filter(d => d.kind === 'videoinput');
-            const alt = cams.find(d => d.deviceId && d.deviceId !== localVideo.getDeviceId?.());
+            const currentId = localVideo.getDeviceId?.();
+            const alt = cams.find(d => d.deviceId && d.deviceId !== currentId);
             if (alt) {
-              const { createLocalTracks } = await import('livekit-client');
-              const [altVideo] = await createLocalTracks({
-                video: { deviceId: alt.deviceId },
-              });
+              const [altVideo] = await createLocalTracks({ video: { deviceId: alt.deviceId } });
               await room.localParticipant.publishTrack(altVideo);
               localTracksRef.current.video = altVideo;
-              attachLocalPreviewFromTrack(altVideo);
+              await attachLocalPreviewFromTrack(altVideo);
               setDeviceHint(`switched to: ${alt.label || 'another camera'}`);
             }
           } catch (e2) {
@@ -246,10 +245,9 @@ export default function MeetingJoinPage() {
         }
       }
 
-      // ブラウザの自動再生制限に対処（ボタンで解除）
+      // 自動再生制限の状態をUIに反映
       if (!room.canPlaybackAudio) setNeedAudioStart(true);
 
-      // 参照保持
       localTracksRef.current.audio = localAudio;
       localTracksRef.current.video = localVideo;
 
@@ -260,7 +258,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== 自動再生許可ボタン =====
+  // ===== 自動再生解除（クリックで）=====
   const startAudio = async () => {
     try {
       await roomRef.current?.startAudio();
@@ -269,6 +267,35 @@ export default function MeetingJoinPage() {
       console.warn('startAudio failed', e);
     }
   };
+  const startVideo = async () => {
+    try {
+      await localVideoRef.current?.play();
+      setNeedVideoPlay(false);
+    } catch (e) {
+      console.warn('startVideo failed', e);
+    }
+  };
+
+  // タブ復帰時に再生を試みる（ユーザー操作に近いトリガ）
+  useEffect(() => {
+    const onVis = () => {
+      if (document.visibilityState === 'visible' && needVideoPlay) {
+        startVideo();
+      }
+    };
+    document.addEventListener('visibilitychange', onVis);
+    return () => document.removeEventListener('visibilitychange', onVis);
+  }, [needVideoPlay]);
+
+  // ページ離脱時の確実な解放
+  useEffect(() => {
+    const onBeforeUnload = () => {
+      hardStopLocal();
+      roomRef.current?.disconnect();
+    };
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+  }, []);
 
   // ===== UI =====
   return (
@@ -312,6 +339,11 @@ export default function MeetingJoinPage() {
               Enable audio
             </button>
           )}
+          {needVideoPlay && (
+            <button onClick={startVideo} style={{...styles.floatingBtn, left: 160}}>
+              Show preview
+            </button>
+          )}
         </div>
       )}
 
@@ -322,7 +354,6 @@ export default function MeetingJoinPage() {
   );
 }
 
-// ===== スタイル =====
 const styles = {
   page: {
     padding: 16,
@@ -337,69 +368,32 @@ const styles = {
     gap: 12,
     marginBottom: 12,
   },
-  joinBox: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 8,
-  },
+  joinBox: { display: 'flex', alignItems: 'center', gap: 8 },
   input: {
-    padding: '8px 10px',
-    borderRadius: 8,
-    border: '1px solid #333',
-    background: '#111',
-    color: '#fff',
+    padding: '8px 10px', borderRadius: 8, border: '1px solid #333',
+    background: '#111', color: '#fff',
   },
   primaryBtn: {
-    padding: '8px 12px',
-    borderRadius: 8,
-    background: '#4C8DFF',
-    color: '#fff',
-    border: 'none',
-    cursor: 'pointer',
+    padding: '8px 12px', borderRadius: 8, background: '#4C8DFF',
+    color: '#fff', border: 'none', cursor: 'pointer',
   },
   secondaryBtn: {
-    marginLeft: 'auto',
-    padding: '6px 10px',
-    borderRadius: 8,
-    background: '#222',
-    color: '#fff',
-    border: '1px solid #444',
-    cursor: 'pointer',
+    marginLeft: 'auto', padding: '6px 10px', borderRadius: 8,
+    background: '#222', color: '#fff', border: '1px solid #444', cursor: 'pointer',
   },
   stage: {
-    position: 'relative',
-    marginTop: 12,
-    border: '1px solid #222',
-    borderRadius: 12,
-    padding: 12,
-    minHeight: '60vh',
-    background: '#000',
+    position: 'relative', marginTop: 12, border: '1px solid #222',
+    borderRadius: 12, padding: 12, minHeight: '60vh', background: '#000',
   },
   remoteGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-    gap: 12,
+    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12,
   },
   localPip: {
-    position: 'absolute',
-    right: 16,
-    bottom: 16,
-    width: 200,
-    height: 120,
-    objectFit: 'cover',
-    borderRadius: 10,
-    border: '1px solid rgba(255,255,255,.15)',
-    background: '#000',
+    position: 'absolute', right: 16, bottom: 16, width: 200, height: 120,
+    objectFit: 'cover', borderRadius: 10, border: '1px solid rgba(255,255,255,.15)', background: '#000',
   },
   floatingBtn: {
-    position: 'absolute',
-    left: 16,
-    bottom: 16,
-    padding: '10px 14px',
-    borderRadius: 10,
-    background: '#4C8DFF',
-    color: '#fff',
-    border: 'none',
-    cursor: 'pointer',
+    position: 'absolute', left: 16, bottom: 16, padding: '10px 14px',
+    borderRadius: 10, background: '#4C8DFF', color: '#fff', border: 'none', cursor: 'pointer',
   },
 };
