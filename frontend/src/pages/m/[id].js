@@ -647,7 +647,7 @@ const styles = {
   stage: {
     position: 'relative',
     marginTop: 12,
-    border: '1px solid '#222',
+    border: '1px solid #222',
     borderRadius: 12,
     padding: 12,
     minHeight: '70vh',
