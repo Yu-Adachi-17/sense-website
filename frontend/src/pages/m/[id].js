@@ -1,3 +1,4 @@
+// pages/m/[id].js など：MeetingJoinPage（最適化版）
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -125,7 +126,7 @@ export default function MeetingJoinPage() {
 
       // --- SDK ---
       const {
-        Room, RoomEvent, VideoPresets,
+        Room, RoomEvent, VideoPresets, VideoQuality,
         createLocalTracks, MediaDeviceFailure,
       } = await import('livekit-client');
 
@@ -134,7 +135,7 @@ export default function MeetingJoinPage() {
 
       // --- ルーム生成（画質向上の既定値をセット）---
       const room = new Room({
-        // Adaptive は基本ONでOK。可読性のため pixelDensity は 'screen' を維持
+        // Adaptive は基本ONでOK
         adaptiveStream: { pixelDensity: 'screen' },
         dynacast: true,
         videoCaptureDefaults: {
@@ -144,9 +145,9 @@ export default function MeetingJoinPage() {
         },
         publishDefaults: {
           simulcast: true,
-          videoEncoding: { maxBitrate: 3_000_000, maxFramerate: 30 },
-          // ★ 720p レイヤーを追加（これが無いと高画質は絶対に来ない）
-          videoSimulcastLayers: [VideoPresets.h180, VideoPresets.h360, VideoPresets.h720],
+          videoEncoding: { maxBitrate: 3_000_000, maxFramerate: 30 }, // プライマリ=720p相当
+          // 追加レイヤーは h180 / h360（720はプライマリに任せる）
+          videoSimulcastLayers: [VideoPresets.h180, VideoPresets.h360],
         },
       });
       roomRef.current = room;
@@ -207,9 +208,16 @@ export default function MeetingJoinPage() {
           grid.appendChild(card);
 
           track.attach(v);
+
+          // ★ 高画質の購読を強制（Adaptiveより優先）
           try {
-            // 必要なら明示で 720p を要求（Adaptive の上書き）
+            pub.setVideoQuality(VideoQuality.HIGH);
             pub.setVideoDimensions({ width: 1280, height: 720 });
+          } catch (e) {
+            console.warn('set quality/dimensions failed', e);
+          }
+
+          try {
             await v.play();
             console.log('[remote video] play() ok for', participant?.identity);
           } catch (e) {
