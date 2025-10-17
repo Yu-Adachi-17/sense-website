@@ -106,11 +106,11 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== Zoom風レイアウト更新 =====
+  // ===== Zoom風レイアウト更新（安全化版） =====
   const relayout = () => {
     const grid = remoteGridRef.current;
-    const strip = thumbStripRef.current;
-    if (!grid || !strip) return;
+    const strip = thumbStripRef.current; // speaker のときだけ存在
+    if (!grid) return; // Grid が無ければ描けない
 
     const entries = Array.from(cardMapRef.current.values());
     // ソート: ピン留め ＞ アクティブスピーカー ＞ それ以外（名前順）
@@ -124,9 +124,9 @@ export default function MeetingJoinPage() {
       return (a.meta.name || '').localeCompare(b.meta.name || '');
     });
 
-    // クリア
+    // クリア（strip が未マウントでもOK）
     grid.innerHTML = '';
-    strip.innerHTML = '';
+    if (strip) strip.innerHTML = '';
 
     if (viewMode === 'speaker') {
       // 一番上をメイン、残りを水平サムネイル帯へ
@@ -135,10 +135,13 @@ export default function MeetingJoinPage() {
         main.wrapper.classList.add('lk-main');
         grid.appendChild(main.wrapper);
       }
-      for (let i = 1; i < entries.length; i++) {
-        const e = entries[i];
-        e.wrapper.classList.remove('lk-main');
-        strip.appendChild(e.wrapper);
+      // strip がまだ未マウントなら、次回呼び出し時に入る
+      if (strip) {
+        for (let i = 1; i < entries.length; i++) {
+          const e = entries[i];
+          e.wrapper.classList.remove('lk-main');
+          strip.appendChild(e.wrapper);
+        }
       }
     } else {
       // ギャラリー
@@ -148,6 +151,13 @@ export default function MeetingJoinPage() {
       });
     }
   };
+
+  // ===== 1～2 フレーム後に実行するユーティリティ =====
+  const afterDomPaint = (n = 2) =>
+    new Promise((resolve) => {
+      const step = () => (n-- <= 0 ? resolve() : requestAnimationFrame(step));
+      requestAnimationFrame(step);
+    });
 
   // ===== 参加処理 =====
   const join = async () => {
@@ -255,6 +265,7 @@ export default function MeetingJoinPage() {
         pinBtn.textContent = '📌';
         pinBtn.onclick = () => {
           setPinnedId(prev => (prev === id ? null : id));
+          relayout();
         };
 
         wrapper.appendChild(videoWrap);
@@ -284,6 +295,8 @@ export default function MeetingJoinPage() {
             pub.setVideoDimensions({ width: 1280, height: 720 });
           } catch {}
           track.attach(entry.meta.videoEl);
+          // 映像の最初のフレーム到達時にもレイアウトを発火
+          entry.meta.videoEl.onloadeddata = () => relayout();
           relayout();
           try { await entry.meta.videoEl.play(); } catch {}
         } else if (track.kind === 'audio') {
@@ -352,55 +365,58 @@ export default function MeetingJoinPage() {
           await attachLocalPreviewFromTrack(localVideo);
         } catch (e) { console.warn('[video publish]', e); }
       }
+
       setStatus('connected');
 
       // UI: ローカルのミュート/カメラ操作
       setIsMuted(lp.isMicrophoneEnabled ? false : true);
       setIsCamOff(lp.isCameraEnabled ? false : true);
 
-      // ----- 既存 publication の取りこぼし対策 -----
-// ----- 既存 publication の取りこぼし対策（SDK差分に強い版） -----
-const attachExisting = () => {
-  if (!room) return;
+      // ===== 初回 DOM マウント完了後に既存トラックを反映 =====
+      await afterDomPaint(2);
 
-  // v1: room.participants / v2: room.remoteParticipants に両対応
-  const remoteMap =
-    (room.participants && room.participants instanceof Map && room.participants) ||
-    (room.remoteParticipants && room.remoteParticipants instanceof Map && room.remoteParticipants) ||
-    new Map();
+      // ----- 既存 publication の取りこぼし対策（SDK差分に強い版） -----
+      const attachExisting = () => {
+        if (!room) return;
 
-  const lp = room.localParticipant;
-  const everyone = [lp, ...Array.from(remoteMap.values())];
+        // v1: room.participants / v2: room.remoteParticipants に両対応
+        const remoteMap =
+          (room.participants && room.participants instanceof Map && room.participants) ||
+          (room.remoteParticipants && room.remoteParticipants instanceof Map && room.remoteParticipants) ||
+          new Map();
 
-  const pubsOf = (p) => {
-    // 参加者の publication 一覧を配列で返す（実装差分に耐える）
-    if (typeof p.getTrackPublications === 'function') return p.getTrackPublications();
-    const m =
-      (p.trackPublications && p.trackPublications instanceof Map && p.trackPublications) ||
-      (p.tracks && p.tracks instanceof Map && p.tracks) ||
-      null;
-    return m ? Array.from(m.values()) : [];
-  };
+        const lp2 = room.localParticipant;
+        const everyone = [lp2, ...Array.from(remoteMap.values())];
 
-  for (const p of everyone) {
-    if (!p) continue;
-    for (const pub of pubsOf(p)) {
-      const track = pub.track;
-      if (!track) continue; // まだ subscribe 前
-      const entry = ensureCard(p);
-      if (track.kind === 'video') {
-        track.attach(entry.meta.videoEl);
-        entry.meta.publication = pub;
-        try { entry.meta.videoEl.play(); } catch {}
-      } else if (track.kind === 'audio') {
-        // 必要なら <audio/> を生成して attach してもOK
-      }
-    }
-  }
-  relayout();
-};
-attachExisting();
+        const pubsOf = (p) => {
+          if (typeof p.getTrackPublications === 'function') return p.getTrackPublications();
+          const m =
+            (p.trackPublications && p.trackPublications instanceof Map && p.trackPublications) ||
+            (p.tracks && p.tracks instanceof Map && p.tracks) ||
+            null;
+          return m ? Array.from(m.values()) : [];
+        };
 
+        for (const p of everyone) {
+          if (!p) continue;
+          for (const pub of pubsOf(p)) {
+            const track = pub.track;
+            if (!track) continue; // まだ subscribe 前
+            const entry = ensureCard(p);
+            if (track.kind === 'video') {
+              track.attach(entry.meta.videoEl);
+              entry.meta.videoEl.onloadeddata = () => relayout();
+              entry.meta.publication = pub;
+              try { entry.meta.videoEl.play(); } catch {}
+            } else if (track.kind === 'audio') {
+              // 必要なら <audio/> を生成して attach してもOK
+            }
+          }
+        }
+        relayout();
+      };
+      attachExisting();
+      relayout();
     } catch (e) {
       console.error('join failed', e);
       setStatus('error');
@@ -631,7 +647,7 @@ const styles = {
   stage: {
     position: 'relative',
     marginTop: 12,
-    border: '1px solid #222',
+    border: '1px solid '#222',
     borderRadius: 12,
     padding: 12,
     minHeight: '70vh',
