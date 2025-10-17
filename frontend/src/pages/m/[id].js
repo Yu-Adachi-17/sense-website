@@ -1,4 +1,4 @@
-// pages/m/[id].js など：MeetingJoinPage（最適化版）
+// pages/m/[id].js
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -51,10 +51,8 @@ export default function MeetingJoinPage() {
   const attachLocalPreviewFromTrack = async (videoTrack) => {
     if (!videoTrack) return;
     const v = localVideoRef.current;
-    if (!v) {
-      console.warn('[local video] element not ready, skip attach');
-      return;
-    }
+    if (!v) return;
+
     videoTrack.attach(v);
     v.muted = true;
     v.playsInline = true;
@@ -66,7 +64,6 @@ export default function MeetingJoinPage() {
 
     try {
       await v.play();
-      console.log('[local video] play() ok');
       setNeedVideoPlay(false);
     } catch (e) {
       console.warn('[local video] play() blocked', e);
@@ -135,7 +132,6 @@ export default function MeetingJoinPage() {
 
       // --- ルーム生成（画質向上の既定値をセット）---
       const room = new Room({
-        // Adaptive は基本ONでOK
         adaptiveStream: { pixelDensity: 'screen' },
         dynacast: true,
         videoCaptureDefaults: {
@@ -145,9 +141,14 @@ export default function MeetingJoinPage() {
         },
         publishDefaults: {
           simulcast: true,
-          videoEncoding: { maxBitrate: 3_000_000, maxFramerate: 30 }, // プライマリ=720p相当
-          // 追加レイヤーは h180 / h360（720はプライマリに任せる）
+          // プライマリ（オリジナル）層＝720p相当
+          videoEncoding: { maxBitrate: 2_500_000, maxFramerate: 30 },
+          // 追加の低レイヤー2つ（720はプライマリに任せる）
           videoSimulcastLayers: [VideoPresets.h180, VideoPresets.h360],
+          // H.264 バックアップ（iOS互換の安定化）
+          backupCodec: { codec: 'h264' },
+          // 解像度を優先（帯域低下時にfpsを犠牲にしやすくする）
+          degradationPreference: 'maintain-resolution',
         },
       });
       roomRef.current = room;
@@ -164,7 +165,7 @@ export default function MeetingJoinPage() {
           if (t.kind === 'audio') localAudio = t;
           if (t.kind === 'video') localVideo = t;
         }
-        console.log('[createLocalTracks] audio?', !!localAudio, 'video?', !!localVideo);
+        console.log('[createLocalTracks]', { hasAudio: !!localAudio, hasVideo: !!localVideo });
       } catch (err) {
         const failure = (typeof MediaDeviceFailure?.getFailure === 'function')
           ? MediaDeviceFailure.getFailure(err) : null;
@@ -191,16 +192,25 @@ export default function MeetingJoinPage() {
 
           const card = document.createElement('div');
           Object.assign(card.style, {
-            position: 'relative', aspectRatio: '16/9', background: '#000',
-            borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,.1)',
+            position: 'relative',
+            aspectRatio: '16/9',
+            background: '#000',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            border: '1px solid rgba(255,255,255,.1)',
           });
 
           const label = document.createElement('div');
           label.textContent = participant?.name || participant?.identity || 'Guest';
           Object.assign(label.style, {
-            position: 'absolute', left: '8px', bottom: '8px',
-            padding: '2px 6px', fontSize: '12px',
-            background: 'rgba(0,0,0,.5)', color: '#fff', borderRadius: '4px',
+            position: 'absolute',
+            left: '8px',
+            bottom: '8px',
+            padding: '2px 6px',
+            fontSize: '12px',
+            background: 'rgba(0,0,0,.5)',
+            color: '#fff',
+            borderRadius: '4px',
           });
 
           card.appendChild(v);
@@ -209,7 +219,7 @@ export default function MeetingJoinPage() {
 
           track.attach(v);
 
-          // ★ 高画質の購読を強制（Adaptiveより優先）
+          // ★ 高画質の購読を強制（Adaptive より優先）
           try {
             pub.setVideoQuality(VideoQuality.HIGH);
             pub.setVideoDimensions({ width: 1280, height: 720 });
@@ -259,24 +269,19 @@ export default function MeetingJoinPage() {
 
       // --- publish ---
       const lp = room.localParticipant;
-      console.log('[DBG] before publish', { hasAudio: !!localAudio, hasVideo: !!localVideo });
-
       if (localAudio) {
         try {
           await lp.publishTrack(localAudio);
-          console.log('[DBG] audio published');
         } catch (e) {
-          console.warn('[DBG] publish audio failed', e);
+          console.warn('[publish audio failed]', e);
         }
       }
-
       if (localVideo) {
         try {
           await lp.publishTrack(localVideo);
-          console.log('[DBG] video published');
           await attachLocalPreviewFromTrack(localVideo);
         } catch (e) {
-          console.warn('[DBG] publish video failed', e);
+          console.warn('[publish video failed]', e);
         }
       }
 
@@ -284,9 +289,6 @@ export default function MeetingJoinPage() {
 
       localTracksRef.current.audio = localAudio;
       localTracksRef.current.video = localVideo;
-
-      const pubs = lp.getTrackPublications?.() || [];
-      console.log('[DBG] pubs', pubs.map(p => ({ kind: p.kind, muted: p.isMuted, sid: p.sid })));
 
       setStatus('connected');
     } catch (e) {
