@@ -1,13 +1,13 @@
-// frontend/src/pages/home.js
-import Head from "next/head";
-import { useEffect, useRef, useState, useMemo } from "react";
-import { createPortal } from "react-dom";
-import { FaApple } from "react-icons/fa";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import HomeIcon from "./homeIcon"; // 自前アイコン
+  // frontend/src/pages/home.js
+  import Head from "next/head";
+  import { useEffect, useRef, useState, useMemo } from "react";
+  import { createPortal } from "react-dom";
+  import { FaApple } from "react-icons/fa";
+  import Link from "next/link";
+  import { useRouter } from "next/router";
+  import { useTranslation } from "next-i18next";
+  import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+  import HomeIcon from "./homeIcon"; // 自前アイコン
 
 const SITE_URL = "https://www.sense-ai.world";
 

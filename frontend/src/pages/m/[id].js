@@ -1,9 +1,28 @@
 // pages/m/[id].js
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { FaApple } from 'react-icons/fa';
+import HomeIcon from '../homeIcon'; // 本ファイルは /pages/m/[id].js。../homeIcon でOK
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE || 'https://sense-website-production.up.railway.app';
+
+// iOS ダウンロード先（必要に応じて変更）
+const LINK_IOS =
+  process.env.NEXT_PUBLIC_IOS_STORE_URL ||
+  'https://apps.apple.com/app/id6449820876';
+
+// ★ 直前のユーザー名を保存・復元するキー
+const LAST_JOIN_NAME_KEY = 'minutesai.joinName';
+
+/* ===== Fixed Header（左=Home、右=iOS）===== */
+function FixedHeaderPortal({ children }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return <>{children}</>;
+}
 
 export default function MeetingJoinPage() {
   const router = useRouter();
@@ -17,7 +36,7 @@ export default function MeetingJoinPage() {
   const [needVideoPlay, setNeedVideoPlay] = useState(false);
   const [deviceHint, setDeviceHint] = useState('');
 
-  // Zoom風UI
+  // Zoom風UI（接続後ビュー）
   const [viewMode, setViewMode] = useState('speaker'); // 'speaker' | 'gallery'
   const [pinnedId, setPinnedId] = useState(null);
   const [isMuted, setIsMuted] = useState(false);
@@ -32,6 +51,14 @@ export default function MeetingJoinPage() {
 
   // 参加者カード管理（id -> DOM）
   const cardMapRef = useRef(new Map());
+
+  // ===== 前回のユーザー名を復元 =====
+  useEffect(() => {
+    try {
+      const cached = localStorage.getItem(LAST_JOIN_NAME_KEY);
+      if (cached) setName(cached);
+    } catch {}
+  }, []);
 
   // ===== 会議情報 =====
   useEffect(() => {
@@ -55,27 +82,6 @@ export default function MeetingJoinPage() {
     cardMapRef.current.clear();
   };
 
-  // ===== ローカルプレビュー attach（play まで）=====
-  const attachLocalPreviewFromTrack = async (videoTrack) => {
-    if (!videoTrack) return;
-    const v = localVideoRef.current;
-    if (!v) return;
-    videoTrack.attach(v);
-    v.muted = true;
-    v.playsInline = true;
-    v.autoplay = true;
-    const logDims = () => console.log('[local video] size', v.videoWidth, v.videoHeight);
-    v.onloadedmetadata = logDims;
-    v.onresize = logDims;
-    try {
-      await v.play();
-      setNeedVideoPlay(false);
-    } catch (e) {
-      console.warn('[local video] play() blocked', e);
-      setNeedVideoPlay(true);
-    }
-  };
-
   // ===== デバイス完全解放 =====
   const hardStopLocal = () => {
     for (const k of ['audio', 'video']) {
@@ -89,6 +95,23 @@ export default function MeetingJoinPage() {
           try { pub.track?.stop(); } catch {}
         });
       } catch {}
+    }
+  };
+
+  // ===== ローカルプレビュー attach（play まで）=====
+  const attachLocalPreviewFromTrack = async (videoTrack) => {
+    if (!videoTrack) return;
+    const v = localVideoRef.current;
+    if (!v) return;
+    videoTrack.attach(v);
+    v.muted = true;
+    v.playsInline = true;
+    v.autoplay = true;
+    try {
+      await v.play();
+      setNeedVideoPlay(false);
+    } catch {
+      setNeedVideoPlay(true);
     }
   };
 
@@ -154,9 +177,14 @@ export default function MeetingJoinPage() {
       requestAnimationFrame(step);
     });
 
-  // ===== 参加処理 =====
+  // ===== 参加処理（LiveKit）=====
   const join = async () => {
     if (!meeting) return;
+
+    // ★ 入力名を保存（空の場合は保存しない）
+    try {
+      if (name && name.trim()) localStorage.setItem(LAST_JOIN_NAME_KEY, name.trim());
+    } catch {}
 
     setStatus('loading');
     setDeviceHint('');
@@ -279,13 +307,11 @@ export default function MeetingJoinPage() {
         return entry;
       };
 
-      // ===== 重要: Visibility Nudge（可視性＆サイズ確定を強制） =====
+      // ===== 可視性ナッジ =====
       const visibilityNudge = (videoEl) => {
         if (!videoEl) return;
-        // 強制レイアウト誘発（GPU合成→レイアウト→再合成）
         videoEl.style.transform = 'translateZ(0)';
         requestAnimationFrame(() => {
-          // reflowを発生させる
           // eslint-disable-next-line no-unused-expressions
           videoEl.getBoundingClientRect();
           videoEl.style.transform = '';
@@ -294,30 +320,24 @@ export default function MeetingJoinPage() {
       };
 
       // ===== イベント =====
-      room.on(RoomEvent.TrackSubscribed, async (track, pub, participant) => {
+      room.on('trackSubscribed', async (track, pub, participant) => {
         const entry = ensureCard(participant);
         if (track.kind === 'video') {
           entry.meta.publication = pub;
           try {
-            // attach
             track.attach(entry.meta.videoEl);
-
-            // ★ 高品質要求（2テンポ再要求で確実に掴む）
-            pub.setVideoQuality(VideoQuality.HIGH);
-            pub.setVideoDimensions({ width: 1280, height: 720 });
+            // 品質再要求（2テンポ）
+            pub.setVideoQuality?.('high');
+            pub.setVideoDimensions?.({ width: 1280, height: 720 });
             setTimeout(() => {
               try {
-                pub.setVideoQuality(VideoQuality.HIGH);
-                pub.setVideoDimensions({ width: 1280, height: 720 });
+                pub.setVideoQuality?.('high');
+                pub.setVideoDimensions?.({ width: 1280, height: 720 });
               } catch {}
             }, 200);
 
-            // 映像最初のフレームで再レイアウト
             entry.meta.videoEl.onloadeddata = () => relayout();
-
-            // ★ 可視性ナッジ
             visibilityNudge(entry.meta.videoEl);
-
             await entry.meta.videoEl.play().catch(() => {});
             relayout();
           } catch (e) {
@@ -328,7 +348,7 @@ export default function MeetingJoinPage() {
         }
       });
 
-      room.on(RoomEvent.TrackUnsubscribed, (track, pub, participant) => {
+      room.on('trackUnsubscribed', (track, pub, participant) => {
         const entry = cardMapRef.current.get(participant.identity);
         if (!entry) return;
         try { track.detach(); } catch {}
@@ -336,11 +356,11 @@ export default function MeetingJoinPage() {
       });
 
       // 参加/離脱
-      room.on(RoomEvent.ParticipantConnected, (p) => {
+      room.on('participantConnected', (p) => {
         ensureCard(p);
         relayout();
       });
-      room.on(RoomEvent.ParticipantDisconnected, (p) => {
+      room.on('participantDisconnected', (p) => {
         const entry = cardMapRef.current.get(p.identity);
         if (entry) {
           entry.wrapper.remove();
@@ -351,7 +371,7 @@ export default function MeetingJoinPage() {
       });
 
       // アクティブスピーカー
-      room.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
+      room.on('activeSpeakersChanged', (speakers) => {
         const activeIds = new Set(speakers.map(s => s.identity));
         cardMapRef.current.forEach((entry, id) => {
           entry.meta.isSpeaking = activeIds.has(id);
@@ -360,16 +380,16 @@ export default function MeetingJoinPage() {
         relayout();
       });
 
-      room.on(RoomEvent.MediaDevicesError, (err) => {
+      room.on('mediaDevicesError', (err) => {
         setDeviceHint(err?.error || err?.message || 'Media device error');
       });
 
-      room.on(RoomEvent.Disconnected, () => {
+      room.on('disconnected', () => {
         setStatus('idle');
         cleanupRemotes();
       });
 
-      room.on(RoomEvent.AudioPlaybackStatusChanged, () => {
+      room.on('audioPlaybackChanged', () => {
         setNeedAudioStart(!room.canPlaybackAudio);
       });
 
@@ -395,10 +415,8 @@ export default function MeetingJoinPage() {
       setIsMuted(lp.isMicrophoneEnabled ? false : true);
       setIsCamOff(lp.isCameraEnabled ? false : true);
 
-      // ===== 初回 DOM マウント完了後に既存トラックを反映 =====
+      // 初期取りこぼし対策
       await afterDomPaint(2);
-
-      // ----- 既存 publication の取りこぼし対策 -----
       const attachExisting = () => {
         if (!room) return;
 
@@ -423,7 +441,7 @@ export default function MeetingJoinPage() {
           if (!p) continue;
           for (const pub of pubsOf(p)) {
             const track = pub.track;
-            if (!track) continue; // まだ subscribe 前
+            if (!track) continue;
             const entry = ensureCard(p);
             if (track.kind === 'video') {
               track.attach(entry.meta.videoEl);
@@ -459,13 +477,13 @@ export default function MeetingJoinPage() {
     try {
       await roomRef.current?.startAudio();
       setNeedAudioStart(false);
-    } catch (e) {}
+    } catch {}
   };
   const startVideo = async () => {
     try {
       await localVideoRef.current?.play();
       setNeedVideoPlay(false);
-    } catch (e) {}
+    } catch {}
   };
 
   // タブ復帰時にも再生を試みる
@@ -505,54 +523,73 @@ export default function MeetingJoinPage() {
 
   // ===== UI =====
   return (
-    <div style={styles.page}>
-      <div style={styles.header}>
-        <h2 style={{ margin: 0 }}>Meeting</h2>
-        {status === 'connected' && (
-          <div style={styles.headerRight}>
-            <div style={styles.viewSwitch}>
-              <button
-                onClick={() => setViewMode('speaker')}
-                style={{ ...styles.viewBtn, ...(viewMode === 'speaker' ? styles.viewBtnActive : {}) }}
-              >
-                Speaker
-              </button>
-              <button
-                onClick={() => setViewMode('gallery')}
-                style={{ ...styles.viewBtn, ...(viewMode === 'gallery' ? styles.viewBtnActive : {}) }}
-              >
-                Gallery
-              </button>
-            </div>
-            <button onClick={leave} style={styles.secondaryBtn}>Leave</button>
+    <>
+      {/* ===== 固定ヘッダー：左=Home / 右=iOS ===== */}
+      <FixedHeaderPortal>
+        <header style={styles.top}>
+          <Link href="/" aria-label="Minutes.AI Home" style={styles.brand}>
+            <span style={styles.brandIcon} aria-hidden="true">
+              <HomeIcon size={22} color="currentColor" />
+            </span>
+            <span style={styles.brandText}>Minutes.AI</span>
+          </Link>
+          <nav style={styles.nav}>
+            <a href={LINK_IOS} target="_blank" rel="noopener noreferrer" style={styles.navLink}>
+              <FaApple aria-hidden="true" style={{ marginRight: 8 }} />
+              <span className="gradHeader">iOS</span>
+            </a>
+          </nav>
+        </header>
+      </FixedHeaderPortal>
+
+      {/* ===== Join セクション（“user name”の薄灰プレースホルダー＋保存/復元） ===== */}
+      {status !== 'connected' && (
+        <main style={styles.main}>
+          <div style={styles.wrap}>
+            <h1 style={styles.hero}>Join the Meeting</h1>
+            <h2 style={styles.subtitle}>Powered by LiveKit · Minutes.AI</h2>
+
+            <section style={styles.card}>
+              <div style={{ marginBottom: 12 }}>
+                <label htmlFor="name" style={styles.label}>Your name</label>
+                <div>
+                  <input
+                    id="name"
+                    className="joinNameInput"
+                    placeholder="user name"
+                    value={name}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      setName(v);
+                      try { localStorage.setItem(LAST_JOIN_NAME_KEY, v); } catch {}
+                    }}
+                    style={styles.inputUnderline}
+                  />
+                  <div style={styles.inputBorder} />
+                </div>
+              </div>
+
+              <div style={styles.center}>
+                <button
+                  onClick={join}
+                  disabled={status === 'loading' || !meeting}
+                  style={merge(styles.btnBase, styles.btnJoin, (status === 'loading' || !meeting) && styles.btnDisabled)}
+                >
+                  {status === 'loading' ? 'Joining…' : 'Join'}
+                </button>
+              </div>
+
+              {deviceHint && (
+                <div style={{ marginTop: 12, whiteSpace: 'pre-wrap', fontSize: 12, color: '#6b7280' }}>
+                  {deviceHint}
+                </div>
+              )}
+            </section>
           </div>
-        )}
-      </div>
-
-      {!meeting && <p>Loading meeting…</p>}
-
-      {meeting && status !== 'connected' && (
-        <div style={styles.joinBox}>
-          <p style={{ marginTop: 0 }}>
-            <b>Room:</b> {meeting.roomName}
-          </p>
-          <input
-            placeholder="Your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={styles.input}
-          />
-          <button onClick={join} disabled={status === 'loading'} style={styles.primaryBtn}>
-            {status === 'loading' ? 'Joining…' : 'Join'}
-          </button>
-        </div>
+        </main>
       )}
 
-      {deviceHint && status !== 'connected' && (
-        <p style={{ color: '#aaa', marginTop: 8, whiteSpace: 'pre-wrap' }}>{deviceHint}</p>
-      )}
-
-      {/* ローカルPIP */}
+      {/* ローカルPIP（接続後に表示） */}
       <video
         ref={localVideoRef}
         style={{ ...styles.localPip, visibility: status === 'connected' ? 'visible' : 'hidden' }}
@@ -561,9 +598,21 @@ export default function MeetingJoinPage() {
         autoPlay
       />
 
+      {/* ===== 接続後：Zoom風レイアウト ===== */}
       {status === 'connected' && (
         <div ref={stageRef} style={styles.stage}>
-          {/* スピーカービュー: メイン + 下部サムネ */}
+          <div style={styles.stageHeader}>
+            <div style={styles.viewSwitch}>
+              <button
+                onClick={() => setViewMode('speaker')}
+                style={{ ...styles.viewBtn, ...(viewMode === 'speaker' ? styles.viewBtnActive : {}) }}
+              >
+                Speaker
+              </button>
+            </div>
+            <button onClick={leave} style={styles.secondaryBtn}>Leave</button>
+          </div>
+
           <div
             ref={remoteGridRef}
             style={{
@@ -602,10 +651,12 @@ export default function MeetingJoinPage() {
       )}
 
       {status === 'error' && (
-        <p style={{ color: 'crimson' }}>Failed to join. Open DevTools console for details.</p>
+        <p style={{ color: 'crimson', textAlign: 'center', marginTop: 16 }}>
+          Failed to join. Open DevTools console for details.
+        </p>
       )}
 
-      {/* ===== 追加CSS（カード見た目） ===== */}
+      {/* ===== 追加CSS（カード見た目 & プレースホルダー色） ===== */}
       <style jsx global>{`
         .lk-card { position: relative; aspect-ratio: 16/9; background:#000; border-radius:12px; overflow:hidden; border:1px solid #1b1b1b; }
         .lk-card.lk-main { border-color:#3b82f6; box-shadow:0 0 0 2px rgba(59,130,246,.35) inset; }
@@ -616,66 +667,142 @@ export default function MeetingJoinPage() {
         .lk-card.is-muted .lk-mic::before { background:#ef4444; }
         .lk-pin { position:absolute; right:8px; top:8px; font-size:12px; background:rgba(0,0,0,.55); color:#fff; border:1px solid #444; padding:3px 6px; border-radius:6px; cursor:pointer; }
         .lk-card.is-speaking { outline: 2px solid #facc15; outline-offset:-2px; }
+
+        /* プレースホルダーを薄いグレーに */
+        .joinNameInput::placeholder { color: rgba(107, 114, 128, 0.7); }
       `}</style>
-    </div>
+    </>
   );
 }
 
+/* ===== Styles ===== */
 const styles = {
-  page: {
-    padding: 16,
-    color: '#fff',
-    background: '#0b0b0b',
-    minHeight: '100vh',
-    fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto',
+  // Header
+  top: {
+    position: 'fixed',
+    top: 0, left: 0, right: 0,
+    height: 56,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '0 14px',
+    background: '#ffffff',
+    borderBottom: '1px solid rgba(0,0,0,0.06)',
+    zIndex: 100,
   },
-  header: {
+  brand: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 8,
+    textDecoration: 'none',
+    color: '#111827',
+    fontWeight: 800,
+    letterSpacing: 0.2,
+  },
+  brandIcon: { display: 'inline-grid', placeItems: 'center' },
+  brandText: { fontSize: 16.5 },
+  nav: { display: 'inline-flex', alignItems: 'center', gap: 8 },
+  navLink: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: '8px 10px',
+    borderRadius: 10,
+    border: '1px solid rgba(0,0,0,0.06)',
+    textDecoration: 'none',
+    color: '#111827',
+    fontWeight: 700,
+    background: '#fff',
+  },
+
+  // Join（白カード）
+  main: {
+    minHeight: '100svh',
+    display: 'grid',
+    placeItems: 'center',
+    padding: '72px 16px 24px', // ヘッダー分マージン
+    background: '#ffffff',
+    fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif',
+  },
+  wrap: { width: '100%', maxWidth: 620 },
+  hero: {
+    margin: '8px 0 8px',
+    textAlign: 'center',
+    fontSize: 44,
+    fontWeight: 900,
+    lineHeight: 1.05,
+    letterSpacing: 0.2,
+    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #0b1a45 100%)',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    color: 'transparent',
+  },
+  subtitle: { margin: 0, textAlign: 'center', fontSize: 16, fontWeight: 700, color: '#111827' },
+  card: {
+    marginTop: 14,
+    padding: 16,
+    border: '1px solid rgba(0,0,0,0.08)',
+    borderRadius: 16,
+    background: '#ffffff',
+  },
+  label: { fontSize: 12, opacity: 0.8, marginBottom: 4 },
+  inputUnderline: {
+    width: '100%',
+    border: 'none',
+    outline: 'none',
+    fontSize: 16,
+    padding: '8px 0',
+    color: '#111827',
+    background: 'transparent',
+  },
+  inputBorder: { height: 1, background: 'rgba(107,114,128,0.38)' },
+  center: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
+  btnBase: {
+    width: '70%',
+    padding: '12px 16px',
+    borderRadius: 22,
+    border: '1px solid rgba(0,0,0,0.08)',
+    fontWeight: 700,
+    background: '#fff',
+    cursor: 'pointer',
+  },
+  btnJoin: {
+    color: '#fff',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
+    boxShadow: '0 10px 20px rgba(37,99,235,.25)',
+    border: 'none',
+  },
+  btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
+
+  // 接続後（黒ステージ）
+  stage: {
+    position: 'relative',
+    marginTop: 72, // ヘッダー分
+    padding: 12,
+    minHeight: '100svh',
+    background: '#0b0b0b',
+    color: '#fff',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 12,
+  },
+  stageHeader: {
     display: 'flex',
     alignItems: 'center',
     gap: 12,
-    marginBottom: 12,
   },
-  headerRight: { marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 },
   viewSwitch: { display: 'flex', border: '1px solid #333', borderRadius: 8, overflow: 'hidden' },
   viewBtn: {
     padding: '6px 10px', background: '#161616', color: '#ddd', border: 'none', cursor: 'pointer',
   },
   viewBtnActive: { background: '#2b2b2b', color: '#fff' },
-  joinBox: { display: 'flex', alignItems: 'center', gap: 8 },
-  input: {
-    padding: '8px 10px',
-    borderRadius: 8,
-    border: '1px solid #333',
-    background: '#111',
-    color: '#fff',
-  },
-  primaryBtn: {
-    padding: '8px 12px',
-    borderRadius: 8,
-    background: '#4C8DFF',
-    color: '#fff',
-    border: 'none',
-    cursor: 'pointer',
-  },
   secondaryBtn: {
+    marginLeft: 'auto',
     padding: '6px 10px',
     borderRadius: 8,
     background: '#222',
     color: '#fff',
     border: '1px solid #444',
     cursor: 'pointer',
-  },
-  stage: {
-    position: 'relative',
-    marginTop: 12,
-    border: '1px solid #222',
-    borderRadius: 12,
-    padding: 12,
-    minHeight: '70vh',
-    background: '#000',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 12,
   },
   galleryGrid: {
     display: 'grid',
@@ -748,3 +875,7 @@ const styles = {
     color: '#fff',
   },
 };
+
+function merge(...xs) {
+  return Object.assign({}, ...xs.filter(Boolean));
+}
