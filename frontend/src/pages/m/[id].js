@@ -42,7 +42,7 @@ export default function MeetingJoinPage() {
   const [isCamOff, setIsCamOff] = useState(false);
 
   const roomRef = useRef(null);
-  const localVideoRef = useRef(null);
+  const localVideoRef = useRef(null);   // ← 自分プレビュー（上中央に表示）
   const stageRef = useRef(null);
   const remoteGridRef = useRef(null);
   const thumbStripRef = useRef(null);
@@ -106,9 +106,7 @@ export default function MeetingJoinPage() {
     if (!videoTrack) return;
     const v = localVideoRef.current;
     if (!v) return;
-    try {
-      videoTrack.attach(v);
-    } catch {}
+    try { videoTrack.attach(v); } catch {}
     v.muted = true;
     v.playsInline = true;
     v.autoplay = true;
@@ -142,7 +140,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== Zoom風レイアウト更新（安全化＋“自分メイン”） =====
+  // ===== Zoom風レイアウト更新（安全化＋“自分メイン/上中央PIP”） =====
   const relayout = () => {
     const grid = remoteGridRef.current;
     const strip = thumbStripRef.current;
@@ -184,19 +182,21 @@ export default function MeetingJoinPage() {
           grid.appendChild(main.wrapper);
         }
         if (strip) {
-          // 残りのリモート＋（必要ならローカル）をサムネへ
-          const rest = entries.filter(e => e !== main);
+          // 残りの“リモートだけ”をサムネへ（ローカルは入れない＝上中央PIPで重複させない）
+          const rest = entries.filter(e => e !== main && e.meta.id !== localId);
           for (const e of rest) {
             e.wrapper.classList.remove('lk-main');
             strip.appendChild(e.wrapper);
           }
         }
       } else {
+        // ギャラリーは全員（ローカル含む）をグリッドへ
         entries.forEach(e => {
           e.wrapper.classList.remove('lk-main');
           grid.appendChild(e.wrapper);
         });
       }
+      // 上中央PIPは別要素なのでここでは何もしない（描画はJSX側の <video>）
     } else {
       // === リモートがいない：自分を中央に大きく ===
       const vtrack = localTracksRef.current?.video || null;
@@ -292,7 +292,7 @@ export default function MeetingJoinPage() {
           if (t.kind === 'audio') localAudio = t;
           if (t.kind === 'video') localVideo = t;
         }
-        // 保存しておく（自分メイン描画に使う）
+        // 保存（自分メイン/上中央PIPに利用）
         localTracksRef.current.audio = localAudio || null;
         localTracksRef.current.video = localVideo || null;
       } catch (err) {
@@ -643,18 +643,6 @@ export default function MeetingJoinPage() {
         </main>
       )}
 
-      {/* ローカルPIP（接続後・自分メイン中は非表示） */}
-      <video
-        ref={localVideoRef}
-        style={{
-          ...styles.localPip,
-          visibility: status === 'connected' && !selfCentered ? 'visible' : 'hidden',
-        }}
-        muted
-        playsInline
-        autoPlay
-      />
-
       {/* ===== 接続後：Zoom風レイアウト ===== */}
       {status === 'connected' && (
         <div ref={stageRef} style={styles.stage}>
@@ -676,6 +664,18 @@ export default function MeetingJoinPage() {
             <button onClick={leave} style={styles.secondaryBtn}>Leave</button>
           </div>
 
+          {/* ←←← 自分プレビュー：上中央に固定（自分だけの時は非表示＝中央ドンに任せる） */}
+          {!selfCentered && (
+            <video
+              ref={localVideoRef}
+              style={styles.selfPreviewTopCenter}
+              muted
+              playsInline
+              autoPlay
+            />
+          )}
+
+          {/* メイン領域 */}
           <div
             ref={remoteGridRef}
             style={{
@@ -890,19 +890,23 @@ const styles = {
     borderTop: '1px solid #111',
     background: 'linear-gradient(180deg,#0a0a0a,#080808)',
   },
-  localPip: {
-    position: 'fixed',
-    right: 16,
-    bottom: 86,
-    width: 220,
-    height: 140,
+
+  // ★ 上中央PIP（Zoom風）
+  selfPreviewTopCenter: {
+    position: 'absolute',
+    top: 8,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: 280,
+    height: 170,
     objectFit: 'cover',
     borderRadius: 10,
-    border: '1px solid rgba(255,255,255,.15)',
+    border: '1px solid rgba(255,255,255,.25)',
     background: '#000',
-    zIndex: 9999,
-    boxShadow: '0 10px 30px rgba(0,0,0,.5)',
+    zIndex: 50,
+    boxShadow: '0 14px 30px rgba(0,0,0,.45)',
   },
+
   floatingBtn: {
     position: 'absolute',
     left: 16,
