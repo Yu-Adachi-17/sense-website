@@ -13,13 +13,13 @@ export default function MeetingJoinPage() {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | connected | error
   const [needAudioStart, setNeedAudioStart] = useState(false);
-  const [needVideoPlay, setNeedVideoPlay] = useState(false); // 自動再生解除ボタン用
-  const [deviceHint, setDeviceHint] = useState(''); // ユーザーに見せる原因（DeviceInUse など）
+  const [needVideoPlay, setNeedVideoPlay] = useState(false);
+  const [deviceHint, setDeviceHint] = useState('');
 
   const roomRef = useRef(null);
   const localVideoRef = useRef(null);
   const remoteGridRef = useRef(null);
-  const localTracksRef = useRef({ audio: null, video: null }); // 事前生成ローカルトラック保持
+  const localTracksRef = useRef({ audio: null, video: null });
 
   // ===== 会議情報 =====
   useEffect(() => {
@@ -47,19 +47,20 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== ローカルプレビュー attach（play まで明示）=====
+  // ===== ローカル・プレビュー attach（play まで明示）=====
   const attachLocalPreviewFromTrack = async (videoTrack) => {
-    if (!videoTrack || !localVideoRef.current) return;
+    if (!videoTrack) return;
     const v = localVideoRef.current;
+    if (!v) {
+      console.warn('[local video] element not ready, skip attach');
+      return;
+    }
     videoTrack.attach(v);
     v.muted = true;
     v.playsInline = true;
     v.autoplay = true;
 
-    const logDims = () => {
-      // デバッグ用：実解像度をログ
-      console.log('[local video] size', v.videoWidth, v.videoHeight);
-    };
+    const logDims = () => console.log('[local video] size', v.videoWidth, v.videoHeight);
     v.onloadedmetadata = logDims;
     v.onresize = logDims;
 
@@ -69,7 +70,7 @@ export default function MeetingJoinPage() {
       setNeedVideoPlay(false);
     } catch (e) {
       console.warn('[local video] play() blocked', e);
-      setNeedVideoPlay(true); // クリックで解除させる
+      setNeedVideoPlay(true);
     }
   };
 
@@ -82,7 +83,7 @@ export default function MeetingJoinPage() {
     const room = roomRef.current;
     if (room) {
       try {
-        room.localParticipant?.getTracks?.().forEach((pub) => {
+        room.localParticipant?.getTrackPublications?.().forEach((pub) => {
           try { pub.track?.stop(); } catch {}
         });
       } catch {}
@@ -278,8 +279,9 @@ export default function MeetingJoinPage() {
       localTracksRef.current.audio = localAudio;
       localTracksRef.current.video = localVideo;
 
-      console.log('[DBG] pubs',
-        lp.getTracks?.().map(p => ({ kind: p.kind, muted: p.isMuted, sid: p.sid })));
+      // 正しいデバッグ：TrackPublications を見る
+      const pubs = lp.getTrackPublications?.() || [];
+      console.log('[DBG] pubs', pubs.map(p => ({ kind: p.kind, muted: p.isMuted, sid: p.sid })));
 
       setStatus('connected');
     } catch (e) {
@@ -309,9 +311,7 @@ export default function MeetingJoinPage() {
   // タブ復帰時にも再生を試みる
   useEffect(() => {
     const onVis = () => {
-      if (document.visibilityState === 'visible' && needVideoPlay) {
-        startVideo();
-      }
+      if (document.visibilityState === 'visible' && needVideoPlay) startVideo();
     };
     document.addEventListener('visibilitychange', onVis);
     return () => document.removeEventListener('visibilitychange', onVis);
@@ -360,10 +360,18 @@ export default function MeetingJoinPage() {
         <p style={{ color: '#aaa', marginTop: 8, whiteSpace: 'pre-wrap' }}>{deviceHint}</p>
       )}
 
+      {/* ★ ローカルPIPは常にDOMに置く（visibilityで表示切替） */}
+      <video
+        ref={localVideoRef}
+        style={{ ...styles.localPip, visibility: status === 'connected' ? 'visible' : 'hidden' }}
+        muted
+        playsInline
+        autoPlay
+      />
+
       {status === 'connected' && (
         <div style={styles.stage}>
           <div ref={remoteGridRef} style={styles.remoteGrid} />
-          <video ref={localVideoRef} style={styles.localPip} muted playsInline autoPlay />
           {needAudioStart && (
             <button onClick={startAudio} style={styles.floatingBtn}>
               Enable audio
@@ -438,7 +446,7 @@ const styles = {
     gap: 12,
   },
   localPip: {
-    position: 'absolute',
+    position: 'fixed', // ← 常時DOMに置くので fixed の方が扱いやすい
     right: 16,
     bottom: 16,
     width: 200,
@@ -447,6 +455,7 @@ const styles = {
     borderRadius: 10,
     border: '1px solid rgba(255,255,255,.15)',
     background: '#000',
+    zIndex: 9999,
   },
   floatingBtn: {
     position: 'absolute',
