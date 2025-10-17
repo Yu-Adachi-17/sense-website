@@ -1,4 +1,3 @@
-// frontend/src/pages/m/[id].js
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -47,7 +46,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== ローカル・プレビュー attach（play まで明示）=====
+  // ===== ローカルプレビュー attach（play まで）=====
   const attachLocalPreviewFromTrack = async (videoTrack) => {
     if (!videoTrack) return;
     const v = localVideoRef.current;
@@ -126,13 +125,31 @@ export default function MeetingJoinPage() {
 
       // --- SDK ---
       const {
-        Room, RoomEvent,
-        createLocalTracks,
-        MediaDeviceFailure,
+        Room, RoomEvent, VideoPresets,
+        createLocalTracks, MediaDeviceFailure,
       } = await import('livekit-client');
 
       // 念のため前回分を解放
       hardStopLocal();
+
+      // --- ルーム生成（画質向上の既定値をセット）---
+      const room = new Room({
+        // Adaptive は基本ONでOK。可読性のため pixelDensity は 'screen' を維持
+        adaptiveStream: { pixelDensity: 'screen' },
+        dynacast: true,
+        videoCaptureDefaults: {
+          facingMode: 'user',
+          resolution: { width: 1280, height: 720 },
+          frameRate: 30,
+        },
+        publishDefaults: {
+          simulcast: true,
+          videoEncoding: { maxBitrate: 3_000_000, maxFramerate: 30 },
+          // ★ 720p レイヤーを追加（これが無いと高画質は絶対に来ない）
+          videoSimulcastLayers: [VideoPresets.h180, VideoPresets.h360, VideoPresets.h720],
+        },
+      });
+      roomRef.current = room;
 
       // --- 先にローカルトラック生成（単一プロンプト）---
       let localAudio = null;
@@ -140,7 +157,7 @@ export default function MeetingJoinPage() {
       try {
         const tracks = await createLocalTracks({
           audio: true,
-          video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 30 } },
+          video: { facingMode: 'user', resolution: { width: 1280, height: 720 }, frameRate: 30 },
         });
         for (const t of tracks) {
           if (t.kind === 'audio') localAudio = t;
@@ -161,10 +178,7 @@ export default function MeetingJoinPage() {
         }
       }
 
-      // --- ルーム作成 & イベント ---
-      const room = new Room({ adaptiveStream: true, dynacast: true });
-      roomRef.current = room;
-
+      // ===== イベント =====
       room.on(RoomEvent.TrackSubscribed, async (track, pub, participant) => {
         const grid = remoteGridRef.current;
         if (!grid) return;
@@ -194,6 +208,8 @@ export default function MeetingJoinPage() {
 
           track.attach(v);
           try {
+            // 必要なら明示で 720p を要求（Adaptive の上書き）
+            // pub.setVideoDimensions({ width: 1280, height: 720 });
             await v.play();
             console.log('[remote video] play() ok for', participant?.identity);
           } catch (e) {
@@ -253,33 +269,14 @@ export default function MeetingJoinPage() {
           await attachLocalPreviewFromTrack(localVideo);
         } catch (e) {
           console.warn('[DBG] publish video failed', e);
-          // 代替カメラ自動リトライ
-          try {
-            const devices = await navigator.mediaDevices.enumerateDevices();
-            const cams = devices.filter(d => d.kind === 'videoinput');
-            const currentId = localVideo.getDeviceId?.();
-            const alt = cams.find(d => d.deviceId && d.deviceId !== currentId);
-            if (alt) {
-              console.log('[DBG] retry with alt camera:', alt.label || alt.deviceId);
-              const [altVideo] = await createLocalTracks({ video: { deviceId: alt.deviceId } });
-              await lp.publishTrack(altVideo);
-              localTracksRef.current.video = altVideo;
-              await attachLocalPreviewFromTrack(altVideo);
-              setDeviceHint(`switched to: ${alt.label || 'another camera'}`);
-            }
-          } catch (e2) {
-            console.warn('[DBG] alt camera retry failed', e2);
-          }
         }
       }
 
-      // 自動再生制限：UIに反映
       if (!room.canPlaybackAudio) setNeedAudioStart(true);
 
       localTracksRef.current.audio = localAudio;
       localTracksRef.current.video = localVideo;
 
-      // 正しいデバッグ：TrackPublications を見る
       const pubs = lp.getTrackPublications?.() || [];
       console.log('[DBG] pubs', pubs.map(p => ({ kind: p.kind, muted: p.isMuted, sid: p.sid })));
 
@@ -290,7 +287,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== 自動再生解除（クリックで）=====
+  // ===== 自動再生解除 =====
   const startAudio = async () => {
     try {
       await roomRef.current?.startAudio();
@@ -360,7 +357,7 @@ export default function MeetingJoinPage() {
         <p style={{ color: '#aaa', marginTop: 8, whiteSpace: 'pre-wrap' }}>{deviceHint}</p>
       )}
 
-      {/* ★ ローカルPIPは常にDOMに置く（visibilityで表示切替） */}
+      {/* 常時DOMに置いて attach タイミングのズレを解消 */}
       <video
         ref={localVideoRef}
         style={{ ...styles.localPip, visibility: status === 'connected' ? 'visible' : 'hidden' }}
@@ -442,11 +439,11 @@ const styles = {
   },
   remoteGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
     gap: 12,
   },
   localPip: {
-    position: 'fixed', // ← 常時DOMに置くので fixed の方が扱いやすい
+    position: 'fixed',
     right: 16,
     bottom: 16,
     width: 200,
