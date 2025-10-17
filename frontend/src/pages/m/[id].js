@@ -547,6 +547,20 @@ export default function MeetingJoinPage() {
     return () => document.removeEventListener('visibilitychange', onVis);
   }, [needVideoPlay]);
 
+  useEffect(() => {
+  if (status !== 'connected') return;
+  if (selfCentered) return; // いま中央ドンならPIPは表示しない
+  const vtrack = localTracksRef.current?.video;
+  const v = localVideoRef.current;
+  if (!vtrack || !v) return;
+  try { vtrack.attach(v); } catch {}
+  // autoplayブロック回避のため muted + play を念押し
+  v.muted = true;
+  v.playsInline = true;
+  v.autoplay = true;
+  v.play().catch(() => {});
+}, [selfCentered, status]);
+
   // ページ離脱時は確実に解放
   useEffect(() => {
     const onBeforeUnload = () => {
@@ -644,8 +658,15 @@ export default function MeetingJoinPage() {
       )}
 
       {/* ===== 接続後：Zoom風レイアウト ===== */}
-      {status === 'connected' && (
-        <div ref={stageRef} style={styles.stage}>
+ {status === 'connected' && (
+   <div
+     ref={stageRef}
+     style={{
+       ...styles.stage,
+       // 上中央PIPの高さぶん（= 170 + マージン 26）確保
+       paddingTop: selfCentered ? 12 : 196,
+     }}
+   >
           <div style={styles.stageHeader}>
             <div style={styles.viewSwitch}>
               <button
@@ -893,19 +914,19 @@ const styles = {
 
   // ★ 上中央PIP（Zoom風）
   selfPreviewTopCenter: {
-    position: 'absolute',
-    top: 8,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: 280,
-    height: 170,
-    objectFit: 'cover',
-    borderRadius: 10,
-    border: '1px solid rgba(255,255,255,.25)',
-    background: '#000',
-    zIndex: 50,
-    boxShadow: '0 14px 30px rgba(0,0,0,.45)',
-  },
+   position: 'absolute',
+   top: 14,
+   left: '50%',
+   transform: 'translateX(-50%)',
+   width: 300,
+   height: 170,
+   objectFit: 'cover',
+   borderRadius: 12,
+   border: '1px solid rgba(255,255,255,.25)',
+   background: '#000',
+   zIndex: 5, // ステージ内UIより低めにしておく
+   boxShadow: '0 14px 30px rgba(0,0,0,.45)',
+ },
 
   floatingBtn: {
     position: 'absolute',
