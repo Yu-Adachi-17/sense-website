@@ -615,7 +615,7 @@ export default function MeetingJoinPage() {
         <main style={styles.main}>
           <div style={styles.wrap}>
             <h1 style={styles.hero}>Join the Meeting</h1>
-            <h2 style={styles.subtitle}>Powered by LiveKit · Minutes.AI</h2>
+            <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
 
             <section style={styles.card}>
               <div style={{ marginBottom: 12 }}>
