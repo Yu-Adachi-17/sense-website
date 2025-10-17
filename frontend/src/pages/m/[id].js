@@ -359,25 +359,48 @@ export default function MeetingJoinPage() {
       setIsCamOff(lp.isCameraEnabled ? false : true);
 
       // ----- 既存 publication の取りこぼし対策 -----
-      const attachExisting = () => {
-        const everyone = [lp, ...Array.from(room.participants.values())];
-        for (const p of everyone) {
-          for (const pub of p.getTrackPublications ? p.getTrackPublications() : []) {
-            const tr = pub.track;
-            if (!tr) continue;
-            const entry = ensureCard(p);
-            if (tr.kind === 'video') {
-              tr.attach(entry.meta.videoEl);
-              entry.meta.publication = pub;
-            } else if (tr.kind === 'audio') {
-              // audioはattach先を作らずオート再生（LiveKitがやる）でもOKだが
-              // 必要なら <audio/> を足して attach してもよい
-            }
-          }
-        }
-        relayout();
-      };
-      attachExisting();
+// ----- 既存 publication の取りこぼし対策（SDK差分に強い版） -----
+const attachExisting = () => {
+  if (!room) return;
+
+  // v1: room.participants / v2: room.remoteParticipants に両対応
+  const remoteMap =
+    (room.participants && room.participants instanceof Map && room.participants) ||
+    (room.remoteParticipants && room.remoteParticipants instanceof Map && room.remoteParticipants) ||
+    new Map();
+
+  const lp = room.localParticipant;
+  const everyone = [lp, ...Array.from(remoteMap.values())];
+
+  const pubsOf = (p) => {
+    // 参加者の publication 一覧を配列で返す（実装差分に耐える）
+    if (typeof p.getTrackPublications === 'function') return p.getTrackPublications();
+    const m =
+      (p.trackPublications && p.trackPublications instanceof Map && p.trackPublications) ||
+      (p.tracks && p.tracks instanceof Map && p.tracks) ||
+      null;
+    return m ? Array.from(m.values()) : [];
+  };
+
+  for (const p of everyone) {
+    if (!p) continue;
+    for (const pub of pubsOf(p)) {
+      const track = pub.track;
+      if (!track) continue; // まだ subscribe 前
+      const entry = ensureCard(p);
+      if (track.kind === 'video') {
+        track.attach(entry.meta.videoEl);
+        entry.meta.publication = pub;
+        try { entry.meta.videoEl.play(); } catch {}
+      } else if (track.kind === 'audio') {
+        // 必要なら <audio/> を生成して attach してもOK
+      }
+    }
+  }
+  relayout();
+};
+attachExisting();
+
     } catch (e) {
       console.error('join failed', e);
       setStatus('error');
