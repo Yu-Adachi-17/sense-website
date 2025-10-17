@@ -3,19 +3,19 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FaApple } from 'react-icons/fa';
-import HomeIcon from '../homeIcon'; // 本ファイルは /pages/m/[id].js。../homeIcon でOK
+import HomeIcon from '../homeIcon'; // /pages/m/[id].js から見た相対パス
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE || 'https://sense-website-production.up.railway.app';
 
-// iOS ダウンロード先（必要に応じて変更）
+// iOS ダウンロード先（固定）
 const LINK_IOS =
   'https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901';
 
 // ★ 直前のユーザー名を保存・復元するキー
 const LAST_JOIN_NAME_KEY = 'minutesai.joinName';
 
-/* ===== Fixed Header（左=Home、右=iOS）===== */
+/* ===== Fixed Header（左= /home、右= iOS）===== */
 function FixedHeaderPortal({ children }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -47,6 +47,10 @@ export default function MeetingJoinPage() {
   const remoteGridRef = useRef(null);
   const thumbStripRef = useRef(null);
   const localTracksRef = useRef({ audio: null, video: null });
+
+  // 自分だけの時に中央に出す用
+  const selfMainRef = useRef(null); // { wrapper, videoEl }
+  const [selfCentered, setSelfCentered] = useState(false);
 
   // 参加者カード管理（id -> DOM）
   const cardMapRef = useRef(new Map());
@@ -102,7 +106,9 @@ export default function MeetingJoinPage() {
     if (!videoTrack) return;
     const v = localVideoRef.current;
     if (!v) return;
-    videoTrack.attach(v);
+    try {
+      videoTrack.attach(v);
+    } catch {}
     v.muted = true;
     v.playsInline = true;
     v.autoplay = true;
@@ -118,6 +124,14 @@ export default function MeetingJoinPage() {
     try {
       await roomRef.current?.disconnect();
     } finally {
+      // 自分メイン用を破棄
+      if (selfMainRef.current) {
+        try { localTracksRef.current.video?.detach(selfMainRef.current.videoEl); } catch {}
+        try { selfMainRef.current.wrapper.remove(); } catch {}
+        selfMainRef.current = null;
+      }
+      setSelfCentered(false);
+
       cleanupRemotes();
       hardStopLocal();
       roomRef.current = null;
@@ -128,13 +142,14 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== Zoom風レイアウト更新（安全化版） =====
+  // ===== Zoom風レイアウト更新（安全化＋“自分メイン”） =====
   const relayout = () => {
     const grid = remoteGridRef.current;
     const strip = thumbStripRef.current;
     if (!grid) return;
 
     const entries = Array.from(cardMapRef.current.values());
+    // 並び順（ピン→発話→名前）
     entries.sort((a, b) => {
       const pa = a.meta.pinned ? 1 : 0;
       const pb = b.meta.pinned ? 1 : 0;
@@ -145,27 +160,61 @@ export default function MeetingJoinPage() {
       return (a.meta.name || '').localeCompare(b.meta.name || '');
     });
 
+    const localId = roomRef.current?.localParticipant?.identity;
+    const remoteEntries = entries.filter(e => e.meta.id !== localId); // ←リモートのみ
+
     grid.innerHTML = '';
     if (strip) strip.innerHTML = '';
 
-    if (viewMode === 'speaker') {
-      const main = entries[0];
-      if (main) {
-        main.wrapper.classList.add('lk-main');
-        grid.appendChild(main.wrapper);
+    if (remoteEntries.length > 0) {
+      // === リモートがいる通常モード ===
+      setSelfCentered(false);
+
+      // 自分メインの仮タイルがあれば撤去
+      if (selfMainRef.current) {
+        try { localTracksRef.current.video?.detach(selfMainRef.current.videoEl); } catch {}
+        try { selfMainRef.current.wrapper.remove(); } catch {}
+        selfMainRef.current = null;
       }
-      if (strip) {
-        for (let i = 1; i < entries.length; i++) {
-          const e = entries[i];
-          e.wrapper.classList.remove('lk-main');
-          strip.appendChild(e.wrapper);
+
+      if (viewMode === 'speaker') {
+        const main = remoteEntries[0];
+        if (main) {
+          main.wrapper.classList.add('lk-main');
+          grid.appendChild(main.wrapper);
         }
+        if (strip) {
+          // 残りのリモート＋（必要ならローカル）をサムネへ
+          const rest = entries.filter(e => e !== main);
+          for (const e of rest) {
+            e.wrapper.classList.remove('lk-main');
+            strip.appendChild(e.wrapper);
+          }
+        }
+      } else {
+        entries.forEach(e => {
+          e.wrapper.classList.remove('lk-main');
+          grid.appendChild(e.wrapper);
+        });
       }
     } else {
-      entries.forEach(e => {
-        e.wrapper.classList.remove('lk-main');
-        grid.appendChild(e.wrapper);
-      });
+      // === リモートがいない：自分を中央に大きく ===
+      const vtrack = localTracksRef.current?.video || null;
+      if (!selfMainRef.current) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'lk-card lk-main';
+        const videoWrap = document.createElement('div');
+        videoWrap.className = 'lk-videoWrap';
+        const v = document.createElement('video');
+        Object.assign(v, { autoplay: true, playsInline: true, muted: true });
+        videoWrap.appendChild(v);
+        wrapper.appendChild(videoWrap);
+        selfMainRef.current = { wrapper, videoEl: v };
+        try { vtrack?.attach(v); } catch {}
+        try { v.play().catch(() => {}); } catch {}
+      }
+      grid.appendChild(selfMainRef.current.wrapper);
+      setSelfCentered(true);
     }
   };
 
@@ -243,6 +292,9 @@ export default function MeetingJoinPage() {
           if (t.kind === 'audio') localAudio = t;
           if (t.kind === 'video') localVideo = t;
         }
+        // 保存しておく（自分メイン描画に使う）
+        localTracksRef.current.audio = localAudio || null;
+        localTracksRef.current.video = localVideo || null;
       } catch (err) {
         const failure = (typeof MediaDeviceFailure?.getFailure === 'function')
           ? MediaDeviceFailure.getFailure(err) : null;
@@ -250,6 +302,8 @@ export default function MeetingJoinPage() {
         try {
           const onlyAudio = await createLocalTracks({ audio: true });
           localAudio = onlyAudio.find(t => t.kind === 'audio') || null;
+          localTracksRef.current.audio = localAudio || null;
+          localTracksRef.current.video = null;
         } catch {}
       }
 
@@ -414,7 +468,7 @@ export default function MeetingJoinPage() {
       setIsMuted(lp.isMicrophoneEnabled ? false : true);
       setIsCamOff(lp.isCameraEnabled ? false : true);
 
-      // 初期取りこぼし対策
+      // 初期取りこぼし対策（既存publicationを反映）
       await afterDomPaint(2);
       const attachExisting = () => {
         if (!room) return;
@@ -443,10 +497,9 @@ export default function MeetingJoinPage() {
             if (!track) continue;
             const entry = ensureCard(p);
             if (track.kind === 'video') {
-              track.attach(entry.meta.videoEl);
+              try { track.attach(entry.meta.videoEl); } catch {}
               entry.meta.videoEl.onloadeddata = () => relayout();
               entry.meta.publication = pub;
-              visibilityNudge(entry.meta.videoEl);
               try { entry.meta.videoEl.play(); } catch {}
             }
           }
@@ -523,24 +576,24 @@ export default function MeetingJoinPage() {
   // ===== UI =====
   return (
     <>
-      {/* ===== 固定ヘッダー：左=Home / 右=iOS ===== */}
-      +{status !== 'connected' && (
-      <FixedHeaderPortal>
-        <header style={styles.top}>
-          <Link href="/home" aria-label="Minutes.AI Home" style={styles.brand}>
-            <span style={styles.brandIcon} aria-hidden="true">
-              <HomeIcon size={22} color="currentColor" />
-            </span>
-            <span style={styles.brandText}>Minutes.AI</span>
-          </Link>
-          <nav style={styles.nav}>
-            <a href={LINK_IOS} target="_blank" rel="noopener noreferrer" style={styles.navLink}>
-              <FaApple aria-hidden="true" style={{ marginRight: 8 }} />
-              <span className="gradHeader">iOS</span>
-            </a>
-          </nav>
-        </header>
-      </FixedHeaderPortal>
+      {/* ===== 固定ヘッダー：左= /home / 右= iOS（接続前のみ表示） ===== */}
+      {status !== 'connected' && (
+        <FixedHeaderPortal>
+          <header style={styles.top}>
+            <Link href="/home" aria-label="Minutes.AI Home" style={styles.brand}>
+              <span style={styles.brandIcon} aria-hidden="true">
+                <HomeIcon size={22} color="currentColor" />
+              </span>
+              <span style={styles.brandText}>Minutes.AI</span>
+            </Link>
+            <nav style={styles.nav}>
+              <a href={LINK_IOS} target="_blank" rel="noopener noreferrer" style={styles.navLink}>
+                <FaApple aria-hidden="true" style={{ marginRight: 8 }} />
+                <span className="gradHeader">iOS</span>
+              </a>
+            </nav>
+          </header>
+        </FixedHeaderPortal>
       )}
 
       {/* ===== Join セクション（“user name”の薄灰プレースホルダー＋保存/復元） ===== */}
@@ -590,10 +643,13 @@ export default function MeetingJoinPage() {
         </main>
       )}
 
-      {/* ローカルPIP（接続後に表示） */}
+      {/* ローカルPIP（接続後・自分メイン中は非表示） */}
       <video
         ref={localVideoRef}
-        style={{ ...styles.localPip, visibility: status === 'connected' ? 'visible' : 'hidden' }}
+        style={{
+          ...styles.localPip,
+          visibility: status === 'connected' && !selfCentered ? 'visible' : 'hidden',
+        }}
         muted
         playsInline
         autoPlay
@@ -609,6 +665,12 @@ export default function MeetingJoinPage() {
                 style={{ ...styles.viewBtn, ...(viewMode === 'speaker' ? styles.viewBtnActive : {}) }}
               >
                 Speaker
+              </button>
+              <button
+                onClick={() => setViewMode('gallery')}
+                style={{ ...styles.viewBtn, ...(viewMode === 'gallery' ? styles.viewBtnActive : {}) }}
+              >
+                Gallery
               </button>
             </div>
             <button onClick={leave} style={styles.secondaryBtn}>Leave</button>
@@ -643,8 +705,10 @@ export default function MeetingJoinPage() {
               {isCamOff ? 'Start Video' : 'Stop Video'}
             </button>
             <div style={{ flex: 1 }} />
-            <button onClick={() => setViewMode(viewMode === 'speaker' ? 'gallery' : 'speaker')}
-                    style={styles.toolBtn}>
+            <button
+              onClick={() => setViewMode(viewMode === 'speaker' ? 'gallery' : 'speaker')}
+              style={styles.toolBtn}
+            >
               {viewMode === 'speaker' ? 'Gallery View' : 'Speaker View'}
             </button>
           </div>
@@ -774,10 +838,10 @@ const styles = {
   },
   btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
 
-  // 接続後（黒ステージ）
+  // 接続後（黒ステージ）— ヘッダー無しなので余白は最小
   stage: {
     position: 'relative',
-    marginTop: 72, // ヘッダー分
+    marginTop: 12,
     padding: 12,
     minHeight: '100svh',
     background: '#0b0b0b',
