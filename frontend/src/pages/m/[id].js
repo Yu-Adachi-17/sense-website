@@ -7,19 +7,19 @@ const API_BASE =
 
 export default function MeetingJoinPage() {
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query; // /m/:id
 
   const [meeting, setMeeting] = useState(null);
   const [name, setName] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | connected | error
   const [needAudioStart, setNeedAudioStart] = useState(false);
   const [needVideoPlay, setNeedVideoPlay] = useState(false); // 自動再生解除ボタン用
-  const [deviceHint, setDeviceHint] = useState(''); // ユーザーに見せる原因
+  const [deviceHint, setDeviceHint] = useState(''); // ユーザーに見せる原因（DeviceInUse など）
 
   const roomRef = useRef(null);
   const localVideoRef = useRef(null);
   const remoteGridRef = useRef(null);
-  const localTracksRef = useRef({ audio: null, video: null });
+  const localTracksRef = useRef({ audio: null, video: null }); // 事前生成ローカルトラック保持
 
   // ===== 会議情報 =====
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function MeetingJoinPage() {
     })();
   }, [id]);
 
-  // ===== DOM掃除 =====
+  // ===== リモートDOM掃除 =====
   const cleanupRemoteGrid = () => {
     const grid = remoteGridRef.current;
     if (!grid) return;
@@ -47,7 +47,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== ローカル・プレビュー attach（playも明示）=====
+  // ===== ローカルプレビュー attach（play まで明示）=====
   const attachLocalPreviewFromTrack = async (videoTrack) => {
     if (!videoTrack || !localVideoRef.current) return;
     const v = localVideoRef.current;
@@ -55,28 +55,37 @@ export default function MeetingJoinPage() {
     v.muted = true;
     v.playsInline = true;
     v.autoplay = true;
+
+    const logDims = () => {
+      // デバッグ用：実解像度をログ
+      console.log('[local video] size', v.videoWidth, v.videoHeight);
+    };
+    v.onloadedmetadata = logDims;
+    v.onresize = logDims;
+
     try {
       await v.play();
+      console.log('[local video] play() ok');
       setNeedVideoPlay(false);
     } catch (e) {
-      console.warn('local preview play() blocked', e);
+      console.warn('[local video] play() blocked', e);
       setNeedVideoPlay(true); // クリックで解除させる
     }
   };
 
-  // ===== 退出（デバイス解放を確実に）=====
+  // ===== デバイス完全解放 =====
   const hardStopLocal = () => {
-    // 事前生成のトラック
     for (const k of ['audio', 'video']) {
       try { localTracksRef.current[k]?.stop(); } catch {}
       localTracksRef.current[k] = null;
     }
-    // publish 済み
     const room = roomRef.current;
     if (room) {
-      room.localParticipant?.getTracks?.().forEach((pub) => {
-        try { pub.track?.stop(); } catch {}
-      });
+      try {
+        room.localParticipant?.getTracks?.().forEach((pub) => {
+          try { pub.track?.stop(); } catch {}
+        });
+      } catch {}
     }
   };
 
@@ -121,6 +130,7 @@ export default function MeetingJoinPage() {
         MediaDeviceFailure,
       } = await import('livekit-client');
 
+      // 念のため前回分を解放
       hardStopLocal();
 
       // --- 先にローカルトラック生成（単一プロンプト）---
@@ -129,29 +139,31 @@ export default function MeetingJoinPage() {
       try {
         const tracks = await createLocalTracks({
           audio: true,
-          // 過度に厳しい制約は避けつつ実用解像度を指定
           video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 30 } },
         });
         for (const t of tracks) {
           if (t.kind === 'audio') localAudio = t;
           if (t.kind === 'video') localVideo = t;
         }
+        console.log('[createLocalTracks] audio?', !!localAudio, 'video?', !!localVideo);
       } catch (err) {
-        const failure = MediaDeviceFailure.getFailure?.(err);
+        const failure = (typeof MediaDeviceFailure?.getFailure === 'function')
+          ? MediaDeviceFailure.getFailure(err) : null;
         console.warn('[createLocalTracks failed]', failure || err);
         setDeviceHint(String(failure || err?.message || err));
-        // カメラがNGでも音声だけは再挑戦
+        // カメラがNGでも音声は再挑戦
         try {
           const onlyAudio = await createLocalTracks({ audio: true });
           localAudio = onlyAudio.find(t => t.kind === 'audio') || null;
-        } catch { /* ignore */ }
+        } catch (e2) {
+          console.warn('[audio-only tracks failed]', e2);
+        }
       }
 
-      // --- ルーム接続 ---
+      // --- ルーム作成 & イベント ---
       const room = new Room({ adaptiveStream: true, dynacast: true });
       roomRef.current = room;
 
-      // ===== イベント =====
       room.on(RoomEvent.TrackSubscribed, async (track, pub, participant) => {
         const grid = remoteGridRef.current;
         if (!grid) return;
@@ -178,8 +190,14 @@ export default function MeetingJoinPage() {
           card.appendChild(v);
           card.appendChild(label);
           grid.appendChild(card);
+
           track.attach(v);
-          try { await v.play(); } catch (e) { console.warn('remote play() blocked', e); }
+          try {
+            await v.play();
+            console.log('[remote video] play() ok for', participant?.identity);
+          } catch (e) {
+            console.warn('[remote video] play() blocked', e);
+          }
         } else if (track.kind === 'audio') {
           const a = document.createElement('audio');
           a.autoplay = true;
@@ -215,17 +233,25 @@ export default function MeetingJoinPage() {
       await room.connect(wsUrl, token);
 
       // --- publish ---
+      const lp = room.localParticipant;
+      console.log('[DBG] before publish', { hasAudio: !!localAudio, hasVideo: !!localVideo });
+
       if (localAudio) {
-        try { await room.localParticipant.publishTrack(localAudio); }
-        catch (e) { console.warn('publish audio failed', e); }
+        try {
+          await lp.publishTrack(localAudio);
+          console.log('[DBG] audio published');
+        } catch (e) {
+          console.warn('[DBG] publish audio failed', e);
+        }
       }
 
       if (localVideo) {
         try {
-          await room.localParticipant.publishTrack(localVideo);
+          await lp.publishTrack(localVideo);
+          console.log('[DBG] video published');
           await attachLocalPreviewFromTrack(localVideo);
         } catch (e) {
-          console.warn('publish video failed', e);
+          console.warn('[DBG] publish video failed', e);
           // 代替カメラ自動リトライ
           try {
             const devices = await navigator.mediaDevices.enumerateDevices();
@@ -233,23 +259,27 @@ export default function MeetingJoinPage() {
             const currentId = localVideo.getDeviceId?.();
             const alt = cams.find(d => d.deviceId && d.deviceId !== currentId);
             if (alt) {
+              console.log('[DBG] retry with alt camera:', alt.label || alt.deviceId);
               const [altVideo] = await createLocalTracks({ video: { deviceId: alt.deviceId } });
-              await room.localParticipant.publishTrack(altVideo);
+              await lp.publishTrack(altVideo);
               localTracksRef.current.video = altVideo;
               await attachLocalPreviewFromTrack(altVideo);
               setDeviceHint(`switched to: ${alt.label || 'another camera'}`);
             }
           } catch (e2) {
-            console.warn('alt camera retry failed', e2);
+            console.warn('[DBG] alt camera retry failed', e2);
           }
         }
       }
 
-      // 自動再生制限の状態をUIに反映
+      // 自動再生制限：UIに反映
       if (!room.canPlaybackAudio) setNeedAudioStart(true);
 
       localTracksRef.current.audio = localAudio;
       localTracksRef.current.video = localVideo;
+
+      console.log('[DBG] pubs',
+        lp.getTracks?.().map(p => ({ kind: p.kind, muted: p.isMuted, sid: p.sid })));
 
       setStatus('connected');
     } catch (e) {
@@ -276,7 +306,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // タブ復帰時に再生を試みる（ユーザー操作に近いトリガ）
+  // タブ復帰時にも再生を試みる
   useEffect(() => {
     const onVis = () => {
       if (document.visibilityState === 'visible' && needVideoPlay) {
@@ -287,7 +317,7 @@ export default function MeetingJoinPage() {
     return () => document.removeEventListener('visibilitychange', onVis);
   }, [needVideoPlay]);
 
-  // ページ離脱時の確実な解放
+  // ページ離脱時は確実に解放
   useEffect(() => {
     const onBeforeUnload = () => {
       hardStopLocal();
@@ -340,7 +370,7 @@ export default function MeetingJoinPage() {
             </button>
           )}
           {needVideoPlay && (
-            <button onClick={startVideo} style={{...styles.floatingBtn, left: 160}}>
+            <button onClick={startVideo} style={{ ...styles.floatingBtn, left: 160 }}>
               Show preview
             </button>
           )}
@@ -370,30 +400,63 @@ const styles = {
   },
   joinBox: { display: 'flex', alignItems: 'center', gap: 8 },
   input: {
-    padding: '8px 10px', borderRadius: 8, border: '1px solid #333',
-    background: '#111', color: '#fff',
+    padding: '8px 10px',
+    borderRadius: 8,
+    border: '1px solid #333',
+    background: '#111',
+    color: '#fff',
   },
   primaryBtn: {
-    padding: '8px 12px', borderRadius: 8, background: '#4C8DFF',
-    color: '#fff', border: 'none', cursor: 'pointer',
+    padding: '8px 12px',
+    borderRadius: 8,
+    background: '#4C8DFF',
+    color: '#fff',
+    border: 'none',
+    cursor: 'pointer',
   },
   secondaryBtn: {
-    marginLeft: 'auto', padding: '6px 10px', borderRadius: 8,
-    background: '#222', color: '#fff', border: '1px solid #444', cursor: 'pointer',
+    marginLeft: 'auto',
+    padding: '6px 10px',
+    borderRadius: 8,
+    background: '#222',
+    color: '#fff',
+    border: '1px solid #444',
+    cursor: 'pointer',
   },
   stage: {
-    position: 'relative', marginTop: 12, border: '1px solid #222',
-    borderRadius: 12, padding: 12, minHeight: '60vh', background: '#000',
+    position: 'relative',
+    marginTop: 12,
+    border: '1px solid #222',
+    borderRadius: 12,
+    padding: 12,
+    minHeight: '60vh',
+    background: '#000',
   },
   remoteGrid: {
-    display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12,
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+    gap: 12,
   },
   localPip: {
-    position: 'absolute', right: 16, bottom: 16, width: 200, height: 120,
-    objectFit: 'cover', borderRadius: 10, border: '1px solid rgba(255,255,255,.15)', background: '#000',
+    position: 'absolute',
+    right: 16,
+    bottom: 16,
+    width: 200,
+    height: 120,
+    objectFit: 'cover',
+    borderRadius: 10,
+    border: '1px solid rgba(255,255,255,.15)',
+    background: '#000',
   },
   floatingBtn: {
-    position: 'absolute', left: 16, bottom: 16, padding: '10px 14px',
-    borderRadius: 10, background: '#4C8DFF', color: '#fff', border: 'none', cursor: 'pointer',
+    position: 'absolute',
+    left: 16,
+    bottom: 16,
+    padding: '10px 14px',
+    borderRadius: 10,
+    background: '#4C8DFF',
+    color: '#fff',
+    border: 'none',
+    cursor: 'pointer',
   },
 };
