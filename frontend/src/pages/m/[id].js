@@ -9,6 +9,7 @@ export default function MeetingJoinPage() {
   const router = useRouter();
   const { id } = router.query; // /m/:id
 
+  // ===== State =====
   const [meeting, setMeeting] = useState(null);
   const [name, setName] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | connected | error
@@ -16,10 +17,21 @@ export default function MeetingJoinPage() {
   const [needVideoPlay, setNeedVideoPlay] = useState(false);
   const [deviceHint, setDeviceHint] = useState('');
 
+  // Zoom風UI
+  const [viewMode, setViewMode] = useState('speaker'); // 'speaker' | 'gallery'
+  const [pinnedId, setPinnedId] = useState(null);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isCamOff, setIsCamOff] = useState(false);
+
   const roomRef = useRef(null);
   const localVideoRef = useRef(null);
+  const stageRef = useRef(null);
   const remoteGridRef = useRef(null);
+  const thumbStripRef = useRef(null); // スピーカービューの水平サムネ帯
   const localTracksRef = useRef({ audio: null, video: null });
+
+  // 参加者カード管理（id -> DOM）
+  const cardMapRef = useRef(new Map());
 
   // ===== 会議情報 =====
   useEffect(() => {
@@ -38,13 +50,9 @@ export default function MeetingJoinPage() {
   }, [id]);
 
   // ===== リモートDOM掃除 =====
-  const cleanupRemoteGrid = () => {
-    const grid = remoteGridRef.current;
-    if (!grid) return;
-    for (const el of Array.from(grid.querySelectorAll('video,audio'))) {
-      try { el.srcObject = null; } catch {}
-      el.remove();
-    }
+  const cleanupRemotes = () => {
+    cardMapRef.current.forEach(({ wrapper }) => wrapper.remove());
+    cardMapRef.current.clear();
   };
 
   // ===== ローカルプレビュー attach（play まで）=====
@@ -52,16 +60,13 @@ export default function MeetingJoinPage() {
     if (!videoTrack) return;
     const v = localVideoRef.current;
     if (!v) return;
-
     videoTrack.attach(v);
     v.muted = true;
     v.playsInline = true;
     v.autoplay = true;
-
     const logDims = () => console.log('[local video] size', v.videoWidth, v.videoHeight);
     v.onloadedmetadata = logDims;
     v.onresize = logDims;
-
     try {
       await v.play();
       setNeedVideoPlay(false);
@@ -91,12 +96,56 @@ export default function MeetingJoinPage() {
     try {
       await roomRef.current?.disconnect();
     } finally {
-      cleanupRemoteGrid();
+      cleanupRemotes();
       hardStopLocal();
       roomRef.current = null;
       setStatus('idle');
       setDeviceHint('');
       setNeedVideoPlay(false);
+      setPinnedId(null);
+    }
+  };
+
+  // ===== Zoom風レイアウト更新 =====
+  const relayout = () => {
+    const grid = remoteGridRef.current;
+    const strip = thumbStripRef.current;
+    if (!grid || !strip) return;
+
+    const entries = Array.from(cardMapRef.current.values());
+    // ソート: ピン留め ＞ アクティブスピーカー ＞ それ以外（名前順）
+    entries.sort((a, b) => {
+      const pa = a.meta.pinned ? 1 : 0;
+      const pb = b.meta.pinned ? 1 : 0;
+      if (pa !== pb) return pb - pa;
+      const sa = a.meta.isSpeaking ? 1 : 0;
+      const sb = b.meta.isSpeaking ? 1 : 0;
+      if (sa !== sb) return sb - sa;
+      return (a.meta.name || '').localeCompare(b.meta.name || '');
+    });
+
+    // クリア
+    grid.innerHTML = '';
+    strip.innerHTML = '';
+
+    if (viewMode === 'speaker') {
+      // 一番上をメイン、残りを水平サムネイル帯へ
+      const main = entries[0];
+      if (main) {
+        main.wrapper.classList.add('lk-main');
+        grid.appendChild(main.wrapper);
+      }
+      for (let i = 1; i < entries.length; i++) {
+        const e = entries[i];
+        e.wrapper.classList.remove('lk-main');
+        strip.appendChild(e.wrapper);
+      }
+    } else {
+      // ギャラリー
+      entries.forEach(e => {
+        e.wrapper.classList.remove('lk-main');
+        grid.appendChild(e.wrapper);
+      });
     }
   };
 
@@ -127,13 +176,14 @@ export default function MeetingJoinPage() {
         createLocalTracks, MediaDeviceFailure,
       } = await import('livekit-client');
 
-      // 念のため前回分を解放
+      // 前回分を解放
       hardStopLocal();
 
-      // --- ルーム生成（画質向上の既定値をセット）---
+      // --- ルーム生成（Zoom画面の安定描画に向けた既定）---
       const room = new Room({
-        adaptiveStream: { pixelDensity: 'screen' },
+        adaptiveStream: { pixelDensity: 'screen' }, // ギャラリー時の負荷低減
         dynacast: true,
+        autoSubscribe: true,
         videoCaptureDefaults: {
           facingMode: 'user',
           resolution: { width: 1280, height: 720 },
@@ -141,19 +191,15 @@ export default function MeetingJoinPage() {
         },
         publishDefaults: {
           simulcast: true,
-          // プライマリ（オリジナル）層＝720p相当
-          videoEncoding: { maxBitrate: 2_500_000, maxFramerate: 30 },
-          // 追加の低レイヤー2つ（720はプライマリに任せる）
+          videoEncoding: { maxBitrate: 2_500_000, maxFramerate: 30 }, // 720p相当
           videoSimulcastLayers: [VideoPresets.h180, VideoPresets.h360],
-          // H.264 バックアップ（iOS互換の安定化）
-          backupCodec: { codec: 'h264' },
-          // 解像度を優先（帯域低下時にfpsを犠牲にしやすくする）
+          backupCodec: { codec: 'h264' }, // iOS互換の安定化
           degradationPreference: 'maintain-resolution',
         },
       });
       roomRef.current = room;
 
-      // --- 先にローカルトラック生成（単一プロンプト）---
+      // --- ローカルトラック生成 ---
       let localAudio = null;
       let localVideo = null;
       try {
@@ -165,99 +211,126 @@ export default function MeetingJoinPage() {
           if (t.kind === 'audio') localAudio = t;
           if (t.kind === 'video') localVideo = t;
         }
-        console.log('[createLocalTracks]', { hasAudio: !!localAudio, hasVideo: !!localVideo });
       } catch (err) {
         const failure = (typeof MediaDeviceFailure?.getFailure === 'function')
           ? MediaDeviceFailure.getFailure(err) : null;
-        console.warn('[createLocalTracks failed]', failure || err);
         setDeviceHint(String(failure || err?.message || err));
-        // カメラがNGでも音声は再挑戦
         try {
           const onlyAudio = await createLocalTracks({ audio: true });
           localAudio = onlyAudio.find(t => t.kind === 'audio') || null;
-        } catch (e2) {
-          console.warn('[audio-only tracks failed]', e2);
-        }
+        } catch {}
       }
 
       // ===== イベント =====
+      const ensureCard = (participant) => {
+        const id = participant.identity;
+        if (cardMapRef.current.has(id)) return cardMapRef.current.get(id);
+
+        // --- カードDOM生成（Zoom風）---
+        const wrapper = document.createElement('div');
+        wrapper.className = 'lk-card';
+        wrapper.dataset.id = id;
+
+        const videoWrap = document.createElement('div');
+        videoWrap.className = 'lk-videoWrap';
+        const v = document.createElement('video');
+        Object.assign(v, { autoplay: true, playsInline: true, muted: false });
+        videoWrap.appendChild(v);
+
+        const badges = document.createElement('div');
+        badges.className = 'lk-badges';
+
+        const nameBadge = document.createElement('div');
+        nameBadge.className = 'lk-name';
+        nameBadge.textContent = participant?.name || participant?.identity || 'Guest';
+
+        const micBadge = document.createElement('div');
+        micBadge.className = 'lk-mic'; // muted時に赤ドット
+        badges.appendChild(micBadge);
+        badges.appendChild(nameBadge);
+
+        const pinBtn = document.createElement('button');
+        pinBtn.className = 'lk-pin';
+        pinBtn.title = 'Pin / Unpin';
+        pinBtn.textContent = '📌';
+        pinBtn.onclick = () => {
+          setPinnedId(prev => (prev === id ? null : id));
+        };
+
+        wrapper.appendChild(videoWrap);
+        wrapper.appendChild(badges);
+        wrapper.appendChild(pinBtn);
+
+        const meta = {
+          id,
+          name: participant?.name || participant?.identity || 'Guest',
+          isSpeaking: false,
+          pinned: false,
+          videoEl: v,
+          publication: null,
+        };
+        const entry = { wrapper, meta };
+        cardMapRef.current.set(id, entry);
+        return entry;
+      };
+
       room.on(RoomEvent.TrackSubscribed, async (track, pub, participant) => {
-        const grid = remoteGridRef.current;
-        if (!grid) return;
-
         if (track.kind === 'video') {
-          const v = document.createElement('video');
-          Object.assign(v, { autoplay: true, playsInline: true, muted: false });
-          Object.assign(v.style, { width: '100%', height: '100%', objectFit: 'cover' });
-
-          const card = document.createElement('div');
-          Object.assign(card.style, {
-            position: 'relative',
-            aspectRatio: '16/9',
-            background: '#000',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            border: '1px solid rgba(255,255,255,.1)',
-          });
-
-          const label = document.createElement('div');
-          label.textContent = participant?.name || participant?.identity || 'Guest';
-          Object.assign(label.style, {
-            position: 'absolute',
-            left: '8px',
-            bottom: '8px',
-            padding: '2px 6px',
-            fontSize: '12px',
-            background: 'rgba(0,0,0,.5)',
-            color: '#fff',
-            borderRadius: '4px',
-          });
-
-          card.appendChild(v);
-          card.appendChild(label);
-          grid.appendChild(card);
-
-          track.attach(v);
-
-          // ★ 高画質の購読を強制（Adaptive より優先）
+          const entry = ensureCard(participant);
+          entry.meta.publication = pub;
+          // 高品質を要求（Adaptiveより優先）
           try {
             pub.setVideoQuality(VideoQuality.HIGH);
             pub.setVideoDimensions({ width: 1280, height: 720 });
-          } catch (e) {
-            console.warn('set quality/dimensions failed', e);
-          }
-
-          try {
-            await v.play();
-            console.log('[remote video] play() ok for', participant?.identity);
-          } catch (e) {
-            console.warn('[remote video] play() blocked', e);
-          }
+          } catch {}
+          track.attach(entry.meta.videoEl);
+          relayout();
+          try { await entry.meta.videoEl.play(); } catch {}
         } else if (track.kind === 'audio') {
-          const a = document.createElement('audio');
-          a.autoplay = true;
-          grid.appendChild(a);
-          track.attach(a);
+          const entry = ensureCard(participant);
+          entry.wrapper.classList.toggle('is-muted', false);
         }
       });
 
-      room.on(RoomEvent.TrackUnsubscribed, (track) => {
-        const els = track.detach();
-        els.forEach((el) => {
-          try { el.srcObject = null; } catch {}
-          const wrapper = el.parentElement?.parentElement?.contains(el) ? el.parentElement : el;
-          wrapper?.remove();
+      room.on(RoomEvent.TrackUnsubscribed, (track, pub, participant) => {
+        const entry = cardMapRef.current.get(participant.identity);
+        if (!entry) return;
+        try { track.detach(); } catch {}
+        relayout();
+      });
+
+      // 参加/離脱
+      room.on(RoomEvent.ParticipantConnected, (p) => {
+        ensureCard(p);
+        relayout();
+      });
+      room.on(RoomEvent.ParticipantDisconnected, (p) => {
+        const entry = cardMapRef.current.get(p.identity);
+        if (entry) {
+          entry.wrapper.remove();
+          cardMapRef.current.delete(p.identity);
+        }
+        if (pinnedId === p.identity) setPinnedId(null);
+        relayout();
+      });
+
+      // アクティブスピーカー（黄色枠）
+      room.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
+        const activeIds = new Set(speakers.map(s => s.identity));
+        cardMapRef.current.forEach((entry, id) => {
+          entry.meta.isSpeaking = activeIds.has(id);
+          entry.wrapper.classList.toggle('is-speaking', entry.meta.isSpeaking);
         });
+        relayout();
       });
 
       room.on(RoomEvent.MediaDevicesError, (err) => {
-        console.warn('[RoomEvent.MediaDevicesError]', err);
         setDeviceHint(err?.error || err?.message || 'Media device error');
       });
 
       room.on(RoomEvent.Disconnected, () => {
         setStatus('idle');
-        cleanupRemoteGrid();
+        cleanupRemotes();
       });
 
       room.on(RoomEvent.AudioPlaybackStatusChanged, () => {
@@ -269,50 +342,70 @@ export default function MeetingJoinPage() {
 
       // --- publish ---
       const lp = room.localParticipant;
+
       if (localAudio) {
-        try {
-          await lp.publishTrack(localAudio);
-        } catch (e) {
-          console.warn('[publish audio failed]', e);
-        }
+        try { await lp.publishTrack(localAudio); } catch (e) { console.warn('[audio publish]', e); }
       }
       if (localVideo) {
         try {
           await lp.publishTrack(localVideo);
           await attachLocalPreviewFromTrack(localVideo);
-        } catch (e) {
-          console.warn('[publish video failed]', e);
-        }
+        } catch (e) { console.warn('[video publish]', e); }
       }
-
-      if (!room.canPlaybackAudio) setNeedAudioStart(true);
-
-      localTracksRef.current.audio = localAudio;
-      localTracksRef.current.video = localVideo;
-
       setStatus('connected');
+
+      // UI: ローカルのミュート/カメラ操作
+      setIsMuted(lp.isMicrophoneEnabled ? false : true);
+      setIsCamOff(lp.isCameraEnabled ? false : true);
+
+      // ----- 既存 publication の取りこぼし対策 -----
+      const attachExisting = () => {
+        const everyone = [lp, ...Array.from(room.participants.values())];
+        for (const p of everyone) {
+          for (const pub of p.getTrackPublications ? p.getTrackPublications() : []) {
+            const tr = pub.track;
+            if (!tr) continue;
+            const entry = ensureCard(p);
+            if (tr.kind === 'video') {
+              tr.attach(entry.meta.videoEl);
+              entry.meta.publication = pub;
+            } else if (tr.kind === 'audio') {
+              // audioはattach先を作らずオート再生（LiveKitがやる）でもOKだが
+              // 必要なら <audio/> を足して attach してもよい
+            }
+          }
+        }
+        relayout();
+      };
+      attachExisting();
     } catch (e) {
       console.error('join failed', e);
       setStatus('error');
     }
   };
 
+  // ===== ピン留めの反映 =====
+  useEffect(() => {
+    cardMapRef.current.forEach((entry, id) => {
+      entry.meta.pinned = (pinnedId === id);
+      entry.wrapper.classList.toggle('is-pinned', entry.meta.pinned);
+    });
+    relayout();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pinnedId, viewMode]);
+
   // ===== 自動再生解除 =====
   const startAudio = async () => {
     try {
       await roomRef.current?.startAudio();
       setNeedAudioStart(false);
-    } catch (e) {
-      console.warn('startAudio failed', e);
-    }
+    } catch (e) {}
   };
   const startVideo = async () => {
     try {
       await localVideoRef.current?.play();
       setNeedVideoPlay(false);
-    } catch (e) {
-      console.warn('startVideo failed', e);
-    }
+    } catch (e) {}
   };
 
   // タブ復帰時にも再生を試みる
@@ -334,13 +427,45 @@ export default function MeetingJoinPage() {
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
   }, []);
 
+  // ===== ツールバー操作 =====
+  const toggleMic = async () => {
+    const lp = roomRef.current?.localParticipant;
+    if (!lp) return;
+    const next = !lp.isMicrophoneEnabled;
+    await lp.setMicrophoneEnabled(next);
+    setIsMuted(!next);
+  };
+  const toggleCam = async () => {
+    const lp = roomRef.current?.localParticipant;
+    if (!lp) return;
+    const next = !lp.isCameraEnabled;
+    await lp.setCameraEnabled(next);
+    setIsCamOff(!next);
+  };
+
   // ===== UI =====
   return (
     <div style={styles.page}>
       <div style={styles.header}>
-        <h2 style={{ margin: 0 }}>Join meeting</h2>
+        <h2 style={{ margin: 0 }}>Meeting</h2>
         {status === 'connected' && (
-          <button onClick={leave} style={styles.secondaryBtn}>Leave</button>
+          <div style={styles.headerRight}>
+            <div style={styles.viewSwitch}>
+              <button
+                onClick={() => setViewMode('speaker')}
+                style={{ ...styles.viewBtn, ...(viewMode === 'speaker' ? styles.viewBtnActive : {}) }}
+              >
+                Speaker
+              </button>
+              <button
+                onClick={() => setViewMode('gallery')}
+                style={{ ...styles.viewBtn, ...(viewMode === 'gallery' ? styles.viewBtnActive : {}) }}
+              >
+                Gallery
+              </button>
+            </div>
+            <button onClick={leave} style={styles.secondaryBtn}>Leave</button>
+          </div>
         )}
       </div>
 
@@ -367,7 +492,7 @@ export default function MeetingJoinPage() {
         <p style={{ color: '#aaa', marginTop: 8, whiteSpace: 'pre-wrap' }}>{deviceHint}</p>
       )}
 
-      {/* 常時DOMに置いて attach タイミングのズレを解消 */}
+      {/* ローカルPIP（Zoomのフローティングサムネ風） */}
       <video
         ref={localVideoRef}
         style={{ ...styles.localPip, visibility: status === 'connected' ? 'visible' : 'hidden' }}
@@ -377,24 +502,61 @@ export default function MeetingJoinPage() {
       />
 
       {status === 'connected' && (
-        <div style={styles.stage}>
-          <div ref={remoteGridRef} style={styles.remoteGrid} />
+        <div ref={stageRef} style={styles.stage}>
+          {/* スピーカービュー時: メインエリア + 下部サムネストリップ */}
+          <div
+            ref={remoteGridRef}
+            style={{
+              ...(viewMode === 'speaker' ? styles.speakerMain : styles.galleryGrid),
+            }}
+          />
+          {viewMode === 'speaker' && (
+            <div ref={thumbStripRef} style={styles.thumbStrip} />
+          )}
+
+          {/* ブロッカー解除ボタン */}
           {needAudioStart && (
-            <button onClick={startAudio} style={styles.floatingBtn}>
-              Enable audio
-            </button>
+            <button onClick={startAudio} style={styles.floatingBtn}>Enable audio</button>
           )}
           {needVideoPlay && (
             <button onClick={startVideo} style={{ ...styles.floatingBtn, left: 160 }}>
               Show preview
             </button>
           )}
+
+          {/* Zoom風ボトムツールバー */}
+          <div style={styles.toolbar}>
+            <button onClick={toggleMic} style={{ ...styles.toolBtn, ...(isMuted ? styles.toolOff : {}) }}>
+              {isMuted ? 'Unmute' : 'Mute'}
+            </button>
+            <button onClick={toggleCam} style={{ ...styles.toolBtn, ...(isCamOff ? styles.toolOff : {}) }}>
+              {isCamOff ? 'Start Video' : 'Stop Video'}
+            </button>
+            <div style={{ flex: 1 }} />
+            <button onClick={() => setViewMode(viewMode === 'speaker' ? 'gallery' : 'speaker')}
+                    style={styles.toolBtn}>
+              {viewMode === 'speaker' ? 'Gallery View' : 'Speaker View'}
+            </button>
+          </div>
         </div>
       )}
 
       {status === 'error' && (
         <p style={{ color: 'crimson' }}>Failed to join. Open DevTools console for details.</p>
       )}
+
+      {/* ===== 追加CSS（カード見た目）を有効化 ===== */}
+      <style jsx global>{`
+        .lk-card { position: relative; aspect-ratio: 16/9; background:#000; border-radius:12px; overflow:hidden; border:1px solid #1b1b1b; }
+        .lk-card.lk-main { border-color:#3b82f6; box-shadow:0 0 0 2px rgba(59,130,246,.35) inset; }
+        .lk-videoWrap, .lk-videoWrap video { width:100%; height:100%; object-fit:cover; }
+        .lk-badges { position:absolute; left:8px; bottom:8px; display:flex; gap:6px; align-items:center; }
+        .lk-name { font-size:12px; background:rgba(0,0,0,.55); color:#fff; padding:3px 8px; border-radius:6px; }
+        .lk-mic::before { content:''; width:8px; height:8px; border-radius:50%; display:inline-block; background:#22c55e; }
+        .lk-card.is-muted .lk-mic::before { background:#ef4444; }
+        .lk-pin { position:absolute; right:8px; top:8px; font-size:12px; background:rgba(0,0,0,.55); color:#fff; border:1px solid #444; padding:3px 6px; border-radius:6px; cursor:pointer; }
+        .lk-card.is-speaking { outline: 2px solid #facc15; outline-offset:-2px; }
+      `}</style>
     </div>
   );
 }
@@ -413,6 +575,12 @@ const styles = {
     gap: 12,
     marginBottom: 12,
   },
+  headerRight: { marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 8 },
+  viewSwitch: { display: 'flex', border: '1px solid #333', borderRadius: 8, overflow: 'hidden' },
+  viewBtn: {
+    padding: '6px 10px', background: '#161616', color: '#ddd', border: 'none', cursor: 'pointer',
+  },
+  viewBtnActive: { background: '#2b2b2b', color: '#fff' },
   joinBox: { display: 'flex', alignItems: 'center', gap: 8 },
   input: {
     padding: '8px 10px',
@@ -430,7 +598,6 @@ const styles = {
     cursor: 'pointer',
   },
   secondaryBtn: {
-    marginLeft: 'auto',
     padding: '6px 10px',
     borderRadius: 8,
     background: '#222',
@@ -444,35 +611,83 @@ const styles = {
     border: '1px solid #222',
     borderRadius: 12,
     padding: 12,
-    minHeight: '60vh',
+    minHeight: '70vh',
     background: '#000',
-  },
-  remoteGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))',
+    display: 'flex',
+    flexDirection: 'column',
     gap: 12,
+  },
+  // ギャラリー（Zoom: グリッド）
+  galleryGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: 12,
+    flex: 1,
+  },
+  // スピーカー（Zoom: アクティブ＋下サムネ）
+  speakerMain: {
+    flex: 1,
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridAutoRows: 'minmax(200px, 1fr)',
+  },
+  thumbStrip: {
+    height: 112,
+    display: 'flex',
+    gap: 8,
+    overflowX: 'auto',
+    padding: '6px',
+    borderTop: '1px solid #111',
+    background: 'linear-gradient(180deg,#0a0a0a,#080808)',
   },
   localPip: {
     position: 'fixed',
     right: 16,
-    bottom: 16,
-    width: 200,
-    height: 120,
+    bottom: 86, // ツールバーの上に浮かす
+    width: 220,
+    height: 140,
     objectFit: 'cover',
     borderRadius: 10,
     border: '1px solid rgba(255,255,255,.15)',
     background: '#000',
     zIndex: 9999,
+    boxShadow: '0 10px 30px rgba(0,0,0,.5)',
   },
   floatingBtn: {
     position: 'absolute',
     left: 16,
-    bottom: 16,
+    bottom: 140,
     padding: '10px 14px',
     borderRadius: 10,
     background: '#4C8DFF',
     color: '#fff',
     border: 'none',
     cursor: 'pointer',
+  },
+  // Zoom風ボトムツールバー
+  toolbar: {
+    position: 'sticky',
+    bottom: 0,
+    display: 'flex',
+    gap: 8,
+    padding: '10px 12px',
+    border: '1px solid #111',
+    borderRadius: 12,
+    background: 'rgba(12,12,12,0.9)',
+    backdropFilter: 'blur(6px)',
+    alignItems: 'center',
+  },
+  toolBtn: {
+    padding: '8px 12px',
+    borderRadius: 10,
+    border: '1px solid #333',
+    background: '#1a1a1a',
+    color: '#eee',
+    cursor: 'pointer',
+  },
+  toolOff: {
+    background: '#3a1010',
+    borderColor: '#6a2a2a',
+    color: '#fff',
   },
 };
