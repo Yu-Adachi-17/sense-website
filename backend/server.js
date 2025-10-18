@@ -127,11 +127,11 @@ app.use((req, res, next) => {
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
 // ② LiveKit Webhook: raw（署名検証のため。express.json より前に置く）
-app.use(
-  '/api/livekit/webhook',
-  express.raw({ type: 'application/json' }),
+app.use('/api/livekit/webhook',
+  express.raw({ type: 'application/webhook+json' }),
   livekitWebhookRouter
 );
+
 
 // ③ For Apple Webhook: Use raw body for /api/apple/notifications → 直後に JSON 解析
 app.use('/api/apple/notifications', express.json());
