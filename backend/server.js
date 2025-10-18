@@ -35,6 +35,7 @@ const livekitRouter = require('./routes/livekit');
 const meetingsRouter = require('./routes/meetings');
 const egressRouter = require('./routes/egress');
 const livekitWebhookRouter = require('./routes/livekitWebhook');
+const s3debugRouter = require('./routes/s3debug');
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -187,6 +188,7 @@ app.use('/api/meetings', meetingsRouter);
 
 app.use('/api', egressRouter);
 app.use('/api', livekitWebhookRouter);
+app.use('/api', s3debugRouter);
 
 // デバッグエコー
 app.post('/api/_debug/echo', (req, res) => {
