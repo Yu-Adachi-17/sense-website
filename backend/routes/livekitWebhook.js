@@ -62,7 +62,7 @@ function saveDB(db) {
 /* -------------------- Webhook 本体 -------------------- */
 // 注意: server.js 側で `app.use('/api/livekit/webhook', express.raw({type:'application/json'}), livekitWebhookRouter)`
 // として“rawボディ”を渡すこと。
-router.post('/livekit/webhook', (req, res) => {
+router.post('/', (req, res) => {
   try {
     const raw = Buffer.isBuffer(req.body) ? req.body : Buffer.from(req._rawBody || '', 'utf8');
 
@@ -124,7 +124,7 @@ router.post('/livekit/webhook', (req, res) => {
 
 /* -------------------- 確認用のGET API（任意・便利） -------------------- */
 // 直近のイベント一覧（最大100件）
-router.get('/livekit/webhook/events', (_req, res) => {
+router.get('/events', (_req, res) => {
   try {
     const db = loadDB();
     const recent = db.events.slice(-100);
@@ -135,7 +135,7 @@ router.get('/livekit/webhook/events', (_req, res) => {
 });
 
 // egressId でサマリ取得
-router.get('/livekit/webhook/egress/:egressId', (req, res) => {
+router.get('/egress/:egressId', (req, res) => {
   try {
     const db = loadDB();
     const data = db.byEgressId[req.params.egressId] || null;
@@ -146,7 +146,7 @@ router.get('/livekit/webhook/egress/:egressId', (req, res) => {
 });
 
 // roomName でサマリ取得
-router.get('/livekit/webhook/room/:roomName', (req, res) => {
+router.get('/room/:roomName', (req, res) => {
   try {
     const db = loadDB();
     const data = db.byRoomName[req.params.roomName] || null;
