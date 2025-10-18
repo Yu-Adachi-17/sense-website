@@ -7,8 +7,8 @@ const { WebhookReceiver } = require('livekit-server-sdk');
 const router = express.Router();
 
 // LiveKit Cloud の「API keys」で作った “API Key / API Secret” を環境変数で渡す
-const WEBHOOK_API_KEY = process.env.LIVEKIT_WEBHOOK_API_KEY;
-const WEBHOOK_API_SECRET = process.env.LIVEKIT_WEBHOOK_API_SECRET;
+const WEBHOOK_API_KEY = process.env.LIVEKIT_API_KEY;
+const WEBHOOK_API_SECRET = process.env.LIVEKIT_API_SECRET;
 
 // 署名検証ヘルパ
 const receiver = new WebhookReceiver(WEBHOOK_API_KEY, WEBHOOK_API_SECRET);
