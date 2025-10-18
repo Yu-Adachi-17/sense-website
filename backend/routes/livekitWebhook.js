@@ -4,13 +4,27 @@
 //  - Content-Type: application/webhook+json を raw で受ける（server.js側で設定）
 //  - Authorization ヘッダの署名JWTを LIVEKIT_API_KEY / LIVEKIT_API_SECRET で検証
 //  - egress_* を含む全イベントを data/egress-events.json に保存
-//  - 確認用 GET /api/livekit/webhook/events /api/livekit/webhook/egress/:id /api/livekit/webhook/room/:room
+//  - 確認用 GET /api/livekit/webhook/events
+//           GET /api/livekit/webhook/egress/:id
+//           GET /api/livekit/webhook/room/:room
+//  - 追加: egress_ended(EGRESS_COMPLETE) で S3 キーを抽出 → recordings.setLatestKeyAndProbe()
+//          /room/:room で latestFileKey を返す（後方互換のため data 内にも格納）
 // ------------------------------------------------------
 
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { WebhookReceiver } = require('livekit-server-sdk');
+
+// ★ recordings ルーター（SSE 通知＆HEAD 確認）にキーを受け渡す
+//   前回お渡しの routes/recordings.js（setLatestKeyAndProbe 実装あり）を想定。
+//   未適用でも動作は壊れないように存在チェックします。
+let recordingsRouter = null;
+try {
+  recordingsRouter = require('./recordings');
+} catch (_) {
+  recordingsRouter = null;
+}
 
 const router = express.Router();
 
@@ -50,6 +64,37 @@ function saveDB(db) {
 // BigInt を JSON 保存できるように文字列化
 const jsonSafe = (obj) =>
   JSON.parse(JSON.stringify(obj, (_, v) => (typeof v === 'bigint' ? v.toString() : v)));
+
+// egressInfo から S3 の Key をできるだけ頑健に抽出
+function extractS3KeyFromEgressInfo(info) {
+  if (!info) return null;
+
+  // 1) fileResults 優先
+  if (Array.isArray(info.fileResults)) {
+    for (const f of info.fileResults) {
+      if (f?.filename) return String(f.filename);    // 例: minutes/.../....ogg
+      if (f?.filepath) return String(f.filepath);    // 環境によってはこちら
+      if (f?.location && typeof f.location === 'string') {
+        const m = f.location.match(/^s3:\/\/[^/]+\/(.+)$/i);
+        if (m) return m[1];
+      }
+    }
+  }
+
+  // 2) segmentResults（HLS 等）の場合（必要ならプレイリストや代表キーに寄せる）
+  if (Array.isArray(info.segmentResults)) {
+    for (const s of info.segmentResults) {
+      if (s?.playlistName) return String(s.playlistName);
+      if (s?.filename) return String(s.filename);
+      if (s?.location && typeof s.location === 'string') {
+        const m = s.location.match(/^s3:\/\/[^/]+\/(.+)$/i);
+        if (m) return m[1];
+      }
+    }
+  }
+
+  return null;
+}
 
 /**
  * POST /
@@ -94,7 +139,7 @@ router.post('/', async (req, res) => {
       error: info.error ?? null,
       startedAt: info.startedAt ?? null,
       endedAt: info.endedAt ?? null,
-      // MP4 等の単一ファイル出力
+      // MP4/OGG 等の単一ファイル出力
       files: Array.isArray(info.fileResults) ? info.fileResults : [],
       // HLS 等のセグメント出力
       segments: Array.isArray(info.segmentResults) ? info.segmentResults : [],
@@ -103,6 +148,29 @@ router.post('/', async (req, res) => {
 
     if (eid) db.byEgressId[eid] = { ...(db.byEgressId[eid] || {}), ...summary };
     if (roomName) db.byRoomName[roomName] = { ...(db.byRoomName[roomName] || {}), ...summary };
+
+    // ★ 追加：EGRESS_COMPLETE の瞬間に S3 のキーを抽出して記録＆recordings に通知
+    if (type === 'egress_ended' && info.status === 'EGRESS_COMPLETE') {
+      const key = extractS3KeyFromEgressInfo(info);
+      if (key) {
+        // DB にも latestFileKey として保存（既存データは温存しつつ拡張）
+        if (eid) db.byEgressId[eid].latestFileKey = key;
+        if (roomName) {
+          db.byRoomName[roomName].latestFileKey = key;
+
+          // recordings.js（SSE＆HEAD確認）側へ通知（存在する場合のみ）
+          if (recordingsRouter && typeof recordingsRouter.setLatestKeyAndProbe === 'function') {
+            try {
+              recordingsRouter.setLatestKeyAndProbe(roomName, key);
+            } catch (e) {
+              console.warn('[LiveKitWebhook] notify recordings failed:', e?.message || e);
+            }
+          }
+        }
+      } else {
+        console.warn('[LiveKitWebhook] egress_ended but cannot resolve file key');
+      }
+    }
 
     saveDB(db);
 
@@ -146,13 +214,25 @@ router.get('/egress/:egressId', (req, res) => {
 
 /**
  * GET /room/:roomName
- * roomName でサマリ取得
+ * roomName でサマリ取得（後方互換の data を維持しつつ latestFileKey を返す）
+ * iOS の EgressClient.webhookLatestFileKey() は
+ *  - data.latestFileKey 形式（新）
+ *  - もしくは top-level latestFileKey（レガシー）
+ * のどちらにも対応できる実装にしています。
  */
 router.get('/room/:roomName', (req, res) => {
   try {
     const db = loadDB();
     const data = db.byRoomName[req.params.roomName] || null;
-    res.json({ data });
+
+    const latestFileKey = data && data.latestFileKey ? data.latestFileKey : null;
+
+    // 後方互換: 既存の { data } を残しつつ、トップにも latestFileKey を併記
+    res.json({
+      roomName: req.params.roomName,
+      latestFileKey,   // ← 新規（トップレベル）
+      data: data ? { ...data, latestFileKey } : null, // ← 既存 + 拡張
+    });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
