@@ -243,53 +243,94 @@ router.get('/recordings/await-key', async (req, res) => {
   }
 });
 
-// GET /api/recordings/await-room/:roomName?expires=600&maxWaitSec=20&minDelaySec=1&maxDelaySec=2
-// Resolve the actual key from LiveKit (best egress), WAIT for existence, THEN presign.
+// ---------- GET /api/recordings/await-room/:roomName?expires=600&maxWaitSec=25&minDelaySec=1&maxDelaySec=2 ----------
+// 1) LiveKit: COMPLETE になって fileResults.filepath が得られるまで待つ
+// 2) S3: そのキーが実在するまで wait
+// 3) presign を返す
 router.get('/recordings/await-room/:roomName', async (req, res) => {
+  const startedAt = Date.now();
+  function elapsedSec() { return Math.floor((Date.now() - startedAt) / 1000); }
+
   try {
     const { roomName } = req.params;
-    if (!roomName) return jsonError(res, 400, 'roomName required');
+    if (!roomName) return res.status(400).json({ error: 'roomName required' });
 
     const expiresIn = parseExpiresSec(req.query.expires, 600);
     const { maxWaitSec, minDelaySec, maxDelaySec } = parseWaitWindow(req.query, {
-      maxWaitSec: 20,
+      maxWaitSec: 25,
       minDelaySec: 1,
       maxDelaySec: 2,
     });
 
-    // 1) Resolve the final, authoritative key from LiveKit egress
-    const list = await lk.listEgress();
-    const best = pickBestEgress(list.items, roomName);
-    if (!best) return jsonError(res, 404, 'no egress found for this room');
+    // ---- (A) COMPLETE + fileResults 待ち（LiveKit側の完了待機） ----
+    const pollDelayMs = Math.max(400, Math.min(1500, minDelaySec * 1000));
+    let key = null;
+    let lastStatus = 'UNKNOWN';
 
-    if (!best.fileResults || !best.fileResults.length) {
-      return jsonError(res, 404, 'no fileResults for this room yet');
+    while (elapsedSec() < maxWaitSec) {
+      const list = await lk.listEgress();
+      const items = (list.items || []).filter(it => it.roomName === roomName);
+
+      // rank: COMPLETE > ENDING > ACTIVE > others
+      const rank = (st) => st === 'EGRESS_COMPLETE' ? 3 : st === 'EGRESS_ENDING' ? 2 : st === 'EGRESS_ACTIVE' ? 1 : 0;
+      const best = items.sort((a, b) =>
+        (rank(b.status) - rank(a.status)) ||
+        (new Date(b.endedAt || b.startedAt) - new Date(a.endedAt || a.startedAt))
+      )[0];
+
+      if (best) {
+        lastStatus = best.status || lastStatus;
+        if (best.fileResults && best.fileResults.length && best.fileResults[0].filepath) {
+          key = best.fileResults[0].filepath; // authoritative
+          break; // キーが取れたら次の段へ
+        }
+      }
+
+      // まだ fileResults が出ていない → 少し待つ
+      await new Promise(r => setTimeout(r, pollDelayMs));
     }
-    const key = best.fileResults[0].filepath;
 
-    // 2) Wait until the object really exists in S3
-    await waitUntilObjectExists(
-      { client: s3, maxWaitTime: maxWaitSec, minDelay: minDelaySec, maxDelay: maxDelaySec },
-      { Bucket: S3_BUCKET, Key: String(key) }
-    );
+    if (!key) {
+      // LiveKit 完了までに間に合わなかった
+      return res.status(504).json({
+        error: 'timeout: egress not completed yet (no fileResults)',
+        roomName, elapsed: elapsedSec(), maxWaitSec, lastStatus
+      });
+    }
 
-    // 3) Presign and return
+    // ---- (B) S3 実在待ち ----
+    try {
+      await waitUntilObjectExists(
+        { client: s3, maxWaitTime: Math.max(1, maxWaitSec - elapsedSec()), minDelay: minDelaySec, maxDelay: maxDelaySec },
+        { Bucket: S3_BUCKET, Key: key }
+      );
+    } catch (e) {
+      // waiter のタイムアウト/404 → 504へ
+      return res.status(504).json({
+        error: 'timeout: s3 object did not appear in time',
+        roomName, key, elapsed: elapsedSec(), maxWaitSec
+      });
+    }
+
+    // ---- (C) presign ----
     const cmd = new GetObjectCommand({ Bucket: S3_BUCKET, Key: key });
     const url = await getSignedUrl(s3, cmd, { expiresIn });
 
     return res.json({
       mode: 'await-room',
       roomName,
-      status: best.status,
+      status: 'READY',
       key,
       url,
       expiresIn,
-      waited: { maxWaitSec, minDelaySec, maxDelaySec },
+      waitedSec: elapsedSec(),
     });
+
   } catch (e) {
-    const isTimeout = /waiter|Max wait time exceeded/i.test(String(e?.message || e));
-    return jsonError(res, isTimeout ? 504 : 500, 'await-room failed', e);
+    console.error('[recordings/await-room] error', e);
+    return res.status(500).json({ error: 'failed to await room', details: String(e?.message || e) });
   }
 });
+
 
 module.exports = router;
