@@ -1,164 +1,74 @@
 // services/livekitEgress.js
-// ---------------------------------------------
-// LiveKit Cloud の Egress をサーバーから開始/停止するユーティリティ
-//  - 出力先: AWS S3（.env の EGRESS_S3_* を使用）
-//  - モード: "mp4" or "hls"
-//  - レイアウト: "grid" or "speaker"
-// ---------------------------------------------
+const { EgressClient, RoomCompositeOptions, EncodedFileOutput, AudioFileType, StopEgressRequest } = require('livekit-server-sdk');
 
-const {
-  EgressClient,
-  EncodedFileOutput,
-  SegmentedFileOutput,
-  S3Upload,
-  EncodingOptionsPreset,
-} = require('livekit-server-sdk');
+const LK_URL = process.env.LIVEKIT_URL;
+const LK_API_KEY = process.env.LIVEKIT_API_KEY;
+const LK_API_SECRET = process.env.LIVEKIT_API_SECRET;
 
-/* ================================
- * ENV チェック（起動時に警告）
- * ================================ */
-const REQUIRED_ENV = [
-  'LIVEKIT_URL',
-  'LIVEKIT_API_KEY',
-  'LIVEKIT_API_SECRET',
-  'EGRESS_S3_BUCKET',
-  'EGRESS_S3_REGION',
-  'EGRESS_S3_ACCESS_KEY_ID',
-  'EGRESS_S3_SECRET_ACCESS_KEY',
-  // AWS純正S3なら EGRESS_S3_ENDPOINT は省略可
-];
+const S3_BUCKET = process.env.EGRESS_S3_BUCKET;
+const S3_REGION = process.env.EGRESS_S3_REGION;
+const S3_ENDPOINT = process.env.EGRESS_S3_ENDPOINT;
+const S3_ACCESS_KEY_ID = process.env.EGRESS_S3_ACCESS_KEY_ID;
+const S3_SECRET_ACCESS_KEY = process.env.EGRESS_S3_SECRET_ACCESS_KEY;
 
-for (const k of REQUIRED_ENV) {
-  if (!process.env[k]) {
-    console.warn(`[Egress][WARN] Missing env: ${k}`);
-  }
+const client = new EgressClient(LK_URL, LK_API_KEY, LK_API_SECRET);
+
+function buildS3(filePath) {
+  return {
+    accessKey: S3_ACCESS_KEY_ID,
+    secret: S3_SECRET_ACCESS_KEY,
+    region: S3_REGION,
+    endpoint: S3_ENDPOINT,
+    bucket: S3_BUCKET,
+    forcePathStyle: false,
+  };
 }
 
-/* ================================
- * S3 Upload 設定を生成
- * ================================ */
-function buildS3Upload() {
-  const {
-    EGRESS_S3_BUCKET,
-    EGRESS_S3_REGION,
-    EGRESS_S3_ENDPOINT,
-    EGRESS_S3_ACCESS_KEY_ID,
-    EGRESS_S3_SECRET_ACCESS_KEY,
-  } = process.env;
+async function startRoomCompositeEgress({ roomName, mode = 'mp4', layout = 'grid', prefix = '' }) {
+  // 共通: S3 パス先頭
+  const basePrefix = prefix || `minutes/${new Date().toISOString().slice(0,10)}/`;
+  const timeToken = new Date().toISOString().replace(/[:.]/g, '-');
 
-  // livekit-server-sdk v2 系は S3Upload を“直”で new する
-  // endpoint は AWS 公式S3なら空でもOK（Wasabi/MinIO 等の互換S3なら必須）
-  return new S3Upload({
-    accessKey: EGRESS_S3_ACCESS_KEY_ID,
-    secret: EGRESS_S3_SECRET_ACCESS_KEY,
-    region: EGRESS_S3_REGION,
-    bucket: EGRESS_S3_BUCKET,
-    endpoint: EGRESS_S3_ENDPOINT || '',
-    // forcePathStyle: true, // MinIO など path-style 強制が必要な場合のみ有効化
-  });
-}
-
-/* ================================
- * LiveKit Egress クライアント
- * ================================ */
-function getClient() {
-  const { LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET } = process.env;
-  if (!LIVEKIT_URL || !LIVEKIT_API_KEY || !LIVEKIT_API_SECRET) {
-    throw new Error('[Egress] LIVEKIT_* の環境変数が不足しています');
-  }
-  return new EgressClient(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET);
-}
-
-/* ================================
- * プリセット解決（必要に応じて拡張）
- * ================================ */
-function resolvePreset(presetName) {
-  switch ((presetName || '').toLowerCase()) {
-    case '720p30':
-    case 'h264_720p_30':
-      return EncodingOptionsPreset.H264_720P_30;
-    case '1080p30':
-    case 'h264_1080p_30':
-      return EncodingOptionsPreset.H264_1080P_30;
-    default:
-      return EncodingOptionsPreset.H264_720P_30; // デフォルトは軽め
-  }
-}
-
-/* ================================
- * 開始: Room Composite Egress
- * ================================
- * @param {Object} params
- * @param {string} params.roomName  - 例: "minutes-<id>"
- * @param {'mp4'|'hls'} [params.mode='mp4']
- * @param {'grid'|'speaker'} [params.layout='grid']
- * @param {string} [params.prefix=''] - S3 キーパスの先頭（末尾に/が付くよう整形）
- * @param {string} [params.preset='720p30'] - エンコードプリセット
- * @returns {Promise<{egressId: string}>}
- */
-async function startRoomCompositeEgress({
-  roomName,
-  mode = 'mp4',
-  layout = 'grid',
-  prefix = '',
-  preset = '720p30',
-}) {
-  if (!roomName) throw new Error('[Egress] roomName is required');
-
-  const client = getClient();
-  const s3Upload = buildS3Upload();
-
-  const base = `${(prefix || 'recordings/').replace(/\/?$/, '/')}${roomName}/`;
-  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const encPreset = resolvePreset(preset);
-
-  if (mode === 'hls') {
-    // 会議中にも .m3u8 / .ts が増える（近リアルタイム取得向け）
-    const seg = new SegmentedFileOutput({
-      // 例: recordings/<room>/<ts>/index.m3u8 とセグメント群
-      filenamePrefix: `${base}${timestamp}/index`,
-      playlistName: 'index.m3u8',
-      livePlaylistName: 'live.m3u8', // 直近セグメントのみのライブ用（任意）
-      output: { case: 's3', value: s3Upload },
+  if (mode === 'audio') {
+    // === 音声のみ: 参加者全員のミックスを 1 本の OGG に ===
+    const options = new RoomCompositeOptions({
+      roomName,
+      audioOnly: true,      // ← これがポイント（全員のミックス音声、映像なし）
+      layout: 'speaker',    // 映像出力しないので layout は実質無関係
     });
 
- const res = await client.startRoomCompositeEgress(
-   roomName,
-   { segments: seg },
-   { layout, encodingOptions: encPreset }
- );
+    const output = new EncodedFileOutput({
+      // OGG(=Opus) を明示。拡張子も .ogg に
+      fileType: AudioFileType.OGG,
+      filepath: `${basePrefix}${roomName}/${timeToken}.ogg`,
+      s3: buildS3(`${basePrefix}${roomName}/${timeToken}.ogg`),
+    });
 
+    const res = await client.roomCompositeEgress(options, [output]);
     return { egressId: res.egressId };
   }
 
-  // 既定: MP4 1ファイル書き出し
-  const file = new EncodedFileOutput({
-    filepath: `${base}${timestamp}.mp4`,
-    output: { case: 's3', value: s3Upload },
+  // 既存: 動画（mp4）など
+  const options = new RoomCompositeOptions({
+    roomName,
+    layout,
+    audioOnly: false,
+    videoOnly: false,
   });
 
- const res = await client.startRoomCompositeEgress(
-   roomName,
-   { file },
-   { layout, encodingOptions: encPreset }
- );
+  const output = new EncodedFileOutput({
+    // 既定は MP4（ビデオ＋オーディオ）
+    filepath: `${basePrefix}${roomName}/${timeToken}.mp4`,
+    s3: buildS3(`${basePrefix}${roomName}/${timeToken}.mp4`),
+  });
 
+  const res = await client.roomCompositeEgress(options, [output]);
   return { egressId: res.egressId };
 }
 
-/* ================================
- * 停止
- * ================================ */
 async function stopEgress(egressId) {
-  if (!egressId) throw new Error('[Egress] egressId is required');
-  const client = getClient();
-  await client.stopEgress(egressId);
+  const req = new StopEgressRequest({ egressId });
+  await client.stopEgress(req);
 }
 
-/* ================================
- * exports
- * ================================ */
-module.exports = {
-  startRoomCompositeEgress,
-  stopEgress,
-};
+module.exports = { startRoomCompositeEgress, stopEgress };
