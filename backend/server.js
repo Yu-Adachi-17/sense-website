@@ -35,7 +35,6 @@ const livekitRouter = require('./routes/livekit');
 const meetingsRouter = require('./routes/meetings');
 const egressRouter = require('./routes/egress');
 const livekitWebhookRouter = require('./routes/livekitWebhook');
-const s3debugRouter = require('./routes/s3debug');
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -127,10 +126,17 @@ app.use((req, res, next) => {
 // ① For Stripe Webhook: Use raw body for /api/stripe (applied before JSON parsing)
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
 
-// ② For Apple Webhook: Use raw body for /api/apple/notifications → 直後に JSON 解析
+// ② LiveKit Webhook: raw（署名検証のため。express.json より前に置く）
+app.use(
+  '/api/livekit/webhook',
+  express.raw({ type: 'application/json' }),
+  livekitWebhookRouter
+);
+
+// ③ For Apple Webhook: Use raw body for /api/apple/notifications → 直後に JSON 解析
 app.use('/api/apple/notifications', express.json());
 
-// ③ For all other endpoints: Parse JSON body（生データも保持）
+// ④ For all other endpoints: Parse JSON body（生データも保持）
 app.use(express.json({
   verify: (req, res, buf) => {
     req._rawBody = buf ? buf.toString('utf8') : '';
@@ -187,8 +193,8 @@ app.use('/api/livekit', livekitRouter);
 app.use('/api/meetings', meetingsRouter);
 
 app.use('/api', egressRouter);
-app.use('/api', livekitWebhookRouter);
-app.use('/api', s3debugRouter);
+
+
 
 // デバッグエコー
 app.post('/api/_debug/echo', (req, res) => {
