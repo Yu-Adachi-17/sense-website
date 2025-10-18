@@ -5,118 +5,75 @@ const LIVEKIT_URL = process.env.LIVEKIT_URL;
 const LIVEKIT_API_KEY = process.env.LIVEKIT_API_KEY;
 const LIVEKIT_API_SECRET = process.env.LIVEKIT_API_SECRET;
 
-// S3設定（.envの値をそのまま使う）
-const S3_BUCKET   = process.env.EGRESS_S3_BUCKET;
-const S3_REGION   = process.env.EGRESS_S3_REGION;
-const S3_ENDPOINT = process.env.EGRESS_S3_ENDPOINT || '';     // AWS純正なら https://s3.<region>.amazonaws.com
-const S3_ACCESS   = process.env.EGRESS_S3_ACCESS_KEY_ID;
-const S3_SECRET   = process.env.EGRESS_S3_SECRET_ACCESS_KEY;
+// S3 環境変数（Railway/Env に設定済みの前提）
+const S3_BUCKET  = process.env.EGRESS_S3_BUCKET;
+const S3_REGION  = process.env.EGRESS_S3_REGION;           // 例: "ap-northeast-1"
+const S3_ENDPOINT = process.env.EGRESS_S3_ENDPOINT || '';   // 例: "https://s3.ap-northeast-1.amazonaws.com"
+const S3_ACCESS  = process.env.EGRESS_S3_ACCESS_KEY_ID;
+const S3_SECRET  = process.env.EGRESS_S3_SECRET_ACCESS_KEY;
 
-// LiveKit JS SDK クライアント
-const egressClient = new EgressClient(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET);
+// LiveKit Egress クライアント
+const egress = new EgressClient(LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET);
 
 /**
- * 音声のみ or 映像つきコンポジットの開始
- * @param {object} p
- *  - roomName: string
- *  - mode: 'audio' | 'mp4' | 'hls'
- *  - layout: 'grid' | 'speaker' | 'custom'（audioでは無視される）
- *  - prefix: 'minutes/2025-10-18/' など（S3の保存プレフィックス）
- *  - audioFormat: 'mp3' | 'ogg'（省略可: 既定mp3）
+ * 会議全体の録画/録音（Room Composite Egress）
+ * - mode: 'mp4' | 'audio'
+ * - 'audio' の場合: audioOnly = true, fileType = 'MP3'
  */
-async function startRoomCompositeEgress(p) {
-  const {
-    roomName,
-    mode = 'audio',
-    layout = 'grid',
-    prefix = '',
-    audioFormat = 'mp3',
-  } = p || {};
-
+async function startRoomCompositeEgress({ roomName, mode = 'mp4', layout = 'grid', prefix = '' }) {
   if (!roomName) throw new Error('roomName required');
 
-  // 出力ファイル名
-  const ts = new Date().toISOString().replace(/[:.]/g, '-');
-  const baseKey = `${prefix}${roomName}/${ts}`;
-
-  // S3出力（protoの型名ではなく “ただのオブジェクト” でOK）
-  const s3Upload = {
+  // S3 出力共通
+  const s3 = {
     accessKey: S3_ACCESS,
     secret: S3_SECRET,
     region: S3_REGION,
-    endpoint: S3_ENDPOINT,       // AWS純正なら https://s3.ap-northeast-1.amazonaws.com
+    endpoint: S3_ENDPOINT,     // 空でも可（AWS 純正なら空でも動く）
     bucket: S3_BUCKET,
-    forcePathStyle: false
+    forcePathStyle: false,
   };
 
-  // ======== 音声のみ（会議全体を1ファイルへミックス）========
+  const now = new Date().toISOString().replace(/[:.]/g, '-');
+
+  // ファイル名と fileType をモードに応じて
+  let fileType = 'MP4';
+  let audioOnly = false;
+  let filename;
   if (mode === 'audio') {
-    // ファイル拡張子とエンコードタイプ
-    const isMp3 = (audioFormat || 'mp3').toLowerCase() === 'mp3';
-    const ext = isMp3 ? 'mp3' : 'ogg';
-    // fileOutputs の “fileType” はエンムですが、JSは文字列名でOK（サーバ側で解釈）
-    const fileOutputs = [{
-      filepath: `${baseKey}.${ext}`,
-      fileType: isMp3 ? 'MP3' : 'OGG',
-      s3: s3Upload
-    }];
-
-    // RoomCompositeEgressRequest 相当のプレーンオブジェクト
-    const req = {
-      roomComposite: {
-        roomName,
-        // audioOnly を true にすると映像はレンダリングされず、全参加者の音声が1ファイルにミックスされます
-        audioOnly: true,
-        layout,              // 無視されるが入っていてもOK
-        fileOutputs
-      }
-    };
-
-    const info = await egressClient.startRoomCompositeEgress(req);
-    return { egressId: info.egressId };
+    audioOnly = true;
+    fileType = 'MP3';
+    filename = `${prefix || ''}${roomName}/${now}.mp3`;
+  } else {
+    // デフォルト: 映像+音声（MP4）
+    filename = `${prefix || ''}${roomName}/${now}.mp4`;
   }
 
-  // ======== 映像付き（従来のMP4/HLS）========
-  if (mode === 'mp4') {
-    const req = {
-      roomComposite: {
-        roomName,
-        layout,
-        fileOutputs: [{
-          filepath: `${baseKey}.mp4`,
-          fileType: 'MP4',
-          s3: s3Upload
-        }]
-      }
-    };
-    const info = await egressClient.startRoomCompositeEgress(req);
-    return { egressId: info.egressId };
-  }
+  // リクエストは “プレーンなオブジェクト” で OK（コンストラクタ不要）
+  const request = {
+    roomName,
+    layout,             // 'grid' / 'speaker' など
+    audioOnly,          // ← 音声のみの肝
+    videoOnly: false,   // 念のため明示
+    fileOutputs: [
+      {
+        fileType,       // 'MP3' or 'MP4'
+        filepath: filename,
+        s3,
+      },
+    ],
+  };
 
-  if (mode === 'hls') {
-    const req = {
-      roomComposite: {
-        roomName,
-        layout,
-        segmentOutputs: [{
-          // HLSはセグメント/プレイリストが作られます
-          filenamePrefix: `${baseKey}`,
-          playlistName: 'index.m3u8',
-          s3: s3Upload
-        }]
-      }
-    };
-    const info = await egressClient.startRoomCompositeEgress(req);
-    return { egressId: info.egressId };
-  }
-
-  throw new Error(`unsupported mode: ${mode}`);
+  // 実行
+  const info = await egress.startRoomCompositeEgress(request);
+  // info.egressId を返す
+  return { egressId: info.egressId };
 }
 
 async function stopEgress(egressId) {
-  if (!egressId) throw new Error('egressId required');
-  await egressClient.stopEgress(egressId);
-  return true;
+  await egress.stopEgress(egressId);
 }
 
-module.exports = { startRoomCompositeEgress, stopEgress };
+module.exports = {
+  startRoomCompositeEgress,
+  stopEgress,
+};
