@@ -243,13 +243,15 @@ router.get('/recordings/await-key', async (req, res) => {
   }
 });
 
-// ---------- GET /api/recordings/await-room/:roomName?expires=600&maxWaitSec=25&minDelaySec=1&maxDelaySec=2 ----------
-// 1) LiveKit: COMPLETE になって fileResults.filepath が得られるまで待つ
-// 2) S3: そのキーが実在するまで wait
-// 3) presign を返す
+// ---------- GET /api/recordings/await-room/:roomName?expires=600&maxWaitSec=60&minDelaySec=1&maxDelaySec=2 ----------
+// 2段待ち：
+// (A) LiveKit 完了待ち（EGRESS_COMPLETE かつ fileResults[0].filepath を得るまで）
+//     ※重複egressがあっても、最新(endedAt優先)の COMPLETE を採用
+// (B) S3 実在待ち（HeadObject waiter）
+// その後 presign を返却
 router.get('/recordings/await-room/:roomName', async (req, res) => {
   const startedAt = Date.now();
-  function elapsedSec() { return Math.floor((Date.now() - startedAt) / 1000); }
+  const elapsedSec = () => Math.floor((Date.now() - startedAt) / 1000);
 
   try {
     const { roomName } = req.params;
@@ -257,70 +259,79 @@ router.get('/recordings/await-room/:roomName', async (req, res) => {
 
     const expiresIn = parseExpiresSec(req.query.expires, 600);
     const { maxWaitSec, minDelaySec, maxDelaySec } = parseWaitWindow(req.query, {
-      maxWaitSec: 25,
+      maxWaitSec: 60,  // ← 既定を長めに
       minDelaySec: 1,
       maxDelaySec: 2,
     });
 
-    // ---- (A) COMPLETE + fileResults 待ち（LiveKit側の完了待機） ----
-    const pollDelayMs = Math.max(400, Math.min(1500, minDelaySec * 1000));
-    let key = null;
-    let lastStatus = 'UNKNOWN';
+    // ---- (A) LiveKit 完了 + fileResults 待ち ----
+    const pollDelayMs = Math.max(500, Math.min(1500, minDelaySec * 1000));
+    let fileKey = null;
+    let lastStatuses = [];
+
+    const rank = (st) => st === 'EGRESS_COMPLETE' ? 3 : st === 'EGRESS_ENDING' ? 2 : st === 'EGRESS_ACTIVE' ? 1 : 0;
+    const pickLatestComplete = (items) => {
+      const complete = items.filter(it => it.status === 'EGRESS_COMPLETE' && it.fileResults?.length && it.fileResults[0].filepath);
+      if (!complete.length) return null;
+      // 最新（endedAt > startedAt）を優先
+      return complete.slice().sort((a, b) =>
+        (new Date(b.endedAt || b.startedAt) - new Date(a.endedAt || a.startedAt))
+      )[0];
+    };
 
     while (elapsedSec() < maxWaitSec) {
       const list = await lk.listEgress();
       const items = (list.items || []).filter(it => it.roomName === roomName);
+      lastStatuses = items.map(it => ({ id: it.egressId, status: it.status, startedAt: it.startedAt, endedAt: it.endedAt }));
 
-      // rank: COMPLETE > ENDING > ACTIVE > others
-      const rank = (st) => st === 'EGRESS_COMPLETE' ? 3 : st === 'EGRESS_ENDING' ? 2 : st === 'EGRESS_ACTIVE' ? 1 : 0;
-      const best = items.sort((a, b) =>
-        (rank(b.status) - rank(a.status)) ||
-        (new Date(b.endedAt || b.startedAt) - new Date(a.endedAt || a.startedAt))
-      )[0];
-
-      if (best) {
-        lastStatus = best.status || lastStatus;
-        if (best.fileResults && best.fileResults.length && best.fileResults[0].filepath) {
-          key = best.fileResults[0].filepath; // authoritative
-          break; // キーが取れたら次の段へ
-        }
+      // 1) すでに COMPLETE があればそれを使う
+      const complete = pickLatestComplete(items);
+      if (complete) {
+        fileKey = complete.fileResults[0].filepath;
+        break;
       }
 
-      // まだ fileResults が出ていない → 少し待つ
+      // 2) まだなら、次点（ENDING/ACTIVE）の“最新”も把握だけはしておく（デバッグ用）
+      //    ここでは使わず、次ループで再評価
       await new Promise(r => setTimeout(r, pollDelayMs));
     }
 
-    if (!key) {
-      // LiveKit 完了までに間に合わなかった
+    if (!fileKey) {
       return res.status(504).json({
         error: 'timeout: egress not completed yet (no fileResults)',
-        roomName, elapsed: elapsedSec(), maxWaitSec, lastStatus
+        roomName,
+        elapsed: elapsedSec(),
+        maxWaitSec,
+        lastStatuses,
       });
     }
 
     // ---- (B) S3 実在待ち ----
+    const remain = Math.max(1, maxWaitSec - elapsedSec()); // Aで使った分を考慮（一応の保険）
     try {
       await waitUntilObjectExists(
-        { client: s3, maxWaitTime: Math.max(1, maxWaitSec - elapsedSec()), minDelay: minDelaySec, maxDelay: maxDelaySec },
-        { Bucket: S3_BUCKET, Key: key }
+        { client: s3, maxWaitTime: remain, minDelay: minDelaySec, maxDelay: maxDelaySec },
+        { Bucket: S3_BUCKET, Key: fileKey }
       );
     } catch (e) {
-      // waiter のタイムアウト/404 → 504へ
       return res.status(504).json({
         error: 'timeout: s3 object did not appear in time',
-        roomName, key, elapsed: elapsedSec(), maxWaitSec
+        roomName,
+        key: fileKey,
+        elapsed: elapsedSec(),
+        maxWaitSec,
       });
     }
 
-    // ---- (C) presign ----
-    const cmd = new GetObjectCommand({ Bucket: S3_BUCKET, Key: key });
+    // ---- presign ----
+    const cmd = new GetObjectCommand({ Bucket: S3_BUCKET, Key: fileKey });
     const url = await getSignedUrl(s3, cmd, { expiresIn });
 
     return res.json({
       mode: 'await-room',
       roomName,
       status: 'READY',
-      key,
+      key: fileKey,
       url,
       expiresIn,
       waitedSec: elapsedSec(),
