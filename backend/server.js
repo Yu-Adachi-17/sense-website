@@ -33,6 +33,8 @@ const stripeCheckoutRoute = require('./routes/stripeCheckoutRoute');
 const stripeSubscriptionRoute = require('./routes/stripeSubscriptionRoute');
 const livekitRouter = require('./routes/livekit');
 const meetingsRouter = require('./routes/meetings');
+const egressRouter = require('./routes/egress');
+const livekitWebhookRouter = require('./routes/livekitWebhook');
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -182,6 +184,9 @@ app.use('/api', stripeSubscriptionRoute);
 app.use('/api/livekit', livekitRouter);
 
 app.use('/api/meetings', meetingsRouter);
+
+app.use('/api', egressRouter);
+app.use('/api', livekitWebhookRouter);
 
 // デバッグエコー
 app.post('/api/_debug/echo', (req, res) => {
