@@ -35,6 +35,7 @@ const livekitRouter = require('./routes/livekit');
 const meetingsRouter = require('./routes/meetings');
 const egressRouter = require('./routes/egress');
 const livekitWebhookRouter = require('./routes/livekitWebhook');
+const recordingsRouter = require('./routes/recordings');
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -194,6 +195,8 @@ app.use('/api/livekit', livekitRouter);
 app.use('/api/meetings', meetingsRouter);
 
 app.use('/api', egressRouter);
+
+app.use('/api', recordingsRouter);
 
 
 
