@@ -122,12 +122,11 @@ async function startRoomCompositeEgress({
       output: { case: 's3', value: s3Upload },
     });
 
-    const res = await client.startRoomCompositeEgress({
-      roomName,
-      layout,
-      preset: encPreset,
-      segmentOutputs: [seg],
-    });
+ const res = await client.startRoomCompositeEgress(
+   roomName,
+   { segments: seg },
+   { layout, encodingOptions: encPreset }
+ );
 
     return { egressId: res.egressId };
   }
@@ -138,12 +137,11 @@ async function startRoomCompositeEgress({
     output: { case: 's3', value: s3Upload },
   });
 
-  const res = await client.startRoomCompositeEgress({
-    roomName,
-    layout,
-    preset: encPreset,
-    fileOutputs: [file],
-  });
+ const res = await client.startRoomCompositeEgress(
+   roomName,
+   { file },
+   { layout, encodingOptions: encPreset }
+ );
 
   return { egressId: res.egressId };
 }
