@@ -184,6 +184,42 @@ export default function MeetingJoinPage() {
     entry.meta.portrait = h > w;
   };
 
+  // === ADD: レイアウトのデバウンスと安全な子入替 ===
+const relayoutRafRef = useRef(0);
+const scheduleRelayout = () => {
+  if (relayoutRafRef.current) cancelAnimationFrame(relayoutRafRef.current);
+  relayoutRafRef.current = requestAnimationFrame(() => {
+    relayoutRafRef.current = 0;
+    doRelayout(); // 旧 relayout 本体
+  });
+};
+
+// 既存の子をできるだけ残しつつ、並びだけを整える
+function safeReplaceChildren(parent, nodes) {
+  if (!parent) return;
+  const wanted = nodes.filter(Boolean);
+  const current = Array.from(parent.children);
+
+  // 並びが同じなら何もしない
+  const same = wanted.length === current.length && wanted.every((n, i) => n === current[i]);
+  if (same) return;
+
+  // 今回不要な子だけ remove（残す子は外さない）
+  current.forEach(n => { if (!wanted.includes(n)) parent.removeChild(n); });
+
+  // 目的順に append（同一親への append は「移動」になる）
+  wanted.forEach(n => {
+    if (n.parentNode !== parent || n !== parent.lastChild) parent.appendChild(n);
+  });
+}
+
+// video を安全に再生
+function ensurePlaying(v) {
+  if (!v || !v.isConnected) return;
+  if (v.readyState >= 2 && v.paused) v.play().catch(() => {});
+}
+
+
   // ギャラリー：現在のgrid領域に全員が入るよう敷き詰め
   function applyGalleryLayout() {
     const grid = remoteGridRef.current;
@@ -211,101 +247,99 @@ export default function MeetingJoinPage() {
       e.wrapper.style.aspectRatio = '16/9';
       frag.appendChild(e.wrapper);
     });
-    grid.replaceChildren(frag);
   }
 
   // ===== レイアウト更新（最新stateを参照）=====
   // FIX: stale closureにならないよう、ref を読む版
-  const relayout = () => {
-    const grid = remoteGridRef.current;
-    const strip = thumbStripRef.current;
-    if (!grid) return;
+// ===== レイアウト更新（最新state参照 & 安全な子入替）=====
+const doRelayout = () => {
+  const grid = remoteGridRef.current;
+  const strip = thumbStripRef.current;
+  if (!grid) return;
 
-    const entries = Array.from(cardMapRef.current.values());
+  const entries = Array.from(cardMapRef.current.values());
 
-    // 並び順（ピン→話者→名前）
-    const pinnedNow = pinnedIdRef.current;
-    entries.sort((a, b) => {
-      const pa = a.meta.id === pinnedNow ? 1 : 0;
-      const pb = b.meta.id === pinnedNow ? 1 : 0;
-      if (pa !== pb) return pb - pa;
-      const sa = a.meta.isSpeaking ? 1 : 0;
-      const sb = b.meta.isSpeaking ? 1 : 0;
-      if (sa !== sb) return sb - sa;
-      return (a.meta.name || '').localeCompare(b.meta.name || '');
-    });
+  // 並び順（ピン→話者→名前）
+  const pinnedNow = pinnedIdRef.current;
+  entries.sort((a, b) => {
+    const pa = a.meta.id === pinnedNow ? 1 : 0;
+    const pb = b.meta.id === pinnedNow ? 1 : 0;
+    if (pa !== pb) return pb - pa;
+    const sa = a.meta.isSpeaking ? 1 : 0;
+    const sb = b.meta.isSpeaking ? 1 : 0;
+    if (sa !== sb) return sb - sa;
+    return (a.meta.name || '').localeCompare(b.meta.name || '');
+  });
 
-    const localId = roomRef.current?.localParticipant?.identity;
-    const remoteEntries = entries.filter(e => e.meta.id !== localId);
+  const localId = roomRef.current?.localParticipant?.identity;
+  const remoteEntries = entries.filter(e => e.meta.id !== localId);
 
-    if (strip) strip.innerHTML = '';
+  if (strip) strip.innerHTML = '';
 
-    if (remoteEntries.length > 0) {
-      setSelfCentered(false);
+  if (remoteEntries.length > 0) {
+    setSelfCentered(false);
 
-      // 自分中央の仮タイルを撤去
-      if (selfMainRef.current) {
-        try { localTracksRef.current.video?.detach(selfMainRef.current.videoEl); } catch {}
-        try { selfMainRef.current.wrapper.remove(); } catch {}
-        selfMainRef.current = null;
-      }
-
-      const mode = viewModeRef.current; // ★最新のviewMode
-      if (mode === 'speaker') {
-        // メイン：一番手（ピン＞話者＞名前）
-        const main = remoteEntries[0];
-        if (main) {
-          main.wrapper.classList.add('lk-main');
-          main.wrapper.style.aspectRatio = main.meta.ar || '16/9';
-          grid.replaceChildren(main.wrapper);
-        }
-        if (strip) {
-          const rest = entries.filter(e => e !== main && e.meta.id !== localId);
-          const frag = document.createDocumentFragment();
-          rest.forEach(e => {
-            e.wrapper.classList.remove('lk-main');
-            e.wrapper.style.aspectRatio = '16/9';
-            frag.appendChild(e.wrapper);
-          });
-          strip.replaceChildren(frag);
-        }
-      } else {
-        // === ギャラリー：全員（自分含む）を16:9固定で画面内にフィット ===
-        applyGalleryLayout();
-      }
-    } else {
-      // === リモート不在：自分を中央に大きく（contain） ===
-      const vtrack = localTracksRef.current?.video || null;
-      if (!selfMainRef.current) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'lk-card lk-main';
-        wrapper.style.aspectRatio = '16/9';
-        const videoWrap = document.createElement('div');
-        videoWrap.className = 'lk-videoWrap';
-        const v = document.createElement('video');
-        Object.assign(v, { autoplay: true, playsInline: true, muted: true });
-        v.style.objectFit = 'contain';
-        videoWrap.appendChild(v);
-        wrapper.appendChild(videoWrap);
-        selfMainRef.current = { wrapper, videoEl: v };
-        try { vtrack?.attach(v); } catch {}
-        try { v.play().catch(() => {}); } catch {}
-      }
-      grid.replaceChildren(selfMainRef.current.wrapper);
-      setSelfCentered(true);
+    // 自分中央の仮タイルを撤去
+    if (selfMainRef.current) {
+      try { localTracksRef.current.video?.detach(selfMainRef.current.videoEl); } catch {}
+      try { selfMainRef.current.wrapper.remove(); } catch {}
+      selfMainRef.current = null;
     }
 
-    // FIX: 自分タイルが黒くなる保険（常に再生を試みる）
-    try {
-      const lp = roomRef.current?.localParticipant;
-      if (lp) {
-        const selfEntry = cardMapRef.current.get(lp.identity);
-        if (selfEntry?.meta?.videoEl && selfEntry.meta.videoEl.paused) {
-          selfEntry.meta.videoEl.play().catch(() => {});
-        }
+    const mode = viewModeRef.current;
+
+    if (mode === 'speaker') {
+      const main = remoteEntries[0];
+      if (main) {
+        main.wrapper.classList.add('lk-main');
+        main.wrapper.style.aspectRatio = main.meta.ar || '16/9';
+        safeReplaceChildren(grid, [main.wrapper]); // ← 置換
       }
-    } catch {}
-  };
+      if (strip) {
+        const rest = entries.filter(e => e !== main && e.meta.id !== localId);
+        rest.forEach(e => {
+          e.wrapper.classList.remove('lk-main');
+          e.wrapper.style.aspectRatio = '16/9';
+        });
+        safeReplaceChildren(strip, rest.map(e => e.wrapper)); // ← 置換
+      }
+    } else {
+      // ギャラリー：JSでサイズ調整＋安全入替
+      applyGalleryLayout(); // サイズ計算（中で wrapper の width/height を更新）
+      safeReplaceChildren(grid, entries.map(e => e.wrapper)); // ← 置換
+    }
+  } else {
+    // リモート不在：自分を中央
+    const vtrack = localTracksRef.current?.video || null;
+    if (!selfMainRef.current) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lk-card lk-main';
+      wrapper.style.aspectRatio = '16/9';
+      const videoWrap = document.createElement('div');
+      videoWrap.className = 'lk-videoWrap';
+      const v = document.createElement('video');
+      Object.assign(v, { autoplay: true, playsInline: true, muted: true });
+      v.style.objectFit = 'contain';
+      videoWrap.appendChild(v);
+      wrapper.appendChild(videoWrap);
+      selfMainRef.current = { wrapper, videoEl: v };
+      try { vtrack?.attach(v); } catch {}
+      ensurePlaying(v);
+    }
+    safeReplaceChildren(grid, [selfMainRef.current.wrapper]); // ← 置換
+    setSelfCentered(true);
+  }
+
+  // 保険：自分タイルの video が止まっていたら再生
+  try {
+    const lp = roomRef.current?.localParticipant;
+    if (lp) {
+      const selfEntry = cardMapRef.current.get(lp.identity);
+      ensurePlaying(selfEntry?.meta?.videoEl);
+    }
+  } catch {}
+};
+
 
   /* ===================== Join (LiveKit) ===================== */
   const join = async () => {
@@ -419,7 +453,7 @@ export default function MeetingJoinPage() {
         pinBtn.textContent = '📌';
         pinBtn.onclick = () => {
           setPinnedId(prev => (prev === id ? null : id));
-          relayout();
+          scheduleRelayout();
         };
 
         wrapper.appendChild(videoWrap);
@@ -438,8 +472,8 @@ export default function MeetingJoinPage() {
         };
         const entry = { wrapper, meta };
 
-        v.addEventListener('loadedmetadata', () => { computeAspectMeta(entry); relayout(); });
-        v.addEventListener('resize', () => { computeAspectMeta(entry); relayout(); });
+        v.addEventListener('loadedmetadata', () => { computeAspectMeta(entry); scheduleRelayout(); });
+        v.addEventListener('resize', () => { computeAspectMeta(entry); scheduleRelayout(); });
 
         cardMapRef.current.set(id, entry);
 
@@ -465,9 +499,9 @@ export default function MeetingJoinPage() {
           entry.meta.publication = pub;
           try {
             track.attach(entry.meta.videoEl);
-            await entry.meta.videoEl.play().catch(() => {});
+            await ensurePlaying(entry.meta.videoEl);
             computeAspectMeta(entry);
-            relayout();
+            scheduleRelayout();
           } catch (e) {
             console.warn('[video attach]', e);
           }
@@ -480,12 +514,12 @@ export default function MeetingJoinPage() {
         const entry = cardMapRef.current.get(participant.identity);
         if (!entry) return;
         try { track.detach(); } catch {}
-        relayout();
+        scheduleRelayout();
       });
 
       room.on('participantConnected', (p) => {
         ensureCard(p);
-        relayout(); // ★ refベースの最新状態で描画
+        scheduleRelayout();
       });
 
       room.on('participantDisconnected', (p) => {
@@ -495,7 +529,7 @@ export default function MeetingJoinPage() {
           cardMapRef.current.delete(p.identity);
         }
         if (pinnedIdRef.current === p.identity) setPinnedId(null);
-        relayout();
+        scheduleRelayout();
       });
 
       room.on('activeSpeakersChanged', (speakers) => {
@@ -504,7 +538,7 @@ export default function MeetingJoinPage() {
           entry.meta.isSpeaking = activeIds.has(entry.meta.id);
           entry.wrapper.classList.toggle('is-speaking', entry.meta.isSpeaking);
         });
-        relayout(); // ★
+        scheduleRelayout();
       });
 
       // FIX: ローカルトラック公開時は必ず自分タイルへ再アタッチ（黒防止）
@@ -518,7 +552,7 @@ export default function MeetingJoinPage() {
             selfEntry.meta.videoEl.muted = true;
             selfEntry.meta.videoEl.play().catch(() => {});
             computeAspectMeta(selfEntry);
-            relayout();
+            scheduleRelayout();
           }
         } catch {}
       });
@@ -599,7 +633,7 @@ export default function MeetingJoinPage() {
           }
         }
       }
-      relayout();
+      scheduleRelayout();
     } catch (e) {
       console.error('join failed', e);
       setStatus('error');
@@ -613,7 +647,7 @@ export default function MeetingJoinPage() {
       entry.meta.pinned = (now === id);
       entry.wrapper.classList.toggle('is-pinned', entry.meta.pinned);
     });
-    relayout();
+    scheduleRelayout();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pinnedId, viewMode]);
 
@@ -650,7 +684,7 @@ export default function MeetingJoinPage() {
     } else {
       attachLocalToPip(null);           // ギャラリーではPIPだけ空に
     }
-    relayout();
+    scheduleRelayout();
   }, [viewMode, status, selfCentered]);
 
   // タブ復帰でPIP再生を試行
