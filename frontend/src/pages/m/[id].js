@@ -14,7 +14,7 @@ const LINK_IOS =
 const LAST_JOIN_NAME_KEY = 'minutesai.joinName';
 const GRID_GAP = 12;
 
-// ===== ユーティリティ =====
+/* ===== Fixed Header（左= /home、右= iOS）===== */
 function FixedHeaderPortal({ children }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -24,6 +24,18 @@ function FixedHeaderPortal({ children }) {
 
 // 16:9タイルで (W,H) の枠に N枚 を最大で敷き詰める
 function computeBestGrid(N, W, H, gap = GRID_GAP, ar = 16 / 9) {
+  // 4人はZoomに合わせて 2x2 を強制
+  if (N === 4) {
+    const cols = 2, rows = 2;
+    let tileW = Math.floor((W - (cols - 1) * gap) / cols);
+    let tileH = Math.floor(tileW / ar);
+    if (rows * tileH + (rows - 1) * gap > H) {
+      tileH = Math.floor((H - (rows - 1) * gap) / rows);
+      tileW = Math.floor(tileH * ar);
+    }
+    return { cols, rows, tileW, tileH, area: tileW * tileH };
+  }
+
   let best = { cols: 1, rows: N, tileW: W, tileH: Math.floor(W / ar), area: 0 };
   for (let cols = 1; cols <= N; cols++) {
     const rows = Math.ceil(N / cols);
@@ -60,6 +72,7 @@ export default function MeetingJoinPage() {
 
   // Refs
   const roomRef = useRef(null);
+  const stageRef = useRef(null);
   const localVideoRef = useRef(null);   // 自分の上中央PIP（Speaker時のみ表示）
   const remoteGridRef = useRef(null);
   const thumbStripRef = useRef(null);
@@ -118,11 +131,13 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== PIP用：ローカルtrackをdetach→attach =====
+  // ===== PIP用：ローカルtrackを PIP要素に対してだけ detach/attach =====
   function attachLocalTo(elOrNull) {
     const vtrack = localTracksRef.current?.video;
     if (!vtrack) return;
-    try { vtrack.detach(); } catch {}
+    try {
+      if (localVideoRef.current) vtrack.detach(localVideoRef.current); // ★他要素は外さない
+    } catch {}
     if (elOrNull) {
       try {
         vtrack.attach(elOrNull);
@@ -175,8 +190,14 @@ export default function MeetingJoinPage() {
     const grid = remoteGridRef.current;
     if (!grid || wrappers.length === 0) return;
 
-    const W = grid.clientWidth;
-    const H = grid.clientHeight;
+    // 計測フォールバック：初回は高さ0になることがある
+    const rect = grid.getBoundingClientRect();
+    let W = Math.max(0, rect.width);
+    let H = Math.max(0, rect.height);
+    if (H < 120) {
+      // ざっくり：画面下端までの残りを使う
+      H = Math.max(120, Math.floor(window.innerHeight - rect.top - 160));
+    }
 
     const { cols, rows, tileW, tileH } = computeBestGrid(wrappers.length, W, H);
     grid.style.display = 'grid';
@@ -195,6 +216,14 @@ export default function MeetingJoinPage() {
     const frag = document.createDocumentFragment();
     wrappers.forEach(w => frag.appendChild(w));
     grid.replaceChildren(frag);
+
+    // 初回タイミングずれ対策：描画後にもう一度だけ再計算
+    requestAnimationFrame(() => {
+      const r2 = grid.getBoundingClientRect();
+      if (Math.abs(r2.height - H) > 4 || Math.abs(r2.width - W) > 4) {
+        applyGalleryLayout(wrappers);
+      }
+    });
   }
 
   // ===== レイアウト更新（Zoom準拠）=====
@@ -572,7 +601,11 @@ export default function MeetingJoinPage() {
     if (!grid) return;
     const ro = new ResizeObserver(() => relayout());
     ro.observe(grid);
-    return () => ro.disconnect();
+    window.addEventListener('resize', relayout);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', relayout);
+    };
   }, [status, viewMode]);
 
   // ギャラリー⇄スピーカー切替でPIPを確実に再生成
@@ -582,7 +615,9 @@ export default function MeetingJoinPage() {
       setPipKey(k => k + 1);           // video要素を再マウント
       setTimeout(() => attachLocalTo(localVideoRef.current), 0);
     } else {
-      attachLocalTo(null);              // ギャラリーではPIPを空に
+      attachLocalTo(null);              // ギャラリーではPIPのみデタッチ（自分タイルはそのまま）
+      // レイアウトが安定した後に再計算
+      requestAnimationFrame(() => requestAnimationFrame(relayout));
     }
   }, [viewMode, status, selfCentered]);
 
@@ -651,42 +686,42 @@ export default function MeetingJoinPage() {
             <h1 style={styles.hero}>Join the Meeting</h1>
             <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
 
-            <section style={styles.card}>
-              <div style={{ marginBottom: 12 }}>
-                <label htmlFor="name" style={styles.label}>Your name</label>
-                <div>
-                  <input
-                    id="name"
-                    className="joinNameInput"
-                    placeholder="user name"
-                    value={name}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setName(v);
-                      try { localStorage.setItem(LAST_JOIN_NAME_KEY, v); } catch {}
-                    }}
-                    style={styles.inputUnderline}
-                  />
-                  <div style={styles.inputBorder} />
-                </div>
+          <section style={styles.card}>
+            <div style={{ marginBottom: 12 }}>
+              <label htmlFor="name" style={styles.label}>Your name</label>
+              <div>
+                <input
+                  id="name"
+                  className="joinNameInput"
+                  placeholder="user name"
+                  value={name}
+                  onChange={(e) => {
+                    const v = e.target.value;
+                    setName(v);
+                    try { localStorage.setItem(LAST_JOIN_NAME_KEY, v); } catch {}
+                  }}
+                  style={styles.inputUnderline}
+                />
+                <div style={styles.inputBorder} />
               </div>
+            </div>
 
-              <div style={styles.center}>
-                <button
-                  onClick={join}
-                  disabled={status === 'loading' || !meeting}
-                  style={merge(styles.btnBase, styles.btnJoin, (status === 'loading' || !meeting) && styles.btnDisabled)}
-                >
-                  {status === 'loading' ? 'Joining…' : 'Join'}
-                </button>
+            <div style={styles.center}>
+              <button
+                onClick={join}
+                disabled={status === 'loading' || !meeting}
+                style={merge(styles.btnBase, styles.btnJoin, (status === 'loading' || !meeting) && styles.btnDisabled)}
+              >
+                {status === 'loading' ? 'Joining…' : 'Join'}
+              </button>
+            </div>
+
+            {deviceHint && (
+              <div style={{ marginTop: 12, whiteSpace: 'pre-wrap', fontSize: 12, color: '#6b7280' }}>
+                {deviceHint}
               </div>
-
-              {deviceHint && (
-                <div style={{ marginTop: 12, whiteSpace: 'pre-wrap', fontSize: 12, color: '#6b7280' }}>
-                  {deviceHint}
-                </div>
-              )}
-            </section>
+            )}
+          </section>
           </div>
         </main>
       )}
@@ -694,6 +729,7 @@ export default function MeetingJoinPage() {
       {/* 接続後ステージ */}
       {status === 'connected' && (
         <div
+          ref={stageRef}
           style={{
             ...styles.stage,
             paddingTop: selfCentered ? 12 : 196, // 上PIP分の余白（自分だけの時は最小）
@@ -783,8 +819,6 @@ export default function MeetingJoinPage() {
 
         .speakerMain { flex:1 1 auto; min-height:0; display:flex; align-items:center; justify-content:center; }
         .speakerMain .lk-card.lk-main { max-width: 100%; max-height: 100%; width: auto; height: auto; }
-
-        /* ギャラリーはJSでサイズ固定化するため max-height 指定は不要 */
 
         .lk-badges { position:absolute; left:8px; bottom:8px; display:flex; gap:6px; align-items:center; }
         .lk-name { font-size:12px; background:rgba(0,0,0,.55); color:#fff; padding:3px 8px; border-radius:6px; }
