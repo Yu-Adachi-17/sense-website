@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Terug naar de startpagina van Notulen AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Waarom je met Notulen AI de beste onderhandelingsnotulen schrijft"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Notulen AI Blog",
+    "h1": "Waarom je met Notulen AI de beste onderhandelingsnotulen schrijft",
+    "tagline": "Een onderhandeling is belangenafweging. Daarom moet een sterk verslag niet alleen besluiten en acties opsommen, maar ook context en toon vastleggen. Hier de denkwijze en hoe je dit in de praktijk doet met Notulen AI."
+  },
+  "recap": {
+    "h2": "Terugblik",
+    "p1": {
+      "pre": "Eerder lieten we zien dat AI-notulen voor elk type meeting werken. Meer lezen?",
+      "link": "Klik hier",
+      "post": "."
+    },
+    "points": {
+      "0": "Meetings verschillen; het optimale notulenformat hangt af van het doel.",
+      "1": "Generieke sjablonen helpen, maar vragen om afstemming van detailniveau.",
+      "2": "Van ‘leesdocument’ naar ‘routekaart voor uitvoering’.",
+      "3": "Notulen AI past de output aan het meetingdoel aan."
+    },
+    "focus": "Dit keer zoomen we specifiek in op zakelijke onderhandelingen."
+  },
+  "diversity": {
+    "h2": "Veel meetingvormen—onderhandelingen zijn bijzonder",
+    "core": {
+      "h3": "Typische meetings",
+      "items": {
+        "0": "Statusmeeting: resultaten/uitdagingen/maatregelen",
+        "1": "Brainstorm: divergentie en convergentie van ideeën",
+        "2": "Onderhandeling: belangen afstemmen en akkoord bereiken"
+      }
+    },
+    "wide": {
+      "h3": "‘Meeting’ in brede zin",
+      "items": {
+        "0": "1-op-1: reflectie, volgende doelen, blokkades delen",
+        "1": "Interview: afstemming eisen en fit",
+        "2": "Presentatie: probleem en oplossing",
+        "3": "Training: overdracht van procedures"
+      }
+    },
+    "p1": "Wijzigt het doel, dan wijzigt ook de waardevolle output. Bij onderhandelingen is het handjeklap zelf de kern."
+  },
+  "negotiation": {
+    "h2": "Wat is onderhandelen eigenlijk?",
+    "p1": "Kort: de belangen van je bedrijf beschermen en vergroten. Geen eenrichtingsverkeer, maar een compromis zoeken via ‘eisen’ en ‘concessies’ over deadline, prijs, scope en risico."
+  },
+  "limits": {
+    "h2": "Waarom notulen met ‘alleen besluiten’ zwak zijn",
+    "p1": "Vasthouden aan ‘discussie/besluiten/acties/risico’s’ laat context, toon en concessiehistorie vaak achterwege. Gevolg: misverstanden, extra pingpong en het risico op ‘wel/niet gezegd’.",
+    "generic": {
+      "h3": "Het typische dunne verslag",
+      "items": {
+        "0": "Somt besluiten op zonder reden/verloop",
+        "1": "Onduidelijk wie wat vroeg en waar werd toegegeven",
+        "2": "Onduidelijkheid over niet-besliste of geparkeerde punten"
+      }
+    },
+    "optimized": {
+      "h3": "Sterke notulen voor onderhandelingen",
+      "items": {
+        "0": "Tijdlijn van eisen/concessies/wijzigingen (deadline/prijs/scope/verantwoordelijkheid)",
+        "1": "Redenen, aannames en risico’s dicht bij het besluit",
+        "2": "Scheiden in akkoord/niet-akkoord/geparkeerd met deadline en eigenaar"
+      }
+    }
+  },
+  "example": {
+    "h2": "Voorbeeld (bewaar sleutelwissels letterlijk)",
+    "block": "Bedrijf A: In jullie vorige product zat een bug—dat kostte ons veel moeite. Jullie zijn ons iets verschuldigd, lever daarom uiterlijk volgende week. Prijs: $1000.\\nOns bedrijf: We proberen volgende week te leveren na interne afstemming. In ruil daarvoor—kan het naar $1200? Graag overwegen.\\nBedrijf A: Als levering volgende week gegarandeerd is, overwegen we het. Stuur vandaag per e-mail een antwoord.",
+    "p1": "Door ‘sleutelrondes’ letterlijk te bewaren, kunnen beslissers de redelijkheid in context beoordelen."
+  },
+  "why": {
+    "h2": "Waarom Notulen AI uitblinkt bij onderhandelingen",
+    "items": {
+      "0": "Vat eisen/concessies samen en bewaart kernpassages letterlijk (voorkomt ‘wel/niet gezegd’).",
+      "1": "Ordent wijzigende voorwaarden chronologisch (deadline/prijs/scope/verantwoordelijkheid).",
+      "2": "Documenteert redenen, aannames en risico’s bij het besluit.",
+      "3": "Scheiding akkoord/niet-akkoord/geparkeerd met termijn en verantwoordelijke.",
+      "4": "Koppelt verzoeken van de tegenpartij aan onze commitments voor duidelijke tracking."
+    }
+  },
+  "wrap": {
+    "h2": "Conclusie",
+    "p": "Het sterke onderhandelingsverslag gaat verder dan besluiten: het bewaart de uitwisseling en context. Zo worden besluiten sneller en nauwkeuriger. Maak dit standaard met Notulen AI."
+  },
+  "cta": {
+    "openBrowser": "Openen in de browser",
+    "downloadIOS": "iOS-app downloaden"
+  },
+  "seo": {
+    "title": "Waarom je met Notulen AI de beste onderhandelingsnotulen schrijft | Blog over vergadernotulen",
+    "description": "Onderhandelingen vragen om notulen die besluiten, acties, context, toon en concessies vastleggen. Praktische gids met Notulen AI.",
+    "ogTitle": "Waarom je met Notulen AI de beste onderhandelingsnotulen schrijft",
+    "ogDescription": "Weg met dunne notulen: bewaar uitwisseling en context voor snellere, scherpere beslissingen.",
+    "ld": {
+      "headline": "Waarom je met Notulen AI de beste onderhandelingsnotulen schrijft",
+      "description": "De essentie van onderhandelingen in notulen: eisen, concessies en context met Notulen AI."
+    }
+  }
+}

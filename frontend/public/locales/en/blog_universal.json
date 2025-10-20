@@ -4,7 +4,7 @@
   },
   "nav": {
     "blog": "Blog",
-    "current": "Why Minutes.AI Delivers the Best Minutes for Any Meeting"
+    "current": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting"
   },
   "byline": {
     "name": "Written by Yu Adachi",
@@ -12,114 +12,149 @@
   },
   "hero": {
     "kicker": "Minutes.AI Blog",
-    "h1": "Why Minutes.AI Delivers the Best Minutes for Any Meeting",
-    "tagline": "The four universal elements boost readability, but optimizing for the meeting’s purpose transforms minutes from something you read into a blueprint you act on."
+    "h1": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting",
+    "tagline": "The four universal pillars make notes readable. But when you optimize for the meeting’s purpose, minutes evolve from a “record to read” into a “blueprint to act.”"
   },
   "recap": {
-    "h2": "Recap: What Makes Minutes “Meaningful”?",
+    "h2": "Quick recap: What makes meeting minutes meaningful?",
     "p1": {
-      "pre": "Previously we defined “meaningful minutes.” If you haven’t read it, start",
-      "link": "here (Part 1)",
+      "pre": "In the previous post, we defined “meaningful minutes.” If you missed it, start with ",
+      "link": "Part 1",
       "post": "."
     },
     "points": {
       "0": "Discussion",
       "1": "Decisions",
-      "2": "Action Items (owner & deadline)",
-      "3": "Concerns (unresolved risks)"
+      "2": "Action Items (owner & due date)",
+      "3": "Concerns (open risks / unresolved)"
     },
-    "note": "If these four are immediately visible, you guarantee baseline readability. It’s the minimum viable structure."
+    "note": "Being able to scan these four at a glance is the minimum. This foundation guarantees basic readability."
   },
   "diversity": {
-    "h2": "Meetings Are Diverse: Different Purposes, Different Outputs",
+    "h2": "Meetings are diverse: different goals, different value outputs",
     "core": {
-      "h3": "Representative meetings",
+      "h3": "Representative meeting types",
       "items": {
-        "0": "Recurring meetings: regularly review metrics, issues, and actions",
-        "1": "Brainstorming: idea generation and convergence",
-        "2": "Sales/Negotiation: align interests and reach agreement"
+        "0": "Weekly updates: status, issues, countermeasures",
+        "1": "Brainstorming: diverge and converge on ideas",
+        "2": "Sales meetings: align interests and reach agreement"
       }
     },
     "wide": {
-      "h3": "Broadly considered “meetings”",
+      "h3": "Broadly defined “meetings”",
       "items": {
-        "0": "1-on-1: review results, next goals, share concerns",
-        "1": "Interview: align role requirements and fit",
-        "2": "Presentation: present problems and solutions",
-        "3": "Lecture/Training: transfer operational know-how"
+        "0": "1:1s: review outcomes, set the next goal, surface concerns",
+        "1": "Interviews: align requirements and fit",
+        "2": "Presentations: state the problem and proposed solution",
+        "3": "Lectures/Training: transfer operations and know-how"
       }
     },
-    "p1": "Whenever people discuss a shared purpose, that’s a meeting—and the output that delivers value changes with the purpose."
+    "p1": "Whenever people talk toward a shared goal, that’s a meeting. And when the goal changes, the shape of a high-value output changes too."
   },
   "limits": {
-    "h2": "Limits of a One-Size-Fits-All Format",
-    "p1": "The four elements are broadly effective, but some meetings lose temperature and context—especially 1-on-1s—reducing clarity when you revisit them.",
+    "h2": "Limits of a one-size-fits-all format",
+    "p1": "The four pillars—Discussion, Decisions, Action Items, Concerns—work almost everywhere, but some meeting types lose “temperature” and context. 1:1s especially tend to lack nuance when you read them later.",
     "generic": {
-      "h3": "If you only apply the universal format",
+      "h3": "If you use only a generic format",
       "items": {
-        "0": "You capture the topic, decisions, tasks, and concerns—good baseline",
-        "1": "But tone, weight, and background tend to get lost",
-        "2": "Later, the “why” behind decisions is weaker"
+        "0": "You’ll capture topics, decisions, todos, and concerns—good baseline",
+        "1": "But tone, weight, and backstory often disappear",
+        "2": "When revisiting later, the “why behind the decision” feels thin"
       }
     },
     "optimized": {
-      "h3": "If you optimize (1-on-1 example)",
+      "h3": "If you optimize (1:1 example)",
       "items": {
         "0": "Core Emotion / Tone: summarize temperature and psychology",
-        "1": "Context / Background: org changes, roles, conflict points",
-        "2": "Key Discussion (quotes × summaries): path to agreement",
-        "3": "Agreements / Next Actions / Risks: normalized for execution"
+        "1": "Context / Background: org changes, roles, friction points",
+        "2": "Key Discussion (utterance × summary): trace the path to alignment",
+        "3": "Agreements / Next Actions / Risks: normalize for execution"
       }
     }
   },
   "oneonone": {
-    "h2": "1-on-1 Example: Preserve Temperature and Decision Context",
+    "h2": "1:1 example: keep the temperature, preserve decision context",
     "generic": {
-      "h3": "Universal four only",
+      "h3": "Only the four universal pillars",
       "items": {
-        "0": "Member A’s concern (team relations) surfaced",
-        "1": "Decision: Manager B will mediate",
-        "2": "Actions: mediation; next 1-on-1 on the 15th",
-        "3": "Concern: no plan when B is absent"
+        "0": "Topic: A’s concern (team relations)",
+        "1": "Decision: B will mediate",
+        "2": "Actions: run mediation; schedule next 1:1 on the 15th",
+        "3": "Concern: no fallback if B is absent"
       }
     },
     "optimized": {
-      "h3": "Optimized (1-on-1 format)",
+      "h3": "Optimized (1:1 format)",
       "items": {
-        "0": "Core Emotion: anxiety/fatigue; relief when concrete options appeared",
-        "1": "Context: role ambiguity since April; frequent late changes",
-        "2": "Key Discussion: introduce a standardized request template",
+        "0": "Core Emotion: anxiety and fatigue; relief when proposal lands",
+        "1": "Context: April reorg blurred roles; frequent after-the-fact edits",
+        "2": "Key Discussion: create a request template → align on team-wide adoption",
         "3": "Agreements: B mediates for now; measure impact in two weeks",
-        "4": "Next Actions: B = draft template today; A = apply & feedback next Wed"
+        "4": "Next Actions: B to draft template today; A to apply and report next Wed"
       }
     }
   },
   "why": {
-    "h2": "Why Minutes.AI Works for Any Kind of Meeting",
+    "h2": "Why Minutes.AI works for “any” meeting",
     "items": {
-      "0": "Purpose fit: variable sections depending on the meeting goal",
-      "1": "Temperature retention: extract tone and keep background",
-      "2": "Decision traceability: clarify forks between agreement/pending",
-      "3": "Execution-ready: normalize owners, deadlines, and criteria",
-      "4": "Continuous learning: A/B-driven output improvements"
+      "0": "Goal-fit structure: fields adapt to the meeting’s purpose",
+      "1": "Tone retention: extract emotion and preserve context",
+      "2": "Decision traceability: surface forks between agreement and hold",
+      "3": "Execution-ready: normalize owner, due date, and success criteria",
+      "4": "Continuous learning: A/B the output and keep improving"
     }
   },
   "wrap": {
-    "h2": "Wrap-up",
-    "p": "The four elements are a strong foundation. When you optimize for each meeting type, minutes evolve from a record to a blueprint for action. Minutes.AI ships that optimization by default—put it to work in real meetings."
+    "h2": "Takeaway",
+    "p": "The four universal pillars are a strong base. Push further with meeting-type optimization and your minutes evolve from a record you read to a blueprint you act on. Minutes.AI ships this optimization by default—experience it in real work."
   },
   "cta": {
-    "openBrowser": "Open Web App",
+    "openBrowser": "Open the Web App",
     "downloadIOS": "Download on iOS"
   },
   "seo": {
-    "title": "Why Minutes.AI Works for Any Meeting | Minutes.AI Blog",
-    "description": "Beyond the four universal elements: meeting-specific optimization turns minutes into an execution blueprint. As of {{date}}, over {{users}} people use Minutes.AI.",
-    "ogTitle": "Why Minutes.AI Works for Any Kind of Meeting",
-    "ogDescription": "Keep temperature and context while driving decisions and execution with meeting-optimized outputs.",
+    "title": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting | Minutes.AI Blog",
+    "description": "Readable by design, actionable by purpose. With meeting-type optimization, Minutes.AI turns notes into blueprints. Used by {{users}}+ people as of {{date}}.",
+    "ogTitle": "Why Minutes.AI Works for Every Meeting Type",
+    "ogDescription": "From 1:1s and sales calls to brainstorms, Minutes.AI preserves tone and context, clarifies decisions, and drives execution.",
+    "keywords": "AI meeting minutes, AI meeting notes, meeting notes automation, one-on-one notes, sales meeting minutes, brainstorming notes, presentation notes, action items, decision tracking, Minutes.AI",
+    "slug": "why-minutes-ai-delivers-better-meeting-minutes",
+    "canonical": "{{canonical}}",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "ogImage": "{{ogImage}}",
+    "twitterCard": "summary_large_image",
+    "articleSection": "Productivity, AI",
+    "tags": ["AI meeting minutes","meeting notes","1:1s","sales","brainstorming","productivity"],
+    "readingTimeMinutes": 6,
+    "alternateLangs": {
+      "ja": "{{canonicalJa}}"
+    },
     "ld": {
-      "headline": "Why Minutes.AI Works for Any Meeting",
-      "description": "How Minutes.AI optimizes outputs per meeting type and turns minutes into an execution blueprint."
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{canonical}}"
+      },
+      "headline": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting",
+      "description": "How meeting-type optimization in Minutes.AI preserves tone and context, clarifies decisions, and drives action.",
+      "datePublished": "{{dateISO}}",
+      "dateModified": "{{dateISO}}",
+      "author": {
+        "@type": "Person",
+        "name": "Yu Adachi"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sense G.K.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{publisherLogo}}"
+        }
+      },
+      "image": "{{ogImage}}",
+      "inLanguage": "en",
+      "keywords": "AI meeting minutes, meeting notes, Minutes.AI"
     }
   }
 }

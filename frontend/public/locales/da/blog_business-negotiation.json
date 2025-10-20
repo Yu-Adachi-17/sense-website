@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Tilbage til Referat AI-forsiden"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Derfor kan du skrive de bedste forhandlingsreferater med Referat AI"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Referat AI Blog",
+    "h1": "Derfor kan du skrive de bedste forhandlingsreferater med Referat AI",
+    "tagline": "En forhandling er et interesseopgør. Derfor skal referatet ikke kun liste beslutninger og to-dos, men også fange kontekst og tone. Her er tankegangen – og hvordan du gør det i praksis med Referat AI."
+  },
+  "recap": {
+    "h2": "Sidste gang – kort fortalt",
+    "p1": {
+      "pre": "Sidst viste vi, at AI-referater kan fungere til alle møder. Læs videre",
+      "link": "her",
+      "post": "."
+    },
+    "points": {
+      "0": "Møder er forskellige, derfor varierer det optimale referat efter formål.",
+      "1": "Generiske skabeloner er nyttige, men kræver tilpasning af detaljeringsgrad.",
+      "2": "Fra “læse-referat” til “køreplan for handling”.",
+      "3": "Referat AI skifter uddata efter mødeformål."
+    },
+    "focus": "Denne gang går vi i dybden med forretningsforhandlinger."
+  },
+  "diversity": {
+    "h2": "Mange møder – og forhandlinger er særlige",
+    "core": {
+      "h3": "Typiske møder",
+      "items": {
+        "0": "Statusmøde: løbende overblik over resultater/udfordringer/tiltag",
+        "1": "Brainstorm: idéudforskning og konvergens",
+        "2": "Forhandling: interessetilpasning og aftale"
+      }
+    },
+    "wide": {
+      "h3": "“Møde” i bred forstand",
+      "items": {
+        "0": "1:1: refleksion over resultater, næste mål, deling af udfordringer",
+        "1": "Samtale/interview: afstemning af krav og fit",
+        "2": "Præsentation: problem og løsning",
+        "3": "Oplæring: videregivelse af processer"
+      }
+    },
+    "p1": "Når formålet skifter, gør værdifuldt output det også. I forhandlinger er selve forhandlingen kernen."
+  },
+  "negotiation": {
+    "h2": "Hvad er en forhandling egentlig?",
+    "p1": "Kort sagt: at beskytte og forbedre virksomhedens interesser. Ikke envejskommunikation, men en søgen efter kompromis via udveksling af “krav” og “indrømmelser” om vilkår som deadline, pris, scope og risiko."
+  },
+  "limits": {
+    "h2": "Hvorfor et “kun-beslutninger”-referat er svagt",
+    "p1": "At nøjes med “diskussion/beslutninger/to-dos/forbehold” mister ofte kontekst, tone og indrømmelseshistorik. Det giver misforståelser, ekstra ping-pong og risiko for “sagt/ikke sagt”.",
+    "generic": {
+      "h3": "Det typiske, lidt for tynde referat",
+      "items": {
+        "0": "Lister beslutninger uden årsag/forløb",
+        "1": "Uklarhed om hvem krævede hvad og hvor der blev givet indrømmelser",
+        "2": "Uklare ikke-aftalte eller parkerede punkter"
+      }
+    },
+    "optimized": {
+      "h3": "Forhandlingsstærkt referat",
+      "items": {
+        "0": "Tidslinje over krav/indrømmelser/ændrede vilkår (deadline/pris/scope/ansvar)",
+        "1": "Begrundelser, forudsætninger og risici tæt på beslutningen",
+        "2": "Opdeling i aftalt/ikke-aftalt/parkeret med frist og ansvarlig"
+      }
+    }
+  },
+  "example": {
+    "h2": "Eksempel (bevar nøgleudvekslingen ordret)",
+    "block": "Firma A: Der var en bug i jeres produkt sidst – det gav os store problemer. I skylder os, så leverér senest næste uge. Prisen er $1000.\\nVores virksomhed: Vi forsøger at levere næste uge efter intern koordinering. Til gengæld – kan vi hæve til $1200? Overvej det.\\nFirma A: Hvis I kan garantere levering næste uge, overvejer vi det. Send svar pr. mail i dag.",
+    "p1": "Når nøgleudvekslingen gemmes ordret, kan beslutningstagere vurdere rimelighed med kontekst."
+  },
+  "why": {
+    "h2": "Hvorfor Referat AI er stærk til forhandlinger",
+    "items": {
+      "0": "Opsummerer krav/indrømmelser og gemmer nøglesteder ordret (undgår “sagt/ikke sagt”).",
+      "1": "Organiserer ændringer i vilkår kronologisk (deadline/pris/scope/ansvar).",
+      "2": "Dokumenterer begrundelser, forudsætninger og risici tæt på beslutningen.",
+      "3": "Skelner mellem aftalt/ikke-aftalt/parkeret med frist og ansvarlig.",
+      "4": "Matcher modpartens anmodninger med vores forpligtelser for nem sporing."
+    }
+  },
+  "wrap": {
+    "h2": "Afrunding",
+    "p": "Det stærke forhandlingsreferat rummer mere end beslutninger: det bevarer udvekslingen og konteksten. Så går beslutninger hurtigere – og der er færre tilbageskridt. Gør det til standard med Referat AI."
+  },
+  "cta": {
+    "openBrowser": "Åbn browserudgaven",
+    "downloadIOS": "Download iOS-appen"
+  },
+  "seo": {
+    "title": "Derfor kan du skrive de bedste forhandlingsreferater med Referat AI | Blog om møde-referater",
+    "description": "Forhandlinger kræver referater, der fanger beslutninger, opgaver, kontekst, tone og indrømmelsernes historik. Sådan gør du det i praksis med Referat AI.",
+    "ogTitle": "Derfor kan du skrive de bedste forhandlingsreferater med Referat AI",
+    "ogDescription": "Farvel til tynde referater: fang udvekslingen og konteksten for hurtigere og skarpere beslutninger.",
+    "ld": {
+      "headline": "Derfor kan du skrive de bedste forhandlingsreferater med Referat AI",
+      "description": "Kernen i forhandlinger kræver smartere referater: krav, indrømmelser og kontekst – i Referat AI."
+    }
+  }
+}

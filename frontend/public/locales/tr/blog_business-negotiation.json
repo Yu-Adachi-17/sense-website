@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Tutanakları AI ana sayfasına dön"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Tutanakları AI Blog",
+    "h1": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni",
+    "tagline": "Müzakere, çıkarların dengelenmesidir. Güçlü bir tutanak, sadece kararlar ve görevleri değil; bağlamı ve konuşmanın tonunu da yakalar. İşte bu bakış—ve Tutanakları AI ile pratik uygulaması."
+  },
+  "recap": {
+    "h2": "Önceki yazının özeti",
+    "p1": {
+      "pre": "Önce, yapay zekâ tutanaklarının her toplantı türünde işe yaradığını göstermiştik. Göz atmak isterseniz",
+      "link": "buraya tıklayın",
+      "post": "."
+    },
+    "points": {
+      "0": "Toplantılar farklıdır; en iyi tutanak formatı amaca göre değişir.",
+      "1": "Genel şablonlar yararlıdır, ancak ayrıntı düzeyi amaca göre ayarlanmalıdır.",
+      "2": "“Okunan kayıt”tan “icra planı”na.",
+      "3": "Tutanakları AI çıktıyı toplantı hedefine göre uyarlar."
+    },
+    "focus": "Bu kez özellikle ticari müzakerelere odaklanıyoruz."
+  },
+  "diversity": {
+    "h2": "Çeşitli toplantılar—müzakereler özeldir",
+    "core": {
+      "h3": "Yaygın toplantılar",
+      "items": {
+        "0": "Durum: sonuçlar/zorluklar/önlemler",
+        "1": "Beyin fırtınası: fikirlerin açılıp kapanması",
+        "2": "Müzakere: çıkar uyumu ve anlaşma"
+      }
+    },
+    "wide": {
+      "h3": "Geniş anlamda “toplantı”",
+      "items": {
+        "0": "1:1: sonuçların gözden geçirilmesi, sonraki hedefler, sorun paylaşımı",
+        "1": "Mülakat: gereksinim ve uyumun kalibrasyonu",
+        "2": "Sunum: problem ve çözüm",
+        "3": "Eğitim: operasyonun aktarılması"
+      }
+    },
+    "p1": "Amaç değişince değerli çıktı da değişir. Müzakerede öz, müzakerenin kendisidir."
+  },
+  "negotiation": {
+    "h2": "Müzakere nedir?",
+    "p1": "Kısaca: şirket çıkarlarını korumak ve büyütmek. Tek yönlü bir bildirim değil; teslim tarihi, fiyat, kapsam ve risk gibi koşullar üzerinde “talep” ve “taviz” alışverişiyle orta yol aramak."
+  },
+  "limits": {
+    "h2": "Neden “sadece kararlar” tutanağı zayıftır?",
+    "p1": "“Tartışma/kararlar/görevler/açık konular” yapısı bağlamı, tonu ve taviz geçmişini çoğu kez kaçırır. Sonuç: yanlış anlama, gereksiz yazışma ve “dendi/denmedi” riski.",
+    "generic": {
+      "h3": "Tipik, zayıf tutanak",
+      "items": {
+        "0": "Gerekçe/akış olmadan karar listesi",
+        "1": "Kim ne talep etti, nerede taviz verildi belirsiz",
+        "2": "Anlaşılmamış/ertelemeye alınmış konular muğlak"
+      }
+    },
+    "optimized": {
+      "h3": "Müzakerede güçlü tutanak",
+      "items": {
+        "0": "Talep/taviz/koşul değişimlerinin zaman çizelgesi (teslim/fiyat/kapsam/sorumluluk)",
+        "1": "Kararın gerekçesi, varsayımları ve riskleri karara yakın konumda",
+        "2": "Anlaşılan/anlaşılmayan/beklemede ayrımı, son tarih ve sorumlu ile"
+      }
+    }
+  },
+  "example": {
+    "h2": "Örnek (kilit değiş tokuşu kelimesi kelimesine saklayın)",
+    "block": "A Şirketi: Son ürününüzde bir hata vardı, bizi zor durumda bıraktı. Bize borçlusunuz; gelecek haftaya kadar teslim edin. Fiyat 1.000 $.\\nŞirketimiz: İç koordinasyondan sonra gelecek hafta teslim etmeye çalışacağız. Karşılığında 1.200 $’a çıkabilir miyiz? Lütfen değerlendirin.\\nA Şirketi: Gelecek hafta teslimatı garanti ederseniz değerlendiririz. Yanıtı bugün e-postayla gönderin.",
+    "p1": "“Kilit turlar”ı birebir saklamak, karar vericilerin bağlamla birlikte makullüğü değerlendirmesini sağlar."
+  },
+  "why": {
+    "h2": "Tutanakları AI neden müzakerede başarılı?",
+    "items": {
+      "0": "Talep/taviz turlarını özetler ve kritik yerleri birebir saklar (“dendi/denmedi”yi önler).",
+      "1": "Koşul değişimlerini kronolojik sıralar (teslim/fiyat/kapsam/sorumluluk).",
+      "2": "Kararın gerekçesi, varsayımları ve risklerini yakınında belgelendirir.",
+      "3": "Anlaşılan/anlaşılmayan/beklemede ayrımını son tarih ve sorumlu ile netleştirir.",
+      "4": "Karşı taraf taleplerini şirket taahhütleriyle eşler; izlemeyi kolaylaştırır."
+    }
+  },
+  "wrap": {
+    "h2": "Özet",
+    "p": "Güçlü bir müzakere tutanağı, sadece kararları değil; alışverişi ve bağlamı da korur. Böylece kararlar daha hızlı ve isabetli olur. Bunu Tutanakları AI ile standartlaştırın."
+  },
+  "cta": {
+    "openBrowser": "Tarayıcıda aç",
+    "downloadIOS": "iOS uygulamasını indir"
+  },
+  "seo": {
+    "title": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni | Toplantı tutanakları blogu",
+    "description": "Müzakereler; kararlar, görevler, bağlam, ton ve taviz geçmişini yakalayan tutanaklar ister. Tutanakları AI ile pratik rehber.",
+    "ogTitle": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni",
+    "ogDescription": "Zayıf tutanaklara veda: değiş tokuşu ve bağlamı koruyun; kararlar hızlansın ve isabet artsın.",
+    "ld": {
+      "headline": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni",
+      "description": "Müzakerenin özü tutanakta: talepler, tavizler ve bağlam — Tutanakları AI ile."
+    }
+  }
+}

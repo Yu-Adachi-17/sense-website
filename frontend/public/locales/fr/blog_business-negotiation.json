@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Revenir à l’accueil de Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Blog Minutes.AI",
+    "h1": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation",
+    "tagline": "Une négociation est un équilibre d’intérêts. Un bon compte rendu ne se limite pas aux décisions et tâches : il capte aussi le contexte et la tonalité. Voici l’idée et sa mise en pratique avec Minutes.AI."
+  },
+  "recap": {
+    "h2": "Rappel de l’article précédent",
+    "p1": {
+      "pre": "Nous avons montré que les comptes rendus avec IA fonctionnent pour tous les types de réunions. Pour relire,",
+      "link": "c’est ici",
+      "post": "."
+    },
+    "points": {
+      "0": "Les réunions varient ; le format optimal dépend de l’objectif.",
+      "1": "Les modèles génériques aident, mais il faut ajuster le niveau de détail.",
+      "2": "Du « document à lire » au « plan d’action ».",
+      "3": "Minutes.AI adapte la sortie à l’objectif de la réunion."
+    },
+    "focus": "Cette fois, nous nous concentrons sur les négociations."
+  },
+  "diversity": {
+    "h2": "Des réunions diverses… et la négociation a ses spécificités",
+    "core": {
+      "h3": "Réunions typiques",
+      "items": {
+        "0": "Point régulier : résultats, problèmes, actions",
+        "1": "Brainstorming : divergence puis convergence d’idées",
+        "2": "Négociation : alignement des intérêts et accord"
+      }
+    },
+    "wide": {
+      "h3": "« Réunion » au sens large",
+      "items": {
+        "0": "Entretien 1:1 : bilan, objectifs, difficultés",
+        "1": "Entretien d’embauche : exigences et adéquation",
+        "2": "Présentation : problème et solution",
+        "3": "Formation : transmission des procédures"
+      }
+    },
+    "p1": "Quand l’objectif change, la forme de la valeur produite change aussi. En négociation, négocier est le cœur."
+  },
+  "negotiation": {
+    "h2": "Qu’est-ce qu’une négociation ?",
+    "p1": "Protéger et développer les intérêts de son entreprise. Ce n’est pas unilatéral : on cherche un compromis via des « demandes » et des « concessions » sur le délai, le prix, le périmètre et le risque."
+  },
+  "limits": {
+    "h2": "Pourquoi un compte rendu « seulement décisions » est faible",
+    "p1": "Se limiter à « discussion/décisions/tâches/points en suspens » fait perdre le contexte, la tonalité et l’historique des concessions. Résultat : malentendus, échanges inutiles, et risque de « dit/pas dit ».",
+    "generic": {
+      "h3": "Le compte rendu trop léger",
+      "items": {
+        "0": "Liste des décisions sans raisons ni cheminement",
+        "1": "Flou sur qui a demandé quoi et où il y a eu concession",
+        "2": "Ambiguïtés sur le non-accordé et le différé"
+      }
+    },
+    "optimized": {
+      "h3": "Compte rendu taillé pour la négociation",
+      "items": {
+        "0": "Chronologie demandes/concessions/évolutions (délai/prix/périmètre/responsabilité)",
+        "1": "Motifs, hypothèses et risques au plus près de la décision",
+        "2": "Distinction accordé/non accordé/en suspens avec échéance et responsable"
+      }
+    }
+  },
+  "example": {
+    "h2": "Exemple (conserver textuellement les échanges clés)",
+    "block": "Société A : Il y avait un bug dans votre produit précédent, cela nous a posé de gros soucis. Vous nous devez bien ça ; livrez d’ici la semaine prochaine. Prix : 1 000 $.\\nNotre société : Nous ferons le maximum pour livrer la semaine prochaine après coordination interne. En contrepartie, peut-on passer à 1 200 $ ? Merci d’étudier.\\nSociété A : Si vous garantissez la livraison la semaine prochaine, nous l’étudierons. Merci d’envoyer une réponse par e-mail aujourd’hui.",
+    "p1": "Garder ces « échanges clés » au mot près aide les décideurs à juger la pertinence dans le contexte."
+  },
+  "why": {
+    "h2": "Pourquoi Minutes.AI excelle en négociation",
+    "items": {
+      "0": "Résume demandes/concessions et conserve les passages clés au mot près (évite « dit/pas dit »).",
+      "1": "Ordonne chronologiquement l’évolution des conditions (délai/prix/périmètre/responsabilité).",
+      "2": "Documente motifs, hypothèses et risques au plus près de la décision.",
+      "3": "Distingue accordé/non accordé/en suspens avec échéances et responsables.",
+      "4": "Fait correspondre demandes de la contre-partie et nos engagements pour un suivi clair."
+    }
+  },
+  "wrap": {
+    "h2": "Conclusion",
+    "p": "Un compte rendu de négociation solide va au-delà des décisions : il conserve l’échange et le contexte. Les décisions vont plus vite, avec moins de retours en arrière. Faites-en un standard avec Minutes.AI."
+  },
+  "cta": {
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l’app iOS"
+  },
+  "seo": {
+    "title": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation | Blog des comptes rendus",
+    "description": "Une négociation exige des comptes rendus qui captent décisions, tâches, contexte, tonalité et concessions. Guide pratique avec Minutes.AI.",
+    "ogTitle": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation",
+    "ogDescription": "Fini les comptes rendus trop légers : conservez l’échange et le contexte pour décider plus vite et mieux.",
+    "ld": {
+      "headline": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation",
+      "description": "L’essentiel des négociations dans le compte rendu : demandes, concessions et contexte avec Minutes.AI."
+    }
+  }
+}

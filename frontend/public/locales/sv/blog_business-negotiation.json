@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Till startsidan för Protokoll AI"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen"
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "hero": {
+    "kicker": "Protokoll AI-bloggen",
+    "h1": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen",
+    "tagline": "En förhandling är ett möte mellan intressen. Ett starkt protokoll fångar därför inte bara beslut och åtgärder, utan även sammanhang och ton. Här är tänket — och hur du gör i praktiken med Protokoll AI."
+  },
+  "recap": {
+    "h2": "Förra artikeln i korthet",
+    "p1": {
+      "pre": "Vi visade tidigare att AI-protokoll fungerar för alla mötestyper. Läs mer",
+      "link": "här",
+      "post": "."
+    },
+    "points": {
+      "0": "Möten skiljer sig; optimalt protokoll beror på syftet.",
+      "1": "Generiska mallar hjälper, men detaljnivå måste justeras.",
+      "2": "Från ”läsdokument” till ”plan för genomförande”.",
+      "3": "Protokoll AI anpassar utdata efter mötets syfte."
+    },
+    "focus": "Nu fördjupar vi oss specifikt i affärsförhandlingar."
+  },
+  "diversity": {
+    "h2": "Många mötestyper — förhandlingar är särskilda",
+    "core": {
+      "h3": "Vanliga möten",
+      "items": {
+        "0": "Statusmöte: resultat/utmaningar/åtgärder",
+        "1": "Brainstorm: idédivergens och konvergens",
+        "2": "Förhandling: intresseanpassning och överenskommelse"
+      }
+    },
+    "wide": {
+      "h3": "”Möte” i vid bemärkelse",
+      "items": {
+        "0": "1:1: resultatåterblick, nästa mål, dela hinder",
+        "1": "Intervju: krav och passform",
+        "2": "Presentation: problem och lösning",
+        "3": "Utbildning: överföring av rutiner"
+      }
+    },
+    "p1": "När syftet skiftar, skiftar också värdefull output. I förhandlingar är själva förhandlingen kärnan."
+  },
+  "negotiation": {
+    "h2": "Vad är en förhandling egentligen?",
+    "p1": "Kort sagt: att skydda och stärka företagets intressen. Inte envägskommunikation, utan att hitta en kompromiss via ”krav” och ”eftergifter” om deadline, pris, omfattning och risk."
+  },
+  "limits": {
+    "h2": "Varför ett ”endast beslut”-protokoll är svagt",
+    "p1": "Strukturen ”diskussion/beslut/åtgärder/öppna punkter” tappar ofta sammanhang, ton och eftergiftshistorik. Följden blir missförstånd, extra ping-pong och risken för ”sagt/inte sagt”.",
+    "generic": {
+      "h3": "Det typiskt tunna protokollet",
+      "items": {
+        "0": "Listar beslut utan orsak/förlopp",
+        "1": "Oklart vem som begärde vad och var man gav efter",
+        "2": "Otydligt vad som inte är avtalat eller är parkerat"
+      }
+    },
+    "optimized": {
+      "h3": "Protokoll som håller i förhandling",
+      "items": {
+        "0": "Tidslinje över krav/eftergifter/ändringar (deadline/pris/omfattning/ansvar)",
+        "1": "Motiv, antaganden och risker nära beslutet",
+        "2": "Separera avtalat/ej avtalat/parkerat med tidsfrist och ansvarig"
+      }
+    }
+  },
+  "example": {
+    "h2": "Exempel (spara nyckelutbyten ordagrant)",
+    "block": "Företag A: Det fanns en bugg i er förra produkt och vi fick stora problem. Ni står i skuld, så leverera senast nästa vecka. Pris: 1 000 USD.\\nVårt företag: Vi försöker leverera nästa vecka efter intern samordning. I gengäld – kan vi höja till 1 200 USD? Vänligen överväg.\\nFöretag A: Om ni garanterar leverans nästa vecka överväger vi det. Skicka svar via e-post i dag.",
+    "p1": "När nyckelrundor sparas ordagrant kan beslut fattas med hela sammanhanget."
+  },
+  "why": {
+    "h2": "Varför Protokoll AI är starkt i förhandlingar",
+    "items": {
+      "0": "Sammanfattar krav/eftergifter och sparar nyckelpassager ordagrant (undviker ”sagt/inte sagt”).",
+      "1": "Ordnar förändrade villkor kronologiskt (deadline/pris/omfattning/ansvar).",
+      "2": "Dokumenterar motiv, antaganden och risker nära beslutet.",
+      "3": "Skiljer avtalat/ej avtalat/parkerat med tidsfrist och ansvarig.",
+      "4": "Matchar motpartens önskemål med våra åtaganden för tydlig spårbarhet."
+    }
+  },
+  "wrap": {
+    "h2": "Sammanfattning",
+    "p": "Ett starkt förhandlingsprotokoll går längre än beslut: det bevarar utbytet och sammanhanget. Då blir besluten snabbare och mer precisa. Gör detta till standard med Protokoll AI."
+  },
+  "cta": {
+    "openBrowser": "Öppna i webbläsaren",
+    "downloadIOS": "Ladda ned iOS-appen"
+  },
+  "seo": {
+    "title": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen | Blogg om mötesprotokoll",
+    "description": "Förhandlingar kräver protokoll som fångar beslut, åtgärder, sammanhang, ton och eftergifter. Praktisk guide med Protokoll AI.",
+    "ogTitle": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen",
+    "ogDescription": "Hejdå tunna protokoll: bevara utbyte och sammanhang för snabbare, skarpare beslut.",
+    "ld": {
+      "headline": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen",
+      "description": "Förhandlingens kärna i protokoll: krav, eftergifter och sammanhang — med Protokoll AI."
+    }
+  }
+}
