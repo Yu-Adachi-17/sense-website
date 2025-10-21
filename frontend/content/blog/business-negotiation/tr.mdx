@@ -1,0 +1,10 @@
+---
+title: "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni"
+date: "2025-10-21"
+tags: ["Articles"]
+cover: "/images/hero-phone.png"
+excerpt: "Güçlü müzakere tutanakları kararları, görevleri ve alışverişin bağlamını (talepler & tavizler) kaydeder; kararlar hızlanır, geri dönüş azalır."
+slug: "business-negotiation"
+---
+
+Gerekli yerlerde ana değiş tokuşları birebir saklayın, koşul değişimlerini kronolojik sıralayın ve her kararın gerekçesi ile risklerini yanında not edin.

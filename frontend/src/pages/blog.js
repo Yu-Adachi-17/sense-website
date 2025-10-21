@@ -174,43 +174,121 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export async function getStaticProps() {
+function tryReadFrontFromDir(dirPath, defaultLocale) {
+  // 優先順：<既定ロケール>.mdx → .md → en.mdx → en.md → そのフォルダ内の最初の mdx/md
+  const all = fs.readdirSync(dirPath);
+  const candidates = [
+    `${defaultLocale}.mdx`,
+    `${defaultLocale}.md`,
+    `en.mdx`,
+    `en.md`,
+    all.find((f) => /\.mdx$/i.test(f)),
+    all.find((f) => /\.md$/i.test(f)),
+  ].filter(Boolean);
+
+  for (const name of candidates) {
+    const p = path.join(dirPath, name);
+    if (fs.existsSync(p)) {
+      const raw = fs.readFileSync(p, "utf8");
+      const { data, content } = matter(raw);
+      return { data, content, filePath: p };
+    }
+  }
+  return null;
+}
+
+export async function getStaticProps({ locale, defaultLocale }) {
   const contentDir = path.join(process.cwd(), "content", "blog");
-  let posts = [];
-  try {
-    const files = fs.existsSync(contentDir) ? fs.readdirSync(contentDir) : [];
-    posts = files
-      .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
-      .map((filename) => {
-        const slug = filename.replace(/\.(md|mdx)$/i, "");
-        const raw = fs.readFileSync(path.join(contentDir, filename), "utf8");
-        const { data, content } = matter(raw);
-
-        const title = (data.title || "").trim();
-        const norm = title.toLowerCase().replace(/\s+/g, " ").replace(/[?？]/g, "");
-        const isIntroByTitle = norm === "what is minutes.ai" || norm === "what is minutes ai";
-        const isIntroBySlug =
-          slug === "hello-minutes-ai" || slug === "what-is-minutes-ai";
-
-        // ここで “既存の What is Minutes.AI? の箱” を /blog/introduction にリダイレクト
-        const href =
-          (typeof data.link === "string" && data.link.trim()) ||
-          (isIntroByTitle || isIntroBySlug ? "/blog/introduction" : `/blog/${slug}`);
-
-        return {
-          slug,
-          title: data.title || slug,
-          date: data.date || new Date().toISOString(),
-          updatedAt: data.updatedAt || null,
-          excerpt: data.excerpt || (content ? content.slice(0, 180) : ""),
-          coverImage: data.cover || null,
-          tags: Array.isArray(data.tags) && data.tags.length ? data.tags : ["Articles"],
-          href, // ← 必ず文字列
-        };
-      })
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
-  } catch {}
-
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
+  const posts = [];
+  const hrefSet = new Set();
+  const pushPost = (p) => {
+    if (!p?.href) return;
+    if (hrefSet.has(p.href)) return;
+    hrefSet.add(p.href);
+    posts.push(p);
+  };
+
+  const ents = fs.existsSync(contentDir)
+    ? fs.readdirSync(contentDir, { withFileTypes: true })
+    : [];
+
+  /* 1) 直下の .md / .mdx（従来どおり） */
+  for (const ent of ents.filter((e) => e.isFile())) {
+    if (!/\.(md|mdx)$/i.test(ent.name)) continue;
+    const filename = ent.name;
+    const slug = filename.replace(/\.(md|mdx)$/i, "");
+    const raw = fs.readFileSync(path.join(contentDir, filename), "utf8");
+    const { data, content } = matter(raw);
+
+    const title = (data.title || slug).toString();
+    const norm = title.toLowerCase().replace(/\s+/g, " ").replace(/[?？]/g, "");
+    const isIntroByTitle = norm === "what is minutes.ai" || norm === "what is minutes ai";
+    const isIntroBySlug = slug === "hello-minutes-ai" || slug === "what-is-minutes-ai";
+
+    const href =
+      (typeof data.link === "string" && data.link.trim()) ||
+      (isIntroByTitle || isIntroBySlug ? "/blog/introduction" : `/blog/${slug}`);
+
+    pushPost({
+      slug,
+      title,
+      date: data.date || new Date().toISOString(),
+      updatedAt: data.updatedAt || null,
+      excerpt: data.excerpt || (content ? content.slice(0, 180) : ""),
+      coverImage: data.cover || null,
+      tags: Array.isArray(data.tags) && data.tags.length ? data.tags : ["Articles"],
+      href,
+    });
+  }
+
+  /* 2) サブディレクトリ（/business-negotiation などの多言語MDXフォルダ） */
+  const dLocale = defaultLocale || "en";
+  for (const ent of ents.filter((e) => e.isDirectory())) {
+    const dir = ent.name; // 例: "business-negotiation"
+    const dirPath = path.join(contentDir, dir);
+
+    const picked = tryReadFrontFromDir(dirPath, dLocale);
+    if (!picked) continue;
+
+    let { data, content } = picked;
+
+    // Frontmatterが薄いときは i18n JSON（public/locales/<loc>/blog_<dir>.json）から補完
+    let title = (data?.title || "").toString().trim();
+    let excerpt = (data?.excerpt || "").toString().trim();
+    if (!title || !excerpt) {
+      try {
+        const i18nJsonPath = path.join(
+          process.cwd(),
+          "public",
+          "locales",
+          dLocale,
+          `blog_${dir}.json`
+        );
+        if (fs.existsSync(i18nJsonPath)) {
+          const j = JSON.parse(fs.readFileSync(i18nJsonPath, "utf8"));
+          title = title || j?.hero?.h1 || title;
+          excerpt = excerpt || j?.hero?.tagline || excerpt;
+        }
+      } catch {}
+    }
+
+    const href = `/blog/${dir}`; // 専用ページ（/src/pages/blog/${dir}.js）に誘導
+
+    pushPost({
+      slug: dir,
+      title: title || dir,
+      date: data?.date || new Date().toISOString(),
+      updatedAt: data?.updatedAt || null,
+      excerpt: excerpt || (content ? content.slice(0, 180) : ""),
+      coverImage: data?.cover || "/images/hero-phone.png",
+      tags: Array.isArray(data?.tags) && data.tags.length ? data.tags : ["Articles"],
+      href,
+    });
+  }
+
+  // 新しい順
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return { props: { posts, siteUrl }, revalidate: 600 };
 }
