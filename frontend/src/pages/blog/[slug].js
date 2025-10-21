@@ -48,7 +48,7 @@ const OG_LOCALE_MAP = {
 
 /** ─────────────────────────────────────────────────────
  *  専用ページ（/src/pages/blog/*.js）の slug を自動で除外
- *  例: business-negotiation, introduction, universal-minutes など
+ *  例: businessnegotiation, introduction, universal-minutes など
  *  ──────────────────────────────────────────────────── */
 function deriveBlockedSlugs() {
   const dir = path.join(process.cwd(), "src", "pages", "blog");
@@ -73,6 +73,16 @@ function deriveBlockedSlugs() {
   return blocked;
 }
 const BLOCKED_SLUGS = deriveBlockedSlugs();
+
+/** ─────────────────────────────────────────────────────
+ *  slug → next-i18next namespace の対応
+ *  （MDX本文には未使用でも、各記事で t() を使う可能性に備え必ず注入）
+ *  ──────────────────────────────────────────────────── */
+const NS_BY_SLUG = {
+  "businessnegotiation": "blog_businessnegotiation",
+  "introduction": "blog_introduction",
+  "universal-minutes": "blog_universal",
+};
 
 export default function BlogPost({
   postId,
@@ -207,8 +217,9 @@ export async function getStaticProps({
   locales,
   defaultLocale,
 }) {
-  // introduction / universal-minutes / business-negotiation 等は
-  // getStaticPaths 側で除外されるためここには来ない想定
+  // introduction / universal-minutes / businessnegotiation 等は
+  // getStaticPaths 側で除外されるためここには来ない想定だが、
+  // 念のため namespace 注入ロジックは共通で持つ。
   const postId = resolvePostIdFromSlug(locale, params.slug);
   const loaded = await loadMdx(postId, locale);
   if (!loaded) return { notFound: true };
@@ -230,8 +241,10 @@ export async function getStaticProps({
   const canonical = `${SITE_URL}${prefix}/blog/${front.slug}`;
   const ogLocale = OG_LOCALE_MAP[locale] || OG_LOCALE_MAP.en;
 
-  // i18n を確実に初期化（このページで t() を使っていなくても安全）
-  const i18nProps = await serverSideTranslations(locale, ["common"]);
+  // ★ ここが肝：slug に応じて namespace を注入（t() を使う記事に備える）
+  const maybeNs = NS_BY_SLUG[front.slug];
+  const nsList = ["common", ...(maybeNs ? [maybeNs] : [])];
+  const i18nProps = await serverSideTranslations(locale ?? "en", nsList);
 
   return {
     props: {
@@ -243,5 +256,6 @@ export async function getStaticProps({
       ogLocale,
       ...i18nProps,
     },
+    revalidate: 60,
   };
 }
