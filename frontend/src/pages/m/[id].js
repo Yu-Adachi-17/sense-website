@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FaApple } from 'react-icons/fa';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { FiMic, FiMicOff, FiVideo, FiVideoOff, FiLogOut } from 'react-icons/fi';
 import HomeIcon from '../homeIcon';
 
 const API_BASE =
@@ -61,6 +63,9 @@ export default function MeetingJoinPage() {
   // ページング
   const [page, setPage] = useState(0);
   const [pageCap, setPageCap] = useState(12); // 画面サイズから自動更新
+
+  // SideMenu
+  const [showSideMenu, setShowSideMenu] = useState(false);
 
   // Refs（LiveKit / DOM）
   const roomRef = useRef(null);
@@ -148,18 +153,15 @@ export default function MeetingJoinPage() {
     const entries = Array.from(cardMapRef.current.values());
     const N = entries.length;
 
-    // ページ容量の算出（今の枠サイズに対し N を最大敷き詰め → cols*rows を容量とする）
     const W = grid.clientWidth;
     const H = grid.clientHeight > 0 ? grid.clientHeight : grid.getBoundingClientRect().height;
     const { cols, rows, tileW, tileH } = computeBestGrid(Math.max(1, N), W, H);
     const cap = Math.max(1, cols * rows);
 
-    // ページ境界調整
     if (pageCap !== cap) setPageCap(cap);
     const maxPage = Math.max(0, Math.ceil(N / cap) - 1);
     if (page > maxPage) setPage(maxPage);
 
-    // 均等割スタイル適用
     grid.style.display = 'grid';
     grid.style.gridTemplateColumns = `repeat(${cols}, ${tileW}px)`;
     grid.style.gridAutoRows = `${tileH}px`;
@@ -167,7 +169,6 @@ export default function MeetingJoinPage() {
     grid.style.justifyContent = 'center';
     grid.style.alignContent = 'center';
 
-    // ページ該当分だけ表示
     const start = page * cap;
     const slice = entries.slice(start, start + cap);
     slice.forEach(e => {
@@ -291,7 +292,6 @@ export default function MeetingJoinPage() {
         wrapper.appendChild(badges);
         wrapper.appendChild(pinBtn);
 
-        // ダブルクリックでオーバーレイ
         wrapper.ondblclick = () => setFocusId(prev => (prev === id ? null : id));
 
         const meta = {
@@ -299,7 +299,7 @@ export default function MeetingJoinPage() {
           name: participant?.name || participant?.identity || 'Guest',
           isSpeaking: false,
           videoEl: v,
-          track: null,            // ← overlay用
+          track: null,
         };
         const entry = { wrapper, meta };
 
@@ -409,7 +409,7 @@ export default function MeetingJoinPage() {
       setIsMuted(lp.isMicrophoneEnabled ? false : true);
       setIsCamOff(lp.isCameraEnabled ? false : true);
 
-      // 既存 publications の反映（取りこぼし防止）
+      // 既存 publications の反映
       const remoteMap =
         (room.participants && room.participants instanceof Map && room.participants) ||
         (room.remoteParticipants && room.remoteParticipants instanceof Map && room.remoteParticipants) ||
@@ -518,7 +518,6 @@ export default function MeetingJoinPage() {
         v.play().catch(() => {});
       }
     } catch {}
-    // デタッチは閉じる側で不要（同じtrackを複数要素でattach可能）
   }, [focusId]);
 
   /* ===================== UI ===================== */
@@ -594,14 +593,21 @@ export default function MeetingJoinPage() {
         </main>
       )}
 
-      {/* 接続後：ギャラリー均等割（唯一の表示モード） */}
+      {/* 接続後：ギャラリー均等割 */}
       {status === 'connected' && (
         <div style={styles.stage}>
-          {/* ツールバー（上） */}
+          {/* ヘッダー（右：ハンバーガー） */}
           <div style={styles.stageHeader}>
-            <div style={{ fontSize: 13, opacity: 0.8 }}>Gallery</div>
-            <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
-              <button onClick={leave} style={styles.secondaryBtn}>Leave</button>
+            {/* 左側は空（"Gallery" 見出しは削除） */}
+            <div />
+            <div style={{ marginLeft: 'auto' }}>
+              <button
+                aria-label="Open menu"
+                onClick={() => setShowSideMenu(true)}
+                style={styles.hamburgerBtn}
+              >
+                <GiHamburgerMenu size={22} />
+              </button>
             </div>
           </div>
 
@@ -638,16 +644,6 @@ export default function MeetingJoinPage() {
               Enable audio
             </button>
           )}
-
-          {/* 下ツールバー */}
-          <div style={styles.toolbar}>
-            <button onClick={toggleMic} style={{ ...styles.toolBtn, ...(isMuted ? styles.toolOff : {}) }}>
-              {isMuted ? 'Unmute' : 'Mute'}
-            </button>
-            <button onClick={toggleCam} style={{ ...styles.toolBtn, ...(isCamOff ? styles.toolOff : {}) }}>
-              {isCamOff ? 'Start Video' : 'Stop Video'}
-            </button>
-          </div>
         </div>
       )}
 
@@ -666,6 +662,51 @@ export default function MeetingJoinPage() {
           </div>
         </div>
       )}
+
+      {/* === SideMenu（Purchase / index のトーンを踏襲） === */}
+      <div
+        style={{
+          ...styles.sideMenuOverlay,
+          display: showSideMenu ? 'block' : 'none',
+          opacity: showSideMenu ? 1 : 0
+        }}
+        onClick={() => setShowSideMenu(false)}
+      >
+        <div
+          style={{
+            ...styles.sideMenu,
+            transform: showSideMenu ? 'translateX(0)' : 'translateX(100%)'
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h3 style={styles.menuTitle}>Controls</h3>
+
+          <button style={styles.menuItem} onClick={() => { toggleMic(); }}>
+            {isMuted ? <FiMicOff size={18} style={{ marginRight: 10 }} /> : <FiMic size={18} style={{ marginRight: 10 }} />}
+            {isMuted ? 'Unmute' : 'Mute'}
+          </button>
+
+          <button style={styles.menuItem} onClick={() => { toggleCam(); }}>
+            {isCamOff ? <FiVideoOff size={18} style={{ marginRight: 10 }} /> : <FiVideo size={18} style={{ marginRight: 10 }} />}
+            {isCamOff ? 'Start Video' : 'Stop Video'}
+          </button>
+
+          <div style={{ height: 12 }} />
+
+          <button
+            style={{ ...styles.menuItem, ...styles.leaveBtn }}
+            onClick={async () => {
+              const ok = window.confirm('Leave this meeting?');
+              if (!ok) return;
+              setShowSideMenu(false);
+              await leave();
+            }}
+          >
+            <FiLogOut size={18} style={{ marginRight: 10 }} />
+            Leave
+          </button>
+        </div>
+      </div>
 
       {/* 追加CSS */}
       <style jsx global>{`
@@ -688,7 +729,7 @@ export default function MeetingJoinPage() {
 
 /* ===== Styles ===== */
 const styles = {
-  // Header
+  // Header（接続前）
   top: {
     position: 'fixed',
     top: 0, left: 0, right: 0,
@@ -800,10 +841,11 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: 12,
+    minHeight: 38,
   },
-  secondaryBtn: {
-    padding: '6px 10px',
-    borderRadius: 8,
+  hamburgerBtn: {
+    padding: '8px 10px',
+    borderRadius: 10,
     background: '#222',
     color: '#fff',
     border: '1px solid #444',
@@ -850,33 +892,8 @@ const styles = {
     border: 'none',
     cursor: 'pointer',
   },
-  toolbar: {
-    position: 'sticky',
-    bottom: 0,
-    display: 'flex',
-    gap: 8,
-    padding: '10px 12px',
-    border: '1px solid #111',
-    borderRadius: 12,
-    background: 'rgba(12,12,12,0.9)',
-    backdropFilter: 'blur(6px)',
-    alignItems: 'center',
-  },
-  toolBtn: {
-    padding: '8px 12px',
-    borderRadius: 10,
-    border: '1px solid #333',
-    background: '#1a1a1a',
-    color: '#eee',
-    cursor: 'pointer',
-  },
-  toolOff: {
-    background: '#3a1010',
-    borderColor: '#6a2a2a',
-    color: '#fff',
-  },
 
-  // Overlay
+  // Overlay（拡大）
   overlay: {
     position: 'fixed',
     inset: 0,
@@ -913,6 +930,50 @@ const styles = {
     color: '#fff',
     cursor: 'pointer',
     fontSize: 18,
+  },
+
+  // SideMenu（参考のPurchase / index トーン）
+  sideMenuOverlay: {
+    position: 'fixed',
+    inset: 0,
+    background: 'rgba(0,0,0,0.45)',
+    zIndex: 1200,
+    transition: 'opacity .28s ease',
+  },
+  sideMenu: {
+    position: 'fixed',
+    top: 0,
+    right: 0,
+    width: 'min(360px, 80vw)',
+    height: '100%',
+    color: '#fff',
+    padding: 18,
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    background: 'linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(90,90,90,0.15))',
+    borderLeft: '1px solid rgba(255,255,255,0.08)',
+    backdropFilter: 'blur(6px)',
+    transition: 'transform .28s ease',
+  },
+  menuTitle: { margin: '6px 0 12px', fontSize: 14, opacity: .8, fontWeight: 700 },
+  menuItem: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    padding: '12px 10px',
+    borderRadius: 10,
+    background: 'rgba(24,24,24,0.85)',
+    border: '1px solid #333',
+    color: '#fff',
+    cursor: 'pointer',
+    marginBottom: 10,
+    textAlign: 'left',
+    fontWeight: 700,
+  },
+  leaveBtn: {
+    background: 'linear-gradient(135deg, rgba(120,0,0,0.9), rgba(50,0,0,0.9))',
+    borderColor: '#642',
   },
 };
 
