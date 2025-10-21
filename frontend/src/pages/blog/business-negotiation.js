@@ -1,8 +1,7 @@
-// src/pages/blog/business-negotiation.js
+// src/pages/blog/businessnegotiation.js
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -38,7 +37,7 @@ function StatFootnote({ children }) {
   return <p className="mt-3 text-xs text-indigo-200/70">{children}</p>;
 }
 function Byline() {
-  const { t } = useTranslation(["blog_business-negotiation", "blog_business_negotiation"]);
+  const { t } = useTranslation("blog_businessnegotiation");
   return (
     <div className="mt-8 flex items-center gap-3 text-sm text-indigo-100/85">
       <div className="h-9 w-9 shrink-0 rounded-full bg-white/10 flex items-center justify-center">
@@ -54,24 +53,12 @@ function Byline() {
 
 /* ---------- Page ---------- */
 export default function BlogBusinessNegotiation() {
-  // ns は[ハイフン, アンダースコア]の順。t() は先頭 ns を既定に解決します。
-  const { t, i18n } = useTranslation(["blog_business-negotiation", "blog_business_negotiation"]);
+  const { t } = useTranslation("blog_businessnegotiation");
   const router = useRouter();
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  const canonical = `${siteUrl}/blog/business-negotiation`;
+  const canonical = `${siteUrl}/blog/businessnegotiation`;
   const LINK_HOME = "/home";
-
-  // 保険：ハイフン ns が無いがアンダースコア ns はある場合、マージして補填
-  useEffect(() => {
-    const primary = "blog_business-negotiation";
-    const alt = "blog_business_negotiation";
-    const lng = i18n.language || "en";
-    if (!i18n.hasResourceBundle(lng, primary) && i18n.hasResourceBundle(lng, alt)) {
-      const data = i18n.getResourceBundle(lng, alt);
-      i18n.addResourceBundle(lng, primary, data, true, true);
-    }
-  }, [i18n]);
 
   return (
     <>
@@ -293,8 +280,7 @@ export async function getStaticProps({ locale }) {
     props: {
       ...(await serverSideTranslations(
         locale ?? "en",
-        // どちらの ns でも拾えるよう両方をロード（ハイフン優先）
-        ["common", "blog_business-negotiation", "blog_business_negotiation"],
+        ["common", "blog_businessnegotiation"],
         i18nConfig
       )),
     },
