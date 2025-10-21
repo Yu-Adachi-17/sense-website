@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { MDXRemote } from "next-mdx-remote";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import fs from "fs";
+import path from "path";
 
 import {
   listPostIds,
@@ -44,8 +46,33 @@ const OG_LOCALE_MAP = {
   uk: "uk_UA",
 };
 
-// ★ 重要：専用ページと衝突する slug はブロック
-const BLOCKED_SLUGS = new Set(["introduction"]);
+/** ─────────────────────────────────────────────────────
+ *  専用ページ（/src/pages/blog/*.js）の slug を自動で除外
+ *  例: business-negotiation, introduction, universal-minutes など
+ *  ──────────────────────────────────────────────────── */
+function deriveBlockedSlugs() {
+  const dir = path.join(process.cwd(), "src", "pages", "blog");
+  const blocked = new Set();
+  try {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const e of entries) {
+      if (e.isFile() && e.name.endsWith(".js")) {
+        const base = e.name.replace(/\.js$/, "");
+        // 動的/共通ファイルは除外
+        if (["[slug]", "index", "_app", "_document", "_error"].includes(base)) continue;
+        blocked.add(base);
+      }
+      // blog/内にディレクトリを直接置く運用は今ないが将来の保険
+      if (e.isDirectory()) {
+        blocked.add(e.name);
+      }
+    }
+  } catch {
+    // 何もしない（ローカル/CI差異対策）
+  }
+  return blocked;
+}
+const BLOCKED_SLUGS = deriveBlockedSlugs();
 
 export default function BlogPost({
   postId,
@@ -99,6 +126,7 @@ export default function BlogPost({
           content={`${SITE_URL}${front.ogImage || "/og-image.jpg"}`}
         />
         <meta property="og:locale" content={ogLocale} />
+        {/* OG alternate locales */}
         {alternates
           .filter((a) => a.l !== locale && OG_LOCALE_MAP[a.l])
           .map((a) => (
@@ -166,7 +194,7 @@ export async function getStaticPaths({ locales }) {
     for (const l of locales) {
       const slug = getSlugForLocale(id, l);
       if (!slug) continue;
-      if (BLOCKED_SLUGS.has(slug)) continue; // ★ ここで衝突回避
+      if (BLOCKED_SLUGS.has(slug)) continue; // ★ 専用ページは除外
       paths.push({ params: { slug }, locale: l });
     }
   }
@@ -179,7 +207,8 @@ export async function getStaticProps({
   locales,
   defaultLocale,
 }) {
-  // introduction はここには来ない（BLOCKED_SLUGSで除外済）
+  // introduction / universal-minutes / business-negotiation 等は
+  // getStaticPaths 側で除外されるためここには来ない想定
   const postId = resolvePostIdFromSlug(locale, params.slug);
   const loaded = await loadMdx(postId, locale);
   if (!loaded) return { notFound: true };
