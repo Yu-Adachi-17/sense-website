@@ -14,7 +14,7 @@ const LINK_IOS =
 const LAST_JOIN_NAME_KEY = 'minutesai.joinName';
 const GRID_GAP = 12;
 
-/* ===== Fixed Header（左= /home、右= iOS）===== */
+/* ===================== Utilities ===================== */
 function FixedHeaderPortal({ children }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -24,18 +24,7 @@ function FixedHeaderPortal({ children }) {
 
 // 16:9タイルで (W,H) の枠に N枚 を最大で敷き詰める
 function computeBestGrid(N, W, H, gap = GRID_GAP, ar = 16 / 9) {
-  // 4人はZoomに合わせて 2x2 を強制
-  if (N === 4) {
-    const cols = 2, rows = 2;
-    let tileW = Math.floor((W - (cols - 1) * gap) / cols);
-    let tileH = Math.floor(tileW / ar);
-    if (rows * tileH + (rows - 1) * gap > H) {
-      tileH = Math.floor((H - (rows - 1) * gap) / rows);
-      tileW = Math.floor(tileH * ar);
-    }
-    return { cols, rows, tileW, tileH, area: tileW * tileH };
-  }
-
+  const s = Math.floor(Math.sqrt(N));
   let best = { cols: 1, rows: N, tileW: W, tileH: Math.floor(W / ar), area: 0 };
   for (let cols = 1; cols <= N; cols++) {
     const rows = Math.ceil(N / cols);
@@ -46,11 +35,14 @@ function computeBestGrid(N, W, H, gap = GRID_GAP, ar = 16 / 9) {
       tileW = Math.floor(tileH * ar);
     }
     const area = tileW * tileH;
-    if (area > best.area) best = { cols, rows, tileW, tileH, area };
+    if (area > best.area || (cols === s && rows === Math.ceil(N / s))) {
+      best = { cols, rows, tileW, tileH, area };
+    }
   }
   return best;
 }
 
+/* ===================== Page ===================== */
 export default function MeetingJoinPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -70,9 +62,8 @@ export default function MeetingJoinPage() {
   const [isCamOff, setIsCamOff] = useState(false);
   const [pipKey, setPipKey] = useState(0);
 
-  // Refs
+  // Refs（LiveKit / DOM）
   const roomRef = useRef(null);
-  const stageRef = useRef(null);
   const localVideoRef = useRef(null);   // 自分の上中央PIP（Speaker時のみ表示）
   const remoteGridRef = useRef(null);
   const thumbStripRef = useRef(null);
@@ -84,6 +75,13 @@ export default function MeetingJoinPage() {
 
   // 参加者カード管理
   const cardMapRef = useRef(new Map()); // id -> { wrapper, meta }
+
+  // ====== 最新 state をイベントから読めるようにする（stale closure対策） ======
+  const viewModeRef = useRef(viewMode);
+  const pinnedIdRef = useRef(pinnedId);
+  useEffect(() => { viewModeRef.current = viewMode; }, [viewMode]);
+  useEffect(() => { pinnedIdRef.current = pinnedId; }, [pinnedId]);
+  useEffect(() => { /* selfCentered は schedule 内で読み取らないので保持のみ */ }, [selfCentered]);
 
   // ===== 前回のユーザー名復元 =====
   useEffect(() => {
@@ -131,13 +129,12 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== PIP用：ローカルtrackを PIP要素に対してだけ detach/attach =====
-  function attachLocalTo(elOrNull) {
+  // ===== PIP用：ローカルトラックをPIPだけ付け替える（自分タイルは触らない）=====
+  function attachLocalToPip(elOrNull) {
     const vtrack = localTracksRef.current?.video;
     if (!vtrack) return;
-    try {
-      if (localVideoRef.current) vtrack.detach(localVideoRef.current); // ★他要素は外さない
-    } catch {}
+    const pip = localVideoRef.current;
+    try { if (pip) vtrack.detach(pip); } catch {}
     if (elOrNull) {
       try {
         vtrack.attach(elOrNull);
@@ -147,7 +144,7 @@ export default function MeetingJoinPage() {
     }
   }
 
-  // ===== 参加処理 =====
+  // ===== 便利: 2フレーム待ち =====
   const afterDomPaint = (n = 2) =>
     new Promise((resolve) => {
       const step = () => (n-- <= 0 ? resolve() : requestAnimationFrame(step));
@@ -185,59 +182,69 @@ export default function MeetingJoinPage() {
     entry.meta.portrait = h > w;
   };
 
-  // ギャラリー：現在のgrid領域に全員が入るよう敷き詰め
-  function applyGalleryLayout(wrappers) {
+  /* ===== レイアウトのデバウンス & 安全な子入替 ===== */
+  const relayoutRafRef = useRef(0);
+  const scheduleRelayout = () => {
+    if (relayoutRafRef.current) cancelAnimationFrame(relayoutRafRef.current);
+    relayoutRafRef.current = requestAnimationFrame(() => {
+      relayoutRafRef.current = 0;
+      doRelayout();
+    });
+  };
+
+  function safeReplaceChildren(parent, nodes) {
+    if (!parent) return;
+    const wanted = nodes.filter(Boolean);
+    const current = Array.from(parent.children);
+    const same = wanted.length === current.length && wanted.every((n, i) => n === current[i]);
+    if (same) return;
+    current.forEach(n => { if (!wanted.includes(n)) parent.removeChild(n); });
+    wanted.forEach(n => {
+      if (n.parentNode !== parent || n !== parent.lastChild) parent.appendChild(n);
+    });
+  }
+
+  function ensurePlaying(v) {
+    if (!v || !v.isConnected) return;
+    if (v.readyState >= 2 && v.paused) v.play().catch(() => {});
+  }
+
+  // ギャラリー：現在のgrid領域に全員が入るよう敷き詰め（サイズ計算のみ）
+  function applyGalleryLayout() {
     const grid = remoteGridRef.current;
-    if (!grid || wrappers.length === 0) return;
-
-    // 計測フォールバック：初回は高さ0になることがある
-    const rect = grid.getBoundingClientRect();
-    let W = Math.max(0, rect.width);
-    let H = Math.max(0, rect.height);
-    if (H < 120) {
-      // ざっくり：画面下端までの残りを使う
-      H = Math.max(120, Math.floor(window.innerHeight - rect.top - 160));
-    }
-
-    const { cols, rows, tileW, tileH } = computeBestGrid(wrappers.length, W, H);
+    if (!grid) return;
+    const entries = Array.from(cardMapRef.current.values());
+    if (entries.length === 0) return;
+    const W = grid.clientWidth;
+    const H = grid.clientHeight > 0 ? grid.clientHeight : grid.getBoundingClientRect().height;
+    const { cols, rows, tileW, tileH } = computeBestGrid(entries.length, W, H);
     grid.style.display = 'grid';
     grid.style.gridTemplateColumns = `repeat(${cols}, ${tileW}px)`;
     grid.style.gridAutoRows = `${tileH}px`;
     grid.style.gap = `${GRID_GAP}px`;
     grid.style.justifyContent = 'center';
     grid.style.alignContent = 'center';
-
-    wrappers.forEach(w => {
-      w.style.width = `${tileW}px`;
-      w.style.height = `${tileH}px`;
-      w.style.aspectRatio = '16/9';
-    });
-
-    const frag = document.createDocumentFragment();
-    wrappers.forEach(w => frag.appendChild(w));
-    grid.replaceChildren(frag);
-
-    // 初回タイミングずれ対策：描画後にもう一度だけ再計算
-    requestAnimationFrame(() => {
-      const r2 = grid.getBoundingClientRect();
-      if (Math.abs(r2.height - H) > 4 || Math.abs(r2.width - W) > 4) {
-        applyGalleryLayout(wrappers);
-      }
+    entries.forEach(e => {
+      e.wrapper.classList.remove('lk-main');
+      e.wrapper.style.width = `${tileW}px`;
+      e.wrapper.style.height = `${tileH}px`;
+      e.wrapper.style.aspectRatio = '16/9';
     });
   }
 
-  // ===== レイアウト更新（Zoom準拠）=====
-  const relayout = () => {
+  // ===== レイアウト更新（最新state参照 & 安全な子入替）=====
+  const doRelayout = () => {
     const grid = remoteGridRef.current;
     const strip = thumbStripRef.current;
     if (!grid) return;
 
     const entries = Array.from(cardMapRef.current.values());
 
-    // 並び順（ピン→発話→名前）
+    // 並び順（ピン→話者→名前）
+    const pinnedNow = pinnedIdRef.current;
     entries.sort((a, b) => {
-      const pa = a.meta.pinned ? 1 : 0;
-      const pb = b.meta.pinned ? 1 : 0;
+      const pa = a.meta.id === pinnedNow ? 1 : 0;
+      const pb = b.meta.id === pinnedNow ? 1 : 0;
       if (pa !== pb) return pb - pa;
       const sa = a.meta.isSpeaking ? 1 : 0;
       const sb = b.meta.isSpeaking ? 1 : 0;
@@ -260,35 +267,29 @@ export default function MeetingJoinPage() {
         selfMainRef.current = null;
       }
 
-      if (viewMode === 'speaker') {
-        // メイン：一番手（ピン＞話者＞名前）
+      const mode = viewModeRef.current;
+
+      if (mode === 'speaker') {
         const main = remoteEntries[0];
         if (main) {
           main.wrapper.classList.add('lk-main');
           main.wrapper.style.aspectRatio = main.meta.ar || '16/9';
-          grid.replaceChildren(main.wrapper);
+          safeReplaceChildren(grid, [main.wrapper]);
         }
         if (strip) {
           const rest = entries.filter(e => e !== main && e.meta.id !== localId);
-          const frag = document.createDocumentFragment();
           rest.forEach(e => {
             e.wrapper.classList.remove('lk-main');
             e.wrapper.style.aspectRatio = '16/9';
-            frag.appendChild(e.wrapper);
           });
-          strip.replaceChildren(frag);
+          safeReplaceChildren(strip, rest.map(e => e.wrapper));
         }
       } else {
-        // === ギャラリー：全員（自分含む）を16:9固定で画面内にフィット ===
-        const everyone = entries;
-        everyone.forEach(e => {
-          e.wrapper.classList.remove('lk-main');
-          e.wrapper.style.aspectRatio = '16/9';
-        });
-        applyGalleryLayout(everyone.map(e => e.wrapper));
+        applyGalleryLayout(); // サイズ計算のみ
+        safeReplaceChildren(grid, entries.map(e => e.wrapper));
       }
     } else {
-      // === リモート不在：自分を中央に大きく（contain） ===
+      // リモート不在：自分を中央
       const vtrack = localTracksRef.current?.video || null;
       if (!selfMainRef.current) {
         const wrapper = document.createElement('div');
@@ -303,14 +304,23 @@ export default function MeetingJoinPage() {
         wrapper.appendChild(videoWrap);
         selfMainRef.current = { wrapper, videoEl: v };
         try { vtrack?.attach(v); } catch {}
-        try { v.play().catch(() => {}); } catch {}
+        ensurePlaying(v);
       }
-      grid.replaceChildren(selfMainRef.current.wrapper);
+      safeReplaceChildren(grid, [selfMainRef.current.wrapper]);
       setSelfCentered(true);
     }
+
+    // 保険：自分タイルを強制再生
+    try {
+      const lp = roomRef.current?.localParticipant;
+      if (lp) {
+        const selfEntry = cardMapRef.current.get(lp.identity);
+        ensurePlaying(selfEntry?.meta?.videoEl);
+      }
+    } catch {}
   };
 
-  // ===== 参加（LiveKit）=====
+  /* ===================== Join (LiveKit) ===================== */
   const join = async () => {
     if (!meeting) return;
 
@@ -399,7 +409,6 @@ export default function MeetingJoinPage() {
         videoWrap.className = 'lk-videoWrap';
         const v = document.createElement('video');
         Object.assign(v, { autoplay: true, playsInline: true, muted: false });
-        // リモートは常に“元比率のまま内接”
         v.style.objectFit = 'contain';
         v.style.background = '#000';
         videoWrap.appendChild(v);
@@ -422,7 +431,7 @@ export default function MeetingJoinPage() {
         pinBtn.textContent = '📌';
         pinBtn.onclick = () => {
           setPinnedId(prev => (prev === id ? null : id));
-          relayout();
+          scheduleRelayout();
         };
 
         wrapper.appendChild(videoWrap);
@@ -441,23 +450,35 @@ export default function MeetingJoinPage() {
         };
         const entry = { wrapper, meta };
 
-        v.addEventListener('loadedmetadata', () => { computeAspectMeta(entry); relayout(); });
-        v.addEventListener('resize', () => { computeAspectMeta(entry); relayout(); });
+        v.addEventListener('loadedmetadata', () => { computeAspectMeta(entry); scheduleRelayout(); });
+        v.addEventListener('resize', () => { computeAspectMeta(entry); scheduleRelayout(); });
 
         cardMapRef.current.set(id, entry);
+
+        // ローカル参加者は即アタッチ＆ミュート（自分タイル黒防止）
+        const lp = roomRef.current?.localParticipant;
+        if (lp && id === lp.identity) {
+          try {
+            v.muted = true;
+            v.playsInline = true;
+            v.autoplay = true;
+            localTracksRef.current.video?.attach(v);
+            v.play().catch(() => {});
+          } catch {}
+        }
         return entry;
       };
 
-      // イベント
-      room.on('trackSubscribed', async (track, pub, participant) => {
+      /* ====== Events ====== */
+      room.on('trackSubscribed', (track, pub, participant) => {
         const entry = ensureCard(participant);
         if (track.kind === 'video') {
           entry.meta.publication = pub;
           try {
             track.attach(entry.meta.videoEl);
-            await entry.meta.videoEl.play().catch(() => {});
+            ensurePlaying(entry.meta.videoEl);
             computeAspectMeta(entry);
-            relayout();
+            scheduleRelayout();
           } catch (e) {
             console.warn('[video attach]', e);
           }
@@ -470,21 +491,22 @@ export default function MeetingJoinPage() {
         const entry = cardMapRef.current.get(participant.identity);
         if (!entry) return;
         try { track.detach(); } catch {}
-        relayout();
+        scheduleRelayout();
       });
 
       room.on('participantConnected', (p) => {
         ensureCard(p);
-        relayout();
+        scheduleRelayout();
       });
+
       room.on('participantDisconnected', (p) => {
         const entry = cardMapRef.current.get(p.identity);
         if (entry) {
           entry.wrapper.remove();
           cardMapRef.current.delete(p.identity);
         }
-        if (pinnedId === p.identity) setPinnedId(null);
-        relayout();
+        if (pinnedIdRef.current === p.identity) setPinnedId(null);
+        scheduleRelayout();
       });
 
       room.on('activeSpeakersChanged', (speakers) => {
@@ -493,7 +515,23 @@ export default function MeetingJoinPage() {
           entry.meta.isSpeaking = activeIds.has(entry.meta.id);
           entry.wrapper.classList.toggle('is-speaking', entry.meta.isSpeaking);
         });
-        relayout();
+        scheduleRelayout();
+      });
+
+      // 自分の映像が publish されたら必ず再アタッチ（黒化防止）
+      room.on('localTrackPublished', (pub) => {
+        try {
+          if (pub?.kind === 'video') {
+            const lp = roomRef.current?.localParticipant;
+            if (!lp) return;
+            const selfEntry = cardMapRef.current.get(lp.identity) || ensureCard(lp);
+            localTracksRef.current.video?.attach(selfEntry.meta.videoEl);
+            selfEntry.meta.videoEl.muted = true;
+            ensurePlaying(selfEntry.meta.videoEl);
+            computeAspectMeta(selfEntry);
+            scheduleRelayout();
+          }
+        } catch {}
       });
 
       room.on('mediaDevicesError', (err) => {
@@ -521,13 +559,20 @@ export default function MeetingJoinPage() {
       if (localVideo) {
         try {
           await lp.publishTrack(localVideo);
-          // Speaker時のみPIPにプレビュー（初回）
-          if (viewMode === 'speaker') attachLocalTo(localVideoRef.current);
+          // 自分タイルにも必ずアタッチ（PIPとは別）
+          const selfEntry = ensureCard(lp);
+          try {
+            selfEntry.meta.videoEl.muted = true;
+            selfEntry.meta.videoEl.playsInline = true;
+            selfEntry.meta.videoEl.autoplay = true;
+            localVideo.attach(selfEntry.meta.videoEl);
+            ensurePlaying(selfEntry.meta.videoEl);
+          } catch {}
+          if (viewModeRef.current === 'speaker') attachLocalToPip(localVideoRef.current);
         } catch (e) { console.warn('[video publish]', e); }
       }
 
       setStatus('connected');
-
       setIsMuted(lp.isMicrophoneEnabled ? false : true);
       setIsCamOff(lp.isCameraEnabled ? false : true);
 
@@ -558,25 +603,26 @@ export default function MeetingJoinPage() {
           const entry = (p === lp2) ? ensureCard(lp2) : ensureCard(p);
           if (track.kind === 'video') {
             try { track.attach(entry.meta.videoEl); } catch {}
-            try { entry.meta.videoEl.play(); } catch {}
+            ensurePlaying(entry.meta.videoEl);
             computeAspectMeta(entry);
           }
         }
       }
-      relayout();
+      scheduleRelayout();
     } catch (e) {
       console.error('join failed', e);
       setStatus('error');
     }
   };
 
-  // ピン留めの反映
+  // ピン留めの反映（metaフラグの同期）
   useEffect(() => {
+    const now = pinnedId;
     cardMapRef.current.forEach((entry, id) => {
-      entry.meta.pinned = (pinnedId === id);
+      entry.meta.pinned = (now === id);
       entry.wrapper.classList.toggle('is-pinned', entry.meta.pinned);
     });
-    relayout();
+    scheduleRelayout();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pinnedId, viewMode]);
 
@@ -599,26 +645,21 @@ export default function MeetingJoinPage() {
     if (status !== 'connected') return;
     const grid = remoteGridRef.current;
     if (!grid) return;
-    const ro = new ResizeObserver(() => relayout());
+    const ro = new ResizeObserver(() => scheduleRelayout());
     ro.observe(grid);
-    window.addEventListener('resize', relayout);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', relayout);
-    };
+    return () => ro.disconnect();
   }, [status, viewMode]);
 
-  // ギャラリー⇄スピーカー切替でPIPを確実に再生成
+  // ギャラリー⇄スピーカー切替でPIPを再生成（自分タイルはそのまま）
   useEffect(() => {
     if (status !== 'connected') return;
     if (viewMode === 'speaker' && !selfCentered) {
-      setPipKey(k => k + 1);           // video要素を再マウント
-      setTimeout(() => attachLocalTo(localVideoRef.current), 0);
+      setPipKey((k) => k + 1);
+      setTimeout(() => attachLocalToPip(localVideoRef.current), 0);
     } else {
-      attachLocalTo(null);              // ギャラリーではPIPのみデタッチ（自分タイルはそのまま）
-      // レイアウトが安定した後に再計算
-      requestAnimationFrame(() => requestAnimationFrame(relayout));
+      attachLocalToPip(null);
     }
+    scheduleRelayout();
   }, [viewMode, status, selfCentered]);
 
   // タブ復帰でPIP再生を試行
@@ -637,7 +678,7 @@ export default function MeetingJoinPage() {
       roomRef.current?.disconnect();
     };
     window.addEventListener('beforeunload', onBeforeUnload);
-    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeunload);
   }, []);
 
   // トグル
@@ -656,7 +697,7 @@ export default function MeetingJoinPage() {
     setIsCamOff(!next);
   };
 
-  // ===== UI =====
+  /* ===================== UI ===================== */
   return (
     <>
       {/* 接続前ヘッダー */}
@@ -686,42 +727,42 @@ export default function MeetingJoinPage() {
             <h1 style={styles.hero}>Join the Meeting</h1>
             <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
 
-          <section style={styles.card}>
-            <div style={{ marginBottom: 12 }}>
-              <label htmlFor="name" style={styles.label}>Your name</label>
-              <div>
-                <input
-                  id="name"
-                  className="joinNameInput"
-                  placeholder="user name"
-                  value={name}
-                  onChange={(e) => {
-                    const v = e.target.value;
-                    setName(v);
-                    try { localStorage.setItem(LAST_JOIN_NAME_KEY, v); } catch {}
-                  }}
-                  style={styles.inputUnderline}
-                />
-                <div style={styles.inputBorder} />
+            <section style={styles.card}>
+              <div style={{ marginBottom: 12 }}>
+                <label htmlFor="name" style={styles.label}>Your name</label>
+                <div>
+                  <input
+                    id="name"
+                    className="joinNameInput"
+                    placeholder="user name"
+                    value={name}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      setName(v);
+                      try { localStorage.setItem(LAST_JOIN_NAME_KEY, v); } catch {}
+                    }}
+                    style={styles.inputUnderline}
+                  />
+                  <div style={styles.inputBorder} />
+                </div>
               </div>
-            </div>
 
-            <div style={styles.center}>
-              <button
-                onClick={join}
-                disabled={status === 'loading' || !meeting}
-                style={merge(styles.btnBase, styles.btnJoin, (status === 'loading' || !meeting) && styles.btnDisabled)}
-              >
-                {status === 'loading' ? 'Joining…' : 'Join'}
-              </button>
-            </div>
-
-            {deviceHint && (
-              <div style={{ marginTop: 12, whiteSpace: 'pre-wrap', fontSize: 12, color: '#6b7280' }}>
-                {deviceHint}
+              <div style={styles.center}>
+                <button
+                  onClick={join}
+                  disabled={status === 'loading' || !meeting}
+                  style={merge(styles.btnBase, styles.btnJoin, (status === 'loading' || !meeting) && styles.btnDisabled)}
+                >
+                  {status === 'loading' ? 'Joining…' : 'Join'}
+                </button>
               </div>
-            )}
-          </section>
+
+              {deviceHint && (
+                <div style={{ marginTop: 12, whiteSpace: 'pre-wrap', fontSize: 12, color: '#6b7280' }}>
+                  {deviceHint}
+                </div>
+              )}
+            </section>
           </div>
         </main>
       )}
@@ -729,7 +770,6 @@ export default function MeetingJoinPage() {
       {/* 接続後ステージ */}
       {status === 'connected' && (
         <div
-          ref={stageRef}
           style={{
             ...styles.stage,
             paddingTop: selfCentered ? 12 : 196, // 上PIP分の余白（自分だけの時は最小）
@@ -756,7 +796,7 @@ export default function MeetingJoinPage() {
           {/* 自分PIP：Speaker時のみ表示（Galleryでは出さない） */}
           {viewMode === 'speaker' && !selfCentered && (
             <video
-              key={pipKey}                 // 再マウントでfreeze回避
+              key={pipKey}
               ref={localVideoRef}
               style={styles.selfPreviewTopCenter}
               muted
