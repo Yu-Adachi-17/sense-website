@@ -788,16 +788,18 @@ const styles = {
     fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif',
   },
   wrap: { width: '100%', maxWidth: 620 },
-  hero: {
-    margin: '8px 0 8px',
+    hero: {
+    margin: '8px 0 20px',        // ▼ 下マージンを拡大
     textAlign: 'center',
     fontSize: 44,
     fontWeight: 900,
-    lineHeight: 1.05,
+    lineHeight: 1.18,            // ▼ 行間をゆったりに（gのディセンダ対策）
     letterSpacing: 0.2,
-    fontStyle: 'italic', // ★ イタリック
-    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #093dcdff 100%)',
+    fontStyle: 'italic',
+    display: 'inline-block',     // ▼ ブロック化で描画の切れを防止
+    paddingBottom: 6,            // ▼ 下側に余白を追加（切れ防止＆下要素との間隔）
     WebkitBackgroundClip: 'text',
+    background: 'linear-gradient(135deg, #093dcdff 100%, #2563eb 45%, #38bdf8 0%)',
     backgroundClip: 'text',
     color: 'transparent',
   },
