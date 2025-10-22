@@ -452,7 +452,8 @@ export default function MeetingJoinPage() {
     const ro = new ResizeObserver(() => scheduleRelayout());
     ro.observe(grid);
     return () => ro.disconnect();
-  }, [status]); // eslint-disable-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status]);
 
   // ページ切替時
   useEffect(() => { scheduleRelayout(); }, [page, pageCap]);
@@ -550,7 +551,7 @@ export default function MeetingJoinPage() {
       {status !== 'connected' && (
         <main style={styles.main}>
           <div style={styles.wrap}>
-            {/* Online 改行 Meeting（イタリック） */}
+            {/* ▼ 変更：見出しを Online 改行 Meeting、イタリック */}
             <h1 style={styles.hero}>
               <em>Online<br />Meeting</em>
             </h1>
@@ -572,6 +573,7 @@ export default function MeetingJoinPage() {
                     }}
                     style={styles.inputUnderline}
                   />
+                  {/* 下線は残す（四角枠は作らない） */}
                   <div style={styles.inputBorder} />
                 </div>
               </div>
@@ -604,7 +606,9 @@ export default function MeetingJoinPage() {
       {/* 接続後：ギャラリー均等割 */}
       {status === 'connected' && (
         <div style={styles.stage}>
+          {/* ヘッダー（右：ハンバーガー） */}
           <div style={styles.stageHeader}>
+            {/* 左側は空（"Gallery" 見出しは削除） */}
             <div />
             <div style={{ marginLeft: 'auto' }}>
               <button
@@ -617,8 +621,10 @@ export default function MeetingJoinPage() {
             </div>
           </div>
 
+          {/* グリッド（均等割） */}
           <div ref={gridRef} style={styles.galleryGrid} />
 
+          {/* ページング */}
           {pages > 1 && (
             <div style={styles.pager}>
               <button
@@ -639,6 +645,7 @@ export default function MeetingJoinPage() {
             </div>
           )}
 
+          {/* ブロッカー解除 */}
           {needAudioStart && (
             <button
               onClick={() => roomRef.current?.startAudio().then(() => setNeedAudioStart(false)).catch(()=>{})}
@@ -656,6 +663,7 @@ export default function MeetingJoinPage() {
         </p>
       )}
 
+      {/* === 一時拡大オーバーレイ === */}
       {focusId && (
         <div style={styles.overlay} onClick={() => setFocusId(null)}>
           <div style={styles.overlayInner} onClick={(e) => e.stopPropagation()}>
@@ -665,6 +673,7 @@ export default function MeetingJoinPage() {
         </div>
       )}
 
+      {/* === SideMenu（Purchase / index のトーンを踏襲） === */}
       <div
         style={{
           ...styles.sideMenuOverlay,
@@ -709,6 +718,7 @@ export default function MeetingJoinPage() {
         </div>
       </div>
 
+      {/* 追加CSS */}
       <style jsx global>{`
         .lk-card { position: relative; aspect-ratio: 16/9; background:#000; border-radius:12px; overflow:hidden; border:1px solid #1b1b1b; cursor: default; }
         .lk-videoWrap { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#000; }
@@ -721,6 +731,7 @@ export default function MeetingJoinPage() {
         .lk-pin { position:absolute; right:8px; top:8px; font-size:12px; background:rgba(0,0,0,.55); color:#fff; border:1px solid #444; padding:3px 6px; border-radius:6px; cursor:pointer; }
         .lk-card.is-speaking { outline: 2px solid #facc15; outline-offset:-2px; box-shadow: 0 0 0 2px rgba(250, 204, 21, .15) inset; }
 
+        /* 入力欄の四角枠を完全に排除（ブラウザデフォルトも潰す） */
         .joinNameInput { border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; }
         .joinNameInput::placeholder { color: rgba(107, 114, 128, 0.7); }
       `}</style>
@@ -776,8 +787,8 @@ const styles = {
     background: '#ffffff',
     fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif',
   },
-  wrap: { width: '100%', maxWidth: 620 },
-  hero: {
+  wrap: { width: '100%', maxWidth: 620, margin: '0 auto' },
+    hero: {
     margin: '8px 0 20px',        // ▼ 下マージンを拡大
     textAlign: 'center',
     fontSize: 44,
@@ -788,16 +799,18 @@ const styles = {
     display: 'inline-block',     // ▼ ブロック化で描画の切れを防止
     paddingBottom: 6,            // ▼ 下側に余白を追加（切れ防止＆下要素との間隔）
     WebkitBackgroundClip: 'text',
-    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #0b1a45 100%)',
+    background: 'linear-gradient(135deg, #093dcdff 100%, #2563eb 45%, #38bdf8 0%)',
     backgroundClip: 'text',
     color: 'transparent',
   },
   subtitle: { margin: 0, textAlign: 'center', fontSize: 16, fontWeight: 700, color: '#111827' },
   card: {
-    marginTop: 18,
+    marginTop: 14,
     padding: 16,
     borderRadius: 16,
     background: '#ffffff',
+    // 「user name / join を囲む四角枠」ではないので card の枠線は外観維持したい場合は無くてもOK
+    // border: '1px solid rgba(0,0,0,0.08)',
   },
   label: { fontSize: 12, opacity: 0.8, marginBottom: 4 },
   inputUnderline: {
@@ -815,7 +828,7 @@ const styles = {
     width: '70%',
     padding: '12px 16px',
     borderRadius: 22,
-    border: 'none',
+    border: 'none', // ★ Join の薄い四角枠を撤去
     fontWeight: 700,
     background: '#fff',
     cursor: 'pointer',
@@ -934,7 +947,7 @@ const styles = {
     fontSize: 18,
   },
 
-  // SideMenu
+  // SideMenu（参考のPurchase / index トーン）
   sideMenuOverlay: {
     position: 'fixed',
     inset: 0,
