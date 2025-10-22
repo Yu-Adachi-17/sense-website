@@ -801,9 +801,10 @@ const styles = {
     marginRight: 'auto',
     paddingBottom: 6,
     WebkitBackgroundClip: 'text',
-    background: 'linear-gradient(135deg, #093dcdff 100%, #2563eb 45%, #38bdf8 0%)',
-    backgroundClip: 'text',
-    color: 'transparent',
+background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #093dcd 100%)',
+WebkitBackgroundClip: 'text',
+backgroundClip: 'text',
+color: 'transparent',
   },
 
   subtitle: { margin: 0, textAlign: 'center', fontSize: 16, fontWeight: 700, color: '#111827' },
