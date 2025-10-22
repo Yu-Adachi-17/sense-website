@@ -788,21 +788,24 @@ const styles = {
     fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif',
   },
   wrap: { width: '100%', maxWidth: 620, margin: '0 auto' },
-    hero: {
-    margin: '8px 0 8px',        // ▼ 下マージンを拡大
+  hero: {
+    margin: '8px 0 20px',
     textAlign: 'center',
     fontSize: 44,
     fontWeight: 900,
-    lineHeight: 1.18,            // ▼ 行間をゆったりに（gのディセンダ対策）
+    lineHeight: 1.18,
     letterSpacing: 0.2,
     fontStyle: 'italic',
-    display: 'inline-block',     // ▼ ブロック化で描画の切れを防止
-    paddingBottom: 6,            // ▼ 下側に余白を追加（切れ防止＆下要素との間隔）
+    display: 'block',           // ← 中央揃えに変更
+    marginLeft: 'auto',         // ← 左右中央揃え
+    marginRight: 'auto',
+    paddingBottom: 6,
     WebkitBackgroundClip: 'text',
     background: 'linear-gradient(135deg, #093dcdff 100%, #2563eb 45%, #38bdf8 0%)',
     backgroundClip: 'text',
     color: 'transparent',
   },
+
   subtitle: { margin: 0, textAlign: 'center', fontSize: 16, fontWeight: 700, color: '#111827' },
   card: {
     marginTop: 14,
