@@ -789,7 +789,7 @@ const styles = {
   },
   wrap: { width: '100%', maxWidth: 620, margin: '0 auto' },
     hero: {
-    margin: '8px 0 20px',        // ▼ 下マージンを拡大
+    margin: '8px 0 8px',        // ▼ 下マージンを拡大
     textAlign: 'center',
     fontSize: 44,
     fontWeight: 900,
