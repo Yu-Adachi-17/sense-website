@@ -523,6 +523,7 @@ export default function MeetingJoinPage() {
   /* ===================== UI ===================== */
   const entriesCount = cardMapRef.current.size;
   const pages = Math.max(1, Math.ceil(entriesCount / pageCap));
+  const isJoinDisabled = status === 'loading' || !meeting || !(name && name.trim());
 
   return (
     <>
@@ -550,7 +551,10 @@ export default function MeetingJoinPage() {
       {status !== 'connected' && (
         <main style={styles.main}>
           <div style={styles.wrap}>
-            <h1 style={styles.hero}>Join the Meeting</h1>
+            {/* ▼ 変更：見出しを Online 改行 Meeting、イタリック */}
+            <h1 style={styles.hero}>
+              <em>Online<br />Meeting</em>
+            </h1>
             <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
 
             <section style={styles.card}>
@@ -569,6 +573,7 @@ export default function MeetingJoinPage() {
                     }}
                     style={styles.inputUnderline}
                   />
+                  {/* 下線は残す（四角枠は作らない） */}
                   <div style={styles.inputBorder} />
                 </div>
               </div>
@@ -576,8 +581,13 @@ export default function MeetingJoinPage() {
               <div style={styles.center}>
                 <button
                   onClick={join}
-                  disabled={status === 'loading' || !meeting}
-                  style={merge(styles.btnBase, styles.btnJoin, (status === 'loading' || !meeting) && styles.btnDisabled)}
+                  disabled={isJoinDisabled}
+                  aria-disabled={isJoinDisabled}
+                  style={merge(
+                    styles.btnBase,
+                    styles.btnJoin,
+                    isJoinDisabled && styles.btnDisabled
+                  )}
                 >
                   {status === 'loading' ? 'Joining…' : 'Join'}
                 </button>
@@ -721,6 +731,8 @@ export default function MeetingJoinPage() {
         .lk-pin { position:absolute; right:8px; top:8px; font-size:12px; background:rgba(0,0,0,.55); color:#fff; border:1px solid #444; padding:3px 6px; border-radius:6px; cursor:pointer; }
         .lk-card.is-speaking { outline: 2px solid #facc15; outline-offset:-2px; box-shadow: 0 0 0 2px rgba(250, 204, 21, .15) inset; }
 
+        /* 入力欄の四角枠を完全に排除（ブラウザデフォルトも潰す） */
+        .joinNameInput { border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; }
         .joinNameInput::placeholder { color: rgba(107, 114, 128, 0.7); }
       `}</style>
     </>
@@ -783,7 +795,8 @@ const styles = {
     fontWeight: 900,
     lineHeight: 1.05,
     letterSpacing: 0.2,
-    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #0b1a45 100%)',
+    fontStyle: 'italic', // ★ イタリック
+    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #093dcdff 100%)',
     WebkitBackgroundClip: 'text',
     backgroundClip: 'text',
     color: 'transparent',
@@ -792,9 +805,10 @@ const styles = {
   card: {
     marginTop: 14,
     padding: 16,
-    border: '1px solid rgba(0,0,0,0.08)',
     borderRadius: 16,
     background: '#ffffff',
+    // 「user name / join を囲む四角枠」ではないので card の枠線は外観維持したい場合は無くてもOK
+    // border: '1px solid rgba(0,0,0,0.08)',
   },
   label: { fontSize: 12, opacity: 0.8, marginBottom: 4 },
   inputUnderline: {
@@ -812,7 +826,7 @@ const styles = {
     width: '70%',
     padding: '12px 16px',
     borderRadius: 22,
-    border: '1px solid rgba(0,0,0,0.08)',
+    border: 'none', // ★ Join の薄い四角枠を撤去
     fontWeight: 700,
     background: '#fff',
     cursor: 'pointer',
@@ -821,7 +835,6 @@ const styles = {
     color: '#fff',
     background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     boxShadow: '0 10px 20px rgba(37,99,235,.25)',
-    border: 'none',
   },
   btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
 
