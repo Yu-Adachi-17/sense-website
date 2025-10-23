@@ -69,8 +69,11 @@ export default function MeetingJoinPage() {
 
   // “ホストです”の明示で救済ボタンを出す（通常UIには出さない）
   const [showHostActions, setShowHostActions] = useState(false);
-  const [isMarkingReady, setIsMarkingReady] = useState(false);
-  const [lastError, setLastError] = useState('');
+const [isMarkingReady, setIsMarkingReady] = useState(false);
+const [lastError, setLastError] = useState('');
+const hostMode = typeof window !== 'undefined'
+  ? new URLSearchParams(window.location.search).get('host') === '1'
+  : false;
 
   // Refs（LiveKit / DOM）
   const roomRef = useRef(null);
@@ -585,78 +588,69 @@ export default function MeetingJoinPage() {
   }
 
   // --- 2) 準備中：通常は説明だけ。ホスト明示時だけ “Mark Ready” を露出
-  if (isPreparing) {
-    return (
-      <main style={styles.main}>
-        <div style={styles.wrap}>
-          <h1 style={styles.hero}><em>Online<br />Meeting</em></h1>
-          <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
+// --- 2) 準備中：通常は説明＋Refreshのみ。?host=1 のときだけ非常導線を出す
+if (isPreparing) {
+  return (
+    <main style={styles.main}>
+      <div style={styles.wrap}>
+        <h1 style={styles.hero}><em>Online<br />Meeting</em></h1>
+        <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
 
-          <section style={styles.card}>
-            <p style={{ fontSize: 16, fontWeight: 700, margin: 0, textAlign: 'center' }}>
-              This meeting is not ready yet. Please ask the host to start the meeting on iOS.
-            </p>
+        <section style={styles.card}>
+          <p style={{ fontSize: 16, fontWeight: 700, margin: 0, textAlign: 'center' }}>
+            This meeting is not ready yet. Please ask the host to start the meeting on iOS.
+          </p>
 
-            <div style={{ marginTop: 14, display: 'flex', justifyContent: 'center' }}>
+          <div style={{ marginTop: 14, display: 'flex', justifyContent: 'center' }}>
+            <button onClick={() => fetchMeetingOnce(id)} style={styles.btnText}>
+              Refresh
+            </button>
+          </div>
+
+          {hostMode && (
+            <div style={{ marginTop: 10, textAlign: 'center' }}>
               <button
-                onClick={() => fetchMeetingOnce(id)}
-                style={styles.btnText}
+                onClick={async () => {
+                  if (!id) return;
+                  setIsMarkingReady(true);
+                  setLastError('');
+                  try {
+                    const r = await fetch(`${API_BASE}/api/meetings/${id}/mark-ready`, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                    });
+                    const j = await r.json();
+                    if (!r.ok || j.error) throw new Error(j.error || `HTTP ${r.status}`);
+                    await fetchMeetingOnce(id);
+                  } catch (e) {
+                    console.error('mark-ready failed', e);
+                    setLastError('Failed to mark ready.');
+                  } finally {
+                    setIsMarkingReady(false);
+                  }
+                }}
+                disabled={isMarkingReady}
+                style={styles.btnJoinSmall}
               >
-                Retry
+                {isMarkingReady ? 'Marking…' : 'Force Ready (debug)'}
               </button>
+              <div style={{ marginTop: 6, fontSize: 12, opacity: 0.7 }}>
+                Visible only with <code>?host=1</code>
+              </div>
             </div>
+          )}
 
-            {/* ノイズを避けるため、ホストだけが押せる導線をワンアクション下に隠す */}
-            {!showHostActions ? (
-              <div style={{ marginTop: 6, textAlign: 'center' }}>
-                <button
-                  onClick={() => setShowHostActions(true)}
-                  style={styles.btnGhost}
-                  aria-label="I'm the host"
-                >
-                  I’m the host
-                </button>
-              </div>
-            ) : (
-              <div style={{ marginTop: 10, textAlign: 'center' }}>
-                <button
-                  onClick={async () => {
-                    if (!id) return;
-                    setIsMarkingReady(true);
-                    setLastError('');
-                    try {
-                      const r = await fetch(`${API_BASE}/api/meetings/${id}/mark-ready`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                      });
-                      const j = await r.json();
-                      if (!r.ok || j.error) throw new Error(j.error || `HTTP ${r.status}`);
-                      await fetchMeetingOnce(id);
-                    } catch (e) {
-                      console.error('mark-ready failed', e);
-                      setLastError('Failed to mark ready.');
-                    } finally {
-                      setIsMarkingReady(false);
-                    }
-                  }}
-                  disabled={isMarkingReady}
-                  style={styles.btnJoinSmall}
-                >
-                  {isMarkingReady ? 'Marking…' : 'Mark Ready (host)'}
-                </button>
-              </div>
-            )}
+          {lastError && (
+            <div style={{ marginTop: 10, color: '#b91c1c', textAlign: 'center', fontSize: 12 }}>
+              {lastError}
+            </div>
+          )}
+        </section>
+      </div>
+    </main>
+  );
+}
 
-            {lastError && (
-              <div style={{ marginTop: 10, color: '#b91c1c', textAlign: 'center', fontSize: 12 }}>
-                {lastError}
-              </div>
-            )}
-          </section>
-        </div>
-      </main>
-    );
-  }
 
   // --- 3) 通常：入室 UI（state === 'ready'）
   const entriesCount = cardMapRef.current.size;
