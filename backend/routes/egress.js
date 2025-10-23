@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 // routes/egress.js
+/* eslint-disable no-console */
 // ------------------------------------------------------
 // LiveKit Egress 操作用エンドポイント群（堅牢化版）
 //
@@ -9,11 +9,15 @@
 // - 複数同時Egressがあっても最新を停止（all=trueで全停止）
 // - listEgress() の結果は Cloud 全件→ルームで絞り込み
 // - インメモリ記録（egressStore）は補助。実態は LiveKit で照合
+// - /egress/finishRoom を追加：ホストFinish時に「ensure再起動ブロック＋停止＋完了待ち」
 // ------------------------------------------------------
 
 const express = require('express');
 const router = express.Router();
 const { EgressClient } = require('livekit-server-sdk');
+
+// livekit.js で export している finishedRooms を参照
+const { finishedRooms } = require('./livekit');
 
 const LIVEKIT_URL = process.env.LIVEKIT_URL;
 const LIVEKIT_API_KEY = process.env.LIVEKIT_API_KEY;
@@ -41,7 +45,7 @@ function cmpDescByStartedAt(a, b) {
 }
 
 async function listByRoom(roomName) {
-  const list = await lk.listEgress(); // Cloudは全件返る → こちらで絞る
+  const list = await lk.listEgress(); // Cloud は全件返る → こちらで絞る
   return (list.items || []).filter((it) => it.roomName === roomName);
 }
 
@@ -67,7 +71,7 @@ router.post('/egress/start', async (req, res) => {
 
     if (!roomName) return res.status(400).json({ error: 'roomName is required' });
 
-    // サービス層は既存のあなたの実装を利用
+    // サービス層は既存の実装を利用
     const { startRoomCompositeEgress } = require('../services/livekitEgress');
     const { egressId } = await startRoomCompositeEgress({
       roomName, mode, layout, prefix, audioFormat,
@@ -120,8 +124,8 @@ router.get('/egress/active', async (req, res) => {
 // - all=false（既定）なら「最新の1件だけ」停止
 //
 // ★堅牢化ポイント:
-//  - ACTIVE/STARTING が無くても、直近が ENDING/COMPLETE なら 200 で成功扱い
-//  - それ以外で見つからなければ 409（互換性のため）
+//  - ACTIVE/STARTING が無くても、直近が ENDING/COMPLETE なら 200（alreadyComplete=true）で成功扱い
+//  - それ以外で見つからなければ 409（互換のため）
 // ------------------------------------------------------
 router.post('/egress/stop', async (req, res) => {
   try {
@@ -151,7 +155,6 @@ router.post('/egress/stop', async (req, res) => {
     }
 
     if (targetIds.length === 0) {
-      // 以前は 400/409 を返していたかも。ここは互換のため 409 のままにしておく
       return res.status(409).json({ error: 'no active egress for the room' });
     }
 
@@ -182,8 +185,66 @@ router.post('/egress/stop', async (req, res) => {
 });
 
 // ------------------------------------------------------
+// POST /api/egress/finishRoom
+// body: { roomName: string }
+// 動作:
+//  1) その部屋を「終了扱い」にして、以降の /token で ensure を走らせない
+//  2) STARTING/ACTIVE/ENDING の egress を全停止
+//  3) EGRESS_COMPLETE / EGRESS_FAILED になるまでポーリング（最大60秒）
+//  4) fileResults を返す（S3キー取得用）
+// ------------------------------------------------------
+const POLL_MS = 1500;
+const POLL_TIMEOUT_MS = 60_000;
+
+router.post('/egress/finishRoom', async (req, res) => {
+  try {
+    const { roomName } = req.body || {};
+    if (!roomName) return res.status(400).json({ error: 'roomName required' });
+
+    // ① 今後の ensure をブロック
+    finishedRooms.set(roomName, true);
+
+    // ② STARTING/ACTIVE/ENDING を全停止
+    const allByRoom = await listByRoom(roomName);
+    const live = allByRoom.filter(it => isActiveStatus(it.status)).sort(cmpDescByStartedAt);
+    for (const it of live) {
+      try { await lk.stopEgress(it.egressId); } catch (e) {
+        console.warn('[finishRoom] stop failed', it.egressId, e?.message || e);
+      }
+    }
+
+    // ③ COMPLETE/FAILED までポーリング（WebHook 非依存）
+    const startAt = Date.now();
+    let finalItem = null;
+    while (Date.now() - startAt < POLL_TIMEOUT_MS) {
+      const items = await listByRoom(roomName);
+      const newest = [...items].sort(cmpDescByStartedAt)[0];
+      if (newest && (newest.status === 'EGRESS_COMPLETE' || newest.status === 'EGRESS_FAILED')) {
+        finalItem = newest;
+        break;
+      }
+      await new Promise(r => setTimeout(r, POLL_MS));
+    }
+
+    if (!finalItem) {
+      return res.status(202).json({ ok: true, pending: true, message: 'egress still finalizing' });
+    }
+
+    return res.json({
+      ok: true,
+      pending: false,
+      status: finalItem.status,
+      fileResults: finalItem.fileResults || null,
+    });
+  } catch (e) {
+    console.error('[egress/finishRoom] error', e);
+    res.status(500).json({ error: 'finishRoom failed', details: String(e?.message || e) });
+  }
+});
+
+// ------------------------------------------------------
 // GET /api/egress/status?roomName=...
-// インメモリの記録 + LiveKit 実勢を返す
+// インメモリ記録 + LiveKit 実勢を返す
 // ------------------------------------------------------
 router.get('/egress/status', async (req, res) => {
   try {
@@ -211,5 +272,4 @@ router.get('/egress/status', async (req, res) => {
   }
 });
 
-// ------------------------------------------------------
 module.exports = router;
