@@ -1,4 +1,9 @@
 // pages/m/[id].js
+// ─────────────────────────────────────────────────────
+// 参加ページ。会議が "ready" になるまで 404/準備中を吸収して自動待機し、
+// Join を無効化。最大20sでタイムアウト表示。
+// LiveKit 接続処理は既存そのまま。
+// ─────────────────────────────────────────────────────
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -48,6 +53,8 @@ export default function MeetingJoinPage() {
 
   // ===== State =====
   const [meeting, setMeeting] = useState(null);
+  const [meetingState, setMeetingState] = useState('preparing'); // preparing | ready | ended
+  const [prepareHint, setPrepareHint] = useState('');
   const [name, setName] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | connected | error
   const [needAudioStart, setNeedAudioStart] = useState(false);
@@ -83,20 +90,56 @@ export default function MeetingJoinPage() {
     } catch {}
   }, []);
 
-  // ===== 会議情報取得 =====
+  // ===== 会議情報取得（ready まで自動リトライ） =====
   useEffect(() => {
     if (!id) return;
+    let abort = false;
+
     (async () => {
-      try {
-        const res = await fetch(`${API_BASE}/api/meetings/${id}`);
-        const json = await res.json();
-        if (json.error) throw new Error(json.error);
-        setMeeting(json);
-      } catch (e) {
-        console.error('fetch meeting failed', e);
-        setStatus('error');
+      let attempt = 0;
+      const started = Date.now();
+
+      while (!abort) {
+        attempt++;
+        try {
+          const r = await fetch(`${API_BASE}/api/meetings/${id}`, { cache: 'no-store' });
+          if (r.status === 404) throw new Error('not_found');
+
+          const json = await r.json();
+          if (json.error) throw new Error(json.error);
+
+          setMeeting(json);
+          const st = json.state || 'ready';
+          setMeetingState(st);
+
+          if (st === 'ready') {
+            setPrepareHint('');
+            return; // 完了
+          } else if (st === 'ended') {
+            setPrepareHint('This meeting has already ended.');
+            return;
+          } else {
+            setPrepareHint('This meeting is being prepared…');
+          }
+        } catch (e) {
+          // 404 or 一時的エラー → 準備中とみなして待機
+          setPrepareHint('This meeting is being prepared…');
+        }
+
+        // タイムアウト（20s）
+        if (Date.now() - started > 20000) {
+          setStatus('error');
+          setPrepareHint('This meeting is not ready yet. Please ask the host to start the meeting on iOS.');
+          return;
+        }
+
+        // 指数バックオフ: 200ms → 1.6x（上限 1600ms）
+        const wait = Math.min(1600, 200 * Math.pow(1.6, attempt));
+        await new Promise(r => setTimeout(r, wait));
       }
     })();
+
+    return () => { abort = true; };
   }, [id]);
 
   // ===== DOM掃除・解放 =====
@@ -523,7 +566,8 @@ export default function MeetingJoinPage() {
   /* ===================== UI ===================== */
   const entriesCount = cardMapRef.current.size;
   const pages = Math.max(1, Math.ceil(entriesCount / pageCap));
-  const isJoinDisabled = status === 'loading' || !meeting || !(name && name.trim());
+  const isJoinDisabled =
+    status === 'loading' || !meeting || !(name && name.trim()) || meetingState !== 'ready';
 
   return (
     <>
@@ -551,7 +595,6 @@ export default function MeetingJoinPage() {
       {status !== 'connected' && (
         <main style={styles.main}>
           <div style={styles.wrap}>
-            {/* ▼ 変更：見出しを Online 改行 Meeting、イタリック */}
             <h1 style={styles.hero}>
               <em>Online<br />Meeting</em>
             </h1>
@@ -573,7 +616,6 @@ export default function MeetingJoinPage() {
                     }}
                     style={styles.inputUnderline}
                   />
-                  {/* 下線は残す（四角枠は作らない） */}
                   <div style={styles.inputBorder} />
                 </div>
               </div>
@@ -593,6 +635,14 @@ export default function MeetingJoinPage() {
                 </button>
               </div>
 
+              {/* 準備中/終了メッセージ */}
+              {prepareHint && meetingState !== 'ready' && (
+                <div style={{ marginTop: 12, fontSize: 12, color: '#6b7280' }}>
+                  {prepareHint}
+                </div>
+              )}
+
+              {/* デバイスヒント */}
               {deviceHint && (
                 <div style={{ marginTop: 12, whiteSpace: 'pre-wrap', fontSize: 12, color: '#6b7280' }}>
                   {deviceHint}
@@ -608,7 +658,6 @@ export default function MeetingJoinPage() {
         <div style={styles.stage}>
           {/* ヘッダー（右：ハンバーガー） */}
           <div style={styles.stageHeader}>
-            {/* 左側は空（"Gallery" 見出しは削除） */}
             <div />
             <div style={{ marginLeft: 'auto' }}>
               <button
@@ -731,7 +780,6 @@ export default function MeetingJoinPage() {
         .lk-pin { position:absolute; right:8px; top:8px; font-size:12px; background:rgba(0,0,0,.55); color:#fff; border:1px solid #444; padding:3px 6px; border-radius:6px; cursor:pointer; }
         .lk-card.is-speaking { outline: 2px solid #facc15; outline-offset:-2px; box-shadow: 0 0 0 2px rgba(250, 204, 21, .15) inset; }
 
-        /* 入力欄の四角枠を完全に排除（ブラウザデフォルトも潰す） */
         .joinNameInput { border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; }
         .joinNameInput::placeholder { color: rgba(107, 114, 128, 0.7); }
       `}</style>
@@ -796,15 +844,14 @@ const styles = {
     lineHeight: 1.18,
     letterSpacing: 0.2,
     fontStyle: 'italic',
-    display: 'block',           // ← 中央揃えに変更
-    marginLeft: 'auto',         // ← 左右中央揃え
+    display: 'block',
+    marginLeft: 'auto',
     marginRight: 'auto',
     paddingBottom: 6,
+    background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #093dcd 100%)',
     WebkitBackgroundClip: 'text',
-background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #093dcd 100%)',
-WebkitBackgroundClip: 'text',
-backgroundClip: 'text',
-color: 'transparent',
+    backgroundClip: 'text',
+    color: 'transparent',
   },
 
   subtitle: { margin: 0, textAlign: 'center', fontSize: 16, fontWeight: 700, color: '#111827' },
@@ -813,8 +860,6 @@ color: 'transparent',
     padding: 16,
     borderRadius: 16,
     background: '#ffffff',
-    // 「user name / join を囲む四角枠」ではないので card の枠線は外観維持したい場合は無くてもOK
-    // border: '1px solid rgba(0,0,0,0.08)',
   },
   label: { fontSize: 12, opacity: 0.8, marginBottom: 4 },
   inputUnderline: {
@@ -832,7 +877,7 @@ color: 'transparent',
     width: '70%',
     padding: '12px 16px',
     borderRadius: 22,
-    border: 'none', // ★ Join の薄い四角枠を撤去
+    border: 'none',
     fontWeight: 700,
     background: '#fff',
     cursor: 'pointer',
@@ -951,7 +996,7 @@ color: 'transparent',
     fontSize: 18,
   },
 
-  // SideMenu（参考のPurchase / index トーン）
+  // SideMenu
   sideMenuOverlay: {
     position: 'fixed',
     inset: 0,
