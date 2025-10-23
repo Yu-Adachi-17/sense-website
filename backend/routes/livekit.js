@@ -2,30 +2,26 @@
 /* eslint-disable no-console */
 const express = require('express');
 const { AccessToken } = require('livekit-server-sdk');
-const { ensureAudioEgress } = require('../services/livekitEgress'); // 録音 ensure
+const { ensureAudioEgress } = require('../services/livekitEgress'); // ★ 追加：録音ensure
 
 const router = express.Router();
 
-/**
- * ルームが「ホストのFinishにより終了扱い」になったかどうかを保持する簡易ストア
- * 本番では Redis などに置き換え推奨（TTL付き）
- */
-const finishedRooms = new Map();
-// ★ server.js からは router をミドルウェアとして使えるように export しつつ
-//   別ファイルからは finishedRooms を参照できるよう、プロパティで公開する
-router.finishedRooms = finishedRooms;
-
 // 起動時チェック（ログのみ）
-if (!process.env.LIVEKIT_API_KEY || !process.env.LIVEKIT_API_SECRET || !process.env.LIVEKIT_URL) {
+if (
+  !process.env.LIVEKIT_API_KEY ||
+  !process.env.LIVEKIT_API_SECRET ||
+  !process.env.LIVEKIT_URL
+) {
   console.warn(
-    '[LiveKit] Missing env(s): ' +
-      `${!process.env.LIVEKIT_API_KEY ? 'LIVEKIT_API_KEY ' : ''}` +
-      `${!process.env.LIVEKIT_API_SECRET ? 'LIVEKIT_API_SECRET ' : ''}` +
-      `${!process.env.LIVEKIT_URL ? 'LIVEKIT_URL ' : ''}`.trim()
+    `[LiveKit] Missing env(s): ${
+      !process.env.LIVEKIT_API_KEY ? 'LIVEKIT_API_KEY ' : ''
+    }${!process.env.LIVEKIT_API_SECRET ? 'LIVEKIT_API_SECRET ' : ''}${
+      !process.env.LIVEKIT_URL ? 'LIVEKIT_URL ' : ''
+    }`.trim()
   );
 }
 
-// yyyy-mm-dd（UTC）
+// yyyy-mm-dd を返す簡易ヘルパ（UTC基準でOK。タイムゾーンが必要ならここで調整）
 function yyyyMmDd(d = new Date()) {
   return d.toISOString().slice(0, 10);
 }
@@ -38,11 +34,12 @@ function yyyyMmDd(d = new Date()) {
  *   name?: string,
  *   canPublish?: boolean = true,
  *   canSubscribe?: boolean = true,
- *   ensurePrefix?: string  // 省略時は minutes/YYYY-MM-DD/
+ *   // 任意: ensure用の保存先プレフィックスを上書き可能（既定は minutes/YYYY-MM-DD/）
+ *   ensurePrefix?: string
  * }
  *
- * return: { token, wsUrl }
- * side-effect: finishedRooms[roomName] が立っていなければ ensureAudioEgress を非同期起動
+ * 返り値: { token, wsUrl }
+ * 副作用: 裏で ensureAudioEgress({ roomName, prefix }) を非同期実行（録音が未稼働なら起動）
  */
 router.post('/token', async (req, res) => {
   try {
@@ -52,20 +49,24 @@ router.post('/token', async (req, res) => {
       name,
       canPublish = true,
       canSubscribe = true,
-      ensurePrefix, // optional
+      ensurePrefix, // 任意
     } = req.body || {};
 
     if (!roomName || !identity) {
       return res.status(400).json({ error: 'roomName / identity required' });
     }
     if (!process.env.LIVEKIT_API_KEY || !process.env.LIVEKIT_API_SECRET) {
-      return res.status(500).json({ error: 'Server misconfigured: missing API key/secret' });
+      return res
+        .status(500)
+        .json({ error: 'Server misconfigured: missing API key/secret' });
     }
     if (!process.env.LIVEKIT_URL) {
-      return res.status(500).json({ error: 'Server misconfigured: LIVEKIT_URL not set' });
+      return res
+        .status(500)
+        .json({ error: 'Server misconfigured: LIVEKIT_URL not set' });
     }
 
-    // アクセストークン発行（例: 有効期限 2h）
+    // --- アクセストークン発行（JWT、例: 有効期限2h）
     const at = new AccessToken(
       process.env.LIVEKIT_API_KEY,
       process.env.LIVEKIT_API_SECRET,
@@ -76,42 +77,43 @@ router.post('/token', async (req, res) => {
       }
     );
 
+    // 参加権限
     at.addGrant({
       roomJoin: true,
       room: String(roomName),
       canPublish: !!canPublish,
       canSubscribe: !!canSubscribe,
-      // canPublishData: true,
+      // canPublishData: true, // 必要ならON
     });
 
     const token = await at.toJwt();
-    const wsUrl = process.env.LIVEKIT_URL;
+    const wsUrl = process.env.LIVEKIT_URL; // LiveKitのWS URL（既存ポリシーに合わせる）
 
-    // レスポンスを即返す（UX優先）
+    // --- レスポンスは即返す（UX重視）
     res.json({ token, wsUrl });
 
-    // ★ 録音 ensure：Finish 済みの部屋では起動しない
-    if (!finishedRooms.get(roomName)) {
-      const prefix = typeof ensurePrefix === 'string' && ensurePrefix.length > 0
+    // --- ★ 非同期で録音 ensure を起動（awaitしない）
+    // 既定prefix = minutes/YYYY-MM-DD/（UTC日付）。クライアントが ensurePrefix を渡せばそれを優先。
+    const prefix =
+      typeof ensurePrefix === 'string' && ensurePrefix.length > 0
         ? ensurePrefix
         : `minutes/${yyyyMmDd()}/`;
 
-      (async () => {
-        try {
-          const r = await ensureAudioEgress({ roomName: String(roomName), prefix });
-          console.log('[livekit/token.ensureAudioEgress]', roomName, r);
-        } catch (e) {
-          console.error('[livekit/token.ensureAudioEgress] failed', e?.message || e);
-        }
-      })();
-    } else {
-      console.log('[token] ensure skipped because room finished:', roomName);
-    }
-
+    (async () => {
+      try {
+        const r = await ensureAudioEgress({
+          roomName: String(roomName),
+          prefix,
+        });
+        console.log('[livekit/token.ensureAudioEgress]', roomName, r);
+      } catch (e) {
+        console.error('[livekit/token.ensureAudioEgress] failed', e?.message || e);
+      }
+    })();
   } catch (e) {
     console.error('[LiveKit] token generation failed:', e);
     return res.status(500).json({ error: 'token generation failed' });
   }
 });
 
-module.exports = router; // ★ ここは“関数（ミドルウェア）”をそのまま export
+module.exports = router;
