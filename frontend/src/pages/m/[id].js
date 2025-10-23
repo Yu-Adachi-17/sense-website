@@ -1,9 +1,4 @@
 // pages/m/[id].js
-// ─────────────────────────────────────────────────────
-// 参加ページ。会議が "ready" になるまで 404/準備中を吸収して自動待機し、
-// Join を無効化。最大20sでタイムアウト表示。
-// LiveKit 接続処理は既存そのまま。
-// ─────────────────────────────────────────────────────
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -29,7 +24,7 @@ function FixedHeaderPortal({ children }) {
   return <>{children}</>;
 }
 
-// 16:9タイルで (W,H) の枠に N枚 を最大で敷き詰め
+// 16:9
 function computeBestGrid(N, W, H, gap = GRID_GAP, ar = 16 / 9) {
   let best = { cols: 1, rows: N, tileW: W, tileH: Math.floor(W / ar), area: 0 };
   for (let cols = 1; cols <= N; cols++) {
@@ -53,33 +48,26 @@ export default function MeetingJoinPage() {
 
   // ===== State =====
   const [meeting, setMeeting] = useState(null);
-  const [meetingState, setMeetingState] = useState('preparing'); // preparing | ready | ended
-  const [prepareHint, setPrepareHint] = useState('');
   const [name, setName] = useState('');
   const [status, setStatus] = useState('idle'); // idle | loading | connected | error
   const [needAudioStart, setNeedAudioStart] = useState(false);
   const [deviceHint, setDeviceHint] = useState('');
 
-  // 均等割ギャラリーのみ
+  // 「救済ボタン」を出すかどうかの内部判定
+  const [notReadyHits, setNotReadyHits] = useState(0); // ready じゃない取得回数
+  const SHOW_FIX_AFTER = 3; // 3回連続 not-ready で静かに表示
+
+  // 均等割
   const [isMuted, setIsMuted] = useState(false);
   const [isCamOff, setIsCamOff] = useState(false);
-
-  // 一時拡大（オーバーレイ）
   const [focusId, setFocusId] = useState(null);
-
-  // ページング
   const [page, setPage] = useState(0);
-  const [pageCap, setPageCap] = useState(12); // 画面サイズから自動更新
-
-  // SideMenu
+  const [pageCap, setPageCap] = useState(12);
   const [showSideMenu, setShowSideMenu] = useState(false);
 
-  // Refs（LiveKit / DOM）
   const roomRef = useRef(null);
   const gridRef = useRef(null);
   const localTracksRef = useRef({ audio: null, video: null });
-
-  // 参加者カード管理（id -> { wrapper, meta }）
   const cardMapRef = useRef(new Map());
 
   // ===== 前回のユーザー名復元 =====
@@ -90,56 +78,41 @@ export default function MeetingJoinPage() {
     } catch {}
   }, []);
 
-  // ===== 会議情報取得（ready まで自動リトライ） =====
+  // ===== 会議情報取得（ポーリングしつつ静かに観測） =====
   useEffect(() => {
     if (!id) return;
-    let abort = false;
+    let alive = true;
+    let timer = 0;
 
-    (async () => {
-      let attempt = 0;
-      const started = Date.now();
+    const fetchOnce = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/meetings/${id}`);
+        const json = await res.json();
+        if (!alive) return;
 
-      while (!abort) {
-        attempt++;
-        try {
-          const r = await fetch(`${API_BASE}/api/meetings/${id}`, { cache: 'no-store' });
-          if (r.status === 404) throw new Error('not_found');
-
-          const json = await r.json();
-          if (json.error) throw new Error(json.error);
-
+        if (res.ok && json && json.id) {
           setMeeting(json);
-          const st = json.state || 'ready';
-          setMeetingState(st);
-
-          if (st === 'ready') {
-            setPrepareHint('');
-            return; // 完了
-          } else if (st === 'ended') {
-            setPrepareHint('This meeting has already ended.');
-            return;
+          if (json.state === 'ready') {
+            setNotReadyHits(0);
           } else {
-            setPrepareHint('This meeting is being prepared…');
+            setNotReadyHits((n) => n + 1);
           }
-        } catch (e) {
-          // 404 or 一時的エラー → 準備中とみなして待機
-          setPrepareHint('This meeting is being prepared…');
+        } else {
+          // not found 等は救済対象：控えめにカウントだけ上げておく
+          setNotReadyHits((n) => n + 1);
         }
-
-        // タイムアウト（20s）
-        if (Date.now() - started > 20000) {
-          setStatus('error');
-          setPrepareHint('This meeting is not ready yet. Please ask the host to start the meeting on iOS.');
-          return;
-        }
-
-        // 指数バックオフ: 200ms → 1.6x（上限 1600ms）
-        const wait = Math.min(1600, 200 * Math.pow(1.6, attempt));
-        await new Promise(r => setTimeout(r, wait));
+      } catch {
+        setNotReadyHits((n) => n + 1);
+      } finally {
+        // 指数バックオフ（最大 5s）
+        const next = Math.min(5000, 500 * Math.pow(1.6, Math.max(0, notReadyHits - 1)));
+        timer = window.setTimeout(fetchOnce, next);
       }
-    })();
+    };
 
-    return () => { abort = true; };
+    fetchOnce();
+    return () => { alive = false; window.clearTimeout(timer); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   // ===== DOM掃除・解放 =====
@@ -162,7 +135,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // ===== レイアウト & ページング =====
+  // ===== レイアウト =====
   const relayoutRafRef = useRef(0);
   const scheduleRelayout = () => {
     if (relayoutRafRef.current) cancelAnimationFrame(relayoutRafRef.current);
@@ -179,9 +152,7 @@ export default function MeetingJoinPage() {
     const same = wanted.length === current.length && wanted.every((n, i) => n === current[i]);
     if (same) return;
     current.forEach(n => { if (!wanted.includes(n)) parent.removeChild(n); });
-    wanted.forEach(n => {
-      if (n.parentNode !== parent || n !== parent.lastChild) parent.appendChild(n);
-    });
+    wanted.forEach(n => { if (n.parentNode !== parent || n !== parent.lastChild) parent.appendChild(n); });
   }
 
   function ensurePlaying(v) {
@@ -351,7 +322,7 @@ export default function MeetingJoinPage() {
 
         cardMapRef.current.set(id, entry);
 
-        // 自分タイルは即ミュート & attach（黒防止）
+        // 自分タイルは即ミュート & attach
         const lp = roomRef.current?.localParticipant;
         if (lp && id === lp.identity) {
           try {
@@ -374,7 +345,7 @@ export default function MeetingJoinPage() {
           try {
             track.attach(entry.meta.videoEl);
             ensurePlaying(entry.meta.videoEl);
-          } catch (e) {}
+          } catch {}
           scheduleRelayout();
         } else if (track.kind === 'audio') {
           entry.wrapper.classList.toggle('is-muted', false);
@@ -388,17 +359,10 @@ export default function MeetingJoinPage() {
         scheduleRelayout();
       });
 
-      room.on('participantConnected', (p) => {
-        ensureCard(p);
-        scheduleRelayout();
-      });
-
+      room.on('participantConnected', (p) => { ensureCard(p); scheduleRelayout(); });
       room.on('participantDisconnected', (p) => {
         const entry = cardMapRef.current.get(p.identity);
-        if (entry) {
-          entry.wrapper.remove();
-          cardMapRef.current.delete(p.identity);
-        }
+        if (entry) { entry.wrapper.remove(); cardMapRef.current.delete(p.identity); }
         if (focusId === p.identity) setFocusId(null);
         scheduleRelayout();
       });
@@ -411,28 +375,16 @@ export default function MeetingJoinPage() {
         });
       });
 
-      room.on('mediaDevicesError', (err) => {
-        setDeviceHint(err?.error || err?.message || 'Media device error');
-      });
-
-      room.on('disconnected', () => {
-        setStatus('idle');
-        cleanupRemotes();
-      });
-
-      room.on('audioPlaybackChanged', () => {
-        setNeedAudioStart(!room.canPlaybackAudio);
-      });
+      room.on('mediaDevicesError', (err) => setDeviceHint(err?.error || err?.message || 'Media device error'));
+      room.on('disconnected', () => { setStatus('idle'); cleanupRemotes(); });
+      room.on('audioPlaybackChanged', () => setNeedAudioStart(!room.canPlaybackAudio));
 
       // 接続
       await room.connect(wsUrl, token);
 
       // publish
       const lp = room.localParticipant;
-
-      if (localAudio) {
-        try { await lp.publishTrack(localAudio); } catch (e) {}
-      }
+      if (localAudio) { try { await lp.publishTrack(localAudio); } catch {} }
       if (localVideo) {
         try {
           await lp.publishTrack(localVideo);
@@ -445,7 +397,7 @@ export default function MeetingJoinPage() {
             ensurePlaying(selfEntry.meta.videoEl);
             selfEntry.meta.track = localVideo;
           } catch {}
-        } catch (e) {}
+        } catch {}
       }
 
       setStatus('connected');
@@ -487,7 +439,7 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // 画面サイズ変化でレイアウト再計算
+  // 画面サイズ変化
   useEffect(() => {
     if (status !== 'connected') return;
     const grid = gridRef.current;
@@ -501,17 +453,14 @@ export default function MeetingJoinPage() {
   // ページ切替時
   useEffect(() => { scheduleRelayout(); }, [page, pageCap]);
 
-  // ページ離脱時の解放
+  // 離脱時
   useEffect(() => {
-    const onBeforeUnload = () => {
-      hardStopLocal();
-      roomRef.current?.disconnect();
-    };
+    const onBeforeUnload = () => { hardStopLocal(); roomRef.current?.disconnect(); };
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => window.removeEventListener('beforeunload', onBeforeUnload);
   }, []);
 
-  // トグル
+  // mic / cam
   const toggleMic = async () => {
     const lp = roomRef.current?.localParticipant;
     if (!lp) return;
@@ -528,9 +477,8 @@ export default function MeetingJoinPage() {
   };
 
   const leave = async () => {
-    try {
-      await roomRef.current?.disconnect();
-    } finally {
+    try { await roomRef.current?.disconnect(); }
+    finally {
       cleanupRemotes();
       hardStopLocal();
       roomRef.current = null;
@@ -541,33 +489,52 @@ export default function MeetingJoinPage() {
     }
   };
 
-  // オーバーレイ用：対象の track を探して video に attach
+  // オーバーレイ video attach
   const overlayVideoRef = useRef(null);
   useEffect(() => {
-    const id = focusId;
+    const idSel = focusId;
     const v = overlayVideoRef.current;
     if (!v) return;
     try { v.pause(); } catch {}
     v.srcObject = null;
-
-    if (!id) return;
-
-    const entry = cardMapRef.current.get(id);
+    if (!idSel) return;
+    const entry = cardMapRef.current.get(idSel);
     const track = entry?.meta?.track;
     try {
       if (track) {
         track.attach(v);
-        Object.assign(v, { muted: id === roomRef.current?.localParticipant?.identity, playsInline: true, autoplay: true });
+        Object.assign(v, { muted: idSel === roomRef.current?.localParticipant?.identity, playsInline: true, autoplay: true });
         v.play().catch(() => {});
       }
     } catch {}
   }, [focusId]);
 
+  /* ====== Helper: mark-ready ====== */
+  const markReady = async () => {
+    if (!id) return;
+    try {
+      await fetch(`${API_BASE}/api/meetings/${id}/mark-ready`, { method: 'POST' });
+      // すぐ反映
+      const r = await fetch(`${API_BASE}/api/meetings/${id}`);
+      const j = await r.json();
+      if (r.ok) setMeeting(j);
+      setNotReadyHits(0);
+    } catch (e) {
+      // 失敗しても静かに握りつぶす（ノイズにしない）
+    }
+  };
+
   /* ===================== UI ===================== */
   const entriesCount = cardMapRef.current.size;
   const pages = Math.max(1, Math.ceil(entriesCount / pageCap));
   const isJoinDisabled =
-    status === 'loading' || !meeting || !(name && name.trim()) || meetingState !== 'ready';
+    status === 'loading' ||
+    !meeting ||
+    meeting?.state !== 'ready' ||
+    !(name && name.trim());
+
+  const showFixButton =
+    meeting && meeting.state !== 'ready' && notReadyHits >= SHOW_FIX_AFTER;
 
   return (
     <>
@@ -620,6 +587,28 @@ export default function MeetingJoinPage() {
                 </div>
               </div>
 
+              {/* 通常は見せない。not-ready が続いた“時だけ”そっと表示 */}
+              {showFixButton && (
+                <div style={{ marginBottom: 10, textAlign: 'center' }}>
+                  <button
+                    onClick={markReady}
+                    style={{
+                      padding: '8px 12px',
+                      borderRadius: 10,
+                      border: '1px solid rgba(0,0,0,0.1)',
+                      background: '#f8fafc',
+                      fontWeight: 700,
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Enable Join (host already started)
+                  </button>
+                  <div style={{ fontSize: 12, color: '#6b7280', marginTop: 6 }}>
+                    If the host has started on iOS, click to enable joining.
+                  </div>
+                </div>
+              )}
+
               <div style={styles.center}>
                 <button
                   onClick={join}
@@ -635,14 +624,6 @@ export default function MeetingJoinPage() {
                 </button>
               </div>
 
-              {/* 準備中/終了メッセージ */}
-              {prepareHint && meetingState !== 'ready' && (
-                <div style={{ marginTop: 12, fontSize: 12, color: '#6b7280' }}>
-                  {prepareHint}
-                </div>
-              )}
-
-              {/* デバイスヒント */}
               {deviceHint && (
                 <div style={{ marginTop: 12, whiteSpace: 'pre-wrap', fontSize: 12, color: '#6b7280' }}>
                   {deviceHint}
@@ -653,10 +634,9 @@ export default function MeetingJoinPage() {
         </main>
       )}
 
-      {/* 接続後：ギャラリー均等割 */}
+      {/* 接続後：ギャラリー */}
       {status === 'connected' && (
         <div style={styles.stage}>
-          {/* ヘッダー（右：ハンバーガー） */}
           <div style={styles.stageHeader}>
             <div />
             <div style={{ marginLeft: 'auto' }}>
@@ -670,10 +650,8 @@ export default function MeetingJoinPage() {
             </div>
           </div>
 
-          {/* グリッド（均等割） */}
           <div ref={gridRef} style={styles.galleryGrid} />
 
-          {/* ページング */}
           {pages > 1 && (
             <div style={styles.pager}>
               <button
@@ -694,7 +672,6 @@ export default function MeetingJoinPage() {
             </div>
           )}
 
-          {/* ブロッカー解除 */}
           {needAudioStart && (
             <button
               onClick={() => roomRef.current?.startAudio().then(() => setNeedAudioStart(false)).catch(()=>{})}
@@ -712,7 +689,7 @@ export default function MeetingJoinPage() {
         </p>
       )}
 
-      {/* === 一時拡大オーバーレイ === */}
+      {/* 拡大オーバーレイ */}
       {focusId && (
         <div style={styles.overlay} onClick={() => setFocusId(null)}>
           <div style={styles.overlayInner} onClick={(e) => e.stopPropagation()}>
@@ -722,7 +699,7 @@ export default function MeetingJoinPage() {
         </div>
       )}
 
-      {/* === SideMenu（Purchase / index のトーンを踏襲） === */}
+      {/* SideMenu */}
       <div
         style={{
           ...styles.sideMenuOverlay,
@@ -789,258 +766,112 @@ export default function MeetingJoinPage() {
 
 /* ===== Styles ===== */
 const styles = {
-  // Header（接続前）
   top: {
-    position: 'fixed',
-    top: 0, left: 0, right: 0,
-    height: 56,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0 14px',
-    background: '#ffffff',
-    borderBottom: '1px solid rgba(0,0,0,0.06)',
-    zIndex: 100,
+    position: 'fixed', top: 0, left: 0, right: 0,
+    height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+    padding: '0 14px', background: '#ffffff',
+    borderBottom: '1px solid rgba(0,0,0,0.06)', zIndex: 100,
   },
   brand: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: 8,
-    textDecoration: 'none',
-    color: '#111827',
-    fontWeight: 800,
-    letterSpacing: 0.2,
+    display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none',
+    color: '#111827', fontWeight: 800, letterSpacing: 0.2,
   },
   brandIcon: { display: 'inline-grid', placeItems: 'center' },
   brandText: { fontSize: 16.5 },
   nav: { display: 'inline-flex', alignItems: 'center', gap: 8 },
   navLink: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    padding: '8px 10px',
-    borderRadius: 10,
-    border: '1px solid rgba(0,0,0,0.06)',
-    textDecoration: 'none',
-    color: '#111827',
-    fontWeight: 700,
-    background: '#fff',
+    display: 'inline-flex', alignItems: 'center', padding: '8px 10px', borderRadius: 10,
+    border: '1px solid rgba(0,0,0,0.06)', textDecoration: 'none', color: '#111827',
+    fontWeight: 700, background: '#fff',
   },
 
-  // Join
   main: {
-    minHeight: '100svh',
-    display: 'grid',
-    placeItems: 'center',
-    padding: '72px 16px 24px',
-    background: '#ffffff',
+    minHeight: '100svh', display: 'grid', placeItems: 'center',
+    padding: '72px 16px 24px', background: '#ffffff',
     fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif',
   },
   wrap: { width: '100%', maxWidth: 620, margin: '0 auto' },
   hero: {
-    margin: '8px 0 20px',
-    textAlign: 'center',
-    fontSize: 44,
-    fontWeight: 900,
-    lineHeight: 1.18,
-    letterSpacing: 0.2,
-    fontStyle: 'italic',
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    paddingBottom: 6,
+    margin: '8px 0 20px', textAlign: 'center', fontSize: 44, fontWeight: 900,
+    lineHeight: 1.18, letterSpacing: 0.2, fontStyle: 'italic', display: 'block',
+    marginLeft: 'auto', marginRight: 'auto', paddingBottom: 6,
+    WebkitBackgroundClip: 'text',
     background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 45%, #093dcd 100%)',
     WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-    color: 'transparent',
+    backgroundClip: 'text', color: 'transparent',
   },
-
   subtitle: { margin: 0, textAlign: 'center', fontSize: 16, fontWeight: 700, color: '#111827' },
-  card: {
-    marginTop: 14,
-    padding: 16,
-    borderRadius: 16,
-    background: '#ffffff',
-  },
+  card: { marginTop: 14, padding: 16, borderRadius: 16, background: '#ffffff' },
   label: { fontSize: 12, opacity: 0.8, marginBottom: 4 },
   inputUnderline: {
-    width: '100%',
-    border: 'none',
-    outline: 'none',
-    fontSize: 16,
-    padding: '8px 0',
-    color: '#111827',
-    background: 'transparent',
+    width: '100%', border: 'none', outline: 'none', fontSize: 16, padding: '8px 0',
+    color: '#111827', background: 'transparent',
   },
   inputBorder: { height: 1, background: 'rgba(107,114,128,0.38)' },
   center: { display: 'flex', flexDirection: 'column', alignItems: 'center' },
   btnBase: {
-    width: '70%',
-    padding: '12px 16px',
-    borderRadius: 22,
-    border: 'none',
-    fontWeight: 700,
-    background: '#fff',
-    cursor: 'pointer',
+    width: '70%', padding: '12px 16px', borderRadius: 22, border: 'none',
+    fontWeight: 700, background: '#fff', cursor: 'pointer',
   },
   btnJoin: {
-    color: '#fff',
-    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
+    color: '#fff', background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     boxShadow: '0 10px 20px rgba(37,99,235,.25)',
   },
   btnDisabled: { opacity: 0.55, pointerEvents: 'none' },
 
-  // 接続後
   stage: {
-    position: 'relative',
-    marginTop: 12,
-    padding: 12,
-    minHeight: '100svh',
-    background: '#0b0b0b',
-    color: '#fff',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 12,
+    position: 'relative', marginTop: 12, padding: 12, minHeight: '100svh',
+    background: '#0b0b0b', color: '#fff', display: 'flex', flexDirection: 'column', gap: 12,
   },
-  stageHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 12,
-    minHeight: 38,
-  },
+  stageHeader: { display: 'flex', alignItems: 'center', gap: 12, minHeight: 38 },
   hamburgerBtn: {
-    padding: '8px 10px',
-    borderRadius: 10,
-    background: '#222',
-    color: '#fff',
-    border: '1px solid #444',
-    cursor: 'pointer',
+    padding: '8px 10px', borderRadius: 10, background: '#222', color: '#fff',
+    border: '1px solid #444', cursor: 'pointer',
   },
-
-  // ギャラリー
   galleryGrid: {
-    flex: 1,
-    minHeight: 0,
-    display: 'grid',
-    gap: GRID_GAP,
-    alignContent: 'center',
-    justifyContent: 'center',
+    flex: 1, minHeight: 0, display: 'grid', gap: GRID_GAP, alignContent: 'center', justifyContent: 'center',
   },
-
-  // ページャ
   pager: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-    padding: '4px 0 2px',
-    fontSize: 13,
-    color: '#bbb',
+    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
+    padding: '4px 0 2px', fontSize: 13, color: '#bbb',
   },
   pagerBtn: {
-    padding: '6px 10px',
-    borderRadius: 8,
-    background: '#1a1a1a',
-    color: '#fff',
-    border: '1px solid #333',
-    cursor: 'pointer',
+    padding: '6px 10px', borderRadius: 8, background: '#1a1a1a', color: '#fff', border: '1px solid #333', cursor: 'pointer',
   },
-
   floatingBtn: {
-    position: 'absolute',
-    left: 16,
-    bottom: 140,
-    padding: '10px 14px',
-    borderRadius: 10,
-    background: '#4C8DFF',
-    color: '#fff',
-    border: 'none',
-    cursor: 'pointer',
+    position: 'absolute', left: 16, bottom: 140, padding: '10px 14px',
+    borderRadius: 10, background: '#4C8DFF', color: '#fff', border: 'none', cursor: 'pointer',
   },
-
-  // Overlay（拡大）
   overlay: {
-    position: 'fixed',
-    inset: 0,
-    background: 'rgba(0,0,0,.6)',
-    display: 'grid',
-    placeItems: 'center',
-    zIndex: 50,
+    position: 'fixed', inset: 0, background: 'rgba(0,0,0,.6)', display: 'grid',
+    placeItems: 'center', zIndex: 50,
   },
   overlayInner: {
-    position: 'relative',
-    width: 'min(90vw, 1200px)',
-    aspectRatio: '16/9',
-    background: '#000',
-    borderRadius: 14,
-    border: '1px solid #333',
-    overflow: 'hidden',
+    position: 'relative', width: 'min(90vw, 1200px)', aspectRatio: '16/9',
+    background: '#000', borderRadius: 14, border: '1px solid #333', overflow: 'hidden',
     boxShadow: '0 30px 80px rgba(0,0,0,.5)',
   },
-  overlayVideo: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
-    background: '#000',
-  },
+  overlayVideo: { width: '100%', height: '100%', objectFit: 'contain', background: '#000' },
   overlayClose: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    border: '1px solid #444',
-    background: 'rgba(0,0,0,.5)',
-    color: '#fff',
-    cursor: 'pointer',
-    fontSize: 18,
+    position: 'absolute', top: 8, right: 8, width: 36, height: 36, borderRadius: 18,
+    border: '1px solid #444', background: 'rgba(0,0,0,.5)', color: '#fff', cursor: 'pointer', fontSize: 18,
   },
-
-  // SideMenu
   sideMenuOverlay: {
-    position: 'fixed',
-    inset: 0,
-    background: 'rgba(0,0,0,0.45)',
-    zIndex: 1200,
-    transition: 'opacity .28s ease',
+    position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)', zIndex: 1200, transition: 'opacity .28s ease',
   },
   sideMenu: {
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    width: 'min(360px, 80vw)',
-    height: '100%',
-    color: '#fff',
-    padding: 18,
-    boxSizing: 'border-box',
-    display: 'flex',
-    flexDirection: 'column',
+    position: 'fixed', top: 0, right: 0, width: 'min(360px, 80vw)', height: '100%',
+    color: '#fff', padding: 18, boxSizing: 'border-box', display: 'flex', flexDirection: 'column',
     background: 'linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(90,90,90,0.15))',
-    borderLeft: '1px solid rgba(255,255,255,0.08)',
-    backdropFilter: 'blur(6px)',
-    transition: 'transform .28s ease',
+    borderLeft: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(6px)', transition: 'transform .28s ease',
   },
   menuTitle: { margin: '6px 0 12px', fontSize: 14, opacity: .8, fontWeight: 700 },
   menuItem: {
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-    padding: '12px 10px',
-    borderRadius: 10,
-    background: 'rgba(24,24,24,0.85)',
-    border: '1px solid #333',
-    color: '#fff',
-    cursor: 'pointer',
-    marginBottom: 10,
-    textAlign: 'left',
-    fontWeight: 700,
+    display: 'flex', alignItems: 'center', width: '100%', padding: '12px 10px', borderRadius: 10,
+    background: 'rgba(24,24,24,0.85)', border: '1px solid #333', color: '#fff',
+    cursor: 'pointer', marginBottom: 10, textAlign: 'left', fontWeight: 700,
   },
-  leaveBtn: {
-    background: 'linear-gradient(135deg, rgba(120,0,0,0.9), rgba(50,0,0,0.9))',
-    borderColor: '#642',
-  },
+  leaveBtn: { background: 'linear-gradient(135deg, rgba(120,0,0,0.9), rgba(50,0,0,0.9))', borderColor: '#642' },
 };
 
-function merge(...xs) {
-  return Object.assign({}, ...xs.filter(Boolean));
-}
+function merge(...xs) { return Object.assign({}, ...xs.filter(Boolean)); }
