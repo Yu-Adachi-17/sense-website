@@ -17,6 +17,8 @@ const LIVEKIT_URL = process.env.LIVEKIT_URL;
 const LIVEKIT_API_KEY = process.env.LIVEKIT_API_KEY;
 const LIVEKIT_API_SECRET = process.env.LIVEKIT_API_SECRET;
 const livekitWebhookRouter = require('./livekitWebhook');
+const DEFAULT_WAIT_MS = 15_000; // ← 既定で 15 秒だけ待つ
+const POLL_MS = 1200;
 
 if (!LIVEKIT_URL || !LIVEKIT_API_KEY || !LIVEKIT_API_SECRET) {
   console.warn('[egress] LIVEKIT_URL / LIVEKIT_API_KEY / LIVEKIT_API_SECRET が未設定の可能性があります。');
@@ -190,55 +192,60 @@ router.post('/egress/stop', async (req, res) => {
 // 最終確定は webhook の egress_ended / egress_updated を信頼。
 // ------------------------------------------------------
 router.post('/egress/finishRoom', async (req, res) => {
-  const { roomName, all = true } = req.body || {};
-  if (!roomName) return res.status(400).json({ error: 'roomName is required' });
+  try {
+    const { roomName, all = true, waitMs } = req.body || {};
+    if (!roomName) return res.status(400).json({ error: 'roomName is required' });
 
-  // 1) 先に ACK を返す（iOS の -1001 タイムアウト回避）
-  res.json({ ok: true, accepted: true });
+    const waitBudget = Math.max(0, Math.min(Number(waitMs ?? DEFAULT_WAIT_MS), 60_000));
 
-  // 2) 非同期で確実に停止（WebHook 記録 → listEgress の順に止める）
-  (async () => {
+    // 1) Webhook ストアに記録された “最新” を先に停止
+    const primaryId = livekitWebhookRouter.getActiveEgressId(roomName);
+    if (primaryId) {
+      try { await lk.stopEgress(primaryId); } catch (e) { console.warn('[finishRoom] stop primary failed', primaryId, e?.message || e); }
+    }
+
+    // 2) 念のため STARTING/ACTIVE/ENDING を総ざらい停止
     try {
-      // A) WebHook 記録の “最新” を必ず止める
-      const primaryId = livekitWebhookRouter.getActiveEgressId(roomName);
-      if (primaryId) {
-        try {
-          await lk.stopEgress(primaryId);
-          console.log('[finishRoom] stop (from webhook store)', roomName, primaryId);
-        } catch (e) {
-          console.warn('[finishRoom] stop failed (from webhook store)', roomName, primaryId, e?.message || e);
-        }
-      } else {
-        console.log('[finishRoom] no activeId in webhook store', roomName);
-      }
-
-      // B) 念のため “生きてる” の総ざらい停止（保険）
-      try {
-        const list = await lk.listEgress(roomName); // roomNameサーバ側フィルタ（対応SDK）
-        const live = (list.items || []).filter(it =>
-          ['EGRESS_STARTING','EGRESS_ACTIVE','EGRESS_ENDING'].includes(it.status)
-        );
-        const targetIds = all ? live.map(it => it.egressId)
-                              : (live[0]?.egressId ? [live[0].egressId] : []);
-        for (const id of targetIds) {
-          if (id === primaryId) continue; // 重複停止回避
-          try {
-            await lk.stopEgress(id);
-            console.log('[finishRoom] stop (from list)', roomName, id);
-          } catch (e) {
-            console.warn('[finishRoom] stop failed (from list)', roomName, id, e?.message || e);
-          }
-        }
-        if (!primaryId && targetIds.length === 0) {
-          console.log('[finishRoom] nothing to stop', roomName);
-        }
-      } catch (e) {
-        console.warn('[finishRoom] listEgress(roomName) failed', roomName, e?.message || e);
+      const allByRoom = await lk.listEgress(roomName);
+      const live = (allByRoom.items || []).filter(it => isActiveStatus(it.status)).sort(cmpDescByStartedAt);
+      const targetIds = all ? live.map(it => it.egressId) : (live[0]?.egressId ? [live[0].egressId] : []);
+      for (const id of targetIds) {
+        if (id === primaryId) continue;
+        try { await lk.stopEgress(id); } catch (e) { console.warn('[finishRoom] stop failed', id, e?.message || e); }
       }
     } catch (e) {
-      console.error('[finishRoom] unexpected error', e?.message || e);
+      console.warn('[finishRoom] listEgress(roomName) failed', roomName, e?.message || e);
     }
-  })();
+
+    // 3) 短時間だけ “最終化” を待つ（fileResults を返したい）
+    const start = Date.now();
+    let finalItem = null;
+
+    while (Date.now() - start < waitBudget) {
+      const items = await listByRoom(roomName);
+      const newest = [...items].sort(cmpDescByStartedAt)[0];
+      if (newest && (newest.status === 'EGRESS_COMPLETE' || newest.status === 'EGRESS_FAILED')) {
+        finalItem = newest;
+        break;
+      }
+      await new Promise(r => setTimeout(r, POLL_MS));
+    }
+
+    if (!finalItem) {
+      // 時間切れ：クライアントに “pending” を伝える（クライアントはポーリングへ）
+      return res.status(202).json({ ok: true, pending: true, roomName });
+    }
+
+    return res.json({
+      ok: true,
+      pending: false,
+      status: finalItem.status,
+      fileResults: finalItem.fileResults || null,
+    });
+  } catch (e) {
+    console.error('[egress/finishRoom] error', e);
+    return res.status(500).json({ error: 'failed to finish room egress', details: String(e?.message || e) });
+  }
 });
 
 // ------------------------------------------------------
