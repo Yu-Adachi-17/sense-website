@@ -158,6 +158,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// === quick sanity check (should all be 'function') ===
+for (const [name, r] of Object.entries({
+  webhookRouter, appleRouter, zoomAuthRoute, zoomJoinTokenRoute, zoomOAuthExchangeRoute,
+  zoomOAuthCallbackRoute, zoomRecordingRoute, stripeCheckoutRoute, stripeSubscriptionRoute,
+  livekitRouter, meetingsRouter, egressRouter, livekitWebhookRouter, recordingsRouter
+})) {
+  console.log(`[ROUTER] ${name} typeof =`, typeof r);
+}
+
+
 /*==============================================
 =            Router Registration               =
 ==============================================*/
