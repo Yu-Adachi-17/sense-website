@@ -642,7 +642,7 @@ export default function MeetingJoinPage() {
                   disabled={isMarkingReady}
                   style={styles.btnJoinSmall}
                 >
-                  {isMarkingReady ? 'Marking…' : 'Mark Ready (host)'}
+                  {isMarkingReady ? 'Marking…' : 'Mark Ready'}
                 </button>
               </div>
             )}
