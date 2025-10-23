@@ -16,7 +16,7 @@ const express = require('express');
 const router = express.Router();
 const { EgressClient } = require('livekit-server-sdk');
 
-// livekit.js で export している finishedRooms を参照
+// livekit.js（Router関数）に載せた finishedRooms プロパティを参照
 const { finishedRooms } = require('./livekit');
 
 const LIVEKIT_URL = process.env.LIVEKIT_URL;

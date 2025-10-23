@@ -11,7 +11,9 @@ const router = express.Router();
  * 本番では Redis などに置き換え推奨（TTL付き）
  */
 const finishedRooms = new Map();
-module.exports.finishedRooms = finishedRooms;
+// ★ server.js からは router をミドルウェアとして使えるように export しつつ
+//   別ファイルからは finishedRooms を参照できるよう、プロパティで公開する
+router.finishedRooms = finishedRooms;
 
 // 起動時チェック（ログのみ）
 if (!process.env.LIVEKIT_API_KEY || !process.env.LIVEKIT_API_SECRET || !process.env.LIVEKIT_URL) {
@@ -112,4 +114,4 @@ router.post('/token', async (req, res) => {
   }
 });
 
-module.exports.router = router;
+module.exports = router; // ★ ここは“関数（ミドルウェア）”をそのまま export
