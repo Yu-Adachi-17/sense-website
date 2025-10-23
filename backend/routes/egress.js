@@ -9,15 +9,12 @@
 // - 複数同時Egressがあっても最新を停止（all=trueで全停止）
 // - listEgress() の結果は Cloud 全件→ルームで絞り込み
 // - インメモリ記録（egressStore）は補助。実態は LiveKit で照合
-// - /egress/finishRoom を追加：ホストFinish時に「ensure再起動ブロック＋停止＋完了待ち」
+// - /egress/finishRoom は “停止要求を投げて即返す”。確定は webhook の egress_ended で。
 // ------------------------------------------------------
 
 const express = require('express');
 const router = express.Router();
 const { EgressClient } = require('livekit-server-sdk');
-
-// livekit.js（Router関数）に載せた finishedRooms プロパティを参照
-const { finishedRooms } = require('./livekit');
 
 const LIVEKIT_URL = process.env.LIVEKIT_URL;
 const LIVEKIT_API_KEY = process.env.LIVEKIT_API_KEY;
@@ -170,10 +167,10 @@ router.post('/egress/stop', async (req, res) => {
     }
 
     // 補助ストアの current を終了マーク（あるなら）
-    if (roomName && egressStore.get(roomName)?.current) {
-      const cur = egressStore.get(roomName).current;
+    if (req.body.roomName && egressStore.get(req.body.roomName)?.current) {
+      const cur = egressStore.get(req.body.roomName).current;
       if (stopped.includes(cur.egressId)) {
-        egressStore.get(roomName).current.stoppedAt = new Date().toISOString();
+        egressStore.get(req.body.roomName).current.stoppedAt = new Date().toISOString();
       }
     }
 
@@ -186,59 +183,56 @@ router.post('/egress/stop', async (req, res) => {
 
 // ------------------------------------------------------
 // POST /api/egress/finishRoom
-// body: { roomName: string }
-// 動作:
-//  1) その部屋を「終了扱い」にして、以降の /token で ensure を走らせない
-//  2) STARTING/ACTIVE/ENDING の egress を全停止
-//  3) EGRESS_COMPLETE / EGRESS_FAILED になるまでポーリング（最大60秒）
-//  4) fileResults を返す（S3キー取得用）
+// body: { roomName: string, all?: boolean }
+// - 与えられた roomName の “生きている(STARTING/ACTIVE/ENDING)” Egress を停止要求
+// - 完了は待たない（Webhook の egress_ended で最終確定）
+// - ACTIVE 系が無く、直近が ENDING/COMPLETE なら 200 alreadyComplete
 // ------------------------------------------------------
-const POLL_MS = 1500;
-const POLL_TIMEOUT_MS = 60_000;
-
 router.post('/egress/finishRoom', async (req, res) => {
   try {
-    const { roomName } = req.body || {};
-    if (!roomName) return res.status(400).json({ error: 'roomName required' });
+    const { roomName, all = true } = req.body || {};
+    if (!roomName) {
+      return res.status(400).json({ error: 'roomName is required' });
+    }
 
-    // ① 今後の ensure をブロック
-    finishedRooms.set(roomName, true);
-
-    // ② STARTING/ACTIVE/ENDING を全停止
+    // そのルームの Egress を一覧
     const allByRoom = await listByRoom(roomName);
-    const live = allByRoom.filter(it => isActiveStatus(it.status)).sort(cmpDescByStartedAt);
-    for (const it of live) {
-      try { await lk.stopEgress(it.egressId); } catch (e) {
-        console.warn('[finishRoom] stop failed', it.egressId, e?.message || e);
+
+    // まずは「生きている（ENDING含む）」を新しい順で抽出
+    const live = allByRoom.filter((it) => isActiveStatus(it.status)).sort(cmpDescByStartedAt);
+
+    if (live.length === 0) {
+      // ACTIVE/STARTING/ENDING が無い → 直近が ENDING/COMPLETE なら成功扱いで返す
+      const last = [...allByRoom].sort(cmpDescByStartedAt)[0];
+      if (last && (last.status === 'EGRESS_ENDING' || last.status === 'EGRESS_COMPLETE')) {
+        return res.json({ ok: true, alreadyComplete: true, egressId: last.egressId });
       }
+      // 何も無い（録音未開始等）
+      return res.json({ ok: true, alreadyComplete: true });
     }
 
-    // ③ COMPLETE/FAILED までポーリング（WebHook 非依存）
-    const startAt = Date.now();
-    let finalItem = null;
-    while (Date.now() - startAt < POLL_TIMEOUT_MS) {
-      const items = await listByRoom(roomName);
-      const newest = [...items].sort(cmpDescByStartedAt)[0];
-      if (newest && (newest.status === 'EGRESS_COMPLETE' || newest.status === 'EGRESS_FAILED')) {
-        finalItem = newest;
-        break;
-      }
-      await new Promise(r => setTimeout(r, POLL_MS));
-    }
+    // 停止対象: all=true なら全部、false なら最新1件
+    const targetIds = all ? live.map((it) => it.egressId) : [live[0].egressId];
 
-    if (!finalItem) {
-      return res.status(202).json({ ok: true, pending: true, message: 'egress still finalizing' });
-    }
+    // ★ 完了を待たず “要求だけ” 投げてすぐ返す
+    const results = await Promise.all(targetIds.map(async (id) => {
+      try { await lk.stopEgress(id); return { id, ok: true }; }
+      catch (e) { console.warn('[finishRoom] stop failed', id, e?.message || e); return { id, ok: false, error: String(e?.message || e) }; }
+    }));
+
+    const stoppedIds = results.filter(r => r.ok).map(r => r.id);
+    const failed = results.filter(r => !r.ok);
 
     return res.json({
       ok: true,
-      pending: false,
-      status: finalItem.status,
-      fileResults: finalItem.fileResults || null,
+      roomName,
+      stoppedIds,
+      failed,
+      note: 'Stop requested; completion will be notified via webhook (egress_ended).'
     });
   } catch (e) {
     console.error('[egress/finishRoom] error', e);
-    res.status(500).json({ error: 'finishRoom failed', details: String(e?.message || e) });
+    return res.status(500).json({ error: 'failed to finish room egress', details: String(e?.message || e) });
   }
 });
 
