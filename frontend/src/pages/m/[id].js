@@ -83,6 +83,9 @@ export default function MeetingJoinPage() {
   // ★ リモート音声 <audio> 管理（pid -> HTMLAudioElement）
   const audioElsRef = useRef(new Map());
 
+  // ダッキング用タイマー
+  const duckTimerRef = useRef(null);
+
   // ===== 前回のユーザー名復元 =====
   useEffect(() => {
     try {
@@ -111,19 +114,16 @@ export default function MeetingJoinPage() {
     fetchMeetingOnce(id);
     // “準備中”のときだけ数秒おきにポーリング（最大 45 秒）
     let tries = 0;
-    let t = setInterval(async () => {
+    const t = setInterval(async () => {
       tries++;
       if (!id) return;
-      // 既に ended / ready / connected / error なら停止
       const st = meeting?.state;
       if (st === 'ready' || st === 'ended' || status === 'connected' || status === 'error') {
         clearInterval(t);
         return;
       }
       await fetchMeetingOnce(id);
-      if (tries > 15) { // 15回 * 3s = 45s
-        clearInterval(t);
-      }
+      if (tries > 15) clearInterval(t); // 15回 * 3s = 45s
     }, 3000);
     return () => clearInterval(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -242,7 +242,6 @@ export default function MeetingJoinPage() {
       const { token, wsUrl, error } = await fetch(`${API_BASE}/api/livekit/token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        // 可能なら BE 側で meetingId を受けて state=ended をブロックする実装にしておくと更に堅いです
         body: JSON.stringify({
           meetingId: meeting.id,
           roomName: meeting.roomName,
@@ -277,12 +276,16 @@ export default function MeetingJoinPage() {
       });
       roomRef.current = room;
 
-      // ローカルトラック
+      // ローカルトラック（AEC/NS/AGC を明示ON）
       let localAudio = null;
       let localVideo = null;
       try {
         const tracks = await createLocalTracks({
-          audio: true,
+          audio: {
+            echoCancellation: true,
+            noiseSuppression: true,
+            autoGainControl: true,
+          },
           video: { facingMode: 'user', resolution: { width: 1280, height: 720 }, frameRate: 30 },
         });
         for (const t of tracks) {
@@ -296,7 +299,13 @@ export default function MeetingJoinPage() {
           ? MediaDeviceFailure.getFailure(err) : null;
         setDeviceHint(String(failure || err?.message || err));
         try {
-          const onlyAudio = await createLocalTracks({ audio: true });
+          const onlyAudio = await createLocalTracks({
+            audio: {
+              echoCancellation: true,
+              noiseSuppression: true,
+              autoGainControl: true,
+            }
+          });
           localAudio = onlyAudio.find(t => t.kind === 'audio') || null;
           localTracksRef.current.audio = localAudio || null;
           localTracksRef.current.video = null;
@@ -375,6 +384,12 @@ export default function MeetingJoinPage() {
 
       /* ====== Events ====== */
       room.on('trackSubscribed', (track, pub, participant) => {
+        // ループバック安全策：自分の音声は絶対に再生しない
+        const lp = roomRef.current?.localParticipant;
+        if (track.kind === 'audio' && lp && participant.identity === lp.identity) {
+          return;
+        }
+
         const entry = ensureCard(participant);
         if (track.kind === 'video') {
           entry.meta.track = track;
@@ -389,6 +404,8 @@ export default function MeetingJoinPage() {
             const el = track.attach(); // HTMLAudioElement
             el.dataset.pid = participant.identity;
             el.style.display = 'none';
+            el.autoplay = true;
+            el.playsInline = true;
             document.body.appendChild(el);
             audioElsRef.current.set(participant.identity, el);
 
@@ -441,6 +458,18 @@ export default function MeetingJoinPage() {
           entry.meta.isSpeaking = activeIds.has(entry.meta.id);
           entry.wrapper.classList.toggle('is-speaking', entry.meta.isSpeaking);
         });
+
+        // 自分が話している瞬間はリモート音量を一時的に下げる（ダッキング）
+        const lp = roomRef.current?.localParticipant;
+        const iSpeak = lp && activeIds.has(lp.identity);
+        if (iSpeak) {
+          audioElsRef.current.forEach((el) => { try { el.volume = 0.4; } catch {} });
+          if (duckTimerRef.current) clearTimeout(duckTimerRef.current);
+          duckTimerRef.current = setTimeout(() => {
+            audioElsRef.current.forEach((el) => { try { el.volume = 1.0; } catch {} });
+            duckTimerRef.current = null;
+          }, 1000);
+        }
       });
 
       room.on('mediaDevicesError', (err) => {
@@ -521,6 +550,8 @@ export default function MeetingJoinPage() {
                 const el = track.attach();
                 el.dataset.pid = p.identity;
                 el.style.display = 'none';
+                el.autoplay = true;
+                el.playsInline = true;
                 document.body.appendChild(el);
                 audioElsRef.current.set(p.identity, el);
               }
@@ -558,13 +589,8 @@ export default function MeetingJoinPage() {
       cleanupAudioEls();
     };
     window.addEventListener('beforeunload', onBeforeUnload);
-    return () => window.removeEventListener('beforeunload', onBeforeunload_cleanup(onBeforeUnload));
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
   }, []);
-
-  // onBeforeunload を remove するための安全ラッパ（SSR/再評価事故回避）
-  function onBeforeunload_cleanup(handler) {
-    try { return handler; } catch { return () => {}; }
-  }
 
   // トグル
   const toggleMic = async () => {
