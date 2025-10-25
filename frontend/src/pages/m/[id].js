@@ -80,6 +80,9 @@ export default function MeetingJoinPage() {
   // 参加者カード管理（id -> { wrapper, meta }）
   const cardMapRef = useRef(new Map());
 
+  // ★ リモート音声 <audio> 管理（pid -> HTMLAudioElement）
+  const audioElsRef = useRef(new Map());
+
   // ===== 前回のユーザー名復元 =====
   useEffect(() => {
     try {
@@ -130,6 +133,12 @@ export default function MeetingJoinPage() {
   const cleanupRemotes = () => {
     cardMapRef.current.forEach(({ wrapper }) => wrapper.remove());
     cardMapRef.current.clear();
+  };
+  const cleanupAudioEls = () => {
+    audioElsRef.current.forEach((el) => {
+      try { el.remove(); } catch {}
+    });
+    audioElsRef.current.clear();
   };
   const hardStopLocal = () => {
     for (const k of ['audio', 'video']) {
@@ -375,14 +384,35 @@ export default function MeetingJoinPage() {
           } catch (e) {}
           scheduleRelayout();
         } else if (track.kind === 'audio') {
+          try {
+            // attach() で生成される <audio> を保持し、DOM に追加（display:noneでOK）
+            const el = track.attach(); // HTMLAudioElement
+            el.dataset.pid = participant.identity;
+            el.style.display = 'none';
+            document.body.appendChild(el);
+            audioElsRef.current.set(participant.identity, el);
+
+            // Autoplay ブロックに備える
+            if (!roomRef.current?.canPlaybackAudio) setNeedAudioStart(true);
+          } catch {}
           entry.wrapper.classList.toggle('is-muted', false);
         }
       });
 
       room.on('trackUnsubscribed', (track, pub, participant) => {
         const entry = cardMapRef.current.get(participant.identity);
+        if (track.kind === 'audio') {
+          try {
+            const nodes = track.detach();
+            nodes?.forEach((n) => n.remove());
+          } catch {}
+          const el = audioElsRef.current.get(participant.identity);
+          if (el) { try { el.remove(); } catch {} audioElsRef.current.delete(participant.identity); }
+        }
+        if (track.kind === 'video') {
+          try { track.detach(); } catch {}
+        }
         if (!entry) return;
-        try { track.detach(); } catch {}
         scheduleRelayout();
       });
 
@@ -397,6 +427,10 @@ export default function MeetingJoinPage() {
           entry.wrapper.remove();
           cardMapRef.current.delete(p.identity);
         }
+        // audio ノードも掃除
+        const el = audioElsRef.current.get(p.identity);
+        if (el) { try { el.remove(); } catch {} audioElsRef.current.delete(p.identity); }
+
         if (focusId === p.identity) setFocusId(null);
         scheduleRelayout();
       });
@@ -416,6 +450,7 @@ export default function MeetingJoinPage() {
       room.on('disconnected', () => {
         setStatus('idle');
         cleanupRemotes();
+        cleanupAudioEls();
       });
 
       room.on('audioPlaybackChanged', () => {
@@ -424,6 +459,9 @@ export default function MeetingJoinPage() {
 
       // 接続
       await room.connect(wsUrl, token);
+
+      // 可能ならユーザー操作直後に startAudio を試行（自動再生ブロック回避の成功率を上げる）
+      try { await room.startAudio(); } catch {}
 
       // publish
       const lp = room.localParticipant;
@@ -476,6 +514,18 @@ export default function MeetingJoinPage() {
             ensurePlaying(entry.meta.videoEl);
             entry.meta.track = track;
           }
+          if (track?.kind === 'audio') {
+            // すでに購読済みの音声があれば attach（再接続ケース等）
+            try {
+              if (!audioElsRef.current.get(p.identity)) {
+                const el = track.attach();
+                el.dataset.pid = p.identity;
+                el.style.display = 'none';
+                document.body.appendChild(el);
+                audioElsRef.current.set(p.identity, el);
+              }
+            } catch {}
+          }
         }
       }
       scheduleRelayout();
@@ -504,11 +554,17 @@ export default function MeetingJoinPage() {
   useEffect(() => {
     const onBeforeUnload = () => {
       hardStopLocal();
-      roomRef.current?.disconnect();
+      try { roomRef.current?.disconnect(); } catch {}
+      cleanupAudioEls();
     };
     window.addEventListener('beforeunload', onBeforeUnload);
-    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeunload_cleanup(onBeforeUnload));
   }, []);
+
+  // onBeforeunload を remove するための安全ラッパ（SSR/再評価事故回避）
+  function onBeforeunload_cleanup(handler) {
+    try { return handler; } catch { return () => {}; }
+  }
 
   // トグル
   const toggleMic = async () => {
@@ -531,6 +587,7 @@ export default function MeetingJoinPage() {
       await roomRef.current?.disconnect();
     } finally {
       cleanupRemotes();
+      cleanupAudioEls();
       hardStopLocal();
       roomRef.current = null;
       setStatus('idle');
