@@ -1,41 +1,13 @@
 {
-  "seo": {
-    "title": "Minutes.AI now supports Online Meetings (iOS)",
-    "description": "Click “Online” to issue a URL, share it, and start a Zoom-like meeting instantly. Clean minutes are generated automatically when the meeting ends.",
-    "ogTitle": "Online Meetings come to Minutes.AI",
-    "ogDescription": "Start Zoom-like meetings from the “Online” button and get automatic, well-formatted minutes at the end.",
-    "ld": {
-      "headline": "Minutes.AI adds Online Meetings",
-      "description": "Host Zoom-like meetings via an issued URL, then get automatic minutes with clear decisions and actions."
-    }
-  },
+  "seo": { "title": "Minutes.AI now supports Online Meetings (iOS)", "description": "Click \"Online\" to issue a URL, share it, and start a Zoom-like meeting instantly. Clean minutes are generated automatically when the meeting ends.", "ogTitle": "Online Meetings come to Minutes.AI", "ogDescription": "Start Zoom-like meetings from the \"Online\" button and get automatic, well-formatted minutes at the end.", "ld": { "headline": "Minutes.AI adds Online Meetings", "description": "Host Zoom-like meetings via an issued URL, then get automatic minutes with clear decisions and actions." } },
   "aria": { "home": "Minutes.AI Home" },
   "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "hero": {
-    "kicker": "Release Note",
-    "h1": "Online Meetings for Minutes.AI (iOS)",
-    "tagline": "Click “Online”, issue a URL, share it, and you’re in. When you hang up, minutes start generating automatically."
-  },
-  "release": {
-    "h2": "What’s new",
-    "p1": "Minutes.AI now supports Online Meetings. It’s as simple as clicking “Online” to issue a URL and share it to start a Zoom-like call.",
-    "p2": "When the meeting ends, minutes are generated automatically to clearly capture decisions and action items."
-  },
-  "image": { "alt": "Minutes.AI Online Meeting UI", "caption": "Start a Zoom-like meeting from the “Online” button." },
-  "steps": {
-    "h2": "How to start",
-    "items": ["Click “Online” in the app or web", "Issue a meeting URL", "Share the URL with participants", "End the meeting → automatic minutes"],
-    "note": "Meeting duration depends on your plan and remaining quota."
-  },
-  "features": {
-    "h2": "Highlights",
-    "items": ["Zoom-like UX (LiveKit-based)", "One-click URL issuance", "Automatic minutes at end of meeting", "Readable, formatted outputs", "Multilingual for global teams"]
-  },
-  "notes": {
-    "h2": "Notes",
-    "items": ["Duration limits and remaining time depend on your plan/quota", "Network conditions and device settings may affect quality"],
-    "foot": "Try it on web or download the iOS app."
-  },
+  "hero": { "kicker": "Release Note", "h1": "Online Meetings for Minutes.AI (iOS)", "tagline": "Click \"Online\", issue a URL, share it, and you're in. When you hang up, minutes start generating automatically." },
+  "release": { "h2": "What’s new", "p1": "Minutes.AI now supports Online Meetings. It’s as simple as clicking \"Online\" to issue a URL and share it to start a Zoom-like call.", "p2": "When the meeting ends, minutes are generated automatically to clearly capture decisions and action items." },
+  "image": { "alt": "Minutes.AI Online Meeting UI", "caption": "Start a Zoom-like meeting from the \"Online\" button." },
+  "steps": { "h2": "How to start", "items": ["Click \"Online\" in the app or web", "Issue a meeting URL", "Share the URL with participants", "End the meeting → automatic minutes"], "note": "Meeting duration depends on your plan and remaining quota." },
+  "features": { "h2": "Highlights", "items": ["Zoom-like UX (LiveKit-based)", "One-click URL issuance", "Automatic minutes at end of meeting", "Readable, formatted outputs", "Multilingual for global teams"] },
+  "notes": { "h2": "Notes", "items": ["Duration limits and remaining time depend on your plan/quota", "Network conditions and device settings may affect quality"], "foot": "Try it on web or download the iOS app." },
   "meta": { "h2": "Meta", "published": "Published", "type": "Release", "category": "Online Meeting" },
   "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" }
 }
