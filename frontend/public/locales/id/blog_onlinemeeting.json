@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI kini mendukung Rapat Daring (iOS)",
+    "description": "Klik “Online” untuk membuat URL, bagikan, dan mulai rapat ala Zoom seketika. Notulen dibuat otomatis saat rapat berakhir.",
+    "ogTitle": "Rapat Daring di Minutes.AI",
+    "ogDescription": "Mulai dari “Online” dan dapatkan notulen otomatis yang rapi.",
+    "ld": { "headline": "Minutes.AI menambahkan Rapat Daring", "description": "Rapat ala Zoom via URL dan notulen otomatis dengan keputusan serta aksi." }
+  },
+  "aria": { "home": "Beranda Minutes.AI" },
+  "nav": { "blog": "Blog", "onlinemeeting": "Rapat Daring" },
+  "hero": {
+    "kicker": "Rilis",
+    "h1": "Rapat Daring untuk Minutes.AI (iOS)",
+    "tagline": "Klik “Online”, buat URL, bagikan. Saat selesai, notulen otomatis mulai dibuat."
+  },
+  "release": {
+    "h2": "Apa yang baru",
+    "p1": "Minutes.AI kini mendukung rapat daring. Cukup klik “Online” untuk membuat dan membagikan URL.",
+    "p2": "Ketika rapat berakhir, notulen dibuat otomatis dengan keputusan dan aksi yang jelas."
+  },
+  "image": { "alt": "Antarmuka Rapat Daring Minutes.AI", "caption": "Mulai rapat dari tombol “Online”." },
+  "steps": {
+    "h2": "Cara memulai",
+    "items": ["Klik “Online” (app/web)", "Buat URL rapat", "Bagikan URL ke peserta", "Akhiri → notulen otomatis"],
+    "note": "Durasi mengikuti paket dan kuota tersisa."
+  },
+  "features": {
+    "h2": "Keunggulan",
+    "items": ["UX mirip Zoom (berbasis LiveKit)", "URL satu klik", "Notulen otomatis setelah rapat", "Format rapi dan mudah dibaca", "Multibahasa untuk tim global"]
+  },
+  "notes": {
+    "h2": "Catatan",
+    "items": ["Batas durasi/kuota sesuai paket", "Jaringan/perangkat dapat memengaruhi kualitas"],
+    "foot": "Coba di web atau unduh aplikasi iOS."
+  },
+  "meta": { "h2": "Meta", "published": "Dipublikasikan", "type": "Rilis", "category": "Rapat Daring" },
+  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+}

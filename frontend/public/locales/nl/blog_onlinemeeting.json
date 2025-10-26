@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI ondersteunt nu online vergaderingen (iOS)",
+    "description": "Klik op “Online” om een URL te maken, deel deze en start direct een Zoom-achtige meeting. Notulen worden automatisch gegenereerd na afloop.",
+    "ogTitle": "Online vergaderingen in Minutes.AI",
+    "ogDescription": "Start via “Online” en ontvang automatisch nette, geformatteerde notulen.",
+    "ld": { "headline": "Minutes.AI voegt online vergaderingen toe", "description": "Zoom-achtige meetings via URL en automatische notulen met duidelijke besluiten en acties." }
+  },
+  "aria": { "home": "Minutes.AI Startpagina" },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online vergaderingen" },
+  "hero": {
+    "kicker": "Release",
+    "h1": "Online vergaderingen voor Minutes.AI (iOS)",
+    "tagline": "Klik “Online”, genereer een URL en deel. Na afloop starten de notulen automatisch."
+  },
+  "release": {
+    "h2": "Nieuw",
+    "p1": "Minutes.AI ondersteunt nu online vergaderingen. Genereer en deel een URL vanuit “Online” om direct te starten.",
+    "p2": "Na de meeting worden notulen automatisch gemaakt met duidelijke besluiten en acties."
+  },
+  "image": { "alt": "Minutes.AI online vergader-UI", "caption": "Start vanuit de knop “Online”." },
+  "steps": {
+    "h2": "Aan de slag",
+    "items": ["Klik “Online” (app/web)", "Genereer een vergader-URL", "Deel de URL met deelnemers", "Beëindig → automatische notulen"],
+    "note": "Duur is afhankelijk van abonnement en resterend tegoed."
+  },
+  "features": {
+    "h2": "Pluspunten",
+    "items": ["Zoom-achtige UX (LiveKit)", "URL met één klik", "Automatische notulen na afloop", "Heldere, geformatteerde output", "Meertalig voor globale teams"]
+  },
+  "notes": {
+    "h2": "Opmerkingen",
+    "items": ["Limieten/resterende tijd per abonnement/tegoed", "Netwerk/apparaat kunnen kwaliteit beïnvloeden"],
+    "foot": "Probeer het op het web of download de iOS-app."
+  },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Release", "category": "Online vergadering" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "iOS-app downloaden" }
+}

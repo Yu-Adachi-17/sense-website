@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI støtter nå nettmøter (iOS)",
+    "description": "Klikk «Online» for å lage en URL, del den og start et Zoom-lignende møte umiddelbart. Referat genereres automatisk når møtet avsluttes.",
+    "ogTitle": "Nettmøter i Minutes.AI",
+    "ogDescription": "Start via «Online» og få automatisk, ryddig referat etter møtet.",
+    "ld": { "headline": "Støtte for nettmøter", "description": "Zoom-lignende møter via URL og automatisk referat med tydelige beslutninger og oppgaver." }
+  },
+  "aria": { "home": "Minutes.AI Hjem" },
+  "nav": { "blog": "Blogg", "onlinemeeting": "Nettmøte" },
+  "hero": {
+    "kicker": "Lansering",
+    "h1": "Nettmøter for Minutes.AI (iOS)",
+    "tagline": "Klikk «Online», generer URL og del. Ved avslutning starter automatisk referat."
+  },
+  "release": {
+    "h2": "Nyhet",
+    "p1": "Minutes.AI støtter nå nettmøter. Generer og del URL fra «Online» for å starte med en gang.",
+    "p2": "Når møtet er slutt, genereres referatet automatisk med tydelige beslutninger og oppgaver."
+  },
+  "image": { "alt": "Minutes.AI nettmøte-grensesnitt", "caption": "Start fra «Online»-knappen." },
+  "steps": {
+    "h2": "Kom i gang",
+    "items": ["Klikk «Online» (app/nett)", "Generer møte-URL", "Del URL med deltakerne", "Avslutt → automatisk referat"],
+    "note": "Møtelengde avhenger av abonnement og gjenværende kvote."
+  },
+  "features": {
+    "h2": "Høydepunkter",
+    "items": ["Zoom-lignende UX (LiveKit)", "URL med ett klikk", "Automatisk referat etter møtet", "Tydelig, formatert utdata", "Flerspråklig for globale team"]
+  },
+  "notes": {
+    "h2": "Merknader",
+    "items": ["Tidsgrenser/remaining tid avhenger av abonnement/kvote", "Nettverk/enhet kan påvirke kvaliteten"],
+    "foot": "Prøv i nettleseren eller last ned iOS-appen."
+  },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Lansering", "category": "Nettmøte" },
+  "cta": { "openBrowser": "Åpne i nettleser", "downloadIOS": "Last ned iOS-app" }
+}

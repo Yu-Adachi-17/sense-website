@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI unterstützt jetzt Online-Meetings (iOS)",
+    "description": "Über „Online“ eine URL erstellen, teilen und sofort ein Zoom-ähnliches Meeting starten. Am Ende werden Protokolle automatisch generiert.",
+    "ogTitle": "Online-Meetings für Minutes.AI",
+    "ogDescription": "Mit der „Online“-Taste Meetings starten und automatisch formatierte Protokolle erhalten.",
+    "ld": { "headline": "Minutes.AI fügt Online-Meetings hinzu", "description": "Zoom-ähnliche Meetings per URL und automatische Protokolle mit klaren Entscheidungen und Aufgaben." }
+  },
+  "aria": { "home": "Minutes.AI Startseite" },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online-Meetings" },
+  "hero": {
+    "kicker": "Release-Hinweis",
+    "h1": "Online-Meetings für Minutes.AI (iOS)",
+    "tagline": "„Online“ klicken, URL erzeugen und teilen. Nach dem Ende startet die automatische Protokollerstellung."
+  },
+  "release": {
+    "h2": "Neu",
+    "p1": "Minutes.AI unterstützt ab sofort Online-Meetings. Mit „Online“ erzeugen Sie eine URL und teilen sie, um sofort zu starten.",
+    "p2": "Nach dem Meeting werden Protokolle automatisch erstellt – Entscheidungen und Aufgaben klar erkennbar."
+  },
+  "image": { "alt": "Minutes.AI Online-Meeting UI", "caption": "Zoom-ähnliches Meeting über die Schaltfläche „Online“ starten." },
+  "steps": {
+    "h2": "So starten Sie",
+    "items": ["„Online“ in App/Web klicken", "Meeting-URL erzeugen", "URL mit Teilnehmenden teilen", "Meeting beenden → automatische Protokolle"],
+    "note": "Dauer richtet sich nach Tarif und Restkontingent."
+  },
+  "features": {
+    "h2": "Highlights",
+    "items": ["Zoom-ähnliche UX (LiveKit-basiert)", "URL mit einem Klick", "Automatische Protokolle am Ende", "Lesbare, formatierte Ausgaben", "Mehrsprachig für globale Teams"]
+  },
+  "notes": {
+    "h2": "Hinweise",
+    "items": ["Dauer/Restzeit abhängig von Tarif/Kontingent", "Netzwerk und Gerät können Qualität beeinflussen"],
+    "foot": "Jetzt im Web testen oder iOS-App laden."
+  },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Release", "category": "Online-Meeting" },
+  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App laden" }
+}

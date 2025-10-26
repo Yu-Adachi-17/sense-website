@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI kini menyokong mesyuarat dalam talian (iOS)",
+    "description": "Klik “Online” untuk jana URL, kongsi dan mula mesyuarat ala Zoom serta-merta. Minit dijana secara automatik apabila tamat.",
+    "ogTitle": "Mesyuarat dalam talian Minutes.AI",
+    "ogDescription": "Mulakan dari “Online” dan terima minit automatik yang kemas.",
+    "ld": { "headline": "Sokongan mesyuarat dalam talian", "description": "Mesyuarat ala Zoom melalui URL dan minit automatik dengan keputusan serta tindakan." }
+  },
+  "aria": { "home": "Halaman Utama Minutes.AI" },
+  "nav": { "blog": "Blog", "onlinemeeting": "Mesyuarat dalam talian" },
+  "hero": {
+    "kicker": "Siapan",
+    "h1": "Mesyuarat dalam talian untuk Minutes.AI (iOS)",
+    "tagline": "Klik “Online”, jana URL dan kongsi. Tamat sahaja, minit dijana automatik."
+  },
+  "release": {
+    "h2": "Apa yang baharu",
+    "p1": "Minutes.AI kini menyokong mesyuarat dalam talian. Hanya klik “Online” untuk jana dan kongsi URL.",
+    "p2": "Selepas tamat, minit dijana automatik dengan keputusan dan tindakan yang jelas."
+  },
+  "image": { "alt": "Antara muka mesyuarat dalam talian Minutes.AI", "caption": "Mulakan dari butang “Online”." },
+  "steps": {
+    "h2": "Cara mula",
+    "items": ["Klik “Online” (app/web)", "Jana URL mesyuarat", "Kongsi URL kepada peserta", "Tamat → minit automatik"],
+    "note": "Tempoh bergantung pada pelan dan kuota baki."
+  },
+  "features": {
+    "h2": "Sorotan",
+    "items": ["UX mirip Zoom (LiveKit)", "URL satu klik", "Minit automatik selepas mesyuarat", "Format kemas dan mudah dibaca", "Berbilang bahasa untuk pasukan global"]
+  },
+  "notes": {
+    "h2": "Nota",
+    "items": ["Had tempoh/masa baki ikut pelan/kuota", "Rangkaian/peranti boleh menjejaskan kualiti"],
+    "foot": "Cuba di web atau muat turun aplikasi iOS."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Siapan", "category": "Mesyuarat dalam talian" },
+  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun aplikasi iOS" }
+}

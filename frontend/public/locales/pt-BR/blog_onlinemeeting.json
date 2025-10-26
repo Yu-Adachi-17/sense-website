@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI agora oferece reuniões on-line (iOS)",
+    "description": "Clique em “Online” para gerar um link, compartilhe e inicie na hora uma reunião ao estilo Zoom. As atas são geradas automaticamente ao final.",
+    "ogTitle": "Reuniões on-line no Minutes.AI",
+    "ogDescription": "Comece em “Online” e receba atas automáticas e bem formatadas.",
+    "ld": { "headline": "Reuniões on-line adicionadas", "description": "Reuniões ao estilo Zoom por link e atas automáticas com decisões e tarefas." }
+  },
+  "aria": { "home": "Página inicial Minutes.AI" },
+  "nav": { "blog": "Blog", "onlinemeeting": "Reunião on-line" },
+  "hero": {
+    "kicker": "Lançamento",
+    "h1": "Reuniões on-line para Minutes.AI (iOS)",
+    "tagline": "Clique em “Online”, gere o link e compartilhe. Ao encerrar, as atas iniciam automaticamente."
+  },
+  "release": {
+    "h2": "Novidade",
+    "p1": "O Minutes.AI agora suporta reuniões on-line. Gere e compartilhe um link a partir de “Online” para começar na hora.",
+    "p2": "Ao final, as atas são geradas automaticamente com decisões e tarefas bem claras."
+  },
+  "image": { "alt": "Interface de reunião on-line do Minutes.AI", "caption": "Comece pelo botão “Online”." },
+  "steps": {
+    "h2": "Como começar",
+    "items": ["Clique em “Online” (app/web)", "Gere o link da reunião", "Compartilhe com os participantes", "Encerrar → atas automáticas"],
+    "note": "Duração depende do plano e da cota restante."
+  },
+  "features": {
+    "h2": "Destaques",
+    "items": ["UX semelhante ao Zoom (LiveKit)", "Geração de link com um clique", "Atas automáticas ao final", "Saída formatada e legível", "Multilíngue para times globais"]
+  },
+  "notes": {
+    "h2": "Notas",
+    "items": ["Limites/tempo restante dependem do plano/cota", "Rede/dispositivo podem afetar a qualidade"],
+    "foot": "Experimente na web ou baixe o app iOS."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Lançamento", "category": "Reunião on-line" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Baixar app iOS" }
+}

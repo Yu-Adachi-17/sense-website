@@ -34,9 +34,7 @@ function formatDate(d) {
 }
 
 function Card({ post }) {
-  // getStaticProps 側で必ず href を付けていますが、念のためフォールバック
   const safeHref = typeof post?.href === "string" ? post.href : `/blog/${post?.slug || ""}`;
-
   return (
     <Link
       href={safeHref}
@@ -174,6 +172,13 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+function toISO(v, fallbackNow = false) {
+  if (!v && fallbackNow) return new Date().toISOString();
+  if (!v) return null;
+  const d = v instanceof Date ? v : new Date(v);
+  return isNaN(d.getTime()) ? (fallbackNow ? new Date().toISOString() : null) : d.toISOString();
+}
+
 function tryReadFrontFromDir(dirPath, defaultLocale) {
   // 優先順：<既定ロケール>.mdx → .md → en.mdx → en.md → そのフォルダ内の最初の mdx/md
   const all = fs.readdirSync(dirPath);
@@ -233,8 +238,8 @@ export async function getStaticProps({ locale, defaultLocale }) {
     pushPost({
       slug,
       title,
-      date: data.date || new Date().toISOString(),
-      updatedAt: data.updatedAt || null,
+      date: toISO(data.date, true),          // ★ ISO文字列化（必須）
+      updatedAt: toISO(data.updatedAt, false),
       excerpt: data.excerpt || (content ? content.slice(0, 180) : ""),
       coverImage: data.cover || null,
       tags: Array.isArray(data.tags) && data.tags.length ? data.tags : ["Articles"],
@@ -242,10 +247,10 @@ export async function getStaticProps({ locale, defaultLocale }) {
     });
   }
 
-  /* 2) サブディレクトリ（/business-negotiation などの多言語MDXフォルダ） */
+  /* 2) サブディレクトリ（/businessnegotiation などの多言語MDXフォルダ） */
   const dLocale = defaultLocale || "en";
   for (const ent of ents.filter((e) => e.isDirectory())) {
-    const dir = ent.name; // 例: "business-negotiation"
+    const dir = ent.name; // 例: "businessnegotiation", "onlinemeeting" 等
     const dirPath = path.join(contentDir, dir);
 
     const picked = tryReadFrontFromDir(dirPath, dLocale);
@@ -256,8 +261,8 @@ export async function getStaticProps({ locale, defaultLocale }) {
     // Frontmatterが薄いときは i18n JSON（public/locales/<loc>/blog_<dir>.json）から補完
     let title = (data?.title || "").toString().trim();
     let excerpt = (data?.excerpt || "").toString().trim();
-    if (!title || !excerpt) {
-      try {
+    try {
+      if (!title || !excerpt) {
         const i18nJsonPath = path.join(
           process.cwd(),
           "public",
@@ -270,21 +275,47 @@ export async function getStaticProps({ locale, defaultLocale }) {
           title = title || j?.hero?.h1 || title;
           excerpt = excerpt || j?.hero?.tagline || excerpt;
         }
-      } catch {}
-    }
+      }
+    } catch {}
 
-    const href = `/blog/${dir}`; // 専用ページ（/src/pages/blog/${dir}.js）に誘導
+    const href = `/blog/${dir}`; // 専用ページに誘導
 
     pushPost({
       slug: dir,
       title: title || dir,
-      date: data?.date || new Date().toISOString(),
-      updatedAt: data?.updatedAt || null,
+      date: toISO(data?.date, true),         // ★ ISO文字列化（必須）
+      updatedAt: toISO(data?.updatedAt, false),
       excerpt: excerpt || (content ? content.slice(0, 180) : ""),
       coverImage: data?.cover || "/images/hero-phone.png",
       tags: Array.isArray(data?.tags) && data.tags.length ? data.tags : ["Articles"],
       href,
     });
+  }
+
+  /* 3) onlinemeeting を確実に掲載（content/blog/onlinemeeting が無い場合のフォールバック） */
+  const hasOnlineMeeting = posts.some((p) => p.slug === "onlinemeeting" || p.href === "/blog/onlinemeeting");
+  if (!hasOnlineMeeting) {
+    try {
+      const dLocale = defaultLocale || "en";
+      const i18nJsonPath = path.join(process.cwd(), "public", "locales", dLocale, "blog_onlinemeeting.json");
+      let title = "Online Meetings for Minutes.AI";
+      let excerpt = "Click “Online”, issue a URL, share it, and you’re in. When you hang up, minutes start generating automatically.";
+      if (fs.existsSync(i18nJsonPath)) {
+        const j = JSON.parse(fs.readFileSync(i18nJsonPath, "utf8"));
+        title = j?.hero?.h1 || title;
+        excerpt = j?.hero?.tagline || excerpt;
+      }
+      pushPost({
+        slug: "onlinemeeting",
+        title,
+        date: new Date().toISOString(),
+        updatedAt: null,
+        excerpt,
+        coverImage: "/images/LivekitMeeting.png",
+        tags: ["Release", "Minutes.AI"],
+        href: "/blog/onlinemeeting",
+      });
+    } catch {}
   }
 
   // 新しい順

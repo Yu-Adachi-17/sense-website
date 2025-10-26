@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI artık çevrimiçi toplantıları destekliyor (iOS)",
+    "description": "“Online”a tıklayın, URL oluşturup paylaşın ve anında Zoom benzeri toplantı başlatın. Toplantı bittiğinde tutanaklar otomatik oluşturulur.",
+    "ogTitle": "Minutes.AI'da çevrimiçi toplantılar",
+    "ogDescription": "“Online” üzerinden başlayın, toplantı bitince otomatik ve düzenli tutanak alın.",
+    "ld": { "headline": "Çevrimiçi toplantı desteği", "description": "URL ile Zoom benzeri toplantılar ve karar/aksiyonları netleştiren otomatik tutanaklar." }
+  },
+  "aria": { "home": "Minutes.AI Ana Sayfa" },
+  "nav": { "blog": "Blog", "onlinemeeting": "Çevrimiçi toplantı" },
+  "hero": {
+    "kicker": "Yayın",
+    "h1": "Minutes.AI için çevrimiçi toplantılar (iOS)",
+    "tagline": "“Online” → URL oluştur → paylaş. Bitişte otomatik tutanak başlar."
+  },
+  "release": {
+    "h2": "Duyuru",
+    "p1": "Minutes.AI artık çevrimiçi toplantıları destekliyor. “Online” üzerinden URL oluşturup paylaşarak hemen başlayın.",
+    "p2": "Toplantı biter bitmez, karar ve aksiyonları netleştiren tutanaklar otomatik oluşturulur."
+  },
+  "image": { "alt": "Minutes.AI çevrimiçi toplantı arayüzü", "caption": "“Online” düğmesinden toplantı başlatın." },
+  "steps": {
+    "h2": "Başlarken",
+    "items": ["Uygulama/webde “Online”a tıklayın", "Toplantı URL’si oluşturun", "URL’yi katılımcılarla paylaşın", "Bitir → otomatik tutanak"],
+    "note": "Süre, planınıza ve kalan kotaya bağlıdır."
+  },
+  "features": {
+    "h2": "Öne çıkanlar",
+    "items": ["Zoom benzeri UX (LiveKit)", "Tek tıkla URL", "Toplantı sonunda otomatik tutanak", "Okunabilir, biçimlendirilmiş çıktı", "Küresel ekipler için çok dilli"]
+  },
+  "notes": {
+    "h2": "Notlar",
+    "items": ["Süre/kalan zaman plan/kotaya bağlı", "Ağ ve cihaz ayarları kaliteyi etkileyebilir"],
+    "foot": "Web’de deneyin veya iOS uygulamasını indirin."
+  },
+  "meta": { "h2": "Meta", "published": "Yayın", "type": "Yayın", "category": "Çevrimiçi toplantı" },
+  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" }
+}

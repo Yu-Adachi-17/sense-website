@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI 現已支援線上會議（iOS）",
+    "description": "點擊「Online」產生連結並分享，即可立即開啟類 Zoom 會議。會議結束時會自動產生清晰的會議紀錄。",
+    "ogTitle": "Minutes.AI 線上會議",
+    "ogDescription": "從「Online」開始，會後取得自動、格式良好的會議紀錄。",
+    "ld": { "headline": "新增線上會議支援", "description": "透過連結發起類 Zoom 會議，並自動產生包含決策與行動項目的紀錄。" }
+  },
+  "aria": { "home": "Minutes.AI 首頁" },
+  "nav": { "blog": "部落格", "onlinemeeting": "線上會議" },
+  "hero": {
+    "kicker": "更新",
+    "h1": "Minutes.AI 線上會議（iOS）",
+    "tagline": "點擊「Online」，產生並分享連結。結束後自動開始產生會議紀錄。"
+  },
+  "release": {
+    "h2": "更新說明",
+    "p1": "Minutes.AI 現已支援線上會議。自「Online」產生並分享連結，立即開始。",
+    "p2": "會議結束後自動產生紀錄，清楚呈現決策與行動項目。"
+  },
+  "image": { "alt": "Minutes.AI 線上會議介面", "caption": "從「Online」按鈕開始。" },
+  "steps": {
+    "h2": "快速開始",
+    "items": ["在 App/網頁點擊「Online」", "產生會議連結", "將連結分享給與會者", "結束 → 自動產生紀錄"],
+    "note": "可用時間依方案與剩餘額度而定。"
+  },
+  "features": {
+    "h2": "特色",
+    "items": ["類 Zoom 體驗（LiveKit）", "一鍵產生連結", "會後自動紀錄", "清楚、易讀的格式輸出", "多語系，適合全球團隊"]
+  },
+  "notes": {
+    "h2": "說明",
+    "items": ["時間上限/剩餘時間依方案/額度", "網路與裝置設定可能影響品質"],
+    "foot": "可於網頁使用或下載 iOS 應用程式。"
+  },
+  "meta": { "h2": "中繼資料", "published": "發布日期", "type": "更新", "category": "線上會議" },
+  "cta": { "openBrowser": "以瀏覽器開啟", "downloadIOS": "下載 iOS 應用程式" }
+}

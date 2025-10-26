@@ -1,0 +1,38 @@
+{
+  "seo": {
+    "title": "Minutes.AI stöder nu onlinemöten (iOS)",
+    "description": "Klicka på ”Online” för att skapa en URL, dela den och starta ett Zoom-likt möte direkt. Protokoll genereras automatiskt när mötet avslutas.",
+    "ogTitle": "Onlinemöten i Minutes.AI",
+    "ogDescription": "Starta via ”Online” och få automatiska, välformaterade protokoll.",
+    "ld": { "headline": "Stöd för onlinemöten", "description": "Zoom-lika möten via URL och automatiska protokoll med tydliga beslut och åtgärder." }
+  },
+  "aria": { "home": "Minutes.AI Startsida" },
+  "nav": { "blog": "Blogg", "onlinemeeting": "Onlinemöte" },
+  "hero": {
+    "kicker": "Lansering",
+    "h1": "Onlinemöten för Minutes.AI (iOS)",
+    "tagline": "Klicka ”Online”, skapa URL och dela. Efter mötet startar protokollet automatiskt."
+  },
+  "release": {
+    "h2": "Nytt",
+    "p1": "Minutes.AI stöder nu onlinemöten. Skapa och dela URL från ”Online” för att komma igång direkt.",
+    "p2": "När mötet slutar genereras protokollet automatiskt med tydliga beslut och åtgärder."
+  },
+  "image": { "alt": "Minutes.AI onlinemötesgränssnitt", "caption": "Starta via knappen ”Online”." },
+  "steps": {
+    "h2": "Kom igång",
+    "items": ["Klicka ”Online” (app/webb)", "Skapa mötes-URL", "Dela URL:en med deltagare", "Avsluta → automatiskt protokoll"],
+    "note": "Mötestid beror på plan och kvarvarande kvot."
+  },
+  "features": {
+    "h2": "Höjdpunkter",
+    "items": ["Zoom-liknande UX (LiveKit)", "URL med ett klick", "Automatiskt protokoll efter mötet", "Tydlig, formaterad output", "Flerspråkigt för globala team"]
+  },
+  "notes": {
+    "h2": "Notiser",
+    "items": ["Tidsgränser/kvarvarande tid enligt plan/kvot", "Nätverk/enhet kan påverka kvaliteten"],
+    "foot": "Prova på webben eller ladda ner iOS-appen."
+  },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Lansering", "category": "Onlinemöte" },
+  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Ladda ner iOS-app" }
+}
