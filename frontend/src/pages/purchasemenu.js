@@ -29,6 +29,10 @@ export default function PurchaseMenu() {
   const router = useRouter();
   const { t, i18n } = useTranslation();
 
+  // ▼ 英語統一メッセージ（ホバー＆クリック時）
+  const IOS_SUBSCRIPTION_NOTE =
+    "If you subscribed via the iOS app, please cancel from your iOS device.";
+
   useEffect(() => {
     document.documentElement.setAttribute(
       "dir",
@@ -317,28 +321,29 @@ export default function PurchaseMenu() {
       boxShadow: "0 2px 10px rgba(176,0,32,0.06)",
     },
 
+    // ▼ 完全な正円＆誤操作防止（クリックは情報表示のみ）
     helpBadge: {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      width: "18px",
-      height: "18px",
-      borderRadius: "50%",
+      width: "20px",
+      height: "20px",
+      borderRadius: "9999px", // 完全な正円
       border: "1px solid #c9c9c9",
       fontSize: "12px",
-      lineHeight: "18px",
+      fontWeight: 700,
       userSelect: "none",
       cursor: "help",
       color: "#444",
       background: "#fff",
+      marginLeft: "6px",
+      flex: "0 0 auto",
     },
   };
 
   const stopPropagation = (e) => e.stopPropagation();
 
   const handleHamburgerClick = () => setShowSideMenu((v) => !v);
-
-  // Edit Profile は削除
 
   const handleLogout = async () => {
     if (!window.confirm(t("Are you sure you want to log out?"))) return;
@@ -396,6 +401,21 @@ export default function PurchaseMenu() {
     } catch (err) {
       console.error("❌ Subscription cancellation failed:", err);
       alert(t("An error occurred while canceling your subscription. Contact: info@sense-ai.world"));
+    }
+  };
+
+  // 「？」クリック時は Cancel を発火させず、英語メッセージのみ表示
+  const handleHelpBadgeClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation(); // 親ボタン（Cancel）の onClick をブロック
+    alert(IOS_SUBSCRIPTION_NOTE);
+  };
+
+  const handleHelpBadgeKey = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      e.stopPropagation();
+      alert(IOS_SUBSCRIPTION_NOTE);
     }
   };
 
@@ -584,8 +604,12 @@ export default function PurchaseMenu() {
                 {t("Cancel Subscription")}
                 <span
                   style={styles.helpBadge}
-                  title="iOSアプリからサブスクリプションを申し込んだ場合、iOS端末からキャンセルを行なってください。"
-                  aria-label="iOSアプリ課金のキャンセル案内"
+                  title={IOS_SUBSCRIPTION_NOTE}
+                  aria-label="iOS subscription cancellation info"
+                  role="button"
+                  tabIndex={0}
+                  onClick={handleHelpBadgeClick}
+                  onKeyDown={handleHelpBadgeKey}
                 >
                   ?
                 </span>
