@@ -7,7 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 // Firebase（SSR安全化）
 import { getClientAuth, getDb } from "../firebaseConfig";
 
-// Icon components
+// Icons
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { FaTicketAlt } from "react-icons/fa";
@@ -16,31 +16,19 @@ import { PiGridFourFill } from "react-icons/pi";
 
 import HomeIcon from "./homeIcon";
 
-/* ============================================================
- * API base & JSON helper
- * - NEXT_PUBLIC_API_BASE がある場合は必ずそちらに送る
- * - JSON以外や空レスでも安全にパース
- * ============================================================ */
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || ""; // 例: https://<railway-app>.up.railway.app
+/* ===== API base & JSON helper ===== */
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "";
 
 async function fetchJson(url, options = {}) {
   const res = await fetch(url, options);
   const ct = res.headers.get("content-type") || "";
-
-  // 成功系
   if (res.ok) {
     if (ct.includes("application/json")) return res.json();
     const text = await res.text().catch(() => "");
     try { return JSON.parse(text); } catch { return { ok: true, text }; }
   }
-
-  // 失敗系（本文がHTMLや空でも安全に扱う）
   let body = null;
-  try {
-    body = ct.includes("application/json") ? await res.json() : await res.text();
-  } catch {
-    body = null;
-  }
+  try { body = ct.includes("application/json") ? await res.json() : await res.text(); } catch {}
   const msg =
     (body && typeof body === "object" && (body.error || body.message)) ||
     (typeof body === "string" ? body.slice(0, 300) : `HTTP ${res.status}`);
@@ -50,6 +38,22 @@ async function fetchJson(url, options = {}) {
   throw err;
 }
 
+/* ===== util: Firestore Timestamp/number/string -> Date, and YYYYMMDD ===== */
+function toDateLoose(v) {
+  if (!v) return null;
+  if (typeof v?.toDate === "function") return v.toDate();     // Firestore Timestamp
+  if (typeof v === "number") return new Date(v);              // ms epoch
+  if (typeof v === "string") return new Date(v);              // ISOなど
+  return null;
+}
+function formatYYYYMMDD(date) {
+  if (!(date instanceof Date) || isNaN(date)) return "";
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}${m}${d}`;
+}
+
 export default function PurchaseMenu() {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -57,12 +61,12 @@ export default function PurchaseMenu() {
   const [userEmail, setUserEmail] = useState(null);
   const [profileRemainingSeconds, setProfileRemainingSeconds] = useState(null);
   const [subscription, setSubscription] = useState(false);
+  const [subscriptionExpiresAt, setSubscriptionExpiresAt] = useState(null); // ★ 追加
   const [showProfileOverlay, setShowProfileOverlay] = useState(false);
 
   const router = useRouter();
   const { t, i18n } = useTranslation();
 
-  // 英語統一メッセージ（ホバー＆クリック時）
   const IOS_SUBSCRIPTION_NOTE =
     "If you subscribed via the iOS app, please cancel from your iOS device.";
 
@@ -80,6 +84,7 @@ export default function PurchaseMenu() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // auth
   useEffect(() => {
     let unsub;
     let mounted = true;
@@ -104,6 +109,7 @@ export default function PurchaseMenu() {
     };
   }, []);
 
+  // user doc 初回ロード
   useEffect(() => {
     if (!userId) return;
     let cancelled = false;
@@ -118,6 +124,7 @@ export default function PurchaseMenu() {
           const data = snap.data();
           setProfileRemainingSeconds(data.remainingSeconds);
           setSubscription(data.subscription === true);
+          setSubscriptionExpiresAt(toDateLoose(data.subscriptionExpiresAt)); // ★ 追加
         }
       } catch (e) {
         console.error("Error fetching user data:", e);
@@ -138,244 +145,81 @@ export default function PurchaseMenu() {
 
   const styles = {
     hamburgerButton: {
-      position: "fixed",
-      top: "20px",
-      right: "30px",
-      fontSize: "30px",
-      background: "none",
-      border: "none",
-      color: "#000",
-      cursor: "pointer",
-      zIndex: 1300,
+      position: "fixed", top: 20, right: 30, fontSize: 30,
+      background: "none", border: "none", color: "#000", cursor: "pointer", zIndex: 1300,
     },
     sideMenuOverlay: {
-      position: "fixed",
-      inset: 0,
-      background: "rgba(0,0,0,0.5)",
-      zIndex: 1100,
-      display: showSideMenu ? "block" : "none",
-      transition: "opacity 0.5s ease",
+      position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1100,
+      display: showSideMenu ? "block" : "none", transition: "opacity 0.5s ease",
       opacity: showSideMenu ? 1 : 0,
     },
     sideMenu: {
-      position: "fixed",
-      top: 0,
-      right: 0,
-      width: isMobile ? "66.66%" : "33%",
-      height: "100%",
-      background:
-        "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(128,128,128,0.2))",
-      color: "#FFF",
-      padding: "20px",
-      boxSizing: "border-box",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      zIndex: 1200,
-      transition: "transform 0.5s ease-out",
-      transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
+      position: "fixed", top: 0, right: 0, width: isMobile ? "66.66%" : "33%", height: "100%",
+      background: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(128,128,128,0.2))",
+      color: "#FFF", padding: 20, boxSizing: "border-box", display: "flex",
+      flexDirection: "column", alignItems: "flex-start", zIndex: 1200,
+      transition: "transform 0.5s ease-out", transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
     },
-    topPolicyRow: {
-      position: "absolute",
-      top: "16px",
-      right: "16px",
-      display: "flex",
-      alignItems: "center",
-      gap: "12px",
-    },
+    topPolicyRow: { position: "absolute", top: 16, right: 16, display: "flex", alignItems: "center", gap: 12 },
     minutesListButton: {
-      background: "none",
-      border: "none",
-      color: "white",
-      padding: "35px 0",
-      fontSize: "16px",
-      fontWeight: "bold",
-      display: "flex",
-      alignItems: "center",
-      cursor: "pointer",
-      textAlign: "left",
-      marginBottom: "0px",
+      background: "none", border: "none", color: "white", padding: "35px 0",
+      fontSize: 16, fontWeight: "bold", display: "flex", alignItems: "center",
+      cursor: "pointer", textAlign: "left", marginBottom: 0,
     },
     purchaseButton: {
-      background: "none",
-      border: "none",
-      color: "#FFF",
-      padding: "0px 0",
-      fontSize: "16px",
-      fontWeight: "bold",
-      display: "flex",
-      alignItems: "center",
-      cursor: "pointer",
-      textAlign: "left",
-      marginBottom: "16px",
+      background: "none", border: "none", color: "#FFF", padding: 0, fontSize: 16,
+      fontWeight: "bold", display: "flex", alignItems: "center", cursor: "pointer",
+      textAlign: "left", marginBottom: 16,
     },
     formatButton: {
-      background: "none",
-      border: "none",
-      color: "#FFF",
-      padding: "10px 0",
-      fontSize: "16px",
-      fontWeight: "bold",
-      display: "flex",
-      alignItems: "center",
-      cursor: "pointer",
-      textAlign: "left",
+      background: "none", border: "none", color: "#FFF", padding: "10px 0",
+      fontSize: 16, fontWeight: "bold", display: "flex", alignItems: "center",
+      cursor: "pointer", textAlign: "left",
     },
-    policyButtonContainer: {
-      position: "absolute",
-      bottom: "20px",
-      right: "20px",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-end",
-      gap: "8px",
-    },
-    policyButton: {
-      background: "none",
-      border: "none",
-      color: "#FFF",
-      fontSize: "14px",
-      cursor: "pointer",
-      padding: "4px 8px",
-    },
-    topProfileButton: {
-      background: "none",
-      border: "none",
-      color: "#FFF",
-      fontSize: "20px",
-      cursor: "pointer",
-      padding: "4px 0",
-      display: "flex",
-      alignItems: "center",
-    },
+    policyButtonContainer: { position: "absolute", bottom: 20, right: 20, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 8 },
+    policyButton: { background: "none", border: "none", color: "#FFF", fontSize: 14, cursor: "pointer", padding: "4px 8px" },
+    topProfileButton: { background: "none", border: "none", color: "#FFF", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
 
-    // Profile Overlay（白背景＋HomeIcon 背景＋黒文字）
-    profileOverlay: {
-      position: "fixed",
-      inset: 0,
-      background: "#fff",
-      zIndex: 1400,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      overflow: "hidden",
-    },
-    overlayBgIcon: {
-      position: "absolute",
-      inset: 0,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      pointerEvents: "none",
-      zIndex: 1401,
-      opacity: 0.08,
-    },
-
-    // モーダル本体（薄いグレー枠）
+    // Profile Overlay
+    profileOverlay: { position: "fixed", inset: 0, background: "#fff", zIndex: 1400, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" },
+    overlayBgIcon: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 1401, opacity: 0.08 },
     profileModal: {
-      width: "520px",
-      minHeight: "380px",
-      background: "transparent",
-      borderRadius: "12px",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "stretch",
-      padding: "28px",
-      boxSizing: "border-box",
-      position: "relative",
-      zIndex: 1402,
-      border: "1px solid #e5e5e5",
-      boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
-      gap: "20px",
+      width: 520, minHeight: 380, background: "transparent", borderRadius: 12, display: "flex",
+      flexDirection: "column", alignItems: "stretch", padding: 28, boxSizing: "border-box",
+      position: "relative", zIndex: 1402, border: "1px solid #e5e5e5",
+      boxShadow: "0 8px 32px rgba(0,0,0,0.06)", gap: 20,
     },
-
-    profileHeader: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "10px",
-      fontWeight: 700,
-      fontSize: "18px",
-      color: "#111",
-    },
-
+    profileHeader: { display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontWeight: 700, fontSize: 18, color: "#111" },
     profileInfoCard: {
-      background: "#fafafa",
-      border: "1px solid #eee",
-      borderRadius: "12px",
-      padding: "16px 18px",
-      display: "grid",
-      gridTemplateColumns: "1fr",
-      rowGap: "8px",
-      color: "#111",
-      lineHeight: 1.6,
+      background: "#fafafa", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px",
+      display: "grid", gridTemplateColumns: "1fr", rowGap: 8, color: "#111", lineHeight: 1.6,
     },
-
-    infoRow: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      fontSize: "15px",
-    },
-
-    unlimitedText: {
-      fontSize: "28px",
-      fontWeight: "bold",
-      color: "#000",
-      letterSpacing: "0.2px",
-    },
-
-    actionsRow: {
-      display: "grid",
-      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
-      gap: "12px",
-    },
-
+    infoRow: { display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 },
+    unlimitedText: { fontSize: 28, fontWeight: "bold", color: "#000", letterSpacing: "0.2px" },
+    actionsRow: { display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 12 },
     actionButton: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "8px",
-      padding: "12px 14px",
-      borderRadius: "10px",
-      border: "1px solid #e6e6e6",
-      background: "#fff",
-      color: "#111",
-      fontWeight: 600,
-      cursor: "pointer",
-      boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
+      display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+      padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6", background: "#fff",
+      color: "#111", fontWeight: 600, cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
     },
+    actionButtonDanger: { border: "1px solid #f2c6c6", background: "#fff", color: "#b00020", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" },
 
-    actionButtonDanger: {
-      border: "1px solid #f2c6c6",
-      background: "#fff",
-      color: "#b00020",
-      boxShadow: "0 2px 10px rgba(176,0,32,0.06)",
-    },
-
-    // 完全な正円＆誤操作防止（クリックは情報表示のみ）
+    // “?” badge
     helpBadge: {
-      display: "inline-flex",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "20px",
-      height: "20px",
-      borderRadius: "9999px",
-      border: "1px solid #c9c9c9",
-      fontSize: "12px",
-      fontWeight: 700,
-      userSelect: "none",
-      cursor: "help",
-      color: "#444",
-      background: "#fff",
-      marginLeft: "6px",
-      flex: "0 0 auto",
+      display: "inline-flex", alignItems: "center", justifyContent: "center",
+      width: 20, height: 20, borderRadius: 9999, border: "1px solid #c9c9c9",
+      fontSize: 12, fontWeight: 700, userSelect: "none", cursor: "help", color: "#444",
+      background: "#fff", marginLeft: 6, flex: "0 0 auto",
     },
+
+    // ★ 解約予定ステータス
+    cancelStatusWrap: { marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 },
+    cancelStatusLine: { display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 }, // dark green
+    cancelStatusSub: { fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 },
+    checkIcon: { width: 18, height: 18, flex: "0 0 auto" },
   };
 
   const stopPropagation = (e) => e.stopPropagation();
-
-  const handleHamburgerClick = () => setShowSideMenu((v) => !v);
 
   const handleLogout = async () => {
     if (!window.confirm(t("Are you sure you want to log out?"))) return;
@@ -393,12 +237,7 @@ export default function PurchaseMenu() {
   };
 
   const handleDeleteAccount = async () => {
-    if (
-      !window.confirm(
-        t("Are you sure you want to delete your account? This action cannot be undone.")
-      )
-    )
-      return;
+    if (!window.confirm(t("Are you sure you want to delete your account? This action cannot be undone."))) return;
     try {
       const db = await getDb();
       const auth = await getClientAuth();
@@ -417,53 +256,42 @@ export default function PurchaseMenu() {
   const handleCancelSubscription = async () => {
     if (!userId) return alert(t("You must be logged in."));
     if (!window.confirm(t("Are you sure you want to cancel your subscription?"))) return;
-
     try {
-      // 1) サブスクリプションID取得
       const subData = await fetchJson(`${API_BASE}/api/get-subscription-id`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Debug-Log": "1", // サーバー側で詳細ログを出すためのフラグ（任意）
-        },
+        headers: { "Content-Type": "application/json", "X-Debug-Log": "1" },
         body: JSON.stringify({ userId }),
       });
-      if (!subData?.subscriptionId) {
-        throw new Error(subData?.error || "Failed to retrieve subscription ID.");
-      }
+      if (!subData?.subscriptionId) throw new Error(subData?.error || "Failed to retrieve subscription ID.");
 
-      // 2) 解約予約
       const cancelRes = await fetchJson(`${API_BASE}/api/cancel-subscription`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Debug-Log": "1",
-        },
+        headers: { "Content-Type": "application/json", "X-Debug-Log": "1" },
         body: JSON.stringify({ subscriptionId: subData.subscriptionId }),
       });
 
-      console.log("[Cancel] response:", cancelRes);
-      alert(t("Your subscription has been scheduled for cancellation."));
+      // UI 反映
       setSubscription(true);
+      if (cancelRes?.current_period_end) {
+        const d = toDateLoose(cancelRes.current_period_end);
+        setSubscriptionExpiresAt(d);
+      }
       setShowProfileOverlay(false);
+      alert(t("Your subscription has been scheduled for cancellation."));
     } catch (err) {
       console.error("Subscription cancellation failed:", err);
-      const msg =
+      alert(
         err?.message ||
-        t("An error occurred while canceling your subscription. Contact: info@sense-ai.world");
-      alert(msg);
+          t("An error occurred while canceling your subscription. Contact: info@sense-ai.world")
+      );
     }
   };
 
   return (
     <>
       {!showSideMenu && (
-        <button style={styles.hamburgerButton} onClick={handleHamburgerClick}>
-          <GiHamburgerMenu
-            size={30}
-            color="#000"
-            style={{ transform: "scaleX(1.2)", transformOrigin: "center" }}
-          />
+        <button style={styles.hamburgerButton} onClick={() => setShowSideMenu((v) => !v)}>
+          <GiHamburgerMenu size={30} color="#000" style={{ transform: "scaleX(1.2)", transformOrigin: "center" }} />
         </button>
       )}
 
@@ -482,9 +310,7 @@ export default function PurchaseMenu() {
                 title="Profile"
               >
                 {userId ? (
-                  <span style={{ display: "inline-flex", width: 30, height: 30 }}>
-                    <HomeIcon />
-                  </span>
+                  <span style={{ display: "inline-flex", width: 30, height: 30 }}><HomeIcon /></span>
                 ) : (
                   <IoPersonCircleOutline size={30} />
                 )}
@@ -499,7 +325,7 @@ export default function PurchaseMenu() {
                 else router.push("/login");
               }}
             >
-              <PiGridFourFill style={{ marginRight: "8px" }} />
+              <PiGridFourFill style={{ marginRight: 8 }} />
               {t("Minutes List")}
             </button>
 
@@ -511,7 +337,7 @@ export default function PurchaseMenu() {
                 else router.push("/login");
               }}
             >
-              <FaTicketAlt style={{ marginRight: "8px" }} />
+              <FaTicketAlt style={{ marginRight: 8 }} />
               {t("Upgrade")}
             </button>
 
@@ -522,55 +348,21 @@ export default function PurchaseMenu() {
                 router.push("/meeting-formats");
               }}
             >
-              <BsWrenchAdjustable style={{ marginRight: "8px" }} />
+              <BsWrenchAdjustable style={{ marginRight: 8 }} />
               {t("Minutes Formats")}
             </button>
 
-            <button
-              style={styles.formatButton}
-              onClick={() => {
-                setShowSideMenu(false);
-                router.push("/ai-news");
-              }}
-            >
-              {/* 予備メニュー */}
-            </button>
-
             <div style={styles.policyButtonContainer}>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/home");
-                }}
-              >
+              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
                 {t("Services and Pricing")}
               </button>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/terms-of-use");
-                }}
-              >
+              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/terms-of-use"); }}>
                 {t("Terms of Use")}
               </button>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/privacy-policy");
-                }}
-              >
+              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/privacy-policy"); }}>
                 {t("Privacy Policy")}
               </button>
-              <button
-                style={styles.policyButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  router.push("/company");
-                }}
-              >
+              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/company"); }}>
                 {t("Company")}
               </button>
             </div>
@@ -578,7 +370,7 @@ export default function PurchaseMenu() {
         </div>
       )}
 
-      {/* プロフィールオーバーレイ */}
+      {/* Profile overlay */}
       {showProfileOverlay && (
         <div
           style={styles.profileOverlay}
@@ -592,9 +384,7 @@ export default function PurchaseMenu() {
           </div>
 
           <div style={styles.profileModal} onClick={stopPropagation}>
-            <div style={styles.profileHeader}>
-              <span>{t("Profile")}</span>
-            </div>
+            <div style={styles.profileHeader}><span>{t("Profile")}</span></div>
 
             <div style={styles.profileInfoCard}>
               <div style={styles.infoRow}>
@@ -610,49 +400,56 @@ export default function PurchaseMenu() {
               {!subscription && (
                 <div style={styles.infoRow}>
                   <span>{t("Remaining Time:")}</span>
-                  <span>
-                    {profileRemainingSeconds != null ? formatTime(profileRemainingSeconds) : "00:00"}
-                  </span>
+                  <span>{profileRemainingSeconds != null ? formatTime(profileRemainingSeconds) : "00:00"}</span>
                 </div>
               )}
             </div>
 
             <div style={styles.actionsRow}>
-              <button style={styles.actionButton} onClick={handleLogout}>
-                {t("Logout")}
-              </button>
+              <button style={styles.actionButton} onClick={handleLogout}>{t("Logout")}</button>
 
-              <button
-                style={{ ...styles.actionButton, ...styles.actionButtonDanger }}
-                onClick={handleDeleteAccount}
-              >
+              <button style={{ ...styles.actionButton, ...styles.actionButtonDanger }} onClick={handleDeleteAccount}>
                 {t("Delete account")}
               </button>
 
-              <button style={styles.actionButton} onClick={handleCancelSubscription}>
-                {t("Cancel Subscription")}
-                <span
-                  style={styles.helpBadge}
-                  title={IOS_SUBSCRIPTION_NOTE}
-                  aria-label="iOS subscription cancellation info"
-                  role="button"
-                  tabIndex={0}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    alert(IOS_SUBSCRIPTION_NOTE);
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      alert(IOS_SUBSCRIPTION_NOTE);
-                    }
-                  }}
-                >
-                  ?
-                </span>
-              </button>
+              {/* Cancel Subscription ボックス（下段に状態表示を追加） */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <button style={styles.actionButton} onClick={handleCancelSubscription}>
+                  {t("Cancel Subscription")}
+                  <span
+                    style={styles.helpBadge}
+                    title={IOS_SUBSCRIPTION_NOTE}
+                    aria-label="iOS subscription cancellation info"
+                    role="button"
+                    tabIndex={0}
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); alert(IOS_SUBSCRIPTION_NOTE); }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault(); e.stopPropagation(); alert(IOS_SUBSCRIPTION_NOTE);
+                      }
+                    }}
+                  >
+                    ?
+                  </span>
+                </button>
+
+                {/* ★ 下段の英語表示（緑チェック + 期限） */}
+                {subscriptionExpiresAt && (
+                  <div style={styles.cancelStatusWrap}>
+                    <div style={styles.cancelStatusLine}>
+                      {/* green circle check (SVG) */}
+                      <svg viewBox="0 0 24 24" style={styles.checkIcon} aria-hidden="true">
+                        <circle cx="12" cy="12" r="11" fill="#22c55e" />{/* green */}
+                        <path d="M7 12.5l3.2 3.2L17 8.9" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <span>Cancellation scheduled</span>
+                    </div>
+                    <div style={styles.cancelStatusSub}>
+                      {`Valid until ${formatYYYYMMDD(subscriptionExpiresAt)}`}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
