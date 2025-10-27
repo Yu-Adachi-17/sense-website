@@ -685,7 +685,7 @@ export default function MeetingJoinPage() {
                 onClick={() => fetchMeetingOnce(id)}
                 style={styles.btnText}
               >
-                Retry
+                Retry after the host starts the meeting
               </button>
             </div>
 
