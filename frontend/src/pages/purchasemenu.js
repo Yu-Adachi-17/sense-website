@@ -14,7 +14,7 @@ import { FaTicketAlt } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
 import { CiGlobe } from "react-icons/ci";
 import { PiGridFourFill } from "react-icons/pi";
-import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
+// ※ HiOutlineDotsCircleHorizontal は廃止
 import HomeIcon from "./homeIcon";
 
 export default function PurchaseMenu() {
@@ -25,7 +25,6 @@ export default function PurchaseMenu() {
   const [profileRemainingSeconds, setProfileRemainingSeconds] = useState(null);
   const [subscription, setSubscription] = useState(false);
   const [showProfileOverlay, setShowProfileOverlay] = useState(false);
-  const [showActionMenu, setShowActionMenu] = useState(false);
 
   const router = useRouter();
   const { t, i18n } = useTranslation();
@@ -231,90 +230,117 @@ export default function PurchaseMenu() {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      pointerEvents: "none", // ← 背景を完全非インタラクティブに
+      pointerEvents: "none",
       zIndex: 1401,
-      opacity: 0.08,        // 薄く
+      opacity: 0.08,
     },
 
     // モーダル本体（薄いグレー枠）
     profileModal: {
-      width: "480px",
-      minHeight: "360px",
+      width: "520px",
+      minHeight: "380px",
       background: "transparent",
       borderRadius: "12px",
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      padding: "24px",
+      alignItems: "stretch",
+      padding: "28px",
       boxSizing: "border-box",
       position: "relative",
       zIndex: 1402,
-      border: "1px solid #e5e5e5",     // ← ここがグレーの枠線
+      border: "1px solid #e5e5e5",
       boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
+      gap: "20px",
     },
-    logoutButton: {
-      position: "absolute",
-      top: "10px",
-      right: "10px",
-      background: "none",
-      border: "none",
-      cursor: "pointer",
-      color: "#000",
+
+    profileHeader: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "10px",
+      fontWeight: 700,
+      fontSize: "18px",
+      color: "#111",
     },
-    actionMenu: {
-      position: "absolute",
-      top: "40px",
-      right: "10px",
-      backgroundColor: "#fff",
-      color: "#000",
-      borderRadius: "8px",
-      boxShadow: "0 6px 24px rgba(0,0,0,0.12)",
-      border: "1px solid #eaeaea",
-      zIndex: 1500,
-      overflow: "hidden",
-      minWidth: "200px",
-    },
-    actionMenuItem: {
-      padding: "10px 14px",
-      cursor: "pointer",
-      borderBottom: "1px solid #efefef",
-      fontSize: "14px",
-    },
-    profileInfo: {
-      width: "100%",
-      textAlign: "center",
-      fontSize: "16px",
-      color: "#000",
-      fontFamily:
-        "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
-      paddingTop: "40px",
+
+    profileInfoCard: {
+      background: "#fafafa",
+      border: "1px solid #eee",
+      borderRadius: "12px",
+      padding: "16px 18px",
+      display: "grid",
+      gridTemplateColumns: "1fr",
+      rowGap: "8px",
+      color: "#111",
       lineHeight: 1.6,
     },
-    unlimitedText: { fontSize: "28px", fontWeight: "bold", color: "#000" },
+
+    infoRow: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      fontSize: "15px",
+    },
+
+    unlimitedText: {
+      fontSize: "28px",
+      fontWeight: "bold",
+      color: "#000",
+      letterSpacing: "0.2px",
+    },
+
+    actionsRow: {
+      display: "grid",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
+      gap: "12px",
+    },
+
+    actionButton: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "8px",
+      padding: "12px 14px",
+      borderRadius: "10px",
+      border: "1px solid #e6e6e6",
+      background: "#fff",
+      color: "#111",
+      fontWeight: 600,
+      cursor: "pointer",
+      boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
+    },
+
+    actionButtonDanger: {
+      border: "1px solid #f2c6c6",
+      background: "#fff",
+      color: "#b00020",
+      boxShadow: "0 2px 10px rgba(176,0,32,0.06)",
+    },
+
+    helpBadge: {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "18px",
+      height: "18px",
+      borderRadius: "50%",
+      border: "1px solid #c9c9c9",
+      fontSize: "12px",
+      lineHeight: "18px",
+      userSelect: "none",
+      cursor: "help",
+      color: "#444",
+      background: "#fff",
+    },
   };
 
   const stopPropagation = (e) => e.stopPropagation();
 
   const handleHamburgerClick = () => setShowSideMenu((v) => !v);
 
-  const handleEditProfile = async () => {
-    setShowActionMenu(false);
-    const newUserName = window.prompt(t("Enter new username:"));
-    if (!newUserName || !userId) return;
-    try {
-      const db = await getDb();
-      if (!db) return;
-      const { doc, setDoc } = await import("firebase/firestore");
-      await setDoc(doc(db, "users", userId), { userName: newUserName }, { merge: true });
-      alert(t("Username updated successfully."));
-    } catch (error) {
-      console.error("Error updating username:", error);
-      alert(t("Error updating username:"));
-    }
-  };
+  // Edit Profile は削除
 
   const handleLogout = async () => {
-    setShowActionMenu(false);
     if (!window.confirm(t("Are you sure you want to log out?"))) return;
     try {
       const auth = await getClientAuth();
@@ -330,7 +356,6 @@ export default function PurchaseMenu() {
   };
 
   const handleDeleteAccount = async () => {
-    setShowActionMenu(false);
     if (!window.confirm(t("Are you sure you want to delete your account? This action cannot be undone."))) return;
     try {
       const db = await getDb();
@@ -348,7 +373,6 @@ export default function PurchaseMenu() {
   };
 
   const handleCancelSubscription = async () => {
-    setShowActionMenu(false);
     if (!userId) return alert(t("You must be logged in."));
     if (!window.confirm(t("Are you sure you want to cancel your subscription?"))) return;
     try {
@@ -358,7 +382,8 @@ export default function PurchaseMenu() {
         body: JSON.stringify({ userId }),
       });
       const subData = await subRes.json();
-      if (!subRes.ok || !subData.subscriptionId) throw new Error(subData.error || "Failed to retrieve subscription ID.");
+      if (!subRes.ok || !subData.subscriptionId)
+        throw new Error(subData.error || "Failed to retrieve subscription ID.");
       const cancelRes = await fetch("/api/cancel-subscription", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -378,7 +403,11 @@ export default function PurchaseMenu() {
     <>
       {!showSideMenu && (
         <button style={styles.hamburgerButton} onClick={handleHamburgerClick}>
-          <GiHamburgerMenu size={30} color="#000" style={{ transform: "scaleX(1.2)", transformOrigin: "center" }} />
+          <GiHamburgerMenu
+            size={30}
+            color="#000"
+            style={{ transform: "scaleX(1.2)", transformOrigin: "center" }}
+          />
         </button>
       )}
 
@@ -430,40 +459,63 @@ export default function PurchaseMenu() {
               {t("Upgrade")}
             </button>
 
-{/* 復活用メニュー（必要なら） */}
-<button
-  style={styles.formatButton}
-  onClick={() => {
-    setShowSideMenu(false);
-    router.push("/meeting-formats");
-  }}
->
-  <BsWrenchAdjustable style={{ marginRight: "8px" }} />
-  {t("Minutes Formats")}
-</button>
-<button
-  style={styles.formatButton}
-  onClick={() => {
-    setShowSideMenu(false);
-    router.push("/ai-news");
-  }}
->
-  {/* <CiGlobe style={{ marginRight: "8px" }} />
-  {t("AI News")} */}
-</button>
-
+            {/* 復活用メニュー（必要なら） */}
+            <button
+              style={styles.formatButton}
+              onClick={() => {
+                setShowSideMenu(false);
+                router.push("/meeting-formats");
+              }}
+            >
+              <BsWrenchAdjustable style={{ marginRight: "8px" }} />
+              {t("Minutes Formats")}
+            </button>
+            <button
+              style={styles.formatButton}
+              onClick={() => {
+                setShowSideMenu(false);
+                router.push("/ai-news");
+              }}
+            >
+              {/* <CiGlobe style={{ marginRight: "8px" }} />
+              {t("AI News")} */}
+            </button>
 
             <div style={styles.policyButtonContainer}>
-              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/home");
+                }}
+              >
                 {t("Services and Pricing")}
               </button>
-              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/terms-of-use"); }}>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/terms-of-use");
+                }}
+              >
                 {t("Terms of Use")}
               </button>
-              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/privacy-policy"); }}>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/privacy-policy");
+                }}
+              >
                 {t("Privacy Policy")}
               </button>
-              <button style={styles.policyButton} onClick={() => { setShowSideMenu(false); router.push("/company"); }}>
+              <button
+                style={styles.policyButton}
+                onClick={() => {
+                  setShowSideMenu(false);
+                  router.push("/company");
+                }}
+              >
                 {t("Company")}
               </button>
             </div>
@@ -478,51 +530,66 @@ export default function PurchaseMenu() {
           onClick={() => {
             // 枠外タップでメインに戻る
             setShowProfileOverlay(false);
-            setShowActionMenu(false);
             router.push("/");
           }}
         >
           {/* 背景：巨大 HomeIcon（非インタラクティブ） */}
           <div style={styles.overlayBgIcon} aria-hidden="true">
-            {/* HomeIcon はデフォルト 40px なので明示的に巨大サイズを渡す */}
             <HomeIcon size={isMobile ? 520 : 1080} src="/images/home.png" alt="Home (bg)" />
           </div>
 
           {/* モーダル（クリックを止める） */}
           <div style={styles.profileModal} onClick={stopPropagation}>
-            <button
-              style={styles.logoutButton}
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowActionMenu((v) => !v);
-              }}
-            >
-              <HiOutlineDotsCircleHorizontal size={30} />
-            </button>
+            {/* 見出し */}
+            <div style={styles.profileHeader}>
+              <span>{t("Profile")}</span>
+            </div>
 
-            {showActionMenu && (
-              <div style={styles.actionMenu} onClick={stopPropagation}>
-                <div style={styles.actionMenuItem} onClick={handleEditProfile}>{t("Edit Profile")}</div>
-                <div style={styles.actionMenuItem} onClick={handleLogout}>{t("Logout")}</div>
-                <div style={{ ...styles.actionMenuItem, borderBottom: "none" }} onClick={handleDeleteAccount}>
-                  {t("Delete account")}
-                </div>
-                <div style={styles.actionMenuItem} onClick={handleCancelSubscription}>
-                  {t("Cancel Subscription")}
-                </div>
+            {/* 情報カード */}
+            <div style={styles.profileInfoCard}>
+              <div style={styles.infoRow}>
+                <span>{t("Email")}</span>
+                <span>{userEmail}</span>
               </div>
-            )}
-
-            <div style={styles.profileInfo}>
-              <p>{t("Email")}: {userEmail}</p>
-              {subscription ? (
-                <p style={styles.unlimitedText}>{t("unlimited")}</p>
-              ) : (
-                <p>
-                  {t("Remaining Time:")}{" "}
-                  {profileRemainingSeconds != null ? formatTime(profileRemainingSeconds) : "00:00"}
-                </p>
+              <div style={styles.infoRow}>
+                <span>{t("Plan")}</span>
+                <span style={subscription ? styles.unlimitedText : {}}>
+                  {subscription ? t("unlimited") : t("Free")}
+                </span>
+              </div>
+              {!subscription && (
+                <div style={styles.infoRow}>
+                  <span>{t("Remaining Time:")}</span>
+                  <span>
+                    {profileRemainingSeconds != null ? formatTime(profileRemainingSeconds) : "00:00"}
+                  </span>
+                </div>
               )}
+            </div>
+
+            {/* アクション（ドットメニュー内の項目を常設配置） */}
+            <div style={styles.actionsRow}>
+              <button style={styles.actionButton} onClick={handleLogout}>
+                {t("Logout")}
+              </button>
+
+              <button
+                style={{ ...styles.actionButton, ...styles.actionButtonDanger }}
+                onClick={handleDeleteAccount}
+              >
+                {t("Delete account")}
+              </button>
+
+              <button style={styles.actionButton} onClick={handleCancelSubscription}>
+                {t("Cancel Subscription")}
+                <span
+                  style={styles.helpBadge}
+                  title="iOSアプリからサブスクリプションを申し込んだ場合、iOS端末からキャンセルを行なってください。"
+                  aria-label="iOSアプリ課金のキャンセル案内"
+                >
+                  ?
+                </span>
+              </button>
             </div>
           </div>
         </div>
