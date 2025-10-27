@@ -13,7 +13,42 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { FaTicketAlt } from "react-icons/fa";
 import { BsWrenchAdjustable } from "react-icons/bs";
 import { PiGridFourFill } from "react-icons/pi";
+
 import HomeIcon from "./homeIcon";
+
+/* ============================================================
+ * API base & JSON helper
+ * - NEXT_PUBLIC_API_BASE がある場合は必ずそちらに送る
+ * - JSON以外や空レスでも安全にパース
+ * ============================================================ */
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || ""; // 例: https://<railway-app>.up.railway.app
+
+async function fetchJson(url, options = {}) {
+  const res = await fetch(url, options);
+  const ct = res.headers.get("content-type") || "";
+
+  // 成功系
+  if (res.ok) {
+    if (ct.includes("application/json")) return res.json();
+    const text = await res.text().catch(() => "");
+    try { return JSON.parse(text); } catch { return { ok: true, text }; }
+  }
+
+  // 失敗系（本文がHTMLや空でも安全に扱う）
+  let body = null;
+  try {
+    body = ct.includes("application/json") ? await res.json() : await res.text();
+  } catch {
+    body = null;
+  }
+  const msg =
+    (body && typeof body === "object" && (body.error || body.message)) ||
+    (typeof body === "string" ? body.slice(0, 300) : `HTTP ${res.status}`);
+  const err = new Error(msg);
+  err.status = res.status;
+  err.details = body;
+  throw err;
+}
 
 export default function PurchaseMenu() {
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -27,6 +62,7 @@ export default function PurchaseMenu() {
   const router = useRouter();
   const { t, i18n } = useTranslation();
 
+  // 英語統一メッセージ（ホバー＆クリック時）
   const IOS_SUBSCRIPTION_NOTE =
     "If you subscribed via the iOS app, please cancel from your iOS device.";
 
@@ -212,6 +248,8 @@ export default function PurchaseMenu() {
       display: "flex",
       alignItems: "center",
     },
+
+    // Profile Overlay（白背景＋HomeIcon 背景＋黒文字）
     profileOverlay: {
       position: "fixed",
       inset: 0,
@@ -232,6 +270,8 @@ export default function PurchaseMenu() {
       zIndex: 1401,
       opacity: 0.08,
     },
+
+    // モーダル本体（薄いグレー枠）
     profileModal: {
       width: "520px",
       minHeight: "380px",
@@ -248,6 +288,7 @@ export default function PurchaseMenu() {
       boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
       gap: "20px",
     },
+
     profileHeader: {
       display: "flex",
       alignItems: "center",
@@ -257,6 +298,7 @@ export default function PurchaseMenu() {
       fontSize: "18px",
       color: "#111",
     },
+
     profileInfoCard: {
       background: "#fafafa",
       border: "1px solid #eee",
@@ -268,23 +310,27 @@ export default function PurchaseMenu() {
       color: "#111",
       lineHeight: 1.6,
     },
+
     infoRow: {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
       fontSize: "15px",
     },
+
     unlimitedText: {
       fontSize: "28px",
       fontWeight: "bold",
       color: "#000",
       letterSpacing: "0.2px",
     },
+
     actionsRow: {
       display: "grid",
       gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
       gap: "12px",
     },
+
     actionButton: {
       display: "flex",
       alignItems: "center",
@@ -299,12 +345,15 @@ export default function PurchaseMenu() {
       cursor: "pointer",
       boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
     },
+
     actionButtonDanger: {
       border: "1px solid #f2c6c6",
       background: "#fff",
       color: "#b00020",
       boxShadow: "0 2px 10px rgba(176,0,32,0.06)",
     },
+
+    // 完全な正円＆誤操作防止（クリックは情報表示のみ）
     helpBadge: {
       display: "inline-flex",
       alignItems: "center",
@@ -325,6 +374,7 @@ export default function PurchaseMenu() {
   };
 
   const stopPropagation = (e) => e.stopPropagation();
+
   const handleHamburgerClick = () => setShowSideMenu((v) => !v);
 
   const handleLogout = async () => {
@@ -345,9 +395,7 @@ export default function PurchaseMenu() {
   const handleDeleteAccount = async () => {
     if (
       !window.confirm(
-        t(
-          "Are you sure you want to delete your account? This action cannot be undone."
-        )
+        t("Are you sure you want to delete your account? This action cannot be undone.")
       )
     )
       return;
@@ -366,29 +414,26 @@ export default function PurchaseMenu() {
     }
   };
 
-  // ここを詳細ログ対応に変更（X-Debug-Log: 1 を付与し、details を表示）
   const handleCancelSubscription = async () => {
     if (!userId) return alert(t("You must be logged in."));
-    if (!window.confirm(t("Are you sure you want to cancel your subscription?")))
-      return;
+    if (!window.confirm(t("Are you sure you want to cancel your subscription?"))) return;
+
     try {
-      const subRes = await fetch("/api/get-subscription-id", {
+      // 1) サブスクリプションID取得
+      const subData = await fetchJson(`${API_BASE}/api/get-subscription-id`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Debug-Log": "1",
+          "X-Debug-Log": "1", // サーバー側で詳細ログを出すためのフラグ（任意）
         },
         body: JSON.stringify({ userId }),
       });
-      const subData = await subRes.json();
-      if (!subRes.ok || !subData.subscriptionId) {
-        const msg = subData?.details
-          ? `${subData.error}: ${JSON.stringify(subData.details)}`
-          : subData?.error || "Failed to retrieve subscription ID.";
-        throw new Error(msg);
+      if (!subData?.subscriptionId) {
+        throw new Error(subData?.error || "Failed to retrieve subscription ID.");
       }
 
-      const cancelRes = await fetch("/api/cancel-subscription", {
+      // 2) 解約予約
+      const cancelRes = await fetchJson(`${API_BASE}/api/cancel-subscription`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -396,38 +441,17 @@ export default function PurchaseMenu() {
         },
         body: JSON.stringify({ subscriptionId: subData.subscriptionId }),
       });
-      const cancelJson = await cancelRes.json();
-      if (!cancelRes.ok) {
-        const msg = cancelJson?.details
-          ? `${cancelJson.error}: ${JSON.stringify(cancelJson.details)}`
-          : cancelJson?.error || "Failed to cancel subscription.";
-        throw new Error(msg);
-      }
 
+      console.log("[Cancel] response:", cancelRes);
       alert(t("Your subscription has been scheduled for cancellation."));
       setSubscription(true);
       setShowProfileOverlay(false);
     } catch (err) {
       console.error("Subscription cancellation failed:", err);
-      alert(
-        t(
-          "An error occurred while canceling your subscription. Contact: info@sense-ai.world"
-        ) + `\n\n${err?.message || ""}`
-      );
-    }
-  };
-
-  const handleHelpBadgeClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    alert(IOS_SUBSCRIPTION_NOTE);
-  };
-
-  const handleHelpBadgeKey = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      e.stopPropagation();
-      alert(IOS_SUBSCRIPTION_NOTE);
+      const msg =
+        err?.message ||
+        t("An error occurred while canceling your subscription. Contact: info@sense-ai.world");
+      alert(msg);
     }
   };
 
@@ -444,10 +468,7 @@ export default function PurchaseMenu() {
       )}
 
       {showSideMenu && (
-        <div
-          style={styles.sideMenuOverlay}
-          onClick={() => setShowSideMenu(false)}
-        >
+        <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={styles.sideMenu} onClick={stopPropagation}>
             <div style={styles.topPolicyRow}>
               <button
@@ -504,6 +525,7 @@ export default function PurchaseMenu() {
               <BsWrenchAdjustable style={{ marginRight: "8px" }} />
               {t("Minutes Formats")}
             </button>
+
             <button
               style={styles.formatButton}
               onClick={() => {
@@ -511,7 +533,7 @@ export default function PurchaseMenu() {
                 router.push("/ai-news");
               }}
             >
-              {/* reserved */}
+              {/* 予備メニュー */}
             </button>
 
             <div style={styles.policyButtonContainer}>
@@ -556,6 +578,7 @@ export default function PurchaseMenu() {
         </div>
       )}
 
+      {/* プロフィールオーバーレイ */}
       {showProfileOverlay && (
         <div
           style={styles.profileOverlay}
@@ -565,11 +588,7 @@ export default function PurchaseMenu() {
           }}
         >
           <div style={styles.overlayBgIcon} aria-hidden="true">
-            <HomeIcon
-              size={isMobile ? 520 : 1080}
-              src="/images/home.png"
-              alt="Home (bg)"
-            />
+            <HomeIcon size={isMobile ? 520 : 1080} src="/images/home.png" alt="Home (bg)" />
           </div>
 
           <div style={styles.profileModal} onClick={stopPropagation}>
@@ -592,9 +611,7 @@ export default function PurchaseMenu() {
                 <div style={styles.infoRow}>
                   <span>{t("Remaining Time:")}</span>
                   <span>
-                    {profileRemainingSeconds != null
-                      ? formatTime(profileRemainingSeconds)
-                      : "00:00"}
+                    {profileRemainingSeconds != null ? formatTime(profileRemainingSeconds) : "00:00"}
                   </span>
                 </div>
               )}
@@ -612,10 +629,7 @@ export default function PurchaseMenu() {
                 {t("Delete account")}
               </button>
 
-              <button
-                style={styles.actionButton}
-                onClick={handleCancelSubscription}
-              >
+              <button style={styles.actionButton} onClick={handleCancelSubscription}>
                 {t("Cancel Subscription")}
                 <span
                   style={styles.helpBadge}
@@ -623,8 +637,18 @@ export default function PurchaseMenu() {
                   aria-label="iOS subscription cancellation info"
                   role="button"
                   tabIndex={0}
-                  onClick={handleHelpBadgeClick}
-                  onKeyDown={handleHelpBadgeKey}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert(IOS_SUBSCRIPTION_NOTE);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      alert(IOS_SUBSCRIPTION_NOTE);
+                    }
+                  }}
                 >
                   ?
                 </span>
