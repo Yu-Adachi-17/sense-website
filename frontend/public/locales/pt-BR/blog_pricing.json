@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Preços do Minutes.AI — planos simples para todo tipo de reunião",
+    "description": "Pacotes de tempo sem vencimento e assinaturas realmente ilimitadas. Compare Minutes.AI com Otter e Notta (preço, cotas, rollover).",
+    "ogTitle": "Preços do Minutes.AI",
+    "ogDescription": "Pacotes sem vencimento + assinaturas ilimitadas. Comparativo rápido com Otter e Notta.",
+    "ld": {
+      "headline": "Preços do Minutes.AI",
+      "description": "Quatro planos: dois pacotes de tempo (sem vencimento) e duas assinaturas ilimitadas — com comparação versus Otter e Notta."
+    }
+  },
+  "aria": { "home": "Início do Minutes.AI" },
+  "nav": { "blog": "Blog", "pricing": "Preços" },
+  "hero": {
+    "kicker": "Preços",
+    "h1": "Preços do Minutes.AI (2025)",
+    "tagline": "Escolha pacotes de tempo sem vencimento ou assinaturas mensais/anuais realmente ilimitadas."
+  },
+  "intro": {
+    "h2": "Qual plano combina com você?",
+    "p1": "Quatro opções pensadas na frequência das suas reuniões."
+  },
+  "plans": {
+    "h3_timepacks": "Tipo Pacote de Tempo",
+    "timepacks_note": "Minutos comprados nunca vencem. Gere atas automáticas quando quiser.",
+    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
+    "light": { "name": "Light", "detail": "1200 min / $11.99" },
+    "h3_subs": "Tipo Assinatura",
+    "subs_note": "Assinaturas são realmente ilimitadas — sem tetos mensais.",
+    "monthly": { "name": "Mensal", "detail": "$16.99" },
+    "annual": { "name": "Anual", "detail": "$149.99" },
+    "free": {
+      "badge": "Bilhete diário gratuito",
+      "text": "Mesmo sem pagar, você ganha um bilhete gratuito de 3 minutos por dia para testar o Minutes.AI."
+    },
+    "bullets": [
+      "Sem vencimento: compre uma vez, use quando quiser",
+      "Uso ilimitado nas assinaturas",
+      "iOS & Web, saídas multilíngues"
+    ]
+  },
+  "compare": {
+    "h2": "Minutes.AI vs Otter vs Notta — preços em destaque",
+    "note": "Preços e cotas em USD. Concorrentes costumam reiniciar cotas mensais sem rollover.",
+    "tableHead": ["Serviço", "Plano gratuito", "Pago mais barato", "Uso ilimitado", "Limites notáveis", "Cobrança"],
+    "rows": [
+      {
+        "service": "Minutes.AI",
+        "free": "Bilhete diário de 3 min",
+        "cheapest": "Trial 120 min / $1.99 (sem vencimento)",
+        "unlimited": "Sim — $16.99/mês ou $149.99/ano",
+        "limits": "Pacotes não vencem. Assinaturas sem limite.",
+        "billing": "Pacotes únicos + assinaturas"
+      },
+      {
+        "service": "Otter",
+        "free": "300 min/mês, até 30 min/conversa",
+        "cheapest": "Pro — $16.99/mês ou $8.33/mês (anual)",
+        "unlimited": "Não — Pro 1200 min/mês; Business 6000 min de importação/mês",
+        "limits": "Sem rollover; limite por reunião",
+        "billing": "Assinatura por usuário"
+      },
+      {
+        "service": "Notta",
+        "free": "120 min/mês, até 3 min/gravação",
+        "cheapest": "Pro — $13.49/mês (mensal) ou $8.17/mês (anual)",
+        "unlimited": "Business — Ilimitado (anual $16.67/mês; mensal maior)",
+        "limits": "Sem carryover; até 5 h por gravação; cotas de upload",
+        "billing": "Assinatura por usuário"
+      }
+    ],
+    "foot": "Fontes: páginas oficiais de preços do Otter e Notta.",
+    "lastUpdated": "Última atualização: 31 out 2025"
+  },
+  "why": {
+    "h2": "Por que estruturamos assim",
+    "items": [
+      "Reuniões diárias: escolha Ilimitado para previsibilidade.",
+      "Reuniões ocasionais: compre uma vez o Light — sem vencimento.",
+      "Para testar: Trial + bilhete diário de 3 minutos."
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Guia", "category": "Preços" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Baixar app iOS" }
+}

@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Minutes.AI 定价——适合各种会议方式的简单方案",
+    "description": "无有效期的时间包与真正“无限”的订阅。对比 Otter、Notta 的价格、配额与结转政策。",
+    "ogTitle": "Minutes.AI 定价",
+    "ogDescription": "时间包（无有效期）+ 无限订阅。与 Otter/Notta 的快速对比。",
+    "ld": {
+      "headline": "Minutes.AI 定价",
+      "description": "四种方案：两种一次性时间包（无有效期）与两种无限订阅，并附与 Otter、Notta 的对比。"
+    }
+  },
+  "aria": { "home": "Minutes.AI 首页" },
+  "nav": { "blog": "博客", "pricing": "定价" },
+  "hero": {
+    "kicker": "定价",
+    "h1": "Minutes.AI 定价（2025）",
+    "tagline": "选择无有效期的时间包，或按月/年订阅的真正无限使用。"
+  },
+  "intro": {
+    "h2": "哪一款更适合你？",
+    "p1": "根据你的会议频率提供四种简明选择。"
+  },
+  "plans": {
+    "h3_timepacks": "时间包",
+    "timepacks_note": "已购分钟数永不过期。随时从录音生成 AI 会议纪要。",
+    "trial": { "name": "Trial", "detail": "120 分钟 / $1.99" },
+    "light": { "name": "Light", "detail": "1200 分钟 / $11.99" },
+    "h3_subs": "订阅",
+    "subs_note": "订阅为真正无限——没有月度上限。",
+    "monthly": { "name": "月度", "detail": "$16.99" },
+    "annual": { "name": "年度", "detail": "$149.99" },
+    "free": {
+      "badge": "每日免费票",
+      "text": "即使不付费，也可每日获得 3 分钟免费票体验 Minutes.AI。"
+    },
+    "bullets": [
+      "无有效期：一次购买，随时可用",
+      "订阅为无限使用",
+      "iOS & Web，多语言输出"
+    ]
+  },
+  "compare": {
+    "h2": "Minutes.AI vs Otter vs Notta——价格速览",
+    "note": "关键信息以 USD 计。竞品通常每月重置配额且不支持结转。",
+    "tableHead": ["服务", "免费方案", "最低付费", "是否无限", "主要限制", "计费方式"],
+    "rows": [
+      {
+        "service": "Minutes.AI",
+        "free": "每日 3 分钟票",
+        "cheapest": "Trial 120 分钟 / $1.99（无有效期）",
+        "unlimited": "是 — $16.99/月 或 $149.99/年",
+        "limits": "时间包不过期；订阅无上限。",
+        "billing": "一次性时间包 + 订阅"
+      },
+      {
+        "service": "Otter",
+        "free": "每月 300 分钟，单次会话至多 30 分钟",
+        "cheapest": "Pro — $16.99/月 或 $8.33/月（年付）",
+        "unlimited": "否 — Pro 每月 1200 分钟；Business 每月 6000 导入分钟",
+        "limits": "不结转；单次会议时长限制",
+        "billing": "按席位订阅"
+      },
+      {
+        "service": "Notta",
+        "free": "每月 120 分钟，单次录音至多 3 分钟",
+        "cheapest": "Pro — $13.49/月（月付）或 $8.17/月（年付）",
+        "unlimited": "Business — 无限（年付 $16.67/月；月付更高）",
+        "limits": "不结转；单次录音至多 5 小时；上传配额",
+        "billing": "按席位订阅"
+      }
+    ],
+    "foot": "来源：Otter 与 Notta 官方定价页面。",
+    "lastUpdated": "最后更新：2025-10-31"
+  },
+  "why": {
+    "h2": "为何这样设计方案",
+    "items": [
+      "每天开会：选“无限”，更好预测成本。",
+      "偶尔开会：一次购买 Light——永不过期。",
+      "先试一试：Trial + 每日 3 分钟免费票。"
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "发布日期", "type": "指南", "category": "定价" },
+  "cta": { "openBrowser": "在浏览器中打开", "downloadIOS": "下载 iOS 应用" }
+}

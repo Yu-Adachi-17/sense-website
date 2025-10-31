@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Tarifs Minutes.AI — des plans simples pour chaque style de réunion",
+    "description": "Packs de temps sans date d’expiration et abonnements vraiment illimités. Comparez Minutes.AI à Otter et Notta (prix, quotas, report).",
+    "ogTitle": "Tarifs Minutes.AI",
+    "ogDescription": "Packs sans expiration + abonnements illimités. Comparatif rapide avec Otter et Notta.",
+    "ld": {
+      "headline": "Tarifs Minutes.AI",
+      "description": "Quatre plans simples : deux packs de temps (sans expiration) et deux abonnements illimités, avec un comparatif face à Otter et Notta."
+    }
+  },
+  "aria": { "home": "Accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "pricing": "Tarifs" },
+  "hero": {
+    "kicker": "Tarifs",
+    "h1": "Tarifs Minutes.AI (2025)",
+    "tagline": "Choisissez des packs de temps sans expiration ou des abonnements mensuels/annuels vraiment illimités."
+  },
+  "intro": {
+    "h2": "Quel plan vous convient ?",
+    "p1": "Quatre options adaptées à votre fréquence de réunions."
+  },
+  "plans": {
+    "h3_timepacks": "Packs de temps",
+    "timepacks_note": "Les minutes achetées n’expirent jamais. Générez des comptes rendus quand vous voulez.",
+    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
+    "light": { "name": "Light", "detail": "1200 min / $11.99" },
+    "h3_subs": "Abonnements",
+    "subs_note": "Les abonnements sont réellement illimités — aucun plafond mensuel.",
+    "monthly": { "name": "Mensuel", "detail": "$16.99" },
+    "annual": { "name": "Annuel", "detail": "$149.99" },
+    "free": {
+      "badge": "Ticket gratuit quotidien",
+      "text": "Même sans payer, vous recevez chaque jour un ticket gratuit de 3 minutes pour essayer Minutes.AI."
+    },
+    "bullets": [
+      "Packs sans expiration : payez une fois, utilisez à tout moment",
+      "Utilisation illimitée avec abonnement",
+      "iOS & Web, sorties multilingues"
+    ]
+  },
+  "compare": {
+    "h2": "Minutes.AI vs Otter vs Notta — aperçu des prix",
+    "note": "Prix et quotas clés (USD). Les concurrents réinitialisent généralement les quotas chaque mois sans report.",
+    "tableHead": ["Service", "Offre gratuite", "Payant le moins cher", "Usage illimité", "Limites notables", "Mode de facturation"],
+    "rows": [
+      {
+        "service": "Minutes.AI",
+        "free": "Ticket quotidien 3 min",
+        "cheapest": "Trial 120 min / $1.99 (sans expiration)",
+        "unlimited": "Oui — $16.99/mois ou $149.99/an",
+        "limits": "Les packs n’expirent jamais. Abonnements sans plafond.",
+        "billing": "Packs uniques + abonnements"
+      },
+      {
+        "service": "Otter",
+        "free": "300 min/mois, jusqu’à 30 min/réunion",
+        "cheapest": "Pro — $16.99/mois ou $8.33/mois (annuel)",
+        "unlimited": "Non — Pro 1200 min/mois ; Business 6000 min d’import/mois",
+        "limits": "Pas de report ; limite par réunion",
+        "billing": "Abonnement par utilisateur"
+      },
+      {
+        "service": "Notta",
+        "free": "120 min/mois, jusqu’à 3 min/enregistrement",
+        "cheapest": "Pro — $13.49/mois (mensuel) ou $8.17/mois (annuel)",
+        "unlimited": "Business — Illimité (annuel $16.67/mois ; mensuel plus élevé)",
+        "limits": "Pas de report ; jusqu’à 5 h/enregistrement ; quotas d’upload",
+        "billing": "Abonnement par utilisateur"
+      }
+    ],
+    "foot": "Sources : pages officielles de tarifs d’Otter et Notta.",
+    "lastUpdated": "Dernière mise à jour : 31 oct. 2025"
+  },
+  "why": {
+    "h2": "Pourquoi cette structure de plans",
+    "items": [
+      "Réunions quotidiennes : choisissez l’Illimité pour la prévisibilité.",
+      "Réunions occasionnelles : achetez un pack Light — sans expiration.",
+      "Juste pour tester : pack Trial + ticket quotidien de 3 minutes."
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Publié", "type": "Guide", "category": "Tarifs" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" }
+}

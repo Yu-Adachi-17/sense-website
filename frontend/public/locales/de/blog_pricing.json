@@ -1,0 +1,85 @@
+{
+  "seo": {
+    "title": "Minutes.AI Preise — klare Tarife für jeden Meeting-Typ",
+    "description": "Zeitpakete ohne Ablaufdatum und wirklich unbegrenzte Abos. Vergleich mit Otter und Notta zu Preis, Kontingenten und Rollover.",
+    "ogTitle": "Minutes.AI Preise",
+    "ogDescription": "Zeitpakete ohne Ablauf + unbegrenzte Abos. Kompakter Vergleich mit Otter und Notta.",
+    "ld": {
+      "headline": "Minutes.AI Preise",
+      "description": "Vier einfache Pläne: zwei einmalige Zeitpakete (ohne Ablauf) und zwei unbegrenzte Abos, inkl. Vergleich mit Otter und Notta."
+    }
+  },
+  "aria": { "home": "Minutes.AI Startseite" },
+  "nav": { "blog": "Blog", "pricing": "Preise" },
+  "hero": {
+    "kicker": "Preise",
+    "h1": "Minutes.AI Preise (2025)",
+    "tagline": "Zeitpakete ohne Ablaufdatum oder vollständig unbegrenzte Abos – du entscheidest."
+  },
+  "intro": {
+    "h2": "Welcher Plan passt zu dir?",
+    "p1": "Vier Optionen – optimiert dafür, wie oft du Meetings abhältst."
+  },
+  "plans": {
+    "h3_timepacks": "Zeitpakete",
+    "timepacks_note": "Gekaufte Minuten verfallen nie. Erstelle Protokolle jederzeit automatisch.",
+    "trial": { "name": "Trial", "detail": "120 Min / $1.99" },
+    "light": { "name": "Light", "detail": "1200 Min / $11.99" },
+    "h3_subs": "Abonnements",
+    "subs_note": "Abos sind wirklich unbegrenzt — kein monatliches Minutenlimit.",
+    "monthly": { "name": "Monatlich", "detail": "$16.99" },
+    "annual": { "name": "Jährlich", "detail": "$149.99" },
+    "free": {
+      "badge": "Tägliches Gratis-Ticket",
+      "text": "Auch ohne Zahlung erhältst du täglich ein 3-Minuten-Ticket, um Minutes.AI auszuprobieren."
+    },
+    "bullets": [
+      "Zeitpakete ohne Ablauf: einmal kaufen, jederzeit nutzen",
+      "Unbegrenzte Nutzung im Abo",
+      "iOS & Web, mehrsprachige Ausgaben"
+    ]
+  },
+  "compare": {
+    "h2": "Minutes.AI vs. Otter vs. Notta — Vergleich auf einen Blick",
+    "note": "Kernwerte in USD. Wettbewerber setzen Kontingente meist monatlich zurück; kein Rollover.",
+    "tableHead": ["Dienst", "Gratis-Plan", "Günstigster Bezahl-Plan", "Unbegrenzt", "Auffällige Limits", "Abrechnungsart"],
+    "rows": [
+      {
+        "service": "Minutes.AI",
+        "free": "Tägliches 3-Min-Ticket",
+        "cheapest": "Trial 120 Min / $1.99 (kein Ablauf)",
+        "unlimited": "Ja — $16.99/Monat oder $149.99/Jahr",
+        "limits": "Zeitpakete verfallen nie. Abos ohne Limit.",
+        "billing": "Einmal-Zeitpakete + Abos"
+      },
+      {
+        "service": "Otter",
+        "free": "300 Min/Monat, bis 30 Min/Meeting",
+        "cheapest": "Pro — $16.99/Monat oder $8.33/Monat (jährlich)",
+        "unlimited": "Nein — Pro 1200 Min/Monat; Business 6000 Import-Min/Monat",
+        "limits": "Kein Rollover; per-Meeting-Limit",
+        "billing": "Sitzungsbasiertes Abo"
+      },
+      {
+        "service": "Notta",
+        "free": "120 Min/Monat, bis 3 Min/Aufnahme",
+        "cheapest": "Pro — $13.49/Monat (monatlich) oder $8.17/Monat (jährlich)",
+        "unlimited": "Business — Unbegrenzt (jährlich $16.67/Monat; monatlich höher)",
+        "limits": "Kein Rollover; bis 5 Std/Aufnahme; Upload-Quoten",
+        "billing": "Sitzungsbasiertes Abo"
+      }
+    ],
+    "foot": "Quellen: offizielle Preisseiten von Otter und Notta.",
+    "lastUpdated": "Zuletzt aktualisiert: 31. Oktober 2025"
+  },
+  "why": {
+    "h2": "Warum diese Struktur?",
+    "items": [
+      "Tägliche Meetings: Unbegrenzt für Planbarkeit.",
+      "Seltene Meetings: Light einmal kaufen, kein Ablauf.",
+      "Zum Testen: Trial + tägliches 3-Min-Ticket."
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Leitfaden", "category": "Preise" },
+  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App laden" }
+}
