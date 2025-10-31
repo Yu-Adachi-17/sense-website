@@ -1,17 +1,19 @@
 // pages/m/[id].js
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { FaApple } from 'react-icons/fa';
+// import Link from 'next/link';
+/* import { FaApple } from 'react-icons/fa'; */
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FiMic, FiMicOff, FiVideo, FiVideoOff, FiLogOut } from 'react-icons/fi';
-import HomeIcon from '../homeIcon';
+/* import HomeIcon from '../homeIcon'; */
 
 const API_BASE =
   process.env.NEXT_PUBLIC_API_BASE || 'https://sense-website-production.up.railway.app';
 
+/* 一時停止：トップバーの iOS リンクでのみ使用
 const LINK_IOS =
   'https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901';
+*/
 
 const LAST_JOIN_NAME_KEY = 'minutesai.joinName';
 const GRID_GAP = 12;
@@ -655,7 +657,9 @@ export default function MeetingJoinPage() {
       <main style={styles.main}>
         <div style={styles.wrap}>
           <h1 style={styles.hero}><em>Online<br />Meeting</em></h1>
+          {/* 一時停止：Powered by Minutes.AI
           <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
+          */}
 
           <section style={styles.cardEnded}>
             <p style={{ fontSize: 18, fontWeight: 800, margin: 0, textAlign: 'center' }}>
@@ -673,7 +677,9 @@ export default function MeetingJoinPage() {
       <main style={styles.main}>
         <div style={styles.wrap}>
           <h1 style={styles.hero}><em>Online<br />Meeting</em></h1>
+          {/* 一時停止：Powered by Minutes.AI
           <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
+          */}
 
           <section style={styles.card}>
             <p style={{ fontSize: 16, fontWeight: 700, margin: 0, textAlign: 'center' }}>
@@ -748,24 +754,32 @@ export default function MeetingJoinPage() {
 
   return (
     <>
-      {/* 接続前ヘッダー */}
+      {/* 接続前ヘッダー（MinutesAI / iOS） */}
       {status !== 'connected' && (
-        <FixedHeaderPortal>
-          <header style={styles.top}>
-            <Link href="/home" aria-label="Minutes.AI Home" style={styles.brand}>
-              <span style={styles.brandIcon} aria-hidden="true">
-                <HomeIcon size={22} color="currentColor" />
-              </span>
-              <span style={styles.brandText}>Minutes.AI</span>
-            </Link>
-            <nav style={styles.nav}>
-              <a href={LINK_IOS} target="_blank" rel="noopener noreferrer" style={styles.navLink}>
-                <FaApple aria-hidden="true" style={{ marginRight: 8 }} />
-                <span className="gradHeader">iOS</span>
-              </a>
-            </nav>
-          </header>
-        </FixedHeaderPortal>
+        <>
+          {/*
+            ▼▼▼ Top bar（MinutesAI / iOS）— 一時削除（復元はこのコメントを外す） ▼▼▼
+
+          <FixedHeaderPortal>
+            <header style={styles.top}>
+              <Link href="/home" aria-label="Minutes.AI Home" style={styles.brand}>
+                <span style={styles.brandIcon} aria-hidden="true">
+                  <HomeIcon size={22} color="currentColor" />
+                </span>
+                <span style={styles.brandText}>Minutes.AI</span>
+              </Link>
+              <nav style={styles.nav}>
+                <a href={LINK_IOS} target="_blank" rel="noopener noreferrer" style={styles.navLink}>
+                  <FaApple aria-hidden="true" style={{ marginRight: 8 }} />
+                  <span className="gradHeader">iOS</span>
+                </a>
+              </nav>
+            </header>
+          </FixedHeaderPortal>
+
+            ▲▲▲ Top bar — ここまで ▲▲▲
+          */}
+        </>
       )}
 
       {/* Join */}
@@ -775,7 +789,9 @@ export default function MeetingJoinPage() {
             <h1 style={styles.hero}>
               <em>Online<br />Meeting</em>
             </h1>
+            {/* 一時停止：Powered by Minutes.AI
             <h2 style={styles.subtitle}>Powered by Minutes.AI</h2>
+            */}
 
             <section style={styles.card}>
               <div style={{ marginBottom: 12 }}>
