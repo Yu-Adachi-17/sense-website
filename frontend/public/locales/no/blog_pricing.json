@@ -47,9 +47,9 @@
     "openBrowser": "Åpne i nettleser"
   },
   "hero": {
-    "h1": "Referat AI priser (2025)",
+    "h1": "Referat AI priser (2025) — Møtereferat AI uten utløp eller helt ubegrenset",
     "kicker": "Priser",
-    "tagline": "Velg tidsklipp uten utløp eller helt ubegrenset måneds-/årsabonnement."
+    "tagline": "Velg tidsklipp som aldri utløper eller ubegrenset måneds-/årsabonnement."
   },
   "intro": {
     "h2": "Hvilken plan passer for deg?",
@@ -97,14 +97,14 @@
     }
   },
   "seo": {
-    "description": "Tidsklipp uten utløp og virkelig ubegrensede abonnement. Sammenlign Referat AI med Otter og Notta på pris, kvoter og overføring.",
+    "description": "Tidsklipp uten utløp og virkelig ubegrensede abonnement. Sammenlign Referat AI (Møtereferat AI) med Otter og Notta på pris, kvoter og overføring.",
     "ld": {
       "description": "Fire planer: to engangsklipp (uten utløp) og to ubegrensede abonnement — inkludert sammenligning med Otter og Notta.",
       "headline": "Referat AI priser"
     },
     "ogDescription": "Klipp uten utløp + ubegrensede abonnement. Rask sammenligning med Otter og Notta.",
-    "ogTitle": "Referat AI priser",
-    "title": "Referat AI priser — enkle planer for enhver møtestil"
+    "ogTitle": "Referat AI priser — Møtereferat AI",
+    "title": "Referat AI priser — enkle planer for enhver møtestil | Møtereferat AI"
   },
   "why": {
     "h2": "Hvorfor denne utformingen",

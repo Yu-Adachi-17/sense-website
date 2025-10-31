@@ -32,7 +32,7 @@
     }
   },
   "hero": {
-    "h1": "Hvorfor Referat AI gir de beste referatene for enhver møtetype",
+    "h1": "Hvorfor Møtereferat AI (Referat AI) gir de beste referatene for enhver møtetype",
     "kicker": "Referat AI Blogg",
     "tagline": "De fire universelle elementene øker lesbarheten. Når output optimaliseres etter møtets formål, blir referatet en plan for handling—ikke bare noe du leser."
   },
@@ -59,7 +59,7 @@
   },
   "nav": {
     "blog": "Blogg",
-    "current": "Hvorfor Referat AI gir de beste referatene for enhver møtetype"
+    "current": "Hvorfor Møtereferat AI fungerer for enhver møtetype"
   },
   "oneonone": {
     "generic": {
@@ -99,14 +99,14 @@
     }
   },
   "seo": {
-    "description": "Utover de fire universelle elementene: møtespesifikk optimalisering gjør referatet til en plan for gjennomføring. Per {{date}} bruker over {{users}} personer Referat AI.",
+    "description": "Utover de fire universelle elementene: møtespesifikk optimalisering gjør møtereferatet til en plan for gjennomføring. Per {{date}} bruker over {{users}} personer Referat AI.",
     "ld": {
-      "description": "Hvordan Referat AI optimaliserer output per møtetype og gjør referatet til en plan for handling.",
-      "headline": "Hvorfor Referat AI fungerer for enhver møtetype"
+      "description": "Hvordan Møtereferat AI (Referat AI) optimaliserer output per møtetype og gjør referatet til en plan for handling.",
+      "headline": "Hvorfor Møtereferat AI fungerer for enhver møtetype"
     },
     "ogDescription": "Behold tone og kontekst samtidig som beslutninger og gjennomføring drives frem med optimaliserte outputs.",
-    "ogTitle": "Hvorfor Referat AI fungerer på tvers av møter",
-    "title": "Hvorfor Referat AI fungerer for enhver møtetype | Referat AI Blogg"
+    "ogTitle": "Hvorfor Møtereferat AI fungerer på tvers av møter",
+    "title": "Hvorfor Møtereferat AI fungerer for enhver møtetype | Referat AI Blogg"
   },
   "why": {
     "h2": "Hvorfor Referat AI fungerer på tvers av møter",
@@ -120,6 +120,6 @@
   },
   "wrap": {
     "h2": "Avrunding",
-    "p": "De fire elementene er et solid fundament. Med optimalisering per møtetype blir referatet en plan for handling. Referat AI leverer dette som standard—bruk det i virkelige møter."
+    "p": "De fire elementene er et solid fundament. Med optimalisering per møtetype blir møtereferatet en plan for handling. Referat AI leverer dette som standard—bruk det i virkelige møter."
   }
 }

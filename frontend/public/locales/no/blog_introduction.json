@@ -39,18 +39,18 @@
     "openBrowser": "Åpne nettleserversjon"
   },
   "hero": {
-    "h1": "Hva er Referat AI? Grunnleggende og fordeler før bruk",
+    "h1": "Hva er Møtereferat AI? — en kort introduksjon til Referat AI",
     "kicker": "Referat AI",
-    "tagline": "«Ett trykk for meningsfulle møte­referater.» Klare forklaringer for nye brukere."
+    "tagline": "«Ett trykk for meningsfulle møtereferater.» Klare forklaringer for nye brukere."
   },
   "intro": {
     "h2": "Introduksjon",
-    "p1": "Takk for at du leser denne artikkelen. Du har kanskje tenkt: «Å skrive referater er kjedelig», «Jeg vet hvordan man gjør det, men det tar for mye tid», eller «Jeg prøvde en AI-løsning, men det føltes ikke riktig.»",
-    "p2": "Eller som leser har du kanskje opplevd: «Viktige kommentarer ble utelatt», «Beslutningene var uklare» eller «Folk tolket møtet forskjellig.»",
+    "p1": "Takk for at du leser. Du har kanskje tenkt: «Å skrive møtereferat er kjedelig», «Jeg kan det, men det tar for mye tid», eller «Jeg prøvde en AI-løsning, men det føltes ikke riktig.»",
+    "p2": "Som leser har du kanskje opplevd: «Viktige kommentarer ble utelatt», «Beslutningene var uklare» eller «Folk tolket møtet forskjellig.»",
     "p3": {
-      "bold": "meningsfulle referater",
-      "mid": "hjelper deg med å lage",
-      "post": "med bare ett trykk – med fokus på tydelighet og handling.",
+      "bold": "meningsfulle møtereferater",
+      "mid": "hjelper deg å lage",
+      "post": "med bare ett trykk — med fokus på tydelighet og handling.",
       "pre": "I denne artikkelen viser vi hvordan"
     }
   },
@@ -158,14 +158,14 @@
     }
   },
   "seo": {
-    "description": "Ett trykk for meningsfulle referater. En enkel introduksjon til Referat AI: grunnleggende funksjoner, forskjeller fra andre verktøy og eksempler; brukt av over {{users}} brukere (per {{date}}).",
+    "description": "Ett trykk for meningsfulle møtereferater. En enkel introduksjon til Møtereferat AI (Referat AI): grunnleggende funksjoner, forskjeller og eksempler; brukt av over {{users}} brukere (per {{date}}).",
     "ld": {
-      "description": "Ett trykk for meningsfulle referater. En kort introduksjon til Referat AI, forskjeller og eksempler.",
-      "headline": "Hva er Referat AI? Grunnleggende og fordeler før bruk"
+      "description": "Ett trykk for meningsfulle møtereferater. En kort introduksjon til Referat AI, forskjeller og eksempler.",
+      "headline": "Hva er Møtereferat AI? — kort introduksjon til Referat AI"
     },
-    "ogDescription": "Ett trykk for meningsfulle referater. Forstå Referat AI, hvordan det skiller seg ut, og se eksempler på resultater.",
-    "ogTitle": "Hva er Referat AI? Grunnleggende og fordeler før bruk",
-    "title": "Hva er Referat AI? Grunnleggende og fordeler før du tar det i bruk | Referat AI Blogg"
+    "ogDescription": "Ett trykk for meningsfulle møtereferater. Forstå Referat AI, hvordan det skiller seg ut, og se eksempler på resultater.",
+    "ogTitle": "Hva er Møtereferat AI? | Referat AI",
+    "title": "Hva er Møtereferat AI? — grunnleggende og fordeler før bruk | Referat AI Blogg"
   },
   "transcript": {
     "close": "Lukk",
@@ -174,11 +174,11 @@
   "what": {
     "footnote": "※ Per {{date}} (basert på iOS App Store-data)",
     "h2": "Hva er Referat AI?",
-    "p1": "Referat AI er et AI-drevet, helautomatisk verktøy for møte­referater. Det støtter alle store språk og har over 30 000 brukere over hele verden.",
-    "p2": "Med Referat AI kan du automatisk generere sammendrag, beslutninger og handlingspunkter – og lage ekte nyttige referater uten manuelt arbeid."
+    "p1": "Referat AI er et AI-drevet, helautomatisk verktøy for møtereferater. Det støtter alle store språk og har over 30 000 brukere globalt.",
+    "p2": "Med Referat AI kan du automatisk generere sammendrag, beslutninger og handlingspunkter — og lage ekte nyttige referater uten manuelt arbeid."
   },
   "wrap": {
     "h2": "Oppsummering",
-    "p": "Hva synes du? Med denne strukturen kan teamet raskt se hva som må gjøres videre — referatet blir praktisk og handlingsrettet. Prøv Referat AI og opplev forskjellen selv."
+    "p": "Med denne strukturen ser teamet raskt hva som må gjøres videre — referatet blir praktisk og handlingsrettet. Prøv Møtereferat AI i Referat AI og opplev forskjellen."
   }
 }

@@ -37,37 +37,37 @@
     "p1": "Ved å lagre «nøkkeletappene» ordrett kan beslutningstakere vurdere rimeligheten i kontekst."
   },
   "hero": {
-    "h1": "Derfor kan du skrive de beste forhandlingsreferatene med Referat AI",
+    "h1": "Møtereferat AI for forhandlinger — derfor lykkes du best med Referat AI",
     "kicker": "Referat AI-bloggen",
-    "tagline": "En forhandling er et interesseoppgjør. Et solid referat fanger derfor ikke bare beslutninger og oppgaver, men også kontekst og tone. Her er tankesettet – og hvordan du gjør det i praksis med Referat AI."
+    "tagline": "En forhandling er et interesseoppgjør. Et godt møtereferat fanger ikke bare beslutninger og oppgaver, men også kontekst, innrømmelser og tone. Slik gjør du det i praksis med Referat AI."
   },
   "limits": {
     "generic": {
-      "h3": "Det typisk for tynne referatet",
+      "h3": "Det typiske, tynne referatet",
       "items": {
-        "0": "Lister beslutninger uten begrunnelse/forløp",
+        "0": "Lister beslutninger uten begrunnelser/forløp",
         "1": "Uklart hvem som ba om hva og hvor det ble gitt innrømmelser",
         "2": "Uklart hva som ikke er avklart eller er parkert"
       }
     },
     "h2": "Hvorfor referater «kun med beslutninger» er svake",
     "optimized": {
-      "h3": "Forhandlingssterkt referat",
+      "h3": "Forhandlingssterkt møtereferat",
       "items": {
         "0": "Tidslinje for krav/innrømmelser/endringer (frist/pris/omfang/ansvar)",
         "1": "Begrunnelser, forutsetninger og risiko tett på beslutningen",
-        "2": "Skille avtalt/ikke avtalt/parkert med frist og ansvarlig"
+        "2": "Skille avtalt/ikke avtalt/parkert — med frist og ansvarlig"
       }
     },
-    "p1": "Strukturen «diskusjon/beslutninger/oppgaver/forhold» alene mister ofte kontekst, tone og historikk for innrømmelser. Følge: misforståelser, ekstra ping-pong og risiko for «sagt/ikke sagt»."
+    "p1": "Strukturen «diskusjon/beslutninger/oppgaver/risiko» alene mister ofte kontekst, tone og historikk for innrømmelser. Følge: misforståelser, ekstra ping–pong og risiko for «sagt/ikke sagt»."
   },
   "nav": {
     "blog": "Blogg",
-    "current": "Derfor kan du skrive de beste forhandlingsreferatene med Referat AI"
+    "current": "Møtereferat AI for forhandlinger — derfor lykkes du best med Referat AI"
   },
   "negotiation": {
     "h2": "Hva er en forhandling egentlig?",
-    "p1": "Kort fortalt: å beskytte og styrke virksomhetens interesser. Ikke en enveiskommunikasjon, men å finne et kompromiss gjennom «krav» og «innrømmelser» om frist, pris, omfang og risiko."
+    "p1": "Kort fortalt: å beskytte og styrke virksomhetens interesser. Ikke enveiskommunikasjon, men et kompromiss gjennom «krav» og «innrømmelser» om frist, pris, omfang og risiko."
   },
   "recap": {
     "focus": "Denne gangen går vi i dybden på forretningsforhandlinger.",
@@ -85,14 +85,14 @@
     }
   },
   "seo": {
-    "description": "Forhandlinger krever referater som fanger beslutninger, oppgaver, kontekst, tone og innrømmelser. Praktisk veiledning med Referat AI.",
+    "description": "Møtereferat AI for forhandlinger: fang beslutninger, oppgaver, kontekst, tone og innrømmelser. Praktisk veiledning med Referat AI.",
     "ld": {
-      "description": "Essensen av forhandlinger i referat: krav, innrømmelser og kontekst – med Referat AI.",
-      "headline": "Derfor kan du skrive de beste forhandlingsreferatene med Referat AI"
+      "description": "Essensen av forhandlinger i møtereferat: krav, innrømmelser og kontekst — med Referat AI.",
+      "headline": "Møtereferat AI for forhandlinger — derfor lykkes du best"
     },
     "ogDescription": "Farvel til tynne referater: bevar utveksling og kontekst for raskere, skarpere beslutninger.",
-    "ogTitle": "Derfor kan du skrive de beste forhandlingsreferatene med Referat AI",
-    "title": "Derfor kan du skrive de beste forhandlingsreferatene med Referat AI | Blogg om møtereferater"
+    "ogTitle": "Møtereferat AI for forhandlinger | Referat AI",
+    "title": "Møtereferat AI for forhandlinger — derfor lykkes du best med Referat AI"
   },
   "why": {
     "h2": "Hvorfor Referat AI er sterk i forhandlinger",
@@ -106,6 +106,6 @@
   },
   "wrap": {
     "h2": "Oppsummering",
-    "p": "Et godt forhandlingsreferat går lenger enn beslutninger: det bevarer utvekslingen og konteksten. Dermed blir avgjørelser raskere og mer presise. Gjør det til standard med Referat AI."
+    "p": "Et godt forhandlingsreferat går lenger enn beslutninger: det bevarer utvekslingen og konteksten. Dermed blir avgjørelser raskere og mer presise. Gjør Møtereferat AI til standard med Referat AI."
   }
 }

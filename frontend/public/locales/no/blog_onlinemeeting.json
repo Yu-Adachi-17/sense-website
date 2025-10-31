@@ -11,15 +11,15 @@
     "items": [
       "Zoom-lignende UX (LiveKit)",
       "URL med ett klikk",
-      "Automatisk referat etter møtet",
+      "Automatisk møtereferat etter møtet",
       "Tydelig, formatert utdata",
       "Flerspråklig for globale team"
     ]
   },
   "hero": {
-    "h1": "Nettmøter for Referat AI (iOS)",
+    "h1": "Nettmøter i Referat AI — start URL, få Møtereferat AI automatisk",
     "kicker": "Lansering",
-    "tagline": "Klikk «Online», generer URL og del. Ved avslutning starter automatisk referat."
+    "tagline": "Klikk «Online», generer URL og del. Ved avslutning starter automatisk møtereferat med klare beslutninger og oppgaver."
   },
   "image": {
     "alt": "Referat AI nettmøte-grensesnitt",
@@ -39,24 +39,24 @@
     "foot": "Prøv i nettleseren eller last ned iOS-appen.",
     "h2": "Merknader",
     "items": [
-      "Tidsgrenser/remaining tid avhenger av abonnement/kvote",
+      "Tidsgrenser/gjenværende tid avhenger av abonnement/kvote",
       "Nettverk/enhet kan påvirke kvaliteten"
     ]
   },
   "release": {
     "h2": "Nyhet",
     "p1": "Referat AI støtter nå nettmøter. Generer og del URL fra «Online» for å starte med en gang.",
-    "p2": "Når møtet er slutt, genereres referatet automatisk med tydelige beslutninger og oppgaver."
+    "p2": "Når møtet er slutt, genereres møtereferatet automatisk — optimalisert for beslutninger og handling."
   },
   "seo": {
-    "description": "Klikk «Online» for å lage en URL, del den og start et Zoom-lignende møte umiddelbart. Referat genereres automatisk når møtet avsluttes.",
+    "description": "Klikk «Online» for å lage en URL, del den og start et Zoom-lignende møte umiddelbart. Møtereferat AI genereres automatisk når møtet avsluttes.",
     "ld": {
-      "description": "Zoom-lignende møter via URL og automatisk referat med tydelige beslutninger og oppgaver.",
-      "headline": "Støtte for nettmøter"
+      "description": "Zoom-lignende møter via URL og automatisk møtereferat med tydelige beslutninger og oppgaver.",
+      "headline": "Støtte for nettmøter i Referat AI"
     },
-    "ogDescription": "Start via «Online» og få automatisk, ryddig referat etter møtet.",
-    "ogTitle": "Nettmøter i Referat AI",
-    "title": "Referat AI støtter nå nettmøter (iOS)"
+    "ogDescription": "Start via «Online» og få automatisk, ryddig møtereferat etter møtet.",
+    "ogTitle": "Nettmøter i Referat AI — Møtereferat AI automatisk",
+    "title": "Nettmøter i Referat AI — automatisk Møtereferat AI (iOS)"
   },
   "steps": {
     "h2": "Kom i gang",
@@ -64,7 +64,7 @@
       "Klikk «Online» (app/nett)",
       "Generer møte-URL",
       "Del URL med deltakerne",
-      "Avslutt → automatisk referat"
+      "Avslutt → automatisk møtereferat"
     ],
     "note": "Møtelengde avhenger av abonnement og gjenværende kvote."
   }
