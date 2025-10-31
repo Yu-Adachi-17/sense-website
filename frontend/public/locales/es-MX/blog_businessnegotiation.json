@@ -2,36 +2,15 @@
   "a11y": {
     "home": "Volver al inicio de Actas IA"
   },
-  "nav": {
-    "blog": "Blog",
-    "current": "Por qué con Actas IA puedes redactar las mejores minutas de negociación"
-  },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Blog de Actas IA",
-    "h1": "Por qué con Actas IA puedes redactar las mejores minutas de negociación",
-    "tagline": "Una negociación cruza intereses. Por eso la minuta no solo debe listar decisiones y pendientes, sino también el contexto y la tonalidad del diálogo. Aquí la idea y cómo aplicarla con Actas IA."
-  },
-  "recap": {
-    "h2": "Resumen del artículo anterior",
-    "p1": {
-      "pre": "La vez pasada mostramos cómo las minutas con IA sirven para cualquier reunión. Si quieres leerlo,",
-      "link": "haz clic aquí",
-      "post": "."
-    },
-    "points": {
-      "0": "Hay muchos tipos de reunión; el formato ideal depende del objetivo.",
-      "1": "Las plantillas genéricas ayudan, pero hay que ajustar el detalle según el uso.",
-      "2": "De “documento para leer” a “plan para ejecutar”.",
-      "3": "Actas IA cambia la salida según el propósito del encuentro."
-    },
-    "focus": "Ahora vamos a profundizar específicamente en negociaciones comerciales."
+  "cta": {
+    "downloadIOS": "Descargar app de iOS",
+    "openBrowser": "Abrir en el navegador"
   },
   "diversity": {
-    "h2": "Las reuniones son variadas; la negociación es especial",
     "core": {
       "h3": "Tipos comunes",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Negociación: alinear intereses y acordar"
       }
     },
+    "h2": "Las reuniones son variadas; la negociación es especial",
+    "p1": "Si cambia el objetivo, cambia el output valioso. En negociaciones, negociar es el núcleo.",
     "wide": {
       "h3": "“Reunión” en sentido amplio",
       "items": {
@@ -48,16 +29,19 @@
         "2": "Presentación: problema y solución",
         "3": "Capacitación: transmisión operativa"
       }
-    },
-    "p1": "Si cambia el objetivo, cambia el output valioso. En negociaciones, negociar es el núcleo."
+    }
   },
-  "negotiation": {
-    "h2": "¿Qué es una negociación?",
-    "p1": "Proteger y hacer crecer los intereses de tu empresa. No es un comunicado unilateral: se busca el punto medio intercambiando “exigencias” y “concesiones” sobre plazo, precio, alcance y riesgo."
+  "example": {
+    "block": "Empresa A: En su producto anterior hubo un bug y nos metió en problemas. Nos deben una; entreguen para la próxima semana. Precio: 1,000 USD.\\nNuestra empresa: Intentaremos entregar la próxima semana tras coordinación interna. A cambio, ¿podemos subir a 1,200 USD? Por favor considérenlo.\\nEmpresa A: Si garantizan la entrega la próxima semana, lo revisamos. Envíen respuesta por correo hoy.",
+    "h2": "Ejemplo (conservar literalmente los turnos clave)",
+    "p1": "Guardar los turnos clave en texto literal permite evaluar la razonabilidad con el contexto completo."
+  },
+  "hero": {
+    "h1": "Por qué con Actas IA puedes redactar las mejores minutas de negociación",
+    "kicker": "Blog de Actas IA",
+    "tagline": "Una negociación cruza intereses. Por eso la minuta no solo debe listar decisiones y pendientes, sino también el contexto y la tonalidad del diálogo. Aquí la idea y cómo aplicarla con Actas IA."
   },
   "limits": {
-    "h2": "Por qué una minuta “solo con decisiones” es débil",
-    "p1": "Quedarse con “discusión/decisiones/pendientes/temas” suele perder contexto, tono e historial de concesiones. Resultado: malentendidos, ida y vuelta extra y el clásico “se dijo/no se dijo”.",
     "generic": {
       "h3": "La minuta delgada típica",
       "items": {
@@ -66,6 +50,7 @@
         "2": "Ambigüedad sobre lo no acordado o pendiente"
       }
     },
+    "h2": "Por qué una minuta “solo con decisiones” es débil",
     "optimized": {
       "h3": "Minuta fuerte para negociaciones",
       "items": {
@@ -73,12 +58,41 @@
         "1": "Motivos, supuestos y riesgos junto a cada decisión",
         "2": "Separar acordado/no acordado/pendiente con fechas y responsables"
       }
+    },
+    "p1": "Quedarse con “discusión/decisiones/pendientes/temas” suele perder contexto, tono e historial de concesiones. Resultado: malentendidos, ida y vuelta extra y el clásico “se dijo/no se dijo”."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Por qué con Actas IA puedes redactar las mejores minutas de negociación"
+  },
+  "negotiation": {
+    "h2": "¿Qué es una negociación?",
+    "p1": "Proteger y hacer crecer los intereses de tu empresa. No es un comunicado unilateral: se busca el punto medio intercambiando “exigencias” y “concesiones” sobre plazo, precio, alcance y riesgo."
+  },
+  "recap": {
+    "focus": "Ahora vamos a profundizar específicamente en negociaciones comerciales.",
+    "h2": "Resumen del artículo anterior",
+    "p1": {
+      "link": "haz clic aquí",
+      "post": ".",
+      "pre": "La vez pasada mostramos cómo las minutas con IA sirven para cualquier reunión. Si quieres leerlo,"
+    },
+    "points": {
+      "0": "Hay muchos tipos de reunión; el formato ideal depende del objetivo.",
+      "1": "Las plantillas genéricas ayudan, pero hay que ajustar el detalle según el uso.",
+      "2": "De “documento para leer” a “plan para ejecutar”.",
+      "3": "Actas IA cambia la salida según el propósito del encuentro."
     }
   },
-  "example": {
-    "h2": "Ejemplo (conservar literalmente los turnos clave)",
-    "block": "Empresa A: En su producto anterior hubo un bug y nos metió en problemas. Nos deben una; entreguen para la próxima semana. Precio: 1,000 USD.\\nNuestra empresa: Intentaremos entregar la próxima semana tras coordinación interna. A cambio, ¿podemos subir a 1,200 USD? Por favor considérenlo.\\nEmpresa A: Si garantizan la entrega la próxima semana, lo revisamos. Envíen respuesta por correo hoy.",
-    "p1": "Guardar los turnos clave en texto literal permite evaluar la razonabilidad con el contexto completo."
+  "seo": {
+    "description": "Negociar exige minutas que capten decisiones, tareas, contexto, tono e historial de concesiones. Guía práctica con Actas IA.",
+    "ld": {
+      "description": "Lo esencial de la negociación en las minutas: exigencias, concesiones y contexto con Actas IA.",
+      "headline": "Por qué con Actas IA puedes redactar las mejores minutas de negociación"
+    },
+    "ogDescription": "Adiós a las minutas delgadas: conserva el intercambio y el contexto para decidir mejor y más rápido.",
+    "ogTitle": "Por qué con Actas IA puedes redactar las mejores minutas de negociación",
+    "title": "Por qué con Actas IA puedes redactar las mejores minutas de negociación | Blog de minutas de reuniones"
   },
   "why": {
     "h2": "Por qué Actas IA es fuerte en negociaciones",
@@ -93,19 +107,5 @@
   "wrap": {
     "h2": "Cierre",
     "p": "Una minuta de negociación sólida va más allá de las decisiones: conserva el intercambio y el contexto. Así se decide más rápido y con menos marcha atrás. Hazlo estándar con Actas IA."
-  },
-  "cta": {
-    "openBrowser": "Abrir en el navegador",
-    "downloadIOS": "Descargar app de iOS"
-  },
-  "seo": {
-    "title": "Por qué con Actas IA puedes redactar las mejores minutas de negociación | Blog de minutas de reuniones",
-    "description": "Negociar exige minutas que capten decisiones, tareas, contexto, tono e historial de concesiones. Guía práctica con Actas IA.",
-    "ogTitle": "Por qué con Actas IA puedes redactar las mejores minutas de negociación",
-    "ogDescription": "Adiós a las minutas delgadas: conserva el intercambio y el contexto para decidir mejor y más rápido.",
-    "ld": {
-      "headline": "Por qué con Actas IA puedes redactar las mejores minutas de negociación",
-      "description": "Lo esencial de la negociación en las minutas: exigencias, concesiones y contexto con Actas IA."
-    }
   }
 }

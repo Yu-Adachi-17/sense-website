@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Minutes.AI prijzen — simpele plannen voor elke vergaderstijl",
-    "description": "Tijdpakketten zonder vervaldatum en echt onbeperkte abonnementen. Vergelijk Minutes.AI met Otter en Notta op prijs, quota en rollover.",
-    "ogTitle": "Minutes.AI prijzen",
-    "ogDescription": "Pakketten zonder vervaldatum + onbeperkte abonnementen. Snelle vergelijking met Otter & Notta.",
-    "ld": {
-      "headline": "Minutes.AI prijzen",
-      "description": "Vier plannen: twee eenmalige tijdpakketten (geen vervaldatum) en twee onbeperkte abonnementen — inclusief vergelijking met Otter en Notta."
-    }
+  "aria": {
+    "home": "Notulen AI Start"
   },
-  "aria": { "home": "Minutes.AI Start" },
-  "nav": { "blog": "Blog", "pricing": "Prijzen" },
+  "compare": {
+    "foot": "Bronnen: officiële prijspagina’s van Otter en Notta.",
+    "h2": "Notulen AI vs. Otter vs. Notta — prijs in één oogopslag",
+    "lastUpdated": "Laatst bijgewerkt: 31 okt 2025",
+    "note": "Belangrijkste prijzen en quota (USD). Concurrenten resetten maandquota doorgaans zonder rollover.",
+    "rows": [
+      {
+        "billing": "Eenmalige pakketten + abonnementen",
+        "cheapest": "Trial 120 min / $1.99 (geen vervaldatum)",
+        "free": "Dagelijks 3-min ticket",
+        "limits": "Tijdpakketten verlopen niet. Abonnementen zonder limiet.",
+        "service": "Notulen AI",
+        "unlimited": "Ja — $16.99/mnd of $149.99/jr"
+      },
+      {
+        "billing": "Seat-based abonnement",
+        "cheapest": "Pro — $16.99/mnd of $8.33/mnd (jaarlijks)",
+        "free": "300 min/mnd, tot 30 min/gesprek",
+        "limits": "Geen rollover; limiet per meeting",
+        "service": "Otter",
+        "unlimited": "Nee — Pro 1200 min/mnd; Business 6000 importmin/mnd"
+      },
+      {
+        "billing": "Seat-based abonnement",
+        "cheapest": "Pro — $13.49/mnd (maandelijks) of $8.17/mnd (jaarlijks)",
+        "free": "120 min/mnd, tot 3 min/opname",
+        "limits": "Geen carryover; tot 5 u/opname; uploadquota",
+        "service": "Notta",
+        "unlimited": "Business — Onbeperkt (jaarlijks $16.67/mnd; maandelijks hoger)"
+      }
+    ],
+    "tableHead": [
+      "Service",
+      "Gratis plan",
+      "Goedkoopste betaald",
+      "Onbeperkt",
+      "Opvallende limieten",
+      "Factureringsmodel"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "iOS-app downloaden",
+    "openBrowser": "Openen in browser"
+  },
   "hero": {
+    "h1": "Notulen AI prijzen (2025)",
     "kicker": "Prijzen",
-    "h1": "Minutes.AI prijzen (2025)",
     "tagline": "Kies voor tijdpakketten zonder vervaldatum of volledig onbeperkte maand-/jaarabonnementen."
   },
   "intro": {
     "h2": "Welke optie past bij jou?",
     "p1": "Vier opties, afgestemd op hoe vaak je vergadert."
   },
+  "meta": {
+    "category": "Prijzen",
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Gids"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Prijzen"
+  },
   "plans": {
-    "h3_timepacks": "Tijdpakketten",
-    "timepacks_note": "Gekochte minuten verlopen nooit. Genereer altijd automatische notulen.",
-    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
-    "light": { "name": "Light", "detail": "1200 min / $11.99" },
-    "h3_subs": "Abonnementen",
-    "subs_note": "Abonnementen zijn écht onbeperkt — geen maandlimieten.",
-    "monthly": { "name": "Maandelijks", "detail": "$16.99" },
-    "annual": { "name": "Jaarlijks", "detail": "$149.99" },
-    "free": {
-      "badge": "Dagelijks gratis ticket",
-      "text": "Ook zonder te betalen krijg je dagelijks een gratis 3-minutenticket om Minutes.AI te proberen."
+    "annual": {
+      "detail": "$149.99",
+      "name": "Jaarlijks"
     },
     "bullets": [
       "Geen vervaldatum: één keer kopen, altijd gebruiken",
       "Onbeperkt gebruik met abonnement",
       "iOS & Web, meertalige output"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs. Otter vs. Notta — prijs in één oogopslag",
-    "note": "Belangrijkste prijzen en quota (USD). Concurrenten resetten maandquota doorgaans zonder rollover.",
-    "tableHead": ["Service", "Gratis plan", "Goedkoopste betaald", "Onbeperkt", "Opvallende limieten", "Factureringsmodel"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "Dagelijks 3-min ticket",
-        "cheapest": "Trial 120 min / $1.99 (geen vervaldatum)",
-        "unlimited": "Ja — $16.99/mnd of $149.99/jr",
-        "limits": "Tijdpakketten verlopen niet. Abonnementen zonder limiet.",
-        "billing": "Eenmalige pakketten + abonnementen"
-      },
-      {
-        "service": "Otter",
-        "free": "300 min/mnd, tot 30 min/gesprek",
-        "cheapest": "Pro — $16.99/mnd of $8.33/mnd (jaarlijks)",
-        "unlimited": "Nee — Pro 1200 min/mnd; Business 6000 importmin/mnd",
-        "limits": "Geen rollover; limiet per meeting",
-        "billing": "Seat-based abonnement"
-      },
-      {
-        "service": "Notta",
-        "free": "120 min/mnd, tot 3 min/opname",
-        "cheapest": "Pro — $13.49/mnd (maandelijks) of $8.17/mnd (jaarlijks)",
-        "unlimited": "Business — Onbeperkt (jaarlijks $16.67/mnd; maandelijks hoger)",
-        "limits": "Geen carryover; tot 5 u/opname; uploadquota",
-        "billing": "Seat-based abonnement"
-      }
     ],
-    "foot": "Bronnen: officiële prijspagina’s van Otter en Notta.",
-    "lastUpdated": "Laatst bijgewerkt: 31 okt 2025"
+    "free": {
+      "badge": "Dagelijks gratis ticket",
+      "text": "Ook zonder te betalen krijg je dagelijks een gratis 3-minutenticket om Notulen AI te proberen."
+    },
+    "h3_subs": "Abonnementen",
+    "h3_timepacks": "Tijdpakketten",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Maandelijks"
+    },
+    "subs_note": "Abonnementen zijn écht onbeperkt — geen maandlimieten.",
+    "timepacks_note": "Gekochte minuten verlopen nooit. Genereer altijd automatische notulen.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Tijdpakketten zonder vervaldatum en echt onbeperkte abonnementen. Vergelijk Notulen AI met Otter en Notta op prijs, quota en rollover.",
+    "ld": {
+      "description": "Vier plannen: twee eenmalige tijdpakketten (geen vervaldatum) en twee onbeperkte abonnementen — inclusief vergelijking met Otter en Notta.",
+      "headline": "Notulen AI prijzen"
+    },
+    "ogDescription": "Pakketten zonder vervaldatum + onbeperkte abonnementen. Snelle vergelijking met Otter & Notta.",
+    "ogTitle": "Notulen AI prijzen",
+    "title": "Notulen AI prijzen — simpele plannen voor elke vergaderstijl"
   },
   "why": {
     "h2": "Waarom deze opzet",
@@ -79,7 +113,5 @@
       "Af en toe vergaderen: koop één Light-pakket — geen vervaldatum.",
       "Eerst proberen: Trial + dagelijks 3-minutenticket."
     ]
-  },
-  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Gids", "category": "Prijzen" },
-  "cta": { "openBrowser": "Openen in browser", "downloadIOS": "iOS-app downloaden" }
+  }
 }

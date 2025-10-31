@@ -1,18 +1,46 @@
 {
-  "seo": {
-    "title": "Apakah itu Minutes AI? Asas & kelebihan sebelum digunakan | Blog Minutes AI",
-    "description": "Satu ketikan untuk minit mesyuarat yang bermakna. Pengenalan ringkas Minutes AI: asas, perbezaan dengan alat lain, dan contoh hasil; dipercayai oleh {{users}}+ pengguna (setakat {{date}}).",
-    "ogTitle": "Apakah itu Minutes AI? Asas & kelebihan sebelum digunakan",
-    "ogDescription": "Satu ketikan untuk minit mesyuarat yang bermakna. Fahami Minutes AI, perbezaannya, dan lihat contoh hasil sebenar.",
-    "ld": {
-      "headline": "Apakah itu Minutes AI? Asas & kelebihan sebelum digunakan",
-      "description": "Satu ketikan untuk minit mesyuarat yang bermakna. Pengenalan padat tentang Minutes AI, perbezaan dan contohnya."
-    }
+  "compare": {
+    "head": {
+      "feature": "Ciri",
+      "generic": "AI Umum",
+      "minutes": "Minit AI",
+      "transcription": "Alat Transkripsi Asas"
+    },
+    "rows": [
+      {
+        "a": "Ya",
+        "b": "Tidak (perlu input manual)",
+        "c": "Ya",
+        "k": "Audio → Teks"
+      },
+      {
+        "a": "Tidak",
+        "b": "Ya (tetapi konteks boleh berubah)",
+        "c": "Ya (dioptimumkan untuk mesyuarat)",
+        "k": "Ringkasan / Struktur"
+      },
+      {
+        "a": "Tidak",
+        "b": "Ya (kadang samar)",
+        "c": "Ya (jelas dengan label automatik)",
+        "k": "Ekstraksi Keputusan / Tindakan"
+      },
+      {
+        "a": "Tidak",
+        "b": "Ya (tetapi tidak konsisten)",
+        "c": "Ya (utama + sensitif konteks)",
+        "k": "Sokongan Pelbagai Bahasa"
+      }
+    ],
+    "title": "Perbezaan: Alat Transkripsi / AI Umum / Minit AI"
   },
-  "nav": { "blog": "Blog", "introduction": "Pengenalan" },
+  "cta": {
+    "downloadIOS": "Muat turun Versi iOS",
+    "openBrowser": "Buka Versi Pelayar"
+  },
   "hero": {
-    "kicker": "Minutes AI",
-    "h1": "Apakah itu Minutes AI? Asas & kelebihan sebelum digunakan",
+    "h1": "Apakah itu Minit AI? Asas & kelebihan sebelum digunakan",
+    "kicker": "Minit AI",
     "tagline": "“Satu ketikan untuk minit mesyuarat yang bermakna.” Penjelasan ringkas dan padat untuk pengguna baru."
   },
   "intro": {
@@ -20,110 +48,137 @@
     "p1": "Terima kasih kerana membaca artikel ini. Jika anda sampai ke sini, kemungkinan besar anda pernah berfikir: “Menulis minit mesyuarat sangat leceh”, “Saya tahu caranya, tetapi ia mengambil terlalu banyak masa”, atau “Saya telah mencuba AI generatif, tetapi hasilnya tidak memuaskan.”",
     "p2": "Atau sebagai pembaca, anda mungkin mengalami: “Ada kenyataan yang tertinggal,” “keputusan tidak jelas,” atau “pemahaman setiap orang tidak seiring.”",
     "p3": {
-      "pre": "Dalam artikel ini, kami akan tunjukkan bagaimana",
-      "mid": "membantu anda menghasilkan",
       "bold": "minit mesyuarat yang bermakna",
-      "post": "hanya dengan satu ketikan — fokus pada kejelasan dan tindakan."
+      "mid": "membantu anda menghasilkan",
+      "post": "hanya dengan satu ketikan — fokus pada kejelasan dan tindakan.",
+      "pre": "Dalam artikel ini, kami akan tunjukkan bagaimana"
     }
   },
-  "what": {
-    "h2": "Apakah itu Minutes AI?",
-    "p1": "Minutes AI ialah alat minit mesyuarat automatik berkuasa AI. Ia menyokong semua bahasa utama dan kini digunakan oleh lebih daripada 30,000 pengguna di seluruh dunia.",
-    "footnote": "※ Setakat {{date}} (berdasarkan data App Store iOS)",
-    "p2": "Dengan Minutes AI, anda boleh menjana ‘ringkasan’, ‘keputusan’, dan ‘tindakan susulan’ secara automatik, tanpa perlu menaip secara manual."
-  },
-  "compare": {
-    "title": "Perbezaan: Alat Transkripsi / AI Umum / Minutes AI",
-    "head": {
-      "feature": "Ciri",
-      "transcription": "Alat Transkripsi Asas",
-      "generic": "AI Umum",
-      "minutes": "Minutes AI"
-    },
-    "rows": [
-      { "k": "Audio → Teks", "a": "Ya", "b": "Tidak (perlu input manual)", "c": "Ya" },
-      { "k": "Ringkasan / Struktur", "a": "Tidak", "b": "Ya (tetapi konteks boleh berubah)", "c": "Ya (dioptimumkan untuk mesyuarat)" },
-      { "k": "Ekstraksi Keputusan / Tindakan", "a": "Tidak", "b": "Ya (kadang samar)", "c": "Ya (jelas dengan label automatik)" },
-      { "k": "Sokongan Pelbagai Bahasa", "a": "Tidak", "b": "Ya (tetapi tidak konsisten)", "c": "Ya (utama + sensitif konteks)" }
-    ]
-  },
-  "samples": {
-    "h2": "Teks Asal & Contoh Hasil",
-    "meetingSample": "Contoh Audio Mesyuarat",
-    "transcript": {
-      "preview": "Baik, mari kita mulakan mesyuarat. Pertama, kita tinjau prestasi jualan ‘jam pintar’ hujung minggu lepas. Amir, sila mulakan dengan laporan saluran dalam talian.",
-      "full": "Ahmad (Ketua Pemasaran): Terima kasih semua — Amir (E-dagang), Sara (Operasi Runcit), Farid (PM), dan Rina (Data). ... (diringkaskan)"
-    },
-    "generic": {
-      "h3": "Contoh Hasil AI Umum",
-      "body": "Pasukan meninjau prestasi jualan jam pintar. ...",
-      "note": "Ringkas, tetapi tidak menjelaskan 'siapa buat apa dan bila'."
-    },
-    "pretty": { "h3": "Contoh Hasil Minutes AI" }
-  },
   "minutes": {
-    "meetingTitle": "Semakan Mingguan Jualan Jam Pintar",
-    "date": "2025-10-11 10:00 MYT",
-    "attendees": ["Ahmad (Ketua Pemasaran)", "Amir (E-dagang)", "Sara (Operasi Runcit)", "Farid (PM)", "Rina (Data)"],
+    "attendees": [
+      "Ahmad (Ketua Pemasaran)",
+      "Amir (E-dagang)",
+      "Sara (Operasi Runcit)",
+      "Farid (PM)",
+      "Rina (Data)"
+    ],
     "coreMessage": "Utamakan kejelasan berbanding kelajuan. Tetapkan ‘siapa buat apa dan bila’, dan kekalkan mesyuarat dalam 30 minit.",
+    "date": "2025-10-11 10:00 MYT",
+    "labels": {
+      "actionItems": "Tindakan",
+      "attendees": "Peserta:",
+      "closingMessage": "Mesej Penutup",
+      "concerns": "Kebimbangan",
+      "decisions": "Keputusan",
+      "discussion": "Perbincangan",
+      "keyMessages": "Mesej Utama"
+    },
+    "meetingTitle": "Semakan Mingguan Jualan Jam Pintar",
     "topics": [
       {
-        "topic": "Prestasi saluran dalam talian",
+        "actionItems": [
+          "Amir — lancarkan ujian A/B sebelum 2025-10-15",
+          "Rina — sediakan laporan CTR sebelum 2025-10-17"
+        ],
+        "concerns": [
+          "Kelesuan iklan jika bahan kreatif tidak dikemas kini"
+        ],
+        "decisions": [
+          "Naikkan bajet iklan dalam talian 15% (2 minggu)"
+        ],
         "discussion": [
           "Lawatan +18%; kadar penukaran 2.9% → 3.2%; hasil +12%",
           "Kempen influencer menaikkan prestasi Sabtu; perbelanjaan iklan +6%",
           "CTR penargetan semula turun 1.8% → 1.2%; perlukan penyegaran kreatif"
         ],
-        "decisions": ["Naikkan bajet iklan dalam talian 15% (2 minggu)"],
-        "actionItems": [
-          "Amir — lancarkan ujian A/B sebelum 2025-10-15",
-          "Rina — sediakan laporan CTR sebelum 2025-10-17"
+        "keyMessages": [
+          "Kekalkan CAC stabil; uji sebelum meningkatkan skala"
         ],
-        "concerns": ["Kelesuan iklan jika bahan kreatif tidak dikemas kini"],
-        "keyMessages": ["Kekalkan CAC stabil; uji sebelum meningkatkan skala"]
+        "topic": "Prestasi saluran dalam talian"
       },
       {
-        "topic": "Stok luar talian & operasi kedai",
+        "actionItems": [
+          "Sara — sahkan ETA/logistik sebelum 2025-10-14"
+        ],
+        "concerns": [
+          "Risiko kelewatan pembekal jika permintaan meningkat"
+        ],
+        "decisions": [
+          "Restok 500 unit di tiga cawangan"
+        ],
         "discussion": [
           "Stok habis di KL, Penang, Johor Bahru",
           "Restok 500 unit pada Isnin",
           "Kunjungan −4% akibat ribut; nilai purata pembelian stabil"
         ],
-        "decisions": ["Restok 500 unit di tiga cawangan"],
-        "actionItems": ["Sara — sahkan ETA/logistik sebelum 2025-10-14"],
-        "concerns": ["Risiko kelewatan pembekal jika permintaan meningkat"],
-        "keyMessages": ["Elak kehilangan jualan dengan kestabilan inventori"]
+        "keyMessages": [
+          "Elak kehilangan jualan dengan kestabilan inventori"
+        ],
+        "topic": "Stok luar talian & operasi kedai"
       },
       {
-        "topic": "Firmware v1.2 & pelancaran Q4",
-        "discussion": [
-          "v1.2 membetulkan isu bateri; penambahbaikan pengiraan langkah",
-          "Nota keluaran siap; FAQ akan diterbitkan oleh sokongan",
-          "Pakej Q4: Jam + Tali, −RM200 mulai 2025-10-20"
-        ],
-        "decisions": ["Lulus pelancaran pada 2025-10-20"],
         "actionItems": [
           "Farid — sahkan jadual sebelum 2025-10-13",
           "Sokongan — terbitkan FAQ sebelum 2025-10-16",
           "Pemasaran — sediakan rancangan Black Friday sebelum 2025-10-25"
         ],
-        "keyMessages": ["Gabungkan peningkatan produk dengan promosi tepat masa"]
+        "decisions": [
+          "Lulus pelancaran pada 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 membetulkan isu bateri; penambahbaikan pengiraan langkah",
+          "Nota keluaran siap; FAQ akan diterbitkan oleh sokongan",
+          "Pakej Q4: Jam + Tali, −RM200 mulai 2025-10-20"
+        ],
+        "keyMessages": [
+          "Gabungkan peningkatan produk dengan promosi tepat masa"
+        ],
+        "topic": "Firmware v1.2 & pelancaran Q4"
       }
-    ],
-    "labels": {
-      "discussion": "Perbincangan",
-      "decisions": "Keputusan",
-      "actionItems": "Tindakan",
-      "concerns": "Kebimbangan",
-      "keyMessages": "Mesej Utama",
-      "attendees": "Peserta:",
-      "closingMessage": "Mesej Penutup"
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Pengenalan"
+  },
+  "samples": {
+    "generic": {
+      "body": "Pasukan meninjau prestasi jualan jam pintar. ...",
+      "h3": "Contoh Hasil AI Umum",
+      "note": "Ringkas, tetapi tidak menjelaskan 'siapa buat apa dan bila'."
+    },
+    "h2": "Teks Asal & Contoh Hasil",
+    "meetingSample": "Contoh Audio Mesyuarat",
+    "pretty": {
+      "h3": "Contoh Hasil Minit AI"
+    },
+    "transcript": {
+      "full": "Ahmad (Ketua Pemasaran): Terima kasih semua — Amir (E-dagang), Sara (Operasi Runcit), Farid (PM), dan Rina (Data). ... (diringkaskan)",
+      "preview": "Baik, mari kita mulakan mesyuarat. Pertama, kita tinjau prestasi jualan ‘jam pintar’ hujung minggu lepas. Amir, sila mulakan dengan laporan saluran dalam talian."
     }
+  },
+  "seo": {
+    "description": "Satu ketikan untuk minit mesyuarat yang bermakna. Pengenalan ringkas Minit AI: asas, perbezaan dengan alat lain, dan contoh hasil; dipercayai oleh {{users}}+ pengguna (setakat {{date}}).",
+    "ld": {
+      "description": "Satu ketikan untuk minit mesyuarat yang bermakna. Pengenalan padat tentang Minit AI, perbezaan dan contohnya.",
+      "headline": "Apakah itu Minit AI? Asas & kelebihan sebelum digunakan"
+    },
+    "ogDescription": "Satu ketikan untuk minit mesyuarat yang bermakna. Fahami Minit AI, perbezaannya, dan lihat contoh hasil sebenar.",
+    "ogTitle": "Apakah itu Minit AI? Asas & kelebihan sebelum digunakan",
+    "title": "Apakah itu Minit AI? Asas & kelebihan sebelum digunakan | Blog Minit AI"
+  },
+  "transcript": {
+    "close": "Tutup teks",
+    "expand": "Lihat teks penuh"
+  },
+  "what": {
+    "footnote": "※ Setakat {{date}} (berdasarkan data App Store iOS)",
+    "h2": "Apakah itu Minit AI?",
+    "p1": "Minit AI ialah alat minit mesyuarat automatik berkuasa AI. Ia menyokong semua bahasa utama dan kini digunakan oleh lebih daripada 30,000 pengguna di seluruh dunia.",
+    "p2": "Dengan Minit AI, anda boleh menjana ‘ringkasan’, ‘keputusan’, dan ‘tindakan susulan’ secara automatik, tanpa perlu menaip secara manual."
   },
   "wrap": {
     "h2": "Penutup",
-    "p": "Bagaimana pendapat anda? Dengan struktur ini, pembaca dan pasukan dapat melihat apa yang perlu dilakukan seterusnya dengan jelas. Cuba Minutes AI dan alami sendiri perbezaannya."
-  },
-  "cta": { "openBrowser": "Buka Versi Pelayar", "downloadIOS": "Muat turun Versi iOS" },
-  "transcript": { "expand": "Lihat teks penuh", "close": "Tutup teks" }
+    "p": "Bagaimana pendapat anda? Dengan struktur ini, pembaca dan pasukan dapat melihat apa yang perlu dilakukan seterusnya dengan jelas. Cuba Minit AI dan alami sendiri perbezaannya."
+  }
 }

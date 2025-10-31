@@ -1,18 +1,46 @@
 {
-  "seo": {
-    "title": "Hvad er Referat AI? Grundlæggende og fordele før du tager det i brug | Referat AI Blog",
-    "description": "Én tryk for meningsfulde referater. En enkel introduktion til Referat AI: grundlæggende, forskelle fra andre værktøjer og eksempler på output; betroet af over {{users}} brugere (pr. {{date}}).",
-    "ogTitle": "Hvad er Referat AI? Grundlæggende og fordele før du tager det i brug",
-    "ogDescription": "Én tryk for meningsfulde referater. Forstå Referat AI, hvordan det adskiller sig, og se eksempler på resultater.",
-    "ld": {
-      "headline": "Hvad er Referat AI? Grundlæggende og fordele før du tager det i brug",
-      "description": "Én tryk for meningsfulde referater. En kort introduktion til Referat AI, forskelle og eksempler."
-    }
+  "compare": {
+    "head": {
+      "feature": "Funktion",
+      "generic": "Generisk AI",
+      "minutes": "Referat AI",
+      "transcription": "Simpelt transskriptionsværktøj"
+    },
+    "rows": [
+      {
+        "a": "Ja",
+        "b": "Nej (kræver manuel input)",
+        "c": "Ja",
+        "k": "Lyd → Tekst"
+      },
+      {
+        "a": "Nej",
+        "b": "Ja (men konteksten kan ændres)",
+        "c": "Ja (optimeret til møder)",
+        "k": "Opsummering / Struktur"
+      },
+      {
+        "a": "Nej",
+        "b": "Ja (men ofte uklart)",
+        "c": "Ja (klart udtræk og mærkning)",
+        "k": "Beslutnings- og handlingspunkter"
+      },
+      {
+        "a": "Nej",
+        "b": "Ja (men risiko for fejl i syntaks)",
+        "c": "Ja (alle hovedsprog, kontekstsensitivt)",
+        "k": "Flersproget support"
+      }
+    ],
+    "title": "Forskelle: Transskriptionsværktøj / Generisk AI / Referat AI"
   },
-  "nav": { "blog": "Blog", "introduction": "Introduktion" },
+  "cta": {
+    "downloadIOS": "Download iOS-versionen",
+    "openBrowser": "Åbn browser-versionen"
+  },
   "hero": {
-    "kicker": "Referat AI",
     "h1": "Hvad er Referat AI? Grundlæggende og fordele før du tager det i brug",
+    "kicker": "Referat AI",
     "tagline": "“Et enkelt tryk for meningsfulde mødereferater.” Klare forklaringer for alle, der lige er begyndt."
   },
   "intro": {
@@ -20,71 +48,131 @@
     "p1": "Tak fordi du besøger denne artikel. Hvis du læser dette, har du sandsynligvis tænkt: “At skrive referater er tidskrævende,” “Jeg ved, hvordan man gør, men det tager for lang tid,” eller “Jeg prøvede en populær AI-tjeneste, men resultatet føltes forkert.”",
     "p2": "Eller måske som læser har du oplevet: “Nogle pointer blev overset,” “Beslutningerne var uklare,” eller “Holdets forståelse stemte ikke overens.”",
     "p3": {
-      "pre": "I denne artikel viser vi, hvordan",
-      "mid": "hjælper dig med at skabe",
       "bold": "meningsfulde mødereferater",
-      "post": "med blot ét tryk — med fokus på klarhed og resultater."
+      "mid": "hjælper dig med at skabe",
+      "post": "med blot ét tryk — med fokus på klarhed og resultater.",
+      "pre": "I denne artikel viser vi, hvordan"
     }
-  },
-  "what": {
-    "h2": "Hvad er Referat AI?",
-    "p1": "Referat AI er et AI-drevet, fuldautomatisk værktøj til mødereferater. Det understøtter alle større sprog og har over 30.000 brugere på verdensplan.",
-    "footnote": "※ Pr. {{date}} (baseret på iOS App Store-data)",
-    "p2": "Med Referat AI kan du automatisk generere ‘resuméer’, ‘beslutninger’ og ‘handlinger’ – og skabe virkeligt brugbare referater uden manuelt arbejde."
-  },
-  "compare": {
-    "title": "Forskelle: Transskriptionsværktøj / Generisk AI / Referat AI",
-    "head": {
-      "feature": "Funktion",
-      "transcription": "Simpelt transskriptionsværktøj",
-      "generic": "Generisk AI",
-      "minutes": "Referat AI"
-    },
-    "rows": [
-      { "k": "Lyd → Tekst", "a": "Ja", "b": "Nej (kræver manuel input)", "c": "Ja" },
-      { "k": "Opsummering / Struktur", "a": "Nej", "b": "Ja (men konteksten kan ændres)", "c": "Ja (optimeret til møder)" },
-      { "k": "Beslutnings- og handlingspunkter", "a": "Nej", "b": "Ja (men ofte uklart)", "c": "Ja (klart udtræk og mærkning)" },
-      { "k": "Flersproget support", "a": "Nej", "b": "Ja (men risiko for fejl i syntaks)", "c": "Ja (alle hovedsprog, kontekstsensitivt)" }
-    ]
-  },
-  "samples": {
-    "h2": "Eksempel på input og output",
-    "meetingSample": "Eksempel på mødeoptagelse",
-    "transcript": {
-      "preview": "Okay, lad os begynde mødet. Først skal vi gennemgå salget af 'smartwatches' fra sidste weekend. Jonas, start venligst med rapporten fra onlinekanalen.",
-      "full": "Aleks (Marketingchef): Tak fordi I kunne deltage — Jonas (E-handel), Signe (Butiksdrift), Tobias (Projektleder) og Rasmus (Dataanalyse). ... (forkortet for plads)"
-    },
-    "generic": {
-      "h3": "Eksempel på generisk AI-output",
-      "body": "Teamet gennemgik salget af smartwatches. ...",
-      "note": "Det ser pænt ud, men det besvarer ikke tydeligt ‘hvem gør hvad hvornår’."
-    },
-    "pretty": { "h3": "Eksempel på Referat AI-output" }
   },
   "minutes": {
-    "meetingTitle": "Smartwatch – Ugentlig salgsreview",
-    "date": "2025-10-11 10:00 CET",
-    "attendees": ["Aleks (Marketingchef)", "Jonas (E-handel)", "Signe (Butiksdrift)", "Tobias (PM)", "Rasmus (Dataanalyse)"],
-    "coreMessage": "Arbejd smart og hold fokus på klarhed frem for hastighed. Kend ‘hvem gør hvad hvornår’, og hold møderne korte og effektive.",
-    "topics": [
-      { "topic": "Online-kanalens præstation", "discussion": ["Trafik +18 % ..."], "decisions": ["Øg online annoncebudgettet med 15 % de næste to uger"], "actionItems": ["Jonas — lancer A/B-test senest 2025-10-15", "Rasmus — lever CTR-analyse senest 2025-10-17"], "concerns": ["Risiko for annonce-træthed uden kreativ opdatering"], "keyMessages": ["Test før opskalering; oprethold stabil CAC"] },
-      { "topic": "Butikker og lagerstatus", "discussion": ["Udsolgt i København ..."], "decisions": ["Genopfyldning på 500 enheder i tre butikker"], "actionItems": ["Signe — bekræft leveringstid senest 2025-10-14"], "concerns": ["Forsinkelse hvis leverandørens kapacitet er presset"], "keyMessages": ["Sikre stabilt lager for at undgå tabte salg"] },
-      { "topic": "Firmware v1.2 og Q4-pakke", "discussion": ["v1.2 løser ..."], "decisions": ["Godkend lancering 2025-10-20"], "actionItems": ["Tobias — færdiggør releaseskema 2025-10-13", "Support — offentliggør FAQ 2025-10-16", "Marketing — udarbejd Black Friday-plan 2025-10-25"], "keyMessages": ["Kombinér produktforbedringer med rettidig kampagne"] }
+    "attendees": [
+      "Aleks (Marketingchef)",
+      "Jonas (E-handel)",
+      "Signe (Butiksdrift)",
+      "Tobias (PM)",
+      "Rasmus (Dataanalyse)"
     ],
+    "coreMessage": "Arbejd smart og hold fokus på klarhed frem for hastighed. Kend ‘hvem gør hvad hvornår’, og hold møderne korte og effektive.",
+    "date": "2025-10-11 10:00 CET",
     "labels": {
-      "discussion": "Drøftelse",
-      "decisions": "Beslutninger",
       "actionItems": "Handlinger",
-      "concerns": "Bemærkninger",
-      "keyMessages": "Vigtige pointer",
       "attendees": "Deltagere:",
-      "closingMessage": "Afsluttende bemærkning"
+      "closingMessage": "Afsluttende bemærkning",
+      "concerns": "Bemærkninger",
+      "decisions": "Beslutninger",
+      "discussion": "Drøftelse",
+      "keyMessages": "Vigtige pointer"
+    },
+    "meetingTitle": "Smartwatch – Ugentlig salgsreview",
+    "topics": [
+      {
+        "actionItems": [
+          "Jonas — lancer A/B-test senest 2025-10-15",
+          "Rasmus — lever CTR-analyse senest 2025-10-17"
+        ],
+        "concerns": [
+          "Risiko for annonce-træthed uden kreativ opdatering"
+        ],
+        "decisions": [
+          "Øg online annoncebudgettet med 15 % de næste to uger"
+        ],
+        "discussion": [
+          "Trafik +18 % ..."
+        ],
+        "keyMessages": [
+          "Test før opskalering; oprethold stabil CAC"
+        ],
+        "topic": "Online-kanalens præstation"
+      },
+      {
+        "actionItems": [
+          "Signe — bekræft leveringstid senest 2025-10-14"
+        ],
+        "concerns": [
+          "Forsinkelse hvis leverandørens kapacitet er presset"
+        ],
+        "decisions": [
+          "Genopfyldning på 500 enheder i tre butikker"
+        ],
+        "discussion": [
+          "Udsolgt i København ..."
+        ],
+        "keyMessages": [
+          "Sikre stabilt lager for at undgå tabte salg"
+        ],
+        "topic": "Butikker og lagerstatus"
+      },
+      {
+        "actionItems": [
+          "Tobias — færdiggør releaseskema 2025-10-13",
+          "Support — offentliggør FAQ 2025-10-16",
+          "Marketing — udarbejd Black Friday-plan 2025-10-25"
+        ],
+        "decisions": [
+          "Godkend lancering 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 løser ..."
+        ],
+        "keyMessages": [
+          "Kombinér produktforbedringer med rettidig kampagne"
+        ],
+        "topic": "Firmware v1.2 og Q4-pakke"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Introduktion"
+  },
+  "samples": {
+    "generic": {
+      "body": "Teamet gennemgik salget af smartwatches. ...",
+      "h3": "Eksempel på generisk AI-output",
+      "note": "Det ser pænt ud, men det besvarer ikke tydeligt ‘hvem gør hvad hvornår’."
+    },
+    "h2": "Eksempel på input og output",
+    "meetingSample": "Eksempel på mødeoptagelse",
+    "pretty": {
+      "h3": "Eksempel på Referat AI-output"
+    },
+    "transcript": {
+      "full": "Aleks (Marketingchef): Tak fordi I kunne deltage — Jonas (E-handel), Signe (Butiksdrift), Tobias (Projektleder) og Rasmus (Dataanalyse). ... (forkortet for plads)",
+      "preview": "Okay, lad os begynde mødet. Først skal vi gennemgå salget af 'smartwatches' fra sidste weekend. Jonas, start venligst med rapporten fra onlinekanalen."
     }
   },
+  "seo": {
+    "description": "Én tryk for meningsfulde referater. En enkel introduktion til Referat AI: grundlæggende, forskelle fra andre værktøjer og eksempler på output; betroet af over {{users}} brugere (pr. {{date}}).",
+    "ld": {
+      "description": "Én tryk for meningsfulde referater. En kort introduktion til Referat AI, forskelle og eksempler.",
+      "headline": "Hvad er Referat AI? Grundlæggende og fordele før du tager det i brug"
+    },
+    "ogDescription": "Én tryk for meningsfulde referater. Forstå Referat AI, hvordan det adskiller sig, og se eksempler på resultater.",
+    "ogTitle": "Hvad er Referat AI? Grundlæggende og fordele før du tager det i brug",
+    "title": "Hvad er Referat AI? Grundlæggende og fordele før du tager det i brug | Referat AI Blog"
+  },
+  "transcript": {
+    "close": "Luk fuld tekst",
+    "expand": "Vis fuld tekst"
+  },
+  "what": {
+    "footnote": "※ Pr. {{date}} (baseret på iOS App Store-data)",
+    "h2": "Hvad er Referat AI?",
+    "p1": "Referat AI er et AI-drevet, fuldautomatisk værktøj til mødereferater. Det understøtter alle større sprog og har over 30.000 brugere på verdensplan.",
+    "p2": "Med Referat AI kan du automatisk generere ‘resuméer’, ‘beslutninger’ og ‘handlinger’ – og skabe virkeligt brugbare referater uden manuelt arbejde."
+  },
   "wrap": {
-  "h2": "Afrunding",
-  "p": "Hvordan ser det ud? Med denne struktur bliver det straks klart, hvem der skal gøre hvad. Referater bliver forvandlet fra noget, man læser, til noget, der får teamet til at handle. Prøv Referat AI selv."
-},
-  "cta": { "openBrowser": "Åbn browser-versionen", "downloadIOS": "Download iOS-versionen" },
-  "transcript": { "expand": "Vis fuld tekst", "close": "Luk fuld tekst" }
+    "h2": "Afrunding",
+    "p": "Hvordan ser det ud? Med denne struktur bliver det straks klart, hvem der skal gøre hvad. Referater bliver forvandlet fra noget, man læser, til noget, der får teamet til at handle. Prøv Referat AI selv."
+  }
 }

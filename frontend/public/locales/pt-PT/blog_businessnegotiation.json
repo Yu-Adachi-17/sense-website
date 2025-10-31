@@ -2,36 +2,15 @@
   "a11y": {
     "home": "Voltar à página inicial da Ata AI"
   },
-  "nav": {
-    "blog": "Blog",
-    "current": "Porque pode redigir as melhores atas de negociação com a Ata AI"
-  },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Blog da Ata AI",
-    "h1": "Porque pode redigir as melhores atas de negociação com a Ata AI",
-    "tagline": "Uma negociação é um equilíbrio de interesses. Uma boa ata não se limita a decisões e tarefas: regista também o contexto e a tonalidade. Eis a lógica — e como aplicá-la com a Ata AI."
-  },
-  "recap": {
-    "h2": "Revisão do artigo anterior",
-    "p1": {
-      "pre": "No artigo anterior mostramos que as atas com IA funcionam para qualquer tipo de reunião. Para reler,",
-      "link": "clique aqui",
-      "post": "."
-    },
-    "points": {
-      "0": "As reuniões variam; o formato ideal da ata depende do objetivo.",
-      "1": "Modelos genéricos ajudam, mas o nível de detalhe deve ser ajustado.",
-      "2": "Do «documento para ler» ao «plano para executar».",
-      "3": "A Ata AI adapta a saída ao objetivo da reunião."
-    },
-    "focus": "Desta vez aprofundamos as negociações comerciais."
+  "cta": {
+    "downloadIOS": "Transferir app para iOS",
+    "openBrowser": "Abrir no navegador"
   },
   "diversity": {
-    "h2": "Reuniões diversas — negociações têm especificidades",
     "core": {
       "h3": "Reuniões típicas",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Negociação: alinhar interesses e chegar a acordo"
       }
     },
+    "h2": "Reuniões diversas — negociações têm especificidades",
+    "p1": "Mudando o objetivo, muda também o output valioso. Em negociações, negociar é o núcleo.",
     "wide": {
       "h3": "«Reunião» em sentido lato",
       "items": {
@@ -48,16 +29,19 @@
         "2": "Apresentação: problema e solução",
         "3": "Formação: transferência de procedimentos"
       }
-    },
-    "p1": "Mudando o objetivo, muda também o output valioso. Em negociações, negociar é o núcleo."
+    }
   },
-  "negotiation": {
-    "h2": "O que é afinal uma negociação?",
-    "p1": "Em termos simples: proteger e ampliar os interesses da empresa. Não é comunicação unilateral; procura-se um compromisso trocando «exigências» e «concessões» sobre prazo, preço, âmbito e risco."
+  "example": {
+    "block": "Empresa A: Houve um bug no vosso produto anterior e isso causou-nos problemas. Estão em dívida connosco; entreguem até à próxima semana. Preço: 1.000 USD.\\nA nossa empresa: Tentaremos entregar na próxima semana após coordenação interna. Em contrapartida, podemos subir para 1.200 USD? Agradecemos a análise.\\nEmpresa A: Se garantirem a entrega na próxima semana, analisaremos. Enviem a resposta por e-mail ainda hoje.",
+    "h2": "Exemplo (manter literalmente as trocas-chave)",
+    "p1": "Guardar as «rondas-chave» literalmente permite aos decisores avaliar a razoabilidade com contexto."
+  },
+  "hero": {
+    "h1": "Porque pode redigir as melhores atas de negociação com a Ata AI",
+    "kicker": "Blog da Ata AI",
+    "tagline": "Uma negociação é um equilíbrio de interesses. Uma boa ata não se limita a decisões e tarefas: regista também o contexto e a tonalidade. Eis a lógica — e como aplicá-la com a Ata AI."
   },
   "limits": {
-    "h2": "Porque uma ata «apenas com decisões» é fraca",
-    "p1": "A estrutura «discussão/decisões/tarefas/pontos pendentes» tende a perder contexto, tonalidade e histórico de concessões. Resultado: mal-entendidos, trocas desnecessárias e o risco do «disse/não disse».",
     "generic": {
       "h3": "A ata típica e pouco profunda",
       "items": {
@@ -66,6 +50,7 @@
         "2": "Ambiguidade sobre o que não ficou acordado ou ficou pendente"
       }
     },
+    "h2": "Porque uma ata «apenas com decisões» é fraca",
     "optimized": {
       "h3": "Ata robusta para negociações",
       "items": {
@@ -73,12 +58,41 @@
         "1": "Motivos, pressupostos e riscos junto de cada decisão",
         "2": "Separação entre acordado/não acordado/pendente com prazos e responsáveis"
       }
+    },
+    "p1": "A estrutura «discussão/decisões/tarefas/pontos pendentes» tende a perder contexto, tonalidade e histórico de concessões. Resultado: mal-entendidos, trocas desnecessárias e o risco do «disse/não disse»."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Porque pode redigir as melhores atas de negociação com a Ata AI"
+  },
+  "negotiation": {
+    "h2": "O que é afinal uma negociação?",
+    "p1": "Em termos simples: proteger e ampliar os interesses da empresa. Não é comunicação unilateral; procura-se um compromisso trocando «exigências» e «concessões» sobre prazo, preço, âmbito e risco."
+  },
+  "recap": {
+    "focus": "Desta vez aprofundamos as negociações comerciais.",
+    "h2": "Revisão do artigo anterior",
+    "p1": {
+      "link": "clique aqui",
+      "post": ".",
+      "pre": "No artigo anterior mostramos que as atas com IA funcionam para qualquer tipo de reunião. Para reler,"
+    },
+    "points": {
+      "0": "As reuniões variam; o formato ideal da ata depende do objetivo.",
+      "1": "Modelos genéricos ajudam, mas o nível de detalhe deve ser ajustado.",
+      "2": "Do «documento para ler» ao «plano para executar».",
+      "3": "A Ata AI adapta a saída ao objetivo da reunião."
     }
   },
-  "example": {
-    "h2": "Exemplo (manter literalmente as trocas-chave)",
-    "block": "Empresa A: Houve um bug no vosso produto anterior e isso causou-nos problemas. Estão em dívida connosco; entreguem até à próxima semana. Preço: 1.000 USD.\\nA nossa empresa: Tentaremos entregar na próxima semana após coordenação interna. Em contrapartida, podemos subir para 1.200 USD? Agradecemos a análise.\\nEmpresa A: Se garantirem a entrega na próxima semana, analisaremos. Enviem a resposta por e-mail ainda hoje.",
-    "p1": "Guardar as «rondas-chave» literalmente permite aos decisores avaliar a razoabilidade com contexto."
+  "seo": {
+    "description": "Negociações exigem atas que captem decisões, tarefas, contexto, tonalidade e concessões. Guia prático com a Ata AI.",
+    "ld": {
+      "description": "A essência das negociações nas atas: exigências, concessões e contexto — com a Ata AI.",
+      "headline": "Porque pode redigir as melhores atas de negociação com a Ata AI"
+    },
+    "ogDescription": "Chega de atas superficiais: preserve a troca e o contexto para decidir mais rápido e melhor.",
+    "ogTitle": "Porque pode redigir as melhores atas de negociação com a Ata AI",
+    "title": "Porque pode redigir as melhores atas de negociação com a Ata AI | Blog de atas de reunião"
   },
   "why": {
     "h2": "Porque a Ata AI se destaca em negociações",
@@ -93,19 +107,5 @@
   "wrap": {
     "h2": "Conclusão",
     "p": "Uma ata de negociação sólida vai além das decisões: preserva a troca e o contexto. Assim, as decisões tornam-se mais rápidas e precisas. Torne isso padrão com a Ata AI."
-  },
-  "cta": {
-    "openBrowser": "Abrir no navegador",
-    "downloadIOS": "Transferir app para iOS"
-  },
-  "seo": {
-    "title": "Porque pode redigir as melhores atas de negociação com a Ata AI | Blog de atas de reunião",
-    "description": "Negociações exigem atas que captem decisões, tarefas, contexto, tonalidade e concessões. Guia prático com a Ata AI.",
-    "ogTitle": "Porque pode redigir as melhores atas de negociação com a Ata AI",
-    "ogDescription": "Chega de atas superficiais: preserve a troca e o contexto para decidir mais rápido e melhor.",
-    "ld": {
-      "headline": "Porque pode redigir as melhores atas de negociação com a Ata AI",
-      "description": "A essência das negociações nas atas: exigências, concessões e contexto — com a Ata AI."
-    }
   }
 }

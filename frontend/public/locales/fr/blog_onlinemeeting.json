@@ -1,38 +1,71 @@
 {
-  "seo": {
-    "title": "Minutes.AI prend en charge les réunions en ligne (iOS)",
-    "description": "Cliquez sur « Online » pour générer une URL, partagez-la et démarrez une réunion façon Zoom. Un compte rendu clair est généré automatiquement à la fin.",
-    "ogTitle": "Réunions en ligne pour Minutes.AI",
-    "ogDescription": "Démarrez depuis « Online » et obtenez des comptes rendus automatiques et bien formatés.",
-    "ld": { "headline": "Minutes.AI ajoute les réunions en ligne", "description": "Réunions type Zoom via URL et comptes rendus automatiques avec décisions et actions." }
+  "aria": {
+    "home": "Accueil Minutes.AI"
   },
-  "aria": { "home": "Accueil Minutes.AI" },
-  "nav": { "blog": "Blog", "onlinemeeting": "Réunion en ligne" },
+  "cta": {
+    "downloadIOS": "Télécharger l’app iOS",
+    "openBrowser": "Ouvrir dans le navigateur"
+  },
+  "features": {
+    "h2": "Points forts",
+    "items": [
+      "UX type Zoom (LiveKit)",
+      "URL en un clic",
+      "Compte rendu automatique",
+      "Formats lisibles",
+      "Multilingue pour équipes globales"
+    ]
+  },
   "hero": {
-    "kicker": "Annonce",
     "h1": "Réunions en ligne pour Minutes.AI (iOS)",
+    "kicker": "Annonce",
     "tagline": "Cliquez « Online », générez une URL, partagez. À la fin, le compte rendu démarre automatiquement."
+  },
+  "image": {
+    "alt": "Interface de réunion en ligne Minutes.AI",
+    "caption": "Démarrez depuis le bouton « Online »."
+  },
+  "meta": {
+    "category": "Réunion en ligne",
+    "h2": "Méta",
+    "published": "Publié le",
+    "type": "Annonce"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Réunion en ligne"
+  },
+  "notes": {
+    "foot": "Essayez-le sur le web ou téléchargez l’app iOS.",
+    "h2": "Remarques",
+    "items": [
+      "Limites et temps restants dépendent de l’offre/quota",
+      "Réseau/appareil peuvent influer sur la qualité"
+    ]
   },
   "release": {
     "h2": "Nouveauté",
     "p1": "Minutes.AI prend désormais en charge les réunions en ligne. Il suffit de cliquer sur « Online » pour générer et partager une URL.",
     "p2": "À la fin de la réunion, un compte rendu est généré automatiquement avec décisions et actions."
   },
-  "image": { "alt": "Interface de réunion en ligne Minutes.AI", "caption": "Démarrez depuis le bouton « Online »." },
+  "seo": {
+    "description": "Cliquez sur « Online » pour générer une URL, partagez-la et démarrez une réunion façon Zoom. Un compte rendu clair est généré automatiquement à la fin.",
+    "ld": {
+      "description": "Réunions type Zoom via URL et comptes rendus automatiques avec décisions et actions.",
+      "headline": "Minutes.AI ajoute les réunions en ligne"
+    },
+    "ogDescription": "Démarrez depuis « Online » et obtenez des comptes rendus automatiques et bien formatés.",
+    "ogTitle": "Réunions en ligne pour Minutes.AI",
+    "title": "Minutes.AI prend en charge les réunions en ligne (iOS)"
+  },
   "steps": {
     "h2": "Démarrer",
-    "items": ["Cliquer « Online » (app/web)", "Générer une URL de réunion", "Partager l’URL aux participants", "Fin → compte rendu automatique"],
+    "items": [
+      "Cliquer « Online » (app/web)",
+      "Générer une URL de réunion",
+      "Partager l’URL aux participants",
+      "Fin → compte rendu automatique"
+    ],
     "note": "Durée selon offre et quota restant."
-  },
-  "features": {
-    "h2": "Points forts",
-    "items": ["UX type Zoom (LiveKit)", "URL en un clic", "Compte rendu automatique", "Formats lisibles", "Multilingue pour équipes globales"]
-  },
-  "notes": {
-    "h2": "Remarques",
-    "items": ["Limites et temps restants dépendent de l’offre/quota", "Réseau/appareil peuvent influer sur la qualité"],
-    "foot": "Essayez-le sur le web ou téléchargez l’app iOS."
-  },
-  "meta": { "h2": "Méta", "published": "Publié le", "type": "Annonce", "category": "Réunion en ligne" },
-  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" }
+  }
 }

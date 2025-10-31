@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Minutes.AI priser — enkla planer för varje mötesstil",
-    "description": "Tidspaket utan utgångsdatum och verkligen obegränsade abonnemang. Jämför Minutes.AI med Otter och Notta (pris, kvoter, överföring).",
-    "ogTitle": "Minutes.AI priser",
-    "ogDescription": "Paket utan utgång + obegränsade abonnemang. Snabb jämförelse med Otter & Notta.",
-    "ld": {
-      "headline": "Minutes.AI priser",
-      "description": "Fyra planer: två engångstidspaket (utan utgång) och två obegränsade abonnemang — inklusive jämförelse med Otter och Notta."
-    }
+  "aria": {
+    "home": "Protokoll AI Hem"
   },
-  "aria": { "home": "Minutes.AI Hem" },
-  "nav": { "blog": "Blogg", "pricing": "Priser" },
+  "compare": {
+    "foot": "Källor: officiella prissidor för Otter och Notta.",
+    "h2": "Protokoll AI vs Otter vs Notta — prisöversikt",
+    "lastUpdated": "Senast uppdaterad: 31 okt 2025",
+    "note": "Nyckelpriser och kvoter (USD). Konkurrenter nollställer ofta månads­kvoter utan överföring.",
+    "rows": [
+      {
+        "billing": "Engångspaket + abonnemang",
+        "cheapest": "Trial 120 min / $1.99 (ingen utgång)",
+        "free": "Daglig 3-minuters kupong",
+        "limits": "Tidspaket löper aldrig ut. Abonnemang utan tak.",
+        "service": "Protokoll AI",
+        "unlimited": "Ja — $16.99/mån eller $149.99/år"
+      },
+      {
+        "billing": "Sätesbaserat abonnemang",
+        "cheapest": "Pro — $16.99/mån eller $8.33/mån (årligen)",
+        "free": "300 min/mån, upp till 30 min/möte",
+        "limits": "Ingen överföring; gräns per möte",
+        "service": "Otter",
+        "unlimited": "Nej — Pro 1200 min/mån; Business 6000 importmin/mån"
+      },
+      {
+        "billing": "Sätesbaserat abonnemang",
+        "cheapest": "Pro — $13.49/mån (månadsvis) eller $8.17/mån (årligen)",
+        "free": "120 min/mån, upp till 3 min/inspelning",
+        "limits": "Ingen carryover; upp till 5 h/inspelning; uppladdningskvoter",
+        "service": "Notta",
+        "unlimited": "Business — Obegränsat (årligen $16.67/mån; månadsvis högre)"
+      }
+    ],
+    "tableHead": [
+      "Tjänst",
+      "Gratisplan",
+      "Billigast betald",
+      "Obegränsat",
+      "Anmärkningsvärda begränsningar",
+      "Faktureringsmodell"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Hämta iOS-app",
+    "openBrowser": "Öppna i webbläsare"
+  },
   "hero": {
+    "h1": "Protokoll AI priser (2025)",
     "kicker": "Priser",
-    "h1": "Minutes.AI priser (2025)",
     "tagline": "Välj tidspaket utan utgångsdatum eller helt obegränsade månads-/årsabonnemang."
   },
   "intro": {
     "h2": "Vilken plan passar dig?",
     "p1": "Fyra alternativ anpassade efter hur ofta du har möten."
   },
+  "meta": {
+    "category": "Priser",
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Guide"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "pricing": "Priser"
+  },
   "plans": {
-    "h3_timepacks": "Tidspaket",
-    "timepacks_note": "Köpta minuter går aldrig ut. Generera mötesprotokoll när som helst.",
-    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
-    "light": { "name": "Light", "detail": "1200 min / $11.99" },
-    "h3_subs": "Abonnemang",
-    "subs_note": "Abonnemang är verkligen obegränsade — inga månadsgränser.",
-    "monthly": { "name": "Månatligt", "detail": "$16.99" },
-    "annual": { "name": "Årsvis", "detail": "$149.99" },
-    "free": {
-      "badge": "Daglig gratiskupong",
-      "text": "Även utan betalning får du en daglig 3-minuters kupong för att prova Minutes.AI."
+    "annual": {
+      "detail": "$149.99",
+      "name": "Årsvis"
     },
     "bullets": [
       "Ingen utgång: köp en gång, använd när som helst",
       "Obegränsad användning med abonnemang",
       "iOS & Web, flerspråkiga utdata"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs Otter vs Notta — prisöversikt",
-    "note": "Nyckelpriser och kvoter (USD). Konkurrenter nollställer ofta månads­kvoter utan överföring.",
-    "tableHead": ["Tjänst", "Gratisplan", "Billigast betald", "Obegränsat", "Anmärkningsvärda begränsningar", "Faktureringsmodell"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "Daglig 3-minuters kupong",
-        "cheapest": "Trial 120 min / $1.99 (ingen utgång)",
-        "unlimited": "Ja — $16.99/mån eller $149.99/år",
-        "limits": "Tidspaket löper aldrig ut. Abonnemang utan tak.",
-        "billing": "Engångspaket + abonnemang"
-      },
-      {
-        "service": "Otter",
-        "free": "300 min/mån, upp till 30 min/möte",
-        "cheapest": "Pro — $16.99/mån eller $8.33/mån (årligen)",
-        "unlimited": "Nej — Pro 1200 min/mån; Business 6000 importmin/mån",
-        "limits": "Ingen överföring; gräns per möte",
-        "billing": "Sätesbaserat abonnemang"
-      },
-      {
-        "service": "Notta",
-        "free": "120 min/mån, upp till 3 min/inspelning",
-        "cheapest": "Pro — $13.49/mån (månadsvis) eller $8.17/mån (årligen)",
-        "unlimited": "Business — Obegränsat (årligen $16.67/mån; månadsvis högre)",
-        "limits": "Ingen carryover; upp till 5 h/inspelning; uppladdningskvoter",
-        "billing": "Sätesbaserat abonnemang"
-      }
     ],
-    "foot": "Källor: officiella prissidor för Otter och Notta.",
-    "lastUpdated": "Senast uppdaterad: 31 okt 2025"
+    "free": {
+      "badge": "Daglig gratiskupong",
+      "text": "Även utan betalning får du en daglig 3-minuters kupong för att prova Protokoll AI."
+    },
+    "h3_subs": "Abonnemang",
+    "h3_timepacks": "Tidspaket",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Månatligt"
+    },
+    "subs_note": "Abonnemang är verkligen obegränsade — inga månadsgränser.",
+    "timepacks_note": "Köpta minuter går aldrig ut. Generera mötesprotokoll när som helst.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Tidspaket utan utgångsdatum och verkligen obegränsade abonnemang. Jämför Protokoll AI med Otter och Notta (pris, kvoter, överföring).",
+    "ld": {
+      "description": "Fyra planer: två engångstidspaket (utan utgång) och två obegränsade abonnemang — inklusive jämförelse med Otter och Notta.",
+      "headline": "Protokoll AI priser"
+    },
+    "ogDescription": "Paket utan utgång + obegränsade abonnemang. Snabb jämförelse med Otter & Notta.",
+    "ogTitle": "Protokoll AI priser",
+    "title": "Protokoll AI priser — enkla planer för varje mötesstil"
   },
   "why": {
     "h2": "Varför denna struktur",
@@ -79,7 +113,5 @@
       "Sporadiska möten: köp Light en gång — ingen utgång.",
       "Bara testa: Trial + daglig 3-minuters kupong."
     ]
-  },
-  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Guide", "category": "Priser" },
-  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Hämta iOS-app" }
+  }
 }

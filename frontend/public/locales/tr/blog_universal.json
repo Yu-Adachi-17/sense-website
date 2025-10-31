@@ -1,37 +1,16 @@
 {
   "a11y": {
-    "home": "Minutes.AI ana sayfaya dön"
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Minutes.AI her toplantı için en iyi tutanakları neden üretir?"
+    "home": "Tutanakları AI ana sayfaya dön"
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Minutes.AI Blog",
-    "h1": "Minutes.AI her toplantı için en iyi tutanakları neden üretir?",
-    "tagline": "Evrensel dört unsur okunabilirliği artırır. Ama toplantının amacına göre optimize edildiğinde, tutanak “okunan kayıt” olmaktan çıkıp “eyleme geçirilebilir bir plan”a dönüşür."
-  },
-  "recap": {
-    "h2": "Hatırlatma: “anlamlı tutanak” nedir?",
-    "p1": {
-      "pre": "Önceki yazıda “anlamlı tutanak”ı konuştuk. Kaçırdıysanız",
-      "link": "buradan (1. bölüm)",
-      "post": "başlayın."
-    },
-    "points": {
-      "0": "Discussion (tartışma)",
-      "1": "Decisions (kararlar)",
-      "2": "Action Items (sahip & son tarih)",
-      "3": "Concerns (açık riskler)"
-    },
-    "note": "Bu dörtlü bir bakışta görülüyorsa asgari okunabilirlik garanti. İlk sağlam zemin budur."
+  "cta": {
+    "downloadIOS": "iOS’ta indir",
+    "openBrowser": "Web sürümünü aç"
   },
   "diversity": {
-    "h2": "Toplantılar çeşitlidir: amaç değişirse değerli çıktı da değişir",
     "core": {
       "h3": "Temel toplantı türleri",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Satış/ Müzakere: çıkarları hizalama ve anlaşma"
       }
     },
+    "h2": "Toplantılar çeşitlidir: amaç değişirse değerli çıktı da değişir",
+    "p1": "Ortak bir hedef üzerine konuşuluyorsa bu bir toplantıdır—ve en değerli çıktı o hedefe göre şekillenir.",
     "wide": {
       "h3": "Geniş anlamda “toplantı”",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Sunum: sorun ve çözüm önerisi",
         "3": "Eğitim: operasyonel bilgi aktarımı"
       }
-    },
-    "p1": "Ortak bir hedef üzerine konuşuluyorsa bu bir toplantıdır—ve en değerli çıktı o hedefe göre şekillenir."
+    }
+  },
+  "hero": {
+    "h1": "Tutanakları AI her toplantı için en iyi tutanakları neden üretir?",
+    "kicker": "Tutanakları AI Blog",
+    "tagline": "Evrensel dört unsur okunabilirliği artırır. Ama toplantının amacına göre optimize edildiğinde, tutanak “okunan kayıt” olmaktan çıkıp “eyleme geçirilebilir bir plan”a dönüşür."
   },
   "limits": {
-    "h2": "Tek kalıp formatın sınırları",
-    "p1": "Dört unsur geniş çapta işe yarasa da bazı toplantılarda—özellikle 1’e-1—“sıcaklık” ve bağlam kaybolur; sonradan okurken netlik düşer.",
     "generic": {
       "h3": "Sadece evrensel formatı uygularsanız",
       "items": {
@@ -62,6 +45,7 @@
         "2": "Kararların arkasındaki “neden” zamanla zayıflar"
       }
     },
+    "h2": "Tek kalıp formatın sınırları",
     "optimized": {
       "h3": "Optimize ederseniz (1’e-1 örneği)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Kilit Tartışma (alıntı × özet): uzlaşıya giden yol",
         "3": "Mutabakatlar / Sonraki adımlar / Riskler: icra için normalize"
       }
-    }
+    },
+    "p1": "Dört unsur geniş çapta işe yarasa da bazı toplantılarda—özellikle 1’e-1—“sıcaklık” ve bağlam kaybolur; sonradan okurken netlik düşer."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Tutanakları AI her toplantı için en iyi tutanakları neden üretir?"
   },
   "oneonone": {
-    "h2": "1’e-1 örneği: sıcaklığı ve karar bağlamını korumak",
     "generic": {
       "h3": "Yalnızca dört evrensel başlık",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Endişe: B yokken plan yok"
       }
     },
+    "h2": "1’e-1 örneği: sıcaklığı ve karar bağlamını korumak",
     "optimized": {
       "h3": "Optimize (1’e-1 formatı)",
       "items": {
@@ -94,8 +83,33 @@
       }
     }
   },
+  "recap": {
+    "h2": "Hatırlatma: “anlamlı tutanak” nedir?",
+    "note": "Bu dörtlü bir bakışta görülüyorsa asgari okunabilirlik garanti. İlk sağlam zemin budur.",
+    "p1": {
+      "link": "buradan (1. bölüm)",
+      "post": "başlayın.",
+      "pre": "Önceki yazıda “anlamlı tutanak”ı konuştuk. Kaçırdıysanız"
+    },
+    "points": {
+      "0": "Discussion (tartışma)",
+      "1": "Decisions (kararlar)",
+      "2": "Action Items (sahip & son tarih)",
+      "3": "Concerns (açık riskler)"
+    }
+  },
+  "seo": {
+    "description": "Evrensel dört unsurun ötesinde: toplantı türüne özel optimizasyon, tutanakları uygulanabilir plana dönüştürür. {{date}} itibarıyla {{users}}+ kişi Tutanakları AI kullanıyor.",
+    "ld": {
+      "description": "Tutanakları AI, toplantı türüne göre çıktıyı nasıl optimize eder ve tutanakları eylem planına dönüştürür?",
+      "headline": "Tutanakları AI neden her toplantıda çalışır?"
+    },
+    "ogDescription": "Toplantıya özel optimize çıktılarla ton ve bağlam korunurken karar ve icra hızlanır.",
+    "ogTitle": "Tutanakları AI her tür toplantıda neden başarılı?",
+    "title": "Tutanakları AI neden her toplantıda çalışır? | Tutanakları AI Blog"
+  },
   "why": {
-    "h2": "Minutes.AI neden “her toplantıda” çalışır?",
+    "h2": "Tutanakları AI neden “her toplantıda” çalışır?",
     "items": {
       "0": "Amaç uyumu: hedefe göre değişebilen bölümler",
       "1": "Sıcaklık koruma: tonu çıkarır, bağlamı saklar",
@@ -106,20 +120,6 @@
   },
   "wrap": {
     "h2": "Özet",
-    "p": "Dört unsur güçlü bir temel sağlar. Toplantı türüne göre optimizasyonla, tutanak “okunan kayıt”tan “eylem planı”na dönüşür. Minutes.AI bu optimizasyonu varsayılan sunar—gerçek toplantılarda deneyin."
-  },
-  "cta": {
-    "openBrowser": "Web sürümünü aç",
-    "downloadIOS": "iOS’ta indir"
-  },
-  "seo": {
-    "title": "Minutes.AI neden her toplantıda çalışır? | Minutes.AI Blog",
-    "description": "Evrensel dört unsurun ötesinde: toplantı türüne özel optimizasyon, tutanakları uygulanabilir plana dönüştürür. {{date}} itibarıyla {{users}}+ kişi Minutes.AI kullanıyor.",
-    "ogTitle": "Minutes.AI her tür toplantıda neden başarılı?",
-    "ogDescription": "Toplantıya özel optimize çıktılarla ton ve bağlam korunurken karar ve icra hızlanır.",
-    "ld": {
-      "headline": "Minutes.AI neden her toplantıda çalışır?",
-      "description": "Minutes.AI, toplantı türüne göre çıktıyı nasıl optimize eder ve tutanakları eylem planına dönüştürür?"
-    }
+    "p": "Dört unsur güçlü bir temel sağlar. Toplantı türüne göre optimizasyonla, tutanak “okunan kayıt”tan “eylem planı”na dönüşür. Tutanakları AI bu optimizasyonu varsayılan sunar—gerçek toplantılarda deneyin."
   }
 }

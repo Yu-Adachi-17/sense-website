@@ -2,36 +2,15 @@
   "a11y": {
     "home": "Zur Startseite von Protokoll KI"
   },
-  "nav": {
-    "blog": "Blog",
-    "current": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben"
-  },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Protokoll KI Blog",
-    "h1": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben",
-    "tagline": "Eine Verhandlung ist ein Interessenausgleich. Ein starkes Protokoll hält daher nicht nur Entscheidungen und To-dos fest, sondern auch Kontext und Tonlage. Hier die Denkweise – und wie Sie sie mit Protokoll KI praktisch umsetzen."
-  },
-  "recap": {
-    "h2": "Rückblick",
-    "p1": {
-      "pre": "Zuvor zeigten wir, wie KI-Protokolle für alle Meeting-Typen funktionieren. Mehr dazu",
-      "link": "hier",
-      "post": "."
-    },
-    "points": {
-      "0": "Meetings unterscheiden sich – das ideale Protokoll hängt vom Ziel ab.",
-      "1": "Generische Vorlagen sind nützlich, benötigen aber Feintuning der Detailtiefe.",
-      "2": "Vom „Lesedokument“ zum „Fahrplan für Umsetzung“.",
-      "3": "Protokoll KI passt die Ausgabe an das Meeting-Ziel an."
-    },
-    "focus": "Diesmal fokussieren wir uns ausdrücklich auf Verhandlungen."
+  "cta": {
+    "downloadIOS": "iOS-App herunterladen",
+    "openBrowser": "Im Browser öffnen"
   },
   "diversity": {
-    "h2": "Viele Meeting-Arten – Verhandlungen sind besonders",
     "core": {
       "h3": "Typische Meetings",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Verhandlung: Interessenausgleich und Einigung"
       }
     },
+    "h2": "Viele Meeting-Arten – Verhandlungen sind besonders",
+    "p1": "Wechselt das Ziel, ändert sich auch die Form des wertvollen Outputs. In Verhandlungen ist das Aushandeln selbst der Kern.",
     "wide": {
       "h3": "„Meeting“ im weiten Sinne",
       "items": {
@@ -48,16 +29,19 @@
         "2": "Präsentation: Problem und Lösung",
         "3": "Schulung: Übergabe von Prozessen"
       }
-    },
-    "p1": "Wechselt das Ziel, ändert sich auch die Form des wertvollen Outputs. In Verhandlungen ist das Aushandeln selbst der Kern."
+    }
   },
-  "negotiation": {
-    "h2": "Was ist eine Verhandlung eigentlich?",
-    "p1": "Kurz: die Interessen des eigenen Unternehmens zu schützen und auszubauen. Keine Einbahnstraße, sondern das Suchen eines Kompromisses über „Forderungen“ und „Zugeständnisse“ zu Bedingungen wie Termin, Preis, Scope und Risiko."
+  "example": {
+    "block": "Firma A: In eurem letzten Produkt war ein Bug – das hat uns einiges gekostet. Ihr steht in der Pflicht, also liefert bitte bis nächste Woche. Preis: 1.000 $.\\nUnser Unternehmen: Wir versuchen die Lieferung bis nächste Woche intern möglich zu machen. Im Gegenzug – können wir auf 1.200 $ erhöhen? Bitte prüfen.\\nFirma A: Wenn die Lieferung bis nächste Woche garantiert ist, prüfen wir das. Bitte heute per E-Mail antworten.",
+    "h2": "Beispiel (Schlüsselpassagen im Wortlaut festhalten)",
+    "p1": "Mit wörtlich gesicherten Schlüsselpassagen können Entscheider die Angemessenheit im Kontext beurteilen."
+  },
+  "hero": {
+    "h1": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben",
+    "kicker": "Protokoll KI Blog",
+    "tagline": "Eine Verhandlung ist ein Interessenausgleich. Ein starkes Protokoll hält daher nicht nur Entscheidungen und To-dos fest, sondern auch Kontext und Tonlage. Hier die Denkweise – und wie Sie sie mit Protokoll KI praktisch umsetzen."
   },
   "limits": {
-    "h2": "Warum ein „Nur-Entscheidungen“-Protokoll schwach ist",
-    "p1": "Die reine Struktur „Diskussion/Entscheidungen/To-dos/Risiken“ verliert oft Kontext, Ton und die Historie der Zugeständnisse. Folge: Missverständnisse, Mehraufwand und das Risiko von „gesagt/nicht gesagt“.",
     "generic": {
       "h3": "Das typische, zu dünne Protokoll",
       "items": {
@@ -66,6 +50,7 @@
         "2": "Unklarheit bei Nicht-Einigung oder geparkten Punkten"
       }
     },
+    "h2": "Warum ein „Nur-Entscheidungen“-Protokoll schwach ist",
     "optimized": {
       "h3": "Verhandlungsstarkes Protokoll",
       "items": {
@@ -73,12 +58,41 @@
         "1": "Begründungen, Annahmen und Risiken direkt bei der Entscheidung",
         "2": "Trennung von Einigung/Nicht-Einigung/Geparkt inkl. Frist und Verantwortlichen"
       }
+    },
+    "p1": "Die reine Struktur „Diskussion/Entscheidungen/To-dos/Risiken“ verliert oft Kontext, Ton und die Historie der Zugeständnisse. Folge: Missverständnisse, Mehraufwand und das Risiko von „gesagt/nicht gesagt“."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben"
+  },
+  "negotiation": {
+    "h2": "Was ist eine Verhandlung eigentlich?",
+    "p1": "Kurz: die Interessen des eigenen Unternehmens zu schützen und auszubauen. Keine Einbahnstraße, sondern das Suchen eines Kompromisses über „Forderungen“ und „Zugeständnisse“ zu Bedingungen wie Termin, Preis, Scope und Risiko."
+  },
+  "recap": {
+    "focus": "Diesmal fokussieren wir uns ausdrücklich auf Verhandlungen.",
+    "h2": "Rückblick",
+    "p1": {
+      "link": "hier",
+      "post": ".",
+      "pre": "Zuvor zeigten wir, wie KI-Protokolle für alle Meeting-Typen funktionieren. Mehr dazu"
+    },
+    "points": {
+      "0": "Meetings unterscheiden sich – das ideale Protokoll hängt vom Ziel ab.",
+      "1": "Generische Vorlagen sind nützlich, benötigen aber Feintuning der Detailtiefe.",
+      "2": "Vom „Lesedokument“ zum „Fahrplan für Umsetzung“.",
+      "3": "Protokoll KI passt die Ausgabe an das Meeting-Ziel an."
     }
   },
-  "example": {
-    "h2": "Beispiel (Schlüsselpassagen im Wortlaut festhalten)",
-    "block": "Firma A: In eurem letzten Produkt war ein Bug – das hat uns einiges gekostet. Ihr steht in der Pflicht, also liefert bitte bis nächste Woche. Preis: 1.000 $.\\nUnser Unternehmen: Wir versuchen die Lieferung bis nächste Woche intern möglich zu machen. Im Gegenzug – können wir auf 1.200 $ erhöhen? Bitte prüfen.\\nFirma A: Wenn die Lieferung bis nächste Woche garantiert ist, prüfen wir das. Bitte heute per E-Mail antworten.",
-    "p1": "Mit wörtlich gesicherten Schlüsselpassagen können Entscheider die Angemessenheit im Kontext beurteilen."
+  "seo": {
+    "description": "Verhandlungen brauchen Protokolle, die Entscheidungen, Aufgaben, Kontext, Ton und Zugeständnisse abbilden. So setzen Sie das mit Protokoll KI praktisch um.",
+    "ld": {
+      "description": "Das Wesen von Verhandlungen im Protokoll: Forderungen, Zugeständnisse und Kontext – umgesetzt mit Protokoll KI.",
+      "headline": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben"
+    },
+    "ogDescription": "Schluss mit dünnen Protokollen: Austausch und Kontext festhalten – für schnellere, präzisere Entscheidungen.",
+    "ogTitle": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben",
+    "title": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben | Blog zu Meeting-Protokollen"
   },
   "why": {
     "h2": "Warum Protokoll KI bei Verhandlungen überzeugt",
@@ -93,19 +107,5 @@
   "wrap": {
     "h2": "Fazit",
     "p": "Das starke Verhandlungsprotokoll geht über Entscheidungen hinaus: Es bewahrt den Austausch und den Kontext. So werden Entscheidungen schneller und Rückschritte seltener. Machen Sie das mit Protokoll KI zum Standard."
-  },
-  "cta": {
-    "openBrowser": "Im Browser öffnen",
-    "downloadIOS": "iOS-App herunterladen"
-  },
-  "seo": {
-    "title": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben | Blog zu Meeting-Protokollen",
-    "description": "Verhandlungen brauchen Protokolle, die Entscheidungen, Aufgaben, Kontext, Ton und Zugeständnisse abbilden. So setzen Sie das mit Protokoll KI praktisch um.",
-    "ogTitle": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben",
-    "ogDescription": "Schluss mit dünnen Protokollen: Austausch und Kontext festhalten – für schnellere, präzisere Entscheidungen.",
-    "ld": {
-      "headline": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben",
-      "description": "Das Wesen von Verhandlungen im Protokoll: Forderungen, Zugeständnisse und Kontext – umgesetzt mit Protokoll KI."
-    }
   }
 }

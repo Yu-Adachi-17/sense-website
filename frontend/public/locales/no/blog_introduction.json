@@ -1,18 +1,46 @@
 {
-  "seo": {
-    "title": "Hva er Referat AI? Grunnleggende og fordeler før du tar det i bruk | Referat AI Blogg",
-    "description": "Ett trykk for meningsfulle referater. En enkel introduksjon til Referat AI: grunnleggende funksjoner, forskjeller fra andre verktøy og eksempler; brukt av over {{users}} brukere (per {{date}}).",
-    "ogTitle": "Hva er Referat AI? Grunnleggende og fordeler før bruk",
-    "ogDescription": "Ett trykk for meningsfulle referater. Forstå Referat AI, hvordan det skiller seg ut, og se eksempler på resultater.",
-    "ld": {
-      "headline": "Hva er Referat AI? Grunnleggende og fordeler før bruk",
-      "description": "Ett trykk for meningsfulle referater. En kort introduksjon til Referat AI, forskjeller og eksempler."
-    }
+  "compare": {
+    "head": {
+      "feature": "Funksjon",
+      "generic": "Generisk AI",
+      "minutes": "Referat AI",
+      "transcription": "Enkelt transkripsjonsverktøy"
+    },
+    "rows": [
+      {
+        "a": "Ja",
+        "b": "Nei (krever manuell input)",
+        "c": "Ja",
+        "k": "Lyd → Tekst"
+      },
+      {
+        "a": "Nei",
+        "b": "Ja (men mister ofte kontekst)",
+        "c": "Ja (optimalisert for møter)",
+        "k": "Sammendrag / Struktur"
+      },
+      {
+        "a": "Nei",
+        "b": "Ja (ofte uklart)",
+        "c": "Ja (tydelig struktur og merking)",
+        "k": "Beslutninger / Handlinger"
+      },
+      {
+        "a": "Nei",
+        "b": "Ja (men upålitelig)",
+        "c": "Ja (store språk + kontekstforståelse)",
+        "k": "Flerspråklig støtte"
+      }
+    ],
+    "title": "Forskjeller: Transkripsjonsverktøy / Generisk AI / Referat AI"
   },
-  "nav": { "blog": "Blogg", "introduction": "Introduksjon" },
+  "cta": {
+    "downloadIOS": "Last ned iOS-versjon",
+    "openBrowser": "Åpne nettleserversjon"
+  },
   "hero": {
-    "kicker": "Referat AI",
     "h1": "Hva er Referat AI? Grunnleggende og fordeler før bruk",
+    "kicker": "Referat AI",
     "tagline": "«Ett trykk for meningsfulle møte­referater.» Klare forklaringer for nye brukere."
   },
   "intro": {
@@ -20,110 +48,137 @@
     "p1": "Takk for at du leser denne artikkelen. Du har kanskje tenkt: «Å skrive referater er kjedelig», «Jeg vet hvordan man gjør det, men det tar for mye tid», eller «Jeg prøvde en AI-løsning, men det føltes ikke riktig.»",
     "p2": "Eller som leser har du kanskje opplevd: «Viktige kommentarer ble utelatt», «Beslutningene var uklare» eller «Folk tolket møtet forskjellig.»",
     "p3": {
-      "pre": "I denne artikkelen viser vi hvordan",
-      "mid": "hjelper deg med å lage",
       "bold": "meningsfulle referater",
-      "post": "med bare ett trykk – med fokus på tydelighet og handling."
+      "mid": "hjelper deg med å lage",
+      "post": "med bare ett trykk – med fokus på tydelighet og handling.",
+      "pre": "I denne artikkelen viser vi hvordan"
     }
   },
-  "what": {
-    "h2": "Hva er Referat AI?",
-    "p1": "Referat AI er et AI-drevet, helautomatisk verktøy for møte­referater. Det støtter alle store språk og har over 30 000 brukere over hele verden.",
-    "footnote": "※ Per {{date}} (basert på iOS App Store-data)",
-    "p2": "Med Referat AI kan du automatisk generere sammendrag, beslutninger og handlingspunkter – og lage ekte nyttige referater uten manuelt arbeid."
-  },
-  "compare": {
-    "title": "Forskjeller: Transkripsjonsverktøy / Generisk AI / Referat AI",
-    "head": {
-      "feature": "Funksjon",
-      "transcription": "Enkelt transkripsjonsverktøy",
-      "generic": "Generisk AI",
-      "minutes": "Referat AI"
-    },
-    "rows": [
-      { "k": "Lyd → Tekst", "a": "Ja", "b": "Nei (krever manuell input)", "c": "Ja" },
-      { "k": "Sammendrag / Struktur", "a": "Nei", "b": "Ja (men mister ofte kontekst)", "c": "Ja (optimalisert for møter)" },
-      { "k": "Beslutninger / Handlinger", "a": "Nei", "b": "Ja (ofte uklart)", "c": "Ja (tydelig struktur og merking)" },
-      { "k": "Flerspråklig støtte", "a": "Nei", "b": "Ja (men upålitelig)", "c": "Ja (store språk + kontekstforståelse)" }
-    ]
-  },
-  "samples": {
-    "h2": "Eksempler på kilde og output",
-    "meetingSample": "Eksempel på møtelyd",
-    "transcript": {
-      "preview": "Ok, la oss starte møtet. Først skal vi se på salgstallene for smartklokken fra forrige helg. Jonas, kan du begynne med nettkanalen?",
-      "full": "Alex (Markedsføringsleder): Takk for at dere kom — Jonas (E-handel), Sara (Butikkdrift), Thomas (Prosjektleder) og Robin (Dataanalyse). La oss se på salget av smartklokken forrige helg. Jonas, du begynner med nettkanalen.\n\nJonas (E-handel): Uke for uke økte øktene med 18 %. Konverteringsraten gikk opp fra 2,9 % til 3,2 %. Inntektene økte med 12 %. Økningen kom hovedsakelig fra influencer-kampanjen på lørdag; annonsekostnadene steg med 6 %.\n\nRobin (Data): CAC er stabil rundt 2400 kr. Men klikkraten for retargeting falt fra 1,8 % til 1,2 %. Jeg anbefaler å fornye annonsene og teste kortere overskrifter (A/B-test). Jeg kan levere analysen innen fredag (2025-10-17).\n\nAlex: Flott. Beslutning: Øk budsjettet for nettreklame med 15 % de neste to ukene. Handlinger: Jonas — start A/B-test innen onsdag (2025-10-15). Robin — lever analysen innen fredag (2025-10-17).\n\nSara (Butikkdrift): I butikkene var det utsolgt i Oslo, Bergen og Trondheim. En ny levering på 500 enheter er planlagt til mandag. Kundebesøk falt med 4 % på grunn av uværet, men gjennomsnittlig handlekurv var stabil.\n\nAlex: Beslutning: Gjennomfør leveransen på 500 enheter til de tre butikkene. Handling: Sara — bekreft leveringstid og logistikk innen tirsdag (2025-10-14). Risiko: forsinkelser ved leverandørproblemer.\n\nThomas (Prosjektleder): Firmware v1.2 løser batteriproblemet og forbedrer skrittelling. Utgivelsesnotater er klare. Jeg foreslår lansering 20. oktober med en Q4-pakke — «Watch + Band» med 200 kr rabatt. Support må publisere en FAQ.\n\nAlex: Beslutning: Godkjenn Q4-lansering 2025-10-20. Handlinger: Thomas — ferdigstill lanseringsplan innen mandag (2025-10-13). Support — publiser FAQ innen torsdag (2025-10-16). Markedsføring — utarbeid Black Friday-plan innen lørdag (2025-10-25).\n\nAlex (avslutning): La oss jobbe smart og holde retningen tydelig – tydelighet foran hastighet. Sørg for «hvem gjør hva når», og hold møtene under 30 minutter."
-    },
-    "generic": {
-      "h3": "Eksempel på generisk AI-resultat",
-      "body": "Teamet gjennomgikk salget av smartklokker. Online-resultatene var positive. Butikkene opplevde utsolgte varer. En firmwareoppdatering og en sesongkampanje ble nevnt. Totalt sett var møtet positivt med forslag til forbedringer.",
-      "note": "Ser ryddig ut, men svarer ikke tydelig på ‘hvem gjør hva når’."
-    },
-    "pretty": { "h3": "Eksempel på Referat AI-resultat" }
-  },
   "minutes": {
-    "meetingTitle": "Ukentlig gjennomgang av smartklokkesalg",
-    "date": "2025-10-11 10:00 CET",
-    "attendees": ["Alex (Markedsføring)", "Jonas (E-handel)", "Sara (Butikkdrift)", "Thomas (Prosjektleder)", "Robin (Dataanalyse)"],
+    "attendees": [
+      "Alex (Markedsføring)",
+      "Jonas (E-handel)",
+      "Sara (Butikkdrift)",
+      "Thomas (Prosjektleder)",
+      "Robin (Dataanalyse)"
+    ],
     "coreMessage": "Arbeid smart, vær tydelig. Definer ‘hvem gjør hva når’, og hold møtet under 30 minutter.",
+    "date": "2025-10-11 10:00 CET",
+    "meetingTitle": "Ukentlig gjennomgang av smartklokkesalg",
     "topics": [
       {
-        "topic": "Online-kanal ytelse",
+        "actionItems": [
+          "Jonas — start A/B-test innen 2025-10-15",
+          "Robin — lever CTR-analyse innen 2025-10-17"
+        ],
+        "concerns": [
+          "Risiko for annonsetretthet hvis kreativt materiale ikke oppdateres"
+        ],
+        "decisions": [
+          "Øk reklamebudsjettet med 15 % i to uker"
+        ],
         "discussion": [
           "Økter +18 %, konvertering 2,9 % → 3,2 %, inntekter +12 %",
           "Lørdagsøkning drevet av influencer-kampanje; annonsekostnader +6 %",
           "CTR retargeting falt 1,8 % → 1,2 %; foreslå ny kreativitetsrunde + A/B-test"
         ],
-        "decisions": ["Øk reklamebudsjettet med 15 % i to uker"],
-        "actionItems": [
-          "Jonas — start A/B-test innen 2025-10-15",
-          "Robin — lever CTR-analyse innen 2025-10-17"
+        "keyMessages": [
+          "Vekst med stabil CAC; test før skalering"
         ],
-        "concerns": ["Risiko for annonsetretthet hvis kreativt materiale ikke oppdateres"],
-        "keyMessages": ["Vekst med stabil CAC; test før skalering"]
+        "topic": "Online-kanal ytelse"
       },
       {
-        "topic": "Butikkdrift og lagerstatus",
+        "actionItems": [
+          "Sara — bekreft logistikk innen 2025-10-14"
+        ],
+        "concerns": [
+          "Forsinkelsesrisiko ved høy leverandørbelastning"
+        ],
+        "decisions": [
+          "500 enheter leveres til tre butikker"
+        ],
         "discussion": [
           "Utsolgt i Oslo, Bergen og Trondheim",
           "500 enheter leveres mandag",
           "Kundebesøk −4 % pga. uvær; handlekurvverdi stabil"
         ],
-        "decisions": ["500 enheter leveres til tre butikker"],
-        "actionItems": ["Sara — bekreft logistikk innen 2025-10-14"],
-        "concerns": ["Forsinkelsesrisiko ved høy leverandørbelastning"],
-        "keyMessages": ["Unngå tap av salg ved å sikre stabil lagerbeholdning"]
+        "keyMessages": [
+          "Unngå tap av salg ved å sikre stabil lagerbeholdning"
+        ],
+        "topic": "Butikkdrift og lagerstatus"
       },
       {
-        "topic": "Firmware v1.2 og Q4-lansering",
-        "discussion": [
-          "v1.2 løser batteriproblem; bedre skrittelling",
-          "Utgivelsesnotater klare; support publiserer FAQ",
-          "Q4-pakke: Watch + Band, −200 kr fra 2025-10-20"
-        ],
-        "decisions": ["Godkjenn lansering 2025-10-20"],
         "actionItems": [
           "Thomas — ferdigstill plan innen 2025-10-13",
           "Support — publiser FAQ innen 2025-10-16",
           "Markedsføring — lag Black Friday-plan innen 2025-10-25"
         ],
-        "keyMessages": ["Kombiner produktforbedring med riktig lanseringstidspunkt"]
+        "decisions": [
+          "Godkjenn lansering 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 løser batteriproblem; bedre skrittelling",
+          "Utgivelsesnotater klare; support publiserer FAQ",
+          "Q4-pakke: Watch + Band, −200 kr fra 2025-10-20"
+        ],
+        "keyMessages": [
+          "Kombiner produktforbedring med riktig lanseringstidspunkt"
+        ],
+        "topic": "Firmware v1.2 og Q4-lansering"
       }
     ]
   },
   "minutes.labels": {
-    "discussion": "Diskusjon",
-    "decisions": "Beslutninger",
     "actionItems": "Tiltak",
-    "concerns": "Bekymringer",
-    "keyMessages": "Nøkkelbudskap",
     "attendees": "Deltakere:",
-    "closingMessage": "Avsluttende melding"
+    "closingMessage": "Avsluttende melding",
+    "concerns": "Bekymringer",
+    "decisions": "Beslutninger",
+    "discussion": "Diskusjon",
+    "keyMessages": "Nøkkelbudskap"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "introduction": "Introduksjon"
+  },
+  "samples": {
+    "generic": {
+      "body": "Teamet gjennomgikk salget av smartklokker. Online-resultatene var positive. Butikkene opplevde utsolgte varer. En firmwareoppdatering og en sesongkampanje ble nevnt. Totalt sett var møtet positivt med forslag til forbedringer.",
+      "h3": "Eksempel på generisk AI-resultat",
+      "note": "Ser ryddig ut, men svarer ikke tydelig på ‘hvem gjør hva når’."
+    },
+    "h2": "Eksempler på kilde og output",
+    "meetingSample": "Eksempel på møtelyd",
+    "pretty": {
+      "h3": "Eksempel på Referat AI-resultat"
+    },
+    "transcript": {
+      "full": "Alex (Markedsføringsleder): Takk for at dere kom — Jonas (E-handel), Sara (Butikkdrift), Thomas (Prosjektleder) og Robin (Dataanalyse). La oss se på salget av smartklokken forrige helg. Jonas, du begynner med nettkanalen.\n\nJonas (E-handel): Uke for uke økte øktene med 18 %. Konverteringsraten gikk opp fra 2,9 % til 3,2 %. Inntektene økte med 12 %. Økningen kom hovedsakelig fra influencer-kampanjen på lørdag; annonsekostnadene steg med 6 %.\n\nRobin (Data): CAC er stabil rundt 2400 kr. Men klikkraten for retargeting falt fra 1,8 % til 1,2 %. Jeg anbefaler å fornye annonsene og teste kortere overskrifter (A/B-test). Jeg kan levere analysen innen fredag (2025-10-17).\n\nAlex: Flott. Beslutning: Øk budsjettet for nettreklame med 15 % de neste to ukene. Handlinger: Jonas — start A/B-test innen onsdag (2025-10-15). Robin — lever analysen innen fredag (2025-10-17).\n\nSara (Butikkdrift): I butikkene var det utsolgt i Oslo, Bergen og Trondheim. En ny levering på 500 enheter er planlagt til mandag. Kundebesøk falt med 4 % på grunn av uværet, men gjennomsnittlig handlekurv var stabil.\n\nAlex: Beslutning: Gjennomfør leveransen på 500 enheter til de tre butikkene. Handling: Sara — bekreft leveringstid og logistikk innen tirsdag (2025-10-14). Risiko: forsinkelser ved leverandørproblemer.\n\nThomas (Prosjektleder): Firmware v1.2 løser batteriproblemet og forbedrer skrittelling. Utgivelsesnotater er klare. Jeg foreslår lansering 20. oktober med en Q4-pakke — «Watch + Band» med 200 kr rabatt. Support må publisere en FAQ.\n\nAlex: Beslutning: Godkjenn Q4-lansering 2025-10-20. Handlinger: Thomas — ferdigstill lanseringsplan innen mandag (2025-10-13). Support — publiser FAQ innen torsdag (2025-10-16). Markedsføring — utarbeid Black Friday-plan innen lørdag (2025-10-25).\n\nAlex (avslutning): La oss jobbe smart og holde retningen tydelig – tydelighet foran hastighet. Sørg for «hvem gjør hva når», og hold møtene under 30 minutter.",
+      "preview": "Ok, la oss starte møtet. Først skal vi se på salgstallene for smartklokken fra forrige helg. Jonas, kan du begynne med nettkanalen?"
+    }
+  },
+  "seo": {
+    "description": "Ett trykk for meningsfulle referater. En enkel introduksjon til Referat AI: grunnleggende funksjoner, forskjeller fra andre verktøy og eksempler; brukt av over {{users}} brukere (per {{date}}).",
+    "ld": {
+      "description": "Ett trykk for meningsfulle referater. En kort introduksjon til Referat AI, forskjeller og eksempler.",
+      "headline": "Hva er Referat AI? Grunnleggende og fordeler før bruk"
+    },
+    "ogDescription": "Ett trykk for meningsfulle referater. Forstå Referat AI, hvordan det skiller seg ut, og se eksempler på resultater.",
+    "ogTitle": "Hva er Referat AI? Grunnleggende og fordeler før bruk",
+    "title": "Hva er Referat AI? Grunnleggende og fordeler før du tar det i bruk | Referat AI Blogg"
+  },
+  "transcript": {
+    "close": "Lukk",
+    "expand": "Vis full tekst"
+  },
+  "what": {
+    "footnote": "※ Per {{date}} (basert på iOS App Store-data)",
+    "h2": "Hva er Referat AI?",
+    "p1": "Referat AI er et AI-drevet, helautomatisk verktøy for møte­referater. Det støtter alle store språk og har over 30 000 brukere over hele verden.",
+    "p2": "Med Referat AI kan du automatisk generere sammendrag, beslutninger og handlingspunkter – og lage ekte nyttige referater uten manuelt arbeid."
   },
   "wrap": {
     "h2": "Oppsummering",
     "p": "Hva synes du? Med denne strukturen kan teamet raskt se hva som må gjøres videre — referatet blir praktisk og handlingsrettet. Prøv Referat AI og opplev forskjellen selv."
-  },
-  "cta": { "openBrowser": "Åpne nettleserversjon", "downloadIOS": "Last ned iOS-versjon" },
-  "transcript": { "expand": "Vis full tekst", "close": "Lukk" }
+  }
 }

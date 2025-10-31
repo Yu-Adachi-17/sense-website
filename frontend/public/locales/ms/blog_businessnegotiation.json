@@ -2,36 +2,15 @@
   "a11y": {
     "home": "Kembali ke laman utama Minit AI"
   },
-  "nav": {
-    "blog": "Blog",
-    "current": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI"
-  },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Blog Minit AI",
-    "h1": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI",
-    "tagline": "Rundingan ialah pertembungan kepentingan. Jadi minit yang kuat bukan sekadar menyenaraikan keputusan dan tugas—ia juga menangkap konteks dan nada perbualan. Inilah cara berfikir dan cara melakukannya dengan Minit AI."
-  },
-  "recap": {
-    "h2": "Imbas kembali",
-    "p1": {
-      "pre": "Sebelum ini kami tunjukkan bahawa minit berasaskan AI berfungsi untuk semua jenis mesyuarat. Untuk membaca semula,",
-      "link": "klik di sini",
-      "post": "."
-    },
-    "points": {
-      "0": "Jenis mesyuarat berbeza; format minit terbaik bergantung pada tujuan.",
-      "1": "Templat generik membantu, tetapi aras perincian perlu disesuaikan.",
-      "2": "Daripada “dokumen untuk dibaca” kepada “pelan untuk dilaksanakan”.",
-      "3": "Minit AI melaras keluaran mengikut tujuan mesyuarat."
-    },
-    "focus": "Kali ini kami menumpukan khusus pada rundingan perniagaan."
+  "cta": {
+    "downloadIOS": "Muat turun aplikasi iOS",
+    "openBrowser": "Buka dalam pelayar"
   },
   "diversity": {
-    "h2": "Mesyuarat pelbagai—rundingan ada sifat ‘tawar-menawar’ yang kuat",
     "core": {
       "h3": "Mesyuarat lazim",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Rundingan: penjajaran kepentingan dan persetujuan"
       }
     },
+    "h2": "Mesyuarat pelbagai—rundingan ada sifat ‘tawar-menawar’ yang kuat",
+    "p1": "Apabila tujuan berubah, bentuk keluaran bernilai juga berubah. Dalam rundingan, proses tawar-menawar ialah teras.",
     "wide": {
       "h3": "“Mesyuarat” dalam erti luas",
       "items": {
@@ -48,16 +29,19 @@
         "2": "Pembentangan: isu dan penyelesaian",
         "3": "Latihan: pemindahan operasi/prosedur"
       }
-    },
-    "p1": "Apabila tujuan berubah, bentuk keluaran bernilai juga berubah. Dalam rundingan, proses tawar-menawar ialah teras."
+    }
   },
-  "negotiation": {
-    "h2": "Apa itu rundingan perniagaan?",
-    "p1": "Ringkasnya: melindungi dan mengembang kepentingan syarikat. Bukan komunikasi sehala, tetapi mencari titik temu melalui pertukaran “permintaan” dan “konsesi” tentang tarikh akhir, harga, skop dan risiko."
+  "example": {
+    "block": "Syarikat A: Produk anda sebelum ini ada pepijat dan menyusahkan kami. Anda ‘berhutang’ kepada kami—sila hantar minggu depan. Harga $1000.\\nSyarikat kami: Kami akan cuba hantar minggu depan selepas penyelarasan dalaman. Sebagai gantinya, boleh dinaikkan kepada $1200? Mohon pertimbangkan.\\nSyarikat A: Jika anda boleh jamin penghantaran minggu depan, kami akan pertimbangkan. Sila e-mel jawapan hari ini.",
+    "h2": "Contoh (simpankan pertukaran utama secara verbatim)",
+    "p1": "Menyimpan “pusingan utama” secara verbatim membolehkan pembuat keputusan menilai kewajaran dengan konteks penuh."
+  },
+  "hero": {
+    "h1": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI",
+    "kicker": "Blog Minit AI",
+    "tagline": "Rundingan ialah pertembungan kepentingan. Jadi minit yang kuat bukan sekadar menyenaraikan keputusan dan tugas—ia juga menangkap konteks dan nada perbualan. Inilah cara berfikir dan cara melakukannya dengan Minit AI."
   },
   "limits": {
-    "h2": "Mengapa minit “hanya keputusan” itu lemah",
-    "p1": "Struktur “perbincangan/keputusan/tugas/perkara tertangguh” sahaja sering kehilangan konteks, nada dan sejarah konsesi. Akibatnya: salah faham, ulang-alik yang tidak perlu, dan risiko “kata/tiada kata”.",
     "generic": {
       "h3": "Minit nipis yang biasa berlaku",
       "items": {
@@ -66,6 +50,7 @@
         "2": "Kabur tentang perkara tidak dipersetujui/ditangguh"
       }
     },
+    "h2": "Mengapa minit “hanya keputusan” itu lemah",
     "optimized": {
       "h3": "Minit yang kukuh untuk rundingan",
       "items": {
@@ -73,12 +58,41 @@
         "1": "Sebab, andaian dan risiko dicatat berdekatan dengan keputusan",
         "2": "Asingkan dipersetujui/tidak dipersetujui/tertangguh dengan tarikh dan pemilik"
       }
+    },
+    "p1": "Struktur “perbincangan/keputusan/tugas/perkara tertangguh” sahaja sering kehilangan konteks, nada dan sejarah konsesi. Akibatnya: salah faham, ulang-alik yang tidak perlu, dan risiko “kata/tiada kata”."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI"
+  },
+  "negotiation": {
+    "h2": "Apa itu rundingan perniagaan?",
+    "p1": "Ringkasnya: melindungi dan mengembang kepentingan syarikat. Bukan komunikasi sehala, tetapi mencari titik temu melalui pertukaran “permintaan” dan “konsesi” tentang tarikh akhir, harga, skop dan risiko."
+  },
+  "recap": {
+    "focus": "Kali ini kami menumpukan khusus pada rundingan perniagaan.",
+    "h2": "Imbas kembali",
+    "p1": {
+      "link": "klik di sini",
+      "post": ".",
+      "pre": "Sebelum ini kami tunjukkan bahawa minit berasaskan AI berfungsi untuk semua jenis mesyuarat. Untuk membaca semula,"
+    },
+    "points": {
+      "0": "Jenis mesyuarat berbeza; format minit terbaik bergantung pada tujuan.",
+      "1": "Templat generik membantu, tetapi aras perincian perlu disesuaikan.",
+      "2": "Daripada “dokumen untuk dibaca” kepada “pelan untuk dilaksanakan”.",
+      "3": "Minit AI melaras keluaran mengikut tujuan mesyuarat."
     }
   },
-  "example": {
-    "h2": "Contoh (simpankan pertukaran utama secara verbatim)",
-    "block": "Syarikat A: Produk anda sebelum ini ada pepijat dan menyusahkan kami. Anda ‘berhutang’ kepada kami—sila hantar minggu depan. Harga $1000.\\nSyarikat kami: Kami akan cuba hantar minggu depan selepas penyelarasan dalaman. Sebagai gantinya, boleh dinaikkan kepada $1200? Mohon pertimbangkan.\\nSyarikat A: Jika anda boleh jamin penghantaran minggu depan, kami akan pertimbangkan. Sila e-mel jawapan hari ini.",
-    "p1": "Menyimpan “pusingan utama” secara verbatim membolehkan pembuat keputusan menilai kewajaran dengan konteks penuh."
+  "seo": {
+    "description": "Rundingan memerlukan minit yang menangkap keputusan, tugas, konteks, nada dan sejarah konsesi. Panduan praktikal dengan Minit AI.",
+    "ld": {
+      "description": "Inti rundingan dalam minit: permintaan, konsesi dan konteks—dengan Minit AI.",
+      "headline": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI"
+    },
+    "ogDescription": "Tamatkan minit yang ‘nipis’: simpan pertukaran dan konteks untuk keputusan yang lebih cepat dan tepat.",
+    "ogTitle": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI",
+    "title": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI | Blog minit mesyuarat"
   },
   "why": {
     "h2": "Mengapa Minit AI unggul untuk rundingan",
@@ -93,19 +107,5 @@
   "wrap": {
     "h2": "Ringkasan",
     "p": "Minit rundingan yang kuat bukan hanya senarai keputusan—ia juga menyimpan aliran tawar-menawar dan konteks. Keputusan menjadi lebih cepat dan tepat. Jadikannya standard dengan Minit AI."
-  },
-  "cta": {
-    "openBrowser": "Buka dalam pelayar",
-    "downloadIOS": "Muat turun aplikasi iOS"
-  },
-  "seo": {
-    "title": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI | Blog minit mesyuarat",
-    "description": "Rundingan memerlukan minit yang menangkap keputusan, tugas, konteks, nada dan sejarah konsesi. Panduan praktikal dengan Minit AI.",
-    "ogTitle": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI",
-    "ogDescription": "Tamatkan minit yang ‘nipis’: simpan pertukaran dan konteks untuk keputusan yang lebih cepat dan tepat.",
-    "ld": {
-      "headline": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI",
-      "description": "Inti rundingan dalam minit: permintaan, konsesi dan konteks—dengan Minit AI."
-    }
   }
 }

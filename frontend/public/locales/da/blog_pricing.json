@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Minutes.AI priser — simple planer til alle mødevaner",
-    "description": "Tidsklip uden udløb og reelt ubegrænsede abonnementer. Se sammenligningen med Otter og Notta på pris, kvoter og overførsel.",
-    "ogTitle": "Minutes.AI priser",
-    "ogDescription": "Tidsklip uden udløb + ubegrænsede abonnementer. Sammenlign med Otter og Notta.",
-    "ld": {
-      "headline": "Minutes.AI priser",
-      "description": "Fire enkle planer: to engangstidsklip (uden udløb) og to ubegrænsede abonnementer — inkl. sammenligning mod Otter og Notta."
-    }
+  "aria": {
+    "home": "Referat AI Hjem"
   },
-  "aria": { "home": "Minutes.AI Hjem" },
-  "nav": { "blog": "Blog", "pricing": "Priser" },
+  "compare": {
+    "foot": "Kilder: officielle prissider for Otter og Notta.",
+    "h2": "Referat AI vs. Otter vs. Notta — hurtigt overblik",
+    "lastUpdated": "Sidst opdateret: 31. oktober 2025",
+    "note": "Nøgletal i USD. Konkurrenters kvoter nulstilles typisk månedligt uden overførsel.",
+    "rows": [
+      {
+        "billing": "Engangstidsklip + abonnementer",
+        "cheapest": "Trial 120 min / $1.99 (ingen udløb)",
+        "free": "Daglig 3-min billet",
+        "limits": "Tidsklip udløber aldrig. Abonnementer er uden loft.",
+        "service": "Referat AI",
+        "unlimited": "Ja — $16.99/md eller $149.99/år"
+      },
+      {
+        "billing": "Sædebaseret abonnement",
+        "cheapest": "Pro — $16.99/md eller $8.33/md (årligt)",
+        "free": "300 min/md, op til 30 min/møde",
+        "limits": "Ingen overførsel; per-møde loft",
+        "service": "Otter",
+        "unlimited": "Nej — Pro 1200 min/md; Business 6000 importmin/md"
+      },
+      {
+        "billing": "Sædebaseret abonnement",
+        "cheapest": "Pro — $13.49/md (månedligt) eller $8.17/md (årligt)",
+        "free": "120 min/md, op til 3 min/optagelse",
+        "limits": "Ingen overførsel; op til 5 t/optagelse; uploadkvoter",
+        "service": "Notta",
+        "unlimited": "Business — Ubegrænset (årligt $16.67/md; månedligt højere)"
+      }
+    ],
+    "tableHead": [
+      "Tjeneste",
+      "Gratis plan",
+      "Billigste betalte",
+      "Ubegrænset",
+      "Bemærkelsesværdige begrænsninger",
+      "Faktureringsmodel"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Hent iOS-app",
+    "openBrowser": "Åbn i browser"
+  },
   "hero": {
+    "h1": "Referat AI priser (2025)",
     "kicker": "Priser",
-    "h1": "Minutes.AI priser (2025)",
     "tagline": "Vælg tidsklip uden udløb — eller gå all-in med ubegrænset abonnement."
   },
   "intro": {
     "h2": "Hvilken plan passer dig?",
     "p1": "Vi tilbyder fire muligheder, optimeret efter hvor ofte du holder møder."
   },
+  "meta": {
+    "category": "Priser",
+    "h2": "Meta",
+    "published": "Udgivet",
+    "type": "Guide"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Priser"
+  },
   "plans": {
-    "h3_timepacks": "Tidsklip",
-    "timepacks_note": "Købte minutter udløber aldrig. Generér mødenotater når som helst.",
-    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
-    "light": { "name": "Light", "detail": "1200 min / $11.99" },
-    "h3_subs": "Abonnementer",
-    "subs_note": "Abonnementer er virkelig ubegrænsede — ingen månedlige loft.",
-    "monthly": { "name": "Månedligt", "detail": "$16.99" },
-    "annual": { "name": "Årligt", "detail": "$149.99" },
-    "free": {
-      "badge": "Daglig gratis billet",
-      "text": "Selv uden betaling får du en daglig gratis billet på 3 minutter til at prøve Minutes.AI."
+    "annual": {
+      "detail": "$149.99",
+      "name": "Årligt"
     },
     "bullets": [
       "Tidsklip uden udløb: køb én gang, brug når som helst",
       "Ubegrænset brug på abonnement",
       "iOS & Web, flersproget output"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs. Otter vs. Notta — hurtigt overblik",
-    "note": "Nøgletal i USD. Konkurrenters kvoter nulstilles typisk månedligt uden overførsel.",
-    "tableHead": ["Tjeneste", "Gratis plan", "Billigste betalte", "Ubegrænset", "Bemærkelsesværdige begrænsninger", "Faktureringsmodel"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "Daglig 3-min billet",
-        "cheapest": "Trial 120 min / $1.99 (ingen udløb)",
-        "unlimited": "Ja — $16.99/md eller $149.99/år",
-        "limits": "Tidsklip udløber aldrig. Abonnementer er uden loft.",
-        "billing": "Engangstidsklip + abonnementer"
-      },
-      {
-        "service": "Otter",
-        "free": "300 min/md, op til 30 min/møde",
-        "cheapest": "Pro — $16.99/md eller $8.33/md (årligt)",
-        "unlimited": "Nej — Pro 1200 min/md; Business 6000 importmin/md",
-        "limits": "Ingen overførsel; per-møde loft",
-        "billing": "Sædebaseret abonnement"
-      },
-      {
-        "service": "Notta",
-        "free": "120 min/md, op til 3 min/optagelse",
-        "cheapest": "Pro — $13.49/md (månedligt) eller $8.17/md (årligt)",
-        "unlimited": "Business — Ubegrænset (årligt $16.67/md; månedligt højere)",
-        "limits": "Ingen overførsel; op til 5 t/optagelse; uploadkvoter",
-        "billing": "Sædebaseret abonnement"
-      }
     ],
-    "foot": "Kilder: officielle prissider for Otter og Notta.",
-    "lastUpdated": "Sidst opdateret: 31. oktober 2025"
+    "free": {
+      "badge": "Daglig gratis billet",
+      "text": "Selv uden betaling får du en daglig gratis billet på 3 minutter til at prøve Referat AI."
+    },
+    "h3_subs": "Abonnementer",
+    "h3_timepacks": "Tidsklip",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Månedligt"
+    },
+    "subs_note": "Abonnementer er virkelig ubegrænsede — ingen månedlige loft.",
+    "timepacks_note": "Købte minutter udløber aldrig. Generér mødenotater når som helst.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Tidsklip uden udløb og reelt ubegrænsede abonnementer. Se sammenligningen med Otter og Notta på pris, kvoter og overførsel.",
+    "ld": {
+      "description": "Fire enkle planer: to engangstidsklip (uden udløb) og to ubegrænsede abonnementer — inkl. sammenligning mod Otter og Notta.",
+      "headline": "Referat AI priser"
+    },
+    "ogDescription": "Tidsklip uden udløb + ubegrænsede abonnementer. Sammenlign med Otter og Notta.",
+    "ogTitle": "Referat AI priser",
+    "title": "Referat AI priser — simple planer til alle mødevaner"
   },
   "why": {
     "h2": "Derfor designede vi planerne sådan",
@@ -79,7 +113,5 @@
       "Lejlighedsvise møder: køb Light én gang — ingen udløb.",
       "Vil du bare teste: Trial + daglig 3-min billet."
     ]
-  },
-  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Guide", "category": "Priser" },
-  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" }
+  }
 }

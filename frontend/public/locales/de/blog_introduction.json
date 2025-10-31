@@ -1,35 +1,178 @@
 {
-  "seo": { "title": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung | Protokoll KI Blog", "description": "Ein Klick für aussagekräftige Protokolle. Eine einfache Einführung in Protokoll KI: Grundlagen, Unterschiede zu anderen Tools und Beispielausgaben; vertraut von über {{users}} Nutzern (Stand {{date}}).", "ogTitle": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung", "ogDescription": "Ein Klick für aussagekräftige Protokolle. Verstehe Protokoll KI, seine Besonderheiten und Beispielausgaben.", "ld": { "headline": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung", "description": "Ein Klick für aussagekräftige Protokolle. Eine kompakte Einführung in Protokoll KI, seine Unterschiede und Beispiele." } },
-  "nav": { "blog": "Blog", "introduction": "Einführung" },
-  "hero": { "kicker": "Protokoll KI", "h1": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung", "tagline": "„Ein Klick für aussagekräftige Meetingprotokolle.“ Klare, einfache Erklärungen für alle, die gerade erst anfangen." },
-  "intro": { "h2": "Einführung", "p1": "Vielen Dank ...", "p2": "Oder vielleicht ...", "p3": { "pre": "In diesem Artikel zeigen wir, wie", "mid": "Ihnen hilft,", "bold": "aussagekräftige Protokolle", "post": "mit nur einem Klick zu erstellen — mit Fokus auf Klarheit und Ergebnisorientierung." } },
-  "what": { "h2": "Was ist Protokoll KI?", "p1": "Protokoll KI ist ...", "footnote": "※ Stand {{date}} (basierend auf iOS Store-Daten)", "p2": "Mit Protokoll KI ..." },
-  "compare": { "title": "Unterschiede: Transkription / Generische KI / Protokoll KI", "head": { "feature": "Funktion", "transcription": "Einfaches Transkriptions-Tool", "generic": "Generische KI", "minutes": "Protokoll KI" }, "rows": [ { "k": "Audio → Text", "a": "Ja", "b": "Nein (manuelle Eingabe nötig)", "c": "Ja" }, { "k": "Zusammenfassung / Gliederung", "a": "Nein", "b": "Ja (Kontext kann sich verschieben)", "c": "Ja (optimiert für Meetings)" }, { "k": "Entscheidungen / Aufgaben", "a": "Nein", "b": "Ja (oft unpräzise)", "c": "Ja (klare Extraktion & Tagging)" }, { "k": "Mehrsprachige Unterstützung", "a": "Nein", "b": "Ja (Risiko grammatikalischer Abweichung)", "c": "Ja (alle Hauptsprachen, kontextbewusst)" } ] },
-  "samples": { "h2": "Beispieltexte & Ausgaben", "meetingSample": "Beispiel eines Meeting-Audios", "transcript": { "preview": "Gut, es ist Zeit ...", "full": "Alexander (Marketingleiter): ... (gekürzt)" }, "generic": { "h3": "Beispiel eines generischen KI-Outputs", "body": "Das Team überprüfte ...", "note": "Der Text ist sauber, beantwortet aber nicht klar „wer was bis wann“ tun soll." }, "pretty": { "h3": "Beispiel eines Protokoll KI-Outputs" } },
-  "minutes": {
-    "meetingTitle": "Wöchentliche Smartwatch-Verkaufsanalyse",
-    "date": "2025-10-11 10:00 MEZ",
-    "attendees": ["Alexander (Marketingleiter)", "Jonas (E-Commerce)", "Sebastian (Einzelhandel)", "Tobias (Produktmanager)", "Ralf (Datenanalyse)"],
-    "coreMessage": "Arbeite klug, nicht nur schnell. Klarheit vor Geschwindigkeit – wer macht was bis wann. Meetings sollten innerhalb von 30 Minuten abgeschlossen sein.",
-    "topics": [
-      { "topic": "Leistung des Online-Kanals", "discussion": ["Sitzungen +18 % ..."], "decisions": ["Online-Werbebudget für zwei Wochen um 15 % erhöhen"], "actionItems": ["Jonas — starte A/B-Test bis 2025-10-15", "Ralf — liefere CTR-Analyse bis 2025-10-17"], "concerns": ["Risiko von Anzeigenmüdigkeit ohne kreative Erneuerung"], "keyMessages": ["Wachstum bei stabilem CAC; teste vor Skalierung"] },
-      { "topic": "Lager & Filialbetrieb", "discussion": ["Ausverkauf in Berlin ..."], "decisions": ["Nachlieferung von 500 Einheiten in drei Filialen"], "actionItems": ["Sebastian — bestätige Lieferzeit bis 2025-10-14"], "concerns": ["Lieferverzögerung bei hoher Nachfrage möglich"], "keyMessages": ["Stabile Lagerbestände sichern, um Umsätze zu halten"] },
-      { "topic": "Firmware v1.2 & Q4-Bundle-Start", "discussion": ["v1.2 behebt ..."], "decisions": ["Launch am 2025-10-20 genehmigt"], "actionItems": ["Tobias — Release-Plan bis 2025-10-13 fertigstellen", "Support — FAQ bis 2025-10-16 veröffentlichen", "Marketing — Black-Friday-Plan bis 2025-10-25 vorbereiten"], "keyMessages": ["Produktverbesserungen mit passenden Kampagnen kombinieren"] }
+  "compare": {
+    "head": {
+      "feature": "Funktion",
+      "generic": "Generische KI",
+      "minutes": "Protokoll KI",
+      "transcription": "Einfaches Transkriptions-Tool"
+    },
+    "rows": [
+      {
+        "a": "Ja",
+        "b": "Nein (manuelle Eingabe nötig)",
+        "c": "Ja",
+        "k": "Audio → Text"
+      },
+      {
+        "a": "Nein",
+        "b": "Ja (Kontext kann sich verschieben)",
+        "c": "Ja (optimiert für Meetings)",
+        "k": "Zusammenfassung / Gliederung"
+      },
+      {
+        "a": "Nein",
+        "b": "Ja (oft unpräzise)",
+        "c": "Ja (klare Extraktion & Tagging)",
+        "k": "Entscheidungen / Aufgaben"
+      },
+      {
+        "a": "Nein",
+        "b": "Ja (Risiko grammatikalischer Abweichung)",
+        "c": "Ja (alle Hauptsprachen, kontextbewusst)",
+        "k": "Mehrsprachige Unterstützung"
+      }
     ],
-    "labels": {
-      "discussion": "Diskussion",
-      "decisions": "Entscheidungen",
-      "actionItems": "Maßnahmen",
-      "concerns": "Anmerkungen",
-      "keyMessages": "Kernbotschaften",
-      "attendees": "Teilnehmer:",
-      "closingMessage": "Abschließende Bemerkung"
+    "title": "Unterschiede: Transkription / Generische KI / Protokoll KI"
+  },
+  "cta": {
+    "downloadIOS": "iOS-Version herunterladen",
+    "openBrowser": "Browser-Version öffnen"
+  },
+  "hero": {
+    "h1": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung",
+    "kicker": "Protokoll KI",
+    "tagline": "„Ein Klick für aussagekräftige Meetingprotokolle.“ Klare, einfache Erklärungen für alle, die gerade erst anfangen."
+  },
+  "intro": {
+    "h2": "Einführung",
+    "p1": "Vielen Dank ...",
+    "p2": "Oder vielleicht ...",
+    "p3": {
+      "bold": "aussagekräftige Protokolle",
+      "mid": "Ihnen hilft,",
+      "post": "mit nur einem Klick zu erstellen — mit Fokus auf Klarheit und Ergebnisorientierung.",
+      "pre": "In diesem Artikel zeigen wir, wie"
     }
   },
+  "minutes": {
+    "attendees": [
+      "Alexander (Marketingleiter)",
+      "Jonas (E-Commerce)",
+      "Sebastian (Einzelhandel)",
+      "Tobias (Produktmanager)",
+      "Ralf (Datenanalyse)"
+    ],
+    "coreMessage": "Arbeite klug, nicht nur schnell. Klarheit vor Geschwindigkeit – wer macht was bis wann. Meetings sollten innerhalb von 30 Minuten abgeschlossen sein.",
+    "date": "2025-10-11 10:00 MEZ",
+    "labels": {
+      "actionItems": "Maßnahmen",
+      "attendees": "Teilnehmer:",
+      "closingMessage": "Abschließende Bemerkung",
+      "concerns": "Anmerkungen",
+      "decisions": "Entscheidungen",
+      "discussion": "Diskussion",
+      "keyMessages": "Kernbotschaften"
+    },
+    "meetingTitle": "Wöchentliche Smartwatch-Verkaufsanalyse",
+    "topics": [
+      {
+        "actionItems": [
+          "Jonas — starte A/B-Test bis 2025-10-15",
+          "Ralf — liefere CTR-Analyse bis 2025-10-17"
+        ],
+        "concerns": [
+          "Risiko von Anzeigenmüdigkeit ohne kreative Erneuerung"
+        ],
+        "decisions": [
+          "Online-Werbebudget für zwei Wochen um 15 % erhöhen"
+        ],
+        "discussion": [
+          "Sitzungen +18 % ..."
+        ],
+        "keyMessages": [
+          "Wachstum bei stabilem CAC; teste vor Skalierung"
+        ],
+        "topic": "Leistung des Online-Kanals"
+      },
+      {
+        "actionItems": [
+          "Sebastian — bestätige Lieferzeit bis 2025-10-14"
+        ],
+        "concerns": [
+          "Lieferverzögerung bei hoher Nachfrage möglich"
+        ],
+        "decisions": [
+          "Nachlieferung von 500 Einheiten in drei Filialen"
+        ],
+        "discussion": [
+          "Ausverkauf in Berlin ..."
+        ],
+        "keyMessages": [
+          "Stabile Lagerbestände sichern, um Umsätze zu halten"
+        ],
+        "topic": "Lager & Filialbetrieb"
+      },
+      {
+        "actionItems": [
+          "Tobias — Release-Plan bis 2025-10-13 fertigstellen",
+          "Support — FAQ bis 2025-10-16 veröffentlichen",
+          "Marketing — Black-Friday-Plan bis 2025-10-25 vorbereiten"
+        ],
+        "decisions": [
+          "Launch am 2025-10-20 genehmigt"
+        ],
+        "discussion": [
+          "v1.2 behebt ..."
+        ],
+        "keyMessages": [
+          "Produktverbesserungen mit passenden Kampagnen kombinieren"
+        ],
+        "topic": "Firmware v1.2 & Q4-Bundle-Start"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Einführung"
+  },
+  "samples": {
+    "generic": {
+      "body": "Das Team überprüfte ...",
+      "h3": "Beispiel eines generischen KI-Outputs",
+      "note": "Der Text ist sauber, beantwortet aber nicht klar „wer was bis wann“ tun soll."
+    },
+    "h2": "Beispieltexte & Ausgaben",
+    "meetingSample": "Beispiel eines Meeting-Audios",
+    "pretty": {
+      "h3": "Beispiel eines Protokoll KI-Outputs"
+    },
+    "transcript": {
+      "full": "Alexander (Marketingleiter): ... (gekürzt)",
+      "preview": "Gut, es ist Zeit ..."
+    }
+  },
+  "seo": {
+    "description": "Ein Klick für aussagekräftige Protokolle. Eine einfache Einführung in Protokoll KI: Grundlagen, Unterschiede zu anderen Tools und Beispielausgaben; vertraut von über {{users}} Nutzern (Stand {{date}}).",
+    "ld": {
+      "description": "Ein Klick für aussagekräftige Protokolle. Eine kompakte Einführung in Protokoll KI, seine Unterschiede und Beispiele.",
+      "headline": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung"
+    },
+    "ogDescription": "Ein Klick für aussagekräftige Protokolle. Verstehe Protokoll KI, seine Besonderheiten und Beispielausgaben.",
+    "ogTitle": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung",
+    "title": "Was ist Protokoll KI? Grundlagen & Vorteile vor der Nutzung | Protokoll KI Blog"
+  },
+  "transcript": {
+    "close": "Volltext schließen",
+    "expand": "Volltext anzeigen"
+  },
+  "what": {
+    "footnote": "※ Stand {{date}} (basierend auf iOS Store-Daten)",
+    "h2": "Was ist Protokoll KI?",
+    "p1": "Protokoll KI ist ...",
+    "p2": "Mit Protokoll KI ..."
+  },
   "wrap": {
-  "h2": "Zusammenfassung",
-  "p": "Wie wirkt das Ergebnis? Mit dieser Struktur wird sofort klar, wer was zu tun hat. Protokolle verwandeln sich von etwas, das man liest, in etwas, das Teams in Bewegung bringt. Erleben Sie Protokoll KI selbst."
-},
-  "cta": { "openBrowser": "Browser-Version öffnen", "downloadIOS": "iOS-Version herunterladen" },
-  "transcript": { "expand": "Volltext anzeigen", "close": "Volltext schließen" }
+    "h2": "Zusammenfassung",
+    "p": "Wie wirkt das Ergebnis? Mit dieser Struktur wird sofort klar, wer was zu tun hat. Protokolle verwandeln sich von etwas, das man liest, in etwas, das Teams in Bewegung bringt. Erleben Sie Protokoll KI selbst."
+  }
 }

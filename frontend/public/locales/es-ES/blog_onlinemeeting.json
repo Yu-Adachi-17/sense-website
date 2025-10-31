@@ -1,38 +1,71 @@
 {
-  "seo": {
-    "title": "Minutes.AI ahora admite reuniones en línea (iOS)",
-    "description": "Pulsa «Online» para generar una URL, compártela y empieza al instante una reunión al estilo Zoom. Las actas se crean automáticamente al finalizar.",
-    "ogTitle": "Reuniones en línea en Minutes.AI",
-    "ogDescription": "Inicia desde «Online» y recibe actas automáticas y bien formateadas.",
-    "ld": { "headline": "Minutes.AI añade reuniones en línea", "description": "Reuniones tipo Zoom por URL y actas automáticas con decisiones y tareas." }
+  "aria": {
+    "home": "Inicio de Actas IA"
   },
-  "aria": { "home": "Inicio de Minutes.AI" },
-  "nav": { "blog": "Blog", "onlinemeeting": "Reuniones en línea" },
-  "hero": {
-    "kicker": "Novedad",
-    "h1": "Reuniones en línea para Minutes.AI (iOS)",
-    "tagline": "Pulsa «Online», genera una URL y compártela. Al terminar, las actas se generan automáticamente."
-  },
-  "release": {
-    "h2": "¿Qué hay de nuevo?",
-    "p1": "Minutes.AI ya admite reuniones en línea. Pulsa «Online» para generar y compartir una URL y empezar al instante.",
-    "p2": "Al finalizar, las actas se generan automáticamente con decisiones y tareas claras."
-  },
-  "image": { "alt": "Interfaz de reunión en línea de Minutes.AI", "caption": "Empieza desde el botón «Online»." },
-  "steps": {
-    "h2": "Cómo empezar",
-    "items": ["Pulsa «Online» (app/web)", "Genera una URL de reunión", "Comparte la URL con los participantes", "Finaliza → actas automáticas"],
-    "note": "La duración depende del plan y del tiempo restante."
+  "cta": {
+    "downloadIOS": "Descargar app iOS",
+    "openBrowser": "Abrir en el navegador"
   },
   "features": {
     "h2": "Destacados",
-    "items": ["UX tipo Zoom (LiveKit)", "URL con un clic", "Actas automáticas al finalizar", "Formatos legibles", "Multilingüe para equipos globales"]
+    "items": [
+      "UX tipo Zoom (LiveKit)",
+      "URL con un clic",
+      "Actas automáticas al finalizar",
+      "Formatos legibles",
+      "Multilingüe para equipos globales"
+    ]
+  },
+  "hero": {
+    "h1": "Reuniones en línea para Actas IA (iOS)",
+    "kicker": "Novedad",
+    "tagline": "Pulsa «Online», genera una URL y compártela. Al terminar, las actas se generan automáticamente."
+  },
+  "image": {
+    "alt": "Interfaz de reunión en línea de Actas IA",
+    "caption": "Empieza desde el botón «Online»."
+  },
+  "meta": {
+    "category": "Reunión en línea",
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Lanzamiento"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Reuniones en línea"
   },
   "notes": {
+    "foot": "Pruébalo en la web o descarga la app de iOS.",
     "h2": "Notas",
-    "items": ["Límites y tiempo restante según plan/cuota", "La red y el dispositivo pueden afectar la calidad"],
-    "foot": "Pruébalo en la web o descarga la app de iOS."
+    "items": [
+      "Límites y tiempo restante según plan/cuota",
+      "La red y el dispositivo pueden afectar la calidad"
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Lanzamiento", "category": "Reunión en línea" },
-  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app iOS" }
+  "release": {
+    "h2": "¿Qué hay de nuevo?",
+    "p1": "Actas IA ya admite reuniones en línea. Pulsa «Online» para generar y compartir una URL y empezar al instante.",
+    "p2": "Al finalizar, las actas se generan automáticamente con decisiones y tareas claras."
+  },
+  "seo": {
+    "description": "Pulsa «Online» para generar una URL, compártela y empieza al instante una reunión al estilo Zoom. Las actas se crean automáticamente al finalizar.",
+    "ld": {
+      "description": "Reuniones tipo Zoom por URL y actas automáticas con decisiones y tareas.",
+      "headline": "Actas IA añade reuniones en línea"
+    },
+    "ogDescription": "Inicia desde «Online» y recibe actas automáticas y bien formateadas.",
+    "ogTitle": "Reuniones en línea en Actas IA",
+    "title": "Actas IA ahora admite reuniones en línea (iOS)"
+  },
+  "steps": {
+    "h2": "Cómo empezar",
+    "items": [
+      "Pulsa «Online» (app/web)",
+      "Genera una URL de reunión",
+      "Comparte la URL con los participantes",
+      "Finaliza → actas automáticas"
+    ],
+    "note": "La duración depende del plan y del tiempo restante."
+  }
 }

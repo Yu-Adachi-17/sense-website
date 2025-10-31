@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Harga Minutes.AI — paket sederhana untuk setiap gaya rapat",
-    "description": "Paket waktu tanpa kedaluwarsa dan langganan benar-benar tanpa batas. Bandingkan Minutes.AI dengan Otter dan Notta (harga, kuota, rollover).",
-    "ogTitle": "Harga Minutes.AI",
-    "ogDescription": "Paket tanpa kedaluwarsa + langganan tanpa batas. Perbandingan singkat dengan Otter & Notta.",
-    "ld": {
-      "headline": "Harga Minutes.AI",
-      "description": "Empat paket: dua paket waktu sekali beli (tanpa kedaluwarsa) dan dua langganan tanpa batas — plus perbandingan dengan Otter dan Notta."
-    }
+  "aria": {
+    "home": "Beranda Minutes AI"
   },
-  "aria": { "home": "Beranda Minutes.AI" },
-  "nav": { "blog": "Blog", "pricing": "Harga" },
+  "compare": {
+    "foot": "Sumber: halaman harga resmi Otter dan Notta.",
+    "h2": "Minutes AI vs Otter vs Notta — ringkasan harga",
+    "lastUpdated": "Pembaruan terakhir: 31 Okt 2025",
+    "note": "Harga dan kuota utama (USD). Pesaing biasanya mereset kuota bulanan tanpa rollover.",
+    "rows": [
+      {
+        "billing": "Paket sekali beli + langganan",
+        "cheapest": "Trial 120 menit / $1.99 (tanpa kedaluwarsa)",
+        "free": "Tiket 3 menit harian",
+        "limits": "Paket waktu tidak kedaluwarsa. Langganan tanpa batas.",
+        "service": "Minutes AI",
+        "unlimited": "Ya — $16.99/bln atau $149.99/thn"
+      },
+      {
+        "billing": "Langganan per kursi",
+        "cheapest": "Pro — $16.99/bln atau $8.33/bln (tahunan)",
+        "free": "300 menit/bln, hingga 30 menit/sesi",
+        "limits": "Tanpa rollover; batas per rapat",
+        "service": "Otter",
+        "unlimited": "Tidak — Pro 1200 menit/bln; Business 6000 menit impor/bln"
+      },
+      {
+        "billing": "Langganan per kursi",
+        "cheapest": "Pro — $13.49/bln (bulanan) atau $8.17/bln (tahunan)",
+        "free": "120 menit/bln, hingga 3 menit/rekaman",
+        "limits": "Tanpa carryover; hingga 5 jam/rekaman; kuota unggah",
+        "service": "Notta",
+        "unlimited": "Business — Tanpa batas (tahunan $16.67/bln; bulanan lebih tinggi)"
+      }
+    ],
+    "tableHead": [
+      "Layanan",
+      "Paket gratis",
+      "Termurah",
+      "Tanpa batas",
+      "Batasan utama",
+      "Model penagihan"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Unduh aplikasi iOS",
+    "openBrowser": "Buka di browser"
+  },
   "hero": {
+    "h1": "Harga Minutes AI (2025)",
     "kicker": "Harga",
-    "h1": "Harga Minutes.AI (2025)",
     "tagline": "Pilih paket waktu tanpa kedaluwarsa, atau langganan bulanan/tahunan yang benar-benar tanpa batas."
   },
   "intro": {
     "h2": "Paket mana yang pas?",
     "p1": "Empat opsi disesuaikan dengan seberapa sering Anda rapat."
   },
+  "meta": {
+    "category": "Harga",
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Panduan"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Harga"
+  },
   "plans": {
-    "h3_timepacks": "Jenis Paket Waktu",
-    "timepacks_note": "Menit yang dibeli tidak pernah kedaluwarsa. Buat notulen otomatis kapan saja.",
-    "trial": { "name": "Trial", "detail": "120 menit / $1.99" },
-    "light": { "name": "Light", "detail": "1200 menit / $11.99" },
-    "h3_subs": "Jenis Langganan",
-    "subs_note": "Langganan benar-benar tanpa batas — tidak ada batas menit bulanan.",
-    "monthly": { "name": "Bulanan", "detail": "$16.99" },
-    "annual": { "name": "Tahunan", "detail": "$149.99" },
-    "free": {
-      "badge": "Tiket gratis harian",
-      "text": "Tanpa bayar pun, Anda mendapat tiket gratis 3 menit setiap hari untuk mencoba Minutes.AI."
+    "annual": {
+      "detail": "$149.99",
+      "name": "Tahunan"
     },
     "bullets": [
       "Paket tanpa kedaluwarsa: beli sekali, pakai kapan saja",
       "Pemakaian tanpa batas pada langganan",
       "iOS & Web, output multi-bahasa"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs Otter vs Notta — ringkasan harga",
-    "note": "Harga dan kuota utama (USD). Pesaing biasanya mereset kuota bulanan tanpa rollover.",
-    "tableHead": ["Layanan", "Paket gratis", "Termurah", "Tanpa batas", "Batasan utama", "Model penagihan"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "Tiket 3 menit harian",
-        "cheapest": "Trial 120 menit / $1.99 (tanpa kedaluwarsa)",
-        "unlimited": "Ya — $16.99/bln atau $149.99/thn",
-        "limits": "Paket waktu tidak kedaluwarsa. Langganan tanpa batas.",
-        "billing": "Paket sekali beli + langganan"
-      },
-      {
-        "service": "Otter",
-        "free": "300 menit/bln, hingga 30 menit/sesi",
-        "cheapest": "Pro — $16.99/bln atau $8.33/bln (tahunan)",
-        "unlimited": "Tidak — Pro 1200 menit/bln; Business 6000 menit impor/bln",
-        "limits": "Tanpa rollover; batas per rapat",
-        "billing": "Langganan per kursi"
-      },
-      {
-        "service": "Notta",
-        "free": "120 menit/bln, hingga 3 menit/rekaman",
-        "cheapest": "Pro — $13.49/bln (bulanan) atau $8.17/bln (tahunan)",
-        "unlimited": "Business — Tanpa batas (tahunan $16.67/bln; bulanan lebih tinggi)",
-        "limits": "Tanpa carryover; hingga 5 jam/rekaman; kuota unggah",
-        "billing": "Langganan per kursi"
-      }
     ],
-    "foot": "Sumber: halaman harga resmi Otter dan Notta.",
-    "lastUpdated": "Pembaruan terakhir: 31 Okt 2025"
+    "free": {
+      "badge": "Tiket gratis harian",
+      "text": "Tanpa bayar pun, Anda mendapat tiket gratis 3 menit setiap hari untuk mencoba Minutes AI."
+    },
+    "h3_subs": "Jenis Langganan",
+    "h3_timepacks": "Jenis Paket Waktu",
+    "light": {
+      "detail": "1200 menit / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Bulanan"
+    },
+    "subs_note": "Langganan benar-benar tanpa batas — tidak ada batas menit bulanan.",
+    "timepacks_note": "Menit yang dibeli tidak pernah kedaluwarsa. Buat notulen otomatis kapan saja.",
+    "trial": {
+      "detail": "120 menit / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Paket waktu tanpa kedaluwarsa dan langganan benar-benar tanpa batas. Bandingkan Minutes AI dengan Otter dan Notta (harga, kuota, rollover).",
+    "ld": {
+      "description": "Empat paket: dua paket waktu sekali beli (tanpa kedaluwarsa) dan dua langganan tanpa batas — plus perbandingan dengan Otter dan Notta.",
+      "headline": "Harga Minutes AI"
+    },
+    "ogDescription": "Paket tanpa kedaluwarsa + langganan tanpa batas. Perbandingan singkat dengan Otter & Notta.",
+    "ogTitle": "Harga Minutes AI",
+    "title": "Harga Minutes AI — paket sederhana untuk setiap gaya rapat"
   },
   "why": {
     "h2": "Mengapa paket disusun seperti ini",
@@ -79,7 +113,5 @@
       "Rapat sesekali: beli Light sekali — tanpa kedaluwarsa.",
       "Hanya coba: paket Trial + tiket 3 menit harian."
     ]
-  },
-  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Panduan", "category": "Harga" },
-  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+  }
 }

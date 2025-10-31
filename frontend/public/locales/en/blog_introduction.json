@@ -1,35 +1,178 @@
 {
-  "seo": { "title": "What is Minutes.AI? Basics & Benefits Before You Adopt | Minutes.AI Blog", "description": "One-tap for meaningful minutes. A simple intro to Minutes.AI: basics, differences vs other tools, and output examples; trusted by {{users}} users (as of {{date}}).", "ogTitle": "What is Minutes.AI? Basics & Benefits Before You Adopt", "ogDescription": "One-tap for meaningful minutes. Understand Minutes.AI, how it's different, and sample outputs.", "ld": { "headline": "What is Minutes.AI? Basics & Benefits Before You Adopt", "description": "One-tap for meaningful minutes. A simple intro to Minutes.AI, its differences, and examples." } },
-  "nav": { "blog": "Blog", "introduction": "Introduction" },
-  "hero": { "kicker": "Minutes.AI", "h1": "What is Minutes.AI? Basics & Benefits Before You Adopt", "tagline": "“One-tap for meaningful meeting minutes.” Clear, essential explanations for those just getting started." },
-  "intro": { "h2": "Introduction", "p1": "Thank you for visiting this article. ...", "p2": "Or perhaps as a reader ...", "p3": { "pre": "In this article, we’ll show how", "mid": "helps you produce", "bold": "meaningful minutes", "post": "with just one tap — focusing on clarity and outcomes." } },
-  "what": { "h2": "What is Minutes.AI?", "p1": "Minutes.AI is an AI-powered ...", "footnote": "※ As of {{date}} (based on iOS store data)", "p2": "With Minutes.AI, you can automatically generate ..." },
-  "compare": { "title": "Differences: Transcription Tools / Generic AI / Minutes.AI", "head": { "feature": "Feature", "transcription": "Plain Transcription Tool", "generic": "Generic AI", "minutes": "Minutes.AI" }, "rows": [ { "k": "Audio → Text", "a": "Yes", "b": "No (requires manual input)", "c": "Yes" }, { "k": "Summarization / Outline", "a": "No", "b": "Yes (but context may shift)", "c": "Yes (optimized for meetings)" }, { "k": "Decision / Action Extraction", "a": "No", "b": "Yes (but often ambiguous)", "c": "Yes (clear extraction + tagging)" }, { "k": "Multi-language Support", "a": "No", "b": "Yes (risk of syntax drift)", "c": "Yes (major languages + context-aware)" } ] },
-  "samples": { "h2": "Source Text & Sample Outputs", "meetingSample": "Meeting Audio Sample", "transcript": { "preview": "Alright, it’s time ...", "full": "Alex (Marketing Lead): ... (shortened)" }, "generic": { "h3": "Generic AI Output Example", "body": "The team reviewed ...", "note": "It reads clean, but it doesn’t clearly answer “who will do what by when.”" }, "pretty": { "h3": "Minutes.AI Output Example" } },
-  "minutes": {
-    "meetingTitle": "Smartwatch Weekly Sales Review",
-    "date": "2025-10-11 10:00 JST",
-    "attendees": ["Alex (Marketing Lead)", "Jordan (E-commerce)", "Sam (Retail Ops)", "Taylor (PM)", "Riley (Data)"],
-    "coreMessage": "Let’s spend smart — clarity over speed. Commit to ‘who does what by when,’ and keep meetings within 30 minutes.",
-    "topics": [
-      { "topic": "Online channel performance", "discussion": ["Sessions +18% ..."], "decisions": ["Increase online ad budget by 15% for the next two weeks"], "actionItems": ["Jordan — launch A/B test by 2025-10-15", "Riley — deliver CTR analysis by 2025-10-17"], "concerns": ["Ad fatigue if creatives are not refreshed"], "keyMessages": ["Grow while maintaining stable CAC; test before scaling"] },
-      { "topic": "Offline stock & store operations", "discussion": ["Stockouts at Shibuya ..."], "decisions": ["Proceed with 500-unit restock across three stores"], "actionItems": ["Sam — confirm supplier ETA/logistics by 2025-10-14"], "concerns": ["Supplier lead-time risk if backlog increases"], "keyMessages": ["Avoid lost sales by stabilizing store inventory"] },
-      { "topic": "Firmware v1.2 & Q4 bundle launch", "discussion": ["v1.2 fixes battery drain ..."], "decisions": ["Approve Q4 bundle launch on 2025-10-20"], "actionItems": ["Taylor — finalize release schedule by 2025-10-13", "Support — publish FAQ by 2025-10-16", "Marketing — prepare Black Friday draft plan by 2025-10-25"], "keyMessages": ["Pair product improvements with timely promotions"] }
+  "compare": {
+    "head": {
+      "feature": "Feature",
+      "generic": "Generic AI",
+      "minutes": "Minutes.AI",
+      "transcription": "Plain Transcription Tool"
+    },
+    "rows": [
+      {
+        "a": "Yes",
+        "b": "No (requires manual input)",
+        "c": "Yes",
+        "k": "Audio → Text"
+      },
+      {
+        "a": "No",
+        "b": "Yes (but context may shift)",
+        "c": "Yes (optimized for meetings)",
+        "k": "Summarization / Outline"
+      },
+      {
+        "a": "No",
+        "b": "Yes (but often ambiguous)",
+        "c": "Yes (clear extraction + tagging)",
+        "k": "Decision / Action Extraction"
+      },
+      {
+        "a": "No",
+        "b": "Yes (risk of syntax drift)",
+        "c": "Yes (major languages + context-aware)",
+        "k": "Multi-language Support"
+      }
     ],
-    "labels": {
-      "discussion": "Discussion",
-      "decisions": "Decisions",
-      "actionItems": "Action Items",
-      "concerns": "Concerns",
-      "keyMessages": "Key Messages",
-      "attendees": "Attendees:",
-      "closingMessage": "Closing Message"
+    "title": "Differences: Transcription Tools / Generic AI / Minutes.AI"
+  },
+  "cta": {
+    "downloadIOS": "Download iOS Version",
+    "openBrowser": "Open Browser Version"
+  },
+  "hero": {
+    "h1": "What is Minutes.AI? Basics & Benefits Before You Adopt",
+    "kicker": "Minutes.AI",
+    "tagline": "“One-tap for meaningful meeting minutes.” Clear, essential explanations for those just getting started."
+  },
+  "intro": {
+    "h2": "Introduction",
+    "p1": "Thank you for visiting this article. ...",
+    "p2": "Or perhaps as a reader ...",
+    "p3": {
+      "bold": "meaningful minutes",
+      "mid": "helps you produce",
+      "post": "with just one tap — focusing on clarity and outcomes.",
+      "pre": "In this article, we’ll show how"
     }
   },
+  "minutes": {
+    "attendees": [
+      "Alex (Marketing Lead)",
+      "Jordan (E-commerce)",
+      "Sam (Retail Ops)",
+      "Taylor (PM)",
+      "Riley (Data)"
+    ],
+    "coreMessage": "Let’s spend smart — clarity over speed. Commit to ‘who does what by when,’ and keep meetings within 30 minutes.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Action Items",
+      "attendees": "Attendees:",
+      "closingMessage": "Closing Message",
+      "concerns": "Concerns",
+      "decisions": "Decisions",
+      "discussion": "Discussion",
+      "keyMessages": "Key Messages"
+    },
+    "meetingTitle": "Smartwatch Weekly Sales Review",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — launch A/B test by 2025-10-15",
+          "Riley — deliver CTR analysis by 2025-10-17"
+        ],
+        "concerns": [
+          "Ad fatigue if creatives are not refreshed"
+        ],
+        "decisions": [
+          "Increase online ad budget by 15% for the next two weeks"
+        ],
+        "discussion": [
+          "Sessions +18% ..."
+        ],
+        "keyMessages": [
+          "Grow while maintaining stable CAC; test before scaling"
+        ],
+        "topic": "Online channel performance"
+      },
+      {
+        "actionItems": [
+          "Sam — confirm supplier ETA/logistics by 2025-10-14"
+        ],
+        "concerns": [
+          "Supplier lead-time risk if backlog increases"
+        ],
+        "decisions": [
+          "Proceed with 500-unit restock across three stores"
+        ],
+        "discussion": [
+          "Stockouts at Shibuya ..."
+        ],
+        "keyMessages": [
+          "Avoid lost sales by stabilizing store inventory"
+        ],
+        "topic": "Offline stock & store operations"
+      },
+      {
+        "actionItems": [
+          "Taylor — finalize release schedule by 2025-10-13",
+          "Support — publish FAQ by 2025-10-16",
+          "Marketing — prepare Black Friday draft plan by 2025-10-25"
+        ],
+        "decisions": [
+          "Approve Q4 bundle launch on 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 fixes battery drain ..."
+        ],
+        "keyMessages": [
+          "Pair product improvements with timely promotions"
+        ],
+        "topic": "Firmware v1.2 & Q4 bundle launch"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Introduction"
+  },
+  "samples": {
+    "generic": {
+      "body": "The team reviewed ...",
+      "h3": "Generic AI Output Example",
+      "note": "It reads clean, but it doesn’t clearly answer “who will do what by when.”"
+    },
+    "h2": "Source Text & Sample Outputs",
+    "meetingSample": "Meeting Audio Sample",
+    "pretty": {
+      "h3": "Minutes.AI Output Example"
+    },
+    "transcript": {
+      "full": "Alex (Marketing Lead): ... (shortened)",
+      "preview": "Alright, it’s time ..."
+    }
+  },
+  "seo": {
+    "description": "One-tap for meaningful minutes. A simple intro to Minutes.AI: basics, differences vs other tools, and output examples; trusted by {{users}} users (as of {{date}}).",
+    "ld": {
+      "description": "One-tap for meaningful minutes. A simple intro to Minutes.AI, its differences, and examples.",
+      "headline": "What is Minutes.AI? Basics & Benefits Before You Adopt"
+    },
+    "ogDescription": "One-tap for meaningful minutes. Understand Minutes.AI, how it's different, and sample outputs.",
+    "ogTitle": "What is Minutes.AI? Basics & Benefits Before You Adopt",
+    "title": "What is Minutes.AI? Basics & Benefits Before You Adopt | Minutes.AI Blog"
+  },
+  "transcript": {
+    "close": "Close Full Text",
+    "expand": "Expand Full Text"
+  },
+  "what": {
+    "footnote": "※ As of {{date}} (based on iOS store data)",
+    "h2": "What is Minutes.AI?",
+    "p1": "Minutes.AI is an AI-powered ...",
+    "p2": "With Minutes.AI, you can automatically generate ..."
+  },
   "wrap": {
-  "h2": "Wrap-up",
-  "p": "How does it look? With this structure, anyone can instantly understand who should do what. Meeting minutes transform from something you read into something that moves your team forward. Experience Minutes.AI for yourself."
-},
-  "cta": { "openBrowser": "Open Browser Version", "downloadIOS": "Download iOS Version" },
-  "transcript": { "expand": "Expand Full Text", "close": "Close Full Text" }
+    "h2": "Wrap-up",
+    "p": "How does it look? With this structure, anyone can instantly understand who should do what. Meeting minutes transform from something you read into something that moves your team forward. Experience Minutes.AI for yourself."
+  }
 }

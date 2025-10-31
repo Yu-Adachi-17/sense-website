@@ -2,36 +2,15 @@
   "a11y": {
     "home": "Volver a la página principal de Actas IA"
   },
-  "nav": {
-    "blog": "Blog",
-    "current": "Por qué con Actas IA puedes redactar las mejores actas de negociación"
-  },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Blog de Actas IA",
-    "h1": "Por qué con Actas IA puedes redactar las mejores actas de negociación",
-    "tagline": "Una negociación es un cruce de intereses. Por eso, el acta no debe recoger solo decisiones y tareas, sino también el contexto y la tonalidad de los intercambios. Aquí resumimos la idea y cómo llevarla a la práctica con Actas IA."
-  },
-  "recap": {
-    "h2": "Resumen del artículo anterior",
-    "p1": {
-      "pre": "En el artículo anterior mostramos que las actas con IA funcionan para cualquier tipo de reunión. Si quieres repasar,",
-      "link": "haz clic aquí",
-      "post": "."
-    },
-    "points": {
-      "0": "Hay muchos tipos de reunión, así que el formato óptimo del acta depende del objetivo.",
-      "1": "Las plantillas genéricas ayudan, pero conviene ajustar el nivel de detalle según el caso.",
-      "2": "Del “documento para leer” al “plan para ejecutar”.",
-      "3": "Actas IA adapta la salida al objetivo de la reunión."
-    },
-    "focus": "En esta ocasión profundizamos específicamente en las negociaciones comerciales."
+  "cta": {
+    "downloadIOS": "Descargar app para iOS",
+    "openBrowser": "Abrir versión web"
   },
   "diversity": {
-    "h2": "Las reuniones son diversas… y la negociación es un caso particular",
     "core": {
       "h3": "Reuniones habituales",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Negociación: alinear intereses y cerrar acuerdos"
       }
     },
+    "h2": "Las reuniones son diversas… y la negociación es un caso particular",
+    "p1": "Si cambia el objetivo, cambia el tipo de salida valiosa. En las negociaciones, negociar es el núcleo.",
     "wide": {
       "h3": "“Reunión” en sentido amplio",
       "items": {
@@ -48,16 +29,19 @@
         "2": "Presentación: exponer problema y solución",
         "3": "Formación: transferir procedimiento/operativa"
       }
-    },
-    "p1": "Si cambia el objetivo, cambia el tipo de salida valiosa. En las negociaciones, negociar es el núcleo."
+    }
   },
-  "negotiation": {
-    "h2": "¿Qué es exactamente una negociación?",
-    "p1": "En pocas palabras: proteger y ampliar los intereses de tu empresa. No es una comunicación unidireccional, sino buscar el punto de acuerdo intercambiando “exigencias” y “concesiones” sobre plazos, precio, alcance y riesgo."
+  "example": {
+    "block": "Empresa A: En vuestro producto anterior hubo un bug y nos generó problemas. Nos debéis una; entregad la próxima semana. El precio es 1.000 $.\\nNuestra empresa: Intentaremos entregar la próxima semana tras coordinar internamente. A cambio, ¿podemos subir a 1.200 $? Por favor, considérenlo.\\nEmpresa A: Si garantizan la entrega la próxima semana, lo evaluaremos. Enviad respuesta por correo hoy mismo.",
+    "h2": "Ejemplo (conservar literalmente los intercambios clave)",
+    "p1": "Guardar los “turnos clave” en texto literal permite a quien decide juzgar la razonabilidad con contexto."
+  },
+  "hero": {
+    "h1": "Por qué con Actas IA puedes redactar las mejores actas de negociación",
+    "kicker": "Blog de Actas IA",
+    "tagline": "Una negociación es un cruce de intereses. Por eso, el acta no debe recoger solo decisiones y tareas, sino también el contexto y la tonalidad de los intercambios. Aquí resumimos la idea y cómo llevarla a la práctica con Actas IA."
   },
   "limits": {
-    "h2": "Por qué un acta “solo con decisiones” se queda corta",
-    "p1": "Limitarse a “discusión/decisiones/tareas/pendientes” suele perder contexto, tono e historial de concesiones. Resultado: malentendidos, ping-pong innecesario y riesgo de “se dijo/no se dijo”.",
     "generic": {
       "h3": "El acta superficial típica",
       "items": {
@@ -66,6 +50,7 @@
         "2": "Ambigüedad sobre lo no acordado o lo aparcado"
       }
     },
+    "h2": "Por qué un acta “solo con decisiones” se queda corta",
     "optimized": {
       "h3": "Un acta fuerte para negociaciones",
       "items": {
@@ -73,12 +58,41 @@
         "1": "Motivos, supuestos y riesgos cerca de cada decisión",
         "2": "Separar acordado/no acordado/aparcado con plazos y responsables"
       }
+    },
+    "p1": "Limitarse a “discusión/decisiones/tareas/pendientes” suele perder contexto, tono e historial de concesiones. Resultado: malentendidos, ping-pong innecesario y riesgo de “se dijo/no se dijo”."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Por qué con Actas IA puedes redactar las mejores actas de negociación"
+  },
+  "negotiation": {
+    "h2": "¿Qué es exactamente una negociación?",
+    "p1": "En pocas palabras: proteger y ampliar los intereses de tu empresa. No es una comunicación unidireccional, sino buscar el punto de acuerdo intercambiando “exigencias” y “concesiones” sobre plazos, precio, alcance y riesgo."
+  },
+  "recap": {
+    "focus": "En esta ocasión profundizamos específicamente en las negociaciones comerciales.",
+    "h2": "Resumen del artículo anterior",
+    "p1": {
+      "link": "haz clic aquí",
+      "post": ".",
+      "pre": "En el artículo anterior mostramos que las actas con IA funcionan para cualquier tipo de reunión. Si quieres repasar,"
+    },
+    "points": {
+      "0": "Hay muchos tipos de reunión, así que el formato óptimo del acta depende del objetivo.",
+      "1": "Las plantillas genéricas ayudan, pero conviene ajustar el nivel de detalle según el caso.",
+      "2": "Del “documento para leer” al “plan para ejecutar”.",
+      "3": "Actas IA adapta la salida al objetivo de la reunión."
     }
   },
-  "example": {
-    "h2": "Ejemplo (conservar literalmente los intercambios clave)",
-    "block": "Empresa A: En vuestro producto anterior hubo un bug y nos generó problemas. Nos debéis una; entregad la próxima semana. El precio es 1.000 $.\\nNuestra empresa: Intentaremos entregar la próxima semana tras coordinar internamente. A cambio, ¿podemos subir a 1.200 $? Por favor, considérenlo.\\nEmpresa A: Si garantizan la entrega la próxima semana, lo evaluaremos. Enviad respuesta por correo hoy mismo.",
-    "p1": "Guardar los “turnos clave” en texto literal permite a quien decide juzgar la razonabilidad con contexto."
+  "seo": {
+    "description": "Una negociación necesita actas que capturen decisiones, tareas, contexto, tono e historial de concesiones. Guía práctica para hacerlo con Actas IA.",
+    "ld": {
+      "description": "Lo esencial de las negociaciones en las actas: exigencias, concesiones y contexto con Actas IA.",
+      "headline": "Por qué con Actas IA puedes redactar las mejores actas de negociación"
+    },
+    "ogDescription": "Adiós a las actas superficiales: conserva el intercambio y el contexto para decidir más rápido y mejor.",
+    "ogTitle": "Por qué con Actas IA puedes redactar las mejores actas de negociación",
+    "title": "Por qué con Actas IA puedes redactar las mejores actas de negociación | Blog de actas de reuniones"
   },
   "why": {
     "h2": "Por qué Actas IA destaca en negociaciones",
@@ -93,19 +107,5 @@
   "wrap": {
     "h2": "Conclusión",
     "p": "Un buen acta de negociación va más allá de listar decisiones: conserva el intercambio y el contexto. Así aumentan la velocidad y precisión de las decisiones. Conviértelo en estándar con Actas IA."
-  },
-  "cta": {
-    "openBrowser": "Abrir versión web",
-    "downloadIOS": "Descargar app para iOS"
-  },
-  "seo": {
-    "title": "Por qué con Actas IA puedes redactar las mejores actas de negociación | Blog de actas de reuniones",
-    "description": "Una negociación necesita actas que capturen decisiones, tareas, contexto, tono e historial de concesiones. Guía práctica para hacerlo con Actas IA.",
-    "ogTitle": "Por qué con Actas IA puedes redactar las mejores actas de negociación",
-    "ogDescription": "Adiós a las actas superficiales: conserva el intercambio y el contexto para decidir más rápido y mejor.",
-    "ld": {
-      "headline": "Por qué con Actas IA puedes redactar las mejores actas de negociación",
-      "description": "Lo esencial de las negociaciones en las actas: exigencias, concesiones y contexto con Actas IA."
-    }
   }
 }

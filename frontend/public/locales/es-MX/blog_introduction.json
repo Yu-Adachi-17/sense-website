@@ -1,35 +1,178 @@
 {
-  "seo": { "title": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo | Blog de Actas IA", "description": "Un toque para generar actas con verdadero valor. Introducción sencilla a Actas IA: fundamentos, diferencias frente a otras herramientas y ejemplos de salida; de confianza para más de {{users}} usuarios (a {{date}}).", "ogTitle": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo", "ogDescription": "Un toque para actas significativas. Entiende Actas IA, en qué se diferencia y revisa ejemplos reales.", "ld": { "headline": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo", "description": "Un toque para actas significativas. Introducción breve a Actas IA, sus diferencias y ejemplos." } },
-  "nav": { "blog": "Blog", "introduction": "Introducción" },
-  "hero": { "kicker": "Actas IA", "h1": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo", "tagline": "“Un toque para actas de reunión con sentido.” Explicaciones claras y esenciales para quienes empiezan." },
-  "intro": { "h2": "Introducción", "p1": "Gracias por visitar este artículo. ...", "p2": "O quizá, como lector, ...", "p3": { "pre": "En este artículo mostraremos cómo", "mid": "te ayuda a producir", "bold": "actas con verdadero significado", "post": "con un solo toque — priorizando la claridad y los resultados." } },
-  "what": { "h2": "¿Qué es Actas IA?", "p1": "Actas IA es una herramienta ...", "footnote": "※ A {{date}} (según datos del App Store de iOS)", "p2": "Con Actas IA puedes generar ..." },
-  "compare": { "title": "Diferencias: Herramienta de transcripción / IA genérica / Actas IA", "head": { "feature": "Función", "transcription": "Transcripción simple", "generic": "IA genérica", "minutes": "Actas IA" }, "rows": [ { "k": "Audio → Texto", "a": "Sí", "b": "No (requiere entrada manual)", "c": "Sí" }, { "k": "Resumen / Esquema", "a": "No", "b": "Sí (puede perder el contexto)", "c": "Sí (optimizado para reuniones)" }, { "k": "Extracción de decisiones / tareas", "a": "No", "b": "Sí (a menudo ambigua)", "c": "Sí (extracción clara + etiquetado)" }, { "k": "Soporte multilingüe", "a": "No", "b": "Sí (riesgo de desviaciones sintácticas)", "c": "Sí (idiomas principales + consciente del contexto)" } ] },
-  "samples": { "h2": "Texto de origen y ejemplos de salida", "meetingSample": "Muestra de audio de reunión", "transcript": { "preview": "Bien, es la hora ...", "full": "Alejandro (Director de Marketing): ... (abreviado)" }, "generic": { "h3": "Ejemplo de salida de una IA genérica", "body": "El equipo revisó ...", "note": "Se lee limpio, pero no responde claramente “quién hará qué y para cuándo”." }, "pretty": { "h3": "Ejemplo de salida de Actas IA" } },
-  "minutes": {
-    "meetingTitle": "Revisión semanal de ventas de smartwatch",
-    "date": "2025-10-11 10:00 CET",
-    "attendees": ["Alejandro (Director de Marketing)", "Jordán (E-commerce)", "Samuel (Operaciones Retail)", "Tomás (PM)", "Raúl (Datos)"],
-    "coreMessage": "Trabaja con inteligencia y prioriza la claridad sobre la velocidad. Compromiso con “quién hace qué y para cuándo” y reuniones de menos de 30 minutos.",
-    "topics": [
-      { "topic": "Rendimiento del canal online", "discussion": ["Sesiones +18 % ..."], "decisions": ["Aumentar el presupuesto online un 15 % por dos semanas"], "actionItems": ["Jordán — lanzar test A/B para 2025-10-15", "Raúl — entregar análisis de CTR para 2025-10-17"], "concerns": ["Fatiga publicitaria si no se renuevan creatividades"], "keyMessages": ["Crecer con CAC estable; testear antes de escalar"] },
-      { "topic": "Stock offline y operación en tiendas", "discussion": ["Roturas de stock en Madrid ..."], "decisions": ["Reponer 500 unidades en tres tiendas"], "actionItems": ["Samuel — confirmar ETA/logística para 2025-10-14"], "concerns": ["Riesgo de plazos si aumenta la carga del proveedor"], "keyMessages": ["Evitar ventas perdidas estabilizando inventario"] },
-      { "topic": "Firmware v1.2 y lanzamiento del paquete Q4", "discussion": ["v1.2 corrige batería ..."], "decisions": ["Aprobar lanzamiento el 2025-10-20"], "actionItems": ["Tomás — cerrar plan de lanzamiento 2025-10-13", "Soporte — publicar FAQ 2025-10-16", "Marketing — preparar plan de Black Friday 2025-10-25"], "keyMessages": ["Vincular mejoras de producto con campañas oportunas"] }
+  "compare": {
+    "head": {
+      "feature": "Función",
+      "generic": "IA genérica",
+      "minutes": "Actas IA",
+      "transcription": "Transcripción simple"
+    },
+    "rows": [
+      {
+        "a": "Sí",
+        "b": "No (requiere entrada manual)",
+        "c": "Sí",
+        "k": "Audio → Texto"
+      },
+      {
+        "a": "No",
+        "b": "Sí (puede perder el contexto)",
+        "c": "Sí (optimizado para reuniones)",
+        "k": "Resumen / Esquema"
+      },
+      {
+        "a": "No",
+        "b": "Sí (a menudo ambigua)",
+        "c": "Sí (extracción clara + etiquetado)",
+        "k": "Extracción de decisiones / tareas"
+      },
+      {
+        "a": "No",
+        "b": "Sí (riesgo de desviaciones sintácticas)",
+        "c": "Sí (idiomas principales + consciente del contexto)",
+        "k": "Soporte multilingüe"
+      }
     ],
-    "labels": {
-      "discussion": "Debate",
-      "decisions": "Decisiones",
-      "actionItems": "Tareas",
-      "concerns": "Observaciones",
-      "keyMessages": "Mensajes clave",
-      "attendees": "Asistentes:",
-      "closingMessage": "Mensaje de cierre"
+    "title": "Diferencias: Herramienta de transcripción / IA genérica / Actas IA"
+  },
+  "cta": {
+    "downloadIOS": "Descargar versión iOS",
+    "openBrowser": "Abrir versión web"
+  },
+  "hero": {
+    "h1": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo",
+    "kicker": "Actas IA",
+    "tagline": "“Un toque para actas de reunión con sentido.” Explicaciones claras y esenciales para quienes empiezan."
+  },
+  "intro": {
+    "h2": "Introducción",
+    "p1": "Gracias por visitar este artículo. ...",
+    "p2": "O quizá, como lector, ...",
+    "p3": {
+      "bold": "actas con verdadero significado",
+      "mid": "te ayuda a producir",
+      "post": "con un solo toque — priorizando la claridad y los resultados.",
+      "pre": "En este artículo mostraremos cómo"
     }
   },
-    "wrap": {
-  "h2": "Cierre",
-  "p": "¿Qué te parece? Con esta estructura, cualquiera puede entender al instante quién debe hacer qué. Las actas dejan de ser algo que se lee para convertirse en algo que impulsa la acción del equipo. Prueba Actas IA por ti mismo."
-},
-  "cta": { "openBrowser": "Abrir versión web", "downloadIOS": "Descargar versión iOS" },
-  "transcript": { "expand": "Ver texto completo", "close": "Cerrar texto completo" }
+  "minutes": {
+    "attendees": [
+      "Alejandro (Director de Marketing)",
+      "Jordán (E-commerce)",
+      "Samuel (Operaciones Retail)",
+      "Tomás (PM)",
+      "Raúl (Datos)"
+    ],
+    "coreMessage": "Trabaja con inteligencia y prioriza la claridad sobre la velocidad. Compromiso con “quién hace qué y para cuándo” y reuniones de menos de 30 minutos.",
+    "date": "2025-10-11 10:00 CET",
+    "labels": {
+      "actionItems": "Tareas",
+      "attendees": "Asistentes:",
+      "closingMessage": "Mensaje de cierre",
+      "concerns": "Observaciones",
+      "decisions": "Decisiones",
+      "discussion": "Debate",
+      "keyMessages": "Mensajes clave"
+    },
+    "meetingTitle": "Revisión semanal de ventas de smartwatch",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordán — lanzar test A/B para 2025-10-15",
+          "Raúl — entregar análisis de CTR para 2025-10-17"
+        ],
+        "concerns": [
+          "Fatiga publicitaria si no se renuevan creatividades"
+        ],
+        "decisions": [
+          "Aumentar el presupuesto online un 15 % por dos semanas"
+        ],
+        "discussion": [
+          "Sesiones +18 % ..."
+        ],
+        "keyMessages": [
+          "Crecer con CAC estable; testear antes de escalar"
+        ],
+        "topic": "Rendimiento del canal online"
+      },
+      {
+        "actionItems": [
+          "Samuel — confirmar ETA/logística para 2025-10-14"
+        ],
+        "concerns": [
+          "Riesgo de plazos si aumenta la carga del proveedor"
+        ],
+        "decisions": [
+          "Reponer 500 unidades en tres tiendas"
+        ],
+        "discussion": [
+          "Roturas de stock en Madrid ..."
+        ],
+        "keyMessages": [
+          "Evitar ventas perdidas estabilizando inventario"
+        ],
+        "topic": "Stock offline y operación en tiendas"
+      },
+      {
+        "actionItems": [
+          "Tomás — cerrar plan de lanzamiento 2025-10-13",
+          "Soporte — publicar FAQ 2025-10-16",
+          "Marketing — preparar plan de Black Friday 2025-10-25"
+        ],
+        "decisions": [
+          "Aprobar lanzamiento el 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 corrige batería ..."
+        ],
+        "keyMessages": [
+          "Vincular mejoras de producto con campañas oportunas"
+        ],
+        "topic": "Firmware v1.2 y lanzamiento del paquete Q4"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Introducción"
+  },
+  "samples": {
+    "generic": {
+      "body": "El equipo revisó ...",
+      "h3": "Ejemplo de salida de una IA genérica",
+      "note": "Se lee limpio, pero no responde claramente “quién hará qué y para cuándo”."
+    },
+    "h2": "Texto de origen y ejemplos de salida",
+    "meetingSample": "Muestra de audio de reunión",
+    "pretty": {
+      "h3": "Ejemplo de salida de Actas IA"
+    },
+    "transcript": {
+      "full": "Alejandro (Director de Marketing): ... (abreviado)",
+      "preview": "Bien, es la hora ..."
+    }
+  },
+  "seo": {
+    "description": "Un toque para generar actas con verdadero valor. Introducción sencilla a Actas IA: fundamentos, diferencias frente a otras herramientas y ejemplos de salida; de confianza para más de {{users}} usuarios (a {{date}}).",
+    "ld": {
+      "description": "Un toque para actas significativas. Introducción breve a Actas IA, sus diferencias y ejemplos.",
+      "headline": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo"
+    },
+    "ogDescription": "Un toque para actas significativas. Entiende Actas IA, en qué se diferencia y revisa ejemplos reales.",
+    "ogTitle": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo",
+    "title": "¿Qué es Actas IA? Conceptos básicos y ventajas antes de adoptarlo | Blog de Actas IA"
+  },
+  "transcript": {
+    "close": "Cerrar texto completo",
+    "expand": "Ver texto completo"
+  },
+  "what": {
+    "footnote": "※ A {{date}} (según datos del App Store de iOS)",
+    "h2": "¿Qué es Actas IA?",
+    "p1": "Actas IA es una herramienta ...",
+    "p2": "Con Actas IA puedes generar ..."
+  },
+  "wrap": {
+    "h2": "Cierre",
+    "p": "¿Qué te parece? Con esta estructura, cualquiera puede entender al instante quién debe hacer qué. Las actas dejan de ser algo que se lee para convertirse en algo que impulsa la acción del equipo. Prueba Actas IA por ti mismo."
+  }
 }

@@ -2,36 +2,15 @@
   "a11y": {
     "home": "Retour à l’accueil de Minutes.AI"
   },
-  "nav": {
-    "blog": "Blog",
-    "current": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion"
-  },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Blog Minutes.AI",
-    "h1": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion",
-    "tagline": "Les quatre éléments universels améliorent la lisibilité. Mais l’optimisation selon l’objectif de la réunion transforme le compte rendu en plan d’exécution, et non en simple texte à lire."
-  },
-  "recap": {
-    "h2": "Rappel : qu’est-ce qu’un compte rendu « pertinent » ?",
-    "p1": {
-      "pre": "Précédemment, nous avons défini le « compte rendu pertinent ». Si vous l’avez manqué, commencez",
-      "link": "ici (Partie 1)",
-      "post": "."
-    },
-    "points": {
-      "0": "Discussion",
-      "1": "Decisions (décisions)",
-      "2": "Action Items (responsable et échéance)",
-      "3": "Concerns (risques en suspens)"
-    },
-    "note": "Si ces quatre points sont visibles d’emblée, vous garantissez un minimum de lisibilité : c’est l’ossature minimale viable."
+  "cta": {
+    "downloadIOS": "Télécharger sur iOS",
+    "openBrowser": "Ouvrir la version web"
   },
   "diversity": {
-    "h2": "Les réunions sont diverses : objectifs différents, outputs différents",
     "core": {
       "h3": "Réunions représentatives",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Ventes/Négociation : aligner les intérêts et conclure un accord"
       }
     },
+    "h2": "Les réunions sont diverses : objectifs différents, outputs différents",
+    "p1": "Dès lors que des personnes discutent d’un objectif commun, c’est une réunion—et l’output le plus utile dépend de cet objectif.",
     "wide": {
       "h3": "Au sens large du terme « réunion »",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Présentation : exposer le problème et la solution",
         "3": "Formation : transfert de savoir-faire opérationnel"
       }
-    },
-    "p1": "Dès lors que des personnes discutent d’un objectif commun, c’est une réunion—et l’output le plus utile dépend de cet objectif."
+    }
+  },
+  "hero": {
+    "h1": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion",
+    "kicker": "Blog Minutes.AI",
+    "tagline": "Les quatre éléments universels améliorent la lisibilité. Mais l’optimisation selon l’objectif de la réunion transforme le compte rendu en plan d’exécution, et non en simple texte à lire."
   },
   "limits": {
-    "h2": "Limites du format unique pour tous les cas",
-    "p1": "Les quatre éléments fonctionnent largement, mais certaines réunions perdent la « température » et le contexte—surtout les 1-à-1—ce qui affaiblit la clarté lors d’une relecture.",
     "generic": {
       "h3": "Si vous appliquez uniquement le format universel",
       "items": {
@@ -62,6 +45,7 @@
         "2": "Plus tard, le « pourquoi » derrière les décisions est plus flou"
       }
     },
+    "h2": "Limites du format unique pour tous les cas",
     "optimized": {
       "h3": "Si vous optimisez (exemple 1-à-1)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Discussion clé (citations × résumés) : chemin vers l’accord",
         "3": "Accords / Prochaines actions / Risques : normalisés pour l’exécution"
       }
-    }
+    },
+    "p1": "Les quatre éléments fonctionnent largement, mais certaines réunions perdent la « température » et le contexte—surtout les 1-à-1—ce qui affaiblit la clarté lors d’une relecture."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion"
   },
   "oneonone": {
-    "h2": "Exemple 1-à-1 : préserver la température et le contexte des décisions",
     "generic": {
       "h3": "Les quatre universels uniquement",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Préoccupation : aucun plan si B est absent"
       }
     },
+    "h2": "Exemple 1-à-1 : préserver la température et le contexte des décisions",
     "optimized": {
       "h3": "Optimisé (format 1-à-1)",
       "items": {
@@ -93,6 +82,31 @@
         "4": "Prochaines actions : B = brouillon aujourd’hui ; A = appliquer & feedback mercredi prochain"
       }
     }
+  },
+  "recap": {
+    "h2": "Rappel : qu’est-ce qu’un compte rendu « pertinent » ?",
+    "note": "Si ces quatre points sont visibles d’emblée, vous garantissez un minimum de lisibilité : c’est l’ossature minimale viable.",
+    "p1": {
+      "link": "ici (Partie 1)",
+      "post": ".",
+      "pre": "Précédemment, nous avons défini le « compte rendu pertinent ». Si vous l’avez manqué, commencez"
+    },
+    "points": {
+      "0": "Discussion",
+      "1": "Decisions (décisions)",
+      "2": "Action Items (responsable et échéance)",
+      "3": "Concerns (risques en suspens)"
+    }
+  },
+  "seo": {
+    "description": "Au-delà des quatre éléments universels : l’optimisation par type de réunion transforme le compte rendu en plan d’exécution. À {{date}}, plus de {{users}} personnes utilisent Minutes.AI.",
+    "ld": {
+      "description": "Comment Minutes.AI optimise les outputs par type de réunion et transforme le compte rendu en plan d’exécution.",
+      "headline": "Pourquoi Minutes.AI fonctionne pour toute réunion"
+    },
+    "ogDescription": "Préservez ton et contexte tout en favorisant décisions et exécution grâce à des outputs optimisés selon la réunion.",
+    "ogTitle": "Pourquoi Minutes.AI fonctionne pour tous les types de réunions",
+    "title": "Pourquoi Minutes.AI fonctionne pour toute réunion | Blog Minutes.AI"
   },
   "why": {
     "h2": "Pourquoi Minutes.AI fonctionne pour tout type de réunion",
@@ -107,19 +121,5 @@
   "wrap": {
     "h2": "Conclusion",
     "p": "Les quatre éléments constituent une base solide. En optimisant par type de réunion, le compte rendu devient un plan d’action. Minutes.AI intègre cette optimisation par défaut—utilisez-le dans vos réunions réelles."
-  },
-  "cta": {
-    "openBrowser": "Ouvrir la version web",
-    "downloadIOS": "Télécharger sur iOS"
-  },
-  "seo": {
-    "title": "Pourquoi Minutes.AI fonctionne pour toute réunion | Blog Minutes.AI",
-    "description": "Au-delà des quatre éléments universels : l’optimisation par type de réunion transforme le compte rendu en plan d’exécution. À {{date}}, plus de {{users}} personnes utilisent Minutes.AI.",
-    "ogTitle": "Pourquoi Minutes.AI fonctionne pour tous les types de réunions",
-    "ogDescription": "Préservez ton et contexte tout en favorisant décisions et exécution grâce à des outputs optimisés selon la réunion.",
-    "ld": {
-      "headline": "Pourquoi Minutes.AI fonctionne pour toute réunion",
-      "description": "Comment Minutes.AI optimise les outputs par type de réunion et transforme le compte rendu en plan d’exécution."
-    }
   }
 }

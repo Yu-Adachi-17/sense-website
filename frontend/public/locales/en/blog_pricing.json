@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Minutes.AI Pricing — simple plans for every meeting style",
-    "description": "No-expiry time packs and truly unlimited subscriptions. See how Minutes.AI compares to Otter and Notta on price, quotas, and rollover.",
-    "ogTitle": "Minutes.AI Pricing",
-    "ogDescription": "Time packs with no expiry + unlimited subscriptions. Quick compare vs. Otter & Notta.",
-    "ld": {
-      "headline": "Minutes.AI Pricing",
-      "description": "Four straightforward plans: two one-time time packs (no expiry) and two unlimited subscriptions — plus a comparison with Otter and Notta."
-    }
+  "aria": {
+    "home": "Minutes.AI Home"
   },
-  "aria": { "home": "Minutes.AI Home" },
-  "nav": { "blog": "Blog", "pricing": "Pricing" },
+  "compare": {
+    "foot": "Sources: official pricing pages for Otter and Notta.",
+    "h2": "Minutes.AI vs. Otter vs. Notta — Pricing at a Glance",
+    "lastUpdated": "Last updated: Oct 31, 2025",
+    "note": "Key pricing and quotas (USD). Competitors typically reset monthly quotas with no rollover.",
+    "rows": [
+      {
+        "billing": "One-time time packs + subscriptions",
+        "cheapest": "Trial 120 min / $1.99 (no expiry)",
+        "free": "Daily 3-min ticket",
+        "limits": "Time packs never expire. Subscriptions are uncapped.",
+        "service": "Minutes.AI",
+        "unlimited": "Yes — $16.99/mo or $149.99/yr"
+      },
+      {
+        "billing": "Seat-based subscription",
+        "cheapest": "Pro — $16.99/mo or $8.33/mo (annual)",
+        "free": "300 min/mo, up to 30 min/conversation",
+        "limits": "No rollover; per-meeting cap",
+        "service": "Otter",
+        "unlimited": "No — Pro 1200 min/mo; Business 6000 import min/mo"
+      },
+      {
+        "billing": "Seat-based subscription",
+        "cheapest": "Pro — $13.49/mo (monthly) or $8.17/mo (annual)",
+        "free": "120 min/mo, up to 3 min/recording",
+        "limits": "No carryover; up to 5h/recording; file upload quotas",
+        "service": "Notta",
+        "unlimited": "Business — Unlimited (annual $16.67/mo; monthly higher)"
+      }
+    ],
+    "tableHead": [
+      "Service",
+      "Free Plan",
+      "Cheapest Paid",
+      "Unlimited Usage",
+      "Notable Limits",
+      "Billing Style"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Download iOS app",
+    "openBrowser": "Open in browser"
+  },
   "hero": {
-    "kicker": "Pricing",
     "h1": "Minutes.AI Pricing (2025)",
+    "kicker": "Pricing",
     "tagline": "Choose no-expiry time packs, or go fully unlimited with monthly/annual subscriptions."
   },
   "intro": {
     "h2": "Which plan fits you?",
     "p1": "We offer four options tailored to how often you meet."
   },
+  "meta": {
+    "category": "Pricing",
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Guide"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Pricing"
+  },
   "plans": {
-    "h3_timepacks": "Time-Pack Type",
-    "timepacks_note": "Purchased minutes never expire. Generate AI minutes from recordings any time.",
-    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
-    "light": { "name": "Light", "detail": "1200 min / $11.99" },
-    "h3_subs": "Subscription Type",
-    "subs_note": "Subscriptions are truly unlimited — no monthly caps.",
-    "monthly": { "name": "Monthly", "detail": "$16.99" },
-    "annual": { "name": "Annual", "detail": "$149.99" },
-    "free": {
-      "badge": "Daily Free Ticket",
-      "text": "Even without paying, you get a 3-minute free ticket every day to try Minutes.AI."
+    "annual": {
+      "detail": "$149.99",
+      "name": "Annual"
     },
     "bullets": [
       "No-expiry time packs: buy once, use anytime",
       "Unlimited usage on subscriptions",
       "iOS & Web, multilingual outputs"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs. Otter vs. Notta — Pricing at a Glance",
-    "note": "Key pricing and quotas (USD). Competitors typically reset monthly quotas with no rollover.",
-    "tableHead": ["Service", "Free Plan", "Cheapest Paid", "Unlimited Usage", "Notable Limits", "Billing Style"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "Daily 3-min ticket",
-        "cheapest": "Trial 120 min / $1.99 (no expiry)",
-        "unlimited": "Yes — $16.99/mo or $149.99/yr",
-        "limits": "Time packs never expire. Subscriptions are uncapped.",
-        "billing": "One-time time packs + subscriptions"
-      },
-      {
-        "service": "Otter",
-        "free": "300 min/mo, up to 30 min/conversation",
-        "cheapest": "Pro — $16.99/mo or $8.33/mo (annual)",
-        "unlimited": "No — Pro 1200 min/mo; Business 6000 import min/mo",
-        "limits": "No rollover; per-meeting cap",
-        "billing": "Seat-based subscription"
-      },
-      {
-        "service": "Notta",
-        "free": "120 min/mo, up to 3 min/recording",
-        "cheapest": "Pro — $13.49/mo (monthly) or $8.17/mo (annual)",
-        "unlimited": "Business — Unlimited (annual $16.67/mo; monthly higher)",
-        "limits": "No carryover; up to 5h/recording; file upload quotas",
-        "billing": "Seat-based subscription"
-      }
     ],
-    "foot": "Sources: official pricing pages for Otter and Notta.",
-    "lastUpdated": "Last updated: Oct 31, 2025"
+    "free": {
+      "badge": "Daily Free Ticket",
+      "text": "Even without paying, you get a 3-minute free ticket every day to try Minutes.AI."
+    },
+    "h3_subs": "Subscription Type",
+    "h3_timepacks": "Time-Pack Type",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Monthly"
+    },
+    "subs_note": "Subscriptions are truly unlimited — no monthly caps.",
+    "timepacks_note": "Purchased minutes never expire. Generate AI minutes from recordings any time.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "No-expiry time packs and truly unlimited subscriptions. See how Minutes.AI compares to Otter and Notta on price, quotas, and rollover.",
+    "ld": {
+      "description": "Four straightforward plans: two one-time time packs (no expiry) and two unlimited subscriptions — plus a comparison with Otter and Notta.",
+      "headline": "Minutes.AI Pricing"
+    },
+    "ogDescription": "Time packs with no expiry + unlimited subscriptions. Quick compare vs. Otter & Notta.",
+    "ogTitle": "Minutes.AI Pricing",
+    "title": "Minutes.AI Pricing — simple plans for every meeting style"
   },
   "why": {
     "h2": "Why we designed plans this way",
@@ -79,7 +113,5 @@
       "Meet occasionally: buy a Light pack once — no expiry.",
       "Just trying it: Trial pack + daily 3-minute ticket."
     ]
-  },
-  "meta": { "h2": "Meta", "published": "Published", "type": "Guide", "category": "Pricing" },
-  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" }
+  }
 }

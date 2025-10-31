@@ -1,18 +1,46 @@
 {
-  "seo": {
-    "title": "Qu'est-ce que Minutes.AI ? Principes et avantages avant adoption | Blog de Minutes.AI",
-    "description": "Un simple clic pour des comptes rendus pertinents. Introduction claire à Minutes.AI : principes, différences avec d’autres outils et exemples de résultats ; approuvé par plus de {{users}} utilisateurs (au {{date}}).",
-    "ogTitle": "Qu'est-ce que Minutes.AI ? Principes et avantages avant adoption",
-    "ogDescription": "Un simple clic pour des comptes rendus efficaces. Découvrez Minutes.AI, ses différences et des exemples concrets.",
-    "ld": {
-      "headline": "Qu'est-ce que Minutes.AI ? Principes et avantages avant adoption",
-      "description": "Un simple clic pour des comptes rendus pertinents. Introduction concise à Minutes.AI, ses différences et exemples."
-    }
+  "compare": {
+    "head": {
+      "feature": "Fonctionnalité",
+      "generic": "IA générique",
+      "minutes": "Minutes.AI",
+      "transcription": "Outil de transcription simple"
+    },
+    "rows": [
+      {
+        "a": "Oui",
+        "b": "Non (saisie manuelle requise)",
+        "c": "Oui",
+        "k": "Audio → Texte"
+      },
+      {
+        "a": "Non",
+        "b": "Oui (mais le contexte peut varier)",
+        "c": "Oui (optimisé pour les réunions)",
+        "k": "Résumé / Structure"
+      },
+      {
+        "a": "Non",
+        "b": "Oui (souvent floue)",
+        "c": "Oui (extraction claire et balisage précis)",
+        "k": "Extraction de décisions / actions"
+      },
+      {
+        "a": "Non",
+        "b": "Oui (risque d’erreurs syntaxiques)",
+        "c": "Oui (langues principales + compréhension contextuelle)",
+        "k": "Support multilingue"
+      }
+    ],
+    "title": "Différences : Outil de transcription / IA générique / Minutes.AI"
   },
-  "nav": { "blog": "Blog", "introduction": "Introduction" },
+  "cta": {
+    "downloadIOS": "Télécharger la version iOS",
+    "openBrowser": "Ouvrir la version web"
+  },
   "hero": {
-    "kicker": "‎Minutes.AI",
     "h1": "Qu'est-ce que Minutes.AI ? Principes et avantages avant adoption",
+    "kicker": "Minutes.AI",
     "tagline": "« Un simple clic pour des comptes rendus de réunion utiles. » Explications claires pour ceux qui débutent."
   },
   "intro": {
@@ -20,110 +48,137 @@
     "p1": "Merci de consulter cet article. Si vous le lisez, vous avez sans doute déjà pensé : « Rédiger un compte rendu est fastidieux », « Je sais comment faire mais cela prend trop de temps » ou encore « J’ai essayé une IA populaire, mais le résultat n’était pas satisfaisant ».",
     "p2": "Ou peut-être avez-vous remarqué en tant que lecteur : « Des remarques ont été oubliées », « Les décisions sont floues » ou « Les membres de l’équipe n’ont pas la même compréhension ».",
     "p3": {
-      "pre": "Dans cet article, nous allons montrer comment",
-      "mid": "vous aide à produire",
       "bold": "des comptes rendus pertinents",
-      "post": "en un seul clic — avec un accent sur la clarté et les résultats."
+      "mid": "vous aide à produire",
+      "post": "en un seul clic — avec un accent sur la clarté et les résultats.",
+      "pre": "Dans cet article, nous allons montrer comment"
     }
   },
-  "what": {
-    "h2": "Qu'est-ce que Minutes.AI ?",
-    "p1": "‎Minutes.AI est un outil de comptes rendus entièrement automatisé, alimenté par l’intelligence artificielle. Il prend en charge toutes les principales langues et compte plus de 30 000 utilisateurs dans le monde.",
-    "footnote": "※ Au {{date}} (données issues de l’App Store iOS)",
-    "p2": "Avec Minutes.AI, vous pouvez générer automatiquement des « résumés », « décisions » et « actions » — des comptes rendus réellement exploitables, sans effort manuel."
-  },
-  "compare": {
-    "title": "Différences : Outil de transcription / IA générique / Minutes.AI",
-    "head": {
-      "feature": "Fonctionnalité",
-      "transcription": "Outil de transcription simple",
-      "generic": "IA générique",
-      "minutes": "‎Minutes.AI"
-    },
-    "rows": [
-      { "k": "Audio → Texte", "a": "Oui", "b": "Non (saisie manuelle requise)", "c": "Oui" },
-      { "k": "Résumé / Structure", "a": "Non", "b": "Oui (mais le contexte peut varier)", "c": "Oui (optimisé pour les réunions)" },
-      { "k": "Extraction de décisions / actions", "a": "Non", "b": "Oui (souvent floue)", "c": "Oui (extraction claire et balisage précis)" },
-      { "k": "Support multilingue", "a": "Non", "b": "Oui (risque d’erreurs syntaxiques)", "c": "Oui (langues principales + compréhension contextuelle)" }
-    ]
-  },
-  "samples": {
-    "h2": "Texte source et exemples de sortie",
-    "meetingSample": "Exemple d’audio de réunion",
-    "transcript": {
-      "preview": "Très bien, commençons la réunion. Tout d’abord, analysons les ventes de « montres connectées » du week-end dernier. Julien, peux-tu commencer par le rapport en ligne ?",
-      "full": "Alexandre (Directeur marketing) : Merci à tous d’être là — Julien (E-commerce), Samuel (Opérations retail), Thomas (Chef de produit) et Romain (Données). Voyons les résultats de ventes du week-end dernier. Julien, à toi pour la partie en ligne.\n\nJulien (E-commerce) : Par rapport à la semaine précédente, les sessions ont augmenté de 18 %. Le taux de conversion est passé de 2,9 % à 3,2 %. Le chiffre d’affaires a progressé de 12 %. Ce pic vient principalement de la campagne influenceurs de samedi ; les dépenses publicitaires ont augmenté de 6 %.\n\nRomain (Données) : Le CAC reste stable autour de 2 400 ¥. Cependant, le CTR du retargeting est passé de 1,8 % à 1,2 %. Je recommande de rafraîchir les visuels et de lancer un test A/B avec un titre plus court. Je peux livrer une analyse rapide d’ici vendredi (2025-10-17).\n\nAlexandre : Très bien. Décision : augmenter le budget publicitaire en ligne de 15 % pour les deux prochaines semaines. Actions : Julien — lancer le test A/B sur le texte principal avant mercredi (2025-10-15). Romain — livrer le rapport d’analyse CTR avant vendredi (2025-10-17).\n\nSamuel (Retail) : En magasin, nous avons connu des ruptures de stock à Paris, Lyon et Marseille. Un réapprovisionnement de 500 unités est prévu pour lundi. La fréquentation a chuté de 4 % à cause de la tempête, mais le panier moyen est resté stable.\n\nAlexandre : Décision : procéder au réassort de 500 unités dans ces trois magasins. Action : Samuel — confirmer la date de livraison et la logistique avant mardi (2025-10-14). Risque : délai allongé si le fournisseur est surchargé.\n\nThomas (Chef de produit) : Le firmware v1.2 corrige le problème de batterie et améliore la précision du podomètre. Les notes de version sont prêtes. Je propose un lancement le 20 octobre avec une offre de Q4 — « Montre + Bracelet » avec une réduction de 20 €. Le support devra publier une FAQ.\n\nAlexandre : Décision : approuver le lancement de l’offre Q4 le 2025-10-20. Actions : Thomas — finaliser le planning de sortie avant lundi (2025-10-13). Support — publier la FAQ avant jeudi (2025-10-16). Marketing — préparer le plan Black Friday avant samedi (2025-10-25).\n\nAlexandre (message de clôture) : Travaillons intelligemment et restons clairs — la clarté avant la vitesse. Engageons-nous sur « qui fait quoi et pour quand », et gardons les réunions en dessous de 30 minutes."
-    },
-    "generic": {
-      "h3": "Exemple de sortie d’une IA générique",
-      "body": "L’équipe a examiné les ventes de montres connectées. Les indicateurs en ligne étaient positifs. Les magasins ont connu des ruptures de stock. Une mise à jour du firmware et une offre saisonnière ont été évoquées. L’ensemble était positif, avec plusieurs pistes d’amélioration.",
-      "note": "Le texte est lisible, mais ne répond pas clairement à « qui fait quoi et pour quand »."
-    },
-    "pretty": { "h3": "Exemple de sortie de Minutes.AI" }
-  },
   "minutes": {
-    "meetingTitle": "Revue hebdomadaire des ventes de montres connectées",
-    "date": "2025-10-11 10:00 CET",
-    "attendees": ["Alexandre (Directeur marketing)", "Julien (E-commerce)", "Samuel (Retail)", "Thomas (Chef de produit)", "Romain (Analyste données)"],
+    "attendees": [
+      "Alexandre (Directeur marketing)",
+      "Julien (E-commerce)",
+      "Samuel (Retail)",
+      "Thomas (Chef de produit)",
+      "Romain (Analyste données)"
+    ],
     "coreMessage": "Travailler intelligemment et privilégier la clarté à la vitesse. S’engager sur « qui fait quoi et pour quand », et limiter les réunions à 30 minutes.",
+    "date": "2025-10-11 10:00 CET",
+    "labels": {
+      "actionItems": "Actions",
+      "attendees": "Participants :",
+      "closingMessage": "Message de clôture",
+      "concerns": "Remarques",
+      "decisions": "Décisions",
+      "discussion": "Discussion",
+      "keyMessages": "Messages clés"
+    },
+    "meetingTitle": "Revue hebdomadaire des ventes de montres connectées",
     "topics": [
       {
-        "topic": "Performance du canal en ligne",
+        "actionItems": [
+          "Julien — lancer le test A/B avant 2025-10-15",
+          "Romain — livrer l’analyse CTR avant 2025-10-17"
+        ],
+        "concerns": [
+          "Risque de saturation publicitaire sans mise à jour créative"
+        ],
+        "decisions": [
+          "Augmenter le budget publicitaire en ligne de 15 % pour les deux prochaines semaines"
+        ],
         "discussion": [
           "Sessions +18 %, conversion 2,9 % → 3,2 %, chiffre d’affaires +12 %",
           "Campagne influenceurs responsable du pic du samedi ; dépenses publicitaires +6 %",
           "CTR du retargeting en baisse (1,8 % → 1,2 %) ; test A/B recommandé"
         ],
-        "decisions": ["Augmenter le budget publicitaire en ligne de 15 % pour les deux prochaines semaines"],
-        "actionItems": [
-          "Julien — lancer le test A/B avant 2025-10-15",
-          "Romain — livrer l’analyse CTR avant 2025-10-17"
+        "keyMessages": [
+          "Croissance durable avec CAC stable ; tester avant de scaler"
         ],
-        "concerns": ["Risque de saturation publicitaire sans mise à jour créative"],
-        "keyMessages": ["Croissance durable avec CAC stable ; tester avant de scaler"]
+        "topic": "Performance du canal en ligne"
       },
       {
-        "topic": "Stocks et opérations en magasin",
+        "actionItems": [
+          "Samuel — confirmer la livraison/logistique avant 2025-10-14"
+        ],
+        "concerns": [
+          "Retard possible si le fournisseur subit un afflux de commandes"
+        ],
+        "decisions": [
+          "Procéder au réassort de 500 unités dans 3 magasins"
+        ],
         "discussion": [
           "Ruptures de stock à Paris, Lyon et Marseille",
           "Réapprovisionnement de 500 unités prévu lundi",
           "Fréquentation −4 % à cause du mauvais temps ; panier moyen inchangé"
         ],
-        "decisions": ["Procéder au réassort de 500 unités dans 3 magasins"],
-        "actionItems": ["Samuel — confirmer la livraison/logistique avant 2025-10-14"],
-        "concerns": ["Retard possible si le fournisseur subit un afflux de commandes"],
-        "keyMessages": ["Éviter les pertes de ventes en stabilisant les stocks"]
+        "keyMessages": [
+          "Éviter les pertes de ventes en stabilisant les stocks"
+        ],
+        "topic": "Stocks et opérations en magasin"
       },
       {
-        "topic": "Firmware v1.2 et lancement de l’offre Q4",
-        "discussion": [
-          "v1.2 corrige la batterie et améliore la précision du podomètre",
-          "Notes de version prêtes ; le support publiera la FAQ",
-          "Offre Q4 : Montre + Bracelet, −20 € à partir du 2025-10-20"
-        ],
-        "decisions": ["Approuver le lancement le 2025-10-20"],
         "actionItems": [
           "Thomas — finaliser le plan de sortie avant 2025-10-13",
           "Support — publier la FAQ avant 2025-10-16",
           "Marketing — préparer le plan Black Friday avant 2025-10-25"
         ],
-        "keyMessages": ["Associer les améliorations produit à des campagnes opportunes"]
+        "decisions": [
+          "Approuver le lancement le 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 corrige la batterie et améliore la précision du podomètre",
+          "Notes de version prêtes ; le support publiera la FAQ",
+          "Offre Q4 : Montre + Bracelet, −20 € à partir du 2025-10-20"
+        ],
+        "keyMessages": [
+          "Associer les améliorations produit à des campagnes opportunes"
+        ],
+        "topic": "Firmware v1.2 et lancement de l’offre Q4"
       }
-    ],
-    "labels": {
-      "discussion": "Discussion",
-      "decisions": "Décisions",
-      "actionItems": "Actions",
-      "concerns": "Remarques",
-      "keyMessages": "Messages clés",
-      "attendees": "Participants :",
-      "closingMessage": "Message de clôture"
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Introduction"
+  },
+  "samples": {
+    "generic": {
+      "body": "L’équipe a examiné les ventes de montres connectées. Les indicateurs en ligne étaient positifs. Les magasins ont connu des ruptures de stock. Une mise à jour du firmware et une offre saisonnière ont été évoquées. L’ensemble était positif, avec plusieurs pistes d’amélioration.",
+      "h3": "Exemple de sortie d’une IA générique",
+      "note": "Le texte est lisible, mais ne répond pas clairement à « qui fait quoi et pour quand »."
+    },
+    "h2": "Texte source et exemples de sortie",
+    "meetingSample": "Exemple d’audio de réunion",
+    "pretty": {
+      "h3": "Exemple de sortie de Minutes.AI"
+    },
+    "transcript": {
+      "full": "Alexandre (Directeur marketing) : Merci à tous d’être là — Julien (E-commerce), Samuel (Opérations retail), Thomas (Chef de produit) et Romain (Données). Voyons les résultats de ventes du week-end dernier. Julien, à toi pour la partie en ligne.\n\nJulien (E-commerce) : Par rapport à la semaine précédente, les sessions ont augmenté de 18 %. Le taux de conversion est passé de 2,9 % à 3,2 %. Le chiffre d’affaires a progressé de 12 %. Ce pic vient principalement de la campagne influenceurs de samedi ; les dépenses publicitaires ont augmenté de 6 %.\n\nRomain (Données) : Le CAC reste stable autour de 2 400 ¥. Cependant, le CTR du retargeting est passé de 1,8 % à 1,2 %. Je recommande de rafraîchir les visuels et de lancer un test A/B avec un titre plus court. Je peux livrer une analyse rapide d’ici vendredi (2025-10-17).\n\nAlexandre : Très bien. Décision : augmenter le budget publicitaire en ligne de 15 % pour les deux prochaines semaines. Actions : Julien — lancer le test A/B sur le texte principal avant mercredi (2025-10-15). Romain — livrer le rapport d’analyse CTR avant vendredi (2025-10-17).\n\nSamuel (Retail) : En magasin, nous avons connu des ruptures de stock à Paris, Lyon et Marseille. Un réapprovisionnement de 500 unités est prévu pour lundi. La fréquentation a chuté de 4 % à cause de la tempête, mais le panier moyen est resté stable.\n\nAlexandre : Décision : procéder au réassort de 500 unités dans ces trois magasins. Action : Samuel — confirmer la date de livraison et la logistique avant mardi (2025-10-14). Risque : délai allongé si le fournisseur est surchargé.\n\nThomas (Chef de produit) : Le firmware v1.2 corrige le problème de batterie et améliore la précision du podomètre. Les notes de version sont prêtes. Je propose un lancement le 20 octobre avec une offre de Q4 — « Montre + Bracelet » avec une réduction de 20 €. Le support devra publier une FAQ.\n\nAlexandre : Décision : approuver le lancement de l’offre Q4 le 2025-10-20. Actions : Thomas — finaliser le planning de sortie avant lundi (2025-10-13). Support — publier la FAQ avant jeudi (2025-10-16). Marketing — préparer le plan Black Friday avant samedi (2025-10-25).\n\nAlexandre (message de clôture) : Travaillons intelligemment et restons clairs — la clarté avant la vitesse. Engageons-nous sur « qui fait quoi et pour quand », et gardons les réunions en dessous de 30 minutes.",
+      "preview": "Très bien, commençons la réunion. Tout d’abord, analysons les ventes de « montres connectées » du week-end dernier. Julien, peux-tu commencer par le rapport en ligne ?"
     }
+  },
+  "seo": {
+    "description": "Un simple clic pour des comptes rendus pertinents. Introduction claire à Minutes.AI : principes, différences avec d’autres outils et exemples de résultats ; approuvé par plus de {{users}} utilisateurs (au {{date}}).",
+    "ld": {
+      "description": "Un simple clic pour des comptes rendus pertinents. Introduction concise à Minutes.AI, ses différences et exemples.",
+      "headline": "Qu'est-ce que Minutes.AI ? Principes et avantages avant adoption"
+    },
+    "ogDescription": "Un simple clic pour des comptes rendus efficaces. Découvrez Minutes.AI, ses différences et des exemples concrets.",
+    "ogTitle": "Qu'est-ce que Minutes.AI ? Principes et avantages avant adoption",
+    "title": "Qu'est-ce que Minutes.AI ? Principes et avantages avant adoption | Blog de Minutes.AI"
+  },
+  "transcript": {
+    "close": "Fermer le texte",
+    "expand": "Afficher le texte complet"
+  },
+  "what": {
+    "footnote": "※ Au {{date}} (données issues de l’App Store iOS)",
+    "h2": "Qu'est-ce que Minutes.AI ?",
+    "p1": "Minutes.AI est un outil de comptes rendus entièrement automatisé, alimenté par l’intelligence artificielle. Il prend en charge toutes les principales langues et compte plus de 30 000 utilisateurs dans le monde.",
+    "p2": "Avec Minutes.AI, vous pouvez générer automatiquement des « résumés », « décisions » et « actions » — des comptes rendus réellement exploitables, sans effort manuel."
   },
   "wrap": {
     "h2": "Conclusion",
     "p": "Qu’en pensez-vous ? Avec cette structure, les lecteurs et équipes voient en un coup d’œil ce qu’il faut faire ensuite — un compte rendu vraiment utile et exploitable. Essayez Minutes.AI et constatez la différence."
-  },
-  "cta": { "openBrowser": "Ouvrir la version web", "downloadIOS": "Télécharger la version iOS" },
-  "transcript": { "expand": "Afficher le texte complet", "close": "Fermer le texte" }
+  }
 }

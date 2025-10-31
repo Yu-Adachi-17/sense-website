@@ -1,37 +1,16 @@
 {
   "a11y": {
-    "home": "Tillbaka till Minutes.AI:s startsida"
-  },
-  "nav": {
-    "blog": "Blogg",
-    "current": "Varför Minutes.AI ger de bästa protokollen för alla typer av möten"
+    "home": "Tillbaka till Protokoll AI:s startsida"
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Minutes.AI Blogg",
-    "h1": "Varför Minutes.AI ger de bästa protokollen för alla typer av möten",
-    "tagline": "De fyra universella elementen ökar läsbarheten. När output optimeras efter mötets syfte blir protokollet en handlingsplan — inte bara något man läser."
-  },
-  "recap": {
-    "h2": "Sammanfattning: vad gör ett protokoll ”meningsfullt”?",
-    "p1": {
-      "pre": "Tidigare definierade vi ”meningsfulla protokoll”. Om du missade det, börja",
-      "link": "här (Del 1)",
-      "post": "."
-    },
-    "points": {
-      "0": "Discussion (diskussion)",
-      "1": "Decisions (beslut)",
-      "2": "Action Items (ansvarig & deadline)",
-      "3": "Concerns (öppna risker)"
-    },
-    "note": "Om dessa fyra är synliga direkt säkerställs grundläggande läsbarhet — det minsta användbara ramverket."
+  "cta": {
+    "downloadIOS": "Ladda ned för iOS",
+    "openBrowser": "Öppna webbappen"
   },
   "diversity": {
-    "h2": "Möten är olika: olika syften, olika output",
     "core": {
       "h3": "Representativa möten",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Sälj/Förhandling: alignera intressen och nå överenskommelser"
       }
     },
+    "h2": "Möten är olika: olika syften, olika output",
+    "p1": "När människor diskuterar ett gemensamt mål är det ett möte — och vilket output som ger mest värde beror på syftet.",
     "wide": {
       "h3": "I bred bemärkelse ”möten”",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Presentation: problem och lösning",
         "3": "Utbildning: överföring av operativ know-how"
       }
-    },
-    "p1": "När människor diskuterar ett gemensamt mål är det ett möte — och vilket output som ger mest värde beror på syftet."
+    }
+  },
+  "hero": {
+    "h1": "Varför Protokoll AI ger de bästa protokollen för alla typer av möten",
+    "kicker": "Protokoll AI Blogg",
+    "tagline": "De fyra universella elementen ökar läsbarheten. När output optimeras efter mötets syfte blir protokollet en handlingsplan — inte bara något man läser."
   },
   "limits": {
-    "h2": "Begränsningar med ett format för allt",
-    "p1": "De fyra elementen fungerar brett, men vissa möten tappar ”temperatur” och kontext — särskilt 1-till-1 — vilket minskar tydligheten vid senare genomläsning.",
     "generic": {
       "h3": "Om du bara använder det universella formatet",
       "items": {
@@ -62,6 +45,7 @@
         "2": "Senare blir ”varför vi beslutade så” svagare"
       }
     },
+    "h2": "Begränsningar med ett format för allt",
     "optimized": {
       "h3": "Om du optimerar (exempel 1-till-1)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Nyckeldiskussion (citat × sammanfattningar): vägen till enighet",
         "3": "Överenskommelser / Nästa steg / Risker: normaliserat för genomförande"
       }
-    }
+    },
+    "p1": "De fyra elementen fungerar brett, men vissa möten tappar ”temperatur” och kontext — särskilt 1-till-1 — vilket minskar tydligheten vid senare genomläsning."
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Varför Protokoll AI ger de bästa protokollen för alla typer av möten"
   },
   "oneonone": {
-    "h2": "1-till-1-exempel: behåll temperatur och besluts-kontext",
     "generic": {
       "h3": "Endast de fyra universella",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Oro: ingen plan om B är frånvarande"
       }
     },
+    "h2": "1-till-1-exempel: behåll temperatur och besluts-kontext",
     "optimized": {
       "h3": "Optimerat (1-till-1-format)",
       "items": {
@@ -94,8 +83,33 @@
       }
     }
   },
+  "recap": {
+    "h2": "Sammanfattning: vad gör ett protokoll ”meningsfullt”?",
+    "note": "Om dessa fyra är synliga direkt säkerställs grundläggande läsbarhet — det minsta användbara ramverket.",
+    "p1": {
+      "link": "här (Del 1)",
+      "post": ".",
+      "pre": "Tidigare definierade vi ”meningsfulla protokoll”. Om du missade det, börja"
+    },
+    "points": {
+      "0": "Discussion (diskussion)",
+      "1": "Decisions (beslut)",
+      "2": "Action Items (ansvarig & deadline)",
+      "3": "Concerns (öppna risker)"
+    }
+  },
+  "seo": {
+    "description": "Utöver de fyra universella elementen: mötesspecifik optimering gör protokollet genomförbart. Per {{date}} använder över {{users}} personer Protokoll AI.",
+    "ld": {
+      "description": "Hur Protokoll AI optimerar output per mötestyp och gör protokoll till en handlingsplan.",
+      "headline": "Varför Protokoll AI fungerar för alla möten"
+    },
+    "ogDescription": "Behåll ton och kontext samtidigt som beslut och genomförande drivs med mötes-optimerade outputs.",
+    "ogTitle": "Varför Protokoll AI fungerar oavsett mötestyp",
+    "title": "Varför Protokoll AI fungerar för alla möten | Protokoll AI Blogg"
+  },
   "why": {
-    "h2": "Varför Minutes.AI fungerar för alla möten",
+    "h2": "Varför Protokoll AI fungerar för alla möten",
     "items": {
       "0": "Syftes-fit: variabla sektioner efter mötets mål",
       "1": "Temperatur-bevarande: extrahera ton och behåll kontext",
@@ -106,20 +120,6 @@
   },
   "wrap": {
     "h2": "Avslutning",
-    "p": "De fyra elementen är en stark grund. När du optimerar per mötestyp blir protokollet en handlingsplan. Minutes.AI levererar detta som standard — använd det i verkliga möten."
-  },
-  "cta": {
-    "openBrowser": "Öppna webbappen",
-    "downloadIOS": "Ladda ned för iOS"
-  },
-  "seo": {
-    "title": "Varför Minutes.AI fungerar för alla möten | Minutes.AI Blogg",
-    "description": "Utöver de fyra universella elementen: mötesspecifik optimering gör protokollet genomförbart. Per {{date}} använder över {{users}} personer Minutes.AI.",
-    "ogTitle": "Varför Minutes.AI fungerar oavsett mötestyp",
-    "ogDescription": "Behåll ton och kontext samtidigt som beslut och genomförande drivs med mötes-optimerade outputs.",
-    "ld": {
-      "headline": "Varför Minutes.AI fungerar för alla möten",
-      "description": "Hur Minutes.AI optimerar output per mötestyp och gör protokoll till en handlingsplan."
-    }
+    "p": "De fyra elementen är en stark grund. När du optimerar per mötestyp blir protokollet en handlingsplan. Protokoll AI levererar detta som standard — använd det i verkliga möten."
   }
 }

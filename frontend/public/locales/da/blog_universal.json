@@ -1,37 +1,16 @@
 {
   "a11y": {
-    "home": "Tilbage til Minutes.AI-forsiden"
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Hvorfor Minutes.AI giver de bedste referater til enhver mødetype"
+    "home": "Tilbage til Referat AI-forsiden"
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Minutes.AI Blog",
-    "h1": "Hvorfor Minutes.AI giver de bedste referater til enhver mødetype",
-    "tagline": "De fire universelle elementer øger læsbarheden, men når output tilpasses mødets formål, bliver referatet en plan for handling – ikke bare noget man læser."
-  },
-  "recap": {
-    "h2": "Opsummering: Hvad gør et referat “meningsfuldt”?",
-    "p1": {
-      "pre": "Sidst definerede vi “meningsfulde referater”. Hvis du missede det, så start",
-      "link": "her (Del 1)",
-      "post": "."
-    },
-    "points": {
-      "0": "Discussion (drøftelser)",
-      "1": "Decisions (beslutninger)",
-      "2": "Action Items (ansvar & deadline)",
-      "3": "Concerns (åbne risici)"
-    },
-    "note": "Når disse fire er tydelige med det samme, har du et solidt minimums-skelet for læsbarhed."
+  "cta": {
+    "downloadIOS": "Hent til iOS",
+    "openBrowser": "Åbn webappen"
   },
   "diversity": {
-    "h2": "Møder er forskellige: Forskelligt formål, forskelligt output",
     "core": {
       "h3": "Typiske møder",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Salg/forhandling: afstem interesser og nå til enighed"
       }
     },
+    "h2": "Møder er forskellige: Forskelligt formål, forskelligt output",
+    "p1": "Når mennesker taler om et fælles mål, er det et møde—og hvilket output der giver mest værdi, afhænger af formålet.",
     "wide": {
       "h3": "Bredt forstået som “møder”",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Præsentation: problem og løsning",
         "3": "Oplæring/træning: overførsel af driftserfaring"
       }
-    },
-    "p1": "Når mennesker taler om et fælles mål, er det et møde—og hvilket output der giver mest værdi, afhænger af formålet."
+    }
+  },
+  "hero": {
+    "h1": "Hvorfor Referat AI giver de bedste referater til enhver mødetype",
+    "kicker": "Referat AI Blog",
+    "tagline": "De fire universelle elementer øger læsbarheden, men når output tilpasses mødets formål, bliver referatet en plan for handling – ikke bare noget man læser."
   },
   "limits": {
-    "h2": "Begrænsninger ved ét format til det hele",
-    "p1": "De fire elementer virker bredt, men visse møder mister “temperatur” og kontekst—særligt 1-til-1—hvilket svækker forståelsen ved genlæsning.",
     "generic": {
       "h3": "Hvis du kun bruger det universelle format",
       "items": {
@@ -62,6 +45,7 @@
         "2": "Senere bliver “hvorfor vi besluttede sådan” svagere"
       }
     },
+    "h2": "Begrænsninger ved ét format til det hele",
     "optimized": {
       "h3": "Hvis du optimerer (1-til-1 eksempel)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Nøgle-drøftelser (citater × resume): vejen til enighed",
         "3": "Aftaler / næste skridt / risici: normaliseret til eksekvering"
       }
-    }
+    },
+    "p1": "De fire elementer virker bredt, men visse møder mister “temperatur” og kontekst—særligt 1-til-1—hvilket svækker forståelsen ved genlæsning."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Hvorfor Referat AI giver de bedste referater til enhver mødetype"
   },
   "oneonone": {
-    "h2": "1-til-1 eksempel: Bevar temperatur og beslutningskontekst",
     "generic": {
       "h3": "Kun de fire universelle",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Bekymring: ingen plan hvis B er fraværende"
       }
     },
+    "h2": "1-til-1 eksempel: Bevar temperatur og beslutningskontekst",
     "optimized": {
       "h3": "Optimeret (1-til-1 format)",
       "items": {
@@ -94,8 +83,33 @@
       }
     }
   },
+  "recap": {
+    "h2": "Opsummering: Hvad gør et referat “meningsfuldt”?",
+    "note": "Når disse fire er tydelige med det samme, har du et solidt minimums-skelet for læsbarhed.",
+    "p1": {
+      "link": "her (Del 1)",
+      "post": ".",
+      "pre": "Sidst definerede vi “meningsfulde referater”. Hvis du missede det, så start"
+    },
+    "points": {
+      "0": "Discussion (drøftelser)",
+      "1": "Decisions (beslutninger)",
+      "2": "Action Items (ansvar & deadline)",
+      "3": "Concerns (åbne risici)"
+    }
+  },
+  "seo": {
+    "description": "Ud over de fire universelle elementer: mødespecifik optimering gør referatet til en plan for eksekvering. Per {{date}} bruger over {{users}} personer Referat AI.",
+    "ld": {
+      "description": "Sådan optimerer Referat AI output per mødetype og gør referatet til en eksekveringsplan.",
+      "headline": "Hvorfor Referat AI virker for enhver mødetype"
+    },
+    "ogDescription": "Bevar temperatur og kontekst, og driv beslutninger og handling gennem møde-optimerede outputs.",
+    "ogTitle": "Hvorfor Referat AI virker på tværs af møder",
+    "title": "Hvorfor Referat AI virker for enhver mødetype | Referat AI Blog"
+  },
   "why": {
-    "h2": "Hvorfor Minutes.AI virker på tværs af møder",
+    "h2": "Hvorfor Referat AI virker på tværs af møder",
     "items": {
       "0": "Formåls-fit: variable sektioner efter mødetype",
       "1": "Temperatur-bevaring: udtræk tone og behold kontekst",
@@ -106,20 +120,6 @@
   },
   "wrap": {
     "h2": "Afrunding",
-    "p": "De fire elementer er et stærkt fundament. Når du optimerer per mødetype, bliver referatet en plan for handling. Minutes.AI leverer denne optimering som standard—brug det i virkelige møder."
-  },
-  "cta": {
-    "openBrowser": "Åbn webappen",
-    "downloadIOS": "Hent til iOS"
-  },
-  "seo": {
-    "title": "Hvorfor Minutes.AI virker for enhver mødetype | Minutes.AI Blog",
-    "description": "Ud over de fire universelle elementer: mødespecifik optimering gør referatet til en plan for eksekvering. Per {{date}} bruger over {{users}} personer Minutes.AI.",
-    "ogTitle": "Hvorfor Minutes.AI virker på tværs af møder",
-    "ogDescription": "Bevar temperatur og kontekst, og driv beslutninger og handling gennem møde-optimerede outputs.",
-    "ld": {
-      "headline": "Hvorfor Minutes.AI virker for enhver mødetype",
-      "description": "Sådan optimerer Minutes.AI output per mødetype og gør referatet til en eksekveringsplan."
-    }
+    "p": "De fire elementer er et stærkt fundament. Når du optimerer per mødetype, bliver referatet en plan for handling. Referat AI leverer denne optimering som standard—brug det i virkelige møder."
   }
 }

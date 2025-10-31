@@ -1,37 +1,16 @@
 {
   "a11y": {
-    "home": "Tilbake til Minutes.AI-forsiden"
-  },
-  "nav": {
-    "blog": "Blogg",
-    "current": "Hvorfor Minutes.AI gir de beste referatene for enhver møtetype"
+    "home": "Tilbake til Referat AI-forsiden"
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Minutes.AI Blogg",
-    "h1": "Hvorfor Minutes.AI gir de beste referatene for enhver møtetype",
-    "tagline": "De fire universelle elementene øker lesbarheten. Når output optimaliseres etter møtets formål, blir referatet en plan for handling—ikke bare noe du leser."
-  },
-  "recap": {
-    "h2": "Oppsummering: Hva gjør et referat «meningsfylt»?",
-    "p1": {
-      "pre": "Tidligere definerte vi «meningsfylte referater». Hvis du gikk glipp av det, start",
-      "link": "her (Del 1)",
-      "post": "."
-    },
-    "points": {
-      "0": "Discussion (diskusjon)",
-      "1": "Decisions (beslutninger)",
-      "2": "Action Items (ansvarlig & frist)",
-      "3": "Concerns (åpne risikoer)"
-    },
-    "note": "Er disse fire synlige med én gang, er grunnleggende lesbarhet sikret—det minimale, brukbare rammeverket."
+  "cta": {
+    "downloadIOS": "Last ned for iOS",
+    "openBrowser": "Åpne nettappen"
   },
   "diversity": {
-    "h2": "Møter er ulike: forskjellig formål, forskjellig output",
     "core": {
       "h3": "Typiske møter",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Salg/forhandling: avstemme interesser og komme til enighet"
       }
     },
+    "h2": "Møter er ulike: forskjellig formål, forskjellig output",
+    "p1": "Når mennesker diskuterer et felles mål, er det et møte—og hvilket output som gir høyest verdi, endres med formålet.",
     "wide": {
       "h3": "I vid forstand «møter»",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Presentasjon: problem og løsning",
         "3": "Opplæring: overføring av operativ kunnskap"
       }
-    },
-    "p1": "Når mennesker diskuterer et felles mål, er det et møte—og hvilket output som gir høyest verdi, endres med formålet."
+    }
+  },
+  "hero": {
+    "h1": "Hvorfor Referat AI gir de beste referatene for enhver møtetype",
+    "kicker": "Referat AI Blogg",
+    "tagline": "De fire universelle elementene øker lesbarheten. Når output optimaliseres etter møtets formål, blir referatet en plan for handling—ikke bare noe du leser."
   },
   "limits": {
-    "h2": "Begrensninger ved ett format for alt",
-    "p1": "De fire elementene fungerer bredt, men enkelte møter mister «temperatur» og kontekst—særlig 1-til-1—noe som svekker klarheten ved senere gjennomlesing.",
     "generic": {
       "h3": "Hvis du kun bruker det universelle formatet",
       "items": {
@@ -62,6 +45,7 @@
         "2": "Senere blir «hvorfor vi besluttet slik» svakere"
       }
     },
+    "h2": "Begrensninger ved ett format for alt",
     "optimized": {
       "h3": "Hvis du optimaliserer (1-til-1-eksempel)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Nøkkeldiskusjon (sitat × sammendrag): veien til enighet",
         "3": "Avtaler / Neste steg / Risiko: normalisert for gjennomføring"
       }
-    }
+    },
+    "p1": "De fire elementene fungerer bredt, men enkelte møter mister «temperatur» og kontekst—særlig 1-til-1—noe som svekker klarheten ved senere gjennomlesing."
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Hvorfor Referat AI gir de beste referatene for enhver møtetype"
   },
   "oneonone": {
-    "h2": "1-til-1-eksempel: behold temperatur og beslutningskontekst",
     "generic": {
       "h3": "Kun de fire universelle",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Bekymring: ingen plan hvis B er fraværende"
       }
     },
+    "h2": "1-til-1-eksempel: behold temperatur og beslutningskontekst",
     "optimized": {
       "h3": "Optimalisert (1-til-1-format)",
       "items": {
@@ -94,8 +83,33 @@
       }
     }
   },
+  "recap": {
+    "h2": "Oppsummering: Hva gjør et referat «meningsfylt»?",
+    "note": "Er disse fire synlige med én gang, er grunnleggende lesbarhet sikret—det minimale, brukbare rammeverket.",
+    "p1": {
+      "link": "her (Del 1)",
+      "post": ".",
+      "pre": "Tidligere definerte vi «meningsfylte referater». Hvis du gikk glipp av det, start"
+    },
+    "points": {
+      "0": "Discussion (diskusjon)",
+      "1": "Decisions (beslutninger)",
+      "2": "Action Items (ansvarlig & frist)",
+      "3": "Concerns (åpne risikoer)"
+    }
+  },
+  "seo": {
+    "description": "Utover de fire universelle elementene: møtespesifikk optimalisering gjør referatet til en plan for gjennomføring. Per {{date}} bruker over {{users}} personer Referat AI.",
+    "ld": {
+      "description": "Hvordan Referat AI optimaliserer output per møtetype og gjør referatet til en plan for handling.",
+      "headline": "Hvorfor Referat AI fungerer for enhver møtetype"
+    },
+    "ogDescription": "Behold tone og kontekst samtidig som beslutninger og gjennomføring drives frem med optimaliserte outputs.",
+    "ogTitle": "Hvorfor Referat AI fungerer på tvers av møter",
+    "title": "Hvorfor Referat AI fungerer for enhver møtetype | Referat AI Blogg"
+  },
   "why": {
-    "h2": "Hvorfor Minutes.AI fungerer på tvers av møter",
+    "h2": "Hvorfor Referat AI fungerer på tvers av møter",
     "items": {
       "0": "Formålstilpasning: variable seksjoner etter møtemål",
       "1": "Bevaring av temperatur: trekk ut tone og behold kontekst",
@@ -106,20 +120,6 @@
   },
   "wrap": {
     "h2": "Avrunding",
-    "p": "De fire elementene er et solid fundament. Med optimalisering per møtetype blir referatet en plan for handling. Minutes.AI leverer dette som standard—bruk det i virkelige møter."
-  },
-  "cta": {
-    "openBrowser": "Åpne nettappen",
-    "downloadIOS": "Last ned for iOS"
-  },
-  "seo": {
-    "title": "Hvorfor Minutes.AI fungerer for enhver møtetype | Minutes.AI Blogg",
-    "description": "Utover de fire universelle elementene: møtespesifikk optimalisering gjør referatet til en plan for gjennomføring. Per {{date}} bruker over {{users}} personer Minutes.AI.",
-    "ogTitle": "Hvorfor Minutes.AI fungerer på tvers av møter",
-    "ogDescription": "Behold tone og kontekst samtidig som beslutninger og gjennomføring drives frem med optimaliserte outputs.",
-    "ld": {
-      "headline": "Hvorfor Minutes.AI fungerer for enhver møtetype",
-      "description": "Hvordan Minutes.AI optimaliserer output per møtetype og gjør referatet til en plan for handling."
-    }
+    "p": "De fire elementene er et solid fundament. Med optimalisering per møtetype blir referatet en plan for handling. Referat AI leverer dette som standard—bruk det i virkelige møter."
   }
 }

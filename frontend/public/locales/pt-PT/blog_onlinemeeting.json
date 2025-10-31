@@ -1,38 +1,71 @@
 {
-  "seo": {
-    "title": "O Minutes.AI agora suporta reuniões online (iOS)",
-    "description": "Clique em “Online” para gerar um URL, partilhe-o e inicie de imediato uma reunião ao estilo Zoom. As atas são geradas automaticamente no final.",
-    "ogTitle": "Reuniões online no Minutes.AI",
-    "ogDescription": "Comece em “Online” e receba atas automáticas e bem formatadas.",
-    "ld": { "headline": "Suporte a reuniões online", "description": "Reuniões tipo Zoom por URL e atas automáticas com decisões e ações." }
+  "aria": {
+    "home": "Página inicial Ata AI"
   },
-  "aria": { "home": "Página inicial Minutes.AI" },
-  "nav": { "blog": "Blog", "onlinemeeting": "Reunião online" },
-  "hero": {
-    "kicker": "Lançamento",
-    "h1": "Reuniões online para Minutes.AI (iOS)",
-    "tagline": "Clique em “Online”, gere o URL e partilhe. No final, as atas iniciam automaticamente."
-  },
-  "release": {
-    "h2": "Novidade",
-    "p1": "O Minutes.AI passa a suportar reuniões online. Gere e partilhe um URL a partir de “Online” para começar já.",
-    "p2": "No final da reunião, as atas são geradas automaticamente com decisões e ações claras."
-  },
-  "image": { "alt": "Interface de reunião online Minutes.AI", "caption": "Comece pelo botão “Online”." },
-  "steps": {
-    "h2": "Como começar",
-    "items": ["Clique em “Online” (app/web)", "Gere o URL da reunião", "Partilhe com os participantes", "Termine → atas automáticas"],
-    "note": "Duração depende do plano e da quota restante."
+  "cta": {
+    "downloadIOS": "Descarregar app iOS",
+    "openBrowser": "Abrir no navegador"
   },
   "features": {
     "h2": "Destaques",
-    "items": ["UX semelhante ao Zoom (LiveKit)", "URL num clique", "Atas automáticas no final", "Saída formatada e legível", "Multilingue para equipas globais"]
+    "items": [
+      "UX semelhante ao Zoom (LiveKit)",
+      "URL num clique",
+      "Atas automáticas no final",
+      "Saída formatada e legível",
+      "Multilingue para equipas globais"
+    ]
+  },
+  "hero": {
+    "h1": "Reuniões online para Ata AI (iOS)",
+    "kicker": "Lançamento",
+    "tagline": "Clique em “Online”, gere o URL e partilhe. No final, as atas iniciam automaticamente."
+  },
+  "image": {
+    "alt": "Interface de reunião online Ata AI",
+    "caption": "Comece pelo botão “Online”."
+  },
+  "meta": {
+    "category": "Reunião online",
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Lançamento"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Reunião online"
   },
   "notes": {
+    "foot": "Experimente na web ou descarregue a app iOS.",
     "h2": "Notas",
-    "items": ["Limites/tempo restante dependem de plano/quota", "Rede/dispositivo podem afetar a qualidade"],
-    "foot": "Experimente na web ou descarregue a app iOS."
+    "items": [
+      "Limites/tempo restante dependem de plano/quota",
+      "Rede/dispositivo podem afetar a qualidade"
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Lançamento", "category": "Reunião online" },
-  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Descarregar app iOS" }
+  "release": {
+    "h2": "Novidade",
+    "p1": "O Ata AI passa a suportar reuniões online. Gere e partilhe um URL a partir de “Online” para começar já.",
+    "p2": "No final da reunião, as atas são geradas automaticamente com decisões e ações claras."
+  },
+  "seo": {
+    "description": "Clique em “Online” para gerar um URL, partilhe-o e inicie de imediato uma reunião ao estilo Zoom. As atas são geradas automaticamente no final.",
+    "ld": {
+      "description": "Reuniões tipo Zoom por URL e atas automáticas com decisões e ações.",
+      "headline": "Suporte a reuniões online"
+    },
+    "ogDescription": "Comece em “Online” e receba atas automáticas e bem formatadas.",
+    "ogTitle": "Reuniões online no Ata AI",
+    "title": "O Ata AI agora suporta reuniões online (iOS)"
+  },
+  "steps": {
+    "h2": "Como começar",
+    "items": [
+      "Clique em “Online” (app/web)",
+      "Gere o URL da reunião",
+      "Partilhe com os participantes",
+      "Termine → atas automáticas"
+    ],
+    "note": "Duração depende do plano e da quota restante."
+  }
 }

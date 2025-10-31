@@ -1,37 +1,16 @@
 {
   "a11y": {
-    "home": "Kembali ke Beranda Minutes.AI"
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Mengapa Minutes.AI menghadirkan notulen terbaik untuk semua jenis rapat"
+    "home": "Kembali ke Beranda Minutes AI"
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Blog Minutes.AI",
-    "h1": "Mengapa Minutes.AI menghadirkan notulen terbaik untuk semua jenis rapat",
-    "tagline": "Empat elemen universal meningkatkan keterbacaan. Namun, optimasi sesuai tujuan rapat mengubah notulen dari sekadar bacaan menjadi cetak biru eksekusi."
-  },
-  "recap": {
-    "h2": "Rekap: Apa itu notulen yang “bermakna”?",
-    "p1": {
-      "pre": "Sebelumnya kami mendefinisikan “notulen bermakna”. Jika terlewat, mulai",
-      "link": "di sini (Bagian 1)",
-      "post": "."
-    },
-    "points": {
-      "0": "Discussion (diskusi)",
-      "1": "Decisions (keputusan)",
-      "2": "Action Items (penanggung jawab & tenggat)",
-      "3": "Concerns (risiko yang belum terselesaikan)"
-    },
-    "note": "Jika keempatnya langsung terlihat, keterbacaan dasar sudah terjamin—itulah kerangka minimal yang layak."
+  "cta": {
+    "downloadIOS": "Unduh di iOS",
+    "openBrowser": "Buka aplikasi web"
   },
   "diversity": {
-    "h2": "Rapat itu beragam: tujuan berbeda, output berbeda",
     "core": {
       "h3": "Rapat representatif",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Penjualan/Negosiasi: menyelaraskan kepentingan dan mencapai kesepakatan"
       }
     },
+    "h2": "Rapat itu beragam: tujuan berbeda, output berbeda",
+    "p1": "Setiap kali orang berdiskusi tentang tujuan bersama, itu adalah rapat—dan output paling bernilai berubah mengikuti tujuan.",
     "wide": {
       "h3": "Dalam arti luas sebagai “rapat”",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Presentasi: masalah dan solusi",
         "3": "Pelatihan: transfer pengetahuan operasional"
       }
-    },
-    "p1": "Setiap kali orang berdiskusi tentang tujuan bersama, itu adalah rapat—dan output paling bernilai berubah mengikuti tujuan."
+    }
+  },
+  "hero": {
+    "h1": "Mengapa Minutes AI menghadirkan notulen terbaik untuk semua jenis rapat",
+    "kicker": "Blog Minutes AI",
+    "tagline": "Empat elemen universal meningkatkan keterbacaan. Namun, optimasi sesuai tujuan rapat mengubah notulen dari sekadar bacaan menjadi cetak biru eksekusi."
   },
   "limits": {
-    "h2": "Batasan format satu-untuk-semua",
-    "p1": "Empat elemen tersebut umumnya efektif, namun beberapa rapat kehilangan “suhu” dan konteks—terutama 1-on-1—sehingga menurunkan kejelasan saat ditinjau ulang.",
     "generic": {
       "h3": "Jika hanya memakai format universal",
       "items": {
@@ -62,6 +45,7 @@
         "2": "Belakangan, “mengapa” di balik keputusan menjadi kurang jelas"
       }
     },
+    "h2": "Batasan format satu-untuk-semua",
     "optimized": {
       "h3": "Jika dioptimalkan (contoh 1-on-1)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Diskusi kunci (kutipan × ringkasan): jalur menuju kesepakatan",
         "3": "Kesepakatan / Aksi berikutnya / Risiko: ternormalisasi untuk eksekusi"
       }
-    }
+    },
+    "p1": "Empat elemen tersebut umumnya efektif, namun beberapa rapat kehilangan “suhu” dan konteks—terutama 1-on-1—sehingga menurunkan kejelasan saat ditinjau ulang."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Mengapa Minutes AI menghadirkan notulen terbaik untuk semua jenis rapat"
   },
   "oneonone": {
-    "h2": "Contoh 1-on-1: menjaga “suhu” dan konteks keputusan",
     "generic": {
       "h3": "Hanya empat elemen universal",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Kekhawatiran: belum ada rencana jika B absen"
       }
     },
+    "h2": "Contoh 1-on-1: menjaga “suhu” dan konteks keputusan",
     "optimized": {
       "h3": "Dioptimalkan (format 1-on-1)",
       "items": {
@@ -94,8 +83,33 @@
       }
     }
   },
+  "recap": {
+    "h2": "Rekap: Apa itu notulen yang “bermakna”?",
+    "note": "Jika keempatnya langsung terlihat, keterbacaan dasar sudah terjamin—itulah kerangka minimal yang layak.",
+    "p1": {
+      "link": "di sini (Bagian 1)",
+      "post": ".",
+      "pre": "Sebelumnya kami mendefinisikan “notulen bermakna”. Jika terlewat, mulai"
+    },
+    "points": {
+      "0": "Discussion (diskusi)",
+      "1": "Decisions (keputusan)",
+      "2": "Action Items (penanggung jawab & tenggat)",
+      "3": "Concerns (risiko yang belum terselesaikan)"
+    }
+  },
+  "seo": {
+    "description": "Lebih dari empat elemen universal: optimasi khusus tipe rapat menjadikan notulen siap dieksekusi. Per {{date}}, lebih dari {{users}} pengguna memakai Minutes AI.",
+    "ld": {
+      "description": "Cara Minutes AI mengoptimalkan output per tipe rapat dan mengubah notulen menjadi cetak biru eksekusi.",
+      "headline": "Mengapa Minutes AI bekerja untuk semua rapat"
+    },
+    "ogDescription": "Pertahankan nada dan konteks sambil mendorong keputusan dan eksekusi lewat output yang dioptimalkan per rapat.",
+    "ogTitle": "Mengapa Minutes AI cocok untuk semua jenis rapat",
+    "title": "Mengapa Minutes AI bekerja untuk semua rapat | Blog Minutes AI"
+  },
   "why": {
-    "h2": "Mengapa Minutes.AI bekerja untuk semua jenis rapat",
+    "h2": "Mengapa Minutes AI bekerja untuk semua jenis rapat",
     "items": {
       "0": "Sesuai tujuan: bagian/section variabel menurut sasaran rapat",
       "1": "Menjaga suhu: mengekstrak nada dan mempertahankan konteks",
@@ -106,20 +120,6 @@
   },
   "wrap": {
     "h2": "Penutup",
-    "p": "Empat elemen adalah fondasi kuat. Dengan optimasi per tipe rapat, notulen berkembang menjadi cetak biru aksi. Minutes.AI menyediakannya secara default—gunakan di rapat nyata."
-  },
-  "cta": {
-    "openBrowser": "Buka aplikasi web",
-    "downloadIOS": "Unduh di iOS"
-  },
-  "seo": {
-    "title": "Mengapa Minutes.AI bekerja untuk semua rapat | Blog Minutes.AI",
-    "description": "Lebih dari empat elemen universal: optimasi khusus tipe rapat menjadikan notulen siap dieksekusi. Per {{date}}, lebih dari {{users}} pengguna memakai Minutes.AI.",
-    "ogTitle": "Mengapa Minutes.AI cocok untuk semua jenis rapat",
-    "ogDescription": "Pertahankan nada dan konteks sambil mendorong keputusan dan eksekusi lewat output yang dioptimalkan per rapat.",
-    "ld": {
-      "headline": "Mengapa Minutes.AI bekerja untuk semua rapat",
-      "description": "Cara Minutes.AI mengoptimalkan output per tipe rapat dan mengubah notulen menjadi cetak biru eksekusi."
-    }
+    "p": "Empat elemen adalah fondasi kuat. Dengan optimasi per tipe rapat, notulen berkembang menjadi cetak biru aksi. Minutes AI menyediakannya secara default—gunakan di rapat nyata."
   }
 }

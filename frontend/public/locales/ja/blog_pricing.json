@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Minutes.AI 料金 — すべての会議スタイルに合うシンプル設計",
-    "description": "有効期限なしの時間パックと、完全無制限のサブスクリプション。Otter・Notta と価格・上限・ロールオーバー有無を比較。",
-    "ogTitle": "Minutes.AI の料金",
-    "ogDescription": "期限なしの時間パック＋完全無制限サブスク。Otter / Notta と一目で比較。",
-    "ld": {
-      "headline": "Minutes.AI 料金",
-      "description": "4つのプラン：期限なしの時間パック×2、完全無制限サブスク×2。Otter・Nottaとの比較付き。"
-    }
+  "aria": {
+    "home": "議事録AI ホーム"
   },
-  "aria": { "home": "Minutes.AI ホーム" },
-  "nav": { "blog": "ブログ", "pricing": "料金" },
+  "compare": {
+    "foot": "出典：Otter / Notta 各公式料金ページ。",
+    "h2": "議事録AI vs Otter vs Notta — 価格比較の要点",
+    "lastUpdated": "最終更新日: 2025-10-31",
+    "note": "USD表記。多くの競合は「月次上限＋ロールオーバー無し」です。",
+    "rows": [
+      {
+        "billing": "時間パック + サブスク",
+        "cheapest": "Trial 120分 / $1.99（失効なし）",
+        "free": "毎日3分チケット",
+        "limits": "時間パックは失効なし。サブスクは上限なし。",
+        "service": "議事録AI",
+        "unlimited": "あり — $16.99/月 または $149.99/年"
+      },
+      {
+        "billing": "ユーザー単位のサブスク",
+        "cheapest": "Pro — $16.99/月 または $8.33/月（年払い）",
+        "free": "300分/月、1会議あたり30分まで",
+        "limits": "ロールオーバー無し; 1会議あたりの上限あり",
+        "service": "Otter",
+        "unlimited": "なし — Pro 1200分/月; Business 6000分インポート/月"
+      },
+      {
+        "billing": "ユーザー単位のサブスク",
+        "cheapest": "Pro — $13.49/月（月払い）または $8.17/月（年払い）",
+        "free": "120分/月、録音1件3分まで",
+        "limits": "繰越無し; 録音1件 最長5時間; アップロード上限",
+        "service": "Notta",
+        "unlimited": "Business — 無制限（年払い$16.67/月; 月払いは高め）"
+      }
+    ],
+    "tableHead": [
+      "サービス",
+      "無料プラン",
+      "最安有料",
+      "無制限",
+      "主な制限",
+      "課金形態"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "iOSアプリをダウンロード",
+    "openBrowser": "ブラウザで開く"
+  },
   "hero": {
+    "h1": "議事録AI 料金 (2025)",
     "kicker": "料金",
-    "h1": "Minutes.AI 料金 (2025)",
     "tagline": "「期限なしの時間パック」または「完全無制限サブスク」から選べます。"
   },
   "intro": {
     "h2": "あなたに最適なプランは？",
     "p1": "会議の頻度に合わせて選べる4つのシンプルな選択肢。"
   },
+  "meta": {
+    "category": "料金",
+    "h2": "メタ情報",
+    "published": "公開日",
+    "type": "ガイド"
+  },
+  "nav": {
+    "blog": "ブログ",
+    "pricing": "料金"
+  },
   "plans": {
-    "h3_timepacks": "時間パック",
-    "timepacks_note": "購入した分は失効しません。いつでも録音→AI議事録生成が可能です。",
-    "trial": { "name": "Trial", "detail": "120分 / $1.99" },
-    "light": { "name": "Light", "detail": "1200分 / $11.99" },
-    "h3_subs": "サブスクリプション",
-    "subs_note": "サブスクは完全無制限 — 月次上限はありません。",
-    "monthly": { "name": "月額", "detail": "$16.99" },
-    "annual": { "name": "年額", "detail": "$149.99" },
-    "free": {
-      "badge": "毎日3分の無料チケット",
-      "text": "無課金でも毎日3分の無料チケットで Minutes.AI を体験できます。"
+    "annual": {
+      "detail": "$149.99",
+      "name": "年額"
     },
     "bullets": [
       "期限なし：一度購入すればいつでも使える",
       "サブスクは完全無制限",
       "iOS & Web、マルチリンガル出力"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs Otter vs Notta — 価格比較の要点",
-    "note": "USD表記。多くの競合は「月次上限＋ロールオーバー無し」です。",
-    "tableHead": ["サービス", "無料プラン", "最安有料", "無制限", "主な制限", "課金形態"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "毎日3分チケット",
-        "cheapest": "Trial 120分 / $1.99（失効なし）",
-        "unlimited": "あり — $16.99/月 または $149.99/年",
-        "limits": "時間パックは失効なし。サブスクは上限なし。",
-        "billing": "時間パック + サブスク"
-      },
-      {
-        "service": "Otter",
-        "free": "300分/月、1会議あたり30分まで",
-        "cheapest": "Pro — $16.99/月 または $8.33/月（年払い）",
-        "unlimited": "なし — Pro 1200分/月; Business 6000分インポート/月",
-        "limits": "ロールオーバー無し; 1会議あたりの上限あり",
-        "billing": "ユーザー単位のサブスク"
-      },
-      {
-        "service": "Notta",
-        "free": "120分/月、録音1件3分まで",
-        "cheapest": "Pro — $13.49/月（月払い）または $8.17/月（年払い）",
-        "unlimited": "Business — 無制限（年払い$16.67/月; 月払いは高め）",
-        "limits": "繰越無し; 録音1件 最長5時間; アップロード上限",
-        "billing": "ユーザー単位のサブスク"
-      }
     ],
-    "foot": "出典：Otter / Notta 各公式料金ページ。",
-    "lastUpdated": "最終更新日: 2025-10-31"
+    "free": {
+      "badge": "毎日3分の無料チケット",
+      "text": "無課金でも毎日3分の無料チケットで 議事録AI を体験できます。"
+    },
+    "h3_subs": "サブスクリプション",
+    "h3_timepacks": "時間パック",
+    "light": {
+      "detail": "1200分 / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "月額"
+    },
+    "subs_note": "サブスクは完全無制限 — 月次上限はありません。",
+    "timepacks_note": "購入した分は失効しません。いつでも録音→AI議事録生成が可能です。",
+    "trial": {
+      "detail": "120分 / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "有効期限なしの時間パックと、完全無制限のサブスクリプション。Otter・Notta と価格・上限・ロールオーバー有無を比較。",
+    "ld": {
+      "description": "4つのプラン：期限なしの時間パック×2、完全無制限サブスク×2。Otter・Nottaとの比較付き。",
+      "headline": "議事録AI 料金"
+    },
+    "ogDescription": "期限なしの時間パック＋完全無制限サブスク。Otter / Notta と一目で比較。",
+    "ogTitle": "議事録AI の料金",
+    "title": "議事録AI 料金 — すべての会議スタイルに合うシンプル設計"
   },
   "why": {
     "h2": "この設計にした理由",
@@ -79,7 +113,5 @@
       "たまにしか会議しない方：Lightを一度購入すれば安心（失効なし）。",
       "まずは体験：Trial + 毎日3分チケット。"
     ]
-  },
-  "meta": { "h2": "メタ情報", "published": "公開日", "type": "ガイド", "category": "料金" },
-  "cta": { "openBrowser": "ブラウザで開く", "downloadIOS": "iOSアプリをダウンロード" }
+  }
 }

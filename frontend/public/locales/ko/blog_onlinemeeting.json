@@ -1,38 +1,71 @@
 {
-  "seo": {
-    "title": "Minutes.AI, 온라인 미팅 지원 (iOS)",
-    "description": "“Online”을 눌러 URL을 발급·공유하면 즉시 Zoom 스타일 회의를 시작. 종료와 동시에 깔끔한 회의록이 자동 생성됩니다.",
-    "ogTitle": "Minutes.AI 온라인 미팅",
-    "ogDescription": "“Online”에서 시작하고, 종료 후 자동 포맷 회의록을 받으세요.",
-    "ld": { "headline": "온라인 미팅 기능 추가", "description": "URL 기반 Zoom 유사 미팅과 결정·액션이 명확한 자동 회의록." }
+  "aria": {
+    "home": "회의록AI 홈"
   },
-  "aria": { "home": "Minutes.AI 홈" },
-  "nav": { "blog": "블로그", "onlinemeeting": "온라인 미팅" },
-  "hero": {
-    "kicker": "출시 안내",
-    "h1": "Minutes.AI 온라인 미팅 (iOS)",
-    "tagline": "“Online” → URL 발급 → 공유. 종료와 동시에 자동 회의록이 시작됩니다."
-  },
-  "release": {
-    "h2": "새로운 점",
-    "p1": "Minutes.AI가 온라인 미팅을 지원합니다. “Online”에서 URL을 발급하고 공유하면 즉시 시작할 수 있습니다.",
-    "p2": "회의 종료 시 자동으로 회의록이 생성되어 결정 사항과 액션 아이템을 명확히 정리합니다."
-  },
-  "image": { "alt": "Minutes.AI 온라인 미팅 UI", "caption": "“Online” 버튼에서 Zoom 유사 미팅 시작." },
-  "steps": {
-    "h2": "시작 방법",
-    "items": ["앱/웹에서 “Online” 클릭", "회의 URL 발급", "참가자에게 URL 공유", "종료 → 자동 회의록"],
-    "note": "사용 가능 시간은 요금제/잔여 시간에 따릅니다."
+  "cta": {
+    "downloadIOS": "iOS 앱 다운로드",
+    "openBrowser": "브라우저에서 열기"
   },
   "features": {
     "h2": "특징",
-    "items": ["Zoom 유사 UX(LiveKit)", "원클릭 URL 발급", "종료 직후 자동 회의록", "가독성 높은 포맷 출력", "다국어 지원"]
+    "items": [
+      "Zoom 유사 UX(LiveKit)",
+      "원클릭 URL 발급",
+      "종료 직후 자동 회의록",
+      "가독성 높은 포맷 출력",
+      "다국어 지원"
+    ]
+  },
+  "hero": {
+    "h1": "회의록AI 온라인 미팅 (iOS)",
+    "kicker": "출시 안내",
+    "tagline": "“Online” → URL 발급 → 공유. 종료와 동시에 자동 회의록이 시작됩니다."
+  },
+  "image": {
+    "alt": "회의록AI 온라인 미팅 UI",
+    "caption": "“Online” 버튼에서 Zoom 유사 미팅 시작."
+  },
+  "meta": {
+    "category": "온라인 회의",
+    "h2": "메타",
+    "published": "게시일",
+    "type": "출시"
+  },
+  "nav": {
+    "blog": "블로그",
+    "onlinemeeting": "온라인 미팅"
   },
   "notes": {
+    "foot": "웹 또는 iOS 앱에서 지금 사용해 보세요.",
     "h2": "안내",
-    "items": ["시간 제한/잔여 시간은 요금제/쿼터에 따름", "네트워크/기기 설정에 따라 품질 영향"],
-    "foot": "웹 또는 iOS 앱에서 지금 사용해 보세요."
+    "items": [
+      "시간 제한/잔여 시간은 요금제/쿼터에 따름",
+      "네트워크/기기 설정에 따라 품질 영향"
+    ]
   },
-  "meta": { "h2": "메타", "published": "게시일", "type": "출시", "category": "온라인 회의" },
-  "cta": { "openBrowser": "브라우저에서 열기", "downloadIOS": "iOS 앱 다운로드" }
+  "release": {
+    "h2": "새로운 점",
+    "p1": "회의록AI가 온라인 미팅을 지원합니다. “Online”에서 URL을 발급하고 공유하면 즉시 시작할 수 있습니다.",
+    "p2": "회의 종료 시 자동으로 회의록이 생성되어 결정 사항과 액션 아이템을 명확히 정리합니다."
+  },
+  "seo": {
+    "description": "“Online”을 눌러 URL을 발급·공유하면 즉시 Zoom 스타일 회의를 시작. 종료와 동시에 깔끔한 회의록이 자동 생성됩니다.",
+    "ld": {
+      "description": "URL 기반 Zoom 유사 미팅과 결정·액션이 명확한 자동 회의록.",
+      "headline": "온라인 미팅 기능 추가"
+    },
+    "ogDescription": "“Online”에서 시작하고, 종료 후 자동 포맷 회의록을 받으세요.",
+    "ogTitle": "회의록AI 온라인 미팅",
+    "title": "회의록AI, 온라인 미팅 지원 (iOS)"
+  },
+  "steps": {
+    "h2": "시작 방법",
+    "items": [
+      "앱/웹에서 “Online” 클릭",
+      "회의 URL 발급",
+      "참가자에게 URL 공유",
+      "종료 → 자동 회의록"
+    ],
+    "note": "사용 가능 시간은 요금제/잔여 시간에 따릅니다."
+  }
 }

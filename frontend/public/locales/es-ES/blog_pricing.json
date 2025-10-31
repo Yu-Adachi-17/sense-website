@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Precios de Minutes.AI — planes sencillos para cada tipo de reunión",
-    "description": "Paquetes de tiempo sin caducidad y suscripciones realmente ilimitadas. Compara Minutes.AI con Otter y Notta en precio, cuotas y traspaso.",
-    "ogTitle": "Precios de Minutes.AI",
-    "ogDescription": "Paquetes sin caducidad + suscripciones ilimitadas. Comparativa rápida con Otter y Notta.",
-    "ld": {
-      "headline": "Precios de Minutes.AI",
-      "description": "Cuatro planes: dos paquetes de tiempo (sin caducidad) y dos suscripciones ilimitadas, con comparativa frente a Otter y Notta."
-    }
+  "aria": {
+    "home": "Inicio de Actas IA"
   },
-  "aria": { "home": "Inicio de Minutes.AI" },
-  "nav": { "blog": "Blog", "pricing": "Precios" },
+  "compare": {
+    "foot": "Fuentes: páginas oficiales de precios de Otter y Notta.",
+    "h2": "Actas IA vs. Otter vs. Notta — resumen de precios",
+    "lastUpdated": "Última actualización: 31 oct 2025",
+    "note": "Precios y cuotas clave (USD). Los competidores suelen reiniciar las cuotas mensualmente sin traspaso.",
+    "rows": [
+      {
+        "billing": "Paquetes únicos + suscripciones",
+        "cheapest": "Trial 120 min / $1.99 (sin caducidad)",
+        "free": "Ticket diario de 3 min",
+        "limits": "Los paquetes no caducan. Suscripciones sin tope.",
+        "service": "Actas IA",
+        "unlimited": "Sí — $16.99/mes o $149.99/año"
+      },
+      {
+        "billing": "Suscripción por usuario",
+        "cheapest": "Pro — $16.99/mes o $8.33/mes (anual)",
+        "free": "300 min/mes, hasta 30 min/conversación",
+        "limits": "Sin traspaso; límite por reunión",
+        "service": "Otter",
+        "unlimited": "No — Pro 1200 min/mes; Business 6000 min de importación/mes"
+      },
+      {
+        "billing": "Suscripción por usuario",
+        "cheapest": "Pro — $13.49/mes (mensual) o $8.17/mes (anual)",
+        "free": "120 min/mes, hasta 3 min/grabación",
+        "limits": "Sin traspaso; hasta 5 h por grabación; cupos de archivos",
+        "service": "Notta",
+        "unlimited": "Business — Ilimitado (anual $16.67/mes; mensual superior)"
+      }
+    ],
+    "tableHead": [
+      "Servicio",
+      "Plan gratuito",
+      "Más económico",
+      "Uso ilimitado",
+      "Límites destacables",
+      "Modelo de cobro"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Descargar app de iOS",
+    "openBrowser": "Abrir en el navegador"
+  },
   "hero": {
+    "h1": "Precios de Actas IA (2025)",
     "kicker": "Precios",
-    "h1": "Precios de Minutes.AI (2025)",
     "tagline": "Elige paquetes de tiempo sin caducidad o suscripciones mensuales/anuales totalmente ilimitadas."
   },
   "intro": {
     "h2": "¿Qué plan encaja contigo?",
     "p1": "Ofrecemos cuatro opciones adaptadas a tu frecuencia de reuniones."
   },
+  "meta": {
+    "category": "Precios",
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Guía"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Precios"
+  },
   "plans": {
-    "h3_timepacks": "Tipo paquete de tiempo",
-    "timepacks_note": "Los minutos comprados nunca caducan. Genera actas automáticamente cuando quieras.",
-    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
-    "light": { "name": "Light", "detail": "1200 min / $11.99" },
-    "h3_subs": "Tipo suscripción",
-    "subs_note": "Las suscripciones son realmente ilimitadas — sin límites mensuales.",
-    "monthly": { "name": "Mensual", "detail": "$16.99" },
-    "annual": { "name": "Anual", "detail": "$149.99" },
-    "free": {
-      "badge": "Ticket gratuito diario",
-      "text": "Incluso sin pagar, obtienes un ticket gratuito de 3 minutos cada día para probar Minutes.AI."
+    "annual": {
+      "detail": "$149.99",
+      "name": "Anual"
     },
     "bullets": [
       "Paquetes sin caducidad: compra una vez, usa cuando quieras",
       "Uso ilimitado con suscripción",
       "iOS y Web, salidas multilingües"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs. Otter vs. Notta — resumen de precios",
-    "note": "Precios y cuotas clave (USD). Los competidores suelen reiniciar las cuotas mensualmente sin traspaso.",
-    "tableHead": ["Servicio", "Plan gratuito", "Más económico", "Uso ilimitado", "Límites destacables", "Modelo de cobro"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "Ticket diario de 3 min",
-        "cheapest": "Trial 120 min / $1.99 (sin caducidad)",
-        "unlimited": "Sí — $16.99/mes o $149.99/año",
-        "limits": "Los paquetes no caducan. Suscripciones sin tope.",
-        "billing": "Paquetes únicos + suscripciones"
-      },
-      {
-        "service": "Otter",
-        "free": "300 min/mes, hasta 30 min/conversación",
-        "cheapest": "Pro — $16.99/mes o $8.33/mes (anual)",
-        "unlimited": "No — Pro 1200 min/mes; Business 6000 min de importación/mes",
-        "limits": "Sin traspaso; límite por reunión",
-        "billing": "Suscripción por usuario"
-      },
-      {
-        "service": "Notta",
-        "free": "120 min/mes, hasta 3 min/grabación",
-        "cheapest": "Pro — $13.49/mes (mensual) o $8.17/mes (anual)",
-        "unlimited": "Business — Ilimitado (anual $16.67/mes; mensual superior)",
-        "limits": "Sin traspaso; hasta 5 h por grabación; cupos de archivos",
-        "billing": "Suscripción por usuario"
-      }
     ],
-    "foot": "Fuentes: páginas oficiales de precios de Otter y Notta.",
-    "lastUpdated": "Última actualización: 31 oct 2025"
+    "free": {
+      "badge": "Ticket gratuito diario",
+      "text": "Incluso sin pagar, obtienes un ticket gratuito de 3 minutos cada día para probar Actas IA."
+    },
+    "h3_subs": "Tipo suscripción",
+    "h3_timepacks": "Tipo paquete de tiempo",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Mensual"
+    },
+    "subs_note": "Las suscripciones son realmente ilimitadas — sin límites mensuales.",
+    "timepacks_note": "Los minutos comprados nunca caducan. Genera actas automáticamente cuando quieras.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Paquetes de tiempo sin caducidad y suscripciones realmente ilimitadas. Compara Actas IA con Otter y Notta en precio, cuotas y traspaso.",
+    "ld": {
+      "description": "Cuatro planes: dos paquetes de tiempo (sin caducidad) y dos suscripciones ilimitadas, con comparativa frente a Otter y Notta.",
+      "headline": "Precios de Actas IA"
+    },
+    "ogDescription": "Paquetes sin caducidad + suscripciones ilimitadas. Comparativa rápida con Otter y Notta.",
+    "ogTitle": "Precios de Actas IA",
+    "title": "Precios de Actas IA — planes sencillos para cada tipo de reunión"
   },
   "why": {
     "h2": "Por qué diseñamos así los planes",
@@ -79,7 +113,5 @@
       "Reuniones ocasionales: compra Light una vez — sin caducidad.",
       "Solo probar: paquete Trial + ticket diario de 3 minutos."
     ]
-  },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Guía", "category": "Precios" },
-  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app de iOS" }
+  }
 }

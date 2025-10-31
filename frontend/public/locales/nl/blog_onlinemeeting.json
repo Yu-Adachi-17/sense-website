@@ -1,38 +1,71 @@
 {
-  "seo": {
-    "title": "Minutes.AI ondersteunt nu online vergaderingen (iOS)",
-    "description": "Klik op “Online” om een URL te maken, deel deze en start direct een Zoom-achtige meeting. Notulen worden automatisch gegenereerd na afloop.",
-    "ogTitle": "Online vergaderingen in Minutes.AI",
-    "ogDescription": "Start via “Online” en ontvang automatisch nette, geformatteerde notulen.",
-    "ld": { "headline": "Minutes.AI voegt online vergaderingen toe", "description": "Zoom-achtige meetings via URL en automatische notulen met duidelijke besluiten en acties." }
+  "aria": {
+    "home": "Notulen AI Startpagina"
   },
-  "aria": { "home": "Minutes.AI Startpagina" },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online vergaderingen" },
-  "hero": {
-    "kicker": "Release",
-    "h1": "Online vergaderingen voor Minutes.AI (iOS)",
-    "tagline": "Klik “Online”, genereer een URL en deel. Na afloop starten de notulen automatisch."
-  },
-  "release": {
-    "h2": "Nieuw",
-    "p1": "Minutes.AI ondersteunt nu online vergaderingen. Genereer en deel een URL vanuit “Online” om direct te starten.",
-    "p2": "Na de meeting worden notulen automatisch gemaakt met duidelijke besluiten en acties."
-  },
-  "image": { "alt": "Minutes.AI online vergader-UI", "caption": "Start vanuit de knop “Online”." },
-  "steps": {
-    "h2": "Aan de slag",
-    "items": ["Klik “Online” (app/web)", "Genereer een vergader-URL", "Deel de URL met deelnemers", "Beëindig → automatische notulen"],
-    "note": "Duur is afhankelijk van abonnement en resterend tegoed."
+  "cta": {
+    "downloadIOS": "iOS-app downloaden",
+    "openBrowser": "Open in browser"
   },
   "features": {
     "h2": "Pluspunten",
-    "items": ["Zoom-achtige UX (LiveKit)", "URL met één klik", "Automatische notulen na afloop", "Heldere, geformatteerde output", "Meertalig voor globale teams"]
+    "items": [
+      "Zoom-achtige UX (LiveKit)",
+      "URL met één klik",
+      "Automatische notulen na afloop",
+      "Heldere, geformatteerde output",
+      "Meertalig voor globale teams"
+    ]
+  },
+  "hero": {
+    "h1": "Online vergaderingen voor Notulen AI (iOS)",
+    "kicker": "Release",
+    "tagline": "Klik “Online”, genereer een URL en deel. Na afloop starten de notulen automatisch."
+  },
+  "image": {
+    "alt": "Notulen AI online vergader-UI",
+    "caption": "Start vanuit de knop “Online”."
+  },
+  "meta": {
+    "category": "Online vergadering",
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Release"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Online vergaderingen"
   },
   "notes": {
+    "foot": "Probeer het op het web of download de iOS-app.",
     "h2": "Opmerkingen",
-    "items": ["Limieten/resterende tijd per abonnement/tegoed", "Netwerk/apparaat kunnen kwaliteit beïnvloeden"],
-    "foot": "Probeer het op het web of download de iOS-app."
+    "items": [
+      "Limieten/resterende tijd per abonnement/tegoed",
+      "Netwerk/apparaat kunnen kwaliteit beïnvloeden"
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Release", "category": "Online vergadering" },
-  "cta": { "openBrowser": "Open in browser", "downloadIOS": "iOS-app downloaden" }
+  "release": {
+    "h2": "Nieuw",
+    "p1": "Notulen AI ondersteunt nu online vergaderingen. Genereer en deel een URL vanuit “Online” om direct te starten.",
+    "p2": "Na de meeting worden notulen automatisch gemaakt met duidelijke besluiten en acties."
+  },
+  "seo": {
+    "description": "Klik op “Online” om een URL te maken, deel deze en start direct een Zoom-achtige meeting. Notulen worden automatisch gegenereerd na afloop.",
+    "ld": {
+      "description": "Zoom-achtige meetings via URL en automatische notulen met duidelijke besluiten en acties.",
+      "headline": "Notulen AI voegt online vergaderingen toe"
+    },
+    "ogDescription": "Start via “Online” en ontvang automatisch nette, geformatteerde notulen.",
+    "ogTitle": "Online vergaderingen in Notulen AI",
+    "title": "Notulen AI ondersteunt nu online vergaderingen (iOS)"
+  },
+  "steps": {
+    "h2": "Aan de slag",
+    "items": [
+      "Klik “Online” (app/web)",
+      "Genereer een vergader-URL",
+      "Deel de URL met deelnemers",
+      "Beëindig → automatische notulen"
+    ],
+    "note": "Duur is afhankelijk van abonnement en resterend tegoed."
+  }
 }

@@ -1,18 +1,46 @@
 {
-  "seo": {
-    "title": "Vad är Protokoll AI? Grunder & fördelar innan du börjar | Protokoll AI-bloggen",
-    "description": "Ett tryck för meningsfulla protokoll. En enkel introduktion till Protokoll AI: grunder, skillnader mot andra verktyg och exempel på output; anförtrott av över {{users}} användare (per {{date}}).",
-    "ogTitle": "Vad är Protokoll AI? Grunder & fördelar innan du börjar",
-    "ogDescription": "Ett tryck för meningsfulla protokoll. Förstå Protokoll AI, vad som skiljer det och se exempel.",
-    "ld": {
-      "headline": "Vad är Protokoll AI? Grunder & fördelar innan du börjar",
-      "description": "Ett tryck för meningsfulla protokoll. Kort introduktion till Protokoll AI, dess skillnader och exempel."
-    }
+  "compare": {
+    "head": {
+      "feature": "Funktion",
+      "generic": "Generisk AI",
+      "minutes": "Protokoll AI",
+      "transcription": "Enkelt transkriptionsverktyg"
+    },
+    "rows": [
+      {
+        "a": "Ja",
+        "b": "Nej (kräver manuell inmatning)",
+        "c": "Ja",
+        "k": "Ljud → Text"
+      },
+      {
+        "a": "Nej",
+        "b": "Ja (men kontext kan skifta)",
+        "c": "Ja (optimerat för möten)",
+        "k": "Sammanfattning / Struktur"
+      },
+      {
+        "a": "Nej",
+        "b": "Ja (ofta otydligt)",
+        "c": "Ja (tydlig extraktion + taggning)",
+        "k": "Beslut / Åtgärder"
+      },
+      {
+        "a": "Nej",
+        "b": "Ja (risk för syntaxfel)",
+        "c": "Ja (stora språk + kontextmedvetet)",
+        "k": "Flerspråkigt stöd"
+      }
+    ],
+    "title": "Skillnader: Transkription / Generisk AI / Protokoll AI"
   },
-  "nav": { "blog": "Blogg", "introduction": "Introduktion" },
+  "cta": {
+    "downloadIOS": "Ladda ned iOS-versionen",
+    "openBrowser": "Öppna i webbläsaren"
+  },
   "hero": {
-    "kicker": "Protokoll AI",
     "h1": "Vad är Protokoll AI? Grunder & fördelar innan du börjar",
+    "kicker": "Protokoll AI",
     "tagline": "”Ett tryck för meningsfulla mötesprotokoll.” Klara förklaringar för alla som just börjar."
   },
   "intro": {
@@ -20,110 +48,137 @@
     "p1": "Tack för att du läser detta. Kanske har du tänkt: ”Skriva protokoll tar för mycket tid”, ”Jag kan göra det, men det är tidskrävande”, eller ”Jag testade en populär AI men resultatet kändes fel.”",
     "p2": "Eller som läsare upplevt: ”Viktiga punkter missades”, ”beslut är otydliga”, eller ”teamets förståelse skiljer sig åt.”",
     "p3": {
-      "pre": "I den här artikeln visar vi hur",
-      "mid": "hjälper dig att skapa",
       "bold": "meningsfulla protokoll",
-      "post": "med bara ett tryck — fokus på tydlighet och resultat."
+      "mid": "hjälper dig att skapa",
+      "post": "med bara ett tryck — fokus på tydlighet och resultat.",
+      "pre": "I den här artikeln visar vi hur"
     }
   },
-  "what": {
-    "h2": "Vad är Protokoll AI?",
-    "p1": "Protokoll AI är ett AI-drivet, helt automatiserat verktyg för mötesprotokoll. Det stöder alla större språk och har över 30 000 användare globalt.",
-    "footnote": "※ Per {{date}} (baserat på iOS App Store-data)",
-    "p2": "Med Protokoll AI kan du automatiskt generera ”sammanfattningar”, ”beslut” och ”åtgärdspunkter” — utan manuellt arbete."
-  },
-  "compare": {
-    "title": "Skillnader: Transkription / Generisk AI / Protokoll AI",
-    "head": {
-      "feature": "Funktion",
-      "transcription": "Enkelt transkriptionsverktyg",
-      "generic": "Generisk AI",
-      "minutes": "Protokoll AI"
-    },
-    "rows": [
-      { "k": "Ljud → Text", "a": "Ja", "b": "Nej (kräver manuell inmatning)", "c": "Ja" },
-      { "k": "Sammanfattning / Struktur", "a": "Nej", "b": "Ja (men kontext kan skifta)", "c": "Ja (optimerat för möten)" },
-      { "k": "Beslut / Åtgärder", "a": "Nej", "b": "Ja (ofta otydligt)", "c": "Ja (tydlig extraktion + taggning)" },
-      { "k": "Flerspråkigt stöd", "a": "Nej", "b": "Ja (risk för syntaxfel)", "c": "Ja (stora språk + kontextmedvetet)" }
-    ]
-  },
-  "samples": {
-    "h2": "Källtext & exempel",
-    "meetingSample": "Exempel på mötesljud",
-    "transcript": {
-      "preview": "Okej, låt oss börja mötet. Först går vi igenom försäljningen av ”smartwatch” från helgen. Johan, börja med onlinekanalen.",
-      "full": "Alex (Marknadsansvarig): Tack för att ni kom — Johan (E-handel), Sara (Butik), Tim (Produktchef) och Robin (Data). Låt oss se över helgens smartwatch-resultat. Johan, börja med online.\n\nJohan (E-handel): Vecka mot vecka upp 18 % i sessioner. Konvertering 2,9 % → 3,2 %. Intäkter +12 %. Spiken kom av influencer-kampanjen i lördags; annonskostnad +6 %.\n\nRobin (Data): CAC stabil runt ¥2 400. Retargeting-CTR sjönk från 1,8 % till 1,2 %. Rek. kreativ uppdatering och A/B-test med kortare rubriker. Jag kan leverera analysen senast fredag (2025-10-17).\n\nAlex: Bra. Beslut: Öka onlineannonsbudgeten med 15 % i två veckor. Åtgärder: Johan — starta A/B-test senast onsdag (2025-10-15). Robin — leverera CTR-analys senast fredag (2025-10-17).\n\nSara (Butik): Utsålt i Stockholm, Göteborg och Malmö. Påfyllning 500 enheter på måndag. Butikstrafik −4 % p.g.a. oväder, men snittköp stabilt.\n\nAlex: Beslut: Genomför påfyllning 500 enheter i tre butiker. Åtgärd: Sara — bekräfta leverans och logistik senast tisdag (2025-10-14). Risk: försening vid leverantörsbelastning.\n\nTim (Produkt): Firmware v1.2 löser batteriproblem och förbättrar stegräkning. Release notes klara. Föreslår lansering 20 okt med Q4-paket — ”Watch + Band” −¥2 000. Support behöver publicera FAQ.\n\nAlex: Beslut: Godkänn Q4-lansering 2025-10-20. Åtgärder: Tim — färdigställ plan senast måndag (2025-10-13). Support — publicera FAQ senast torsdag (2025-10-16). Marknad — förbered Black Friday-plan senast lördag (2025-10-25).\n\nAlex (avslut): Arbeta smart och håll kursen tydlig — tydlighet före hastighet. Säkerställ ”vem gör vad när” och håll möten under 30 min."
-    },
-    "generic": {
-      "h3": "Exempel på generisk AI-utdata",
-      "body": "Teamet gick igenom smartwatch-försäljningen. Online-siffrorna var positiva. Flera butiker var slut på lager. Firmware och säsongspaket nämndes. Överlag positivt med förbättringsförslag.",
-      "note": "Lättläst, men svarar inte tydligt på ”vem gör vad när”."
-    },
-    "pretty": { "h3": "Exempel från Protokoll AI" }
-  },
   "minutes": {
-    "meetingTitle": "Veckogenomgång av smartwatch-försäljning",
-    "date": "2025-10-11 10:00 CET",
-    "attendees": ["Alex (Marknad)", "Johan (E-handel)", "Sara (Butik)", "Tim (Produkt)", "Robin (Data)"],
+    "attendees": [
+      "Alex (Marknad)",
+      "Johan (E-handel)",
+      "Sara (Butik)",
+      "Tim (Produkt)",
+      "Robin (Data)"
+    ],
     "coreMessage": "Arbeta smart och prioritera tydlighet. Definiera ”vem gör vad när” och håll möten inom 30 minuter.",
+    "date": "2025-10-11 10:00 CET",
+    "labels": {
+      "actionItems": "Åtgärder",
+      "attendees": "Deltagare:",
+      "closingMessage": "Avslutande meddelande",
+      "concerns": "Anmärkningar",
+      "decisions": "Beslut",
+      "discussion": "Diskussion",
+      "keyMessages": "Kärnbudskap"
+    },
+    "meetingTitle": "Veckogenomgång av smartwatch-försäljning",
     "topics": [
       {
-        "topic": "Onlinekanalens prestation",
+        "actionItems": [
+          "Johan — starta A/B-test senast 2025-10-15",
+          "Robin — leverera CTR-analys senast 2025-10-17"
+        ],
+        "concerns": [
+          "Annonströtthet om kreativa inte förnyas"
+        ],
+        "decisions": [
+          "Öka onlineannonsbudget 15 % i 2 veckor"
+        ],
         "discussion": [
           "Sessioner +18 %; konvertering 2,9 % → 3,2 %; intäkter +12 %",
           "Lördags-spik från influencer; annonskostnad +6 %",
           "Retargeting-CTR 1,8 % → 1,2 %; kreativ uppdatering + A/B-test"
         ],
-        "decisions": ["Öka onlineannonsbudget 15 % i 2 veckor"],
-        "actionItems": [
-          "Johan — starta A/B-test senast 2025-10-15",
-          "Robin — leverera CTR-analys senast 2025-10-17"
+        "keyMessages": [
+          "Väx med stabil CAC; testa före skalning"
         ],
-        "concerns": ["Annonströtthet om kreativa inte förnyas"],
-        "keyMessages": ["Väx med stabil CAC; testa före skalning"]
+        "topic": "Onlinekanalens prestation"
       },
       {
-        "topic": "Lager & butiksdrift",
+        "actionItems": [
+          "Sara — bekräfta logistik senast 2025-10-14"
+        ],
+        "concerns": [
+          "Risk för försening vid hög efterfrågan"
+        ],
+        "decisions": [
+          "Genomför påfyllning i tre butiker"
+        ],
         "discussion": [
           "Slut i Stockholm, Göteborg, Malmö",
           "500 enheter påfyllning måndag",
           "Butikstrafik −4 %; snittköp stabilt"
         ],
-        "decisions": ["Genomför påfyllning i tre butiker"],
-        "actionItems": ["Sara — bekräfta logistik senast 2025-10-14"],
-        "concerns": ["Risk för försening vid hög efterfrågan"],
-        "keyMessages": ["Säkra lager för att undvika utebliven försäljning"]
+        "keyMessages": [
+          "Säkra lager för att undvika utebliven försäljning"
+        ],
+        "topic": "Lager & butiksdrift"
       },
       {
-        "topic": "Firmware v1.2 & Q4-paket",
-        "discussion": [
-          "Fixar batteri; bättre stegräkning",
-          "Release notes klara; Support publicerar FAQ",
-          "Q4-paket: Watch + Band, −¥2 000 från 2025-10-20"
-        ],
-        "decisions": ["Godkänn lansering 2025-10-20"],
         "actionItems": [
           "Tim — färdigställ plan 2025-10-13",
           "Support — publicera FAQ 2025-10-16",
           "Marknad — Black Friday-plan 2025-10-25"
         ],
-        "keyMessages": ["Koppla produktförbättringar till rätt marknads-timing"]
+        "decisions": [
+          "Godkänn lansering 2025-10-20"
+        ],
+        "discussion": [
+          "Fixar batteri; bättre stegräkning",
+          "Release notes klara; Support publicerar FAQ",
+          "Q4-paket: Watch + Band, −¥2 000 från 2025-10-20"
+        ],
+        "keyMessages": [
+          "Koppla produktförbättringar till rätt marknads-timing"
+        ],
+        "topic": "Firmware v1.2 & Q4-paket"
       }
-    ],
-    "labels": {
-      "discussion": "Diskussion",
-      "decisions": "Beslut",
-      "actionItems": "Åtgärder",
-      "concerns": "Anmärkningar",
-      "keyMessages": "Kärnbudskap",
-      "attendees": "Deltagare:",
-      "closingMessage": "Avslutande meddelande"
+    ]
+  },
+  "nav": {
+    "blog": "Blogg",
+    "introduction": "Introduktion"
+  },
+  "samples": {
+    "generic": {
+      "body": "Teamet gick igenom smartwatch-försäljningen. Online-siffrorna var positiva. Flera butiker var slut på lager. Firmware och säsongspaket nämndes. Överlag positivt med förbättringsförslag.",
+      "h3": "Exempel på generisk AI-utdata",
+      "note": "Lättläst, men svarar inte tydligt på ”vem gör vad när”."
+    },
+    "h2": "Källtext & exempel",
+    "meetingSample": "Exempel på mötesljud",
+    "pretty": {
+      "h3": "Exempel från Protokoll AI"
+    },
+    "transcript": {
+      "full": "Alex (Marknadsansvarig): Tack för att ni kom — Johan (E-handel), Sara (Butik), Tim (Produktchef) och Robin (Data). Låt oss se över helgens smartwatch-resultat. Johan, börja med online.\n\nJohan (E-handel): Vecka mot vecka upp 18 % i sessioner. Konvertering 2,9 % → 3,2 %. Intäkter +12 %. Spiken kom av influencer-kampanjen i lördags; annonskostnad +6 %.\n\nRobin (Data): CAC stabil runt ¥2 400. Retargeting-CTR sjönk från 1,8 % till 1,2 %. Rek. kreativ uppdatering och A/B-test med kortare rubriker. Jag kan leverera analysen senast fredag (2025-10-17).\n\nAlex: Bra. Beslut: Öka onlineannonsbudgeten med 15 % i två veckor. Åtgärder: Johan — starta A/B-test senast onsdag (2025-10-15). Robin — leverera CTR-analys senast fredag (2025-10-17).\n\nSara (Butik): Utsålt i Stockholm, Göteborg och Malmö. Påfyllning 500 enheter på måndag. Butikstrafik −4 % p.g.a. oväder, men snittköp stabilt.\n\nAlex: Beslut: Genomför påfyllning 500 enheter i tre butiker. Åtgärd: Sara — bekräfta leverans och logistik senast tisdag (2025-10-14). Risk: försening vid leverantörsbelastning.\n\nTim (Produkt): Firmware v1.2 löser batteriproblem och förbättrar stegräkning. Release notes klara. Föreslår lansering 20 okt med Q4-paket — ”Watch + Band” −¥2 000. Support behöver publicera FAQ.\n\nAlex: Beslut: Godkänn Q4-lansering 2025-10-20. Åtgärder: Tim — färdigställ plan senast måndag (2025-10-13). Support — publicera FAQ senast torsdag (2025-10-16). Marknad — förbered Black Friday-plan senast lördag (2025-10-25).\n\nAlex (avslut): Arbeta smart och håll kursen tydlig — tydlighet före hastighet. Säkerställ ”vem gör vad när” och håll möten under 30 min.",
+      "preview": "Okej, låt oss börja mötet. Först går vi igenom försäljningen av ”smartwatch” från helgen. Johan, börja med onlinekanalen."
     }
+  },
+  "seo": {
+    "description": "Ett tryck för meningsfulla protokoll. En enkel introduktion till Protokoll AI: grunder, skillnader mot andra verktyg och exempel på output; anförtrott av över {{users}} användare (per {{date}}).",
+    "ld": {
+      "description": "Ett tryck för meningsfulla protokoll. Kort introduktion till Protokoll AI, dess skillnader och exempel.",
+      "headline": "Vad är Protokoll AI? Grunder & fördelar innan du börjar"
+    },
+    "ogDescription": "Ett tryck för meningsfulla protokoll. Förstå Protokoll AI, vad som skiljer det och se exempel.",
+    "ogTitle": "Vad är Protokoll AI? Grunder & fördelar innan du börjar",
+    "title": "Vad är Protokoll AI? Grunder & fördelar innan du börjar | Protokoll AI-bloggen"
+  },
+  "transcript": {
+    "close": "Stäng",
+    "expand": "Visa fullständig text"
+  },
+  "what": {
+    "footnote": "※ Per {{date}} (baserat på iOS App Store-data)",
+    "h2": "Vad är Protokoll AI?",
+    "p1": "Protokoll AI är ett AI-drivet, helt automatiserat verktyg för mötesprotokoll. Det stöder alla större språk och har över 30 000 användare globalt.",
+    "p2": "Med Protokoll AI kan du automatiskt generera ”sammanfattningar”, ”beslut” och ”åtgärdspunkter” — utan manuellt arbete."
   },
   "wrap": {
     "h2": "Sammanfattning",
     "p": "Vad tycker du? Med denna struktur ser teamet direkt vad som händer härnäst — protokollet blir verkligt användbart och åtgärdsbart. Prova Protokoll AI och upplev skillnaden."
-  },
-  "cta": { "openBrowser": "Öppna i webbläsaren", "downloadIOS": "Ladda ned iOS-versionen" },
-  "transcript": { "expand": "Visa fullständig text", "close": "Stäng" }
+  }
 }

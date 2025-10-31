@@ -2,36 +2,15 @@
   "a11y": {
     "home": "Back to Minutes.AI Home"
   },
-  "nav": {
-    "blog": "Blog",
-    "current": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting"
-  },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Minutes.AI Blog",
-    "h1": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting",
-    "tagline": "The four universal pillars make notes readable. But when you optimize for the meeting’s purpose, minutes evolve from a “record to read” into a “blueprint to act.”"
-  },
-  "recap": {
-    "h2": "Quick recap: What makes meeting minutes meaningful?",
-    "p1": {
-      "pre": "In the previous post, we defined “meaningful minutes.” If you missed it, start with ",
-      "link": "Part 1",
-      "post": "."
-    },
-    "points": {
-      "0": "Discussion",
-      "1": "Decisions",
-      "2": "Action Items (owner & due date)",
-      "3": "Concerns (open risks / unresolved)"
-    },
-    "note": "Being able to scan these four at a glance is the minimum. This foundation guarantees basic readability."
+  "cta": {
+    "downloadIOS": "Download on iOS",
+    "openBrowser": "Open the Web App"
   },
   "diversity": {
-    "h2": "Meetings are diverse: different goals, different value outputs",
     "core": {
       "h3": "Representative meeting types",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Sales meetings: align interests and reach agreement"
       }
     },
+    "h2": "Meetings are diverse: different goals, different value outputs",
+    "p1": "Whenever people talk toward a shared goal, that’s a meeting. And when the goal changes, the shape of a high-value output changes too.",
     "wide": {
       "h3": "Broadly defined “meetings”",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Presentations: state the problem and proposed solution",
         "3": "Lectures/Training: transfer operations and know-how"
       }
-    },
-    "p1": "Whenever people talk toward a shared goal, that’s a meeting. And when the goal changes, the shape of a high-value output changes too."
+    }
+  },
+  "hero": {
+    "h1": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting",
+    "kicker": "Minutes.AI Blog",
+    "tagline": "The four universal pillars make notes readable. But when you optimize for the meeting’s purpose, minutes evolve from a “record to read” into a “blueprint to act.”"
   },
   "limits": {
-    "h2": "Limits of a one-size-fits-all format",
-    "p1": "The four pillars—Discussion, Decisions, Action Items, Concerns—work almost everywhere, but some meeting types lose “temperature” and context. 1:1s especially tend to lack nuance when you read them later.",
     "generic": {
       "h3": "If you use only a generic format",
       "items": {
@@ -62,6 +45,7 @@
         "2": "When revisiting later, the “why behind the decision” feels thin"
       }
     },
+    "h2": "Limits of a one-size-fits-all format",
     "optimized": {
       "h3": "If you optimize (1:1 example)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Key Discussion (utterance × summary): trace the path to alignment",
         "3": "Agreements / Next Actions / Risks: normalize for execution"
       }
-    }
+    },
+    "p1": "The four pillars—Discussion, Decisions, Action Items, Concerns—work almost everywhere, but some meeting types lose “temperature” and context. 1:1s especially tend to lack nuance when you read them later."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting"
   },
   "oneonone": {
-    "h2": "1:1 example: keep the temperature, preserve decision context",
     "generic": {
       "h3": "Only the four universal pillars",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Concern: no fallback if B is absent"
       }
     },
+    "h2": "1:1 example: keep the temperature, preserve decision context",
     "optimized": {
       "h3": "Optimized (1:1 format)",
       "items": {
@@ -93,6 +82,73 @@
         "4": "Next Actions: B to draft template today; A to apply and report next Wed"
       }
     }
+  },
+  "recap": {
+    "h2": "Quick recap: What makes meeting minutes meaningful?",
+    "note": "Being able to scan these four at a glance is the minimum. This foundation guarantees basic readability.",
+    "p1": {
+      "link": "Part 1",
+      "post": ".",
+      "pre": "In the previous post, we defined “meaningful minutes.” If you missed it, start with "
+    },
+    "points": {
+      "0": "Discussion",
+      "1": "Decisions",
+      "2": "Action Items (owner & due date)",
+      "3": "Concerns (open risks / unresolved)"
+    }
+  },
+  "seo": {
+    "alternateLangs": {
+      "ja": "{{canonicalJa}}"
+    },
+    "articleSection": "Productivity, AI",
+    "canonical": "{{canonical}}",
+    "description": "Readable by design, actionable by purpose. With meeting-type optimization, Minutes.AI turns notes into blueprints. Used by {{users}}+ people as of {{date}}.",
+    "keywords": "AI meeting minutes, AI meeting notes, meeting notes automation, one-on-one notes, sales meeting minutes, brainstorming notes, presentation notes, action items, decision tracking, Minutes.AI",
+    "ld": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "author": {
+        "@type": "Person",
+        "name": "Yu Adachi"
+      },
+      "dateModified": "{{dateISO}}",
+      "datePublished": "{{dateISO}}",
+      "description": "How meeting-type optimization in Minutes.AI preserves tone and context, clarifies decisions, and drives action.",
+      "headline": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting",
+      "image": "{{ogImage}}",
+      "inLanguage": "en",
+      "keywords": "AI meeting minutes, meeting notes, Minutes.AI",
+      "mainEntityOfPage": {
+        "@id": "{{canonical}}",
+        "@type": "WebPage"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{publisherLogo}}"
+        },
+        "name": "Sense G.K."
+      }
+    },
+    "ogDescription": "From 1:1s and sales calls to brainstorms, Minutes.AI preserves tone and context, clarifies decisions, and drives execution.",
+    "ogImage": "{{ogImage}}",
+    "ogTitle": "Why Minutes.AI Works for Every Meeting Type",
+    "readingTimeMinutes": 6,
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "slug": "why-minutes-ai-delivers-better-meeting-minutes",
+    "tags": [
+      "AI meeting minutes",
+      "meeting notes",
+      "1:1s",
+      "sales",
+      "brainstorming",
+      "productivity"
+    ],
+    "title": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting | Minutes.AI Blog",
+    "twitterCard": "summary_large_image"
   },
   "why": {
     "h2": "Why Minutes.AI works for “any” meeting",
@@ -107,54 +163,5 @@
   "wrap": {
     "h2": "Takeaway",
     "p": "The four universal pillars are a strong base. Push further with meeting-type optimization and your minutes evolve from a record you read to a blueprint you act on. Minutes.AI ships this optimization by default—experience it in real work."
-  },
-  "cta": {
-    "openBrowser": "Open the Web App",
-    "downloadIOS": "Download on iOS"
-  },
-  "seo": {
-    "title": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting | Minutes.AI Blog",
-    "description": "Readable by design, actionable by purpose. With meeting-type optimization, Minutes.AI turns notes into blueprints. Used by {{users}}+ people as of {{date}}.",
-    "ogTitle": "Why Minutes.AI Works for Every Meeting Type",
-    "ogDescription": "From 1:1s and sales calls to brainstorms, Minutes.AI preserves tone and context, clarifies decisions, and drives execution.",
-    "keywords": "AI meeting minutes, AI meeting notes, meeting notes automation, one-on-one notes, sales meeting minutes, brainstorming notes, presentation notes, action items, decision tracking, Minutes.AI",
-    "slug": "why-minutes-ai-delivers-better-meeting-minutes",
-    "canonical": "{{canonical}}",
-    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
-    "ogImage": "{{ogImage}}",
-    "twitterCard": "summary_large_image",
-    "articleSection": "Productivity, AI",
-    "tags": ["AI meeting minutes","meeting notes","1:1s","sales","brainstorming","productivity"],
-    "readingTimeMinutes": 6,
-    "alternateLangs": {
-      "ja": "{{canonicalJa}}"
-    },
-    "ld": {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{canonical}}"
-      },
-      "headline": "Why Minutes.AI Delivers Better Meeting Minutes for Every Meeting",
-      "description": "How meeting-type optimization in Minutes.AI preserves tone and context, clarifies decisions, and drives action.",
-      "datePublished": "{{dateISO}}",
-      "dateModified": "{{dateISO}}",
-      "author": {
-        "@type": "Person",
-        "name": "Yu Adachi"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Sense G.K.",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{publisherLogo}}"
-        }
-      },
-      "image": "{{ogImage}}",
-      "inLanguage": "en",
-      "keywords": "AI meeting minutes, meeting notes, Minutes.AI"
-    }
   }
 }

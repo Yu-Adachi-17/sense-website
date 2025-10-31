@@ -1,38 +1,71 @@
 {
-  "seo": {
-    "title": "Minutes.AI understøtter nu onlinemøder (iOS)",
-    "description": "Klik på “Online” for at oprette en URL, del den og start straks et Zoom-lignende møde. Referatet genereres automatisk, når mødet slutter.",
-    "ogTitle": "Onlinemøder i Minutes.AI",
-    "ogDescription": "Start via “Online” og få automatisk, vel-formateret referat.",
-    "ld": { "headline": "Understøttelse af onlinemøder", "description": "Zoom-lignende møder via URL og automatisk referat med klare beslutninger og opgaver." }
+  "aria": {
+    "home": "Referat AI Hjem"
   },
-  "aria": { "home": "Minutes.AI Hjem" },
-  "nav": { "blog": "Blog", "onlinemeeting": "Onlinemøde" },
-  "hero": {
-    "kicker": "Udgivelse",
-    "h1": "Onlinemøder til Minutes.AI (iOS)",
-    "tagline": "Klik “Online”, opret URL og del. Ved afslutning starter automatisk referat."
-  },
-  "release": {
-    "h2": "Nyt",
-    "p1": "Minutes.AI understøtter nu onlinemøder. Opret og del URL fra “Online” for at komme i gang med det samme.",
-    "p2": "Når mødet slutter, genereres referatet automatisk med tydelige beslutninger og opgaver."
-  },
-  "image": { "alt": "Minutes.AI onlinemøde-interface", "caption": "Start fra knappen “Online”." },
-  "steps": {
-    "h2": "Sådan kommer du i gang",
-    "items": ["Klik “Online” (app/web)", "Opret møde-URL", "Del URL’en med deltagerne", "Afslut → automatisk referat"],
-    "note": "Mødelængde afhænger af plan og kvote."
+  "cta": {
+    "downloadIOS": "Hent iOS-app",
+    "openBrowser": "Åbn i browser"
   },
   "features": {
     "h2": "Højdepunkter",
-    "items": ["Zoom-lignende UX (LiveKit)", "URL med ét klik", "Automatisk referat efter mødet", "Læsevenligt, formateret output", "Flersproget til globale teams"]
+    "items": [
+      "Zoom-lignende UX (LiveKit)",
+      "URL med ét klik",
+      "Automatisk referat efter mødet",
+      "Læsevenligt, formateret output",
+      "Flersproget til globale teams"
+    ]
+  },
+  "hero": {
+    "h1": "Onlinemøder til Referat AI (iOS)",
+    "kicker": "Udgivelse",
+    "tagline": "Klik “Online”, opret URL og del. Ved afslutning starter automatisk referat."
+  },
+  "image": {
+    "alt": "Referat AI onlinemøde-interface",
+    "caption": "Start fra knappen “Online”."
+  },
+  "meta": {
+    "category": "Onlinemøde",
+    "h2": "Meta",
+    "published": "Udgivet",
+    "type": "Udgivelse"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Onlinemøde"
   },
   "notes": {
+    "foot": "Prøv på web eller hent iOS-appen.",
     "h2": "Bemærkninger",
-    "items": ["Tidsgrænser/resterende tid afhænger af plan/kvote", "Netværk/enhed kan påvirke kvaliteten"],
-    "foot": "Prøv på web eller hent iOS-appen."
+    "items": [
+      "Tidsgrænser/resterende tid afhænger af plan/kvote",
+      "Netværk/enhed kan påvirke kvaliteten"
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Udgivelse", "category": "Onlinemøde" },
-  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" }
+  "release": {
+    "h2": "Nyt",
+    "p1": "Referat AI understøtter nu onlinemøder. Opret og del URL fra “Online” for at komme i gang med det samme.",
+    "p2": "Når mødet slutter, genereres referatet automatisk med tydelige beslutninger og opgaver."
+  },
+  "seo": {
+    "description": "Klik på “Online” for at oprette en URL, del den og start straks et Zoom-lignende møde. Referatet genereres automatisk, når mødet slutter.",
+    "ld": {
+      "description": "Zoom-lignende møder via URL og automatisk referat med klare beslutninger og opgaver.",
+      "headline": "Understøttelse af onlinemøder"
+    },
+    "ogDescription": "Start via “Online” og få automatisk, vel-formateret referat.",
+    "ogTitle": "Onlinemøder i Referat AI",
+    "title": "Referat AI understøtter nu onlinemøder (iOS)"
+  },
+  "steps": {
+    "h2": "Sådan kommer du i gang",
+    "items": [
+      "Klik “Online” (app/web)",
+      "Opret møde-URL",
+      "Del URL’en med deltagerne",
+      "Afslut → automatisk referat"
+    ],
+    "note": "Mødelængde afhænger af plan og kvote."
+  }
 }

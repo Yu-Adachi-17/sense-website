@@ -1,37 +1,16 @@
 {
   "a11y": {
-    "home": "Voltar à página inicial do Minutes.AI"
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Porque é que o Minutes.AI produz as melhores atas para qualquer tipo de reunião"
+    "home": "Voltar à página inicial do Ata AI"
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "hero": {
-    "kicker": "Blog do Minutes.AI",
-    "h1": "Porque é que o Minutes.AI produz as melhores atas para qualquer tipo de reunião",
-    "tagline": "Os quatro elementos universais melhoram a legibilidade, mas a optimização segundo o objetivo da reunião transforma a ata num plano de execução — não apenas texto para ler."
-  },
-  "recap": {
-    "h2": "Resumo: o que torna uma ata “significativa”?",
-    "p1": {
-      "pre": "No artigo anterior definimos “atas significativas”. Se perdeu, comece",
-      "link": "por aqui (Parte 1)",
-      "post": "."
-    },
-    "points": {
-      "0": "Discussion (discussão)",
-      "1": "Decisions (decisões)",
-      "2": "Action Items (responsável e prazo)",
-      "3": "Concerns (riscos em aberto)"
-    },
-    "note": "Se estes quatro pontos são visíveis de imediato, a legibilidade base está garantida — é o esqueleto mínimo viável."
+  "cta": {
+    "downloadIOS": "Transferir para iOS",
+    "openBrowser": "Abrir versão web"
   },
   "diversity": {
-    "h2": "As reuniões são diversas: objetivos diferentes, resultados diferentes",
     "core": {
       "h3": "Reuniões típicas",
       "items": {
@@ -40,6 +19,8 @@
         "2": "Vendas/Negociação: alinhar interesses e fechar acordos"
       }
     },
+    "h2": "As reuniões são diversas: objetivos diferentes, resultados diferentes",
+    "p1": "Sempre que se discute um objetivo comum, há uma reunião — e o output de maior valor muda consoante o objetivo.",
     "wide": {
       "h3": "Em sentido lato de “reunião”",
       "items": {
@@ -48,12 +29,14 @@
         "2": "Apresentação: problema e solução",
         "3": "Formação: transferência de conhecimento operacional"
       }
-    },
-    "p1": "Sempre que se discute um objetivo comum, há uma reunião — e o output de maior valor muda consoante o objetivo."
+    }
+  },
+  "hero": {
+    "h1": "Porque é que o Ata AI produz as melhores atas para qualquer tipo de reunião",
+    "kicker": "Blog do Ata AI",
+    "tagline": "Os quatro elementos universais melhoram a legibilidade, mas a optimização segundo o objetivo da reunião transforma a ata num plano de execução — não apenas texto para ler."
   },
   "limits": {
-    "h2": "Limites de um formato único para tudo",
-    "p1": "Os quatro elementos funcionam de modo geral, mas algumas reuniões perdem “temperatura” e contexto — em especial as 1-para-1 — reduzindo a clareza na revisão posterior.",
     "generic": {
       "h3": "Se aplicar apenas o formato universal",
       "items": {
@@ -62,6 +45,7 @@
         "2": "Mais tarde, o “porquê” das decisões fica menos nítido"
       }
     },
+    "h2": "Limites de um formato único para tudo",
     "optimized": {
       "h3": "Se optimizar (exemplo 1-para-1)",
       "items": {
@@ -70,10 +54,14 @@
         "2": "Discussão-chave (citações × resumos): caminho até ao acordo",
         "3": "Acordos / Próximas ações / Riscos: normalizado para execução"
       }
-    }
+    },
+    "p1": "Os quatro elementos funcionam de modo geral, mas algumas reuniões perdem “temperatura” e contexto — em especial as 1-para-1 — reduzindo a clareza na revisão posterior."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Porque é que o Ata AI produz as melhores atas para qualquer tipo de reunião"
   },
   "oneonone": {
-    "h2": "Exemplo 1-para-1: preservar a temperatura e o contexto das decisões",
     "generic": {
       "h3": "Apenas os quatro universais",
       "items": {
@@ -83,6 +71,7 @@
         "3": "Preocupação: sem plano caso B esteja ausente"
       }
     },
+    "h2": "Exemplo 1-para-1: preservar a temperatura e o contexto das decisões",
     "optimized": {
       "h3": "Optimizado (formato 1-para-1)",
       "items": {
@@ -94,8 +83,33 @@
       }
     }
   },
+  "recap": {
+    "h2": "Resumo: o que torna uma ata “significativa”?",
+    "note": "Se estes quatro pontos são visíveis de imediato, a legibilidade base está garantida — é o esqueleto mínimo viável.",
+    "p1": {
+      "link": "por aqui (Parte 1)",
+      "post": ".",
+      "pre": "No artigo anterior definimos “atas significativas”. Se perdeu, comece"
+    },
+    "points": {
+      "0": "Discussion (discussão)",
+      "1": "Decisions (decisões)",
+      "2": "Action Items (responsável e prazo)",
+      "3": "Concerns (riscos em aberto)"
+    }
+  },
+  "seo": {
+    "description": "Para além dos quatro elementos universais: a optimização por tipo de reunião transforma a ata num plano executável. Em {{date}}, mais de {{users}} pessoas utilizam o Ata AI.",
+    "ld": {
+      "description": "Como o Ata AI optimiza os outputs por tipo de reunião e transforma as atas em planos de execução.",
+      "headline": "Porque o Ata AI funciona em qualquer reunião"
+    },
+    "ogDescription": "Preserve o tom e o contexto enquanto impulsiona decisões e execução com outputs otimizados por reunião.",
+    "ogTitle": "Porque o Ata AI resulta em qualquer tipo de reunião",
+    "title": "Porque o Ata AI funciona em qualquer reunião | Blog do Ata AI"
+  },
   "why": {
-    "h2": "Porque o Minutes.AI funciona em qualquer tipo de reunião",
+    "h2": "Porque o Ata AI funciona em qualquer tipo de reunião",
     "items": {
       "0": "Ajuste ao propósito: secções variáveis conforme o objetivo",
       "1": "Preservação da temperatura: extrair o tom e manter o contexto",
@@ -106,20 +120,6 @@
   },
   "wrap": {
     "h2": "Conclusão",
-    "p": "Os quatro elementos são uma base sólida. Ao optimizar por tipo de reunião, a ata torna-se um plano de ação. O Minutes.AI oferece isto por defeito — use-o em reuniões reais."
-  },
-  "cta": {
-    "openBrowser": "Abrir versão web",
-    "downloadIOS": "Transferir para iOS"
-  },
-  "seo": {
-    "title": "Porque o Minutes.AI funciona em qualquer reunião | Blog do Minutes.AI",
-    "description": "Para além dos quatro elementos universais: a optimização por tipo de reunião transforma a ata num plano executável. Em {{date}}, mais de {{users}} pessoas utilizam o Minutes.AI.",
-    "ogTitle": "Porque o Minutes.AI resulta em qualquer tipo de reunião",
-    "ogDescription": "Preserve o tom e o contexto enquanto impulsiona decisões e execução com outputs otimizados por reunião.",
-    "ld": {
-      "headline": "Porque o Minutes.AI funciona em qualquer reunião",
-      "description": "Como o Minutes.AI optimiza os outputs por tipo de reunião e transforma as atas em planos de execução."
-    }
+    "p": "Os quatro elementos são uma base sólida. Ao optimizar por tipo de reunião, a ata torna-se um plano de ação. O Ata AI oferece isto por defeito — use-o em reuniões reais."
   }
 }

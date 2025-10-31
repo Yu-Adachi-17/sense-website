@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Preços do Minutes.AI — planos simples para cada estilo de reunião",
-    "description": "Pacotes de tempo sem prazo e subscrições verdadeiramente ilimitadas. Compare com Otter e Notta (preço, quotas, rollover).",
-    "ogTitle": "Preços do Minutes.AI",
-    "ogDescription": "Pacotes sem prazo + subscrições ilimitadas. Comparação rápida com Otter e Notta.",
-    "ld": {
-      "headline": "Preços do Minutes.AI",
-      "description": "Quatro planos: dois pacotes de tempo (sem prazo) e duas subscrições ilimitadas, com comparação face ao Otter e Notta."
-    }
+  "aria": {
+    "home": "Início do Ata AI"
   },
-  "aria": { "home": "Início do Minutes.AI" },
-  "nav": { "blog": "Blog", "pricing": "Preços" },
+  "compare": {
+    "foot": "Fontes: páginas oficiais de preços do Otter e Notta.",
+    "h2": "Ata AI vs Otter vs Notta — preços em resumo",
+    "lastUpdated": "Última atualização: 31 out 2025",
+    "note": "Preços e quotas em USD. Concorrentes costumam reiniciar quotas mensais sem rollover.",
+    "rows": [
+      {
+        "billing": "Pacotes únicos + subscrições",
+        "cheapest": "Trial 120 min / $1.99 (sem prazo)",
+        "free": "Bilhete diário de 3 min",
+        "limits": "Pacotes sem prazo. Subscrições sem limite.",
+        "service": "Ata AI",
+        "unlimited": "Sim — $16.99/mês ou $149.99/ano"
+      },
+      {
+        "billing": "Subscrição por utilizador",
+        "cheapest": "Pro — $16.99/mês ou $8.33/mês (anual)",
+        "free": "300 min/mês, até 30 min/reunião",
+        "limits": "Sem rollover; limite por reunião",
+        "service": "Otter",
+        "unlimited": "Não — Pro 1200 min/mês; Business 6000 min de importação/mês"
+      },
+      {
+        "billing": "Subscrição por utilizador",
+        "cheapest": "Pro — $13.49/mês (mensal) ou $8.17/mês (anual)",
+        "free": "120 min/mês, até 3 min/gravação",
+        "limits": "Sem carryover; até 5 h por gravação; quotas de upload",
+        "service": "Notta",
+        "unlimited": "Business — Ilimitado (anual $16.67/mês; mensal superior)"
+      }
+    ],
+    "tableHead": [
+      "Serviço",
+      "Plano gratuito",
+      "Mais barato",
+      "Ilimitado",
+      "Limites notáveis",
+      "Modelo de faturação"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Transferir app iOS",
+    "openBrowser": "Abrir no navegador"
+  },
   "hero": {
+    "h1": "Preços do Ata AI (2025)",
     "kicker": "Preços",
-    "h1": "Preços do Minutes.AI (2025)",
     "tagline": "Escolha pacotes de tempo sem prazo ou subscrições mensais/anuais verdadeiramente ilimitadas."
   },
   "intro": {
     "h2": "Qual o plano ideal?",
     "p1": "Quatro opções adaptadas à frequência das suas reuniões."
   },
+  "meta": {
+    "category": "Preços",
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Guia"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Preços"
+  },
   "plans": {
-    "h3_timepacks": "Tipo Pacote de Tempo",
-    "timepacks_note": "Os minutos comprados nunca expiram. Gere atas automáticas quando quiser.",
-    "trial": { "name": "Trial", "detail": "120 min / $1.99" },
-    "light": { "name": "Light", "detail": "1200 min / $11.99" },
-    "h3_subs": "Tipo Subscrição",
-    "subs_note": "As subscrições são realmente ilimitadas — sem limites mensais.",
-    "monthly": { "name": "Mensal", "detail": "$16.99" },
-    "annual": { "name": "Anual", "detail": "$149.99" },
-    "free": {
-      "badge": "Bilhete gratuito diário",
-      "text": "Mesmo sem pagar, recebe um bilhete gratuito de 3 minutos por dia para experimentar o Minutes.AI."
+    "annual": {
+      "detail": "$149.99",
+      "name": "Anual"
     },
     "bullets": [
       "Sem prazo: compre uma vez, use quando quiser",
       "Utilização ilimitada nas subscrições",
       "iOS & Web, saídas multilingues"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs Otter vs Notta — preços em resumo",
-    "note": "Preços e quotas em USD. Concorrentes costumam reiniciar quotas mensais sem rollover.",
-    "tableHead": ["Serviço", "Plano gratuito", "Mais barato", "Ilimitado", "Limites notáveis", "Modelo de faturação"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "Bilhete diário de 3 min",
-        "cheapest": "Trial 120 min / $1.99 (sem prazo)",
-        "unlimited": "Sim — $16.99/mês ou $149.99/ano",
-        "limits": "Pacotes sem prazo. Subscrições sem limite.",
-        "billing": "Pacotes únicos + subscrições"
-      },
-      {
-        "service": "Otter",
-        "free": "300 min/mês, até 30 min/reunião",
-        "cheapest": "Pro — $16.99/mês ou $8.33/mês (anual)",
-        "unlimited": "Não — Pro 1200 min/mês; Business 6000 min de importação/mês",
-        "limits": "Sem rollover; limite por reunião",
-        "billing": "Subscrição por utilizador"
-      },
-      {
-        "service": "Notta",
-        "free": "120 min/mês, até 3 min/gravação",
-        "cheapest": "Pro — $13.49/mês (mensal) ou $8.17/mês (anual)",
-        "unlimited": "Business — Ilimitado (anual $16.67/mês; mensal superior)",
-        "limits": "Sem carryover; até 5 h por gravação; quotas de upload",
-        "billing": "Subscrição por utilizador"
-      }
     ],
-    "foot": "Fontes: páginas oficiais de preços do Otter e Notta.",
-    "lastUpdated": "Última atualização: 31 out 2025"
+    "free": {
+      "badge": "Bilhete gratuito diário",
+      "text": "Mesmo sem pagar, recebe um bilhete gratuito de 3 minutos por dia para experimentar o Ata AI."
+    },
+    "h3_subs": "Tipo Subscrição",
+    "h3_timepacks": "Tipo Pacote de Tempo",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Mensal"
+    },
+    "subs_note": "As subscrições são realmente ilimitadas — sem limites mensais.",
+    "timepacks_note": "Os minutos comprados nunca expiram. Gere atas automáticas quando quiser.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Pacotes de tempo sem prazo e subscrições verdadeiramente ilimitadas. Compare com Otter e Notta (preço, quotas, rollover).",
+    "ld": {
+      "description": "Quatro planos: dois pacotes de tempo (sem prazo) e duas subscrições ilimitadas, com comparação face ao Otter e Notta.",
+      "headline": "Preços do Ata AI"
+    },
+    "ogDescription": "Pacotes sem prazo + subscrições ilimitadas. Comparação rápida com Otter e Notta.",
+    "ogTitle": "Preços do Ata AI",
+    "title": "Preços do Ata AI — planos simples para cada estilo de reunião"
   },
   "why": {
     "h2": "Porque esta estrutura",
@@ -79,7 +113,5 @@
       "Reuniões ocasionais: compre Light uma vez — sem prazo.",
       "Para testar: Trial + bilhete diário de 3 minutos."
     ]
-  },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Guia", "category": "Preços" },
-  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Transferir app iOS" }
+  }
 }

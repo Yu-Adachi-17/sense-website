@@ -1,38 +1,71 @@
 {
-  "seo": {
-    "title": "Minutes.AI 现已支持在线会议（iOS）",
-    "description": "点击“Online”生成链接并分享，即可立即开始类似 Zoom 的会议。会议结束时自动生成清晰的会议纪要。",
-    "ogTitle": "Minutes.AI 在线会议",
-    "ogDescription": "从“Online”开始，会后获取自动、格式良好的会议纪要。",
-    "ld": { "headline": "新增在线会议支持", "description": "通过链接发起类 Zoom 会议，并自动生成包含决策与行动项的纪要。" }
+  "aria": {
+    "home": "会议记录AI 主页"
   },
-  "aria": { "home": "Minutes.AI 主页" },
-  "nav": { "blog": "博客", "onlinemeeting": "在线会议" },
-  "hero": {
-    "kicker": "更新",
-    "h1": "Minutes.AI 在线会议（iOS）",
-    "tagline": "点击“Online”，生成并分享链接。会议结束后自动开始生成纪要。"
-  },
-  "release": {
-    "h2": "更新说明",
-    "p1": "Minutes.AI 现已支持在线会议。从“Online”生成并分享会议链接，立即开始。",
-    "p2": "会议结束后，将自动生成纪要，清晰呈现决策与行动项。"
-  },
-  "image": { "alt": "Minutes.AI 在线会议界面", "caption": "从“Online”按钮开始。" },
-  "steps": {
-    "h2": "快速开始",
-    "items": ["在应用/网页点击“Online”", "生成会议链接", "将链接分享给参会者", "结束 → 自动生成纪要"],
-    "note": "可用时长取决于套餐与剩余配额。"
+  "cta": {
+    "downloadIOS": "下载 iOS 应用",
+    "openBrowser": "在浏览器中打开"
   },
   "features": {
     "h2": "亮点",
-    "items": ["类 Zoom 体验（LiveKit）", "一键生成链接", "会后自动纪要", "清晰、易读的格式输出", "多语言，适合全球团队"]
+    "items": [
+      "类 Zoom 体验（LiveKit）",
+      "一键生成链接",
+      "会后自动纪要",
+      "清晰、易读的格式输出",
+      "多语言，适合全球团队"
+    ]
+  },
+  "hero": {
+    "h1": "会议记录AI 在线会议（iOS）",
+    "kicker": "更新",
+    "tagline": "点击“Online”，生成并分享链接。会议结束后自动开始生成纪要。"
+  },
+  "image": {
+    "alt": "会议记录AI 在线会议界面",
+    "caption": "从“Online”按钮开始。"
+  },
+  "meta": {
+    "category": "在线会议",
+    "h2": "元信息",
+    "published": "发布日期",
+    "type": "更新"
+  },
+  "nav": {
+    "blog": "博客",
+    "onlinemeeting": "在线会议"
   },
   "notes": {
+    "foot": "可在网页使用或下载 iOS 应用。",
     "h2": "说明",
-    "items": ["时长/剩余时间取决于套餐/配额", "网络与设备设置可能影响质量"],
-    "foot": "可在网页使用或下载 iOS 应用。"
+    "items": [
+      "时长/剩余时间取决于套餐/配额",
+      "网络与设备设置可能影响质量"
+    ]
   },
-  "meta": { "h2": "元信息", "published": "发布日期", "type": "更新", "category": "在线会议" },
-  "cta": { "openBrowser": "在浏览器中打开", "downloadIOS": "下载 iOS 应用" }
+  "release": {
+    "h2": "更新说明",
+    "p1": "会议记录AI 现已支持在线会议。从“Online”生成并分享会议链接，立即开始。",
+    "p2": "会议结束后，将自动生成纪要，清晰呈现决策与行动项。"
+  },
+  "seo": {
+    "description": "点击“Online”生成链接并分享，即可立即开始类似 Zoom 的会议。会议结束时自动生成清晰的会议纪要。",
+    "ld": {
+      "description": "通过链接发起类 Zoom 会议，并自动生成包含决策与行动项的纪要。",
+      "headline": "新增在线会议支持"
+    },
+    "ogDescription": "从“Online”开始，会后获取自动、格式良好的会议纪要。",
+    "ogTitle": "会议记录AI 在线会议",
+    "title": "会议记录AI 现已支持在线会议（iOS）"
+  },
+  "steps": {
+    "h2": "快速开始",
+    "items": [
+      "在应用/网页点击“Online”",
+      "生成会议链接",
+      "将链接分享给参会者",
+      "结束 → 自动生成纪要"
+    ],
+    "note": "可用时长取决于套餐与剩余配额。"
+  }
 }

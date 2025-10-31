@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Minutes.AI 定價——適合各種會議風格的簡單方案",
-    "description": "無效期的時間包與真正「無上限」的訂閱。比較 Minutes.AI 與 Otter、Notta（價格、配額、結轉）。",
-    "ogTitle": "Minutes.AI 定價",
-    "ogDescription": "時間包（無效期）＋ 無上限訂閱。與 Otter / Notta 的快速比較。",
-    "ld": {
-      "headline": "Minutes.AI 定價",
-      "description": "四種方案：兩種一次性時間包（無效期）與兩種無上限訂閱，並附與 Otter、Notta 的比較。"
-    }
+  "aria": {
+    "home": "會議紀錄AI 首頁"
   },
-  "aria": { "home": "Minutes.AI 首頁" },
-  "nav": { "blog": "部落格", "pricing": "定價" },
+  "compare": {
+    "foot": "來源：Otter、Notta 官方定價頁面。",
+    "h2": "會議紀錄AI vs Otter vs Notta——價格總覽",
+    "lastUpdated": "最後更新：2025-10-31",
+    "note": "以 USD 計。多數競品每月重置配額且不提供結轉。",
+    "rows": [
+      {
+        "billing": "一次性時間包 + 訂閱",
+        "cheapest": "Trial 120 分鐘 / $1.99（無效期）",
+        "free": "每日 3 分鐘票",
+        "limits": "時間包不失效；訂閱無上限。",
+        "service": "會議紀錄AI",
+        "unlimited": "是 — $16.99/月 或 $149.99/年"
+      },
+      {
+        "billing": "以席位訂閱",
+        "cheapest": "Pro — $16.99/月 或 $8.33/月（年付）",
+        "free": "每月 300 分鐘，單次會議最多 30 分鐘",
+        "limits": "不結轉；單次會議長度限制",
+        "service": "Otter",
+        "unlimited": "否 — Pro 每月 1200 分鐘；Business 每月 6000 匯入分鐘"
+      },
+      {
+        "billing": "以席位訂閱",
+        "cheapest": "Pro — $13.49/月（月付）或 $8.17/月（年付）",
+        "free": "每月 120 分鐘，單次錄音最多 3 分鐘",
+        "limits": "不結轉；單次錄音最多 5 小時；上傳配額",
+        "service": "Notta",
+        "unlimited": "Business — 無上限（年付 $16.67/月；月付更高）"
+      }
+    ],
+    "tableHead": [
+      "服務",
+      "免費方案",
+      "最低付費",
+      "是否無上限",
+      "主要限制",
+      "計費模式"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "下載 iOS App",
+    "openBrowser": "以瀏覽器開啟"
+  },
   "hero": {
+    "h1": "會議紀錄AI 定價（2025）",
     "kicker": "定價",
-    "h1": "Minutes.AI 定價（2025）",
     "tagline": "可選擇無效期的時間包，或按月／按年計費的真正無上限訂閱。"
   },
   "intro": {
     "h2": "哪個方案最適合你？",
     "p1": "依照你的會議頻率提供四種精簡選擇。"
   },
+  "meta": {
+    "category": "定價",
+    "h2": "Meta",
+    "published": "發佈日期",
+    "type": "指南"
+  },
+  "nav": {
+    "blog": "部落格",
+    "pricing": "定價"
+  },
   "plans": {
-    "h3_timepacks": "時間包",
-    "timepacks_note": "已購分鐘數**不會失效**。任何時間都能從錄音自動產生會議紀要。",
-    "trial": { "name": "Trial", "detail": "120 分鐘 / $1.99" },
-    "light": { "name": "Light", "detail": "1200 分鐘 / $11.99" },
-    "h3_subs": "訂閱",
-    "subs_note": "訂閱為真正無上限——沒有每月上限。",
-    "monthly": { "name": "月費", "detail": "$16.99" },
-    "annual": { "name": "年費", "detail": "$149.99" },
-    "free": {
-      "badge": "每日免費票",
-      "text": "即使未付費，也能每日獲得 3 分鐘免費票來體驗 Minutes.AI。"
+    "annual": {
+      "detail": "$149.99",
+      "name": "年費"
     },
     "bullets": [
       "無效期：一次購買，隨時使用",
       "訂閱使用無上限",
       "iOS 與 Web，多語輸出"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs Otter vs Notta——價格總覽",
-    "note": "以 USD 計。多數競品每月重置配額且不提供結轉。",
-    "tableHead": ["服務", "免費方案", "最低付費", "是否無上限", "主要限制", "計費模式"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "每日 3 分鐘票",
-        "cheapest": "Trial 120 分鐘 / $1.99（無效期）",
-        "unlimited": "是 — $16.99/月 或 $149.99/年",
-        "limits": "時間包不失效；訂閱無上限。",
-        "billing": "一次性時間包 + 訂閱"
-      },
-      {
-        "service": "Otter",
-        "free": "每月 300 分鐘，單次會議最多 30 分鐘",
-        "cheapest": "Pro — $16.99/月 或 $8.33/月（年付）",
-        "unlimited": "否 — Pro 每月 1200 分鐘；Business 每月 6000 匯入分鐘",
-        "limits": "不結轉；單次會議長度限制",
-        "billing": "以席位訂閱"
-      },
-      {
-        "service": "Notta",
-        "free": "每月 120 分鐘，單次錄音最多 3 分鐘",
-        "cheapest": "Pro — $13.49/月（月付）或 $8.17/月（年付）",
-        "unlimited": "Business — 無上限（年付 $16.67/月；月付更高）",
-        "limits": "不結轉；單次錄音最多 5 小時；上傳配額",
-        "billing": "以席位訂閱"
-      }
     ],
-    "foot": "來源：Otter、Notta 官方定價頁面。",
-    "lastUpdated": "最後更新：2025-10-31"
+    "free": {
+      "badge": "每日免費票",
+      "text": "即使未付費，也能每日獲得 3 分鐘免費票來體驗 會議紀錄AI。"
+    },
+    "h3_subs": "訂閱",
+    "h3_timepacks": "時間包",
+    "light": {
+      "detail": "1200 分鐘 / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "月費"
+    },
+    "subs_note": "訂閱為真正無上限——沒有每月上限。",
+    "timepacks_note": "已購分鐘數**不會失效**。任何時間都能從錄音自動產生會議紀要。",
+    "trial": {
+      "detail": "120 分鐘 / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "無效期的時間包與真正「無上限」的訂閱。比較 會議紀錄AI 與 Otter、Notta（價格、配額、結轉）。",
+    "ld": {
+      "description": "四種方案：兩種一次性時間包（無效期）與兩種無上限訂閱，並附與 Otter、Notta 的比較。",
+      "headline": "會議紀錄AI 定價"
+    },
+    "ogDescription": "時間包（無效期）＋ 無上限訂閱。與 Otter / Notta 的快速比較。",
+    "ogTitle": "會議紀錄AI 定價",
+    "title": "會議紀錄AI 定價——適合各種會議風格的簡單方案"
   },
   "why": {
     "h2": "這樣設計的原因",
@@ -79,7 +113,5 @@
       "偶爾開會：購買一次 Light——無有效期。",
       "先試用：Trial + 每日 3 分鐘免費票。"
     ]
-  },
-  "meta": { "h2": "Meta", "published": "發佈日期", "type": "指南", "category": "定價" },
-  "cta": { "openBrowser": "以瀏覽器開啟", "downloadIOS": "下載 iOS App" }
+  }
 }

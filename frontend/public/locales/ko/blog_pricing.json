@@ -1,76 +1,110 @@
 {
-  "seo": {
-    "title": "Minutes.AI 요금 — 모든 회의 스타일을 위한 간단한 플랜",
-    "description": "만료 없는 시간팩과 진정한 무제한 구독. 가격·할당량·이월 여부에서 Otter·Notta와 비교.",
-    "ogTitle": "Minutes.AI 요금",
-    "ogDescription": "만료 없는 시간팩 + 무제한 구독. Otter/Notta와 빠른 비교.",
-    "ld": {
-      "headline": "Minutes.AI 요금",
-      "description": "네 가지 플랜: 만료 없는 시간팩 2종, 무제한 구독 2종. Otter·Notta와의 비교 포함."
-    }
+  "aria": {
+    "home": "회의록AI 홈"
   },
-  "aria": { "home": "Minutes.AI 홈" },
-  "nav": { "blog": "블로그", "pricing": "요금" },
+  "compare": {
+    "foot": "출처: Otter 및 Notta 공식 요금 페이지.",
+    "h2": "회의록AI vs Otter vs Notta — 요약 비교",
+    "lastUpdated": "마지막 업데이트: 2025-10-31",
+    "note": "USD 기준. 경쟁사 대부분은 월별 할당량 초기화, 이월 없음.",
+    "rows": [
+      {
+        "billing": "일회성 시간팩 + 구독",
+        "cheapest": "Trial 120분 / $1.99 (만료 없음)",
+        "free": "매일 3분 티켓",
+        "limits": "시간팩 만료 없음. 구독 무제한.",
+        "service": "회의록AI",
+        "unlimited": "예 — $16.99/월 또는 $149.99/년"
+      },
+      {
+        "billing": "좌석 기반 구독",
+        "cheapest": "Pro — $16.99/월 또는 $8.33/월(연간)",
+        "free": "월 300분, 회당 최대 30분",
+        "limits": "이월 없음; 회의당 제한",
+        "service": "Otter",
+        "unlimited": "아니오 — Pro 월 1200분; Business 월 6000분(가져오기)"
+      },
+      {
+        "billing": "좌석 기반 구독",
+        "cheapest": "Pro — $13.49/월(월간) 또는 $8.17/월(연간)",
+        "free": "월 120분, 녹음당 최대 3분",
+        "limits": "이월 없음; 녹음당 최대 5시간; 업로드 한도",
+        "service": "Notta",
+        "unlimited": "Business — 무제한(연간 $16.67/월; 월간은 더 높음)"
+      }
+    ],
+    "tableHead": [
+      "서비스",
+      "무료 플랜",
+      "가장 저렴한 유료",
+      "무제한",
+      "주요 제한",
+      "과금 방식"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "iOS 앱 다운로드",
+    "openBrowser": "브라우저에서 열기"
+  },
   "hero": {
+    "h1": "회의록AI 요금 (2025)",
     "kicker": "요금",
-    "h1": "Minutes.AI 요금 (2025)",
     "tagline": "만료 없는 시간팩 또는 월/연간 무제한 구독 중에서 선택하세요."
   },
   "intro": {
     "h2": "어떤 플랜이 맞을까요?",
     "p1": "회의 빈도에 맞춰 선택할 수 있는 네 가지 옵션을 제공합니다."
   },
+  "meta": {
+    "category": "요금",
+    "h2": "메타",
+    "published": "게시일",
+    "type": "가이드"
+  },
+  "nav": {
+    "blog": "블로그",
+    "pricing": "요금"
+  },
   "plans": {
-    "h3_timepacks": "시간팩",
-    "timepacks_note": "구매한 분은 만료되지 않습니다. 언제든 녹음에서 자동 회의록 생성.",
-    "trial": { "name": "Trial", "detail": "120분 / $1.99" },
-    "light": { "name": "Light", "detail": "1200분 / $11.99" },
-    "h3_subs": "구독",
-    "subs_note": "구독은 진정한 무제한 — 월별 제한이 없습니다.",
-    "monthly": { "name": "월간", "detail": "$16.99" },
-    "annual": { "name": "연간", "detail": "$149.99" },
-    "free": {
-      "badge": "매일 3분 무료 티켓",
-      "text": "결제하지 않아도 매일 3분 무료 티켓으로 Minutes.AI를 체험할 수 있습니다."
+    "annual": {
+      "detail": "$149.99",
+      "name": "연간"
     },
     "bullets": [
       "만료 없음: 한 번 구매로 언제든 사용",
       "구독은 완전 무제한",
       "iOS & 웹, 다국어 출력"
-    ]
-  },
-  "compare": {
-    "h2": "Minutes.AI vs Otter vs Notta — 요약 비교",
-    "note": "USD 기준. 경쟁사 대부분은 월별 할당량 초기화, 이월 없음.",
-    "tableHead": ["서비스", "무료 플랜", "가장 저렴한 유료", "무제한", "주요 제한", "과금 방식"],
-    "rows": [
-      {
-        "service": "Minutes.AI",
-        "free": "매일 3분 티켓",
-        "cheapest": "Trial 120분 / $1.99 (만료 없음)",
-        "unlimited": "예 — $16.99/월 또는 $149.99/년",
-        "limits": "시간팩 만료 없음. 구독 무제한.",
-        "billing": "일회성 시간팩 + 구독"
-      },
-      {
-        "service": "Otter",
-        "free": "월 300분, 회당 최대 30분",
-        "cheapest": "Pro — $16.99/월 또는 $8.33/월(연간)",
-        "unlimited": "아니오 — Pro 월 1200분; Business 월 6000분(가져오기)",
-        "limits": "이월 없음; 회의당 제한",
-        "billing": "좌석 기반 구독"
-      },
-      {
-        "service": "Notta",
-        "free": "월 120분, 녹음당 최대 3분",
-        "cheapest": "Pro — $13.49/월(월간) 또는 $8.17/월(연간)",
-        "unlimited": "Business — 무제한(연간 $16.67/월; 월간은 더 높음)",
-        "limits": "이월 없음; 녹음당 최대 5시간; 업로드 한도",
-        "billing": "좌석 기반 구독"
-      }
     ],
-    "foot": "출처: Otter 및 Notta 공식 요금 페이지.",
-    "lastUpdated": "마지막 업데이트: 2025-10-31"
+    "free": {
+      "badge": "매일 3분 무료 티켓",
+      "text": "결제하지 않아도 매일 3분 무료 티켓으로 회의록AI를 체험할 수 있습니다."
+    },
+    "h3_subs": "구독",
+    "h3_timepacks": "시간팩",
+    "light": {
+      "detail": "1200분 / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "월간"
+    },
+    "subs_note": "구독은 진정한 무제한 — 월별 제한이 없습니다.",
+    "timepacks_note": "구매한 분은 만료되지 않습니다. 언제든 녹음에서 자동 회의록 생성.",
+    "trial": {
+      "detail": "120분 / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "만료 없는 시간팩과 진정한 무제한 구독. 가격·할당량·이월 여부에서 Otter·Notta와 비교.",
+    "ld": {
+      "description": "네 가지 플랜: 만료 없는 시간팩 2종, 무제한 구독 2종. Otter·Notta와의 비교 포함.",
+      "headline": "회의록AI 요금"
+    },
+    "ogDescription": "만료 없는 시간팩 + 무제한 구독. Otter/Notta와 빠른 비교.",
+    "ogTitle": "회의록AI 요금",
+    "title": "회의록AI 요금 — 모든 회의 스타일을 위한 간단한 플랜"
   },
   "why": {
     "h2": "이 플랜 구조의 이유",
@@ -79,7 +113,5 @@
       "가끔 회의: Light를 한 번 구매 — 만료 없음.",
       "체험용: Trial + 매일 3분 티켓."
     ]
-  },
-  "meta": { "h2": "메타", "published": "게시일", "type": "가이드", "category": "요금" },
-  "cta": { "openBrowser": "브라우저에서 열기", "downloadIOS": "iOS 앱 다운로드" }
+  }
 }
