@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Model AI di balik Minutes AI",
+    "description": "Mengapa Minutes AI menghasilkan notulen profesional: kebijakan quality-first dan model yang dipakai (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Minutes AI: strategi model berfokus kualitas",
+    "ogDescription": "Kami paparkan model yang kami gunakan—ChatGPT-5 dan Gemini 2.5 Pro—untuk notulen yang jelas, dapat-tindak, dan konsisten.",
+    "ld": {
+      "headline": "Model AI yang digunakan Minutes AI",
+      "description": "Minutes AI memprioritaskan kualitas keluaran dan kini mengadopsi ChatGPT-5 serta Gemini 2.5 Pro untuk notulen siap keputusan."
+    }
+  },
+  "aria": { "home": "Beranda Minutes AI" },
+  "nav": { "blog": "Blog", "aimodel": "Model AI" },
+  "hero": {
+    "kicker": "Di balik layar",
+    "h1": "Model AI yang kami gunakan untuk Minutes AI",
+    "tagline": "Bukan sekadar LLM apa pun—kami memilih model yang menjaga notulen tetap jelas dan dapat ditindaklanjuti. Saat ini: ChatGPT-5 dan Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Mengapa kualitas didahulukan",
+    "p1": "Banyak aplikasi memilih berdasarkan biaya. Kami mengutamakan kejelasan, aksiabilitas, dan konsistensi agar pembaca tahu langkah berikutnya.",
+    "p2": "Bahan dan dapur terbaik tak otomatis jadi hidangan terbaik—keahlian itu penting. Kami menyetel pemilihan model dan prompt untuk notulen profesional."
+  },
+  "adopted": {
+    "h2": "Model yang diadopsi (saat penulisan)",
+    "items": [
+      "ChatGPT-5 (OpenAI): penalaran kuat, kontrol nada, struktur andal untuk notulen siap keputusan.",
+      "Gemini 2.5 Pro (Google): koheren pada konteks panjang dan ekstraksi poin kunci yang mantap."
+    ],
+    "foot": "Kami terus mengevaluasi model baru dan beralih saat kualitasnya melampaui standar kami."
+  },
+  "image": { "alt": "Tumpukan model yang menjalankan Minutes AI", "caption": "Minutes AI memilih model demi kejelasan dan aksiabilitas, bukan sekadar biaya." },
+  "links": { "h2": "Bacaan terkait", "intro": "Pengantar", "nego": "Notulen negosiasi bisnis" },
+  "meta": { "h2": "Meta", "published": "Terbit", "type": "Artikel", "category": "Model AI" },
+  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+}

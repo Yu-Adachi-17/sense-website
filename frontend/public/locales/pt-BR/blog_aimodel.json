@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Os modelos de IA por trás de Ata AI",
+    "description": "Por que a Ata AI entrega atas profissionais: política de qualidade em primeiro lugar e modelos atuais (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Ata AI: estratégia de modelos com foco em qualidade",
+    "ogDescription": "Divulgamos os modelos utilizados—ChatGPT-5 e Gemini 2.5 Pro—para atas claras, acionáveis e consistentes.",
+    "ld": {
+      "headline": "Modelos de IA usados pela Ata AI",
+      "description": "A Ata AI prioriza a qualidade de saída e atualmente adota ChatGPT-5 e Gemini 2.5 Pro para atas prontas para decisão."
+    }
+  },
+  "aria": { "home": "Início da Ata AI" },
+  "nav": { "blog": "Blog", "aimodel": "Modelos de IA" },
+  "hero": {
+    "kicker": "Por trás do produto",
+    "h1": "Os modelos de IA que usamos na Ata AI",
+    "tagline": "Não é qualquer LLM—escolhemos modelos que mantêm as atas claras e acionáveis. Hoje: ChatGPT-5 e Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Por que qualidade primeiro",
+    "p1": "Muitos escolhem pelo custo. Priorizamos clareza, acionabilidade e consistência para que o próximo passo fique evidente.",
+    "p2": "Bons ingredientes e cozinha não garantem um prato excelente—ofício importa. Ajustamos modelos e prompts para atas profissionais."
+  },
+  "adopted": {
+    "h2": "Modelos adotados (no momento)",
+    "items": [
+      "ChatGPT-5 (OpenAI): ótimo raciocínio, controle de tom e estrutura confiável para atas prontas para decisão.",
+      "Gemini 2.5 Pro (Google): coerência em contexto longo e extração robusta de pontos-chave."
+    ],
+    "foot": "Avaliamos continuamente novos modelos e migramos quando superam nosso nível de qualidade."
+  },
+  "image": { "alt": "Stack de modelos que move a Ata AI", "caption": "A Ata AI escolhe modelos pela clareza e acionabilidade, não apenas pelo custo." },
+  "links": { "h2": "Leituras relacionadas", "intro": "Introdução", "nego": "Atas de negociação" },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artigo", "category": "Modelos de IA" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Baixar app iOS" }
+}

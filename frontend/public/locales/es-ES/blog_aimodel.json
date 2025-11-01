@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Los modelos de IA detrás de Actas IA",
+    "description": "Por qué Actas IA produce actas profesionales: política de calidad primero y modelos actuales (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Actas IA: política de modelos con foco en calidad",
+    "ogDescription": "Revelamos los modelos que usamos—ChatGPT-5 y Gemini 2.5 Pro—para actas claras, accionables y consistentes.",
+    "ld": {
+      "headline": "Modelos de IA usados por Actas IA",
+      "description": "Actas IA prioriza la calidad de salida y adopta hoy ChatGPT-5 y Gemini 2.5 Pro para actas listas para decidir."
+    }
+  },
+  "aria": { "home": "Inicio de Actas IA" },
+  "nav": { "blog": "Blog", "aimodel": "Modelos de IA" },
+  "hero": {
+    "kicker": "Detrás de escena",
+    "h1": "Los modelos de IA que usamos en Actas IA",
+    "tagline": "No cualquier LLM: elegimos modelos que mantienen las actas claras y accionables. A día de hoy: ChatGPT-5 y Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Por qué priorizamos la calidad",
+    "p1": "Muchos eligen por coste. Nosotros priorizamos claridad, accionabilidad y consistencia para que el lector sepa el siguiente paso.",
+    "p2": "Buenos ingredientes y cocina no garantizan un gran plato: el oficio importa. Elegimos y ajustamos modelos para actas profesionales."
+  },
+  "adopted": {
+    "h2": "Modelos adoptados (a día de hoy)",
+    "items": [
+      "ChatGPT-5 (OpenAI): gran razonamiento, control de tono y estructura fiable para actas listas para decidir.",
+      "Gemini 2.5 Pro (Google): coherencia en contexto largo y extracción robusta de puntos clave."
+    ],
+    "foot": "Evaluamos continuamente nuevos modelos y cambiamos cuando superan nuestro listón de calidad."
+  },
+  "image": {
+    "alt": "Pila de modelos que impulsa Actas IA",
+    "caption": "Actas IA elige modelos por claridad y accionabilidad, no solo por coste."
+  },
+  "links": {
+    "h2": "Lecturas relacionadas",
+    "intro": "Introducción",
+    "nego": "Actas de negociación comercial"
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artículo", "category": "Modelos de IA" },
+  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar la app de iOS" }
+}

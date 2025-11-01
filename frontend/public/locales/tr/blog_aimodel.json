@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Tutanakları AI’ın arkasındaki yapay zekâ modelleri",
+    "description": "Tutanakları AI neden profesyonel tutanaklar üretir: kalite-öncelikli yaklaşım ve güncel modeller (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Tutanakları AI: kalite odaklı model stratejisi",
+    "ogDescription": "Kullandığımız modelleri açıklıyoruz — ChatGPT-5 ve Gemini 2.5 Pro — net, eyleme dönük ve tutarlı tutanaklar için.",
+    "ld": {
+      "headline": "Tutanakları AI’ın kullandığı yapay zekâ modelleri",
+      "description": "Tutanakları AI çıktı kalitesini önceleyerek bugün ChatGPT-5 ve Gemini 2.5 Pro ile karar-hazır tutanaklar üretir."
+    }
+  },
+  "aria": { "home": "Tutanakları AI Ana Sayfa" },
+  "nav": { "blog": "Blog", "aimodel": "Yapay zekâ modelleri" },
+  "hero": {
+    "kicker": "Perde arkası",
+    "h1": "Tutanakları AI’da kullandığımız yapay zekâ modelleri",
+    "tagline": "Herhangi bir LLM değil; tutanakları net ve eyleme dönük tutan modelleri seçiyoruz. Bugün: ChatGPT-5 ve Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Neden kalite önce",
+    "p1": "Birçok uygulama maliyete göre seçer. Biz netlik, eyleme dönüklük ve tutarlılığı önceleriz.",
+    "p2": "İyi malzeme ve mutfak tek başına yetmez—ustalık gerekir. Model seçimi ve prompt’lar profesyonel tutanaklar için ayarlanır."
+  },
+  "adopted": {
+    "h2": "Benimsenen modeller (yazı zamanı)",
+    "items": [
+      "ChatGPT-5 (OpenAI): güçlü akıl yürütme, ton kontrolü ve güvenilir yapı; karar-hazır tutanaklar.",
+      "Gemini 2.5 Pro (Google): uzun bağlamda tutarlılık ve sağlam ana nokta çıkarımı."
+    ],
+    "foot": "Yeni modelleri sürekli değerlendirir ve kalite eşiğimizi aşınca hızla geçiş yaparız."
+  },
+  "image": { "alt": "Tutanakları AI’ı çalıştıran model yığını", "caption": "Seçim kriterimiz maliyet değil; netlik ve eyleme dönüklük." },
+  "links": { "h2": "İlgili yazılar", "intro": "Giriş", "nego": "Ticari müzakere tutanakları" },
+  "meta": { "h2": "Meta", "published": "Yayın", "type": "Makale", "category": "Yapay zekâ modelleri" },
+  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" }
+}

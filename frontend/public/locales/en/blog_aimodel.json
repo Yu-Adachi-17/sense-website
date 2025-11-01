@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "The AI models behind Minutes.AI",
+    "description": "Why Minutes.AI produces professional meeting minutes: our quality-first policy and current models (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Minutes.AI model policy: quality first",
+    "ogDescription": "We disclose the AI models we use—ChatGPT-5 and Gemini 2.5 Pro—for clear, actionable, consistent minutes.",
+    "ld": {
+      "headline": "AI models used by Minutes.AI",
+      "description": "Minutes.AI prioritizes output quality and currently adopts ChatGPT-5 and Gemini 2.5 Pro to generate decision-ready minutes."
+    }
+  },
+  "aria": { "home": "Minutes.AI Home" },
+  "nav": { "blog": "Blog", "aimodel": "AI models" },
+  "hero": {
+    "kicker": "Behind the scenes",
+    "h1": "The AI models we use for Minutes.AI",
+    "tagline": "Not just any LLMs—we pick models that keep minutes clear and actionable. At the time of writing: ChatGPT-5 and Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Why quality comes first",
+    "p1": "Many apps choose models by price. We prioritize clarity, actionability, and consistency so readers always know the next step.",
+    "p2": "Great ingredients and a great kitchen don’t guarantee a great dish—craft matters. Model choice and prompts are tuned for professional minutes."
+  },
+  "adopted": {
+    "h2": "Adopted models (at the time of writing)",
+    "items": [
+      "ChatGPT-5 (OpenAI): strong reasoning, tone control, reliable structure for decision-ready minutes.",
+      "Gemini 2.5 Pro (Google): long-context coherence and robust key-point extraction."
+    ],
+    "foot": "We continuously evaluate new models and switch when they exceed our quality bar."
+  },
+  "image": {
+    "alt": "AI model stack powering Minutes.AI",
+    "caption": "Minutes.AI selects models for clarity and actionability, not just cost."
+  },
+  "links": {
+    "h2": "Related reading",
+    "intro": "Introduction",
+    "nego": "Business negotiation minutes"
+  },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Article", "category": "AI Models" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" }
+}

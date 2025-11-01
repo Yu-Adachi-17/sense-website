@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "AI-modellerne bag Referat AI",
+    "description": "Hvorfor Referat AI leverer professionelle referater: kvalitet først og de nuværende modeller (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Referat AI: Modelpolitik med kvalitetsfokus",
+    "ogDescription": "Vi offentliggør de modeller, vi bruger—ChatGPT-5 og Gemini 2.5 Pro—for klare, handlekraftige og konsistente referater.",
+    "ld": {
+      "headline": "AI-modeller brugt af Referat AI",
+      "description": "Referat AI prioriterer outputkvalitet og anvender aktuelt ChatGPT-5 og Gemini 2.5 Pro til beslutningsklare referater."
+    }
+  },
+  "aria": { "home": "Referat AI startside" },
+  "nav": { "blog": "Blog", "aimodel": "AI-modeller" },
+  "hero": {
+    "kicker": "Bag kulissen",
+    "h1": "De AI-modeller vi bruger i Referat AI",
+    "tagline": "Ikke bare et vilkårligt LLM—vi vælger modeller, der holder referater klare og handlingsbare. Aktuelt: ChatGPT-5 og Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Hvorfor kvalitet først",
+    "p1": "Mange vælger model ud fra pris. Vi prioriterer klarhed, handlekraft og konsistens, så næste skridt altid er tydeligt.",
+    "p2": "Gode råvarer og køkken giver ikke automatisk en topret—håndværk betyder alt. Valg og prompt-tuning er målrettet professionelle referater."
+  },
+  "adopted": {
+    "h2": "Valgte modeller (på skrivningstidspunktet)",
+    "items": [
+      "ChatGPT-5 (OpenAI): stærk ræsonnering, tonekontrol og stabil struktur til beslutningsklare referater.",
+      "Gemini 2.5 Pro (Google): sammenhæng på langt kontekst og robust udtræk af nøglepunkter."
+    ],
+    "foot": "Vi evaluerer løbende nye modeller og skifter, når de overgår vores kvalitetskrav."
+  },
+  "image": {
+    "alt": "Model-stack der driver Referat AI",
+    "caption": "Referat AI vælger modeller efter klarhed og handlekraft—ikke kun pris."
+  },
+  "links": {
+    "h2": "Relateret",
+    "intro": "Introduktion",
+    "nego": "Referater til forhandlinger"
+  },
+  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Artikel", "category": "AI-modeller" },
+  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" }
+}

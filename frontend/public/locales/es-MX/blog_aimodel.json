@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Modelos de IA detrás de Actas IA",
+    "description": "Por qué Actas IA entrega minutas profesionales: política de calidad primero y modelos actuales (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Actas IA: política de modelos enfocada en calidad",
+    "ogDescription": "Revelamos los modelos que usamos—ChatGPT-5 y Gemini 2.5 Pro—para minutas claras, accionables y consistentes.",
+    "ld": {
+      "headline": "Modelos de IA usados por Actas IA",
+      "description": "Actas IA prioriza la calidad de salida y hoy adopta ChatGPT-5 y Gemini 2.5 Pro para minutas listas para decidir."
+    }
+  },
+  "aria": { "home": "Inicio de Actas IA" },
+  "nav": { "blog": "Blog", "aimodel": "Modelos de IA" },
+  "hero": {
+    "kicker": "Detrás del producto",
+    "h1": "Los modelos de IA que usamos en Actas IA",
+    "tagline": "No cualquier LLM: elegimos modelos que mantienen minutas claras y accionables. Hoy: ChatGPT-5 y Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Por qué calidad primero",
+    "p1": "Muchos eligen por costo. Nosotros priorizamos claridad, accionabilidad y consistencia para que siempre se entienda el siguiente paso.",
+    "p2": "Buenos ingredientes y cocina no garantizan un gran platillo: el oficio importa. Ajustamos modelos y prompts para minutas profesionales."
+  },
+  "adopted": {
+    "h2": "Modelos adoptados (hoy)",
+    "items": [
+      "ChatGPT-5 (OpenAI): gran razonamiento, control de tono y estructura confiable para minutas listas para decidir.",
+      "Gemini 2.5 Pro (Google): coherencia en contexto largo y extracción robusta de puntos clave."
+    ],
+    "foot": "Evaluamos continuamente nuevos modelos y cambiamos cuando superan nuestro estándar de calidad."
+  },
+  "image": {
+    "alt": "Stack de modelos que impulsa Actas IA",
+    "caption": "Actas IA elige modelos por claridad y accionabilidad, no solo por costo."
+  },
+  "links": {
+    "h2": "Lecturas relacionadas",
+    "intro": "Introducción",
+    "nego": "Minutas de negociación"
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artículo", "category": "Modelos de IA" },
+  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app de iOS" }
+}

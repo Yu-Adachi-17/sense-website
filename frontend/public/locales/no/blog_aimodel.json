@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "AI-modellene bak Referat AI",
+    "description": "Hvorfor Referat AI leverer profesjonelle referater: kvalitet først og dagens modeller (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Referat AI: modellstrategi med kvalitetsfokus",
+    "ogDescription": "Vi åpner hvilke modeller vi bruker—ChatGPT-5 og Gemini 2.5 Pro—for klare, handlingsbare og konsistente referater.",
+    "ld": {
+      "headline": "AI-modeller brukt av Referat AI",
+      "description": "Referat AI prioriterer utgangskvalitet og bruker nå ChatGPT-5 og Gemini 2.5 Pro for beslutningsklare referater."
+    }
+  },
+  "aria": { "home": "Hjem for Referat AI" },
+  "nav": { "blog": "Blogg", "aimodel": "AI-modeller" },
+  "hero": {
+    "kicker": "Bak kulissene",
+    "h1": "AI-modellene vi bruker i Referat AI",
+    "tagline": "Ikke hvilket som helst LLM—vi velger modeller som gjør referater tydelige og handlingsbare. Nå: ChatGPT-5 og Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Hvorfor kvalitet først",
+    "p1": "Mange velger etter pris. Vi prioriterer klarhet, gjennomførbarhet og konsistens slik at neste steg alltid er tydelig.",
+    "p2": "Gode ingredienser og kjøkken gir ikke automatisk et toppmåltid—håndverk teller. Modellsvalg og prompt-tuning er tilpasset proffe referater."
+  },
+  "adopted": {
+    "h2": "I bruk (per skrivende stund)",
+    "items": [
+      "ChatGPT-5 (OpenAI): sterk resonnering, tonestyring og pålitelig struktur for beslutningsklare referater.",
+      "Gemini 2.5 Pro (Google): god koherens i langt kontekst og robust uttrekk av nøkkelpunkter."
+    ],
+    "foot": "Vi evaluerer fortløpende nye modeller og bytter når de passerer vår kvalitetslist."
+  },
+  "image": { "alt": "Modellstacken som driver Referat AI", "caption": "Referat AI velger modeller etter klarhet og handlingsbarhet, ikke bare kostnad." },
+  "links": { "h2": "Relatert", "intro": "Introduksjon", "nego": "Referater for forretningsforhandlinger" },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Artikkel", "category": "AI-modeller" },
+  "cta": { "openBrowser": "Åpne i nettleser", "downloadIOS": "Last ned iOS-app" }
+}

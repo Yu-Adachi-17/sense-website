@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Les modèles d’IA derrière Minutes.AI",
+    "description": "Pourquoi Minutes.AI produit des comptes rendus professionnels : politique qualité d’abord et modèles actuels (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Minutes.AI : une stratégie de modèles axée sur la qualité",
+    "ogDescription": "Nous dévoilons les modèles utilisés — ChatGPT-5 et Gemini 2.5 Pro — pour des comptes rendus clairs, actionnables et cohérents.",
+    "ld": {
+      "headline": "Modèles d’IA utilisés par Minutes.AI",
+      "description": "Minutes.AI privilégie la qualité de sortie et adopte actuellement ChatGPT-5 et Gemini 2.5 Pro pour des comptes rendus prêts à la décision."
+    }
+  },
+  "aria": { "home": "Accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "aimodel": "Modèles d’IA" },
+  "hero": {
+    "kicker": "Coulisses",
+    "h1": "Les modèles d’IA que nous utilisons pour Minutes.AI",
+    "tagline": "Pas n’importe quel LLM : nous choisissons des modèles qui gardent le compte rendu clair et exploitable. À ce jour : ChatGPT-5 et Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Pourquoi la qualité d’abord",
+    "p1": "Beaucoup d’apps choisissent selon le coût. Nous priorisons la clarté, l’actionnabilité et la cohérence pour que le lecteur sache toujours quoi faire ensuite.",
+    "p2": "De bons ingrédients ne garantissent pas un grand plat : le savoir-faire compte. Choix des modèles et prompts sont réglés pour un rendu professionnel."
+  },
+  "adopted": {
+    "h2": "Modèles adoptés (à la date de rédaction)",
+    "items": [
+      "ChatGPT-5 (OpenAI) : excellent raisonnement, contrôle du ton, structure fiable pour des comptes rendus prêts à la décision.",
+      "Gemini 2.5 Pro (Google) : forte cohérence sur long contexte et extraction robuste des points clés."
+    ],
+    "foot": "Nous évaluons en continu de nouveaux modèles et basculons dès qu’ils dépassent notre seuil de qualité."
+  },
+  "image": { "alt": "Pile de modèles alimentant Minutes.AI", "caption": "Minutes.AI privilégie la clarté et l’actionnabilité, pas seulement le coût." },
+  "links": { "h2": "Lectures liées", "intro": "Introduction", "nego": "Comptes rendus de négociation" },
+  "meta": { "h2": "Méta", "published": "Publié", "type": "Article", "category": "Modèles d’IA" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" }
+}

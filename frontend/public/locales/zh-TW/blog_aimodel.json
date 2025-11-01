@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "會議紀錄AI背後的模型",
+    "description": "為什麼「會議紀錄AI」能產出專業等級紀錄：品質優先策略與目前採用模型（ChatGPT-5、Gemini 2.5 Pro）。",
+    "ogTitle": "會議紀錄AI：以品質為先的模型策略",
+    "ogDescription": "公開我們所用模型——ChatGPT-5 與 Gemini 2.5 Pro——以取得清晰、可執行且一致的紀錄。",
+    "ld": {
+      "headline": "會議紀錄AI使用的AI模型",
+      "description": "會議紀錄AI將輸出品質擺在首位，目前採用 ChatGPT-5 與 Gemini 2.5 Pro，生成可用於決策的紀錄。"
+    }
+  },
+  "aria": { "home": "會議紀錄AI 首頁" },
+  "nav": { "blog": "部落格", "aimodel": "AI 模型" },
+  "hero": {
+    "kicker": "幕後",
+    "h1": "我們在會議紀錄AI中使用的AI模型",
+    "tagline": "不是隨便挑LLM；我們精選能讓紀錄清晰、可執行的模型。現行：ChatGPT-5 與 Gemini 2.5 Pro。"
+  },
+  "philosophy": {
+    "h2": "為何品質優先",
+    "p1": "許多應用依成本選型。我們更重視清晰度、可執行性與一致性，讓讀者明確下一步。",
+    "p2": "好食材加好廚房不一定成就好料理，關鍵在功力。我們打磨模型選用與提示詞以達成專業級紀錄。"
+  },
+  "adopted": {
+    "h2": "採用模型（撰寫時）",
+    "items": [
+      "ChatGPT-5（OpenAI）：強推理、語氣可控、結構穩定，適合決策就緒的會議紀錄。",
+      "Gemini 2.5 Pro（Google）：長上下文一致性與重點萃取表現穩定。"
+    ],
+    "foot": "我們持續評估新模型，只要品質更優即切換。"
+  },
+  "image": { "alt": "支撐會議紀錄AI的模型堆疊", "caption": "選擇標準不是成本，而是清晰與可執行。" },
+  "links": { "h2": "相關閱讀", "intro": "Introduction", "nego": "商務談判紀錄" },
+  "meta": { "h2": "中繼資料", "published": "發布日期", "type": "文章", "category": "AI 模型" },
+  "cta": { "openBrowser": "在瀏覽器中開啟", "downloadIOS": "下載 iOS App" }
+}

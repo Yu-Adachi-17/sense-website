@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "De AI-modellen achter Notulen AI",
+    "description": "Waarom Notulen AI professionele notulen levert: quality-first beleid en huidige modellen (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Notulen AI: modelstrategie met kwaliteitsfocus",
+    "ogDescription": "We maken onze modellen openbaar—ChatGPT-5 en Gemini 2.5 Pro—voor duidelijke, actiegerichte en consistente notulen.",
+    "ld": {
+      "headline": "AI-modellen gebruikt door Notulen AI",
+      "description": "Notulen AI geeft prioriteit aan outputkwaliteit en gebruikt momenteel ChatGPT-5 en Gemini 2.5 Pro voor besluitklare notulen."
+    }
+  },
+  "aria": { "home": "Startpagina Notulen AI" },
+  "nav": { "blog": "Blog", "aimodel": "AI-modellen" },
+  "hero": {
+    "kicker": "Achter de schermen",
+    "h1": "De AI-modellen die we gebruiken voor Notulen AI",
+    "tagline": "Niet zomaar een LLM: we kiezen modellen die notulen helder en actiegericht houden. Nu: ChatGPT-5 en Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Waarom kwaliteit eerst komt",
+    "p1": "Veel apps kiezen op prijs. Wij prioriteren helderheid, actiegerichtheid en consistentie zodat de volgende stap altijd duidelijk is.",
+    "p2": "Goede ingrediënten en keuken garanderen geen topgerecht—vakmanschap telt. Modelkeuze en prompts zijn afgestemd op professionele notulen."
+  },
+  "adopted": {
+    "h2": "Ingezet (ten tijde van schrijven)",
+    "items": [
+      "ChatGPT-5 (OpenAI): sterk redeneren, tooncontrole en betrouwbare structuur voor besluitklare notulen.",
+      "Gemini 2.5 Pro (Google): coherentie bij lange context en robuuste kernpunt-extractie."
+    ],
+    "foot": "We evalueren continu nieuwe modellen en stappen over zodra ze onze kwaliteitslat overtreffen."
+  },
+  "image": { "alt": "Modelstack achter Notulen AI", "caption": "Notulen AI kiest modellen op helderheid en actiegerichtheid, niet alleen op kosten." },
+  "links": { "h2": "Gerelateerd", "intro": "Introductie", "nego": "Notulen voor zakelijke onderhandelingen" },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Artikel", "category": "AI-modellen" },
+  "cta": { "openBrowser": "Openen in browser", "downloadIOS": "iOS-app downloaden" }
+}

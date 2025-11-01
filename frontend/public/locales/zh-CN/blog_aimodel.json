@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "会议记录AI背后的模型",
+    "description": "为什么「会议记录AI」能产出专业级纪要：质量优先策略与当前采用模型（ChatGPT-5、Gemini 2.5 Pro）。",
+    "ogTitle": "会议记录AI：以质量为先的模型策略",
+    "ogDescription": "我们公开所用模型——ChatGPT-5 与 Gemini 2.5 Pro——以获得清晰、可执行、稳定一致的纪要。",
+    "ld": {
+      "headline": "会议记录AI使用的AI模型",
+      "description": "会议记录AI将输出质量置于首位，目前采用 ChatGPT-5 与 Gemini 2.5 Pro 生成可用于决策的纪要。"
+    }
+  },
+  "aria": { "home": "会议记录AI 首页" },
+  "nav": { "blog": "博客", "aimodel": "AI 模型" },
+  "hero": {
+    "kicker": "幕后",
+    "h1": "我们在会议记录AI中使用的AI模型",
+    "tagline": "并非随便用LLM；我们精选能让纪要清晰、可执行的模型。当前：ChatGPT-5 与 Gemini 2.5 Pro。"
+  },
+  "philosophy": {
+    "h2": "为何坚持质量优先",
+    "p1": "很多应用按成本选型。我们更看重清晰度、可执行性与一致性，让读者明确下一步。",
+    "p2": "好食材+好厨房不一定成就好菜，关键在功力。我们打磨模型选择与提示词以达成专业级纪要。"
+  },
+  "adopted": {
+    "h2": "采用的模型（写作时）",
+    "items": [
+      "ChatGPT-5（OpenAI）：强推理、语气可控、结构可靠，助力决策就绪的纪要。",
+      "Gemini 2.5 Pro（Google）：长上下文一致性与关键要点稳健抽取。"
+    ],
+    "foot": "我们持续评估新模型，只要质量更优即切换。"
+  },
+  "image": { "alt": "支撑会议记录AI的模型栈", "caption": "选择标准不是成本，而是清晰与可执行。" },
+  "links": { "h2": "相关阅读", "intro": "Introduction", "nego": "商务谈判纪要" },
+  "meta": { "h2": "元信息", "published": "发布日期", "type": "文章", "category": "AI 模型" },
+  "cta": { "openBrowser": "在浏览器中打开", "downloadIOS": "下载 iOS 应用" }
+}

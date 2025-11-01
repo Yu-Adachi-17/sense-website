@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Os modelos de IA por detrás de Ata AI",
+    "description": "Porque é que a Ata AI produz atas profissionais: política de qualidade primeiro e modelos atuais (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Ata AI: estratégia de modelos com foco na qualidade",
+    "ogDescription": "Revelamos os modelos usados—ChatGPT-5 e Gemini 2.5 Pro—para atas claras, acionáveis e consistentes.",
+    "ld": {
+      "headline": "Modelos de IA usados pela Ata AI",
+      "description": "A Ata AI prioriza a qualidade e adota atualmente o ChatGPT-5 e o Gemini 2.5 Pro para atas prontas para decisão."
+    }
+  },
+  "aria": { "home": "Início da Ata AI" },
+  "nav": { "blog": "Blogue", "aimodel": "Modelos de IA" },
+  "hero": {
+    "kicker": "Bastidores",
+    "h1": "Os modelos de IA que usamos na Ata AI",
+    "tagline": "Não é qualquer LLM—escolhemos modelos que mantêm as atas claras e acionáveis. Atualmente: ChatGPT-5 e Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Porque a qualidade primeiro",
+    "p1": "Muitas apps escolhem pelo custo. Priorizamos clareza, acionabilidade e consistência para que o próximo passo seja evidente.",
+    "p2": "Bons ingredientes e cozinha não garantem um prato excelente—conta o ofício. Ajustamos modelos e prompts para atas profissionais."
+  },
+  "adopted": {
+    "h2": "Modelos adotados (à data de redação)",
+    "items": [
+      "ChatGPT-5 (OpenAI): raciocínio forte, controlo de tom e estrutura fiável para atas prontas à decisão.",
+      "Gemini 2.5 Pro (Google): coerência em contexto longo e extração robusta de pontos-chave."
+    ],
+    "foot": "Avaliamos continuamente novos modelos e mudamos quando superam o nosso padrão de qualidade."
+  },
+  "image": { "alt": "Stack de modelos que alimenta a Ata AI", "caption": "A Ata AI escolhe modelos pela clareza e acionabilidade, não só pelo custo." },
+  "links": { "h2": "Leituras relacionadas", "intro": "Introdução", "nego": "Atas de negociação empresarial" },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artigo", "category": "Modelos de IA" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Descarregar app iOS" }
+}

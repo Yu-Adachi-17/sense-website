@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Model AI di sebalik Minit AI",
+    "description": "Mengapa Minit AI menghasilkan minit mesyuarat profesional: dasar kualiti diutamakan dan model semasa (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Minit AI: strategi model berfokus kualiti",
+    "ogDescription": "Kami dedahkan model yang digunakan—ChatGPT-5 dan Gemini 2.5 Pro—untuk minit yang jelas, boleh-tindak dan konsisten.",
+    "ld": {
+      "headline": "Model AI yang digunakan oleh Minit AI",
+      "description": "Minit AI mengutamakan kualiti output dan kini mengguna ChatGPT-5 serta Gemini 2.5 Pro untuk minit sedia keputusan."
+    }
+  },
+  "aria": { "home": "Laman utama Minit AI" },
+  "nav": { "blog": "Blog", "aimodel": "Model AI" },
+  "hero": {
+    "kicker": "Di sebalik tabir",
+    "h1": "Model AI yang kami gunakan untuk Minit AI",
+    "tagline": "Bukan sebarang LLM—kami memilih model yang mengekalkan minit jelas dan boleh-tindak. Ketika ini: ChatGPT-5 dan Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Mengapa kualiti didahulukan",
+    "p1": "Banyak aplikasi memilih berdasarkan kos. Kami mengutamakan kejelasan, kebolehlaksanaan dan konsistensi.",
+    "p2": "Bahan dan dapur terbaik tidak menjamin hidangan terbaik—kemahiran penting. Pemilihan model dan prompt ditala untuk minit profesional."
+  },
+  "adopted": {
+    "h2": "Model diguna (pada masa penulisan)",
+    "items": [
+      "ChatGPT-5 (OpenAI): penaakulan kukuh, kawalan nada, struktur boleh dipercayai untuk minit sedia keputusan.",
+      "Gemini 2.5 Pro (Google): koheren pada konteks panjang dan pengekstrakan titik utama yang mantap."
+    ],
+    "foot": "Kami menilai model baharu secara berterusan dan beralih apabila melepasi piawaian kualiti kami."
+  },
+  "image": { "alt": "Timbunan model yang menggerakkan Minit AI", "caption": "Minit AI memilih model berdasarkan kejelasan dan kebolehtindakan, bukan kos semata-mata." },
+  "links": { "h2": "Bacaan berkaitan", "intro": "Pengenalan", "nego": "Minit perundingan perniagaan" },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Artikel", "category": "Model AI" },
+  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun aplikasi iOS" }
+}

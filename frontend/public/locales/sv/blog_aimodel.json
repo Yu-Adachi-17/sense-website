@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "AI-modellerna bakom Protokoll AI",
+    "description": "Varför Protokoll AI ger professionella protokoll: kvalitet först och aktuella modeller (ChatGPT-5, Gemini 2.5 Pro).",
+    "ogTitle": "Protokoll AI: modellstrategi med kvalitetsfokus",
+    "ogDescription": "Vi redovisar modellerna vi använder—ChatGPT-5 och Gemini 2.5 Pro—för tydliga, handlingsbara och konsekventa protokoll.",
+    "ld": {
+      "headline": "AI-modeller som Protokoll AI använder",
+      "description": "Protokoll AI prioriterar utdata-kvalitet och använder nu ChatGPT-5 och Gemini 2.5 Pro för beslutsredo protokoll."
+    }
+  },
+  "aria": { "home": "Startsida Protokoll AI" },
+  "nav": { "blog": "Blogg", "aimodel": "AI-modeller" },
+  "hero": {
+    "kicker": "Bakom kulisserna",
+    "h1": "AI-modellerna vi använder i Protokoll AI",
+    "tagline": "Inte vilket LLM som helst: vi väljer modeller som gör protokoll tydliga och handlingsbara. Nu: ChatGPT-5 och Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Varför kvalitet först",
+    "p1": "Många väljer efter kostnad. Vi prioriterar tydlighet, handlingsbarhet och konsekvens så nästa steg alltid är tydligt.",
+    "p2": "Bra ingredienser och kök garanterar inte toppresultat—hantverket räknas. Modellval och promptar trimmas för proffsiga protokoll."
+  },
+  "adopted": {
+    "h2": "Antagna modeller (vid skrivtillfället)",
+    "items": [
+      "ChatGPT-5 (OpenAI): starkt resonemang, tonkontroll och pålitlig struktur för beslutsredo protokoll.",
+      "Gemini 2.5 Pro (Google): koherens i lång kontext och robust nyckelpunkts-extraktion."
+    ],
+    "foot": "Vi utvärderar kontinuerligt nya modeller och byter när de överträffar vår kvalitetsnivå."
+  },
+  "image": { "alt": "Modellstack för Protokoll AI", "caption": "Protokoll AI väljer modeller efter tydlighet och handlingsbarhet, inte bara kostnad." },
+  "links": { "h2": "Relaterat", "intro": "Introduktion", "nego": "Protokoll för affärsförhandlingar" },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Artikel", "category": "AI-modeller" },
+  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Hämta iOS-app" }
+}

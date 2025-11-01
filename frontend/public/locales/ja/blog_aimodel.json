@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "議事録AIで採用しているAIモデル",
+    "description": "なぜ議事録AIがプロ品質の議事録を生むのか。品質ファーストの方針と、現時点の採用モデル（ChatGPT-5 / Gemini 2.5 Pro）を公開。",
+    "ogTitle": "議事録AIのモデル方針：品質を最優先",
+    "ogDescription": "明瞭・実行可能・一貫性ある議事録のため、ChatGPT-5 と Gemini 2.5 Pro を採用しています。",
+    "ld": {
+      "headline": "議事録AIが使用するAIモデル",
+      "description": "議事録AIは出力品質を最優先とし、現時点で ChatGPT-5 と Gemini 2.5 Pro を採用。意思決定に直結する議事録を生成します。"
+    }
+  },
+  "aria": { "home": "議事録AI ホーム" },
+  "nav": { "blog": "ブログ", "aimodel": "AIモデル" },
+  "hero": {
+    "kicker": "舞台裏",
+    "h1": "議事録AIで使用しているAIモデルを公開",
+    "tagline": "LLMは“何でも”ではありません。読み手の次アクションが明確になるモデルを厳選。現時点：ChatGPT-5 / Gemini 2.5 Pro。"
+  },
+  "philosophy": {
+    "h2": "品質ファーストの理由",
+    "p1": "多くのプロダクトはコストで選びますが、私たちは明瞭さ・実行可能性・一貫性を最優先にします。",
+    "p2": "最高の素材やキッチンだけでは最高の料理になりません。モデル選定とプロンプト設計を磨き、プロ品質の議事録を実現します."
+  },
+  "adopted": {
+    "h2": "採用モデル（執筆時点）",
+    "items": [
+      "ChatGPT-5（OpenAI）：強力な推論・トーン制御・崩れにくい構成で意思決定に直結。",
+      "Gemini 2.5 Pro（Google）：長文整合性と要点抽出に強く、専門領域でも安定。"
+    ],
+    "foot": "新モデルは継続的に評価し、品質基準を上回れば即座に切替えます。"
+  },
+  "image": { "alt": "議事録AIを支えるモデルスタック", "caption": "コストだけでなく、明瞭さと実行可能性を最重視してモデルを選定。" },
+  "links": { "h2": "関連記事", "intro": "Introduction（導入）", "nego": "Business Negotiation（商談議事録）" },
+  "meta": { "h2": "メタ", "published": "公開日", "type": "記事", "category": "AIモデル" },
+  "cta": { "openBrowser": "ブラウザで開く", "downloadIOS": "iOSアプリを入手" }
+}
