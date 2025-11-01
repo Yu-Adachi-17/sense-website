@@ -1,9 +1,0 @@
----
-title: "Why Minutes.AI Delivers the Best Minutes for Any Meeting"
-date: "2025-10-15"
-tags: ["Articles"]
-cover: "/images/hero-phone.png"
-excerpt: "Formats available to accommodate all types of meetings"
-slug: "universal-minutes"
-link: "/blog/universal-minutes"
----

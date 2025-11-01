@@ -1,4 +1,4 @@
-// src/pages/blog/universal-minutes.js
+// src/pages/blog/universalminutes.js
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -205,7 +205,7 @@ export default function BlogUniversalMinutes() {
   const canonical =
     siteUrl +
     (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) +
-    "/blog/universal-minutes";
+    "/blog/universalminutes";
 
   const recapPoints = txa("recap.points");
   const diversityCore = txa("diversity.core.items");

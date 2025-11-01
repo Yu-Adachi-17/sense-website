@@ -233,7 +233,6 @@ const I18N = {
   },
 };
 
-
 /* ===================== UI bits ===================== */
 function Badge({ children, active = false, onClick }) {
   return (
@@ -250,15 +249,25 @@ function Badge({ children, active = false, onClick }) {
   );
 }
 
+/* ===== Hydration-safe locale handling for dates ===== */
+function localeWithExtensions(loc) {
+  if (!loc) return undefined;
+  const base = String(loc).replace(/-u-.*$/i, ""); // strip existing -u- extensions
+  // Use gregorian calendar + latin digits to keep SSR/CSR consistent.
+  // If you want Eastern Arabic numerals, change nu-latn -> nu-arab.
+  return `${base}-u-ca-gregory-nu-latn`;
+}
+
 function formatDate(d, locale) {
   if (!d) return "";
   try {
     const date = new Date(d);
-    return date.toLocaleDateString(locale || undefined, {
+    const normalized = localeWithExtensions(locale || undefined);
+    return new Intl.DateTimeFormat(normalized, {
       year: "numeric",
       month: "short",
       day: "numeric",
-    });
+    }).format(date);
   } catch {
     return d;
   }
@@ -297,7 +306,7 @@ function Card({ post, locale }) {
               {t}
             </span>
           ))}
-          <span className="ml-auto text-indigo-200/70">
+          <span className="ml-auto text-indigo-200/70" suppressHydrationWarning>
             {formatDate(post.date, locale)}
           </span>
         </div>
@@ -572,7 +581,7 @@ export async function getStaticProps({ locale, defaultLocale }) {
       updatedAt: toISO(data?.updatedAt, false),
       excerpt: excerpt || (content ? content.slice(0, 180) : ""),
       coverImage,
-      tags: Array.isArray(data?.tags) && data.tags.length ? data.tags : ["Articles"],
+      tags: Array.isArray(data?.tags) && data.length ? data.tags : ["Articles"],
       href,
     });
   }
