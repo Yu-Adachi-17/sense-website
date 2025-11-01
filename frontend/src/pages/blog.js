@@ -34,27 +34,205 @@ const I18N = {
   },
   "zh-CN": {
     title: "会议记录AI 博客",
-    desc:
-      "用AI开好每一次会议。工作流程、更新、采访与文章。",
-    heroP:
-      "用AI提升会议质量。新的工作流程、采访与产品更新。",
+    desc: "用AI开好每一次会议。工作流程、更新、采访与文章。",
+    heroP: "用AI提升会议质量。新的工作流程、采访与产品更新。",
     allTags: "全部标签",
     loadMore: "加载更多",
     noPosts: "暂无文章，敬请期待。",
     backHome: "返回首页",
   },
+
+  /* ----- Added locales ----- */
+  ar: {
+    title: "مدوّنة ‎Minutes.AI",
+    desc:
+      "تعلّم كيف تدير اجتماعات أفضل بالذكاء الاصطناعي. سير عمل، تحديثات، مقابلات، ومقالات من ‎Minutes.AI.",
+    heroP:
+      "طوّر اجتماعاتك بالذكاء الاصطناعي. سير عمل جديدة، مقابلات، وتحديثات المنتج.",
+    allTags: "كل الوسوم",
+    loadMore: "اعرض المزيد",
+    noPosts: "لا توجد مقالات بعد. عد لاحقًا.",
+    backHome: "العودة إلى الصفحة الرئيسية",
+  },
+  da: {
+    title: "Referat AI Blog",
+    desc:
+      "Lær at holde bedre møder med AI. Arbejdsgange, opdateringer, interviews og artikler fra Referat AI.",
+    heroP:
+      "Bliv bedre til møder med AI. Nye arbejdsgange, interviews og produktnyheder.",
+    allTags: "Alle tags",
+    loadMore: "Indlæs mere",
+    noPosts: "Ingen indlæg endnu. Kig forbi snart.",
+    backHome: "Til forsiden",
+  },
+  de: {
+    title: "Protokoll KI Blog",
+    desc:
+      "Lernen Sie, bessere Meetings mit KI durchzuführen. Workflows, Updates, Interviews und Artikel von Protokoll KI.",
+    heroP:
+      "Bessere Meetings mit KI. Neue Workflows, Interviews und Produkt-Updates.",
+    allTags: "Alle Tags",
+    loadMore: "Mehr laden",
+    noPosts: "Noch keine Beiträge. Schauen Sie bald wieder vorbei.",
+    backHome: "Zur Startseite",
+  },
+  "es-ES": {
+    title: "Blog de Actas IA",
+    desc:
+      "Aprende a dirigir mejores reuniones con IA. Flujos de trabajo, novedades, entrevistas y artículos de Actas IA.",
+    heroP:
+      "Reuniones mejores con IA. Nuevos flujos, entrevistas y actualizaciones del producto.",
+    allTags: "Todas las etiquetas",
+    loadMore: "Cargar más",
+    noPosts: "Aún no hay artículos. Vuelve pronto.",
+    backHome: "Volver al inicio",
+  },
+  "es-MX": {
+    title: "Blog de Actas IA",
+    desc:
+      "Aprende a llevar reuniones más efectivas con IA. Flujos de trabajo, actualizaciones, entrevistas y artículos de Actas IA.",
+    heroP:
+      "Mejora tus reuniones con IA. Nuevos flujos, entrevistas y novedades del producto.",
+    allTags: "Todas las etiquetas",
+    loadMore: "Cargar más",
+    noPosts: "Todavía no hay artículos. Vuelve pronto.",
+    backHome: "Volver al inicio",
+  },
+  fr: {
+    title: "Blog Minutes.AI",
+    desc:
+      "Apprenez à mieux conduire vos réunions avec l’IA. Parcours, mises à jour, interviews et articles de Minutes.AI.",
+    heroP:
+      "Améliorez vos réunions avec l’IA. Nouveaux parcours, interviews et mises à jour produit.",
+    allTags: "Toutes les étiquettes",
+    loadMore: "Charger plus",
+    noPosts: "Aucun article pour le moment. Revenez bientôt.",
+    backHome: "Retour à l’accueil",
+  },
+  id: {
+    title: "Blog Minutes AI",
+    desc:
+      "Pelajari cara menjalankan rapat yang lebih baik dengan AI. Alur kerja, pembaruan, wawancara, dan artikel dari Minutes AI.",
+    heroP:
+      "Tingkatkan rapat Anda dengan AI. Alur baru, wawancara, dan pembaruan produk.",
+    allTags: "Semua tag",
+    loadMore: "Muat lebih banyak",
+    noPosts: "Belum ada artikel. Kunjungi lagi nanti.",
+    backHome: "Kembali ke Beranda",
+  },
+  ko: {
+    title: "회의록AI 블로그",
+    desc:
+      "AI로 더 나은 회의를 운영하세요. 회의 흐름, 업데이트, 인터뷰, 그리고 회의록AI의 기사들을 제공합니다.",
+    heroP:
+      "AI로 회의를 더 좋게. 새로운 워크플로우, 인터뷰, 제품 업데이트.",
+    allTags: "모든 태그",
+    loadMore: "더 보기",
+    noPosts: "아직 게시물이 없습니다. 곧 다시 방문해 주세요.",
+    backHome: "홈으로",
+  },
+  ms: {
+    title: "Blog Minit AI",
+    desc:
+      "Pelajari cara mengendalikan mesyuarat yang lebih baik dengan AI. Aliran kerja, kemas kini, temu bual dan artikel daripada Minit AI.",
+    heroP:
+      "Perbaiki mesyuarat anda dengan AI. Aliran baharu, temu bual dan kemas kini produk.",
+    allTags: "Semua tag",
+    loadMore: "Muat lagi",
+    noPosts: "Belum ada artikel. Datang semula nanti.",
+    backHome: "Kembali ke Laman Utama",
+  },
+  nl: {
+    title: "Notulen AI Blog",
+    desc:
+      "Leer betere vergaderingen houden met AI. Workflows, updates, interviews en artikelen van Notulen AI.",
+    heroP:
+      "Betere vergaderingen met AI. Nieuwe workflows, interviews en productupdates.",
+    allTags: "Alle tags",
+    loadMore: "Meer laden",
+    noPosts: "Nog geen artikelen. Kom later terug.",
+    backHome: "Terug naar home",
+  },
+  // 既存の nb を保持（フォルダは no でも、実行時 locale が nb のケースに対応）
   nb: {
     title: "Referat AI Blogg",
     desc:
       "Lær å holde bedre møter med AI. Arbeidsflyter, oppdateringer, intervjuer og artikler fra Referat AI.",
     heroP:
-      "Lær å holde bedre møter med AI. Nye arbeidsflyter, intervjuer og produktoppdateringer.",
+      "Bli bedre på møter med AI. Nye arbeidsflyter, intervjuer og produktoppdateringer.",
     allTags: "Alle tagger",
     loadMore: "Vis mer",
     noPosts: "Ingen innlegg ennå. Kom tilbake snart.",
     backHome: "Tilbake til forsiden",
   },
+  no: {
+    title: "Referat AI Blogg",
+    desc:
+      "Lær å holde bedre møter med AI. Arbeidsflyter, oppdateringer, intervjuer og artikler fra Referat AI.",
+    heroP:
+      "Bli bedre på møter med AI. Nye arbeidsflyter, intervjuer og produktoppdateringer.",
+    allTags: "Alle tagger",
+    loadMore: "Vis mer",
+    noPosts: "Ingen innlegg ennå. Kom tilbake snart.",
+    backHome: "Tilbake til forsiden",
+  },
+  "pt-BR": {
+    title: "Blog do Ata AI",
+    desc:
+      "Aprenda a conduzir reuniões melhores com IA. Fluxos de trabalho, atualizações, entrevistas e artigos do Ata AI.",
+    heroP:
+      "Reuniões melhores com IA. Novos fluxos, entrevistas e atualizações do produto.",
+    allTags: "Todas as tags",
+    loadMore: "Carregar mais",
+    noPosts: "Ainda não há artigos. Volte em breve.",
+    backHome: "Voltar para a Página Inicial",
+  },
+  "pt-PT": {
+    title: "Blog do Ata AI",
+    desc:
+      "Aprenda a conduzir reuniões melhores com IA. Fluxos de trabalho, atualizações, entrevistas e artigos do Ata AI.",
+    heroP:
+      "Reuniões melhores com IA. Novos fluxos, entrevistas e novidades do produto.",
+    allTags: "Todas as etiquetas",
+    loadMore: "Carregar mais",
+    noPosts: "Ainda não há artigos. Volte em breve.",
+    backHome: "Voltar à Página Inicial",
+  },
+  sv: {
+    title: "Protokoll AI Blogg",
+    desc:
+      "Lär dig hålla bättre möten med AI. Arbetsflöden, uppdateringar, intervjuer och artiklar från Protokoll AI.",
+    heroP:
+      "Bättre möten med AI. Nya arbetsflöden, intervjuer och produktuppdateringar.",
+    allTags: "Alla taggar",
+    loadMore: "Ladda mer",
+    noPosts: "Inga inlägg ännu. Kom tillbaka snart.",
+    backHome: "Tillbaka hem",
+  },
+  tr: {
+    title: "Tutanakları AI Blogu",
+    desc:
+      "Yapay zekâ ile daha iyi toplantılar yapın. İş akışları, güncellemeler, röportajlar ve Tutanakları AI’dan makaleler.",
+    heroP:
+      "Toplantılarınızı yapay zekâ ile geliştirin. Yeni iş akışları, röportajlar ve ürün güncellemeleri.",
+    allTags: "Tüm etiketler",
+    loadMore: "Daha fazlası",
+    noPosts: "Henüz yazı yok. Yakında tekrar bakın.",
+    backHome: "Ana sayfaya dön",
+  },
+  "zh-TW": {
+    title: "會議紀錄AI 部落格",
+    desc:
+      "用 AI 讓每場會議更有效。工作流程、最新消息、訪談與文章。",
+    heroP:
+      "用 AI 提升會議品質。全新工作流程、訪談與產品更新。",
+    allTags: "全部標籤",
+    loadMore: "載入更多",
+    noPosts: "尚無文章，敬請期待。",
+    backHome: "返回首頁",
+  },
 };
+
 
 /* ===================== UI bits ===================== */
 function Badge({ children, active = false, onClick }) {
@@ -89,6 +267,11 @@ function formatDate(d, locale) {
 function Card({ post, locale }) {
   const safeHref =
     typeof post?.href === "string" ? post.href : `/blog/${post?.slug || ""}`;
+
+  // 画像フォールバック順：post.coverImage -> 既定
+  const FALLBACK_IMG = "/images/General03.jpeg";
+  const coverSrc = post.coverImage || FALLBACK_IMG;
+
   return (
     <Link
       href={safeHref}
@@ -98,7 +281,7 @@ function Card({ post, locale }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt={post.title}
-          src={post.coverImage || "/images/hero-phone.png"}
+          src={coverSrc}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           loading="lazy"
         />
@@ -157,6 +340,9 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
       : siteUrl;
   const canonical = `${base}/blog`;
 
+  // OG画像はサイト共通サムネに更新
+  const OG_IMG = `${siteUrl}/images/General03.jpeg`;
+
   return (
     <>
       <Head>
@@ -167,7 +353,7 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
         <meta property="og:title" content={L.title} />
         <meta property="og:description" content={L.heroP || L.desc} />
         <meta property="og:url" content={canonical} />
-        <meta property="og:image" content={`${siteUrl}/images/hero-phone.png`} />
+        <meta property="og:image" content={OG_IMG} />
         {/* hreflang（最低限：現在と言語無し） */}
         <link rel="alternate" hrefLang="x-default" href={`${siteUrl}/blog`} />
         {locale && (
@@ -340,19 +526,22 @@ export async function getStaticProps({ locale, defaultLocale }) {
       (typeof data.link === "string" && data.link.trim()) ||
       (isIntroByTitle || isIntroBySlug ? "/blog/introduction" : `/blog/${slug}`);
 
+    // cover または image のどちらかを採用
+    const coverImage = data.cover || data.image || null;
+
     pushPost({
       slug,
       title,
       date: toISO(data.date, true),
       updatedAt: toISO(data.updatedAt, false),
       excerpt: data.excerpt || (content ? content.slice(0, 180) : ""),
-      coverImage: data.cover || null,
+      coverImage,
       tags: Array.isArray(data.tags) && data.tags.length ? data.tags : ["Articles"],
       href,
     });
   }
 
-  /* 2) サブディレクトリ（/businessnegotiation 等） */
+  /* 2) サブディレクトリ（/businessnegotiation 等, ここに /aimodel も含まれる） */
   for (const ent of ents.filter((e) => e.isDirectory())) {
     const dir = ent.name;
     const dirPath = path.join(contentDir, dir);
@@ -372,13 +561,17 @@ export async function getStaticProps({ locale, defaultLocale }) {
 
     const href = `/blog/${dir}`;
 
+    // cover -> image -> 既定の順で決定
+    const coverImage =
+      data?.cover || data?.image || "/images/General03.jpeg";
+
     pushPost({
       slug: dir,
       title,
       date: toISO(data?.date, true),
       updatedAt: toISO(data?.updatedAt, false),
       excerpt: excerpt || (content ? content.slice(0, 180) : ""),
-      coverImage: data?.cover || "/images/hero-phone.png",
+      coverImage,
       tags: Array.isArray(data?.tags) && data.tags.length ? data.tags : ["Articles"],
       href,
     });
