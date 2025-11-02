@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Tutanakları AI Strategy — tutanakları karara dönüştürün (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy, toplantıları Boost/Counter/Top Issue ve üç düşünme modu ile net sonraki adımlara dönüştürür. SEO: yapay zekâ tutanak, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Tutanakları AI'da Strategy: sadece özet değil, karar",
+    "ogDescription": "Boost/Counter/Top Issue + Mantıksal/Eleştirel/Yanal düşünme ile uygulanabilir çıktı.",
+    "ld": {
+      "headline": "Tutanakları AI Strategy'yi ekledi",
+      "description": "ChatGPT-5 ve Gemini 2.5 Pro ile tartışmayı hızlı ve net karara dönüştürün."
+    }
+  },
+  "aria": { "home": "Tutanakları AI Ana Sayfa" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Özellik Rehberi",
+    "h1": "Tutanakları AI için Strategy",
+    "tagline": "Sadece özet değil—Strategy, ChatGPT-5 ve Gemini 2.5 Pro ile tartışmayı karara çevirir."
+  },
+  "image": { "alt": "Tutanakları AI Strategy arayüzü", "caption": "Çekirdek sorunu ve sonraki adımları tek akışta çıkarın." },
+  "what": {
+    "h2": "Strategy ne yapar?",
+    "items": [
+      "Boost: ne işe yarıyor & nasıl ölçeklenir",
+      "Counter: riskler & düzeltmeler",
+      "Top Issue: temel soru",
+      "Düşünme modları: Mantıksal / Eleştirel / Yanal"
+    ]
+  },
+  "steps": {
+    "h2": "Başlangıç",
+    "items": [
+      "Uygulama veya webde tutanak oluşturun",
+      "“Strategy”e dokunun",
+      "Boost / Counter / Top Issue + 3 modu inceleyin",
+      "Görev sisteminize yapıştırın"
+    ],
+    "note": "Uygunluk ve süre plan/kvotaya bağlıdır."
+  },
+  "features": {
+    "h2": "Öne çıkanlar",
+    "items": [
+      "Sadece özet değil, karar odaklı",
+      "ChatGPT-5 & Gemini 2.5 Pro için optimize",
+      "Kısa ve uygulanabilir çıktılar",
+      "Küresel ekipler için çok dilli"
+    ]
+  },
+  "notes": {
+    "h2": "Notlar",
+    "items": [
+      "Girdi kalitesi, çıktı kalitesini belirler",
+      "Toplantı tipine göre şablon değiştirin"
+    ],
+    "foot": "iOS’ta mevcut. Bugün deneyin."
+  },
+  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "Özellik", "category": "Strategy" },
+  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" }
+}

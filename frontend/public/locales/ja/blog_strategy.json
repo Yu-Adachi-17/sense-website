@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "議事録AIのStrategy — 議事録を意思決定へ（ChatGPT-5・Gemini 2.5 Pro）",
+    "description": "Strategyは会議をBoost/Counter/Top Issue＋3つの思考法に整理し、次の一手を明確化。検索意図：AI議事録、ChatGPT-5、Gemini 2.5 Pro。",
+    "ogTitle": "議事録AIのStrategy：ただの要約ではなく決断へ",
+    "ogDescription": "Boost/Counter/Top Issue＋Logical/Critical/Lateralで実行可能なアウトプットを生成。",
+    "ld": {
+      "headline": "議事録AIにStrategy機能を追加",
+      "description": "ChatGPT-5とGemini 2.5 Proで議論を素早く意思決定へ変換。"
+    }
+  },
+  "aria": { "home": "議事録AI ホーム" },
+  "nav": { "blog": "ブログ", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "機能ガイド",
+    "h1": "議事録AIのStrategy",
+    "tagline": "「要約」で終わらせない。ChatGPT-5/Gemini 2.5 Proで議論を意思決定に変える。"
+  },
+  "image": { "alt": "議事録AI StrategyのUI", "caption": "中核論点と次アクションをワンタップで抽出。" },
+  "what": {
+    "h2": "Strategyでできること",
+    "items": [
+      "Boost：うまくいっている点と拡張策",
+      "Counter：リスクと改善策",
+      "Top Issue：解くべき中核の問い",
+      "思考法：Logical／Critical／Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "使い方（簡潔）",
+    "items": [
+      "アプリ/ブラウザで議事録を生成",
+      "「Strategy」をタップ",
+      "Boost / Counter / Top Issue＋3モードを確認",
+      "タスク管理に貼り付け"
+    ],
+    "note": "利用可否・上限時間はプラン/残り時間によって異なります。"
+  },
+  "features": {
+    "h2": "ハイライト",
+    "items": [
+      "要約でなく意思決定に最適化",
+      "ChatGPT-5 & Gemini 2.5 Proに最適化",
+      "短く明快で実行可能な出力",
+      "多言語対応でグローバル運用に最適"
+    ]
+  },
+  "notes": {
+    "h2": "注意点",
+    "items": [
+      "入力品質が出力品質を左右します",
+      "会議タイプに応じてテンプレートを選択"
+    ],
+    "foot": "iOSで提供中。今すぐお試しください。"
+  },
+  "meta": { "h2": "メタ", "published": "公開日", "type": "機能", "category": "Strategy" },
+  "cta": { "openBrowser": "ブラウザで開く", "downloadIOS": "iOSアプリをダウンロード" }
+}

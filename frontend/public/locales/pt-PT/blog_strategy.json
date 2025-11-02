@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Strategy no Ata AI — transforme atas em decisões (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy condensa reuniões em Boost/Counter/Top Issue e três modos de pensamento para próximos passos claros. SEO: atas com IA, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy no Ata AI: decisões, não apenas resumos",
+    "ogDescription": "Boost/Counter/Top Issue + Lógico/Crítico/Lateral para saídas acionáveis.",
+    "ld": {
+      "headline": "Ata AI adiciona Strategy",
+      "description": "Use ChatGPT-5 e Gemini 2.5 Pro para converter discussões em decisões de forma rápida e clara."
+    }
+  },
+  "aria": { "home": "Página inicial do Ata AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Guia de recurso",
+    "h1": "Strategy para o Ata AI",
+    "tagline": "Não é só resumo—Strategy transforma discussões em decisões com ChatGPT-5 e Gemini 2.5 Pro."
+  },
+  "image": { "alt": "Interface do Strategy no Ata AI", "caption": "Extraia a questão central e as próximas ações em um passo." },
+  "what": {
+    "h2": "O que o Strategy faz",
+    "items": [
+      "Boost: o que funciona e como escalar",
+      "Counter: riscos e correções",
+      "Top Issue: a pergunta central",
+      "Modos de pensamento: Lógico / Crítico / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "Como começar",
+    "items": [
+      "Gere as atas no app ou web",
+      "Toque em “Strategy”",
+      "Revise Boost / Counter / Top Issue + 3 modos",
+      "Cole no seu gestor de tarefas"
+    ],
+    "note": "Disponibilidade e duração dependem do plano/quota."
+  },
+  "features": {
+    "h2": "Destaques",
+    "items": [
+      "Foco em decisão, não apenas sumarização",
+      "Otimizado para ChatGPT-5 e Gemini 2.5 Pro",
+      "Saídas curtas e acionáveis",
+      "Multilíngue para equipes globais"
+    ]
+  },
+  "notes": {
+    "h2": "Notas",
+    "items": [
+      "A qualidade da saída reflete a qualidade da entrada",
+      "Use modelos diferentes por tipo de reunião"
+    ],
+    "foot": "Disponível no iOS. Experimente hoje."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Recurso", "category": "Strategy" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Baixar app iOS" }
+}

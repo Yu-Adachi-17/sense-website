@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Strategy i Protokoll AI — gör protokoll till beslut (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy destillerar möten till Boost/Counter/Top Issue och tre tänkelägen för tydliga nästa steg. SEO: AI-protokoll, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy i Protokoll AI: beslut, inte bara anteckningar",
+    "ogDescription": "Boost/Counter/Top Issue + Logiskt/Kritiskt/Lateralt tänk för handlingsbara resultat.",
+    "ld": {
+      "headline": "Protokoll AI lägger till Strategy",
+      "description": "Med ChatGPT-5 och Gemini 2.5 Pro omvandlas diskussioner snabbt och tydligt till beslut."
+    }
+  },
+  "aria": { "home": "Startsida för Protokoll AI" },
+  "nav": { "blog": "Blogg", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Funktionsguide",
+    "h1": "Strategy för Protokoll AI",
+    "tagline": "Inte bara sammanfattning—Strategy gör diskussion till beslut med ChatGPT-5 och Gemini 2.5 Pro."
+  },
+  "image": { "alt": "Protokoll AI Strategy-gränssnitt", "caption": "Plocka ut kärnfråga och nästa steg i ett svep." },
+  "what": {
+    "h2": "Det här gör Strategy",
+    "items": [
+      "Boost: vad som funkar & skalning",
+      "Counter: risker & åtgärder",
+      "Top Issue: kärnfrågan",
+      "Tänkelägen: Logiskt / Kritiskt / Lateralt"
+    ]
+  },
+  "steps": {
+    "h2": "Kom igång",
+    "items": [
+      "Skapa protokoll i app eller webb",
+      "Tryck ”Strategy”",
+      "Gå igenom Boost / Counter / Top Issue + 3 lägen",
+      "Klistra in i ditt uppgiftssystem"
+    ],
+    "note": "Tillgänglighet och varaktighet beror på plan/kvot."
+  },
+  "features": {
+    "h2": "Höjdpunkter",
+    "items": [
+      "Beslutsfokus, inte bara summering",
+      "Optimerad för ChatGPT-5 & Gemini 2.5 Pro",
+      "Korta, handlingsbara utdata",
+      "Flerspråkigt för globala team"
+    ]
+  },
+  "notes": {
+    "h2": "Notiser",
+    "items": [
+      "Inputkvalitet avgör outputkvalitet",
+      "Använd olika mallar per mötestyp"
+    ],
+    "foot": "Tillgängligt på iOS. Testa idag."
+  },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Funktion", "category": "Strategy" },
+  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Ladda ner iOS-app" }
+}

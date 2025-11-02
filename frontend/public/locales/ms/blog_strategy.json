@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Strategy dalam Minit AI — ubah minit mesyuarat jadi keputusan (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy memadatkan mesyuarat kepada Boost/Counter/Top Issue dan tiga mod pemikiran untuk langkah seterusnya yang jelas. SEO: minit AI, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy di Minit AI: keputusan, bukan sekadar ringkasan",
+    "ogDescription": "Boost/Counter/Top Issue + Logik/Kritikal/Lateral untuk hasil yang boleh dilaksanakan.",
+    "ld": {
+      "headline": "Minit AI menambah Strategy",
+      "description": "Manfaatkan ChatGPT-5 dan Gemini 2.5 Pro untuk menukar perbincangan kepada keputusan dengan cepat dan jelas."
+    }
+  },
+  "aria": { "home": "Laman utama Minit AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Panduan ciri",
+    "h1": "Strategy untuk Minit AI",
+    "tagline": "Bukan sekadar minit—Strategy menukar perbincangan kepada keputusan dengan ChatGPT-5 dan Gemini 2.5 Pro."
+  },
+  "image": { "alt": "Antara muka Strategy Minit AI", "caption": "Kenal pasti isu teras dan tindakan seterusnya dalam satu langkah." },
+  "what": {
+    "h2": "Apa yang dilakukan Strategy",
+    "items": [
+      "Boost: apa yang berkesan & cara skala",
+      "Counter: risiko & pembaikan",
+      "Top Issue: soalan teras",
+      "Mod pemikiran: Logik / Kritikal / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "Cara mula",
+    "items": [
+      "Jana minit di aplikasi atau web",
+      "Ketik “Strategy”",
+      "Semak Boost / Counter / Top Issue + 3 mod",
+      "Tampal ke sistem tugasan anda"
+    ],
+    "note": "Ketersediaan/tempoh bergantung pada pelan/kuota anda."
+  },
+  "features": {
+    "h2": "Sorotan",
+    "items": [
+      "Berfokus keputusan, bukan sekadar ringkasan",
+      "Dioptimum untuk ChatGPT-5 & Gemini 2.5 Pro",
+      "Keluaran ringkas dan boleh dilaksanakan",
+      "Berbilang bahasa untuk pasukan global"
+    ]
+  },
+  "notes": {
+    "h2": "Nota",
+    "items": [
+      "Kualiti input menentukan kualiti output",
+      "Guna templat berbeza mengikut jenis mesyuarat"
+    ],
+    "foot": "Tersedia di iOS. Cuba hari ini."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Ciri", "category": "Strategy" },
+  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun aplikasi iOS" }
+}

@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Strategy i Referat AI — gjør referater til beslutninger (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy koker møter ned til Boost/Counter/Top Issue og tre tenkemåter for klare neste steg. SEO: referat med KI, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy i Referat AI: beslutninger, ikke bare notater",
+    "ogDescription": "Boost/Counter/Top Issue + Logisk/Kritisk/Lateral tenkning for handlingsklare resultater.",
+    "ld": {
+      "headline": "Referat AI lanserer Strategy",
+      "description": "Med ChatGPT-5 og Gemini 2.5 Pro omsetter du diskusjon til beslutning raskt og tydelig."
+    }
+  },
+  "aria": { "home": "Hjem for Referat AI" },
+  "nav": { "blog": "Blogg", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Funksjonsguide",
+    "h1": "Strategy for Referat AI",
+    "tagline": "Ikke bare oppsummering—Strategy gjør diskusjon om til beslutning med ChatGPT-5 og Gemini 2.5 Pro."
+  },
+  "image": { "alt": "Referat AI Strategy-grensesnitt", "caption": "Finn kjerneproblem og neste steg i én operasjon." },
+  "what": {
+    "h2": "Hva Strategy gjør",
+    "items": [
+      "Boost: hva som funker & skalering",
+      "Counter: risikoer & tiltak",
+      "Top Issue: kjernespørsmål",
+      "Tenkemåter: Logisk / Kritisk / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "Kom i gang",
+    "items": [
+      "Generer referat i app/nett",
+      "Trykk «Strategy»",
+      "Se over Boost / Counter / Top Issue + 3 modi",
+      "Lim inn i oppgavesystemet"
+    ],
+    "note": "Tilgjengelighet/varighet avhenger av plan/kvote."
+  },
+  "features": {
+    "h2": "Høydepunkter",
+    "items": [
+      "Beslutningsfokus, ikke bare oppsummering",
+      "Optimalisert for ChatGPT-5 & Gemini 2.5 Pro",
+      "Korte, handlingsklare utdata",
+      "Flerspråklig for globale team"
+    ]
+  },
+  "notes": {
+    "h2": "Merknader",
+    "items": [
+      "Kvaliteten på input avgjør output",
+      "Bruk ulike maler etter møtetype"
+    ],
+    "foot": "Tilgjengelig på iOS. Prøv det i dag."
+  },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Funksjon", "category": "Strategy" },
+  "cta": { "openBrowser": "Åpne i nettleser", "downloadIOS": "Last ned iOS-app" }
+}

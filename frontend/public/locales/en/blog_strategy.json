@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Minutes.AI Strategy — turn minutes into decisions (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy distills meetings into Boost/Counter/Top Issue plus three thinking modes for clear next steps. SEO for queries like: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy in Minutes.AI: decisions, not just notes",
+    "ogDescription": "Boost/Counter/Top Issue + Logical/Critical/Lateral thinking for actionable outputs.",
+    "ld": {
+      "headline": "Minutes.AI adds Strategy",
+      "description": "Use ChatGPT-5 and Gemini 2.5 Pro to convert discussion into decisions quickly and clearly."
+    }
+  },
+  "aria": { "home": "Minutes.AI Home" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Feature Guide",
+    "h1": "Strategy for Minutes.AI",
+    "tagline": "Not just minutes—Strategy turns discussion into decisions with ChatGPT-5 and Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "Minutes.AI Strategy UI",
+    "caption": "Extract the core issue and next actions in one step."
+  },
+  "what": {
+    "h2": "What Strategy does",
+    "items": [
+      "Boost: what works & how to scale",
+      "Counter: risks & fixes",
+      "Top Issue: the core question",
+      "Thinking modes: Logical / Critical / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "How to start",
+    "items": [
+      "Generate minutes on app or web",
+      "Tap “Strategy”",
+      "Review Boost / Counter / Top Issue + 3 modes",
+      "Paste into your task system"
+    ],
+    "note": "Availability and duration depend on your plan/quota."
+  },
+  "features": {
+    "h2": "Highlights",
+    "items": [
+      "Decision-focused, not just summarization",
+      "Optimized for ChatGPT-5 & Gemini 2.5 Pro",
+      "Short, actionable outputs",
+      "Multilingual for global teams"
+    ]
+  },
+  "notes": {
+    "h2": "Notes",
+    "items": [
+      "Output quality reflects input quality",
+      "Use different templates for different meeting types"
+    ],
+    "foot": "Available on iOS. Try it today."
+  },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Feature", "category": "Strategy" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" }
+}

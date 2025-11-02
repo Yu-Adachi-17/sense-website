@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "회의록AI Strategy — 회의록을 의사결정으로 (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy는 회의를 Boost/Counter/Top Issue와 3가지 사고 모드로 정리해 다음 액션을 선명하게 제시. 검색 의도: AI 회의록, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "회의록AI Strategy: 단순 요약을 넘어 결정으로",
+    "ogDescription": "Boost/Counter/Top Issue + Logical/Critical/Lateral로 실행 가능한 결과를 얻으세요.",
+    "ld": {
+      "headline": "회의록AI, Strategy 기능 추가",
+      "description": "ChatGPT-5와 Gemini 2.5 Pro로 논의를 신속하게 의사결정으로 전환."
+    }
+  },
+  "aria": { "home": "회의록AI 홈" },
+  "nav": { "blog": "블로그", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "기능 가이드",
+    "h1": "회의록AI의 Strategy",
+    "tagline": "요약에서 끝나지 않습니다. ChatGPT-5/Gemini 2.5 Pro로 논의를 결정으로 바꿉니다."
+  },
+  "image": { "alt": "회의록AI Strategy UI", "caption": "핵심 이슈와 다음 행동을 한 번에 추출." },
+  "what": {
+    "h2": "Strategy가 하는 일",
+    "items": [
+      "Boost: 잘 되는 점과 확장",
+      "Counter: 리스크와 개선",
+      "Top Issue: 해결해야 할 핵심 질문",
+      "사고 모드: Logical / Critical / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "시작 방법",
+    "items": [
+      "앱/웹에서 회의록 생성",
+      "“Strategy” 탭",
+      "Boost / Counter / Top Issue + 3모드 확인",
+      "작업 시스템에 붙여넣기"
+    ],
+    "note": "가용 시간과 길이는 플랜/쿼터에 따라 다릅니다."
+  },
+  "features": {
+    "h2": "하이라이트",
+    "items": [
+      "요약이 아닌 의사결정 중심",
+      "ChatGPT-5 & Gemini 2.5 Pro 최적화",
+      "짧고 실행 가능한 결과",
+      "다국어 지원으로 글로벌 팀에 적합"
+    ]
+  },
+  "notes": {
+    "h2": "참고",
+    "items": [
+      "입력 품질이 출력 품질을 좌우",
+      "회의 유형에 맞는 템플릿 사용"
+    ],
+    "foot": "iOS에서 사용 가능. 지금 사용해 보세요."
+  },
+  "meta": { "h2": "메타", "published": "게시일", "type": "기능", "category": "Strategy" },
+  "cta": { "openBrowser": "브라우저에서 열기", "downloadIOS": "iOS 앱 다운로드" }
+}

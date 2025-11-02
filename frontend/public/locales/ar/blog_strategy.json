@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "ميزة Strategy في Minutes.AI — حوّل محاضر الاجتماعات إلى قرارات (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy في Minutes.AI يلخّص المحادثات إلى Boost/Counter/Top Issue وثلاثة أساليب تفكير لتحديد الخطوة التالية. محسّن SEO لبحث مثل: محاضر اجتماعات بالذكاء الاصطناعي، ChatGPT-5، Gemini 2.5 Pro.",
+    "ogTitle": "Strategy من Minutes.AI: من المحاضر إلى قرارات",
+    "ogDescription": "حوّل محاضر الاجتماعات إلى قرارات قابلة للتنفيذ عبر Boost/Counter/Top Issue وثلاثة أساليب تفكير.",
+    "ld": {
+      "headline": "Minutes.AI يضيف Strategy لتحويل المحاضر إلى قرارات",
+      "description": "استخدم ChatGPT-5 وGemini 2.5 Pro لاستخلاص Boost/Counter/Top Issue وأساليب التفكير المنطقي والناقد والجانبي."
+    }
+  },
+  "aria": { "home": "الصفحة الرئيسية لـ Minutes.AI" },
+  "nav": { "blog": "المدونة", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "دليل الميزة",
+    "h1": "Strategy في Minutes.AI",
+    "tagline": "ليس مجرد تدوين محاضر—Strategy يحول النقاش إلى قرارات واضحة باستخدام ChatGPT-5 وGemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "واجهة Strategy في Minutes.AI",
+    "caption": "استخلص القرارات والنقاط الحاسمة بخطوة واحدة."
+  },
+  "what": {
+    "h2": "ماذا تفعل Strategy؟",
+    "items": [
+      "Boost: ما الذي يعمل وكيف نوسّعه",
+      "Counter: المخاطر وكيف نعالجها",
+      "Top Issue: السؤال الجوهري للاجتماع",
+      "أساليب التفكير: منطقي / ناقد / جانبي"
+    ]
+  },
+  "steps": {
+    "h2": "كيف تبدأ",
+    "items": [
+      "أنشئ محضر الاجتماع في التطبيق أو الويب",
+      "اضغط “Strategy”",
+      "استعرض Boost / Counter / Top Issue + 3 أساليب",
+      "انسخ المخرجات إلى نظام المهام"
+    ],
+    "note": "التوفر والمدة يعتمدان على خطتك والحصة المتبقية."
+  },
+  "features": {
+    "h2": "أبرز المزايا",
+    "items": [
+      "مُحسّن لاتخاذ القرار لا مجرد التلخيص",
+      "متوافق مع ChatGPT-5 وGemini 2.5 Pro",
+      "مخرجات قصيرة وواضحة قابلة للتنفيذ",
+      "ملائم لفرق متعددة اللغات"
+    ]
+  },
+  "notes": {
+    "h2": "ملاحظات",
+    "items": [
+      "جودة النتائج تتأثر بجودة المدخلات",
+      "جرّب قوالب مختلفة لاجتماعات مختلفة"
+    ],
+    "foot": "متاح على iOS. جرّبه اليوم."
+  },
+  "meta": { "h2": "بيانات", "published": "منشور", "type": "ميزة", "category": "Strategy" },
+  "cta": { "openBrowser": "افتح في المتصفح", "downloadIOS": "حمّل تطبيق iOS" }
+}

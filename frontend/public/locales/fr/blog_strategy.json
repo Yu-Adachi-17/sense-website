@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Strategy dans Minutes.AI — transformez vos comptes-rendus en décisions (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy condense les réunions en Boost/Counter/Top Issue et trois modes de pensée pour des prochaines étapes claires. SEO pour : comptes-rendus IA, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy de Minutes.AI : des décisions, pas seulement des notes",
+    "ogDescription": "Boost/Counter/Top Issue + pensée Logique/Critique/Latérale pour des actions concrètes.",
+    "ld": {
+      "headline": "Minutes.AI ajoute Strategy",
+      "description": "Avec ChatGPT-5 et Gemini 2.5 Pro, convertissez les discussions en décisions rapidement et clairement."
+    }
+  },
+  "aria": { "home": "Accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Guide de fonctionnalité",
+    "h1": "Strategy pour Minutes.AI",
+    "tagline": "Pas seulement un compte-rendu — Strategy transforme la discussion en décisions avec ChatGPT-5 et Gemini 2.5 Pro."
+  },
+  "image": { "alt": "Interface Strategy de Minutes.AI", "caption": "Identifiez la question clé et les actions en un clic." },
+  "what": {
+    "h2": "Ce que fait Strategy",
+    "items": [
+      "Boost : ce qui marche & comment scaler",
+      "Counter : risques & correctifs",
+      "Top Issue : la question centrale",
+      "Modes de pensée : Logique / Critique / Latérale"
+    ]
+  },
+  "steps": {
+    "h2": "Par où commencer",
+    "items": [
+      "Générez le compte-rendu (app ou web)",
+      "Touchez « Strategy »",
+      "Relisez Boost / Counter / Top Issue + 3 modes",
+      "Collez dans votre gestionnaire de tâches"
+    ],
+    "note": "Disponibilité/durée selon votre offre et quota."
+  },
+  "features": {
+    "h2": "Points forts",
+    "items": [
+      "Orienté décision, pas seulement résumé",
+      "Optimisé pour ChatGPT-5 & Gemini 2.5 Pro",
+      "Sorties courtes et actionnables",
+      "Multilingue pour équipes globales"
+    ]
+  },
+  "notes": {
+    "h2": "Notes",
+    "items": [
+      "La qualité d’entrée détermine la qualité de sortie",
+      "Adaptez les modèles au type de réunion"
+    ],
+    "foot": "Disponible sur iOS. Essayez-le dès aujourd’hui."
+  },
+  "meta": { "h2": "Meta", "published": "Publié", "type": "Fonction", "category": "Strategy" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" }
+}

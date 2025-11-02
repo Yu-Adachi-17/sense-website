@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Strategy di Minutes AI — ubah notulen jadi keputusan (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy merangkum rapat menjadi Boost/Counter/Top Issue dan tiga mode berpikir untuk langkah berikutnya yang jelas. SEO: notulen AI, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy di Minutes AI: keputusan, bukan sekadar ringkasan",
+    "ogDescription": "Boost/Counter/Top Issue + Logis/Kritis/Lateral untuk keluaran yang dapat ditindaklanjuti.",
+    "ld": {
+      "headline": "Minutes AI menambahkan Strategy",
+      "description": "Gunakan ChatGPT-5 dan Gemini 2.5 Pro untuk mengubah diskusi menjadi keputusan secara cepat dan jelas."
+    }
+  },
+  "aria": { "home": "Beranda Minutes AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Panduan fitur",
+    "h1": "Strategy untuk Minutes AI",
+    "tagline": "Bukan cuma notulen—Strategy mengubah diskusi jadi keputusan dengan ChatGPT-5 dan Gemini 2.5 Pro."
+  },
+  "image": { "alt": "Antarmuka Strategy Minutes AI", "caption": "Tentukan isu inti dan tindakan berikutnya dalam satu langkah." },
+  "what": {
+    "h2": "Apa yang dilakukan Strategy",
+    "items": [
+      "Boost: apa yang berhasil & cara skala",
+      "Counter: risiko & perbaikan",
+      "Top Issue: pertanyaan inti",
+      "Mode berpikir: Logis / Kritis / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "Cara mulai",
+    "items": [
+      "Hasilkan notulen di aplikasi atau web",
+      "Ketuk “Strategy”",
+      "Tinjau Boost / Counter / Top Issue + 3 mode",
+      "Tempel ke sistem tugas Anda"
+    ],
+    "note": "Ketersediaan/durasi tergantung paket & kuota Anda."
+  },
+  "features": {
+    "h2": "Sorotan",
+    "items": [
+      "Fokus keputusan, bukan sekadar ringkas",
+      "Dioptimalkan untuk ChatGPT-5 & Gemini 2.5 Pro",
+      "Keluaran singkat dan action-ready",
+      "Multibahasa untuk tim global"
+    ]
+  },
+  "notes": {
+    "h2": "Catatan",
+    "items": [
+      "Kualitas keluaran mencerminkan kualitas masukan",
+      "Gunakan templat berbeda sesuai jenis rapat"
+    ],
+    "foot": "Tersedia di iOS. Coba sekarang."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Fitur", "category": "Strategy" },
+  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+}

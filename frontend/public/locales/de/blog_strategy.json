@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Strategy i Referat AI — gør referater til beslutninger (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy i Referat AI kondenserer møder til Boost/Counter/Top Issue og tre tænkemåder. SEO for søgninger som: AI referat, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy i Referat AI: fra referat til handling",
+    "ogDescription": "Få klare beslutninger via Boost/Counter/Top Issue + logisk/kritisk/lateral tænkning.",
+    "ld": {
+      "headline": "Referat AI lancerer Strategy",
+      "description": "Brug ChatGPT-5 og Gemini 2.5 Pro til at omsætte møder til konkrete næste skridt."
+    }
+  },
+  "aria": { "home": "Referat AI forside" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Funktionsguide",
+    "h1": "Strategy til Referat AI",
+    "tagline": "Ikke kun referater—Strategy gør diskussioner til beslutninger med ChatGPT-5 og Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "Referat AI Strategy UI",
+    "caption": "Udtræk beslutninger og hovedproblem med et tryk."
+  },
+  "what": {
+    "h2": "Hvad gør Strategy?",
+    "items": [
+      "Boost: det der virker + skalering",
+      "Counter: risici + afhjælpning",
+      "Top Issue: kernen der skal løses",
+      "Tænkning: Logisk / Kritisk / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "Sådan kommer du i gang",
+    "items": [
+      "Generér referat i app eller web",
+      "Tryk “Strategy”",
+      "Gennemse Boost / Counter / Top Issue + 3 modes",
+      "Indsæt i dit opgavesystem"
+    ],
+    "note": "Varighed/kvote afhænger af din plan."
+  },
+  "features": {
+    "h2": "Højdepunkter",
+    "items": [
+      "Beslutningsfokus—ikke kun resumé",
+      "Optimeret til ChatGPT-5 & Gemini 2.5 Pro",
+      "Korte, handlingsklare output",
+      "Flersproget til globale teams"
+    ]
+  },
+  "notes": {
+    "h2": "Bemærk",
+    "items": [
+      "Inputkvalitet påvirker output",
+      "Prøv forskellige skabeloner efter mødetype"
+    ],
+    "foot": "Tilgængelig på iOS. Prøv det i dag."
+  },
+  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Funktion", "category": "Strategy" },
+  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" }
+}

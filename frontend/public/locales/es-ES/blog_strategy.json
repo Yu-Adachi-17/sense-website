@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Strategy en Actas IA — convierte actas en decisiones (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy resume las reuniones en Boost/Counter/Top Issue y tres modos de pensamiento. SEO para búsquedas como: actas con IA, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy en Actas IA: decisiones, no solo resúmenes",
+    "ogDescription": "Boost/Counter/Top Issue + pensamiento Lógico/Crítico/Lateral para acciones claras.",
+    "ld": {
+      "headline": "Actas IA incorpora Strategy",
+      "description": "Con ChatGPT-5 y Gemini 2.5 Pro, convierte la conversación en decisiones rápidas y claras."
+    }
+  },
+  "aria": { "home": "Inicio de Actas IA" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Guía de función",
+    "h1": "Strategy para Actas IA",
+    "tagline": "No solo actas—Strategy convierte la discusión en decisiones con ChatGPT-5 y Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "Interfaz de Strategy en Actas IA",
+    "caption": "Extrae la cuestión clave y los siguientes pasos en un clic."
+  },
+  "what": {
+    "h2": "Qué hace Strategy",
+    "items": [
+      "Boost: qué funciona y cómo escalar",
+      "Counter: riesgos y correcciones",
+      "Top Issue: la pregunta clave",
+      "Modos de pensamiento: Lógico / Crítico / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "Cómo empezar",
+    "items": [
+      "Genera actas en la app o web",
+      "Toca “Strategy”",
+      "Revisa Boost / Counter / Top Issue + 3 modos",
+      "Pega en tu gestor de tareas"
+    ],
+    "note": "Disponibilidad y duración dependen de tu plan/cuota."
+  },
+  "features": {
+    "h2": "Destacados",
+    "items": [
+      "Enfoque en la decisión, no solo resumen",
+      "Optimizado para ChatGPT-5 y Gemini 2.5 Pro",
+      "Salidas breves y accionables",
+      "Multilingüe para equipos globales"
+    ]
+  },
+  "notes": {
+    "h2": "Notas",
+    "items": [
+      "La calidad de salida refleja la calidad de entrada",
+      "Usa plantillas según el tipo de reunión"
+    ],
+    "foot": "Disponible en iOS. Pruébalo hoy."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Función", "category": "Strategy" },
+  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app de iOS" }
+}

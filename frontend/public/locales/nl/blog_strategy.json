@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Strategy in Notulen AI — maak van notulen beslissingen (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy vat meetings samen tot Boost/Counter/Top Issue plus drie denkmodi voor duidelijke next steps. SEO: notulen AI, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy in Notulen AI: beslissingen, geen losse notities",
+    "ogDescription": "Boost/Counter/Top Issue + Logisch/Kritisch/Lateraal voor actiegerichte output.",
+    "ld": {
+      "headline": "Notulen AI voegt Strategy toe",
+      "description": "Zet met ChatGPT-5 en Gemini 2.5 Pro discussies snel en helder om in beslissingen."
+    }
+  },
+  "aria": { "home": "Startpagina Notulen AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Functiegids",
+    "h1": "Strategy voor Notulen AI",
+    "tagline": "Niet alleen notuleren—Strategy maakt van discussie beslissingen met ChatGPT-5 en Gemini 2.5 Pro."
+  },
+  "image": { "alt": "Notulen AI Strategy UI", "caption": "Breng kernvraag en vervolgstappen in één keer boven tafel." },
+  "what": {
+    "h2": "Wat Strategy doet",
+    "items": [
+      "Boost: wat werkt & opschalen",
+      "Counter: risico’s & fixes",
+      "Top Issue: de kernvraag",
+      "Denkmodi: Logisch / Kritisch / Lateraal"
+    ]
+  },
+  "steps": {
+    "h2": "Aan de slag",
+    "items": [
+      "Genereer notulen (app of web)",
+      "Tik op “Strategy”",
+      "Review Boost / Counter / Top Issue + 3 modi",
+      "Plak in je taaksysteem"
+    ],
+    "note": "Beschikbaarheid/duur hangen af van je plan/quota."
+  },
+  "features": {
+    "h2": "Highlights",
+    "items": [
+      "Beslissingsgericht, niet alleen samenvatting",
+      "Geoptimaliseerd voor ChatGPT-5 & Gemini 2.5 Pro",
+      "Korte, actiegerichte output",
+      "Meertalig voor globale teams"
+    ]
+  },
+  "notes": {
+    "h2": "Opmerkingen",
+    "items": [
+      "Kwaliteit van input bepaalt output",
+      "Gebruik sjablonen per meetingtype"
+    ],
+    "foot": "Beschikbaar op iOS. Probeer het vandaag."
+  },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Functie", "category": "Strategy" },
+  "cta": { "openBrowser": "Openen in browser", "downloadIOS": "iOS-app downloaden" }
+}

@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "會議紀錄AI Strategy — 讓會議紀錄直達決策（ChatGPT-5，Gemini 2.5 Pro）",
+    "description": "Strategy 將會議濃縮為 Boost/Counter/Top Issue 與三種思維模式，清楚指向下一步。SEO：AI 會議紀錄、ChatGPT-5、Gemini 2.5 Pro。",
+    "ogTitle": "會議紀錄AI Strategy：不只摘要，更能決策",
+    "ogDescription": "Boost/Counter/Top Issue + 邏輯／批判／發散思維，輸出可執行結果。",
+    "ld": {
+      "headline": "會議紀錄AI 上線 Strategy",
+      "description": "結合 ChatGPT-5 與 Gemini 2.5 Pro，將討論快速而清晰地轉為決策。"
+    }
+  },
+  "aria": { "home": "會議紀錄AI 主頁" },
+  "nav": { "blog": "部落格", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "功能指南",
+    "h1": "會議紀錄AI 的 Strategy",
+    "tagline": "不只做紀錄——用 ChatGPT-5／Gemini 2.5 Pro 把討論變成決策。"
+  },
+  "image": { "alt": "會議紀錄AI Strategy 介面", "caption": "一步擷取核心問題與下一步行動。" },
+  "what": {
+    "h2": "Strategy 能做什麼",
+    "items": [
+      "Boost：有效重點與擴張",
+      "Counter：風險與修正",
+      "Top Issue：核心問題",
+      "思維模式：邏輯／批判／發散"
+    ]
+  },
+  "steps": {
+    "h2": "如何開始",
+    "items": [
+      "在 App／網頁產生紀錄",
+      "點擊「Strategy」",
+      "檢視 Boost／Counter／Top Issue ＋ 3 種模式",
+      "貼到任務系統"
+    ],
+    "note": "可用性與時長取決於方案／額度。"
+  },
+  "features": {
+    "h2": "亮點",
+    "items": [
+      "面向決策，而非僅做摘要",
+      "為 ChatGPT-5 與 Gemini 2.5 Pro 最佳化",
+      "短小精煉、可執行",
+      "多語支援，適合全球團隊"
+    ]
+  },
+  "notes": {
+    "h2": "注意",
+    "items": [
+      "輸入品質決定輸出品質",
+      "依會議類型選用不同範本"
+    ],
+    "foot": "iOS 提供，立即體驗。"
+  },
+  "meta": { "h2": "後設資料", "published": "發布日期", "type": "功能", "category": "Strategy" },
+  "cta": { "openBrowser": "以瀏覽器開啟", "downloadIOS": "下載 iOS App" }
+}
