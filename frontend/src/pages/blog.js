@@ -42,7 +42,7 @@ const I18N = {
     backHome: "返回首页",
   },
 
-  /* ----- Added locales ----- */
+  /* ----- Added & completed locales (all) ----- */
   ar: {
     title: "مدوّنة ‎Minutes.AI",
     desc:
@@ -53,6 +53,17 @@ const I18N = {
     loadMore: "اعرض المزيد",
     noPosts: "لا توجد مقالات بعد. عد لاحقًا.",
     backHome: "العودة إلى الصفحة الرئيسية",
+  },
+  cs: {
+    title: "Blog Zápisník AI",
+    desc:
+      "Naučte se vést lepší schůzky s pomocí AI. Postupy, novinky, rozhovory a články od Zápisník AI.",
+    heroP:
+      "Lepší schůzky s AI. Nové postupy, rozhovory a novinky o produktu.",
+    allTags: "Všechny štítky",
+    loadMore: "Načíst další",
+    noPosts: "Zatím žádné příspěvky. Vraťte se brzy.",
+    backHome: "Zpět na domovskou stránku",
   },
   da: {
     title: "Referat AI Blog",
@@ -76,6 +87,17 @@ const I18N = {
     noPosts: "Noch keine Beiträge. Schauen Sie bald wieder vorbei.",
     backHome: "Zur Startseite",
   },
+  el: {
+    title: "Ιστολόγιο Πρακτικά AI",
+    desc:
+      "Μάθετε να διεξάγετε καλύτερες συναντήσεις με την AI. Ροές εργασίας, ενημερώσεις, συνεντεύξεις και άρθρα από το Πρακτικά AI.",
+    heroP:
+      "Βελτιώστε τις συναντήσεις σας με AI. Νέες ροές εργασίας, συνεντεύξεις και ενημερώσεις προϊόντος.",
+    allTags: "Όλες οι ετικέτες",
+    loadMore: "Φόρτωση περισσότερων",
+    noPosts: "Δεν υπάρχουν ακόμη άρθρα. Επιστρέψτε σύντομα.",
+    backHome: "Πίσω στην αρχική",
+  },
   "es-ES": {
     title: "Blog de Actas IA",
     desc:
@@ -98,6 +120,17 @@ const I18N = {
     noPosts: "Todavía no hay artículos. Vuelve pronto.",
     backHome: "Volver al inicio",
   },
+  fi: {
+    title: "Pöytäkirja AI -blogi",
+    desc:
+      "Opi pitämään parempia kokouksia tekoälyn avulla. Työnkulut, päivitykset, haastattelut ja artikkelit Pöytäkirja AI:lta.",
+    heroP:
+      "Parempia kokouksia AI:n avulla. Uusia työnkulkuja, haastatteluja ja tuotepäivityksiä.",
+    allTags: "Kaikki tunnisteet",
+    loadMore: "Lataa lisää",
+    noPosts: "Ei vielä artikkeleita. Palaa pian.",
+    backHome: "Takaisin etusivulle",
+  },
   fr: {
     title: "Blog Minutes.AI",
     desc:
@@ -108,6 +141,50 @@ const I18N = {
     loadMore: "Charger plus",
     noPosts: "Aucun article pour le moment. Revenez bientôt.",
     backHome: "Retour à l’accueil",
+  },
+  he: {
+    title: "הבלוג של ‎Minutes.AI",
+    desc:
+      "למדו לקיים פגישות טובות יותר עם בינה מלאכותית. תהליכי עבודה, עדכונים, ראיונות ומאמרים מ-Minutes.AI.",
+    heroP:
+      "שפרו את הפגישות עם AI. תהליכים חדשים, ראיונות ועדכוני מוצר.",
+    allTags: "כל התגים",
+    loadMore: "טען עוד",
+    noPosts: "אין עדיין פוסטים. חזרו בקרוב.",
+    backHome: "חזרה לדף הבית",
+  },
+  hi: {
+    title: "कार्यवृत्त AI ब्लॉग",
+    desc:
+      "AI के साथ बेहतर मीटिंग चलाना सीखें। वर्कफ़्लो, अपडेट, इंटरव्यू और लेख — कार्यवृत्त AI से।",
+    heroP:
+      "AI के साथ मीटिंग बेहतर बनाएं। नए वर्कफ़्लो, इंटरव्यू और प्रोडक्ट अपडेट।",
+    allTags: "सभी टैग",
+    loadMore: "और लोड करें",
+    noPosts: "अभी कोई पोस्ट नहीं। जल्द लौटें।",
+    backHome: "होम पर वापस",
+  },
+  hr: {
+    title: "AI Zapisnik Blog",
+    desc:
+      "Naučite voditi bolje sastanke uz AI. Tijekovi rada, novosti, intervjui i članci iz AI Zapisnik.",
+    heroP:
+      "Bolji sastanci uz AI. Novi tijekovi rada, intervjui i ažuriranja proizvoda.",
+    allTags: "Sve oznake",
+    loadMore: "Učitaj još",
+    noPosts: "Još nema objava. Navratite uskoro.",
+    backHome: "Natrag na početnu",
+  },
+  hu: {
+    title: "Jegyzőkönyv AI Blog",
+    desc:
+      "Tanulja meg, hogyan tarthat jobb megbeszéléseket AI-val. Munkafolyamatok, frissítések, interjúk és cikkek a Jegyzőkönyv AI-tól.",
+    heroP:
+      "Jobb megbeszélések AI-val. Új munkafolyamatok, interjúk és termékfrissítések.",
+    allTags: "Összes címke",
+    loadMore: "Továbbiak betöltése",
+    noPosts: "Még nincsenek bejegyzések. Nézzen vissza később.",
+    backHome: "Vissza a kezdőlapra",
   },
   id: {
     title: "Blog Minutes AI",
@@ -120,12 +197,23 @@ const I18N = {
     noPosts: "Belum ada artikel. Kunjungi lagi nanti.",
     backHome: "Kembali ke Beranda",
   },
+  it: {
+    title: "Blog di Verbali IA",
+    desc:
+      "Impara a gestire riunioni migliori con l’IA. Flussi di lavoro, aggiornamenti, interviste e articoli da Verbali IA.",
+    heroP:
+      "Riunioni migliori con l’IA. Nuovi flussi, interviste e aggiornamenti di prodotto.",
+    allTags: "Tutte le etichette",
+    loadMore: "Carica altro",
+    noPosts: "Non ci sono ancora articoli. Torna presto.",
+    backHome: "Torna alla Home",
+  },
   ko: {
     title: "회의록AI 블로그",
     desc:
-      "AI로 더 나은 회의를 운영하세요. 회의 흐름, 업데이트, 인터뷰, 그리고 회의록AI의 기사들을 제공합니다.",
+      "AI로 더 나은 회의를 운영하세요. 워크플로, 업데이트, 인터뷰, 그리고 회의록AI의 글을 제공합니다.",
     heroP:
-      "AI로 회의를 더 좋게. 새로운 워크플로우, 인터뷰, 제품 업데이트.",
+      "AI로 회의를 더 좋게. 새로운 워크플로, 인터뷰, 제품 업데이트.",
     allTags: "모든 태그",
     loadMore: "더 보기",
     noPosts: "아직 게시물이 없습니다. 곧 다시 방문해 주세요.",
@@ -151,9 +239,8 @@ const I18N = {
     allTags: "Alle tags",
     loadMore: "Meer laden",
     noPosts: "Nog geen artikelen. Kom later terug.",
-    backHome: "Terug naar home",
+    backHome: "Terug naar startpagina",
   },
-  // 既存の nb を保持（フォルダは no でも、実行時 locale が nb のケースに対応）
   nb: {
     title: "Referat AI Blogg",
     desc:
@@ -175,6 +262,17 @@ const I18N = {
     loadMore: "Vis mer",
     noPosts: "Ingen innlegg ennå. Kom tilbake snart.",
     backHome: "Tilbake til forsiden",
+  },
+  pl: {
+    title: "Blog Protokół AI",
+    desc:
+      "Naucz się prowadzić lepsze spotkania z AI. Przepływy pracy, aktualizacje, wywiady i artykuły od Protokół AI.",
+    heroP:
+      "Lepsze spotkania z AI. Nowe przepływy pracy, wywiady i aktualizacje produktu.",
+    allTags: "Wszystkie tagi",
+    loadMore: "Wczytaj więcej",
+    noPosts: "Brak wpisów. Wróć wkrótce.",
+    backHome: "Powrót do strony głównej",
   },
   "pt-BR": {
     title: "Blog do Ata AI",
@@ -198,6 +296,39 @@ const I18N = {
     noPosts: "Ainda não há artigos. Volte em breve.",
     backHome: "Voltar à Página Inicial",
   },
+  ro: {
+    title: "Blogul Proces-verbal AI",
+    desc:
+      "Învață să conduci ședințe mai bune cu AI. Fluxuri de lucru, actualizări, interviuri și articole de la Proces-verbal AI.",
+    heroP:
+      "Ședințe mai bune cu AI. Fluxuri noi, interviuri și actualizări de produs.",
+    allTags: "Toate etichetele",
+    loadMore: "Încarcă mai mult",
+    noPosts: "Nu există articole încă. Revino curând.",
+    backHome: "Înapoi la Acasă",
+  },
+  ru: {
+    title: "Блог «Протоколы АИ»",
+    desc:
+      "Узнайте, как проводить более эффективные встречи с ИИ. Рабочие процессы, обновления, интервью и статьи от «Протоколы АИ».",
+    heroP:
+      "Лучшие встречи с ИИ. Новые рабочие процессы, интервью и обновления продукта.",
+    allTags: "Все теги",
+    loadMore: "Загрузить ещё",
+    noPosts: "Пока нет публикаций. Загляните позже.",
+    backHome: "Назад на главную",
+  },
+  sk: {
+    title: "Blog AI Zápisnica",
+    desc:
+      "Naučte sa viesť lepšie stretnutia s AI. Postupy, novinky, rozhovory a články od AI Zápisnica.",
+    heroP:
+      "Lepšie stretnutia s AI. Nové postupy, rozhovory a aktualizácie produktu.",
+    allTags: "Všetky štítky",
+    loadMore: "Načítať viac",
+    noPosts: "Zatiaľ žiadne príspevky. Vráťte sa čoskoro.",
+    backHome: "Späť na domov",
+  },
   sv: {
     title: "Protokoll AI Blogg",
     desc:
@@ -207,7 +338,18 @@ const I18N = {
     allTags: "Alla taggar",
     loadMore: "Ladda mer",
     noPosts: "Inga inlägg ännu. Kom tillbaka snart.",
-    backHome: "Tillbaka hem",
+    backHome: "Tillbaka till startsidan",
+  },
+  th: {
+    title: "บล็อก บันทึกการประชุม AI",
+    desc:
+      "เรียนรู้วิธีจัดการประชุมให้ดียิ่งขึ้นด้วย AI เวิร์กโฟลว์ อัปเดต บทสัมภาษณ์ และบทความจาก บันทึกการประชุม AI",
+    heroP:
+      "ยกระดับการประชุมด้วย AI เวิร์กโฟลว์ใหม่ บทสัมภาษณ์ และอัปเดตผลิตภัณฑ์",
+    allTags: "แท็กทั้งหมด",
+    loadMore: "โหลดเพิ่มเติม",
+    noPosts: "ยังไม่มีบทความ โปรดกลับมาใหม่เร็ว ๆ นี้",
+    backHome: "กลับสู่หน้าแรก",
   },
   tr: {
     title: "Tutanakları AI Blogu",
@@ -219,6 +361,28 @@ const I18N = {
     loadMore: "Daha fazlası",
     noPosts: "Henüz yazı yok. Yakında tekrar bakın.",
     backHome: "Ana sayfaya dön",
+  },
+  uk: {
+    title: "Блог «Протокол ШІ»",
+    desc:
+      "Дізнайтесь, як проводити ефективніші зустрічі з ШІ. Робочі процеси, оновлення, інтерв’ю та статті від «Протокол ШІ».",
+    heroP:
+      "Краще проводьте зустрічі з ШІ. Нові процеси, інтерв’ю та оновлення продукту.",
+    allTags: "Усі теги",
+    loadMore: "Завантажити ще",
+    noPosts: "Поки що немає публікацій. Завітайте згодом.",
+    backHome: "Назад на головну",
+  },
+  vi: {
+    title: "Blog Biên bản AI",
+    desc:
+      "Học cách tổ chức cuộc họp hiệu quả hơn với AI. Quy trình làm việc, cập nhật, phỏng vấn và bài viết từ Biên bản AI.",
+    heroP:
+      "Nâng tầm cuộc họp với AI. Quy trình mới, phỏng vấn và cập nhật sản phẩm.",
+    allTags: "Tất cả thẻ",
+    loadMore: "Tải thêm",
+    noPosts: "Chưa có bài viết. Quay lại sau.",
+    backHome: "Về Trang chủ",
   },
   "zh-TW": {
     title: "會議紀錄AI 部落格",
@@ -232,6 +396,7 @@ const I18N = {
     backHome: "返回首頁",
   },
 };
+
 
 /* ===================== UI bits ===================== */
 function Badge({ children, active = false, onClick }) {
