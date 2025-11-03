@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Por que recomendamos o app de atas com IA no iPhone (2025)",
+    "description": "5 razões diretas: UI simples, atas legíveis e acionáveis, formatos por tipo de reunião, follow-up no app e preços flexíveis. Experimente Ata AI no iPhone.",
+    "ogTitle": "Nossa recomendação: app de atas com IA no iPhone",
+    "ogDescription": "Toque único para gravar, saídas que geram ações, formatos inteligentes, acompanhamento integrado e preços que se adaptam ao seu uso. Ata AI no iPhone.",
+    "ld": {
+      "headline": "Por que o app de atas com IA para iPhone é a nossa escolha",
+      "description": "Guia de compra do Ata AI: uso rápido, resultados claros, formatos por reunião, ações pós-reunião e tarifas justas."
+    }
+  },
+  "aria": { "home": "Início do Ata AI" },
+  "nav": { "blog": "Blog", "recommend": "Recomendação" },
+  "hero": {
+    "kicker": "Guia de compra",
+    "h1": "Por que recomendamos o app de atas com IA no iPhone",
+    "tagline": "Alinhado à intenção de busca: melhor app de atas com IA para iPhone e como os preços se comparam — sem rodeios."
+  },
+  "reasons": {
+    "h2": "Cinco motivos diretos",
+    "items": [
+      "Gravação com um toque — zero fricção",
+      "Atas legíveis que realmente impulsionam as próximas ações",
+      "Formatos por tipo: geral, vendas, 1-a-1, apresentação, brainstorm, entrevista",
+      "Follow-up no app com Project & Strategy",
+      "Preços flexíveis: assinaturas e pacotes de tempo que não expiram"
+    ]
+  },
+  "pricing": {
+    "h2": "Preços",
+    "p1": "Uso diário? Assinatura. Uso ocasional? Pacotes de tempo sem expiração.",
+    "p2": "Também há teste de 120 minutos com baixo custo para validar antes do compromisso."
+  },
+  "image": { "alt": "Ata AI no iPhone", "caption": "Interface do Ata AI no iPhone." },
+  "steps": {
+    "h2": "Comece no iPhone",
+    "items": ["Baixe o app", "Toque uma vez para gravar", "Escolha o formato adequado", "Crie Project/Strategy ao finalizar"],
+    "note": "A duração depende do plano e do saldo restante."
+  },
+  "notes": {
+    "h2": "Observações",
+    "items": ["Rede e dispositivo podem afetar a qualidade", "Recursos podem variar conforme o plano"],
+    "foot": "Experimente o Ata AI no iPhone hoje."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Guia", "category": "Recomendação de app" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Baixar app iOS" },
+  "brand": "Ata AI"
+}

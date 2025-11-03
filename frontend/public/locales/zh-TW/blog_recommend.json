@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "為什麼我們推薦 iPhone 上的會議紀錄 AI 應用（2025）",
+    "description": "5 個直接理由：極簡介面、可讀且可執行的紀錄、依會議類型提供格式、App 內後續追蹤、彈性定價。試試 會議紀錄AI 在 iPhone 上。",
+    "ogTitle": "我們的推薦：iPhone 會議紀錄 AI App",
+    "ogDescription": "一鍵錄音、能驅動下一步行動的輸出、智慧格式、內建追蹤，以及符合使用情境的價格。會議紀錄AI on iPhone。",
+    "ld": {
+      "headline": "為什麼 iPhone 的會議紀錄 AI App 值得推薦",
+      "description": "會議紀錄AI 購買指南：快速上手、輸出清晰、對應各類會議、會後行動、合理定價。"
+    }
+  },
+  "aria": { "home": "會議紀錄AI 首頁" },
+  "nav": { "blog": "部落格", "recommend": "推薦" },
+  "hero": {
+    "kicker": "購買指南",
+    "h1": "為什麼我們推薦 iPhone 上的會議紀錄 AI 應用",
+    "tagline": "貼合搜尋意圖：iPhone 上最佳會議紀錄 AI App 與價格說明——開門見山。"
+  },
+  "reasons": {
+    "h2": "五個直接理由",
+    "items": [
+      "一鍵錄音，零摩擦",
+      "能真正促成「下一步行動」的可讀紀錄",
+      "依會議類型提供格式：一般／銷售／1-對-1／簡報／腦力激盪／面試",
+      "App 內 Project & Strategy 後續追蹤",
+      "彈性定價：訂閱與不會過期的時間包"
+    ]
+  },
+  "pricing": {
+    "h2": "關於價格",
+    "p1": "天天使用選訂閱；偶爾使用選不過期的時間包。",
+    "p2": "另有 120 分鐘低價試用，先驗證再決定。"
+  },
+  "image": { "alt": "iPhone 上的會議紀錄AI", "caption": "會議紀錄AI 的 iPhone 介面。" },
+  "steps": {
+    "h2": "在 iPhone 上開始",
+    "items": ["下載 App", "點一下開始錄音", "選擇合適的會議格式", "結束後建立 Project/Strategy"],
+    "note": "時長取決於方案與剩餘時數。"
+  },
+  "notes": {
+    "h2": "注意事項",
+    "items": ["網路與裝置狀況會影響品質", "功能可能因方案而異"],
+    "foot": "今天就在 iPhone 上試試 會議紀錄AI。"
+  },
+  "meta": { "h2": "中繼資料", "published": "發佈日期", "type": "指南", "category": "App 推薦" },
+  "cta": { "openBrowser": "在瀏覽器中開啟", "downloadIOS": "下載 iOS App" },
+  "brand": "會議紀錄AI"
+}

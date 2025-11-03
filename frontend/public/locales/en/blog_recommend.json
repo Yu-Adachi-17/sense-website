@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Why we recommend the iPhone meeting-minutes AI app (2025)",
+    "description": "5 blunt reasons: simple UI, readable/actionable minutes, per-meeting formats, built-in follow-through, and flexible pricing. Try Minutes.AI on iPhone.",
+    "ogTitle": "Our pick: the iPhone minutes-AI app",
+    "ogDescription": "One-tap recording, outputs that drive next actions, smart formats, in-app follow-through, and pricing that fits how you use it. Minutes.AI on iPhone.",
+    "ld": {
+      "headline": "Why the iPhone minutes-AI app is our recommendation",
+      "description": "A buying guide to Minutes.AI: fast to use, clear outputs, tailored formats, post-meeting actions, and fair pricing."
+    }
+  },
+  "aria": { "home": "Minutes.AI Home" },
+  "nav": { "blog": "Blog", "recommend": "Recommendation" },
+  "hero": {
+    "kicker": "Buying Guide",
+    "h1": "Why we recommend the iPhone minutes-AI app",
+    "tagline": "Built for the search intent: best minutes-AI app for iPhone and how its pricing stacks up — no fluff."
+  },
+  "reasons": {
+    "h2": "Five straight-up reasons",
+    "items": [
+      "One-tap recording with zero friction",
+      "Readable minutes that actually drive next actions",
+      "Formats per meeting: General, Sales, 1-on-1, Presentation, Brainstorm, Interview",
+      "Project & Strategy follow-through inside the app",
+      "Flexible pricing: subscriptions and non-expiring time packs"
+    ]
+  },
+  "pricing": {
+    "h2": "About pricing",
+    "p1": "Daily users pick subscriptions. Occasional users pick non-expiring time packs.",
+    "p2": "There’s also a low-cost 120-minute trial so you can validate fit before committing."
+  },
+  "image": { "alt": "Minutes.AI on iPhone", "caption": "Minutes.AI iPhone UI." },
+  "steps": {
+    "h2": "Get started on iPhone",
+    "items": ["Download the app", "Tap once to record", "Pick the right format", "Create a Project/Strategy after the meeting"],
+    "note": "Meeting duration depends on your plan and remaining balance."
+  },
+  "notes": {
+    "h2": "Notes",
+    "items": ["Network and device may affect quality", "Features may vary by plan"],
+    "foot": "Try Minutes.AI on iPhone today."
+  },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Guide", "category": "App Recommendation" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" },
+  "brand": "Minutes.AI"
+}

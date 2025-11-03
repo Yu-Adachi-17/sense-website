@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Waarom we de iPhone-app voor AI-notulen aanraden (2025)",
+    "description": "5 duidelijke redenen: extreem simpele UI, leesbare & actiegerichte notulen, formats per vergadertype, opvolging in de app en flexibele prijzen. Probeer Notulen AI op iPhone.",
+    "ogTitle": "Onze tip: iPhone-app voor AI-notulen",
+    "ogDescription": "Één tik om op te nemen, outputs die acties starten, slimme formats, ingebouwde opvolging en prijzen die passen. Notulen AI op iPhone.",
+    "ld": {
+      "headline": "Waarom de iPhone-app voor AI-notulen onze aanbeveling is",
+      "description": "Koopgids voor Notulen AI: snel in gebruik, heldere uitkomsten, afgestemde formats, post-meeting acties en eerlijke prijzen."
+    }
+  },
+  "aria": { "home": "Startpagina Notulen AI" },
+  "nav": { "blog": "Blog", "recommend": "Aanbeveling" },
+  "hero": {
+    "kicker": "Koopgids",
+    "h1": "Daarom raden we de iPhone-app voor AI-notulen aan",
+    "tagline": "Sluit aan op de zoekintentie: beste AI-notulen-app voor iPhone en inzicht in de prijs — zonder omwegen."
+  },
+  "reasons": {
+    "h2": "Vijf recht-voor-z’n-raap redenen",
+    "items": [
+      "Opnemen met één tik — nul frictie",
+      "Notulen die écht ‘next actions’ aanjagen",
+      "Formats per type: algemeen, sales, 1-op-1, presentatie, brainstorm, interview",
+      "Opvolging in de app met Project & Strategy",
+      "Flexibele prijzen: abonnementen en tijdpakketten zonder vervaldatum"
+    ]
+  },
+  "pricing": {
+    "h2": "Prijzen",
+    "p1": "Dagelijkse gebruikers kiezen abonnementen. Af-en-toe gebruikers kiezen tijdpakketten zonder vervaldatum.",
+    "p2": "Er is een goedkope proef van 120 minuten om eerst de fit te checken."
+  },
+  "image": { "alt": "Notulen AI op iPhone", "caption": "Notulen AI-interface op iPhone." },
+  "steps": {
+    "h2": "Aan de slag op iPhone",
+    "items": ["App downloaden", "Eén tik om op te nemen", "Kies het juiste format", "Maak na afloop een Project/Strategy"],
+    "note": "Duur hangt af van je plan en resterend tegoed."
+  },
+  "notes": {
+    "h2": "Opmerkingen",
+    "items": ["Netwerk en device beïnvloeden de kwaliteit", "Functies kunnen per plan verschillen"],
+    "foot": "Probeer Notulen AI vandaag nog op iPhone."
+  },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Gids", "category": "App-aanbeveling" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS-app" },
+  "brand": "Notulen AI"
+}

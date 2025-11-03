@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Varför vi rekommenderar iPhone-appen för AI-mötesanteckningar (2025)",
+    "description": "5 raka skäl: extremt enkel UI, läsbara & åtgärdsbara anteckningar, format per mötestyp, uppföljning i appen och flexibel prissättning. Prova Protokoll AI på iPhone.",
+    "ogTitle": "Vårt val: iPhone-app för AI-mötesanteckningar",
+    "ogDescription": "Ett tryck för inspelning, resultat som driver next actions, smarta format, inbyggd uppföljning och priser som passar användningen. Protokoll AI på iPhone.",
+    "ld": {
+      "headline": "Varför iPhone-appen för AI-mötesanteckningar är vår rekommendation",
+      "description": "Köpguide för Protokoll AI: snabb att använda, tydliga utdata, anpassade format, åtgärder efter mötet och schyssta priser."
+    }
+  },
+  "aria": { "home": "Startsida Protokoll AI" },
+  "nav": { "blog": "Blogg", "recommend": "Rekommendation" },
+  "hero": {
+    "kicker": "Köpguide",
+    "h1": "Därför rekommenderar vi iPhone-appen för AI-mötesanteckningar",
+    "tagline": "Matchar sökintentionen: bästa AI-app för mötesanteckningar på iPhone och prisbild — utan krusiduller."
+  },
+  "reasons": {
+    "h2": "Fem raka skäl",
+    "items": [
+      "Inspelning med ett tryck — noll friktion",
+      "Anteckningar som faktiskt leder till «next actions»",
+      "Format per mötestyp: allmänt, sälj, 1-på-1, presentation, brainstorming, intervju",
+      "Uppföljning i appen med Project & Strategy",
+      "Flexibla priser: abonnemang och tidspaket utan utgångsdatum"
+    ]
+  },
+  "pricing": {
+    "h2": "Priser",
+    "p1": "Daglig användning? Abonnemang. Ibland? Tidspaket som inte går ut.",
+    "p2": "Dessutom ett lågprisprov på 120 minuter för att validera innan du binder dig."
+  },
+  "image": { "alt": "Protokoll AI på iPhone", "caption": "Skärmbild av Protokoll AI på iPhone." },
+  "steps": {
+    "h2": "Kom igång på iPhone",
+    "items": ["Ladda ner appen", "Tryck en gång för att spela in", "Välj rätt format", "Skapa Project/Strategy efter mötet"],
+    "note": "Mötestid beror på ditt abonnemang och kvarvarande saldo."
+  },
+  "notes": {
+    "h2": "Notiser",
+    "items": ["Nätverk och enhet kan påverka kvaliteten", "Funktioner kan variera per abonnemang"],
+    "foot": "Prova Protokoll AI på iPhone idag."
+  },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Guide", "category": "Apprekommendation" },
+  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Ladda ner iOS-app" },
+  "brand": "Protokoll AI"
+}

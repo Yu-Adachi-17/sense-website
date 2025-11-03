@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Derfor anbefaler vi iPhone-appen for KI-referater (2025)",
+    "description": "5 direkte grunner: svært enkel UI, lesbare og handlingsklare referater, formater per møtetype, oppfølging i appen og fleksible priser. Prøv Referat AI på iPhone.",
+    "ogTitle": "Vår anbefaling: iPhone-app for KI-referater",
+    "ogDescription": "Én-trykks opptak, resultater som driver next actions, smarte formater, innebygd oppfølging og priser som passer bruken. Referat AI på iPhone.",
+    "ld": {
+      "headline": "Hvorfor iPhone-appen for KI-referater er vårt valg",
+      "description": "Kjøpsguide til Referat AI: rask i bruk, klare utdata, tilpassede formater, tiltak etter møtet og rettferdige priser."
+    }
+  },
+  "aria": { "home": "Referat AI Hjem" },
+  "nav": { "blog": "Blogg", "recommend": "Anbefaling" },
+  "hero": {
+    "kicker": "Kjøpsguide",
+    "h1": "Derfor anbefaler vi iPhone-appen for KI-referater",
+    "tagline": "Treffer søkeintensjonen: beste KI-referat-app for iPhone og hvordan prisene står seg — uten omveier."
+  },
+  "reasons": {
+    "h2": "5 raske grunner",
+    "items": [
+      "Én-trykks opptak — null friksjon",
+      "Referater som faktisk utløser «next actions»",
+      "Formater per møtetype: generell, salg, 1-til-1, presentasjon, idémyldring, intervju",
+      "Oppfølging i appen med Project & Strategy",
+      "Fleksibel prising: abonnementer og tidsklipp uten utløp"
+    ]
+  },
+  "pricing": {
+    "h2": "Priser",
+    "p1": "Daglig bruk? Abonnement. Av og til? Tidsklipp uten utløpsdato.",
+    "p2": "Prøv også 120-minutters rimelig prøve for å validere før du binder deg."
+  },
+  "image": { "alt": "Referat AI på iPhone", "caption": "Skjermbilde av Referat AI på iPhone." },
+  "steps": {
+    "h2": "Kom i gang på iPhone",
+    "items": ["Last ned appen", "Trykk én gang for å starte opptak", "Velg riktig møteformat", "Opprett Project/Strategy etter møtet"],
+    "note": "Møtelengde avhenger av abonnement og gjenstående saldo."
+  },
+  "notes": {
+    "h2": "Merknader",
+    "items": ["Nettverk og enhet kan påvirke kvaliteten", "Funksjoner kan variere etter plan"],
+    "foot": "Prøv Referat AI på iPhone i dag."
+  },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Guide", "category": "App-anbefaling" },
+  "cta": { "openBrowser": "Åpne i nettleser", "downloadIOS": "Last ned iOS-app" },
+  "brand": "Referat AI"
+}

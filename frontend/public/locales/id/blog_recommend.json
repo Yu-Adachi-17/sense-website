@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Mengapa kami merekomendasikan aplikasi notulen AI di iPhone (2025)",
+    "description": "5 alasan langsung: UI super sederhana, notulen mudah dibaca & ditindak, format per jenis rapat, tindak lanjut di dalam aplikasi, dan harga fleksibel. Coba Minutes AI di iPhone.",
+    "ogTitle": "Rekomendasi kami: aplikasi notulen AI di iPhone",
+    "ogDescription": "Rekam sekali sentuh, keluaran yang mendorong aksi, format cerdas, tindak lanjut terintegrasi, dan harga sesuai penggunaan. Minutes AI di iPhone.",
+    "ld": {
+      "headline": "Mengapa aplikasi notulen AI untuk iPhone jadi rekomendasi kami",
+      "description": "Panduan beli Minutes AI: cepat dipakai, hasil jelas, format sesuai rapat, aksi paska-rapat, dan harga adil."
+    }
+  },
+  "aria": { "home": "Beranda Minutes AI" },
+  "nav": { "blog": "Blog", "recommend": "Rekomendasi" },
+  "hero": {
+    "kicker": "Panduan Beli",
+    "h1": "Mengapa kami merekomendasikan aplikasi notulen AI di iPhone",
+    "tagline": "Sesuai niat pencarian: aplikasi notulen AI terbaik untuk iPhone & perbandingan harga — tanpa basa-basi."
+  },
+  "reasons": {
+    "h2": "Lima alasan tegas",
+    "items": [
+      "Rekam sekali sentuh — tanpa friksi",
+      "Notulen terbaca yang benar-benar memicu aksi berikutnya",
+      "Format per jenis rapat: umum, penjualan, 1-on-1, presentasi, brainstorming, wawancara",
+      "Project & Strategy sebagai tindak lanjut di aplikasi",
+      "Harga fleksibel: langganan dan paket waktu tanpa kedaluwarsa"
+    ]
+  },
+  "pricing": {
+    "h2": "Harga",
+    "p1": "Pengguna harian: langganan. Pengguna sesekali: paket waktu yang tidak kedaluwarsa.",
+    "p2": "Tersedia uji coba 120 menit berbiaya rendah untuk validasi sebelum berkomitmen."
+  },
+  "image": { "alt": "Minutes AI di iPhone", "caption": "Tangkapan layar Minutes AI di iPhone." },
+  "steps": {
+    "h2": "Mulai di iPhone",
+    "items": ["Unduh aplikasinya", "Ketuk sekali untuk merekam", "Pilih format rapat yang tepat", "Buat Project/Strategy setelah rapat"],
+    "note": "Durasi rapat bergantung pada paket dan sisa kuota."
+  },
+  "notes": {
+    "h2": "Catatan",
+    "items": ["Kualitas dipengaruhi jaringan & perangkat", "Fitur dapat berbeda tergantung paket"],
+    "foot": "Coba Minutes AI di iPhone hari ini."
+  },
+  "meta": { "h2": "Meta", "published": "Dipublikasikan", "type": "Panduan", "category": "Rekomendasi Aplikasi" },
+  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" },
+  "brand": "Minutes AI"
+}

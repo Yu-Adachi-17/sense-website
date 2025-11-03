@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Por qué recomendamos la app de iPhone para minutas con IA (2025)",
+    "description": "5 razones directas: interfaz simple, minutas claras y accionables, formatos por tipo de reunión, seguimiento en la app y precios flexibles. Prueba Actas IA en iPhone.",
+    "ogTitle": "Nuestra recomendación: app de minutas con IA en iPhone",
+    "ogDescription": "Grabación con un toque, salidas que impulsan acciones, formatos inteligentes, seguimiento integrado y precios que encajan con tu uso. Actas IA en iPhone.",
+    "ld": {
+      "headline": "Por qué la app de minutas con IA para iPhone es nuestra recomendación",
+      "description": "Guía de compra de Actas IA: rapidez, claridad, formatos por reunión, acciones posteriores y tarifas justas."
+    }
+  },
+  "aria": { "home": "Inicio de Actas IA" },
+  "nav": { "blog": "Blog", "recommend": "Recomendación" },
+  "hero": {
+    "kicker": "Guía de compra",
+    "h1": "Por qué recomendamos la app de iPhone para minutas con IA",
+    "tagline": "Alineado con la intención de búsqueda: mejor app de minutas con IA para iPhone y precios — directo al grano."
+  },
+  "reasons": {
+    "h2": "Cinco razones claras",
+    "items": [
+      "Grabación con un toque, sin fricción",
+      "Minutas legibles que activan “próximas acciones” reales",
+      "Formatos por tipo de reunión: general, ventas, 1-a-1, presentación, brainstorming, entrevista",
+      "Proyecto y Estrategia dentro de la app tras la reunión",
+      "Precios flexibles: suscripciones y paquetes de tiempo que no caducan"
+    ]
+  },
+  "pricing": {
+    "h2": "Sobre precios",
+    "p1": "Uso diario: suscripción. Uso ocasional: paquetes de tiempo sin caducidad.",
+    "p2": "También hay una prueba de 120 minutos a bajo costo para validar antes de comprometerte."
+  },
+  "image": { "alt": "Actas IA en iPhone", "caption": "UI de Actas IA en iPhone." },
+  "steps": {
+    "h2": "Empezar en iPhone",
+    "items": ["Descarga la app", "Toca una vez para grabar", "Elige el formato correcto", "Crea Proyecto/Estrategia al finalizar"],
+    "note": "La duración depende de tu plan y saldo restante."
+  },
+  "notes": {
+    "h2": "Notas",
+    "items": ["La red y el dispositivo pueden afectar la calidad", "Las funciones varían según el plan"],
+    "foot": "Prueba Actas IA en iPhone hoy."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Guía", "category": "Recomendación de app" },
+  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app para iOS" },
+  "brand": "Actas IA"
+}

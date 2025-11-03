@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Mengapa kami syorkan aplikasi AI minit mesyuarat di iPhone (2025)",
+    "description": "5 sebab terus terang: UI sangat ringkas, minit yang mudah dibaca & bertindak, format ikut jenis mesyuarat, tindakan selepas mesyuarat dalam app, dan harga fleksibel. Cuba Minit AI di iPhone.",
+    "ogTitle": "Syor kami: aplikasi AI minit mesyuarat di iPhone",
+    "ogDescription": "Rakaman sekali sentuh, output yang menggerakkan tindakan, format pintar, susulan terbina dalam, dan harga mengikut penggunaan. Minit AI di iPhone.",
+    "ld": {
+      "headline": "Mengapa aplikasi AI minit iPhone menjadi pilihan kami",
+      "description": "Panduan beli Minit AI: pantas digunakan, hasil jelas, format mengikut mesyuarat, tindakan pascamesyuarat, dan harga berpatutan."
+    }
+  },
+  "aria": { "home": "Laman Utama Minit AI" },
+  "nav": { "blog": "Blog", "recommend": "Syor" },
+  "hero": {
+    "kicker": "Panduan Beli",
+    "h1": "Mengapa kami syorkan aplikasi AI minit di iPhone",
+    "tagline": "Selari dengan niat carian: app AI minit terbaik untuk iPhone & bagaimana harganya — tanpa pusing-pusing."
+  },
+  "reasons": {
+    "h2": "5 sebab utama",
+    "items": [
+      "Rakaman satu sentuhan — tiada halangan",
+      "Minit yang benar-benar mendorong ‘tindakan seterusnya’",
+      "Format mengikut jenis mesyuarat: umum, jualan, 1-on-1, pembentangan, sumbang saran, temuduga",
+      "Susulan dalam app: Project & Strategy",
+      "Harga fleksibel: langganan dan pakej masa tanpa tarikh luput"
+    ]
+  },
+  "pricing": {
+    "h2": "Harga",
+    "p1": "Pengguna harian: langganan. Pengguna bermusim: pakej masa tanpa luput.",
+    "p2": "Ujian 120 minit berharga rendah disediakan untuk semak kesesuaian terlebih dahulu."
+  },
+  "image": { "alt": "Minit AI di iPhone", "caption": "Antara muka Minit AI pada iPhone." },
+  "steps": {
+    "h2": "Mula di iPhone",
+    "items": ["Muat turun app", "Tekan sekali untuk rakam", "Pilih format yang betul", "Cipta Project/Strategy selepas mesyuarat"],
+    "note": "Tempoh mesyuarat bergantung pada pelan dan baki masa."
+  },
+  "notes": {
+    "h2": "Nota",
+    "items": ["Kualiti dipengaruhi rangkaian & peranti", "Ciri mungkin berbeza mengikut pelan"],
+    "foot": "Cuba Minit AI di iPhone hari ini."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Panduan", "category": "Syor Aplikasi" },
+  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun app iOS" },
+  "brand": "Minit AI"
+}

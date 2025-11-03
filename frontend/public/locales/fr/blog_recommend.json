@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Pourquoi nous recommandons l’app iPhone pour comptes rendus avec IA (2025)",
+    "description": "5 raisons sans détour : interface ultra simple, comptes rendus lisibles et actionnables, formats par type de réunion, suivi intégré et tarification flexible. Essayez Minutes.AI sur iPhone.",
+    "ogTitle": "Notre recommandation : l’app iPhone de comptes rendus IA",
+    "ogDescription": "Enregistrement en un geste, sorties qui déclenchent des actions, formats intelligents, suivi intégré et prix adaptés. Minutes.AI sur iPhone.",
+    "ld": {
+      "headline": "Pourquoi l’app iPhone de comptes rendus IA est notre choix",
+      "description": "Guide d’achat de Minutes.AI : usage rapide, sorties claires, formats adaptés, actions post-réunion et tarifs équitables."
+    }
+  },
+  "aria": { "home": "Accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "recommend": "Recommandation" },
+  "hero": {
+    "kicker": "Guide d’achat",
+    "h1": "Pourquoi nous recommandons l’app iPhone pour comptes rendus IA",
+    "tagline": "Aligné avec l’intention de recherche : meilleure app de comptes rendus IA sur iPhone et éclairage sur les prix — sans détour."
+  },
+  "reasons": {
+    "h2": "Cinq raisons directes",
+    "items": [
+      "Enregistrement en un tap, zéro friction",
+      "Comptes rendus lisibles qui mènent aux prochaines actions",
+      "Formats par type : général, ventes, 1-à-1, présentation, brainstorming, entretien",
+      "Projet & Stratégie intégrés après la réunion",
+      "Tarification flexible : abonnements et packs de temps sans expiration"
+    ]
+  },
+  "pricing": {
+    "h2": "Tarification",
+    "p1": "Usage quotidien : abonnement. Usage ponctuel : packs de temps sans expiration.",
+    "p2": "Essai 120 minutes à bas coût pour valider l’adéquation avant de s’engager."
+  },
+  "image": { "alt": "Minutes.AI sur iPhone", "caption": "Interface Minutes.AI pour iPhone." },
+  "steps": {
+    "h2": "Démarrer sur iPhone",
+    "items": ["Télécharger l’app", "Appuyer une fois pour enregistrer", "Choisir le bon format", "Créer un Projet/Stratégie après la réunion"],
+    "note": "La durée dépend de votre offre et du solde restant."
+  },
+  "notes": {
+    "h2": "Notes",
+    "items": ["La qualité dépend du réseau et de l’appareil", "Les fonctionnalités varient selon l’offre"],
+    "foot": "Essayez Minutes.AI sur iPhone dès aujourd’hui."
+  },
+  "meta": { "h2": "Meta", "published": "Publié", "type": "Guide", "category": "Recommandation d’app" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" },
+  "brand": "Minutes.AI"
+}

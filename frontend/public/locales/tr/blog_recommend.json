@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "iPhone için toplantı tutanakları yapay zekâ uygulamasını neden öneriyoruz (2025)",
+    "description": "5 net neden: çok basit arayüz, okunabilir ve eyleme dönük tutanaklar, toplantı türüne göre formatlar, uygulama içi takip ve esnek fiyatlandırma. iPhone’da Tutanakları AI’ı deneyin.",
+    "ogTitle": "Önerimiz: iPhone için yapay zekâlı tutanak uygulaması",
+    "ogDescription": "Tek dokunuşla kayıt, aksiyona götüren çıktılar, akıllı formatlar, uygulama içi takip ve kullanıma uyan fiyatlar. Tutanakları AI iPhone’da.",
+    "ld": {
+      "headline": "Neden iPhone’daki tutanaklar yapay zekâ uygulamasını öneriyoruz",
+      "description": "Tutanakları AI satın alma rehberi: hızlı kullanım, net çıktılar, toplantıya uygun formatlar, toplantı sonrası aksiyonlar ve adil fiyatlar."
+    }
+  },
+  "aria": { "home": "Tutanakları AI Ana Sayfa" },
+  "nav": { "blog": "Blog", "recommend": "Öneri" },
+  "hero": {
+    "kicker": "Satın Alma Rehberi",
+    "h1": "iPhone için toplantı tutanakları yapay zekâ uygulamasını neden öneriyoruz",
+    "tagline": "Arama niyetine tam uygun: iPhone için en iyi tutanak-YZ uygulaması ve fiyatlandırması — dolandırmadan."
+  },
+  "reasons": {
+    "h2": "Beş net neden",
+    "items": [
+      "Tek dokunuşla kayıt — sıfır sürtünme",
+      "Gerçek «sonraki aksiyonları» tetikleyen okunaklı tutanaklar",
+      "Toplantı türüne göre formatlar: Genel, Satış, 1-e-1, Sunum, Beyin fırtınası, Mülakat",
+      "Uygulama içinde Project & Strategy ile takip",
+      "Esnek fiyat: abonelikler ve süresi dolmayan zaman paketleri"
+    ]
+  },
+  "pricing": {
+    "h2": "Fiyatlandırma",
+    "p1": "Günlük kullanım için abonelik. Ara sıra kullanım için süresi dolmayan zaman paketleri.",
+    "p2": "Ayrıca, taahhüt öncesi denemek için düşük maliyetli 120 dakikalık deneme mevcut."
+  },
+  "image": { "alt": "iPhone’da Tutanakları AI", "caption": "iPhone üzerinde Tutanakları AI arayüzü." },
+  "steps": {
+    "h2": "iPhone’da başlama",
+    "items": ["Uygulamayı indirin", "Tek dokunuşla kaydı başlatın", "Doğru formatı seçin", "Toplantı sonrası Project/Strategy oluşturun"],
+    "note": "Süre, planınıza ve kalan bakiyeye bağlıdır."
+  },
+  "notes": {
+    "h2": "Notlar",
+    "items": ["Ağ ve cihaz koşulları kaliteyi etkileyebilir", "Özellikler plana göre değişebilir"],
+    "foot": "Bugün iPhone’da Tutanakları AI’ı deneyin."
+  },
+  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "Rehber", "category": "Uygulama Önerisi" },
+  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" },
+  "brand": "Tutanakları AI"
+}

@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Warum wir die iPhone-App für KI-Protokolle empfehlen (2025)",
+    "description": "5 direkte Gründe: radikal einfache UI, lesbare & umsetzbare Protokolle, Formate je Meetingtyp, Follow-up im Produkt und flexible Preise. Probiere Protokoll KI auf dem iPhone.",
+    "ogTitle": "Empfehlung: iPhone-App für KI-Sitzungsprotokolle",
+    "ogDescription": "Einfache Bedienung, klare Ergebnisse, smarte Formate, integrierte Nachverfolgung, faire Preise. Protokoll KI auf iPhone.",
+    "ld": {
+      "headline": "Warum die KI-Protokoll-App auf dem iPhone Sinn ergibt",
+      "description": "Kaufberatung zu Protokoll KI: einfache Nutzung, hochwertige Ausgaben, passende Meeting-Formate, Aktionen nach dem Meeting und flexible Tarife."
+    }
+  },
+  "aria": { "home": "Protokoll KI Startseite" },
+  "nav": { "blog": "Blog", "recommend": "Empfehlung" },
+  "hero": {
+    "kicker": "Kaufberatung",
+    "h1": "Darum empfehlen wir die iPhone-App für KI-Protokolle",
+    "tagline": "Passend zur Suchintention: beste KI-Protokoll-App für iPhone & was sie kostet — ohne Umschweife."
+  },
+  "reasons": {
+    "h2": "Fünf direkte Gründe",
+    "items": [
+      "Ein-Tap-Aufnahme, null Hürden",
+      "Lesbare Protokolle, die echte Next-Actions treiben",
+      "Formate pro Meetingtyp: General, Sales, 1-on-1, Präsentation, Brainstorm, Interview",
+      "Projects & Strategy als Follow-up im Produkt",
+      "Flexible Preise: Abos und nicht verfallende Zeitpakete"
+    ]
+  },
+  "pricing": {
+    "h2": "Zu den Preisen",
+    "p1": "Tägliche Nutzung? Abo. Gelegentlich? Zeitpakete ohne Verfall.",
+    "p2": "Trial: 120 Minuten zum kleinen Preis zum risikofreien Testen."
+  },
+  "image": { "alt": "Protokoll KI auf iPhone", "caption": "Screenshot von Protokoll KI auf dem iPhone." },
+  "steps": {
+    "h2": "Start auf dem iPhone",
+    "items": ["App laden", "Mit einem Tap aufnehmen", "Passendes Format wählen", "Project/Strategy nach dem Meeting nutzen"],
+    "note": "Dauer richtet sich nach Tarif & Restguthaben."
+  },
+  "notes": {
+    "h2": "Hinweise",
+    "items": ["Qualität hängt von Netzwerk & Gerät ab", "Funktionsumfang je nach Tarif"],
+    "foot": "Teste Protokoll KI auf dem iPhone."
+  },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Guide", "category": "App-Empfehlung" },
+  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App laden" },
+  "brand": "Protokoll KI"
+}
