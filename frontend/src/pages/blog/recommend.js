@@ -33,7 +33,7 @@ const EN_FALLBACK = {
     kicker: "Buyer's Guide (No-BS)",
     h1: "Why the Minutes.AI iPhone app is our top pick for meeting minutes (2025)",
     tagline:
-      "If you’re googling “議事録 AI アプリ おすすめ” or “議事録 AI アプリ 料金”, here’s the straight talk: this app is built to record fast, generate clean minutes, and drive next actions.",
+      "If you’re googling “meeting-minutes AI app recommended” or “meeting-minutes AI app pricing,” here’s the straight talk: this app is built to record fast, generate clean minutes, and drive next actions.",
   },
 
   lead: {
