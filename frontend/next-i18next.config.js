@@ -5,20 +5,19 @@ module.exports = {
   i18n: {
     defaultLocale: 'en',
     locales: [
-      'ar','da','de','en','es-ES','es-MX','fr','id','ja',
-      'ko','ms','nl','no','pt-BR','pt-PT','sv','tr','zh-CN','zh-TW'
+      'ar','cs','da','de','el','en','es-ES','es-MX','fi','fr','he','hi','hr','hu','id','it','ja',
+      'ko','ms','nb','nl','no','pl','pt-BR','pt-PT','ro','ru','sk','sv','th','tr','uk','vi','zh-CN','zh-TW'
     ],
     localeDetection: false,
   },
 
-  // ★ 重要：必ず “絶対パス” にする（__dirname ではなく process.cwd を使用）
+  // 絶対パス指定（CWD 基準）
   localePath: path.resolve(process.cwd(), 'public/locales'),
 
-  // 使用する名前空間
+  // 使用するデフォルトの名前空間（ページ側で追加読み込み可）
   ns: ['common', 'home', 'seo', 'blog_introduction'],
   defaultNS: 'common',
 
-  // dev 中はホットリロード
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 
   interpolation: { escapeValue: false },
