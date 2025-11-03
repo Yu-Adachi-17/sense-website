@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Zašto preporučujemo minutes-AI aplikaciju za iPhone (2025)",
+    "description": "5 izravnih razloga: jednostavno sučelje, čitljivi/operativni zapisnici, formati po sastanku, ugrađen follow-through i fleksibilne cijene. Isprobajte AI Zapisnik na iPhoneu.",
+    "ogTitle": "Naš izbor: minutes-AI aplikacija za iPhone",
+    "ogDescription": "Snima jednim dodirom, izlazi koji vode sljedećim koracima, pametni formati, in-app follow-through i cijene prema korištenju. AI Zapisnik na iPhoneu.",
+    "ld": {
+      "headline": "Zašto je minutes-AI aplikacija za iPhone naša preporuka",
+      "description": "Vodič za kupnju AI Zapisnik: brzo korištenje, jasni izlazi, prilagođeni formati, radnje nakon sastanka i poštene cijene."
+    }
+  },
+  "aria": { "home": "AI Zapisnik Početna" },
+  "nav": { "blog": "Blog", "recommend": "Preporuka" },
+  "hero": {
+    "kicker": "Vodič za kupnju",
+    "h1": "Zašto preporučujemo minutes-AI aplikaciju za iPhone",
+    "tagline": "Građeno za namjeru pretrage: najbolja minutes-AI aplikacija za iPhone i kako stoji s cijenama — bez praznih priča."
+  },
+  "reasons": {
+    "h2": "Pet jasnih razloga",
+    "items": [
+      "Snimanje jednim dodirom bez trenja",
+      "Čitljivi zapisnici koji doista vode sljedećim akcijama",
+      "Formati po sastanku: Općenito, Prodaja, 1-na-1, Prezentacija, Brainstorm, Intervju",
+      "Project & Strategy follow-through unutar aplikacije",
+      "Fleksibilne cijene: pretplate i neistekavajući paketi vremena"
+    ]
+  },
+  "pricing": {
+    "h2": "O cijenama",
+    "p1": "Dnevni korisnici biraju pretplate. Povremeni biraju pakete vremena bez isteka.",
+    "p2": "Tu je i jeftin probni paket od 120 minuta za provjeru prije obveze."
+  },
+  "image": { "alt": "AI Zapisnik na iPhoneu", "caption": "AI Zapisnik iPhone sučelje." },
+  "steps": {
+    "h2": "Krenite na iPhoneu",
+    "items": ["Preuzmite aplikaciju", "Dodirnite jednom za snimanje", "Odaberite pravi format", "Nakon sastanka izradite Project/Strategy"],
+    "note": "Trajanje sastanka ovisi o vašem planu i preostalom saldu."
+  },
+  "notes": {
+    "h2": "Napomene",
+    "items": ["Mreža i uređaj mogu utjecati na kvalitetu", "Značajke se mogu razlikovati po planu"],
+    "foot": "Isprobajte AI Zapisnik na iPhoneu danas."
+  },
+  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Vodič", "category": "Preporuka aplikacije" },
+  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Preuzmi iOS aplikaciju" },
+  "brand": "AI Zapisnik"
+}

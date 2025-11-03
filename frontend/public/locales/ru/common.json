@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Ошибка получения данных пользователя",
+  "unsupported_file_format": "Неподдерживаемый формат файла. Используйте m4a, webm, mp3, wav или ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Протокол",
+    "noContentProvided": "Содержимое не предоставлено",
+    "noContentProvidedTitle": "Содержимое не предоставлено",
+    "topic": "Тема",
+    "topicFallback": "Тема",
+
+    "discussion": "Обсуждение",
+    "decisions": "Решения",
+    "actionItems": "Дела к выполнению",
+    "concerns": "Опасения",
+    "summary": "Краткое резюме",
+    "proposal": "Предложение",
+    "background": "Предпосылки",
+    "discussionPoints": "Пункты для обсуждения",
+    "decisionsAndTasks": "Решения и задачи",
+    "coreProblem": "Ключевая проблема",
+    "expectedResult": "Ожидаемый результат",
+
+    "overview": "Обзор",
+    "sections": "Разделы",
+    "topics": "Темы",
+    "items": "Элементы",
+    "content": "Содержимое",
+    "body": "Основной текст",
+
+    "brainstorming": {
+      "problemToSolve": "Проблема для решения",
+      "topIdea": "Лучшая идея",
+      "meritsAndEffects": "Плюсы и эффекты",
+      "drawbacksAndRisks": "Минусы и риски",
+      "runnerUpIdea": "Идея-претендент",
+      "allIdeas": "Все идеи",
+      "ideaTitle": "Название идеи"
+    },
+
+    "jobInterview": {
+      "motivation": "Мотивация",
+      "careerSummary": "Краткая карьера",
+      "successes": "Успехи",
+      "failures": "Неудачи",
+      "strengths": "Сильные стороны и навыки",
+      "weaknesses": "Слабые стороны и зоны развития",
+      "values": "Ценности в работе",
+      "careerVision": "Видение карьеры",
+      "understandingOfCompany": "Понимание компании",
+      "workStyleAndConditions": "Стиль и условия работы",
+      "applicantQuestions": "Вопросы кандидата (Q&A)",
+      "passionMessage": "Страсть и послание"
+    },
+
+    "lecture": {
+      "objectives": "Цели лекции",
+      "procedures": "Процедуры",
+      "notesAndRemarks": "Заметки и примечания",
+      "examplesAndScenarios": "Примеры и сценарии",
+      "dos": "Что делать",
+      "donts": "Чего не делать",
+      "tipsAndInsights": "Советы и инсайты"
+    },
+
+    "oneonone": {
+      "title": "1-на-1",
+      "recentSuccess": "Недавний успех",
+      "contributingFactors": "Содействующие факторы",
+      "scalableAction": "Масштабируемое действие",
+      "managerFeedback": "Обратная связь менеджера",
+      "challengeFaced": "Столкнувшийся вызов",
+      "bottleneck": "Узкое место",
+      "improvementStrategy": "Стратегия улучшения",
+      "futureExpectation": "Ожидание на будущее",
+      "reasonForExpectation": "Причина ожидания",
+      "preparationForFuture": "Подготовка к будущему",
+      "concern": "Опасение",
+      "reasonForConcern": "Причина опасения",
+      "mitigationIdeas": "Идеи по смягчению",
+      "mentalAspects": "Ментальные аспекты",
+      "feelingsAndBackground": "Чувства и контекст",
+      "emotionalChange": "Эмоциональное изменение",
+      "nextAction": "Следующий шаг",
+      "coreEmotion": "Базовая эмоция",
+      "topicGroup": "Группа тем",
+      "expectation": "Ожидание",
+      "worry": "Беспокойство",
+      "why": "Почему",
+      "whatCausedIt": "Что это вызвало",
+      "nextTimeStrategy": "Стратегия в следующий раз",
+      "preparation": "Подготовка"
+    }
+  }
+}

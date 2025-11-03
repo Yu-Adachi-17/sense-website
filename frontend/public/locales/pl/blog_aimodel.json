@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Modele AI stojące za Protokół AI",
+    "description": "Dlaczego Protokół AI dostarcza profesjonalne protokoły: zasada „najpierw jakość” i aktualnie stosowane modele (ChatGPT-5 oraz Gemini 2.5 Pro).",
+    "ogTitle": "Polityka modeli w Protokół AI: najpierw jakość",
+    "ogDescription": "Ujawniamy modele, na których polegamy—ChatGPT-5 i Gemini 2.5 Pro—aby tworzyć protokoły klarowne, użyteczne i spójne.",
+    "ld": {
+      "headline": "Modele sztucznej inteligencji używane w Protokół AI",
+      "description": "Protokół AI stawia na jakość i obecnie korzysta z ChatGPT-5 oraz Gemini 2.5 Pro, aby tworzyć protokoły gotowe do decyzji."
+    }
+  },
+  "aria": { "home": "Strona główna Protokół AI" },
+  "nav": { "blog": "Blog", "aimodel": "Modele AI" },
+  "hero": {
+    "kicker": "Za kulisami",
+    "h1": "Modele używane w Protokół AI",
+    "tagline": "Nie wybieramy przypadkowego LLM; wybieramy to, co czyni protokoły jasnymi i możliwymi do działania. Obecnie: ChatGPT-5 i Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Dlaczego stawiamy na jakość",
+    "p1": "Wiele produktów wybiera według kosztów. My stawiamy na klarowność, możliwość działania i spójność, by czytelnik zawsze znał kolejny krok.",
+    "p2": "Najlepsze składniki i kuchnia nie gwarantują świetnego dania—różnicę robi umiejętność. Doskonalimy dobór modeli i promptów, by tworzyć profesjonalne protokoły."
+  },
+  "adopted": {
+    "h2": "Zastosowane modele (w chwili pisania)",
+    "items": [
+      "ChatGPT-5 (OpenAI): silne rozumowanie, kontrola tonu i niezawodna struktura dla protokołów gotowych do decyzji.",
+      "Gemini 2.5 Pro (Google): wysoka spójność przy długich kontekstach i solidna ekstrakcja kluczowych punktów."
+    ],
+    "foot": "Nieustannie oceniamy nowe modele i przechodzimy na nie, gdy przekroczą nasz próg jakości."
+  },
+  "image": {
+    "alt": "Architektura modeli wspierająca Protokół AI",
+    "caption": "Wybieramy modele na podstawie klarowności i możliwości działania — nie tylko kosztu."
+  },
+  "links": {
+    "h2": "Powiązane tematy",
+    "intro": "Wprowadzenie",
+    "nego": "Protokóły negocjacji biznesowych"
+  },
+  "meta": { "h2": "Metadane", "published": "Data publikacji", "type": "Artykuł", "category": "Modele AI" },
+  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" }
+}

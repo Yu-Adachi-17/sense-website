@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Quay lại trang chủ Biên bản AI"
+  },
+  "byline": {
+    "name": "Viết bởi Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "cta": {
+    "downloadIOS": "Tải ứng dụng iOS",
+    "openBrowser": "Mở ứng dụng web"
+  },
+  "diversity": {
+    "core": {
+      "h3": "Các kiểu họp phổ biến",
+      "items": {
+        "0": "Stand-up định kỳ: rà soát kết quả, vấn đề, hành động",
+        "1": "Brainstorm: mở rộng rồi hội tụ ý tưởng",
+        "2": "Đàm phán: căn chỉnh lợi ích và đạt thỏa thuận"
+      }
+    },
+    "h2": "Cuộc họp rất đa dạng — đàm phán là nghệ thuật mặc cả",
+    "p1": "Đổi mục tiêu thì giá trị đầu ra cũng đổi. Trong đàm phán, chính việc mặc cả là trọng tâm.",
+    "wide": {
+      "h3": "“Cuộc họp” theo nghĩa rộng",
+      "items": {
+        "0": "1-on-1: xem xét kết quả, mục tiêu tiếp theo, chia sẻ khó khăn",
+        "1": "Phỏng vấn: căn chỉnh yêu cầu và mức độ phù hợp",
+        "2": "Trình bày: vấn đề và giải pháp",
+        "3": "Đào tạo: chuyển giao quy trình/vận hành"
+      }
+    }
+  },
+  "example": {
+    "block": "Công ty A: Sản phẩm trước của các bạn có lỗi — gây rắc rối thực sự cho chúng tôi. Các bạn nợ chúng tôi; hãy giao trước tuần sau. Giá là $1.000.\\nCông ty chúng tôi: Chúng tôi sẽ thúc đẩy nội bộ để giao trước tuần sau. Đổi lại, có thể nâng lên $1.200 không? Mong xem xét.\\nCông ty A: Nếu đảm bảo giao tuần sau, chúng tôi sẽ cân nhắc. Hãy gửi email phản hồi hôm nay.",
+    "h2": "Ví dụ (giữ nguyên văn các lượt trao đổi chính)",
+    "p1": "Giữ các “lượt then chốt” theo nguyên văn giúp người ra quyết định đánh giá sự hợp lý trong đầy đủ bối cảnh."
+  },
+  "hero": {
+    "h1": "Vì sao Biên bản AI giúp bạn viết biên bản đàm phán tốt nhất",
+    "kicker": "Blog Biên bản AI",
+    "tagline": "Đàm phán là cuộc so kè lợi ích. Biên bản mạnh không chỉ liệt kê quyết định và việc cần làm — mà còn nắm bắt bối cảnh và giọng điệu. Đây là cách tiếp cận và cách triển khai với Biên bản AI."
+  },
+  "limits": {
+    "generic": {
+      "h3": "Biên bản “mỏng” điển hình",
+      "items": {
+        "0": "Liệt kê quyết định không có lý do hay mạch truyện",
+        "1": "Mơ hồ ai yêu cầu gì và nhượng bộ ở đâu",
+        "2": "Không rõ mục nào chưa thống nhất hoặc tạm gác"
+      }
+    },
+    "h2": "Vì sao biên bản “chỉ quyết định” là yếu",
+    "optimized": {
+      "h3": "Biên bản thiết kế cho đàm phán",
+      "items": {
+        "0": "Dòng thời gian yêu cầu/nhượng bộ/thay đổi điều kiện (thời hạn/giá/phạm vi/trách nhiệm)",
+        "1": "Lý do, giả định và rủi ro được ghi ngay cạnh từng quyết định",
+        "2": "Phân tách rõ: đã thống nhất/chưa thống nhất/tạm gác kèm người phụ trách và hạn chót"
+      }
+    },
+    "p1": "Bám theo “thảo luận/quyết định/hành động/vấn đề mở” thường làm rơi bối cảnh, giọng điệu và lịch sử nhượng bộ. Hệ quả: hiểu lầm, qua lại nhiều và rủi ro “đã nói/chưa nói”."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Vì sao Biên bản AI giúp bạn viết biên bản đàm phán tốt nhất"
+  },
+  "negotiation": {
+    "h2": "Vậy, đàm phán là gì?",
+    "p1": "Ngắn gọn: bảo vệ và gia tăng lợi ích của công ty bạn. Không phải thông báo một chiều; bạn tìm điểm chung bằng cách trao đổi “yêu cầu” và “nhượng bộ” về các điều kiện như thời hạn, giá, phạm vi và rủi ro."
+  },
+  "recap": {
+    "focus": "Lần này, chúng ta đi sâu vào đàm phán.",
+    "h2": "Tóm tắt nhanh",
+    "p1": {
+      "link": "đọc tại đây",
+      "post": ".",
+      "pre": "Lần trước chúng tôi cho thấy AI có thể lập biên bản cho mọi loại cuộc họp. Nếu bạn tò mò,"
+    },
+    "points": {
+      "0": "Cuộc họp đa dạng, nên định dạng biên bản tối ưu phụ thuộc mục tiêu.",
+      "1": "Mẫu chung có ích, nhưng mức chi tiết cần tinh chỉnh theo tình huống.",
+      "2": "Từ “ghi để đọc” sang “kế hoạch để hành động”.",
+      "3": "Biên bản AI điều chỉnh đầu ra theo mục tiêu cuộc họp."
+    }
+  },
+  "seo": {
+    "description": "Đàm phán cần biên bản ghi lại quyết định, nhiệm vụ, bối cảnh, giọng điệu và lịch sử nhượng bộ. Hướng dẫn thực hành với Biên bản AI.",
+    "ld": {
+      "description": "Tinh túy đàm phán trong biên bản: yêu cầu, nhượng bộ và bối cảnh — cùng Biên bản AI.",
+      "headline": "Vì sao Biên bản AI giúp bạn viết biên bản đàm phán tốt nhất"
+    },
+    "ogDescription": "Tạm biệt biên bản “mỏng”: giữ lại trao đổi và bối cảnh để quyết định nhanh và tốt hơn.",
+    "ogTitle": "Vì sao Biên bản AI giúp bạn viết biên bản đàm phán tốt nhất",
+    "title": "Vì sao Biên bản AI giúp bạn viết biên bản đàm phán tốt nhất | Blog biên bản cuộc họp"
+  },
+  "why": {
+    "h2": "Vì sao Biên bản AI mạnh trong đàm phán",
+    "items": {
+      "0": "Tóm lược các lượt yêu cầu/nhượng bộ và giữ nguyên văn đoạn then chốt (tránh rủi ro “đã nói/chưa nói”).",
+      "1": "Sắp xếp thay đổi điều kiện theo trình tự thời gian (thời hạn/giá/phạm vi/trách nhiệm).",
+      "2": "Ghi lý do, giả định, rủi ro ngay cạnh quyết định.",
+      "3": "Tách rõ đã thống nhất/chưa thống nhất/tạm gác và gán người phụ trách, hạn chót.",
+      "4": "Ánh xạ yêu cầu của đối tác vào cam kết của bạn để theo dõi minh bạch."
+    }
+  },
+  "wrap": {
+    "h2": "Kết lại",
+    "p": "Biên bản đàm phán mạnh hơn khi lưu cả qua-lại và bối cảnh — không chỉ quyết định. Điều đó tăng tốc phán đoán và giảm làm lại. Hãy biến nó thành tiêu chuẩn với Biên bản AI."
+  }
+}

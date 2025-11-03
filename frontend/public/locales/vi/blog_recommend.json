@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Vì sao chúng tôi khuyên dùng ứng dụng minutes-AI cho iPhone (2025)",
+    "description": "5 lý do thẳng thắn: UI đơn giản, biên bản dễ đọc/có thể hành động, định dạng theo từng cuộc họp, follow-through tích hợp và giá linh hoạt. Hãy thử Biên bản AI trên iPhone.",
+    "ogTitle": "Lựa chọn của chúng tôi: minutes-AI cho iPhone",
+    "ogDescription": "Ghi âm một chạm, đầu ra thúc đẩy bước tiếp theo, định dạng thông minh, follow-through trong ứng dụng và giá phù hợp cách bạn dùng. Biên bản AI trên iPhone.",
+    "ld": {
+      "headline": "Vì sao minutes-AI cho iPhone là khuyến nghị của chúng tôi",
+      "description": "Hướng dẫn mua Biên bản AI: dùng nhanh, đầu ra rõ ràng, định dạng phù hợp, hành động sau cuộc họp và mức giá công bằng."
+    }
+  },
+  "aria": { "home": "Trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "recommend": "Khuyến nghị" },
+  "hero": {
+    "kicker": "Hướng dẫn mua",
+    "h1": "Vì sao chúng tôi khuyên dùng minutes-AI cho iPhone",
+    "tagline": "Đúng với ý định tìm kiếm: minutes-AI tốt nhất cho iPhone và so sánh giá — không vòng vo."
+  },
+  "reasons": {
+    "h2": "Năm lý do rõ ràng",
+    "items": [
+      "Ghi âm một chạm không ma sát",
+      "Biên bản dễ đọc thực sự thúc đẩy hành động tiếp theo",
+      "Định dạng theo cuộc họp: Chung, Bán hàng, 1-on-1, Trình bày, Brainstorm, Phỏng vấn",
+      "Follow-through Project & Strategy ngay trong ứng dụng",
+      "Giá linh hoạt: thuê bao và gói thời gian không hết hạn"
+    ]
+  },
+  "pricing": {
+    "h2": "Về giá",
+    "p1": "Người dùng hằng ngày chọn thuê bao. Người dùng thỉnh thoảng chọn gói thời gian không hết hạn.",
+    "p2": "Có cả gói dùng thử 120 phút chi phí thấp để kiểm tra độ phù hợp trước khi cam kết."
+  },
+  "image": { "alt": "Biên bản AI trên iPhone", "caption": "Giao diện Biên bản AI trên iPhone." },
+  "steps": {
+    "h2": "Bắt đầu trên iPhone",
+    "items": ["Tải ứng dụng", "Chạm một lần để ghi", "Chọn đúng định dạng", "Sau cuộc họp tạo Project/Strategy"],
+    "note": "Thời lượng cuộc họp phụ thuộc gói của bạn và số dư còn lại."
+  },
+  "notes": {
+    "h2": "Ghi chú",
+    "items": ["Mạng và thiết bị có thể ảnh hưởng chất lượng", "Tính năng có thể khác nhau theo gói"],
+    "foot": "Hãy thử Biên bản AI trên iPhone hôm nay."
+  },
+  "meta": { "h2": "Meta", "published": "Đã xuất bản", "type": "Hướng dẫn", "category": "Khuyến nghị ứng dụng" },
+  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải ứng dụng iOS" },
+  "brand": "Biên bản AI"
+}

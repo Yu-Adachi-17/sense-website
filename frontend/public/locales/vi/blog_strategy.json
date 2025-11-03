@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Biên bản AI Strategy — biến biên bản họp thành quyết định (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy chắt lọc cuộc họp thành Boost/Counter/Top Issue cùng ba chế độ tư duy cho bước tiếp theo rõ ràng. SEO cho truy vấn: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy trong Biên bản AI: quyết định, không chỉ ghi chú",
+    "ogDescription": "Boost/Counter/Top Issue + tư duy Logic/Phê phán/Liên tưởng cho đầu ra có thể hành động.",
+    "ld": {
+      "headline": "Biên bản AI bổ sung Strategy",
+      "description": "Dùng ChatGPT-5 và Gemini 2.5 Pro để chuyển thảo luận thành quyết định nhanh và rõ."
+    }
+  },
+  "aria": { "home": "Trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Hướng dẫn tính năng",
+    "h1": "Strategy cho Biên bản AI",
+    "tagline": "Không chỉ biên bản — Strategy biến thảo luận thành quyết định với ChatGPT-5 và Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "Giao diện Biên bản AI Strategy",
+    "caption": "Rút ra vấn đề cốt lõi và hành động tiếp theo trong một bước."
+  },
+  "what": {
+    "h2": "Strategy làm gì",
+    "items": [
+      "Boost: cái gì hiệu quả & cách mở rộng",
+      "Counter: rủi ro & cách khắc phục",
+      "Top Issue: câu hỏi trọng tâm",
+      "Chế độ tư duy: Logic / Phê phán / Liên tưởng"
+    ]
+  },
+  "steps": {
+    "h2": "Bắt đầu như thế nào",
+    "items": [
+      "Tạo biên bản trên app hoặc web",
+      "Chạm “Strategy”",
+      "Xem Boost / Counter / Top Issue + 3 chế độ",
+      "Dán vào hệ thống tác vụ của bạn"
+    ],
+    "note": "Khả dụng và thời lượng phụ thuộc gói/định mức của bạn."
+  },
+  "features": {
+    "h2": "Điểm nổi bật",
+    "items": [
+      "Tập trung vào quyết định, không chỉ tóm tắt",
+      "Tối ưu cho ChatGPT-5 & Gemini 2.5 Pro",
+      "Đầu ra ngắn, có thể hành động",
+      "Đa ngôn ngữ cho đội ngũ toàn cầu"
+    ]
+  },
+  "notes": {
+    "h2": "Ghi chú",
+    "items": [
+      "Chất lượng đầu ra phản ánh chất lượng đầu vào",
+      "Dùng mẫu khác nhau cho từng loại cuộc họp"
+    ],
+    "foot": "Có trên iOS. Hãy thử hôm nay."
+  },
+  "meta": { "h2": "Meta", "published": "Đã xuất bản", "type": "Tính năng", "category": "Strategy" },
+  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải ứng dụng iOS" }
+}

@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Funkce",
+      "generic": "Obecná AI",
+      "minutes": "Zápisník AI",
+      "transcription": "Čistý přepis"
+    },
+    "rows": [
+      {
+        "a": "Ano",
+        "b": "Ne (vyžaduje ruční zadání)",
+        "c": "Ano",
+        "k": "Audio → Text"
+      },
+      {
+        "a": "Ne",
+        "b": "Ano (ale kontext se může posunout)",
+        "c": "Ano (optimalizováno pro schůzky)",
+        "k": "Shrnutí / Osnova"
+      },
+      {
+        "a": "Ne",
+        "b": "Ano (často nejednoznačné)",
+        "c": "Ano (jasná extrakce + štítky)",
+        "k": "Extrakce rozhodnutí / úkolů"
+      },
+      {
+        "a": "Ne",
+        "b": "Ano (riziko odchylek v syntaxi)",
+        "c": "Ano (hlavní jazyky + kontextově vnímavé)",
+        "k": "Podpora více jazyků"
+      }
+    ],
+    "title": "Rozdíly: Přepisovací nástroje / Obecná AI / Zápisník AI"
+  },
+  "cta": {
+    "downloadIOS": "Stáhnout verzi pro iOS",
+    "openBrowser": "Otevřít verzi v prohlížeči"
+  },
+  "hero": {
+    "h1": "Co je Zápisník AI? Základy a přínosy před nasazením",
+    "kicker": "Zápisník AI",
+    "tagline": "„Jedno klepnutí pro smysluplné zápisy.“ Jasné a stručné vysvětlení pro ty, kdo právě začínají."
+  },
+  "intro": {
+    "h2": "Úvod",
+    "p1": "Děkujeme za návštěvu tohoto článku. ...",
+    "p2": "Anebo jako čtenář ...",
+    "p3": {
+      "bold": "smysluplné zápisy",
+      "mid": "vám pomůže vytvářet",
+      "post": "na jediné klepnutí — se zaměřením na srozumitelnost a výsledky.",
+      "pre": "V tomto článku ukážeme, jak"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (vedoucí marketingu)",
+      "Jordan (e-commerce)",
+      "Sam (maloobchodní provoz)",
+      "Taylor (produktový manažer)",
+      "Riley (data)"
+    ],
+    "coreMessage": "Utrácejme chytře — přednost má jasnost před rychlostí. Zavažme se k „kdo co udělá do kdy“ a držme schůzky do 30 minut.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Úkoly",
+      "attendees": "Účastníci:",
+      "closingMessage": "Závěrečné poselství",
+      "concerns": "Obavy",
+      "decisions": "Rozhodnutí",
+      "discussion": "Diskuse",
+      "keyMessages": "Klíčová sdělení"
+    },
+    "meetingTitle": "Týdenní přehled prodeje chytrých hodinek",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — spustit A/B test do 2025-10-15",
+          "Riley — dodat analýzu CTR do 2025-10-17"
+        ],
+        "concerns": [
+          "Únava z reklam, pokud se neobnoví kreativita"
+        ],
+        "decisions": [
+          "Navýšit online rozpočet na reklamu o 15 % na příští dva týdny"
+        ],
+        "discussion": [
+          "Návštěvy +18 % ..."
+        ],
+        "keyMessages": [
+          "Růst při stabilním CAC; testovat před škálováním"
+        ],
+        "topic": "Výkon online kanálu"
+      },
+      {
+        "actionItems": [
+          "Sam — potvrdit ETA/dopravu od dodavatele do 2025-10-14"
+        ],
+        "concerns": [
+          "Riziko prodloužení dodacích lhůt při nárůstu backlogu"
+        ],
+        "decisions": [
+          "Pokračovat s doskladněním 500 kusů do tří prodejen"
+        ],
+        "discussion": [
+          "Vypínání zásob v Shibuyi ..."
+        ],
+        "keyMessages": [
+          "Předcházet ztrátám prodeje stabilizací zásob v prodejnách"
+        ],
+        "topic": "Offline zásoby a provoz prodejen"
+      },
+      {
+        "actionItems": [
+          "Taylor — finalizovat plán vydání do 2025-10-13",
+          "Podpora — publikovat FAQ do 2025-10-16",
+          "Marketing — připravit návrh plánu na Black Friday do 2025-10-25"
+        ],
+        "decisions": [
+          "Schválit spuštění Q4 balíčku dne 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 opravuje vybíjení baterie ..."
+        ],
+        "keyMessages": [
+          "Spojit vylepšení produktu s včasnými promo akcemi"
+        ],
+        "topic": "Firmware v1.2 a spuštění Q4 balíčku"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Úvod"
+  },
+  "samples": {
+    "generic": {
+      "body": "Tým zhodnotil ...",
+      "h3": "Příklad výstupu obecné AI",
+      "note": "Zní to uhlazeně, ale neodpovídá jasně na „kdo co do kdy udělá“."
+    },
+    "h2": "Zdrojový text a ukázkové výstupy",
+    "meetingSample": "Ukázka zvuku ze schůzky",
+    "pretty": {
+      "h3": "Příklad výstupu Zápisník AI"
+    },
+    "transcript": {
+      "full": "Alex (vedoucí marketingu): ... (zkráceno)",
+      "preview": "Dobře, je čas ..."
+    }
+  },
+  "seo": {
+    "description": "Jedno klepnutí pro smysluplné zápisy. Jednoduché představení Zápisník AI: základy, rozdíly vůči jiným nástrojům a ukázky výstupů; důvěřuje {{users}} uživatelů (k {{date}}).",
+    "ld": {
+      "description": "Jedno klepnutí pro smysluplné zápisy. Jednoduché představení Zápisník AI, jeho odlišností a ukázek.",
+      "headline": "Co je Zápisník AI? Základy a přínosy před nasazením"
+    },
+    "ogDescription": "Jedno klepnutí pro smysluplné zápisy. Pochopte Zápisník AI, jeho rozdíly a ukázky výstupů.",
+    "ogTitle": "Co je Zápisník AI? Základy a přínosy před nasazením",
+    "title": "Co je Zápisník AI? Základy a přínosy před nasazením | Blog Zápisník AI"
+  },
+  "transcript": {
+    "close": "Zavřít celý text",
+    "expand": "Rozbalit celý text"
+  },
+  "what": {
+    "footnote": "※ K {{date}} (podle dat z iOS Store)",
+    "h2": "Co je Zápisník AI?",
+    "p1": "Zápisník AI je nástroj s AI, který ...",
+    "p2": "S Zápisník AI můžete automaticky generovat ..."
+  },
+  "wrap": {
+    "h2": "Shrnutí",
+    "p": "Jak to působí? Díky této struktuře kdokoli hned pochopí, kdo má co udělat. Zápisy se mění z textu ke čtení na plán, který pohání tým kupředu. Vyzkoušejte Zápisník AI sami."
+  }
+}

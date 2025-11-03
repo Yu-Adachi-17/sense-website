@@ -1,0 +1,95 @@
+{
+  "user_data_error": "यूज़र डेटा प्राप्त करने में त्रुटि",
+  "unsupported_file_format": "असमर्थित फ़ाइल फ़ॉर्मेट। कृपया m4a, webm, mp3, wav या ogg का उपयोग करें।",
+
+  "minutes": {
+    "minutesTitleFallback": "मीटिंग मिनट्स",
+    "noContentProvided": "कोई सामग्री उपलब्ध नहीं",
+    "noContentProvidedTitle": "कोई सामग्री उपलब्ध नहीं",
+    "topic": "विषय",
+    "topicFallback": "विषय",
+
+    "discussion": "चर्चा",
+    "decisions": "निर्णय",
+    "actionItems": "कार्यसूची",
+    "concerns": "चिंताएँ",
+    "summary": "सारांश",
+    "proposal": "प्रस्ताव",
+    "background": "पृष्ठभूमि",
+    "discussionPoints": "चर्चा बिंदु",
+    "decisionsAndTasks": "निर्णय और कार्य",
+    "coreProblem": "मुख्य समस्या",
+    "expectedResult": "अपेक्षित परिणाम",
+
+    "overview": "ओवरव्यू",
+    "sections": "सेक्शन",
+    "topics": "टॉपिक्स",
+    "items": "आइटम",
+    "content": "कंटेंट",
+    "body": "बॉडी",
+
+    "brainstorming": {
+      "problemToSolve": "हल करने की समस्या",
+      "topIdea": "शीर्ष आइडिया",
+      "meritsAndEffects": "लाभ और प्रभाव",
+      "drawbacksAndRisks": "कमियाँ और जोखिम",
+      "runnerUpIdea": "द्वितीय सर्वोत्तम आइडिया",
+      "allIdeas": "सभी आइडिया",
+      "ideaTitle": "आइडिया शीर्षक"
+    },
+
+    "jobInterview": {
+      "motivation": "प्रेरणा",
+      "careerSummary": "कॅरियर सार",
+      "successes": "सफलताएँ",
+      "failures": "विफलताएँ",
+      "strengths": "ताकतें और कौशल",
+      "weaknesses": "कमज़ोरियाँ और सुधार क्षेत्र",
+      "values": "कार्यस्थल मूल्य",
+      "careerVision": "कॅरियर दृष्टि",
+      "understandingOfCompany": "कंपनी की समझ",
+      "workStyleAndConditions": "कार्य शैली और शर्तें",
+      "applicantQuestions": "आवेदक के प्रश्न (Q&A)",
+      "passionMessage": "जुनून और संदेश"
+    },
+
+    "lecture": {
+      "objectives": "व्याख्यान उद्देश्यों",
+      "procedures": "प्रक्रियाएँ",
+      "notesAndRemarks": "टिप्पणियाँ और टिप्पणियां",
+      "examplesAndScenarios": "उदाहरण और परिस्थितियाँ",
+      "dos": "क्या करें",
+      "donts": "क्या न करें",
+      "tipsAndInsights": "सुझाव और अंतर्दृष्टि"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "हालिया सफलता",
+      "contributingFactors": "योगदान देने वाले कारक",
+      "scalableAction": "स्केलेबल कार्रवाई",
+      "managerFeedback": "प्रबंधक की प्रतिक्रिया",
+      "challengeFaced": "सामना की गई चुनौती",
+      "bottleneck": "अवरोध",
+      "improvementStrategy": "सुधार रणनीति",
+      "futureExpectation": "भविष्य की अपेक्षा",
+      "reasonForExpectation": "अपेक्षा का कारण",
+      "preparationForFuture": "भविष्य की तैयारी",
+      "concern": "चिंता",
+      "reasonForConcern": "चिंता का कारण",
+      "mitigationIdeas": "निवारण विचार",
+      "mentalAspects": "मानसिक पहलू",
+      "feelingsAndBackground": "भावनाएँ और पृष्ठभूमि",
+      "emotionalChange": "भावनात्मक परिवर्तन",
+      "nextAction": "अगली कार्रवाई",
+      "coreEmotion": "मुख्य भावना",
+      "topicGroup": "विषय समूह",
+      "expectation": "अपेक्षा",
+      "worry": "चिंता",
+      "why": "क्यों",
+      "whatCausedIt": "यह क्यों हुआ",
+      "nextTimeStrategy": "अगली बार की रणनीति",
+      "preparation": "तैयारी"
+    }
+  }
+}

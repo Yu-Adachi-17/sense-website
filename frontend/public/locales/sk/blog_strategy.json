@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "AI Zápisnica Strategy — premeňte zápisnice na rozhodnutia (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy destiluje stretnutia na Boost/Counter/Top Issue a tri mysliace módy pre jasné ďalšie kroky. SEO pre dotazy: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy v AI Zápisnica: rozhodnutia, nie len poznámky",
+    "ogDescription": "Boost/Counter/Top Issue + Logické/Kritické/Laterálne myslenie pre akčné výstupy.",
+    "ld": {
+      "headline": "AI Zápisnica pridáva Strategy",
+      "description": "Využite ChatGPT-5 a Gemini 2.5 Pro na rýchlu a jasnú premenu diskusie na rozhodnutia."
+    }
+  },
+  "aria": { "home": "Domov AI Zápisnica" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Sprievodca funkciou",
+    "h1": "Strategy pre AI Zápisnica",
+    "tagline": "Nie len zápisnice — Strategy mení diskusiu na rozhodnutia s ChatGPT-5 a Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "Rozhranie AI Zápisnica Strategy",
+    "caption": "Vyťažte jadrový problém a ďalšie kroky jedným krokom."
+  },
+  "what": {
+    "h2": "Čo robí Strategy",
+    "items": [
+      "Boost: čo funguje a ako škálovať",
+      "Counter: riziká a opravy",
+      "Top Issue: kľúčová otázka",
+      "Módy myslenia: Logické / Kritické / Laterálne"
+    ]
+  },
+  "steps": {
+    "h2": "Ako začať",
+    "items": [
+      "Vygenerujte zápisnice v apke alebo na webe",
+      "Ťuknite na „Strategy“",
+      "Skontrolujte Boost / Counter / Top Issue + 3 módy",
+      "Vložte do svojho task systému"
+    ],
+    "note": "Dostupnosť a trvanie závisia od plánu/kvóty."
+  },
+  "features": {
+    "h2": "Hlavné body",
+    "items": [
+      "Zamerané na rozhodnutia, nie len sumarizáciu",
+      "Optimalizované pre ChatGPT-5 a Gemini 2.5 Pro",
+      "Krátke, akčné výstupy",
+      "Viacjazyčné pre globálne tímy"
+    ]
+  },
+  "notes": {
+    "h2": "Poznámky",
+    "items": [
+      "Kvalita výstupu odráža kvalitu vstupu",
+      "Používajte rôzne šablóny pre rôzne typy stretnutí"
+    ],
+    "foot": "Dostupné na iOS. Vyskúšajte dnes."
+  },
+  "meta": { "h2": "Meta", "published": "Publikované", "type": "Funkcia", "category": "Strategy" },
+  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Stiahnuť iOS app" }
+}

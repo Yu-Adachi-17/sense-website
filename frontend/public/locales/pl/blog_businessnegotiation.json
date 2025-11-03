@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Powrót do strony głównej Protokół AI"
+  },
+  "byline": {
+    "name": "Autor: Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "cta": {
+    "downloadIOS": "Pobierz aplikację iOS",
+    "openBrowser": "Otwórz aplikację webową"
+  },
+  "diversity": {
+    "core": {
+      "h3": "Typowe spotkania",
+      "items": {
+        "0": "Regularne stand-upy: przegląd wyników, problemów i działań",
+        "1": "Burza mózgów: dywergencja i konwergencja pomysłów",
+        "2": "Negocjacje: uzgadnianie interesów i osiąganie porozumienia"
+      }
+    },
+    "h2": "Spotkania są różnorodne — negocjacje to sztuka targowania",
+    "p1": "Zmień cel, a zmieni się też wartościowy efekt. W negocjacjach samo targowanie jest rdzeniem.",
+    "wide": {
+      "h3": "„Spotkanie” w szerokim ujęciu",
+      "items": {
+        "0": "1-na-1: przegląd wyników, kolejne cele, dzielenie się wyzwaniami",
+        "1": "Rozmowa kwalifikacyjna: uzgodnienie wymagań i dopasowania",
+        "2": "Prezentacja: problem i rozwiązanie",
+        "3": "Szkolenie: przekazanie procesów/operacji"
+      }
+    }
+  },
+  "example": {
+    "block": "Firma A: Wasz poprzedni produkt miał błąd — sprawił nam realne kłopoty. Macie wobec nas zobowiązanie; dostarczcie do przyszłego tygodnia. Cena to 1 000 $.\\nNasza firma: Zrobimy wewnętrzny nacisk, by dostarczyć do przyszłego tygodnia. W zamian, czy możemy podnieść do 1 200 $? Prosimy o rozważenie.\\nFirma A: Jeśli zagwarantujecie dostawę w przyszłym tygodniu, rozważymy. Wyślijcie odpowiedź e-mailem dziś.",
+    "h2": "Przykład (pozostaw kluczowe wymiany dosłownie)",
+    "p1": "Zachowanie tych „kluczowych rund” w oryginalnym brzmieniu pozwala decydentom ocenić zasadność w pełnym kontekście."
+  },
+  "hero": {
+    "h1": "Dlaczego Protokół AI pomaga pisać najlepsze protokoły z negocjacji",
+    "kicker": "Blog Protokół AI",
+    "tagline": "Negocjacje to zmaganie interesów. Mocny protokół nie tylko wylicza decyzje i zadania — uchwyca też kontekst i ton. Oto podejście i jak wdrożyć je z Protokół AI."
+  },
+  "limits": {
+    "generic": {
+      "h3": "Typowy „cienki” protokół",
+      "items": {
+        "0": "Lista decyzji bez uzasadnień czy opowieści",
+        "1": "Niejasne, kto o co prosił i gdzie poczyniono ustępstwa",
+        "2": "Niejasność co do spraw nieuzgodnionych lub odłożonych"
+      }
+    },
+    "h2": "Dlaczego protokół „tylko decyzje” jest słaby",
+    "optimized": {
+      "h3": "Protokół zbudowany pod negocjacje",
+      "items": {
+        "0": "Oś czasu żądań/ustępstw/zmian warunków (termin/cena/zakres/odpowiedzialność)",
+        "1": "Powody, założenia i ryzyka zapisane tuż przy każdej decyzji",
+        "2": "Wyraźny podział: uzgodnione/nieuzgodnione/odłożone z właścicielami i terminami"
+      }
+    },
+    "p1": "Trzymanie się „dyskusja/decyzje/akcje/otwarte kwestie” często gubi tło, ton i historię ustępstw. Skutek: nieporozumienia, zbędne przepychanki i ryzyko „powiedziano/nie powiedziano”."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Dlaczego Protokół AI pomaga pisać najlepsze protokoły z negocjacji"
+  },
+  "negotiation": {
+    "h2": "Czym są negocjacje?",
+    "p1": "W skrócie: ochrona i rozwój interesów firmy. To nie jednostronny komunikat; wspólny grunt znajduje się przez wymianę „żądań” i „ustępstw” w obszarach terminu, ceny, zakresu i ryzyka."
+  },
+  "recap": {
+    "focus": "Tym razem zagłębiamy się w negocjacje.",
+    "h2": "Szybkie przypomnienie",
+    "p1": {
+      "link": "przeczytaj tutaj",
+      "post": ".",
+      "pre": "Ostatnio pokazaliśmy, jak AI-protokół działa dla każdego rodzaju spotkania. Jeśli ciekawi,"
+    },
+    "points": {
+      "0": "Spotkania są różnorodne, więc optymalny format protokołu zależy od celu.",
+      "1": "Szablony ogólne pomagają, ale poziom szczegółowości trzeba dostroić do przypadku użycia.",
+      "2": "Od „zapisu do czytania” do „planu do działania”.",
+      "3": "Protokół AI dostosowuje wynik do celu spotkania."
+    }
+  },
+  "seo": {
+    "description": "Negocjacje potrzebują protokołów, które uchwycą decyzje, zadania, kontekst, ton i historię ustępstw. Praktyczny przewodnik z Protokół AI.",
+    "ld": {
+      "description": "Istota negocjacji w protokole: żądania, ustępstwa i kontekst — z Protokół AI.",
+      "headline": "Dlaczego Protokół AI pomaga pisać najlepsze protokoły z negocjacji"
+    },
+    "ogDescription": "Żegnaj „cienki” protokole: zachowaj wymiany i kontekst, by decydować szybciej i lepiej.",
+    "ogTitle": "Dlaczego Protokół AI pomaga pisać najlepsze protokoły z negocjacji",
+    "title": "Dlaczego Protokół AI pomaga pisać najlepsze protokoły z negocjacji | Blog protokołów spotkań"
+  },
+  "why": {
+    "h2": "Dlaczego Protokół AI jest mocny w negocjacjach",
+    "items": {
+      "0": "Podsumowuje wymiany żądań/ustępstw i zachowuje kluczowe fragmenty dosłownie (eliminuje „powiedziano/nie powiedziano”).",
+      "1": "Porządkuje chronologicznie zmiany warunków (termin/cena/zakres/odpowiedzialność).",
+      "2": "Dokumentuje powody, założenia i ryzyka tuż przy decyzjach.",
+      "3": "Rozdziela uzgodnione/nieuzgodnione/odłożone i przypisuje właścicieli oraz terminy.",
+      "4": "Mapuje prośby drugiej strony na wasze zobowiązania dla klarownego śledzenia."
+    }
+  },
+  "wrap": {
+    "h2": "Podsumowanie",
+    "p": "Protokół z negocjacji jest silniejszy, gdy zachowuje wymianę zdań i kontekst — nie tylko decyzje. To przyspiesza ocenę i zmniejsza prace poprawkowe. Uczyń z tego standard z Protokół AI."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Protokół AI Strategy — zamień minutki w decyzje (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy destyluje spotkania do Boost/Counter/Top Issue oraz trzech trybów myślenia dla jasnych następnych kroków. SEO dla zapytań: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy w Protokół AI: decyzje, nie tylko notatki",
+    "ogDescription": "Boost/Counter/Top Issue + myślenie Logiczne/Krytyczne/Lateralne dla wykonalnych wyników.",
+    "ld": {
+      "headline": "Protokół AI dodaje Strategy",
+      "description": "Użyj ChatGPT-5 i Gemini 2.5 Pro, by szybko i klarownie zamieniać dyskusję w decyzje."
+    }
+  },
+  "aria": { "home": "Strona główna Protokół AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Przewodnik po funkcji",
+    "h1": "Strategy dla Protokół AI",
+    "tagline": "Nie tylko minutki — Strategy zamienia dyskusję w decyzje dzięki ChatGPT-5 i Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "Interfejs Protokół AI Strategy",
+    "caption": "Wydobądź sedno problemu i następne działania w jednym kroku."
+  },
+  "what": {
+    "h2": "Co robi Strategy",
+    "items": [
+      "Boost: co działa i jak skalować",
+      "Counter: ryzyka i poprawki",
+      "Top Issue: kluczowe pytanie",
+      "Tryby myślenia: Logiczy / Krytyczny / Lateralny"
+    ]
+  },
+  "steps": {
+    "h2": "Jak zacząć",
+    "items": [
+      "Wygeneruj minutki w aplikacji lub w sieci",
+      "Stuknij „Strategy”",
+      "Przejrzyj Boost / Counter / Top Issue + 3 tryby",
+      "Wklej do swojego systemu zadań"
+    ],
+    "note": "Dostępność i czas trwania zależą od planu/limitu."
+  },
+  "features": {
+    "h2": "Najważniejsze",
+    "items": [
+      "Skupienie na decyzjach, nie tylko podsumowaniu",
+      "Zoptymalizowane dla ChatGPT-5 i Gemini 2.5 Pro",
+      "Krótkie, wykonalne wyniki",
+      "Wielojęzyczne dla globalnych zespołów"
+    ]
+  },
+  "notes": {
+    "h2": "Uwagi",
+    "items": [
+      "Jakość wyjścia odzwierciedla jakość wejścia",
+      "Używaj różnych szablonów dla różnych typów spotkań"
+    ],
+    "foot": "Dostępne na iOS. Wypróbuj dziś."
+  },
+  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Funkcja", "category": "Strategy" },
+  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" }
+}

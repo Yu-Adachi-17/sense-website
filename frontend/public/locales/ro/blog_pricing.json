@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "compare": {
+    "foot": "Surse: paginile oficiale de prețuri pentru Otter și Notta.",
+    "h2": "Proces-verbal AI vs. Otter vs. Notta — Prețuri pe scurt",
+    "lastUpdated": "Ultima actualizare: 31 oct. 2025",
+    "note": "Prețuri și cote cheie (USD). Concurenții resetează de obicei cotele lunare fără report.",
+    "rows": [
+      {
+        "billing": "Pachete de timp unice + abonamente",
+        "cheapest": "Trial 120 min / $1.99 (fără expirare)",
+        "free": "Bilet gratuit zilnic de 3 minute",
+        "limits": "Pachetele de timp nu expiră niciodată. Abonamentele sunt nelimitate.",
+        "service": "Proces-verbal AI",
+        "unlimited": "Da — $16.99/lună sau $149.99/an"
+      },
+      {
+        "billing": "Abonament per utilizator",
+        "cheapest": "Pro — $16.99/lună sau $8.33/lună (anual)",
+        "free": "300 min/lună, până la 30 min/conversație",
+        "limits": "Fără report; limită per întâlnire",
+        "service": "Otter",
+        "unlimited": "Nu — Pro 1200 min/lună; Business 6000 min import/lună"
+      },
+      {
+        "billing": "Abonament per utilizator",
+        "cheapest": "Pro — $13.49/lună (lunar) sau $8.17/lună (anual)",
+        "free": "120 min/lună, până la 3 min/înregistrare",
+        "limits": "Fără report; până la 5 h/înregistrare; cote pentru încărcare fișiere",
+        "service": "Notta",
+        "unlimited": "Business — Nelimitat (anual $16.67/lună; lunar mai mare)"
+      }
+    ],
+    "tableHead": [
+      "Serviciu",
+      "Plan gratuit",
+      "Cel mai ieftin plătit",
+      "Utilizare nelimitată",
+      "Limitări notabile",
+      "Stil de facturare"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Descarcă aplicația iOS",
+    "openBrowser": "Deschide în browser"
+  },
+  "hero": {
+    "h1": "Prețuri Proces-verbal AI (2025)",
+    "kicker": "Prețuri",
+    "tagline": "Alege pachete de timp fără expirare sau mergi pe nelimitat cu abonamente lunare/anuale."
+  },
+  "intro": {
+    "h2": "Ce plan ți se potrivește?",
+    "p1": "Oferim patru opțiuni adaptate frecvenței întâlnirilor tale."
+  },
+  "meta": {
+    "category": "Prețuri",
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Ghid"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Prețuri"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Anual"
+    },
+    "bullets": [
+      "Pachete de timp fără expirare: cumperi o dată, folosești oricând",
+      "Utilizare nelimitată pe abonamente",
+      "iOS & Web, rezultate multilingve"
+    ],
+    "free": {
+      "badge": "Bilet gratuit zilnic",
+      "text": "Chiar și fără plată, primești zilnic un bilet gratuit de 3 minute pentru a încerca Proces-verbal AI."
+    },
+    "h3_subs": "Tip abonament",
+    "h3_timepacks": "Tip pachet de timp",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Lunar"
+    },
+    "subs_note": "Abonamentele sunt cu adevărat nelimitate — fără plafoane lunare.",
+    "timepacks_note": "Minutele cumpărate nu expiră niciodată. Generează minute AI din înregistrări oricând.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Pachete fără expirare și abonamente cu adevărat nelimitate. Vezi comparația Minute.AI cu Otter și Notta privind prețul, cotele și reportul.",
+    "ld": {
+      "description": "Patru planuri clare: două pachete unice (fără expirare) și două abonamente nelimitate — plus comparație cu Otter și Notta.",
+      "headline": "Prețuri Proces-verbal AI"
+    },
+    "ogDescription": "Pachete fără expirare + abonamente nelimitate. Comparație rapidă cu Otter & Notta.",
+    "ogTitle": "Prețuri Proces-verbal AI",
+    "title": "Proces-verbal AI — planuri simple pentru orice stil de întâlnire"
+  },
+  "why": {
+    "h2": "De ce am conceput astfel planurile",
+    "items": [
+      "Întâlniri zilnice: alege Nelimitat pentru predictibilitate.",
+      "Întâlniri ocazionale: cumpără o dată Light — fără expirare.",
+      "Doar testezi: pachet Trial + bilet zilnic de 3 minute."
+    ]
+  }
+}

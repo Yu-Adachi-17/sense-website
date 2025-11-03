@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "A Jegyzőkönyv AI mögött álló MI-modellek",
+    "description": "Miért készít a Jegyzőkönyv AI profi jegyzőkönyveket: a „minőség az első” elv és a jelenleg használt modellek (ChatGPT-5 és Gemini 2.5 Pro).",
+    "ogTitle": "Modelpolitika a Jegyzőkönyv AI-nál: a minőség az első",
+    "ogDescription": "Nyíltan megnevezzük a használt modelleket—ChatGPT-5 és Gemini 2.5 Pro—a világos, cselekvőképes és következetes jegyzőkönyvekért.",
+    "ld": {
+      "headline": "A Jegyzőkönyv AI által használt MI-modellek",
+      "description": "A Jegyzőkönyv AI a minőséget helyezi előtérbe, és jelenleg a ChatGPT-5 és a Gemini 2.5 Pro modellekre támaszkodik döntésre kész jegyzőkönyvekhez."
+    }
+  },
+  "aria": { "home": "A Jegyzőkönyv AI kezdőlapja" },
+  "nav": { "blog": "Blog", "aimodel": "MI-modellek" },
+  "hero": {
+    "kicker": "Kulisszák mögött",
+    "h1": "Modellek, amelyeket a Jegyzőkönyv AI használ",
+    "tagline": "Nem véletlenszerű LLM-et választunk; azt, ami a jegyzőkönyveket világossá és cselekvőképessé teszi. Jelenleg: ChatGPT-5 és Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Miért a minőség az első",
+    "p1": "Sok termék költség alapján dönt. Mi a világosságot, a cselekvőképességet és a következetességet célozzuk, hogy az olvasó mindig tudja a következő lépést.",
+    "p2": "A legjobb alapanyag és konyha önmagában nem garantál remek fogást—a szakértelem számít. Finomítjuk a modelválasztást és a promptokat a profi jegyzőkönyvekért."
+  },
+  "adopted": {
+    "h2": "Használt modellek (íráskor)",
+    "items": [
+      "ChatGPT-5 (OpenAI): erős következtetés, hangnem-kontroll és megbízható struktúra döntésre kész jegyzőkönyvekhez.",
+      "Gemini 2.5 Pro (Google): nagyfokú konzisztencia hosszú kontextusokban és stabil kulcspont-kiemelés."
+    ],
+    "foot": "Folyamatosan értékeljük az új modelleket, és váltunk, amikor meghaladják minőségi küszöbünket."
+  },
+  "image": {
+    "alt": "A Jegyzőkönyv AI-t támogató modellarchitektúra",
+    "caption": "Modelleket a világosság és cselekvőképesség alapján választunk — nem csak költség szerint."
+  },
+  "links": {
+    "h2": "Kapcsolódó témák",
+    "intro": "Bevezetés",
+    "nego": "Üzleti tárgyalási jegyzőkönyv"
+  },
+  "meta": { "h2": "Metaadatok", "published": "Megjelenés dátuma", "type": "Cikk", "category": "MI-modellek" },
+  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS-alkalmazás letöltése" }
+}

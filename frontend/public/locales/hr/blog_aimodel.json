@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "AI modeli koji stoje iza AI Zapisnik",
+    "description": "Zašto AI Zapisnik isporučuje profesionalne zapisnike: načelo kvalitete na prvom mjestu i trenutno usvojeni modeli (ChatGPT-5 i Gemini 2.5 Pro).",
+    "ogTitle": "Politika modela u AI Zapisnik: kvaliteta na prvom mjestu",
+    "ogDescription": "Otkrivamo koje modele koristimo—ChatGPT-5 i Gemini 2.5 Pro—kako bismo dobili jasne, provedive i konzistentne zapisnike.",
+    "ld": {
+      "headline": "AI modeli koje koristi AI Zapisnik",
+      "description": "AI Zapisnik daje prednost kvaliteti i trenutno se oslanja na ChatGPT-5 i Gemini 2.5 Pro za zapisnike spremne za donošenje odluka."
+    }
+  },
+  "aria": { "home": "Početna stranica AI Zapisnik" },
+  "nav": { "blog": "Blog", "aimodel": "AI modeli" },
+  "hero": {
+    "kicker": "Iza kulisa",
+    "h1": "Modeli koje koristimo u AI Zapisnik",
+    "tagline": "Ne biramo bilo koji LLM; biramo ono što čini zapisnike jasnima i provedivima. Trenutno: ChatGPT-5 i Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Zašto stavljamo kvalitetu na prvo mjesto",
+    "p1": "Mnogi proizvodi biraju prema cijeni. Mi ciljamo na jasnoću, provedivost i konzistentnost kako bi čitatelj uvijek znao sljedeći korak.",
+    "p2": "Najbolji sastojci i najbolja kuhinja ne jamče vrhunsko jelo—vještina čini razliku. Dorađujemo izbor modela i promptova za profesionalne zapisnike."
+  },
+  "adopted": {
+    "h2": "Usvojeni modeli (u trenutku pisanja)",
+    "items": [
+      "ChatGPT-5 (OpenAI): snažno zaključivanje, kontrola tona i pouzdana struktura za zapisnike spremne za odluke.",
+      "Gemini 2.5 Pro (Google): visoka konzistentnost na dugim kontekstima i čvrsto izdvajanje ključnih točaka."
+    ],
+    "foot": "Kontinuirano ocjenjujemo nove modele i prelazimo na njih kada nadmaše naš standard kvalitete."
+  },
+  "image": {
+    "alt": "Modelna arhitektura koja podržava AI Zapisnik",
+    "caption": "Modele biramo prema jasnoći i provedivosti — ne samo prema cijeni."
+  },
+  "links": {
+    "h2": "Povezane teme",
+    "intro": "Uvod",
+    "nego": "Zapisnici poslovnih pregovora"
+  },
+  "meta": { "h2": "Podaci", "published": "Datum objave", "type": "Članak", "category": "AI modeli" },
+  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Preuzmi iOS aplikaciju" }
+}

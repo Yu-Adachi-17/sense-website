@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Značajka",
+      "generic": "Opća AI",
+      "minutes": "AI Zapisnik",
+      "transcription": "Alat za čisti transkript"
+    },
+    "rows": [
+      {
+        "a": "Da",
+        "b": "Ne (zahtijeva ručni unos)",
+        "c": "Da",
+        "k": "Audio → Tekst"
+      },
+      {
+        "a": "Ne",
+        "b": "Da (ali se kontekst može pomaknuti)",
+        "c": "Da (optimizirano za sastanke)",
+        "k": "Sažetak / Kontura"
+      },
+      {
+        "a": "Ne",
+        "b": "Da (često nejasno)",
+        "c": "Da (jasno izdvajanje + označavanje)",
+        "k": "Izdvajanje odluka / zadataka"
+      },
+      {
+        "a": "Ne",
+        "b": "Da (rizik odstupanja sintakse)",
+        "c": "Da (glavni jezici + svjesno konteksta)",
+        "k": "Višejezična podrška"
+      }
+    ],
+    "title": "Razlike: Transkripcija / Opća AI / AI Zapisnik"
+  },
+  "cta": {
+    "downloadIOS": "Preuzmi iOS verziju",
+    "openBrowser": "Otvori verziju u pregledniku"
+  },
+  "hero": {
+    "h1": "Što je AI Zapisnik? Osnove i koristi prije uvođenja",
+    "kicker": "AI Zapisnik",
+    "tagline": "„Jednim dodirom do smislenih zapisnika.” Jasan uvod za početak."
+  },
+  "intro": {
+    "h2": "Uvod",
+    "p1": "Hvala na čitanju ovog članka. ...",
+    "p2": "Ili možda kao čitatelj ...",
+    "p3": {
+      "bold": "smislene zapisnike",
+      "mid": "pomaže vam izrađivati",
+      "post": "jednim dodirom — s fokusom na jasnoću i rezultate.",
+      "pre": "U ovom članku pokazujemo kako"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (voditelj marketinga)",
+      "Jordan (e-trgovina)",
+      "Sam (maloprodajne operacije)",
+      "Taylor (PM)",
+      "Riley (podaci)"
+    ],
+    "coreMessage": "Trošimo pametno — jasnoća ispred brzine. Obvezujemo se na „tko što radi do kada” i držimo sastanke unutar 30 minuta.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Zadaci",
+      "attendees": "Sudionici:",
+      "closingMessage": "Završna poruka",
+      "concerns": "Zabrinutosti",
+      "decisions": "Odluke",
+      "discussion": "Rasprava",
+      "keyMessages": "Ključne poruke"
+    },
+    "meetingTitle": "Tjedni pregled prodaje pametnih satova",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — pokrenuti A/B test do 2025-10-15",
+          "Riley — dostaviti CTR analizu do 2025-10-17"
+        ],
+        "concerns": [
+          "Zamor oglašavanja ako se kreativni materijali ne osvježe"
+        ],
+        "decisions": [
+          "Povećati online budžet za oglase za 15% na dva tjedna"
+        ],
+        "discussion": [
+          "Sesije +18% ..."
+        ],
+        "keyMessages": [
+          "Rasti uz stabilan CAC; testirati prije skaliranja"
+        ],
+        "topic": "Učinkovitost online kanala"
+      },
+      {
+        "actionItems": [
+          "Sam — potvrditi ETA/logistiku dobavljača do 2025-10-14"
+        ],
+        "concerns": [
+          "Rizik duljih rokova isporuke ako se backlog poveća"
+        ],
+        "decisions": [
+          "Dopuniti 500 jedinica u tri trgovine"
+        ],
+        "discussion": [
+          "Nedostatak zaliha u Shibuyi ..."
+        ],
+        "keyMessages": [
+          "Spriječiti gubitak prodaje stabilizacijom zaliha u trgovinama"
+        ],
+        "topic": "Offline zalihe i rad trgovina"
+      },
+      {
+        "actionItems": [
+          "Taylor — finalizirati raspored izdanja do 2025-10-13",
+          "Podrška — objaviti FAQ do 2025-10-16",
+          "Marketing — pripremiti nacrt za Black Friday do 2025-10-25"
+        ],
+        "decisions": [
+          "Odobriti lansiranje Q4 paketa 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 ispravlja pražnjenje baterije ..."
+        ],
+        "keyMessages": [
+          "Upariti poboljšanja proizvoda s pravovremenim promocijama"
+        ],
+        "topic": "Firmware v1.2 i lansiranje Q4 paketa"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Uvod"
+  },
+  "samples": {
+    "generic": {
+      "body": "Tim je pregledao ...",
+      "h3": "Primjer izlaza opće AI",
+      "note": "Čitko je, ali ne odgovara jasno na „tko će što učiniti do kada”."
+    },
+    "h2": "Izvorni tekst i uzorci izlaza",
+    "meetingSample": "Uzorak audio zapisa sa sastanka",
+    "pretty": {
+      "h3": "Primjer izlaza AI Zapisnik"
+    },
+    "transcript": {
+      "full": "Alex (voditelj marketinga): ... (skraćeno)",
+      "preview": "U redu, vrijeme je ..."
+    }
+  },
+  "seo": {
+    "description": "Jedan dodir do smislenih zapisnika. Jednostavan uvod u AI Zapisnik: osnove, razlike u odnosu na druge alate i primjeri; vjeruje mu {{users}} korisnika (na dan {{date}}).",
+    "ld": {
+      "description": "Jedan dodir do smislenih zapisnika. Jednostavan uvod u AI Zapisnik, njegove razlike i primjere.",
+      "headline": "Što je AI Zapisnik? Osnove i koristi prije uvođenja"
+    },
+    "ogDescription": "Jedan dodir do smislenih zapisnika. Razumijte AI Zapisnik, njegove razlike i primjere.",
+    "ogTitle": "Što je AI Zapisnik? Osnove i koristi prije uvođenja",
+    "title": "Što je AI Zapisnik? Osnove i koristi prije uvođenja | AI Zapisnik Blog"
+  },
+  "transcript": {
+    "close": "Zatvori cijeli tekst",
+    "expand": "Proširi cijeli tekst"
+  },
+  "what": {
+    "footnote": "※ Na dan {{date}} (prema podacima iz iOS trgovine)",
+    "h2": "Što je AI Zapisnik?",
+    "p1": "AI Zapisnik je alat s podrškom AI koji ...",
+    "p2": "Uz AI Zapisnik možete automatski generirati ..."
+  },
+  "wrap": {
+    "h2": "Zaključak",
+    "p": "Kako vam se čini? S ovom strukturom svatko odmah razumije tko što treba učiniti. Zapisnici prelaze iz pukog čitanja u plan djelovanja koji gura tim naprijed. Isprobajte AI Zapisnik."
+  }
+}

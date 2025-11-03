@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Minutes.AI Strategy — להפוך פרוטוקולים להחלטות (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy מזקקת פגישות ל-Boost/Counter/Top Issue ועוד שלושה מצבי חשיבה לצעדים הבאים ברורים. SEO לשאילתות כמו: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy ב-Minutes.AI: החלטות, לא רק הערות",
+    "ogDescription": "Boost/Counter/Top Issue + חשיבה לוגית/ביקורתית/לטרלית לתוצרים יישומיים.",
+    "ld": {
+      "headline": "Minutes.AI מוסיפה את Strategy",
+      "description": "השתמשו ב-ChatGPT-5 וב-Gemini 2.5 Pro כדי להפוך דיון להחלטות במהירות ובבהירות."
+    }
+  },
+  "aria": { "home": "דף הבית של Minutes.AI" },
+  "nav": { "blog": "בלוג", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "מדריך פיצ'ר",
+    "h1": "Strategy עבור Minutes.AI",
+    "tagline": "לא רק פרוטוקולים — Strategy הופכת דיון להחלטות עם ChatGPT-5 ו-Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "ממשק Minutes.AI Strategy",
+    "caption": "חלצו את הסוגיה המרכזית והצעדים הבאים בצעד אחד."
+  },
+  "what": {
+    "h2": "מה עושה Strategy",
+    "items": [
+      "Boost: מה עובד ואיך להרחיב",
+      "Counter: סיכונים ותיקונים",
+      "Top Issue: השאלה המרכזית",
+      "מצבי חשיבה: לוגית / ביקורתית / לטרלית"
+    ]
+  },
+  "steps": {
+    "h2": "איך מתחילים",
+    "items": [
+      "צרו פרוטוקול באפליקציה או בווב",
+      "הקישו \"Strategy\"",
+      "עברו על Boost / Counter / Top Issue + 3 מצבים",
+      "הדביקו למערכת המשימות שלכם"
+    ],
+    "note": "זמינות ומשך תלויים בתוכנית/מכסה."
+  },
+  "features": {
+    "h2": "עיקרי הדברים",
+    "items": [
+      "מיקוד בהחלטות, לא רק סיכום",
+      "מותאם ל-ChatGPT-5 ול-Gemini 2.5 Pro",
+      "תוצרים קצרים וישימים",
+      "רב־לשוני לצוותים גלובליים"
+    ]
+  },
+  "notes": {
+    "h2": "הערות",
+    "items": [
+      "איכות התוצר משקפת את איכות הקלט",
+      "השתמשו בתבניות שונות לסוגי פגישות שונים"
+    ],
+    "foot": "זמין ב-iOS. נסו היום."
+  },
+  "meta": { "h2": "מטא", "published": "פורסם", "type": "פיצ'ר", "category": "Strategy" },
+  "cta": { "openBrowser": "פתיחה בדפדפן", "downloadIOS": "הורדת אפליקציית iOS" }
+}

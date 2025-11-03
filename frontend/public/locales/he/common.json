@@ -1,0 +1,95 @@
+{
+  "user_data_error": "שגיאה באחזור נתוני משתמש",
+  "unsupported_file_format": "תבנית קובץ לא נתמכת. השתמשו ב-m4a, webm, mp3, wav או ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "פרוטוקול",
+    "noContentProvided": "לא סופק תוכן",
+    "noContentProvidedTitle": "לא סופק תוכן",
+    "topic": "נושא",
+    "topicFallback": "נושא",
+
+    "discussion": "דיון",
+    "decisions": "החלטות",
+    "actionItems": "משימות לביצוע",
+    "concerns": "חששות",
+    "summary": "תקציר",
+    "proposal": "הצעה",
+    "background": "רקע",
+    "discussionPoints": "נקודות לדיון",
+    "decisionsAndTasks": "החלטות ומשימות",
+    "coreProblem": "בעיה מרכזית",
+    "expectedResult": "תוצאה צפויה",
+
+    "overview": "סקירה",
+    "sections": "מדורים",
+    "topics": "נושאים",
+    "items": "פריטים",
+    "content": "תוכן",
+    "body": "גוף הטקסט",
+
+    "brainstorming": {
+      "problemToSolve": "בעיה לפתרון",
+      "topIdea": "רעיון מוביל",
+      "meritsAndEffects": "יתרונות והשפעות",
+      "drawbacksAndRisks": "חסרונות וסיכונים",
+      "runnerUpIdea": "רעיון שני מוביל",
+      "allIdeas": "כל הרעיונות",
+      "ideaTitle": "כותרת הרעיון"
+    },
+
+    "jobInterview": {
+      "motivation": "מוטיבציה",
+      "careerSummary": "סיכום קריירה",
+      "successes": "הצלחות",
+      "failures": "כישלונות",
+      "strengths": "חוזקות וכישורים",
+      "weaknesses": "חולשות ותחומי שיפור",
+      "values": "ערכים בעבודה",
+      "careerVision": "חזון קריירה",
+      "understandingOfCompany": "הבנת החברה",
+      "workStyleAndConditions": "סגנון ותנאי עבודה",
+      "applicantQuestions": "שאלות המועמד (שאלות-תשובות)",
+      "passionMessage": "תשוקה ומסר"
+    },
+
+    "lecture": {
+      "objectives": "מטרות ההרצאה",
+      "procedures": "נהלים",
+      "notesAndRemarks": "הערות והארות",
+      "examplesAndScenarios": "דוגמאות ותסריטים",
+      "dos": "מה לעשות",
+      "donts": "מה לא לעשות",
+      "tipsAndInsights": "טיפים ותובנות"
+    },
+
+    "oneonone": {
+      "title": "1 על 1",
+      "recentSuccess": "הצלחה אחרונה",
+      "contributingFactors": "גורמים תורמים",
+      "scalableAction": "פעולה ניתנת להרחבה",
+      "managerFeedback": "משוב מנהל",
+      "challengeFaced": "אתגר שניצב",
+      "bottleneck": "צוואר בקבוק",
+      "improvementStrategy": "אסטרטגיית שיפור",
+      "futureExpectation": "ציפייה עתידית",
+      "reasonForExpectation": "סיבת הציפייה",
+      "preparationForFuture": "הכנה לעתיד",
+      "concern": "דאגה",
+      "reasonForConcern": "סיבת הדאגה",
+      "mitigationIdeas": "רעיונות לצמצום",
+      "mentalAspects": "היבטים מנטליים",
+      "feelingsAndBackground": "רגשות ורקע",
+      "emotionalChange": "שינוי רגשי",
+      "nextAction": "פעולה הבאה",
+      "coreEmotion": "רגש מרכזי",
+      "topicGroup": "קבוצת נושאים",
+      "expectation": "ציפייה",
+      "worry": "דאגה",
+      "why": "למה",
+      "whatCausedIt": "מה גרם לכך",
+      "nextTimeStrategy": "אסטרטגיה לפעם הבאה",
+      "preparation": "הכנה"
+    }
+  }
+}

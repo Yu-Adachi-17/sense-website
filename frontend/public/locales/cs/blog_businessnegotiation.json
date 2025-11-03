@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Zpět na domovskou stránku Zápisník AI"
+  },
+  "byline": {
+    "name": "Napsal Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "cta": {
+    "downloadIOS": "Stáhnout iOS aplikaci",
+    "openBrowser": "Otevřít webovou aplikaci"
+  },
+  "diversity": {
+    "core": {
+      "h3": "Běžné typy schůzek",
+      "items": {
+        "0": "Pravidelné stand-upy: přehled výsledků, problémů a akcí",
+        "1": "Brainstorming: rozšiřování a zužování nápadů",
+        "2": "Vyjednávání: sladění zájmů a dosažení dohody"
+      }
+    },
+    "h2": "Schůzky jsou rozmanité — vyjednávání je o smlouvání",
+    "p1": "Změňte cíl a změní se i hodnotný výstup. U vyjednávání je samotné smlouvání jádrem.",
+    "wide": {
+      "h3": "„Schůzka“ v širším smyslu",
+      "items": {
+        "0": "1-na-1: přehled výsledků, další cíle, sdílení výzev",
+        "1": "Pohovor: sladění požadavků a vhodnosti",
+        "2": "Prezentace: problém a řešení",
+        "3": "Školení: předání procesů/operací"
+      }
+    }
+  },
+  "example": {
+    "block": "Společnost A: Váš předchozí produkt měl chybu — způsobilo nám to reálné potíže. Dlužíte nám; dodejte to do příštího týdne. Cena je 1 000 $.\\nNaše společnost: Uvnitř zatlačíme, abychom dodali do příštího týdne. Na oplátku můžeme částku zvýšit na 1 200 $? Prosíme o zvážení.\\nSpolečnost A: Pokud zaručíte dodání příští týden, zvážíme to. Odpověď pošlete e-mailem ještě dnes.",
+    "h2": "Příklad (klíčové výměny ponechte doslovně)",
+    "p1": "Zachování těchto „klíčových kol“ v původním znění umožňuje rozhodovatelům posoudit přiměřenost s plným kontextem."
+  },
+  "hero": {
+    "h1": "Proč Zápisník AI pomáhá psát nejlepší zápisy z vyjednávání",
+    "kicker": "Blog Zápisník AI",
+    "tagline": "Vyjednávání je střet zájmů. Silný zápis neuvádí jen rozhodnutí a úkoly — zachycuje i kontext a tón. Zde je přístup a jak ho uplatnit s Zápisník AI."
+  },
+  "limits": {
+    "generic": {
+      "h3": "Typický „tenký“ zápis",
+      "items": {
+        "0": "Vyjmenovává rozhodnutí bez důvodů nebo příběhu",
+        "1": "Není jasné, kdo co požadoval a kde došlo k ústupkům",
+        "2": "Nejasnosti kolem toho, co není dohodnuto nebo je odloženo"
+      }
+    },
+    "h2": "Proč je zápis „pouze rozhodnutí“ slabý",
+    "optimized": {
+      "h3": "Zápisy stavěné na vyjednávání",
+      "items": {
+        "0": "Časová osa požadavků/ústupků/změn podmínek (termín/cena/rozsah/zodpovědnost)",
+        "1": "Důvody, předpoklady a rizika zaznamenané u každého rozhodnutí",
+        "2": "Jasné rozdělení na dohodnuto/nedohodnuto/odloženo s vlastníky a termíny"
+      }
+    },
+    "p1": "Držení se „diskuze/rozhodnutí/akce/otevřené body“ často shodí pozadí, tón a historii ústupků. Výsledek: nedorozumění, další přestřelky a riziko „řekl/neřekl“."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Proč Zápisník AI pomáhá psát nejlepší zápisy z vyjednávání"
+  },
+  "negotiation": {
+    "h2": "Co je to vyjednávání?",
+    "p1": "Stručně: chránit a rozvíjet zájmy vaší firmy. Není to jednosměrné oznámení; společnou půdu hledáte výměnou „požadavků“ a „ústupků“ v podmínkách jako termín, cena, rozsah a riziko."
+  },
+  "recap": {
+    "focus": "Tentokrát se do vyjednávání ponoříme do hloubky.",
+    "h2": "Rychlé shrnutí",
+    "p1": {
+      "link": "přečtěte si zde",
+      "post": ".",
+      "pre": "Minule jsme ukázali, jak AI zápisy fungují pro jakoukoli schůzku. Pokud vás to zajímá,"
+    },
+    "points": {
+      "0": "Schůzky jsou rozmanité, takže optimální formát zápisu závisí na cíli.",
+      "1": "Obecné šablony pomáhají, ale úroveň detailu je třeba doladit podle použití.",
+      "2": "Od „záznamu ke čtení“ k „plánu k akci“.",
+      "3": "Zápisník AI přizpůsobuje výstup cíli schůzky."
+    }
+  },
+  "seo": {
+    "description": "Vyjednávání potřebuje zápisy, které zachytí rozhodnutí, úkoly, kontext, tón i historii ústupků. Praktický průvodce s Zápisník AI.",
+    "ld": {
+      "description": "Podstata vyjednávání v zápisu: požadavky, ústupky a kontext — s Zápisník AI.",
+      "headline": "Proč Zápisník AI pomáhá psát nejlepší zápisy z vyjednávání"
+    },
+    "ogDescription": "Sbohem „tenkým“ zápisům: zachovejte výměnu a kontext pro rychlejší a lepší rozhodnutí.",
+    "ogTitle": "Proč Zápisník AI pomáhá psát nejlepší zápisy z vyjednávání",
+    "title": "Proč Zápisník AI pomáhá psát nejlepší zápisy z vyjednávání | Blog zápisů ze schůzek"
+  },
+  "why": {
+    "h2": "Proč je Zápisník AI silný pro vyjednávání",
+    "items": {
+      "0": "Shrnuje výměny požadavků/ústupků a ponechává klíčové pasáže doslova (eliminuje „řekl/neřekl“).",
+      "1": "Chronologicky řadí změny podmínek (termín/cena/rozsah/zodpovědnost).",
+      "2": "Dokumentuje důvody, předpoklady a rizika přímo u rozhodnutí.",
+      "3": "Odděluje dohodnuto/nedohodnuto/odloženo a přiřazuje vlastníky a termíny.",
+      "4": "Mapuje požadavky protistrany na vaše závazky pro jasné sledování."
+    }
+  },
+  "wrap": {
+    "h2": "Závěr",
+    "p": "Zápisy z vyjednávání jsou silnější, když uchovají výměnu názorů i kontext — nejen rozhodnutí. To zrychluje posouzení a snižuje přepracování. Udělejte z toho standard s Zápisník AI."
+  }
+}

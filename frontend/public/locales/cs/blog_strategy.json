@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Zápisník AI Strategy — proměňte zápisy v rozhodnutí (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy destiluje schůzky na Boost/Counter/Top Issue plus tři myšlenkové módy pro jasné další kroky. SEO pro dotazy jako: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy v Zápisník AI: rozhodnutí, ne jen poznámky",
+    "ogDescription": "Boost/Counter/Top Issue + Logické/Kritické/Laterální myšlení pro akční výstupy.",
+    "ld": {
+      "headline": "Zápisník AI přidává Strategy",
+      "description": "Použijte ChatGPT-5 a Gemini 2.5 Pro k rychlé a jasné konverzi diskuse na rozhodnutí."
+    }
+  },
+  "aria": { "home": "Domů Zápisník AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategie" },
+  "hero": {
+    "kicker": "Průvodce funkcí",
+    "h1": "Strategy pro Zápisník AI",
+    "tagline": "Nejen zápisy — Strategy mění diskusi v rozhodnutí s ChatGPT-5 a Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "UI Zápisník AI Strategy",
+    "caption": "Získejte jádrový problém a další kroky jedním tahem."
+  },
+  "what": {
+    "h2": "Co Strategy dělá",
+    "items": [
+      "Boost: co funguje a jak škálovat",
+      "Counter: rizika a řešení",
+      "Top Issue: klíčová otázka",
+      "Myšlenkové módy: Logické / Kritické / Laterální"
+    ]
+  },
+  "steps": {
+    "h2": "Jak začít",
+    "items": [
+      "Vygenerujte zápisy v appce nebo na webu",
+      "Klepněte na „Strategy“",
+      "Zkontrolujte Boost / Counter / Top Issue + 3 módy",
+      "Vložte do svého task systému"
+    ],
+    "note": "Dostupnost a délka závisí na plánu/kvótě."
+  },
+  "features": {
+    "h2": "Hlavní body",
+    "items": [
+      "Zaměřeno na rozhodnutí, ne jen shrnutí",
+      "Optimalizováno pro ChatGPT-5 a Gemini 2.5 Pro",
+      "Krátké, akční výstupy",
+      "Multijazyčné pro globální týmy"
+    ]
+  },
+  "notes": {
+    "h2": "Poznámky",
+    "items": [
+      "Kvalita výstupu odráží kvalitu vstupu",
+      "Používejte různé šablony pro různé typy schůzek"
+    ],
+    "foot": "K dispozici na iOS. Vyzkoušejte ještě dnes."
+  },
+  "meta": { "h2": "Meta", "published": "Publikováno", "type": "Funkce", "category": "Strategie" },
+  "cta": { "openBrowser": "Otevřít v prohlížeči", "downloadIOS": "Stáhnout iOS app" }
+}

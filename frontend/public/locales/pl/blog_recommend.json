@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Dlaczego polecamy aplikację minutes-AI na iPhone’a (2025)",
+    "description": "5 prostych powodów: proste UI, czytelne/wykonalne minutki, formaty na typ spotkania, wbudowany follow-through i elastyczne ceny. Wypróbuj Protokół AI na iPhonie.",
+    "ogTitle": "Nasz wybór: aplikacja minutes-AI na iPhone’a",
+    "ogDescription": "Nagrywanie jednym stuknięciem, wyjścia prowadzące do kolejnych kroków, sprytne formaty, follow-through w aplikacji i ceny dopasowane do użycia. Protokół AI na iPhonie.",
+    "ld": {
+      "headline": "Dlaczego aplikacja minutes-AI na iPhone’a jest naszą rekomendacją",
+      "description": "Poradnik zakupowy Protokół AI: szybkie użycie, klarowne wyjścia, dopasowane formaty, działania po spotkaniu i uczciwe ceny."
+    }
+  },
+  "aria": { "home": "Strona główna Protokół AI" },
+  "nav": { "blog": "Blog", "recommend": "Rekomendacja" },
+  "hero": {
+    "kicker": "Poradnik zakupowy",
+    "h1": "Dlaczego polecamy aplikację minutes-AI na iPhone’a",
+    "tagline": "Pod kątem intencji wyszukiwania: najlepsza minutes-AI na iPhone’a i jak wypada cenowo — bez lania wody."
+  },
+  "reasons": {
+    "h2": "Pięć konkretnych powodów",
+    "items": [
+      "Nagrywanie jednym stuknięciem bez tarć",
+      "Czytelne minutki, które naprawdę prowadzą do kolejnych działań",
+      "Formaty na spotkanie: Ogólny, Sprzedaż, 1-na-1, Prezentacja, Burza mózgów, Rozmowa kwalifikacyjna",
+      "Follow-through Projektu i Strategii w aplikacji",
+      "Elastyczne ceny: subskrypcje i niewygasające pakiety czasu"
+    ]
+  },
+  "pricing": {
+    "h2": "O cenach",
+    "p1": "Użytkownicy codzienni wybierają subskrypcję. Okazjonalni — niewygasające pakiety czasu.",
+    "p2": "Jest też tani trial 120 minut, aby sprawdzić dopasowanie przed zobowiązaniem."
+  },
+  "image": { "alt": "Protokół AI na iPhonie", "caption": "Interfejs Protokół AI na iPhone." },
+  "steps": {
+    "h2": "Zacznij na iPhonie",
+    "items": ["Pobierz aplikację", "Stuknij raz, by nagrywać", "Wybierz właściwy format", "Po spotkaniu utwórz Project/Strategy"],
+    "note": "Czas trwania spotkania zależy od planu i pozostałego salda."
+  },
+  "notes": {
+    "h2": "Uwagi",
+    "items": ["Sieć i urządzenie mogą wpływać na jakość", "Funkcje mogą różnić się w zależności od planu"],
+    "foot": "Wypróbuj Protokół AI na iPhonie już dziś."
+  },
+  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Przewodnik", "category": "Rekomendacja aplikacji" },
+  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" },
+  "brand": "Protokół AI"
+}

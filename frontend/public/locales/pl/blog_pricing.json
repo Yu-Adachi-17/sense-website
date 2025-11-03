@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "Strona główna Protokół AI"
+  },
+  "compare": {
+    "foot": "Źródła: oficjalne strony cenowe Otter i Notta.",
+    "h2": "Protokół AI vs. Otter vs. Notta — Ceny w skrócie",
+    "lastUpdated": "Ostatnia aktualizacja: 31 paź 2025",
+    "note": "Kluczowe ceny i limity (USD). Konkurencja zwykle resetuje miesięczne limity bez przenoszenia niewykorzystanych minut.",
+    "rows": [
+      {
+        "billing": "Jednorazowe pakiety czasu + subskrypcje",
+        "cheapest": "Trial 120 min / $1.99 (bez wygaśnięcia)",
+        "free": "Codzienny bilet 3-minutowy",
+        "limits": "Pakiety czasu nigdy nie wygasają. Subskrypcje są nielimitowane.",
+        "service": "Protokół AI",
+        "unlimited": "Tak — $16.99/mies. lub $149.99/rok"
+      },
+      {
+        "billing": "Subskrypcja na użytkownika",
+        "cheapest": "Pro — $16.99/mies. lub $8.33/mies. (rocznie)",
+        "free": "300 min/mies., do 30 min/rozmowę",
+        "limits": "Bez przenoszenia; limit na spotkanie",
+        "service": "Otter",
+        "unlimited": "Nie — Pro 1200 min/mies.; Business 6000 min importu/mies."
+      },
+      {
+        "billing": "Subskrypcja na użytkownika",
+        "cheapest": "Pro — $13.49/mies. (miesięcznie) lub $8.17/mies. (rocznie)",
+        "free": "120 min/mies., do 3 min/nagranie",
+        "limits": "Bez przenoszenia; do 5 h/nagranie; limity wysyłania plików",
+        "service": "Notta",
+        "unlimited": "Business — Nielimitowany (rocznie $16.67/mies.; miesięcznie wyżej)"
+      }
+    ],
+    "tableHead": [
+      "Usługa",
+      "Plan bezpłatny",
+      "Najtańszy płatny",
+      "Nielimitowane użycie",
+      "Istotne ograniczenia",
+      "Sposób rozliczeń"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Pobierz aplikację iOS",
+    "openBrowser": "Otwórz w przeglądarce"
+  },
+  "hero": {
+    "h1": "Cennik Protokół AI (2025)",
+    "kicker": "Cennik",
+    "tagline": "Wybierz pakiety czasu bez wygaśnięcia lub całkowicie nielimitowaną subskrypcję miesięczną/roczną."
+  },
+  "intro": {
+    "h2": "Który plan do Ciebie pasuje?",
+    "p1": "Oferujemy cztery opcje dostosowane do częstotliwości Twoich spotkań."
+  },
+  "meta": {
+    "category": "Cennik",
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Przewodnik"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Cennik"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Roczny"
+    },
+    "bullets": [
+      "Pakiety czasu bez wygaśnięcia: kupujesz raz, używasz kiedy chcesz",
+      "Nielimitowane użycie w ramach subskrypcji",
+      "iOS i Web, wielojęzyczne wyniki"
+    ],
+    "free": {
+      "badge": "Codzienny darmowy bilet",
+      "text": "Nawet bez płatności każdego dnia otrzymujesz 3-minutowy darmowy bilet, by wypróbować Protokół AI."
+    },
+    "h3_subs": "Typ subskrypcji",
+    "h3_timepacks": "Typ pakietu czasu",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Miesięczny"
+    },
+    "subs_note": "Subskrypcje są naprawdę nielimitowane — bez miesięcznych limitów.",
+    "timepacks_note": "Zakupione minuty nigdy nie wygasają. Generuj minutki AI z nagrań w dowolnym momencie.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Pakiety bez wygaśnięcia i naprawdę nielimitowane subskrypcje. Zobacz porównanie Protokół AI z Otter i Notta w zakresie ceny, limitów i przenoszenia.",
+    "ld": {
+      "description": "Cztery proste plany: dwa jednorazowe pakiety (bez wygaśnięcia) i dwie nielimitowane subskrypcje — plus porównanie z Otter i Notta.",
+      "headline": "Cennik Protokół AI"
+    },
+    "ogDescription": "Pakiety bez wygaśnięcia + nielimitowane subskrypcje. Szybkie porównanie z Otter & Notta.",
+    "ogTitle": "Cennik Protokół AI",
+    "title": "Protokół AI — proste plany dla każdego stylu spotkań"
+  },
+  "why": {
+    "h2": "Dlaczego tak zaprojektowaliśmy plany",
+    "items": [
+      "Spotkania codziennie: wybierz Nielimitowany dla przewidywalności.",
+      "Sporadyczne spotkania: kup Light raz — bez wygaśnięcia.",
+      "Tylko testujesz: pakiet Trial + codzienny bilet 3-minutowy."
+    ]
+  }
+}

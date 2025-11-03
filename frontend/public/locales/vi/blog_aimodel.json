@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Các mô hình AI đứng sau Biên bản AI",
+    "description": "Vì sao Biên bản AI tạo ra biên bản họp chuyên nghiệp: nguyên tắc ưu tiên chất lượng và các mô hình đang dùng (ChatGPT-5 và Gemini 2.5 Pro).",
+    "ogTitle": "Chính sách mô hình tại Biên bản AI: chất lượng trên hết",
+    "ogDescription": "Chúng tôi công khai các mô hình sử dụng—ChatGPT-5 và Gemini 2.5 Pro—để có biên bản rõ ràng, khả thi và nhất quán.",
+    "ld": {
+      "headline": "Các mô hình trí tuệ nhân tạo được Biên bản AI sử dụng",
+      "description": "Biên bản AI đặt chất lượng lên hàng đầu và hiện dựa vào ChatGPT-5 và Gemini 2.5 Pro để tạo biên bản sẵn sàng cho quyết định."
+    }
+  },
+  "aria": { "home": "Trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "aimodel": "Mô hình AI" },
+  "hero": {
+    "kicker": "Hậu trường",
+    "h1": "Những mô hình chúng tôi dùng tại Biên bản AI",
+    "tagline": "Chúng tôi không chọn LLM ngẫu nhiên; chúng tôi chọn thứ khiến biên bản rõ ràng và có thể hành động. Hiện tại: ChatGPT-5 và Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Vì sao chúng tôi đặt chất lượng lên trước",
+    "p1": "Nhiều sản phẩm chọn theo chi phí. Chúng tôi ưu tiên sự rõ ràng, khả năng hành động và tính nhất quán để người đọc luôn biết bước tiếp theo.",
+    "p2": "Nguyên liệu và nhà bếp tốt nhất chưa đủ để có món ăn tuyệt vời—kỹ năng mới tạo nên khác biệt. Chúng tôi tối ưu chọn mô hình và prompt để có biên bản chuyên nghiệp."
+  },
+  "adopted": {
+    "h2": "Mô hình đang áp dụng (tại thời điểm viết)",
+    "items": [
+      "ChatGPT-5 (OpenAI): lập luận mạnh, kiểm soát giọng điệu và cấu trúc đáng tin cậy cho biên bản sẵn sàng quyết định.",
+      "Gemini 2.5 Pro (Google): nhất quán cao với ngữ cảnh dài và trích xuất điểm chính vững chắc."
+    ],
+    "foot": "Chúng tôi liên tục đánh giá các mô hình mới và sẽ chuyển sang khi chúng vượt ngưỡng chất lượng của chúng tôi."
+  },
+  "image": {
+    "alt": "Kiến trúc mô hình hỗ trợ Biên bản AI",
+    "caption": "Chúng tôi chọn mô hình dựa trên sự rõ ràng và khả năng hành động — không chỉ chi phí."
+  },
+  "links": {
+    "h2": "Chủ đề liên quan",
+    "intro": "Giới thiệu",
+    "nego": "Biên bản đàm phán kinh doanh"
+  },
+  "meta": { "h2": "Siêu dữ liệu", "published": "Ngày xuất bản", "type": "Bài viết", "category": "Mô hình AI" },
+  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải ứng dụng iOS" }
+}

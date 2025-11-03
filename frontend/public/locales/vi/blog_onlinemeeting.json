@@ -1,0 +1,66 @@
+{
+  "aria": { "home": "Quay lại Biên bản AI" },
+  "cta": {
+    "downloadIOS": "Tải ứng dụng iOS",
+    "openBrowser": "Mở trong trình duyệt"
+  },
+  "features": {
+    "h2": "Điểm nổi bật",
+    "items": [
+      "Trải nghiệm kiểu Zoom (dựa trên LiveKit)",
+      "Phát hành URL chỉ với một lần nhấp",
+      "Tự động tạo biên bản khi kết thúc",
+      "Đầu ra rõ ràng, định dạng gọn gàng",
+      "Hỗ trợ đa ngôn ngữ cho đội ngũ toàn cầu"
+    ]
+  },
+  "hero": {
+    "h1": "Online Meetings cho Biên bản AI (iOS)",
+    "kicker": "Ghi chú phát hành",
+    "tagline": "Nhấp \"Online\", phát hành URL, chia sẻ và tham gia. Khi kết thúc, biên bản sẽ được tạo tự động."
+  },
+  "image": {
+    "alt": "Giao diện Online Meeting của Biên bản AI",
+    "caption": "Bắt đầu cuộc họp kiểu Zoom từ nút \"Online\"."
+  },
+  "meta": {
+    "category": "Online Meeting",
+    "h2": "Meta",
+    "published": "Phát hành",
+    "type": "Bản phát hành"
+  },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
+  "notes": {
+    "foot": "Dùng thử trên web hoặc tải ứng dụng iOS.",
+    "h2": "Ghi chú",
+    "items": [
+      "Thời lượng và thời gian còn lại phụ thuộc gói/ hạn mức",
+      "Mạng và cài đặt thiết bị có thể ảnh hưởng chất lượng"
+    ]
+  },
+  "release": {
+    "h2": "Có gì mới",
+    "p1": "Biên bản AI nay hỗ trợ Online Meetings. Chỉ cần nhấp \"Online\" để phát hành URL và bắt đầu cuộc gọi kiểu Zoom.",
+    "p2": "Khi kết thúc, biên bản được tạo tự động với quyết định và hạng mục hành động rõ ràng."
+  },
+  "seo": {
+    "description": "Nhấp \"Online\" để phát hành URL, chia sẻ và bắt đầu ngay cuộc họp kiểu Zoom. Biên bản rõ ràng được tạo tự động khi kết thúc.",
+    "ld": {
+      "description": "Tổ chức họp kiểu Zoom qua URL đã phát hành, sau đó nhận biên bản tự động với quyết định và hành động rõ ràng.",
+      "headline": "Biên bản AI bổ sung Online Meetings"
+    },
+    "ogDescription": "Khởi động cuộc họp từ nút \"Online\" và nhận biên bản định dạng sẵn khi kết thúc.",
+    "ogTitle": "Online Meetings đến với Biên bản AI",
+    "title": "Biên bản AI nay hỗ trợ Online Meetings (iOS)"
+  },
+  "steps": {
+    "h2": "Cách bắt đầu",
+    "items": [
+      "Nhấp \"Online\" trên app hoặc web",
+      "Phát hành URL cuộc họp",
+      "Chia sẻ URL cho người tham gia",
+      "Kết thúc cuộc họp → biên bản tự động"
+    ],
+    "note": "Thời lượng họp phụ thuộc gói của bạn và hạn mức còn lại."
+  }
+}

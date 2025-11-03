@@ -1,0 +1,95 @@
+{
+  "user_data_error": "เกิดข้อผิดพลาดในการดึงข้อมูลผู้ใช้",
+  "unsupported_file_format": "รูปแบบไฟล์ไม่รองรับ โปรดใช้ m4a, webm, mp3, wav หรือ ogg",
+
+  "minutes": {
+    "minutesTitleFallback": "รายงานการประชุม",
+    "noContentProvided": "ไม่พบเนื้อหา",
+    "noContentProvidedTitle": "ไม่พบเนื้อหา",
+    "topic": "หัวข้อ",
+    "topicFallback": "หัวข้อ",
+
+    "discussion": "การอภิปราย",
+    "decisions": "การตัดสินใจ",
+    "actionItems": "รายการปฏิบัติ",
+    "concerns": "ข้อกังวล",
+    "summary": "สรุป",
+    "proposal": "ข้อเสนอ",
+    "background": "ภูมิหลัง",
+    "discussionPoints": "ประเด็นอภิปราย",
+    "decisionsAndTasks": "การตัดสินใจและงาน",
+    "coreProblem": "ปัญหาหลัก",
+    "expectedResult": "ผลลัพธ์ที่คาดหวัง",
+
+    "overview": "ภาพรวม",
+    "sections": "ส่วน",
+    "topics": "หัวข้อ",
+    "items": "รายการ",
+    "content": "เนื้อหา",
+    "body": "เนื้อความ",
+
+    "brainstorming": {
+      "problemToSolve": "ปัญหาที่ต้องแก้",
+      "topIdea": "ไอเดียเด่น",
+      "meritsAndEffects": "ข้อดีและผลกระทบ",
+      "drawbacksAndRisks": "ข้อเสียและความเสี่ยง",
+      "runnerUpIdea": "ไอเดียรอง",
+      "allIdeas": "ไอเดียทั้งหมด",
+      "ideaTitle": "ชื่อไอเดีย"
+    },
+
+    "jobInterview": {
+      "motivation": "แรงจูงใจ",
+      "careerSummary": "สรุปเส้นทางอาชีพ",
+      "successes": "ความสำเร็จ",
+      "failures": "ความล้มเหลว",
+      "strengths": "จุดแข็งและทักษะ",
+      "weaknesses": "จุดอ่อนและสิ่งที่ควรพัฒนา",
+      "values": "คุณค่าในการทำงาน",
+      "careerVision": "วิสัยทัศน์อาชีพ",
+      "understandingOfCompany": "ความเข้าใจเกี่ยวกับบริษัท",
+      "workStyleAndConditions": "สไตล์และเงื่อนไขการทำงาน",
+      "applicantQuestions": "คำถามจากผู้สมัคร (ถาม-ตอบ)",
+      "passionMessage": "ความหลงใหลและข้อความ"
+    },
+
+    "lecture": {
+      "objectives": "วัตถุประสงค์การสอน",
+      "procedures": "ขั้นตอน",
+      "notesAndRemarks": "บันทึกและหมายเหตุ",
+      "examplesAndScenarios": "ตัวอย่างและสถานการณ์",
+      "dos": "ควรทำ",
+      "donts": "ไม่ควรทำ",
+      "tipsAndInsights": "เคล็ดลับและมุมมอง"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "ความสำเร็จล่าสุด",
+      "contributingFactors": "ปัจจัยที่สนับสนุน",
+      "scalableAction": "การกระทำที่ขยายผลได้",
+      "managerFeedback": "ข้อเสนอแนะจากผู้จัดการ",
+      "challengeFaced": "ความท้าทายที่เผชิญ",
+      "bottleneck": "คอขวด",
+      "improvementStrategy": "กลยุทธ์การปรับปรุง",
+      "futureExpectation": "ความคาดหวังในอนาคต",
+      "reasonForExpectation": "เหตุผลของความคาดหวัง",
+      "preparationForFuture": "การเตรียมพร้อมอนาคต",
+      "concern": "ข้อกังวล",
+      "reasonForConcern": "สาเหตุของความกังวล",
+      "mitigationIdeas": "แนวคิดการบรรเทา",
+      "mentalAspects": "ด้านจิตใจ",
+      "feelingsAndBackground": "ความรู้สึกและที่มา",
+      "emotionalChange": "การเปลี่ยนแปลงทางอารมณ์",
+      "nextAction": "การกระทำถัดไป",
+      "coreEmotion": "อารมณ์หลัก",
+      "topicGroup": "กลุ่มหัวข้อ",
+      "expectation": "ความคาดหวัง",
+      "worry": "ความกังวล",
+      "why": "ทำไม",
+      "whatCausedIt": "สาเหตุคืออะไร",
+      "nextTimeStrategy": "กลยุทธ์ครั้งถัดไป",
+      "preparation": "การเตรียมการ"
+    }
+  }
+}

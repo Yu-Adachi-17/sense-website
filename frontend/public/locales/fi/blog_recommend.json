@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Miksi suosittelemme iPhonen minutes-AI-sovellusta (2025)",
+    "description": "5 suoraa syytä: yksinkertainen käyttöliittymä, luettavat/toimintaan ohjaavat muistiot, kokouskohtaiset formaatit, sisäänrakennettu jatkotoiminta ja joustava hinnoittelu. Kokeile Pöytäkirja AI:ta iPhonessa.",
+    "ogTitle": "Valintamme: iPhonen minutes-AI-sovellus",
+    "ogDescription": "Yhden napin nauhoitus, ulostulot jotka ohjaavat seuraaviin toimiin, älykkäät formaatit, in-app follow-through ja käyttöön sopiva hinnoittelu. Pöytäkirja AI iPhonessa.",
+    "ld": {
+      "headline": "Miksi iPhonen minutes-AI-sovellus on suosituksemme",
+      "description": "Osto-opas Pöytäkirja AI:hin: nopea käyttää, selkeät ulostulot, räätälöidyt formaatit, jatkotoimet kokouksen jälkeen ja reilu hinnoittelu."
+    }
+  },
+  "aria": { "home": "Pöytäkirja AI Etusivu" },
+  "nav": { "blog": "Blogi", "recommend": "Suositus" },
+  "hero": {
+    "kicker": "Osto-opas",
+    "h1": "Miksi suosittelemme iPhonen minutes-AI-sovellusta",
+    "tagline": "Rakennettu hakuaikeeseen: paras minutes-AI iPhonelle ja miten hinnoittelu vertautuu — ilman höpinää."
+  },
+  "reasons": {
+    "h2": "Viisi suoraa syytä",
+    "items": [
+      "Yhden napin nauhoitus ilman kitkaa",
+      "Luettavat muistiot, jotka oikeasti ohjaavat seuraaviin toimiin",
+      "Formaatit kokouksittain: Yleinen, Myynti, 1-on-1, Esitys, Brainstorm, Haastattelu",
+      "Projektien & Strategian jatkotoimet suoraan sovelluksessa",
+      "Joustava hinnoittelu: tilaukset ja vanhenemattomat aikapaketit"
+    ]
+  },
+  "pricing": {
+    "h2": "Hinnoittelusta",
+    "p1": "Päivittäiset käyttäjät valitsevat tilauksen. Satunnaiset valitsevat vanhenemattomat aikapaketit.",
+    "p2": "Saatavilla on myös edullinen 120 minuutin trial sopivuuden varmistamiseksi ennen sitoutumista."
+  },
+  "image": { "alt": "Pöytäkirja AI iPhonessa", "caption": "Pöytäkirja AI iPhone-käyttöliittymä." },
+  "steps": {
+    "h2": "Aloita iPhonessa",
+    "items": ["Lataa sovellus", "Aloita äänitys yhdellä napilla", "Valitse oikea formaatti", "Luo Project/Strategy kokouksen jälkeen"],
+    "note": "Kokouksen kesto riippuu paketistasi ja jäljellä olevasta saldosta."
+  },
+  "notes": {
+    "h2": "Huomautukset",
+    "items": ["Verkko ja laite voivat vaikuttaa laatuun", "Ominaisuudet voivat vaihdella paketin mukaan"],
+    "foot": "Kokeile Pöytäkirja AI:ta iPhonessa jo tänään."
+  },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Opas", "category": "Sovellussuositus" },
+  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" },
+  "brand": "Pöytäkirja AI"
+}

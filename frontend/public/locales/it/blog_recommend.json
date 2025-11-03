@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Perché consigliamo l’app minutes-AI per iPhone (2025)",
+    "description": "5 motivi diretti: UI semplice, verbali leggibili/attuabili, formati per riunione, follow-through integrato e prezzi flessibili. Prova Verbali IA su iPhone.",
+    "ogTitle": "La nostra scelta: l’app minutes-AI per iPhone",
+    "ogDescription": "Registrazione con un tocco, output che guidano i prossimi passi, formati smart, follow-through in-app e prezzi adatti all’uso. Verbali IA su iPhone.",
+    "ld": {
+      "headline": "Perché l’app minutes-AI per iPhone è la nostra raccomandazione",
+      "description": "Guida all’acquisto di Verbali IA: uso rapido, output chiari, formati su misura, azioni post-riunione e prezzi equi."
+    }
+  },
+  "aria": { "home": "Home Verbali IA" },
+  "nav": { "blog": "Blog", "recommend": "Raccomandazione" },
+  "hero": {
+    "kicker": "Guida all’acquisto",
+    "h1": "Perché consigliamo l’app minutes-AI per iPhone",
+    "tagline": "Costruita per l’intento di ricerca: la migliore minutes-AI per iPhone e come si posiziona sul prezzo — senza fronzoli."
+  },
+  "reasons": {
+    "h2": "Cinque motivi schietti",
+    "items": [
+      "Registrazione con un tocco senza attriti",
+      "Verbali leggibili che portano davvero all’azione",
+      "Formati per riunione: Generale, Sales, 1-a-1, Presentazione, Brainstorm, Colloquio",
+      "Follow-through di Project & Strategy dentro l’app",
+      "Prezzi flessibili: abbonamenti e pacchetti tempo senza scadenza"
+    ]
+  },
+  "pricing": {
+    "h2": "Sul prezzo",
+    "p1": "Gli utenti quotidiani scelgono l’abbonamento. Gli occasionali scelgono pacchetti tempo senza scadenza.",
+    "p2": "C’è anche una prova da 120 minuti a basso costo per validare il fit prima di impegnarti."
+  },
+  "image": { "alt": "Verbali IA su iPhone", "caption": "UI Verbali IA per iPhone." },
+  "steps": {
+    "h2": "Inizia su iPhone",
+    "items": ["Scarica l’app", "Tocca una volta per registrare", "Scegli il formato giusto", "Dopo la riunione crea un Project/Strategy"],
+    "note": "La durata della riunione dipende dal piano e dal saldo residuo."
+  },
+  "notes": {
+    "h2": "Note",
+    "items": ["Rete e dispositivo possono influire sulla qualità", "Le funzionalità possono variare in base al piano"],
+    "foot": "Prova Verbali IA su iPhone oggi stesso."
+  },
+  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Guida", "category": "Raccomandazione app" },
+  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica l’app iOS" },
+  "brand": "Verbali IA"
+}

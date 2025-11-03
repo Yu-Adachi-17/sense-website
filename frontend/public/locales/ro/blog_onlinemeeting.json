@@ -1,0 +1,66 @@
+{
+  "aria": { "home": "Înapoi la Proces-verbal AI" },
+  "cta": {
+    "downloadIOS": "Descarcă aplicația iOS",
+    "openBrowser": "Deschide în browser"
+  },
+  "features": {
+    "h2": "Esențiale",
+    "items": [
+      "UX tip Zoom (bazat pe LiveKit)",
+      "Emitere URL cu un clic",
+      "Proces-verbal automat la final",
+      "Rezultate lizibile și formatate",
+      "Multilingv pentru echipe globale"
+    ]
+  },
+  "hero": {
+    "h1": "Online Meetings pentru Proces-verbal AI (iOS)",
+    "kicker": "Notă de lansare",
+    "tagline": "Apasă „Online”, emite un URL, distribuie și intră. La încheiere, procesul-verbal se generează automat."
+  },
+  "image": {
+    "alt": "Interfața Online Meeting Proces-verbal AI",
+    "caption": "Pornește o întâlnire tip Zoom din butonul „Online”."
+  },
+  "meta": {
+    "category": "Online Meeting",
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Lansare"
+  },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
+  "notes": {
+    "foot": "Încearcă pe web sau descarcă aplicația iOS.",
+    "h2": "Note",
+    "items": [
+      "Durata și timpul rămas depind de plan/cotă",
+      "Condițiile de rețea și setările dispozitivului pot afecta calitatea"
+    ]
+  },
+  "release": {
+    "h2": "Ce e nou",
+    "p1": "Proces-verbal AI acceptă acum Online Meetings. Doar apasă „Online” pentru a emite un URL și a începe un apel tip Zoom.",
+    "p2": "La final, procesul-verbal se generează automat cu decizii și acțiuni clare."
+  },
+  "seo": {
+    "description": "Apasă „Online” pentru a emite un URL, distribuie și pornește instant o întâlnire tip Zoom. La final se generează automat procese-verbale clare.",
+    "ld": {
+      "description": "Găzduiește întâlniri tip Zoom printr-un URL emis și obține procese-verbale automate cu decizii/acțiuni clare.",
+      "headline": "Proces-verbal AI adaugă Online Meetings"
+    },
+    "ogDescription": "Pornește întâlniri din butonul „Online” și primești la final procese-verbale formatate automat.",
+    "ogTitle": "Online Meetings ajunge în Proces-verbal AI",
+    "title": "Proces-verbal AI acceptă acum Online Meetings (iOS)"
+  },
+  "steps": {
+    "h2": "Cum începi",
+    "items": [
+      "Apasă „Online” în aplicație sau pe web",
+      "Emite URL-ul întâlnirii",
+      "Distribuie URL-ul participanților",
+      "Încheie întâlnirea → proces-verbal automat"
+    ],
+    "note": "Durata depinde de planul tău și cota rămasă."
+  }
+}

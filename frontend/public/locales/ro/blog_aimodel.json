@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Modelele de AI din spatele Proces-verbal AI",
+    "description": "De ce Proces-verbal AI livrează procese-verbale profesionale: principiul „calitatea pe primul loc” și modelele folosite în prezent (ChatGPT-5 și Gemini 2.5 Pro).",
+    "ogTitle": "Politica de modele la Proces-verbal AI: calitatea înainte de toate",
+    "ogDescription": "Facem publice modelele pe care ne bazăm—ChatGPT-5 și Gemini 2.5 Pro—pentru procese-verbale clare, aplicabile și consecvente.",
+    "ld": {
+      "headline": "Modele de inteligență artificială folosite de Proces-verbal AI",
+      "description": "Proces-verbal AI prioritizează calitatea și folosește în prezent ChatGPT-5 și Gemini 2.5 Pro pentru procese-verbale gata de decizie."
+    }
+  },
+  "aria": { "home": "Pagina principală Proces-verbal AI" },
+  "nav": { "blog": "Blog", "aimodel": "Modele AI" },
+  "hero": {
+    "kicker": "În culise",
+    "h1": "Modelele pe care le folosim la Proces-verbal AI",
+    "tagline": "Nu alegem orice LLM; alegem ce face procese-verbale clare și aplicabile. În prezent: ChatGPT-5 și Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "De ce punem calitatea pe primul loc",
+    "p1": "Multe produse aleg în funcție de cost. Noi vizăm claritate, aplicabilitate și consecvență, astfel încât cititorul să știe mereu pasul următor.",
+    "p2": "Cele mai bune ingrediente și cea mai bună bucătărie nu garantează un fel grozav—abilitatea face diferența. Rafinam selecția de modele și prompturi pentru procese-verbale profesionale."
+  },
+  "adopted": {
+    "h2": "Modele adoptate (la momentul scrierii)",
+    "items": [
+      "ChatGPT-5 (OpenAI): raționament puternic, control al tonului și structură de încredere pentru procese-verbale gata de decizie.",
+      "Gemini 2.5 Pro (Google): consistență ridicată pe contexte lungi și extragere solidă a punctelor cheie."
+    ],
+    "foot": "Evaluăm constant modele noi și trecem la ele când depășesc pragul nostru de calitate."
+  },
+  "image": {
+    "alt": "Arhitectura de modele care susține Proces-verbal AI",
+    "caption": "Selectăm modelele în funcție de claritate și aplicabilitate — nu doar de cost."
+  },
+  "links": {
+    "h2": "Subiecte conexe",
+    "intro": "Introducere",
+    "nego": "Procese-verbale de negociere comercială"
+  },
+  "meta": { "h2": "Metadate", "published": "Data publicării", "type": "Articol", "category": "Modele AI" },
+  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Descarcă aplicația iOS" }
+}

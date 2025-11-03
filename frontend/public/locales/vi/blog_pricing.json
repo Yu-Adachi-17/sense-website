@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "compare": {
+    "foot": "Nguồn: trang giá chính thức của Otter và Notta.",
+    "h2": "Biên bản AI vs. Otter vs. Notta — Giá trong nháy mắt",
+    "lastUpdated": "Cập nhật lần cuối: 31 Thg 10, 2025",
+    "note": "Giá và hạn ngạch chính (USD). Đối thủ thường đặt lại hạn mức hàng tháng, không cộng dồn.",
+    "rows": [
+      {
+        "billing": "Gói thời gian một lần + gói thuê bao",
+        "cheapest": "Trial 120 phút / $1.99 (không hết hạn)",
+        "free": "Vé miễn phí hằng ngày 3 phút",
+        "limits": "Gói thời gian không bao giờ hết hạn. Thuê bao không bị giới hạn.",
+        "service": "Biên bản AI",
+        "unlimited": "Có — $16.99/tháng hoặc $149.99/năm"
+      },
+      {
+        "billing": "Thuê bao theo ghế",
+        "cheapest": "Pro — $16.99/tháng hoặc $8.33/tháng (gói năm)",
+        "free": "300 phút/tháng, tối đa 30 phút/cuộc trò chuyện",
+        "limits": "Không cộng dồn; giới hạn theo cuộc họp",
+        "service": "Otter",
+        "unlimited": "Không — Pro 1200 phút/tháng; Business 6000 phút nhập/tháng"
+      },
+      {
+        "billing": "Thuê bao theo ghế",
+        "cheapest": "Pro — $13.49/tháng (tháng) hoặc $8.17/tháng (năm)",
+        "free": "120 phút/tháng, tối đa 3 phút/bản ghi",
+        "limits": "Không cộng dồn; tối đa 5 giờ/bản ghi; hạn mức tải tệp",
+        "service": "Notta",
+        "unlimited": "Business — Không giới hạn (gói năm $16.67/tháng; gói tháng cao hơn)"
+      }
+    ],
+    "tableHead": [
+      "Dịch vụ",
+      "Gói miễn phí",
+      "Gói trả phí rẻ nhất",
+      "Sử dụng không giới hạn",
+      "Giới hạn đáng chú ý",
+      "Kiểu tính phí"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Tải ứng dụng iOS",
+    "openBrowser": "Mở trong trình duyệt"
+  },
+  "hero": {
+    "h1": "Bảng giá Biên bản AI (2025)",
+    "kicker": "Bảng giá",
+    "tagline": "Chọn gói thời gian không hết hạn, hoặc dùng không giới hạn với thuê bao theo tháng/năm."
+  },
+  "intro": {
+    "h2": "Gói nào hợp với bạn?",
+    "p1": "Chúng tôi có 4 lựa chọn phù hợp với tần suất họp của bạn."
+  },
+  "meta": {
+    "category": "Bảng giá",
+    "h2": "Meta",
+    "published": "Đã xuất bản",
+    "type": "Hướng dẫn"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Bảng giá"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Gói năm"
+    },
+    "bullets": [
+      "Gói thời gian không hết hạn: mua một lần, dùng bất cứ lúc nào",
+      "Sử dụng không giới hạn với thuê bao",
+      "iOS & Web, đầu ra đa ngôn ngữ"
+    ],
+    "free": {
+      "badge": "Vé miễn phí hằng ngày",
+      "text": "Ngay cả khi không trả phí, mỗi ngày bạn nhận vé miễn phí 3 phút để thử Biên bản AI."
+    },
+    "h3_subs": "Loại thuê bao",
+    "h3_timepacks": "Loại gói thời gian",
+    "light": {
+      "detail": "1200 phút / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Gói tháng"
+    },
+    "subs_note": "Thuê bao thật sự không giới hạn — không có trần theo tháng.",
+    "timepacks_note": "Phút đã mua không bao giờ hết hạn. Tạo biên bản AI từ bản ghi bất cứ lúc nào.",
+    "trial": {
+      "detail": "120 phút / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Gói không hết hạn và thuê bao thực sự không giới hạn. Xem Biên bản AI so với Otter và Notta về giá, hạn ngạch và cộng dồn.",
+    "ld": {
+      "description": "Bốn gói rõ ràng: hai gói một lần (không hết hạn) và hai thuê bao không giới hạn — kèm so sánh với Otter và Notta.",
+      "headline": "Bảng giá Biên bản AI"
+    },
+    "ogDescription": "Gói không hết hạn + thuê bao không giới hạn. So sánh nhanh với Otter & Notta.",
+    "ogTitle": "Bảng giá Biên bản AI",
+    "title": "Biên bản AI — gói đơn giản cho mọi phong cách họp"
+  },
+  "why": {
+    "h2": "Vì sao chúng tôi thiết kế gói như vậy",
+    "items": [
+      "Họp hằng ngày: chọn Không giới hạn để dễ dự đoán.",
+      "Họp thỉnh thoảng: mua Light một lần — không hết hạn.",
+      "Chỉ thử: gói Trial + vé miễn phí 3 phút mỗi ngày."
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "aria": { "home": "Vissza a Jegyzőkönyv AI-ra" },
+  "cta": {
+    "downloadIOS": "iOS-alkalmazás letöltése",
+    "openBrowser": "Megnyitás böngészőben"
+  },
+  "features": {
+    "h2": "Főbb pontok",
+    "items": [
+      "Zoom-szerű felület (LiveKit-alapú)",
+      "URL kiadása egy kattintással",
+      "Automatikus jegyzőkönyv a végén",
+      "Jól olvasható, formázott kimenet",
+      "Többnyelvű – globális csapatoknak"
+    ]
+  },
+  "hero": {
+    "h1": "Online Meetings a Jegyzőkönyv AI-hoz (iOS)",
+    "kicker": "Kiadási megjegyzés",
+    "tagline": "Kattints az \"Online\" gombra, adj ki egy URL-t, oszd meg és csatlakozz. A befejezéskor a jegyzőkönyv automatikusan készül."
+  },
+  "image": {
+    "alt": "Jegyzőkönyv AI Online Meeting felület",
+    "caption": "Indíts Zoom-szerű meetinget az \"Online\" gombbal."
+  },
+  "meta": {
+    "category": "Online Meeting",
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Kiadás"
+  },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
+  "notes": {
+    "foot": "Próbáld ki weben vagy töltsd le az iOS-appot.",
+    "h2": "Megjegyzések",
+    "items": [
+      "Az időtartam és a hátralévő idő a csomagtól/kvótától függ",
+      "A hálózat és az eszközbeállítások befolyásolhatják a minőséget"
+    ]
+  },
+  "release": {
+    "h2": "Újdonságok",
+    "p1": "A Jegyzőkönyv AI mostantól támogatja az Online Meetings funkciót. Kattints az \"Online\" gombra URL kiadásához és Zoom-szerű hívás indításához.",
+    "p2": "A meeting végén a jegyzőkönyv automatikusan generálódik, egyértelmű döntésekkel és feladatokkal."
+  },
+  "seo": {
+    "description": "Kattints az \"Online\" gombra URL kiadásához, oszd meg és indíts azonnal Zoom-szerű meetinget. A végén automatikusan készülnek a tiszta jegyzőkönyvek.",
+    "ld": {
+      "description": "Tarts Zoom-szerű meetingeket kiadott URL-lel, majd kapj automatikus jegyzőkönyvet egyértelmű döntésekkel és teendőkkel.",
+      "headline": "A Jegyzőkönyv AI Online Meetings funkciót kap"
+    },
+    "ogDescription": "Indíts meetingeket az \"Online\" gombbal és kapj automatikusan jól formázott jegyzőkönyvet a végén.",
+    "ogTitle": "Megérkezett az Online Meetings a Jegyzőkönyv AI-ba",
+    "title": "A Jegyzőkönyv AI mostantól támogatja az Online Meetings-et (iOS)"
+  },
+  "steps": {
+    "h2": "Kezdés",
+    "items": [
+      "Kattints az \"Online\" gombra az appban vagy a weben",
+      "Adj ki meeting URL-t",
+      "Oszd meg az URL-t a résztvevőkkel",
+      "Meeting lezárása → automatikus jegyzőkönyv"
+    ],
+    "note": "A meeting időtartama a csomagodtól és a fennmaradó kvótától függ."
+  }
+}

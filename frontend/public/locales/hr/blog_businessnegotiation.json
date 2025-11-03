@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Natrag na početnu stranicu AI Zapisnik"
+  },
+  "byline": {
+    "name": "Autor: Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "cta": {
+    "downloadIOS": "Preuzmi iOS aplikaciju",
+    "openBrowser": "Otvori web aplikaciju"
+  },
+  "diversity": {
+    "core": {
+      "h3": "Uobičajeni sastanci",
+      "items": {
+        "0": "Redovni stand-upovi: pregled rezultata, problema i akcija",
+        "1": "Brainstorming: širenje i sužavanje ideja",
+        "2": "Pregovori: usklađivanje interesa i postizanje dogovora"
+      }
+    },
+    "h2": "Sastanci su raznoliki — pregovori su stvar pogađanja",
+    "p1": "Promijeni cilj i promijenit će se i vrijedni ishodi. U pregovorima je sama razmjena ponuda i ustupaka jezgra.",
+    "wide": {
+      "h3": "„Sastanak” u širem smislu",
+      "items": {
+        "0": "1-na-1: pregled rezultata, sljedeći ciljevi, dijeljenje izazova",
+        "1": "Intervju: usklađivanje zahtjeva i prikladnosti",
+        "2": "Prezentacija: problem i rješenje",
+        "3": "Obuka: prijenos procesa/operacija"
+      }
+    }
+  },
+  "example": {
+    "block": "Tvrtka A: Vaš prethodni proizvod imao je grešku — prouzročila nam je stvarne probleme. Dužni ste nam; isporučite do sljedećeg tjedna. Cijena je $1.000.\\nNaša tvrtka: Pritisnut ćemo interno kako bismo isporučili do sljedećeg tjedna. Zauzvrat, možemo li podići na $1.200? Molimo razmotrite.\\nTvrtka A: Ako možete jamčiti isporuku sljedeći tjedan, razmotrit ćemo. Pošaljite odgovor e-poštom danas.",
+    "h2": "Primjer (ključne razmjene doslovno)",
+    "p1": "Zadržavanje ovih „ključnih rundi” u izvornom obliku omogućuje donositeljima odluka da procijene razumnost uz puni kontekst."
+  },
+  "hero": {
+    "h1": "Zašto AI Zapisnik pomaže napisati najbolje zapisnike pregovora",
+    "kicker": "AI Zapisnik Blog",
+    "tagline": "Pregovaranje je sukob interesa. Snažan zapisnik ne navodi samo odluke i zadatke — bilježi i kontekst i ton. Evo pristupa i kako ga primijeniti s AI Zapisnik."
+  },
+  "limits": {
+    "generic": {
+      "h3": "Tipični „tanki” zapisnici",
+      "items": {
+        "0": "Popis odluka bez razloga ili priče",
+        "1": "Nejasno tko je što tražio i gdje su učinjeni ustupci",
+        "2": "Dvosmislenost oko onoga što nije dogovoreno ili je odgođeno"
+      }
+    },
+    "h2": "Zašto su zapisnici „samo odluke” slabi",
+    "optimized": {
+      "h3": "Zapisnici građeni za pregovore",
+      "items": {
+        "0": "Vremenska linija zahtjeva/ustupaka/promjena uvjeta (rok/cijena/opseg/odgovornost)",
+        "1": "Razlozi, pretpostavke i rizici zabilježeni uz svaku odluku",
+        "2": "Jasna podjela: dogovoreno/nedogovoreno/odgođeno s nositeljima i rokovima"
+      }
+    },
+    "p1": "Držanje formata „rasprava/odluke/akcije/otvorena pitanja” često gubi pozadinu, ton i povijest ustupaka. Rezultat: nesporazumi, dodatno prepucavanje i rizik „rekao/nije rekao”."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Zašto AI Zapisnik pomaže napisati najbolje zapisnike pregovora"
+  },
+  "negotiation": {
+    "h2": "Što je zapravo pregovaranje?",
+    "p1": "Ukratko: zaštita i rast interesa vaše tvrtke. Nije jednosmjerna objava; zajedničku osnovu tražite razmjenom „zahtjeva” i „ustupaka” oko roka, cijene, opsega i rizika."
+  },
+  "recap": {
+    "focus": "Ovoga puta duboko zaranjamo u pregovore.",
+    "h2": "Brzi sažetak",
+    "p1": {
+      "link": "pročitajte ovdje",
+      "post": ".",
+      "pre": "Prošli put pokazali smo kako AI zapisnici mogu raditi za bilo koji sastanak. Ako vas zanima,"
+    },
+    "points": {
+      "0": "Sastanci su raznoliki, pa optimalni format zapisnika ovisi o cilju.",
+      "1": "Opći predlošci pomažu, ali razinu detalja treba prilagoditi slučaju uporabe.",
+      "2": "Od „zapisa za čitanje” do „plana za djelovanje”.",
+      "3": "AI Zapisnik prilagođava izlaz cilju sastanka."
+    }
+  },
+  "seo": {
+    "description": "Pregovorima trebaju zapisnici koji bilježe odluke, zadatke, kontekst, ton i povijest ustupaka. Praktični vodič s AI Zapisnik.",
+    "ld": {
+      "description": "Bit pregovora u zapisniku: zahtjevi, ustupci i kontekst — uz AI Zapisnik.",
+      "headline": "Zašto AI Zapisnik pomaže napisati najbolje zapisnike pregovora"
+    },
+    "ogDescription": "Zbogom „tankim” zapisnicima: sačuvajte razmjenu i kontekst za brže i bolje odluke.",
+    "ogTitle": "Zašto AI Zapisnik pomaže napisati najbolje zapisnike pregovora",
+    "title": "Zašto AI Zapisnik pomaže napisati najbolje zapisnike pregovora | Blog zapisnika sastanaka"
+  },
+  "why": {
+    "h2": "Zašto je AI Zapisnik snažan u pregovorima",
+    "items": {
+      "0": "Sažima razmjene zahtjeva/ustupaka i čuva ključne pasuse doslovno (izbjegava „rekao/nije rekao”).",
+      "1": "Kronološki uređuje promjene uvjeta (rok/cijena/opseg/odgovornost).",
+      "2": "Dokumentira razloge, pretpostavke i rizike uz odluke.",
+      "3": "Razdvaja dogovoreno/nedogovoreno/odgođeno i dodjeljuje odgovorne i rokove.",
+      "4": "Mapira zahtjeve druge strane na vaše obveze radi jasnog praćenja."
+    }
+  },
+  "wrap": {
+    "h2": "Zaključno",
+    "p": "Zapisnici pregovora su snažniji kada čuvaju raspravu i kontekst — ne samo odluke. To ubrzava prosudbu i smanjuje ponovne radove. Učinite to standardom uz AI Zapisnik."
+  }
+}

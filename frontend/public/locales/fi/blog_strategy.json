@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Pöytäkirja AI Strategy — tee muistioista päätöksiä (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy tiivistää kokoukset Boost/Counter/Top Issue -osiin sekä kolmeen ajattelutapaan selkeitä seuraavia askeleita varten. SEO-haut: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy Pöytäkirja AI:ssa: päätöksiä, ei pelkkiä muistiinpanoja",
+    "ogDescription": "Boost/Counter/Top Issue + Looginen/Kriittinen/Lateraalinen ajattelu toiminnallisiin tuloksiin.",
+    "ld": {
+      "headline": "Pöytäkirja AI lisää Strategy-toiminnon",
+      "description": "Hyödynnä ChatGPT-5:tä ja Gemini 2.5 Pro:ta keskustelun muuttamiseksi päätöksiksi nopeasti ja selkeästi."
+    }
+  },
+  "aria": { "home": "Pöytäkirja AI Etusivu" },
+  "nav": { "blog": "Blogi", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Ominaisuusopas",
+    "h1": "Strategy Pöytäkirja AI:lle",
+    "tagline": "Ei pelkkiä muistioita — Strategy muuttaa keskustelun päätöksiksi ChatGPT-5:llä ja Gemini 2.5 Pro:lla."
+  },
+  "image": {
+    "alt": "Pöytäkirja AI Strategy -käyttöliittymä",
+    "caption": "Poimi ydinongelma ja seuraavat toimet yhdellä kertaa."
+  },
+  "what": {
+    "h2": "Mitä Strategy tekee",
+    "items": [
+      "Boost: mikä toimii ja miten skaalaa",
+      "Counter: riskit ja korjaukset",
+      "Top Issue: ydinkysymys",
+      "Ajattelutavat: Looginen / Kriittinen / Lateraalinen"
+    ]
+  },
+  "steps": {
+    "h2": "Näin aloitat",
+    "items": [
+      "Luo muistio sovelluksessa tai verkossa",
+      "Napauta “Strategy”",
+      "Tarkastele Boost / Counter / Top Issue + 3 moodia",
+      "Liitä omaan tehtäväjärjestelmääsi"
+    ],
+    "note": "Saatavuus ja kesto riippuvat suunnitelmastasi/kiintiöstä."
+  },
+  "features": {
+    "h2": "Kohokohdat",
+    "items": [
+      "Päätöskeskeinen, ei pelkkä tiivistys",
+      "Optimoitu ChatGPT-5:lle ja Gemini 2.5 Pro:lle",
+      "Lyhyet, toimeenpantavat tuotokset",
+      "Monikielinen globaaleille tiimeille"
+    ]
+  },
+  "notes": {
+    "h2": "Huomautukset",
+    "items": [
+      "Tuotoksen laatu heijastaa syötteen laatua",
+      "Käytä eri malleja eri kokoustyypeille"
+    ],
+    "foot": "Saatavilla iOS:lle. Kokeile jo tänään."
+  },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Ominaisuus", "category": "Strategy" },
+  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" }
+}

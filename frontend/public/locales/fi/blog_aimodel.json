@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Pöytäkirja AI:n taustalla olevat AI-mallit",
+    "description": "Miksi Pöytäkirja AI tuottaa ammattimaiset pöytäkirjat: laatu ensin -periaate ja tällä hetkellä käytössä olevat mallit (ChatGPT-5 ja Gemini 2.5 Pro).",
+    "ogTitle": "Mallipolitiikka Pöytäkirja AI:ssa: laatu ensin",
+    "ogDescription": "Kerroimme avoimesti käyttämämme mallit—ChatGPT-5 ja Gemini 2.5 Pro—selkeiden, toteutettavien ja johdonmukaisten pöytäkirjojen tuottamiseksi.",
+    "ld": {
+      "headline": "Pöytäkirja AI:ssa käytettävät tekoälymallit",
+      "description": "Pöytäkirja AI asettaa laadun etusijalle ja käyttää tällä hetkellä ChatGPT-5:ttä ja Gemini 2.5 Pro:ta päätöksentekoon valmiisiin pöytäkirjoihin."
+    }
+  },
+  "aria": { "home": "Pöytäkirja AI-etusivu" },
+  "nav": { "blog": "Blogi", "aimodel": "AI-mallit" },
+  "hero": {
+    "kicker": "Kulissien takana",
+    "h1": "Mallit, joita käytämme Pöytäkirja AI:ssa",
+    "tagline": "Emme valitse mitä tahansa LLM:ää; valitsemme sen, joka tekee pöytäkirjoista selkeitä ja toteutettavia. Nyt: ChatGPT-5 ja Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Miksi laatu ensin",
+    "p1": "Monet tuotteet valitsevat hinnan perusteella. Me tavoittelemme selkeyttä, toteutettavuutta ja johdonmukaisuutta, jotta lukija tietää aina seuraavan askeleen.",
+    "p2": "Parhaat raaka-aineet ja keittiö eivät yksin takaa huippuruokaa—taidot ratkaisevat. Hiomme mallivalintaa ja promptteja ammattilaispöytäkirjoja varten."
+  },
+  "adopted": {
+    "h2": "Käytössä olevat mallit (kirjoitushetkellä)",
+    "items": [
+      "ChatGPT-5 (OpenAI): vahva päättely, sävyn hallinta ja luotettava rakenne päätöksiin valmiille pöytäkirjoille.",
+      "Gemini 2.5 Pro (Google): vahva johdonmukaisuus pitkillä konteksteilla ja vankka ydinkohtien poiminta."
+    ],
+    "foot": "Arvioimme uusia malleja jatkuvasti ja siirrymme niihin, kun ne ylittävät laatukynnyksemme."
+  },
+  "image": {
+    "alt": "Pöytäkirja AI:ta tukeva malliarkkitehtuuri",
+    "caption": "Valitsemme mallit selkeyden ja toteutettavuuden perusteella — emme vain hinnan."
+  },
+  "links": {
+    "h2": "Aiheeseen liittyvää",
+    "intro": "Johdanto",
+    "nego": "Liikeneuvottelujen pöytäkirjat"
+  },
+  "meta": { "h2": "Metatiedot", "published": "Julkaisupäivä", "type": "Artikkeli", "category": "AI-mallit" },
+  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" }
+}

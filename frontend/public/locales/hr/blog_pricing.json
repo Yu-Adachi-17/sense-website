@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "compare": {
+    "foot": "Izvori: službene stranice s cijenama za Otter i Nottu.",
+    "h2": "AI Zapisnik vs. Otter vs. Notta — Cijene na prvi pogled",
+    "lastUpdated": "Zadnje ažuriranje: 31. lis 2025",
+    "note": "Ključne cijene i kvote (USD). Konkurenti obično mjesečno resetiraju kvote bez prijenosa.",
+    "rows": [
+      {
+        "billing": "Jednokratni paketi minuta + pretplate",
+        "cheapest": "Trial 120 min / $1.99 (bez isteka)",
+        "free": "Dnevna karta od 3 minute",
+        "limits": "Paketi minuta nikad ne istječu. Pretplate su bez ograničenja.",
+        "service": "AI Zapisnik",
+        "unlimited": "Da — $16.99/mj. ili $149.99/god."
+      },
+      {
+        "billing": "Pretplata po sjedalu",
+        "cheapest": "Pro — $16.99/mj. ili $8.33/mj. (godišnje)",
+        "free": "300 min/mj., do 30 min/razgovor",
+        "limits": "Bez prijenosa; ograničenje po sastanku",
+        "service": "Otter",
+        "unlimited": "Ne — Pro 1200 min/mj.; Business 6000 uvoznih min/mj."
+      },
+      {
+        "billing": "Pretplata po sjedalu",
+        "cheapest": "Pro — $13.49/mj. (mjesečno) ili $8.17/mj. (godišnje)",
+        "free": "120 min/mj., do 3 min/snimku",
+        "limits": "Bez prijenosa; do 5 h/snimku; kvote za prijenos datoteka",
+        "service": "Notta",
+        "unlimited": "Business — Neograničeno (godišnje $16.67/mj.; mjesečno više)"
+      }
+    ],
+    "tableHead": [
+      "Usluga",
+      "Besplatan plan",
+      "Najjeftiniji plaćeni",
+      "Neograničeno korištenje",
+      "Značajna ograničenja",
+      "Način naplate"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Preuzmi iOS aplikaciju",
+    "openBrowser": "Otvori u pregledniku"
+  },
+  "hero": {
+    "h1": "Cijene AI Zapisnik (2025)",
+    "kicker": "Cijene",
+    "tagline": "Odaberite pakete minuta bez isteka ili potpuno neograničene mjesečne/godišnje pretplate."
+  },
+  "intro": {
+    "h2": "Koji plan vam odgovara?",
+    "p1": "Nudimo četiri opcije prilagođene učestalosti vaših sastanaka."
+  },
+  "meta": {
+    "category": "Cijene",
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Vodič"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Cijene"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Godišnje"
+    },
+    "bullets": [
+      "Paketi minuta bez isteka: kupite jednom, koristite bilo kada",
+      "Neograničeno korištenje uz pretplatu",
+      "iOS i Web, višejezični izlazi"
+    ],
+    "free": {
+      "badge": "Dnevna besplatna karta",
+      "text": "Čak i bez plaćanja, svaki dan dobivate besplatnu kartu od 3 minute za isprobavanje AI Zapisnik."
+    },
+    "h3_subs": "Vrsta pretplate",
+    "h3_timepacks": "Vrsta paketa minuta",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Mjesečno"
+    },
+    "subs_note": "Pretplate su doista neograničene — bez mjesečnih plafona.",
+    "timepacks_note": "Kupljene minute nikad ne istječu. Generirajte AI zapisnike iz snimki u bilo koje vrijeme.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Paketi minuta bez isteka i uistinu neograničene pretplate. Pogledajte usporedbu AI Zapisnik s Otter i Notta po cijeni, kvotama i prijenosu.",
+    "ld": {
+      "description": "Četiri jasna plana: dva jednokratna paketa minuta (bez isteka) i dvije neograničene pretplate — plus usporedba s Otter i Notta.",
+      "headline": "Cijene AI Zapisnik"
+    },
+    "ogDescription": "Paketi bez isteka + neograničene pretplate. Brza usporedba s Otter & Notta.",
+    "ogTitle": "Cijene AI Zapisnik",
+    "title": "AI Zapisnik — jednostavni planovi za svaki stil sastanka"
+  },
+  "why": {
+    "h2": "Zašto smo planove osmislili ovako",
+    "items": [
+      "Sastajete se dnevno: odaberite Neograničeno radi predvidljivosti.",
+      "Povremeni sastanci: kupite Light jednom — bez isteka.",
+      "Samo isprobavate: Trial paket + dnevna karta od 3 minute."
+    ]
+  }
+}

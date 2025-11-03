@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Błąd podczas pobierania danych użytkownika",
+  "unsupported_file_format": "Nieobsługiwany format pliku. Użyj m4a, webm, mp3, wav lub ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Protokół",
+    "noContentProvided": "Brak dostarczonej treści",
+    "noContentProvidedTitle": "Brak dostarczonej treści",
+    "topic": "Temat",
+    "topicFallback": "Temat",
+
+    "discussion": "Dyskusja",
+    "decisions": "Decyzje",
+    "actionItems": "Zadania",
+    "concerns": "Obawy",
+    "summary": "Podsumowanie",
+    "proposal": "Propozycja",
+    "background": "Tło",
+    "discussionPoints": "Punkty do dyskusji",
+    "decisionsAndTasks": "Decyzje i zadania",
+    "coreProblem": "Główny problem",
+    "expectedResult": "Oczekiwany wynik",
+
+    "overview": "Przegląd",
+    "sections": "Sekcje",
+    "topics": "Tematy",
+    "items": "Elementy",
+    "content": "Treść",
+    "body": "Korpus",
+
+    "brainstorming": {
+      "problemToSolve": "Problem do rozwiązania",
+      "topIdea": "Najlepszy pomysł",
+      "meritsAndEffects": "Zalety i efekty",
+      "drawbacksAndRisks": "Wady i ryzyka",
+      "runnerUpIdea": "Pomysł wicelider",
+      "allIdeas": "Wszystkie pomysły",
+      "ideaTitle": "Tytuł pomysłu"
+    },
+
+    "jobInterview": {
+      "motivation": "Motywacja",
+      "careerSummary": "Podsumowanie kariery",
+      "successes": "Sukcesy",
+      "failures": "Porażki",
+      "strengths": "Mocne strony i umiejętności",
+      "weaknesses": "Słabości i obszary do poprawy",
+      "values": "Wartości w pracy",
+      "careerVision": "Wizja kariery",
+      "understandingOfCompany": "Zrozumienie firmy",
+      "workStyleAndConditions": "Styl i warunki pracy",
+      "applicantQuestions": "Pytania kandydata (Q&A)",
+      "passionMessage": "Pasja i przekaz"
+    },
+
+    "lecture": {
+      "objectives": "Cele wykładu",
+      "procedures": "Procedury",
+      "notesAndRemarks": "Notatki i uwagi",
+      "examplesAndScenarios": "Przykłady i scenariusze",
+      "dos": "Co robić",
+      "donts": "Czego nie robić",
+      "tipsAndInsights": "Wskazówki i spostrzeżenia"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "Ostatni sukces",
+      "contributingFactors": "Czynniki sprzyjające",
+      "scalableAction": "Działanie skalowalne",
+      "managerFeedback": "Informacja zwrotna od menedżera",
+      "challengeFaced": "Napotkane wyzwanie",
+      "bottleneck": "Wąskie gardło",
+      "improvementStrategy": "Strategia usprawnień",
+      "futureExpectation": "Przyszłe oczekiwanie",
+      "reasonForExpectation": "Powód oczekiwania",
+      "preparationForFuture": "Przygotowanie na przyszłość",
+      "concern": "Obawa",
+      "reasonForConcern": "Powód obawy",
+      "mitigationIdeas": "Pomysły na złagodzenie",
+      "mentalAspects": "Aspekty mentalne",
+      "feelingsAndBackground": "Uczucia i tło",
+      "emotionalChange": "Zmiana emocjonalna",
+      "nextAction": "Kolejny krok",
+      "coreEmotion": "Emocja podstawowa",
+      "topicGroup": "Grupa tematów",
+      "expectation": "Oczekiwanie",
+      "worry": "Zmartwienie",
+      "why": "Dlaczego",
+      "whatCausedIt": "Co to spowodowało",
+      "nextTimeStrategy": "Strategia na następny raz",
+      "preparation": "Przygotowanie"
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Virhe käyttäjätietojen haussa",
+  "unsupported_file_format": "Tiedostomuotoa ei tueta. Käytä m4a-, webm-, mp3-, wav- tai ogg-muotoa.",
+
+  "minutes": {
+    "minutesTitleFallback": "Pöytäkirja",
+    "noContentProvided": "Sisältöä ei annettu",
+    "noContentProvidedTitle": "Sisältöä ei annettu",
+    "topic": "Aihe",
+    "topicFallback": "Aihe",
+
+    "discussion": "Keskustelu",
+    "decisions": "Päätökset",
+    "actionItems": "Toimenpiteet",
+    "concerns": "Huolenaiheet",
+    "summary": "Yhteenveto",
+    "proposal": "Ehdotus",
+    "background": "Tausta",
+    "discussionPoints": "Keskustelun aiheet",
+    "decisionsAndTasks": "Päätökset ja tehtävät",
+    "coreProblem": "Keskeinen ongelma",
+    "expectedResult": "Odotettu tulos",
+
+    "overview": "Yleiskatsaus",
+    "sections": "Osat",
+    "topics": "Aiheet",
+    "items": "Kohteet",
+    "content": "Sisältö",
+    "body": "Leipäteksti",
+
+    "brainstorming": {
+      "problemToSolve": "Ratkaistava ongelma",
+      "topIdea": "Paras idea",
+      "meritsAndEffects": "Hyödyt ja vaikutukset",
+      "drawbacksAndRisks": "Haitat ja riskit",
+      "runnerUpIdea": "Toiseksi paras idea",
+      "allIdeas": "Kaikki ideat",
+      "ideaTitle": "Idean otsikko"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivaatio",
+      "careerSummary": "Ura-yhteenveto",
+      "successes": "Onnistumiset",
+      "failures": "Epäonnistumiset",
+      "strengths": "Vahvuudet ja taidot",
+      "weaknesses": "Heikkoudet ja kehityskohteet",
+      "values": "Työn arvot",
+      "careerVision": "Uranäkemys",
+      "understandingOfCompany": "Yrityksen ymmärtäminen",
+      "workStyleAndConditions": "Työskentelytapa ja ehdot",
+      "applicantQuestions": "Hakijan kysymykset (Q&A)",
+      "passionMessage": "Intohimo ja viesti"
+    },
+
+    "lecture": {
+      "objectives": "Opetustavoitteet",
+      "procedures": "Menettelyt",
+      "notesAndRemarks": "Muistiinpanot ja huomautukset",
+      "examplesAndScenarios": "Esimerkit ja skenaariot",
+      "dos": "Mitä tehdä",
+      "donts": "Mitä välttää",
+      "tipsAndInsights": "Vinkkejä ja oivalluksia"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "Viimeaikainen onnistuminen",
+      "contributingFactors": "Myötävaikuttavat tekijät",
+      "scalableAction": "Skaalattava toimi",
+      "managerFeedback": "Esihenkilön palaute",
+      "challengeFaced": "Kohdattu haaste",
+      "bottleneck": "Pullonkaula",
+      "improvementStrategy": "Parannusstrategia",
+      "futureExpectation": "Tuleva odotus",
+      "reasonForExpectation": "Odotuksen syy",
+      "preparationForFuture": "Valmistautuminen tulevaan",
+      "concern": "Huoli",
+      "reasonForConcern": "Huolen syy",
+      "mitigationIdeas": "Lieventämisideat",
+      "mentalAspects": "Henkiset näkökulmat",
+      "feelingsAndBackground": "Tunteet ja tausta",
+      "emotionalChange": "Tunne-elämän muutos",
+      "nextAction": "Seuraava toimi",
+      "coreEmotion": "Ydintunne",
+      "topicGroup": "Aihekokonaisuus",
+      "expectation": "Odotus",
+      "worry": "Huoli",
+      "why": "Miksi",
+      "whatCausedIt": "Mikä aiheutti",
+      "nextTimeStrategy": "Strategia ensi kerralle",
+      "preparation": "Valmistautuminen"
+    }
+  }
+}

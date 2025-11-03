@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Funcție",
+      "generic": "AI generică",
+      "minutes": "Proces-verbal AI",
+      "transcription": "Instrument de transcriere simplă"
+    },
+    "rows": [
+      {
+        "a": "Da",
+        "b": "Nu (necesită introducere manuală)",
+        "c": "Da",
+        "k": "Audio → Text"
+      },
+      {
+        "a": "Nu",
+        "b": "Da (dar contextul se poate schimba)",
+        "c": "Da (optimizat pentru ședințe)",
+        "k": "Rezumat / Schiță"
+      },
+      {
+        "a": "Nu",
+        "b": "Da (adesea ambiguu)",
+        "c": "Da (extracție clară + etichetare)",
+        "k": "Extracția deciziilor / acțiunilor"
+      },
+      {
+        "a": "Nu",
+        "b": "Da (risc de derivă a sintaxei)",
+        "c": "Da (limbi majore + sensibil la context)",
+        "k": "Suport multilingv"
+      }
+    ],
+    "title": "Diferențe: Transcriere / AI generică / Proces-verbal AI"
+  },
+  "cta": {
+    "downloadIOS": "Descarcă versiunea iOS",
+    "openBrowser": "Deschide în browser"
+  },
+  "hero": {
+    "h1": "Ce este Proces-verbal AI? Baze și beneficii înainte de adoptare",
+    "kicker": "Proces-verbal AI",
+    "tagline": "„Un singur tap pentru procese-verbale semnificative.” Explicații clare pentru începători."
+  },
+  "intro": {
+    "h2": "Introducere",
+    "p1": "Mulțumim pentru vizită. ...",
+    "p2": "Sau poate, ca cititor ...",
+    "p3": {
+      "bold": "procese-verbale semnificative",
+      "mid": "te ajută să produci",
+      "post": "cu un singur tap — axate pe claritate și rezultate.",
+      "pre": "În acest articol arătăm cum"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (Șef Marketing)",
+      "Jordan (E-commerce)",
+      "Sam (Operațiuni Retail)",
+      "Taylor (PM)",
+      "Riley (Date)"
+    ],
+    "coreMessage": "Cheltuim inteligent — claritatea înaintea vitezei. Ne angajăm la „cine face ce până când” și menținem ședințele la 30 de minute.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Acțiuni",
+      "attendees": "Participanți:",
+      "closingMessage": "Mesaj de închidere",
+      "concerns": "Îngrijorări",
+      "decisions": "Decizii",
+      "discussion": "Discuție",
+      "keyMessages": "Mesaje cheie"
+    },
+    "meetingTitle": "Revizuire săptămânală vânzări smartwatch",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — lansează test A/B până la 2025-10-15",
+          "Riley — livrează analiza CTR până la 2025-10-17"
+        ],
+        "concerns": [
+          "Oboseală la reclame dacă nu se reîmprospătează creativul"
+        ],
+        "decisions": [
+          "Creștere buget publicitate online cu 15% pentru două săptămâni"
+        ],
+        "discussion": [
+          "Sesiuni +18% ..."
+        ],
+        "keyMessages": [
+          "Creștere cu CAC stabil; testează înainte de scalare"
+        ],
+        "topic": "Performanța canalului online"
+      },
+      {
+        "actionItems": [
+          "Sam — confirmă ETA/logistica furnizorului până la 2025-10-14"
+        ],
+        "concerns": [
+          "Risc de timp de livrare dacă backlogul crește"
+        ],
+        "decisions": [
+          "Reaprovizionare 500 unități în trei magazine"
+        ],
+        "discussion": [
+          "Lipsă stoc în Shibuya ..."
+        ],
+        "keyMessages": [
+          "Prevenirea pierderilor stabilizând stocurile din magazine"
+        ],
+        "topic": "Stoc offline & operațiuni magazin"
+      },
+      {
+        "actionItems": [
+          "Taylor — finalizează programul de lansare până la 2025-10-13",
+          "Suport — publică FAQ până la 2025-10-16",
+          "Marketing — plan Black Friday până la 2025-10-25"
+        ],
+        "decisions": [
+          "Aprobă lansarea pachetului Q4 pe 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 remediază consumul bateriei ..."
+        ],
+        "keyMessages": [
+          "Conectează îmbunătățirile de produs la promoții la timp"
+        ],
+        "topic": "Firmware v1.2 & lansare pachet Q4"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Introducere"
+  },
+  "samples": {
+    "generic": {
+      "body": "Echipa a revizuit ...",
+      "h3": "Exemplu de ieșire AI generică",
+      "note": "Se citește curat, dar nu răspunde clar la „cine va face ce până când”."
+    },
+    "h2": "Text sursă & exemple",
+    "meetingSample": "Eșantion audio ședință",
+    "pretty": {
+      "h3": "Exemplu de ieșire Proces-verbal AI"
+    },
+    "transcript": {
+      "full": "Alex (Șef Marketing): ... (scurtat)",
+      "preview": "Bine, e timpul ..."
+    }
+  },
+  "seo": {
+    "description": "Un tap pentru procese-verbale semnificative. Introducere simplă în Proces-verbal AI: baze, diferențe față de alte instrumente și exemple; de încredere pentru {{users}} utilizatori (la {{date}}).",
+    "ld": {
+      "description": "Un tap pentru procese-verbale semnificative. Introducere simplă în Proces-verbal AI, diferențe și exemple.",
+      "headline": "Ce este Proces-verbal AI? Baze și beneficii înainte de adoptare"
+    },
+    "ogDescription": "Un tap pentru procese-verbale semnificative. Înțelege Proces-verbal AI, diferențele și exemplele.",
+    "ogTitle": "Ce este Proces-verbal AI? Baze și beneficii înainte de adoptare",
+    "title": "Ce este Proces-verbal AI? Baze și beneficii înainte de adoptare | Proces-verbal AI Blog"
+  },
+  "transcript": {
+    "close": "Închide textul complet",
+    "expand": "Extinde textul complet"
+  },
+  "what": {
+    "footnote": "※ La {{date}} (pe baza datelor din iOS Store)",
+    "h2": "Ce este Proces-verbal AI?",
+    "p1": "Proces-verbal AI este un instrument bazat pe AI care ...",
+    "p2": "Cu Proces-verbal AI poți genera automat ..."
+  },
+  "wrap": {
+    "h2": "Încheiere",
+    "p": "Cum ți se pare? Cu această structură, oricine înțelege instant cine ce are de făcut. Procese-verbalele devin un plan de acțiune care mișcă echipa înainte. Încearcă Proces-verbal AI."
+  }
+}

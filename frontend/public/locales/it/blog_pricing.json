@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "Home Verbali IA"
+  },
+  "compare": {
+    "foot": "Fonti: pagine ufficiali dei prezzi di Otter e Notta.",
+    "h2": "Verbali IA vs. Otter vs. Notta — Prezzi a colpo d’occhio",
+    "lastUpdated": "Ultimo aggiornamento: 31 ott 2025",
+    "note": "Prezzi e quote principali (USD). I concorrenti di norma azzerano le quote mensili senza rollover.",
+    "rows": [
+      {
+        "billing": "Pacchetti tempo una tantum + abbonamenti",
+        "cheapest": "Trial 120 min / $1.99 (senza scadenza)",
+        "free": "Ticket gratuito giornaliero da 3 min",
+        "limits": "I pacchetti tempo non scadono mai. Gli abbonamenti sono senza tetti.",
+        "service": "Verbali IA",
+        "unlimited": "Sì — $16.99/mese o $149.99/anno"
+      },
+      {
+        "billing": "Abbonamento per utente",
+        "cheapest": "Pro — $16.99/mese o $8.33/mese (annuale)",
+        "free": "300 min/mese, fino a 30 min/conversazione",
+        "limits": "Nessun rollover; limite per riunione",
+        "service": "Otter",
+        "unlimited": "No — Pro 1200 min/mese; Business 6000 min import/mese"
+      },
+      {
+        "billing": "Abbonamento per utente",
+        "cheapest": "Pro — $13.49/mese (mensile) o $8.17/mese (annuale)",
+        "free": "120 min/mese, fino a 3 min/registrazione",
+        "limits": "Nessun riporto; fino a 5 h/registrazione; quote di upload file",
+        "service": "Notta",
+        "unlimited": "Business — Illimitato (annuale $16.67/mese; mensile più alto)"
+      }
+    ],
+    "tableHead": [
+      "Servizio",
+      "Piano gratuito",
+      "Più economico a pagamento",
+      "Uso illimitato",
+      "Limiti rilevanti",
+      "Modalità di fatturazione"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Scarica l’app iOS",
+    "openBrowser": "Apri nel browser"
+  },
+  "hero": {
+    "h1": "Prezzi Verbali IA (2025)",
+    "kicker": "Prezzi",
+    "tagline": "Scegli pacchetti tempo senza scadenza o passa all’illimitato con abbonamenti mensili/annuali."
+  },
+  "intro": {
+    "h2": "Quale piano fa per te?",
+    "p1": "Offriamo quattro opzioni in base alla frequenza delle tue riunioni."
+  },
+  "meta": {
+    "category": "Prezzi",
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Guida"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Prezzi"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Annuale"
+    },
+    "bullets": [
+      "Pacchetti tempo senza scadenza: acquisti una volta, usi quando vuoi",
+      "Uso illimitato con gli abbonamenti",
+      "iOS e Web, output multilingue"
+    ],
+    "free": {
+      "badge": "Ticket gratuito giornaliero",
+      "text": "Anche senza pagare, ottieni ogni giorno un ticket gratuito di 3 minuti per provare Verbali IA."
+    },
+    "h3_subs": "Tipo di abbonamento",
+    "h3_timepacks": "Tipo di pacchetto tempo",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Mensile"
+    },
+    "subs_note": "Gli abbonamenti sono realmente illimitati — nessun tetto mensile.",
+    "timepacks_note": "I minuti acquistati non scadono mai. Genera verbali AI da registrazioni in qualsiasi momento.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Pacchetti senza scadenza e abbonamenti davvero illimitati. Scopri il confronto di Verbali IA con Otter e Notta per prezzo, quote e rollover.",
+    "ld": {
+      "description": "Quattro piani semplici: due pacchetti una tantum (senza scadenza) e due abbonamenti illimitati — più confronto con Otter e Notta.",
+      "headline": "Prezzi Verbali IA"
+    },
+    "ogDescription": "Pacchetti senza scadenza + abbonamenti illimitati. Confronto rapido con Otter & Notta.",
+    "ogTitle": "Prezzi Verbali IA",
+    "title": "Verbali IA — piani semplici per ogni stile di riunione"
+  },
+  "why": {
+    "h2": "Perché abbiamo progettato così i piani",
+    "items": [
+      "Riunioni quotidiane: scegli Illimitato per la prevedibilità.",
+      "Riunioni occasionali: acquista una volta Light — senza scadenza.",
+      "Solo prova: pacchetto Trial + ticket giornaliero da 3 minuti."
+    ]
+  }
+}

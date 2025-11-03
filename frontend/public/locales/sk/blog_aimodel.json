@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Modely AI za AI Zápisnica",
+    "description": "Prečo AI Zápisnica vytvára profesionálne zápisy: princíp „kvalita na prvom mieste“ a aktuálne používané modely (ChatGPT-5 a Gemini 2.5 Pro).",
+    "ogTitle": "Politika modelov v AI Zápisnica: kvalita na prvom mieste",
+    "ogDescription": "Zverejňujeme modely, na ktoré sa spoliehame—ChatGPT-5 a Gemini 2.5 Pro—pre jasné, akčné a konzistentné zápisy.",
+    "ld": {
+      "headline": "Modely umelej inteligencie používané v AI Zápisnica",
+      "description": "AI Zápisnica uprednostňuje kvalitu a aktuálne používa ChatGPT-5 a Gemini 2.5 Pro na zápisy pripravené na rozhodovanie."
+    }
+  },
+  "aria": { "home": "Domovská stránka AI Zápisnica" },
+  "nav": { "blog": "Blog", "aimodel": "Modely AI" },
+  "hero": {
+    "kicker": "Zo zákulisia",
+    "h1": "Modely, ktoré používame v AI Zápisnica",
+    "tagline": "Nevolíme náhodné LLM; vyberáme to, čo robí zápisy jasnými a akčnými. Momentálne: ChatGPT-5 a Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Prečo uprednostňujeme kvalitu",
+    "p1": "Mnohé produkty sa rozhodujú podľa nákladov. My cielime na jasnosť, akčnosť a konzistentnosť, aby čitateľ vždy poznal ďalší krok.",
+    "p2": "Najlepšie ingrediencie a kuchyňa samy o sebe negarantujú skvelé jedlo—rozhoduje zručnosť. Vyladzujeme výber modelov a promptov pre profesionálne zápisy."
+  },
+  "adopted": {
+    "h2": "Prijaté modely (v čase písania)",
+    "items": [
+      "ChatGPT-5 (OpenAI): silné uvažovanie, kontrola tónu a spoľahlivá štruktúra pre zápisy pripravené na rozhodnutie.",
+      "Gemini 2.5 Pro (Google): vysoká konzistentnosť pri dlhých kontextoch a pevná extrakcia kľúčových bodov."
+    ],
+    "foot": "Nové modely priebežne hodnotíme a prechádzame na ne, keď prekročia náš kvalitatívny prah."
+  },
+  "image": {
+    "alt": "Modelová architektúra, ktorá poháňa AI Zápisnica",
+    "caption": "Modely vyberáme podľa jasnosti a akčnosti — nie len podľa ceny."
+  },
+  "links": {
+    "h2": "Súvisiace témy",
+    "intro": "Úvod",
+    "nego": "Zápisy z obchodného vyjednávania"
+  },
+  "meta": { "h2": "Metaúdaje", "published": "Dátum publikovania", "type": "Článok", "category": "Modely AI" },
+  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Stiahnuť iOS aplikáciu" }
+}

@@ -1,0 +1,66 @@
+{
+  "aria": { "home": "Zpět na Zápisník AI" },
+  "cta": {
+    "downloadIOS": "Stáhnout iOS aplikaci",
+    "openBrowser": "Otevřít v prohlížeči"
+  },
+  "features": {
+    "h2": "Hlavní body",
+    "items": [
+      "UX jako Zoom (na LiveKit)",
+      "Vystavení URL jedním klikem",
+      "Automatické zápisy po ukončení",
+      "Čitelné a formátované výstupy",
+      "Vícejazyčné pro globální týmy"
+    ]
+  },
+  "hero": {
+    "h1": "Online Meetings pro Zápisník AI (iOS)",
+    "kicker": "Poznámka k vydání",
+    "tagline": "Klikněte na „Online“, vystavte URL, sdílejte a jste uvnitř. Po ukončení se zápisy generují automaticky."
+  },
+  "image": {
+    "alt": "UI Online Meeting v Zápisník AI",
+    "caption": "Spusťte Zoom-like meeting přes tlačítko „Online“."
+  },
+  "meta": {
+    "category": "Online Meeting",
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Vydání"
+  },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
+  "notes": {
+    "foot": "Vyzkoušejte na webu nebo stáhněte iOS aplikaci.",
+    "h2": "Poznámky",
+    "items": [
+      "Délka a zbývající čas závisí na plánu/kvótě",
+      "Kvalitu může ovlivnit síť a nastavení zařízení"
+    ]
+  },
+  "release": {
+    "h2": "Novinky",
+    "p1": "Zápisník AI nyní podporuje Online Meetings. Jednoduše klikněte na „Online“, vystavte URL a sdílejte pro Zoom-like hovor.",
+    "p2": "Po skončení se zápisy generují automaticky a jasně zachycují rozhodnutí a úkoly."
+  },
+  "seo": {
+    "description": "Klikněte na „Online“, vystavte URL, sdílejte a ihned spusťte Zoom-like meeting. Po konci se automaticky vygenerují čisté zápisy.",
+    "ld": {
+      "description": "Po vydání URL hostujte Zoom-like meeting a pak získejte automatické zápisy s jasnými rozhodnutími a úkoly.",
+      "headline": "Zápisník AI přidává Online Meetings"
+    },
+    "ogDescription": "Spouštějte Zoom-like meetingy z tlačítka „Online“ a na konci získejte automaticky formátované zápisy.",
+    "ogTitle": "Online Meetings přichází do Zápisník AI",
+    "title": "Zápisník AI nyní podporuje Online Meetings (iOS)"
+  },
+  "steps": {
+    "h2": "Jak začít",
+    "items": [
+      "Klikněte na „Online“ v aplikaci nebo na webu",
+      "Vystavte URL schůzky",
+      "Sdílejte URL s účastníky",
+      "Ukončete schůzku → automatické zápisy"
+    ],
+    "note": "Délka schůzky závisí na vašem plánu a zbývající kvótě."
+  }
+}

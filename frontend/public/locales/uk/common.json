@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Помилка отримання даних користувача",
+  "unsupported_file_format": "Непідтримуваний формат файлу. Використовуйте m4a, webm, mp3, wav або ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Протокол",
+    "noContentProvided": "Вміст не надано",
+    "noContentProvidedTitle": "Вміст не надано",
+    "topic": "Тема",
+    "topicFallback": "Тема",
+
+    "discussion": "Обговорення",
+    "decisions": "Рішення",
+    "actionItems": "Завдання",
+    "concerns": "Побоювання",
+    "summary": "Підсумок",
+    "proposal": "Пропозиція",
+    "background": "Передумови",
+    "discussionPoints": "Пункти для обговорення",
+    "decisionsAndTasks": "Рішення та завдання",
+    "coreProblem": "Ключова проблема",
+    "expectedResult": "Очікуваний результат",
+
+    "overview": "Огляд",
+    "sections": "Розділи",
+    "topics": "Теми",
+    "items": "Елементи",
+    "content": "Вміст",
+    "body": "Основний текст",
+
+    "brainstorming": {
+      "problemToSolve": "Проблема для вирішення",
+      "topIdea": "Найкраща ідея",
+      "meritsAndEffects": "Переваги та ефекти",
+      "drawbacksAndRisks": "Недоліки та ризики",
+      "runnerUpIdea": "Ідея-претендент",
+      "allIdeas": "Усі ідеї",
+      "ideaTitle": "Назва ідеї"
+    },
+
+    "jobInterview": {
+      "motivation": "Мотивація",
+      "careerSummary": "Коротко про кар’єру",
+      "successes": "Досягнення",
+      "failures": "Невдачі",
+      "strengths": "Сильні сторони та навички",
+      "weaknesses": "Слабкі сторони та зони розвитку",
+      "values": "Цінності в роботі",
+      "careerVision": "Бачення кар’єри",
+      "understandingOfCompany": "Розуміння компанії",
+      "workStyleAndConditions": "Стиль і умови роботи",
+      "applicantQuestions": "Питання кандидата (Q&A)",
+      "passionMessage": "Палкість і меседж"
+    },
+
+    "lecture": {
+      "objectives": "Цілі лекції",
+      "procedures": "Процедури",
+      "notesAndRemarks": "Примітки та зауваження",
+      "examplesAndScenarios": "Приклади та сценарії",
+      "dos": "Що робити",
+      "donts": "Чого не робити",
+      "tipsAndInsights": "Поради та інсайти"
+    },
+
+    "oneonone": {
+      "title": "1-на-1",
+      "recentSuccess": "Останній успіх",
+      "contributingFactors": "Чинники, що сприяли",
+      "scalableAction": "Масштабована дія",
+      "managerFeedback": "Зворотний зв’язок менеджера",
+      "challengeFaced": "Зіткнулися з викликом",
+      "bottleneck": "Вузьке місце",
+      "improvementStrategy": "Стратегія поліпшення",
+      "futureExpectation": "Майбутні очікування",
+      "reasonForExpectation": "Причина очікування",
+      "preparationForFuture": "Підготовка до майбутнього",
+      "concern": "Побоювання",
+      "reasonForConcern": "Причина побоювання",
+      "mitigationIdeas": "Ідеї щодо пом’якшення",
+      "mentalAspects": "Ментальні аспекти",
+      "feelingsAndBackground": "Почуття та передумови",
+      "emotionalChange": "Емоційні зміни",
+      "nextAction": "Наступний крок",
+      "coreEmotion": "Основна емоція",
+      "topicGroup": "Група тем",
+      "expectation": "Очікування",
+      "worry": "Тривога",
+      "why": "Чому",
+      "whatCausedIt": "Що це спричинило",
+      "nextTimeStrategy": "Стратегія на наступний раз",
+      "preparation": "Підготовка"
+    }
+  }
+}

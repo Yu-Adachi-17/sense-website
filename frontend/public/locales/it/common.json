@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Errore nel recupero dei dati utente",
+  "unsupported_file_format": "Formato file non supportato. Usa m4a, webm, mp3, wav o ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Verbale",
+    "noContentProvided": "Nessun contenuto fornito",
+    "noContentProvidedTitle": "Nessun contenuto fornito",
+    "topic": "Argomento",
+    "topicFallback": "Argomento",
+
+    "discussion": "Discussione",
+    "decisions": "Decisioni",
+    "actionItems": "Attività",
+    "concerns": "Preoccupazioni",
+    "summary": "Riepilogo",
+    "proposal": "Proposta",
+    "background": "Contesto",
+    "discussionPoints": "Punti di discussione",
+    "decisionsAndTasks": "Decisioni e attività",
+    "coreProblem": "Problema principale",
+    "expectedResult": "Risultato atteso",
+
+    "overview": "Panoramica",
+    "sections": "Sezioni",
+    "topics": "Argomenti",
+    "items": "Elementi",
+    "content": "Contenuto",
+    "body": "Corpo",
+
+    "brainstorming": {
+      "problemToSolve": "Problema da risolvere",
+      "topIdea": "Idea principale",
+      "meritsAndEffects": "Vantaggi ed effetti",
+      "drawbacksAndRisks": "Svantaggi e rischi",
+      "runnerUpIdea": "Idea seconda classificata",
+      "allIdeas": "Tutte le idee",
+      "ideaTitle": "Titolo dell’idea"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivazione",
+      "careerSummary": "Sintesi della carriera",
+      "successes": "Successi",
+      "failures": "Fallimenti",
+      "strengths": "Punti di forza e competenze",
+      "weaknesses": "Debolezze e aree di miglioramento",
+      "values": "Valori sul lavoro",
+      "careerVision": "Visione di carriera",
+      "understandingOfCompany": "Comprensione dell’azienda",
+      "workStyleAndConditions": "Stile e condizioni di lavoro",
+      "applicantQuestions": "Domande del candidato (Q&A)",
+      "passionMessage": "Passione e messaggio"
+    },
+
+    "lecture": {
+      "objectives": "Obiettivi della lezione",
+      "procedures": "Procedure",
+      "notesAndRemarks": "Note e commenti",
+      "examplesAndScenarios": "Esempi e scenari",
+      "dos": "Cose da fare",
+      "donts": "Cose da non fare",
+      "tipsAndInsights": "Suggerimenti e spunti"
+    },
+
+    "oneonone": {
+      "title": "1 a 1",
+      "recentSuccess": "Successo recente",
+      "contributingFactors": "Fattori determinanti",
+      "scalableAction": "Azione scalabile",
+      "managerFeedback": "Feedback del manager",
+      "challengeFaced": "Sfida affrontata",
+      "bottleneck": "Collo di bottiglia",
+      "improvementStrategy": "Strategia di miglioramento",
+      "futureExpectation": "Aspettativa futura",
+      "reasonForExpectation": "Motivo dell’aspettativa",
+      "preparationForFuture": "Preparazione per il futuro",
+      "concern": "Preoccupazione",
+      "reasonForConcern": "Motivo della preoccupazione",
+      "mitigationIdeas": "Idee di mitigazione",
+      "mentalAspects": "Aspetti mentali",
+      "feelingsAndBackground": "Sentimenti e contesto",
+      "emotionalChange": "Variazione emotiva",
+      "nextAction": "Azione successiva",
+      "coreEmotion": "Emozione principale",
+      "topicGroup": "Gruppo di argomenti",
+      "expectation": "Aspettativa",
+      "worry": "Preoccupazione",
+      "why": "Perché",
+      "whatCausedIt": "Cosa l’ha causata",
+      "nextTimeStrategy": "Strategia per la prossima volta",
+      "preparation": "Preparazione"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Funkció",
+      "generic": "Általános AI",
+      "minutes": "Jegyzőkönyv AI",
+      "transcription": "Egyszerű átirat-eszköz"
+    },
+    "rows": [
+      {
+        "a": "Igen",
+        "b": "Nem (kézi bevitel kell)",
+        "c": "Igen",
+        "k": "Hang → Szöveg"
+      },
+      {
+        "a": "Nem",
+        "b": "Igen (de a kontextus eltolódhat)",
+        "c": "Igen (megbeszélésekre optimalizált)",
+        "k": "Összegzés / Vázlat"
+      },
+      {
+        "a": "Nem",
+        "b": "Igen (gyakran kétértelmű)",
+        "c": "Igen (egyértelmű kinyerés + címkézés)",
+        "k": "Döntés / feladat kinyerés"
+      },
+      {
+        "a": "Nem",
+        "b": "Igen (szintaktikai eltérés kockázata)",
+        "c": "Igen (fő nyelvek + kontextus-érzékeny)",
+        "k": "Többnyelvű támogatás"
+      }
+    ],
+    "title": "Különbségek: Átirat eszközök / Általános AI / Jegyzőkönyv AI"
+  },
+  "cta": {
+    "downloadIOS": "iOS verzió letöltése",
+    "openBrowser": "Megnyitás böngészőben"
+  },
+  "hero": {
+    "h1": "Mi a Jegyzőkönyv AI? Alapok és előnyök bevezetés előtt",
+    "kicker": "Jegyzőkönyv AI",
+    "tagline": "„Egy érintéssel értelmes jegyzőkönyv.” Tiszta, lényegi útmutató kezdőknek."
+  },
+  "intro": {
+    "h2": "Bevezetés",
+    "p1": "Köszönjük, hogy elolvassa ezt a cikket. ...",
+    "p2": "Vagy talán olvasóként ...",
+    "p3": {
+      "bold": "értelmes jegyzőkönyvet",
+      "mid": "segít készíteni",
+      "post": "egy érintéssel — a világosságra és eredményekre fókuszálva.",
+      "pre": "Ebben a cikkben megmutatjuk, hogyan"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (marketingvezető)",
+      "Jordan (e-kereskedelem)",
+      "Sam (kiskereskedelmi műveletek)",
+      "Taylor (termékmenedzser)",
+      "Riley (adatok)"
+    ],
+    "coreMessage": "Költse okosan — a világosság előzze meg a gyorsaságot. Vállaljuk, hogy „ki mit csinál, meddig”, és tartsuk a meetingeket 30 perc alatt.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Teendők",
+      "attendees": "Résztvevők:",
+      "closingMessage": "Záró üzenet",
+      "concerns": "Aggályok",
+      "decisions": "Döntések",
+      "discussion": "Megbeszélés",
+      "keyMessages": "Fő üzenetek"
+    },
+    "meetingTitle": "Okosóra heti értékesítési áttekintés",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — A/B teszt indítása 2025-10-15-ig",
+          "Riley — CTR elemzés 2025-10-17-ig"
+        ],
+        "concerns": [
+          "Reklámfáradtság, ha nincs kreatív frissítés"
+        ],
+        "decisions": [
+          "Online hirdetési keret növelése 15%-kal két hétre"
+        ],
+        "discussion": [
+          "Munkamenetek +18% ..."
+        ],
+        "keyMessages": [
+          "Növekedés stabil CAC mellett; skálázás előtt tesztelni"
+        ],
+        "topic": "Online csatorna teljesítménye"
+      },
+      {
+        "actionItems": [
+          "Sam — szállító ETA/logisztika megerősítése 2025-10-14-ig"
+        ],
+        "concerns": [
+          "Átfutási idő kockázata, ha nő a backlog"
+        ],
+        "decisions": [
+          "500 egység utántöltése három üzletben"
+        ],
+        "discussion": [
+          "Készlethiány Shibuyában ..."
+        ],
+        "keyMessages": [
+          "Elveszett eladások megelőzése az üzleti készletek stabilizálásával"
+        ],
+        "topic": "Offline készlet és üzletműködés"
+      },
+      {
+        "actionItems": [
+          "Taylor — kiadási ütemterv véglegesítése 2025-10-13-ig",
+          "Támogatás — FAQ közzététele 2025-10-16-ig",
+          "Marketing — Black Friday vázlat 2025-10-25-ig"
+        ],
+        "decisions": [
+          "Q4 csomag bevezetésének jóváhagyása 2025-10-20-án"
+        ],
+        "discussion": [
+          "v1.2 javítja az akkumulátor merülését ..."
+        ],
+        "keyMessages": [
+          "Termékfejlesztések összekapcsolása időszerű promóciókkal"
+        ],
+        "topic": "Firmware v1.2 és Q4 csomag bevezetés"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Bevezetés"
+  },
+  "samples": {
+    "generic": {
+      "body": "A csapat áttekintette ...",
+      "h3": "Általános AI kimenet — példa",
+      "note": "Tiszta szöveg, de nem ad egyértelmű választ arra, „ki mit csinál meddig”."
+    },
+    "h2": "Forrásszöveg és mintakimenetek",
+    "meetingSample": "Meeting hangminta",
+    "pretty": {
+      "h3": "Jegyzőkönyv AI kimenet — példa"
+    },
+    "transcript": {
+      "full": "Alex (marketingvezető): ... (rövidítve)",
+      "preview": "Rendben, itt az idő ..."
+    }
+  },
+  "seo": {
+    "description": "Egy érintéssel értelmes jegyzőkönyv. Egyszerű bemutató a Jegyzőkönyv AI-ról: alapok, különbségek más eszközökhöz és példák; {{date}}-ig {{users}} felhasználó bizalmával.",
+    "ld": {
+      "description": "Egy érintéssel értelmes jegyzőkönyv. Egyszerű bemutató a Jegyzőkönyv AI-ról, különbségeiről és példákról.",
+      "headline": "Mi a Jegyzőkönyv AI? Alapok és előnyök bevezetés előtt"
+    },
+    "ogDescription": "Egy érintéssel értelmes jegyzőkönyv. Ismerd meg a Jegyzőkönyv AI-t, különbségeit és mintáit.",
+    "ogTitle": "Mi a Jegyzőkönyv AI? Alapok és előnyök bevezetés előtt",
+    "title": "Mi a Jegyzőkönyv AI? Alapok és előnyök bevezetés előtt | Jegyzőkönyv AI Blog"
+  },
+  "transcript": {
+    "close": "Teljes szöveg bezárása",
+    "expand": "Teljes szöveg megnyitása"
+  },
+  "what": {
+    "footnote": "※ {{date}} állapot szerint (iOS Áruház adatai)",
+    "h2": "Mi a Jegyzőkönyv AI?",
+    "p1": "A Jegyzőkönyv AI egy AI-alapú eszköz, amely ...",
+    "p2": "A Jegyzőkönyv AI-val automatikusan létrehozhatod ..."
+  },
+  "wrap": {
+    "h2": "Összegzés",
+    "p": "Hogy tetszik? Ezzel a struktúrával bárki azonnal látja, kinek mi a feladata. A jegyzőkönyv olvasnivalóból cselekvési tervvé válik, amely előreviszi a csapatot. Próbáld ki a Jegyzőkönyv AI-t."
+  }
+}

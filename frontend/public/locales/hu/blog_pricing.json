@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "Jegyzőkönyv AI Főoldal"
+  },
+  "compare": {
+    "foot": "Források: az Otter és a Notta hivatalos árazási oldalai.",
+    "h2": "Jegyzőkönyv AI vs. Otter vs. Notta — Árak röviden",
+    "lastUpdated": "Utoljára frissítve: 2025. okt. 31.",
+    "note": "Fő árak és kvóták (USD). A versenytársak jellemzően havonta nullázzák a kvótát, átvitel nélkül.",
+    "rows": [
+      {
+        "billing": "Egyszeri időcsomagok + előfizetések",
+        "cheapest": "Trial 120 perc / $1.99 (lejárat nélkül)",
+        "free": "Napi 3 perces jegy",
+        "limits": "Az időcsomagok nem járnak le. Az előfizetések korlátlanok.",
+        "service": "Jegyzőkönyv AI",
+        "unlimited": "Igen — $16.99/hó vagy $149.99/év"
+      },
+      {
+        "billing": "Felhasználónkénti előfizetés",
+        "cheapest": "Pro — $16.99/hó vagy $8.33/hó (éves)",
+        "free": "300 perc/hó, legfeljebb 30 perc/beszélgetés",
+        "limits": "Nincs átvitel; meetingenkénti korlát",
+        "service": "Otter",
+        "unlimited": "Nem — Pro 1200 perc/hó; Business 6000 import perc/hó"
+      },
+      {
+        "billing": "Felhasználónkénti előfizetés",
+        "cheapest": "Pro — $13.49/hó (havi) vagy $8.17/hó (éves)",
+        "free": "120 perc/hó, legfeljebb 3 perc/felvétel",
+        "limits": "Nincs átvitel; legfeljebb 5 óra/felvétel; fájlfeltöltési kvóták",
+        "service": "Notta",
+        "unlimited": "Business — Korlátlan (éves $16.67/hó; havi magasabb)"
+      }
+    ],
+    "tableHead": [
+      "Szolgáltatás",
+      "Ingyenes csomag",
+      "Legolcsóbb fizetős",
+      "Korlátlan használat",
+      "Jelentős korlátozások",
+      "Számlázási mód"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "iOS app letöltése",
+    "openBrowser": "Megnyitás böngészőben"
+  },
+  "hero": {
+    "h1": "Jegyzőkönyv AI árak (2025)",
+    "kicker": "Árazás",
+    "tagline": "Válassz lejárat nélküli időcsomagokat, vagy legyen teljesen korlátlan havi/éves előfizetésed."
+  },
+  "intro": {
+    "h2": "Melyik csomag illik hozzád?",
+    "p1": "Négy opciót kínálunk, igazítva ahhoz, milyen gyakran meetingelsz."
+  },
+  "meta": {
+    "category": "Árazás",
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Útmutató"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Árak"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Éves"
+    },
+    "bullets": [
+      "Lejárat nélküli időcsomagok: egyszer veszed, bármikor használod",
+      "Előfizetéssel korlátlan használat",
+      "iOS és Web, többnyelvű kimenet"
+    ],
+    "free": {
+      "badge": "Napi ingyenes jegy",
+      "text": "Fizetés nélkül is kapsz minden nap egy 3 perces ingyen jegyet a Jegyzőkönyv AI kipróbálására."
+    },
+    "h3_subs": "Előfizetés típusa",
+    "h3_timepacks": "Időcsomag típusa",
+    "light": {
+      "detail": "1200 perc / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Havi"
+    },
+    "subs_note": "Az előfizetések valóban korlátlanok — nincs havi plafon.",
+    "timepacks_note": "A megvásárolt percek nem járnak le. Bármikor generálhatsz AI-jegyzőkönyvet felvételekből.",
+    "trial": {
+      "detail": "120 perc / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Lejárat nélküli időcsomagok és tényleg korlátlan előfizetések. Nézd meg a Jegyzőkönyv AI összehasonlítását az Otterrel és a Nottával ár, kvóták és átvitel terén.",
+    "ld": {
+      "description": "Négy egyenes csomag: két egyszeri időcsomag (lejárat nélkül) és két korlátlan előfizetés — plusz összehasonlítás az Otterrel és a Nottával.",
+      "headline": "Jegyzőkönyv AI árak"
+    },
+    "ogDescription": "Lejárat nélküli csomagok + korlátlan előfizetések. Gyors összehasonlítás: Otter & Notta.",
+    "ogTitle": "Jegyzőkönyv AI árak",
+    "title": "Jegyzőkönyv AI árak — egyszerű csomagok minden meetingstílushoz"
+  },
+  "why": {
+    "h2": "Miért így terveztük a csomagokat",
+    "items": [
+      "Napi meetingek: válaszd a Korlátlant a kiszámíthatóságért.",
+      "Alkalmankénti meetingek: egyszer vedd meg a Lightot — lejárat nélkül.",
+      "Csak próbálod: Trial csomag + napi 3 perces jegy."
+    ]
+  }
+}

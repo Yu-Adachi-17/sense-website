@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Hiba a felhasználói adatok lekérésekor",
+  "unsupported_file_format": "Nem támogatott fájlformátum. Használjon m4a, webm, mp3, wav vagy ogg formátumot.",
+
+  "minutes": {
+    "minutesTitleFallback": "Jegyzőkönyv",
+    "noContentProvided": "Nem áll rendelkezésre tartalom",
+    "noContentProvidedTitle": "Nem áll rendelkezésre tartalom",
+    "topic": "Téma",
+    "topicFallback": "Téma",
+
+    "discussion": "Megbeszélés",
+    "decisions": "Döntések",
+    "actionItems": "Teendők",
+    "concerns": "Aggályok",
+    "summary": "Összefoglaló",
+    "proposal": "Javaslat",
+    "background": "Háttér",
+    "discussionPoints": "Megvitatandó pontok",
+    "decisionsAndTasks": "Döntések és feladatok",
+    "coreProblem": "Fő probléma",
+    "expectedResult": "Várt eredmény",
+
+    "overview": "Áttekintés",
+    "sections": "Szakaszok",
+    "topics": "Témák",
+    "items": "Tételek",
+    "content": "Tartalom",
+    "body": "Törzs",
+
+    "brainstorming": {
+      "problemToSolve": "Megoldandó probléma",
+      "topIdea": "Legjobb ötlet",
+      "meritsAndEffects": "Előnyök és hatások",
+      "drawbacksAndRisks": "Hátrányok és kockázatok",
+      "runnerUpIdea": "Második legjobb ötlet",
+      "allIdeas": "Összes ötlet",
+      "ideaTitle": "Ötlet címe"
+    },
+
+    "jobInterview": {
+      "motivation": "Motiváció",
+      "careerSummary": "Karrierösszefoglaló",
+      "successes": "Sikerek",
+      "failures": "Kudarcok",
+      "strengths": "Erősségek és készségek",
+      "weaknesses": "Gyengeségek és fejlesztendő területek",
+      "values": "Munkahelyi értékek",
+      "careerVision": "Karriervízió",
+      "understandingOfCompany": "A vállalat megértése",
+      "workStyleAndConditions": "Munkastílus és feltételek",
+      "applicantQuestions": "Pályázói kérdések (Q&A)",
+      "passionMessage": "Szenvedély és üzenet"
+    },
+
+    "lecture": {
+      "objectives": "Oktatási célok",
+      "procedures": "Eljárások",
+      "notesAndRemarks": "Jegyzetek és megjegyzések",
+      "examplesAndScenarios": "Példák és forgatókönyvek",
+      "dos": "Amit tegyünk",
+      "donts": "Amit ne tegyünk",
+      "tipsAndInsights": "Tippek és felismerések"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "Legutóbbi siker",
+      "contributingFactors": "Hozzájáruló tényezők",
+      "scalableAction": "Skálázható lépés",
+      "managerFeedback": "Vezetői visszajelzés",
+      "challengeFaced": "Szembesült kihívás",
+      "bottleneck": "Szűk keresztmetszet",
+      "improvementStrategy": "Fejlesztési stratégia",
+      "futureExpectation": "Jövőbeli elvárás",
+      "reasonForExpectation": "Az elvárás oka",
+      "preparationForFuture": "Felkészülés a jövőre",
+      "concern": "Aggály",
+      "reasonForConcern": "Aggály oka",
+      "mitigationIdeas": "Enyhítési ötletek",
+      "mentalAspects": "Mentális szempontok",
+      "feelingsAndBackground": "Érzések és háttér",
+      "emotionalChange": "Érzelmi változás",
+      "nextAction": "Következő lépés",
+      "coreEmotion": "Alapérzelem",
+      "topicGroup": "Témacsoport",
+      "expectation": "Elvárás",
+      "worry": "Aggodalom",
+      "why": "Miért",
+      "whatCausedIt": "Mi okozta",
+      "nextTimeStrategy": "Stratégia legközelebbre",
+      "preparation": "Felkészülés"
+    }
+  }
+}

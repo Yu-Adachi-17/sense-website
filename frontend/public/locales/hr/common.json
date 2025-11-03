@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Pogreška pri dohvaćanju korisničkih podataka",
+  "unsupported_file_format": "Nepodržan format datoteke. Koristite m4a, webm, mp3, wav ili ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Zapisnik",
+    "noContentProvided": "Sadržaj nije dostavljen",
+    "noContentProvidedTitle": "Sadržaj nije dostavljen",
+    "topic": "Tema",
+    "topicFallback": "Tema",
+
+    "discussion": "Rasprava",
+    "decisions": "Odluke",
+    "actionItems": "Zadaci",
+    "concerns": "Zabrinutosti",
+    "summary": "Sažetak",
+    "proposal": "Prijedlog",
+    "background": "Pozadina",
+    "discussionPoints": "Točke rasprave",
+    "decisionsAndTasks": "Odluke i zadaci",
+    "coreProblem": "Glavni problem",
+    "expectedResult": "Očekivani rezultat",
+
+    "overview": "Pregled",
+    "sections": "Odjeljci",
+    "topics": "Teme",
+    "items": "Stavke",
+    "content": "Sadržaj",
+    "body": "Tijelo teksta",
+
+    "brainstorming": {
+      "problemToSolve": "Problem za rješavanje",
+      "topIdea": "Najbolja ideja",
+      "meritsAndEffects": "Prednosti i učinci",
+      "drawbacksAndRisks": "Nedostaci i rizici",
+      "runnerUpIdea": "Drugoplasirana ideja",
+      "allIdeas": "Sve ideje",
+      "ideaTitle": "Naslov ideje"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivacija",
+      "careerSummary": "Sažetak karijere",
+      "successes": "Uspjesi",
+      "failures": "Neuspjesi",
+      "strengths": "Snage i vještine",
+      "weaknesses": "Slabosti i područja za napredak",
+      "values": "Vrijednosti na poslu",
+      "careerVision": "Vizija karijere",
+      "understandingOfCompany": "Razumijevanje tvrtke",
+      "workStyleAndConditions": "Stil i uvjeti rada",
+      "applicantQuestions": "Pitanja kandidata (Q&A)",
+      "passionMessage": "Strast i poruka"
+    },
+
+    "lecture": {
+      "objectives": "Ciljevi predavanja",
+      "procedures": "Postupci",
+      "notesAndRemarks": "Bilješke i napomene",
+      "examplesAndScenarios": "Primjeri i scenariji",
+      "dos": "Što činiti",
+      "donts": "Što ne činiti",
+      "tipsAndInsights": "Savjeti i uvidi"
+    },
+
+    "oneonone": {
+      "title": "1 na 1",
+      "recentSuccess": "Nedavni uspjeh",
+      "contributingFactors": "Doprinosni čimbenici",
+      "scalableAction": "Skalabilna akcija",
+      "managerFeedback": "Povratna informacija voditelja",
+      "challengeFaced": "Suočeni izazov",
+      "bottleneck": "Usko grlo",
+      "improvementStrategy": "Strategija poboljšanja",
+      "futureExpectation": "Buduće očekivanje",
+      "reasonForExpectation": "Razlog očekivanja",
+      "preparationForFuture": "Priprema za budućnost",
+      "concern": "Zabrinutost",
+      "reasonForConcern": "Razlog zabrinutosti",
+      "mitigationIdeas": "Ideje za ublažavanje",
+      "mentalAspects": "Mentalni aspekti",
+      "feelingsAndBackground": "Osjećaji i pozadina",
+      "emotionalChange": "Emocionalna promjena",
+      "nextAction": "Sljedeća akcija",
+      "coreEmotion": "Temeljna emocija",
+      "topicGroup": "Grupa tema",
+      "expectation": "Očekivanje",
+      "worry": "Briga",
+      "why": "Zašto",
+      "whatCausedIt": "Što je to uzrokovalo",
+      "nextTimeStrategy": "Strategija za sljedeći put",
+      "preparation": "Priprema"
+    }
+  }
+}

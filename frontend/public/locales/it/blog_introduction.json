@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Funzione",
+      "generic": "AI generica",
+      "minutes": "Verbali IA",
+      "transcription": "Strumento di pura trascrizione"
+    },
+    "rows": [
+      {
+        "a": "Sì",
+        "b": "No (richiede input manuale)",
+        "c": "Sì",
+        "k": "Audio → Testo"
+      },
+      {
+        "a": "No",
+        "b": "Sì (ma il contesto può cambiare)",
+        "c": "Sì (ottimizzato per riunioni)",
+        "k": "Sintesi / Scaletta"
+      },
+      {
+        "a": "No",
+        "b": "Sì (spesso ambiguo)",
+        "c": "Sì (estrazione chiara + tagging)",
+        "k": "Estrazione decisioni / azioni"
+      },
+      {
+        "a": "No",
+        "b": "Sì (rischio di deriva sintattica)",
+        "c": "Sì (lingue principali + sensibile al contesto)",
+        "k": "Supporto multilingue"
+      }
+    ],
+    "title": "Differenze: Trascrittori / AI generica / Verbali IA"
+  },
+  "cta": {
+    "downloadIOS": "Scarica versione iOS",
+    "openBrowser": "Apri versione web"
+  },
+  "hero": {
+    "h1": "Che cos’è Verbali IA? Basi e vantaggi prima dell’adozione",
+    "kicker": "Verbali IA",
+    "tagline": "“Un tap per verbali significativi.” Spiegazioni chiare per chi inizia."
+  },
+  "intro": {
+    "h2": "Introduzione",
+    "p1": "Grazie per aver letto questo articolo. ...",
+    "p2": "Oppure, come lettore ...",
+    "p3": {
+      "bold": "verbali significativi",
+      "mid": "ti aiuta a produrre",
+      "post": "con un solo tap — puntando su chiarezza e risultati.",
+      "pre": "In questo articolo mostriamo come"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (Responsabile Marketing)",
+      "Jordan (E-commerce)",
+      "Sam (Operazioni Retail)",
+      "Taylor (PM)",
+      "Riley (Dati)"
+    ],
+    "coreMessage": "Spendiamo con intelligenza — la chiarezza prima della velocità. Impegniamoci a «chi fa cosa entro quando» e manteniamo le riunioni entro 30 minuti.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Azioni",
+      "attendees": "Partecipanti:",
+      "closingMessage": "Messaggio finale",
+      "concerns": "Preoccupazioni",
+      "decisions": "Decisioni",
+      "discussion": "Discussione",
+      "keyMessages": "Messaggi chiave"
+    },
+    "meetingTitle": "Review settimanale vendite smartwatch",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — avviare A/B test entro il 2025-10-15",
+          "Riley — consegnare analisi CTR entro il 2025-10-17"
+        ],
+        "concerns": [
+          "Affaticamento annunci se i creativi non vengono aggiornati"
+        ],
+        "decisions": [
+          "Aumentare del 15% il budget adv online per due settimane"
+        ],
+        "discussion": [
+          "Sessioni +18% ..."
+        ],
+        "keyMessages": [
+          "Crescere mantenendo CAC stabile; test prima di scalare"
+        ],
+        "topic": "Performance canale online"
+      },
+      {
+        "actionItems": [
+          "Sam — confermare ETA/logistica fornitore entro il 2025-10-14"
+        ],
+        "concerns": [
+          "Rischio di lead time se cresce il backlog"
+        ],
+        "decisions": [
+          "Riassortire 500 unità in tre negozi"
+        ],
+        "discussion": [
+          "Stockout a Shibuya ..."
+        ],
+        "keyMessages": [
+          "Evitare vendite perse stabilizzando lo stock in negozio"
+        ],
+        "topic": "Stock offline e operazioni di negozio"
+      },
+      {
+        "actionItems": [
+          "Taylor — finalizzare piano rilascio entro il 2025-10-13",
+          "Supporto — pubblicare FAQ entro il 2025-10-16",
+          "Marketing — bozza Black Friday entro il 2025-10-25"
+        ],
+        "decisions": [
+          "Approvare lancio bundle Q4 il 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 corregge consumo batteria ..."
+        ],
+        "keyMessages": [
+          "Abbinare i miglioramenti di prodotto a promozioni tempestive"
+        ],
+        "topic": "Firmware v1.2 e lancio bundle Q4"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Introduzione"
+  },
+  "samples": {
+    "generic": {
+      "body": "Il team ha rivisto ...",
+      "h3": "Esempio output AI generica",
+      "note": "Si legge bene, ma non risponde chiaramente a “chi fa cosa entro quando”."
+    },
+    "h2": "Testo sorgente e output di esempio",
+    "meetingSample": "Campione audio della riunione",
+    "pretty": {
+      "h3": "Esempio output Verbali IA"
+    },
+    "transcript": {
+      "full": "Alex (Responsabile Marketing): ... (ridotto)",
+      "preview": "Bene, è ora ..."
+    }
+  },
+  "seo": {
+    "description": "Un tap per verbali significativi. Semplice introduzione a Verbali IA: basi, differenze rispetto ad altri strumenti ed esempi; fidato da {{users}} utenti (al {{date}}).",
+    "ld": {
+      "description": "Un tap per verbali significativi. Introduzione semplice a Verbali IA, differenze ed esempi.",
+      "headline": "Che cos’è Verbali IA? Basi e vantaggi prima dell’adozione"
+    },
+    "ogDescription": "Un tap per verbali significativi. Comprendi Verbali IA, le differenze e gli esempi.",
+    "ogTitle": "Che cos’è Verbali IA? Basi e vantaggi prima dell’adozione",
+    "title": "Che cos’è Verbali IA? Basi e vantaggi prima dell’adozione | Verbali IA Blog"
+  },
+  "transcript": {
+    "close": "Chiudi testo completo",
+    "expand": "Espandi testo completo"
+  },
+  "what": {
+    "footnote": "※ Al {{date}} (in base ai dati dell’App Store iOS)",
+    "h2": "Che cos’è Verbali IA?",
+    "p1": "Verbali IA è uno strumento basato su AI che ...",
+    "p2": "Con Verbali IA puoi generare automaticamente ..."
+  },
+  "wrap": {
+    "h2": "Chiusura",
+    "p": "Che ne pensi? Con questa struttura chiunque capisce subito chi deve fare cosa. I verbali passano da testo da leggere a piano d’azione che fa avanzare il team. Prova Verbali IA."
+  }
+}

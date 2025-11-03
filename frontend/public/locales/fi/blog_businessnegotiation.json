@@ -1,0 +1,111 @@
+{
+  "a11y": {
+    "home": "Takaisin Pöytäkirja AI-etusivulle"
+  },
+  "byline": {
+    "name": "Kirjoittanut Yu Adachi",
+    "title": "Toimitusjohtaja, Sense G.K."
+  },
+  "cta": {
+    "downloadIOS": "Lataa iOS-sovellus",
+    "openBrowser": "Avaa verkkosovellus"
+  },
+  "diversity": {
+    "core": {
+      "h3": "Yleiset kokoukset",
+      "items": {
+        "0": "Säännölliset standupit: tulokset, ongelmat ja toimet",
+        "1": "Aivoriihi: ideoiden laajentaminen ja fokusoiminen",
+        "2": "Neuvottelu: etujen yhteensovitus ja sopuun pääsy"
+      }
+    },
+    "h2": "Kokouksia on monenlaisia — neuvottelu on tinkimistä",
+    "p1": "Kun tavoite muuttuu, myös arvokas lopputulos muuttuu. Neuvotteluissa itse tinkiminen on ydin.",
+    "wide": {
+      "h3": "“Kokous” laajassa merkityksessä",
+      "items": {
+        "0": "1-to-1: tuloskatsaus, seuraavat tavoitteet, haasteiden jakaminen",
+        "1": "Haastattelu: vaatimusten ja sopivuuden yhteensovitus",
+        "2": "Esitys: ongelma ja ratkaisu",
+        "3": "Koulutus: prosessien/toimintojen siirto"
+      }
+    }
+  },
+  "example": {
+    "block": "Yritys A: Edellisessä tuotteessanne oli bugi — se aiheutti meille todellista haittaa. Olette meille velkaa; toimittakaa ensi viikoksi. Hinta on 1 000 $.\\nYrityksemme: Painamme sisäisesti, jotta toimitus onnistuu ensi viikolla. Vastineeksi, voimmeko nostaa 1 200 $:iin? Pyydämme harkitsemaan.\\nYritys A: Jos voitte taata ensi viikon toimituksen, harkitsemme. Lähettäkää vastaus sähköpostitse tänään.",
+    "h2": "Esimerkki (pidä avainvaihdot sanatarkasti)",
+    "p1": "Kun nämä “avainkierrokset” säilytetään alkuperäisin sanamuodoin, päätöksentekijät voivat arvioida järkevyyden täydellisessä kontekstissa."
+  },
+  "hero": {
+    "h1": "Miksi Pöytäkirja AI auttaa kirjoittamaan parhaat neuvottelumuistiot",
+    "kicker": "Pöytäkirja AI-blogi",
+    "tagline": "Neuvottelu on etujen kamppailua. Vahva muistio ei vain listaa päätöksiä ja tehtäviä — se tallentaa myös kontekstin ja sävyn. Tässä lähestymistapa ja miten toteuttaa se Pöytäkirja AI:lla."
+  },
+  "limits": {
+    "generic": {
+      "h3": "Tyypillinen “ohut” muistio",
+      "items": {
+        "0": "Listaa päätökset ilman perusteluja tai juonta",
+        "1": "Epäselvää, kuka pyysi mitä ja missä myönnytyksiä tehtiin",
+        "2": "Epäselvyys siitä, mikä on sopimatta tai pysäytettynä"
+      }
+    },
+    "h2": "Miksi “vain päätökset” -muistiot ovat heikkoja",
+    "optimized": {
+      "h3": "Neuvotteluihin rakennetut muistiot",
+      "items": {
+        "0": "Aikajana vaatimuksista/myönnytyksistä/ehtomuutoksista (määräaika/hinta/laajuus/vastuu)",
+        "1": "Syy, oletukset ja riskit kirjattuna lähelle jokaista päätöstä",
+        "2": "Selkeä jako: sovittu/ei sovittu/parkissa vastuuhenkilöineen ja eräpäivineen"
+      }
+    },
+    "p1": "Kaava “keskustelu/päätökset/toimenpiteet/avoimet asiat” pudottaa usein taustan, sävyn ja myönnytysten historian. Seurauksena väärinymmärryksiä, turhaa edestakaista ja “sanottu/ei sanottu” -riski."
+  },
+  "nav": {
+    "blog": "Blogi",
+    "current": "Miksi Pöytäkirja AI auttaa kirjoittamaan parhaat neuvottelumuistiot"
+  },
+  "negotiation": {
+    "h2": "Mitä neuvottelu on?",
+    "p1": "Lyhyesti: yrityksesi etujen suojaamista ja kasvattamista. Se ei ole yksisuuntainen ilmoitus; yhteistä pohjaa haetaan vaihtamalla “vaatimuksia” ja “myönnytyksiä” ehdoista kuten määräaika, hinta, laajuus ja riski."
+  },
+  "recap": {
+    "focus": "Tällä kertaa sukellamme syvälle neuvotteluihin.",
+    "h2": "Pikakertaus",
+    "p1": {
+      "link": "lue täältä",
+      "post": ".",
+      "pre": "Viimeksi näytimme, miten AI-muistio toimii kaikentyyppisiin kokouksiin. Jos kiinnostaa,"
+    },
+    "points": {
+      "0": "Kokoukset ovat monenlaisia, joten optimaalinen muistioformaatti riippuu tavoitteesta.",
+      "1": "Yleispohjat auttavat, mutta yksityiskohtien taso on viritettävä käyttötapauksen mukaan.",
+      "2": "“Tallenteesta luettavaksi” kohti “suunnitelmaa toiminnaksi”.",
+      "3": "Pöytäkirja AI mukauttaa ulostulon kokouksen tavoitteeseen."
+    }
+  },
+  "seo": {
+    "description": "Neuvottelut tarvitsevat muistiot, jotka tallentavat päätökset, tehtävät, kontekstin, sävyn ja myönnytysten historian. Käytännön opas Pöytäkirja AI:lla.",
+    "ld": {
+      "description": "Neuvottelun ydin muistioissa: vaatimukset, myönnytykset ja konteksti — Pöytäkirja AI:lla.",
+      "headline": "Miksi Pöytäkirja AI auttaa kirjoittamaan parhaat neuvottelumuistiot"
+    },
+    "ogDescription": "Hyvästi “ohuet” muistiot: säilytä vaihto ja konteksti, jotta päätökset syntyvät nopeammin ja paremmin.",
+    "ogTitle": "Miksi Pöytäkirja AI auttaa kirjoittamaan parhaat neuvottelumuistiot",
+    "title": "Miksi Pöytäkirja AI auttaa kirjoittamaan parhaat neuvottelumuistiot | Kokousmuistioiden blogi"
+  },
+  "why": {
+    "h2": "Miksi Pöytäkirja AI on vahva neuvotteluissa",
+    "items": {
+      "0": "Yhteenvetää vaatimusten/myönnytysten vaihdot ja säilyttää avainkohdat sanatarkasti (välttää “sanottu/ei sanottu”).",
+      "1": "Järjestää ehtomuutokset aikajärjestykseen (määräaika/hinta/laajuus/vastuu).",
+      "2": "Dokumentoi syyt, oletukset ja riskit päätösten vieressä.",
+      "3": "Erottaa sovittu/ei sovittu/parkissa ja nimeää vastuuhenkilöt sekä määräajat.",
+      "4": "Sovittaa vastapuolen pyynnöt omiin sitoumuksiinne selkeää seurantaa varten."
+    }
+  },
+  "wrap": {
+    "h2": "Loppusanat",
+    "p": "Neuvottelumuistiot ovat vahvempia, kun ne säilyttävät keskustelun ja kontekstin — eivät vain päätöksiä. Se nopeuttaa arviointia ja vähentää uudelleentyötä. Tee siitä standardisi Pöytäkirja AI:lla."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Miért ajánljuk az iPhone minutes-AI alkalmazást (2025)",
+    "description": "5 egyenes ok: egyszerű felület, olvasható/akció-orientált jegyzőkönyvek, meetingenkénti formátumok, beépített follow-through és rugalmas árak. Próbáld ki a Jegyzőkönyv AI-t iPhone-on.",
+    "ogTitle": "A mi választásunk: minutes-AI iPhone-ra",
+    "ogDescription": "Egyérintéses rögzítés, a következő lépésekhez vezető kimenetek, okos formátumok, in-app follow-through és használathoz illeszkedő árak. Jegyzőkönyv AI iPhone-on.",
+    "ld": {
+      "headline": "Miért az iPhone minutes-AI az ajánlásunk",
+      "description": "Vásárlási útmutató a Jegyzőkönyv AI-hoz: gyors használat, tiszta kimenetek, szabott formátumok, meeting utáni akciók és korrekt árképzés."
+    }
+  },
+  "aria": { "home": "Jegyzőkönyv AI Főoldal" },
+  "nav": { "blog": "Blog", "recommend": "Ajánló" },
+  "hero": {
+    "kicker": "Vásárlási útmutató",
+    "h1": "Miért ajánljuk az iPhone minutes-AI alkalmazást",
+    "tagline": "Keresési szándékra építve: a legjobb minutes-AI iPhone-ra és hogyan áll az ára — mellébeszélés nélkül."
+  },
+  "reasons": {
+    "h2": "Öt egyenes ok",
+    "items": [
+      "Egyérintéses rögzítés súrlódás nélkül",
+      "Olyan jegyzőkönyvek, amelyek tényleg a következő lépésekhez vezetnek",
+      "Formátumok meetingenként: Általános, Értékesítés, 1-az-1, Prezentáció, Brainstorm, Interjú",
+      "Project & Strategy follow-through az appon belül",
+      "Rugalmas árak: előfizetés és soha le nem járó időcsomagok"
+    ]
+  },
+  "pricing": {
+    "h2": "Árazásról",
+    "p1": "A napi használók előfizetnek. Az alkalmiak a nem lejáró időcsomagokat választják.",
+    "p2": "Van egy olcsó, 120 perces próba is, hogy elköteleződés előtt validálhass."
+  },
+  "image": { "alt": "Jegyzőkönyv AI iPhone-on", "caption": "Jegyzőkönyv AI iPhone UI." },
+  "steps": {
+    "h2": "Kezdés iPhone-on",
+    "items": ["Töltsd le az appot", "Érints egyet a rögzítéshez", "Válaszd ki a megfelelő formátumot", "Meeting után hozz létre Project/Strategy elemet"],
+    "note": "A meeting hossza a csomagoddal és a fennmaradó egyenleggel arányos."
+  },
+  "notes": {
+    "h2": "Megjegyzések",
+    "items": ["A hálózat és az eszköz befolyásolhatja a minőséget", "A funkciók csomagonként eltérhetnek"],
+    "foot": "Próbáld ki a Jegyzőkönyv AI-t iPhone-on még ma."
+  },
+  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Útmutató", "category": "Alkalmazásajánló" },
+  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS app letöltése" },
+  "brand": "Jegyzőkönyv AI"
+}

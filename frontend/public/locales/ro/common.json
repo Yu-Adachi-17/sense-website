@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Eroare la preluarea datelor utilizatorului",
+  "unsupported_file_format": "Format de fișier neacceptat. Folosiți m4a, webm, mp3, wav sau ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Proces-verbal",
+    "noContentProvided": "Niciun conținut furnizat",
+    "noContentProvidedTitle": "Niciun conținut furnizat",
+    "topic": "Subiect",
+    "topicFallback": "Subiect",
+
+    "discussion": "Discuție",
+    "decisions": "Decizii",
+    "actionItems": "Acțiuni",
+    "concerns": "Îngrijorări",
+    "summary": "Rezumat",
+    "proposal": "Propunere",
+    "background": "Context",
+    "discussionPoints": "Puncte de discuție",
+    "decisionsAndTasks": "Decizii și sarcini",
+    "coreProblem": "Problema principală",
+    "expectedResult": "Rezultatul așteptat",
+
+    "overview": "Prezentare generală",
+    "sections": "Secțiuni",
+    "topics": "Subiecte",
+    "items": "Elemente",
+    "content": "Conținut",
+    "body": "Corp text",
+
+    "brainstorming": {
+      "problemToSolve": "Problemă de rezolvat",
+      "topIdea": "Cea mai bună idee",
+      "meritsAndEffects": "Merite și efecte",
+      "drawbacksAndRisks": "Neajunsuri și riscuri",
+      "runnerUpIdea": "A doua idee ca valoare",
+      "allIdeas": "Toate ideile",
+      "ideaTitle": "Titlul ideii"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivație",
+      "careerSummary": "Rezumat al carierei",
+      "successes": "Reușite",
+      "failures": "Eșecuri",
+      "strengths": "Puncte forte și competențe",
+      "weaknesses": "Puncte slabe și arii de îmbunătățire",
+      "values": "Valori la locul de muncă",
+      "careerVision": "Viziune de carieră",
+      "understandingOfCompany": "Înțelegerea companiei",
+      "workStyleAndConditions": "Stil și condiții de lucru",
+      "applicantQuestions": "Întrebările candidatului (Q&A)",
+      "passionMessage": "Pasiune și mesaj"
+    },
+
+    "lecture": {
+      "objectives": "Obiectivele lecției",
+      "procedures": "Proceduri",
+      "notesAndRemarks": "Note și observații",
+      "examplesAndScenarios": "Exemple și scenarii",
+      "dos": "Ce să faci",
+      "donts": "Ce să eviți",
+      "tipsAndInsights": "Sfaturi și perspective"
+    },
+
+    "oneonone": {
+      "title": "1 la 1",
+      "recentSuccess": "Succes recent",
+      "contributingFactors": "Factori contributivi",
+      "scalableAction": "Acțiune scalabilă",
+      "managerFeedback": "Feedback de la manager",
+      "challengeFaced": "Provocare întâmpinată",
+      "bottleneck": "Blocaj",
+      "improvementStrategy": "Strategie de îmbunătățire",
+      "futureExpectation": "Așteptare viitoare",
+      "reasonForExpectation": "Motivul așteptării",
+      "preparationForFuture": "Pregătire pentru viitor",
+      "concern": "Îngrijorare",
+      "reasonForConcern": "Motivul îngrijorării",
+      "mitigationIdeas": "Idei de atenuare",
+      "mentalAspects": "Aspecte mentale",
+      "feelingsAndBackground": "Sentimente și context",
+      "emotionalChange": "Schimbare emoțională",
+      "nextAction": "Acțiunea următoare",
+      "coreEmotion": "Emoție centrală",
+      "topicGroup": "Grup de subiecte",
+      "expectation": "Așteptare",
+      "worry": "Grijă",
+      "why": "De ce",
+      "whatCausedIt": "Ce a cauzat",
+      "nextTimeStrategy": "Strategie pentru data viitoare",
+      "preparation": "Pregătire"
+    }
+  }
+}

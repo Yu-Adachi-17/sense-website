@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Proces-verbal AI Strategy — transformă minutele în decizii (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy distilează întâlnirile în Boost/Counter/Top Issue plus trei moduri de gândire pentru pași următori clari. SEO pentru căutări: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy în Proces-verbal AI: decizii, nu doar notițe",
+    "ogDescription": "Boost/Counter/Top Issue + gândire Logică/Critică/Laterală pentru rezultate acționabile.",
+    "ld": {
+      "headline": "Proces-verbal AI adaugă Strategy",
+      "description": "Folosește ChatGPT-5 și Gemini 2.5 Pro pentru a converti rapid și clar discuția în decizii."
+    }
+  },
+  "aria": { "home": "Acasă Proces-verbal AI" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Ghid de funcție",
+    "h1": "Strategy pentru Proces-verbal AI",
+    "tagline": "Nu doar minute — Strategy transformă discuția în decizii cu ChatGPT-5 și Gemini 2.5 Pro."
+  },
+  "image": {
+    "alt": "Interfața Proces-verbal AI Strategy",
+    "caption": "Extrage problema centrală și următorii pași dintr-o singură mișcare."
+  },
+  "what": {
+    "h2": "Ce face Strategy",
+    "items": [
+      "Boost: ce funcționează și cum scalăm",
+      "Counter: riscuri și remedieri",
+      "Top Issue: întrebarea esențială",
+      "Moduri de gândire: Logic / Critic / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "Cum începi",
+    "items": [
+      "Generează minute în aplicație sau pe web",
+      "Atinge „Strategy”",
+      "Revizuiește Boost / Counter / Top Issue + 3 moduri",
+      "Lipește în sistemul tău de task-uri"
+    ],
+    "note": "Disponibilitatea și durata depind de plan/cotă."
+  },
+  "features": {
+    "h2": "Repere",
+    "items": [
+      "Orientat spre decizie, nu doar sumarizare",
+      "Optimizat pentru ChatGPT-5 și Gemini 2.5 Pro",
+      "Rezultate scurte și acționabile",
+      "Multilingv pentru echipe globale"
+    ]
+  },
+  "notes": {
+    "h2": "Note",
+    "items": [
+      "Calitatea rezultatului reflectă calitatea inputului",
+      "Folosește șabloane diferite pentru tipuri diferite de întâlniri"
+    ],
+    "foot": "Disponibil pe iOS. Încearcă azi."
+  },
+  "meta": { "h2": "Meta", "published": "Publicat", "type": "Funcție", "category": "Strategy" },
+  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Descarcă aplicația iOS" }
+}

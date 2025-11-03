@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "I modelli di IA dietro Verbali IA",
+    "description": "Perché Verbali IA produce verbali professionali: principio della qualità prima di tutto e modelli attualmente adottati (ChatGPT-5 e Gemini 2.5 Pro).",
+    "ogTitle": "Politica dei modelli in Verbali IA: qualità prima di tutto",
+    "ogDescription": "Rendiamo noti i modelli che utilizziamo—ChatGPT-5 e Gemini 2.5 Pro—per verbali chiari, azionabili e coerenti.",
+    "ld": {
+      "headline": "Modelli di intelligenza artificiale usati in Verbali IA",
+      "description": "Verbali IA mette la qualità al primo posto e attualmente si affida a ChatGPT-5 e Gemini 2.5 Pro per produrre verbali pronti alle decisioni."
+    }
+  },
+  "aria": { "home": "Pagina iniziale di Verbali IA" },
+  "nav": { "blog": "Blog", "aimodel": "Modelli di IA" },
+  "hero": {
+    "kicker": "Dietro le quinte",
+    "h1": "I modelli che usiamo in Verbali IA",
+    "tagline": "Non scegliamo un LLM qualsiasi; selezioniamo ciò che rende i verbali chiari e azionabili. Al momento: ChatGPT-5 e Gemini 2.5 Pro."
+  },
+  "philosophy": {
+    "h2": "Perché mettiamo la qualità al primo posto",
+    "p1": "Molti prodotti scelgono in base ai costi. Noi puntiamo su chiarezza, azionabilità e coerenza, così chi legge sa sempre il prossimo passo.",
+    "p2": "I migliori ingredienti e la cucina migliore non garantiscono da soli un grande piatto: è l’abilità a fare la differenza. Affiniamo scelta dei modelli e prompt per verbali professionali."
+  },
+  "adopted": {
+    "h2": "Modelli adottati (al momento della stesura)",
+    "items": [
+      "ChatGPT-5 (OpenAI): ottimo ragionamento, controllo del tono e struttura affidabile per verbali pronti alla decisione.",
+      "Gemini 2.5 Pro (Google): forte coerenza su contesti lunghi ed estrazione solida dei punti chiave."
+    ],
+    "foot": "Valutiamo continuamente nuovi modelli e passiamo ad essi quando superano la nostra soglia di qualità."
+  },
+  "image": {
+    "alt": "Architettura dei modelli che supporta Verbali IA",
+    "caption": "Selezioniamo i modelli in base a chiarezza e azionabilità — non solo al costo."
+  },
+  "links": {
+    "h2": "Argomenti correlati",
+    "intro": "Introduzione",
+    "nego": "Verbali di negoziazione commerciale"
+  },
+  "meta": { "h2": "Dati", "published": "Data di pubblicazione", "type": "Articolo", "category": "Modelli di IA" },
+  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica l’app iOS" }
+}

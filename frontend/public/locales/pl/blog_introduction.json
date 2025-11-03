@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Funkcja",
+      "generic": "Ogólna AI",
+      "minutes": "Protokół AI",
+      "transcription": "Zwykłe narzędzie transkrypcji"
+    },
+    "rows": [
+      {
+        "a": "Tak",
+        "b": "Nie (wymaga ręcznego wprowadzenia)",
+        "c": "Tak",
+        "k": "Audio → Tekst"
+      },
+      {
+        "a": "Nie",
+        "b": "Tak (ale kontekst może się zmienić)",
+        "c": "Tak (zoptymalizowane pod spotkania)",
+        "k": "Streszczenie / Konspekt"
+      },
+      {
+        "a": "Nie",
+        "b": "Tak (często niejednoznaczne)",
+        "c": "Tak (jasna ekstrakcja + tagowanie)",
+        "k": "Ekstrakcja decyzji / działań"
+      },
+      {
+        "a": "Nie",
+        "b": "Tak (ryzyko dryfu składni)",
+        "c": "Tak (główne języki + wrażliwe na kontekst)",
+        "k": "Wsparcie wielu języków"
+      }
+    ],
+    "title": "Różnice: Narzędzia transkrypcji / Ogólna AI / Protokół AI"
+  },
+  "cta": {
+    "downloadIOS": "Pobierz wersję iOS",
+    "openBrowser": "Otwórz wersję przeglądarkową"
+  },
+  "hero": {
+    "h1": "Czym jest Protokół AI? Podstawy i korzyści przed wdrożeniem",
+    "kicker": "Protokół AI",
+    "tagline": "„Jednym tapnięciem do wartościowych protokołów.” Jasne wyjaśnienia dla początkujących."
+  },
+  "intro": {
+    "h2": "Wprowadzenie",
+    "p1": "Dziękujemy za odwiedziny w tym artykule. ...",
+    "p2": "Albo jako czytelnik ...",
+    "p3": {
+      "bold": "wartościowe protokoły",
+      "mid": "pomaga tworzyć",
+      "post": "jednym tapnięciem — z naciskiem na klarowność i rezultaty.",
+      "pre": "W tym artykule pokażemy, jak"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (Szef marketingu)",
+      "Jordan (E-commerce)",
+      "Sam (Operacje detaliczne)",
+      "Taylor (PM)",
+      "Riley (Dane)"
+    ],
+    "coreMessage": "Wydawajmy mądrze — klarowność ponad szybkość. Ustalmy „kto co robi i do kiedy” i trzymajmy spotkania w 30 minutach.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Zadania",
+      "attendees": "Uczestnicy:",
+      "closingMessage": "Wiadomość końcowa",
+      "concerns": "Obawy",
+      "decisions": "Decyzje",
+      "discussion": "Dyskusja",
+      "keyMessages": "Kluczowe komunikaty"
+    },
+    "meetingTitle": "Cotygodniowy przegląd sprzedaży smartwatchy",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — uruchomić test A/B do 2025-10-15",
+          "Riley — dostarczyć analizę CTR do 2025-10-17"
+        ],
+        "concerns": [
+          "Zmęczenie reklamami, jeśli kreacje nie będą odświeżane"
+        ],
+        "decisions": [
+          "Zwiększyć budżet reklam online o 15% na dwa tygodnie"
+        ],
+        "discussion": [
+          "Sesje +18% ..."
+        ],
+        "keyMessages": [
+          "Rosnąć przy stabilnym CAC; testować przed skalowaniem"
+        ],
+        "topic": "Wydajność kanału online"
+      },
+      {
+        "actionItems": [
+          "Sam — potwierdzić ETA/logistykę od dostawcy do 2025-10-14"
+        ],
+        "concerns": [
+          "Ryzyko wydłużenia lead time przy wzroście backlogu"
+        ],
+        "decisions": [
+          "Uzupełnić 500 sztuk w trzech sklepach"
+        ],
+        "discussion": [
+          "Braki towaru w Shibuyi ..."
+        ],
+        "keyMessages": [
+          "Uniknąć utraconej sprzedaży stabilizując stany magazynowe"
+        ],
+        "topic": "Stan magazynu offline i operacje sklepów"
+      },
+      {
+        "actionItems": [
+          "Taylor — sfinalizować harmonogram wydania do 2025-10-13",
+          "Wsparcie — opublikować FAQ do 2025-10-16",
+          "Marketing — przygotować szkic planu na Black Friday do 2025-10-25"
+        ],
+        "decisions": [
+          "Zatwierdzić uruchomienie pakietu Q4 w dniu 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 naprawia drenaż baterii ..."
+        ],
+        "keyMessages": [
+          "Łączyć ulepszenia produktu z terminowymi promocjami"
+        ],
+        "topic": "Firmware v1.2 i uruchomienie pakietu Q4"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Wprowadzenie"
+  },
+  "samples": {
+    "generic": {
+      "body": "Zespół przejrzał ...",
+      "h3": "Przykład wyjścia ogólnej AI",
+      "note": "Czyta się dobrze, ale nie odpowiada jasno na „kto co zrobi i do kiedy”."
+    },
+    "h2": "Tekst źródłowy i próbki wyników",
+    "meetingSample": "Próbka audio ze spotkania",
+    "pretty": {
+      "h3": "Przykład wyjścia Protokół AI"
+    },
+    "transcript": {
+      "full": "Alex (Szef marketingu): ... (skrócone)",
+      "preview": "Dobrze, czas na ..."
+    }
+  },
+  "seo": {
+    "description": "Jednym tapnięciem do wartościowych protokołów. Proste wprowadzenie do Protokół AI: podstawy, różnice względem innych narzędzi i przykłady; zaufało {{users}} użytkowników (na dzień {{date}}).",
+    "ld": {
+      "description": "Jednym tapnięciem do wartościowych protokołów. Proste wprowadzenie do Protokół AI, jego różnic i przykładów.",
+      "headline": "Czym jest Protokół AI? Podstawy i korzyści przed wdrożeniem"
+    },
+    "ogDescription": "Jednym tapnięciem do wartościowych protokołów. Poznaj Protokół AI, jego różnice i przykłady.",
+    "ogTitle": "Czym jest Protokół AI? Podstawy i korzyści przed wdrożeniem",
+    "title": "Czym jest Protokół AI? Podstawy i korzyści przed wdrożeniem | Blog Protokół AI"
+  },
+  "transcript": {
+    "close": "Zamknij pełny tekst",
+    "expand": "Rozwiń pełny tekst"
+  },
+  "what": {
+    "footnote": "※ Na dzień {{date}} (na podstawie danych z iOS Store)",
+    "h2": "Czym jest Protokół AI?",
+    "p1": "Protokół AI to narzędzie oparte na AI, które ...",
+    "p2": "Dzięki Protokół AI możesz automatycznie generować ..."
+  },
+  "wrap": {
+    "h2": "Podsumowanie",
+    "p": "Jak wrażenia? Z tą strukturą każdy natychmiast wie, kto co ma zrobić. Protokół staje się planem działania, który popycha zespół naprzód. Wypróbuj Protokół AI."
+  }
+}

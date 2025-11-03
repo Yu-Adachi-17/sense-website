@@ -1,0 +1,66 @@
+{
+  "aria": { "home": "Povratak na AI Zapisnik" },
+  "cta": {
+    "downloadIOS": "Preuzmi iOS aplikaciju",
+    "openBrowser": "Otvori u pregledniku"
+  },
+  "features": {
+    "h2": "Istaknuto",
+    "items": [
+      "UX poput Zooma (na LiveKit-u)",
+      "Izdavanje URL-a jednim klikom",
+      "Automatski zapisnik na kraju sastanka",
+      "Čitljivi, formatirani izlazi",
+      "Višejezično za globalne timove"
+    ]
+  },
+  "hero": {
+    "h1": "Online Meetings za AI Zapisnik (iOS)",
+    "kicker": "Napomena o izdanju",
+    "tagline": "Kliknite \"Online\", izdajte URL, podijelite ga i uđite. Pri prekidu poziva zapisnik se generira automatski."
+  },
+  "image": {
+    "alt": "AI Zapisnik Online Meeting sučelje",
+    "caption": "Pokrenite Zoom-like sastanak putem gumba \"Online\"."
+  },
+  "meta": {
+    "category": "Online Meeting",
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Izdanje"
+  },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
+  "notes": {
+    "foot": "Isprobajte na webu ili preuzmite iOS aplikaciju.",
+    "h2": "Bilješke",
+    "items": [
+      "Trajanje i preostalo vrijeme ovise o paketu/kvoti",
+      "Mreža i postavke uređaja mogu utjecati na kvalitetu"
+    ]
+  },
+  "release": {
+    "h2": "Što je novo",
+    "p1": "AI Zapisnik sada podržava Online Meetings. Samo kliknite \"Online\" za izdavanje URL-a i započinjanje Zoom-like poziva.",
+    "p2": "Po završetku sastanka zapisnik se automatski generira s jasnim odlukama i zadacima."
+  },
+  "seo": {
+    "description": "Kliknite \"Online\" za izdavanje URL-a, podijelite ga i odmah pokrenite Zoom-like sastanak. Na kraju se automatski stvaraju čisti zapisnici.",
+    "ld": {
+      "description": "Vodite Zoom-like sastanke putem izdanog URL-a i primite automatske zapisnike s jasnim odlukama i akcijama.",
+      "headline": "AI Zapisnik dodaje Online Meetings"
+    },
+    "ogDescription": "Pokrenite sastanke preko \"Online\" gumba i na kraju dobijte automatski dobro formatiran zapisnik.",
+    "ogTitle": "Online Meetings stiže u AI Zapisnik",
+    "title": "AI Zapisnik sada podržava Online Meetings (iOS)"
+  },
+  "steps": {
+    "h2": "Kako započeti",
+    "items": [
+      "Kliknite \"Online\" u aplikaciji ili na webu",
+      "Izdajte URL sastanka",
+      "Podijelite URL s sudionicima",
+      "Završetak sastanka → automatski zapisnik"
+    ],
+    "note": "Trajanje ovisi o paketu i preostaloj kvoti."
+  }
+}

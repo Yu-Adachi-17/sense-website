@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Jegyzőkönyv AI Strategy — jegyzőkönyvből döntés (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "A Strategy a meetingeket Boost/Counter/Top Issue egységekre és három gondolkodási módra sűríti a tiszta következő lépésekért. SEO lekérdezésekhez: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "Strategy a Jegyzőkönyv AI-ban: döntések, nem csak jegyzetek",
+    "ogDescription": "Boost/Counter/Top Issue + Logikai/Kritikai/Laterális gondolkodás végrehajtható kimenetekhez.",
+    "ld": {
+      "headline": "A Jegyzőkönyv AI hozzáadta a Strategy-t",
+      "description": "Használd a ChatGPT-5-öt és a Gemini 2.5 Pro-t, hogy a vitát gyorsan és tisztán döntéssé alakítsd."
+    }
+  },
+  "aria": { "home": "Jegyzőkönyv AI Kezdőlap" },
+  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "Funkció-útmutató",
+    "h1": "Strategy a Jegyzőkönyv AI-hoz",
+    "tagline": "Nem csak jegyzőkönyv — a Strategy döntéssé formálja a vitát ChatGPT-5-tel és Gemini 2.5 Pro-val."
+  },
+  "image": {
+    "alt": "Jegyzőkönyv AI Strategy felület",
+    "caption": "Egy lépésben emeld ki a fő problémát és a következő teendőket."
+  },
+  "what": {
+    "h2": "Mit tud a Strategy",
+    "items": [
+      "Boost: mi működik és hogyan skálázható",
+      "Counter: kockázatok és javítások",
+      "Top Issue: a lényegi kérdés",
+      "Gondolkodási módok: Logikai / Kritikai / Laterális"
+    ]
+  },
+  "steps": {
+    "h2": "Hogyan kezdd el",
+    "items": [
+      "Generálj jegyzőkönyvet appban vagy weben",
+      "Koppints a „Strategy” lehetőségre",
+      "Nézd át a Boost / Counter / Top Issue + 3 módot",
+      "Illeszd be a feladatkezelődbe"
+    ],
+    "note": "Elérhetőség és időtartam a csomag/kvóta függvénye."
+  },
+  "features": {
+    "h2": "Kiemelések",
+    "items": [
+      "Döntés-fókusz, nem puszta összegzés",
+      "Optimalizált ChatGPT-5-re és Gemini 2.5 Pro-ra",
+      "Rövid, végrehajtható kimenetek",
+      "Többnyelvű, globális csapatoknak"
+    ]
+  },
+  "notes": {
+    "h2": "Megjegyzések",
+    "items": [
+      "A kimenet minősége a bemenet minőségét tükrözi",
+      "Külön sablonokat használj eltérő meetingtípusokra"
+    ],
+    "foot": "iOS-en elérhető. Próbáld ki még ma."
+  },
+  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Funkció", "category": "Strategy" },
+  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS app letöltése" }
+}

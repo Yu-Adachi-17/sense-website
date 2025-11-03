@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "Zápisník AI Domů"
+  },
+  "compare": {
+    "foot": "Zdroje: oficiální stránky s cenami Otter a Notta.",
+    "h2": "Zápisník AI vs. Otter vs. Notta — Přehled cen",
+    "lastUpdated": "Poslední aktualizace: 31. říj 2025",
+    "note": "Klíčové ceny a kvóty (USD). Konkurenti obvykle každý měsíc obnovují kvóty bez převodu zůstatku.",
+    "rows": [
+      {
+        "billing": "Jednorázové balíčky minut + předplatná",
+        "cheapest": "Trial 120 min / $1.99 (bez expirace)",
+        "free": "Denní 3minutová vstupenka",
+        "limits": "Balíčky minut nikdy neexpirují. Předplatná jsou bez limitu.",
+        "service": "Zápisník AI",
+        "unlimited": "Ano — $16.99/měs. nebo $149.99/rok"
+      },
+      {
+        "billing": "Předplatné na uživatele",
+        "cheapest": "Pro — $16.99/měs. nebo $8.33/měs. (ročně)",
+        "free": "300 min/měs., až 30 min/konverzace",
+        "limits": "Bez převodu; limit na schůzku",
+        "service": "Otter",
+        "unlimited": "Ne — Pro 1200 min/měs.; Business 6000 importovaných min/měs."
+      },
+      {
+        "billing": "Předplatné na uživatele",
+        "cheapest": "Pro — $13.49/měs. (měsíčně) nebo $8.17/měs. (ročně)",
+        "free": "120 min/měs., až 3 min/nahrávku",
+        "limits": "Bez převodu; až 5 h/nahrávku; kvóty pro nahrávání souborů",
+        "service": "Notta",
+        "unlimited": "Business — Neomezené (ročně $16.67/měs.; měsíční vyšší)"
+      }
+    ],
+    "tableHead": [
+      "Služba",
+      "Bezplatný plán",
+      "Nejlevnější placené",
+      "Neomezené používání",
+      "Významná omezení",
+      "Způsob účtování"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Stáhnout iOS aplikaci",
+    "openBrowser": "Otevřít v prohlížeči"
+  },
+  "hero": {
+    "h1": "Ceník Zápisník AI (2025)",
+    "kicker": "Ceník",
+    "tagline": "Zvolte balíčky minut bez expirace nebo neomezené měsíční/roční předplatné."
+  },
+  "intro": {
+    "h2": "Který plán vám sedí?",
+    "p1": "Nabízíme čtyři možnosti přizpůsobené tomu, jak často se scházíte."
+  },
+  "meta": {
+    "category": "Ceník",
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Průvodce"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Ceník"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Roční"
+    },
+    "bullets": [
+      "Balíčky minut bez expirace: koupíte jednou, používáte kdykoli",
+      "Neomezené používání v rámci předplatného",
+      "iOS a Web, vícejazyčné výstupy"
+    ],
+    "free": {
+      "badge": "Denní volná vstupenka",
+      "text": "I bez placení získáte každý den 3minutovou vstupenku pro vyzkoušení Zápisník AI."
+    },
+    "h3_subs": "Typ předplatného",
+    "h3_timepacks": "Typ balíčku minut",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Měsíční"
+    },
+    "subs_note": "Předplatná jsou opravdu neomezená — žádné měsíční stropy.",
+    "timepacks_note": "Zakoupené minuty nikdy neexpirují. Z nahrávek můžete generovat AI zápisy kdykoli.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Balíčky minut bez expirace a skutečně neomezená předplatná. Podívejte se, jak si Zápisník AI vede proti Otter a Notta v ceně, kvótách a převodu nevyužitých minut.",
+    "ld": {
+      "description": "Čtyři přímočaré plány: dva jednorázové balíčky minut (bez expirace) a dvě neomezená předplatná — plus srovnání s Otter a Notta.",
+      "headline": "Ceník Zápisník AI"
+    },
+    "ogDescription": "Balíčky minut bez expirace + neomezená předplatná. Rychlé srovnání s Otter & Notta.",
+    "ogTitle": "Ceník Zápisník AI",
+    "title": "Zápisník AI — jednoduché plány pro každý styl schůzek"
+  },
+  "why": {
+    "h2": "Proč jsme plány navrhli takto",
+    "items": [
+      "Scházíte se denně: zvolte Neomezené pro předvídatelnost.",
+      "Scházíte se občas: kupte jednou Light — bez expirace.",
+      "Jen to zkoušíte: zkušební balíček + denní 3minutová vstupenka."
+    ]
+  }
+}

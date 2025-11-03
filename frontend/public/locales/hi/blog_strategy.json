@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "कार्यवृत्त AI Strategy — मिनट्स को निर्णयों में बदलें (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy बैठकों को Boost/Counter/Top Issue और तीन thinking modes में संक्षेपित करता है ताकि अगले कदम स्पष्ट हों। SEO क्वेरी: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "ogTitle": "कार्यवृत्त AI में Strategy: केवल नोट्स नहीं, निर्णय",
+    "ogDescription": "Boost/Counter/Top Issue + Logical/Critical/Lateral सोच से actionable आउटपुट।",
+    "ld": {
+      "headline": "कार्यवृत्त AI ने जोड़ा Strategy",
+      "description": "ChatGPT-5 और Gemini 2.5 Pro की मदद से चर्चा को तेज़ी और स्पष्टता से निर्णयों में बदलें।"
+    }
+  },
+  "aria": { "home": "कार्यवृत्त AI मुखपृष्ठ" },
+  "nav": { "blog": "ब्लॉग", "strategy": "Strategy" },
+  "hero": {
+    "kicker": "फ़ीचर गाइड",
+    "h1": "कार्यवृत्त AI के लिए Strategy",
+    "tagline": "सिर्फ मिनट्स नहीं — Strategy, ChatGPT-5 और Gemini 2.5 Pro के साथ चर्चा को निर्णय में बदलता है।"
+  },
+  "image": {
+    "alt": "कार्यवृत्त AI Strategy UI",
+    "caption": "एक ही स्टेप में कोर इश्यू और अगले एक्शन निकालें।"
+  },
+  "what": {
+    "h2": "Strategy क्या करता है",
+    "items": [
+      "Boost: क्या काम कर रहा है और कैसे स्केल करें",
+      "Counter: जोखिम और समाधान",
+      "Top Issue: मूल प्रश्न",
+      "Thinking modes: Logical / Critical / Lateral"
+    ]
+  },
+  "steps": {
+    "h2": "शुरू कैसे करें",
+    "items": [
+      "ऐप या वेब पर मिनट्स जनरेट करें",
+      "“Strategy” टैप करें",
+      "Boost / Counter / Top Issue + 3 मोड रिव्यू करें",
+      "अपने टास्क सिस्टम में पेस्ट करें"
+    ],
+    "note": "उपलब्धता और अवधि आपके प्लान/कोटा पर निर्भर है।"
+  },
+  "features": {
+    "h2": "हाइलाइट्स",
+    "items": [
+      "सारांश नहीं, निर्णय-केंद्रित",
+      "ChatGPT-5 और Gemini 2.5 Pro के लिए अनुकूलित",
+      "छोटे, actionable आउटपुट",
+      "वैश्विक टीमों के लिए बहुभाषी"
+    ]
+  },
+  "notes": {
+    "h2": "नोट्स",
+    "items": [
+      "आउटपुट की गुणवत्ता, इनपुट की गुणवत्ता पर निर्भर",
+      "विभिन्न मीटिंग प्रकारों के लिए अलग टेम्पलेट्स उपयोग करें"
+    ],
+    "foot": "iOS पर उपलब्ध। आज़माएँ।"
+  },
+  "meta": { "h2": "मेटा", "published": "प्रकाशित", "type": "फ़ीचर", "category": "Strategy" },
+  "cta": { "openBrowser": "ब्राउज़र में खोलें", "downloadIOS": "iOS ऐप डाउनलोड करें" }
+}

@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Lỗi truy xuất dữ liệu người dùng",
+  "unsupported_file_format": "Định dạng tệp không được hỗ trợ. Vui lòng dùng m4a, webm, mp3, wav hoặc ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Biên bản",
+    "noContentProvided": "Không có nội dung",
+    "noContentProvidedTitle": "Không có nội dung",
+    "topic": "Chủ đề",
+    "topicFallback": "Chủ đề",
+
+    "discussion": "Thảo luận",
+    "decisions": "Quyết định",
+    "actionItems": "Hạng mục hành động",
+    "concerns": "Mối lo ngại",
+    "summary": "Tóm tắt",
+    "proposal": "Đề xuất",
+    "background": "Bối cảnh",
+    "discussionPoints": "Các điểm thảo luận",
+    "decisionsAndTasks": "Quyết định và nhiệm vụ",
+    "coreProblem": "Vấn đề cốt lõi",
+    "expectedResult": "Kết quả mong đợi",
+
+    "overview": "Tổng quan",
+    "sections": "Mục",
+    "topics": "Chủ đề",
+    "items": "Mục",
+    "content": "Nội dung",
+    "body": "Thân bài",
+
+    "brainstorming": {
+      "problemToSolve": "Vấn đề cần giải quyết",
+      "topIdea": "Ý tưởng hàng đầu",
+      "meritsAndEffects": "Ưu điểm và tác động",
+      "drawbacksAndRisks": "Nhược điểm và rủi ro",
+      "runnerUpIdea": "Ý tưởng á quân",
+      "allIdeas": "Tất cả ý tưởng",
+      "ideaTitle": "Tiêu đề ý tưởng"
+    },
+
+    "jobInterview": {
+      "motivation": "Động lực",
+      "careerSummary": "Tóm tắt sự nghiệp",
+      "successes": "Thành công",
+      "failures": "Thất bại",
+      "strengths": "Thế mạnh và kỹ năng",
+      "weaknesses": "Điểm yếu và cần cải thiện",
+      "values": "Giá trị trong công việc",
+      "careerVision": "Tầm nhìn sự nghiệp",
+      "understandingOfCompany": "Hiểu biết về công ty",
+      "workStyleAndConditions": "Phong cách và điều kiện làm việc",
+      "applicantQuestions": "Câu hỏi của ứng viên (Q&A)",
+      "passionMessage": "Đam mê và thông điệp"
+    },
+
+    "lecture": {
+      "objectives": "Mục tiêu bài giảng",
+      "procedures": "Quy trình",
+      "notesAndRemarks": "Ghi chú và nhận xét",
+      "examplesAndScenarios": "Ví dụ và kịch bản",
+      "dos": "Nên làm",
+      "donts": "Không nên làm",
+      "tipsAndInsights": "Mẹo và góc nhìn"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "Thành công gần đây",
+      "contributingFactors": "Yếu tố đóng góp",
+      "scalableAction": "Hành động có thể mở rộng",
+      "managerFeedback": "Phản hồi của quản lý",
+      "challengeFaced": "Thách thức đã gặp",
+      "bottleneck": "Nút thắt",
+      "improvementStrategy": "Chiến lược cải thiện",
+      "futureExpectation": "Kỳ vọng tương lai",
+      "reasonForExpectation": "Lý do kỳ vọng",
+      "preparationForFuture": "Chuẩn bị cho tương lai",
+      "concern": "Lo ngại",
+      "reasonForConcern": "Lý do lo ngại",
+      "mitigationIdeas": "Ý tưởng giảm thiểu",
+      "mentalAspects": "Khía cạnh tinh thần",
+      "feelingsAndBackground": "Cảm xúc và bối cảnh",
+      "emotionalChange": "Thay đổi cảm xúc",
+      "nextAction": "Hành động tiếp theo",
+      "coreEmotion": "Cảm xúc cốt lõi",
+      "topicGroup": "Nhóm chủ đề",
+      "expectation": "Kỳ vọng",
+      "worry": "Lo lắng",
+      "why": "Tại sao",
+      "whatCausedIt": "Nguyên nhân là gì",
+      "nextTimeStrategy": "Chiến lược lần sau",
+      "preparation": "Chuẩn bị"
+    }
+  }
+}

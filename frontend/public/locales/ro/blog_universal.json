@@ -1,0 +1,167 @@
+{
+  "a11y": {
+    "home": "Înapoi la pagina de start Proces-verbal AI"
+  },
+  "byline": {
+    "name": "Scris de Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "cta": {
+    "downloadIOS": "Descarcă pe iOS",
+    "openBrowser": "Deschide aplicația web"
+  },
+  "diversity": {
+    "core": {
+      "h3": "Tipuri reprezentative de întâlniri",
+      "items": {
+        "0": "Actualizări săptămânale: status, probleme, contramăsuri",
+        "1": "Brainstorming: divergență și convergență de idei",
+        "2": "Întâlniri de vânzări: alinierea intereselor și acord"
+      }
+    },
+    "h2": "Întâlnirile sunt diverse: scopuri diferite, valoare diferită",
+    "p1": "Ori de câte ori oamenii discută spre un scop comun, e o întâlnire. Iar când scopul se schimbă, se schimbă și forma rezultatului de valoare.",
+    "wide": {
+      "h3": "„Întâlniri” definite larg",
+      "items": {
+        "0": "1:1: revizuirea rezultatelor, stabilirea următorului obiectiv, scoaterea la iveală a îngrijorărilor",
+        "1": "Interviuri: alinierea cerințelor și a potrivirii",
+        "2": "Prezentări: expunerea problemei și a soluției propuse",
+        "3": "Cursuri/Training: transfer operațiuni și know-how"
+      }
+    }
+  },
+  "hero": {
+    "h1": "De ce Proces-verbal AI oferă minute mai bune pentru orice întâlnire",
+    "kicker": "Proces-verbal AI Blog",
+    "tagline": "Cei patru piloni universali fac notițele lizibile. Optimizând pentru scop, minutele devin din „înregistrare de citit” un „plan de acțiune”."
+  },
+  "limits": {
+    "generic": {
+      "h3": "Dacă folosești doar un format generic",
+      "items": {
+        "0": "Vei surprinde subiecte, decizii, taskuri și îngrijorări — bază bună",
+        "1": "Dar tonul, greutatea și contextul adesea dispar",
+        "2": "Ulterior, „de ce-ul deciziei” pare subțire"
+      }
+    },
+    "h2": "Limitele formatului unic pentru toți",
+    "optimized": {
+      "h3": "Dacă optimizezi (exemplu 1:1)",
+      "items": {
+        "0": "Core Emotion / Tone: rezumat al temperaturii și psihologiei",
+        "1": "Context / Background: schimbări organizaționale, roluri, puncte de fricțiune",
+        "2": "Key Discussion (replică × rezumat): traseul către aliniere",
+        "3": "Agreements / Next Actions / Risks: normalizare pentru execuție"
+      }
+    },
+    "p1": "Cei patru piloni — Discussion, Decisions, Action Items, Concerns — funcționează aproape peste tot, dar unele tipuri pierd „temperatura” și contextul. Mai ales 1:1."
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "De ce Proces-verbal AI oferă minute mai bune pentru orice întâlnire"
+  },
+  "oneonone": {
+    "generic": {
+      "h3": "Doar cei patru piloni universali",
+      "items": {
+        "0": "Subiect: îngrijorarea lui A (relații în echipă)",
+        "1": "Decizie: B va media",
+        "2": "Acțiuni: pornește medierea; următorul 1:1 pe 15",
+        "3": "Îngrijorare: fără fallback dacă B lipsește"
+      }
+    },
+    "h2": "Exemplu 1:1: păstrează „temperatura”, conservă contextul deciziei",
+    "optimized": {
+      "h3": "Optimizat (format 1:1)",
+      "items": {
+        "0": "Core Emotion: anxietate și oboseală; ușurare când propunerea e acceptată",
+        "1": "Context: reorganizarea din aprilie a estompat rolurile; editări post-factum frecvente",
+        "2": "Key Discussion: creează un template de solicitare → adopție la nivel de echipă",
+        "3": "Agreements: B mediază deocamdată; măsoară impactul în două săptămâni",
+        "4": "Next Actions: B redactează template-ul azi; A îl aplică și raportează miercurea viitoare"
+      }
+    }
+  },
+  "recap": {
+    "h2": "Recap rapid: ce face minutele semnificative?",
+    "note": "A putea scana aceste patru dintr-o privire este minimul. Fundamentul garantează lizibilitatea.",
+    "p1": {
+      "link": "Partea 1",
+      "post": ".",
+      "pre": "În articolul anterior am definit „minutele semnificative”. Dacă l-ai ratat, începe cu "
+    },
+    "points": {
+      "0": "Discussion",
+      "1": "Decisions",
+      "2": "Action Items (owner & due date)",
+      "3": "Concerns (open risks / unresolved)"
+    }
+  },
+  "seo": {
+    "alternateLangs": {
+      "ja": "{{canonicalJa}}"
+    },
+    "articleSection": "Productivitate, AI",
+    "canonical": "{{canonical}}",
+    "description": "Lizibile prin design, acționabile prin scop. Cu optimizarea pe tip de întâlnire, Proces-verbal AI transformă notițele în planuri. {{users}}+ utilizatori la {{date}}.",
+    "keywords": "AI meeting minutes, AI meeting notes, automatizare notițe, notițe 1:1, minute vânzări, notițe brainstorming, notițe prezentare, action items, urmărire decizii, Proces-verbal AI",
+    "ld": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "author": {
+        "@type": "Person",
+        "name": "Yu Adachi"
+      },
+      "dateModified": "{{dateISO}}",
+      "datePublished": "{{dateISO}}",
+      "description": "Cum optimizarea pe tip în Proces-verbal AI păstrează tonul și contextul, clarifică deciziile și conduce la acțiune.",
+      "headline": "De ce Proces-verbal AI oferă minute mai bune pentru orice întâlnire",
+      "image": "{{ogImage}}",
+      "inLanguage": "ro",
+      "keywords": "AI meeting minutes, meeting notes, Proces-verbal AI",
+      "mainEntityOfPage": {
+        "@id": "{{canonical}}",
+        "@type": "WebPage"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{publisherLogo}}"
+        },
+        "name": "Sense G.K."
+      }
+    },
+    "ogDescription": "De la 1:1 și apeluri de vânzări la brainstorm — Proces-verbal AI păstrează tonul și contextul, clarifică deciziile și duce la execuție.",
+    "ogImage": "{{ogImage}}",
+    "ogTitle": "De ce Proces-verbal AI funcționează pentru orice tip de întâlnire",
+    "readingTimeMinutes": 6,
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "slug": "why-minutes-ai-delivers-better-meeting-minutes",
+    "tags": [
+      "AI meeting minutes",
+      "meeting notes",
+      "1:1s",
+      "sales",
+      "brainstorming",
+      "productivity"
+    ],
+    "title": "De ce Proces-verbal AI oferă minute mai bune pentru orice întâlnire | Proces-verbal AI Blog",
+    "twitterCard": "summary_large_image"
+  },
+  "why": {
+    "h2": "De ce Proces-verbal AI funcționează pentru „orice” întâlnire",
+    "items": {
+      "0": "Structură adaptată scopului: câmpurile se adaptează scopului întâlnirii",
+      "1": "Păstrarea tonului: extragerea emoției și conservarea contextului",
+      "2": "Trasabilitatea deciziilor: evidențierea ramificațiilor între acord și amânare",
+      "3": "Gata de execuție: normalizarea responsabilului, termenului și criteriilor de succes",
+      "4": "Învățare continuă: A/B pe output și îmbunătățire"
+    }
+  },
+  "wrap": {
+    "h2": "Concluzie",
+    "p": "Cei patru piloni universali sunt o bază solidă. Cu optimizare pe tip de întâlnire, minutele evoluează dintr-un registru în blueprint de acțiune. Proces-verbal AI livrează asta implicit — trăiește-o în muncă reală."
+  }
+}

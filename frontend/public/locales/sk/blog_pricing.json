@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "AI Zápisnica Domov"
+  },
+  "compare": {
+    "foot": "Zdroje: oficiálne cenníky Otter a Notta.",
+    "h2": "AI Zápisnica vs. Otter vs. Notta — Ceny v skratke",
+    "lastUpdated": "Naposledy aktualizované: 31. okt 2025",
+    "note": "Kľúčové ceny a kvóty (USD). Konkurencia zvyčajne mesačné kvóty resetuje bez prenášania zostatku.",
+    "rows": [
+      {
+        "billing": "Jednorazové balíčky času + predplatné",
+        "cheapest": "Trial 120 min / $1.99 (bez expirácie)",
+        "free": "Denný 3-minútový lístok",
+        "limits": "Balíčky nikdy neexpirujú. Predplatné je bez obmedzení.",
+        "service": "AI Zápisnica",
+        "unlimited": "Áno — $16.99/mes. alebo $149.99/rok"
+      },
+      {
+        "billing": "Predplatné na používateľa",
+        "cheapest": "Pro — $16.99/mes. alebo $8.33/mes. (ročné)",
+        "free": "300 min/mes., do 30 min/konverzáciu",
+        "limits": "Bez prenášania; limit na stretnutie",
+        "service": "Otter",
+        "unlimited": "Nie — Pro 1200 min/mes.; Business 6000 import min/mes."
+      },
+      {
+        "billing": "Predplatné na používateľa",
+        "cheapest": "Pro — $13.49/mes. (mesačne) alebo $8.17/mes. (ročne)",
+        "free": "120 min/mes., do 3 min/nahrávku",
+        "limits": "Bez prenášania; do 5 h/nahrávku; kvóty na nahrávanie súborov",
+        "service": "Notta",
+        "unlimited": "Business — Neobmedzené (ročné $16.67/mes.; mesačné vyššie)"
+      }
+    ],
+    "tableHead": [
+      "Služba",
+      "Bezplatný plán",
+      "Najlacnejšie platené",
+      "Neobmedzené používanie",
+      "Výrazné obmedzenia",
+      "Štýl účtovania"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Stiahnuť iOS aplikáciu",
+    "openBrowser": "Otvoriť v prehliadači"
+  },
+  "hero": {
+    "h1": "Cenník AI Zápisnica (2025)",
+    "kicker": "Cenník",
+    "tagline": "Zvoľte balíčky bez expirácie alebo plne neobmedzené mesačné/ročné predplatné."
+  },
+  "intro": {
+    "h2": "Ktorý plán vám sedí?",
+    "p1": "Ponúkame štyri možnosti prispôsobené tomu, ako často sa stretávate."
+  },
+  "meta": {
+    "category": "Cenník",
+    "h2": "Meta",
+    "published": "Publikované",
+    "type": "Sprievodca"
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Cenník"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Ročné"
+    },
+    "bullets": [
+      "Balíčky bez expirácie: kúpite raz, používate kedykoľvek",
+      "Neobmedzené používanie pri predplatnom",
+      "iOS a Web, viacjazyčné výstupy"
+    ],
+    "free": {
+      "badge": "Denný bezplatný lístok",
+      "text": "Aj bez platby získate každý deň 3-minútový bezplatný lístok na vyskúšanie AI Zápisnica."
+    },
+    "h3_subs": "Typ predplatného",
+    "h3_timepacks": "Typ balíčka času",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Mesačné"
+    },
+    "subs_note": "Predplatné je skutočne neobmedzené — žiadne mesačné stropy.",
+    "timepacks_note": "Zakúpené minúty nikdy neexpirujú. Z nahrávok môžete generovať AI zápisy kedykoľvek.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Balíčky bez expirácie a naozaj neobmedzené predplatné. Pozrite si porovnanie AI Zápisnica s Otter a Notta v cene, kvótach a prenose zostatku.",
+    "ld": {
+      "description": "Štyri priamočiare plány: dva jednorazové balíčky (bez expirácie) a dve neobmedzené predplatné — plus porovnanie s Otter a Notta.",
+      "headline": "Cenník AI Zápisnica"
+    },
+    "ogDescription": "Balíčky bez expirácie + neobmedzené predplatné. Rýchle porovnanie s Otter & Notta.",
+    "ogTitle": "Cenník AI Zápisnica",
+    "title": "AI Zápisnica — jednoduché plány pre každý štýl stretnutí"
+  },
+  "why": {
+    "h2": "Prečo sme plány navrhli takto",
+    "items": [
+      "Denné stretnutia: zvoľte Neobmedzené pre predvídateľnosť.",
+      "Občasné stretnutia: kúpte raz Light — bez expirácie.",
+      "Len skúšate: balík Trial + denný 3-minútový lístok."
+    ]
+  }
+}

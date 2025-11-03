@@ -1,0 +1,48 @@
+{
+  "seo": {
+    "title": "Prečo odporúčame minutes-AI aplikáciu pre iPhone (2025)",
+    "description": "5 priamych dôvodov: jednoduché UI, čitateľné/akčné zápisy, formáty podľa typu stretnutia, zabudovaný follow-through a flexibilné ceny. Vyskúšajte AI Zápisnica na iPhone.",
+    "ogTitle": "Náš výber: minutes-AI pre iPhone",
+    "ogDescription": "Nahrávanie jedným ťuknutím, výstupy vedúce k ďalším krokom, inteligentné formáty, in-app follow-through a ceny podľa používania. AI Zápisnica na iPhone.",
+    "ld": {
+      "headline": "Prečo je minutes-AI pre iPhone naším odporúčaním",
+      "description": "Nákupný sprievodca k AI Zápisnica: rýchle použitie, jasné výstupy, prispôsobené formáty, kroky po stretnutí a férové ceny."
+    }
+  },
+  "aria": { "home": "AI Zápisnica Domov" },
+  "nav": { "blog": "Blog", "recommend": "Odporúčanie" },
+  "hero": {
+    "kicker": "Nákupný sprievodca",
+    "h1": "Prečo odporúčame minutes-AI pre iPhone",
+    "tagline": "Vytvorené pre vyhľadávací zámer: najlepšia minutes-AI pre iPhone a ako obstojí cenou — bez omáčok."
+  },
+  "reasons": {
+    "h2": "Päť priamych dôvodov",
+    "items": [
+      "Nahrávanie jedným ťuknutím bez trenia",
+      "Čitateľné zápisy, ktoré skutočne vedú k ďalším krokom",
+      "Formáty podľa stretnutia: Všeobecný, Obchodný, 1-na-1, Prezentácia, Brainstorm, Pohovor",
+      "Follow-through pre Project & Strategy priamo v aplikácii",
+      "Flexibilné ceny: predplatné a neexpirujúce balíčky času"
+    ]
+  },
+  "pricing": {
+    "h2": "O cenách",
+    "p1": "Denní používatelia volia predplatné. Príležitostní volia neexpirujúce balíčky času.",
+    "p2": "K dispozícii je aj lacný 120-minútový trial na overenie vhodnosti pred záväzkom."
+  },
+  "image": { "alt": "AI Zápisnica na iPhone", "caption": "AI Zápisnica UI pre iPhone." },
+  "steps": {
+    "h2": "Začnite na iPhone",
+    "items": ["Stiahnite aplikáciu", "Ťuknite raz pre nahrávanie", "Vyberte správny formát", "Po stretnutí vytvorte Project/Strategy"],
+    "note": "Dĺžka stretnutia závisí od vášho plánu a zostávajúceho zostatku."
+  },
+  "notes": {
+    "h2": "Poznámky",
+    "items": ["Sieť a zariadenie môžu ovplyvniť kvalitu", "Funkcie sa môžu líšiť podľa plánu"],
+    "foot": "Vyskúšajte AI Zápisnica na iPhone ešte dnes."
+  },
+  "meta": { "h2": "Meta", "published": "Publikované", "type": "Sprievodca", "category": "Odporúčanie aplikácie" },
+  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Stiahnuť iOS aplikáciu" },
+  "brand": "AI Zápisnica"
+}

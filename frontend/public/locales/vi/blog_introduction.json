@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Tính năng",
+      "generic": "AI tổng quát",
+      "minutes": "Biên bản AI",
+      "transcription": "Công cụ chép lời thuần túy"
+    },
+    "rows": [
+      {
+        "a": "Có",
+        "b": "Không (cần nhập thủ công)",
+        "c": "Có",
+        "k": "Âm thanh → Văn bản"
+      },
+      {
+        "a": "Không",
+        "b": "Có (nhưng ngữ cảnh có thể lệch)",
+        "c": "Có (tối ưu cho cuộc họp)",
+        "k": "Tóm tắt / Dàn ý"
+      },
+      {
+        "a": "Không",
+        "b": "Có (thường mơ hồ)",
+        "c": "Có (trích xuất rõ ràng + gắn thẻ)",
+        "k": "Trích xuất quyết định / hành động"
+      },
+      {
+        "a": "Không",
+        "b": "Có (rủi ro lệch cú pháp)",
+        "c": "Có (ngôn ngữ chính + nhận biết ngữ cảnh)",
+        "k": "Hỗ trợ đa ngôn ngữ"
+      }
+    ],
+    "title": "Khác biệt: Công cụ chép lời / AI tổng quát / Biên bản AI"
+  },
+  "cta": {
+    "downloadIOS": "Tải bản iOS",
+    "openBrowser": "Mở bản trình duyệt"
+  },
+  "hero": {
+    "h1": "Biên bản AI là gì? Cơ bản & lợi ích trước khi áp dụng",
+    "kicker": "Biên bản AI",
+    "tagline": "“Một chạm cho biên bản họp ý nghĩa.” Giải thích rõ ràng cho người mới bắt đầu."
+  },
+  "intro": {
+    "h2": "Giới thiệu",
+    "p1": "Cảm ơn bạn đã đọc bài viết này. ...",
+    "p2": "Hoặc có thể, với tư cách độc giả ...",
+    "p3": {
+      "bold": "biên bản ý nghĩa",
+      "mid": "giúp bạn tạo",
+      "post": "chỉ với một chạm — tập trung vào rõ ràng và kết quả.",
+      "pre": "Trong bài này, chúng tôi sẽ chỉ ra cách"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (Trưởng Marketing)",
+      "Jordan (Thương mại điện tử)",
+      "Sam (Vận hành bán lẻ)",
+      "Taylor (PM)",
+      "Riley (Dữ liệu)"
+    ],
+    "coreMessage": "Chi tiêu thông minh — ưu tiên rõ ràng hơn tốc độ. Cam kết “ai làm gì, trước khi nào” và giữ cuộc họp trong 30 phút.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Hạng mục hành động",
+      "attendees": "Người tham dự:",
+      "closingMessage": "Thông điệp kết",
+      "concerns": "Mối lo",
+      "decisions": "Quyết định",
+      "discussion": "Thảo luận",
+      "keyMessages": "Thông điệp chính"
+    },
+    "meetingTitle": "Tổng quan doanh số smartwatch hàng tuần",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — khởi chạy A/B test trước 2025-10-15",
+          "Riley — gửi phân tích CTR trước 2025-10-17"
+        ],
+        "concerns": [
+          "Mệt mỏi quảng cáo nếu không làm mới creative"
+        ],
+        "decisions": [
+          "Tăng ngân sách quảng cáo online 15% trong 2 tuần"
+        ],
+        "discussion": [
+          "Sessions +18% ..."
+        ],
+        "keyMessages": [
+          "Tăng trưởng với CAC ổn định; thử nghiệm trước khi mở rộng"
+        ],
+        "topic": "Hiệu năng kênh online"
+      },
+      {
+        "actionItems": [
+          "Sam — xác nhận ETA/lo-gistics từ nhà cung cấp trước 2025-10-14"
+        ],
+        "concerns": [
+          "Rủi ro lead-time nếu backlog tăng"
+        ],
+        "decisions": [
+          "Bổ sung 500 đơn vị cho ba cửa hàng"
+        ],
+        "discussion": [
+          "Hết hàng tại Shibuya ..."
+        ],
+        "keyMessages": [
+          "Tránh mất doanh số bằng cách ổn định tồn kho cửa hàng"
+        ],
+        "topic": "Tồn kho offline & vận hành cửa hàng"
+      },
+      {
+        "actionItems": [
+          "Taylor — chốt lịch phát hành trước 2025-10-13",
+          "Hỗ trợ — đăng FAQ trước 2025-10-16",
+          "Marketing — bản nháp Black Friday trước 2025-10-25"
+        ],
+        "decisions": [
+          "Phê duyệt ra mắt gói Q4 vào 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 sửa lỗi hao pin ..."
+        ],
+        "keyMessages": [
+          "Ghép cải tiến sản phẩm với khuyến mãi đúng thời điểm"
+        ],
+        "topic": "Firmware v1.2 & ra mắt gói Q4"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "introduction": "Giới thiệu"
+  },
+  "samples": {
+    "generic": {
+      "body": "Nhóm đã rà soát ...",
+      "h3": "Ví dụ đầu ra AI tổng quát",
+      "note": "Đọc mượt nhưng chưa trả lời rõ “ai làm gì trước khi nào”."
+    },
+    "h2": "Văn bản nguồn & mẫu đầu ra",
+    "meetingSample": "Mẫu audio cuộc họp",
+    "pretty": {
+      "h3": "Ví dụ đầu ra Biên bản AI"
+    },
+    "transcript": {
+      "full": "Alex (Trưởng Marketing): ... (rút gọn)",
+      "preview": "Được rồi, đến lúc ..."
+    }
+  },
+  "seo": {
+    "description": "Một chạm cho biên bản ý nghĩa. Giới thiệu đơn giản về Biên bản AI: cơ bản, khác biệt so với công cụ khác và ví dụ; {{users}} người dùng tin tưởng (tính đến {{date}}).",
+    "ld": {
+      "description": "Một chạm cho biên bản ý nghĩa. Giới thiệu đơn giản về Biên bản AI, khác biệt và ví dụ.",
+      "headline": "Biên bản AI là gì? Cơ bản & lợi ích trước khi áp dụng"
+    },
+    "ogDescription": "Một chạm cho biên bản ý nghĩa. Hiểu Biên bản AI, sự khác biệt và các ví dụ.",
+    "ogTitle": "Biên bản AI là gì? Cơ bản & lợi ích trước khi áp dụng",
+    "title": "Biên bản AI là gì? Cơ bản & lợi ích trước khi áp dụng | Biên bản AI Blog"
+  },
+  "transcript": {
+    "close": "Đóng toàn văn",
+    "expand": "Mở toàn văn"
+  },
+  "what": {
+    "footnote": "※ Tính đến {{date}} (dựa trên dữ liệu iOS Store)",
+    "h2": "Biên bản AI là gì?",
+    "p1": "Biên bản AI là công cụ dùng AI, ...",
+    "p2": "Với Biên bản AI, bạn có thể tự động tạo ..."
+  },
+  "wrap": {
+    "h2": "Kết luận",
+    "p": "Thấy sao? Với cấu trúc này, ai cũng hiểu ngay ai làm gì. Biên bản họp từ thứ để đọc trở thành kế hoạch hành động đẩy đội ngũ tiến lên. Hãy trải nghiệm Biên bản AI."
+  }
+}

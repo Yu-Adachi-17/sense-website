@@ -1,0 +1,117 @@
+{
+  "aria": {
+    "home": "Pöytäkirja AI Etusivu"
+  },
+  "compare": {
+    "foot": "Lähteet: Otterin ja Nottan viralliset hinnoittelusivut.",
+    "h2": "Pöytäkirja AI vs. Otter vs. Notta — Hinnat yhdellä silmäyksellä",
+    "lastUpdated": "Viimeksi päivitetty: 31. lokak. 2025",
+    "note": "Keskeiset hinnat ja kiintiöt (USD). Kilpailijat nollaavat tyypillisesti kuukausikiintiöt ilman siirtoa.",
+    "rows": [
+      {
+        "billing": "Kertaluonteiset aikapaketit + tilaukset",
+        "cheapest": "Trial 120 min / $1.99 (ei vanhene)",
+        "free": "Päivittäinen 3 min -lippu",
+        "limits": "Aikapaketit eivät vanhene koskaan. Tilaukset ovat rajoittamattomia.",
+        "service": "Pöytäkirja AI",
+        "unlimited": "Kyllä — $16.99/kk tai $149.99/v"
+      },
+      {
+        "billing": "Käyttäjäpaikkakohtainen tilaus",
+        "cheapest": "Pro — $16.99/kk tai $8.33/kk (vuosilaskutus)",
+        "free": "300 min/kk, enintään 30 min/keskustelu",
+        "limits": "Ei siirtoa; kokouskohtainen yläraja",
+        "service": "Otter",
+        "unlimited": "Ei — Pro 1200 min/kk; Business 6000 tuontiminuuttia/kk"
+      },
+      {
+        "billing": "Käyttäjäpaikkakohtainen tilaus",
+        "cheapest": "Pro — $13.49/kk (kuukausi) tai $8.17/kk (vuosi)",
+        "free": "120 min/kk, enintään 3 min/tallenne",
+        "limits": "Ei siirtoa; enintään 5 h/tallenne; tiedostonlähetyskiintiöt",
+        "service": "Notta",
+        "unlimited": "Business — Rajoittamaton (vuosittain $16.67/kk; kuukausi korkeampi)"
+      }
+    ],
+    "tableHead": [
+      "Palvelu",
+      "Ilmainen paketti",
+      "Edullisin maksullinen",
+      "Rajoittamaton käyttö",
+      "Huomattavat rajoitukset",
+      "Laskutustapa"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Lataa iOS-sovellus",
+    "openBrowser": "Avaa selaimessa"
+  },
+  "hero": {
+    "h1": "Pöytäkirja AI hinnoittelu (2025)",
+    "kicker": "Hinnoittelu",
+    "tagline": "Valitse vanhenemattomat aikapaketit tai täysin rajoittamaton kuukausi-/vuositilaus."
+  },
+  "intro": {
+    "h2": "Mikä paketti sopii sinulle?",
+    "p1": "Tarjoamme neljä vaihtoehtoa sen mukaan, kuinka usein kokoustat."
+  },
+  "meta": {
+    "category": "Hinnoittelu",
+    "h2": "Meta",
+    "published": "Julkaistu",
+    "type": "Opas"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "pricing": "Hinnoittelu"
+  },
+  "plans": {
+    "annual": {
+      "detail": "$149.99",
+      "name": "Vuosittainen"
+    },
+    "bullets": [
+      "Aikapaketit ilman vanhenemista: osta kerran, käytä milloin vain",
+      "Rajoittamaton käyttö tilauksissa",
+      "iOS & Web, monikieliset tuotokset"
+    ],
+    "free": {
+      "badge": "Päivittäinen ilmainen lippu",
+      "text": "Ilman maksua saat joka päivä 3 minuutin ilmaislipun Pöytäkirja AI:n kokeiluun."
+    },
+    "h3_subs": "Tilaustyyppi",
+    "h3_timepacks": "Aikapaketin tyyppi",
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light"
+    },
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Kuukausittainen"
+    },
+    "subs_note": "Tilaukset ovat aidosti rajoittamattomia — ei kuukausikohtaisia kattoja.",
+    "timepacks_note": "Ostetut minuutit eivät vanhene. Luo AI-muistiot tallenteista milloin tahansa.",
+    "trial": {
+      "detail": "120 min / $1.99",
+      "name": "Trial"
+    }
+  },
+  "seo": {
+    "description": "Vanhenemattomat aikapaketit ja aidosti rajoittamattomat tilaukset. Katso, miten Pöytäkirja AI vertautuu Otteriin ja Nottaan hinnan, kiintiöiden ja siirron osalta.",
+    "ld": {
+      "description": "Neljä selkeää pakettia: kaksi kertaluonteista aikapakettia (ei vanhene) ja kaksi rajoittamatonta tilausta — sekä vertailu Otteriin ja Nottaan.",
+      "headline": "Pöytäkirja AI hinnoittelu"
+    },
+    "ogDescription": "Aikapaketit ilman vanhenemista + rajoittamattomat tilaukset. Nopea vertailu Otteriin & Nottaan.",
+    "ogTitle": "Pöytäkirja AI hinnoittelu",
+    "title": "Pöytäkirja AI hinnoittelu — yksinkertaiset paketit jokaiseen kokoustyyliin"
+  },
+  "why": {
+    "h2": "Miksi suunnittelimme paketit näin",
+    "items": [
+      "Kokoukset päivittäin: valitse Rajoittamaton ennakoitavuuden vuoksi.",
+      "Satunnaiset kokoukset: osta Light kerran — ei vanhene.",
+      "Kokeilet vasta: Trial-paketti + päivittäinen 3 min -lippu."
+    ]
+  }
+}

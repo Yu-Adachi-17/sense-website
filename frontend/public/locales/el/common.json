@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Σφάλμα ανάκτησης δεδομένων χρήστη",
+  "unsupported_file_format": "Μη υποστηριζόμενη μορφή αρχείου. Χρησιμοποιήστε m4a, webm, mp3, wav ή ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Πρακτικά",
+    "noContentProvided": "Δεν δόθηκε περιεχόμενο",
+    "noContentProvidedTitle": "Δεν δόθηκε περιεχόμενο",
+    "topic": "Θέμα",
+    "topicFallback": "Θέμα",
+
+    "discussion": "Συζήτηση",
+    "decisions": "Αποφάσεις",
+    "actionItems": "Ενέργειες",
+    "concerns": "Ανησυχίες",
+    "summary": "Σύνοψη",
+    "proposal": "Πρόταση",
+    "background": "Ιστορικό",
+    "discussionPoints": "Σημεία συζήτησης",
+    "decisionsAndTasks": "Αποφάσεις και εργασίες",
+    "coreProblem": "Κύριο πρόβλημα",
+    "expectedResult": "Αναμενόμενο αποτέλεσμα",
+
+    "overview": "Επισκόπηση",
+    "sections": "Ενότητες",
+    "topics": "Θέματα",
+    "items": "Στοιχεία",
+    "content": "Περιεχόμενο",
+    "body": "Κείμενο",
+
+    "brainstorming": {
+      "problemToSolve": "Πρόβλημα προς επίλυση",
+      "topIdea": "Κορυφαία ιδέα",
+      "meritsAndEffects": "Πλεονεκτήματα και επιδράσεις",
+      "drawbacksAndRisks": "Μειονεκτήματα και κίνδυνοι",
+      "runnerUpIdea": "Δεύτερη καλύτερη ιδέα",
+      "allIdeas": "Όλες οι ιδέες",
+      "ideaTitle": "Τίτλος ιδέας"
+    },
+
+    "jobInterview": {
+      "motivation": "Κίνητρο",
+      "careerSummary": "Σύνοψη πορείας",
+      "successes": "Επιτυχίες",
+      "failures": "Αποτυχίες",
+      "strengths": "Δυνατά σημεία και δεξιότητες",
+      "weaknesses": "Αδυναμίες και τομείς βελτίωσης",
+      "values": "Αξίες στην εργασία",
+      "careerVision": "Όραμα καριέρας",
+      "understandingOfCompany": "Κατανόηση της εταιρείας",
+      "workStyleAndConditions": "Στυλ και συνθήκες εργασίας",
+      "applicantQuestions": "Ερωτήσεις υποψηφίου (Q&A)",
+      "passionMessage": "Πάθος και μήνυμα"
+    },
+
+    "lecture": {
+      "objectives": "Στόχοι μαθήματος",
+      "procedures": "Διαδικασίες",
+      "notesAndRemarks": "Σημειώσεις και παρατηρήσεις",
+      "examplesAndScenarios": "Παραδείγματα και σενάρια",
+      "dos": "Τι να κάνετε",
+      "donts": "Τι να μην κάνετε",
+      "tipsAndInsights": "Συμβουλές και ιδέες"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "Πρόσφατη επιτυχία",
+      "contributingFactors": "Συντελεστικοί παράγοντες",
+      "scalableAction": "Κλιμακούμενη ενέργεια",
+      "managerFeedback": "Ανατροφοδότηση προϊσταμένου",
+      "challengeFaced": "Αντιμετωπισμένη πρόκληση",
+      "bottleneck": "Σημείο συμφόρησης",
+      "improvementStrategy": "Στρατηγική βελτίωσης",
+      "futureExpectation": "Μελλοντική προσδοκία",
+      "reasonForExpectation": "Λόγος προσδοκίας",
+      "preparationForFuture": "Προετοιμασία για το μέλλον",
+      "concern": "Ανησυχία",
+      "reasonForConcern": "Λόγος ανησυχίας",
+      "mitigationIdeas": "Ιδέες μετριασμού",
+      "mentalAspects": "Ψυχικές πτυχές",
+      "feelingsAndBackground": "Συναισθήματα και υπόβαθρο",
+      "emotionalChange": "Συναισθηματική μεταβολή",
+      "nextAction": "Επόμενη ενέργεια",
+      "coreEmotion": "Κύριο συναίσθημα",
+      "topicGroup": "Ομάδα θεμάτων",
+      "expectation": "Προσδοκία",
+      "worry": "Ανησυχία",
+      "why": "Γιατί",
+      "whatCausedIt": "Τι το προκάλεσε",
+      "nextTimeStrategy": "Στρατηγική για την επόμενη φορά",
+      "preparation": "Προετοιμασία"
+    }
+  }
+}

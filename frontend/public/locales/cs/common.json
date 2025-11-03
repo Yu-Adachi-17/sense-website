@@ -1,0 +1,95 @@
+{
+  "user_data_error": "Chyba při načítání uživatelských dat",
+  "unsupported_file_format": "Nepodporovaný formát souboru. Použijte m4a, webm, mp3, wav nebo ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Zápis",
+    "noContentProvided": "Nebyl poskytnut žádný obsah",
+    "noContentProvidedTitle": "Nebyl poskytnut žádný obsah",
+    "topic": "Téma",
+    "topicFallback": "Téma",
+
+    "discussion": "Diskuze",
+    "decisions": "Rozhodnutí",
+    "actionItems": "Úkoly",
+    "concerns": "Obavy",
+    "summary": "Shrnutí",
+    "proposal": "Návrh",
+    "background": "Pozadí",
+    "discussionPoints": "Body k diskuzi",
+    "decisionsAndTasks": "Rozhodnutí a úkoly",
+    "coreProblem": "Hlavní problém",
+    "expectedResult": "Očekávaný výsledek",
+
+    "overview": "Přehled",
+    "sections": "Sekce",
+    "topics": "Témata",
+    "items": "Položky",
+    "content": "Obsah",
+    "body": "Text",
+
+    "brainstorming": {
+      "problemToSolve": "Problém k vyřešení",
+      "topIdea": "Nejlepší nápad",
+      "meritsAndEffects": "Přínosy a dopady",
+      "drawbacksAndRisks": "Nevýhody a rizika",
+      "runnerUpIdea": "Druhý nejlepší nápad",
+      "allIdeas": "Všechny nápady",
+      "ideaTitle": "Název nápadu"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivace",
+      "careerSummary": "Souhrn kariéry",
+      "successes": "Úspěchy",
+      "failures": "Neúspěchy",
+      "strengths": "Silné stránky a dovednosti",
+      "weaknesses": "Slabé stránky a oblasti ke zlepšení",
+      "values": "Hodnoty v práci",
+      "careerVision": "Kariérní vize",
+      "understandingOfCompany": "Porozumění společnosti",
+      "workStyleAndConditions": "Styl a podmínky práce",
+      "applicantQuestions": "Otázky uchazeče (Q&A)",
+      "passionMessage": "Nadšení a poselství"
+    },
+
+    "lecture": {
+      "objectives": "Cíle lekce",
+      "procedures": "Postupy",
+      "notesAndRemarks": "Poznámky a poznámky pod čarou",
+      "examplesAndScenarios": "Příklady a scénáře",
+      "dos": "Co dělat",
+      "donts": "Čemu se vyhnout",
+      "tipsAndInsights": "Tipy a postřehy"
+    },
+
+    "oneonone": {
+      "title": "1:1",
+      "recentSuccess": "Nedávný úspěch",
+      "contributingFactors": "Přispívající faktory",
+      "scalableAction": "Škálovatelná akce",
+      "managerFeedback": "Zpětná vazba manažera",
+      "challengeFaced": "Čelená výzva",
+      "bottleneck": "Úzké hrdlo",
+      "improvementStrategy": "Strategie zlepšení",
+      "futureExpectation": "Budoucí očekávání",
+      "reasonForExpectation": "Důvod očekávání",
+      "preparationForFuture": "Příprava na budoucnost",
+      "concern": "Obava",
+      "reasonForConcern": "Důvod obavy",
+      "mitigationIdeas": "Nápady na zmírnění",
+      "mentalAspects": "Mentální aspekty",
+      "feelingsAndBackground": "Pocity a pozadí",
+      "emotionalChange": "Emocionální změna",
+      "nextAction": "Další krok",
+      "coreEmotion": "Klíčová emoce",
+      "topicGroup": "Skupina témat",
+      "expectation": "Očekávání",
+      "worry": "Starost",
+      "why": "Proč",
+      "whatCausedIt": "Co to způsobilo",
+      "nextTimeStrategy": "Strategie příště",
+      "preparation": "Příprava"
+    }
+  }
+}

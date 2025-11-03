@@ -1,0 +1,178 @@
+{
+  "compare": {
+    "head": {
+      "feature": "Ominaisuus",
+      "generic": "Yleinen AI",
+      "minutes": "Pöytäkirja AI",
+      "transcription": "Pelkkä transkriptio"
+    },
+    "rows": [
+      {
+        "a": "Kyllä",
+        "b": "Ei (vaatii manuaalisen syötön)",
+        "c": "Kyllä",
+        "k": "Ääni → Teksti"
+      },
+      {
+        "a": "Ei",
+        "b": "Kyllä (mutta konteksti voi muuttua)",
+        "c": "Kyllä (kokouksiin optimoitu)",
+        "k": "Tiivistelmä / Rakenne"
+      },
+      {
+        "a": "Ei",
+        "b": "Kyllä (usein epäselvä)",
+        "c": "Kyllä (selkeä poiminta + tagitus)",
+        "k": "Päätösten / toimien poiminta"
+      },
+      {
+        "a": "Ei",
+        "b": "Kyllä (syntaksin poikkeaman riski)",
+        "c": "Kyllä (pääkielet + kontekstin huomioiva)",
+        "k": "Monikielinen tuki"
+      }
+    ],
+    "title": "Erot: Transkriptiotyökalut / Yleinen AI / Pöytäkirja AI"
+  },
+  "cta": {
+    "downloadIOS": "Lataa iOS-versio",
+    "openBrowser": "Avaa selaimessa"
+  },
+  "hero": {
+    "h1": "Mikä on Pöytäkirja AI? Perusteet ja hyödyt ennen käyttöönottoa",
+    "kicker": "Pöytäkirja AI",
+    "tagline": "”Yhdellä napautuksella merkitykselliset muistiot.” Selkeä perusopas aloitukseen."
+  },
+  "intro": {
+    "h2": "Johdanto",
+    "p1": "Kiitos, että luet tämän artikkelin. ...",
+    "p2": "Tai ehkä lukijana ...",
+    "p3": {
+      "bold": "merkityksellisiä muistioita",
+      "mid": "auttaa sinua tuottamaan",
+      "post": "yhdellä napautuksella — keskittyen selkeyteen ja lopputuloksiin.",
+      "pre": "Tässä artikkelissa näytämme, miten"
+    }
+  },
+  "minutes": {
+    "attendees": [
+      "Alex (markkinointipäällikkö)",
+      "Jordan (verkkokauppa)",
+      "Sam (myymälätoiminnot)",
+      "Taylor (tuotepäällikkö)",
+      "Riley (data)"
+    ],
+    "coreMessage": "Käytetään rahaa fiksusti — selkeys ennen nopeutta. Sitoudutaan siihen, kuka tekee mitä ja mihin mennessä, ja pidetään kokoukset 30 minuutissa.",
+    "date": "2025-10-11 10:00 JST",
+    "labels": {
+      "actionItems": "Toimenpiteet",
+      "attendees": "Osallistujat:",
+      "closingMessage": "Loppuviesti",
+      "concerns": "Huolenaiheet",
+      "decisions": "Päätökset",
+      "discussion": "Keskustelu",
+      "keyMessages": "Keskeiset viestit"
+    },
+    "meetingTitle": "Älykellon viikoittainen myyntikatsaus",
+    "topics": [
+      {
+        "actionItems": [
+          "Jordan — käynnistä A/B-testi 2025-10-15 mennessä",
+          "Riley — toimita CTR-analyysi 2025-10-17 mennessä"
+        ],
+        "concerns": [
+          "Mainosväsymys, ellei materiaalia päivitetä"
+        ],
+        "decisions": [
+          "Nostetaan verkkomarkkinointibudjettia 15 % kahdeksi viikoksi"
+        ],
+        "discussion": [
+          "Käynnit +18 % ..."
+        ],
+        "keyMessages": [
+          "Kasva vakaalla CAC:lla; testaa ennen skaalausta"
+        ],
+        "topic": "Verkkokanavan suorituskyky"
+      },
+      {
+        "actionItems": [
+          "Sam — vahvista toimittajan ETA/logistiikka 2025-10-14 mennessä"
+        ],
+        "concerns": [
+          "Toimitusaikariski, jos jonot kasvavat"
+        ],
+        "decisions": [
+          "Täydennetään 500 yksikköä kolmeen myymälään"
+        ],
+        "discussion": [
+          "Varastopuut Shibuyassa ..."
+        ],
+        "keyMessages": [
+          "Estä menetetyt myynnit vakauttamalla myymälävarastot"
+        ],
+        "topic": "Offline-varasto ja myymälätoiminnot"
+      },
+      {
+        "actionItems": [
+          "Taylor — viimeistele julkaisuaikataulu 2025-10-13 mennessä",
+          "Tuki — julkaise UKK 2025-10-16 mennessä",
+          "Markkinointi — Black Friday -luonnos 2025-10-25 mennessä"
+        ],
+        "decisions": [
+          "Hyväksy Q4-paketin julkaisu 2025-10-20"
+        ],
+        "discussion": [
+          "v1.2 korjaa akun kulumisen ..."
+        ],
+        "keyMessages": [
+          "Yhdistä tuoteparannukset ajankohtaisiin kampanjoihin"
+        ],
+        "topic": "Firmware v1.2 & Q4-paketin julkaisu"
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blogi",
+    "introduction": "Johdanto"
+  },
+  "samples": {
+    "generic": {
+      "body": "Tiimi tarkasteli ...",
+      "h3": "Esimerkki yleisen AI:n tuotoksesta",
+      "note": "Lukee siististi, mutta ei vastaa selvästi kysymykseen ”kuka tekee mitä ja mihin mennessä”."
+    },
+    "h2": "Lähdeteksti ja esimerkkitulosteet",
+    "meetingSample": "Kokousäänenäyte",
+    "pretty": {
+      "h3": "Pöytäkirja AI-esimerkkituloste"
+    },
+    "transcript": {
+      "full": "Alex (markkinointipäällikkö): ... (lyhennetty)",
+      "preview": "Hyvä, aloitetaan ..."
+    }
+  },
+  "seo": {
+    "description": "Yksi napautus merkityksellisiin muistioihin. Yksinkertainen esittely Pöytäkirja AI:sta: perusteet, erot muihin työkaluihin ja esimerkit; luottamusta {{users}} käyttäjää ({{date}} mennessä).",
+    "ld": {
+      "description": "Yksi napautus merkityksellisiin muistioihin. Yksinkertainen esittely Pöytäkirja AI:hin, sen eroihin ja esimerkkeihin.",
+      "headline": "Mikä on Pöytäkirja AI? Perusteet ja hyödyt ennen käyttöönottoa"
+    },
+    "ogDescription": "Yksi napautus merkityksellisiin muistioihin. Ymmärrä Pöytäkirja AI, erot ja esimerkit.",
+    "ogTitle": "Mikä on Pöytäkirja AI? Perusteet ja hyödyt ennen käyttöönottoa",
+    "title": "Mikä on Pöytäkirja AI? Perusteet ja hyödyt ennen käyttöönottoa | Pöytäkirja AI Blogi"
+  },
+  "transcript": {
+    "close": "Sulje koko teksti",
+    "expand": "Laajenna koko teksti"
+  },
+  "what": {
+    "footnote": "※ {{date}} mennessä (iOS-kaupan tietojen mukaan)",
+    "h2": "Mikä on Pöytäkirja AI?",
+    "p1": "Pöytäkirja AI on tekoälyllä varustettu työkalu, joka ...",
+    "p2": "Pöytäkirja AI:n avulla voit automaattisesti luoda ..."
+  },
+  "wrap": {
+    "h2": "Yhteenveto",
+    "p": "Miltä näyttää? Tällä rakenteella jokainen ymmärtää heti, kuka tekee mitä. Muistiot muuttuvat luettavasta tekstistä toiminnaksi, joka vie tiimiä eteenpäin. Kokeile Pöytäkirja AI:ta."
+  }
+}

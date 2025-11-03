@@ -1,0 +1,66 @@
+{
+  "aria": { "home": "Powrót do Protokół AI" },
+  "cta": {
+    "downloadIOS": "Pobierz aplikację iOS",
+    "openBrowser": "Otwórz w przeglądarce"
+  },
+  "features": {
+    "h2": "Najważniejsze",
+    "items": [
+      "UX jak w Zoom (na LiveKit)",
+      "Wystawienie URL jednym kliknięciem",
+      "Automatyczne minutki po zakończeniu",
+      "Czytelne, sformatowane wyniki",
+      "Wielojęzyczność dla globalnych zespołów"
+    ]
+  },
+  "hero": {
+    "h1": "Online Meetings dla Protokół AI (iOS)",
+    "kicker": "Informacja o wydaniu",
+    "tagline": "Kliknij „Online”, wystaw URL, udostępnij i dołącz. Po zakończeniu minutki generują się automatycznie."
+  },
+  "image": {
+    "alt": "Interfejs Online Meeting Protokół AI",
+    "caption": "Rozpocznij spotkanie w stylu Zoom z przycisku „Online”."
+  },
+  "meta": {
+    "category": "Online Meeting",
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Wydanie"
+  },
+  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
+  "notes": {
+    "foot": "Wypróbuj w sieci lub pobierz aplikację iOS.",
+    "h2": "Uwagi",
+    "items": [
+      "Czas trwania i pozostały limit zależą od planu/kwoty",
+      "Sieć i ustawienia urządzenia mogą wpływać na jakość"
+    ]
+  },
+  "release": {
+    "h2": "Co nowego",
+    "p1": "Protokół AI obsługuje teraz Online Meetings. Wystarczy kliknąć „Online”, aby wystawić URL i rozpocząć rozmowę w stylu Zoom.",
+    "p2": "Po zakończeniu spotkania minutki generowane są automatycznie z jasnymi decyzjami i zadaniami."
+  },
+  "seo": {
+    "description": "Kliknij „Online”, wystaw URL, udostępnij i natychmiast rozpocznij spotkanie jak w Zoom. Na końcu automatycznie powstaną czytelne minutki.",
+    "ld": {
+      "description": "Prowadź spotkania w stylu Zoom przez wystawiony URL i otrzymuj automatyczne minutki z jasnymi decyzjami i działaniami.",
+      "headline": "Protokół AI dodaje Online Meetings"
+    },
+    "ogDescription": "Uruchamiaj spotkania z przycisku „Online” i otrzymuj na końcu automatycznie sformatowane minutki.",
+    "ogTitle": "Online Meetings w Protokół AI",
+    "title": "Protokół AI obsługuje teraz Online Meetings (iOS)"
+  },
+  "steps": {
+    "h2": "Jak zacząć",
+    "items": [
+      "Kliknij „Online” w aplikacji lub w sieci",
+      "Wystaw URL spotkania",
+      "Udostępnij URL uczestnikom",
+      "Zakończ spotkanie → automatyczne minutki"
+    ],
+    "note": "Czas trwania zależy od planu i pozostałego limitu."
+  }
+}
