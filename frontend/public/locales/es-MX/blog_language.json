@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Por qué Actas IA se usa en todo el mundo — idiomas y soporte Whisper",
+    "description": "Actas IA usa Whisper para STT multilingüe y genera actas claras y accionables — perfecto para equipos globales.",
+    "ogTitle": "Así funciona Actas IA en cualquier idioma",
+    "ogDescription": "Más de 100 idiomas con Whisper, transcripción precisa y actas bien formateadas.",
+    "ld": {
+      "headline": "Uso global de Actas IA",
+      "description": "STT multilingüe con Whisper y actas legibles para equipos internacionales."
+    }
+  },
+  "aria": { "home": "Volver a la página de inicio de Actas IA" },
+  "nav": { "blog": "Blog", "languages": "Idiomas" },
+  "hero": {
+    "kicker": "Adopción global",
+    "h1": "Por qué Actas IA se usa en todas partes",
+    "tagline": "STT multilingüe con Whisper para actas precisas y fáciles de leer."
+  },
+  "intro": {
+    "h2": "Un producto, muchos idiomas",
+    "p1": "Actas IA opera en decenas de países gracias a su cobertura lingüística.",
+    "p2": "Con Whisper, la voz se transforma en texto fiable y en actas accionables."
+  },
+  "stt": {
+    "h2": "La fuerza de Whisper",
+    "p1": "Reconocimiento robusto en distintos idiomas y acentos.",
+    "p2": "Actas claras con decisiones, responsables y próximos pasos."
+  },
+  "langs": {
+    "h2": "Idiomas admitidos (selección)",
+    "note": "Busca por código o nombre",
+    "searchPlaceholder": "Filtrar idiomas…"
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artículo", "category": "Idiomas" },
+  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app de iOS" }
+}

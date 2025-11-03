@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Miért használják a Jegyzőkönyv AI-t világszerte — nyelvek és Whisper támogatás",
+    "description": "A Jegyzőkönyv AI a Whisperre épülő többnyelvű STT-vel pontos átiratokat és jól olvasható, cselekvőképes jegyzőkönyveket készít.",
+    "ogTitle": "Miért működik a Jegyzőkönyv AI bármely nyelven",
+    "ogDescription": "100+ nyelv, pontos átirat, rendezett jegyzőkönyv.",
+    "ld": {
+      "headline": "A Jegyzőkönyv AI globális elterjedése",
+      "description": "Többnyelvű STT Whisperrel és könnyen olvasható jegyzőkönyvek nemzetközi csapatoknak."
+    }
+  },
+  "aria": { "home": "Vissza a Jegyzőkönyv AI kezdőlapra" },
+  "nav": { "blog": "Blog", "languages": "Nyelvek" },
+  "hero": {
+    "kicker": "Globális adaptáció",
+    "h1": "Miért használják mindenhol a Jegyzőkönyv AI-t",
+    "tagline": "Whisper-alapú többnyelvű STT a pontos, jól olvasható jegyzőkönyvekért."
+  },
+  "intro": {
+    "h2": "Egy termék, sok nyelv",
+    "p1": "Széles nyelvi lefedettségének köszönhetően a Jegyzőkönyv AI-t számos országban használják.",
+    "p2": "A beszéd megbízható szöveggé, majd cselekvőképes jegyzőkönyvvé alakul."
+  },
+  "stt": {
+    "h2": "A Whisper ereje",
+    "p1": "Masszív felismerés nyelvek és akcentusok között.",
+    "p2": "Strukturált kimenet döntésekkel, felelősökkel és következő lépésekkel."
+  },
+  "langs": {
+    "h2": "Támogatott nyelvek (válogatás)",
+    "note": "Keresés kód vagy név alapján",
+    "searchPlaceholder": "Nyelvek szűrése…"
+  },
+  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Cikk", "category": "Nyelvek" },
+  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS app letöltése" }
+}

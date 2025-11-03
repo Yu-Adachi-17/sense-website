@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Warum Protokoll KI weltweit genutzt wird — Sprachen & Whisper-Support",
+    "description": "Protokoll KI nutzt Whisper für mehrsprachiges STT und erzeugt klare, umsetzbare Protokolle — ideal für globale Teams.",
+    "ogTitle": "Darum funktioniert Protokoll KI in jeder Sprache",
+    "ogDescription": "100+ Sprachen via Whisper, präzise Transkription, sauber formatierte Protokolle.",
+    "ld": {
+      "headline": "Weltweiter Einsatz von Protokoll KI",
+      "description": "Mehrsprachiges STT mit Whisper und gut lesbare Protokolle für internationale Teams."
+    }
+  },
+  "aria": { "home": "Zur Protokoll KI Startseite" },
+  "nav": { "blog": "Blog", "languages": "Sprachen" },
+  "hero": {
+    "kicker": "Globale Adoption",
+    "h1": "Warum Protokoll KI überall eingesetzt wird",
+    "tagline": "Whisper-basiertes STT liefert präzise, gut strukturierte Protokolle."
+  },
+  "intro": {
+    "h2": "Ein Produkt, viele Sprachen",
+    "p1": "Protokoll KI wird in zahlreichen Ländern eingesetzt dank breiter Sprachabdeckung.",
+    "p2": "Mit Whisper wird Sprache zuverlässig transkribiert und zu umsetzbaren Protokollen aufbereitet."
+  },
+  "stt": {
+    "h2": "Die Stärke von Whisper",
+    "p1": "Robuste Erkennung über Sprachen und Akzente hinweg.",
+    "p2": "Klare Protokolle mit Entscheidungen, Verantwortlichen und nächsten Schritten."
+  },
+  "langs": {
+    "h2": "Unterstützte Sprachen (Auswahl)",
+    "note": "Nach Code oder Name suchen",
+    "searchPlaceholder": "Sprachen filtern…"
+  },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Artikel", "category": "Sprachen" },
+  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App laden" }
+}

@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Pourquoi Minutes.AI est utilisé dans le monde entier — langues et support Whisper",
+    "description": "Minutes.AI s’appuie sur Whisper pour un STT multilingue et produit des comptes rendus clairs et actionnables — idéal pour des équipes globales.",
+    "ogTitle": "Pourquoi Minutes.AI fonctionne dans toutes les langues",
+    "ogDescription": "Plus de 100 langues via Whisper, transcription fiable et comptes rendus bien structurés.",
+    "ld": {
+      "headline": "Adoption mondiale de Minutes.AI",
+      "description": "STT multilingue avec Whisper et comptes rendus lisibles pour les équipes internationales."
+    }
+  },
+  "aria": { "home": "Retour à l’accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "languages": "Langues" },
+  "hero": {
+    "kicker": "Adoption mondiale",
+    "h1": "Pourquoi Minutes.AI est utilisé partout",
+    "tagline": "STT multilingue avec Whisper pour des comptes rendus précis et lisibles."
+  },
+  "intro": {
+    "h2": "Un produit, de nombreuses langues",
+    "p1": "Minutes.AI est utilisé dans de nombreux pays grâce à une large couverture linguistique.",
+    "p2": "Avec Whisper, la parole devient un texte fiable puis un compte rendu actionnable."
+  },
+  "stt": {
+    "h2": "La force de Whisper",
+    "p1": "Reconnaissance robuste à travers langues et accents.",
+    "p2": "Comptes rendus structurés avec décisions, responsables et prochaines étapes."
+  },
+  "langs": {
+    "h2": "Langues prises en charge (sélection)",
+    "note": "Recherchez par code ou nom",
+    "searchPlaceholder": "Filtrer les langues…"
+  },
+  "meta": { "h2": "Méta", "published": "Publié", "type": "Article", "category": "Langues" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" }
+}

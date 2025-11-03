@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Mengapa Minit AI digunakan di seluruh dunia — bahasa dan sokongan Whisper",
+    "description": "Minit AI menggunakan Whisper untuk STT berbilang bahasa dan menghasilkan minit mesyuarat yang jelas dan boleh diambil tindakan.",
+    "ogTitle": "Kenapa Minit AI berfungsi merentas bahasa",
+    "ogDescription": "100+ bahasa, transkripsi tepat, minit yang teratur.",
+    "ld": {
+      "headline": "Penggunaan global Minit AI",
+      "description": "STT berbilang bahasa dengan Whisper dan minit mudah dibaca untuk pasukan antarabangsa."
+    }
+  },
+  "aria": { "home": "Kembali ke Laman Utama Minit AI" },
+  "nav": { "blog": "Blog", "languages": "Bahasa" },
+  "hero": {
+    "kicker": "Adopsi Global",
+    "h1": "Mengapa Minit AI digunakan di mana-mana",
+    "tagline": "STT berbilang bahasa berasaskan Whisper untuk minit yang tepat dan mudah dibaca."
+  },
+  "intro": {
+    "h2": "Satu produk, banyak bahasa",
+    "p1": "Minit AI menyokong pelbagai bahasa untuk pasukan di seluruh dunia.",
+    "p2": "Ucapan menjadi teks yang boleh dipercayai, kemudian minit yang boleh dilaksanakan."
+  },
+  "stt": {
+    "h2": "Kekuatan Whisper",
+    "p1": "Pengecaman mantap merentas bahasa dan loghat.",
+    "p2": "Minit berstruktur dengan keputusan, pemilik dan langkah seterusnya."
+  },
+  "langs": {
+    "h2": "Bahasa disokong (pilihan)",
+    "note": "Cari mengikut kod atau nama",
+    "searchPlaceholder": "Tapis bahasa…"
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Artikel", "category": "Bahasa" },
+  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun aplikasi iOS" }
+}

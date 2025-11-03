@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Perché Verbali IA è usata in tutto il mondo — lingue e supporto Whisper",
+    "description": "Verbali IA usa Whisper per STT multilingue e genera verbali chiari e attuabili — perfetti per team globali.",
+    "ogTitle": "Perché Verbali IA funziona in qualsiasi lingua",
+    "ogDescription": "Oltre 100 lingue, trascrizione precisa e verbali ben formattati.",
+    "ld": {
+      "headline": "Adozione globale di Verbali IA",
+      "description": "STT multilingue con Whisper e verbali leggibili per team internazionali."
+    }
+  },
+  "aria": { "home": "Torna alla home di Verbali IA" },
+  "nav": { "blog": "Blog", "languages": "Lingue" },
+  "hero": {
+    "kicker": "Adozione globale",
+    "h1": "Perché Verbali IA è scelta ovunque",
+    "tagline": "STT multilingue basata su Whisper per verbali precisi e facili da leggere."
+  },
+  "intro": {
+    "h2": "Un prodotto, molte lingue",
+    "p1": "La copertura linguistica ampia rende Verbali IA utile in decine di Paesi.",
+    "p2": "La voce diventa testo affidabile — e poi verbali attuabili."
+  },
+  "stt": {
+    "h2": "La forza di Whisper",
+    "p1": "Riconoscimento robusto tra lingue e accenti.",
+    "p2": "Verbali strutturati con decisioni, responsabili e prossimi passi."
+  },
+  "langs": {
+    "h2": "Lingue supportate (selezione)",
+    "note": "Cerca per codice o nome",
+    "searchPlaceholder": "Filtra lingue…"
+  },
+  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Articolo", "category": "Lingue" },
+  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica l'app iOS" }
+}

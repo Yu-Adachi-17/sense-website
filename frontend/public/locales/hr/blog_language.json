@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Zašto AI Zapisnik koriste korisnici diljem svijeta — jezici i Whisper podrška",
+    "description": "AI Zapisnik koristi Whisper za višejezični STT i isporučuje jasne, provedive zapisnike — idealno za globalne timove.",
+    "ogTitle": "Zašto AI Zapisnik radi na svakom jeziku",
+    "ogDescription": "100+ jezika, precizna transkripcija i uredno formatirani zapisnici.",
+    "ld": {
+      "headline": "Globalno usvajanje AI Zapisnika",
+      "description": "Višejezični STT uz Whisper i lako čitljivi zapisnici za međunarodne timove."
+    }
+  },
+  "aria": { "home": "Povratak na početnu stranicu AI Zapisnik" },
+  "nav": { "blog": "Blog", "languages": "Jezici" },
+  "hero": {
+    "kicker": "Globalno usvajanje",
+    "h1": "Zašto se AI Zapisnik koristi posvuda",
+    "tagline": "Whisper-pokretan višejezični STT donosi točne i lako čitljive zapisnike."
+  },
+  "intro": {
+    "h2": "Jedan proizvod, mnogo jezika",
+    "p1": "Široka jezična pokrivenost omogućuje korištenje AI Zapisnika u desecima zemalja.",
+    "p2": "Govor se pretvara u pouzdan tekst — a zatim u provedive zapisnike."
+  },
+  "stt": {
+    "h2": "Snaga Whispera",
+    "p1": "Robusno prepoznavanje preko jezika i naglasaka.",
+    "p2": "Strukturirani zapisnici s odlukama, nositeljima i sljedećim koracima."
+  },
+  "langs": {
+    "h2": "Podržani jezici (izbor)",
+    "note": "Tražite po kodu ili nazivu",
+    "searchPlaceholder": "Filtriraj jezike…"
+  },
+  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Članak", "category": "Jezici" },
+  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Preuzmi iOS aplikaciju" }
+}

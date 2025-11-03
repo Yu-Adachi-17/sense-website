@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Proč se Zápisník AI používá po celém světě — jazyky a podpora Whisper",
+    "description": "Zápisník AI využívá Whisper pro vícejazyčné STT a vytváří přehledné, akční zápisy — ideální pro globální týmy.",
+    "ogTitle": "Proč Zápisník AI funguje v každém jazyce",
+    "ogDescription": "100+ jazyků přes Whisper, přesná transkripce a dobře formátované zápisy.",
+    "ld": {
+      "headline": "Globální adopce Zápisník AI",
+      "description": "Vícejazyčné STT s Whisper a čitelné zápisy pro mezinárodní týmy."
+    }
+  },
+  "aria": { "home": "Zpět na domovskou stránku Zápisník AI" },
+  "nav": { "blog": "Blog", "languages": "Jazyky" },
+  "hero": {
+    "kicker": "Globální adopce",
+    "h1": "Proč se Zápisník AI používá všude",
+    "tagline": "STT založené na Whisper poskytuje přesné a snadno čitelné zápisy."
+  },
+  "intro": {
+    "h2": "Jeden produkt, mnoho jazyků",
+    "p1": "Díky široké jazykové podpoře pomáhá Zápisník AI týmům po celém světě.",
+    "p2": "Řeč se mění na spolehlivý text a akční zápisy."
+  },
+  "stt": {
+    "h2": "Síla Whisper",
+    "p1": "Robustní rozpoznávání napříč jazyky i přízvuky.",
+    "p2": "Strukturované zápisy s rozhodnutími, vlastníky a dalšími kroky."
+  },
+  "langs": {
+    "h2": "Podporované jazyky (výběr)",
+    "note": "Hledejte podle kódu nebo názvu",
+    "searchPlaceholder": "Filtrovat jazyky…"
+  },
+  "meta": { "h2": "Meta", "published": "Publikováno", "type": "Článek", "category": "Jazyky" },
+  "cta": { "openBrowser": "Otevřít v prohlížeči", "downloadIOS": "Stáhnout iOS aplikaci" }
+}

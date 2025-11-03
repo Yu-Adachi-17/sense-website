@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "왜 회의록AI가 전 세계에서 쓰이나요 — 언어와 Whisper 지원",
+    "description": "회의록AI는 Whisper 기반 다국어 STT로 정확한 전사와 읽기 쉬운 회의록을 제공합니다.",
+    "ogTitle": "회의록AI가 어떤 언어에서도 통하는 이유",
+    "ogDescription": "100+개 언어 지원, 신뢰도 높은 전사, 깔끔한 회의록 자동 생성.",
+    "ld": {
+      "headline": "회의록AI의 글로벌 채택",
+      "description": "Whisper 다국어 STT와 명료한 회의록으로 전 세계 팀을 지원합니다."
+    }
+  },
+  "aria": { "home": "회의록AI 홈으로" },
+  "nav": { "blog": "블로그", "languages": "언어" },
+  "hero": {
+    "kicker": "글로벌 도입",
+    "h1": "왜 회의록AI는 어디서나 쓰일까",
+    "tagline": "Whisper 기반 다국어 STT로 정확하고 읽기 쉬운 회의록."
+  },
+  "intro": {
+    "h2": "하나의 제품, 다양한 언어",
+    "p1": "회의록AI는 폭넓은 언어 지원으로 다국적 팀을 돕습니다.",
+    "p2": "음성은 신뢰할 수 있는 텍스트가 되고, 실행 가능한 회의록으로 정리됩니다."
+  },
+  "stt": {
+    "h2": "Whisper의 강점",
+    "p1": "언어와 억양을 넘나드는 견고한 인식.",
+    "p2": "결정, 담당자, 다음 단계까지 정리된 결과."
+  },
+  "langs": {
+    "h2": "지원 언어(일부)",
+    "note": "코드 또는 이름으로 검색",
+    "searchPlaceholder": "언어 필터…"
+  },
+  "meta": { "h2": "메타", "published": "발행", "type": "기사", "category": "언어" },
+  "cta": { "openBrowser": "브라우저에서 열기", "downloadIOS": "iOS 앱 다운로드" }
+}

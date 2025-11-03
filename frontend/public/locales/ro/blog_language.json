@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "De ce Proces-verbal AI este folosit în toată lumea — limbi și suport Whisper",
+    "description": "Proces-verbal AI folosește STT multilingv bazat pe Whisper și generează procese-verbale clare și acționabile.",
+    "ogTitle": "De ce Proces-verbal AI funcționează în orice limbă",
+    "ogDescription": "Peste 100 de limbi, transcriere precisă și procese-verbale bine structurate.",
+    "ld": {
+      "headline": "Adopția globală a Proces-verbal AI",
+      "description": "STT multilingv cu Whisper și procese-verbale ușor de citit pentru echipe internaționale."
+    }
+  },
+  "aria": { "home": "Înapoi la pagina principală Proces-verbal AI" },
+  "nav": { "blog": "Blog", "languages": "Limbi" },
+  "hero": {
+    "kicker": "Adopție globală",
+    "h1": "De ce Proces-verbal AI este ales peste tot",
+    "tagline": "STT multilingv cu Whisper pentru procese-verbale precise și lizibile."
+  },
+  "intro": {
+    "h2": "Un produs, multe limbi",
+    "p1": "Acoperirea lingvistică extinsă face Proces-verbal AI util în zeci de țări.",
+    "p2": "Vorbirea devine text de încredere — apoi procese-verbale acționabile."
+  },
+  "stt": {
+    "h2": "Puterea Whisper",
+    "p1": "Recunoaștere robustă între limbi și accente.",
+    "p2": "Ieșire structurată cu decizii, responsabili și pași următori."
+  },
+  "langs": {
+    "h2": "Limbi suportate (selecție)",
+    "note": "Căutați după cod sau nume",
+    "searchPlaceholder": "Filtrați limbile…"
+  },
+  "meta": { "h2": "Meta", "published": "Publicat", "type": "Articol", "category": "Limbi" },
+  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Descarcă aplicația iOS" }
+}

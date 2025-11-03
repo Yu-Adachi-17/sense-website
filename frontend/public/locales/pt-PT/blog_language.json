@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Porque a Ata AI é usada em todo o mundo — idiomas e suporte Whisper",
+    "description": "A Ata AI usa o Whisper para STT multilingue e gera atas claras e acionáveis — ideal para equipas globais.",
+    "ogTitle": "Porque a Ata AI funciona em qualquer idioma",
+    "ogDescription": "Mais de 100 idiomas via Whisper, transcrição precisa e atas bem formatadas.",
+    "ld": {
+      "headline": "Adoção global da Ata AI",
+      "description": "STT multilingue com Whisper e atas fáceis de ler para equipas internacionais."
+    }
+  },
+  "aria": { "home": "Voltar à página inicial da Ata AI" },
+  "nav": { "blog": "Blogue", "languages": "Idiomas" },
+  "hero": {
+    "kicker": "Adoção global",
+    "h1": "Porque a Ata AI é usada em todo o lado",
+    "tagline": "STT multilingue baseada no Whisper para atas precisas e legíveis."
+  },
+  "intro": {
+    "h2": "Um produto, muitos idiomas",
+    "p1": "A Ata AI é usada em dezenas de países graças à ampla cobertura linguística.",
+    "p2": "Com o Whisper, a voz transforma-se em texto fiável e em atas acionáveis."
+  },
+  "stt": {
+    "h2": "A força do Whisper",
+    "p1": "Reconhecimento robusto entre idiomas e sotaques.",
+    "p2": "Atas estruturadas com decisões, responsáveis e próximos passos."
+  },
+  "langs": {
+    "h2": "Idiomas suportados (seleção)",
+    "note": "Pesquise por código ou nome",
+    "searchPlaceholder": "Filtrar idiomas…"
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artigo", "category": "Idiomas" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Transferir app iOS" }
+}

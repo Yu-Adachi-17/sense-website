@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Hvorfor Referat AI bruges verden over — sprog og Whisper-støtte",
+    "description": "Referat AI bruger Whisper til flersproget tale-til-tekst og leverer læselige, handlingsklare referater for globale teams.",
+    "ogTitle": "Derfor virker Referat AI på tværs af sprog",
+    "ogDescription": "100+ sprog via Whisper, præcis transskription og pæne referater.",
+    "ld": {
+      "headline": "Global brug af Referat AI",
+      "description": "Flersproget STT med Whisper og klare referater til internationale teams."
+    }
+  },
+  "aria": { "home": "Tilbage til Referat AI Hjem" },
+  "nav": { "blog": "Blog", "languages": "Sprog" },
+  "hero": {
+    "kicker": "Global Adoptering",
+    "h1": "Hvorfor Referat AI er populær i hele verden",
+    "tagline": "Whisper-drevet flersproget STT giver præcise, letlæselige referater."
+  },
+  "intro": {
+    "h2": "Ét produkt, mange sprog",
+    "p1": "Referat AI bruges i mange lande takket være bred sprogunderstøttelse.",
+    "p2": "Med Whisper bliver tale til nøjagtig tekst—og videre til handlingsklare referater."
+  },
+  "stt": {
+    "h2": "Styrken ved Whisper",
+    "p1": "Robust genkendelse på tværs af sprog og accenter.",
+    "p2": "Strukturerede referater med beslutninger, ansvarlige og næste skridt."
+  },
+  "langs": {
+    "h2": "Understøttede sprog (udvalg)",
+    "note": "Søg efter kode eller navn",
+    "searchPlaceholder": "Filtrér sprog…"
+  },
+  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Artikel", "category": "Sprog" },
+  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" }
+}

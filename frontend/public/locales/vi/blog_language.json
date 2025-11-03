@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Vì sao Biên bản AI được dùng trên toàn cầu — ngôn ngữ và hỗ trợ Whisper",
+    "description": "Biên bản AI dùng STT đa ngôn ngữ dựa trên Whisper để tạo biên bản rõ ràng, dễ hành động — lý tưởng cho đội ngũ toàn cầu.",
+    "ogTitle": "Vì sao Biên bản AI hoạt động ở mọi ngôn ngữ",
+    "ogDescription": "Hơn 100 ngôn ngữ, chuyển giọng nói chính xác và biên bản định dạng chuẩn.",
+    "ld": {
+      "headline": "Biên bản AI được chấp nhận rộng rãi",
+      "description": "STT đa ngôn ngữ với Whisper và biên bản dễ đọc cho các nhóm quốc tế."
+    }
+  },
+  "aria": { "home": "Về trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "languages": "Ngôn ngữ" },
+  "hero": {
+    "kicker": "Được dùng toàn cầu",
+    "h1": "Vì sao Biên bản AI được chọn ở khắp nơi",
+    "tagline": "STT đa ngôn ngữ dựa trên Whisper cho biên bản chính xác, dễ đọc."
+  },
+  "intro": {
+    "h2": "Một sản phẩm, nhiều ngôn ngữ",
+    "p1": "Nhờ hỗ trợ ngôn ngữ rộng, Biên bản AI hữu ích tại hàng chục quốc gia.",
+    "p2": "Lời nói chuyển thành văn bản đáng tin cậy — rồi thành biên bản có thể hành động."
+  },
+  "stt": {
+    "h2": "Sức mạnh của Whisper",
+    "p1": "Nhận dạng vững chắc giữa các ngôn ngữ và giọng.",
+    "p2": "Đầu ra có cấu trúc với quyết định, người phụ trách và bước tiếp theo."
+  },
+  "langs": {
+    "h2": "Ngôn ngữ hỗ trợ (chọn lọc)",
+    "note": "Tìm theo mã hoặc tên",
+    "searchPlaceholder": "Lọc ngôn ngữ…"
+  },
+  "meta": { "h2": "Meta", "published": "Ngày đăng", "type": "Bài viết", "category": "Ngôn ngữ" },
+  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải app iOS" }
+}

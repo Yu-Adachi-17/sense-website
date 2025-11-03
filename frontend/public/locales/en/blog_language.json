@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Why Minutes.AI is used worldwide — languages and Whisper support",
+    "description": "Minutes.AI uses Whisper for multilingual STT and produces clear, actionable minutes — built for global teams.",
+    "ogTitle": "Why Minutes.AI works in any language",
+    "ogDescription": "100+ languages, accurate transcription, well-formatted minutes.",
+    "ld": {
+      "headline": "Global adoption of Minutes.AI",
+      "description": "Multilingual STT with Whisper and easy-to-read minutes for international teams."
+    }
+  },
+  "aria": { "home": "Back to Minutes.AI Home" },
+  "nav": { "blog": "Blog", "languages": "Languages" },
+  "hero": {
+    "kicker": "Global adoption",
+    "h1": "Why Minutes.AI is chosen everywhere",
+    "tagline": "Whisper-powered multilingual STT for accurate, readable minutes."
+  },
+  "intro": {
+    "h2": "One product, many languages",
+    "p1": "Broad language coverage makes Minutes.AI useful across dozens of countries.",
+    "p2": "Speech becomes reliable text — then actionable minutes."
+  },
+  "stt": {
+    "h2": "The strength of Whisper",
+    "p1": "Robust recognition across languages and accents.",
+    "p2": "Structured outputs with decisions, owners, and next steps."
+  },
+  "langs": {
+    "h2": "Supported languages (selection)",
+    "note": "Search by code or name",
+    "searchPlaceholder": "Filter languages…"
+  },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Article", "category": "Languages" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download the iOS app" }
+}

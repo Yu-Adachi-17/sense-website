@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "為何「會議紀錄AI」在全球廣受使用——語言與 Whisper 支援",
+    "description": "「會議紀錄AI」透過 Whisper 提供多語言語音轉寫，產出清晰易讀、可執行的會議紀錄，適合全球團隊。",
+    "ogTitle": "為什麼「會議紀錄AI」適用於各種語言",
+    "ogDescription": "支援 100+ 語言，精準轉寫，結構化紀錄。",
+    "ld": {
+      "headline": "「會議紀錄AI」的全球採用",
+      "description": "以 Whisper 提供多語 STT，為全球團隊帶來易讀會議紀錄。"
+    }
+  },
+  "aria": { "home": "返回「會議紀錄AI」首頁" },
+  "nav": { "blog": "部落格", "languages": "語言" },
+  "hero": {
+    "kicker": "全球採用",
+    "h1": "為何「會議紀錄AI」各地都在用",
+    "tagline": "Whisper 多語 STT，帶來精準、好讀的會議紀錄。"
+  },
+  "intro": {
+    "h2": "一個產品，支援多語",
+    "p1": "仰賴廣泛語言覆蓋，「會議紀錄AI」服務全球使用者。",
+    "p2": "語音化為可信文字，進一步整理為可執行的紀錄。"
+  },
+  "stt": {
+    "h2": "Whisper 的強項",
+    "p1": "跨語言與口音的穩健辨識。",
+    "p2": "含決策、負責人與下一步的結構化輸出。"
+  },
+  "langs": {
+    "h2": "支援語言（部分）",
+    "note": "依代碼或名稱搜尋",
+    "searchPlaceholder": "篩選語言…"
+  },
+  "meta": { "h2": "中繼資料", "published": "發佈日期", "type": "文章", "category": "語言" },
+  "cta": { "openBrowser": "在瀏覽器中開啟", "downloadIOS": "下載 iOS App" }
+}

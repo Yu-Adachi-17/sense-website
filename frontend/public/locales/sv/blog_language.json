@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Varför Protokoll AI används världen över — språk och Whisper-stöd",
+    "description": "Protokoll AI använder Whisper för flerspråkig STT och levererar tydliga, handlingsbara protokoll för globala team.",
+    "ogTitle": "Därför fungerar Protokoll AI på alla språk",
+    "ogDescription": "100+ språk via Whisper, exakt transkribering och välformaterade protokoll.",
+    "ld": {
+      "headline": "Global användning av Protokoll AI",
+      "description": "Flerspråkig STT med Whisper och lättlästa protokoll för internationella team."
+    }
+  },
+  "aria": { "home": "Tillbaka till Protokoll AI Startsida" },
+  "nav": { "blog": "Blogg", "languages": "Språk" },
+  "hero": {
+    "kicker": "Global adoption",
+    "h1": "Varför Protokoll AI används överallt",
+    "tagline": "Whisper-driven flerspråkig STT som ger precisa och lättlästa protokoll."
+  },
+  "intro": {
+    "h2": "En produkt, många språk",
+    "p1": "Protokoll AI används i många länder tack vare bred språk-support.",
+    "p2": "Tal blir till tillförlitlig text — och vidare till handlingsbara protokoll."
+  },
+  "stt": {
+    "h2": "Styrkan i Whisper",
+    "p1": "Robust igenkänning över språk och accenter.",
+    "p2": "Strukturerade protokoll med beslut, ansvariga och nästa steg."
+  },
+  "langs": {
+    "h2": "Stödda språk (urval)",
+    "note": "Sök på kod eller namn",
+    "searchPlaceholder": "Filtrera språk…"
+  },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Artikel", "category": "Språk" },
+  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Hämta iOS-app" }
+}

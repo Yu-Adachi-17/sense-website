@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Tutanakları AI neden dünyada her yerde kullanılıyor — diller ve Whisper desteği",
+    "description": "Tutanakları AI, Whisper ile çok dilli STT sağlar ve küresel ekipler için okunabilir, eyleme dönük tutanaklar üretir.",
+    "ogTitle": "Tutanakları AI her dilde neden çalışır",
+    "ogDescription": "100+ dil, doğru yazıya döküm ve düzgün biçimlendirilmiş tutanaklar.",
+    "ld": {
+      "headline": "Tutanakları AI’nın küresel benimsenmesi",
+      "description": "Whisper ile çok dilli STT ve uluslararası ekipler için anlaşılır tutanaklar."
+    }
+  },
+  "aria": { "home": "Tutanakları AI Ana Sayfa" },
+  "nav": { "blog": "Blog", "languages": "Diller" },
+  "hero": {
+    "kicker": "Küresel benimseme",
+    "h1": "Tutanakları AI neden her yerde kullanılıyor",
+    "tagline": "Whisper tabanlı çok dilli STT ile doğru ve kolay okunur tutanaklar."
+  },
+  "intro": {
+    "h2": "Tek ürün, birçok dil",
+    "p1": "Tutanakları AI, geniş dil kapsamı sayesinde pek çok ülkede kullanılıyor.",
+    "p2": "Konuşma güvenilir metne, ardından eyleme dönük tutanaklara dönüşür."
+  },
+  "stt": {
+    "h2": "Whisper’ın gücü",
+    "p1": "Diller ve aksanlar arasında sağlam tanıma.",
+    "p2": "Kararlar, sorumlular ve sonraki adımlarla yapılandırılmış çıktı."
+  },
+  "langs": {
+    "h2": "Desteklenen diller (seçki)",
+    "note": "Koda veya ada göre arayın",
+    "searchPlaceholder": "Dilleri filtrele…"
+  },
+  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "Makale", "category": "Diller" },
+  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" }
+}

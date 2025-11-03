@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Waarom Notulen AI wereldwijd wordt gebruikt — talen en Whisper-ondersteuning",
+    "description": "Notulen AI gebruikt Whisper voor meertalige spraak-naar-tekst en levert duidelijke, actiegerichte notulen voor internationale teams.",
+    "ogTitle": "Daarom werkt Notulen AI in elke taal",
+    "ogDescription": "100+ talen via Whisper, nauwkeurige transcriptie en netjes opgemaakte notulen.",
+    "ld": {
+      "headline": "Wereldwijde adoptie van Notulen AI",
+      "description": "Meertalige STT met Whisper en goed leesbare notulen voor teams over de hele wereld."
+    }
+  },
+  "aria": { "home": "Terug naar Notulen AI Home" },
+  "nav": { "blog": "Blog", "languages": "Talen" },
+  "hero": {
+    "kicker": "Wereldwijde adoptie",
+    "h1": "Waarom Notulen AI overal wordt ingezet",
+    "tagline": "Whisper-gestuurde meertalige STT voor nauwkeurige, goed leesbare notulen."
+  },
+  "intro": {
+    "h2": "Eén product, veel talen",
+    "p1": "Notulen AI wordt in talloze landen gebruikt dankzij brede taalondersteuning.",
+    "p2": "Met Whisper wordt spraak betrouwbare tekst en vervolgens actiegerichte notulen."
+  },
+  "stt": {
+    "h2": "De kracht van Whisper",
+    "p1": "Robuuste herkenning over talen en accenten heen.",
+    "p2": "Duidelijke notulen met beslissingen, eigenaren en vervolgstappen."
+  },
+  "langs": {
+    "h2": "Ondersteunde talen (selectie)",
+    "note": "Zoek op code of naam",
+    "searchPlaceholder": "Talen filteren…"
+  },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Artikel", "category": "Talen" },
+  "cta": { "openBrowser": "Openen in browser", "downloadIOS": "iOS-app downloaden" }
+}

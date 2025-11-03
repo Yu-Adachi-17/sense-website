@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Miksi Pöytäkirja AI:ta käytetään ympäri maailmaa — kielet ja Whisper-tuki",
+    "description": "Pöytäkirja AI hyödyntää Whisperiä monikieliseen puheentunnistukseen ja tuottaa selkeät, toimenpidekelpoiset pöytäkirjat.",
+    "ogTitle": "Siksi Pöytäkirja AI toimii millä tahansa kielellä",
+    "ogDescription": "Yli 100 kieltä Whisperillä, tarkka transkriptio ja hyvin jäsennellyt pöytäkirjat.",
+    "ld": {
+      "headline": "Pöytäkirja AI:n globaali käyttö",
+      "description": "Monikielinen STT Whisperillä ja helposti luettavat pöytäkirjat kansainvälisille tiimeille."
+    }
+  },
+  "aria": { "home": "Takaisin Pöytäkirja AI -etusivulle" },
+  "nav": { "blog": "Blogi", "languages": "Kielet" },
+  "hero": {
+    "kicker": "Globaali käyttöönotto",
+    "h1": "Miksi Pöytäkirja AI on kaikkialla käytössä",
+    "tagline": "Whisper-pohjainen monikielinen STT tuottaa tarkkoja ja helposti luettavia pöytäkirjoja."
+  },
+  "intro": {
+    "h2": "Yksi tuote, monta kieltä",
+    "p1": "Laajan kielituen ansiosta Pöytäkirja AI palvelee tiimejä monissa maissa.",
+    "p2": "Puhe muuttuu luotettavaksi tekstiksi ja toimenpidekelpoisiksi pöytäkirjoiksi."
+  },
+  "stt": {
+    "h2": "Whisperin vahvuus",
+    "p1": "Vankka tunnistus kielistä ja aksenteista riippumatta.",
+    "p2": "Selkeä rakenne: päätökset, vastuuhenkilöt ja seuraavat askeleet."
+  },
+  "langs": {
+    "h2": "Tuetut kielet (valikoima)",
+    "note": "Hae koodin tai nimen perusteella",
+    "searchPlaceholder": "Suodata kieliä…"
+  },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Artikkeli", "category": "Kielet" },
+  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" }
+}

@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Mengapa Minutes AI dipakai di seluruh dunia — bahasa dan dukungan Whisper",
+    "description": "Minutes AI memakai Whisper untuk STT multibahasa dan menghasilkan notulen yang jelas serta dapat ditindaklanjuti — cocok untuk tim global.",
+    "ogTitle": "Alasan Minutes AI bekerja di berbagai bahasa",
+    "ogDescription": "100+ bahasa via Whisper, transkripsi akurat, notulen rapi.",
+    "ld": {
+      "headline": "Adopsi global Minutes AI",
+      "description": "STT multibahasa dengan Whisper dan notulen mudah dibaca untuk tim internasional."
+    }
+  },
+  "aria": { "home": "Kembali ke Beranda Minutes AI" },
+  "nav": { "blog": "Blog", "languages": "Bahasa" },
+  "hero": {
+    "kicker": "Adopsi Global",
+    "h1": "Mengapa Minutes AI digunakan di mana-mana",
+    "tagline": "STT multibahasa berbasis Whisper untuk notulen akurat dan mudah dibaca."
+  },
+  "intro": {
+    "h2": "Satu produk, banyak bahasa",
+    "p1": "Minutes AI dipakai di banyak negara berkat cakupan bahasa yang luas.",
+    "p2": "Dengan Whisper, ucapan berubah menjadi teks tepercaya dan notulen yang dapat ditindaklanjuti."
+  },
+  "stt": {
+    "h2": "Kekuatan Whisper",
+    "p1": "Pengenalan andal lintas bahasa dan aksen.",
+    "p2": "Notulen terstruktur dengan keputusan, penanggung jawab, dan langkah berikutnya."
+  },
+  "langs": {
+    "h2": "Bahasa yang didukung (pilihan)",
+    "note": "Cari berdasarkan kode atau nama",
+    "searchPlaceholder": "Saring bahasa…"
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Artikel", "category": "Bahasa" },
+  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+}

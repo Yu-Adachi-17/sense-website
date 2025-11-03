@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "为何「会议记录AI」在全球广受使用——语言与 Whisper 支持",
+    "description": "「会议记录AI」借助 Whisper 提供多语言语音转写，自动生成清晰可读、可执行的会议纪要，适合全球团队。",
+    "ogTitle": "为什么「会议记录AI」适用于任何语言",
+    "ogDescription": "支持 100+ 语言，准确转写，结构化纪要。",
+    "ld": {
+      "headline": "「会议记录AI」的全球采用",
+      "description": "基于 Whisper 的多语言 STT，为全球团队提供易读会议纪要。"
+    }
+  },
+  "aria": { "home": "返回「会议记录AI」首页" },
+  "nav": { "blog": "博客", "languages": "语言" },
+  "hero": {
+    "kicker": "全球采用",
+    "h1": "为何「会议记录AI」在各地被选择",
+    "tagline": "Whisper 多语言 STT，带来准确、易读的会议纪要。"
+  },
+  "intro": {
+    "h2": "一个产品，覆盖多语言",
+    "p1": "凭借广泛的语言覆盖，「会议记录AI」服务全球用户。",
+    "p2": "语音转为可信文本，并整理为可执行的纪要。"
+  },
+  "stt": {
+    "h2": "Whisper 的优势",
+    "p1": "跨语言与口音的稳健识别。",
+    "p2": "包含决策、负责人与下一步的结构化输出。"
+  },
+  "langs": {
+    "h2": "支持的语言（部分）",
+    "note": "按代码或名称搜索",
+    "searchPlaceholder": "筛选语言…"
+  },
+  "meta": { "h2": "元信息", "published": "发布日期", "type": "文章", "category": "语言" },
+  "cta": { "openBrowser": "在浏览器中打开", "downloadIOS": "下载 iOS 应用" }
+}

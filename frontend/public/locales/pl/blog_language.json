@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Dlaczego Protokół AI jest używany na całym świecie — języki i wsparcie Whisper",
+    "description": "Protokół AI wykorzystuje wielojęzyczny STT Whisper i tworzy czytelne, praktyczne protokoły — idealne dla globalnych zespołów.",
+    "ogTitle": "Dlaczego Protokół AI działa w każdym języku",
+    "ogDescription": "Ponad 100 języków, dokładna transkrypcja i dobrze sformatowane protokoły.",
+    "ld": {
+      "headline": "Globalna adopcja Protokół AI",
+      "description": "Wielojęzyczny STT z Whisper i łatwe do czytania protokoły dla międzynarodowych zespołów."
+    }
+  },
+  "aria": { "home": "Powrót na stronę główną Protokół AI" },
+  "nav": { "blog": "Blog", "languages": "Języki" },
+  "hero": {
+    "kicker": "Globalna adopcja",
+    "h1": "Dlaczego Protokół AI jest używany wszędzie",
+    "tagline": "Wielojęzyczny STT oparty na Whisper zapewnia dokładne i czytelne protokoły."
+  },
+  "intro": {
+    "h2": "Jeden produkt, wiele języków",
+    "p1": "Szerokie wsparcie językowe sprawia, że Protokół AI jest użyteczny w dziesiątkach krajów.",
+    "p2": "Mowa staje się rzetelnym tekstem — a następnie protokołem gotowym do działania."
+  },
+  "stt": {
+    "h2": "Siła Whisper",
+    "p1": "Solidne rozpoznawanie między językami i akcentami.",
+    "p2": "Ustrukturyzowane wyjście z decyzjami, właścicielami i kolejnymi krokami."
+  },
+  "langs": {
+    "h2": "Obsługiwane języki (wybór)",
+    "note": "Szukaj po kodzie lub nazwie",
+    "searchPlaceholder": "Filtruj języki…"
+  },
+  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Artykuł", "category": "Języki" },
+  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" }
+}

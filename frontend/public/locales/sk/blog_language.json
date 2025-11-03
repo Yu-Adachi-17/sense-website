@@ -1,0 +1,36 @@
+{
+  "seo": {
+    "title": "Prečo sa AI Zápisnica používa po celom svete — jazyky a podpora Whisper",
+    "description": "AI Zápisnica využíva viacjazyčné STT s Whisper a tvorí prehľadné, akčné zápisnice — ideálne pre globálne tímy.",
+    "ogTitle": "Prečo AI Zápisnica funguje v každom jazyku",
+    "ogDescription": "100+ jazykov, presná transkripcia a dobre formátované zápisnice.",
+    "ld": {
+      "headline": "Globálne prijatie AI Zápisnica",
+      "description": "Viacjazyčné STT s Whisper a ľahko čitateľné zápisnice pre medzinárodné tímy."
+    }
+  },
+  "aria": { "home": "Späť na domovskú stránku AI Zápisnica" },
+  "nav": { "blog": "Blog", "languages": "Jazyky" },
+  "hero": {
+    "kicker": "Globálne prijatie",
+    "h1": "Prečo je AI Zápisnica všade používaná",
+    "tagline": "Whisper-poháňané viacjazyčné STT prináša presné a ľahko čitateľné zápisnice."
+  },
+  "intro": {
+    "h2": "Jeden produkt, mnoho jazykov",
+    "p1": "Široké jazykové pokrytie umožňuje AI Zápisnici fungovať v desiatkach krajín.",
+    "p2": "Reč sa mení na spoľahlivý text — a následne na akčnú zápisnicu."
+  },
+  "stt": {
+    "h2": "Sila Whisper",
+    "p1": "Robustné rozpoznávanie naprieč jazykmi a prízvukmi.",
+    "p2": "Štruktúrovaný výstup s rozhodnutiami, vlastníkmi a nasledujúcimi krokmi."
+  },
+  "langs": {
+    "h2": "Podporované jazyky (výber)",
+    "note": "Hľadajte podľa kódu alebo názvu",
+    "searchPlaceholder": "Filtrovať jazyky…"
+  },
+  "meta": { "h2": "Meta", "published": "Publikované", "type": "Článok", "category": "Jazyky" },
+  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Stiahnuť iOS aplikáciu" }
+}
