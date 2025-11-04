@@ -162,7 +162,7 @@ export default function PurchaseMenu() {
       // 背景には一切フィルタ/レイヤーをかけない
       sideMenu: {
         position: "fixed", top: 0, right: 0,
-        width: isMobile ? "66.66%" : "27%", maxWidth: 560, minWidth: 320,
+        width: isMobile ? "66.66%" : "30%", maxWidth: 560, minWidth: 320,
         height: "100%",
         color: "#0A0F1B",
         padding: "22px 18px", boxSizing: "border-box",
