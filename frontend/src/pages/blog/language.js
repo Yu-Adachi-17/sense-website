@@ -1,4 +1,4 @@
-// src/pages/blog/languages.js
+// src/pages/blog/language.js
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -26,7 +26,7 @@ const EN_FALLBACK = {
     },
   },
   aria: { home: "Minutes.AI Home" },
-  nav: { blog: "Blog", languages: "Languages" },
+  nav: { blog: "Blog", language: "Language" },
   hero: {
     kicker: "Global Adoption",
     h1: "Why Minutes.AI is used around the world",
@@ -150,7 +150,7 @@ const EN_FALLBACK = {
       { code: "yue", name: "Cantonese" }
     ]
   },
-  meta: { h2: "Meta", published: "Published", type: "Article", category: "Languages" },
+  meta: { h2: "Meta", published: "Published", type: "Article", category: "Language" },
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" }
 };
 
@@ -213,11 +213,11 @@ function Pill({ children }) {
 
 export default function BlogLanguages() {
   const router = useRouter();
-  const { txs, txa } = useTx("blog_languages");
+  const { txs, txa } = useTx("blog_language");
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical =
-    siteUrl + (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) + "/blog/languages";
+    siteUrl + (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) + "/blog/language";
 
   const langs = txa("langs.list");
   const [q, setQ] = React.useState("");
@@ -284,7 +284,7 @@ export default function BlogLanguages() {
               {txs("nav.blog")}
             </Link>
             <span className="mx-2 text-indigo-300/50">/</span>
-            <span className="text-indigo-100">{txs("nav.languages")}</span>
+            <span className="text-indigo-100">{txs("nav.language")}</span>
           </nav>
         </header>
 
@@ -387,7 +387,7 @@ import * as React from "react";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_languages"], i18nConfig))
+      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_language"], i18nConfig))
     }
   };
 }
