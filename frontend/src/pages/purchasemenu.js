@@ -1,5 +1,6 @@
 // src/pages/purchasemenu.js
 import React, { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -52,7 +53,6 @@ function formatYYYYMMDD(date) {
   return `${y}${m}${d}`;
 }
 
-// 親への通知は廃止（SideMenu 内で完結して薄い影のみ敷く）
 export default function PurchaseMenu() {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -69,13 +69,14 @@ export default function PurchaseMenu() {
   const IOS_SUBSCRIPTION_NOTE =
     "If you subscribed via the iOS app, please cancel from your iOS device.";
 
-  // dir 切替のみ維持
+  // 右→左 切替
   useEffect(() => {
     try {
       document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
     } catch {}
   }, [i18n.language]);
 
+  // 画面幅
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
@@ -132,9 +133,22 @@ export default function PurchaseMenu() {
     return () => { cancelled = true; };
   }, [userId]);
 
+  // “ページ最上位から薄いグレー” を強制するため、body にクラス付与（安全のため overlay も Portal で重ねる）
+  useEffect(() => {
+    const cls = "pmenu-dim-open";
+    if (showSideMenu) document.body.classList.add(cls);
+    else document.body.classList.remove(cls);
+    return () => document.body.classList.remove(cls);
+  }, [showSideMenu]);
+
   const ui = useMemo(() => {
     const chipBgLight = "#E3F2FD";
-    const base = { z: { menu: 1200, overlay: 1100, trigger: 1300 }, radius: 16, ease: "cubic-bezier(.2,.7,.2,1)" };
+    const base = {
+      // どんなスタッキングコンテキストより上に来るよう、非常に高い値を指定
+      z: { overlay: 2147483600, menu: 2147483640, trigger: 2147483647 },
+      radius: 16,
+      ease: "cubic-bezier(.2,.7,.2,1)",
+    };
 
     return {
       hamburgerButton: {
@@ -142,14 +156,11 @@ export default function PurchaseMenu() {
         background: "none", border: "none", color: "#000",
         cursor: "pointer", zIndex: base.trigger, WebkitTapHighlightColor: "transparent",
       },
-      // “薄い影”だけ：半透明の黒。演出最小、互換性最優先。クリックで閉じられるよう pointer-events を有効化。
-      sideMenuOverlay: {
+      // Portal で body 直下に描画（クリックで閉じる）
+      portalOverlay: {
         position: "fixed", inset: 0,
-        background: "rgba(0,0,0,0.12)", // ← 薄い影
+        background: "rgba(0,0,0,0.12)", // 薄いグレー
         zIndex: base.overlay,
-        display: showSideMenu ? "block" : "none",
-        transition: `opacity .25s ${base.ease}`,
-        opacity: showSideMenu ? 1 : 0,
       },
       sideMenu: {
         position: "fixed", top: 0, right: 0,
@@ -178,32 +189,8 @@ export default function PurchaseMenu() {
       rowCardHover: { transform: "translateY(-2px)", boxShadow: "0 10px 24px rgba(0,0,0,0.08)" },
       iconBadge: { width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center", background: chipBgLight, border: "1px solid rgba(0,0,0,0.04)", flex: "0 0 44px" },
       rowTitle: { fontSize: 14, fontWeight: 600, color: "#0A0F1B" },
-      row: { display: "flex", alignItems: "center", gap: 12 },
-      rowTrailing: { marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 8 },
 
-      policyButtonContainer: { marginTop: "auto", display: "grid", justifyContent: "end", gap: 6, padding: "14px 8px 8px 8px" },
       policyButton: { background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 },
-
-      profileOverlay: { position: "fixed", inset: 0, background: "#fff", zIndex: 1400, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" },
-      overlayBgIcon: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 1401, opacity: 0.08 },
-      profileModal: {
-        width: 520, minHeight: 380, background: "transparent", borderRadius: 12, display: "flex",
-        flexDirection: "column", alignItems: "stretch", padding: 28, boxSizing: "border-box",
-        position: "relative", zIndex: 1402, border: "1px solid #e5e5e5",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.06)", gap: 20,
-      },
-      profileHeader: { display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontWeight: 700, fontSize: 18, color: "#111" },
-      profileInfoCard: { background: "#fafafa", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", display: "grid", gridTemplateColumns: "1fr", rowGap: 8, color: "#111", lineHeight: 1.6 },
-      infoRow: { display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 },
-      unlimitedText: { fontSize: 28, fontWeight: "bold", color: "#000", letterSpacing: "0.2px" },
-      actionsRow: { display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 12 },
-      actionButton: { display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6", background: "#fff", color: "#111", fontWeight: 600, cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.04)" },
-      actionButtonDanger: { border: "1px solid #f2c6c6", background: "#fff", color: "#b00020", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" },
-      helpBadge: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 20, height: 20, borderRadius: 9999, border: "1px solid #c9c9c9", fontSize: 12, fontWeight: 700, userSelect: "none", cursor: "help", color: "#444", background: "#fff", marginLeft: 6, flex: "0 0 auto" },
-      cancelStatusWrap: { marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 },
-      cancelStatusLine: { display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 },
-      cancelStatusSub: { fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 },
-      checkIcon: { width: 18, height: 18, flex: "0 0 auto" },
     };
   }, [isMobile, showSideMenu]);
 
@@ -267,7 +254,7 @@ export default function PurchaseMenu() {
     }
   };
 
-  // 行カード（MenuRow 相当）
+  // 行カード
   const MenuRow = ({ icon, iconColor, title, onClick, trailing, disabled }) => {
     const [hover, setHover] = useState(false);
     return (
@@ -295,8 +282,32 @@ export default function PurchaseMenu() {
     );
   };
 
+  // Portal オーバーレイ
+  const OverlayPortal = showSideMenu
+    ? createPortal(
+        <div
+          style={ui.portalOverlay}
+          onClick={() => setShowSideMenu(false)}
+          aria-hidden="true"
+        />,
+        document.body
+      )
+    : null;
+
   return (
     <>
+      {/* body に付ける dim 用のグローバルスタイル（保険）。実体のクリック処理は Portal 側で保持 */}
+      <style jsx global>{`
+        body.pmenu-dim-open::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.12);
+          z-index: 2147483000;
+          pointer-events: none; /* クリックは Portal オーバーレイで受ける */
+        }
+      `}</style>
+
       {!showSideMenu && (
         <button
           style={ui.hamburgerButton}
@@ -307,96 +318,100 @@ export default function PurchaseMenu() {
         </button>
       )}
 
-      {showSideMenu && (
-        <div style={ui.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
-          <div style={ui.sideMenu} onClick={stopPropagation}>
-            <div style={ui.topRow}>
-              <button
-                style={ui.topProfileButton}
-                onClick={() => {
-                  setShowSideMenu(false);
-                  if (userId) setShowProfileOverlay(true);
-                  else router.push("/login");
-                }}
-                aria-label="Profile" title="Profile"
-              >
-                {userId ? (
-                  <span style={{ display: "inline-flex", width: 34, height: 34 }}>
-                    <HomeIcon />
-                  </span>
-                ) : (
-                  <IoPersonCircleOutline size={30} />
-                )}
-              </button>
-            </div>
+      {/* Portal で“最上位”に薄いグレー */}
+      {OverlayPortal}
 
-            <div style={ui.divider} />
-
-            <MenuRow
-              icon={(p) => <PiGridFourFill {...p} />}
-              iconColor={"#0D47A1"}
-              title={t("Minutes List")}
-              onClick={() => {
-                setShowSideMenu(false);
-                if (userId) router.push("/minutes-list");
-                else router.push("/login");
-              }}
-            />
-
-            <MenuRow
-              icon={(p) => <FaTicketAlt {...p} />}
-              iconColor={"orange"}
-              title={t("Upgrade")}
-              onClick={() => {
-                setShowSideMenu(false);
-                if (userId) router.push("/upgrade");
-                else router.push("/login");
-              }}
-            />
-
-            <MenuRow
-              icon={(p) => <BsWrenchAdjustable {...p} />}
-              iconColor={"#0D47A1"}
-              title={t("Minutes Formats")}
-              onClick={() => {
-                setShowSideMenu(false);
-                router.push("/meeting-formats");
-              }}
-            />
-
-            <div style={{ marginTop: "auto", display: "grid", justifyContent: "end", gap: 6, padding: "14px 8px 8px 8px" }}>
-              <button
-                style={ui.policyButton}
-                onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
-                {t("Services and Pricing")}
-              </button>
-              <button
-                style={ui.policyButton}
-                onClick={() => { setShowSideMenu(false); router.push("/terms-of-use"); }}>
-                {t("Terms of Use")}
-              </button>
-              <button
-                style={ui.policyButton}
-                onClick={() => { setShowSideMenu(false); router.push("/privacy-policy"); }}>
-                {t("Privacy Policy")}
-              </button>
-              <button
-                style={ui.policyButton}
-                onClick={() => { setShowSideMenu(false); router.push("/company"); }}>
-                {t("Company")}
-              </button>
-            </div>
-          </div>
+      {/* サイドメニュー本体（常に Portal オーバーレイより前面） */}
+      <div
+        style={{ ...ui.sideMenu, pointerEvents: showSideMenu ? "auto" : "none" }}
+        onClick={stopPropagation}
+        aria-hidden={!showSideMenu}
+      >
+        <div style={ui.topRow}>
+          <button
+            style={ui.topProfileButton}
+            onClick={() => {
+              setShowSideMenu(false);
+              if (userId) setShowProfileOverlay(true);
+              else router.push("/login");
+            }}
+            aria-label="Profile" title="Profile"
+          >
+            {userId ? (
+              <span style={{ display: "inline-flex", width: 34, height: 34 }}>
+                <HomeIcon />
+              </span>
+            ) : (
+              <IoPersonCircleOutline size={30} />
+            )}
+          </button>
         </div>
-      )}
+
+        <div style={ui.divider} />
+
+        <MenuRow
+          icon={(p) => <PiGridFourFill {...p} />}
+          iconColor={"#0D47A1"}
+          title={t("Minutes List")}
+          onClick={() => {
+            setShowSideMenu(false);
+            if (userId) router.push("/minutes-list");
+            else router.push("/login");
+          }}
+        />
+
+        <MenuRow
+          icon={(p) => <FaTicketAlt {...p} />}
+          iconColor={"orange"}
+          title={t("Upgrade")}
+          onClick={() => {
+            setShowSideMenu(false);
+            if (userId) router.push("/upgrade");
+            else router.push("/login");
+          }}
+        />
+
+        <MenuRow
+          icon={(p) => <BsWrenchAdjustable {...p} />}
+          iconColor={"#0D47A1"}
+          title={t("Minutes Formats")}
+          onClick={() => {
+            setShowSideMenu(false);
+            router.push("/meeting-formats");
+          }}
+        />
+
+        <div style={{ marginTop: "auto", display: "grid", justifyContent: "end", gap: 6, padding: "14px 8px 8px 8px" }}>
+          <button
+            style={ui.policyButton}
+            onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
+            {t("Services and Pricing")}
+          </button>
+          <button
+            style={ui.policyButton}
+            onClick={() => { setShowSideMenu(false); router.push("/terms-of-use"); }}>
+            {t("Terms of Use")}
+          </button>
+          <button
+            style={ui.policyButton}
+            onClick={() => { setShowSideMenu(false); router.push("/privacy-policy"); }}>
+            {t("Privacy Policy")}
+          </button>
+          <button
+            style={ui.policyButton}
+            onClick={() => { setShowSideMenu(false); router.push("/company"); }}>
+            {t("Company")}
+          </button>
+        </div>
+      </div>
 
       {/* Profile overlay（既存） */}
       {showProfileOverlay && (
         <div
-          style={{ position: "fixed", inset: 0, background: "#fff", zIndex: 1400, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" }}
+          style={{ position: "fixed", inset: 0, background: "#fff", zIndex: 2147482000, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" }}
           onClick={() => { setShowProfileOverlay(false); router.push("/"); }}
         >
-          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 1401, opacity: 0.08 }} aria-hidden="true">
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 2147482001, opacity: 0.08 }} aria-hidden="true">
             <HomeIcon size={isMobile ? 520 : 1080} src="/images/home.png" alt="Home (bg)" />
           </div>
 
@@ -404,7 +419,7 @@ export default function PurchaseMenu() {
             style={{
               width: 520, minHeight: 380, background: "transparent", borderRadius: 12, display: "flex",
               flexDirection: "column", alignItems: "stretch", padding: 28, boxSizing: "border-box",
-              position: "relative", zIndex: 1402, border: "1px solid #e5e5e5",
+              position: "relative", zIndex: 2147482002, border: "1px solid #e5e5e5",
               boxShadow: "0 8px 32px rgba(0,0,0,0.06)", gap: 20,
             }}
             onClick={(e) => e.stopPropagation()}
