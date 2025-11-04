@@ -9,7 +9,7 @@ import HomeIcon from "./homeIcon";
 
 const SITE_URL = "https://www.sense-ai.world";
 
-// iOSライト寄りの柔らかい多層シャドウ
+// 柔らかい多層シャドウ
 const cardShadow =
   "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
@@ -66,7 +66,7 @@ export default function MeetingFormatsPage() {
             id: f?.id,
             displayName:
               DISPLAY_NAMES[f?.id] || f?.displayName || f?.titleKey || f?.id,
-            schemaId: "", // デバッグ表示は保持・表示しない
+            schemaId: "", // デバッグ表示しない
             deprecated: !!f?.deprecated,
           }));
         } else if (json?.formats && typeof json.formats === "object") {
@@ -121,36 +121,43 @@ export default function MeetingFormatsPage() {
           color: "#111111",
         }}
       >
-        {/* ヘッダー：HomeIcon（戻る）＋ Keynote風タイトル */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            marginBottom: 18,
-          }}
-        >
+        {/* ===== ヘッダー（縦スタック）: Icon → Title ===== */}
+        <div style={{ display: "grid", rowGap: 12, marginBottom: 18 }}>
+          {/* HomeIcon（参考コードのサイズ/質感に寄せる。動作は back） */}
           <button
             onClick={() => router.back()}
             aria-label="Back"
             title="Back"
             style={{
-              border: "1px solid rgba(0,0,0,0.08)",
-              borderRadius: 12,
-              background: "linear-gradient(180deg,#FFF 0%,#F7F8FA 100%)",
-              boxShadow:
-                "0 1px 1px rgba(0,0,0,0.05), 0 6px 14px rgba(0,0,0,0.07)",
               width: 44,
               height: 44,
+              borderRadius: 999,
+              border: "1px solid rgba(0,0,0,0.10)",         // 白背景向けに調整
+              background: "rgba(0,0,0,0.04)",               // bg-white/5 相当
+              color: "rgba(0,0,0,0.75)",
+              backdropFilter: "blur(6px)",                  // backdrop-blur
+              WebkitBackdropFilter: "blur(6px)",
+              boxShadow:
+                "0 1px 1px rgba(0,0,0,0.05), 0 6px 14px rgba(0,0,0,0.07)",
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
+              transition: "background 120ms ease, color 120ms ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(0,0,0,0.07)"; // hover:bg-white/10 相当
+              e.currentTarget.style.color = "#111111";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(0,0,0,0.04)";
+              e.currentTarget.style.color = "rgba(0,0,0,0.75)";
             }}
           >
-            <HomeIcon />
+            <HomeIcon size={28} />
           </button>
 
+          {/* Keynote風タイトル */}
           <h1
             style={{
               margin: 0,
@@ -163,7 +170,7 @@ export default function MeetingFormatsPage() {
           </h1>
         </div>
 
-        {/* “Current …” ブロックは削除 */}
+        {/* “Current …” や “Selected” ピルは表示しない */}
 
         {loading && (
           <div
@@ -253,7 +260,6 @@ export default function MeetingFormatsPage() {
                   }}
                 >
                   <div style={{ fontWeight: 800, fontSize: 18 }}>{display}</div>
-                  {/* “Selected”ピルは表示しない（青枠のみで明示） */}
                 </button>
               );
             })}
