@@ -23,7 +23,7 @@ module.exports = {
     'blog_aimodel',
     'blog_businessnegotiation',
     'blog_introduction',
-    'blog_language',
+    'blog_languages',
     'blog_onlinemeeting',
     'blog_pricing',
     'blog_recommend',
