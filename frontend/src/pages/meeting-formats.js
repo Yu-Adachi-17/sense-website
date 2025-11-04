@@ -1,16 +1,15 @@
 // src/pages/meeting-formats.js
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { RxArrowLeft } from "react-icons/rx";
+import { RxArrowLeft, RxCheck } from "react-icons/rx";
 import { apiFetch } from "../lib/apiClient";
 
 const SITE_URL = "https://www.sense-ai.world";
 
-/* iOSライト風のカード影（minutes-listと同一） */
+// iOSライト寄りの柔らかい多層シャドウ
 const cardShadow =
   "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
@@ -26,6 +25,22 @@ const DISPLAY_NAMES = {
   flexible: "Flexible",
 };
 
+// リッチな“ピル”スタイル（Current/Selectedで共通）
+const pillStyle = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 6,
+  fontSize: 12,
+  fontWeight: 600,
+  padding: "6px 10px",
+  borderRadius: 999,
+  background:
+    "linear-gradient(180deg, rgba(10,132,255,0.08) 0%, rgba(10,132,255,0.02) 100%)",
+  border: "0.5px solid rgba(10,132,255,0.35)",
+  color: "#0A84FF",
+  backdropFilter: "saturate(180%) blur(2px)",
+};
+
 export default function MeetingFormatsPage() {
   const router = useRouter();
   const { t, i18n } = useTranslation();
@@ -35,7 +50,7 @@ export default function MeetingFormatsPage() {
   const [current, setCurrent] = useState(null);
   const [error, setError] = useState("");
 
-  // dir 切替（minutes-list と同一）
+  // dir 切替
   useEffect(() => {
     document.documentElement.setAttribute(
       "dir",
@@ -51,7 +66,7 @@ export default function MeetingFormatsPage() {
     } catch {}
   }, []);
 
-  // registry 読み込み（/api/formats → 配列/オブジェクト両対応）
+  // registry 読み込み
   useEffect(() => {
     let abort = false;
     (async () => {
@@ -79,9 +94,7 @@ export default function MeetingFormatsPage() {
           }));
         }
 
-        // 廃止は後ろに・現役優先で並べ替え
         list.sort((a, b) => Number(a.deprecated) - Number(b.deprecated));
-
         if (!abort) setFormats(list);
       } catch (e) {
         if (!abort) setError(String(e?.message || e));
@@ -98,7 +111,7 @@ export default function MeetingFormatsPage() {
     const selected = {
       id,
       displayName: meta?.displayName || DISPLAY_NAMES[id] || id,
-      schemaId: meta?.schemaId || "",
+      schemaId: "", // デバッグ表示は保持しない（表示もしない）
       selected: true,
     };
     localStorage.setItem("selectedMeetingFormat", JSON.stringify(selected));
@@ -106,17 +119,16 @@ export default function MeetingFormatsPage() {
     router.push("/"); // 録音UIへ戻る
   };
 
-  const title = "Choose a Minutes Format";
+  const pageTitle = "Minutes Formats";
 
   return (
     <>
       <Head>
-        <title>{title} — Minutes.AI</title>
+        <title>{pageTitle} — Minutes.AI</title>
         <meta name="robots" content="noindex" />
         <link rel="canonical" href={`${SITE_URL}/meeting-formats`} />
       </Head>
 
-      {/* Minutes List と同じ基調（白 / 余白20 / 黒テキスト） */}
       <main
         style={{
           backgroundColor: "#ffffff",
@@ -125,53 +137,39 @@ export default function MeetingFormatsPage() {
           color: "#111111",
         }}
       >
-        {/* Header（Back矢印含む） */}
+        {/* 上部は“戻る”だけを上品に配置（タイトル/ホームは非表示） */}
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
             alignItems: "center",
-            marginBottom: 16,
+            marginBottom: 10,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <button
-              onClick={() => router.back()}
-              style={{
-                background: "none",
-                border: "none",
-                color: "#111111",
-                fontSize: 24,
-                cursor: "pointer",
-                marginRight: 10,
-              }}
-              aria-label="Back"
-            >
-              <RxArrowLeft />
-            </button>
-            <h2 style={{ margin: 0 }}>{title}</h2>
-          </div>
-          <div>
-            <Link href="/" legacyBehavior>
-              <a
-                style={{
-                  backgroundColor: "#F2F2F7",
-                  color: "#111111",
-                  border: "1px solid rgba(0,0,0,0.08)",
-                  padding: "10px 14px",
-                  borderRadius: 10,
-                  cursor: "pointer",
-                  fontSize: 16,
-                  textDecoration: "none",
-                }}
-              >
-                Home
-              </a>
-            </Link>
-          </div>
+          <button
+            onClick={() => router.back()}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 36,
+              height: 36,
+              borderRadius: 999,
+              border: "1px solid rgba(0,0,0,0.08)",
+              background:
+                "linear-gradient(180deg, #FFFFFF 0%, #F7F8FA 100%)",
+              boxShadow:
+                "0 1px 1px rgba(0,0,0,0.05), 0 6px 14px rgba(0,0,0,0.07)",
+              color: "#111111",
+              cursor: "pointer",
+            }}
+            aria-label="Back"
+            title="Back"
+          >
+            <RxArrowLeft size={20} />
+          </button>
         </div>
 
-        {/* 現在の選択（カード調） */}
+        {/* 現在の選択（落ち着いたカード＋ピル） */}
         {current?.id && (
           <div
             style={{
@@ -186,25 +184,17 @@ export default function MeetingFormatsPage() {
               gap: 10,
             }}
           >
-            <span
-              style={{
-                fontSize: 12,
-                backgroundColor: "#F2F2F7",
-                border: "1px solid rgba(0,0,0,0.08)",
-                padding: "4px 8px",
-                borderRadius: 999,
-              }}
-            >
+            <span style={pillStyle}>
+              <RxCheck size={14} />
               {t("Current")}
             </span>
-            <div style={{ fontWeight: 700 }}>{current.displayName}</div>
-            {current.schemaId ? (
-              <div style={{ opacity: 0.7 }}>({current.schemaId})</div>
-            ) : null}
+            <div style={{ fontWeight: 700, fontSize: 16 }}>
+              {current.displayName}
+            </div>
+            {/* schemaId は表示しない */}
           </div>
         )}
 
-        {/* 状態表示（minutes-list と同じ白カード） */}
         {loading && (
           <div
             style={{
@@ -237,12 +227,12 @@ export default function MeetingFormatsPage() {
           </div>
         )}
 
-        {/* グリッド（minutes-list のレイアウト感に寄せる） */}
         {!loading && !error && Array.isArray(formats) && formats.length > 0 ? (
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(23vw, 23vw))",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(260px, 1fr))",
               gap: 16,
               marginTop: 6,
               justifyContent: "start",
@@ -251,7 +241,6 @@ export default function MeetingFormatsPage() {
             {formats.map((meta) => {
               const id = meta?.id;
               const display = meta?.displayName || DISPLAY_NAMES[id] || id;
-              const schema = meta?.schemaId || "—";
               const isDeprecated = !!meta?.deprecated;
               const isCurrent = current?.id === id;
 
@@ -260,61 +249,53 @@ export default function MeetingFormatsPage() {
                   key={id}
                   onClick={() => pick(id, meta)}
                   aria-disabled={isDeprecated}
+                  aria-pressed={isCurrent}
                   title={isDeprecated ? "Deprecated format" : undefined}
                   style={{
+                    position: "relative",
                     backgroundColor: "#ffffff",
                     border: isCurrent
                       ? "2px solid #0A84FF"
                       : "1px solid rgba(0,0,0,0.04)",
                     borderRadius: 16,
-                    padding: 16,
+                    padding: 18,
                     color: "#111111",
                     textAlign: "left",
-                    cursor: "pointer",
+                    cursor: isDeprecated ? "not-allowed" : "pointer",
                     boxShadow: cardShadow,
-                    transition: "transform 120ms ease, box-shadow 120ms ease",
+                    transition:
+                      "transform 120ms ease, box-shadow 120ms ease, border 120ms ease",
                     userSelect: "none",
                     display: "grid",
                     alignContent: "center",
                     justifyItems: "start",
                     height: "clamp(140px, 18vh, 200px)",
-                    rowGap: 6,
+                    rowGap: 8,
                     opacity: isDeprecated ? 0.5 : 1,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow =
                       "0 2px 2px rgba(0,0,0,0.06), 0 10px 18px rgba(0,0,0,0.10), 0 18px 30px rgba(0,0,0,0.08)";
+                    e.currentTarget.style.transform = "translateY(-1px)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.boxShadow = cardShadow;
+                    e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
-                  <div style={{ fontWeight: 700, fontSize: 18 }}>
-                    {display}{" "}
-                    {isDeprecated ? (
-                      <span
-                        style={{
-                          fontSize: 12,
-                          fontWeight: 600,
-                          marginLeft: 6,
-                          opacity: 0.7,
-                        }}
-                      >
-                        (Deprecated)
-                      </span>
-                    ) : null}
-                  </div>
+                  <div style={{ fontWeight: 800, fontSize: 18 }}>{display}</div>
+
+                  {/* 選択中だけ右上に“Selected”ピル（上品なグラデ） */}
                   {isCurrent && (
                     <div
                       style={{
-                        marginTop: 6,
-                        fontSize: 12,
-                        backgroundColor: "#F2F2F7",
-                        border: "1px solid rgba(0,0,0,0.08)",
-                        padding: "4px 8px",
-                        borderRadius: 999,
+                        position: "absolute",
+                        top: 10,
+                        right: 10,
+                        ...pillStyle,
                       }}
                     >
+                      <RxCheck size={14} />
                       {t("Selected")}
                     </div>
                   )}
