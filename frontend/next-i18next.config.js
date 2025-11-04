@@ -14,11 +14,24 @@ module.exports = {
   // 絶対パス指定（CWD 基準）
   localePath: path.resolve(process.cwd(), 'public/locales'),
 
-  // 使用するデフォルトの名前空間（ページ側で追加読み込み可）
-  ns: ['common', 'home', 'seo', 'blog_introduction'],
+  // 既定で読み込む名前空間（ページ側で追加読み込みも可）
+  ns: [
+    'common',
+    'home',
+    'seo',
+    // ここからブログ9本
+    'blog_aimodel',
+    'blog_businessnegotiation',
+    'blog_introduction',
+    'blog_language',
+    'blog_onlinemeeting',
+    'blog_pricing',
+    'blog_recommend',
+    'blog_strategy',
+    'blog_universal',
+  ],
   defaultNS: 'common',
 
   reloadOnPrerender: process.env.NODE_ENV === 'development',
-
   interpolation: { escapeValue: false },
 };
