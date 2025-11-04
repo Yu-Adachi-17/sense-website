@@ -421,7 +421,11 @@ export default function BlogPricing() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_pricing"], i18nConfig)),
+      ...(await serverSideTranslations(
+        locale ?? "en",
+        ["common", "blog_pricing"],
+        i18nConfig
+      )),
     },
   };
 }
