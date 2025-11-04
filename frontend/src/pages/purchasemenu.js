@@ -4,10 +4,8 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-// Firebase（SSR安全化）
 import { getClientAuth, getDb } from "../firebaseConfig";
 
-// Icons
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { FaTicketAlt } from "react-icons/fa";
@@ -38,12 +36,12 @@ async function fetchJson(url, options = {}) {
   throw err;
 }
 
-/* ===== util: Firestore Timestamp/number/string -> Date, and YYYYMMDD ===== */
+/* ===== util ===== */
 function toDateLoose(v) {
   if (!v) return null;
-  if (typeof v?.toDate === "function") return v.toDate();     // Firestore Timestamp
-  if (typeof v === "number") return new Date(v);              // ms epoch
-  if (typeof v === "string") return new Date(v);              // ISOなど
+  if (typeof v?.toDate === "function") return v.toDate();
+  if (typeof v === "number") return new Date(v);
+  if (typeof v === "string") return new Date(v);
   return null;
 }
 function formatYYYYMMDD(date) {
@@ -54,7 +52,8 @@ function formatYYYYMMDD(date) {
   return `${y}${m}${d}`;
 }
 
-export default function PurchaseMenu() {
+// onSideMenuChange を追加（親へ open/close を通知）
+export default function PurchaseMenu({ onSideMenuChange }) {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [userId, setUserId] = useState(null);
@@ -70,11 +69,21 @@ export default function PurchaseMenu() {
   const IOS_SUBSCRIPTION_NOTE =
     "If you subscribed via the iOS app, please cancel from your iOS device.";
 
+  // 親へ状態通知
   useEffect(() => {
-    document.documentElement.setAttribute(
-      "dir",
-      i18n.language === "ar" ? "rtl" : "ltr"
-    );
+    if (typeof onSideMenuChange === "function") onSideMenuChange(showSideMenu);
+    // ついでに <html data-menu-open="1|0"> を付与（CSSデバッグ用）
+    try {
+      document.documentElement.setAttribute("data-menu-open", showSideMenu ? "1" : "0");
+    } catch {}
+    return () => {
+      if (typeof onSideMenuChange === "function") onSideMenuChange(false);
+      try { document.documentElement.removeAttribute("data-menu-open"); } catch {}
+    };
+  }, [showSideMenu, onSideMenuChange]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
   useEffect(() => {
@@ -109,7 +118,7 @@ export default function PurchaseMenu() {
     };
   }, []);
 
-  // user doc 初回ロード
+  // user doc
   useEffect(() => {
     if (!userId) return;
     let cancelled = false;
@@ -133,30 +142,13 @@ export default function PurchaseMenu() {
     return () => { cancelled = true; };
   }, [userId]);
 
-  // mm:ss
-  const formatTime = (seconds) => {
-    const sec = Math.floor(Number(seconds || 0));
-    const m = Math.floor(sec / 60);
-    const s = sec % 60;
-    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
-  };
-
-  // ===== 強制ライトモード（常に isDark=false）=====
   const ui = useMemo(() => {
-    const isDark = false; // ← 固定
-
-    const brandBlue = "#1565C0";
     const brandBlueDark = "#0D47A1";
     const chipBgLight = "#E3F2FD";
 
-    const base = {
-      z: { menu: 1200, overlay: 1100, trigger: 1300 },
-      radius: 16,
-      ease: "cubic-bezier(.2,.7,.2,1)",
-    };
+    const base = { z: { menu: 1200, overlay: 1100, trigger: 1300 }, radius: 16, ease: "cubic-bezier(.2,.7,.2,1)" };
 
     return {
-      isDark,
       hamburgerButton: {
         position: "fixed", top: 20, right: 30, fontSize: 30,
         background: "none", border: "none", color: "#000",
@@ -182,20 +174,8 @@ export default function PurchaseMenu() {
         background: "linear-gradient(145deg, #FFFFFF 0%, rgba(255,255,255,0.98) 80%)",
         boxShadow: "0 18px 42px rgba(0,0,0,0.06), 0 10px 20px rgba(0,0,0,0.04)",
       },
-      sideMenuRadial: {
-        position: "absolute", inset: 0,
-        background: "linear-gradient(to right, rgba(0,0,0,0.02), transparent 35%)",
-        pointerEvents: "none",
-      },
-      topRow: {
-        display: "flex", alignItems: "center", justifyContent: "flex-end",
-        gap: 12, marginBottom: 8,
-      },
-      topProfileButton: {
-        background: "none", border: "none", color: "#111",
-        fontSize: 20, cursor: "pointer", padding: "4px 0",
-        display: "flex", alignItems: "center",
-      },
+      topRow: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 12, marginBottom: 8 },
+      topProfileButton: { background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
       divider: { width: "100%", height: 1, background: "rgba(0,0,0,0.08)", margin: "8px 0 14px" },
 
       rowCard: {
@@ -206,14 +186,8 @@ export default function PurchaseMenu() {
         transform: "translateZ(0)", transition: "transform .2s ease, box-shadow .2s ease",
         cursor: "pointer",
       },
-      rowCardHover: {
-        transform: "translateY(-2px)",
-        boxShadow: "0 10px 24px rgba(0,0,0,0.08)",
-      },
-      iconBadge: {
-        width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center",
-        background: chipBgLight, border: "1px solid rgba(0,0,0,0.04)", flex: "0 0 44px",
-      },
+      rowCardHover: { transform: "translateY(-2px)", boxShadow: "0 10px 24px rgba(0,0,0,0.08)" },
+      iconBadge: { width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center", background: chipBgLight, border: "1px solid rgba(0,0,0,0.04)", flex: "0 0 44px" },
       rowTitle: { fontSize: 14, fontWeight: 600, color: "#0A0F1B" },
       row: { display: "flex", alignItems: "center", gap: 12 },
       rowTrailing: { marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 8 },
@@ -230,40 +204,24 @@ export default function PurchaseMenu() {
         boxShadow: "0 8px 32px rgba(0,0,0,0.06)", gap: 20,
       },
       profileHeader: { display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontWeight: 700, fontSize: 18, color: "#111" },
-      profileInfoCard: {
-        background: "#fafafa", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px",
-        display: "grid", gridTemplateColumns: "1fr", rowGap: 8, color: "#111", lineHeight: 1.6,
-      },
+      profileInfoCard: { background: "#fafafa", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", display: "grid", gridTemplateColumns: "1fr", rowGap: 8, color: "#111", lineHeight: 1.6 },
       infoRow: { display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 },
       unlimitedText: { fontSize: 28, fontWeight: "bold", color: "#000", letterSpacing: "0.2px" },
       actionsRow: { display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 12 },
-      actionButton: {
-        display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-        padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6", background: "#fff",
-        color: "#111", fontWeight: 600, cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
-      },
+      actionButton: { display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6", background: "#fff", color: "#111", fontWeight: 600, cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.04)" },
       actionButtonDanger: { border: "1px solid #f2c6c6", background: "#fff", color: "#b00020", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" },
-      helpBadge: {
-        display: "inline-flex", alignItems: "center", justifyContent: "center",
-        width: 20, height: 20, borderRadius: 9999, border: "1px solid #c9c9c9",
-        fontSize: 12, fontWeight: 700, userSelect: "none", cursor: "help", color: "#444",
-        background: "#fff", marginLeft: 6, flex: "0 0 auto",
-      },
+      helpBadge: { display: "inline-flex", alignItems: "center", justifyContent: "center", width: 20, height: 20, borderRadius: 9999, border: "1px solid #c9c9c9", fontSize: 12, fontWeight: 700, userSelect: "none", cursor: "help", color: "#444", background: "#fff", marginLeft: 6, flex: "0 0 auto" },
       cancelStatusWrap: { marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 },
       cancelStatusLine: { display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 },
       cancelStatusSub: { fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 },
       checkIcon: { width: 18, height: 18, flex: "0 0 auto" },
-
-      lightEdge: { position: "absolute", left: 0, top: 0, bottom: 0, width: 16, background: "linear-gradient(90deg, rgba(0,0,0,0.02), transparent)", pointerEvents: "none" },
-
-      brandBlue, brandBlueDark,
     };
   }, [isMobile, showSideMenu]);
 
   const stopPropagation = (e) => e.stopPropagation();
 
   const handleLogout = async () => {
-    if (!window.confirm(t("Are you sure you want to log out?"))) return;
+    if (!window.confirm("Are you sure you want to log out?")) return;
     try {
       const auth = await getClientAuth();
       if (!auth) return;
@@ -272,13 +230,11 @@ export default function PurchaseMenu() {
       localStorage.setItem("guestRemainingSeconds", "180");
       setShowProfileOverlay(false);
       window.location.reload();
-    } catch (error) {
-      console.error("Error during logout:", error);
-    }
+    } catch (error) { console.error("Error during logout:", error); }
   };
 
   const handleDeleteAccount = async () => {
-    if (!window.confirm(t("Are you sure you want to delete your account? This action cannot be undone."))) return;
+    if (!window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) return;
     try {
       const db = await getDb();
       const auth = await getClientAuth();
@@ -290,13 +246,13 @@ export default function PurchaseMenu() {
       router.push("/");
     } catch (error) {
       console.error("Error deleting account:", error);
-      alert(t("Failed to delete account."));
+      alert("Failed to delete account.");
     }
   };
 
   const handleCancelSubscription = async () => {
-    if (!userId) return alert(t("You must be logged in."));
-    if (!window.confirm(t("Are you sure you want to cancel your subscription?"))) return;
+    if (!userId) return alert("You must be logged in.");
+    if (!window.confirm("Are you sure you want to cancel your subscription?")) return;
     try {
       const subData = await fetchJson(`${API_BASE}/api/get-subscription-id`, {
         method: "POST", headers: { "Content-Type": "application/json", "X-Debug-Log": "1" },
@@ -315,14 +271,14 @@ export default function PurchaseMenu() {
         setSubscriptionExpiresAt(d);
       }
       setShowProfileOverlay(false);
-      alert(t("Your subscription has been scheduled for cancellation."));
+      alert("Your subscription has been scheduled for cancellation.");
     } catch (err) {
       console.error("Subscription cancellation failed:", err);
-      alert(err?.message || t("An error occurred while canceling your subscription. Contact: info@sense-ai.world"));
+      alert(err?.message || "An error occurred while canceling your subscription. Contact: info@sense-ai.world");
     }
   };
 
-  // 行カード（SwiftUI MenuRow 相当）
+  // 行カード（MenuRow 相当）
   const MenuRow = ({ icon, iconColor, title, onClick, trailing, disabled }) => {
     const [hover, setHover] = useState(false);
     return (
@@ -341,24 +297,14 @@ export default function PurchaseMenu() {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <div style={ui.row}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div style={ui.iconBadge}>{icon({ size: 22, color: iconColor })}</div>
           <div style={ui.rowTitle}>{title}</div>
-          <div style={ui.rowTrailing}>{trailing}</div>
+          <div style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 8 }}>{trailing}</div>
         </div>
       </div>
     );
   };
-
-  const RecordingDot = () => (
-    <span
-      aria-hidden
-      style={{
-        width: 8, height: 8, borderRadius: 999, background: "orange",
-        boxShadow: "0 0 8px rgba(255,165,0,0.6)", display: "inline-block",
-      }}
-    />
-  );
 
   return (
     <>
@@ -366,8 +312,7 @@ export default function PurchaseMenu() {
         <button
           style={ui.hamburgerButton}
           onClick={() => setShowSideMenu((v) => !v)}
-          aria-label="Open menu"
-          title="Menu"
+          aria-label="Open menu" title="Menu"
         >
           <GiHamburgerMenu size={30} color="#000" style={{ transform: "scaleX(1.2)", transformOrigin: "center" }} />
         </button>
@@ -376,8 +321,6 @@ export default function PurchaseMenu() {
       {showSideMenu && (
         <div style={ui.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
           <div style={ui.sideMenu} onClick={stopPropagation}>
-            <div style={ui.sideMenuRadial} aria-hidden />
-
             <div style={ui.topRow}>
               <button
                 style={ui.topProfileButton}
@@ -386,8 +329,7 @@ export default function PurchaseMenu() {
                   if (userId) setShowProfileOverlay(true);
                   else router.push("/login");
                 }}
-                aria-label="Profile"
-                title="Profile"
+                aria-label="Profile" title="Profile"
               >
                 {userId ? (
                   <span style={{ display: "inline-flex", width: 34, height: 34 }}>
@@ -403,8 +345,8 @@ export default function PurchaseMenu() {
 
             <MenuRow
               icon={(p) => <PiGridFourFill {...p} />}
-              iconColor={ui.brandBlueDark}
-              title={t("Minutes List")}
+              iconColor={"#0D47A1"}
+              title={useTranslation().t("Minutes List")}
               onClick={() => {
                 setShowSideMenu(false);
                 if (userId) router.push("/minutes-list");
@@ -415,8 +357,7 @@ export default function PurchaseMenu() {
             <MenuRow
               icon={(p) => <FaTicketAlt {...p} />}
               iconColor={"orange"}
-              title={t("Upgrade")}
-              trailing={null}
+              title={useTranslation().t("Upgrade")}
               onClick={() => {
                 setShowSideMenu(false);
                 if (userId) router.push("/upgrade");
@@ -426,28 +367,29 @@ export default function PurchaseMenu() {
 
             <MenuRow
               icon={(p) => <BsWrenchAdjustable {...p} />}
-              iconColor={ui.brandBlueDark}
-              title={t("Minutes Formats")}
+              iconColor={"#0D47A1"}
+              title={useTranslation().t("Minutes Formats")}
               onClick={() => {
                 setShowSideMenu(false);
                 router.push("/meeting-formats");
               }}
             />
 
-            {/* ライト専用の左エッジ薄グラ */}
-            <div style={ui.lightEdge} aria-hidden />
-
-            <div style={ui.policyButtonContainer}>
-              <button style={ui.policyButton} onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
+            <div style={{ marginTop: "auto", display: "grid", justifyContent: "end", gap: 6, padding: "14px 8px 8px 8px" }}>
+              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+                onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
                 {t("Services and Pricing")}
               </button>
-              <button style={ui.policyButton} onClick={() => { setShowSideMenu(false); router.push("/terms-of-use"); }}>
+              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+                onClick={() => { setShowSideMenu(false); router.push("/terms-of-use"); }}>
                 {t("Terms of Use")}
               </button>
-              <button style={ui.policyButton} onClick={() => { setShowSideMenu(false); router.push("/privacy-policy"); }}>
+              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+                onClick={() => { setShowSideMenu(false); router.push("/privacy-policy"); }}>
                 {t("Privacy Policy")}
               </button>
-              <button style={ui.policyButton} onClick={() => { setShowSideMenu(false); router.push("/company"); }}>
+              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+                onClick={() => { setShowSideMenu(false); router.push("/company"); }}>
                 {t("Company")}
               </button>
             </div>
@@ -455,57 +397,64 @@ export default function PurchaseMenu() {
         </div>
       )}
 
-      {/* Profile overlay */}
+      {/* Profile overlay（既存） */}
       {showProfileOverlay && (
         <div
-          style={ui.profileOverlay}
-          onClick={() => {
-            setShowProfileOverlay(false);
-            router.push("/");
-          }}
+          style={{ position: "fixed", inset: 0, background: "#fff", zIndex: 1400, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" }}
+          onClick={() => { setShowProfileOverlay(false); router.push("/"); }}
         >
-          <div style={ui.overlayBgIcon} aria-hidden="true">
+          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 1401, opacity: 0.08 }} aria-hidden="true">
             <HomeIcon size={isMobile ? 520 : 1080} src="/images/home.png" alt="Home (bg)" />
           </div>
 
-          <div style={ui.profileModal} onClick={stopPropagation}>
-            <div style={ui.profileHeader}><span>{t("Profile")}</span></div>
+          <div
+            style={{
+              width: 520, minHeight: 380, background: "transparent", borderRadius: 12, display: "flex",
+              flexDirection: "column", alignItems: "stretch", padding: 28, boxSizing: "border-box",
+              position: "relative", zIndex: 1402, border: "1px solid #e5e5e5",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.06)", gap: 20,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontWeight: 700, fontSize: 18, color: "#111" }}>
+              <span>{t("Profile")}</span>
+            </div>
 
-            <div style={ui.profileInfoCard}>
-              <div style={ui.infoRow}>
-                <span>{t("Email")}</span>
-                <span>{userEmail}</span>
+            <div style={{ background: "#fafafa", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", display: "grid", gridTemplateColumns: "1fr", rowGap: 8, color: "#111", lineHeight: 1.6 }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
+                <span>{t("Email")}</span><span>{userEmail}</span>
               </div>
-              <div style={ui.infoRow}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
                 <span>{t("Plan")}</span>
-                <span style={subscription ? ui.unlimitedText : {}}>
+                <span style={subscription ? { fontSize: 28, fontWeight: "bold", color: "#000", letterSpacing: "0.2px" } : {}}>
                   {subscription ? t("unlimited") : t("Free")}
                 </span>
               </div>
               {!subscription && (
-                <div style={ui.infoRow}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
                   <span>{t("Remaining Time:")}</span>
-                  <span>{profileRemainingSeconds != null ? formatTime(profileRemainingSeconds) : "00:00"}</span>
+                  <span>{profileRemainingSeconds != null ? `${Math.floor((profileRemainingSeconds||0)/60).toString().padStart(2,"0")}:${((profileRemainingSeconds||0)%60).toString().padStart(2,"0")}` : "00:00"}</span>
                 </div>
               )}
             </div>
 
-            <div style={ui.actionsRow}>
-              <button style={ui.actionButton} onClick={handleLogout}>{t("Logout")}</button>
-
-              <button style={{ ...ui.actionButton, ...ui.actionButtonDanger }} onClick={handleDeleteAccount}>
+            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 12 }}>
+              <button style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6", background: "#fff", color: "#111", fontWeight: 600, cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }} onClick={handleLogout}>{t("Logout")}</button>
+              <button style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 14px", borderRadius: 10, border: "1px solid #f2c6c6", background: "#fff", color: "#b00020", fontWeight: 600, cursor: "pointer", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" }} onClick={handleDeleteAccount}>
                 {t("Delete account")}
               </button>
 
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <button style={ui.actionButton} onClick={handleCancelSubscription}>
+                <button
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6", background: "#fff", color: "#111", fontWeight: 600, cursor: "pointer", boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }}
+                  onClick={handleCancelSubscription}
+                >
                   {t("Cancel Subscription")}
                   <span
-                    style={ui.helpBadge}
+                    style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 20, height: 20, borderRadius: 9999, border: "1px solid #c9c9c9", fontSize: 12, fontWeight: 700, userSelect: "none", cursor: "help", color: "#444", background: "#fff", marginLeft: 6, flex: "0 0 auto" }}
                     title={IOS_SUBSCRIPTION_NOTE}
                     aria-label="iOS subscription cancellation info"
-                    role="button"
-                    tabIndex={0}
+                    role="button" tabIndex={0}
                     onClick={(e) => { e.preventDefault(); e.stopPropagation(); alert(IOS_SUBSCRIPTION_NOTE); }}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
@@ -518,15 +467,15 @@ export default function PurchaseMenu() {
                 </button>
 
                 {subscriptionExpiresAt && (
-                  <div style={ui.cancelStatusWrap}>
-                    <div style={ui.cancelStatusLine}>
-                      <svg viewBox="0 0 24 24" style={ui.checkIcon} aria-hidden="true">
+                  <div style={{ marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 }}>
+                      <svg viewBox="0 0 24 24" style={{ width: 18, height: 18, flex: "0 0 auto" }} aria-hidden="true">
                         <circle cx="12" cy="12" r="11" fill="#22c55e" />
                         <path d="M7 12.5l3.2 3.2L17 8.9" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <span>Cancellation scheduled</span>
                     </div>
-                    <div style={ui.cancelStatusSub}>
+                    <div style={{ fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 }}>
                       {`Valid until ${formatYYYYMMDD(subscriptionExpiresAt)}`}
                     </div>
                   </div>

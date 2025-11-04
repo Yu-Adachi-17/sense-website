@@ -141,6 +141,9 @@ function App() {
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(DEFAULT_REMAINING);
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
   const [recordingCountdown, setRecordingCountdown] = useState(3600);
+  // 既存 import 群の下/コンポーネント内
+const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+
 
   // Refs
   const recordingTimerIntervalRef = useRef(null);
@@ -879,7 +882,20 @@ function App() {
         }}
       >
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          {!showFullScreen && <PurchaseMenu />}
+          {!showFullScreen && <PurchaseMenu onSideMenuChange={setIsSideMenuOpen} />}
+
+            {isSideMenuOpen && (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        background: '#F8F7F4',
+        zIndex: 1180,
+        pointerEvents: 'none',
+      }}
+    />
+  )}
 
           {/* 中央の録音 UI */}
           <div
