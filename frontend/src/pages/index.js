@@ -1,10 +1,11 @@
 // src/pages/index.js
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { createPortal } from 'react-dom';
 
 import FullScreenOverlay from './fullscreenoverlay';
 import ProgressIndicator from './progressindicator';
@@ -31,7 +32,6 @@ const OG_LOCALE_MAP = {
 const LINK_IOS = "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
 // === DEBUG transcripts ==========
-// === DEBUG transcripts ==========
 const DEBUG_TRANSCRIPTS = {
   ja: `
 （1on1ミーティング・テスト）部下：お疲れ様です、今ちょっとお時間いいですか？上司：いいよ、どうした？部下：今月のプロジェクトの進捗なんですが、目標値の達成が少し厳しいかもしれません。特にAPI連携の部分で外部チームとの調整が遅れていて…。上司：なるほど。遅れてる原因は技術的な問題？それともコミュニケーションの部分？部下：どちらかというと後者です。仕様が確定していないまま進めてしまった部分があって、途中で変更が入ってしまったんです。上司：それは痛いな。でも、原因がはっきりしてるならまだリカバリはできる。今はどの段階？部下：設計書の再確認が終わって、実装を半分くらいまで戻しました。来週中には再度テストまで持っていけると思います。上司：よし、そこまで見えてるなら大丈夫そうだな。ただ、同じことを繰り返さないように、次の案件からは仕様が100%確定してから手を動かすようにしよう。部下：はい、反省してます。自分の中でも焦りがあって、早く形にしようとしすぎました。上司：焦る気持ちは分かるけど、結局修正に時間を取られるとトータルで遅くなる。スピードと正確さのバランスを意識して。部下：わかりました。あと、チーム内のタスク分担も見直したほうがいいと思っています。今は僕がコードレビューまで全部やってるので、ボトルネックになっているかもしれません。上司：それはいい提案だな。権限を少し委譲してもいい。中堅メンバーにレビューの一部を任せてみよう。部下：そうします。あと、次のスプリントで新しい機能追加が予定されていますが、現状だとリスクが高いので、一度優先度を下げる判断もありかと。上司：うん、判断は正しい。まずは既存部分を安定させるのが先だ。リリースに影響が出ると全体が止まるからね。部下：ありがとうございます。今週中に修正版の進捗をまとめて報告します。上司：よろしく。無理しすぎず、でもちゃんと責任は持ってな。成長してるのは見えてるから。部下：はい、ありがとうございます。頑張ります。`,
@@ -39,25 +39,23 @@ const DEBUG_TRANSCRIPTS = {
 （1on1ミーティング・テスト）部下：お疲れ様です、今ちょっとお時間いいですか？上司：いいよ、どうした？部下：今月のプロジェクトの進捗なんですが、目標値の達成が少し厳しいかもしれません。特にAPI連携の部分で外部チームとの調整が遅れていて…。上司：なるほど。遅れてる原因は技術的な問題？それともコミュニケーションの部分？部下：どちらかというと後者です。仕様が確定していないまま進めてしまった部分があって、途中で変更が入ってしまったんです。上司：それは痛いな。でも、原因がはっきりしてるならまだリカバリはできる。今はどの段階？部下：設計書の再確認が終わって、実装を半分くらいまで戻しました。来週中には再度テストまで持っていけると思います。上司：よし、そこまで見えてるなら大丈夫そうだな。ただ、同じことを繰り返さないように、次の案件からは仕様が100%確定してから手を動かすようにしよう。部下：はい、反省してます。自分の中でも焦りがあって、早く形にしようとしすぎました。上司：焦る気持ちは分かるけど、結局修正に時間を取られるとトータルで遅くなる。スピードと正確さのバランスを意識して。部下：わかりました。あと、チーム内のタスク分担も見直したほうがいいと思っています。今は僕がコードレビューまで全部やってるので、ボトルネックになっているかもしれません。上司：それはいい提案だな。権限を少し委譲してもいい。中堅メンバーにレビューの一部を任せてみよう。部下：そうします。あと、次のスプリントで新しい機能追加が予定されていますが、現状だとリスクが高いので、一度優先度を下げる判断もありかと。上司：うん、判断は正しい。まずは既存部分を安定させるのが先だ。リリースに影響が出ると全体が止まるからね。部下：ありがとうございます。今週中に修正版の進捗をまとめて報告します。上司：よろしく。無理しすぎず、でもちゃんと責任は持ってな。成長してるのは見えてるから。部下：はい、ありがとうございます。頑張ります。`
 };
 
-
 // API base: 本番は Express(railway等) のURLにする
 const API_BASE = '';
 
 function getDebugTranscript(lang) {
   if (lang && DEBUG_TRANSCRIPTS[lang]) return DEBUG_TRANSCRIPTS[lang].trim();
-  return DEBUG_TRANSCRIPTS.ja.trim(); // 既定は日本語
+  return DEBUG_TRANSCRIPTS.ja.trim();
 }
 
 /**
  * ===== NLP用ロケール推定ヘルパ =====
  * - URL/ルーターの言語 (router.locale / i18n.language)
  * - navigator.language
- * - テキスト中の文字スクリプトからの簡易判定（強い信号があればそれを優先）
+ * - テキスト中の文字スクリプトからの簡易判定
  */
 function normalizeLocaleTag(tag) {
   if (!tag) return null;
   const t = String(tag).toLowerCase();
-  // よく使うものだけ正規化
   if (t.startsWith('ja')) return 'ja';
   if (t.startsWith('en')) return 'en';
   if (t.startsWith('sv')) return 'sv';
@@ -71,14 +69,13 @@ function normalizeLocaleTag(tag) {
   if (t.startsWith('pt')) return 'pt';
   if (t.startsWith('id')) return 'id';
   if (t.startsWith('ms')) return 'ms';
-  return t; // その他はそのまま返す
+  return t;
 }
 
 function guessLocaleFromText(text, fallback) {
   const fb = normalizeLocaleTag(fallback) || 'en';
   if (!text || typeof text !== 'string') return fb;
 
-  // スクリプト簡易検出
   const hasHiraganaKatakana = /[\u3040-\u30FF]/.test(text);
   const hasCJK = /[\u4E00-\u9FFF]/.test(text);
   const hasHangul = /[\uAC00-\uD7AF]/.test(text);
@@ -86,12 +83,32 @@ function guessLocaleFromText(text, fallback) {
 
   if (hasHiraganaKatakana || (hasCJK && /[ぁ-んァ-ン]/.test(text))) return 'ja';
   if (hasHangul) return 'ko';
-  // 中国語の簡易判定（CJK だが仮名が無い）
   if (hasCJK && !hasHiraganaKatakana) return 'zh-CN';
   if (hasCyrillic) return 'ru';
-
-  // ラテン系は具体的な言語判定が難しいのでフォールバック
   return fb;
+}
+
+// ----------------------
+// クライアント専用の全画面カバー（SideMenu開時にだけ表示）
+// ----------------------
+function OverlayCover() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); return () => setMounted(false); }, []);
+  if (!mounted) return null;
+
+  return createPortal(
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'fixed',
+        top: 0, right: 0, bottom: 0, left: 0,  // insetを使わない
+        background: '#F8F7F4',
+        zIndex: 1180,
+        pointerEvents: 'none',                 // クリックはPurchaseMenu側で処理
+      }}
+    />,
+    document.body
+  );
 }
 
 // ----------------------
@@ -141,9 +158,12 @@ function App() {
   const [userRemainingSeconds, setUserRemainingSeconds] = useState(DEFAULT_REMAINING);
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
   const [recordingCountdown, setRecordingCountdown] = useState(3600);
-  // 既存 import 群の下/コンポーネント内
-const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
+  // SideMenuの状態変更を安全にboolean化
+  const handleSideMenuChange = useCallback((v) => {
+    setIsSideMenuOpen(Boolean(v));
+  }, []);
 
   // Refs
   const recordingTimerIntervalRef = useRef(null);
@@ -162,18 +182,18 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const [recordingIssue, setRecordingIssue] = useState(null);
   const zeroChunkCountRef = useRef(0);
   const silenceSecondsRef = useRef(0);
-  // MinutesListと同じカード影
+
   const cardShadow =
     "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
-  // ======== Textモード判定（デバッグ時はマイク不要で即テキスト処理）========
+  // ======== Textモード判定 ========
   const shouldUseTextMode = () => {
     try {
-      if (isDebug()) return true; // 既存のデバッグラッチ（localStorage 'rec_debug' 等）
+      if (isDebug()) return true;
       if (typeof window !== 'undefined') {
         const q = new URLSearchParams(window.location.search);
-        if (q.get('debug') === '1' || q.get('text') === '1') return true; // URL強制
-        if (localStorage.getItem('force_text_mode') === '1') return true; // 追加トグル
+        if (q.get('debug') === '1' || q.get('text') === '1') return true;
+        if (localStorage.getItem('force_text_mode') === '1') return true;
       }
     } catch {}
     return false;
@@ -185,7 +205,7 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const mq = window.matchMedia('(max-width: 600px)'); // スマホ想定幅
+    const mq = window.matchMedia('(max-width: 600px)');
     const onChange = (e) => setIsMobile(e.matches);
     setIsMobile(mq.matches);
     mq.addEventListener('change', onChange);
@@ -245,7 +265,7 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     }
   }, [isRecording]);
 
-  // ローカル meeting format 復元（新方式：id/displayName/schemaIdのみ）
+  // ローカル meeting format 復元
   useEffect(() => {
     const stored = localStorage.getItem("selectedMeetingFormat");
     if (stored) {
@@ -259,7 +279,6 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
         localStorage.removeItem("selectedMeetingFormat");
       }
     }
-    // 既定は general
     const def = { id: "general", displayName: "General", schemaId: "general-json@1", selected: true };
     setSelectedMeetingFormat(def);
     localStorage.setItem("selectedMeetingFormat", JSON.stringify(def));
@@ -388,11 +407,10 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
       try {
         const { transcription: newTranscription } = await transcribeAudio(
           file,
-          "", // テンプレ不要
+          "",
           setIsProcessing
         );
 
-        // ★ NLP用ロケール決定：URL言語/ブラウザ言語をフォールバックに、テキストから最終決定
         const fallbackLocale =
           normalizeLocaleTag(i18n.language) ||
           normalizeLocaleTag(router.locale) ||
@@ -404,12 +422,12 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-User-Locale": effectiveLocale,        // ← ヘッダにも載せる（バックエンド側のフォールバック用）
+            "X-User-Locale": effectiveLocale,
           },
           body: JSON.stringify({
             transcript: newTranscription || "",
             formatId: selectedMeetingFormat?.id || "general",
-            locale: effectiveLocale,                // ← Body も確実に推定ロケールを送る
+            locale: effectiveLocale,
           })
         });
         if (!gen.ok) throw new Error(`HTTP ${gen.status}`);
@@ -436,7 +454,6 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     setProgressStep("transcribing");
     setIsProcessing(true);
     try {
-      // ★ NLP用ロケール決定
       const fallbackLocale =
         normalizeLocaleTag(i18n.language) ||
         normalizeLocaleTag(router.locale) ||
@@ -503,23 +520,20 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     }
   };
 
-  // 録音トグル（デバッグ時は即テキスト処理／マイク不使用）
+  // 録音トグル
   const toggleRecording = async () => {
-    // 利用制限チェック（通常モードのみ意味がある）
     if (!userSubscription && userRemainingSeconds === 0) {
       if (!authInstance?.currentUser) router.push("/login");
       else router.push("/upgrade");
       return;
     }
 
-    // --- デバッグ（テキスト）モード：録音処理を完全にスキップ ---
     if (shouldUseTextMode()) {
       const text = getDebugTranscript(i18n.language);
       await processDebugText(text);
       return;
     }
 
-    // --- 通常モード ---
     if (isRecording) {
       await stopRecording();
       setProgressStep("recordingComplete");
@@ -530,7 +544,7 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     }
   };
 
-  // 録音開始（通常モードのみ呼ばれる。デバッグ時は toggleRecording で分岐済み）
+  // 録音開始
   const startRecording = async () => {
     console.log('[RECDBG] startRecording invoked');
 
@@ -882,20 +896,10 @@ const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
         }}
       >
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          {!showFullScreen && <PurchaseMenu onSideMenuChange={setIsSideMenuOpen} />}
+          {!showFullScreen && <PurchaseMenu onSideMenuChange={handleSideMenuChange} />}
 
-            {isSideMenuOpen && (
-    <div
-      aria-hidden="true"
-      style={{
-        position: 'fixed',
-        inset: 0,
-        background: '#F8F7F4',
-        zIndex: 1180,
-        pointerEvents: 'none',
-      }}
-    />
-  )}
+          {/* メニュー開時の最上位カバー（丸画像を完全に覆う） */}
+          {isSideMenuOpen && <OverlayCover />}
 
           {/* 中央の録音 UI */}
           <div
