@@ -52,8 +52,8 @@ function formatYYYYMMDD(date) {
   return `${y}${m}${d}`;
 }
 
-// onSideMenuChange を追加（親へ open/close を通知）
-export default function PurchaseMenu({ onSideMenuChange }) {
+// 親への通知は廃止（SideMenu 内で完結して薄い影のみ敷く）
+export default function PurchaseMenu() {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [userId, setUserId] = useState(null);
@@ -69,21 +69,11 @@ export default function PurchaseMenu({ onSideMenuChange }) {
   const IOS_SUBSCRIPTION_NOTE =
     "If you subscribed via the iOS app, please cancel from your iOS device.";
 
-  // 親へ状態通知
+  // dir 切替のみ維持
   useEffect(() => {
-    if (typeof onSideMenuChange === "function") onSideMenuChange(showSideMenu);
-    // ついでに <html data-menu-open="1|0"> を付与（CSSデバッグ用）
     try {
-      document.documentElement.setAttribute("data-menu-open", showSideMenu ? "1" : "0");
+      document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
     } catch {}
-    return () => {
-      if (typeof onSideMenuChange === "function") onSideMenuChange(false);
-      try { document.documentElement.removeAttribute("data-menu-open"); } catch {}
-    };
-  }, [showSideMenu, onSideMenuChange]);
-
-  useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
   useEffect(() => {
@@ -143,9 +133,7 @@ export default function PurchaseMenu({ onSideMenuChange }) {
   }, [userId]);
 
   const ui = useMemo(() => {
-    const brandBlueDark = "#0D47A1";
     const chipBgLight = "#E3F2FD";
-
     const base = { z: { menu: 1200, overlay: 1100, trigger: 1300 }, radius: 16, ease: "cubic-bezier(.2,.7,.2,1)" };
 
     return {
@@ -154,13 +142,14 @@ export default function PurchaseMenu({ onSideMenuChange }) {
         background: "none", border: "none", color: "#000",
         cursor: "pointer", zIndex: base.trigger, WebkitTapHighlightColor: "transparent",
       },
+      // “薄い影”だけ：半透明の黒。演出最小、互換性最優先。クリックで閉じられるよう pointer-events を有効化。
       sideMenuOverlay: {
         position: "fixed", inset: 0,
-        background: "rgba(0,0,0,0.38)", zIndex: base.overlay,
+        background: "rgba(0,0,0,0.12)", // ← 薄い影
+        zIndex: base.overlay,
         display: showSideMenu ? "block" : "none",
-        transition: `opacity .35s ${base.ease}`,
+        transition: `opacity .25s ${base.ease}`,
         opacity: showSideMenu ? 1 : 0,
-        backdropFilter: "blur(1.5px)",
       },
       sideMenu: {
         position: "fixed", top: 0, right: 0,
@@ -169,10 +158,10 @@ export default function PurchaseMenu({ onSideMenuChange }) {
         color: "#0A0F1B",
         padding: "22px 18px", boxSizing: "border-box",
         display: "flex", flexDirection: "column", alignItems: "stretch",
-        zIndex: base.menu, transition: `transform .45s ${base.ease}`,
+        zIndex: base.menu, transition: `transform .30s ${base.ease}`,
         transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
-        background: "linear-gradient(145deg, #FFFFFF 0%, rgba(255,255,255,0.98) 80%)",
-        boxShadow: "0 18px 42px rgba(0,0,0,0.06), 0 10px 20px rgba(0,0,0,0.04)",
+        background: "#FFFFFF",
+        boxShadow: "0 18px 42px rgba(0,0,0,0.08), 0 10px 20px rgba(0,0,0,0.06)",
       },
       topRow: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 12, marginBottom: 8 },
       topProfileButton: { background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
@@ -311,7 +300,7 @@ export default function PurchaseMenu({ onSideMenuChange }) {
       {!showSideMenu && (
         <button
           style={ui.hamburgerButton}
-          onClick={() => setShowSideMenu((v) => !v)}
+          onClick={() => setShowSideMenu(true)}
           aria-label="Open menu" title="Menu"
         >
           <GiHamburgerMenu size={30} color="#000" style={{ transform: "scaleX(1.2)", transformOrigin: "center" }} />
@@ -346,7 +335,7 @@ export default function PurchaseMenu({ onSideMenuChange }) {
             <MenuRow
               icon={(p) => <PiGridFourFill {...p} />}
               iconColor={"#0D47A1"}
-              title={useTranslation().t("Minutes List")}
+              title={t("Minutes List")}
               onClick={() => {
                 setShowSideMenu(false);
                 if (userId) router.push("/minutes-list");
@@ -357,7 +346,7 @@ export default function PurchaseMenu({ onSideMenuChange }) {
             <MenuRow
               icon={(p) => <FaTicketAlt {...p} />}
               iconColor={"orange"}
-              title={useTranslation().t("Upgrade")}
+              title={t("Upgrade")}
               onClick={() => {
                 setShowSideMenu(false);
                 if (userId) router.push("/upgrade");
@@ -368,7 +357,7 @@ export default function PurchaseMenu({ onSideMenuChange }) {
             <MenuRow
               icon={(p) => <BsWrenchAdjustable {...p} />}
               iconColor={"#0D47A1"}
-              title={useTranslation().t("Minutes Formats")}
+              title={t("Minutes Formats")}
               onClick={() => {
                 setShowSideMenu(false);
                 router.push("/meeting-formats");
@@ -376,19 +365,23 @@ export default function PurchaseMenu({ onSideMenuChange }) {
             />
 
             <div style={{ marginTop: "auto", display: "grid", justifyContent: "end", gap: 6, padding: "14px 8px 8px 8px" }}>
-              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+              <button
+                style={ui.policyButton}
                 onClick={() => { setShowSideMenu(false); router.push("/home"); }}>
                 {t("Services and Pricing")}
               </button>
-              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+              <button
+                style={ui.policyButton}
                 onClick={() => { setShowSideMenu(false); router.push("/terms-of-use"); }}>
                 {t("Terms of Use")}
               </button>
-              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+              <button
+                style={ui.policyButton}
                 onClick={() => { setShowSideMenu(false); router.push("/privacy-policy"); }}>
                 {t("Privacy Policy")}
               </button>
-              <button style={{ background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 }}
+              <button
+                style={ui.policyButton}
                 onClick={() => { setShowSideMenu(false); router.push("/company"); }}>
                 {t("Company")}
               </button>
