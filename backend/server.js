@@ -72,19 +72,69 @@ function resolveLocale(req, bodyLocale) {
 }
 
 // --- Security headers (Helmet) ---
-// Zoom の Surface/埋め込みに備え、X-Frame-Options は無効化し、CSP の frame-ancestors で許可先を制御
+
 app.use(helmet({
-  frameguard: false, // X-Frame-Options を出さない（CSP の frame-ancestors を優先）
+  // Zoom に埋め込みたいので X-Frame-Options は出さない
+  frameguard: false,
+
+  // ポップアップが自分を閉じられるように COOP を緩める
+  // （Helmet v6/7 いずれもこの指定でOK）
+  crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
+
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
+      // 必要に応じて拡張
       "default-src": ["'self'"],
-      // Zoom クライアントからの埋め込みを許可
+
+      // Next.js のインライン/評価を許容（ビルド構成に合わせて調整可）
+      "script-src": [
+        "'self'",
+        "'unsafe-inline'",
+        "'unsafe-eval'",
+        "https://www.gstatic.com",
+        "https://www.google.com",
+        "https://www.googletagmanager.com"
+      ],
+
+      // Firebase/Google 関連のネットワーク先
+      "connect-src": [
+        "'self'",
+        "https://www.googleapis.com",
+        "https://identitytoolkit.googleapis.com",
+        "https://securetoken.googleapis.com",
+        "https://firebaseinstallations.googleapis.com",
+        "https://firestore.googleapis.com",
+        "https://*.firebaseio.com",
+        "https://www.google-analytics.com",
+        "https://*.ingest.sentry.io"
+      ],
+
+      // 画像・スタイル・フォント
+      "img-src": ["'self'", "data:", "https:", "blob:"],
+      "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      "font-src": ["'self'", "https://fonts.gstatic.com", "data:"],
+
+      // ← ここがポイント：Firebase/Googleのiframeを許可
+      "frame-src": [
+        "'self'",
+        "https://*.firebaseapp.com",
+        "https://*.google.com",
+        "https://*.googleusercontent.com",
+        "https://*.gstatic.com",
+        "https://accounts.google.com",
+        "https://*.zoom.us",
+        "https://*.zoom.com"
+      ],
+
+      // あなたのページを埋め込める親（Zoom想定）
       "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],
     },
   },
+
   referrerPolicy: { policy: "strict-origin-when-cross-origin" },
 }));
+
 
 // ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
 const allowedOrigins = [
