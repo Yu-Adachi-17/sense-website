@@ -1,288 +1,396 @@
-// src/pages/meeting-formats.js
-import { useEffect, useState } from "react";
-import Head from "next/head";
+// src/pages/signup.js
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import { apiFetch } from "../lib/apiClient";
+import { FcGoogle } from "react-icons/fc";
+import { FaApple } from "react-icons/fa";
+import Image from "next/image";
+
+import { signInWithGoogle, signInWithApple } from "../firebaseAuth";
+import { getClientAuth, getDb } from "../firebaseConfig";
 import HomeIcon from "./homeIcon";
 
-const SITE_URL = "https://www.sense-ai.world";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-// iOSライト寄りの柔らかい多層シャドウ
-const cardShadow =
-  "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
+/**
+ * Firestore 上にユーザーDocumentを作成（既存チェック込み）
+ * - クライアントでのみ実行（SSRでは getDb() が null を返す）
+ */
+const createUserDocument = async (user) => {
+  const db = await getDb();
+  if (!db) return; // SSR/SSG時は何もしない
 
-// 表示名（バックエンド差異を吸収）
-const DISPLAY_NAMES = {
-  general: "General",
-  negotiation: "Business Negotiation",
-  presentation: "Presentation",
-  logical1on1: "Logical 1-on-1",
-  brainStorming: "Brainstorming",
-  jobInterview: "Job Interview",
-  lecture: "Lecture",
-  flexible: "Flexible",
+  const {
+    collection,
+    query,
+    where,
+    getDocs,
+    doc,
+    setDoc,
+    serverTimestamp,
+  } = await import("firebase/firestore");
+
+  const usersRef = collection(db, "users");
+  const q = query(usersRef, where("email", "==", user.email));
+  const querySnapshot = await getDocs(q);
+  if (!querySnapshot.empty) throw new Error("This account is already registered.");
+
+  const userRef = doc(db, "users", user.uid);
+  await setDoc(userRef, {
+    createdAt: serverTimestamp(),
+    userName: user.email.substring(0, 3),
+    email: user.email,
+    recordingDevice: null,
+    recordingTimestamp: null,
+    originalTransactionId: null,
+    subscriptionPlan: null,
+    subscriptionStartDate: null,
+    subscriptionEndDate: null,
+    lastSubscriptionUpdate: null,
+    remainingSeconds: 180,
+    subscription: false,
+  });
 };
 
-export default function MeetingFormatsPage() {
+export default function SignUp() {
   const router = useRouter();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation("common");
 
-  const [formats, setFormats] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [current, setCurrent] = useState(null);
-  const [error, setError] = useState("");
-
-  // dir 切替
   useEffect(() => {
-    document.documentElement.setAttribute(
-      "dir",
-      i18n.language === "ar" ? "rtl" : "ltr"
-    );
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
-  // 現在の選択（localStorage）
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+
   useEffect(() => {
+    const emailSentFlag = typeof window !== "undefined" && localStorage.getItem("isEmailSent");
+    if (emailSentFlag === "true") {
+      setIsEmailSent(true);
+      localStorage.removeItem("isEmailSent");
+    }
+  }, []);
+
+  const handleSignUp = async () => {
+    if (!email || !password) return;
+    setIsLoading(true);
     try {
-      const s = localStorage.getItem("selectedMeetingFormat");
-      if (s) setCurrent(JSON.parse(s));
-    } catch {}
-  }, []);
+      const auth = await getClientAuth();
+      if (!auth) throw new Error("Auth is not available on server.");
 
-  // registry 読み込み
-  useEffect(() => {
-    let abort = false;
-    (async () => {
-      try {
-        setLoading(true);
-        const res = await apiFetch(`/api/formats`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json = await res.json();
-        let list = [];
+      const {
+        createUserWithEmailAndPassword,
+        sendEmailVerification,
+        signOut,
+      } = await import("firebase/auth");
 
-        if (Array.isArray(json?.formats)) {
-          list = json.formats.map((f) => ({
-            id: f?.id,
-            displayName:
-              DISPLAY_NAMES[f?.id] || f?.displayName || f?.titleKey || f?.id,
-            schemaId: "", // デバッグ表示は保持・表示しない
-            deprecated: !!f?.deprecated,
-          }));
-        } else if (json?.formats && typeof json.formats === "object") {
-          list = Object.entries(json.formats).map(([id, meta]) => ({
-            id,
-            displayName: DISPLAY_NAMES[id] || meta?.displayName || id,
-            schemaId: "",
-            deprecated: !!meta?.deprecated,
-          }));
-        }
+      // アカウント作成
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      const user = cred.user;
 
-        list.sort((a, b) => Number(a.deprecated) - Number(b.deprecated));
-        if (!abort) setFormats(list);
-      } catch (e) {
-        if (!abort) setError(String(e?.message || e));
-      } finally {
-        if (!abort) setLoading(false);
-      }
-    })();
-    return () => {
-      abort = true;
-    };
-  }, []);
+      // Firestoreにユーザードキュメント作成（重複チェック込み）
+      await createUserDocument(user);
 
-  const pick = (id, meta) => {
-    const selected = {
-      id,
-      displayName: meta?.displayName || DISPLAY_NAMES[id] || id,
-      schemaId: "",
-      selected: true,
-    };
-    localStorage.setItem("selectedMeetingFormat", JSON.stringify(selected));
-    setCurrent(selected);
-    router.push("/"); // 録音UIへ戻る
+      // 確認メール送信 → 直後にサインアウト
+      await sendEmailVerification(user);
+      await signOut(auth);
+
+      // UI表示用フラグ
+      localStorage.setItem("isEmailSent", "true");
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
+      setAlertMessage(error?.message || "Sign up failed.");
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const pageTitle = "Choose a Format";
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      const user = await signInWithGoogle();
+      if (user) await createUserDocument(user);
+      await router.replace("/");
+    } catch (error) {
+      console.error(error);
+      setAlertMessage(error?.message || "Google sign-in failed");
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-  return (
-    <>
-      <Head>
-        <title>{pageTitle} — Minutes.AI</title>
-        <meta name="robots" content="noindex" />
-        <link rel="canonical" href={`${SITE_URL}/meeting-formats`} />
-      </Head>
+  const handleAppleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      const user = await signInWithApple();
+      if (user) await createUserDocument(user);
+      await router.replace("/");
+    } catch (error) {
+      console.error(error);
+      setAlertMessage(error?.message || "Apple sign-in failed");
+      setShowAlert(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-      <main
-        style={{
-          backgroundColor: "#ffffff",
-          minHeight: "100vh",
-          padding: 20,
-          color: "#111111",
-        }}
-      >
-        {/* ヘッダー：HomeIcon（戻る）＋ Keynote風タイトル */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            marginBottom: 18,
-          }}
-        >
-          <button
-            onClick={() => router.back()}
-            aria-label="Back"
-            title="Back"
-            style={{
-              border: "1px solid rgba(0,0,0,0.08)",
-              borderRadius: 12,
-              background: "linear-gradient(180deg,#FFF 0%,#F7F8FA 100%)",
-              boxShadow:
-                "0 1px 1px rgba(0,0,0,0.05), 0 6px 14px rgba(0,0,0,0.07)",
-              width: 44,
-              height: 44,
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-            }}
-          >
-            <HomeIcon />
-          </button>
-
-          <h1
-            style={{
-              margin: 0,
-              fontSize: "clamp(24px, 3.2vw, 36px)",
-              letterSpacing: "-0.02em",
-              fontWeight: 800,
-            }}
-          >
-            {pageTitle}
-          </h1>
+  if (isEmailSent) {
+    return (
+      <div className="loginRoot">
+        <div className="homeIcon">
+          <HomeIcon size={30} href="https://sense-ai.world" />
         </div>
 
-        {/* “Current …” ブロックは削除 */}
+        {/* 左：画像（デスクトップのみ表示） */}
+        <div className="visualPane" aria-hidden="true">
+          <Image
+            src="/loginAndSignup.png"
+            alt=""
+            fill
+            sizes="(max-width: 900px) 100vw, 66vw"
+            style={{ objectFit: "contain", objectPosition: "center center" }}
+            priority
+          />
+        </div>
 
-        {loading && (
-          <div
-            style={{
-              padding: 16,
-              background: "#ffffff",
-              border: "1px solid rgba(0,0,0,0.08)",
-              borderRadius: 12,
-              boxShadow: cardShadow,
-              marginBottom: 16,
-            }}
+        {/* 縦の黒線（デスクトップのみ表示） */}
+        <div className="vline" aria-hidden="true" />
+
+        {/* 右：内容 */}
+        <div className="formPane">
+          <h1 className="title">{t("Verification Email Sent")}</h1>
+          <p className="desc">
+            {t("Please click the link in the email to verify your account and then log in.")}
+          </p>
+          <button
+            onClick={() => router.push("/login")}
+            className="btn primary"
           >
-            Loading…
-          </div>
-        )}
+            {t("Log In After Verification")}
+          </button>
 
-        {error && (
-          <div
-            style={{
-              padding: 16,
-              background: "#ffffff",
-              border: "1px solid rgba(255,0,0,0.2)",
-              borderRadius: 12,
-              color: "#b00020",
-              boxShadow: cardShadow,
-              marginBottom: 16,
-              whiteSpace: "pre-wrap",
-            }}
-          >
-            Failed to load formats: {error}
-          </div>
-        )}
+          {showAlert && <div className="alert">{alertMessage}</div>}
+        </div>
 
-        {!loading && !error && Array.isArray(formats) && formats.length > 0 ? (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 16,
-              marginTop: 6,
-              justifyContent: "start",
-            }}
-          >
-            {formats.map((meta) => {
-              const id = meta?.id;
-              const display = meta?.displayName || DISPLAY_NAMES[id] || id;
-              const isDeprecated = !!meta?.deprecated;
-              const isCurrent = current?.id === id;
+        <style jsx>{styles}</style>
+      </div>
+    );
+  }
 
-              return (
-                <button
-                  key={id}
-                  onClick={() => pick(id, meta)}
-                  aria-disabled={isDeprecated}
-                  aria-pressed={isCurrent}
-                  title={isDeprecated ? "Deprecated format" : undefined}
-                  style={{
-                    position: "relative",
-                    backgroundColor: "#ffffff",
-                    border: isCurrent
-                      ? "2px solid #0A84FF"
-                      : "1px solid rgba(0,0,0,0.04)",
-                    borderRadius: 16,
-                    padding: 18,
-                    color: "#111111",
-                    textAlign: "left",
-                    cursor: isDeprecated ? "not-allowed" : "pointer",
-                    boxShadow: cardShadow,
-                    transition:
-                      "transform 120ms ease, box-shadow 120ms ease, border 120ms ease",
-                    userSelect: "none",
-                    display: "grid",
-                    alignContent: "center",
-                    justifyItems: "start",
-                    height: "clamp(140px, 18vh, 200px)",
-                    rowGap: 8,
-                    opacity: isDeprecated ? 0.5 : 1,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 2px 2px rgba(0,0,0,0.06), 0 10px 18px rgba(0,0,0,0.10), 0 18px 30px rgba(0,0,0,0.08)";
-                    e.currentTarget.style.transform = "translateY(-1px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = cardShadow;
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
-                >
-                  <div style={{ fontWeight: 800, fontSize: 18 }}>{display}</div>
-                  {/* “Selected”ピルは表示しない（青枠のみで明示） */}
-                </button>
-              );
-            })}
-          </div>
-        ) : null}
+  return (
+    <div className="loginRoot">
+      {/* 左上ホーム固定 */}
+      <div className="homeIcon">
+        <HomeIcon size={30} href="https://sense-ai.world" />
+      </div>
 
-        {!loading && !error && Array.isArray(formats) && formats.length === 0 && (
-          <div
-            style={{
-              padding: 16,
-              background: "#ffffff",
-              border: "1px solid rgba(0,0,0,0.08)",
-              borderRadius: 12,
-              boxShadow: cardShadow,
-              marginTop: 6,
-            }}
-          >
-            No formats found.
-          </div>
-        )}
-      </main>
-    </>
+      {/* 左：画像（デスクトップのみ表示） */}
+      <div className="visualPane" aria-hidden="true">
+        <Image
+          src="/loginAndSignup.png"
+          alt=""
+          fill
+          sizes="(max-width: 900px) 100vw, 66vw"
+          style={{ objectFit: "contain", objectPosition: "center center" }}
+          priority
+        />
+      </div>
+
+      {/* 縦の黒線（デスクトップのみ表示） */}
+      <div className="vline" aria-hidden="true" />
+
+      {/* 右：フォーム（スマホでは中央フル幅） */}
+      <div className="formPane">
+        <h1 className="title">{t("Create Account")}</h1>
+
+        <input
+          type="email"
+          placeholder={t("Email")}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="input"
+        />
+        <input
+          type="password"
+          placeholder={t("Password")}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="input"
+        />
+
+        <button
+          onClick={handleSignUp}
+          disabled={isLoading}
+          className="btn primary"
+        >
+          {t("Email Verification")}
+        </button>
+
+        <button onClick={handleGoogleSignIn} className="btn social">
+          <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
+          {t("Sign in with Google")}
+        </button>
+
+        <button onClick={handleAppleSignIn} className="btn social strong">
+          <FaApple style={{ marginRight: 10, fontSize: 20 }} />
+          {t("Sign in with Apple")}
+        </button>
+
+        <button
+          onClick={() => router.push("/login")}
+          className="link"
+        >
+          {t("Already have an account? Click here.")}
+        </button>
+
+        {showAlert && <div className="alert">{alertMessage}</div>}
+      </div>
+
+      <style jsx>{styles}</style>
+    </div>
   );
 }
+
+const styles = `
+  .loginRoot {
+    background: #fff;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .homeIcon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+  .visualPane {
+    flex: 2 1 0%;
+    position: relative;
+    min-width: 0;
+    background: #fff;
+  }
+  .vline {
+    width: 2px;
+    background: #000;
+    height: 100%;
+  }
+  .formPane {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    gap: 12px;
+    overflow-y: auto;
+  }
+  .title {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.02em;
+  }
+  .desc {
+    font-size: 0.95rem;
+    margin-top: 12px;
+    text-align: center;
+    max-width: 520px;
+  }
+  .input {
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    color: #000;
+    background: #fff;
+    margin-bottom: 16px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: #fff;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 300px;
+    height: 44px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    transition: transform 120ms ease;
+  }
+  .btn:active { transform: scale(0.99); }
+  .btn.primary {
+    border: 1px solid #000;
+    margin-bottom: 16px;
+  }
+  .btn.social {
+    border: 1px solid #ccc;
+  }
+  .btn.social.strong {
+    border: 1px solid #000;
+    margin-bottom: 16px;
+  }
+  .link {
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .alert {
+    color: #b00020;
+    margin-top: 8px;
+    font-weight: 600;
+    text-align: center;
+    max-width: 320px;
+  }
+
+  /* ===== スマホ版専用（640px以下） ===== */
+  @media (max-width: 640px) {
+    .loginRoot {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100svh; /* モバイルのアドレスバー起因のvh揺れ対策 */
+    }
+    .visualPane { display: none; }  /* 画像を消す */
+    .vline { display: none; }       /* 縦線を消す */
+    .formPane {
+      width: 100%;
+      max-width: 420px;
+      padding: 24px 16px;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+    }
+    .title { font-size: 34px; margin-bottom: 18px; }
+    .input { width: min(92vw, 360px); }
+    .btn { width: min(92vw, 360px); }
+    .alert { max-width: min(92vw, 360px); }
+  }
+`;
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common"])),
+      ...(await serverSideTranslations(locale, ["common"])),
     },
     revalidate: 60,
   };
