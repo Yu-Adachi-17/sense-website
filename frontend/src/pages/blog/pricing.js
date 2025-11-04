@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
-import i18nConfig from "../../../../next-i18next.config";
+import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
 
 const inter = Inter({ subsets: ["latin"] });

@@ -18,42 +18,32 @@ import {
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
 
-// Facebook/OG 用のロケール対応（全ロケール網羅）
+// Facebook/OG 用のロケール対応
 const OG_LOCALE_MAP = {
-  ar: "ar_AR",
-  cs: "cs_CZ",
-  da: "da_DK",
-  de: "de_DE",
-  el: "el_GR",
   en: "en_US",
+  ja: "ja_JP",
+  de: "de_DE",
+  fr: "fr_FR",
   "es-ES": "es_ES",
   "es-MX": "es_MX",
-  fi: "fi_FI",
-  fr: "fr_FR",
-  he: "he_IL",
-  hi: "hi_IN",
-  hr: "hr_HR",
-  hu: "hu_HU",
+  ar: "ar_AR",
   id: "id_ID",
-  it: "it_IT",
-  ja: "ja_JP",
   ko: "ko_KR",
-  ms: "ms_MY",
   nl: "nl_NL",
-  no: "nb_NO",
-  pl: "pl_PL",
   "pt-BR": "pt_BR",
   "pt-PT": "pt_PT",
-  ro: "ro_RO",
-  ru: "ru_RU",
-  sk: "sk_SK",
   sv: "sv_SE",
+  da: "da_DK",
+  no: "nb_NO",
+  ms: "ms_MY",
+  it: "it_IT",
+  el: "el_GR",
+  hr: "hr_HR",
+  cs: "cs_CZ",
+  sk: "sk_SK",
   th: "th_TH",
   tr: "tr_TR",
   uk: "uk_UA",
-  vi: "vi_VN",
-  "zh-CN": "zh_CN",
-  "zh-TW": "zh_TW",
 };
 
 /** ─────────────────────────────────────────────────────
@@ -68,15 +58,17 @@ function deriveBlockedSlugs() {
     for (const e of entries) {
       if (e.isFile() && e.name.endsWith(".js")) {
         const base = e.name.replace(/\.js$/, "");
+        // 動的/共通ファイルは除外
         if (["[slug]", "index", "_app", "_document", "_error"].includes(base)) continue;
         blocked.add(base);
       }
+      // blog/内にディレクトリを直接置く運用は今ないが将来の保険
       if (e.isDirectory()) {
         blocked.add(e.name);
       }
     }
   } catch {
-    // noop（ローカル/CI差異対策）
+    // 何もしない（ローカル/CI差異対策）
   }
   return blocked;
 }
@@ -87,16 +79,9 @@ const BLOCKED_SLUGS = deriveBlockedSlugs();
  *  （MDX本文には未使用でも、各記事で t() を使う可能性に備え必ず注入）
  *  ──────────────────────────────────────────────────── */
 const NS_BY_SLUG = {
-  businessnegotiation: "blog_businessnegotiation",
-  introduction: "blog_introduction",
+  "businessnegotiation": "blog_businessnegotiation",
+  "introduction": "blog_introduction",
   "universal-minutes": "blog_universal",
-  universalminutes: "blog_universal",
-  pricing: "blog_pricing",
-  strategy: "blog_strategy",
-  recommend: "blog_recommend",
-  onlinemeeting: "blog_onlinemeeting",
-  aimodel: "blog_aimodel",
-  "ai-model": "blog_aimodel",
 };
 
 export default function BlogPost({
@@ -110,6 +95,7 @@ export default function BlogPost({
   const router = useRouter();
   const { asPath, locale } = router;
 
+  // /home と同様：クエリ/ハッシュ除去 → 現ロケールprefix除去
   const pathNoLocale = (() => {
     const strip = (p) => (p || "/").split("#")[0].split("?")[0] || "/";
     const raw = strip(asPath || "/");
@@ -124,7 +110,7 @@ export default function BlogPost({
         <title>{front.title} | Minutes.AI Blog</title>
         <meta name="description" content={front.description || ""} />
 
-        {/* canonical / hreflang */}
+        {/* canonical / hreflang（自己 canonical ＋ 相互 alternate） */}
         <link rel="canonical" href={canonical} />
         {alternates.map(({ l, href }) => (
           <link
@@ -150,6 +136,7 @@ export default function BlogPost({
           content={`${SITE_URL}${front.ogImage || "/og-image.jpg"}`}
         />
         <meta property="og:locale" content={ogLocale} />
+        {/* OG alternate locales */}
         {alternates
           .filter((a) => a.l !== locale && OG_LOCALE_MAP[a.l])
           .map((a) => (
@@ -211,12 +198,13 @@ export default function BlogPost({
 }
 
 export async function getStaticPaths({ locales }) {
+  // “存在する言語ファイルのみ” path を作成。ただし BLOCKED_SLUGS は除外。
   const paths = [];
   for (const id of listPostIds()) {
     for (const l of locales) {
       const slug = getSlugForLocale(id, l);
       if (!slug) continue;
-      if (BLOCKED_SLUGS.has(slug)) continue;
+      if (BLOCKED_SLUGS.has(slug)) continue; // ★ 専用ページは除外
       paths.push({ params: { slug }, locale: l });
     }
   }
@@ -229,24 +217,31 @@ export async function getStaticProps({
   locales,
   defaultLocale,
 }) {
+  // introduction / universal-minutes / businessnegotiation 等は
+  // getStaticPaths 側で除外されるためここには来ない想定だが、
+  // 念のため namespace 注入ロジックは共通で持つ。
   const postId = resolvePostIdFromSlug(locale, params.slug);
   const loaded = await loadMdx(postId, locale);
   if (!loaded) return { notFound: true };
 
   const front = loaded.frontmatter;
 
+  // 記事ごとに“実在するロケール”だけを列挙
   const availableLocales = listLocalesForPost(postId);
 
+  // 各ロケールの URL（言語ごとに slug は別物でもOK）
   const alternates = availableLocales.map((l) => {
     const prefix = l === defaultLocale ? "" : `/${l}`;
     const slugL = getSlugForLocale(postId, l);
     return { l, href: `${SITE_URL}${prefix}/blog/${slugL}` };
   });
 
+  // canonical は “このロケール自身”
   const prefix = locale === defaultLocale ? "" : `/${locale}`;
   const canonical = `${SITE_URL}${prefix}/blog/${front.slug}`;
   const ogLocale = OG_LOCALE_MAP[locale] || OG_LOCALE_MAP.en;
 
+  // ★ ここが肝：slug に応じて namespace を注入（t() を使う記事に備える）
   const maybeNs = NS_BY_SLUG[front.slug];
   const nsList = ["common", ...(maybeNs ? [maybeNs] : [])];
   const i18nProps = await serverSideTranslations(locale ?? "en", nsList);
