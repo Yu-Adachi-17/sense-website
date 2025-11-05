@@ -15,7 +15,7 @@ const DISPLAY_NAME_FALLBACK = {
   negotiation: "Business Negotiation",
   presentation: "Presentation",
   logical1on1: "Logical 1-on-1",
-  brainStorming: "Brainstorming",
+  brainstorming: "Brainstorming",
   jobInterview: "Job Interview",
   lecture: "Lecture",
   flexible: "Flexible",
@@ -24,7 +24,7 @@ const DISPLAY_NAME_FALLBACK = {
 /** 中項目ラベル → できるだけ既存の minutes.* キーに寄せる */
 const FEATURE_LABEL_KEYS = {
   general: ["minutes.discussion", "minutes.decisions", "minutes.actionItems"],
-  brainStorming: [
+  brainstorming: [
     "minutes.brainstorming.problemToSolve",
     "minutes.brainstorming.topIdea",
     "minutes.brainstorming.allIdeas",
