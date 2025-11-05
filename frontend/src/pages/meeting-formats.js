@@ -9,10 +9,6 @@ import HomeIcon from "./homeIcon";
 
 const SITE_URL = "https://www.sense-ai.world";
 
-// 柔らかい多層シャドウ
-const cardShadow =
-  "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
-
 // 表示名（バックエンド差異を吸収）
 const DISPLAY_NAMES = {
   general: "General",
@@ -25,8 +21,7 @@ const DISPLAY_NAMES = {
   flexible: "Flexible",
 };
 
-// カード下に出す「主な主要項目」(英語ラベル)
-// ※3つに絞って要点が伝わるものを選定
+// カード内に出す代表キー（3つ）
 const FORMAT_FEATURES = {
   general: ["discussion", "decisions", "actionItems"],
   brainStorming: ["coreProblem", "topIdea", "ideaTable"],
@@ -36,21 +31,6 @@ const FORMAT_FEATURES = {
   negotiation: ["proposals", "keyDiscussion", "decisionsAndTasks"],
   presentation: ["coreProblem", "proposal", "expectedResult"],
   flexible: ["free-form", "sections", "summary"],
-};
-
-// “チップ”の見た目
-const chipStyle = {
-  display: "inline-flex",
-  alignItems: "center",
-  padding: "6px 10px",
-  borderRadius: 999,
-  fontSize: 12,
-  fontWeight: 600,
-  color: "#0A84FF",
-  background:
-    "linear-gradient(180deg, rgba(10,132,255,0.08) 0%, rgba(10,132,255,0.02) 100%)",
-  border: "0.5px solid rgba(10,132,255,0.35)",
-  backdropFilter: "saturate(180%) blur(2px)",
 };
 
 export default function MeetingFormatsPage() {
@@ -94,19 +74,16 @@ export default function MeetingFormatsPage() {
             id: f?.id,
             displayName:
               DISPLAY_NAMES[f?.id] || f?.displayName || f?.titleKey || f?.id,
-            schemaId: "", // 表示しない
             deprecated: !!f?.deprecated,
           }));
         } else if (json?.formats && typeof json.formats === "object") {
           list = Object.entries(json.formats).map(([id, meta]) => ({
             id,
             displayName: DISPLAY_NAMES[id] || meta?.displayName || id,
-            schemaId: "",
             deprecated: !!meta?.deprecated,
           }));
         }
 
-        // 廃止は後ろ
         list.sort((a, b) => Number(a.deprecated) - Number(b.deprecated));
         if (!abort) setFormats(list);
       } catch (e) {
@@ -124,7 +101,6 @@ export default function MeetingFormatsPage() {
     const selected = {
       id,
       displayName: meta?.displayName || DISPLAY_NAMES[id] || id,
-      schemaId: "",
       selected: true,
     };
     localStorage.setItem("selectedMeetingFormat", JSON.stringify(selected));
@@ -150,9 +126,8 @@ export default function MeetingFormatsPage() {
           color: "#111111",
         }}
       >
-        {/* ===== ヘッダー（縦スタック）: Icon → Title → Grid ===== */}
+        {/* ヘッダー（縦：Icon → Title） */}
         <div style={{ display: "grid", rowGap: 12, marginBottom: 18 }}>
-          {/* HomeIcon（参考のサイズ/シャドー） */}
           <button
             onClick={() => router.back()}
             aria-label="Back"
@@ -186,26 +161,24 @@ export default function MeetingFormatsPage() {
             <HomeIcon size={28} />
           </button>
 
-          <h1
-            style={{
-              margin: 0,
-              fontSize: "clamp(24px, 3.2vw, 36px)",
-              letterSpacing: "-0.02em",
-              fontWeight: 800,
-            }}
-          >
-            {pageTitle}
-          </h1>
+        <h1
+          style={{
+            margin: 0,
+            fontSize: "clamp(24px, 3.2vw, 36px)",
+            letterSpacing: "-0.02em",
+            fontWeight: 800,
+          }}
+        >
+          {pageTitle}
+        </h1>
         </div>
 
         {loading && (
           <div
             style={{
               padding: 16,
-              background: "#ffffff",
               border: "1px solid rgba(0,0,0,0.08)",
               borderRadius: 12,
-              boxShadow: cardShadow,
               marginBottom: 16,
             }}
           >
@@ -217,11 +190,9 @@ export default function MeetingFormatsPage() {
           <div
             style={{
               padding: 16,
-              background: "#ffffff",
               border: "1px solid rgba(255,0,0,0.2)",
               borderRadius: 12,
               color: "#b00020",
-              boxShadow: cardShadow,
               marginBottom: 16,
               whiteSpace: "pre-wrap",
             }}
@@ -234,7 +205,7 @@ export default function MeetingFormatsPage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
               gap: 16,
               marginTop: 6,
               justifyContent: "start",
@@ -245,7 +216,7 @@ export default function MeetingFormatsPage() {
               const display = meta?.displayName || DISPLAY_NAMES[id] || id;
               const isDeprecated = !!meta?.deprecated;
               const isCurrent = current?.id === id;
-              const chips = FORMAT_FEATURES[id] || [];
+              const lines = (FORMAT_FEATURES[id] || []).slice(0, 3);
 
               return (
                 <button
@@ -256,46 +227,68 @@ export default function MeetingFormatsPage() {
                   title={isDeprecated ? "Deprecated format" : undefined}
                   style={{
                     position: "relative",
-                    backgroundColor: "#ffffff",
+                    background: "transparent",
                     border: isCurrent
                       ? "2px solid #0A84FF"
-                      : "1px solid rgba(0,0,0,0.04)",
+                      : "1px solid rgba(0,0,0,0.06)",
                     borderRadius: 16,
-                    padding: 18,
+                    padding: 22,
                     color: "#111111",
                     textAlign: "left",
                     cursor: isDeprecated ? "not-allowed" : "pointer",
-                    boxShadow: cardShadow,
-                    transition:
-                      "transform 120ms ease, box-shadow 120ms ease, border 120ms ease",
+                    transition: "transform 120ms ease, border 120ms ease",
                     userSelect: "none",
                     display: "grid",
                     alignContent: "start",
                     justifyItems: "start",
-                    height: "clamp(160px, 20vh, 220px)",
+                    height: "clamp(180px, 22vh, 240px)",
                     rowGap: 10,
                     opacity: isDeprecated ? 0.5 : 1,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 2px 2px rgba(0,0,0,0.06), 0 10px 18px rgba(0,0,0,0.10), 0 18px 30px rgba(0,0,0,0.08)";
                     e.currentTarget.style.transform = "translateY(-1px)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = cardShadow;
                     e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
-                  {/* タイトル（大きめ） */}
-                  <div style={{ fontWeight: 800, fontSize: 18 }}>{display}</div>
+                  {/* タイトル（大文字・大きめ） */}
+                  <div
+                    style={{
+                      fontWeight: 900,
+                      fontSize: 20,
+                      letterSpacing: "0.04em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {display}
+                  </div>
 
-                  {/* 主な項目（3つのチップ） */}
-                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                    {chips.slice(0, 3).map((c) => (
-                      <span key={c} style={chipStyle}>
-                        {c}
-                      </span>
+                  {/* 中項目（3行） */}
+                  <div style={{ display: "grid", rowGap: 6 }}>
+                    {lines.map((k) => (
+                      <div
+                        key={k}
+                        style={{
+                          fontSize: 15,
+                          lineHeight: 1.35,
+                          color: "rgba(0,0,0,0.72)",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {k}
+                      </div>
                     ))}
+                    {/* “…” まだあるよニュアンス */}
+                    <div
+                      style={{
+                        fontSize: 14,
+                        color: "rgba(0,0,0,0.45)",
+                        fontWeight: 600,
+                      }}
+                    >
+                      …
+                    </div>
                   </div>
                 </button>
               );
@@ -307,10 +300,8 @@ export default function MeetingFormatsPage() {
           <div
             style={{
               padding: 16,
-              background: "#ffffff",
               border: "1px solid rgba(0,0,0,0.08)",
               borderRadius: 12,
-              boxShadow: cardShadow,
               marginTop: 6,
             }}
           >
