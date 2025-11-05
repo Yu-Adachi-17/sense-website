@@ -9,8 +9,8 @@ import HomeIcon from "./homeIcon";
 
 const SITE_URL = "https://www.sense-ai.world";
 
-// 表示名（バックエンド差異を吸収）
-const DISPLAY_NAMES = {
+/** 英語フォールバック表示名（翻訳が無い場合はこれ） */
+const DISPLAY_NAME_FALLBACK = {
   general: "General",
   negotiation: "Business Negotiation",
   presentation: "Presentation",
@@ -21,21 +21,42 @@ const DISPLAY_NAMES = {
   flexible: "Flexible",
 };
 
-// カード内に出す代表キー（3つ）
-const FORMAT_FEATURES = {
-  general: ["discussion", "decisions", "actionItems"],
-  brainStorming: ["coreProblem", "topIdea", "ideaTable"],
-  jobInterview: ["motivation", "careerSummary", "strengths"],
-  lecture: ["procedures", "examples", "tips"],
-  logical1on1: ["pastPositive", "pastNegative", "futurePositive"],
-  negotiation: ["proposals", "keyDiscussion", "decisionsAndTasks"],
-  presentation: ["coreProblem", "proposal", "expectedResult"],
-  flexible: ["free-form", "sections", "summary"],
+/** 中項目ラベル → できるだけ既存の minutes.* キーに寄せる */
+const FEATURE_LABEL_KEYS = {
+  general: ["minutes.discussion", "minutes.decisions", "minutes.actionItems"],
+  brainStorming: [
+    "minutes.brainstorming.problemToSolve",
+    "minutes.brainstorming.topIdea",
+    "minutes.brainstorming.allIdeas",
+  ],
+  jobInterview: [
+    "minutes.jobInterview.motivation",
+    "minutes.jobInterview.careerSummary",
+    "minutes.jobInterview.strengths",
+  ],
+  lecture: [
+    "minutes.lecture.procedures",
+    "minutes.lecture.examplesAndScenarios",
+    "minutes.lecture.tipsAndInsights",
+  ],
+  logical1on1: [
+    "minutes.oneonone.recentSuccess",
+    "minutes.oneonone.challengeFaced",
+    "minutes.oneonone.futureExpectation",
+  ],
+  negotiation: [
+    // 無いキーは後述の defaultValue で英語表示
+    null,
+    "minutes.decisionsAndTasks",
+    null,
+  ],
+  presentation: [null, null, "minutes.summary"],
+  flexible: ["minutes.overview", "minutes.sections", "minutes.summary"],
 };
 
 export default function MeetingFormatsPage() {
   const router = useRouter();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation("common");
 
   const [formats, setFormats] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -67,20 +88,17 @@ export default function MeetingFormatsPage() {
         const res = await apiFetch(`/api/formats`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json();
-        let list = [];
 
+        let list = [];
         if (Array.isArray(json?.formats)) {
           list = json.formats.map((f) => ({
             id: f?.id,
-            displayName:
-              DISPLAY_NAMES[f?.id] || f?.displayName || f?.titleKey || f?.id,
             deprecated: !!f?.deprecated,
           }));
         } else if (json?.formats && typeof json.formats === "object") {
-          list = Object.entries(json.formats).map(([id, meta]) => ({
+          list = Object.keys(json.formats).map((id) => ({
             id,
-            displayName: DISPLAY_NAMES[id] || meta?.displayName || id,
-            deprecated: !!meta?.deprecated,
+            deprecated: !!json.formats[id]?.deprecated,
           }));
         }
 
@@ -98,17 +116,66 @@ export default function MeetingFormatsPage() {
   }, []);
 
   const pick = (id, meta) => {
-    const selected = {
-      id,
-      displayName: meta?.displayName || DISPLAY_NAMES[id] || id,
-      selected: true,
-    };
+    const displayName = getDisplayName(id, t);
+    const selected = { id, displayName, selected: true };
     localStorage.setItem("selectedMeetingFormat", JSON.stringify(selected));
     setCurrent(selected);
     router.push("/"); // 録音UIへ戻る
   };
 
-  const pageTitle = "Choose a Format";
+  /** i18n優先の表示名（formats.{id} → 無ければ英語フォールバック） */
+  const getDisplayName = (id, tfn) =>
+    tfn(`formats.${id}`, {
+      defaultValue: DISPLAY_NAME_FALLBACK[id] || id,
+    });
+
+  /** 中項目3行を取得（各キーが無い場合は英語フォールバック単語にする） */
+  const getFeatureLines = (id, tfn) => {
+    const fallbacks = {
+      negotiation: ["proposals", "decisions & tasks", "key discussion"],
+      presentation: ["core problem", "proposal", "expected result"],
+    };
+    const keys = FEATURE_LABEL_KEYS[id] || [];
+    return keys.slice(0, 3).map((k, idx) => {
+      if (!k) {
+        const fb = (fallbacks[id] || [])[idx] || "";
+        return fb ? capitalize(fb) : "";
+      }
+      return tfn(k, { defaultValue: labelFallbackFromKey(k) });
+    });
+  };
+
+  const labelFallbackFromKey = (k) => {
+    // minutes.* の最後のセグメントを英語化
+    const last = k.split(".").pop() || "";
+    const map = {
+      discussion: "Discussion",
+      decisions: "Decisions",
+      actionItems: "Action Items",
+      problemToSolve: "Problem to Solve",
+      topIdea: "Top Idea",
+      allIdeas: "All Ideas",
+      motivation: "Motivation",
+      careerSummary: "Career Summary",
+      strengths: "Strengths",
+      procedures: "Procedures",
+      examplesAndScenarios: "Examples",
+      tipsAndInsights: "Tips",
+      recentSuccess: "Recent Success",
+      challengeFaced: "Challenge",
+      futureExpectation: "Future Expectation",
+      decisionsAndTasks: "Decisions & Tasks",
+      summary: "Summary",
+      overview: "Overview",
+      sections: "Sections",
+    };
+    return map[last] || capitalize(last.replace(/([A-Z])/g, " $1"));
+  };
+
+  const capitalize = (s) =>
+    (s || "").charAt(0).toUpperCase() + (s || "").slice(1);
+
+  const pageTitle = t("Choose a Format", { defaultValue: "Choose a Format" });
 
   return (
     <>
@@ -130,8 +197,8 @@ export default function MeetingFormatsPage() {
         <div style={{ display: "grid", rowGap: 12, marginBottom: 18 }}>
           <button
             onClick={() => router.back()}
-            aria-label="Back"
-            title="Back"
+            aria-label={t("Home", { defaultValue: "Home" })}
+            title={t("Home", { defaultValue: "Home" })}
             style={{
               width: 44,
               height: 44,
@@ -161,16 +228,16 @@ export default function MeetingFormatsPage() {
             <HomeIcon size={28} />
           </button>
 
-        <h1
-          style={{
-            margin: 0,
-            fontSize: "clamp(24px, 3.2vw, 36px)",
-            letterSpacing: "-0.02em",
-            fontWeight: 800,
-          }}
-        >
-          {pageTitle}
-        </h1>
+          <h1
+            style={{
+              margin: 0,
+              fontSize: "clamp(24px, 3.2vw, 36px)",
+              letterSpacing: "-0.02em",
+              fontWeight: 800,
+            }}
+          >
+            {pageTitle}
+          </h1>
         </div>
 
         {loading && (
@@ -182,7 +249,7 @@ export default function MeetingFormatsPage() {
               marginBottom: 16,
             }}
           >
-            Loading…
+            {t("Loading...", { defaultValue: "Loading..." })}
           </div>
         )}
 
@@ -197,7 +264,7 @@ export default function MeetingFormatsPage() {
               whiteSpace: "pre-wrap",
             }}
           >
-            Failed to load formats: {error}
+            {t("Load error", { defaultValue: "Load error" })}: {error}
           </div>
         )}
 
@@ -213,10 +280,10 @@ export default function MeetingFormatsPage() {
           >
             {formats.map((meta) => {
               const id = meta?.id;
-              const display = meta?.displayName || DISPLAY_NAMES[id] || id;
               const isDeprecated = !!meta?.deprecated;
               const isCurrent = current?.id === id;
-              const lines = (FORMAT_FEATURES[id] || []).slice(0, 3);
+              const title = getDisplayName(id, t);
+              const lines = getFeatureLines(id, t);
 
               return (
                 <button
@@ -261,25 +328,26 @@ export default function MeetingFormatsPage() {
                       textTransform: "uppercase",
                     }}
                   >
-                    {display}
+                    {title}
                   </div>
 
-                  {/* 中項目（3行） */}
+                  {/* 中項目（3行） + “ … ” */}
                   <div style={{ display: "grid", rowGap: 6 }}>
-                    {lines.map((k) => (
-                      <div
-                        key={k}
-                        style={{
-                          fontSize: 15,
-                          lineHeight: 1.35,
-                          color: "rgba(0,0,0,0.72)",
-                          fontWeight: 600,
-                        }}
-                      >
-                        {k}
-                      </div>
-                    ))}
-                    {/* “…” まだあるよニュアンス */}
+                    {lines.map((label, i) =>
+                      label ? (
+                        <div
+                          key={`${id}-${i}`}
+                          style={{
+                            fontSize: 15,
+                            lineHeight: 1.35,
+                            color: "rgba(0,0,0,0.72)",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {label}
+                        </div>
+                      ) : null
+                    )}
                     <div
                       style={{
                         fontSize: 14,
@@ -305,7 +373,7 @@ export default function MeetingFormatsPage() {
               marginTop: 6,
             }}
           >
-            No formats found.
+            {t("No data available", { defaultValue: "No data available" })}
           </div>
         )}
       </main>
