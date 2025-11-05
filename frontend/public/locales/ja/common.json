@@ -243,6 +243,16 @@
   "Minutes preview surface": "議事録プレビュー",
   "Prepaid minutes pricing": "前払いプラン料金",
   "Subscription pricing": "サブスクリプション料金",
+    "formats": {
+    "general": "一般",
+    "negotiation": "商談",
+    "presentation": "プレゼンテーション",
+    "logical1on1": "ロジカル1on1",
+    "brainstorming": "ブレインストーミング",
+    "jobInterview": "面接",
+    "lecture": "講義",
+    "flexible": "フレキシブル"
+  },
   "minutes": {
     "minutesTitleFallback": "議事録",
     "noContentProvided": "内容がありません",
