@@ -25,6 +25,34 @@ const DISPLAY_NAMES = {
   flexible: "Flexible",
 };
 
+// カード下に出す「主な主要項目」(英語ラベル)
+// ※3つに絞って要点が伝わるものを選定
+const FORMAT_FEATURES = {
+  general: ["discussion", "decisions", "actionItems"],
+  brainStorming: ["coreProblem", "topIdea", "ideaTable"],
+  jobInterview: ["motivation", "careerSummary", "strengths"],
+  lecture: ["procedures", "examples", "tips"],
+  logical1on1: ["pastPositive", "pastNegative", "futurePositive"],
+  negotiation: ["proposals", "keyDiscussion", "decisionsAndTasks"],
+  presentation: ["coreProblem", "proposal", "expectedResult"],
+  flexible: ["free-form", "sections", "summary"],
+};
+
+// “チップ”の見た目
+const chipStyle = {
+  display: "inline-flex",
+  alignItems: "center",
+  padding: "6px 10px",
+  borderRadius: 999,
+  fontSize: 12,
+  fontWeight: 600,
+  color: "#0A84FF",
+  background:
+    "linear-gradient(180deg, rgba(10,132,255,0.08) 0%, rgba(10,132,255,0.02) 100%)",
+  border: "0.5px solid rgba(10,132,255,0.35)",
+  backdropFilter: "saturate(180%) blur(2px)",
+};
+
 export default function MeetingFormatsPage() {
   const router = useRouter();
   const { i18n } = useTranslation();
@@ -66,7 +94,7 @@ export default function MeetingFormatsPage() {
             id: f?.id,
             displayName:
               DISPLAY_NAMES[f?.id] || f?.displayName || f?.titleKey || f?.id,
-            schemaId: "", // デバッグ表示しない
+            schemaId: "", // 表示しない
             deprecated: !!f?.deprecated,
           }));
         } else if (json?.formats && typeof json.formats === "object") {
@@ -78,6 +106,7 @@ export default function MeetingFormatsPage() {
           }));
         }
 
+        // 廃止は後ろ
         list.sort((a, b) => Number(a.deprecated) - Number(b.deprecated));
         if (!abort) setFormats(list);
       } catch (e) {
@@ -121,9 +150,9 @@ export default function MeetingFormatsPage() {
           color: "#111111",
         }}
       >
-        {/* ===== ヘッダー（縦スタック）: Icon → Title ===== */}
+        {/* ===== ヘッダー（縦スタック）: Icon → Title → Grid ===== */}
         <div style={{ display: "grid", rowGap: 12, marginBottom: 18 }}>
-          {/* HomeIcon（参考コードのサイズ/質感に寄せる。動作は back） */}
+          {/* HomeIcon（参考のサイズ/シャドー） */}
           <button
             onClick={() => router.back()}
             aria-label="Back"
@@ -132,10 +161,10 @@ export default function MeetingFormatsPage() {
               width: 44,
               height: 44,
               borderRadius: 999,
-              border: "1px solid rgba(0,0,0,0.10)",         // 白背景向けに調整
-              background: "rgba(0,0,0,0.04)",               // bg-white/5 相当
+              border: "1px solid rgba(0,0,0,0.10)",
+              background: "rgba(0,0,0,0.04)",
               color: "rgba(0,0,0,0.75)",
-              backdropFilter: "blur(6px)",                  // backdrop-blur
+              backdropFilter: "blur(6px)",
               WebkitBackdropFilter: "blur(6px)",
               boxShadow:
                 "0 1px 1px rgba(0,0,0,0.05), 0 6px 14px rgba(0,0,0,0.07)",
@@ -146,7 +175,7 @@ export default function MeetingFormatsPage() {
               transition: "background 120ms ease, color 120ms ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(0,0,0,0.07)"; // hover:bg-white/10 相当
+              e.currentTarget.style.background = "rgba(0,0,0,0.07)";
               e.currentTarget.style.color = "#111111";
             }}
             onMouseLeave={(e) => {
@@ -157,7 +186,6 @@ export default function MeetingFormatsPage() {
             <HomeIcon size={28} />
           </button>
 
-          {/* Keynote風タイトル */}
           <h1
             style={{
               margin: 0,
@@ -169,8 +197,6 @@ export default function MeetingFormatsPage() {
             {pageTitle}
           </h1>
         </div>
-
-        {/* “Current …” や “Selected” ピルは表示しない */}
 
         {loading && (
           <div
@@ -219,6 +245,7 @@ export default function MeetingFormatsPage() {
               const display = meta?.displayName || DISPLAY_NAMES[id] || id;
               const isDeprecated = !!meta?.deprecated;
               const isCurrent = current?.id === id;
+              const chips = FORMAT_FEATURES[id] || [];
 
               return (
                 <button
@@ -243,10 +270,10 @@ export default function MeetingFormatsPage() {
                       "transform 120ms ease, box-shadow 120ms ease, border 120ms ease",
                     userSelect: "none",
                     display: "grid",
-                    alignContent: "center",
+                    alignContent: "start",
                     justifyItems: "start",
-                    height: "clamp(140px, 18vh, 200px)",
-                    rowGap: 8,
+                    height: "clamp(160px, 20vh, 220px)",
+                    rowGap: 10,
                     opacity: isDeprecated ? 0.5 : 1,
                   }}
                   onMouseEnter={(e) => {
@@ -259,7 +286,17 @@ export default function MeetingFormatsPage() {
                     e.currentTarget.style.transform = "translateY(0)";
                   }}
                 >
+                  {/* タイトル（大きめ） */}
                   <div style={{ fontWeight: 800, fontSize: 18 }}>{display}</div>
+
+                  {/* 主な項目（3つのチップ） */}
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                    {chips.slice(0, 3).map((c) => (
+                      <span key={c} style={chipStyle}>
+                        {c}
+                      </span>
+                    ))}
+                  </div>
                 </button>
               );
             })}
