@@ -24,7 +24,7 @@ const DISPLAY_NAME_FALLBACK = {
 /** 中項目ラベル → できるだけ既存の minutes.* キーに寄せる */
 const FEATURE_LABEL_KEYS = {
   general: ["minutes.discussion", "minutes.decisions", "minutes.actionItems"],
-  brainStorming: [
+  brainstorming: [
     "minutes.brainstorming.problemToSolve",
     "minutes.brainstorming.topIdea",
     "minutes.brainstorming.allIdeas",
@@ -45,14 +45,18 @@ const FEATURE_LABEL_KEYS = {
     "minutes.oneonone.futureExpectation",
   ],
   negotiation: [
-    // 無いキーは後述の defaultValue で英語表示
-    null,
+    "minutes.proposals",
     "minutes.decisionsAndTasks",
-    null,
+    "minutes.keyDiscussion",
   ],
-  presentation: [null, null, "minutes.summary"],
+  presentation: [
+    "minutes.coreProblem",
+    "minutes.proposal",
+    "minutes.expectedResult",
+  ],
   flexible: ["minutes.overview", "minutes.sections", "minutes.summary"],
 };
+
 
 export default function MeetingFormatsPage() {
   const router = useRouter();
