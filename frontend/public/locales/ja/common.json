@@ -243,6 +243,7 @@
   "Minutes preview surface": "議事録プレビュー",
   "Prepaid minutes pricing": "前払いプラン料金",
   "Subscription pricing": "サブスクリプション料金",
+  "Choose a Format": "フォーマットを選択",
     "formats": {
     "general": "一般",
     "negotiation": "商談",

@@ -21,6 +21,14 @@ const DISPLAY_NAME_FALLBACK = {
   flexible: "Flexible",
 };
 
+/** API/過去資産由来の揺れを吸収 */
+const normalizeId = (id) => {
+  if (!id) return id;
+  // brainStorming → brainstorming などの歴史的揺れを吸収
+  if (id === "brainStorming") return "brainstorming";
+  return id;
+};
+
 /** 中項目ラベル → できるだけ既存の minutes.* キーに寄せる */
 const FEATURE_LABEL_KEYS = {
   general: ["minutes.discussion", "minutes.decisions", "minutes.actionItems"],
@@ -56,7 +64,6 @@ const FEATURE_LABEL_KEYS = {
   ],
   flexible: ["minutes.overview", "minutes.sections", "minutes.summary"],
 };
-
 
 export default function MeetingFormatsPage() {
   const router = useRouter();
@@ -120,29 +127,39 @@ export default function MeetingFormatsPage() {
   }, []);
 
   const pick = (id, meta) => {
-    const displayName = getDisplayName(id, t);
+    const displayName = getDisplayName(id, t, i18n);
     const selected = { id, displayName, selected: true };
     localStorage.setItem("selectedMeetingFormat", JSON.stringify(selected));
     setCurrent(selected);
     router.push("/"); // 録音UIへ戻る
   };
 
-  /** i18n優先の表示名（formats.{id} → 無ければ英語フォールバック） */
-  const getDisplayName = (id, tfn) =>
-    tfn(`formats.${id}`, {
-      defaultValue: DISPLAY_NAME_FALLBACK[id] || id,
-    });
+  /** i18n優先の表示名（formats.{id} or formats.{normalized} → 無ければ英語フォールバック） */
+  const getDisplayName = (id, tfn, i18nInst) => {
+    const nid = normalizeId(id);
+    const k1 = `formats.${id}`;
+    const k2 = `formats.${nid}`;
+
+    if (i18nInst?.exists?.(k1, { ns: "common" })) {
+      return tfn(k1);
+    }
+    if (k2 !== k1 && i18nInst?.exists?.(k2, { ns: "common" })) {
+      return tfn(k2);
+    }
+    return DISPLAY_NAME_FALLBACK[nid] || DISPLAY_NAME_FALLBACK[id] || nid || id;
+  };
 
   /** 中項目3行を取得（各キーが無い場合は英語フォールバック単語にする） */
   const getFeatureLines = (id, tfn) => {
+    const nid = normalizeId(id);
     const fallbacks = {
       negotiation: ["proposals", "decisions & tasks", "key discussion"],
       presentation: ["core problem", "proposal", "expected result"],
     };
-    const keys = FEATURE_LABEL_KEYS[id] || [];
+    const keys = FEATURE_LABEL_KEYS[nid] || [];
     return keys.slice(0, 3).map((k, idx) => {
       if (!k) {
-        const fb = (fallbacks[id] || [])[idx] || "";
+        const fb = (fallbacks[nid] || [])[idx] || "";
         return fb ? capitalize(fb) : "";
       }
       return tfn(k, { defaultValue: labelFallbackFromKey(k) });
@@ -283,16 +300,17 @@ export default function MeetingFormatsPage() {
             }}
           >
             {formats.map((meta) => {
-              const id = meta?.id;
+              const rawId = meta?.id;
+              const id = normalizeId(rawId);
               const isDeprecated = !!meta?.deprecated;
-              const isCurrent = current?.id === id;
-              const title = getDisplayName(id, t);
-              const lines = getFeatureLines(id, t);
+              const isCurrent = current?.id === rawId || current?.id === id;
+              const title = getDisplayName(rawId, t, i18n);
+              const lines = getFeatureLines(rawId, t);
 
               return (
                 <button
-                  key={id}
-                  onClick={() => pick(id, meta)}
+                  key={rawId || id}
+                  onClick={() => pick(rawId, meta)}
                   aria-disabled={isDeprecated}
                   aria-pressed={isCurrent}
                   title={isDeprecated ? "Deprecated format" : undefined}
