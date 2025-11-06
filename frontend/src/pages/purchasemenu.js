@@ -53,40 +53,12 @@ function formatYYYYMMDD(date) {
   return `${y}${m}${d}`;
 }
 
-/* ===== Top-layer Portal (body 直下・最後尾) ===== */
-function ensureTopLayerRoot() {
-  let root = document.getElementById("__menu_root");
-  if (!root) {
-    root = document.createElement("div");
-    root.id = "__menu_root";
-    document.body.appendChild(root);
-  } else {
-    // 末尾へ移動（後勝ち）
-    if (root.parentNode === document.body) {
-      document.body.appendChild(root);
-    }
-  }
-  // iOS Safari の合成バグ対策：固定配置 & 最上位 z-index & 透過・クリック不可
-  const style = root.style;
-  style.position = "fixed";
-  style.inset = "0";
-  style.zIndex = "2147483647";
-  style.pointerEvents = "none"; // 子要素で必要箇所のみ auto にする
-  style.background = "transparent";
-  return root;
-}
-
+/* ===== Portal ===== */
 function Portal({ children }) {
   const [mounted, setMounted] = useState(false);
-  const [root, setRoot] = useState(null);
-  useEffect(() => {
-    setMounted(true);
-    const r = ensureTopLayerRoot();
-    setRoot(r);
-    return () => { /* ルートは使い回すので破棄しない */ };
-  }, []);
-  if (!mounted || !root) return null;
-  return createPortal(children, root);
+  useEffect(() => { setMounted(true); return () => setMounted(false); }, []);
+  if (!mounted) return null;
+  return createPortal(children, document.body);
 }
 
 export default function PurchaseMenu() {
@@ -118,7 +90,6 @@ export default function PurchaseMenu() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 開閉のグローバルフラグ（録音トグルの無効化用）
   useEffect(() => {
     if (typeof window === 'undefined') return;
     window.__side_menu_open = showSideMenu === true;
@@ -181,8 +152,13 @@ export default function PurchaseMenu() {
 
   const ui = useMemo(() => {
     const chipBgLight = "#E3F2FD";
+    const cardShadow = "0 8px 28px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.06)";
+    const base = {
+      zTop: 2147483647,
+      radius: 16,
+      ease: "cubic-bezier(.2,.7,.2,1)",
+    };
     return {
-      // ルートは pointer-events:none なので、操作したい要素だけ auto にする
       hamburgerButton: {
         position: "fixed",
         top: "calc(env(safe-area-inset-top, 0px) + 12px)",
@@ -192,17 +168,14 @@ export default function PurchaseMenu() {
         border: "none",
         color: "#000",
         cursor: "pointer",
-        zIndex: 1, // ルート内局所値（root自体が最前面）
+        zIndex: base.zTop,
         WebkitTapHighlightColor: "transparent",
-        pointerEvents: "auto",
       },
-      // 透明オーバーレイ（背景は一切暗くしない）
       blankOverlay: {
         position: "fixed", inset: 0,
         background: "transparent",
+        zIndex: base.zTop - 2,
         display: showSideMenu ? "block" : "none",
-        zIndex: 0,
-        pointerEvents: showSideMenu ? "auto" : "none",
       },
       sideMenu: {
         position: "fixed", top: 0, right: 0,
@@ -211,19 +184,24 @@ export default function PurchaseMenu() {
         color: "#0A0F1B",
         padding: "22px 18px", boxSizing: "border-box",
         display: "flex", flexDirection: "column", alignItems: "stretch",
-        zIndex: 1, transition: `transform .30s cubic-bezier(.2,.7,.2,1)`,
+        zIndex: base.zTop - 1, transition: `transform .30s ${base.ease}`,
         transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
         background: "#FFFFFF",
         boxShadow: showSideMenu ? "0 18px 42px rgba(0,0,0,0.10), 0 10px 20px rgba(0,0,0,0.06)" : "none",
-        pointerEvents: "auto", // 操作可
-        willChange: "transform", // レイヤ昇格（Safari描画順バグの保険）
+        pointerEvents: showSideMenu ? "auto" : "none",
       },
-      topRow: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 12, marginBottom: 8 },
-      topProfileButton: { background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
+      topRow: {
+        display: "flex", alignItems: "center", justifyContent: "flex-end",
+        gap: 12, marginBottom: 8
+      },
+      topProfileButton: {
+        background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer",
+        padding: "4px 0", display: "flex", alignItems: "center"
+      },
       divider: { width: "100%", height: 1, background: "rgba(0,0,0,0.08)", margin: "8px 0 14px" },
 
       rowCard: {
-        borderRadius: 16, background: "#FFFFFF",
+        borderRadius: base.radius, background: "#FFFFFF",
         border: "1px solid rgba(0,0,0,0.04)", padding: "12px 10px",
         margin: "10px 6px 12px 6px",
         boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
@@ -234,7 +212,94 @@ export default function PurchaseMenu() {
       iconBadge: { width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center", background: chipBgLight, border: "1px solid rgba(0,0,0,0.04)", flex: "0 0 44px" },
       rowTitle: { fontSize: 14, fontWeight: 600, color: "#0A0F1B" },
 
-      policyButton: { background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9, pointerEvents: "auto" },
+      policyButton: { background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 },
+
+      // ===== Profile Overlay (refined) =====
+      overlayRoot: {
+        position: "fixed", inset: 0, background: "#fff",
+        zIndex: base.zTop - 10, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden"
+      },
+      overlayBgMark: {
+        position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
+        pointerEvents: "none", zIndex: 0, opacity: 0.06
+      },
+      overlayCard: {
+        position: "relative",
+        width: isMobile ? "92%" : 720,
+        minHeight: 420,
+        background: "#FFFFFF",
+        borderRadius: 20,
+        border: "1px solid rgba(0,0,0,0.06)",
+        boxShadow: cardShadow,
+        padding: isMobile ? 18 : 28,
+        boxSizing: "border-box",
+        zIndex: 1,
+        display: "grid",
+        gridTemplateRows: "auto auto 1fr",
+        rowGap: isMobile ? 14 : 18,
+      },
+      overlayHeader: {
+        display: "flex", alignItems: "center", justifyContent: "space-between"
+      },
+      headerLeft: {
+        display: "flex", alignItems: "center", gap: 12
+      },
+      avatarChip: {
+        width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center",
+        background: chipBgLight, border: "1px solid rgba(0,0,0,0.06)"
+      },
+      titleWrap: { display: "flex", flexDirection: "column", gap: 4 },
+      title: { fontSize: 18, fontWeight: 800, color: "#0A0F1B", letterSpacing: 0.2 },
+      subtitle: { fontSize: 12, color: "rgba(0,0,0,0.6)" },
+      closeBtn: {
+        background: "#fff", border: "1px solid rgba(0,0,0,0.08)", width: 36, height: 36,
+        borderRadius: 10, display: "grid", placeItems: "center", cursor: "pointer",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.06)"
+      },
+
+      metaBar: {
+        display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap"
+      },
+      pill: {
+        display: "inline-flex", alignItems: "center", gap: 8,
+        padding: "8px 12px", borderRadius: 12, background: "#FAFAFA",
+        border: "1px solid rgba(0,0,0,0.06)", fontSize: 13, color: "#0A0F1B", fontWeight: 600
+      },
+      planPillUnlimited: {
+        background: "linear-gradient(180deg, #F5F7FF, #F0F5FF)",
+        border: "1px solid rgba(0,0,0,0.06)",
+        color: "#0A0F1B"
+      },
+
+      infoGrid: {
+        display: "grid",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+        gap: 12,
+        marginTop: 4
+      },
+      infoRow: {
+        display: "grid",
+        gridTemplateColumns: "minmax(120px, 1fr) 2fr",
+        alignItems: "center",
+        background: "#FCFCFC",
+        border: "1px solid rgba(0,0,0,0.06)",
+        borderRadius: 12,
+        padding: "12px 12px"
+      },
+      infoKey: { fontSize: 13, color: "rgba(0,0,0,0.66)", fontWeight: 700 },
+      infoVal: { fontSize: 14, color: "#0A0F1B", textAlign: "right", wordBreak: "break-word" },
+
+      actionGrid: {
+        display: "grid",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
+        gap: 12,
+        marginTop: isMobile ? 6 : 10
+      },
+      subtleHelp: { fontSize: 11, color: "rgba(0,0,0,0.55)", marginTop: 6, textAlign: "center" },
+
+      cancelBadgeWrap: { display: "flex", flexDirection: "column", alignItems: "center", gap: 4, marginTop: 10 },
+      cancelBadge: { display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 },
+      cancelUntil: { fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 },
     };
   }, [isMobile, showSideMenu]);
 
@@ -325,7 +390,6 @@ export default function PurchaseMenu() {
   return (
     <>
       <Portal>
-        {/* ここ（__menu_root 配下）は最上位。root は pointer-events:none なので、個々で auto を付与 */}
         <button
           style={ui.hamburgerButton}
           onClick={() => setShowSideMenu((v) => !v)}
@@ -334,18 +398,16 @@ export default function PurchaseMenu() {
           <GiHamburgerMenu size={30} color="#000" style={{ transform: "scaleX(1.2)", transformOrigin: "center" }} />
         </button>
 
-        {/* 透明オーバーレイ（空白タップで閉じる） */}
         <div
           style={ui.blankOverlay}
           onClick={() => setShowSideMenu(false)}
           aria-hidden={!showSideMenu}
         />
 
-        {/* サイドメニュー本体 */}
         <div style={ui.sideMenu} onClick={stopPropagation} aria-hidden={!showSideMenu}>
           <div style={ui.topRow}>
             <button
-              style={{ ...ui.topProfileButton, pointerEvents: "auto" }}
+              style={ui.topProfileButton}
               onClick={() => {
                 setShowSideMenu(false);
                 if (userId) setShowProfileOverlay(true);
@@ -414,49 +476,112 @@ export default function PurchaseMenu() {
         </div>
       </Portal>
 
-      {/* Profile overlay（現状のまま） */}
+      {/* ===== Profile overlay (refined to match Pmenu) ===== */}
       {showProfileOverlay && (
         <div
-          style={{ position: "fixed", inset: 0, background: "#fff", zIndex: 2147482000, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" }}
+          style={ui.overlayRoot}
           onClick={() => { setShowProfileOverlay(false); router.push("/"); }}
         >
-          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 2147482001, opacity: 0.08 }} aria-hidden="true">
+          <div style={ui.overlayBgMark} aria-hidden="true">
             <HomeIcon size={isMobile ? 520 : 1080} src="/images/home.png" alt="Home (bg)" />
           </div>
 
           <div
-            style={{ width: 520, minHeight: 380, background: "transparent", borderRadius: 12, display: "flex", flexDirection: "column", alignItems: "stretch", padding: 28, boxSizing: "border-box", position: "relative", zIndex: 2147482002, border: "1px solid #e5e5e5", boxShadow: "0 8px 32px rgba(0,0,0,0.06)", gap: 20 }}
+            style={ui.overlayCard}
             onClick={(e) => e.stopPropagation()}
           >
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontWeight: 700, fontSize: 18, color: "#111" }}>
-              <span>{t("Profile")}</span>
+            {/* Header */}
+            <div style={ui.overlayHeader}>
+              <div style={ui.headerLeft}>
+                <div style={ui.avatarChip}>
+                  {userId ? (
+                    <span style={{ display: "inline-flex", width: 24, height: 24 }}>
+                      <HomeIcon />
+                    </span>
+                  ) : (
+                    <IoPersonCircleOutline size={24} color="#0A0F1B" />
+                  )}
+                </div>
+                <div style={ui.titleWrap}>
+                  <div style={ui.title}>{t("Profile")}</div>
+                  <div style={ui.subtitle}>{userEmail || "—"}</div>
+                </div>
+              </div>
+
+              <button
+                style={ui.closeBtn}
+                onClick={() => { setShowProfileOverlay(false); router.push("/"); }}
+                aria-label="Close"
+                title="Close"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" stroke="#111" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
             </div>
 
-            <div style={{ background: "#fafafa", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", display: "grid", gridTemplateColumns: "1fr", rowGap: 8, color: "#111", lineHeight: 1.6 }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
-                <span>{t("Email")}</span><span>{userEmail}</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
-                <span>{t("Plan")}</span>
-                <span style={subscription ? { fontSize: 28, fontWeight: "bold", color: "#000", letterSpacing: "0.2px" } : {}}>
+            {/* Meta pills */}
+            <div style={ui.metaBar}>
+              <div style={ui.pill}>
+                <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="11" fill="#111" />
+                </svg>
+                <span>{t("Plan")}:</span>
+                <strong style={{ letterSpacing: 0.2 }}>
                   {subscription ? t("unlimited") : t("Free")}
-                </span>
+                </strong>
               </div>
+
               {!subscription && (
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
+                <div style={ui.pill}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="11" fill="#0D47A1" />
+                  </svg>
                   <span>{t("Remaining Time:")}</span>
-                  <span>
+                  <strong>
                     {profileRemainingSeconds != null
                       ? `${Math.floor((profileRemainingSeconds||0)/60).toString().padStart(2,"0")}:${((profileRemainingSeconds||0)%60).toString().padStart(2,"0")}`
                       : "00:00"}
-                  </span>
+                  </strong>
+                </div>
+              )}
+
+              {subscription && (
+                <div style={{ ...ui.pill, ...ui.planPillUnlimited }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 12.5l3.2 3.2L17 8.9" stroke="#0A0F1B" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span>{t("unlimited")}</span>
                 </div>
               )}
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 12 }}>
+            {/* Info grid */}
+            <div style={ui.infoGrid}>
+              <div style={ui.infoRow}>
+                <div style={ui.infoKey}>{t("Email")}</div>
+                <div style={ui.infoVal}>{userEmail || "—"}</div>
+              </div>
+              <div style={ui.infoRow}>
+                <div style={ui.infoKey}>{t("Plan")}</div>
+                <div style={ui.infoVal}>{subscription ? t("unlimited") : t("Free")}</div>
+              </div>
+              {subscriptionExpiresAt && (
+                <div style={ui.infoRow}>
+                  <div style={ui.infoKey}>Valid until</div>
+                  <div style={ui.infoVal}>{formatYYYYMMDD(subscriptionExpiresAt)}</div>
+                </div>
+              )}
+            </div>
+
+            {/* Actions */}
+            <div style={ui.actionGrid}>
               <button style={buttonBase} onClick={handleLogout}>{t("Logout")}</button>
-              <button style={{ ...buttonBase, border: "1px solid #f2c6c6", color: "#b00020", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" }} onClick={handleDeleteAccount}>
+
+              <button
+                style={{ ...buttonBase, border: "1px solid #f2c6c6", color: "#b00020", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" }}
+                onClick={handleDeleteAccount}
+              >
                 {t("Delete account")}
               </button>
 
@@ -476,21 +601,27 @@ export default function PurchaseMenu() {
                 </button>
 
                 {subscriptionExpiresAt && (
-                  <div style={{ marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 }}>
+                  <div style={ui.cancelBadgeWrap}>
+                    <div style={ui.cancelBadge}>
                       <svg viewBox="0 0 24 24" style={{ width: 18, height: 18, flex: "0 0 auto" }} aria-hidden="true">
                         <circle cx="12" cy="12" r="11" fill="#22c55e" />
                         <path d="M7 12.5l3.2 3.2L17 8.9" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <span>Cancellation scheduled</span>
                     </div>
-                    <div style={{ fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 }}>
+                    <div style={ui.cancelUntil}>
                       {`Valid until ${formatYYYYMMDD(subscriptionExpiresAt)}`}
                     </div>
                   </div>
                 )}
               </div>
             </div>
+
+            {!subscription && (
+              <div style={ui.subtleHelp}>
+                {IOS_SUBSCRIPTION_NOTE}
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -502,8 +633,8 @@ export default function PurchaseMenu() {
 /* 共通ボタン/バッジ */
 const buttonBase = {
   display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-  padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6",
-  background: "#fff", color: "#111", fontWeight: 600, cursor: "pointer",
+  padding: "12px 14px", borderRadius: 12, border: "1px solid #e6e6e6",
+  background: "#fff", color: "#111", fontWeight: 700, cursor: "pointer",
   boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
 };
 const helpBadge = {
