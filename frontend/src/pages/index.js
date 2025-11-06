@@ -33,9 +33,10 @@ const LINK_IOS = "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id
 // === DEBUG transcripts ==========
 const DEBUG_TRANSCRIPTS = {
   ja: `（1on1ミーティング・テスト）部下：お疲れ様です、今ちょっとお時間いいですか？上司：いいよ、どうした？部下：今月のプロジェクトの進捗なんですが、目標値の達成が少し厳しいかもしれません。特にAPI連携の部分で外部チームとの調整が遅れていて…。上司：なるほど。遅れてる原因は技術的な問題？それともコミュニケーションの部分？部下：どちらかというと後者です。仕様が確定していないまま進めてしまった部分があって、途中で変更が入ってしまったんです。上司：それは痛いな。でも、原因がはっきりしてるならまだリカバリはできる。今はどの段階？部下：設計書の再確認が終わって、実装を半分くらいまで戻しました。来週中には再度テストまで持っていけると思います。上司：よし、そこまで見えてるなら大丈夫そうだな。ただ、同じことを繰り返さないように、次の案件からは仕様が100%確定してから手を動かすようにしよう。部下：はい、反省してます。自分の中でも焦りがあって、早く形にしようとしすぎました。上司：焦る気持ちは分かるけど、結局修正に時間を取られるとトータルで遅くなる。スピードと正確さのバランスを意識して。部下：わかりました。あと、チーム内のタスク分担も見直したほうがいいと思っています。今は僕がコードレビューまで全部やってるので、ボトルネックになっているかもしれません。上司：それはいい提案だな。権限を少し委譲してもいい。中堅メンバーにレビューの一部を任せてみよう。部下：そうします。あと、次のスプリントで新しい機能追加が予定されていますが、現状だとリスクが高いので、一度優先度を下げる判断もありかと。上司：うん、判断は正しい。まずは既存部分を安定させるのが先だ。リリースに影響が出ると全体が止まるからね。部下：ありがとうございます。今週中に修正版の進捗をまとめて報告します。上司：よろしく。無理しすぎず、でもちゃんと責任は持ってな。成長してるのは見えてるから。部下：はい、ありがとうございます。頑張ります。`,
-  en: `（1on1ミーティング・テスト）…（略）`
+  en: `（1on1ミーティング・テスト）部下：お疲れ様です、今ちょっとお時間いいですか？上司：いいよ、どうした？部下：今月のプロジェクトの進捗なんですが、目標値の達成が少し厳しいかもしれません。特にAPI連携の部分で外部チームとの調整が遅れていて…。上司：なるほど。遅れてる原因は技術的な問題？それともコミュニケーションの部分？部下：どちらかというと後者です。仕様が確定していないまま進めてしまった部分があって、途中で変更が入ってしまったんです。上司：それは痛いな。でも、原因がはっきりしてるならまだリカバリはできる。今はどの段階？部下：設計書の再確認が終わって、実装を半分くらいまで戻しました。来週中には再度テストまで持っていけると思います。上司：よし、そこまで見えてるなら大丈夫そうだな。ただ、同じことを繰り返さないように、次の案件からは仕様が100%確定してから手を動かすようにしよう。部下：はい、反省してます。自分の中でも焦りがあって、早く形にしようとしすぎました。上司：焦る気持ちは分かるけど、結局修正に時間を取られるとトータルで遅くなる。スピードと正確さのバランスを意識して。部下：わかりました。あと、チーム内のタスク分担も見直したほうがいいと思っています。今は僕がコードレビューまで全部やってるので、ボトルネックになっているかもしれません。上司：それはいい提案だな。権限を少し委譲してもいい。中堅メンバーにレビューの一部を任せてみよう。部下：そうします。あと、次のスプリントで新しい機能追加が予定されていますが、現状だとリスクが高いので、一度優先度を下げる判断もありかと。上司：うん、判断は正しい。まずは既存部分を安定させるのが先だ。リリースに影響が出ると全体が止まるからね。部下：ありがとうございます。今週中に修正版の進捗をまとめて報告します。上司：よろしく。無理しすぎず、でもちゃんと責任は持ってな。成長してるのは見えてるから。部下：はい、ありがとうございます。頑張ります。`
 };
 
+// API base
 const API_BASE = '';
 
 function getDebugTranscript(lang) {
@@ -43,6 +44,7 @@ function getDebugTranscript(lang) {
   return DEBUG_TRANSCRIPTS.ja.trim();
 }
 
+/** ===== NLP locale helpers ===== */
 function normalizeLocaleTag(tag) {
   if (!tag) return null;
   const t = String(tag).toLowerCase();
@@ -76,9 +78,13 @@ function guessLocaleFromText(text, fallback) {
   return fb;
 }
 
+// guest keys
 const LOCAL_REMAINING_KEY = "guestRemainingSeconds";
 const LOCAL_LAST_RESET_KEY = "guestLastResetDate";
 
+// ----------------------
+// Main Component
+// ----------------------
 function App() {
   const router = useRouter();
   const { t, i18n } = useTranslation();
@@ -96,9 +102,11 @@ function App() {
   const metaDesc = t("minutes-listful meeting minutes with AI. Record once, get accurate transcripts with clear decisions and action items. Works on iPhone and the web.");
   const ogDesc   = t("Record your meeting and let AI produce clean, human-ready minutes—decisions and to-dos at a glance.");
 
+  // auth/db
   const [authInstance, setAuthInstance] = useState(null);
   const [dbInstance, setDbInstance] = useState(null);
 
+  // UI states
   const [isRecording, setIsRecording] = useState(false);
   const [audioLevel, setAudioLevel] = useState(1);
   const [audioURL, setAudioURL] = useState(null);
@@ -116,6 +124,7 @@ function App() {
   const [selectedMeetingFormat, setSelectedMeetingFormat] = useState(null);
   const [recordingCountdown, setRecordingCountdown] = useState(3600);
 
+  // Refs
   const recordingTimerIntervalRef = useRef(null);
   const progressIntervalRef = useRef(null);
   const timerIntervalRef = useRef(null);
@@ -136,38 +145,38 @@ function App() {
   const cardShadow =
     "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
-  // ===== レイアウト調整：ビューポート基準の中心サイズ =====
-  const BASE_RECORD_SIZE = 420; // 上限（PC）
-  const [viewportH, setViewportH] = useState(800);
+  // ===== スマホ判定 & 画面高から球体サイズを決める =====
   const [isMobile, setIsMobile] = useState(false);
-
+  const [vh, setVh] = useState(0);
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const onResize = () => {
-      setViewportH(window.innerHeight || 800);
+    const refresh = () => {
+      if (typeof window === 'undefined') return;
       setIsMobile(window.matchMedia('(max-width: 600px)').matches);
+      setVh(window.innerHeight || 0);
     };
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
+    refresh();
+    window.addEventListener('resize', refresh);
+    window.addEventListener('orientationchange', refresh);
+    return () => {
+      window.removeEventListener('resize', refresh);
+      window.removeEventListener('orientationchange', refresh);
+    };
   }, []);
 
-  // 画面に1枚で収まる球体サイズ（スマホは小さめにクランプ）
-  const RESERVED_TOP = 140;    // 左上リング + ピル + 余白
-  const RESERVED_BOTTOM = 140; // 残時間 + 余白
-  const maxForDevice = isMobile ? 360 : BASE_RECORD_SIZE;
-  const minForDevice = isMobile ? 220 : 300;
-  const centerSize = Math.max(
-    minForDevice,
-    Math.min(maxForDevice, viewportH - (RESERVED_TOP + RESERVED_BOTTOM))
-  );
+  // 球体サイズ（スマホは“1画面に収める”基準で決定）
+  // 上：セーフエリア+ピル、下：残時間+下部バーを考慮して 0.40〜0.46vh で調整
+  const mobileRecordSize = Math.max(220, Math.min(Math.round(vh * 0.44), 300));
+  const DESKTOP_RECORD_SIZE = 420;
+  const recordSize = isMobile ? mobileRecordSize : DESKTOP_RECORD_SIZE;
 
-  // タイトル/dir
+  // セーフエリア上端
+  const safeTop = 'calc(env(safe-area-inset-top, 0px) + 12px)';
+
+  // title/dir, debug latch
   useEffect(() => { document.title = pageTitle; }, [pageTitle]);
   useEffect(() => {
     document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.__recdbg_on  = () => { localStorage.setItem('rec_debug', '1');  location.reload(); };
@@ -176,7 +185,7 @@ function App() {
     }
   }, []);
 
-  // auth/db 準備
+  // auth/db
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -190,7 +199,7 @@ function App() {
     return () => { mounted = false; clearTimeout(t); };
   }, []);
 
-  // 60分カウントダウン
+  // 60分カウント
   useEffect(() => {
     if (isRecording) {
       setRecordingCountdown(3600);
@@ -221,7 +230,10 @@ function App() {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        if (parsed?.id) { setSelectedMeetingFormat(parsed); return; }
+        if (parsed?.id) {
+          setSelectedMeetingFormat(parsed);
+          return;
+        }
       } catch { localStorage.removeItem("selectedMeetingFormat"); }
     }
     const def = { id: "general", displayName: "General", schemaId: "general-json@1", selected: true };
@@ -229,7 +241,7 @@ function App() {
     localStorage.setItem("selectedMeetingFormat", JSON.stringify(def));
   }, []);
 
-  // Auth監視
+  // Auth 監視
   useEffect(() => {
     if (!authInstance) return;
     let unsub = () => {};
@@ -248,9 +260,7 @@ function App() {
                 setUserRemainingSeconds(data.remainingSeconds);
               }
             }
-          } catch (e) {
-            console.error("User data retrieval error:", e);
-          }
+          } catch (e) { console.error("User data retrieval error:", e); }
         }
         setIsUserDataLoaded(true);
       });
@@ -258,7 +268,7 @@ function App() {
     return () => { try { unsub(); } catch {} };
   }, [authInstance, dbInstance]);
 
-  // Firestoreリアルタイム
+  // user doc リアルタイム
   useEffect(() => {
     let stop = null;
     (async () => {
@@ -275,7 +285,7 @@ function App() {
     return () => { if (typeof stop === 'function') stop(); };
   }, [authInstance?.currentUser, dbInstance]);
 
-  // ゲスト残時間 復元/保存/日付跨ぎ
+  // ゲスト残時間
   useEffect(() => {
     if (userSubscription) return;
     const today = new Date().toDateString();
@@ -295,6 +305,7 @@ function App() {
     localStorage.setItem(LOCAL_REMAINING_KEY, userRemainingSeconds);
   }, [userRemainingSeconds, userSubscription]);
 
+  // 日付跨ぎ
   useEffect(() => {
     if (userSubscription) return;
     const id = setInterval(async () => {
@@ -310,9 +321,7 @@ function App() {
                 { remainingSeconds: DEFAULT_REMAINING },
                 { merge: true }
               );
-            } catch (err) {
-              console.error("Firestore update error:", err);
-            }
+            } catch (err) { console.error("Firestore update error:", err); }
           }
           lastResetDateRef.current = now;
         }
@@ -323,6 +332,7 @@ function App() {
     return () => clearInterval(id);
   }, [userRemainingSeconds, userSubscription, authInstance, dbInstance]);
 
+  // unmount cleanup
   useEffect(() => {
     const interval = progressIntervalRef.current;
     return () => {
@@ -333,11 +343,12 @@ function App() {
     };
   }, []);
 
+  // overlay開時は縮小ビューに戻す
   useEffect(() => { if (showFullScreen) setIsExpanded(false); }, [showFullScreen]);
 
+  // ===== 音声 → STT → minutes =====
   const processAudioFile = async (file) => {
     dbg('[stt] uploading', { name: file?.name, type: file?.type, size: file?.size });
-
     const url = URL.createObjectURL(file);
     setAudioURL(url);
     setProgressStep("uploading");
@@ -389,6 +400,7 @@ function App() {
     }, 500);
   };
 
+  // === デバッグ: テキスト直処理 ===
   const processDebugText = async (rawText) => {
     setProgressStep("transcribing");
     setIsProcessing(true);
@@ -402,10 +414,7 @@ function App() {
 
       const resp = await apiFetch(`/api/generate-minutes`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-User-Locale": effectiveLocale,
-        },
+        headers: { "Content-Type": "application/json", "X-User-Locale": effectiveLocale },
         body: JSON.stringify({
           transcript: rawText,
           formatId: selectedMeetingFormat?.id || "general",
@@ -431,6 +440,7 @@ function App() {
     }
   };
 
+  // Firestore 保存
   const saveMeetingRecord = async (transcriptionText, minutesText) => {
     try {
       if (!authInstance?.currentUser || !dbInstance) {
@@ -458,19 +468,11 @@ function App() {
     }
   };
 
-  const shouldUseTextMode = () => {
-    try {
-      if (isDebug()) return true;
-      if (typeof window !== 'undefined') {
-        const q = new URLSearchParams(window.location.search);
-        if (q.get('debug') === '1' || q.get('text') === '1') return true;
-        if (localStorage.getItem('force_text_mode') === '1') return true;
-      }
-    } catch {}
-    return false;
-  };
-
+  // 録音トグル
   const toggleRecording = async () => {
+    // SideMenu開いている間は“何もせず無視”
+    if (typeof window !== 'undefined' && window.__side_menu_open === true) return;
+
     if (!userSubscription && userRemainingSeconds === 0) {
       if (!authInstance?.currentUser) router.push("/login");
       else router.push("/upgrade");
@@ -493,10 +495,23 @@ function App() {
     }
   };
 
+  const shouldUseTextMode = () => {
+    try {
+      if (isDebug()) return true;
+      if (typeof window !== 'undefined') {
+        const q = new URLSearchParams(window.location.search);
+        if (q.get('debug') === '1' || q.get('text') === '1') return true;
+        if (localStorage.getItem('force_text_mode') === '1') return true;
+      }
+    } catch {}
+    return false;
+  };
+
+  // 録音開始
   const startRecording = async () => {
     console.log('[RECDBG] startRecording invoked');
-
     try {
+      // 他端末録音ロック
       if (authInstance?.currentUser && dbInstance) {
         let currentDeviceId = localStorage.getItem("deviceId");
         if (!currentDeviceId) {
@@ -592,9 +607,7 @@ function App() {
       const AC = (window.AudioContext || window.webkitAudioContext);
       const ac = new AC();
       audioContextRef.current = ac;
-      if (ac.state === 'suspended') {
-        try { await ac.resume(); dbg('audioContext resumed'); } catch (e) { dbg('audioContext resume failed', e); }
-      }
+      if (ac.state === 'suspended') { try { await ac.resume(); dbg('audioContext resumed'); } catch (e) { dbg('audioContext resume failed', e); } }
 
       const source = ac.createMediaStreamSource(stream);
       sourceRef.current = source;
@@ -639,7 +652,6 @@ function App() {
       return true;
     } catch (err) {
       console.error("[RECDBG] getUserMedia error:", err?.name, err?.message, err);
-
       let msg = "";
       switch (err?.name) {
         case "NotAllowedError":
@@ -688,10 +700,7 @@ function App() {
       setRecordingIssue(null);
 
       if (!userSubscription) {
-        if (timerIntervalRef.current) {
-          clearInterval(timerIntervalRef.current);
-          timerIntervalRef.current = null;
-        }
+        if (timerIntervalRef.current) { clearInterval(timerIntervalRef.current); timerIntervalRef.current = null; }
         try {
           if (authInstance?.currentUser && dbInstance) {
             const { doc, setDoc } = await import('firebase/firestore');
@@ -701,9 +710,7 @@ function App() {
               { merge: true }
             );
           }
-        } catch (err) {
-          console.error("Error updating remaining time:", err);
-        }
+        } catch (err) { console.error("Error updating remaining time:", err); }
       }
       if (authInstance?.currentUser && dbInstance) {
         try {
@@ -713,13 +720,9 @@ function App() {
             { recordingDevice: null, recordingTimestamp: null },
             { merge: true }
           );
-        } catch (error) {
-          console.error("Failed to reset recordingDevice:", error);
-        }
+        } catch (error) { console.error("Failed to reset recordingDevice:", error); }
       }
-    } catch (e) {
-      console.error('stopRecording error', e);
-    }
+    } catch (e) { console.error('stopRecording error', e); }
   };
 
   const updateAudioLevel = () => {
@@ -741,11 +744,16 @@ function App() {
       if (rms < SILENCE_TH) {
         silenceSecondsRef.current += 1/60;
         if (silenceSecondsRef.current > MAX_SILENT_SECS && isRecording) {
-          setRecordingIssue({ message: "No input detected for a while.", hint: "Check your mic level, input source, and noise-suppression/AGC settings." });
+          setRecordingIssue({
+            message: "No input detected for a while.",
+            hint: "Check your mic level, input source, and noise-suppression/AGC settings."
+          });
         }
       } else {
         silenceSecondsRef.current = 0;
-        if (recordingIssue?.message?.startsWith("No input detected")) setRecordingIssue(null);
+        if (recordingIssue?.message?.startsWith("No input detected")) {
+          setRecordingIssue(null);
+        }
       }
 
       animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
@@ -755,7 +763,7 @@ function App() {
   const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60);
     const s = Math.floor(seconds % 60);
-    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
   };
 
   const RING_SIZE = 80;
@@ -768,10 +776,7 @@ function App() {
   const { ready } = useAuthGate(false);
   if (!ready) return null;
 
-  // === メニュー展開時は背面をクリック不可に（Safariの積層バグ対策） ===
-  const blockBackLayer = { pointerEvents: 'none' };
-  const allowBackLayer = { pointerEvents: 'auto' };
-
+  // ===== Render =====
   return (
     <>
       <Head>
@@ -817,7 +822,6 @@ function App() {
 
       <RecordingIssueBanner issue={recordingIssue} onClose={() => setRecordingIssue(null)} />
 
-      {/* メニューのPortalは最上位だが、積層バグ回避で背面の pointer-events を制御 */}
       <div
         className="container"
         style={{
@@ -825,8 +829,7 @@ function App() {
             'radial-gradient(640px 640px at 50% calc(50% - 24px), rgba(0,0,0,0.028), rgba(0,0,0,0) 64%), #F8F7F4'
         }}
       >
-        <div style={{ position: 'relative', width: '100%', height: '100%', ...(isProcessing ? blockBackLayer : allowBackLayer) }}>
-          {/* SideMenu（最前面。purchasemenu側でPortal + 超高z-index） */}
+        <div style={{ position: 'relative', width: '100%', height: '100%' }}>
           {!showFullScreen && <PurchaseMenu />}
 
           {/* 中央の録音 UI */}
@@ -836,7 +839,9 @@ function App() {
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              zIndex: 5
+              zIndex: 5,
+              // SideMenuオープン中は見た目はそのまま・クリックは無効（保険）
+              pointerEvents: (typeof window !== 'undefined' && window.__side_menu_open) ? 'none' : 'auto',
             }}
           >
             <div
@@ -852,15 +857,15 @@ function App() {
                     isRecording={isRecording}
                     audioLevel={audioLevel}
                     onClick={toggleRecording}
-                    size={Math.round(centerSize)}
+                    size={recordSize}
                   />
                 ) : (
                   <button
                     onClick={toggleRecording}
                     aria-label="Start recording"
                     style={{
-                      width: Math.round(centerSize),
-                      height: Math.round(centerSize),
+                      width: recordSize,
+                      height: recordSize,
                       border: 'none',
                       padding: 0,
                       background: 'transparent',
@@ -904,12 +909,12 @@ function App() {
           {isProcessing && <ProgressIndicator progressStep={progressStep} />}
         </div>
 
-        {/* 中央：フォーマット名ピル（球体の少し上） */}
+        {/* 中央：フォーマット名ピル（球体と時間の“あいだ”） */}
         <div
           style={{
             position: 'absolute',
             left: '50%',
-            top: Math.max(8, (viewportH - centerSize) / 2 - 36),
+            top: `calc(50% - ${Math.round(recordSize/2) + 30}px)`,
             transform: 'translateX(-50%)',
             zIndex: 12
           }}
@@ -937,92 +942,81 @@ function App() {
           </Link>
         </div>
 
-        {/* 残時間表示（画面下に固定。常時可視） */}
+        {/* 残時間表示（下側） */}
         {isUserDataLoaded && (
-          <div style={{
-            position: 'absolute',
-            left: '50%',
-            bottom: 24,
-            transform: 'translateX(-50%)',
-            color: '#000',
-            zIndex: 10,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: 80
-          }}>
-            {userSubscription ? (
-              <span style={{
-                background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                fontSize: 72,
-                fontFamily: 'Impact, sans-serif',
-                lineHeight: 1
-              }}>∞</span>
-            ) : (
-              <span style={{ fontFamily: 'Impact, sans-serif', fontSize: 72, lineHeight: 1 }}>
-                {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
-              </span>
-            )}
-          </div>
-        )}
-
-        {/* 左上カウントダウン（MAX / 60:00） */}
-        <div
-          aria-label="Recording countdown (max 60:00)"
-          style={{
-            position: 'absolute',
-            top: 20,
-            left: 20,
-            width: RING_SIZE,
-            height: RING_SIZE,
-            zIndex: 10,
-            pointerEvents: 'none',
-          }}
-        >
-          <svg
-            width={RING_SIZE}
-            height={RING_SIZE}
-            viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}
-            style={{ display: 'block' }}
-          >
-            <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
-              <circle
-                cx={RING_SIZE / 2}
-                cy={RING_SIZE / 2}
-                r={R}
-                fill="none"
-                stroke="#000"
-                strokeWidth={STROKE}
-                strokeLinecap="butt"
-                strokeDasharray={C}
-                strokeDashoffset={dashoffset}
-              />
-            </g>
-          </svg>
-
-          <div
-            style={{
+          <>
+            <div style={{
               position: 'absolute',
-              inset: 0,
+              left: '50%',
+              top: `calc(50% + ${Math.round(recordSize/2) + 30}px)`,
+              transform: 'translateX(-50%)',
+              color: 'black',
+              zIndex: 10,
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: 2,
-              color: '#000',
-              userSelect: 'none',
-              pointerEvents: 'none',
-              lineHeight: 1.05,
-            }}
-          >
-            <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700 }}>MAX</div>
-            <div style={{ fontFamily: 'Impact, sans-serif', fontWeight: 900, fontSize: 22 }}>
-              {formatTime(recordingCountdown)}
+              height: '80px'
+            }}>
+              {userSubscription ? (
+                <span style={{
+                  background: 'linear-gradient(45deg, rgb(153,184,255), rgba(115,115,255,1), rgba(102,38,153,1), rgb(95,13,133), rgba(255,38,38,1), rgb(199,42,76))',
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent',
+                  fontSize: isMobile ? 64 : 72,
+                  fontFamily: 'Impact, sans-serif',
+                  lineHeight: '1'
+                }}>♾️</span>
+              ) : (
+                <span style={{ fontFamily: 'Impact, sans-serif', fontSize: isMobile ? 64 : 72, lineHeight: '1' }}>
+                  {userRemainingSeconds === 0 ? "Recovering..." : formatTime(userRemainingSeconds)}
+                </span>
+              )}
             </div>
-          </div>
-        </div>
+
+            {/* 左上 MAX 60:00（ハンバーガーと同列。セーフエリア対応） */}
+            <div
+              aria-label="Recording countdown (max 60:00)"
+              style={{
+                position: 'fixed',
+                top: safeTop,
+                left: '12px',
+                width: RING_SIZE,
+                height: RING_SIZE,
+                zIndex: 2147483600, // ハンバーガーと同列レイヤ
+                pointerEvents: 'none',
+              }}
+            >
+              <svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`} style={{ display: 'block' }}>
+                <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
+                  <circle
+                    cx={RING_SIZE / 2}
+                    cy={RING_SIZE / 2}
+                    r={R}
+                    fill="none"
+                    stroke="#000"
+                    strokeWidth={STROKE}
+                    strokeLinecap="butt"
+                    strokeDasharray={C}
+                    strokeDashoffset={dashoffset}
+                  />
+                </g>
+              </svg>
+
+              <div
+                style={{
+                  position: 'absolute', inset: 0, display: 'flex',
+                  flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  gap: 2, color: '#000', userSelect: 'none', pointerEvents: 'none', lineHeight: 1.05,
+                }}
+              >
+                <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700 }}>MAX</div>
+                <div style={{ fontFamily: 'Impact, sans-serif', fontWeight: 900, fontSize: 22 }}>
+                  {formatTime(recordingCountdown)}
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <style jsx>{`
