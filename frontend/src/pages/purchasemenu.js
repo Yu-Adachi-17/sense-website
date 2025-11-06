@@ -90,7 +90,6 @@ export default function PurchaseMenu() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 開閉のグローバルフラグ（録音トグルの無効化用）
   useEffect(() => {
     if (typeof window === 'undefined') return;
     window.__side_menu_open = showSideMenu === true;
@@ -153,14 +152,13 @@ export default function PurchaseMenu() {
 
   const ui = useMemo(() => {
     const chipBgLight = "#E3F2FD";
-    const Z_TOP = 2147483647; // 32bit上限付近：最前面を保証
+    const cardShadow = "0 8px 28px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.06)";
     const base = {
-      z: { trigger: Z_TOP, menu: Z_TOP - 1, overlay: Z_TOP - 2 },
+      zTop: 2147483647,
       radius: 16,
       ease: "cubic-bezier(.2,.7,.2,1)",
     };
     return {
-      // SafariのURLバーを跨いでも見えるように safe-area を考慮
       hamburgerButton: {
         position: "fixed",
         top: "calc(env(safe-area-inset-top, 0px) + 12px)",
@@ -170,14 +168,13 @@ export default function PurchaseMenu() {
         border: "none",
         color: "#000",
         cursor: "pointer",
-        zIndex: base.trigger,
+        zIndex: base.zTop,
         WebkitTapHighlightColor: "transparent",
       },
-      // 透明オーバーレイ（背景は一切暗くしない）
       blankOverlay: {
         position: "fixed", inset: 0,
         background: "transparent",
-        zIndex: base.overlay,
+        zIndex: base.zTop - 2,
         display: showSideMenu ? "block" : "none",
       },
       sideMenu: {
@@ -187,14 +184,20 @@ export default function PurchaseMenu() {
         color: "#0A0F1B",
         padding: "22px 18px", boxSizing: "border-box",
         display: "flex", flexDirection: "column", alignItems: "stretch",
-        zIndex: base.menu, transition: `transform .30s ${base.ease}`,
+        zIndex: base.zTop - 1, transition: `transform .30s ${base.ease}`,
         transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
         background: "#FFFFFF",
         boxShadow: showSideMenu ? "0 18px 42px rgba(0,0,0,0.10), 0 10px 20px rgba(0,0,0,0.06)" : "none",
         pointerEvents: showSideMenu ? "auto" : "none",
       },
-      topRow: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 12, marginBottom: 8 },
-      topProfileButton: { background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
+      topRow: {
+        display: "flex", alignItems: "center", justifyContent: "flex-end",
+        gap: 12, marginBottom: 8
+      },
+      topProfileButton: {
+        background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer",
+        padding: "4px 0", display: "flex", alignItems: "center"
+      },
       divider: { width: "100%", height: 1, background: "rgba(0,0,0,0.08)", margin: "8px 0 14px" },
 
       rowCard: {
@@ -210,6 +213,93 @@ export default function PurchaseMenu() {
       rowTitle: { fontSize: 14, fontWeight: 600, color: "#0A0F1B" },
 
       policyButton: { background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 },
+
+      // ===== Profile Overlay (refined) =====
+      overlayRoot: {
+        position: "fixed", inset: 0, background: "#fff",
+        zIndex: base.zTop - 10, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden"
+      },
+      overlayBgMark: {
+        position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
+        pointerEvents: "none", zIndex: 0, opacity: 0.06
+      },
+      overlayCard: {
+        position: "relative",
+        width: isMobile ? "92%" : 720,
+        minHeight: 420,
+        background: "#FFFFFF",
+        borderRadius: 20,
+        border: "1px solid rgba(0,0,0,0.06)",
+        boxShadow: cardShadow,
+        padding: isMobile ? 18 : 28,
+        boxSizing: "border-box",
+        zIndex: 1,
+        display: "grid",
+        gridTemplateRows: "auto auto 1fr",
+        rowGap: isMobile ? 14 : 18,
+      },
+      overlayHeader: {
+        display: "flex", alignItems: "center", justifyContent: "space-between"
+      },
+      headerLeft: {
+        display: "flex", alignItems: "center", gap: 12
+      },
+      avatarChip: {
+        width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center",
+        background: chipBgLight, border: "1px solid rgba(0,0,0,0.06)"
+      },
+      titleWrap: { display: "flex", flexDirection: "column", gap: 4 },
+      title: { fontSize: 18, fontWeight: 800, color: "#0A0F1B", letterSpacing: 0.2 },
+      subtitle: { fontSize: 12, color: "rgba(0,0,0,0.6)" },
+      closeBtn: {
+        background: "#fff", border: "1px solid rgba(0,0,0,0.08)", width: 36, height: 36,
+        borderRadius: 10, display: "grid", placeItems: "center", cursor: "pointer",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.06)"
+      },
+
+      metaBar: {
+        display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap"
+      },
+      pill: {
+        display: "inline-flex", alignItems: "center", gap: 8,
+        padding: "8px 12px", borderRadius: 12, background: "#FAFAFA",
+        border: "1px solid rgba(0,0,0,0.06)", fontSize: 13, color: "#0A0F1B", fontWeight: 600
+      },
+      planPillUnlimited: {
+        background: "linear-gradient(180deg, #F5F7FF, #F0F5FF)",
+        border: "1px solid rgba(0,0,0,0.06)",
+        color: "#0A0F1B"
+      },
+
+      infoGrid: {
+        display: "grid",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+        gap: 12,
+        marginTop: 4
+      },
+      infoRow: {
+        display: "grid",
+        gridTemplateColumns: "minmax(120px, 1fr) 2fr",
+        alignItems: "center",
+        background: "#FCFCFC",
+        border: "1px solid rgba(0,0,0,0.06)",
+        borderRadius: 12,
+        padding: "12px 12px"
+      },
+      infoKey: { fontSize: 13, color: "rgba(0,0,0,0.66)", fontWeight: 700 },
+      infoVal: { fontSize: 14, color: "#0A0F1B", textAlign: "right", wordBreak: "break-word" },
+
+      actionGrid: {
+        display: "grid",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
+        gap: 12,
+        marginTop: isMobile ? 6 : 10
+      },
+      subtleHelp: { fontSize: 11, color: "rgba(0,0,0,0.55)", marginTop: 6, textAlign: "center" },
+
+      cancelBadgeWrap: { display: "flex", flexDirection: "column", alignItems: "center", gap: 4, marginTop: 10 },
+      cancelBadge: { display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 },
+      cancelUntil: { fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 },
     };
   }, [isMobile, showSideMenu]);
 
@@ -300,7 +390,7 @@ export default function PurchaseMenu() {
   return (
     <>
       <Portal>
-        {/* ハンバーガー：サイドメニュー表示中は非表示 */}
+        {/* ▼ PMenu表示中はハンバーガーを非表示 */}
         {!showSideMenu && (
           <button
             style={ui.hamburgerButton}
@@ -311,14 +401,12 @@ export default function PurchaseMenu() {
           </button>
         )}
 
-        {/* 透明オーバーレイ（空白タップで閉じる。球体の録音開始は届かない） */}
         <div
           style={ui.blankOverlay}
           onClick={() => setShowSideMenu(false)}
           aria-hidden={!showSideMenu}
         />
 
-        {/* サイドメニュー本体 */}
         <div style={ui.sideMenu} onClick={stopPropagation} aria-hidden={!showSideMenu}>
           <div style={ui.topRow}>
             <button
@@ -391,85 +479,156 @@ export default function PurchaseMenu() {
         </div>
       </Portal>
 
-      {/* Profile overlay */}
+      {/* ===== Profile overlay (refined to match Pmenu) ===== */}
       {showProfileOverlay && (
         <div
-          style={{ position: "fixed", inset: 0, background: "#fff", zIndex: 2147482000, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" }}
+          style={ui.overlayRoot}
           onClick={() => { setShowProfileOverlay(false); router.push("/"); }}
         >
-          <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", pointerEvents: "none", zIndex: 2147482001, opacity: 0.08 }} aria-hidden="true">
+          <div style={ui.overlayBgMark} aria-hidden="true">
             <HomeIcon size={isMobile ? 520 : 1080} src="/images/home.png" alt="Home (bg)" />
           </div>
 
           <div
-            style={{ width: 520, minHeight: 380, background: "transparent", borderRadius: 12, display: "flex", flexDirection: "column", alignItems: "stretch", padding: 28, boxSizing: "border-box", position: "relative", zIndex: 2147482002, border: "1px solid #e5e5e5", boxShadow: "0 8px 32px rgba(0,0,0,0.06)", gap: 20 }}
+            style={ui.overlayCard}
             onClick={(e) => e.stopPropagation()}
           >
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, fontWeight: 700, fontSize: 18, color: "#111" }}>
-              <span>{t("Profile")}</span>
+            {/* Header */}
+            <div style={ui.overlayHeader}>
+              <div style={ui.headerLeft}>
+                <div style={ui.avatarChip}>
+                  {userId ? (
+                    <span style={{ display: "inline-flex", width: 24, height: 24 }}>
+                      <HomeIcon />
+                    </span>
+                  ) : (
+                    <IoPersonCircleOutline size={24} color="#0A0F1B" />
+                  )}
+                </div>
+                <div style={ui.titleWrap}>
+                  <div style={ui.title}>{t("Profile")}</div>
+                  <div style={ui.subtitle}>{userEmail || "—"}</div>
+                </div>
+              </div>
+
+              <button
+                style={ui.closeBtn}
+                onClick={() => { setShowProfileOverlay(false); router.push("/"); }}
+                aria-label="Close"
+                title="Close"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" stroke="#111" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
             </div>
 
-            <div style={{ background: "#fafafa", border: "1px solid #eee", borderRadius: 12, padding: "16px 18px", display: "grid", gridTemplateColumns: "1fr", rowGap: 8, color: "#111", lineHeight: 1.6 }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
-                <span>{t("Email")}</span><span>{userEmail}</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
-                <span>{t("Plan")}</span>
-                <span style={subscription ? { fontSize: 28, fontWeight: "bold", color: "#000", letterSpacing: "0.2px" } : {}}>
+            {/* Meta pills */}
+            <div style={ui.metaBar}>
+              <div style={ui.pill}>
+                <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="11" fill="#111" />
+                </svg>
+                <span>{t("Plan")}:</span>
+                <strong style={{ letterSpacing: 0.2 }}>
                   {subscription ? t("unlimited") : t("Free")}
-                </span>
+                </strong>
               </div>
+
               {!subscription && (
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15 }}>
+                <div style={ui.pill}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="11" fill="#0D47A1" />
+                  </svg>
                   <span>{t("Remaining Time:")}</span>
-                  <span>
+                  <strong>
                     {profileRemainingSeconds != null
                       ? `${Math.floor((profileRemainingSeconds||0)/60).toString().padStart(2,"0")}:${((profileRemainingSeconds||0)%60).toString().padStart(2,"0")}`
                       : "00:00"}
-                  </span>
+                  </strong>
+                </div>
+              )}
+
+              {subscription && (
+                <div style={{ ...ui.pill, ...ui.planPillUnlimited }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 12.5l3.2 3.2L17 8.9" stroke="#0A0F1B" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span>{t("unlimited")}</span>
                 </div>
               )}
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 12 }}>
+            {/* Info grid */}
+            <div style={ui.infoGrid}>
+              <div style={ui.infoRow}>
+                <div style={ui.infoKey}>{t("Email")}</div>
+                <div style={ui.infoVal}>{userEmail || "—"}</div>
+              </div>
+              <div style={ui.infoRow}>
+                <div style={ui.infoKey}>{t("Plan")}</div>
+                <div style={ui.infoVal}>{subscription ? t("unlimited") : t("Free")}</div>
+              </div>
+              {subscriptionExpiresAt && (
+                <div style={ui.infoRow}>
+                  <div style={ui.infoKey}>Valid until</div>
+                  <div style={ui.infoVal}>{formatYYYYMMDD(subscriptionExpiresAt)}</div>
+                </div>
+              )}
+            </div>
+
+            {/* Actions */}
+            <div style={ui.actionGrid}>
               <button style={buttonBase} onClick={handleLogout}>{t("Logout")}</button>
-              <button style={{ ...buttonBase, border: "1px solid #f2c6c6", color: "#b00020", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" }} onClick={handleDeleteAccount}>
+
+              <button
+                style={{ ...buttonBase, border: "1px solid #f2c6c6", color: "#b00020", boxShadow: "0 2px 10px rgba(176,0,32,0.06)" }}
+                onClick={handleDeleteAccount}
+              >
                 {t("Delete account")}
               </button>
 
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                {/* 注意: デフォルト表示はしない。? クリック時のみ alert */}
                 <button style={buttonBase} onClick={handleCancelSubscription}>
                   {t("Cancel Subscription")}
                   <span
                     style={helpBadge}
                     title={IOS_SUBSCRIPTION_NOTE}
                     aria-label="iOS subscription cancellation info"
+                    role="button" tabIndex={0}
                     onClick={(e) => { e.preventDefault(); e.stopPropagation(); alert(IOS_SUBSCRIPTION_NOTE); }}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); alert(IOS_SUBSCRIPTION_NOTE); } }}
                   >
                     ?
                   </span>
                 </button>
 
                 {subscriptionExpiresAt && (
-                  <div style={{ marginTop: 10, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#166534", fontWeight: 700 }}>
+                  <div style={ui.cancelBadgeWrap}>
+                    <div style={ui.cancelBadge}>
                       <svg viewBox="0 0 24 24" style={{ width: 18, height: 18, flex: "0 0 auto" }} aria-hidden="true">
                         <circle cx="12" cy="12" r="11" fill="#22c55e" />
                         <path d="M7 12.5l3.2 3.2L17 8.9" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       <span>Cancellation scheduled</span>
                     </div>
-                    <div style={{ fontSize: 12, color: "#166534", opacity: 0.9, fontWeight: 600 }}>
+                    <div style={ui.cancelUntil}>
                       {`Valid until ${formatYYYYMMDD(subscriptionExpiresAt)}`}
                     </div>
                   </div>
                 )}
               </div>
             </div>
+
+            {!subscription && (
+              <div style={ui.subtleHelp}>
+                {IOS_SUBSCRIPTION_NOTE}
+              </div>
+            )}
           </div>
         </div>
       )}
+
     </>
   );
 }
@@ -477,14 +636,14 @@ export default function PurchaseMenu() {
 /* 共通ボタン/バッジ */
 const buttonBase = {
   display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-  padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6",
-  background: "#fff", color: "#111", fontWeight: 600, cursor: "pointer",
+  padding: "12px 14px", borderRadius: 12, border: "1px solid #e6e6e6",
+  background: "#fff", color: "#111", fontWeight: 700, cursor: "pointer",
   boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
 };
 const helpBadge = {
   display: "inline-flex", alignItems: "center", justifyContent: "center",
   width: 20, height: 20, borderRadius: 9999, border: "1px solid #c9c9c9",
-  fontSize: 12, fontWeight: 700, userSelect: "none", cursor: "pointer",
+  fontSize: 12, fontWeight: 700, userSelect: "none", cursor: "help",
   color: "#444", background: "#fff", marginLeft: 6, flex: "0 0 auto",
 };
 
