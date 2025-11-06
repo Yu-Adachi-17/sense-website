@@ -11,10 +11,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import HomeIcon from "./homeIcon";
 import Image from "next/image";
 
-/**
- * ログインページ（SSR安全版）
- * - スマホ版では左画像と縦線を消して、フォームを中央にフル幅寄せ
- */
 export default function Login() {
   const router = useRouter();
   const { t, i18n } = useTranslation("common");
@@ -29,13 +25,14 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
+
+  const popup = (msg) => {
+    if (typeof window !== "undefined") window.alert(msg);
+  };
 
   const handleLogin = async () => {
     if (!email || !password) {
-      setAlertMessage(t("Please enter your email and password."));
-      setShowAlert(true);
+      popup(t("Please enter your email and password."));
       return;
     }
     setIsLoading(true);
@@ -49,12 +46,11 @@ export default function Login() {
 
       if (!user.emailVerified) {
         await signOut(auth);
-        setAlertMessage(
+        popup(
           t(
             "Your email has not been verified. Please click the link in the email to verify your account."
           )
         );
-        setShowAlert(true);
         return;
       }
 
@@ -80,26 +76,23 @@ export default function Login() {
         error && typeof error === "object" && "code" in error ? error.code : undefined;
       switch (code) {
         case "auth/invalid-email":
-          setAlertMessage(t("The email address is invalid."));
+          popup(t("The email address is invalid."));
           break;
         case "auth/user-disabled":
-          setAlertMessage(t("This account has been disabled."));
+          popup(t("This account has been disabled."));
           break;
         case "auth/user-not-found":
-          setAlertMessage(t("User not found."));
+          popup(t("User not found."));
           break;
         case "auth/wrong-password":
-          setAlertMessage(t("Incorrect password."));
+          popup(t("Incorrect password."));
           break;
         case "auth/too-many-requests":
-          setAlertMessage(
-            t("Too many attempts in a short period. Please wait and try again.")
-          );
+          popup(t("Too many attempts in a short period. Please wait and try again."));
           break;
         default:
-          setAlertMessage(t("Login failed. Please try again."));
+          popup(t("Login failed. Please try again."));
       }
-      setShowAlert(true);
     } finally {
       setIsLoading(false);
     }
@@ -111,8 +104,7 @@ export default function Login() {
       await signInWithGoogle();
       await router.replace("/");
     } catch {
-      setAlertMessage(t("Google sign-in failed."));
-      setShowAlert(true);
+      popup(t("Google sign-in failed."));
     } finally {
       setIsLoading(false);
     }
@@ -124,8 +116,7 @@ export default function Login() {
       await signInWithApple();
       await router.replace("/");
     } catch {
-      setAlertMessage(t("Apple sign-in failed."));
-      setShowAlert(true);
+      popup(t("Apple sign-in failed."));
     } finally {
       setIsLoading(false);
     }
@@ -133,8 +124,7 @@ export default function Login() {
 
   const handlePasswordReset = async () => {
     if (!email) {
-      setAlertMessage(t("Please enter your email address."));
-      setShowAlert(true);
+      popup(t("Please enter your email address."));
       return;
     }
     setIsLoading(true);
@@ -143,14 +133,10 @@ export default function Login() {
       if (!auth) throw new Error("Auth is not available on server.");
       const { sendPasswordResetEmail } = await import("firebase/auth");
       await sendPasswordResetEmail(auth, email);
-      setAlertMessage(
-        t("A password reset email has been sent. Please check your email.")
-      );
-      setShowAlert(true);
+      popup(t("A password reset email has been sent. Please check your email."));
     } catch (error) {
       console.error("Error sending password reset email:", error);
-      setAlertMessage(t("Failed to send password reset email."));
-      setShowAlert(true);
+      popup(t("Failed to send password reset email."));
     } finally {
       setIsLoading(false);
     }
@@ -158,12 +144,10 @@ export default function Login() {
 
   return (
     <div className="loginRoot">
-      {/* 左上ホーム固定 */}
       <div className="homeIcon">
         <HomeIcon size={30} href="https://sense-ai.world" />
       </div>
 
-      {/* 左：画像（デスクトップのみ表示） */}
       <div className="visualPane" aria-hidden="true">
         <Image
           src="/loginAndSignup.png"
@@ -175,10 +159,8 @@ export default function Login() {
         />
       </div>
 
-      {/* 縦の黒線（デスクトップのみ表示） */}
       <div className="vline" aria-hidden="true" />
 
-      {/* 右：フォーム（スマホでは中央フル幅） */}
       <div className="formPane">
         <h1 className="title">{t("Log in")}</h1>
 
@@ -188,6 +170,7 @@ export default function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="input"
+          disabled={isLoading}
         />
         <input
           type="password"
@@ -195,39 +178,58 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="input"
+          disabled={isLoading}
         />
 
         <button
           onClick={handleLogin}
           disabled={isLoading}
+          aria-busy={isLoading}
           className="btn primary"
         >
           {t("Login")}
+          {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button onClick={handleGoogleSignIn} className="btn social">
+        <button
+          onClick={handleGoogleSignIn}
+          disabled={isLoading}
+          aria-busy={isLoading}
+          className="btn social"
+        >
           <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Google")}
+          {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button onClick={handleAppleSignIn} className="btn social strong">
+        <button
+          onClick={handleAppleSignIn}
+          disabled={isLoading}
+          aria-busy={isLoading}
+          className="btn social strong"
+        >
           <FaApple style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Apple")}
+          {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
         <button
           onClick={handlePasswordReset}
           disabled={isLoading}
+          aria-busy={isLoading}
           className="link danger"
         >
           {t("Forgot your password? Send a reset email.")}
+          {isLoading && <span className="loader small" aria-hidden="true" />}
         </button>
 
-        <button onClick={() => router.push("/signup")} className="link">
+        <button
+          onClick={() => router.push("/signup")}
+          disabled={isLoading}
+          className="link"
+        >
           {t("Don't have an account? Click here.")}
         </button>
-
-        {showAlert && <div className="alert">{alertMessage}</div>}
       </div>
 
       <style jsx>{`
@@ -296,7 +298,9 @@ export default function Login() {
           height: 44px;
           font-weight: 700;
           margin-bottom: 12px;
-          transition: transform 120ms ease;
+          transition: transform 120ms ease, opacity 120ms ease;
+          position: relative;
+          gap: 8px;
         }
         .btn:active { transform: scale(0.99); }
         .btn.primary {
@@ -310,6 +314,11 @@ export default function Login() {
           border: 1px solid #000;
           margin-bottom: 16px;
         }
+        .btn[disabled] {
+          opacity: 0.6;
+          cursor: default;
+          pointer-events: none;
+        }
         .link {
           color: #000;
           background: none;
@@ -317,36 +326,46 @@ export default function Login() {
           cursor: pointer;
           font-weight: 600;
           margin-bottom: 10px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
         }
         .link.danger {
           color: #b00020;
           font-weight: 700;
           margin-bottom: 16px;
         }
-        .alert {
-          color: #b00020;
-          margin-top: 8px;
-          font-weight: 600;
-          text-align: center;
-          max-width: 320px;
+
+        .loader {
+          width: 16px;
+          height: 16px;
+          border: 2px solid #000;
+          border-top-color: transparent;
+          border-radius: 50%;
+          animation: spin 0.8s linear infinite;
+        }
+        .loader.small {
+          width: 14px;
+          height: 14px;
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
         }
 
-        /* ===== スマホ版専用（640px以下） ===== */
         @media (max-width: 640px) {
           .loginRoot {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100svh; /* モバイルのアドレスバー起因のvh揺れ対策 */
+            height: 100svh;
           }
-          .visualPane { display: none; }  /* 画像を消す */
-          .vline { display: none; }       /* 縦線を消す */
+          .visualPane { display: none; }
+          .vline { display: none; }
           .formPane {
             width: 100%;
             max-width: 420px;
             padding: 24px 16px;
             gap: 12px;
-            /* “どーん”：中央に大きめ配置 */
             align-items: center;
             justify-content: center;
             min-height: 100svh;
@@ -354,7 +373,6 @@ export default function Login() {
           .title { font-size: 34px; margin-bottom: 18px; }
           .input { width: min(92vw, 360px); }
           .btn { width: min(92vw, 360px); }
-          .alert { max-width: min(92vw, 360px); }
         }
       `}</style>
     </div>

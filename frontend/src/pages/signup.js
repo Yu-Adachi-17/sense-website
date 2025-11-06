@@ -12,13 +12,9 @@ import HomeIcon from "./homeIcon";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-/**
- * Firestore 上にユーザーDocumentを作成（既存チェック込み）
- * - クライアントでのみ実行（SSRでは getDb() が null を返す）
- */
 const createUserDocument = async (user) => {
   const db = await getDb();
-  if (!db) return; // SSR/SSG時は何もしない
+  if (!db) return;
 
   const {
     collection,
@@ -64,8 +60,10 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
+
+  const popup = (msg) => {
+    if (typeof window !== "undefined") window.alert(msg);
+  };
 
   useEffect(() => {
     const emailSentFlag = typeof window !== "undefined" && localStorage.getItem("isEmailSent");
@@ -88,24 +86,19 @@ export default function SignUp() {
         signOut,
       } = await import("firebase/auth");
 
-      // アカウント作成
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       const user = cred.user;
 
-      // Firestoreにユーザードキュメント作成（重複チェック込み）
       await createUserDocument(user);
 
-      // 確認メール送信 → 直後にサインアウト
       await sendEmailVerification(user);
       await signOut(auth);
 
-      // UI表示用フラグ
       localStorage.setItem("isEmailSent", "true");
       window.location.reload();
     } catch (error) {
       console.error(error);
-      setAlertMessage(error?.message || "Sign up failed.");
-      setShowAlert(true);
+      popup(error?.message || "Sign up failed.");
     } finally {
       setIsLoading(false);
     }
@@ -119,8 +112,7 @@ export default function SignUp() {
       await router.replace("/");
     } catch (error) {
       console.error(error);
-      setAlertMessage(error?.message || "Google sign-in failed");
-      setShowAlert(true);
+      popup(error?.message || "Google sign-in failed");
     } finally {
       setIsLoading(false);
     }
@@ -134,8 +126,7 @@ export default function SignUp() {
       await router.replace("/");
     } catch (error) {
       console.error(error);
-      setAlertMessage(error?.message || "Apple sign-in failed");
-      setShowAlert(true);
+      popup(error?.message || "Apple sign-in failed");
     } finally {
       setIsLoading(false);
     }
@@ -148,7 +139,6 @@ export default function SignUp() {
           <HomeIcon size={30} href="https://sense-ai.world" />
         </div>
 
-        {/* 左：画像（デスクトップのみ表示） */}
         <div className="visualPane" aria-hidden="true">
           <Image
             src="/loginAndSignup.png"
@@ -160,10 +150,8 @@ export default function SignUp() {
           />
         </div>
 
-        {/* 縦の黒線（デスクトップのみ表示） */}
         <div className="vline" aria-hidden="true" />
 
-        {/* 右：内容 */}
         <div className="formPane">
           <h1 className="title">{t("Verification Email Sent")}</h1>
           <p className="desc">
@@ -175,8 +163,6 @@ export default function SignUp() {
           >
             {t("Log In After Verification")}
           </button>
-
-          {showAlert && <div className="alert">{alertMessage}</div>}
         </div>
 
         <style jsx>{styles}</style>
@@ -186,12 +172,10 @@ export default function SignUp() {
 
   return (
     <div className="loginRoot">
-      {/* 左上ホーム固定 */}
       <div className="homeIcon">
         <HomeIcon size={30} href="https://sense-ai.world" />
       </div>
 
-      {/* 左：画像（デスクトップのみ表示） */}
       <div className="visualPane" aria-hidden="true">
         <Image
           src="/loginAndSignup.png"
@@ -203,10 +187,8 @@ export default function SignUp() {
         />
       </div>
 
-      {/* 縦の黒線（デスクトップのみ表示） */}
       <div className="vline" aria-hidden="true" />
 
-      {/* 右：フォーム（スマホでは中央フル幅） */}
       <div className="formPane">
         <h1 className="title">{t("Create Account")}</h1>
 
@@ -216,6 +198,7 @@ export default function SignUp() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="input"
+          disabled={isLoading}
         />
         <input
           type="password"
@@ -223,34 +206,48 @@ export default function SignUp() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="input"
+          disabled={isLoading}
         />
 
         <button
           onClick={handleSignUp}
           disabled={isLoading}
+          aria-busy={isLoading}
           className="btn primary"
         >
           {t("Email Verification")}
+          {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button onClick={handleGoogleSignIn} className="btn social">
+        <button
+          onClick={handleGoogleSignIn}
+          disabled={isLoading}
+          aria-busy={isLoading}
+          className="btn social"
+        >
           <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Google")}
+          {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button onClick={handleAppleSignIn} className="btn social strong">
+        <button
+          onClick={handleAppleSignIn}
+          disabled={isLoading}
+          aria-busy={isLoading}
+          className="btn social strong"
+        >
           <FaApple style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Apple")}
+          {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
         <button
           onClick={() => router.push("/login")}
+          disabled={isLoading}
           className="link"
         >
           {t("Already have an account? Click here.")}
         </button>
-
-        {showAlert && <div className="alert">{alertMessage}</div>}
       </div>
 
       <style jsx>{styles}</style>
@@ -331,7 +328,8 @@ const styles = `
     height: 44px;
     font-weight: 700;
     margin-bottom: 12px;
-    transition: transform 120ms ease;
+    transition: transform 120ms ease, opacity 120ms ease;
+    gap: 8px;
   }
   .btn:active { transform: scale(0.99); }
   .btn.primary {
@@ -345,6 +343,11 @@ const styles = `
     border: 1px solid #000;
     margin-bottom: 16px;
   }
+  .btn[disabled] {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+  }
   .link {
     color: #000;
     background: none;
@@ -352,25 +355,32 @@ const styles = `
     cursor: pointer;
     font-weight: 600;
     margin-bottom: 10px;
-  }
-  .alert {
-    color: #b00020;
-    margin-top: 8px;
-    font-weight: 600;
-    text-align: center;
-    max-width: 320px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  /* ===== スマホ版専用（640px以下） ===== */
+  .loader {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
   @media (max-width: 640px) {
     .loginRoot {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100svh; /* モバイルのアドレスバー起因のvh揺れ対策 */
+      height: 100svh;
     }
-    .visualPane { display: none; }  /* 画像を消す */
-    .vline { display: none; }       /* 縦線を消す */
+    .visualPane { display: none; }
+    .vline { display: none; }
     .formPane {
       width: 100%;
       max-width: 420px;
@@ -383,7 +393,6 @@ const styles = `
     .title { font-size: 34px; margin-bottom: 18px; }
     .input { width: min(92vw, 360px); }
     .btn { width: min(92vw, 360px); }
-    .alert { max-width: min(92vw, 360px); }
   }
 `;
 
