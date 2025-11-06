@@ -830,7 +830,11 @@ function App() {
         }}
       >
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          {!showFullScreen && <PurchaseMenu />}
+                    {!showFullScreen && (
+            <div style={{ position: 'relative', zIndex: 20 }}>
+              <PurchaseMenu />
+            </div>
+          )}
 
           {/* 中央の録音 UI */}
           <div
@@ -839,7 +843,7 @@ function App() {
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              zIndex: 5,
+              zIndex: 1,
               // SideMenuオープン中は見た目はそのまま・クリックは無効（保険）
               pointerEvents: (typeof window !== 'undefined' && window.__side_menu_open) ? 'none' : 'auto',
             }}
