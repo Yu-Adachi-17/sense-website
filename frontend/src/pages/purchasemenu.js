@@ -53,12 +53,40 @@ function formatYYYYMMDD(date) {
   return `${y}${m}${d}`;
 }
 
-/* ===== Portal ===== */
+/* ===== Top-layer Portal (body 直下・最後尾) ===== */
+function ensureTopLayerRoot() {
+  let root = document.getElementById("__menu_root");
+  if (!root) {
+    root = document.createElement("div");
+    root.id = "__menu_root";
+    document.body.appendChild(root);
+  } else {
+    // 末尾へ移動（後勝ち）
+    if (root.parentNode === document.body) {
+      document.body.appendChild(root);
+    }
+  }
+  // iOS Safari の合成バグ対策：固定配置 & 最上位 z-index & 透過・クリック不可
+  const style = root.style;
+  style.position = "fixed";
+  style.inset = "0";
+  style.zIndex = "2147483647";
+  style.pointerEvents = "none"; // 子要素で必要箇所のみ auto にする
+  style.background = "transparent";
+  return root;
+}
+
 function Portal({ children }) {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); return () => setMounted(false); }, []);
-  if (!mounted) return null;
-  return createPortal(children, document.body);
+  const [root, setRoot] = useState(null);
+  useEffect(() => {
+    setMounted(true);
+    const r = ensureTopLayerRoot();
+    setRoot(r);
+    return () => { /* ルートは使い回すので破棄しない */ };
+  }, []);
+  if (!mounted || !root) return null;
+  return createPortal(children, root);
 }
 
 export default function PurchaseMenu() {
@@ -153,14 +181,8 @@ export default function PurchaseMenu() {
 
   const ui = useMemo(() => {
     const chipBgLight = "#E3F2FD";
-    const Z_TOP = 2147483647; // 32bit上限付近：最前面を保証
-    const base = {
-      z: { trigger: Z_TOP, menu: Z_TOP - 1, overlay: Z_TOP - 2 },
-      radius: 16,
-      ease: "cubic-bezier(.2,.7,.2,1)",
-    };
     return {
-      // SafariのURLバーを跨いでも見えるように safe-area を考慮
+      // ルートは pointer-events:none なので、操作したい要素だけ auto にする
       hamburgerButton: {
         position: "fixed",
         top: "calc(env(safe-area-inset-top, 0px) + 12px)",
@@ -170,15 +192,17 @@ export default function PurchaseMenu() {
         border: "none",
         color: "#000",
         cursor: "pointer",
-        zIndex: base.trigger,
+        zIndex: 1, // ルート内局所値（root自体が最前面）
         WebkitTapHighlightColor: "transparent",
+        pointerEvents: "auto",
       },
       // 透明オーバーレイ（背景は一切暗くしない）
       blankOverlay: {
         position: "fixed", inset: 0,
         background: "transparent",
-        zIndex: base.overlay,
         display: showSideMenu ? "block" : "none",
+        zIndex: 0,
+        pointerEvents: showSideMenu ? "auto" : "none",
       },
       sideMenu: {
         position: "fixed", top: 0, right: 0,
@@ -187,18 +211,19 @@ export default function PurchaseMenu() {
         color: "#0A0F1B",
         padding: "22px 18px", boxSizing: "border-box",
         display: "flex", flexDirection: "column", alignItems: "stretch",
-        zIndex: base.menu, transition: `transform .30s ${base.ease}`,
+        zIndex: 1, transition: `transform .30s cubic-bezier(.2,.7,.2,1)`,
         transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
         background: "#FFFFFF",
         boxShadow: showSideMenu ? "0 18px 42px rgba(0,0,0,0.10), 0 10px 20px rgba(0,0,0,0.06)" : "none",
-        pointerEvents: showSideMenu ? "auto" : "none",
+        pointerEvents: "auto", // 操作可
+        willChange: "transform", // レイヤ昇格（Safari描画順バグの保険）
       },
       topRow: { display: "flex", alignItems: "center", justifyContent: "flex-start", gap: 12, marginBottom: 8 },
       topProfileButton: { background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
       divider: { width: "100%", height: 1, background: "rgba(0,0,0,0.08)", margin: "8px 0 14px" },
 
       rowCard: {
-        borderRadius: base.radius, background: "#FFFFFF",
+        borderRadius: 16, background: "#FFFFFF",
         border: "1px solid rgba(0,0,0,0.04)", padding: "12px 10px",
         margin: "10px 6px 12px 6px",
         boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
@@ -209,7 +234,7 @@ export default function PurchaseMenu() {
       iconBadge: { width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center", background: chipBgLight, border: "1px solid rgba(0,0,0,0.04)", flex: "0 0 44px" },
       rowTitle: { fontSize: 14, fontWeight: 600, color: "#0A0F1B" },
 
-      policyButton: { background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9 },
+      policyButton: { background: "none", border: "none", textAlign: "right", fontSize: 14, cursor: "pointer", padding: "4px 8px", color: "#0A0F1B", opacity: 0.9, pointerEvents: "auto" },
     };
   }, [isMobile, showSideMenu]);
 
@@ -300,7 +325,7 @@ export default function PurchaseMenu() {
   return (
     <>
       <Portal>
-        {/* ハンバーガー */}
+        {/* ここ（__menu_root 配下）は最上位。root は pointer-events:none なので、個々で auto を付与 */}
         <button
           style={ui.hamburgerButton}
           onClick={() => setShowSideMenu((v) => !v)}
@@ -309,18 +334,18 @@ export default function PurchaseMenu() {
           <GiHamburgerMenu size={30} color="#000" style={{ transform: "scaleX(1.2)", transformOrigin: "center" }} />
         </button>
 
-        {/* 透明オーバーレイ（空白タップで閉じる。球体の録音開始は届かない） */}
+        {/* 透明オーバーレイ（空白タップで閉じる） */}
         <div
           style={ui.blankOverlay}
           onClick={() => setShowSideMenu(false)}
           aria-hidden={!showSideMenu}
         />
 
-        {/* サイドメニュー本体（×は廃止） */}
+        {/* サイドメニュー本体 */}
         <div style={ui.sideMenu} onClick={stopPropagation} aria-hidden={!showSideMenu}>
           <div style={ui.topRow}>
             <button
-              style={ui.topProfileButton}
+              style={{ ...ui.topProfileButton, pointerEvents: "auto" }}
               onClick={() => {
                 setShowSideMenu(false);
                 if (userId) setShowProfileOverlay(true);
