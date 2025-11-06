@@ -153,8 +153,9 @@ export default function PurchaseMenu() {
 
   const ui = useMemo(() => {
     const chipBgLight = "#E3F2FD";
+    const Z_TOP = 2147483647; // 32bit上限付近：最前面を保証
     const base = {
-      z: { overlay: 2147483599, menu: 2147483600, trigger: 2147483647 },
+      z: { trigger: Z_TOP, menu: Z_TOP - 1, overlay: Z_TOP - 2 },
       radius: 16,
       ease: "cubic-bezier(.2,.7,.2,1)",
     };
