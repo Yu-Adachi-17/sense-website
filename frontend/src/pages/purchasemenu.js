@@ -218,7 +218,7 @@ export default function PurchaseMenu() {
         pointerEvents: "auto", // 操作可
         willChange: "transform", // レイヤ昇格（Safari描画順バグの保険）
       },
-      topRow: { display: "flex", alignItems: "center", justifyContent: "flex-start", gap: 12, marginBottom: 8 },
+      topRow: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 12, marginBottom: 8 },
       topProfileButton: { background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
       divider: { width: "100%", height: 1, background: "rgba(0,0,0,0.08)", margin: "8px 0 14px" },
 
