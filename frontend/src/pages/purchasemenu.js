@@ -15,7 +15,6 @@ import { PiGridFourFill } from "react-icons/pi";
 
 import HomeIcon from "./homeIcon";
 
-/* ===== API base & JSON helper ===== */
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "";
 
 async function fetchJson(url, options = {}) {
@@ -37,7 +36,6 @@ async function fetchJson(url, options = {}) {
   throw err;
 }
 
-/* ===== util ===== */
 function toDateLoose(v) {
   if (!v) return null;
   if (typeof v?.toDate === "function") return v.toDate();
@@ -53,7 +51,7 @@ function formatYYYYMMDD(date) {
   return `${y}${m}${d}`;
 }
 
-/* ===== Portal: body直下に描画して最上位に出す ===== */
+/* ===== Portal: body直下に描画して最上位へ ===== */
 function Portal({ children }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); return () => setMounted(false); }, []);
@@ -148,18 +146,16 @@ export default function PurchaseMenu() {
 
   const ui = useMemo(() => {
     const chipBgLight = "#E3F2FD";
-    const base = {
-      z: { menu: 2147483600, trigger: 2147483647 },
-      radius: 16,
-      ease: "cubic-bezier(.2,.7,.2,1)",
-    };
+    // どんな積層コンテキストでも最上位になる安全圏 z-index
+    const Z_TOP = 2147483647;            // trigger
+    const Z_MENU = 2147483606;           // menu
     return {
       hamburgerButton: {
         position: "fixed", top: 20, right: 30, fontSize: 30,
         background: "none", border: "none", color: "#000",
-        cursor: "pointer", zIndex: base.trigger, WebkitTapHighlightColor: "transparent",
+        cursor: "pointer", zIndex: Z_TOP, WebkitTapHighlightColor: "transparent",
+        transform: "translateZ(0)" // Safari層化の明示
       },
-      // 背景には一切フィルタ/レイヤーをかけない
       sideMenu: {
         position: "fixed", top: 0, right: 0,
         width: isMobile ? "66.66%" : "30%", maxWidth: 560, minWidth: 320,
@@ -167,11 +163,14 @@ export default function PurchaseMenu() {
         color: "#0A0F1B",
         padding: "22px 18px", boxSizing: "border-box",
         display: "flex", flexDirection: "column", alignItems: "stretch",
-        zIndex: base.menu, transition: `transform .30s ${base.ease}`,
+        zIndex: Z_MENU, transition: `transform .30s cubic-bezier(.2,.7,.2,1)`,
         transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
         background: "#FFFFFF",
         boxShadow: showSideMenu ? "0 18px 42px rgba(0,0,0,0.10), 0 10px 20px rgba(0,0,0,0.06)" : "none",
         pointerEvents: showSideMenu ? "auto" : "none",
+        willChange: "transform",
+        transformStyle: "preserve-3d",
+        contain: "paint",
       },
       topRow: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 8 },
       topProfileButton: { background: "none", border: "none", color: "#111", fontSize: 20, cursor: "pointer", padding: "4px 0", display: "flex", alignItems: "center" },
@@ -179,7 +178,7 @@ export default function PurchaseMenu() {
       divider: { width: "100%", height: 1, background: "rgba(0,0,0,0.08)", margin: "8px 0 14px" },
 
       rowCard: {
-        borderRadius: base.radius, background: "#FFFFFF",
+        borderRadius: 16, background: "#FFFFFF",
         border: "1px solid rgba(0,0,0,0.04)", padding: "12px 10px",
         margin: "10px 6px 12px 6px",
         boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
@@ -254,7 +253,6 @@ export default function PurchaseMenu() {
     }
   };
 
-  // 行カード
   const MenuRow = ({ icon, iconColor, title, onClick, trailing, disabled }) => {
     const [hover, setHover] = useState(false);
     return (
@@ -281,7 +279,7 @@ export default function PurchaseMenu() {
 
   return (
     <>
-      {/* ハンバーガーもメニューも body 直下に出す（最上位） */}
+      {/* 最上位z-indexで body 直下にポータル */}
       <Portal>
         <button
           style={ui.hamburgerButton}
@@ -316,7 +314,7 @@ export default function PurchaseMenu() {
             </button>
           </div>
 
-          <div style={ui.divider} />
+          <div style={{ width: "100%", height: 1, background: "rgba(0,0,0,0.08)", margin: "8px 0 14px" }} />
 
           <MenuRow
             icon={(p) => <PiGridFourFill {...p} />}
@@ -367,7 +365,7 @@ export default function PurchaseMenu() {
         </div>
       </Portal>
 
-      {/* Profile overlay（従来どおり。これはポータル不要でも可） */}
+      {/* Profile overlay（従来どおり） */}
       {showProfileOverlay && (
         <div
           style={{ position: "fixed", inset: 0, background: "#fff", zIndex: 2147482000, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden" }}
@@ -451,7 +449,6 @@ export default function PurchaseMenu() {
   );
 }
 
-/* 共通ボタン/バッジ */
 const buttonBase = {
   display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
   padding: "12px 14px", borderRadius: 10, border: "1px solid #e6e6e6",
