@@ -1,141 +1,196 @@
-// src/pages/company.js  （または pages/company.js）
-import React from "react";
+// pages/company.js
 import Head from "next/head";
-import Link from "next/link";
-import { Inter } from "next/font/google";
-import HomeIcon from "./homeIcon";
 
-const inter = Inter({ subsets: ["latin"] });
+const COMPANY = {
+  jpName: "合同会社Sense",
+  enName: "Sense G.K.",
+  representativeJp: "代表社員 安達 悠",
+  representativeEn: "Representative Partner: Yu Adachi",
+  // ↓ 必要に応じて正確な住所へ差し替えてください（番地・郵便番号など）
+  // 依頼事項の「最後の部屋番号：コンシェリア芝公園405」を明記
+  addressJp: "（登記住所）東京都港区芝公園［番地を記載］コンシェリア芝公園405 〒［郵便番号］",
+  addressEn:
+    "Registered Office: Concieria Shiba-Koen 405, Shiba-Koen, Minato-ku, Tokyo, Japan, [Add street No. / ZIP]",
+  // 連絡先
+  phoneIntl: "+817031057815",
+  supportEmail: "support@sense-ai.world",
+  supportUrl: "https://www.sense-ai.world/support",
+  marketingUrl: "https://www.sense-ai.world/minutes-ai",
+  // 事業内容
+  businessJp:
+    "AIプロダクトの企画・開発・運用（議事録AI、SlideAI ほか）",
+  businessEn:
+    "Planning, development, and operation of AI products (Minutes.AI, SlideAI, etc.)",
+  establishedJp: "設立：登記簿記載の設立日",
+  establishedEn: "Incorporated: As recorded in the corporate registry",
+  // 法人種別
+  entityJp: "法人種別：合同会社（G.K.）",
+  entityEn: "Entity Type: Godo Kaisha (G.K.)",
+  siteDomain: "sense-ai.world",
+};
 
-export default function Company({ siteUrl }) {
+export default function CompanyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Sense G.K.",
-    legalName: "Sense G.K.",
-    url: `${siteUrl}/company`,
-    email: "info@sense-ai.world",
-    founder: { "@type": "Person", name: "Yu Adachi" },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "6-15-1 Shimbashi 4F",
-      addressLocality: "Minato-ku",
-      addressRegion: "Tokyo",
-      addressCountry: "JP",
+    name: `${COMPANY.enName} (${COMPANY.jpName})`,
+    url: "https://www.sense-ai.world/company",
+    sameAs: [COMPANY.supportUrl, COMPANY.marketingUrl],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: COMPANY.supportEmail,
+      telephone: COMPANY.phoneIntl,
+      url: COMPANY.supportUrl,
+      availableLanguage: ["ja", "en"],
     },
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        email: "info@sense-ai.world",
-        contactType: "customer support",
-        areaServed: "JP",
-        availableLanguage: ["en", "ja"],
-      },
-    ],
   };
 
   return (
     <>
       <Head>
-        <title>Company — Sense G.K.</title>
+        <title>Company | {COMPANY.enName}</title>
         <meta
           name="description"
-          content="Company information for Sense G.K. — leadership, address, and contact details."
+          content="Company information for Sense G.K. (合同会社Sense): address, representative, business overview, and support contact."
         />
-        <link rel="canonical" href={`${siteUrl}/company`} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Company — Sense G.K." />
+        <meta property="og:title" content="Company | Sense G.K." />
         <meta
           property="og:description"
-          content="Company information for Sense G.K. — leadership, address, and contact details."
+          content="Company profile and official support contact for Sense G.K."
         />
-        <meta property="og:url" content={`${siteUrl}/company`} />
-        <meta property="og:image" content={`${siteUrl}/images/hero-phone.png`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.sense-ai.world/company" />
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
 
-      {/* Background */}
-      <div
-        className={`${inter.className} min-h-screen bg-[#0b0e2e] text-white [background:radial-gradient(1200px_800px_at_10%_-20%,rgba(70,69,255,.25),transparent),radial-gradient(800px_600px_at_100%_0%,rgba(192,132,252,.18),transparent)]`}
-      >
-        {/* Home icon (top-left) */}
-        <div className="pointer-events-none fixed left-5 top-5 z-50">
-          <Link
-            href="/"
-            aria-label="Back to Home"
-            className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
-          >
-            <HomeIcon size={28} />
-          </Link>
-        </div>
-
-        {/* Content */}
-        <main className="mx-auto max-w-3xl px-6 py-24">
-          <section className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur">
-            <header className="mb-8">
-              <p className="text-sm uppercase tracking-widest text-indigo-200/80">
-                Company
-              </p>
-              <h1 className="mt-1 text-4xl font-extrabold leading-tight text-white">
-                Sense G.K.
-              </h1>
-              <p className="mt-2 text-indigo-100/85">
-                Building better meetings with thoughtful software.
-              </p>
-            </header>
-
-            <dl className="divide-y divide-white/10">
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">Legal Name</dt>
-                <dd className="sm:col-span-2 font-medium">Sense G.K.</dd>
-              </div>
-
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">Representative Director</dt>
-                <dd className="sm:col-span-2 font-medium">Yu Adachi</dd>
-              </div>
-
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">Address</dt>
-                <dd className="sm:col-span-2">
-                  <div className="font-medium">
-                    4F, 6-15-1 Shimbashi, Minato-ku, Tokyo, Japan
-                  </div>
-
-                </dd>
-              </div>
-
-              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">Contact</dt>
-                <dd className="sm:col-span-2">
-                  <a
-                    href="mailto:info@sense-ai.world"
-                    className="font-medium text-indigo-300 underline decoration-indigo-400/50 underline-offset-4 hover:text-white hover:decoration-indigo-300"
-                  >
-                    info@sense-ai.world
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </section>
-
-          {/* Footer note (subtle) */}
-          <p className="mt-6 text-center text-xs text-indigo-200/70">
-            © {new Date().getFullYear()} Sense G.K. All rights reserved.
+      <main style={{ maxWidth: 960, margin: "0 auto", padding: "32px 16px" }}>
+        <header style={{ marginBottom: 32 }}>
+          <h1 style={{ margin: 0 }}>会社情報 / Company</h1>
+          <p style={{ marginTop: 8, color: "#555" }}>
+            本ページは Apple Developer Program の要件に基づき、公的に参照可能な企業情報とサポート窓口を明示しています。
           </p>
-        </main>
-      </div>
+        </header>
+
+        {/* 日本語セクション */}
+        <section style={{ marginBottom: 32 }}>
+          <h2 style={{ marginBottom: 12 }}>会社概要（日本語）</h2>
+          <dl style={{ lineHeight: 1.9 }}>
+            <dt>会社名</dt>
+            <dd>{COMPANY.jpName}（{COMPANY.enName}）</dd>
+
+            <dt>法人種別</dt>
+            <dd>{COMPANY.entityJp}</dd>
+
+            <dt>代表者</dt>
+            <dd>{COMPANY.representativeJp}</dd>
+
+            <dt>所在地</dt>
+            <dd>{COMPANY.addressJp}</dd>
+
+            <dt>事業内容</dt>
+            <dd>{COMPANY.businessJp}</dd>
+
+            <dt>設立</dt>
+            <dd>{COMPANY.establishedJp}</dd>
+
+            <dt>問い合わせ・サポート</dt>
+            <dd>
+              サポートURL：{" "}
+              <a href={COMPANY.supportUrl}>{COMPANY.supportUrl}</a>
+              <br />
+              メール：{" "}
+              <a href={`mailto:${COMPANY.supportEmail}`}>
+                {COMPANY.supportEmail}
+              </a>
+              <br />
+              電話：<a href={`tel:${COMPANY.phoneIntl}`}>{COMPANY.phoneIntl}</a>
+              <div style={{ marginTop: 8 }}>
+                <a
+                  href={`mailto:${COMPANY.supportEmail}?subject=サポート問い合わせ&body=以下にご用件をご記入ください。%0D%0A%0D%0A・お名前:%0D%0A・ご利用アプリ/プラン:%0D%0A・事象の詳細:%0D%0A・再現手順:%0D%0A・スクリーンショット/ログ（任意）:%0D%0A`}
+                  style={buttonStyle}
+                >
+                  メールで問い合わせる
+                </a>
+              </div>
+            </dd>
+          </dl>
+        </section>
+
+        {/* 英語セクション */}
+        <section style={{ marginBottom: 32 }}>
+          <h2 style={{ marginBottom: 12 }}>Company (English)</h2>
+          <dl style={{ lineHeight: 1.9 }}>
+            <dt>Legal Name</dt>
+            <dd>
+              {COMPANY.enName} ({COMPANY.jpName})
+            </dd>
+
+            <dt>Entity Type</dt>
+            <dd>{COMPANY.entityEn}</dd>
+
+            <dt>Representative</dt>
+            <dd>{COMPANY.representativeEn}</dd>
+
+            <dt>Registered Address</dt>
+            <dd>{COMPANY.addressEn}</dd>
+
+            <dt>Business</dt>
+            <dd>{COMPANY.businessEn}</dd>
+
+            <dt>Incorporated</dt>
+            <dd>{COMPANY.establishedEn}</dd>
+
+            <dt>Support Contact</dt>
+            <dd>
+              Support URL: <a href={COMPANY.supportUrl}>{COMPANY.supportUrl}</a>
+              <br />
+              Email:{" "}
+              <a href={`mailto:${COMPANY.supportEmail}`}>
+                {COMPANY.supportEmail}
+              </a>
+              <br />
+              Phone: <a href={`tel:${COMPANY.phoneIntl}`}>{COMPANY.phoneIntl}</a>
+              <div style={{ marginTop: 8 }}>
+                <a
+                  href={`mailto:${COMPANY.supportEmail}?subject=Support%20Request&body=Please describe your inquiry below.%0D%0A%0D%0A- Name:%0D%0A- App/Plan:%0D%0A- Issue details:%0D%0A- Steps to reproduce:%0D%0A- Screenshot/Logs (optional):%0D%0A`}
+                  style={buttonStyle}
+                >
+                  Email Support
+                </a>
+              </div>
+            </dd>
+          </dl>
+        </section>
+
+        {/* 下段リンク（指定3本） */}
+        <nav
+          aria-label="legal-and-support-links"
+          style={{
+            borderTop: "1px solid #eee",
+            paddingTop: 16,
+            display: "flex",
+            gap: 16,
+            flexWrap: "wrap",
+          }}
+        >
+          <a href="/support">/support</a>
+          <a href="/privacy-policy">/privacy-policy</a>
+          <a href="/terms-of-use">/terms-of-use</a>
+        </nav>
+      </main>
     </>
   );
 }
 
-// Build-time props for canonical/OG URLs
-export async function getStaticProps() {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  return { props: { siteUrl }, revalidate: 600 };
-}
+const buttonStyle = {
+  display: "inline-block",
+  padding: "10px 16px",
+  borderRadius: 8,
+  textDecoration: "none",
+  border: "1px solid #ddd",
+  background: "#f7f7f7",
+};
