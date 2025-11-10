@@ -1,58 +1,104 @@
 {
   "seo": {
-    "title": "議事録AIのStrategy — 議事録を意思決定へ（ChatGPT-5・Gemini 2.5 Pro）",
-    "description": "Strategyは会議をBoost/Counter/Top Issue＋3つの思考法に整理し、次の一手を明確化。検索意図：AI議事録、ChatGPT-5、Gemini 2.5 Pro。",
-    "ogTitle": "議事録AIのStrategy：ただの要約ではなく決断へ",
-    "ogDescription": "Boost/Counter/Top Issue＋Logical/Critical/Lateralで実行可能なアウトプットを生成。",
+    "title": "Strategy機能：議事録を意思決定へ（ChatGPT-5 / Gemini 2.5 Pro）",
+    "description": "Minutes.AIのStrategyは、議事録を次の一手に変換します。ChatGPT-5とGemini 2.5 Proを用い、Boost / Counter / Top Issue と3つの思考法を提示します。",
+    "ogTitle": "Minutes.AI Strategy 機能",
+    "ogDescription": "Boost・Counter・Top Issue と 論理/批判/水平の3思考で、議論を戦略に変える。",
     "ld": {
-      "headline": "議事録AIにStrategy機能を追加",
-      "description": "ChatGPT-5とGemini 2.5 Proで議論を素早く意思決定へ変換。"
+      "headline": "Minutes.AIにStrategyを搭載",
+      "description": "ChatGPT-5 と Gemini 2.5 Pro の出力を活用し、議事録を意思決定支援へ引き上げる機能です。"
+    },
+    "keywords": "Minutes.AI, 議事録AI, Strategy, 戦略, ChatGPT-5, Gemini 2.5 Pro, 意思決定支援, 論理的思考, クリティカルシンキング, ラテラルシンキング, Boost, Counter, Top Issue"
+  },
+  "aria": {
+    "home": "議事録AI ホームへ戻る"
+  },
+  "a11y": {
+    "home": "議事録AI ホームへ戻る"
+  },
+  "nav": {
+    "blog": "ブログ",
+    "strategy": "Strategy"
+  },
+  "hero": {
+    "kicker": "機能ディープダイブ",
+    "h1": "Minutes.AIのStrategy",
+    "tagline": "「要約」で終わらせない。StrategyはChatGPT-5とGemini 2.5 Proで議論を明確なアクションに変換します。"
+  },
+  "what": {
+    "h2": "Strategyとは？",
+    "p1": "Strategyは、あなたの議事録の上に重ねる意思決定支援レイヤーです。",
+    "p2": "Boost（強みの拡張）/ Counter（建設的対抗）/ Top Issue（最重要課題）と、Top Issueに対する3つの思考法を生成します。",
+    "bullets": [
+      "Boost — うまくいっている点と拡張方法",
+      "Counter — リスクと是正アクション",
+      "Top Issue — 解くべき核心課題",
+      "Logical Thinking — 構造化された段階的解法",
+      "Critical Thinking — 前提を疑い矛盾を洗う",
+      "Lateral Thinking — 常識を越える跳躍発想"
+    ]
+  },
+  "how": {
+    "h2": "使い方",
+    "steps": [
+      "通常どおり（アプリ/ブラウザ）で議事録を生成。",
+      "「Strategy」をタップし、ChatGPT-5 と Gemini 2.5 Pro で解析。",
+      "Boost / Counter / Top Issue と 3つの思考法を取得。",
+      "結果を共有するか、タスク管理に貼り付けて実行へ。"
+    ],
+    "note": "出力は言語や領域に適応。素早く読めるよう簡潔性を優先します。"
+  },
+  "samples": {
+    "h2": "短く読みやすいサンプル",
+    "minutes": {
+      "h3": "議事録（例）",
+      "lines": [
+        "トピック：夏限定ブレンド「Solar Chill」",
+        "決定：Solar Chill を進める／名称は継続／レシピ最終化",
+        "ToDo：デザイン案作成／最終レシピを共有フォルダへ",
+        "リスク：15%のフィードバックで「酸味が強い」"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy（例）",
+      "boost": [
+        "Boost：再購入意向が高い → 10店舗でパイロット＋SNS施策。7日以内の再注文率を測定。"
+      ],
+      "counter": [
+        "Counter：酸味対策 → “mild sweet”の選択肢を追加。シロップ量を2週間A/B。"
+      ],
+      "top": [
+        "Top Issue：ブランド独自性を損なわずに、間口を広げる味の最適点は？"
+      ],
+      "modes": {
+        "logical": [
+          "Logical：対象セグメント定義 → 成功KPI設定 → A/B → 勝ち仕様を出荷"
+        ],
+        "critical": [
+          "Critical：SNSの“話題性”に過度最適化していないか？ ブラインド試飲で再検証。"
+        ],
+        "lateral": [
+          "Lateral：飲料外への拡張案（例：香り/ルームミスト）で接点を拡げる。"
+        ]
+      }
     }
   },
-  "aria": { "home": "議事録AI ホーム" },
-  "nav": { "blog": "ブログ", "strategy": "Strategy" },
-  "hero": {
-    "kicker": "機能ガイド",
-    "h1": "議事録AIのStrategy",
-    "tagline": "「要約」で終わらせない。ChatGPT-5/Gemini 2.5 Proで議論を意思決定に変える。"
+  "platform": {
+    "h2": "提供状況",
+    "p1": "StrategyはiOSで利用できます。“メモ”から“意思決定”へ。"
   },
-  "image": { "alt": "議事録AI StrategyのUI", "caption": "中核論点と次アクションをワンタップで抽出。" },
-  "what": {
-    "h2": "Strategyでできること",
-    "items": [
-      "Boost：うまくいっている点と拡張策",
-      "Counter：リスクと改善策",
-      "Top Issue：解くべき中核の問い",
-      "思考法：Logical／Critical／Lateral"
-    ]
+  "image": {
+    "alt": "Minutes.AIのStrategy UI",
+    "caption": "Boost / Counter / Top Issue と 3つの思考法を一望。"
   },
-  "steps": {
-    "h2": "使い方（簡潔）",
-    "items": [
-      "アプリ/ブラウザで議事録を生成",
-      "「Strategy」をタップ",
-      "Boost / Counter / Top Issue＋3モードを確認",
-      "タスク管理に貼り付け"
-    ],
-    "note": "利用可否・上限時間はプラン/残り時間によって異なります。"
+  "meta": {
+    "h2": "メタ",
+    "published": "公開日",
+    "type": "種別",
+    "category": "Strategy"
   },
-  "features": {
-    "h2": "ハイライト",
-    "items": [
-      "要約でなく意思決定に最適化",
-      "ChatGPT-5 & Gemini 2.5 Proに最適化",
-      "短く明快で実行可能な出力",
-      "多言語対応でグローバル運用に最適"
-    ]
-  },
-  "notes": {
-    "h2": "注意点",
-    "items": [
-      "入力品質が出力品質を左右します",
-      "会議タイプに応じてテンプレートを選択"
-    ],
-    "foot": "iOSで提供中。今すぐお試しください。"
-  },
-  "meta": { "h2": "メタ", "published": "公開日", "type": "機能", "category": "Strategy" },
-  "cta": { "openBrowser": "ブラウザで開く", "downloadIOS": "iOSアプリをダウンロード" }
+  "cta": {
+    "openBrowser": "ブラウザ版を開く",
+    "downloadIOS": "iOS版をダウンロード"
+  }
 }
