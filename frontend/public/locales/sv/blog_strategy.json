@@ -7,34 +7,79 @@
     "ld": {
       "headline": "Protokoll AI lägger till Strategy",
       "description": "Med ChatGPT-5 och Gemini 2.5 Pro omvandlas diskussioner snabbt och tydligt till beslut."
-    }
+    },
+    "keywords": "Protokoll AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, beslutsstöd, logiskt tänkande, kritiskt tänkande, lateralt tänkande, Boost, Counter, Top Issue, mötesprotokoll"
   },
   "aria": { "home": "Startsida för Protokoll AI" },
+  "a11y": { "home": "Startsida för Protokoll AI" },
   "nav": { "blog": "Blogg", "strategy": "Strategy" },
   "hero": {
     "kicker": "Funktionsguide",
     "h1": "Strategy för Protokoll AI",
     "tagline": "Inte bara sammanfattning—Strategy gör diskussion till beslut med ChatGPT-5 och Gemini 2.5 Pro."
   },
-  "image": { "alt": "Protokoll AI Strategy-gränssnitt", "caption": "Plocka ut kärnfråga och nästa steg i ett svep." },
+  "image": { "alt": "Protokoll AI Strategy-gränssnitt", "caption": "Se Boost / Counter / Top Issue och tre tänkelägen i en överblick." },
   "what": {
-    "h2": "Det här gör Strategy",
-    "items": [
-      "Boost: vad som funkar & skalning",
-      "Counter: risker & åtgärder",
-      "Top Issue: kärnfrågan",
-      "Tänkelägen: Logiskt / Kritiskt / Lateralt"
+    "h2": "Vad är Strategy?",
+    "p1": "Strategy är ett beslutslager ovanpå dina protokoll.",
+    "p2": "Det skapar Boost (skala det som fungerar), Counter (risker och korrigerande åtgärder) och Top Issue (kärnfrågan), plus tre tänkelägen för Top Issue.",
+    "bullets": [
+      "Boost — vad fungerar & hur skalar vi",
+      "Counter — risker & korrigerande åtgärder",
+      "Top Issue — kärnfrågan vi måste lösa",
+      "Logiskt tänk — strukturerat, steg-för-steg",
+      "Kritiskt tänk — ifrågasätt antaganden och hitta motsägelser",
+      "Lateralt tänk — utanför boxen för språng i idéer"
     ]
   },
-  "steps": {
-    "h2": "Kom igång",
-    "items": [
-      "Skapa protokoll i app eller webb",
-      "Tryck ”Strategy”",
-      "Gå igenom Boost / Counter / Top Issue + 3 lägen",
-      "Klistra in i ditt uppgiftssystem"
+  "how": {
+    "h2": "Så använder du det",
+    "steps": [
+      "Skapa protokoll (i appen eller på webben).",
+      "Tryck ”Strategy” och låt ChatGPT-5 och Gemini 2.5 Pro analysera.",
+      "Få Boost / Counter / Top Issue + tre tänkelägen.",
+      "Dela resultatet eller klistra in i ditt uppgiftssystem för genomförande."
     ],
-    "note": "Tillgänglighet och varaktighet beror på plan/kvot."
+    "note": "Utdata anpassas efter språk och domän och hålls avsiktligt kort för snabb läsning."
+  },
+  "samples": {
+    "h2": "Korta, lättlästa exempel",
+    "minutes": {
+      "h3": "Protokoll (exempel)",
+      "lines": [
+        "Tema: sommarblenden ”Solar Chill”",
+        "Beslut: Fortsätt med Solar Chill / behåll namnet / färdigställ recept",
+        "Att göra: Ta fram designförslag / lägg slutrecept i delad mapp",
+        "Risk: 15 % feedback säger ”för syrligt”"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (exempel)",
+      "boost": [
+        "Boost: Hög återköpsvilja → pilot i 10 butiker + SoMe-kampanj. Mät ombeställningar inom 7 dagar."
+      ],
+      "counter": [
+        "Counter: Dämpa syra → lägg till alternativet ”mild sweet”. A/B-testa sirapmängd i 2 veckor."
+      ],
+      "top": [
+        "Top Issue: Var ligger smakens ”sweet spot” som breddar målgruppen utan att tappa varumärkesidentitet?"
+      ],
+      "modes": {
+        "logical": [
+          "Logiskt: Definiera målsegment → sätt KPI:er → A/B → rulla ut vinnarupplägget."
+        ],
+        "critical": [
+          "Kritiskt: Överoptimerar vi för ”snackis” i sociala medier? Upprepa blindprovning."
+        ],
+        "lateral": [
+          "Lateralt: Tänk bortom dryck (t.ex. rumsdoft/room mist) för fler kontaktpunkter."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Tillgänglighet",
+    "p1": "Strategy finns på iOS — från ”protokoll” till ”beslut”."
   },
   "features": {
     "h2": "Höjdpunkter",
@@ -49,7 +94,7 @@
     "h2": "Notiser",
     "items": [
       "Inputkvalitet avgör outputkvalitet",
-      "Använd olika mallar per mötestyp"
+      "Använd mallar anpassade efter mötestyp"
     ],
     "foot": "Tillgängligt på iOS. Testa idag."
   },

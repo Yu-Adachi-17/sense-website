@@ -7,9 +7,11 @@
     "ld": {
       "headline": "Notulen AI voegt Strategy toe",
       "description": "Zet met ChatGPT-5 en Gemini 2.5 Pro discussies snel en helder om in beslissingen."
-    }
+    },
+    "keywords": "Notulen AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, besluitvorming, logische denkwijze, kritisch denken, lateraal denken, Boost, Counter, Top Issue"
   },
   "aria": { "home": "Startpagina Notulen AI" },
+  "a11y": { "home": "Startpagina Notulen AI" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Functiegids",
@@ -18,23 +20,66 @@
   },
   "image": { "alt": "Notulen AI Strategy UI", "caption": "Breng kernvraag en vervolgstappen in één keer boven tafel." },
   "what": {
-    "h2": "Wat Strategy doet",
-    "items": [
-      "Boost: wat werkt & opschalen",
-      "Counter: risico’s & fixes",
-      "Top Issue: de kernvraag",
-      "Denkmodi: Logisch / Kritisch / Lateraal"
+    "h2": "Wat is Strategy?",
+    "p1": "Strategy is een besluitvormingslaag bovenop je notulen.",
+    "p2": "Het genereert Boost (opschalen wat werkt), Counter (risico’s en tegenmaatregelen) en Top Issue (de kernvraag), plus drie denkmodi voor het Top Issue.",
+    "bullets": [
+      "Boost — wat werkt & hoe opschalen",
+      "Counter — risico’s & corrigerende acties",
+      "Top Issue — de kernvraag die we móéten oplossen",
+      "Logical Thinking — gestructureerde, stapsgewijze aanpak",
+      "Critical Thinking — veronderstellingen bevragen en inconsistenties vinden",
+      "Lateral Thinking — buiten de kaders voor spronginnovatie"
     ]
   },
-  "steps": {
-    "h2": "Aan de slag",
-    "items": [
-      "Genereer notulen (app of web)",
-      "Tik op “Strategy”",
-      "Review Boost / Counter / Top Issue + 3 modi",
-      "Plak in je taaksysteem"
+  "how": {
+    "h2": "Hoe gebruik je het",
+    "steps": [
+      "Genereer notulen (in de app of op het web).",
+      "Tik op “Strategy” en laat ChatGPT-5 en Gemini 2.5 Pro analyseren.",
+      "Ontvang Boost / Counter / Top Issue + drie denkmodi.",
+      "Deel het resultaat of plak het in je taaksysteem voor uitvoering."
     ],
-    "note": "Beschikbaarheid/duur hangen af van je plan/quota."
+    "note": "Uitvoer past zich aan aan taal en domein, en blijft bewust compact voor snelle leesbaarheid."
+  },
+  "samples": {
+    "h2": "Korte, leesbare voorbeelden",
+    "minutes": {
+      "h3": "Notulen (voorbeeld)",
+      "lines": [
+        "Topic: Zomerblend “Solar Chill”",
+        "Besluit: Doorgaan met Solar Chill / naam behouden / recept finaliseren",
+        "To-do: Designvoorstellen maken / definitief recept in gedeelde map",
+        "Risico: 15% feedback zegt ‘te zuur’"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (voorbeeld)",
+      "boost": [
+        "Boost: Hoge herhaalaankoopintentie → pilot in 10 winkels + social-campagne. Meet herbestelratio binnen 7 dagen."
+      ],
+      "counter": [
+        "Counter: Zuurte mitigeren → optie ‘mild sweet’ toevoegen. Syrup-hoeveelheid 2 weken A/B-testen."
+      ],
+      "top": [
+        "Top Issue: Wat is het smaak–sweet spot die toegankelijker is zonder merk-eigenheid te verliezen?"
+      ],
+      "modes": {
+        "logical": [
+          "Logical: Doelsegment definiëren → succes-KPI’s vastleggen → A/B → winnende specificatie uitrollen."
+        ],
+        "critical": [
+          "Critical: Optimaliseren we niet te veel op ‘talkability’ van socials? Blindproeverij herhalen."
+        ],
+        "lateral": [
+          "Lateral: Denk buiten dranken (bv. geur/roommist) om contactpunten te verbreden."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Beschikbaarheid",
+    "p1": "Strategy is beschikbaar op iOS—van ‘notulen’ naar ‘beslissingen’."
   },
   "features": {
     "h2": "Highlights",
@@ -48,7 +93,7 @@
   "notes": {
     "h2": "Opmerkingen",
     "items": [
-      "Kwaliteit van input bepaalt output",
+      "Kwaliteit van input bepaalt de kwaliteit van output",
       "Gebruik sjablonen per meetingtype"
     ],
     "foot": "Beschikbaar op iOS. Probeer het vandaag."

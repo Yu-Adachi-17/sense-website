@@ -1,61 +1,114 @@
 {
   "seo": {
-    "title": "AI Zapisnik Strategy — pretvarajte zapisnike u odluke (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy destilira sastanke u Boost/Counter/Top Issue plus tri načina razmišljanja za jasne sljedeće korake. SEO upiti: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "title": "AI Zapisnik Strategy — pretvorite zapisnike u odluke (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy podiže zapisnike na razinu podrške odlučivanju. Uz ChatGPT-5 i Gemini 2.5 Pro, generira Boost, Counter, Top Issue i tri načina razmišljanja kako bi raspravu pretvorio u sljedeće korake.",
     "ogTitle": "Strategy u AI Zapisnik: odluke, a ne samo bilješke",
-    "ogDescription": "Boost/Counter/Top Issue + Logičko/Kritičko/Lateralno razmišljanje za provedive ishode.",
+    "ogDescription": "Boost / Counter / Top Issue + logičko / kritičko / lateralno razmišljanje za provedive ishode.",
     "ld": {
       "headline": "AI Zapisnik dodaje Strategy",
-      "description": "Upotrijebite ChatGPT-5 i Gemini 2.5 Pro kako biste brzo i jasno pretvorili raspravu u odluke."
-    }
+      "description": "Funkcija Strategy pretvara rasprave u jasne odluke koristeći izlaze ChatGPT-5 i Gemini 2.5 Pro."
+    },
+    "keywords": "AI Zapisnik, Minutes.AI, zapisnik sastanka AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, podrška odlučivanju, logičko razmišljanje, kritičko razmišljanje, lateralno razmišljanje, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Početna AI Zapisnik" },
+  "aria": { "home": "Povratak na početnu AI Zapisnik" },
+  "a11y": { "home": "Povratak na početnu AI Zapisnik" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
-    "kicker": "Vodič za funkciju",
+    "kicker": "Vodič kroz funkciju",
     "h1": "Strategy za AI Zapisnik",
-    "tagline": "Ne samo zapisnici — Strategy pretvara raspravu u odluke uz ChatGPT-5 i Gemini 2.5 Pro."
-  },
-  "image": {
-    "alt": "AI Zapisnik Strategy sučelje",
-    "caption": "Izvucite ključni problem i sljedeće korake u jednom koraku."
+    "tagline": "Ne zaustavljajte se na sažetku. Strategy s ChatGPT-5 i Gemini 2.5 Pro pretvara rasprave u odluke i konkretne akcije."
   },
   "what": {
-    "h2": "Što Strategy radi",
-    "items": [
-      "Boost: što radi i kako skalirati",
-      "Counter: rizici i popravci",
-      "Top Issue: ključno pitanje",
-      "Načini razmišljanja: Logički / Kritički / Lateralni"
+    "h2": "Što je Strategy?",
+    "p1": "Strategy je sloj podrške odlučivanju iznad vaših zapisnika.",
+    "p2": "Isporučuje: Boost (što radi i kako to povećati), Counter (rizici i korektivne mjere), Top Issue (ključno pitanje) te tri načina razmišljanja za rješavanje tog ključnog pitanja.",
+    "bullets": [
+      "Boost — snage i strategija skaliranja",
+      "Counter — rizici i planovi korekcije",
+      "Top Issue — središnji problem koji treba riješiti",
+      "Logičko razmišljanje — strukturirano, korak-po-korak rješenje",
+      "Kritičko razmišljanje — preispitivanje pretpostavki i pristranosti",
+      "Lateralno razmišljanje — ideje izvan uobičajenih okvira"
     ]
   },
-  "steps": {
-    "h2": "Kako započeti",
-    "items": [
-      "Generirajte zapisnik u aplikaciji ili na webu",
-      "Dodirnite „Strategy“",
-      "Pregledajte Boost / Counter / Top Issue + 3 moda",
-      "Zalijepite u svoj task-sustav"
+  "how": {
+    "h2": "Kako radi",
+    "steps": [
+      "Generirajte zapisnik kao i obično (aplikacija ili web).",
+      "Dodirnite „Strategy” za analizu putem ChatGPT-5 i Gemini 2.5 Pro.",
+      "Dobijte Boost / Counter / Top Issue + tri načina razmišljanja.",
+      "Podijelite rezultat ili zalijepite u svoj sustav zadataka i krenite u provedbu."
     ],
-    "note": "Dostupnost i trajanje ovise o planu/kvoti."
+    "note": "Izlazi se prilagođavaju jeziku i domeni; zadano su sažeti radi bržeg čitanja."
+  },
+  "samples": {
+    "h2": "Kratki, čitljivi primjeri",
+    "minutes": {
+      "h3": "Zapisnik (primjer)",
+      "lines": [
+        "Tema: ljetno limitirano izdanje napitka „Solar Chill”",
+        "Odluke: nastaviti sa Solar Chill; zadržati naziv; finalizirati recept.",
+        "Zadaci: izraditi dizajn makete; učitati finalni recept u zajedničku mapu.",
+        "Rizik: 15 % povratnih informacija navodi „previše kiselo”."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (primjer)",
+      "boost": [
+        "Boost: visoka namjera ponovne kupnje → pilot u 10 trgovina + društvena promocija; mjeriti ponovnu narudžbu unutar 7 dana."
+      ],
+      "counter": [
+        "Counter: percepcija kiselosti → opcija „blago sladak”; A/B test razine sirupa tijekom 2 tjedna."
+      ],
+      "top": [
+        "Top Issue: proširiti privlačnost bez gubitka prepoznatljivosti brenda."
+      ],
+      "modes": {
+        "logical": [
+          "Logički: definirati ciljne segmente → postaviti KPI uspjeha → pokrenuti A/B → isporučiti pobjedničku specifikaciju."
+        ],
+        "critical": [
+          "Kritički: pretjerano se oslanjamo na „društveni buzz”? Validirati slijepim degustacijama."
+        ],
+        "lateral": [
+          "Lateralni: proširenje izvan pića (npr. miris/room-mist) za dodatne dodirne točke brenda."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Dostupnost",
+    "p1": "Strategy je dostupna na iOS-u. Prijeđite s „bilješki” na „odluke”."
+  },
+  "image": {
+    "alt": "Sučelje AI Zapisnik Strategy",
+    "caption": "Boost / Counter / Top Issue i tri načina razmišljanja — na prvi pogled."
   },
   "features": {
     "h2": "Istaknuto",
     "items": [
-      "Fokus na odluke, ne samo sažetak",
+      "Fokus na odlukama, ne samo sažetku",
       "Optimizirano za ChatGPT-5 i Gemini 2.5 Pro",
-      "Kratki, provedivi ishodi",
+      "Kratki, jasni i provedivi ishodi",
       "Višejezično za globalne timove"
     ]
   },
   "notes": {
     "h2": "Napomene",
     "items": [
-      "Kvaliteta izlaza odražava kvalitetu ulaza",
-      "Koristite različite predloške za različite tipove sastanaka"
+      "Kvaliteta izlaza odražava kvalitetu ulaza.",
+      "Prilagodite predloške različitim vrstama sastanaka."
     ],
     "foot": "Dostupno na iOS-u. Isprobajte danas."
   },
-  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Funkcija", "category": "Strategy" },
-  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Preuzmi iOS aplikaciju" }
+  "meta": {
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Funkcija",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "Otvori u pregledniku",
+    "downloadIOS": "Preuzmi iOS aplikaciju"
+  }
 }

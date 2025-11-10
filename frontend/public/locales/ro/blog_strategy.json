@@ -7,9 +7,11 @@
     "ld": {
       "headline": "Proces-verbal AI adaugă Strategy",
       "description": "Folosește ChatGPT-5 și Gemini 2.5 Pro pentru a converti rapid și clar discuția în decizii."
-    }
+    },
+    "keywords": "Proces-verbal AI, Strategy, minute cu AI, ChatGPT-5, Gemini 2.5 Pro, suport decizional, gândire logică, gândire critică, gândire laterală, Boost, Counter, Top Issue"
   },
   "aria": { "home": "Acasă Proces-verbal AI" },
+  "a11y": { "home": "Acasă Proces-verbal AI" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Ghid de funcție",
@@ -18,26 +20,69 @@
   },
   "image": {
     "alt": "Interfața Proces-verbal AI Strategy",
-    "caption": "Extrage problema centrală și următorii pași dintr-o singură mișcare."
+    "caption": "Vezi dintr-o privire Boost / Counter / Top Issue și cele 3 moduri de gândire."
   },
   "what": {
-    "h2": "Ce face Strategy",
-    "items": [
-      "Boost: ce funcționează și cum scalăm",
-      "Counter: riscuri și remedieri",
-      "Top Issue: întrebarea esențială",
-      "Moduri de gândire: Logic / Critic / Lateral"
+    "h2": "Ce este Strategy?",
+    "p1": "Strategy este un strat de suport decizional deasupra minutelor tale.",
+    "p2": "Generează Boost (scalarea a ceea ce funcționează), Counter (riscuri și acțiuni corective) și Top Issue (problema-nucleu), plus trei moduri de gândire aplicate la Top Issue.",
+    "bullets": [
+      "Boost — ce funcționează și cum se scalează",
+      "Counter — riscuri și acțiuni corective",
+      "Top Issue — întrebarea esențială care trebuie rezolvată",
+      "Gândire Logică — abordare structurată, pas cu pas",
+      "Gândire Critică — pune sub semnul întrebării premisele și găsește inconsistențe",
+      "Gândire Laterală — ieșire din tipare pentru salturi de inovație"
     ]
   },
-  "steps": {
-    "h2": "Cum începi",
-    "items": [
-      "Generează minute în aplicație sau pe web",
-      "Atinge „Strategy”",
-      "Revizuiește Boost / Counter / Top Issue + 3 moduri",
-      "Lipește în sistemul tău de task-uri"
+  "how": {
+    "h2": "Cum se folosește",
+    "steps": [
+      "Generează minutele (în aplicație sau pe web).",
+      "Atinge „Strategy” și lasă ChatGPT-5 și Gemini 2.5 Pro să analizeze.",
+      "Primești Boost / Counter / Top Issue + cele trei moduri de gândire.",
+      "Distribuie rezultatul sau lipește-l în sistemul tău de task-uri pentru execuție."
     ],
-    "note": "Disponibilitatea și durata depind de plan/cotă."
+    "note": "Ieșirea se adaptează la limbă și domeniu și rămâne intenționat concisă pentru parcurgere rapidă."
+  },
+  "samples": {
+    "h2": "Exemple scurte și ușor de citit",
+    "minutes": {
+      "h3": "Minute (exemplu)",
+      "lines": [
+        "Subiect: Blendul de vară „Solar Chill”",
+        "Decizie: Continuăm Solar Chill / păstrăm numele / finalizăm rețeta",
+        "To-do: Propuneri de design / încărcarea rețetei finale în folderul partajat",
+        "Risc: 15% din feedback indică „prea acru”"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (exemplu)",
+      "boost": [
+        "Boost: Intenție mare de recumpărare → pilot în 10 magazine + campanie pe social media. Măsoară rata de reorder în 7 zile."
+      ],
+      "counter": [
+        "Counter: Atenuarea acidității → adaugă opțiunea „mild sweet”. Test A/B al siropului timp de 2 săptămâni."
+      ],
+      "top": [
+        "Top Issue: Care este „sweet spot”-ul de gust ce lărgește accesibilitatea fără a pierde identitatea de brand?"
+      ],
+      "modes": {
+        "logical": [
+          "Logică: Definește segmentul-țintă → stabilește KPI-urile de succes → A/B → rulează specificația câștigătoare."
+        ],
+        "critical": [
+          "Critică: Nu optimizăm excesiv pentru „viralitate” în social? Repetă testele în orb."
+        ],
+        "lateral": [
+          "Laterală: Extinde dincolo de băuturi (ex.: aromă/room mist) pentru mai multe puncte de contact."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Disponibilitate",
+    "p1": "Strategy este disponibil pe iOS — de la „minute” la „decizii”."
   },
   "features": {
     "h2": "Repere",
@@ -52,7 +97,7 @@
     "h2": "Note",
     "items": [
       "Calitatea rezultatului reflectă calitatea inputului",
-      "Folosește șabloane diferite pentru tipuri diferite de întâlniri"
+      "Folosește șabloane potrivite tipului de întâlnire"
     ],
     "foot": "Disponibil pe iOS. Încearcă azi."
   },

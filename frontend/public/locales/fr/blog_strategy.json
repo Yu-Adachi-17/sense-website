@@ -1,46 +1,94 @@
 {
   "seo": {
-    "title": "Strategy dans Minutes.AI — transformez vos comptes-rendus en décisions (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy condense les réunions en Boost/Counter/Top Issue et trois modes de pensée pour des prochaines étapes claires. SEO pour : comptes-rendus IA, ChatGPT-5, Gemini 2.5 Pro.",
+    "title": "Strategy dans Minutes.AI — transformez vos comptes rendus en décisions (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Strategy élève vos comptes rendus au niveau décisionnel. Avec ChatGPT-5 et Gemini 2.5 Pro, il produit Boost, Counter, Top Issue et trois modes de pensée pour passer de la discussion à l’action.",
     "ogTitle": "Strategy de Minutes.AI : des décisions, pas seulement des notes",
-    "ogDescription": "Boost/Counter/Top Issue + pensée Logique/Critique/Latérale pour des actions concrètes.",
+    "ogDescription": "Boost / Counter / Top Issue + pensée logique / critique / latérale pour des actions concrètes.",
     "ld": {
       "headline": "Minutes.AI ajoute Strategy",
-      "description": "Avec ChatGPT-5 et Gemini 2.5 Pro, convertissez les discussions en décisions rapidement et clairement."
-    }
+      "description": "La fonction Strategy convertit les discussions en décisions claires grâce aux sorties de ChatGPT-5 et Gemini 2.5 Pro."
+    },
+    "keywords": "Minutes.AI, comptes rendus IA, Strategy, ChatGPT-5, Gemini 2.5 Pro, support à la décision, pensée logique, pensée critique, pensée latérale, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Accueil Minutes.AI" },
+  "aria": { "home": "Retour à l’accueil Minutes.AI" },
+  "a11y": { "home": "Retour à l’accueil Minutes.AI" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
-    "kicker": "Guide de fonctionnalité",
+    "kicker": "Analyse de fonctionnalité",
     "h1": "Strategy pour Minutes.AI",
-    "tagline": "Pas seulement un compte-rendu — Strategy transforme la discussion en décisions avec ChatGPT-5 et Gemini 2.5 Pro."
+    "tagline": "Ne vous arrêtez pas au résumé. Strategy transforme la discussion en décisions avec ChatGPT-5 et Gemini 2.5 Pro."
   },
-  "image": { "alt": "Interface Strategy de Minutes.AI", "caption": "Identifiez la question clé et les actions en un clic." },
   "what": {
-    "h2": "Ce que fait Strategy",
-    "items": [
-      "Boost : ce qui marche & comment scaler",
-      "Counter : risques & correctifs",
-      "Top Issue : la question centrale",
-      "Modes de pensée : Logique / Critique / Latérale"
+    "h2": "Qu’est-ce que Strategy ?",
+    "p1": "Strategy est la couche de support à la décision au-dessus de vos comptes rendus.",
+    "p2": "Il produit : Boost (ce qui marche et comment l’amplifier), Counter (risques et remèdes), Top Issue (la question centrale) et trois modes de pensée pour traiter cette Top Issue.",
+    "bullets": [
+      "Boost — points forts et stratégie d’échelle",
+      "Counter — risques et plans correctifs",
+      "Top Issue — le problème clé à résoudre",
+      "Pensée logique — solution structurée, étape par étape",
+      "Pensée critique — remise en question des hypothèses",
+      "Pensée latérale — idées hors des sentiers battus"
     ]
   },
-  "steps": {
-    "h2": "Par où commencer",
-    "items": [
-      "Générez le compte-rendu (app ou web)",
-      "Touchez « Strategy »",
-      "Relisez Boost / Counter / Top Issue + 3 modes",
-      "Collez dans votre gestionnaire de tâches"
+  "how": {
+    "h2": "Comment ça marche",
+    "steps": [
+      "Générez le compte rendu comme d’habitude (app ou web).",
+      "Touchez « Strategy » pour analyser via ChatGPT-5 et Gemini 2.5 Pro.",
+      "Obtenez Boost / Counter / Top Issue + les trois modes de pensée.",
+      "Partagez le résultat ou collez-le dans votre gestionnaire de tâches."
     ],
-    "note": "Disponibilité/durée selon votre offre et quota."
+    "note": "Les sorties s’adaptent à la langue et au domaine ; concision par défaut pour une lecture rapide."
+  },
+  "samples": {
+    "h2": "Exemples courts et lisibles",
+    "minutes": {
+      "h3": "Compte rendu (exemple)",
+      "lines": [
+        "Sujet : boisson estivale en édition limitée « Solar Chill »",
+        "Décisions : procéder avec Solar Chill ; garder le nom ; finaliser la recette.",
+        "À faire : maquettes design ; déposer la recette finale dans le dossier partagé.",
+        "Risque : 15 % des retours mentionnent « trop acide »."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (exemple)",
+      "boost": [
+        "Boost : forte intention de rachat → pilote dans 10 magasins + activation sociale ; mesurer le réachat sous 7 jours."
+      ],
+      "counter": [
+        "Counter : perception d’acidité → option « douceur légère » ; A/B du niveau de sirop pendant 2 semaines."
+      ],
+      "top": [
+        "Top Issue : élargir l’attrait sans perdre la singularité de marque."
+      ],
+      "modes": {
+        "logical": [
+          "Logique : définir les segments cibles → fixer des KPI de succès → lancer l’A/B → livrer la meilleure spécification."
+        ],
+        "critical": [
+          "Critique : sur-ajustement au « buzz social » ? Valider par tests à l’aveugle."
+        ],
+        "lateral": [
+          "Latérale : décliner en parfum/room-mist pour étendre la présence de marque au-delà de la boisson."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Disponibilité",
+    "p1": "Strategy est disponible sur iOS. Passez de « notes » à « décisions »."
+  },
+  "image": {
+    "alt": "Interface Strategy de Minutes.AI",
+    "caption": "Boost / Counter / Top Issue et trois modes de pensée en un coup d’œil."
   },
   "features": {
     "h2": "Points forts",
     "items": [
       "Orienté décision, pas seulement résumé",
-      "Optimisé pour ChatGPT-5 & Gemini 2.5 Pro",
+      "Optimisé pour ChatGPT-5 et Gemini 2.5 Pro",
       "Sorties courtes et actionnables",
       "Multilingue pour équipes globales"
     ]
@@ -48,11 +96,19 @@
   "notes": {
     "h2": "Notes",
     "items": [
-      "La qualité d’entrée détermine la qualité de sortie",
-      "Adaptez les modèles au type de réunion"
+      "La qualité d’entrée conditionne la qualité de sortie.",
+      "Adaptez les modèles au type de réunion."
     ],
     "foot": "Disponible sur iOS. Essayez-le dès aujourd’hui."
   },
-  "meta": { "h2": "Meta", "published": "Publié", "type": "Fonction", "category": "Strategy" },
-  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" }
+  "meta": {
+    "h2": "Méta",
+    "published": "Publié",
+    "type": "Fonction",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l’app iOS"
+  }
 }

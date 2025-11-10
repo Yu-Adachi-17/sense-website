@@ -7,9 +7,11 @@
     "ld": {
       "headline": "Protokół AI dodaje Strategy",
       "description": "Użyj ChatGPT-5 i Gemini 2.5 Pro, by szybko i klarownie zamieniać dyskusję w decyzje."
-    }
+    },
+    "keywords": "Protokół AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, wsparcie decyzyjne, logiczne myślenie, krytyczne myślenie, myślenie lateralne, Boost, Counter, Top Issue, protokół ze spotkania"
   },
   "aria": { "home": "Strona główna Protokół AI" },
+  "a11y": { "home": "Strona główna Protokół AI" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Przewodnik po funkcji",
@@ -18,26 +20,69 @@
   },
   "image": {
     "alt": "Interfejs Protokół AI Strategy",
-    "caption": "Wydobądź sedno problemu i następne działania w jednym kroku."
+    "caption": "Boost / Counter / Top Issue oraz 3 tryby myślenia w jednym widoku."
   },
   "what": {
-    "h2": "Co robi Strategy",
-    "items": [
-      "Boost: co działa i jak skalować",
-      "Counter: ryzyka i poprawki",
-      "Top Issue: kluczowe pytanie",
-      "Tryby myślenia: Logiczy / Krytyczny / Lateralny"
+    "h2": "Czym jest Strategy?",
+    "p1": "Strategy to warstwa wsparcia decyzyjnego ponad Twoimi protokołami.",
+    "p2": "Generuje Boost (skala tego, co działa), Counter (ryzyka i działania korygujące) oraz Top Issue (kluczowy problem), a także trzy tryby myślenia dla Top Issue.",
+    "bullets": [
+      "Boost — co działa i jak to skalować",
+      "Counter — ryzyka oraz działania naprawcze",
+      "Top Issue — kluczowe pytanie, które musimy rozwiązać",
+      "Logical Thinking — ustrukturyzowane, krok-po-kroku podejście",
+      "Critical Thinking — kwestionuj założenia i wykrywaj sprzeczności",
+      "Lateral Thinking — wyjście poza schematy dla skokowej innowacji"
     ]
   },
-  "steps": {
-    "h2": "Jak zacząć",
-    "items": [
-      "Wygeneruj minutki w aplikacji lub w sieci",
-      "Stuknij „Strategy”",
-      "Przejrzyj Boost / Counter / Top Issue + 3 tryby",
-      "Wklej do swojego systemu zadań"
+  "how": {
+    "h2": "Jak używać",
+    "steps": [
+      "Wygeneruj protokół (w aplikacji lub w przeglądarce).",
+      "Stuknij „Strategy” i pozwól, aby ChatGPT-5 oraz Gemini 2.5 Pro przeanalizowały materiał.",
+      "Otrzymaj Boost / Counter / Top Issue + trzy tryby myślenia.",
+      "Udostępnij wynik lub wklej go do systemu zadań, aby przejść do działania."
     ],
-    "note": "Dostępność i czas trwania zależą od planu/limitu."
+    "note": "Wyjście dostosowuje się do języka i domeny; celowo zwięzłe dla szybkiego czytania."
+  },
+  "samples": {
+    "h2": "Krótkie, czytelne przykłady",
+    "minutes": {
+      "h3": "Protokół (przykład)",
+      "lines": [
+        "Temat: Letnia mieszanka „Solar Chill”",
+        "Decyzja: Kontynuujemy Solar Chill / zachowujemy nazwę / finalizujemy recepturę",
+        "To-do: Przygotować propozycje designu / wgrać finalną recepturę do folderu współdzielonego",
+        "Ryzyko: 15% opinii wskazuje „zbytnią kwasowość”"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (przykład)",
+      "boost": [
+        "Boost: Wysoka chęć ponownego zakupu → pilotaż w 10 sklepach + kampania w social media. Mierzyć re-order w ciągu 7 dni."
+      ],
+      "counter": [
+        "Counter: Redukcja kwasowości → dodać wariant „mild sweet”. Test A/B ilości syropu przez 2 tygodnie."
+      ],
+      "top": [
+        "Top Issue: Jaki jest „sweet spot” smaku, który poszerza dostępność bez utraty unikalności marki?"
+      ],
+      "modes": {
+        "logical": [
+          "Logical: Zdefiniować segment docelowy → ustalić KPI sukcesu → A/B → wdrożyć zwycięską specyfikację."
+        ],
+        "critical": [
+          "Critical: Czy nie przeoptymalizowujemy pod „virality” w social media? Powtórzyć ślepe testy."
+        ],
+        "lateral": [
+          "Lateral: Wyjść poza napoje (np. zapach/room mist), aby poszerzyć punkty kontaktu."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Dostępność",
+    "p1": "Strategy jest dostępne na iOS — od „protokołu” do „decyzji”."
   },
   "features": {
     "h2": "Najważniejsze",
@@ -52,7 +97,7 @@
     "h2": "Uwagi",
     "items": [
       "Jakość wyjścia odzwierciedla jakość wejścia",
-      "Używaj różnych szablonów dla różnych typów spotkań"
+      "Używaj szablonów dopasowanych do typu spotkania"
     ],
     "foot": "Dostępne na iOS. Wypróbuj dziś."
   },

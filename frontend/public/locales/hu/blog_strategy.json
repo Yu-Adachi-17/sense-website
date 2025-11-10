@@ -1,61 +1,114 @@
 {
   "seo": {
-    "title": "Jegyzőkönyv AI Strategy — jegyzőkönyvből döntés (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "A Strategy a meetingeket Boost/Counter/Top Issue egységekre és három gondolkodási módra sűríti a tiszta következő lépésekért. SEO lekérdezésekhez: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "title": "Jegyzőkönyv AI Strategy — jegyzőkönyvből döntéseket (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "A Strategy a jegyzőkönyveket döntéstámogató szintre emeli. A ChatGPT-5 és a Gemini 2.5 Pro segítségével Boost, Counter, Top Issue és három gondolkodási mód készül, hogy a vita gyorsan következő lépésekké váljon.",
     "ogTitle": "Strategy a Jegyzőkönyv AI-ban: döntések, nem csak jegyzetek",
-    "ogDescription": "Boost/Counter/Top Issue + Logikai/Kritikai/Laterális gondolkodás végrehajtható kimenetekhez.",
+    "ogDescription": "Boost / Counter / Top Issue + logikai / kritikai / laterális gondolkodás a végrehajtható kimenetekért.",
     "ld": {
       "headline": "A Jegyzőkönyv AI hozzáadta a Strategy-t",
-      "description": "Használd a ChatGPT-5-öt és a Gemini 2.5 Pro-t, hogy a vitát gyorsan és tisztán döntéssé alakítsd."
-    }
+      "description": "A Strategy funkció a ChatGPT-5 és a Gemini 2.5 Pro kimeneteivel világos döntésekké alakítja a vitákat."
+    },
+    "keywords": "Jegyzőkönyv AI, Minutes.AI, meeting jegyzőkönyv AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, döntéstámogatás, logikai gondolkodás, kritikai gondolkodás, laterális gondolkodás, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Jegyzőkönyv AI Kezdőlap" },
+  "aria": { "home": "Vissza a Jegyzőkönyv AI főoldalára" },
+  "a11y": { "home": "Vissza a Jegyzőkönyv AI főoldalára" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Funkció-útmutató",
     "h1": "Strategy a Jegyzőkönyv AI-hoz",
-    "tagline": "Nem csak jegyzőkönyv — a Strategy döntéssé formálja a vitát ChatGPT-5-tel és Gemini 2.5 Pro-val."
+    "tagline": "Ne állj meg az összegzésnél — a Strategy a ChatGPT-5 és a Gemini 2.5 Pro révén a vitát döntésekké és konkrét teendőkké formálja."
+  },
+  "what": {
+    "h2": "Mi a Strategy?",
+    "p1": "A Strategy egy döntéstámogató réteg a jegyzőkönyveid fölött.",
+    "p2": "Eredményei: Boost (mi működik és hogyan nagyítható fel), Counter (kockázatok és korrekciók), Top Issue (a központi kérdés), valamint három gondolkodási mód a Top Issue megoldásához.",
+    "bullets": [
+      "Boost — erősségek és skálázási stratégia",
+      "Counter — kockázatok és javító tervek",
+      "Top Issue — a megoldandó kulcsprobléma",
+      "Logikai gondolkodás — strukturált, lépésről lépésre megoldás",
+      "Kritikai gondolkodás — feltevések és torzítások vizsgálata",
+      "Laterális gondolkodás — szokatlan, áttörő ötletek"
+    ]
+  },
+  "how": {
+    "h2": "Hogyan működik",
+    "steps": [
+      "Készíts jegyzőkönyvet a szokásos módon (app vagy web).",
+      "Koppints a „Strategy” elemre az elemzéshez a ChatGPT-5 és a Gemini 2.5 Pro segítségével.",
+      "Kapd meg a Boost / Counter / Top Issue eredményeket + a három gondolkodási módot.",
+      "Oszd meg vagy illeszd be a feladatkezelődbe, és lépj a végrehajtásra."
+    ],
+    "note": "A kimenetek nyelvhez és szakterülethez igazodnak; alapértelmezés szerint tömörek a gyors olvashatóságért."
+  },
+  "samples": {
+    "h2": "Rövid, jól olvasható példák",
+    "minutes": {
+      "h3": "Jegyzőkönyv (példa)",
+      "lines": [
+        "Téma: nyári, limitált kiadású ital „Solar Chill”",
+        "Döntések: folytatjuk a Solar Chill-lel; a név marad; recept véglegesítése.",
+        "Teendők: design makettek; a végleges recept feltöltése a megosztott mappába.",
+        "Kockázat: a visszajelzések 15%-a szerint „túl savanyú”."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (példa)",
+      "boost": [
+        "Boost: magas újravásárlási szándék → pilot 10 üzletben + közösségi aktiváció; 7 napon belüli újrarendelési arány mérése."
+      ],
+      "counter": [
+        "Counter: savanyúságpercepció → „enyhén édes” opció; szirup-szint A/B teszt 2 héten át."
+      ],
+      "top": [
+        "Top Issue: a márka egyediségének megőrzése mellett hogyan szélesítsük a vonzerőt?"
+      ],
+      "modes": {
+        "logical": [
+          "Logikai: cél-szegmensek meghatározása → siker KPI-ok kitűzése → A/B futtatása → a győztes specifikáció bevezetése."
+        ],
+        "critical": [
+          "Kritikai: nem igazítjuk-e túl a „social buzz”-hoz? Igazold vaktesztekkel."
+        ],
+        "lateral": [
+          "Laterális: italon túli kiterjesztés — pl. illat/room-mist — további márkaérintési pontokért."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Elérhetőség",
+    "p1": "A Strategy iOS-en érhető el. Lépj a „jegyzetekből” a „döntések” felé."
   },
   "image": {
     "alt": "Jegyzőkönyv AI Strategy felület",
-    "caption": "Egy lépésben emeld ki a fő problémát és a következő teendőket."
-  },
-  "what": {
-    "h2": "Mit tud a Strategy",
-    "items": [
-      "Boost: mi működik és hogyan skálázható",
-      "Counter: kockázatok és javítások",
-      "Top Issue: a lényegi kérdés",
-      "Gondolkodási módok: Logikai / Kritikai / Laterális"
-    ]
-  },
-  "steps": {
-    "h2": "Hogyan kezdd el",
-    "items": [
-      "Generálj jegyzőkönyvet appban vagy weben",
-      "Koppints a „Strategy” lehetőségre",
-      "Nézd át a Boost / Counter / Top Issue + 3 módot",
-      "Illeszd be a feladatkezelődbe"
-    ],
-    "note": "Elérhetőség és időtartam a csomag/kvóta függvénye."
+    "caption": "Boost / Counter / Top Issue és a három gondolkodási mód — egy pillantással átlátható."
   },
   "features": {
     "h2": "Kiemelések",
     "items": [
-      "Döntés-fókusz, nem puszta összegzés",
-      "Optimalizált ChatGPT-5-re és Gemini 2.5 Pro-ra",
-      "Rövid, végrehajtható kimenetek",
-      "Többnyelvű, globális csapatoknak"
+      "Döntésfókusz, nem puszta összegzés",
+      "Optimalizálva a ChatGPT-5-re és a Gemini 2.5 Pro-ra",
+      "Rövid, világos, végrehajtható kimenetek",
+      "Többnyelvű támogatás globális csapatoknak"
     ]
   },
   "notes": {
     "h2": "Megjegyzések",
     "items": [
-      "A kimenet minősége a bemenet minőségét tükrözi",
-      "Külön sablonokat használj eltérő meetingtípusokra"
+      "A kimenet minősége a bemenet minőségét tükrözi.",
+      "Használj eltérő sablonokat különböző meetingtípusokhoz."
     ],
     "foot": "iOS-en elérhető. Próbáld ki még ma."
   },
-  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Funkció", "category": "Strategy" },
-  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS app letöltése" }
+  "meta": {
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Funkció",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "Megnyitás böngészőben",
+    "downloadIOS": "iOS app letöltése"
+  }
 }

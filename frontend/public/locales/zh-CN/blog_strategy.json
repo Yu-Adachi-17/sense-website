@@ -7,34 +7,79 @@
     "ld": {
       "headline": "会议记录AI 上线 Strategy",
       "description": "借助 ChatGPT-5 与 Gemini 2.5 Pro，将讨论快速清晰地转化为决策。"
-    }
+    },
+    "keywords": "会议记录AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, 决策支持, 逻辑思维, 批判性思维, 发散思维, Boost, Counter, Top Issue, 会议纪要"
   },
   "aria": { "home": "会议记录AI 首页" },
+  "a11y": { "home": "会议记录AI 首页" },
   "nav": { "blog": "博客", "strategy": "Strategy" },
   "hero": {
     "kicker": "功能指南",
     "h1": "会议记录AI 的 Strategy",
     "tagline": "不止做纪要——用 ChatGPT-5 / Gemini 2.5 Pro 把讨论变成决策。"
   },
-  "image": { "alt": "会议记录AI Strategy 界面", "caption": "一步提取核心问题与下一步行动。" },
+  "image": { "alt": "会议记录AI Strategy 界面", "caption": "在一处查看 Boost / Counter / Top Issue 与三种思维模式。" },
   "what": {
     "h2": "Strategy 能做什么",
-    "items": [
-      "Boost：有效之处与扩展",
-      "Counter：风险与修正",
-      "Top Issue：核心问题",
-      "思维模式：逻辑 / 批判 / 发散"
+    "p1": "Strategy 是叠加在会议纪要之上的“决策支持层”。",
+    "p2": "它会生成 Boost（扩大有效做法）、Counter（识别风险与纠偏动作）与 Top Issue（最关键问题），并针对 Top Issue 提供三种思维模式的解法思路。",
+    "bullets": [
+      "Boost —— 有效之处与如何扩展",
+      "Counter —— 风险点与纠正措施",
+      "Top Issue —— 必须优先解决的核心问题",
+      "逻辑思维 —— 结构化、分步骤推进",
+      "批判思维 —— 质疑前提、排查矛盾",
+      "发散思维 —— 跳出框架，探索跃迁式方案"
     ]
   },
-  "steps": {
-    "h2": "如何开始",
-    "items": [
-      "在 App/网页生成纪要",
-      "点按“Strategy”",
-      "查看 Boost / Counter / Top Issue + 3 种模式",
-      "粘贴到任务系统"
+  "how": {
+    "h2": "如何使用",
+    "steps": [
+      "在 App 或网页生成会议纪要；",
+      "点按「Strategy」，交给 ChatGPT-5 与 Gemini 2.5 Pro 分析；",
+      "获取 Boost / Counter / Top Issue + 三种思维模式；",
+      "将结果分享或粘贴到你的任务系统并执行。"
     ],
-    "note": "可用性与时长取决于套餐/配额。"
+    "note": "输出会随语言与业务领域自适应；为便于速读，刻意保持简洁。"
+  },
+  "samples": {
+    "h2": "简短可读的示例",
+    "minutes": {
+      "h3": "纪要（示例）",
+      "lines": [
+        "主题：夏季拼配「Solar Chill」",
+        "决议：推进 Solar Chill／保留名称／敲定配方",
+        "待办：产出设计方案／将最终配方上传共享文件夹",
+        "风险：15% 反馈认为“酸度偏高”"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy（示例）",
+      "boost": [
+        "Boost：复购意愿高 → 在 10 家门店试点 + 社媒联动，监测 7 日内复购率。"
+      ],
+      "counter": [
+        "Counter：酸度缓解 → 增加 “mild sweet” 选项；两周 A/B 测试糖浆量。"
+      ],
+      "top": [
+        "Top Issue：在不牺牲品牌独特性的前提下，口味的“最佳平衡点”在哪里？"
+      ],
+      "modes": {
+        "logical": [
+          "逻辑：圈定目标细分 → 设定成功 KPI → A/B → 上线胜出方案。"
+        ],
+        "critical": [
+          "批判：是否过度迎合社媒“话题度”？通过盲测复核。"
+        ],
+        "lateral": [
+          "发散：跳出饮品品类（如香氛／room mist），扩大触点。"
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "适配与可用性",
+    "p1": "Strategy 现已支持 iOS —— 从“纪要”直达“决策”。"
   },
   "features": {
     "h2": "亮点",
@@ -42,14 +87,14 @@
       "面向决策，而非仅做摘要",
       "为 ChatGPT-5 与 Gemini 2.5 Pro 优化",
       "短小精悍、可执行",
-      "多语言，适配全球团队"
+      "多语言支持，适配全球团队"
     ]
   },
   "notes": {
     "h2": "提示",
     "items": [
       "输入质量决定输出质量",
-      "按会议类型选择不同模板"
+      "按会议类型选择与之匹配的模板"
     ],
     "foot": "iOS 可用，立即体验。"
   },

@@ -1,58 +1,97 @@
 {
   "seo": {
-    "title": "Strategy dalam Minit AI — ubah minit mesyuarat jadi keputusan (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy memadatkan mesyuarat kepada Boost/Counter/Top Issue dan tiga mod pemikiran untuk langkah seterusnya yang jelas. SEO: minit AI, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy di Minit AI: keputusan, bukan sekadar ringkasan",
-    "ogDescription": "Boost/Counter/Top Issue + Logik/Kritikal/Lateral untuk hasil yang boleh dilaksanakan.",
+    "title": "Strategy dalam Minit AI — ubah minit mesyuarat jadi keputusan (ChatGPT-5 / Gemini 2.5 Pro)",
+    "description": "Strategy Minit AI menukar minit mesyuarat kepada langkah seterusnya. Dengan ChatGPT-5 dan Gemini 2.5 Pro, ia menghasilkan Boost, Counter, Top Issue serta tiga mod pemikiran.",
+    "ogTitle": "Minit AI Strategy: daripada ringkasan kepada keputusan",
+    "ogDescription": "Ubah perbincangan menjadi strategi dengan Boost, Counter, Top Issue dan Pemikiran Logik/Kritikal/Lateral.",
     "ld": {
-      "headline": "Minit AI menambah Strategy",
-      "description": "Manfaatkan ChatGPT-5 dan Gemini 2.5 Pro untuk menukar perbincangan kepada keputusan dengan cepat dan jelas."
-    }
+      "headline": "Minit AI menambah ciri Strategy",
+      "description": "Ciri Strategy mengangkat minit menjadi sokongan keputusan menggunakan output ChatGPT-5 dan Gemini 2.5 Pro."
+    },
+    "keywords": "Minit AI, minit mesyuarat AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, sokongan keputusan, Pemikiran Logik, Pemikiran Kritikal, Pemikiran Lateral, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Laman utama Minit AI" },
+  "aria": { "home": "Ke laman utama Minit AI" },
+  "a11y": { "home": "Ke laman utama Minit AI" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
-    "kicker": "Panduan ciri",
+    "kicker": "Sorotan Ciri",
     "h1": "Strategy untuk Minit AI",
-    "tagline": "Bukan sekadar minit—Strategy menukar perbincangan kepada keputusan dengan ChatGPT-5 dan Gemini 2.5 Pro."
+    "tagline": "Bukan sekadar ringkasan. Strategy menukar perbincangan kepada tindakan jelas dengan ChatGPT-5 dan Gemini 2.5 Pro."
   },
-  "image": { "alt": "Antara muka Strategy Minit AI", "caption": "Kenal pasti isu teras dan tindakan seterusnya dalam satu langkah." },
   "what": {
-    "h2": "Apa yang dilakukan Strategy",
-    "items": [
-      "Boost: apa yang berkesan & cara skala",
-      "Counter: risiko & pembaikan",
-      "Top Issue: soalan teras",
-      "Mod pemikiran: Logik / Kritikal / Lateral"
+    "h2": "Apakah itu Strategy?",
+    "p1": "Strategy ialah lapisan sokongan keputusan di atas minit anda.",
+    "p2": "Ia menghasilkan Boost (apa yang berkesan & cara skala), Counter (risiko & pembaikan), Top Issue (isu teras), serta tiga mod pemikiran untuk Top Issue.",
+    "bullets": [
+      "Boost — perkara yang berkesan dan cara menskalakannya",
+      "Counter — risiko dan tindakan pembetulan",
+      "Top Issue — soalan teras yang perlu diselesaikan",
+      "Pemikiran Logik — penyelesaian berstruktur langkah demi langkah",
+      "Pemikiran Kritikal — cabar andaian dan kesahihan",
+      "Pemikiran Lateral — loncatan idea di luar kebiasaan"
     ]
   },
-  "steps": {
-    "h2": "Cara mula",
-    "items": [
-      "Jana minit di aplikasi atau web",
-      "Ketik “Strategy”",
-      "Semak Boost / Counter / Top Issue + 3 mod",
-      "Tampal ke sistem tugasan anda"
+  "how": {
+    "h2": "Cara berfungsi",
+    "steps": [
+      "Jana minit seperti biasa (aplikasi atau web).",
+      "Ketik “Strategy” untuk analisis dengan ChatGPT-5 & Gemini 2.5 Pro.",
+      "Dapatkan Boost/Counter/Top Issue + tiga mod pemikiran.",
+      "Kongsi atau tampal hasil ke sistem tugasan anda."
     ],
-    "note": "Ketersediaan/tempoh bergantung pada pelan/kuota anda."
+    "note": "Output menyesuaikan bahasa dan domain; ringkas secara lalai untuk bacaan pantas."
   },
-  "features": {
-    "h2": "Sorotan",
-    "items": [
-      "Berfokus keputusan, bukan sekadar ringkasan",
-      "Dioptimum untuk ChatGPT-5 & Gemini 2.5 Pro",
-      "Keluaran ringkas dan boleh dilaksanakan",
-      "Berbilang bahasa untuk pasukan global"
-    ]
+  "samples": {
+    "h2": "Contoh ringkas dan mudah dibaca",
+    "minutes": {
+      "h3": "Minit (contoh)",
+      "lines": [
+        "Topik: Blen terhad musim panas “Solar Chill”",
+        "Keputusan: Teruskan Solar Chill; kekal nama; muktamadkan resipi.",
+        "Tugasan: Cipta mockup reka bentuk; muat naik resipi akhir ke folder kongsi.",
+        "Risiko: 15% maklum balas menyatakan “terlalu masam”."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (contoh)",
+      "boost": [
+        "Boost: Niat pembelian semula tinggi → perintis di 10 kedai + promosi sosial; ukur pesanan semula dalam 7 hari."
+      ],
+      "counter": [
+        "Counter: Tangani kemasaman → tambah pilihan ‘sedikit manis’; A/B tahap sirap selama 2 minggu."
+      ],
+      "top": [
+        "Top Issue: Seimbangkan rasa untuk memperluas tarikan tanpa hilang keunikan jenama."
+      ],
+      "modes": {
+        "logical": [
+          "Logik: Tentukan segmen sasaran → tetapkan KPI kejayaan → jalankan A/B → lancarkan spesifikasi pemenang."
+        ],
+        "critical": [
+          "Kritikal: Adakah kita terlebih menyesuaikan kepada ‘buzz’ sosial? Sahkan semula dengan ujian rasa buta."
+        ],
+        "lateral": [
+          "Lateral: Tawar edisi haruman/room-mist untuk melanjutkan jenama melampaui minuman."
+        ]
+      }
+    }
   },
-  "notes": {
-    "h2": "Nota",
-    "items": [
-      "Kualiti input menentukan kualiti output",
-      "Guna templat berbeza mengikut jenis mesyuarat"
-    ],
-    "foot": "Tersedia di iOS. Cuba hari ini."
+  "platform": {
+    "h2": "Ketersediaan",
+    "p1": "Strategy tersedia di iOS. Beralih daripada ‘nota’ kepada ‘keputusan’."
   },
-  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Ciri", "category": "Strategy" },
-  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun aplikasi iOS" }
+  "image": {
+    "alt": "Antara muka Strategy Minit AI",
+    "caption": "Boost/Counter/Top Issue + tiga mod pemikiran, sepintas lalu."
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Ciri",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "Buka dalam pelayar",
+    "downloadIOS": "Muat turun aplikasi iOS"
+  }
 }

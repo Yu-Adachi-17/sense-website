@@ -7,34 +7,79 @@
     "ld": {
       "headline": "Tutanakları AI Strategy'yi ekledi",
       "description": "ChatGPT-5 ve Gemini 2.5 Pro ile tartışmayı hızlı ve net karara dönüştürün."
-    }
+    },
+    "keywords": "Tutanakları AI, Strategy, yapay zekâ tutanak, ChatGPT-5, Gemini 2.5 Pro, karar desteği, mantıksal düşünme, eleştirel düşünme, yanal düşünme, Boost, Counter, Top Issue"
   },
   "aria": { "home": "Tutanakları AI Ana Sayfa" },
+  "a11y": { "home": "Tutanakları AI Ana Sayfa" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Özellik Rehberi",
     "h1": "Tutanakları AI için Strategy",
     "tagline": "Sadece özet değil—Strategy, ChatGPT-5 ve Gemini 2.5 Pro ile tartışmayı karara çevirir."
   },
-  "image": { "alt": "Tutanakları AI Strategy arayüzü", "caption": "Çekirdek sorunu ve sonraki adımları tek akışta çıkarın." },
+  "image": { "alt": "Tutanakları AI Strategy arayüzü", "caption": "Boost / Counter / Top Issue ve 3 düşünme modunu tek bakışta görün." },
   "what": {
-    "h2": "Strategy ne yapar?",
-    "items": [
-      "Boost: ne işe yarıyor & nasıl ölçeklenir",
-      "Counter: riskler & düzeltmeler",
-      "Top Issue: temel soru",
-      "Düşünme modları: Mantıksal / Eleştirel / Yanal"
+    "h2": "Strategy nedir?",
+    "p1": "Strategy, tutanaklarınızın üzerine eklenen bir karar destek katmanıdır.",
+    "p2": "Çalışan noktaları büyüten Boost, riskleri ve önlemleri tanımlayan Counter ve çözülmesi gereken Top Issue’yu; ayrıca Top Issue için üç düşünme modunu üretir.",
+    "bullets": [
+      "Boost — ne işe yarıyor ve nasıl ölçeklenir",
+      "Counter — riskler ve düzeltici aksiyonlar",
+      "Top Issue — mutlaka çözmemiz gereken temel soru",
+      "Mantıksal düşünme — yapılandırılmış, adım adım yaklaşım",
+      "Eleştirel düşünme — varsayımları sorgulayın, çelişkileri bulun",
+      "Yanal düşünme — kutunun dışında sıçrama fikirler"
     ]
   },
-  "steps": {
-    "h2": "Başlangıç",
-    "items": [
-      "Uygulama veya webde tutanak oluşturun",
-      "“Strategy”e dokunun",
-      "Boost / Counter / Top Issue + 3 modu inceleyin",
-      "Görev sisteminize yapıştırın"
+  "how": {
+    "h2": "Nasıl kullanılır",
+    "steps": [
+      "Tutanak oluşturun (uygulama veya web).",
+      "“Strategy”e dokunun ve ChatGPT-5 ile Gemini 2.5 Pro’nun analiz etmesini sağlayın.",
+      "Boost / Counter / Top Issue + üç düşünme modunu alın.",
+      "Sonucu paylaşın ya da görev yöneticinize yapıştırıp uygulamaya geçin."
     ],
-    "note": "Uygunluk ve süre plan/kvotaya bağlıdır."
+    "note": "Çıktı dil ve alana uyum sağlar; hızlı okunabilirlik için bilinçli olarak kısadır."
+  },
+  "samples": {
+    "h2": "Kısa ve okunabilir örnekler",
+    "minutes": {
+      "h3": "Tutanak (örnek)",
+      "lines": [
+        "Konu: Yaz harmanı “Solar Chill”",
+        "Karar: Solar Chill ile devam / isim korunacak / reçete finalize edilecek",
+        "Yapılacaklar: Tasarım önerileri hazırla / nihai reçeteyi paylaşılan klasöre yükle",
+        "Risk: Geri bildirimin %15’i ‘fazla ekşi’ diyor"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (örnek)",
+      "boost": [
+        "Boost: Yüksek tekrar satın alma niyeti → 10 mağazada pilot + sosyal kampanya. 7 gün içinde yeniden sipariş oranını ölç."
+      ],
+      "counter": [
+        "Counter: Ekşiliği azalt → “mild sweet” seçeneği ekle. 2 hafta şurup miktarı A/B test et."
+      ],
+      "top": [
+        "Top Issue: Marka kimliğini yitirmeden erişimi genişleten tat ‘sweet spot’u nedir?"
+      ],
+      "modes": {
+        "logical": [
+          "Mantıksal: Hedef segmenti tanımla → başarı KPI’larını belirle → A/B → kazanan kurguyu yayına al."
+        ],
+        "critical": [
+          "Eleştirel: Sosyal ‘konuşturma’ya aşırı mı optimize ediyoruz? Kör tadımı tekrarla."
+        ],
+        "lateral": [
+          "Yanal: Teması içecek dışına taşı (örn. koku/room mist) ve temas noktalarını genişlet."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Kapsam",
+    "p1": "Strategy iOS’ta mevcut — “tutanak”tan “karar”a."
   },
   "features": {
     "h2": "Öne çıkanlar",
@@ -49,7 +94,7 @@
     "h2": "Notlar",
     "items": [
       "Girdi kalitesi, çıktı kalitesini belirler",
-      "Toplantı tipine göre şablon değiştirin"
+      "Toplantı tipine uygun şablonlar kullanın"
     ],
     "foot": "iOS’ta mevcut. Bugün deneyin."
   },

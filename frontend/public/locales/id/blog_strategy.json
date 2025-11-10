@@ -1,58 +1,114 @@
 {
   "seo": {
     "title": "Strategy di Minutes AI — ubah notulen jadi keputusan (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy merangkum rapat menjadi Boost/Counter/Top Issue dan tiga mode berpikir untuk langkah berikutnya yang jelas. SEO: notulen AI, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy menaikkan notulen ke tingkat dukungan keputusan. Dengan ChatGPT-5 dan Gemini 2.5 Pro, ia menghasilkan Boost, Counter, Top Issue serta tiga mode berpikir agar diskusi berubah menjadi langkah nyata.",
     "ogTitle": "Strategy di Minutes AI: keputusan, bukan sekadar ringkasan",
-    "ogDescription": "Boost/Counter/Top Issue + Logis/Kritis/Lateral untuk keluaran yang dapat ditindaklanjuti.",
+    "ogDescription": "Boost / Counter / Top Issue + Logis / Kritis / Lateral untuk keluaran yang bisa langsung ditindaklanjuti.",
     "ld": {
       "headline": "Minutes AI menambahkan Strategy",
-      "description": "Gunakan ChatGPT-5 dan Gemini 2.5 Pro untuk mengubah diskusi menjadi keputusan secara cepat dan jelas."
-    }
+      "description": "Fitur Strategy mengubah diskusi menjadi keputusan yang jelas berbekal keluaran ChatGPT-5 dan Gemini 2.5 Pro."
+    },
+    "keywords": "Minutes AI, notulen rapat AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, dukungan keputusan, berpikir logis, berpikir kritis, berpikir lateral, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Beranda Minutes AI" },
+  "aria": { "home": "Kembali ke Beranda Minutes AI" },
+  "a11y": { "home": "Kembali ke Beranda Minutes AI" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Panduan fitur",
     "h1": "Strategy untuk Minutes AI",
-    "tagline": "Bukan cuma notulen—Strategy mengubah diskusi jadi keputusan dengan ChatGPT-5 dan Gemini 2.5 Pro."
+    "tagline": "Bukan cuma notulen — Strategy mengubah diskusi jadi keputusan dan tindakan berikutnya dengan ChatGPT-5 serta Gemini 2.5 Pro."
   },
-  "image": { "alt": "Antarmuka Strategy Minutes AI", "caption": "Tentukan isu inti dan tindakan berikutnya dalam satu langkah." },
   "what": {
-    "h2": "Apa yang dilakukan Strategy",
-    "items": [
-      "Boost: apa yang berhasil & cara skala",
-      "Counter: risiko & perbaikan",
-      "Top Issue: pertanyaan inti",
-      "Mode berpikir: Logis / Kritis / Lateral"
+    "h2": "Apa itu Strategy?",
+    "p1": "Strategy adalah lapisan dukungan keputusan di atas notulen Anda.",
+    "p2": "Ia menghasilkan: Boost (apa yang berhasil dan cara memperbesarnya), Counter (risiko serta perbaikannya), Top Issue (pertanyaan inti), dan tiga mode berpikir untuk menangani Top Issue.",
+    "bullets": [
+      "Boost — kekuatan inti dan strategi penskalaan",
+      "Counter — risiko dan rencana korektif",
+      "Top Issue — masalah kunci yang harus diselesaikan",
+      "Berpikir Logis — solusi terstruktur selangkah demi selangkah",
+      "Berpikir Kritis — uji asumsi dan bias",
+      "Berpikir Lateral — lompatan ide di luar kebiasaan"
     ]
   },
-  "steps": {
-    "h2": "Cara mulai",
-    "items": [
-      "Hasilkan notulen di aplikasi atau web",
-      "Ketuk “Strategy”",
-      "Tinjau Boost / Counter / Top Issue + 3 mode",
-      "Tempel ke sistem tugas Anda"
+  "how": {
+    "h2": "Cara kerja",
+    "steps": [
+      "Hasilkan notulen seperti biasa (aplikasi atau web).",
+      "Ketuk “Strategy” untuk analisis dengan ChatGPT-5 & Gemini 2.5 Pro.",
+      "Dapatkan Boost / Counter / Top Issue + tiga mode berpikir.",
+      "Bagikan atau tempelkan ke sistem tugas Anda untuk eksekusi."
     ],
-    "note": "Ketersediaan/durasi tergantung paket & kuota Anda."
+    "note": "Keluaran menyesuaikan bahasa dan domain; default-nya ringkas agar cepat dibaca."
+  },
+  "samples": {
+    "h2": "Contoh singkat dan mudah dibaca",
+    "minutes": {
+      "h3": "Notulen (contoh)",
+      "lines": [
+        "Topik: minuman edisi musim panas “Solar Chill”",
+        "Keputusan: lanjutkan Solar Chill; pertahankan nama; finalkan resep.",
+        "Tugas: buat mockup desain; unggah resep final ke folder bersama.",
+        "Risiko: 15% umpan balik menyebut “terlalu asam”."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (contoh)",
+      "boost": [
+        "Boost: niat beli ulang tinggi → pilot di 10 toko + promosi sosial; ukur pemesanan ulang dalam 7 hari."
+      ],
+      "counter": [
+        "Counter: persepsi keasaman → opsi “sedikit manis”; A/B level sirup selama 2 minggu."
+      ],
+      "top": [
+        "Top Issue: perluas daya tarik tanpa menghilangkan kekhasan merek."
+      ],
+      "modes": {
+        "logical": [
+          "Logis: definisikan segmen target → tetapkan KPI sukses → jalankan A/B → rilis spesifikasi pemenang."
+        ],
+        "critical": [
+          "Kritis: apakah kita overfit ke “buzz sosial”? Validasi dengan uji cicip buta."
+        ],
+        "lateral": [
+          "Lateral: ekspansi di luar minuman (mis. wewangian/room-mist) untuk menambah touchpoint merek."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Ketersediaan",
+    "p1": "Strategy tersedia di iOS. Beralihlah dari “catatan” ke “keputusan”."
+  },
+  "image": {
+    "alt": "Antarmuka Strategy Minutes AI",
+    "caption": "Boost / Counter / Top Issue dan tiga mode berpikir — sekilas langsung paham."
   },
   "features": {
     "h2": "Sorotan",
     "items": [
-      "Fokus keputusan, bukan sekadar ringkas",
+      "Berfokus pada keputusan, bukan sekadar ringkasan",
       "Dioptimalkan untuk ChatGPT-5 & Gemini 2.5 Pro",
-      "Keluaran singkat dan action-ready",
+      "Keluaran singkat, jelas, dan siap ditindak",
       "Multibahasa untuk tim global"
     ]
   },
   "notes": {
     "h2": "Catatan",
     "items": [
-      "Kualitas keluaran mencerminkan kualitas masukan",
-      "Gunakan templat berbeda sesuai jenis rapat"
+      "Kualitas keluaran mencerminkan kualitas masukan.",
+      "Sesuaikan templat dengan jenis rapat yang berbeda."
     ],
     "foot": "Tersedia di iOS. Coba sekarang."
   },
-  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Fitur", "category": "Strategy" },
-  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Fitur",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS"
+  }
 }

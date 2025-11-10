@@ -7,41 +7,86 @@
     "ld": {
       "headline": "會議紀錄AI 上線 Strategy",
       "description": "結合 ChatGPT-5 與 Gemini 2.5 Pro，將討論快速而清晰地轉為決策。"
-    }
+    },
+    "keywords": "會議紀錄AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, 決策支援, 邏輯思維, 批判性思維, 發散思維, Boost, Counter, Top Issue, 會議紀錄"
   },
   "aria": { "home": "會議紀錄AI 主頁" },
+  "a11y": { "home": "會議紀錄AI 主頁" },
   "nav": { "blog": "部落格", "strategy": "Strategy" },
   "hero": {
     "kicker": "功能指南",
     "h1": "會議紀錄AI 的 Strategy",
     "tagline": "不只做紀錄——用 ChatGPT-5／Gemini 2.5 Pro 把討論變成決策。"
   },
-  "image": { "alt": "會議紀錄AI Strategy 介面", "caption": "一步擷取核心問題與下一步行動。" },
+  "image": { "alt": "會議紀錄AI Strategy 介面", "caption": "在同一視圖掌握 Boost／Counter／Top Issue 與三種思維模式。" },
   "what": {
     "h2": "Strategy 能做什麼",
-    "items": [
-      "Boost：有效重點與擴張",
-      "Counter：風險與修正",
-      "Top Issue：核心問題",
-      "思維模式：邏輯／批判／發散"
+    "p1": "Strategy 是覆蓋於會議紀錄之上的「決策支援層」。",
+    "p2": "它會產生 Boost（放大有效作法）、Counter（辨識風險與修正動作）與 Top Issue（最關鍵問題），並就 Top Issue 提供三種思維模式的解法。",
+    "bullets": [
+      "Boost —— 有效重點與如何擴張",
+      "Counter —— 風險點與矯正措施",
+      "Top Issue —— 需要優先解決的核心問題",
+      "邏輯思維 —— 結構化、逐步推進",
+      "批判思維 —— 檢視前提、找出矛盾",
+      "發散思維 —— 跳脫框架，探索跳躍式方案"
     ]
   },
-  "steps": {
-    "h2": "如何開始",
-    "items": [
-      "在 App／網頁產生紀錄",
-      "點擊「Strategy」",
-      "檢視 Boost／Counter／Top Issue ＋ 3 種模式",
-      "貼到任務系統"
+  "how": {
+    "h2": "如何使用",
+    "steps": [
+      "於 App 或網頁產生會議紀錄；",
+      "點擊「Strategy」，交由 ChatGPT-5 與 Gemini 2.5 Pro 分析；",
+      "獲得 Boost／Counter／Top Issue ＋ 三種思維模式；",
+      "將結果分享或貼入你的任務系統以付諸執行。"
     ],
-    "note": "可用性與時長取決於方案／額度。"
+    "note": "輸出會依語言與情境自動調整；為便於速讀，刻意保持精煉。"
+  },
+  "samples": {
+    "h2": "簡短易讀的範例",
+    "minutes": {
+      "h3": "會議紀錄（範例）",
+      "lines": [
+        "主題：夏季配方「Solar Chill」",
+        "決議：持續推進 Solar Chill／保留名稱／最終定稿配方",
+        "待辦：產出設計提案／將最終配方上傳共享資料夾",
+        "風險：15% 回饋指出「酸度偏高」"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy（範例）",
+      "boost": [
+        "Boost：回購意願高 → 10 間門市試點＋社群行銷；追蹤 7 日內重複下單率。"
+      ],
+      "counter": [
+        "Counter：降低酸感 → 增加「mild sweet」選項；糖漿用量進行兩週 A/B 測試。"
+      ],
+      "top": [
+        "Top Issue：如何在不犧牲品牌識別的前提下，找到能擴大受眾的風味「甜蜜點」？"
+      ],
+      "modes": {
+        "logical": [
+          "邏輯：界定目標族群 → 設定成功 KPI → A/B → 上線勝出方案。"
+        ],
+        "critical": [
+          "批判：是否過度追求社群「話題性」？以盲測重新驗證。"
+        ],
+        "lateral": [
+          "發散：跳出飲品品類（如香氛／room mist），拓展接觸節點。"
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "支援情況",
+    "p1": "Strategy 目前支援 iOS —— 從「紀錄」直達「決策」。"
   },
   "features": {
     "h2": "亮點",
     "items": [
       "面向決策，而非僅做摘要",
       "為 ChatGPT-5 與 Gemini 2.5 Pro 最佳化",
-      "短小精煉、可執行",
+      "精煉可執行的輸出",
       "多語支援，適合全球團隊"
     ]
   },
@@ -49,7 +94,7 @@
     "h2": "注意",
     "items": [
       "輸入品質決定輸出品質",
-      "依會議類型選用不同範本"
+      "依會議類型選用對應範本"
     ],
     "foot": "iOS 提供，立即體驗。"
   },

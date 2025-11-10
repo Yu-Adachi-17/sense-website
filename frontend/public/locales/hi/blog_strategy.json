@@ -1,61 +1,114 @@
 {
   "seo": {
     "title": "कार्यवृत्त AI Strategy — मिनट्स को निर्णयों में बदलें (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy बैठकों को Boost/Counter/Top Issue और तीन thinking modes में संक्षेपित करता है ताकि अगले कदम स्पष्ट हों। SEO क्वेरी: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy आपके मिनट्स को निर्णय-सहायक स्तर पर ले जाता है। ChatGPT-5 और Gemini 2.5 Pro के साथ यह Boost, Counter, Top Issue और तीन Thinking Modes देता है ताकि चर्चा से अगला कदम तुरंत तय हो सके।",
     "ogTitle": "कार्यवृत्त AI में Strategy: केवल नोट्स नहीं, निर्णय",
-    "ogDescription": "Boost/Counter/Top Issue + Logical/Critical/Lateral सोच से actionable आउटपुट।",
+    "ogDescription": "Boost / Counter / Top Issue + Logical / Critical / Lateral सोच — छोटे, स्पष्ट और Actionable आउटपुट।",
     "ld": {
-      "headline": "कार्यवृत्त AI ने जोड़ा Strategy",
-      "description": "ChatGPT-5 और Gemini 2.5 Pro की मदद से चर्चा को तेज़ी और स्पष्टता से निर्णयों में बदलें।"
-    }
+      "headline": "कार्यवृत्त AI में Strategy जोड़ा गया",
+      "description": "ChatGPT-5 और Gemini 2.5 Pro के आउटपुट का उपयोग करके चर्चा को तेज़ी और स्पष्टता से निर्णयों में बदलिए।"
+    },
+    "keywords": "Minutes.AI, कार्यवृत्त AI, Strategy, मीटिंग मिनट्स AI, ChatGPT-5, Gemini 2.5 Pro, Decision Support, Logical Thinking, Critical Thinking, Lateral Thinking, Boost, Counter, Top Issue"
   },
   "aria": { "home": "कार्यवृत्त AI मुखपृष्ठ" },
+  "a11y": { "home": "कार्यवृत्त AI मुखपृष्ठ" },
   "nav": { "blog": "ब्लॉग", "strategy": "Strategy" },
   "hero": {
-    "kicker": "फ़ीचर गाइड",
+    "kicker": "फ़ीचर डीप-डाइव",
     "h1": "कार्यवृत्त AI के लिए Strategy",
-    "tagline": "सिर्फ मिनट्स नहीं — Strategy, ChatGPT-5 और Gemini 2.5 Pro के साथ चर्चा को निर्णय में बदलता है।"
+    "tagline": "सिर्फ मिनट्स नहीं — Strategy, ChatGPT-5 और Gemini 2.5 Pro के साथ चर्चा को ठोस निर्णय और अगले एक्शन में बदलता है।"
+  },
+  "what": {
+    "h2": "Strategy क्या है?",
+    "p1": "Strategy आपके मिनट्स के ऊपर एक Decision-Support लेयर है।",
+    "p2": "यह उत्पन्न करता है: Boost (जो काम कर रहा है और उसे कैसे बढ़ाएँ), Counter (जोखिम और सुधार), Top Issue (मुख्य प्रश्न) — और उसी Top Issue के लिए तीन Thinking Modes।",
+    "bullets": [
+      "Boost — पॉज़िटिव्स और स्केल-अप की रणनीति",
+      "Counter — जोखिम और सुधार योजना",
+      "Top Issue — हल करने योग्य केंद्रीय समस्या",
+      "Logical Thinking — संरचित, चरणबद्ध समाधान",
+      "Critical Thinking — मान्यताओं/बायस की जाँच",
+      "Lateral Thinking — सामान्य से परे छलाँगदार आइडिया"
+    ]
+  },
+  "how": {
+    "h2": "यह कैसे काम करता है",
+    "steps": [
+      "हमेशा की तरह (ऐप या वेब) मिनट्स बनाएँ।",
+      "“Strategy” टैप करें — ChatGPT-5 और Gemini 2.5 Pro से विश्लेषण होगा।",
+      "Boost / Counter / Top Issue + तीनों Thinking Modes प्राप्त करें।",
+      "नतीजे शेयर करें या अपने टास्क सिस्टम में पेस्ट कर के एक्शन लें।"
+    ],
+    "note": "आउटपुट भाषा/डोमेन के अनुसार अनुकूलित; तेज़ पढ़ाई के लिए डिफ़ॉल्ट रूप से संक्षिप्त।"
+  },
+  "samples": {
+    "h2": "छोटे, पढ़ने-लायक उदाहरण",
+    "minutes": {
+      "h3": "मिनट्स (उदाहरण)",
+      "lines": [
+        "विषय: समर लिमिटेड ब्लेंड “Solar Chill”",
+        "निर्णय: Solar Chill जारी; नाम वही रहेगा; रेसिपी फ़ाइनल।",
+        "कार्य: डिज़ाइन मॉकअप; अंतिम रेसिपी साझा फ़ोल्डर में अपलोड।",
+        "जोखिम: 15% फ़ीडबैक — “ज़्यादा खट्टा”।"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (उदाहरण)",
+      "boost": [
+        "Boost: हाई री-ऑर्डर इंटेंट → 10 स्टोर्स में पायलट + सोशल प्रमो; 7 दिनों में री-ऑर्डर रेट मापें।"
+      ],
+      "counter": [
+        "Counter: खट्टापन धारणा → “माइल्ड स्वीट” विकल्प जोड़ें; 2 हफ्ते सिरप-लेवल A/B टेस्ट।"
+      ],
+      "top": [
+        "Top Issue: ब्रांड की विशिष्टता बनाए रखते हुए अपील कैसे बढ़ाएँ?"
+      ],
+      "modes": {
+        "logical": [
+          "Logical: लक्ष्य सेगमेंट तय → सफलता KPI सेट → A/B चलाएँ → जीतने वाली स्पेक शिप करें।"
+        ],
+        "critical": [
+          "Critical: क्या हम “सोशल बज़” पर ओवरफिट कर रहे हैं? ब्लाइंड टेस्ट से वैलिडेट करें।"
+        ],
+        "lateral": [
+          "Lateral: पेय के पार विस्तार—जैसे सुगंध/रूम-मिस्ट—से ब्रांड टचपॉइंट बढ़ाएँ।"
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "उपलब्धता",
+    "p1": "Strategy iOS पर उपलब्ध है—“नोट्स” से “निर्णय” की ओर बढ़ें।"
   },
   "image": {
     "alt": "कार्यवृत्त AI Strategy UI",
-    "caption": "एक ही स्टेप में कोर इश्यू और अगले एक्शन निकालें।"
-  },
-  "what": {
-    "h2": "Strategy क्या करता है",
-    "items": [
-      "Boost: क्या काम कर रहा है और कैसे स्केल करें",
-      "Counter: जोखिम और समाधान",
-      "Top Issue: मूल प्रश्न",
-      "Thinking modes: Logical / Critical / Lateral"
-    ]
-  },
-  "steps": {
-    "h2": "शुरू कैसे करें",
-    "items": [
-      "ऐप या वेब पर मिनट्स जनरेट करें",
-      "“Strategy” टैप करें",
-      "Boost / Counter / Top Issue + 3 मोड रिव्यू करें",
-      "अपने टास्क सिस्टम में पेस्ट करें"
-    ],
-    "note": "उपलब्धता और अवधि आपके प्लान/कोटा पर निर्भर है।"
+    "caption": "Boost / Counter / Top Issue और तीन Thinking Modes — एक नज़र में।"
   },
   "features": {
     "h2": "हाइलाइट्स",
     "items": [
       "सारांश नहीं, निर्णय-केंद्रित",
       "ChatGPT-5 और Gemini 2.5 Pro के लिए अनुकूलित",
-      "छोटे, actionable आउटपुट",
+      "छोटे, स्पष्ट, Actionable आउटपुट",
       "वैश्विक टीमों के लिए बहुभाषी"
     ]
   },
   "notes": {
     "h2": "नोट्स",
     "items": [
-      "आउटपुट की गुणवत्ता, इनपुट की गुणवत्ता पर निर्भर",
-      "विभिन्न मीटिंग प्रकारों के लिए अलग टेम्पलेट्स उपयोग करें"
+      "आउटपुट की गुणवत्ता इनपुट की गुणवत्ता पर निर्भर करती है।",
+      "भिन्न मीटिंग-टाइप के लिए उपयुक्त टेम्पलेट चुनें।"
     ],
-    "foot": "iOS पर उपलब्ध। आज़माएँ।"
+    "foot": "iOS पर उपलब्ध — आज़माएँ।"
   },
-  "meta": { "h2": "मेटा", "published": "प्रकाशित", "type": "फ़ीचर", "category": "Strategy" },
-  "cta": { "openBrowser": "ब्राउज़र में खोलें", "downloadIOS": "iOS ऐप डाउनलोड करें" }
+  "meta": {
+    "h2": "मेटा",
+    "published": "प्रकाशित",
+    "type": "फ़ीचर",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "ब्राउज़र में खोलें",
+    "downloadIOS": "iOS ऐप डाउनलोड करें"
+  }
 }

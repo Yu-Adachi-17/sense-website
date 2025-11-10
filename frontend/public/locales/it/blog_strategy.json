@@ -1,61 +1,114 @@
 {
   "seo": {
     "title": "Verbali IA Strategy — trasforma i verbali in decisioni (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy distilla le riunioni in Boost/Counter/Top Issue più tre modalità di pensiero per passi successivi chiari. SEO per ricerche: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy porta i verbali a un livello di supporto decisionale. Con ChatGPT-5 e Gemini 2.5 Pro genera Boost, Counter, Top Issue e tre modalità di pensiero per trasformare le discussioni in prossimi passi chiari.",
     "ogTitle": "Strategy in Verbali IA: decisioni, non solo note",
-    "ogDescription": "Boost/Counter/Top Issue + pensiero Logico/Critico/Laterale per output azionabili.",
+    "ogDescription": "Boost / Counter / Top Issue + pensiero logico / critico / laterale per output azionabili.",
     "ld": {
       "headline": "Verbali IA aggiunge Strategy",
-      "description": "Usa ChatGPT-5 e Gemini 2.5 Pro per trasformare rapidamente e chiaramente la discussione in decisioni."
-    }
+      "description": "La funzione Strategy converte le discussioni in decisioni chiare grazie agli output di ChatGPT-5 e Gemini 2.5 Pro."
+    },
+    "keywords": "Verbali IA, Minutes.AI, verbali riunioni AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, supporto decisionale, pensiero logico, pensiero critico, pensiero laterale, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Home Verbali IA" },
+  "aria": { "home": "Torna alla Home di Verbali IA" },
+  "a11y": { "home": "Torna alla Home di Verbali IA" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Guida alla funzione",
     "h1": "Strategy per Verbali IA",
-    "tagline": "Non solo verbali — Strategy trasforma la discussione in decisioni con ChatGPT-5 e Gemini 2.5 Pro."
+    "tagline": "Non fermarti al riassunto: Strategy, con ChatGPT-5 e Gemini 2.5 Pro, trasforma la discussione in decisioni e azioni concrete."
+  },
+  "what": {
+    "h2": "Cos’è Strategy?",
+    "p1": "Strategy è uno strato di supporto decisionale sopra i tuoi verbali.",
+    "p2": "Produce: Boost (cosa funziona e come amplificarlo), Counter (rischi e misure correttive), Top Issue (la questione centrale) e tre modalità di pensiero per affrontare la Top Issue.",
+    "bullets": [
+      "Boost — punti di forza e strategia di scalabilità",
+      "Counter — rischi e piani di correzione",
+      "Top Issue — il problema chiave da risolvere",
+      "Pensiero logico — soluzione strutturata, passo dopo passo",
+      "Pensiero critico — metti in discussione ipotesi e bias",
+      "Pensiero laterale — idee fuori dagli schemi"
+    ]
+  },
+  "how": {
+    "h2": "Come funziona",
+    "steps": [
+      "Genera i verbali come sempre (app o web).",
+      "Tocca “Strategy” per l’analisi con ChatGPT-5 e Gemini 2.5 Pro.",
+      "Ottieni Boost / Counter / Top Issue + le tre modalità di pensiero.",
+      "Condividi o incolla nel tuo sistema di task per l’esecuzione."
+    ],
+    "note": "Gli output si adattano a lingua e dominio; per default sono concisi per letture rapide."
+  },
+  "samples": {
+    "h2": "Esempi brevi e leggibili",
+    "minutes": {
+      "h3": "Verbali (esempio)",
+      "lines": [
+        "Tema: bevanda estiva in edizione limitata “Solar Chill”",
+        "Decisioni: procedere con Solar Chill; mantenere il nome; finalizzare la ricetta.",
+        "Attività: mockup di design; caricare la ricetta finale nella cartella condivisa.",
+        "Rischio: 15% dei feedback indica “troppo acida”."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (esempio)",
+      "boost": [
+        "Boost: alta intenzione di riacquisto → pilota in 10 negozi + promo social; misurare il riordino entro 7 giorni."
+      ],
+      "counter": [
+        "Counter: percezione di acidità → opzione “leggermente dolce”; A/B sul livello di sciroppo per 2 settimane."
+      ],
+      "top": [
+        "Top Issue: ampliare l’appeal senza perdere la distintività del brand."
+      ],
+      "modes": {
+        "logical": [
+          "Logico: definire i segmenti target → fissare KPI di successo → avviare A/B → rilasciare la specifica vincente."
+        ],
+        "critical": [
+          "Critico: stiamo sovra-ottimizzando per il “buzz social”? Validare con test alla cieca."
+        ],
+        "lateral": [
+          "Laterale: estensione oltre le bevande (es. fragranza/room-mist) per nuovi touchpoint di brand."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Disponibilità",
+    "p1": "Strategy è disponibile su iOS. Passa da “note” a “decisioni”."
   },
   "image": {
     "alt": "UI Verbali IA Strategy",
-    "caption": "Estrai il nodo centrale e le prossime azioni in un solo passaggio."
-  },
-  "what": {
-    "h2": "Cosa fa Strategy",
-    "items": [
-      "Boost: cosa funziona e come scalarlo",
-      "Counter: rischi e correzioni",
-      "Top Issue: la domanda chiave",
-      "Modalità di pensiero: Logica / Critica / Laterale"
-    ]
-  },
-  "steps": {
-    "h2": "Come iniziare",
-    "items": [
-      "Genera i verbali su app o web",
-      "Tocca “Strategy”",
-      "Rivedi Boost / Counter / Top Issue + 3 modalità",
-      "Incolla nel tuo task system"
-    ],
-    "note": "Disponibilità e durata dipendono dal piano/quota."
+    "caption": "Boost / Counter / Top Issue e tre modalità di pensiero — tutto a colpo d’occhio."
   },
   "features": {
     "h2": "Punti salienti",
     "items": [
-      "Focus sulla decisione, non solo sul riassunto",
+      "Focalizzato sulle decisioni, non solo sul riassunto",
       "Ottimizzato per ChatGPT-5 e Gemini 2.5 Pro",
-      "Output brevi e azionabili",
+      "Output brevi, chiari e azionabili",
       "Multilingue per team globali"
     ]
   },
   "notes": {
     "h2": "Note",
     "items": [
-      "La qualità dell’output riflette la qualità dell’input",
-      "Usa template diversi per tipi di riunione differenti"
+      "La qualità dell’output riflette la qualità dell’input.",
+      "Usa template diversi per differenti tipologie di riunione."
     ],
     "foot": "Disponibile su iOS. Provalo oggi."
   },
-  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Funzione", "category": "Strategy" },
-  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica app iOS" }
+  "meta": {
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Funzione",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica app iOS"
+  }
 }

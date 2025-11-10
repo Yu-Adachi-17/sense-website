@@ -1,15 +1,17 @@
 {
   "seo": {
     "title": "AI Zápisnica Strategy — premeňte zápisnice na rozhodnutia (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy destiluje stretnutia na Boost/Counter/Top Issue a tri mysliace módy pre jasné ďalšie kroky. SEO pre dotazy: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy destiluje stretnutia na Boost/Counter/Top Issue a tri mysliace módy pre jasné ďalšie kroky. SEO pre dopyty: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
     "ogTitle": "Strategy v AI Zápisnica: rozhodnutia, nie len poznámky",
-    "ogDescription": "Boost/Counter/Top Issue + Logické/Kritické/Laterálne myslenie pre akčné výstupy.",
+    "ogDescription": "Boost/Counter/Top Issue + logické/kritické/laterálne myslenie pre akčné výstupy.",
     "ld": {
       "headline": "AI Zápisnica pridáva Strategy",
       "description": "Využite ChatGPT-5 a Gemini 2.5 Pro na rýchlu a jasnú premenu diskusie na rozhodnutia."
-    }
+    },
+    "keywords": "AI Zápisnica, Strategy, ChatGPT-5, Gemini 2.5 Pro, podpora rozhodovania, logické myslenie, kritické myslenie, laterálne myslenie, Boost, Counter, Top Issue, zápisnica zo stretnutia"
   },
   "aria": { "home": "Domov AI Zápisnica" },
+  "a11y": { "home": "Domov AI Zápisnica" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Sprievodca funkciou",
@@ -18,26 +20,69 @@
   },
   "image": {
     "alt": "Rozhranie AI Zápisnica Strategy",
-    "caption": "Vyťažte jadrový problém a ďalšie kroky jedným krokom."
+    "caption": "Majte v jednom pohľade Boost / Counter / Top Issue a 3 módy myslenia."
   },
   "what": {
-    "h2": "Čo robí Strategy",
-    "items": [
-      "Boost: čo funguje a ako škálovať",
-      "Counter: riziká a opravy",
-      "Top Issue: kľúčová otázka",
-      "Módy myslenia: Logické / Kritické / Laterálne"
+    "h2": "Čo je Strategy?",
+    "p1": "Strategy je vrstva podpory rozhodovania nad vašimi zápisnicami.",
+    "p2": "Generuje Boost (škálovanie toho, čo funguje), Counter (riziká a nápravné kroky) a Top Issue (kľúčový problém), plus tri módy myslenia aplikované na Top Issue.",
+    "bullets": [
+      "Boost — čo funguje a ako to škálovať",
+      "Counter — riziká a nápravné opatrenia",
+      "Top Issue — kľúčová otázka, ktorú treba vyriešiť",
+      "Logické myslenie — štruktúrovaný, krok-za-krokom prístup",
+      "Kritické myslenie — spochybňujte predpoklady a hľadajte nezrovnalosti",
+      "Laterálne myslenie — mimo zaužívaných rámcov pre skokové nápady"
     ]
   },
-  "steps": {
-    "h2": "Ako začať",
-    "items": [
-      "Vygenerujte zápisnice v apke alebo na webe",
-      "Ťuknite na „Strategy“",
-      "Skontrolujte Boost / Counter / Top Issue + 3 módy",
-      "Vložte do svojho task systému"
+  "how": {
+    "h2": "Ako používať",
+    "steps": [
+      "Vygenerujte zápisnicu (v aplikácii alebo na webe).",
+      "Ťuknite na „Strategy“ a nechajte ChatGPT-5 a Gemini 2.5 Pro analyzovať.",
+      "Dostaňte Boost / Counter / Top Issue + tri módy myslenia.",
+      "Zdieľajte výsledok alebo ho vložte do svojho task systému na realizáciu."
     ],
-    "note": "Dostupnosť a trvanie závisia od plánu/kvóty."
+    "note": "Výstup sa prispôsobuje jazyku a doméne a je zámerne stručný pre rýchle čítanie."
+  },
+  "samples": {
+    "h2": "Krátke, ľahko čitateľné príklady",
+    "minutes": {
+      "h3": "Zápisnica (príklad)",
+      "lines": [
+        "Téma: letný blend „Solar Chill“",
+        "Rozhodnutie: pokračovať so Solar Chill / ponechať názov / finalizovať receptúru",
+        "To-do: pripraviť návrhy dizajnu / nahrať finálnu receptúru do zdieľaného priečinka",
+        "Riziko: 15 % feedbacku hovorí „príliš kyslé“"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (príklad)",
+      "boost": [
+        "Boost: Vysoký záujem o opätovný nákup → pilot v 10 predajniach + kampaň na sociálnych sieťach. Merajte re-order do 7 dní."
+      ],
+      "counter": [
+        "Counter: Zmierniť kyslosť → pridať možnosť „mild sweet“. Dvojtýždňový A/B test množstva sirupu."
+      ],
+      "top": [
+        "Top Issue: Kde je „sweet spot“ chuti, ktorý rozšíri zásah bez straty identity značky?"
+      ],
+      "modes": {
+        "logical": [
+          "Logika: Definovať cieľový segment → stanoviť KPI úspechu → A/B → nasadiť víťaznú špecifikáciu."
+        ],
+        "critical": [
+          "Kritika: Neoptimalizujeme príliš na „talkability“ na sociálnych sieťach? Zopakovať slepé ochutnávky."
+        ],
+        "lateral": [
+          "Laterálne: Ísť mimo nápojov (napr. vôňa/room mist) na rozšírenie kontaktných bodov."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Dostupnosť",
+    "p1": "Strategy je dostupné na iOS — od „zápisnice“ k „rozhodnutiu“."
   },
   "features": {
     "h2": "Hlavné body",
@@ -52,7 +97,7 @@
     "h2": "Poznámky",
     "items": [
       "Kvalita výstupu odráža kvalitu vstupu",
-      "Používajte rôzne šablóny pre rôzne typy stretnutí"
+      "Používajte šablóny prispôsobené typu stretnutia"
     ],
     "foot": "Dostupné na iOS. Vyskúšajte dnes."
   },

@@ -7,34 +7,79 @@
     "ld": {
       "headline": "Ata AI adiciona Strategy",
       "description": "Use ChatGPT-5 e Gemini 2.5 Pro para converter discussões em decisões de forma rápida e clara."
-    }
+    },
+    "keywords": "Ata AI, Strategy, atas com IA, ChatGPT-5, Gemini 2.5 Pro, apoio à decisão, pensamento lógico, pensamento crítico, pensamento lateral, Boost, Counter, Top Issue"
   },
   "aria": { "home": "Página inicial do Ata AI" },
+  "a11y": { "home": "Página inicial do Ata AI" },
   "nav": { "blog": "Blog", "strategy": "Strategy" },
   "hero": {
     "kicker": "Guia de recurso",
     "h1": "Strategy para o Ata AI",
     "tagline": "Não é só resumo—Strategy transforma discussões em decisões com ChatGPT-5 e Gemini 2.5 Pro."
   },
-  "image": { "alt": "Interface do Strategy no Ata AI", "caption": "Extraia a questão central e as próximas ações em um passo." },
+  "image": { "alt": "Interface do Strategy no Ata AI", "caption": "Veja Boost / Counter / Top Issue e os 3 modos de pensamento em uma só visão." },
   "what": {
-    "h2": "O que o Strategy faz",
-    "items": [
-      "Boost: o que funciona e como escalar",
-      "Counter: riscos e correções",
-      "Top Issue: a pergunta central",
-      "Modos de pensamento: Lógico / Crítico / Lateral"
+    "h2": "O que é o Strategy?",
+    "p1": "Strategy é uma camada de apoio à decisão por cima das suas atas.",
+    "p2": "Gera Boost (escalar o que funciona), Counter (riscos e ações corretivas) e Top Issue (o problema-núcleo), além de três modos de pensamento aplicados ao Top Issue.",
+    "bullets": [
+      "Boost — o que funciona e como escalar",
+      "Counter — riscos e ações corretivas",
+      "Top Issue — a pergunta central que precisamos resolver",
+      "Pensamento Lógico — abordagem estruturada, passo a passo",
+      "Pensamento Crítico — questione premissas e encontre inconsistências",
+      "Pensamento Lateral — sair do óbvio para saltos de inovação"
     ]
   },
-  "steps": {
-    "h2": "Como começar",
-    "items": [
-      "Gere as atas no app ou web",
-      "Toque em “Strategy”",
-      "Revise Boost / Counter / Top Issue + 3 modos",
-      "Cole no seu gestor de tarefas"
+  "how": {
+    "h2": "Como usar",
+    "steps": [
+      "Gere as atas no app ou na web.",
+      "Toque em “Strategy” e deixe ChatGPT-5 e Gemini 2.5 Pro analisar.",
+      "Receba Boost / Counter / Top Issue + os três modos de pensamento.",
+      "Compartilhe o resultado ou cole no seu gestor de tarefas para execução."
     ],
-    "note": "Disponibilidade e duração dependem do plano/quota."
+    "note": "A saída se adapta a idioma e domínio, mantendo-se propositalmente concisa para leitura rápida."
+  },
+  "samples": {
+    "h2": "Amostras curtas e legíveis",
+    "minutes": {
+      "h3": "Ata (exemplo)",
+      "lines": [
+        "Tópico: Blend de verão “Solar Chill”",
+        "Decisão: Prosseguir com Solar Chill / manter nome / finalizar receita",
+        "To-do: Criar propostas de design / subir receita final na pasta compartilhada",
+        "Risco: 15% dos feedbacks apontam “acidez alta”"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (exemplo)",
+      "boost": [
+        "Boost: Alta intenção de recompra → piloto em 10 lojas + campanha em redes sociais. Medir reorders em 7 dias."
+      ],
+      "counter": [
+        "Counter: Mitigar acidez → adicionar opção “mild sweet”. Teste A/B de xarope por 2 semanas."
+      ],
+      "top": [
+        "Top Issue: Qual é o ‘sweet spot’ de sabor que amplia a base sem perder a identidade da marca?"
+      ],
+      "modes": {
+        "logical": [
+          "Lógico: Definir segmento-alvo → fixar KPIs de sucesso → A/B → lançar a configuração vencedora."
+        ],
+        "critical": [
+          "Crítico: Não estamos otimizando demais para ‘viralização’ nas redes? Repetir teste cego."
+        ],
+        "lateral": [
+          "Lateral: Ir além de bebidas (ex.: aroma/room mist) para ampliar pontos de contato."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Disponibilidade",
+    "p1": "Strategy disponível no iOS — de “ata” para “decisão”."
   },
   "features": {
     "h2": "Destaques",
@@ -49,7 +94,7 @@
     "h2": "Notas",
     "items": [
       "A qualidade da saída reflete a qualidade da entrada",
-      "Use modelos diferentes por tipo de reunião"
+      "Use modelos adequados ao tipo de reunião"
     ],
     "foot": "Disponível no iOS. Experimente hoje."
   },

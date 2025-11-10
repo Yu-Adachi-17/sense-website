@@ -7,34 +7,79 @@
     "ld": {
       "headline": "Referat AI lanserer Strategy",
       "description": "Med ChatGPT-5 og Gemini 2.5 Pro omsetter du diskusjon til beslutning raskt og tydelig."
-    }
+    },
+    "keywords": "Referat AI, referat med KI, Strategy, ChatGPT-5, Gemini 2.5 Pro, beslutningsstøtte, logisk tenkning, kritisk tenkning, lateral tenkning, Boost, Counter, Top Issue"
   },
   "aria": { "home": "Hjem for Referat AI" },
+  "a11y": { "home": "Hjem for Referat AI" },
   "nav": { "blog": "Blogg", "strategy": "Strategy" },
   "hero": {
     "kicker": "Funksjonsguide",
     "h1": "Strategy for Referat AI",
     "tagline": "Ikke bare oppsummering—Strategy gjør diskusjon om til beslutning med ChatGPT-5 og Gemini 2.5 Pro."
   },
-  "image": { "alt": "Referat AI Strategy-grensesnitt", "caption": "Finn kjerneproblem og neste steg i én operasjon." },
+  "image": { "alt": "Referat AI Strategy-grensesnitt", "caption": "Se Boost / Counter / Top Issue og tre tenkemåter i ett overblikk." },
   "what": {
-    "h2": "Hva Strategy gjør",
-    "items": [
-      "Boost: hva som funker & skalering",
-      "Counter: risikoer & tiltak",
-      "Top Issue: kjernespørsmål",
-      "Tenkemåter: Logisk / Kritisk / Lateral"
+    "h2": "Hva er Strategy?",
+    "p1": "Strategy er et beslutningslag oppå referatet ditt.",
+    "p2": "Det genererer Boost (skalere det som virker), Counter (risikoer og tiltak) og Top Issue (kjernesak), pluss tre tenkemåter for Top Issue.",
+    "bullets": [
+      "Boost — hva som virker & hvordan skalere",
+      "Counter — risikoer & korrigerende tiltak",
+      "Top Issue — kjernesaken som må løses",
+      "Logisk tenkning — strukturert, steg-for-steg",
+      "Kritisk tenkning — test antagelser og finn motsetninger",
+      "Lateral tenkning — utenfor boksen for sprang i idéer"
     ]
   },
-  "steps": {
-    "h2": "Kom i gang",
-    "items": [
-      "Generer referat i app/nett",
-      "Trykk «Strategy»",
-      "Se over Boost / Counter / Top Issue + 3 modi",
-      "Lim inn i oppgavesystemet"
+  "how": {
+    "h2": "Slik bruker du det",
+    "steps": [
+      "Generer referat i appen eller på web.",
+      "Trykk «Strategy» og la ChatGPT-5 og Gemini 2.5 Pro analysere.",
+      "Få Boost / Counter / Top Issue + tre tenkemåter.",
+      "Del resultatet eller lim det inn i oppgavesystemet for gjennomføring."
     ],
-    "note": "Tilgjengelighet/varighet avhenger av plan/kvote."
+    "note": "Utdata tilpasses språk og domene og er bevisst kompakte for rask lesing."
+  },
+  "samples": {
+    "h2": "Korte, lettleste eksempler",
+    "minutes": {
+      "h3": "Referat (eksempel)",
+      "lines": [
+        "Tema: Sommerblenden «Solar Chill»",
+        "Vedtak: Gå videre med Solar Chill / beholde navn / ferdigstille oppskrift",
+        "To-do: Lage designforslag / legge endelig oppskrift i delt mappe",
+        "Risiko: 15 % tilbakemeldinger sier «for syrlig»"
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (eksempel)",
+      "boost": [
+        "Boost: Høy gjenkjøpsvilje → pilot i 10 butikker + SoMe-kampanje. Mål re-order-rate innen 7 dager."
+      ],
+      "counter": [
+        "Counter: Dempe syre → tilby «mild sweet»-valg. A/B-test sirupmengde i 2 uker."
+      ],
+      "top": [
+        "Top Issue: Hva er smakens «sweet spot» som åpner døren for flere uten å miste merkevaren?"
+      ],
+      "modes": {
+        "logical": [
+          "Logisk: Definer målsegment → sett suksess-KPI → A/B → rull ut vinneroppsett."
+        ],
+        "critical": [
+          "Kritisk: Overoptimaliserer vi for «snakkis» i SoMe? Gjenta blindsmaking."
+        ],
+        "lateral": [
+          "Lateral: Tenk utenfor drikke (f.eks. duft/room mist) for flere kontaktpunkter."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Tilgjengelighet",
+    "p1": "Strategy er tilgjengelig på iOS—fra «referat» til «beslutning»."
   },
   "features": {
     "h2": "Høydepunkter",
@@ -48,8 +93,8 @@
   "notes": {
     "h2": "Merknader",
     "items": [
-      "Kvaliteten på input avgjør output",
-      "Bruk ulike maler etter møtetype"
+      "Kvaliteten på input avgjør kvaliteten på output",
+      "Bruk maler tilpasset møtetyper"
     ],
     "foot": "Tilgjengelig på iOS. Prøv det i dag."
   },
