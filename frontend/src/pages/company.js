@@ -6,24 +6,22 @@ const COMPANY = {
   enName: "Sense G.K.",
   representativeJp: "代表社員 安達 悠",
   representativeEn: "Representative Partner: Yu Adachi",
-  // ↓ 必要に応じて正確な住所へ差し替えてください（番地・郵便番号など）
-  // 依頼事項の「最後の部屋番号：コンシェリア芝公園405」を明記
-  addressJp: "（登記住所）東京都港区芝公園［番地を記載］コンシェリア芝公園405 〒［郵便番号］",
+  // 確定反映（番地・郵便番号は未共有のため省略）
+  addressJp: "（登記住所）東京都港区芝公園 コンシェリア芝公園405",
   addressEn:
-    "Registered Office: Concieria Shiba-Koen 405, Shiba-Koen, Minato-ku, Tokyo, Japan, [Add street No. / ZIP]",
+    "Registered Office: Concieria Shiba-Koen 405, Shiba-Koen, Minato-ku, Tokyo, Japan",
   // 連絡先
   phoneIntl: "+817031057815",
   supportEmail: "support@sense-ai.world",
   supportUrl: "https://www.sense-ai.world/support",
   marketingUrl: "https://www.sense-ai.world/minutes-ai",
-  // 事業内容
+  // 事業内容（踏襲）
   businessJp:
     "AIプロダクトの企画・開発・運用（議事録AI、SlideAI ほか）",
   businessEn:
     "Planning, development, and operation of AI products (Minutes.AI, SlideAI, etc.)",
   establishedJp: "設立：登記簿記載の設立日",
   establishedEn: "Incorporated: As recorded in the corporate registry",
-  // 法人種別
   entityJp: "法人種別：合同会社（G.K.）",
   entityEn: "Entity Type: Godo Kaisha (G.K.)",
   siteDomain: "sense-ai.world",
@@ -75,12 +73,14 @@ export default function CompanyPage() {
           </p>
         </header>
 
-        {/* 日本語セクション */}
+        {/* 日本語セクション（踏襲） */}
         <section style={{ marginBottom: 32 }}>
           <h2 style={{ marginBottom: 12 }}>会社概要（日本語）</h2>
           <dl style={{ lineHeight: 1.9 }}>
             <dt>会社名</dt>
-            <dd>{COMPANY.jpName}（{COMPANY.enName}）</dd>
+            <dd>
+              {COMPANY.jpName}（{COMPANY.enName}）
+            </dd>
 
             <dt>法人種別</dt>
             <dd>{COMPANY.entityJp}</dd>
@@ -94,13 +94,9 @@ export default function CompanyPage() {
             <dt>事業内容</dt>
             <dd>{COMPANY.businessJp}</dd>
 
-            <dt>設立</dt>
-            <dd>{COMPANY.establishedJp}</dd>
-
             <dt>問い合わせ・サポート</dt>
             <dd>
-              サポートURL：{" "}
-              <a href={COMPANY.supportUrl}>{COMPANY.supportUrl}</a>
+              サポートURL： <a href={COMPANY.supportUrl}>{COMPANY.supportUrl}</a>
               <br />
               メール：{" "}
               <a href={`mailto:${COMPANY.supportEmail}`}>
@@ -108,19 +104,11 @@ export default function CompanyPage() {
               </a>
               <br />
               電話：<a href={`tel:${COMPANY.phoneIntl}`}>{COMPANY.phoneIntl}</a>
-              <div style={{ marginTop: 8 }}>
-                <a
-                  href={`mailto:${COMPANY.supportEmail}?subject=サポート問い合わせ&body=以下にご用件をご記入ください。%0D%0A%0D%0A・お名前:%0D%0A・ご利用アプリ/プラン:%0D%0A・事象の詳細:%0D%0A・再現手順:%0D%0A・スクリーンショット/ログ（任意）:%0D%0A`}
-                  style={buttonStyle}
-                >
-                  メールで問い合わせる
-                </a>
-              </div>
             </dd>
           </dl>
         </section>
 
-        {/* 英語セクション */}
+        {/* 英語セクション（踏襲） */}
         <section style={{ marginBottom: 32 }}>
           <h2 style={{ marginBottom: 12 }}>Company (English)</h2>
           <dl style={{ lineHeight: 1.9 }}>
@@ -141,9 +129,6 @@ export default function CompanyPage() {
             <dt>Business</dt>
             <dd>{COMPANY.businessEn}</dd>
 
-            <dt>Incorporated</dt>
-            <dd>{COMPANY.establishedEn}</dd>
-
             <dt>Support Contact</dt>
             <dd>
               Support URL: <a href={COMPANY.supportUrl}>{COMPANY.supportUrl}</a>
@@ -154,14 +139,6 @@ export default function CompanyPage() {
               </a>
               <br />
               Phone: <a href={`tel:${COMPANY.phoneIntl}`}>{COMPANY.phoneIntl}</a>
-              <div style={{ marginTop: 8 }}>
-                <a
-                  href={`mailto:${COMPANY.supportEmail}?subject=Support%20Request&body=Please describe your inquiry below.%0D%0A%0D%0A- Name:%0D%0A- App/Plan:%0D%0A- Issue details:%0D%0A- Steps to reproduce:%0D%0A- Screenshot/Logs (optional):%0D%0A`}
-                  style={buttonStyle}
-                >
-                  Email Support
-                </a>
-              </div>
             </dd>
           </dl>
         </section>
