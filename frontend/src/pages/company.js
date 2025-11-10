@@ -1,9 +1,10 @@
-// src/pages/company.js  （または pages/company.js）
+// src/pages/company.js
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
 import HomeIcon from "./homeIcon";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,25 +20,13 @@ export default function Company({ siteUrl }) {
     url: orgUrl,
     email: "info@sense-ai.world",
     founder: { "@type": "Person", name: "Yu Adachi" },
-    // 両方の住所を配列で明記（Registered + Mailing）
-    address: [
-      {
-        "@type": "PostalAddress",
-        // Registered Address（ご共有の部屋番号）
-        streetAddress: "Concieria Shiba-Koen 405",
-        addressLocality: "Minato-ku",
-        addressRegion: "Tokyo",
-        addressCountry: "JP",
-      },
-      {
-        "@type": "PostalAddress",
-        // 既存 company.js にあった住所（削除せず保持）
-        streetAddress: "4F, 6-15-1 Shimbashi",
-        addressLocality: "Minato-ku",
-        addressRegion: "Tokyo",
-        addressCountry: "JP",
-      },
-    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "6-15-1 Shimbashi 4F Room 405",
+      addressLocality: "Minato-ku",
+      addressRegion: "Tokyo",
+      addressCountry: "JP",
+    },
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -57,29 +46,28 @@ export default function Company({ siteUrl }) {
         <title>Company — Sense G.K.</title>
         <meta
           name="description"
-          content="Company information for Sense G.K. — registered address and public support contact."
+          content="Company information for Sense G.K. — leadership, address, and contact details."
         />
         <link rel="canonical" href={orgUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Company — Sense G.K." />
         <meta
           property="og:description"
-          content="Company information for Sense G.K. — registered address and public support contact."
+          content="Company information for Sense G.K. — leadership, address, and contact details."
         />
         <meta property="og:url" content={orgUrl} />
         <meta property="og:image" content={`${siteUrl}/images/hero-phone.png`} />
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
 
-      {/* Background (original visual) */}
+      {/* Background */}
       <div
         className={`${inter.className} min-h-screen bg-[#0b0e2e] text-white [background:radial-gradient(1200px_800px_at_10%_-20%,rgba(70,69,255,.25),transparent),radial-gradient(800px_600px_at_100%_0%,rgba(192,132,252,.18),transparent)]`}
       >
-        {/* Home icon (top-left) */}
+        {/* Home icon */}
         <div className="pointer-events-none fixed left-5 top-5 z-50">
           <Link
             href="/"
@@ -90,7 +78,7 @@ export default function Company({ siteUrl }) {
           </Link>
         </div>
 
-        {/* Card content (original layout) */}
+        {/* Content */}
         <main className="mx-auto max-w-3xl px-6 py-24">
           <section className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur">
             <header className="mb-8">
@@ -117,19 +105,27 @@ export default function Company({ siteUrl }) {
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">Registered Address</dt>
-                <dd className="sm:col-span-2">
-                  <div className="font-medium">
-                    Concieria Shiba-Koen 405, Minato-ku, Tokyo, Japan
-                  </div>
+                <dt className="text-indigo-200/80">Established</dt>
+                <dd className="sm:col-span-2 font-medium">September 2025</dd>
+              </div>
+
+              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
+                <dt className="text-indigo-200/80">Capital</dt>
+                <dd className="sm:col-span-2 font-medium">JPY 100,000</dd>
+              </div>
+
+              <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
+                <dt className="text-indigo-200/80">Business Description</dt>
+                <dd className="sm:col-span-2 font-medium">
+                  Planning and development of software services.
                 </dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">Mailing Address</dt>
+                <dt className="text-indigo-200/80">Address</dt>
                 <dd className="sm:col-span-2">
                   <div className="font-medium">
-                    4F, 6-15-1 Shimbashi, Minato-ku, Tokyo, Japan
+                    4F Room 405, 6-15-1 Shimbashi, Minato-ku, Tokyo, Japan
                   </div>
                 </dd>
               </div>
@@ -142,7 +138,7 @@ export default function Company({ siteUrl }) {
                       href="/support"
                       className="font-medium text-indigo-300 underline decoration-indigo-400/50 underline-offset-4 hover:text-white hover:decoration-indigo-300"
                     >
-                      {supportUrl}
+                      https://www.sense-ai.world/support
                     </Link>
                   </div>
                   <div>
@@ -166,8 +162,8 @@ export default function Company({ siteUrl }) {
             </dl>
           </section>
 
-          {/* —— Footer (reference “bottom header” style) —— */}
-          <footer className="pageFooter" role="contentinfo" aria-label="Legal and company links">
+          {/* Footer */}
+          <footer className="pageFooter" role="contentinfo">
             <div className="footInner">
               <div className="legal">
                 <a href="/terms-of-use" className="legalLink">Terms of Use</a>
@@ -184,24 +180,30 @@ export default function Company({ siteUrl }) {
         </main>
       </div>
 
-      {/* Scoped footer styles (from your reference) */}
+      {/* Scoped footer styles */}
       <style jsx>{`
-        .pageFooter { position:relative; z-index:3; padding:20px 22px 28px; border-top:1px solid rgba(255,255,255,0.06); background: linear-gradient(0deg, rgba(10,14,28,0.6) 0%, rgba(10,14,28,0.3) 100%); color:#eaf4f7; margin-top: 16px; }
+        .pageFooter { position:relative; z-index:3; padding:20px 22px 28px; border-top:1px solid rgba(255,255,255,0.06); background: linear-gradient(0deg, rgba(10,14,28,0.6) 0%, rgba(10,14,28,0.3) 100%); color:#eaf4f7; margin-top:16px; }
         .footInner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px; }
         .legal { display:flex; gap:12px; align-items:center; font-size:13px; opacity:0.7; }
         .legalLink { color:#ffffff; text-decoration:none; }
         .legalLink:hover { text-decoration:underline; }
         .sep { opacity:0.55; }
         .copyright { font-size:13px; opacity:0.7; white-space:nowrap; }
-        @media (max-width: 640px) { .footInner { flex-direction:column; gap:8px; } }
+        @media (max-width:640px) { .footInner { flex-direction:column; gap:8px; } }
       `}</style>
     </>
   );
 }
 
-// Build-time props
-export async function getStaticProps() {
+// ✅ ローカライズ対応版 getStaticProps
+export async function getStaticProps({ locale }) {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  return { props: { siteUrl }, revalidate: 600 };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      siteUrl,
+    },
+    revalidate: 60,
+  };
 }

@@ -388,6 +388,24 @@
     "presentationSpeakerPassion": "最後に",
     "presentationQandA": "質疑応答",
     "presentationDecisionsAndTasks": "決定事項",
-    "presentationFeedback": "フィードバック"
+    "presentationFeedback": "フィードバック",
+
+      "Company": "会社情報",
+  "Legal Name": "法人名",
+  "Representative Director": "代表者",
+  "Established": "設立",
+  "Capital": "資本金",
+  "Business Description": "事業内容",
+  "Address": "住所",
+  "Contact": "お問い合わせ",
+  "Customer Support": "カスタマーサポート",
+  "Support URL": "サポートURL",
+  "Email": "メールアドレス",
+  "Phone": "電話番号",
+  "Terms of Use": "利用規約",
+  "Privacy Policy": "プライバシーポリシー",
+  "Company Footer": "会社情報フッター",
+  "All Rights Reserved": "All Rights Reserved",
+  "Building better meetings with thoughtful software.": "より良いミーティングを実現するための洗練されたソフトウェアを開発しています。"
   }
 }
