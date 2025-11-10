@@ -45,7 +45,7 @@ export default function Company({ siteUrl }) {
   return (
     <>
       <Head>
-        <title>{t("Company")} — Sense G.K.</title>
+        <title>{`${t("Company")} — Sense G.K.`}</title>
         <meta
           name="description"
           content="Company information for Sense G.K. — leadership, address, and contact details."
