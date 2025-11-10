@@ -1,61 +1,104 @@
 {
   "seo": {
     "title": "Zápisník AI Strategy — proměňte zápisy v rozhodnutí (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy destiluje schůzky na Boost/Counter/Top Issue plus tři myšlenkové módy pro jasné další kroky. SEO pro dotazy jako: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy v Zápisník AI mění zápisy ze schůzek na další kroky. S využitím ChatGPT-5 a Gemini 2.5 Pro poskytuje Boost, Counter, Top Issue a tři myšlenkové módy.",
     "ogTitle": "Strategy v Zápisník AI: rozhodnutí, ne jen poznámky",
-    "ogDescription": "Boost/Counter/Top Issue + Logické/Kritické/Laterální myšlení pro akční výstupy.",
+    "ogDescription": "Proměňte zápisy v akci: Boost / Counter / Top Issue + Logické / Kritické / Laterální myšlení.",
     "ld": {
       "headline": "Zápisník AI přidává Strategy",
-      "description": "Použijte ChatGPT-5 a Gemini 2.5 Pro k rychlé a jasné konverzi diskuse na rozhodnutí."
-    }
+      "description": "Využijte ChatGPT-5 a Gemini 2.5 Pro k pozdvižení zápisů na úroveň podpory rozhodování."
+    },
+    "keywords": "Zápisník AI, zápisy ze schůzek AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, podpora rozhodování, Logické myšlení, Kritické myšlení, Laterální myšlení, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Domů Zápisník AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategie" },
+  "aria": {
+    "home": "Domů Zápisník AI"
+  },
+  "a11y": {
+    "home": "Domů Zápisník AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategie"
+  },
   "hero": {
     "kicker": "Průvodce funkcí",
     "h1": "Strategy pro Zápisník AI",
-    "tagline": "Nejen zápisy — Strategy mění diskusi v rozhodnutí s ChatGPT-5 a Gemini 2.5 Pro."
+    "tagline": "Nejen zápisy. Strategy mění diskusi v jasná rozhodnutí s využitím ChatGPT-5 a Gemini 2.5 Pro."
+  },
+  "what": {
+    "h2": "Co je Strategy?",
+    "p1": "Strategy je vrstva podpory rozhodování nad vašimi zápisy ze schůzek.",
+    "p2": "Vytváří tři klíčové výstupy — Boost, Counter a Top Issue — a tři myšlenkové módy pro řešení Top Issue do hloubky.",
+    "bullets": [
+      "Boost — co funguje a jak to škálovat",
+      "Counter — rizika a jak je napravit",
+      "Top Issue — klíčová otázka k vyřešení",
+      "Logické myšlení — strukturované, krokové řešení",
+      "Kritické myšlení — zpochybnění předpokladů",
+      "Laterální myšlení — skok mimo zjevné nápady"
+    ]
+  },
+  "how": {
+    "h2": "Jak to funguje",
+    "steps": [
+      "Vygenerujte zápisy jako obvykle (v aplikaci nebo na webu).",
+      "Klepněte na „Strategy“ pro analýzu pomocí ChatGPT-5 a Gemini 2.5 Pro.",
+      "Získejte Boost / Counter / Top Issue a tři myšlenkové módy.",
+      "Zkopírujte nebo sdílejte výstupy a vložte je do svého task systému."
+    ],
+    "note": "Výstupy se přizpůsobují jazyku i doméně; stručnost je výchozí kvůli rychlému čtení."
+  },
+  "samples": {
+    "h2": "Krátké a čitelné příklady",
+    "minutes": {
+      "h3": "Zápis (příklad)",
+      "lines": [
+        "Téma: letní limitovaná směs „Solar Chill“",
+        "Rozhodnutí: pokračovat se Solar Chill; ponechat název; dokončit recepturu.",
+        "Úkoly: návrhy designu; nahrát finální recept do sdílené složky.",
+        "Riziko: 15 % zpětné vazby uvádí „příliš kyselé“."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (příklad)",
+      "boost": [
+        "Boost: vysoký záměr opakovaného nákupu → pilot v 10 prodejnách + sociální promo; měřit opětovnou objednávku do 7 dní."
+      ],
+      "counter": [
+        "Counter: řešení kyselosti → přidat volbu „mírně sladké“; A/B test úrovně sirupu po dobu 2 týdnů."
+      ],
+      "top": [
+        "Top Issue: vyvážit chuť tak, aby se rozšířila obliba bez ztráty jedinečnosti značky."
+      ],
+      "modes": {
+        "logical": [
+          "Logické: definovat cílové segmenty → nastavit KPI úspěchu → spustit A/B → nasadit vítěznou specifikaci."
+        ],
+        "critical": [
+          "Kritické: nepřeupravujeme se pro „sociální hype“? Ověřit slepými ochutnávkami."
+        ],
+        "lateral": [
+          "Laterální: nabídnout vůni / room-mist edici pro rozšíření značky mimo nápoje."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Dostupnost",
+    "p1": "Strategy je k dispozici na iOS. Posuňte se od „poznámek“ k „rozhodnutím“."
   },
   "image": {
     "alt": "UI Zápisník AI Strategy",
-    "caption": "Získejte jádrový problém a další kroky jedním tahem."
+    "caption": "Boost / Counter / Top Issue + tři myšlenkové módy na první pohled."
   },
-  "what": {
-    "h2": "Co Strategy dělá",
-    "items": [
-      "Boost: co funguje a jak škálovat",
-      "Counter: rizika a řešení",
-      "Top Issue: klíčová otázka",
-      "Myšlenkové módy: Logické / Kritické / Laterální"
-    ]
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Funkce",
+    "category": "Strategie"
   },
-  "steps": {
-    "h2": "Jak začít",
-    "items": [
-      "Vygenerujte zápisy v appce nebo na webu",
-      "Klepněte na „Strategy“",
-      "Zkontrolujte Boost / Counter / Top Issue + 3 módy",
-      "Vložte do svého task systému"
-    ],
-    "note": "Dostupnost a délka závisí na plánu/kvótě."
-  },
-  "features": {
-    "h2": "Hlavní body",
-    "items": [
-      "Zaměřeno na rozhodnutí, ne jen shrnutí",
-      "Optimalizováno pro ChatGPT-5 a Gemini 2.5 Pro",
-      "Krátké, akční výstupy",
-      "Multijazyčné pro globální týmy"
-    ]
-  },
-  "notes": {
-    "h2": "Poznámky",
-    "items": [
-      "Kvalita výstupu odráží kvalitu vstupu",
-      "Používejte různé šablony pro různé typy schůzek"
-    ],
-    "foot": "K dispozici na iOS. Vyzkoušejte ještě dnes."
-  },
-  "meta": { "h2": "Meta", "published": "Publikováno", "type": "Funkce", "category": "Strategie" },
-  "cta": { "openBrowser": "Otevřít v prohlížeči", "downloadIOS": "Stáhnout iOS app" }
+  "cta": {
+    "openBrowser": "Otevřít v prohlížeči",
+    "downloadIOS": "Stáhnout aplikaci pro iOS"
+  }
 }

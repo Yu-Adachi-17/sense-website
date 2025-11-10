@@ -1,61 +1,104 @@
 {
   "seo": {
     "title": "Strategy i Referat AI — gør referater til beslutninger (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy i Referat AI kondenserer møder til Boost/Counter/Top Issue og tre tænkemåder. SEO for søgninger som: AI referat, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy i Referat AI omsætter mødenoter til næste skridt. Med ChatGPT-5 og Gemini 2.5 Pro leverer den Boost, Counter, Top Issue og tre tænkemåder.",
     "ogTitle": "Strategy i Referat AI: fra referat til handling",
-    "ogDescription": "Få klare beslutninger via Boost/Counter/Top Issue + logisk/kritisk/lateral tænkning.",
+    "ogDescription": "Gør referater handlingsklare med Boost / Counter / Top Issue og logisk / kritisk / lateral tænkning.",
     "ld": {
       "headline": "Referat AI lancerer Strategy",
-      "description": "Brug ChatGPT-5 og Gemini 2.5 Pro til at omsætte møder til konkrete næste skridt."
-    }
+      "description": "Brug ChatGPT-5 og Gemini 2.5 Pro til at konvertere diskussioner til beslutningsstøtte og klare næste skridt."
+    },
+    "keywords": "Referat AI, AI referat, Strategy, ChatGPT-5, Gemini 2.5 Pro, beslutningsstøtte, logisk tænkning, kritisk tænkning, lateral tænkning, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Referat AI forside" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Referat AI forside"
+  },
+  "a11y": {
+    "home": "Referat AI forside"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategi"
+  },
   "hero": {
     "kicker": "Funktionsguide",
     "h1": "Strategy til Referat AI",
-    "tagline": "Ikke kun referater—Strategy gør diskussioner til beslutninger med ChatGPT-5 og Gemini 2.5 Pro."
+    "tagline": "Ikke kun referater. Strategy gør diskussioner til beslutninger med ChatGPT-5 og Gemini 2.5 Pro."
+  },
+  "what": {
+    "h2": "Hvad er Strategy?",
+    "p1": "Strategy er et beslutningsstøttelag oven på dine referater.",
+    "p2": "Den genererer tre kerne-output — Boost, Counter og Top Issue — plus tre tænkemåder, der angriber Top Issue fra forskellige vinkler.",
+    "bullets": [
+      "Boost — det der virker, og hvordan det skaleres",
+      "Counter — risici og hvordan de afhjælpes",
+      "Top Issue — det centrale spørgsmål der skal løses",
+      "Logisk tænkning — struktureret, trinvis løsning",
+      "Kritisk tænkning — udfordr antagelser og find huller",
+      "Lateral tænkning — kreative spring ud over det oplagte"
+    ]
+  },
+  "how": {
+    "h2": "Sådan fungerer det",
+    "steps": [
+      "Generér referat som vanligt (i appen eller på web).",
+      "Tryk på “Strategy” for analyse med ChatGPT-5 og Gemini 2.5 Pro.",
+      "Få Boost / Counter / Top Issue + tre tænkemåder.",
+      "Kopiér eller del output og indsæt det i dit opgavesystem."
+    ],
+    "note": "Output tilpasser sig sprog og domæne; kortfattethed som standard for hurtig læsning."
+  },
+  "samples": {
+    "h2": "Korte, læsevenlige eksempler",
+    "minutes": {
+      "h3": "Referat (eksempel)",
+      "lines": [
+        "Emne: sommer-limited blend “Solar Chill”",
+        "Beslutninger: fortsæt med Solar Chill; behold navnet; færdiggør opskrift.",
+        "To-dos: designmockups; upload endelig opskrift til delt mappe.",
+        "Risiko: 15 % feedback siger “for sur”."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (eksempel)",
+      "boost": [
+        "Boost: Høj intention om genkøb → pilot i 10 butikker + social kampagne; mål genbestilling inden for 7 dage."
+      ],
+      "counter": [
+        "Counter: Håndter syrlighed → tilføj “mild sweet”-valg; A/B-test sirupniveau i 2 uger."
+      ],
+      "top": [
+        "Top Issue: Balancér smagen så rækkevidden øges uden at miste brandets særpræg."
+      ],
+      "modes": {
+        "logical": [
+          "Logisk: Definér målsegmenter → sæt succes-KPI’er → kør A/B → udrul vinderspec."
+        ],
+        "critical": [
+          "Kritisk: Overtilpasser vi os ‘social buzz’? Verificér med blindsmagning."
+        ],
+        "lateral": [
+          "Lateral: Lav en duft/room-mist-udgave for at udvide brandet ud over drikke."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Tilgængelighed",
+    "p1": "Strategy er tilgængelig på iOS. Gå fra “noter” til “beslutninger”."
   },
   "image": {
     "alt": "Referat AI Strategy UI",
-    "caption": "Udtræk beslutninger og hovedproblem med et tryk."
+    "caption": "Boost / Counter / Top Issue + tre tænkemåder på ét overblik."
   },
-  "what": {
-    "h2": "Hvad gør Strategy?",
-    "items": [
-      "Boost: det der virker + skalering",
-      "Counter: risici + afhjælpning",
-      "Top Issue: kernen der skal løses",
-      "Tænkning: Logisk / Kritisk / Lateral"
-    ]
+  "meta": {
+    "h2": "Meta",
+    "published": "Udgivet",
+    "type": "Funktion",
+    "category": "Strategi"
   },
-  "steps": {
-    "h2": "Sådan kommer du i gang",
-    "items": [
-      "Generér referat i app eller web",
-      "Tryk “Strategy”",
-      "Gennemse Boost / Counter / Top Issue + 3 modes",
-      "Indsæt i dit opgavesystem"
-    ],
-    "note": "Varighed/kvote afhænger af din plan."
-  },
-  "features": {
-    "h2": "Højdepunkter",
-    "items": [
-      "Beslutningsfokus—ikke kun resumé",
-      "Optimeret til ChatGPT-5 & Gemini 2.5 Pro",
-      "Korte, handlingsklare output",
-      "Flersproget til globale teams"
-    ]
-  },
-  "notes": {
-    "h2": "Bemærk",
-    "items": [
-      "Inputkvalitet påvirker output",
-      "Prøv forskellige skabeloner efter mødetype"
-    ],
-    "foot": "Tilgængelig på iOS. Prøv det i dag."
-  },
-  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Funktion", "category": "Strategy" },
-  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" }
+  "cta": {
+    "openBrowser": "Åbn i browseren",
+    "downloadIOS": "Hent iOS-app"
+  }
 }

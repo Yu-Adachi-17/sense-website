@@ -1,61 +1,104 @@
 {
   "seo": {
     "title": "Pöytäkirja AI Strategy — tee muistioista päätöksiä (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy tiivistää kokoukset Boost/Counter/Top Issue -osiin sekä kolmeen ajattelutapaan selkeitä seuraavia askeleita varten. SEO-haut: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy Pöytäkirja AI:ssa muuttaa kokousmuistiot selkeiksi seuraaviksi askeleiksi. ChatGPT-5:n ja Gemini 2.5 Pro:n avulla se tuottaa Boost-, Counter- ja Top Issue -osiot sekä kolme ajattelutapaa.",
     "ogTitle": "Strategy Pöytäkirja AI:ssa: päätöksiä, ei pelkkiä muistiinpanoja",
-    "ogDescription": "Boost/Counter/Top Issue + Looginen/Kriittinen/Lateraalinen ajattelu toiminnallisiin tuloksiin.",
+    "ogDescription": "Muuta muistiot strategiaksi: Boost / Counter / Top Issue + looginen / kriittinen / lateraalinen ajattelu.",
     "ld": {
       "headline": "Pöytäkirja AI lisää Strategy-toiminnon",
-      "description": "Hyödynnä ChatGPT-5:tä ja Gemini 2.5 Pro:ta keskustelun muuttamiseksi päätöksiksi nopeasti ja selkeästi."
-    }
+      "description": "Hyödynnä ChatGPT-5:tä ja Gemini 2.5 Pro:ta nostaaksesi muistiot päätöksenteon tueksi ja määritelläksesi selkeät seuraavat askeleet."
+    },
+    "keywords": "Pöytäkirja AI, kokousmuistioiden AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, päätöksenteon tuki, looginen ajattelu, kriittinen ajattelu, lateraalinen ajattelu, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Pöytäkirja AI Etusivu" },
-  "nav": { "blog": "Blogi", "strategy": "Strategy" },
+  "aria": {
+    "home": "Pöytäkirja AI etusivu"
+  },
+  "a11y": {
+    "home": "Pöytäkirja AI etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "strategy": "Strategia"
+  },
   "hero": {
     "kicker": "Ominaisuusopas",
     "h1": "Strategy Pöytäkirja AI:lle",
-    "tagline": "Ei pelkkiä muistioita — Strategy muuttaa keskustelun päätöksiksi ChatGPT-5:llä ja Gemini 2.5 Pro:lla."
+    "tagline": "Ei pelkkiä muistioita. Strategy muuttaa keskustelun päätöksiksi ChatGPT-5:llä ja Gemini 2.5 Pro:lla."
+  },
+  "what": {
+    "h2": "Mikä on Strategy?",
+    "p1": "Strategy on päätöksenteon tukikerros, joka rakentuu kokousmuistioidesi päälle.",
+    "p2": "Se tuottaa kolme ydinosiota — Boost, Counter ja Top Issue — sekä kolme ajattelutapaa Top Issue -ongelman läpivalaisuun.",
+    "bullets": [
+      "Boost — mikä toimii ja miten sitä skaalataan",
+      "Counter — riskit ja miten ne korjataan",
+      "Top Issue — ratkaistava ydinkysymys",
+      "Looginen ajattelu — jäsennelty, vaiheittainen ratkaisu",
+      "Kriittinen ajattelu — oletusten haastaminen ja aukkojen löytäminen",
+      "Lateraalinen ajattelu — luovat harppaukset ilmeisen yli"
+    ]
+  },
+  "how": {
+    "h2": "Miten se toimii",
+    "steps": [
+      "Luo muistio kuten tavallisesti (sovelluksessa tai verkossa).",
+      "Napauta ”Strategy” analysoidaksesi sisällön ChatGPT-5:llä ja Gemini 2.5 Pro:lla.",
+      "Saat Boost / Counter / Top Issue + kolme ajattelutapaa.",
+      "Kopioi tai jaa tulokset ja lisää ne tehtäväjärjestelmääsi."
+    ],
+    "note": "Tulokset mukautuvat kieleen ja toimialaan; ytimekkyys on oletus nopeaa lukemista varten."
+  },
+  "samples": {
+    "h2": "Lyhyet, luettavat esimerkit",
+    "minutes": {
+      "h3": "Muistio (esimerkki)",
+      "lines": [
+        "Aihe: kesän limited-blend ”Solar Chill”",
+        "Päätökset: jatketaan Solar Chilliä; nimi säilytetään; resepti viimeistellään.",
+        "Tehtävät: design-mockupit; lopullinen resepti jaettuun kansioon.",
+        "Riski: 15 % palautteesta kertoo ”liian hapokas”."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (esimerkki)",
+      "boost": [
+        "Boost: Korkea uudelleenoston aikomus → pilotti 10 liikkeessä + somemarkkinointi; mittaa uusintatilaus 7 päivän sisällä."
+      ],
+      "counter": [
+        "Counter: Hapoakkuuden hallinta → lisää ”miedosti makea” -vaihtoehto; A/B-testi siirapin tasosta 2 viikon ajan."
+      ],
+      "top": [
+        "Top Issue: Miten tasapainottaa maku niin, että suosio laajenee ilman brändin omaleimaisuuden menetystä?"
+      ],
+      "modes": {
+        "logical": [
+          "Looginen: Määritä kohdesegmentit → aseta onnistumisen KPI:t → aja A/B → julkaise voittava spesifikaatio."
+        ],
+        "critical": [
+          "Kriittinen: Ylioptimoimmeko ”sosiaaliseen pöhinään”? Vahvista sokkomaisteluilla."
+        ],
+        "lateral": [
+          "Lateraalinen: Tarjoa tuoksu/room-mist -versio brändin laajentamiseksi juomien ulkopuolelle."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Saatavuus",
+    "p1": "Strategy on saatavilla iOS:lle. Siirry ”muistiinpanoista” ”päätöksiin”."
   },
   "image": {
     "alt": "Pöytäkirja AI Strategy -käyttöliittymä",
-    "caption": "Poimi ydinongelma ja seuraavat toimet yhdellä kertaa."
+    "caption": "Boost / Counter / Top Issue + kolme ajattelutapaa yhdellä silmäyksellä."
   },
-  "what": {
-    "h2": "Mitä Strategy tekee",
-    "items": [
-      "Boost: mikä toimii ja miten skaalaa",
-      "Counter: riskit ja korjaukset",
-      "Top Issue: ydinkysymys",
-      "Ajattelutavat: Looginen / Kriittinen / Lateraalinen"
-    ]
+  "meta": {
+    "h2": "Meta",
+    "published": "Julkaistu",
+    "type": "Ominaisuus",
+    "category": "Strategia"
   },
-  "steps": {
-    "h2": "Näin aloitat",
-    "items": [
-      "Luo muistio sovelluksessa tai verkossa",
-      "Napauta “Strategy”",
-      "Tarkastele Boost / Counter / Top Issue + 3 moodia",
-      "Liitä omaan tehtäväjärjestelmääsi"
-    ],
-    "note": "Saatavuus ja kesto riippuvat suunnitelmastasi/kiintiöstä."
-  },
-  "features": {
-    "h2": "Kohokohdat",
-    "items": [
-      "Päätöskeskeinen, ei pelkkä tiivistys",
-      "Optimoitu ChatGPT-5:lle ja Gemini 2.5 Pro:lle",
-      "Lyhyet, toimeenpantavat tuotokset",
-      "Monikielinen globaaleille tiimeille"
-    ]
-  },
-  "notes": {
-    "h2": "Huomautukset",
-    "items": [
-      "Tuotoksen laatu heijastaa syötteen laatua",
-      "Käytä eri malleja eri kokoustyypeille"
-    ],
-    "foot": "Saatavilla iOS:lle. Kokeile jo tänään."
-  },
-  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Ominaisuus", "category": "Strategy" },
-  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" }
+  "cta": {
+    "openBrowser": "Avaa selaimessa",
+    "downloadIOS": "Lataa iOS-sovellus"
+  }
 }

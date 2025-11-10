@@ -1,61 +1,104 @@
 {
   "seo": {
     "title": "Strategy en Actas IA — convierte actas en decisiones (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy resume las reuniones en Boost/Counter/Top Issue y tres modos de pensamiento. SEO para búsquedas como: actas con IA, ChatGPT-5, Gemini 2.5 Pro.",
+    "description": "Strategy en Actas IA transforma las actas en próximos pasos claros. Con ChatGPT-5 y Gemini 2.5 Pro, genera Boost, Counter, Top Issue y tres modos de pensamiento.",
     "ogTitle": "Strategy en Actas IA: decisiones, no solo resúmenes",
-    "ogDescription": "Boost/Counter/Top Issue + pensamiento Lógico/Crítico/Lateral para acciones claras.",
+    "ogDescription": "Convierte actas en estrategia con Boost / Counter / Top Issue y pensamiento Lógico / Crítico / Lateral.",
     "ld": {
       "headline": "Actas IA incorpora Strategy",
-      "description": "Con ChatGPT-5 y Gemini 2.5 Pro, convierte la conversación en decisiones rápidas y claras."
-    }
+      "description": "Usa ChatGPT-5 y Gemini 2.5 Pro para elevar las actas a soporte de decisión con resultados accionables."
+    },
+    "keywords": "Actas IA, actas con IA, Strategy, ChatGPT-5, Gemini 2.5 Pro, soporte a la decisión, pensamiento lógico, pensamiento crítico, pensamiento lateral, Boost, Counter, Top Issue"
   },
-  "aria": { "home": "Inicio de Actas IA" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Inicio de Actas IA"
+  },
+  "a11y": {
+    "home": "Inicio de Actas IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Estrategia"
+  },
   "hero": {
     "kicker": "Guía de función",
     "h1": "Strategy para Actas IA",
-    "tagline": "No solo actas—Strategy convierte la discusión en decisiones con ChatGPT-5 y Gemini 2.5 Pro."
+    "tagline": "No solo actas. Strategy convierte la discusión en decisiones con ChatGPT-5 y Gemini 2.5 Pro."
+  },
+  "what": {
+    "h2": "¿Qué es Strategy?",
+    "p1": "Strategy es una capa de soporte a la decisión sobre tus actas.",
+    "p2": "Produce tres salidas clave — Boost, Counter y Top Issue — además de tres modos de pensamiento para abordar a fondo el Top Issue.",
+    "bullets": [
+      "Boost — qué funciona y cómo escalarlo",
+      "Counter — riesgos y cómo mitigarlos",
+      "Top Issue — la pregunta clave a resolver",
+      "Pensamiento lógico — solución estructurada y por pasos",
+      "Pensamiento crítico — cuestionar supuestos y encontrar vacíos",
+      "Pensamiento lateral — saltos creativos más allá de lo obvio"
+    ]
+  },
+  "how": {
+    "h2": "Cómo funciona",
+    "steps": [
+      "Genera las actas como siempre (en la app o la web).",
+      "Toca “Strategy” para analizar con ChatGPT-5 y Gemini 2.5 Pro.",
+      "Obtén Boost / Counter / Top Issue + los tres modos de pensamiento.",
+      "Copia o comparte los resultados e intégralos en tu gestor de tareas."
+    ],
+    "note": "Las salidas se adaptan a idioma y dominio; la brevedad es el valor por defecto para lectura rápida."
+  },
+  "samples": {
+    "h2": "Ejemplos breves y claros",
+    "minutes": {
+      "h3": "Actas (ejemplo)",
+      "lines": [
+        "Tema: mezcla limitada de verano “Solar Chill”",
+        "Decisiones: seguir con Solar Chill; mantener el nombre; cerrar la receta.",
+        "Tareas: mocks de diseño; subir receta final a la carpeta compartida.",
+        "Riesgo: 15% de feedback indica «demasiado ácido»."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy (ejemplo)",
+      "boost": [
+        "Boost: Alta intención de recompra → piloto en 10 tiendas + campaña social; medir reorden en 7 días."
+      ],
+      "counter": [
+        "Counter: Tratar la acidez → añadir opción de «dulzor suave»; A/B del nivel de sirope por 2 semanas."
+      ],
+      "top": [
+        "Top Issue: Equilibrar el sabor para ampliar la aceptación sin perder la distintividad de la marca."
+      ],
+      "modes": {
+        "logical": [
+          "Lógico: Definir segmentos objetivo → fijar KPIs de éxito → ejecutar A/B → lanzar la especificación ganadora."
+        ],
+        "critical": [
+          "Crítico: ¿Sobreajustamos al «ruido social»? Validar con catas a ciegas."
+        ],
+        "lateral": [
+          "Lateral: Ofrecer versión aroma/room-mist para extender la marca más allá de la bebida."
+        ]
+      }
+    }
+  },
+  "platform": {
+    "h2": "Disponibilidad",
+    "p1": "Strategy está disponible en iOS. De «notas» a «decisiones»."
   },
   "image": {
     "alt": "Interfaz de Strategy en Actas IA",
-    "caption": "Extrae la cuestión clave y los siguientes pasos en un clic."
+    "caption": "Boost / Counter / Top Issue + tres modos de pensamiento de un vistazo."
   },
-  "what": {
-    "h2": "Qué hace Strategy",
-    "items": [
-      "Boost: qué funciona y cómo escalar",
-      "Counter: riesgos y correcciones",
-      "Top Issue: la pregunta clave",
-      "Modos de pensamiento: Lógico / Crítico / Lateral"
-    ]
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Función",
+    "category": "Estrategia"
   },
-  "steps": {
-    "h2": "Cómo empezar",
-    "items": [
-      "Genera actas en la app o web",
-      "Toca “Strategy”",
-      "Revisa Boost / Counter / Top Issue + 3 modos",
-      "Pega en tu gestor de tareas"
-    ],
-    "note": "Disponibilidad y duración dependen de tu plan/cuota."
-  },
-  "features": {
-    "h2": "Destacados",
-    "items": [
-      "Enfoque en la decisión, no solo resumen",
-      "Optimizado para ChatGPT-5 y Gemini 2.5 Pro",
-      "Salidas breves y accionables",
-      "Multilingüe para equipos globales"
-    ]
-  },
-  "notes": {
-    "h2": "Notas",
-    "items": [
-      "La calidad de salida refleja la calidad de entrada",
-      "Usa plantillas según el tipo de reunión"
-    ],
-    "foot": "Disponible en iOS. Pruébalo hoy."
-  },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Función", "category": "Strategy" },
-  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app de iOS" }
+  "cta": {
+    "openBrowser": "Abrir en el navegador",
+    "downloadIOS": "Descargar app de iOS"
+  }
 }
