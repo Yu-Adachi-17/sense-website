@@ -1,44 +1,44 @@
 {
   "aria": {
-    "home": "Pöytäkirja AI Etusivu"
+    "home": "Pöytäkirja AI Koti"
   },
   "compare": {
-    "foot": "Lähteet: Otterin ja Nottan viralliset hinnoittelusivut.",
-    "h2": "Pöytäkirja AI vs. Otter vs. Notta — Hinnat yhdellä silmäyksellä",
-    "lastUpdated": "Viimeksi päivitetty: 31. lokak. 2025",
-    "note": "Keskeiset hinnat ja kiintiöt (USD). Kilpailijat nollaavat tyypillisesti kuukausikiintiöt ilman siirtoa.",
+    "foot": "Lähteet: Otterin / Notan viralliset hinnastosivut (tutkimuksemme mukaan).",
+    "h2": "Pöytäkirja AI vs. Otter vs. Notta – Nopea hintavertailu",
+    "lastUpdated": "Päivitetty viimeksi: 12. marraskuuta 2025",
+    "note": "Hinnat Yhdysvaltain dollareina (USD). Huomio: Useimmilla kilpailijoilla on kuukausittaiset kiintiöt, jotka nollataan, eikä käyttämättömiä minuutteja siirretä seuraavalle kuukaudelle.",
     "rows": [
       {
-        "billing": "Kertaluonteiset aikapaketit + tilaukset",
-        "cheapest": "Trial 120 min / $1.99 (ei vanhene)",
-        "free": "Päivittäinen 3 min -lippu",
-        "limits": "Aikapaketit eivät vanhene koskaan. Tilaukset ovat rajoittamattomia.",
+        "billing": "Aitapaketit + Tilaukset",
+        "cheapest": "Kokeilu: 120 min / 1.99 $ (ei vanhene)",
+        "free": "Päivittäinen ilmaislippu (3 min)",
+        "limits": "Aitapaketit eivät vanhene. Tilaukset ovat täysin rajoittamattomia.",
         "service": "Pöytäkirja AI",
-        "unlimited": "Kyllä — $16.99/kk tai $149.99/v"
+        "unlimited": "Kyllä! — 16.99 $/kk tai 149.99 $/vuosi"
       },
       {
-        "billing": "Käyttäjäpaikkakohtainen tilaus",
-        "cheapest": "Pro — $16.99/kk tai $8.33/kk (vuosilaskutus)",
-        "free": "300 min/kk, enintään 30 min/keskustelu",
-        "limits": "Ei siirtoa; kokouskohtainen yläraja",
+        "billing": "Käyttäjäkohtainen tilaus",
+        "cheapest": "Pro — 16.99 $/kk tai 8.33 $/kk (vuosittain)",
+        "free": "300 min/kk, enint. 30 min/keskustelu",
+        "limits": "Ei siirtoa; kokousraja 90 min (Pro)",
         "service": "Otter",
-        "unlimited": "Ei — Pro 1200 min/kk; Business 6000 tuontiminuuttia/kk"
+        "unlimited": "Ei — Pro 1200 min/kk"
       },
       {
-        "billing": "Käyttäjäpaikkakohtainen tilaus",
-        "cheapest": "Pro — $13.49/kk (kuukausi) tai $8.17/kk (vuosi)",
-        "free": "120 min/kk, enintään 3 min/tallenne",
-        "limits": "Ei siirtoa; enintään 5 h/tallenne; tiedostonlähetyskiintiöt",
+        "billing": "Käyttäjäkohtainen tilaus",
+        "cheapest": "Pro — 13.49 $/kk (kuukausittain) tai 8.17 $/kk (vuosittain)",
+        "free": "120 min/kk, enint. 3 min/tallenne",
+        "limits": "Ei siirtoa; tallennus- ja latausrajat",
         "service": "Notta",
-        "unlimited": "Business — Rajoittamaton (vuosittain $16.67/kk; kuukausi korkeampi)"
+        "unlimited": "Business — Rajoittamaton (vuosittain 16.67 $/kk)"
       }
     ],
     "tableHead": [
       "Palvelu",
-      "Ilmainen paketti",
-      "Edullisin maksullinen",
-      "Rajoittamaton käyttö",
-      "Huomattavat rajoitukset",
+      "Ilmaisversio",
+      "Halvin maksullinen",
+      "Rajoittamaton",
+      "Tärkeimmät rajoitukset",
       "Laskutustapa"
     ]
   },
@@ -47,71 +47,111 @@
     "openBrowser": "Avaa selaimessa"
   },
   "hero": {
-    "h1": "Pöytäkirja AI hinnoittelu (2025)",
-    "kicker": "Hinnoittelu",
-    "tagline": "Valitse vanhenemattomat aikapaketit tai täysin rajoittamaton kuukausi-/vuositilaus."
+    "h1": "Pöytäkirja AI Hinnasto (2025)",
+    "kicker": "Hinnasto",
+    "tagline": "Valitse sinulle sopivin: kertamaksulliset aikapaketit, jotka **eivät vanhene koskaan**, tai tilaukset, jotka ovat **todella rajoittamattomia**.",
+    "subtag": "Liity tiimeihin ympäri maailmaa, jotka rakastavat \"superhelppolukuisia pöytäkirjojamme\". Pöytäkirja AI toimii saumattomasti iOS:llä ja verkossa ja tukee yli 100 kieltä."
   },
   "intro": {
     "h2": "Mikä paketti sopii sinulle?",
-    "p1": "Tarjoamme neljä vaihtoehtoa sen mukaan, kuinka usein kokoustat."
+    "p1": "Olipa sinulla kokouksia päivittäin, vain silloin tällöin tai haluat vain kokeilla, meillä on yksinkertainen paketti, joka vastaa tarpeisiisi."
   },
   "meta": {
-    "category": "Hinnoittelu",
+    "category": "Hinnasto",
     "h2": "Meta",
     "published": "Julkaistu",
     "type": "Opas"
   },
   "nav": {
     "blog": "Blogi",
-    "pricing": "Hinnoittelu"
+    "pricing": "Hinnasto"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Vuosittainen"
+    "h2_queryHub": "Pöytäkirja AI hinta / Pöytäkirja AI sovelluksen hinta / Pöytäkirja AI ilmainen",
+    "queryHub_p": "Pöytäkirja AI hinta / Pöytäkirja AI sovelluksen hinta / Pöytäkirja AI ilmaisversio / pöytäkirjatyökalun hinta",
+    "h3_timepacks": "Aitapaketit (Kertamaksu)",
+    "timepacks_note": "Ostamasi minuutit **eivät vanhene koskaan**. Käytä niitä tekoälypöytäkirjojen luomiseen tallenteista juuri silloin, kun tarvitset – ilman stressiä.",
+    "trial": {
+      "detail": "120 min / 1.99 $",
+      "name": "Kokeilupaketti",
+      "foot": "Nopein tapa kokeilla – ei vanhene."
     },
-    "bullets": [
-      "Aikapaketit ilman vanhenemista: osta kerran, käytä milloin vain",
-      "Rajoittamaton käyttö tilauksissa",
-      "iOS & Web, monikieliset tuotokset"
-    ],
-    "free": {
-      "badge": "Päivittäinen ilmainen lippu",
-      "text": "Ilman maksua saat joka päivä 3 minuutin ilmaislipun Pöytäkirja AI:n kokeiluun."
-    },
-    "h3_subs": "Tilaustyyppi",
-    "h3_timepacks": "Aikapaketin tyyppi",
     "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
+      "detail": "1200 min / 11.99 $",
+      "name": "Light-paketti",
+      "foot": "Osta kerran, pidä ikuisesti."
     },
+    "h3_subs": "Tilaukset (Todella rajoittamattomat)",
+    "subs_note": "Nämä paketit ovat **todella rajoittamattomia**. Unohda kuukausittaiset katot tai nollauksesta murehtiminen. Keskity kokouksiisi, älä kelloon.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Kuukausittainen"
+      "name": "Kuukausittainen",
+      "foot": "Sopii kiireisiin kuukausiin."
     },
-    "subs_note": "Tilaukset ovat aidosti rajoittamattomia — ei kuukausikohtaisia kattoja.",
-    "timepacks_note": "Ostetut minuutit eivät vanhene. Luo AI-muistiot tallenteista milloin tahansa.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Vuosittainen (säästä ≈26%)",
+      "foot": "Kuukausittain 16.99 $ × 12 = 203.88 $ vs. Vuosittain 149.99 $"
+    },
+    "free": {
+      "badge": "Päivittäinen ilmaislippu",
+      "text": "Saat 3 ilmaista minuuttia Pöytäkirja AI:n käyttöön joka päivä! Se on meidän piikkiimme, eikä luottokorttia tarvita."
+    },
+    "bullets": [
+      "**Aitapaketit ilman vanhenemispäivää**: Osta kerran, käytä milloin haluat.",
+      "**Todella rajoittamattomat tilaukset**: Nolla minuuttikattoa, nolla huolta.",
+      "**Helppolukuiset AI-pöytäkirjat**: Yli 100 kieltä, kristallinkirkkaat iOS:llä & verkossa."
+    ],
+    "foot": {
+      "pre": "* Hinnat näytetään {currency}-valuutassa.",
+      "post_usd": "Maksu käsitellään Yhdysvaltain dollareina (USD). Alueestasi riippuen hintaan saatetaan lisätä verot/ALV kassalla.",
+      "post_other": "Maksu käsitellään Yhdysvaltain dollareina (USD); muunnetut {currency}-määrät ovat arvioita."
     }
   },
-  "seo": {
-    "description": "Vanhenemattomat aikapaketit ja aidosti rajoittamattomat tilaukset. Katso, miten Pöytäkirja AI vertautuu Otteriin ja Nottaan hinnan, kiintiöiden ja siirron osalta.",
-    "ld": {
-      "description": "Neljä selkeää pakettia: kaksi kertaluonteista aikapakettia (ei vanhene) ja kaksi rajoittamatonta tilausta — sekä vertailu Otteriin ja Nottaan.",
-      "headline": "Pöytäkirja AI hinnoittelu"
-    },
-    "ogDescription": "Aikapaketit ilman vanhenemista + rajoittamattomat tilaukset. Nopea vertailu Otteriin & Nottaan.",
-    "ogTitle": "Pöytäkirja AI hinnoittelu",
-    "title": "Pöytäkirja AI hinnoittelu — yksinkertaiset paketit jokaiseen kokoustyyliin"
+  "vibe": {
+    "h2": "Enemmän kuin faktoja – pöytäkirjat, jotka vievät tiimejä eteenpäin",
+    "p1": "Suunnittelimme Pöytäkirja AI:n niin, että seuraava askelesi on ilmeinen heti, kun avaat muistiinpanosi. Ei enää päätösten etsimistä.",
+    "p2": "Älykkäät ja selkeät muotoilumme korostavat automaattisesti päätökset ja jatkotoimet. Tämä tekee muistiinpanoistasi uskomattoman helppoja silmäillä, joten löydät tarvitsemasi sekunneissa.",
+    "highlights": [
+      "**Joustava sinulle**: Valitse paketit ilman vanhenemista tai rajoittamaton tilaus.",
+      "**Helppo lukea**: Päätökset ja toimenpiteet erottuvat aina.",
+      "**Toimii kaikkialla**: Saumaton kokemus verkossa ja iOS:llä."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Miksi suunnittelimme paketit näin",
+  "faq": {
+    "h2": "Usein kysytyt kysymykset (UKK) – Ilmaisversio ja hinnat",
     "items": [
-      "Kokoukset päivittäin: valitse Rajoittamaton ennakoitavuuden vuoksi.",
-      "Satunnaiset kokoukset: osta Light kerran — ei vanhene.",
-      "Kokeilet vasta: Trial-paketti + päivittäinen 3 min -lippu."
+      {
+        "q": "Onko olemassa ilmaisversiota?",
+        "a": "Kyllä! Saat ilmaisen \"päivittäisen lipun\", joka antaa sinulle 3 minuuttia käyttöaikaa joka ikinen päivä."
+      },
+      {
+        "q": "Vanhenevatko aikapaketit?",
+        "a": "Eivät! Ostamasi minuutit paketeissamme **eivät vanhene koskaan**. Osta ne nyt ja käytä ne ensi vuonna – päätös on täysin sinun."
+      },
+      {
+        "q": "Kuinka paljon säästän vuosittaisella tilauksella?",
+        "a": "Säästät noin 26 %! Kuukausitilaus maksaa 16.99 $ (mikä on 203.88 $ 12 kuukaudelta), kun taas vuositilaus on vain 149.99 $."
+      },
+      {
+        "q": "Sisältävätkö hinnat verot?",
+        "a": "Hinnat näytetään Yhdysvaltain dollareina (USD). Riippuen asuinpaikastasi, paikalliset verot tai ALV saatetaan lisätä kassalla lopullisen maksun yhteydessä."
+      },
+      {
+        "q": "Kuinka montaa kieltä tuetaan?",
+        "a": "Tuemme yli 100 kieltä, sekä puheentunnistuksessa että lopullisen kokouspöytäkirjan muotoilussa."
+      }
     ]
+  },
+  "seo": {
+    "description": "Pöytäkirja AI:n yksinkertainen hinnasto. Valitse aikapaketit, jotka **eivät vanhene koskaan**, tai **todella rajoittamattomat** tilaukset. Saat 3 ilmaista minuuttia joka päivä. Vertaa hintoja, rajoituksia ja siirrettävyyttä Otteriin/Nottaan.",
+    "ld": {
+      "description": "Neljä pakettia: Kaksi aikapakettia ilman vanhenemista ja kaksi todella rajoittamatonta tilausta. Sisältää vertailun Otteriin/Nottaan.",
+      "headline": "Pöytäkirja AI Hinnasto ja paketit"
+    },
+    "ogDescription": "Valitse tyylisi: Aitapaketit, jotka eivät vanhene + tilaukset, jotka ovat todella rajoittamattomia. Nopea vertailu Otteriin / Nottaan.",
+    "ogTitle": "Pöytäkirja AI Hinnasto (2025)",
+    "title": "Pöytäkirja AI Hinnasto (2025) | Joustavat paketit – Ei vanhene & Todella rajoittamaton"
   }
 }

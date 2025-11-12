@@ -1,59 +1,60 @@
 {
   "aria": {
-    "home": "Inicio de Actas IA"
+    "home": "Actas IA Inicio"
   },
   "compare": {
-    "foot": "Fuentes: páginas oficiales de precios de Otter y Notta.",
-    "h2": "Actas IA vs. Otter vs. Notta — resumen de precios",
-    "lastUpdated": "Última actualización: 31 oct 2025",
-    "note": "Precios y cuotas clave (USD). Los competidores suelen reiniciar las cuotas mensualmente sin traspaso.",
+    "foot": "Fuentes: Páginas oficiales de precios de Otter / Notta (según nuestra investigación).",
+    "h2": "Actas IA vs. Otter vs. Notta – Comparativa rápida de precios",
+    "lastUpdated": "Última actualización: 12 de noviembre de 2025",
+    "note": "Precios en USD. Nota: La mayoría de competidores tienen cuotas mensuales que se reinician, y los minutos no utilizados no se acumulan.",
     "rows": [
       {
-        "billing": "Paquetes únicos + suscripciones",
-        "cheapest": "Trial 120 min / $1.99 (sin caducidad)",
-        "free": "Ticket diario de 3 min",
-        "limits": "Los paquetes no caducan. Suscripciones sin tope.",
+        "billing": "Paquetes de tiempo + Suscripciones",
+        "cheapest": "Prueba: 120 min / 1.99 $ (no caduca)",
+        "free": "Ticket diario gratuito (3 min)",
+        "limits": "Los paquetes de tiempo no caducan. Las suscripciones son ilimitadas.",
         "service": "Actas IA",
-        "unlimited": "Sí — $16.99/mes o $149.99/año"
+        "unlimited": "¡Sí! — 16.99 $/mes o 149.99 $/año"
       },
       {
         "billing": "Suscripción por usuario",
-        "cheapest": "Pro — $16.99/mes o $8.33/mes (anual)",
+        "cheapest": "Pro — 16.99 $/mes u 8.33 $/mes (anual)",
         "free": "300 min/mes, hasta 30 min/conversación",
-        "limits": "Sin traspaso; límite por reunión",
+        "limits": "No se acumulan; límite 90 min/reunión (Pro)",
         "service": "Otter",
-        "unlimited": "No — Pro 1200 min/mes; Business 6000 min de importación/mes"
+        "unlimited": "No — Pro 1200 min/mes"
       },
       {
         "billing": "Suscripción por usuario",
-        "cheapest": "Pro — $13.49/mes (mensual) o $8.17/mes (anual)",
+        "cheapest": "Pro — 13.49 $/mes (mensual) u 8.17 $/mes (anual)",
         "free": "120 min/mes, hasta 3 min/grabación",
-        "limits": "Sin traspaso; hasta 5 h por grabación; cupos de archivos",
+        "limits": "No se acumulan; límites de tiempo de grabación y subida",
         "service": "Notta",
-        "unlimited": "Business — Ilimitado (anual $16.67/mes; mensual superior)"
+        "unlimited": "Business — Ilimitado (anual 16.67 $/mes)"
       }
     ],
     "tableHead": [
       "Servicio",
-      "Plan gratuito",
-      "Más económico",
-      "Uso ilimitado",
-      "Límites destacables",
-      "Modelo de cobro"
+      "Plan Gratuito",
+      "Plan de Pago Más Barato",
+      "Ilimitado",
+      "Límites Destacados",
+      "Tipo de Facturación"
     ]
   },
   "cta": {
-    "downloadIOS": "Descargar app de iOS",
+    "downloadIOS": "Descargar app para iOS",
     "openBrowser": "Abrir en el navegador"
   },
   "hero": {
     "h1": "Precios de Actas IA (2025)",
     "kicker": "Precios",
-    "tagline": "Elige paquetes de tiempo sin caducidad o suscripciones mensuales/anuales totalmente ilimitadas."
+    "tagline": "Elige lo que se adapta a ti: paquetes de tiempo de un solo pago que **nunca caducan**, o suscripciones que son **realmente ilimitadas**.",
+    "subtag": "Únete a equipos de todo el mundo que adoran nuestras \"actas ultra legibles\". Actas IA funciona perfectamente en iOS y la web, y es compatible con más de 100 idiomas."
   },
   "intro": {
-    "h2": "¿Qué plan encaja contigo?",
-    "p1": "Ofrecemos cuatro opciones adaptadas a tu frecuencia de reuniones."
+    "h2": "¿Qué plan te conviene más?",
+    "p1": "Tanto si tienes reuniones diarias, como ocasionales, o simplemente quieres probarlo, tenemos un plan sencillo que se adapta a tus necesidades."
   },
   "meta": {
     "category": "Precios",
@@ -66,52 +67,91 @@
     "pricing": "Precios"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Anual"
+    "h2_queryHub": "Precios Actas IA / Precio app Actas IA / Actas IA gratis",
+    "queryHub_p": "Precios Actas IA / Precio app Actas IA / Plan gratuito Actas IA / Precios herramienta de actas",
+    "h3_timepacks": "Paquetes de Tiempo (Pago único)",
+    "timepacks_note": "Los minutos que compras **nunca caducan**. Úsalos para generar actas con IA a partir de grabaciones cuando lo necesites, sin estrés.",
+    "trial": {
+      "detail": "120 min / 1.99 $",
+      "name": "Paquete de Prueba",
+      "foot": "La forma más rápida de probarlo - no caduca."
     },
-    "bullets": [
-      "Paquetes sin caducidad: compra una vez, usa cuando quieras",
-      "Uso ilimitado con suscripción",
-      "iOS y Web, salidas multilingües"
-    ],
-    "free": {
-      "badge": "Ticket gratuito diario",
-      "text": "Incluso sin pagar, obtienes un ticket gratuito de 3 minutos cada día para probar Actas IA."
-    },
-    "h3_subs": "Tipo suscripción",
-    "h3_timepacks": "Tipo paquete de tiempo",
     "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
+      "detail": "1200 min / 11.99 $",
+      "name": "Paquete Light",
+      "foot": "Cómpralo una vez, consérvalo para siempre."
     },
+    "h3_subs": "Suscripciones (Realmente Ilimitadas)",
+    "subs_note": "Estos planes son **realmente ilimitados**. Olvídate de los límites mensuales o de preocuparte por el reinicio. Céntrate en tus reuniones, no en el reloj.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Mensual"
+      "name": "Mensual",
+      "foot": "Ideal para meses de mucho trabajo."
     },
-    "subs_note": "Las suscripciones son realmente ilimitadas — sin límites mensuales.",
-    "timepacks_note": "Los minutos comprados nunca caducan. Genera actas automáticamente cuando quieras.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Anual (≈26% de descuento)",
+      "foot": "Mensual 16.99 $ × 12 = 203.88 $ vs. Anual 149.99 $"
+    },
+    "free": {
+      "badge": "Ticket Diario Gratuito",
+      "text": "¡Obtén 3 minutos gratis para usar Actas IA cada día! Invitamos nosotros, no necesitas tarjeta de crédito."
+    },
+    "bullets": [
+      "**Paquetes de tiempo sin caducidad**: Compra una vez, úsalo cuando quieras.",
+      "**Suscripciones realmente ilimitadas**: Cero límites, cero preocupaciones.",
+      "**Actas IA legibles**: Más de 100 idiomas, con total claridad en iOS y web."
+    ],
+    "foot": {
+      "pre": "* Precios mostrados en {currency}.",
+      "post_usd": "El pago se procesa en USD. Pueden aplicarse impuestos/IVA al finalizar la compra según tu región.",
+      "post_other": "El pago se procesa en USD; los importes convertidos a {currency} son estimaciones."
     }
   },
-  "seo": {
-    "description": "Paquetes de tiempo sin caducidad y suscripciones realmente ilimitadas. Compara Actas IA con Otter y Notta en precio, cuotas y traspaso.",
-    "ld": {
-      "description": "Cuatro planes: dos paquetes de tiempo (sin caducidad) y dos suscripciones ilimitadas, con comparativa frente a Otter y Notta.",
-      "headline": "Precios de Actas IA"
-    },
-    "ogDescription": "Paquetes sin caducidad + suscripciones ilimitadas. Comparativa rápida con Otter y Notta.",
-    "ogTitle": "Precios de Actas IA",
-    "title": "Precios de Actas IA — planes sencillos para cada tipo de reunión"
+  "vibe": {
+    "h2": "Más que hechos: actas que mueven equipos",
+    "p1": "Hemos diseñado Actas IA para que tu próximo paso sea obvio en cuanto vuelvas a abrir tus notas. Se acabó el buscar qué se decidió.",
+    "p2": "Nuestros formatos inteligentes y limpios resaltan automáticamente las decisiones y los puntos de seguimiento. Esto hace que tus notas sean increíblemente fáciles de escanear, para que encuentres lo que necesitas en segundos.",
+    "highlights": [
+      "**Flexible para ti**: Elige paquetes sin caducidad o suscripciones ilimitadas.",
+      "**Fácil de leer**: Las decisiones y acciones siempre destacan.",
+      "**Funciona en todas partes**: Una experiencia fluida tanto en la web como en iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Por qué diseñamos así los planes",
+  "faq": {
+    "h2": "Preguntas Frecuentes (FAQ) – Plan gratuito y precios",
     "items": [
-      "Reuniones diarias: elige Ilimitado para mayor previsibilidad.",
-      "Reuniones ocasionales: compra Light una vez — sin caducidad.",
-      "Solo probar: paquete Trial + ticket diario de 3 minutos."
+      {
+        "q": "¿Hay algún plan gratuito?",
+        "a": "¡Sí! Recibes un \"ticket diario\" gratuito que te da 3 minutos de uso, cada día."
+      },
+      {
+        "q": "¿Caducan los paquetes de tiempo?",
+        "a": "¡No! Los minutos comprados en nuestros paquetes de tiempo **nunca caducan**. Cómpralos ahora y úsalos el año que viene, depende totalmente de ti."
+      },
+      {
+        "q": "¿Cuánto ahorro con el plan Anual?",
+        "a": "¡Ahorras alrededor del 26 %! El plan Mensual cuesta 16.99 $ (que son 203.88 $ en 12 meses), mientras que el plan Anual cuesta solo 149.99 $."
+      },
+      {
+        "q": "¿Los precios incluyen impuestos?",
+        "a": "Los precios se muestran en USD (dólares estadounidenses). Dependiendo de dónde vivas, pueden añadirse impuestos locales o IVA en el momento del pago final."
+      },
+      {
+        "q": "¿Cuántos idiomas son compatibles?",
+        "a": "Soportamos más de 100 idiomas, tanto para el reconocimiento de voz como para el formateo del acta final de la reunión."
+      }
     ]
+  },
+  "seo": {
+    "description": "Planes de precios sencillos de Actas IA. Elige entre paquetes de tiempo que **nunca caducan** o suscripciones **realmente ilimitadas**. Obtén 3 minutos gratis cada día. Compara precios, límites y acumulación con Otter/Notta.",
+    "ld": {
+      "description": "Cuatro planes: Dos paquetes de tiempo sin caducidad y dos suscripciones realmente ilimitadas. Incluye comparativa con Otter/Notta.",
+      "headline": "Precios y Planes de Actas IA"
+    },
+    "ogDescription": "Elige tu estilo: Paquetes de tiempo que nunca caducan + suscripciones realmente ilimitadas. Comparativa rápida con Otter / Notta.",
+    "ogTitle": "Precios de Actas IA (2025)",
+    "title": "Precios de Actas IA (2025) | Planes sencillos que se adaptan a ti – Sin caducidad y realmente ilimitados"
   }
 }

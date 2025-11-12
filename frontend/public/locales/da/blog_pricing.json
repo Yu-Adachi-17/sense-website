@@ -3,57 +3,58 @@
     "home": "Referat AI Hjem"
   },
   "compare": {
-    "foot": "Kilder: officielle prissider for Otter og Notta.",
-    "h2": "Referat AI vs. Otter vs. Notta — hurtigt overblik",
-    "lastUpdated": "Sidst opdateret: 31. oktober 2025",
-    "note": "Nøgletal i USD. Konkurrenters kvoter nulstilles typisk månedligt uden overførsel.",
+    "foot": "Kilder: Officielle prissider for Otter / Notta (vores research).",
+    "h2": "Referat AI vs. Otter vs. Notta – En hurtig prissammenligning",
+    "lastUpdated": "Sidst opdateret: 12. november 2025",
+    "note": "Priser er i USD. Bemærk: De fleste konkurrenter har månedlige kvoter, der nulstilles, og ubrugte minutter overføres ikke.",
     "rows": [
       {
-        "billing": "Engangstidsklip + abonnementer",
-        "cheapest": "Trial 120 min / $1.99 (ingen udløb)",
-        "free": "Daglig 3-min billet",
-        "limits": "Tidsklip udløber aldrig. Abonnementer er uden loft.",
+        "billing": "Tidspakker + Abonnement",
+        "cheapest": "Prøve: 120 min / $1.99 (udløber aldrig)",
+        "free": "Daglig gratis billet (3 min)",
+        "limits": "Tidspakker udløber aldrig. Abonnementer er helt uden loft.",
         "service": "Referat AI",
-        "unlimited": "Ja — $16.99/md eller $149.99/år"
+        "unlimited": "Ja! — $16.99/md. eller $149.99/år"
       },
       {
-        "billing": "Sædebaseret abonnement",
-        "cheapest": "Pro — $16.99/md eller $8.33/md (årligt)",
-        "free": "300 min/md, op til 30 min/møde",
-        "limits": "Ingen overførsel; per-møde loft",
+        "billing": "Abonnement pr. bruger",
+        "cheapest": "Pro — $16.99/md. eller $8.33/md. (årligt)",
+        "free": "300 min/md., op til 30 min/samtale",
+        "limits": "Ingen overførsel; mødeloft 90 min (Pro), 4t (Business)",
         "service": "Otter",
-        "unlimited": "Nej — Pro 1200 min/md; Business 6000 importmin/md"
+        "unlimited": "Nej — Pro 1200 min/md."
       },
       {
-        "billing": "Sædebaseret abonnement",
-        "cheapest": "Pro — $13.49/md (månedligt) eller $8.17/md (årligt)",
-        "free": "120 min/md, op til 3 min/optagelse",
-        "limits": "Ingen overførsel; op til 5 t/optagelse; uploadkvoter",
+        "billing": "Abonnement pr. bruger",
+        "cheapest": "Pro — $13.49/md. (månedligt) eller $8.17/md. (årligt)",
+        "free": "120 min/md., op til 3 min/optagelse",
+        "limits": "Ingen overførsel; lofter for optagelse og upload",
         "service": "Notta",
-        "unlimited": "Business — Ubegrænset (årligt $16.67/md; månedligt højere)"
+        "unlimited": "Business — Ubegrænset (årligt $16.67/md.)"
       }
     ],
     "tableHead": [
       "Tjeneste",
-      "Gratis plan",
-      "Billigste betalte",
+      "Gratis Plan",
+      "Billigste Betalte",
       "Ubegrænset",
-      "Bemærkelsesværdige begrænsninger",
-      "Faktureringsmodel"
+      "Væsentlige Begrænsninger",
+      "Faktureringstype"
     ]
   },
   "cta": {
-    "downloadIOS": "Hent iOS-app",
+    "downloadIOS": "Download iOS-app",
     "openBrowser": "Åbn i browser"
   },
   "hero": {
-    "h1": "Referat AI priser (2025)",
+    "h1": "Referat AI Priser (2025)",
     "kicker": "Priser",
-    "tagline": "Vælg tidsklip uden udløb — eller gå all-in med ubegrænset abonnement."
+    "tagline": "Vælg det, der passer til dig: Tidspakker, der købes én gang og **aldrig udløber**, eller et abonnement, der er **fuldstændig ubegrænset**.",
+    "subtag": "Slut dig til teams verden over, der elsker vores \"ultra-læsbare referater\". Referat AI fungerer problemfrit på tværs af iOS og web og understøtter over 100 sprog."
   },
   "intro": {
-    "h2": "Hvilken plan passer dig?",
-    "p1": "Vi tilbyder fire muligheder, optimeret efter hvor ofte du holder møder."
+    "h2": "Hvilken plan passer bedst til dig?",
+    "p1": "Uanset om du har møder dagligt, kun lejlighedsvis, eller bare vil prøve det af, har vi en simpel plan, der passer til dine behov."
   },
   "meta": {
     "category": "Priser",
@@ -66,52 +67,91 @@
     "pricing": "Priser"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Årligt"
-    },
-    "bullets": [
-      "Tidsklip uden udløb: køb én gang, brug når som helst",
-      "Ubegrænset brug på abonnement",
-      "iOS & Web, flersproget output"
-    ],
-    "free": {
-      "badge": "Daglig gratis billet",
-      "text": "Selv uden betaling får du en daglig gratis billet på 3 minutter til at prøve Referat AI."
-    },
-    "h3_subs": "Abonnementer",
-    "h3_timepacks": "Tidsklip",
-    "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
-    },
-    "monthly": {
-      "detail": "$16.99",
-      "name": "Månedligt"
-    },
-    "subs_note": "Abonnementer er virkelig ubegrænsede — ingen månedlige loft.",
-    "timepacks_note": "Købte minutter udløber aldrig. Generér mødenotater når som helst.",
+    "h2_queryHub": "Referat AI priser / Referat AI app priser / Referat AI gratis",
+    "queryHub_p": "Referat AI priser / Referat AI app priser / Referat AI gratis plan / priser mødereferat værktøj",
+    "h3_timepacks": "Tidspakker (Engangskøb)",
+    "timepacks_note": "Købte minutter **udløber aldrig**. Brug dem til at generere AI-referater fra optagelser, præcis når du har brug for det – helt uden stress.",
     "trial": {
       "detail": "120 min / $1.99",
-      "name": "Trial"
+      "name": "Prøvepakke",
+      "foot": "Den hurtigste måde at prøve – udløber aldrig."
+    },
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Light-pakke",
+      "foot": "Køb én gang, behold den for evigt."
+    },
+    "h3_subs": "Abonnementer (Fuldstændig ubegrænset)",
+    "subs_note": "Disse planer er **virkelig ubegrænset**. Glem alt om månedlige lofter eller bekymringer om nulstilling. Fokuser på dine møder, ikke på uret.",
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Månedligt",
+      "foot": "Perfekt til travle måneder."
+    },
+    "annual": {
+      "detail": "$149.99",
+      "name": "Årligt (spar ≈26%)",
+      "foot": "Månedligt $16.99 × 12 = $203.88 vs. Årligt $149.99"
+    },
+    "free": {
+      "badge": "Daglig Gratis Billet",
+      "text": "Få 3 gratis minutter til at bruge Referat AI hver eneste dag! Det er på vores regning, og kræver intet kreditkort."
+    },
+    "bullets": [
+      "**Tidspakker uden udløbsdato**: Køb én gang, brug dem når som helst.",
+      "**Virkelig ubegrænset abonnement**: Nul lofter, nul bekymringer.",
+      "**Læsbare AI-referater**: 100+ sprog, krystalklart på iOS & web."
+    ],
+    "foot": {
+      "pre": "* Priserne vises i {currency}.",
+      "post_usd": "Betaling behandles i USD. Afhængigt af din region kan der tillægges skatter/moms ved kassen.",
+      "post_other": "Betaling behandles i USD; de konverterede beløb i {currency} er estimater."
     }
   },
-  "seo": {
-    "description": "Tidsklip uden udløb og reelt ubegrænsede abonnementer. Se sammenligningen med Otter og Notta på pris, kvoter og overførsel.",
-    "ld": {
-      "description": "Fire enkle planer: to engangstidsklip (uden udløb) og to ubegrænsede abonnementer — inkl. sammenligning mod Otter og Notta.",
-      "headline": "Referat AI priser"
-    },
-    "ogDescription": "Tidsklip uden udløb + ubegrænsede abonnementer. Sammenlign med Otter og Notta.",
-    "ogTitle": "Referat AI priser",
-    "title": "Referat AI priser — simple planer til alle mødevaner"
+  "vibe": {
+    "h2": "Mere end bare fakta – referater, der flytter teams",
+    "p1": "Vi har designet Referat AI, så dit næste skridt er åbenlyst, i det øjeblik du genåbner dine noter. Slut med at lede efter, hvad der blev besluttet.",
+    "p2": "Vores smarte, rene formater fremhæver automatisk beslutninger og opfølgningspunkter. Det gør dine noter utroligt nemme at skimme, så du kan finde det, du har brug for, på sekunder.",
+    "highlights": [
+      "**Fleksibelt for dig**: Vælg pakker uden udløb eller ubegrænset abonnement.",
+      "**Let at læse**: Beslutninger og handlingspunkter står altid klart frem.",
+      "**Fungerer overalt**: En problemfri oplevelse på både web og iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Derfor designede vi planerne sådan",
+  "faq": {
+    "h2": "Ofte stillede spørgsmål (FAQ) – Gratis plan og priser",
     "items": [
-      "Daglige møder: vælg Ubegrænset for forudsigelighed.",
-      "Lejlighedsvise møder: køb Light én gang — ingen udløb.",
-      "Vil du bare teste: Trial + daglig 3-min billet."
+      {
+        "q": "Findes der en gratis plan?",
+        "a": "Ja! Du får en gratis \"daglig billet\", der giver dig 3 minutters brug hver eneste dag."
+      },
+      {
+        "q": "Udløber tidspakkerne?",
+        "a": "Nej! Købte minutter i vores tidspakker **udløber aldrig**. Køb dem nu, og brug dem næste år – det er helt op til dig."
+      },
+      {
+        "q": "Hvor meget sparer jeg med den årlige plan?",
+        "a": "Du sparer omkring 26%! Den månedlige plan koster $16.99 (hvilket er $203.88 for 12 måneder), mens den årlige plan kun koster $149.99."
+      },
+      {
+        "q": "Er priserne inklusive moms?",
+        "a": "Priserne vises i USD (amerikanske dollars). Afhængigt af hvor du bor, kan lokal skat eller moms blive tillagt ved den endelige betaling."
+      },
+      {
+        "q": "Hvor mange sprog understøttes?",
+        "a": "Vi understøtter over 100 sprog, både til talegenkendelse og til formateringen af det færdige mødereferat."
+      }
     ]
+  },
+  "seo": {
+    "description": "Simple prisplaner for Referat AI. Vælg mellem tidspakker, der **aldrig udløber**, og abonnementer, der er **fuldstændig ubegrænset**. Få 3 gratis minutter hver dag. Sammenlign priser, lofter og overførsel med Otter/Notta.",
+    "ld": {
+      "description": "Fire planer: To tidspakker uden udløbsdato og to fuldstændig ubegrænsede abonnementer. Inkluderer sammenligning med Otter/Notta.",
+      "headline": "Referat AI Priser og Planer"
+    },
+    "ogDescription": "Vælg din stil: Tidspakker, der aldrig udløber + abonnementer, der er helt ubegrænsede. Hurtig sammenligning med Otter / Notta.",
+    "ogTitle": "Referat AI Priser (2025)",
+    "title": "Referat AI Priser (2025) | Simple planer der passer dig – Uden udløb & Fuldstændig Ubegrænset"
   }
 }
