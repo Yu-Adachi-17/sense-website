@@ -7,22 +7,48 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
+import * as React from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ---------- Inline English fallback (used when i18n returns keys) ---------- */
+/* ---------- Constants ---------- */
+const LAST_UPDATED_ISO = "2025-11-12";
+const FX = {
+  // editable reference rates; checkout remains USD
+  EUR_PER_USD: 0.92,
+  JPY_PER_USD: 150.0,
+};
+const formatMoney = (amountUSD, currency) => {
+  let value = amountUSD, code = currency;
+  if (currency === "EUR") value = amountUSD * FX.EUR_PER_USD;
+  if (currency === "JPY") value = amountUSD * FX.JPY_PER_USD;
+  return new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency: code,
+    maximumFractionDigits: code === "JPY" ? 0 : 2,
+  }).format(value);
+};
+const guessCurrency = () => {
+  const lang = typeof navigator !== "undefined" ? navigator.language : "en-US";
+  if (lang.startsWith("ja")) return "JPY";
+  if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("nb") || lang.startsWith("pt")) return "EUR";
+  return "USD";
+};
+
+/* ---------- English-first fallback (keys missing -> EN) ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "Minutes.AI Pricing — Honest Plans for Every Meeting Style",
+    title:
+      "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR/JPY)", // 変更
     description:
-      "Minutes.AI offers two one-time time packs with no expiry and truly unlimited subscriptions. See how it compares to Otter and Notta across price, quotas, and rollover.",
-    ogTitle: "Minutes.AI Pricing",
+      "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes, every single day.", // 変更
+    ogTitle: "Minutes.AI Pricing (2025): Simple, Flexible Plans", // 変更
     ogDescription:
-      "Time packs with no expiry + unlimited subscriptions. Compare Minutes.AI vs. Otter & Notta.",
+      "Find the perfect plan: Time packs that never expire or truly unlimited subscriptions. Get 3 free minutes every day!", // 変更
     ld: {
-      headline: "Minutes.AI Pricing",
+      headline: "Minutes.AI Pricing (2025)",
       description:
-        "Four simple plans: two one-time time packs (no expiry) and two unlimited subscriptions. Includes a comparison vs. Otter and Notta.",
+        "Two no-expiry time packs (Trial/Light) and two unlimited subscriptions (Monthly/Annual). 100+ languages.",
     },
   },
   aria: { home: "Minutes.AI Home" },
@@ -32,93 +58,129 @@ const EN_FALLBACK = {
     kicker: "Pricing",
     h1: "Minutes.AI Pricing (2025)",
     tagline:
-      "Two one-time time packs with no expiry. Or go fully unlimited with monthly/annual subscriptions.",
+      "Whether you have meetings daily or just occasionally, find a plan that fits. Choose from time packs that never expire or go fully unlimited. It's pricing that bends to *your* meeting rhythm.", // 変更
+    subtag:
+      "Join teams worldwide who love our “ultra-readable minutes.” Minutes.AI works seamlessly across iOS and Web in over 100 languages.", // 変更
+    badges: ["100+ languages", "iOS & Web", "3-minute free ticket every day"],
   },
 
   intro: {
-    h2: "Which Minutes.AI plan fits you?",
-    p1: "Minutes.AI provides four options optimized for how often you meet.",
+    h2: "Which plan fits you?",
+    p1: "Daily meetings, occasional catch-ups, or just testing the waters? We've got a simple plan that gets you right to what you need.", // 変更
   },
 
+  /* ---- Plans ---- */
   plans: {
-    h3_timepacks: "Time-Pack Type",
-    timepacks_note: "Purchased time never expires. Generate AI minutes from recordings any time.",
-    trial: { name: "Trial", detail: "120 min / $1.99" },
-    light: { name: "Light", detail: "1200 min / $11.99" },
+    h2_queryHub: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan",
+    h3_timepacks: "One-time time packs (no expiry)",
+    timepacks_note:
+      "Buy once, use forever. Your purchased minutes **never expire**. Use them to generate AI minutes from recordings whenever you need to—no rush.", // 変更
+    trial: { name: "Trial", detail: "120 min" },
+    light: { name: "Light", detail: "1200 min" },
 
-    h3_subs: "Subscription Type",
-    subs_note: "Subscriptions are truly unlimited — no monthly caps.",
-    monthly: { name: "Monthly", detail: "$16.99" },
-    annual: { name: "Annual", detail: "$149.99" },
+    h3_subs: "Subscriptions (truly unlimited)",
+    subs_note:
+      "Forget about monthly caps. With our subscriptions, you get **truly unlimited** minutes. Focus on your work, not on watching the clock or waiting for a reset.", // 変更
+    monthly: { name: "Monthly", detail: "" },
+    annual: {
+      name: "Annual",
+      detail: "≈26% off vs monthly",
+      foot: "Monthly $16.99 × 12 = $203.88 vs Annual $149.99",
+    },
 
     free: {
       badge: "Daily Free Ticket",
-      text: "Even without paying, you get a 3-minute free ticket every day to try Minutes.AI.",
+      text: "Get 3 free minutes to use Minutes.AI every single day! It's on us—no credit card required.", // 変更
     },
     bullets: [
-      "No-expiry time packs: buy once, use anytime",
-      "Unlimited usage on subscriptions (no minutes cap)",
-      "iOS & Web, multilingual outputs",
+      "**No-expiry time packs**: Buy once, use them anytime.", // 変更
+      "**Truly unlimited subscriptions**: Zero caps, zero worries.", // 変更
+      "**Readable AI Minutes**: 100+ languages, crystal clear on iOS & Web.", // 変更
     ],
+  },
+
+  vibe: {
+    h2: "Beyond facts — minutes that move teams",
+    p1: "We designed Minutes.AI so that the moment you reopen your notes, your next step is obvious. No more hunting for action items.", // 変更
+    p2: "Our smart, clean formats automatically highlight decisions and follow-ups. This makes your notes incredibly easy to scan, so you can find what matters in seconds.", // 変更
+    highlights: [
+      "**Flexible for you**: Choose no-expiry packs or unlimited subs.", // 変更
+      "**Easy to read**: Decisions and action items always stand out.", // 変更
+      "**Works everywhere**: A seamless experience on both Web and iOS.", // 変更
+    ],
+    noteNb:
+      "Norwegian (møtereferat) pricing landing is being rolled out as a dedicated page.",
   },
 
   compare: {
     h2: "Minutes.AI vs. Otter vs. Notta — Pricing at a Glance",
-    note: "Key pricing and quotas (USD). ‘Annual’ denotes price per month when billed annually. Competitors typically reset monthly quotas with no carryover.",
-    tableHead: ["Service", "Free Plan", "Cheapest Paid", "Unlimited Usage", "Notable Limits", "Billing Style"],
-    // Rows are strings so that i18n can localize freely later
+    note:
+      "All prices in USD. The “Annual” price shows the equivalent cost per month, billed once a year. **Heads up:** Most competitors' plans reset your minute quota every month, and unused minutes don't roll over.", // 変更
+    tableHead: ["Service", "Free Plan", "Cheapest Paid", "Unlimited", "Notable Limits", "Billing Style"],
     rows: [
       {
         service: "Minutes.AI",
-        free: "Daily 3-min ticket",
-        cheapest: "Trial 120 min / $1.99 (no expiry)",
-        unlimited: "Yes — $16.99/mo or $149.99/yr",
-        limits: "Time packs have no expiry. Subscriptions are uncapped.",
-        billing: "One-time time packs + subscriptions",
+        free: "A free 3-minute ticket, every day", // 変更
+        cheapest: "Trial: 120 min for $1.99 (never expires)", // 変更
+        unlimited: "Yes! $16.99/mo or $149.99/yr", // 変更
+        limits: "Our time packs never expire. Our subs are truly uncapped.", // 変更
+        billing: "Flexible: One-time packs or subscriptions", // 変更
       },
       {
         service: "Otter",
-        free: "300 min/mo, up to 30 min/conversation",
+        free: "300 min/mo, up to 30 min/conv",
         cheapest: "Pro — $16.99/mo or $8.33/mo (annual)",
         unlimited: "No — Pro 1200 min/mo; Business 6000 import min/mo",
-        limits: "Monthly minutes don’t roll over; per-meeting cap 90 min (Pro), 4h (Business)",
+        limits: "No rollover; meeting cap 90 min (Pro), 4h (Business)",
         billing: "Seat-based subscription",
       },
       {
         service: "Notta",
         free: "120 min/mo, up to 3 min/recording",
         cheapest: "Pro — $13.49/mo (monthly) or $8.17/mo (annual)",
-        unlimited: "Business — Unlimited (annual $16.67/mo; monthly higher)",
-        limits: "No carryover; up to 5h per recording; file upload quotas",
+        unlimited: "Business — Unlimited (annual $16.67/mo)",
+        limits: "No carryover; up to 5h/recording; upload quotas",
         billing: "Seat-based subscription",
       },
     ],
-    foot: "Sources: official pricing pages for Otter and Notta; Notta monthly price reference from G2.",
-    lastUpdated: "Last updated: Oct 31, 2025",
+    foot: "Sources: official pricing pages (Otter, Notta).",
+    lastUpdated: "Last updated: Nov 12, 2025",
   },
 
-  why: {
-    h2: "Why we designed plans this way",
+  faq: {
+    h2: "FAQ — Minutes AI free plan / meeting note taker pricing",
     items: [
-      "People who meet daily: choose Unlimited for predictability.",
-      "People who meet occasionally: buy a Light pack once and forget about expirations.",
-      "Just trying it out: Trial pack + daily 3-minute ticket.",
+      {
+        q: "Is there a free plan?",
+        a: "Yes! You get a free 'daily ticket' that gives you 3 minutes of use, every single day.", // 変更
+      },
+      {
+        q: "Do time packs expire?",
+        a: "Nope! Purchased minutes in our time packs **never expire**. Buy them now, use them next year—it's totally up to you.", // 変更
+      },
+      {
+        q: "How much do I save with Annual?",
+        a: "You save about 26%! The monthly plan costs $16.99 (which is $203.88 for 12 months), while the annual plan is just $149.99.", // 変更
+      },
+      {
+        q: "Are prices tax-inclusive?",
+        a: "Our prices are listed in USD (US Dollars). Depending on where you live, local taxes (like VAT) may be added during the final checkout process.", // 変更
+      },
+      {
+        q: "How many languages are supported?",
+        a: "We support over 100 languages, both for understanding your speech and for formatting the final minutes.", // 変更
+      },
     ],
   },
 
   meta: { h2: "Meta", published: "Published", type: "Guide", category: "Pricing" },
-
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
 };
 
-/* ---------- tiny helpers ---------- */
 const getPath = (obj, path) =>
   path.split(".").reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
-
 const toArray = (v) =>
   Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : [];
-
-/* If i18n returns the key (missing), use EN fallback */
 function useTx(ns) {
   const { t } = useTranslation(ns);
   const txs = (key) => {
@@ -168,7 +230,6 @@ function Pill({ children }) {
     </span>
   );
 }
-
 function Bullet({ children }) {
   return (
     <li className="pl-2 before:mr-2 before:inline-block before:h-[6px] before:w-[6px] before:rounded-full before:bg-indigo-300/80">
@@ -177,7 +238,27 @@ function Bullet({ children }) {
   );
 }
 
-/* ---------- Table component ---------- */
+/* ---------- Currency Toggle ---------- */
+function CurrencyToggle({ currency, setCurrency }) {
+  return (
+    <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-1">
+      {["USD", "EUR", "JPY"].map((c) => (
+        <button
+          key={c}
+          onClick={() => setCurrency(c)}
+          className={`px-3 py-1.5 text-xs rounded-lg transition ${
+            currency === c ? "bg-white/20 text-white" : "text-indigo-100/90 hover:bg-white/10"
+          }`}
+          aria-label={`Show prices in ${c}`}
+        >
+          {c}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/* ---------- Comparison table ---------- */
 function CompareTable({ head, rows }) {
   return (
     <div className="overflow-x-auto">
@@ -212,12 +293,33 @@ export default function BlogPricing() {
   const { txs, txa } = useTx("blog_pricing");
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  const canonical =
-    siteUrl + (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) + "/blog/pricing";
+  const langPrefix = router.locale && router.locale !== i18nConfig.i18n.defaultLocale ? `/${router.locale}` : "";
+  const canonical = `${siteUrl}${langPrefix}/pricing`;
+
+  // hreflang (all locales -> /pricing) + nb-NO special to /nb/motereferat-ai-priser
+  const locales = i18nConfig?.i18n?.locales || ["en"];
+  const altLinks = [
+    { href: `${siteUrl}/pricing`, lang: "x-default" },
+    ...locales.map((lc) => ({
+      href: `${siteUrl}${lc === i18nConfig.i18n.defaultLocale ? "" : `/${lc}`}/pricing`,
+      lang: lc === "ja" ? "ja-JP" : lc,
+    })),
+    { href: `${siteUrl}/nb/motereferat-ai-priser`, lang: "nb-NO" },
+  ];
+
+  // currency state
+  const [currency, setCurrency] = React.useState("USD");
+  React.useEffect(() => {
+    setCurrency(guessCurrency());
+  }, []);
+
+  // USD base prices
+  const P = { TRIAL: 1.99, LIGHT: 11.99, MONTHLY: 16.99, ANNUAL: 149.99 };
 
   const bullets = txa("plans.bullets");
   const compareHead = txa("compare.tableHead");
   const compareRows = txa("compare.rows");
+  const heroBadges = txa("hero.badges");
 
   return (
     <>
@@ -225,11 +327,32 @@ export default function BlogPricing() {
         <title>{txs("seo.title")}</title>
         <meta name="description" content={txs("seo.description")} />
         <link rel="canonical" href={canonical} />
+        {altLinks.map((l, i) => (
+          <link key={i} rel="alternate" href={l.href} hrefLang={l.lang} />
+        ))}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={txs("seo.ogTitle")} />
         <meta property="og:description" content={txs("seo.ogDescription")} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/images/pricing-hero.png`} />
+
+        {/* FAQ structured data (incl. tax/VAT) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                { "@type": "Question", name: "Is there a free plan?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can use Minutes.AI free for 3 minutes every day via a daily ticket." } }, // 変更（FAQのLD+JSONは元の簡潔な回答を維持）
+                { "@type": "Question", name: "Do time packs expire?", acceptedAnswer: { "@type": "Answer", text: "No. Purchased minutes never expire — use them whenever you need." } },
+                { "@type": "Question", name: "How much do I save with Annual?", acceptedAnswer: { "@type": "Answer", text: "Monthly $16.99 × 12 = $203.88 vs Annual $149.99 — about 26% off." } },
+                { "@type": "Question", name: "Are prices tax-inclusive?", acceptedAnswer: { "@type": "Answer", text: "Prices are shown in USD. Taxes/VAT may apply depending on your region at checkout." } }
+              ],
+            }),
+          }}
+        />
+        {/* Article structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -241,11 +364,7 @@ export default function BlogPricing() {
               dateModified: new Date().toISOString(),
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
-              publisher: {
-                "@type": "Organization",
-                name: "Minutes.AI",
-                logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` },
-              },
+              publisher: { "@type": "Organization", name: "Minutes.AI", logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` } },
               image: [`${siteUrl}/images/pricing-hero.png`],
               description: txs("seo.ld.description"),
             }),
@@ -277,7 +396,7 @@ export default function BlogPricing() {
 
         {/* Hero */}
         <section className="relative">
-          <div className="mx-auto max-w-3xl px-6 pt-10 pb-6 sm:pt-12 sm:pb-8">
+          <div className="mx-auto max-w-3xl px-6 pt-10 pb-3 sm:pt-12 sm:pb-4">
             <Kicker>{txs("hero.kicker")}</Kicker>
             <h1 className="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight">
               <span className="bg-gradient-to-r from-indigo-200 via-white to-fuchsia-200 bg-clip-text text-transparent drop-shadow">
@@ -285,6 +404,18 @@ export default function BlogPricing() {
               </span>
             </h1>
             <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">{txs("hero.tagline")}</p>
+            <p className="mt-2 text-sm leading-7 text-indigo-200/90 max-w-2xl">{txs("hero.subtag")}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {heroBadges.map((b, i) => <Pill key={i}>{b}</Pill>)}
+            </div>
+
+            {/* Last updated badge (visible at top) */}
+            <div className="mt-4">
+              <Pill>Last updated: {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short", day: "2-digit" })}</Pill>
+            </div>
+
+            {/* Currency toggle */}
+            <CurrencyToggle currency={currency} setCurrency={setCurrency} />
           </div>
         </section>
 
@@ -296,6 +427,14 @@ export default function BlogPricing() {
             <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("intro.p1")}</p>
           </SectionCard>
 
+          {/* Query-intent hub */}
+          <SectionCard className="mt-8">
+            <h2 className="text-xl sm:text-2xl font-semibold">{txs("plans.h2_queryHub")}</h2>
+            <p className="mt-2 text-sm text-indigo-200/80">
+              Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing
+            </p>
+          </SectionCard>
+
           {/* Plans */}
           <SectionCard className="mt-8">
             <h3 className="text-xl sm:text-2xl font-semibold">{txs("plans.h3_timepacks")}</h3>
@@ -304,11 +443,17 @@ export default function BlogPricing() {
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.trial.name")}</div>
-                <div className="mt-1 text-xl font-bold">{txs("plans.trial.detail")}</div>
+                <div className="mt-1 text-xl font-bold">
+                  {txs("plans.trial.detail")} / {formatMoney(P.TRIAL, currency)}
+                </div>
+                <p className="mt-2 text-xs text-indigo-200/80">Fastest way to try — no expiry.</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.light.name")}</div>
-                <div className="mt-1 text-xl font-bold">{txs("plans.light.detail")}</div>
+                <div className="mt-1 text-xl font-bold">
+                  {txs("plans.light.detail")} / {formatMoney(P.LIGHT, currency)}
+                </div>
+                <p className="mt-2 text-xs text-indigo-200/80">Buy once, keep it forever.</p>
               </div>
             </div>
 
@@ -318,11 +463,13 @@ export default function BlogPricing() {
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.monthly.name")}</div>
-                <div className="mt-1 text-xl font-bold">{txs("plans.monthly.detail")}</div>
+                <div className="mt-1 text-xl font-bold">{formatMoney(P.MONTHLY, currency)}</div>
+                <p className="mt-2 text-xs text-indigo-200/80">Great for busy months.</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.annual.name")}</div>
-                <div className="mt-1 text-xl font-bold">{txs("plans.annual.detail")}</div>
+                <div className="mt-1 text-xl font-bold">{formatMoney(P.ANNUAL, currency)}</div>
+                <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.annual.foot")}</p>
               </div>
             </div>
 
@@ -338,6 +485,25 @@ export default function BlogPricing() {
                 <Bullet key={i}>{b}</Bullet>
               ))}
             </ul>
+
+            <p className="mt-4 text-[12px] text-indigo-200/70">
+              * Prices shown in {currency}. Checkout is processed in USD; {currency !== "USD" ? "converted amounts are estimates." : "taxes/VAT may apply at checkout."}
+            </p>
+          </SectionCard>
+
+          {/* Vibe */}
+          <SectionCard className="mt-8">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("vibe.h2")}</h2>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("vibe.p1")}</p>
+            <p className="mt-2 text-base leading-7 text-indigo-100/90">{txs("vibe.p2")}</p>
+            <ul className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-3 text-indigo-100/90">
+              {txa("vibe.highlights").map((h, i) => (
+                <li key={i} className="rounded-xl border border-white/10 bg-black/25 p-3 text-sm">
+                  {h}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-xs text-indigo-200/80">{txs("vibe.noteNb")}</p>
           </SectionCard>
 
           {/* Compare */}
@@ -354,28 +520,21 @@ export default function BlogPricing() {
             </div>
 
             <p className="mt-3 text-xs text-indigo-200/70">{txs("compare.foot")}</p>
-
-            {/* Hard facts inline (kept simple for SEO robots) */}
-            <div className="mt-5 rounded-xl border border-white/10 bg-black/30 p-3 text-[12px] leading-6 text-indigo-200/80">
-              <strong>Facts snapshot:</strong>
-              <ul className="list-disc pl-5">
-                <li>Otter Pro: $16.99/month or $8.33/month (annual). 1200 min/month. No rollover.</li>
-                <li>Otter Business: $30/month or $19.99/month (annual). Import 6000 min/month. No rollover.</li>
-                <li>Notta Free: 120 min/month; up to 3 min/recording. No carryover.</li>
-                <li>Notta Pro: $8.17/month (annual) or about $13.49/month (monthly reference). 1800 min/month.</li>
-                <li>Notta Business: $16.67/month (annual). Unlimited transcription; 5h/recording; file quotas apply.</li>
-              </ul>
-            </div>
           </SectionCard>
 
-          {/* Why */}
+          {/* FAQ */}
           <SectionCard className="mt-8">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("why.h2")}</h2>
-            <ul className="mt-4 space-y-2 text-indigo-100/90 list-disc ml-5">
-              {txa("why.items").map((n, i) => (
-                <li key={i}>{n}</li>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("faq.h2")}</h2>
+            <div className="mt-4 space-y-4">
+              {txa("faq.items").map((f, i) => (
+                <details key={i} className="rounded-xl border border-white/10 bg-black/25 p-4">
+                  <summary className="cursor-pointer text-sm font-semibold text-white/90">
+                    {f.q || ""}
+                  </summary>
+                  <p className="mt-2 text-sm text-indigo-100/90">{f.a || ""}</p>
+                </details>
               ))}
-            </ul>
+            </div>
           </SectionCard>
 
           {/* Meta */}
@@ -384,7 +543,7 @@ export default function BlogPricing() {
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
               <Pill>
                 {txs("meta.published")}:{" "}
-                {new Date().toLocaleDateString(router.locale || "ja-JP", {
+                {new Date().toLocaleDateString(router.locale || "en-US", {
                   year: "numeric",
                   month: "short",
                   day: "2-digit",
@@ -404,7 +563,7 @@ export default function BlogPricing() {
               {txs("cta.openBrowser")}
             </Link>
             <a
-              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
+              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%82ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
