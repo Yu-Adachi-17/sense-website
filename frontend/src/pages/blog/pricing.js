@@ -39,12 +39,12 @@ const guessCurrency = () => {
 const EN_FALLBACK = {
   seo: {
     title:
-      "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR/JPY)", // 変更
+      "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR/JPY)",
     description:
-      "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes, every single day.", // 変更
-    ogTitle: "Minutes.AI Pricing (2025): Simple, Flexible Plans", // 変更
+      "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes, every single day.",
+    ogTitle: "Minutes.AI Pricing (2025): Simple, Flexible Plans",
     ogDescription:
-      "Find the perfect plan: Time packs that never expire or truly unlimited subscriptions. Get 3 free minutes every day!", // 変更
+      "Find the perfect plan: Time packs that never expire or truly unlimited subscriptions. Get 3 free minutes every day!",
     ld: {
       headline: "Minutes.AI Pricing (2025)",
       description:
@@ -58,30 +58,43 @@ const EN_FALLBACK = {
     kicker: "Pricing",
     h1: "Minutes.AI Pricing (2025)",
     tagline:
-      "Whether you have meetings daily or just occasionally, find a plan that fits. Choose from time packs that never expire or go fully unlimited. It's pricing that bends to *your* meeting rhythm.", // 変更
+      "Whether you have meetings daily or just occasionally, find a plan that fits. Choose from time packs that never expire or go fully unlimited. It's pricing that bends to *your* meeting rhythm.",
     subtag:
-      "Join teams worldwide who love our “ultra-readable minutes.” Minutes.AI works seamlessly across iOS and Web in over 100 languages.", // 変更
+      "Join teams worldwide who love our “ultra-readable minutes.” Minutes.AI works seamlessly across iOS and Web in over 100 languages.",
     badges: ["100+ languages", "iOS & Web", "3-minute free ticket every day"],
   },
 
   intro: {
     h2: "Which plan fits you?",
-    p1: "Daily meetings, occasional catch-ups, or just testing the waters? We've got a simple plan that gets you right to what you need.", // 変更
+    p1: "Daily meetings, occasional catch-ups, or just testing the waters? We've got a simple plan that gets you right to what you need.",
   },
 
   /* ---- Plans ---- */
   plans: {
     h2_queryHub: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan",
+    queryHub_p: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing", // NEW
     h3_timepacks: "One-time time packs (no expiry)",
     timepacks_note:
-      "Buy once, use forever. Your purchased minutes **never expire**. Use them to generate AI minutes from recordings whenever you need to—no rush.", // 変更
-    trial: { name: "Trial", detail: "120 min" },
-    light: { name: "Light", detail: "1200 min" },
+      "Buy once, use forever. Your purchased minutes **never expire**. Use them to generate AI minutes from recordings whenever you need to—no rush.",
+    trial: {
+      name: "Trial",
+      detail: "120 min",
+      foot: "Fastest way to try — no expiry.", // NEW
+    },
+    light: {
+      name: "Light",
+      detail: "1200 min",
+      foot: "Buy once, keep it forever.", // NEW
+    },
 
     h3_subs: "Subscriptions (truly unlimited)",
     subs_note:
-      "Forget about monthly caps. With our subscriptions, you get **truly unlimited** minutes. Focus on your work, not on watching the clock or waiting for a reset.", // 変更
-    monthly: { name: "Monthly", detail: "" },
+      "Forget about monthly caps. With our subscriptions, you get **truly unlimited** minutes. Focus on your work, not on watching the clock or waiting for a reset.",
+    monthly: {
+      name: "Monthly",
+      detail: "",
+      foot: "Great for busy months.", // NEW
+    },
     annual: {
       name: "Annual",
       detail: "≈26% off vs monthly",
@@ -90,23 +103,28 @@ const EN_FALLBACK = {
 
     free: {
       badge: "Daily Free Ticket",
-      text: "Get 3 free minutes to use Minutes.AI every single day! It's on us—no credit card required.", // 変更
+      text: "Get 3 free minutes to use Minutes.AI every single day! It's on us—no credit card required.",
     },
     bullets: [
-      "**No-expiry time packs**: Buy once, use them anytime.", // 変更
-      "**Truly unlimited subscriptions**: Zero caps, zero worries.", // 変更
-      "**Readable AI Minutes**: 100+ languages, crystal clear on iOS & Web.", // 変更
+      "**No-expiry time packs**: Buy once, use them anytime.",
+      "**Truly unlimited subscriptions**: Zero caps, zero worries.",
+      "**Readable AI Minutes**: 100+ languages, crystal clear on iOS & Web.",
     ],
+    foot: { // NEW
+      pre: "* Prices shown in {currency}.",
+      post_usd: "Checkout is processed in USD; taxes/VAT may apply at checkout.",
+      post_other: "Checkout is processed in USD; converted amounts are estimates.",
+    },
   },
 
   vibe: {
     h2: "Beyond facts — minutes that move teams",
-    p1: "We designed Minutes.AI so that the moment you reopen your notes, your next step is obvious. No more hunting for action items.", // 変更
-    p2: "Our smart, clean formats automatically highlight decisions and follow-ups. This makes your notes incredibly easy to scan, so you can find what matters in seconds.", // 変更
+    p1: "We designed Minutes.AI so that the moment you reopen your notes, your next step is obvious. No more hunting for action items.",
+    p2: "Our smart, clean formats automatically highlight decisions and follow-ups. This makes your notes incredibly easy to scan, so you can find what matters in seconds.",
     highlights: [
-      "**Flexible for you**: Choose no-expiry packs or unlimited subs.", // 変更
-      "**Easy to read**: Decisions and action items always stand out.", // 変更
-      "**Works everywhere**: A seamless experience on both Web and iOS.", // 変更
+      "**Flexible for you**: Choose no-expiry packs or unlimited subs.",
+      "**Easy to read**: Decisions and action items always stand out.",
+      "**Works everywhere**: A seamless experience on both Web and iOS.",
     ],
     noteNb:
       "Norwegian (møtereferat) pricing landing is being rolled out as a dedicated page.",
@@ -115,16 +133,16 @@ const EN_FALLBACK = {
   compare: {
     h2: "Minutes.AI vs. Otter vs. Notta — Pricing at a Glance",
     note:
-      "All prices in USD. The “Annual” price shows the equivalent cost per month, billed once a year. **Heads up:** Most competitors' plans reset your minute quota every month, and unused minutes don't roll over.", // 変更
+      "All prices in USD. The “Annual” price shows the equivalent cost per month, billed once a year. **Heads up:** Most competitors' plans reset your minute quota every month, and unused minutes don't roll over.",
     tableHead: ["Service", "Free Plan", "Cheapest Paid", "Unlimited", "Notable Limits", "Billing Style"],
     rows: [
       {
         service: "Minutes.AI",
-        free: "A free 3-minute ticket, every day", // 変更
-        cheapest: "Trial: 120 min for $1.99 (never expires)", // 変更
-        unlimited: "Yes! $16.99/mo or $149.99/yr", // 変更
-        limits: "Our time packs never expire. Our subs are truly uncapped.", // 変更
-        billing: "Flexible: One-time packs or subscriptions", // 変更
+        free: "A free 3-minute ticket, every day",
+        cheapest: "Trial: 120 min for $1.99 (never expires)",
+        unlimited: "Yes! $16.99/mo or $149.99/yr",
+        limits: "Our time packs never expire. Our subs are truly uncapped.",
+        billing: "Flexible: One-time packs or subscriptions",
       },
       {
         service: "Otter",
@@ -152,23 +170,23 @@ const EN_FALLBACK = {
     items: [
       {
         q: "Is there a free plan?",
-        a: "Yes! You get a free 'daily ticket' that gives you 3 minutes of use, every single day.", // 変更
+        a: "Yes! You get a free 'daily ticket' that gives you 3 minutes of use, every single day.",
       },
       {
         q: "Do time packs expire?",
-        a: "Nope! Purchased minutes in our time packs **never expire**. Buy them now, use them next year—it's totally up to you.", // 変更
+        a: "Nope! Purchased minutes in our time packs **never expire**. Buy them now, use them next year—it's totally up to you.",
       },
       {
         q: "How much do I save with Annual?",
-        a: "You save about 26%! The monthly plan costs $16.99 (which is $203.88 for 12 months), while the annual plan is just $149.99.", // 変更
+        a: "You save about 26%! The monthly plan costs $16.99 (which is $203.88 for 12 months), while the annual plan is just $149.99.",
       },
       {
         q: "Are prices tax-inclusive?",
-        a: "Our prices are listed in USD (US Dollars). Depending on where you live, local taxes (like VAT) may be added during the final checkout process.", // 変更
+        a: "Our prices are listed in USD (US Dollars). Depending on where you live, local taxes (like VAT) may be added during the final checkout process.",
       },
       {
         q: "How many languages are supported?",
-        a: "We support over 100 languages, both for understanding your speech and for formatting the final minutes.", // 変更
+        a: "We support over 100 languages, both for understanding your speech and for formatting the final minutes.",
       },
     ],
   },
@@ -181,24 +199,70 @@ const getPath = (obj, path) =>
   path.split(".").reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
 const toArray = (v) =>
   Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : [];
+
+// useTxフックは、txsがキーを返す場合にEN_FALLBACKを参照するように修正
 function useTx(ns) {
   const { t } = useTranslation(ns);
-  const txs = (key) => {
-    const val = t(key);
+  const { locale } = useRouter();
+
+  const txs = (key, options) => {
+    const val = t(key, options);
+    // キーがそのまま返ってきた（＝翻訳がない）場合のみフォールバック
     if (typeof val === "string" && val === key) {
       const fb = getPath(EN_FALLBACK, key);
-      return typeof fb === "string" ? fb : key;
+      if (typeof fb === "string") {
+        // フォールバックテキストにも補間を適用
+        if (options && typeof options === "object") {
+          return Object.entries(options).reduce(
+            (acc, [k, v]) => acc.replace(`{${k}}`, String(v)),
+            fb
+          );
+        }
+        return fb;
+      }
+      return key; // フォールバックにもなければキーを返す
     }
     return val;
   };
+
   const txa = (key) => {
+    // 翻訳（ja.jsonなど）から配列を取得しようと試みる
     const val = t(key, { returnObjects: true });
-    if (Array.isArray(val)) return val;
+    
+    // 1. 翻訳が配列として正しく返ってきた場合
+    if (Array.isArray(val) && val.length > 0) {
+      // returnObjects: true は、キー自体を返すときに配列ではなくオブジェクトを返すことがある
+      // その中身が実際に配列かどうかをチェックする
+      if (Array.isArray(val[0])) return val; // ネストされた配列はそのまま
+      if (typeof val[0] === 'object' || typeof val[0] === 'string') {
+        return val; // オブジェクトまたは文字列の配列
+      }
+    }
+
+    // 2. 翻訳がないか、キーが返ってきた場合、EN_FALLBACKから取得
     const fb = getPath(EN_FALLBACK, key);
-    return toArray(fb);
+    if (Array.isArray(fb)) {
+      return fb;
+    }
+    
+    // 3. EN_FALLBACKにもないか、配列でない場合
+    // t()がキーを返した場合、valはキー文字列になる
+    if (typeof val === 'string' && val === key) {
+       return toArray(fb); // フォールバックを配列化
+    }
+
+    // 4. t()がオブジェクトを返したが配列でない場合（例: ja.jsonに空の {} がある）
+    if (typeof val === 'object' && !Array.isArray(val)) {
+        return toArray(fb); // フォールバックを配列化
+    }
+
+    // 最終手段
+    return toArray(val);
   };
+
   return { txs, txa };
 }
+
 
 /* ---------- UI bits ---------- */
 function Kicker({ children }) {
@@ -344,7 +408,7 @@ export default function BlogPricing() {
               "@context": "https://schema.org",
               "@type": "FAQPage",
               mainEntity: [
-                { "@type": "Question", name: "Is there a free plan?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can use Minutes.AI free for 3 minutes every day via a daily ticket." } }, // 変更（FAQのLD+JSONは元の簡潔な回答を維持）
+                { "@type": "Question", name: "Is there a free plan?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can use Minutes.AI free for 3 minutes every day via a daily ticket." } },
                 { "@type": "Question", name: "Do time packs expire?", acceptedAnswer: { "@type": "Answer", text: "No. Purchased minutes never expire — use them whenever you need." } },
                 { "@type": "Question", name: "How much do I save with Annual?", acceptedAnswer: { "@type": "Answer", text: "Monthly $16.99 × 12 = $203.88 vs Annual $149.99 — about 26% off." } },
                 { "@type": "Question", name: "Are prices tax-inclusive?", acceptedAnswer: { "@type": "Answer", text: "Prices are shown in USD. Taxes/VAT may apply depending on your region at checkout." } }
@@ -430,8 +494,9 @@ export default function BlogPricing() {
           {/* Query-intent hub */}
           <SectionCard className="mt-8">
             <h2 className="text-xl sm:text-2xl font-semibold">{txs("plans.h2_queryHub")}</h2>
+            {/* --- 修正点 1 --- */}
             <p className="mt-2 text-sm text-indigo-200/80">
-              Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing
+              {txs("plans.queryHub_p")}
             </p>
           </SectionCard>
 
@@ -446,14 +511,16 @@ export default function BlogPricing() {
                 <div className="mt-1 text-xl font-bold">
                   {txs("plans.trial.detail")} / {formatMoney(P.TRIAL, currency)}
                 </div>
-                <p className="mt-2 text-xs text-indigo-200/80">Fastest way to try — no expiry.</p>
+                {/* --- 修正点 2 --- */}
+                <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.trial.foot")}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.light.name")}</div>
                 <div className="mt-1 text-xl font-bold">
                   {txs("plans.light.detail")} / {formatMoney(P.LIGHT, currency)}
                 </div>
-                <p className="mt-2 text-xs text-indigo-200/80">Buy once, keep it forever.</p>
+                {/* --- 修正点 3 --- */}
+                <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.light.foot")}</p>
               </div>
             </div>
 
@@ -464,7 +531,8 @@ export default function BlogPricing() {
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.monthly.name")}</div>
                 <div className="mt-1 text-xl font-bold">{formatMoney(P.MONTHLY, currency)}</div>
-                <p className="mt-2 text-xs text-indigo-200/80">Great for busy months.</p>
+                {/* --- 修正点 4 --- */}
+                <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.monthly.foot")}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.annual.name")}</div>
@@ -486,8 +554,12 @@ export default function BlogPricing() {
               ))}
             </ul>
 
+            {/* --- 修正点 5 --- */}
             <p className="mt-4 text-[12px] text-indigo-200/70">
-              * Prices shown in {currency}. Checkout is processed in USD; {currency !== "USD" ? "converted amounts are estimates." : "taxes/VAT may apply at checkout."}
+              * {txs("plans.foot.pre", { currency: currency })}{" "}
+              {currency !== "USD"
+                ? txs("plans.foot.post_other", { currency: currency })
+                : txs("plans.foot.post_usd")}
             </p>
           </SectionCard>
 
