@@ -4,7 +4,7 @@
   },
   "compare": {
     "foot": "Kilder: Offisielle prissider for Otter / Notta (vår undersøkelse).",
-    "h2": "Referat AI vs. Otter vs. Notta — En rask prissammenligning",
+    "h2": "Referat AI vs. Otter vs. Notta — En rask prissammenligning (USD, 2025)",
     "lastUpdated": "Sist oppdatert: 12. november 2025",
     "note": "Priser i USD. Merk at mange konkurrenter har månedlige kvoter som tilbakestilles, og ubrukte minutter overføres ikke (ingen rollover).",
     "rows": [
@@ -47,7 +47,7 @@
     "openBrowser": "Åpne i nettleser"
   },
   "hero": {
-    "h1": "Referat AI Priser (2025)",
+    "h1": "Møtereferat AI (Referat AI) – priser (2025)",
     "kicker": "Priser",
     "tagline": "Velg det som passer deg: Engangskjøp av tidspakker som **aldri utløper**, eller abonnementer som er **fullstendig ubegrenset**.",
     "subtag": "Bli med team over hele verden som elsker våre \"ultra-lesbare møtereferater\". Referat AI fungerer sømløst på tvers av iOS og Web, med støtte for over 100 språk."
@@ -67,8 +67,8 @@
     "pricing": "Priser"
   },
   "plans": {
-    "h2_queryHub": "Minutes AI priser / Minutes AI app priser / Minutes AI gratis",
-    "queryHub_p": "Minutes AI priser / Minutes AI app priser / Minutes AI gratis plan / priser møtereferat verktøy",
+    "h2_queryHub": "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / møtereferat ai priser",
+    "queryHub_p": "meeting note taker pricing · notta pricing minutes · notta pricing usd · referat ai priser (2025)",
     "h3_timepacks": "Tidspakker (Engangskjøp)",
     "timepacks_note": "Minuttene du kjøper **utløper aldri**. Bruk dem til å generere AI-møtereferater fra opptak akkurat når du trenger det – null stress.",
     "trial": {
@@ -120,7 +120,7 @@
     "noteNb": ""
   },
   "faq": {
-    "h2": "Ofte stilte spørsmål (FAQ) — Gratisplan og priser",
+    "h2": "FAQ — gratisplan og priser (2025) / Minutes AI free plan",
     "items": [
       {
         "q": "Finnes det en gratisplan?",
@@ -148,10 +148,10 @@
     "description": "Enkle prisplaner for Referat AI. Velg mellom tidspakker som **aldri utløper** og abonnementer som er **fullstendig ubegrenset**. Få 3 gratis minutter hver dag. Se sammenligning med Otter/Notta angående priser, begrensninger og overføring (rollover).",
     "ld": {
       "description": "Fire planer: To tidspakker uten utløpsdato, og to fullstendig ubegrensede abonnementer. Inkluderer sammenligning med Otter/Notta.",
-      "headline": "Referat AI Priser og Planer"
+      "headline": "Møtereferat AI (Referat AI) – priser og planer (2025)"
     },
     "ogDescription": "Velg din stil: Tidspakker som aldri utløper + abonnementer som er helt ubegrenset. Rask sammenligning med Otter / Notta.",
-    "ogTitle": "Referat AI Priser (2025)",
-    "title": "Referat AI Priser (2025) | Enkle planer som passer deg – Utløper aldri & Fullstendig Ubegrenset"
+    "ogTitle": "Møtereferat AI – priser (2025) | Referat AI",
+    "title": "Møtereferat AI priser (2025) — Minutes AI pricing / app pricing / free plan"
   }
 }

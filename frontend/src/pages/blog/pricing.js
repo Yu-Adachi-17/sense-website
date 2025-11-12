@@ -47,7 +47,7 @@ const EN_FALLBACK = {
     title:
       "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR)",
     description:
-      "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes, every single day.",
+      "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes every single day.",
     ogTitle: "Minutes.AI Pricing (2025): Simple, Flexible Plans",
     ogDescription:
       "Find the perfect plan: Time packs that never expire or truly unlimited subscriptions. Get 3 free minutes every day!",
@@ -104,7 +104,7 @@ const EN_FALLBACK = {
     annual: {
       name: "Annual",
       detail: "≈26% off vs monthly",
-      foot: "Monthly $16.99 × 12 = $203.88 vs Annual $149.99",
+      foot: "Monthly $16.99 × 12 = $203.88 vs Annual $149.99.",
     },
 
     free: {
@@ -332,13 +332,14 @@ function CompareTable({ head, rows }) {
 }
 
 /* ---------- Page ---------- */
-export default function BlogPricing() {
+export default function BlogPricing({ canonicalPath = "/pricing" }) {
   const router = useRouter();
   const { txs, txa } = useTx("blog_pricing");
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  const langPrefix = router.locale && router.locale !== i18nConfig.i18n.defaultLocale ? `/${router.locale}` : "";
-  const canonical = `${siteUrl}${langPrefix}/pricing`;
+
+  // canonical: allow override via prop (for /nb/motereferat-ai-priser wrapper)
+  const canonical = `${siteUrl}${canonicalPath || "/pricing"}`;
 
   // hreflang (all locales -> /pricing) + nb-NO special to /nb/motereferat-ai-priser
   const locales = i18nConfig?.i18n?.locales || ["en"];
@@ -455,7 +456,14 @@ export default function BlogPricing() {
 
             {/* Last updated badge (visible at top) */}
             <div className="mt-4">
-              <Pill>Last updated: {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short", day: "2-digit" })}</Pill>
+              <Pill>
+                Last updated:{" "}
+                {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })}
+              </Pill>
             </div>
 
             {/* Currency toggle (USD/EUR) */}
@@ -488,14 +496,14 @@ export default function BlogPricing() {
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.trial.name")}</div>
                 <div className="mt-1 text-xl font-bold">
-                  {txs("plans.trial.detail")} / {formatMoney(P.TRIAL, currency)}
+                  {txs("plans.trial.detail")} / {formatMoney(1.99, currency)}
                 </div>
                 <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.trial.foot")}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.light.name")}</div>
                 <div className="mt-1 text-xl font-bold">
-                  {txs("plans.light.detail")} / {formatMoney(P.LIGHT, currency)}
+                  {txs("plans.light.detail")} / {formatMoney(11.99, currency)}
                 </div>
                 <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.light.foot")}</p>
               </div>
@@ -507,12 +515,12 @@ export default function BlogPricing() {
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.monthly.name")}</div>
-                <div className="mt-1 text-xl font-bold">{formatMoney(P.MONTHLY, currency)}</div>
+                <div className="mt-1 text-xl font-bold">{formatMoney(16.99, currency)}</div>
                 <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.monthly.foot")}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.annual.name")}</div>
-                <div className="mt-1 text-xl font-bold">{formatMoney(P.ANNUAL, currency)}</div>
+                <div className="mt-1 text-xl font-bold">{formatMoney(149.99, currency)}</div>
                 <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.annual.foot")}</p>
               </div>
             </div>
@@ -525,15 +533,15 @@ export default function BlogPricing() {
             </div>
 
             <ul className="mt-6 space-y-2 text-indigo-100/90">
-              {bullets.map((b, i) => (
+              {txa("plans.bullets").map((b, i) => (
                 <Bullet key={i}>{b}</Bullet>
               ))}
             </ul>
 
             <p className="mt-4 text-[12px] text-indigo-200/70">
-              * {txs("plans.foot.pre", { currency: currency })}{" "}
+              * {txs("plans.foot.pre", { currency })}{" "}
               {currency !== "USD"
-                ? txs("plans.foot.post_other", { currency: currency })
+                ? txs("plans.foot.post_other")
                 : txs("plans.foot.post_usd")}
             </p>
           </SectionCard>
