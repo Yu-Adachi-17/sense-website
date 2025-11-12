@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Varför vi rekommenderar iPhone-appen för AI-mötesanteckningar (2025)",
-    "description": "5 raka skäl: extremt enkel UI, läsbara & åtgärdsbara anteckningar, format per mötestyp, uppföljning i appen och flexibel prissättning. Prova Protokoll AI på iPhone.",
-    "ogTitle": "Vårt val: iPhone-app för AI-mötesanteckningar",
-    "ogDescription": "Ett tryck för inspelning, resultat som driver next actions, smarta format, inbyggd uppföljning och priser som passar användningen. Protokoll AI på iPhone.",
+    "title": "(2025) Varför vi rekommenderar Protokoll AI iPhone-appen för mötesprotokoll",
+    "description": "Letar du efter den bästa AI-protokollappen för iPhone? Här är vår ärliga recension. Protokoll AI är en enkel, lättläst och handlingsorienterad app med en otroligt flexibel prismodell.",
+    "ogTitle": "Protokoll AI iPhone-app — Vår ärliga rekommendation (2025)",
+    "ogDescription": "Söker du 'rekommendation AI protokollapp' eller 'priser AI protokollapp'? Denna guide förklarar varför Protokoll AI iPhone-appen är vårt toppval för dess funktioner och rimliga pris.",
     "ld": {
-      "headline": "Varför iPhone-appen för AI-mötesanteckningar är vår rekommendation",
-      "description": "Köpguide för Protokoll AI: snabb att använda, tydliga utdata, anpassade format, åtgärder efter mötet och schyssta priser."
+      "headline": "Varför vi rekommenderar Protokoll AI iPhone-appen",
+      "description": "Våra 5 huvudskäl: Ett superenkelt gränssnitt, verkligt läsbara resultat, smarta mötesformat, inbyggd uppgiftsspårning och en flexibel prismodell som passar alla användare."
     }
   },
-  "aria": { "home": "Startsida Protokoll AI" },
-  "nav": { "blog": "Blogg", "recommend": "Rekommendation" },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "recommend": "Varför Protokoll AI för iPhone"
+  },
   "hero": {
-    "kicker": "Köpguide",
-    "h1": "Därför rekommenderar vi iPhone-appen för AI-mötesanteckningar",
-    "tagline": "Matchar sökintentionen: bästa AI-app för mötesanteckningar på iPhone och prisbild — utan krusiduller."
+    "kicker": "Vår köpguide 2025",
+    "h1": "Varför Protokoll AI iPhone-appen är vårt toppval för mötesprotokoll (2025)",
+    "tagline": "Om du googlar \"rekommenderad AI protokollapp\" eller \"priser AI protokollapp\", har du kommit rätt. Denna app är byggd för att snabbt spela in, generera rena protokoll och hjälpa dig att *faktiskt* få jobbet gjort."
+  },
+  "lead": {
+    "p1": "AI-drivna protokollappar finns överallt 2025. Så varför rekommenderar vi fortfarande Protokoll AI för iPhone? Vi hoppar över hajpen och ger dig fem direkta, praktiska skäl."
   },
   "reasons": {
-    "h2": "Fem raka skäl",
+    "h2": "5 skäl till varför vi rekommenderar Protokoll AI iPhone-appen",
     "items": [
-      "Inspelning med ett tryck — noll friktion",
-      "Anteckningar som faktiskt leder till «next actions»",
-      "Format per mötestyp: allmänt, sälj, 1-på-1, presentation, brainstorming, intervju",
-      "Uppföljning i appen med Project & Strategy",
-      "Flexibla priser: abonnemang och tidspaket utan utgångsdatum"
+      {
+        "t": "1) Ett löjligt enkelt gränssnitt — Noll gissningsarbete",
+        "p": "Inga förvirrande menyer. Ett tryck för att spela in. Ett tryck för att se dina tidigare protokoll. Det är allt. Du ska inte behöva en manual bara för att ta anteckningar.",
+        "imgAlt": "Protokoll AI huvudskärm som visar inspelning med ett tryck",
+        "caption": "Start med ett tryck, historik med ett tryck. Ingen inlärningskurva."
+      },
+      {
+        "t": "2) Läsbarhet & verkligt värde (Inte AI-fluff)",
+        "p": "Det här är inte bara en vägg av AI-genererad text. Appen formaterar allt så att du kan hoppa direkt till beslut och nästa steg. Den är optimerad för handling.",
+        "imgAlt": "Exempel på rena, läsbara protokoll från Protokoll AI",
+        "caption": "Beslut framträder tydligt. Ansvariga och deadlines är tydliga."
+      },
+      {
+        "t": "3) Smarta format för olika möten",
+        "p": "Ett 1-mot-1-samtal skiljer sig från en brainstorming. Protokoll AI förstår detta. Du kan välja ett format (Allmänt, Sälj, 1-mot-1, Presentation, etc.) för att få bästa möjliga sammanfattning för just den mötestypen.",
+        "imgAlt": "Protokoll AI valskärm för mötesformat",
+        "caption": "Välj rätt format för rätt möte."
+      },
+      {
+        "t": "4) Åtgärder efter mötet är inbyggda",
+        "p": "Protokoll AI stannar inte bara vid inspelning. Tryck på \"Projekt\" för att omedelbart se \"vem gör vad när\". Tryck på \"Strategi\" för att låta den senaste AI:n (ChatGPT-5 & Gemini 2.5 Pro) föreslå konkreta nästa steg baserat på er konversation.",
+        "note": "Vill du ha en djupdykning i Strategi? Se artikeln nedan."
+      },
+      {
+        "t": "5) Smart prissättning som passar hur du *faktiskt* jobbar",
+        "p": "Detta är en enorm poäng. Alla behöver inte *ännu* ett månadsabonnemang. Om du har möten hela dagen är **Obegränsat Abonnemang** jättebra. Men om du bara har möten ibland kan du köpa **Tidspaket som inte löper ut**. Du kan till och med börja med ett **120-minuterspaket för bara $1.99** för att testa.",
+        "note": "Vi går igenom hela prislistan i ett eget avsnitt nedan."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategi: Förvandla protokoll till handling",
+    "p1": "\"Strategi\"-funktionen tar kontexten från ditt möte och föreslår tydliga handlingsplaner med hjälp av toppklassiga AI-modeller. Mindre gissningar, fler konkreta steg du kan tilldela.",
+    "linkText": "Läs djupdykningen om Strategi"
+  },
   "pricing": {
-    "h2": "Priser",
-    "p1": "Daglig användning? Abonnemang. Ibland? Tidspaket som inte går ut.",
-    "p2": "Dessutom ett lågprisprov på 120 minuter för att validera innan du binder dig."
+    "h2": "En detaljerad titt på prissättningen för Protokoll AI-appen",
+    "lead": "Här är det största problemet med de flesta AI-verktyg: de tvingar in dig i ett 'one-size-fits-all' månadsabonnemang. Protokoll AI:s prissättning är annorlunda. Den är utformad för att matcha din mötesfrekvens, så du betalar bara för det du faktiskt behöver.",
+    "bullets": [
+      "<strong>Det perfekta testet ($1.99):</strong> Osäker? Köp bara <strong>120-minuters Tidspaketet för $1.99</strong>. Det är billigt, enkelt och har inget utgångsdatum.",
+      "<strong>För tillfälliga användare (Tidspaket):</strong> Köp minuter som <strong>ALDRIG löper ut</strong>. Detta är perfekt för frilansare eller de som använder det sällan. Få <strong>1200 minuter för bara $11.99</strong>.",
+      "<strong>För tunga användare (Abonnemang):</strong> Kör obegränsat. Detta är det bästa värdet för team och dagliga möten. Välj <strong>$16.99/månad</strong> eller spara stort med <strong>$149.99/år</strong>."
+    ],
+    "tableNote": "Priser och tillgänglighet kan variera beroende på region/butik. Se huvudartikeln om Prissättning för de senaste detaljerna.",
+    "linkText": "Se hela prisöversikten"
   },
-  "image": { "alt": "Protokoll AI på iPhone", "caption": "Skärmbild av Protokoll AI på iPhone." },
-  "steps": {
-    "h2": "Kom igång på iPhone",
-    "items": ["Ladda ner appen", "Tryck en gång för att spela in", "Välj rätt format", "Skapa Project/Strategy efter mötet"],
-    "note": "Mötestid beror på ditt abonnemang och kvarvarande saldo."
+  "compare": {
+    "h2": "Snabb jämförelse",
+    "th": [
+      "Vad som spelar roll",
+      "Typiska AI-protokollappar",
+      "Protokoll AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Friktion vid start/inspelning",
+        "Flera tryck, förvirrande lägen",
+        "Ett tryck för att spela in. Ett tryck till historiken."
+      ],
+      [
+        "Resultatets läsbarhet",
+        "Textvägg, AI-liknande stycken",
+        "Strukturerat, skanningsbart, handlingsfokuserat"
+      ],
+      [
+        "Format per möte",
+        "En generisk mall",
+        "Dedikerade format (Sälj, 1-mot-1, etc.)"
+      ],
+      [
+        "Uppföljning",
+        "Kopiera/klistra in i andra verktyg",
+        "Inbyggt Projekt (vem/när/vad) & Strategi"
+      ],
+      [
+        "Prismodell",
+        "Endast abonnemang (ofta dyrt)",
+        "Flexibelt: $1.99 test / Paket utan utgångsdatum / Obegränsat abonnemang"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Notiser",
-    "items": ["Nätverk och enhet kan påverka kvaliteten", "Funktioner kan variera per abonnemang"],
-    "foot": "Prova Protokoll AI på iPhone idag."
+  "faq": {
+    "h2": "FAQ — De ärliga svaren",
+    "items": [
+      {
+        "q": "Finns det en tidsgräns för inspelning?",
+        "a": "Din tillgängliga tid beror på din plan. Med Tidspaket är din gräns de minuter du har kvar (och de löper inte ut!). Med ett Abonnemang har du obegränsad användning."
+      },
+      {
+        "q": "Fungerar det offline?",
+        "a": "Ja, du kan spela in offline. Appen synkroniserar och bearbetar protokollet när du är online igen. Funktioner kan vara begränsade tills du återansluter."
+      },
+      {
+        "q": "Finns Protokoll AI bara på iPhone?",
+        "a": "Även om denna recension fokuserar på iPhone-appen, finns det också en webbversion. Vi älskar bara iPhone-appen för att den är så snabb och alltid med dig."
+      },
+      {
+        "q": "Hur skiljer sig prissättningen från andra appar?",
+        "a": "De flesta appar erbjuder *bara* månads- eller årsabonnemang. Protokoll AI är annorlunda. Vi erbjuder det *plus* <strong>Tidspaket som inte löper ut</strong>. Det är perfekt om du inte har möten varje dag. Du kan börja med ett <strong>testpaket för $1.99</strong> för att bestämma dig utan stort åtagande."
+      },
+      {
+        "q": "Kan jag få rena, delbara resultat?",
+        "a": "Absolut. Resultaten är utformade för att delas, med betoning på beslut, ansvariga och datum. Det är detta som hjälper till att driva arbetet framåt."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Guide", "category": "Apprekommendation" },
-  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Ladda ner iOS-app" },
-  "brand": "Protokoll AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Protokoll AI iPhone huvudskärm som visar inspelning med ett tryck",
+      "caption": "Huvudskärm — bara tryck för att börja spela in. Inget krångel."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Exempel på rena, läsbara protokoll från Protokoll AI",
+      "caption": "Läs bara protokoll — beslut och åtgärdspunkter är tydliga."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Protokoll AI valskärm för mötesformat",
+      "caption": "Välj rätt format för ditt möte."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Guide",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Öppna i webbläsare",
+    "downloadIOS": "Ladda ner iOS-app"
+  }
 }

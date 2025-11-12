@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Por qué recomendamos la app de iPhone para minutas con IA (2025)",
-    "description": "5 razones directas: interfaz simple, minutas claras y accionables, formatos por tipo de reunión, seguimiento en la app y precios flexibles. Prueba Actas IA en iPhone.",
-    "ogTitle": "Nuestra recomendación: app de minutas con IA en iPhone",
-    "ogDescription": "Grabación con un toque, salidas que impulsan acciones, formatos inteligentes, seguimiento integrado y precios que encajan con tu uso. Actas IA en iPhone.",
+    "title": "(2025) Por qué recomendamos la app Actas IA para iPhone para actas de reunión",
+    "description": "¿Buscas la mejor app de IA para actas en iPhone? Aquí está nuestra reseña honesta. Actas IA es una app simple, legible y orientada a la acción con un modelo de precios increíblemente flexible.",
+    "ogTitle": "App Actas IA para iPhone — Nuestra recomendación honesta (2025)",
+    "ogDescription": "¿Buscas 'recomendación app IA actas' o 'precios app IA actas'? Esta guía explica por qué la app Actas IA para iPhone es nuestra mejor elección por sus funciones y precio justo.",
     "ld": {
-      "headline": "Por qué la app de minutas con IA para iPhone es nuestra recomendación",
-      "description": "Guía de compra de Actas IA: rapidez, claridad, formatos por reunión, acciones posteriores y tarifas justas."
+      "headline": "Por qué recomendamos la app Actas IA para iPhone",
+      "description": "Nuestras 5 razones clave: Una interfaz súper simple, resultados realmente legibles, formatos de reunión inteligentes, seguimiento de acciones integrado y un modelo de precios flexible que se adapta a cualquier usuario."
     }
   },
-  "aria": { "home": "Inicio de Actas IA" },
-  "nav": { "blog": "Blog", "recommend": "Recomendación" },
+  "aria": {
+    "home": "Actas IA Inicio"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Por qué Actas IA para iPhone"
+  },
   "hero": {
-    "kicker": "Guía de compra",
-    "h1": "Por qué recomendamos la app de iPhone para minutas con IA",
-    "tagline": "Alineado con la intención de búsqueda: mejor app de minutas con IA para iPhone y precios — directo al grano."
+    "kicker": "Nuestra guía de compra 2025",
+    "h1": "Por qué la app Actas IA para iPhone es nuestra mejor elección para actas de reunión (2025)",
+    "tagline": "Si estás buscando en Google “app de IA para actas recomendada” o “precios app de IA para actas”, estás en el lugar correcto. Esta app está diseñada para grabar rápido, generar actas limpias y ayudarte a *realmente* sacar el trabajo adelante."
+  },
+  "lead": {
+    "p1": "Las apps para tomar actas con IA están por todas partes en 2025. ¿Por qué seguimos recomendando Actas IA para el iPhone? Omitiremos la publicidad exagerada y te daremos cinco razones directas y prácticas."
   },
   "reasons": {
-    "h2": "Cinco razones claras",
+    "h2": "5 razones por las que recomendamos la app Actas IA para iPhone",
     "items": [
-      "Grabación con un toque, sin fricción",
-      "Minutas legibles que activan “próximas acciones” reales",
-      "Formatos por tipo de reunión: general, ventas, 1-a-1, presentación, brainstorming, entrevista",
-      "Proyecto y Estrategia dentro de la app tras la reunión",
-      "Precios flexibles: suscripciones y paquetes de tiempo que no caducan"
+      {
+        "t": "1) Una interfaz ridículamente simple — Cero dudas",
+        "p": "Sin menús confusos. Un toque para grabar. Un toque para ver tus actas anteriores. Eso es todo. No deberías necesitar un manual solo para tomar notas.",
+        "imgAlt": "Pantalla principal de Actas IA mostrando la grabación con un toque",
+        "caption": "Inicio con un toque, historial con un toque. Sin curva de aprendizaje."
+      },
+      {
+        "t": "2) Legibilidad y valor real (No relleno de IA)",
+        "p": "No es solo un muro de texto generado por IA. La app formatea todo para que puedas saltar directamente a las decisiones y los próximos pasos. Está optimizada para la acción.",
+        "imgAlt": "Ejemplo de actas limpias y legibles de Actas IA",
+        "caption": "Las decisiones resaltan. Los responsables y las fechas límite son claros por diseño."
+      },
+      {
+        "t": "3) Formatos inteligentes para diferentes reuniones",
+        "p": "Una reunión 1 a 1 es diferente de una lluvia de ideas. Actas IA lo entiende. Puedes elegir un formato (General, Ventas, 1 a 1, Presentación, etc.) para obtener el mejor resumen posible para ese tipo específico de reunión.",
+        "imgAlt": "Pantalla de selección de formato de reunión de Actas IA",
+        "caption": "Elige el formato adecuado para la reunión adecuada."
+      },
+      {
+        "t": "4) Las acciones post-reunión están incorporadas",
+        "p": "Actas IA no se detiene solo en la grabación. Presiona “Proyecto” para ver al instante “quién hace qué y para cuándo”. Presiona “Estrategia” para que la IA más reciente (ChatGPT-5 y Gemini 2.5 Pro) sugiera los siguientes pasos concretos basados en tu conversación.",
+        "note": "¿Quieres saber más sobre Estrategia? Mira el artículo a continuación."
+      },
+      {
+        "t": "5) Precios inteligentes que se adaptan a cómo trabajas *realmente*",
+        "p": "Esto es muy importante. No todo el mundo necesita *otra* suscripción mensual. Si tienes reuniones todo el día, la **Suscripción Ilimitada** es genial. Pero si solo tienes reuniones ocasionales, puedes comprar **Paquetes de Tiempo que no caducan**. Incluso puedes empezar con un **paquete de 120 minutos por solo $1.99** para probarlo.",
+        "note": "Desglosamos la lista completa de precios en su propia sección más abajo."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Estrategia: Convierte las actas en acción",
+    "p1": "La función “Estrategia” toma el contexto de tu reunión y propone planes de acción claros utilizando modelos de IA de primer nivel. Menos conjeturas, más pasos concretos que puedes asignar.",
+    "linkText": "Lee más sobre la función Estrategia"
+  },
   "pricing": {
-    "h2": "Sobre precios",
-    "p1": "Uso diario: suscripción. Uso ocasional: paquetes de tiempo sin caducidad.",
-    "p2": "También hay una prueba de 120 minutos a bajo costo para validar antes de comprometerte."
+    "h2": "Un vistazo detallado a los precios de la app Actas IA",
+    "lead": "Este es el mayor problema con la mayoría de las herramientas de IA: te obligan a una suscripción mensual de 'talla única'. Los precios de Actas IA son diferentes. Están diseñados para adaptarse a la frecuencia de tus reuniones, para que solo pagues por lo que realmente necesitas.",
+    "bullets": [
+      "<strong>La prueba perfecta ($1.99):</strong> ¿No estás seguro? Simplemente compra el <strong>Paquete de Tiempo de 120 minutos por $1.99</strong>. Es barato, simple y no tiene caducidad.",
+      "<strong>Para usuarios ocasionales (Paquetes de Tiempo):</strong> Compra minutos que <strong>NUNCA caducan</strong>. Esto es perfecto para autónomos o usuarios con poco uso. Obtén <strong>1200 minutos por solo $11.99</strong>.",
+      "<strong>Para usuarios intensivos (Suscripción):</strong> Obtén uso ilimitado. Este es el mejor valor para equipos y reuniones diarias. Elige <strong>$16.99/mes</strong> o ahorra a lo grande con <strong>$149.99/año</strong>."
+    ],
+    "tableNote": "Los precios y la disponibilidad pueden variar según la región/tienda. Consulta el artículo principal de Precios para obtener los detalles más actualizados.",
+    "linkText": "Ver desglose completo de precios"
   },
-  "image": { "alt": "Actas IA en iPhone", "caption": "UI de Actas IA en iPhone." },
-  "steps": {
-    "h2": "Empezar en iPhone",
-    "items": ["Descarga la app", "Toca una vez para grabar", "Elige el formato correcto", "Crea Proyecto/Estrategia al finalizar"],
-    "note": "La duración depende de tu plan y saldo restante."
+  "compare": {
+    "h2": "Comparativa rápida",
+    "th": [
+      "Lo que importa",
+      "Apps típicas de actas con IA",
+      "Actas IA (iPhone)"
+    ],
+    "rows": [
+      [
+        "Fricción al iniciar/grabar",
+        "Múltiples toques, modos confusos",
+        "Un toque para grabar. Un toque para el historial."
+      ],
+      [
+        "Legibilidad del resultado",
+        "Muro de texto, párrafos 'de IA'",
+        "Estructurado, escaneable, orientado a la acción"
+      ],
+      [
+        "Formatos por reunión",
+        "Una plantilla genérica",
+        "Formatos dedicados (Ventas, 1 a 1, etc.)"
+      ],
+      [
+        "Seguimiento",
+        "Copiar/pegar en otras herramientas",
+        "Proyecto (quién/cuándo/qué) y Estrategia integrados"
+      ],
+      [
+        "Modelo de precios",
+        "Solo suscripción (a menudo cara)",
+        "Flexible: Prueba de $1.99, Paquetes sin caducidad o Suscripción ilimitada"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Notas",
-    "items": ["La red y el dispositivo pueden afectar la calidad", "Las funciones varían según el plan"],
-    "foot": "Prueba Actas IA en iPhone hoy."
+  "faq": {
+    "h2": "FAQ — Las respuestas honestas",
+    "items": [
+      {
+        "q": "¿Hay un límite de tiempo de grabación?",
+        "a": "Tu tiempo disponible depende de tu plan. Con los Paquetes de Tiempo, tu límite son los minutos que te quedan (¡y no caducan!). Con una Suscripción, tienes uso ilimitado."
+      },
+      {
+        "q": "¿Funciona sin conexión (offline)?",
+        "a": "Sí, puedes grabar sin conexión. La app sincronizará y procesará las actas una vez que vuelvas a estar en línea. Las funciones pueden estar limitadas hasta que te reconectes."
+      },
+      {
+        "q": "¿Actas IA es solo para iPhone?",
+        "a": "Aunque esta reseña se centra en la app para iPhone, también hay una versión web. Simplemente nos encanta la app para iPhone porque es muy rápida y siempre está contigo."
+      },
+      {
+        "q": "¿En qué se diferencian los precios de otras apps?",
+        "a": "La mayoría de las apps *solo* ofrecen suscripciones mensuales o anuales. Actas IA es diferente. Ofrecemos eso *además de* <strong>Paquetes de Tiempo que no caducan</strong>. Esto es perfecto si no tienes reuniones todos los días. Puedes empezar con un <strong>paquete de prueba de $1.99</strong> para decidir sin un gran compromiso."
+      },
+      {
+        "q": "¿Puedo obtener resultados limpios y fáciles de compartir?",
+        "a": "Absolutamente. Los resultados están diseñados para ser compartidos, enfatizando decisiones, responsables y fechas. Esto es lo que ayuda a que el trabajo avance."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Guía", "category": "Recomendación de app" },
-  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app para iOS" },
-  "brand": "Actas IA"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Pantalla principal de Actas IA en iPhone mostrando la grabación con un toque",
+      "caption": "Pantalla principal — solo toca para empezar a grabar. Sin desorden."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Ejemplo de actas limpias y legibles de Actas IA",
+      "caption": "Actas legibles — las decisiones y los puntos de acción son claros."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Pantalla de selección de formato de reunión de Actas IA",
+      "caption": "Elige el formato adecuado para tu reunión."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Guía",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Abrir en el navegador",
+    "downloadIOS": "Descargar app para iOS"
+  }
 }

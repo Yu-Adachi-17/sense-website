@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Hvorfor vi anbefaler iPhone-appen til AI-referater (2025)",
-    "description": "5 skarpe grunde: ultra-simpelt UI, læsbare og handlingsklare referater, formater pr. mødetype, opfølgning i appen og fleksible priser. Prøv Referat AI på iPhone.",
-    "ogTitle": "Anbefaling: iPhone-appen til AI-referater",
-    "ogDescription": "Simpelt UI, stærke referater, smarte mødeformater, indbygget opfølgning og fleksibel prissætning. Referat AI på iPhone.",
+    "title": "(2025) Hvorfor vi anbefaler Referat AI iPhone-appen til mødereferater",
+    "description": "Leder du efter den bedste iPhone AI-app til mødereferater? Her er vores ærlige anmeldelse. Referat AI er en simpel, letlæselig og handlingsorienteret app med en utrolig fleksibel prismodel.",
+    "ogTitle": "Referat AI iPhone App — Vores ærlige anbefaling (2025)",
+    "ogDescription": "Søger du 'anbefaling af AI referat app' eller 'priser på AI referat app'? Denne guide forklarer, hvorfor Referat AI iPhone-appen er vores topvalg på grund af dens funktioner og fair pris.",
     "ld": {
-      "headline": "Hvorfor anbefaler vi AI-referat-appen på iPhone",
-      "description": "Købsguide til Referat AI: enkel betjening, læsbare resultater, formater for hvert møde, handling efter mødet og fair priser."
+      "headline": "Hvorfor vi anbefaler Referat AI iPhone-appen",
+      "description": "Vores 5 hovedårsager: En superenkel brugerflade, virkelig læsbare output, smarte mødeformater, indbygget opgavesporing og en fleksibel prismodel, der passer til enhver bruger."
     }
   },
-  "aria": { "home": "Referat AI Hjem" },
-  "nav": { "blog": "Blog", "recommend": "Anbefaling" },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Hvorfor Referat AI til iPhone"
+  },
   "hero": {
-    "kicker": "Købsguide",
-    "h1": "Derfor anbefaler vi iPhone-appen til AI-referater",
-    "tagline": "Matcher søgeintentionen: bedste AI-referat-app til iPhone og hvad den koster — uden udenomssnak."
+    "kicker": "Vores købsguide 2025",
+    "h1": "Hvorfor Referat AI iPhone-appen er vores topvalg til mødereferater (2025)",
+    "tagline": "Hvis du googler \"anbefalet AI referat app\" eller \"AI referat app pris\", er du kommet til det rette sted. Denne app er bygget til at optage hurtigt, generere rene referater og hjælpe dig med *rent faktisk* at få arbejdet gjort."
+  },
+  "lead": {
+    "p1": "AI-drevne referat-apps er overalt i 2025. Så hvorfor anbefaler vi stadig Referat AI til iPhone? Vi springer hypen over og giver dig fem direkte, praktiske grunde."
   },
   "reasons": {
-    "h2": "5 hurtige grunde",
+    "h2": "5 grunde til, at vi anbefaler Referat AI iPhone-appen",
     "items": [
-      "En-tryk optagelse — ingen støj, ingen friktion",
-      "Referater der driver konkrete next actions",
-      "Formater pr. mødetype: generelt, salg, 1-til-1, præsentation, brainstorm, interview",
-      "Projekt og Strategi direkte i appen efter mødet",
-      "Fleksibel prissætning: abonnementer og tidsklip uden udløb"
+      {
+        "t": "1) En latterligt simpel brugerflade — Nul gætværk",
+        "p": "Ingen forvirrende menuer. Ét tryk for at optage. Ét tryk for at se dine tidligere referater. Det er det. Du burde ikke have brug for en manual bare for at tage noter.",
+        "imgAlt": "Referat AI hovedskærm, der viser optagelse med ét tryk",
+        "caption": "Start med ét tryk, historik med ét tryk. Ingen indlæringskurve."
+      },
+      {
+        "t": "2) Læsbarhed og reel værdi (Ikke AI-fyld)",
+        "p": "Dette er ikke bare en mur af AI-genereret tekst. Appen formaterer alt, så du kan hoppe direkte til beslutninger og næste skridt. Den er optimeret til handling.",
+        "imgAlt": "Eksempel på rene, læsbare referater fra Referat AI",
+        "caption": "Beslutninger træder frem. Ansvarlige og deadlines er tydelige."
+      },
+      {
+        "t": "3) Smarte formater til forskellige møder",
+        "p": "En 1-til-1 samtale er forskellig fra en brainstorm. Referat AI forstår dette. Du kan vælge et format (Generelt, Salg, 1-til-1, Præsentation osv.) for at få det bedst mulige resumé til den specifikke mødetype.",
+        "imgAlt": "Referat AI skærm til valg af mødeformat",
+        "caption": "Vælg det rigtige format til det rigtige møde."
+      },
+      {
+        "t": "4) Opfølgning efter mødet er indbygget",
+        "p": "Referat AI stopper ikke bare ved optagelsen. Tryk på \"Projekt\" for øjeblikkeligt at se \"hvem gør hvad hvornår\". Tryk på \"Strategi\" for at få den nyeste AI (ChatGPT-5 & Gemini 2.5 Pro) til at foreslå konkrete næste skridt baseret på jeres samtale.",
+        "note": "Vil du have et dybdegående kig på Strategi? Se artiklen nedenfor."
+      },
+      {
+        "t": "5) Smart prissætning, der passer til, hvordan du *rent faktisk* arbejder",
+        "p": "Dette er en kæmpe fordel. Ikke alle har brug for *endnu* et månedligt abonnement. Hvis du har møder hele dagen, er **Ubegrænset Abonnement** fantastisk. Men hvis du kun har møder lejlighedsvis, kan du købe **Tidspakker, der ikke udløber**. Du kan endda starte med en **120-minutters pakke for kun 1,99 $** for at prøve det af.",
+        "note": "Vi gennemgår den fulde prisliste i et separat afsnit nedenfor."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategi: Omdan referater til handling",
+    "p1": "\"Strategi\"-funktionen tager konteksten fra dit møde og foreslår klare handlingsplaner ved hjælp af topmoderne AI-modeller. Mindre gætværk, flere konkrete skridt, du kan tildele.",
+    "linkText": "Læs mere om Strategi-funktionen"
+  },
   "pricing": {
-    "h2": "Priser",
-    "p1": "Daglig brug? Vælg abonnement. Periodisk brug? Vælg tidsklip uden udløb.",
-    "p2": "Trial: 120 min til lav pris, så du kan teste uden risiko."
+    "h2": "Et detaljeret kig på priserne for Referat AI-appen",
+    "lead": "Her er det største problem med de fleste AI-værktøjer: De tvinger dig ind i et 'one-size-fits-all' månedligt abonnement. Referat AI's prissætning er anderledes. Den er designet til at matche din mødefrekvens, så du kun betaler for det, du rent faktisk har brug for.",
+    "bullets": [
+      "<strong>Den perfekte prøveperiode (1,99 $):</strong> Er du i tvivl? Bare køb <strong>Tidspakken på 120 minutter for 1,99 $</strong>. Det er billigt, enkelt, og den har ingen udløbsdato.",
+      "<strong>Til lejlighedsvise brugere (Tidspakker):</strong> Køb minutter, der <strong>ALDRIG udløber</strong>. Dette er perfekt til freelancere eller brugere med lavt forbrug. Få <strong>1200 minutter for kun 11,99 $</strong>.",
+      "<strong>Til storforbrugere (Abonnement):</strong> Få ubegrænset brug. Dette er den bedste værdi for teams og daglige møder. Vælg <strong>16,99 $/måned</strong> eller spar stort med <strong>149,99 $/år</strong>."
+    ],
+    "tableNote": "Priser og tilgængelighed kan variere efter region/butik. Se hovedartiklen om priser for de mest opdaterede detaljer.",
+    "linkText": "Se alle prisdetaljer"
   },
-  "image": { "alt": "Referat AI på iPhone", "caption": "Skærmbillede af Referat AI på iPhone." },
-  "steps": {
-    "h2": "Kom i gang på iPhone",
-    "items": ["Download appen", "Tryk én gang for at optage", "Vælg mødeformat", "Opret Projekt/Strategi efter mødet"],
-    "note": "Mødelængde afhænger af plan og resterende tid."
+  "compare": {
+    "h2": "Hurtig sammenligning",
+    "th": [
+      "Det, der betyder noget",
+      "Typiske AI referat-apps",
+      "Referat AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Besvær med start/optagelse",
+        "Flere tryk, forvirrende tilstande",
+        "Ét tryk for at optage. Ét tryk til historik."
+      ],
+      [
+        "Outputtets læsbarhed",
+        "En mur af tekst, AI-agtige afsnit",
+        "Struktureret, let at skimme, handlingsorienteret"
+      ],
+      [
+        "Formater pr. møde",
+        "Én generisk skabelon",
+        "Dedikerede formater (Salg, 1-til-1 osv.)"
+      ],
+      [
+        "Opfølgning",
+        "Kopier/indsæt i andre værktøjer",
+        "Indbygget Projekt (hvem/hvornår/hvad) & Strategi"
+      ],
+      [
+        "Prismodel",
+        "Kun abonnement (ofte dyrt)",
+        "Fleksibel: 1,99 $ prøve / Pakker uden udløb / Ubegrænset abonnement"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Bemærk",
-    "items": ["Netværk og enhed påvirker kvalitet", "Funktioner kan variere efter plan"],
-    "foot": "Prøv Referat AI på iPhone i dag."
+  "faq": {
+    "h2": "Ofte stillede spørgsmål — De ærlige svar",
+    "items": [
+      {
+        "q": "Er der en tidsbegrænsning for optagelse?",
+        "a": "Din tilgængelige tid afhænger af din plan. Med Tidspakker er din grænse de minutter, du har tilbage (de udløber ikke!). Med et Abonnement har du ubegrænset brug."
+      },
+      {
+        "q": "Virker den offline?",
+        "a": "Ja, du kan optage offline. Appen synkroniserer og behandler referaterne, så snart du er online igen. Funktioner kan være begrænsede, indtil du genopretter forbindelsen."
+      },
+      {
+        "q": "Findes Referat AI kun til iPhone?",
+        "a": "Selvom denne anmeldelse fokuserer på iPhone-appen, findes der også en webversion. Vi elsker bare iPhone-appen, fordi den er så hurtig og altid lige ved hånden."
+      },
+      {
+        "q": "Hvordan adskiller priserne sig fra andre apps?",
+        "a": "De fleste apps tilbyder *kun* månedlige eller årlige abonnementer. Referat AI er anderledes. Vi tilbyder det *plus* <strong>Tidspakker, der ikke udløber</strong>. Det er perfekt, hvis du ikke har møder hver dag. Du kan starte med en <strong>prøvepakke til 1,99 $</strong> for at beslutte dig uden en stor forpligtelse."
+      },
+      {
+        "q": "Kan jeg få rene, delevenlige output?",
+        "a": "Absolut. Outputtene er designet til at blive delt og fremhæver beslutninger, ansvarlige og datoer. Det er det, der hjælper med at drive arbejdet fremad."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Guide", "category": "App-anbefaling" },
-  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" },
-  "brand": "Referat AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Referat AI iPhone hovedskærm, der viser optagelse med ét tryk",
+      "caption": "Hovedskærm — bare tryk for at starte optagelsen. Intet rod."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Eksempel på rene, læsbare referater fra Referat AI",
+      "caption": "Læsbare referater — beslutninger og handlingspunkter er tydelige."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Referat AI skærm til valg af mødeformat",
+      "caption": "Vælg det rigtige format til dit møde."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Udgivet",
+    "type": "Guide",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Åbn i browser",
+    "downloadIOS": "Download iOS-app"
+  }
 }

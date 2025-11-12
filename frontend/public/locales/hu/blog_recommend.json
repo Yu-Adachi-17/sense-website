@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Miért ajánljuk az iPhone minutes-AI alkalmazást (2025)",
-    "description": "5 egyenes ok: egyszerű felület, olvasható/akció-orientált jegyzőkönyvek, meetingenkénti formátumok, beépített follow-through és rugalmas árak. Próbáld ki a Jegyzőkönyv AI-t iPhone-on.",
-    "ogTitle": "A mi választásunk: minutes-AI iPhone-ra",
-    "ogDescription": "Egyérintéses rögzítés, a következő lépésekhez vezető kimenetek, okos formátumok, in-app follow-through és használathoz illeszkedő árak. Jegyzőkönyv AI iPhone-on.",
+    "title": "(2025) Miért ajánljuk a Jegyzőkönyv AI iPhone-alkalmazást tárgyalási jegyzőkönyvekhez",
+    "description": "A legjobb iPhone-os MI jegyzőkönyv-alkalmazást keresi? Itt az őszinte értékelésünk. A Jegyzőkönyv AI egy egyszerű, olvasható és cselekvésorientált alkalmazás, hihetetlenül rugalmas árképzési modellel.",
+    "ogTitle": "Jegyzőkönyv AI iPhone-alkalmazás — Őszinte ajánlásunk (2025)",
+    "ogDescription": "Rákeresett: 'MI jegyzőkönyv alkalmazás ajánlás' vagy 'MI jegyzőkönyv alkalmazás árak'? Ez az útmutató elmagyarázza, miért a Jegyzőkönyv AI iPhone-alkalmazás a legjobb választásunk funkciói és méltányos ára miatt.",
     "ld": {
-      "headline": "Miért az iPhone minutes-AI az ajánlásunk",
-      "description": "Vásárlási útmutató a Jegyzőkönyv AI-hoz: gyors használat, tiszta kimenetek, szabott formátumok, meeting utáni akciók és korrekt árképzés."
+      "headline": "Miért ajánljuk a Jegyzőkönyv AI iPhone-alkalmazást",
+      "description": "5 kulcsfontosságú okunk: Szuper-egyszerű felhasználói felület, valóban olvasható kimenetek, intelligens értekezletformátumok, beépített feladatkövetés és rugalmas árképzési modell, amely minden felhasználóhoz illik."
     }
   },
-  "aria": { "home": "Jegyzőkönyv AI Főoldal" },
-  "nav": { "blog": "Blog", "recommend": "Ajánló" },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Miért a Jegyzőkönyv AI iPhone-ra"
+  },
   "hero": {
-    "kicker": "Vásárlási útmutató",
-    "h1": "Miért ajánljuk az iPhone minutes-AI alkalmazást",
-    "tagline": "Keresési szándékra építve: a legjobb minutes-AI iPhone-ra és hogyan áll az ára — mellébeszélés nélkül."
+    "kicker": "Vásárlási útmutatónk 2025",
+    "h1": "Miért a Jegyzőkönyv AI iPhone-alkalmazás a legjobb választásunk tárgyalási jegyzőkönyvekhez (2025)",
+    "tagline": "Ha a Google-ban „ajánlott MI jegyzőkönyv alkalmazást” vagy „MI jegyzőkönyv alkalmazás árakat” keres, akkor jó helyen jár. Ez az alkalmazás arra készült, hogy gyorsan rögzítsen, tiszta jegyzőkönyveket készítsen, és segítsen Önnek *valóban* elvégezni a munkát."
+  },
+  "lead": {
+    "p1": "Az MI-alapú jegyzőkönyv-készítő alkalmazások 2025-ben már mindenhol ott vannak. Miért ajánljuk mégis a Jegyzőkönyv AI-t iPhone-ra? Kihagyjuk a felhajtást, és öt közvetlen, gyakorlati okot adunk."
   },
   "reasons": {
-    "h2": "Öt egyenes ok",
+    "h2": "5 ok, amiért a Jegyzőkönyv AI iPhone-alkalmazást ajánljuk",
     "items": [
-      "Egyérintéses rögzítés súrlódás nélkül",
-      "Olyan jegyzőkönyvek, amelyek tényleg a következő lépésekhez vezetnek",
-      "Formátumok meetingenként: Általános, Értékesítés, 1-az-1, Prezentáció, Brainstorm, Interjú",
-      "Project & Strategy follow-through az appon belül",
-      "Rugalmas árak: előfizetés és soha le nem járó időcsomagok"
+      {
+        "t": "1) Nevetségesen egyszerű felhasználói felület — Nulla találgatás",
+        "p": "Nincsenek zavaró menük. Egy koppintás a felvételhez. Egy koppintás a korábbi jegyzőkönyvek megtekintéséhez. Ennyi az egész. Ne kelljen kézikönyvet olvasnia csak azért, hogy jegyzeteljen.",
+        "imgAlt": "A Jegyzőkönyv AI főképernyője, amely egykoppintásos felvételt mutat",
+        "caption": "Egykoppintásos indítás, egykoppintásos előzmények. Nincs tanulási görbe."
+      },
+      {
+        "t": "2) Olvashatóság és valódi érték (nem MI-rizsa)",
+        "p": "Ez nem csak egy MI által generált szövegfal. Az alkalmazás mindent úgy formáz, hogy egyenesen a döntésekhez és a következő lépésekhez ugorhasson. Cselekvésre van optimalizálva.",
+        "imgAlt": "Példa tiszta, olvasható jegyzőkönyvekre a Jegyzőkönyv AI-ból",
+        "caption": "A döntések kiemelkednek. A felelősök és a határidők tervezetten egyértelműek."
+      },
+      {
+        "t": "3) Intelligens formátumok a különböző megbeszélésekhez",
+        "p": "Egy 1-on-1 (négyszemközti) megbeszélés más, mint egy brainstorming (ötletbörze). A Jegyzőkönyv AI ezt érti. Választhat egy formátumot (Általános, Értékesítés, 1-on-1, Prezentáció stb.), hogy a lehető legjobb összefoglalót kapja az adott megbeszélés típusához.",
+        "imgAlt": "A Jegyzőkönyv AI értekezletformátum-választó képernyője",
+        "caption": "Válassza ki a megfelelő formátumot a megfelelő megbeszéléshez."
+      },
+      {
+        "t": "4) A megbeszélés utáni teendők be vannak építve",
+        "p": "A Jegyzőkönyv AI nem áll meg a felvételnél. Nyomja meg a „Projekt” gombot, hogy azonnal lássa, „ki, mit és mikorra csinál meg”. Nyomja meg a „Stratégia” gombot, hogy a legújabb MI (ChatGPT-5 és Gemini 2.5 Pro) konkrét következő lépéseket javasoljon a beszélgetés alapján.",
+        "note": "Mélyebben belemerülne a Stratégiába? Lásd az alábbi cikket."
+      },
+      {
+        "t": "5) Intelligens árképzés, amely illeszkedik ahhoz, ahogyan *valóban* dolgozik",
+        "p": "Ez egy óriási dolog. Nincs mindenkinek szüksége *még egy* havi előfizetésre. Ha egész nap megbeszélései vannak, a **Korlátlan Előfizetés** nagyszerű. De ha csak alkalmanként vannak megbeszélései, vásárolhat **le nem járó Időcsomagokat**. Akár egy **120 perces csomaggal is kezdhet mindössze 1,99 dollárért**, hogy kipróbálhassa.",
+        "note": "A teljes árlistát alább egy külön szakaszban részletezzük."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Stratégia: Váltsa a jegyzőkönyveket tettekre",
+    "p1": "A „Stratégia” funkció fogja a megbeszélés kontextusát, és világos cselekvési terveket javasol csúcskategóriás MI-modellek segítségével. Kevesebb találgatás, több konkrét lépés, amit kioszthat.",
+    "linkText": "Olvassa el a Stratégia mélyebb bemutatását"
+  },
   "pricing": {
-    "h2": "Árazásról",
-    "p1": "A napi használók előfizetnek. Az alkalmiak a nem lejáró időcsomagokat választják.",
-    "p2": "Van egy olcsó, 120 perces próba is, hogy elköteleződés előtt validálhass."
+    "h2": "Részletes áttekintés a Jegyzőkönyv AI alkalmazás árképzéséről",
+    "lead": "Itt a legnagyobb probléma a legtöbb MI-eszközzel: egy „mindenkire egy méret” havi előfizetésbe kényszerítik. A Jegyzőkönyv AI árképzése más. Úgy tervezték, hogy illeszkedjen a megbeszélései gyakoriságához, így csak azért fizet, amire valóban szüksége van.",
+    "bullets": [
+      "<strong>A tökéletes próba (1,99 $):</strong> Nem biztos benne? Csak vásárolja meg a <strong>120 perces időcsomagot 1,99 dollárért</strong>. Olcsó, egyszerű, és nincs lejárati ideje.",
+      "<strong>Alkalmi felhasználóknak (Időcsomagok):</strong> Vásároljon perceket, amelyek <strong>SOHA nem járnak le</strong>. Ez tökéletes szabadúszóknak vagy keveset használóknak. Kapjon <strong>1200 percet mindössze 11,99 dollárért</strong>.",
+      "<strong>Intenzív felhasználóknak (Előfizetés):</strong> Váltson korlátlanra. Ez a legjobb ár-érték arány csapatoknak és napi megbeszélésekhez. Válassza a <strong>16,99 $/hó</strong> vagy takarítson meg sokat a <strong>149,99 $/év</strong> díjjal."
+    ],
+    "tableNote": "Az árak és az elérhetőség régiónként/boltonként változhatnak. A legfrissebb részletekért tekintse meg a fő árképzési cikket.",
+    "linkText": "Tekintse meg a teljes árképzési bontást"
   },
-  "image": { "alt": "Jegyzőkönyv AI iPhone-on", "caption": "Jegyzőkönyv AI iPhone UI." },
-  "steps": {
-    "h2": "Kezdés iPhone-on",
-    "items": ["Töltsd le az appot", "Érints egyet a rögzítéshez", "Válaszd ki a megfelelő formátumot", "Meeting után hozz létre Project/Strategy elemet"],
-    "note": "A meeting hossza a csomagoddal és a fennmaradó egyenleggel arányos."
+  "compare": {
+    "h2": "Gyors összehasonlítás",
+    "th": [
+      "Ami számít",
+      "Tipikus MI jegyzőkönyv alkalmazások",
+      "Jegyzőkönyv AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Indítás/felvétel nehézsége",
+        "Több koppintás, zavaró módok",
+        "Egy koppintás a felvételhez. Egy koppintás az előzményekhez."
+      ],
+      [
+        "Kimenet olvashatósága",
+        "Szövegfal, MI-ízű bekezdések",
+        "Strukturált, átfutható, cselekvésközpontú"
+      ],
+      [
+        "Formátumok megbeszélésenként",
+        "Egy általános sablon",
+        "Dedikált formátumok (Értékesítés, 1-on-1 stb.)"
+      ],
+      [
+        "Utánkövetés",
+        "Másolás/beillesztés más eszközökbe",
+        "Beépített Projekt (ki/mikor/mit) és Stratégia"
+      ],
+      [
+        "Árképzési modell",
+        "Csak előfizetés (gyakran drága)",
+        "Rugalmas: 1,99 $ próba / Le nem járó csomagok / Korlátlan előfizetés"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Megjegyzések",
-    "items": ["A hálózat és az eszköz befolyásolhatja a minőséget", "A funkciók csomagonként eltérhetnek"],
-    "foot": "Próbáld ki a Jegyzőkönyv AI-t iPhone-on még ma."
+  "faq": {
+    "h2": "GYIK — Az őszinte válaszok",
+    "items": [
+      {
+        "q": "Van felvételi időkorlát?",
+        "a": "A rendelkezésre álló idő a csomagjától függ. Időcsomagok esetén a limit a megmaradt percek száma (és ezek nem járnak le!). Előfizetéssel korlátlan használat áll rendelkezésére."
+      },
+      {
+        "q": "Működik offline?",
+        "a": "Igen, rögzíthet offline módban. Az alkalmazás szinkronizálja és feldolgozza a jegyzőkönyveket, amint újra online állapotba kerül. A funkciók korlátozottak lehetnek, amíg újra nem csatlakozik."
+      },
+      {
+        "q": "A Jegyzőkönyv AI csak iPhone-on érhető el?",
+        "a": "Bár ez az értékelés az iPhone-alkalmazásra összpontosít, létezik webes verzió is. Mi csak azért szeretjük az iPhone-alkalmazást, mert olyan gyors és mindig velünk van."
+      },
+      {
+        "q": "Miben különbözik az árképzés más alkalmazásokétól?",
+        "a": "A legtöbb alkalmazás *csak* havi vagy éves előfizetést kínál. A Jegyzőkönyv AI más. Ezt kínáljuk *plusz* <strong>le nem járó Időcsomagokat</strong>. Ez tökéletes, ha nincsenek mindennap megbeszélései. Kezdhet egy <strong>1,99 dolláros próbacsomaggal</strong>, hogy nagyobb elkötelezettség nélkül dönthessen."
+      },
+      {
+        "q": "Kaphatok tiszta, megosztható kimeneteket?",
+        "a": "Abszolút. A kimeneteket megosztásra tervezték, kiemelve a döntéseket, a felelősöket és a dátumokat. Ez az, ami segít előremozdítani a munkát."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Útmutató", "category": "Alkalmazásajánló" },
-  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS app letöltése" },
-  "brand": "Jegyzőkönyv AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "A Jegyzőkönyv AI iPhone főképernyője, amely egykoppintásos felvételt mutat",
+      "caption": "Főképernyő — csak koppintson a felvétel indításához. Nincs rendetlenség."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Példa tiszta, olvasható jegyzőkönyvekre a Jegyzőkönyv AI-ból",
+      "caption": "Olvasható jegyzőkönyvek — a döntések és a teendők egyértelműek."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "A Jegyzőkönyv AI értekezletformátum-választó képernyője",
+      "caption": "Válassza ki a megfelelő formátumot a megbeszéléséhez."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Útmutató",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Megnyitás böngészőben",
+    "downloadIOS": "iOS alkalmazás letöltése"
+  }
 }

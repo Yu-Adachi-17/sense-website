@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Vì sao chúng tôi khuyên dùng ứng dụng minutes-AI cho iPhone (2025)",
-    "description": "5 lý do thẳng thắn: UI đơn giản, biên bản dễ đọc/có thể hành động, định dạng theo từng cuộc họp, follow-through tích hợp và giá linh hoạt. Hãy thử Biên bản AI trên iPhone.",
-    "ogTitle": "Lựa chọn của chúng tôi: minutes-AI cho iPhone",
-    "ogDescription": "Ghi âm một chạm, đầu ra thúc đẩy bước tiếp theo, định dạng thông minh, follow-through trong ứng dụng và giá phù hợp cách bạn dùng. Biên bản AI trên iPhone.",
+    "title": "(2025) Tại sao chúng tôi đề xuất ứng dụng Biên bản AI cho iPhone để ghi biên bản họp",
+    "description": "Bạn đang tìm ứng dụng ghi biên bản AI tốt nhất cho iPhone? Đây là đánh giá trung thực của chúng tôi. Biên bản AI là một ứng dụng đơn giản, dễ đọc, hướng đến hành động với mô hình định giá cực kỳ linh hoạt.",
+    "ogTitle": "Ứng dụng Biên bản AI cho iPhone — Đề xuất trung thực của chúng tôi (2025)",
+    "ogDescription": "Bạn đang tìm 'đề xuất ứng dụng biên bản AI' hay 'giá ứng dụng biên bản AI'? Hướng dẫn này giải thích tại sao ứng dụng Biên bản AI cho iPhone là lựa chọn hàng đầu của chúng tôi vì tính năng và mức giá hợp lý.",
     "ld": {
-      "headline": "Vì sao minutes-AI cho iPhone là khuyến nghị của chúng tôi",
-      "description": "Hướng dẫn mua Biên bản AI: dùng nhanh, đầu ra rõ ràng, định dạng phù hợp, hành động sau cuộc họp và mức giá công bằng."
+      "headline": "Tại sao chúng tôi đề xuất ứng dụng Biên bản AI cho iPhone",
+      "description": "5 lý do chính của chúng tôi: Giao diện người dùng siêu đơn giản, kết quả thực sự dễ đọc, các định dạng cuộc họp thông minh, theo dõi hành động tích hợp và mô hình định giá linh hoạt phù hợp với mọi người dùng."
     }
   },
-  "aria": { "home": "Trang chủ Biên bản AI" },
-  "nav": { "blog": "Blog", "recommend": "Khuyến nghị" },
+  "aria": {
+    "home": "Biên bản AI Trang chủ"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Tại sao chọn Biên bản AI cho iPhone"
+  },
   "hero": {
-    "kicker": "Hướng dẫn mua",
-    "h1": "Vì sao chúng tôi khuyên dùng minutes-AI cho iPhone",
-    "tagline": "Đúng với ý định tìm kiếm: minutes-AI tốt nhất cho iPhone và so sánh giá — không vòng vo."
+    "kicker": "Hướng dẫn mua hàng 2025 của chúng tôi",
+    "h1": "(2025) Tại sao ứng dụng Biên bản AI cho iPhone là lựa chọn hàng đầu của chúng tôi cho biên bản họp",
+    "tagline": "Nếu bạn đang tìm kiếm trên Google “ứng dụng biên bản AI được đề xuất” hoặc “giá ứng dụng biên bản AI”, bạn đã đến đúng nơi. Ứng dụng này được xây dựng để ghi âm nhanh, tạo biên bản rõ ràng và giúp bạn *thực sự* hoàn thành công việc."
+  },
+  "lead": {
+    "p1": "Các ứng dụng ghi biên bản hỗ trợ bởi AI có mặt ở khắp mọi nơi vào năm 2025. Vậy tại sao chúng tôi vẫn đề xuất Biên bản AI cho iPhone? Chúng tôi sẽ bỏ qua những lời quảng cáo cường điệu và cung cấp cho bạn năm lý do trực tiếp, thiết thực."
   },
   "reasons": {
-    "h2": "Năm lý do rõ ràng",
+    "h2": "5 lý do chúng tôi đề xuất ứng dụng Biên bản AI cho iPhone",
     "items": [
-      "Ghi âm một chạm không ma sát",
-      "Biên bản dễ đọc thực sự thúc đẩy hành động tiếp theo",
-      "Định dạng theo cuộc họp: Chung, Bán hàng, 1-on-1, Trình bày, Brainstorm, Phỏng vấn",
-      "Follow-through Project & Strategy ngay trong ứng dụng",
-      "Giá linh hoạt: thuê bao và gói thời gian không hết hạn"
+      {
+        "t": "1) Giao diện người dùng cực kỳ đơn giản — Không cần phỏng đoán",
+        "p": "Không có menu phức tạp. Một chạm để ghi âm. Một chạm để xem các biên bản trước đây của bạn. Chỉ vậy thôi. Bạn không cần phải đọc hướng dẫn sử dụng chỉ để ghi chép.",
+        "imgAlt": "Màn hình chính của Biên bản AI hiển thị ghi âm bằng một chạm",
+        "caption": "Một chạm để bắt đầu, một chạm để xem lịch sử. Không cần học cách sử dụng."
+      },
+      {
+        "t": "2) Dễ đọc & Giá trị thực (Không phải lời nói sáo rỗng của AI)",
+        "p": "Đây không chỉ là một bức tường văn bản do AI tạo ra. Ứng dụng định dạng mọi thứ để bạn có thể chuyển thẳng đến các quyết định và bước tiếp theo. Nó được tối ưu hóa cho hành động.",
+        "imgAlt": "Ví dụ về biên bản rõ ràng, dễ đọc từ Biên bản AI",
+        "caption": "Các quyết định nổi bật. Người phụ trách và thời hạn rõ ràng ngay từ thiết kế."
+      },
+      {
+        "t": "3) Định dạng thông minh cho các cuộc họp khác nhau",
+        "p": "Một cuộc họp 1 kèm 1 khác với một cuộc họp brainstorming. Biên bản AI hiểu điều này. Bạn có thể chọn một định dạng (Chung, Bán hàng, 1 kèm 1, Thuyết trình, v.v.) để nhận được bản tóm tắt tốt nhất có thể cho loại cuộc họp cụ thể đó.",
+        "imgAlt": "Màn hình chọn định dạng cuộc họp của Biên bản AI",
+        "caption": "Chọn đúng định dạng cho đúng cuộc họp."
+      },
+      {
+        "t": "4) Các hành động sau cuộc họp được tích hợp sẵn",
+        "p": "Biên bản AI không chỉ dừng lại ở việc ghi âm. Nhấn “Dự án” (Project) để xem ngay “ai làm gì, khi nào hoàn thành”. Nhấn “Chiến lược” (Strategy) để AI mới nhất (ChatGPT-5 & Gemini 2.5 Pro) đề xuất các bước hành động cụ thể dựa trên cuộc trò chuyện của bạn.",
+        "note": "Bạn muốn tìm hiểu sâu hơn về Chiến lược? Xem bài viết bên dưới."
+      },
+      {
+        "t": "5) Giá cả thông minh phù hợp với cách bạn làm việc *thực sự*",
+        "p": "Đây là một điểm rất lớn. Không phải ai cũng cần *thêm một* gói đăng ký hàng tháng. Nếu bạn họp cả ngày, **Gói đăng ký không giới hạn** là rất tuyệt. Nhưng nếu bạn chỉ thỉnh thoảng mới họp, bạn có thể mua **Gói thời gian không hết hạn**. Bạn thậm chí có thể bắt đầu với **gói 120 phút chỉ với $1.99** để dùng thử.",
+        "note": "Chúng tôi sẽ phân tích bảng giá đầy đủ trong một phần riêng bên dưới."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Chiến lược: Biến biên bản thành hành động",
+    "p1": "Tính năng “Chiến lược” lấy bối cảnh cuộc họp của bạn và đề xuất các kế hoạch hành động rõ ràng bằng cách sử dụng các mô hình AI hàng đầu. Ít phỏng đoán hơn, nhiều bước cụ thể hơn mà bạn có thể giao phó.",
+    "linkText": "Đọc bài phân tích sâu về Chiến lược"
+  },
   "pricing": {
-    "h2": "Về giá",
-    "p1": "Người dùng hằng ngày chọn thuê bao. Người dùng thỉnh thoảng chọn gói thời gian không hết hạn.",
-    "p2": "Có cả gói dùng thử 120 phút chi phí thấp để kiểm tra độ phù hợp trước khi cam kết."
+    "h2": "Chi tiết về giá ứng dụng Biên bản AI",
+    "lead": "Đây là vấn đề lớn nhất với hầu hết các công cụ AI: chúng buộc bạn phải đăng ký gói hàng tháng 'một kích cỡ cho tất cả'. Giá của Biên bản AI thì khác. Nó được thiết kế để phù hợp với tần suất họp của bạn, vì vậy bạn chỉ trả tiền cho những gì bạn thực sự cần.",
+    "bullets": [
+      "<strong>Bản dùng thử hoàn hảo ($1.99):</strong> Bạn không chắc chắn? Chỉ cần mua <strong>Gói thời gian 120 phút với giá $1.99</strong>. Rẻ, đơn giản và không có ngày hết hạn.",
+      "<strong>Dành cho người dùng không thường xuyên (Gói thời gian):</strong> Mua số phút <strong>KHÔNG BAO GIỜ hết hạn</strong>. Điều này hoàn hảo cho các freelancer hoặc người dùng ít. Nhận <strong>1200 phút chỉ với $11.99</strong>.",
+      "<strong>Dành cho người dùng thường xuyên (Gói đăng ký):</strong> Sử dụng không giới hạn. Đây là giá trị tốt nhất cho các nhóm và các cuộc họp hàng ngày. Chọn <strong>$16.99/tháng</strong> hoặc tiết kiệm lớn với <strong>$149.99/năm</strong>."
+    ],
+    "tableNote": "Giá cả và tính khả dụng có thể khác nhau tùy theo khu vực/cửa hàng. Xem bài viết chính về Giá cả để biết chi tiết cập nhật nhất.",
+    "linkText": "Xem chi tiết giá đầy đủ"
   },
-  "image": { "alt": "Biên bản AI trên iPhone", "caption": "Giao diện Biên bản AI trên iPhone." },
-  "steps": {
-    "h2": "Bắt đầu trên iPhone",
-    "items": ["Tải ứng dụng", "Chạm một lần để ghi", "Chọn đúng định dạng", "Sau cuộc họp tạo Project/Strategy"],
-    "note": "Thời lượng cuộc họp phụ thuộc gói của bạn và số dư còn lại."
+  "compare": {
+    "h2": "So sánh nhanh",
+    "th": [
+      "Điều quan trọng",
+      "Ứng dụng biên bản AI thông thường",
+      "Biên bản AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Khó khăn khi bắt đầu/ghi âm",
+        "Nhiều lần chạm, các chế độ khó hiểu",
+        "Một chạm để ghi âm. Một chạm để xem lịch sử."
+      ],
+      [
+        "Kết quả có dễ đọc không",
+        "Một bức tường văn bản, các đoạn văn 'kiểu AI'",
+        "Có cấu trúc, dễ quét, ưu tiên hành động"
+      ],
+      [
+        "Định dạng cho mỗi cuộc họp",
+        "Một mẫu chung duy nhất",
+        "Các định dạng chuyên dụng (Bán hàng, 1 kèm 1, v.v.)"
+      ],
+      [
+        "Theo dõi sau đó",
+        "Sao chép/dán vào các công cụ khác",
+        "Tích hợp Dự án (ai/khi nào/cái gì) & Chiến lược"
+      ],
+      [
+        "Mô hình định giá",
+        "Chỉ đăng ký (thường đắt đỏ)",
+        "Linh hoạt: Dùng thử $1.99, Gói không hết hạn, hoặc Đăng ký không giới hạn"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Ghi chú",
-    "items": ["Mạng và thiết bị có thể ảnh hưởng chất lượng", "Tính năng có thể khác nhau theo gói"],
-    "foot": "Hãy thử Biên bản AI trên iPhone hôm nay."
+  "faq": {
+    "h2": "FAQ — Câu trả lời trung thực",
+    "items": [
+      {
+        "q": "Có giới hạn thời gian ghi âm không?",
+        "a": "Thời gian khả dụng của bạn phụ thuộc vào gói của bạn. Với Gói thời gian, giới hạn của bạn là số phút bạn còn lại (và chúng không hết hạn!). Với Gói đăng ký, bạn có thể sử dụng không giới hạn."
+      },
+      {
+        "q": "Nó có hoạt động khi không có mạng (offline) không?",
+        "a": "Có, bạn có thể ghi âm khi không có mạng. Ứng dụng sẽ đồng bộ hóa và xử lý biên bản sau khi bạn trực tuyến trở lại. Các tính năng có thể bị hạn chế cho đến khi bạn kết nối lại."
+      },
+      {
+        "q": "Biên bản AI chỉ có trên iPhone?",
+        "a": "Mặc dù bài đánh giá này tập trung vào ứng dụng iPhone, nhưng cũng có phiên bản web. Chúng tôi chỉ yêu thích ứng dụng iPhone vì nó rất nhanh và luôn ở bên bạn."
+      },
+      {
+        "q": "Giá cả khác biệt như thế nào so với các ứng dụng khác?",
+        "a": "Hầu hết các ứng dụng *chỉ* cung cấp đăng ký hàng tháng hoặc hàng năm. Biên bản AI thì khác. Chúng tôi cung cấp điều đó *cùng với* <strong>Gói thời gian không hết hạn</strong>. Điều này hoàn hảo nếu bạn không họp hàng ngày. Bạn có thể bắt đầu với <strong>gói dùng thử $1.99</strong> để quyết định mà không cần cam kết lớn."
+      },
+      {
+        "q": "Tôi có thể nhận được kết quả rõ ràng, dễ chia sẻ không?",
+        "a": "Chắc chắn rồi. Các kết quả được thiết kế để chia sẻ, nhấn mạnh vào các quyết định, người phụ trách và ngày tháng. Đây chính là điều giúp công việc tiến triển."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Đã xuất bản", "type": "Hướng dẫn", "category": "Khuyến nghị ứng dụng" },
-  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải ứng dụng iOS" },
-  "brand": "Biên bản AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Màn hình chính của Biên bản AI trên iPhone hiển thị ghi âm bằng một chạm",
+      "caption": "Màn hình chính — chỉ cần chạm để bắt đầu ghi âm. Không rườm rà."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Ví dụ về biên bản rõ ràng, dễ đọc từ Biên bản AI",
+      "caption": "Biên bản dễ đọc — các quyết định và mục hành động rõ ràng."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Màn hình chọn định dạng cuộc họp của Biên bản AI",
+      "caption": "Chọn đúng định dạng cho cuộc họp của bạn."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Đã xuất bản",
+    "type": "Hướng dẫn",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Mở trong trình duyệt",
+    "downloadIOS": "Tải xuống ứng dụng iOS"
+  }
 }

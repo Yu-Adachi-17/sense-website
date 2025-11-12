@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Por que recomendamos o app de atas com IA no iPhone (2025)",
-    "description": "5 razões diretas: UI simples, atas legíveis e acionáveis, formatos por tipo de reunião, follow-up no app e preços flexíveis. Experimente Ata AI no iPhone.",
-    "ogTitle": "Nossa recomendação: app de atas com IA no iPhone",
-    "ogDescription": "Toque único para gravar, saídas que geram ações, formatos inteligentes, acompanhamento integrado e preços que se adaptam ao seu uso. Ata AI no iPhone.",
+    "title": "(2025) Por que recomendamos o app Ata AI para iPhone para atas de reunião",
+    "description": "Procurando o melhor app de IA para atas de reunião no iPhone? Aqui está nossa análise honesta. O Ata AI é um app simples, legível e focado em ação, com um modelo de preços incrivelmente flexível.",
+    "ogTitle": "App Ata AI para iPhone — Nossa recomendação honesta (2025)",
+    "ogDescription": "Procurando por 'recomendação app IA atas' ou 'preços app IA atas'? Este guia explica por que o app Ata AI para iPhone é nossa principal escolha por suas funcionalidades e preço justo.",
     "ld": {
-      "headline": "Por que o app de atas com IA para iPhone é a nossa escolha",
-      "description": "Guia de compra do Ata AI: uso rápido, resultados claros, formatos por reunião, ações pós-reunião e tarifas justas."
+      "headline": "Por que recomendamos o app Ata AI para iPhone",
+      "description": "Nossos 5 principais motivos: Uma interface super simples, resultados verdadeiramente legíveis, formatos de reunião inteligentes, acompanhamento de ações integrado e um modelo de preços flexível que se adapta a qualquer usuário."
     }
   },
-  "aria": { "home": "Início do Ata AI" },
-  "nav": { "blog": "Blog", "recommend": "Recomendação" },
+  "aria": {
+    "home": "Ata AI Início"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Por que o Ata AI para iPhone"
+  },
   "hero": {
-    "kicker": "Guia de compra",
-    "h1": "Por que recomendamos o app de atas com IA no iPhone",
-    "tagline": "Alinhado à intenção de busca: melhor app de atas com IA para iPhone e como os preços se comparam — sem rodeios."
+    "kicker": "Nosso Guia de Compras 2025",
+    "h1": "Por que o app Ata AI para iPhone é nossa principal escolha para atas de reunião (2025)",
+    "tagline": "Se você está procurando no Google por “app de IA para atas recomendado” ou “preços app de IA para atas”, você está no lugar certo. Este app foi feito para gravar rapidamente, gerar atas limpas e ajudar você a *realmente* fazer o trabalho acontecer."
+  },
+  "lead": {
+    "p1": "Aplicativos de anotação de atas com IA estão por toda parte em 2025. Então, por que ainda recomendamos o Ata AI para iPhone? Vamos pular o exagero e dar a você cinco razões diretas e práticas."
   },
   "reasons": {
-    "h2": "Cinco motivos diretos",
+    "h2": "5 motivos pelos quais recomendamos o app Ata AI para iPhone",
     "items": [
-      "Gravação com um toque — zero fricção",
-      "Atas legíveis que realmente impulsionam as próximas ações",
-      "Formatos por tipo: geral, vendas, 1-a-1, apresentação, brainstorm, entrevista",
-      "Follow-up no app com Project & Strategy",
-      "Preços flexíveis: assinaturas e pacotes de tempo que não expiram"
+      {
+        "t": "1) Uma interface ridiculamente simples — Zero adivinhação",
+        "p": "Sem menus confusos. Um toque para gravar. Um toque para ver suas atas anteriores. É isso. Você não deveria precisar de um manual apenas para fazer anotações.",
+        "imgAlt": "Tela principal do Ata AI mostrando a gravação com um toque",
+        "caption": "Início com um toque, histórico com um toque. Sem curva de aprendizado."
+      },
+      {
+        "t": "2) Legibilidade e valor real (Não 'encheção de linguiça' de IA)",
+        "p": "Não é apenas um paredão de texto gerado por IA. O app formata tudo para que você possa pular direto para as decisões e próximos passos. É otimizado para a ação.",
+        "imgAlt": "Exemplo de atas limpas e legíveis do Ata AI",
+        "caption": "Decisões se destacam. Responsáveis e prazos são claros por design."
+      },
+      {
+        "t": "3) Formatos inteligentes para diferentes reuniões",
+        "p": "Uma reunião 1-a-1 é diferente de um brainstorming. O Ata AI entende isso. Você pode escolher um formato (Geral, Vendas, 1-a-1, Apresentação, etc.) para obter o melhor resumo possível para aquele tipo específico de reunião.",
+        "imgAlt": "Tela de seleção de formato de reunião do Ata AI",
+        "caption": "Escolha o formato certo para a reunião certa."
+      },
+      {
+        "t": "4) Ações pós-reunião já vêm integradas",
+        "p": "O Ata AI não para apenas na gravação. Aperte “Projeto” para ver instantaneamente “quem faz o quê e até quando”. Aperte “Estratégia” para que a IA mais recente (ChatGPT-5 & Gemini 2.5 Pro) sugira os próximos passos concretos com base na sua conversa.",
+        "note": "Quer um mergulho mais profundo na Estratégia? Veja o artigo abaixo."
+      },
+      {
+        "t": "5) Preços inteligentes que se encaixam em como você *realmente* trabalha",
+        "p": "Este é um ponto crucial. Nem todo mundo precisa de *mais uma* assinatura mensal. Se você tem reuniões o dia todo, a **Assinatura Ilimitada** é ótima. Mas se você só tem reuniões ocasionais, pode comprar **Pacotes de Tempo que não expiram**. Você pode até começar com um **pacote de 120 minutos por apenas $1.99** para experimentar.",
+        "note": "Detalhamos a lista completa de preços em uma seção própria abaixo."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Estratégia: Transforme atas em ação",
+    "p1": "A função “Estratégia” pega o contexto da sua reunião e propõe planos de ação claros usando modelos de IA de ponta. Menos adivinhação, mais passos concretos que você pode atribuir.",
+    "linkText": "Leia a análise aprofundada da Estratégia"
+  },
   "pricing": {
-    "h2": "Preços",
-    "p1": "Uso diário? Assinatura. Uso ocasional? Pacotes de tempo sem expiração.",
-    "p2": "Também há teste de 120 minutos com baixo custo para validar antes do compromisso."
+    "h2": "Uma análise detalhada dos preços do app Ata AI",
+    "lead": "Aqui está o maior problema com a maioria das ferramentas de IA: elas forçam você a uma assinatura mensal 'tamanho único'. O preço do Ata AI é diferente. Ele é projetado para corresponder à frequência de suas reuniões, para que você pague apenas pelo que realmente precisa.",
+    "bullets": [
+      "<strong>O teste perfeito (R$1,99):</strong> Não tem certeza? Basta comprar o <strong>Pacote de Tempo de 120 minutos por $1,99</strong>. É barato, simples e não tem data de validade.",
+      "<strong>Para usuários ocasionais (Pacotes de Tempo):</strong> Compre minutos que <strong>NUNCA expiram</strong>. Isso é perfeito para freelancers ou usuários que usam pouco. Obtenha <strong>1200 minutos por apenas $11,99</strong>.",
+      "<strong>Para usuários intensivos (Assinatura):</strong> Tenha uso ilimitado. Este é o melhor custo-benefício para equipes e reuniões diárias. Escolha <strong>$16,99/mês</strong> ou economize bastante com <strong>$149,99/ano</strong>."
+    ],
+    "tableNote": "Os preços e a disponibilidade podem variar por região/loja. Veja o artigo principal sobre Preços para os detalhes mais atualizados.",
+    "linkText": "Ver detalhes completos dos preços"
   },
-  "image": { "alt": "Ata AI no iPhone", "caption": "Interface do Ata AI no iPhone." },
-  "steps": {
-    "h2": "Comece no iPhone",
-    "items": ["Baixe o app", "Toque uma vez para gravar", "Escolha o formato adequado", "Crie Project/Strategy ao finalizar"],
-    "note": "A duração depende do plano e do saldo restante."
+  "compare": {
+    "h2": "Comparativo rápido",
+    "th": [
+      "O que importa",
+      "Apps típicos de atas com IA",
+      "Ata AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Dificuldade para iniciar/gravar",
+        "Vários toques, modos confusos",
+        "Um toque para gravar. Um toque para o histórico."
+      ],
+      [
+        "Legibilidade do resultado",
+        "Muro de texto, parágrafos 'estilo IA'",
+        "Estruturado, escaneável, focado na ação"
+      ],
+      [
+        "Formatos por reunião",
+        "Um modelo genérico",
+        "Formatos dedicados (Vendas, 1-a-1, etc.)"
+      ],
+      [
+        "Acompanhamento",
+        "Copiar/colar em outras ferramentas",
+        "Projeto (quem/quando/o quê) e Estratégia integrados"
+      ],
+      [
+        "Modelo de preços",
+        "Apenas assinatura (geralmente cara)",
+        "Flexível: Teste de $1,99, Pacotes sem validade ou Assinatura ilimitada"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Observações",
-    "items": ["Rede e dispositivo podem afetar a qualidade", "Recursos podem variar conforme o plano"],
-    "foot": "Experimente o Ata AI no iPhone hoje."
+  "faq": {
+    "h2": "FAQ — As respostas honestas",
+    "items": [
+      {
+        "q": "Existe um limite de tempo de gravação?",
+        "a": "Seu tempo disponível depende do seu plano. Com os Pacotes de Tempo, seu limite são os minutos restantes (e eles não expiram!). Com uma Assinatura, você tem uso ilimitado."
+      },
+      {
+        "q": "Funciona offline?",
+        "a": "Sim, você pode gravar offline. O app sincronizará e processará as atas assim que você estiver online novamente. As funcionalidades podem ser limitadas até você se reconectar."
+      },
+      {
+        "q": "O Ata AI existe apenas para iPhone?",
+        "a": "Embora esta análise se concentre no app para iPhone, também existe uma versão web. Nós simplesmente amamos o app para iPhone porque é muito rápido e está sempre com você."
+      },
+      {
+        "q": "Como o preço se difere de outros apps?",
+        "a": "A maioria dos apps oferece *apenas* assinaturas mensais ou anuais. O Ata AI é diferente. Nós oferecemos isso *além de* <strong>Pacotes de Tempo que não expiram</strong>. Isso é perfeito se você não tem reuniões todos os dias. Você pode começar com um <strong>pacote de teste de $1,99</strong> para decidir sem um grande compromisso."
+      },
+      {
+        "q": "Consigo obter resultados limpos e fáceis de compartilhar?",
+        "a": "Com certeza. Os resultados são projetados para serem compartilhados, enfatizando decisões, responsáveis e datas. É isso que ajuda o trabalho a avançar."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Guia", "category": "Recomendação de app" },
-  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Baixar app iOS" },
-  "brand": "Ata AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Tela principal do Ata AI no iPhone mostrando a gravação com um toque",
+      "caption": "Tela principal — basta tocar para começar a gravar. Sem bagunça."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Exemplo de atas limpas e legíveis do Ata AI",
+      "caption": "Atas legíveis — decisões e itens de ação são claros."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Tela de seleção de formato de reunião do Ata AI",
+      "caption": "Escolha o formato certo para sua reunião."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Guia",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Abrir no navegador",
+    "downloadIOS": "Baixar app para iOS"
+  }
 }

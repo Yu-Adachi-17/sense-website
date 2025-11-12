@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Waarom we de iPhone-app voor AI-notulen aanraden (2025)",
-    "description": "5 duidelijke redenen: extreem simpele UI, leesbare & actiegerichte notulen, formats per vergadertype, opvolging in de app en flexibele prijzen. Probeer Notulen AI op iPhone.",
-    "ogTitle": "Onze tip: iPhone-app voor AI-notulen",
-    "ogDescription": "Één tik om op te nemen, outputs die acties starten, slimme formats, ingebouwde opvolging en prijzen die passen. Notulen AI op iPhone.",
+    "title": "(2025) Waarom we de Notulen AI iPhone-app aanbevelen voor notulen",
+    "description": "Op zoek naar de beste AI-notulenapp voor de iPhone? Hier is onze eerlijke beoordeling. Notulen AI is een eenvoudige, leesbare en actiegerichte app met een ongelooflijk flexibel prijsmodel.",
+    "ogTitle": "Notulen AI iPhone-app — Onze eerlijke aanbeveling (2025)",
+    "ogDescription": "Zoek je op 'aanbeveling AI notulen app' of 'prijzen AI notulen app'? Deze gids legt uit waarom de Notulen AI iPhone-app onze topkeuze is vanwege de functies en de eerlijke prijs.",
     "ld": {
-      "headline": "Waarom de iPhone-app voor AI-notulen onze aanbeveling is",
-      "description": "Koopgids voor Notulen AI: snel in gebruik, heldere uitkomsten, afgestemde formats, post-meeting acties en eerlijke prijzen."
+      "headline": "Waarom we de Notulen AI iPhone-app aanbevelen",
+      "description": "Onze 5 belangrijkste redenen: Een super-simpele UI, écht leesbare output, slimme vergaderformats, ingebouwde actie-tracking en een flexibel prijsmodel dat bij elke gebruiker past."
     }
   },
-  "aria": { "home": "Startpagina Notulen AI" },
-  "nav": { "blog": "Blog", "recommend": "Aanbeveling" },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Waarom Notulen AI voor iPhone"
+  },
   "hero": {
-    "kicker": "Koopgids",
-    "h1": "Daarom raden we de iPhone-app voor AI-notulen aan",
-    "tagline": "Sluit aan op de zoekintentie: beste AI-notulen-app voor iPhone en inzicht in de prijs — zonder omwegen."
+    "kicker": "Onze koopgids voor 2025",
+    "h1": "Waarom de Notulen AI iPhone-app onze topkeuze is voor notulen (2025)",
+    "tagline": "Als je googlet op “aanbevolen AI notulen app” of “prijzen AI notulen app”, ben je hier aan het juiste adres. Deze app is gebouwd om snel op te nemen, heldere notulen te genereren en je te helpen *echt* werk gedaan te krijgen."
+  },
+  "lead": {
+    "p1": "AI-gestuurde notulen-apps zijn overal in 2025. Waarom bevelen we dan nog steeds Notulen AI voor de iPhone aan? We slaan de hype over en geven je vijf directe, praktische redenen."
   },
   "reasons": {
-    "h2": "Vijf recht-voor-z’n-raap redenen",
+    "h2": "5 redenen waarom we de Notulen AI iPhone-app aanbevelen",
     "items": [
-      "Opnemen met één tik — nul frictie",
-      "Notulen die écht ‘next actions’ aanjagen",
-      "Formats per type: algemeen, sales, 1-op-1, presentatie, brainstorm, interview",
-      "Opvolging in de app met Project & Strategy",
-      "Flexibele prijzen: abonnementen en tijdpakketten zonder vervaldatum"
+      {
+        "t": "1) Een belachelijk eenvoudige UI — Nul giswerk",
+        "p": "Geen verwarrende menu's. Eén tik om op te nemen. Eén tik om je eerdere notulen te zien. Dat is het. Je zou geen handleiding nodig moeten hebben om notities te maken.",
+        "imgAlt": "Hoofdscherm van Notulen AI met opname met één tik",
+        "caption": "Starten met één tik, geschiedenis met één tik. Geen leercurve."
+      },
+      {
+        "t": "2) Leesbaarheid & echte waarde (Geen AI-gebabbel)",
+        "p": "Dit is niet zomaar een muur van door AI gegenereerde tekst. De app formatteert alles zodat je direct naar beslissingen en volgende stappen kunt springen. Het is geoptimaliseerd voor actie.",
+        "imgAlt": "Voorbeeld van heldere, leesbare notulen van Notulen AI",
+        "caption": "Beslissingen vallen op. Eigenaars en deadlines zijn duidelijk door het ontwerp."
+      },
+      {
+        "t": "3) Slimme formats voor verschillende vergaderingen",
+        "p": "Een 1-op-1 gesprek is anders dan een brainstorm. Notulen AI begrijpt dat. Je kunt een format kiezen (Algemeen, Verkoop, 1-op-1, Presentatie, enz.) om de best mogelijke samenvatting te krijgen voor dat specifieke type vergadering.",
+        "imgAlt": "Selectiescherm voor vergaderformat in Notulen AI",
+        "caption": "Kies het juiste format voor de juiste vergadering."
+      },
+      {
+        "t": "4) Acties na de vergadering zijn ingebouwd",
+        "p": "Notulen AI stopt niet bij het opnemen. Druk op \"Project\" om direct te zien \"wie doet wat en wanneer\". Druk op \"Strategie\" om de nieuwste AI (ChatGPT-5 & Gemini 2.5 Pro) concrete volgende stappen te laten voorstellen op basis van jullie gesprek.",
+        "note": "Wil je dieper ingaan op Strategie? Bekijk het artikel hieronder."
+      },
+      {
+        "t": "5) Slimme prijzen die passen bij hoe jij *echt* werkt",
+        "p": "Dit is een enorm pluspunt. Niet iedereen heeft behoefte aan *nog een* maandelijks abonnement. Als je de hele dag vergaderingen hebt, is het **Onbeperkte Abonnement** geweldig. Maar als je slechts af en toe vergadert, kun je **Tijdbundels kopen die niet vervallen**. Je kunt zelfs beginnen met een **bundel van 120 minuten voor slechts $1.99** om het uit te proberen.",
+        "note": "We lichten de volledige prijslijst hieronder in een aparte sectie toe."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategie: Zet notulen om in actie",
+    "p1": "De \"Strategie\"-functie neemt de context van je vergadering en stelt duidelijke actieplannen voor met behulp van top-tier AI-modellen. Minder giswerk, meer concrete stappen die je kunt toewijzen.",
+    "linkText": "Lees de diepgaande analyse van Strategie"
+  },
   "pricing": {
-    "h2": "Prijzen",
-    "p1": "Dagelijkse gebruikers kiezen abonnementen. Af-en-toe gebruikers kiezen tijdpakketten zonder vervaldatum.",
-    "p2": "Er is een goedkope proef van 120 minuten om eerst de fit te checken."
+    "h2": "Een gedetailleerde blik op de prijzen van de Notulen AI-app",
+    "lead": "Hier is het grootste probleem met de meeste AI-tools: ze dwingen je in een 'one-size-fits-all' maandelijks abonnement. De prijsstelling van Notulen AI is anders. Het is ontworpen om aan te sluiten bij jouw vergaderfrequentie, zodat je alleen betaalt voor wat je daadwerkelijk nodig hebt.",
+    "bullets": [
+      "<strong>De perfecte proefperiode ($1.99):</strong> Niet zeker? Koop gewoon de <strong>Tijdbundel van 120 minuten voor $1.99</strong>. Het is goedkoop, eenvoudig en heeft geen vervaldatum.",
+      "<strong>Voor occasionele gebruikers (Tijdbundels):</strong> Koop minuten die <strong>NOOIT vervallen</strong>. Dit is perfect voor freelancers of lichte gebruikers. Krijg <strong>1200 minuten voor slechts $11.99</strong>.",
+      "<strong>Voor intensieve gebruikers (Abonnement):</strong> Ga voor onbeperkt. Dit is de beste waarde voor teams en dagelijkse vergaderingen. Kies <strong>$16.99/maand</strong> of bespaar flink met <strong>$149.99/jaar</strong>."
+    ],
+    "tableNote": "Prijzen en beschikbaarheid kunnen per regio/winkel verschillen. Raadpleeg het hoofdartikel over Prijzen voor de meest actuele details.",
+    "linkText": "Bekijk het volledige prijsoverzicht"
   },
-  "image": { "alt": "Notulen AI op iPhone", "caption": "Notulen AI-interface op iPhone." },
-  "steps": {
-    "h2": "Aan de slag op iPhone",
-    "items": ["App downloaden", "Eén tik om op te nemen", "Kies het juiste format", "Maak na afloop een Project/Strategy"],
-    "note": "Duur hangt af van je plan en resterend tegoed."
+  "compare": {
+    "h2": "Snelle vergelijking",
+    "th": [
+      "Wat belangrijk is",
+      "Typische AI-notulenapps",
+      "Notulen AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Start/opname frictie",
+        "Meerdere tikken, verwarrende modi",
+        "Eén tik om op te nemen. Eén tik naar geschiedenis."
+      ],
+      [
+        "Leesbaarheid output",
+        "Lappen tekst, 'AI-achtige' paragrafen",
+        "Gestructureerd, scanbaar, actiegericht"
+      ],
+      [
+        "Formats per vergadering",
+        "Eén generieke template",
+        "Specifieke formats (Verkoop, 1-op-1, etc.)"
+      ],
+      [
+        "Opvolging",
+        "Kopiëren/plakken naar andere tools",
+        "Ingebouwd Project (wie/wanneer/wat) & Strategie"
+      ],
+      [
+        "Prijsmodel",
+        "Alleen abonnement (vaak duur)",
+        "Flexibel: $1.99 proef / Bundels zonder vervaldatum / Onbeperkt abonnement"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Opmerkingen",
-    "items": ["Netwerk en device beïnvloeden de kwaliteit", "Functies kunnen per plan verschillen"],
-    "foot": "Probeer Notulen AI vandaag nog op iPhone."
+  "faq": {
+    "h2": "FAQ — De eerlijke antwoorden",
+    "items": [
+      {
+        "q": "Is er een opnametijdlimiet?",
+        "a": "Je beschikbare tijd hangt af van je plan. Met Tijdbundels is je limiet de minuten die je nog hebt (en die vervallen niet!). Met een Abonnement heb je onbeperkt gebruik."
+      },
+      {
+        "q": "Werkt het offline?",
+        "a": "Ja, je kunt offline opnemen. De app synchroniseert en verwerkt de notulen zodra je weer online bent. Functies kunnen beperkt zijn totdat je opnieuw verbinding maakt."
+      },
+      {
+        "q": "Is Notulen AI alleen op de iPhone?",
+        "a": "Hoewel deze review zich richt op de iPhone-app, is er ook een webversie. We zijn gewoon dol op de iPhone-app omdat deze zo snel is en je hem altijd bij je hebt."
+      },
+      {
+        "q": "Hoe verschillen de prijzen van andere apps?",
+        "a": "De meeste apps bieden *alleen* maandelijkse of jaarlijkse abonnementen aan. Notulen AI is anders. Wij bieden dat *plus* <strong>Tijdbundels die niet vervallen</strong>. Dit is perfect als je niet elke dag vergadert. Je kunt beginnen met een <strong>proefbundel van $1.99</strong> om te beslissen zonder grote verplichting."
+      },
+      {
+        "q": "Kan ik heldere, deelbare output krijgen?",
+        "a": "Absoluut. De output is ontworpen om gedeeld te worden, met nadruk op beslissingen, eigenaren en datums. Dat is wat helpt om het werk vooruit te helpen."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Gids", "category": "App-aanbeveling" },
-  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS-app" },
-  "brand": "Notulen AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Hoofdscherm van Notulen AI op iPhone met opname met één tik",
+      "caption": "Hoofdscherm — tik gewoon om de opname te starten. Geen rommel."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Voorbeeld van heldere, leesbare notulen van Notulen AI",
+      "caption": "Leesbare notulen — beslissingen en actiepunten zijn duidelijk."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Selectiescherm voor vergaderformat in Notulen AI",
+      "caption": "Kies het juiste format voor jouw vergadering."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Gids",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS-app"
+  }
 }

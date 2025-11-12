@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "iPhone için toplantı tutanakları yapay zekâ uygulamasını neden öneriyoruz (2025)",
-    "description": "5 net neden: çok basit arayüz, okunabilir ve eyleme dönük tutanaklar, toplantı türüne göre formatlar, uygulama içi takip ve esnek fiyatlandırma. iPhone’da Tutanakları AI’ı deneyin.",
-    "ogTitle": "Önerimiz: iPhone için yapay zekâlı tutanak uygulaması",
-    "ogDescription": "Tek dokunuşla kayıt, aksiyona götüren çıktılar, akıllı formatlar, uygulama içi takip ve kullanıma uyan fiyatlar. Tutanakları AI iPhone’da.",
+    "title": "(2025) Toplantı Tutanakları için Neden Tutanakları AI iPhone Uygulamasını Öneriyoruz",
+    "description": "En iyi iPhone AI tutanak uygulamasını mı arıyorsunuz? İşte dürüst incelememiz. Tutanakları AI, inanılmaz esnek bir fiyatlandırma modeline sahip, basit, okunabilir ve eylem odaklı bir uygulamadır.",
+    "ogTitle": "Tutanakları AI iPhone Uygulaması — Dürüst Önerimiz (2025)",
+    "ogDescription": "'AI tutanak uygulaması önerisi' veya 'AI tutanak uygulaması fiyatları' mı arıyorsunuz? Bu kılavuz, Tutanakları AI iPhone uygulamasının özellikleri ve adil fiyatı nedeniyle neden en iyi seçimimiz olduğunu açıklıyor.",
     "ld": {
-      "headline": "Neden iPhone’daki tutanaklar yapay zekâ uygulamasını öneriyoruz",
-      "description": "Tutanakları AI satın alma rehberi: hızlı kullanım, net çıktılar, toplantıya uygun formatlar, toplantı sonrası aksiyonlar ve adil fiyatlar."
+      "headline": "Neden Tutanakları AI iPhone Uygulamasını Öneriyoruz",
+      "description": "5 temel nedenimiz: Süper basit bir kullanıcı arayüzü, gerçekten okunabilir çıktılar, akıllı toplantı formatları, dahili eylem takibi ve her kullanıcıya uyan esnek bir fiyatlandırma modeli."
     }
   },
-  "aria": { "home": "Tutanakları AI Ana Sayfa" },
-  "nav": { "blog": "Blog", "recommend": "Öneri" },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Neden iPhone için Tutanakları AI"
+  },
   "hero": {
-    "kicker": "Satın Alma Rehberi",
-    "h1": "iPhone için toplantı tutanakları yapay zekâ uygulamasını neden öneriyoruz",
-    "tagline": "Arama niyetine tam uygun: iPhone için en iyi tutanak-YZ uygulaması ve fiyatlandırması — dolandırmadan."
+    "kicker": "2025 Satın Alma Rehberimiz",
+    "h1": "(2025) Toplantı Tutanakları İçin Neden Tutanakları AI iPhone Uygulaması Birinci Tercihimiz",
+    "tagline": "Eğer Google'da “AI tutanak uygulaması önerisi” veya “AI tutanak uygulaması fiyatları” diye aratıyorsanız, doğru yerdesiniz. Bu uygulama hızlı kayıt yapmak, temiz tutanaklar oluşturmak ve işinizi *gerçekten* halletmenize yardımcı olmak için tasarlandı."
+  },
+  "lead": {
+    "p1": "Yapay zeka destekli tutanak uygulamaları 2025'te her yerde. Peki neden hala iPhone için Tutanakları AI'ı öneriyoruz? Abartıyı bir kenara bırakıp size beş doğrudan, pratik neden sunacağız."
   },
   "reasons": {
-    "h2": "Beş net neden",
+    "h2": "Tutanakları AI iPhone Uygulamasını Önermemizin 5 Nedeni",
     "items": [
-      "Tek dokunuşla kayıt — sıfır sürtünme",
-      "Gerçek «sonraki aksiyonları» tetikleyen okunaklı tutanaklar",
-      "Toplantı türüne göre formatlar: Genel, Satış, 1-e-1, Sunum, Beyin fırtınası, Mülakat",
-      "Uygulama içinde Project & Strategy ile takip",
-      "Esnek fiyat: abonelikler ve süresi dolmayan zaman paketleri"
+      {
+        "t": "1) İnanılmaz Basit Arayüz — Tahmine Gerek Yok",
+        "p": "Kafa karıştırıcı menüler yok. Kayıt için tek dokunuş. Geçmiş tutanaklarınızı görmek için tek dokunuş. Hepsi bu. Sadece not almak için bir kullanım kılavuzuna ihtiyacınız olmamalı.",
+        "imgAlt": "Tutanakları AI ana ekranı, tek dokunuşla kaydı gösteriyor",
+        "caption": "Tek dokunuşla başlat, tek dokunuşla geçmiş. Öğrenme zahmeti yok."
+      },
+      {
+        "t": "2) Okunabilirlik ve Gerçek Değer (Yapay Zeka Safsatası Değil)",
+        "p": "Bu sadece yapay zeka tarafından oluşturulmuş bir metin duvarı değil. Uygulama her şeyi, doğrudan kararlara ve sonraki adımlara atlayabilmeniz için formatlar. Eylem için optimize edilmiştir.",
+        "imgAlt": "Tutanakları AI'dan temiz, okunabilir tutanak örneği",
+        "caption": "Kararlar öne çıkar. Sorumlular ve son tarihler tasarım gereği açıktır."
+      },
+      {
+        "t": "3) Farklı Toplantılar için Akıllı Formatlar",
+        "p": "Birebir (1-on-1) toplantı, bir beyin fırtınasından farklıdır. Tutanakları AI bunu anlar. Belirli toplantı türü için mümkün olan en iyi özeti almak üzere bir format (Genel, Satış, 1-on-1, Sunum vb.) seçebilirsiniz.",
+        "imgAlt": "Tutanakları AI toplantı formatı seçim ekranı",
+        "caption": "Doğru toplantı için doğru formatı seçin."
+      },
+      {
+        "t": "4) Toplantı Sonrası Eylemler Dahili",
+        "p": "Tutanakları AI sadece kayıtla durmaz. “Proje“ye basarak “kimin neyi ne zamana kadar yapacağını“ anında görün. En son yapay zekanın (ChatGPT-5 & Gemini 2.5 Pro) konuşmanıza dayanarak somut sonraki adımları önermesi için “Strateji“ye basın.",
+        "note": "Strateji hakkında daha derinlemesine bilgi ister misiniz? Aşağıdaki makaleye bakın."
+      },
+      {
+        "t": "5) *Gerçek* Çalışma Tarzınıza Uygun Akıllı Fiyatlandırma",
+        "p": "Bu çok önemli bir nokta. Herkesin *bir başka* aylık aboneliğe ihtiyacı yok. Bütün gün toplantı yapıyorsanız, **Sınırsız Abonelik** harikadır. Ancak sadece ara sıra toplantı yapıyorsanız, **süresi dolmayan Zaman Paketleri** satın alabilirsiniz. Hatta denemek için **sadece 1.99$'a 120 dakikalık bir paket** ile başlayabilirsiniz.",
+        "note": "Tüm fiyat listesini aşağıda ayrı bir bölümde detaylandırıyoruz."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strateji: Tutanakları Harekete Geçirin",
+    "p1": "“Strateji” özelliği, toplantınızın bağlamını alır ve üst düzey yapay zeka modellerini kullanarak net eylem planları önerir. Daha az tahmin, atayabileceğiniz daha somut adımlar.",
+    "linkText": "Strateji Derinlemesine İncelemesini Okuyun"
+  },
   "pricing": {
-    "h2": "Fiyatlandırma",
-    "p1": "Günlük kullanım için abonelik. Ara sıra kullanım için süresi dolmayan zaman paketleri.",
-    "p2": "Ayrıca, taahhüt öncesi denemek için düşük maliyetli 120 dakikalık deneme mevcut."
+    "h2": "Tutanakları AI Uygulama Fiyatlandırmasına Ayrıntılı Bir Bakış",
+    "lead": "İşte çoğu yapay zeka aracının en büyük sorunu: sizi 'herkese uyan tek tip' bir aylık aboneliğe zorlarlar. Tutanakları AI'ın fiyatlandırması farklıdır. Toplantı sıklığınıza uyacak şekilde tasarlanmıştır, böylece sadece gerçekten ihtiyacınız olan kadar ödersiniz.",
+    "bullets": [
+      "<strong>Mükemmel Deneme (1.99$):</strong> Emin değil misiniz? Sadece <strong>1.99$'a 120 dakikalık Zaman Paketi</strong> satın alın. Ucuzdur, basittir ve son kullanma tarihi yoktur.",
+      "<strong>Ara Sıra Kullananlar İçin (Zaman Paketleri):</strong> <strong>ASLA süresi dolmayan</strong> dakikalar satın alın. Bu, serbest çalışanlar veya az kullananlar için mükemmeldir. <strong>Sadece 11.99$'a 1200 dakika</strong> alın.",
+      "<strong>Yoğun Kullanıcılar İçin (Abonelik):</strong> Sınırsıza geçin. Bu, ekipler ve günlük toplantılar için en iyi değerdir. <strong>16.99$/ay</strong> seçin veya <strong>149.99$/yıl</strong> ile büyük tasarruf edin."
+    ],
+    "tableNote": "Fiyatlar ve kullanılabilirlik bölgeye/mağazaya göre değişiklik gösterebilir. En güncel ayrıntılar için ana Fiyatlandırma makalesine bakın.",
+    "linkText": "Tüm Fiyatlandırma Dökümünü Görün"
   },
-  "image": { "alt": "iPhone’da Tutanakları AI", "caption": "iPhone üzerinde Tutanakları AI arayüzü." },
-  "steps": {
-    "h2": "iPhone’da başlama",
-    "items": ["Uygulamayı indirin", "Tek dokunuşla kaydı başlatın", "Doğru formatı seçin", "Toplantı sonrası Project/Strategy oluşturun"],
-    "note": "Süre, planınıza ve kalan bakiyeye bağlıdır."
+  "compare": {
+    "h2": "Hızlı Karşılaştırma",
+    "th": [
+      "Önemli Olanlar",
+      "Tipik AI Tutanak Uygulamaları",
+      "Tutanakları AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Başlatma/Kayıt Zorluğu",
+        "Birden fazla dokunuş, kafa karıştırıcı modlar",
+        "Kayıt için tek dokunuş. Geçmiş için tek dokunuş."
+      ],
+      [
+        "Çıktı Okunabilirliği",
+        "Metin duvarı, yapay zeka tarzı paragraflar",
+        "Yapılandırılmış, taranabilir, eylem odaklı"
+      ],
+      [
+        "Toplantı Başına Format",
+        "Tek bir genel şablon",
+        "Özel formatlar (Satış, 1-on-1, vb.)"
+      ],
+      [
+        "Sonrası Takip",
+        "Diğer araçlara kopyala/yapıştır",
+        "Dahili Proje (kim/ne zaman/ne) & Strateji"
+      ],
+      [
+        "Fiyatlandırma Modeli",
+        "Sadece abonelik (genellikle pahalı)",
+        "Esnek: 1.99$ Deneme / Süresi dolmayan Paketler / Sınırsız Abonelik"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Notlar",
-    "items": ["Ağ ve cihaz koşulları kaliteyi etkileyebilir", "Özellikler plana göre değişebilir"],
-    "foot": "Bugün iPhone’da Tutanakları AI’ı deneyin."
+  "faq": {
+    "h2": "SSS — Dürüst Cevaplar",
+    "items": [
+      {
+        "q": "Kayıt süresi sınırı var mı?",
+        "a": "Kullanılabilir süreniz planınıza bağlıdır. Zaman Paketleri ile limitiniz kalan dakikalarınızdır (ve bunlar tükenmez!). Abonelik ile sınırsız kullanım hakkınız vardır."
+      },
+      {
+        "q": "Çevrimdışı çalışır mı?",
+        "a": "Evet, çevrimdışı kayıt yapabilirsiniz. Uygulama, tekrar çevrimiçi olduğunuzda tutanakları senkronize edecek ve işleyecektir. Yeniden bağlanana kadar özellikler sınırlı olabilir."
+      },
+      {
+        "q": "Tutanakları AI sadece iPhone'da mı?",
+        "a": "Bu inceleme iPhone uygulamasına odaklansa da, bir web sürümü de bulunmaktadır. Sadece iPhone uygulamasını çok hızlı olduğu ve her zaman yanınızda olduğu için seviyoruz."
+      },
+      {
+        "q": "Fiyatlandırma diğer uygulamalardan ne açıdan farklı?",
+        "a": "Çoğu uygulama *sadece* aylık veya yıllık abonelikler sunar. Tutanakları AI farklıdır. Biz bunu *artı* <strong>süresi dolmayan Zaman Paketleri</strong> sunuyoruz. Her gün toplantı yapmıyorsanız bu mükemmeldir. Büyük bir taahhüt altına girmeden karar vermek için <strong>1.99$'lık bir deneme paketi</strong> ile başlayabilirsiniz."
+      },
+      {
+        "q": "Temiz, paylaşılabilir çıktılar alabilir miyim?",
+        "a": "Kesinlikle. Çıktılar, kararları, sorumluları ve tarihleri vurgulayarak paylaşılmak üzere tasarlanmıştır. İşi ilerletmeye yardımcı olan da budur."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "Rehber", "category": "Uygulama Önerisi" },
-  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" },
-  "brand": "Tutanakları AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Tutanakları AI iPhone ana ekranı, tek dokunuşla kaydı gösteriyor",
+      "caption": "Ana ekran — kaydı başlatmak için sadece dokunun. Karışıklık yok."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Tutanakları AI'dan temiz, okunabilir tutanak örneği",
+      "caption": "Okunabilir tutanaklar — kararlar ve eylem maddeleri açıktır."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Tutanakları AI toplantı formatı seçim ekranı",
+      "caption": "Toplantınız için doğru formatı seçin."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Yayınlandı",
+    "type": "Rehber",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Tarayıcıda Aç",
+    "downloadIOS": "iOS Uygulamasını İndir"
+  }
 }

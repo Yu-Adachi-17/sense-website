@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Mengapa kami merekomendasikan aplikasi notulen AI di iPhone (2025)",
-    "description": "5 alasan langsung: UI super sederhana, notulen mudah dibaca & ditindak, format per jenis rapat, tindak lanjut di dalam aplikasi, dan harga fleksibel. Coba Minutes AI di iPhone.",
-    "ogTitle": "Rekomendasi kami: aplikasi notulen AI di iPhone",
-    "ogDescription": "Rekam sekali sentuh, keluaran yang mendorong aksi, format cerdas, tindak lanjut terintegrasi, dan harga sesuai penggunaan. Minutes AI di iPhone.",
+    "title": "(2025) Mengapa Kami Merekomendasikan Aplikasi iPhone Minutes AI untuk Notulensi Rapat",
+    "description": "Mencari aplikasi notulensi AI terbaik untuk iPhone? Inilah ulasan jujur kami. Minutes AI adalah aplikasi yang sederhana, mudah dibaca, dan berorientasi pada tindakan dengan model harga yang sangat fleksibel.",
+    "ogTitle": "Aplikasi iPhone Minutes AI — Rekomendasi Jujur Kami (2025)",
+    "ogDescription": "Mencari 'rekomendasi aplikasi notulensi AI' atau 'harga aplikasi notulensi AI'? Panduan ini menjelaskan mengapa aplikasi iPhone Minutes AI adalah pilihan utama kami berkat fitur dan harga yang wajar.",
     "ld": {
-      "headline": "Mengapa aplikasi notulen AI untuk iPhone jadi rekomendasi kami",
-      "description": "Panduan beli Minutes AI: cepat dipakai, hasil jelas, format sesuai rapat, aksi paska-rapat, dan harga adil."
+      "headline": "Mengapa Kami Merekomendasikan Aplikasi iPhone Minutes AI",
+      "description": "5 alasan utama kami: UI super sederhana, hasil yang benar-benar mudah dibaca, format rapat yang cerdas, pelacakan tindakan bawaan, dan model harga fleksibel yang cocok untuk semua pengguna."
     }
   },
-  "aria": { "home": "Beranda Minutes AI" },
-  "nav": { "blog": "Blog", "recommend": "Rekomendasi" },
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Mengapa Minutes AI untuk iPhone"
+  },
   "hero": {
-    "kicker": "Panduan Beli",
-    "h1": "Mengapa kami merekomendasikan aplikasi notulen AI di iPhone",
-    "tagline": "Sesuai niat pencarian: aplikasi notulen AI terbaik untuk iPhone & perbandingan harga — tanpa basa-basi."
+    "kicker": "Panduan Pembeli 2025 Kami",
+    "h1": "Mengapa Aplikasi iPhone Minutes AI Adalah Pilihan Utama Kami untuk Notulensi Rapat (2025)",
+    "tagline": "Jika Anda mencari di Google “aplikasi notulensi AI yang direkomendasikan” atau “harga aplikasi notulensi AI,” Anda berada di tempat yang tepat. Aplikasi ini dibuat untuk merekam dengan cepat, menghasilkan notulensi yang bersih, dan membantu Anda *benar-benar* menyelesaikan pekerjaan."
+  },
+  "lead": {
+    "p1": "Aplikasi pencatat notulensi bertenaga AI ada di mana-mana pada tahun 2025. Jadi mengapa kami masih merekomendasikan Minutes AI untuk iPhone? Kami akan melewatkan promosinya dan memberi Anda lima alasan langsung yang praktis."
   },
   "reasons": {
-    "h2": "Lima alasan tegas",
+    "h2": "5 Alasan Kami Merekomendasikan Aplikasi iPhone Minutes AI",
     "items": [
-      "Rekam sekali sentuh — tanpa friksi",
-      "Notulen terbaca yang benar-benar memicu aksi berikutnya",
-      "Format per jenis rapat: umum, penjualan, 1-on-1, presentasi, brainstorming, wawancara",
-      "Project & Strategy sebagai tindak lanjut di aplikasi",
-      "Harga fleksibel: langganan dan paket waktu tanpa kedaluwarsa"
+      {
+        "t": "1) UI yang Sangat Sederhana — Tanpa Menebak-nebak",
+        "p": "Tidak ada menu yang membingungkan. Satu ketukan untuk merekam. Satu ketukan untuk melihat notulensi Anda sebelumnya. Itu saja. Anda tidak perlu manual hanya untuk membuat catatan.",
+        "imgAlt": "Layar utama Minutes AI menunjukkan perekaman sekali ketuk",
+        "caption": "Mulai sekali ketuk, riwayat sekali ketuk. Tidak perlu belajar."
+      },
+      {
+        "t": "2) Keterbacaan & Nilai Nyata (Bukan Bualan AI)",
+        "p": "Ini bukan hanya dinding teks yang dihasilkan AI. Aplikasi ini memformat semuanya sehingga Anda dapat langsung melompat ke keputusan dan langkah selanjutnya. Ini dioptimalkan untuk tindakan.",
+        "imgAlt": "Contoh notulensi yang bersih dan mudah dibaca dari Minutes AI",
+        "caption": "Keputusan terlihat jelas. Penanggung jawab dan tenggat waktu jelas terlihat dari desainnya."
+      },
+      {
+        "t": "3) Format Cerdas untuk Rapat yang Berbeda",
+        "p": "Rapat 1-on-1 berbeda dari brainstorming. Minutes AI memahami ini. Anda dapat memilih format (Umum, Penjualan, 1-on-1, Presentasi, dll.) untuk mendapatkan ringkasan terbaik untuk jenis rapat tertentu.",
+        "imgAlt": "Layar pemilihan format rapat Minutes AI",
+        "caption": "Pilih format yang tepat untuk rapat yang tepat."
+      },
+      {
+        "t": "4) Tindak Lanjut Pasca-Rapat Sudah Terpasang",
+        "p": "Minutes AI tidak hanya berhenti pada perekaman. Tekan “Project” untuk langsung melihat “siapa melakukan apa dan kapan.” Tekan “Strategy” agar AI terbaru (ChatGPT-5 & Gemini 2.5 Pro) menyarankan langkah selanjutnya yang konkret berdasarkan percakapan Anda.",
+        "note": "Ingin penjelasan lebih dalam tentang Strategy? Lihat artikel di bawah ini."
+      },
+      {
+        "t": "5) Harga Cerdas yang Sesuai dengan Cara Kerja Anda yang *Sebenarnya*",
+        "p": "Ini adalah poin besar. Tidak semua orang butuh *lagi* langganan bulanan. Jika Anda rapat sepanjang hari, **Langganan Tak Terbatas** sangat bagus. Tetapi jika Anda hanya sesekali rapat, Anda dapat membeli **Paket Waktu yang tidak kedaluwarsa**. Anda bahkan dapat memulai dengan **paket 120 menit hanya seharga $1.99** untuk mencobanya.",
+        "note": "Kami menguraikan daftar harga lengkap di bagian terpisah di bawah ini."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategy: Ubah Notulensi Menjadi Tindakan",
+    "p1": "Fitur “Strategy” mengambil konteks rapat Anda dan mengusulkan rencana tindakan yang jelas menggunakan model AI papan atas. Lebih sedikit tebakan, lebih banyak langkah konkret yang dapat Anda tugaskan.",
+    "linkText": "Baca Ulasan Mendalam tentang Strategy"
+  },
   "pricing": {
-    "h2": "Harga",
-    "p1": "Pengguna harian: langganan. Pengguna sesekali: paket waktu yang tidak kedaluwarsa.",
-    "p2": "Tersedia uji coba 120 menit berbiaya rendah untuk validasi sebelum berkomitmen."
+    "h2": "Melihat Lebih Dekat Harga Aplikasi Minutes AI",
+    "lead": "Inilah masalah terbesar dengan sebagian besar alat AI: mereka memaksa Anda masuk ke langganan bulanan 'satu ukuran untuk semua'. Harga Minutes AI berbeda. Ini dirancang agar sesuai dengan frekuensi rapat Anda, jadi Anda hanya membayar untuk apa yang benar-benar Anda butuhkan.",
+    "bullets": [
+      "<strong>Uji Coba Sempurna ($1.99):</strong> Belum yakin? Cukup beli <strong>Paket Waktu 120 menit seharga $1.99</strong>. Murah, sederhana, dan tidak ada masa kedaluwarsa.",
+      "<strong>Untuk Pengguna Sesekali (Paket Waktu):</strong> Beli menit yang <strong>TIDAK PERNAH kedaluwarsa</strong>. Ini sempurna untuk pekerja lepas atau pengguna ringan. Dapatkan <strong>1200 menit hanya dengan $11.99</strong>.",
+      "<strong>Untuk Pengguna Berat (Langganan):</strong> Gunakan tanpa batas. Ini adalah nilai terbaik untuk tim dan rapat harian. Pilih <strong>$16.99/bulan</strong> atau hemat besar dengan <strong>$149.99/tahun</strong>."
+    ],
+    "tableNote": "Harga dan ketersediaan dapat bervariasi berdasarkan wilayah/toko. Lihat artikel Harga utama untuk detail terbaru.",
+    "linkText": "Lihat Rincian Harga Lengkap"
   },
-  "image": { "alt": "Minutes AI di iPhone", "caption": "Tangkapan layar Minutes AI di iPhone." },
-  "steps": {
-    "h2": "Mulai di iPhone",
-    "items": ["Unduh aplikasinya", "Ketuk sekali untuk merekam", "Pilih format rapat yang tepat", "Buat Project/Strategy setelah rapat"],
-    "note": "Durasi rapat bergantung pada paket dan sisa kuota."
+  "compare": {
+    "h2": "Perbandingan Singkat",
+    "th": [
+      "Yang Penting",
+      "Aplikasi Notulensi AI Umum",
+      "Minutes AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Hambatan Mulai/Rekam",
+        "Beberapa ketukan, mode yang membingungkan",
+        "Satu ketuk untuk merekam. Satu ketuk ke riwayat."
+      ],
+      [
+        "Keterbacaan Hasil",
+        "Dinding teks, paragraf ala AI",
+        "Terstruktur, mudah dipindai, fokus pada tindakan"
+      ],
+      [
+        "Format per Rapat",
+        "Satu template umum",
+        "Format khusus (Penjualan, 1-on-1, dll.)"
+      ],
+      [
+        "Tindak Lanjut",
+        "Salin/tempel ke alat lain",
+        "Project (siapa/kapan/apa) & Strategy bawaan"
+      ],
+      [
+        "Model Harga",
+        "Hanya langganan (seringkali mahal)",
+        "Fleksibel: Uji coba $1.99, Paket tanpa kedaluwarsa, atau Langganan Tak Terbatas"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Catatan",
-    "items": ["Kualitas dipengaruhi jaringan & perangkat", "Fitur dapat berbeda tergantung paket"],
-    "foot": "Coba Minutes AI di iPhone hari ini."
+  "faq": {
+    "h2": "FAQ — Jawaban Jujur",
+    "items": [
+      {
+        "q": "Apakah ada batasan waktu perekaman?",
+        "a": "Waktu yang tersedia tergantung pada paket Anda. Dengan Paket Waktu, batas Anda adalah sisa menit yang Anda miliki (dan itu tidak kedaluwarsa!). Dengan Langganan, Anda memiliki penggunaan tak terbatas."
+      },
+      {
+        "q": "Apakah akan berfungsi offline?",
+        "a": "Ya, Anda dapat merekam secara offline. Aplikasi akan menyinkronkan dan memproses notulensi setelah Anda kembali online. Fitur mungkin terbatas sampai Anda terhubung kembali."
+      },
+      {
+        "q": "Apakah Minutes AI hanya ada di iPhone?",
+        "a": "Meskipun ulasan ini berfokus pada aplikasi iPhone, ada juga versi web. Kami hanya menyukai aplikasi iPhone karena sangat cepat dan selalu bersama Anda."
+      },
+      {
+        "q": "Apa bedanya harga dengan aplikasi lain?",
+        "a": "Sebagian besar aplikasi *hanya* menawarkan langganan bulanan atau tahunan. Minutes AI berbeda. Kami menawarkan itu *ditambah* <strong>Paket Waktu yang tidak kedaluwarsa</strong>. Ini sempurna jika Anda tidak rapat setiap hari. Anda dapat memulai dengan <strong>paket uji coba $1.99</strong> untuk memutuskan tanpa komitmen besar."
+      },
+      {
+        "q": "Bisakah saya mendapatkan hasil yang bersih dan mudah dibagikan?",
+        "a": "Tentu saja. Hasilnya dirancang untuk dibagikan, menekankan keputusan, penanggung jawab, dan tanggal. Inilah yang membantu pekerjaan tetap maju."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Dipublikasikan", "type": "Panduan", "category": "Rekomendasi Aplikasi" },
-  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" },
-  "brand": "Minutes AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Layar utama iPhone Minutes AI menunjukkan perekaman sekali ketuk",
+      "caption": "Layar utama — cukup ketuk untuk mulai merekam. Tidak berantakan."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Contoh notulensi yang bersih dan mudah dibaca dari Minutes AI",
+      "caption": "Notulensi yang mudah dibaca — keputusan dan item tindakan terlihat jelas."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Layar pemilihan format rapat Minutes AI",
+      "caption": "Pilih format yang tepat untuk rapat Anda."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Panduan",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS"
+  }
 }

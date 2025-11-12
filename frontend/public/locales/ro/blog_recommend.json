@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "De ce recomandăm aplicația minutes-AI pentru iPhone (2025)",
-    "description": "5 motive directe: UI simplu, minute lizibile/acuționabile, formate pe tip de întâlnire, follow-through integrat și prețuri flexibile. Încearcă Proces-verbal AI pe iPhone.",
-    "ogTitle": "Alegerea noastră: aplicația minutes-AI pentru iPhone",
-    "ogDescription": "Înregistrare cu o atingere, rezultate care duc la pașii următori, formate inteligente, follow-through în aplicație și prețuri potrivite utilizării. Proces-verbal AI pe iPhone.",
+    "title": "(2025) De ce recomandăm aplicația Proces-verbal AI pentru iPhone pentru minutele ședințelor",
+    "description": "Căutați cea mai bună aplicație AI pentru minute pe iPhone? Iată recenzia noastră sinceră. Proces-verbal AI este o aplicație simplă, lizibilă și orientată spre acțiune, cu un model de prețuri incredibil de flexibil.",
+    "ogTitle": "Aplicația Proces-verbal AI pentru iPhone — Recomandarea noastră sinceră (2025)",
+    "ogDescription": "Căutați 'recomandare aplicație minute AI' sau 'prețuri aplicație minute AI'? Acest ghid explică de ce aplicația Proces-verbal AI pentru iPhone este alegerea noastră principală datorită caracteristicilor și prețului corect.",
     "ld": {
-      "headline": "De ce aplicația minutes-AI pentru iPhone este recomandarea noastră",
-      "description": "Ghid de cumpărare Proces-verbal AI: utilizare rapidă, rezultate clare, formate adaptate, acțiuni post-întâlnire și preț corect."
+      "headline": "De ce recomandăm aplicația Proces-verbal AI pentru iPhone",
+      "description": "Cele 5 motive cheie: O interfață super-simplă, rezultate cu adevărat lizibile, formate inteligente pentru ședințe, urmărirea acțiunilor integrată și un model de prețuri flexibil care se potrivește oricărui utilizator."
     }
   },
-  "aria": { "home": "Acasă Proces-verbal AI" },
-  "nav": { "blog": "Blog", "recommend": "Recomandare" },
+  "aria": {
+    "home": "Proces-verbal AI Acasă"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "De ce Proces-verbal AI pentru iPhone"
+  },
   "hero": {
-    "kicker": "Ghid de cumpărare",
-    "h1": "De ce recomandăm aplicația minutes-AI pentru iPhone",
-    "tagline": "Creată pentru intenția de căutare: cea mai bună minutes-AI pentru iPhone și cum stă la preț — fără balast."
+    "kicker": "Ghidul nostru de achiziții 2025",
+    "h1": "De ce aplicația Proces-verbal AI pentru iPhone este alegerea noastră de top pentru minutele ședințelor (2025)",
+    "tagline": "Dacă căutați pe Google „aplicație minute AI recomandată” sau „prețuri aplicație minute AI”, sunteți în locul potrivit. Această aplicație este construită pentru a înregistra rapid, a genera minute clare și a vă ajuta să vă duceți treaba *efectiv* la bun sfârșit."
+  },
+  "lead": {
+    "p1": "Aplicațiile de luat minute bazate pe AI sunt peste tot în 2025. Deci, de ce recomandăm în continuare Proces-verbal AI pentru iPhone? Vom sări peste publicitate și vă vom oferi cinci motive directe și practice."
   },
   "reasons": {
-    "h2": "Cinci motive clare",
+    "h2": "5 motive pentru care recomandăm aplicația Proces-verbal AI pentru iPhone",
     "items": [
-      "Înregistrare cu o atingere, fără fricțiuni",
-      "Minute lizibile care chiar duc la următorii pași",
-      "Formate per întâlnire: General, Vânzări, 1-la-1, Prezentare, Brainstorm, Interviu",
-      "Follow-through pentru Project & Strategy în aplicație",
-      "Prețuri flexibile: abonamente și pachete de timp care nu expiră"
+      {
+        "t": "1) O interfață ridicol de simplă — Zero presupuneri",
+        "p": "Fără meniuri confuze. O atingere pentru a înregistra. O atingere pentru a vedea minutele anterioare. Atât. Nu ar trebui să aveți nevoie de un manual doar pentru a lua notițe.",
+        "imgAlt": "Ecranul principal al Proces-verbal AI arătând înregistrarea cu o singură atingere",
+        "caption": "Pornire cu o atingere, istoric cu o atingere. Fără curbă de învățare."
+      },
+      {
+        "t": "2) Lizibilitate și valoare reală (Nu umplutură AI)",
+        "p": "Acesta nu este doar un perete de text generat de AI. Aplicația formatează totul astfel încât să puteți sări direct la decizii și pașii următori. Este optimizată pentru acțiune.",
+        "imgAlt": "Exemplu de minute clare și lizibile de la Proces-verbal AI",
+        "caption": "Deciziile ies în evidență. Responsabilii și termenele limită sunt clare prin design."
+      },
+      {
+        "t": "3) Formate inteligente pentru diferite ședințe",
+        "p": "O întâlnire 1-la-1 este diferită de un brainstorming. Proces-verbal AI înțelege asta. Puteți alege un format (General, Vânzări, 1-la-1, Prezentare etc.) pentru a obține cel mai bun rezumat posibil pentru acel tip specific de ședință.",
+        "imgAlt": "Ecranul de selecție a formatului de ședință al Proces-verbal AI",
+        "caption": "Alegeți formatul potrivit pentru ședința potrivită."
+      },
+      {
+        "t": "4) Acțiunile post-ședință sunt integrate",
+        "p": "Proces-verbal AI nu se oprește doar la înregistrare. Apăsați „Proiect” pentru a vedea instantaneu „cine ce face și până când”. Apăsați „Strategie” pentru a lăsa cel mai recent AI (ChatGPT-5 & Gemini 2.5 Pro) să sugereze pașii următori concreți pe baza conversației dvs.",
+        "note": "Doriți o analiză mai profundă a Strategiei? Vedeți articolul de mai jos."
+      },
+      {
+        "t": "5) Prețuri inteligente care se potrivesc modului în care lucrați *efectiv*",
+        "p": "Acesta este un punct uriaș. Nu toată lumea are nevoie de *încă un* abonament lunar. Dacă aveți ședințe toată ziua, **Abonamentul Nelimitat** este excelent. Dar dacă aveți doar ședințe ocazionale, puteți cumpăra **Pachete de Timp care nu expiră**. Puteți chiar să începeți cu un **pachet de 120 de minute pentru doar 1,99 $** pentru a-l încerca.",
+        "note": "Detaliem lista completă de prețuri într-o secțiune separată mai jos."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategie: Transformați minutele în acțiune",
+    "p1": "Funcția „Strategie” preia contextul ședinței dvs. și propune planuri de acțiune clare folosind modele AI de top. Mai puține presupuneri, mai mulți pași concreți pe care îi puteți atribui.",
+    "linkText": "Citiți analiza detaliată a Strategiei"
+  },
   "pricing": {
-    "h2": "Despre prețuri",
-    "p1": "Utilizatorii zilnici aleg abonamente. Cei ocazionali aleg pachete de timp fără expirare.",
-    "p2": "Există și un trial ieftin de 120 de minute ca să validezi potrivirea înainte de a te angaja."
+    "h2": "O privire detaliată asupra prețurilor aplicației Proces-verbal AI",
+    "lead": "Iată cea mai mare problemă cu majoritatea instrumentelor AI: vă forțează să intrați într-un abonament lunar 'mărime unică'. Prețurile Proces-verbal AI sunt diferite. Sunt concepute pentru a se potrivi cu frecvența ședințelor dvs., astfel încât plătiți doar pentru ceea ce aveți nevoie cu adevărat.",
+    "bullets": [
+      "<strong>Încercarea perfectă (1,99 $):</strong> Nu sunteți sigur? Cumpărați pur și simplu <strong>Pachetul de Timp de 120 de minute pentru 1,99 $</strong>. Este ieftin, simplu și nu are dată de expirare.",
+      "<strong>Pentru utilizatori ocazionali (Pachete de Timp):</strong> Cumpărați minute care <strong>NU expiră NICIODATĂ</strong>. Acest lucru este perfect pentru liber-profesioniști sau utilizatori ocazionali. Obțineți <strong>1200 de minute pentru doar 11,99 $</strong>.",
+      "<strong>Pentru utilizatori intensivi (Abonament):</strong> Treceți la nelimitat. Aceasta este cea mai bună valoare pentru echipe și ședințe zilnice. Alegeți <strong>16,99 $/lună</strong> sau economisiți masiv cu <strong>149,99 $/an</strong>."
+    ],
+    "tableNote": "Prețurile și disponibilitatea pot varia în funcție de regiune/magazin. Consultați articolul principal despre Prețuri pentru cele mai actualizate detalii.",
+    "linkText": "Vedeți detaliile complete ale prețurilor"
   },
-  "image": { "alt": "Proces-verbal AI pe iPhone", "caption": "Interfața Proces-verbal AI pe iPhone." },
-  "steps": {
-    "h2": "Începe pe iPhone",
-    "items": ["Descarcă aplicația", "Atinge o dată pentru a înregistra", "Alege formatul potrivit", "După întâlnire creează Project/Strategy"],
-    "note": "Durata întâlnirii depinde de planul tău și de soldul rămas."
+  "compare": {
+    "h2": "Comparație rapidă",
+    "th": [
+      "Ce contează",
+      "Aplicații tipice de minute AI",
+      "Proces-verbal AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Fricțiunea la pornire/înregistrare",
+        "Atingeri multiple, moduri confuze",
+        "O atingere pentru a înregistra. O atingere pentru istoric."
+      ],
+      [
+        "Lizibilitatea rezultatului",
+        "Perete de text, paragrafe în stil AI",
+        "Structurat, ușor de scanat, axat pe acțiune"
+      ],
+      [
+        "Formate per ședință",
+        "Un șablon generic",
+        "Formate dedicate (Vânzări, 1-la-1 etc.)"
+      ],
+      [
+        "Urmărire post-ședință",
+        "Copiere/lipire în alte instrumente",
+        "Proiect (cine/când/ce) și Strategie integrate"
+      ],
+      [
+        "Model de preț",
+        "Doar abonament (adesea scump)",
+        "Flexibil: Încercare de 1,99 $, Pachete fără expirare sau Abonament nelimitat"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Note",
-    "items": ["Rețeaua și dispozitivul pot afecta calitatea", "Funcțiile pot varia în funcție de plan"],
-    "foot": "Încearcă Proces-verbal AI pe iPhone astăzi."
+  "faq": {
+    "h2": "FAQ — Răspunsurile sincere",
+    "items": [
+      {
+        "q": "Există o limită de timp pentru înregistrare?",
+        "a": "Timpul disponibil depinde de planul dvs. Cu Pachetele de Timp, limita dvs. sunt minutele rămase (și acestea nu expiră!). Cu un Abonament, aveți utilizare nelimitată."
+      },
+      {
+        "q": "Funcționează offline?",
+        "a": "Da, puteți înregistra offline. Aplicația va sincroniza și procesa minutele odată ce sunteți din nou online. Funcționalitățile pot fi limitate până când vă reconectați."
+      },
+      {
+        "q": "Proces-verbal AI este disponibil doar pe iPhone?",
+        "a": "Deși această recenzie se concentrează pe aplicația pentru iPhone, există și o versiune web. Pur și simplu iubim aplicația pentru iPhone pentru că este atât de rapidă și mereu cu dvs."
+      },
+      {
+        "q": "Cum diferă prețurile față de alte aplicații?",
+        "a": "Majoritatea aplicațiilor oferă *doar* abonamente lunare sau anuale. Proces-verbal AI este diferit. Oferim asta *plus* <strong>Pachete de Timp care nu expiră</strong>. Acest lucru este perfect dacă nu aveți ședințe în fiecare zi. Puteți începe cu un <strong>pachet de încercare de 1,99 $</strong> pentru a vă decide fără un angajament mare."
+      },
+      {
+        "q": "Pot obține rezultate clare și ușor de partajat?",
+        "a": "Absolut. Rezultatele sunt concepute pentru a fi partajate, punând accent pe decizii, responsabili și date. Acesta este lucrul care ajută la progresul muncii."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publicat", "type": "Ghid", "category": "Recomandare aplicație" },
-  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Descarcă aplicația iOS" },
-  "brand": "Proces-verbal AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Ecranul principal al Proces-verbal AI pe iPhone arătând înregistrarea cu o singură atingere",
+      "caption": "Ecran principal — doar atingeți pentru a începe înregistrarea. Fără dezordine."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Exemplu de minute clare și lizibile de la Proces-verbal AI",
+      "caption": "Minute lizibile — deciziile și punctele de acțiune sunt clare."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Ecranul de selecție a formatului de ședință al Proces-verbal AI",
+      "caption": "Alegeți formatul potrivit pentru ședința dvs."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Ghid",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Deschide în browser",
+    "downloadIOS": "Descărcați aplicația iOS"
+  }
 }

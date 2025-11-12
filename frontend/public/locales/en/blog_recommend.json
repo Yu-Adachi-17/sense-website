@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Why we recommend the iPhone meeting-minutes AI app (2025)",
-    "description": "5 blunt reasons: simple UI, readable/actionable minutes, per-meeting formats, built-in follow-through, and flexible pricing. Try Minutes.AI on iPhone.",
-    "ogTitle": "Our pick: the iPhone minutes-AI app",
-    "ogDescription": "One-tap recording, outputs that drive next actions, smart formats, in-app follow-through, and pricing that fits how you use it. Minutes.AI on iPhone.",
+    "title": "(2025) Why We Recommend the Minutes.AI iPhone App for Meeting Minutes",
+    "description": "Looking for the best iPhone AI minutes app? Here’s our honest review. Minutes.AI is a simple, readable, and action-oriented app with an incredibly flexible pricing model.",
+    "ogTitle": "Minutes.AI iPhone App — Our Honest Recommendation (2025)",
+    "ogDescription": "Searching 'AI minutes app recommendation' or 'AI minutes app pricing'? This guide explains why the Minutes.AI iPhone app is our top pick for its features and fair price.",
     "ld": {
-      "headline": "Why the iPhone minutes-AI app is our recommendation",
-      "description": "A buying guide to Minutes.AI: fast to use, clear outputs, tailored formats, post-meeting actions, and fair pricing."
+      "headline": "Why We Recommend the Minutes.AI iPhone App",
+      "description": "Our 5 key reasons: A super-simple UI, truly readable outputs, smart meeting formats, built-in action tracking, and a flexible pricing model that fits any user."
     }
   },
-  "aria": { "home": "Minutes.AI Home" },
-  "nav": { "blog": "Blog", "recommend": "Recommendation" },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Why Minutes.AI for iPhone"
+  },
   "hero": {
-    "kicker": "Buying Guide",
-    "h1": "Why we recommend the iPhone minutes-AI app",
-    "tagline": "Built for the search intent: best minutes-AI app for iPhone and how its pricing stacks up — no fluff."
+    "kicker": "Our 2025 Buyer's Guide",
+    "h1": "Why the Minutes.AI iPhone App is Our Top Pick for Meeting Minutes (2025)",
+    "tagline": "If you’re googling “AI minutes app recommended” or “AI minutes app pricing,” you’re in the right place. This app is built to record fast, generate clean minutes, and help you *actually* get work done."
+  },
+  "lead": {
+    "p1": "AI-powered minute-taking apps are everywhere in 2025. So why do we still recommend Minutes.AI for the iPhone? We'll skip the hype and give you five direct, practical reasons."
   },
   "reasons": {
-    "h2": "Five straight-up reasons",
+    "h2": "5 Reasons We Recommend the Minutes.AI iPhone App",
     "items": [
-      "One-tap recording with zero friction",
-      "Readable minutes that actually drive next actions",
-      "Formats per meeting: General, Sales, 1-on-1, Presentation, Brainstorm, Interview",
-      "Project & Strategy follow-through inside the app",
-      "Flexible pricing: subscriptions and non-expiring time packs"
+      {
+        "t": "1) A Ridiculously Simple UI — Zero Guesswork",
+        "p": "No confusing menus. One tap to record. One tap to see your past minutes. That's it. You shouldn't need a manual just to take notes.",
+        "imgAlt": "Minutes.AI main screen showing one-tap recording",
+        "caption": "One-tap start, one-tap history. No learning curve."
+      },
+      {
+        "t": "2) Readability & Real Value (Not AI Fluff)",
+        "p": "This isn't just a wall of AI-generated text. The app formats everything so you can jump straight to decisions and next steps. It’s optimized for action.",
+        "imgAlt": "Example of clean, readable minutes from Minutes.AI",
+        "caption": "Decisions pop. Owners and deadlines are clear by design."
+      },
+      {
+        "t": "3) Smart Formats for Different Meetings",
+        "p": "A 1-on-1 is different from a brainstorm. Minutes.AI gets this. You can choose a format (General, Sales, 1-on-1, Presentation, etc.) to get the best possible summary for that specific meeting type.",
+        "imgAlt": "Minutes.AI meeting format selection screen",
+        "caption": "Choose the right format for the right meeting."
+      },
+      {
+        "t": "4) Post-Meeting Actions Are Built-In",
+        "p": "Minutes.AI doesn't just stop at recording. Hit “Project” to instantly see “who does what by when.” Hit “Strategy” to have the latest AI (ChatGPT-5 & Gemini 2.5 Pro) suggest concrete next steps based on your conversation.",
+        "note": "Want a deeper dive on Strategy? See the article below."
+      },
+      {
+        "t": "5) Smart Pricing That Fits How You *Actually* Work",
+        "p": "This is a huge one. Not everyone needs *another* monthly subscription. If you have meetings all day, the **Unlimited Subscription** is great. But if you only have occasional meetings, you can buy **non-expiring Time Packs**. You can even start with a **120-minute pack for just $1.99** to try it out.",
+        "note": "We break down the full price list in its own section below."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategy: Turn Minutes Into Motion",
+    "p1": "The “Strategy” feature takes your meeting's context and proposes clear action plans using top-tier AI models. Less guesswork, more concrete steps you can assign.",
+    "linkText": "Read the Strategy Deep-Dive"
+  },
   "pricing": {
-    "h2": "About pricing",
-    "p1": "Daily users pick subscriptions. Occasional users pick non-expiring time packs.",
-    "p2": "There’s also a low-cost 120-minute trial so you can validate fit before committing."
+    "h2": "A Detailed Look at Minutes.AI App Pricing",
+    "lead": "Here’s the biggest problem with most AI tools: they force you into a 'one-size-fits-all' monthly subscription. Minutes.AI's pricing is different. It’s designed to match your meeting frequency, so you only pay for what you actually need.",
+    "bullets": [
+      "<strong>The Perfect Trial ($1.99):</strong> Not sure? Just buy the <strong>120-minute Time Pack for $1.99</strong>. It's cheap, simple, and has no expiry.",
+      "<strong>For Occasional Users (Time Packs):</strong> Buy minutes that <strong>NEVER expire</strong>. This is perfect for freelancers or light users. Get <strong>1200 minutes for just $11.99</strong>.",
+      "<strong>For Heavy Users (Subscription):</strong> Go unlimited. This is the best value for teams and daily meetings. Choose <strong>$16.99/month</strong> or save big with <strong>$149.99/year</strong>."
+    ],
+    "tableNote": "Prices and availability may vary by region/store. See the main Pricing article for the most up-to-date details.",
+    "linkText": "See Full Pricing Breakdown"
   },
-  "image": { "alt": "Minutes.AI on iPhone", "caption": "Minutes.AI iPhone UI." },
-  "steps": {
-    "h2": "Get started on iPhone",
-    "items": ["Download the app", "Tap once to record", "Pick the right format", "Create a Project/Strategy after the meeting"],
-    "note": "Meeting duration depends on your plan and remaining balance."
+  "compare": {
+    "h2": "Quick Comparison Snapshot",
+    "th": [
+      "What Matters",
+      "Typical AI Minutes Apps",
+      "Minutes.AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Start/Record Friction",
+        "Multiple taps, confusing modes",
+        "One tap to record. One tap to history."
+      ],
+      [
+        "Output Readability",
+        "Wall of text, AI-ish paragraphs",
+        "Structured, scannable, action-first"
+      ],
+      [
+        "Meeting Formats",
+        "One generic template",
+        "Dedicated formats (Sales, 1-on-1, etc.)"
+      ],
+      [
+        "Follow-Through",
+        "Copy/paste into other tools",
+        "Built-in Project (who/when/what) & Strategy"
+      ],
+      [
+        "Pricing Model",
+        "Subscription-only (often expensive)",
+        "Flexible: $1.99 Trial, Non-expiring Packs, or Unlimited Sub"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Notes",
-    "items": ["Network and device may affect quality", "Features may vary by plan"],
-    "foot": "Try Minutes.AI on iPhone today."
+  "faq": {
+    "h2": "FAQ — The Honest Answers",
+    "items": [
+      {
+        "q": "Is there a recording time limit?",
+        "a": "Your available time depends on your plan. With Time Packs, your limit is the minutes you have left (they don't expire!). With a Subscription, you have unlimited usage."
+      },
+      {
+        "q": "Will it work offline?",
+        "a": "Yes, you can record offline. The app will sync and process the minutes once you're back online. Features may be limited until you reconnect."
+      },
+      {
+        "q": "Is Minutes.AI only on iPhone?",
+        "a": "While this review focuses on the iPhone app, there is also a web version. We just love the iPhone app because it's so fast and always with you."
+      },
+      {
+        "q": "How is the pricing different from other apps?",
+        "a": "Most apps *only* offer monthly or annual subscriptions. Minutes.AI is different. We offer that *plus* <strong>non-expiring Time Packs</strong>. This is perfect if you don't have meetings every day. You can start with a <strong>$1.99 trial pack</strong> to decide without a big commitment."
+      },
+      {
+        "q": "Can I get clean, shareable outputs?",
+        "a": "Absolutely. The outputs are designed to be shared, emphasizing decisions, owners, and dates. This is what helps move work forward."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Published", "type": "Guide", "category": "App Recommendation" },
-  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" },
-  "brand": "Minutes.AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Minutes.AI iPhone main screen showing one-tap recording",
+      "caption": "Main screen — just tap to start recording. No clutter."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Example of clean, readable minutes from Minutes.AI",
+      "caption": "Readable minutes — decisions and action items are clear."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Minutes.AI meeting format selection screen",
+      "caption": "Choose the right format for your meeting."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Guide",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS app"
+  }
 }

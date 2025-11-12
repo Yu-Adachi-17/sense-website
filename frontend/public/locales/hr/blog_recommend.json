@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Zašto preporučujemo minutes-AI aplikaciju za iPhone (2025)",
-    "description": "5 izravnih razloga: jednostavno sučelje, čitljivi/operativni zapisnici, formati po sastanku, ugrađen follow-through i fleksibilne cijene. Isprobajte AI Zapisnik na iPhoneu.",
-    "ogTitle": "Naš izbor: minutes-AI aplikacija za iPhone",
-    "ogDescription": "Snima jednim dodirom, izlazi koji vode sljedećim koracima, pametni formati, in-app follow-through i cijene prema korištenju. AI Zapisnik na iPhoneu.",
+    "title": "(2025) Zašto preporučujemo AI Zapisnik aplikaciju za iPhone za zapisnike sa sastanaka",
+    "description": "Tražite najbolju AI aplikaciju za zapisnike na iPhoneu? Evo naše iskrene recenzije. AI Zapisnik je jednostavna, čitljiva i akcijski orijentirana aplikacija s nevjerojatno fleksibilnim modelom cijena.",
+    "ogTitle": "AI Zapisnik iPhone aplikacija — Naša iskrena preporuka (2025)",
+    "ogDescription": "Tražite 'preporuka AI aplikacija za zapisnike' ili 'cijene AI aplikacija za zapisnike'? Ovaj vodič objašnjava zašto je AI Zapisnik iPhone aplikacija naš prvi izbor zbog svojih značajki i poštene cijene.",
     "ld": {
-      "headline": "Zašto je minutes-AI aplikacija za iPhone naša preporuka",
-      "description": "Vodič za kupnju AI Zapisnik: brzo korištenje, jasni izlazi, prilagođeni formati, radnje nakon sastanka i poštene cijene."
+      "headline": "Zašto preporučujemo AI Zapisnik iPhone aplikaciju",
+      "description": "Naših 5 ključnih razloga: Super-jednostavno sučelje, istinski čitljivi rezultati, pametni formati sastanaka, ugrađeno praćenje zadataka i fleksibilan model cijena koji odgovara svakom korisniku."
     }
   },
-  "aria": { "home": "AI Zapisnik Početna" },
-  "nav": { "blog": "Blog", "recommend": "Preporuka" },
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Zašto AI Zapisnik za iPhone"
+  },
   "hero": {
-    "kicker": "Vodič za kupnju",
-    "h1": "Zašto preporučujemo minutes-AI aplikaciju za iPhone",
-    "tagline": "Građeno za namjeru pretrage: najbolja minutes-AI aplikacija za iPhone i kako stoji s cijenama — bez praznih priča."
+    "kicker": "Naš vodič za kupnju 2025",
+    "h1": "Zašto je AI Zapisnik iPhone aplikacija naš prvi izbor za zapisnike sa sastanaka (2025)",
+    "tagline": "Ako na Googleu tražite \"preporučena AI aplikacija za zapisnike\" ili \"cijene AI aplikacija za zapisnike\", na pravom ste mjestu. Ova je aplikacija napravljena za brzo snimanje, generiranje čistih zapisnika i pomoć da *stvarno* obavite posao."
+  },
+  "lead": {
+    "p1": "Aplikacije za vođenje bilješki pomoću umjetne inteligencije posvuda su u 2025. Pa zašto i dalje preporučujemo AI Zapisnik za iPhone? Preskočit ćemo pretjerivanje i dati vam pet izravnih, praktičnih razloga."
   },
   "reasons": {
-    "h2": "Pet jasnih razloga",
+    "h2": "5 razloga zašto preporučujemo AI Zapisnik iPhone aplikaciju",
     "items": [
-      "Snimanje jednim dodirom bez trenja",
-      "Čitljivi zapisnici koji doista vode sljedećim akcijama",
-      "Formati po sastanku: Općenito, Prodaja, 1-na-1, Prezentacija, Brainstorm, Intervju",
-      "Project & Strategy follow-through unutar aplikacije",
-      "Fleksibilne cijene: pretplate i neistekavajući paketi vremena"
+      {
+        "t": "1) Smiješno jednostavno sučelje — Nema pogađanja",
+        "p": "Nema zbunjujućih izbornika. Jedan dodir za snimanje. Jedan dodir za pregled prošlih zapisnika. To je to. Ne bi vam trebao priručnik samo da biste vodili bilješke.",
+        "imgAlt": "Glavni zaslon AI Zapisnika koji prikazuje snimanje jednim dodirom",
+        "caption": "Pokretanje jednim dodirom, povijest jednim dodirom. Nema učenja."
+      },
+      {
+        "t": "2) Čitljivost i stvarna vrijednost (ne AI napuhavanje)",
+        "p": "Ovo nije samo zid teksta generiranog umjetnom inteligencijom. Aplikacija sve formatira tako da možete odmah prijeći na odluke i sljedeće korake. Optimizirana je za akciju.",
+        "imgAlt": "Primjer čistih, čitljivih zapisnika iz AI Zapisnika",
+        "caption": "Odluke iskaču. Vlasnici i rokovi su jasni po dizajnu."
+      },
+      {
+        "t": "3) Pametni formati za različite sastanke",
+        "p": "Sastanak 1-na-1 razlikuje se od brainstorminga. AI Zapisnik to razumije. Možete odabrati format (Općenito, Prodaja, 1-na-1, Prezentacija, itd.) kako biste dobili najbolji mogući sažetak za taj određeni tip sastanka.",
+        "imgAlt": "Zaslon za odabir formata sastanka u AI Zapisniku",
+        "caption": "Odaberite pravi format za pravi sastanak."
+      },
+      {
+        "t": "4) Radnje nakon sastanka su ugrađene",
+        "p": "AI Zapisnik se ne zaustavlja samo na snimanju. Pritisnite \"Projekt\" da biste odmah vidjeli \"tko što radi do kada\". Pritisnite \"Strategija\" kako bi najnoviji AI (ChatGPT-5 & Gemini 2.5 Pro) predložio konkretne sljedeće korake na temelju vašeg razgovora.",
+        "note": "Želite dublje zaroniti u Strategiju? Pogledajte članak u nastavku."
+      },
+      {
+        "t": "5) Pametne cijene koje odgovaraju načinu na koji *stvarno* radite",
+        "p": "Ovo je velika stvar. Ne treba svima *još jedna* mjesečna pretplata. Ako imate sastanke cijeli dan, **Neograničena pretplata** je izvrsna. Ali ako imate samo povremene sastanke, možete kupiti **Vremenske pakete koji ne istječu**. Možete čak započeti s **paketom od 120 minuta za samo 1,99 $** da ga isprobate.",
+        "note": "Potpuni cjenik raščlanjujemo u zasebnom odjeljku u nastavku."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategija: Pretvorite zapisnike u djelo",
+    "p1": "Značajka \"Strategija\" uzima kontekst vašeg sastanka i predlaže jasne akcijske planove koristeći vrhunske AI modele. Manje pogađanja, više konkretnih koraka koje možete dodijeliti.",
+    "linkText": "Pročitajte detaljno o Strategiji"
+  },
   "pricing": {
-    "h2": "O cijenama",
-    "p1": "Dnevni korisnici biraju pretplate. Povremeni biraju pakete vremena bez isteka.",
-    "p2": "Tu je i jeftin probni paket od 120 minuta za provjeru prije obveze."
+    "h2": "Detaljan pogled na cijene aplikacije AI Zapisnik",
+    "lead": "Evo najvećeg problema s većinom AI alata: prisiljavaju vas na mjesečnu pretplatu 'jedna veličina za sve'. Cijene AI Zapisnika su drugačije. Dizajnirane su da odgovaraju učestalosti vaših sastanaka, tako da plaćate samo ono što vam je stvarno potrebno.",
+    "bullets": [
+      "<strong>Savršena proba (1,99 $):</strong> Niste sigurni? Samo kupite <strong>Vremenski paket od 120 minuta za 1,99 $</strong>. Jeftin je, jednostavan i nema rok trajanja.",
+      "<strong>Za povremene korisnike (Vremenski paketi):</strong> Kupite minute koje <strong>NIKADA ne istječu</strong>. Ovo je savršeno za freelancere ili korisnike s manjim potrebama. Nabavite <strong>1200 minuta za samo 11,99 $</strong>.",
+      "<strong>Za intenzivne korisnike (Pretplata):</strong> Uzmite neograničeno. Ovo je najbolja vrijednost za timove i svakodnevne sastanke. Odaberite <strong>16,99 $/mjesečno</strong> ili uštedite više uz <strong>149,99 $/godišnje</strong>."
+    ],
+    "tableNote": "Cijene i dostupnost mogu se razlikovati ovisno o regiji/trgovini. Pogledajte glavni članak o cijenama za najažurnije detalje.",
+    "linkText": "Pogledajte potpuni pregled cijena"
   },
-  "image": { "alt": "AI Zapisnik na iPhoneu", "caption": "AI Zapisnik iPhone sučelje." },
-  "steps": {
-    "h2": "Krenite na iPhoneu",
-    "items": ["Preuzmite aplikaciju", "Dodirnite jednom za snimanje", "Odaberite pravi format", "Nakon sastanka izradite Project/Strategy"],
-    "note": "Trajanje sastanka ovisi o vašem planu i preostalom saldu."
+  "compare": {
+    "h2": "Brza usporedba",
+    "th": [
+      "Što je važno",
+      "Tipične AI aplikacije za zapisnike",
+      "AI Zapisnik (iPhone)"
+    ],
+    "rows": [
+      [
+        "Problemi s pokretanjem/snimanjem",
+        "Više dodira, zbunjujući načini rada",
+        "Jedan dodir za snimanje. Jedan dodir za povijest."
+      ],
+      [
+        "Čitljivost rezultata",
+        "Zid teksta, AI odlomci",
+        "Strukturirano, pregledno, usmjereno na akciju"
+      ],
+      [
+        "Formati po sastanku",
+        "Jedan generički predložak",
+        "Namjenski formati (Prodaja, 1-na-1, itd.)"
+      ],
+      [
+        "Praćenje nakon sastanka",
+        "Kopiranje/lijepljenje u druge alate",
+        "Ugrađeni Projekt (tko/kada/što) i Strategija"
+      ],
+      [
+        "Model cijena",
+        "Samo pretplata (često skupa)",
+        "Fleksibilno: 1,99 $ proba / Paketi bez isteka / Neograničena pretplata"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Napomene",
-    "items": ["Mreža i uređaj mogu utjecati na kvalitetu", "Značajke se mogu razlikovati po planu"],
-    "foot": "Isprobajte AI Zapisnik na iPhoneu danas."
+  "faq": {
+    "h2": "ČPP — Iskreni odgovori",
+    "items": [
+      {
+        "q": "Postoji li vremensko ograničenje snimanja?",
+        "a": "Dostupno vrijeme ovisi o vašem planu. S Vremenskim paketima, vaše ograničenje su minute koje su vam preostale (i one ne istječu!). S Pretplatom imate neograničeno korištenje."
+      },
+      {
+        "q": "Hoće li raditi izvan mreže (offline)?",
+        "a": "Da, možete snimati izvan mreže. Aplikacija će sinkronizirati i obraditi zapisnike kada se ponovno povežete na mrežu. Značajke mogu biti ograničene dok se ponovno ne povežete."
+      },
+      {
+        "q": "Je li AI Zapisnik dostupan samo na iPhoneu?",
+        "a": "Iako se ova recenzija fokusira na iPhone aplikaciju, postoji i web verzija. Mi jednostavno volimo iPhone aplikaciju jer je tako brza i uvijek s vama."
+      },
+      {
+        "q": "Kako se cijene razlikuju od drugih aplikacija?",
+        "a": "Većina aplikacija nudi *samo* mjesečne ili godišnje pretplate. AI Zapisnik je drugačiji. Mi nudimo to *plus* <strong>Vremenske pakete koji ne istječu</strong>. To je savršeno ako nemate sastanke svaki dan. Možete započeti s <strong>probnom paketom od 1,99 $</strong> da odlučite bez velike obveze."
+      },
+      {
+        "q": "Mogu li dobiti čiste rezultate koje mogu dijeliti?",
+        "a": "Apsolutno. Rezultati su dizajnirani za dijeljenje, naglašavajući odluke, vlasnike i datume. To je ono što pomaže da se posao pokrene."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Vodič", "category": "Preporuka aplikacije" },
-  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Preuzmi iOS aplikaciju" },
-  "brand": "AI Zapisnik"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Glavni zaslon AI Zapisnika na iPhoneu koji prikazuje snimanje jednim dodirom",
+      "caption": "Glavni zaslon — samo dodirnite za početak snimanja. Nema nereda."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Primjer čistih, čitljivih zapisnika iz AI Zapisnika",
+      "caption": "Čitljivi zapisnici — odluke i akcijske stavke su jasne."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Zaslon za odabir formata sastanka u AI Zapisniku",
+      "caption": "Odaberite pravi format za svoj sastanak."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Vodič",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Otvori u pregledniku",
+    "downloadIOS": "Preuzmi iOS aplikaciju"
+  }
 }

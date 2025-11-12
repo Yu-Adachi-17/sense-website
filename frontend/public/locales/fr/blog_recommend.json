@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Pourquoi nous recommandons l’app iPhone pour comptes rendus avec IA (2025)",
-    "description": "5 raisons sans détour : interface ultra simple, comptes rendus lisibles et actionnables, formats par type de réunion, suivi intégré et tarification flexible. Essayez Minutes.AI sur iPhone.",
-    "ogTitle": "Notre recommandation : l’app iPhone de comptes rendus IA",
-    "ogDescription": "Enregistrement en un geste, sorties qui déclenchent des actions, formats intelligents, suivi intégré et prix adaptés. Minutes.AI sur iPhone.",
+    "title": "(2025) Pourquoi nous recommandons l'application iPhone Minutes.AI pour les comptes rendus de réunion",
+    "description": "Vous cherchez la meilleure application IA pour comptes rendus sur iPhone ? Voici notre avis honnête. Minutes.AI est une application simple, lisible et orientée vers l'action, avec un modèle de tarification incroyablement flexible.",
+    "ogTitle": "Application iPhone Minutes.AI — Notre recommandation honnête (2025)",
+    "ogDescription": "Vous recherchez 'recommandation application IA comptes rendus' ou 'tarifs application IA comptes rendus' ? Ce guide explique pourquoi l'application iPhone Minutes.AI est notre premier choix pour ses fonctionnalités et son prix juste.",
     "ld": {
-      "headline": "Pourquoi l’app iPhone de comptes rendus IA est notre choix",
-      "description": "Guide d’achat de Minutes.AI : usage rapide, sorties claires, formats adaptés, actions post-réunion et tarifs équitables."
+      "headline": "Pourquoi nous recommandons l'application iPhone Minutes.AI",
+      "description": "Nos 5 raisons clés : Une interface utilisateur ultra-simple, des résultats vraiment lisibles, des formats de réunion intelligents, un suivi des actions intégré et un modèle de tarification flexible adapté à chaque utilisateur."
     }
   },
-  "aria": { "home": "Accueil Minutes.AI" },
-  "nav": { "blog": "Blog", "recommend": "Recommandation" },
+  "aria": {
+    "home": "Minutes.AI Accueil"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Pourquoi Minutes.AI pour iPhone"
+  },
   "hero": {
-    "kicker": "Guide d’achat",
-    "h1": "Pourquoi nous recommandons l’app iPhone pour comptes rendus IA",
-    "tagline": "Aligné avec l’intention de recherche : meilleure app de comptes rendus IA sur iPhone et éclairage sur les prix — sans détour."
+    "kicker": "Notre guide d'achat 2025",
+    "h1": "Pourquoi l'application iPhone Minutes.AI est notre premier choix pour les comptes rendus de réunion (2025)",
+    "tagline": "Si vous cherchez sur Google « application IA comptes rendus recommandée » ou « tarifs application IA comptes rendus », vous êtes au bon endroit. Cette application est conçue pour enregistrer rapidement, générer des comptes rendus clairs et vous aider à *vraiment* faire avancer le travail."
+  },
+  "lead": {
+    "p1": "Les applications de prise de notes par IA sont partout en 2025. Alors pourquoi continuons-nous à recommander Minutes.AI pour l'iPhone ? Nous allons sauter le battage médiatique et vous donner cinq raisons directes et pratiques."
   },
   "reasons": {
-    "h2": "Cinq raisons directes",
+    "h2": "5 raisons pour lesquelles nous recommandons l'application iPhone Minutes.AI",
     "items": [
-      "Enregistrement en un tap, zéro friction",
-      "Comptes rendus lisibles qui mènent aux prochaines actions",
-      "Formats par type : général, ventes, 1-à-1, présentation, brainstorming, entretien",
-      "Projet & Stratégie intégrés après la réunion",
-      "Tarification flexible : abonnements et packs de temps sans expiration"
+      {
+        "t": "1) Une interface utilisateur ridiculement simple — Zéro devinette",
+        "p": "Pas de menus déroutants. Un appui pour enregistrer. Un appui pour voir vos anciens comptes rendus. C'est tout. Vous ne devriez pas avoir besoin d'un manuel juste pour prendre des notes.",
+        "imgAlt": "Écran principal de Minutes.AI montrant l'enregistrement en un appui",
+        "caption": "Démarrage en un appui, historique en un appui. Aucune courbe d'apprentissage."
+      },
+      {
+        "t": "2) Lisibilité et valeur réelle (Pas de blabla IA)",
+        "p": "Ce n'est pas juste un mur de texte généré par l'IA. L'application formate tout pour que vous puissiez passer directement aux décisions et aux prochaines étapes. Elle est optimisée pour l'action.",
+        "imgAlt": "Exemple de comptes rendus clairs et lisibles de Minutes.AI",
+        "caption": "Les décisions ressortent. Les responsables et les échéances sont clairs dès la conception."
+      },
+      {
+        "t": "3) Des formats intelligents pour différentes réunions",
+        "p": "Un entretien individuel (1-on-1) est différent d'un brainstorming. Minutes.AI le comprend. Vous pouvez choisir un format (Général, Vente, 1-on-1, Présentation, etc.) pour obtenir le meilleur résumé possible pour ce type de réunion spécifique.",
+        "imgAlt": "Écran de sélection du format de réunion de Minutes.AI",
+        "caption": "Choisissez le bon format pour la bonne réunion."
+      },
+      {
+        "t": "4) Les actions post-réunion sont intégrées",
+        "p": "Minutes.AI ne s'arrête pas à l'enregistrement. Appuyez sur « Projet » pour voir instantanément « qui fait quoi et quand ». Appuyez sur « Stratégie » pour que l'IA la plus récente (ChatGPT-5 & Gemini 2.5 Pro) suggère des prochaines étapes concrètes basées sur votre conversation.",
+        "note": "Vous voulez en savoir plus sur la Stratégie ? Consultez l'article ci-dessous."
+      },
+      {
+        "t": "5) Une tarification intelligente qui s'adapte à votre façon *réelle* de travailler",
+        "p": "C'est un point crucial. Tout le monde n'a pas besoin d'un *autre* abonnement mensuel. Si vous avez des réunions toute la journée, l'**Abonnement Illimité** est génial. Mais si vous n'avez que des réunions occasionnelles, vous pouvez acheter des **Packs de Temps qui n'expirent pas**. Vous pouvez même commencer avec un **pack de 120 minutes pour seulement 1,99 $** pour l'essayer.",
+        "note": "Nous détaillons la liste complète des prix dans une section dédiée ci-dessous."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Stratégie : Transformez les comptes rendus en action",
+    "p1": "La fonction « Stratégie » prend le contexte de votre réunion et propose des plans d'action clairs à l'aide de modèles d'IA de premier plan. Moins de conjectures, plus d'étapes concrètes que vous pouvez assigner.",
+    "linkText": "Lire l'article détaillé sur la Stratégie"
+  },
   "pricing": {
-    "h2": "Tarification",
-    "p1": "Usage quotidien : abonnement. Usage ponctuel : packs de temps sans expiration.",
-    "p2": "Essai 120 minutes à bas coût pour valider l’adéquation avant de s’engager."
+    "h2": "Un aperçu détaillé de la tarification de l'application Minutes.AI",
+    "lead": "Voici le plus gros problème avec la plupart des outils d'IA : ils vous forcent à souscrire à un abonnement mensuel « taille unique ». La tarification de Minutes.AI est différente. Elle est conçue pour correspondre à la fréquence de vos réunions, afin que vous ne payiez que pour ce dont vous avez réellement besoin.",
+    "bullets": [
+      "<strong>L'essai parfait (1,99 $) :</strong> Pas sûr ? Achetez simplement le <strong>Pack de Temps de 120 minutes pour 1,99 $</strong>. C'est bon marché, simple, et ça n'expire pas.",
+      "<strong>Pour les utilisateurs occasionnels (Packs de Temps) :</strong> Achetez des minutes qui <strong>N'EXPIRENT JAMAIS</strong>. C'est parfait pour les indépendants ou les utilisateurs légers. Obtenez <strong>1200 minutes pour seulement 11,99 $</strong>.",
+      "<strong>Pour les utilisateurs intensifs (Abonnement) :</strong> Passez à l'illimité. C'est la meilleure valeur pour les équipes et les réunions quotidiennes. Choisissez <strong>16,99 $/mois</strong> ou économisez gros avec <strong>149,99 $/an</strong>."
+    ],
+    "tableNote": "Les prix et la disponibilité peuvent varier selon la région/le magasin. Consultez l'article principal sur la tarification pour les détails les plus à jour.",
+    "linkText": "Voir la tarification complète"
   },
-  "image": { "alt": "Minutes.AI sur iPhone", "caption": "Interface Minutes.AI pour iPhone." },
-  "steps": {
-    "h2": "Démarrer sur iPhone",
-    "items": ["Télécharger l’app", "Appuyer une fois pour enregistrer", "Choisir le bon format", "Créer un Projet/Stratégie après la réunion"],
-    "note": "La durée dépend de votre offre et du solde restant."
+  "compare": {
+    "h2": "Comparaison rapide",
+    "th": [
+      "Ce qui compte",
+      "Applications de comptes rendus IA typiques",
+      "Minutes.AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Friction au démarrage/enregistrement",
+        "Plusieurs appuis, modes confus",
+        "Un appui pour enregistrer. Un appui pour l'historique."
+      ],
+      [
+        "Lisibilité du résultat",
+        "Mur de texte, paragraphes « IA »",
+        "Structuré, scannable, axé sur l'action"
+      ],
+      [
+        "Formats par réunion",
+        "Un modèle générique",
+        "Formats dédiés (Vente, 1-on-1, etc.)"
+      ],
+      [
+        "Suivi post-réunion",
+        "Copier/coller dans d'autres outils",
+        "Projet (qui/quand/quoi) & Stratégie intégrés"
+      ],
+      [
+        "Modèle de tarification",
+        "Abonnement uniquement (souvent cher)",
+        "Flexible : Essai à 1,99 $, Packs sans expiration, ou Abonnement illimité"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Notes",
-    "items": ["La qualité dépend du réseau et de l’appareil", "Les fonctionnalités varient selon l’offre"],
-    "foot": "Essayez Minutes.AI sur iPhone dès aujourd’hui."
+  "faq": {
+    "h2": "FAQ — Les réponses honnêtes",
+    "items": [
+      {
+        "q": "Y a-t-il une limite de temps d'enregistrement ?",
+        "a": "Votre temps disponible dépend de votre formule. Avec les Packs de Temps, votre limite est le nombre de minutes qu'il vous reste (elles n'expirent pas !). Avec un Abonnement, vous avez une utilisation illimitée."
+      },
+      {
+        "q": "Est-ce que ça fonctionne hors ligne ?",
+        "a": "Oui, vous pouvez enregistrer hors ligne. L'application synchronisera et traitera les comptes rendus une fois que vous serez de retour en ligne. Les fonctionnalités peuvent être limitées jusqu'à ce que vous vous reconnectiez."
+      },
+      {
+        "q": "Minutes.AI est-il uniquement sur iPhone ?",
+        "a": "Bien que cet avis se concentre sur l'application iPhone, il existe également une version web. Nous adorons simplement l'application iPhone parce qu'elle est si rapide et toujours avec vous."
+      },
+      {
+        "q": "En quoi la tarification est-elle différente des autres applications ?",
+        "a": "La plupart des applications n'offrent *que* des abonnements mensuels ou annuels. Minutes.AI est différent. Nous offrons cela *plus* des <strong>Packs de Temps qui n'expirent pas</strong>. C'est parfait si vous n'avez pas de réunions tous les jours. Vous pouvez commencer avec un <strong>pack d'essai à 1,99 $</strong> pour décider sans grand engagement."
+      },
+      {
+        "q": "Puis-je obtenir des résultats clairs et partageables ?",
+        "a": "Absolument. Les résultats sont conçus pour être partagés, mettant l'accent sur les décisions, les responsables et les dates. C'est ce qui aide à faire avancer le travail."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publié", "type": "Guide", "category": "Recommandation d’app" },
-  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" },
-  "brand": "Minutes.AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Écran principal de l'iPhone Minutes.AI montrant l'enregistrement en un appui",
+      "caption": "Écran principal — appuyez simplement pour démarrer l'enregistrement. Pas de désordre."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Exemple de comptes rendus clairs et lisibles de Minutes.AI",
+      "caption": "Comptes rendus lisibles — les décisions et les actions à entreprendre sont claires."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Écran de sélection du format de réunion de Minutes.AI",
+      "caption": "Choisissez le bon format pour votre réunion."
+    }
+  },
+  "meta": {
+    "h2": "Méta",
+    "published": "Publié",
+    "type": "Guide",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l'application iOS"
+  }
 }

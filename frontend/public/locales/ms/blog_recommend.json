@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Mengapa kami syorkan aplikasi AI minit mesyuarat di iPhone (2025)",
-    "description": "5 sebab terus terang: UI sangat ringkas, minit yang mudah dibaca & bertindak, format ikut jenis mesyuarat, tindakan selepas mesyuarat dalam app, dan harga fleksibel. Cuba Minit AI di iPhone.",
-    "ogTitle": "Syor kami: aplikasi AI minit mesyuarat di iPhone",
-    "ogDescription": "Rakaman sekali sentuh, output yang menggerakkan tindakan, format pintar, susulan terbina dalam, dan harga mengikut penggunaan. Minit AI di iPhone.",
+    "title": "(2025) Mengapa Kami Mengesyorkan Aplikasi iPhone Minit AI untuk Minit Mesyuarat",
+    "description": "Mencari aplikasi minit AI terbaik untuk iPhone? Ini ulasan jujur kami. Minit AI ialah aplikasi yang ringkas, mudah dibaca, dan berorientasikan tindakan dengan model harga yang sangat fleksibel.",
+    "ogTitle": "Aplikasi iPhone Minit AI — Syor Jujur Kami (2025)",
+    "ogDescription": "Mencari 'syor aplikasi minit AI' atau 'harga aplikasi minit AI'? Panduan ini menerangkan mengapa aplikasi iPhone Minit AI adalah pilihan utama kami kerana ciri-ciri dan harga yang berpatutan.",
     "ld": {
-      "headline": "Mengapa aplikasi AI minit iPhone menjadi pilihan kami",
-      "description": "Panduan beli Minit AI: pantas digunakan, hasil jelas, format mengikut mesyuarat, tindakan pascamesyuarat, dan harga berpatutan."
+      "headline": "Mengapa Kami Mengesyorkan Aplikasi iPhone Minit AI",
+      "description": "5 sebab utama kami: UI yang sangat ringkas, output yang benar-benar mudah dibaca, format mesyuarat pintar, penjejakan tindakan terbina dalam, dan model harga fleksibel yang sesuai untuk mana-mana pengguna."
     }
   },
-  "aria": { "home": "Laman Utama Minit AI" },
-  "nav": { "blog": "Blog", "recommend": "Syor" },
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Mengapa Minit AI untuk iPhone"
+  },
   "hero": {
-    "kicker": "Panduan Beli",
-    "h1": "Mengapa kami syorkan aplikasi AI minit di iPhone",
-    "tagline": "Selari dengan niat carian: app AI minit terbaik untuk iPhone & bagaimana harganya — tanpa pusing-pusing."
+    "kicker": "Panduan Pembeli 2025 Kami",
+    "h1": "Mengapa Aplikasi iPhone Minit AI Adalah Pilihan Utama Kami untuk Minit Mesyuarat (2025)",
+    "tagline": "Jika anda mencari di Google “aplikasi minit AI disyorkan” atau “harga aplikasi minit AI,” anda berada di tempat yang betul. Aplikasi ini dibina untuk merakam dengan pantas, menjana minit yang kemas, dan membantu anda *benar-benar* menyelesaikan kerja."
+  },
+  "lead": {
+    "p1": "Aplikasi pengambilan minit dikuasakan AI ada di mana-mana pada tahun 2025. Jadi mengapa kami masih mengesyorkan Minit AI untuk iPhone? Kami akan langkau gembar-gembur dan memberi anda lima sebab yang terus-terang dan praktikal."
   },
   "reasons": {
-    "h2": "5 sebab utama",
+    "h2": "5 Sebab Kami Mengesyorkan Aplikasi iPhone Minit AI",
     "items": [
-      "Rakaman satu sentuhan — tiada halangan",
-      "Minit yang benar-benar mendorong ‘tindakan seterusnya’",
-      "Format mengikut jenis mesyuarat: umum, jualan, 1-on-1, pembentangan, sumbang saran, temuduga",
-      "Susulan dalam app: Project & Strategy",
-      "Harga fleksibel: langganan dan pakej masa tanpa tarikh luput"
+      {
+        "t": "1) UI yang Sangat Ringkas — Tanpa Perlu Berteka-teki",
+        "p": "Tiada menu yang mengelirukan. Satu ketikan untuk merakam. Satu ketikan untuk melihat minit anda yang lalu. Itu sahaja. Anda tidak sepatutnya memerlukan manual hanya untuk mengambil nota.",
+        "imgAlt": "Skrin utama Minit AI menunjukkan rakaman satu ketikan",
+        "caption": "Mula satu ketikan, sejarah satu ketikan. Tiada keluk pembelajaran."
+      },
+      {
+        "t": "2) Kebolehbacaan & Nilai Sebenar (Bukan Bebualan AI)",
+        "p": "Ini bukan sekadar dinding teks yang dijana oleh AI. Aplikasi ini memformat segala-galanya supaya anda boleh terus melompat ke keputusan dan langkah seterusnya. Ia dioptimumkan untuk tindakan.",
+        "imgAlt": "Contoh minit yang kemas dan mudah dibaca daripada Minit AI",
+        "caption": "Keputusan menyerlah. Pemilik tugas dan tarikh akhir adalah jelas melalui reka bentuk."
+      },
+      {
+        "t": "3) Format Pintar untuk Mesyuarat Berbeza",
+        "p": "Mesyuarat 1-dengan-1 berbeza daripada sesi sumbang saran. Minit AI memahami ini. Anda boleh memilih format (Umum, Jualan, 1-dengan-1, Pembentangan, dll.) untuk mendapatkan ringkasan terbaik bagi jenis mesyuarat tersebut.",
+        "imgAlt": "Skrin pemilihan format mesyuarat Minit AI",
+        "caption": "Pilih format yang betul untuk mesyuarat yang betul."
+      },
+      {
+        "t": "4) Tindakan Susulan Selepas Mesyuarat Terbina Dalam",
+        "p": "Minit AI tidak berhenti hanya pada rakaman. Tekan “Project” untuk melihat serta-merta “siapa buat apa menjelang bila.” Tekan “Strategy” untuk membiarkan AI terkini (ChatGPT-5 & Gemini 2.5 Pro) mencadangkan langkah seterusnya yang konkrit berdasarkan perbualan anda.",
+        "note": "Ingin mendalami lebih lanjut tentang Strategy? Lihat artikel di bawah."
+      },
+      {
+        "t": "5) Harga Pintar yang Sesuai dengan Cara Anda *Sebenar* Bekerja",
+        "p": "Ini adalah perkara besar. Tidak semua orang memerlukan *satu lagi* langganan bulanan. Jika anda bermesyuarat sepanjang hari, **Langganan Tanpa Had** adalah hebat. Tetapi jika anda hanya mempunyai mesyuarat sekali-sekala, anda boleh membeli **Pek Masa yang tidak luput**. Anda juga boleh bermula dengan **pek 120 minit hanya dengan $1.99** untuk mencubanya.",
+        "note": "Kami memperincikan senarai harga penuh dalam bahagiannya sendiri di bawah."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategy: Tukar Minit Menjadi Gerakan",
+    "p1": "Ciri “Strategy” mengambil konteks mesyuarat anda dan mencadangkan pelan tindakan yang jelas menggunakan model AI peringkat atasan. Kurang meneka, lebih banyak langkah konkrit yang boleh anda agihkan.",
+    "linkText": "Baca Selaman Mendalam Strategy"
+  },
   "pricing": {
-    "h2": "Harga",
-    "p1": "Pengguna harian: langganan. Pengguna bermusim: pakej masa tanpa luput.",
-    "p2": "Ujian 120 minit berharga rendah disediakan untuk semak kesesuaian terlebih dahulu."
+    "h2": "Tinjauan Terperinci Harga Aplikasi Minit AI",
+    "lead": "Ini masalah terbesar dengan kebanyakan alatan AI: ia memaksa anda ke dalam langganan bulanan 'satu saiz untuk semua'. Harga Minit AI berbeza. Ia direka untuk sepadan dengan kekerapan mesyuarat anda, jadi anda hanya membayar untuk apa yang anda benar-benar perlukan.",
+    "bullets": [
+      "<strong>Percubaan Sempurna ($1.99):</strong> Tidak pasti? Beli sahaja <strong>Pek Masa 120 minit dengan harga $1.99</strong>. Ia murah, ringkas, dan tiada tarikh luput.",
+      "<strong>Untuk Pengguna Sekali-sekala (Pek Masa):</strong> Beli minit yang <strong>TIDAK PERNAH luput</strong>. Ini sesuai untuk pekerja bebas atau pengguna ringan. Dapatkan <strong>1200 minit hanya dengan $11.99</strong>.",
+      "<strong>Untuk Pengguna Tegar (Langganan):</strong> Dapatkan penggunaan tanpa had. Ini adalah nilai terbaik untuk pasukan dan mesyuarat harian. Pilih <strong>$16.99/bulan</strong> atau jimat besar dengan <strong>$149.99/tahun</strong>."
+    ],
+    "tableNote": "Harga dan ketersediaan mungkin berbeza mengikut wilayah/kedai. Lihat artikel Harga utama untuk butiran terkini.",
+    "linkText": "Lihat Pecahan Harga Penuh"
   },
-  "image": { "alt": "Minit AI di iPhone", "caption": "Antara muka Minit AI pada iPhone." },
-  "steps": {
-    "h2": "Mula di iPhone",
-    "items": ["Muat turun app", "Tekan sekali untuk rakam", "Pilih format yang betul", "Cipta Project/Strategy selepas mesyuarat"],
-    "note": "Tempoh mesyuarat bergantung pada pelan dan baki masa."
+  "compare": {
+    "h2": "Perbandingan Pantas",
+    "th": [
+      "Perkara Penting",
+      "Aplikasi Minit AI Tipikal",
+      "Minit AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Kesukaran Mula/Rakam",
+        "Beberapa ketikan, mod mengelirukan",
+        "Satu ketikan untuk merakam. Satu ketikan ke sejarah."
+      ],
+      [
+        "Kebolehbacaan Output",
+        "Dinding teks, perenggan ala AI",
+        "Berstruktur, mudah diimbas, mengutamakan tindakan"
+      ],
+      [
+        "Format setiap Mesyuarat",
+        "Satu templat generik",
+        "Format khusus (Jualan, 1-dengan-1, dll.)"
+      ],
+      [
+        "Tindakan Susulan",
+        "Salin/tampal ke alatan lain",
+        "Project (siapa/bila/apa) & Strategy terbina dalam"
+      ],
+      [
+        "Model Harga",
+        "Langganan sahaja (sering mahal)",
+        "Fleksibel: Percubaan $1.99, Pek tanpa luput, atau Langganan Tanpa Had"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Nota",
-    "items": ["Kualiti dipengaruhi rangkaian & peranti", "Ciri mungkin berbeza mengikut pelan"],
-    "foot": "Cuba Minit AI di iPhone hari ini."
+  "faq": {
+    "h2": "Soalan Lazim — Jawapan Jujur",
+    "items": [
+      {
+        "q": "Adakah terdapat had masa rakaman?",
+        "a": "Masa anda yang tersedia bergantung pada pelan anda. Dengan Pek Masa, had anda ialah baki minit yang anda ada (dan ia tidak luput!). Dengan Langganan, anda mempunyai penggunaan tanpa had."
+      },
+      {
+        "q": "Adakah ia akan berfungsi di luar talian?",
+        "a": "Ya, anda boleh merakam di luar talian. Aplikasi akan menyegerak dan memproses minit sebaik sahaja anda kembali dalam talian. Ciri mungkin terhad sehingga anda menyambung semula."
+      },
+      {
+        "q": "Adakah Minit AI hanya pada iPhone?",
+        "a": "Walaupun ulasan ini memberi tumpuan kepada aplikasi iPhone, terdapat juga versi web. Kami hanya suka aplikasi iPhone kerana ia sangat pantas dan sentiasa bersama anda."
+      },
+      {
+        "q": "Bagaimanakah harganya berbeza daripada aplikasi lain?",
+        "a": "Kebanyakan aplikasi *hanya* menawarkan langganan bulanan atau tahunan. Minit AI berbeza. Kami menawarkan itu *ditambah* <strong>Pek Masa yang tidak luput</strong>. Ini sesuai jika anda tidak bermesyuarat setiap hari. Anda boleh bermula dengan <strong>pek percubaan $1.99</strong> untuk membuat keputusan tanpa komitmen besar."
+      },
+      {
+        "q": "Bolehkah saya mendapatkan output yang kemas dan mudah dikongsi?",
+        "a": "Sudah tentu. Output direka untuk dikongsi, menekankan keputusan, pemilik tugas dan tarikh. Inilah yang membantu memajukan kerja."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Panduan", "category": "Syor Aplikasi" },
-  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun app iOS" },
-  "brand": "Minit AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Skrin utama iPhone Minit AI menunjukkan rakaman satu ketikan",
+      "caption": "Skrin utama — hanya ketik untuk mula merakam. Tiada kekusutan."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Contoh minit yang kemas dan mudah dibaca daripada Minit AI",
+      "caption": "Minit yang mudah dibaca — keputusan dan item tindakan adalah jelas."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Skrin pemilihan format mesyuarat Minit AI",
+      "caption": "Pilih format yang betul untuk mesyuarat anda."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Panduan",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Buka dalam pelayar",
+    "downloadIOS": "Muat turun aplikasi iOS"
+  }
 }

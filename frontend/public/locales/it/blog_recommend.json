@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Perché consigliamo l’app minutes-AI per iPhone (2025)",
-    "description": "5 motivi diretti: UI semplice, verbali leggibili/attuabili, formati per riunione, follow-through integrato e prezzi flessibili. Prova Verbali IA su iPhone.",
-    "ogTitle": "La nostra scelta: l’app minutes-AI per iPhone",
-    "ogDescription": "Registrazione con un tocco, output che guidano i prossimi passi, formati smart, follow-through in-app e prezzi adatti all’uso. Verbali IA su iPhone.",
+    "title": "(2025) Perché consigliamo l'app Verbali IA per iPhone per i verbali delle riunioni",
+    "description": "Cerchi la migliore app di IA per verbali su iPhone? Ecco la nostra recensione onesta. Verbali IA è un'app semplice, leggibile e orientata all'azione con un modello di prezzi incredibilmente flessibile.",
+    "ogTitle": "App Verbali IA per iPhone — La nostra raccomandazione onesta (2025)",
+    "ogDescription": "Cerchi 'raccomandazione app verbali IA' o 'prezzi app verbali IA'? Questa guida spiega perché l'app Verbali IA per iPhone è la nostra scelta migliore per le sue funzionalità e il prezzo equo.",
     "ld": {
-      "headline": "Perché l’app minutes-AI per iPhone è la nostra raccomandazione",
-      "description": "Guida all’acquisto di Verbali IA: uso rapido, output chiari, formati su misura, azioni post-riunione e prezzi equi."
+      "headline": "Perché consigliamo l'app Verbali IA per iPhone",
+      "description": "I nostri 5 motivi principali: Un'interfaccia utente super semplice, risultati veramente leggibili, formati di riunione intelligenti, monitoraggio delle azioni integrato e un modello di prezzi flessibile adatto a ogni utente."
     }
   },
-  "aria": { "home": "Home Verbali IA" },
-  "nav": { "blog": "Blog", "recommend": "Raccomandazione" },
+  "aria": {
+    "home": "Verbali IA Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Perché Verbali IA per iPhone"
+  },
   "hero": {
-    "kicker": "Guida all’acquisto",
-    "h1": "Perché consigliamo l’app minutes-AI per iPhone",
-    "tagline": "Costruita per l’intento di ricerca: la migliore minutes-AI per iPhone e come si posiziona sul prezzo — senza fronzoli."
+    "kicker": "La nostra guida all'acquisto 2025",
+    "h1": "Perché l'app Verbali IA per iPhone è la nostra scelta migliore per i verbali delle riunioni (2025)",
+    "tagline": "Se stai cercando su Google “app verbali IA consigliata” o “prezzi app verbali IA”, sei nel posto giusto. Questa app è creata per registrare velocemente, generare verbali puliti e aiutarti a portare *davvero* a termine il lavoro."
+  },
+  "lead": {
+    "p1": "Le app per prendere appunti basate sull'IA sono ovunque nel 2025. Allora perché continuiamo a consigliare Verbali IA per iPhone? Salteremo la propaganda e ti daremo cinque ragioni dirette e pratiche."
   },
   "reasons": {
-    "h2": "Cinque motivi schietti",
+    "h2": "5 motivi per cui consigliamo l'app Verbali IA per iPhone",
     "items": [
-      "Registrazione con un tocco senza attriti",
-      "Verbali leggibili che portano davvero all’azione",
-      "Formati per riunione: Generale, Sales, 1-a-1, Presentazione, Brainstorm, Colloquio",
-      "Follow-through di Project & Strategy dentro l’app",
-      "Prezzi flessibili: abbonamenti e pacchetti tempo senza scadenza"
+      {
+        "t": "1) Un'interfaccia utente ridicolmente semplice — Zero congetture",
+        "p": "Nessun menu complicato. Un tocco per registrare. Un tocco per vedere i tuoi verbali passati. Tutto qui. Non dovresti aver bisogno di un manuale solo per prendere appunti.",
+        "imgAlt": "Schermata principale di Verbali IA che mostra la registrazione con un tocco",
+        "caption": "Avvio con un tocco, cronologia con un tocco. Nessuna curva di apprendimento."
+      },
+      {
+        "t": "2) Leggibilità e valore reale (Non fuffa IA)",
+        "p": "Non è solo un muro di testo generato dall'IA. L'app formatta tutto in modo che tu possa passare direttamente alle decisioni e ai passi successivi. È ottimizzata per l'azione.",
+        "imgAlt": "Esempio di verbali chiari e leggibili da Verbali IA",
+        "caption": "Le decisioni risaltano. Responsabili e scadenze sono chiari per design."
+      },
+      {
+        "t": "3) Formati intelligenti per riunioni diverse",
+        "p": "Un incontro 1-on-1 è diverso da un brainstorming. Verbali IA lo capisce. Puoi scegliere un formato (Generale, Vendite, 1-on-1, Presentazione, ecc.) per ottenere il miglior riassunto possibile per quel tipo specifico di riunione.",
+        "imgAlt": "Schermata di selezione del formato riunione di Verbali IA",
+        "caption": "Scegli il formato giusto per la riunione giusta."
+      },
+      {
+        "t": "4) Le azioni post-riunione sono integrate",
+        "p": "Verbali IA non si ferma solo alla registrazione. Premi “Progetto” per vedere immediatamente “chi fa cosa ed entro quando”. Premi “Strategia” per far sì che l'IA più recente (ChatGPT-5 e Gemini 2.5 Pro) suggerisca i prossimi passi concreti basati sulla tua conversazione.",
+        "note": "Vuoi un approfondimento sulla Strategia? Vedi l'articolo qui sotto."
+      },
+      {
+        "t": "5) Prezzi intelligenti che si adattano al tuo modo *reale* di lavorare",
+        "p": "Questo è un punto fondamentale. Non tutti hanno bisogno di *un altro* abbonamento mensile. Se hai riunioni tutto il giorno, l'**Abbonamento Illimitato** è fantastico. Ma se hai solo riunioni occasionali, puoi acquistare **Pacchetti di Tempo che non scadono**. Puoi anche iniziare con un **pacchetto da 120 minuti a soli 1,99 $** per provarlo.",
+        "note": "Analizziamo il listino prezzi completo in una sezione apposita qui sotto."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategia: Trasforma i verbali in azione",
+    "p1": "La funzione “Strategia” prende il contesto della tua riunione e propone piani d'azione chiari utilizzando modelli di IA di alto livello. Meno congetture, più passi concreti che puoi assegnare.",
+    "linkText": "Leggi l'approfondimento sulla Strategia"
+  },
   "pricing": {
-    "h2": "Sul prezzo",
-    "p1": "Gli utenti quotidiani scelgono l’abbonamento. Gli occasionali scelgono pacchetti tempo senza scadenza.",
-    "p2": "C’è anche una prova da 120 minuti a basso costo per validare il fit prima di impegnarti."
+    "h2": "Uno sguardo dettagliato ai prezzi dell'app Verbali IA",
+    "lead": "Ecco il problema più grande con la maggior parte degli strumenti di IA: ti costringono a un abbonamento mensile 'taglia unica'. I prezzi di Verbali IA sono diversi. Sono progettati per adattarsi alla frequenza delle tue riunioni, così paghi solo per ciò di cui hai veramente bisogno.",
+    "bullets": [
+      "<strong>La prova perfetta (1,99 $):</strong> Non sei sicuro? Acquista semplicemente il <strong>Pacchetto da 120 minuti a 1,99 $</strong>. È economico, semplice e non ha scadenza.",
+      "<strong>Per utenti occasionali (Pacchetti di Tempo):</strong> Acquista minuti che <strong>NON scadono MAI</strong>. È perfetto per i freelance o per chi ha un utilizzo leggero. Ottieni <strong>1200 minuti a soli 11,99 $</strong>.",
+      "<strong>Per utenti intensivi (Abbonamento):</strong> Passa all'illimitato. Questo è il miglior valore per team e riunioni quotidiane. Scegli <strong>16,99 $/mese</strong> o risparmia alla grande con <strong>149,99 $/anno</strong>."
+    ],
+    "tableNote": "I prezzi e la disponibilità possono variare in base alla regione/negozio. Consulta l'articolo principale sui Prezzi per i dettagli più aggiornati.",
+    "linkText": "Vedi l'analisi completa dei prezzi"
   },
-  "image": { "alt": "Verbali IA su iPhone", "caption": "UI Verbali IA per iPhone." },
-  "steps": {
-    "h2": "Inizia su iPhone",
-    "items": ["Scarica l’app", "Tocca una volta per registrare", "Scegli il formato giusto", "Dopo la riunione crea un Project/Strategy"],
-    "note": "La durata della riunione dipende dal piano e dal saldo residuo."
+  "compare": {
+    "h2": "Confronto rapido",
+    "th": [
+      "Cosa conta",
+      "App tipiche di verbali IA",
+      "Verbali IA (iPhone)"
+    ],
+    "rows": [
+      [
+        "Difficoltà di avvio/registrazione",
+        "Tocchi multipli, modalità confuse",
+        "Un tocco per registrare. Un tocco per la cronologia."
+      ],
+      [
+        "Leggibilità dell'output",
+        "Muro di testo, paragrafi 'stile IA'",
+        "Strutturato, scorrevole, orientato all'azione"
+      ],
+      [
+        "Formati per riunione",
+        "Un unico modello generico",
+        "Formati dedicati (Vendite, 1-on-1, ecc.)"
+      ],
+      [
+        "Follow-up",
+        "Copia/incolla in altri strumenti",
+        "Progetto (chi/quando/cosa) e Strategia integrati"
+      ],
+      [
+        "Modello di prezzo",
+        "Solo abbonamento (spesso costoso)",
+        "Flessibile: Prova a 1,99 $, Pacchetti senza scadenza, o Abbonamento illimitato"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Note",
-    "items": ["Rete e dispositivo possono influire sulla qualità", "Le funzionalità possono variare in base al piano"],
-    "foot": "Prova Verbali IA su iPhone oggi stesso."
+  "faq": {
+    "h2": "FAQ — Le risposte oneste",
+    "items": [
+      {
+        "q": "C'è un limite di tempo per la registrazione?",
+        "a": "Il tuo tempo disponibile dipende dal tuo piano. Con i Pacchetti di Tempo, il tuo limite sono i minuti che ti sono rimasti (e non scadono!). Con un Abbonamento, hai un utilizzo illimitato."
+      },
+      {
+        "q": "Funziona offline?",
+        "a": "Sì, puoi registrare offline. L'app sincronizzerà ed elaborerà i verbali una volta che sarai di nuovo online. Le funzionalità potrebbero essere limitate finché non ti riconnetti."
+      },
+      {
+        "q": "Verbali IA è solo per iPhone?",
+        "a": "Sebbene questa recensione si concentri sull'app per iPhone, esiste anche una versione web. Semplicemente amiamo l'app per iPhone perché è velocissima e sempre con te."
+      },
+      {
+        "q": "In che modo i prezzi sono diversi dalle altre app?",
+        "a": "La maggior parte delle app offre *solo* abbonamenti mensili o annuali. Verbali IA è diverso. Offriamo quello *in aggiunta a* <strong>Pacchetti di Tempo che non scadono</strong>. È perfetto se non hai riunioni tutti i giorni. Puoi iniziare con un <strong>pacchetto di prova da 1,99 $</strong> per decidere senza un grande impegno."
+      },
+      {
+        "q": "Posso ottenere risultati puliti e condivisibili?",
+        "a": "Assolutamente. I risultati sono progettati per essere condivisi, enfatizzando decisioni, responsabili e date. È questo che aiuta a far progredire il lavoro."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Guida", "category": "Raccomandazione app" },
-  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica l’app iOS" },
-  "brand": "Verbali IA"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Schermata principale di Verbali IA su iPhone che mostra la registrazione con un tocco",
+      "caption": "Schermata principale — basta un tocco per avviare la registrazione. Nessuna confusione."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Esempio di verbali chiari e leggibili da Verbali IA",
+      "caption": "Verbali leggibili — decisioni e punti d'azione sono chiari."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Schermata di selezione del formato riunione di Verbali IA",
+      "caption": "Scegli il formato giusto per la tua riunione."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Guida",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica l'app per iOS"
+  }
 }

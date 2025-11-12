@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Dlaczego polecamy aplikację minutes-AI na iPhone’a (2025)",
-    "description": "5 prostych powodów: proste UI, czytelne/wykonalne minutki, formaty na typ spotkania, wbudowany follow-through i elastyczne ceny. Wypróbuj Protokół AI na iPhonie.",
-    "ogTitle": "Nasz wybór: aplikacja minutes-AI na iPhone’a",
-    "ogDescription": "Nagrywanie jednym stuknięciem, wyjścia prowadzące do kolejnych kroków, sprytne formaty, follow-through w aplikacji i ceny dopasowane do użycia. Protokół AI na iPhonie.",
+    "title": "(2025) Dlaczego polecamy aplikację Protokół AI na iPhone'a do protokołów ze spotkań",
+    "description": "Szukasz najlepszej aplikacji AI do protokołów na iPhone'a? Oto nasza szczera recenzja. Protokół AI to prosta, czytelna i zorientowana na działanie aplikacja z niewiarygodnie elastycznym modelem cenowym.",
+    "ogTitle": "Aplikacja Protokół AI na iPhone'a — Nasza szczera rekomendacja (2025)",
+    "ogDescription": "Szukasz 'polecana aplikacja AI do protokołów' lub 'ceny aplikacji AI do protokołów'? Ten przewodnik wyjaśnia, dlaczego aplikacja Protokół AI na iPhone'a jest naszym najlepszym wyborem ze względu na funkcje i uczciwą cenę.",
     "ld": {
-      "headline": "Dlaczego aplikacja minutes-AI na iPhone’a jest naszą rekomendacją",
-      "description": "Poradnik zakupowy Protokół AI: szybkie użycie, klarowne wyjścia, dopasowane formaty, działania po spotkaniu i uczciwe ceny."
+      "headline": "Dlaczego polecamy aplikację Protokół AI na iPhone'a",
+      "description": "Nasze 5 kluczowych powodów: Superprosty interfejs użytkownika, naprawdę czytelne wyniki, inteligentne formaty spotkań, wbudowane śledzenie zadań i elastyczny model cenowy pasujący do każdego użytkownika."
     }
   },
-  "aria": { "home": "Strona główna Protokół AI" },
-  "nav": { "blog": "Blog", "recommend": "Rekomendacja" },
+  "aria": {
+    "home": "Protokół AI Strona główna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Dlaczego Protokół AI na iPhone'a"
+  },
   "hero": {
-    "kicker": "Poradnik zakupowy",
-    "h1": "Dlaczego polecamy aplikację minutes-AI na iPhone’a",
-    "tagline": "Pod kątem intencji wyszukiwania: najlepsza minutes-AI na iPhone’a i jak wypada cenowo — bez lania wody."
+    "kicker": "Nasz przewodnik zakupowy 2025",
+    "h1": "Dlaczego aplikacja Protokół AI na iPhone'a to nasz najlepszy wybór do protokołów ze spotkań (2025)",
+    "tagline": "Jeśli szukasz w Google „polecana aplikacja AI do protokołów” lub „ceny aplikacji AI do protokołów”, jesteś we właściwym miejscu. Ta aplikacja została stworzona, aby szybko nagrywać, generować czyste protokoły i pomagać Ci *faktycznie* wykonywać pracę."
+  },
+  "lead": {
+    "p1": "W 2025 roku aplikacje do sporządzania protokołów oparte na AI są wszędzie. Dlaczego więc nadal polecamy Protokół AI na iPhone'a? Pominiemy szum marketingowy i podamy pięć bezpośrednich, praktycznych powodów."
   },
   "reasons": {
-    "h2": "Pięć konkretnych powodów",
+    "h2": "5 powodów, dla których polecamy aplikację Protokół AI na iPhone'a",
     "items": [
-      "Nagrywanie jednym stuknięciem bez tarć",
-      "Czytelne minutki, które naprawdę prowadzą do kolejnych działań",
-      "Formaty na spotkanie: Ogólny, Sprzedaż, 1-na-1, Prezentacja, Burza mózgów, Rozmowa kwalifikacyjna",
-      "Follow-through Projektu i Strategii w aplikacji",
-      "Elastyczne ceny: subskrypcje i niewygasające pakiety czasu"
+      {
+        "t": "1) Absurdalnie prosty interfejs — Zero zgadywania",
+        "p": "Żadnych skomplikowanych menu. Jedno dotknięcie, aby nagrywać. Jedno dotknięcie, aby zobaczyć poprzednie protokoły. To wszystko. Nie powinieneś potrzebować instrukcji obsługi tylko po to, by robić notatki.",
+        "imgAlt": "Główny ekran Protokół AI pokazujący nagrywanie jednym dotknięciem",
+        "caption": "Start jednym dotknięciem, historia jednym dotknięciem. Żadnej krzywej uczenia się."
+      },
+      {
+        "t": "2) Czytelność i prawdziwa wartość (a nie „bełkot” AI)",
+        "p": "To nie jest tylko ściana tekstu wygenerowanego przez AI. Aplikacja formatuje wszystko tak, abyś mógł przejść bezpośrednio do decyzji i kolejnych kroków. Jest zoptymalizowana pod kątem działania.",
+        "imgAlt": "Przykład czystych, czytelnych protokołów z Protokół AI",
+        "caption": "Decyzje są wyeksponowane. Odpowiedzialni i terminy są jasne z założenia."
+      },
+      {
+        "t": "3) Inteligentne formaty dla różnych spotkań",
+        "p": "Spotkanie 1 na 1 różni się od burzy mózgów. Protokół AI to rozumie. Możesz wybrać format (Ogólny, Sprzedaż, 1 na 1, Prezentacja itp.), aby uzyskać najlepsze możliwe podsumowanie dla danego typu spotkania.",
+        "imgAlt": "Ekran wyboru formatu spotkania w Protokół AI",
+        "caption": "Wybierz odpowiedni format dla odpowiedniego spotkania."
+      },
+      {
+        "t": "4) Działania po spotkaniu są wbudowane",
+        "p": "Protokół AI nie zatrzymuje się tylko na nagrywaniu. Naciśnij „Projekt”, aby natychmiast zobaczyć „kto, co i do kiedy ma zrobić”. Naciśnij „Strategia”, aby najnowsza AI (ChatGPT-5 i Gemini 2.5 Pro) zasugerowała konkretne kolejne kroki na podstawie waszej rozmowy.",
+        "note": "Chcesz dowiedzieć się więcej o Strategii? Zobacz artykuł poniżej."
+      },
+      {
+        "t": "5) Inteligentne ceny, które pasują do Twojego *faktycznego* trybu pracy",
+        "p": "To bardzo ważna kwestia. Nie każdy potrzebuje *kolejnej* miesięcznej subskrypcji. Jeśli masz spotkania przez cały dzień, **Nielimitowana Subskrypcja** jest świetna. Ale jeśli masz spotkania tylko od czasu do czasu, możesz kupić **Pakiety Czasowe, które nie wygasają**. Możesz nawet zacząć od **pakietu 120 minut za jedyne 1,99 $**, aby go wypróbować.",
+        "note": "Pełny cennik analizujemy w osobnej sekcji poniżej."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategia: Zamień protokoły w działanie",
+    "p1": "Funkcja „Strategia” bierze kontekst Twojego spotkania i proponuje jasne plany działania przy użyciu najwyższej klasy modeli AI. Mniej zgadywania, więcej konkretnych kroków, które możesz przydzielić.",
+    "linkText": "Przeczytaj szczegółową analizę Strategii"
+  },
   "pricing": {
-    "h2": "O cenach",
-    "p1": "Użytkownicy codzienni wybierają subskrypcję. Okazjonalni — niewygasające pakiety czasu.",
-    "p2": "Jest też tani trial 120 minut, aby sprawdzić dopasowanie przed zobowiązaniem."
+    "h2": "Szczegółowe spojrzenie na ceny aplikacji Protokół AI",
+    "lead": "Oto największy problem z większością narzędzi AI: zmuszają Cię do miesięcznej subskrypcji typu „jeden rozmiar dla wszystkich”. Cennik Protokół AI jest inny. Jest zaprojektowany tak, aby pasował do częstotliwości Twoich spotkań, więc płacisz tylko za to, czego naprawdę potrzebujesz.",
+    "bullets": [
+      "<strong>Idealny okres próbny (1,99 $):</strong> Nie jesteś pewien? Po prostu kup <strong>Pakiet Czasowy 120 minut za 1,99 $</strong>. Jest tani, prosty i nie ma daty ważności.",
+      "<strong>Dla użytkowników sporadycznych (Pakiety Czasowe):</strong> Kup minuty, które <strong>NIGDY nie wygasają</strong>. To idealne rozwiązanie dla freelancerów lub osób korzystających rzadziej. Zdobądź <strong>1200 minut za jedyne 11,99 $</strong>.",
+      "<strong>Dla intensywnych użytkowników (Subskrypcja):</strong> Wybierz nielimitowany dostęp. To najlepsza wartość dla zespołów i codziennych spotkań. Wybierz <strong>16,99 $/miesiąc</strong> lub zaoszczędź dużo dzięki <strong>149,99 $/rok</strong>."
+    ],
+    "tableNote": "Ceny i dostępność mogą się różnić w zależności od regionu/sklepu. Najbardziej aktualne szczegóły znajdziesz w głównym artykule o cenach.",
+    "linkText": "Zobacz pełne zestawienie cen"
   },
-  "image": { "alt": "Protokół AI na iPhonie", "caption": "Interfejs Protokół AI na iPhone." },
-  "steps": {
-    "h2": "Zacznij na iPhonie",
-    "items": ["Pobierz aplikację", "Stuknij raz, by nagrywać", "Wybierz właściwy format", "Po spotkaniu utwórz Project/Strategy"],
-    "note": "Czas trwania spotkania zależy od planu i pozostałego salda."
+  "compare": {
+    "h2": "Szybkie porównanie",
+    "th": [
+      "Co się liczy",
+      "Typowe aplikacje AI do protokołów",
+      "Protokół AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Trudność rozpoczęcia/nagrywania",
+        "Wiele dotknięć, mylące tryby",
+        "Jedno dotknięcie, aby nagrywać. Jedno dotknięcie do historii."
+      ],
+      [
+        "Czytelność wyników",
+        "Ściana tekstu, akapity w stylu AI",
+        "Struktura, łatwość skanowania, priorytet dla działania"
+      ],
+      [
+        "Formaty na spotkanie",
+        "Jeden ogólny szablon",
+        "Dedykowane formaty (Sprzedaż, 1 na 1 itp.)"
+      ],
+      [
+        "Dalsze działania",
+        "Kopiuj/wklej do innych narzędzi",
+        "Wbudowany Projekt (kto/kiedy/co) i Strategia"
+      ],
+      [
+        "Model cenowy",
+        "Tylko subskrypcja (często droga)",
+        "Elastyczny: Próba za 1,99 $, Pakiety bez daty ważności lub Nielimitowana subskrypcja"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Uwagi",
-    "items": ["Sieć i urządzenie mogą wpływać na jakość", "Funkcje mogą różnić się w zależności od planu"],
-    "foot": "Wypróbuj Protokół AI na iPhonie już dziś."
+  "faq": {
+    "h2": "FAQ — Szczere odpowiedzi",
+    "items": [
+      {
+        "q": "Czy istnieje limit czasu nagrywania?",
+        "a": "Dostępny czas zależy od Twojego planu. W przypadku Pakietów Czasowych Twoim limitem są minuty, które Ci pozostały (a one nie wygasają!). W przypadku Subskrypcji masz nielimitowane użytkowanie."
+      },
+      {
+        "q": "Czy to działa offline?",
+        "a": "Tak, możesz nagrywać offline. Aplikacja zsynchronizuje i przetworzy protokoły, gdy tylko wrócisz do trybu online. Funkcje mogą być ograniczone do czasu ponownego połączenia."
+      },
+      {
+        "q": "Czy Protokół AI jest dostępny tylko na iPhone'a?",
+        "a": "Chociaż ta recenzja skupia się na aplikacji na iPhone'a, istnieje również wersja internetowa. Po prostu uwielbiamy aplikację na iPhone'a, ponieważ jest tak szybka i zawsze przy Tobie."
+      },
+      {
+        "q": "Czym ceny różnią się od innych aplikacji?",
+        "a": "Większość aplikacji oferuje *tylko* miesięczne lub roczne subskrypcje. Protokół AI jest inny. Oferujemy to *oraz* <strong>Pakiety Czasowe bez daty ważności</strong>. To idealne rozwiązanie, jeśli nie masz spotkań codziennie. Możesz zacząć od <strong>pakietu próbnego za 1,99 $</strong>, aby zdecydować bez dużego zobowiązania."
+      },
+      {
+        "q": "Czy mogę uzyskać czyste, łatwe do udostępnienia wyniki?",
+        "a": "Oczywiście. Wyniki są zaprojektowane do udostępniania, podkreślając decyzje, odpowiedzialnych i daty. To właśnie pomaga pchać pracę do przodu."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Przewodnik", "category": "Rekomendacja aplikacji" },
-  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" },
-  "brand": "Protokół AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Główny ekran Protokół AI na iPhone'a pokazujący nagrywanie jednym dotknięciem",
+      "caption": "Główny ekran — po prostu dotknij, aby rozpocząć nagrywanie. Bez bałaganu."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Przykład czystych, czytelnych protokołów z Protokół AI",
+      "caption": "Czytelne protokoły — decyzje i zadania są jasne."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Ekran wyboru formatu spotkania w Protokół AI",
+      "caption": "Wybierz odpowiedni format dla swojego spotkania."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Przewodnik",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Otwórz w przeglądarce",
+    "downloadIOS": "Pobierz aplikację iOS"
+  }
 }

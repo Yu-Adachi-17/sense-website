@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Miksi suosittelemme iPhonen minutes-AI-sovellusta (2025)",
-    "description": "5 suoraa syytä: yksinkertainen käyttöliittymä, luettavat/toimintaan ohjaavat muistiot, kokouskohtaiset formaatit, sisäänrakennettu jatkotoiminta ja joustava hinnoittelu. Kokeile Pöytäkirja AI:ta iPhonessa.",
-    "ogTitle": "Valintamme: iPhonen minutes-AI-sovellus",
-    "ogDescription": "Yhden napin nauhoitus, ulostulot jotka ohjaavat seuraaviin toimiin, älykkäät formaatit, in-app follow-through ja käyttöön sopiva hinnoittelu. Pöytäkirja AI iPhonessa.",
+    "title": "(2025) Miksi suosittelemme Pöytäkirja AI -iPhone-sovellusta kokousmuistioihin",
+    "description": "Etsitkö parasta tekoälysovellusta pöytäkirjoille iPhoneen? Tässä on rehellinen arvostelumme. Pöytäkirja AI on yksinkertainen, helppolukuinen ja toimintakeskeinen sovellus uskomattoman joustavalla hinnoittelumallilla.",
+    "ogTitle": "Pöytäkirja AI iPhone-sovellus — Rehellinen suosituksemme (2025)",
+    "ogDescription": "Etsitkö 'AI-pöytäkirjasovellus suositus' tai 'AI-pöytäkirjasovellus hinta'? Tämä opas selittää, miksi Pöytäkirja AI -iPhone-sovellus on ykkösvalintamme ominaisuuksiensa ja reilun hintansa ansiosta.",
     "ld": {
-      "headline": "Miksi iPhonen minutes-AI-sovellus on suosituksemme",
-      "description": "Osto-opas Pöytäkirja AI:hin: nopea käyttää, selkeät ulostulot, räätälöidyt formaatit, jatkotoimet kokouksen jälkeen ja reilu hinnoittelu."
+      "headline": "Miksi suosittelemme Pöytäkirja AI -iPhone-sovellusta",
+      "description": "5 keskeistä syytämme: Superyksinkertainen käyttöliittymä, aidosti luettavat tulosteet, älykkäät kokousmuodot, sisäänrakennettu tehtävien seuranta ja joustava hinnoittelumalli, joka sopii kaikille."
     }
   },
-  "aria": { "home": "Pöytäkirja AI Etusivu" },
-  "nav": { "blog": "Blogi", "recommend": "Suositus" },
+  "aria": {
+    "home": "Pöytäkirja AI Koti"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "recommend": "Miksi Pöytäkirja AI iPhonelle"
+  },
   "hero": {
-    "kicker": "Osto-opas",
-    "h1": "Miksi suosittelemme iPhonen minutes-AI-sovellusta",
-    "tagline": "Rakennettu hakuaikeeseen: paras minutes-AI iPhonelle ja miten hinnoittelu vertautuu — ilman höpinää."
+    "kicker": "Osto-oppaamme 2025",
+    "h1": "Miksi Pöytäkirja AI -iPhone-sovellus on ykkösvalintamme kokousmuistioihin (2025)",
+    "tagline": "Jos googletat ”suositeltu AI-pöytäkirjasovellus” tai ”AI-pöytäkirjasovellus hinta”, olet oikeassa paikassa. Tämä sovellus on tehty nopeaan nauhoittamiseen, siistien pöytäkirjojen luomiseen ja auttamaan sinua *oikeasti* saamaan työt tehtyä."
+  },
+  "lead": {
+    "p1": "Tekoälypohjaisia pöytäkirjasovelluksia on kaikkialla vuonna 2025. Miksi siis edelleen suosittelemme Pöytäkirja AI:ta iPhonelle? Jätämme hypen väliin ja annamme sinulle viisi suoraa, käytännöllistä syytä."
   },
   "reasons": {
-    "h2": "Viisi suoraa syytä",
+    "h2": "5 syytä, miksi suosittelemme Pöytäkirja AI -iPhone-sovellusta",
     "items": [
-      "Yhden napin nauhoitus ilman kitkaa",
-      "Luettavat muistiot, jotka oikeasti ohjaavat seuraaviin toimiin",
-      "Formaatit kokouksittain: Yleinen, Myynti, 1-on-1, Esitys, Brainstorm, Haastattelu",
-      "Projektien & Strategian jatkotoimet suoraan sovelluksessa",
-      "Joustava hinnoittelu: tilaukset ja vanhenemattomat aikapaketit"
+      {
+        "t": "1) Naurettavan yksinkertainen käyttöliittymä — Ei arvailua",
+        "p": "Ei sekavia valikoita. Yksi napautus nauhoittaa. Yksi napautus nähdäksesi menneet pöytäkirjasi. Siinä se. Sinun ei pitäisi tarvita käyttöohjetta vain muistiinpanojen tekemiseen.",
+        "imgAlt": "Pöytäkirja AI -päänäyttö, joka näyttää yhden napautuksen nauhoituksen",
+        "caption": "Aloita yhdellä napautuksella, historia yhdellä napautuksella. Ei oppimiskäyrää."
+      },
+      {
+        "t": "2) Luettavuus & todellinen arvo (Ei tekoälyhöttöä)",
+        "p": "Tämä ei ole vain tekoälyn tuottama tekstiseinä. Sovellus muotoilee kaiken niin, että voit siirtyä suoraan päätöksiin ja seuraaviin askeliin. Se on optimoitu toimintaa varten.",
+        "imgAlt": "Esimerkki siisteistä, luettavista pöytäkirjoista Pöytäkirja AI:lla",
+        "caption": "Päätökset erottuvat. Omistajat ja määräajat ovat selkeitä suunnittelun ansiosta."
+      },
+      {
+        "t": "3) Älykkäät muodot eri kokouksille",
+        "p": "1-on-1-keskustelu on erilainen kuin aivoriihi. Pöytäkirja AI ymmärtää tämän. Voit valita muodon (Yleinen, Myynti, 1-on-1, Esitys jne.) saadaksesi parhaan mahdollisen yhteenvedon juuri kyseiselle kokoustyypille.",
+        "imgAlt": "Pöytäkirja AI -kokousmuodon valintanäyttö",
+        "caption": "Valitse oikea muoto oikeaan kokoukseen."
+      },
+      {
+        "t": "4) Kokouksen jälkeiset toimet on sisäänrakennettu",
+        "p": "Pöytäkirja AI ei lopeta vain nauhoittamiseen. Paina ”Projekti” nähdäksesi välittömästi ”kuka tekee mitä ja milloin”. Paina ”Strategia” antaaksesi uusimman tekoälyn (ChatGPT-5 & Gemini 2.5 Pro) ehdottaa konkreettisia seuraavia askeleita keskustelusi perusteella.",
+        "note": "Haluatko syventyä Strategia-toimintoon? Katso alla oleva artikkeli."
+      },
+      {
+        "t": "5) Älykäs hinnoittelu, joka sopii siihen, miten *oikeasti* työskentelet",
+        "p": "Tämä on valtava juttu. Kaikki eivät tarvitse *jälleen yhtä* kuukausitilausta. Jos sinulla on kokouksia koko päivän, **Rajoittamaton tilaus** on loistava. Mutta jos sinulla on kokouksia vain satunnaisesti, voit ostaa **vanhentumattomia aikapaketteja**. Voit jopa aloittaa **120 minuutin paketilla vain 1,99 $** kokeillaksesi sitä.",
+        "note": "Käsittelemme täydellisen hinnaston erillisessä osiossa alla."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategia: Muuta pöytäkirjat teoiksi",
+    "p1": "”Strategia”-ominaisuus ottaa kokouksesi kontekstin ja ehdottaa selkeitä toimintasuunnitelmia käyttäen huippuluokan tekoälymalleja. Vähemmän arvailua, enemmän konkreettisia askeleita, joita voit jakaa.",
+    "linkText": "Lue Strategia-ominaisuuden syväluotaus"
+  },
   "pricing": {
-    "h2": "Hinnoittelusta",
-    "p1": "Päivittäiset käyttäjät valitsevat tilauksen. Satunnaiset valitsevat vanhenemattomat aikapaketit.",
-    "p2": "Saatavilla on myös edullinen 120 minuutin trial sopivuuden varmistamiseksi ennen sitoutumista."
+    "h2": "Yksityiskohtainen katsaus Pöytäkirja AI -sovelluksen hinnoitteluun",
+    "lead": "Tässä on suurin ongelma useimmissa tekoälytyökaluissa: ne pakottavat sinut 'yksi koko sopii kaikille' -kuukausitilaukseen. Pöytäkirja AI:n hinnoittelu on erilainen. Se on suunniteltu vastaamaan kokoustiheyttäsi, joten maksat vain siitä, mitä todella tarvitset.",
+    "bullets": [
+      "<strong>Täydellinen kokeilu (1,99 $):</strong> Etkö ole varma? Osta vain <strong>120 minuutin aikapaketti hintaan 1,99 $</strong>. Se on halpa, yksinkertainen, eikä sillä ole vanhentumispäivää.",
+      "<strong>Satunnaisille käyttäjille (Aikapaketit):</strong> Osta minuutteja, jotka <strong>EIVÄT KOSKAAN vanhene</strong>. Tämä on täydellinen freelancereille tai vähän käyttäville. Saat <strong>1200 minuuttia vain 11,99 $</strong>.",
+      "<strong>Tehokäyttäjille (Tilaus):</strong> Valitse rajoittamaton käyttö. Tämä on paras arvo tiimeille ja päivittäisiin kokouksiin. Valitse <strong>16,99 $/kk</strong> tai säästä isosti <strong>149,99 $/vuosi</strong>."
+    ],
+    "tableNote": "Hinnat ja saatavuus voivat vaihdella alueen/kaupan mukaan. Katso ajantasaiset tiedot pääasiallisesta hinnoitteluartikkelista.",
+    "linkText": "Katso täydellinen hinnoittelu"
   },
-  "image": { "alt": "Pöytäkirja AI iPhonessa", "caption": "Pöytäkirja AI iPhone-käyttöliittymä." },
-  "steps": {
-    "h2": "Aloita iPhonessa",
-    "items": ["Lataa sovellus", "Aloita äänitys yhdellä napilla", "Valitse oikea formaatti", "Luo Project/Strategy kokouksen jälkeen"],
-    "note": "Kokouksen kesto riippuu paketistasi ja jäljellä olevasta saldosta."
+  "compare": {
+    "h2": "Nopea vertailu",
+    "th": [
+      "Mikä on tärkeää",
+      "Tyypilliset AI-pöytäkirjasovellukset",
+      "Pöytäkirja AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Aloittamisen/nauhoittamisen vaiva",
+        "Useita napautuksia, sekavat tilat",
+        "Yksi napautus nauhoittaa. Yksi napautus historiaan."
+      ],
+      [
+        "Tulosteen luettavuus",
+        "Tekstiseinä, tekoälymäisiä kappaleita",
+        "Jäsennelty, silmäiltävä, toimintakeskeinen"
+      ],
+      [
+        "Muodot per kokous",
+        "Yksi yleinen malli",
+        "Omat muodot (Myynti, 1-on-1 jne.)"
+      ],
+      [
+        "Seuranta",
+        "Kopioi/liitä muihin työkaluihin",
+        "Sisäänrakennettu Projekti (kuka/milloin/mitä) & Strategia"
+      ],
+      [
+        "Hinnoittelumalli",
+        "Vain tilaus (usein kallis)",
+        "Joustava: 1,99 $ kokeilu / Vanhentumattomat paketit / Rajoittamaton tilaus"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Huomautukset",
-    "items": ["Verkko ja laite voivat vaikuttaa laatuun", "Ominaisuudet voivat vaihdella paketin mukaan"],
-    "foot": "Kokeile Pöytäkirja AI:ta iPhonessa jo tänään."
+  "faq": {
+    "h2": "UKK — Rehelliset vastaukset",
+    "items": [
+      {
+        "q": "Onko nauhoitusajalla rajoitusta?",
+        "a": "Käytettävissä oleva aikasi riippuu paketistasi. Aikapaketeilla rajasi on jäljellä olevat minuutit (ne eivät vanhene!). Tilauksella sinulla on rajoittamaton käyttöoikeus."
+      },
+      {
+        "q": "Toimiiko se offline-tilassa?",
+        "a": "Kyllä, voit nauhoittaa offline-tilassa. Sovellus synkronoi ja käsittelee pöytäkirjat, kun olet taas online-tilassa. Ominaisuudet voivat olla rajoitettuja, kunnes muodostat yhteyden uudelleen."
+      },
+      {
+        "q": "Onko Pöytäkirja AI vain iPhonessa?",
+        "a": "Vaikka tämä arvostelu keskittyy iPhone-sovellukseen, saatavilla on myös verkkoversio. Rakastamme vain iPhone-sovellusta, koska se on niin nopea ja aina mukanasi."
+      },
+      {
+        "q": "Miten hinnoittelu eroaa muista sovelluksista?",
+        "a": "Useimmat sovellukset tarjoavat *vain* kuukausi- tai vuositilauksia. Pöytäkirja AI on erilainen. Tarjoamme sen *lisäksi* <strong>vanhentumattomia aikapaketteja</strong>. Tämä on täydellistä, jos sinulla ei ole kokouksia joka päivä. Voit aloittaa <strong>1,99 $ kokeilupaketilla</strong> päättääksesi ilman suurta sitoumusta."
+      },
+      {
+        "q": "Saanko siistejä, jaettavia tulosteita?",
+        "a": "Ehdottomasti. Tulosteet on suunniteltu jaettaviksi, korostaen päätöksiä, omistajia ja päivämääriä. Tämä on se, mikä auttaa viemään työtä eteenpäin."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Opas", "category": "Sovellussuositus" },
-  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" },
-  "brand": "Pöytäkirja AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Pöytäkirja AI -iPhone-sovelluksen päänäyttö, joka näyttää yhden napautuksen nauhoituksen",
+      "caption": "Päänäyttö — aloita nauhoitus vain napauttamalla. Ei sotkua."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Esimerkki siisteistä, luettavista pöytäkirjoista Pöytäkirja AI:lla",
+      "caption": "Luettavat pöytäkirjat — päätökset ja toimenpiteet ovat selkeitä."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Pöytäkirja AI -kokousmuodon valintanäyttö",
+      "caption": "Valitse oikea muoto kokouksellesi."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Julkaistu",
+    "type": "Opas",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Avaa selaimessa",
+    "downloadIOS": "Lataa iOS-sovellus"
+  }
 }

@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Prečo odporúčame minutes-AI aplikáciu pre iPhone (2025)",
-    "description": "5 priamych dôvodov: jednoduché UI, čitateľné/akčné zápisy, formáty podľa typu stretnutia, zabudovaný follow-through a flexibilné ceny. Vyskúšajte AI Zápisnica na iPhone.",
-    "ogTitle": "Náš výber: minutes-AI pre iPhone",
-    "ogDescription": "Nahrávanie jedným ťuknutím, výstupy vedúce k ďalším krokom, inteligentné formáty, in-app follow-through a ceny podľa používania. AI Zápisnica na iPhone.",
+    "title": "(2025) Prečo odporúčame aplikáciu AI Zápisnica pre iPhone na zápisnice zo stretnutí",
+    "description": "Hľadáte najlepšiu AI aplikáciu na zápisnice pre iPhone? Tu je naša úprimná recenzia. AI Zápisnica je jednoduchá, čitateľná a na akciu zameraná aplikácia s neuveriteľne flexibilným cenovým modelom.",
+    "ogTitle": "Aplikácia AI Zápisnica pre iPhone — Naše úprimné odporúčanie (2025)",
+    "ogDescription": "Hľadáte 'odporúčanie AI aplikácie na zápisnice' alebo 'ceny AI aplikácií na zápisnice'? Táto príručka vysvetľuje, prečo je aplikácia AI Zápisnica pre iPhone našou top voľbou vďaka svojim funkciám a férovej cene.",
     "ld": {
-      "headline": "Prečo je minutes-AI pre iPhone naším odporúčaním",
-      "description": "Nákupný sprievodca k AI Zápisnica: rýchle použitie, jasné výstupy, prispôsobené formáty, kroky po stretnutí a férové ceny."
+      "headline": "Prečo odporúčame aplikáciu AI Zápisnica pre iPhone",
+      "description": "Našich 5 kľúčových dôvodov: Super-jednoduché používateľské rozhranie, skutočne čitateľné výstupy, inteligentné formáty stretnutí, vstavané sledovanie úloh a flexibilný cenový model, ktorý vyhovuje každému používateľovi."
     }
   },
-  "aria": { "home": "AI Zápisnica Domov" },
-  "nav": { "blog": "Blog", "recommend": "Odporúčanie" },
+  "aria": {
+    "home": "AI Zápisnica Domov"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Prečo AI Zápisnica pre iPhone"
+  },
   "hero": {
-    "kicker": "Nákupný sprievodca",
-    "h1": "Prečo odporúčame minutes-AI pre iPhone",
-    "tagline": "Vytvorené pre vyhľadávací zámer: najlepšia minutes-AI pre iPhone a ako obstojí cenou — bez omáčok."
+    "kicker": "Náš sprievodca nákupom 2025",
+    "h1": "Prečo je aplikácia AI Zápisnica pre iPhone našou najlepšou voľbou pre zápisnice zo stretnutí (2025)",
+    "tagline": "Ak googlujete „odporúčaná AI aplikácia na zápisnice“ alebo „ceny AI aplikácií na zápisnice“, ste na správnom mieste. Táto aplikácia je vytvorená na rýchle nahrávanie, generovanie čistých zápisníc a pomoc vám *skutočne* dokončiť prácu."
+  },
+  "lead": {
+    "p1": "Aplikácie na písanie zápisníc poháňané AI sú v roku 2025 všade. Prečo teda stále odporúčame AI Zápisnica pre iPhone? Vynecháme humbuk a dáme vám päť priamych, praktických dôvodov."
   },
   "reasons": {
-    "h2": "Päť priamych dôvodov",
+    "h2": "5 dôvodov, prečo odporúčame aplikáciu AI Zápisnica pre iPhone",
     "items": [
-      "Nahrávanie jedným ťuknutím bez trenia",
-      "Čitateľné zápisy, ktoré skutočne vedú k ďalším krokom",
-      "Formáty podľa stretnutia: Všeobecný, Obchodný, 1-na-1, Prezentácia, Brainstorm, Pohovor",
-      "Follow-through pre Project & Strategy priamo v aplikácii",
-      "Flexibilné ceny: predplatné a neexpirujúce balíčky času"
+      {
+        "t": "1) Smiešne jednoduché UI — Nulové hádanie",
+        "p": "Žiadne mätúce menu. Jedno ťuknutie na nahrávanie. Jedno ťuknutie na zobrazenie minulých zápisníc. To je všetko. Nemali by ste potrebovať manuál len na robenie poznámok.",
+        "imgAlt": "Hlavná obrazovka AI Zápisnica zobrazujúca nahrávanie jedným ťuknutím",
+        "caption": "Štart jedným ťuknutím, história jedným ťuknutím. Žiadna krivka učenia."
+      },
+      {
+        "t": "2) Čitateľnosť a skutočná hodnota (Nie AI vata)",
+        "p": "Toto nie je len stena textu generovaného AI. Aplikácia formátuje všetko tak, aby ste mohli prejsť priamo k rozhodnutiam a ďalším krokom. Je optimalizovaná pre akciu.",
+        "imgAlt": "Príklad čistých, čitateľných zápisníc z AI Zápisnica",
+        "caption": "Rozhodnutia sú zreteľné. Vlastníci a termíny sú jasné vďaka dizajnu."
+      },
+      {
+        "t": "3) Inteligentné formáty pre rôzne stretnutia",
+        "p": "Stretnutie 1 na 1 je iné ako brainstorming. AI Zápisnica to chápe. Môžete si vybrať formát (Všeobecné, Predaj, 1 na 1, Prezentácia atď.), aby ste získali najlepší možný súhrn pre daný špecifický typ stretnutia.",
+        "imgAlt": "Obrazovka výberu formátu stretnutia v AI Zápisnica",
+        "caption": "Vyberte si správny formát pre správne stretnutie."
+      },
+      {
+        "t": "4) Kroky po stretnutí sú vstavané",
+        "p": "AI Zápisnica nekončí len pri nahrávaní. Stlačte „Projekt“ a okamžite uvidíte, „kto čo robí a dokedy“. Stlačte „Stratégia“, aby najnovšia AI (ChatGPT-5 & Gemini 2.5 Pro) navrhla konkrétne ďalšie kroky na základe vašej konverzácie.",
+        "note": "Chcete sa o Stratégii dozvedieť viac? Pozrite si článok nižšie."
+      },
+      {
+        "t": "5) Inteligentné ceny, ktoré zodpovedajú tomu, ako *skutočne* pracujete",
+        "p": "Toto je obrovská vec. Nie každý potrebuje *ďalšie* mesačné predplatné. Ak máte stretnutia celý deň, **Neobmedzené predplatné** je skvelé. Ale ak máte stretnutia len občas, môžete si kúpiť **Časové balíky, ktoré nevypršia**. Môžete dokonca začať s **balíkom 120 minút len za 1,99 $**, aby ste si to vyskúšali.",
+        "note": "Úplný cenník rozoberáme v samostatnej sekcii nižšie."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Stratégia: Premeňte zápisnice na činy",
+    "p1": "Funkcia „Stratégia“ vezme kontext vášho stretnutia a navrhne jasné akčné plány pomocou špičkových modelov AI. Menej hádania, viac konkrétnych krokov, ktoré môžete prideliť.",
+    "linkText": "Prečítajte si podrobnú analýzu Stratégie"
+  },
   "pricing": {
-    "h2": "O cenách",
-    "p1": "Denní používatelia volia predplatné. Príležitostní volia neexpirujúce balíčky času.",
-    "p2": "K dispozícii je aj lacný 120-minútový trial na overenie vhodnosti pred záväzkom."
+    "h2": "Detailný pohľad na ceny aplikácie AI Zápisnica",
+    "lead": "Tu je najväčší problém väčšiny AI nástrojov: nútia vás do mesačného predplatného typu „jedna veľkosť pre všetkých“. Ceny AI Zápisnica sú iné. Sú navrhnuté tak, aby zodpovedali frekvencii vašich stretnutí, takže platíte len za to, čo skutočne potrebujete.",
+    "bullets": [
+      "<strong>Perfektné vyskúšanie (1,99 $):</strong> Nie ste si istí? Stačí si kúpiť <strong>Časový balík 120 minút za 1,99 $</strong>. Je to lacné, jednoduché a nemá žiadny dátum exspirácie.",
+      "<strong>Pre občasných používateľov (Časové balíky):</strong> Kúpte si minúty, ktoré <strong>NIKDY nevypršia</strong>. Toto je ideálne pre freelancerov alebo príležitostných používateľov. Získajte <strong>1200 minút len za 11,99 $</strong>.",
+      "<strong>Pre náročných používateľov (Predplatné):</strong> Zvoľte neobmedzené. Toto je najlepšia hodnota pre tímy a denné stretnutia. Vyberte si <strong>16,99 $/mesiac</strong> alebo ušetrite viac s <strong>149,99 $/rok</strong>."
+    ],
+    "tableNote": "Ceny a dostupnosť sa môžu líšiť v závislosti od regiónu/obchodu. Aktuálne podrobnosti nájdete v hlavnom článku o cenách.",
+    "linkText": "Pozrite si kompletný cenník"
   },
-  "image": { "alt": "AI Zápisnica na iPhone", "caption": "AI Zápisnica UI pre iPhone." },
-  "steps": {
-    "h2": "Začnite na iPhone",
-    "items": ["Stiahnite aplikáciu", "Ťuknite raz pre nahrávanie", "Vyberte správny formát", "Po stretnutí vytvorte Project/Strategy"],
-    "note": "Dĺžka stretnutia závisí od vášho plánu a zostávajúceho zostatku."
+  "compare": {
+    "h2": "Rýchle porovnanie",
+    "th": [
+      "Na čom záleží",
+      "Typické AI aplikácie na zápisnice",
+      "AI Zápisnica (iPhone)"
+    ],
+    "rows": [
+      [
+        "Náročnosť spustenia/nahrávania",
+        "Viacero ťuknutí, mätúce režimy",
+        "Jedno ťuknutie na nahrávanie. Jedno ťuknutie do histórie."
+      ],
+      [
+        "Čitateľnosť výstupu",
+        "Stena textu, odseky v štýle AI",
+        "Štruktúrované, prehľadné, zamerané na akciu"
+      ],
+      [
+        "Formáty podľa stretnutia",
+        "Jedna všeobecná šablóna",
+        "Špecializované formáty (Predaj, 1 na 1 atď.)"
+      ],
+      [
+        "Následné kroky",
+        "Kopírovanie/vkladanie do iných nástrojov",
+        "Vstavaný Projekt (kto/kedy/čo) a Stratégia"
+      ],
+      [
+        "Cenový model",
+        "Len predplatné (často drahé)",
+        "Flexibilné: 1,99 $ skúška / Balíky bez exspirácie / Neobmedzené predplatné"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Poznámky",
-    "items": ["Sieť a zariadenie môžu ovplyvniť kvalitu", "Funkcie sa môžu líšiť podľa plánu"],
-    "foot": "Vyskúšajte AI Zápisnica na iPhone ešte dnes."
+  "faq": {
+    "h2": "FAQ — Úprimné odpovede",
+    "items": [
+      {
+        "q": "Existuje časový limit nahrávania?",
+        "a": "Dostupný čas závisí od vášho plánu. S Časovými balíkmi je váš limit počet minút, ktoré vám zostali (a tie nevypršia!). S Predplatným máte neobmedzené využitie."
+      },
+      {
+        "q": "Funguje to offline?",
+        "a": "Áno, môžete nahrávať offline. Aplikácia synchronizuje a spracuje zápisnice, keď budete opäť online. Funkcie môžu byť obmedzené, kým sa znova nepripojíte."
+      },
+      {
+        "q": "Je AI Zápisnica dostupná len na iPhone?",
+        "a": "Hoci sa táto recenzia zameriava na aplikáciu pre iPhone, existuje aj webová verzia. My jednoducho milujeme aplikáciu pre iPhone, pretože je taká rýchla a vždy s vami."
+      },
+      {
+        "q": "Ako sa ceny líšia od iných aplikácií?",
+        "a": "Väčšina aplikácií ponúka *len* mesačné alebo ročné predplatné. AI Zápisnica je iná. Ponúkame to *plus* <strong>Časové balíky bez dátumu exspirácie</strong>. To je ideálne, ak nemáte stretnutia každý deň. Môžete začať so <strong>skúšobným balíkom za 1,99 $</strong>, aby ste sa rozhodli bez veľkého záväzku."
+      },
+      {
+        "q": "Môžem získať čisté, zdieľateľné výstupy?",
+        "a": "Absolútne. Výstupy sú navrhnuté na zdieľanie, pričom zdôrazňujú rozhodnutia, zodpovedných a dátumy. To je to, čo pomáha posúvať prácu vpred."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publikované", "type": "Sprievodca", "category": "Odporúčanie aplikácie" },
-  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Stiahnuť iOS aplikáciu" },
-  "brand": "AI Zápisnica"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Hlavná obrazovka AI Zápisnica na iPhone zobrazujúca nahrávanie jedným ťuknutím",
+      "caption": "Hlavná obrazovka — stačí ťuknúť a začať nahrávať. Žiadny neporiadok."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Príklad čistých, čitateľných zápisníc z AI Zápisnica",
+      "caption": "Čitateľné zápisnice — rozhodnutia a akčné body sú jasné."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Obrazovka výberu formátu stretnutia v AI Zápisnica",
+      "caption": "Vyberte si správny formát pre vaše stretnutie."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikované",
+    "type": "Sprievodca",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Otvoriť v prehliadači",
+    "downloadIOS": "Stiahnuť iOS aplikáciu"
+  }
 }

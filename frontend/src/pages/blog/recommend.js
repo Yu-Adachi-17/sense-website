@@ -11,155 +11,157 @@ import HomeIcon from "../homeIcon";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ---------- Inline English fallback (used when i18n returns keys) ---------- */
+/* ---------- Inline English fallback (REVISED) ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "(2025) Why we recommend the Minutes.AI iPhone app for meeting minutes",
+    title: "(2025) Why We Recommend the Minutes.AI iPhone App for Meeting Minutes",
     description:
-      "Looking for an iPhone meeting-minutes AI app? Here’s the blunt truth: Minutes.AI is a straight-to-the-point, readable, action-oriented minutes app with flexible pricing.",
-    ogTitle: "Minutes.AI iPhone app — our no-BS recommendation",
+      "Looking for the best iPhone AI minutes app? Here’s our honest review. Minutes.AI is a simple, readable, and action-oriented app with an incredibly flexible pricing model.",
+    ogTitle: "Minutes.AI iPhone App — Our Honest Recommendation (2025)",
     ogDescription:
-      "Stop wading through fluff. If you’re searching 'AI minutes app recommendation' or 'AI minutes app pricing', this guide explains why the Minutes.AI iPhone app is the pick.",
+      "Searching 'AI minutes app recommendation' or 'AI minutes app pricing'? This guide explains why the Minutes.AI iPhone app is our top pick for its features and fair price.",
     ld: {
-      headline: "Why we recommend the Minutes.AI iPhone app",
+      headline: "Why We Recommend the Minutes.AI iPhone App",
       description:
-        "Five direct reasons: radically simple UI, readable/actionable outputs, format per meeting type, post-meeting actions (Project/Strategy), and sane, flexible pricing.",
+        "Our 5 key reasons: A super-simple UI, truly readable outputs, smart meeting formats, built-in action tracking, and a flexible pricing model that fits any user.",
     },
   },
   aria: { home: "Minutes.AI Home" },
   nav: { blog: "Blog", recommend: "Why Minutes.AI for iPhone" },
 
   hero: {
-    kicker: "Buyer's Guide (No-BS)",
-    h1: "Why the Minutes.AI iPhone app is our top pick for meeting minutes (2025)",
+    kicker: "Our 2025 Buyer's Guide",
+    h1: "Why the Minutes.AI iPhone App is Our Top Pick for Meeting Minutes (2025)",
     tagline:
-      "If you’re googling “meeting-minutes AI app recommended” or “meeting-minutes AI app pricing,” here’s the straight talk: this app is built to record fast, generate clean minutes, and drive next actions.",
+      "If you’re googling “AI minutes app recommended” or “AI minutes app pricing,” you’re in the right place. This app is built to record fast, generate clean minutes, and help you *actually* get work done.",
   },
 
   lead: {
     p1:
-      "AI minutes apps are everywhere now. Here’s why we still recommend Minutes.AI on iPhone. We’ll be unapologetically direct and keep it to five reasons.",
+      "AI-powered minute-taking apps are everywhere in 2025. So why do we still recommend Minutes.AI for the iPhone? We'll skip the hype and give you five direct, practical reasons.",
   },
 
   reasons: {
-    h2: "5 reasons we recommend the Minutes.AI iPhone app",
+    h2: "5 Reasons We Recommend the Minutes.AI iPhone App",
     items: [
       {
-        t: "1) Ridiculously simple UI — zero thinking to start",
+        t: "1) A Ridiculously Simple UI — Zero Guesswork",
         p:
-          "No labyrinth. One tap to record. One tap to see previous minutes. That’s it. People shouldn’t need a manual to take minutes.",
-        imgAlt: "Minutes.AI main screen with one-tap recording",
-        caption: "One-tap start, one-tap history. Learn nothing, ship minutes.",
+          "No confusing menus. One tap to record. One tap to see your past minutes. That's it. You shouldn't need a manual just to take notes.",
+        imgAlt: "Minutes.AI main screen showing one-tap recording",
+        caption: "One-tap start, one-tap history. No learning curve.",
       },
       {
-        t: "2) Readability and real “value” over AI fluff",
+        t: "2) Readability & Real Value (Not AI Fluff)",
         p:
-          "It’s not “AI-ish” noise. Headings, emphasis, and structure are tuned so readers can jump straight to decisions and next steps. It’s optimized for action, not just text.",
-        imgAlt: "Readable minutes emphasizing decisions and actions",
-        caption: "Decisions pop. Owners and deadlines are obvious by design.",
+          "This isn't just a wall of AI-generated text. The app formats everything so you can jump straight to decisions and next steps. It’s optimized for action.",
+        imgAlt: "Example of clean, readable minutes from Minutes.AI",
+        caption: "Decisions pop. Owners and deadlines are clear by design.",
       },
       {
-        t: "3) Pick the best format per meeting",
+        t: "3) Smart Formats for Different Meetings",
         p:
-          "General meeting, negotiation/sales, 1-on-1, presentation, brainstorm, interview… Each format is customized to how that meeting actually works in the real world.",
-        imgAlt: "Format selection: general, negotiation, 1-on-1, presentation, brainstorm, interview",
-        caption: "Format matters. Structure changes how teams behave.",
+          "A 1-on-1 is different from a brainstorm. Minutes.AI gets this. You can choose a format (General, Sales, 1-on-1, Presentation, etc.) to get the best possible summary for that specific meeting type.",
+        imgAlt: "Minutes.AI meeting format selection screen",
+        caption: "Choose the right format for the right meeting.",
       },
       {
-        t: "4) Post-meeting actions are built-in (Project & Strategy)",
+        t: "4) Post-Meeting Actions Are Built-In",
         p:
-          "Press “Project” to instantly output “who does what by when,” and keep it visible inside the app. Press “Strategy” to have the latest AI (ChatGPT-5 & Gemini 2.5 Pro) propose concrete next moves based on your meeting.",
+          "Minutes.AI doesn't just stop at recording. Hit “Project” to instantly see “who does what by when.” Hit “Strategy” to have the latest AI (ChatGPT-5 & Gemini 2.5 Pro) suggest concrete next steps based on your conversation.",
         note: "Want a deeper dive on Strategy? See the article below.",
       },
       {
-        t: "5) Pricing that actually fits usage (including time packs)",
+        t: "5) Smart Pricing That Fits How You *Actually* Work",
         p:
-          "Not everyone needs another monthly subscription. Minutes.AI lets daily power users pick Unlimited, and light users buy non-expiring time. Trial is just 120 min for $1.99 — cheap enough to judge for yourself.",
-        note: "Full details and math below.",
+          "This is a huge one. Not everyone needs *another* monthly subscription. If you have meetings all day, the **Unlimited Subscription** is great. But if you only have occasional meetings, you can buy **non-expiring Time Packs**. You can even start with a **120-minute pack for just $1.99** to try it out.",
+        note: "We break down the full price list in its own section below.",
       },
     ],
   },
 
   strategy: {
-    h2: "Strategy: turn minutes into motion",
+    h2: "Strategy: Turn Minutes Into Motion",
     p1:
-      "“Strategy” takes your meeting context and proposes next action plans with top-tier models. Less hand-waving, more concrete steps you can assign.",
-    linkText: "Read the Strategy deep-dive",
+      "The “Strategy” feature takes your meeting's context and proposes clear action plans using top-tier AI models. Less guesswork, more concrete steps you can assign.",
+    linkText: "Read the Strategy Deep-Dive",
   },
 
+  // --- THIS SECTION IS HEAVILY REVISED FOR 'PRICE' SEO ---
   pricing: {
-    h2: "Pricing that won’t fight you",
+    h2: "A Detailed Look at Minutes.AI App Pricing",
     lead:
-      "Different teams have different rhythms. Minutes.AI doesn’t force you into one payment pattern.",
+      "Here’s the biggest problem with most AI tools: they force you into a 'one-size-fits-all' monthly subscription. Minutes.AI's pricing is different. It’s designed to match your meeting frequency, so you only pay for what you actually need.",
     bullets: [
-      "Trial: 120 minutes for $1.99 — the honest ‘taste test’.",
-      "Time Packs: non-expiring. Use when you actually meet.",
-      "Unlimited Subscription: for daily/weekly heavy users.",
+      "**The Perfect Trial ($1.99):** Not sure? Just buy the **120-minute Time Pack for $1.99**. It's cheap, simple, and has no expiry.",
+      "**For Occasional Users (Time Packs):** Buy minutes that **NEVER expire**. This is perfect for freelancers or light users. Get **1200 minutes for just $11.99**.",
+      "**For Heavy Users (Subscription):** Go unlimited. This is the best value for teams and daily meetings. Choose **$16.99/month** or save big with **$149.99/year**.",
     ],
     tableNote:
-      "Prices and availability may vary by region/store. See the Pricing article for up-to-date details.",
-    linkText: "See full Pricing breakdown",
+      "Prices and availability may vary by region/store. See the main Pricing article for the most up-to-date details.",
+    linkText: "See Full Pricing Breakdown",
   },
+  // --- END OF REVISION ---
 
   compare: {
-    h2: "Quick comparison snapshot",
-    th: ["What matters", "Typical AI minutes apps", "Minutes.AI (iPhone)"],
+    h2: "Quick Comparison Snapshot",
+    th: ["What Matters", "Typical AI Minutes Apps", "Minutes.AI (iPhone)"],
     rows: [
       [
-        "Start/record friction",
-        "Multiple taps, mode confusion",
+        "Start/Record Friction",
+        "Multiple taps, confusing modes",
         "One tap to record. One tap to history.",
       ],
       [
-        "Output readability",
-        "Verbose, AI-ish paragraphs",
-        "Structured, emphasized, action-first",
+        "Output Readability",
+        "Wall of text, AI-ish paragraphs",
+        "Structured, scannable, action-first",
       ],
       [
-        "Per-meeting format",
+        "Meeting Formats",
         "One generic template",
-        "Dedicated formats: general/sales/1-on-1/etc.",
+        "Dedicated formats (Sales, 1-on-1, etc.)",
       ],
       [
-        "Post-meeting follow-through",
-        "Copy/paste into task tools",
-        "Project (who/when/what) & Strategy (next moves)",
+        "Follow-Through",
+        "Copy/paste into other tools",
+        "Built-in Project (who/when/what) & Strategy",
       ],
       [
-        "Pricing fit",
-        "Subscription only",
-        "Trial $1.99 / Time Packs / Unlimited",
+        "Pricing Model",
+        "Subscription-only (often expensive)",
+        "Flexible: $1.99 Trial, Non-expiring Packs, or Unlimited Sub",
       ],
     ],
   },
 
   faq: {
-    h2: "FAQ — the blunt answers",
+    h2: "FAQ — The Honest Answers",
     items: [
       {
         q: "Is there a recording time limit?",
         a:
-          "Your available time depends on plan/quota. With Time Packs and Unlimited, you can record according to your remaining balance or plan limits.",
+          "Your available time depends on your plan. With Time Packs, your limit is the minutes you have left (they don't expire!). With a Subscription, you have unlimited usage.",
       },
       {
         q: "Will it work offline?",
         a:
-          "You can record offline and sync when back online. Generation quality/features may vary until the device reconnects.",
+          "Yes, you can record offline. The app will sync and process the minutes once you're back online. Features may be limited until you reconnect.",
       },
       {
         q: "Is Minutes.AI only on iPhone?",
         a:
-          "No. There’s a web version and broader support. But iPhone is our friction-free, always-with-you choice for fast capture.",
+          "While this review focuses on the iPhone app, there is also a web version. We just love the iPhone app because it's so fast and always with you.",
       },
       {
-        q: "How is pricing different from others?",
+        q: "How is the pricing different from other apps?",
         a:
-          "Most apps push monthly/annual only. We also offer non-expiring time — great if you meet less frequently — plus a cheap trial to decide without commitment.",
+          "Most apps *only* offer monthly or annual subscriptions. Minutes.AI is different. We offer that *plus* **non-expiring Time Packs**. This is perfect if you don't have meetings every day. You can start with a **$1.99 trial pack** to decide without a big commitment.",
       },
       {
         q: "Can I get clean, shareable outputs?",
         a:
-          "Yes. Minutes emphasize decisions, owners, and dates. That’s the difference between reading minutes and actually moving work forward.",
+          "Absolutely. The outputs are designed to be shared, emphasizing decisions, owners, and dates. This is what helps move work forward.",
       },
     ],
   },
@@ -167,24 +169,25 @@ const EN_FALLBACK = {
   images: {
     main: {
       src: "/images/mainscreen.png",
-      alt: "Minutes.AI iPhone main screen",
-      caption: "Main screen — start recording instantly.",
+      alt: "Minutes.AI iPhone main screen showing one-tap recording",
+      caption: "Main screen — just tap to start recording. No clutter.",
     },
     minutes: {
       src: "/images/minutesimage.png",
-      alt: "Minutes.AI generated minutes example",
-      caption: "Readable minutes — decisions and next steps are obvious.",
+      alt: "Example of clean, readable minutes from Minutes.AI",
+      caption: "Readable minutes — decisions and action items are clear.",
     },
     formats: {
       src: "/images/formats.png",
-      alt: "Minutes.AI meeting formats",
-      caption: "Pick the right format for the meeting, not the other way around.",
+      alt: "Minutes.AI meeting format selection screen",
+      caption: "Choose the right format for your meeting.",
     },
   },
 
   meta: { h2: "Meta", published: "Published", type: "Guide", category: "iPhone" },
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
 };
+/* ---------- end of fallback block ---------- */
 
 /* ---------- tiny helpers ---------- */
 const getPath = (obj, path) =>
@@ -419,6 +422,7 @@ export default function BlogRecommend() {
             <div className="mt-8 space-y-3">
               <h3 className="text-xl font-semibold">{reasons[4]?.t}</h3>
               <p className="text-indigo-100/90">{reasons[4]?.p}</p>
+              <div className="mt-2 text-xs text-indigo-200/80">{reasons[4]?.note}</div>
             </div>
           </SectionCard>
 
@@ -437,9 +441,10 @@ export default function BlogRecommend() {
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
             <p className="mt-3 text-indigo-100/90">{txs("pricing.lead")}</p>
-            <ul className="mt-4 space-y-2 text-indigo-100/90 list-disc ml-5">
+            <ul className="mt-4 space-y-3 text-indigo-100/90 list-disc ml-5">
               {txa("pricing.bullets").map((b, i) => (
-                <li key={i}>{b}</li>
+                // Using dangerouslySetInnerHTML to render the bold tags
+                <li key={i} dangerouslySetInnerHTML={{ __html: b }} />
               ))}
             </ul>
             <p className="mt-3 text-xs text-indigo-200/70">{txs("pricing.tableNote")}</p>
@@ -486,7 +491,8 @@ export default function BlogRecommend() {
               {faq.map((f, i) => (
                 <div key={i}>
                   <h3 className="text-base font-semibold">{f.q}</h3>
-                  <p className="mt-1 text-indigo-100/90">{f.a}</p>
+                  {/* Using dangerouslySetInnerHTML to render the bold tags in the answer */}
+                  <p className="mt-1 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: f.a }} />
                 </div>
               ))}
             </div>
@@ -518,7 +524,7 @@ export default function BlogRecommend() {
               {txs("cta.openBrowser")}
             </Link>
             <a
-              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
+              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%82ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"

@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Warum wir die iPhone-App für KI-Protokolle empfehlen (2025)",
-    "description": "5 direkte Gründe: radikal einfache UI, lesbare & umsetzbare Protokolle, Formate je Meetingtyp, Follow-up im Produkt und flexible Preise. Probiere Protokoll KI auf dem iPhone.",
-    "ogTitle": "Empfehlung: iPhone-App für KI-Sitzungsprotokolle",
-    "ogDescription": "Einfache Bedienung, klare Ergebnisse, smarte Formate, integrierte Nachverfolgung, faire Preise. Protokoll KI auf iPhone.",
+    "title": "(2025) Warum wir die Protokoll KI iPhone-App für Meeting-Protokolle empfehlen",
+    "description": "Suchen Sie die beste iPhone KI-App für Protokolle? Hier ist unsere ehrliche Bewertung. Protokoll KI ist eine einfache, lesbare und handlungsorientierte App mit einem unglaublich flexiblen Preismodell.",
+    "ogTitle": "Protokoll KI iPhone App — Unsere ehrliche Empfehlung (2025)",
+    "ogDescription": "Suchen Sie nach 'Empfehlung KI Protokoll App' oder 'Preise KI Protokoll App'? Dieser Leitfaden erklärt, warum die Protokoll KI iPhone-App aufgrund ihrer Funktionen und fairen Preise unsere erste Wahl ist.",
     "ld": {
-      "headline": "Warum die KI-Protokoll-App auf dem iPhone Sinn ergibt",
-      "description": "Kaufberatung zu Protokoll KI: einfache Nutzung, hochwertige Ausgaben, passende Meeting-Formate, Aktionen nach dem Meeting und flexible Tarife."
+      "headline": "Warum wir die Protokoll KI iPhone-App empfehlen",
+      "description": "Unsere 5 Hauptgründe: Eine super-einfache Benutzeroberfläche, wirklich lesbare Ergebnisse, intelligente Meeting-Formate, integriertes Aufgaben-Tracking und ein flexibles Preismodell, das zu jedem passt."
     }
   },
-  "aria": { "home": "Protokoll KI Startseite" },
-  "nav": { "blog": "Blog", "recommend": "Empfehlung" },
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Warum Protokoll KI für iPhone"
+  },
   "hero": {
-    "kicker": "Kaufberatung",
-    "h1": "Darum empfehlen wir die iPhone-App für KI-Protokolle",
-    "tagline": "Passend zur Suchintention: beste KI-Protokoll-App für iPhone & was sie kostet — ohne Umschweife."
+    "kicker": "Unser Kaufratgeber 2025",
+    "h1": "Warum die Protokoll KI iPhone-App unsere Top-Wahl für Meeting-Protokolle ist (2025)",
+    "tagline": "Wenn Sie nach „empfohlene KI Protokoll App“ oder „KI Protokoll App Preise“ googeln, sind Sie hier genau richtig. Diese App wurde entwickelt, um schnell aufzuzeichnen, saubere Protokolle zu erstellen und Ihnen zu helfen, Ihre Arbeit *tatsächlich* zu erledigen."
+  },
+  "lead": {
+    "p1": "KI-gestützte Protokoll-Apps gibt es 2025 wie Sand am Meer. Warum also empfehlen wir immer noch Protokoll KI für das iPhone? Wir überspringen den Hype und geben Ihnen fünf direkte, praktische Gründe."
   },
   "reasons": {
-    "h2": "Fünf direkte Gründe",
+    "h2": "5 Gründe, warum wir die Protokoll KI iPhone-App empfehlen",
     "items": [
-      "Ein-Tap-Aufnahme, null Hürden",
-      "Lesbare Protokolle, die echte Next-Actions treiben",
-      "Formate pro Meetingtyp: General, Sales, 1-on-1, Präsentation, Brainstorm, Interview",
-      "Projects & Strategy als Follow-up im Produkt",
-      "Flexible Preise: Abos und nicht verfallende Zeitpakete"
+      {
+        "t": "1) Eine lächerlich einfache Benutzeroberfläche — Null Rätselraten",
+        "p": "Keine verwirrenden Menüs. Ein Fingertipp zum Aufnehmen. Ein Fingertipp, um Ihre alten Protokolle zu sehen. Das ist alles. Sie sollten kein Handbuch brauchen, nur um Notizen zu machen.",
+        "imgAlt": "Protokoll KI Hauptbildschirm zeigt Aufnahme mit einem Fingertipp",
+        "caption": "Start mit einem Tipp, Verlauf mit einem Tipp. Keine Lernkurve."
+      },
+      {
+        "t": "2) Lesbarkeit & echter Mehrwert (Kein KI-Füllmaterial)",
+        "p": "Dies ist nicht nur eine Wand aus KI-generiertem Text. Die App formatiert alles so, dass Sie direkt zu Entscheidungen und nächsten Schritten springen können. Sie ist für die Umsetzung optimiert.",
+        "imgAlt": "Beispiel für saubere, lesbare Protokolle von Protokoll KI",
+        "caption": "Entscheidungen stechen hervor. Verantwortliche und Fristen sind klar ersichtlich."
+      },
+      {
+        "t": "3) Smarte Formate für verschiedene Meetings",
+        "p": "Ein 1-zu-1-Gespräch unterscheidet sich von einem Brainstorming. Protokoll KI versteht das. Sie können ein Format wählen (Allgemein, Verkauf, 1-zu-1, Präsentation usw.), um die bestmögliche Zusammenfassung für den jeweiligen Meeting-Typ zu erhalten.",
+        "imgAlt": "Protokoll KI Auswahlbildschirm für Meeting-Formate",
+        "caption": "Wählen Sie das richtige Format für das richtige Meeting."
+      },
+      {
+        "t": "4) Nachbereitungs-Aktionen sind integriert",
+        "p": "Protokoll KI hört nicht einfach bei der Aufnahme auf. Drücken Sie „Projekt“, um sofort zu sehen, „wer was bis wann macht“. Drücken Sie „Strategie“, damit die neueste KI (ChatGPT-5 & Gemini 2.5 Pro) basierend auf Ihrem Gespräch konkrete nächste Schritte vorschlägt.",
+        "note": "Möchten Sie mehr über Strategie erfahren? Lesen Sie den Artikel unten."
+      },
+      {
+        "t": "5) Smarte Preise, die zu Ihrer *tatsächlichen* Arbeitsweise passen",
+        "p": "Das ist ein riesiger Pluspunkt. Nicht jeder braucht *noch ein* monatliches Abonnement. Wenn Sie den ganzen Tag Meetings haben, ist das **Unbegrenzte Abonnement** großartig. Aber wenn Sie nur gelegentlich Meetings haben, können Sie **Zeitpakete kaufen, die nicht verfallen**. Sie können sogar mit einem **120-Minuten-Paket für nur 1,99 $** starten, um es auszuprobieren.",
+        "note": "Die vollständige Preisliste finden Sie in einem eigenen Abschnitt weiter unten."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategie: Protokolle in Maßnahmen umwandeln",
+    "p1": "Die „Strategie“-Funktion nutzt den Kontext Ihres Meetings und schlägt mithilfe von Top-KI-Modellen klare Aktionspläne vor. Weniger Rätselraten, mehr konkrete Schritte, die Sie zuweisen können.",
+    "linkText": "Lesen Sie mehr über die Strategie-Funktion"
+  },
   "pricing": {
-    "h2": "Zu den Preisen",
-    "p1": "Tägliche Nutzung? Abo. Gelegentlich? Zeitpakete ohne Verfall.",
-    "p2": "Trial: 120 Minuten zum kleinen Preis zum risikofreien Testen."
+    "h2": "Ein detaillierter Blick auf die Preise der Protokoll KI-App",
+    "lead": "Hier ist das größte Problem bei den meisten KI-Tools: Sie zwingen Sie in ein monatliches Abonnement nach dem Motto „Einheitsgröße für alle“. Die Preisgestaltung von Protokoll KI ist anders. Sie ist so konzipiert, dass sie zu Ihrer Meeting-Frequenz passt, sodass Sie nur für das bezahlen, was Sie tatsächlich benötigen.",
+    "bullets": [
+      "<strong>Der perfekte Test (1,99 $):</strong> Unsicher? Kaufen Sie einfach das <strong>120-Minuten-Zeitpaket für 1,99 $</strong>. Es ist günstig, einfach und hat kein Ablaufdatum.",
+      "<strong>Für Gelegenheitsnutzer (Zeitpakete):</strong> Kaufen Sie Minuten, die <strong>NIEMALS verfallen</strong>. Dies ist perfekt für Freiberufler oder Nutzer mit geringem Bedarf. Holen Sie sich <strong>1200 Minuten für nur 11,99 $</strong>.",
+      "<strong>Für Intensivnutzer (Abonnement):</strong> Holen Sie sich unbegrenzte Nutzung. Das ist der beste Wert für Teams und tägliche Meetings. Wählen Sie <strong>16,99 $/Monat</strong> oder sparen Sie kräftig mit <strong>149,99 $/Jahr</strong>."
+    ],
+    "tableNote": "Preise und Verfügbarkeit können je nach Region/Store variieren. Die aktuellsten Details finden Sie im Hauptartikel zu den Preisen.",
+    "linkText": "Alle Preisdetails anzeigen"
   },
-  "image": { "alt": "Protokoll KI auf iPhone", "caption": "Screenshot von Protokoll KI auf dem iPhone." },
-  "steps": {
-    "h2": "Start auf dem iPhone",
-    "items": ["App laden", "Mit einem Tap aufnehmen", "Passendes Format wählen", "Project/Strategy nach dem Meeting nutzen"],
-    "note": "Dauer richtet sich nach Tarif & Restguthaben."
+  "compare": {
+    "h2": "Schnellvergleich",
+    "th": [
+      "Worauf es ankommt",
+      "Typische KI-Protokoll-Apps",
+      "Protokoll KI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Aufwand für Start/Aufnahme",
+        "Mehrere Fingertipps, verwirrende Modi",
+        "Ein Tipp zum Aufnehmen. Ein Tipp zum Verlauf."
+      ],
+      [
+        "Lesbarkeit des Ergebnisses",
+        "Textwände, KI-lastige Absätze",
+        "Strukturiert, schnell erfassbar, handlungsorientiert"
+      ],
+      [
+        "Formate pro Meeting",
+        "Eine generische Vorlage",
+        "Dedizierte Formate (Verkauf, 1-zu-1 usw.)"
+      ],
+      [
+        "Nachbereitung",
+        "Kopieren/Einfügen in andere Tools",
+        "Integriert: Projekt (wer/wann/was) & Strategie"
+      ],
+      [
+        "Preismodell",
+        "Nur Abonnement (oft teuer)",
+        "Flexibel: 1,99 $ Test / Pakete ohne Ablaufdatum / Unbegrenztes Abo"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Hinweise",
-    "items": ["Qualität hängt von Netzwerk & Gerät ab", "Funktionsumfang je nach Tarif"],
-    "foot": "Teste Protokoll KI auf dem iPhone."
+  "faq": {
+    "h2": "FAQ — Die ehrlichen Antworten",
+    "items": [
+      {
+        "q": "Gibt es ein Zeitlimit für die Aufnahme?",
+        "a": "Ihre verfügbare Zeit hängt von Ihrem Plan ab. Bei Zeitpaketen ist Ihr Limit die Anzahl der Minuten, die Sie noch haben (und sie verfallen nicht!). Mit einem Abonnement haben Sie unbegrenzte Nutzung."
+      },
+      {
+        "q": "Funktioniert es offline?",
+        "a": "Ja, Sie können offline aufnehmen. Die App synchronisiert und verarbeitet die Protokolle, sobald Sie wieder online sind. Funktionen können eingeschränkt sein, bis Sie sich wieder verbinden."
+      },
+      {
+        "q": "Gibt es Protokoll KI nur für das iPhone?",
+        "a": "Obwohl sich diese Bewertung auf die iPhone-App konzentriert, gibt es auch eine Webversion. Wir lieben die iPhone-App einfach, weil sie so schnell und immer dabei ist."
+      },
+      {
+        "q": "Wie unterscheiden sich die Preise von anderen Apps?",
+        "a": "Die meisten Apps bieten *nur* monatliche oder jährliche Abonnements an. Protokoll KI ist anders. Wir bieten das *plus* <strong>Zeitpakete ohne Ablaufdatum</strong>. Das ist perfekt, wenn Sie nicht jeden Tag Meetings haben. Sie können mit einem <strong>Testpaket für 1,99 $</strong> beginnen, um sich ohne große Verpflichtung zu entscheiden."
+      },
+      {
+        "q": "Bekomme ich saubere, teilbare Ergebnisse?",
+        "a": "Absolut. Die Ergebnisse sind zum Teilen konzipiert und heben Entscheidungen, Verantwortliche und Daten hervor. Das ist es, was hilft, die Arbeit voranzubringen."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Guide", "category": "App-Empfehlung" },
-  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App laden" },
-  "brand": "Protokoll KI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Protokoll KI iPhone Hauptbildschirm zeigt Aufnahme mit einem Fingertipp",
+      "caption": "Hauptbildschirm — einfach tippen, um die Aufnahme zu starten. Kein Durcheinander."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Beispiel für saubere, lesbare Protokolle von Protokoll KI",
+      "caption": "Lesbare Protokolle — Entscheidungen und Aktionspunkte sind klar."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Protokoll KI Auswahlbildschirm für Meeting-Formate",
+      "caption": "Wählen Sie das richtige Format für Ihr Meeting."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Veröffentlicht",
+    "type": "Leitfaden",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Im Browser öffnen",
+    "downloadIOS": "iOS-App herunterladen"
+  }
 }

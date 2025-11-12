@@ -1,48 +1,163 @@
 {
   "seo": {
-    "title": "Proč doporučujeme iPhone aplikaci pro AI zápisy ze schůzek (2025)",
-    "description": "5 přímočarých důvodů: jednoduché UI, čitelné/akční zápisy, formáty podle typu schůzky, zabudovaný follow-through a flexibilní ceny. Vyzkoušejte Zápisník AI na iPhonu.",
-    "ogTitle": "Náš výběr: iPhone aplikace pro zápisy s AI",
-    "ogDescription": "Nahrávání jedním klepnutím, výstupy vedoucí k dalším krokům, chytré formáty, in-app follow-through a ceny podle používání. Zápisník AI na iPhone.",
+    "title": "(2025) Proč doporučujeme aplikaci Zápisník AI pro iPhone na zápisy ze schůzek",
+    "description": "Hledáte nejlepší AI aplikaci pro zápisy z jednání pro iPhone? Zde je naše upřímná recenze. Zápisník AI je jednoduchá, čitelná a akčně orientovaná aplikace s neuvěřitelně flexibilním cenovým modelem.",
+    "ogTitle": "Aplikace Zápisník AI pro iPhone — Naše upřímné doporučení (2025)",
+    "ogDescription": "Hledáte 'doporučení aplikace pro AI zápisy' nebo 'ceny aplikací pro AI zápisy'? Tento průvodce vysvětluje, proč je aplikace Zápisník AI pro iPhone naší volbou díky svým funkcím a férové ceně.",
     "ld": {
-      "headline": "Proč je iPhone aplikace Minutes-AI naše doporučení",
-      "description": "Nákupní průvodce k Zápisník AI: rychlé použití, jasné výstupy, přizpůsobené formáty, kroky po schůzce a férové ceny."
+      "headline": "Proč doporučujeme aplikaci Zápisník AI pro iPhone",
+      "description": "Našich 5 klíčových důvodů: Super jednoduché uživatelské rozhraní, skutečně čitelné výstupy, chytré formáty schůzek, vestavěné sledování úkolů a flexibilní cenový model, který vyhovuje každému uživateli."
     }
   },
-  "aria": { "home": "Zápisník AI Domů" },
-  "nav": { "blog": "Blog", "recommend": "Doporučení" },
+  "aria": {
+    "home": "Zápisník AI Domů"
+  },
+  "nav": {
+    "blog": "Blog",
+    "recommend": "Proč Zápisník AI pro iPhone"
+  },
   "hero": {
-    "kicker": "Nákupní průvodce",
-    "h1": "Proč doporučujeme iPhone aplikaci minutes-AI",
-    "tagline": "Postaveno pro vyhledávací záměr: nejlepší minutes-AI aplikace pro iPhone a jak si vede s cenami — bez omáčky."
+    "kicker": "Náš nákupní průvodce 2025",
+    "h1": "Proč je aplikace Zápisník AI pro iPhone naší nejlepší volbou pro zápisy ze schůzek (2025)",
+    "tagline": "Pokud googlujete „doporučená AI aplikace na zápisy“ nebo „ceny AI aplikací na zápisy“, jste na správném místě. Tato aplikace je vytvořena pro rychlé nahrávání, generování čistých zápisů a pomoc vám *skutečně* dokončit práci."
+  },
+  "lead": {
+    "p1": "Aplikace pro pořizování zápisů pomocí AI jsou v roce 2025 všude. Proč tedy stále doporučujeme Zápisník AI pro iPhone? Vynecháme humbuk a dáme vám pět přímých, praktických důvodů."
   },
   "reasons": {
-    "h2": "Pět jasných důvodů",
+    "h2": "5 důvodů, proč doporučujeme aplikaci Zápisník AI pro iPhone",
     "items": [
-      "Nahrávání jedním klepnutím bez tření",
-      "Čitelné zápisy, které skutečně vedou k dalším krokům",
-      "Formáty podle schůzky: Obecná, Obchodní, 1-na-1, Prezentace, Brainstorming, Pohovor",
-      "Follow-through na Projektech & Strategii přímo v aplikaci",
-      "Flexibilní ceny: předplatná a neexpirující balíčky času"
+      {
+        "t": "1) Směšně jednoduché UI — Žádné dohady",
+        "p": "Žádné matoucí nabídky. Jedno klepnutí pro nahrávání. Jedno klepnutí pro zobrazení minulých zápisů. To je vše. Neměli byste potřebovat manuál jen k pořizování poznámek.",
+        "imgAlt": "Hlavní obrazovka Zápisník AI zobrazující nahrávání jedním klepnutím",
+        "caption": "Start jedním klepnutím, historie jedním klepnutím. Není třeba se nic učit."
+      },
+      {
+        "t": "2) Čitelnost a skutečná hodnota (ne jen AI vata)",
+        "p": "Tohle není jen zeď textu vygenerovaného AI. Aplikace formátuje vše tak, abyste mohli přejít přímo k rozhodnutím a dalším krokům. Je optimalizována pro akci.",
+        "imgAlt": "Příklad čistých, čitelných zápisů z aplikace Zápisník AI",
+        "caption": "Rozhodnutí jsou jasná. Vlastníci a termíny jsou zřetelné."
+      },
+      {
+        "t": "3) Chytré formáty pro různé schůzky",
+        "p": "Setkání 1 na 1 se liší od brainstormingu. Zápisník AI to chápe. Můžete si vybrat formát (Obecný, Prodejní, 1 na 1, Prezentace atd.), abyste získali nejlepší možné shrnutí pro daný typ schůzky.",
+        "imgAlt": "Obrazovka výběru formátu schůzky v Zápisník AI",
+        "caption": "Vyberte správný formát pro správnou schůzku."
+      },
+      {
+        "t": "4) Následné kroky po schůzce jsou vestavěné",
+        "p": "Zápisník AI nekončí jen nahráváním. Stiskněte „Projekt“ a okamžitě uvidíte, „kdo, co a do kdy udělá“. Stiskněte „Strategie“ a nechte nejnovější AI (ChatGPT-5 & Gemini 2.5 Pro) navrhnout konkrétní další kroky na základě vaší konverzace.",
+        "note": "Chcete se o Strategii dozvědět více? Podívejte se na článek níže."
+      },
+      {
+        "t": "5) Chytré ceny, které odpovídají tomu, jak *skutečně* pracujete",
+        "p": "Tohle je obrovská věc. Ne každý potřebuje *další* měsíční předplatné. Pokud máte schůzky celý den, **Neomezené předplatné** je skvělé. Ale pokud máte schůzky jen občas, můžete si koupit **Časové balíčky**, které nevyprší. Můžete dokonce začít s **balíčkem 120 minut za pouhých 1,99 $**, abyste si to vyzkoušeli.",
+        "note": "Úplný ceník rozebíráme v samostatné sekci níže."
+      }
     ]
   },
+  "strategy": {
+    "h2": "Strategie: Přeměňte zápisy v činy",
+    "p1": "Funkce „Strategie“ vezme kontext vaší schůzky a navrhne jasné akční plány pomocí špičkových modelů AI. Méně dohadů, více konkrétních kroků, které můžete přiřadit.",
+    "linkText": "Přečtěte si podrobně o Strategii"
+  },
   "pricing": {
-    "h2": "O cenách",
-    "p1": "Denní uživatelé volí předplatné. Příležitostní volí neexpirující balíčky času.",
-    "p2": "Je tu i levný zkušební balíček 120 minut, abyste si ověřili vhodnost před závazkem."
+    "h2": "Detailní pohled na ceny aplikace Zápisník AI",
+    "lead": "Tady je největší problém většiny AI nástrojů: nutí vás do měsíčního předplatného „jedné velikosti pro všechny“. Ceny Zápisník AI jsou jiné. Jsou navrženy tak, aby odpovídaly frekvenci vašich schůzek, takže platíte jen za to, co skutečně potřebujete.",
+    "bullets": [
+      "<strong>Perfektní vyzkoušení (1,99 $):</strong> Nejste si jisti? Stačí si koupit <strong>Časový balíček 120 minut za 1,99 $</strong>. Je to levné, jednoduché a nemá žádné datum vypršení platnosti.",
+      "<strong>Pro občasné uživatele (Časové balíčky):</strong> Kupte si minuty, které <strong>NIKDY nevyprší</strong>. To je ideální pro freelancery nebo příležitostné uživatele. Získejte <strong>1200 minut za pouhých 11,99 $</strong>.",
+      "<strong>Pro náročné uživatele (Předplatné):</strong> Jděte do neomezeného. Toto je nejlepší hodnota pro týmy a každodenní schůzky. Vyberte si <strong>16,99 $/měsíc</strong> nebo ušetřete s <strong>149,99 $/rok</strong>."
+    ],
+    "tableNote": "Ceny a dostupnost se mohou lišit podle regionu/obchodu. Aktuální podrobnosti naleznete v hlavním článku o cenách.",
+    "linkText": "Zobrazit kompletní ceník"
   },
-  "image": { "alt": "Zápisník AI na iPhone", "caption": "UI Zápisník AI pro iPhone." },
-  "steps": {
-    "h2": "Začněte na iPhonu",
-    "items": ["Stáhněte aplikaci", "Klepněte jednou pro nahrávání", "Zvolte správný formát", "Po schůzce vytvořte Project/Strategy"],
-    "note": "Délka schůzky závisí na vašem plánu a zbývajícím zůstatku."
+  "compare": {
+    "h2": "Rychlé srovnání",
+    "th": [
+      "Co je důležité",
+      "Typické AI aplikace na zápisy",
+      "Zápisník AI (iPhone)"
+    ],
+    "rows": [
+      [
+        "Složitost spuštění/nahrávání",
+        "Více klepnutí, matoucí režimy",
+        "Jedno klepnutí pro nahrání. Jedno klepnutí pro historii."
+      ],
+      [
+        "Čitelnost výstupu",
+        "Zeď textu, odstavce plné „AI vaty“",
+        "Strukturované, přehledné, zaměřené na akci"
+      ],
+      [
+        "Formáty podle schůzky",
+        "Jedna obecná šablona",
+        "Speciální formáty (Prodej, 1 na 1 atd.)"
+      ],
+      [
+        "Následné kroky",
+        "Kopírování/vkládání do jiných nástrojů",
+        "Vestavěný Projekt (kdo/kdy/co) a Strategie"
+      ],
+      [
+        "Cenový model",
+        "Pouze předplatné (často drahé)",
+        "Flexibilní: 1,99 $ zkouška / Balíčky bez expirace / Neomezené předplatné"
+      ]
+    ]
   },
-  "notes": {
-    "h2": "Poznámky",
-    "items": ["Síť a zařízení mohou ovlivnit kvalitu", "Funkce se mohou lišit podle plánu"],
-    "foot": "Vyzkoušejte Zápisník AI na iPhone ještě dnes."
+  "faq": {
+    "h2": "FAQ — Upřímné odpovědi",
+    "items": [
+      {
+        "q": "Existuje časový limit pro nahrávání?",
+        "a": "Dostupný čas závisí na vašem plánu. S Časovými balíčky je váš limit počet minut, které vám zbývají (a ty nevyprší!). S Předplatným máte neomezené využití."
+      },
+      {
+        "q": "Funguje to offline?",
+        "a": "Ano, můžete nahrávat offline. Aplikace synchronizuje a zpracuje zápisy, jakmile budete opět online. Funkce mohou být omezeny, dokud se znovu nepřipojíte."
+      },
+      {
+        "q": "Je Zápisník AI pouze na iPhone?",
+        "a": "Ačkoliv se tato recenze zaměřuje na aplikaci pro iPhone, existuje také webová verze. My prostě milujeme aplikaci pro iPhone, protože je tak rychlá a vždy s vámi."
+      },
+      {
+        "q": "Jak se ceny liší od ostatních aplikací?",
+        "a": "Většina aplikací nabízí *pouze* měsíční nebo roční předplatné. Zápisník AI je jiný. Nabízíme to *plus* <strong>Časové balíčky bez data vypršení platnosti</strong>. To je ideální, pokud nemáte schůzky každý den. Můžete začít se <strong>zkušebním balíčkem za 1,99 $</strong> a rozhodnout se bez velkého závazku."
+      },
+      {
+        "q": "Mohu získat čisté, sdílitelné výstupy?",
+        "a": "Absolutně. Výstupy jsou navrženy pro sdílení, zdůrazňují rozhodnutí, vlastníky a data. To je to, co pomáhá posouvat práci kupředu."
+      }
+    ]
   },
-  "meta": { "h2": "Meta", "published": "Publikováno", "type": "Průvodce", "category": "Doporučení aplikace" },
-  "cta": { "openBrowser": "Otevřít v prohlížeči", "downloadIOS": "Stáhnout iOS aplikaci" },
-  "brand": "Zápisník AI"
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Hlavní obrazovka Zápisník AI pro iPhone zobrazující nahrávání jedním klepnutím",
+      "caption": "Hlavní obrazovka — stačí klepnout a začít nahrávat. Žádný nepořádek."
+    },
+    "minutes": {
+      "src": "/images/minutesimage.png",
+      "alt": "Příklad čistých, čitelných zápisů z Zápisník AI",
+      "caption": "Čitelné zápisy — rozhodnutí a akční body jsou jasné."
+    },
+    "formats": {
+      "src": "/images/formats.png",
+      "alt": "Obrazovka výběru formátu schůzky v Zápisník AI",
+      "caption": "Vyberte správný formát pro vaši schůzku."
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Průvodce",
+    "category": "iPhone"
+  },
+  "cta": {
+    "openBrowser": "Otevřít v prohlížeči",
+    "downloadIOS": "Stáhnout iOS aplikaci"
+  }
 }
