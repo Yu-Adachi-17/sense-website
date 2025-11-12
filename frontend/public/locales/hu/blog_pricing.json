@@ -1,59 +1,60 @@
 {
   "aria": {
-    "home": "Jegyzőkönyv AI Főoldal"
+    "home": "Jegyzőkönyv AI Kezdőlap"
   },
   "compare": {
-    "foot": "Források: az Otter és a Notta hivatalos árazási oldalai.",
-    "h2": "Jegyzőkönyv AI vs. Otter vs. Notta — Árak röviden",
-    "lastUpdated": "Utoljára frissítve: 2025. okt. 31.",
-    "note": "Fő árak és kvóták (USD). A versenytársak jellemzően havonta nullázzák a kvótát, átvitel nélkül.",
+    "foot": "Források: Az Otter / Notta hivatalos árképzési oldalai (kutatásunk alapján).",
+    "h2": "Jegyzőkönyv AI vs. Otter vs. Notta – Árak gyors összehasonlítása",
+    "lastUpdated": "Utolsó frissítés: 2025. november 12.",
+    "note": "Az árak USD-ben értendők. Figyelem: A legtöbb versenytárs havi keretet használ, amely nullázódik, és a fel nem használt percek nem vihetők át.",
     "rows": [
       {
-        "billing": "Egyszeri időcsomagok + előfizetések",
-        "cheapest": "Trial 120 perc / $1.99 (lejárat nélkül)",
-        "free": "Napi 3 perces jegy",
-        "limits": "Az időcsomagok nem járnak le. Az előfizetések korlátlanok.",
+        "billing": "Időcsomagok + Előfizetések",
+        "cheapest": "Próba: 120 perc / 1.99 $ (nem jár le)",
+        "free": "Napi ingyenes 3 perces jegy",
+        "limits": "Az időcsomagok nem járnak le. Az előfizetések valóban korlátlanok.",
         "service": "Jegyzőkönyv AI",
-        "unlimited": "Igen — $16.99/hó vagy $149.99/év"
+        "unlimited": "Igen! — 16.99 $/hó vagy 149.99 $/év"
       },
       {
-        "billing": "Felhasználónkénti előfizetés",
-        "cheapest": "Pro — $16.99/hó vagy $8.33/hó (éves)",
-        "free": "300 perc/hó, legfeljebb 30 perc/beszélgetés",
-        "limits": "Nincs átvitel; meetingenkénti korlát",
+        "billing": "Felhasználó alapú előfizetés",
+        "cheapest": "Pro — 16.99 $/hó vagy 8.33 $/hó (éves)",
+        "free": "300 perc/hó, max 30 perc/beszélgetés",
+        "limits": "Nincs átvitel; 90 perces megbeszélés limit (Pro)",
         "service": "Otter",
-        "unlimited": "Nem — Pro 1200 perc/hó; Business 6000 import perc/hó"
+        "unlimited": "Nem — Pro 1200 perc/hó"
       },
       {
-        "billing": "Felhasználónkénti előfizetés",
-        "cheapest": "Pro — $13.49/hó (havi) vagy $8.17/hó (éves)",
-        "free": "120 perc/hó, legfeljebb 3 perc/felvétel",
-        "limits": "Nincs átvitel; legfeljebb 5 óra/felvétel; fájlfeltöltési kvóták",
+        "billing": "Felhasználó alapú előfizetés",
+        "cheapest": "Pro — 13.49 $/hó (havi) vagy 8.17 $/hó (éves)",
+        "free": "120 perc/hó, max 3 perc/felvétel",
+        "limits": "Nincs átvitel; felvételi és feltöltési korlátok",
         "service": "Notta",
-        "unlimited": "Business — Korlátlan (éves $16.67/hó; havi magasabb)"
+        "unlimited": "Business — Korlátlan (éves 16.67 $/hó)"
       }
     ],
     "tableHead": [
       "Szolgáltatás",
       "Ingyenes csomag",
       "Legolcsóbb fizetős",
-      "Korlátlan használat",
-      "Jelentős korlátozások",
-      "Számlázási mód"
+      "Korlátlan",
+      "Főbb korlátok",
+      "Számlázási modell"
     ]
   },
   "cta": {
-    "downloadIOS": "iOS app letöltése",
+    "downloadIOS": "iOS alkalmazás letöltése",
     "openBrowser": "Megnyitás böngészőben"
   },
   "hero": {
-    "h1": "Jegyzőkönyv AI árak (2025)",
+    "h1": "Jegyzőkönyv AI Árak (2025)",
     "kicker": "Árazás",
-    "tagline": "Válassz lejárat nélküli időcsomagokat, vagy legyen teljesen korlátlan havi/éves előfizetésed."
+    "tagline": "Válassza ki az Önnek megfelelőt: egyszeri fizetésű időcsomagok, amelyek **soha nem járnak le**, vagy előfizetések, amelyek **valóban korlátlanok**.",
+    "subtag": "Csatlakozzon világszerte azokhoz a csapatokhoz, akik imádják a „szuperolvasható jegyzőkönyveinket”. A Jegyzőkönyv AI zökkenőmentesen működik iOS-en és weben, és több mint 100 nyelvet támogat."
   },
   "intro": {
-    "h2": "Melyik csomag illik hozzád?",
-    "p1": "Négy opciót kínálunk, igazítva ahhoz, milyen gyakran meetingelsz."
+    "h2": "Melyik csomag illik Önhöz?",
+    "p1": "Legyen szó napi szintű, alkalmi megbeszélésekről, vagy csak kipróbálná – egyszerű csomagjaink minden igényt kielégítenek."
   },
   "meta": {
     "category": "Árazás",
@@ -63,55 +64,94 @@
   },
   "nav": {
     "blog": "Blog",
-    "pricing": "Árak"
+    "pricing": "Árazás"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Éves"
+    "h2_queryHub": "Jegyzőkönyv AI árak / Jegyzőkönyv AI app ára / Jegyzőkönyv AI ingyen",
+    "queryHub_p": "Jegyzőkönyv AI árak / Jegyzőkönyv AI app ára / Jegyzőkönyv AI ingyenes csomag / jegyzőkönyv készítő eszköz ára",
+    "h3_timepacks": "Időcsomagok (Egyszeri vásárlás)",
+    "timepacks_note": "A megvásárolt percek **soha nem járnak le**. Használja fel őket AI jegyzőkönyvek készítésére felvételekből, amikor csak szüksége van rá – stresszmentesen.",
+    "trial": {
+      "detail": "120 perc / 1.99 $",
+      "name": "Próba csomag",
+      "foot": "A leggyorsabb módja a kipróbálásnak – nem jár le."
     },
-    "bullets": [
-      "Lejárat nélküli időcsomagok: egyszer veszed, bármikor használod",
-      "Előfizetéssel korlátlan használat",
-      "iOS és Web, többnyelvű kimenet"
-    ],
-    "free": {
-      "badge": "Napi ingyenes jegy",
-      "text": "Fizetés nélkül is kapsz minden nap egy 3 perces ingyen jegyet a Jegyzőkönyv AI kipróbálására."
-    },
-    "h3_subs": "Előfizetés típusa",
-    "h3_timepacks": "Időcsomag típusa",
     "light": {
-      "detail": "1200 perc / $11.99",
-      "name": "Light"
+      "detail": "1200 perc / 11.99 $",
+      "name": "Light csomag",
+      "foot": "Vegye meg egyszer, tartsa meg örökre."
     },
+    "h3_subs": "Előfizetések (Valóban korlátlanok)",
+    "subs_note": "Ezek a csomagok **valóban korlátlanok**. Felejtse el a havi limiteket vagy a nullázódás miatti aggodalmakat. Koncentráljon a megbeszéléseire, ne az órára.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Havi"
+      "name": "Havi",
+      "foot": "Kiváló a forgalmas hónapokra."
     },
-    "subs_note": "Az előfizetések valóban korlátlanok — nincs havi plafon.",
-    "timepacks_note": "A megvásárolt percek nem járnak le. Bármikor generálhatsz AI-jegyzőkönyvet felvételekből.",
-    "trial": {
-      "detail": "120 perc / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Éves (≈26% kedvezmény)",
+      "foot": "Havi 16.99 $ × 12 = 203.88 $ vs. Éves 149.99 $"
+    },
+    "free": {
+      "badge": "Napi Ingyenes Jegy",
+      "text": "Kap 3 ingyenes percet a Jegyzőkönyv AI használatához minden nap! A mi ajándékunk, nincs szükség bankkártyára."
+    },
+    "bullets": [
+      "**Időcsomagok lejárat nélkül**: Vegye meg egyszer, használja bármikor.",
+      "**Valóban korlátlan előfizetések**: Nulla perces limit, nulla gond.",
+      "**Olvasható AI jegyzőkönyvek**: 100+ nyelv, kristálytiszta iOS-en és weben."
+    ],
+    "foot": {
+      "pre": "* Az árak {currency} pénznemben jelennek meg.",
+      "post_usd": "A fizetés USD-ben történik. Az Ön régiójától függően adók/ÁFA merülhetnek fel a fizetéskor.",
+      "post_other": "A fizetés USD-ben történik; a {currency} pénznemre átszámított összegek becsült értékek."
     }
   },
-  "seo": {
-    "description": "Lejárat nélküli időcsomagok és tényleg korlátlan előfizetések. Nézd meg a Jegyzőkönyv AI összehasonlítását az Otterrel és a Nottával ár, kvóták és átvitel terén.",
-    "ld": {
-      "description": "Négy egyenes csomag: két egyszeri időcsomag (lejárat nélkül) és két korlátlan előfizetés — plusz összehasonlítás az Otterrel és a Nottával.",
-      "headline": "Jegyzőkönyv AI árak"
-    },
-    "ogDescription": "Lejárat nélküli csomagok + korlátlan előfizetések. Gyors összehasonlítás: Otter & Notta.",
-    "ogTitle": "Jegyzőkönyv AI árak",
-    "title": "Jegyzőkönyv AI árak — egyszerű csomagok minden meetingstílushoz"
+  "vibe": {
+    "h2": "Tényeken túl – jegyzőkönyvek, amelyek mozgásba hozzák a csapatokat",
+    "p1": "Úgy terveztük a Jegyzőkönyv AI-t, hogy a következő lépés nyilvánvaló legyen, amint újra megnyitja a jegyzeteit. Nincs több keresgélés, hogy mi dőlt el.",
+    "p2": "Intelligens, letisztult formátumaink automatikusan kiemelik a döntéseket és a további teendőket. Ezáltal a jegyzetek hihetetlenül könnyen áttekinthetők, így másodpercek alatt megtalálja, ami fontos.",
+    "highlights": [
+      "**Rugalmas Önnek**: Válasszon lejárat nélküli csomagokat vagy korlátlan előfizetést.",
+      "**Könnyen olvasható**: A döntések és a teendők mindig kiemelkednek.",
+      "**Mindenhol működik**: Zökkenőmentes élmény weben és iOS-en."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Miért így terveztük a csomagokat",
+  "faq": {
+    "h2": "Gyakran Ismételt Kérdések (GYIK) – Ingyenes csomag és árak",
     "items": [
-      "Napi meetingek: válaszd a Korlátlant a kiszámíthatóságért.",
-      "Alkalmankénti meetingek: egyszer vedd meg a Lightot — lejárat nélkül.",
-      "Csak próbálod: Trial csomag + napi 3 perces jegy."
+      {
+        "q": "Van ingyenes csomag?",
+        "a": "Igen! Kap egy ingyenes „napi jegyet”, amely 3 perc használatot biztosít Önnek minden egyes nap."
+      },
+      {
+        "q": "Lejárnak az időcsomagok?",
+        "a": "Nem! A csomagjainkban vásárolt percek **soha nem járnak le**. Vegye meg most, és használja fel jövőre – teljesen Önön múlik."
+      },
+      {
+        "q": "Mennyit spórolok az Éves csomaggal?",
+        "a": "Körülbelül 26%-ot spórol! A Havi csomag 16.99 $ (ami 203.88 $ 12 hónapra), míg az Éves csomag csak 149.99 $."
+      },
+      {
+        "q": "Az árak tartalmazzák az adókat?",
+        "a": "Az árak USD-ben (amerikai dollár) vannak feltüntetve. Attól függően, hogy hol él, helyi adók vagy ÁFA (általános forgalmi adó) kerülhet felszámításra a fizetés véglegesítésekor."
+      },
+      {
+        "q": "Hány nyelv támogatott?",
+        "a": "Több mint 100 nyelvet támogatunk, mind a beszédfelismerés, mind a végleges jegyzőkönyv formázása terén."
+      }
     ]
+  },
+  "seo": {
+    "description": "A Jegyzőkönyv AI egyszerű árazása. Válasszon **soha le nem járó** időcsomagok vagy **valóban korlátlan** előfizetések közül. Kapjon 3 ingyenes percet minden nap. Hasonlítsa össze az árakat, korlátokat és az átvihetőséget az Otter/Notta szolgáltatásokkal.",
+    "ld": {
+      "description": "Négy csomag: Két lejárat nélküli időcsomag és két valóban korlátlan előfizetés. Összehasonlítással az Otter/Notta szolgáltatásokkal.",
+      "headline": "Jegyzőkönyv AI Árak és csomagok"
+    },
+    "ogDescription": "Válassza ki a stílusát: Időcsomagok, amelyek soha nem járnak le + valóban korlátlan előfizetések. Gyors összehasonlítás az Otter / Notta szolgáltatásokkal.",
+    "ogTitle": "Jegyzőkönyv AI Árak (2025)",
+    "title": "Jegyzőkönyv AI Árak (2025) | Egyszerű csomagok Önre szabva – Lejárat nélkül & Valóban korlátlan"
   }
 }

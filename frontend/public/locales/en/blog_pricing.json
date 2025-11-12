@@ -1,117 +1,162 @@
 {
+  "seo": {
+    "title": "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR/JPY)",
+    "description": "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes, every single day.",
+    "ogTitle": "Minutes.AI Pricing (2025): Simple, Flexible Plans",
+    "ogDescription": "Find the perfect plan: Time packs that never expire or truly unlimited subscriptions. Get 3 free minutes every day!",
+    "ld": {
+      "headline": "Minutes.AI Pricing (2025)",
+      "description": "Two no-expiry time packs (Trial/Light) and two unlimited subscriptions (Monthly/Annual). 100+ languages."
+    }
+  },
   "aria": {
     "home": "Minutes.AI Home"
-  },
-  "compare": {
-    "foot": "Sources: official pricing pages for Otter and Notta.",
-    "h2": "Minutes.AI vs. Otter vs. Notta — Pricing at a Glance",
-    "lastUpdated": "Last updated: Oct 31, 2025",
-    "note": "Key pricing and quotas (USD). Competitors typically reset monthly quotas with no rollover.",
-    "rows": [
-      {
-        "billing": "One-time time packs + subscriptions",
-        "cheapest": "Trial 120 min / $1.99 (no expiry)",
-        "free": "Daily 3-min ticket",
-        "limits": "Time packs never expire. Subscriptions are uncapped.",
-        "service": "Minutes.AI",
-        "unlimited": "Yes — $16.99/mo or $149.99/yr"
-      },
-      {
-        "billing": "Seat-based subscription",
-        "cheapest": "Pro — $16.99/mo or $8.33/mo (annual)",
-        "free": "300 min/mo, up to 30 min/conversation",
-        "limits": "No rollover; per-meeting cap",
-        "service": "Otter",
-        "unlimited": "No — Pro 1200 min/mo; Business 6000 import min/mo"
-      },
-      {
-        "billing": "Seat-based subscription",
-        "cheapest": "Pro — $13.49/mo (monthly) or $8.17/mo (annual)",
-        "free": "120 min/mo, up to 3 min/recording",
-        "limits": "No carryover; up to 5h/recording; file upload quotas",
-        "service": "Notta",
-        "unlimited": "Business — Unlimited (annual $16.67/mo; monthly higher)"
-      }
-    ],
-    "tableHead": [
-      "Service",
-      "Free Plan",
-      "Cheapest Paid",
-      "Unlimited Usage",
-      "Notable Limits",
-      "Billing Style"
-    ]
-  },
-  "cta": {
-    "downloadIOS": "Download iOS app",
-    "openBrowser": "Open in browser"
-  },
-  "hero": {
-    "h1": "Minutes.AI Pricing (2025)",
-    "kicker": "Pricing",
-    "tagline": "Choose no-expiry time packs, or go fully unlimited with monthly/annual subscriptions."
-  },
-  "intro": {
-    "h2": "Which plan fits you?",
-    "p1": "We offer four options tailored to how often you meet."
-  },
-  "meta": {
-    "category": "Pricing",
-    "h2": "Meta",
-    "published": "Published",
-    "type": "Guide"
   },
   "nav": {
     "blog": "Blog",
     "pricing": "Pricing"
   },
+  "hero": {
+    "kicker": "Pricing",
+    "h1": "Minutes.AI Pricing (2025)",
+    "tagline": "Whether you have meetings daily or just occasionally, find a plan that fits. Choose from time packs that never expire or go fully unlimited. It's pricing that bends to *your* meeting rhythm.",
+    "subtag": "Join teams worldwide who love our “ultra-readable minutes.” Minutes.AI works seamlessly across iOS and Web in over 100 languages.",
+    "badges": [
+      "100+ languages",
+      "iOS & Web",
+      "3-minute free ticket every day"
+    ]
+  },
+  "intro": {
+    "h2": "Which plan fits you?",
+    "p1": "Daily meetings, occasional catch-ups, or just testing the waters? We've got a simple plan that gets you right to what you need."
+  },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Annual"
+    "h2_queryHub": "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan",
+    "queryHub_p": "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing",
+    "h3_timepacks": "One-time time packs (no expiry)",
+    "timepacks_note": "Buy once, use forever. Your purchased minutes **never expire**. Use them to generate AI minutes from recordings whenever you need to—no rush.",
+    "trial": {
+      "name": "Trial",
+      "detail": "120 min",
+      "foot": "Fastest way to try — no expiry."
     },
-    "bullets": [
-      "No-expiry time packs: buy once, use anytime",
-      "Unlimited usage on subscriptions",
-      "iOS & Web, multilingual outputs"
-    ],
+    "light": {
+      "name": "Light",
+      "detail": "1200 min",
+      "foot": "Buy once, keep it forever."
+    },
+    "h3_subs": "Subscriptions (truly unlimited)",
+    "subs_note": "Forget about monthly caps. With our subscriptions, you get **truly unlimited** minutes. Focus on your work, not on watching the clock or waiting for a reset.",
+    "monthly": {
+      "name": "Monthly",
+      "detail": "",
+      "foot": "Great for busy months."
+    },
+    "annual": {
+      "name": "Annual",
+      "detail": "≈26% off vs monthly",
+      "foot": "Monthly $16.99 × 12 = $203.88 vs Annual $149.99"
+    },
     "free": {
       "badge": "Daily Free Ticket",
-      "text": "Even without paying, you get a 3-minute free ticket every day to try Minutes.AI."
+      "text": "Get 3 free minutes to use Minutes.AI every single day! It's on us—no credit card required."
     },
-    "h3_subs": "Subscription Type",
-    "h3_timepacks": "Time-Pack Type",
-    "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
-    },
-    "monthly": {
-      "detail": "$16.99",
-      "name": "Monthly"
-    },
-    "subs_note": "Subscriptions are truly unlimited — no monthly caps.",
-    "timepacks_note": "Purchased minutes never expire. Generate AI minutes from recordings any time.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "bullets": [
+      "**No-expiry time packs**: Buy once, use them anytime.",
+      "**Truly unlimited subscriptions**: Zero caps, zero worries.",
+      "**Readable AI Minutes**: 100+ languages, crystal clear on iOS & Web."
+    ],
+    "foot": {
+      "pre": "* Prices shown in {currency}.",
+      "post_usd": "Checkout is processed in USD; taxes/VAT may apply at checkout.",
+      "post_other": "Checkout is processed in USD; converted amounts are estimates."
     }
   },
-  "seo": {
-    "description": "No-expiry time packs and truly unlimited subscriptions. See how Minutes.AI compares to Otter and Notta on price, quotas, and rollover.",
-    "ld": {
-      "description": "Four straightforward plans: two one-time time packs (no expiry) and two unlimited subscriptions — plus a comparison with Otter and Notta.",
-      "headline": "Minutes.AI Pricing"
-    },
-    "ogDescription": "Time packs with no expiry + unlimited subscriptions. Quick compare vs. Otter & Notta.",
-    "ogTitle": "Minutes.AI Pricing",
-    "title": "Minutes.AI Pricing — simple plans for every meeting style"
+  "vibe": {
+    "h2": "Beyond facts — minutes that move teams",
+    "p1": "We designed Minutes.AI so that the moment you reopen your notes, your next step is obvious. No more hunting for action items.",
+    "p2": "Our smart, clean formats automatically highlight decisions and follow-ups. This makes your notes incredibly easy to scan, so you can find what matters in seconds.",
+    "highlights": [
+      "**Flexible for you**: Choose no-expiry packs or unlimited subs.",
+      "**Easy to read**: Decisions and action items always stand out.",
+      "**Works everywhere**: A seamless experience on both Web and iOS."
+    ],
+    "noteNb": "Norwegian (møtereferat) pricing landing is being rolled out as a dedicated page."
   },
-  "why": {
-    "h2": "Why we designed plans this way",
+  "compare": {
+    "h2": "Minutes.AI vs. Otter vs. Notta — Pricing at a Glance",
+    "note": "All prices in USD. The “Annual” price shows the equivalent cost per month, billed once a year. **Heads up:** Most competitors' plans reset your minute quota every month, and unused minutes don't roll over.",
+    "tableHead": [
+      "Service",
+      "Free Plan",
+      "Cheapest Paid",
+      "Unlimited",
+      "Notable Limits",
+      "Billing Style"
+    ],
+    "rows": [
+      {
+        "service": "Minutes.AI",
+        "free": "A free 3-minute ticket, every day",
+        "cheapest": "Trial: 120 min for $1.99 (never expires)",
+        "unlimited": "Yes! $16.99/mo or $149.99/yr",
+        "limits": "Our time packs never expire. Our subs are truly uncapped.",
+        "billing": "Flexible: One-time packs or subscriptions"
+      },
+      {
+        "service": "Otter",
+        "free": "300 min/mo, up to 30 min/conv",
+        "cheapest": "Pro — $16.99/mo or $8.33/mo (annual)",
+        "unlimited": "No — Pro 1200 min/mo; Business 6000 import min/mo",
+        "limits": "No rollover; meeting cap 90 min (Pro), 4h (Business)",
+        "billing": "Seat-based subscription"
+      },
+      {
+        "service": "Notta",
+        "free": "120 min/mo, up to 3 min/recording",
+        "cheapest": "Pro — $13.49/mo (monthly) or $8.17/mo (annual)",
+        "unlimited": "Business — Unlimited (annual $16.67/mo)",
+        "limits": "No carryover; up to 5h/recording; upload quotas",
+        "billing": "Seat-based subscription"
+      }
+    ],
+    "foot": "Sources: official pricing pages (Otter, Notta).",
+    "lastUpdated": "Last updated: Nov 12, 2025"
+  },
+  "faq": {
+    "h2": "FAQ — Minutes AI free plan / meeting note taker pricing",
     "items": [
-      "Meet daily: choose Unlimited for predictability.",
-      "Meet occasionally: buy a Light pack once — no expiry.",
-      "Just trying it: Trial pack + daily 3-minute ticket."
+      {
+        "q": "Is there a free plan?",
+        "a": "Yes! You get a free 'daily ticket' that gives you 3 minutes of use, every single day."
+      },
+      {
+        "q": "Do time packs expire?",
+        "a": "Nope! Purchased minutes in our time packs **never expire**. Buy them now, use them next year—it's totally up to you."
+      },
+      {
+        "q": "How much do I save with Annual?",
+        "a": "You save about 26%! The monthly plan costs $16.99 (which is $203.88 for 12 months), while the annual plan is just $149.99."
+      },
+      {
+        "q": "Are prices tax-inclusive?",
+        "a": "Our prices are listed in USD (US Dollars). Depending on where you live, local taxes (like VAT) may be added during the final checkout process."
+      },
+      {
+        "q": "How many languages are supported?",
+        "a": "We support over 100 languages, both for understanding your speech and for formatting the final minutes."
+      }
     ]
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Guide",
+    "category": "Pricing"
+  },
+  "cta": {
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS app"
   }
 }

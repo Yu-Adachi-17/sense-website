@@ -1,45 +1,45 @@
 {
   "aria": {
-    "home": "Strona główna Protokół AI"
+    "home": "Protokół AI Strona główna"
   },
   "compare": {
-    "foot": "Źródła: oficjalne strony cenowe Otter i Notta.",
-    "h2": "Protokół AI vs. Otter vs. Notta — Ceny w skrócie",
-    "lastUpdated": "Ostatnia aktualizacja: 31 paź 2025",
-    "note": "Kluczowe ceny i limity (USD). Konkurencja zwykle resetuje miesięczne limity bez przenoszenia niewykorzystanych minut.",
+    "foot": "Źródła: Oficjalne strony z cennikami Otter / Notta (na podstawie naszych badań).",
+    "h2": "Protokół AI vs. Otter vs. Notta – Szybkie porównanie cen",
+    "lastUpdated": "Ostatnia aktualizacja: 12 listopada 2025",
+    "note": "Ceny w USD. Uwaga: Większość konkurentów ma miesięczne limity, które są resetowane, a niewykorzystane minuty nie przechodzą na kolejny okres.",
     "rows": [
       {
-        "billing": "Jednorazowe pakiety czasu + subskrypcje",
-        "cheapest": "Trial 120 min / $1.99 (bez wygaśnięcia)",
-        "free": "Codzienny bilet 3-minutowy",
-        "limits": "Pakiety czasu nigdy nie wygasają. Subskrypcje są nielimitowane.",
+        "billing": "Pakiety czasu + Subskrypcje",
+        "cheapest": "Próbny: 120 min / 1.99 $ (nie wygasa)",
+        "free": "Darmowy bilet dzienny (3 min)",
+        "limits": "Pakiety czasu nie wygasają. Subskrypcje są naprawdę bez limitu.",
         "service": "Protokół AI",
-        "unlimited": "Tak — $16.99/mies. lub $149.99/rok"
+        "unlimited": "Tak! — 16.99 $/mies. lub 149.99 $/rok"
       },
       {
         "billing": "Subskrypcja na użytkownika",
-        "cheapest": "Pro — $16.99/mies. lub $8.33/mies. (rocznie)",
+        "cheapest": "Pro — 16.99 $/mies. lub 8.33 $/mies. (rocznie)",
         "free": "300 min/mies., do 30 min/rozmowę",
-        "limits": "Bez przenoszenia; limit na spotkanie",
+        "limits": "Brak przenoszenia; limit spotkania 90 min (Pro)",
         "service": "Otter",
-        "unlimited": "Nie — Pro 1200 min/mies.; Business 6000 min importu/mies."
+        "unlimited": "Nie — Pro 1200 min/mies."
       },
       {
         "billing": "Subskrypcja na użytkownika",
-        "cheapest": "Pro — $13.49/mies. (miesięcznie) lub $8.17/mies. (rocznie)",
+        "cheapest": "Pro — 13.49 $/mies. (miesięcznie) lub 8.17 $/mies. (rocznie)",
         "free": "120 min/mies., do 3 min/nagranie",
-        "limits": "Bez przenoszenia; do 5 h/nagranie; limity wysyłania plików",
+        "limits": "Brak przenoszenia; limity nagrywania i wysyłania",
         "service": "Notta",
-        "unlimited": "Business — Nielimitowany (rocznie $16.67/mies.; miesięcznie wyżej)"
+        "unlimited": "Business — Nieograniczony (rocznie 16.67 $/mies.)"
       }
     ],
     "tableHead": [
       "Usługa",
-      "Plan bezpłatny",
+      "Darmowy plan",
       "Najtańszy płatny",
-      "Nielimitowane użycie",
-      "Istotne ograniczenia",
-      "Sposób rozliczeń"
+      "Nielimitowany",
+      "Ważne ograniczenia",
+      "Model rozliczeń"
     ]
   },
   "cta": {
@@ -47,13 +47,14 @@
     "openBrowser": "Otwórz w przeglądarce"
   },
   "hero": {
-    "h1": "Cennik Protokół AI (2025)",
+    "h1": "Protokół AI Cennik (2025)",
     "kicker": "Cennik",
-    "tagline": "Wybierz pakiety czasu bez wygaśnięcia lub całkowicie nielimitowaną subskrypcję miesięczną/roczną."
+    "tagline": "Wybierz to, co Ci odpowiada: jednorazowe pakiety czasu, które **nigdy nie wygasają**, lub subskrypcje, które są **prawdziwie nieograniczone**.",
+    "subtag": "Dołącz do zespołów na całym świecie, które pokochały nasze „ultra-czytelne protokoły”. Protokół AI działa płynnie na iOS i w przeglądarce, obsługując ponad 100 języków."
   },
   "intro": {
-    "h2": "Który plan do Ciebie pasuje?",
-    "p1": "Oferujemy cztery opcje dostosowane do częstotliwości Twoich spotkań."
+    "h2": "Który plan pasuje do Ciebie?",
+    "p1": "Niezależnie od tego, czy masz spotkania codziennie, tylko okazjonalnie, czy po prostu chcesz przetestować usługę, mamy prosty plan, który odpowiada Twoim potrzebom."
   },
   "meta": {
     "category": "Cennik",
@@ -66,52 +67,91 @@
     "pricing": "Cennik"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Roczny"
+    "h2_queryHub": "Protokół AI cennik / Protokół AI aplikacja cena / Protokół AI za darmo",
+    "queryHub_p": "Protokół AI cennik / Protokół AI aplikacja cena / Protokół AI darmowy plan / cena narzędzia do protokołów",
+    "h3_timepacks": "Pakiety czasu (Zakup jednorazowy)",
+    "timepacks_note": "Zakupione minuty **nigdy nie wygasają**. Używaj ich do generowania protokołów AI z nagrań, kiedy tylko potrzebujesz – bez stresu.",
+    "trial": {
+      "detail": "120 min / 1.99 $",
+      "name": "Pakiet Próbny",
+      "foot": "Najszybszy sposób na wypróbowanie – nie wygasa."
     },
-    "bullets": [
-      "Pakiety czasu bez wygaśnięcia: kupujesz raz, używasz kiedy chcesz",
-      "Nielimitowane użycie w ramach subskrypcji",
-      "iOS i Web, wielojęzyczne wyniki"
-    ],
-    "free": {
-      "badge": "Codzienny darmowy bilet",
-      "text": "Nawet bez płatności każdego dnia otrzymujesz 3-minutowy darmowy bilet, by wypróbować Protokół AI."
-    },
-    "h3_subs": "Typ subskrypcji",
-    "h3_timepacks": "Typ pakietu czasu",
     "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
+      "detail": "1200 min / 11.99 $",
+      "name": "Pakiet Light",
+      "foot": "Kup raz, zachowaj na zawsze."
     },
+    "h3_subs": "Subskrypcje (Prawdziwie nieograniczone)",
+    "subs_note": "Te plany są **prawdziwie nieograniczone**. Zapomnij o miesięcznych limitach i martwieniu się o resetowanie. Skup się na spotkaniach, a nie na zegarku.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Miesięczny"
+      "name": "Miesięczna",
+      "foot": "Świetna na intensywne miesiące."
     },
-    "subs_note": "Subskrypcje są naprawdę nielimitowane — bez miesięcznych limitów.",
-    "timepacks_note": "Zakupione minuty nigdy nie wygasają. Generuj minutki AI z nagrań w dowolnym momencie.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Roczna (oszczędzasz ≈26%)",
+      "foot": "Miesięcznie 16.99 $ × 12 = 203.88 $ vs. Rocznie 149.99 $"
+    },
+    "free": {
+      "badge": "Darmowy Bilet Dzienny",
+      "text": "Otrzymuj 3 darmowe minuty na korzystanie z Protokół AI każdego dnia! Na nasz koszt, nie jest wymagana karta kredytowa."
+    },
+    "bullets": [
+      "**Pakiety czasu bez daty ważności**: Kupujesz raz, używasz kiedy chcesz.",
+      "**Prawdziwie nieograniczone subskrypcje**: Zero limitów, zero zmartwień.",
+      "**Czytelne protokoły AI**: Ponad 100 języków, krystaliczna czystość na iOS i w sieci."
+    ],
+    "foot": {
+      "pre": "* Ceny wyświetlane w {currency}.",
+      "post_usd": "Płatność jest przetwarzana w USD. W zależności od regionu, podczas finalizacji zakupu mogą zostać doliczone podatki/VAT.",
+      "post_other": "Płatność jest przetwarzana w USD; kwoty przeliczone na {currency} są szacunkowe."
     }
   },
-  "seo": {
-    "description": "Pakiety bez wygaśnięcia i naprawdę nielimitowane subskrypcje. Zobacz porównanie Protokół AI z Otter i Notta w zakresie ceny, limitów i przenoszenia.",
-    "ld": {
-      "description": "Cztery proste plany: dwa jednorazowe pakiety (bez wygaśnięcia) i dwie nielimitowane subskrypcje — plus porównanie z Otter i Notta.",
-      "headline": "Cennik Protokół AI"
-    },
-    "ogDescription": "Pakiety bez wygaśnięcia + nielimitowane subskrypcje. Szybkie porównanie z Otter & Notta.",
-    "ogTitle": "Cennik Protokół AI",
-    "title": "Protokół AI — proste plany dla każdego stylu spotkań"
+  "vibe": {
+    "h2": "Więcej niż fakty – protokoły, które napędzają zespoły",
+    "p1": "Zaprojektowaliśmy Protokół AI tak, aby Twój następny krok był oczywisty, gdy tylko ponownie otworzysz swoje notatki. Koniec z szukaniem, co zostało postanowione.",
+    "p2": "Nasze inteligentne, przejrzyste formaty automatycznie podkreślają decyzje i działania do podjęcia. To sprawia, że Twoje notatki są niezwykle łatwe do przeskanowania, dzięki czemu znajdziesz to, co ważne, w ciągu kilku sekund.",
+    "highlights": [
+      "**Elastyczność dla Ciebie**: Wybierz pakiety bez daty ważności lub nieograniczoną subskrypcję.",
+      "**Łatwość czytania**: Decyzje i działania zawsze się wyróżniają.",
+      "**Działa wszędzie**: Płynne doświadczenie w sieci i na iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Dlaczego tak zaprojektowaliśmy plany",
+  "faq": {
+    "h2": "Najczęściej zadawane pytania (FAQ) – Darmowy plan i ceny",
     "items": [
-      "Spotkania codziennie: wybierz Nielimitowany dla przewidywalności.",
-      "Sporadyczne spotkania: kup Light raz — bez wygaśnięcia.",
-      "Tylko testujesz: pakiet Trial + codzienny bilet 3-minutowy."
+      {
+        "q": "Czy jest dostępny darmowy plan?",
+        "a": "Tak! Otrzymujesz darmowy „bilet dzienny”, który daje Ci 3 minuty użytkowania każdego dnia."
+      },
+      {
+        "q": "Czy pakiety czasu wygasają?",
+        "a": "Nie! Minuty zakupione w naszych pakietach czasu **nigdy nie wygasają**. Kup je teraz i wykorzystaj w przyszłym roku – decyzja należy do Ciebie."
+      },
+      {
+        "q": "Ile oszczędzam, wybierając plan Roczny?",
+        "a": "Oszczędzasz około 26%! Plan Miesięczny kosztuje 16.99 $ (co daje 203.88 $ za 12 miesięcy), podczas gdy plan Roczny kosztuje tylko 149.99 $."
+      },
+      {
+        "q": "Czy ceny zawierają podatek?",
+        "a": "Ceny są podane w USD (dolarach amerykańskich). W zależności od miejsca zamieszkania, podczas dokonywania płatności mogą zostać doliczone lokalne podatki lub VAT."
+      },
+      {
+        "q": "Ile języków jest obsługiwanych?",
+        "a": "Obsługujemy ponad 100 języków, zarówno w zakresie rozpoznawania mowy, jak i formatowania końcowego protokołu spotkania."
+      }
     ]
+  },
+  "seo": {
+    "description": "Prosty cennik Protokół AI. Wybierz pakiety czasu, które **nigdy nie wygasają** lub **prawdziwie nieograniczone** subskrypcje. Otrzymuj 3 darmowe minuty każdego dnia. Porównaj ceny, limity i przenoszenie minut z Otter/Notta.",
+    "ld": {
+      "description": "Cztery plany: Dwa pakiety czasu bez daty ważności i dwie prawdziwie nieograniczone subskrypcje. Zawiera porównanie z Otter/Notta.",
+      "headline": "Protokół AI Cennik i plany"
+    },
+    "ogDescription": "Wybierz swój styl: Pakiety czasu, które nigdy nie wygasają + prawdziwie nieograniczone subskrypcje. Szybkie porównanie z Otter / Notta.",
+    "ogTitle": "Protokół AI Cennik (2025)",
+    "title": "Protokół AI Cennik (2025) | Proste plany dopasowane do Ciebie – Bez wygasania & Prawdziwie nieograniczone"
   }
 }

@@ -3,115 +3,155 @@
     "home": "AI Zápisnica Domov"
   },
   "compare": {
-    "foot": "Zdroje: oficiálne cenníky Otter a Notta.",
-    "h2": "AI Zápisnica vs. Otter vs. Notta — Ceny v skratke",
-    "lastUpdated": "Naposledy aktualizované: 31. okt 2025",
-    "note": "Kľúčové ceny a kvóty (USD). Konkurencia zvyčajne mesačné kvóty resetuje bez prenášania zostatku.",
+    "foot": "Zdroje: Oficiálne cenníky Otter / Notta (na základe nášho prieskumu).",
+    "h2": "AI Zápisnica vs. Otter vs. Notta – Rýchle porovnanie cien",
+    "lastUpdated": "Posledná aktualizácia: 12. novembra 2025",
+    "note": "Ceny sú v USD. Upozornenie: Väčšina konkurentov má mesačné limity, ktoré sa resetujú, a nevyužité minúty sa neprenášajú.",
     "rows": [
       {
-        "billing": "Jednorazové balíčky času + predplatné",
-        "cheapest": "Trial 120 min / $1.99 (bez expirácie)",
-        "free": "Denný 3-minútový lístok",
-        "limits": "Balíčky nikdy neexpirujú. Predplatné je bez obmedzení.",
+        "billing": "Časové balíky + Predplatné",
+        "cheapest": "Skúšobný: 120 min / 1.99 $ (nevyprší)",
+        "free": "Denný voľný lístok (3 min)",
+        "limits": "Časové balíky nevypršia. Predplatné je skutočne neobmedzené.",
         "service": "AI Zápisnica",
-        "unlimited": "Áno — $16.99/mes. alebo $149.99/rok"
+        "unlimited": "Áno! — 16.99 $/mes. alebo 149.99 $/rok"
       },
       {
         "billing": "Predplatné na používateľa",
-        "cheapest": "Pro — $16.99/mes. alebo $8.33/mes. (ročné)",
+        "cheapest": "Pro — 16.99 $/mes. alebo 8.33 $/mes. (ročne)",
         "free": "300 min/mes., do 30 min/konverzáciu",
-        "limits": "Bez prenášania; limit na stretnutie",
+        "limits": "Žiadne prenášanie; limit 90 min/stretnutie (Pro)",
         "service": "Otter",
-        "unlimited": "Nie — Pro 1200 min/mes.; Business 6000 import min/mes."
+        "unlimited": "Nie — Pro 1200 min/mes."
       },
       {
         "billing": "Predplatné na používateľa",
-        "cheapest": "Pro — $13.49/mes. (mesačne) alebo $8.17/mes. (ročne)",
+        "cheapest": "Pro — 13.49 $/mes. (mesačne) alebo 8.17 $/mes. (ročne)",
         "free": "120 min/mes., do 3 min/nahrávku",
-        "limits": "Bez prenášania; do 5 h/nahrávku; kvóty na nahrávanie súborov",
+        "limits": "Žiadne prenášanie; limity na nahrávanie a odosielanie",
         "service": "Notta",
-        "unlimited": "Business — Neobmedzené (ročné $16.67/mes.; mesačné vyššie)"
+        "unlimited": "Business — Neobmedzené (ročne 16.67 $/mes.)"
       }
     ],
     "tableHead": [
       "Služba",
       "Bezplatný plán",
-      "Najlacnejšie platené",
-      "Neobmedzené používanie",
-      "Výrazné obmedzenia",
-      "Štýl účtovania"
+      "Najlacnejší platený",
+      "Neobmedzený",
+      "Dôležité obmedzenia",
+      "Model účtovania"
     ]
   },
   "cta": {
-    "downloadIOS": "Stiahnuť iOS aplikáciu",
+    "downloadIOS": "Stiahnuť aplikáciu pre iOS",
     "openBrowser": "Otvoriť v prehliadači"
   },
   "hero": {
-    "h1": "Cenník AI Zápisnica (2025)",
-    "kicker": "Cenník",
-    "tagline": "Zvoľte balíčky bez expirácie alebo plne neobmedzené mesačné/ročné predplatné."
+    "h1": "AI Zápisnica Ceny (2025)",
+    "kicker": "Ceny",
+    "tagline": "Vyberte si, čo vám vyhovuje: jednorazové časové balíky, ktoré **nikdy nevypršia**, alebo predplatné, ktoré je **skutočne neobmedzené**.",
+    "subtag": "Pridajte sa k tímom po celom svete, ktoré milujú naše „ultračitateľné zápisnice“. AI Zápisnica funguje bez problémov na iOS aj webe a podporuje viac ako 100 jazykov."
   },
   "intro": {
-    "h2": "Ktorý plán vám sedí?",
-    "p1": "Ponúkame štyri možnosti prispôsobené tomu, ako často sa stretávate."
+    "h2": "Ktorý plán je pre vás ten pravý?",
+    "p1": "Či už máte stretnutia denne, len občas, alebo si to chcete len vyskúšať, máme jednoduchý plán, ktorý vyhovuje vašim potrebám."
   },
   "meta": {
-    "category": "Cenník",
+    "category": "Ceny",
     "h2": "Meta",
     "published": "Publikované",
     "type": "Sprievodca"
   },
   "nav": {
     "blog": "Blog",
-    "pricing": "Cenník"
+    "pricing": "Ceny"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Ročné"
+    "h2_queryHub": "AI Zápisnica ceny / AI Zápisnica aplikácia cena / AI Zápisnica zadarmo",
+    "queryHub_p": "AI Zápisnica ceny / AI Zápisnica aplikácia cena / AI Zápisnica bezplatný plán / ceny nástroja na zápisnice",
+    "h3_timepacks": "Časové balíky (Jednorazový nákup)",
+    "timepacks_note": "Zakúpené minúty **nikdy nevypršia**. Použite ich na generovanie AI zápisníc z nahrávok, kedykoľvek potrebujete – bez stresu.",
+    "trial": {
+      "detail": "120 min / 1.99 $",
+      "name": "Skúšobný balík",
+      "foot": "Najrýchlejší spôsob, ako to vyskúšať – nevyprší."
     },
-    "bullets": [
-      "Balíčky bez expirácie: kúpite raz, používate kedykoľvek",
-      "Neobmedzené používanie pri predplatnom",
-      "iOS a Web, viacjazyčné výstupy"
-    ],
-    "free": {
-      "badge": "Denný bezplatný lístok",
-      "text": "Aj bez platby získate každý deň 3-minútový bezplatný lístok na vyskúšanie AI Zápisnica."
-    },
-    "h3_subs": "Typ predplatného",
-    "h3_timepacks": "Typ balíčka času",
     "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
+      "detail": "1200 min / 11.99 $",
+      "name": "Balík Light",
+      "foot": "Kúpite raz, ponecháte si navždy."
     },
+    "h3_subs": "Predplatné (Skutočne neobmedzené)",
+    "subs_note": "Tieto plány sú **skutočne neobmedzené**. Zabudnite na mesačné limity alebo starosti s resetovaním. Sústreďte sa na svoje stretnutia, nie na hodinky.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Mesačné"
+      "name": "Mesačné",
+      "foot": "Skvelé pre náročné mesiace."
     },
-    "subs_note": "Predplatné je skutočne neobmedzené — žiadne mesačné stropy.",
-    "timepacks_note": "Zakúpené minúty nikdy neexpirujú. Z nahrávok môžete generovať AI zápisy kedykoľvek.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Ročné (zľava ≈26%)",
+      "foot": "Mesačne 16.99 $ × 12 = 203.88 $ vs. Ročne 149.99 $"
+    },
+    "free": {
+      "badge": "Denný Voľný Lístok",
+      "text": "Získajte 3 minúty zadarmo na používanie AI Zápisnica každý deň! Je to na nás, nie je potrebná žiadna kreditná karta."
+    },
+    "bullets": [
+      "**Časové balíky bez exspirácie**: Kúpite raz, použijete kedykoľvek.",
+      "**Skutočne neobmedzené predplatné**: Nulové limity, nulové starosti.",
+      "**Čitateľné AI zápisnice**: 100+ jazykov, krištáľovo čisté na iOS aj webe."
+    ],
+    "foot": {
+      "pre": "* Ceny sú zobrazené v {currency}.",
+      "post_usd": "Platba je spracovaná v USD. V závislosti od vašej oblasti sa pri pokladni môžu účtovať dane/DPH.",
+      "post_other": "Platba je spracovaná v USD; prevedené sumy v {currency} sú odhadované."
     }
   },
-  "seo": {
-    "description": "Balíčky bez expirácie a naozaj neobmedzené predplatné. Pozrite si porovnanie AI Zápisnica s Otter a Notta v cene, kvótach a prenose zostatku.",
-    "ld": {
-      "description": "Štyri priamočiare plány: dva jednorazové balíčky (bez expirácie) a dve neobmedzené predplatné — plus porovnanie s Otter a Notta.",
-      "headline": "Cenník AI Zápisnica"
-    },
-    "ogDescription": "Balíčky bez expirácie + neobmedzené predplatné. Rýchle porovnanie s Otter & Notta.",
-    "ogTitle": "Cenník AI Zápisnica",
-    "title": "AI Zápisnica — jednoduché plány pre každý štýl stretnutí"
+  "vibe": {
+    "h2": "Viac ako len fakty – zápisnice, ktoré posúvajú tímy vpred",
+    "p1": "Navrhli sme AI Zápisnica tak, aby bol váš ďalší krok zrejmý, hneď ako znova otvoríte svoje poznámky. Už žiadne hľadanie, čo sa rozhodlo.",
+    "p2": "Naše inteligentné a čisté formáty automaticky zvýrazňujú rozhodnutia a následné kroky. Vďaka tomu sú vaše poznámky neuveriteľne ľahko prehľadateľné, takže nájdete to, čo je dôležité, v priebehu niekoľkých sekúnd.",
+    "highlights": [
+      "**Flexibilné pre vás**: Vyberte si balíky bez exspirácie alebo neobmedzené predplatné.",
+      "**Ľahko čitateľné**: Rozhodnutia a akčné body vždy vyniknú.",
+      "**Funguje všade**: Bezproblémový zážitok na webe aj iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Prečo sme plány navrhli takto",
+  "faq": {
+    "h2": "Často kladené otázky (FAQ) – Bezplatný plán a ceny",
     "items": [
-      "Denné stretnutia: zvoľte Neobmedzené pre predvídateľnosť.",
-      "Občasné stretnutia: kúpte raz Light — bez expirácie.",
-      "Len skúšate: balík Trial + denný 3-minútový lístok."
+      {
+        "q": "Existuje bezplatný plán?",
+        "a": "Áno! Získate bezplatný „denný lístok“, ktorý vám dáva 3 minúty používania, každý jeden deň."
+      },
+      {
+        "q": "Vyprší platnosť časových balíkov?",
+        "a": "Nie! Minúty zakúpené v našich časových balíkoch **nikdy nevypršia**. Kúpte si ich teraz a použite ich budúci rok – je to úplne na vás."
+      },
+      {
+        "q": "Koľko ušetrím s Ročným plánom?",
+        "a": "Ušetríte približne 26 %! Mesačný plán stojí 16.99 $ (čo je 203.88 $ za 12 mesiacov), zatiaľ čo Ročný plán stojí iba 149.99 $."
+      },
+      {
+        "q": "Sú ceny vrátane dane?",
+        "a": "Ceny sú uvedené v USD (amerických dolároch). V závislosti od toho, kde žijete, sa pri konečnej platbe môžu pripočítať miestne dane alebo DPH (daň z pridanej hodnoty)."
+      },
+      {
+        "q": "Koľko jazykov je podporovaných?",
+        "a": "Podporujeme viac ako 100 jazykov, ako na rozpoznávanie reči, tak aj na formátovanie konečnej zápisnice zo stretnutia."
+      }
     ]
+  },
+  "seo": {
+    "description": "Jednoduché ceny od AI Zápisnica. Vyberte si medzi časovými balíkmi, ktoré **nikdy nevypršia**, alebo **skutočne neobmedzenými** predplatnými. Získajte 3 minúty zadarmo každý deň. Porovnajte ceny, limity a prenosnosť s Otter/Notta.",
+    "ld": {
+      "description": "Štyri plány: Dva časové balíky bez exspirácie a dve skutočne neobmedzené predplatné. Vrátane porovnania s Otter/Notta.",
+      "headline": "AI Zápisnica Ceny a plány"
+    },
+    "ogDescription": "Vyberte si svoj štýl: Časové balíky, ktoré nikdy nevypršia + skutočne neobmedzené predplatné. Rýchle porovnanie s Otter / Notta.",
+    "ogTitle": "AI Zápisnica Ceny (2025)",
+    "title": "AI Zápisnica Ceny (2025) | Jednoduché plány prispôsobené vám – Bez exspirácie & Skutočne neobmedzené"
   }
 }

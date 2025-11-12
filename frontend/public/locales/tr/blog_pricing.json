@@ -3,115 +3,155 @@
     "home": "Tutanakları AI Ana Sayfa"
   },
   "compare": {
-    "foot": "Kaynaklar: Otter ve Notta’nın resmi fiyatlandırma sayfaları.",
-    "h2": "Tutanakları AI vs Otter vs Notta — fiyatlara genel bakış",
-    "lastUpdated": "Son güncelleme: 31 Eki 2025",
-    "note": "Temel fiyatlar ve kotalar (USD). Rakipler genellikle aylık kotaları devretmeden sıfırlar.",
+    "foot": "Kaynaklar: Otter / Notta resmi fiyatlandırma sayfaları (araştırmamıza göre).",
+    "h2": "Tutanakları AI vs. Otter vs. Notta – Hızlı Fiyat Karşılaştırması",
+    "lastUpdated": "Son güncelleme: 12 Kasım 2025",
+    "note": "Fiyatlar USD cinsindendir. Not: Çoğu rakibin aylık kotaları sıfırlanır ve kullanılmayan dakikalar bir sonraki aya devretmez.",
     "rows": [
       {
-        "billing": "Tek seferlik paketler + abonelikler",
-        "cheapest": "Trial 120 dk / $1.99 (süresiz)",
-        "free": "Günlük 3 dk bilet",
-        "limits": "Zaman paketleri süresizdir. Abonelikte üst sınır yoktur.",
+        "billing": "Süre Paketleri + Abonelikler",
+        "cheapest": "Deneme: 120 dk / $1.99 (Süresi dolmaz)",
+        "free": "Günlük ücretsiz bilet (3 dk)",
+        "limits": "Süre paketlerinin süresi dolmaz. Abonelikler gerçekten sınırsızdır.",
         "service": "Tutanakları AI",
-        "unlimited": "Evet — $16.99/ay veya $149.99/yıl"
+        "unlimited": "Evet! — $16.99/ay veya $149.99/yıl"
       },
       {
-        "billing": "Koltuk bazlı abonelik",
+        "billing": "Kullanıcı başına abonelik",
         "cheapest": "Pro — $16.99/ay veya $8.33/ay (yıllık)",
-        "free": "Aylık 300 dk, toplantı başına 30 dk’ya kadar",
-        "limits": "Devir yok; toplantı başına sınır",
+        "free": "300 dk/ay, görüşme başına 30 dk",
+        "limits": "Devretmez; toplantı sınırı 90 dk (Pro)",
         "service": "Otter",
-        "unlimited": "Hayır — Pro aylık 1200 dk; Business aylık 6000 içe aktarma dk"
+        "unlimited": "Hayır — Pro 1200 dk/ay"
       },
       {
-        "billing": "Koltuk bazlı abonelik",
+        "billing": "Kullanıcı başına abonelik",
         "cheapest": "Pro — $13.49/ay (aylık) veya $8.17/ay (yıllık)",
-        "free": "Aylık 120 dk, kayıt başına 3 dk’ya kadar",
-        "limits": "Devir yok; kayıt başına 5 saate kadar; yükleme kotaları",
+        "free": "120 dk/ay, kayıt başına 3 dk",
+        "limits": "Devretmez; kayıt ve yükleme kotaları",
         "service": "Notta",
-        "unlimited": "Business — Sınırsız (yıllık $16.67/ay; aylık daha yüksek)"
+        "unlimited": "Business — Sınırsız (yıllık $16.67/ay)"
       }
     ],
     "tableHead": [
-      "Hizmet",
-      "Ücretsiz plan",
-      "En ucuz ücretli",
-      "Sınırsız kullanım",
-      "Dikkate değer sınırlar",
-      "Faturalama tarzı"
+      "Servis",
+      "Ücretsiz Plan",
+      "En Ucuz Ücretli Plan",
+      "Sınırsız",
+      "Önemli Sınırlar",
+      "Faturalandırma Tipi"
     ]
   },
   "cta": {
-    "downloadIOS": "iOS uygulamasını indir",
-    "openBrowser": "Tarayıcıda aç"
+    "downloadIOS": "iOS uygulamasını indirin",
+    "openBrowser": "Tarayıcıda açın"
   },
   "hero": {
-    "h1": "Tutanakları AI fiyatları (2025)",
-    "kicker": "Fiyatlar",
-    "tagline": "Süresi dolmayan zaman paketlerini veya aylık/yıllık tamamen sınırsız abonelikleri seçin."
+    "h1": "Tutanakları AI Fiyatlandırması (2025)",
+    "kicker": "Fiyatlandırma",
+    "tagline": "İster her gün ister ara sıra toplantı yapın, size uygun bir plan bulun. **Süresi asla dolmayan** tek seferlik paketleri veya **gerçekten sınırsız** abonelikleri seçin.",
+    "subtag": "Dünya çapında \"ultra okunaklı tutanaklarımızı\" seven ekiplere katılın. Tutanakları AI, iOS ve Web'de sorunsuz çalışır ve 100'den fazla dili destekler."
   },
   "intro": {
     "h2": "Hangi plan size uygun?",
-    "p1": "Toplantı sıklığınıza göre uyarlanmış dört seçenek sunuyoruz."
+    "p1": "Günlük toplantılar, ara sıra yapılan görüşmeler veya sadece denemek için... İhtiyacınız olanı size sunan basit bir planımız var."
   },
   "meta": {
-    "category": "Fiyatlar",
+    "category": "Fiyatlandırma",
     "h2": "Meta",
-    "published": "Yayınlandı",
-    "type": "Kılavuz"
+    "published": "Yayınlanma",
+    "type": "Rehber"
   },
   "nav": {
     "blog": "Blog",
-    "pricing": "Fiyatlar"
+    "pricing": "Fiyatlandırma"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Yıllık"
-    },
-    "bullets": [
-      "Süresi dolmayan paketler: bir kez satın alın, dilediğiniz zaman kullanın",
-      "Abonelikte sınırsız kullanım",
-      "iOS & Web, çok dilli çıktı"
-    ],
-    "free": {
-      "badge": "Günlük ücretsiz bilet",
-      "text": "Ödeme yapmasanız bile Tutanakları AI’ı denemek için her gün 3 dakikalık ücretsiz bilet alırsınız."
-    },
-    "h3_subs": "Abonelik Türü",
-    "h3_timepacks": "Zaman Paketi Türü",
-    "light": {
-      "detail": "1200 dk / $11.99",
-      "name": "Light"
-    },
-    "monthly": {
-      "detail": "$16.99",
-      "name": "Aylık"
-    },
-    "subs_note": "Abonelikler gerçekten sınırsızdır — aylık üst sınır yoktur.",
-    "timepacks_note": "Satın alınan dakikalar asla sona ermez. İstediğiniz zaman otomatik tutanak oluşturun.",
+    "h2_queryHub": "Tutanakları AI fiyatları / Tutanakları AI uygulama fiyatı / Tutanakları AI ücretsiz",
+    "queryHub_p": "Tutanakları AI fiyatları / Tutanakları AI uygulama fiyatı / Tutanakları AI ücretsiz plan / toplantı notu aracı fiyatları",
+    "h3_timepacks": "Tek Seferlik Süre Paketleri (Süresi Dolmaz)",
+    "timepacks_note": "Satın aldığınız dakikaların **süresi asla dolmaz**. İhtiyacınız olduğunda kayıtlardan AI tutanakları oluşturmak için kullanın – acele etmenize gerek yok.",
     "trial": {
       "detail": "120 dk / $1.99",
-      "name": "Trial"
+      "name": "Deneme Paketi",
+      "foot": "Denemenin en hızlı yolu – süresi dolmaz."
+    },
+    "light": {
+      "detail": "1200 dk / $11.99",
+      "name": "Light Paket",
+      "foot": "Bir kez satın alın, sonsuza kadar saklayın."
+    },
+    "h3_subs": "Abonelikler (Gerçekten Sınırsız)",
+    "subs_note": "Bu planlar **gerçekten sınırsızdır**. Aylık kotaları veya sıfırlanma endişesini unutun. Saate değil, toplantılarınıza odaklanın.",
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Aylık",
+      "foot": "Yoğun aylar için harika."
+    },
+    "annual": {
+      "detail": "$149.99",
+      "name": "Yıllık (≈%26 indirim)",
+      "foot": "Aylık $16.99 × 12 = $203.88 yerine Yıllık $149.99"
+    },
+    "free": {
+      "badge": "Günlük Ücretsiz Bilet",
+      "text": "Tutanakları AI'ı her gün 3 dakika ücretsiz kullanın! Bizden, kredi kartı gerekmez."
+    },
+    "bullets": [
+      "**Süresi dolmayan süre paketleri**: Bir kez satın alın, dilediğiniz zaman kullanın.",
+      "**Gerçekten sınırsız abonelikler**: Sıfır kota, sıfır endişe.",
+      "**Okunabilir AI Tutanakları**: 100+ dil, iOS ve Web'de net görüntü."
+    ],
+    "foot": {
+      "pre": "* Fiyatlar {currency} cinsinden gösterilmektedir.",
+      "post_usd": "Ödeme USD olarak işlenir. Bölgenize bağlı olarak ödeme sırasında vergiler/KDV uygulanabilir.",
+      "post_other": "Ödeme USD olarak işlenir; {currency} para birimine dönüştürülen tutarlar tahminidir."
     }
   },
-  "seo": {
-    "description": "Süresi dolmayan zaman paketleri ve gerçekten sınırsız abonelikler. Fiyat, kota ve devretme açısından Otter ve Notta ile karşılaştırın.",
-    "ld": {
-      "description": "Dört plan: iki adet süresiz zaman paketi ve iki adet sınırsız abonelik — Otter ve Notta karşılaştırmasıyla.",
-      "headline": "Tutanakları AI fiyatlandırma"
-    },
-    "ogDescription": "Süresiz paketler + sınırsız abonelikler. Otter & Notta ile hızlı karşılaştırma.",
-    "ogTitle": "Tutanakları AI fiyatlandırma",
-    "title": "Tutanakları AI fiyatlandırma — her toplantı tarzına uygun basit planlar"
+  "vibe": {
+    "h2": "Gerçeklerin ötesinde – ekipleri harekete geçiren tutanaklar",
+    "p1": "Tutanakları AI'ı, notlarınızı yeniden açtığınız anda bir sonraki adımınızın ne olacağını hemen anlayacağınız şekilde tasarladık. Artık 'ne karar verilmişti?' diye aramak yok.",
+    "p2": "Akıllı, temiz formatlarımız kararları ve takip eylemlerini otomatik olarak vurgular. Bu, notlarınızın taranmasını inanılmaz derecede kolaylaştırır, böylece önemli olanı saniyeler içinde bulabilirsiniz.",
+    "highlights": [
+      "**Size özel esneklik**: Süresi dolmayan paketleri veya sınırsız abonelikleri seçin.",
+      "**Kolay okunur**: Kararlar ve eylem maddeleri her zaman öne çıkar.",
+      "**Her yerde çalışır**: Web'de ve iOS'ta sorunsuz bir deneyim."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Bu plan yapısının nedeni",
+  "faq": {
+    "h2": "SSS – Ücretsiz plan & Fiyatlandırma",
     "items": [
-      "Her gün toplantı: öngörülebilirlik için Sınırsız.",
-      "Ara sıra toplantı: Light’ı bir kez alın — süresiz.",
-      "Sadece deneme: Trial + günlük 3 dk bilet."
+      {
+        "q": "Ücretsiz bir plan var mı?",
+        "a": "Evet! Her gün 3 dakika kullanım sağlayan ücretsiz bir 'günlük bilet' alırsınız."
+      },
+      {
+        "q": "Süre paketlerinin süresi dolar mı?",
+        "a": "Hayır! Süre paketlerimizde satın alınan dakikaların **süresi asla dolmaz**. Şimdi alın ve gelecek yıl kullanın – bu tamamen size kalmış."
+      },
+      {
+        "q": "Yıllık Plan ile ne kadar tasarruf ederim?",
+        "a": "Yaklaşık %26 tasarruf edersiniz! Aylık plan $16.99 (12 ay için $203.88), Yıllık plan ise sadece $149.99."
+      },
+      {
+        "q": "Fiyatlara vergiler dahil mi?",
+        "a": "Fiyatlarımız USD (ABD Doları) cinsindendir. Yaşadığınız yere bağlı olarak, son ödeme sırasında yerel vergiler veya KDV (Katma Değer Vergisi) eklenebilir."
+      },
+      {
+        "q": "Kaç dil destekleniyor?",
+        "a": "Hem konuşma tanıma hem de nihai toplantı tutanağını formatlama için 100'den fazla dili destekliyoruz."
+      }
     ]
+  },
+  "seo": {
+    "description": "Tutanakları AI'dan basit fiyatlandırma. **Süresi asla dolmayan** süre paketleri veya **gerçekten sınırsız** abonelikler arasından seçim yapın. Her gün 3 ücretsiz dakika kazanın. Fiyatları, limitleri ve devir imkanlarını Otter/Notta ile karşılaştırın.",
+    "ld": {
+      "description": "Dört plan: İki süresi dolmayan süre paketi ve iki gerçekten sınırsız abonelik. Otter/Notta ile karşılaştırma içerir.",
+      "headline": "Tutanakları AI Fiyatları ve Planları"
+    },
+    "ogDescription": "Tarzınızı seçin: Süresi asla dolmayan süre paketleri + gerçekten sınırsız abonelikler. Otter / Notta ile hızlı karşılaştırma.",
+    "ogTitle": "Tutanakları AI Fiyatlandırması (2025)",
+    "title": "Tutanakları AI Fiyatlandırması (2025) | Size Uygun Basit Planlar – Süresi Dolmaz & Gerçekten Sınırsız"
   }
 }

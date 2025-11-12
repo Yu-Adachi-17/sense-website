@@ -16,22 +16,28 @@ const LAST_UPDATED_ISO = "2025-11-12";
 const FX = {
   // editable reference rates; checkout remains USD
   EUR_PER_USD: 0.92,
-  JPY_PER_USD: 150.0,
 };
 const formatMoney = (amountUSD, currency) => {
-  let value = amountUSD, code = currency;
+  let value = amountUSD;
   if (currency === "EUR") value = amountUSD * FX.EUR_PER_USD;
-  if (currency === "JPY") value = amountUSD * FX.JPY_PER_USD;
+  const code = currency === "EUR" ? "EUR" : "USD";
   return new Intl.NumberFormat(undefined, {
     style: "currency",
     currency: code,
-    maximumFractionDigits: code === "JPY" ? 0 : 2,
+    maximumFractionDigits: 2,
   }).format(value);
 };
 const guessCurrency = () => {
   const lang = typeof navigator !== "undefined" ? navigator.language : "en-US";
-  if (lang.startsWith("ja")) return "JPY";
-  if (lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") || lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("nb") || lang.startsWith("pt")) return "EUR";
+  // Map common European locales to EUR, otherwise default to USD
+  if (
+    lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") ||
+    lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("nb") ||
+    lang.startsWith("pt") || lang.startsWith("fi") || lang.startsWith("sv") ||
+    lang.startsWith("da") || lang.startsWith("pl") || lang.startsWith("cs") ||
+    lang.startsWith("sk") || lang.startsWith("hu") || lang.startsWith("ro") ||
+    lang.startsWith("el")
+  ) return "EUR";
   return "USD";
 };
 
@@ -39,7 +45,7 @@ const guessCurrency = () => {
 const EN_FALLBACK = {
   seo: {
     title:
-      "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR/JPY)",
+      "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR)",
     description:
       "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes, every single day.",
     ogTitle: "Minutes.AI Pricing (2025): Simple, Flexible Plans",
@@ -72,19 +78,19 @@ const EN_FALLBACK = {
   /* ---- Plans ---- */
   plans: {
     h2_queryHub: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan",
-    queryHub_p: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing", // NEW
+    queryHub_p: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing",
     h3_timepacks: "One-time time packs (no expiry)",
     timepacks_note:
       "Buy once, use forever. Your purchased minutes **never expire**. Use them to generate AI minutes from recordings whenever you need to—no rush.",
     trial: {
       name: "Trial",
       detail: "120 min",
-      foot: "Fastest way to try — no expiry.", // NEW
+      foot: "Fastest way to try — no expiry.",
     },
     light: {
       name: "Light",
       detail: "1200 min",
-      foot: "Buy once, keep it forever.", // NEW
+      foot: "Buy once, keep it forever.",
     },
 
     h3_subs: "Subscriptions (truly unlimited)",
@@ -93,7 +99,7 @@ const EN_FALLBACK = {
     monthly: {
       name: "Monthly",
       detail: "",
-      foot: "Great for busy months.", // NEW
+      foot: "Great for busy months.",
     },
     annual: {
       name: "Annual",
@@ -110,7 +116,7 @@ const EN_FALLBACK = {
       "**Truly unlimited subscriptions**: Zero caps, zero worries.",
       "**Readable AI Minutes**: 100+ languages, crystal clear on iOS & Web.",
     ],
-    foot: { // NEW
+    foot: {
       pre: "* Prices shown in {currency}.",
       post_usd: "Checkout is processed in USD; taxes/VAT may apply at checkout.",
       post_other: "Checkout is processed in USD; converted amounts are estimates.",
@@ -200,18 +206,15 @@ const getPath = (obj, path) =>
 const toArray = (v) =>
   Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : [];
 
-// useTxフックは、txsがキーを返す場合にEN_FALLBACKを参照するように修正
+// useTx hook with EN fallback when key is missing
 function useTx(ns) {
   const { t } = useTranslation(ns);
-  const { locale } = useRouter();
 
   const txs = (key, options) => {
     const val = t(key, options);
-    // キーがそのまま返ってきた（＝翻訳がない）場合のみフォールバック
     if (typeof val === "string" && val === key) {
       const fb = getPath(EN_FALLBACK, key);
       if (typeof fb === "string") {
-        // フォールバックテキストにも補間を適用
         if (options && typeof options === "object") {
           return Object.entries(options).reduce(
             (acc, [k, v]) => acc.replace(`{${k}}`, String(v)),
@@ -220,49 +223,26 @@ function useTx(ns) {
         }
         return fb;
       }
-      return key; // フォールバックにもなければキーを返す
+      return key;
     }
     return val;
   };
 
   const txa = (key) => {
-    // 翻訳（ja.jsonなど）から配列を取得しようと試みる
     const val = t(key, { returnObjects: true });
-    
-    // 1. 翻訳が配列として正しく返ってきた場合
-    if (Array.isArray(val) && val.length > 0) {
-      // returnObjects: true は、キー自体を返すときに配列ではなくオブジェクトを返すことがある
-      // その中身が実際に配列かどうかをチェックする
-      if (Array.isArray(val[0])) return val; // ネストされた配列はそのまま
-      if (typeof val[0] === 'object' || typeof val[0] === 'string') {
-        return val; // オブジェクトまたは文字列の配列
-      }
-    }
+    if (Array.isArray(val) && val.length > 0) return val;
 
-    // 2. 翻訳がないか、キーが返ってきた場合、EN_FALLBACKから取得
     const fb = getPath(EN_FALLBACK, key);
-    if (Array.isArray(fb)) {
-      return fb;
-    }
-    
-    // 3. EN_FALLBACKにもないか、配列でない場合
-    // t()がキーを返した場合、valはキー文字列になる
-    if (typeof val === 'string' && val === key) {
-       return toArray(fb); // フォールバックを配列化
-    }
+    if (Array.isArray(fb)) return fb;
 
-    // 4. t()がオブジェクトを返したが配列でない場合（例: ja.jsonに空の {} がある）
-    if (typeof val === 'object' && !Array.isArray(val)) {
-        return toArray(fb); // フォールバックを配列化
-    }
+    if (typeof val === "string" && val === key) return toArray(fb);
+    if (typeof val === "object" && !Array.isArray(val)) return toArray(fb);
 
-    // 最終手段
     return toArray(val);
   };
 
   return { txs, txa };
 }
-
 
 /* ---------- UI bits ---------- */
 function Kicker({ children }) {
@@ -302,11 +282,11 @@ function Bullet({ children }) {
   );
 }
 
-/* ---------- Currency Toggle ---------- */
+/* ---------- Currency Toggle (USD/EUR only) ---------- */
 function CurrencyToggle({ currency, setCurrency }) {
   return (
     <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 p-1">
-      {["USD", "EUR", "JPY"].map((c) => (
+      {["USD", "EUR"].map((c) => (
         <button
           key={c}
           onClick={() => setCurrency(c)}
@@ -478,7 +458,7 @@ export default function BlogPricing() {
               <Pill>Last updated: {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short", day: "2-digit" })}</Pill>
             </div>
 
-            {/* Currency toggle */}
+            {/* Currency toggle (USD/EUR) */}
             <CurrencyToggle currency={currency} setCurrency={setCurrency} />
           </div>
         </section>
@@ -494,7 +474,6 @@ export default function BlogPricing() {
           {/* Query-intent hub */}
           <SectionCard className="mt-8">
             <h2 className="text-xl sm:text-2xl font-semibold">{txs("plans.h2_queryHub")}</h2>
-            {/* --- 修正点 1 --- */}
             <p className="mt-2 text-sm text-indigo-200/80">
               {txs("plans.queryHub_p")}
             </p>
@@ -511,7 +490,6 @@ export default function BlogPricing() {
                 <div className="mt-1 text-xl font-bold">
                   {txs("plans.trial.detail")} / {formatMoney(P.TRIAL, currency)}
                 </div>
-                {/* --- 修正点 2 --- */}
                 <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.trial.foot")}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
@@ -519,7 +497,6 @@ export default function BlogPricing() {
                 <div className="mt-1 text-xl font-bold">
                   {txs("plans.light.detail")} / {formatMoney(P.LIGHT, currency)}
                 </div>
-                {/* --- 修正点 3 --- */}
                 <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.light.foot")}</p>
               </div>
             </div>
@@ -531,7 +508,6 @@ export default function BlogPricing() {
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-sm text-indigo-200/90">{txs("plans.monthly.name")}</div>
                 <div className="mt-1 text-xl font-bold">{formatMoney(P.MONTHLY, currency)}</div>
-                {/* --- 修正点 4 --- */}
                 <p className="mt-2 text-xs text-indigo-200/80">{txs("plans.monthly.foot")}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
@@ -554,7 +530,6 @@ export default function BlogPricing() {
               ))}
             </ul>
 
-            {/* --- 修正点 5 --- */}
             <p className="mt-4 text-[12px] text-indigo-200/70">
               * {txs("plans.foot.pre", { currency: currency })}{" "}
               {currency !== "USD"
@@ -635,7 +610,7 @@ export default function BlogPricing() {
               {txs("cta.openBrowser")}
             </Link>
             <a
-              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%82ai/id6504087901"
+              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"

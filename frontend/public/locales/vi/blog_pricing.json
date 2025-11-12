@@ -1,45 +1,45 @@
 {
   "aria": {
-    "home": "Trang chủ Biên bản AI"
+    "home": "Biên bản AI Trang chủ"
   },
   "compare": {
-    "foot": "Nguồn: trang giá chính thức của Otter và Notta.",
-    "h2": "Biên bản AI vs. Otter vs. Notta — Giá trong nháy mắt",
-    "lastUpdated": "Cập nhật lần cuối: 31 Thg 10, 2025",
-    "note": "Giá và hạn ngạch chính (USD). Đối thủ thường đặt lại hạn mức hàng tháng, không cộng dồn.",
+    "foot": "Nguồn: Trang giá chính thức của Otter / Notta (theo nghiên cứu của chúng tôi).",
+    "h2": "Biên bản AI vs. Otter vs. Notta – So sánh giá nhanh",
+    "lastUpdated": "Cập nhật lần cuối: 12 tháng 11, 2025",
+    "note": "Giá tính bằng USD. Lưu ý: Hầu hết các đối thủ cạnh tranh có hạn ngạch hàng tháng bị reset và số phút không sử dụng sẽ không được cộng dồn (không có 'rollover').",
     "rows": [
       {
-        "billing": "Gói thời gian một lần + gói thuê bao",
-        "cheapest": "Trial 120 phút / $1.99 (không hết hạn)",
-        "free": "Vé miễn phí hằng ngày 3 phút",
-        "limits": "Gói thời gian không bao giờ hết hạn. Thuê bao không bị giới hạn.",
+        "billing": "Gói thời gian + Gói đăng ký",
+        "cheapest": "Dùng thử: 120 phút / $1.99 (không hết hạn)",
+        "free": "Vé miễn phí hàng ngày (3 phút)",
+        "limits": "Gói thời gian không bao giờ hết hạn. Gói đăng ký thực sự không giới hạn.",
         "service": "Biên bản AI",
-        "unlimited": "Có — $16.99/tháng hoặc $149.99/năm"
+        "unlimited": "Có! — $16.99/tháng hoặc $149.99/năm"
       },
       {
-        "billing": "Thuê bao theo ghế",
-        "cheapest": "Pro — $16.99/tháng hoặc $8.33/tháng (gói năm)",
-        "free": "300 phút/tháng, tối đa 30 phút/cuộc trò chuyện",
-        "limits": "Không cộng dồn; giới hạn theo cuộc họp",
+        "billing": "Đăng ký theo người dùng",
+        "cheapest": "Pro — $16.99/tháng hoặc $8.33/tháng (hàng năm)",
+        "free": "300 phút/tháng, tối đa 30 phút/cuộc hội thoại",
+        "limits": "Không cộng dồn; giới hạn 90 phút/cuộc họp (Pro)",
         "service": "Otter",
-        "unlimited": "Không — Pro 1200 phút/tháng; Business 6000 phút nhập/tháng"
+        "unlimited": "Không — Pro 1200 phút/tháng"
       },
       {
-        "billing": "Thuê bao theo ghế",
-        "cheapest": "Pro — $13.49/tháng (tháng) hoặc $8.17/tháng (năm)",
+        "billing": "Đăng ký theo người dùng",
+        "cheapest": "Pro — $13.49/tháng (hàng tháng) hoặc $8.17/tháng (hàng năm)",
         "free": "120 phút/tháng, tối đa 3 phút/bản ghi",
-        "limits": "Không cộng dồn; tối đa 5 giờ/bản ghi; hạn mức tải tệp",
+        "limits": "Không cộng dồn; giới hạn ghi âm và tải lên",
         "service": "Notta",
-        "unlimited": "Business — Không giới hạn (gói năm $16.67/tháng; gói tháng cao hơn)"
+        "unlimited": "Business — Không giới hạn (hàng năm $16.67/tháng)"
       }
     ],
     "tableHead": [
       "Dịch vụ",
       "Gói miễn phí",
       "Gói trả phí rẻ nhất",
-      "Sử dụng không giới hạn",
+      "Không giới hạn",
       "Giới hạn đáng chú ý",
-      "Kiểu tính phí"
+      "Hình thức thanh toán"
     ]
   },
   "cta": {
@@ -47,71 +47,111 @@
     "openBrowser": "Mở trong trình duyệt"
   },
   "hero": {
-    "h1": "Bảng giá Biên bản AI (2025)",
-    "kicker": "Bảng giá",
-    "tagline": "Chọn gói thời gian không hết hạn, hoặc dùng không giới hạn với thuê bao theo tháng/năm."
+    "h1": "Giá Biên bản AI (2025)",
+    "kicker": "Giá cả",
+    "tagline": "Chọn gói phù hợp với bạn: gói thời gian mua một lần **không bao giờ hết hạn**, hoặc gói đăng ký **thực sự không giới hạn**.",
+    "subtag": "Tham gia cùng các nhóm trên toàn thế giới yêu thích 'biên bản siêu dễ đọc' của chúng tôi. Biên bản AI hoạt động mượt mà trên iOS và Web, hỗ trợ hơn 100 ngôn ngữ."
   },
   "intro": {
-    "h2": "Gói nào hợp với bạn?",
-    "p1": "Chúng tôi có 4 lựa chọn phù hợp với tần suất họp của bạn."
+    "h2": "Gói nào phù hợp với bạn?",
+    "p1": "Dù bạn họp hàng ngày, thỉnh thoảng, hay chỉ muốn dùng thử, chúng tôi đều có gói đơn giản phù hợp với nhu cầu của bạn."
   },
   "meta": {
-    "category": "Bảng giá",
+    "category": "Giá cả",
     "h2": "Meta",
     "published": "Đã xuất bản",
     "type": "Hướng dẫn"
   },
   "nav": {
     "blog": "Blog",
-    "pricing": "Bảng giá"
+    "pricing": "Giá cả"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Gói năm"
-    },
-    "bullets": [
-      "Gói thời gian không hết hạn: mua một lần, dùng bất cứ lúc nào",
-      "Sử dụng không giới hạn với thuê bao",
-      "iOS & Web, đầu ra đa ngôn ngữ"
-    ],
-    "free": {
-      "badge": "Vé miễn phí hằng ngày",
-      "text": "Ngay cả khi không trả phí, mỗi ngày bạn nhận vé miễn phí 3 phút để thử Biên bản AI."
-    },
-    "h3_subs": "Loại thuê bao",
-    "h3_timepacks": "Loại gói thời gian",
-    "light": {
-      "detail": "1200 phút / $11.99",
-      "name": "Light"
-    },
-    "monthly": {
-      "detail": "$16.99",
-      "name": "Gói tháng"
-    },
-    "subs_note": "Thuê bao thật sự không giới hạn — không có trần theo tháng.",
-    "timepacks_note": "Phút đã mua không bao giờ hết hạn. Tạo biên bản AI từ bản ghi bất cứ lúc nào.",
+    "h2_queryHub": "Giá Biên bản AI / Giá ứng dụng Biên bản AI / Biên bản AI miễn phí",
+    "queryHub_p": "Giá Biên bản AI / Giá ứng dụng Biên bản AI / Gói miễn phí Biên bản AI / Giá công cụ ghi biên bản",
+    "h3_timepacks": "Gói thời gian (Mua một lần)",
+    "timepacks_note": "Số phút bạn mua **không bao giờ hết hạn**. Sử dụng chúng để tạo biên bản AI từ các bản ghi bất cứ khi nào bạn cần – không cần vội vàng.",
     "trial": {
       "detail": "120 phút / $1.99",
-      "name": "Trial"
+      "name": "Gói dùng thử",
+      "foot": "Cách nhanh nhất để dùng thử – không hết hạn."
+    },
+    "light": {
+      "detail": "1200 phút / $11.99",
+      "name": "Gói Light",
+      "foot": "Mua một lần, giữ mãi mãi."
+    },
+    "h3_subs": "Gói đăng ký (Thực sự không giới hạn)",
+    "subs_note": "Các gói này **thực sự không giới hạn**. Quên đi các giới hạn hàng tháng hay lo lắng về việc reset. Tập trung vào các cuộc họp của bạn, không phải vào đồng hồ.",
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Hàng tháng",
+      "foot": "Tuyệt vời cho những tháng bận rộn."
+    },
+    "annual": {
+      "detail": "$149.99",
+      "name": "Hàng năm (giảm ≈26%)",
+      "foot": "Hàng tháng $16.99 × 12 = $203.88 so với Hàng năm $149.99"
+    },
+    "free": {
+      "badge": "Vé miễn phí hàng ngày",
+      "text": "Nhận 3 phút miễn phí để sử dụng Biên bản AI mỗi ngày! Chúng tôi mời, không cần thẻ tín dụng."
+    },
+    "bullets": [
+      "**Gói thời gian không hết hạn**: Mua một lần, dùng bất cứ lúc nào.",
+      "**Gói đăng ký thực sự không giới hạn**: Không giới hạn phút, không lo lắng.",
+      "**Biên bản AI dễ đọc**: Hơn 100 ngôn ngữ, rõ ràng trên iOS & Web."
+    ],
+    "foot": {
+      "pre": "* Giá hiển thị bằng {currency}.",
+      "post_usd": "Thanh toán được xử lý bằng USD. Thuế/VAT có thể được áp dụng khi thanh toán tùy thuộc vào khu vực của bạn.",
+      "post_other": "Thanh toán được xử lý bằng USD; số tiền chuyển đổi sang {currency} là ước tính."
     }
   },
-  "seo": {
-    "description": "Gói không hết hạn và thuê bao thực sự không giới hạn. Xem Biên bản AI so với Otter và Notta về giá, hạn ngạch và cộng dồn.",
-    "ld": {
-      "description": "Bốn gói rõ ràng: hai gói một lần (không hết hạn) và hai thuê bao không giới hạn — kèm so sánh với Otter và Notta.",
-      "headline": "Bảng giá Biên bản AI"
-    },
-    "ogDescription": "Gói không hết hạn + thuê bao không giới hạn. So sánh nhanh với Otter & Notta.",
-    "ogTitle": "Bảng giá Biên bản AI",
-    "title": "Biên bản AI — gói đơn giản cho mọi phong cách họp"
+  "vibe": {
+    "h2": "Hơn cả sự thật – biên bản thúc đẩy đội nhóm",
+    "p1": "Chúng tôi thiết kế Biên bản AI để bước tiếp theo của bạn luôn rõ ràng ngay khi bạn mở lại ghi chú. Không còn phải tìm kiếm xem đã quyết định điều gì.",
+    "p2": "Các định dạng thông minh, rõ ràng của chúng tôi tự động làm nổi bật các quyết định và các mục theo dõi. Điều này giúp ghi chú của bạn cực kỳ dễ quét, để bạn có thể tìm thấy điều quan trọng trong vài giây.",
+    "highlights": [
+      "**Linh hoạt cho bạn**: Chọn gói không hết hạn hoặc gói đăng ký không giới hạn.",
+      "**Dễ đọc**: Các quyết định và mục hành động luôn nổi bật.",
+      "**Hoạt động ở mọi nơi**: Trải nghiệm mượt mà trên cả Web và iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Vì sao chúng tôi thiết kế gói như vậy",
+  "faq": {
+    "h2": "Câu hỏi thường gặp (FAQ) – Gói miễn phí & Giá cả",
     "items": [
-      "Họp hằng ngày: chọn Không giới hạn để dễ dự đoán.",
-      "Họp thỉnh thoảng: mua Light một lần — không hết hạn.",
-      "Chỉ thử: gói Trial + vé miễn phí 3 phút mỗi ngày."
+      {
+        "q": "Có gói miễn phí không?",
+        "a": "Có! Bạn nhận được một \"vé hàng ngày\" miễn phí cung cấp cho bạn 3 phút sử dụng, mỗi ngày."
+      },
+      {
+        "q": "Gói thời gian có hết hạn không?",
+        "a": "Không! Số phút đã mua trong các gói thời gian của chúng tôi **không bao giờ hết hạn**. Mua chúng ngay bâyA và sử dụng vào năm sau – hoàn toàn tùy thuộc vào bạn."
+      },
+      {
+        "q": "Tôi tiết kiệm được bao nhiêu với gói Hàng năm?",
+        "a": "Bạn tiết kiệm được khoảng 26%! Gói Hàng tháng có giá $16.99 (tổng cộng $203.88 trong 12 tháng), trong khi gói Hàng năm chỉ có giá $149.99."
+      },
+      {
+        "q": "Giá đã bao gồm thuế chưa?",
+        "a": "Giá của chúng tôi được niêm yết bằng USD (Đô la Mỹ). Tùy thuộc vào nơi bạn sống, các loại thuế địa phương hoặc VAT (Thuế Giá trị Gia tăng) có thể được thêm vào trong quá trình thanh toán cuối cùng."
+      },
+      {
+        "q": "Hỗ trợ bao nhiêu ngôn ngữ?",
+        "a": "Chúng tôi hỗ trợ hơn 100 ngôn ngữ, cả về nhận dạng giọng nói và định dạng biên bản cuộc họp cuối cùng."
+      }
     ]
+  },
+  "seo": {
+    "description": "Giá cả đơn giản từ Biên bản AI. Chọn giữa các gói thời gian **không bao giờ hết hạn** hoặc các gói đăng ký **thực sự không giới hạn**. Nhận 3 phút miễn phí mỗi ngày. So sánh giá, giới hạn và khả năng cộng dồn với Otter/Notta.",
+    "ld": {
+      "description": "Bốn gói: Hai gói thời gian không hết hạn và hai gói đăng ký thực sự không giới hạn. Bao gồm so sánh với Otter/Notta.",
+      "headline": "Giá cả và các gói của Biên bản AI"
+    },
+    "ogDescription": "Chọn phong cách của bạn: Gói thời gian không baoD giờ hết hạn + gói đăng ký thực sự không giới hạn. So sánh nhanh với Otter / Notta.",
+    "ogTitle": "Giá Biên bản AI (2025)",
+    "title": "Giá Biên bản AI (2025) | Gói đơn giản phù hợp với bạn – Không hết hạn & Thực sự không giới hạn"
   }
 }

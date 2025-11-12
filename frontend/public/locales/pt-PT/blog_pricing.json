@@ -1,59 +1,60 @@
 {
   "aria": {
-    "home": "Início do Ata AI"
+    "home": "Ata AI Início"
   },
   "compare": {
-    "foot": "Fontes: páginas oficiais de preços do Otter e Notta.",
-    "h2": "Ata AI vs Otter vs Notta — preços em resumo",
-    "lastUpdated": "Última atualização: 31 out 2025",
-    "note": "Preços e quotas em USD. Concorrentes costumam reiniciar quotas mensais sem rollover.",
+    "foot": "Fontes: Páginas oficiais de preços da Otter / Notta (nossa pesquisa).",
+    "h2": "Ata AI vs. Otter vs. Notta – Comparativo Rápido de Preços",
+    "lastUpdated": "Última atualização: 12 de novembro de 2025",
+    "note": "Preços em USD. Atenção: A maioria dos concorrentes possui cotas mensais que são zeradas, e os minutos não utilizados não são acumulados (sem 'rollover').",
     "rows": [
       {
-        "billing": "Pacotes únicos + subscrições",
-        "cheapest": "Trial 120 min / $1.99 (sem prazo)",
-        "free": "Bilhete diário de 3 min",
-        "limits": "Pacotes sem prazo. Subscrições sem limite.",
+        "billing": "Pacotes de tempo + Assinaturas",
+        "cheapest": "Teste: 120 min / $1.99 (não expira)",
+        "free": "Ticket diário gratuito (3 min)",
+        "limits": "Pacotes de tempo não expiram. Assinaturas são realmente ilimitadas.",
         "service": "Ata AI",
-        "unlimited": "Sim — $16.99/mês ou $149.99/ano"
+        "unlimited": "Sim! — $16.99/mês ou $149.99/ano"
       },
       {
-        "billing": "Subscrição por utilizador",
+        "billing": "Assinatura por usuário",
         "cheapest": "Pro — $16.99/mês ou $8.33/mês (anual)",
-        "free": "300 min/mês, até 30 min/reunião",
-        "limits": "Sem rollover; limite por reunião",
+        "free": "300 min/mês, até 30 min/conversa",
+        "limits": "Sem 'rollover'; limite de 90 min/reunião (Pro)",
         "service": "Otter",
-        "unlimited": "Não — Pro 1200 min/mês; Business 6000 min de importação/mês"
+        "unlimited": "Não — Pro 1200 min/mês"
       },
       {
-        "billing": "Subscrição por utilizador",
+        "billing": "Assinatura por usuário",
         "cheapest": "Pro — $13.49/mês (mensal) ou $8.17/mês (anual)",
         "free": "120 min/mês, até 3 min/gravação",
-        "limits": "Sem carryover; até 5 h por gravação; quotas de upload",
+        "limits": "Sem acúmulo; limites de gravação e upload",
         "service": "Notta",
-        "unlimited": "Business — Ilimitado (anual $16.67/mês; mensal superior)"
+        "unlimited": "Business — Ilimitado (anual $16.67/mês)"
       }
     ],
     "tableHead": [
       "Serviço",
-      "Plano gratuito",
-      "Mais barato",
+      "Plano Gratuito",
+      "Plano Pago Mais Barato",
       "Ilimitado",
-      "Limites notáveis",
-      "Modelo de faturação"
+      "Limites Importantes",
+      "Modelo de Cobrança"
     ]
   },
   "cta": {
-    "downloadIOS": "Transferir app iOS",
+    "downloadIOS": "Baixar app para iOS",
     "openBrowser": "Abrir no navegador"
   },
   "hero": {
-    "h1": "Preços do Ata AI (2025)",
+    "h1": "Preços Ata AI (2025)",
     "kicker": "Preços",
-    "tagline": "Escolha pacotes de tempo sem prazo ou subscrições mensais/anuais verdadeiramente ilimitadas."
+    "tagline": "Escolha o que se adapta a você: pacotes de tempo de compra única que **nunca expiram**, ou assinaturas **realmente ilimitadas**.",
+    "subtag": "Junte-se a equipes do mundo todo que amam nossas \"atas ultra legíveis\". O Ata AI funciona perfeitamente no iOS e na Web, com suporte a mais de 100 idiomas."
   },
   "intro": {
-    "h2": "Qual o plano ideal?",
-    "p1": "Quatro opções adaptadas à frequência das suas reuniões."
+    "h2": "Qual plano combina com você?",
+    "p1": "Seja para reuniões diárias, ocasionais ou apenas para experimentar, temos um plano simples que atende às suas necessidades."
   },
   "meta": {
     "category": "Preços",
@@ -66,52 +67,91 @@
     "pricing": "Preços"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Anual"
-    },
-    "bullets": [
-      "Sem prazo: compre uma vez, use quando quiser",
-      "Utilização ilimitada nas subscrições",
-      "iOS & Web, saídas multilingues"
-    ],
-    "free": {
-      "badge": "Bilhete gratuito diário",
-      "text": "Mesmo sem pagar, recebe um bilhete gratuito de 3 minutos por dia para experimentar o Ata AI."
-    },
-    "h3_subs": "Tipo Subscrição",
-    "h3_timepacks": "Tipo Pacote de Tempo",
-    "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
-    },
-    "monthly": {
-      "detail": "$16.99",
-      "name": "Mensal"
-    },
-    "subs_note": "As subscrições são realmente ilimitadas — sem limites mensais.",
-    "timepacks_note": "Os minutos comprados nunca expiram. Gere atas automáticas quando quiser.",
+    "h2_queryHub": "Preços Ata AI / Preço app Ata AI / Ata AI grátis",
+    "queryHub_p": "Preços Ata AI / Preço app Ata AI / Plano gratuito Ata AI / Preço ferramenta de atas",
+    "h3_timepacks": "Pacotes de Tempo (Compra única)",
+    "timepacks_note": "Os minutos que você compra **nunca expiram**. Use-os para gerar atas com IA a partir de gravações sempre que precisar – sem estresse.",
     "trial": {
       "detail": "120 min / $1.99",
-      "name": "Trial"
+      "name": "Pacote de Teste",
+      "foot": "A forma mais rápida de experimentar – não expira."
+    },
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Pacote Light",
+      "foot": "Compre uma vez, mantenha para sempre."
+    },
+    "h3_subs": "Assinaturas (Realmente Ilimitadas)",
+    "subs_note": "Estes planos são **realmente ilimitados**. Esqueça os limites mensais ou a preocupação com o reinício da contagem. Foque nas suas reuniões, não no relógio.",
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Mensal",
+      "foot": "Ótimo para meses corridos."
+    },
+    "annual": {
+      "detail": "$149.99",
+      "name": "Anual (≈26% de desconto)",
+      "foot": "Mensal $16.99 × 12 = $203.88 vs. Anual $149.99"
+    },
+    "free": {
+      "badge": "Ticket Diário Gratuito",
+      "text": "Receba 3 minutos grátis para usar o Ata AI todo dia! É por nossa conta, não precisa de cartão de crédito."
+    },
+    "bullets": [
+      "**Pacotes de tempo sem vencimento**: Compre uma vez, use quando quiser.",
+      "**Assinaturas realmente ilimitadas**: Zero limites, zero preocupações.",
+      "**Atas de IA legíveis**: 100+ idiomas, com clareza total no iOS e Web."
+    ],
+    "foot": {
+      "pre": "* Preços exibidos em {currency}.",
+      "post_usd": "O pagamento é processado em USD. Impostos (como IOF) podem ser aplicados no checkout dependendo da sua região.",
+      "post_other": "O pagamento é processado em USD; os valores convertidos para {currency} são estimativas."
     }
   },
-  "seo": {
-    "description": "Pacotes de tempo sem prazo e subscrições verdadeiramente ilimitadas. Compare com Otter e Notta (preço, quotas, rollover).",
-    "ld": {
-      "description": "Quatro planos: dois pacotes de tempo (sem prazo) e duas subscrições ilimitadas, com comparação face ao Otter e Notta.",
-      "headline": "Preços do Ata AI"
-    },
-    "ogDescription": "Pacotes sem prazo + subscrições ilimitadas. Comparação rápida com Otter e Notta.",
-    "ogTitle": "Preços do Ata AI",
-    "title": "Preços do Ata AI — planos simples para cada estilo de reunião"
+  "vibe": {
+    "h2": "Além dos fatos – atas que movem equipes",
+    "p1": "Projetamos o Ata AI para que seu próximo passo seja óbvio assim que você reabrir suas notas. Chega de caçar o que foi decidido.",
+    "p2": "Nossos formatos inteligentes e limpos destacam automaticamente decisões e ações de acompanhamento. Isso torna suas atas incrivelmente fáceis de escanear, para que você encontre o que importa em segundos.",
+    "highlights": [
+      "**Flexível para você**: Escolha pacotes sem vencimento ou assinaturas ilimitadas.",
+      "**Fácil de ler**: Decisões e ações sempre se destacam.",
+      "**Funciona em qualquer lugar**: Uma experiência fluida na Web e no iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Porque esta estrutura",
+  "faq": {
+    "h2": "Perguntas Frequentes (FAQ) – Plano gratuito e Preços",
     "items": [
-      "Reuniões diárias: escolha Ilimitado para previsibilidade.",
-      "Reuniões ocasionais: compre Light uma vez — sem prazo.",
-      "Para testar: Trial + bilhete diário de 3 minutos."
+      {
+        "q": "Existe um plano gratuito?",
+        "a": "Sim! Você recebe um \"ticket diário\" gratuito que lhe dá 3 minutos de uso, todos os dias."
+      },
+      {
+        "q": "Os pacotes de tempo expiram?",
+        "a": "Não! Minutos comprados em nossos pacotes de tempo **nunca expiram**. Compre agora e use no próximo ano – a decisão é totalmente sua."
+      },
+      {
+        "q": "Quanto eu economizo com o plano Anual?",
+        "a": "Você economiza cerca de 26%! O plano Mensal custa $16.99 (totalizando $203.88 em 12 meses), enquanto o plano Anual custa apenas $149.99."
+      },
+      {
+        "q": "Os preços incluem impostos?",
+        "a": "Os preços são exibidos em USD (dólares americanos). Dependendo de onde você mora, impostos locais (como IOF) podem ser adicionados no checkout final."
+      },
+      {
+        "q": "Quantos idiomas são suportados?",
+        "a": "Suportamos mais de 100 idiomas, tanto para reconhecimento de fala quanto para a formatação da ata final da reunião."
+      }
     ]
+  },
+  "seo": {
+    "description": "Preços simples do Ata AI. Escolha entre pacotes de tempo que **nunca expiram** ou assinaturas **realmente ilimitadas**. Ganhe 3 minutos grátis todos os dias. Compare preços, limites e acúmulo de minutos com Otter/Notta.",
+    "ld": {
+      "description": "Quatro planos: Dois pacotes de tempo sem vencimento e duas assinaturas realmente ilimitadas. Inclui comparação com Otter/Notta.",
+      "headline": "Preços e Planos do Ata AI"
+    },
+    "ogDescription": "Escolha seu estilo: Pacotes de tempo que nunca expiram + assinaturas realmente ilimitadas. Comparativo rápido com Otter / Notta.",
+    "ogTitle": "Preços do Ata AI (2025)",
+    "title": "Preços do Ata AI (2025) | Planos simples que se adaptam a você – Sem vencimento & Realmente Ilimitado"
   }
 }

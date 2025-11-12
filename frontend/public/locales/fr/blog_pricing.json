@@ -1,63 +1,64 @@
 {
   "aria": {
-    "home": "Accueil Minutes.AI"
+    "home": "Minutes.AI Accueil"
   },
   "compare": {
-    "foot": "Sources : pages officielles de tarifs d’Otter et Notta.",
-    "h2": "Minutes.AI vs Otter vs Notta — aperçu des prix",
-    "lastUpdated": "Dernière mise à jour : 31 oct. 2025",
-    "note": "Prix et quotas clés (USD). Les concurrents réinitialisent généralement les quotas chaque mois sans report.",
+    "foot": "Sources : Pages tarifaires officielles d'Otter / Notta (selon nos recherches).",
+    "h2": "Minutes.AI vs Otter vs Notta – Comparatif rapide des prix",
+    "lastUpdated": "Dernière mise à jour : 12 novembre 2025",
+    "note": "Prix en USD. Attention : La plupart des concurrents ont des quotas mensuels qui sont réinitialisés, et les minutes non utilisées ne sont pas reportées.",
     "rows": [
       {
-        "billing": "Packs uniques + abonnements",
-        "cheapest": "Trial 120 min / $1.99 (sans expiration)",
-        "free": "Ticket quotidien 3 min",
-        "limits": "Les packs n’expirent jamais. Abonnements sans plafond.",
+        "billing": "Packs de temps + Abonnements",
+        "cheapest": "Essai : 120 min / 1.99 $ (n'expire jamais)",
+        "free": "Ticket quotidien gratuit (3 min)",
+        "limits": "Les packs de temps n'expirent jamais. Les abonnements sont illimités.",
         "service": "Minutes.AI",
-        "unlimited": "Oui — $16.99/mois ou $149.99/an"
+        "unlimited": "Oui ! — 16.99 $/mois ou 149.99 $/an"
       },
       {
         "billing": "Abonnement par utilisateur",
-        "cheapest": "Pro — $16.99/mois ou $8.33/mois (annuel)",
-        "free": "300 min/mois, jusqu’à 30 min/réunion",
-        "limits": "Pas de report ; limite par réunion",
+        "cheapest": "Pro — 16.99 $/mois ou 8.33 $/mois (annuel)",
+        "free": "300 min/mois, jusqu'à 30 min/conversation",
+        "limits": "Pas de report ; limite de 90 min/réunion (Pro)",
         "service": "Otter",
-        "unlimited": "Non — Pro 1200 min/mois ; Business 6000 min d’import/mois"
+        "unlimited": "Non — Pro 1200 min/mois"
       },
       {
         "billing": "Abonnement par utilisateur",
-        "cheapest": "Pro — $13.49/mois (mensuel) ou $8.17/mois (annuel)",
-        "free": "120 min/mois, jusqu’à 3 min/enregistrement",
-        "limits": "Pas de report ; jusqu’à 5 h/enregistrement ; quotas d’upload",
+        "cheapest": "Pro — 13.49 $/mois (mensuel) ou 8.17 $/mois (annuel)",
+        "free": "120 min/mois, jusqu'à 3 min/enregistrement",
+        "limits": "Pas de report ; limites de temps d'enregistrement et d'upload",
         "service": "Notta",
-        "unlimited": "Business — Illimité (annuel $16.67/mois ; mensuel plus élevé)"
+        "unlimited": "Business — Illimité (annuel 16.67 $/mois)"
       }
     ],
     "tableHead": [
       "Service",
-      "Offre gratuite",
-      "Payant le moins cher",
-      "Usage illimité",
+      "Offre Gratuite",
+      "Offre Payante la - chère",
+      "Illimité",
       "Limites notables",
-      "Mode de facturation"
+      "Type de facturation"
     ]
   },
   "cta": {
-    "downloadIOS": "Télécharger l’app iOS",
+    "downloadIOS": "Télécharger l'app iOS",
     "openBrowser": "Ouvrir dans le navigateur"
   },
   "hero": {
     "h1": "Tarifs Minutes.AI (2025)",
     "kicker": "Tarifs",
-    "tagline": "Choisissez des packs de temps sans expiration ou des abonnements mensuels/annuels vraiment illimités."
+    "tagline": "Choisissez ce qui vous convient : des packs de temps à achat unique qui **n'expirent jamais**, ou des abonnements **vraiment illimités**.",
+    "subtag": "Rejoignez les équipes du monde entier qui adorent nos « comptes rendus ultra-lisibles ». Minutes.AI fonctionne en parfaite transparence sur iOS et le Web, et prend en charge plus de 100 langues."
   },
   "intro": {
-    "h2": "Quel plan vous convient ?",
-    "p1": "Quatre options adaptées à votre fréquence de réunions."
+    "h2": "Quel plan vous convient le mieux ?",
+    "p1": "Que vous ayez des réunions tous les jours, occasionnellement, ou que vous souhaitiez simplement essayer, nous avons un plan simple adapté à vos besoins."
   },
   "meta": {
     "category": "Tarifs",
-    "h2": "Meta",
+    "h2": "Méta",
     "published": "Publié",
     "type": "Guide"
   },
@@ -66,52 +67,91 @@
     "pricing": "Tarifs"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Annuel"
+    "h2_queryHub": "Tarifs Minutes.AI / Prix application Minutes.AI / Minutes.AI gratuit",
+    "queryHub_p": "Tarifs Minutes.AI / Prix application Minutes.AI / Plan gratuit Minutes.AI / Prix outil comptes rendus",
+    "h3_timepacks": "Packs de Temps (Achat unique)",
+    "timepacks_note": "Les minutes que vous achetez **n'expirent jamais**. Utilisez-les pour générer des comptes rendus IA à partir d'enregistrements quand vous en avez besoin – sans stress.",
+    "trial": {
+      "detail": "120 min / 1.99 $",
+      "name": "Pack d'Essai",
+      "foot": "Le moyen le plus rapide d'essayer – n'expire pas."
     },
-    "bullets": [
-      "Packs sans expiration : payez une fois, utilisez à tout moment",
-      "Utilisation illimitée avec abonnement",
-      "iOS & Web, sorties multilingues"
-    ],
-    "free": {
-      "badge": "Ticket gratuit quotidien",
-      "text": "Même sans payer, vous recevez chaque jour un ticket gratuit de 3 minutes pour essayer Minutes.AI."
-    },
-    "h3_subs": "Abonnements",
-    "h3_timepacks": "Packs de temps",
     "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
+      "detail": "1200 min / 11.99 $",
+      "name": "Pack Light",
+      "foot": "Achetez-le une fois, gardez-le pour toujours."
     },
+    "h3_subs": "Abonnements (Vraiment illimités)",
+    "subs_note": "Ces plans sont **vraiment illimités**. Oubliez les plafonds mensuels ou l'inquiétude d'une réinitialisation. Concentrez-vous sur vos réunions, pas sur l'horloge.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Mensuel"
+      "name": "Mensuel",
+      "foot": "Idéal pour les mois chargés."
     },
-    "subs_note": "Les abonnements sont réellement illimités — aucun plafond mensuel.",
-    "timepacks_note": "Les minutes achetées n’expirent jamais. Générez des comptes rendus quand vous voulez.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Annuel (≈26% de réduction)",
+      "foot": "Mensuel 16.99 $ × 12 = 203.88 $ vs Annuel 149.99 $"
+    },
+    "free": {
+      "badge": "Ticket Quotidien Gratuit",
+      "text": "Obtenez 3 minutes gratuites pour utiliser Minutes.AI chaque jour ! C'est pour nous, aucune carte de crédit requise."
+    },
+    "bullets": [
+      "**Packs de temps sans expiration** : Achetez une fois, utilisez à tout moment.",
+      "**Abonnements vraiment illimités** : Zéro plafond, zéro souci.",
+      "**Comptes rendus IA lisibles** : 100+ langues, clarté parfaite sur iOS & Web."
+    ],
+    "foot": {
+      "pre": "* Prix affichés en {currency}.",
+      "post_usd": "Le paiement est traité en USD. Des taxes/TVA peuvent s'appliquer lors du paiement selon votre région.",
+      "post_other": "Le paiement est traité en USD ; les montants convertis en {currency} sont des estimations."
     }
   },
-  "seo": {
-    "description": "Packs de temps sans date d’expiration et abonnements vraiment illimités. Comparez Minutes.AI à Otter et Notta (prix, quotas, report).",
-    "ld": {
-      "description": "Quatre plans simples : deux packs de temps (sans expiration) et deux abonnements illimités, avec un comparatif face à Otter et Notta.",
-      "headline": "Tarifs Minutes.AI"
-    },
-    "ogDescription": "Packs sans expiration + abonnements illimités. Comparatif rapide avec Otter et Notta.",
-    "ogTitle": "Tarifs Minutes.AI",
-    "title": "Tarifs Minutes.AI — des plans simples pour chaque style de réunion"
+  "vibe": {
+    "h2": "Au-delà des faits – des comptes rendus qui font avancer les équipes",
+    "p1": "Nous avons conçu Minutes.AI pour que votre prochaine étape soit évidente dès que vous rouvrez vos notes. Fini de chercher ce qui a été décidé.",
+    "p2": "Nos formats intelligents et épurés mettent automatiquement en évidence les décisions et les points de suivi. Cela rend vos notes incroyablement faciles à parcourir, pour que vous trouviez ce dont vous avez besoin en quelques secondes.",
+    "highlights": [
+      "**Flexible pour vous** : Choisissez des packs sans expiration ou un abonnement illimité.",
+      "**Facile à lire** : Les décisions et les actions se démarquent toujours.",
+      "**Fonctionne partout** : Une expérience fluide sur le Web et iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Pourquoi cette structure de plans",
+  "faq": {
+    "h2": "Foire Aux Questions (FAQ) – Plan gratuit et tarifs",
     "items": [
-      "Réunions quotidiennes : choisissez l’Illimité pour la prévisibilité.",
-      "Réunions occasionnelles : achetez un pack Light — sans expiration.",
-      "Juste pour tester : pack Trial + ticket quotidien de 3 minutes."
+      {
+        "q": "Y a-t-il un plan gratuit ?",
+        "a": "Oui ! Vous recevez un \"ticket quotidien\" gratuit qui vous donne 3 minutes d'utilisation, chaque jour."
+      },
+      {
+        "q": "Les packs de temps expirent-ils ?",
+        "a": "Non ! Les minutes achetées dans nos packs de temps **n'expirent jamais**. Achetez-les maintenant et utilisez-les l'année prochaine – c'est vous qui décidez."
+      },
+      {
+        "q": "Combien est-ce que j'économise avec le plan Annuel ?",
+        "a": "Vous économisez environ 26 % ! Le plan Mensuel coûte 16.99 $ (soit 203.88 $ pour 12 mois), tandis que le plan Annuel ne coûte que 149.99 $."
+      },
+      {
+        "q": "Les prix incluent-ils les taxes ?",
+        "a": "Les prix sont affichés en USD (dollars américains). Selon votre lieu de résidence, des taxes locales ou la TVA peuvent être ajoutées lors du paiement final."
+      },
+      {
+        "q": "Combien de langues sont prises en charge ?",
+        "a": "Nous prenons en charge plus de 100 langues, tant pour la reconnaissance vocale que pour la mise en forme du compte rendu final de la réunion."
+      }
     ]
+  },
+  "seo": {
+    "description": "Tarifs simples de Minutes.AI. Choisissez entre des packs de temps qui **n'expirent jamais** ou des abonnements **vraiment illimités**. Obtenez 3 minutes gratuites chaque jour. Comparez les prix, les limites et le report avec Otter/Notta.",
+    "ld": {
+      "description": "Quatre plans : Deux packs de temps sans expiration et deux abonnements vraiment illimités. Comparaison avec Otter/Notta incluse.",
+      "headline": "Tarifs et Plans de Minutes.AI"
+    },
+    "ogDescription": "Choisissez votre style : Packs de temps qui n'expirent jamais + abonnements vraiment illimités. Comparaison rapide avec Otter / Notta.",
+    "ogTitle": "Tarifs Minutes.AI (2025)",
+    "title": "Tarifs Minutes.AI (2025) | Plans simples adaptés à vous – N'expire jamais & Vraiment illimité"
   }
 }

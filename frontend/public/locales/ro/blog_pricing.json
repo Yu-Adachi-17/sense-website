@@ -1,59 +1,60 @@
 {
   "aria": {
-    "home": "Acasă Proces-verbal AI"
+    "home": "Proces-verbal AI Acasă"
   },
   "compare": {
-    "foot": "Surse: paginile oficiale de prețuri pentru Otter și Notta.",
-    "h2": "Proces-verbal AI vs. Otter vs. Notta — Prețuri pe scurt",
-    "lastUpdated": "Ultima actualizare: 31 oct. 2025",
-    "note": "Prețuri și cote cheie (USD). Concurenții resetează de obicei cotele lunare fără report.",
+    "foot": "Surse: Paginile oficiale de prețuri Otter / Notta (conform cercetării noastre).",
+    "h2": "Proces-verbal AI vs. Otter vs. Notta – Comparație rapidă a prețurilor",
+    "lastUpdated": "Ultima actualizare: 12 noiembrie 2025",
+    "note": "Prețuri în USD. Notă: Majoritatea concurenților au cote lunare care se resetează, iar minutele neutilizate nu se reportează (nu există 'rollover').",
     "rows": [
       {
-        "billing": "Pachete de timp unice + abonamente",
-        "cheapest": "Trial 120 min / $1.99 (fără expirare)",
-        "free": "Bilet gratuit zilnic de 3 minute",
-        "limits": "Pachetele de timp nu expiră niciodată. Abonamentele sunt nelimitate.",
+        "billing": "Pachete de timp + Abonamente",
+        "cheapest": "Probă: 120 min / 1.99 $ (nu expiră)",
+        "free": "Bilet zilnic gratuit (3 min)",
+        "limits": "Pachetele de timp nu expiră. Abonamentele sunt cu adevărat nelimitate.",
         "service": "Proces-verbal AI",
-        "unlimited": "Da — $16.99/lună sau $149.99/an"
+        "unlimited": "Da! — 16.99 $/lună sau 149.99 $/an"
       },
       {
         "billing": "Abonament per utilizator",
-        "cheapest": "Pro — $16.99/lună sau $8.33/lună (anual)",
-        "free": "300 min/lună, până la 30 min/conversație",
-        "limits": "Fără report; limită per întâlnire",
+        "cheapest": "Pro — 16.99 $/lună sau 8.33 $/lună (anual)",
+        "free": "300 min/lună, până la 30 min/convorbire",
+        "limits": "Fără reportare; limită de 90 min/ședință (Pro)",
         "service": "Otter",
-        "unlimited": "Nu — Pro 1200 min/lună; Business 6000 min import/lună"
+        "unlimited": "Nu — Pro 1200 min/lună"
       },
       {
         "billing": "Abonament per utilizator",
-        "cheapest": "Pro — $13.49/lună (lunar) sau $8.17/lună (anual)",
+        "cheapest": "Pro — 13.49 $/lună (lunar) sau 8.17 $/lună (anual)",
         "free": "120 min/lună, până la 3 min/înregistrare",
-        "limits": "Fără report; până la 5 h/înregistrare; cote pentru încărcare fișiere",
+        "limits": "Fără reportare; limite de înregistrare și încărcare",
         "service": "Notta",
-        "unlimited": "Business — Nelimitat (anual $16.67/lună; lunar mai mare)"
+        "unlimited": "Business — Nelimitat (anual 16.67 $/lună)"
       }
     ],
     "tableHead": [
       "Serviciu",
-      "Plan gratuit",
-      "Cel mai ieftin plătit",
-      "Utilizare nelimitată",
-      "Limitări notabile",
+      "Plan Gratuit",
+      "Cel mai ieftin plan plătit",
+      "Nelimitat",
+      "Limite importante",
       "Stil de facturare"
     ]
   },
   "cta": {
-    "downloadIOS": "Descarcă aplicația iOS",
+    "downloadIOS": "Descărcați aplicația iOS",
     "openBrowser": "Deschide în browser"
   },
   "hero": {
-    "h1": "Prețuri Proces-verbal AI (2025)",
+    "h1": "Proces-verbal AI Prețuri (2025)",
     "kicker": "Prețuri",
-    "tagline": "Alege pachete de timp fără expirare sau mergi pe nelimitat cu abonamente lunare/anuale."
+    "tagline": "Alegeți ce vi se potrivește: pachete de timp cu achiziție unică, care **nu expiră niciodată**, sau abonamente **cu adevărat nelimitate**.",
+    "subtag": "Alăturați-vă echipelor din întreaga lume care iubesc „procesele-verbale ultra-lizibile”. Proces-verbal AI funcționează perfect pe iOS și Web și suportă peste 100 de limbi."
   },
   "intro": {
-    "h2": "Ce plan ți se potrivește?",
-    "p1": "Oferim patru opțiuni adaptate frecvenței întâlnirilor tale."
+    "h2": "Ce plan vi se potrivește?",
+    "p1": "Fie că aveți ședințe zilnice, ocazionale sau doar doriți să testați, avem un plan simplu care se potrivește nevoilor dumneavoastră."
   },
   "meta": {
     "category": "Prețuri",
@@ -66,52 +67,91 @@
     "pricing": "Prețuri"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Anual"
+    "h2_queryHub": "Proces-verbal AI prețuri / Proces-verbal AI preț aplicație / Proces-verbal AI gratuit",
+    "queryHub_p": "Proces-verbal AI prețuri / Proces-verbal AI preț aplicație / Proces-verbal AI plan gratuit / prețuri instrument procese-verbale",
+    "h3_timepacks": "Pachete de timp (Achiziție unică)",
+    "timepacks_note": "Minutele cumpărate **nu expiră niciodată**. Folosiți-le pentru a genera procese-verbale AI din înregistrări oricând aveți nevoie – fără stres.",
+    "trial": {
+      "detail": "120 min / 1.99 $",
+      "name": "Pachet de probă",
+      "foot": "Cel mai rapid mod de a încerca – nu expiră."
     },
-    "bullets": [
-      "Pachete de timp fără expirare: cumperi o dată, folosești oricând",
-      "Utilizare nelimitată pe abonamente",
-      "iOS & Web, rezultate multilingve"
-    ],
-    "free": {
-      "badge": "Bilet gratuit zilnic",
-      "text": "Chiar și fără plată, primești zilnic un bilet gratuit de 3 minute pentru a încerca Proces-verbal AI."
-    },
-    "h3_subs": "Tip abonament",
-    "h3_timepacks": "Tip pachet de timp",
     "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
+      "detail": "1200 min / 11.99 $",
+      "name": "Pachet Light",
+      "foot": "Cumpărați o dată, păstrați pentru totdeauna."
     },
+    "h3_subs": "Abonamente (Cu adevărat nelimitate)",
+    "subs_note": "Aceste planuri sunt **cu adevărat nelimitate**. Uitați de limitele lunare sau de grija resetării. Concentrați-vă pe ședințe, nu pe ceas.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Lunar"
+      "name": "Lunar",
+      "foot": "Excelent pentru lunile aglomerate."
     },
-    "subs_note": "Abonamentele sunt cu adevărat nelimitate — fără plafoane lunare.",
-    "timepacks_note": "Minutele cumpărate nu expiră niciodată. Generează minute AI din înregistrări oricând.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Anual (≈26% reducere)",
+      "foot": "Lunar 16.99 $ × 12 = 203.88 $ vs. Anual 149.99 $"
+    },
+    "free": {
+      "badge": "Bilet Zilnic Gratuit",
+      "text": "Primiți 3 minute gratuite pentru a folosi Proces-verbal AI în fiecare zi! Din partea casei, nu este necesar un card de credit."
+    },
+    "bullets": [
+      "**Pachete de timp fără expirare**: Cumpărați o dată, folosiți oricând.",
+      "**Abonamente cu adevărat nelimitate**: Zero limite, zero griji.",
+      "**Procese-verbale AI lizibile**: Peste 100 de limbi, claritate pe iOS & Web."
+    ],
+    "foot": {
+      "pre": "* Prețurile sunt afișate în {currency}.",
+      "post_usd": "Plata este procesată în USD. Taxe/TVA pot fi aplicate la finalizarea comenzii, în funcție de regiunea dumneavoastră.",
+      "post_other": "Plata este procesată în USD; sumele convertite în {currency} sunt estimative."
     }
   },
-  "seo": {
-    "description": "Pachete fără expirare și abonamente cu adevărat nelimitate. Vezi comparația Minute.AI cu Otter și Notta privind prețul, cotele și reportul.",
-    "ld": {
-      "description": "Patru planuri clare: două pachete unice (fără expirare) și două abonamente nelimitate — plus comparație cu Otter și Notta.",
-      "headline": "Prețuri Proces-verbal AI"
-    },
-    "ogDescription": "Pachete fără expirare + abonamente nelimitate. Comparație rapidă cu Otter & Notta.",
-    "ogTitle": "Prețuri Proces-verbal AI",
-    "title": "Proces-verbal AI — planuri simple pentru orice stil de întâlnire"
+  "vibe": {
+    "h2": "Dincolo de fapte – procese-verbale care mișcă echipele",
+    "p1": "Am proiectat Proces-verbal AI astfel încât următorul pas să fie evident imediat ce redeschideți notițele. Nu mai este nevoie să căutați ce s-a decis.",
+    "p2": "Formatele noastre inteligente și curate evidențiază automat deciziile și acțiunile de urmat. Acest lucru face notițele incredibil de ușor de scanat, astfel încât să găsiți ceea ce contează în câteva secunde.",
+    "highlights": [
+      "**Flexibil pentru dvs.**: Alegeți pachete fără expirare sau abonament nelimitat.",
+      "**Ușor de citit**: Deciziile și acțiunile de urmat ies întotdeauna în evidență.",
+      "**Funcționează oriunde**: O experiență fluidă pe Web și iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "De ce am conceput astfel planurile",
+  "faq": {
+    "h2": "Întrebări frecvente (FAQ) – Plan gratuit și Prețuri",
     "items": [
-      "Întâlniri zilnice: alege Nelimitat pentru predictibilitate.",
-      "Întâlniri ocazionale: cumpără o dată Light — fără expirare.",
-      "Doar testezi: pachet Trial + bilet zilnic de 3 minute."
+      {
+        "q": "Există un plan gratuit?",
+        "a": "Da! Primiți un „bilet zilnic” gratuit care vă oferă 3 minute de utilizare, în fiecare zi."
+      },
+      {
+        "q": "Pachetele de timp expiră?",
+        "a": "Nu! Minutele cumpărate în pachetele noastre de timp **nu expiră niciodată**. Cumpărați-le acum și folosiți-le anul viitor – depinde în întregime de dvs."
+      },
+      {
+        "q": "Cât economisesc cu planul Anual?",
+        "a": "Economisiți aproximativ 26%! Planul Lunar costă 16.99 $ (ceea ce înseamnă 203.88 $ pentru 12 luni), în timp ce planul Anual costă doar 149.99 $."
+      },
+      {
+        "q": "Prețurile includ taxe?",
+        "a": "Prețurile sunt afișate în USD (dolari americani). În funcție de locul în care locuiți, taxe locale sau TVA (Taxa pe Valoarea Adăugată) pot fi adăugate la plata finală."
+      },
+      {
+        "q": "Câte limbi sunt suportate?",
+        "a": "Suportăm peste 100 de limbi, atât pentru recunoașterea vorbirii, cât și pentru formatarea procesului-verbal final al ședinței."
+      }
     ]
+  },
+  "seo": {
+    "description": "Prețuri simple de la Proces-verbal AI. Alegeți între pachete de timp care **nu expiră niciodată** sau abonamente **cu adevărat nelimitate**. Primiți 3 minute gratuite în fiecare zi. Comparați prețurile, limitele și reportarea cu Otter/Notta.",
+    "ld": {
+      "description": "Patru planuri: Două pachete de timp fără expirare și două abonamente cu adevărat nelimitate. Include comparație cu Otter/Notta.",
+      "headline": "Proces-verbal AI Prețuri și Planuri"
+    },
+    "ogDescription": "Alegeți stilul dvs.: Pachete de timp care nu expiră niciodată + abonamente cu adevărat nelimitate. Comparație rapidă cu Otter / Notta.",
+    "ogTitle": "Proces-verbal AI Prețuri (2025)",
+    "title": "Proces-verbal AI Prețuri (2025) | Planuri simple adaptate vouă – Fără expirare & Cu adevărat nelimitat"
   }
 }

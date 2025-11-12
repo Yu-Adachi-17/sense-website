@@ -1,59 +1,60 @@
 {
   "aria": {
-    "home": "Laman Utama Minit AI"
+    "home": "Minit AI Laman Utama"
   },
   "compare": {
-    "foot": "Sumber: halaman harga rasmi Otter dan Notta.",
-    "h2": "Minit AI vs Otter vs Notta — ringkasan harga",
-    "lastUpdated": "Kali terakhir dikemas kini: 31 Okt 2025",
-    "note": "Harga dan kuota utama (USD). Pesaing biasanya menetapkan semula kuota bulanan tanpa rollover.",
+    "foot": "Sumber: Halaman harga rasmi Otter / Notta (berdasarkan penyelidikan kami).",
+    "h2": "Minit AI lwn Otter lwn Notta – Perbandingan Harga Pantas",
+    "lastUpdated": "Kemas kini terakhir: 12 November 2025",
+    "note": "Harga dalam USD. Perhatian: Kebanyakan pesaing mempunyai kuota bulanan yang ditetapkan semula, dan minit yang tidak digunakan tidak dibawa ke hadapan (tiada 'rollover').",
     "rows": [
       {
-        "billing": "Pakej sekali beli + langganan",
-        "cheapest": "Trial 120 min / $1.99 (tanpa luput)",
-        "free": "Tiket 3 minit harian",
-        "limits": "Pakej masa tidak luput. Langganan tanpa had.",
+        "billing": "Pek Masa + Langganan",
+        "cheapest": "Percubaan: 120 min / $1.99 (tidak luput)",
+        "free": "Tiket Harian Percuma (3 min)",
+        "limits": "Pek masa tidak pernah luput. Langganan adalah benar-benar tanpa had.",
         "service": "Minit AI",
-        "unlimited": "Ya — $16.99/bln atau $149.99/thn"
+        "unlimited": "Ya! — $16.99/bln atau $149.99/thn"
       },
       {
-        "billing": "Langganan berasaskan tempat duduk",
+        "billing": "Langganan berasaskan pengguna",
         "cheapest": "Pro — $16.99/bln atau $8.33/bln (tahunan)",
-        "free": "300 min/bln, sehingga 30 min/sesi",
-        "limits": "Tiada rollover; had per mesyuarat",
+        "free": "300 min/bln, sehingga 30 min/perbualan",
+        "limits": "Tiada 'rollover'; had mesyuarat 90 min (Pro)",
         "service": "Otter",
-        "unlimited": "Tidak — Pro 1200 min/bln; Business 6000 min import/bln"
+        "unlimited": "Tidak — Pro 1200 min/bln"
       },
       {
-        "billing": "Langganan berasaskan tempat duduk",
+        "billing": "Langganan berasaskan pengguna",
         "cheapest": "Pro — $13.49/bln (bulanan) atau $8.17/bln (tahunan)",
         "free": "120 min/bln, sehingga 3 min/rakaman",
-        "limits": "Tiada carryover; sehingga 5 jam/rakaman; kuota muat naik",
+        "limits": "Tiada 'carryover'; had rakaman & muat naik",
         "service": "Notta",
-        "unlimited": "Business — Tanpa had (tahunan $16.67/bln; bulanan lebih tinggi)"
+        "unlimited": "Business — Tanpa had (tahunan $16.67/bln)"
       }
     ],
     "tableHead": [
       "Perkhidmatan",
-      "Pelan percuma",
-      "Pelan berbayar termurah",
-      "Tanpa had",
-      "Had ketara",
-      "Gaya bil"
+      "Pelan Percuma",
+      "Pelan Berbayar Termurah",
+      "Tanpa Had",
+      "Had Ketara",
+      "Gaya Pengebilan"
     ]
   },
   "cta": {
-    "downloadIOS": "Muat turun app iOS",
+    "downloadIOS": "Muat turun aplikasi iOS",
     "openBrowser": "Buka dalam pelayar"
   },
   "hero": {
     "h1": "Harga Minit AI (2025)",
     "kicker": "Harga",
-    "tagline": "Pilih pakej masa tanpa luput atau langganan bulanan/tahunan yang benar-benar tanpa had."
+    "tagline": "Pilih apa yang sesuai untuk anda: pek masa beli sekali yang **tidak pernah luput**, atau langganan yang **benar-benar tanpa had**.",
+    "subtag": "Sertai pasukan di seluruh dunia yang menyukai 'minit mesyuarat kami yang sangat mudah dibaca'. Minit AI berfungsi dengan lancar di iOS dan Web, serta menyokong lebih 100 bahasa."
   },
   "intro": {
-    "h2": "Pelan mana sesuai?",
-    "p1": "Empat pilihan disesuaikan dengan kekerapan mesyuarat anda."
+    "h2": "Pelan manakah yang sesuai untuk anda?",
+    "p1": "Sama ada anda bermesyuarat setiap hari, sekali-sekala, atau hanya ingin mencuba, kami ada pelan mudah yang sesuai dengan keperluan anda."
   },
   "meta": {
     "category": "Harga",
@@ -66,52 +67,91 @@
     "pricing": "Harga"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Tahunan"
-    },
-    "bullets": [
-      "Pakej tanpa luput: beli sekali, guna bila-bila",
-      "Penggunaan tanpa had dengan langganan",
-      "iOS & Web, output berbilang bahasa"
-    ],
-    "free": {
-      "badge": "Tiket percuma harian",
-      "text": "Tanpa bayaran, anda tetap menerima tiket percuma 3 minit setiap hari untuk mencuba Minit AI."
-    },
-    "h3_subs": "Jenis Langganan",
-    "h3_timepacks": "Jenis Pakej Masa",
-    "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
-    },
-    "monthly": {
-      "detail": "$16.99",
-      "name": "Bulanan"
-    },
-    "subs_note": "Langganan benar-benar tanpa had — tiada had bulanan.",
-    "timepacks_note": "Minit yang dibeli tidak pernah luput. Jana minit mesyuarat automatik bila-bila masa.",
+    "h2_queryHub": "Harga Minit AI / Harga aplikasi Minit AI / Minit AI percuma",
+    "queryHub_p": "Harga Minit AI / Harga aplikasi Minit AI / Pelan percuma Minit AI / Harga alat minit mesyuarat",
+    "h3_timepacks": "Pek Masa (Beli sekali)",
+    "timepacks_note": "Minit yang anda beli **tidak pernah luput**. Gunakannya untuk menjana minit AI daripada rakaman pada bila-bila masa anda perlukan – tanpa tekanan.",
     "trial": {
       "detail": "120 min / $1.99",
-      "name": "Trial"
+      "name": "Pek Percubaan",
+      "foot": "Cara terpantas untuk mencuba – tidak luput."
+    },
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Pek Light",
+      "foot": "Beli sekali, simpan selamanya."
+    },
+    "h3_subs": "Langganan (Benar-benar Tanpa Had)",
+    "subs_note": "Pelan ini **benar-benar tanpa had**. Lupakan had bulanan atau bimbang tentang penetapan semula. Fokus pada kerja anda, bukan pada jam.",
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Bulanan",
+      "foot": "Hebat untuk bulan-bulan yang sibuk."
+    },
+    "annual": {
+      "detail": "$149.99",
+      "name": "Tahunan (jimat ≈26%)",
+      "foot": "Bulanan $16.99 × 12 = $203.88 lwn Tahunan $149.99"
+    },
+    "free": {
+      "badge": "Tiket Percuma Harian",
+      "text": "Dapatkan 3 minit percuma untuk menggunakan Minit AI setiap hari! Kami belanja, tiada kad kredit diperlukan."
+    },
+    "bullets": [
+      "**Pek masa tanpa luput**: Beli sekali, guna bila-bila masa.",
+      "**Langganan benar-benar tanpa had**: Sifar had, sifar kerisauan.",
+      "**Minit AI yang Mudah Dibaca**: 100+ bahasa, jelas di iOS & Web."
+    ],
+    "foot": {
+      "pre": "* Harga dipaparkan dalam {currency}.",
+      "post_usd": "Pembayaran diproses dalam USD. Cukai/VAT mungkin dikenakan semasa pembayaran bergantung pada wilayah anda.",
+      "post_other": "Pembayaran diproses dalam USD; jumlah yang ditukar kepada {currency} adalah anggaran."
     }
   },
-  "seo": {
-    "description": "Pakej masa tanpa tarikh luput dan langganan benar-benar tanpa had. Bandingkan Minit AI dengan Otter dan Notta (harga, kuota, rollover).",
-    "ld": {
-      "description": "Empat pelan mudah: dua pakej masa sekali beli (tanpa luput) dan dua langganan tanpa had — beserta perbandingan dengan Otter dan Notta.",
-      "headline": "Harga Minit AI"
-    },
-    "ogDescription": "Pakej tanpa luput + langganan tanpa had. Perbandingan pantas dengan Otter & Notta.",
-    "ogTitle": "Harga Minit AI",
-    "title": "Harga Minit AI — pelan ringkas untuk setiap gaya mesyuarat"
+  "vibe": {
+    "h2": "Melangkaui fakta – minit yang menggerakkan pasukan",
+    "p1": "Kami mereka bentuk Minit AI supaya sebaik sahaja anda membuka semula nota anda, langkah anda yang seterusnya adalah jelas. Tiada lagi tercari-cari apa yang telah diputuskan.",
+    "p2": "Format kami yang pintar dan kemas menyerlahkan keputusan dan tindakan susulan secara automatik. Ini menjadikan nota anda amat mudah diimbas, jadi anda boleh mencari apa yang penting dalam beberapa saat.",
+    "highlights": [
+      "**Fleksibel untuk anda**: Pilih pek tanpa luput atau langganan tanpa had.",
+      "**Mudah dibaca**: Keputusan dan tindakan susulan sentiasa menonjol.",
+      "**Berfungsi di mana-mana**: Pengalaman yang lancar di Web dan iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Mengapa kami reka pelan begini",
+  "faq": {
+    "h2": "Soalan Lazim (FAQ) – Pelan percuma & Harga",
     "items": [
-      "Mesyuarat harian: pilih Tanpa Had untuk konsistensi kos.",
-      "Mesyuarat sekali-sekala: beli Light sekali — tanpa luput.",
-      "Cuba dahulu: Trial + tiket 3 minit harian."
+      {
+        "q": "Adakah terdapat pelan percuma?",
+        "a": "Ya! Anda mendapat 'tiket harian' percuma yang memberi anda 3 minit penggunaan, setiap hari."
+      },
+      {
+        "q": "Adakah pek masa akan luput?",
+        "a": "Tidak! Minit yang dibeli dalam pek masa kami **tidak pernah luput**. Beli sekarang dan gunakannya tahun depan – terpulang sepenuhnya kepada anda."
+      },
+      {
+        "q": "Berapa banyak yang saya jimat dengan pelan Tahunan?",
+        "a": "Anda jimat kira-kira 26%! Pelan Bulanan berharga $16.99 (iaitu $203.88 untuk 12 bulan), manakala pelan Tahunan hanya $149.99."
+      },
+      {
+        "q": "Adakah harga termasuk cukai?",
+        "a": "Harga kami disenaraikan dalam USD (Dolar AS). Bergantung pada tempat anda tinggal, cukai tempatan (seperti VAT/PPN) mungkin ditambah semasa proses pembayaran akhir."
+      },
+      {
+        "q": "Berapa banyak bahasa yang disokong?",
+        "a": "Kami menyokong lebih 100 bahasa, baik untuk memahami pertuturan anda mahupun untuk memformat minit mesyuarat akhir."
+      }
     ]
+  },
+  "seo": {
+    "description": "Harga mudah daripada Minit AI. Pilih antara pek masa yang **tidak pernah luput** atau langganan yang **benar-benar tanpa had**. Dapatkan 3 minit percuma setiap hari. Bandingkan harga, had, dan 'rollover' dengan Otter/Notta.",
+    "ld": {
+      "description": "Empat pelan: Dua pek masa tanpa luput dan dua langganan benar-benar tanpa had. Termasuk perbandingan dengan Otter/Notta.",
+      "headline": "Harga dan Pelan Minit AI"
+    },
+    "ogDescription": "Pilih gaya anda: Pek masa yang tidak pernah luput + langganan yang benar-benar tanpa had. Perbandingan pantas dengan Otter / Notta.",
+    "ogTitle": "Harga Minit AI (2025)",
+    "title": "Harga Minit AI (2025) | Pelan Mudah Sesuai Untuk Anda – Tidak Luput & Benar-benar Tanpa Had"
   }
 }

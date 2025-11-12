@@ -1,59 +1,60 @@
 {
   "aria": {
-    "home": "Home Verbali IA"
+    "home": "Verbali IA Home"
   },
   "compare": {
-    "foot": "Fonti: pagine ufficiali dei prezzi di Otter e Notta.",
-    "h2": "Verbali IA vs. Otter vs. Notta — Prezzi a colpo d’occhio",
-    "lastUpdated": "Ultimo aggiornamento: 31 ott 2025",
-    "note": "Prezzi e quote principali (USD). I concorrenti di norma azzerano le quote mensili senza rollover.",
+    "foot": "Fonti: Pagine ufficiali dei prezzi di Otter / Notta (secondo la nostra ricerca).",
+    "h2": "Verbali IA vs. Otter vs. Notta – Confronto rapido dei prezzi",
+    "lastUpdated": "Ultimo aggiornamento: 12 novembre 2025",
+    "note": "Prezzi in USD. Nota: la maggior parte dei concorrenti ha quote mensili che si azzerano e i minuti non utilizzati non vengono accumulati.",
     "rows": [
       {
-        "billing": "Pacchetti tempo una tantum + abbonamenti",
-        "cheapest": "Trial 120 min / $1.99 (senza scadenza)",
-        "free": "Ticket gratuito giornaliero da 3 min",
-        "limits": "I pacchetti tempo non scadono mai. Gli abbonamenti sono senza tetti.",
+        "billing": "Pacchetti minuti + Abbonamenti",
+        "cheapest": "Prova: 120 min / $1.99 (non scade)",
+        "free": "Ticket giornaliero gratuito (3 min)",
+        "limits": "I pacchetti di minuti non scadono. Gli abbonamenti sono illimitati.",
         "service": "Verbali IA",
-        "unlimited": "Sì — $16.99/mese o $149.99/anno"
+        "unlimited": "Sì! — $16.99/mese o $149.99/anno"
       },
       {
         "billing": "Abbonamento per utente",
         "cheapest": "Pro — $16.99/mese o $8.33/mese (annuale)",
         "free": "300 min/mese, fino a 30 min/conversazione",
-        "limits": "Nessun rollover; limite per riunione",
+        "limits": "Nessun accumulo; limite 90 min/riunione (Pro)",
         "service": "Otter",
-        "unlimited": "No — Pro 1200 min/mese; Business 6000 min import/mese"
+        "unlimited": "No — Pro 1200 min/mese"
       },
       {
         "billing": "Abbonamento per utente",
         "cheapest": "Pro — $13.49/mese (mensile) o $8.17/mese (annuale)",
         "free": "120 min/mese, fino a 3 min/registrazione",
-        "limits": "Nessun riporto; fino a 5 h/registrazione; quote di upload file",
+        "limits": "Nessun accumulo; limiti di registrazione e caricamento",
         "service": "Notta",
-        "unlimited": "Business — Illimitato (annuale $16.67/mese; mensile più alto)"
+        "unlimited": "Business — Illimitato (annuale $16.67/mese)"
       }
     ],
     "tableHead": [
       "Servizio",
-      "Piano gratuito",
-      "Più economico a pagamento",
-      "Uso illimitato",
-      "Limiti rilevanti",
-      "Modalità di fatturazione"
+      "Piano Gratuito",
+      "Piano a Pagamento Più Economico",
+      "Illimitato",
+      "Limiti Principali",
+      "Tipo di Fatturazione"
     ]
   },
   "cta": {
-    "downloadIOS": "Scarica l’app iOS",
+    "downloadIOS": "Scarica l'app per iOS",
     "openBrowser": "Apri nel browser"
   },
   "hero": {
     "h1": "Prezzi Verbali IA (2025)",
     "kicker": "Prezzi",
-    "tagline": "Scegli pacchetti tempo senza scadenza o passa all’illimitato con abbonamenti mensili/annuali."
+    "tagline": "Scegli quello che fa per te: pacchetti di minuti ad acquisto singolo che **non scadono mai**, o abbonamenti **davvero illimitati**.",
+    "subtag": "Unisciti ai team di tutto il mondo che apprezzano i nostri \"verbali ultra-leggibili\". Verbali IA funziona perfettamente su iOS e Web e supporta oltre 100 lingue."
   },
   "intro": {
     "h2": "Quale piano fa per te?",
-    "p1": "Offriamo quattro opzioni in base alla frequenza delle tue riunioni."
+    "p1": "Che tu abbia riunioni giornaliere, occasionali, o voglia solo fare una prova, abbiamo un piano semplice che si adatta alle tue esigenze."
   },
   "meta": {
     "category": "Prezzi",
@@ -66,52 +67,91 @@
     "pricing": "Prezzi"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Annuale"
-    },
-    "bullets": [
-      "Pacchetti tempo senza scadenza: acquisti una volta, usi quando vuoi",
-      "Uso illimitato con gli abbonamenti",
-      "iOS e Web, output multilingue"
-    ],
-    "free": {
-      "badge": "Ticket gratuito giornaliero",
-      "text": "Anche senza pagare, ottieni ogni giorno un ticket gratuito di 3 minuti per provare Verbali IA."
-    },
-    "h3_subs": "Tipo di abbonamento",
-    "h3_timepacks": "Tipo di pacchetto tempo",
-    "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
-    },
-    "monthly": {
-      "detail": "$16.99",
-      "name": "Mensile"
-    },
-    "subs_note": "Gli abbonamenti sono realmente illimitati — nessun tetto mensile.",
-    "timepacks_note": "I minuti acquistati non scadono mai. Genera verbali AI da registrazioni in qualsiasi momento.",
+    "h2_queryHub": "Prezzi Verbali IA / Prezzo app Verbali IA / Verbali IA gratis",
+    "queryHub_p": "Prezzi Verbali IA / Prezzo app Verbali IA / Piano gratuito Verbali IA / Prezzi strumento verbali",
+    "h3_timepacks": "Pacchetti di Minuti (Acquisto singolo)",
+    "timepacks_note": "I minuti che acquisti **non scadono mai**. Usali per generare verbali IA dalle registrazioni ogni volta che ne hai bisogno – senza stress.",
     "trial": {
       "detail": "120 min / $1.99",
-      "name": "Trial"
+      "name": "Pacchetto di Prova",
+      "foot": "Il modo più rapido per provare – non scade."
+    },
+    "light": {
+      "detail": "1200 min / $11.99",
+      "name": "Pacchetto Light",
+      "foot": "Acquista una volta, tienilo per sempre."
+    },
+    "h3_subs": "Abbonamenti (Davvero Illimitati)",
+    "subs_note": "Questi piani sono **davvero illimitati**. Dimentica i limiti mensili o la preoccupazione che si azzerino. Concentrati sulle tue riunioni, non sull'orologio.",
+    "monthly": {
+      "detail": "$16.99",
+      "name": "Mensile",
+      "foot": "Perfetto per i mesi più intensi."
+    },
+    "annual": {
+      "detail": "$149.99",
+      "name": "Annuale (sconto ≈26%)",
+      "foot": "Mensile $16.99 × 12 = $203.88 vs. Annuale $149.99"
+    },
+    "free": {
+      "badge": "Ticket Giornaliero Gratuito",
+      "text": "Ottieni 3 minuti gratuiti per usare Verbali IA ogni giorno! Offriamo noi, nessuna carta di credito richiesta."
+    },
+    "bullets": [
+      "**Pacchetti di minuti senza scadenza**: Acquista una volta, usa quando vuoi.",
+      "**Abbonamenti davvero illimitati**: Zero limiti, zero pensieri.",
+      "**Verbali IA leggibili**: Oltre 100 lingue, massima chiarezza su iOS e Web."
+    ],
+    "foot": {
+      "pre": "* Prezzi visualizzati in {currency}.",
+      "post_usd": "Il pagamento viene elaborato in USD. Tasse/IVA potrebbero essere applicate al checkout a seconda della tua regione.",
+      "post_other": "Il pagamento viene elaborato in USD; gli importi convertiti in {currency} sono stime."
     }
   },
-  "seo": {
-    "description": "Pacchetti senza scadenza e abbonamenti davvero illimitati. Scopri il confronto di Verbali IA con Otter e Notta per prezzo, quote e rollover.",
-    "ld": {
-      "description": "Quattro piani semplici: due pacchetti una tantum (senza scadenza) e due abbonamenti illimitati — più confronto con Otter e Notta.",
-      "headline": "Prezzi Verbali IA"
-    },
-    "ogDescription": "Pacchetti senza scadenza + abbonamenti illimitati. Confronto rapido con Otter & Notta.",
-    "ogTitle": "Prezzi Verbali IA",
-    "title": "Verbali IA — piani semplici per ogni stile di riunione"
+  "vibe": {
+    "h2": "Oltre i fatti – verbali che muovono i team",
+    "p1": "Abbiamo progettato Verbali IA in modo che il tuo prossimo passo sia ovvio non appena riapri i tuoi appunti. Basta cercare cosa è stato deciso.",
+    "p2": "I nostri formati intelligenti e puliti evidenziano automaticamente decisioni e azioni successive. Questo rende i tuoi appunti incredibilmente facili da scansionare, così trovi ciò che conta in pochi secondi.",
+    "highlights": [
+      "**Flessibile per te**: Scegli pacchetti senza scadenza o abbonamenti illimitati.",
+      "**Facile da leggere**: Decisioni e azioni spiccano sempre.",
+      "**Funziona ovunque**: Un'esperienza fluida su Web e iOS."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Perché abbiamo progettato così i piani",
+  "faq": {
+    "h2": "Domande Frequenti (FAQ) – Piano gratuito e prezzi",
     "items": [
-      "Riunioni quotidiane: scegli Illimitato per la prevedibilità.",
-      "Riunioni occasionali: acquista una volta Light — senza scadenza.",
-      "Solo prova: pacchetto Trial + ticket giornaliero da 3 minuti."
+      {
+        "q": "Esiste un piano gratuito?",
+        "a": "Sì! Ricevi un \"ticket giornaliero\" gratuito che ti dà 3 minuti di utilizzo, ogni singolo giorno."
+      },
+      {
+        "q": "I pacchetti di minuti scadono?",
+        "a": "No! I minuti acquistati nei nostri pacchetti **non scadono mai**. Acquistali ora e usali l'anno prossimo – decidi tu."
+      },
+      {
+        "q": "Quanto risparmio con il piano Annuale?",
+        "a": "Risparmi circa il 26%! Il piano Mensile costa $16.99 (che fa $203.88 in 12 mesi), mentre il piano Annuale costa solo $149.99."
+      },
+      {
+        "q": "I prezzi includono le tasse?",
+        "a": "I prezzi sono indicati in USD (dollari statunitensi). A seconda del luogo in cui vivi, tasse locali o IVA potrebbero essere aggiunte al momento del pagamento finale."
+      },
+      {
+        "q": "Quante lingue sono supportate?",
+        "a": "Supportiamo oltre 100 lingue, sia per il riconoscimento vocale che per la formattazione del verbale finale."
+      }
     ]
+  },
+  "seo": {
+    "description": "Prezzi semplici da Verbali IA. Scegli tra pacchetti di minuti che **non scadono mai** o abbonamenti **davvero illimitati**. Ottieni 3 minuti gratuiti ogni giorno. Confronta prezzi, limiti e accumulo con Otter/Notta.",
+    "ld": {
+      "description": "Quattro piani: Due pacchetti di minuti senza scadenza e due abbonamenti davvero illimitati. Include confronto con Otter/Notta.",
+      "headline": "Prezzi e Piani di Verbali IA"
+    },
+    "ogDescription": "Scegli il tuo stile: Pacchetti di minuti che non scadono mai + abbonamenti davvero illimitati. Confronto rapido con Otter / Notta.",
+    "ogTitle": "Prezzi Verbali IA (2025)",
+    "title": "Prezzi Verbali IA (2025) | Piani semplici su misura per te – Senza scadenza & Davvero Illimitati"
   }
 }

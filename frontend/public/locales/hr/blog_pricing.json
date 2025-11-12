@@ -3,57 +3,58 @@
     "home": "AI Zapisnik Početna"
   },
   "compare": {
-    "foot": "Izvori: službene stranice s cijenama za Otter i Nottu.",
-    "h2": "AI Zapisnik vs. Otter vs. Notta — Cijene na prvi pogled",
-    "lastUpdated": "Zadnje ažuriranje: 31. lis 2025",
-    "note": "Ključne cijene i kvote (USD). Konkurenti obično mjesečno resetiraju kvote bez prijenosa.",
+    "foot": "Izvori: Službene stranice s cijenama za Otter / Notta (naše istraživanje).",
+    "h2": "AI Zapisnik vs. Otter vs. Notta – Brza usporedba cijena",
+    "lastUpdated": "Posljednje ažuriranje: 12. studenog 2025.",
+    "note": "Cijene su u USD. Napomena: Većina konkurenata ima mjesečne kvote koje se resetiraju, a neiskorištene minute se ne prenose.",
     "rows": [
       {
-        "billing": "Jednokratni paketi minuta + pretplate",
-        "cheapest": "Trial 120 min / $1.99 (bez isteka)",
-        "free": "Dnevna karta od 3 minute",
-        "limits": "Paketi minuta nikad ne istječu. Pretplate su bez ograničenja.",
+        "billing": "Paketi vremena + Preplate",
+        "cheapest": "Probni: 120 min / 1.99 $ (ne istječe)",
+        "free": "Dnevna besplatna karta (3 min)",
+        "limits": "Paketi vremena nikada ne istječu. Preplate su stvarno neograničene.",
         "service": "AI Zapisnik",
-        "unlimited": "Da — $16.99/mj. ili $149.99/god."
+        "unlimited": "Da! — 16.99 $/mj. ili 149.99 $/g."
       },
       {
-        "billing": "Pretplata po sjedalu",
-        "cheapest": "Pro — $16.99/mj. ili $8.33/mj. (godišnje)",
-        "free": "300 min/mj., do 30 min/razgovor",
-        "limits": "Bez prijenosa; ograničenje po sastanku",
+        "billing": "Preplata po korisniku",
+        "cheapest": "Pro — 16.99 $/mj. ili 8.33 $/mj. (godišnje)",
+        "free": "300 min/mj., do 30 min/razgovoru",
+        "limits": "Nema prijenosa; limit sastanka 90 min (Pro)",
         "service": "Otter",
-        "unlimited": "Ne — Pro 1200 min/mj.; Business 6000 uvoznih min/mj."
+        "unlimited": "Ne — Pro 1200 min/mj."
       },
       {
-        "billing": "Pretplata po sjedalu",
-        "cheapest": "Pro — $13.49/mj. (mjesečno) ili $8.17/mj. (godišnje)",
-        "free": "120 min/mj., do 3 min/snimku",
-        "limits": "Bez prijenosa; do 5 h/snimku; kvote za prijenos datoteka",
+        "billing": "Preplata po korisniku",
+        "cheapest": "Pro — 13.49 $/mj. (mjesečno) ili 8.17 $/mj. (godišnje)",
+        "free": "120 min/mj., do 3 min/snimci",
+        "limits": "Nema prijenosa; ograničenja snimanja i prijenosa",
         "service": "Notta",
-        "unlimited": "Business — Neograničeno (godišnje $16.67/mj.; mjesečno više)"
+        "unlimited": "Business — Neograničeno (godišnje 16.67 $/mj.)"
       }
     ],
     "tableHead": [
       "Usluga",
-      "Besplatan plan",
+      "Besplatni plan",
       "Najjeftiniji plaćeni",
-      "Neograničeno korištenje",
-      "Značajna ograničenja",
-      "Način naplate"
+      "Neograničeno",
+      "Važna ograničenja",
+      "Vrsta naplate"
     ]
   },
   "cta": {
-    "downloadIOS": "Preuzmi iOS aplikaciju",
+    "downloadIOS": "Preuzmite iOS aplikaciju",
     "openBrowser": "Otvori u pregledniku"
   },
   "hero": {
-    "h1": "Cijene AI Zapisnik (2025)",
+    "h1": "AI Zapisnik Cijene (2025)",
     "kicker": "Cijene",
-    "tagline": "Odaberite pakete minuta bez isteka ili potpuno neograničene mjesečne/godišnje pretplate."
+    "tagline": "Odaberite ono što vam odgovara: jednokratni paketi vremena koji **nikada ne istječu** ili preplate koje su **stvarno neograničene**.",
+    "subtag": "Pridružite se timovima diljem svijeta koji vole naše \"ultra-čitljive zapisnike\". AI Zapisnik radi besprijekorno na iOS-u i webu te podržava preko 100 jezika."
   },
   "intro": {
     "h2": "Koji plan vam odgovara?",
-    "p1": "Nudimo četiri opcije prilagođene učestalosti vaših sastanaka."
+    "p1": "Bilo da imate dnevne sastanke, povremene ili samo isprobavate, imamo jednostavan plan koji odgovara vašim potrebama."
   },
   "meta": {
     "category": "Cijene",
@@ -66,52 +67,91 @@
     "pricing": "Cijene"
   },
   "plans": {
-    "annual": {
-      "detail": "$149.99",
-      "name": "Godišnje"
+    "h2_queryHub": "AI Zapisnik cijene / AI Zapisnik cijena aplikacije / AI Zapisnik besplatno",
+    "queryHub_p": "AI Zapisnik cijene / AI Zapisnik cijena aplikacije / AI Zapisnik besplatni plan / cijene alata za zapisnike",
+    "h3_timepacks": "Paketi vremena (Jednokratna kupnja)",
+    "timepacks_note": "Minute koje kupite **nikada ne istječu**. Koristite ih za generiranje AI zapisnika iz snimki kad god vam zatreba – bez stresa.",
+    "trial": {
+      "detail": "120 min / 1.99 $",
+      "name": "Probni paket",
+      "foot": "Najbrži način za isprobavanje – ne istječe."
     },
-    "bullets": [
-      "Paketi minuta bez isteka: kupite jednom, koristite bilo kada",
-      "Neograničeno korištenje uz pretplatu",
-      "iOS i Web, višejezični izlazi"
-    ],
-    "free": {
-      "badge": "Dnevna besplatna karta",
-      "text": "Čak i bez plaćanja, svaki dan dobivate besplatnu kartu od 3 minute za isprobavanje AI Zapisnik."
-    },
-    "h3_subs": "Vrsta pretplate",
-    "h3_timepacks": "Vrsta paketa minuta",
     "light": {
-      "detail": "1200 min / $11.99",
-      "name": "Light"
+      "detail": "1200 min / 11.99 $",
+      "name": "Light paket",
+      "foot": "Kupite jednom, zadržite zauvijek."
     },
+    "h3_subs": "Preplate (Stvarno neograničene)",
+    "subs_note": "Ovi planovi su **stvarno neograničeni**. Zaboravite na mjesečne limite ili brigu o resetiranju. Usredotočite se na svoje sastanke, a ne na sat.",
     "monthly": {
       "detail": "$16.99",
-      "name": "Mjesečno"
+      "name": "Mjesečno",
+      "foot": "Izvrsno za zaposlene mjesece."
     },
-    "subs_note": "Pretplate su doista neograničene — bez mjesečnih plafona.",
-    "timepacks_note": "Kupljene minute nikad ne istječu. Generirajte AI zapisnike iz snimki u bilo koje vrijeme.",
-    "trial": {
-      "detail": "120 min / $1.99",
-      "name": "Trial"
+    "annual": {
+      "detail": "$149.99",
+      "name": "Godišnje (≈26% popusta)",
+      "foot": "Mjesečno 16.99 $ × 12 = 203.88 $ vs. Godišnje 149.99 $"
+    },
+    "free": {
+      "badge": "Dnevna besplatna karta",
+      "text": "Dobijte 3 besplatne minute za korištenje AI Zapisnika svaki dan! Mi častimo, nije potrebna kreditna kartica."
+    },
+    "bullets": [
+      "**Paketi vremena bez isteka roka**: Kupite jednom, koristite bilo kada.",
+      "**Stvarno neograničene preplate**: Nula ograničenja minuta, nula briga.",
+      "**Čitljivi AI zapisnici**: 100+ jezika, kristalno jasno na iOS-u i webu."
+    ],
+    "foot": {
+      "pre": "* Cijene su prikazane u {currency}.",
+      "post_usd": "Plaćanje se obrađuje u USD. Ovisno o vašoj regiji, na blagajni se mogu primijeniti porezi/PDV.",
+      "post_other": "Plaćanje se obrađuje u USD; pretvoreni iznosi u {currency} su procjene."
     }
   },
-  "seo": {
-    "description": "Paketi minuta bez isteka i uistinu neograničene pretplate. Pogledajte usporedbu AI Zapisnik s Otter i Notta po cijeni, kvotama i prijenosu.",
-    "ld": {
-      "description": "Četiri jasna plana: dva jednokratna paketa minuta (bez isteka) i dvije neograničene pretplate — plus usporedba s Otter i Notta.",
-      "headline": "Cijene AI Zapisnik"
-    },
-    "ogDescription": "Paketi bez isteka + neograničene pretplate. Brza usporedba s Otter & Notta.",
-    "ogTitle": "Cijene AI Zapisnik",
-    "title": "AI Zapisnik — jednostavni planovi za svaki stil sastanka"
+  "vibe": {
+    "h2": "Više od činjenica – zapisnici koji pokreću timove",
+    "p1": "Dizajnirali smo AI Zapisnik tako da je vaš sljedeći korak očit čim ponovno otvorite svoje bilješke. Nema više traženja što je odlučeno.",
+    "p2": "Naši pametni, čisti formati automatski ističu odluke i daljnje korake. To čini vaše bilješke nevjerojatno lakima za skeniranje, tako da u sekundama možete pronaći ono što je važno.",
+    "highlights": [
+      "**Fleksibilno za vas**: Odaberite pakete bez isteka ili neograničenu pretplatu.",
+      "**Lako čitljivo**: Odluke i akcijski planovi uvijek se ističu.",
+      "**Radi svugdje**: Besprijekorno iskustvo na webu i iOS-u."
+    ],
+    "noteNb": ""
   },
-  "why": {
-    "h2": "Zašto smo planove osmislili ovako",
+  "faq": {
+    "h2": "Često postavljana pitanja (FAQ) – Besplatni plan i cijene",
     "items": [
-      "Sastajete se dnevno: odaberite Neograničeno radi predvidljivosti.",
-      "Povremeni sastanci: kupite Light jednom — bez isteka.",
-      "Samo isprobavate: Trial paket + dnevna karta od 3 minute."
+      {
+        "q": "Postoji li besplatan plan?",
+        "a": "Da! Dobivate besplatnu \"dnevnu kartu\" koja vam daje 3 minute korištenja, svaki dan."
+      },
+      {
+        "q": "Istječu li paketi vremena?",
+        "a": "Ne! Kupljene minute u našim paketima vremena **nikada ne istječu**. Kupite ih sada i koristite sljedeće godine – ovisi isključivo o vama."
+      },
+      {
+        "q": "Koliko štedim s Godišnjim planom?",
+        "a": "Štedite oko 26 %! Mjesečni plan košta 16.99 $ (što je 203.88 $ za 12 mjeseci), dok Godišnji plan košta samo 149.99 $."
+      },
+      {
+        "q": "Uključuju li cijene porez?",
+        "a": "Cijene su prikazane u USD (američkim dolarima). Ovisno o tome gdje živite, lokalni porezi ili PDV (porez na dodanu vrijednost) mogu se dodati prilikom konačne naplate."
+      },
+      {
+        "q": "Koliko je jezika podržano?",
+        "a": "Podržavamo preko 100 jezika, kako za prepoznavanje govora, tako i za formatiranje konačnog zapisnika sa sastanka."
+      }
     ]
+  },
+  "seo": {
+    "description": "Jednostavne cijene za AI Zapisnik. Birajte između paketa vremena koji **nikada ne istječu** ili **stvarno neograničenih** preplata. Dobijte 3 besplatne minute svaki dan. Usporedite cijene, limite i prijenos s Otter/Notta.",
+    "ld": {
+      "description": "Četiri plana: Dva paketa vremena bez isteka i dvije stvarno neograničene preplate. Uključuje usporedbu s Otter/Notta.",
+      "headline": "AI Zapisnik Cijene i planovi"
+    },
+    "ogDescription": "Odaberite svoj stil: Paketi vremena koji nikada ne istječu + preplate koje su stvarno neograničene. Brza usporedba s Otter / Notta.",
+    "ogTitle": "AI Zapisnik Cijene (2025)",
+    "title": "AI Zapisnik Cijene (2025) | Jednostavni planovi koji vam odgovaraju – Bez isteka roka & Stvarno neograničeno"
   }
 }
