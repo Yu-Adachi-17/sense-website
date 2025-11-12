@@ -13,6 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 /* ---------- Norwegian-first fallback (i18nキーが未訳ならこれを出す) ---------- */
 const NB_FALLBACK = {
   seo: {
+    /* SEO関連のメタデータは、検索クエリと一致しているため意図的に変更しません */
     title: "Møtereferat AI — Få tydelige referater og neste steg (Minutes.AI)",
     description:
       "Søker du “møtereferat ai” eller “ai møtereferat”? Minutes.AI lager lesbare referater med eiere og frister, på iPhone og nett.",
@@ -29,47 +30,47 @@ const NB_FALLBACK = {
   nav: { blog: "Blogg", current: "Møtereferat AI" },
 
   hero: {
-    kicker: "For deg som søker “møtereferat ai”",
-    h1: "AI som skriver møtereferat – uten fluff",
+    kicker: "Møtereferat på minutter, ikke timer", // [変更] 「何時間もじゃなく、数分で議事録を」
+    h1: "Endelig en AI som skriver møtereferater du faktisk vil lese", // [変更] 「ついに登場、あなたが本当に読みたくなる議事録を書くAI」
     tagline:
-      "Opptak → klare referater → tydelige neste steg. Funker på iPhone og nett.",
+      "Ta opp møtet (iPhone/nett), få et strukturert sammendrag, og se klare neste steg. Mindre admin, mer action.", // [変更] 「会議を録音（iPhone/Web）、構造化された要約と明確な次のステップを。管理作業を減らし、行動を増やす。」
   },
 
   intent: {
-    h2: "Tre vanlige intensjoner bak søk som “møtereferat ai”",
+    h2: "Kjenner du deg igjen i jakten på “møtereferat ai”?", // [変更] 「“議事録AI”探しで、こんなことありませんか？」
     items: [
-      "Finne et verktøy som faktisk gir delbare, lesbare referater",
-      "Se pris raskt (prøv først, bind deg senere)",
-      "Sjekke om det støtter ulike møtetyper (ikke bare én mal)"
+      "Finne et verktøy som lager *lesbare* referater, ikke bare en vegg av tekst.", // [変更] 「ただのテキストの壁ではなく、*本当に読める*議事録を作るツールを見つけたい。」
+      "Se en ærlig pris (og prøve først) uten å måtte binde deg.", // [変更] 「縛られずに、正直な価格（とまずはお試し）を確認したい。」
+      "Sikre at appen funker til *ulike* møter, ikke bare én standard mal.", // [変更] 「標準テンプレート1つだけでなく、*色々な*会議で使えるアプリか確かめたい。」
     ],
   },
 
   what: {
-    h2: "Hva Minutes.AI gjør",
+    h2: "Hva Minutes.AI gjør for deg", // [変更] 「Minutes.AIがあなたのためにすること」
     bullets: [
-      "Spiller inn og genererer et referat som fremhever beslutninger og tiltak",
-      "Markerer eiere og frister tydelig slik at oppfølgingen faktisk skjer",
-      "Fungerer på iPhone (én-tap for opptak) og i nettleseren"
+      "Lager et ryddig referat som zoomer inn på beslutninger og tiltak.", // [変更] 「決定事項とアクションアイテムに焦点を当てた、整理された議事録を作成します。」
+      "Tildeler *eiere* og *frister* slik at alle vet hvem som gjør hva.", // [変更] 「*誰が*何をするのか全員が把握できるよう、*担当者*と*期限*を割り当てます。」
+      "Fungerer sømløst på iPhone (ett-trykks opptak) og i nettleseren.", // [変更] 「iPhone（ワンタップ録音）とブラウザでシームレスに動作します。」
     ],
   },
 
   how: {
-    h2: "Slik fungerer det (3 steg)",
+    h2: "Slik går du fra prat til handling (3 steg)", // [変更] 「会話から行動へ (3ステップ)」
     steps: [
-      "1) Ta opp møtet (iPhone/nett).",
-      "2) Generer referat — strukturert og lett å lese.",
-      "3) Del/bruk referatet og følg opp neste steg."
+      "1) Start opptaket (iPhone/nett).", // [変更] 「1) 録音開始（iPhone/Web）。」
+      "2) Motta et strukturert, lettlest referat.", // [変更] 「2) 構造化された、読みやすい議事録を受け取る。」
+      "3) Del referatet og følg opp de neste stegene.", // [変更] 「3) 議事録を共有し、次のステップをフォローアップ。」
     ],
   },
 
   formats: {
-    h2: "Formater du kan velge",
-    p: "Velg struktur som matcher møteformen. Det gjør teksten mer nyttig.",
+    h2: "Én app, mange møtetyper", // [変更] 「1つのアプリ、多くの会議タイプ」
+    p: "En idémyldring er ikke det samme som et salgsmøte. Velg riktig format for å gjøre referatet mest mulig nyttig.", // [変更] 「ブレストは営業会議とは違います。最も有用な議事録にするために、正しいフォーマットを選んでください。」
     items: ["Generelt møte", "Forhandling/salg", "1–1", "Presentasjon/foredrag", "Idémyldring", "Intervju"],
   },
 
   pricing: {
-    h2: "Priser (faktiske)",
+    h2: "Priser som gir mening (Ingen skjulte bindinger)", // [変更] 「理にかなった価格（隠れた縛りなし）」
     note: "Gjestebrukere kan spille inn inntil 3 minutter per dag.",
     head: ["Plan", "Pris", "Opptakstid"],
     rows: [
@@ -82,15 +83,15 @@ const NB_FALLBACK = {
   },
 
   social: {
-    h2: "Bruk",
-    p: "På 6 måneder etter iOS-lansering nådde Minutes.AI 15 000 nedlastinger i over 160 land.",
+    h2: "Valgt av tusenvis verden over", // [変更] 「世界中の何千人もの人々に選ばれています」
+    p: "Bare 6 måneder etter iOS-lanseringen, nådde Minutes.AI 15 000 nedlastinger i over 160 land. Vi er stolte av tilliten!", // [変更] 「iOSローンチからわずか6ヶ月で、Minutes.AIは160カ国以上で15,000ダウンロードを達成しました。この信頼を誇りに思います！」
   },
 
   faq: {
-    h2: "FAQ (kort)",
+    h2: "Noe du lurer på? (FAQ)", // [変更] 「お困りですか？ (FAQ)」
     items: [
-      { q: "Fungerer det på både iPhone og nett?", a: "Ja. Du kan bruke iPhone for raskt opptak, og nett for visning/bruk." },
-      { q: "Kan jeg teste uten å binde meg?", a: "Ja. Trial gir 120 minutter for $1.99. Gjest får 3 minutter per dag." },
+      { q: "Kan jeg bytte mellom iPhone og nett?", a: "Ja. Ta opp på iPhone når du er på farten, og rediger eller les i nettleseren senere." }, // [変更] Q&Aをより具体的に
+      { q: "Må jeg binde meg til et abonnement?", a: "Nei. Du kan teste med en 'Trial' ($1.99 for 120 min) eller som gjest (3 min/dag) før du bestemmer deg." }, // [変更] Q&Aをより具体的に
       { q: "Støttes ulike møteformater?", a: "Ja. Du kan velge blant flere formater slik at referatet passer møtet." }
     ],
   },
