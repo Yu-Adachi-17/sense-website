@@ -247,7 +247,7 @@ export default function FullScreenOverlay({
     editButton: {
       backgroundColor: "transparent",
       color: "#000000",
-      border: "1px solid "#000000",
+      border: "1px solid #000000",
       padding: "5px 10px",
       cursor: "pointer",
       marginLeft: "10px",
