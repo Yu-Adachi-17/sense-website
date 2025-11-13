@@ -944,7 +944,7 @@ function App() {
           style={{
             position: 'absolute',
             left: '50%',
-            top: `calc(50% + ${Math.round(recordSize / 2) + (isMobile ? 56 : 60)}px)`,
+            top: `calc(50% + ${Math.round(recordSize / 2) + (isMobile ? 80 : 84)}px)`,
             transform: 'translateX(-50%)',
             zIndex: 12,
           }}
