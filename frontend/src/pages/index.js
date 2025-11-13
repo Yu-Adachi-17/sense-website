@@ -160,8 +160,7 @@ function App() {
     };
   }, []);
 
-  // 球体サイズ（スマホは“1画面に収める”基準で決定）
-  // 上：セーフエリア+ピル、下：残時間+下部バーを考慮して 0.40〜0.46vh で調整
+  // 球体サイズ
   const mobileRecordSize = Math.max(220, Math.min(Math.round(vh * 0.44), 300));
   const DESKTOP_RECORD_SIZE = 420;
   const recordSize = isMobile ? mobileRecordSize : DESKTOP_RECORD_SIZE;
@@ -467,7 +466,6 @@ function App() {
 
   // 録音トグル
   const toggleRecording = async () => {
-    // SideMenu開いている間は“何もせず無視”
     if (typeof window !== 'undefined' && window.__side_menu_open === true) return;
 
     if (!userSubscription && userRemainingSeconds === 0) {
@@ -508,7 +506,6 @@ function App() {
   const startRecording = async () => {
     console.log('[RECDBG] startRecording invoked');
     try {
-      // 他端末録音ロック
       if (authInstance?.currentUser && dbInstance) {
         let currentDeviceId = localStorage.getItem("deviceId");
         if (!currentDeviceId) {
@@ -841,7 +838,6 @@ function App() {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               zIndex: 1,
-              // SideMenuオープン中は見た目はそのまま・クリックは無効（保険）
               pointerEvents: (typeof window !== 'undefined' && window.__side_menu_open) ? 'none' : 'auto',
             }}
           >
@@ -910,13 +906,13 @@ function App() {
           {isProcessing && <ProgressIndicator progressStep={progressStep} />}
         </div>
 
-        {/* 残時間表示（下側） */}
+        {/* 残時間表示（少し上に） */}
         {isUserDataLoaded && (
           <>
             <div style={{
               position: 'absolute',
               left: '50%',
-              top: `calc(50% + ${Math.round(recordSize/2) + 30}px)`,
+              top: `calc(50% + ${Math.round(recordSize / 2) + (isMobile ? 16 : 10)}px)`,
               transform: 'translateX(-50%)',
               color: 'black',
               zIndex: 10,
@@ -943,12 +939,12 @@ function App() {
           </>
         )}
 
-        {/* 時間の「さらに下」にフォーマット名（Impact / 1/2サイズ） */}
+        {/* 残り時間のすぐ下にフォーマット名（Impact / 約1/2サイズ） */}
         <div
           style={{
             position: 'absolute',
             left: '50%',
-            top: `calc(50% + ${Math.round(recordSize/2) + 120}px)`,
+            top: `calc(50% + ${Math.round(recordSize / 2) + (isMobile ? 56 : 60)}px)`,
             transform: 'translateX(-50%)',
             zIndex: 12,
           }}
@@ -962,7 +958,7 @@ function App() {
                 justifyContent: 'center',
                 textDecoration: 'none',
                 fontFamily: 'Impact, sans-serif',
-                fontSize: isMobile ? 32 : 36, // 時間の約1/2
+                fontSize: isMobile ? 30 : 34,
                 letterSpacing: 1,
                 color: '#000',
                 lineHeight: '1.1',
@@ -973,7 +969,7 @@ function App() {
           </Link>
         </div>
 
-        {/* 左上 MAX 60:00（ハンバーガーと同列。セーフエリア対応） */}
+        {/* 左上 MAX 60:00 */}
         <div
           aria-label="Recording countdown (max 60:00)"
           style={{
@@ -982,7 +978,7 @@ function App() {
             left: '12px',
             width: RING_SIZE,
             height: RING_SIZE,
-            zIndex: 2147483600, // ハンバーガーと同列レイヤ
+            zIndex: 2147483600,
             pointerEvents: 'none',
           }}
         >
@@ -1023,7 +1019,7 @@ function App() {
         @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
       `}</style>
 
-      {/* ===== グローバル修正（黒帯対策＋vhの安定化） ===== */}
+      {/* ===== グローバル修正 ===== */}
       <style jsx global>{`
         html, body, #__next { height: 100%; background: #F8F7F4; }
         body { margin: 0; overflow-x: hidden; }
