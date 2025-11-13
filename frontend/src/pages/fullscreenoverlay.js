@@ -4,12 +4,9 @@ import { TbClipboardList, TbClipboardText } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosDownload } from "react-icons/io";
 import { FaRegCopy } from "react-icons/fa";
-// ✅ 直 import をやめて SSR 安全ユーティリティだけ import
 import { getDb } from "../firebaseConfig";
-// i18n は next-i18next に寄せる（_app で appWithTranslation 済み）
 import { useTranslation } from "next-i18next";
 
-// 汎用レンダリング（新規追加ファイル）
 import MinutesDocumentView from "../components/MinutesDocumentView";
 import MinutesDocumentEditorView from "../components/MinutesDocumentEditorView";
 import { toUnifiedDoc } from "../lib/minutes-universal";
@@ -23,13 +20,11 @@ export default function FullScreenOverlay({
   audioURL,
   docId,
 }) {
-  // ← ここを 'common' に固定
   const { t, i18n } = useTranslation("common");
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
-  // 表示用に "何で来ても文字列に" するだけ（JSON→string整形）
   const toDisplayText = (value) => {
     if (value && typeof value === "object") {
       try {
@@ -42,10 +37,24 @@ export default function FullScreenOverlay({
     return value == null ? "" : String(value);
   };
 
-  // JSONっぽいかどうかを判定（minutes 用）
+  // ```json ... ``` にも対応した JSON 判定
+  const normalizeForJsonDetection = (raw) => {
+    if (typeof raw !== "string") return "";
+    let text = raw.trim();
+    if (!text.startsWith("```")) return text;
+    const lines = text.split("\n");
+    const first = lines[0].trim();
+    if (!first.startsWith("```")) return text;
+    let endIndex = lines.length;
+    if (lines[lines.length - 1].trim() === "```") {
+      endIndex = lines.length - 1;
+    }
+    return lines.slice(1, endIndex).join("\n");
+  };
+
   const looksLikeJsonObject = (text) => {
-    if (typeof text !== "string") return false;
-    const trimmed = text.trim();
+    const cleaned = normalizeForJsonDetection(text);
+    const trimmed = cleaned.trim();
     if (!trimmed.startsWith("{") && !trimmed.startsWith("[")) return false;
     try {
       JSON.parse(trimmed);
@@ -55,12 +64,10 @@ export default function FullScreenOverlay({
     }
   };
 
-  // 編集テキスト: isExpanded に応じて初期値を決定
   const [editedText, setEditedText] = useState(
     isExpanded ? toDisplayText(transcription) : toDisplayText(minutes)
   );
 
-  // dir 切替（RTL対応）
   useEffect(() => {
     document.documentElement.setAttribute(
       "dir",
@@ -68,7 +75,6 @@ export default function FullScreenOverlay({
     );
   }, [i18n.language]);
 
-  // Firestore リアルタイム購読（非編集中のみ）
   useEffect(() => {
     let unsub;
     let mounted = true;
@@ -94,7 +100,6 @@ export default function FullScreenOverlay({
     };
   }, [docId, isExpanded, isEditing]);
 
-  // 画面サイズ（モバイル閾値）
   useEffect(() => {
     const update = () => setIsMobile(window.innerWidth <= 768);
     update();
@@ -102,7 +107,6 @@ export default function FullScreenOverlay({
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  // prop変更時の同期（非編集中のみ）
   useEffect(() => {
     if (!isEditing) {
       setEditedText(
@@ -111,7 +115,6 @@ export default function FullScreenOverlay({
     }
   }, [isExpanded, transcription, minutes, isEditing]);
 
-  // ダウンロード
   const handleDownload = () => {
     if (!audioURL) return alert(t("No downloadable audio data available."));
     const link = document.createElement("a");
@@ -142,7 +145,6 @@ export default function FullScreenOverlay({
       .catch(() => alert(t("Failed to copy to clipboard.")));
   };
 
-  // 保存（minutes/transcription は文字列で保存）
   const handleSave = async () => {
     if (!docId) return alert(t("No document ID available for saving."));
     try {
@@ -245,7 +247,7 @@ export default function FullScreenOverlay({
     editButton: {
       backgroundColor: "transparent",
       color: "#000000",
-      border: "1px solid #000000",
+      border: "1px solid "#000000",
       padding: "5px 10px",
       cursor: "pointer",
       marginLeft: "10px",
@@ -318,7 +320,6 @@ export default function FullScreenOverlay({
     iconSpacing: { marginLeft: "10px", fontWeight: "bold", fontSize: "16px" },
   };
 
-  // JSON minutes を構造化エディタで扱うかどうか
   const isJsonMinutes = !isExpanded && looksLikeJsonObject(editedText);
 
   return (
@@ -360,22 +361,21 @@ export default function FullScreenOverlay({
           }}
         >
           {isEditing ? (
-            // 編集モード
             isExpanded ? (
-              // ✅ フル transcript は従来通り textarea 編集
+              // transcript 編集はこれまで通りプレーンテキスト
               <textarea
                 style={styles.textEditor}
                 value={editedText}
                 onChange={(e) => setEditedText(e.target.value)}
               />
             ) : isJsonMinutes ? (
-              // ✅ JSON minutes は構造化エディタに委譲
+              // ✅ JSON minutes は構造化エディタ
               <MinutesDocumentEditorView
                 text={editedText}
                 onChangeText={setEditedText}
               />
             ) : (
-              // ✅ 非JSON minutes はプレーンテキスト編集
+              // 非JSON minutes はプレーンテキスト
               <textarea
                 style={styles.textEditor}
                 value={editedText}
@@ -383,7 +383,6 @@ export default function FullScreenOverlay({
               />
             )
           ) : (
-            // 閲覧モード：どんなフォーマットでも AST に正規化して汎用レンダリング
             <MinutesDocumentView
               doc={toUnifiedDoc(editedText, { t, ns: "common" })}
             />
