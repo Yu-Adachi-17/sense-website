@@ -9,6 +9,10 @@ import HomeIcon from "./homeIcon";
 
 const SITE_URL = "https://www.sense-ai.world";
 
+/* iOSライト風のカード影（minutes-list と同じ） */
+const cardShadow =
+  "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
+
 /** 英語フォールバック表示名（翻訳が無い場合はこれ） */
 const DISPLAY_NAME_FALLBACK = {
   general: "General",
@@ -316,38 +320,41 @@ export default function MeetingFormatsPage() {
                   title={isDeprecated ? "Deprecated format" : undefined}
                   style={{
                     position: "relative",
-                    background: "transparent",
+                    backgroundColor: "#ffffff",
                     border: isCurrent
                       ? "2px solid #0A84FF"
-                      : "1px solid rgba(0,0,0,0.06)",
+                      : "1px solid rgba(0,0,0,0.04)",
                     borderRadius: 16,
-                    padding: 22,
+                    padding: 16,
                     color: "#111111",
                     textAlign: "left",
                     cursor: isDeprecated ? "not-allowed" : "pointer",
-                    transition: "transform 120ms ease, border 120ms ease",
+                    boxShadow: cardShadow,
+                    transition: "transform 120ms ease, box-shadow 120ms ease",
                     userSelect: "none",
                     display: "grid",
-                    alignContent: "start",
+                    alignContent: "center",
                     justifyItems: "start",
-                    height: "clamp(180px, 22vh, 240px)",
-                    rowGap: 10,
+                    minHeight: "210px", // minutes-list のカードと合わせる
+                    rowGap: 6,
                     opacity: isDeprecated ? 0.5 : 1,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-1px)";
+                    e.currentTarget.style.boxShadow =
+                      "0 2px 2px rgba(0,0,0,0.06), 0 10px 18px rgba(0,0,0,0.10), 0 18px 30px rgba(0,0,0,0.08)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = cardShadow;
                   }}
                 >
-                  {/* タイトル（大文字・大きめ） */}
+                  {/* タイトル */}
                   <div
                     style={{
                       fontWeight: 900,
                       fontSize: 20,
                       letterSpacing: "0.04em",
                       textTransform: "uppercase",
+                      wordBreak: "break-word",
                     }}
                   >
                     {title}
