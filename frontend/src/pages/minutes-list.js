@@ -13,6 +13,15 @@ import { getClientAuth, getDb } from "../firebaseConfig";
 const cardShadow =
   "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
+/* 複数行を「…」でカットする共通スタイル */
+const clampTextStyle = (lines) => ({
+  display: "-webkit-box",
+  WebkitLineClamp: lines,
+  WebkitBoxOrient: "vertical",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+});
+
 /* ---------------- JSON → タイトル/日付/トピック抽出 ---------------- */
 const removeInvisibles = (text) =>
   text.replace(/\uFEFF/g, "").replace(/[\u0000-\u001F\u007F]/g, "");
@@ -79,11 +88,19 @@ const renderFromMinutes = (minutes, createdAtDate) => {
     const topicsArray = Array.isArray(obj.topics)
       ? obj.topics.map((t) => t?.topic).filter(Boolean)
       : [];
+
+    // 長くなりすぎないように、トピックは3件まで＋文字数も軽く制限
+    const topicsLimited = topicsArray.slice(0, 3);
+    let topicsText = topicsLimited.map((t) => `• ${t}`).join("\n");
+    if (topicsText.length > 180) {
+      topicsText = topicsText.slice(0, 180) + "…";
+    }
+
     return {
       ok: true,
       title,
       date: dateStr,
-      topicsText: topicsArray.map((t) => `• ${t}`).join("\n"),
+      topicsText,
     };
   }
   const plain = String(minutes ?? "");
@@ -124,13 +141,13 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
         boxShadow: cardShadow,
         transition: "transform 120ms ease, box-shadow 120ms ease",
         userSelect: "none",
-        whiteSpace: "pre-wrap",
         lineHeight: 1.45,
         display: "grid",
         alignContent: "center",
         justifyItems: "start",
         height: "clamp(140px, 18vh, 200px)",
         rowGap: 6,
+        overflow: "hidden", // はみ出しカット
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow =
@@ -142,12 +159,48 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
     >
       {ok ? (
         <>
-          <div style={{ fontWeight: 700, fontSize: 18 }}>{title}</div>
-          {date && <div style={{ fontSize: 13, opacity: 0.7 }}>{date}</div>}
-          {topicsText && <div style={{ fontSize: 13, opacity: 0.95 }}>{topicsText}</div>}
+          <div
+            style={{
+              fontWeight: 700,
+              fontSize: 18,
+              ...clampTextStyle(2), // タイトルは最大2行
+            }}
+          >
+            {title}
+          </div>
+          {date && (
+            <div
+              style={{
+                fontSize: 13,
+                opacity: 0.7,
+              }}
+            >
+              {date}
+            </div>
+          )}
+          {topicsText && (
+            <div
+              style={{
+                fontSize: 13,
+                opacity: 0.95,
+                whiteSpace: "pre-wrap",
+                ...clampTextStyle(4), // トピックは最大4行
+              }}
+            >
+              {topicsText}
+            </div>
+          )}
         </>
       ) : (
-        <div style={{ fontWeight: 700 }}>{fallback}</div>
+        <div
+          style={{
+            fontWeight: 700,
+            whiteSpace: "pre-wrap",
+            ...clampTextStyle(5), // fallbackは最大5行
+          }}
+        >
+          {fallback}
+        </div>
       )}
     </div>
   );
@@ -236,14 +289,20 @@ export default function MinutesList() {
   );
 
   const toggleSelect = (id) =>
-    setSelectedIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+    setSelectedIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
 
   const handleDelete = async () => {
     if (!selectedIds.length) {
       alert(t("Please select meeting records to delete."));
       return;
     }
-    if (!window.confirm(t("Are you sure you want to delete? This action cannot be undone.")))
+    if (
+      !window.confirm(
+        t("Are you sure you want to delete? This action cannot be undone.")
+      )
+    )
       return;
 
     try {
@@ -262,7 +321,14 @@ export default function MinutesList() {
   };
 
   return (
-    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", padding: 20, color: "#111111" }}>
+    <div
+      style={{
+        backgroundColor: "#ffffff",
+        minHeight: "100vh",
+        padding: 20,
+        color: "#111111",
+      }}
+    >
       {/* Header */}
       <div
         style={{
