@@ -142,9 +142,6 @@ function App() {
   const zeroChunkCountRef = useRef(0);
   const silenceSecondsRef = useRef(0);
 
-  const cardShadow =
-    "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
-
   // ===== スマホ判定 & 画面高から球体サイズを決める =====
   const [isMobile, setIsMobile] = useState(false);
   const [vh, setVh] = useState(0);
@@ -830,7 +827,7 @@ function App() {
         }}
       >
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                    {!showFullScreen && (
+          {!showFullScreen && (
             <div style={{ position: 'relative', zIndex: 20 }}>
               <PurchaseMenu />
             </div>
@@ -913,39 +910,6 @@ function App() {
           {isProcessing && <ProgressIndicator progressStep={progressStep} />}
         </div>
 
-        {/* 中央：フォーマット名ピル（球体と時間の“あいだ”） */}
-        <div
-          style={{
-            position: 'absolute',
-            left: '50%',
-            top: `calc(50% - ${Math.round(recordSize/2) + 30}px)`,
-            transform: 'translateX(-50%)',
-            zIndex: 12
-          }}
-        >
-          <Link href="/meeting-formats" legacyBehavior>
-            <a
-              aria-label="Choose Meeting Format"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '10px 14px',
-                borderRadius: 12,
-                background: '#fff',
-                color: '#111',
-                textDecoration: 'none',
-                fontSize: 14,
-                fontWeight: 700,
-                border: '1px solid rgba(0,0,0,0.04)',
-                boxShadow: cardShadow
-              }}
-            >
-              {selectedMeetingFormat?.displayName || 'General'}
-            </a>
-          </Link>
-        </div>
-
         {/* 残時間表示（下側） */}
         {isUserDataLoaded && (
           <>
@@ -976,51 +940,81 @@ function App() {
                 </span>
               )}
             </div>
-
-            {/* 左上 MAX 60:00（ハンバーガーと同列。セーフエリア対応） */}
-            <div
-              aria-label="Recording countdown (max 60:00)"
-              style={{
-                position: 'fixed',
-                top: safeTop,
-                left: '12px',
-                width: RING_SIZE,
-                height: RING_SIZE,
-                zIndex: 2147483600, // ハンバーガーと同列レイヤ
-                pointerEvents: 'none',
-              }}
-            >
-              <svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`} style={{ display: 'block' }}>
-                <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
-                  <circle
-                    cx={RING_SIZE / 2}
-                    cy={RING_SIZE / 2}
-                    r={R}
-                    fill="none"
-                    stroke="#000"
-                    strokeWidth={STROKE}
-                    strokeLinecap="butt"
-                    strokeDasharray={C}
-                    strokeDashoffset={dashoffset}
-                  />
-                </g>
-              </svg>
-
-              <div
-                style={{
-                  position: 'absolute', inset: 0, display: 'flex',
-                  flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  gap: 2, color: '#000', userSelect: 'none', pointerEvents: 'none', lineHeight: 1.05,
-                }}
-              >
-                <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700 }}>MAX</div>
-                <div style={{ fontFamily: 'Impact, sans-serif', fontWeight: 900, fontSize: 22 }}>
-                  {formatTime(recordingCountdown)}
-                </div>
-              </div>
-            </div>
           </>
         )}
+
+        {/* 時間の「さらに下」にフォーマット名（Impact / 1/2サイズ） */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: `calc(50% + ${Math.round(recordSize/2) + 120}px)`,
+            transform: 'translateX(-50%)',
+            zIndex: 12,
+          }}
+        >
+          <Link href="/meeting-formats" legacyBehavior>
+            <a
+              aria-label="Choose Meeting Format"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textDecoration: 'none',
+                fontFamily: 'Impact, sans-serif',
+                fontSize: isMobile ? 32 : 36, // 時間の約1/2
+                letterSpacing: 1,
+                color: '#000',
+                lineHeight: '1.1',
+              }}
+            >
+              {selectedMeetingFormat?.displayName || 'General'}
+            </a>
+          </Link>
+        </div>
+
+        {/* 左上 MAX 60:00（ハンバーガーと同列。セーフエリア対応） */}
+        <div
+          aria-label="Recording countdown (max 60:00)"
+          style={{
+            position: 'fixed',
+            top: safeTop,
+            left: '12px',
+            width: RING_SIZE,
+            height: RING_SIZE,
+            zIndex: 2147483600, // ハンバーガーと同列レイヤ
+            pointerEvents: 'none',
+          }}
+        >
+          <svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`} style={{ display: 'block' }}>
+            <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
+              <circle
+                cx={RING_SIZE / 2}
+                cy={RING_SIZE / 2}
+                r={R}
+                fill="none"
+                stroke="#000"
+                strokeWidth={STROKE}
+                strokeLinecap="butt"
+                strokeDasharray={C}
+                strokeDashoffset={dashoffset}
+              />
+            </g>
+          </svg>
+
+          <div
+            style={{
+              position: 'absolute', inset: 0, display: 'flex',
+              flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+              gap: 2, color: '#000', userSelect: 'none', pointerEvents: 'none', lineHeight: 1.05,
+            }}
+          >
+            <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700 }}>MAX</div>
+            <div style={{ fontFamily: 'Impact, sans-serif', fontWeight: 900, fontSize: 22 }}>
+              {formatTime(recordingCountdown)}
+            </div>
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
