@@ -145,7 +145,7 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
         display: "grid",
         alignContent: "center",
         justifyItems: "start",
-        minHeight: "210px", // 以前(140px)の約1.5倍
+        minHeight: "210px",
         rowGap: 6,
       }}
       onMouseEnter={(e) => {
@@ -397,11 +397,10 @@ export default function MinutesList() {
             <button
               onClick={() => setSelectionMode(true)}
               style={{
-                backgroundColor: "#F2F2F7",
+                background: "none",
+                border: "none",
                 color: "#111111",
-                border: "1px solid rgba(0,0,0,0.08)",
-                padding: "10px 14px",
-                borderRadius: 10,
+                padding: 0,
                 cursor: "pointer",
                 fontSize: 16,
               }}
