@@ -13,7 +13,7 @@ import { getClientAuth, getDb } from "../firebaseConfig";
 const cardShadow =
   "0 1px 1px rgba(0,0,0,0.06), 0 6px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06)";
 
-/* 複数行を「…」でカットする共通スタイル */
+/* 複数行を「…」でカットする共通スタイル（タイトルには使わない） */
 const clampTextStyle = (lines) => ({
   display: "-webkit-box",
   WebkitLineClamp: lines,
@@ -89,7 +89,7 @@ const renderFromMinutes = (minutes, createdAtDate) => {
       ? obj.topics.map((t) => t?.topic).filter(Boolean)
       : [];
 
-    // 長くなりすぎないように、トピックは3件まで＋文字数も軽く制限
+    // トピックは3件まで＋全体文字数も軽く制限
     const topicsLimited = topicsArray.slice(0, 3);
     let topicsText = topicsLimited.map((t) => `• ${t}`).join("\n");
     if (topicsText.length > 180) {
@@ -145,9 +145,8 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
         display: "grid",
         alignContent: "center",
         justifyItems: "start",
-        height: "clamp(140px, 18vh, 200px)",
+        minHeight: "210px", // 以前(140px)の約1.5倍
         rowGap: 6,
-        overflow: "hidden", // はみ出しカット
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow =
@@ -159,11 +158,12 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
     >
       {ok ? (
         <>
+          {/* タイトルはフル表示（行制限なし） */}
           <div
             style={{
               fontWeight: 700,
               fontSize: 18,
-              ...clampTextStyle(2), // タイトルは最大2行
+              wordBreak: "break-word",
             }}
           >
             {title}
@@ -184,7 +184,7 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
                 fontSize: 13,
                 opacity: 0.95,
                 whiteSpace: "pre-wrap",
-                ...clampTextStyle(4), // トピックは最大4行
+                ...clampTextStyle(4), // トピックだけは最大4行に制限
               }}
             >
               {topicsText}
@@ -196,7 +196,7 @@ const PaperItem = ({ paper, selectionMode, isSelected, toggleSelect }) => {
           style={{
             fontWeight: 700,
             whiteSpace: "pre-wrap",
-            ...clampTextStyle(5), // fallbackは最大5行
+            ...clampTextStyle(6), // fallbackは最大6行
           }}
         >
           {fallback}
