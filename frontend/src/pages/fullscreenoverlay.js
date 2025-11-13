@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next";
 
 // 汎用レンダリング（新規追加ファイル）
 import MinutesDocumentView from "../components/MinutesDocumentView";
+import MinutesDocumentEditorView from "../components/MinutesDocumentEditorView";
 import { toUnifiedDoc } from "../lib/minutes-universal";
 
 export default function FullScreenOverlay({
@@ -41,6 +42,19 @@ export default function FullScreenOverlay({
     return value == null ? "" : String(value);
   };
 
+  // JSONっぽいかどうかを判定（minutes 用）
+  const looksLikeJsonObject = (text) => {
+    if (typeof text !== "string") return false;
+    const trimmed = text.trim();
+    if (!trimmed.startsWith("{") && !trimmed.startsWith("[")) return false;
+    try {
+      JSON.parse(trimmed);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   // 編集テキスト: isExpanded に応じて初期値を決定
   const [editedText, setEditedText] = useState(
     isExpanded ? toDisplayText(transcription) : toDisplayText(minutes)
@@ -48,7 +62,10 @@ export default function FullScreenOverlay({
 
   // dir 切替（RTL対応）
   useEffect(() => {
-    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute(
+      "dir",
+      i18n.language === "ar" ? "rtl" : "ltr"
+    );
   }, [i18n.language]);
 
   // Firestore リアルタイム購読（非編集中のみ）
@@ -88,9 +105,10 @@ export default function FullScreenOverlay({
   // prop変更時の同期（非編集中のみ）
   useEffect(() => {
     if (!isEditing) {
-      setEditedText(isExpanded ? toDisplayText(transcription) : toDisplayText(minutes));
+      setEditedText(
+        isExpanded ? toDisplayText(transcription) : toDisplayText(minutes)
+      );
     }
-    if (!isExpanded && isEditing) setIsEditing(false);
   }, [isExpanded, transcription, minutes, isEditing]);
 
   // ダウンロード
@@ -300,28 +318,39 @@ export default function FullScreenOverlay({
     iconSpacing: { marginLeft: "10px", fontWeight: "bold", fontSize: "16px" },
   };
 
+  // JSON minutes を構造化エディタで扱うかどうか
+  const isJsonMinutes = !isExpanded && looksLikeJsonObject(editedText);
+
   return (
     <>
       <div style={styles.fullScreenOverlay}>
-        <button style={styles.closeButton} onClick={() => setShowFullScreen(false)}>
+        <button
+          style={styles.closeButton}
+          onClick={() => setShowFullScreen(false)}
+        >
           &times;
         </button>
 
-        <button style={styles.hamburgerButton} onClick={() => setShowSideMenu(true)}>
+        <button
+          style={styles.hamburgerButton}
+          onClick={() => setShowSideMenu(true)}
+        >
           <GiHamburgerMenu size={24} />
         </button>
 
         <div style={styles.titleContainer}>
-          {isExpanded &&
-            (isEditing ? (
-              <button style={styles.saveButton} onClick={handleSave}>
-                {t("Save")}
-              </button>
-            ) : (
-              <button style={styles.editButton} onClick={() => setIsEditing(true)}>
-                {t("Edit")}
-              </button>
-            ))}
+          {isEditing ? (
+            <button style={styles.saveButton} onClick={handleSave}>
+              {t("Save")}
+            </button>
+          ) : (
+            <button
+              style={styles.editButton}
+              onClick={() => setIsEditing(true)}
+            >
+              {t("Edit")}
+            </button>
+          )}
         </div>
 
         <div
@@ -330,14 +359,31 @@ export default function FullScreenOverlay({
             ...(isExpanded ? styles.fullText : styles.summaryText),
           }}
         >
-          {isExpanded && isEditing ? (
-            <textarea
-              style={styles.textEditor}
-              value={editedText}
-              onChange={(e) => setEditedText(e.target.value)}
-            />
+          {isEditing ? (
+            // 編集モード
+            isExpanded ? (
+              // ✅ フル transcript は従来通り textarea 編集
+              <textarea
+                style={styles.textEditor}
+                value={editedText}
+                onChange={(e) => setEditedText(e.target.value)}
+              />
+            ) : isJsonMinutes ? (
+              // ✅ JSON minutes は構造化エディタに委譲
+              <MinutesDocumentEditorView
+                text={editedText}
+                onChangeText={setEditedText}
+              />
+            ) : (
+              // ✅ 非JSON minutes はプレーンテキスト編集
+              <textarea
+                style={styles.textEditor}
+                value={editedText}
+                onChange={(e) => setEditedText(e.target.value)}
+              />
+            )
           ) : (
-            // ✅ ここが新ロジック：どんなフォーマットでも AST に正規化して汎用レンダリング
+            // 閲覧モード：どんなフォーマットでも AST に正規化して汎用レンダリング
             <MinutesDocumentView
               doc={toUnifiedDoc(editedText, { t, ns: "common" })}
             />
@@ -346,15 +392,23 @@ export default function FullScreenOverlay({
       </div>
 
       {showSideMenu && (
-        <div style={styles.sideMenuOverlay} onClick={() => setShowSideMenu(false)}>
+        <div
+          style={styles.sideMenuOverlay}
+          onClick={() => setShowSideMenu(false)}
+        >
           <div style={styles.sideMenu} onClick={stopPropagation}>
             {!isExpanded ? (
               <button style={styles.sideMenuButton} onClick={handleSwitchView}>
                 <TbClipboardText size={24} />
-                <span style={styles.iconSpacing}>{t("Show Full Transcript")}</span>
+                <span style={styles.iconSpacing}>
+                  {t("Show Full Transcript")}
+                </span>
               </button>
             ) : (
-              <button style={styles.sideMenuButton} onClick={handleSwitchToMinutes}>
+              <button
+                style={styles.sideMenuButton}
+                onClick={handleSwitchToMinutes}
+              >
                 <TbClipboardList size={24} />
                 <span style={styles.iconSpacing}>{t("Show Minutes")}</span>
               </button>
@@ -362,7 +416,9 @@ export default function FullScreenOverlay({
 
             <button style={styles.sideMenuButton} onClick={handleDownload}>
               <IoIosDownload size={24} />
-              <span style={styles.iconSpacing}>{t("Download Audio Data")}</span>
+              <span style={styles.iconSpacing}>
+                {t("Download Audio Data")}
+              </span>
             </button>
 
             <button style={styles.sideMenuButton} onClick={handleShare}>
