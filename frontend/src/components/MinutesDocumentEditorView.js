@@ -2,37 +2,39 @@
 import React, { useEffect, useState, useCallback } from "react";
 
 /**
- * text: JSON文字列（```json ... ``` でもOK）
- * onChangeText: 編集結果を pretty JSON 文字列で返す
+ * props:
+ *  - text: JSON文字列（```json ... ``` でもOK）
+ *  - onChangeText: (newText: string) => void
+ *  - t: next-i18next の t（既存の minutes レンダリングと同じもの）
  *
- * ポイント：
- * - JSON構造（{}, [], key）は編集させない
- * - string の値と string の配列だけ編集可能
- * - それ以外（number, boolean, null）は閲覧専用
+ * 仕様:
+ *  - JSON構造（{}, [], key）は編集させない
+ *  - string / string配列だけ編集可能
+ *  - ラベルは既存の i18n ("minutes.*", "minutes.oneonone.*" など) を使う
+ *  - インデントは付けず、シンプルなフォーム＋カード表示
  */
 
 const containerStyle = {
   width: "100%",
   height: "100%",
   overflowY: "auto",
+  maxWidth: "900px",
+  margin: "0 auto",
+  paddingRight: 4,
 };
 
-const sectionTitleStyle = (level) => ({
-  fontWeight: "bold",
-  fontSize: 14,
+const sectionTitleStyle = {
+  fontWeight: 600,
+  fontSize: 16,
+  marginTop: 24,
   marginBottom: 8,
-  marginTop: level === 0 ? 0 : 12,
-  marginLeft: level * 12,
-  borderLeft: "3px solid #000000",
-  paddingLeft: 8,
-});
+};
 
-const labelStyle = (level) => ({
+const fieldLabelStyle = {
   fontSize: 13,
   color: "#555555",
   marginBottom: 4,
-  marginLeft: level * 12 + 4,
-});
+};
 
 const textareaStyle = {
   width: "100%",
@@ -46,12 +48,25 @@ const textareaStyle = {
   lineHeight: 1.5,
 };
 
-const readonlyValueStyle = (level) => ({
-  marginLeft: level * 12 + 4,
+const readonlyValueStyle = {
   fontSize: 14,
   color: "#888888",
   padding: "4px 0",
-});
+};
+
+const cardStyle = {
+  border: "1px solid #EEEEEE",
+  borderRadius: 10,
+  padding: 16,
+  marginBottom: 16,
+  backgroundColor: "#FAFAFA",
+};
+
+const cardTitleStyle = {
+  fontSize: 15,
+  fontWeight: 600,
+  marginBottom: 10,
+};
 
 /** ```json ... ``` の囲いを外す */
 const stripCodeFence = (raw) => {
@@ -59,10 +74,8 @@ const stripCodeFence = (raw) => {
   let text = raw.trim();
   if (!text.startsWith("```")) return raw;
   const lines = text.split("\n");
-  // 先頭行: ```json など
   const first = lines[0].trim();
   if (!first.startsWith("```")) return raw;
-  // 末尾の ``` を削る
   let endIndex = lines.length;
   if (lines[lines.length - 1].trim() === "```") {
     endIndex = lines.length - 1;
@@ -71,11 +84,40 @@ const stripCodeFence = (raw) => {
   return body;
 };
 
-export default function MinutesDocumentEditorView({ text, onChangeText }) {
+// minutes.oneonone.xxx などの「カテゴリキー」
+const SCOPE_KEYS = ["brainstorming", "jobInterview", "lecture", "oneonone"];
+
+/**
+ * JSONキー → ラベル
+ * 1. scopeKey があれば minutes.scopeKey.key を試す
+ * 2. なければ minutes.key
+ * 3. それでも無ければ key をそこそこ読みやすく整形
+ */
+const getLabelFromI18n = (rawKey, scopeKey, t) => {
+  if (!rawKey) return "";
+
+  if (scopeKey) {
+    const scopedKey = `minutes.${scopeKey}.${rawKey}`;
+    const scoped = t(scopedKey);
+    if (scoped !== scopedKey) return scoped;
+  }
+
+  const directKey = `minutes.${rawKey}`;
+  const direct = t(directKey);
+  if (direct !== directKey) return direct;
+
+  // fallback: key名をそれっぽく
+  return rawKey
+    .replace(/_/g, " ")
+    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+};
+
+export default function MinutesDocumentEditorView({ text, onChangeText, t }) {
   const [parsed, setParsed] = useState(null);
   const [parseError, setParseError] = useState(null);
 
-  // text が変わったら JSON パース
+  // text → JSON パース
   useEffect(() => {
     const clean = stripCodeFence(text);
     try {
@@ -92,8 +134,7 @@ export default function MinutesDocumentEditorView({ text, onChangeText }) {
     (path, newValue) => {
       setParsed((prev) => {
         if (!prev) return prev;
-        // JSON データなので stringify/parse で深いコピー
-        const next = JSON.parse(JSON.stringify(prev));
+        const next = JSON.parse(JSON.stringify(prev)); // 深いコピー
         let cursor = next;
         for (let i = 0; i < path.length - 1; i++) {
           cursor = cursor[path[i]];
@@ -108,14 +149,22 @@ export default function MinutesDocumentEditorView({ text, onChangeText }) {
     [onChangeText]
   );
 
-  const renderField = (value, path, label, level = 0) => {
-    const key = path.join(".") || "root";
+  /**
+   * value: 現在の値
+   * path: ["topics", 0, "proposal"] など
+   * rawKey: このノードの key（配列要素なら親 key）
+   * label: 画面に出すラベル
+   * scopeKey: minutes.oneonone.xxx のようなカテゴリキー
+   * level: ネスト（見た目の強弱にだけ使う。横インデントはしない）
+   */
+  const renderNode = (value, path, rawKey, label, scopeKey, level = 0) => {
+    const reactKey = path.join(".") || "root";
 
-    // 文字列は編集可能
+    // 文字列：シンプルなテキストエリア
     if (typeof value === "string") {
       return (
-        <div key={key} style={{ marginBottom: 12 }}>
-          {label && <div style={labelStyle(level)}>{label}</div>}
+        <div key={reactKey} style={{ marginBottom: 16 }}>
+          {label && <div style={fieldLabelStyle}>{label}</div>}
           <textarea
             style={textareaStyle}
             value={value}
@@ -129,14 +178,23 @@ export default function MinutesDocumentEditorView({ text, onChangeText }) {
     if (Array.isArray(value)) {
       const allStrings = value.every((v) => typeof v === "string");
 
-      // 文字列配列 → 各要素だけ編集可能（追加/削除は不可）
+      // 文字列配列 → ラベル＋1行ずつ
       if (allStrings) {
         return (
-          <div key={key} style={{ marginBottom: 16 }}>
-            {label && <div style={sectionTitleStyle(level)}>{label}</div>}
+          <section key={reactKey} style={{ marginBottom: 24 }}>
+            {label && <div style={sectionTitleStyle}>{label}</div>}
             {value.map((item, index) => (
-              <div key={`${key}.${index}`} style={{ marginBottom: 8 }}>
-                <div style={labelStyle(level + 1)}>{`${label || ""}[${index}]`}</div>
+              <div key={`${reactKey}.${index}`} style={{ marginBottom: 10 }}>
+                {/* 行番号だけ薄く表示（keyDiscussion[2] 的な文字列は出さない） */}
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "#888888",
+                    marginBottom: 4,
+                  }}
+                >
+                  {index + 1}
+                </div>
                 <textarea
                   style={textareaStyle}
                   value={item}
@@ -149,55 +207,78 @@ export default function MinutesDocumentEditorView({ text, onChangeText }) {
                 />
               </div>
             ))}
-          </div>
+          </section>
         );
       }
 
-      // オブジェクト配列など → ネスト表示、構造そのまま
+      // オブジェクト配列 → 大きなカード
       return (
-        <div key={key} style={{ marginBottom: 16 }}>
-          {label && <div style={sectionTitleStyle(level)}>{label}</div>}
-          {value.map((item, index) => (
-            <div key={`${key}.${index}`} style={{ marginLeft: (level + 1) * 12 }}>
-              {renderField(
-                item,
-                [...path, index],
-                Array.isArray(item) || typeof item === "object"
-                  ? `[${index}]`
-                  : `${label || ""}[${index}]`,
-                level + 1
-              )}
-            </div>
-          ))}
-        </div>
+        <section key={reactKey} style={{ marginBottom: 24 }}>
+          {label && <div style={sectionTitleStyle}>{label}</div>}
+          {value.map((item, index) => {
+            const titleLabel =
+              label != null && label !== ""
+                ? `${label} ${index + 1}`
+                : `${index + 1}`;
+            return (
+              <div key={`${reactKey}.${index}`} style={cardStyle}>
+                <div style={cardTitleStyle}>{titleLabel}</div>
+                {renderObject(item, [...path, index], scopeKey, level + 1)}
+              </div>
+            );
+          })}
+        </section>
       );
     }
 
-    // オブジェクト → フィールドごとに再帰
+    // オブジェクトは renderObject に任せる
     if (value && typeof value === "object") {
-      const entries = Object.entries(value);
       return (
-        <div key={key} style={{ marginBottom: 16 }}>
-          {label && <div style={sectionTitleStyle(level)}>{label}</div>}
-          {entries.map(([k, v]) => (
-            <div key={`${key}.${k}`} style={{ marginLeft: (level + 1) * 12 }}>
-              {renderField(v, [...path, k], k, level + 1)}
+        <section key={reactKey} style={{ marginBottom: 24 }}>
+          {label && (
+            <div
+              style={{
+                ...sectionTitleStyle,
+                fontSize: level === 0 ? 18 : 16,
+              }}
+            >
+              {label}
             </div>
-          ))}
-        </div>
+          )}
+          {renderObject(value, path, scopeKey, level + 1)}
+        </section>
       );
     }
 
-    // number / boolean / null は閲覧専用
+    // number / boolean / null → 閲覧専用
     return (
-      <div key={key} style={{ marginBottom: 8 }}>
-        {label && <div style={labelStyle(level)}>{label}</div>}
-        <div style={readonlyValueStyle(level)}>{String(value)}</div>
+      <div key={reactKey} style={{ marginBottom: 12 }}>
+        {label && <div style={fieldLabelStyle}>{label}</div>}
+        <div style={readonlyValueStyle}>{String(value)}</div>
       </div>
     );
   };
 
-  // JSONとして読めない場合 → プレーンテキスト編集にフォールバック
+  const renderObject = (obj, path, scopeKey, level) => {
+    const entries = Object.entries(obj);
+
+    return entries.map(([key, childValue]) => {
+      // oneonone / lecture などのカテゴリを検知
+      const nextScope = SCOPE_KEYS.includes(key) ? key : scopeKey;
+      const label = getLabelFromI18n(key, nextScope, t);
+
+      return renderNode(
+        childValue,
+        [...path, key],
+        key,
+        label,
+        nextScope,
+        level
+      );
+    });
+  };
+
+  // JSON として解釈できない場合 → 最後の砦としてプレーンテキスト編集
   if (parseError || parsed == null) {
     return (
       <div style={containerStyle}>
@@ -219,10 +300,10 @@ export default function MinutesDocumentEditorView({ text, onChangeText }) {
     );
   }
 
-  // ルートオブジェクトの中身を全部レンダリング
+  // ルートオブジェクトを展開
   return (
     <div style={containerStyle}>
-      {renderField(parsed, [], null, 0)}
+      {renderObject(parsed, [], null, 0)}
     </div>
   );
 }

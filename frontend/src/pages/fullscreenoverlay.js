@@ -373,6 +373,7 @@ export default function FullScreenOverlay({
               <MinutesDocumentEditorView
                 text={editedText}
                 onChangeText={setEditedText}
+                t={t}           // ← これを追加
               />
             ) : (
               // 非JSON minutes はプレーンテキスト
