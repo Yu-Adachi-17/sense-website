@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Jegyzőkönyv AI Android kiadás — AI jegyzőkönyv alkalmazás Androidra",
+    "description": "A Jegyzőkönyv AI Android verziója már elérhető a Google Playen. Csak rögzítse megbeszéléseit, és az MI automatikusan elkészíti a jegyzőkönyvet. Ajánlott választás azoknak, akik AI jegyzőkönyv alkalmazást keresnek Androidra.",
+    "ogTitle": "Jegyzőkönyv AI Androidra — Az AI jegyzőkönyv alkalmazások új szabványa",
+    "ogDescription": "Rögzítse megbeszéléseit, és hagyja, hogy az MI automatikusan elkészítse a jegyzőkönyvet. A Jegyzőkönyv AI Android alkalmazás már elérhető a Google Playen, praktikus eszközként szolgálva azoknak, akik a \"legjobb AI jegyzőkönyv alkalmazás Androidra\" kulcsszóra keresnek.",
+    "ld": {
+      "headline": "Jegyzőkönyv AI Android kiadás",
+      "description": "A \"Jegyzőkönyv AI\", amely az MI segítségével automatikusan készít jegyzőkönyveket a megbeszélésekről, mostantól Android alkalmazásként is elérhető. Telepítse a Google Playről, és készítsen magas minőségű jegyzőkönyveket útközben is."
+    }
+  },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Android kiadás"
+  },
+  "hero": {
+    "kicker": "Kiadási megjegyzések",
+    "h1": "Bemutatkozik a Jegyzőkönyv AI Androidra",
+    "tagline": "A \"Jegyzőkönyv AI\", az alkalmazás, amely automatikusan készít jegyzőkönyveket a megbeszélés puszta rögzítésével, végre elérhető Android alkalmazásként a Google Playen. Készítsen magas minőségű jegyzőkönyveket bármikor, bárhol, csak az okostelefonjával."
+  },
+  "release": {
+    "h2": "Az Android kiadás áttekintése",
+    "p1": "A meglévő iOS és böngészős verziók mellett a Jegyzőkönyv AI mostantól Android alkalmazásként is elérhető. Egyszerűen rögzítse a megbeszélést, és az MI automatikusan rendszerezi a kulcspontokat, és könnyen olvasható jegyzőkönyvvé alakítja azokat.",
+    "p2": "A kezdeti verzió támogatja a rugalmas \"Flexible\" formátumot, és hamarosan további megbeszélés-formátumok is támogatottak lesznek. Ha AI jegyzőkönyv alkalmazást keres Androidra, próbálja ki a Jegyzőkönyv AI-t."
+  },
+  "image": {
+    "alt": "Képernyőkép a Jegyzőkönyv AI Android alkalmazásról",
+    "caption": "Rögzítsen megbeszéléseket Android okostelefonjáról, és az MI azonnal elkészíti a jegyzőkönyvet."
+  },
+  "steps": {
+    "h2": "Hogyan kezdje el használni az Android verziót",
+    "items": [
+      "Keresse meg a \"Jegyzőkönyv AI\" alkalmazást a Google Playen, vagy telepítse az ezen az oldalon található linkről",
+      "Indítsa el az alkalmazást, és kezdje el rögzíteni a megbeszélést",
+      "Amikor a megbeszélés véget ér, állítsa le a felvételt, és várja meg, amíg az MI elkészíti a jegyzőkönyvet",
+      "Nézze át az elkészült jegyzőkönyvet, majd ossza meg vagy mentse el szükség szerint"
+    ],
+    "note": "A rendelkezésre álló felvételi idő és formátumok az aktuális csomagjától és a fennmaradó időtől függenek."
+  },
+  "features": {
+    "h2": "Mit tehet az Android verzióval",
+    "items": [
+      "Megbeszélések rögzítése csak az okostelefonjával, és az MI automatikusan elkészíti a jegyzőkönyveket",
+      "Hosszú megbeszélések áttekinthető összefoglalása a \"Flexible\" formátummal",
+      "Felhő szinkronizáció és több eszköz támogatása útközbeni használathoz",
+      "Globális AI jegyzőkönyv alkalmazás, amely több mint 100 nyelvet támogat",
+      "Időcsomagokon vagy előfizetéseken alapuló árképzési tervek, amelyek illeszkednek a használati stílusához"
+    ]
+  },
+  "notes": {
+    "h2": "Használati megjegyzések",
+    "items": [
+      "Néhány funkció és formátum fokozatosan kerül hozzáadásra a jövőbeli frissítések során.",
+      "A felvétel minőségét és a jegyzőkönyv pontosságát befolyásolja az eszköz mikrofonjának teljesítménye és a megbeszélés környezete (pl. zaj, beszélők száma).",
+      "A felhasználói felület és az elérhető funkciók kissé eltérhetnek az Android, iOS és böngészős verziók között."
+    ],
+    "foot": "Először próbálja ki a Jegyzőkönyv AI Android verzióját. Ha tetszik, használja kombinálva az iOS alkalmazással és a böngészős verzióval."
+  },
+  "meta": {
+    "h2": "Meta információk",
+    "published": "Közzététel dátuma",
+    "type": "Kiadás",
+    "category": "Android alkalmazás"
+  },
+  "cta": {
+    "openBrowser": "Böngészős verzió megnyitása",
+    "downloadAndroid": "Android verzió letöltése"
+  }
+}

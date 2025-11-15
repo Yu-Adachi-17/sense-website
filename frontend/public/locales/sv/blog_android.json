@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Protokoll AI Android-lansering — Din AI-protokollapp på Android",
+    "description": "Protokoll AI för Android finns nu på Google Play. Spela bara in dina möten och AI genererar automatiskt protokollen. En rekommenderad app för alla som letar efter en AI-protokollapp på Android.",
+    "ogTitle": "Protokoll AI för Android — Den nya standarden för AI-protokollappar",
+    "ogDescription": "Spela in dina möten och låt AI automatiskt skapa protokollen. Protokoll AI Android-appen finns nu på Google Play och blir ett praktiskt verktyg för användare som söker efter \"bästa AI-protokollapp för Android\".",
+    "ld": {
+      "headline": "Protokoll AI Android-lansering",
+      "description": "\"Protokoll AI\", som automatiskt genererar mötesprotokoll från inspelningar med hjälp av AI, finns nu tillgänglig som en Android-app. Installera den från Google Play för att skapa högkvalitativa protokoll när du är på språng."
+    }
+  },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "android": "Android-lansering"
+  },
+  "hero": {
+    "kicker": "Lanseringsinformation",
+    "h1": "Vi presenterar Protokoll AI för Android",
+    "tagline": "\"Protokoll AI\", appen som automatiskt skapar mötesprotokoll bara genom att spela in mötet, är äntligen tillgänglig som en Android-app på Google Play. Få högkvalitativa protokoll när som helst, var som helst, bara med din smartphone."
+  },
+  "release": {
+    "h2": "Översikt över Android-lanseringen",
+    "p1": "Utöver våra befintliga iOS- och webbläsarversioner finns Protokoll AI nu tillgänglig som en Android-app. Spela bara in ditt möte, så organiserar vår AI automatiskt nyckelpunkterna och omvandlar dem till en lättläst mötessammanfattning.",
+    "p2": "Den första versionen stöder det flexibla \"Flexible\"-formatet, och andra mötesformat planeras att lanseras efter hand. Om du letar efter en AI-protokollapp för Android, prova Protokoll AI."
+  },
+  "image": {
+    "alt": "Skärmdump av Protokoll AI Android-appen",
+    "caption": "Spela in möten från din Android-smartphone, och AI genererar protokollen direkt."
+  },
+  "steps": {
+    "h2": "Så här kommer du igång med Android-versionen",
+    "items": [
+      "Sök efter \"Protokoll AI\" på Google Play, eller installera från länken på den här sidan",
+      "Starta appen och börja spela in ditt möte",
+      "När mötet är slut, stoppa inspelningen och vänta på att AI:n ska generera protokollet",
+      "Granska det genererade protokollet, dela eller spara det sedan efter behov"
+    ],
+    "note": "Tillgänglig inspelningstid och format beror på din nuvarande plan och återstående tid."
+  },
+  "features": {
+    "h2": "Vad du kan göra med Android-versionen",
+    "items": [
+      "Spela in möten med bara din smartphone och låt AI automatiskt skapa protokollen",
+      "Sammanfatta även långa möten tydligt med \"Flexible\"-formatet",
+      "Molnsynkronisering och stöd för flera enheter för användning på språng",
+      "En global AI-protokollapp som stöder över 100 språk",
+      "Prisplaner baserade på tidspaket eller prenumerationer som passar din användningsstil"
+    ]
+  },
+  "notes": {
+    "h2": "Användningsanvisningar",
+    "items": [
+      "Vissa funktioner och format kommer att läggas till efter hand i framtida uppdateringar.",
+      "Inspelningskvaliteten och protokollets noggrannhet påverkas av enhetens mikrofonprestanda och mötesmiljön (t.ex. buller, antal talare).",
+      "Användargränssnittet och tillgängliga funktioner kan skilja sig något mellan Android-, iOS- och webbläsarversionerna."
+    ],
+    "foot": "Prova Android-versionen av Protokoll AI först. Om du gillar den, använd den i kombination med iOS-appen och webbläsarversionen."
+  },
+  "meta": {
+    "h2": "Meta-information",
+    "published": "Publiceringsdatum",
+    "type": "Lansering",
+    "category": "Android-app"
+  },
+  "cta": {
+    "openBrowser": "Öppna webbversionen",
+    "downloadAndroid": "Ladda ner Android-versionen"
+  }
+}

@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Lansarea Proces-verbal AI pentru Android — Aplicația ta de Procese-verbale AI pe Android",
+    "description": "Proces-verbal AI pentru Android este acum pe Google Play. Pur și simplu înregistrați-vă ședințele, iar AI-ul va genera automat procese-verbale. O aplicație recomandată pentru oricine caută o aplicație de procese-verbale AI pe Android.",
+    "ogTitle": "Proces-verbal AI pentru Android — Noul standard pentru aplicațiile de procese-verbale AI",
+    "ogDescription": "Înregistrați ședințele și AI-ul creează automat procese-verbale. Aplicația Proces-verbal AI pentru Android este acum pe Google Play, devenind un instrument practic care vizează căutările pentru \"cea mai bună aplicație de procese-verbale AI pentru Android\".",
+    "ld": {
+      "headline": "Lansarea Proces-verbal AI pentru Android",
+      "description": "\"Proces-verbal AI\", care generează automat procese-verbale ale ședințelor din înregistrări folosind AI, este acum disponibil ca aplicație Android. Instalați-o din Google Play pentru a captura procese-verbale de înaltă calitate din mers."
+    }
+  },
+  "aria": {
+    "home": "Proces-verbal AI Acasă"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Lansare Android"
+  },
+  "hero": {
+    "kicker": "Note de lansare",
+    "h1": "Vă prezentăm Proces-verbal AI pentru Android",
+    "tagline": "\"Proces-verbal AI\", aplicația care creează automat procese-verbale ale ședințelor doar prin înregistrarea ședinței, este în sfârșit disponibilă ca aplicație Android pe Google Play. Obțineți procese-verbale de înaltă calitate oricând, oriunde, doar cu smartphone-ul dvs."
+  },
+  "release": {
+    "h2": "Prezentare generală a lansării Android",
+    "p1": "Pe lângă versiunile noastre existente pentru iOS și browser, Proces-verbal AI este acum disponibil ca aplicație Android. Pur și simplu înregistrați-vă ședința, iar AI-ul nostru va organiza automat punctele cheie și le va transforma într-un rezumat al ședinței ușor de citit.",
+    "p2": "Versiunea inițială suportă formatul flexibil \"Flexible\", urmând ca alte formate de ședință să fie lansate secvențial. Dacă sunteți în căutarea unei aplicații de procese-verbale AI pentru Android, încercați Proces-verbal AI."
+  },
+  "image": {
+    "alt": "Captură de ecran a aplicației Proces-verbal AI pentru Android",
+    "caption": "Înregistrați ședințe de pe smartphone-ul dvs. Android, iar AI-ul va genera direct procesul-verbal."
+  },
+  "steps": {
+    "h2": "Cum să începeți cu versiunea Android",
+    "items": [
+      "Căutați \"Proces-verbal AI\" pe Google Play sau instalați de pe link-ul de pe această pagină",
+      "Lansați aplicația și începeți să înregistrați ședința",
+      "Când ședința se încheie, opriți înregistrarea și așteptați ca AI-ul să genereze procesul-verbal",
+      "Examinați procesul-verbal generat, apoi partajați-l sau salvați-l după cum este necesar"
+    ],
+    "note": "Timpul de înregistrare disponibil și formatele depind de planul dvs. actual și de timpul rămas."
+  },
+  "features": {
+    "h2": "Ce puteți face cu versiunea Android",
+    "items": [
+      "Înregistrați ședințe folosind doar smartphone-ul și lăsați AI-ul să creeze automat procesele-verbale",
+      "Rezumați clar chiar și ședințele lungi cu formatul \"Flexible\"",
+      "Sincronizare în cloud și suport multi-dispozitiv pentru utilizare din mers",
+      "O aplicație globală de procese-verbale AI care suportă peste 100 de limbi",
+      "Planuri tarifare bazate pe pachete de timp sau abonamente pentru a se potrivi stilului dvs. de utilizare"
+    ]
+  },
+  "notes": {
+    "h2": "Note de utilizare",
+    "items": [
+      "Unele funcții și formate vor fi adăugate secvențial în actualizările viitoare.",
+      "Calitatea înregistrării și acuratețea procesului-verbal sunt afectate de performanța microfonului dispozitivului și de mediul ședinței (de ex. zgomot, număr de vorbitori).",
+      "Interfața de utilizator și funcțiile disponibile pot diferi ușor între versiunile Android, iOS și browser."
+    ],
+    "foot": "Încercați mai întâi versiunea Android a Proces-verbal AI. Dacă vă place, folosiți-o în combinație cu aplicația iOS și versiunea pentru browser."
+  },
+  "meta": {
+    "h2": "Meta-informații",
+    "published": "Data publicării",
+    "type": "Lansare",
+    "category": "Aplicație Android"
+  },
+  "cta": {
+    "openBrowser": "Deschide versiunea web",
+    "downloadAndroid": "Descărcați versiunea Android"
+  }
+}

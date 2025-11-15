@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Minit AI untuk Android Dilancarkan — Aplikasi Minit Mesyuarat AI Anda di Android",
+    "description": "Minit AI untuk Android kini di Google Play. Hanya rakam mesyuarat anda, dan AI akan menjana minit secara automatik. Pilihan yang disyorkan untuk sesiapa yang mencari aplikasi minit AI di Android.",
+    "ogTitle": "Minit AI untuk Android — Standard Baharu untuk Aplikasi Minit Mesyuarat AI",
+    "ogDescription": "Rakam mesyuarat anda dan biarkan AI mencipta minit secara automatik. Aplikasi Minit AI Android kini di Google Play, menjadi alat praktikal untuk pengguna yang mencari \"aplikasi minit AI terbaik untuk Android\".",
+    "ld": {
+      "headline": "Minit AI untuk Android Dilancarkan",
+      "description": "\"Minit AI\", yang menjana minit mesyuarat secara automatik daripada rakaman menggunakan AI, kini tersedia sebagai aplikasi Android. Pasang dari Google Play untuk mencatat minit berkualiti tinggi semasa dalam perjalanan."
+    }
+  },
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Pelancaran Android"
+  },
+  "hero": {
+    "kicker": "Nota Keluaran",
+    "h1": "Memperkenalkan Minit AI untuk Android",
+    "tagline": "\"Minit AI\", aplikasi yang mencipta minit mesyuarat secara automatik hanya dengan merakam mesyuarat, akhirnya tersedia sebagai aplikasi Android di Google Play. Dapatkan minit berkualiti tinggi pada bila-bila masa, di mana sahaja, hanya dengan telefon pintar anda."
+  },
+  "release": {
+    "h2": "Gambaran Keseluruhan Pelancaran Android",
+    "p1": "Selain versi iOS dan pelayar web kami yang sedia ada, Minit AI kini tersedia sebagai aplikasi Android. Hanya rakam mesyuarat anda, dan AI kami akan menyusun perkara penting secara automatik dan mengubahnya menjadi ringkasan mesyuarat yang mudah dibaca.",
+    "p2": "Versi awal menyokong format \"Flexible\" yang fleksibel, dengan format mesyuarat lain dijadualkan untuk dikeluarkan secara berurutan. Jika anda mencari aplikasi minit AI untuk Android, cubalah Minit AI."
+  },
+  "image": {
+    "alt": "Tangkapan skrin aplikasi Minit AI Android",
+    "caption": "Rakam mesyuarat dari telefon pintar Android anda, dan AI akan menjana minit secara langsung."
+  },
+  "steps": {
+    "h2": "Cara Bermula dengan Versi Android",
+    "items": [
+      "Cari \"Minit AI\" di Google Play, atau pasang dari pautan di halaman ini",
+      "Lancarkan aplikasi dan mula merakam mesyuarat anda",
+      "Apabila mesyuarat selesai, hentikan rakaman dan tunggu AI menjana minit",
+      "Semak minit yang dijana, kemudian kongsi atau simpan mengikut keperluan"
+    ],
+    "note": "Masa rakaman yang tersedia dan format bergantung pada pelan semasa anda dan baki masa."
+  },
+  "features": {
+    "h2": "Apa yang Anda Boleh Lakukan dengan Versi Android",
+    "items": [
+      "Rakam mesyuarat hanya menggunakan telefon pintar anda dan biarkan AI mencipta minit secara automatik",
+      "Ringkaskan mesyuarat yang panjang dengan jelas menggunakan format \"Flexible\"",
+      "Penyegerakan awan & sokongan pelbagai peranti untuk digunakan semasa dalam perjalanan",
+      "Aplikasi minit AI global yang menyokong lebih 100 bahasa",
+      "Pelan harga berdasarkan pek masa atau langganan untuk disesuaikan dengan gaya penggunaan anda"
+    ]
+  },
+  "notes": {
+    "h2": "Nota Penggunaan",
+    "items": [
+      "Beberapa ciri dan format akan ditambah secara berurutan dalam kemas kini akan datang.",
+      "Kualiti rakaman dan ketepatan minit dipengaruhi oleh prestasi mikrofon peranti dan persekitaran mesyuarat (cth., bunyi bising, bilangan penceramah).",
+      "UI dan ciri yang tersedia mungkin sedikit berbeza antara versi Android, iOS dan pelayar web."
+    ],
+    "foot": "Cuba versi Android Minit AI dahulu. Jika anda menyukainya, gunakannya dalam kombinasi dengan aplikasi iOS dan versi pelayar web."
+  },
+  "meta": {
+    "h2": "Maklumat Meta",
+    "published": "Tarikh Diterbitkan",
+    "type": "Keluaran",
+    "category": "Aplikasi Android"
+  },
+  "cta": {
+    "openBrowser": "Buka Versi Web",
+    "downloadAndroid": "Muat Turun Versi Android"
+  }
+}

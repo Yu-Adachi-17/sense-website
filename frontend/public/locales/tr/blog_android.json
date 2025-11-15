@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Tutanakları AI Android Sürümü Yayınlandı — Android'de AI Toplantı Tutanakları Uygulamanız",
+    "description": "Tutanakları AI'nin Android sürümü şimdi Google Play'de. Sadece toplantılarınızı kaydedin, AI otomatik olarak tutanakları oluştursun. Android'de bir AI tutanak uygulaması arayan herkes için önerilir.",
+    "ogTitle": "Android için Tutanakları AI — AI Toplantı Tutanakları Uygulamaları için Yeni Standart",
+    "ogDescription": "Toplantılarınızı kaydedin ve bırakın AI tutanakları otomatik olarak oluştursun. Tutanakları AI Android uygulaması şimdi Google Play'de, \"Android için en iyi AI tutanak uygulaması\" arayan kullanıcılar için pratik bir araç haline geliyor.",
+    "ld": {
+      "headline": "Tutanakları AI Android Sürümü Yayınlandı",
+      "description": "AI kullanarak kayıtlardan otomatik olarak toplantı tutanakları oluşturan \"Tutanakları AI\", şimdi bir Android uygulaması olarak mevcut. Hareket halindeyken yüksek kaliteli tutanaklar yakalamak için Google Play'den yükleyin."
+    }
+  },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Android Sürümü"
+  },
+  "hero": {
+    "kicker": "Sürüm Notları",
+    "h1": "Tutanakları AI Android Sürümüyle Tanışın",
+    "tagline": "Sadece toplantıyı kaydederek otomatik olarak toplantı tutanakları oluşturan uygulama \"Tutanakları AI\", nihayet Google Play'de bir Android uygulaması olarak mevcut. Sadece akıllı telefonunuzla istediğiniz zaman, istediğiniz yerde yüksek kaliteli tutanaklar alın."
+  },
+  "release": {
+    "h2": "Android Sürümüne Genel Bakış",
+    "p1": "Mevcut iOS ve tarayıcı sürümlerimize ek olarak, Tutanakları AI şimdi bir Android uygulaması olarak kullanılabilir. Sadece toplantınızı kaydedin, AI'mız kilit noktaları otomatik olarak düzenleyecek ve okunması kolay bir toplantı özetine dönüştürecektir.",
+    "p2": "İlk sürüm esnek \"Flexible\" formatını desteklemektedir, diğer toplantı formatlarının da sırayla yayınlanması planlanmaktadır. Android için bir AI tutanak uygulaması arıyorsanız, Tutanakları AI'ı deneyin."
+  },
+  "image": {
+    "alt": "Tutanakları AI Android uygulamasının ekran görüntüsü",
+    "caption": "Android akıllı telefonunuzdan toplantıları kaydedin ve AI tutanakları doğrudan oluştursun."
+  },
+  "steps": {
+    "h2": "Android Sürümü Nasıl Kullanılmaya Başlanır",
+    "items": [
+      "Google Play'de \"Tutanakları AI\" aratın veya bu sayfadaki bağlantıdan yükleyin",
+      "Uygulamayı başlatın ve toplantınızı kaydetmeye başlayın",
+      "Toplantı bittiğinde kaydı durdurun ve AI'nin tutanağı oluşturmasını bekleyin",
+      "Oluşturulan tutanağı gözden geçirin, ardından gerektiği gibi paylaşın veya kaydedin"
+    ],
+    "note": "Kullanılabilir kayıt süresi ve formatlar, mevcut planınıza ve kalan sürenize bağlıdır."
+  },
+  "features": {
+    "h2": "Android Sürümüyle Neler Yapabilirsiniz",
+    "items": [
+      "Sadece akıllı telefonunuzu kullanarak toplantıları kaydedin ve AI'nin otomatik olarak tutanak oluşturmasını sağlayın",
+      "\"Flexible\" formatıyla uzun toplantıları bile net bir şekilde özetleyin",
+      "Hareket halindeyken kullanım için bulut senkronizasyonu ve çoklu cihaz desteği",
+      "100'den fazla dili destekleyen küresel bir AI tutanak uygulaması",
+      "Kullanım tarzınıza uygun zaman paketlerine veya aboneliklere dayalı fiyatlandırma planları"
+    ]
+  },
+  "notes": {
+    "h2": "Kullanım Notları",
+    "items": [
+      "Bazı özellikler ve formatlar gelecekteki güncellemelerde sırayla eklenecektir.",
+      "Kayıt kalitesi ve tutanak doğruluğu, cihazın mikrofon performansından ve toplantı ortamından (örn. gürültü, konuşmacı sayısı) etkilenir.",
+      "Kullanıcı arayüzü ve mevcut özellikler Android, iOS ve tarayıcı sürümleri arasında biraz farklılık gösterebilir."
+    ],
+    "foot": "Önce Tutanakları AI'nin Android sürümünü deneyin. Beğenirseniz, iOS uygulaması ve tarayıcı sürümüyle birlikte kullanın."
+  },
+  "meta": {
+    "h2": "Meta Bilgileri",
+    "published": "Yayın Tarihi",
+    "type": "Sürüm",
+    "category": "Android Uygulaması"
+  },
+  "cta": {
+    "openBrowser": "Web Sürümünü Aç",
+    "downloadAndroid": "Android Sürümünü İndir"
+  }
+}

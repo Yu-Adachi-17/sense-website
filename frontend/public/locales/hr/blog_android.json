@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "AI Zapisnik za Android objavljen — Vaša AI aplikacija za zapisnike na Androidu",
+    "description": "AI Zapisnik za Android sada je na Google Playu. Samo snimite svoje sastanke, a AI će automatski generirati zapisnike. Preporučeni izbor za svakoga tko traži AI aplikaciju za zapisnike na Androidu.",
+    "ogTitle": "AI Zapisnik za Android — Novi standard za AI aplikacije za zapisnike sa sastanaka",
+    "ogDescription": "Snimite svoje sastanke i dopustite da AI automatski izradi zapisnike. Aplikacija AI Zapisnik za Android sada je na Google Playu, postajući praktičan alat za korisnike koji traže \"najbolju AI aplikaciju za zapisnike za Android\".",
+    "ld": {
+      "headline": "AI Zapisnik za Android objavljen",
+      "description": "\"AI Zapisnik\", koji automatski generira zapisnike sa sastanaka iz snimaka pomoću AI, sada je dostupan kao Android aplikacija. Instalirajte je s Google Playa kako biste bilježili visokokvalitetne zapisnike u pokretu."
+    }
+  },
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Izdanje za Android"
+  },
+  "hero": {
+    "kicker": "Bilješke o izdanju",
+    "h1": "Predstavljamo AI Zapisnik za Android",
+    "tagline": "\"AI Zapisnik\", aplikacija koja automatski izrađuje zapisnike sa sastanaka samo snimanjem sastanka, konačno je dostupna kao Android aplikacija na Google Playu. Dobijte visokokvalitetne zapisnike bilo kada, bilo gdje, samo pomoću svog pametnog telefona."
+  },
+  "release": {
+    "h2": "Pregled izdanja za Android",
+    "p1": "Uz naše postojeće verzije za iOS i preglednik, AI Zapisnik sada je dostupan kao Android aplikacija. Jednostavno snimite svoj sastanak, a naš AI će automatski organizirati ključne točke i pretvoriti ih u lako čitljiv sažetak sastanka.",
+    "p2": "Početna verzija podržava fleksibilni format \"Flexible\", a ostali formati sastanaka bit će objavljeni redom. Ako tražite AI aplikaciju za zapisnike za Android, isprobajte AI Zapisnik."
+  },
+  "image": {
+    "alt": "Snimka zaslona aplikacije AI Zapisnik za Android",
+    "caption": "Snimite sastanke sa svog Android pametnog telefona, a AI će izravno generirati zapisnik."
+  },
+  "steps": {
+    "h2": "Kako započeti s verzijom za Android",
+    "items": [
+      "Potražite \"AI Zapisnik\" na Google Playu ili instalirajte putem veze na ovoj stranici",
+      "Pokrenite aplikaciju i počnite snimati sastanak",
+      "Kada sastanak završi, zaustavite snimanje i pričekajte da AI generira zapisnik",
+      "Pregledajte generirani zapisnik, zatim ga podijelite ili spremite po potrebi"
+    ],
+    "note": "Dostupno vrijeme snimanja i formati ovise o vašem trenutnom planu i preostalom vremenu."
+  },
+  "features": {
+    "h2": "Što možete učiniti s verzijom za Android",
+    "items": [
+      "Snimajte sastanke koristeći samo svoj pametni telefon i neka AI automatski izradi zapisnike",
+      "Jasno sažmite čak i duge sastanke pomoću formata \"Flexible\"",
+      "Sinkronizacija u oblaku i podrška za više uređaja za korištenje u pokretu",
+      "Globalna AI aplikacija za zapisnike koja podržava preko 100 jezika",
+      "Cjenovni planovi temeljeni na vremenskim paketima ili pretplatama koji odgovaraju vašem stilu korištenja"
+    ]
+  },
+  "notes": {
+    "h2": "Napomene o korištenju",
+    "items": [
+      "Neke značajke i formati bit će dodani redom u budućim ažuriranjima.",
+      "Na kvalitetu snimanja i točnost zapisnika utječu performanse mikrofona uređaja i okruženje sastanka (npr. buka, broj govornika).",
+      "Korisničko sučelje i dostupne značajke mogu se neznatno razlikovati između verzija za Android, iOS i preglednik."
+    ],
+    "foot": "Prvo isprobajte Android verziju AI Zapisnika. Ako vam se sviđa, koristite je u kombinaciji s iOS aplikacijom i verzijom za preglednik."
+  },
+  "meta": {
+    "h2": "Meta informacije",
+    "published": "Datum objave",
+    "type": "Izdanje",
+    "category": "Android aplikacija"
+  },
+  "cta": {
+    "openBrowser": "Otvori verziju za preglednik",
+    "downloadAndroid": "Preuzmi verziju za Android"
+  }
+}

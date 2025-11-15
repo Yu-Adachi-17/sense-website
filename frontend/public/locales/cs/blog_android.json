@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Vydání Zápisník AI pro Android — Aplikace pro zápisy z jednání s AI pro Android",
+    "description": "Verze Zápisník AI pro Android je nyní na Google Play. Stačí nahrát schůzku a AI automaticky vytvoří zápis. Doporučená aplikace pro ty, kdo hledají aplikaci pro zápisy z jednání s AI pro Android.",
+    "ogTitle": "Zápisník AI pro Android — Nový standard pro aplikace na zápisy z jednání s AI",
+    "ogDescription": "Nahrajte schůzku a AI automaticky vytvoří zápis. Aplikace Zápisník AI pro Android je nyní dostupná na Google Play a stala se praktickým nástrojem cílícím na klíčová slova \"doporučená aplikace AI pro zápisy z jednání pro Android\".",
+    "ld": {
+      "headline": "Vydání Zápisník AI pro Android",
+      "description": "Aplikace \"Zápisník AI\", která automaticky generuje zápisy ze schůzek pomocí AI, je nyní dostupná pro Android. Nainstalujte si ji z Google Play a pořizujte kvalitní zápisy i na cestách."
+    }
+  },
+  "aria": {
+    "home": "Zápisník AI Domů"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Verze pro Android"
+  },
+  "hero": {
+    "kicker": "Poznámky k vydání",
+    "h1": "Představujeme Zápisník AI pro Android",
+    "tagline": "Aplikace \"Zápisník AI\", která automaticky vytváří zápisy z jednání pouhým nahráváním, je konečně dostupná jako aplikace pro Android na Google Play. Získejte kvalitní zápisy kdykoli a kdekoli pouze pomocí svého smartphonu."
+  },
+  "release": {
+    "h2": "Přehled verze pro Android",
+    "p1": "Kromě dosavadních verzí pro iOS a prohlížeč přichází Zápisník AI nově také jako aplikace pro Android. Stačí nahrát schůzku a AI automaticky zpracuje klíčové body a převede je do snadno čitelného zápisu.",
+    "p2": "Počáteční verze podporuje flexibilní formát \"Flexible\" a postupně budou přidány i další formáty schůzek. Pokud hledáte aplikaci pro zápisy z jednání s AI pro Android, vyzkoušejte Zápisník AI."
+  },
+  "image": {
+    "alt": "Obrazovka aplikace Zápisník AI pro Android",
+    "caption": "Nahrávejte schůzky ze svého smartphonu s Androidem a AI z nich rovnou vygeneruje zápis."
+  },
+  "steps": {
+    "h2": "Jak začít s verzí pro Android",
+    "items": [
+      "Vyhledejte \"Zápisník AI\" na Google Play nebo si aplikaci nainstalujte z odkazu na této stránce",
+      "Spusťte aplikaci a začněte nahrávat schůzku",
+      "Po skončení schůzky nahrávání zastavte a počkejte na vygenerování zápisu pomocí AI",
+      "Zkontrolujte vygenerovaný zápis a podle potřeby jej sdílejte nebo uložte"
+    ],
+    "note": "Dostupná doba nahrávání a použitelné formáty se liší v závislosti na vašem aktuálním plánu a zbývajícím čase."
+  },
+  "features": {
+    "h2": "Co umí verze pro Android",
+    "items": [
+      "Nahrávání schůzek pouze pomocí smartphonu a automatické vytváření zápisů pomocí AI",
+      "Přehledné shrnutí i dlouhých schůzek pomocí formátu \"Flexible\"",
+      "Synchronizace s cloudem a podpora více zařízení pro použití na cestách",
+      "Globální aplikace pro zápisy z jednání s AI podporující více než 100 jazyků",
+      "Cenové plány založené na časových balíčcích nebo předplatném, které vyhoví vašemu stylu používání"
+    ]
+  },
+  "notes": {
+    "h2": "Upozornění k používání",
+    "items": [
+      "Některé funkce a formáty budou postupně přidávány v budoucích aktualizacích.",
+      "Kvalita nahrávky a přesnost zápisu závisí na výkonu mikrofonu zařízení a prostředí schůzky (např. hluk, počet mluvčích).",
+      "Uživatelské rozhraní a dostupné funkce se mohou mezi verzemi pro Android, iOS a prohlížeč mírně lišit."
+    ],
+    "foot": "Nejprve vyzkoušejte verzi Zápisník AI pro Android, a pokud se vám zalíbí, používejte ji v kombinaci s aplikací pro iOS a webovou verzí."
+  },
+  "meta": {
+    "h2": "Meta informace",
+    "published": "Datum zveřejnění",
+    "type": "Vydání",
+    "category": "Aplikace pro Android"
+  },
+  "cta": {
+    "openBrowser": "Otevřít webovou verzi",
+    "downloadAndroid": "Stáhnout verzi pro Android"
+  }
+}

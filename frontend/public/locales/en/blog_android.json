@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Minutes.AI for Android Released — Your AI Meeting Minutes App on Android",
+    "description": "Minutes.AI for Android is now on Google Play. Just record your meetings, and AI will automatically generate the minutes. A recommended choice for anyone looking for an AI minutes app on Android.",
+    "ogTitle": "Minutes.AI for Android — The New Standard for AI Meeting Minutes Apps",
+    "ogDescription": "Record your meetings and let AI automatically create the minutes. The Minutes.AI Android app is now on Google Play, becoming a practical tool for users searching for the \"best AI minutes app for Android\".",
+    "ld": {
+      "headline": "Minutes.AI for Android Released",
+      "description": "\"Minutes.AI\", which automatically generates meeting minutes from recordings using AI, is now available as an Android app. Install it from Google Play to capture high-quality minutes on the go."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Android Release"
+  },
+  "hero": {
+    "kicker": "Release Notes",
+    "h1": "Introducing Minutes.AI for Android",
+    "tagline": "\"Minutes.AI\", the app that automatically creates meeting minutes just by recording the meeting, is finally available as an Android app on Google Play. Get high-quality minutes anytime, anywhere, with just your smartphone."
+  },
+  "release": {
+    "h2": "Android Release Overview",
+    "p1": "In addition to our existing iOS and browser versions, Minutes.AI is now available as an Android app. Simply record your meeting, and our AI will automatically organize the key points and transform them into an easy-to-read meeting summary.",
+    "p2": "The initial version supports the flexible \"Flexible\" format, with other meeting formats scheduled for sequential release. If you're looking for an AI minutes app for Android, give Minutes.AI a try."
+  },
+  "image": {
+    "alt": "Screenshot of the Minutes.AI Android app",
+    "caption": "Record meetings from your Android smartphone, and the AI will generate the minutes directly."
+  },
+  "steps": {
+    "h2": "How to Get Started with the Android Version",
+    "items": [
+      "Search for \"Minutes.AI\" on Google Play, or install from the link on this page",
+      "Launch the app and start recording your meeting",
+      "When the meeting ends, stop the recording and wait for the AI to generate the minutes",
+      "Review the generated minutes, then share or save as needed"
+    ],
+    "note": "Available recording time and formats depend on your current plan and remaining time."
+  },
+  "features": {
+    "h2": "What You Can Do with the Android Version",
+    "items": [
+      "Record meetings using only your smartphone and have AI automatically create the minutes",
+      "Clearly summarize even long meetings with the \"Flexible\" format",
+      "Cloud sync & multi-device support for use on the go",
+      "A global AI minutes app supporting over 100 languages",
+      "Pricing plans based on time packs or subscriptions to fit your usage style"
+    ]
+  },
+  "notes": {
+    "h2": "Usage Notes",
+    "items": [
+      "Some features and formats will be added sequentially in future updates.",
+      "Recording quality and minute accuracy are affected by the device's microphone performance and the meeting environment (e.g., noise, number of speakers).",
+      "The UI and available features may differ slightly between the Android, iOS, and browser versions."
+    ],
+    "foot": "Try the Android version of Minutes.AI first. If you like it, use it in combination with the iOS app and browser version."
+  },
+  "meta": {
+    "h2": "Meta Information",
+    "published": "Published Date",
+    "type": "Release",
+    "category": "Android App"
+  },
+  "cta": {
+    "openBrowser": "Open Web Version",
+    "downloadAndroid": "Download Android Version"
+  }
+}

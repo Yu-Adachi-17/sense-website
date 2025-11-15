@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Referat AI Android-lansering — Din AI-referatapp på Android",
+    "description": "Referat AI for Android er nå på Google Play. Bare ta opp møtene dine, og AI vil automatisk generere referatene. En anbefalt app for alle som leter etter en AI-referatapp på Android.",
+    "ogTitle": "Referat AI for Android — Den nye standarden for AI-referatapper",
+    "ogDescription": "Ta opp møtene dine og la AI automatisk lage referatene. Referat AI Android-appen er nå på Google Play, og blir et praktisk verktøy for brukere som søker etter \"beste AI-referatapp for Android\".",
+    "ld": {
+      "headline": "Referat AI Android-lansering",
+      "description": "\"Referat AI\", som automatisk genererer møtereferater fra opptak ved hjelp av AI, er nå tilgjengelig som en Android-app. Installer den fra Google Play for å fange høykvalitetsreferater mens du er på farten."
+    }
+  },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "android": "Android-lansering"
+  },
+  "hero": {
+    "kicker": "Lanseringsnotater",
+    "h1": "Vi introduserer Referat AI for Android",
+    "tagline": "\"Referat AI\", appen som automatisk lager møtereferater bare ved å ta opp møtet, er endelig tilgjengelig som en Android-app på Google Play. Få høykvalitetsreferater når som helst, hvor som helst, kun med smarttelefonen din."
+  },
+  "release": {
+    "h2": "Oversikt over Android-lanseringen",
+    "p1": "I tillegg til våre eksisterende iOS- og nettleserversjoner, er Referat AI nå tilgjengelig som en Android-app. Bare ta opp møtet ditt, og vår AI vil automatisk organisere nøkkelpunktene og transformere dem til et lettlest møtesammendrag.",
+    "p2": "Den første versjonen støtter det fleksible \"Flexible\"-formatet, med andre møteformater planlagt for lansering fortløpende. Hvis du leter etter en AI-referatapp for Android, prøv Referat AI."
+  },
+  "image": {
+    "alt": "Skjermbilde av Referat AI Android-appen",
+    "caption": "Ta opp møter fra din Android-smarttelefon, og AI vil generere referatene direkte."
+  },
+  "steps": {
+    "h2": "Slik kommer du i gang med Android-versjonen",
+    "items": [
+      "Søk etter \"Referat AI\" på Google Play, eller installer fra lenken på denne siden",
+      "Start appen og begynn å ta opp møtet ditt",
+      "Når møtet avsluttes, stopp opptaket og vent til AI-en genererer referatet",
+      "Gå gjennom det genererte referatet, og del eller lagre etter behov"
+    ],
+    "note": "Tilgjengelig opptakstid og formater avhenger av din nåværende plan og gjenværende tid."
+  },
+  "features": {
+    "h2": "Hva du kan gjøre med Android-versjonen",
+    "items": [
+      "Ta opp møter kun ved hjelp av smarttelefonen din og la AI automatisk lage referatene",
+      "Oppsummer selv lange møter tydelig med \"Flexible\"-formatet",
+      "Skysynkronisering og støtte for flere enheter for bruk på farten",
+      "En global AI-referatapp som støtter over 100 språk",
+      "Prisplaner basert på tidspakker eller abonnementer som passer din bruksstil"
+    ]
+  },
+  "notes": {
+    "h2": "Merknader om bruk",
+    "items": [
+      "Noen funksjoner og formater vil bli lagt til fortløpende i fremtidige oppdateringer.",
+      "Opptakskvalitet og referatnøyaktighet påvirkes av enhetens mikrofons ytelse og møtemiljøet (f.eks. støy, antall talere).",
+      "Brukergrensesnittet og tilgjengelige funksjoner kan variere noe mellom Android-, iOS- og nettleserversjonene."
+    ],
+    "foot": "Prøv Android-versjonen av Referat AI først. Hvis du liker den, bruk den i kombinasjon med iOS-appen og nettleserversjonen."
+  },
+  "meta": {
+    "h2": "Metainformasjon",
+    "published": "Publiseringsdato",
+    "type": "Lansering",
+    "category": "Android-app"
+  },
+  "cta": {
+    "openBrowser": "Åpne nettleserversjon",
+    "downloadAndroid": "Last ned Android-versjon"
+  }
+}

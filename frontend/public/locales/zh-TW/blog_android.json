@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "會議紀錄AI Android版發佈 — 您的Android版AI會議紀錄App",
+    "description": "會議紀錄AI的Android版現已登上Google Play。您只需錄製會議，AI即可自動生成會議紀錄。推薦給正在尋找Android版AI會議紀錄App的使用者。",
+    "ogTitle": "會議紀錄AI Android版 — AI會議紀錄App的新標竿",
+    "ogDescription": "只需錄製會議，AI即可自動生成會議紀錄。會議紀錄AI的Android應用程式現已登上Google Play，對於搜尋「會議紀錄 AI App Android 推薦」的使用者來說，這是一款實用的工具。",
+    "ld": {
+      "headline": "會議紀錄AI Android版發佈",
+      "description": "「會議紀錄AI」可透過AI技術從會議錄音中自動生成會議紀錄，現已推出Android應用程式。您可以從Google Play安裝，隨時隨地建立高品質的會議紀錄。"
+    }
+  },
+  "aria": {
+    "home": "會議紀錄AI 首頁"
+  },
+  "nav": {
+    "blog": "部落格",
+    "android": "Android版發佈"
+  },
+  "hero": {
+    "kicker": "發佈說明",
+    "h1": "會議紀錄AI Android版現已推出",
+    "tagline": "「會議紀錄AI」是一款只需錄製會議即可自動生成會議紀錄的應用程式，現已作為Android應用程式登上Google Play。現在，您只需一部智慧型手機，即可隨時随地建立高品質的會議紀錄。"
+  },
+  "release": {
+    "h2": "Android版發佈概覽",
+    "p1": "繼iOS和瀏覽器版之後，會議紀錄AI現已推出Android應用程式版。您只需錄製會議，AI將自動整理要點，並将其轉換為易於閱讀的會議紀錄。",
+    "p2": "初始版本支援靈活的「Flexible」格式，其他會議格式也將陸續支援。如果您正在尋找一款適用於Android的AI會議紀錄App，請立即試用會議紀錄AI。"
+  },
+  "image": {
+    "alt": "會議紀錄AI Android應用程式介面截圖",
+    "caption": "透過您的Android智慧型手機錄製會議，AI將立即生成會議紀錄。"
+  },
+  "steps": {
+    "h2": "如何開始使用Android版",
+    "items": [
+      "在Google Play搜尋「會議紀錄AI」，或透過本頁連結安装",
+      "啟動應用程式並開始錄製您的會議",
+      "會議結束後，停止錄製，等待AI生成會議紀錄",
+      "查看生成的會議紀錄，並根據需要進行分享或儲存"
+    ],
+    "note": "可用的錄製時長和格式取決於您目前的方案和剩餘時間。"
+  },
+  "features": {
+    "h2": "Android版可實現的功能",
+    "items": [
+      "僅用智慧型手機即可錄製會議，並由AI自動建立會議紀錄",
+      "使用「Flexible」格式清晰總結長時間會議",
+      "支援雲端同步和多裝置，方便隨時隨地使用",
+      "支援100多種語言的全球化AI會議紀錄App",
+      "提供按時數計費和訂閱制兩種方案，以適應您的使用方式"
+    ]
+  },
+  "notes": {
+    "h2": "使用注意事項",
+    "items": [
+      "部分功能和格式將在未來的更新中陸續新增。",
+      "錄音品質和會議紀錄的準確性受裝置麥克風效能和會議環境（如噪音、發言人數）的影響。",
+      "Android版與iOS/瀏覽器版在使用者介面和功能上可能存在部分差異。"
+    ],
+    "foot": "請先試用會議紀錄AI的Android版，如果您喜歡它，可以將其與iOS應用程式和瀏覽器版結合使用。"
+  },
+  "meta": {
+    "h2": "中繼資訊",
+    "published": "發佈日期",
+    "type": "發佈",
+    "category": "Android應用程式"
+  },
+  "cta": {
+    "openBrowser": "開啟網頁版",
+    "downloadAndroid": "下載Android版"
+  }
+}

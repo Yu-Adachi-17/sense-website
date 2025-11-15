@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Vydanie AI Zápisnica pre Android — Vaša aplikácia AI Zápisnica pre Android",
+    "description": "AI Zápisnica pre Android je teraz v Google Play. Stačí nahrávať vaše stretnutia a AI automaticky vygeneruje zápisnice. Odporúčaná aplikácia pre každého, kto hľadá aplikáciu AI na zápisnice pre Android.",
+    "ogTitle": "AI Zápisnica pre Android — Nový štandard pre aplikácie AI na zápisnice",
+    "ogDescription": "Nahrávajte stretnutia a nechajte AI automaticky vytvárať zápisnice. Aplikácia AI Zápisnica pre Android je teraz v Google Play a stáva sa praktickým nástrojom pre používateľov hľadajúcich „najlepšia aplikácia AI na zápisnice pre Android“.",
+    "ld": {
+      "headline": "Vydanie AI Zápisnica pre Android",
+      "description": "„AI Zápisnica“, ktorá automaticky generuje zápisnice zo stretnutí pomocou AI, je teraz dostupná ako aplikácia pre Android. Nainštalujte si ju z Google Play a zaznamenávajte kvalitné zápisnice aj na cestách."
+    }
+  },
+  "aria": {
+    "home": "AI Zápisnica Domov"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Vydanie pre Android"
+  },
+  "hero": {
+    "kicker": "Poznámky k vydaniu",
+    "h1": "Predstavujeme AI Zápisnica pre Android",
+    "tagline": "„AI Zápisnica“, aplikácia, ktorá automaticky vytvára zápisnice zo stretnutí jednoduchým nahrávaním stretnutia, je konečne dostupná ako aplikácia pre Android v Google Play. Získajte kvalitné zápisnice kedykoľvek a kdekoľvek, len pomocou smartfónu."
+  },
+  "release": {
+    "h2": "Prehľad vydania pre Android",
+    "p1": "Okrem našich existujúcich verzií pre iOS a prehliadač je AI Zápisnica teraz dostupná ako aplikácia pre Android. Jednoducho nahrajte svoje stretnutie a naša AI automaticky usporiada kľúčové body a premení ich na ľahko čitateľný súhrn stretnutia.",
+    "p2": "Počiatočná verzia podporuje flexibilný formát „Flexible“ a ďalšie formáty stretnutí budú vydávané postupne. Ak hľadáte aplikáciu AI na zápisnice pre Android, vyskúšajte AI Zápisnica."
+  },
+  "image": {
+    "alt": "Snímka obrazovky aplikácie AI Zápisnica pre Android",
+    "caption": "Nahrávajte stretnutia zo svojho smartfónu s Androidom a AI priamo vygeneruje zápisnicu."
+  },
+  "steps": {
+    "h2": "Ako začať s verziou pre Android",
+    "items": [
+      "Vyhľadajte „AI Zápisnica“ v Google Play alebo si ju nainštalujte z odkazu na tejto stránke",
+      "Spustite aplikáciu a začnite nahrávať stretnutie",
+      "Keď sa stretnutie skončí, zastavte nahrávanie a počkajte, kým AI vygeneruje zápisnicu",
+      "Skontrolujte vygenerovanú zápisnicu a podľa potreby ju zdieľajte alebo uložte"
+    ],
+    "note": "Dostupný čas nahrávania a formáty závisia od vášho aktuálneho plánu a zostávajúceho času."
+  },
+  "features": {
+    "h2": "Čo môžete robiť s verziou pre Android",
+    "items": [
+      "Nahrávanie stretnutí iba pomocou smartfónu a automatické vytváranie zápisníc pomocou AI",
+      "Prehľadné zhrnutie aj dlhých stretnutí pomocou formátu „Flexible“",
+      "Synchronizácia s cloudom a podpora viacerých zariadení na použitie na cestách",
+      "Globálna aplikácia AI na zápisnice podporujúca viac ako 100 jazykov",
+      "Cenové plány založené na časových balíkoch alebo predplatnom, ktoré vyhovujú vášmu štýlu používania"
+    ]
+  },
+  "notes": {
+    "h2": "Poznámky k použitiu",
+    "items": [
+      "Niektoré funkcie a formáty budú pridané postupne v budúcich aktualizáciách.",
+      "Kvalita nahrávania a presnosť zápisnice sú ovplyvnené výkonom mikrofónu zariadenia a prostredím stretnutia (napr. hluk, počet hovoriacich).",
+      "Používateľské rozhranie a dostupné funkcie sa môžu mierne líšiť medzi verziami pre Android, iOS a prehliadač."
+    ],
+    "foot": "Najprv vyskúšajte verziu AI Zápisnica pre Android. Ak sa vám páči, používajte ju v kombinácii s aplikáciou pre iOS a verziou pre prehliadač."
+  },
+  "meta": {
+    "h2": "Meta informácie",
+    "published": "Dátum zverejnenia",
+    "type": "Vydanie",
+    "category": "Aplikácia pre Android"
+  },
+  "cta": {
+    "openBrowser": "Otvoriť webovú verziu",
+    "downloadAndroid": "Stiahnuť verziu pre Android"
+  }
+}

@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Wydanie Protokół AI na Androida — Twoja aplikacja do protokołów AI na Androida",
+    "description": "Protokół AI na Androida jest już w Google Play. Po prostu nagrywaj swoje spotkania, a AI automatycznie wygeneruje protokoły. Polecana aplikacja dla każdego, kto szuka aplikacji do protokołów AI na Androida.",
+    "ogTitle": "Protokół AI na Androida — Nowy standard aplikacji do protokołów AI",
+    "ogDescription": "Nagrywaj spotkania i pozwól AI automatycznie tworzyć protokoły. Aplikacja Protokół AI na Androida jest już w Google Play, stając się praktycznym narzędziem dla użytkowników szukających \"najlepszej aplikacji do protokołów AI na Androida\".",
+    "ld": {
+      "headline": "Wydanie Protokół AI na Androida",
+      "description": "\"Protokół AI\", który automatycznie generuje protokoły ze spotkań na podstawie nagrań przy użyciu AI, jest teraz dostępny jako aplikacja na Androida. Zainstaluj ją z Google Play, aby tworzyć wysokiej jakości protokoły w podróży."
+    }
+  },
+  "aria": {
+    "home": "Protokół AI Strona główna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Wydanie na Androida"
+  },
+  "hero": {
+    "kicker": "Informacje o wydaniu",
+    "h1": "Przedstawiamy Protokół AI na Androida",
+    "tagline": "\"Protokół AI\", aplikacja, która automatycznie tworzy protokoły ze spotkań po prostu przez nagranie spotkania, jest w końcu dostępna jako aplikacja na Androida w Google Play. Otrzymuj wysokiej jakości protokoły w dowolnym miejscu i czasie, tylko za pomocą smartfona."
+  },
+  "release": {
+    "h2": "Przegląd wydania na Androida",
+    "p1": "Oprócz istniejących wersji na iOS i przeglądarkę, Protokół AI jest teraz dostępny jako aplikacja na Androida. Po prostu nagraj spotkanie, a nasza AI automatycznie uporządkuje kluczowe punkty i przekształci je w łatwe do czytania streszczenie spotkania.",
+    "p2": "Początkowa wersja obsługuje elastyczny format \"Flexible\", a inne formaty spotkań będą wprowadzane kolejno. Jeśli szukasz aplikacji do protokołów AI na Androida, wypróbuj Protokół AI."
+  },
+  "image": {
+    "alt": "Zrzut ekranu aplikacji Protokół AI na Androida",
+    "caption": "Nagrywaj spotkania ze swojego smartfona z Androidem, a AI bezpośrednio wygeneruje protokół."
+  },
+  "steps": {
+    "h2": "Jak zacząć korzystać z wersji na Androida",
+    "items": [
+      "Wyszukaj \"Protokół AI\" w Google Play lub zainstaluj z linku na tej stronie",
+      "Uruchom aplikację i zacznij nagrywać spotkanie",
+      "Gdy spotkanie się zakończy, zatrzymaj nagrywanie i poczekaj, aż AI wygeneruje protokół",
+      "Przejrzyj wygenerowany protokół, a następnie udostępnij go lub zapisz w razie potrzeby"
+    ],
+    "note": "Dostępny czas nagrywania i formaty zależą od Twojego aktualnego planu i pozostałego czasu."
+  },
+  "features": {
+    "h2": "Co możesz zrobić w wersji na Androida",
+    "items": [
+      "Nagrywanie spotkań za pomocą samego smartfona i automatyczne tworzenie protokołów przez AI",
+      "Przejrzyste podsumowanie nawet długich spotkań w formacie \"Flexible\"",
+      "Synchronizacja z chmurą i obsługa wielu urządzeń do użytku w podróży",
+      "Globalna aplikacja do protokołów AI obsługująca ponad 100 języków",
+      "Plany cenowe oparte na pakietach czasowych lub subskrypcjach, dopasowane do Twojego stylu użytkowania"
+    ]
+  },
+  "notes": {
+    "h2": "Uwagi dotyczące użytkowania",
+    "items": [
+      "Niektóre funkcje i formaty będą dodawane kolejno w przyszłych aktualizacjach.",
+      "Na jakość nagrywania i dokładność protokołu wpływa wydajność mikrofonu urządzenia oraz środowisko spotkania (np. hałas, liczba mówców).",
+      "Interfejs użytkownika i dostępne funkcje mogą się nieznacznie różnić między wersjami na Androida, iOS i przeglądarkę."
+    ],
+    "foot": "Najpierw wypróbuj wersję Protokół AI na Androida. Jeśli Ci się spodoba, używaj jej w połączeniu z aplikacją na iOS i wersją przeglądarkową."
+  },
+  "meta": {
+    "h2": "Meta informacje",
+    "published": "Data publikacji",
+    "type": "Wydanie",
+    "category": "Aplikacja na Androida"
+  },
+  "cta": {
+    "openBrowser": "Otwórz wersję przeglądarkową",
+    "downloadAndroid": "Pobierz wersję na Androida"
+  }
+}

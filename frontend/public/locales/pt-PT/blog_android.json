@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Ata AI para Android Lançado — Seu App de Atas com IA no Android",
+    "description": "O Ata AI para Android já está no Google Play. Basta gravar suas reuniões e a IA gerará as atas automaticamente. Uma escolha recomendada para quem procura um app de atas com IA no Android.",
+    "ogTitle": "Ata AI para Android — O Novo Padrão para Apps de Atas de Reunião com IA",
+    "ogDescription": "Grave suas reuniões e deixe a IA criar as atas automaticamente. O app Ata AI para Android já está no Google Play, tornando-se uma ferramenta prática para usuários que procuram o \"melhor app de atas com IA para Android\".",
+    "ld": {
+      "headline": "Ata AI para Android Lançado",
+      "description": "O \"Ata AI\", que gera atas de reunião automaticamente a partir de gravações usando IA, já está disponível como um app Android. Instale-o pelo Google Play para registrar atas de alta qualidade em qualquer lugar."
+    }
+  },
+  "aria": {
+    "home": "Ata AI Início"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Lançamento Android"
+  },
+  "hero": {
+    "kicker": "Notas de Lançamento",
+    "h1": "Apresentando o Ata AI para Android",
+    "tagline": "O \"Ata AI\", o aplicativo que cria atas de reunião automaticamente apenas gravando a reunião, está finalmente disponível como um app Android no Google Play. Obtenha atas de alta qualidade a qualquer hora, em qualquer lugar, apenas com seu smartphone."
+  },
+  "release": {
+    "h2": "Visão Geral do Lançamento Android",
+    "p1": "Além das nossas versões existentes para iOS e navegador, o Ata AI agora está disponível como um app Android. Basta gravar sua reunião e nossa IA organizará automaticamente os pontos-chave e os transformará em um resumo de reunião fácil de ler.",
+    "p2": "A versão inicial suporta o formato flexível \"Flexible\", com outros formatos de reunião programados para lançamento sequencial. Se você está procurando um app de atas com IA para Android, experimente o Ata AI."
+  },
+  "image": {
+    "alt": "Captura de tela do app Ata AI para Android",
+    "caption": "Grave reuniões do seu smartphone Android e a IA gerará as atas diretamente."
+  },
+  "steps": {
+    "h2": "Como Começar com a Versão Android",
+    "items": [
+      "Procure por \"Ata AI\" no Google Play ou instale pelo link nesta página",
+      "Inicie o app e comece a gravar sua reunião",
+      "Quando a reunião terminar, pare a gravação e espere a IA gerar a ata",
+      "Revise a ata gerada e, em seguida, compartilhe ou salve conforme necessário"
+    ],
+    "note": "O tempo de gravação disponível e os formatos dependem do seu plano atual e do tempo restante."
+  },
+  "features": {
+    "h2": "O que Você Pode Fazer com a Versão Android",
+    "items": [
+      "Gravar reuniões usando apenas seu smartphone e ter a IA criando as atas automaticamente",
+      "Resumir claramente até mesmo reuniões longas com o formato \"Flexible\"",
+      "Sincronização na nuvem e suporte a múltiplos dispositivos para usar em qualquer lugar",
+      "Um app global de atas com IA que suporta mais de 100 idiomas",
+      "Planos de preços baseados em pacotes de tempo ou assinaturas para se adequar ao seu estilo de uso"
+    ]
+  },
+  "notes": {
+    "h2": "Notas de Uso",
+    "items": [
+      "Alguns recursos e formatos serão adicionados sequencialmente em atualizações futuras.",
+      "A qualidade da gravação e a precisão da ata são afetadas pelo desempenho do microfone do dispositivo e pelo ambiente da reunião (por ex., ruído, número de oradores).",
+      "A interface do usuário e os recursos disponíveis podem diferir ligeiramente entre as versões Android, iOS e navegador."
+    ],
+    "foot": "Experimente primeiro a versão Android do Ata AI. Se você gostar, use-a em combinação com o app para iOS e a versão para navegador."
+  },
+  "meta": {
+    "h2": "Meta Informações",
+    "published": "Data de Publicação",
+    "type": "Lançamento",
+    "category": "App Android"
+  },
+  "cta": {
+    "openBrowser": "Abrir Versão Web",
+    "downloadAndroid": "Baixar Versão Android"
+  }
+}

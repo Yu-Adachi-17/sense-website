@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Biên bản AI cho Android ra mắt — Ứng dụng Biên bản AI của bạn trên Android",
+    "description": "Biên bản AI cho Android hiện đã có trên Google Play. Chỉ cần ghi âm cuộc họp của bạn, và AI sẽ tự động tạo biên bản. Một lựa chọn được đề xuất cho bất kỳ ai đang tìm kiếm ứng dụng biên bản AI trên Android.",
+    "ogTitle": "Biên bản AI cho Android — Tiêu chuẩn mới cho ứng dụng biên bản cuộc họp AI",
+    "ogDescription": "Ghi âm cuộc họp của bạn và để AI tự động tạo biên bản. Ứng dụng Biên bản AI cho Android hiện đã có trên Google Play, trở thành một công cụ thiết thực cho người dùng tìm kiếm \"ứng dụng biên bản AI tốt nhất cho Android\".",
+    "ld": {
+      "headline": "Biên bản AI cho Android ra mắt",
+      "description": "\"Biên bản AI\", ứng dụng tự động tạo biên bản cuộc họp từ bản ghi âm bằng AI, hiện đã có sẵn dưới dạng ứng dụng Android. Cài đặt từ Google Play để ghi lại biên bản chất lượng cao ngay cả khi đang di chuyển."
+    }
+  },
+  "aria": {
+    "home": "Biên bản AI Trang chủ"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Phiên bản Android"
+  },
+  "hero": {
+    "kicker": "Ghi chú phát hành",
+    "h1": "Giới thiệu Biên bản AI cho Android",
+    "tagline": "\"Biên bản AI\", ứng dụng tự động tạo biên bản cuộc họp chỉ bằng cách ghi âm cuộc họp, cuối cùng đã có mặt dưới dạng ứng dụng Android trên Google Play. Ghi lại biên bản chất lượng cao mọi lúc, mọi nơi, chỉ với điện thoại thông minh của bạn."
+  },
+  "release": {
+    "h2": "Tổng quan về phiên bản Android",
+    "p1": "Ngoài các phiên bản iOS và trình duyệt hiện có, Biên bản AI hiện đã có sẵn dưới dạng ứng dụng Android. Chỉ cần ghi âm cuộc họp của bạn, và AI của chúng tôi sẽ tự động sắp xếp các điểm chính và biến chúng thành một bản tóm tắt cuộc họp dễ đọc.",
+    "p2": "Phiên bản ban đầu hỗ trợ định dạng linh hoạt \"Flexible\", với các định dạng cuộc họp khác được lên kế hoạch phát hành tuần tự. Nếu bạn đang tìm kiếm một ứng dụng biên bản AI cho Android, hãy dùng thử Biên bản AI."
+  },
+  "image": {
+    "alt": "Ảnh chụp màn hình ứng dụng Biên bản AI cho Android",
+    "caption": "Ghi âm cuộc họp từ điện thoại thông minh Android của bạn và AI sẽ tạo biên bản ngay lập tức."
+  },
+  "steps": {
+    "h2": "Cách bắt đầu với phiên bản Android",
+    "items": [
+      "Tìm kiếm \"Biên bản AI\" trên Google Play hoặc cài đặt từ liên kết trên trang này",
+      "Khởi chạy ứng dụng và bắt đầu ghi âm cuộc họp của bạn",
+      "Khi cuộc họp kết thúc, dừng ghi âm và đợi AI tạo biên bản",
+      "Xem lại biên bản đã tạo, sau đó chia sẻ hoặc lưu lại nếu cần"
+    ],
+    "note": "Thời gian ghi âm và các định dạng có sẵn phụ thuộc vào gói cước hiện tại của bạn và thời gian còn lại."
+  },
+  "features": {
+    "h2": "Bạn có thể làm gì với phiên bản Android",
+    "items": [
+      "Ghi âm cuộc họp chỉ bằng điện thoại thông minh của bạn và để AI tự động tạo biên bản",
+      "Tóm tắt rõ ràng ngay cả các cuộc họp dài với định dạng \"Flexible\"",
+      "Đồng bộ hóa đám mây và hỗ trợ đa thiết bị để sử dụng khi đang di chuyển",
+      "Một ứng dụng biên bản AI toàn cầu hỗ trợ hơn 100 ngôn ngữ",
+      "Các gói giá dựa trên gói thời gian hoặc đăng ký để phù hợp với phong cách sử dụng của bạn"
+    ]
+  },
+  "notes": {
+    "h2": "Lưu ý sử dụng",
+    "items": [
+      "Một số tính năng và định dạng sẽ được bổ sung tuần tự trong các bản cập nhật tương lai.",
+      "Chất lượng ghi âm và độ chính xác của biên bản bị ảnh hưởng bởi hiệu suất micrô của thiết bị và môi trường cuộc họp (ví dụ: tiếng ồn, số lượng người nói).",
+      "Giao diện người dùng và các tính năng có sẵn có thể hơi khác nhau giữa các phiên bản Android, iOS và trình duyệt."
+    ],
+    "foot": "Hãy thử phiên bản Android của Biên bản AI trước. Nếu bạn thích, hãy sử dụng nó kết hợp với ứng dụng iOS và phiên bản trình duyệt."
+  },
+  "meta": {
+    "h2": "Thông tin meta",
+    "published": "Ngày đăng",
+    "type": "Phát hành",
+    "category": "Ứng dụng Android"
+  },
+  "cta": {
+    "openBrowser": "Mở phiên bản web",
+    "downloadAndroid": "Tải phiên bản Android"
+  }
+}

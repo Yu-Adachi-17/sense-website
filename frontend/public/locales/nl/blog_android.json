@@ -1,1 +1,72 @@
-{}
+{
+  "seo": {
+    "title": "Notulen AI Android-release — Jouw AI Notulen App op Android",
+    "description": "Notulen AI voor Android is nu beschikbaar op Google Play. Neem simpelweg je vergaderingen op en de AI genereert automatisch de notulen. Een aanbevolen app voor iedereen die een AI-notulenapp op Android zoekt.",
+    "ogTitle": "Notulen AI voor Android — De nieuwe standaard voor AI Notulen Apps",
+    "ogDescription": "Neem je vergaderingen op en laat AI automatisch de notulen maken. De Notulen AI Android-app is nu op Google Play en wordt een praktische tool voor gebruikers die zoeken naar \"beste AI notulen app Android\".",
+    "ld": {
+      "headline": "Notulen AI Android-release",
+      "description": "\"Notulen AI\", die automatisch notulen genereert uit opnames van vergaderingen met behulp van AI, is nu beschikbaar als Android-app. Installeer het vanuit Google Play om onderweg hoogwaardige notulen vast te leggen."
+    }
+  },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "android": "Android-release"
+  },
+  "hero": {
+    "kicker": "Release-opmerkingen",
+    "h1": "Introductie van Notulen AI voor Android",
+    "tagline": "\"Notulen AI\", de app die automatisch notulen van vergaderingen maakt door simpelweg de vergadering op te nemen, is eindelijk beschikbaar als Android-app op Google Play. Krijg altijd en overal hoogwaardige notulen, gewoon met je smartphone."
+  },
+  "release": {
+    "h2": "Overzicht van de Android-release",
+    "p1": "Naast onze bestaande iOS- en browserversies is Notulen AI nu beschikbaar als Android-app. Neem gewoon je vergadering op en onze AI organiseert automatisch de belangrijkste punten en zet ze om in een gemakkelijk leesbaar vergaderverslag.",
+    "p2": "De eerste versie ondersteunt het flexibele \"Flexible\"-formaat, en andere vergaderformaten zullen binnenkort volgen. Als je op zoek bent naar een AI-notulenapp voor Android, probeer dan Notulen AI."
+  },
+  "image": {
+    "alt": "Screenshot van de Notulen AI Android-app",
+    "caption": "Neem vergaderingen op vanaf je Android-smartphone en de AI genereert direct de notulen."
+  },
+  "steps": {
+    "h2": "Aan de slag met de Android-versie",
+    "items": [
+      "Zoek naar \"Notulen AI\" op Google Play, of installeer via de link op deze pagina",
+      "Start de app en begin met het opnemen van je vergadering",
+      "Wanneer de vergadering eindigt, stop je de opname en wacht je tot de AI de notulen heeft gegenereerd",
+      "Controleer de gegenereerde notulen en deel of bewaar ze indien nodig"
+    ],
+    "note": "Beschikbare opnametijd en formaten zijn afhankelijk van je huidige abonnement en resterende tijd."
+  },
+  "features": {
+    "h2": "Wat je kunt doen met de Android-versie",
+    "items": [
+      "Vergaderingen opnemen met alleen je smartphone en de AI automatisch notulen laten maken",
+      "Zelfs lange vergaderingen duidelijk samenvatten met het \"Flexible\"-formaat",
+      "Cloudsynchronisatie & ondersteuning voor meerdere apparaten voor gebruik onderweg",
+      "Een wereldwijde AI-notulenapp die meer dan 100 talen ondersteunt",
+      "Prijsplannen op basis van tijdspakketten of abonnementen die passen bij jouw gebruik"
+    ]
+  },
+  "notes": {
+    "h2": "Gebruiksopmerkingen",
+    "items": [
+      "Sommige functies en formaten worden opeenvolgend toegevoegd in toekomstige updates.",
+      "De opnamekwaliteit en de nauwkeurigheid van de notulen worden beïnvloed door de microfoonprestaties van het apparaat en de vergaderomgeving (bijv. lawaai, aantal sprekers).",
+      "De gebruikersinterface en beschikbare functies kunnen enigszins verschillen tussen de Android-, iOS- en browserversies."
+    ],
+    "foot": "Probeer eerst de Android-versie van Notulen AI. Als het je bevalt, gebruik het dan in combinatie met de iOS-app en de browserversie."
+  },
+  "meta": {
+    "h2": "Meta-informatie",
+    "published": "Publicatiedatum",
+    "type": "Release",
+    "category": "Android-app"
+  },
+  "cta": {
+    "openBrowser": "Open webversie",
+    "downloadAndroid": "Download Android-versie"
+  }
+}
