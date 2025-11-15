@@ -10,7 +10,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Company() {
-  const { t, i18n } = useTranslation("common");
+  // ローカライズは一旦停止するので t は使わず、i18n だけ残す
+  const { i18n } = useTranslation("common");
 
   React.useEffect(() => {
     document.documentElement.setAttribute(
@@ -55,17 +56,17 @@ export default function Company() {
   return (
     <>
       <Head>
-        <title>{`${t("Company")} — ${t("Sense G.K.")}`}</title>
+        <title>{`Company — Sense G.K.`}</title>
         <meta
           name="description"
-          content={`${t("Company information for Sense G.K. — leadership, address, and contact details.")}`}
+          content={`Company information for Sense G.K. — leadership, address, and contact details.`}
         />
         <link rel="canonical" href={orgUrl} />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={`${t("Company")} — ${t("Sense G.K.")}`} />
+        <meta property="og:title" content={`Company — Sense G.K.`} />
         <meta
           property="og:description"
-          content={`${t("Company information for Sense G.K. — leadership, address, and contact details.")}`}
+          content={`Company information for Sense G.K. — leadership, address, and contact details.`}
         />
         <meta property="og:url" content={orgUrl} />
         <meta property="og:image" content={`${siteUrl}/images/hero-phone.png`} />
@@ -82,7 +83,7 @@ export default function Company() {
         <div className="pointer-events-none fixed left-5 top-5 z-50">
           <Link
             href="/"
-            aria-label={t("Home")}
+            aria-label="Home"
             className="pointer-events-auto inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
           >
             <HomeIcon size={28} />
@@ -94,53 +95,53 @@ export default function Company() {
           <section className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur">
             <header className="mb-8">
               <p className="text-sm uppercase tracking-widest text-indigo-200/80">
-                {t("Company")}
+                Company
               </p>
               <h1 className="mt-1 text-4xl font-extrabold leading-tight text-white">
-                {t("Sense G.K.")}
+                Sense G.K.
               </h1>
               <p className="mt-2 text-indigo-100/85">
-                {t("Building better meetings with thoughtful software.")}
+                Building better meetings with thoughtful software.
               </p>
             </header>
 
             <dl className="divide-y divide-white/10">
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">{t("Legal Name")}</dt>
-                <dd className="sm:col-span-2 font-medium">{t("Sense G.K.")}</dd>
+                <dt className="text-indigo-200/80">Legal Name</dt>
+                <dd className="sm:col-span-2 font-medium">Sense G.K.</dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">{t("Representative Director")}</dt>
-                <dd className="sm:col-span-2 font-medium">{t("Yu Adachi")}</dd>
+                <dt className="text-indigo-200/80">Representative Director</dt>
+                <dd className="sm:col-span-2 font-medium">Yu Adachi</dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">{t("Established")}</dt>
-                <dd className="sm:col-span-2 font-medium">{t("September 2025")}</dd>
+                <dt className="text-indigo-200/80">Established</dt>
+                <dd className="sm:col-span-2 font-medium">September 2025</dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">{t("Capital")}</dt>
-                <dd className="sm:col-span-2 font-medium">{t("JPY 100,000")}</dd>
+                <dt className="text-indigo-200/80">Capital</dt>
+                <dd className="sm:col-span-2 font-medium">JPY 100,000</dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">{t("Business Description")}</dt>
+                <dt className="text-indigo-200/80">Business Description</dt>
                 <dd className="sm:col-span-2 font-medium">
-                  {t("Planning and development of software services.")}
+                  Planning and development of software services.
                 </dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">{t("Address")}</dt>
+                <dt className="text-indigo-200/80">Address</dt>
                 <dd className="sm:col-span-2 font-medium">
-                  {t("4F Room 405, 6-15-1 Shimbashi, Minato-ku, Tokyo, Japan")}
+                  4F Room 405, 6-15-1 Shimbashi, Minato-ku, Tokyo, Japan
                 </dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
-                <dt className="text-indigo-200/80">{t("Contact")}</dt>
+                <dt className="text-indigo-200/80">Contact</dt>
                 <dd className="sm:col-span-2 space-y-1">
                   <Link
                     href="/support"
@@ -174,19 +175,19 @@ export default function Company() {
             <div className="footInner">
               <div className="legal">
                 <a href="/terms-of-use" className="legalLink">
-                  {t("Terms of Use")}
+                  Terms of Use
                 </a>
                 <span className="sep">·</span>
                 <a href="/privacy-policy" className="legalLink">
-                  {t("Privacy Policy")}
+                  Privacy Policy
                 </a>
                 <span className="sep">·</span>
                 <a href="/company" className="legalLink">
-                  {t("Company")}
+                  Company
                 </a>
               </div>
               <div className="copyright">
-                &copy; {new Date().getFullYear()} {t("Sense G.K.")} {t("All Rights Reserved")}
+                &copy; {new Date().getFullYear()} Sense G.K. All Rights Reserved
               </div>
             </div>
           </footer>

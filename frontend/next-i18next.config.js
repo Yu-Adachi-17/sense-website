@@ -29,6 +29,7 @@ module.exports = {
     'blog_recommend',
     'blog_strategy',
     'blog_universal',
+    'blog_android',
   ],
   defaultNS: 'common',
 
