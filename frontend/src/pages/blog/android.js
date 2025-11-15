@@ -37,7 +37,6 @@ const EN_FALLBACK = {
     h2: "What’s new on Android",
     p1: "Minutes.AI, our meeting minutes AI app trusted on iOS and web, is now available as an Android app on Google Play.",
     p2: "The initial Android release supports the Flexible minutes format. We will gradually add all other formats so you can use your favorite style of minutes on Android as well.",
-    p3: "If you’ve been searching for a meeting minutes AI app for Android, this release is for you — record meetings on your Android device and let Minutes.AI handle the minutes.",
   },
   image: {
     alt: "Minutes.AI Android app UI on Google Play",
