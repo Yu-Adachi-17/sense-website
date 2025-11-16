@@ -8,6 +8,11 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
 
+// ★ 追加：各種アイコン
+import { TbWorld } from "react-icons/tb";
+import { BsGooglePlay } from "react-icons/bs";
+import { FaAppStore } from "react-icons/fa";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback (match reference structure) ---------- */
@@ -174,7 +179,7 @@ function Byline() {
   const { txs } = useTx("blog_businessnegotiation");
   return (
     <div className="mt-8 flex items-center gap-3 text-sm text-indigo-100/85">
-      <div className="h-9 w-9 shrink-0 rounded-full bg-white/10 flex items-center justify-center">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10">
         <span className="text-xs font-bold">YA</span>
       </div>
       <div>
@@ -276,7 +281,7 @@ export default function BlogBusinessNegotiation() {
                 {txs("hero.h1")}
               </span>
             </h1>
-            <p className="mt-2 text-base leading-7 text-indigo-100/90 max-w-2xl">
+            <p className="mt-2 max-w-2xl text-base leading-7 text-indigo-100/90">
               {txs("hero.tagline")}
             </p>
             <Byline />
@@ -364,7 +369,7 @@ export default function BlogBusinessNegotiation() {
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("example.h2")}</h2>
             <div className="mt-3 rounded-2xl border border-white/10 bg-black/30 p-4">
-              <pre className="whitespace-pre-wrap text-sm leading-6 text-indigo-100/90 font-mono">
+              <pre className="whitespace-pre-wrap font-mono text-sm leading-6 text-indigo-100/90">
 {txs("example.block")}
               </pre>
             </div>
@@ -388,20 +393,36 @@ export default function BlogBusinessNegotiation() {
           </SectionCard>
 
           {/* CTA */}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-4">
+            {/* Browser */}
             <Link
               href="/"
-              className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:bg-indigo-500/20 hover:border-indigo-100/80 hover:text-white"
             >
-              {txs("cta.openBrowser")}
+              <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <span>Browser</span>
             </Link>
+
+            {/* App Store */}
             <a
               href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-sky-300/45 bg-sky-500/10 px-4 py-2.5 text-sm font-medium text-sky-50/90 backdrop-blur shadow-[0_18px_50px_rgba(56,189,248,0.65)] transition hover:bg-sky-500/20 hover:border-sky-100/80 hover:text-white"
             >
-              {txs("cta.downloadIOS")}
+              <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
+              <span>App Store</span>
+            </a>
+
+            {/* Google Play */}
+            <a
+              href="https://play.google.com/store/apps/details?id=world.senseai.minutes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:bg-emerald-500/20 hover:border-emerald-100/80 hover:text-white"
+            >
+              <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
+              <span>Google Play</span>
             </a>
           </div>
         </main>
