@@ -1,4 +1,5 @@
 // src/pages/blog/language.js
+import * as React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -7,6 +8,11 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
+
+// CTA用アイコン
+import { TbWorld } from "react-icons/tb";
+import { BsGooglePlay } from "react-icons/bs";
+import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -147,11 +153,11 @@ const EN_FALLBACK = {
       { code: "yi", name: "Yiddish" },
       { code: "yo", name: "Yoruba" },
       { code: "zh", name: "Chinese" },
-      { code: "yue", name: "Cantonese" }
-    ]
+      { code: "yue", name: "Cantonese" },
+    ],
   },
   meta: { h2: "Meta", published: "Published", type: "Article", category: "Language" },
-  cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" }
+  cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
 };
 
 const getPath = (obj, path) =>
@@ -160,6 +166,7 @@ const getPath = (obj, path) =>
 const toArray = (v) =>
   Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : [];
 
+// i18n helper
 function useTx(ns) {
   const { t } = useTranslation(ns);
   const txs = (key) => {
@@ -179,6 +186,7 @@ function useTx(ns) {
   return { txs, txa };
 }
 
+/* ---- small UI components ---- */
 function Kicker({ children }) {
   return (
     <span className="inline-block rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs tracking-wide text-indigo-100/90">
@@ -210,6 +218,10 @@ function Pill({ children }) {
     </span>
   );
 }
+
+const LINK_IOS =
+  "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=world.senseai.minutes";
 
 export default function BlogLanguages() {
   const router = useRouter();
@@ -258,11 +270,11 @@ export default function BlogLanguages() {
               publisher: {
                 "@type": "Organization",
                 name: "Minutes.AI",
-                logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` }
+                logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` },
               },
               image: [`${siteUrl}/icon-master.png`],
-              description: txs("seo.ld.description")
-            })
+              description: txs("seo.ld.description"),
+            }),
           }}
         />
       </Head>
@@ -270,6 +282,7 @@ export default function BlogLanguages() {
       <div
         className={`${inter.className} min-h-screen bg-[#0b0e2e] text-white [background:radial-gradient(1200px_800px_at_10%_-20%,rgba(70,69,255,.25),transparent),radial-gradient(800px_600px_at_100%_0%,rgba(192,132,252,.18),transparent)]`}
       >
+        {/* Header */}
         <header className="mx-auto max-w-7xl px-6 pt-10 sm:pt-12">
           <Link
             href="/home"
@@ -288,6 +301,7 @@ export default function BlogLanguages() {
           </nav>
         </header>
 
+        {/* Hero */}
         <section className="relative">
           <div className="mx-auto max-w-3xl px-6 pt-10 pb-6 sm:pt-12 sm:pb-8">
             <Kicker>{txs("hero.kicker")}</Kicker>
@@ -296,11 +310,15 @@ export default function BlogLanguages() {
                 {txs("hero.h1")}
               </span>
             </h1>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">{txs("hero.tagline")}</p>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">
+              {txs("hero.tagline")}
+            </p>
           </div>
         </section>
 
+        {/* Main */}
         <main className="mx-auto max-w-3xl px-6 pb-20">
+          {/* Intro */}
           <SectionCard>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("intro.h2")}</h2>
             <div className="mt-4 space-y-4">
@@ -309,6 +327,7 @@ export default function BlogLanguages() {
             </div>
           </SectionCard>
 
+          {/* STT / Whisper */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("stt.h2")}</h2>
             <div className="mt-4 space-y-4">
@@ -317,6 +336,7 @@ export default function BlogLanguages() {
             </div>
           </SectionCard>
 
+          {/* Language list */}
           <SectionCard className="mt-8">
             <div className="flex items-center justify-between gap-4">
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("langs.h2")}</h2>
@@ -333,9 +353,12 @@ export default function BlogLanguages() {
               />
             </div>
 
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-indigo-100/90">
+            <ul className="mt-4 grid grid-cols-1 gap-2 text-indigo-100/90 sm:grid-cols-2">
               {filtered.map((l) => (
-                <li key={`${l.code}-${l.name}`} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <li
+                  key={`${l.code}-${l.name}`}
+                  className="rounded-lg border border-white/10 bg-white/5 px-3 py-2"
+                >
                   <span className="font-mono text-indigo-200">{l.code}</span>
                   <span className="mx-2 text-indigo-300/50">—</span>
                   <span>{l.name}</span>
@@ -344,6 +367,7 @@ export default function BlogLanguages() {
             </ul>
           </SectionCard>
 
+          {/* Meta */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("meta.h2")}</h2>
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
@@ -352,7 +376,7 @@ export default function BlogLanguages() {
                 {new Date().toLocaleDateString(router.locale || "ja-JP", {
                   year: "numeric",
                   month: "short",
-                  day: "2-digit"
+                  day: "2-digit",
                 })}
               </Pill>
               <Pill>{txs("meta.type")}</Pill>
@@ -360,20 +384,37 @@ export default function BlogLanguages() {
             </div>
           </SectionCard>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          {/* CTA */}
+          <div className="mt-10 flex flex-wrap gap-4">
+            {/* Browser */}
             <Link
               href="/"
-              className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:border-indigo-100/80 hover:bg-indigo-500/20 hover:text-white"
             >
-              {txs("cta.openBrowser")}
+              <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <span>Browser</span>
             </Link>
+
+            {/* App Store */}
             <a
-              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
+              href={LINK_IOS}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-sky-300/45 bg-sky-500/10 px-4 py-2.5 text-sm font-medium text-sky-50/90 backdrop-blur shadow-[0_18px_50px_rgba(56,189,248,0.65)] transition hover:border-sky-100/80 hover:bg-sky-500/20 hover:text-white"
             >
-              {txs("cta.downloadIOS")}
+              <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
+              <span>App Store</span>
+            </a>
+
+            {/* Google Play */}
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:border-emerald-100/80 hover:bg-emerald-500/20 hover:text-white"
+            >
+              <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
+              <span>Google Play</span>
             </a>
           </div>
         </main>
@@ -382,12 +423,10 @@ export default function BlogLanguages() {
   );
 }
 
-import * as React from "react";
-
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_language"], i18nConfig))
-    }
+      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_language"], i18nConfig)),
+    },
   };
 }

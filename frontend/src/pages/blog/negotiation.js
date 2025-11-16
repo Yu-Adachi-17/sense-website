@@ -4,6 +4,11 @@ import Link from "next/link";
 import { Inter } from "next/font/google";
 import HomeIcon from "../homeIcon";
 
+// CTA icons
+import { TbWorld } from "react-icons/tb";
+import { BsGooglePlay } from "react-icons/bs";
+import { FaAppStore } from "react-icons/fa";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Small UI components ---------- */
@@ -14,6 +19,7 @@ function Kicker({ children }) {
     </span>
   );
 }
+
 function SectionCard({ children, className = "" }) {
   return (
     <section
@@ -29,6 +35,7 @@ function SectionCard({ children, className = "" }) {
     </section>
   );
 }
+
 function Byline() {
   return (
     <div className="mt-8 flex items-center gap-3 text-sm text-indigo-100/85">
@@ -43,12 +50,18 @@ function Byline() {
   );
 }
 
+/* ---------- Constants ---------- */
+const LINK_HOME = "/home";
+const LINK_IOS =
+  "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=world.senseai.minutes";
+
 /* ---------- Page ---------- */
 export default function BlogNegotiation() {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = `${siteUrl}/blog/negotiation`;
-  const LINK_HOME = "/home";
 
   return (
     <>
@@ -61,7 +74,7 @@ export default function BlogNegotiation() {
           name="description"
           content="Negotiations need minutes that capture decisions, tasks, context, tone, and the history of concessions. A practical guide with Minutes.AI."
         />
-        <link relName="canonical" href={canonical} />
+        <link rel="canonical" href={canonical} />
         <meta property="og:type" content="article" />
         <meta
           property="og:title"
@@ -182,9 +195,7 @@ export default function BlogNegotiation() {
                   to the use case.
                 </li>
                 <li>From a “record to read” to a “plan to act.”</li>
-                <li>
-                  Minutes.AI adapts its output to the meeting’s objective.
-                </li>
+                <li>Minutes.AI adapts its output to the meeting’s objective.</li>
               </ul>
               <p className="mt-4 text-base font-bold text-indigo-100">
                 This time, we dive deep into negotiation.
@@ -253,27 +264,35 @@ export default function BlogNegotiation() {
 
             <div className="mt-5 grid grid-cols-1 gap-4">
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
-                <h3 className="text-lg font-semibold">The typical thin minutes</h3>
+                <h3 className="text-lg font-semibold">
+                  The typical thin minutes
+                </h3>
                 <ul className="mt-2 ml-5 list-disc space-y-1 text-indigo-100/90">
                   <li>Lists decisions without reasons or storyline</li>
-                  <li>Unclear who asked for what and where concessions were made</li>
-                  <li>Ambiguity around what’s unagreed or parked</li>
+                  <li>
+                    Unclear who asked for what and where concessions were made
+                  </li>
+                  <li>
+                    Ambiguity around what’s unagreed or parked for later rounds
+                  </li>
                 </ul>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <h3 className="text-lg font-semibold">Minutes built for negotiation</h3>
+                <h3 className="text-lg font-semibold">
+                  Minutes built for negotiation
+                </h3>
                 <ul className="mt-2 ml-5 list-disc space-y-1 text-indigo-100/90">
                   <li>
-                    A timeline of demands/concessions/term changes
-                    (deadline/price/scope/responsibility)
+                    A timeline of demands / concessions / term changes
+                    (deadline / price / scope / responsibility)
                   </li>
                   <li>
                     Reasons, assumptions, and risks recorded close to each
                     decision
                   </li>
                   <li>
-                    Clear split of agreed/not agreed/parked with owners and due
-                    dates
+                    Clear split of agreed / not agreed / parked with owners and
+                    due dates
                   </li>
                 </ul>
               </div>
@@ -305,23 +324,24 @@ Company A: If you can guarantee next-week delivery, we’ll consider it. Send a 
             </h2>
             <ul className="mt-4 ml-5 list-disc space-y-2 text-indigo-100/90">
               <li>
-                Summarizes demand/concession exchanges and preserves key
-                passages verbatim (avoids “said/not said”).
+                Summarizes demand / concession exchanges and preserves key
+                passages verbatim (avoids “said / not said”).
               </li>
               <li>
                 Orders term changes chronologically
-                (deadline/price/scope/responsibility).
+                (deadline / price / scope / responsibility).
               </li>
               <li>
                 Documents reasons, assumptions, and risks right next to
                 decisions.
               </li>
               <li>
-                Separates agreed/not agreed/parked and assigns owners and
+                Separates agreed / not agreed / parked and assigns owners and
                 deadlines.
               </li>
               <li>
-                Maps counterpart requests to your commitments for clear tracking.
+                Maps counterpart requests to your commitments for clear
+                tracking.
               </li>
             </ul>
           </SectionCard>
@@ -332,27 +352,44 @@ Company A: If you can guarantee next-week delivery, we’ll consider it. Send a 
               Wrap-up
             </h2>
             <p className="mt-4 text-base leading-7 text-indigo-100/90">
-              Negotiation minutes are stronger when they keep the back-and-forth
-              and the context—not just decisions. That speeds judgment and
-              reduces rework. Make it your standard with Minutes.AI.
+              Negotiation minutes are stronger when they keep the
+              back-and-forth and the context—not just decisions. That speeds
+              judgment and reduces rework. Make it your standard with
+              Minutes.AI.
             </p>
           </SectionCard>
 
           {/* CTA */}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-4">
+            {/* Browser */}
             <Link
               href="/"
-              className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:border-indigo-100/80 hover:bg-indigo-500/20 hover:text-white"
             >
-              Open the web app
+              <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <span>Browser</span>
             </Link>
+
+            {/* App Store */}
             <a
-              href="https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901"
+              href={LINK_IOS}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-sky-300/45 bg-sky-500/10 px-4 py-2.5 text-sm font-medium text-sky-50/90 backdrop-blur shadow-[0_18px_50px_rgba(56,189,248,0.65)] transition hover:border-sky-100/80 hover:bg-sky-500/20 hover:text-white"
             >
-              Download the iOS app
+              <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
+              <span>App Store</span>
+            </a>
+
+            {/* Google Play */}
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:border-emerald-100/80 hover:bg-emerald-500/20 hover:text-white"
+            >
+              <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
+              <span>Google Play</span>
             </a>
           </div>
         </main>
