@@ -8,6 +8,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
+import { TbWorld } from "react-icons/tb";
+import { BsGooglePlay } from "react-icons/bs";
+import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -249,6 +252,13 @@ function Pill({ children }) {
   );
 }
 
+/* ---------- CTA link constants ---------- */
+const LINK_HOME = "/home";
+const LINK_IOS =
+  "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=world.senseai.minutes";
+
 export default function BlogRecommend() {
   const router = useRouter();
   const { txs, txa } = useTx("blog_recommend");
@@ -322,14 +332,14 @@ export default function BlogRecommend() {
       >
         <header className="mx-auto max-w-7xl px-6 pt-10 sm:pt-12">
           <Link
-            href="/home"
+            href={LINK_HOME}
             aria-label={txs("aria.home")}
             className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
           >
             <HomeIcon size={28} />
           </Link>
 
-          <nav className="mt-4 text-sm text-indigo-200/80">
+        <nav className="mt-4 text-sm text-indigo-200/80">
             <Link href="/blog" className="hover:underline">
               {txs("nav.blog")}
             </Link>
@@ -443,7 +453,6 @@ export default function BlogRecommend() {
             <p className="mt-3 text-indigo-100/90">{txs("pricing.lead")}</p>
             <ul className="mt-4 space-y-3 text-indigo-100/90 list-disc ml-5">
               {txa("pricing.bullets").map((b, i) => (
-                // Using dangerouslySetInnerHTML to render the bold tags
                 <li key={i} dangerouslySetInnerHTML={{ __html: b }} />
               ))}
             </ul>
@@ -491,7 +500,6 @@ export default function BlogRecommend() {
               {faq.map((f, i) => (
                 <div key={i}>
                   <h3 className="text-base font-semibold">{f.q}</h3>
-                  {/* Using dangerouslySetInnerHTML to render the bold tags in the answer */}
                   <p className="mt-1 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: f.a }} />
                 </div>
               ))}
@@ -516,20 +524,36 @@ export default function BlogRecommend() {
           </SectionCard>
 
           {/* CTA */}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-4">
+            {/* Browser */}
             <Link
               href="/"
-              className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg:white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:border-indigo-100/80 hover:bg-indigo-500/20 hover:text-white"
             >
-              {txs("cta.openBrowser")}
+              <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <span>{txs("cta.openBrowser")}</span>
             </Link>
+
+            {/* App Store */}
             <a
-              href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%82ai/id6504087901"
+              href={LINK_IOS}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-sky-300/45 bg-sky-500/10 px-4 py-2.5 text-sm font-medium text-sky-50/90 backdrop-blur shadow-[0_18px_50px_rgba(56,189,248,0.65)] transition hover:border-sky-100/80 hover:bg-sky-500/20 hover:text-white"
             >
-              {txs("cta.downloadIOS")}
+              <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
+              <span>{txs("cta.downloadIOS")}</span>
+            </a>
+
+            {/* Google Play */}
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:border-emerald-100/80 hover:bg-emerald-500/20 hover:text-white"
+            >
+              <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
+              <span>Google Play</span>
             </a>
           </div>
         </main>
