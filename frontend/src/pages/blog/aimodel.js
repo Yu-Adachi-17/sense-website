@@ -8,6 +8,11 @@ import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
 
+// ★ 追加：各種アイコン
+import { TbWorld } from "react-icons/tb";
+import { BsGooglePlay } from "react-icons/bs";
+import { FaAppStore } from "react-icons/fa";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback (used when i18n returns keys) ---------- */
@@ -116,7 +121,11 @@ const EN_FALLBACK = {
       "Try Minutes.AI and feel the difference. Uncompromising model selection accelerates daily decisions.",
   },
 
-  cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
+  cta: {
+    openBrowser: "Open in browser",
+    downloadIOS: "Download iOS app",
+    // downloadAndroid: "Get Android app on Google Play", // 今回は文言は固定表示にする想定
+  },
 };
 
 /* ---------- tiny helpers ---------- */
@@ -240,7 +249,7 @@ export default function BlogAIModel() {
             <HomeIcon size={28} />
           </Link>
 
-          <nav className="mt-4 text-sm text-indigo-200/80">
+        <nav className="mt-4 text-sm text-indigo-200/80">
             <Link href="/blog" className="hover:underline">
               {txs("nav.blog")}
             </Link>
@@ -258,7 +267,7 @@ export default function BlogAIModel() {
                 {txs("hero.h1")}
               </span>
             </h1>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">{txs("hero.tagline")}</p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-indigo-100/90">{txs("hero.tagline")}</p>
           </div>
         </section>
 
@@ -350,7 +359,7 @@ export default function BlogAIModel() {
             <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("wrap.p")}</p>
           </SectionCard>
 
-          {/* Meta (optional small section for freshness / schema aid) */}
+          {/* Meta */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">Meta</h2>
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
@@ -368,20 +377,36 @@ export default function BlogAIModel() {
           </SectionCard>
 
           {/* CTA */}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-4">
+            {/* Browser */}
             <Link
               href="/"
-              className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:bg-indigo-500/20 hover:border-indigo-100/80 hover:text-white"
             >
-              {txs("cta.openBrowser")}
+              <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <span>Browser</span>
             </Link>
+
+            {/* App Store */}
             <a
               href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-sky-300/45 bg-sky-500/10 px-4 py-2.5 text-sm font-medium text-sky-50/90 backdrop-blur shadow-[0_18px_50px_rgba(56,189,248,0.65)] transition hover:bg-sky-500/20 hover:border-sky-100/80 hover:text-white"
             >
-              {txs("cta.downloadIOS")}
+              <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
+              <span>App Store</span>
+            </a>
+
+            {/* Google Play */}
+            <a
+              href="https://play.google.com/store/apps/details?id=world.senseai.minutes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:bg-emerald-500/20 hover:border-emerald-100/80 hover:text-white"
+            >
+              <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
+              <span>Google Play</span>
             </a>
           </div>
         </main>
