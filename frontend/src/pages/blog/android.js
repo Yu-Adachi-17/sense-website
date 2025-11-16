@@ -310,7 +310,7 @@ export default function BlogAndroid() {
             {/* Browser */}
             <Link
               href="/"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_14px_40px_rgba(15,23,42,0.65)] transition hover:border-indigo-300/70 hover:bg-white/10 hover:text-white"
+              className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:bg-indigo-500/20 hover:border-indigo-100/80 hover:text-white"
             >
               <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
               <span>Browser</span>
@@ -321,9 +321,9 @@ export default function BlogAndroid() {
               href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_14px_40px_rgba(15,23,42,0.65)] transition hover:border-indigo-300/70 hover:bg-white/10 hover:text-white"
+              className="group inline-flex items-center gap-2 rounded-full border border-sky-300/45 bg-sky-500/10 px-4 py-2.5 text-sm font-medium text-sky-50/90 backdrop-blur shadow-[0_18px_50px_rgba(56,189,248,0.65)] transition hover:bg-sky-500/20 hover:border-sky-100/80 hover:text-white"
             >
-              <FaAppStore className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
               <span>App Store</span>
             </a>
 
@@ -332,12 +332,13 @@ export default function BlogAndroid() {
               href="https://play.google.com/store/apps/details?id=world.senseai.minutes"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_14px_40px_rgba(15,23,42,0.65)] transition hover:border-emerald-300/70 hover:bg-white/10 hover:text-white"
+              className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:bg-emerald-500/20 hover:border-emerald-100/80 hover:text-white"
             >
               <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
               <span>Google Play</span>
             </a>
           </div>
+
         </main>
       </div>
     </>
