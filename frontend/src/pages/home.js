@@ -2,7 +2,8 @@
   import Head from "next/head";
   import { useEffect, useRef, useState, useMemo } from "react";
   import { createPortal } from "react-dom";
-  import { FaApple } from "react-icons/fa";
+  import { FaApple, FaAppStore } from "react-icons/fa";
+import { BsGooglePlay } from "react-icons/bs";
   import Link from "next/link";
   import { useRouter } from "next/router";
   import { useTranslation } from "next-i18next";
@@ -483,7 +484,11 @@ export default function Home() {
   };
 
   const LINK_MAIN = SITE_URL;
-  const LINK_IOS = "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+  const LINK_IOS =
+    "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+  const LINK_ANDROID =
+    "https://play.google.com/store/apps/details?id=world.senseai.minutes";
+
 
   // 日付はロケール整形（例: 2025-10-01 JST）
   const demoDateISO = "2025-10-01T00:00:00+09:00";
@@ -568,27 +573,50 @@ export default function Home() {
       {/* ===== Fixed Header ===== */}
       <FixedHeaderPortal>
         <header className="top" role="banner">
-          <Link href="/" className="brand" aria-label={t("Minutes.AI Home")}>
-            <span className="brandIcon" aria-hidden="true">
-              <HomeIcon size={26} color="currentColor" />
-            </span>
-            <span className="brandText">{t("Minutes.AI")}</span>
-          </Link>
-          <nav className="nav" aria-label={t("Primary") || "Primary"}>
-            {/* ▼ ここを変更：Home を削除し、Blog / Contact / iOS */}
-            <Link href="/blog" className="navLink">
-              <span className="navText gradHeader">{t("Blog")}</span>
+          <div className="topInner">
+            {/* 左：ブランドロゴ＋テキスト（白） */}
+            <Link href="/" className="brand" aria-label={t("Minutes.AI Home")}>
+              <span className="brandIcon" aria-hidden="true">
+                <HomeIcon size={26} color="currentColor" />
+              </span>
+              <span className="brandText">{t("Minutes.AI")}</span>
             </Link>
-            <Link href="/company" className="navLink">
-              <span className="navText gradHeader">{t("Contact")}</span>
-            </Link>
-            <a href={LINK_IOS} className="navLink" rel="noopener noreferrer">
-              <FaApple className="apple" aria-hidden="true" />
-              <span className="navText gradHeader">{t("iOS")}</span>
-            </a>
-          </nav>
+
+            {/* 中央：シンプルなナビ（Reflect 風 / プレーン白） */}
+            <nav className="nav" aria-label={t("Primary") || "Primary"}>
+              <Link href="/blog" className="navLink">
+                {t("Blog")}
+              </Link>
+              <Link href="/company" className="navLink">
+                {t("Contact")}
+              </Link>
+            </nav>
+
+            {/* 右：ストアリンク（白文字＋アイコンのみ） */}
+            <div className="storeNav">
+              <a
+                href={LINK_IOS}
+                className="storeLink"
+                rel="noopener noreferrer"
+                aria-label={t("Download on iOS")}
+              >
+                <FaAppStore className="storeIcon" aria-hidden="true" />
+                <span className="storeText">{t("iOS")}</span>
+              </a>
+              <a
+                href={LINK_ANDROID}
+                className="storeLink"
+                rel="noopener noreferrer"
+                aria-label={t("Download on Android")}
+              >
+                <BsGooglePlay className="storeIcon" aria-hidden="true" />
+                <span className="storeText">{t("Android")}</span>
+              </a>
+            </div>
+          </div>
         </header>
       </FixedHeaderPortal>
+
 
       {/* ===== Main ===== */}
       <main className="scene" dir={dir}>
@@ -982,25 +1010,147 @@ export default function Home() {
           .mapNote { left:16px; bottom:8px; font-size:11px; }
         }
       `}</style>
-
       <style jsx global>{`
-        :root { --header-h: clamp(56px, 7.2vh, 72px); --header-py: 10px; --header-offset: calc(var(--header-h) + env(safe-area-inset-top, 0px) + (var(--header-py) * 2)); }
-        header.top { position:fixed; left:0; right:0; top:0; z-index:2147483647; display:flex; justify-content:space-between; align-items:center; height: calc(var(--header-h) + env(safe-area-inset-top, 0px)); padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px var(--header-py); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); background: linear-gradient(180deg, rgba(10,14,28,0.75) 0%, rgba(10,14,28,0.45) 100%); border-bottom:1px solid rgba(255,255,255,0.06); }
-        header.top .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:#b6eaff; }
-        header.top .brandText { font-weight:800; font-size:24px; letter-spacing:0.2px; }
-        header.top .brand .ai { background: linear-gradient(90deg, #7cc7ff, #65e0c4); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        header.top .brand .brandIcon { width:26px; height:26px; display:inline-flex; }
-        header.top .nav { background: rgba(20,40,60,0.7); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); padding:10px 18px; border-radius:999px; display:flex; align-items:center; border:1px solid rgba(255,255,255,0.08); }
-        header.top .navLink, header.top .navLink:visited, header.top .navLink:hover, header.top .navLink:active { color:#eaf4f7 !important; text-decoration:none !important; margin:0 8px; opacity:0.95; display:inline-flex; align-items:center; gap:6px; }
-        header.top .navText { font-weight:800; font-size: clamp(14px, 1.6vw, 18px); }
-        header.top .gradHeader { background: linear-gradient(90deg, #7cc7ff 0%, #8db4ff 35%, #65e0c4 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        header.top .apple { font-size: clamp(14px, 1.55vw, 17px); line-height:1; transform: translateY(1px); color:#eaf4f7; }
-        @supports not (backdrop-filter: blur(12px)) {
-          header.top { background: rgba(10,14,28,0.92); }
-          header.top .nav { background: rgba(20,40,60,0.92); }
+        :root {
+          --header-h: clamp(56px, 7.2vh, 72px);
+          --header-py: 10px;
+          --header-offset: calc(
+            var(--header-h) + env(safe-area-inset-top, 0px) +
+              (var(--header-py) * 2)
+          );
         }
-        .srOnly { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0,0,0,0) !important; border:0 !important; }
+
+        header.top {
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 0;
+          z-index: 2147483647;
+          padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px
+            var(--header-py);
+          height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          background: linear-gradient(
+            180deg,
+            rgba(5, 8, 20, 0.9) 0%,
+            rgba(5, 8, 20, 0.75) 100%
+          );
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header.top .topInner {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 24px;
+        }
+
+        header.top .brand {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        header.top .brandIcon {
+          width: 26px;
+          height: 26px;
+          display: inline-flex;
+        }
+
+        header.top .brandText {
+          font-weight: 800;
+          font-size: 22px;
+          letter-spacing: 0.2px;
+          white-space: nowrap;
+        }
+
+        header.top .nav {
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          justify-content: center;
+          flex: 1;
+        }
+
+        header.top .navLink {
+          font-weight: 600;
+          font-size: 14px;
+          color: #f5f7ff;
+          text-decoration: none;
+          opacity: 0.8;
+        }
+
+        header.top .navLink:hover {
+          opacity: 1;
+        }
+
+        header.top .storeNav {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        header.top .storeLink {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 10px;
+          border-radius: 999px;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          text-decoration: none;
+          color: #ffffff;
+          font-weight: 700;
+          font-size: 12px;
+          background: transparent;
+        }
+
+        header.top .storeLink:hover {
+          border-color: rgba(255, 255, 255, 0.32);
+        }
+
+        header.top .storeIcon {
+          font-size: 14px;
+        }
+
+        header.top .storeText {
+          white-space: nowrap;
+        }
+
+        @supports not (backdrop-filter: blur(12px)) {
+          header.top {
+            background: rgba(5, 8, 20, 0.94);
+          }
+        }
+
+        .srOnly {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          border: 0 !important;
+        }
+
+        @media (max-width: 720px) {
+          header.top .topInner {
+            gap: 12px;
+          }
+          header.top .brandText {
+            font-size: 18px;
+          }
+          header.top .nav {
+            display: none; /* モバイルではロゴ＋ストアだけにしてさらにスッキリ */
+          }
+        }
       `}</style>
+
 
       <style jsx>{`
         .pageFooter { position:relative; z-index:3; padding:20px 22px 28px; border-top:1px solid rgba(255,255,255,0.06); background: linear-gradient(0deg, rgba(10,14,28,0.6) 0%, rgba(10,14,28,0.3) 100%); color:#eaf4f7; }
