@@ -8,6 +8,11 @@ import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
 
+// ★ 追加：アイコン
+import { TbWorld } from "react-icons/tb";
+import { BsGooglePlay } from "react-icons/bs";
+import { FaAppStore } from "react-icons/fa";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback (used when i18n returns keys) ---------- */
@@ -40,13 +45,14 @@ const EN_FALLBACK = {
   },
   image: {
     alt: "Minutes.AI Android app UI on Google Play",
-    caption: "Minutes.AI Android version is now available on Google Play. Start recording and get AI-generated minutes.",
+    caption:
+      "Minutes.AI Android version is now available on Google Play. Start recording and get AI-generated minutes.",
   },
   steps: {
     h2: "How to get started on Android",
     items: [
       "Open Google Play on your Android device",
-      "Search for “Minutes.AI” or tap the link on this page",
+      'Search for “Minutes.AI” or tap the link on this page',
       "Install the app and sign in or create an account",
       "Start recording a meeting and let AI generate Flexible minutes",
     ],
@@ -87,7 +93,9 @@ const EN_FALLBACK = {
 
 /* ---------- tiny helpers ---------- */
 const getPath = (obj, path) =>
-  path.split(".").reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
+  path
+    .split(".")
+    .reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
 
 const toArray = (v) =>
   Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : [];
@@ -221,7 +229,7 @@ export default function BlogAndroid() {
                 {txs("hero.h1")}
               </span>
             </h1>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">{txs("hero.tagline")}</p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-indigo-100/90">{txs("hero.tagline")}</p>
           </div>
         </section>
 
@@ -249,7 +257,7 @@ export default function BlogAndroid() {
           {/* How to start on Android */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("steps.h2")}</h2>
-            <ol className="mt-4 space-y-2 text-indigo-100/90 list-decimal ml-5">
+            <ol className="mt-4 ml-5 list-decimal space-y-2 text-indigo-100/90">
               {steps.map((s, i) => (
                 <li key={i}>{s}</li>
               ))}
@@ -262,7 +270,7 @@ export default function BlogAndroid() {
           {/* Features */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("features.h2")}</h2>
-            <ul className="mt-4 space-y-2 text-indigo-100/90 list-disc ml-5">
+            <ul className="mt-4 ml-5 list-disc space-y-2 text-indigo-100/90">
               {features.map((f, i) => (
                 <li key={i}>{f}</li>
               ))}
@@ -272,7 +280,7 @@ export default function BlogAndroid() {
           {/* Notes */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("notes.h2")}</h2>
-            <ul className="mt-4 space-y-2 text-indigo-100/90 list-disc ml-5">
+            <ul className="mt-4 ml-5 list-disc space-y-2 text-indigo-100/90">
               {notes.map((n, i) => (
                 <li key={i}>{n}</li>
               ))}
@@ -298,28 +306,36 @@ export default function BlogAndroid() {
           </SectionCard>
 
           {/* CTA */}
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-4">
+            {/* Browser */}
             <Link
               href="/"
-              className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_14px_40px_rgba(15,23,42,0.65)] transition hover:border-indigo-300/70 hover:bg-white/10 hover:text-white"
             >
-              {txs("cta.openBrowser")}
+              <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <span>Browser</span>
             </Link>
+
+            {/* App Store */}
             <a
               href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_14px_40px_rgba(15,23,42,0.65)] transition hover:border-indigo-300/70 hover:bg-white/10 hover:text-white"
             >
-              {txs("cta.downloadIOS")}
+              <FaAppStore className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
+              <span>App Store</span>
             </a>
+
+            {/* Google Play */}
             <a
               href="https://play.google.com/store/apps/details?id=world.senseai.minutes"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/60"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_14px_40px_rgba(15,23,42,0.65)] transition hover:border-emerald-300/70 hover:bg-white/10 hover:text-white"
             >
-              {txs("cta.downloadAndroid")}
+              <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
+              <span>Google Play</span>
             </a>
           </div>
         </main>
