@@ -8,11 +8,11 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
 
-// ★ 追加：各種アイコン
+// 各種アイコン
 import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
-import React from "react"; // ★ BoldParserのためにReactをインポート
+import React from "react"; // BoldParserのためにReactをインポート
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -170,7 +170,7 @@ function useTx(ns) {
   return { txs, txa };
 }
 
-/* ---------- ★ NEW HELPER: Simple Markdown Bold Parser ★ ---------- */
+/* ---------- Simple Markdown Bold Parser ---------- */
 /**
  * A simple component to parse strings with **bold** syntax.
  * @param {{children: string}} props
@@ -191,7 +191,6 @@ function BoldParser({ children }) {
     </>
   );
 }
-/* ---------- ★ END NEW HELPER ★ ---------- */
 
 
 /* ---------- Small UI components ---------- */
@@ -253,7 +252,7 @@ export default function BlogBusinessNegotiation() {
   const limitsOptimized = txa("limits.optimized.items");
   const whyItems = txa("why.items");
   
-  // ★ NEW: Pricing data
+  // Pricing data
   const pricingTimepackItems = txa("pricing.timepacks.items");
   const pricingSubItems = txa("pricing.subs.items");
 
@@ -372,7 +371,7 @@ export default function BlogBusinessNegotiation() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-indigo-200/9Nothing0">{txs("diversity.wide.h3")}</h3>
+                <h3 className="text-sm font-semibold text-indigo-200/90">{txs("diversity.wide.h3")}</h3>
                 <ul className="mt-2 ml-5 list-disc space-y-1 text-indigo-100/90">
                   {diversityWide.map((p, i) => (
                     <li key={i}>{p}</li>
@@ -386,7 +385,6 @@ export default function BlogBusinessNegotiation() {
           {/* What is negotiation */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("negotiation.h2")}</h2>
-            {/* ★ FIXED ★ */}
             <p className="mt-2 text-base leading-7 text-indigo-100/90">
               <BoldParser>{txs("negotiation.p1")}</BoldParser>
             </p>
@@ -400,7 +398,7 @@ export default function BlogBusinessNegotiation() {
             <div className="mt-5 grid grid-cols-1 gap-4">
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <h3 className="text-lg font-semibold">{txs("limits.generic.h3")}</h3>
-                <ul className="mt-2 ml-5 list-disc space-y-1 text-indigo-100/90">
+                <ul className="mt-2 ml-5 list-disc space-y-1 text-indigo-100/9Two">
                   {limitsGeneric.map((p, i) => (
                     <li key={i}>{p}</li>
                   ))}
@@ -425,7 +423,6 @@ export default function BlogBusinessNegotiation() {
 {txs("example.block")}
               </pre>
             </div>
-            {/* ★ FIXED ★ */}
             <p className="mt-3 text-base leading-7 text-indigo-100/90">
               <BoldParser>{txs("example.p1")}</BoldParser>
             </p>
@@ -435,14 +432,13 @@ export default function BlogBusinessNegotiation() {
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("why.h2")}</h2>
             <ul className="mt-4 ml-5 list-disc space-y-2 text-indigo-100/90">
-              {/* ★ FIXED ★ */}
               {whyItems.map((p, i) => (
                 <li key={i}><BoldParser>{p}</BoldParser></li>
               ))}
             </ul>
           </SectionCard>
 
-          {/* ---------- ★ PRICING SECTION (FIXED) ★ ---------- */}
+          {/* Pricing Section */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
             <p className="mt-2 text-base leading-7 text-indigo-100/90">{txs("pricing.p1")}</p>
@@ -451,7 +447,6 @@ export default function BlogBusinessNegotiation() {
               {/* Time Packs */}
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <h3 className="text-lg font-semibold">{txs("pricing.timepacks.h3")}</h3>
-                {/* ★ FIXED ★ */}
                 <p className="mt-1 text-sm text-indigo-200/80">
                   <BoldParser>{txs("pricing.timepacks.note")}</BoldParser>
                 </p>
@@ -464,7 +459,6 @@ export default function BlogBusinessNegotiation() {
               {/* Subscriptions */}
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 <h3 className="text-lg font-semibold">{txs("pricing.subs.h3")}</h3>
-                 {/* ★ FIXED ★ */}
                 <p className="mt-1 text-sm text-indigo-200/80">
                   <BoldParser>{txs("pricing.subs.note")}</BoldParser>
                 </p>
@@ -479,18 +473,15 @@ export default function BlogBusinessNegotiation() {
             {/* Free Offer */}
             <div className="mt-5 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-4">
                <h3 className="text-sm font-semibold uppercase tracking-wide text-emerald-200">{txs("pricing.free.h3")}</h3>
-               {/* ★ FIXED ★ */}
-               <p className="mt-1 text-sm text-emerald-100/90">
+_               <p className="mt-1 text-sm text-emerald-100/90">
                  <BoldParser>{txs("pricing.free.p1")}</BoldParser>
                </p>
             </div>
           </SectionCard>
-          {/* ---------- ★ END SECTION ★ ---------- */}
 
           {/* Wrap-up */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("wrap.h2")}</h2>
-            {/* ★ FIXED ★ */}
             <p className="mt-4 text-base leading-7 text-indigo-100/90">
               <BoldParser>{txs("wrap.p")}</BoldParser>
             </p>
@@ -504,7 +495,8 @@ export default function BlogBusinessNegotiation() {
               className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-4 py-2.5 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:bg-indigo-500/20 hover:border-indigo-100/80 hover:text-white"
             >
               <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
-              <span>Browser</span>
+              {/* 修正点：txs関数を使用してローカライズ対応 */}
+              <span>{txs("cta.openBrowser")}</span>
             </Link>
 
             {/* App Store */}
@@ -515,7 +507,8 @@ export default function BlogBusinessNegotiation() {
               className="group inline-flex items-center gap-2 rounded-full border border-sky-300/45 bg-sky-500/10 px-4 py-2.5 text-sm font-medium text-sky-50/90 backdrop-blur shadow-[0_18px_50px_rgba(56,189,248,0.65)] transition hover:bg-sky-500/20 hover:border-sky-100/80 hover:text-white"
             >
               <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
-              <span>App Store</span>
+              {/* 修正点：txs関数を使用してローカライズ対応 */}
+              <span>{txs("cta.downloadIOS")}</span>
             </a>
 
             {/* Google Play */}
@@ -526,6 +519,7 @@ export default function BlogBusinessNegotiation() {
               className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:bg-emerald-500/20 hover:border-emerald-100/80 hover:text-white"
             >
               <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
+              {/* Google Playはfallbackにキーがないため、ハードコードのまま */}
               <span>Google Play</span>
             </a>
           </div>
