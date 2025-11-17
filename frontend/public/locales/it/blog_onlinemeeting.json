@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Torna a Verbali IA" },
-  "cta": {
-    "downloadIOS": "Scarica l’app iOS",
-    "openBrowser": "Apri nel browser"
+  "seo": {
+    "title": "Verbali IA ora supporta le Riunioni Online (iOS)",
+    "description": "Fai clic su \"Online\" per emettere un URL, condividerlo e avviare immediatamente una riunione simile a Zoom. I verbali puliti vengono generati automaticamente al termine della riunione.",
+    "ogTitle": "Le Riunioni Online arrivano su Verbali IA",
+    "ogDescription": "Avvia riunioni simili a Zoom dal pulsante \"Online\" e ottieni verbali automatici e ben formattati alla fine.",
+    "ld": {
+      "headline": "Verbali IA aggiunge le Riunioni Online",
+      "description": "Ospita riunioni simili a Zoom tramite un URL emesso, quindi ottieni verbali automatici con decisioni chiare e punti azione."
+    }
   },
-  "features": {
-    "h2": "In evidenza",
-    "items": [
-      "UX in stile Zoom (basata su LiveKit)",
-      "Emissione URL con un clic",
-      "Verbali automatici a fine riunione",
-      "Output leggibili e formattati",
-      "Multilingue per team globali"
-    ]
+  "aria": {
+    "home": "Verbali IA Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Riunioni Online"
   },
   "hero": {
-    "h1": "Online Meetings per Verbali IA (iOS)",
-    "kicker": "Note di rilascio",
-    "tagline": "Clicca \"Online\", emetti un URL, condividilo ed entra. Al termine, i verbali si generano automaticamente."
-  },
-  "image": {
-    "alt": "Interfaccia Online Meeting di Verbali IA",
-    "caption": "Avvia una riunione in stile Zoom dal pulsante \"Online\"."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Pubblicato",
-    "type": "Rilascio"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Provalo sul web o scarica l’app iOS.",
-    "h2": "Note",
-    "items": [
-      "Durata e tempo residuo dipendono dal piano/quota",
-      "Rete e impostazioni del dispositivo possono influire sulla qualità"
-    ]
+    "kicker": "Nota di rilascio",
+    "h1": "Riunioni Online per Verbali IA (iOS)",
+    "tagline": "Passa da \"Avvia Riunione\" a \"Verbale Finito\"—Istantaneamente.\nFai clic sul nuovo pulsante **\"Online\"**, emetti un URL unico e condividilo con il tuo team. Proprio così, sei in una riunione dal vivo. Quando riagganci, Verbali IA si mette automaticamente al lavoro per generare il tuo verbale completo e formattato."
   },
   "release": {
-    "h2": "Novità",
-    "p1": "Verbali IA ora supporta Online Meetings. Basta cliccare \"Online\" per emettere un URL e condividerlo per avviare una chiamata in stile Zoom.",
-    "p2": "Al termine della riunione, i verbali vengono generati automaticamente con decisioni e azioni chiare."
+    "h2": "Cosa c'è di nuovo",
+    "p1": "Dimentica di passare da un'app all'altra. Abbiamo integrato una potente funzione di riunione online simile a Zoom direttamente in Verbali IA per iOS.",
+    "p2": "Questo aggiornamento trasforma il tuo flusso di lavoro: non hai più bisogno di un'app per ospitare la chiamata e un'altra per analizzarla. È una soluzione tutto in uno.",
+    "p3": "Ospita la tua chiamata con un'interfaccia pulita e familiare. Nel momento in cui la tua riunione termina, Verbali IA genera automaticamente i tuoi verbali di alta qualità, completi di **decisioni e punti azione** chiaramente catturati."
   },
-  "seo": {
-    "description": "Clicca \"Online\" per emettere un URL, condividilo e avvia immediatamente una riunione in stile Zoom. Verbali chiari generati automaticamente al termine.",
-    "ld": {
-      "description": "Ospita riunioni in stile Zoom tramite un URL emesso e ottieni verbali automatici con decisioni e azioni chiare.",
-      "headline": "Verbali IA aggiunge Online Meetings"
-    },
-    "ogDescription": "Avvia riunioni dal pulsante \"Online\" e ottieni verbali ben formattati al termine.",
-    "ogTitle": "Online Meetings arriva su Verbali IA",
-    "title": "Verbali IA supporta ora Online Meetings (iOS)"
+  "image": {
+    "alt": "UI Riunione Online Verbali IA",
+    "caption": "Avvia una riunione simile a Zoom direttamente dal pulsante \"Online\"."
   },
   "steps": {
-    "h2": "Come iniziare",
+    "h2": "Come iniziare in 4 semplici passaggi",
     "items": [
-      "Clicca \"Online\" nell’app o sul web",
-      "Emetti l’URL della riunione",
-      "Condividi l’URL con i partecipanti",
-      "Termina la riunione → verbali automatici"
-    ],
-    "note": "La durata dipende dal tuo piano e dalla quota residua."
+      "**Tocca \"Online\"**: Trova il nuovo pulsante \"Online\" nell'app o sul web.",
+      "**Emetti URL**: Ottieni immediatamente un link per la riunione unico e condivisibile.",
+      "**Condividi e Incontra**: Invia il link ai tuoi partecipanti per unirsi alla chiamata.",
+      "**Ottieni Verbali**: Termina la riunione e i tuoi verbali automatizzati saranno pronti pochi istanti dopo."
+    ]
+  },
+  "features": {
+    "h2": "Punti salienti",
+    "items": [
+      "**UX Familiare e di Alta Qualità**: Goditi un'esperienza di videochiamata fluida e simile a Zoom (basata su LiveKit).",
+      "**Semplicità con un clic**: Nessuna configurazione richiesta. Basta toccare una volta per ottenere il link della riunione.",
+      "**Verbali completamente automatici**: La forza principale di Verbali IA, ora integrata direttamente nelle tue chiamate.",
+      "**Formati puliti e leggibili**: Ottieni verbali che evidenziano decisioni e azioni, non solo un muro di testo.",
+      "**Supporto multilingue**: Perfetto per team globali, con supporto per più lingue."
+    ]
+  },
+  "notes": {
+    "h2": "Note importanti",
+    "items": [
+      "**Durata della riunione:** Il tempo totale di riunione disponibile si basa sul tuo piano Verbali IA attuale e sulla quota rimanente.",
+      "**Qualità della chiamata:** Come per qualsiasi chiamata online, la qualità audio e video può essere influenzata dalle condizioni della rete e dalle impostazioni del dispositivo."
+    ]
+  },
+  "pricing": {
+    "h2": "Come funziona con il tuo piano Verbali IA",
+    "p1": "Poiché i \"prezzi\" sono una domanda frequente, ecco una semplice spiegazione di come questa nuova funzione si integra con i nostri piani.",
+    "p2": "La tua quota di tempo per le riunioni è la stessa della tua quota di trascrizione. Offriamo due semplici opzioni che si adattano al tuo modo di lavorare.",
+    "timepacks": {
+      "h3": "1. Pacchetti singoli (non scadono mai)",
+      "p1": "Perfetti per riunioni occasionali. Acquista un pacchetto di minuti e usali quando vuoi, questo mese o l'anno prossimo.",
+      "items": [
+        "Prova: 120 minuti a **$1.99**",
+        "Light: 1200 minuti a **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Abbonamenti (Veramente illimitati)",
+      "p1": "Per team con riunioni regolari o quotidiane. Dimentica di guardare l'orologio: passa semplicemente al veramente illimitato.",
+      "items": [
+        "Mensile: **$16.99** / mese",
+        "Annuale: **$149.99** / anno (Risparmi circa il 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Non dimenticare:** Ricevi un **biglietto gratuito da 3 minuti ogni singolo giorno** per provare qualsiasi funzione, incluse le Riunioni Online!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Rilascio",
+    "category": "Riunione Online"
+  },
+  "cta": {
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica l'app iOS"
   }
 }

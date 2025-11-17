@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Protokoll KI unterstützt jetzt Online-Meetings (iOS)",
+    "description": "Klicken Sie auf \"Online\", um eine URL zu erhalten, teilen Sie sie und starten Sie sofort ein Zoom-ähnliches Meeting. Saubere Protokolle werden automatisch generiert, wenn das Meeting endet.",
+    "ogTitle": "Online-Meetings kommen zu Protokoll KI",
+    "ogDescription": "Starten Sie Zoom-ähnliche Meetings über die „Online“-Schaltfläche und erhalten Sie am Ende automatisch gut formatierte Protokolle.",
+    "ld": {
+      "headline": "Protokoll KI fügt Online-Meetings hinzu",
+      "description": "Veranstalten Sie Zoom-ähnliche Meetings über eine ausgegebene URL und erhalten Sie dann automatische Protokolle mit klaren Entscheidungen und Aktionspunkten."
+    }
+  },
   "aria": {
     "home": "Protokoll KI Startseite"
-  },
-  "cta": {
-    "downloadIOS": "iOS-App laden",
-    "openBrowser": "Im Browser öffnen"
-  },
-  "features": {
-    "h2": "Highlights",
-    "items": [
-      "Zoom-ähnliche UX (LiveKit-basiert)",
-      "URL mit einem Klick",
-      "Automatische Protokolle am Ende",
-      "Lesbare, formatierte Ausgaben",
-      "Mehrsprachig für globale Teams"
-    ]
-  },
-  "hero": {
-    "h1": "Online-Meetings für Protokoll KI (iOS)",
-    "kicker": "Release-Hinweis",
-    "tagline": "„Online“ klicken, URL erzeugen und teilen. Nach dem Ende startet die automatische Protokollerstellung."
-  },
-  "image": {
-    "alt": "Protokoll KI Online-Meeting UI",
-    "caption": "Zoom-ähnliches Meeting über die Schaltfläche „Online“ starten."
-  },
-  "meta": {
-    "category": "Online-Meeting",
-    "h2": "Meta",
-    "published": "Veröffentlicht",
-    "type": "Release"
   },
   "nav": {
     "blog": "Blog",
     "onlinemeeting": "Online-Meetings"
   },
-  "notes": {
-    "foot": "Jetzt im Web testen oder iOS-App laden.",
-    "h2": "Hinweise",
-    "items": [
-      "Dauer/Restzeit abhängig von Tarif/Kontingent",
-      "Netzwerk und Gerät können Qualität beeinflussen"
-    ]
+  "hero": {
+    "kicker": "Release Note",
+    "h1": "Online-Meetings für Protokoll KI (iOS)",
+    "tagline": "Von „Meeting starten“ zu „Fertiges Protokoll“ – sofort.\nKlicken Sie auf die neue **„Online“**-Schaltfläche, erhalten Sie eine einzigartige URL und teilen Sie sie mit Ihrem Team. Einfach so sind Sie in einem Live-Meeting. Wenn Sie auflegen, beginnt Protokoll KI automatisch mit der Erstellung Ihres vollständigen, formatierten Protokolls."
   },
   "release": {
-    "h2": "Neu",
-    "p1": "Protokoll KI unterstützt ab sofort Online-Meetings. Mit „Online“ erzeugen Sie eine URL und teilen sie, um sofort zu starten.",
-    "p2": "Nach dem Meeting werden Protokolle automatisch erstellt – Entscheidungen und Aufgaben klar erkennbar."
+    "h2": "Was ist neu",
+    "p1": "Vergessen Sie das Wechseln zwischen Apps. Wir haben eine leistungsstarke, Zoom-ähnliche Online-Meeting-Funktion direkt in Protokoll KI für iOS integriert.",
+    "p2": "Dieses Update transformiert Ihren Workflow: Sie benötigen nicht länger eine App, um den Anruf zu hosten, und eine andere, um ihn zu analysieren. Es ist eine All-in-One-Lösung.",
+    "p3": "Hosten Sie Ihren Anruf mit einer sauberen, vertrauten Oberfläche. Sobald Ihr Meeting endet, generiert Protokoll KI automatisch Ihre hochwertigen Protokolle, komplett mit klar erfassten **Entscheidungen und Aktionspunkten**."
   },
-  "seo": {
-    "description": "Über „Online“ eine URL erstellen, teilen und sofort ein Zoom-ähnliches Meeting starten. Am Ende werden Protokolle automatisch generiert.",
-    "ld": {
-      "description": "Zoom-ähnliche Meetings per URL und automatische Protokolle mit klaren Entscheidungen und Aufgaben.",
-      "headline": "Protokoll KI fügt Online-Meetings hinzu"
-    },
-    "ogDescription": "Mit der „Online“-Taste Meetings starten und automatisch formatierte Protokolle erhalten.",
-    "ogTitle": "Online-Meetings für Protokoll KI",
-    "title": "Protokoll KI unterstützt jetzt Online-Meetings (iOS)"
+  "image": {
+    "alt": "Protokoll KI Online-Meeting UI",
+    "caption": "Starten Sie ein Zoom-ähnliches Meeting direkt über die „Online“-Schaltfläche."
   },
   "steps": {
-    "h2": "So starten Sie",
+    "h2": "So starten Sie in 4 einfachen Schritten",
     "items": [
-      "„Online“ in App/Web klicken",
-      "Meeting-URL erzeugen",
-      "URL mit Teilnehmenden teilen",
-      "Meeting beenden → automatische Protokolle"
-    ],
-    "note": "Dauer richtet sich nach Tarif und Restkontingent."
+      "**Tippen Sie auf „Online“**: Finden Sie die neue „Online“-Schaltfläche in der App oder im Web.",
+      "**URL erhalten**: Erhalten Sie sofort einen einzigartigen, teilbaren Meeting-Link.",
+      "**Teilen & Treffen**: Senden Sie den Link an Ihre Teilnehmer, um dem Anruf beizutreten.",
+      "**Protokoll erhalten**: Beenden Sie das Meeting, und Ihre automatisierten Protokolle sind Momente später bereit."
+    ]
+  },
+  "features": {
+    "h2": "Wichtige Highlights",
+    "items": [
+      "**Vertraute, hochwertige UX**: Genießen Sie ein reibungsloses, Zoom-ähnliches Videoanruf-Erlebnis (basiert auf LiveKit).",
+      "**Ein-Klick-Einfachheit**: Keine Einrichtung erforderlich. Tippen Sie einfach einmal, um Ihren Meeting-Link zu erhalten.",
+      "**Vollautomatische Protokolle**: Die Kernstärke von Protokoll KI, jetzt direkt in Ihre Anrufe integriert.",
+      "**Saubere, lesbare Formate**: Erhalten Sie Protokolle, die Entscheidungen und Aktionen hervorheben, nicht nur eine Textwand.",
+      "**Mehrsprachige Unterstützung**: Perfekt für globale Teams, mit Unterstützung für mehrere Sprachen."
+    ]
+  },
+  "notes": {
+    "h2": "Wichtige Hinweise",
+    "items": [
+      "**Meeting-Dauer:** Die gesamte verfügbare Meeting-Zeit basiert auf Ihrem aktuellen Protokoll KI-Plan und dem verbleibenden Kontingent.",
+      "**Anrufqualität:** Wie bei jedem Online-Anruf kann die Audio- und Videoqualität von Ihren Netzwerkbedingungen und Geräteeinstellungen beeinflusst werden."
+    ]
+  },
+  "pricing": {
+    "h2": "Wie dies mit Ihrem Protokoll KI-Plan funktioniert",
+    "p1": "Da „Preise“ eine Top-Frage ist, finden Sie hier eine einfache Aufschlüsselung, wie diese neue Funktion mit unseren Plänen funktioniert.",
+    "p2": "Ihr Meeting-Zeitkontingent ist dasselbe wie Ihr Transkriptionskontingent. Wir bieten zwei einfache Optionen, die zu Ihrer Arbeitsweise passen.",
+    "timepacks": {
+      "h3": "1. Einmal-Pakete (Sie verfallen nie)",
+      "p1": "Perfekt für gelegentliche Meetings. Kaufen Sie ein Paket an Minuten und nutzen Sie es, wann immer Sie wollen – diesen Monat oder nächstes Jahr.",
+      "items": [
+        "Test: 120 Minuten für **$1.99**",
+        "Light: 1200 Minuten für **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Abonnements (Wirklich unbegrenzt)",
+      "p1": "Für Teams mit regelmäßigen oder täglichen Meetings. Vergessen Sie das Beobachten der Uhr – nutzen Sie es einfach wirklich unbegrenzt.",
+      "items": [
+        "Monatlich: **$16.99** / Monat",
+        "Jährlich: **$149.99** / Jahr (Spart Ihnen ca. 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Nicht vergessen:** Sie erhalten jeden Tag ein **kostenloses 3-Minuten-Ticket**, um jede Funktion auszuprobieren, einschließlich Online-Meetings!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Veröffentlicht",
+    "type": "Release",
+    "category": "Online-Meeting"
+  },
+  "cta": {
+    "openBrowser": "Im Browser öffnen",
+    "downloadIOS": "iOS-App herunterladen"
   }
 }

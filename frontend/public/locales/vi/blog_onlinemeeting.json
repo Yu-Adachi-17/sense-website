@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Quay lại Biên bản AI" },
-  "cta": {
-    "downloadIOS": "Tải ứng dụng iOS",
-    "openBrowser": "Mở trong trình duyệt"
+  "seo": {
+    "title": "Biên bản AI hiện hỗ trợ Họp Trực Tuyến (iOS)",
+    "description": "Nhấp vào \"Trực tuyến\" để cấp URL, chia sẻ và bắt đầu cuộc họp giống như Zoom ngay lập tức. Biên bản rõ ràng được tạo tự động khi cuộc họp kết thúc.",
+    "ogTitle": "Họp Trực Tuyến có mặt trên Biên bản AI",
+    "ogDescription": "Bắt đầu cuộc họp giống như Zoom từ nút \"Trực tuyến\" và nhận biên bản tự động, được định dạng tốt khi kết thúc.",
+    "ld": {
+      "headline": "Biên bản AI thêm tính năng Họp Trực Tuyến",
+      "description": "Tổ chức các cuộc họp giống như Zoom qua URL được cấp, sau đó nhận biên bản tự động với các quyết định và mục hành động rõ ràng."
+    }
   },
-  "features": {
-    "h2": "Điểm nổi bật",
-    "items": [
-      "Trải nghiệm kiểu Zoom (dựa trên LiveKit)",
-      "Phát hành URL chỉ với một lần nhấp",
-      "Tự động tạo biên bản khi kết thúc",
-      "Đầu ra rõ ràng, định dạng gọn gàng",
-      "Hỗ trợ đa ngôn ngữ cho đội ngũ toàn cầu"
-    ]
+  "aria": {
+    "home": "Biên bản AI Trang chủ"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Họp Trực Tuyến"
   },
   "hero": {
-    "h1": "Online Meetings cho Biên bản AI (iOS)",
     "kicker": "Ghi chú phát hành",
-    "tagline": "Nhấp \"Online\", phát hành URL, chia sẻ và tham gia. Khi kết thúc, biên bản sẽ được tạo tự động."
-  },
-  "image": {
-    "alt": "Giao diện Online Meeting của Biên bản AI",
-    "caption": "Bắt đầu cuộc họp kiểu Zoom từ nút \"Online\"."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Phát hành",
-    "type": "Bản phát hành"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Dùng thử trên web hoặc tải ứng dụng iOS.",
-    "h2": "Ghi chú",
-    "items": [
-      "Thời lượng và thời gian còn lại phụ thuộc gói/ hạn mức",
-      "Mạng và cài đặt thiết bị có thể ảnh hưởng chất lượng"
-    ]
+    "h1": "Họp Trực Tuyến cho Biên bản AI (iOS)",
+    "tagline": "Đi từ \"Bắt đầu Cuộc họp\" đến \"Hoàn thành Biên bản\"—Ngay lập tức.\nNhấp vào nút **\"Trực tuyến\"** mới, cấp một URL duy nhất và chia sẻ với nhóm của bạn. Chỉ đơn giản vậy, bạn đang ở trong một cuộc họp trực tiếp. Khi bạn gác máy, Biên bản AI sẽ tự động bắt đầu tạo biên bản đầy đủ, đã được định dạng của bạn."
   },
   "release": {
     "h2": "Có gì mới",
-    "p1": "Biên bản AI nay hỗ trợ Online Meetings. Chỉ cần nhấp \"Online\" để phát hành URL và bắt đầu cuộc gọi kiểu Zoom.",
-    "p2": "Khi kết thúc, biên bản được tạo tự động với quyết định và hạng mục hành động rõ ràng."
+    "p1": "Quên việc chuyển đổi giữa các ứng dụng đi. Chúng tôi đã xây dựng một tính năng họp trực tuyến mạnh mẽ, giống như Zoom ngay trong Biên bản AI cho iOS.",
+    "p2": "Bản cập nhật này biến đổi quy trình làm việc của bạn: bạn không còn cần một ứng dụng để tổ chức cuộc gọi và một ứng dụng khác để phân tích nó. Đây là một giải pháp tất cả trong một.",
+    "p3": "Tổ chức cuộc gọi của bạn với giao diện sạch sẽ, quen thuộc. Ngay khi cuộc họp của bạn kết thúc, Biên bản AI sẽ tự động tạo ra các biên bản chất lượng cao, hoàn chỉnh với **các quyết định và mục hành động** được ghi lại rõ ràng."
   },
-  "seo": {
-    "description": "Nhấp \"Online\" để phát hành URL, chia sẻ và bắt đầu ngay cuộc họp kiểu Zoom. Biên bản rõ ràng được tạo tự động khi kết thúc.",
-    "ld": {
-      "description": "Tổ chức họp kiểu Zoom qua URL đã phát hành, sau đó nhận biên bản tự động với quyết định và hành động rõ ràng.",
-      "headline": "Biên bản AI bổ sung Online Meetings"
-    },
-    "ogDescription": "Khởi động cuộc họp từ nút \"Online\" và nhận biên bản định dạng sẵn khi kết thúc.",
-    "ogTitle": "Online Meetings đến với Biên bản AI",
-    "title": "Biên bản AI nay hỗ trợ Online Meetings (iOS)"
+  "image": {
+    "alt": "Giao diện người dùng Họp Trực Tuyến của Biên bản AI",
+    "caption": "Bắt đầu cuộc họp giống như Zoom ngay từ nút \"Trực tuyến\"."
   },
   "steps": {
-    "h2": "Cách bắt đầu",
+    "h2": "Cách bắt đầu trong 4 bước đơn giản",
     "items": [
-      "Nhấp \"Online\" trên app hoặc web",
-      "Phát hành URL cuộc họp",
-      "Chia sẻ URL cho người tham gia",
-      "Kết thúc cuộc họp → biên bản tự động"
-    ],
-    "note": "Thời lượng họp phụ thuộc gói của bạn và hạn mức còn lại."
+      "**Nhấn \"Trực tuyến\"**: Tìm nút \"Trực tuyến\" mới trong ứng dụng hoặc trên web.",
+      "**Cấp URL**: Nhận ngay một liên kết cuộc họp duy nhất, có thể chia sẻ.",
+      "**Chia sẻ & Họp**: Gửi liên kết cho những người tham gia để tham gia cuộc gọi.",
+      "**Nhận Biên bản**: Kết thúc cuộc họp, và biên bản tự động của bạn sẽ sẵn sàng ngay sau đó."
+    ]
+  },
+  "features": {
+    "h2": "Điểm nổi bật chính",
+    "items": [
+      "**UX quen thuộc, chất lượng cao**: Tận hưởng trải nghiệm cuộc gọi video mượt mà, giống như Zoom (được cung cấp bởi LiveKit).",
+      "**Đơn giản chỉ bằng một cú nhấp chuột**: Không cần cài đặt. Chỉ cần nhấn một lần để nhận liên kết cuộc họp của bạn.",
+      "**Biên bản hoàn toàn tự động**: Sức mạnh cốt lõi của Biên bản AI, giờ đây được tích hợp trực tiếp vào các cuộc gọi của bạn.",
+      "**Định dạng sạch sẽ, dễ đọc**: Nhận biên bản nêu bật các quyết định và hành động, không chỉ là một bức tường văn bản.",
+      "**Hỗ trợ đa ngôn ngữ**: Hoàn hảo cho các nhóm toàn cầu, với sự hỗ trợ cho nhiều ngôn ngữ."
+    ]
+  },
+  "notes": {
+    "h2": "Ghi chú quan trọng",
+    "items": [
+      "**Thời lượng cuộc họp:** Tổng thời gian họp có sẵn dựa trên gói Biên bản AI hiện tại của bạn và hạn ngạch còn lại.",
+      "**Chất lượng cuộc gọi:** Giống như bất kỳ cuộc gọi trực tuyến nào, chất lượng âm thanh và video có thể bị ảnh hưởng bởi điều kiện mạng và cài đặt thiết bị của bạn."
+    ]
+  },
+  "pricing": {
+    "h2": "Điều này hoạt động như thế nào với gói Biên bản AI của bạn",
+    "p1": "Vì \"giá cả\" là một câu hỏi hàng đầu, đây là giải thích đơn giản về cách tính năng mới này hoạt động với các gói của chúng tôi.",
+    "p2": "Hạn ngạch thời gian họp của bạn giống như hạn ngạch phiên âm của bạn. Chúng tôi cung cấp hai lựa chọn đơn giản phù hợp với cách bạn làm việc.",
+    "timepacks": {
+      "h3": "1. Gói dùng một lần (Không bao giờ hết hạn)",
+      "p1": "Hoàn hảo cho các cuộc họp không thường xuyên. Mua một gói phút và sử dụng chúng bất cứ khi nào bạn muốn - tháng này, hoặc năm sau.",
+      "items": [
+        "Dùng thử: 120 phút với giá **$1.99**",
+        "Nhẹ: 1200 phút với giá **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Gói đăng ký (Thực sự không giới hạn)",
+      "p1": "Dành cho các nhóm có cuộc họp thường xuyên hoặc hàng ngày. Quên việc xem đồng hồ đi - chỉ cần sử dụng thực sự không giới hạn.",
+      "items": [
+        "Hàng tháng: **$16.99** / tháng",
+        "Hàng năm: **$149.99** / năm (Tiết kiệm khoảng 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Đừng quên:** Bạn nhận được một **vé miễn phí 3 phút mỗi ngày** để dùng thử bất kỳ tính năng nào, bao gồm cả Họp Trực Tuyến!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Đã xuất bản",
+    "type": "Phát hành",
+    "category": "Họp Trực Tuyến"
+  },
+  "cta": {
+    "openBrowser": "Mở trong trình duyệt",
+    "downloadIOS": "Tải ứng dụng iOS"
   }
 }

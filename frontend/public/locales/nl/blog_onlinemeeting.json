@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Notulen AI ondersteunt nu Online Vergaderingen (iOS)",
+    "description": "Klik op \"Online\" om een URL te genereren, deel deze en start direct een Zoom-achtige vergadering. Duidelijke notulen worden automatisch gegenereerd wanneer de vergadering eindigt.",
+    "ogTitle": "Online Vergaderingen komen naar Notulen AI",
+    "ogDescription": "Start Zoom-achtige vergaderingen vanaf de \"Online\" knop en ontvang aan het einde automatische, goed opgemaakte notulen.",
+    "ld": {
+      "headline": "Notulen AI voegt Online Vergaderingen toe",
+      "description": "Host Zoom-achtige vergaderingen via een gegenereerde URL, en ontvang vervolgens automatische notulen met duidelijke beslissingen en actiepunten."
+    }
+  },
   "aria": {
-    "home": "Notulen AI Startpagina"
-  },
-  "cta": {
-    "downloadIOS": "iOS-app downloaden",
-    "openBrowser": "Open in browser"
-  },
-  "features": {
-    "h2": "Pluspunten",
-    "items": [
-      "Zoom-achtige UX (LiveKit)",
-      "URL met één klik",
-      "Automatische notulen na afloop",
-      "Heldere, geformatteerde output",
-      "Meertalig voor globale teams"
-    ]
-  },
-  "hero": {
-    "h1": "Online vergaderingen voor Notulen AI (iOS)",
-    "kicker": "Release",
-    "tagline": "Klik “Online”, genereer een URL en deel. Na afloop starten de notulen automatisch."
-  },
-  "image": {
-    "alt": "Notulen AI online vergader-UI",
-    "caption": "Start vanuit de knop “Online”."
-  },
-  "meta": {
-    "category": "Online vergadering",
-    "h2": "Meta",
-    "published": "Gepubliceerd",
-    "type": "Release"
+    "home": "Notulen AI Home"
   },
   "nav": {
     "blog": "Blog",
-    "onlinemeeting": "Online vergaderingen"
+    "onlinemeeting": "Online Vergaderingen"
   },
-  "notes": {
-    "foot": "Probeer het op het web of download de iOS-app.",
-    "h2": "Opmerkingen",
-    "items": [
-      "Limieten/resterende tijd per abonnement/tegoed",
-      "Netwerk/apparaat kunnen kwaliteit beïnvloeden"
-    ]
+  "hero": {
+    "kicker": "Release-opmerking",
+    "h1": "Online Vergaderingen voor Notulen AI (iOS)",
+    "tagline": "Ga van \"Start Vergadering\" naar \"Voltooide Notulen\"—Direct.\nKlik op de new **\"Online\"** knop, genereer een unieke URL en deel deze met je team. Zo eenvoudig is het, je bent in een live vergadering. Wanneer je ophangt, gaat Notulen AI automatisch aan de slag met het genereren van je volledige, opgemaakte notulen."
   },
   "release": {
-    "h2": "Nieuw",
-    "p1": "Notulen AI ondersteunt nu online vergaderingen. Genereer en deel een URL vanuit “Online” om direct te starten.",
-    "p2": "Na de meeting worden notulen automatisch gemaakt met duidelijke besluiten en acties."
+    "h2": "Wat is er nieuw",
+    "p1": "Vergeet het schakelen tussen apps. We hebben een krachtige, Zoom-achtige online vergaderfunctie rechtstreeks in Notulen AI voor iOS ingebouwd.",
+    "p2": "Deze update transformeert je workflow: je hebt niet langer één app nodig om de oproep te hosten en een andere om deze te analyseren. Het is een alles-in-één oplossing.",
+    "p3": "Host je oproep met een schone, vertrouwde interface. Op het moment dat je vergadering eindigt, genereert Notulen AI automatisch je hoogwaardige notulen, compleet met duidelijk vastgelegde **beslissingen en actiepunten**."
   },
-  "seo": {
-    "description": "Klik op “Online” om een URL te maken, deel deze en start direct een Zoom-achtige meeting. Notulen worden automatisch gegenereerd na afloop.",
-    "ld": {
-      "description": "Zoom-achtige meetings via URL en automatische notulen met duidelijke besluiten en acties.",
-      "headline": "Notulen AI voegt online vergaderingen toe"
-    },
-    "ogDescription": "Start via “Online” en ontvang automatisch nette, geformatteerde notulen.",
-    "ogTitle": "Online vergaderingen in Notulen AI",
-    "title": "Notulen AI ondersteunt nu online vergaderingen (iOS)"
+  "image": {
+    "alt": "Notulen AI Online Vergadering UI",
+    "caption": "Start een Zoom-achtige vergadering direct vanaf de \"Online\" knop."
   },
   "steps": {
-    "h2": "Aan de slag",
+    "h2": "Hoe te beginnen in 4 eenvoudige stappen",
     "items": [
-      "Klik “Online” (app/web)",
-      "Genereer een vergader-URL",
-      "Deel de URL met deelnemers",
-      "Beëindig → automatische notulen"
-    ],
-    "note": "Duur is afhankelijk van abonnement en resterend tegoed."
+      "**Tik op \"Online\"**: Vind de new \"Online\" knop in de app of op het web.",
+      "**Genereer URL**: Ontvang direct een unieke, deelbare vergaderlink.",
+      "**Deel & Vergader**: Stuur de link naar je deelnemers om deel te nemen aan de oproep.",
+      "**Ontvang Notulen**: Beëindig de vergadering, en je geautomatiseerde notulen zijn even later klaar."
+    ]
+  },
+  "features": {
+    "h2": "Belangrijkste hoogtepunten",
+    "items": [
+      "**Vertrouwde, Hoogwaardige UX**: Geniet van een soepele, Zoom-achtige videogesprekervaring (aangedreven door LiveKit).",
+      "**Eenvoud met één klik**: Geen installatie vereist. Tik gewoon één keer om je vergaderlink te krijgen.",
+      "**Volledig Automatische Notulen**: De kernkracht van Notulen AI, nu rechtstreeks in je oproepen ingebouwd.",
+      "**Schone, Leesbare Formaten**: Krijg notulen die beslissingen en acties benadrukken, niet alleen een muur van tekst.",
+      "**Meertalige Ondersteuning**: Perfect voor wereldwijde teams, met ondersteuning voor meerdere talen."
+    ]
+  },
+  "notes": {
+    "h2": "Belangrijke opmerkingen",
+    "items": [
+      "**Vergaderduur:** De totale beschikbare vergadertijd is gebaseerd op je huidige Notulen AI-abonnement en resterende quotum.",
+      "**Gesprekskwaliteit:** Zoals bij elk online gesprek, kan de audio- en videokwaliteit worden beïnvloed door je netwerkomstandigheden en apparaatinstellingen."
+    ]
+  },
+  "pricing": {
+    "h2": "Hoe dit werkt met je Notulen AI-abonnement",
+    "p1": "Aangezien \"prijzen\" een topvraag is, volgt hier een eenvoudige uitleg over hoe deze nieuwe functie werkt met onze abonnementen.",
+    "p2": "Je vergadertijdquotum is hetzelfde als je transcriptiequotum. We bieden twee eenvoudige opties die passen bij jouw manier van werken.",
+    "timepacks": {
+      "h3": "1. Eenmalige Pakketten (Ze verlopen nooit)",
+      "p1": "Perfect voor occasionele vergaderingen. Koop een pakket minuten en gebruik ze wanneer je maar wilt - deze maand, of volgend jaar.",
+      "items": [
+        "Proef: 120 minuten voor **$1.99**",
+        "Licht: 1200 minuten voor **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Abonnementen (Echt onbeperkt)",
+      "p1": "Voor teams met regelmatige of dagelijkse vergaderingen. Vergeet het kijken op de klok - ga gewoon voor echt onbeperkt.",
+      "items": [
+        "Maandelijks: **$16.99** / maand",
+        "Jaarlijks: **$149.99** / jaar (Bespaart je ongeveer 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Vergeet niet:** Je krijgt elke dag een **gratis ticket van 3 minuten** om elke functie uit te proberen, inclusief Online Vergaderingen!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Release",
+    "category": "Online Vergadering"
+  },
+  "cta": {
+    "openBrowser": "Openen in browser",
+    "downloadIOS": "Download iOS app"
   }
 }

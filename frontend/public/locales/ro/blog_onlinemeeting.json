@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Înapoi la Proces-verbal AI" },
-  "cta": {
-    "downloadIOS": "Descarcă aplicația iOS",
-    "openBrowser": "Deschide în browser"
+  "seo": {
+    "title": "Proces-verbal AI suportă acum Întâlniri Online (iOS)",
+    "description": "Faceți clic pe \"Online\" pentru a emite un URL, partajați-l și începeți instantaneu o întâlnire de tip Zoom. Procese-verbale clare sunt generate automat la încheierea întâlnirii.",
+    "ogTitle": "Întâlnirile Online vin pe Proces-verbal AI",
+    "ogDescription": "Începeți întâlniri de tip Zoom de la butonul \"Online\" și obțineți procese-verbale automate și bine formatate la final.",
+    "ld": {
+      "headline": "Proces-verbal AI adaugă Întâlniri Online",
+      "description": "Găzduiți întâlniri de tip Zoom printr-un URL emis, apoi obțineți procese-verbale automate cu decizii clare și puncte de acțiune."
+    }
   },
-  "features": {
-    "h2": "Esențiale",
-    "items": [
-      "UX tip Zoom (bazat pe LiveKit)",
-      "Emitere URL cu un clic",
-      "Proces-verbal automat la final",
-      "Rezultate lizibile și formatate",
-      "Multilingv pentru echipe globale"
-    ]
+  "aria": {
+    "home": "Proces-verbal AI Acasă"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Întâlniri Online"
   },
   "hero": {
-    "h1": "Online Meetings pentru Proces-verbal AI (iOS)",
     "kicker": "Notă de lansare",
-    "tagline": "Apasă „Online”, emite un URL, distribuie și intră. La încheiere, procesul-verbal se generează automat."
-  },
-  "image": {
-    "alt": "Interfața Online Meeting Proces-verbal AI",
-    "caption": "Pornește o întâlnire tip Zoom din butonul „Online”."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Publicat",
-    "type": "Lansare"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Încearcă pe web sau descarcă aplicația iOS.",
-    "h2": "Note",
-    "items": [
-      "Durata și timpul rămas depind de plan/cotă",
-      "Condițiile de rețea și setările dispozitivului pot afecta calitatea"
-    ]
+    "h1": "Întâlniri Online pentru Proces-verbal AI (iOS)",
+    "tagline": "Treceți de la \"Începe Întâlnirea\" la \"Proces-verbal Terminat\"—Instantaneu.\nFaceți clic pe noul buton **\"Online\"**, emiteți un URL unic și partajați-l cu echipa dvs. Exact așa, sunteți într-o întâlnire live. Când închideți, Proces-verbal AI începe automat să genereze procesul-verbal complet și formatat."
   },
   "release": {
-    "h2": "Ce e nou",
-    "p1": "Proces-verbal AI acceptă acum Online Meetings. Doar apasă „Online” pentru a emite un URL și a începe un apel tip Zoom.",
-    "p2": "La final, procesul-verbal se generează automat cu decizii și acțiuni clare."
+    "h2": "Ce este nou",
+    "p1": "Uitați de comutarea între aplicații. Am construit o funcție puternică de întâlnire online de tip Zoom direct în Proces-verbal AI pentru iOS.",
+    "p2": "Această actualizare vă transformă fluxul de lucru: nu mai aveți nevoie de o aplicație pentru a găzdui apelul și de alta pentru a-l analiza. Este o soluție all-in-one.",
+    "p3": "Găzduiți apelul cu o interfață curată și familiară. În momentul în care întâlnirea se termină, Proces-verbal AI generează automat procesele-verbale de înaltă calitate, completate cu **decizii și puncte de acțiune** clar capturate."
   },
-  "seo": {
-    "description": "Apasă „Online” pentru a emite un URL, distribuie și pornește instant o întâlnire tip Zoom. La final se generează automat procese-verbale clare.",
-    "ld": {
-      "description": "Găzduiește întâlniri tip Zoom printr-un URL emis și obține procese-verbale automate cu decizii/acțiuni clare.",
-      "headline": "Proces-verbal AI adaugă Online Meetings"
-    },
-    "ogDescription": "Pornește întâlniri din butonul „Online” și primești la final procese-verbale formatate automat.",
-    "ogTitle": "Online Meetings ajunge în Proces-verbal AI",
-    "title": "Proces-verbal AI acceptă acum Online Meetings (iOS)"
+  "image": {
+    "alt": "Interfața UI Întâlnire Online Proces-verbal AI",
+    "caption": "Începeți o întâlnire de tip Zoom direct de la butonul \"Online\"."
   },
   "steps": {
-    "h2": "Cum începi",
+    "h2": "Cum să începeți în 4 pași simpli",
     "items": [
-      "Apasă „Online” în aplicație sau pe web",
-      "Emite URL-ul întâlnirii",
-      "Distribuie URL-ul participanților",
-      "Încheie întâlnirea → proces-verbal automat"
-    ],
-    "note": "Durata depinde de planul tău și cota rămasă."
+      "**Apăsați \"Online\"**: Găsiți noul buton \"Online\" în aplicație sau pe web.",
+      "**Emiteți URL**: Obțineți instantaneu un link de întâlnire unic și partajabil.",
+      "**Partajați și Întâlniți-vă**: Trimiteți linkul participanților pentru a se alătura apelului.",
+      "**Obțineți Procese-verbale**: Încheiați întâlnirea, iar procesele-verbale automate vor fi gata câteva momente mai târziu."
+    ]
+  },
+  "features": {
+    "h2": "Aspecte Principale",
+    "items": [
+      "**UX Familiar și de Înaltă Calitate**: Bucurați-vă de o experiență de apel video fluidă și similară cu Zoom (bazată pe LiveKit).",
+      "**Simplitate printr-un clic**: Nu este necesară nicio configurare. Doar atingeți o dată pentru a obține linkul întâlnirii.",
+      "**Procese-verbale complet automate**: Punctul forte al Proces-verbal AI, acum integrat direct în apelurile dvs.",
+      "**Formate Clare și Lizibile**: Obțineți procese-verbale care evidențiază deciziile și acțiunile, nu doar un zid de text.",
+      "**Suport Multilingv**: Perfect pentru echipe globale, cu suport pentru mai multe limbi."
+    ]
+  },
+  "notes": {
+    "h2": "Note Importante",
+    "items": [
+      "**Durata Întâlnirii:** Timpul total disponibil pentru întâlniri se bazează pe planul dvs. actual Proces-verbal AI și pe cota rămasă.",
+      "**Calitatea Apelului:** Ca în cazul oricărui apel online, calitatea audio și video poate fi afectată de condițiile rețelei și de setările dispozitivului."
+    ]
+  },
+  "pricing": {
+    "h2": "Cum funcționează acest lucru cu planul dvs. Proces-verbal AI",
+    "p1": "Deoarece \"prețurile\" reprezintă o întrebare de top, iată o explicație simplă a modului în care această nouă funcție se integrează cu planurile noastre.",
+    "p2": "Cota dvs. de timp pentru întâlniri este aceeași cu cota dvs. de transcriere. Oferim două opțiuni simple care se potrivesc modului dvs. de lucru.",
+    "timepacks": {
+      "h3": "1. Pachete Unice (Nu expiră niciodată)",
+      "p1": "Perfecte pentru întâlniri ocazionale. Cumpărați un pachet de minute și folosiți-le oricând doriți - luna aceasta sau anul viitor.",
+      "items": [
+        "Probă: 120 de minute pentru **$1.99**",
+        "Light: 1200 de minute pentru **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Abonamente (Cu adevărat nelimitate)",
+      "p1": "Pentru echipele cu întâlniri regulate sau zilnice. Uitați de privitul ceasului - treceți pur și simplu la nelimitat.",
+      "items": [
+        "Lunar: **$16.99** / lună",
+        "Anual: **$149.99** / an (Economisiți aproximativ 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Nu uitați:** Primiți un **bilet gratuit de 3 minute în fiecare zi** pentru a încerca orice funcție, inclusiv Întâlnirile Online!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Lansare",
+    "category": "Întâlnire Online"
+  },
+  "cta": {
+    "openBrowser": "Deschide în browser",
+    "downloadIOS": "Descărcați aplicația iOS"
   }
 }

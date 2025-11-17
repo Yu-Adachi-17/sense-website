@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Ata AI agora suporta Reuniões Online (iOS)",
+    "description": "Clique em \"Online\" para emitir um URL, compartilhe-o e inicie instantaneamente uma reunião do tipo Zoom. Atas limpas são geradas automaticamente quando a reunião termina.",
+    "ogTitle": "Reuniões Online chegam ao Ata AI",
+    "ogDescription": "Inicie reuniões do tipo Zoom a partir do botão \"Online\" e obtenha atas automáticas e bem formatadas no final.",
+    "ld": {
+      "headline": "Ata AI adiciona Reuniões Online",
+      "description": "Organize reuniões do tipo Zoom através de um URL emitido e, em seguida, obtenha atas automáticas com decisões claras e itens de ação."
+    }
+  },
   "aria": {
-    "home": "Página inicial Ata AI"
-  },
-  "cta": {
-    "downloadIOS": "Descarregar app iOS",
-    "openBrowser": "Abrir no navegador"
-  },
-  "features": {
-    "h2": "Destaques",
-    "items": [
-      "UX semelhante ao Zoom (LiveKit)",
-      "URL num clique",
-      "Atas automáticas no final",
-      "Saída formatada e legível",
-      "Multilingue para equipas globais"
-    ]
-  },
-  "hero": {
-    "h1": "Reuniões online para Ata AI (iOS)",
-    "kicker": "Lançamento",
-    "tagline": "Clique em “Online”, gere o URL e partilhe. No final, as atas iniciam automaticamente."
-  },
-  "image": {
-    "alt": "Interface de reunião online Ata AI",
-    "caption": "Comece pelo botão “Online”."
-  },
-  "meta": {
-    "category": "Reunião online",
-    "h2": "Meta",
-    "published": "Publicado",
-    "type": "Lançamento"
+    "home": "Ata AI Página Inicial"
   },
   "nav": {
     "blog": "Blog",
-    "onlinemeeting": "Reunião online"
+    "onlinemeeting": "Reuniões Online"
   },
-  "notes": {
-    "foot": "Experimente na web ou descarregue a app iOS.",
-    "h2": "Notas",
-    "items": [
-      "Limites/tempo restante dependem de plano/quota",
-      "Rede/dispositivo podem afetar a qualidade"
-    ]
+  "hero": {
+    "kicker": "Nota de Lançamento",
+    "h1": "Reuniões Online para Ata AI (iOS)",
+    "tagline": "Vá de \"Iniciar Reunião\" para \"Ata Concluída\"—Instantaneamente.\nClique no novo botão **\"Online\"**, emita um URL exclusivo e compartilhe-o com sua equipe. Simples assim, você está em uma reunião ao vivo. Ao desligar, o Ata AI começa automaticamente a gerar sua ata completa e formatada."
   },
   "release": {
-    "h2": "Novidade",
-    "p1": "O Ata AI passa a suportar reuniões online. Gere e partilhe um URL a partir de “Online” para começar já.",
-    "p2": "No final da reunião, as atas são geradas automaticamente com decisões e ações claras."
+    "h2": "O que há de novo",
+    "p1": "Esqueça a troca entre aplicativos. Construímos um poderoso recurso de reunião online do tipo Zoom diretamente no Ata AI para iOS.",
+    "p2": "Esta atualização transforma seu fluxo de trabalho: você não precisa mais de um aplicativo para hospedar a chamada e outro para analisá-la. É uma solução tudo-em-um.",
+    "p3": "Hospede sua chamada com uma interface limpa e familiar. No momento em que sua reunião termina, o Ata AI gera automaticamente suas atas de alta qualidade, completas com **decisões e itens de ação** claramente capturados."
   },
-  "seo": {
-    "description": "Clique em “Online” para gerar um URL, partilhe-o e inicie de imediato uma reunião ao estilo Zoom. As atas são geradas automaticamente no final.",
-    "ld": {
-      "description": "Reuniões tipo Zoom por URL e atas automáticas com decisões e ações.",
-      "headline": "Suporte a reuniões online"
-    },
-    "ogDescription": "Comece em “Online” e receba atas automáticas e bem formatadas.",
-    "ogTitle": "Reuniões online no Ata AI",
-    "title": "O Ata AI agora suporta reuniões online (iOS)"
+  "image": {
+    "alt": "Interface de Reunião Online do Ata AI",
+    "caption": "Inicie uma reunião do tipo Zoom diretamente do botão \"Online\"."
   },
   "steps": {
-    "h2": "Como começar",
+    "h2": "Como começar em 4 passos simples",
     "items": [
-      "Clique em “Online” (app/web)",
-      "Gere o URL da reunião",
-      "Partilhe com os participantes",
-      "Termine → atas automáticas"
-    ],
-    "note": "Duração depende do plano e da quota restante."
+      "**Toque em \"Online\"**: Encontre o novo botão \"Online\" no aplicativo ou na web.",
+      "**Emita URL**: Obtenha instantaneamente um link de reunião exclusivo e compartilhável.",
+      "**Compartilhe e Reúna-se**: Envie o link para seus participantes para entrarem na chamada.",
+      "**Obtenha Atas**: Termine a reunião, e suas atas automatizadas estarão prontas momentos depois."
+    ]
+  },
+  "features": {
+    "h2": "Destaques Principais",
+    "items": [
+      "**UX Familiar e de Alta Qualidade**: Desfrute de uma experiência de videochamada suave e semelhante ao Zoom (baseada no LiveKit).",
+      "**Simplicidade de Um Clique**: Nenhuma configuração necessária. Basta tocar uma vez para obter o link da sua reunião.",
+      "**Atas Totalmente Automáticas**: A força central do Ata AI, agora integrada diretamente em suas chamadas.",
+      "**Formatos Limpos e Legíveis**: Obtenha atas que destacam decisões e ações, não apenas um muro de texto.",
+      "**Suporte Multilíngue**: Perfeito para equipes globais, com suporte para vários idiomas."
+    ]
+  },
+  "notes": {
+    "h2": "Notas Importantes",
+    "items": [
+      "**Duração da Reunião:** O tempo total de reunião disponível é baseado no seu plano Ata AI atual e na cota restante.",
+      "**Qualidade da Chamada:** Como em qualquer chamada online, a qualidade do áudio e do vídeo pode ser afetada pelas condições da sua rede e pelas configurações do dispositivo."
+    ]
+  },
+  "pricing": {
+    "h2": "Como isso funciona com seu plano Ata AI",
+    "p1": "Como \"preços\" é uma das principais perguntas, aqui está um detalhamento simples de como esse novo recurso funciona com nossos planos.",
+    "p2": "Sua cota de tempo de reunião é a mesma que sua cota de transcrição. Oferecemos duas opções simples que se adaptam à sua maneira de trabalhar.",
+    "timepacks": {
+      "h3": "1. Pacotes Avulsos (Eles nunca expiram)",
+      "p1": "Perfeito para reuniões ocasionais. Compre um pacote de minutos e use-os quando quiser - este mês ou no próximo ano.",
+      "items": [
+        "Teste: 120 minutos por **$1.99**",
+        "Leve: 1200 minutos por **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Assinaturas (Verdadeiramente Ilimitadas)",
+      "p1": "Para equipes com reuniões regulares ou diárias. Esqueça de olhar o relógio - apenas vá para o verdadeiramente ilimitado.",
+      "items": [
+        "Mensal: **$16.99** / mês",
+        "Anual: **$149.99** / ano (Economiza cerca de 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Não se esqueça:** Você ganha um **ticket gratuito de 3 minutos todos os dias** para experimentar qualquer recurso, incluindo Reuniões Online!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Lançamento",
+    "category": "Reunião Online"
+  },
+  "cta": {
+    "openBrowser": "Abrir no navegador",
+    "downloadIOS": "Baixar aplicativo iOS"
   }
 }

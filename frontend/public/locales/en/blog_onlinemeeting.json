@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Minutes.AI now supports Online Meetings (iOS)",
+    "description": "Click \"Online\" to issue a URL, share it, and start a Zoom-like meeting instantly. Clean minutes are generated automatically when the meeting ends.",
+    "ogTitle": "Online Meetings come to Minutes.AI",
+    "ogDescription": "Start Zoom-like meetings from the \"Online\" button and get automatic, well-formatted minutes at the end.",
+    "ld": {
+      "headline": "Minutes.AI adds Online Meetings",
+      "description": "Host Zoom-like meetings via an issued URL, then get automatic minutes with clear decisions and actions."
+    }
+  },
   "aria": {
     "home": "Minutes.AI Home"
-  },
-  "cta": {
-    "downloadIOS": "Download iOS app",
-    "openBrowser": "Open in browser"
-  },
-  "features": {
-    "h2": "Highlights",
-    "items": [
-      "Zoom-like UX (LiveKit-based)",
-      "One-click URL issuance",
-      "Automatic minutes at end of meeting",
-      "Readable, formatted outputs",
-      "Multilingual for global teams"
-    ]
-  },
-  "hero": {
-    "h1": "Online Meetings for Minutes.AI (iOS)",
-    "kicker": "Release Note",
-    "tagline": "Click \"Online\", issue a URL, share it, and you're in. When you hang up, minutes start generating automatically."
-  },
-  "image": {
-    "alt": "Minutes.AI Online Meeting UI",
-    "caption": "Start a Zoom-like meeting from the \"Online\" button."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Published",
-    "type": "Release"
   },
   "nav": {
     "blog": "Blog",
     "onlinemeeting": "Online Meetings"
   },
-  "notes": {
-    "foot": "Try it on web or download the iOS app.",
-    "h2": "Notes",
-    "items": [
-      "Duration limits and remaining time depend on your plan/quota",
-      "Network conditions and device settings may affect quality"
-    ]
+  "hero": {
+    "kicker": "Release Note",
+    "h1": "Online Meetings for Minutes.AI (iOS)",
+    "tagline": "Go from \"Start Meeting\" to \"Finished Minutes\"—Instantly.\nClick the new **\"Online\"** button, issue a unique URL, and share it with your team. Just like that, you’re in a live meeting. When you hang up, Minutes.AI automatically gets to work generating your complete, formatted minutes."
   },
   "release": {
-    "h2": "What’s new",
-    "p1": "Minutes.AI now supports Online Meetings. It’s as simple as clicking \"Online\" to issue a URL and share it to start a Zoom-like call.",
-    "p2": "When the meeting ends, minutes are generated automatically to clearly capture decisions and action items."
+    "h2": "What’s New",
+    "p1": "Forget switching between apps. We’ve built a powerful, Zoom-like online meeting feature directly into Minutes.AI for iOS.",
+    "p2": "This update transforms your workflow: you no longer need one app to host the call and another to analyze it. It’s an all-in-one solution.",
+    "p3": "Host your call with a clean, familiar interface. The moment your meeting ends, Minutes.AI automatically generates your high-quality minutes, complete with clearly captured **decisions and action items**."
   },
-  "seo": {
-    "description": "Click \"Online\" to issue a URL, share it, and start a Zoom-like meeting instantly. Clean minutes are generated automatically when the meeting ends.",
-    "ld": {
-      "description": "Host Zoom-like meetings via an issued URL, then get automatic minutes with clear decisions and actions.",
-      "headline": "Minutes.AI adds Online Meetings"
-    },
-    "ogDescription": "Start Zoom-like meetings from the \"Online\" button and get automatic, well-formatted minutes at the end.",
-    "ogTitle": "Online Meetings come to Minutes.AI",
-    "title": "Minutes.AI now supports Online Meetings (iOS)"
+  "image": {
+    "alt": "Minutes.AI Online Meeting UI",
+    "caption": "Start a Zoom-like meeting right from the \"Online\" button."
   },
   "steps": {
-    "h2": "How to start",
+    "h2": "How to Start in 4 Simple Steps",
     "items": [
-      "Click \"Online\" in the app or web",
-      "Issue a meeting URL",
-      "Share the URL with participants",
-      "End the meeting → automatic minutes"
-    ],
-    "note": "Meeting duration depends on your plan and remaining quota."
+      "**Tap \"Online\"**: Find the new \"Online\" button in the app or on the web.",
+      "**Issue URL**: Instantly get a unique, shareable meeting link.",
+      "**Share & Meet**: Send the link to your participants to join the call.",
+      "**Get Minutes**: End the meeting, and your automated minutes will be ready moments later."
+    ]
+  },
+  "features": {
+    "h2": "Key Highlights",
+    "items": [
+      "**Familiar, High-Quality UX**: Enjoy a smooth, Zoom-like video call experience (powered by LiveKit).",
+      "**One-Click Simplicity**: No setup required. Just tap once to get your meeting link.",
+      "**Fully Automatic Minutes**: The core strength of Minutes.AI, now built directly into your calls.",
+      "**Clean, Readable Formats**: Get minutes that highlight decisions and actions, not just a wall of text.",
+      "**Multilingual Support**: Perfect for global teams, with support for multiple languages."
+    ]
+  },
+  "notes": {
+    "h2": "Important Notes",
+    "items": [
+      "**Meeting Duration:** The total available meeting time is based on your current Minutes.AI plan and remaining quota.",
+      "**Call Quality:** As with any online call, audio and video quality may be affected by your network conditions and device settings."
+    ]
+  },
+  "pricing": {
+    "h2": "How This Works With Your Minutes.AI Plan",
+    "p1": "Since \"pricing\" is a top question, here’s a simple breakdown of how this new feature works with our plans.",
+    "p2": "Your meeting time quota is the same as your transcription quota. We offer two simple options that fit how you work.",
+    "timepacks": {
+      "h3": "1. One-Time Packs (They Never Expire)",
+      "p1": "Perfect for occasional meetings. Buy a pack of minutes, and use them whenever you want—this month, or next year.",
+      "items": [
+        "Trial: 120 minutes for **$1.99**",
+        "Light: 1200 minutes for **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Subscriptions (Truly Unlimited)",
+      "p1": "For teams with regular or daily meetings. Forget watching the clock—just go truly unlimited.",
+      "items": [
+        "Monthly: **$16.99** / month",
+        "Annual: **$149.99** / year (Saves you about 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Don't forget:** You get a **3-minute free ticket every single day** to try any feature, including Online Meetings!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Release",
+    "category": "Online Meeting"
+  },
+  "cta": {
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS app"
   }
 }

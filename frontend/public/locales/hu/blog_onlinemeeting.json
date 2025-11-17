@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Vissza a Jegyzőkönyv AI-ra" },
-  "cta": {
-    "downloadIOS": "iOS-alkalmazás letöltése",
-    "openBrowser": "Megnyitás böngészőben"
+  "seo": {
+    "title": "A Jegyzőkönyv AI mostantól támogatja az Online Tárgyalásokat (iOS)",
+    "description": "Kattintson az \"Online\" gombra egy URL létrehozásához, ossza meg, és azonnal indítson egy Zoom-szerű tárgyalást. A tiszta jegyzőkönyvek automatikusan elkészülnek a tárgyalás végén.",
+    "ogTitle": "Online Tárgyalások érkeznek a Jegyzőkönyv AI-ba",
+    "ogDescription": "Indítson Zoom-szerű tárgyalásokat az \"Online\" gombbal, és a végén automatikus, jól formázott jegyzőkönyveket kap.",
+    "ld": {
+      "headline": "A Jegyzőkönyv AI Online Tárgyalásokat ad hozzá",
+      "description": "Tartson Zoom-szerű tárgyalásokat egy kiadott URL-en keresztül, majd kapjon automatikus jegyzőkönyveket tiszta döntésekkel és teendőkkel."
+    }
   },
-  "features": {
-    "h2": "Főbb pontok",
-    "items": [
-      "Zoom-szerű felület (LiveKit-alapú)",
-      "URL kiadása egy kattintással",
-      "Automatikus jegyzőkönyv a végén",
-      "Jól olvasható, formázott kimenet",
-      "Többnyelvű – globális csapatoknak"
-    ]
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Online Tárgyalások"
   },
   "hero": {
-    "h1": "Online Meetings a Jegyzőkönyv AI-hoz (iOS)",
     "kicker": "Kiadási megjegyzés",
-    "tagline": "Kattints az \"Online\" gombra, adj ki egy URL-t, oszd meg és csatlakozz. A befejezéskor a jegyzőkönyv automatikusan készül."
-  },
-  "image": {
-    "alt": "Jegyzőkönyv AI Online Meeting felület",
-    "caption": "Indíts Zoom-szerű meetinget az \"Online\" gombbal."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Közzétéve",
-    "type": "Kiadás"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Próbáld ki weben vagy töltsd le az iOS-appot.",
-    "h2": "Megjegyzések",
-    "items": [
-      "Az időtartam és a hátralévő idő a csomagtól/kvótától függ",
-      "A hálózat és az eszközbeállítások befolyásolhatják a minőséget"
-    ]
+    "h1": "Online Tárgyalások a Jegyzőkönyv AI-hoz (iOS)",
+    "tagline": "Jusson el a \"Tárgyalás indítása\"-tól a \"Kész jegyzőkönyv\"-ig—Azonnal.\nKattintson az új **\"Online\"** gombra, hozzon létre egy egyedi URL-t, és ossza meg csapatával. Ilyen egyszerűen már egy élő tárgyaláson is részt vesz. Amikor leteszi, a Jegyzőkönyv AI automatikusan elkezdi generálni a teljes, formázott jegyzőkönyvét."
   },
   "release": {
-    "h2": "Újdonságok",
-    "p1": "A Jegyzőkönyv AI mostantól támogatja az Online Meetings funkciót. Kattints az \"Online\" gombra URL kiadásához és Zoom-szerű hívás indításához.",
-    "p2": "A meeting végén a jegyzőkönyv automatikusan generálódik, egyértelmű döntésekkel és feladatokkal."
+    "h2": "Mi újság",
+    "p1": "Felejtse el az alkalmazások közötti váltogatást. Egy erőteljes, Zoom-szerű online tárgyalási funkciót építettünk be közvetlenül a Jegyzőkönyv AI-ba iOS-re.",
+    "p2": "Ez a frissítés átalakítja a munkafolyamatát: többé nincs szüksége egy alkalmazásra a hívás lebonyolításához és egy másikra annak elemzéséhez. Ez egy minden-az-egyben megoldás.",
+    "p3": "Bonyolítsa le hívását egy tiszta, ismerős felületen. Abban a pillanatban, hogy a tárgyalás véget ér, a Jegyzőkönyv AI automatikusan elkészíti a magas minőségű jegyzőkönyveket, világosan rögzített **döntésekkel és teendőkkel**."
   },
-  "seo": {
-    "description": "Kattints az \"Online\" gombra URL kiadásához, oszd meg és indíts azonnal Zoom-szerű meetinget. A végén automatikusan készülnek a tiszta jegyzőkönyvek.",
-    "ld": {
-      "description": "Tarts Zoom-szerű meetingeket kiadott URL-lel, majd kapj automatikus jegyzőkönyvet egyértelmű döntésekkel és teendőkkel.",
-      "headline": "A Jegyzőkönyv AI Online Meetings funkciót kap"
-    },
-    "ogDescription": "Indíts meetingeket az \"Online\" gombbal és kapj automatikusan jól formázott jegyzőkönyvet a végén.",
-    "ogTitle": "Megérkezett az Online Meetings a Jegyzőkönyv AI-ba",
-    "title": "A Jegyzőkönyv AI mostantól támogatja az Online Meetings-et (iOS)"
+  "image": {
+    "alt": "Jegyzőkönyv AI Online Tárgyalás UI",
+    "caption": "Indítson egy Zoom-szerű tárgyalást közvetlenül az \"Online\" gombbal."
   },
   "steps": {
-    "h2": "Kezdés",
+    "h2": "Hogyan kezdje el 4 egyszerű lépésben",
     "items": [
-      "Kattints az \"Online\" gombra az appban vagy a weben",
-      "Adj ki meeting URL-t",
-      "Oszd meg az URL-t a résztvevőkkel",
-      "Meeting lezárása → automatikus jegyzőkönyv"
-    ],
-    "note": "A meeting időtartama a csomagodtól és a fennmaradó kvótától függ."
+      "**Koppintson az \"Online\"-ra**: Keresse meg az új \"Online\" gombot az alkalmazásban vagy a weben.",
+      "**URL létrehozása**: Azonnal kap egy egyedi, megosztható tárgyalási linket.",
+      "**Ossza meg és tárgyaljon**: Küldje el a linket a résztvevőknek, hogy csatlakozhassanak a híváshoz.",
+      "**Jegyzőkönyv fogadása**: Fejezze be a tárgyalást, és az automatizált jegyzőkönyvei pillanatokon belül készen állnak."
+    ]
+  },
+  "features": {
+    "h2": "Főbb jellemzők",
+    "items": [
+      "**Ismerős, magas minőségű UX**: Élvezze a zökkenőmentes, Zoom-szerű videóhívás élményt (LiveKit-alapú).",
+      "**Egykattintásos egyszerűség**: Nincs szükség beállításra. Csak koppintson egyszer a tárgyalási link megszerzéséhez.",
+      "**Teljesen automatikus jegyzőkönyvek**: A Jegyzőkönyv AI alapvető erőssége, most már közvetlenül a hívásaiba építve.",
+      "**Tiszta, olvasható formátumok**: Olyan jegyzőkönyveket kap, amelyek kiemelik a döntéseket és a teendőket, nem csak egy szövegfalat.",
+      "**Többnyelvű támogatás**: Tökéletes globális csapatok számára, több nyelv támogatásával."
+    ]
+  },
+  "notes": {
+    "h2": "Fontos megjegyzések",
+    "items": [
+      "**Tárgyalás időtartama:** A rendelkezésre álló teljes tárgyalási idő a jelenlegi Jegyzőkönyv AI csomagján és a fennmaradó kvótán alapul.",
+      "**Hívás minősége:** Mint minden online hívásnál, a hang- és képminőséget befolyásolhatják a hálózati körülmények és az eszközbeállítások."
+    ]
+  },
+  "pricing": {
+    "h2": "Hogyan működik ez a Jegyzőkönyv AI csomagjával",
+    "p1": "Mivel az \"árképzés\" kiemelt kérdés, itt egy egyszerű bontás arról, hogyan működik ez az új funkció a csomagjainkkal.",
+    "p2": "A tárgyalási időkvótája megegyezik az átírási kvótájával. Két egyszerű lehetőséget kínálunk, amelyek illeszkednek az Ön munkamódszeréhez.",
+    "timepacks": {
+      "h3": "1. Egyszeri csomagok (Soha nem járnak le)",
+      "p1": "Tökéletes alkalmi tárgyalásokhoz. Vásároljon egy perc-csomagot, és használja fel, amikor csak akarja - ebben a hónapban, vagy jövőre.",
+      "items": [
+        "Próba: 120 perc **$1.99**-ért",
+        "Könnyű: 1200 perc **$11.99**-ért"
+      ]
+    },
+    "subs": {
+      "h3": "2. Előfizetések (Valóban korlátlan)",
+      "p1": "Rendszeres vagy napi tárgyalásokat folytató csapatok számára. Felejtse el az óranézést - egyszerűen váltson valóban korlátlanra.",
+      "items": [
+        "Havi: **$16.99** / hó",
+        "Éves: **$149.99** / év (Körülbelül 26% megtakarítás!)"
+      ]
+    },
+    "free": {
+      "quote": "**Ne felejtse el:** Minden egyes nap kap egy **3 perces ingyenes jegyet**, hogy kipróbálhasson bármilyen funkciót, beleértve az Online Tárgyalásokat is!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Kiadás",
+    "category": "Online Tárgyalás"
+  },
+  "cta": {
+    "openBrowser": "Megnyitás böngészőben",
+    "downloadIOS": "iOS alkalmazás letöltése"
   }
 }

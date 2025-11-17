@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Späť na AI Zápisnica" },
-  "cta": {
-    "downloadIOS": "Stiahnuť iOS aplikáciu",
-    "openBrowser": "Otvoriť v prehliadači"
+  "seo": {
+    "title": "AI Zápisnica teraz podporuje Online stretnutia (iOS)",
+    "description": "Kliknite na \"Online\" pre vydanie URL, zdieľajte ju a okamžite začnite stretnutie podobné Zoomu. Čisté zápisnice sú generované automaticky po skončení stretnutia.",
+    "ogTitle": "Online stretnutia prichádzajú do AI Zápisnica",
+    "ogDescription": "Začnite stretnutia podobné Zoomu z tlačidla \"Online\" a získajte automatické, dobre formátované zápisnice na konci.",
+    "ld": {
+      "headline": "AI Zápisnica pridáva Online stretnutia",
+      "description": "Organizujte stretnutia podobné Zoomu prostredníctvom vydanej URL, a potom získajte automatické zápisnice s jasnými rozhodnutiami a akčnými bodmi."
+    }
   },
-  "features": {
-    "h2": "Najdôležitejšie",
-    "items": [
-      "UX ako Zoom (na LiveKit)",
-      "Vystavenie URL jedným kliknutím",
-      "Automatický zápis po ukončení",
-      "Prehľadné, formátované výstupy",
-      "Viacjazyčné pre globálne tímy"
-    ]
+  "aria": {
+    "home": "AI Zápisnica Domov"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Online stretnutia"
   },
   "hero": {
-    "h1": "Online Meetings pre AI Zápisnica (iOS)",
     "kicker": "Poznámka k vydaniu",
-    "tagline": "Kliknite na „Online“, vystavte URL, zdieľajte a vstúpte. Po ukončení sa zápis generuje automaticky."
-  },
-  "image": {
-    "alt": "UI Online Meeting v AI Zápisnica",
-    "caption": "Spustite Zoom-like meeting cez tlačidlo „Online“."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Publikované",
-    "type": "Vydanie"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Vyskúšajte na webe alebo si stiahnite iOS aplikáciu.",
-    "h2": "Poznámky",
-    "items": [
-      "Trvanie a zostávajúci čas závisia od plánu/kvóty",
-      "Sieť a nastavenia zariadenia môžu ovplyvniť kvalitu"
-    ]
+    "h1": "Online stretnutia pre AI Zápisnica (iOS)",
+    "tagline": "Prejdite z \"Začať stretnutie\" na \"Hotová zápisnica\"—Okamžite.\nKliknite na nové tlačidlo **\"Online\"**, vydajte jedinečnú URL a zdieľajte ju so svojím tímom. Presne tak, ste na živom stretnutí. Keď zložíte, AI Zápisnica automaticky začne generovať vašu kompletnú, formátovanú zápisnicu."
   },
   "release": {
-    "h2": "Novinky",
-    "p1": "AI Zápisnica teraz podporuje Online Meetings. Stačí kliknúť na „Online“ a vystaviť URL pre Zoom-like hovor.",
-    "p2": "Po skončení sa zápisy generujú automaticky s jasnými rozhodnutiami a úlohami."
+    "h2": "Čo je nové",
+    "p1": "Zabudnite na prepínanie medzi aplikáciami. Vytvorili sme výkonnú funkciu online stretnutí podobnú Zoomu priamo v AI Zápisnica pre iOS.",
+    "p2": "Táto aktualizácia transformuje váš pracovný postup: už nepotrebujete jednu aplikáciu na hosťovanie hovoru a druhú na jeho analýzu. Je to riešenie všetko v jednom.",
+    "p3": "Hosťujte svoj hovor s čistým, známym rozhraním. V momente, keď sa vaše stretnutie skončí, AI Zápisnica automaticky vygeneruje vaše vysokokvalitné zápisnice, doplnené o jasne zachytené **rozhodnutia a akčné body**."
   },
-  "seo": {
-    "description": "Kliknite na „Online“, vystavte URL, zdieľajte a okamžite spustite Zoom-like meeting. Na konci sa automaticky vytvoria prehľadné zápisy.",
-    "ld": {
-      "description": "Hostite Zoom-like meetingy cez vystavené URL a získajte automatické zápisy s jasnými rozhodnutiami a akciami.",
-      "headline": "AI Zápisnica pridáva Online Meetings"
-    },
-    "ogDescription": "Spúšťajte meetingy z tlačidla „Online“ a na konci získajte automaticky formátované zápisy.",
-    "ogTitle": "Online Meetings prichádzajú do AI Zápisnica",
-    "title": "AI Zápisnica teraz podporuje Online Meetings (iOS)"
+  "image": {
+    "alt": "Používateľské rozhranie Online stretnutia AI Zápisnica",
+    "caption": "Začnite stretnutie podobné Zoomu priamo z tlačidla \"Online\"."
   },
   "steps": {
-    "h2": "Ako začať",
+    "h2": "Ako začať v 4 jednoduchých krokoch",
     "items": [
-      "Kliknite na „Online“ v aplikácii alebo na webe",
-      "Vystavte URL stretnutia",
-      "Zdieľajte URL s účastníkmi",
-      "Ukončite stretnutie → automatický zápis"
-    ],
-    "note": "Dĺžka stretnutia závisí od plánu a zostávajúcej kvóty."
+      "**Klepnite na \"Online\"**: Nájdite nové tlačidlo \"Online\" v aplikácii alebo na webe.",
+      "**Vydajte URL**: Okamžite získajte jedinečný, zdieľateľný odkaz na stretnutie.",
+      "**Zdieľajte a Stretnite sa**: Pošlite odkaz účastníkom, aby sa pripojili k hovoru.",
+      "**Získajte Zápisnicu**: Ukončite stretnutie a vaše automatizované zápisnice budú pripravené o chvíľu neskôr."
+    ]
+  },
+  "features": {
+    "h2": "Hlavné body",
+    "items": [
+      "**Známy, vysokokvalitný UX**: Užite si plynulý zážitok z videohovoru podobný Zoomu (postavený na LiveKit).",
+      "**Jednoduchosť jedným kliknutím**: Nevyžaduje sa žiadne nastavenie. Stačí raz klepnúť, aby ste získali odkaz na stretnutie.",
+      "**Plne automatické zápisnice**: Základná sila AI Zápisnica, teraz zabudovaná priamo vo vašich hovoroch.",
+      "**Čisté, čitateľné formáty**: Získajte zápisnice, ktoré zdôrazňujú rozhodnutia a akcie, nie len stenu textu.",
+      "**Viacjazyčná podpora**: Ideálne pre globálne tímy, s podporou viacerých jazykov."
+    ]
+  },
+  "notes": {
+    "h2": "Dôležité poznámky",
+    "items": [
+      "**Trvanie stretnutia:** Celkový dostupný čas stretnutia je založený na vašom aktuálnom pláne AI Zápisnica a zostávajúcej kvóte.",
+      "**Kvalita hovoru:** Ako pri každom online hovore, kvalita zvuku a videa môže byť ovplyvnená podmienkami vašej siete a nastaveniami zariadenia."
+    ]
+  },
+  "pricing": {
+    "h2": "Ako to funguje s vaším plánom AI Zápisnica",
+    "p1": "Keďže \"ceny\" sú hlavnou otázkou, tu je jednoduché vysvetlenie, ako táto nová funkcia funguje s našimi plánmi.",
+    "p2": "Vaša kvóta času na stretnutia je rovnaká ako vaša kvóta na transkripciu. Ponúkame dve jednoduché možnosti, ktoré vyhovujú vášmu spôsobu práce.",
+    "timepacks": {
+      "h3": "1. Jednorazové balíky (Nikdy nevypršia)",
+      "p1": "Ideálne pre príležitostné stretnutia. Kúpte si balík minút a použite ich, kedykoľvek chcete - tento mesiac alebo budúci rok.",
+      "items": [
+        "Skúšobný: 120 minút za **$1.99**",
+        "Ľahký: 1200 minút za **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Predplatné (Skutočne neobmedzené)",
+      "p1": "Pre tímy s pravidelnými alebo dennými stretnutiami. Zabudnite na sledovanie hodiniek - jednoducho prejdite na skutočne neobmedzené.",
+      "items": [
+        "Mesačné: **$16.99** / mesiac",
+        "Ročné: **$149.99** / rok (Ušetríte približne 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Nezabudnite:** Získate **3-minútový voľný lístok každý jeden deň** na vyskúšanie akejkoľvek funkcie, vrátane Online stretnutí!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Zverejnené",
+    "type": "Vydanie",
+    "category": "Online stretnutie"
+  },
+  "cta": {
+    "openBrowser": "Otvoriť v prehliadači",
+    "downloadIOS": "Stiahnuť aplikáciu pre iOS"
   }
 }

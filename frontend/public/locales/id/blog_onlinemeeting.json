@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Minutes AI kini mendukung Rapat Online (iOS)",
+    "description": "Klik \"Online\" untuk menerbitkan URL, bagikan, dan mulai rapat seperti Zoom secara instan. Notulen yang bersih dibuat secara otomatis saat rapat berakhir.",
+    "ogTitle": "Rapat Online hadir di Minutes AI",
+    "ogDescription": "Mulai rapat seperti Zoom dari tombol \"Online\" dan dapatkan notulen otomatis yang diformat dengan baik di akhir.",
+    "ld": {
+      "headline": "Minutes AI menambahkan Rapat Online",
+      "description": "Selenggarakan rapat seperti Zoom melalui URL yang diterbitkan, lalu dapatkan notulen otomatis dengan keputusan dan item tindakan yang jelas."
+    }
+  },
   "aria": {
-    "home": "Beranda Minutes AI"
-  },
-  "cta": {
-    "downloadIOS": "Unduh aplikasi iOS",
-    "openBrowser": "Buka di browser"
-  },
-  "features": {
-    "h2": "Keunggulan",
-    "items": [
-      "UX mirip Zoom (berbasis LiveKit)",
-      "URL satu klik",
-      "Notulen otomatis setelah rapat",
-      "Format rapi dan mudah dibaca",
-      "Multibahasa untuk tim global"
-    ]
-  },
-  "hero": {
-    "h1": "Rapat Daring untuk Minutes AI (iOS)",
-    "kicker": "Rilis",
-    "tagline": "Klik “Online”, buat URL, bagikan. Saat selesai, notulen otomatis mulai dibuat."
-  },
-  "image": {
-    "alt": "Antarmuka Rapat Daring Minutes AI",
-    "caption": "Mulai rapat dari tombol “Online”."
-  },
-  "meta": {
-    "category": "Rapat Daring",
-    "h2": "Meta",
-    "published": "Dipublikasikan",
-    "type": "Rilis"
+    "home": "Minutes AI Beranda"
   },
   "nav": {
     "blog": "Blog",
-    "onlinemeeting": "Rapat Daring"
+    "onlinemeeting": "Rapat Online"
   },
-  "notes": {
-    "foot": "Coba di web atau unduh aplikasi iOS.",
-    "h2": "Catatan",
-    "items": [
-      "Batas durasi/kuota sesuai paket",
-      "Jaringan/perangkat dapat memengaruhi kualitas"
-    ]
+  "hero": {
+    "kicker": "Catatan Rilis",
+    "h1": "Rapat Online untuk Minutes AI (iOS)",
+    "tagline": "Beralih dari \"Mulai Rapat\" ke \"Notulen Selesai\"—Seketika.\nKlik tombol **\"Online\"** baru, terbitkan URL unik, dan bagikan dengan tim Anda. Begitu saja, Anda berada dalam rapat langsung. Saat Anda menutup telepon, Minutes AI secara otomatis mulai membuat notulen lengkap Anda yang telah diformat."
   },
   "release": {
-    "h2": "Apa yang baru",
-    "p1": "Minutes AI kini mendukung rapat daring. Cukup klik “Online” untuk membuat dan membagikan URL.",
-    "p2": "Ketika rapat berakhir, notulen dibuat otomatis dengan keputusan dan aksi yang jelas."
+    "h2": "Apa yang Baru",
+    "p1": "Lupakan beralih antar aplikasi. Kami telah membangun fitur rapat online yang kuat seperti Zoom langsung ke dalam Minutes AI untuk iOS.",
+    "p2": "Pembaruan ini mengubah alur kerja Anda: Anda tidak lagi memerlukan satu aplikasi untuk menjadi tuan rumah panggilan dan aplikasi lain untuk menganalisisnya. Ini adalah solusi lengkap.",
+    "p3": "Selenggarakan panggilan Anda dengan antarmuka yang bersih dan familiar. Saat rapat Anda berakhir, Minutes AI secara otomatis menghasilkan notulen berkualitas tinggi Anda, lengkap dengan **keputusan dan item tindakan** yang ditangkap dengan jelas."
   },
-  "seo": {
-    "description": "Klik “Online” untuk membuat URL, bagikan, dan mulai rapat ala Zoom seketika. Notulen dibuat otomatis saat rapat berakhir.",
-    "ld": {
-      "description": "Rapat ala Zoom via URL dan notulen otomatis dengan keputusan serta aksi.",
-      "headline": "Minutes AI menambahkan Rapat Daring"
-    },
-    "ogDescription": "Mulai dari “Online” dan dapatkan notulen otomatis yang rapi.",
-    "ogTitle": "Rapat Daring di Minutes AI",
-    "title": "Minutes AI kini mendukung Rapat Daring (iOS)"
+  "image": {
+    "alt": "UI Rapat Online Minutes AI",
+    "caption": "Mulai rapat seperti Zoom langsung dari tombol \"Online\"."
   },
   "steps": {
-    "h2": "Cara memulai",
+    "h2": "Cara Memulai dalam 4 Langkah Mudah",
     "items": [
-      "Klik “Online” (app/web)",
-      "Buat URL rapat",
-      "Bagikan URL ke peserta",
-      "Akhiri → notulen otomatis"
-    ],
-    "note": "Durasi mengikuti paket dan kuota tersisa."
+      "**Ketuk \"Online\"**: Temukan tombol \"Online\" baru di aplikasi atau web.",
+      "**Terbitkan URL**: Dapatkan tautan rapat unik yang dapat dibagikan secara instan.",
+      "**Bagikan & Bertemu**: Kirim tautan ke peserta Anda untuk bergabung dalam panggilan.",
+      "**Dapatkan Notulen**: Akhiri rapat, dan notulen otomatis Anda akan siap beberapa saat kemudian."
+    ]
+  },
+  "features": {
+    "h2": "Sorotan Utama",
+    "items": [
+      "**UX yang Familiar dan Berkualitas Tinggi**: Nikmati pengalaman panggilan video yang lancar dan seperti Zoom (didukung oleh LiveKit).",
+      "**Kesederhanaan Sekali Klik**: Tidak perlu pengaturan. Cukup ketuk sekali untuk mendapatkan tautan rapat Anda.",
+      "**Notulen Sepenuhnya Otomatis**: Kekuatan inti Minutes AI, kini terpasang langsung di panggilan Anda.",
+      "**Format yang Bersih dan Mudah Dibaca**: Dapatkan notulen yang menyoroti keputusan dan tindakan, bukan hanya dinding teks.",
+      "**Dukungan Multibahasa**: Sempurna untuk tim global, dengan dukungan untuk berbagai bahasa."
+    ]
+  },
+  "notes": {
+    "h2": "Catatan Penting",
+    "items": [
+      "**Durasi Rapat:** Total waktu rapat yang tersedia didasarkan pada paket Minutes AI Anda saat ini dan kuota yang tersisa.",
+      "**Kualitas Panggilan:** Seperti halnya panggilan online lainnya, kualitas audio dan video dapat dipengaruhi oleh kondisi jaringan dan pengaturan perangkat Anda."
+    ]
+  },
+  "pricing": {
+    "h2": "Bagaimana Ini Bekerja dengan Paket Minutes AI Anda",
+    "p1": "Karena \"harga\" adalah pertanyaan utama, berikut adalah rincian sederhana tentang bagaimana fitur baru ini bekerja dengan paket kami.",
+    "p2": "Kuota waktu rapat Anda sama dengan kuota transkripsi Anda. Kami menawarkan dua opsi sederhana yang sesuai dengan cara Anda bekerja.",
+    "timepacks": {
+      "h3": "1. Paket Sekali Beli (Tidak Pernah Kedaluwarsa)",
+      "p1": "Sempurna untuk rapat sesekali. Beli paket menit, dan gunakan kapan pun Anda mau - bulan ini, atau tahun depan.",
+      "items": [
+        "Uji Coba: 120 menit seharga **$1.99**",
+        "Ringan: 1200 menit seharga **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Langganan (Benar-Benar Tanpa Batas)",
+      "p1": "Untuk tim dengan rapat rutin atau harian. Lupakan melihat jam - cukup gunakan tanpa batas.",
+      "items": [
+        "Bulanan: **$16.99** / bulan",
+        "Tahunan: **$149.99** / tahun (Menghemat sekitar 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Jangan lupa:** Anda mendapatkan **tiket gratis 3 menit setiap hari** untuk mencoba fitur apa pun, termasuk Rapat Online!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Rilis",
+    "category": "Rapat Online"
+  },
+  "cta": {
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS"
   }
 }

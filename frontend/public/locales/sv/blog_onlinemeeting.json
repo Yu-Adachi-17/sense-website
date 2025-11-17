@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Protokoll AI stöder nu Onlinemöten (iOS)",
+    "description": "Klicka på \"Online\" för att utfärda en URL, dela den och starta ett Zoom-liknande möte omedelbart. Rena protokoll genereras automatiskt när mötet avslutas.",
+    "ogTitle": "Onlinemöten kommer till Protokoll AI",
+    "ogDescription": "Starta Zoom-liknande möten från knappen \"Online\" och få automatiska, välformaterade protokoll i slutet.",
+    "ld": {
+      "headline": "Protokoll AI lägger till Onlinemöten",
+      "description": "Håll Zoom-liknande möten via en utfärdad URL och få sedan automatiska protokoll med tydliga beslut och åtgärdspunkter."
+    }
+  },
   "aria": {
-    "home": "Protokoll AI Startsida"
-  },
-  "cta": {
-    "downloadIOS": "Ladda ner iOS-app",
-    "openBrowser": "Öppna i webbläsare"
-  },
-  "features": {
-    "h2": "Höjdpunkter",
-    "items": [
-      "Zoom-liknande UX (LiveKit)",
-      "URL med ett klick",
-      "Automatiskt protokoll efter mötet",
-      "Tydlig, formaterad output",
-      "Flerspråkigt för globala team"
-    ]
-  },
-  "hero": {
-    "h1": "Onlinemöten för Protokoll AI (iOS)",
-    "kicker": "Lansering",
-    "tagline": "Klicka ”Online”, skapa URL och dela. Efter mötet startar protokollet automatiskt."
-  },
-  "image": {
-    "alt": "Protokoll AI onlinemötesgränssnitt",
-    "caption": "Starta via knappen ”Online”."
-  },
-  "meta": {
-    "category": "Onlinemöte",
-    "h2": "Meta",
-    "published": "Publicerad",
-    "type": "Lansering"
+    "home": "Protokoll AI Hem"
   },
   "nav": {
     "blog": "Blogg",
-    "onlinemeeting": "Onlinemöte"
+    "onlinemeeting": "Onlinemöten"
   },
-  "notes": {
-    "foot": "Prova på webben eller ladda ner iOS-appen.",
-    "h2": "Notiser",
-    "items": [
-      "Tidsgränser/kvarvarande tid enligt plan/kvot",
-      "Nätverk/enhet kan påverka kvaliteten"
-    ]
+  "hero": {
+    "kicker": "Versionsinformation",
+    "h1": "Onlinemöten för Protokoll AI (iOS)",
+    "tagline": "Gå från \"Starta möte\" till \"Färdigt protokoll\"—Omedelbart.\nKlicka på den nya knappen **\"Online\"**, utfärda en unik URL och dela den med ditt team. Precis så enkelt är du i ett live-möte. När du lägger på börjar Protokoll AI automatiskt generera ditt fullständiga, formaterade protokoll."
   },
   "release": {
-    "h2": "Nytt",
-    "p1": "Protokoll AI stöder nu onlinemöten. Skapa och dela URL från ”Online” för att komma igång direkt.",
-    "p2": "När mötet slutar genereras protokollet automatiskt med tydliga beslut och åtgärder."
+    "h2": "Vad är nytt",
+    "p1": "Glöm att växla mellan appar. Vi har byggt en kraftfull, Zoom-liknande onlinemötesfunktion direkt i Protokoll AI för iOS.",
+    "p2": "Denna uppdatering förändrar ditt arbetsflöde: du behöver inte längre en app för att hålla i samtalet och en annan för att analysera det. Det är en allt-i-ett-lösning.",
+    "p3": "Håll ditt samtal med ett rent, välbekant gränssnitt. I samma ögonblick som ditt möte avslutas genererar Protokoll AI automatiskt dina högkvalitativa protokoll, kompletta med tydligt fångade **beslut och åtgärdspunkter**."
   },
-  "seo": {
-    "description": "Klicka på ”Online” för att skapa en URL, dela den och starta ett Zoom-likt möte direkt. Protokoll genereras automatiskt när mötet avslutas.",
-    "ld": {
-      "description": "Zoom-lika möten via URL och automatiska protokoll med tydliga beslut och åtgärder.",
-      "headline": "Stöd för onlinemöten"
-    },
-    "ogDescription": "Starta via ”Online” och få automatiska, välformaterade protokoll.",
-    "ogTitle": "Onlinemöten i Protokoll AI",
-    "title": "Protokoll AI stöder nu onlinemöten (iOS)"
+  "image": {
+    "alt": "Protokoll AI Onlinemöte UI",
+    "caption": "Starta ett Zoom-liknande möte direkt från \"Online\"-knappen."
   },
   "steps": {
-    "h2": "Kom igång",
+    "h2": "Hur man börjar i 4 enkla steg",
     "items": [
-      "Klicka ”Online” (app/webb)",
-      "Skapa mötes-URL",
-      "Dela URL:en med deltagare",
-      "Avsluta → automatiskt protokoll"
-    ],
-    "note": "Mötestid beror på plan och kvarvarande kvot."
+      "**Tryck på \"Online\"**: Hitta den nya \"Online\"-knappen i appen eller på webben.",
+      "**Utfärda URL**: Få omedelbart en unik, delbar möteslänk.",
+      "**Dela & Möt**: Skicka länken till dina deltagare så att de kan ansluta till samtalet.",
+      "**Få protokoll**: Avsluta mötet, och dina automatiserade protokoll kommer att vara klara en kort stund senare."
+    ]
+  },
+  "features": {
+    "h2": "Viktiga höjdpunkter",
+    "items": [
+      "**Välbekant, högkvalitativ UX**: Njut av en smidig, Zoom-liknande videosamtalsupplevelse (driven av LiveKit).",
+      "**Enkelhet med ett klick**: Ingen installation krävs. Tryck bara en gång för att få din möteslänk.",
+      "**Helautomatiska protokoll**: Kärnstyrkan i Protokoll AI, nu inbyggd direkt i dina samtal.",
+      "**Rena, läsbara format**: Få protokoll som belyser beslut och åtgärder, inte bara en textvägg.",
+      "**Flerspråkigt stöd**: Perfekt för globala team, med stöd för flera språk."
+    ]
+  },
+  "notes": {
+    "h2": "Viktiga anmärkningar",
+    "items": [
+      "**Möteslängd:** Den totala tillgängliga mötestiden baseras på din nuvarande Protokoll AI-plan och återstående kvot.",
+      "**Samtalskvalitet:** Som med alla onlinesamtal kan ljud- och videokvaliteten påverkas av dina nätverksförhållanden och enhetsinställningar."
+    ]
+  },
+  "pricing": {
+    "h2": "Hur detta fungerar med din Protokoll AI-plan",
+    "p1": "Eftersom \"prissättning\" är en vanlig fråga, här är en enkel förklaring av hur denna nya funktion fungerar med våra planer.",
+    "p2": "Din mötestidskvot är densamma som din transkriptionskvot. Vi erbjuder två enkla alternativ som passar ditt sätt att arbeta.",
+    "timepacks": {
+      "h3": "1. Engångspaket (De löper aldrig ut)",
+      "p1": "Perfekt för enstaka möten. Köp ett paket minuter och använd dem när du vill - den här månaden, eller nästa år.",
+      "items": [
+        "Test: 120 minuter för **$1.99**",
+        "Lätt: 1200 minuter för **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Abonnemang (Verkligen obegränsat)",
+      "p1": "För team med regelbundna eller dagliga möten. Glöm att titta på klockan - välj bara verkligen obegränsat.",
+      "items": [
+        "Månadsvis: **$16.99** / månad",
+        "Årlig: **$149.99** / år (Sparar dig ca 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Glöm inte:** Du får en **gratis 3-minutersbiljett varje dag** för att prova alla funktioner, inklusive Onlinemöten!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Utgåva",
+    "category": "Onlinemöte"
+  },
+  "cta": {
+    "openBrowser": "Öppna i webbläsare",
+    "downloadIOS": "Ladda ner iOS-app"
   }
 }

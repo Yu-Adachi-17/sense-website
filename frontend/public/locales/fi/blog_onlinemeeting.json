@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Takaisin Pöytäkirja AI-sivulle" },
-  "cta": {
-    "downloadIOS": "Lataa iOS-sovellus",
-    "openBrowser": "Avaa selaimessa"
+  "seo": {
+    "title": "Pöytäkirja AI tukee nyt Verkkokokouksia (iOS)",
+    "description": "Napsauta \"Online\" saadaksesi URL-osoitteen, jaa se ja aloita Zoomin kaltainen kokous välittömästi. Puhtaat pöytäkirjat luodaan automaattisesti kokouksen päätyttyä.",
+    "ogTitle": "Verkkokokoukset tulevat Pöytäkirja AI:hin",
+    "ogDescription": "Aloita Zoomin kaltaiset kokoukset \"Online\"-painikkeesta ja saat automaattiset, hyvin muotoillut pöytäkirjat lopuksi.",
+    "ld": {
+      "headline": "Pöytäkirja AI lisää Verkkokokoukset",
+      "description": "Isännöi Zoomin kaltaisia kokouksia annetun URL-osoitteen kautta ja saat sitten automaattiset pöytäkirjat selkeillä päätöksillä ja toimintokohteilla."
+    }
+  },
+  "aria": {
+    "home": "Pöytäkirja AI Koti"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "onlinemeeting": "Verkkokokoukset"
+  },
+  "hero": {
+    "kicker": "Julkaisutiedote",
+    "h1": "Verkkokokoukset Pöytäkirja AI:lle (iOS)",
+    "tagline": "Siirry \"Aloita kokous\" -tilasta \"Valmis pöytäkirja\" -tilaan – välittömästi.\nNapsauta uutta **\"Online\"**-painiketta, luo yksilöllinen URL-osoite ja jaa se tiimillesi. Juuri niin, olet live-kokouksessa. Kun lopetat puhelun, Pöytäkirja AI aloittaa automaattisesti täydellisen, muotoillun pöytäkirjasi luomisen."
+  },
+  "release": {
+    "h2": "Mitä uutta",
+    "p1": "Unohda sovellusten välillä vaihtaminen. Olemme rakentaneet tehokkaan, Zoomin kaltaisen verkkokokousominaisuuden suoraan Pöytäkirja AI:hin iOS:lle.",
+    "p2": "Tämä päivitys muuttaa työnkulkusi: et enää tarvitse yhtä sovellusta puhelun isännöintiin ja toista sen analysointiin. Se on kaikki yhdessä -ratkaisu.",
+    "p3": "Isännöi puhelusi puhtaalla, tutulla käyttöliittymällä. Heti kun kokouksesi päättyy, Pöytäkirja AI luo automaattisesti korkealaatuiset pöytäkirjasi, jotka sisältävät selkeästi kirjatut **päätökset ja toimenpiteet**."
+  },
+  "image": {
+    "alt": "Pöytäkirja AI Verkkokokouksen käyttöliittymä",
+    "caption": "Aloita Zoomin kaltainen kokous suoraan \"Online\"-painikkeesta."
+  },
+  "steps": {
+    "h2": "Kuinka aloittaa 4 yksinkertaisella vaiheella",
+    "items": [
+      "**Napauta \"Online\"**: Löydä uusi \"Online\"-painike sovelluksesta tai verkosta.",
+      "**Luo URL**: Saat välittömästi yksilöllisen, jaettavan kokouslinkin.",
+      "**Jaa & Kokousta**: Lähetä linkki osallistujille, jotta he voivat liittyä puheluun.",
+      "**Saa pöytäkirja**: Lopeta kokous, ja automaattiset pöytäkirjasi ovat valmiita hetken kuluttua."
+    ]
   },
   "features": {
     "h2": "Kohokohdat",
     "items": [
-      "Zoom-tyylinen käyttökokemus (LiveKit-pohjainen)",
-      "URL yhdellä klikkauksella",
-      "Automaattiset pöytäkirjat kokouksen lopuksi",
-      "Luettavat, hyvin muotoillut tulosteet",
-      "Monikielinen globaaleille tiimeille"
+      "**Tuttu, korkealaatuinen UX**: Nauti sulavasta, Zoomin kaltaisesta videopuhelukokemuksesta (perustuu LiveKitiin).",
+      "**Yhden napsautuksen yksinkertaisuus**: Asennusta ei tarvita. Napauta vain kerran saadaksesi kokouslinkin.",
+      "**Täysin automaattiset pöytäkirjat**: Pöytäkirja AI:n ydinvoima, nyt rakennettu suoraan puheluihisi.",
+      "**Selkeät, luettavat muodot**: Saat pöytäkirjoja, jotka korostavat päätöksiä ja toimia, eivät vain tekstiseinää.",
+      "**Monikielinen tuki**: Täydellinen globaaleille tiimeille, tuki useille kielille."
     ]
   },
-  "hero": {
-    "h1": "Online Meetings Pöytäkirja AI:lle (iOS)",
-    "kicker": "Julkaisutiedote",
-    "tagline": "Napsauta \"Online\", luo URL, jaa se ja liity. Kun lopetat, pöytäkirja alkaa muodostua automaattisesti."
+  "notes": {
+    "h2": "Tärkeitä huomioita",
+    "items": [
+      "**Kokouksen kesto:** Käytettävissä oleva kokousaika perustuu nykyiseen Pöytäkirja AI -sopimukseesi ja jäljellä olevaan kiintiöösi.",
+      "**Puhelun laatu:** Kuten kaikissa verkkopuheluissa, äänen ja videon laatuun voivat vaikuttaa verkkoyhteytesi ja laiteasetuksesi."
+    ]
   },
-  "image": {
-    "alt": "Pöytäkirja AI Online Meeting -käyttöliittymä",
-    "caption": "Aloita Zoom-tyylinen kokous \"Online\"-painikkeesta."
+  "pricing": {
+    "h2": "Kuinka tämä toimii Pöytäkirja AI -sopimuksesi kanssa",
+    "p1": "Koska \"hinnoittelu\" on yleinen kysymys, tässä on yksinkertainen erittely siitä, miten tämä uusi ominaisuus toimii sopimustemme kanssa.",
+    "p2": "Kokousaikakiintiösi on sama kuin transkriptiokiintiösi. Tarjoamme kaksi yksinkertaista vaihtoehtoa, jotka sopivat työtapaasi.",
+    "timepacks": {
+      "h3": "1. Kertapaketit (Ne eivät vanhene koskaan)",
+      "p1": "Täydellinen satunnaisiin kokouksiin. Osta paketti minuutteja ja käytä ne milloin haluat – tässä kuussa tai ensi vuonna.",
+      "items": [
+        "Kokeilu: 120 minuuttia hintaan **$1.99**",
+        "Kevyt: 1200 minuuttia hintaan **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Tilaukset (Todella rajattomat)",
+      "p1": "Tiimeille, joilla on säännöllisiä tai päivittäisiä kokouksia. Unohda kellon tuijottaminen – hanki vain todella rajaton käyttö.",
+      "items": [
+        "Kuukausittainen: **$16.99** / kk",
+        "Vuosittainen: **$149.99** / vuosi (Säästät noin 26 %!)"
+      ]
+    },
+    "free": {
+      "quote": "**Älä unohda:** Saat **3 minuutin ilmaisen lipun joka ikinen päivä** kokeillaksesi mitä tahansa ominaisuutta, mukaan lukien Verkkokokoukset!"
+    }
   },
   "meta": {
-    "category": "Online Meeting",
     "h2": "Meta",
     "published": "Julkaistu",
-    "type": "Julkaisu"
+    "type": "Julkaisu",
+    "category": "Verkkokokous"
   },
-  "nav": { "blog": "Blogi", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Kokeile verkossa tai lataa iOS-sovellus.",
-    "h2": "Huomioita",
-    "items": [
-      "Keston ja jäljellä olevan ajan määräävät paketti/kiintiö",
-      "Verkko ja laitteen asetukset voivat vaikuttaa laatuun"
-    ]
-  },
-  "release": {
-    "h2": "Mitä uutta",
-    "p1": "Pöytäkirja AI tukee nyt Online Meetings -toimintoa. Napsauta \"Online\" luodaksesi URL-osoitteen ja jaa se Zoom-tyylisen puhelun aloittamiseksi.",
-    "p2": "Kokouksen päättyessä pöytäkirja generoituu automaattisesti ja selkeyttää päätökset sekä tehtävät."
-  },
-  "seo": {
-    "description": "Napsauta \"Online\" luodaksesi URL-osoitteen, jaa se ja käynnistä heti Zoom-tyylinen kokous. Selkeä pöytäkirja muodostuu automaattisesti lopuksi.",
-    "ld": {
-      "description": "Isännöi Zoom-tyylisiä kokouksia luodulla URL-osoitteella ja saa automaattiset pöytäkirjat selkeine päätöksineen ja toimineen.",
-      "headline": "Pöytäkirja AI lisää Online Meetings -toiminnon"
-    },
-    "ogDescription": "Käynnistä kokoukset \"Online\"-painikkeesta ja saa lopuksi automaattisesti hyvin muotoiltu pöytäkirja.",
-    "ogTitle": "Online Meetings tulee Pöytäkirja AI:hin",
-    "title": "Pöytäkirja AI tukee nyt Online Meetings -toimintoa (iOS)"
-  },
-  "steps": {
-    "h2": "Näin aloitat",
-    "items": [
-      "Napsauta \"Online\" sovelluksessa tai verkossa",
-      "Luo kokouksen URL",
-      "Jaa URL osallistujille",
-      "Lopeta kokous → automaattinen pöytäkirja"
-    ],
-    "note": "Kokouksen kesto riippuu paketistasi ja jäljellä olevasta kiintiöstä."
+  "cta": {
+    "openBrowser": "Avaa selaimessa",
+    "downloadIOS": "Lataa iOS-sovellus"
   }
 }

@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Referat AI støtter nå Nettmøter (iOS)",
+    "description": "Klikk \"Online\" for å utstede en URL, del den, og start et Zoom-lignende møte umiddelbart. Rene referater genereres automatisk når møtet avsluttes.",
+    "ogTitle": "Nettmøter kommer til Referat AI",
+    "ogDescription": "Start Zoom-lignende møter fra \"Online\"-knappen og få automatiske, velformaterte referater på slutten.",
+    "ld": {
+      "headline": "Referat AI legger til Nettmøter",
+      "description": "Hold Zoom-lignende møter via en utstedt URL, og få deretter automatiske referater med klare beslutninger og handlingspunkter."
+    }
+  },
   "aria": {
     "home": "Referat AI Hjem"
   },
-  "cta": {
-    "downloadIOS": "Last ned iOS-app",
-    "openBrowser": "Åpne i nettleser"
-  },
-  "features": {
-    "h2": "Høydepunkter",
-    "items": [
-      "Zoom-lignende UX (LiveKit)",
-      "URL med ett klikk",
-      "Automatisk møtereferat etter møtet",
-      "Tydelig, formatert utdata",
-      "Flerspråklig for globale team"
-    ]
-  },
-  "hero": {
-    "h1": "Nettmøter i Referat AI — start URL, få Møtereferat AI automatisk",
-    "kicker": "Lansering",
-    "tagline": "Klikk «Online», generer URL og del. Ved avslutning starter automatisk møtereferat med klare beslutninger og oppgaver."
-  },
-  "image": {
-    "alt": "Referat AI nettmøte-grensesnitt",
-    "caption": "Start fra «Online»-knappen."
-  },
-  "meta": {
-    "category": "Nettmøte",
-    "h2": "Meta",
-    "published": "Publisert",
-    "type": "Lansering"
-  },
   "nav": {
     "blog": "Blogg",
-    "onlinemeeting": "Nettmøte"
+    "onlinemeeting": "Nettmøter"
   },
-  "notes": {
-    "foot": "Prøv i nettleseren eller last ned iOS-appen.",
-    "h2": "Merknader",
-    "items": [
-      "Tidsgrenser/gjenværende tid avhenger av abonnement/kvote",
-      "Nettverk/enhet kan påvirke kvaliteten"
-    ]
+  "hero": {
+    "kicker": "Utgivelsesnotat",
+    "h1": "Nettmøter for Referat AI (iOS)",
+    "tagline": "Gå fra \"Start møte\" til \"Ferdig referat\"—Umiddelbart.\nKlikk på den nye **\"Online\"**-knappen, utsted en unik URL, og del den med teamet ditt. Akkurat sånn er du i et live-møte. Når du legger på, begynner Referat AI automatisk å generere ditt komplette, formaterte referat."
   },
   "release": {
-    "h2": "Nyhet",
-    "p1": "Referat AI støtter nå nettmøter. Generer og del URL fra «Online» for å starte med en gang.",
-    "p2": "Når møtet er slutt, genereres møtereferatet automatisk — optimalisert for beslutninger og handling."
+    "h2": "Hva er nytt",
+    "p1": "Glem å bytte mellom apper. Vi har bygget en kraftig, Zoom-lignende nettmøtefunksjon direkte inn i Referat AI for iOS.",
+    "p2": "Denne oppdateringen transformerer arbeidsflyten din: du trenger ikke lenger én app for å være vert for samtalen og en annen for å analysere den. Det er en alt-i-ett-løsning.",
+    "p3": "Vær vert for samtalen din med et rent, velkjent grensesnitt. I det øyeblikket møtet ditt avsluttes, genererer Referat AI automatisk dine høykvalitetsreferater, komplett med tydelig fangede **beslutninger og handlingspunkter**."
   },
-  "seo": {
-    "description": "Klikk «Online» for å lage en URL, del den og start et Zoom-lignende møte umiddelbart. Møtereferat AI genereres automatisk når møtet avsluttes.",
-    "ld": {
-      "description": "Zoom-lignende møter via URL og automatisk møtereferat med tydelige beslutninger og oppgaver.",
-      "headline": "Støtte for nettmøter i Referat AI"
-    },
-    "ogDescription": "Start via «Online» og få automatisk, ryddig møtereferat etter møtet.",
-    "ogTitle": "Nettmøter i Referat AI — Møtereferat AI automatisk",
-    "title": "Nettmøter i Referat AI — automatisk Møtereferat AI (iOS)"
+  "image": {
+    "alt": "Referat AI Nettmøte UI",
+    "caption": "Start et Zoom-lignende møte direkte fra \"Online\"-knappen."
   },
   "steps": {
-    "h2": "Kom i gang",
+    "h2": "Slik starter du i 4 enkle trinn",
     "items": [
-      "Klikk «Online» (app/nett)",
-      "Generer møte-URL",
-      "Del URL med deltakerne",
-      "Avslutt → automatisk møtereferat"
-    ],
-    "note": "Møtelengde avhenger av abonnement og gjenværende kvote."
+      "**Trykk \"Online\"**: Finn den nye \"Online\"-knappen i appen eller på nettet.",
+      "**Utsted URL**: Få øyeblikkelig en unik, delbar møtelenke.",
+      "**Del & Møt**: Send lenken til deltakerne dine for å bli med i samtalen.",
+      "**Få referat**: Avslutt møtet, og dine automatiserte referater vil være klare øyeblikk senere."
+    ]
+  },
+  "features": {
+    "h2": "Viktige høydepunkter",
+    "items": [
+      "**Kjent, høykvalitets UX**: Nyt en jevn, Zoom-lignende videosamtaleopplevelse (drevet av LiveKit).",
+      "**Ett-klikks enkelhet**: Ingen oppsett kreves. Bare trykk én gang for å få møtelenken din.",
+      "**Fullautomatiske referater**: Kjernekraften til Referat AI, nå bygget direkte inn i samtalene dine.",
+      "**Rene, lesbare formater**: Få referater som fremhever beslutninger og handlinger, ikke bare en vegg av tekst.",
+      "**Flerspråklig støtte**: Perfekt for globale team, med støtte for flere språk."
+    ]
+  },
+  "notes": {
+    "h2": "Viktige merknader",
+    "items": [
+      "**Møtevarighet:** Den totale tilgjengelige møtetiden er basert på din nåværende Referat AI-plan og gjenværende kvote.",
+      "**Samtalekvalitet:** Som med enhver nettsamtale, kan lyd- og videokvaliteten påvirkes av nettverksforholdene dine og enhetsinnstillingene."
+    ]
+  },
+  "pricing": {
+    "h2": "Hvordan dette fungerer med din Referat AI-plan",
+    "p1": "Siden \"priser\" er et toppspørsmål, er her en enkel oversikt over hvordan denne nye funksjonen fungerer med våre planer.",
+    "p2": "Din møtetidskvote er den samme som din transkripsjonskvote. Vi tilbyr to enkle alternativer som passer din måte å jobbe på.",
+    "timepacks": {
+      "h3": "1. Engangspakker (De utløper aldri)",
+      "p1": "Perfekt for sporadiske møter. Kjøp en pakke med minutter, og bruk dem når du vil - denne måneden, eller neste år.",
+      "items": [
+        "Prøve: 120 minutter for **$1.99**",
+        "Lett: 1200 minutter for **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Abonnementer (Virkelig ubegrenset)",
+      "p1": "For team med regelmessige eller daglige møter. Glem å se på klokken - bare gå for virkelig ubegrenset.",
+      "items": [
+        "Månedlig: **$16.99** / måned",
+        "Årlig: **$149.99** / år (Sparer deg ca. 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Ikke glem:** Du får en **gratis 3-minutters billett hver eneste dag** for å prøve enhver funksjon, inkludert Nettmøter!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publisert",
+    "type": "Utgivelse",
+    "category": "Nettmøte"
+  },
+  "cta": {
+    "openBrowser": "Åpne i nettleser",
+    "downloadIOS": "Last ned iOS-app"
   }
 }

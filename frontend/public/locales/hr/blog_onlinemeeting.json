@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Povratak na AI Zapisnik" },
-  "cta": {
-    "downloadIOS": "Preuzmi iOS aplikaciju",
-    "openBrowser": "Otvori u pregledniku"
+  "seo": {
+    "title": "AI Zapisnik sada podržava Online sastanke (iOS)",
+    "description": "Kliknite \"Online\" da biste izdali URL, podijelite ga i odmah započnite sastanak sličan Zoomu. Čisti zapisnici generiraju se automatski kada sastanak završi.",
+    "ogTitle": "Online sastanci dolaze na AI Zapisnik",
+    "ogDescription": "Započnite sastanke slične Zoomu s gumba \"Online\" i na kraju dobijte automatske, dobro formatirane zapisnike.",
+    "ld": {
+      "headline": "AI Zapisnik dodaje Online sastanke",
+      "description": "Organizirajte sastanke slične Zoomu putem izdanog URL-a, a zatim dobijte automatske zapisnike s jasnim odlukama i akcijskim stavkama."
+    }
   },
-  "features": {
-    "h2": "Istaknuto",
-    "items": [
-      "UX poput Zooma (na LiveKit-u)",
-      "Izdavanje URL-a jednim klikom",
-      "Automatski zapisnik na kraju sastanka",
-      "Čitljivi, formatirani izlazi",
-      "Višejezično za globalne timove"
-    ]
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Online sastanci"
   },
   "hero": {
-    "h1": "Online Meetings za AI Zapisnik (iOS)",
-    "kicker": "Napomena o izdanju",
-    "tagline": "Kliknite \"Online\", izdajte URL, podijelite ga i uđite. Pri prekidu poziva zapisnik se generira automatski."
-  },
-  "image": {
-    "alt": "AI Zapisnik Online Meeting sučelje",
-    "caption": "Pokrenite Zoom-like sastanak putem gumba \"Online\"."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Objavljeno",
-    "type": "Izdanje"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Isprobajte na webu ili preuzmite iOS aplikaciju.",
-    "h2": "Bilješke",
-    "items": [
-      "Trajanje i preostalo vrijeme ovise o paketu/kvoti",
-      "Mreža i postavke uređaja mogu utjecati na kvalitetu"
-    ]
+    "kicker": "Bilješka o izdanju",
+    "h1": "Online sastanci za AI Zapisnik (iOS)",
+    "tagline": "Od \"Započni sastanak\" do \"Gotov zapisnik\"—odmah.\nKliknite novi gumb **\"Online\"**, izdajte jedinstveni URL i podijelite ga sa svojim timom. Baš tako, nalazite se na sastanku uživo. Kada poklopite, AI Zapisnik automatski počinje generirati vaš potpuni, formatirani zapisnik."
   },
   "release": {
     "h2": "Što je novo",
-    "p1": "AI Zapisnik sada podržava Online Meetings. Samo kliknite \"Online\" za izdavanje URL-a i započinjanje Zoom-like poziva.",
-    "p2": "Po završetku sastanka zapisnik se automatski generira s jasnim odlukama i zadacima."
+    "p1": "Zaboravite na prebacivanje između aplikacija. Ugradili smo snažnu značajku online sastanaka sličnu Zoomu izravno u AI Zapisnik za iOS.",
+    "p2": "Ovo ažuriranje transformira vaš tijek rada: više vam nije potrebna jedna aplikacija za domaćinstvo poziva i druga za njegovu analizu. To je sve-u-jednom rješenje.",
+    "p3": "Organizirajte svoj poziv s čistim, poznatim sučeljem. Onog trenutka kada vaš sastanak završi, AI Zapisnik automatski generira vaše visokokvalitetne zapisnike, zajedno s jasno zabilježenim **odlukama i akcijskim stavkama**."
   },
-  "seo": {
-    "description": "Kliknite \"Online\" za izdavanje URL-a, podijelite ga i odmah pokrenite Zoom-like sastanak. Na kraju se automatski stvaraju čisti zapisnici.",
-    "ld": {
-      "description": "Vodite Zoom-like sastanke putem izdanog URL-a i primite automatske zapisnike s jasnim odlukama i akcijama.",
-      "headline": "AI Zapisnik dodaje Online Meetings"
-    },
-    "ogDescription": "Pokrenite sastanke preko \"Online\" gumba i na kraju dobijte automatski dobro formatiran zapisnik.",
-    "ogTitle": "Online Meetings stiže u AI Zapisnik",
-    "title": "AI Zapisnik sada podržava Online Meetings (iOS)"
+  "image": {
+    "alt": "AI Zapisnik korisničko sučelje za Online sastanak",
+    "caption": "Započnite sastanak sličan Zoomu izravno s gumba \"Online\"."
   },
   "steps": {
-    "h2": "Kako započeti",
+    "h2": "Kako započeti u 4 jednostavna koraka",
     "items": [
-      "Kliknite \"Online\" u aplikaciji ili na webu",
-      "Izdajte URL sastanka",
-      "Podijelite URL s sudionicima",
-      "Završetak sastanka → automatski zapisnik"
-    ],
-    "note": "Trajanje ovisi o paketu i preostaloj kvoti."
+      "**Dodirnite \"Online\"**: Pronađite novi gumb \"Online\" u aplikaciji ili na webu.",
+      "**Izdajte URL**: Odmah dobijte jedinstvenu, djeljivu poveznicu za sastanak.",
+      "**Podijelite i sastanite se**: Pošaljite poveznicu sudionicima da se pridruže pozivu.",
+      "**Dobijte zapisnik**: Završite sastanak, i vaši automatizirani zapisnici bit će spremni trenutak kasnije."
+    ]
+  },
+  "features": {
+    "h2": "Ključne značajke",
+    "items": [
+      "**Poznato, visokokvalitetno korisničko iskustvo (UX)**: Uživajte u glatkom iskustvu videopoziva sličnom Zoomu (pokreće LiveKit).",
+      "**Jednostavnost jednim klikom**: Nije potrebno postavljanje. Samo dodirnite jednom da biste dobili poveznicu za sastanak.",
+      "**Potpuno automatski zapisnici**: Temeljna snaga AI Zapisnik, sada ugrađena izravno u vaše pozive.",
+      "**Čisti, čitljivi formati**: Dobijte zapisnike koji ističu odluke i radnje, a ne samo zid teksta.",
+      "**Višejezična podrška**: Savršeno za globalne timove, s podrškom za više jezika."
+    ]
+  },
+  "notes": {
+    "h2": "Važne napomene",
+    "items": [
+      "**Trajanje sastanka:** Ukupno dostupno vrijeme sastanka temelji se na vašem trenutnom AI Zapisnik planu i preostaloj kvoti.",
+      "**Kvaliteta poziva:** Kao i kod svakog online poziva, na kvalitetu zvuka i videa mogu utjecati uvjeti vaše mreže i postavke uređaja."
+    ]
+  },
+  "pricing": {
+    "h2": "Kako ovo funkcionira s vašim AI Zapisnik planom",
+    "p1": "Budući da je \"cijena\" glavno pitanje, evo jednostavnog pregleda kako ova nova značajka funkcionira s našim planovima.",
+    "p2": "Vaša kvota vremena za sastanke ista je kao i vaša kvota za transkripciju. Nudimo dvije jednostavne opcije koje odgovaraju vašem načinu rada.",
+    "timepacks": {
+      "h3": "1. Jednokratni paketi (Nikada ne istječu)",
+      "p1": "Savršeno za povremene sastanke. Kupite paket minuta i koristite ih kad god želite - ovaj mjesec ili sljedeće godine.",
+      "items": [
+        "Probni: 120 minuta za **$1.99**",
+        "Lagani: 1200 minuta za **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Pretplate (Doista neograničene)",
+      "p1": "Za timove s redovitim ili dnevnim sastancima. Zaboravite na gledanje na sat - jednostavno idite na doista neograničeno.",
+      "items": [
+        "Mjesečno: **$16.99** / mjesečno",
+        "Godišnje: **$149.99** / godišnje (Štedi vam oko 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Ne zaboravite:** Dobivate **besplatnu ulaznicu od 3 minute svaki dan** da isprobate bilo koju značajku, uključujući Online sastanke!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Izdanje",
+    "category": "Online sastanak"
+  },
+  "cta": {
+    "openBrowser": "Otvori u pregledniku",
+    "downloadIOS": "Preuzmite iOS aplikaciju"
   }
 }

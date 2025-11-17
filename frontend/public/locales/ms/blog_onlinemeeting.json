@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Minit AI kini menyokong Mesyuarat Dalam Talian (iOS)",
+    "description": "Klik \"Online\" untuk mengeluarkan URL, kongsi, dan mulakan mesyuarat seperti Zoom serta-merta. Minit yang bersih dijana secara automatik apabila mesyuarat tamat.",
+    "ogTitle": "Mesyuarat Dalam Talian kini di Minit AI",
+    "ogDescription": "Mulakan mesyuarat seperti Zoom dari butang \"Online\" dan dapatkan minit automatik yang diformat dengan baik pada akhirnya.",
+    "ld": {
+      "headline": "Minit AI menambah Mesyuarat Dalam Talian",
+      "description": "Hoskan mesyuarat seperti Zoom melalui URL yang dikeluarkan, kemudian dapatkan minit automatik dengan keputusan dan item tindakan yang jelas."
+    }
+  },
   "aria": {
-    "home": "Halaman Utama Minit AI"
-  },
-  "cta": {
-    "downloadIOS": "Muat turun aplikasi iOS",
-    "openBrowser": "Buka dalam pelayar"
-  },
-  "features": {
-    "h2": "Sorotan",
-    "items": [
-      "UX mirip Zoom (LiveKit)",
-      "URL satu klik",
-      "Minit automatik selepas mesyuarat",
-      "Format kemas dan mudah dibaca",
-      "Berbilang bahasa untuk pasukan global"
-    ]
-  },
-  "hero": {
-    "h1": "Mesyuarat dalam talian untuk Minit AI (iOS)",
-    "kicker": "Siapan",
-    "tagline": "Klik “Online”, jana URL dan kongsi. Tamat sahaja, minit dijana automatik."
-  },
-  "image": {
-    "alt": "Antara muka mesyuarat dalam talian Minit AI",
-    "caption": "Mulakan dari butang “Online”."
-  },
-  "meta": {
-    "category": "Mesyuarat dalam talian",
-    "h2": "Meta",
-    "published": "Diterbitkan",
-    "type": "Siapan"
+    "home": "Minit AI Halaman Utama"
   },
   "nav": {
     "blog": "Blog",
-    "onlinemeeting": "Mesyuarat dalam talian"
+    "onlinemeeting": "Mesyuarat Dalam Talian"
   },
-  "notes": {
-    "foot": "Cuba di web atau muat turun aplikasi iOS.",
-    "h2": "Nota",
-    "items": [
-      "Had tempoh/masa baki ikut pelan/kuota",
-      "Rangkaian/peranti boleh menjejaskan kualiti"
-    ]
+  "hero": {
+    "kicker": "Nota Keluaran",
+    "h1": "Mesyuarat Dalam Talian untuk Minit AI (iOS)",
+    "tagline": "Beralih dari \"Mula Mesyuarat\" ke \"Minit Selesai\"—Serta-merta.\nKlik butang **\"Online\"** baharu, keluarkan URL unik, dan kongsi dengan pasukan anda. Begitu sahaja, anda berada dalam mesyuarat langsung. Apabila anda menamatkan panggilan, Minit AI secara automatik mula menjana minit lengkap anda yang telah diformat."
   },
   "release": {
-    "h2": "Apa yang baharu",
-    "p1": "Minit AI kini menyokong mesyuarat dalam talian. Hanya klik “Online” untuk jana dan kongsi URL.",
-    "p2": "Selepas tamat, minit dijana automatik dengan keputusan dan tindakan yang jelas."
+    "h2": "Apa yang Baharu",
+    "p1": "Lupakan pertukaran antara aplikasi. Kami telah membina ciri mesyuarat dalam talian yang hebat seperti Zoom terus ke dalam Minit AI untuk iOS.",
+    "p2": "Kemas kini ini mengubah aliran kerja anda: anda tidak lagi memerlukan satu aplikasi untuk mengehos panggilan dan satu lagi untuk menganalisisnya. Ia adalah penyelesaian semua-dalam-satu.",
+    "p3": "Hoskan panggilan anda dengan antara muka yang bersih dan biasa. Sebaik sahaja mesyuarat anda tamat, Minit AI secara automatik menjana minit berkualiti tinggi anda, lengkap dengan **keputusan dan item tindakan** yang ditangkap dengan jelas."
   },
-  "seo": {
-    "description": "Klik “Online” untuk jana URL, kongsi dan mula mesyuarat ala Zoom serta-merta. Minit dijana secara automatik apabila tamat.",
-    "ld": {
-      "description": "Mesyuarat ala Zoom melalui URL dan minit automatik dengan keputusan serta tindakan.",
-      "headline": "Sokongan mesyuarat dalam talian"
-    },
-    "ogDescription": "Mulakan dari “Online” dan terima minit automatik yang kemas.",
-    "ogTitle": "Mesyuarat dalam talian Minit AI",
-    "title": "Minit AI kini menyokong mesyuarat dalam talian (iOS)"
+  "image": {
+    "alt": "UI Mesyuarat Dalam Talian Minit AI",
+    "caption": "Mulakan mesyuarat seperti Zoom terus dari butang \"Online\"."
   },
   "steps": {
-    "h2": "Cara mula",
+    "h2": "Cara Bermula dalam 4 Langkah Mudah",
     "items": [
-      "Klik “Online” (app/web)",
-      "Jana URL mesyuarat",
-      "Kongsi URL kepada peserta",
-      "Tamat → minit automatik"
-    ],
-    "note": "Tempoh bergantung pada pelan dan kuota baki."
+      "**Ketik \"Online\"**: Cari butang \"Online\" baharu dalam aplikasi atau di web.",
+      "**Keluarkan URL**: Dapatkan pautan mesyuarat unik yang boleh dikongsi serta-merta.",
+      "**Kongsi & Berjumpa**: Hantar pautan kepada peserta anda untuk menyertai panggilan.",
+      "**Dapatkan Minit**: Tamatkan mesyuarat, dan minit automatik anda akan sedia sejurus kemudian."
+    ]
+  },
+  "features": {
+    "h2": "Sorotan Utama",
+    "items": [
+      "**UX Berkualiti Tinggi yang Biasa**: Nikmati pengalaman panggilan video yang lancar dan seperti Zoom (dikuasakan oleh LiveKit).",
+      "**Kesederhanaan Satu Klik**: Tiada persediaan diperlukan. Hanya ketik sekali untuk mendapatkan pautan mesyuarat anda.",
+      "**Minit Automatik Sepenuhnya**: Kekuatan teras Minit AI, kini dibina terus ke dalam panggilan anda.",
+      "**Format Bersih dan Mudah Dibaca**: Dapatkan minit yang menyerlahkan keputusan dan tindakan, bukan hanya dinding teks.",
+      "**Sokongan Pelbagai Bahasa**: Sesuai untuk pasukan global, dengan sokongan untuk pelbagai bahasa."
+    ]
+  },
+  "notes": {
+    "h2": "Nota Penting",
+    "items": [
+      "**Tempoh Mesyuarat:** Jumlah masa mesyuarat yang tersedia adalah berdasarkan pelan Minit AI semasa anda dan baki kuota.",
+      "**Kualiti Panggilan:** Seperti mana-mana panggilan dalam talian, kualiti audio dan video mungkin dipengaruhi oleh keadaan rangkaian dan tetapan peranti anda."
+    ]
+  },
+  "pricing": {
+    "h2": "Bagaimana Ini Berfungsi dengan Pelan Minit AI Anda",
+    "p1": "Memandangkan \"harga\" adalah soalan utama, berikut adalah pecahan mudah tentang cara ciri baharu ini berfungsi dengan pelan kami.",
+    "p2": "Kuota masa mesyuarat anda adalah sama dengan kuota transkripsi anda. Kami menawarkan dua pilihan mudah yang sesuai dengan cara anda bekerja.",
+    "timepacks": {
+      "h3": "1. Pek Sekali Beli (Tidak Pernah Luput)",
+      "p1": "Sesuai untuk mesyuarat sekali-sekala. Beli pek minit, dan gunakannya bila-bila masa anda mahu - bulan ini, atau tahun depan.",
+      "items": [
+        "Percubaan: 120 minit dengan harga **$1.99**",
+        "Ringan: 1200 minit dengan harga **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Langganan (Benar-benar Tanpa Had)",
+      "p1": "Untuk pasukan dengan mesyuarat tetap atau harian. Lupakan tentang melihat jam - hanya dapatkan tanpa had sepenuhnya.",
+      "items": [
+        "Bulanan: **$16.99** / bulan",
+        "Tahunan: **$149.99** / tahun (Menjimatkan anda kira-kira 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Jangan lupa:** Anda mendapat **tiket percuma 3 minit setiap hari** untuk mencuba sebarang ciri, termasuk Mesyuarat Dalam Talian!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Keluaran",
+    "category": "Mesyuarat Dalam Talian"
+  },
+  "cta": {
+    "openBrowser": "Buka dalam pelayar",
+    "downloadIOS": "Muat turun aplikasi iOS"
   }
 }

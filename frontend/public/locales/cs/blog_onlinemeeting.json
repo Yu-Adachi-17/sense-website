@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Zpět na Zápisník AI" },
-  "cta": {
-    "downloadIOS": "Stáhnout iOS aplikaci",
-    "openBrowser": "Otevřít v prohlížeči"
+  "seo": {
+    "title": "Zápisník AI nyní podporuje online schůzky (iOS)",
+    "description": "Klikněte na „Online“, vytvořte URL, sdílejte ji a okamžitě zahajte schůzku podobnou Zoomu. Po skončení schůzky se automaticky vygenerují čisté zápisy.",
+    "ogTitle": "Online schůzky přicházejí do Zápisník AI",
+    "ogDescription": "Zahajte schůzky podobné Zoomu tlačítkem „Online“ a na konci získejte automatické, dobře formátované zápisy.",
+    "ld": {
+      "headline": "Zápisník AI přidává online schůzky",
+      "description": "Pořádejte schůzky podobné Zoomu prostřednictvím vydané URL a získejte automatické zápisy s jasnými rozhodnutími a akčními body."
+    }
   },
-  "features": {
-    "h2": "Hlavní body",
-    "items": [
-      "UX jako Zoom (na LiveKit)",
-      "Vystavení URL jedním klikem",
-      "Automatické zápisy po ukončení",
-      "Čitelné a formátované výstupy",
-      "Vícejazyčné pro globální týmy"
-    ]
+  "aria": {
+    "home": "Zápisník AI Domů"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Online schůzky"
   },
   "hero": {
-    "h1": "Online Meetings pro Zápisník AI (iOS)",
     "kicker": "Poznámka k vydání",
-    "tagline": "Klikněte na „Online“, vystavte URL, sdílejte a jste uvnitř. Po ukončení se zápisy generují automaticky."
-  },
-  "image": {
-    "alt": "UI Online Meeting v Zápisník AI",
-    "caption": "Spusťte Zoom-like meeting přes tlačítko „Online“."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Publikováno",
-    "type": "Vydání"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Vyzkoušejte na webu nebo stáhněte iOS aplikaci.",
-    "h2": "Poznámky",
-    "items": [
-      "Délka a zbývající čas závisí na plánu/kvótě",
-      "Kvalitu může ovlivnit síť a nastavení zařízení"
-    ]
+    "h1": "Online schůzky pro Zápisník AI (iOS)",
+    "tagline": "Od „Zahájit schůzku“ po „Hotový zápis“ – okamžitě.\nKlikněte na nové tlačítko **„Online“**, vytvořte jedinečnou URL a sdílejte ji se svým týmem. A je to, jste na živé schůzce. Když zavěsíte, Zápisník AI automaticky začne pracovat na generování vašeho kompletního, formátovaného zápisu."
   },
   "release": {
-    "h2": "Novinky",
-    "p1": "Zápisník AI nyní podporuje Online Meetings. Jednoduše klikněte na „Online“, vystavte URL a sdílejte pro Zoom-like hovor.",
-    "p2": "Po skončení se zápisy generují automaticky a jasně zachycují rozhodnutí a úkoly."
+    "h2": "Co je nového",
+    "p1": "Zapomeňte na přepínání mezi aplikacemi. Vestavěli jsme výkonnou funkci online schůzek podobnou Zoomu přímo do Zápisník AI pro iOS.",
+    "p2": "Tato aktualizace mění váš pracovní postup: už nepotřebujete jednu aplikaci pro hostování hovoru a druhou pro jeho analýzu. Je to řešení vše v jednom.",
+    "p3": "Hostujte svůj hovor s čistým, známým rozhraním. V okamžiku, kdy vaše schůzka skončí, Zápisník AI automaticky vygeneruje vaše vysoce kvalitní zápisy, kompletní s jasně zachycenými **rozhodnutími a akčními body**."
   },
-  "seo": {
-    "description": "Klikněte na „Online“, vystavte URL, sdílejte a ihned spusťte Zoom-like meeting. Po konci se automaticky vygenerují čisté zápisy.",
-    "ld": {
-      "description": "Po vydání URL hostujte Zoom-like meeting a pak získejte automatické zápisy s jasnými rozhodnutími a úkoly.",
-      "headline": "Zápisník AI přidává Online Meetings"
-    },
-    "ogDescription": "Spouštějte Zoom-like meetingy z tlačítka „Online“ a na konci získejte automaticky formátované zápisy.",
-    "ogTitle": "Online Meetings přichází do Zápisník AI",
-    "title": "Zápisník AI nyní podporuje Online Meetings (iOS)"
+  "image": {
+    "alt": "UI online schůzky Zápisník AI",
+    "caption": "Zahajte schůzku podobnou Zoomu přímo z tlačítka „Online“."
   },
   "steps": {
-    "h2": "Jak začít",
+    "h2": "Jak začít ve 4 jednoduchých krocích",
     "items": [
-      "Klikněte na „Online“ v aplikaci nebo na webu",
-      "Vystavte URL schůzky",
-      "Sdílejte URL s účastníky",
-      "Ukončete schůzku → automatické zápisy"
-    ],
-    "note": "Délka schůzky závisí na vašem plánu a zbývající kvótě."
+      "**Klepněte na „Online“**: Najděte nové tlačítko „Online“ v aplikaci nebo na webu.",
+      "**Vytvořte URL**: Okamžitě získejte jedinečný, sdílený odkaz na schůzku.",
+      "**Sdílejte a setkejte se**: Pošlete odkaz účastníkům, aby se připojili k hovoru.",
+      "**Získejte zápis**: Ukončete schůzku a vaše automatizované zápisy budou připraveny o chvíli později."
+    ]
+  },
+  "features": {
+    "h2": "Klíčové vlastnosti",
+    "items": [
+      "**Známé, vysoce kvalitní UX**: Užijte si plynulý zážitek z videohovoru podobný Zoomu (postaveno na LiveKit).",
+      "**Jednoduchost jedním kliknutím**: Není nutné žádné nastavování. Stačí jednou klepnout a získáte odkaz na schůzku.",
+      "**Plně automatické zápisy**: Klíčová síla Zápisník AI, nyní vestavěná přímo do vašich hovorů.",
+      "**Čisté, čitelné formáty**: Získejte zápisy, které zdůrazňují rozhodnutí a akce, nejen zeď textu.",
+      "**Podpora více jazyků**: Ideální pro globální týmy, s podporou více jazyků."
+    ]
+  },
+  "notes": {
+    "h2": "Důležité poznámky",
+    "items": [
+      "**Délka schůzky:** Celková dostupná doba schůzky závisí na vašem aktuálním plánu Zápisník AI a zbývající kvótě.",
+      "**Kvalita hovoru:** Stejně jako u jakéhokoli online hovoru může být kvalita zvuku a videa ovlivněna podmínkami vaší sítě a nastavením zařízení."
+    ]
+  },
+  "pricing": {
+    "h2": "Jak to funguje s vaším plánem Zápisník AI",
+    "p1": "Jelikož „ceny“ jsou častou otázkou, zde je jednoduché vysvětlení, jak tato nová funkce funguje s našimi plány.",
+    "p2": "Vaše kvóta na čas schůzek je stejná jako vaše kvóta na přepis. Nabízíme dvě jednoduché možnosti, které odpovídají vašemu způsobu práce.",
+    "timepacks": {
+      "h3": "1. Jednorázové balíčky (Nikdy nevyprší)",
+      "p1": "Ideální pro občasné schůzky. Kupte si balíček minut a použijte je, kdykoli budete chtít – tento měsíc, nebo příští rok.",
+      "items": [
+        "Zkušební: 120 minut za **$1.99**",
+        "Lehký: 1200 minut za **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Předplatná (Skutečně neomezená)",
+      "p1": "Pro týmy s pravidelnými nebo každodenními schůzkami. Zapomeňte na sledování hodin – prostě jděte skutečně neomezeně.",
+      "items": [
+        "Měsíční: **$16.99** / měsíc",
+        "Roční: **$149.99** / rok (Ušetříte přibližně 26 %!)"
+      ]
+    },
+    "free": {
+      "quote": "**Nezapomeňte:** Získáte **3minutovou volnou vstupenku každý den** k vyzkoušení jakékoli funkce, včetně online schůzek!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Vydání",
+    "category": "Online schůzka"
+  },
+  "cta": {
+    "openBrowser": "Otevřít v prohlížeči",
+    "downloadIOS": "Stáhnout aplikaci pro iOS"
   }
 }

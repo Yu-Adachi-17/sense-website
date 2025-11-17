@@ -1,71 +1,94 @@
 {
+  "seo": {
+    "title": "Tutanakları AI artık Çevrimiçi Toplantıları (iOS) destekliyor",
+    "description": "Bir URL oluşturmak için \"Çevrimiçi\"ye tıklayın, paylaşın ve anında Zoom benzeri bir toplantı başlatın. Toplantı sona erdiğinde temiz tutanaklar otomatik olarak oluşturulur.",
+    "ogTitle": "Çevrimiçi Toplantılar Tutanakları AI'a geliyor",
+    "ogDescription": "\"Çevrimiçi\" düğmesinden Zoom benzeri toplantılar başlatın ve sonunda otomatik, iyi biçimlendirilmiş tutanaklar alın.",
+    "ld": {
+      "headline": "Tutanakları AI, Çevrimiçi Toplantılar ekliyor",
+      "description": "Oluşturulan bir URL aracılığıyla Zoom benzeri toplantılara ev sahipliği yapın, ardından net kararlar ve eylem maddeleri içeren otomatik tutanaklar alın."
+    }
+  },
   "aria": {
     "home": "Tutanakları AI Ana Sayfa"
   },
-  "cta": {
-    "downloadIOS": "iOS uygulamasını indir",
-    "openBrowser": "Tarayıcıda aç"
-  },
-  "features": {
-    "h2": "Öne çıkanlar",
-    "items": [
-      "Zoom benzeri UX (LiveKit)",
-      "Tek tıkla URL",
-      "Toplantı sonunda otomatik tutanak",
-      "Okunabilir, biçimlendirilmiş çıktı",
-      "Küresel ekipler için çok dilli"
-    ]
-  },
-  "hero": {
-    "h1": "Tutanakları AI için çevrimiçi toplantılar (iOS)",
-    "kicker": "Yayın",
-    "tagline": "“Online” → URL oluştur → paylaş. Bitişte otomatik tutanak başlar."
-  },
-  "image": {
-    "alt": "Tutanakları AI çevrimiçi toplantı arayüzü",
-    "caption": "“Online” düğmesinden toplantı başlatın."
-  },
-  "meta": {
-    "category": "Çevrimiçi toplantı",
-    "h2": "Meta",
-    "published": "Yayın",
-    "type": "Yayın"
-  },
   "nav": {
     "blog": "Blog",
-    "onlinemeeting": "Çevrimiçi toplantı"
+    "onlinemeeting": "Çevrimiçi Toplantılar"
   },
-  "notes": {
-    "foot": "Web’de deneyin veya iOS uygulamasını indirin.",
-    "h2": "Notlar",
-    "items": [
-      "Süre/kalan zaman plan/kotaya bağlı",
-      "Ağ ve cihaz ayarları kaliteyi etkileyebilir"
-    ]
+  "hero": {
+    "kicker": "Sürüm Notu",
+    "h1": "Tutanakları AI için Çevrimiçi Toplantılar (iOS)",
+    "tagline": "\"Toplantı Başlat\"tan \"Bitmiş Tutanak\"a—Anında geçin.\nYeni **\"Çevrimiçi\"** düğmesine tıklayın, benzersiz bir URL oluşturun ve ekibinizle paylaşın. İşte bu kadar, canlı bir toplantıdasınız. Kapattığınızda, Tutanakları AI otomatik olarak tam, biçimlendirilmiş tutanağınızı oluşturmaya başlar."
   },
   "release": {
-    "h2": "Duyuru",
-    "p1": "Tutanakları AI artık çevrimiçi toplantıları destekliyor. “Online” üzerinden URL oluşturup paylaşarak hemen başlayın.",
-    "p2": "Toplantı biter bitmez, karar ve aksiyonları netleştiren tutanaklar otomatik oluşturulur."
+    "h2": "Neler Yeni",
+    "p1": "Uygulamalar arasında geçiş yapmayı unutun. Güçlü, Zoom benzeri bir çevrimiçi toplantı özelliğini doğrudan iOS için Tutanakları AI'a entegre ettik.",
+    "p2": "Bu güncelleme iş akışınızı dönüştürüyor: artık aramayı barındırmak için bir uygulamaya ve onu analiz etmek için başka bir uygulamaya ihtiyacınız yok. Bu, hepsi bir arada bir çözüm.",
+    "p3": "Aramanızı temiz, tanıdık bir arayüzle barındırın. Toplantınız sona erdiği an, Tutanakları AI otomatik olarak yüksek kaliteli tutanaklarınızı oluşturur; net bir şekilde yakalanan **kararlar ve eylem maddeleri** ile birlikte."
   },
-  "seo": {
-    "description": "“Online”a tıklayın, URL oluşturup paylaşın ve anında Zoom benzeri toplantı başlatın. Toplantı bittiğinde tutanaklar otomatik oluşturulur.",
-    "ld": {
-      "description": "URL ile Zoom benzeri toplantılar ve karar/aksiyonları netleştiren otomatik tutanaklar.",
-      "headline": "Çevrimiçi toplantı desteği"
-    },
-    "ogDescription": "“Online” üzerinden başlayın, toplantı bitince otomatik ve düzenli tutanak alın.",
-    "ogTitle": "Tutanakları AI'da çevrimiçi toplantılar",
-    "title": "Tutanakları AI artık çevrimiçi toplantıları destekliyor (iOS)"
+  "image": {
+    "alt": "Tutanakları AI Çevrimiçi Toplantı Arayüzü",
+    "caption": "Doğrudan \"Çevrimiçi\" düğmesinden Zoom benzeri bir toplantı başlatın."
   },
   "steps": {
-    "h2": "Başlarken",
+    "h2": "4 Basit Adımda Nasıl Başlanır",
     "items": [
-      "Uygulama/webde “Online”a tıklayın",
-      "Toplantı URL’si oluşturun",
-      "URL’yi katılımcılarla paylaşın",
-      "Bitir → otomatik tutanak"
-    ],
-    "note": "Süre, planınıza ve kalan kotaya bağlıdır."
+      "**\"Çevrimiçi\"ye dokunun**: Uygulamada veya web'de new \"Çevrimiçi\" düğmesini bulun.",
+      "**URL oluşturun**: Anında benzersiz, paylaşılabilir bir toplantı bağlantısı alın.",
+      "**Paylaşın ve Buluşun**: Aramaya katılmaları için katılımcılarınıza bağlantıyı gönderin.",
+      "**Tutanakları Alın**: Toplantıyı sonlandırın, otomatikleştirilmiş tutanaklarınız bir süre sonra hazır olacaktır."
+    ]
+  },
+  "features": {
+    "h2": "Öne Çıkan Özellikler",
+    "items": [
+      "**Tanıdık, Yüksek Kaliteli UX**: Sorunsuz, Zoom benzeri bir video görüşme deneyiminin (LiveKit tabanlı) keyfini çıkarın.",
+      "**Tek Tıkla Kolaylık**: Kurulum gerekmez. Toplantı bağlantınızı almak için sadece bir kez dokunun.",
+      "**Tam Otomatik Tutanaklar**: Tutanakları AI'ın temel gücü, şimdi doğrudan aramalarınıza entegre edildi.",
+      "**Temiz, Okunabilir Formatlar**: Sadece bir metin duvarı değil, kararları ve eylemleri vurgulayan tutanaklar alın.",
+      "**Çoklu Dil Desteği**: Birden fazla dil desteği ile küresel ekipler için mükemmel."
+    ]
+  },
+  "notes": {
+    "h2": "Önemli Notlar",
+    "items": [
+      "**Toplantı Süresi:** Kullanılabilir toplam toplantı süresi, mevcut Tutanakları AI planınıza ve kalan kotanıza bağlıdır.",
+      "**Arama Kalitesi:** Herhangi bir çevrimiçi aramada olduğu gibi, ses ve video kalitesi ağ koşullarınızdan ve cihaz ayarlarınızdan etkilenebilir."
+    ]
+  },
+  "pricing": {
+    "h2": "Bu, Tutanakları AI Planınızla Nasıl Çalışır?",
+    "p1": "\"Fiyatlandırma\" en önemli sorulardan biri olduğu için, bu yeni özelliğin planlarımızla nasıl çalıştığının basit bir dökümünü burada bulabilirsiniz.",
+    "p2": "Toplantı süresi kotanız, transkripsiyon kotanızla aynıdır. Çalışma şeklinize uyan iki basit seçenek sunuyoruz.",
+    "timepacks": {
+      "h3": "1. Tek Seferlik Paketler (Asla Sona Ermezler)",
+      "p1": "Ara sıra yapılan toplantılar için mükemmel. Bir dakika paketi satın alın ve istediğiniz zaman kullanın - bu ay veya gelecek yıl.",
+      "items": [
+        "Deneme: 120 dakika **$1.99** karşılığında",
+        "Hafif: 1200 dakika **$11.99** karşılığında"
+      ]
+    },
+    "subs": {
+      "h3": "2. Abonelikler (Gerçekten Sınırsız)",
+      "p1": "Düzenli veya günlük toplantıları olan ekipler için. Saati izlemeyi unutun - sadece gerçekten sınırsız olana geçin.",
+      "items": [
+        "Aylık: **$16.99** / ay",
+        "Yıllık: **$149.99** / yıl (Size yaklaşık %26 tasarruf sağlar!)"
+      ]
+    },
+    "free": {
+      "quote": "**Unutmayın:** Çevrimiçi Toplantılar da dahil olmak üzere herhangi bir özelliği denemek için her gün **3 dakikalık ücretsiz bir bilet** alırsınız!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Yayınlandı",
+    "type": "Sürüm",
+    "category": "Çevrimiçi Toplantı"
+  },
+  "cta": {
+    "openBrowser": "Tarayıcıda aç",
+    "downloadIOS": "iOS uygulamasını indirin"
   }
 }

@@ -1,66 +1,94 @@
 {
-  "aria": { "home": "Powrót do Protokół AI" },
-  "cta": {
-    "downloadIOS": "Pobierz aplikację iOS",
-    "openBrowser": "Otwórz w przeglądarce"
+  "seo": {
+    "title": "Protokół AI obsługuje teraz Spotkania Online (iOS)",
+    "description": "Kliknij \"Online\", aby wygenerować adres URL, udostępnij go i natychmiast rozpocznij spotkanie typu Zoom. Czyste protokoły są generowane automatycznie po zakończeniu spotkania.",
+    "ogTitle": "Spotkania Online trafiają do Protokół AI",
+    "ogDescription": "Rozpocznij spotkania typu Zoom za pomocą przycisku \"Online\" i otrzymuj automatyczne, dobrze sformatowane protokoły na koniec.",
+    "ld": {
+      "headline": "Protokół AI dodaje Spotkania Online",
+      "description": "Organizuj spotkania typu Zoom za pomocą wygenerowanego adresu URL, a następnie otrzymuj automatyczne protokoły z jasnymi decyzjami i punktami akcji."
+    }
   },
-  "features": {
-    "h2": "Najważniejsze",
-    "items": [
-      "UX jak w Zoom (na LiveKit)",
-      "Wystawienie URL jednym kliknięciem",
-      "Automatyczne minutki po zakończeniu",
-      "Czytelne, sformatowane wyniki",
-      "Wielojęzyczność dla globalnych zespołów"
-    ]
+  "aria": {
+    "home": "Protokół AI Strona główna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "onlinemeeting": "Spotkania Online"
   },
   "hero": {
-    "h1": "Online Meetings dla Protokół AI (iOS)",
-    "kicker": "Informacja o wydaniu",
-    "tagline": "Kliknij „Online”, wystaw URL, udostępnij i dołącz. Po zakończeniu minutki generują się automatycznie."
-  },
-  "image": {
-    "alt": "Interfejs Online Meeting Protokół AI",
-    "caption": "Rozpocznij spotkanie w stylu Zoom z przycisku „Online”."
-  },
-  "meta": {
-    "category": "Online Meeting",
-    "h2": "Meta",
-    "published": "Opublikowano",
-    "type": "Wydanie"
-  },
-  "nav": { "blog": "Blog", "onlinemeeting": "Online Meetings" },
-  "notes": {
-    "foot": "Wypróbuj w sieci lub pobierz aplikację iOS.",
-    "h2": "Uwagi",
-    "items": [
-      "Czas trwania i pozostały limit zależą od planu/kwoty",
-      "Sieć i ustawienia urządzenia mogą wpływać na jakość"
-    ]
+    "kicker": "Informacje o wydaniu",
+    "h1": "Spotkania Online dla Protokół AI (iOS)",
+    "tagline": "Przejdź od \"Rozpocznij spotkanie\" do \"Gotowy protokół\"—Natychmiast.\nKliknij nowy przycisk **\"Online\"**, wygeneruj unikalny adres URL i udostępnij go swojemu zespołowi. Właśnie tak, jesteś na spotkaniu na żywo. Kiedy się rozłączysz, Protokół AI automatycznie rozpocznie generowanie Twojego pełnego, sformatowanego protokołu."
   },
   "release": {
     "h2": "Co nowego",
-    "p1": "Protokół AI obsługuje teraz Online Meetings. Wystarczy kliknąć „Online”, aby wystawić URL i rozpocząć rozmowę w stylu Zoom.",
-    "p2": "Po zakończeniu spotkania minutki generowane są automatycznie z jasnymi decyzjami i zadaniami."
+    "p1": "Zapomnij o przełączaniu się między aplikacjami. Zbudowaliśmy potężną funkcję spotkań online typu Zoom bezpośrednio w Protokół AI dla iOS.",
+    "p2": "Ta aktualizacja zmienia Twój przepływ pracy: nie potrzebujesz już jednej aplikacji do prowadzenia rozmowy i drugiej do jej analizy. To rozwiązanie wszystko w jednym.",
+    "p3": "Prowadź rozmowę za pomocą czystego, znanego interfejsu. W momencie zakończenia spotkania, Protokół AI automatycznie generuje Twoje wysokiej jakości protokoły, wraz z wyraźnie uchwyconymi **decyzjami i punktami akcji**."
   },
-  "seo": {
-    "description": "Kliknij „Online”, wystaw URL, udostępnij i natychmiast rozpocznij spotkanie jak w Zoom. Na końcu automatycznie powstaną czytelne minutki.",
-    "ld": {
-      "description": "Prowadź spotkania w stylu Zoom przez wystawiony URL i otrzymuj automatyczne minutki z jasnymi decyzjami i działaniami.",
-      "headline": "Protokół AI dodaje Online Meetings"
-    },
-    "ogDescription": "Uruchamiaj spotkania z przycisku „Online” i otrzymuj na końcu automatycznie sformatowane minutki.",
-    "ogTitle": "Online Meetings w Protokół AI",
-    "title": "Protokół AI obsługuje teraz Online Meetings (iOS)"
+  "image": {
+    "alt": "Interfejs użytkownika Spotkania Online Protokół AI",
+    "caption": "Rozpocznij spotkanie typu Zoom bezpośrednio z przycisku \"Online\"."
   },
   "steps": {
-    "h2": "Jak zacząć",
+    "h2": "Jak zacząć w 4 prostych krokach",
     "items": [
-      "Kliknij „Online” w aplikacji lub w sieci",
-      "Wystaw URL spotkania",
-      "Udostępnij URL uczestnikom",
-      "Zakończ spotkanie → automatyczne minutki"
-    ],
-    "note": "Czas trwania zależy od planu i pozostałego limitu."
+      "**Dotknij \"Online\"**: Znajdź nowy przycisk \"Online\" w aplikacji lub w internecie.",
+      "**Wygeneruj URL**: Natychmiast uzyskaj unikalny, możliwy do udostępnienia link do spotkania.",
+      "**Udostępnij i Spotkaj się**: Wyślij link uczestnikom, aby dołączyli do rozmowy.",
+      "**Otrzymaj Protokół**: Zakończ spotkanie, a Twoje automatyczne protokoły będą gotowe chwilę później."
+    ]
+  },
+  "features": {
+    "h2": "Najważniejsze cechy",
+    "items": [
+      "**Znany, wysokiej jakości UX**: Ciesz się płynnym doświadczeniem rozmowy wideo przypominającym Zoom (opartym na LiveKit).",
+      "**Prostota jednego kliknięcia**: Nie wymaga konfiguracji. Wystarczy dotknąć raz, aby uzyskać link do spotkania.",
+      "**W pełni automatyczne protokoły**: Główna siła Protokół AI, teraz wbudowana bezpośrednio w Twoje rozmowy.",
+      "**Czyste, czytelne formaty**: Otrzymuj protokoły, które podkreślają decyzje i działania, a nie tylko ścianę tekstu.",
+      "**Wsparcie wielojęzyczne**: Idealne dla zespołów globalnych, z obsługą wielu języków."
+    ]
+  },
+  "notes": {
+    "h2": "Ważne uwagi",
+    "items": [
+      "**Czas trwania spotkania:** Całkowity dostępny czas spotkania zależy od Twojego bieżącego planu Protokół AI i pozostałego limitu.",
+      "**Jakość połączenia:** Jak w przypadku każdej rozmowy online, jakość dźwięku i obrazu może być uzależniona od warunków sieciowych i ustawień urządzenia."
+    ]
+  },
+  "pricing": {
+    "h2": "Jak to działa z Twoim planem Protokół AI",
+    "p1": "Ponieważ \"ceny\" to jedno z najczęstszych pytań, oto proste wyjaśnienie, jak ta nowa funkcja działa z naszymi planami.",
+    "p2": "Twój limit czasu spotkań jest taki sam jak limit transkrypcji. Oferujemy dwie proste opcje, które pasują do Twojego sposobu pracy.",
+    "timepacks": {
+      "h3": "1. Pakiety jednorazowe (Nigdy nie wygasają)",
+      "p1": "Idealne na sporadyczne spotkania. Kup pakiet minut i wykorzystaj je, kiedy chcesz - w tym miesiącu lub w przyszłym roku.",
+      "items": [
+        "Testowy: 120 minut za **$1.99**",
+        "Lekki: 1200 minut za **$11.99**"
+      ]
+    },
+    "subs": {
+      "h3": "2. Subskrypcje (Naprawdę nieograniczone)",
+      "p1": "Dla zespołów z regularnymi lub codziennymi spotkaniami. Zapomnij o patrzeniu na zegarek - po prostu przejdź na prawdziwie nieograniczone.",
+      "items": [
+        "Miesięczna: **$16.99** / miesiąc",
+        "Roczna: **$149.99** / rok (Oszczędzasz około 26%!)"
+      ]
+    },
+    "free": {
+      "quote": "**Nie zapomnij:** Otrzymujesz **darmowy 3-minutowy bilet każdego dnia**, aby wypróbować dowolną funkcję, w tym Spotkania Online!"
+    }
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Wydanie",
+    "category": "Spotkanie Online"
+  },
+  "cta": {
+    "openBrowser": "Otwórz w przeglądarce",
+    "downloadIOS": "Pobierz aplikację iOS"
   }
 }
