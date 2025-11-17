@@ -167,6 +167,54 @@ export default function FullScreenOverlay({
 
   const stopPropagation = (e) => e.stopPropagation();
 
+  // 2枚目のビジュアルに合わせたスタイルの定義をここに追加
+  const ui = {
+    chipBgLight: "#E3F2FD",
+    cardShadow: "0 8px 28px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.06)",
+    base: {
+      zTop: 2147483647,
+      radius: 16,
+      ease: "cubic-bezier(.2,.7,.2,1)",
+    },
+    sideMenu: {
+      position: "fixed", top: 0, right: 0,
+      width: isMobile ? "66.66%" : "30%", maxWidth: 560, minWidth: 320,
+      height: "100%",
+      color: "#0A0F1B",
+      padding: "22px 18px", boxSizing: "border-box",
+      display: "flex", flexDirection: "column", alignItems: "stretch",
+      zIndex: 1200, // Z-indexを調整
+      transition: `transform .30s cubic-bezier(.2,.7,.2,1)`,
+      transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
+      background: "#FFFFFF",
+      boxShadow: showSideMenu ? "0 18px 42px rgba(0,0,0,0.10), 0 10px 20px rgba(0,0,0,0.06)" : "none",
+      pointerEvents: showSideMenu ? "auto" : "none",
+      borderLeft: "1px solid rgba(0,0,0,0.08)", // subtle border
+    },
+    rowCard: {
+      borderRadius: 16, // base.radius
+      background: "#FFFFFF",
+      border: "1px solid rgba(0,0,0,0.04)", padding: "12px 10px",
+      margin: "10px 6px 12px 6px",
+      boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
+      transform: "translateZ(0)", transition: "transform .2s ease, box-shadow .2s ease",
+      cursor: "pointer",
+    },
+    rowCardHover: { transform: "translateY(-2px)", boxShadow: "0 10px 24px rgba(0,0,0,0.08)" },
+    iconBadge: { width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center", background: "#E3F2FD", border: "1px solid rgba(0,0,0,0.04)", flex: "0 0 44px" }, // chipBgLight
+    rowTitle: { fontSize: 14, fontWeight: 600, color: "#0A0F1B" },
+    blankOverlay: { // SideMenuが表示されているときに背後を暗くするオーバーレイ
+      position: "fixed", inset: 0,
+      background: "rgba(0, 0, 0, 0.5)",
+      zIndex: 1100, // SideMenuより低いZ-index
+      display: showSideMenu ? "block" : "none",
+      opacity: showSideMenu ? 1 : 0,
+      transition: "opacity 0.3s ease",
+    },
+    // その他のスタイルも必要に応じてここに定義します
+  };
+
+
   const styles = {
     fullScreenOverlay: {
       position: "fixed",
@@ -266,47 +314,9 @@ export default function FullScreenOverlay({
       outline: "none",
       resize: "none",
     },
-    sideMenuOverlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      zIndex: 1100,
-      display: showSideMenu ? "block" : "none",
-      transition: "opacity 0.5s ease",
-      opacity: showSideMenu ? 1 : 0,
-    },
-    sideMenu: {
-      position: "fixed",
-      top: 0,
-      right: 0,
-      width: isMobile ? "66.66%" : "33%",
-      height: "100%",
-      backgroundColor: "#FFFFFF",
-      color: "#000000",
-      padding: "20px",
-      boxSizing: "border-box",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "flex-start",
-      zIndex: 1200,
-      transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
-      transition: "transform 0.5s ease-out",
-      borderLeft: "1px solid #e5e5e5",
-    },
-    sideMenuButton: {
-      background: "none",
-      border: "none",
-      color: "#000000",
-      fontSize: "24px",
-      cursor: "pointer",
-      margin: "10px 0",
-      display: "flex",
-      alignItems: "center",
-      fontWeight: "bold",
-    },
+    // sideMenuOverlay は ui.blankOverlay に置き換える
+    // sideMenu は ui.sideMenu に置き換える
+    // sideMenuButton は MenuRow コンポーネントに置き換える
     sideMenuClose: {
       position: "absolute",
       top: "20px",
@@ -321,6 +331,31 @@ export default function FullScreenOverlay({
   };
 
   const isJsonMinutes = !isExpanded && looksLikeJsonObject(editedText);
+
+  // 2枚目の MenuRow コンポーネントを参考に、FullScreenOverlay 用に調整
+  const MenuRow = ({ icon, iconColor, title, onClick, trailing, disabled }) => {
+    const [hover, setHover] = useState(false);
+    return (
+      <div
+        role="button" tabIndex={0} aria-disabled={!!disabled}
+        onClick={() => !disabled && onClick?.()}
+        onKeyDown={(e) => { if (!disabled && (e.key === "Enter" || e.key === " ")) onClick?.(); }}
+        style={{
+          ...ui.rowCard,
+          ...(hover && !disabled ? ui.rowCardHover : null),
+          opacity: disabled ? 0.6 : 1,
+          pointerEvents: disabled ? "none" : "auto",
+        }}
+        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={ui.iconBadge}>{icon({ size: 22, color: iconColor })}</div>
+          <div style={ui.rowTitle}>{title}</div>
+          <div style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 8 }}>{trailing}</div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -393,38 +428,48 @@ export default function FullScreenOverlay({
 
       {showSideMenu && (
         <div
-          style={styles.sideMenuOverlay}
+          style={ui.blankOverlay} // 新しいリッチなスタイルを適用
           onClick={() => setShowSideMenu(false)}
         >
-          <div style={styles.sideMenu} onClick={stopPropagation}>
+          <div style={ui.sideMenu} onClick={stopPropagation}>
+            <button
+              style={styles.sideMenuClose} // 閉じるボタンは既存のスタイルを流用
+              onClick={() => setShowSideMenu(false)}
+              aria-label="Close"
+              title="Close"
+            >
+              &times;
+            </button>
+
             {!isExpanded ? (
-              <button style={styles.sideMenuButton} onClick={handleSwitchView}>
-                <TbClipboardText size={24} />
-                <span style={styles.iconSpacing}>
-                  {t("Show Full Transcript")}
-                </span>
-              </button>
+              <MenuRow
+                icon={(p) => <TbClipboardText {...p} />}
+                iconColor={"#0D47A1"} // アイコンの色は適宜調整
+                title={t("Show Full Transcript")}
+                onClick={handleSwitchView}
+              />
             ) : (
-              <button
-                style={styles.sideMenuButton}
+              <MenuRow
+                icon={(p) => <TbClipboardList {...p} />}
+                iconColor={"#0D47A1"} // アイコンの色は適宜調整
+                title={t("Show Minutes")}
                 onClick={handleSwitchToMinutes}
-              >
-                <TbClipboardList size={24} />
-                <span style={styles.iconSpacing}>{t("Show Minutes")}</span>
-              </button>
+              />
             )}
 
-            <button style={styles.sideMenuButton} onClick={handleDownload}>
-              <IoIosDownload size={24} />
-              <span style={styles.iconSpacing}>
-                {t("Download Audio Data")}
-              </span>
-            </button>
+            <MenuRow
+              icon={(p) => <IoIosDownload {...p} />}
+              iconColor={"#4CAF50"} // アイコンの色は適宜調整
+              title={t("Download Audio Data")}
+              onClick={handleDownload}
+            />
 
-            <button style={styles.sideMenuButton} onClick={handleShare}>
-              <FaRegCopy size={24} />
-              <span style={styles.iconSpacing}>{t("Copy to Clipboard")}</span>
-            </button>
+            <MenuRow
+              icon={(p) => <FaRegCopy {...p} />}
+              iconColor={"#FF9800"} // アイコンの色は適宜調整
+              title={t("Copy to Clipboard")}
+              onClick={handleShare}
+            />
           </div>
         </div>
       )}
