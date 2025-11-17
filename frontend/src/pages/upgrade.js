@@ -376,11 +376,7 @@ export default function BuyTicketsPage() {
             </span>
             <span className="brandText">{t("Minutes.AI")}</span>
           </a>
-          <nav className="nav" aria-label={t("Primary") || "Primary"}>
-            <a href="/" className="navLink">
-              <span className="navText gradHeader">{t("Home")}</span>
-            </a>
-          </nav>
+
         </header>
       </FixedHeaderPortal>
 

@@ -1052,6 +1052,29 @@ header.top .brandText {
   font-size: 22px;
 }
 
+/* ...（既存の .brand スタイルの後など）... */
+
+        header.top .brand {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          color: #ffffff;
+          text-decoration: none;
+        }
+
+        /* ▼▼▼ このルールを追加 ▼▼▼ */
+        header.top .brandIcon {
+          /* アイコンを相対的に少し下にずらす */
+          position: relative;
+          top: 2px; /* 2pxか3pxでお好みの位置に調整してください */
+        }
+        /* ▲▲▲ ここまで ▲▲▲ */
+
+        header.top .brandText {
+          font-weight: 800;
+          font-size: 22px;
+        }
+
 /* ▼ 右ナビ全体をひとつの枠で囲む */
 header.top .navGroup {
   display: flex;
