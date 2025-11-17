@@ -430,14 +430,7 @@ export default function FullScreenOverlay({
           onClick={() => setShowSideMenu(false)}
         >
           <div style={ui.sideMenu} onClick={stopPropagation}>
-            <button
-              style={styles.sideMenuClose} // 閉じるボタンは既存のスタイルを流用
-              onClick={() => setShowSideMenu(false)}
-              aria-label="Close"
-              title="Close"
-            >
-              &times;
-            </button>
+
 
             {/* ----- 修正：ここに "Edit" ボタンを移動 ----- */}
             {!isEditing && (
