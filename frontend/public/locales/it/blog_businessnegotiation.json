@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Torna alla home di Verbali IA"
-  },
-  "byline": {
-    "name": "Scritto da Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Scarica l’app iOS",
-    "openBrowser": "Apri l’app web"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Riunioni comuni",
-      "items": {
-        "0": "Stand-up regolari: rivedi risultati, problemi, azioni",
-        "1": "Brainstorming: divergere e convergere sulle idee",
-        "2": "Negoziazione: allineare gli interessi e raggiungere un accordo"
-      }
-    },
-    "h2": "Le riunioni sono varie — la negoziazione è questione di trattativa",
-    "p1": "Cambia l’obiettivo e cambia anche ciò che ha valore. Nella negoziazione, la trattativa in sé è il fulcro.",
-    "wide": {
-      "h3": "“Riunione” in senso ampio",
-      "items": {
-        "0": "1-to-1: revisione dei risultati, prossimi obiettivi, condivisione delle difficoltà",
-        "1": "Colloquio: allineare requisiti e compatibilità",
-        "2": "Presentazione: problema e soluzione",
-        "3": "Formazione: trasferimento di processi/operatività"
-      }
+  "seo": {
+    "title": "Perché i verbali generici falliscono nelle negoziazioni | Verbali IA",
+    "description": "I modelli generici tralasciano il 'perché' dietro un accordo. Le negoziazioni riguardano compromessi e contesto, non solo decisioni. Scopri come Verbali IA cattura le sfumature che i verbali generici ignorano.",
+    "ogTitle": "Verbali IA | Per le negoziazioni commerciali",
+    "ogDescription": "Smetti di perdere il 'perché'. Cattura l'intero contesto di obiezioni, concessioni e impegni che i riepiloghi generici tralasciano.",
+    "ld": {
+      "headline": "Verbali di negoziazione commerciale che fanno davvero avanzare gli accordi",
+      "description": "Le negoziazioni richiedono verbali specializzati che traccino obiezioni, concessioni e il contesto critico del 'chi-ha-detto-cosa'."
     }
   },
-  "example": {
-    "block": "Società A: Il vostro prodotto precedente aveva un bug — ci ha creato problemi reali. Ci siete debitori; consegnate entro la prossima settimana. Il prezzo è 1.000 $.\\nLa nostra azienda: Ci impegneremo internamente per consegnare entro la prossima settimana. In cambio, possiamo portarlo a 1.200 $? Per favore valutate.\\nSocietà A: Se potete garantire la consegna la prossima settimana, lo prenderemo in considerazione. Inviate oggi una risposta via email.",
-    "h2": "Esempio (conservare gli scambi chiave parola per parola)",
-    "p1": "Mantenere questi “round chiave” nella formulazione originale permette ai decisori di valutarne la ragionevolezza con tutto il contesto."
-  },
-  "hero": {
-    "h1": "Perché Verbali IA ti aiuta a scrivere i migliori verbali di negoziazione",
-    "kicker": "Blog di Verbali IA",
-    "tagline": "La negoziazione è un confronto di interessi. Un buon verbale non elenca solo decisioni e attività — cattura anche contesto e tono. Ecco l’approccio e come metterlo in pratica con Verbali IA."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Il verbale tipico, troppo sottile",
-      "items": {
-        "0": "Elenca decisioni senza motivazioni o filo narrativo",
-        "1": "Poco chiaro chi ha chiesto cosa e dove sono state fatte concessioni",
-        "2": "Ambiguità su ciò che non è concordato o rinviato"
-      }
-    },
-    "h2": "Perché i verbali “solo decisioni” sono deboli",
-    "optimized": {
-      "h3": "Verbali progettati per la negoziazione",
-      "items": {
-        "0": "Una timeline di richieste, concessioni e modifiche dei termini (scadenza/prezzo/ambito/responsabilità)",
-        "1": "Ragioni, ipotesi e rischi registrati vicino a ogni decisione",
-        "2": "Separazione chiara tra concordato/non concordato/in sospeso con responsabili e scadenze"
-      }
-    },
-    "p1": "Limitarsi a “discussione/decisioni/azioni/questioni aperte” spesso fa perdere contesto, tono e storia delle concessioni. Il risultato: fraintendimenti, rilanci inutili e rischio di “detto/non detto”."
+  "aria": {
+    "home": "Verbali IA Home"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Perché Verbali IA ti aiuta a scrivere i migliori verbali di negoziazione"
+    "businessnegotiation": "Negoziazione commerciale"
   },
-  "negotiation": {
-    "h2": "Dunque, che cos’è una negoziazione?",
-    "p1": "In breve: proteggere e far crescere gli interessi della tua azienda. Non è un annuncio a senso unico; cerchi un terreno comune scambiando “richieste” e “concessioni” su termini come scadenza, prezzo, ambito e rischio."
+  "hero": {
+    "kicker": "Il manuale della negoziazione",
+    "h1": "I verbali generici uccidono gli accordi. I verbali di negoziazione li concludono.",
+    "tagline": "Un semplice elenco di 'decisioni' non è sufficiente. Le negoziazioni ad alta posta in gioco riguardano il contesto, i compromessi e il 'chi-ha-detto-cosa'. Verbali IA ti aiuta a catturare l'intera storia, non solo un riassunto superficiale."
+  },
+  "byline": {
+    "name": "Scritto da: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Questa volta andiamo a fondo sulla negoziazione.",
-    "h2": "Recap rapido",
+    "h2": "In precedenza: La mentalità del 'Verbale Universale'",
     "p1": {
-      "link": "leggilo qui",
-      "post": ".",
-      "pre": "La volta scorsa abbiamo mostrato come i verbali AI possano funzionare per qualsiasi riunione. Se ti incuriosisce,"
+      "pre": "Nel nostro articolo precedente, abbiamo delineato l'idea del",
+      "link": "\"verbale universale\"",
+      "post": "— un formato di base che funziona per la maggior parte delle riunioni interne."
     },
-    "points": {
-      "0": "Le riunioni sono varie, quindi il formato ottimale dei verbali dipende dall’obiettivo.",
-      "1": "I modelli generici aiutano, ma il livello di dettaglio va adattato al caso d’uso.",
-      "2": "Da “registro da leggere” a “piano per agire”.",
-      "3": "Verbali IA adatta l’output all’obiettivo della riunione."
+    "points": [
+      "Mantenere gli obiettivi espliciti e misurabili",
+      "Registrare le decisioni e i responsabili",
+      "Far emergere rapidamente rischi e ostacoli",
+      "Rendere le azioni successive inequivocabili"
+    ],
+    "focus": "Ma le negoziazioni sono diverse. La struttura deve riflettere interessi contrastanti, opzioni e compromessi."
+  },
+  "diversity": {
+    "h2": "Diversità delle riunioni: Lo scopo definisce il risultato",
+    "core": {
+      "h3": "Riunioni tipiche",
+      "items": [
+        "Check-in settimanale: Monitorare progressi, problemi e soluzioni.",
+        "Brainstorming: Divergere sulle idee, poi convergere.",
+        "Vendite / Negoziazione: Adeguare gli interessi e formare accordi."
+      ]
+    },
+    "wide": {
+      "h3": "Spettro più ampio (Sempre riunioni!)",
+      "items": [
+        "1-on-1: Rivedere le prestazioni, fissare obiettivi, condividere preoccupazioni.",
+        "Colloquio: Abbinare i requisiti all'idoneità di un candidato.",
+        "Workshop / Lezione: Trasferire conoscenze o procedure."
+      ]
+    },
+    "p1": "Se le persone parlano per uno scopo comune, è una riunione. Poiché gli scopi differiscono, il risultato di valore deve adattarsi — specialmente per le negoziazioni."
+  },
+  "negotiation": {
+    "h2": "Cos'è davvero una negoziazione?",
+    "p1": "In cosa differisce una negoziazione da una riunione interna? In una parola: **Profitto**. Una negoziazione è un \"**campo di battaglia**\" dove due aziende proteggono i propri interessi — prezzo, ambito, tempistica. Non è una strada a senso unico; è un botta e risposta di concessioni per trovare una via d'accordo. Una semplice lista di 'Cose da fare' non può catturare questo."
+  },
+  "limits": {
+    "h2": "Perché il 'Taglia Unica' fallisce",
+    "p1": "Usare un modello generico per una negoziazione crea verbali 'superficiali'. Questo fa perdere contesto critico e costringe a costose riunioni di follow-up.",
+    "generic": {
+      "h3": "Verbali generici 'superficiali'",
+      "items": [
+        "Registrano una 'Decisione' ma tralasciano il 'Perché' (la concessione).",
+        "Costringono i manager a chiedere: 'Perché abbiamo accettato?'",
+        "Perdono la sfumatura critica del 'lui-ha-detto-lei-ha-detto'.",
+        "Confondono chi è responsabile di cosa, bloccando l'accordo."
+      ]
+    },
+    "optimized": {
+      "h3": "Verbali ottimizzati per la negoziazione",
+      "items": [
+        "Tracciano il flusso **Obiezione → Concessione → Accordo**.",
+        "Danno ai manager l''atmosfera' e il contesto per giudicare.",
+        "Preservano gli scambi chiave per prevenire dispute 'lui-ha-detto-lei-ha-detto'.",
+        "Legano ogni impegno a un responsabile e a una scadenza."
+      ]
     }
   },
-  "seo": {
-    "description": "Le negoziazioni richiedono verbali che catturino decisioni, attività, contesto, tono e storia delle concessioni. Guida pratica con Verbali IA.",
-    "ld": {
-      "description": "L’essenza della negoziazione nei verbali: richieste, concessioni e contesto — con Verbali IA.",
-      "headline": "Perché Verbali IA ti aiuta a scrivere i migliori verbali di negoziazione"
-    },
-    "ogDescription": "Addio verbali sottili: conserva lo scambio e il contesto per decidere più in fretta e meglio.",
-    "ogTitle": "Perché Verbali IA ti aiuta a scrivere i migliori verbali di negoziazione",
-    "title": "Perché Verbali IA ti aiuta a scrivere i migliori verbali di negoziazione | Blog sui verbali"
+  "example": {
+    "h2": "Da dati 'aridi' al 'contesto' dell'accordo",
+    "block": "Cliente: Il prezzo è troppo alto per il nostro budget Q4.\nVenditore: Capisco. Se limitiamo i posti a 40 e spostiamo l'SSO alla Fase 2, possiamo rientrare nel suo tetto.\nCliente: Potrebbe funzionare. Ho bisogno dell'approvazione legale. Possiamo bloccare quel prezzo fino al 15/12?\nVenditore: D'accordo. Invio la Proposta v3 oggi. Revisione legale entro fine settimana, chiusura entro il 15/12.",
+    "p1": "Un verbale generico potrebbe semplicemente dire: 'Decisione: Vendere a $X.' Un verbale **ottimizzato per la negoziazione** rende esplicita la progressione: **Obiezione** (prezzo) → **Concessione** (ambito) → **Impegno** (scadenza). Questo contesto è tutto per i decisori che non erano nella stanza."
   },
   "why": {
-    "h2": "Perché Verbali IA è forte nella negoziazione",
-    "items": {
-      "0": "Riassume gli scambi di richieste/concessioni e conserva i passaggi chiave parola per parola (evita “detto/non detto”).",
-      "1": "Ordina cronologicamente le modifiche dei termini (scadenza/prezzo/ambito/responsabilità).",
-      "2": "Documenta ragioni, ipotesi e rischi accanto alle decisioni.",
-      "3": "Separa concordato/non concordato/in sospeso e assegna responsabili e scadenze.",
-      "4": "Mappa le richieste della controparte ai tuoi impegni per un tracciamento chiaro."
+    "h2": "Perché Verbali IA per la negoziazione",
+    "items": [
+      "**Decisioni ricche di contesto:** Andiamo oltre le 'aride' azioni da intraprendere. La nostra IA collega le decisioni direttamente al 'perché' — la discussione, le obiezioni e i compromessi che le hanno generate.",
+      "**Cattura l''atmosfera':** Verbali IA è addestrata per identificare e preservare gli scambi chiave 'lui-ha-detto-lei-ha-detto', non solo per riassumerli.",
+      "**Traccia l'intera 'battaglia':** Il nostro Tracciatore di obiezioni segue un problema dal primo 'no' al 'sì' finale, così non perdi mai il filo dell'accordo.",
+      "**Catene di impegno chiare:** Estrae e assegna automaticamente ogni 'chi, cosa e quando' per garantire che l'accordo avanzi e non si blocchi mai.",
+      "**Output multilingue:** Concludi accordi globali con verbali chiari e accurati per tutti gli stakeholder, nella loro lingua."
+    ]
+  },
+  "pricing": {
+    "h2": "Prezzi semplici e flessibili che si adattano al tuo ritmo",
+    "p1": "Il tuo calendario di riunioni non è 'taglia unica', quindi non dovrebbero esserlo neanche i tuoi prezzi. Scegli il piano che ha senso per te.",
+    "timepacks": {
+      "h3": "Pacchetti una tantum (senza scadenza)",
+      "note": "Compra una volta, usa per sempre. I tuoi minuti **non scadono mai**.",
+      "items": [
+        "Prova (120 min): $1.99",
+        "Light (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Abbonamenti (davvero illimitati)",
+      "note": "Minuti **davvero illimitati**. Nessun limite, nessun ripristino mensile.",
+      "items": [
+        "Mensile: $16.99",
+        "Annuale: $149.99 (Risparmia ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Provalo gratis, ogni giorno",
+      "p1": "Ogni utente riceve un **biglietto gratuito da 3 minuti** per provare Verbali IA, ogni singolo giorno. Nessuna carta di credito richiesta."
     }
   },
   "wrap": {
-    "h2": "Conclusione",
-    "p": "I verbali di negoziazione sono più solidi quando conservano il botta-e-risposta e il contesto, non solo le decisioni. Questo accelera i giudizi e riduce il rework. Rendilo il tuo standard con Verbali IA."
+    "h2": "Conclusione: Smetti di accontentarti di verbali superficiali",
+    "p": "Le negoziazioni si vincono o si perdono nei dettagli. Un riassunto che cattura l'**atmosfera**, il **contesto** e le **concessioni** è ciò che dà al tuo team il potere di prendere decisioni più rapide e intelligenti. La struttura non riguarda solo la chiarezza; riguarda la cattura della realtà dell'accordo."
+  },
+  "cta": {
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica l'app iOS"
   }
 }

@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Volver a la página principal de Actas IA"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Descargar app para iOS",
-    "openBrowser": "Abrir versión web"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Reuniones habituales",
-      "items": {
-        "0": "Seguimiento: revisar resultados/retos/acciones",
-        "1": "Lluvia de ideas: divergencia y convergencia de propuestas",
-        "2": "Negociación: alinear intereses y cerrar acuerdos"
-      }
-    },
-    "h2": "Las reuniones son diversas… y la negociación es un caso particular",
-    "p1": "Si cambia el objetivo, cambia el tipo de salida valiosa. En las negociaciones, negociar es el núcleo.",
-    "wide": {
-      "h3": "“Reunión” en sentido amplio",
-      "items": {
-        "0": "1:1: retro de resultados, próximos objetivos y dificultades",
-        "1": "Entrevista: alinear requisitos y encaje",
-        "2": "Presentación: exponer problema y solución",
-        "3": "Formación: transferir procedimiento/operativa"
-      }
+  "seo": {
+    "title": "Por qué las actas genéricas fracasan en las negociaciones | Actas IA",
+    "description": "Las plantillas genéricas omiten el 'porqué' detrás de un acuerdo. Las negociaciones se basan en concesiones y contexto, no solo en decisiones. Descubra cómo Actas IA captura los matices que las actas genéricas ignoran.",
+    "ogTitle": "Actas IA | Para Negociaciones Comerciales",
+    "ogDescription": "Deje de perder el 'porqué'. Capture el contexto completo de objeciones, concesiones y compromisos que los resúmenes genéricos omiten.",
+    "ld": {
+      "headline": "Actas de negociación comercial que realmente impulsan acuerdos",
+      "description": "Las negociaciones requieren actas especializadas que rastreen objeciones, concesiones y el contexto crítico de 'quién dijo qué'."
     }
   },
-  "example": {
-    "block": "Empresa A: En vuestro producto anterior hubo un bug y nos generó problemas. Nos debéis una; entregad la próxima semana. El precio es 1.000 $.\\nNuestra empresa: Intentaremos entregar la próxima semana tras coordinar internamente. A cambio, ¿podemos subir a 1.200 $? Por favor, considérenlo.\\nEmpresa A: Si garantizan la entrega la próxima semana, lo evaluaremos. Enviad respuesta por correo hoy mismo.",
-    "h2": "Ejemplo (conservar literalmente los intercambios clave)",
-    "p1": "Guardar los “turnos clave” en texto literal permite a quien decide juzgar la razonabilidad con contexto."
-  },
-  "hero": {
-    "h1": "Por qué con Actas IA puedes redactar las mejores actas de negociación",
-    "kicker": "Blog de Actas IA",
-    "tagline": "Una negociación es un cruce de intereses. Por eso, el acta no debe recoger solo decisiones y tareas, sino también el contexto y la tonalidad de los intercambios. Aquí resumimos la idea y cómo llevarla a la práctica con Actas IA."
-  },
-  "limits": {
-    "generic": {
-      "h3": "El acta superficial típica",
-      "items": {
-        "0": "Lista decisiones sin razones ni recorrido",
-        "1": "No queda claro quién pidió qué y dónde se cedió",
-        "2": "Ambigüedad sobre lo no acordado o lo aparcado"
-      }
-    },
-    "h2": "Por qué un acta “solo con decisiones” se queda corta",
-    "optimized": {
-      "h3": "Un acta fuerte para negociaciones",
-      "items": {
-        "0": "Cronología de exigencias/concesiones/cambios (plazo/precio/alcance/responsabilidad)",
-        "1": "Motivos, supuestos y riesgos cerca de cada decisión",
-        "2": "Separar acordado/no acordado/aparcado con plazos y responsables"
-      }
-    },
-    "p1": "Limitarse a “discusión/decisiones/tareas/pendientes” suele perder contexto, tono e historial de concesiones. Resultado: malentendidos, ping-pong innecesario y riesgo de “se dijo/no se dijo”."
+  "aria": {
+    "home": "Actas IA Inicio"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Por qué con Actas IA puedes redactar las mejores actas de negociación"
+    "businessnegotiation": "Negociación Comercial"
   },
-  "negotiation": {
-    "h2": "¿Qué es exactamente una negociación?",
-    "p1": "En pocas palabras: proteger y ampliar los intereses de tu empresa. No es una comunicación unidireccional, sino buscar el punto de acuerdo intercambiando “exigencias” y “concesiones” sobre plazos, precio, alcance y riesgo."
+  "hero": {
+    "kicker": "El Manual de Negociación",
+    "h1": "Las actas genéricas matan acuerdos. Las actas de negociación los cierran.",
+    "tagline": "Una simple lista de 'decisiones' no es suficiente. Las negociaciones de alto riesgo se tratan de contexto, concesiones y 'quién dijo qué'. Actas IA le ayuda a capturar la historia completa, no solo un resumen superficial."
+  },
+  "byline": {
+    "name": "Escrito por: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "En esta ocasión profundizamos específicamente en las negociaciones comerciales.",
-    "h2": "Resumen del artículo anterior",
+    "h2": "Anteriormente: La mentalidad de las 'Actas Universales'",
     "p1": {
-      "link": "haz clic aquí",
-      "post": ".",
-      "pre": "En el artículo anterior mostramos que las actas con IA funcionan para cualquier tipo de reunión. Si quieres repasar,"
+      "pre": "En nuestro artículo anterior, describimos la idea de las",
+      "link": "\"actas universales\"",
+      "post": ", un formato base que funciona para la mayoría de las reuniones internas."
     },
-    "points": {
-      "0": "Hay muchos tipos de reunión, así que el formato óptimo del acta depende del objetivo.",
-      "1": "Las plantillas genéricas ayudan, pero conviene ajustar el nivel de detalle según el caso.",
-      "2": "Del “documento para leer” al “plan para ejecutar”.",
-      "3": "Actas IA adapta la salida al objetivo de la reunión."
+    "points": [
+      "Mantener los objetivos explícitos y medibles",
+      "Registrar decisiones y propietarios responsables",
+      "Sacar a la luz riesgos y bloqueadores rápidamente",
+      "Hacer que las próximas acciones sean inequívocas"
+    ],
+    "focus": "Pero las negociaciones son diferentes. La estructura debe reflejar intereses en conflicto, opciones y concesiones."
+  },
+  "diversity": {
+    "h2": "Diversidad de reuniones: El propósito define el resultado",
+    "core": {
+      "h3": "Reuniones Típicas",
+      "items": [
+        "Check-in semanal: Seguir el progreso, problemas y soluciones.",
+        "Brainstorming: Divergir en ideas, luego converger.",
+        "Ventas / Negociación: Ajustar intereses y formar acuerdos."
+      ]
+    },
+    "wide": {
+      "h3": "Espectro más amplio (¡Siguen siendo reuniones!)",
+      "items": [
+        "1 a 1: Revisar el rendimiento, establecer metas, compartir preocupaciones.",
+        "Entrevista: Coincidir los requisitos con el ajuste de un candidato.",
+        "Taller / Conferencia: Transferir conocimientos u operaciones."
+      ]
+    },
+    "p1": "Si las personas hablan con un propósito común, es una reunión. Dado que los propósitos difieren, el resultado valioso debe adaptarse, especialmente para las negociaciones."
+  },
+  "negotiation": {
+    "h2": "¿Qué es realmente una negociación?",
+    "p1": "¿En qué se diferencia una negociación de una reunión interna? En una palabra: **Beneficio**. Una negociación es un \"**campo de batalla**\" donde dos empresas protegen sus propios intereses: precio, alcance, cronograma. No es una calle de un solo sentido; es un vaivén de concesiones para encontrar un camino hacia el acuerdo. Una simple lista de 'Tareas' no puede capturar esto."
+  },
+  "limits": {
+    "h2": "Por qué falla el 'Talla Única'",
+    "p1": "Usar una plantilla genérica para una negociación crea actas 'superficiales'. Esto pierde contexto crítico y obliga a costosas reuniones de seguimiento.",
+    "generic": {
+      "h3": "Actas Genéricas 'Superficiales'",
+      "items": [
+        "Registran una 'Decisión' pero omiten el 'Porqué' (la concesión).",
+        "Obligan a los gerentes a preguntar: '¿Por qué aceptamos esto?'",
+        "Pierden el matiz crítico de 'él dijo / ella dijo'.",
+        "Desdibujan quién es responsable de qué, estancando el acuerdo."
+      ]
+    },
+    "optimized": {
+      "h3": "Actas Optimizadas para Negociación",
+      "items": [
+        "Rastrean el flujo **Objeción → Concesión → Acuerdo**.",
+        "Dan a los gerentes la 'atmósfera' y el fondo para juzgar.",
+        "Preservan intercambios clave para prevenir disputas de 'él dijo / ella dijo'.",
+        "Vinculan cada compromiso a un propietario y una fecha límite."
+      ]
     }
   },
-  "seo": {
-    "description": "Una negociación necesita actas que capturen decisiones, tareas, contexto, tono e historial de concesiones. Guía práctica para hacerlo con Actas IA.",
-    "ld": {
-      "description": "Lo esencial de las negociaciones en las actas: exigencias, concesiones y contexto con Actas IA.",
-      "headline": "Por qué con Actas IA puedes redactar las mejores actas de negociación"
-    },
-    "ogDescription": "Adiós a las actas superficiales: conserva el intercambio y el contexto para decidir más rápido y mejor.",
-    "ogTitle": "Por qué con Actas IA puedes redactar las mejores actas de negociación",
-    "title": "Por qué con Actas IA puedes redactar las mejores actas de negociación | Blog de actas de reuniones"
+  "example": {
+    "h2": "De datos 'secos' a 'contexto' del acuerdo",
+    "block": "Cliente: El precio es demasiado alto para nuestro presupuesto de Q4.\nVendedor: Entiendo. Si limitamos los asientos a 40 y movemos el SSO a la Fase 2, podemos cumplir con su límite.\nCliente: Eso podría funcionar. Necesito aprobación legal. ¿Podemos bloquear ese precio hasta el 15/12?\nVendedor: De acuerdo. Enviaré la Propuesta v3 hoy. Revisión legal para fin de semana, cierre para el 15/12.",
+    "p1": "Un acta genérica podría simplemente decir: 'Decisión: Vender por $X.' Un acta **optimizada para la negociación** hace explícita la progresión: **Objeción** (precio) → **Concesión** (alcance) → **Compromiso** (fecha límite). Este contexto lo es todo para los responsables de la toma de decisiones que no estaban en la sala."
   },
   "why": {
-    "h2": "Por qué Actas IA destaca en negociaciones",
-    "items": {
-      "0": "Resume exigencias/concesiones y guarda pasajes clave literalmente (evita “se dijo/no se dijo”).",
-      "1": "Ordena cronológicamente los cambios de condiciones (plazo/precio/alcance/responsabilidad).",
-      "2": "Documenta razones, supuestos y riesgos junto a la decisión.",
-      "3": "Distingue acordado/no acordado/aparcado con plazos y responsables.",
-      "4": "Relaciona peticiones de la contraparte con nuestros compromisos para un seguimiento claro."
+    "h2": "Por qué Actas IA para Negociación",
+    "items": [
+      "**Decisiones ricas en contexto:** Vamos más allá de los elementos de acción 'secos'. Nuestra IA vincula las decisiones directamente con el 'porqué': la discusión, las objeciones y las concesiones que llevaron a ellas.",
+      "**Capture la 'Atmósfera':** Actas IA está entrenada para identificar y preservar intercambios clave de 'él dijo / ella dijo', no solo para resumirlos.",
+      "**Rastree la 'Batalla' completa:** Nuestro Rastreador de Objeciones sigue un problema desde el primer 'no' hasta el 'sí' final, para que nunca pierda el hilo del acuerdo.",
+      "**Cadenas de compromiso claras:** Extrae y asigna automáticamente cada 'quién, qué y cuándo' para garantizar que el acuerdo avance y nunca se detenga.",
+      "**Resultados multilingües:** Cierre acuerdos globales con actas claras y precisas para todas las partes interesadas, en su idioma."
+    ]
+  },
+  "pricing": {
+    "h2": "Precios simples y flexibles que se adaptan a su ritmo",
+    "p1": "Su calendario de reuniones no es de 'talla única', por lo que sus precios tampoco deberían serlo. Elija el plan que tenga sentido para usted.",
+    "timepacks": {
+      "h3": "Paquetes únicos (sin caducidad)",
+      "note": "Compre una vez, úselo para siempre. Sus minutos **nunca caducan**.",
+      "items": [
+        "Prueba (120 min): $1.99",
+        "Ligero (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Suscripciones (realmente ilimitadas)",
+      "note": "Minutos **realmente ilimitados**. Sin límites, sin reinicios mensuales.",
+      "items": [
+        "Mensual: $16.99",
+        "Anual: $149.99 (Ahorre ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Pruébelo gratis, todos los días",
+      "p1": "Cada usuario obtiene un **boleto gratuito de 3 minutos** para probar Actas IA, todos los días. No se requiere tarjeta de crédito."
     }
   },
   "wrap": {
-    "h2": "Conclusión",
-    "p": "Un buen acta de negociación va más allá de listar decisiones: conserva el intercambio y el contexto. Así aumentan la velocidad y precisión de las decisiones. Conviértelo en estándar con Actas IA."
+    "h2": "Conclusión: Deje de conformarse con actas superficiales",
+    "p": "Las negociaciones se ganan o se pierden en los detalles. Un resumen que captura la **atmósfera**, el **contexto** y las **concesiones** es lo que empodera a su equipo para tomar decisiones más rápidas e inteligentes. La estructura no se trata solo de claridad; se trata de capturar la realidad del acuerdo."
+  },
+  "cta": {
+    "openBrowser": "Abrir en el navegador",
+    "downloadIOS": "Descargar aplicación iOS"
   }
 }

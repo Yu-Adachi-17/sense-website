@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Kembali ke beranda Minutes AI"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Unduh aplikasi iOS",
-    "openBrowser": "Buka versi web"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Rapat yang umum",
-      "items": {
-        "0": "Rapat rutin: tinjau hasil/tantangan/tindakan",
-        "1": "Brainstorming: divergensi lalu konvergensi ide",
-        "2": "Negosiasi: menyelaraskan kepentingan dan mencapai kesepakatan"
-      }
-    },
-    "h2": "Rapat itu beragam—negosiasi punya kekhasan",
-    "p1": "Saat tujuan berubah, bentuk keluaran bernilai pun ikut berubah. Pada negosiasi, proses tawar-menawar adalah intinya.",
-    "wide": {
-      "h3": "“Rapat” dalam arti luas",
-      "items": {
-        "0": "1-on-1: refleksi hasil, target berikutnya, berbagi kendala",
-        "1": "Wawancara: menyamakan kebutuhan dan kecocokan",
-        "2": "Presentasi: memaparkan masalah dan solusi",
-        "3": "Pelatihan: alih pengetahuan/prosedur"
-      }
+  "seo": {
+    "title": "Mengapa Notulen Umum Gagal dalam Negosiasi | Minutes AI",
+    "description": "Template umum melewatkan 'alasan' di balik kesepakatan. Negosiasi adalah tentang kompromi dan konteks, bukan hanya keputusan. Pelajari bagaimana Minutes AI menangkap nuansa yang diabaikan oleh notulen umum.",
+    "ogTitle": "Minutes AI | Untuk Negosiasi Bisnis",
+    "ogDescription": "Berhentilah kehilangan 'alasan'. Tangkap konteks penuh dari keberatan, konsesi, dan komitmen yang dilewatkan oleh ringkasan umum.",
+    "ld": {
+      "headline": "Notulen Negosiasi Bisnis yang benar-benar memajukan kesepakatan",
+      "description": "Negosiasi memerlukan notulen khusus yang melacak keberatan, konsesi, dan konteks kritis 'siapa-bilang-apa'."
     }
   },
-  "example": {
-    "block": "Perusahaan A: Produk Anda sebelumnya ada bug dan membuat kami repot. Anda “berutang” kepada kami—tolong kirim minggu depan. Harganya 1.000 USD.\\nPerusahaan kami: Kami akan berusaha mengirim minggu depan setelah koordinasi internal. Sebagai gantinya, bisakah dinaikkan menjadi 1.200 USD? Mohon dipertimbangkan.\\nPerusahaan A: Jika pengiriman minggu depan bisa dijamin, kami akan pertimbangkan. Harap kirim jawaban lewat email hari ini.",
-    "h2": "Contoh (simpan kata-demi-kata pada bagian kunci)",
-    "p1": "Menyimpan “giliran kunci” secara verbatim memudahkan pengambil keputusan menilai kewajaran dalam konteks."
-  },
-  "hero": {
-    "h1": "Mengapa Anda bisa menulis notulen negosiasi terbaik dengan Minutes AI",
-    "kicker": "Blog Minutes AI",
-    "tagline": "Negosiasi adalah pertemuan kepentingan. Karena itu, notulen tidak cukup hanya berisi keputusan dan tugas—ia perlu menangkap konteks dan nada percakapan. Inilah pola pikirnya dan cara mempraktikkannya dengan Minutes AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Notulen tipis yang umum terjadi",
-      "items": {
-        "0": "Hanya daftar keputusan tanpa alasan/alur",
-        "1": "Tidak jelas siapa meminta apa dan di mana terjadi konsesi",
-        "2": "Ketidakjelasan pada hal yang belum disepakati/ditangguhkan"
-      }
-    },
-    "h2": "Mengapa notulen “hanya berisi keputusan” itu lemah",
-    "optimized": {
-      "h3": "Notulen yang kuat untuk negosiasi",
-      "items": {
-        "0": "Linimasa permintaan/konsesi/perubahan syarat (tenggat/harga/lingkup/tanggung jawab)",
-        "1": "Alasan, asumsi, dan risiko dicatat berdekatan dengan keputusan",
-        "2": "Pisahkan disepakati/belum disepakati/ditangguhkan beserta tenggat dan penanggung jawab"
-      }
-    },
-    "p1": "Struktur “diskusi/keputusan/tugas/risiko” saja sering kehilangan konteks, nada, dan riwayat konsesi. Akibatnya: salah paham, bolak-balik yang tidak perlu, serta risiko “sudah/belum diucapkan”."
+  "aria": {
+    "home": "Minutes AI Beranda"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Mengapa Anda bisa menulis notulen negosiasi terbaik dengan Minutes AI"
+    "businessnegotiation": "Negosiasi Bisnis"
   },
-  "negotiation": {
-    "h2": "Apa itu negosiasi sebenarnya?",
-    "p1": "Singkatnya: melindungi dan menumbuhkan kepentingan perusahaan. Bukan komunikasi satu arah, melainkan mencari titik temu lewat pertukaran “permintaan” dan “konsesi” atas syarat seperti tenggat, harga, ruang lingkup, dan risiko."
+  "hero": {
+    "kicker": "Buku Panduan Negosiasi",
+    "h1": "Notulen Umum Membunuh Kesepakatan. Notulen Negosiasi Menutupnya.",
+    "tagline": "Daftar 'keputusan' sederhana tidak cukup. Negosiasi berisiko tinggi adalah tentang konteks, kompromi, dan 'siapa-bilang-apa'. Minutes AI membantu Anda menangkap cerita lengkapnya, bukan hanya ringkasan dangkal."
+  },
+  "byline": {
+    "name": "Ditulis oleh: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Kali ini kami fokus pada negosiasi bisnis.",
-    "h2": "Kilasan artikel sebelumnya",
+    "h2": "Sebelumnya: Pola Pikir 'Notulen Universal'",
     "p1": {
-      "link": "klik di sini",
-      "post": ".",
-      "pre": "Sebelumnya kami menunjukkan bahwa notulen berbasis AI bekerja untuk semua jenis rapat. Untuk membaca ulang,"
+      "pre": "Dalam artikel kami sebelumnya, kami menguraikan gagasan tentang",
+      "link": "\"notulen universal\"",
+      "post": "— format dasar yang berfungsi untuk sebagian besar rapat internal."
     },
-    "points": {
-      "0": "Jenis rapat beragam; format notulen terbaik bergantung pada tujuan.",
-      "1": "Templat umum membantu, namun detail perlu disesuaikan dengan kebutuhan.",
-      "2": "Dari “dokumen untuk dibaca” menjadi “rencana untuk dieksekusi”.",
-      "3": "Minutes AI menyesuaikan keluaran sesuai tujuan rapat."
+    "points": [
+      "Jaga agar tujuan tetap eksplisit dan terukur",
+      "Catat keputusan dan penanggung jawab",
+      "Munculkan risiko dan penghambat dengan cepat",
+      "Buat tindakan selanjutnya menjadi jelas"
+    ],
+    "focus": "Tetapi negosiasi berbeda. Strukturnya harus mencerminkan kepentingan yang saling bertentangan, opsi, dan kompromi."
+  },
+  "diversity": {
+    "h2": "Keberagaman Rapat: Tujuan Menentukan Hasil",
+    "core": {
+      "h3": "Rapat Umum",
+      "items": [
+        "Check-in Mingguan: Lacak kemajuan, masalah, dan perbaikan.",
+        "Brainstorming: Kembangkan ide, lalu kerucutkan.",
+        "Penjualan / Negosiasi: Sesuaikan kepentingan dan bentuk kesepakatan."
+      ]
+    },
+    "wide": {
+      "h3": "Spektrum Lebih Luas (Masih Rapat!)",
+      "items": [
+        "1-on-1: Tinjau kinerja, tetapkan tujuan, bagikan kekhawatiran.",
+        "Wawancara: Cocokkan persyaratan dengan kesesuaian kandidat.",
+        "Lokakarya / Kuliah: Transfer pengetahuan atau operasi."
+      ]
+    },
+    "p1": "Jika orang berbicara untuk tujuan bersama, itu adalah rapat. Karena tujuannya berbeda, hasil yang berharga harus beradaptasi — terutama untuk negosiasi."
+  },
+  "negotiation": {
+    "h2": "Apa Sebenarnya Negosiasi Itu?",
+    "p1": "Apa bedanya negosiasi dengan rapat internal? Dalam satu kata: **Profit**. Negosiasi adalah \"**medan pertempuran**\" di mana dua perusahaan melindungi kepentingan mereka sendiri — harga, ruang lingkup, linimasa. Ini bukan jalan satu arah; ini adalah tarik-ulur konsesi untuk menemukan jalan menuju kesepakatan. Daftar 'To-Do' sederhana tidak dapat menangkap ini."
+  },
+  "limits": {
+    "h2": "Mengapa 'Satu Ukuran untuk Semua' Gagal",
+    "p1": "Menggunakan template umum untuk negosiasi menciptakan notulen 'dangkal'. Ini menghilangkan konteks kritis dan memaksa rapat tindak lanjut yang mahal.",
+    "generic": {
+      "h3": "Notulen 'Dangkal' Umum",
+      "items": [
+        "Mencatat 'Keputusan' tetapi melewatkan 'Alasan' (konsesi).",
+        "Memaksa manajer bertanya, 'Mengapa kita menyetujui ini?'",
+        "Kehilangan nuansa kritis 'dia-bilang-dia-bilang'.",
+        "Mengaburkan siapa yang bertanggung jawab atas apa, mengulur kesepakatan."
+      ]
+    },
+    "optimized": {
+      "h3": "Notulen yang Dioptimalkan untuk Negosiasi",
+      "items": [
+        "Melacak alur **Keberatan → Konsesi → Kesepakatan**.",
+        "Memberi manajer 'suasana' dan latar belakang untuk menilai.",
+        "Mempertahankan pertukaran kunci untuk mencegah perselisihan 'dia-bilang-dia-bilang'.",
+        "Mengikat setiap komitmen ke penanggung jawab dan tenggat waktu."
+      ]
     }
   },
-  "seo": {
-    "description": "Negosiasi butuh notulen yang menangkap keputusan, tugas, konteks, nada, dan riwayat konsesi. Panduan praktis dengan Minutes AI.",
-    "ld": {
-      "description": "Inti negosiasi dalam notulen: permintaan, konsesi, dan konteks—diterapkan dengan Minutes AI.",
-      "headline": "Mengapa Anda bisa menulis notulen negosiasi terbaik dengan Minutes AI"
-    },
-    "ogDescription": "Ucapkan selamat tinggal pada notulen tipis: simpan pertukaran dan konteks untuk keputusan yang lebih cepat dan tepat.",
-    "ogTitle": "Mengapa Anda bisa menulis notulen negosiasi terbaik dengan Minutes AI",
-    "title": "Mengapa Anda bisa menulis notulen negosiasi terbaik dengan Minutes AI | Blog notulen rapat"
+  "example": {
+    "h2": "Dari Data 'Kering' ke 'Konteks' Kesepakatan",
+    "block": "Klien: Harganya terlalu tinggi untuk anggaran Q4 kami.\nSales: Saya mengerti. Jika kami membatasi kursi menjadi 40 dan memindahkan SSO ke Fase 2, kami dapat memenuhi batas Anda.\nKlien: Itu bisa berhasil. Saya perlu persetujuan legal. Bisakah kita mengunci harga itu sampai 15/12?\nSales: Setuju. Saya akan kirim Proposal v3 hari ini. Tinjauan legal EOW, tutup paling lambat 15/12.",
+    "p1": "Notulen umum mungkin hanya akan berkata: 'Keputusan: Jual seharga $X.' Notulen yang **dioptimalkan untuk negosiasi** membuat progresnya eksplisit: **Keberatan** (harga) → **Konsesi** (ruang lingkup) → **Komitmen** (tenggat waktu). Konteks ini adalah segalanya bagi para pengambil keputusan yang tidak ada di ruangan itu."
   },
   "why": {
-    "h2": "Mengapa Minutes AI unggul untuk negosiasi",
-    "items": {
-      "0": "Merangkum permintaan/konsesi dan menyimpan bagian kunci secara verbatim (menghindari “sudah/belum diucapkan”).",
-      "1": "Mengurutkan perubahan syarat secara kronologis (tenggat/harga/lingkup/tanggung jawab).",
-      "2": "Mendokumentasikan alasan, asumsi, dan risiko di dekat keputusan.",
-      "3": "Membedakan disepakati/belum disepakati/ditangguhkan dengan tenggat dan PIC.",
-      "4": "Mencocokkan permintaan lawan dengan komitmen kita untuk pelacakan yang jelas."
+    "h2": "Mengapa Minutes AI untuk Negosiasi",
+    "items": [
+      "**Keputusan Kaya Konteks:** Kami melampaui item tindakan 'kering'. AI kami menghubungkan keputusan langsung ke 'alasan' — diskusi, keberatan, dan kompromi yang mengarah ke sana.",
+      "**Tangkap 'Suasana':** Minutes AI dilatih untuk mengidentifikasi dan mempertahankan pertukaran kunci 'dia-bilang-dia-bilang', bukan hanya meringkasnya.",
+      "**Lacak 'Pertempuran' Penuh:** Pelacak Keberatan kami mengikuti masalah dari 'tidak' pertama hingga 'ya' terakhir, sehingga Anda tidak pernah kehilangan alur kesepakatan.",
+      "**Rantai Komitmen yang Jelas:** Secara otomatis mengekstrak dan menugaskan setiap 'siapa, apa, dan kapan' untuk memastikan kesepakatan bergerak maju dan tidak pernah mandek.",
+      "**Hasil Multibahasa:** Tutup kesepakatan global dengan notulen yang jelas dan akurat untuk semua pemangku kepentingan, dalam bahasa mereka."
+    ]
+  },
+  "pricing": {
+    "h2": "Harga Sederhana dan Fleksibel yang Sesuai dengan Ritme Anda",
+    "p1": "Jadwal rapat Anda tidak 'satu ukuran untuk semua', jadi harga Anda juga seharusnya tidak. Pilih paket yang masuk akal bagi Anda.",
+    "timepacks": {
+      "h3": "Paket Sekali Beli (Tanpa Kedaluwarsa)",
+      "note": "Beli sekali, gunakan selamanya. Menit Anda **tidak pernah kedaluwarsa**.",
+      "items": [
+        "Uji Coba (120 mnt): $1.99",
+        "Ringan (1200 mnt): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Langganan (Benar-benar Tanpa Batas)",
+      "note": "Menit yang **benar-benar tanpa batas**. Tanpa batas atas, tanpa reset bulanan.",
+      "items": [
+        "Bulanan: $16.99",
+        "Tahunan: $149.99 (Hemat ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Coba Gratis, Setiap Hari",
+      "p1": "Setiap pengguna mendapatkan **tiket gratis 3 menit** untuk mencoba Minutes AI, setiap hari. Tidak perlu kartu kredit."
     }
   },
   "wrap": {
-    "h2": "Ringkasan",
-    "p": "Notulen negosiasi yang kuat tidak hanya berisi keputusan—ia juga menyimpan proses tawar-menawar dan konteksnya. Keputusan menjadi lebih cepat dan akurat. Jadikan ini standar dengan Minutes AI."
+    "h2": "Penutup: Berhentilah Puas dengan Notulen Dangkal",
+    "p": "Negosiasi dimenangkan atau dikalahkan dalam detail. Ringkasan yang menangkap **suasana**, **konteks**, dan **konsesi** adalah apa yang memberdayakan tim Anda untuk membuat keputusan yang lebih cepat dan lebih cerdas. Struktur bukan hanya tentang kejelasan; ini tentang menangkap realitas kesepakatan."
+  },
+  "cta": {
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS"
   }
 }

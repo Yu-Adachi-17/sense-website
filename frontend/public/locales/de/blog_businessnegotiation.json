@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Zur Startseite von Protokoll KI"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "iOS-App herunterladen",
-    "openBrowser": "Im Browser öffnen"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Typische Meetings",
-      "items": {
-        "0": "Regelmeeting: Kennzahlen/Herausforderungen/Maßnahmen",
-        "1": "Brainstorming: Ideen-Divergenz und Konvergenz",
-        "2": "Verhandlung: Interessenausgleich und Einigung"
-      }
-    },
-    "h2": "Viele Meeting-Arten – Verhandlungen sind besonders",
-    "p1": "Wechselt das Ziel, ändert sich auch die Form des wertvollen Outputs. In Verhandlungen ist das Aushandeln selbst der Kern.",
-    "wide": {
-      "h3": "„Meeting“ im weiten Sinne",
-      "items": {
-        "0": "1:1: Rückblick auf Ergebnisse, nächste Ziele, Austausch von Hürden",
-        "1": "Interview: Abgleich von Anforderungen und Fit",
-        "2": "Präsentation: Problem und Lösung",
-        "3": "Schulung: Übergabe von Prozessen"
-      }
+  "seo": {
+    "title": "Warum generische Protokolle bei Verhandlungen scheitern | Protokoll KI",
+    "description": "Generische Vorlagen übersehen das 'Warum' hinter einem Deal. Bei Verhandlungen geht es um Kompromisse und Kontext, nicht nur um Entscheidungen. Erfahren Sie, wie Protokoll KI die Nuancen erfasst, die generische Protokolle ignorieren.",
+    "ogTitle": "Protokoll KI | Für Geschäftsverhandlungen",
+    "ogDescription": "Hören Sie auf, das 'Warum' zu verlieren. Erfassen Sie den vollen Kontext von Einwänden, Zugeständnissen und Verpflichtungen, den generische Zusammenfassungen übersehen.",
+    "ld": {
+      "headline": "Geschäftsverhandlungsprotokolle, die Deals tatsächlich voranbringen",
+      "description": "Verhandlungen erfordern spezielle Protokolle, die Einwände, Zugeständnisse und den kritischen 'Wer-hat-was-gesagt'-Kontext verfolgen."
     }
   },
-  "example": {
-    "block": "Firma A: In eurem letzten Produkt war ein Bug – das hat uns einiges gekostet. Ihr steht in der Pflicht, also liefert bitte bis nächste Woche. Preis: 1.000 $.\\nUnser Unternehmen: Wir versuchen die Lieferung bis nächste Woche intern möglich zu machen. Im Gegenzug – können wir auf 1.200 $ erhöhen? Bitte prüfen.\\nFirma A: Wenn die Lieferung bis nächste Woche garantiert ist, prüfen wir das. Bitte heute per E-Mail antworten.",
-    "h2": "Beispiel (Schlüsselpassagen im Wortlaut festhalten)",
-    "p1": "Mit wörtlich gesicherten Schlüsselpassagen können Entscheider die Angemessenheit im Kontext beurteilen."
-  },
-  "hero": {
-    "h1": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben",
-    "kicker": "Protokoll KI Blog",
-    "tagline": "Eine Verhandlung ist ein Interessenausgleich. Ein starkes Protokoll hält daher nicht nur Entscheidungen und To-dos fest, sondern auch Kontext und Tonlage. Hier die Denkweise – und wie Sie sie mit Protokoll KI praktisch umsetzen."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Das typische, zu dünne Protokoll",
-      "items": {
-        "0": "Listet Entscheidungen ohne Begründung/Herleitung",
-        "1": "Unklar, wer was forderte und wo nachgegeben wurde",
-        "2": "Unklarheit bei Nicht-Einigung oder geparkten Punkten"
-      }
-    },
-    "h2": "Warum ein „Nur-Entscheidungen“-Protokoll schwach ist",
-    "optimized": {
-      "h3": "Verhandlungsstarkes Protokoll",
-      "items": {
-        "0": "Zeitlinie von Forderungen/Zugeständnissen/Änderungen (Termin/Preis/Scope/Verantwortung)",
-        "1": "Begründungen, Annahmen und Risiken direkt bei der Entscheidung",
-        "2": "Trennung von Einigung/Nicht-Einigung/Geparkt inkl. Frist und Verantwortlichen"
-      }
-    },
-    "p1": "Die reine Struktur „Diskussion/Entscheidungen/To-dos/Risiken“ verliert oft Kontext, Ton und die Historie der Zugeständnisse. Folge: Missverständnisse, Mehraufwand und das Risiko von „gesagt/nicht gesagt“."
+  "aria": {
+    "home": "Protokoll KI Startseite"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben"
+    "businessnegotiation": "Geschäftsverhandlung"
   },
-  "negotiation": {
-    "h2": "Was ist eine Verhandlung eigentlich?",
-    "p1": "Kurz: die Interessen des eigenen Unternehmens zu schützen und auszubauen. Keine Einbahnstraße, sondern das Suchen eines Kompromisses über „Forderungen“ und „Zugeständnisse“ zu Bedingungen wie Termin, Preis, Scope und Risiko."
+  "hero": {
+    "kicker": "Das Verhandlungs-Playbook",
+    "h1": "Generische Protokolle killen Deals. Verhandlungsprotokolle schließen sie ab.",
+    "tagline": "Eine einfache Liste von 'Entscheidungen' reicht nicht aus. Bei hochdotierten Verhandlungen geht es um Kontext, Kompromisse und 'Wer-hat-was-gesagt'. Protokoll KI hilft Ihnen, die ganze Geschichte zu erfassen, nicht nur eine oberflächliche Zusammenfassung."
+  },
+  "byline": {
+    "name": "Geschrieben von: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Diesmal fokussieren wir uns ausdrücklich auf Verhandlungen.",
-    "h2": "Rückblick",
+    "h2": "Zuvor: Die 'Universelle Protokoll'-Denkweise",
     "p1": {
-      "link": "hier",
-      "post": ".",
-      "pre": "Zuvor zeigten wir, wie KI-Protokolle für alle Meeting-Typen funktionieren. Mehr dazu"
+      "pre": "In unserem vorherigen Artikel haben wir die Idee des",
+      "link": "\"universellen Protokolls\"",
+      "post": "skizziert – ein Basisformat, das für die meisten internen Meetings funktioniert."
     },
-    "points": {
-      "0": "Meetings unterscheiden sich – das ideale Protokoll hängt vom Ziel ab.",
-      "1": "Generische Vorlagen sind nützlich, benötigen aber Feintuning der Detailtiefe.",
-      "2": "Vom „Lesedokument“ zum „Fahrplan für Umsetzung“.",
-      "3": "Protokoll KI passt die Ausgabe an das Meeting-Ziel an."
+    "points": [
+      "Ziele explizit und messbar halten",
+      "Entscheidungen und verantwortliche Eigentümer festhalten",
+      "Risiken und Blocker schnell aufdecken",
+      "Nächste Schritte eindeutig machen"
+    ],
+    "focus": "Aber Verhandlungen sind anders. Die Struktur muss widersprüchliche Interessen, Optionen und Kompromisse widerspiegeln."
+  },
+  "diversity": {
+    "h2": "Meeting-Vielfalt: Der Zweck bestimmt das Ergebnis",
+    "core": {
+      "h3": "Typische Meetings",
+      "items": [
+        "Wöchentliches Check-in: Fortschritt, Probleme und Lösungen verfolgen.",
+        "Brainstorming: Ideen sammeln, dann konvergieren.",
+        "Verkauf / Verhandlung: Interessen abgleichen und Vereinbarungen treffen."
+      ]
+    },
+    "wide": {
+      "h3": "Breiteres Spektrum (Immer noch Meetings!)",
+      "items": [
+        "1-zu-1: Leistung überprüfen, Ziele setzen, Bedenken teilen.",
+        "Vorstellungsgespräch: Anforderungen mit der Eignung eines Kandidaten abgleichen.",
+        "Workshop / Vortrag: Wissen oder Abläufe vermitteln."
+      ]
+    },
+    "p1": "Wenn Menschen für einen gemeinsamen Zweck sprechen, ist es ein Meeting. Da die Zwecke unterschiedlich sind, muss sich das wertvolle Ergebnis anpassen — besonders bei Verhandlungen."
+  },
+  "negotiation": {
+    "h2": "Was ist eine Verhandlung wirklich?",
+    "p1": "Wie unterscheidet sich eine Verhandlung von einem internen Meeting? Mit einem Wort: **Profit**. Eine Verhandlung ist ein \"**Schlachtfeld**\", auf dem zwei Unternehmen ihre eigenen Interessen schützen — Preis, Umfang, Zeitplan. Es ist keine Einbahnstraße; es ist ein Hin und Her von Zugeständnissen, um einen Weg zur Einigung zu finden. Eine einfache 'To-Do'-Liste kann das nicht erfassen."
+  },
+  "limits": {
+    "h2": "Warum 'One-Size-Fits-All' scheitert",
+    "p1": "Die Verwendung einer generischen Vorlage für eine Verhandlung erzeugt 'oberflächliche' Protokolle. Dies verliert kritischen Kontext und erzwingt kostspielige Folgetreffen.",
+    "generic": {
+      "h3": "Generische 'Oberflächliche' Protokolle",
+      "items": [
+        "Erfassen eine 'Entscheidung', aber übersehen das 'Warum' (das Zugeständnis).",
+        "Zwingen Manager zu fragen: 'Warum haben wir dem zugestimmt?'",
+        "Verlieren die kritische 'Er-sagte-sie-sagte'-Nuance.",
+        "Verschleiern, wer wofür verantwortlich ist, und bringen den Deal ins Stocken."
+      ]
+    },
+    "optimized": {
+      "h3": "Verhandlungs-optimierte Protokolle",
+      "items": [
+        "Verfolgen den **Einwand → Zugeständnis → Einigung**-Fluss.",
+        "Geben Managern die 'Atmosphäre' und den Hintergrund zur Beurteilung.",
+        "Bewahren Schlüsselaustausche, um 'Er-sagte-sie-sagte'-Streitigkeiten zu verhindern.",
+        "Binden jede Verpflichtung an einen Eigentümer und eine Frist."
+      ]
     }
   },
-  "seo": {
-    "description": "Verhandlungen brauchen Protokolle, die Entscheidungen, Aufgaben, Kontext, Ton und Zugeständnisse abbilden. So setzen Sie das mit Protokoll KI praktisch um.",
-    "ld": {
-      "description": "Das Wesen von Verhandlungen im Protokoll: Forderungen, Zugeständnisse und Kontext – umgesetzt mit Protokoll KI.",
-      "headline": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben"
-    },
-    "ogDescription": "Schluss mit dünnen Protokollen: Austausch und Kontext festhalten – für schnellere, präzisere Entscheidungen.",
-    "ogTitle": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben",
-    "title": "Warum Sie mit Protokoll KI die besten Verhandlungsprotokolle schreiben | Blog zu Meeting-Protokollen"
+  "example": {
+    "h2": "Von 'trockenen' Daten zum 'Deal'-Kontext",
+    "block": "Kunde: Der Preis ist zu hoch für unser Q4-Budget.\nVertrieb: Ich verstehe. Wenn wir die Plätze auf 40 begrenzen und SSO auf Phase 2 verschieben, können wir Ihre Obergrenze einhalten.\nKunde: Das könnte funktionieren. Ich brauche die rechtliche Freigabe. Können wir diesen Preis bis zum 15.12. festschreiben?\nVertrieb: Einverstanden. Ich sende Vorschlag v3 heute. Rechtliche Prüfung bis EOW, Abschluss bis 15.12.",
+    "p1": "Ein generisches Protokoll würde vielleicht nur sagen: 'Entscheidung: Verkauf für $X.' Ein **verhandlungs-optimiertes** Protokoll macht den Fortschritt explizit: **Einwand** (Preis) → **Zugeständnis** (Umfang) → **Verpflichtung** (Frist). Dieser Kontext ist alles für die Entscheidungsträger, die nicht im Raum waren."
   },
   "why": {
-    "h2": "Warum Protokoll KI bei Verhandlungen überzeugt",
-    "items": {
-      "0": "Fasst Forderungen/Zugeständnisse zusammen und sichert Schlüsselstellen wörtlich (vermeidet „gesagt/nicht gesagt“).",
-      "1": "Ordnet Änderungen der Bedingungen chronologisch (Termin/Preis/Scope/Verantwortung).",
-      "2": "Dokumentiert Begründungen, Annahmen und Risiken unmittelbar bei der Entscheidung.",
-      "3": "Trennt Einigung/Nicht-Einigung/Geparkt und weist Fristen sowie Verantwortliche zu.",
-      "4": "Verknüpft Anforderungen der Gegenseite mit unseren Commitments für klare Nachverfolgung."
+    "h2": "Warum Protokoll KI für Verhandlungen",
+    "items": [
+      "**Kontextreiche Entscheidungen:** Wir gehen über 'trockene' Aktionspunkte hinaus. Unsere KI verknüpft Entscheidungen direkt mit dem 'Warum' — der Diskussion, den Einwänden und Kompromissen, die zu ihnen geführt haben.",
+      "**Die 'Atmosphäre' einfangen:** Protokoll KI ist darauf trainiert, wichtige 'Er-sagte-sie-sagte'-Austausche zu identifizieren und zu bewahren, nicht nur zusammenzufassen.",
+      "**Die ganze 'Schlacht' verfolgen:** Unser Einwand-Tracker folgt einem Problem vom ersten 'Nein' bis zum endgültigen 'Ja', damit Sie nie den Faden des Deals verlieren.",
+      "**Klare Verpflichtungsketten:** Extrahiert und weist automatisch jedes 'Wer, Was und Wann' zu, um sicherzustellen, dass der Deal vorankommt und niemals ins Stocken gerät.",
+      "**Mehrsprachige Ausgaben:** Schließen Sie globale Deals mit klaren, genauen Protokollen für alle Beteiligten ab, in ihrer Sprache."
+    ]
+  },
+  "pricing": {
+    "h2": "Einfache, flexible Preise, die zu Ihrem Rhythmus passen",
+    "p1": "Ihr Meeting-Zeitplan ist nicht 'One-Size-Fits-All', also sollte es Ihre Preisgestaltung auch nicht sein. Wählen Sie den Plan, der für Sie Sinn macht.",
+    "timepacks": {
+      "h3": "Einmal-Pakete (verfallen nie)",
+      "note": "Einmal kaufen, für immer nutzen. Ihre Minuten **verfallen nie**.",
+      "items": [
+        "Test (120 Min): $1.99",
+        "Leicht (1200 Min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Abonnements (wirklich unbegrenzt)",
+      "note": "**Wirklich unbegrenzte** Minuten. Keine Obergrenzen, keine monatlichen Rücksetzungen.",
+      "items": [
+        "Monatlich: $16.99",
+        "Jährlich: $149.99 (≈26% sparen)"
+      ]
+    },
+    "free": {
+      "h3": "Testen Sie es kostenlos, jeden Tag",
+      "p1": "Jeder Benutzer erhält ein kostenloses **3-Minuten-Ticket**, um Protokoll KI zu testen, jeden einzelnen Tag. Keine Kreditkarte erforderlich."
     }
   },
   "wrap": {
-    "h2": "Fazit",
-    "p": "Das starke Verhandlungsprotokoll geht über Entscheidungen hinaus: Es bewahrt den Austausch und den Kontext. So werden Entscheidungen schneller und Rückschritte seltener. Machen Sie das mit Protokoll KI zum Standard."
+    "h2": "Fazit: Hören Sie auf, sich mit oberflächlichen Protokollen zufrieden zu geben",
+    "p": "Verhandlungen werden in den Details gewonnen oder verloren. Eine Zusammenfassung, die die **Atmosphäre**, den **Kontext** und die **Zugeständnisse** einfängt, ist das, was Ihr Team befähigt, schnellere, klügere Entscheidungen zu treffen. Struktur geht nicht nur um Klarheit; es geht darum, die Realität des Deals zu erfassen."
+  },
+  "cta": {
+    "openBrowser": "Im Browser öffnen",
+    "downloadIOS": "iOS-App herunterladen"
   }
 }

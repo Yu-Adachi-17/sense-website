@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Späť na domovskú stránku AI Zápisnica"
-  },
-  "byline": {
-    "name": "Napísal Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Stiahnuť iOS aplikáciu",
-    "openBrowser": "Otvoriť webovú aplikáciu"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Bežné typy stretnutí",
-      "items": {
-        "0": "Pravidelné stand-upy: prehľad výsledkov, problémov a akcií",
-        "1": "Brainstorming: rozširovanie a zužovanie nápadov",
-        "2": "Vyjednávanie: zosúladenie záujmov a dosiahnutie dohody"
-      }
-    },
-    "h2": "Stretnutia sú rôzne — vyjednávanie je o dohode a ústupkoch",
-    "p1": "Zmeň cieľ a zmení sa aj cenný výstup. Pri vyjednávaní je samotné „handlovanie” jadrom.",
-    "wide": {
-      "h3": "„Stretnutie” v širšom zmysle",
-      "items": {
-        "0": "1-na-1: prehľad výsledkov, ďalšie ciele, zdieľanie výziev",
-        "1": "Pohovor: zosúladenie požiadaviek a vhodnosti",
-        "2": "Prezentácia: problém a riešenie",
-        "3": "Školenie: odovzdanie procesov/operácií"
-      }
+  "seo": {
+    "title": "Prečo všeobecné zápisnice zlyhávajú na rokovaniach | AI Zápisnica",
+    "description": "Všeobecné šablóny prehliadajú 'prečo' za obchodom. Rokovania sú o kompromisoch a kontexte, nie len o rozhodnutiach. Zistite, ako AI Zápisnica zachytáva nuansy, ktoré všeobecné zápisnice ignorujú.",
+    "ogTitle": "AI Zápisnica | Pre obchodné rokovania",
+    "ogDescription": "Prestaňte strácať 'prečo'. Zachyťte plný kontext námietok, ústupkov a záväzkov, ktoré všeobecné zhrnutia prehliadajú.",
+    "ld": {
+      "headline": "Zápisnice z obchodných rokovaní, ktoré skutočne posúvajú obchody vpred",
+      "description": "Rokovania vyžadujú špecializované zápisnice, ktoré sledujú námietky, ústupky a kritický kontext 'kto-čo-povedal'."
     }
   },
-  "example": {
-    "block": "Spoločnosť A: Váš predchádzajúci produkt mal chybu — spôsobilo nám to reálne problémy. Ste nám dlžní; doručte to do budúceho týždňa. Cena je 1 000 $.\\nNaša spoločnosť: Vnútorne zatlačíme, aby sme doručili do budúceho týždňa. Na oplátku, môžeme to zvýšiť na 1 200 $? Prosíme o zváženie.\\nSpoločnosť A: Ak viete zaručiť doručenie budúci týždeň, zvážime to. Odošlite odpoveď e-mailom ešte dnes.",
-    "h2": "Príklad (kľúčové výmeny doslovne)",
-    "p1": "Zachovanie týchto „kľúčových kôl” v pôvodnom znení umožňuje rozhodovateľom posúdiť primeranosť s plným kontextom."
-  },
-  "hero": {
-    "h1": "Prečo AI Zápisnica pomáha písať najlepšie zápisnice z vyjednávania",
-    "kicker": "Blog AI Zápisnica",
-    "tagline": "Vyjednávanie je stret záujmov. Silná zápisnica neuvádza len rozhodnutia a úlohy — zachytáva aj kontext a tón. Tu je prístup a ako ho uplatniť s AI Zápisnica."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Typická „tenká” zápisnica",
-      "items": {
-        "0": "Vypisuje rozhodnutia bez dôvodov alebo príbehu",
-        "1": "Nejasné, kto čo žiadal a kde padli ústupky",
-        "2": "Nejednoznačnosť ohľadom nesúhlaseného či odloženého"
-      }
-    },
-    "h2": "Prečo je „iba rozhodnutia” zápisnica slabá",
-    "optimized": {
-      "h3": "Zápisnice stavané na vyjednávanie",
-      "items": {
-        "0": "Časová os požiadaviek/ústupkov/zmeny podmienok (termín/cena/rozsah/zodpovednosť)",
-        "1": "Dôvody, predpoklady a riziká zapísané priamo pri rozhodnutiach",
-        "2": "Jasné rozdelenie: dohodnuté/nedohodnuté/odložené s vlastníkmi a termínmi"
-      }
-    },
-    "p1": "Držanie sa „diskusia/rozhodnutia/akčné body/otvorené otázky” často zhodí pozadie, tón a históriu ústupkov. Výsledok: nedorozumenia, zbytočné kolá a riziko „povedal/nepovedal”."
+  "aria": {
+    "home": "AI Zápisnica Domov"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Prečo AI Zápisnica pomáha písať najlepšie zápisnice z vyjednávania"
+    "businessnegotiation": "Obchodné rokovanie"
   },
-  "negotiation": {
-    "h2": "Čo je to vyjednávanie?",
-    "p1": "Skrátka: chrániť a rozvíjať záujmy vašej firmy. Nie je to jednosmerné oznámenie; spoločnú pôdu hľadáte výmenou „požiadaviek” a „ústupkov” v termínoch ako termín, cena, rozsah a riziko."
+  "hero": {
+    "kicker": "Príručka pre rokovania",
+    "h1": "Všeobecné zápisnice zabíjajú obchody. Zápisnice z rokovaní ich uzatvárajú.",
+    "tagline": "Jednoduchý zoznam 'rozhodnutí' nestačí. Rokovania o vysoké stávky sú o kontexte, kompromisoch a 'kto-čo-povedal'. AI Zápisnica vám pomôže zachytiť celý príbeh, nielen povrchné zhrnutie."
+  },
+  "byline": {
+    "name": "Autor: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Tentoraz sa ponárame do vyjednávania.",
-    "h2": "Rýchle zhrnutie",
+    "h2": "Predtým: Mentalita 'Univerzálnej Zápisnice'",
     "p1": {
-      "link": "prečítajte si tu",
-      "post": ".",
-      "pre": "Minule sme ukázali, ako AI zápisnice fungujú pre akékoľvek stretnutie. Ak vás zaujíma,"
+      "pre": "V našom predchádzajúcom článku sme načrtli myšlienku",
+      "link": "\"univerzálnej zápisnice\"",
+      "post": "— základného formátu, ktorý funguje pre väčšinu interných stretnutí."
     },
-    "points": {
-      "0": "Stretnutia sú rôzne, preto optimálny formát zápisnice závisí od cieľa.",
-      "1": "Všeobecné šablóny pomáhajú, no úroveň detailu treba naladiť podľa použitia.",
-      "2": "Z „záznamu na čítanie” na „plán na konanie”.",
-      "3": "AI Zápisnica prispôsobuje výstup cieľu stretnutia."
+    "points": [
+      "Udržujte ciele explicitné a merateľné",
+      "Zaznamenávajte rozhodnutia a zodpovedných vlastníkov",
+      "Rýchlo vyneste riziká a blokátory na povrch",
+      "Robte ďalšie kroky jednoznačnými"
+    ],
+    "focus": "Ale rokovania sú iné. Štruktúra musí odrážať protichodné záujmy, možnosti a kompromisy."
+  },
+  "diversity": {
+    "h2": "Rozmanitosť stretnutí: Účel definuje výstup",
+    "core": {
+      "h3": "Typické stretnutia",
+      "items": [
+        "Týždenný check-in: Sledovanie pokroku, problémov a riešení.",
+        "Brainstorming: Divergencia nápadov, potom konvergencia.",
+        "Predaj / Rokovanie: Zosúladenie záujmov a formovanie dohôd."
+      ]
+    },
+    "wide": {
+      "h3": "Širšie spektrum (Stále stretnutia!)",
+      "items": [
+        "1-na-1: Prehľad výkonu, stanovenie cieľov, zdieľanie obáv.",
+        "Pohovor: Zosúladenie požiadaviek so vhodnosťou kandidáta.",
+        "Workshop / Prednáška: Prenos vedomostí alebo operácií."
+      ]
+    },
+    "p1": "Ak ľudia hovoria za spoločným účelom, je to stretnutie. Keďže účely sa líšia, hodnotný výstup sa musí prispôsobiť — najmä pri rokovaniach."
+  },
+  "negotiation": {
+    "h2": "Čo je v skutočnosti rokovanie?",
+    "p1": "Ako sa rokovanie líši od interného stretnutia? Jedným slovom: **Zisk**. Rokovanie je \"**bojové pole**\", kde dve spoločnosti chránia svoje vlastné záujmy — cenu, rozsah, časový plán. Nie je to jednosmerná ulica; je to tam a späť ústupkov, aby sa našla cesta k dohode. Jednoduchý 'To-Do' zoznam to nedokáže zachytiť."
+  },
+  "limits": {
+    "h2": "Prečo 'Jedna veľkosť pre všetkých' zlyháva",
+    "p1": "Používanie všeobecnej šablóny na rokovanie vytvára 'plytké' zápisnice. Tým sa stráca kritický kontext a vynucujú sa drahé následné stretnutia.",
+    "generic": {
+      "h3": "Všeobecné 'plytké' zápisnice",
+      "items": [
+        "Zaznamenajú 'Rozhodnutie', ale chýba im 'Prečo' (ústupok).",
+        "Nútia manažérov pýtať sa: 'Prečo sme s tým súhlasili?'",
+        "Strácajú kritickú nuansu 'on-povedal-ona-povedala'.",
+        "Zahmlievajú, kto je za čo zodpovedný, čím sa obchod zastaví."
+      ]
+    },
+    "optimized": {
+      "h3": "Zápisnice optimalizované pre rokovania",
+      "items": [
+        "Sledujú tok **Námietka → Ústupok → Dohoda**.",
+        "Dávajú manažérom 'atmosféru' a pozadie na posúdenie.",
+        "Zachovávajú kľúčové výmeny, aby sa predišlo sporom 'on-povedal-ona-povedala'.",
+        "Väzba každého záväzku na vlastníka a termín."
+      ]
     }
   },
-  "seo": {
-    "description": "Vyjednávania potrebujú zápisnice, ktoré zachytia rozhodnutia, úlohy, kontext, tón a históriu ústupkov. Praktický sprievodca s AI Zápisnica.",
-    "ld": {
-      "description": "Podstata vyjednávania v zápisnici: požiadavky, ústupky a kontext — s AI Zápisnica.",
-      "headline": "Prečo AI Zápisnica pomáha písať najlepšie zápisnice z vyjednávania"
-    },
-    "ogDescription": "Zbohom „tenkým” zápisniciam: zachovajte výmenu a kontext pre rýchlejšie a lepšie rozhodnutia.",
-    "ogTitle": "Prečo AI Zápisnica pomáha písať najlepšie zápisnice z vyjednávania",
-    "title": "Prečo AI Zápisnica pomáha písať najlepšie zápisnice z vyjednávania | Blog zápisníc zo stretnutí"
+  "example": {
+    "h2": "Od 'suchých' dát ku 'kontextu' obchodu",
+    "block": "Klient: Cena je príliš vysoká pre náš rozpočet na Q4.\nPredajca: Rozumiem. Ak obmedzíme počet miest na 40 a presunieme SSO do Fázy 2, zmestíme sa do vášho limitu.\nKlient: To by mohlo fungovať. Potrebujem právne schválenie. Môžeme túto cenu uzamknúť do 15.12.?\nPredajca: Dohodnuté. Dnes pošlem Návrh v3. Právny prehľad do konca týždňa, uzatvorenie do 15.12.",
+    "p1": "Všeobecná zápisnica by možno len uviedla: 'Rozhodnutie: Predať za $X.' Zápisnica **optimalizovaná pre rokovania** robí postup explicitným: **Námietka** (cena) → **Ústupok** (rozsah) → **Záväzok** (termín). Tento kontext je všetkým pre rozhodovateľov, ktorí neboli v miestnosti."
   },
   "why": {
-    "h2": "Prečo je AI Zápisnica silný pri vyjednávaní",
-    "items": {
-      "0": "Zhrňuje výmeny požiadaviek/ústupkov a uchováva kľúčové pasáže doslovne (eliminuje „povedal/nepovedal”).",
-      "1": "Chronologicky usporadúva zmeny podmienok (termín/cena/rozsah/zodpovednosť).",
-      "2": "Dokumentuje dôvody, predpoklady a riziká pri rozhodnutiach.",
-      "3": "Oddelí dohodnuté/nedohodnuté/odložené a priradí zodpovedných a termíny.",
-      "4": "Mapuje požiadavky protistrany na vaše záväzky pre jasné sledovanie."
+    "h2": "Prečo AI Zápisnica pre rokovania?",
+    "items": [
+      "**Rozhodnutia bohaté na kontext:** Ideme nad rámec 'suchých' akčných bodov. Naša AI spája rozhodnutia priamo s 'prečo' — diskusiou, námietkami a kompromismi, ktoré k nim viedli.",
+      "**Zachyt'te 'atmosféru':** AI Zápisnica je trénovaná na identifikáciu a zachovanie kľúčových výmen 'on-povedal-ona-povedala', nielen na ich zhrnutie.",
+      "**Sledujte celú 'bitku':** Náš Sledovač námietok sleduje problém od prvého 'nie' až po konečné 'áno', takže nikdy nestratíte niť obchodu.",
+      "**Jasné reťazce záväzkov:** Automaticky extrahuje a priraďuje každé 'kto, čo a kedy', aby sa zabezpečilo, že obchod napreduje a nikdy sa nezastaví.",
+      "**Viacjazyčné výstupy:** Uzatvárajte globálne obchody s jasnými a presnými zápisnicami pre všetkých zainteresovaných, v ich jazyku."
+    ]
+  },
+  "pricing": {
+    "h2": "Jednoduché, flexibilné ceny, ktoré zodpovedajú vášmu rytmu",
+    "p1": "Váš rozvrh stretnutí nie je 'jedna veľkosť pre všetkých', takže by nemali byť ani vaše ceny. Vyberte si plán, ktorý vám dáva zmysel.",
+    "timepacks": {
+      "h3": "Jednorazové balíky (nevypršia)",
+      "note": "Kúpte raz, používajte navždy. Vaše minúty **nikdy nevypršia**.",
+      "items": [
+        "Skúšobný (120 min): $1.99",
+        "Ľahký (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Predplatné (skutočne neobmedzené)",
+      "note": "**Skutočne neobmedzené** minúty. Žiadne stropy, žiadne mesačné resetovanie.",
+      "items": [
+        "Mesačné: $16.99",
+        "Ročné: $149.99 (Ušetrite ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Vyskúšajte zadarmo, každý deň",
+      "p1": "Každý používateľ dostane bezplatný **3-minútový lístok** na vyskúšanie AI Zápisnica, každý jeden deň. Nevyžaduje sa kreditná karta."
     }
   },
   "wrap": {
-    "h2": "Záver",
-    "p": "Zápisnice z vyjednávania sú silnejšie, keď zachovajú ping-pong a kontext — nielen rozhodnutia. To zrýchľuje posúdenie a znižuje prepracovania. Urobte z toho štandard s AI Zápisnica."
+    "h2": "Záver: Prestaňte sa uspokojovať s plytkými zápisnicami",
+    "p": "O rokovaniach sa vyhráva alebo prehráva v detailoch. Zhrnutie, ktoré zachytáva **atmosféru**, **kontext** a **ústupky**, je to, čo dáva vášmu tímu silu robiť rýchlejšie a inteligentnejšie rozhodnutia. Štruktúra nie je len o jasnosti; je o zachytení reality obchodu."
+  },
+  "cta": {
+    "openBrowser": "Otvoriť v prehliadači",
+    "downloadIOS": "Stiahnuť aplikáciu pre iOS"
   }
 }

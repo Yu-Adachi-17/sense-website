@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Kembali ke laman utama Minit AI"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Muat turun aplikasi iOS",
-    "openBrowser": "Buka dalam pelayar"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Mesyuarat lazim",
-      "items": {
-        "0": "Mesyuarat berkala: semak hasil/cabaran/tindakan",
-        "1": "Sesi sumbang saran: peluasan dan penumpuan idea",
-        "2": "Rundingan: penjajaran kepentingan dan persetujuan"
-      }
-    },
-    "h2": "Mesyuarat pelbagai—rundingan ada sifat ‘tawar-menawar’ yang kuat",
-    "p1": "Apabila tujuan berubah, bentuk keluaran bernilai juga berubah. Dalam rundingan, proses tawar-menawar ialah teras.",
-    "wide": {
-      "h3": "“Mesyuarat” dalam erti luas",
-      "items": {
-        "0": "1-on-1: imbas hasil, sasaran seterusnya, kongsi kekangan",
-        "1": "Temu duga: penjajaran keperluan dan kesesuaian",
-        "2": "Pembentangan: isu dan penyelesaian",
-        "3": "Latihan: pemindahan operasi/prosedur"
-      }
+  "seo": {
+    "title": "Mengapa Minit Generik Gagal dalam Rundingan | Minit AI",
+    "description": "Templat generik terlepas 'mengapa' di sebalik perjanjian. Rundingan adalah mengenai tolak ansur dan konteks, bukan hanya keputusan. Ketahui bagaimana Minit AI menangkap nuansa yang diabaikan oleh minit generik.",
+    "ogTitle": "Minit AI | Untuk Rundingan Perniagaan",
+    "ogDescription": "Berhenti kehilangan 'mengapa'. Tangkap konteks penuh bantahan, konsesi, dan komitmen yang terlepas oleh ringkasan generik.",
+    "ld": {
+      "headline": "Minit Rundingan Perniagaan yang benar-benar memajukan perjanjian",
+      "description": "Rundingan memerlukan minit khusus yang menjejaki bantahan, konsesi, dan konteks kritikal 'siapa-kata-apa'."
     }
   },
-  "example": {
-    "block": "Syarikat A: Produk anda sebelum ini ada pepijat dan menyusahkan kami. Anda ‘berhutang’ kepada kami—sila hantar minggu depan. Harga $1000.\\nSyarikat kami: Kami akan cuba hantar minggu depan selepas penyelarasan dalaman. Sebagai gantinya, boleh dinaikkan kepada $1200? Mohon pertimbangkan.\\nSyarikat A: Jika anda boleh jamin penghantaran minggu depan, kami akan pertimbangkan. Sila e-mel jawapan hari ini.",
-    "h2": "Contoh (simpankan pertukaran utama secara verbatim)",
-    "p1": "Menyimpan “pusingan utama” secara verbatim membolehkan pembuat keputusan menilai kewajaran dengan konteks penuh."
-  },
-  "hero": {
-    "h1": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI",
-    "kicker": "Blog Minit AI",
-    "tagline": "Rundingan ialah pertembungan kepentingan. Jadi minit yang kuat bukan sekadar menyenaraikan keputusan dan tugas—ia juga menangkap konteks dan nada perbualan. Inilah cara berfikir dan cara melakukannya dengan Minit AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Minit nipis yang biasa berlaku",
-      "items": {
-        "0": "Hanya menyenaraikan keputusan tanpa sebab/aliran",
-        "1": "Tidak jelas siapa meminta apa dan di mana berlaku konsesi",
-        "2": "Kabur tentang perkara tidak dipersetujui/ditangguh"
-      }
-    },
-    "h2": "Mengapa minit “hanya keputusan” itu lemah",
-    "optimized": {
-      "h3": "Minit yang kukuh untuk rundingan",
-      "items": {
-        "0": "Garis masa permintaan/konsesi/perubahan syarat (tarikh akhir/harga/skop/tanggungjawab)",
-        "1": "Sebab, andaian dan risiko dicatat berdekatan dengan keputusan",
-        "2": "Asingkan dipersetujui/tidak dipersetujui/tertangguh dengan tarikh dan pemilik"
-      }
-    },
-    "p1": "Struktur “perbincangan/keputusan/tugas/perkara tertangguh” sahaja sering kehilangan konteks, nada dan sejarah konsesi. Akibatnya: salah faham, ulang-alik yang tidak perlu, dan risiko “kata/tiada kata”."
+  "aria": {
+    "home": "Minit AI Laman Utama"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI"
+    "businessnegotiation": "Rundingan Perniagaan"
   },
-  "negotiation": {
-    "h2": "Apa itu rundingan perniagaan?",
-    "p1": "Ringkasnya: melindungi dan mengembang kepentingan syarikat. Bukan komunikasi sehala, tetapi mencari titik temu melalui pertukaran “permintaan” dan “konsesi” tentang tarikh akhir, harga, skop dan risiko."
+  "hero": {
+    "kicker": "Buku Panduan Rundingan",
+    "h1": "Minit Generik Membunuh Perjanjian. Minit Rundingan Memuktamadkannya.",
+    "tagline": "Senarai 'keputusan' semata-mata tidak mencukupi. Rundingan berisiko tinggi adalah mengenai konteks, tolak ansur, dan 'siapa-kata-apa'. Minit AI membantu anda menangkap cerita penuh, bukan hanya ringkasan yang cetek."
+  },
+  "byline": {
+    "name": "Ditulis oleh: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Kali ini kami menumpukan khusus pada rundingan perniagaan.",
-    "h2": "Imbas kembali",
+    "h2": "Sebelum ini: Pemikiran 'Minit Universal'",
     "p1": {
-      "link": "klik di sini",
-      "post": ".",
-      "pre": "Sebelum ini kami tunjukkan bahawa minit berasaskan AI berfungsi untuk semua jenis mesyuarat. Untuk membaca semula,"
+      "pre": "Dalam artikel kami sebelum ini, kami menggariskan idea",
+      "link": "\"minit universal\"",
+      "post": "— format asas yang berfungsi untuk kebanyakan mesyuarat dalaman."
     },
-    "points": {
-      "0": "Jenis mesyuarat berbeza; format minit terbaik bergantung pada tujuan.",
-      "1": "Templat generik membantu, tetapi aras perincian perlu disesuaikan.",
-      "2": "Daripada “dokumen untuk dibaca” kepada “pelan untuk dilaksanakan”.",
-      "3": "Minit AI melaras keluaran mengikut tujuan mesyuarat."
+    "points": [
+      "Kekalkan matlamat yang jelas dan boleh diukur",
+      "Rekod keputusan dan pemilik yang bertanggungjawab",
+      "Timbulkan risiko dan penghalang dengan cepat",
+      "Jadikan tindakan seterusnya jelas dan tidak samar-samar"
+    ],
+    "focus": "Tetapi rundingan adalah berbeza. Strukturnya mesti mencerminkan kepentingan yang bercanggah, pilihan, dan tolak ansur."
+  },
+  "diversity": {
+    "h2": "Kepelbagaian Mesyuarat: Tujuan Menentukan Hasil",
+    "core": {
+      "h3": "Mesyuarat Biasa",
+      "items": [
+        "Daftar Masuk Mingguan: Jejak kemajuan, isu, dan pembetulan.",
+        "Sumbang Saran: Jana pelbagai idea, kemudian tumpukan.",
+        "Jualan / Rundingan: Selaraskan kepentingan dan bentuk perjanjian."
+      ]
+    },
+    "wide": {
+      "h3": "Spektrum Lebih Luas (Masih Mesyuarat!)",
+      "items": [
+        "1-dengan-1: Semak prestasi, tetapkan matlamat, kongsi kebimbangan.",
+        "Temu duga: Padankan keperluan dengan kesesuaian calon.",
+        "Bengkel / Syarahan: Pindahkan pengetahuan atau operasi."
+      ]
+    },
+    "p1": "Jika orang bercakap untuk tujuan yang sama, ia adalah mesyuarat. Kerana tujuan berbeza, hasil yang bernilai mesti disesuaikan — terutamanya untuk rundingan."
+  },
+  "negotiation": {
+    "h2": "Apa Sebenarnya Rundingan Itu?",
+    "p1": "Bagaimanakah rundingan berbeza daripada mesyuarat dalaman? Dalam satu perkataan: **Keuntungan**. Rundingan adalah \"**medan perang**\" di mana dua syarikat melindungi kepentingan mereka sendiri — harga, skop, garis masa. Ia bukan jalan sehala; ia adalah tolak ansur konsesi untuk mencari jalan ke arah persetujuan. Senarai 'Tugas' yang mudah tidak dapat menangkap ini."
+  },
+  "limits": {
+    "h2": "Mengapa 'Satu Saiz untuk Semua' Gagal",
+    "p1": "Menggunakan templat generik untuk rundingan menghasilkan minit yang 'cetek'. Ini menghilangkan konteks kritikal dan memaksa mesyuarat susulan yang mahal.",
+    "generic": {
+      "h3": "Minit 'Cetek' Generik",
+      "items": [
+        "Merekod 'Keputusan' tetapi terlepas 'Mengapa' (konsesi).",
+        "Memaksa pengurus bertanya, 'Mengapa kita bersetuju dengan ini?'",
+        "Kehilangan nuansa kritikal 'dia-kata-dia-kata'.",
+        "Mengaburkan siapa yang bertanggungjawab untuk apa, melambatkan perjanjian."
+      ]
+    },
+    "optimized": {
+      "h3": "Minit Dioptimumkan untuk Rundingan",
+      "items": [
+        "Menjejaki aliran **Bantahan → Konsesi → Persetujuan**.",
+        "Memberi pengurus 'suasana' dan latar belakang untuk membuat penilaian.",
+        "Mengekalkan pertukaran penting untuk mengelakkan pertikaian 'dia-kata-dia-kata'.",
+        "Mengikat setiap komitmen kepada pemilik dan tarikh akhir."
+      ]
     }
   },
-  "seo": {
-    "description": "Rundingan memerlukan minit yang menangkap keputusan, tugas, konteks, nada dan sejarah konsesi. Panduan praktikal dengan Minit AI.",
-    "ld": {
-      "description": "Inti rundingan dalam minit: permintaan, konsesi dan konteks—dengan Minit AI.",
-      "headline": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI"
-    },
-    "ogDescription": "Tamatkan minit yang ‘nipis’: simpan pertukaran dan konteks untuk keputusan yang lebih cepat dan tepat.",
-    "ogTitle": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI",
-    "title": "Mengapa anda boleh menulis minit rundingan terbaik dengan Minit AI | Blog minit mesyuarat"
+  "example": {
+    "h2": "Daripada Data 'Kering' kepada 'Konteks' Perjanjian",
+    "block": "Pelanggan: Harga terlalu tinggi untuk bajet Q4 kami.\nJualan: Saya faham. Jika kami mengehadkan kerusi kepada 40 dan memindahkan SSO ke Fasa 2, kami boleh memenuhi had anda.\nPelanggan: Itu mungkin boleh. Saya perlukan kelulusan undang-undang. Bolehkah kita kunci harga itu sehingga 15/12?\nJualan: Setuju. Saya akan hantar Cadangan v3 hari ini. Semakan undang-undang EOW, tutup menjelang 15/12.",
+    "p1": "Minit generik mungkin hanya akan menyatakan: 'Keputusan: Jual pada harga $X.' Minit yang **dioptimumkan untuk rundingan** menjadikan perkembangannya jelas: **Bantahan** (harga) → **Konsesi** (skop) → **Komitmen** (tarikh akhir). Konteks ini adalah segala-galanya bagi pembuat keputusan yang tidak berada di dalam bilik."
   },
   "why": {
-    "h2": "Mengapa Minit AI unggul untuk rundingan",
-    "items": {
-      "0": "Merumuskan permintaan/konsesi dan menyimpan bahagian utama secara verbatim (mengelak isu “kata/tiada kata”).",
-      "1": "Menyusun perubahan syarat mengikut kronologi (tarikh akhir/harga/skop/tanggungjawab).",
-      "2": "Mendokumen sebab, andaian dan risiko berhampiran keputusan.",
-      "3": "Membezakan dipersetujui/tidak dipersetujui/tertangguh dengan tarikh dan pemilik.",
-      "4": "Memadankan permintaan pihak lawan dengan komitmen syarikat untuk penjejakan jelas."
+    "h2": "Mengapa Minit AI untuk Rundingan",
+    "items": [
+      "**Keputusan Kaya Konteks:** Kami melangkaui item tindakan 'kering'. AI kami menghubungkan keputusan terus kepada 'mengapa' — perbincangan, bantahan, dan tolak ansur yang membawa kepadanya.",
+      "**Tangkap 'Suasana':** Minit AI dilatih untuk mengenal pasti dan memelihara pertukaran penting 'dia-kata-dia-kata', bukan sekadar meringkaskannya.",
+      "**Jejaki 'Pertarungan' Penuh:** Penjejak Bantahan kami mengikuti isu dari 'tidak' pertama hingga 'ya' terakhir, jadi anda tidak akan terlepas jejak perjanjian.",
+      "**Rantaian Komitmen yang Jelas:** Ekstrak dan tetapkan setiap 'siapa, apa, dan bila' secara automatik untuk memastikan perjanjian bergerak ke hadapan dan tidak pernah terhenti.",
+      "**Output Pelbagai Bahasa:** Tutup perjanjian global dengan minit yang jelas dan tepat untuk semua pihak berkepentingan, dalam bahasa mereka."
+    ]
+  },
+  "pricing": {
+    "h2": "Harga Mudah dan Fleksibel yang Sesuai dengan Rentak Anda",
+    "p1": "Jadual mesyuarat anda bukan 'satu saiz untuk semua', jadi harga anda juga tidak sepatutnya begitu. Pilih pelan yang masuk akal untuk anda.",
+    "timepacks": {
+      "h3": "Pek Sekali Beli (Tiada Tarikh Luput)",
+      "note": "Beli sekali, guna selamanya. Minit anda **tidak pernah luput**.",
+      "items": [
+        "Percubaan (120 min): $1.99",
+        "Ringan (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Langganan (Benar-benar Tanpa Had)",
+      "note": "Minit yang **benar-benar tanpa had**. Tiada had, tiada tetapan semula bulanan.",
+      "items": [
+        "Bulanan: $16.99",
+        "Tahunan: $149.99 (Jimat ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Cuba Secara Percuma, Setiap Hari",
+      "p1": "Setiap pengguna mendapat **tiket percuma 3 minit** untuk mencuba Minit AI, setiap hari. Tiada kad kredit diperlukan."
     }
   },
   "wrap": {
-    "h2": "Ringkasan",
-    "p": "Minit rundingan yang kuat bukan hanya senarai keputusan—ia juga menyimpan aliran tawar-menawar dan konteks. Keputusan menjadi lebih cepat dan tepat. Jadikannya standard dengan Minit AI."
+    "h2": "Kesimpulan: Berhenti Berpuas Hati dengan Minit yang Cetek",
+    "p": "Rundingan dimenangi atau dikalahkan dalam butiran. Ringkasan yang menangkap **suasana**, **konteks**, dan **konsesi** adalah apa yang memperkasakan pasukan anda untuk membuat keputusan yang lebih pantas dan bijak. Struktur bukan hanya tentang kejelasan; ia adalah tentang menangkap realiti perjanjian."
+  },
+  "cta": {
+    "openBrowser": "Buka dalam pelayar",
+    "downloadIOS": "Muat turun aplikasi iOS"
   }
 }

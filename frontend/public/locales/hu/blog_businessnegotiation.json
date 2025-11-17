@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Vissza a Jegyzőkönyv AI kezdőlapjára"
+  "seo": {
+    "title": "Miért buknak el az általános jegyzőkönyvek a tárgyalásokon? | Jegyzőkönyv AI",
+    "description": "Az általános sablonokból hiányzik a 'miért' az alku mögött. A tárgyalások kompromisszumokról és kontextusról szólnak, nem csak döntésekről. Tudja meg, hogyan rögzíti a Jegyzőkönyv AI azokat az árnyalatokat, amelyeket az általános jegyzőkönyvek figyelmen kívül hagynak.",
+    "ogTitle": "Jegyzőkönyv AI | Üzleti tárgyalásokhoz",
+    "ogDescription": "Ne veszítse el többé a 'miért'-et. Ragadja meg a kifogások, engedmények és kötelezettségvállalások teljes kontextusát, amelyet az általános összefoglalók kihagynak.",
+    "ld": {
+      "headline": "Üzleti tárgyalási jegyzőkönyvek, amelyek valóban előremozdítják az ügyleteket",
+      "description": "A tárgyalások speciális jegyzőkönyveket igényelnek, amelyek nyomon követik a kifogásokat, engedményeket és a kritikus 'ki-mit-mondott' kontextust."
+    }
+  },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "businessnegotiation": "Üzleti tárgyalás"
+  },
+  "hero": {
+    "kicker": "A tárgyalási kézikönyv",
+    "h1": "Az általános jegyzőkönyvek megölik az üzleteket. A tárgyalási jegyzőkönyvek lezárják őket.",
+    "tagline": "A 'döntések' egyszerű listája nem elég. A nagy téttel bíró tárgyalások a kontextusról, a kompromisszumokról és a 'ki-mit-mondott'-ról szólnak. A Jegyzőkönyv AI segít megragadni a teljes történetet, nem csak egy felszínes összefoglalót."
   },
   "byline": {
     "name": "Írta: Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "iOS-alkalmazás letöltése",
-    "openBrowser": "Webalkalmazás megnyitása"
+  "recap": {
+    "h2": "Korábban: Az 'Univerzális Jegyzőkönyv' gondolkodásmód",
+    "p1": {
+      "pre": "Előző cikkünkben felvázoltuk az",
+      "link": "\"univerzális jegyzőkönyv\"",
+      "post": "ötletét – egy alapformátumot, amely a legtöbb belső megbeszéléshez működik."
+    },
+    "points": [
+      "A célok legyenek egyértelműek és mérhetők",
+      "A döntések és a felelősök rögzítése",
+      "A kockázatok és akadályok gyors felszínre hozása",
+      "A következő lépések egyértelművé tétele"
+    ],
+    "focus": "De a tárgyalások mások. A struktúrának tükröznie kell az ütköző érdekeket, lehetőségeket és kompromisszumokat."
   },
   "diversity": {
+    "h2": "Megbeszélések sokfélesége: A cél határozza meg a kimenetet",
     "core": {
-      "h3": "Gyakori megbeszélések",
-      "items": {
-        "0": "Rendszeres standupok: eredmények, problémák, teendők áttekintése",
-        "1": "Ötletelés: ötletek szélesítése és szűkítése",
-        "2": "Tárgyalás: érdekek összehangolása és megállapodás"
-      }
+      "h3": "Tipikus megbeszélések",
+      "items": [
+        "Heti check-in: Haladás, problémák és javítások követése.",
+        "Ötletbörze: Ötletek szórása, majd összegzése.",
+        "Értékesítés / Tárgyalás: Érdekek egyeztetése és megállapodások kialakítása."
+      ]
     },
-    "h2": "A megbeszélések sokfélék — a tárgyalás az alku művészete",
-    "p1": "Ha változik a cél, a értékes kimenet is változik. Tárgyalásnál maga az alku a lényeg.",
     "wide": {
-      "h3": "„Megbeszélés” tág értelemben",
-      "items": {
-        "0": "1-az-1-ben: eredmények áttekintése, következő célok, kihívások megosztása",
-        "1": "Interjú: elvárások és illeszkedés összehangolása",
-        "2": "Prezentáció: probléma és megoldás",
-        "3": "Tréning: folyamatok/műveletek átadása"
-      }
+      "h3": "Tágabb spektrum (Még mindig megbeszélések!)",
+      "items": [
+        "1-on-1: Teljesítményértékelés, célok kitűzése, aggodalmak megosztása.",
+        "Interjú: Követelmények és a jelölt alkalmasságának összevetése.",
+        "Workshop / Előadás: Tudás vagy műveletek átadása."
+      ]
+    },
+    "p1": "Ha az emberek közös célért beszélnek, az egy megbeszélés. Mivel a célok eltérőek, az értékes kimenetnek is alkalmazkodnia kell – különösen a tárgyalások esetében."
+  },
+  "negotiation": {
+    "h2": "Mi is valójában a tárgyalás?",
+    "p1": "Miben különbözik egy tárgyalás egy belső megbeszéléstől? Egy szóval: **Profit**. A tárgyalás egy \"**csatatér**\", ahol két vállalat a saját érdekeit védi – ár, terjedelem, határidő. Ez nem egy egyirányú utca; ez egy oda-vissza engedményezés, hogy utat találjanak a megállapodáshoz. Egy egyszerű 'Teendőlista' ezt nem tudja megragadni."
+  },
+  "limits": {
+    "h2": "Miért bukik el az 'Egy kaptafa'?",
+    "p1": "Egy általános sablon használata a tárgyalásokhoz 'felszínes' jegyzőkönyveket eredményez. Ez kritikus kontextust veszít el, és költséges utókövető megbeszéléseket kényszerít ki.",
+    "generic": {
+      "h3": "Általános 'felszínes' jegyzőkönyvek",
+      "items": [
+        "Rögzítenek egy 'Döntést', de kihagyják a 'Miért'-et (az engedményt).",
+        "Arra kényszerítik a vezetőket, hogy megkérdezzék: 'Miért egyeztünk bele ebbe?'",
+        "Elveszítik a kritikus 'ő-mondta-ő-mondta' árnyalatot.",
+        "Elhomályosítják, ki miért felelős, megakasztva az üzletet."
+      ]
+    },
+    "optimized": {
+      "h3": "Tárgyalásra optimalizált jegyzőkönyvek",
+      "items": [
+        "Követik a **Kifogás → Engedmény → Megállapodás** folyamatot.",
+        "Megadják a vezetőknek a 'hangulatot' és a hátteret az ítélkezéshez.",
+        "Megőrzik a kulcsfontosságú párbeszédeket, hogy megelőzzék az 'ő-mondta-ő-mondta' vitákat.",
+        "Minden kötelezettségvállalást egy felelőshöz és egy határidőhöz kötnek."
+      ]
     }
   },
   "example": {
-    "block": "A vállalat A: Az előző termékük hibás volt — komoly gondot okozott nekünk. Tartoznak nekünk; szállítsák jövő hétre. Az ár $1,000.\\nCégünk: Belsőleg megnyomjuk, hogy jövő hétre szállítsunk. Cserébe felemelhetjük $1,200-ra? Kérjük, fontolják meg.\\nA vállalat A: Ha garantálják a jövő heti szállítást, megfontoljuk. Küldjenek választ e-mailben még ma.",
-    "h2": "Példa (a kulcsfontosságú párbeszédek szó szerint)",
-    "p1": "A „kulcskörök” eredeti megfogalmazásának megőrzése lehetővé teszi a döntéshozók számára a megalapozottság teljes kontextusban való megítélését."
-  },
-  "hero": {
-    "h1": "Miért segít a Jegyzőkönyv AI a legjobb tárgyalási jegyzőkönyv megírásában",
-    "kicker": "Jegyzőkönyv AI Blog",
-    "tagline": "A tárgyalás érdekek versenye. Az erős jegyzőkönyv nem csak döntéseket és feladatokat sorol — megőrzi a kontextust és a hangnemet is. Íme a megközelítés és hogyan alkalmazható a Jegyzőkönyv AI-jal."
-  },
-  "limits": {
-    "generic": {
-      "h3": "A tipikus „vékony” jegyzőkönyv",
-      "items": {
-        "0": "Döntések felsorolása indoklás vagy történet nélkül",
-        "1": "Nem világos, ki mit kért és hol történtek engedmények",
-        "2": "Kétértelmű, mi nincs egyeztetve vagy parkolópályán van"
-      }
-    },
-    "h2": "Miért gyenge a „csak döntések” jegyzőkönyv",
-    "optimized": {
-      "h3": "Tárgyalásra szabott jegyzőkönyv",
-      "items": {
-        "0": "Idővonal követelésekről/engedményekről/feltételmódosításokról (határidő/ár/terjedelem/felelősség)",
-        "1": "Indokok, feltételezések és kockázatok rögzítve minden döntés mellett",
-        "2": "Egyértelmű bontás: egyeztetett/nem egyeztetett/parkolt, felelősökkel és határidőkkel"
-      }
-    },
-    "p1": "A „megbeszélés/döntések/teendők/nyitott pontok” séma gyakran elveszíti a hátteret, a hangnemet és az engedmények történetét. Következmény: félreértések, felesleges oda-vissza és „mondta/nem mondta” kockázat."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Miért segít a Jegyzőkönyv AI a legjobb tárgyalási jegyzőkönyv megírásában"
-  },
-  "negotiation": {
-    "h2": "Mi is az a tárgyalás?",
-    "p1": "Röviden: a vállalat érdekeinek védelme és növelése. Nem egyirányú bejelentés; közös alapot keresünk „követelések” és „engedmények” cseréjével a feltételekben, mint határidő, ár, terjedelem és kockázat."
-  },
-  "recap": {
-    "focus": "Ezúttal mélyen a tárgyalásokba merülünk.",
-    "h2": "Gyors összefoglaló",
-    "p1": {
-      "link": "olvassa el itt",
-      "post": ".",
-      "pre": "Legutóbb megmutattuk, hogy az AI jegyzőkönyv bármilyen megbeszéléshez működik. Ha érdekli,"
-    },
-    "points": {
-      "0": "A megbeszélések sokfélék, ezért az optimális jegyzőkönyv-formátum a céltól függ.",
-      "1": "Az általános sablonok segítenek, de a részletességet az esetre kell hangolni.",
-      "2": "A „feljegyzés olvasásra” helyett „terv cselekvésre”.",
-      "3": "A Jegyzőkönyv AI a megbeszélés céljához igazítja a kimenetet."
-    }
-  },
-  "seo": {
-    "description": "A tárgyalásokhoz olyan jegyzőkönyv kell, amely rögzíti a döntéseket, feladatokat, kontextust, hangnemet és az engedmények történetét. Gyakorlati útmutató a Jegyzőkönyv AI-jal.",
-    "ld": {
-      "description": "A tárgyalás lényege a jegyzőkönyvben: követelések, engedmények és kontextus — a Jegyzőkönyv AI-jal.",
-      "headline": "Miért segít a Jegyzőkönyv AI a legjobb tárgyalási jegyzőkönyv megírásában"
-    },
-    "ogDescription": "Viszlát „vékony” jegyzőkönyv: őrizze meg a párbeszédet és a kontextust a gyorsabb, jobb döntésekhez.",
-    "ogTitle": "Miért segít a Jegyzőkönyv AI a legjobb tárgyalási jegyzőkönyv megírásában",
-    "title": "Miért segít a Jegyzőkönyv AI a legjobb tárgyalási jegyzőkönyv megírásában | Blog megbeszélési jegyzőkönyvekről"
+    "h2": "'Száraz' adatokból az ügylet 'kontextusáig'",
+    "block": "Ügyfél: Az ár túl magas a Q4-es költségvetésünkhöz.\nÉrtékesítő: Értem. Ha 40-re korlátozzuk a helyeket, és az SSO-t a 2. fázisba helyezzük, tartani tudjuk a keretüket.\nÜgyfél: Ez működhet. Jogi jóváhagyásra van szükségem. Le tudjuk zárni ezt az árat 12/15-ig?\nÉrtékesítő: Rendben. Ma küldöm a v3-as javaslatot. Jogi felülvizsgálat a hét végéig, zárás 12/15-ig.",
+    "p1": "Egy általános jegyzőkönyv talán csak ennyit mondana: 'Döntés: Eladás $X áron.' Egy **tárgyalásra optimalizált** jegyzőkönyv egyértelművé teszi a haladást: **Kifogás** (ár) → **Engedmény** (terjedelem) → **Kötelezettségvállalás** (határidő). Ez a kontextus minden a döntéshozók számára, akik nem voltak ott a szobában."
   },
   "why": {
-    "h2": "Miért erős a Jegyzőkönyv AI a tárgyalásban",
-    "items": {
-      "0": "Összegzi a követelés/engedmény cseréket és a kulcsrészeket szó szerint megőrzi (elkerüli a „mondta/nem mondta” vitát).",
-      "1": "Időrendi sorrendbe teszi a feltételmódosításokat (határidő/ár/terjedelem/felelősség).",
-      "2": "Dokumentálja az indokokat, feltételezéseket és kockázatokat a döntések mellett.",
-      "3": "Szétválasztja az egyeztetett/nem egyeztetett/parkolt tételeket felelősökkel és határidőkkel.",
-      "4": "A másik fél kéréseit a saját vállalásaihoz térképezi a tiszta nyomon követéshez."
+    "h2": "Miért a Jegyzőkönyv AI a tárgyalásokhoz?",
+    "items": [
+      "**Kontextusban gazdag döntések:** Túllépünk a 'száraz' teendőkön. Az AI-nk közvetlenül összekapcsolja a döntéseket a 'miért'-tel – a megbeszéléssel, a kifogásokkal és a kompromisszumokkal, amelyek azokhoz vezettek.",
+      "**A 'hangulat' megragadása:** A Jegyzőkönyv AI arra van kiképezve, hogy azonosítsa és megőrizze a kulcsfontosságú 'ő-mondta-ő-mondta' párbeszédeket, nem csak összefoglalja azokat.",
+      "**Kövesse a teljes 'csatát':** A Kifogáskövetőnk az első 'nem'-től a végső 'igen'-ig követ egy problémát, így soha nem veszíti el az ügylet fonalát.",
+      "**Világos kötelezettségvállalási láncok:** Automatikusan kinyeri és hozzárendeli az összes 'ki, mit és mikor' információt, biztosítva, hogy az ügylet előrehaladjon és soha ne akadjon el.",
+      "**Többnyelvű kimenetek:** Zárjon le globális üzleteket világos, pontos jegyzőkönyvekkel minden érdekelt fél számára, az ő nyelvükön."
+    ]
+  },
+  "pricing": {
+    "h2": "Egyszerű, rugalmas árazás, amely illeszkedik a ritmusához",
+    "p1": "A megbeszélései ütemezése nem 'egy kaptafa', így az árazásának sem kellene annak lennie. Válassza azt a csomagot, amelyik Önnek a leginkább megfelel.",
+    "timepacks": {
+      "h3": "Egyszeri csomagok (nem járnak le)",
+      "note": "Vásárolja meg egyszer, használja örökké. A percei **soha nem járnak le**.",
+      "items": [
+        "Próba (120 perc): $1.99",
+        "Könnyű (1200 perc): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Előfizetések (valóban korlátlanok)",
+      "note": "**Valóban korlátlan** percek. Nincsenek sapkák, nincsenek havi nullázások.",
+      "items": [
+        "Havi: $16.99",
+        "Éves: $149.99 (Megtakarítás ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Próbálja ki ingyen, minden nap",
+      "p1": "Minden felhasználó kap egy ingyenes **3 perces jegyet**, hogy kipróbálhassa a Jegyzőkönyv AI-t, minden egyes nap. Hitelkártya nem szükséges."
     }
   },
   "wrap": {
-    "h2": "Lezárás",
-    "p": "A tárgyalási jegyzőkönyv akkor a legerősebb, ha megőrzi a párbeszédet és a kontextust — nem csak a döntéseket. Ez felgyorsítja az ítéletalkotást és csökkenti az újramunkát. Tegye alapértelmezetté a Jegyzőkönyv AI-jal."
+    "h2": "Összegzés: Ne elégedjen meg felszínes jegyzőkönyvekkel",
+    "p": "A tárgyalások a részleteken dőlnek el. Egy összefoglaló, amely megragadja a **hangulatot**, a **kontextust** és az **engedményeket**, az ad erőt a csapatának, hogy gyorsabb, okosabb döntéseket hozzon. A struktúra nem csak a világosságról szól; arról szól, hogy megragadja az ügylet valóságát."
+  },
+  "cta": {
+    "openBrowser": "Megnyitás böngészőben",
+    "downloadIOS": "iOS alkalmazás letöltése"
   }
 }

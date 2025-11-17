@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Revenir à l’accueil de Minutes.AI"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Télécharger l’app iOS",
-    "openBrowser": "Ouvrir dans le navigateur"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Réunions typiques",
-      "items": {
-        "0": "Point régulier : résultats, problèmes, actions",
-        "1": "Brainstorming : divergence puis convergence d’idées",
-        "2": "Négociation : alignement des intérêts et accord"
-      }
-    },
-    "h2": "Des réunions diverses… et la négociation a ses spécificités",
-    "p1": "Quand l’objectif change, la forme de la valeur produite change aussi. En négociation, négocier est le cœur.",
-    "wide": {
-      "h3": "« Réunion » au sens large",
-      "items": {
-        "0": "Entretien 1:1 : bilan, objectifs, difficultés",
-        "1": "Entretien d’embauche : exigences et adéquation",
-        "2": "Présentation : problème et solution",
-        "3": "Formation : transmission des procédures"
-      }
+  "seo": {
+    "title": "Pourquoi les comptes rendus génériques échouent dans les négociations | Minutes.AI",
+    "description": "Les modèles génériques passent à côté du 'pourquoi' d'un accord. Les négociations concernent les compromis et le contexte, pas seulement les décisions. Découvrez comment Minutes.AI capture les nuances que les comptes rendus génériques ignorent.",
+    "ogTitle": "Minutes.AI | Pour les négociations commerciales",
+    "ogDescription": "Arrêtez de perdre le 'pourquoi'. Capturez le contexte complet des objections, concessions et engagements que les résumés génériques manquent.",
+    "ld": {
+      "headline": "Des comptes rendus de négociation commerciale qui font vraiment avancer les accords",
+      "description": "Les négociations nécessitent des comptes rendus spécialisés qui suivent les objections, les concessions et le contexte critique de 'qui a dit quoi'."
     }
   },
-  "example": {
-    "block": "Société A : Il y avait un bug dans votre produit précédent, cela nous a posé de gros soucis. Vous nous devez bien ça ; livrez d’ici la semaine prochaine. Prix : 1 000 $.\\nNotre société : Nous ferons le maximum pour livrer la semaine prochaine après coordination interne. En contrepartie, peut-on passer à 1 200 $ ? Merci d’étudier.\\nSociété A : Si vous garantissez la livraison la semaine prochaine, nous l’étudierons. Merci d’envoyer une réponse par e-mail aujourd’hui.",
-    "h2": "Exemple (conserver textuellement les échanges clés)",
-    "p1": "Garder ces « échanges clés » au mot près aide les décideurs à juger la pertinence dans le contexte."
-  },
-  "hero": {
-    "h1": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation",
-    "kicker": "Blog Minutes.AI",
-    "tagline": "Une négociation est un équilibre d’intérêts. Un bon compte rendu ne se limite pas aux décisions et tâches : il capte aussi le contexte et la tonalité. Voici l’idée et sa mise en pratique avec Minutes.AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Le compte rendu trop léger",
-      "items": {
-        "0": "Liste des décisions sans raisons ni cheminement",
-        "1": "Flou sur qui a demandé quoi et où il y a eu concession",
-        "2": "Ambiguïtés sur le non-accordé et le différé"
-      }
-    },
-    "h2": "Pourquoi un compte rendu « seulement décisions » est faible",
-    "optimized": {
-      "h3": "Compte rendu taillé pour la négociation",
-      "items": {
-        "0": "Chronologie demandes/concessions/évolutions (délai/prix/périmètre/responsabilité)",
-        "1": "Motifs, hypothèses et risques au plus près de la décision",
-        "2": "Distinction accordé/non accordé/en suspens avec échéance et responsable"
-      }
-    },
-    "p1": "Se limiter à « discussion/décisions/tâches/points en suspens » fait perdre le contexte, la tonalité et l’historique des concessions. Résultat : malentendus, échanges inutiles, et risque de « dit/pas dit »."
+  "aria": {
+    "home": "Minutes.AI Accueil"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation"
+    "businessnegotiation": "Négociation commerciale"
   },
-  "negotiation": {
-    "h2": "Qu’est-ce qu’une négociation ?",
-    "p1": "Protéger et développer les intérêts de son entreprise. Ce n’est pas unilatéral : on cherche un compromis via des « demandes » et des « concessions » sur le délai, le prix, le périmètre et le risque."
+  "hero": {
+    "kicker": "Le guide de la négociation",
+    "h1": "Les comptes rendus génériques tuent les accords. Les comptes rendus de négociation les concluent.",
+    "tagline": "Une simple liste de 'décisions' ne suffit pas. Les négociations à enjeux élevés concernent le contexte, les compromis et 'qui a dit quoi'. Minutes.AI vous aide à capturer l'histoire complète, pas seulement un résumé superficiel."
+  },
+  "byline": {
+    "name": "Écrit par : Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Cette fois, nous nous concentrons sur les négociations.",
-    "h2": "Rappel de l’article précédent",
+    "h2": "Précédemment : L'état d'esprit du 'compte rendu universel'",
     "p1": {
-      "link": "c’est ici",
-      "post": ".",
-      "pre": "Nous avons montré que les comptes rendus avec IA fonctionnent pour tous les types de réunions. Pour relire,"
+      "pre": "Dans notre article précédent, nous avons exposé l'idée du",
+      "link": "\"compte rendu universel\"",
+      "post": "— un format de base qui fonctionne pour la plupart des réunions internes."
     },
-    "points": {
-      "0": "Les réunions varient ; le format optimal dépend de l’objectif.",
-      "1": "Les modèles génériques aident, mais il faut ajuster le niveau de détail.",
-      "2": "Du « document à lire » au « plan d’action ».",
-      "3": "Minutes.AI adapte la sortie à l’objectif de la réunion."
+    "points": [
+      "Garder les objectifs explicites et mesurables",
+      "Enregistrer les décisions et les responsables",
+      "Faire remonter rapidement les risques et les bloqueurs",
+      "Rendre les actions suivantes sans ambiguïté"
+    ],
+    "focus": "Mais les négociations sont différentes. La structure doit refléter les intérêts conflictuels, les options et les compromis."
+  },
+  "diversity": {
+    "h2": "Diversité des réunions : L'objectif définit le résultat",
+    "core": {
+      "h3": "Réunions typiques",
+      "items": [
+        "Point hebdomadaire : Suivre les progrès, les problèmes et les correctifs.",
+        "Brainstorming : Diverger sur les idées, puis converger.",
+        "Vente / Négociation : Ajuster les intérêts et former des accords."
+      ]
+    },
+    "wide": {
+      "h3": "Spectre plus large (Toujours des réunions !)",
+      "items": [
+        "1-on-1 : Examiner les performances, fixer des objectifs, partager des préoccupations.",
+        "Entretien : Faire correspondre les exigences à l'adéquation d'un candidat.",
+        "Atelier / Conférence : Transférer des connaissances ou des opérations."
+      ]
+    },
+    "p1": "Si les gens parlent dans un but commun, c'est une réunion. Parce que les objectifs diffèrent, le résultat précieux doit s'adapter — en particulier pour les négociations."
+  },
+  "negotiation": {
+    "h2": "Qu'est-ce qu'une négociation, vraiment ?",
+    "p1": "En quoi une négociation est-elle différente d'une réunion interne ? En un mot : **Profit**. Une négociation est un \"**champ de bataille**\" où deux entreprises protègent leurs propres intérêts — prix, portée, calendrier. Ce n'est pas une voie à sens unique ; c'est un va-et-vient de concessions pour trouver un chemin vers l'accord. Une simple liste de 'Tâches' ne peut pas capturer cela."
+  },
+  "limits": {
+    "h2": "Pourquoi le 'Taille Unique' échoue",
+    "p1": "Utiliser un modèle générique pour une négociation crée des comptes rendus 'superficiels'. Cela perd un contexte critique et force des réunions de suivi coûteuses.",
+    "generic": {
+      "h3": "Comptes rendus génériques 'superficiels'",
+      "items": [
+        "Enregistrent une 'Décision' mais manquent le 'Pourquoi' (la concession).",
+        "Forcent les managers à demander : 'Pourquoi avons-nous accepté cela ?'",
+        "Perdent la nuance critique du 'il a dit / elle a dit'.",
+        "Rendent flou qui est responsable de quoi, bloquant l'accord."
+      ]
+    },
+    "optimized": {
+      "h3": "Comptes rendus optimisés pour la négociation",
+      "items": [
+        "Suivent le flux **Objection → Concession → Accord**.",
+        "Donnent aux managers l''atmosphère' et le contexte pour juger.",
+        "Préservent les échanges clés pour prévenir les litiges 'il a dit / elle a dit'.",
+        "Lient chaque engagement à un propriétaire et une date limite."
+      ]
     }
   },
-  "seo": {
-    "description": "Une négociation exige des comptes rendus qui captent décisions, tâches, contexte, tonalité et concessions. Guide pratique avec Minutes.AI.",
-    "ld": {
-      "description": "L’essentiel des négociations dans le compte rendu : demandes, concessions et contexte avec Minutes.AI.",
-      "headline": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation"
-    },
-    "ogDescription": "Fini les comptes rendus trop légers : conservez l’échange et le contexte pour décider plus vite et mieux.",
-    "ogTitle": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation",
-    "title": "Pourquoi Minutes.AI permet de rédiger les meilleurs comptes rendus de négociation | Blog des comptes rendus"
+  "example": {
+    "h2": "Des données 'sèches' au 'contexte' de l'accord",
+    "block": "Client : Le prix est trop élevé pour notre budget Q4.\nVendeur : Je comprends. Si nous limitons les sièges à 40 et déplaçons le SSO à la Phase 2, nous pouvons respecter votre plafond.\nClient : Cela pourrait fonctionner. J'ai besoin de l'approbation légale. Pouvons-nous bloquer ce prix jusqu'au 15/12 ?\nVendeur : D'accord. J'envoie la Proposition v3 aujourd'hui. Examen juridique d'ici la fin de la semaine, clôture d'ici le 15/12.",
+    "p1": "Un compte rendu générique pourrait juste dire : 'Décision : Vendre pour $X.' Un compte rendu **optimisé pour la négociation** rend la progression explicite : **Objection** (prix) → **Concession** (portée) → **Engagement** (date limite). Ce contexte est tout pour les décideurs qui n'étaient pas dans la salle."
   },
   "why": {
-    "h2": "Pourquoi Minutes.AI excelle en négociation",
-    "items": {
-      "0": "Résume demandes/concessions et conserve les passages clés au mot près (évite « dit/pas dit »).",
-      "1": "Ordonne chronologiquement l’évolution des conditions (délai/prix/périmètre/responsabilité).",
-      "2": "Documente motifs, hypothèses et risques au plus près de la décision.",
-      "3": "Distingue accordé/non accordé/en suspens avec échéances et responsables.",
-      "4": "Fait correspondre demandes de la contre-partie et nos engagements pour un suivi clair."
+    "h2": "Pourquoi Minutes.AI pour la négociation",
+    "items": [
+      "**Décisions riches en contexte :** Nous allons au-delà des actions 'sèches'. Notre IA lie les décisions directement au 'pourquoi' — la discussion, les objections et les compromis qui y ont conduit.",
+      "**Capturez l''atmosphère' :** Minutes.AI est entraîné pour identifier et préserver les échanges clés 'il a dit / elle a dit', pas seulement les résumer.",
+      "**Suivez la 'bataille' complète :** Notre Suivi d'objections suit un problème du premier 'non' au 'oui' final, pour que vous ne perdiez jamais le fil de l'accord.",
+      "**Chaînes d'engagement claires :** Extrait et attribue automatiquement chaque 'qui, quoi et quand' pour assurer que l'accord avance et ne bloque jamais.",
+      "**Sorties multilingues :** Concluez des accords mondiaux avec des comptes rendus clairs et précis pour toutes les parties prenantes, dans leur langue."
+    ]
+  },
+  "pricing": {
+    "h2": "Une tarification simple et flexible qui s'adapte à votre rythme",
+    "p1": "Votre calendrier de réunions n'est pas 'taille unique', donc votre tarification ne devrait pas l'être non plus. Choisissez le plan qui a du sens pour vous.",
+    "timepacks": {
+      "h3": "Packs uniques (sans expiration)",
+      "note": "Achetez une fois, utilisez pour toujours. Vos minutes n'**expirent jamais**.",
+      "items": [
+        "Essai (120 min) : 1,99 $",
+        "Léger (1200 min) : 11,99 $"
+      ]
+    },
+    "subs": {
+      "h3": "Abonnements (vraiment illimités)",
+      "note": "Minutes **vraiment illimitées**. Pas de plafonds, pas de réinitialisations mensuelles.",
+      "items": [
+        "Mensuel : 16,99 $",
+        "Annuel : 149,99 $ (Économisez ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Essayez-le gratuitement, chaque jour",
+      "p1": "Chaque utilisateur reçoit un **ticket gratuit de 3 minutes** pour essayer Minutes.AI, chaque jour. Aucune carte de crédit requise."
     }
   },
   "wrap": {
-    "h2": "Conclusion",
-    "p": "Un compte rendu de négociation solide va au-delà des décisions : il conserve l’échange et le contexte. Les décisions vont plus vite, avec moins de retours en arrière. Faites-en un standard avec Minutes.AI."
+    "h2": "Conclusion : Arrêtez de vous contenter de comptes rendus superficiels",
+    "p": "Les négociations se gagnent ou se perdent dans les détails. Un résumé qui capture l'**atmosphère**, le **contexte** et les **concessions** est ce qui permet à votre équipe de prendre des décisions plus rapides et plus intelligentes. La structure n'est pas seulement une question de clarté ; il s'agit de capturer la réalité de l'accord."
+  },
+  "cta": {
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l'application iOS"
   }
 }

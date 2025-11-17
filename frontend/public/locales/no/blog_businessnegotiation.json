@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Tilbake til Referat AI-forsiden"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Last ned iOS-appen",
-    "openBrowser": "Åpne i nettleseren"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Vanlige møter",
-      "items": {
-        "0": "Statusmøte: resultater/utfordringer/tiltak",
-        "1": "Idédugnad: divergens og konvergens",
-        "2": "Forhandling: avstemming av interesser og enighet"
-      }
-    },
-    "h2": "Mange møtetyper—og forhandlinger er spesielle",
-    "p1": "Når formålet endres, endres også verdifullt output. I forhandlinger er selve forhandlingen kjernen.",
-    "wide": {
-      "h3": "«Møte» i vid forstand",
-      "items": {
-        "0": "1:1: resultatgjennomgang, neste mål, deling av utfordringer",
-        "1": "Intervju: avstemming av krav og egnethet",
-        "2": "Presentasjon: problem og løsning",
-        "3": "Opplæring: overføring av prosesser"
-      }
+  "seo": {
+    "title": "Hvorfor generiske referater mislykkes i forhandlinger | Referat AI",
+    "description": "Generiske maler mangler 'hvorfor' bak en avtale. Forhandlinger handler om kompromisser og kontekst, ikke bare beslutninger. Lær hvordan Referat AI fanger nyansene som generiske referater ignorerer.",
+    "ogTitle": "Referat AI | For forretningsforhandlinger",
+    "ogDescription": "Slutt å miste 'hvorfor'. Fang hele konteksten av innsigelser, innrømmelser og forpliktelser som generiske sammendrag går glipp av.",
+    "ld": {
+      "headline": "Forretningsforhandlingsreferater som faktisk flytter avtaler",
+      "description": "Forhandlinger krever spesialiserte referater som sporer innsigelser, innrømmelser og den kritiske 'hvem-sa-hva'-konteksten."
     }
   },
-  "example": {
-    "block": "Selskap A: Det var en bug i forrige produkt fra dere—det skapte store problemer. Dere skylder oss, så lever innen neste uke. Pris: 1000 USD.\\nVårt selskap: Vi forsøker å levere neste uke etter intern koordinering. Til gjengjeld—kan vi øke til 1200 USD? Vennligst vurder.\\nSelskap A: Hvis dere garanterer levering neste uke, vurderer vi det. Send svar på e-post i dag.",
-    "h2": "Eksempel (bevar nøkkelutvekslingen ordrett)",
-    "p1": "Ved å lagre «nøkkeletappene» ordrett kan beslutningstakere vurdere rimeligheten i kontekst."
-  },
-  "hero": {
-    "h1": "Møtereferat AI for forhandlinger — derfor lykkes du best med Referat AI",
-    "kicker": "Referat AI-bloggen",
-    "tagline": "En forhandling er et interesseoppgjør. Et godt møtereferat fanger ikke bare beslutninger og oppgaver, men også kontekst, innrømmelser og tone. Slik gjør du det i praksis med Referat AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Det typiske, tynne referatet",
-      "items": {
-        "0": "Lister beslutninger uten begrunnelser/forløp",
-        "1": "Uklart hvem som ba om hva og hvor det ble gitt innrømmelser",
-        "2": "Uklart hva som ikke er avklart eller er parkert"
-      }
-    },
-    "h2": "Hvorfor referater «kun med beslutninger» er svake",
-    "optimized": {
-      "h3": "Forhandlingssterkt møtereferat",
-      "items": {
-        "0": "Tidslinje for krav/innrømmelser/endringer (frist/pris/omfang/ansvar)",
-        "1": "Begrunnelser, forutsetninger og risiko tett på beslutningen",
-        "2": "Skille avtalt/ikke avtalt/parkert — med frist og ansvarlig"
-      }
-    },
-    "p1": "Strukturen «diskusjon/beslutninger/oppgaver/risiko» alene mister ofte kontekst, tone og historikk for innrømmelser. Følge: misforståelser, ekstra ping–pong og risiko for «sagt/ikke sagt»."
+  "aria": {
+    "home": "Referat AI Hjem"
   },
   "nav": {
     "blog": "Blogg",
-    "current": "Møtereferat AI for forhandlinger — derfor lykkes du best med Referat AI"
+    "businessnegotiation": "Forretningsforhandling"
   },
-  "negotiation": {
-    "h2": "Hva er en forhandling egentlig?",
-    "p1": "Kort fortalt: å beskytte og styrke virksomhetens interesser. Ikke enveiskommunikasjon, men et kompromiss gjennom «krav» og «innrømmelser» om frist, pris, omfang og risiko."
+  "hero": {
+    "kicker": "Forhandlings-playbook",
+    "h1": "Generiske referater dreper avtaler. Forhandlingsreferater lukker dem.",
+    "tagline": "En enkel liste over 'beslutninger' er ikke nok. Forhandlinger med høy innsats handler om kontekst, kompromisser og 'hvem-sa-hva'. Referat AI hjelper deg med å fange hele historien, ikke bare et overfladisk sammendrag."
+  },
+  "byline": {
+    "name": "Skrevet av: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Denne gangen går vi i dybden på forretningsforhandlinger.",
-    "h2": "Kort oppsummering",
+    "h2": "Tidligere: Tankegangen om 'Universelt Referat'",
     "p1": {
-      "link": "her",
-      "post": ".",
-      "pre": "Forrige gang viste vi at AI-referater fungerer for alle møtetyper. Les mer"
+      "pre": "I vår forrige artikkel skisserte vi ideen om",
+      "link": "\"universelle referater\"",
+      "post": "— et grunnleggende format som fungerer for de fleste interne møter."
     },
-    "points": {
-      "0": "Møter er ulike; optimalt referat avhenger av formålet.",
-      "1": "Generiske maler hjelper, men detaljnivå må tilpasses.",
-      "2": "Fra «lesedokument» til «plan for gjennomføring».",
-      "3": "Referat AI tilpasser utdata til møtets mål."
+    "points": [
+      "Hold mål eksplisitte og målbare",
+      "Registrer beslutninger og ansvarlige eiere",
+      "Få risikoer og blokkeringer raskt til overflaten",
+      "Gjør neste handlinger utvetydige"
+    ],
+    "focus": "Men forhandlinger er annerledes. Strukturen må gjenspeile motstridende interesser, alternativer og kompromisser."
+  },
+  "diversity": {
+    "h2": "Møtediversitet: Formålet definerer resultatet",
+    "core": {
+      "h3": "Typiske møter",
+      "items": [
+        "Ukentlig innsjekk: Spor fremgang, problemer og løsninger.",
+        "Idédugnad: Spre ideer, deretter konvergere.",
+        "Salg / Forhandling: Juster interesser og dann avtaler."
+      ]
+    },
+    "wide": {
+      "h3": "Bredere spekter (Fortsatt møter!)",
+      "items": [
+        "1-til-1: Gjennomgå prestasjoner, sette mål, dele bekymringer.",
+        "Intervju: Matche krav med en kandidats egnethet.",
+        "Workshop / Foredrag: Overføre kunnskap eller operasjoner."
+      ]
+    },
+    "p1": "Hvis folk snakker for et felles formål, er det et møte. Fordi formålene er forskjellige, må det verdifulle resultatet tilpasses — spesielt for forhandlinger."
+  },
+  "negotiation": {
+    "h2": "Hva er egentlig en forhandling?",
+    "p1": "Hvordan skiller en forhandling seg fra et internt møte? Med ett ord: **Profitt**. En forhandling er en \"**slagmark**\" der two selskaper beskytter sine egne interesser — pris, omfang, tidslinje. Det er ikke en enveiskjørt gate; det er en frem-og-tilbake-prosess med innrømmelser for å finne en vei til enighet. En enkel 'To-Do'-liste kan ikke fange dette."
+  },
+  "limits": {
+    "h2": "Hvorfor 'One-Size-Fits-All' mislykkes",
+    "p1": "Å bruke en generisk mal for en forhandling skaper 'overfladiske' referater. Dette mister kritisk kontekst og fremtvinger kostbare oppfølgingsmøter.",
+    "generic": {
+      "h3": "Generiske 'Overfladiske' Referater",
+      "items": [
+        "Registrerer en 'Beslutning', men mister 'Hvorfor' (innrømmelsen).",
+        "Tvinger ledere til å spørre: 'Hvorfor gikk vi med på dette?'",
+        "Mister den kritiske 'han-sa-hun-sa'-nyansen.",
+        "Gjør det uklart hvem som er ansvarlig for hva, og bremser avtalen."
+      ]
+    },
+    "optimized": {
+      "h3": "Forhandlings-optimaliserte Referater",
+      "items": [
+        "Sporer **Innsigelse → Innrømmelse → Avtale**-flyten.",
+        "Gir ledere 'atmosfæren' og bakgrunnen til å bedømme.",
+        "Bevarer nøkkelutvekslinger for å forhindre 'han-sa-hun-sa'-tvister.",
+        "Binder hver forpliktelse til en eier og en tidsfrist."
+      ]
     }
   },
-  "seo": {
-    "description": "Møtereferat AI for forhandlinger: fang beslutninger, oppgaver, kontekst, tone og innrømmelser. Praktisk veiledning med Referat AI.",
-    "ld": {
-      "description": "Essensen av forhandlinger i møtereferat: krav, innrømmelser og kontekst — med Referat AI.",
-      "headline": "Møtereferat AI for forhandlinger — derfor lykkes du best"
-    },
-    "ogDescription": "Farvel til tynne referater: bevar utveksling og kontekst for raskere, skarpere beslutninger.",
-    "ogTitle": "Møtereferat AI for forhandlinger | Referat AI",
-    "title": "Møtereferat AI for forhandlinger — derfor lykkes du best med Referat AI"
+  "example": {
+    "h2": "Fra 'tørre' data til 'avtale'-kontekst",
+    "block": "Kunde: Prisen er for høy for vårt Q4-budsjett.\nSelger: Jeg forstår. Hvis vi begrenser setene til 40 og flytter SSO til Fase 2, kan vi møte taket deres.\nKunde: Det kan fungere. Jeg trenger juridisk godkjenning. Kan vi låse den prisen til 15/12?\nSelger: Enig. Jeg sender Forslag v3 i dag. Juridisk gjennomgang innen EOW, lukking innen 15/12.",
+    "p1": "Et generisk referat ville kanskje bare si: 'Beslutning: Selg for $X.' Et **forhandlings-optimalisert** referat gjør progresjonen eksplisitt: **Innsigelse** (pris) → **Innrømmelse** (omfang) → **Forpliktelse** (tidsfrist). Denne konteksten er alt for beslutningstakerne som ikke var i rommet."
   },
   "why": {
-    "h2": "Hvorfor Referat AI er sterk i forhandlinger",
-    "items": {
-      "0": "Oppsummerer krav/innrømmelser og bevarer nøkkelpassasjer ordrett (unngår «sagt/ikke sagt»).",
-      "1": "Organiserer endringer i vilkår kronologisk (frist/pris/omfang/ansvar).",
-      "2": "Dokumenterer begrunnelser, forutsetninger og risiko nær beslutningen.",
-      "3": "Skiller avtalt/ikke avtalt/parkert med frist og ansvarlig.",
-      "4": "Kobler motpartens forespørsler til våre forpliktelser for tydelig sporing."
+    "h2": "Hvorfor Referat AI for forhandlinger",
+    "items": [
+      "**Kontekstrike Beslutninger:** Vi går utover 'tørre' handlingspunkter. Vår AI kobler beslutninger direkte til 'hvorfor' — diskusjonen, innsigelsene og kompromissene som førte til dem.",
+      "**Fang 'Atmosfæren':** Referat AI er trent til å identifisere og bevare nøkkel 'han-sa-hun-sa'-utvekslinger, ikke bare oppsummere dem bort.",
+      "**Spor hele 'Kampen':** Vår Innsigelses-sporer følger et problem fra det første 'nei' til det endelige 'ja', slik at du aldri mister tråden i avtalen.",
+      "**Tydelige Forpliktelseskjeder:** Henter ut og tildeler automatisk hvert 'hvem, hva og når' for å sikre at avtalen beveger seg fremover og aldri stopper opp.",
+      "**Flerspråklige Resultater:** Lukk globale avtaler med klare, nøyaktige referater for alle interessenter, på deres språk."
+    ]
+  },
+  "pricing": {
+    "h2": "Enkel, fleksibel prising som passer din rytme",
+    "p1": "Møteplanen din er ikke 'one-size-fits-all', så det bør heller ikke prisingen din være. Velg planen som gir mening for deg.",
+    "timepacks": {
+      "h3": "Engangspakker (utløper ikke)",
+      "note": "Kjøp én gang, bruk for alltid. Dine minutter **utløper aldri**.",
+      "items": [
+        "Prøve (120 min): $1.99",
+        "Lett (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Abonnementer (virkelig ubegrenset)",
+      "note": "**Virkelig ubegrensede** minutter. Ingen tak, ingen månedlige nullstillinger.",
+      "items": [
+        "Månedlig: $16.99",
+        "Årlig: $149.99 (Spar ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Prøv det gratis, hver dag",
+      "p1": "Hver bruker får en gratis **3-minutters billett** til å prøve Referat AI, hver eneste dag. Ingen kredittkort kreves."
     }
   },
   "wrap": {
-    "h2": "Oppsummering",
-    "p": "Et godt forhandlingsreferat går lenger enn beslutninger: det bevarer utvekslingen og konteksten. Dermed blir avgjørelser raskere og mer presise. Gjør Møtereferat AI til standard med Referat AI."
+    "h2": "Oppsummering: Slutt å nøye deg med overfladiske referater",
+    "p": "Forhandlinger vinnes eller tapes i detaljene. Et sammendrag som fanger **atmosfæren**, **konteksten** og **innrømmelsene**, er det som gir teamet ditt mulighet til å ta raskere, smartere beslutninger. Struktur handler ikke bare om klarhet; det handler om å fange realiteten i avtalen."
+  },
+  "cta": {
+    "openBrowser": "Åpne i nettleser",
+    "downloadIOS": "Last ned iOS-app"
   }
 }

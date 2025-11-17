@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Till startsidan för Protokoll AI"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Ladda ned iOS-appen",
-    "openBrowser": "Öppna i webbläsaren"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Vanliga möten",
-      "items": {
-        "0": "Statusmöte: resultat/utmaningar/åtgärder",
-        "1": "Brainstorm: idédivergens och konvergens",
-        "2": "Förhandling: intresseanpassning och överenskommelse"
-      }
-    },
-    "h2": "Många mötestyper — förhandlingar är särskilda",
-    "p1": "När syftet skiftar, skiftar också värdefull output. I förhandlingar är själva förhandlingen kärnan.",
-    "wide": {
-      "h3": "”Möte” i vid bemärkelse",
-      "items": {
-        "0": "1:1: resultatåterblick, nästa mål, dela hinder",
-        "1": "Intervju: krav och passform",
-        "2": "Presentation: problem och lösning",
-        "3": "Utbildning: överföring av rutiner"
-      }
+  "seo": {
+    "title": "Varför generiska protokoll misslyckas i förhandlingar | Protokoll AI",
+    "description": "Generiska mallar missar 'varför' bakom en affär. Förhandlingar handlar om kompromisser och sammanhang, inte bara beslut. Lär dig hur Protokoll AI fångar nyanserna som generiska protokoll ignorerar.",
+    "ogTitle": "Protokoll AI | För affärsförhandlingar",
+    "ogDescription": "Sluta tappa bort 'varför'. Fånga hela sammanhanget med invändningar, eftergifter och åtaganden som generiska sammanfattningar missar.",
+    "ld": {
+      "headline": "Affärsförhandlingsprotokoll som faktiskt driver affärer framåt",
+      "description": "Förhandlingar kräver specialiserade protokoll som spårar invändningar, eftergifter och det kritiska 'vem-sa-vad'-sammanhanget."
     }
   },
-  "example": {
-    "block": "Företag A: Det fanns en bugg i er förra produkt och vi fick stora problem. Ni står i skuld, så leverera senast nästa vecka. Pris: 1 000 USD.\\nVårt företag: Vi försöker leverera nästa vecka efter intern samordning. I gengäld – kan vi höja till 1 200 USD? Vänligen överväg.\\nFöretag A: Om ni garanterar leverans nästa vecka överväger vi det. Skicka svar via e-post i dag.",
-    "h2": "Exempel (spara nyckelutbyten ordagrant)",
-    "p1": "När nyckelrundor sparas ordagrant kan beslut fattas med hela sammanhanget."
-  },
-  "hero": {
-    "h1": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen",
-    "kicker": "Protokoll AI-bloggen",
-    "tagline": "En förhandling är ett möte mellan intressen. Ett starkt protokoll fångar därför inte bara beslut och åtgärder, utan även sammanhang och ton. Här är tänket — och hur du gör i praktiken med Protokoll AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Det typiskt tunna protokollet",
-      "items": {
-        "0": "Listar beslut utan orsak/förlopp",
-        "1": "Oklart vem som begärde vad och var man gav efter",
-        "2": "Otydligt vad som inte är avtalat eller är parkerat"
-      }
-    },
-    "h2": "Varför ett ”endast beslut”-protokoll är svagt",
-    "optimized": {
-      "h3": "Protokoll som håller i förhandling",
-      "items": {
-        "0": "Tidslinje över krav/eftergifter/ändringar (deadline/pris/omfattning/ansvar)",
-        "1": "Motiv, antaganden och risker nära beslutet",
-        "2": "Separera avtalat/ej avtalat/parkerat med tidsfrist och ansvarig"
-      }
-    },
-    "p1": "Strukturen ”diskussion/beslut/åtgärder/öppna punkter” tappar ofta sammanhang, ton och eftergiftshistorik. Följden blir missförstånd, extra ping-pong och risken för ”sagt/inte sagt”."
+  "aria": {
+    "home": "Protokoll AI Hem"
   },
   "nav": {
     "blog": "Blogg",
-    "current": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen"
+    "businessnegotiation": "Affärsförhandling"
   },
-  "negotiation": {
-    "h2": "Vad är en förhandling egentligen?",
-    "p1": "Kort sagt: att skydda och stärka företagets intressen. Inte envägskommunikation, utan att hitta en kompromiss via ”krav” och ”eftergifter” om deadline, pris, omfattning och risk."
+  "hero": {
+    "kicker": "Förhandlingsguiden",
+    "h1": "Generiska protokoll dödar affärer. Förhandlingsprotokoll stänger dem.",
+    "tagline": "En enkel lista över 'beslut' räcker inte. Förhandlingar med höga insatser handlar om sammanhang, kompromisser och 'vem-sa-vad'. Protokoll AI hjälper dig att fånga hela berättelsen, inte bara en ytlig sammanfattning."
+  },
+  "byline": {
+    "name": "Skrivet av: Yu Adachi",
+    "title": "VD, Sense G.K."
   },
   "recap": {
-    "focus": "Nu fördjupar vi oss specifikt i affärsförhandlingar.",
-    "h2": "Förra artikeln i korthet",
+    "h2": "Tidigare: Tankesättet 'Universellt Protokoll'",
     "p1": {
-      "link": "här",
-      "post": ".",
-      "pre": "Vi visade tidigare att AI-protokoll fungerar för alla mötestyper. Läs mer"
+      "pre": "I vår föregående artikel beskrev vi idén om",
+      "link": "\"universella protokoll\"",
+      "post": "— ett basformat som fungerar för de flesta interna möten."
     },
-    "points": {
-      "0": "Möten skiljer sig; optimalt protokoll beror på syftet.",
-      "1": "Generiska mallar hjälper, men detaljnivå måste justeras.",
-      "2": "Från ”läsdokument” till ”plan för genomförande”.",
-      "3": "Protokoll AI anpassar utdata efter mötets syfte."
+    "points": [
+      "Håll mål explicita och mätbara",
+      "Registrera beslut och ansvariga ägare",
+      "Få snabbt upp risker och hinder till ytan",
+      "Gör nästa åtgärder otvetydiga"
+    ],
+    "focus": "Men förhandlingar är annorlunda. Strukturen måste återspegla motstridiga intressen, alternativ och kompromisser."
+  },
+  "diversity": {
+    "h2": "Mötesmångfald: Syftet definierar resultatet",
+    "core": {
+      "h3": "Typiska möten",
+      "items": [
+        "Veckovis check-in: Spåra framsteg, problem och lösningar.",
+        "Brainstorming: Sprida idéer, sedan sammanföra.",
+        "Försäljning / Förhandling: Justera intressen och forma avtal."
+      ]
+    },
+    "wide": {
+      "h3": "Bredare spektrum (Fortfarande möten!)",
+      "items": [
+        "1-mot-1: Granska prestation, sätta mål, dela bekymmer.",
+        "Intervju: Matcha krav mot en kandidats lämplighet.",
+        "Workshop / Föreläsning: Överföra kunskap eller rutiner."
+      ]
+    },
+    "p1": "Om människor talar för ett gemensamt syfte är det ett möte. Eftersom syftena skiljer sig åt måste det värdefulla resultatet anpassas — särskilt för förhandlingar."
+  },
+  "negotiation": {
+    "h2": "Vad är en förhandling, egentligen?",
+    "p1": "Hur skiljer sig en förhandling från ett internt möte? Med ett ord: **Vinst**. En förhandling är ett \"**slagfält**\" där två företag skyddar sina egna intressen — pris, omfattning, tidslinje. Det är inte en enkelriktad gata; det är ett givande och tagande av eftergifter för att hitta en väg till överenskommelse. En enkel 'Att-göra'-lista kan inte fånga detta."
+  },
+  "limits": {
+    "h2": "Varför 'En storlek passar alla' misslyckas",
+    "p1": "Att använda en generisk mall för en förhandling skapar 'ytliga' protokoll. Detta tappar kritiskt sammanhang och tvingar fram kostsamma uppföljningsmöten.",
+    "generic": {
+      "h3": "Generiska 'ytliga' protokoll",
+      "items": [
+        "Registrerar ett 'Beslut' men missar 'Varför' (eftergiften).",
+        "Tvingar chefer att fråga: 'Varför gick vi med på det här?'",
+        "Förlorar den kritiska 'han-sa-hon-sa'-nyansen.",
+        "Suddar ut vem som är ansvarig för vad, vilket försenar affären."
+      ]
+    },
+    "optimized": {
+      "h3": "Förhandlingsoptimerade protokoll",
+      "items": [
+        "Spårar flödet **Invändning → Eftergift → Överenskommelse**.",
+        "Ger chefer 'atmosfären' och bakgrunden för att bedöma.",
+        "Bevarar nyckelutbyten för att förhindra 'han-sa-hon-sa'-tvister.",
+        "Binder varje åtagande till en ägare och en deadline."
+      ]
     }
   },
-  "seo": {
-    "description": "Förhandlingar kräver protokoll som fångar beslut, åtgärder, sammanhang, ton och eftergifter. Praktisk guide med Protokoll AI.",
-    "ld": {
-      "description": "Förhandlingens kärna i protokoll: krav, eftergifter och sammanhang — med Protokoll AI.",
-      "headline": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen"
-    },
-    "ogDescription": "Hejdå tunna protokoll: bevara utbyte och sammanhang för snabbare, skarpare beslut.",
-    "ogTitle": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen",
-    "title": "Varför du med Protokoll AI skriver de bästa förhandlingsprotokollen | Blogg om mötesprotokoll"
+  "example": {
+    "h2": "Från 'torra' data till 'affärssammanhang'",
+    "block": "Kund: Priset är för högt för vår Q4-budget.\nSäljare: Jag förstår. Om vi begränsar platserna till 40 och flyttar SSO till fas 2 kan vi möta ert tak.\nKund: Det skulle kunna fungera. Jag behöver juridiskt godkännande. Kan vi låsa det priset till 15/12?\nSäljare: Överenskommet. Jag skickar förslag v3 idag. Juridisk granskning EOW, stängning senast 15/12.",
+    "p1": "Ett generiskt protokoll kanske bara säger: 'Beslut: Sälj för $X.' Ett **förhandlingsoptimerat** protokoll gör utvecklingen tydlig: **Invändning** (pris) → **Eftergift** (omfattning) → **Åtagande** (deadline). Detta sammanhang är allt för de beslutsfattare som inte var i rummet."
   },
   "why": {
-    "h2": "Varför Protokoll AI är starkt i förhandlingar",
-    "items": {
-      "0": "Sammanfattar krav/eftergifter och sparar nyckelpassager ordagrant (undviker ”sagt/inte sagt”).",
-      "1": "Ordnar förändrade villkor kronologiskt (deadline/pris/omfattning/ansvar).",
-      "2": "Dokumenterar motiv, antaganden och risker nära beslutet.",
-      "3": "Skiljer avtalat/ej avtalat/parkerat med tidsfrist och ansvarig.",
-      "4": "Matchar motpartens önskemål med våra åtaganden för tydlig spårbarhet."
+    "h2": "Varför Protokoll AI för förhandlingar",
+    "items": [
+      "**Beslut med rikt sammanhang:** Vi går bortom 'torra' åtgärdspunkter. Vår AI kopplar beslut direkt till 'varför' — diskussionen, invändningarna och kompromisserna som ledde till dem.",
+      "**Fånga 'atmosfären':** Protokoll AI är tränad att identifiera och bevara viktiga 'han-sa-hon-sa'-utbyten, inte bara sammanfatta bort dem.",
+      "**Spåra hela 'striden':** Vår Invändningsspårare följer en fråga från det första 'nej' till det slutgiltiga 'ja', så att du aldrig tappar tråden i affären.",
+      "**Tydliga åtagandekedjor:** Extraherar och tilldelar automatiskt varje 'vem, vad och när' för att säkerställa att affären går framåt och aldrig stannar av.",
+      "**Flerspråkiga resultat:** Stäng globala affärer med tydliga, korrekta protokoll för alla intressenter, på deras språk."
+    ]
+  },
+  "pricing": {
+    "h2": "Enkel, flexibel prissättning som passar din rytm",
+    "p1": "Ditt mötesschema är inte 'en storlek passar alla', så din prissättning bör inte heller vara det. Välj den plan som är logisk för dig.",
+    "timepacks": {
+      "h3": "Engångspaket (går aldrig ut)",
+      "note": "Köp en gång, använd för alltid. Dina minuter **går aldrig ut**.",
+      "items": [
+        "Test (120 min): $1.99",
+        "Lätt (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Abonnemang (verkligen obegränsade)",
+      "note": "**Verkligen obegränsade** minuter. Inga tak, inga månatliga återställningar.",
+      "items": [
+        "Månatlig: $16.99",
+        "Årlig: $149.99 (Spara ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Prova gratis, varje dag",
+      "p1": "Varje användare får en gratis **3-minutersbiljett** för att prova Protokoll AI, varje dag. Inget kreditkort krävs."
     }
   },
   "wrap": {
-    "h2": "Sammanfattning",
-    "p": "Ett starkt förhandlingsprotokoll går längre än beslut: det bevarar utbytet och sammanhanget. Då blir besluten snabbare och mer precisa. Gör detta till standard med Protokoll AI."
+    "h2": "Sammanfattning: Sluta nöja dig med ytliga protokoll",
+    "p": "Förhandlingar vinns eller förloras i detaljerna. En sammanfattning som fångar **atmosfären**, **sammanhanget** och **eftergifterna** är det som ger ditt team kraft att fatta snabbare, smartare beslut. Struktur handlar inte bara om tydlighet; det handlar om att fånga affärens verklighet."
+  },
+  "cta": {
+    "openBrowser": "Öppna i webbläsare",
+    "downloadIOS": "Ladda ner iOS-app"
   }
 }

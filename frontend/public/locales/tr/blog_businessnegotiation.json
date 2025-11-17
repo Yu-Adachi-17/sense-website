@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Tutanakları AI ana sayfasına dön"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "iOS uygulamasını indir",
-    "openBrowser": "Tarayıcıda aç"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Yaygın toplantılar",
-      "items": {
-        "0": "Durum: sonuçlar/zorluklar/önlemler",
-        "1": "Beyin fırtınası: fikirlerin açılıp kapanması",
-        "2": "Müzakere: çıkar uyumu ve anlaşma"
-      }
-    },
-    "h2": "Çeşitli toplantılar—müzakereler özeldir",
-    "p1": "Amaç değişince değerli çıktı da değişir. Müzakerede öz, müzakerenin kendisidir.",
-    "wide": {
-      "h3": "Geniş anlamda “toplantı”",
-      "items": {
-        "0": "1:1: sonuçların gözden geçirilmesi, sonraki hedefler, sorun paylaşımı",
-        "1": "Mülakat: gereksinim ve uyumun kalibrasyonu",
-        "2": "Sunum: problem ve çözüm",
-        "3": "Eğitim: operasyonun aktarılması"
-      }
+  "seo": {
+    "title": "Genel Tutanaklar Müzakerelerde Neden Başarısız Olur | Tutanakları AI",
+    "description": "Genel şablonlar bir anlaşmanın arkasındaki 'neden'i kaçırır. Müzakereler sadece kararlarla ilgili değil, tavizler ve bağlamla ilgilidir. Tutanakları AI'nin genel tutanakların göz ardı ettiği nüansları nasıl yakaladığını öğrenin.",
+    "ogTitle": "Tutanakları AI | İş Müzakereleri İçin",
+    "ogDescription": "'Neden'i kaybetmeyi bırakın. Genel özetlerin kaçırdığı itirazların, tavizlerin ve taahhütlerin tam bağlamını yakalayın.",
+    "ld": {
+      "headline": "Anlaşmaları gerçekten ilerleten iş müzakeresi tutanakları",
+      "description": "Müzakereler, itirazları, tavizleri ve kritik 'kim-ne-dedi' bağlamını takip eden özel tutanaklar gerektirir."
     }
   },
-  "example": {
-    "block": "A Şirketi: Son ürününüzde bir hata vardı, bizi zor durumda bıraktı. Bize borçlusunuz; gelecek haftaya kadar teslim edin. Fiyat 1.000 $.\\nŞirketimiz: İç koordinasyondan sonra gelecek hafta teslim etmeye çalışacağız. Karşılığında 1.200 $’a çıkabilir miyiz? Lütfen değerlendirin.\\nA Şirketi: Gelecek hafta teslimatı garanti ederseniz değerlendiririz. Yanıtı bugün e-postayla gönderin.",
-    "h2": "Örnek (kilit değiş tokuşu kelimesi kelimesine saklayın)",
-    "p1": "“Kilit turlar”ı birebir saklamak, karar vericilerin bağlamla birlikte makullüğü değerlendirmesini sağlar."
-  },
-  "hero": {
-    "h1": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni",
-    "kicker": "Tutanakları AI Blog",
-    "tagline": "Müzakere, çıkarların dengelenmesidir. Güçlü bir tutanak, sadece kararlar ve görevleri değil; bağlamı ve konuşmanın tonunu da yakalar. İşte bu bakış—ve Tutanakları AI ile pratik uygulaması."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Tipik, zayıf tutanak",
-      "items": {
-        "0": "Gerekçe/akış olmadan karar listesi",
-        "1": "Kim ne talep etti, nerede taviz verildi belirsiz",
-        "2": "Anlaşılmamış/ertelemeye alınmış konular muğlak"
-      }
-    },
-    "h2": "Neden “sadece kararlar” tutanağı zayıftır?",
-    "optimized": {
-      "h3": "Müzakerede güçlü tutanak",
-      "items": {
-        "0": "Talep/taviz/koşul değişimlerinin zaman çizelgesi (teslim/fiyat/kapsam/sorumluluk)",
-        "1": "Kararın gerekçesi, varsayımları ve riskleri karara yakın konumda",
-        "2": "Anlaşılan/anlaşılmayan/beklemede ayrımı, son tarih ve sorumlu ile"
-      }
-    },
-    "p1": "“Tartışma/kararlar/görevler/açık konular” yapısı bağlamı, tonu ve taviz geçmişini çoğu kez kaçırır. Sonuç: yanlış anlama, gereksiz yazışma ve “dendi/denmedi” riski."
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni"
+    "businessnegotiation": "İş Müzakeresi"
   },
-  "negotiation": {
-    "h2": "Müzakere nedir?",
-    "p1": "Kısaca: şirket çıkarlarını korumak ve büyütmek. Tek yönlü bir bildirim değil; teslim tarihi, fiyat, kapsam ve risk gibi koşullar üzerinde “talep” ve “taviz” alışverişiyle orta yol aramak."
+  "hero": {
+    "kicker": "Müzakere Kılavuzu",
+    "h1": "Genel Tutanaklar Anlaşmaları Öldürür. Müzakere Tutanakları Onları Kapatır.",
+    "tagline": "Basit bir 'kararlar' listesi yeterli değildir. Yüksek riskli müzakereler bağlam, tavizler ve 'kim-ne-dedi' ile ilgilidir. Tutanakları AI, yüzeysel bir özet değil, tüm hikayeyi yakalamanıza yardımcı olur."
+  },
+  "byline": {
+    "name": "Yazan: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Bu kez özellikle ticari müzakerelere odaklanıyoruz.",
-    "h2": "Önceki yazının özeti",
+    "h2": "Daha Önce: 'Evrensel Tutanak' Zihniyeti",
     "p1": {
-      "link": "buraya tıklayın",
-      "post": ".",
-      "pre": "Önce, yapay zekâ tutanaklarının her toplantı türünde işe yaradığını göstermiştik. Göz atmak isterseniz"
+      "pre": "Önceki makalemizde,",
+      "link": "\"evrensel tutanak\"",
+      "post": "fikrini özetlemiştik — çoğu iç toplantı için işe yarayan temel bir format."
     },
-    "points": {
-      "0": "Toplantılar farklıdır; en iyi tutanak formatı amaca göre değişir.",
-      "1": "Genel şablonlar yararlıdır, ancak ayrıntı düzeyi amaca göre ayarlanmalıdır.",
-      "2": "“Okunan kayıt”tan “icra planı”na.",
-      "3": "Tutanakları AI çıktıyı toplantı hedefine göre uyarlar."
+    "points": [
+      "Hedefleri açık ve ölçülebilir tutun",
+      "Kararları ve sorumlu sahipleri kaydedin",
+      "Riskleri ve engelleyicileri hızla yüzeye çıkarın",
+      "Sonraki eylemleri netleştirin"
+    ],
+    "focus": "Ancak müzakereler farklıdır. Yapı, çatışan çıkarları, seçenekleri ve tavizleri yansıtmalıdır."
+  },
+  "diversity": {
+    "h2": "Toplantı Çeşitliliği: Amaç Çıktıyı Tanımlar",
+    "core": {
+      "h3": "Tipik Toplantılar",
+      "items": [
+        "Haftalık Check-in: İlerlemeyi, sorunları ve düzeltmeleri takip edin.",
+        "Beyin Fırtınası: Fikirleri dağıtın, sonra yakınlaştırın.",
+        "Satış / Müzakere: Çıkarları uzlaştırın ve anlaşmalar oluşturun."
+      ]
+    },
+    "wide": {
+      "h3": "Daha Geniş Spektrum (Hala Toplantı!)",
+      "items": [
+        "1'e 1: Performansı gözden geçirin, hedefler belirleyin, endişeleri paylaşın.",
+        "Mülakat: Gereksinimleri bir adayın uygunluğuyla eşleştirin.",
+        "Atölye / Ders: Bilgi veya operasyonları aktarın."
+      ]
+    },
+    "p1": "İnsanlar ortak bir amaç için konuşuyorsa, bu bir toplantıdır. Amaçlar farklılaştığı için, değerli çıktı da uyum sağlamalıdır — özellikle müzakereler için."
+  },
+  "negotiation": {
+    "h2": "Müzakere Gerçekten Nedir?",
+    "p1": "Bir müzakereyi iç toplantıdan ayıran nedir? Tek kelimeyle: **Kâr**. Müzakere, iki şirketin kendi çıkarlarını koruduğu bir \"**savaş alanıdır**\" — fiyat, kapsam, zaman çizelgesi. Bu tek yönlü bir yol değildir; anlaşmaya giden bir yol bulmak için karşılıklı taviz verilmesidir. Basit bir 'Yapılacaklar' listesi bunu yakalayamaz."
+  },
+  "limits": {
+    "h2": "'Tek Tip' Neden Başarısız Olur?",
+    "p1": "Bir müzakere için genel bir şablon kullanmak 'yüzeysel' tutanaklar yaratır. Bu, kritik bağlamı kaybettirir ve maliyetli takip toplantılarını zorunlu kılar.",
+    "generic": {
+      "h3": "Genel 'Yüzeysel' Tutanaklar",
+      "items": [
+        "Bir 'Kararı' kaydeder ama 'Neden'ini (tavizi) kaçırır.",
+        "Yöneticileri 'Neden bunu kabul ettik?' diye sormaya zorlar.",
+        "Kritik 'o-dedi-bu-dedi' nüansını kaybeder.",
+        "Kimin neden sorumlu olduğunu bulanıklaştırır, anlaşmayı durdurur."
+      ]
+    },
+    "optimized": {
+      "h3": "Müzakereye Özel Tutanaklar",
+      "items": [
+        "**İtiraz → Taviz → Anlaşma** akışını takip eder.",
+        "Yöneticilere yargılamaları için 'atmosferi' ve arka planı verir.",
+        "'O-dedi-bu-dedi' anlaşmazlıklarını önlemek için kilit alışverişleri korur.",
+        "Her taahhüdü bir sahibe ve bir son tarihe bağlar."
+      ]
     }
   },
-  "seo": {
-    "description": "Müzakereler; kararlar, görevler, bağlam, ton ve taviz geçmişini yakalayan tutanaklar ister. Tutanakları AI ile pratik rehber.",
-    "ld": {
-      "description": "Müzakerenin özü tutanakta: talepler, tavizler ve bağlam — Tutanakları AI ile.",
-      "headline": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni"
-    },
-    "ogDescription": "Zayıf tutanaklara veda: değiş tokuşu ve bağlamı koruyun; kararlar hızlansın ve isabet artsın.",
-    "ogTitle": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni",
-    "title": "Tutanakları AI ile en iyi müzakere tutanaklarını yazmanın nedeni | Toplantı tutanakları blogu"
+  "example": {
+    "h2": "'Kuru' Veriden Anlaşma 'Bağlamına'",
+    "block": "Müşteri: Q4 bütçemiz için fiyat çok yüksek.\nSatıcı: Anlıyorum. Koltuk sayısını 40 ile sınırlandırır ve SSO'yu Faz 2'ye taşırsak, limitinizi karşılayabiliriz.\nMüşteri: Bu işe yarayabilir. Yasal onay almam gerek. Bu fiyatı 15/12'ye kadar kilitleyebilir miyiz?\nSatıcı: Anlaştık. Teklif v3'ü bugün göndereceğim. Yasal inceleme hafta sonuna kadar, kapanış 15/12'ye kadar.",
+    "p1": "Genel bir tutanak sadece şunu söyleyebilir: 'Karar: $X'e sat.' **Müzakereye özel** bir tutanak ilerlemeyi açıkça gösterir: **İtiraz** (fiyat) → **Taviz** (kapsam) → **Taahhüt** (son tarih). Bu bağlam, odada olmayan karar vericiler için her şeydir."
   },
   "why": {
-    "h2": "Tutanakları AI neden müzakerede başarılı?",
-    "items": {
-      "0": "Talep/taviz turlarını özetler ve kritik yerleri birebir saklar (“dendi/denmedi”yi önler).",
-      "1": "Koşul değişimlerini kronolojik sıralar (teslim/fiyat/kapsam/sorumluluk).",
-      "2": "Kararın gerekçesi, varsayımları ve risklerini yakınında belgelendirir.",
-      "3": "Anlaşılan/anlaşılmayan/beklemede ayrımını son tarih ve sorumlu ile netleştirir.",
-      "4": "Karşı taraf taleplerini şirket taahhütleriyle eşler; izlemeyi kolaylaştırır."
+    "h2": "Müzakere için Neden Tutanakları AI?",
+    "items": [
+      "**Bağlam Zengin Kararlar:** 'Kuru' eylem maddelerinin ötesine geçiyoruz. AI'mız kararları doğrudan 'neden'e bağlar — onlara yol açan tartışma, itirazlar ve tavizler.",
+      "**'Atmosferi' Yakalayın:** Tutanakları AI, kilit 'o-dedi-bu-dedi' alışverişlerini sadece özetlemekle kalmayıp, tanımlamak ve korumak için eğitilmiştir.",
+      "**Tüm 'Savaşı' Takip Edin:** İtiraz Takipçimiz bir konuyu ilk 'hayır'dan son 'evet'e kadar takip eder, böylece anlaşmanın izini asla kaybetmezsiniz.",
+      "**Net Taahhüt Zincirleri:** Anlaşmanın ilerlemesini ve asla durmamasını sağlamak için her 'kim, ne ve ne zaman'ı otomatik olarak çıkarır ve atar.",
+      "**Çok Dilli Çıktılar:** Tüm paydaşlar için kendi dillerinde net, doğru tutanaklarla küresel anlaşmaları kapatın."
+    ]
+  },
+  "pricing": {
+    "h2": "Ritminize Uygun Basit, Esnek Fiyatlandırma",
+    "p1": "Toplantı programınız 'tek tip' değil, bu yüzden fiyatlandırmanız da olmamalı. Size uygun olan planı seçin.",
+    "timepacks": {
+      "h3": "Tek Seferlik Paketler (Süresi Dolmaz)",
+      "note": "Bir kez satın alın, sonsuza dek kullanın. Dakikalarınız **asla tükenmez**.",
+      "items": [
+        "Deneme (120 dk): $1.99",
+        "Hafif (1200 dk): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Abonelikler (Gerçekten Sınırsız)",
+      "note": "**Gerçekten sınırsız** dakikalar. Üst limit yok, aylık sıfırlama yok.",
+      "items": [
+        "Aylık: $16.99",
+        "Yıllık: $149.99 (≈%26 Tasarruf Edin)"
+      ]
+    },
+    "free": {
+      "h3": "Her Gün Ücretsiz Deneyin",
+      "p1": "Her kullanıcı, Tutanakları AI'yi denemek için her gün ücretsiz **3 dakikalık bir bilet** alır. Kredi kartı gerekmez."
     }
   },
   "wrap": {
-    "h2": "Özet",
-    "p": "Güçlü bir müzakere tutanağı, sadece kararları değil; alışverişi ve bağlamı da korur. Böylece kararlar daha hızlı ve isabetli olur. Bunu Tutanakları AI ile standartlaştırın."
+    "h2": "Özet: Yüzeysel Tutanaklarla Yetinmeyi Bırakın",
+    "p": "Müzakereler ayrıntılarda kazanılır veya kaybedilir. **Atmosferi**, **bağlamı** ve **tavizleri** yakalayan bir özet, ekibinizin daha hızlı, daha akıllı kararlar almasını sağlar. Yapı sadece netlikle ilgili değildir; anlaşmanın gerçekliğini yakalamakla ilgilidir."
+  },
+  "cta": {
+    "openBrowser": "Tarayıcıda aç",
+    "downloadIOS": "iOS uygulamasını indir"
   }
 }

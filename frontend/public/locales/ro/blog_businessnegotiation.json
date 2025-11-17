@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Înapoi la pagina principală Proces-verbal AI"
-  },
-  "byline": {
-    "name": "Scris de Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Descarcă aplicația iOS",
-    "openBrowser": "Deschide aplicația web"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Întâlniri uzuale",
-      "items": {
-        "0": "Stand-upuri regulate: revizuire rezultate, probleme, acțiuni",
-        "1": "Brainstorming: divergență și convergență de idei",
-        "2": "Negociere: alinierea intereselor și atingerea acordului"
-      }
-    },
-    "h2": "Întâlnirile sunt diverse — negocierea este despre târguială",
-    "p1": "Schimbă obiectivul și se schimbă și ieșirea valoroasă. În negociere, târguiala în sine este miezul.",
-    "wide": {
-      "h3": "„Întâlnire” în sens larg",
-      "items": {
-        "0": "1-la-1: revizuire rezultate, următoarele obiective, împărtășirea provocărilor",
-        "1": "Interviu: alinierea cerințelor și potrivirii",
-        "2": "Prezentare: problemă și soluție",
-        "3": "Training: transfer de procese/operațiuni"
-      }
+  "seo": {
+    "title": "De ce Procesele-verbale Generice Eșuează în Negocieri | Proces-verbal AI",
+    "description": "Șabloanele generice omit 'de ce'-ul din spatele unei înțelegeri. Negocierile sunt despre compromisuri și context, nu doar despre decizii. Aflați cum Proces-verbal AI surprinde nuanțele pe care procesele-verbale generice le ignoră.",
+    "ogTitle": "Proces-verbal AI | Pentru Negocieri de Afaceri",
+    "ogDescription": "Nu mai pierdeți 'de ce'-ul. Surprindeți contextul complet al obiecțiilor, concesiilor și angajamentelor pe care rezumatele generice le omit.",
+    "ld": {
+      "headline": "Procese-verbale de Negociere de Afaceri care chiar avansează înțelegerile",
+      "description": "Negocierile necesită procese-verbale specializate care urmăresc obiecțiile, concesiile și contextul critic 'cine-ce-a-spus'."
     }
   },
-  "example": {
-    "block": "Compania A: Produsul vostru anterior a avut un bug — ne-a creat probleme reale. Ne sunteți datori; livrați până săptămâna viitoare. Prețul este 1.000 $.\\nCompania noastră: Vom împinge intern pentru a livra până săptămâna viitoare. În schimb, putem urca la 1.200 $? Vă rugăm să analizați.\\nCompania A: Dacă puteți garanta livrarea săptămâna viitoare, vom lua în considerare. Trimiteți răspuns pe email astăzi.",
-    "h2": "Exemplu (păstrați schimburile cheie mot-à-mot)",
-    "p1": "Păstrarea acestor „runde cheie” în formularea originală le permite decidenților să judece rezonabilitatea în context deplin."
-  },
-  "hero": {
-    "h1": "De ce Proces-verbal AI te ajută să scrii cele mai bune minute de negociere",
-    "kicker": "Blogul Proces-verbal AI",
-    "tagline": "Negocierea este confruntarea intereselor. Minutele solide nu enumeră doar deciziile și sarcinile — surprind și contextul și tonul. Iată abordarea și cum o aplici cu Proces-verbal AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Minutele „subțiri” tipice",
-      "items": {
-        "0": "Listează deciziile fără motive sau fir narativ",
-        "1": "Neclar cine a cerut ce și unde s-au făcut concesii",
-        "2": "Ambiguitate privind ce nu e agreat sau e pus în așteptare"
-      }
-    },
-    "h2": "De ce minutele „doar decizii” sunt slabe",
-    "optimized": {
-      "h3": "Minute construite pentru negociere",
-      "items": {
-        "0": "Cronologie a cererilor/concesiilor/schimbărilor de termeni (termen/preț/arie/responsabilitate)",
-        "1": "Motive, presupuneri și riscuri notate lângă fiecare decizie",
-        "2": "Separare clară între agreat/neagreat/în așteptare cu responsabili și termene"
-      }
-    },
-    "p1": "A te limita la „discuție/decizii/elemente de acțiune/probleme deschise” pierde adesea fundalul, tonul și istoricul concesiilor. Rezultat: neînțelegeri, ping-pong suplimentar și riscul de „a spus/nu a spus”."
+  "aria": {
+    "home": "Proces-verbal AI Acasă"
   },
   "nav": {
     "blog": "Blog",
-    "current": "De ce Proces-verbal AI te ajută să scrii cele mai bune minute de negociere"
+    "businessnegotiation": "Negociere de Afaceri"
   },
-  "negotiation": {
-    "h2": "Deci, ce este o negociere?",
-    "p1": "Pe scurt: protejarea și creșterea intereselor companiei tale. Nu este un anunț unidirecțional; cauți teren comun schimbând „cereri” și „concesii” pe termeni precum termen, preț, arie și risc."
+  "hero": {
+    "kicker": "Manualul Negociatorului",
+    "h1": "Procesele-verbale Generice Omoară Afacerile. Cele de Negociere le Încheie.",
+    "tagline": "O simplă listă de 'decizii' nu este suficientă. Negocierile cu miză mare sunt despre context, compromisuri și 'cine-ce-a-spus'. Proces-verbal AI vă ajută să surprindeți povestea completă, nu doar un rezumat superficial."
+  },
+  "byline": {
+    "name": "Scris de: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "De data aceasta, intrăm adânc în negociere.",
-    "h2": "Recapitulare rapidă",
+    "h2": "Anterior: Mentalitatea 'Procesului-verbal Universal'",
     "p1": {
-      "link": "citește aici",
-      "post": ".",
-      "pre": "Data trecută am arătat cum minutele AI pot funcționa pentru orice tip de întâlnire. Dacă ești curios,"
+      "pre": "În articolul nostru anterior, am subliniat ideea de",
+      "link": "\"proces-verbal universal\"",
+      "post": "— un format de bază care funcționează pentru majoritatea ședințelor interne."
     },
-    "points": {
-      "0": "Întâlnirile sunt diverse, deci formatul optim al minutelor depinde de obiectiv.",
-      "1": "Șabloanele generice ajută, dar nivelul de detaliu trebuie ajustat cazului de utilizare.",
-      "2": "De la „înregistrare de citit” la „plan de acțiune”.",
-      "3": "Proces-verbal AI își adaptează ieșirea la obiectivul întâlnirii."
+    "points": [
+      "Mențineți obiectivele explicite și măsurabile",
+      "Înregistrați deciziile și responsabilii",
+      "Scoateți rapid la suprafață riscurile și blocajele",
+      "Faceți acțiunile următoare neambigue"
+    ],
+    "focus": "Dar negocierile sunt diferite. Structura trebuie să reflecte interese conflictuale, opțiuni și compromisuri."
+  },
+  "diversity": {
+    "h2": "Diversitatea Ședințelor: Scopul Definește Rezultatul",
+    "core": {
+      "h3": "Ședințe Tipice",
+      "items": [
+        "Check-in Săptămânal: Urmăriți progresul, problemele și soluțiile.",
+        "Brainstorming: Divergența ideilor, apoi convergența.",
+        "Vânzări / Negociere: Ajustarea intereselor și formarea acordurilor."
+      ]
+    },
+    "wide": {
+      "h3": "Spectru Mai Larg (Tot ședințe!)",
+      "items": [
+        "1-la-1: Revizuirea performanței, stabilirea obiectivelor, împărtășirea preocupărilor.",
+        "Interviu: Potrivirea cerințelor cu adecvarea candidatului.",
+        "Workshop / Prelegere: Transferul de cunoștințe sau operațiuni."
+      ]
+    },
+    "p1": "Dacă oamenii vorbesc cu un scop comun, este o ședință. Deoarece scopurile diferă, rezultatul valoros trebuie să se adapteze — în special pentru negocieri."
+  },
+  "negotiation": {
+    "h2": "Ce este de fapt o Negociere?",
+    "p1": "Cum diferă o negociere de o ședință internă? Într-un cuvânt: **Profit**. O negociere este un \"**câmp de luptă**\" unde două companii își protejează propriile interese — preț, domeniu de aplicare, calendar. Nu este o stradă cu sens unic; este un du-te-vino de concesii pentru a găsi o cale spre acord. O simplă listă 'De făcut' nu poate surprinde acest lucru."
+  },
+  "limits": {
+    "h2": "De ce Eșuează 'Mărimea Unică'",
+    "p1": "Folosirea unui șablon generic pentru o negociere creează procese-verbale 'superficiale'. Acestea pierd contextul critic și impun ședințe de urmărire costisitoare.",
+    "generic": {
+      "h3": "Procese-verbale Generice 'Superficiale'",
+      "items": [
+        "Înregistrează o 'Decizie', dar omit 'De ce'-ul (concesia).",
+        "Îi forțează pe manageri să întrebe: 'De ce am fost de acord cu asta?'",
+        "Pierd nuanța critică 'el-a-spus-ea-a-spus'.",
+        "Estompează cine este responsabil pentru ce, blocând înțelegerea."
+      ]
+    },
+    "optimized": {
+      "h3": "Procese-verbale Optimizate pentru Negociere",
+      "items": [
+        "Urmăresc fluxul **Obiecție → Concesie → Acord**.",
+        "Oferă managerilor 'atmosfera' și contextul pentru a judeca.",
+        "Păstrează schimburile cheie pentru a preveni disputele 'el-a-spus-ea-a-spus'.",
+        "Leagă fiecare angajament de un responsabil și un termen limită."
+      ]
     }
   },
-  "seo": {
-    "description": "Negocierile au nevoie de minute care surprind decizii, sarcini, context, ton și istoricul concesiilor. Ghid practic cu Proces-verbal AI.",
-    "ld": {
-      "description": "Esența negocierii în minute: cereri, concesii și context — cu Proces-verbal AI.",
-      "headline": "De ce Proces-verbal AI te ajută să scrii cele mai bune minute de negociere"
-    },
-    "ogDescription": "Adio minute „subțiri”: păstrează schimburile și contextul pentru decizii mai rapide și mai bune.",
-    "ogTitle": "De ce Proces-verbal AI te ajută să scrii cele mai bune minute de negociere",
-    "title": "De ce Proces-verbal AI te ajută să scrii cele mai bune minute de negociere | Blogul minutelor de ședință"
+  "example": {
+    "h2": "De la Date 'Sece' la 'Contextul' Înțelegerii",
+    "block": "Client: Prețul este prea mare pentru bugetul nostru Q4.\nVânzător: Înțeleg. Dacă limităm locurile la 40 și mutăm SSO în Faza 2, ne putem încadra în limita dvs.\nClient: Asta ar putea funcționa. Am nevoie de aprobare legală. Putem bloca acest preț până pe 15/12?\nVânzător: De acord. Voi trimite Propunerea v3 astăzi. Revizuire legală până la EOW, închidere până pe 15/12.",
+    "p1": "Un proces-verbal generic ar putea spune doar: 'Decizie: Vânzare cu $X.' Un proces-verbal **optimizat pentru negociere** face progresia explicită: **Obiecție** (preț) → **Concesie** (domeniu) → **Angajament** (termen limită). Acest context este totul pentru decidenții care nu au fost în încăpere."
   },
   "why": {
-    "h2": "De ce Proces-verbal AI este puternic în negociere",
-    "items": {
-      "0": "Rezuma schimburile de cereri/concesii și păstrează pasajele cheie mot-à-mot (evită „a spus/nu a spus”).",
-      "1": "Ordonează cronologic schimbările de termeni (termen/preț/arie/responsabilitate).",
-      "2": "Documentează motive, presupuneri și riscuri lângă decizii.",
-      "3": "Separă agreat/neagreat/în așteptare și atribuie responsabili și termene.",
-      "4": "Mapează cererile contrapărții la angajamentele tale pentru urmărire clară."
+    "h2": "De ce Proces-verbal AI pentru Negociere",
+    "items": [
+      "**Decizii Bogate în Context:** Mergem dincolo de punctele de acțiune 'seci'. AI-ul nostru leagă deciziile direct de 'de ce' — discuția, obiecțiile și compromisurile care au dus la ele.",
+      "**Surprindeți 'Atmosfera':** Proces-verbal AI este instruit să identifice și să păstreze schimburile cheie 'el-a-spus-ea-a-spus', nu doar să le rezume.",
+      "**Urmăriți întreaga 'Bătălie':** Tracker-ul nostru de Obiecții urmărește o problemă de la primul 'nu' până la 'da'-ul final, astfel încât să nu pierdeți niciodată firul înțelegerii.",
+      "**Lanțuri Clare de Angajament:** Extrage și atribuie automat fiecare 'cine, ce și când' pentru a se asigura că înțelegerea avansează și nu se blochează niciodată.",
+      "**Rezultate Multilingve:** Încheiați afaceri globale cu procese-verbale clare și precise pentru toți factorii interesați, în limba lor."
+    ]
+  },
+  "pricing": {
+    "h2": "Prețuri Simple, Flexibile, care se Potrivesc Ritmului Dvs.",
+    "p1": "Programul dvs. de ședințe nu este 'o mărime unică', așa că nici prețurile nu ar trebui să fie. Alegeți planul care are sens pentru dvs.",
+    "timepacks": {
+      "h3": "Pachete Unice (Nu Expiră)",
+      "note": "Cumpărați o dată, folosiți pentru totdeauna. Minutele dvs. **nu expiră niciodată**.",
+      "items": [
+        "Probă (120 min): $1.99",
+        "Ușor (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Abonamente (Cu adevărat Nelimitate)",
+      "note": "Minute **cu adevărat nelimitate**. Fără plafoane, fără resetări lunare.",
+      "items": [
+        "Lunar: $16.99",
+        "Anual: $149.99 (Economisiți ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Încercați Gratuit, în Fiecare Zi",
+      "p1": "Fiecare utilizator primește un **bilet gratuit de 3 minute** pentru a încerca Proces-verbal AI, în fiecare zi. Nu este necesar un card de credit."
     }
   },
   "wrap": {
-    "h2": "Încheiere",
-    "p": "Minutele de negociere sunt mai puternice când păstrează schimbul și contextul — nu doar deciziile. Asta accelerează judecata și reduce re-work-ul. Fă din asta standardul tău cu Proces-verbal AI."
+    "h2": "Încheiere: Nu vă mai Mulțumiți cu Procese-verbale Superficiale",
+    "p": "Negocierile se câștigă sau se pierd în detalii. Un rezumat care surprinde **atmosfera**, **contextul** și **concesiile** este ceea ce împuternicește echipa dvs. să ia decizii mai rapide și mai inteligente. Structura nu este doar despre claritate; este despre surprinderea realității înțelegerii."
+  },
+  "cta": {
+    "openBrowser": "Deschide în browser",
+    "downloadIOS": "Descărcați aplicația iOS"
   }
 }

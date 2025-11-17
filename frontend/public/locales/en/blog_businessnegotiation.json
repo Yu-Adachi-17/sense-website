@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Back to Minutes.AI Home"
+  "seo": {
+    "title": "Why Generic Minutes Fail Negotiations | Minutes.AI",
+    "description": "Generic templates miss the 'why' behind a deal. Negotiations are about trade-offs and context, not just decisions. Learn how Minutes.AI captures the nuance that generic minutes ignore.",
+    "ogTitle": "Minutes.AI for Business Negotiations",
+    "ogDescription": "Stop losing the 'why.' Capture the full context of objections, concessions, and commitments that generic summaries miss.",
+    "ld": {
+      "headline": "Business Negotiation Minutes that actually move deals",
+      "description": "Negotiations require specialized minutes that track objections, concessions, and the critical 'who-said-what' context."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "businessnegotiation": "Business Negotiation"
+  },
+  "hero": {
+    "kicker": "The Negotiation Playbook",
+    "h1": "Generic Minutes Kill Deals. Negotiation Minutes Close Them.",
+    "tagline": "A simple list of 'decisions' is not enough. High-stakes negotiations are about context, trade-offs, and 'who-said-what.' Minutes.AI helps you capture the full story, not just a shallow summary."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Download the iOS app",
-    "openBrowser": "Open the web app"
+  "recap": {
+    "h2": "Previously: The 'Universal Minutes' Mindset",
+    "p1": {
+      "pre": "In our previous article, we outlined the idea of",
+      "link": "universal minutes",
+      "post": "—a baseline format that works for most internal meetings."
+    },
+    "points": [
+      "Keep goals explicit and measurable",
+      "Record decisions and responsible owners",
+      "Surface risks and blockers quickly",
+      "Make next actions unambiguous"
+    ],
+    "focus": "But negotiations are different. The structure must reflect conflicting interests, options, and trade-offs."
   },
   "diversity": {
+    "h2": "Meeting Diversity: Purpose Defines the Output",
     "core": {
-      "h3": "Common meetings",
-      "items": {
-        "0": "Regular stand-ups: review results, issues, actions",
-        "1": "Brainstorm: diverge and converge on ideas",
-        "2": "Negotiation: align interests and reach agreement"
-      }
+      "h3": "Typical Meetings",
+      "items": [
+        "Weekly Check-in: Track progress, issues, and fixes.",
+        "Brainstorming: Diverge on ideas, then converge.",
+        "Sales / Negotiation: Adjust interests and form agreements."
+      ]
     },
-    "h2": "Meetings are diverse—negotiation is all about bargaining",
-    "p1": "Change the objective, and the valuable output changes too. In negotiation, the bargaining itself is the core.",
     "wide": {
-      "h3": "“Meeting” in a wide sense",
-      "items": {
-        "0": "1-on-1: results review, next goals, sharing challenges",
-        "1": "Interview: align requirements and fit",
-        "2": "Presentation: problem and solution",
-        "3": "Training: transfer of processes/operations"
-      }
+      "h3": "Wider Spectrum (Still Meetings!)",
+      "items": [
+        "1-on-1: Review performance, set goals, share concerns.",
+        "Interview: Match requirements to a candidate's fit.",
+        "Workshop / Lecture: Transfer knowledge or operations."
+      ]
+    },
+    "p1": "If people talk for a common purpose, it's a meeting. Because purposes differ, the valuable output must adapt—especially for negotiations."
+  },
+  "negotiation": {
+    "h2": "What is a Negotiation, Really?",
+    "p1": "How is a negotiation different from an internal meeting? In one word: **Profit.** A negotiation is a 'battlefield' where two companies protect their own interests—price, scope, timeline. It's not a one-way street; it's a back-and-forth of concessions to find a path to agreement. A simple 'To-Do' list can't capture this."
+  },
+  "limits": {
+    "h2": "Why One-Size-Fits-All Fails",
+    "p1": "Using a generic template for a negotiation creates 'shallow' minutes. This loses critical context and forces costly follow-up meetings.",
+    "generic": {
+      "h3": "Generic 'Shallow' Minutes",
+      "items": [
+        "Record a 'Decision' but miss the 'Why' (the concession).",
+        "Force managers to ask, 'Why did we agree to this?'",
+        "Lose the critical 'he-said-she-said' nuance.",
+        "Blur who is responsible for what, stalling the deal."
+      ]
+    },
+    "optimized": {
+      "h3": "Negotiation-Optimized Minutes",
+      "items": [
+        "Track the Objection → Concession → Agreement flow.",
+        "Give managers the 'atmosphere' and background to judge.",
+        "Preserve key exchanges to prevent 'he-said-she-said' disputes.",
+        "Bind every commitment to an owner and a deadline."
+      ]
     }
   },
   "example": {
-    "block": "Company A: Your previous product had a bug—it caused us real trouble. You owe us; deliver this by next week. Price is $1,000.\\nOur company: We’ll push internally to deliver by next week. In return, can we raise it to $1,200? Please consider.\\nCompany A: If you can guarantee next-week delivery, we’ll consider it. Send a reply by email today.",
-    "h2": "Example (keep key exchanges verbatim)",
-    "p1": "Keeping these “key rounds” in the original wording lets decision-makers judge reasonableness with full context."
-  },
-  "hero": {
-    "h1": "Why Minutes.AI helps you write the best negotiation minutes",
-    "kicker": "Minutes.AI Blog",
-    "tagline": "Negotiation is a contest of interests. Strong minutes don’t just list decisions and to-dos—they also capture context and tone. Here’s the approach and how to put it into practice with Minutes.AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "The typical thin minutes",
-      "items": {
-        "0": "Lists decisions without reasons or storyline",
-        "1": "Unclear who asked for what and where concessions were made",
-        "2": "Ambiguity around what’s unagreed or parked"
-      }
-    },
-    "h2": "Why “decisions-only” minutes are weak",
-    "optimized": {
-      "h3": "Minutes built for negotiation",
-      "items": {
-        "0": "A timeline of demands/concessions/term changes (deadline/price/scope/responsibility)",
-        "1": "Reasons, assumptions, and risks recorded close to each decision",
-        "2": "Clear split of agreed/not agreed/parked with owners and due dates"
-      }
-    },
-    "p1": "Sticking to “discussion/decisions/action items/open issues” often drops background, tone, and the history of concessions. The result: misunderstandings, extra back-and-forth, and the risk of “said/not said.”"
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Why Minutes.AI helps you write the best negotiation minutes"
-  },
-  "negotiation": {
-    "h2": "So, what is a negotiation?",
-    "p1": "In short: protecting and growing your company’s interests. It isn’t a one-way announcement; you search for common ground by trading “demands” and “concessions” across terms like deadline, price, scope, and risk."
-  },
-  "recap": {
-    "focus": "This time, we dive deep into negotiation.",
-    "h2": "Quick recap",
-    "p1": {
-      "link": "read it here",
-      "post": ".",
-      "pre": "Last time we showed how AI minutes can work for any kind of meeting. If you’re curious,"
-    },
-    "points": {
-      "0": "Meetings are diverse, so the optimal minutes format depends on the goal.",
-      "1": "Generic templates help, but the detail level should be tuned to the use case.",
-      "2": "From a “record to read” to a “plan to act.”",
-      "3": "Minutes.AI adapts its output to the meeting’s objective."
-    }
-  },
-  "seo": {
-    "description": "Negotiations need minutes that capture decisions, tasks, context, tone, and the history of concessions. A practical guide with Minutes.AI.",
-    "ld": {
-      "description": "The essence of negotiation in your minutes: demands, concessions, and context—with Minutes.AI.",
-      "headline": "Why Minutes.AI helps you write the best negotiation minutes"
-    },
-    "ogDescription": "Goodbye thin minutes: preserve the exchange and the context to decide faster and better.",
-    "ogTitle": "Why Minutes.AI helps you write the best negotiation minutes",
-    "title": "Why Minutes.AI helps you write the best negotiation minutes | Meeting minutes blog"
+    "h2": "From 'Dry' Data to Deal 'Context'",
+    "block": "Client: The price is too high for our Q4 budget.\nAE: I understand. If we limit seats to 40 and move SSO to Phase 2, we can meet your cap.\nClient: That could work. I need legal approval. Can we lock that pricing until 12/15?\nAE: Agreed. I'll send Proposal v3 today. Legal review by EOW, close by 12/15.",
+    "p1": "A generic minute might just say: 'Decision: Sell for $X.' A *negotiation-optimized* minute makes the progression explicit: **Objection** (price) → **Concession** (scope) → **Commitment** (deadline). This context is everything for the decision-makers who weren't in the room."
   },
   "why": {
-    "h2": "Why Minutes.AI is strong for negotiation",
-    "items": {
-      "0": "Summarizes demand/concession exchanges and preserves key passages verbatim (avoids “said/not said”).",
-      "1": "Orders term changes chronologically (deadline/price/scope/responsibility).",
-      "2": "Documents reasons, assumptions, and risks right next to decisions.",
-      "3": "Separates agreed/not agreed/parked and assigns owners and deadlines.",
-      "4": "Maps counterpart requests to your commitments for clear tracking."
+    "h2": "Why Minutes.AI for Negotiation",
+    "items": [
+      "**Context-Rich Decisions:** We move beyond 'dry' action items. Our AI links decisions directly to the 'why'—the discussion, objections, and trade-offs that led to them.",
+      "**Capture the 'Atmosphere':** Minutes.AI is trained to identify and preserve key 'he-said-she-said' exchanges, not just summarize them away. Give your boss the context, not just the data.",
+      "**Track the Full 'Battle':** Our Objection Tracker follows an issue from the first 'no' to the final 'yes,' so you never lose the thread of the deal.",
+      "**Clear Commitment Chains:** Automatically extract and assign every 'who, what, and when' to ensure the deal moves forward and never stalls.",
+      "**Multilingual Outputs:** Close global deals with clear, accurate minutes for all stakeholders, in their language."
+    ]
+  },
+  "pricing": {
+    "h2": "Simple, Flexible Pricing That Fits Your Rhythm",
+    "p1": "Your meeting schedule isn't 'one-size-fits-all,' so your pricing shouldn't be either. Choose the plan that makes sense for you.",
+    "timepacks": {
+      "h3": "One-Time Packs (No Expiry)",
+      "note": "Buy once, use forever. Your minutes **never expire**.",
+      "items": [
+        "Trial (120 min): $1.99",
+        "Light (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Unlimited Subscriptions",
+      "note": "**Truly unlimited** minutes. No caps, no monthly resets.",
+      "items": [
+        "Monthly: $16.99",
+        "Annual: $149.99 (Save ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Try It Free, Every Day",
+      "p1": "Every user gets a free **3-minute ticket** to try Minutes.AI, every single day. No credit card required."
     }
   },
   "wrap": {
-    "h2": "Wrap-up",
-    "p": "Negotiation minutes are stronger when they keep the back-and-forth and the context—not just decisions. That speeds judgment and reduces rework. Make it your standard with Minutes.AI."
+    "h2": "Wrap-up: Stop Settling for Shallow Minutes",
+    "p": "Negotiations are won or lost in the details. A summary that captures the **atmosphere**, **context**, and **concessions** is what empowers your team to make faster, smarter decisions. Structure isn't just about clarity; it's about capturing the reality of the deal."
+  },
+  "cta": {
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS app"
   }
 }

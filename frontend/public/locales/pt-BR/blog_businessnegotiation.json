@@ -1,111 +1,136 @@
 {
-  "a11y": {
-    "home": "Voltar à página inicial da Ata AI"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Baixar app para iOS",
-    "openBrowser": "Abrir no navegador"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Reuniões típicas",
-      "items": {
-        "0": "Status: resultados/desafios/ações",
-        "1": "Brainstorm: divergência e convergência de ideias",
-        "2": "Negociação: alinhar interesses e fechar acordo"
-      }
-    },
-    "h2": "Reuniões são diversas — negociações têm especificidades",
-    "p1": "Quando o objetivo muda, o output valioso também muda. Em negociações, negociar é o núcleo.",
-    "wide": {
-      "h3": "“Reunião” em sentido amplo",
-      "items": {
-        "0": "1:1: revisão de resultados, próximos objetivos e dificuldades",
-        "1": "Entrevista: alinhar requisitos e aderência",
-        "2": "Apresentação: problema e solução",
-        "3": "Treinamento: transferência de procedimentos"
-      }
+  "seo": {
+    "title": "Por que Atas Genéricas Falham em Negociações | Ata AI",
+    "description": "Modelos genéricos perdem o 'porquê' por trás de um acordo. Negociações são sobre concessões e contexto, não apenas decisões. Saiba como o Ata AI captura as nuances que atas genéricas ignoram.",
+    "ogTitle": "Ata AI | Para Negociações Comerciais",
+    "ogDescription": "Pare de perder o 'porquê'. Capture o contexto completo de objeções, concessões e compromissos que os resumos genéricos perdem.",
+    "ld": {
+      "headline": "Atas de Negociação Comercial que realmente impulsionam acordos",
+      "description": "Negociações exigem atas especializadas que rastreiem objeções, concessões e o contexto crítico de 'quem-disse-o-quê'."
     }
   },
-  "example": {
-    "block": "Empresa A: Houve um bug no produto anterior de vocês e tivemos muitos problemas. Vocês nos devem essa; entreguem até a próxima semana. Preço: US$ 1.000.\\nNossa empresa: Vamos tentar entregar na próxima semana após alinhamento interno. Em troca, podemos subir para US$ 1.200? Por favor, avaliem.\\nEmpresa A: Se garantirem a entrega na próxima semana, vamos avaliar. Enviem resposta por e-mail ainda hoje.",
-    "h2": "Exemplo (preserve literalmente as trocas-chave)",
-    "p1": "Guardar as “rodadas-chave” literalmente ajuda a direção a julgar a razoabilidade com contexto."
-  },
-  "hero": {
-    "h1": "Por que você pode redigir as melhores atas de negociação com a Ata AI",
-    "kicker": "Blog da Ata AI",
-    "tagline": "Negociação é um choque de interesses. Por isso, a ata forte não traz só decisões e tarefas: ela registra contexto e tom do diálogo. Veja a lógica — e como aplicá-la na prática com a Ata AI."
-  },
-  "limits": {
-    "generic": {
-      "h3": "A ata rasa típica",
-      "items": {
-        "0": "Lista decisões sem razões/encadeamento",
-        "1": "Não fica claro quem pediu o quê e onde houve concessão",
-        "2": "Ambiguidade sobre o que não foi acordado ou ficou em espera"
-      }
-    },
-    "h2": "Por que uma ata “só com decisões” é fraca",
-    "optimized": {
-      "h3": "Ata forte para negociações",
-      "items": {
-        "0": "Linha do tempo de exigências/concessões/mudanças (prazo/preço/escopo/responsabilidade)",
-        "1": "Motivos, premissas e riscos próximos de cada decisão",
-        "2": "Separar acordado/não acordado/em espera com prazos e responsáveis"
-      }
-    },
-    "p1": "A estrutura “discussão/decisões/tarefas/pendências” costuma perder contexto, tom e histórico de concessões. Resultado: mal-entendidos, retrabalho e o risco de “disse/não disse”."
+  "aria": {
+    "home": "Ata AI Início"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Por que você pode redigir as melhores atas de negociação com a Ata AI"
+    "businessnegotiation": "Negociação Comercial"
   },
-  "negotiation": {
-    "h2": "Afinal, o que é uma negociação?",
-    "p1": "Em essência: proteger e ampliar os interesses da empresa. Não é um comunicado unilateral; busca-se um meio-termo trocando “exigências” e “concessões” sobre prazo, preço, escopo e risco."
+  "hero": {
+    "kicker": "O Manual da Negociação",
+    "h1": "Atas Genéricas Matam Acordos. Atas de Negociação os Fecham.",
+    "tagline": "Uma lista simples de 'decisões' não é suficiente. Negociações de alto risco são sobre contexto, concessões e 'quem-disse-o-quê'. O Ata AI ajuda você a capturar a história completa, não apenas um resumo superficial."
+  },
+  "byline": {
+    "name": "Escrito por: Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "focus": "Desta vez, focamos especificamente em negociações comerciais.",
-    "h2": "Revisão do artigo anterior",
+    "h2": "Anteriormente: A mentalidade da 'Ata Universal'",
     "p1": {
-      "link": "clique aqui",
-      "post": ".",
-      "pre": "No artigo anterior mostramos que atas com IA funcionam para qualquer tipo de reunião. Para revisar,"
+      "pre": "Em nosso artigo anterior, delineamos a ideia da",
+      "link": "\"ata universal\"",
+      "post": "— um formato base que funciona para a maioria das reuniões internas."
     },
-    "points": {
-      "0": "Reuniões variam; o formato ideal da ata depende do objetivo.",
-      "1": "Modelos genéricos ajudam, mas o nível de detalhe deve ser ajustado.",
-      "2": "De “documento para ler” a “plano para executar”.",
-      "3": "A Ata AI adapta a saída ao objetivo da reunião."
+    "points": [
+      "Manter metas explícitas e mensuráveis",
+      "Registrar decisões e responsáveis",
+      "Trazer à tona riscos e bloqueadores rapidamente",
+      "Tornar as próximas ações inequívocas"
+    ],
+    "focus": "Mas negociações são diferentes. A estrutura deve refletir interesses conflitantes, opções e concessões."
+  },
+  "diversity": {
+    "h2": "Diversidade de Reuniões: O Propósito Define o Resultado",
+    "core": {
+      "h3": "Reuniões Típicas",
+      "items": [
+        "Check-in semanal: Acompanhar progresso, problemas e correções.",
+        "Brainstorming: Divergir sobre ideias, depois convergir.",
+        "Vendas / Negociação: Ajustar interesses e formar acordos."
+      ]
+    },
+    "wide": {
+      "h3": "Espectro Mais Amplo (Ainda são reuniões!)",
+      "items": [
+        "1-on-1: Revisar desempenho, definir metas, compartilhar preocupações.",
+        "Entrevista: Combinar requisitos com a adequação de um candidato.",
+        "Workshop / Palestra: Transferir conhecimento ou operações."
+      ]
+    },
+    "p1": "Se as pessoas falam por um propósito comum, é uma reunião. Como os propósitos diferem, o resultado valioso deve se adaptar — especialmente para negociações."
+  },
+  "negotiation": {
+    "h2": "O que é realmente uma Negociação?",
+    "p1": "Como uma negociação difere de uma reunião interna? Em uma palavra: **Lucro**. Uma negociação é um \"**campo de batalha**\" onde duas empresas protegem seus próprios interesses — preço, escopo, cronograma. Não é uma rua de mão única; é um vaivém de concessões para encontrar um caminho para o acordo. Uma simples lista de 'Tarefas' não pode capturar isso."
+  },
+  "limits": {
+    "h2": "Por que o 'Tamanho Único' Falha",
+    "p1": "Usar um modelo genérico para uma negociação cria atas 'superficiais'. Isso perde contexto crítico e força reuniões de acompanhamento caras.",
+    "generic": {
+      "h3": "Atas Genéricas 'Superficiais'",
+      "items": [
+        "Registram uma 'Decisão', mas perdem o 'Porquê' (a concessão).",
+        "Forçam os gerentes a perguntar: 'Por que concordamos com isso?'",
+        "Perdem a nuance crítica do 'ele-disse-ela-disse'.",
+        "Tornam nebuloso quem é responsável pelo quê, travando o acordo."
+      ]
+    },
+    "optimized": {
+      "h3": "Atas Otimizadas para Negociação",
+      "items": [
+        "Rastreiam o fluxo **Objeção → Concessão → Acordo**.",
+        "Dão aos gerentes a 'atmosfera' e o histórico para julgar.",
+        "Preservam trocas-chave para prevenir disputas 'ele-disse-ela-disse'.",
+        "Vinculam cada compromisso a um responsável e um prazo."
+      ]
     }
   },
-  "seo": {
-    "description": "Negociações exigem atas que captem decisões, tarefas, contexto, tom e concessões. Guia prático com a Ata AI.",
-    "ld": {
-      "description": "A essência das negociações nas atas: exigências, concessões e contexto — com a Ata AI.",
-      "headline": "Por que você pode redigir as melhores atas de negociação com a Ata AI"
-    },
-    "ogDescription": "Chega de atas rasas: preserve a troca e o contexto para decidir mais rápido e melhor.",
-    "ogTitle": "Por que você pode redigir as melhores atas de negociação com a Ata AI",
-    "title": "Por que você pode redigir as melhores atas de negociação com a Ata AI | Blog de atas de reunião"
+  "example": {
+    "h2": "De dados 'secos' para o 'contexto' do acordo",
+    "block": "Cliente: O preço é muito alto para nosso orçamento do Q4.\nVendedor: Entendo. Se limitarmos os assentos para 40 e movermos o SSO para a Fase 2, podemos atender ao seu limite.\nCliente: Isso pode funcionar. Preciso de aprovação legal. Podemos travar esse preço até 15/12?\nVendedor: Combinado. Enviarei a Proposta v3 hoje. Revisão legal até o final da semana, fechamento até 15/12.",
+    "p1": "Uma ata genérica poderia apenas dizer: 'Decisão: Vender por $X.' Uma ata **otimizada para negociação** torna a progressão explícita: **Objeção** (preço) → **Concessão** (escopo) → **Compromisso** (prazo). Esse contexto é tudo para os tomadores de decisão que não estavam na sala."
   },
   "why": {
-    "h2": "Por que a Ata AI é forte em negociações",
-    "items": {
-      "0": "Resume exigências/concessões e guarda passagens-chave literalmente (evita “disse/não disse”).",
-      "1": "Organiza mudanças de condições cronologicamente (prazo/preço/escopo/responsabilidade).",
-      "2": "Documenta motivos, premissas e riscos junto da decisão.",
-      "3": "Separa acordado/não acordado/em espera com prazos e responsáveis.",
-      "4": "Relaciona pedidos da contraparte aos nossos compromissos para rastreamento claro."
+    "h2": "Por que o Ata AI para Negociação",
+    "items": [
+      "**Decisões Ricas em Contexto:** Vamos além de itens de ação 'secos'. Nossa IA vincula decisões diretamente ao 'porquê' — a discussão, objeções e concessões que levaram a elas.",
+      "**Capture a 'Atmosfera':** O Ata AI é treinado para identificar e preservar trocas-chave de 'ele-disse-ela-disse', não apenas resumi-las.",
+      "**Rastreie a 'Batalha' Completa:** Nosso Rastreador de Objeções segue um problema desde o primeiro 'não' até o 'sim' final, para que você nunca perca o fio do acordo.",
+      "**Cadeias de Compromisso Claras:** Extrai e atribui automaticamente cada 'quem, o quê e quando' para garantir que o acordo avance e nunca pare.",
+      "**Resultados Multilíngues:** Feche acordos globais com atas claras e precisas para todos os stakeholders, em seu idioma."
+    ]
+  },
+  "pricing": {
+    "h2": "Preços Simples e Flexíveis que se Adaptam ao seu Ritmo",
+    "p1": "Sua agenda de reuniões não é 'tamanho único', então seu preço também não deveria ser. Escolha o plano que faz sentido para você.",
+    "timepacks": {
+      "h3": "Pacotes Únicos (Sem Expiração)",
+      "note": "Compre uma vez, use para sempre. Seus minutos **nunca expiram**.",
+      "items": [
+        "Teste (120 min): $1.99",
+        "Leve (1200 min): $11.99"
+      ]
+    },
+    "subs": {
+      "h3": "Assinaturas (Realmente Ilimitadas)",
+      "note": "Minutos **realmente ilimitados**. Sem limites, sem reinicializações mensais.",
+      "items": [
+        "Mensal: $16.99",
+        "Anual: $149.99 (Economize ≈26%)"
+      ]
+    },
+    "free": {
+      "h3": "Experimente Grátis, Todos os Dias",
+      "p1": "Todo usuário ganha um **tíquete gratuito de 3 minutos** para experimentar o Ata AI, todos os dias. Nenhum cartão de crédito é necessário."
     }
   },
   "wrap": {
-    "h2": "Conclusão",
-    "p": "Uma ata de negociação forte vai além das decisões: preserva a troca e o contexto. As decisões ficam mais rápidas e precisas. Torne isso padrão com a Ata AI."
+    "h2": "Conclusão: Pare de se contentar com atas superficiais",
+    "p": "Negociações são ganhas ou perdidas nos detalhes. Um resumo que captura a **atmosfera**, o **contexto** e as **concessões** é o que capacita sua equipe a tomar decisões mais rápidas e inteligentes. A estrutura não é apenas sobre clareza; é sobre capturar a realidade do acordo."
+  },
+  "cta": {
+    "openBrowser": "Abrir no navegador",
+    "downloadIOS": "Baixar app iOS"
   }
 }
