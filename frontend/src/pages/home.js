@@ -588,7 +588,7 @@ export default function Home() {
                 {t("Blog")}
               </Link>
               <Link href="/company" className="navLink">
-                {t("Company")}
+                Company
               </Link>
             </nav>
 
