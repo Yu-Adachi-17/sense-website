@@ -13,120 +13,135 @@ import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ---------- Inline English fallback (match reference structure) ---------- */
+/* ---------- Inline English fallback (Reconstructed by Gemini) ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "Universal Minutes: A baseline that works (Minutes.AI)",
+    title: "Why Minutes.AI Delivers the Best Minutes for Any Meeting Type",
     description:
-      "A simple, universal minutes structure that scales across most meetings. Clear goals, decisions, risks, and next actions.",
-    ogTitle: "Universal Minutes for real-world teams",
+      "A generic template fails. Learn why a baseline (Decisions, To-Dos, Risks) is just the start, and how AI must adapt to capture the 'temperature' of a 1-on-1 or brainstorm.",
+    ogTitle: "Beyond 'To-Do': Why Your 1-on-1 Minutes Feel 'Tasteless'",
     ogDescription:
-      "Use a baseline minutes template that captures goals, decisions, risks, and next steps.",
+      "A simple to-do list isn't a good 1-on-1 summary. Learn how Minutes.AI adapts its output to match the *purpose* of your meeting, from negotiations to feedback sessions.",
     ld: {
-      headline: "Universal Minutes you can actually use",
+      headline: "The 'One-Size-Fits-All' Minutes Problem (And How to Fix It)",
       description:
-        "A pragmatic baseline for meeting minutes that works across formats and teams.",
+        "A pragmatic baseline is useful, but it fails to capture the 'temperature' of human-centric meetings. We explore how adaptive AI creates truly valuable minutes.",
     },
   },
   aria: { home: "Minutes.AI Home" },
-  nav: { blog: "Blog", current: "Universal Minutes" },
+  nav: { blog: "Blog", current: "Why AI Minutes Must Adapt" },
 
   hero: {
     kicker: "Playbook",
-    h1: "A universal minutes baseline",
+    h1: "Why AI Gets You Better Minutes for *Any* Meeting Type",
     tagline:
-      "Keep it consistent: explicit goals, crisp decisions, surfaced risks, and unambiguous next actions.",
+      "A universal baseline (Decisions, To-Dos, Risks) ensures clarity. But great minutes adapt. We explore why a 1-on-1 and a sales call should *not* have the same format.",
   },
 
   byline: { name: "Written by Yu Adachi", title: "CEO, Sense G.K." },
 
   recap: {
-    h2: "Previously: Introduction",
-    p1: { pre: "Previously we discussed", link: "an introduction", post: "to Minutes.AI." },
+    h2: "Recap: The 'Meaningful Minutes' Baseline",
+    p1: {
+      pre: "In our",
+      link: "previous article",
+      post: "we defined 'meaningful minutes' as knowing 'who does what by when' at a glance.",
+    },
     points: [
-      "Make goals explicit and measurable",
-      "Record decisions with owners",
-      "Surface risks and blockers early",
-      "Turn outcomes into next actions",
+      "Clear discussion points",
+      "Key decisions and owners",
+      "Actionable To-Do items",
+      "Visible risks and blockers",
     ],
-    note: "This article proposes a baseline format before we specialize for specific meeting types.",
+    note: "This raises a sharp question: Is this single format 'good enough' for *every* type of meeting?",
   },
 
   diversity: {
-    h2: "Meeting diversity: purpose changes the output",
+    h2: "The Problem: Not All Meetings Are Created Equal",
     core: {
-      h3: "Typical meetings",
-      items: ["Weekly check-in", "Brainstorming", "Sales / negotiation"],
+      h3: "Typical Meetings",
+      items: [
+        "Weekly check-in (Updates & tactics)",
+        "Brainstorming (Idea generation)",
+        "Sales & negotiation (Commitments)",
+      ],
     },
     wide: {
-      h3: "Wider spectrum",
-      items: ["1-on-1", "Interview", "Workshop", "Retrospective"],
+      h3: "The Wider Spectrum of 'Meetings'",
+      items: [
+        "1-on-1 (Growth & feedback)",
+        "Interview (Evaluation)",
+        "Workshop or Lecture (Learning)",
+      ],
     },
-    p1: "A universal baseline helps teams stay consistent before adding specialties.",
+    p1: "Any time people gather for a shared purpose, it's a meeting. And while our baseline ensures *readability*, forcing every meeting into it can be rough.",
   },
 
   limits: {
-    h2: "Limits of one-size-fits-all",
-    p1: "A baseline is great, but some meetings need specialization.",
+    h2: "The Limit of a 'One-Size-Fits-All' Template",
+    p1: "Forcing every conversation into the same four buckets is restrictive. It creates 'tasteless' (無味乾燥) minutes that lose all the critical context.",
     generic: {
-      h3: "Generic minutes (baseline)",
+      h3: "The Generic Baseline (Lacks 'Temperature')",
       items: [
-        "Capture goals, decisions, risks, actions",
-        "Easy to adopt across teams",
-        "Consistent and searchable",
+        "Guarantees a consistent, readable summary",
+        "Easy to search across all meetings",
+        "Captures key outcomes (decisions, to-dos)",
       ],
     },
     optimized: {
-      h3: "Optimized by purpose",
+      h3: "The Optimized Output (Captures Purpose)",
       items: [
-        "Negotiation: objections, alternatives, commitments",
-        "1-on-1: past vs future positives/negatives",
-        "Workshop: hypotheses, experiments, learnings",
-        "Retrospective: themes, actions, owners, due dates",
+        "Negotiation: Tracks objections, alternatives, and commitments.",
+        "Brainstorm: Captures themes, raw ideas, and 'what if' scenarios.",
+        "Retrospective: Groups feedback (Keep, Problem, Try) with owners.",
       ],
     },
   },
 
   oneonone: {
-    h2: "1-on-1 example (tone & temperature)",
+    h2: "1-on-1 Example: The 'Lost Temperature' Problem",
     generic: {
-      h3: "Generic baseline",
+      h3: "Generic (But 'Tasteless') Minutes",
       items: [
-        "Goals and agenda",
-        "Highlights and risks",
-        "Decisions and owners",
-        "Next actions",
+        "Discussion: Employee A is struggling with team dynamics.",
+        "Decision: Manager B will mediate.",
+        "To-Do: B to mediate; follow-up 1-on-1 on the 15th.",
+        "Risks: What if Manager B is absent?",
+        "Critique: This isn't *wrong*, but it's sterile. It's lost the human 'temperature' (温度感) of the conversation.",
       ],
     },
     optimized: {
-      h3: "Optimized 1-on-1",
+      h3: "Optimized 1-on-1 (Captures Context & Tone)",
       items: [
-        "Past positives / past negatives",
-        "Future positives / future negatives",
-        "Core emotion and context",
-        "Agreements and expectations",
-        "Follow-up cadence",
+        "Captures core emotion and tone ('Frustrated but open')",
+        "Summarizes the employee's perspective and concerns",
+        "Lists the manager's commitments and agreements",
+        "Preserves the context so the follow-up is meaningful.",
       ],
     },
   },
 
   why: {
-    h2: "Why Minutes.AI works as a baseline",
+    h2: "This Is Why Minutes.AI Excels",
     items: [
-      "Readable, structured outputs",
-      "Works across meeting types",
-      "Easy to specialize later",
-      "Searchable and comparable",
-      "Multilingual across teams",
+      "Starts with a clear, universal baseline (Decisions, To-Dos).",
+      "Intelligently optimizes the format for the *purpose* of the meeting.",
+      "Captures the 'temperature' and context, not just dry facts.",
+      "Constantly improving the 'most valuable output' for every scenario.",
+      "Delivers structured, searchable minutes that are *actually* useful.",
     ],
   },
 
   wrap: {
-    h2: "Wrap-up",
-    p: "Start universal, then specialize where needed. Consistency first, precision next.",
+    h2: "Experience It Yourself",
+    p: "A baseline is just the start. Stop settling for 'tasteless' minutes that lose what's important. Experience a smarter AI that adapts to *you*.",
   },
 
-  cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
+  cta: {
+    openBrowser: "Open in browser",
+    downloadIOS: "Download iOS app",
+    downloadGooglePlay: "Get it on Google Play",
+  },
 };
 
 /* ---------- tiny helpers (same as reference) ---------- */
@@ -449,7 +464,7 @@ export default function BlogUniversalMinutes() {
               className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:border-emerald-100/80 hover:bg-emerald-500/20 hover:text-white"
             >
               <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
-              <span>Google Play</span>
+              <span>{txs("cta.downloadGooglePlay")}</span>
             </a>
           </div>
         </main>
