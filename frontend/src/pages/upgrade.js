@@ -295,18 +295,20 @@ function PriceBtn({ onClick, disabled, children, ariaLabel }) {
         .priceBtn {
           display: inline-flex;
           align-items: baseline;
+          justify-content: center;
           gap: 8px;
           border-radius: 999px;
-          padding: 8px 14px;
-          border: 1px solid rgba(255, 255, 255, 0.18);
+          padding: 8px 16px;
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          /* 以前より少し暗めのトーン */
           background: radial-gradient(
               140% 140% at 50% 0%,
-              rgba(120, 180, 255, 0.16),
+              rgba(110, 170, 240, 0.12),
               transparent 65%
             ),
-            rgba(8, 18, 36, 0.82);
-          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45),
-            0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+            rgba(4, 12, 26, 0.9);
+          box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55),
+            0 0 0 1px rgba(255, 255, 255, 0.03) inset;
           color: inherit;
           cursor: pointer;
           transition:
@@ -315,20 +317,22 @@ function PriceBtn({ onClick, disabled, children, ariaLabel }) {
             box-shadow 180ms ease,
             background 180ms ease,
             border-color 180ms ease;
+          /* 一番長いテキストに合わせて横幅を統一（列内共通） */
+          width: min(260px, 100%);
         }
         .priceBtn:hover,
         .priceBtn:focus-visible {
           transform: translateY(-3px);
-          text-shadow: 0 6px 24px rgba(100, 160, 255, 0.35);
-          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6),
-            0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+          text-shadow: 0 6px 24px rgba(100, 160, 255, 0.3);
+          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(255, 255, 255, 0.06) inset;
           background: radial-gradient(
               140% 140% at 50% 0%,
-              rgba(140, 210, 255, 0.22),
+              rgba(130, 200, 255, 0.2),
               transparent 70%
             ),
-            rgba(10, 26, 50, 0.95);
-          border-color: rgba(255, 255, 255, 0.32);
+            rgba(8, 18, 40, 0.96);
+          border-color: rgba(255, 255, 255, 0.26);
           outline: none;
         }
         .priceBtn:disabled {
@@ -509,10 +513,7 @@ export default function BuyTicketsPage() {
 
               <a
                 href={LINK_ANDROID}
-                className="navItem"
-                rel="noopener noreferrer"
-                aria-label={t("Download on Android")}
-              >
+                className="navItem">
                 <BsGooglePlay className="navIcon" aria-hidden="true" />
                 {t("Android")}
               </a>
@@ -529,7 +530,7 @@ export default function BuyTicketsPage() {
               {t("Upgrade")}
             </h2>
 
-            <p className="pricingSub">
+          <p className="pricingSub">
               {t(
                 "Simple, predictable pricing. Flexible plans for any workflow."
               )}
@@ -794,6 +795,7 @@ export default function BuyTicketsPage() {
           justify-content: center;
           gap: 8px;
           line-height: 1;
+          width: 100%;
         }
         .big {
           font-weight: 900;
@@ -942,7 +944,7 @@ export default function BuyTicketsPage() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 16px;
+          gap: 20px;
         }
         .brand {
           display: inline-flex;
@@ -952,6 +954,7 @@ export default function BuyTicketsPage() {
           font-size: 18px;
           text-decoration: none;
           color: #f8fbff;
+          line-height: 1;
         }
         .brandIcon {
           display: inline-flex;
@@ -965,8 +968,8 @@ export default function BuyTicketsPage() {
         .navGroup {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          padding: 4px;
+          gap: 10px;
+          padding: 4px 12px;
           border-radius: 999px;
           border: 1px solid rgba(255, 255, 255, 0.18);
           background: rgba(5, 10, 28, 0.85);
@@ -974,6 +977,7 @@ export default function BuyTicketsPage() {
         .navItem {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 6px;
           padding: 6px 14px;
           border-radius: 999px;
@@ -1003,10 +1007,11 @@ export default function BuyTicketsPage() {
         @media (max-width: 640px) {
           .topInner {
             padding-inline: 14px;
+            gap: 12px;
           }
           .navGroup {
-            gap: 2px;
-            padding: 3px;
+            gap: 4px;
+            padding: 3px 8px;
           }
           .navItem {
             padding-inline: 10px;
