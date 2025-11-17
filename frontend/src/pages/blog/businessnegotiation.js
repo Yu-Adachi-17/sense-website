@@ -15,37 +15,41 @@ import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ---------- Inline English fallback (match reference structure) ---------- */
+/* * ---------- 
+ * ★★★ 再構成された EN_FALLBACK ★★★
+ * (前回分に加え、Pricingサマリーを "why" の後に追加)
+ * ---------- 
+ */
 const EN_FALLBACK = {
   seo: {
-    title: "Negotiation Minutes: Why one-size-fits-all fails (Minutes.AI)",
+    title: "Why Generic Minutes Fail Negotiations | Minutes.AI",
     description:
-      "Sales and negotiation meetings need tailored minutes. We explain why generic templates miss the point and how Minutes.AI structures decisions, objections, and next steps.",
+      "Generic templates miss the 'why' behind a deal. Negotiations are about trade-offs and context, not just decisions. Learn how Minutes.AI captures the nuance that generic minutes ignore.",
     ogTitle: "Minutes.AI for Business Negotiations",
     ogDescription:
-      "Move beyond generic minutes. Capture decisions, objections, trade-offs, and next steps precisely.",
+      "Stop losing the 'why.' Capture the full context of objections, concessions, and commitments that generic summaries miss.",
     ld: {
       headline: "Business Negotiation Minutes that actually move deals",
       description:
-        "Negotiations require specialized minutes that track objections, concessions, and commitments.",
+        "Negotiations require specialized minutes that track objections, concessions, and the critical 'who-said-what' context.",
     },
   },
   aria: { home: "Minutes.AI Home" },
   nav: { blog: "Blog", businessnegotiation: "Business Negotiation" },
   hero: {
-    kicker: "Playbook",
-    h1: "Minutes that win negotiations",
+    kicker: "The Negotiation Playbook",
+    h1: "Generic Minutes Kill Deals. Negotiation Minutes Close Them.",
     tagline:
-      "Generic minutes are not enough. For negotiations, capture objections, alternatives, and commitments with clarity.",
+      "A simple list of 'decisions' is not enough. High-stakes negotiations are about context, trade-offs, and 'who-said-what.' Minutes.AI helps you capture the full story, not just a shallow summary.",
   },
   byline: { name: "Written by Yu Adachi", title: "CEO, Sense G.K." },
 
   recap: {
-    h2: "Previously: Universal minutes mindset",
+    h2: "Previously: The 'Universal Minutes' Mindset",
     p1: {
-      pre: "In the previous article we outlined the idea of",
+      pre: "In our previous article, we outlined the idea of",
       link: "universal minutes",
-      post: "—a baseline format that works for most meetings.",
+      post: "—a baseline format that works for most internal meetings.",
     },
     points: [
       "Keep goals explicit and measurable",
@@ -54,69 +58,100 @@ const EN_FALLBACK = {
       "Make next actions unambiguous",
     ],
     focus:
-      "Negotiations are different: the structure must reflect conflict, options, and trade-offs.",
+      "But negotiations are different. The structure must reflect conflicting interests, options, and trade-offs.",
   },
 
   diversity: {
-    h2: "Meeting diversity: purposes change outputs",
+    h2: "Meeting Diversity: Purpose Defines the Output",
     core: {
-      h3: "Typical meetings",
-      items: ["Weekly check-in", "Brainstorming", "Sales / negotiation"],
+      h3: "Typical Meetings",
+      items: [
+        "Weekly Check-in: Track progress, issues, and fixes.",
+        "Brainstorming: Diverge on ideas, then converge.",
+        "Sales / Negotiation: Adjust interests and form agreements.",
+      ],
     },
     wide: {
-      h3: "Wider spectrum",
-      items: ["1-on-1", "Interview", "Workshop", "Retrospective"],
+      h3: "Wider Spectrum (Still Meetings!)",
+      items: [
+        "1-on-1: Review performance, set goals, share concerns.",
+        "Interview: Match requirements to a candidate's fit.",
+        "Workshop / Lecture: Transfer knowledge or operations.",
+      ],
     },
-    p1: "Because purposes differ, the minute structure should adapt—especially for negotiations.",
+    p1: "If people talk for a common purpose, it's a meeting. Because purposes differ, the valuable output must adapt—especially for negotiations.",
   },
 
   negotiation: {
-    h2: "What is negotiation?",
-    p1: "Two or more parties reconcile interests under constraints—price, scope, timeline, risk. Good minutes clarify positions, proposals, and the path to agreement.",
+    h2: "What is a Negotiation, Really?",
+    p1: "How is a negotiation different from an internal meeting? In one word: **Profit.** A negotiation is a 'battlefield' where two companies protect their own interests—price, scope, timeline. It's not a one-way street; it's a back-and-forth of concessions to find a path to agreement. A simple 'To-Do' list can't capture this.",
   },
 
   limits: {
-    h2: "Why one-size-fits-all fails",
-    p1: "Generic minutes lose critical negotiation context and slow deals.",
+    h2: "Why One-Size-Fits-All Fails",
+    p1: "Using a generic template for a negotiation creates 'shallow' minutes. This loses critical context and forces costly follow-up meetings.",
     generic: {
-      h3: "Generic minutes",
+      h3: "Generic 'Shallow' Minutes",
       items: [
-        "Miss objections and their resolutions",
-        "Blur alternatives and trade-offs",
-        "Hide commitment owners and deadlines",
+        "Record a 'Decision' but miss the 'Why' (the concession).",
+        "Force managers to ask, 'Why did we agree to this?'",
+        "Lose the critical 'he-said-she-said' nuance.",
+        "Blur who is responsible for what, stalling the deal.",
       ],
     },
     optimized: {
-      h3: "Negotiation-optimized",
+      h3: "Negotiation-Optimized Minutes",
       items: [
-        "Track each objection → response → status",
-        "Compare alternatives with crisp criteria",
-        "Bind decisions to owners and due dates",
+        "Track the Objection → Concession → Agreement flow.",
+        "Give managers the 'atmosphere' and background to judge.",
+        "Preserve key exchanges to prevent 'he-said-she-said' disputes.",
+        "Bind every commitment to an owner and a deadline.",
       ],
     },
   },
 
   example: {
-    h2: "Conversation snippet",
+    h2: "From 'Dry' Data to Deal 'Context'",
     block:
-      "Client: Price is too high for Q4 budget.\nAE: If we limit seats to 40 and move SSO to Phase 2, we can meet your cap.\nClient: Need legal approval. Can we lock pricing until 12/15?\nAE: Agreed. Proposal v3 today. Legal review EOW. Close by 12/15.",
-    p1: "Good minutes make this progression explicit: objection → concession → commitment → deadline.",
+      "Client: The price is too high for our Q4 budget.\nAE: I understand. If we limit seats to 40 and move SSO to Phase 2, we can meet your cap.\nClient: That could work. I need legal approval. Can we lock that pricing until 12/15?\nAE: Agreed. I'll send Proposal v3 today. Legal review by EOW, close by 12/15.",
+    p1: "A generic minute might just say: 'Decision: Sell for $X.' A *negotiation-optimized* minute makes the progression explicit: **Objection** (price) → **Concession** (scope) → **Commitment** (deadline). This context is everything for the decision-makers who weren't in the room.",
   },
 
   why: {
-    h2: "Why Minutes.AI for negotiation",
+    h2: "Why Minutes.AI for Negotiation",
     items: [
-      "Objection tracker with resolution status",
-      "Alternative comparison (price, scope, risk)",
-      "Decision log with owners and deadlines",
-      "Next-step chain until close",
-      "Multilingual outputs for global stakeholders",
+      "**Context-Rich Decisions:** We move beyond 'dry' action items. Our AI links decisions directly to the 'why'—the discussion, objections, and trade-offs that led to them.",
+      "**Capture the 'Atmosphere':** Minutes.AI is trained to identify and preserve key 'he-said-she-said' exchanges, not just summarize them away. Give your boss the context, not just the data.",
+      "**Track the Full 'Battle':** Our Objection Tracker follows an issue from the first 'no' to the final 'yes,' so you never lose the thread of the deal.",
+      "**Clear Commitment Chains:** Automatically extract and assign every 'who, what, and when' to ensure the deal moves forward and never stalls.",
+      "**Multilingual Outputs:** Close global deals with clear, accurate minutes for all stakeholders, in their language.",
     ],
   },
 
+  /* ---------- ★★★ NEW PRICING SECTION ★★★ ---------- */
+  pricing: {
+    h2: "Simple, Flexible Pricing That Fits Your Rhythm",
+    p1: "Your meeting schedule isn't 'one-size-fits-all,' so your pricing shouldn't be either. Choose the plan that makes sense for you.",
+    timepacks: {
+      h3: "One-Time Packs",
+      note: "Buy once, use forever. Your minutes never expire.",
+      items: ["Trial (120 min): $1.99", "Light (1200 min): $11.99"],
+    },
+    subs: {
+      h3: "Unlimited Subscriptions",
+      note: "Truly unlimited minutes. No caps, no monthly resets.",
+      items: ["Monthly: $16.99", "Annual: $149.99 (Save ≈26%)"],
+    },
+    free: {
+      h3: "Try It Free, Every Day",
+      p1: "Every user gets a free 3-minute ticket to try Minutes.AI, every single day. No credit card required.",
+    },
+  },
+  /* ---------- ★★★ END NEW SECTION ★★★ ---------- */
+
   wrap: {
-    h2: "Wrap-up",
-    p: "Negotiations move when minutes reflect reality: conflict, options, and commitments. Structure drives clarity.",
+    h2: "Wrap-up: Stop Settling for Shallow Minutes",
+    p: "Negotiations are won or lost in the details. A summary that captures the *atmosphere*, *context*, and *concessions* is what empowers your team to make faster, smarter decisions. Structure isn't just about clarity; it's about capturing the reality of the deal.",
   },
 
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
@@ -207,6 +242,10 @@ export default function BlogBusinessNegotiation() {
   const limitsGeneric = txa("limits.generic.items");
   const limitsOptimized = txa("limits.optimized.items");
   const whyItems = txa("why.items");
+  
+  // ★ NEW: Pricing data
+  const pricingTimepackItems = txa("pricing.timepacks.items");
+  const pricingSubItems = txa("pricing.subs.items");
 
   return (
     <>
@@ -323,7 +362,7 @@ export default function BlogBusinessNegotiation() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-indigo-200/90">{txs("diversity.wide.h3")}</h3>
+                <h3 className="text-sm font-semibold text-indigo-200/9Nothing0">{txs("diversity.wide.h3")}</h3>
                 <ul className="mt-2 ml-5 list-disc space-y-1 text-indigo-100/90">
                   {diversityWide.map((p, i) => (
                     <li key={i}>{p}</li>
@@ -337,7 +376,7 @@ export default function BlogBusinessNegotiation() {
           {/* What is negotiation */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("negotiation.h2")}</h2>
-            <p className="mt-2 text-base leading-7 text-indigo-100/90">{txs("negotiation.p1")}</p>
+            <p className="mt-2 text-base leading-7 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: txs("negotiation.p1") }} />
           </SectionCard>
 
           {/* Limits of one-size-fits-all */}
@@ -373,7 +412,7 @@ export default function BlogBusinessNegotiation() {
 {txs("example.block")}
               </pre>
             </div>
-            <p className="mt-3 text-base leading-7 text-indigo-100/90">{txs("example.p1")}</p>
+            <p className="mt-3 text-base leading-7 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: txs("example.p1") }} />
           </SectionCard>
 
           {/* Why Minutes.AI for negotiation */}
@@ -381,15 +420,51 @@ export default function BlogBusinessNegotiation() {
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("why.h2")}</h2>
             <ul className="mt-4 ml-5 list-disc space-y-2 text-indigo-100/90">
               {whyItems.map((p, i) => (
-                <li key={i}>{p}</li>
+                <li key={i} dangerouslySetInnerHTML={{ __html: p }} />
               ))}
             </ul>
           </SectionCard>
 
+          {/* ---------- ★★★ NEW PRICING SECTION ★★★ ---------- */}
+          <SectionCard className="mt-8">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
+            <p className="mt-2 text-base leading-7 text-indigo-100/90">{txs("pricing.p1")}</p>
+
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {/* Time Packs */}
+              <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                <h3 className="text-lg font-semibold">{txs("pricing.timepacks.h3")}</h3>
+                <p className="mt-1 text-sm text-indigo-200/80" dangerouslySetInnerHTML={{ __html: txs("pricing.timepacks.note") }} />
+                <ul className="mt-3 ml-5 list-disc space-y-1 text-indigo-100/90">
+                  {pricingTimepackItems.map((p, i) => (
+                    <li key={i}>{p}</li>
+                  ))}
+                </ul>
+              </div>
+              {/* Subscriptions */}
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-lg font-semibold">{txs("pricing.subs.h3")}</h3>
+                <p className="mt-1 text-sm text-indigo-200/80">{txs("pricing.subs.note")}</p>
+                <ul className="mt-3 ml-5 list-disc space-y-1 text-indigo-100/90">
+                  {pricingSubItems.map((p, i) => (
+                    <li key={i}>{p}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+            {/* Free Offer */}
+            <div className="mt-5 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-4">
+               <h3 className="text-sm font-semibold uppercase tracking-wide text-emerald-200">{txs("pricing.free.h3")}</h3>
+               <p className="mt-1 text-sm text-emerald-100/90" dangerouslySetInnerHTML={{ __html: txs("pricing.free.p1") }} />
+            </div>
+          </SectionCard>
+          {/* ---------- ★★★ END NEW SECTION ★★★ ---------- */}
+
           {/* Wrap-up */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("wrap.h2")}</h2>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("wrap.p")}</p>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: txs("wrap.p") }} />
           </SectionCard>
 
           {/* CTA */}
