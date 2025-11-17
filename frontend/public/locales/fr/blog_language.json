@@ -25,7 +25,7 @@
   "stt": {
     "h2": "La différence Whisper : Une précision stupéfiante",
     "p1": "Les modèles multilingues de Whisper reconnaissent la parole avec une précision étonnante dans un large éventail de langues, y compris les langues minoritaires et divers accents.",
-    "p2": "Mais la transcription précise n'est pas tout. Nous combinons la puissance de Whisper avec le pipeline de formatage intelligent de Minutes.AI. Cela transforme le simple texte en un \"compte rendu prêt à l'emploi\", capturant clairement les décisions, les responsables et les prochaines étapes.",
+    "p2": "Mais la transcription précise n'est pas tout. Nous combinons la puissance de Whisper avec le pipeline de formatage intelligent de Minutes.AI. Cela transforme le simple texte en un \"compte rendu prêt à l'emploi\", capturant clairement les décisions, les responsables et les prochaines étapes."
   },
   "langs": {
     "h2": "Langues prises en charge par Whisper (Sélection)",
