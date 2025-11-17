@@ -1,5 +1,4 @@
-// src/pages/upgrade.js（旧 buy-ticket.js）
-
+// src/pages/upgrade.js
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -12,13 +11,11 @@ import HomeIcon from "./homeIcon";
 import { getClientAuth } from "../firebaseConfig";
 import { FaAppStore } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
-
 const SITE_URL = "https://www.sense-ai.world";
 const LINK_IOS =
-  "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+  "https://apps.apple.com/jp/app/%E8%AD%B0%E4%BA%8B%E9%8C%B2ai/id6504087901";
 const LINK_ANDROID =
   "https://play.google.com/store/apps/details?id=world.senseai.minutes";
-
 /* ===== FixedHeaderPortal（/home と同じ） ===== */
 function FixedHeaderPortal({ children }) {
   const [mounted, setMounted] = useState(false);
@@ -26,7 +23,6 @@ function FixedHeaderPortal({ children }) {
   if (!mounted) return null;
   return createPortal(children, document.body);
 }
-
 /* ===== NeonCircle（/home と同じ。サイズ・文字スケール込み） ===== */
 function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
   const [isPhone, setIsPhone] = useState(false);
@@ -39,7 +35,6 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
     return () => mq.removeEventListener("change", onChange);
   }, []);
   const S = isPhone ? mobileSize : size;
-
   const W = S,
     H = S;
   const cx = W / 2,
@@ -56,7 +51,6 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
     `M ${pt(a0)[0]} ${pt(a0)[1]} A ${r} ${r} 0 ${
       a1 - a0 > 180 ? 1 : 0
     } 1 ${pt(a1)[0]} ${pt(a1)[1]}`;
-
   const HEAD = 0;
   const TAIL_START = HEAD - 360;
   const SEGMENTS = 1000;
@@ -70,7 +64,6 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
     const w = strokeW * (0.72 + 0.32 * ease(t));
     return { a0, a1, alpha, w };
   });
-
   return (
     <div className="neonCircle" style={{ "--sz": `${S}px` }} aria-label={ariaLabel}>
       <svg
@@ -127,9 +120,7 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
           style={{ pointerEvents: "none" }}
         />
       </svg>
-
       <div className="neonInner">{children}</div>
-
       <style jsx>{`
         .neonCircle {
           position: relative;
@@ -151,7 +142,8 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
         /* ★ /home と同じ文字スケール */
         :global(.pCard) {
           place-items: start;
-          justify-items: start;
+          /* ▼ 修正 ▼ アイテム（ボタンなど）を左揃え(start)から幅いっぱいに(stretch)変更 */
+          justify-items: stretch;
           align-items: start;
           text-align: left;
           gap: 10px;
@@ -194,7 +186,6 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
     </div>
   );
 }
-
 /* ===== OneArcCircle（プレーン枠線／線だけグラデーション） ===== */
 function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
   const [isPhone, setIsPhone] = useState(false);
@@ -207,12 +198,10 @@ function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
     return () => mq.removeEventListener("change", onChange);
   }, []);
   const S = isPhone ? mobileSize : size;
-
   // 正方形ビューにそのまま描く
   const strokeW = Math.max(2, Math.floor(S * 0.012));
   const inset = strokeW / 2; // ストロークが切れないよう内側へ半分オフセット
   const rx = Math.max(12, Math.floor(S * 0.08)); // 角丸半径（お好みで）
-
   return (
     <div className="oacWrap" style={{ "--sz": `${S}px` }} aria-label={ariaLabel}>
       <svg
@@ -231,7 +220,6 @@ function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
             <stop offset="100%" stopColor="#7cc7ff" />
           </linearGradient>
         </defs>
-
         <rect
           x={inset}
           y={inset}
@@ -245,9 +233,7 @@ function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
           vectorEffect="non-scaling-stroke"
         />
       </svg>
-
       <div className="oacInner">{children}</div>
-
       <style jsx>{`
         .oacWrap {
           position: relative;
@@ -279,7 +265,6 @@ function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
     </div>
   );
 }
-
 /* ===== 価格テキストを「ボタンっぽく」（薄い背景＋枠付き） ===== */
 function PriceBtn({ onClick, disabled, children, ariaLabel }) {
   return (
@@ -293,22 +278,26 @@ function PriceBtn({ onClick, disabled, children, ariaLabel }) {
       {children}
       <style jsx>{`
         .priceBtn {
-          display: inline-flex;
-          align-items: baseline;
+          /* ▼ 修正 ▼ inline-flex から flex に変更 */
+          display: flex;
+          /* ▼ 追加 ▼ 幅を100%にし、justify-items: stretch に追従 */
+          width: 100%;
+          /* ▼ 追加 ▼ ボタン内コンテンツを中央揃え */
           justify-content: center;
+          align-items: baseline;
           gap: 8px;
           border-radius: 999px;
-          padding: 8px 16px;
-          border: 1px solid rgba(255, 255, 255, 0.16);
-          /* 以前より少し暗めのトーン */
+          padding: 8px 14px;
+          border: 1px solid rgba(255, 255, 255, 0.18);
           background: radial-gradient(
               140% 140% at 50% 0%,
-              rgba(110, 170, 240, 0.12),
+              /* ▼ 修正 ▼ 0.16 -> 0.12 にし、少し暗く */
+              rgba(120, 180, 255, 0.12),
               transparent 65%
             ),
-            rgba(4, 12, 26, 0.9);
-          box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55),
-            0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+            rgba(8, 18, 36, 0.82);
+          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45),
+            0 0 0 1px rgba(255, 255, 255, 0.04) inset;
           color: inherit;
           cursor: pointer;
           transition:
@@ -317,22 +306,21 @@ function PriceBtn({ onClick, disabled, children, ariaLabel }) {
             box-shadow 180ms ease,
             background 180ms ease,
             border-color 180ms ease;
-          /* 一番長いテキストに合わせて横幅を統一（列内共通） */
-          width: min(260px, 100%);
         }
         .priceBtn:hover,
         .priceBtn:focus-visible {
           transform: translateY(-3px);
-          text-shadow: 0 6px 24px rgba(100, 160, 255, 0.3);
-          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6),
-            0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+          text-shadow: 0 6px 24px rgba(100, 160, 255, 0.35);
+          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(255, 255, 255, 0.08) inset;
           background: radial-gradient(
               140% 140% at 50% 0%,
-              rgba(130, 200, 255, 0.2),
+              /* ▼ 修正 ▼ 0.22 -> 0.18 にし、少し暗く */
+              rgba(140, 210, 255, 0.18),
               transparent 70%
             ),
-            rgba(8, 18, 40, 0.96);
-          border-color: rgba(255, 255, 255, 0.26);
+            rgba(10, 26, 50, 0.95);
+          border-color: rgba(255, 255, 255, 0.32);
           outline: none;
         }
         .priceBtn:disabled {
@@ -351,12 +339,10 @@ function PriceBtn({ onClick, disabled, children, ariaLabel }) {
     </button>
   );
 }
-
 export default function BuyTicketsPage() {
   const { t } = useTranslation();
   const [loadingProductId, setLoadingProductId] = useState(null);
   const [authInstance, setAuthInstance] = useState(null);
-
   // ✅ Firebase Auth を SSR 安全に初期化
   useEffect(() => {
     let mounted = true;
@@ -373,7 +359,6 @@ export default function BuyTicketsPage() {
       mounted = false;
     };
   }, []);
-
   const handleBuyClick = async (productId) => {
     if (!productId) {
       console.error(
@@ -409,7 +394,6 @@ export default function BuyTicketsPage() {
       setLoadingProductId(null);
     }
   };
-
   const plans = useMemo(
     () => ({
       prepaid: {
@@ -459,7 +443,6 @@ export default function BuyTicketsPage() {
     }),
     [t]
   );
-
   return (
     <>
       <Head>
@@ -472,7 +455,6 @@ export default function BuyTicketsPage() {
         />
         <link rel="canonical" href={`${SITE_URL}/upgrade`} />
       </Head>
-
       {/* ===== /home と同じヘッダー ===== */}
       <FixedHeaderPortal>
         <header className="top" role="banner">
@@ -488,7 +470,6 @@ export default function BuyTicketsPage() {
               </span>
               <span className="brandText">{t("Minutes.AI")}</span>
             </Link>
-
             {/* 右：Blog / Company / iOS / Android → 1つの枠内に4つ */}
             <nav
               className="navGroup"
@@ -500,7 +481,6 @@ export default function BuyTicketsPage() {
               <Link href="/company" className="navItem">
                 {t("Company")}
               </Link>
-
               <a
                 href={LINK_IOS}
                 className="navItem"
@@ -510,10 +490,12 @@ export default function BuyTicketsPage() {
                 <FaAppStore className="navIcon" aria-hidden="true" />
                 {t("iOS")}
               </a>
-
               <a
                 href={LINK_ANDROID}
-                className="navItem">
+                className="navItem"
+                rel="noopener noreferrer"
+                aria-label={t("Download on Android")}
+              >
                 <BsGooglePlay className="navIcon" aria-hidden="true" />
                 {t("Android")}
               </a>
@@ -521,7 +503,6 @@ export default function BuyTicketsPage() {
           </div>
         </header>
       </FixedHeaderPortal>
-
       {/* ===== Main：/home の Pricing セクションをベースにした Upgrade ===== */}
       <main className="scene buyScene">
         <section className="pricingSection" aria-labelledby="pricingHead">
@@ -529,14 +510,12 @@ export default function BuyTicketsPage() {
             <h2 id="pricingHead" className="pricingH2 gradText">
               {t("Upgrade")}
             </h2>
-
-          <p className="pricingSub">
+            <p className="pricingSub">
               {t(
                 "Simple, predictable pricing. Flexible plans for any workflow."
               )}
             </p>
           </div>
-
           <div className="pricingGrid">
             {/* 左：プリペイド */}
             <NeonCircle
@@ -547,9 +526,13 @@ export default function BuyTicketsPage() {
               <div className="pCard">
                 <div className="pKicker">{plans.prepaid.kicker}</div>
 
-                {plans.prepaid.items.map((it) => (
-                  <div className="pPrice" key={it.pid}>
+                {/* ▼ 追加 ▼ PriceBtn を .pPriceGroup で囲む */}
+                <div className="pPriceGroup">
+                  {plans.prepaid.items.map((it) => (
+                    // {/* ▼ 削除 ▼ .pPrice ラッパーを削除 */}
+                    // <div className="pPrice" key={it.pid}>
                     <PriceBtn
+                      key={it.pid} // key を PriceBtn に移動
                       ariaLabel={it.label}
                       onClick={() => handleBuyClick(it.pid)}
                       disabled={loadingProductId === it.pid}
@@ -557,8 +540,9 @@ export default function BuyTicketsPage() {
                       <span className="big">{it.price}</span>
                       <span className="unit">{it.unit}</span>
                     </PriceBtn>
-                  </div>
-                ))}
+                    // </div>
+                  ))}
+                </div>
 
                 <ul className="pBullets">
                   {plans.prepaid.bullets.map((b, i) => (
@@ -567,7 +551,6 @@ export default function BuyTicketsPage() {
                 </ul>
               </div>
             </NeonCircle>
-
             {/* 右：サブスク */}
             <NeonCircle
               size={560}
@@ -577,9 +560,13 @@ export default function BuyTicketsPage() {
               <div className="pCard">
                 <div className="pKicker">{plans.sub.kicker}</div>
 
-                {plans.sub.items.map((it) => (
-                  <div className="pPrice" key={it.pid}>
+                {/* ▼ 追加 ▼ PriceBtn を .pPriceGroup で囲む */}
+                <div className="pPriceGroup">
+                  {plans.sub.items.map((it) => (
+                    // {/* ▼ 削除 ▼ .pPrice ラッパーを削除 */}
+                    // <div className="pPrice" key={it.pid}>
                     <PriceBtn
+                      key={it.pid} // key を PriceBtn に移動
                       ariaLabel={it.label}
                       onClick={() => handleBuyClick(it.pid)}
                       disabled={loadingProductId === it.pid}
@@ -587,8 +574,9 @@ export default function BuyTicketsPage() {
                       <span className="big">{it.price}</span>
                       <span className="unit">{it.unit}</span>
                     </PriceBtn>
-                  </div>
-                ))}
+                    // </div>
+                  ))}
+                </div>
 
                 <ul className="pBullets">
                   {plans.sub.bullets.map((b, i) => (
@@ -598,14 +586,12 @@ export default function BuyTicketsPage() {
               </div>
             </NeonCircle>
           </div>
-
           <p className="pricingNote">
             {t(
               "Prices in USD. Taxes may apply by region. Auto-renew; cancel anytime."
             )}
           </p>
         </section>
-
         {/* ===== Custom / Team セクション ===== */}
         <section className="customSection" aria-labelledby="customHead">
           <h3 id="customHead" className="pricingH2 gradText">
@@ -614,7 +600,6 @@ export default function BuyTicketsPage() {
           <p className="customLead">
             Available worldwide for teams and individuals of all sizes
           </p>
-
           <div className="customArcWrap">
             <OneArcCircle
               size={560}
@@ -651,7 +636,6 @@ export default function BuyTicketsPage() {
                     </span>
                   </li>
                 </ul>
-
                 <a
                   className="customBtn"
                   href="mailto:info@sense-ai.world"
@@ -664,7 +648,6 @@ export default function BuyTicketsPage() {
           </div>
         </section>
       </main>
-
       {/* ===== /home の Footer を移植 + company を追加 ===== */}
       <footer className="pageFooter" role="contentinfo">
         <div className="footInner">
@@ -684,7 +667,6 @@ export default function BuyTicketsPage() {
           <div className="copyright">© Sense LLC All Rights Reserved</div>
         </div>
       </footer>
-
       {/* ===== styles（背景などは既存のまま） ===== */}
       <style jsx>{`
         .scene {
@@ -777,7 +759,6 @@ export default function BuyTicketsPage() {
             grid-template-columns: 1fr;
           }
         }
-
         .pCard {
           display: grid;
           gap: 8px;
@@ -789,14 +770,28 @@ export default function BuyTicketsPage() {
           letter-spacing: 0.2px;
           opacity: 0.9;
         }
+        /* ▼ 追加 ▼ pCard 内のボタンラッパー */
+        .pPriceGroup {
+          display: grid;
+          /* .pCard の gap: 8px と合わせる */
+          gap: 8px;
+          /* このラッパー内のアイテム（PriceBtn）を幅いっぱいに伸ばす */
+          justify-items: stretch;
+          /* pCard 自体の justify-items: stretch と連動 */
+          width: 100%;
+        }
+
+        /* ▼ 削除 ▼ .pPrice ラッパーは削除されたため不要 */
+        /*
         .pPrice {
           display: flex;
           align-items: baseline;
           justify-content: center;
           gap: 8px;
           line-height: 1;
-          width: 100%;
         }
+        */
+
         .big {
           font-weight: 900;
           letter-spacing: -0.02em;
@@ -828,7 +823,6 @@ export default function BuyTicketsPage() {
           content: "• ";
           opacity: 0.9;
         }
-
         /* ===== Custom / Team ===== */
         .customSection {
           margin: clamp(8px, 3vh, 40px) auto 0;
@@ -882,7 +876,6 @@ export default function BuyTicketsPage() {
           opacity: 0.9;
           font-size: clamp(13px, 1.7vw, 17px);
         }
-
         .customBtn {
           align-self: start;
           justify-self: start;
@@ -913,18 +906,15 @@ export default function BuyTicketsPage() {
           box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
           outline: none;
         }
-
         .pricingNote {
           margin-top: clamp(14px, 3vh, 26px);
           opacity: 0.8;
           font-size: 13px;
         }
-
         /* ===== Fixed header (ほぼ /home と同じ) ===== */
         :root {
           --header-offset: 72px;
         }
-
         .top {
           position: fixed;
           inset: 0 0 auto 0;
@@ -944,17 +934,17 @@ export default function BuyTicketsPage() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 20px;
+          gap: 16px;
         }
         .brand {
           display: inline-flex;
           align-items: center;
-          gap: 10px;
+          /* ▼ 修正 ▼ 10px -> 8px に */
+          gap: 8px;
           font-weight: 800;
           font-size: 18px;
           text-decoration: none;
           color: #f8fbff;
-          line-height: 1;
         }
         .brandIcon {
           display: inline-flex;
@@ -964,12 +954,13 @@ export default function BuyTicketsPage() {
         .brandText {
           letter-spacing: -0.03em;
         }
-
         .navGroup {
           display: inline-flex;
           align-items: center;
-          gap: 10px;
-          padding: 4px 12px;
+          /* ▼ 修正 ▼ 8px -> 4px に */
+          gap: 4px;
+          /* ▼ 修正 ▼ 4px -> 4px 8px に（左右パディング追加） */
+          padding: 4px 8px;
           border-radius: 999px;
           border: 1px solid rgba(255, 255, 255, 0.18);
           background: rgba(5, 10, 28, 0.85);
@@ -977,7 +968,6 @@ export default function BuyTicketsPage() {
         .navItem {
           display: inline-flex;
           align-items: center;
-          justify-content: center;
           gap: 6px;
           padding: 6px 14px;
           border-radius: 999px;
@@ -1001,16 +991,16 @@ export default function BuyTicketsPage() {
           outline: none;
         }
         .navIcon {
-          font-size: 16px;
+          /* ▼ 修正 ▼ 16px -> 14px に（テキストとのバランス調整） */
+          font-size: 14px;
         }
-
         @media (max-width: 640px) {
           .topInner {
             padding-inline: 14px;
-            gap: 12px;
           }
           .navGroup {
-            gap: 4px;
+            gap: 2px;
+            /* ▼ 修正 ▼ 左右パディングを 3px 8px に */
             padding: 3px 8px;
           }
           .navItem {
@@ -1021,7 +1011,6 @@ export default function BuyTicketsPage() {
             font-size: 16px;
           }
         }
-
         /* ===== Footer ===== */
         .pageFooter {
           border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1071,7 +1060,6 @@ export default function BuyTicketsPage() {
     </>
   );
 }
-
 export async function getServerSideProps({ locale }) {
   const currentLocale = locale || "en";
   return {
