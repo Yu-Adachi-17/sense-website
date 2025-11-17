@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Tillbaka till Protokoll AI:s startsida"
+  "seo": {
+    "title": "Varför Protokoll AI levererar de bästa protokollen för alla mötestyper",
+    "description": "En generisk mall misslyckas. Lär dig varför AI måste fånga 'temperaturen' i ett 1-till-1-samtal eller en brainstorming.",
+    "ogTitle": "Bortom 'Att-göra': Varför dina 1-till-1-protokoll känns 'smaklösa'",
+    "ogDescription": "En enkel att-göra-lista är inte en bra 1-till-1-sammanfattning. Lär dig hur Protokoll AI anpassar sitt resultat för att matcha 'syftet' med ditt möte.",
+    "ld": {
+      "headline": "'En-storlek-passar-alla'-problemet med protokoll (och hur man löser det)",
+      "description": "En pragmatisk baslinje är användbar, men den misslyckas med att fånga 'temperaturen' i människocentrerade möten."
+    }
+  },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Varför AI måste anpassa sig"
+  },
+  "hero": {
+    "kicker": "Spelbok",
+    "h1": "Varför Protokoll AI ger dig bättre protokoll för *alla* mötestyper",
+    "tagline": "En universell baslinje (Beslut, Åtgärder, Risker) säkerställer tydlighet. Men bra protokoll 'anpassar sig'. En 1-till-1 och ett säljsamtal bör inte ha samma format."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Ladda ned för iOS",
-    "openBrowser": "Öppna webbappen"
+  "recap": {
+    "h2": "Sammanfattning: Grunden för 'meningsfulla protokoll'",
+    "p1": {
+      "pre": "I vår",
+      "link": "föregående artikel",
+      "post": "definierade vi 'meningsfulla protokoll' som att snabbt veta 'vem som gör vad och när'."
+    },
+    "points": [
+      "Diskussionspunkter",
+      "Viktiga beslut",
+      "Åtgärdspunkter (To-Do)",
+      "Risker och hinder"
+    ],
+    "note": "Detta väcker en skarp fråga: Är detta enda format 'tillräckligt bra' för *varje* typ av möte?"
   },
   "diversity": {
+    "h2": "Problemet: Alla möten är inte skapade lika",
     "core": {
-      "h3": "Representativa möten",
-      "items": {
-        "0": "Återkommande/status: regelbunden genomgång av siffror, problem och åtgärder",
-        "1": "Brainstorm: idégenerering och konvergens",
-        "2": "Sälj/Förhandling: alignera intressen och nå överenskommelser"
-      }
+      "h3": "Typiska möten",
+      "items": [
+        "Veckovis check-in (Uppdateringar & taktik)",
+        "Brainstorming (Idégenerering)",
+        "Sälj / förhandling (Åtaganden)"
+      ]
     },
-    "h2": "Möten är olika: olika syften, olika output",
-    "p1": "När människor diskuterar ett gemensamt mål är det ett möte — och vilket output som ger mest värde beror på syftet.",
     "wide": {
-      "h3": "I bred bemärkelse ”möten”",
-      "items": {
-        "0": "1-till-1: genomgång, nästa mål, dela bekymmer",
-        "1": "Intervju: rollkrav och matchning",
-        "2": "Presentation: problem och lösning",
-        "3": "Utbildning: överföring av operativ know-how"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Varför Protokoll AI ger de bästa protokollen för alla typer av möten",
-    "kicker": "Protokoll AI Blogg",
-    "tagline": "De fyra universella elementen ökar läsbarheten. När output optimeras efter mötets syfte blir protokollet en handlingsplan — inte bara något man läser."
+      "h3": "Det bredare spektrumet av 'möten'",
+      "items": [
+        "1-till-1 (Utveckling & feedback)",
+        "Intervju (Utvärdering)",
+        "Workshop / Föreläsning (Inlärning)"
+      ]
+    },
+    "p1": "Varje gång människor samlas för ett gemensamt syfte är det ett 'möte'. Att tvinga in varje konversation i samma mall är brutalt."
   },
   "limits": {
+    "h2": "Begränsningen med 'en-storlek-passar-alla'-mallen",
+    "p1": "Att tvinga in varje konversation i samma fyra fack skapar 'smaklösa' protokoll som förlorar allt kritiskt sammanhang.",
     "generic": {
-      "h3": "Om du bara använder det universella formatet",
-      "items": {
-        "0": "Du fångar ämne, beslut, uppgifter och bekymmer — bra grund",
-        "1": "Men ton, tyngd och bakgrund går ofta förlorade",
-        "2": "Senare blir ”varför vi beslutade så” svagare"
-      }
+      "h3": "Den generiska baslinjen (saknar 'temperatur')",
+      "items": [
+        "Garanterar en konsekvent, läsbar sammanfattning",
+        "Lätt att söka över alla möten",
+        "Fångar nyckelresultat (beslut, åtgärder)"
+      ]
     },
-    "h2": "Begränsningar med ett format för allt",
     "optimized": {
-      "h3": "Om du optimerar (exempel 1-till-1)",
-      "items": {
-        "0": "Kärnemosion/ton: sammanfatta temperatur och psykologi",
-        "1": "Kontext/bakgrund: org-förändringar, roller, friktionspunkter",
-        "2": "Nyckeldiskussion (citat × sammanfattningar): vägen till enighet",
-        "3": "Överenskommelser / Nästa steg / Risker: normaliserat för genomförande"
-      }
-    },
-    "p1": "De fyra elementen fungerar brett, men vissa möten tappar ”temperatur” och kontext — särskilt 1-till-1 — vilket minskar tydligheten vid senare genomläsning."
-  },
-  "nav": {
-    "blog": "Blogg",
-    "current": "Varför Protokoll AI ger de bästa protokollen för alla typer av möten"
+      "h3": "Det optimerade resultatet (fångar syftet)",
+      "items": [
+        "Förhandling: Spårar invändningar, alternativ och åtaganden.",
+        "Brainstorming: Fångar teman och råa idéer.",
+        "Återblick: Grupperar feedback (Behålla, Problem, Prova)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "1-till-1-exempel: Problemet med 'förlorad temperatur'",
     "generic": {
-      "h3": "Endast de fyra universella",
-      "items": {
-        "0": "A:s oro (relationer i teamet) kom upp",
-        "1": "Beslut: chef B går in som medlare",
-        "2": "Åtgärder: medling; nästa 1-till-1 den 15:e",
-        "3": "Oro: ingen plan om B är frånvarande"
-      }
+      "h3": "Generiskt (men 'smaklöst') protokoll",
+      "items": [
+        "Diskussion: Medarbetare A kämpar med teamdynamiken.",
+        "Beslut: Chef B kommer att medla.",
+        "Åtgärder: B ska medla; uppföljning 1-till-1 den 15:e.",
+        "Risker: Tänk om Chef B är frånvarande?",
+        "Kritik: Detta är inte *fel*, men det är sterilt. Det har förlorat konversationens mänskliga 'temperatur'."
+      ]
     },
-    "h2": "1-till-1-exempel: behåll temperatur och besluts-kontext",
     "optimized": {
-      "h3": "Optimerat (1-till-1-format)",
-      "items": {
-        "0": "Kärnemosion: oro/trötthet; lättnad när konkreta alternativ kom",
-        "1": "Kontext: otydliga roller sedan april; många sena ändringar",
-        "2": "Nyckeldiskussion: standardisera en ”begäran-mall”",
-        "3": "Överenskommelser: B medlar tills vidare; effektmätning om två veckor",
-        "4": "Nästa steg: B = utkast idag; A = tillämpa & ge feedback nästa onsdag"
-      }
+      "h3": "Optimerad 1-till-1 (fångar kontext & ton)",
+      "items": [
+        "Fångar kärnkänslan och tonen (t.ex. 'Frustrerad men öppen')",
+        "Sammanfattar medarbetarens perspektiv och farhågor",
+        "Listar chefens åtaganden och överenskommelser",
+        "Bevarar sammanhanget så att uppföljningen blir meningsfull."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Sammanfattning: vad gör ett protokoll ”meningsfullt”?",
-    "note": "Om dessa fyra är synliga direkt säkerställs grundläggande läsbarhet — det minsta användbara ramverket.",
-    "p1": {
-      "link": "här (Del 1)",
-      "post": ".",
-      "pre": "Tidigare definierade vi ”meningsfulla protokoll”. Om du missade det, börja"
-    },
-    "points": {
-      "0": "Discussion (diskussion)",
-      "1": "Decisions (beslut)",
-      "2": "Action Items (ansvarig & deadline)",
-      "3": "Concerns (öppna risker)"
-    }
-  },
-  "seo": {
-    "description": "Utöver de fyra universella elementen: mötesspecifik optimering gör protokollet genomförbart. Per {{date}} använder över {{users}} personer Protokoll AI.",
-    "ld": {
-      "description": "Hur Protokoll AI optimerar output per mötestyp och gör protokoll till en handlingsplan.",
-      "headline": "Varför Protokoll AI fungerar för alla möten"
-    },
-    "ogDescription": "Behåll ton och kontext samtidigt som beslut och genomförande drivs med mötes-optimerade outputs.",
-    "ogTitle": "Varför Protokoll AI fungerar oavsett mötestyp",
-    "title": "Varför Protokoll AI fungerar för alla möten | Protokoll AI Blogg"
   },
   "why": {
-    "h2": "Varför Protokoll AI fungerar för alla möten",
-    "items": {
-      "0": "Syftes-fit: variabla sektioner efter mötets mål",
-      "1": "Temperatur-bevarande: extrahera ton och behåll kontext",
-      "2": "Spårbarhet i beslut: tydliga grenar mellan klart/väntar",
-      "3": "Redo för genomförande: normalisera ansvar, deadlines och kriterier",
-      "4": "Kontinuerligt lärande: förbättringar drivna av A/B-tester"
-    }
+    "h2": "Det är därför Protokoll AI utmärker sig",
+    "items": [
+      "Börjar med en tydlig, universell baslinje (Beslut, Åtgärder).",
+      "Optimerar formatet intelligent för mötets 'syfte'.",
+      "Fångar 'temperaturen' och sammanhanget, inte bara torra fakta.",
+      "Förbättrar ständigt 'det mest värdefulla resultatet' för varje scenario.",
+      "Levererar strukturerade, sökbara protokoll som 'faktiskt' är användbara."
+    ]
   },
   "wrap": {
-    "h2": "Avslutning",
-    "p": "De fyra elementen är en stark grund. När du optimerar per mötestyp blir protokollet en handlingsplan. Protokoll AI levererar detta som standard — använd det i verkliga möten."
+    "h2": "Upplev det själv",
+    "p": "En baslinje är bara början. Sluta nöja dig med 'smaklösa' protokoll som tappar det som är viktigt."
+  },
+  "cta": {
+    "openBrowser": "Öppna i webbläsare",
+    "downloadIOS": "Ladda ner iOS-app",
+    "downloadGooglePlay": "Hämta den på Google Play"
   }
 }

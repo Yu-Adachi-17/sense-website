@@ -1,167 +1,124 @@
 {
-  "a11y": {
-    "home": "Torna alla Home di Verbali IA"
-  },
-  "byline": {
-    "name": "Scritto da Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Scarica su iOS",
-    "openBrowser": "Apri la Web App"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Tipi di riunione rappresentativi",
-      "items": {
-        "0": "Aggiornamenti settimanali: stato, problemi, contromisure",
-        "1": "Brainstorming: divergere e convergere sulle idee",
-        "2": "Riunioni di vendita: allineare interessi e raggiungere un accordo"
-      }
-    },
-    "h2": "Le riunioni sono varie: obiettivi diversi, valore diverso",
-    "p1": "Ogni volta che si parla verso un obiettivo condiviso, è una riunione. E quando l’obiettivo cambia, cambia anche la forma del valore prodotto.",
-    "wide": {
-      "h3": "“Riunioni” in senso ampio",
-      "items": {
-        "0": "1:1: rivedere i risultati, fissare il prossimo obiettivo, far emergere le preoccupazioni",
-        "1": "Colloqui: allineare requisiti e fit",
-        "2": "Presentazioni: enunciare problema e soluzione proposta",
-        "3": "Lezioni/Formazione: trasferire operatività e know-how"
-      }
+  "seo": {
+    "title": "Perché Verbali IA fornisce i migliori verbali per qualsiasi tipo di riunione",
+    "description": "Un modello generico fallisce. Scopri perché l'IA deve catturare la 'temperatura' di un incontro 1-on-1 o di un brainstorming.",
+    "ogTitle": "Oltre i 'To-Do': Perché i tuoi verbali 1-on-1 sembrano 'insipidi'",
+    "ogDescription": "Una semplice lista di cose da fare non è un buon riassunto di un 1-on-1. Scopri come Verbali IA adatta il suo output allo 'scopo' della tua riunione.",
+    "ld": {
+      "headline": "Il problema dei verbali 'taglia unica' (e come risolverlo)",
+      "description": "Una base pragmatica è utile, ma non riesce a catturare la 'temperatura' delle riunioni incentrate sull'uomo."
     }
   },
-  "hero": {
-    "h1": "Perché Verbali IA offre verbali migliori per ogni riunione",
-    "kicker": "Verbali IA Blog",
-    "tagline": "I quattro pilastri universali rendono leggibili le note. Ottimizzando per lo scopo della riunione, i verbali passano da “registro da leggere” a “blueprint per agire”."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Se usi solo un formato generico",
-      "items": {
-        "0": "Catturerai temi, decisioni, attività e preoccupazioni — buona base",
-        "1": "Ma tono, peso e contesto spesso scompaiono",
-        "2": "Rileggendo dopo, il “perché della decisione” appare debole"
-      }
-    },
-    "h2": "I limiti dell’unico formato per tutti",
-    "optimized": {
-      "h3": "Se ottimizzi (esempio 1:1)",
-      "items": {
-        "0": "Core Emotion / Tone: riassumere temperatura e psicologia",
-        "1": "Context / Background: cambi organizzativi, ruoli, punti di attrito",
-        "2": "Key Discussion (utterance × summary): traccia verso l’allineamento",
-        "3": "Agreements / Next Actions / Risks: normalizzare per l’esecuzione"
-      }
-    },
-    "p1": "I quattro pilastri — Discussion, Decisions, Action Items, Concerns — funzionano quasi ovunque, ma alcuni tipi perdono “temperatura” e contesto. Soprattutto i 1:1."
+  "aria": {
+    "home": "Verbali IA Home"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Perché Verbali IA offre verbali migliori per ogni riunione"
+    "current": "Perché l'IA deve adattarsi"
   },
-  "oneonone": {
-    "generic": {
-      "h3": "Solo i quattro pilastri universali",
-      "items": {
-        "0": "Tema: preoccupazione di A (relazioni di team)",
-        "1": "Decisione: B farà da mediatore",
-        "2": "Azioni: avviare mediazione; prossimo 1:1 il 15",
-        "3": "Preoccupazione: nessun fallback se B assente"
-      }
-    },
-    "h2": "Esempio 1:1: mantenere la temperatura, preservare il contesto",
-    "optimized": {
-      "h3": "Ottimizzato (formato 1:1)",
-      "items": {
-        "0": "Core Emotion: ansia e fatica; sollievo quando la proposta passa",
-        "1": "Context: riorganizzazione di aprile ha sfocato i ruoli; frequenti edit a posteriori",
-        "2": "Key Discussion: creare template di richiesta → adozione a livello team",
-        "3": "Agreements: B media per ora; misurare impatto tra due settimane",
-        "4": "Next Actions: B redige oggi il template; A lo applica e riporta mercoledì"
-      }
-    }
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Perché Verbali IA ti offre verbali migliori per *qualsiasi* tipo di riunione",
+    "tagline": "Una base universale (Decisioni, To-Do, Rischi) garantisce chiarezza. Ma i grandi verbali si 'adattano'. Un 1-on-1 e una chiamata di vendita non dovrebbero avere lo stesso formato."
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "h2": "Recap veloce: cosa rende significativi i verbali?",
-    "note": "Saper scansionare questi quattro a colpo d’occhio è il minimo. Questa base garantisce leggibilità.",
+    "h2": "Riepilogo: La base dei 'verbali significativi'",
     "p1": {
-      "link": "Parte 1",
-      "post": ".",
-      "pre": "Nel post precedente abbiamo definito i “verbali significativi”. Se l’hai perso, inizia da "
+      "pre": "Nel nostro",
+      "link": "articolo precedente",
+      "post": ", abbiamo definito i 'verbali significativi' come la capacità di sapere 'chi fa cosa ed entro quando' a colpo d'occhio."
     },
-    "points": {
-      "0": "Discussion",
-      "1": "Decisions",
-      "2": "Action Items (owner & due date)",
-      "3": "Concerns (open risks / unresolved)"
+    "points": [
+      "Punti di discussione",
+      "Decisioni chiave",
+      "Azioni da intraprendere (To-Do)",
+      "Questioni in sospeso e rischi"
+    ],
+    "note": "Questo solleva una domanda cruciale: questo formato unico è 'sufficientemente buono' per *ogni* tipo di riunione?"
+  },
+  "diversity": {
+    "h2": "Il problema: Non tutte le riunioni sono uguali",
+    "core": {
+      "h3": "Riunioni tipiche",
+      "items": [
+        "Check-in settimanale (Aggiornamenti e tattiche)",
+        "Brainstorming (Generazione di idee)",
+        "Vendita / negoziazione (Impegni)"
+      ]
+    },
+    "wide": {
+      "h3": "Lo spettro più ampio di 'riunioni'",
+      "items": [
+        "1-on-1 (Crescita e feedback)",
+        "Colloquio (Valutazione)",
+        "Workshop / Lezione (Apprendimento)"
+      ]
+    },
+    "p1": "Ogni volta che le persone si riuniscono per uno scopo comune, è una 'riunione'. Forzare ogni conversazione nello stesso modello è riduttivo."
+  },
+  "limits": {
+    "h2": "Il limite del modello 'taglia unica'",
+    "p1": "Forzare ogni conversazione nelle stesse quattro categorie crea verbali 'insipidi' che perdono tutto il contesto critico.",
+    "generic": {
+      "h3": "La base generica (manca di 'temperatura')",
+      "items": [
+        "Garantisce un riepilogo coerente e leggibile",
+        "Facile da ricercare in tutte le riunioni",
+        "Cattura i risultati chiave (decisioni, to-do)"
+      ]
+    },
+    "optimized": {
+      "h3": "L'output ottimizzato (cattura lo scopo)",
+      "items": [
+        "Negoziazione: Traccia obiezioni, alternative e impegni.",
+        "Brainstorming: Cattura temi e idee grezze.",
+        "Retrospettiva: Raggruppa feedback (Mantenere, Problema, Provare)."
+      ]
     }
   },
-  "seo": {
-    "alternateLangs": {
-      "ja": "{{canonicalJa}}"
+  "oneonone": {
+    "h2": "Esempio 1-on-1: Il problema della 'temperatura persa'",
+    "generic": {
+      "h3": "Verbale generico (ma 'insipido')",
+      "items": [
+        "Discussione: Il dipendente A ha problemi con le dinamiche del team.",
+        "Decisione: Il manager B farà da mediatore.",
+        "To-Do: B fa da mediatore; follow-up 1-on-1 il 15.",
+        "Rischi: E se il manager B è assente?",
+        "Critica: Non è *sbagliato*, ma è sterile. Ha perso la 'temperatura' umana della conversazione."
+      ]
     },
-    "articleSection": "Produttività, AI",
-    "canonical": "{{canonical}}",
-    "description": "Leggibile per design, azionabile per scopo. Con l’ottimizzazione per tipo di riunione, Verbali IA trasforma le note in blueprint. {{users}}+ utenti al {{date}}.",
-    "keywords": "AI meeting minutes, AI meeting notes, automazione note riunione, note one-on-one, verbali di vendita, note brainstorming, note presentazione, action items, tracciamento decisioni, Verbali IA",
-    "ld": {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "author": {
-        "@type": "Person",
-        "name": "Yu Adachi"
-      },
-      "dateModified": "{{dateISO}}",
-      "datePublished": "{{dateISO}}",
-      "description": "Come l’ottimizzazione per tipo in Verbali IA preserva tono e contesto, chiarisce le decisioni e guida l’azione.",
-      "headline": "Perché Verbali IA offre verbali migliori per ogni riunione",
-      "image": "{{ogImage}}",
-      "inLanguage": "it",
-      "keywords": "AI meeting minutes, meeting notes, Verbali IA",
-      "mainEntityOfPage": {
-        "@id": "{{canonical}}",
-        "@type": "WebPage"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{publisherLogo}}"
-        },
-        "name": "Sense G.K."
-      }
-    },
-    "ogDescription": "Dai 1:1 e chiamate di vendita ai brainstorm — Verbali IA preserva tono e contesto, chiarisce le decisioni e guida l’esecuzione.",
-    "ogImage": "{{ogImage}}",
-    "ogTitle": "Perché Verbali IA funziona per ogni tipo di riunione",
-    "readingTimeMinutes": 6,
-    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
-    "slug": "why-minutes-ai-delivers-better-meeting-minutes",
-    "tags": [
-      "AI meeting minutes",
-      "meeting notes",
-      "1:1s",
-      "sales",
-      "brainstorming",
-      "productivity"
-    ],
-    "title": "Perché Verbali IA offre verbali migliori per ogni riunione | Verbali IA Blog",
-    "twitterCard": "summary_large_image"
+    "optimized": {
+      "h3": "1-on-1 ottimizzato (cattura contesto e tono)",
+      "items": [
+        "Cattura l'emozione e il tono centrale (es. 'Frustrato ma aperto')",
+        "Riassume la prospettiva e le preoccupazioni del dipendente",
+        "Elenca gli impegni e gli accordi del manager",
+        "Conserva il contesto affinché il follow-up sia significativo."
+      ]
+    }
   },
   "why": {
-    "h2": "Perché Verbali IA funziona per “qualsiasi” riunione",
-    "items": {
-      "0": "Struttura adatta all’obiettivo: i campi si adattano allo scopo",
-      "1": "Conservazione del tono: estrarre emozione e preservare contesto",
-      "2": "Tracciabilità delle decisioni: evidenziare bivi tra accordo e hold",
-      "3": "Pronto all’esecuzione: normalizzazione di owner, scadenza, criteri di successo",
-      "4": "Apprendimento continuo: A/B degli output e miglioramento"
-    }
+    "h2": "Ecco perché Verbali IA eccelle",
+    "items": [
+      "Inizia con una base chiara e universale (Decisioni, To-Do).",
+      "Ottimizza intelligentemente il formato per lo 'scopo' della riunione.",
+      "Cattura la 'temperatura' e il contesto, non solo fatti aridi.",
+      "Migliora costantemente l''output più prezioso' per ogni scenario.",
+      "Fornisce verbali strutturati e ricercabili che sono 'davvero' utili."
+    ]
   },
   "wrap": {
-    "h2": "Takeaway",
-    "p": "I quattro pilastri universali sono una base solida. Spingi oltre con l’ottimizzazione per tipo di riunione e i verbali evolvono da registro a blueprint d’azione. Verbali IA lo offre di default — provalo sul lavoro reale."
+    "h2": "Provalo tu stesso",
+    "p": "Una base è solo l'inizio. Smetti di accontentarti di verbali 'insipidi' che perdono ciò che è importante."
+  },
+  "cta": {
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica l'app iOS",
+    "downloadGooglePlay": "Scarica da Google Play"
   }
 }

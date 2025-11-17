@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Kembali ke Laman Utama Minit AI"
+  "seo": {
+    "title": "Mengapa Minit AI Memberikan Minit Terbaik untuk Sebarang Jenis Mesyuarat",
+    "description": "Templat generik gagal. Ketahui mengapa AI mesti menangkap 'suhu' perjumpaan 1-on-1 atau sesi sumbang saran.",
+    "ogTitle": "Lebih Daripada 'To-Do': Mengapa Minit 1-on-1 Anda Terasa 'Hambar'",
+    "ogDescription": "Senarai tugas semata-mata bukanlah ringkasan 1-on-1 yang baik. Ketahui bagaimana Minit AI menyesuaikan outputnya untuk sepadan dengan 'tujuan' mesyuarat anda.",
+    "ld": {
+      "headline": "Masalah Minit 'Satu Saiz Sesuai untuk Semua' (Dan Cara Memperbaikinya)",
+      "description": "Garis dasar yang pragmatik memang berguna, tetapi ia gagal menangkap 'suhu' mesyuarat yang bertumpu kepada manusia."
+    }
+  },
+  "aria": {
+    "home": "Minit AI Halaman Utama"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Mengapa AI Mesti Beradaptasi"
+  },
+  "hero": {
+    "kicker": "Buku Panduan",
+    "h1": "Mengapa Minit AI Memberikan Anda Minit yang Lebih Baik untuk *Sebarang* Jenis Mesyuarat",
+    "tagline": "Garis dasar universal (Keputusan, Tugasan, Risiko) memastikan kejelasan. Tetapi minit yang hebat 'beradaptasi'. Sesi 1-on-1 dan panggilan jualan tidak sepatutnya mempunyai format yang sama."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Muat turun di iOS",
-    "openBrowser": "Buka aplikasi web"
+  "recap": {
+    "h2": "Imbas Kembali: Garis Dasar 'Minit yang Bermakna'",
+    "p1": {
+      "pre": "Dalam",
+      "link": "artikel kami sebelum ini",
+      "post": ", kami mentakrifkan 'minit yang bermakna' sebagai mengetahui 'siapa buat apa dan bila' dengan sekali pandang."
+    },
+    "points": [
+      "Perkara perbincangan",
+      "Keputusan penting",
+      "Tindakan Susulan (To-Do)",
+      "Risiko dan halangan"
+    ],
+    "note": "Ini menimbulkan persoalan yang tajam: Adakah format tunggal ini 'cukup baik' untuk *setiap* jenis mesyuarat?"
   },
   "diversity": {
+    "h2": "Masalahnya: Tidak Semua Mesyuarat Dicipta Sama",
     "core": {
-      "h3": "Mesyuarat representatif",
-      "items": {
-        "0": "Berulang/status: semakan metrik, isu dan tindakan secara berkala",
-        "1": "Brainstorming: jana idea dan menumpukannya",
-        "2": "Jualan/Rundingan: selaraskan kepentingan dan capai persetujuan"
-      }
+      "h3": "Mesyuarat Biasa",
+      "items": [
+        "Daftar masuk mingguan (Kemas kini & taktik)",
+        "Sumbang saran (Penjanaan idea)",
+        "Jualan & rundingan (Komitmen)"
+      ]
     },
-    "h2": "Mesyuarat pelbagai: tujuan berbeza, output berbeza",
-    "p1": "Setiap kali orang berbincang tentang tujuan bersama, itu mesyuarat—dan output paling bernilai berubah mengikut tujuan.",
     "wide": {
-      "h3": "Dalam erti kata luas sebagai “mesyuarat”",
-      "items": {
-        "0": "1-on-1: semakan, sasaran seterusnya, kongsi kebimbangan",
-        "1": "Temuduga: kehendak peranan dan kesesuaian",
-        "2": "Pembentangan: masalah dan penyelesaian",
-        "3": "Latihan: pemindahan ilmu operasi"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Mengapa Minit AI menghasilkan minit terbaik untuk apa jua jenis mesyuarat",
-    "kicker": "Blog Minit AI",
-    "tagline": "Empat elemen universal meningkatkan keterbacaan. Tetapi pengoptimuman mengikut tujuan mesyuarat mengubah minit daripada sekadar bacaan kepada pelan tindakan."
+      "h3": "Spektrum 'Mesyuarat' yang Lebih Luas",
+      "items": [
+        "1-on-1 (Pertumbuhan & maklum balas)",
+        "Temu duga (Penilaian)",
+        "Bengkel atau Syarahan (Pembelajaran)"
+      ]
+    },
+    "p1": "Setiap kali orang berkumpul untuk tujuan bersama, ia adalah 'mesyuarat'. Memaksa setiap perbualan ke dalam templat yang sama adalah kasar."
   },
   "limits": {
+    "h2": "Had Templat 'Satu Saiz Sesuai untuk Semua'",
+    "p1": "Memaksa setiap perbualan ke dalam empat kategori yang sama mencipta minit 'hambar' yang kehilangan semua konteks kritikal.",
     "generic": {
-      "h3": "Jika hanya guna format universal",
-      "items": {
-        "0": "Topik, keputusan, tugas dan kebimbangan ditangkap—asas yang baik",
-        "1": "Namun nada, berat dan latar belakang sering hilang",
-        "2": "Kemudian, “mengapa” di sebalik keputusan menjadi kabur"
-      }
+      "h3": "Garis Dasar Generik (Kekurangan 'Suhu')",
+      "items": [
+        "Menjamin ringkasan yang konsisten dan mudah dibaca",
+        "Mudah dicari merentasi semua mesyuarat",
+        "Menangkap hasil utama (keputusan, tugasan)"
+      ]
     },
-    "h2": "Had format satu-untuk-semua",
     "optimized": {
-      "h3": "Jika dioptimumkan (contoh 1-on-1)",
-      "items": {
-        "0": "Emosi/Nada teras: rumuskan suhu dan psikologi perbualan",
-        "1": "Konteks/Latar: perubahan organisasi, peranan, titik geseran",
-        "2": "Perbincangan utama (petikan × ringkasan): laluan ke persetujuan",
-        "3": "Persetujuan / Tindakan seterusnya / Risiko: dinormal untuk pelaksanaan"
-      }
-    },
-    "p1": "Empat elemen tersebut umumnya berkesan, namun sesetengah mesyuarat kehilangan “suhu” dan konteks—terutamanya 1-on-1—menyukarkan kefahaman apabila dirujuk semula."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Mengapa Minit AI menghasilkan minit terbaik untuk apa jua jenis mesyuarat"
+      "h3": "Output yang Dioptimumkan (Menangkap Tujuan)",
+      "items": [
+        "Rundingan: Menjejaki bantahan, alternatif, dan komitmen.",
+        "Sumbang saran: Menangkap tema dan idea mentah.",
+        "Retrospektif: Mengumpulkan maklum balas (Kekalkan, Masalah, Cuba)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "Contoh 1-on-1: Masalah 'Suhu yang Hilang'",
     "generic": {
-      "h3": "Hanya empat elemen universal",
-      "items": {
-        "0": "Kebimbangan A (hubungan pasukan) timbul",
-        "1": "Keputusan: Pengurus B menjadi orang tengah",
-        "2": "Tindakan: mediasi; 1-on-1 seterusnya pada 15hb",
-        "3": "Kebimbangan: tiada pelan jika B tiada"
-      }
+      "h3": "Minit Generik (Tetapi 'Hambar')",
+      "items": [
+        "Perbincangan: Pekerja A bergelut dengan dinamik pasukan.",
+        "Keputusan: Pengurus B akan menjadi pengantara.",
+        "Tugasan: B untuk menjadi pengantara; susulan 1-on-1 pada 15hb.",
+        "Risiko: Bagaimana jika Pengurus B tiada?",
+        "Kritikan: Ini tidak *salah*, tetapi ia steril. Ia telah kehilangan 'suhu' kemanusiaan dalam perbualan itu."
+      ]
     },
-    "h2": "Contoh 1-on-1: kekalkan “suhu” dan konteks keputusan",
     "optimized": {
-      "h3": "Dioptimumkan (format 1-on-1)",
-      "items": {
-        "0": "Emosi teras: cemas/letih; lega apabila opsyen konkrit muncul",
-        "1": "Konteks: kekaburan peranan sejak April; perubahan lewat kerap",
-        "2": "Perbincangan utama: seragamkan templat permintaan",
-        "3": "Persetujuan: B memediasi buat sementara; ukur kesan dalam 2 minggu",
-        "4": "Tindakan seterusnya: B = draf hari ini; A = guna & beri maklum balas Rabu depan"
-      }
+      "h3": "1-on-1 yang Dioptimumkan (Menangkap Konteks & Nada)",
+      "items": [
+        "Menangkap emosi dan nada teras (cth. 'Kecewa tetapi terbuka')",
+        "Meringkaskan perspektif dan kebimbangan pekerja",
+        "Menyenaraikan komitmen dan persetujuan pengurus",
+        "Mengekalkan konteks supaya susulan itu bermakna."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Ringkasan: Apakah itu minit yang “bermakna”?",
-    "note": "Jika keempat-empat ini jelas kelihatan, keterbacaan asas sudah terjamin—itulah rangka minimum yang boleh digunakan.",
-    "p1": {
-      "link": "di sini (Bahagian 1)",
-      "post": ".",
-      "pre": "Sebelum ini kami mentakrifkan “minit bermakna”. Jika terlepas, mula"
-    },
-    "points": {
-      "0": "Discussion (perbincangan)",
-      "1": "Decisions (keputusan)",
-      "2": "Action Items (pemilik & tarikh akhir)",
-      "3": "Concerns (risiko belum selesai)"
-    }
-  },
-  "seo": {
-    "description": "Lebih daripada empat elemen universal: pengoptimuman khusus jenis mesyuarat menjadikan minit siap dilaksanakan. Sehingga {{date}}, lebih {{users}} pengguna menggunakan Minit AI.",
-    "ld": {
-      "description": "Cara Minit AI mengoptimumkan output mengikut jenis mesyuarat dan menukar minit kepada pelan tindakan.",
-      "headline": "Mengapa Minit AI berkesan untuk semua mesyuarat"
-    },
-    "ogDescription": "Kekalkan nada dan konteks sambil memacu keputusan serta pelaksanaan melalui output yang dioptimumkan.",
-    "ogTitle": "Mengapa Minit AI sesuai untuk semua jenis mesyuarat",
-    "title": "Mengapa Minit AI berkesan untuk semua mesyuarat | Blog Minit AI"
   },
   "why": {
-    "h2": "Mengapa Minit AI berkesan untuk semua jenis mesyuarat",
-    "items": {
-      "0": "Padanan tujuan: seksyen berubah mengikut objektif",
-      "1": "Kekalkan suhu: ekstrak nada dan simpan konteks",
-      "2": "Kebolehjejak keputusan: jelaskan cabang setuju/tertunda",
-      "3": "Sedia laksana: normalkan pemilik, tarikh akhir dan kriteria",
-      "4": "Pembelajaran berterusan: penambahbaikan dipacu ujian A/B"
-    }
+    "h2": "Inilah Sebabnya Minit AI Cemerlang",
+    "items": [
+      "Bermula dengan garis dasar universal yang jelas (Keputusan, Tugasan).",
+      "Mengoptimumkan format secara bijak untuk 'tujuan' mesyuarat.",
+      "Menangkap 'suhu' dan konteks, bukan hanya fakta kering.",
+      "Sentiasa menambah baik 'output paling berharga' untuk setiap senario.",
+      "Memberikan minit berstruktur dan boleh dicari yang 'benar-benar' berguna."
+    ]
   },
   "wrap": {
-    "h2": "Penutup",
-    "p": "Empat elemen ialah asas kukuh. Dengan pengoptimuman mengikut jenis mesyuarat, minit menjadi cetak biru tindakan. Minit AI menyediakannya secara lalai—guna dalam mesyuarat sebenar."
+    "h2": "Alaminya Sendiri",
+    "p": "Garis dasar hanyalah permulaan. Berhenti berpuas hati dengan minit 'hambar' yang kehilangan apa yang penting."
+  },
+  "cta": {
+    "openBrowser": "Buka dalam pelayar",
+    "downloadIOS": "Muat turun aplikasi iOS",
+    "downloadGooglePlay": "Dapatkannya di Google Play"
   }
 }

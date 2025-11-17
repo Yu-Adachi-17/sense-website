@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Terug naar de Notulen AI-startpagina"
+  "seo": {
+    "title": "Waarom Notulen AI de beste notulen levert voor elk type vergadering",
+    "description": "Een generiek sjabloon faalt. Leer waarom AI de 'temperatuur' van een 1-op-1 gesprek of brainstormsessie moet vastleggen.",
+    "ogTitle": "Verder dan 'To-Do's': Waarom uw 1-op-1 notulen 'smaakloos' aanvoelen",
+    "ogDescription": "Een simpele to-do lijst is geen goede 1-op-1 samenvatting. Leer hoe Notulen AI zijn output aanpast aan het 'doel' van uw vergadering.",
+    "ld": {
+      "headline": "Het 'one-size-fits-all' probleem met notulen (en de oplossing)",
+      "description": "Een pragmatische basis is nuttig, maar slaagt er niet in de 'temperatuur' van mensgerichte vergaderingen vast te leggen."
+    }
+  },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Waarom AI zich moet aanpassen"
+  },
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Waarom Notulen AI u betere notulen geeft voor *elk* type vergadering",
+    "tagline": "Een universele basis (Besluiten, Acties, Risico's) zorgt voor duidelijkheid. Maar geweldige notulen 'passen zich aan'. Een 1-op-1 en een verkoopgesprek horen niet hetzelfde format te hebben."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Downloaden voor iOS",
-    "openBrowser": "Webapp openen"
+  "recap": {
+    "h2": "Samenvatting: De basis van 'zinvolle notulen'",
+    "p1": {
+      "pre": "In ons",
+      "link": "vorige artikel",
+      "post": "definieerden we 'zinvolle notulen' als in één oogopslag weten 'wie wat doet en tegen wanneer'."
+    },
+    "points": [
+      "Discussiepunten",
+      "Belangrijke besluiten",
+      "Actiepunten (To-Do)",
+      "Risico's en blokkades"
+    ],
+    "note": "Dit roept een scherpe vraag op: Is dit ene format 'goed genoeg' voor *elk* type vergadering?"
   },
   "diversity": {
+    "h2": "Het probleem: Niet alle vergaderingen zijn gelijk",
     "core": {
-      "h3": "Representatieve meetings",
-      "items": {
-        "0": "Periodiek/status: periodieke review van metrics, issues en acties",
-        "1": "Brainstorm: ideeën genereren en convergeren",
-        "2": "Sales/onderhandeling: belangen afstemmen en overeenstemming bereiken"
-      }
+      "h3": "Typische vergaderingen",
+      "items": [
+        "Wekelijkse check-in (Updates & tactiek)",
+        "Brainstormen (Ideeëngeneratie)",
+        "Verkoop / onderhandeling (Toezeggingen)"
+      ]
     },
-    "h2": "Vergaderingen zijn divers: ander doel, ander output",
-    "p1": "Zodra mensen een gezamenlijk doel bespreken, is er een meeting—and het meest waardevolle output verandert met het doel.",
     "wide": {
-      "h3": "Ruimer begrip van “meeting”",
-      "items": {
-        "0": "1-op-1: review, volgende doelen, zorgen delen",
-        "1": "Interview: rolvereisten en fit",
-        "2": "Presentatie: probleem en oplossing",
-        "3": "Training: overdracht van operationele knowhow"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Waarom Notulen AI de beste notulen levert voor elk type meeting",
-    "kicker": "Notulen AI Blog",
-    "tagline": "De vier universele elementen verhogen de leesbaarheid. Door te optimaliseren per vergaderdoel worden notulen echter een blauwdruk voor actie—niet slechts een stuk tekst."
+      "h3": "Het bredere spectrum van 'vergaderingen'",
+      "items": [
+        "1-op-1 (Groei & feedback)",
+        "Interview (Evaluatie)",
+        "Workshop / Lezing (Leren)"
+      ]
+    },
+    "p1": "Elke keer dat mensen samenkomen voor een gemeenschappelijk doel, is het een 'vergadering'. Elk gesprek in hetzelfde sjabloon dwingen is kortzichtig."
   },
   "limits": {
+    "h2": "De limiet van een 'one-size-fits-all' sjabloon",
+    "p1": "Elk gesprek in dezelfde vier categorieën dwingen, creëert 'smaakloze' notulen die alle cruciale context verliezen.",
     "generic": {
-      "h3": "Wanneer je alleen het universele formaat toepast",
-      "items": {
-        "0": "Je vangt onderwerp, besluiten, taken en zorgen—goede basis",
-        "1": "Maar toon, gewicht en achtergrond raken vaak kwijt",
-        "2": "Later wordt het “waarom” achter besluiten vager"
-      }
+      "h3": "De generieke basis (mist 'temperatuur')",
+      "items": [
+        "Garandeert een consistente, leesbare samenvatting",
+        "Makkelijk doorzoekbaar over alle vergaderingen",
+        "Vangt kernresultaten (besluiten, acties)"
+      ]
     },
-    "h2": "Beperkingen van één formaat voor alles",
     "optimized": {
-      "h3": "Wanneer je optimaliseert (1-op-1-voorbeeld)",
-      "items": {
-        "0": "Kernemotie/toon: temperatuur en psychologie samenvatten",
-        "1": "Context/achtergrond: org-wijzigingen, rollen, frictiepunten",
-        "2": "Kernbespreking (citaat × samenvatting): pad naar overeenstemming",
-        "3": "Afspraken / Volgende acties / Risico’s: genormaliseerd voor uitvoering"
-      }
-    },
-    "p1": "De vier elementen werken breed, maar sommige meetings verliezen “temperatuur” en context—vooral 1-op-1—waardoor herlezing minder helder wordt."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Waarom Notulen AI de beste notulen levert voor elk type meeting"
+      "h3": "De geoptimaliseerde output (vangt het doel)",
+      "items": [
+        "Onderhandeling: Volgt bezwaren, alternatieven en toezeggingen.",
+        "Brainstorm: Vangt thema's en ruwe ideeën.",
+        "Retrospectief: Groepeert feedback (Behouden, Probleem, Proberen)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "1-op-1 voorbeeld: Het 'verloren temperatuur' probleem",
     "generic": {
-      "h3": "Alleen de vier universele elementen",
-      "items": {
-        "0": "Zorg van A (teamrelaties) kwam naar voren",
-        "1": "Besluit: manager B treedt op als mediator",
-        "2": "Acties: mediatie; volgende 1-op-1 op de 15e",
-        "3": "Zorg: geen plan wanneer B afwezig is"
-      }
+      "h3": "Generieke (maar 'smaakloze') notulen",
+      "items": [
+        "Discussie: Medewerker A worstelt met teamdynamiek.",
+        "Besluit: Manager B zal bemiddelen.",
+        "Acties: B bemiddelt; follow-up 1-op-1 op de 15e.",
+        "Risico's: Wat als Manager B afwezig is?",
+        "Kritiek: Dit is niet *fout*, maar het is steriel. Het heeft de menselijke 'temperatuur' van het gesprek verloren."
+      ]
     },
-    "h2": "1-op-1-voorbeeld: temperatuur en besluitcontext behouden",
     "optimized": {
-      "h3": "Geoptimaliseerd (1-op-1-formaat)",
-      "items": {
-        "0": "Kernemotie: angst/moeheid; opluchting bij concrete opties",
-        "1": "Context: rolonduidelijkheid sinds april; veel late wijzigingen",
-        "2": "Kernbespreking: standaardiseer een “verzoek-template”",
-        "3": "Afspraken: B medieert voorlopig; effectmeting over twee weken",
-        "4": "Volgende acties: B = concept vandaag; A = toepassen & feedback volgende woensdag"
-      }
+      "h3": "Geoptimaliseerde 1-op-1 (vangt context & toon)",
+      "items": [
+        "Vangt kernemotie en toon (bijv. 'Gefrustreerd maar open')",
+        "Vat het perspectief en de zorgen van de medewerker samen",
+        "Lijst de toezeggingen en afspraken van de manager op",
+        "Behoudt context zodat de follow-up zinvol is."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Terugblik: wat maakt notulen “betekenisvol”?",
-    "note": "Als deze vier direct zichtbaar zijn, is basisleesbaarheid gewaarborgd—het minimaal bruikbare raamwerk.",
-    "p1": {
-      "link": "hier (Deel 1)",
-      "post": ".",
-      "pre": "Eerder definieerden we “betekenisvolle notulen”. Als je het gemist hebt, begin"
-    },
-    "points": {
-      "0": "Discussion (bespreking)",
-      "1": "Decisions (besluiten)",
-      "2": "Action Items (eigenaar & deadline)",
-      "3": "Concerns (openstaande risico’s)"
-    }
-  },
-  "seo": {
-    "description": "Verder dan de vier universele elementen: meeting-specifieke optimalisatie maakt notulen uitvoerbaar. Per {{date}} gebruiken meer dan {{users}} mensen Notulen AI.",
-    "ld": {
-      "description": "Hoe Notulen AI output optimaliseert per meetingtype en notulen verandert in een blauwdruk voor uitvoering.",
-      "headline": "Waarom Notulen AI werkt voor elke meeting"
-    },
-    "ogDescription": "Behoud toon en context terwijl je beslissingen en uitvoering versnelt met geoptimaliseerde outputs.",
-    "ogTitle": "Waarom Notulen AI werkt voor elk type meeting",
-    "title": "Waarom Notulen AI werkt voor elke meeting | Notulen AI Blog"
   },
   "why": {
-    "h2": "Waarom Notulen AI werkt voor elke meeting",
-    "items": {
-      "0": "Doel-fit: variabele secties per vergaderdoel",
-      "1": "Temperatuurbehoud: toon extraheren en context behouden",
-      "2": "Traceerbaarheid van besluiten: splitsingen tussen akkoord/in afwachting",
-      "3": "Klaar voor uitvoering: eigenaren, deadlines en criteria normaliseren",
-      "4": "Continu leren: A/B-gedreven verbeteringen"
-    }
+    "h2": "Dit is waarom Notulen AI uitblinkt",
+    "items": [
+      "Begint met een duidelijke, universele basis (Besluiten, Acties).",
+      "Optimaliseert op intelligente wijze het format voor het 'doel' van de vergadering.",
+      "Vangt de 'temperatuur' en context, niet alleen droge feiten.",
+      "Verbetert voortdurend de 'meest waardevolle output' voor elk scenario.",
+      "Levert gestructureerde, doorzoekbare notulen die 'echt' nuttig zijn."
+    ]
   },
   "wrap": {
-    "h2": "Afronding",
-    "p": "De vier elementen vormen een sterk fundament. Met optimalisatie per meetingtype worden notulen een blauwdruk voor actie. Notulen AI levert dit standaard—gebruik het in echte meetings."
+    "h2": "Ervaar het zelf",
+    "p": "Een basis is slechts het begin. Stop met genoegen nemen met 'smaakloze' notulen die het belangrijke missen."
+  },
+  "cta": {
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS-app",
+    "downloadGooglePlay": "Download via Google Play"
   }
 }

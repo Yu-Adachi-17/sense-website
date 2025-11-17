@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Volver al inicio de Actas IA"
-  },
-  "byline": {
-    "name": "Written by Yu Adachi",
-    "title": "CEO de Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Descargar en iOS",
-    "openBrowser": "Abrir versión web"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Reuniones típicas",
-      "items": {
-        "0": "Periódicas: revisar métricas, problemas y acciones",
-        "1": "Lluvia de ideas: generación y cierre de ideas",
-        "2": "Ventas/Negociación: alinear intereses y lograr acuerdos"
-      }
-    },
-    "h2": "Las reuniones son diversas: distinto objetivo, distinto resultado",
-    "p1": "Cada vez que se conversa sobre un objetivo común, es una reunión—y el resultado de mayor valor cambia con el objetivo.",
-    "wide": {
-      "h3": "En sentido amplio de “reunión”",
-      "items": {
-        "0": "1 a 1: revisión, siguientes metas, compartir inquietudes",
-        "1": "Entrevista: requisitos del puesto y compatibilidad",
-        "2": "Presentación: problema y solución",
-        "3": "Capacitación: transferencia de know-how operativo"
-      }
+  "seo": {
+    "title": "Por qué Actas IA genera las mejores actas para cualquier tipo de reunión",
+    "description": "Una plantilla genérica falla. Descubre por qué la IA debe captar la 'temperatura' de una reunión 1 a 1 o de un brainstorming.",
+    "ogTitle": "Más allá de las 'Tareas': Por qué tus actas 1 a 1 se sienten 'insípidas'",
+    "ogDescription": "Una simple lista de tareas no es un buen resumen de una 1 a 1. Aprende cómo Actas IA adapta su resultado al 'propósito' de tu reunión.",
+    "ld": {
+      "headline": "El problema de las actas 'talla única' (y cómo solucionarlo)",
+      "description": "Una base pragmática es útil, pero no logra captar la 'temperatura' de las reuniones centradas en las personas."
     }
   },
-  "hero": {
-    "h1": "Por qué Actas IA ofrece las mejores minutas para cualquier tipo de reunión",
-    "kicker": "Blog de Actas IA",
-    "tagline": "Los cuatro elementos universales mejoran la lectura, pero optimizar según el objetivo de la reunión convierte la minuta en un plan de acción—no solo en un texto para leer."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Si solo usas el formato universal",
-      "items": {
-        "0": "Capturas tema, decisiones, pendientes y preocupaciones—buena base",
-        "1": "Pero el tono, el peso y el trasfondo suelen perderse",
-        "2": "Después, el “por qué” de las decisiones es más débil"
-      }
-    },
-    "h2": "Límites de un formato único para todo",
-    "optimized": {
-      "h3": "Si optimizas (ejemplo 1 a 1)",
-      "items": {
-        "0": "Emoción/Tono clave: resumir temperatura y psicología",
-        "1": "Contexto/Antecedentes: cambios organizacionales, roles, fricciones",
-        "2": "Discusión clave (citas × resúmenes): camino al acuerdo",
-        "3": "Acuerdos / Siguientes acciones / Riesgos: normalizado para ejecutar"
-      }
-    },
-    "p1": "Los cuatro elementos funcionan de forma general, pero algunas reuniones pierden “temperatura” y contexto—sobre todo los 1 a 1—afectando la claridad al revisarlas después."
+  "aria": {
+    "home": "Actas IA Inicio"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Por qué Actas IA ofrece las mejores minutas para cualquier tipo de reunión"
+    "current": "Por qué la IA debe adaptarse"
   },
-  "oneonone": {
-    "generic": {
-      "h3": "Solo los cuatro universales",
-      "items": {
-        "0": "Surgió la inquietud de A (relaciones en el equipo)",
-        "1": "Decisión: el manager B actuará como mediador",
-        "2": "Acciones: mediación; siguiente 1 a 1 el día 15",
-        "3": "Preocupación: sin plan si B está ausente"
-      }
-    },
-    "h2": "Ejemplo de 1 a 1: conservar temperatura y contexto de decisión",
-    "optimized": {
-      "h3": "Optimizado (formato 1 a 1)",
-      "items": {
-        "0": "Emoción clave: ansiedad/cansancio; alivio con opciones concretas",
-        "1": "Contexto: ambigüedad de rol desde abril; cambios tardíos frecuentes",
-        "2": "Discusión clave: estandarizar una plantilla de solicitudes",
-        "3": "Acuerdos: B media por ahora; medir impacto en dos semanas",
-        "4": "Siguientes acciones: B = borrador hoy; A = aplicar y dar feedback el próximo miércoles"
-      }
-    }
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Por qué Actas IA te ofrece mejores actas para *cualquier* tipo de reunión",
+    "tagline": "Una base universal (Decisiones, Tareas, Riesgos) garantiza la claridad. Pero las grandes actas se 'adaptan'. Una 1 a 1 y una llamada de ventas no deberían tener el mismo formato."
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "h2": "Resumen: ¿Qué hace “significativa” una minuta?",
-    "note": "Si estos cuatro puntos son visibles de inmediato, ya aseguras la base mínima de lectura.",
+    "h2": "Resumen: La base de las 'actas significativas'",
     "p1": {
-      "link": "aquí (Parte 1)",
-      "post": ".",
-      "pre": "Antes definimos las “minutas significativas”. Si no lo viste, empieza"
+      "pre": "En nuestro",
+      "link": "artículo anterior",
+      "post": ", definimos las 'actas significativas' como saber 'quién hace qué y para cuándo' de un vistazo."
     },
-    "points": {
-      "0": "Discussion (discusión)",
-      "1": "Decisions (decisiones)",
-      "2": "Action Items (responsable y fecha límite)",
-      "3": "Concerns (riesgos abiertos)"
+    "points": [
+      "Puntos de discusión",
+      "Decisiones clave",
+      "Tareas pendientes (To-Do)",
+      "Riesgos y bloqueos"
+    ],
+    "note": "Esto plantea una pregunta clave: ¿Es este formato único 'suficientemente bueno' para *cada* tipo de reunión?"
+  },
+  "diversity": {
+    "h2": "El problema: No todas las reuniones son iguales",
+    "core": {
+      "h3": "Reuniones típicas",
+      "items": [
+        "Check-in semanal (Actualizaciones y tácticas)",
+        "Brainstorming (Generación de ideas)",
+        "Ventas / negociación (Compromisos)"
+      ]
+    },
+    "wide": {
+      "h3": "El espectro más amplio de 'reuniones'",
+      "items": [
+        "1 a 1 (Crecimiento y feedback)",
+        "Entrevista (Evaluación)",
+        "Taller / Conferencia (Aprendizaje)"
+      ]
+    },
+    "p1": "Cada vez que las personas se reúnen con un propósito común, es una 'reunión'. Forzar cada conversación en la misma plantilla es tosco."
+  },
+  "limits": {
+    "h2": "El límite de la plantilla 'talla única'",
+    "p1": "Forzar cada conversación en las mismas cuatro categorías crea actas 'insípidas' que pierden todo el contexto crítico.",
+    "generic": {
+      "h3": "La base genérica (carece de 'temperatura')",
+      "items": [
+        "Garantiza un resumen coherente y legible",
+        "Fácil de buscar en todas las reuniones",
+        "Captura resultados clave (decisiones, tareas)"
+      ]
+    },
+    "optimized": {
+      "h3": "El resultado optimizado (captura el propósito)",
+      "items": [
+        "Negociación: Rastrea objeciones, alternativas y compromisos.",
+        "Brainstorming: Captura temas e ideas en bruto.",
+        "Retrospectiva: Agrupa feedback (Mantener, Problema, Probar)."
+      ]
     }
   },
-  "seo": {
-    "description": "Más allá de los cuatro elementos universales: la optimización por tipo de reunión convierte la minuta en un plan ejecutable. A {{date}}, más de {{users}} personas utilizan Actas IA.",
-    "ld": {
-      "description": "Cómo Actas IA optimiza los outputs por tipo de reunión y convierte la minuta en un plan ejecutable.",
-      "headline": "Por qué Actas IA funciona en cualquier reunión"
+  "oneonone": {
+    "h2": "Ejemplo de 1 a 1: El problema de la 'temperatura perdida'",
+    "generic": {
+      "h3": "Acta genérica (pero 'insípida')",
+      "items": [
+        "Discusión: Empleado A tiene problemas con la dinámica del equipo.",
+        "Decisión: Gerente B mediará.",
+        "Tareas: B mediará; seguimiento 1 a 1 el día 15.",
+        "Riesgos: ¿Qué pasa si el Gerente B está ausente?",
+        "Crítica: No está *mal*, pero es estéril. Ha perdido la 'temperatura' humana de la conversación."
+      ]
     },
-    "ogDescription": "Conserva tono y contexto mientras impulsas decisiones y ejecución con outputs optimizados por reunión.",
-    "ogTitle": "Por qué Actas IA funciona para cualquier tipo de reunión",
-    "title": "Por qué Actas IA funciona en cualquier reunión | Blog de Actas IA"
+    "optimized": {
+      "h3": "1 a 1 optimizado (captura contexto y tono)",
+      "items": [
+        "Captura la emoción y el tono central (ej. 'Frustrado pero abierto')",
+        "Resume la perspectiva y preocupaciones del empleado",
+        "Enumera los compromisos y acuerdos del gerente",
+        "Conserva el contexto para que el seguimiento sea significativo."
+      ]
+    }
   },
   "why": {
-    "h2": "Por qué Actas IA funciona en cualquier tipo de reunión",
-    "items": {
-      "0": "Ajuste al objetivo: secciones variables según la meta del encuentro",
-      "1": "Conservación de temperatura: extrae el tono y mantiene el contexto",
-      "2": "Trazabilidad de decisiones: bifurcaciones entre acuerdo/pendiente",
-      "3": "Listo para ejecutar: normaliza responsables, fechas y criterios",
-      "4": "Aprendizaje continuo: mejoras impulsadas por pruebas A/B"
-    }
+    "h2": "Por esto Actas IA sobresale",
+    "items": [
+      "Comienza con una base clara y universal (Decisiones, Tareas).",
+      "Optimiza inteligentemente el formato para el 'propósito' de la reunión.",
+      "Captura la 'temperatura' y el contexto, no solo hechos secos.",
+      "Mejora constantemente el 'resultado más valioso' para cada escenario.",
+      "Entrega actas estructuradas y buscables que son 'realmente' útiles."
+    ]
   },
   "wrap": {
-    "h2": "Cierre",
-    "p": "Los cuatro elementos son una base sólida. Al optimizar por tipo de reunión, la minuta se convierte en un plan de acción. Actas IA lo ofrece por defecto—úsalo en reuniones reales."
+    "h2": "Experimentalo tú mismo",
+    "p": "Una base es solo el comienzo. Deja de conformarte con actas 'insípidas' que pierden lo importante."
+  },
+  "cta": {
+    "openBrowser": "Abrir en el navegador",
+    "downloadIOS": "Descargar app para iOS",
+    "downloadGooglePlay": "Consíguelo en Google Play"
   }
 }

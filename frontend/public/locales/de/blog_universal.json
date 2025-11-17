@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Zurück zur Protokoll KI-Startseite"
+  "seo": {
+    "title": "Warum Protokoll KI die besten Protokolle für jeden Meeting-Typ liefert",
+    "description": "Eine allgemeine Vorlage scheitert. Erfahren Sie, warum KI die 'Temperatur' eines 1-zu-1-Gesprächs oder Brainstormings erfassen muss.",
+    "ogTitle": "Mehr als 'To-Do': Warum sich Ihre 1-zu-1-Protokolle 'geschmacklos' anfühlen",
+    "ogDescription": "Eine einfache To-Do-Liste ist keine gute Zusammenfassung für ein 1-zu-1. Erfahren Sie, wie Protokoll KI seinen Output an den 'Zweck' Ihres Meetings anpasst.",
+    "ld": {
+      "headline": "Das 'One-Size-Fits-All'-Problem bei Protokollen (und wie man es löst)",
+      "description": "Eine pragmatische Grundlage ist nützlich, aber sie erfasst nicht die 'Temperatur' von auf Menschen zentrierten Meetings."
+    }
+  },
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Warum KI sich anpassen muss"
+  },
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Warum Protokoll KI bessere Protokolle für *jeden* Meeting-Typ liefert",
+    "tagline": "Eine universelle Grundlage (Entscheidungen, To-Dos, Risiken) sorgt für Klarheit. Aber großartige Protokolle 'passen sich an'. Ein 1-zu-1 und ein Verkaufsgespräch sollten nicht dasselbe Format haben."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Für iOS laden",
-    "openBrowser": "Web-App öffnen"
+  "recap": {
+    "h2": "Rückblick: Die Grundlage 'sinnvoller Protokolle'",
+    "p1": {
+      "pre": "In unserem",
+      "link": "vorherigen Artikel",
+      "post": "haben wir 'sinnvolle Protokolle' als das Wissen definiert, 'wer was bis wann erledigt'."
+    },
+    "points": [
+      "Diskussionspunkte",
+      "Wichtige Entscheidungen",
+      "To-Do-Punkte",
+      "Offene Punkte und Risiken"
+    ],
+    "note": "Dies wirft eine scharfe Frage auf: Ist dieses eine Format 'gut genug' für *jeden* Meeting-Typ?"
   },
   "diversity": {
+    "h2": "Das Problem: Nicht alle Meetings sind gleich",
     "core": {
       "h3": "Typische Meetings",
-      "items": {
-        "0": "Regelmeetings: Kennzahlen, Probleme und Maßnahmen im Rhythmus prüfen",
-        "1": "Brainstorming: Ideen erzeugen und verdichten",
-        "2": "Sales/Verhandlung: Interessen ausgleichen und Einigungen erzielen"
-      }
+      "items": [
+        "Wöchentliches Check-in (Updates & Taktiken)",
+        "Brainstorming (Ideenfindung)",
+        "Verkauf / Verhandlung (Verpflichtungen)"
+      ]
     },
-    "h2": "Meetings sind vielfältig: Anderer Zweck, anderes Output-Format",
-    "p1": "Sprechen Menschen über ein gemeinsames Ziel, ist es ein Meeting – und der wertstiftende Output ändert sich mit dem Zweck.",
     "wide": {
-      "h3": "Im weiteren Sinne „Meetings“",
-      "items": {
-        "0": "1-zu-1: Review, nächste Ziele, Sorgen teilen",
-        "1": "Interview: Rollenanforderungen und Fit abgleichen",
-        "2": "Präsentation: Problem und Lösung vorstellen",
-        "3": "Schulung/Training: operatives Know-how übertragen"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Warum Protokoll KI für jede Art von Meeting die besten Protokolle liefert",
-    "kicker": "Protokoll KI Blog",
-    "tagline": "Die vier universellen Elemente erhöhen die Lesbarkeit. Doch erst die Optimierung nach Meeting-Zweck macht aus dem Protokoll keinen Text zum Lesen, sondern einen Plan zum Handeln."
+      "h3": "Das breitere Spektrum von 'Meetings'",
+      "items": [
+        "1-zu-1 (Entwicklung & Feedback)",
+        "Interview (Bewertung)",
+        "Workshop / Vortrag (Lernen)"
+      ]
+    },
+    "p1": "Jedes Mal, wenn Menschen zu einem gemeinsamen Zweck zusammenkommen, ist das ein 'Meeting'. Jedes Gespräch in dieselbe Vorlage zu zwingen, ist brutal."
   },
   "limits": {
+    "h2": "Die Grenzen einer 'One-Size-Fits-All'-Vorlage",
+    "p1": "Jedes Gespräch in dieselben vier Kategorien zu pressen, erzeugt 'sterile' Protokolle, die jeglichen kritischen Kontext verlieren.",
     "generic": {
-      "h3": "Nur das universelle Format angewendet",
-      "items": {
-        "0": "Thema, Entscheidungen, Aufgaben und Bedenken – solide Basis",
-        "1": "Aber Tonlage, Gewicht und Hintergrund gehen oft verloren",
-        "2": "Das „Warum“ hinter Entscheidungen wird später schwächer"
-      }
+      "h3": "Die generische Grundlage (fehlt 'Temperatur')",
+      "items": [
+        "Garantiert eine konsistente, lesbare Zusammenfassung",
+        "Einfache Suche über alle Meetings hinweg",
+        "Erfasst Schlüsselergebnisse (Entscheidungen, To-Dos)"
+      ]
     },
-    "h2": "Grenzen des One-Size-Fits-All-Formats",
     "optimized": {
-      "h3": "Optimiert (Beispiel 1-zu-1)",
-      "items": {
-        "0": "Kernemotion/Ton: Temperatur und Psychologie zusammenfassen",
-        "1": "Kontext/Hintergrund: Organisationsänderungen, Rollen, Konfliktpunkte",
-        "2": "Schlüssel-Diskussion (Zitat × Zusammenfassung): Weg zur Einigung",
-        "3": "Einigungen/Nächste Schritte/Risiken: für Umsetzung normalisiert"
-      }
-    },
-    "p1": "Die vier Elemente wirken breit, doch manche Meetings verlieren „Temperatur“ und Kontext – besonders 1-zu-1 – was die Nachvollziehbarkeit beim späteren Lesen mindert."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Warum Protokoll KI für jede Art von Meeting die besten Protokolle liefert"
+      "h3": "Der optimierte Output (erfasst den Zweck)",
+      "items": [
+        "Verhandlung: Verfolgt Einwände, Alternativen und Verpflichtungen.",
+        "Brainstorming: Erfasst Themen und Rohideen.",
+        "Retrospektive: Gruppiert Feedback (Keep, Problem, Try)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "1-zu-1-Beispiel: Das Problem der 'verlorenen Temperatur'",
     "generic": {
-      "h3": "Nur die vier universellen Elemente",
-      "items": {
-        "0": "Sorge von Mitglied A (Teambeziehungen) kam auf",
-        "1": "Entscheidung: Manager B moderiert als Vermittler",
-        "2": "Maßnahmen: Vermittlung; nächstes 1-zu-1 am 15.",
-        "3": "Bedenken: Kein Plan bei Abwesenheit von B"
-      }
+      "h3": "Generisches (aber 'steriles') Protokoll",
+      "items": [
+        "Diskussion: Mitarbeiter A hat Probleme mit der Teamdynamik.",
+        "Entscheidung: Manager B wird vermitteln.",
+        "To-Do: B vermittelt; Follow-up 1-zu-1 am 15.",
+        "Risiken: Was ist, wenn Manager B abwesend ist?",
+        "Kritik: Das ist nicht *falsch*, aber es ist steril. Es hat die menschliche 'Temperatur' des Gesprächs verloren."
+      ]
     },
-    "h2": "1-zu-1-Beispiel: Temperatur und Entscheidungskontext bewahren",
     "optimized": {
-      "h3": "Optimiert (1-zu-1-Format)",
-      "items": {
-        "0": "Kernemotion: Unsicherheit/Erschöpfung; Erleichterung bei konkreten Optionen",
-        "1": "Kontext: Rollenunklarheit seit April; häufige späte Änderungen",
-        "2": "Schlüssel-Diskussion: standardisierte Anforderungs-Vorlage einführen",
-        "3": "Einigungen: B vermittelt vorerst; Wirkung in zwei Wochen messen",
-        "4": "Nächste Schritte: B = Vorlage heute; A = anwenden & Feedback nächsten Mi."
-      }
+      "h3": "Optimiertes 1-zu-1 (erfasst Kontext & Ton)",
+      "items": [
+        "Erfasst Kernemotionen und Tonfall (z. B. 'Frustriert, aber offen')",
+        "Fasst die Perspektive und Bedenken des Mitarbeiters zusammen",
+        "Listet die Verpflichtungen und Vereinbarungen des Managers auf",
+        "Bewahrt den Kontext, damit das Follow-up sinnvoll ist."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Rückblick: Was macht Protokolle „bedeutungsvoll“?",
-    "note": "Sind diese vier Punkte sofort erkennbar, ist die Basislesbarkeit gesichert – das minimal tragfähige Gerüst.",
-    "p1": {
-      "link": "hier (Teil 1)",
-      "post": ".",
-      "pre": "Zuvor haben wir „bedeutungsvolle Protokolle“ definiert. Falls verpasst, starte"
-    },
-    "points": {
-      "0": "Discussion (Diskussionen)",
-      "1": "Decisions (Entscheidungen)",
-      "2": "Action Items (Verantwortliche & Fristen)",
-      "3": "Concerns (offene Risiken)"
-    }
-  },
-  "seo": {
-    "description": "Über die vier universellen Elemente hinaus: meetingspezifische Optimierung macht aus Protokollen einen Umsetzungs-Blueprint. Stand {{date}} nutzen über {{users}} Personen Protokoll KI.",
-    "ld": {
-      "description": "So optimiert Protokoll KI Outputs je Meetingtyp und macht Protokolle zum Blueprint für Umsetzung.",
-      "headline": "Warum Protokoll KI für jede Art von Meeting funktioniert"
-    },
-    "ogDescription": "Temperatur und Kontext bewahren und Entscheidungen/Umsetzung durch optimierte Outputs vorantreiben.",
-    "ogTitle": "Warum Protokoll KI in allen Meetings überzeugt",
-    "title": "Warum Protokoll KI für jede Meetingart funktioniert | Protokoll KI Blog"
   },
   "why": {
-    "h2": "Warum Protokoll KI für jede Meetingart funktioniert",
-    "items": {
-      "0": "Zweck-Fit: variable Sektionen je Meetingziel",
-      "1": "Temperatur-Erhalt: Ton extrahieren und Hintergrund bewahren",
-      "2": "Entscheidungs-Nachvollziehbarkeit: Abzweige klar machen",
-      "3": "Umsetzungsbereit: Verantwortliche, Fristen, Kriterien normalisieren",
-      "4": "Kontinuierliches Lernen: A/B-getriebene Output-Verbesserungen"
-    }
+    "h2": "Deshalb glänzt Protokoll KI",
+    "items": [
+      "Beginnt mit einer klaren, universellen Grundlage (Entscheidungen, To-Dos).",
+      "Optimiert intelligent das Format für den 'Zweck' des Meetings.",
+      "Erfasst 'Temperatur' und Kontext, nicht nur trockene Fakten.",
+      "Verbessert ständig den 'wertvollsten Output' für jedes Szenario.",
+      "Liefert strukturierte, durchsuchbare Protokolle, die 'tatsächlich' nützlich sind."
+    ]
   },
   "wrap": {
-    "h2": "Fazit",
-    "p": "Die vier Elemente sind ein starkes Fundament. Mit Optimierung pro Meetingtyp wird aus dem Protokoll ein Umsetzungs-Blueprint. Protokoll KI liefert diese Optimierung standardmäßig – setze es in realen Meetings ein."
+    "h2": "Erleben Sie es selbst",
+    "p": "Eine Grundlage ist nur der Anfang. Geben Sie sich nicht mit 'sterilen' Protokollen zufrieden, die das Wichtige verlieren."
+  },
+  "cta": {
+    "openBrowser": "Im Browser öffnen",
+    "downloadIOS": "iOS-App herunterladen",
+    "downloadGooglePlay": "Bei Google Play holen"
   }
 }

@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Voltar à página inicial do Ata AI"
+  "seo": {
+    "title": "Por que o Ata AI entrega as melhores atas para qualquer tipo de reunião",
+    "description": "Um modelo genérico falha. Saiba por que a IA deve capturar a 'temperatura' de uma reunião 1-a-1 ou de um brainstorming.",
+    "ogTitle": "Além do 'A Fazer': Por que suas atas de 1-a-1 parecem 'sem sabor'",
+    "ogDescription": "Uma simples lista de tarefas não é um bom resumo de 1-a-1. Saiba como o Ata AI adapta sua saída para corresponder ao 'propósito' da sua reunião.",
+    "ld": {
+      "headline": "O problema das atas 'tamanho único' (e como resolvê-lo)",
+      "description": "Uma base pragmática é útil, mas falha em capturar a 'temperatura' de reuniões centradas em pessoas."
+    }
+  },
+  "aria": {
+    "home": "Ata AI Início"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Por que a IA deve se adaptar"
+  },
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Por que o Ata AI oferece atas melhores para *qualquer* tipo de reunião",
+    "tagline": "Uma base universal (Decisões, Tarefas, Riscos) garante clareza. Mas ótimas atas se 'adaptam'. Uma 1-a-1 e uma chamada de vendas não devem ter o mesmo formato."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Baixar no iOS",
-    "openBrowser": "Abrir versão web"
+  "recap": {
+    "h2": "Recapitulando: A base das 'atas significativas'",
+    "p1": {
+      "pre": "Em nosso",
+      "link": "artigo anterior",
+      "post": ", definimos 'atas significativas' como saber 'quem faz o quê e até quando' rapidamente."
+    },
+    "points": [
+      "Pontos de discussão",
+      "Decisões-chave",
+      "Itens de ação (To-Do)",
+      "Riscos e bloqueios"
+    ],
+    "note": "Isso levanta uma questão pertinente: esse formato único é 'bom o suficiente' para *todos* os tipos de reunião?"
   },
   "diversity": {
+    "h2": "O Problema: Nem todas as reuniões são criadas iguais",
     "core": {
-      "h3": "Reuniões representativas",
-      "items": {
-        "0": "Periódicas/status: revisar métricas, problemas e ações regularmente",
-        "1": "Brainstorm: geração e convergência de ideias",
-        "2": "Vendas/Negociação: alinhar interesses e fechar acordos"
-      }
+      "h3": "Reuniões Típicas",
+      "items": [
+        "Check-in semanal (Atualizações e táticas)",
+        "Brainstorming (Geração de ideias)",
+        "Vendas / negociação (Compromissos)"
+      ]
     },
-    "h2": "Reuniões são diversas: objetivos diferentes, saídas diferentes",
-    "p1": "Sempre que pessoas discutem um objetivo comum, temos uma reunião — e a saída de maior valor muda conforme o objetivo.",
     "wide": {
-      "h3": "No sentido amplo de “reunião”",
-      "items": {
-        "0": "1-a-1: revisão, próximos objetivos, compartilhar preocupações",
-        "1": "Entrevista: requisitos do cargo e aderência",
-        "2": "Apresentação: problema e solução",
-        "3": "Treinamento: transferência de conhecimento operacional"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Por que o Ata AI produz as melhores atas para qualquer tipo de reunião",
-    "kicker": "Blog do Ata AI",
-    "tagline": "Os quatro elementos universais aumentam a legibilidade, mas otimizar de acordo com o objetivo da reunião transforma a ata de “algo para ler” em um plano de execução."
+      "h3": "O espectro mais amplo de 'reuniões'",
+      "items": [
+        "1-a-1 (Crescimento e feedback)",
+        "Entrevista (Avaliação)",
+        "Workshop / Palestra (Aprendizado)"
+      ]
+    },
+    "p1": "Sempre que as pessoas se reúnem para um propósito comum, é uma 'reunião'. Forçar cada conversa no mesmo modelo é rude."
   },
   "limits": {
+    "h2": "O limite de um modelo 'tamanho único'",
+    "p1": "Forçar cada conversa nas mesmas quatro categorias cria atas 'sem sabor' que perdem todo o contexto crítico.",
     "generic": {
-      "h3": "Se você usa apenas o formato universal",
-      "items": {
-        "0": "Tema, decisões, tarefas e preocupações — boa base",
-        "1": "Mas tom, peso e pano de fundo costumam se perder",
-        "2": "Depois, o “porquê” por trás das decisões fica mais fraco"
-      }
+      "h3": "A base genérica (falta 'temperatura')",
+      "items": [
+        "Garante um resumo consistente e legível",
+        "Fácil de pesquisar em todas as reuniões",
+        "Captura resultados-chave (decisões, tarefas)"
+      ]
     },
-    "h2": "Limites de um formato único para tudo",
     "optimized": {
-      "h3": "Se você otimiza (exemplo 1-a-1)",
-      "items": {
-        "0": "Emoção/Tom central: resumir a “temperatura” e a psicologia",
-        "1": "Contexto/Histórico: mudanças organizacionais, papéis, atritos",
-        "2": "Discussão-chave (citações × resumos): caminho até o acordo",
-        "3": "Acordos / Próximas ações / Riscos: normalizado para execução"
-      }
-    },
-    "p1": "Os quatro elementos funcionam em geral, mas algumas reuniões perdem “temperatura” e contexto — sobretudo 1-a-1 — reduzindo a clareza na revisão posterior."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Por que o Ata AI produz as melhores atas para qualquer tipo de reunião"
+      "h3": "A saída otimizada (captura o propósito)",
+      "items": [
+        "Negociação: Rastreia objeções, alternativas e compromissos.",
+        "Brainstorming: Captura temas e ideias brutas.",
+        "Retrospectiva: Agrupa feedback (Manter, Problema, Tentar)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "Exemplo de 1-a-1: O problema da 'temperatura perdida'",
     "generic": {
-      "h3": "Apenas os quatro universais",
-      "items": {
-        "0": "Surgiu a preocupação de A (relações no time)",
-        "1": "Decisão: o gestor B atuará como mediador",
-        "2": "Ações: mediação; próximo 1-a-1 no dia 15",
-        "3": "Preocupação: sem plano caso B esteja ausente"
-      }
+      "h3": "Ata genérica (mas 'sem sabor')",
+      "items": [
+        "Discussão: Funcionário A está com dificuldades com a dinâmica da equipe.",
+        "Decisão: Gerente B irá mediar.",
+        "Tarefas: B irá mediar; acompanhamento 1-a-1 no dia 15.",
+        "Riscos: E se o Gerente B estiver ausente?",
+        "Crítica: Isso não está *errado*, mas é estéril. Perdeu a 'temperatura' humana da conversa."
+      ]
     },
-    "h2": "Exemplo 1-a-1: preservar temperatura e contexto das decisões",
     "optimized": {
-      "h3": "Otimizado (formato 1-a-1)",
-      "items": {
-        "0": "Emoção central: ansiedade/cansaço; alívio com opções concretas",
-        "1": "Contexto: ambiguidade de papéis desde abril; mudanças tardias",
-        "2": "Discussão-chave: padronizar um “template de solicitação”",
-        "3": "Acordos: B media por ora; medir impacto em duas semanas",
-        "4": "Próximas ações: B = rascunho hoje; A = aplicar & dar feedback na próxima quarta"
-      }
+      "h3": "1-a-1 otimizado (captura contexto e tom)",
+      "items": [
+        "Captura a emoção e o tom central (ex: 'Frustrado, mas aberto')",
+        "Resume a perspectiva e as preocupações do funcionário",
+        "Lista os compromissos e acordos do gerente",
+        "Preserva o contexto para que o acompanhamento seja significativo."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Recapitulando: o que torna uma ata “significativa”?",
-    "note": "Se esses quatro pontos aparecem de imediato, a legibilidade básica está garantida — é o esqueleto mínimo viável.",
-    "p1": {
-      "link": "por aqui (Parte 1)",
-      "post": ".",
-      "pre": "No artigo anterior definimos “atas significativas”. Se você não viu, comece"
-    },
-    "points": {
-      "0": "Discussion (discussões)",
-      "1": "Decisions (decisões)",
-      "2": "Action Items (responsável e prazo)",
-      "3": "Concerns (riscos em aberto)"
-    }
-  },
-  "seo": {
-    "description": "Além dos quatro elementos universais: otimização por tipo de reunião transforma a ata em um plano executável. Em {{date}}, mais de {{users}} pessoas usam o Ata AI.",
-    "ld": {
-      "description": "Como o Ata AI otimiza as saídas por tipo de reunião e transforma atas em planos de execução.",
-      "headline": "Por que o Ata AI funciona em qualquer reunião"
-    },
-    "ogDescription": "Preserve tom e contexto enquanto impulsiona decisões e execução com saídas otimizadas para cada reunião.",
-    "ogTitle": "Por que o Ata AI funciona em qualquer tipo de reunião",
-    "title": "Por que o Ata AI funciona em qualquer reunião | Blog do Ata AI"
   },
   "why": {
-    "h2": "Por que o Ata AI funciona em qualquer reunião",
-    "items": {
-      "0": "Ajuste ao propósito: seções variáveis conforme o objetivo",
-      "1": "Preservação da temperatura: extrai o tom e mantém o contexto",
-      "2": "Rastreabilidade de decisões: clareza entre acordo/pendente",
-      "3": "Pronto para executar: normaliza responsáveis, prazos e critérios",
-      "4": "Aprendizado contínuo: melhorias guiadas por testes A/B"
-    }
+    "h2": "É por isso que o Ata AI se destaca",
+    "items": [
+      "Começa com uma base clara e universal (Decisões, Tarefas).",
+      "Otimiza inteligentemente o formato para o 'propósito' da reunião.",
+      "Captura a 'temperatura' e o contexto, não apenas fatos secos.",
+      "Melhora constantemente a 'saída mais valiosa' para cada cenário.",
+      "Entrega atas estruturadas e pesquisáveis que são 'realmente' úteis."
+    ]
   },
   "wrap": {
-    "h2": "Encerramento",
-    "p": "Os quatro elementos são uma base sólida. Ao otimizar por tipo de reunião, a ata vira um plano de ação. O Ata AI já traz isso por padrão — use em reuniões reais."
+    "h2": "Experimente você mesmo",
+    "p": "Uma base é apenas o começo. Pare de se contentar com atas 'sem sabor' que perdem o que é importante."
+  },
+  "cta": {
+    "openBrowser": "Abrir no navegador",
+    "downloadIOS": "Baixar app para iOS",
+    "downloadGooglePlay": "Obtenha no Google Play"
   }
 }

@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Tutanakları AI ana sayfaya dön"
+  "seo": {
+    "title": "Tutanakları AI Neden Her Türlü Toplantı İçin En İyi Tutanakları Sunar?",
+    "description": "Genel bir şablon yetersiz kalır. AI'nın 1'e 1 toplantının veya beyin fırtınasının 'sıcaklığını' neden yakalaması gerektiğini öğrenin.",
+    "ogTitle": "'Yapılacaklar'ın Ötesinde: 1'e 1 Tutanaklarınız Neden 'Tatsız' Geliyor?",
+    "ogDescription": "Basit bir yapılacaklar listesi, iyi bir 1'e 1 özeti değildir. Tutanakları AI'nın çıktısını toplantınızın 'amacına' göre nasıl uyarladığını öğrenin.",
+    "ld": {
+      "headline": "Tutanaklarda 'Herkese Uyan Tek Tip' Sorunu (ve Çözümü)",
+      "description": "Pragmatik bir temel kullanışlıdır, ancak insan odaklı toplantıların 'sıcaklığını' yakalamakta başarısız olur."
+    }
+  },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "AI Neden Uyum Sağlamalı?"
+  },
+  "hero": {
+    "kicker": "Rehber",
+    "h1": "Tutanakları AI Neden Size *Her* Türlü Toplantı İçin Daha İyi Tutanaklar Sunar?",
+    "tagline": "Evrensel bir temel (Kararlar, Görevler, Riskler) netlik sağlar. Ancak harika tutanaklar 'uyum sağlar'. Bir 1'e 1 ve bir satış görüşmesi aynı formatta olmamalıdır."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "iOS’ta indir",
-    "openBrowser": "Web sürümünü aç"
+  "recap": {
+    "h2": "Özet: 'Anlamlı Tutanak' Temeli",
+    "p1": {
+      "pre": "",
+      "link": "Önceki makalemizde",
+      "post": ", 'anlamlı tutanağı' 'kimin, neyi, ne zamana kadar yapacağını' bir bakışta bilmek olarak tanımlamıştık."
+    },
+    "points": [
+      "Görüşülen konular",
+      "Ana kararlar",
+      "Yapılacak görevler (To-Do)",
+      "Riskler ve engeller"
+    ],
+    "note": "Bu keskin bir soru ortaya çıkarıyor: Bu tek format *her* tür toplantı için 'yeterince iyi' mi?"
   },
   "diversity": {
+    "h2": "Sorun: Tüm Toplantılar Eşit Yaratılmamıştır",
     "core": {
-      "h3": "Temel toplantı türleri",
-      "items": {
-        "0": "Periyodik: metrik/ sorun/ aksiyonun düzenli gözden geçirilmesi",
-        "1": "Beyin fırtınası: fikir üretimi ve yakınsama",
-        "2": "Satış/ Müzakere: çıkarları hizalama ve anlaşma"
-      }
+      "h3": "Tipik Toplantılar",
+      "items": [
+        "Haftalık kontrol (Güncellemeler ve taktikler)",
+        "Beyin fırtınası (Fikir üretme)",
+        "Satış / müzakere (Taahhütler)"
+      ]
     },
-    "h2": "Toplantılar çeşitlidir: amaç değişirse değerli çıktı da değişir",
-    "p1": "Ortak bir hedef üzerine konuşuluyorsa bu bir toplantıdır—ve en değerli çıktı o hedefe göre şekillenir.",
     "wide": {
-      "h3": "Geniş anlamda “toplantı”",
-      "items": {
-        "0": "1’e-1: geri bakış, sonraki hedefler, endişe paylaşımı",
-        "1": "Mülakat: rol gereksinimleri ve uyum",
-        "2": "Sunum: sorun ve çözüm önerisi",
-        "3": "Eğitim: operasyonel bilgi aktarımı"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Tutanakları AI her toplantı için en iyi tutanakları neden üretir?",
-    "kicker": "Tutanakları AI Blog",
-    "tagline": "Evrensel dört unsur okunabilirliği artırır. Ama toplantının amacına göre optimize edildiğinde, tutanak “okunan kayıt” olmaktan çıkıp “eyleme geçirilebilir bir plan”a dönüşür."
+      "h3": "Daha Geniş 'Toplantı' Spektrumu",
+      "items": [
+        "1'e 1 (Gelişim ve geri bildirim)",
+        "Mülakat (Değerlendirme)",
+        "Atölye / Ders (Öğrenme)"
+      ]
+    },
+    "p1": "İnsanlar ortak bir amaç için toplandığında, bu bir 'toplantıdır'. Her konuşmayı aynı şablona zorlamak kabalıktır."
   },
   "limits": {
+    "h2": "'Herkese Uyan Tek Tip' Şablonun Sınırı",
+    "p1": "Her konuşmayı aynı dört kategoriye zorlamak, tüm kritik bağlamı kaybeden 'tatsız' tutanaklar yaratır.",
     "generic": {
-      "h3": "Sadece evrensel formatı uygularsanız",
-      "items": {
-        "0": "Konu/ karar/ görev/ endişe yakalanır—temel oluşur",
-        "1": "Ama ton, ağırlık ve arka plan sıklıkla yiter",
-        "2": "Kararların arkasındaki “neden” zamanla zayıflar"
-      }
+      "h3": "Genel Temel (Eksik 'Sıcaklık')",
+      "items": [
+        "Tutarlı, okunabilir bir özet garanti eder",
+        "Tüm toplantılarda kolayca aranabilir",
+        "Ana çıktıları yakalar (kararlar, görevler)"
+      ]
     },
-    "h2": "Tek kalıp formatın sınırları",
     "optimized": {
-      "h3": "Optimize ederseniz (1’e-1 örneği)",
-      "items": {
-        "0": "Çekirdek Duygu/ Ton: sıcaklık ve psikolojiyi özetleme",
-        "1": "Bağlam/ Arka plan: organizasyon değişimleri, roller, sürtünme noktaları",
-        "2": "Kilit Tartışma (alıntı × özet): uzlaşıya giden yol",
-        "3": "Mutabakatlar / Sonraki adımlar / Riskler: icra için normalize"
-      }
-    },
-    "p1": "Dört unsur geniş çapta işe yarasa da bazı toplantılarda—özellikle 1’e-1—“sıcaklık” ve bağlam kaybolur; sonradan okurken netlik düşer."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Tutanakları AI her toplantı için en iyi tutanakları neden üretir?"
+      "h3": "Optimize Edilmiş Çıktı (Amacı Yakalar)",
+      "items": [
+        "Müzakere: İtirazları, alternatifleri ve taahhütleri takip eder.",
+        "Beyin Fırtınası: Temaları ve ham fikirleri yakalar.",
+        "Retrospektif: Geri bildirimi gruplandırır (Devam, Sorun, Dene)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "1'e 1 Örneği: 'Kayıp Sıcaklık' Sorunu",
     "generic": {
-      "h3": "Yalnızca dört evrensel başlık",
-      "items": {
-        "0": "A’nın (ekip ilişkileri) endişesi gündeme geldi",
-        "1": "Karar: yönetici B arabulucu olacak",
-        "2": "Aksiyonlar: arabuluculuk; sonraki 1’e-1 ayın 15’inde",
-        "3": "Endişe: B yokken plan yok"
-      }
+      "h3": "Genel (ama 'Tatsız') Tutanak",
+      "items": [
+        "Tartışma: Çalışan A, ekip dinamikleriyle mücadele ediyor.",
+        "Karar: Yönetici B arabuluculuk yapacak.",
+        "Görevler: B arabuluculuk yapacak; 15'inde 1'e 1 takip.",
+        "Riskler: Ya Yönetici B orada değilse?",
+        "Eleştiri: Bu *yanlış* değil, ama steril. Konuşmanın insani 'sıcaklığını' kaybetmiş."
+      ]
     },
-    "h2": "1’e-1 örneği: sıcaklığı ve karar bağlamını korumak",
     "optimized": {
-      "h3": "Optimize (1’e-1 formatı)",
-      "items": {
-        "0": "Çekirdek duygu: kaygı/ yorgunluk; somut seçeneklerde rahatlama",
-        "1": "Bağlam: Nisan’dan beri rol belirsizliği; sık geç değişiklik",
-        "2": "Kilit tartışma: standart bir “talep şablonu” getirme",
-        "3": "Mutabakat: şimdilik B arabulucu; etki 2 hafta içinde ölçülecek",
-        "4": "Sonraki adımlar: B = bugün taslak; A = gelecek Çarşamba uygula & geri bildirim ver"
-      }
+      "h3": "Optimize Edilmiş 1'e 1 (Bağlamı ve Tonu Yakalar)",
+      "items": [
+        "Çekirdek duyguyu ve tonu yakalar (örn. 'Hüsrana uğramış ama açık')",
+        "Çalışanın bakış açısını ve endişelerini özetler",
+        "Yöneticinin taahhütlerini ve anlaşmalarını listeler",
+        "Takibin anlamlı olması için bağlamı korur."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Hatırlatma: “anlamlı tutanak” nedir?",
-    "note": "Bu dörtlü bir bakışta görülüyorsa asgari okunabilirlik garanti. İlk sağlam zemin budur.",
-    "p1": {
-      "link": "buradan (1. bölüm)",
-      "post": "başlayın.",
-      "pre": "Önceki yazıda “anlamlı tutanak”ı konuştuk. Kaçırdıysanız"
-    },
-    "points": {
-      "0": "Discussion (tartışma)",
-      "1": "Decisions (kararlar)",
-      "2": "Action Items (sahip & son tarih)",
-      "3": "Concerns (açık riskler)"
-    }
-  },
-  "seo": {
-    "description": "Evrensel dört unsurun ötesinde: toplantı türüne özel optimizasyon, tutanakları uygulanabilir plana dönüştürür. {{date}} itibarıyla {{users}}+ kişi Tutanakları AI kullanıyor.",
-    "ld": {
-      "description": "Tutanakları AI, toplantı türüne göre çıktıyı nasıl optimize eder ve tutanakları eylem planına dönüştürür?",
-      "headline": "Tutanakları AI neden her toplantıda çalışır?"
-    },
-    "ogDescription": "Toplantıya özel optimize çıktılarla ton ve bağlam korunurken karar ve icra hızlanır.",
-    "ogTitle": "Tutanakları AI her tür toplantıda neden başarılı?",
-    "title": "Tutanakları AI neden her toplantıda çalışır? | Tutanakları AI Blog"
   },
   "why": {
-    "h2": "Tutanakları AI neden “her toplantıda” çalışır?",
-    "items": {
-      "0": "Amaç uyumu: hedefe göre değişebilen bölümler",
-      "1": "Sıcaklık koruma: tonu çıkarır, bağlamı saklar",
-      "2": "Karar izlenebilirliği: anlaşma/ beklemede ayrımlar net",
-      "3": "İcra odaklılık: sahip, son tarih ve kriterleri normalize eder",
-      "4": "Sürekli öğrenme: A/B ile kaliteyi iyileştirir"
-    }
+    "h2": "İşte Bu Yüzden Tutanakları AI Mükemmeldir",
+    "items": [
+      "Net, evrensel bir temelle başlar (Kararlar, Görevler).",
+      "Formatı, toplantının 'amacına' göre akıllıca optimize eder.",
+      "Sadece kuru gerçekleri değil, 'sıcaklığı' ve bağlamı yakalar.",
+      "Her senaryo için 'en değerli çıktıyı' sürekli olarak iyileştirir.",
+      "'Gerçekten' kullanışlı, yapılandırılmış, aranabilir tutanaklar sunar."
+    ]
   },
   "wrap": {
-    "h2": "Özet",
-    "p": "Dört unsur güçlü bir temel sağlar. Toplantı türüne göre optimizasyonla, tutanak “okunan kayıt”tan “eylem planı”na dönüşür. Tutanakları AI bu optimizasyonu varsayılan sunar—gerçek toplantılarda deneyin."
+    "h2": "Kendiniz Deneyimleyin",
+    "p": "Temel, sadece bir başlangıç. Önemli olanı kaybeden 'tatsız' tutanaklarla yetinmeyi bırakın."
+  },
+  "cta": {
+    "openBrowser": "Tarayıcıda aç",
+    "downloadIOS": "iOS uygulamasını indirin",
+    "downloadGooglePlay": "Google Play'den alın"
   }
 }

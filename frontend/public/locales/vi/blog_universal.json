@@ -1,167 +1,124 @@
 {
-  "a11y": {
-    "home": "Quay lại Trang chủ Biên bản AI"
-  },
-  "byline": {
-    "name": "Viết bởi Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Tải cho iOS",
-    "openBrowser": "Mở Ứng dụng Web"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Các loại cuộc họp tiêu biểu",
-      "items": {
-        "0": "Cập nhật hàng tuần: trạng thái, vấn đề, đối sách",
-        "1": "Brainstorm: phân kỳ và hội tụ ý tưởng",
-        "2": "Họp bán hàng: căn chỉnh lợi ích và đạt thỏa thuận"
-      }
-    },
-    "h2": "Cuộc họp đa dạng: mục tiêu khác nhau, giá trị đầu ra khác nhau",
-    "p1": "Bất cứ khi nào mọi người trao đổi hướng tới mục tiêu chung, đó là một cuộc họp. Khi mục tiêu thay đổi, hình thái đầu ra có giá trị cũng thay đổi.",
-    "wide": {
-      "h3": "Định nghĩa rộng về “cuộc họp”",
-      "items": {
-        "0": "1:1: rà soát kết quả, đặt mục tiêu tiếp theo, nêu quan ngại",
-        "1": "Phỏng vấn: căn chỉnh yêu cầu và mức độ phù hợp",
-        "2": "Thuyết trình: nêu vấn đề và giải pháp đề xuất",
-        "3": "Bài giảng/Đào tạo: chuyển giao vận hành và know-how"
-      }
+  "seo": {
+    "title": "Tại sao Biên bản AI cung cấp biên bản tốt nhất cho mọi loại cuộc họp",
+    "description": "Một mẫu chung chung sẽ thất bại. Tìm hiểu lý do tại sao AI phải nắm bắt được 'nhiệt độ' của cuộc họp 1-1 hoặc buổi họp não.",
+    "ogTitle": "Hơn cả 'Việc cần làm': Tại sao biên bản 1-1 của bạn có cảm giác 'vô vị'",
+    "ogDescription": "Một danh sách việc cần làm đơn giản không phải là bản tóm tắt 1-1 tốt. Tìm hiểu cách Biên bản AI điều chỉnh đầu ra để phù hợp với 'mục đích' cuộc họp của bạn.",
+    "ld": {
+      "headline": "Vấn đề 'Một kích cỡ cho tất cả' của biên bản (Và cách khắc phục)",
+      "description": "Một nền tảng thực dụng rất hữu ích, nhưng nó không nắm bắt được 'nhiệt độ' của các cuộc họp lấy con người làm trung tâm."
     }
   },
-  "hero": {
-    "h1": "Vì sao Biên bản AI cho biên bản tốt hơn cho mọi cuộc họp",
-    "kicker": "Biên bản AI Blog",
-    "tagline": "Bốn trụ cột phổ quát giúp ghi chú dễ đọc. Tối ưu theo mục đích cuộc họp biến biên bản từ “bản ghi để đọc” thành “bản thiết kế để hành động”."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Nếu chỉ dùng một định dạng chung",
-      "items": {
-        "0": "Bạn sẽ bắt được chủ đề, quyết định, việc cần làm và quan ngại — nền tảng tốt",
-        "1": "Nhưng sắc thái, trọng lượng và bối cảnh thường biến mất",
-        "2": "Khi xem lại sau, “vì sao đằng sau quyết định” thấy nhạt"
-      }
-    },
-    "h2": "Giới hạn của định dạng chung cho mọi thứ",
-    "optimized": {
-      "h3": "Nếu tối ưu (ví dụ 1:1)",
-      "items": {
-        "0": "Core Emotion / Tone: tóm tắt nhiệt độ và tâm lý",
-        "1": "Context / Background: thay đổi tổ chức, vai trò, điểm ma sát",
-        "2": "Key Discussion (phát ngôn × tóm tắt): lộ trình tới đồng thuận",
-        "3": "Agreements / Next Actions / Risks: chuẩn hóa cho thực thi"
-      }
-    },
-    "p1": "Bốn trụ cột — Discussion, Decisions, Action Items, Concerns — hoạt động gần như mọi nơi, nhưng một số loại họp mất “nhiệt độ” và bối cảnh. Đặc biệt 1:1."
+  "aria": {
+    "home": "Biên bản AI Trang chủ"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Vì sao Biên bản AI cho biên bản tốt hơn cho mọi cuộc họp"
+    "current": "Tại sao AI phải thích ứng"
   },
-  "oneonone": {
-    "generic": {
-      "h3": "Chỉ bốn trụ cột phổ quát",
-      "items": {
-        "0": "Chủ đề: quan ngại của A (quan hệ trong đội)",
-        "1": "Quyết định: B đứng ra hòa giải",
-        "2": "Hành động: tiến hành hòa giải; đặt lịch 1:1 tiếp theo ngày 15",
-        "3": "Quan ngại: không có phương án dự phòng nếu B vắng mặt"
-      }
-    },
-    "h2": "Ví dụ 1:1: giữ “nhiệt độ”, bảo toàn bối cảnh quyết định",
-    "optimized": {
-      "h3": "Đã tối ưu (định dạng 1:1)",
-      "items": {
-        "0": "Core Emotion: lo âu và mệt mỏi; nhẹ nhõm khi đề xuất được chấp nhận",
-        "1": "Context: tái cơ cấu tháng 4 làm mờ vai trò; chỉnh sửa hậu kỳ thường xuyên",
-        "2": "Key Discussion: tạo mẫu yêu cầu → áp dụng toàn đội",
-        "3": "Agreements: tạm thời B hòa giải; đo tác động sau hai tuần",
-        "4": "Next Actions: B phác thảo mẫu hôm nay; A áp dụng và báo cáo thứ Tư tới"
-      }
-    }
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Tại sao Biên bản AI mang lại cho bạn biên bản tốt hơn cho *mọi* loại cuộc họp",
+    "tagline": "Một nền tảng phổ quát (Quyết định, Việc cần làm, Rủi ro) đảm bảo sự rõ ràng. Nhưng các biên bản tuyệt vời phải 'thích ứng'. Cuộc họp 1-1 và cuộc gọi bán hàng không nên có cùng một định dạng."
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "h2": "Tóm tắt nhanh: điều gì làm biên bản có ý nghĩa?",
-    "note": "Nhìn lướt bốn mục này trong nháy mắt là tối thiểu. Nền tảng đảm bảo tính dễ đọc.",
+    "h2": "Tóm tắt: Nền tảng 'Biên bản có ý nghĩa'",
     "p1": {
-      "link": "Phần 1",
-      "post": ".",
-      "pre": "Ở bài trước, chúng tôi đã định nghĩa “biên bản có ý nghĩa”. Nếu bỏ lỡ, hãy bắt đầu tại "
+      "pre": "Trong",
+      "link": "bài viết trước",
+      "post": "của chúng tôi, chúng tôi đã định nghĩa 'biên bản có ý nghĩa' là biết 'ai làm gì và khi nào' chỉ trong nháy mắt."
     },
-    "points": {
-      "0": "Discussion",
-      "1": "Decisions",
-      "2": "Action Items (owner & due date)",
-      "3": "Concerns (open risks / unresolved)"
+    "points": [
+      "Điểm thảo luận",
+      "Quyết định chính",
+      "Các mục việc cần làm (To-Do)",
+      "Các vấn đề tồn đọng và Rủi ro"
+    ],
+    "note": "Điều này đặt ra một câu hỏi sắc bén: Liệu định dạng duy nhất này có 'đủ tốt' cho *mọi* loại cuộc họp không?"
+  },
+  "diversity": {
+    "h2": "Vấn đề: Không phải tất cả các cuộc họp đều như nhau",
+    "core": {
+      "h3": "Các cuộc họp điển hình",
+      "items": [
+        "Check-in hàng tuần (Cập nhật & chiến thuật)",
+        "Họp não (Sáng tạo ý tưởng)",
+        "Bán hàng / đàm phán (Cam kết)"
+      ]
+    },
+    "wide": {
+      "h3": "Phổ rộng hơn của 'Cuộc họp'",
+      "items": [
+        "1-1 (Phát triển & phản hồi)",
+        "Phỏng vấn (Đánh giá)",
+        "Workshop / Bài giảng (Học tập)"
+      ]
+    },
+    "p1": "Bất cứ khi nào mọi người tụ tập vì một mục đích chung, đó là một 'cuộc họp'. Ép buộc mọi cuộc trò chuyện vào cùng một khuôn mẫu là rất cứng nhắc."
+  },
+  "limits": {
+    "h2": "Giới hạn của mẫu 'Một kích cỡ cho tất cả'",
+    "p1": "Ép buộc mọi cuộc trò chuyện vào bốn mục giống nhau sẽ tạo ra các biên bản 'vô vị', mất đi tất cả bối cảnh quan trọng.",
+    "generic": {
+      "h3": "Nền tảng chung (Thiếu 'nhiệt độ')",
+      "items": [
+        "Đảm bảo một bản tóm tắt nhất quán, dễ đọc",
+        "Dễ dàng tìm kiếm trên tất cả các cuộc họp",
+        "Nắm bắt các kết quả chính (quyết định, việc cần làm)"
+      ]
+    },
+    "optimized": {
+      "h3": "Đầu ra được tối ưu hóa (Nắm bắt mục đích)",
+      "items": [
+        "Đàm phán: Theo dõi các phản đối, lựa chọn thay thế và cam kết.",
+        "Họp não: Nắm bắt các chủ đề và ý tưởng thô.",
+        "Họp cải tiến: Nhóm các phản hồi (Giữ lại, Vấn đề, Thử)."
+      ]
     }
   },
-  "seo": {
-    "alternateLangs": {
-      "ja": "{{canonicalJa}}"
+  "oneonone": {
+    "h2": "Ví dụ 1-1: Vấn đề 'Nhiệt độ bị mất'",
+    "generic": {
+      "h3": "Biên bản chung (Nhưng 'vô vị')",
+      "items": [
+        "Thảo luận: Nhân viên A đang gặp khó khăn với động lực nhóm.",
+        "Quyết định: Quản lý B sẽ hòa giải.",
+        "Việc cần làm: B hòa giải; theo dõi 1-1 vào ngày 15.",
+        "Rủi ro: Điều gì sẽ xảy ra nếu Quản lý B vắng mặt?",
+        "Phê bình: Điều này không *sai*, nhưng nó khô khan. Nó đã làm mất đi 'nhiệt độ' con người của cuộc trò chuyện."
+      ]
     },
-    "articleSection": "Năng suất, AI",
-    "canonical": "{{canonical}}",
-    "description": "Dễ đọc nhờ thiết kế, có thể hành động nhờ mục đích. Với tối ưu theo loại họp, Biên bản AI biến ghi chú thành bản thiết kế. {{users}}+ người dùng tính đến {{date}}.",
-    "keywords": "AI meeting minutes, AI meeting notes, tự động hóa ghi chú, ghi chú 1:1, biên bản bán hàng, ghi chú brainstorm, ghi chú thuyết trình, action items, theo dõi quyết định, Biên bản AI",
-    "ld": {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "author": {
-        "@type": "Person",
-        "name": "Yu Adachi"
-      },
-      "dateModified": "{{dateISO}}",
-      "datePublished": "{{dateISO}}",
-      "description": "Cách tối ưu theo loại họp trong Biên bản AI giữ nguyên sắc thái và bối cảnh, làm rõ quyết định và thúc đẩy hành động.",
-      "headline": "Vì sao Biên bản AI cho biên bản tốt hơn cho mọi cuộc họp",
-      "image": "{{ogImage}}",
-      "inLanguage": "vi",
-      "keywords": "AI meeting minutes, meeting notes, Biên bản AI",
-      "mainEntityOfPage": {
-        "@id": "{{canonical}}",
-        "@type": "WebPage"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{publisherLogo}}"
-        },
-        "name": "Sense G.K."
-      }
-    },
-    "ogDescription": "Từ 1:1 và cuộc gọi bán hàng đến brainstorm — Biên bản AI giữ sắc thái, bối cảnh, làm rõ quyết định và dẫn tới thực thi.",
-    "ogImage": "{{ogImage}}",
-    "ogTitle": "Vì sao Biên bản AI phù hợp mọi loại cuộc họp",
-    "readingTimeMinutes": 6,
-    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
-    "slug": "why-minutes-ai-delivers-better-meeting-minutes",
-    "tags": [
-      "AI meeting minutes",
-      "meeting notes",
-      "1:1s",
-      "sales",
-      "brainstorming",
-      "productivity"
-    ],
-    "title": "Vì sao Biên bản AI cho biên bản tốt hơn cho mọi cuộc họp | Biên bản AI Blog",
-    "twitterCard": "summary_large_image"
+    "optimized": {
+      "h3": "1-1 được tối ưu hóa (Nắm bắt bối cảnh & giọng điệu)",
+      "items": [
+        "Nắm bắt cảm xúc và giọng điệu cốt lõi (ví dụ: 'Thất vọng nhưng cởi mở')",
+        "Tóm tắt quan điểm và mối quan tâm của nhân viên",
+        "Liệt kê các cam kết và thỏa thuận của người quản lý",
+        "Bảo tồn bối cảnh để việc theo dõi có ý nghĩa."
+      ]
+    }
   },
   "why": {
-    "h2": "Vì sao Biên bản AI hiệu quả cho “mọi” cuộc họp",
-    "items": {
-      "0": "Cấu trúc phù hợp mục tiêu: các trường thích ứng theo mục đích",
-      "1": "Giữ sắc thái: trích xuất cảm xúc và bảo toàn bối cảnh",
-      "2": "Truy vết quyết định: nổi bật ngã rẽ giữa đồng thuận và tạm hoãn",
-      "3": "Sẵn sàng thực thi: chuẩn hóa chủ sở hữu, hạn chót, tiêu chí thành công",
-      "4": "Học liên tục: A/B kết quả và cải tiến"
-    }
+    "h2": "Đây là lý do tại sao Biên bản AI vượt trội",
+    "items": [
+      "Bắt đầu với một nền tảng phổ quát, rõ ràng (Quyết định, Việc cần làm).",
+      "Tối ưu hóa thông minh định dạng cho 'mục đích' của cuộc họp.",
+      "Nắm bắt 'nhiệt độ' và bối cảnh, không chỉ là dữ kiện khô khan.",
+      "Không ngừng cải thiện 'đầu ra có giá trị nhất' cho mọi tình huống.",
+      "Cung cấp các biên bản có cấu trúc, có thể tìm kiếm và 'thực sự' hữu ích."
+    ]
   },
   "wrap": {
-    "h2": "Kết luận",
-    "p": "Bốn trụ cột phổ quát là nền tảng vững chắc. Đi xa hơn với tối ưu theo loại họp, biên bản sẽ thành bản thiết kế hành động. Biên bản AI cung cấp sẵn điều này — hãy trải nghiệm trong công việc thực."
+    "h2": "Hãy tự mình trải nghiệm",
+    "p": "Nền tảng chỉ là bước khởi đầu. Đừng chấp nhận những biên bản 'vô vị' làm mất đi những điều quan trọng."
+  },
+  "cta": {
+    "openBrowser": "Mở trong trình duyệt",
+    "downloadIOS": "Tải ứng dụng iOS",
+    "downloadGooglePlay": "Tải trên Google Play"
   }
 }

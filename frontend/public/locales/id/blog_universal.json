@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Kembali ke Beranda Minutes AI"
+  "seo": {
+    "title": "Mengapa Minutes AI Memberikan Notulen Terbaik untuk Semua Jenis Rapat",
+    "description": "Templat generik gagal. Pelajari mengapa AI harus menangkap 'suhu' dari rapat 1-on-1 atau brainstorming.",
+    "ogTitle": "Lebih dari 'To-Do': Mengapa Notulen 1-on-1 Anda Terasa 'Hambar'",
+    "ogDescription": "Daftar tugas sederhana bukanlah rangkuman 1-on-1 yang baik. Pelajari bagaimana Minutes AI menyesuaikan outputnya agar sesuai dengan 'tujuan' rapat Anda.",
+    "ld": {
+      "headline": "Masalah Notulen 'Satu Ukuran untuk Semua' (Dan Cara Memperbaikinya)",
+      "description": "Dasar yang pragmatis memang berguna, tetapi gagal menangkap 'suhu' dari rapat yang berpusat pada manusia."
+    }
+  },
+  "aria": {
+    "home": "Minutes AI Beranda"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Mengapa AI Harus Beradaptasi"
+  },
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Mengapa Minutes AI Memberi Anda Notulen yang Lebih Baik untuk *Setiap* Jenis Rapat",
+    "tagline": "Dasar universal (Keputusan, Tindak Lanjut, Risiko) menjamin kejelasan. Tapi notulen yang hebat harus 'beradaptasi'. Rapat 1-on-1 dan panggilan penjualan seharusnya tidak memiliki format yang sama."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Unduh di iOS",
-    "openBrowser": "Buka aplikasi web"
+  "recap": {
+    "h2": "Rekap: Dasar 'Notulen yang Bermakna'",
+    "p1": {
+      "pre": "Di",
+      "link": "artikel kami sebelumnya",
+      "post": ", kami mendefinisikan 'notulen yang bermakna' sebagai mengetahui 'siapa melakukan apa dan kapan' dalam sekejap."
+    },
+    "points": [
+      "Poin diskusi",
+      "Keputusan penting",
+      "Tindak Lanjut (To-Do)",
+      "Masalah dan Risiko"
+    ],
+    "note": "Ini menimbulkan pertanyaan tajam: Apakah format tunggal ini 'cukup baik' untuk *setiap* jenis rapat?"
   },
   "diversity": {
+    "h2": "Masalahnya: Tidak Semua Rapat Diciptakan Sama",
     "core": {
-      "h3": "Rapat representatif",
-      "items": {
-        "0": "Rutin/status: meninjau metrik, masalah, dan aksi secara berkala",
-        "1": "Brainstorming: menghasilkan ide dan menyaringnya",
-        "2": "Penjualan/Negosiasi: menyelaraskan kepentingan dan mencapai kesepakatan"
-      }
+      "h3": "Rapat Tipikal",
+      "items": [
+        "Check-in mingguan (Pembaruan & taktik)",
+        "Brainstorming (Menghasilkan ide)",
+        "Penjualan / negosiasi (Komitmen)"
+      ]
     },
-    "h2": "Rapat itu beragam: tujuan berbeda, output berbeda",
-    "p1": "Setiap kali orang berdiskusi tentang tujuan bersama, itu adalah rapat—dan output paling bernilai berubah mengikuti tujuan.",
     "wide": {
-      "h3": "Dalam arti luas sebagai “rapat”",
-      "items": {
-        "0": "1-on-1: tinjauan, target berikutnya, berbagi kekhawatiran",
-        "1": "Wawancara: persyaratan peran dan kecocokan",
-        "2": "Presentasi: masalah dan solusi",
-        "3": "Pelatihan: transfer pengetahuan operasional"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Mengapa Minutes AI menghadirkan notulen terbaik untuk semua jenis rapat",
-    "kicker": "Blog Minutes AI",
-    "tagline": "Empat elemen universal meningkatkan keterbacaan. Namun, optimasi sesuai tujuan rapat mengubah notulen dari sekadar bacaan menjadi cetak biru eksekusi."
+      "h3": "Spektrum 'Rapat' yang Lebih Luas",
+      "items": [
+        "1-on-1 (Pertumbuhan & umpan balik)",
+        "Wawancara (Evaluasi)",
+        "Lokakarya / Kuliah (Pembelajaran)"
+      ]
+    },
+    "p1": "Setiap kali orang berkumpul untuk tujuan bersama, itu adalah 'rapat'. Memaksa setiap percakapan ke dalam templat yang sama adalah hal yang kaku."
   },
   "limits": {
+    "h2": "Batasan Templat 'Satu Ukuran untuk Semua'",
+    "p1": "Memaksa setiap percakapan ke dalam empat kategori yang sama menciptakan notulen 'hambar' yang kehilangan semua konteks penting.",
     "generic": {
-      "h3": "Jika hanya memakai format universal",
-      "items": {
-        "0": "Anda menangkap topik, keputusan, tugas, dan kekhawatiran—dasar yang baik",
-        "1": "Namun nada, bobot, dan latar belakang sering terlewat",
-        "2": "Belakangan, “mengapa” di balik keputusan menjadi kurang jelas"
-      }
+      "h3": "Dasar Generik (Kekurangan 'Suhu')",
+      "items": [
+        "Menjamin ringkasan yang konsisten dan mudah dibaca",
+        "Mudah dicari di semua rapat",
+        "Menangkap hasil utama (keputusan, tindak lanjut)"
+      ]
     },
-    "h2": "Batasan format satu-untuk-semua",
     "optimized": {
-      "h3": "Jika dioptimalkan (contoh 1-on-1)",
-      "items": {
-        "0": "Emosi/Nada inti: merangkum suhu percakapan dan psikologi",
-        "1": "Konteks/Latar belakang: perubahan organisasi, peran, titik friksi",
-        "2": "Diskusi kunci (kutipan × ringkasan): jalur menuju kesepakatan",
-        "3": "Kesepakatan / Aksi berikutnya / Risiko: ternormalisasi untuk eksekusi"
-      }
-    },
-    "p1": "Empat elemen tersebut umumnya efektif, namun beberapa rapat kehilangan “suhu” dan konteks—terutama 1-on-1—sehingga menurunkan kejelasan saat ditinjau ulang."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Mengapa Minutes AI menghadirkan notulen terbaik untuk semua jenis rapat"
+      "h3": "Output yang Dioptimalkan (Menangkap Tujuan)",
+      "items": [
+        "Negosiasi: Melacak keberatan, alternatif, dan komitmen.",
+        "Brainstorming: Menangkap tema dan ide-ide mentah.",
+        "Retrospektif: Mengelompokkan umpan balik (Pertahankan, Masalah, Coba)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "Contoh 1-on-1: Masalah 'Suhu yang Hilang'",
     "generic": {
-      "h3": "Hanya empat elemen universal",
-      "items": {
-        "0": "Kekhawatiran A (relasi tim) muncul",
-        "1": "Keputusan: Manajer B akan menjadi mediator",
-        "2": "Aksi: mediasi; 1-on-1 berikutnya tanggal 15",
-        "3": "Kekhawatiran: belum ada rencana jika B absen"
-      }
+      "h3": "Notulen Generik (Tapi 'Hambar')",
+      "items": [
+        "Diskusi: Karyawan A kesulitan dengan dinamika tim.",
+        "Keputusan: Manajer B akan menengahi.",
+        "To-Do: B menengahi; tindak lanjut 1-on-1 pada tanggal 15.",
+        "Risiko: Bagaimana jika Manajer B tidak ada?",
+        "Kritik: Ini tidak *salah*, tetapi steril. Notulen ini kehilangan 'suhu' manusiawi dari percakapan tersebut."
+      ]
     },
-    "h2": "Contoh 1-on-1: menjaga “suhu” dan konteks keputusan",
     "optimized": {
-      "h3": "Dioptimalkan (format 1-on-1)",
-      "items": {
-        "0": "Emosi inti: cemas/letih; lega saat opsi konkret muncul",
-        "1": "Konteks: ambiguitas peran sejak April; sering ada perubahan terlambat",
-        "2": "Diskusi kunci: standarisasi “template permintaan”",
-        "3": "Kesepakatan: B menengahi sementara; ukur dampak dalam dua minggu",
-        "4": "Aksi berikutnya: B = draf hari ini; A = terapkan & beri umpan balik Rabu depan"
-      }
+      "h3": "1-on-1 yang Dioptimalkan (Menangkap Konteks & Nada)",
+      "items": [
+        "Menangkap emosi inti dan nada (mis. 'Frustrasi tapi terbuka')",
+        "Merangkum perspektif dan kekhawatiran karyawan",
+        "Mencantumkan komitmen dan kesepakatan manajer",
+        "Mempertahankan konteks agar tindak lanjut menjadi bermakna."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Rekap: Apa itu notulen yang “bermakna”?",
-    "note": "Jika keempatnya langsung terlihat, keterbacaan dasar sudah terjamin—itulah kerangka minimal yang layak.",
-    "p1": {
-      "link": "di sini (Bagian 1)",
-      "post": ".",
-      "pre": "Sebelumnya kami mendefinisikan “notulen bermakna”. Jika terlewat, mulai"
-    },
-    "points": {
-      "0": "Discussion (diskusi)",
-      "1": "Decisions (keputusan)",
-      "2": "Action Items (penanggung jawab & tenggat)",
-      "3": "Concerns (risiko yang belum terselesaikan)"
-    }
-  },
-  "seo": {
-    "description": "Lebih dari empat elemen universal: optimasi khusus tipe rapat menjadikan notulen siap dieksekusi. Per {{date}}, lebih dari {{users}} pengguna memakai Minutes AI.",
-    "ld": {
-      "description": "Cara Minutes AI mengoptimalkan output per tipe rapat dan mengubah notulen menjadi cetak biru eksekusi.",
-      "headline": "Mengapa Minutes AI bekerja untuk semua rapat"
-    },
-    "ogDescription": "Pertahankan nada dan konteks sambil mendorong keputusan dan eksekusi lewat output yang dioptimalkan per rapat.",
-    "ogTitle": "Mengapa Minutes AI cocok untuk semua jenis rapat",
-    "title": "Mengapa Minutes AI bekerja untuk semua rapat | Blog Minutes AI"
   },
   "why": {
-    "h2": "Mengapa Minutes AI bekerja untuk semua jenis rapat",
-    "items": {
-      "0": "Sesuai tujuan: bagian/section variabel menurut sasaran rapat",
-      "1": "Menjaga suhu: mengekstrak nada dan mempertahankan konteks",
-      "2": "Jejak keputusan: memperjelas cabang setuju/tertunda",
-      "3": "Siap dieksekusi: normalisasi penanggung jawab, tenggat, dan kriteria",
-      "4": "Pembelajaran berkelanjutan: peningkatan berbasis uji A/B"
-    }
+    "h2": "Inilah Mengapa Minutes AI Unggul",
+    "items": [
+      "Dimulai dengan dasar universal yang jelas (Keputusan, Tindak Lanjut).",
+      "Secara cerdas mengoptimalkan format untuk 'tujuan' rapat.",
+      "Menangkap 'suhu' dan konteks, bukan hanya fakta kering.",
+      "Terus meningkatkan 'output paling berharga' untuk setiap skenario.",
+      "Memberikan notulen terstruktur dan dapat dicari yang 'benar-benar' berguna."
+    ]
   },
   "wrap": {
-    "h2": "Penutup",
-    "p": "Empat elemen adalah fondasi kuat. Dengan optimasi per tipe rapat, notulen berkembang menjadi cetak biru aksi. Minutes AI menyediakannya secara default—gunakan di rapat nyata."
+    "h2": "Rasakan Sendiri",
+    "p": "Dasar hanyalah permulaan. Berhentilah menerima notulen 'hambar' yang kehilangan apa yang penting."
+  },
+  "cta": {
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS",
+    "downloadGooglePlay": "Dapatkan di Google Play"
   }
 }

@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Retour à l’accueil de Minutes.AI"
+  "seo": {
+    "title": "Pourquoi Minutes.AI fournit les meilleurs comptes rendus pour tout type de réunion",
+    "description": "Un modèle générique échoue. Découvrez pourquoi l'IA doit capter la 'température' d'un entretien individuel ou d'un brainstorming.",
+    "ogTitle": "Au-delà des 'Tâches' : Pourquoi vos comptes rendus de 1-on-1 semblent 'insipides'",
+    "ogDescription": "Une simple liste de tâches n'est pas un bon résumé de 1-on-1. Découvrez comment Minutes.AI adapte ses résultats à l''objectif' de votre réunion.",
+    "ld": {
+      "headline": "Le problème du 'compte rendu universel' (et comment le résoudre)",
+      "description": "Une base pragmatique est utile, mais elle ne parvient pas à capter la 'température' des réunions centrées sur l'humain."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Accueil"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Pourquoi l'IA doit s'adapter"
+  },
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Pourquoi Minutes.AI vous offre de meilleurs comptes rendus pour *tout* type de réunion",
+    "tagline": "Une base universelle (Décisions, Tâches, Risques) garantit la clarté. Mais les bons comptes rendus 's'adaptent'. Un 1-on-1 et un appel commercial ne devraient pas avoir le même format."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Télécharger sur iOS",
-    "openBrowser": "Ouvrir la version web"
+  "recap": {
+    "h2": "Rappel : La base d'un 'compte rendu significatif'",
+    "p1": {
+      "pre": "Dans notre",
+      "link": "article précédent",
+      "post": ", nous avons défini un 'compte rendu significatif' comme le fait de savoir 'qui fait quoi et pour quand' en un coup d'œil."
+    },
+    "points": [
+      "Points de discussion",
+      "Décisions clés",
+      "Actions à entreprendre (To-Do)",
+      "Risques et points de blocage"
+    ],
+    "note": "Cela soulève une question pointue : ce format unique est-il 'suffisamment bon' pour *chaque* type de réunion ?"
   },
   "diversity": {
+    "h2": "Le problème : Toutes les réunions ne se valent pas",
     "core": {
-      "h3": "Réunions représentatives",
-      "items": {
-        "0": "Récurrentes : revue régulière des métriques, problèmes et actions",
-        "1": "Brainstorming : génération et convergence d’idées",
-        "2": "Ventes/Négociation : aligner les intérêts et conclure un accord"
-      }
+      "h3": "Réunions typiques",
+      "items": [
+        "Point hebdomadaire (Mises à jour et tactiques)",
+        "Brainstorming (Génération d'idées)",
+        "Vente / négociation (Engagements)"
+      ]
     },
-    "h2": "Les réunions sont diverses : objectifs différents, outputs différents",
-    "p1": "Dès lors que des personnes discutent d’un objectif commun, c’est une réunion—et l’output le plus utile dépend de cet objectif.",
     "wide": {
-      "h3": "Au sens large du terme « réunion »",
-      "items": {
-        "0": "Entretien 1-à-1 : revue, prochains objectifs, partage des préoccupations",
-        "1": "Entretien d’embauche : exigences du poste et adéquation",
-        "2": "Présentation : exposer le problème et la solution",
-        "3": "Formation : transfert de savoir-faire opérationnel"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion",
-    "kicker": "Blog Minutes.AI",
-    "tagline": "Les quatre éléments universels améliorent la lisibilité. Mais l’optimisation selon l’objectif de la réunion transforme le compte rendu en plan d’exécution, et non en simple texte à lire."
+      "h3": "Le spectre élargi des 'réunions'",
+      "items": [
+        "1-on-1 (Croissance et feedback)",
+        "Entretien (Évaluation)",
+        "Atelier / Conférence (Apprentissage)"
+      ]
+    },
+    "p1": "Chaque fois que des personnes se rassemblent dans un but commun, c'est une 'réunion'. Forcer chaque conversation dans le même moule est réducteur."
   },
   "limits": {
+    "h2": "Les limites du modèle 'universel'",
+    "p1": "Forcer chaque conversation dans les quatre mêmes catégories crée des comptes rendus 'insipides' qui perdent tout le contexte critique.",
     "generic": {
-      "h3": "Si vous appliquez uniquement le format universel",
-      "items": {
-        "0": "Vous saisissez sujet, décisions, tâches et préoccupations—bonne base",
-        "1": "Mais le ton, le poids et l’arrière-plan se perdent souvent",
-        "2": "Plus tard, le « pourquoi » derrière les décisions est plus flou"
-      }
+      "h3": "La base générique (manque de 'température')",
+      "items": [
+        "Garantit un résumé cohérent et lisible",
+        "Facile à rechercher dans toutes les réunions",
+        "Capture les résultats clés (décisions, tâches)"
+      ]
     },
-    "h2": "Limites du format unique pour tous les cas",
     "optimized": {
-      "h3": "Si vous optimisez (exemple 1-à-1)",
-      "items": {
-        "0": "Émotion/Ton clé : résumer la température et la psychologie",
-        "1": "Contexte/Arrière-plan : changements orga, rôles, points de friction",
-        "2": "Discussion clé (citations × résumés) : chemin vers l’accord",
-        "3": "Accords / Prochaines actions / Risques : normalisés pour l’exécution"
-      }
-    },
-    "p1": "Les quatre éléments fonctionnent largement, mais certaines réunions perdent la « température » et le contexte—surtout les 1-à-1—ce qui affaiblit la clarté lors d’une relecture."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Pourquoi Minutes.AI produit le meilleur compte rendu pour tout type de réunion"
+      "h3": "Le résultat optimisé (capture l'objectif)",
+      "items": [
+        "Négociation : Suit les objections, les alternatives et les engagements.",
+        "Brainstorming : Capture les thèmes et les idées brutes.",
+        "Rétrospective : Regroupe les feedbacks (Garder, Problème, Essayer)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "Exemple de 1-on-1 : Le problème de la 'température perdue'",
     "generic": {
-      "h3": "Les quatre universels uniquement",
-      "items": {
-        "0": "La préoccupation de A (relations d’équipe) est apparue",
-        "1": "Décision : le manager B fera la médiation",
-        "2": "Actions : médiation ; prochain 1-à-1 le 15",
-        "3": "Préoccupation : aucun plan si B est absent"
-      }
+      "h3": "Compte rendu générique (mais 'insipide')",
+      "items": [
+        "Discussion : L'employé A a des difficultés avec la dynamique d'équipe.",
+        "Décision : Le manager B servira de médiateur.",
+        "Tâches : B doit servir de médiateur ; suivi 1-on-1 le 15.",
+        "Risques : Que se passe-t-il si le manager B est absent ?",
+        "Critique : Ce n'est pas *faux*, mais c'est stérile. Il a perdu la 'température' humaine de la conversation."
+      ]
     },
-    "h2": "Exemple 1-à-1 : préserver la température et le contexte des décisions",
     "optimized": {
-      "h3": "Optimisé (format 1-à-1)",
-      "items": {
-        "0": "Émotion clé : anxiété/fatigue ; soulagement face à des options concrètes",
-        "1": "Contexte : flou des rôles depuis avril ; nombreux changements tardifs",
-        "2": "Discussion clé : normaliser un modèle de demande",
-        "3": "Accords : B médie pour l’instant ; mesure d’impact dans deux semaines",
-        "4": "Prochaines actions : B = brouillon aujourd’hui ; A = appliquer & feedback mercredi prochain"
-      }
+      "h3": "1-on-1 optimisé (capture le contexte et le ton)",
+      "items": [
+        "Capture l'émotion et le ton central (ex. 'Frustré mais ouvert')",
+        "Résume le point de vue et les préoccupations de l'employé",
+        "Liste les engagements et les accords du manager",
+        "Préserve le contexte pour que le suivi soit significatif."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Rappel : qu’est-ce qu’un compte rendu « pertinent » ?",
-    "note": "Si ces quatre points sont visibles d’emblée, vous garantissez un minimum de lisibilité : c’est l’ossature minimale viable.",
-    "p1": {
-      "link": "ici (Partie 1)",
-      "post": ".",
-      "pre": "Précédemment, nous avons défini le « compte rendu pertinent ». Si vous l’avez manqué, commencez"
-    },
-    "points": {
-      "0": "Discussion",
-      "1": "Decisions (décisions)",
-      "2": "Action Items (responsable et échéance)",
-      "3": "Concerns (risques en suspens)"
-    }
-  },
-  "seo": {
-    "description": "Au-delà des quatre éléments universels : l’optimisation par type de réunion transforme le compte rendu en plan d’exécution. À {{date}}, plus de {{users}} personnes utilisent Minutes.AI.",
-    "ld": {
-      "description": "Comment Minutes.AI optimise les outputs par type de réunion et transforme le compte rendu en plan d’exécution.",
-      "headline": "Pourquoi Minutes.AI fonctionne pour toute réunion"
-    },
-    "ogDescription": "Préservez ton et contexte tout en favorisant décisions et exécution grâce à des outputs optimisés selon la réunion.",
-    "ogTitle": "Pourquoi Minutes.AI fonctionne pour tous les types de réunions",
-    "title": "Pourquoi Minutes.AI fonctionne pour toute réunion | Blog Minutes.AI"
   },
   "why": {
-    "h2": "Pourquoi Minutes.AI fonctionne pour tout type de réunion",
-    "items": {
-      "0": "Adéquation à l’objectif : sections variables selon le but du meeting",
-      "1": "Préservation de la température : extraire le ton et conserver le contexte",
-      "2": "Traçabilité des décisions : clarifier les embranchements accord/en attente",
-      "3": "Prêt à l’exécution : normaliser responsables, échéances et critères",
-      "4": "Apprentissage continu : améliorations pilotées par A/B"
-    }
+    "h2": "C'est pourquoi Minutes.AI excelle",
+    "items": [
+      "Commence par une base claire et universelle (Décisions, Tâches).",
+      "Optimise intelligemment le format en fonction de l''objectif' de la réunion.",
+      "Capture la 'température' et le contexte, pas seulement des faits secs.",
+      "Améliore constamment le 'résultat le plus pertinent' pour chaque scénario.",
+      "Fournit des comptes rendus structurés et consultables qui sont 'vraiment' utiles."
+    ]
   },
   "wrap": {
-    "h2": "Conclusion",
-    "p": "Les quatre éléments constituent une base solide. En optimisant par type de réunion, le compte rendu devient un plan d’action. Minutes.AI intègre cette optimisation par défaut—utilisez-le dans vos réunions réelles."
+    "h2": "Faites-en l'expérience vous-même",
+    "p": "Une base n'est qu'un début. Cessez de vous contenter de comptes rendus 'insipides' qui passent à côté de l'essentiel."
+  },
+  "cta": {
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l'app iOS",
+    "downloadGooglePlay": "Obtenir sur Google Play"
   }
 }

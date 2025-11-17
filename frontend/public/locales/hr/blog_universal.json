@@ -1,167 +1,124 @@
 {
-  "a11y": {
-    "home": "Natrag na početnu AI Zapisnik"
-  },
-  "byline": {
-    "name": "Autor: Yu Adachi",
-    "title": "CEO, Sense G.K."
-  },
-  "cta": {
-    "downloadIOS": "Preuzmi za iOS",
-    "openBrowser": "Otvori web aplikaciju"
-  },
-  "diversity": {
-    "core": {
-      "h3": "Predstavničke vrste sastanaka",
-      "items": {
-        "0": "Tjedna ažuriranja: status, problemi, protu-mjere",
-        "1": "Brainstorming: divergencija i konvergencija ideja",
-        "2": "Prodajni sastanci: poravnanje interesa i postizanje dogovora"
-      }
-    },
-    "h2": "Sastanci su raznoliki: različiti ciljevi, različita vrijednost",
-    "p1": "Kad god ljudi razgovaraju prema zajedničkom cilju — to je sastanak. A kad se cilj promijeni, mijenja se i oblik vrijednog izlaza.",
-    "wide": {
-      "h3": "Široko shvaćeni „sastanci“",
-      "items": {
-        "0": "1:1: pregled ishoda, postavljanje sljedećeg cilja, iznošenje briga",
-        "1": "Intervjui: usklađivanje zahtjeva i prikladnosti",
-        "2": "Prezentacije: navesti problem i predloženo rješenje",
-        "3": "Predavanja/Trening: prijenos operacija i know-how-a"
-      }
+  "seo": {
+    "title": "Zašto AI Zapisnik daje najbolje zapisnike za svaku vrstu sastanka",
+    "description": "Generički predložak nije dovoljan. Saznajte zašto AI mora uhvatiti 'temperaturu' 1-na-1 sastanka ili brainstorminga.",
+    "ogTitle": "Više od 'Zadataka': Zašto su vaši 1-na-1 zapisnici 'bez okusa'",
+    "ogDescription": "Jednostavan popis zadataka nije dobar sažetak 1-na-1 sastanka. Saznajte kako AI Zapisnik prilagođava svoj izlaz 'svrsi' vašeg sastanka.",
+    "ld": {
+      "headline": "Problem 'jedne veličine za sve' kod zapisnika (i kako ga riješiti)",
+      "description": "Pragmatična osnova je korisna, ali ne uspijeva uhvatiti 'temperaturu' sastanaka usmjerenih na ljude."
     }
   },
-  "hero": {
-    "h1": "Zašto AI Zapisnik isporučuje bolje zapisnike za svaki sastanak",
-    "kicker": "AI Zapisnik Blog",
-    "tagline": "Četiri univerzalna stupa čine bilješke čitljivima. Optimizacijom za svrhu sastanka zapisnik postaje „nacrt za djelovanje“."
-  },
-  "limits": {
-    "generic": {
-      "h3": "Ako koristite samo generički format",
-      "items": {
-        "0": "Zabilježit ćete teme, odluke, zadatke i brige — dobra osnova",
-        "1": "No ton, težina i pozadina često nestanu",
-        "2": "Kasnije, „zašto odluke” djeluje tanko"
-      }
-    },
-    "h2": "Ograničenja formata „jedan za sve“",
-    "optimized": {
-      "h3": "Ako optimizirate (primjer 1:1)",
-      "items": {
-        "0": "Core Emotion / Tone: sažeti temperaturu i psihologiju",
-        "1": "Context / Background: promjene u organizaciji, uloge, točke trenja",
-        "2": "Key Discussion (izjava × sažetak): put do usklađenja",
-        "3": "Agreements / Next Actions / Risks: normalizirati za izvedbu"
-      }
-    },
-    "p1": "Četiri stupa — Discussion, Decisions, Action Items, Concerns — rade gotovo svugdje, ali neki tipovi gube „temperaturu” i kontekst. Posebno 1:1 pri kasnijem čitanju."
+  "aria": {
+    "home": "AI Zapisnik Početna"
   },
   "nav": {
     "blog": "Blog",
-    "current": "Zašto AI Zapisnik isporučuje bolje zapisnike za svaki sastanak"
+    "current": "Zašto se AI mora prilagoditi"
   },
-  "oneonone": {
-    "generic": {
-      "h3": "Samo četiri univerzalna stupa",
-      "items": {
-        "0": "Tema: A-ina briga (odnosi u timu)",
-        "1": "Odluka: B će posredovati",
-        "2": "Akcije: pokrenuti medijaciju; sljedeći 1:1 15.",
-        "3": "Briga: nema zamjene ako B izostane"
-      }
-    },
-    "h2": "Primjer 1:1: zadržati „temperaturu”, sačuvati kontekst odluke",
-    "optimized": {
-      "h3": "Optimizirano (1:1 format)",
-      "items": {
-        "0": "Core Emotion: anksioznost i umor; olakšanje kad prijedlog prođe",
-        "1": "Context: travanjska reorganizacija zamaglila uloge; česte naknadne izmjene",
-        "2": "Key Discussion: napraviti predložak zahtjeva → uskladiti timsku primjenu",
-        "3": "Agreements: B zasad posreduje; mjeriti učinak za dva tjedna",
-        "4": "Next Actions: B danas izrađuje predložak; A primjenjuje i izvješćuje iduće srijede"
-      }
-    }
+  "hero": {
+    "kicker": "Priručnik",
+    "h1": "Zašto vam AI Zapisnik daje bolje zapisnike za *svaku* vrstu sastanka",
+    "tagline": "Univerzalna osnova (Odluke, Zadaci, Rizici) osigurava jasnoću. Ali sjajni zapisnici se 'prilagođavaju'. Sastanak 1-na-1 i prodajni poziv ne bi trebali imati isti format."
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
   },
   "recap": {
-    "h2": "Brzi rekap: što zapisnike čini smislenima?",
-    "note": "Mogućnost da u trenu preletite ova četiri je minimum. Ta osnova jamči čitljivost.",
+    "h2": "Sažetak: Osnova 'smislenog zapisnika'",
     "p1": {
-      "link": "1. dio",
-      "post": ".",
-      "pre": "U prošloj objavi definirali smo „smislene zapisnike“. Ako ste propustili, krenite s "
+      "pre": "U našem",
+      "link": "prethodnom članku",
+      "post": ", definirali smo 'smisleni zapisnik' kao znanje 'tko što radi do kada' na prvi pogled."
     },
-    "points": {
-      "0": "Discussion",
-      "1": "Decisions",
-      "2": "Action Items (owner & due date)",
-      "3": "Concerns (open risks / unresolved)"
+    "points": [
+      "Točke rasprave",
+      "Ključne odluke",
+      "Zadaci (To-Do)",
+      "Otvorena pitanja i rizici"
+    ],
+    "note": "Ovo postavlja oštro pitanje: Je li ovaj jedinstveni format 'dovoljno dobar' za *svaku* vrstu sastanka?"
+  },
+  "diversity": {
+    "h2": "Problem: Nisu svi sastanci jednaki",
+    "core": {
+      "h3": "Tipični sastanci",
+      "items": [
+        "Tjedni check-in (Ažuriranja i taktike)",
+        "Brainstorming (Generiranje ideja)",
+        "Prodaja / pregovori (Obveze)"
+      ]
+    },
+    "wide": {
+      "h3": "Širi spektar 'sastanaka'",
+      "items": [
+        "1-na-1 (Rast i povratne informacije)",
+        "Intervju (Evaluacija)",
+        "Radionica / Predavanje (Učenje)"
+      ]
+    },
+    "p1": "Svaki put kad se ljudi okupe s zajedničkom svrhom, to je 'sastanak'. Prisiljavanje svakog razgovora u isti predložak je grubo."
+  },
+  "limits": {
+    "h2": "Ograničenje predloška 'jedna veličina za sve'",
+    "p1": "Prisiljavanje svakog razgovora u iste četiri kategorije stvara 'bezukusne' zapisnike koji gube sav ključni kontekst.",
+    "generic": {
+      "h3": "Generička osnova (nedostaje 'temperatura')",
+      "items": [
+        "Jamči dosljedan, čitljiv sažetak",
+        "Lako pretraživanje kroz sve sastanke",
+        "Hvata ključne ishode (odluke, zadatke)"
+      ]
+    },
+    "optimized": {
+      "h3": "Optimizirani izlaz (hvata svrhu)",
+      "items": [
+        "Pregovori: Prati prigovore, alternative i obveze.",
+        "Brainstorming: Hvata teme i sirove ideje.",
+        "Retrospektiva: Grupiranje povratnih informacija (Zadržati, Problem, Pokušati)."
+      ]
     }
   },
-  "seo": {
-    "alternateLangs": {
-      "ja": "{{canonicalJa}}"
+  "oneonone": {
+    "h2": "Primjer 1-na-1: Problem 'izgubljene temperature'",
+    "generic": {
+      "h3": "Generički (ali 'bezukusan') zapisnik",
+      "items": [
+        "Rasprava: Zaposlenik A se bori s timskom dinamikom.",
+        "Odluka: Menadžer B će posredovati.",
+        "Zadaci: B će posredovati; praćenje 1-na-1 15-og.",
+        "Rizici: Što ako je menadžer B odsutan?",
+        "Kritika: Ovo nije *pogrešno*, ali je sterilno. Izgubilo je ljudsku 'temperaturu' razgovora."
+      ]
     },
-    "articleSection": "Produktivnost, AI",
-    "canonical": "{{canonical}}",
-    "description": "Čitljivo po dizajnu, djelotvorno po svrsi. Optimizacijom po tipu sastanka AI Zapisnik pretvara bilješke u nacrte. Koristi ga {{users}}+ ljudi na dan {{date}}.",
-    "keywords": "AI meeting minutes, AI meeting notes, automatizacija bilješki, 1:1 bilješke, prodajni zapisnici, brainstorming bilješke, bilješke prezentacije, action items, praćenje odluka, AI Zapisnik",
-    "ld": {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "author": {
-        "@type": "Person",
-        "name": "Yu Adachi"
-      },
-      "dateModified": "{{dateISO}}",
-      "datePublished": "{{dateISO}}",
-      "description": "Kako optimizacija po tipu sastanka u AI Zapisnik čuva ton i kontekst, razjašnjava odluke i vodi u izvedbu.",
-      "headline": "Zašto AI Zapisnik isporučuje bolje zapisnike za svaki sastanak",
-      "image": "{{ogImage}}",
-      "inLanguage": "hr",
-      "keywords": "AI meeting minutes, meeting notes, AI Zapisnik",
-      "mainEntityOfPage": {
-        "@id": "{{canonical}}",
-        "@type": "WebPage"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{publisherLogo}}"
-        },
-        "name": "Sense G.K."
-      }
-    },
-    "ogDescription": "Od 1:1 i prodajnih poziva do brainstorma — AI Zapisnik čuva ton i kontekst, pojašnjava odluke i vodi u egzekuciju.",
-    "ogImage": "{{ogImage}}",
-    "ogTitle": "Zašto AI Zapisnik radi za svaki tip sastanka",
-    "readingTimeMinutes": 6,
-    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
-    "slug": "why-minutes-ai-delivers-better-meeting-minutes",
-    "tags": [
-      "AI meeting minutes",
-      "meeting notes",
-      "1:1s",
-      "sales",
-      "brainstorming",
-      "productivity"
-    ],
-    "title": "Zašto AI Zapisnik isporučuje bolje zapisnike za svaki sastanak | AI Zapisnik Blog",
-    "twitterCard": "summary_large_image"
+    "optimized": {
+      "h3": "Optimizirani 1-na-1 (hvata kontekst i ton)",
+      "items": [
+        "Hvata ključne emocije i ton (npr. 'Frustriran, ali otvoren')",
+        "Sažima perspektivu i brige zaposlenika",
+        "Navodi obveze i dogovore menadžera",
+        "Čuva kontekst kako bi praćenje bilo smisleno."
+      ]
+    }
   },
   "why": {
-    "h2": "Zašto AI Zapisnik radi za „bilo koji” sastanak",
-    "items": {
-      "0": "Struktura po cilju: polja se prilagođavaju svrsi sastanka",
-      "1": "Zadržavanje tona: izvući emociju i čuvati kontekst",
-      "2": "Sljedivost odluka: iznijeti račvanja između dogovora i odgode",
-      "3": "Spremno za izvođenje: standardizirati vlasnika, rok i kriterije uspjeha",
-      "4": "Kontinuirano učenje: A/B izlaza i stalno poboljšanje"
-    }
+    "h2": "Zato je AI Zapisnik izvrstan",
+    "items": [
+      "Počinje s jasnom, univerzalnom osnovom (Odluke, Zadaci).",
+      "Inteligentno optimizira format prema 'svrsi' sastanka.",
+      "Hvata 'temperaturu' i kontekst, ne samo suhe činjenice.",
+      "Stalno poboljšava 'najvrjedniji izlaz' za svaki scenarij.",
+      "Dostavlja strukturirane zapisnike koji se mogu pretraživati i koji su 'stvarno' korisni."
+    ]
   },
   "wrap": {
-    "h2": "Zaključak",
-    "p": "Četiri univerzalna stupa su snažna baza. Optimizacijom po tipu sastanka zapisnik prelazi iz zapisa za čitanje u nacrt za djelovanje. AI Zapisnik to isporučuje prema zadanim postavkama — iskusite u stvarnom radu."
+    "h2": "Iskusite sami",
+    "p": "Osnova je samo početak. Prestanite se zadovoljavati 'bezukusnim' zapisnicima koji gube ono što je važno."
+  },
+  "cta": {
+    "openBrowser": "Otvori u pregledniku",
+    "downloadIOS": "Preuzmi iOS aplikaciju",
+    "downloadGooglePlay": "Preuzmite na Google Play"
   }
 }

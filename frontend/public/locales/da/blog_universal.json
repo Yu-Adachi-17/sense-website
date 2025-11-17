@@ -1,125 +1,124 @@
 {
-  "a11y": {
-    "home": "Tilbage til Referat AI-forsiden"
+  "seo": {
+    "title": "Derfor leverer Referat AI de bedste referater til enhver mødetype",
+    "description": "En generisk skabelon slår ikke til. Lær hvorfor AI skal opfange 'temperaturen' i en 1-til-1 samtale eller en brainstorming.",
+    "ogTitle": "Mere end 'To-Do': Hvorfor dine 1-til-1 referater føles 'smagsløse'",
+    "ogDescription": "En simpel to-do-liste er ikke et godt 1-til-1 resumé. Lær hvordan Referat AI tilpasser sit output til 'formålet' med dit møde.",
+    "ld": {
+      "headline": "'One-Size-Fits-All' problemet med referater (og hvordan man løser det)",
+      "description": "En pragmatisk basis er nyttig, men den formår ikke at fange 'temperaturen' i menneskecentrerede møder."
+    }
+  },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Hvorfor AI skal tilpasse sig"
+  },
+  "hero": {
+    "kicker": "Playbook",
+    "h1": "Hvorfor Referat AI giver dig bedre referater til *enhver* mødetype",
+    "tagline": "En universel basis (Beslutninger, To-Dos, Risici) sikrer klarhed. Men gode referater 'tilpasser sig'. En 1-til-1 og et salgsmøde bør ikke have det samme format."
   },
   "byline": {
     "name": "Written by Yu Adachi",
     "title": "CEO, Sense G.K."
   },
-  "cta": {
-    "downloadIOS": "Hent til iOS",
-    "openBrowser": "Åbn webappen"
+  "recap": {
+    "h2": "Opsamling: Grundlaget for 'meningsfulde referater'",
+    "p1": {
+      "pre": "I vores",
+      "link": "tidligere artikel",
+      "post": "definerede vi 'meningsfulde referater' som at vide 'hvem gør hvad hvornår' ved et hurtigt blik."
+    },
+    "points": [
+      "Diskussionspunkter",
+      "Væsentlige beslutninger",
+      "Handlingspunkter (To-Do)",
+      "Uafklarede punkter og risici"
+    ],
+    "note": "Dette rejser et skarpt spørgsmål: Er dette ene format 'godt nok' til *enhver* type møde?"
   },
   "diversity": {
+    "h2": "Problemet: Ikke alle møder er skabt ens",
     "core": {
       "h3": "Typiske møder",
-      "items": {
-        "0": "Status/recurring: løbende gennemgang af tal, problemer og tiltag",
-        "1": "Brainstorm: idéafsøgning og konvergens",
-        "2": "Salg/forhandling: afstem interesser og nå til enighed"
-      }
+      "items": [
+        "Ugentlig check-in (Opdateringer & taktik)",
+        "Brainstorming (Idégenerering)",
+        "Salg / forhandling (Forpligtelser)"
+      ]
     },
-    "h2": "Møder er forskellige: Forskelligt formål, forskelligt output",
-    "p1": "Når mennesker taler om et fælles mål, er det et møde—og hvilket output der giver mest værdi, afhænger af formålet.",
     "wide": {
-      "h3": "Bredt forstået som “møder”",
-      "items": {
-        "0": "1-til-1: review, næste mål, del bekymringer",
-        "1": "Interview: krav til rolle og fit",
-        "2": "Præsentation: problem og løsning",
-        "3": "Oplæring/træning: overførsel af driftserfaring"
-      }
-    }
-  },
-  "hero": {
-    "h1": "Hvorfor Referat AI giver de bedste referater til enhver mødetype",
-    "kicker": "Referat AI Blog",
-    "tagline": "De fire universelle elementer øger læsbarheden, men når output tilpasses mødets formål, bliver referatet en plan for handling – ikke bare noget man læser."
+      "h3": "Det bredere spektrum af 'møder'",
+      "items": [
+        "1-til-1 (Udvikling & feedback)",
+        "Jobsamtale (Evaluering)",
+        "Workshop / Foredrag (Læring)"
+      ]
+    },
+    "p1": "Hver gang folk samles om et fælles formål, er det et 'møde'. At tvinge enhver samtale ind i den samme skabelon er brutalt."
   },
   "limits": {
+    "h2": "Begrænsningen ved 'One-Size-Fits-All'",
+    "p1": "At tvinge enhver samtale ind i de samme fire kasser skaber 'smagsløse' referater, der mister al den kritiske kontekst.",
     "generic": {
-      "h3": "Hvis du kun bruger det universelle format",
-      "items": {
-        "0": "Du fanger emne, beslutninger, opgaver og bekymringer—fint udgangspunkt",
-        "1": "Men tone, vægt og baggrund går ofte tabt",
-        "2": "Senere bliver “hvorfor vi besluttede sådan” svagere"
-      }
+      "h3": "Den generiske basis (mangler 'temperatur')",
+      "items": [
+        "Garanterer et konsistent, læsbart resumé",
+        "Let at søge på tværs af alle møder",
+        "Fanger nøgleresultater (beslutninger, to-dos)"
+      ]
     },
-    "h2": "Begrænsninger ved ét format til det hele",
     "optimized": {
-      "h3": "Hvis du optimerer (1-til-1 eksempel)",
-      "items": {
-        "0": "Kernestemning/tonen: opsummer temperatur og psykologi",
-        "1": "Kontekst/baggrund: org-ændringer, roller, konfliktpunkter",
-        "2": "Nøgle-drøftelser (citater × resume): vejen til enighed",
-        "3": "Aftaler / næste skridt / risici: normaliseret til eksekvering"
-      }
-    },
-    "p1": "De fire elementer virker bredt, men visse møder mister “temperatur” og kontekst—særligt 1-til-1—hvilket svækker forståelsen ved genlæsning."
-  },
-  "nav": {
-    "blog": "Blog",
-    "current": "Hvorfor Referat AI giver de bedste referater til enhver mødetype"
+      "h3": "Det optimerede output (fanger formålet)",
+      "items": [
+        "Forhandling: Sporer indvendinger, alternativer og forpligtelser.",
+        "Brainstorm: Fanger temaer og rå ideer.",
+        "Retrospektiv: Grupperer feedback (Keep, Problem, Try)."
+      ]
+    }
   },
   "oneonone": {
+    "h2": "1-til-1 eksempel: Problemet med den 'tabte temperatur'",
     "generic": {
-      "h3": "Kun de fire universelle",
-      "items": {
-        "0": "Medarbejder A’s bekymring (relationer i teamet) kom frem",
-        "1": "Beslutning: leder B går ind som mediator",
-        "2": "Handlinger: mediation; næste 1-til-1 den 15.",
-        "3": "Bekymring: ingen plan hvis B er fraværende"
-      }
+      "h3": "Generisk (men 'smagsløst') referat",
+      "items": [
+        "Diskussion: Medarbejder A kæmper med teamdynamikken.",
+        "Beslutning: Leder B vil mægle.",
+        "To-Do: B skal mægle; opfølgende 1-til-1 den 15.",
+        "Risici: Hvad hvis Leder B er fraværende?",
+        "Kritik: Det er ikke *forkert*, men det er sterilt. Det har mistet samtalens menneskelige 'temperatur'."
+      ]
     },
-    "h2": "1-til-1 eksempel: Bevar temperatur og beslutningskontekst",
     "optimized": {
-      "h3": "Optimeret (1-til-1 format)",
-      "items": {
-        "0": "Kernestemning: uro/træthed; lettelse ved konkrete muligheder",
-        "1": "Kontekst: uklare roller siden april; sene ændringer hyppige",
-        "2": "Nøgle-drøftelse: standardiser en “request-skabelon”",
-        "3": "Aftaler: B medierer foreløbigt; effektmåling om to uger",
-        "4": "Næste skridt: B = skitse i dag; A = anvend & giv feedback næste onsdag"
-      }
+      "h3": "Optimeret 1-til-1 (fanger kontekst & tone)",
+      "items": [
+        "Fanger kernefølelser og tone (f.eks. 'Frustreret, men åben')",
+        "Opsummerer medarbejderens perspektiv og bekymringer",
+        "Oplister lederens forpligtelser og aftaler",
+        "Bevarer konteksten, så opfølgningen er meningsfuld."
+      ]
     }
-  },
-  "recap": {
-    "h2": "Opsummering: Hvad gør et referat “meningsfuldt”?",
-    "note": "Når disse fire er tydelige med det samme, har du et solidt minimums-skelet for læsbarhed.",
-    "p1": {
-      "link": "her (Del 1)",
-      "post": ".",
-      "pre": "Sidst definerede vi “meningsfulde referater”. Hvis du missede det, så start"
-    },
-    "points": {
-      "0": "Discussion (drøftelser)",
-      "1": "Decisions (beslutninger)",
-      "2": "Action Items (ansvar & deadline)",
-      "3": "Concerns (åbne risici)"
-    }
-  },
-  "seo": {
-    "description": "Ud over de fire universelle elementer: mødespecifik optimering gør referatet til en plan for eksekvering. Per {{date}} bruger over {{users}} personer Referat AI.",
-    "ld": {
-      "description": "Sådan optimerer Referat AI output per mødetype og gør referatet til en eksekveringsplan.",
-      "headline": "Hvorfor Referat AI virker for enhver mødetype"
-    },
-    "ogDescription": "Bevar temperatur og kontekst, og driv beslutninger og handling gennem møde-optimerede outputs.",
-    "ogTitle": "Hvorfor Referat AI virker på tværs af møder",
-    "title": "Hvorfor Referat AI virker for enhver mødetype | Referat AI Blog"
   },
   "why": {
-    "h2": "Hvorfor Referat AI virker på tværs af møder",
-    "items": {
-      "0": "Formåls-fit: variable sektioner efter mødetype",
-      "1": "Temperatur-bevaring: udtræk tone og behold kontekst",
-      "2": "Beslutnings-sporbarhed: tydelige grene mellem enig/afventer",
-      "3": "Klar til eksekvering: normaliser ansvar, deadlines og kriterier",
-      "4": "Kontinuerlig læring: A/B-drevne forbedringer"
-    }
+    "h2": "Derfor excellerer Referat AI",
+    "items": [
+      "Starter med en klar, universel basis (Beslutninger, To-Dos).",
+      "Optimerer intelligent formatet til mødets 'formål'.",
+      "Fanger 'temperaturen' og konteksten, ikke kun tørre fakta.",
+      "Forbedrer konstant 'det mest værdifulde output' for ethvert scenarie.",
+      "Leverer strukturerede, søgbare referater, der *faktisk* er nyttige."
+    ]
   },
   "wrap": {
-    "h2": "Afrunding",
-    "p": "De fire elementer er et stærkt fundament. Når du optimerer per mødetype, bliver referatet en plan for handling. Referat AI leverer denne optimering som standard—brug det i virkelige møder."
+    "h2": "Oplev det selv",
+    "p": "En basis er kun begyndelsen. Stop med at nøjes med 'smagsløse' referater, der mister det, der er vigtigt."
+  },
+  "cta": {
+    "openBrowser": "Åbn i browser",
+    "downloadIOS": "Download iOS app",
+    "downloadGooglePlay": "Få den på Google Play"
   }
 }
