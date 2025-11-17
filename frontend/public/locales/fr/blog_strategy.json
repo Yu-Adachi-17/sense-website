@@ -1,114 +1,103 @@
 {
   "seo": {
-    "title": "Strategy dans Minutes.AI — transformez vos comptes rendus en décisions (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy élève vos comptes rendus au niveau décisionnel. Avec ChatGPT-5 et Gemini 2.5 Pro, il produit Boost, Counter, Top Issue et trois modes de pensée pour passer de la discussion à l’action.",
-    "ogTitle": "Strategy de Minutes.AI : des décisions, pas seulement des notes",
-    "ogDescription": "Boost / Counter / Top Issue + pensée logique / critique / latérale pour des actions concrètes.",
+    "title": "Stratégie Minutes.AI : Des comptes rendus aux insights exploitables (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "La fonction 'Stratégie' de Minutes.AI transforme les notes de réunion brutes en une puissante boîte à outils décisionnelle. Utilisant ChatGPT-5 et Gemini 2.5 Pro, elle génère Boost, Contrepoint, Enjeu Principal et trois modes de pensée uniques pour faire avancer votre entreprise.",
+    "ogTitle": "Stratégie Minutes.AI : Transformez les comptes rendus en action",
+    "ogDescription": "Ne vous contentez pas d'enregistrer les réunions. Transformez-les en stratégie. Obtenez Boost (ce qui fonctionne), Contrepoint (ce qu'il faut corriger), Enjeu Principal (le problème central) et les modes de pensée Logique, Critique et Latéral.",
     "ld": {
-      "headline": "Minutes.AI ajoute Strategy",
-      "description": "La fonction Strategy convertit les discussions en décisions claires grâce aux sorties de ChatGPT-5 et Gemini 2.5 Pro."
+      "headline": "Fonction Stratégie de Minutes.AI : De simples notes à un partenaire de réunion",
+      "description": "La fonction 'Stratégie' élève les comptes rendus au rang d'aide à la décision grâce à une analyse IA avancée (ChatGPT-5 et Gemini 2.5 Pro) pour fournir des insights exploitables."
     },
-    "keywords": "Minutes.AI, comptes rendus IA, Strategy, ChatGPT-5, Gemini 2.5 Pro, support à la décision, pensée logique, pensée critique, pensée latérale, Boost, Counter, Top Issue"
+    "keywords": "Minutes.AI, IA comptes rendus de réunion, Stratégie, ChatGPT-5, Gemini 2.5 Pro, aide à la décision, insights exploitables, Pensée Logique, Pensée Critique, Pensée Latérale, Boost, Contrepoint, Enjeu Principal, partenaire de réunion, stratégie d'entreprise"
   },
-  "aria": { "home": "Retour à l’accueil Minutes.AI" },
-  "a11y": { "home": "Retour à l’accueil Minutes.AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Stratégie"
+  },
   "hero": {
-    "kicker": "Analyse de fonctionnalité",
-    "h1": "Strategy pour Minutes.AI",
-    "tagline": "Ne vous arrêtez pas au résumé. Strategy transforme la discussion en décisions avec ChatGPT-5 et Gemini 2.5 Pro."
+    "kicker": "Plongée dans la Fonctionnalité",
+    "h1": "Au-delà des comptes rendus : La Fonction Stratégie",
+    "tagline": "Arrêtez de simplement organiser des notes. La fonction 'Stratégie' transforme Minutes.AI en votre partenaire de réunion principal, convertissant les discussions en actions à fort impact, le tout alimenté par ChatGPT-5 et Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Qu’est-ce que Strategy ?",
-    "p1": "Strategy est la couche de support à la décision au-dessus de vos comptes rendus.",
-    "p2": "Il produit : Boost (ce qui marche et comment l’amplifier), Counter (risques et remèdes), Top Issue (la question centrale) et trois modes de pensée pour traiter cette Top Issue.",
+    "h2": "Qu'est-ce que la Fonction Stratégie ?",
+    "p1": "La 'Stratégie' est la couche d'aide à la décision qui élève vos comptes rendus d'un simple enregistrement à un plan d'action. C'est l'une de nos fonctionnalités les plus populaires car elle vous fait passer de 'ce qui a été dit' à 'quoi faire ensuite'.",
+    "p2": "Au lieu d'un simple résumé, 'Stratégie' analyse l'intégralité de la discussion à l'aide d'une IA avancée pour fournir six résultats distincts et exploitables :",
     "bullets": [
-      "Boost — points forts et stratégie d’échelle",
-      "Counter — risques et plans correctifs",
-      "Top Issue — le problème clé à résoudre",
-      "Pensée logique — solution structurée, étape par étape",
-      "Pensée critique — remise en question des hypothèses",
-      "Pensée latérale — idées hors des sentiers battus"
+      "Boost — Points positifs et comment les amplifier : Identifie ce qui fonctionne et suggère des moyens concrets de démultiplier ce succès.",
+      "Contrepoint — Opposition constructive et améliorations : Fournit délibérément un point de vue opposé ou identifie les risques, en suggérant comment corriger les problèmes sous-jacents.",
+      "Enjeu Principal — Le problème central : Cible la question ou le conflit le plus important de la réunion qui doit être résolu.",
+      "Pensée Logique — Une solution structurée, étape par étape, pour l'Enjeu Principal.",
+      "Pensée Critique — Remet en question les hypothèses de base, les biais et les questions non posées derrière l'Enjeu Principal.",
+      "Pensée Latérale — Une idée 'de rupture' qui dépasse les solutions évidentes et conventionnelles pour l'Enjeu Principal."
     ]
   },
   "how": {
     "h2": "Comment ça marche",
     "steps": [
-      "Générez le compte rendu comme d’habitude (app ou web).",
-      "Touchez « Strategy » pour analyser via ChatGPT-5 et Gemini 2.5 Pro.",
-      "Obtenez Boost / Counter / Top Issue + les trois modes de pensée.",
-      "Partagez le résultat ou collez-le dans votre gestionnaire de tâches."
+      "Générez vos comptes rendus de réunion comme d'habitude (iOS, Android ou Web).",
+      "Appuyez sur le bouton 'Stratégie' pour analyser la transcription complète avec ChatGPT-5 & Gemini 2.5 Pro.",
+      "Recevez votre analyse en 6 parties : Boost, Contrepoint, Enjeu Principal et les trois modes de pensée.",
+      "Partagez, copiez ou exportez les insights directement dans votre système de gestion des tâches ou votre rapport."
     ],
-    "note": "Les sorties s’adaptent à la langue et au domaine ; concision par défaut pour une lecture rapide."
+    "note": "Les résultats s'adaptent à la langue et au domaine ; concision par défaut pour une lecture rapide."
   },
   "samples": {
-    "h2": "Exemples courts et lisibles",
+    "h2": "Voyez-le en action : Un exemple concret",
     "minutes": {
-      "h3": "Compte rendu (exemple)",
+      "h3": "Exemple de compte rendu : Réunion sur le mélange d'été 'Solar Chill'",
       "lines": [
-        "Sujet : boisson estivale en édition limitée « Solar Chill »",
-        "Décisions : procéder avec Solar Chill ; garder le nom ; finaliser la recette.",
-        "À faire : maquettes design ; déposer la recette finale dans le dossier partagé.",
-        "Risque : 15 % des retours mentionnent « trop acide »."
+        "Sujet : Nouveau mélange d'été limité 'Solar Chill' (cold brew + fruit de la passion + menthe).",
+        "Décision : Poursuivre avec 'Solar Chill' comme produit d'été principal. Garder le nom.",
+        "À faire : L'équipe de design doit créer des maquettes. La recette finale doit être téléchargée sur 'FlavorSync'.",
+        "Risque : 15 % des retours du personnel ont noté que la boisson était 'trop acide'.",
+        "Résumé : Produit très bien noté pour le concept, le nom et le potentiel sur les réseaux sociaux."
       ]
     },
     "strategy": {
-      "h3": "Strategy (exemple)",
+      "h3": "Résultat de la Stratégie (Propulsé par l'IA)",
       "boost": [
-        "Boost : forte intention de rachat → pilote dans 10 magasins + activation sociale ; mesurer le réachat sous 7 jours."
+        "Boost : 74 % 'boiraient à nouveau' est un indicateur puissant d'adéquation au marché. Action : Analyser en profondeur les 15 % de retours 'trop acide'. Ne vous contentez pas de réduire l'acidité ; envisagez un test A/B d'une option 'à douceur ajustée' dans les magasins pilotes pour maximiser l'attrait sans perdre l'identité centrale du produit."
       ],
       "counter": [
-        "Counter : perception d’acidité → option « douceur légère » ; A/B du niveau de sirop pendant 2 semaines."
+        "Contrepoint : La réunion a rejeté la proposition 'Infusion d'épices' sans discussion. Était-ce une opportunité manquée compte tenu des tendances du marché (par ex., chai, curcuma) ? La décision de rendre 'Bloom Latte' exclusif au magasin sous-estime peut-être aussi son potentiel. Action : Réévaluer le concept 'épices' par rapport aux données du marché. Tester 'Bloom Latte' en ligne ou via des partenariats, pas seulement en magasin."
       ],
       "top": [
-        "Top Issue : élargir l’attrait sans perdre la singularité de marque."
+        "Enjeu Principal : Comment lancer avec succès deux produits distincts en édition limitée ('Solar Chill' et 'Bloom Latte') et optimiser leurs stratégies de mise sur le marché respectives (grand public vs. niche)."
       ],
       "modes": {
         "logical": [
-          "Logique : définir les segments cibles → fixer des KPI de succès → lancer l’A/B → livrer la meilleure spécification."
+          "Logique : 1. Définir les segments cibles pour chaque produit (Solar Chill = plus jeune, axé SNS ; Bloom Latte = soucieux de la santé, relaxation). 2. Créer des propositions de valeur distinctes (Rafraîchissement vs. Bien-être). 3. Proposer une personnalisation du 'niveau de sirop' pour Solar Chill afin de gérer les retours 'acide'."
         ],
         "critical": [
-          "Critique : sur-ajustement au « buzz social » ? Valider par tests à l’aveugle."
+          "Critique : L'équipe est-elle biaisée par la 'hype des réseaux sociaux' et les succès passés ? Le rejet de l'idée 'épices' suggère un angle mort potentiel. Action : Mettre en œuvre un modèle de notation quantitatif pour les nouvelles propositions (coût, adéquation aux tendances, adéquation à la marque) pour éliminer les biais subjectifs de la prise de décision."
         ],
         "lateral": [
-          "Latérale : décliner en parfum/room-mist pour étendre la présence de marque au-delà de la boisson."
+          "Latéral : Sortir du cadre de la 'boisson'. Action : Développer une version 'non buvable' du mélange. Créer un parfum d'ambiance 'Solar Chill' ou des produits de bain 'Bloom Latte'. Cela étend la marque aux produits de style de vie, touche les clients non buveurs de café et crée de nouvelles sources de revenus."
         ]
       }
     }
   },
   "platform": {
     "h2": "Disponibilité",
-    "p1": "Strategy est disponible sur iOS. Passez de « notes » à « décisions »."
+    "p1": "Qu'en pensez-vous ? La fonction 'Stratégie' révèle des insights que vous avez manqués, soulève les contre-arguments que les gens hésitaient à exprimer et fournit des idées de rupture. Elle est disponible dès maintenant sur nos applications iOS et Android. Essayez-la lors de votre prochaine réunion et passez de simples 'notes' à de véritables 'décisions'."
   },
   "image": {
-    "alt": "Interface Strategy de Minutes.AI",
-    "caption": "Boost / Counter / Top Issue et trois modes de pensée en un coup d’œil."
-  },
-  "features": {
-    "h2": "Points forts",
-    "items": [
-      "Orienté décision, pas seulement résumé",
-      "Optimisé pour ChatGPT-5 et Gemini 2.5 Pro",
-      "Sorties courtes et actionnables",
-      "Multilingue pour équipes globales"
-    ]
-  },
-  "notes": {
-    "h2": "Notes",
-    "items": [
-      "La qualité d’entrée conditionne la qualité de sortie.",
-      "Adaptez les modèles au type de réunion."
-    ],
-    "foot": "Disponible sur iOS. Essayez-le dès aujourd’hui."
+    "alt": "L'interface utilisateur de la fonction Stratégie de Minutes.AI sur un smartphone",
+    "caption": "Obtenez Boost, Contrepoint, Enjeu Principal et trois modes de pensée en un seul coup d'œil."
   },
   "meta": {
     "h2": "Méta",
     "published": "Publié",
-    "type": "Fonction",
-    "category": "Strategy"
+    "type": "Fonctionnalité",
+    "category": "Stratégie"
   },
   "cta": {
-    "openBrowser": "Ouvrir dans le navigateur",
-    "downloadIOS": "Télécharger l’app iOS"
+    "openBrowser": "Utiliser sur le Web",
+    "downloadIOS": "Télécharger sur l'App Store",
+    "downloadAndroid": "Obtenir sur Google Play"
   }
 }

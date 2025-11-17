@@ -1,106 +1,103 @@
 {
   "seo": {
-    "title": "Protokół AI Strategy — zamień minutki w decyzje (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy destyluje spotkania do Boost/Counter/Top Issue oraz trzech trybów myślenia dla jasnych następnych kroków. SEO dla zapytań: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy w Protokół AI: decyzje, nie tylko notatki",
-    "ogDescription": "Boost/Counter/Top Issue + myślenie Logiczne/Krytyczne/Lateralne dla wykonalnych wyników.",
+    "title": "Strategia Protokół AI: Od protokołów do praktycznych wniosków (ChatGPT-5 i Gemini 2.5 Pro)",
+    "description": "Funkcja 'Strategia' w Protokół AI przekształca surowe notatki ze spotkań w potężny zestaw narzędzi do podejmowania decyzji. Używając ChatGPT-5 i Gemini 2.5 Pro, generuje Wzmocnienie, Kontrę, Główny Problem oraz trzy unikalne tryby myślenia, aby napędzać Twój biznes.",
+    "ogTitle": "Strategia Protokół AI: Zamień protokoły w działanie",
+    "ogDescription": "Nie tylko nagrywaj spotkania. Zamieniaj je w strategię. Otrzymaj Wzmocnienie (co działa), Kontrę (co naprawić), Główny Problem (sedno sprawy) oraz tryby myślenia Logicznego, Krytycznego i Lateralnego.",
     "ld": {
-      "headline": "Protokół AI dodaje Strategy",
-      "description": "Użyj ChatGPT-5 i Gemini 2.5 Pro, by szybko i klarownie zamieniać dyskusję w decyzje."
+      "headline": "Funkcja Strategii Protokół AI: Od prostych notatek do partnera spotkań",
+      "description": "Funkcja 'Strategia' podnosi protokoły do poziomu wsparcia decyzyjnego, wykorzystując zaawansowaną analizę AI (ChatGPT-5 i Gemini 2.5 Pro) do dostarczania praktycznych wniosków."
     },
-    "keywords": "Protokół AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, wsparcie decyzyjne, logiczne myślenie, krytyczne myślenie, myślenie lateralne, Boost, Counter, Top Issue, protokół ze spotkania"
+    "keywords": "Protokół AI, protokoły ze spotkań AI, Strategia, ChatGPT-5, Gemini 2.5 Pro, wsparcie decyzyjne, praktyczne wnioski, Myślenie Logiczne, Myślenie Krytyczne, Myślenie Lateralne, Wzmocnienie, Kontra, Główny Problem, partner spotkań, strategia biznesowa"
   },
-  "aria": { "home": "Strona główna Protokół AI" },
-  "a11y": { "home": "Strona główna Protokół AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Strona główna Protokół AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategia"
+  },
   "hero": {
-    "kicker": "Przewodnik po funkcji",
-    "h1": "Strategy dla Protokół AI",
-    "tagline": "Nie tylko minutki — Strategy zamienia dyskusję w decyzje dzięki ChatGPT-5 i Gemini 2.5 Pro."
-  },
-  "image": {
-    "alt": "Interfejs Protokół AI Strategy",
-    "caption": "Boost / Counter / Top Issue oraz 3 tryby myślenia w jednym widoku."
+    "kicker": "Kulisy Funkcji",
+    "h1": "Więcej niż protokoły: Funkcja Strategii",
+    "tagline": "Przestań tylko organizować notatki. Funkcja 'Strategia' zamienia Protokół AI w Twojego kluczowego partnera spotkań, przekształcając dyskusje w działania o dużym wpływie, wszystko napędzane przez ChatGPT-5 i Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Czym jest Strategy?",
-    "p1": "Strategy to warstwa wsparcia decyzyjnego ponad Twoimi protokołami.",
-    "p2": "Generuje Boost (skala tego, co działa), Counter (ryzyka i działania korygujące) oraz Top Issue (kluczowy problem), a także trzy tryby myślenia dla Top Issue.",
+    "h2": "Czym jest Funkcja Strategii?",
+    "p1": "'Strategia' to warstwa wspierania decyzji, która podnosi Twoje protokoły z prostego zapisu do planu działania. To jedna z naszych najpopularniejszych funkcji, ponieważ przenosi Cię z 'co zostało powiedziane' do 'co robić dalej'.",
+    "p2": "Zamiast zwykłego podsumowania, 'Strategia' analizuje całą dyskusję przy użyciu zaawansowanej AI, aby dostarczyć sześć różnych, praktycznych wyników:",
     "bullets": [
-      "Boost — co działa i jak to skalować",
-      "Counter — ryzyka oraz działania naprawcze",
-      "Top Issue — kluczowe pytanie, które musimy rozwiązać",
-      "Logical Thinking — ustrukturyzowane, krok-po-kroku podejście",
-      "Critical Thinking — kwestionuj założenia i wykrywaj sprzeczności",
-      "Lateral Thinking — wyjście poza schematy dla skokowej innowacji"
+      "Wzmocnienie (Boost) — Pozytywy i jak je wzmocnić: Identyfikuje, co działa i sugeruje konkretne sposoby skalowania tego sukcesu.",
+      "Kontra (Counter) — Konstruktywna opozycja i ulepszenia: Celowo przedstawia przeciwny punkt widzenia lub identyfikuje ryzyka, sugerując, jak naprawić podstawowe problemy.",
+      "Główny Problem (Top Issue) — Sedno sprawy: Wskazuje najważniejsze pytanie lub konflikt ze spotkania, który należy rozwiązać.",
+      "Myślenie Logiczne — Ustrukturyzowane, krok po kroku rozwiązanie Głównego Problemu.",
+      "Myślenie Krytyczne — Podważa podstawowe założenia, uprzedzenia i niezadane pytania stojące za Głównym Problemem.",
+      "Myślenie Lateralne — 'Przełomowy' pomysł, który wykracza poza oczywiste, konwencjonalne rozwiązania Głównego Problemu."
     ]
   },
   "how": {
-    "h2": "Jak używać",
+    "h2": "Jak to działa",
     "steps": [
-      "Wygeneruj protokół (w aplikacji lub w przeglądarce).",
-      "Stuknij „Strategy” i pozwól, aby ChatGPT-5 oraz Gemini 2.5 Pro przeanalizowały materiał.",
-      "Otrzymaj Boost / Counter / Top Issue + trzy tryby myślenia.",
-      "Udostępnij wynik lub wklej go do systemu zadań, aby przejść do działania."
+      "Wygeneruj protokół ze spotkania jak zwykle (iOS, Android lub Web).",
+      "Stuknij przycisk 'Strategia', aby przeanalizować pełny transkrypt za pomocą ChatGPT-5 i Gemini 2.5 Pro.",
+      "Otrzymaj swoją 6-częściową analizę: Wzmocnienie, Kontrę, Główny Problem i trzy tryby myślenia.",
+      "Udostępnij, skopiuj lub wyeksportuj wnioski bezpośrednio do swojego systemu zarządzania zadaniami lub raportu."
     ],
-    "note": "Wyjście dostosowuje się do języka i domeny; celowo zwięzłe dla szybkiego czytania."
+    "note": "Wyniki dostosowują się do języka i domeny; domyślnie zwięzłość dla szybkiego czytania."
   },
   "samples": {
-    "h2": "Krótkie, czytelne przykłady",
+    "h2": "Zobacz to w akcji: Przykład z życia wzięty",
     "minutes": {
-      "h3": "Protokół (przykład)",
+      "h3": "Przykładowy protokół: Spotkanie dotyczące letniej mieszanki 'Solar Chill'",
       "lines": [
-        "Temat: Letnia mieszanka „Solar Chill”",
-        "Decyzja: Kontynuujemy Solar Chill / zachowujemy nazwę / finalizujemy recepturę",
-        "To-do: Przygotować propozycje designu / wgrać finalną recepturę do folderu współdzielonego",
-        "Ryzyko: 15% opinii wskazuje „zbytnią kwasowość”"
+        "Temat: Nowa limitowana mieszanka letnia 'Solar Chill' (cold brew + marakuja + mięta).",
+        "Decyzja: Kontynuować z 'Solar Chill' jako głównym produktem letnim. Zachować nazwę.",
+        "Do zrobienia: Zespół projektowy ma stworzyć makiety. Ostateczny przepis ma być przesłany do 'FlavorSync'.",
+        "Ryzyko: 15% opinii personelu zauważyło, że napój był 'zbyt kwaśny'.",
+        "Podsumowanie: Produkt wysoko oceniony za koncepcję, nazwę i potencjał w mediach społecznościowych."
       ]
     },
     "strategy": {
-      "h3": "Strategy (przykład)",
+      "h3": "Wynik Strategii (Wspierane przez AI)",
       "boost": [
-        "Boost: Wysoka chęć ponownego zakupu → pilotaż w 10 sklepach + kampania w social media. Mierzyć re-order w ciągu 7 dni."
+        "Wzmocnienie: 74% 'wypiłoby ponownie' to silny wskaźnik dopasowania do rynku. Działanie: Dogłębnie zbadać 15% opinii 'zbyt kwaśny'. Nie tylko zmniejszać kwasowość; rozważyć testy A/B opcji 'z dostosowaną słodyczą' w pilotażowych sklepach, aby zmaksymalizować atrakcyjność bez utraty tożsamości produktu."
       ],
       "counter": [
-        "Counter: Redukcja kwasowości → dodać wariant „mild sweet”. Test A/B ilości syropu przez 2 tygodnie."
+        "Kontra: Spotkanie odrzuciło propozycję 'Napar z przypraw' bez dyskusji. Czy była to stracona szansa, biorąc pod uwagę trendy rynkowe (np. chai, kurkuma)? Decyzja o uczynieniu 'Bloom Latte' dostępnym wyłącznie w sklepie może również nie doceniać jego potencjału. Działanie: Ponownie ocenić koncepcję 'przypraw' w oparciu o dane rynkowe. Przetestować 'Bloom Latte' online lub poprzez partnerstwa, nie tylko w sklepie."
       ],
       "top": [
-        "Top Issue: Jaki jest „sweet spot” smaku, który poszerza dostępność bez utraty unikalności marki?"
+        "Główny Problem: Jak pomyślnie wprowadzić na rynek dwa różne produkty z limitowanej serii ('Solar Chill' i 'Bloom Latte') i zoptymalizować ich odpowiednie strategie wejścia na rynek (mainstream vs. nisza)."
       ],
       "modes": {
         "logical": [
-          "Logical: Zdefiniować segment docelowy → ustalić KPI sukcesu → A/B → wdrożyć zwycięską specyfikację."
+          "Logiczne: 1. Zdefiniować segmenty docelowe dla każdego produktu (Solar Chill = młodsi, skoncentrowani na SNS; Bloom Latte = świadomi zdrowia, relaks). 2. Stworzyć odrębne propozycje wartości (Orzeźwienie vs. Wellness). 3. Zaoferować dostosowanie 'poziomu syropu' dla Solar Chill, aby poradzić sobie z opiniami 'kwaśny'."
         ],
         "critical": [
-          "Critical: Czy nie przeoptymalizowujemy pod „virality” w social media? Powtórzyć ślepe testy."
+          "Krytyczne: Czy zespół jest stronniczy z powodu 'haju na SNS' i przeszłych sukcesów? Odrzucenie pomysłu 'przypraw' sugeruje potencjalny martwy punkt. Działanie: Wdrożyć ilościowy model punktacji dla nowych propozycji (koszt, dopasowanie do trendu, dopasowanie do marki), aby usunąć subiektywne uprzedzenia z procesu podejmowania decyzji."
         ],
         "lateral": [
-          "Lateral: Wyjść poza napoje (np. zapach/room mist), aby poszerzyć punkty kontaktu."
+          "Lateralne: Wyrwać się z ram 'napoju'. Działanie: Opracować 'niepitną' wersję mieszanki. Stworzyć zapach do pomieszczeń 'Solar Chill' lub produkty do kąpieli 'Bloom Latte'. Rozszerza to markę na artykuły lifestylowe, dociera do klientów niepijących kawy i tworzy nowe źródła przychodów."
         ]
       }
     }
   },
   "platform": {
     "h2": "Dostępność",
-    "p1": "Strategy jest dostępne na iOS — od „protokołu” do „decyzji”."
+    "p1": "Co myślisz? Funkcja 'Strategia' odkrywa wnioski, które przegapiłeś, podnosi kontrargumenty, które ludzie wahali się wypowiedzieć, i dostarcza przełomowych pomysłów. Jest dostępna już teraz w naszych aplikacjach na iOS i Androida. Wypróbuj ją na następnym spotkaniu i przejdź od zwykłych 'notatek' do 'decyzji'."
   },
-  "features": {
-    "h2": "Najważniejsze",
-    "items": [
-      "Skupienie na decyzjach, nie tylko podsumowaniu",
-      "Zoptymalizowane dla ChatGPT-5 i Gemini 2.5 Pro",
-      "Krótkie, wykonalne wyniki",
-      "Wielojęzyczne dla globalnych zespołów"
-    ]
+  "image": {
+    "alt": "Interfejs użytkownika funkcji Strategia Protokół AI na smartfonie",
+    "caption": "Otrzymaj Wzmocnienie, Kontrę, Główny Problem i trzy tryby myślenia na pierwszy rzut oka."
   },
-  "notes": {
-    "h2": "Uwagi",
-    "items": [
-      "Jakość wyjścia odzwierciedla jakość wejścia",
-      "Używaj szablonów dopasowanych do typu spotkania"
-    ],
-    "foot": "Dostępne na iOS. Wypróbuj dziś."
+  "meta": {
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Funkcja",
+    "category": "Strategia"
   },
-  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Funkcja", "category": "Strategy" },
-  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" }
+  "cta": {
+    "openBrowser": "Używaj w przeglądarce",
+    "downloadIOS": "Pobierz w App Store",
+    "downloadAndroid": "Pobierz z Google Play"
+  }
 }

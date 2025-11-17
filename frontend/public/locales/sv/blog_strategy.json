@@ -1,103 +1,103 @@
 {
   "seo": {
-    "title": "Strategy i Protokoll AI — gör protokoll till beslut (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy destillerar möten till Boost/Counter/Top Issue och tre tänkelägen för tydliga nästa steg. SEO: AI-protokoll, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy i Protokoll AI: beslut, inte bara anteckningar",
-    "ogDescription": "Boost/Counter/Top Issue + Logiskt/Kritiskt/Lateralt tänk för handlingsbara resultat.",
+    "title": "Protokoll AI Strategi: Från protokoll till handlingsbara insikter (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Protokoll AI:s 'Strategi'-funktion omvandlar råa mötesanteckningar till ett kraftfullt beslutsverktyg. Med ChatGPT-5 och Gemini 2.5 Pro genererar den Förstärkning, Motargument, Kärnfråga och tre unika tankelägen för att driva ditt företag framåt.",
+    "ogTitle": "Protokoll AI Strategi: Omvandla protokoll till handling",
+    "ogDescription": "Spela inte bara in möten. Omvandla dem till strategi. Få Förstärkning (vad som fungerar), Motargument (vad som behöver åtgärdas), Kärnfråga (kärnproblemet) och lägena Logiskt, Kritiskt & Lateralt tänkande.",
     "ld": {
-      "headline": "Protokoll AI lägger till Strategy",
-      "description": "Med ChatGPT-5 och Gemini 2.5 Pro omvandlas diskussioner snabbt och tydligt till beslut."
+      "headline": "Protokoll AI Strategifunktion: Från enkla anteckningar till mötespartner",
+      "description": "Strategi-funktionen lyfter protokoll till beslutsstöd med hjälp av avancerad AI-analys (ChatGPT-5 och Gemini 2.5 Pro) för att ge handlingsbara insikter."
     },
-    "keywords": "Protokoll AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, beslutsstöd, logiskt tänkande, kritiskt tänkande, lateralt tänkande, Boost, Counter, Top Issue, mötesprotokoll"
+    "keywords": "Protokoll AI, AI-mötesprotokoll, Strategi, ChatGPT-5, Gemini 2.5 Pro, beslutsstöd, handlingsbara insikter, Logiskt tänkande, Kritiskt tänkande, Lateralt tänkande, Förstärkning, Motargument, Kärnfråga, mötespartner, affärsstrategi"
   },
-  "aria": { "home": "Startsida för Protokoll AI" },
-  "a11y": { "home": "Startsida för Protokoll AI" },
-  "nav": { "blog": "Blogg", "strategy": "Strategy" },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "strategy": "Strategi"
+  },
   "hero": {
-    "kicker": "Funktionsguide",
-    "h1": "Strategy för Protokoll AI",
-    "tagline": "Inte bara sammanfattning—Strategy gör diskussion till beslut med ChatGPT-5 och Gemini 2.5 Pro."
+    "kicker": "Djupdykning: Funktion",
+    "h1": "Bortom protokollen: Strategifunktionen",
+    "tagline": "Sluta att bara organisera anteckningar. Strategi-funktionen förvandlar Protokoll AI till din kärnpartner för möten, och omvandlar diskussioner till kraftfulla åtgärder, allt drivet av ChatGPT-5 och Gemini 2.5 Pro."
   },
-  "image": { "alt": "Protokoll AI Strategy-gränssnitt", "caption": "Se Boost / Counter / Top Issue och tre tänkelägen i en överblick." },
   "what": {
-    "h2": "Vad är Strategy?",
-    "p1": "Strategy är ett beslutslager ovanpå dina protokoll.",
-    "p2": "Det skapar Boost (skala det som fungerar), Counter (risker och korrigerande åtgärder) och Top Issue (kärnfrågan), plus tre tänkelägen för Top Issue.",
+    "h2": "Vad är Strategifunktionen?",
+    "p1": "Strategi är det beslutsstödjande lagret som lyfter dina protokoll från en enkel registrering till en handlingsplan. Det är en av våra mest populära funktioner eftersom den flyttar dig från 'vad som sades' till 'vad vi ska göra nu'.",
+    "p2": "Istället för bara en sammanfattning analyserar Strategi hela diskussionen med avancerad AI för att ge sex distinkta, handlingsbara resultat:",
     "bullets": [
-      "Boost — vad fungerar & hur skalar vi",
-      "Counter — risker & korrigerande åtgärder",
-      "Top Issue — kärnfrågan vi måste lösa",
-      "Logiskt tänk — strukturerat, steg-för-steg",
-      "Kritiskt tänk — ifrågasätt antaganden och hitta motsägelser",
-      "Lateralt tänk — utanför boxen för språng i idéer"
+      "Förstärkning (Boost) — Positiva aspekter och hur man förstärker dem: Identifierar vad som fungerar och föreslår konkreta sätt att skala upp den framgången.",
+      "Motargument (Counter) — Konstruktivt motstånd och förbättringar: Ger avsiktligt en motsatt synvinkel eller identifierar risker och föreslår hur man åtgärdar de underliggande problemen.",
+      "Kärnfråga (Top Issue) — Det centrala problemet: Pekar ut den enskilt viktigaste frågan eller konflikten från mötet som behöver lösas.",
+      "Logiskt tänkande — En strukturerad, steg-för-steg-lösning för Kärnfrågan.",
+      "Kritiskt tänkande — Utmanar kärnantaganden, fördomar och de obesvarade frågorna bakom Kärnfrågan.",
+      "Lateralt tänkande — En 'genombrotts'-idé som hoppar bortom de uppenbara, konventionella lösningarna för Kärnfrågan."
     ]
   },
   "how": {
-    "h2": "Så använder du det",
+    "h2": "Hur det fungerar",
     "steps": [
-      "Skapa protokoll (i appen eller på webben).",
-      "Tryck ”Strategy” och låt ChatGPT-5 och Gemini 2.5 Pro analysera.",
-      "Få Boost / Counter / Top Issue + tre tänkelägen.",
-      "Dela resultatet eller klistra in i ditt uppgiftssystem för genomförande."
+      "Generera dina mötesprotokoll som vanligt (iOS, Android eller Webb).",
+      "Tryck på 'Strategi'-knappen för att analysera hela transkriptionen med ChatGPT-5 & Gemini 2.5 Pro.",
+      "Få din 6-delade analys: Förstärkning, Motargument, Kärnfråga och de tre tankelägena.",
+      "Dela, kopiera eller exportera insikterna direkt till ditt uppgiftshanteringssystem eller din rapport."
     ],
-    "note": "Utdata anpassas efter språk och domän och hålls avsiktligt kort för snabb läsning."
+    "note": "Resultaten anpassas till språk och domän; kortfattat som standard för snabb läsning."
   },
   "samples": {
-    "h2": "Korta, lättlästa exempel",
+    "h2": "Se det i praktiken: Ett verkligt exempel",
     "minutes": {
-      "h3": "Protokoll (exempel)",
+      "h3": "Exempelprotokoll: Möte om sommarblandningen 'Solar Chill'",
       "lines": [
-        "Tema: sommarblenden ”Solar Chill”",
-        "Beslut: Fortsätt med Solar Chill / behåll namnet / färdigställ recept",
-        "Att göra: Ta fram designförslag / lägg slutrecept i delad mapp",
-        "Risk: 15 % feedback säger ”för syrligt”"
+        "Ämne: Ny begränsad sommarblandning 'Solar Chill' (cold brew + passionsfrukt + mynta).",
+        "Beslut: Fortsätt med 'Solar Chill' som huvudsaklig sommarprodukt. Behåll namnet.",
+        "Att göra: Designteamet ska skapa mockups. Slutligt recept ska laddas upp till 'FlavorSync'.",
+        "Risk: 15 % av personalens feedback noterade att drycken var 'för sur'.",
+        "Sammanfattning: Produkten fick högt betyg för koncept, namn och SNS-potential."
       ]
     },
     "strategy": {
-      "h3": "Strategy (exempel)",
+      "h3": "Strategi-resultat (Drivet av AI)",
       "boost": [
-        "Boost: Hög återköpsvilja → pilot i 10 butiker + SoMe-kampanj. Mät ombeställningar inom 7 dagar."
+        "Förstärkning: 74 % 'skulle dricka igen' är en stark indikator på marknadsanpassning. Åtgärd: Djupdyk i feedbacken från de 15 % som tyckte 'för sur'. Minska inte bara surheten; överväg A/B-testning av ett 'sötmajusterat' alternativ i pilotbutiker för att maximera dragningskraften utan att förlora produktens kärnidentitet."
       ],
       "counter": [
-        "Counter: Dämpa syra → lägg till alternativet ”mild sweet”. A/B-testa sirapmängd i 2 veckor."
+        "Motargument: Mötet avfärdade förslaget 'Kryddinfusion' utan diskussion. Var detta ett missat tillfälle med tanke på marknadstrender (t.ex. chai, gurkmeja)? Beslutet att göra 'Bloom Latte' exklusiv för butiker kanske också underskattar dess potential. Åtgärd: Omvärdera 'krydd'-konceptet mot marknadsdata. Testa 'Bloom Latte' online eller via partnerskap, inte bara i butik."
       ],
       "top": [
-        "Top Issue: Var ligger smakens ”sweet spot” som breddar målgruppen utan att tappa varumärkesidentitet?"
+        "Kärnfråga: Hur man framgångsrikt lanserar två distinkta, begränsade produkter ('Solar Chill' och 'Bloom Latte') och optimerar deras respektive go-to-market-strategier (mainstream vs. nisch)."
       ],
       "modes": {
         "logical": [
-          "Logiskt: Definiera målsegment → sätt KPI:er → A/B → rulla ut vinnarupplägget."
+          "Logiskt: 1. Definiera målgrupper för varje produkt (Solar Chill = yngre, SNS-fokuserad; Bloom Latte = hälsomedveten, avkoppling). 2. Skapa distinkta värdeerbjudanden (Uppfriskande vs. Välbefinnande). 3. Erbjuda 'sirapsnivå'-anpassning för Solar Chill för att hantera 'sur'-feedback."
         ],
         "critical": [
-          "Kritiskt: Överoptimerar vi för ”snackis” i sociala medier? Upprepa blindprovning."
+          "Kritiskt: Är teamet partiskt på grund av 'SNS-hype' och tidigare framgångar? Avfärdandet av 'krydd'-idén tyder på en potentiell blind fläck. Åtgärd: Implementera en kvantitativ poängmodell för nya förslag (kostnad, trendanpassning, varumärkesanpassning) för att avlägsna subjektiv partiskhet från beslutsfattandet."
         ],
         "lateral": [
-          "Lateralt: Tänk bortom dryck (t.ex. rumsdoft/room mist) för fler kontaktpunkter."
+          "Lateralt: Bryt dig loss från 'dryckes'-ramverket. Åtgärd: Utveckla en 'icke-drickbar' version av blandningen. Skapa en 'Solar Chill'-rumsdoft eller 'Bloom Latte'-badprodukter. Detta expanderar varumärket till livsstilsprodukter, når icke-kaffekunder och skapar nya intäktsströmmar."
         ]
       }
     }
   },
   "platform": {
     "h2": "Tillgänglighet",
-    "p1": "Strategy finns på iOS — från ”protokoll” till ”beslut”."
+    "p1": "Vad tycker du? Strategi-funktionen avslöjar insikter du missat, tar upp motargumenten som folk tvekade att säga, och levererar genombrottsidéer. Den är tillgänglig just nu i våra iOS- och Android-appar. Prova den på ditt nästa möte och gå från bara 'anteckningar' till 'beslut'."
   },
-  "features": {
-    "h2": "Höjdpunkter",
-    "items": [
-      "Beslutsfokus, inte bara summering",
-      "Optimerad för ChatGPT-5 & Gemini 2.5 Pro",
-      "Korta, handlingsbara utdata",
-      "Flerspråkigt för globala team"
-    ]
+  "image": {
+    "alt": "Användargränssnittet för Protokoll AI:s Strategi-funktion på en smartphone",
+    "caption": "Få Förstärkning, Motargument, Kärnfråga och tre tankelägen i en enda vy."
   },
-  "notes": {
-    "h2": "Notiser",
-    "items": [
-      "Inputkvalitet avgör outputkvalitet",
-      "Använd mallar anpassade efter mötestyp"
-    ],
-    "foot": "Tillgängligt på iOS. Testa idag."
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Funktion",
+    "category": "Strategi"
   },
-  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Funktion", "category": "Strategy" },
-  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Ladda ner iOS-app" }
+  "cta": {
+    "openBrowser": "Använd på webben",
+    "downloadIOS": "Hämta i App Store",
+    "downloadAndroid": "Skaffa den på Google Play"
+  }
 }

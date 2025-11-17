@@ -1,114 +1,103 @@
 {
   "seo": {
-    "title": "Strategy di Minutes AI — ubah notulen jadi keputusan (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy menaikkan notulen ke tingkat dukungan keputusan. Dengan ChatGPT-5 dan Gemini 2.5 Pro, ia menghasilkan Boost, Counter, Top Issue serta tiga mode berpikir agar diskusi berubah menjadi langkah nyata.",
-    "ogTitle": "Strategy di Minutes AI: keputusan, bukan sekadar ringkasan",
-    "ogDescription": "Boost / Counter / Top Issue + Logis / Kritis / Lateral untuk keluaran yang bisa langsung ditindaklanjuti.",
+    "title": "Strategi Minutes AI: Dari Notulen Menjadi Wawasan yang Dapat Ditindaklanjuti (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Fitur 'Strategi' Minutes AI mengubah catatan rapat mentah menjadi perangkat pengambilan keputusan yang kuat. Menggunakan ChatGPT-5 dan Gemini 2.5 Pro, fitur ini menghasilkan Peningkatan, Sanggahan, Isu Utama, dan tiga mode berpikir unik untuk memajukan bisnis Anda.",
+    "ogTitle": "Strategi Minutes AI: Ubah Notulen Menjadi Tindakan",
+    "ogDescription": "Jangan hanya merekam rapat. Ubah menjadi strategi. Dapatkan Peningkatan (apa yang berhasil), Sanggahan (apa yang harus diperbaiki), Isu Utama (inti masalah), dan mode berpikir Logis, Kritis, & Lateral.",
     "ld": {
-      "headline": "Minutes AI menambahkan Strategy",
-      "description": "Fitur Strategy mengubah diskusi menjadi keputusan yang jelas berbekal keluaran ChatGPT-5 dan Gemini 2.5 Pro."
+      "headline": "Fitur Strategi Minutes AI: Dari Catatan Sederhana Menjadi Mitra Rapat",
+      "description": "Fitur 'Strategi' mengangkat notulen menjadi dukungan keputusan menggunakan analisis AI canggih (ChatGPT-5 dan Gemini 2.5 Pro) untuk memberikan wawasan yang dapat ditindaklanjuti."
     },
-    "keywords": "Minutes AI, notulen rapat AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, dukungan keputusan, berpikir logis, berpikir kritis, berpikir lateral, Boost, Counter, Top Issue"
+    "keywords": "Minutes AI, notulen rapat AI, Strategi, ChatGPT-5, Gemini 2.5 Pro, dukungan keputusan, wawasan yang dapat ditindaklanjuti, Berpikir Logis, Berpikir Kritis, Berpikir Lateral, Peningkatan, Sanggahan, Isu Utama, mitra rapat, strategi bisnis"
   },
-  "aria": { "home": "Kembali ke Beranda Minutes AI" },
-  "a11y": { "home": "Kembali ke Beranda Minutes AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategi"
+  },
   "hero": {
-    "kicker": "Panduan fitur",
-    "h1": "Strategy untuk Minutes AI",
-    "tagline": "Bukan cuma notulen — Strategy mengubah diskusi jadi keputusan dan tindakan berikutnya dengan ChatGPT-5 serta Gemini 2.5 Pro."
+    "kicker": "Kupas Tuntas Fitur",
+    "h1": "Lebih dari Sekadar Notulen: Fungsi Strategi",
+    "tagline": "Berhentilah hanya mengatur catatan. Fungsi 'Strategi' mengubah Minutes AI menjadi mitra rapat inti Anda, mengubah diskusi menjadi tindakan berdampak tinggi, semuanya didukung oleh ChatGPT-5 dan Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Apa itu Strategy?",
-    "p1": "Strategy adalah lapisan dukungan keputusan di atas notulen Anda.",
-    "p2": "Ia menghasilkan: Boost (apa yang berhasil dan cara memperbesarnya), Counter (risiko serta perbaikannya), Top Issue (pertanyaan inti), dan tiga mode berpikir untuk menangani Top Issue.",
+    "h2": "Apa itu Fungsi Strategi?",
+    "p1": "Strategi adalah lapisan pendukung keputusan yang mengangkat notulen Anda dari sekadar catatan sederhana menjadi rencana yang dapat ditindaklanjuti. Ini adalah salah satu fitur kami yang paling populer karena memindahkan Anda dari 'apa yang dikatakan' menjadi 'apa yang harus dilakukan selanjutnya'.",
+    "p2": "Alih-alih hanya ringkasan, 'Strategi' menganalisis seluruh diskusi menggunakan AI canggih untuk memberikan enam keluaran yang berbeda dan dapat ditindaklanjuti:",
     "bullets": [
-      "Boost — kekuatan inti dan strategi penskalaan",
-      "Counter — risiko dan rencana korektif",
-      "Top Issue — masalah kunci yang harus diselesaikan",
-      "Berpikir Logis — solusi terstruktur selangkah demi selangkah",
-      "Berpikir Kritis — uji asumsi dan bias",
-      "Berpikir Lateral — lompatan ide di luar kebiasaan"
+      "Peningkatan (Boost) — Hal Positif & Cara Memperkuatnya: Mengidentifikasi apa yang berhasil dan menyarankan cara konkret untuk meningkatkan keberhasilan tersebut.",
+      "Sanggahan (Counter) — Oposisi Konstruktif & Perbaikan: Sengaja memberikan sudut pandang berlawanan atau mengidentifikasi risiko, menyarankan cara memperbaiki masalah mendasar.",
+      "Isu Utama (Top Issue) — Inti Masalah: Menunjukkan satu pertanyaan atau konflik terpenting dari rapat yang perlu dipecahkan.",
+      "Berpikir Logis — Solusi terstruktur, langkah demi langkah untuk Isu Utama.",
+      "Berpikir Kritis — Menantang asumsi inti, bias, dan pertanyaan yang tidak diajukan di balik Isu Utama.",
+      "Berpikir Lateral — Ide 'terobosan' yang melampaui solusi konvensional yang jelas untuk Isu Utama."
     ]
   },
   "how": {
-    "h2": "Cara kerja",
+    "h2": "Cara Kerjanya",
     "steps": [
-      "Hasilkan notulen seperti biasa (aplikasi atau web).",
-      "Ketuk “Strategy” untuk analisis dengan ChatGPT-5 & Gemini 2.5 Pro.",
-      "Dapatkan Boost / Counter / Top Issue + tiga mode berpikir.",
-      "Bagikan atau tempelkan ke sistem tugas Anda untuk eksekusi."
+      "Hasilkan notulen rapat Anda seperti biasa (iOS, Android, atau Web).",
+      "Ketuk tombol 'Strategi' untuk menganalisis transkrip lengkap dengan ChatGPT-5 & Gemini 2.5 Pro.",
+      "Terima analisis 6 bagian Anda: Peningkatan, Sanggahan, Isu Utama, dan tiga mode berpikir.",
+      "Bagikan, salin, atau ekspor wawasan langsung ke sistem manajemen tugas atau laporan Anda."
     ],
-    "note": "Keluaran menyesuaikan bahasa dan domain; default-nya ringkas agar cepat dibaca."
+    "note": "Keluaran beradaptasi dengan bahasa dan domain; keringkasan secara default untuk pembacaan cepat."
   },
   "samples": {
-    "h2": "Contoh singkat dan mudah dibaca",
+    "h2": "Lihat Aksi Nyata: Contoh Dunia Nyata",
     "minutes": {
-      "h3": "Notulen (contoh)",
+      "h3": "Contoh Notulen: Rapat Campuran Musim Panas 'Solar Chill'",
       "lines": [
-        "Topik: minuman edisi musim panas “Solar Chill”",
-        "Keputusan: lanjutkan Solar Chill; pertahankan nama; finalkan resep.",
-        "Tugas: buat mockup desain; unggah resep final ke folder bersama.",
-        "Risiko: 15% umpan balik menyebut “terlalu asam”."
+        "Topik: Campuran terbatas musim panas baru 'Solar Chill' (cold brew + markisa + mint).",
+        "Keputusan: Lanjutkan dengan 'Solar Chill' sebagai produk musim panas utama. Pertahankan namanya.",
+        "Tugas: Tim desain membuat mockup. Resep akhir akan diunggah ke 'FlavorSync'.",
+        "Risiko: 15% umpan balik staf mencatat minuman itu 'terlalu asam'.",
+        "Ringkasan: Produk dinilai tinggi untuk konsep, nama, dan potensi SNS."
       ]
     },
     "strategy": {
-      "h3": "Strategy (contoh)",
+      "h3": "Keluaran Strategi (Didukung oleh AI)",
       "boost": [
-        "Boost: niat beli ulang tinggi → pilot di 10 toko + promosi sosial; ukur pemesanan ulang dalam 7 hari."
+        "Peningkatan: 74% 'akan minum lagi' adalah indikator kuat kesesuaian pasar. Tindakan: Selami lebih dalam umpan balik 15% 'terlalu asam'. Jangan hanya mengurangi rasa asam; pertimbangkan pengujian A/B opsi 'penyesuaian rasa manis' di toko percontohan untuk memaksimalkan daya tarik tanpa kehilangan identitas produk inti."
       ],
       "counter": [
-        "Counter: persepsi keasaman → opsi “sedikit manis”; A/B level sirup selama 2 minggu."
+        "Sanggahan: Rapat menolak proposal 'Infus Rempah' tanpa diskusi. Apakah ini peluang yang terlewatkan mengingat tren pasar (misalnya, chai, kunyit)? Keputusan untuk membuat 'Bloom Latte' eksklusif di toko mungkin juga meremehkan potensinya. Tindakan: Evaluasi ulang konsep 'rempah' terhadap data pasar. Uji 'Bloom Latte' secara online atau melalui kemitraan, bukan hanya di toko."
       ],
       "top": [
-        "Top Issue: perluas daya tarik tanpa menghilangkan kekhasan merek."
+        "Isu Utama: Bagaimana cara berhasil meluncurkan dua produk edisi terbatas yang berbeda ('Solar Chill' dan 'Bloom Latte') dan mengoptimalkan strategi go-to-market masing-masing (mainstream vs. niche)."
       ],
       "modes": {
         "logical": [
-          "Logis: definisikan segmen target → tetapkan KPI sukses → jalankan A/B → rilis spesifikasi pemenang."
+          "Logis: 1. Tentukan segmen target untuk setiap produk (Solar Chill = lebih muda, fokus SNS; Bloom Latte = sadar kesehatan, relaksasi). 2. Buat proposisi nilai yang berbeda (Penyegaran vs. Kebugaran). 3. Tawarkan kustomisasi 'level sirup' untuk Solar Chill untuk menangani umpan balik 'asam'."
         ],
         "critical": [
-          "Kritis: apakah kita overfit ke “buzz sosial”? Validasi dengan uji cicip buta."
+          "Kritis: Apakah tim bias oleh 'hype SNS' dan kesuksesan masa lalu? Penolakan ide 'rempah' menunjukkan potensi titik buta. Tindakan: Terapkan model penilaian kuantitatif untuk proposal baru (biaya, kesesuaian tren, kesesuaian merek) untuk menghilangkan bias subjektif dari pengambilan keputusan."
         ],
         "lateral": [
-          "Lateral: ekspansi di luar minuman (mis. wewangian/room-mist) untuk menambah touchpoint merek."
+          "Lateral: Bebaskan diri dari kerangka 'minuman'. Tindakan: Kembangkan versi 'tidak bisa diminum' dari campuran tersebut. Buat pengharum ruangan 'Solar Chill' atau produk mandi 'Bloom Latte'. Ini memperluas merek ke barang-barang gaya hidup, menjangkau pelanggan non-kopi, dan menciptakan aliran pendapatan baru."
         ]
       }
     }
   },
   "platform": {
     "h2": "Ketersediaan",
-    "p1": "Strategy tersedia di iOS. Beralihlah dari “catatan” ke “keputusan”."
+    "p1": "Apa pendapat Anda? Fungsi 'Strategi' mengungkap wawasan yang Anda lewatkan, mengangkat argumen tandingan yang ragu diucapkan orang, dan memberikan ide terobosan. Ini tersedia saat ini di aplikasi iOS dan Android kami. Cobalah pada rapat Anda berikutnya dan beralihlah dari sekadar 'catatan' menjadi 'keputusan'."
   },
   "image": {
-    "alt": "Antarmuka Strategy Minutes AI",
-    "caption": "Boost / Counter / Top Issue dan tiga mode berpikir — sekilas langsung paham."
-  },
-  "features": {
-    "h2": "Sorotan",
-    "items": [
-      "Berfokus pada keputusan, bukan sekadar ringkasan",
-      "Dioptimalkan untuk ChatGPT-5 & Gemini 2.5 Pro",
-      "Keluaran singkat, jelas, dan siap ditindak",
-      "Multibahasa untuk tim global"
-    ]
-  },
-  "notes": {
-    "h2": "Catatan",
-    "items": [
-      "Kualitas keluaran mencerminkan kualitas masukan.",
-      "Sesuaikan templat dengan jenis rapat yang berbeda."
-    ],
-    "foot": "Tersedia di iOS. Coba sekarang."
+    "alt": "UI fitur Strategi Minutes AI di smartphone",
+    "caption": "Dapatkan Peningkatan, Sanggahan, Isu Utama, dan tiga mode berpikir dalam sekejap."
   },
   "meta": {
     "h2": "Meta",
     "published": "Diterbitkan",
     "type": "Fitur",
-    "category": "Strategy"
+    "category": "Strategi"
   },
   "cta": {
-    "openBrowser": "Buka di browser",
-    "downloadIOS": "Unduh aplikasi iOS"
+    "openBrowser": "Gunakan di Web",
+    "downloadIOS": "Unduh di App Store",
+    "downloadAndroid": "Dapatkan di Google Play"
   }
 }

@@ -1,106 +1,103 @@
 {
   "seo": {
-    "title": "Proces-verbal AI Strategy — transformă minutele în decizii (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy distilează întâlnirile în Boost/Counter/Top Issue plus trei moduri de gândire pentru pași următori clari. SEO pentru căutări: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy în Proces-verbal AI: decizii, nu doar notițe",
-    "ogDescription": "Boost/Counter/Top Issue + gândire Logică/Critică/Laterală pentru rezultate acționabile.",
+    "title": "Strategia Proces-verbal AI: De la Minute la Informații Acționabile (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Funcția 'Strategie' a Proces-verbal AI transformă notele brute ale ședințelor într-un set de instrumente puternic pentru luarea deciziilor. Folosind ChatGPT-5 și Gemini 2.5 Pro, generează Impuls, Contraargument, Problemă Principală și trei moduri unice de gândire pentru a vă propulsa afacerea.",
+    "ogTitle": "Strategia Proces-verbal AI: Transformați Minutele în Acțiune",
+    "ogDescription": "Nu doar înregistrați ședințele. Transformați-le în strategie. Obțineți Impuls (ce funcționează), Contraargument (ce trebuie remediat), Problemă Principală (problema de bază) și moduri de gândire Logică, Critică și Laterală.",
     "ld": {
-      "headline": "Proces-verbal AI adaugă Strategy",
-      "description": "Folosește ChatGPT-5 și Gemini 2.5 Pro pentru a converti rapid și clar discuția în decizii."
+      "headline": "Funcția de Strategie Proces-verbal AI: De la Simple Note la Partener de Ședință",
+      "description": "Funcția 'Strategie' ridică minutele la nivel de suport decizional folosind analize AI avansate (ChatGPT-5 și Gemini 2.5 Pro) pentru a oferi informații acționabile."
     },
-    "keywords": "Proces-verbal AI, Strategy, minute cu AI, ChatGPT-5, Gemini 2.5 Pro, suport decizional, gândire logică, gândire critică, gândire laterală, Boost, Counter, Top Issue"
+    "keywords": "Proces-verbal AI, procese-verbale AI, minute ședințe AI, Strategie, ChatGPT-5, Gemini 2.5 Pro, suport decizional, informații acționabile, Gândire Logică, Gândire Critică, Gândire Laterală, Impuls, Contraargument, Problemă Principală, partener de ședință, strategie de afaceri"
   },
-  "aria": { "home": "Acasă Proces-verbal AI" },
-  "a11y": { "home": "Acasă Proces-verbal AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategie"
+  },
   "hero": {
-    "kicker": "Ghid de funcție",
-    "h1": "Strategy pentru Proces-verbal AI",
-    "tagline": "Nu doar minute — Strategy transformă discuția în decizii cu ChatGPT-5 și Gemini 2.5 Pro."
-  },
-  "image": {
-    "alt": "Interfața Proces-verbal AI Strategy",
-    "caption": "Vezi dintr-o privire Boost / Counter / Top Issue și cele 3 moduri de gândire."
+    "kicker": "Analiză Funcționalitate",
+    "h1": "Dincolo de Minute: Funcția de Strategie",
+    "tagline": "Nu vă mai limitați la organizarea notițelor. Funcția 'Strategie' transformă Proces-verbal AI în partenerul tău principal de ședințe, convertind discuțiile în acțiuni cu impact ridicat, totul susținut de ChatGPT-5 și Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Ce este Strategy?",
-    "p1": "Strategy este un strat de suport decizional deasupra minutelor tale.",
-    "p2": "Generează Boost (scalarea a ceea ce funcționează), Counter (riscuri și acțiuni corective) și Top Issue (problema-nucleu), plus trei moduri de gândire aplicate la Top Issue.",
+    "h2": "Ce este Funcția de Strategie?",
+    "p1": "Strategia este stratul de suport decizional care ridică minutele dvs. de la o simplă înregistrare la un plan acționabil. Este una dintre cele mai populare funcții ale noastre, deoarece vă mută de la 'ce s-a spus' la 'ce trebuie făcut în continuare'.",
+    "p2": "În locul unui simplu rezumat, 'Strategia' analizează întreaga discuție folosind AI avansat pentru a oferi șase rezultate distincte și acționabile:",
     "bullets": [
-      "Boost — ce funcționează și cum se scalează",
-      "Counter — riscuri și acțiuni corective",
-      "Top Issue — întrebarea esențială care trebuie rezolvată",
-      "Gândire Logică — abordare structurată, pas cu pas",
-      "Gândire Critică — pune sub semnul întrebării premisele și găsește inconsistențe",
-      "Gândire Laterală — ieșire din tipare pentru salturi de inovație"
+      "Impuls (Boost) — Aspecte Pozitive și Cum să le Amplifici: Identifică ce funcționează și sugerează modalități concrete de a extinde acel succes.",
+      "Contraargument (Counter) — Opoziție Constructivă și Îmbunătățiri: Oferă în mod deliberat un punct de vedere opus sau identifică riscuri, sugerând cum să remediați problemele de bază.",
+      "Problemă Principală (Top Issue) — Problema Centrală: Identifică cea mai importantă întrebare sau conflict din ședință care trebuie rezolvat.",
+      "Gândire Logică — O soluție structurată, pas cu pas, pentru Problema Principală.",
+      "Gândire Critică — Contestă presupunerile de bază, prejudecățile și întrebările nerostite din spatele Problemei Principale.",
+      "Gândire Laterală — O idee 'inovatoare' care depășește soluțiile evidente, convenționale, pentru Problema Principală."
     ]
   },
   "how": {
-    "h2": "Cum se folosește",
+    "h2": "Cum Funcționează",
     "steps": [
-      "Generează minutele (în aplicație sau pe web).",
-      "Atinge „Strategy” și lasă ChatGPT-5 și Gemini 2.5 Pro să analizeze.",
-      "Primești Boost / Counter / Top Issue + cele trei moduri de gândire.",
-      "Distribuie rezultatul sau lipește-l în sistemul tău de task-uri pentru execuție."
+      "Generați minutele ședinței ca de obicei (iOS, Android sau Web).",
+      "Atingeți butonul 'Strategie' pentru a analiza transcrierea completă cu ChatGPT-5 și Gemini 2.5 Pro.",
+      "Primiți analiza în 6 părți: Impuls, Contraargument, Problemă Principală și cele trei moduri de gândire.",
+      "Partajați, copiați sau exportați informațiile direct în sistemul dvs. de gestionare a sarcinilor sau în raport."
     ],
-    "note": "Ieșirea se adaptează la limbă și domeniu și rămâne intenționat concisă pentru parcurgere rapidă."
+    "note": "Rezultatele se adaptează la limbă și domeniu; concizia este implicită pentru citire rapidă."
   },
   "samples": {
-    "h2": "Exemple scurte și ușor de citit",
+    "h2": "Vedeți în Acțiune: Un Exemplu Real",
     "minutes": {
-      "h3": "Minute (exemplu)",
+      "h3": "Exemplu de Minută: Ședința Amestecului de Vară 'Solar Chill'",
       "lines": [
-        "Subiect: Blendul de vară „Solar Chill”",
-        "Decizie: Continuăm Solar Chill / păstrăm numele / finalizăm rețeta",
-        "To-do: Propuneri de design / încărcarea rețetei finale în folderul partajat",
-        "Risc: 15% din feedback indică „prea acru”"
+        "Subiect: Noul amestec limitat de vară 'Solar Chill' (cold brew + fructul pasiunii + mentă).",
+        "Decizie: Se va continua cu 'Solar Chill' ca produs principal de vară. Se păstrează numele.",
+        "Sarcini: Echipa de design va crea machete. Rețeta finală va fi încărcată în 'FlavorSync'.",
+        "Risc: 15% din feedback-ul personalului a menționat că băutura este 'prea acră'.",
+        "Rezumat: Produsul a fost evaluat foarte bine pentru concept, nume și potențialul SNS."
       ]
     },
     "strategy": {
-      "h3": "Strategy (exemplu)",
+      "h3": "Rezultatul Strategiei (Susținut de AI)",
       "boost": [
-        "Boost: Intenție mare de recumpărare → pilot în 10 magazine + campanie pe social media. Măsoară rata de reorder în 7 zile."
+        "Impuls: 74% 'ar bea din nou' este un indicator puternic al potrivirii pe piață. Acțiune: Analizați în profunzime feedback-ul de 15% 'prea acru'. Nu reduceți doar aciditatea; luați în considerare testarea A/B a unei opțiuni 'cu dulceață ajustată' în magazinele pilot pentru a maximiza atractivitatea fără a pierde identitatea de bază a produsului."
       ],
       "counter": [
-        "Counter: Atenuarea acidității → adaugă opțiunea „mild sweet”. Test A/B al siropului timp de 2 săptămâni."
+        "Contraargument: Ședința a respins propunerea 'Infuzie de Condimente' fără discuție. A fost aceasta o oportunitate ratată având în vedere tendințele pieței (de exemplu, chai, turmeric)? Decizia de a face 'Bloom Latte' exclusiv în magazin ar putea, de asemenea, să subestimeze potențialul său. Acțiune: Reevaluați conceptul 'condimente' în raport cu datele pieței. Testați 'Bloom Latte' online sau prin parteneriate, nu doar în magazin."
       ],
       "top": [
-        "Top Issue: Care este „sweet spot”-ul de gust ce lărgește accesibilitatea fără a pierde identitatea de brand?"
+        "Problemă Principală: Cum să lansăm cu succes două produse distincte în ediție limitată ('Solar Chill' și 'Bloom Latte') și să optimizăm strategiile lor respective de lansare pe piață (mainstream vs. nișă)."
       ],
       "modes": {
         "logical": [
-          "Logică: Definește segmentul-țintă → stabilește KPI-urile de succes → A/B → rulează specificația câștigătoare."
+          "Logic: 1. Definiți segmentele țintă pentru fiecare produs (Solar Chill = mai tineri, axați pe SNS; Bloom Latte = conștienți de sănătate, relaxare). 2. Creați propuneri de valoare distincte (Răcorire vs. Wellness). 3. Oferiți personalizare la 'nivel de sirop' pentru Solar Chill pentru a gestiona feedback-ul 'acru'."
         ],
         "critical": [
-          "Critică: Nu optimizăm excesiv pentru „viralitate” în social? Repetă testele în orb."
+          "Critic: Este echipa influențată de 'entuziasmul SNS' și succesele anterioare? Respingerea ideii 'condimente' sugerează un potențial punct orb. Acțiune: Implementați un model de evaluare cantitativă pentru propunerile noi (cost, potrivire cu tendințele, potrivire cu marca) pentru a elimina subiectivitatea din procesul decizional."
         ],
         "lateral": [
-          "Laterală: Extinde dincolo de băuturi (ex.: aromă/room mist) pentru mai multe puncte de contact."
+          "Lateral: Ieșiți din cadrul 'băuturilor'. Acțiune: Dezvoltați o versiune 'ne-băubilă' a amestecului. Creați un parfum de cameră 'Solar Chill' sau produse de baie 'Bloom Latte'. Acest lucru extinde marca în bunuri de stil de viață, ajunge la clienții care nu beau cafea și creează noi surse de venit."
         ]
       }
     }
   },
   "platform": {
     "h2": "Disponibilitate",
-    "p1": "Strategy este disponibil pe iOS — de la „minute” la „decizii”."
+    "p1": "Ce părere aveți? Funcția 'Strategie' descoperă informații pe care le-ați omis, ridică contraargumentele pe care oamenii ezitau să le spună și oferă idei inovatoare. Este disponibilă chiar acum în aplicațiile noastre iOS și Android. Încercați-o la următoarea ședință și treceți de la simple 'note' la 'decizii'."
   },
-  "features": {
-    "h2": "Repere",
-    "items": [
-      "Orientat spre decizie, nu doar sumarizare",
-      "Optimizat pentru ChatGPT-5 și Gemini 2.5 Pro",
-      "Rezultate scurte și acționabile",
-      "Multilingv pentru echipe globale"
-    ]
+  "image": {
+    "alt": "Interfața utilizator a funcției Strategie Proces-verbal AI pe un smartphone",
+    "caption": "Obțineți Impuls, Contraargument, Problemă Principală și trei moduri de gândire dintr-o singură privire."
   },
-  "notes": {
-    "h2": "Note",
-    "items": [
-      "Calitatea rezultatului reflectă calitatea inputului",
-      "Folosește șabloane potrivite tipului de întâlnire"
-    ],
-    "foot": "Disponibil pe iOS. Încearcă azi."
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Funcționalitate",
+    "category": "Strategie"
   },
-  "meta": { "h2": "Meta", "published": "Publicat", "type": "Funcție", "category": "Strategy" },
-  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Descarcă aplicația iOS" }
+  "cta": {
+    "openBrowser": "Utilizați pe Web",
+    "downloadIOS": "Descărcați din App Store",
+    "downloadAndroid": "Obțineți pe Google Play"
+  }
 }

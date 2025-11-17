@@ -1,103 +1,103 @@
 {
   "seo": {
-    "title": "Tutanakları AI Strategy — tutanakları karara dönüştürün (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy, toplantıları Boost/Counter/Top Issue ve üç düşünme modu ile net sonraki adımlara dönüştürür. SEO: yapay zekâ tutanak, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Tutanakları AI'da Strategy: sadece özet değil, karar",
-    "ogDescription": "Boost/Counter/Top Issue + Mantıksal/Eleştirel/Yanal düşünme ile uygulanabilir çıktı.",
+    "title": "Tutanakları AI Stratejisi: Tutanaklardan Eyleme Geçirilebilir Bilgilere (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Tutanakları AI'nin 'Strateji' özelliği, ham toplantı notlarını güçlü bir karar verme araç setine dönüştürür. ChatGPT-5 ve Gemini 2.5 Pro kullanarak, işinizi ileriye taşımak için Destek, Karşı Görüş, Ana Sorun ve üç benzersiz düşünme modu oluşturur.",
+    "ogTitle": "Tutanakları AI Stratejisi: Tutanakları Eyleme Dönüştürün",
+    "ogDescription": "Sadece toplantıları kaydetmeyin. Onları stratejiye dönüştürün. Destek (ne işe yarıyor), Karşı Görüş (ne düzeltilmeli), Ana Sorun (temel problem) ve Mantıksal, Eleştirel ve Yanal düşünme modlarını edinin.",
     "ld": {
-      "headline": "Tutanakları AI Strategy'yi ekledi",
-      "description": "ChatGPT-5 ve Gemini 2.5 Pro ile tartışmayı hızlı ve net karara dönüştürün."
+      "headline": "Tutanakları AI Strateji Özelliği: Basit Notlardan Toplantı Ortağına",
+      "description": "Strateji özelliği, eyleme geçirilebilir bilgiler sağlamak için gelişmiş AI analizi (ChatGPT-5 ve Gemini 2.5 Pro) kullanarak tutanakları karar desteğine yükseltir."
     },
-    "keywords": "Tutanakları AI, Strategy, yapay zekâ tutanak, ChatGPT-5, Gemini 2.5 Pro, karar desteği, mantıksal düşünme, eleştirel düşünme, yanal düşünme, Boost, Counter, Top Issue"
+    "keywords": "Tutanakları AI, AI toplantı tutanakları, Strateji, ChatGPT-5, Gemini 2.5 Pro, karar desteği, eyleme geçirilebilir bilgiler, Mantıksal Düşünme, Eleştirel Düşünme, Yanal Düşünme, Destek, Karşı Görüş, Ana Sorun, toplantı ortağı, iş stratejisi"
   },
-  "aria": { "home": "Tutanakları AI Ana Sayfa" },
-  "a11y": { "home": "Tutanakları AI Ana Sayfa" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strateji"
+  },
   "hero": {
-    "kicker": "Özellik Rehberi",
-    "h1": "Tutanakları AI için Strategy",
-    "tagline": "Sadece özet değil—Strategy, ChatGPT-5 ve Gemini 2.5 Pro ile tartışmayı karara çevirir."
+    "kicker": "Özellik Derinlemesine İnceleme",
+    "h1": "Tutanakların Ötesinde: Strateji Fonksiyonu",
+    "tagline": "Sadece notları düzenlemeyi bırakın. 'Strateji' fonksiyonu, Tutanakları AI'yi temel toplantı ortağınıza dönüştürür, tartışmaları yüksek etkili eylemlere çevirir; tümü ChatGPT-5 ve Gemini 2.5 Pro tarafından desteklenir."
   },
-  "image": { "alt": "Tutanakları AI Strategy arayüzü", "caption": "Boost / Counter / Top Issue ve 3 düşünme modunu tek bakışta görün." },
   "what": {
-    "h2": "Strategy nedir?",
-    "p1": "Strategy, tutanaklarınızın üzerine eklenen bir karar destek katmanıdır.",
-    "p2": "Çalışan noktaları büyüten Boost, riskleri ve önlemleri tanımlayan Counter ve çözülmesi gereken Top Issue’yu; ayrıca Top Issue için üç düşünme modunu üretir.",
+    "h2": "Strateji Fonksiyonu Nedir?",
+    "p1": "'Strateji', tutanaklarınızı basit bir kayıttan eyleme geçirilebilir bir plana yükselten karar destek katmanıdır. En popüler özelliklerimizden biridir çünkü sizi 'ne söylendi'den 'sırada ne yapılmalı'ya taşır.",
+    "p2": "Sadece bir özet yerine, 'Strateji' tüm tartışmayı gelişmiş AI kullanarak analiz eder ve altı farklı, eyleme geçirilebilir çıktı sağlar:",
     "bullets": [
-      "Boost — ne işe yarıyor ve nasıl ölçeklenir",
-      "Counter — riskler ve düzeltici aksiyonlar",
-      "Top Issue — mutlaka çözmemiz gereken temel soru",
-      "Mantıksal düşünme — yapılandırılmış, adım adım yaklaşım",
-      "Eleştirel düşünme — varsayımları sorgulayın, çelişkileri bulun",
-      "Yanal düşünme — kutunun dışında sıçrama fikirler"
+      "Destek (Boost) — Pozitif Yönler ve Bunları Güçlendirme: Nelerin işe yaradığını belirler ve bu başarıyı ölçeklendirmek için somut yollar önerir.",
+      "Karşı Görüş (Counter) — Yapıcı Muhalefet ve İyileştirmeler: Kasten karşıt bir görüş sunar veya riskleri belirler, temel sorunların nasıl düzeltileceğini önerir.",
+      "Ana Sorun (Top Issue) — Temel Problem: Toplantıdan çözülmesi gereken en önemli tek soruyu veya çatışmayı belirler.",
+      "Mantıksal Düşünme — Ana Sorun için yapılandırılmış, adım adım bir çözüm.",
+      "Eleştirel Düşünme — Ana Sorun'un arkasındaki temel varsayımları, önyargıları ve sorulmamış soruları sorgular.",
+      "Yanal Düşünme — Ana Sorun için bariz, geleneksel çözümlerin ötesine geçen 'çığır açan' bir fikir."
     ]
   },
   "how": {
-    "h2": "Nasıl kullanılır",
+    "h2": "Nasıl Çalışır",
     "steps": [
-      "Tutanak oluşturun (uygulama veya web).",
-      "“Strategy”e dokunun ve ChatGPT-5 ile Gemini 2.5 Pro’nun analiz etmesini sağlayın.",
-      "Boost / Counter / Top Issue + üç düşünme modunu alın.",
-      "Sonucu paylaşın ya da görev yöneticinize yapıştırıp uygulamaya geçin."
+      "Toplantı tutanaklarınızı her zamanki gibi oluşturun (iOS, Android veya Web).",
+      "Tam metni ChatGPT-5 & Gemini 2.5 Pro ile analiz etmek için 'Strateji' düğmesine dokunun.",
+      "6 bölümlü analizinizi alın: Destek, Karşı Görüş, Ana Sorun ve üç düşünme modu.",
+      "Bilgileri doğrudan görev yönetim sisteminize veya raporunuza paylaşın, kopyalayın veya dışa aktarın."
     ],
-    "note": "Çıktı dil ve alana uyum sağlar; hızlı okunabilirlik için bilinçli olarak kısadır."
+    "note": "Çıktılar dile ve alana uyum sağlar; hızlı okuma için varsayılan olarak kısalık."
   },
   "samples": {
-    "h2": "Kısa ve okunabilir örnekler",
+    "h2": "Eylem Halinde Görün: Gerçek Dünya Örneği",
     "minutes": {
-      "h3": "Tutanak (örnek)",
+      "h3": "Örnek Tutanak: 'Solar Chill' Yaz Karışımı Toplantısı",
       "lines": [
-        "Konu: Yaz harmanı “Solar Chill”",
-        "Karar: Solar Chill ile devam / isim korunacak / reçete finalize edilecek",
-        "Yapılacaklar: Tasarım önerileri hazırla / nihai reçeteyi paylaşılan klasöre yükle",
-        "Risk: Geri bildirimin %15’i ‘fazla ekşi’ diyor"
+        "Konu: Yeni yaz limiti karışımı 'Solar Chill' (soğuk demleme + çarkıfelek meyvesi + nane).",
+        "Karar: Ana yaz ürünü olarak 'Solar Chill' ile devam edilecek. İsim korunacak.",
+        "Görevler: Tasarım ekibi maketler oluşturacak. Son tarif 'FlavorSync'e yüklenecek.",
+        "Risk: Personel geri bildirimlerinin %15'i içeceğin 'çok ekşi' olduğunu belirtti.",
+        "Özet: Ürün konsept, isim ve SNS potansiyeli açısından yüksek puan aldı."
       ]
     },
     "strategy": {
-      "h3": "Strategy (örnek)",
+      "h3": "Strateji Çıktısı (AI Destekli)",
       "boost": [
-        "Boost: Yüksek tekrar satın alma niyeti → 10 mağazada pilot + sosyal kampanya. 7 gün içinde yeniden sipariş oranını ölç."
+        "Destek: %74'ün 'tekrar içerim' demesi, pazara uygunluğun güçlü bir göstergesidir. Eylem: %15'lik 'çok ekşi' geri bildirimini derinlemesine inceleyin. Sadece ekşiliği azaltmayın; ürünün temel kimliğini kaybetmeden çekiciliği en üst düzeye çıkarmak için pilot mağazalarda 'tatlılığı ayarlanmış' bir seçeneği A/B testi yapmayı düşünün."
       ],
       "counter": [
-        "Counter: Ekşiliği azalt → “mild sweet” seçeneği ekle. 2 hafta şurup miktarı A/B test et."
+        "Karşı Görüş: Toplantı, 'Baharat İnfüzyonu' önerisini tartışmadan reddetti. Piyasa trendleri (ör. chai, zerdeçal) göz önüne alındığında bu kaçırılmış bir fırsat mıydı? 'Bloom Latte'yi mağazaya özel yapma kararı da potansiyelini küçümsüyor olabilir. Eylem: 'Baharat' konseptini pazar verilerine göre yeniden değerlendirin. 'Bloom Latte'yi sadece mağazada değil, çevrimiçi veya ortaklıklar aracılığıyla test edin."
       ],
       "top": [
-        "Top Issue: Marka kimliğini yitirmeden erişimi genişleten tat ‘sweet spot’u nedir?"
+        "Ana Sorun: İki farklı sınırlı üretim ürünü ('Solar Chill' ve 'Bloom Latte') nasıl başarılı bir şekilde piyasaya sürülür ve ilgili pazara giriş stratejileri (ana akım vs. niş) nasıl optimize edilir."
       ],
       "modes": {
         "logical": [
-          "Mantıksal: Hedef segmenti tanımla → başarı KPI’larını belirle → A/B → kazanan kurguyu yayına al."
+          "Mantıksal: 1. Her ürün için hedef segmentleri tanımlayın (Solar Chill = daha genç, SNS odaklı; Bloom Latte = sağlık bilinçli, rahatlama). 2. Farklı değer önermeleri oluşturun (Ferahlık vs. Sağlıklı Yaşam). 3. 'Ekşi' geri bildirimiyle başa çıkmak için Solar Chill için 'şurup seviyesi' özelleştirmesi sunun."
         ],
         "critical": [
-          "Eleştirel: Sosyal ‘konuşturma’ya aşırı mı optimize ediyoruz? Kör tadımı tekrarla."
+          "Eleştirel: Ekip 'SNS heyecanı' ve geçmiş başarılardan dolayı önyargılı mı? 'Baharat' fikrinin reddedilmesi potansiyel bir kör noktayı gösteriyor. Eylem: Karar vermeden öznel önyargıyı kaldırmak için yeni öneriler (maliyet, trend uyumu, marka uyumu) için nicel bir puanlama modeli uygulayın."
         ],
         "lateral": [
-          "Yanal: Teması içecek dışına taşı (örn. koku/room mist) ve temas noktalarını genişlet."
+          "Yanal: 'İçecek' çerçevesinden kurtulun. Eylem: Karışımın 'içilemez' bir versiyonunu geliştirin. 'Solar Chill' oda kokusu veya 'Bloom Latte' banyo ürünleri yaratın. Bu, markayı yaşam tarzı ürünlerine genişletir, kahve içmeyen müşterilere ulaşır ve yeni gelir akışları yaratır."
         ]
       }
     }
   },
   "platform": {
-    "h2": "Kapsam",
-    "p1": "Strategy iOS’ta mevcut — “tutanak”tan “karar”a."
+    "h2": "Kullanılabilirlik",
+    "p1": "Ne düşünüyorsunuz? 'Strateji' fonksiyonu, kaçırdığınız bilgileri ortaya çıkarır, insanların söylemekten çekindiği karşı argümanları gündeme getirir ve çığır açan fikirler sunar. Şu anda iOS ve Android uygulamalarımızda mevcut. Bir sonraki toplantınızda deneyin ve sadece 'notlar'dan 'kararlar'a geçin."
   },
-  "features": {
-    "h2": "Öne çıkanlar",
-    "items": [
-      "Sadece özet değil, karar odaklı",
-      "ChatGPT-5 & Gemini 2.5 Pro için optimize",
-      "Kısa ve uygulanabilir çıktılar",
-      "Küresel ekipler için çok dilli"
-    ]
+  "image": {
+    "alt": "Bir akıllı telefonda Tutanakları AI Strateji özelliği kullanıcı arayüzü",
+    "caption": "Destek, Karşı Görüş, Ana Sorun ve üç düşünme modunu tek bakışta görün."
   },
-  "notes": {
-    "h2": "Notlar",
-    "items": [
-      "Girdi kalitesi, çıktı kalitesini belirler",
-      "Toplantı tipine uygun şablonlar kullanın"
-    ],
-    "foot": "iOS’ta mevcut. Bugün deneyin."
+  "meta": {
+    "h2": "Meta",
+    "published": "Yayınlandı",
+    "type": "Özellik",
+    "category": "Strateji"
   },
-  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "Özellik", "category": "Strategy" },
-  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" }
+  "cta": {
+    "openBrowser": "Web'de Kullan",
+    "downloadIOS": "App Store'dan İndirin",
+    "downloadAndroid": "Google Play'den Alın"
+  }
 }

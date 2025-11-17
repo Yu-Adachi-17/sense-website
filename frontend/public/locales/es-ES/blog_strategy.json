@@ -1,19 +1,16 @@
 {
   "seo": {
-    "title": "Strategy en Actas IA — convierte actas en decisiones (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy en Actas IA transforma las actas en próximos pasos claros. Con ChatGPT-5 y Gemini 2.5 Pro, genera Boost, Counter, Top Issue y tres modos de pensamiento.",
-    "ogTitle": "Strategy en Actas IA: decisiones, no solo resúmenes",
-    "ogDescription": "Convierte actas en estrategia con Boost / Counter / Top Issue y pensamiento Lógico / Crítico / Lateral.",
+    "title": "Estrategia de Actas IA: De actas a información procesable (ChatGPT-5 y Gemini 2.5 Pro)",
+    "description": "La función 'Estrategia' de Actas IA transforma las notas de reunión en bruto en un potente conjunto de herramientas para la toma de decisiones. Usando ChatGPT-5 y Gemini 2.5 Pro, genera Impulso, Contrapartida, Problema Principal y tres modos de pensamiento únicos para impulsar su negocio.",
+    "ogTitle": "Estrategia de Actas IA: Convierta las actas en acción",
+    "ogDescription": "No se limite a grabar reuniones. Conviértalas en estrategia. Obtenga Impulso (lo que funciona), Contrapartida (qué arreglar), Problema Principal (el problema central) y modos de pensamiento Lógico, Crítico y Lateral.",
     "ld": {
-      "headline": "Actas IA incorpora Strategy",
-      "description": "Usa ChatGPT-5 y Gemini 2.5 Pro para elevar las actas a soporte de decisión con resultados accionables."
+      "headline": "Función de Estrategia de Actas IA: De simples notas a socio de reuniones",
+      "description": "La función 'Estrategia' eleva las actas a un nivel de soporte de decisiones utilizando análisis avanzado de IA (ChatGPT-5 y Gemini 2.5 Pro) para proporcionar información procesable."
     },
-    "keywords": "Actas IA, actas con IA, Strategy, ChatGPT-5, Gemini 2.5 Pro, soporte a la decisión, pensamiento lógico, pensamiento crítico, pensamiento lateral, Boost, Counter, Top Issue"
+    "keywords": "Actas IA, actas de reunión IA, Estrategia, ChatGPT-5, Gemini 2.5 Pro, soporte de decisiones, información procesable, Pensamiento Lógico, Pensamiento Crítico, Pensamiento Lateral, Impulso, Contrapartida, Problema Principal, socio de reuniones, estrategia empresarial"
   },
   "aria": {
-    "home": "Inicio de Actas IA"
-  },
-  "a11y": {
     "home": "Inicio de Actas IA"
   },
   "nav": {
@@ -21,75 +18,76 @@
     "strategy": "Estrategia"
   },
   "hero": {
-    "kicker": "Guía de función",
-    "h1": "Strategy para Actas IA",
-    "tagline": "No solo actas. Strategy convierte la discusión en decisiones con ChatGPT-5 y Gemini 2.5 Pro."
+    "kicker": "Análisis de la Función",
+    "h1": "Más allá de las actas: La Función de Estrategia",
+    "tagline": "Deje de organizar solo notas. La función 'Estrategia' convierte a Actas IA en su socio principal de reuniones, transformando las discusiones en acciones de alto impacto, todo impulsado por ChatGPT-5 y Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "¿Qué es Strategy?",
-    "p1": "Strategy es una capa de soporte a la decisión sobre tus actas.",
-    "p2": "Produce tres salidas clave — Boost, Counter y Top Issue — además de tres modos de pensamiento para abordar a fondo el Top Issue.",
+    "h2": "¿Qué es la Función de Estrategia?",
+    "p1": "'Estrategia' es la capa de soporte de decisiones que eleva sus actas de un simple registro a un plan de acción. Es una de nuestras funciones más populares porque lo lleva de 'lo que se dijo' a 'qué hacer a continuación'.",
+    "p2": "En lugar de solo un resumen, 'Estrategia' analiza toda la discusión utilizando IA avanzada para proporcionar seis resultados distintos y procesables:",
     "bullets": [
-      "Boost — qué funciona y cómo escalarlo",
-      "Counter — riesgos y cómo mitigarlos",
-      "Top Issue — la pregunta clave a resolver",
-      "Pensamiento lógico — solución estructurada y por pasos",
-      "Pensamiento crítico — cuestionar supuestos y encontrar vacíos",
-      "Pensamiento lateral — saltos creativos más allá de lo obvio"
+      "Impulso (Boost) — Positivos y cómo amplificarlos: Identifica lo que funciona y sugiere formas concretas de escalar ese éxito.",
+      "Contrapartida (Counter) — Oposición constructiva y mejoras: Proporciona deliberadamente un punto de vista opuesto o identifica riesgos, sugiriendo cómo solucionar los problemas subyacentes.",
+      "Problema Principal (Top Issue) — El problema central: Señala la pregunta o conflicto más importante de la reunión que necesita resolverse.",
+      "Pensamiento Lógico — Una solución estructurada y paso a paso para el Problema Principal.",
+      "Pensamiento Crítico — Desafía las suposiciones centrales, sesgos y preguntas no formuladas detrás del Problema Principal.",
+      "Pensamiento Lateral — Una idea 'revolucionaria' que salta más allá de las soluciones obvias y convencionales para el Problema Principal."
     ]
   },
   "how": {
     "h2": "Cómo funciona",
     "steps": [
-      "Genera las actas como siempre (en la app o la web).",
-      "Toca “Strategy” para analizar con ChatGPT-5 y Gemini 2.5 Pro.",
-      "Obtén Boost / Counter / Top Issue + los tres modos de pensamiento.",
-      "Copia o comparte los resultados e intégralos en tu gestor de tareas."
+      "Genere las actas de su reunión como de costumbre (iOS, Android o Web).",
+      "Toque el botón 'Estrategia' para analizar la transcripción completa con ChatGPT-5 y Gemini 2.5 Pro.",
+      "Reciba su análisis de 6 partes: Impulso, Contrapartida, Problema Principal y los tres modos de pensamiento.",
+      "Comparta, copie o exporte la información directamente a su sistema de gestión de tareas o informe."
     ],
-    "note": "Las salidas se adaptan a idioma y dominio; la brevedad es el valor por defecto para lectura rápida."
+    "note": "Los resultados se adaptan al idioma y al dominio; concisión por defecto para una lectura rápida."
   },
   "samples": {
-    "h2": "Ejemplos breves y claros",
+    "h2": "Véalo en acción: Un ejemplo del mundo real",
     "minutes": {
-      "h3": "Actas (ejemplo)",
+      "h3": "Ejemplo de Acta: Reunión de Mezcla de Verano 'Solar Chill'",
       "lines": [
-        "Tema: mezcla limitada de verano “Solar Chill”",
-        "Decisiones: seguir con Solar Chill; mantener el nombre; cerrar la receta.",
-        "Tareas: mocks de diseño; subir receta final a la carpeta compartida.",
-        "Riesgo: 15% de feedback indica «demasiado ácido»."
+        "Tema: Nueva mezcla limitada de verano 'Solar Chill' (cold brew + maracuyá + menta).",
+        "Decisión: Proceder con 'Solar Chill' como el producto principal de verano. Mantener el nombre.",
+        "Tareas: Equipo de diseño creará maquetas. Receta final se subirá a 'FlavorSync'.",
+        "Riesgo: 15% de los comentarios del personal señalaron que la bebida era 'demasiado ácida'.",
+        "Resumen: Producto calificado altamente por concepto, nombre y potencial en redes sociales."
       ]
     },
     "strategy": {
-      "h3": "Strategy (ejemplo)",
+      "h3": "Resultado de Estrategia (Impulsado por IA)",
       "boost": [
-        "Boost: Alta intención de recompra → piloto en 10 tiendas + campaña social; medir reorden en 7 días."
+        "Impulso: 74% 'lo bebería de nuevo' es un poderoso indicador de ajuste al mercado. Acción: Profundizar en el 15% de comentarios 'demasiado ácido'. No solo reduzca la acidez; considere pruebas A/B de una opción 'con dulzura ajustada' en tiendas piloto para maximizar el atractivo sin perder la identidad central del producto."
       ],
       "counter": [
-        "Counter: Tratar la acidez → añadir opción de «dulzor suave»; A/B del nivel de sirope por 2 semanas."
+        "Contrapartida: La reunión descartó la propuesta 'Infusión de Especias' sin discusión. ¿Fue una oportunidad perdida dadas las tendencias del mercado (por ejemplo, chai, cúrcuma)? La decisión de hacer 'Bloom Latte' exclusivo de la tienda también podría estar subestimando su potencial. Acción: Reevaluar el concepto 'especias' frente a los datos del mercado. Probar 'Bloom Latte' en línea o mediante asociaciones, no solo en la tienda."
       ],
       "top": [
-        "Top Issue: Equilibrar el sabor para ampliar la aceptación sin perder la distintividad de la marca."
+        "Problema Principal: Cómo lanzar con éxito dos productos distintos de tirada limitada ('Solar Chill' y 'Bloom Latte') y optimizar sus respectivas estrategias de salida al mercado (convencional vs. nicho)."
       ],
       "modes": {
         "logical": [
-          "Lógico: Definir segmentos objetivo → fijar KPIs de éxito → ejecutar A/B → lanzar la especificación ganadora."
+          "Lógico: 1. Definir segmentos objetivo para cada producto (Solar Chill = más joven, enfocado en SNS; Bloom Latte = consciente de la salud, relajación). 2. Crear propuestas de valor distintas (Refrescante vs. Bienestar). 3. Ofrecer personalización de 'nivel de jarabe' para Solar Chill para manejar los comentarios 'ácido'."
         ],
         "critical": [
-          "Crítico: ¿Sobreajustamos al «ruido social»? Validar con catas a ciegas."
+          "Crítico: ¿Está el equipo sesgado por el 'hype de SNS' y éxitos pasados? El descarte de la idea 'especias' sugiere un posible punto ciego. Acción: Implementar un modelo de puntuación cuantitativo para nuevas propuestas (costo, ajuste a tendencia, ajuste a marca) para eliminar el sesgo subjetivo de la toma de decisiones."
         ],
         "lateral": [
-          "Lateral: Ofrecer versión aroma/room-mist para extender la marca más allá de la bebida."
+          "Lateral: Romper con el marco de 'bebida'. Acción: Desarrollar una versión 'no bebible' de la mezcla. Crear una fragancia de habitación 'Solar Chill' o productos de baño 'Bloom Latte'. Esto expande la marca a bienes de estilo de vida, llega a clientes que no beben café y crea nuevas fuentes de ingresos."
         ]
       }
     }
   },
   "platform": {
     "h2": "Disponibilidad",
-    "p1": "Strategy está disponible en iOS. De «notas» a «decisiones»."
+    "p1": "¿Qué opina? La función 'Estrategia' descubre información que pasó por alto, plantea los contraargumentos que la gente dudaba en decir y proporciona ideas revolucionarias. Está disponible ahora mismo en nuestras aplicaciones de iOS y Android. Pruébela en su próxima reunión y pase de simples 'notas' a 'decisiones'."
   },
   "image": {
-    "alt": "Interfaz de Strategy en Actas IA",
-    "caption": "Boost / Counter / Top Issue + tres modos de pensamiento de un vistazo."
+    "alt": "La interfaz de usuario de la función Estrategia de Actas IA en un smartphone",
+    "caption": "Obtenga Impulso, Contrapartida, Problema Principal y tres modos de pensamiento de un vistazo."
   },
   "meta": {
     "h2": "Meta",
@@ -98,7 +96,8 @@
     "category": "Estrategia"
   },
   "cta": {
-    "openBrowser": "Abrir en el navegador",
-    "downloadIOS": "Descargar app de iOS"
+    "openBrowser": "Usar en la Web",
+    "downloadIOS": "Descargar en el App Store",
+    "downloadAndroid": "Obtener en Google Play"
   }
 }

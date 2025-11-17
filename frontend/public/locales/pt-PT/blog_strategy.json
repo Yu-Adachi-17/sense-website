@@ -1,103 +1,103 @@
 {
   "seo": {
-    "title": "Strategy no Ata AI — transforme atas em decisões (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy condensa reuniões em Boost/Counter/Top Issue e três modos de pensamento para próximos passos claros. SEO: atas com IA, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy no Ata AI: decisões, não apenas resumos",
-    "ogDescription": "Boost/Counter/Top Issue + Lógico/Crítico/Lateral para saídas acionáveis.",
+    "title": "Estratégia da Ata AI: De Atas a Insights Acionáveis (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "O recurso 'Estratégia' da Ata AI transforma notas de reunião brutas em um poderoso kit de ferramentas para tomada de decisão. Usando ChatGPT-5 e Gemini 2.5 Pro, ele gera Impulso, Contraponto, Questão Principal e três modos de pensamento exclusivos para impulsionar seus negócios.",
+    "ogTitle": "Estratégia da Ata AI: Transforme Atas em Ação",
+    "ogDescription": "Não apenas grave reuniões. Transforme-as em estratégia. Obtenha Impulso (o que funciona), Contraponto (o que consertar), Questão Principal (o problema central) e modos de pensamento Lógico, Crítico e Lateral.",
     "ld": {
-      "headline": "Ata AI adiciona Strategy",
-      "description": "Use ChatGPT-5 e Gemini 2.5 Pro para converter discussões em decisões de forma rápida e clara."
+      "headline": "Recurso de Estratégia da Ata AI: De Notas Simples a Parceiro de Reunião",
+      "description": "O recurso 'Eatratégia' eleva as atas a um suporte de decisão usando análise avançada de IA (ChatGPT-5 e Gemini 2.5 Pro) para fornecer insights acionáveis."
     },
-    "keywords": "Ata AI, Strategy, atas com IA, ChatGPT-5, Gemini 2.5 Pro, apoio à decisão, pensamento lógico, pensamento crítico, pensamento lateral, Boost, Counter, Top Issue"
+    "keywords": "Ata AI, atas de reunião IA, Estratégia, ChatGPT-5, Gemini 2.5 Pro, suporte à decisão, insights acionáveis, Pensamento Lógico, Pensamento Crítico, Pensamento Lateral, Impulso, Contraponto, Questão Principal, parceiro de reunião, estratégia de negócios"
   },
-  "aria": { "home": "Página inicial do Ata AI" },
-  "a11y": { "home": "Página inicial do Ata AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Página Inicial da Ata AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Estratégia"
+  },
   "hero": {
-    "kicker": "Guia de recurso",
-    "h1": "Strategy para o Ata AI",
-    "tagline": "Não é só resumo—Strategy transforma discussões em decisões com ChatGPT-5 e Gemini 2.5 Pro."
+    "kicker": "Análise Profunda do Recurso",
+    "h1": "Além das Atas: A Função de Estratégia",
+    "tagline": "Pare de apenas organizar notas. A função 'Estratégia' transforma a Ata AI em sua principal parceira de reuniões, convertendo discussões em ações de alto impacto, tudo com tecnologia ChatGPT-5 e Gemini 2.5 Pro."
   },
-  "image": { "alt": "Interface do Strategy no Ata AI", "caption": "Veja Boost / Counter / Top Issue e os 3 modos de pensamento em uma só visão." },
   "what": {
-    "h2": "O que é o Strategy?",
-    "p1": "Strategy é uma camada de apoio à decisão por cima das suas atas.",
-    "p2": "Gera Boost (escalar o que funciona), Counter (riscos e ações corretivas) e Top Issue (o problema-núcleo), além de três modos de pensamento aplicados ao Top Issue.",
+    "h2": "O que é a Função de Estratégia?",
+    "p1": "Estratégia é a camada de suporte à decisão que eleva suas atas de um simples registro para um plano acionável. É um dos nossos recursos mais populares porque move você de 'o que foi dito' para 'o que fazer a seguir'.",
+    "p2": "Em vez de apenas um resumo, a 'Estratégia' analisa toda a discussão usando IA avançada para fornecer seis resultados distintos e acionáveis:",
     "bullets": [
-      "Boost — o que funciona e como escalar",
-      "Counter — riscos e ações corretivas",
-      "Top Issue — a pergunta central que precisamos resolver",
-      "Pensamento Lógico — abordagem estruturada, passo a passo",
-      "Pensamento Crítico — questione premissas e encontre inconsistências",
-      "Pensamento Lateral — sair do óbvio para saltos de inovação"
+      "Impulso (Boost) — Pontos Positivos e Como Ampliá-los: Identifica o que está funcionando e sugere maneiras concretas de escalar esse sucesso.",
+      "Contraponto (Counter) — Oposição Construtiva e Melhorias: Fornece deliberadamente um ponto de vista oposto ou identifica riscos, sugerindo como corrigir os problemas subjacentes.",
+      "Questão Principal (Top Issue) — O Problema Central: Aponta a única questão ou conflito mais importante da reunião que precisa ser resolvido.",
+      "Pensamento Lógico — Uma solução estruturada e passo a passo para a Questão Principal.",
+      "Pensamento Crítico — Desafia as suposições centrais, vieses e perguntas não feitas por trás da Questão Principal.",
+      "Pensamento Lateral — Uma ideia 'inovadora' que salta além das soluções óbvias e convencionais para a Questão Principal."
     ]
   },
   "how": {
-    "h2": "Como usar",
+    "h2": "Como Funciona",
     "steps": [
-      "Gere as atas no app ou na web.",
-      "Toque em “Strategy” e deixe ChatGPT-5 e Gemini 2.5 Pro analisar.",
-      "Receba Boost / Counter / Top Issue + os três modos de pensamento.",
-      "Compartilhe o resultado ou cole no seu gestor de tarefas para execução."
+      "Gere suas atas de reunião como de costume (iOS, Android ou Web).",
+      "Toque no botão 'Estratégia' para analisar a transcrição completa com ChatGPT-5 e Gemini 2.5 Pro.",
+      "Receba sua análise de 6 partes: Impulso, Contraponto, Questão Principal e os três modos de pensamento.",
+      "Compartilhe, copie ou exporte os insights diretamente para seu sistema de gerenciamento de tarefas ou relatório."
     ],
-    "note": "A saída se adapta a idioma e domínio, mantendo-se propositalmente concisa para leitura rápida."
+    "note": "Os resultados se adaptam ao idioma e ao domínio; concisão por padrão para leitura rápida."
   },
   "samples": {
-    "h2": "Amostras curtas e legíveis",
+    "h2": "Veja em Ação: Um Exemplo do Mundo Real",
     "minutes": {
-      "h3": "Ata (exemplo)",
+      "h3": "Exemplo de Ata: Reunião da Mistura de Verão 'Solar Chill'",
       "lines": [
-        "Tópico: Blend de verão “Solar Chill”",
-        "Decisão: Prosseguir com Solar Chill / manter nome / finalizar receita",
-        "To-do: Criar propostas de design / subir receita final na pasta compartilhada",
-        "Risco: 15% dos feedbacks apontam “acidez alta”"
+        "Tópico: Nova mistura limitada de verão 'Solar Chill' (cold brew + maracujá + menta).",
+        "Decisão: Prosseguir com 'Solar Chill' como o principal produto de verão. Manter o nome.",
+        "Tarefas: Equipe de design criará protótipos. Receita final será carregada no 'FlavorSync'.",
+        "Risco: 15% do feedback da equipe notou que a bebida estava 'muito azeda'.",
+        "Resumo: Produto classificado com alta pontuação por conceito, nome e potencial de SNS."
       ]
     },
     "strategy": {
-      "h3": "Strategy (exemplo)",
+      "h3": "Resultado da Estratégia (Produzido por IA)",
       "boost": [
-        "Boost: Alta intenção de recompra → piloto em 10 lojas + campanha em redes sociais. Medir reorders em 7 dias."
+        "Impulso: 74% 'beberiam novamente' é um indicador poderoso de adequação ao mercado. Ação: Aprofunde-se no feedback de 15% 'muito azedo'. Não apenas reduza a acidez; considere testar A/B uma opção de 'doçura ajustada' em lojas piloto para maximizar o apelo sem perder a identidade central do produto."
       ],
       "counter": [
-        "Counter: Mitigar acidez → adicionar opção “mild sweet”. Teste A/B de xarope por 2 semanas."
+        "Contraponto: A reunião descartou a proposta 'Infusão de Especiarias' sem discussão. Foi uma oportunidade perdida dadas as tendências do mercado (por exemplo, chai, açafrão-da-terra)? A decisão de tornar o 'Bloom Latte' exclusivo da loja também pode estar subestimando seu potencial. Ação: Reavalie o conceito de 'especiarias' em relação aos dados de mercado. Teste o 'Bloom Latte' online ou por meio de parcerias, não apenas na loja."
       ],
       "top": [
-        "Top Issue: Qual é o ‘sweet spot’ de sabor que amplia a base sem perder a identidade da marca?"
+        "Questão Principal: Como lançar com sucesso dois produtos distintos de edição limitada ('Solar Chill' e 'Bloom Latte') e otimizar suas respectivas estratégias de entrada no mercado (mainstream vs. nicho)."
       ],
       "modes": {
         "logical": [
-          "Lógico: Definir segmento-alvo → fixar KPIs de sucesso → A/B → lançar a configuração vencedora."
+          "Lógico: 1. Definir segmentos-alvo para cada produto (Solar Chill = mais jovem, focado em SNS; Bloom Latte = consciente da saúde, relaxamento). 2. Criar propostas de valor distintas (Refrescância vs. Bem-estar). 3. Oferecer personalização de 'nível de xarope' para o Solar Chill para lidar com o feedback 'azedo'."
         ],
         "critical": [
-          "Crítico: Não estamos otimizando demais para ‘viralização’ nas redes? Repetir teste cego."
+          "Crítico: A equipe está enviesada pelo 'hype do SNS' e sucessos passados? O descarte da ideia de 'especiarias' sugere um potencial ponto cego. Ação: Implementar um modelo de pontuação quantitativo para novas propostas (custo, adequação à tendência, adequação à marca) para remover o viés subjetivo da tomada de decisão."
         ],
         "lateral": [
-          "Lateral: Ir além de bebidas (ex.: aroma/room mist) para ampliar pontos de contato."
+          "Lateral: Liberte-se do quadro 'bebida'. Ação: Desenvolver uma versão 'não bebível' da mistura. Criar uma fragrância de ambiente 'Solar Chill' ou produtos de banho 'Bloom Latte'. Isso expande a marca para produtos de estilo de vida, atinge clientes que não bebem café e cria novas fontes de receita."
         ]
       }
     }
   },
   "platform": {
     "h2": "Disponibilidade",
-    "p1": "Strategy disponível no iOS — de “ata” para “decisão”."
+    "p1": "O que você acha? A função 'Estratégia' descobre insights que você perdeu, levanta os contra-argumentos que as pessoas hesitaram em dizer e fornece ideias inovadoras. Está disponível agora mesmo em nossos aplicativos iOS e Android. Experimente em sua próxima reunião e passe de apenas 'notas' para 'decisões'."
   },
-  "features": {
-    "h2": "Destaques",
-    "items": [
-      "Foco em decisão, não apenas sumarização",
-      "Otimizado para ChatGPT-5 e Gemini 2.5 Pro",
-      "Saídas curtas e acionáveis",
-      "Multilíngue para equipes globais"
-    ]
+  "image": {
+    "alt": "A interface do usuário do recurso Estratégia da Ata AI em um smartphone",
+    "caption": "Obtenha Impulso, Contraponto, Questão Principal e três modos de pensamento em um piscar de olhos."
   },
-  "notes": {
-    "h2": "Notas",
-    "items": [
-      "A qualidade da saída reflete a qualidade da entrada",
-      "Use modelos adequados ao tipo de reunião"
-    ],
-    "foot": "Disponível no iOS. Experimente hoje."
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Recurso",
+    "category": "Estratégia"
   },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Recurso", "category": "Strategy" },
-  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Baixar app iOS" }
+  "cta": {
+    "openBrowser": "Usar na Web",
+    "downloadIOS": "Baixar na App Store",
+    "downloadAndroid": "Obter no Google Play"
+  }
 }

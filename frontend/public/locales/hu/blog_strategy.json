@@ -1,114 +1,103 @@
 {
   "seo": {
-    "title": "Jegyzőkönyv AI Strategy — jegyzőkönyvből döntéseket (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "A Strategy a jegyzőkönyveket döntéstámogató szintre emeli. A ChatGPT-5 és a Gemini 2.5 Pro segítségével Boost, Counter, Top Issue és három gondolkodási mód készül, hogy a vita gyorsan következő lépésekké váljon.",
-    "ogTitle": "Strategy a Jegyzőkönyv AI-ban: döntések, nem csak jegyzetek",
-    "ogDescription": "Boost / Counter / Top Issue + logikai / kritikai / laterális gondolkodás a végrehajtható kimenetekért.",
+    "title": "Jegyzőkönyv AI Stratégia: Feljegyzésekből hasznosítható elemzések (ChatGPT-5 és Gemini 2.5 Pro)",
+    "description": "A Jegyzőkönyv AI 'Stratégia' funkciója a nyers megbeszélés-jegyzeteket egy hatékony döntéshozatali eszköztárrá alakítja. A ChatGPT-5 és a Gemini 2.5 Pro segítségével Boost (erősítés), Counter (ellenpont), Top Issue (fő probléma) és három egyedi gondolkodási módot generál, hogy előremozdítsa vállalkozását.",
+    "ogTitle": "Jegyzőkönyv AI Stratégia: Változtassa a feljegyzéseket cselekvéssé",
+    "ogDescription": "Ne csak rögzítse a megbeszéléseket. Változtassa őket stratégiává. Kapjon Boost (mi működik), Counter (mit kell javítani), Top Issue (a központi probléma) és Logikus, Kritikus és Laterális gondolkodási módokat.",
     "ld": {
-      "headline": "A Jegyzőkönyv AI hozzáadta a Strategy-t",
-      "description": "A Strategy funkció a ChatGPT-5 és a Gemini 2.5 Pro kimeneteivel világos döntésekké alakítja a vitákat."
+      "headline": "Jegyzőkönyv AI Stratégia Funkció: Egyszerű jegyzetekből meeting partner",
+      "description": "A 'Stratégia' funkció a feljegyzéseket döntéstámogatási szintre emeli fejlett AI-elemzés (ChatGPT-5 és Gemini 2.5 Pro) segítségével, hogy hasznosítható elemzéseket nyújtson."
     },
-    "keywords": "Jegyzőkönyv AI, Minutes.AI, meeting jegyzőkönyv AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, döntéstámogatás, logikai gondolkodás, kritikai gondolkodás, laterális gondolkodás, Boost, Counter, Top Issue"
+    "keywords": "Jegyzőkönyv AI, AI megbeszélés jegyzőkönyv, Stratégia, ChatGPT-5, Gemini 2.5 Pro, döntéstámogatás, hasznosítható elemzések, Logikus gondolkodás, Kritikus gondolkodás, Laterális gondolkodás, Boost, Counter, Top Issue, meeting partner, üzleti stratégia"
   },
-  "aria": { "home": "Vissza a Jegyzőkönyv AI főoldalára" },
-  "a11y": { "home": "Vissza a Jegyzőkönyv AI főoldalára" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Stratégia"
+  },
   "hero": {
-    "kicker": "Funkció-útmutató",
-    "h1": "Strategy a Jegyzőkönyv AI-hoz",
-    "tagline": "Ne állj meg az összegzésnél — a Strategy a ChatGPT-5 és a Gemini 2.5 Pro révén a vitát döntésekké és konkrét teendőkké formálja."
+    "kicker": "Funkció Bemutató",
+    "h1": "Túl a feljegyzéseken: A Stratégia Funkció",
+    "tagline": "Ne csak jegyzeteket rendszerezzen. A 'Stratégia' funkció a Jegyzőkönyv AI-t központi meeting partnerévé teszi, a megbeszéléseket nagy hatású cselekvésekké alakítva, mindezt a ChatGPT-5 és a Gemini 2.5 Pro erejével."
   },
   "what": {
-    "h2": "Mi a Strategy?",
-    "p1": "A Strategy egy döntéstámogató réteg a jegyzőkönyveid fölött.",
-    "p2": "Eredményei: Boost (mi működik és hogyan nagyítható fel), Counter (kockázatok és korrekciók), Top Issue (a központi kérdés), valamint három gondolkodási mód a Top Issue megoldásához.",
+    "h2": "Mi az a Stratégia Funkció?",
+    "p1": "A 'Stratégia' az a döntéstámogató réteg, amely a jegyzőkönyveit egyszerű felvételből cselekvési tervvé emeli. Ez az egyik legnépszerűbb funkciónk, mert átlépteti Önt abból, hogy 'mi hangzott el' oda, hogy 'mi a következő lépés'.",
+    "p2": "Egy egyszerű összefoglaló helyett a 'Stratégia' fejlett AI segítségével elemzi a teljes megbeszélést, hogy hat különböző, hasznosítható kimenetet biztosítson:",
     "bullets": [
-      "Boost — erősségek és skálázási stratégia",
-      "Counter — kockázatok és javító tervek",
-      "Top Issue — a megoldandó kulcsprobléma",
-      "Logikai gondolkodás — strukturált, lépésről lépésre megoldás",
-      "Kritikai gondolkodás — feltevések és torzítások vizsgálata",
-      "Laterális gondolkodás — szokatlan, áttörő ötletek"
+      "Boost (Erősítés) — Pozitívumok és hogyan lehet őket felerősíteni: Azonosítja, mi működik, és konkrét javaslatokat tesz a siker kiterjesztésére.",
+      "Counter (Ellenpont) — Konstruktív ellenvetés és fejlesztések: Szándékosan ellentétes nézőpontot vagy kockázatokat azonosít, javaslatot téve az alapul szolgáló problémák kijavítására.",
+      "Top Issue (Fő probléma) — A központi probléma: Meghatározza a megbeszélés legfontosabb, megoldandó kérdését vagy konfliktusát.",
+      "Logikus gondolkodás — Strukturált, lépésről lépésre haladó megoldás a Fő problémára.",
+      "Kritikus gondolkodás — Megkérdőjelezi a Fő probléma mögött rejlő alapvető feltételezéseket, előítéleteket és fel nem tett kérdéseket.",
+      "Laterális gondolkodás — Egy 'áttörő' ötlet, amely túlmutat a Fő probléma nyilvánvaló, hagyományos megoldásain."
     ]
   },
   "how": {
     "h2": "Hogyan működik",
     "steps": [
-      "Készíts jegyzőkönyvet a szokásos módon (app vagy web).",
-      "Koppints a „Strategy” elemre az elemzéshez a ChatGPT-5 és a Gemini 2.5 Pro segítségével.",
-      "Kapd meg a Boost / Counter / Top Issue eredményeket + a három gondolkodási módot.",
-      "Oszd meg vagy illeszd be a feladatkezelődbe, és lépj a végrehajtásra."
+      "Készítse el a megbeszélés jegyzőkönyvét a szokásos módon (iOS, Android vagy Web).",
+      "Koppintson a 'Stratégia' gombra a teljes átirat elemzéséhez a ChatGPT-5 és a Gemini 2.5 Pro segítségével.",
+      "Megkapja a 6 részes elemzést: Boost, Counter, Top Issue és a három gondolkodási mód.",
+      "Ossza meg, másolja vagy exportálja az elemzéseket közvetlenül a feladatkezelő rendszerébe vagy jelentésébe."
     ],
-    "note": "A kimenetek nyelvhez és szakterülethez igazodnak; alapértelmezés szerint tömörek a gyors olvashatóságért."
+    "note": "A kimenetek alkalmazkodnak a nyelvhez és a területhez; alapértelmezetten tömör a gyors olvasás érdekében."
   },
   "samples": {
-    "h2": "Rövid, jól olvasható példák",
+    "h2": "Nézze meg működés közben: Egy valós példa",
     "minutes": {
-      "h3": "Jegyzőkönyv (példa)",
+      "h3": "Példa jegyzőkönyv: 'Solar Chill' nyári keverék megbeszélés",
       "lines": [
-        "Téma: nyári, limitált kiadású ital „Solar Chill”",
-        "Döntések: folytatjuk a Solar Chill-lel; a név marad; recept véglegesítése.",
-        "Teendők: design makettek; a végleges recept feltöltése a megosztott mappába.",
-        "Kockázat: a visszajelzések 15%-a szerint „túl savanyú”."
+        "Téma: Új nyári limitált keverék 'Solar Chill' (cold brew + maracuja + menta).",
+        "Döntés: Folytatni a 'Solar Chill' bevezetését fő nyári termékként. A név marad.",
+        "Teendők: A dizájn csapat készítsen látványterveket. A végleges receptet fel kell tölteni a 'FlavorSync'-be.",
+        "Kockázat: A személyzet 15%-a jelezte, hogy az ital 'túl savanyú'.",
+        "Összefoglaló: A terméket magasra értékelték a koncepció, a név és az SNS-potenciál miatt."
       ]
     },
     "strategy": {
-      "h3": "Strategy (példa)",
+      "h3": "Stratégia Kimenet (AI által támogatva)",
       "boost": [
-        "Boost: magas újravásárlási szándék → pilot 10 üzletben + közösségi aktiváció; 7 napon belüli újrarendelési arány mérése."
+        "Boost: A 74%-os 'újra meginná' arány erős mutatója a piaci megfelelésnek. Cselekvés: Mélyebben beleásni a 15%-os 'túl savanyú' visszajelzésbe. Ne csak csökkentse a savasságot; fontolja meg egy 'édesítéssel korrigált' változat A/B tesztelését kísérleti üzletekben, hogy maximalizálja a vonzerőt a termék alapvető identitásának elvesztése nélkül."
       ],
       "counter": [
-        "Counter: savanyúságpercepció → „enyhén édes” opció; szirup-szint A/B teszt 2 héten át."
+        "Counter: A megbeszélés vita nélkül elvetette a 'Fűszerinfúzió' javaslatot. Elszalasztott lehetőség volt ez a piaci trendek (pl. chai, kurkuma) fényében? Az a döntés, hogy a 'Bloom Latte' csak üzletben kapható, szintén alábecsülheti a benne rejlő lehetőségeket. Cselekvés: Értékelje újra a 'fűszer' koncepciót a piaci adatok alapján. Tesztelje a 'Bloom Latte'-t online vagy partnerségeken keresztül, ne csak az üzletben."
       ],
       "top": [
-        "Top Issue: a márka egyediségének megőrzése mellett hogyan szélesítsük a vonzerőt?"
+        "Top Issue: Hogyan lehet sikeresen bevezetni két különböző limitált kiadású terméket ('Solar Chill' és 'Bloom Latte') és optimalizálni a respectivos piacra lépési stratégiáikat (mainstream vs. réteg)."
       ],
       "modes": {
         "logical": [
-          "Logikai: cél-szegmensek meghatározása → siker KPI-ok kitűzése → A/B futtatása → a győztes specifikáció bevezetése."
+          "Logikus: 1. Célcsoportok meghatározása mindkét termékhez (Solar Chill = fiatalabb, SNS-fókuszú; Bloom Latte = egészségtudatos, relaxáció). 2. Különböző értékajánlatok létrehozása (Frissítő vs. Wellness). 3. 'Szorbitszint' testreszabásának felajánlása a Solar Chill számára a 'savanyú' visszajelzések kezelésére."
         ],
         "critical": [
-          "Kritikai: nem igazítjuk-e túl a „social buzz”-hoz? Igazold vaktesztekkel."
+          "Kritikus: A csapatot befolyásolja az 'SNS-hype' és a múltbeli sikerek? A 'fűszer' ötlet elvetése potenciális vakfoltra utal. Cselekvés: Kvantitatív pontozási modell bevezetése az új javaslatokhoz (költség, trend-megfelelés, márka-megfelelés) a szubjektív torzítás eltávolítása érdekében a döntéshozatalból."
         ],
         "lateral": [
-          "Laterális: italon túli kiterjesztés — pl. illat/room-mist — további márkaérintési pontokért."
+          "Laterális: Lépjen ki az 'ital' keretrendszerből. Cselekvés: Fejlesszen ki egy 'nem iható' verziót a keverékből. Hozzon létre 'Solar Chill' szobaillatosítót vagy 'Bloom Latte' fürdőtermékeket. Ez kiterjeszti a márkát az életmód-termékek piacára, eléri a nem kávéfogyasztó vásárlókat, és új bevételi forrásokat teremt."
         ]
       }
     }
   },
   "platform": {
     "h2": "Elérhetőség",
-    "p1": "A Strategy iOS-en érhető el. Lépj a „jegyzetekből” a „döntések” felé."
+    "p1": "Mit gondol? A 'Stratégia' funkció olyan felismeréseket tár fel, amelyek elkerülték a figyelmét, felveti azokat az ellenérveket, amelyeket az emberek haboztak kimondani, és áttörő ötleteket ad. Már elérhető az iOS és Android alkalmazásainkban. Próbálja ki a következő megbeszélésén, és lépjen tovább a puszta 'jegyzetekről' a 'döntések' felé."
   },
   "image": {
-    "alt": "Jegyzőkönyv AI Strategy felület",
-    "caption": "Boost / Counter / Top Issue és a három gondolkodási mód — egy pillantással átlátható."
-  },
-  "features": {
-    "h2": "Kiemelések",
-    "items": [
-      "Döntésfókusz, nem puszta összegzés",
-      "Optimalizálva a ChatGPT-5-re és a Gemini 2.5 Pro-ra",
-      "Rövid, világos, végrehajtható kimenetek",
-      "Többnyelvű támogatás globális csapatoknak"
-    ]
-  },
-  "notes": {
-    "h2": "Megjegyzések",
-    "items": [
-      "A kimenet minősége a bemenet minőségét tükrözi.",
-      "Használj eltérő sablonokat különböző meetingtípusokhoz."
-    ],
-    "foot": "iOS-en elérhető. Próbáld ki még ma."
+    "alt": "A Jegyzőkönyv AI Stratégia funkciójának felhasználói felülete egy okostelefonon",
+    "caption": "Kapjon Boost, Counter, Top Issue és három gondolkodási módot egy pillantással."
   },
   "meta": {
     "h2": "Meta",
     "published": "Közzétéve",
     "type": "Funkció",
-    "category": "Strategy"
+    "category": "Stratégia"
   },
   "cta": {
-    "openBrowser": "Megnyitás böngészőben",
-    "downloadIOS": "iOS app letöltése"
+    "openBrowser": "Használat a Weben",
+    "downloadIOS": "Letöltés az App Store-ból",
+    "downloadAndroid": "Szerezze meg a Google Play-en"
   }
 }

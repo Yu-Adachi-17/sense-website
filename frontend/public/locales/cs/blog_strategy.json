@@ -1,95 +1,93 @@
 {
   "seo": {
-    "title": "Zápisník AI Strategy — proměňte zápisy v rozhodnutí (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy v Zápisník AI mění zápisy ze schůzek na další kroky. S využitím ChatGPT-5 a Gemini 2.5 Pro poskytuje Boost, Counter, Top Issue a tři myšlenkové módy.",
-    "ogTitle": "Strategy v Zápisník AI: rozhodnutí, ne jen poznámky",
-    "ogDescription": "Proměňte zápisy v akci: Boost / Counter / Top Issue + Logické / Kritické / Laterální myšlení.",
+    "title": "Strategie Zápisníku AI: Od zápisů k praktickým poznatkům (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Funkce Strategie v Zápisníku AI přeměňuje surové poznámky ze schůzek na mocný nástroj pro rozhodování. Pomocí ChatGPT-5 a Gemini 2.5 Pro generuje Posílení, Protiargument, Hlavní problém a tři unikátní režimy myšlení, které posunou vaše podnikání vpřed.",
+    "ogTitle": "Strategie Zápisníku AI: Proměňte zápisy v činy",
+    "ogDescription": "Nezaznamenávejte jen schůzky. Proměňte je ve strategii. Získejte Posílení (co funguje), Protiargument (co opravit), Hlavní problém (jádro problému) a režimy logického, kritického a laterálního myšlení.",
     "ld": {
-      "headline": "Zápisník AI přidává Strategy",
-      "description": "Využijte ChatGPT-5 a Gemini 2.5 Pro k pozdvižení zápisů na úroveň podpory rozhodování."
+      "headline": "Funkce Strategie Zápisníku AI: Od jednoduchých poznámek k partnerovi na schůzky",
+      "description": "Funkce Strategie povyšuje zápisy na podporu rozhodování pomocí pokročilé analýzy AI (ChatGPT-5 a Gemini 2.5 Pro) a poskytuje praktické poznatky."
     },
-    "keywords": "Zápisník AI, zápisy ze schůzek AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, podpora rozhodování, Logické myšlení, Kritické myšlení, Laterální myšlení, Boost, Counter, Top Issue"
+    "keywords": "Zápisník AI, AI zápisy ze schůzek, Strategie, ChatGPT-5, Gemini 2.5 Pro, podpora rozhodování, praktické poznatky, Logické myšlení, Kritické myšlení, Laterální myšlení, Posílení, Protiargument, Hlavní problém, partner na schůzky, obchodní strategie"
   },
   "aria": {
-    "home": "Domů Zápisník AI"
-  },
-  "a11y": {
-    "home": "Domů Zápisník AI"
+    "home": "Domovská stránka Zápisníku AI"
   },
   "nav": {
     "blog": "Blog",
     "strategy": "Strategie"
   },
   "hero": {
-    "kicker": "Průvodce funkcí",
-    "h1": "Strategy pro Zápisník AI",
-    "tagline": "Nejen zápisy. Strategy mění diskusi v jasná rozhodnutí s využitím ChatGPT-5 a Gemini 2.5 Pro."
+    "kicker": "Hloubkový pohled na funkci",
+    "h1": "Více než jen zápisy: Funkce Strategie",
+    "tagline": "Přestaňte jen organizovat poznámky. Funkce Strategie promění Zápisník AI ve vašeho klíčového partnera na schůzkách, který převádí diskuze na vysoce dopadové akce, vše s podporou ChatGPT-5 a Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Co je Strategy?",
-    "p1": "Strategy je vrstva podpory rozhodování nad vašimi zápisy ze schůzek.",
-    "p2": "Vytváří tři klíčové výstupy — Boost, Counter a Top Issue — a tři myšlenkové módy pro řešení Top Issue do hloubky.",
+    "h2": "Co je funkce Strategie?",
+    "p1": "Strategie je vrstva pro podporu rozhodování, která povyšuje vaše zápisy z jednoduchého záznamu na akční plán. Je to jedna z našich nejoblíbenějších funkcí, protože vás posouvá od 'co bylo řečeno' k 'co dělat dál'.",
+    "p2": "Místo pouhého shrnutí analyzuje Strategie celou diskuzi pomocí pokročilé AI a poskytuje šest odlišných, praktických výstupů:",
     "bullets": [
-      "Boost — co funguje a jak to škálovat",
-      "Counter — rizika a jak je napravit",
-      "Top Issue — klíčová otázka k vyřešení",
-      "Logické myšlení — strukturované, krokové řešení",
-      "Kritické myšlení — zpochybnění předpokladů",
-      "Laterální myšlení — skok mimo zjevné nápady"
+      "Posílení (Boost) — Pozitiva a jak je zesílit: Identifikuje, co funguje, a navrhuje konkrétní způsoby, jak tento úspěch rozšířit.",
+      "Protiargument (Counter) — Konstruktivní opozice a zlepšení: Záměrně poskytuje opačný názor nebo identifikuje rizika a navrhuje, jak opravit základní problémy.",
+      "Hlavní problém (Top Issue) — Jádro problému: Určí jedinou nejdůležitější otázku nebo konflikt ze schůzky, který je třeba vyřešit.",
+      "Logické myšlení — Strukturované, krok za krokem řešení Hlavního problému.",
+      "Kritické myšlení — Zpochybňuje základní předpoklady, předsudky a nezodpovězené otázky stojící za Hlavním problémem.",
+      "Laterální myšlení — 'Průlomový' nápad, který přesahuje zřejmá, konvenční řešení Hlavního problému."
     ]
   },
   "how": {
     "h2": "Jak to funguje",
     "steps": [
-      "Vygenerujte zápisy jako obvykle (v aplikaci nebo na webu).",
-      "Klepněte na „Strategy“ pro analýzu pomocí ChatGPT-5 a Gemini 2.5 Pro.",
-      "Získejte Boost / Counter / Top Issue a tři myšlenkové módy.",
-      "Zkopírujte nebo sdílejte výstupy a vložte je do svého task systému."
+      "Vygenerujte své zápisy ze schůzky jako obvykle (iOS, Android nebo Web).",
+      "Klepněte na tlačítko 'Strategie' pro analýzu celého přepisu pomocí ChatGPT-5 a Gemini 2.5 Pro.",
+      "Obdržíte 6dílnou analýzu: Posílení, Protiargument, Hlavní problém a tři režimy myšlení.",
+      "Sdílejte, kopírujte nebo exportujte poznatky přímo do vašeho systému pro správu úkolů nebo reportu."
     ],
-    "note": "Výstupy se přizpůsobují jazyku i doméně; stručnost je výchozí kvůli rychlému čtení."
+    "note": "Výstupy se přizpůsobují jazyku a doméně; standardně stručnost pro rychlé čtení."
   },
   "samples": {
-    "h2": "Krátké a čitelné příklady",
+    "h2": "Podívejte se na to v akci: Příklad z reálného světa",
     "minutes": {
-      "h3": "Zápis (příklad)",
+      "h3": "Příklad zápisu: Schůzka k letní směsi 'Solar Chill'",
       "lines": [
-        "Téma: letní limitovaná směs „Solar Chill“",
-        "Rozhodnutí: pokračovat se Solar Chill; ponechat název; dokončit recepturu.",
-        "Úkoly: návrhy designu; nahrát finální recept do sdílené složky.",
-        "Riziko: 15 % zpětné vazby uvádí „příliš kyselé“."
+        "Téma: Nová letní limitovaná směs 'Solar Chill' (cold brew + mučenka + máta).",
+        "Rozhodnutí: Pokračovat se 'Solar Chill' jako hlavním letním produktem. Ponechat název.",
+        "Úkoly: Design tým vytvoří makety. Finální recept nahrát do 'FlavorSync'.",
+        "Riziko: 15 % zpětné vazby od zaměstnanců uvedlo, že nápoj je 'příliš kyselý'.",
+        "Shrnutí: Produkt hodnocen vysoko za koncept, název a potenciál na sociálních sítích."
       ]
     },
     "strategy": {
-      "h3": "Strategy (příklad)",
+      "h3": "Výstup Strategie (s podporou AI)",
       "boost": [
-        "Boost: vysoký záměr opakovaného nákupu → pilot v 10 prodejnách + sociální promo; měřit opětovnou objednávku do 7 dní."
+        "Posílení: 74 % 'by si dalo znovu' je silný indikátor shody s trhem. Akce: Hlouběji se ponořte do zpětné vazby 15 % 'příliš kyselý'. Nejen snižte kyselost; zvažte A/B testování 'upravené sladkosti' v pilotních prodejnách, aby se maximalizovala přitažlivost bez ztráty identity produktu."
       ],
       "counter": [
-        "Counter: řešení kyselosti → přidat volbu „mírně sladké“; A/B test úrovně sirupu po dobu 2 týdnů."
+        "Protiargument: Schůzka zamítla návrh 'Kořeněné infuze' bez diskuze. Byla to promarněná příležitost vzhledem k tržním trendům (např. chai, kurkuma)? Rozhodnutí učinit 'Bloom Latte' exkluzivní pro prodejny může také podceňovat jeho potenciál. Akce: Přehoďnoťte koncept 'koření' oproti tržním datům. Otestujte 'Bloom Latte' online nebo prostřednictvím partnerství, nejen v prodejnách."
       ],
       "top": [
-        "Top Issue: vyvážit chuť tak, aby se rozšířila obliba bez ztráty jedinečnosti značky."
+        "Hlavní problém: Jak úspěšně uvést na trh dva odlišné limitované produkty ('Solar Chill' a 'Bloom Latte') a optimalizovat jejich příslušné go-to-market strategie (mainstream vs. niche)."
       ],
       "modes": {
         "logical": [
-          "Logické: definovat cílové segmenty → nastavit KPI úspěchu → spustit A/B → nasadit vítěznou specifikaci."
+          "Logické: 1. Definovat cílové segmenty pro každý produkt (Solar Chill = mladší, zaměřený na SNS; Bloom Latte = zdravotně smýšlející, relaxace). 2. Vytvořit odlišné hodnotové nabídky (Osvěžení vs. Wellness). 3. Nabídnout přizpůsobení 'úrovně sirupu' pro Solar Chill k řešení zpětné vazby 'kyselý'."
         ],
         "critical": [
-          "Kritické: nepřeupravujeme se pro „sociální hype“? Ověřit slepými ochutnávkami."
+          "Kritické: Je tým ovlivněn 'hypem na SNS' a minulými úspěchy? Zamítnutí nápadu 'koření' naznačuje potenciální slepé místo. Akce: Zaveďte kvantitativní model hodnocení nových návrhů (náklady, shoda s trendy, shoda se značkou), abyste odstranili subjektivní předsudky z rozhodování."
         ],
         "lateral": [
-          "Laterální: nabídnout vůni / room-mist edici pro rozšíření značky mimo nápoje."
+          "Laterální: Osvoboďte se od rámce 'nápoje'. Akce: Vyviňte 'nepijící' verzi směsi. Vytvořte 'Solar Chill' vůni do místnosti nebo 'Bloom Latte' koupelové produkty. To rozšiřuje značku do segmentu životního stylu, oslovuje zákazníky, kteří nepijí kávu, a vytváří nové zdroje příjmů."
         ]
       }
     }
   },
   "platform": {
     "h2": "Dostupnost",
-    "p1": "Strategy je k dispozici na iOS. Posuňte se od „poznámek“ k „rozhodnutím“."
+    "p1": "Co si myslíte? Funkce Strategie odhaluje poznatky, které jste přehlédli, vznáší protiargumenty, které se lidé zdráhali říci, a poskytuje průlomové nápady. Je k dispozici právě teď v našich aplikacích pro iOS a Android. Vyzkoušejte ji na své příští schůzce a přejděte od pouhých 'poznámek' k 'rozhodnutím'."
   },
   "image": {
-    "alt": "UI Zápisník AI Strategy",
-    "caption": "Boost / Counter / Top Issue + tři myšlenkové módy na první pohled."
+    "alt": "UI funkce Strategie Zápisníku AI na chytrém telefonu",
+    "caption": "Získejte Posílení, Protiargument, Hlavní problém a tři režimy myšlení na jediný pohled."
   },
   "meta": {
     "h2": "Meta",
@@ -98,7 +96,8 @@
     "category": "Strategie"
   },
   "cta": {
-    "openBrowser": "Otevřít v prohlížeči",
-    "downloadIOS": "Stáhnout aplikaci pro iOS"
+    "openBrowser": "Použít na webu",
+    "downloadIOS": "Stáhnout v App Store",
+    "downloadAndroid": "Získat na Google Play"
   }
 }

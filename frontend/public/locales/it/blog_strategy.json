@@ -1,114 +1,103 @@
 {
   "seo": {
-    "title": "Verbali IA Strategy — trasforma i verbali in decisioni (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy porta i verbali a un livello di supporto decisionale. Con ChatGPT-5 e Gemini 2.5 Pro genera Boost, Counter, Top Issue e tre modalità di pensiero per trasformare le discussioni in prossimi passi chiari.",
-    "ogTitle": "Strategy in Verbali IA: decisioni, non solo note",
-    "ogDescription": "Boost / Counter / Top Issue + pensiero logico / critico / laterale per output azionabili.",
+    "title": "Strategia di Verbali IA: Dai verbali a insight azionabili (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "La funzione 'Strategia' di Verbali IA trasforma le note grezze delle riunioni in un potente strumento decisionale. Utilizzando ChatGPT-5 e Gemini 2.5 Pro, genera Spinta, Obiezione, Problema Chiave e tre modalità di pensiero uniche per far progredire la tua azienda.",
+    "ogTitle": "Strategia di Verbali IA: Trasforma i verbali in azione",
+    "ogDescription": "Non limitarti a registrare le riunioni. Trasformale in strategia. Ottieni Spinta (cosa funziona), Obiezione (cosa correggere), Problema Chiave (il problema centrale) e modalità di pensiero Logico, Critico e Laterale.",
     "ld": {
-      "headline": "Verbali IA aggiunge Strategy",
-      "description": "La funzione Strategy converte le discussioni in decisioni chiare grazie agli output di ChatGPT-5 e Gemini 2.5 Pro."
+      "headline": "Funzione Strategia di Verbali IA: Da semplici note a partner per le riunioni",
+      "description": "La funzione 'Strategia' eleva i verbali a supporto decisionale utilizzando un'analisi AI avanzata (ChatGPT-5 e Gemini 2.5 Pro) per fornire insight azionabili."
     },
-    "keywords": "Verbali IA, Minutes.AI, verbali riunioni AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, supporto decisionale, pensiero logico, pensiero critico, pensiero laterale, Boost, Counter, Top Issue"
+    "keywords": "Verbali IA, verbali riunioni IA, Strategia, ChatGPT-5, Gemini 2.5 Pro, supporto decisionale, insight azionabili, Pensiero Logico, Pensiero Critico, Pensiero Laterale, Spinta, Obiezione, Problema Chiave, partner riunioni, strategia aziendale"
   },
-  "aria": { "home": "Torna alla Home di Verbali IA" },
-  "a11y": { "home": "Torna alla Home di Verbali IA" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Home di Verbali IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategia"
+  },
   "hero": {
-    "kicker": "Guida alla funzione",
-    "h1": "Strategy per Verbali IA",
-    "tagline": "Non fermarti al riassunto: Strategy, con ChatGPT-5 e Gemini 2.5 Pro, trasforma la discussione in decisioni e azioni concrete."
+    "kicker": "Approfondimento Funzionalità",
+    "h1": "Oltre i verbali: La Funzione Strategia",
+    "tagline": "Smetti di organizzare solo appunti. La funzione 'Strategia' trasforma Verbali IA nel tuo partner principale per le riunioni, convertendo le discussioni in azioni ad alto impatto, tutto alimentato da ChatGPT-5 e Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Cos’è Strategy?",
-    "p1": "Strategy è uno strato di supporto decisionale sopra i tuoi verbali.",
-    "p2": "Produce: Boost (cosa funziona e come amplificarlo), Counter (rischi e misure correttive), Top Issue (la questione centrale) e tre modalità di pensiero per affrontare la Top Issue.",
+    "h2": "Cos'è la Funzione Strategia?",
+    "p1": "La 'Strategia' è il livello di supporto decisionale che eleva i tuoi verbali da una semplice registrazione a un piano d'azione. È una delle nostre funzionalità più popolari perché ti sposta da 'cosa è stato detto' a 'cosa fare dopo'.",
+    "p2": "Invece di un semplice riassunto, 'Strategia' analizza l'intera discussione utilizzando un'AI avanzata per fornire sei output distinti e azionabili:",
     "bullets": [
-      "Boost — punti di forza e strategia di scalabilità",
-      "Counter — rischi e piani di correzione",
-      "Top Issue — il problema chiave da risolvere",
-      "Pensiero logico — soluzione strutturata, passo dopo passo",
-      "Pensiero critico — metti in discussione ipotesi e bias",
-      "Pensiero laterale — idee fuori dagli schemi"
+      "Spinta (Boost) — Aspetti positivi e come amplificarli: Identifica cosa sta funzionando e suggerisce modi concreti per scalare quel successo.",
+      "Obiezione (Counter) — Opposizione costruttiva e miglioramenti: Fornisce deliberatamente un punto di vista opposto o identifica rischi, suggerendo come risolvere i problemi sottostanti.",
+      "Problema Chiave (Top Issue) — Il problema centrale: Individua la singola questione o conflitto più importante emerso dalla riunione che deve essere risolto.",
+      "Pensiero Logico — Una soluzione strutturata, passo dopo passo, per il Problema Chiave.",
+      "Pensiero Critico — Sfida le ipotesi di base, i pregiudizi e le domande non poste dietro il Problema Chiave.",
+      "Pensiero Laterale — Un'idea 'rivoluzionaria' che va oltre le soluzioni ovvie e convenzionali per il Problema Chiave."
     ]
   },
   "how": {
     "h2": "Come funziona",
     "steps": [
-      "Genera i verbali come sempre (app o web).",
-      "Tocca “Strategy” per l’analisi con ChatGPT-5 e Gemini 2.5 Pro.",
-      "Ottieni Boost / Counter / Top Issue + le tre modalità di pensiero.",
-      "Condividi o incolla nel tuo sistema di task per l’esecuzione."
+      "Genera i verbali delle tue riunioni come al solito (iOS, Android o Web).",
+      "Tocca il pulsante 'Strategia' per analizzare la trascrizione completa con ChatGPT-5 e Gemini 2.5 Pro.",
+      "Ricevi la tua analisi in 6 parti: Spinta, Obiezione, Problema Chiave e le tre modalità di pensiero.",
+      "Condividi, copia o esporta gli insight direttamente nel tuo sistema di gestione delle attività o nel tuo report."
     ],
-    "note": "Gli output si adattano a lingua e dominio; per default sono concisi per letture rapide."
+    "note": "Gli output si adattano alla lingua e al dominio; concisione per impostazione predefinita per una lettura rapida."
   },
   "samples": {
-    "h2": "Esempi brevi e leggibili",
+    "h2": "Vedilo in azione: Un esempio dal mondo reale",
     "minutes": {
-      "h3": "Verbali (esempio)",
+      "h3": "Esempio di verbale: Riunione sulla miscela estiva 'Solar Chill'",
       "lines": [
-        "Tema: bevanda estiva in edizione limitata “Solar Chill”",
-        "Decisioni: procedere con Solar Chill; mantenere il nome; finalizzare la ricetta.",
-        "Attività: mockup di design; caricare la ricetta finale nella cartella condivisa.",
-        "Rischio: 15% dei feedback indica “troppo acida”."
+        "Argomento: Nuova miscela estiva limitata 'Solar Chill' (cold brew + frutto della passione + menta).",
+        "Decisione: Procedere con 'Solar Chill' come prodotto estivo principale. Mantenere il nome.",
+        "Compiti: Il team di design deve creare mockup. La ricetta finale deve essere caricata su 'FlavorSync'.",
+        "Rischio: Il 15% del feedback del personale ha notato che la bevanda era 'troppo aspra'.",
+        "Riepilogo: Prodotto valutato molto positivamente per concept, nome e potenziale sui social media."
       ]
     },
     "strategy": {
-      "h3": "Strategy (esempio)",
+      "h3": "Output della Strategia (Alimentato da AI)",
       "boost": [
-        "Boost: alta intenzione di riacquisto → pilota in 10 negozi + promo social; misurare il riordino entro 7 giorni."
+        "Spinta: Il 74% 'lo berrebbe di nuovo' è un potente indicatore di adattamento al mercato. Azione: Approfondire il feedback del 15% 'troppo aspro'. Non limitarsi a ridurre l'acidità; considerare un A/B testing di un'opzione 'con dolcezza regolata' nei negozi pilota per massimizzare l'attrattiva senza perdere l'identità del prodotto."
       ],
       "counter": [
-        "Counter: percezione di acidità → opzione “leggermente dolce”; A/B sul livello di sciroppo per 2 settimane."
+        "Obiezione: La riunione ha scartato la proposta 'Infusione di Spezie' senza discussione. È stata un'opportunità persa date le tendenze di mercato (ad es. chai, curcuma)? La decisione di rendere 'Bloom Latte' un'esclusiva dei negozi potrebbe anche sottovalutarne il potenziale. Azione: Rivalutare il concetto 'spezie' rispetto ai dati di mercato. Testare 'Bloom Latte' online o tramite partnership, non solo in negozio."
       ],
       "top": [
-        "Top Issue: ampliare l’appeal senza perdere la distintività del brand."
+        "Problema Chiave: Come lanciare con successo due prodotti distinti a tiratura limitata ('Solar Chill' e 'Bloom Latte') e ottimizzare le rispettive strategie di go-to-market (mainstream vs. nicchia)."
       ],
       "modes": {
         "logical": [
-          "Logico: definire i segmenti target → fissare KPI di successo → avviare A/B → rilasciare la specifica vincente."
+          "Logico: 1. Definire i segmenti target per ciascun prodotto (Solar Chill = più giovane, focalizzato sui social; Bloom Latte = attento alla salute, relax). 2. Creare proposte di valore distinte (Rinfrescante vs. Benessere). 3. Offrire una personalizzazione del 'livello di sciroppo' per Solar Chill per gestire il feedback 'aspro'."
         ],
         "critical": [
-          "Critico: stiamo sovra-ottimizzando per il “buzz social”? Validare con test alla cieca."
+          "Critico: Il team è influenzato dall''hype dei social' e dai successi passati? Il rigetto dell'idea 'spezie' suggerisce un potenziale punto cieco. Azione: Implementare un modello di punteggio quantitativo per le nuove proposte (costo, aderenza ai trend, aderenza al brand) per rimuovere i pregiudizi soggettivi dal processo decisionale."
         ],
         "lateral": [
-          "Laterale: estensione oltre le bevande (es. fragranza/room-mist) per nuovi touchpoint di brand."
+          "Laterale: Uscire dallo schema 'bevanda'. Azione: Sviluppare una versione 'non bevibile' della miscela. Creare una fragranza per ambienti 'Solar Chill' o prodotti da bagno 'Bloom Latte'. Questo espande il brand verso beni lifestyle, raggiunge clienti non bevitori di caffè e crea nuove fonti di reddito."
         ]
       }
     }
   },
   "platform": {
     "h2": "Disponibilità",
-    "p1": "Strategy è disponibile su iOS. Passa da “note” a “decisioni”."
+    "p1": "Cosa ne pensi? La funzione 'Strategia' scopre insight che ti erano sfuggiti, solleva le obiezioni che le persone esitavano a esprimere e fornisce idee rivoluzionarie. È disponibile ora sulle nostre app iOS e Android. Provala nella tua prossima riunione e passa da semplici 'note' a 'decisioni'."
   },
   "image": {
-    "alt": "UI Verbali IA Strategy",
-    "caption": "Boost / Counter / Top Issue e tre modalità di pensiero — tutto a colpo d’occhio."
-  },
-  "features": {
-    "h2": "Punti salienti",
-    "items": [
-      "Focalizzato sulle decisioni, non solo sul riassunto",
-      "Ottimizzato per ChatGPT-5 e Gemini 2.5 Pro",
-      "Output brevi, chiari e azionabili",
-      "Multilingue per team globali"
-    ]
-  },
-  "notes": {
-    "h2": "Note",
-    "items": [
-      "La qualità dell’output riflette la qualità dell’input.",
-      "Usa template diversi per differenti tipologie di riunione."
-    ],
-    "foot": "Disponibile su iOS. Provalo oggi."
+    "alt": "L'interfaccia utente della funzione Strategia di Verbali IA su uno smartphone",
+    "caption": "Ottieni Spinta, Obiezione, Problema Chiave e tre modalità di pensiero in un colpo d'occhio."
   },
   "meta": {
     "h2": "Meta",
     "published": "Pubblicato",
-    "type": "Funzione",
-    "category": "Strategy"
+    "type": "Funzionalità",
+    "category": "Strategia"
   },
   "cta": {
-    "openBrowser": "Apri nel browser",
-    "downloadIOS": "Scarica app iOS"
+    "openBrowser": "Usa sul Web",
+    "downloadIOS": "Scarica su App Store",
+    "downloadAndroid": "Scarica da Google Play"
   }
 }

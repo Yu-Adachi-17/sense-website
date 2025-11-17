@@ -1,61 +1,103 @@
 {
   "seo": {
-    "title": "Minutes.AI Strategy — turn minutes into decisions (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy distills meetings into Boost/Counter/Top Issue plus three thinking modes for clear next steps. SEO for queries like: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy in Minutes.AI: decisions, not just notes",
-    "ogDescription": "Boost/Counter/Top Issue + Logical/Critical/Lateral thinking for actionable outputs.",
+    "title": "Minutes.AI Strategy: From Minutes to Actionable Insights (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Minutes.AI’s Strategy feature transforms raw meeting notes into a powerful decision-making toolkit. Using ChatGPT-5 and Gemini 2.5 Pro, it generates Boost, Counter, Top Issue, and three unique thinking modes to drive your business forward.",
+    "ogTitle": "Minutes.AI Strategy: Turn Minutes into Action",
+    "ogDescription": "Don't just record meetings. Turn them into strategy. Get Boost (what works), Counter (what to fix), Top Issue (the core problem), and Logical, Critical, & Lateral thinking modes.",
     "ld": {
-      "headline": "Minutes.AI adds Strategy",
-      "description": "Use ChatGPT-5 and Gemini 2.5 Pro to convert discussion into decisions quickly and clearly."
-    }
+      "headline": "Minutes.AI Strategy Feature: From Simple Notes to Meeting Partner",
+      "description": "The Strategy feature elevates minutes to decision support using advanced AI analysis (ChatGPT-5 and Gemini 2.5 Pro) to provide actionable insights."
+    },
+    "keywords": "Minutes.AI, meeting minutes AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, decision support, actionable insights, Logical Thinking, Critical Thinking, Lateral Thinking, Boost, Counter, Top Issue, meeting partner, business strategy"
   },
-  "aria": { "home": "Minutes.AI Home" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategy"
+  },
   "hero": {
-    "kicker": "Feature Guide",
-    "h1": "Strategy for Minutes.AI",
-    "tagline": "Not just minutes—Strategy turns discussion into decisions with ChatGPT-5 and Gemini 2.5 Pro."
-  },
-  "image": {
-    "alt": "Minutes.AI Strategy UI",
-    "caption": "Extract the core issue and next actions in one step."
+    "kicker": "Feature Deep Dive",
+    "h1": "Beyond Minutes: The Strategy Function",
+    "tagline": "Stop just organizing notes. The Strategy function turns Minutes.AI into your core meeting partner, converting discussions into high-impact actions, all powered by ChatGPT-5 and Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "What Strategy does",
-    "items": [
-      "Boost: what works & how to scale",
-      "Counter: risks & fixes",
-      "Top Issue: the core question",
-      "Thinking modes: Logical / Critical / Lateral"
+    "h2": "What is the Strategy Function?",
+    "p1": "Strategy is the decision-support layer that elevates your minutes from a simple record to an actionable plan. It's one of our most popular features because it moves you from 'what was said' to 'what to do next'.",
+    "p2": "Instead of just a summary, Strategy analyzes the entire discussion using advanced AI to provide six distinct, actionable outputs:",
+    "bullets": [
+      "Boost — Positives & How to Amplify Them: Identifies what's working and suggests concrete ways to scale that success.",
+      "Counter — Constructive Opposition & Improvements: Deliberately provides an opposing viewpoint or identifies risks, suggesting how to fix the underlying issues.",
+      "Top Issue — The Core Problem: Pinpoints the single most important question or conflict from the meeting that needs to be solved.",
+      "Logical Thinking — A structured, step-by-step solution for the Top Issue.",
+      "Critical Thinking — Challenges the core assumptions, biases, and unasked questions behind the Top Issue.",
+      "Lateral Thinking — A 'breakthrough' idea that leaps beyond the obvious, conventional solutions for the Top Issue."
     ]
   },
-  "steps": {
-    "h2": "How to start",
-    "items": [
-      "Generate minutes on app or web",
-      "Tap “Strategy”",
-      "Review Boost / Counter / Top Issue + 3 modes",
-      "Paste into your task system"
+  "how": {
+    "h2": "How It Works",
+    "steps": [
+      "Generate your meeting minutes as usual (iOS, Android, or Web).",
+      "Tap the 'Strategy' button to analyze the full transcript with ChatGPT-5 & Gemini 2.5 Pro.",
+      "Receive your 6-part analysis: Boost, Counter, Top Issue, and the three thinking modes.",
+      "Share, copy, or export the insights directly into your task management system or report."
     ],
-    "note": "Availability and duration depend on your plan/quota."
+    "note": "Outputs adapt to language and domain; concision by default for quick reading."
   },
-  "features": {
-    "h2": "Highlights",
-    "items": [
-      "Decision-focused, not just summarization",
-      "Optimized for ChatGPT-5 & Gemini 2.5 Pro",
-      "Short, actionable outputs",
-      "Multilingual for global teams"
-    ]
+  "samples": {
+    "h2": "See It in Action: A Real-World Example",
+    "minutes": {
+      "h3": "Example Minutes: 'Solar Chill' Summer Blend Meeting",
+      "lines": [
+        "Topic: New summer limited blend 'Solar Chill' (cold brew + passion fruit + mint).",
+        "Decision: Proceed with 'Solar Chill' as the main summer product. Keep the name.",
+        "To-Dos: Design team to create mockups. Final recipe to be uploaded to 'FlavorSync'.",
+        "Risk: 15% of staff feedback noted the drink was 'too sour'.",
+        "Summary: Product rated highly for concept, name, and SNS potential."
+      ]
+    },
+    "strategy": {
+      "h3": "Strategy Output (Powered by AI)",
+      "boost": [
+        "Boost: 74% 'would drink again' is a powerful indicator of market fit. Action: Deep-dive into the 15% 'too sour' feedback. Don't just reduce sourness; consider A/B testing a 'sweetness-adjusted' option in pilot stores to maximize appeal without losing the core product identity."
+      ],
+      "counter": [
+        "Counter: The meeting dismissed the 'Spice-Infusion' proposal without discussion. Was this a missed opportunity given market trends (e.g., chai, turmeric)? The decision to make 'Bloom Latte' store-exclusive might also be underestimating its potential. Action: Re-evaluate the 'spice' concept against market data. Test 'Bloom Latte' online or via partnerships, not just in-store."
+      ],
+      "top": [
+        "Top Issue: How to successfully launch two distinct limited-run products ('Solar Chill' and 'Bloom Latte') and optimize their respective go-to-market strategies (mainstream vs. niche)."
+      ],
+      "modes": {
+        "logical": [
+          "Logical: 1. Define target segments for each product (Solar Chill = younger, SNS-focused; Bloom Latte = health-conscious, relaxation). 2. Create distinct value propositions (Refreshment vs. Wellness). 3. Offer 'syrup-level' customization for Solar Chill to handle 'sour' feedback."
+        ],
+        "critical": [
+          "Critical: Is the team biased by 'SNS-hype' and past successes? The dismissal of the 'spice' idea suggests a potential blind spot. Action: Implement a quantitative scoring model for new proposals (cost, trend-fit, brand-fit) to remove subjective bias from decision-making."
+        ],
+        "lateral": [
+          "Lateral: Break free from the 'beverage' framework. Action: Develop a 'non-drinkable' version of the blend. Create a 'Solar Chill' room fragrance or 'Bloom Latte' bath products. This expands the brand into lifestyle goods, reaches non-coffee customers, and creates new revenue streams."
+        ]
+      }
+    }
   },
-  "notes": {
-    "h2": "Notes",
-    "items": [
-      "Output quality reflects input quality",
-      "Use different templates for different meeting types"
-    ],
-    "foot": "Available on iOS. Try it today."
+  "platform": {
+    "h2": "Availability",
+    "p1": "What do you think? The Strategy function uncovers insights you missed, raises the counter-arguments people were hesitant to say, and provides breakthrough ideas. It's available right now on our iOS and Android apps. Try it on your next meeting and move from just 'notes' to 'decisions'."
   },
-  "meta": { "h2": "Meta", "published": "Published", "type": "Feature", "category": "Strategy" },
-  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" }
+  "image": {
+    "alt": "The Minutes.AI Strategy feature UI on a smartphone",
+    "caption": "Get Boost, Counter, Top Issue, and three thinking modes at a single glance."
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Feature",
+    "category": "Strategy"
+  },
+  "cta": {
+    "openBrowser": "Use on Web",
+    "downloadIOS": "Download on the App Store",
+    "downloadAndroid": "Get it on Google Play"
+  }
 }

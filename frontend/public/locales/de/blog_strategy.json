@@ -1,104 +1,103 @@
 {
   "seo": {
-    "title": "Strategy i Referat AI — gør referater til beslutninger (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy i Referat AI omsætter mødenoter til næste skridt. Med ChatGPT-5 og Gemini 2.5 Pro leverer den Boost, Counter, Top Issue og tre tænkemåder.",
-    "ogTitle": "Strategy i Referat AI: fra referat til handling",
-    "ogDescription": "Gør referater handlingsklare med Boost / Counter / Top Issue og logisk / kritisk / lateral tænkning.",
+    "title": "Protokoll KI Strategie: Von Protokollen zu umsetzbaren Einblicken (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Die Strategie-Funktion von Protokoll KI verwandelt rohe Meeting-Notizen in ein leistungsstarkes Werkzeug zur Entscheidungsfindung. Mit ChatGPT-5 und Gemini 2.5 Pro generiert sie Boost, Konter, Top-Thema und drei einzigartige Denkmodi, um Ihr Unternehmen voranzubringen.",
+    "ogTitle": "Protokoll KI Strategie: Protokolle in Maßnahmen umwandeln",
+    "ogDescription": "Zeichnen Sie Meetings nicht nur auf. Verwandeln Sie sie in Strategie. Erhalten Sie Boost (was funktioniert), Konter (was zu beheben ist), Top-Thema (das Kernproblem) sowie logische, kritische & laterale Denkmodi.",
     "ld": {
-      "headline": "Referat AI lancerer Strategy",
-      "description": "Brug ChatGPT-5 og Gemini 2.5 Pro til at konvertere diskussioner til beslutningsstøtte og klare næste skridt."
+      "headline": "Protokoll KI Strategie-Funktion: Von einfachen Notizen zum Meeting-Partner",
+      "description": "Die Strategie-Funktion hebt Protokolle durch fortschrittliche KI-Analyse (ChatGPT-5 und Gemini 2.5 Pro) auf die Ebene der Entscheidungsunterstützung, um umsetzbare Einblicke zu liefern."
     },
-    "keywords": "Referat AI, AI referat, Strategy, ChatGPT-5, Gemini 2.5 Pro, beslutningsstøtte, logisk tænkning, kritisk tænkning, lateral tænkning, Boost, Counter, Top Issue"
+    "keywords": "Protokoll KI, KI-Meeting-Protokolle, Strategie, ChatGPT-5, Gemini 2.5 Pro, Entscheidungsunterstützung, umsetzbare Einblicke, Logisches Denken, Kritisches Denken, Laterales Denken, Boost, Konter, Top-Thema, Meeting-Partner, Geschäftsstrategie"
   },
   "aria": {
-    "home": "Referat AI forside"
-  },
-  "a11y": {
-    "home": "Referat AI forside"
+    "home": "Protokoll KI Startseite"
   },
   "nav": {
     "blog": "Blog",
-    "strategy": "Strategi"
+    "strategy": "Strategie"
   },
   "hero": {
-    "kicker": "Funktionsguide",
-    "h1": "Strategy til Referat AI",
-    "tagline": "Ikke kun referater. Strategy gør diskussioner til beslutninger med ChatGPT-5 og Gemini 2.5 Pro."
+    "kicker": "Funktion im Fokus",
+    "h1": "Mehr als Protokolle: Die Strategie-Funktion",
+    "tagline": "Hören Sie auf, nur Notizen zu organisieren. Die Strategie-Funktion macht Protokoll KI zu Ihrem zentralen Meeting-Partner, der Diskussionen in wirkungsvolle Maßnahmen umwandelt – alles unterstützt durch ChatGPT-5 und Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Hvad er Strategy?",
-    "p1": "Strategy er et beslutningsstøttelag oven på dine referater.",
-    "p2": "Den genererer tre kerne-output — Boost, Counter og Top Issue — plus tre tænkemåder, der angriber Top Issue fra forskellige vinkler.",
+    "h2": "Was ist die Strategie-Funktion?",
+    "p1": "Strategie ist die Ebene der Entscheidungsunterstützung, die Ihre Protokolle von einer einfachen Aufzeichnung zu einem umsetzbaren Plan erhebt. Sie ist eine unserer beliebtesten Funktionen, weil sie Sie von 'was wurde gesagt' zu 'was ist als Nächstes zu tun' bringt.",
+    "p2": "Statt nur einer Zusammenfassung analysiert 'Strategie' die gesamte Diskussion mithilfe fortschrittlicher KI, um sechs verschiedene, umsetzbare Ergebnisse zu liefern:",
     "bullets": [
-      "Boost — det der virker, og hvordan det skaleres",
-      "Counter — risici og hvordan de afhjælpes",
-      "Top Issue — det centrale spørgsmål der skal løses",
-      "Logisk tænkning — struktureret, trinvis løsning",
-      "Kritisk tænkning — udfordr antagelser og find huller",
-      "Lateral tænkning — kreative spring ud over det oplagte"
+      "Boost — Positives & wie man es verstärkt: Erkennt, was funktioniert, und schlägt konkrete Wege vor, um diesen Erfolg zu skalieren.",
+      "Konter — Konstruktiver Widerspruch & Verbesserungen: Liefert bewusst einen Gegenstandpunkt oder identifiziert Risiken und schlägt vor, wie die zugrundeliegenden Probleme behoben werden können.",
+      "Top-Thema — Das Kernproblem: Stellt die eine, wichtigste Frage oder den wichtigsten Konflikt aus dem Meeting heraus, der gelöst werden muss.",
+      "Logisches Denken — Eine strukturierte Schritt-für-Schritt-Lösung für das Top-Thema.",
+      "Kritisches Denken — Hinterfragt die Grundannahmen, Vorurteile und unausgesprochenen Fragen hinter dem Top-Thema.",
+      "Laterales Denken — Eine 'Durchbruch'-Idee, die über die offensichtlichen, konventionellen Lösungen für das Top-Thema hinausgeht."
     ]
   },
   "how": {
-    "h2": "Sådan fungerer det",
+    "h2": "Wie es funktioniert",
     "steps": [
-      "Generér referat som vanligt (i appen eller på web).",
-      "Tryk på “Strategy” for analyse med ChatGPT-5 og Gemini 2.5 Pro.",
-      "Få Boost / Counter / Top Issue + tre tænkemåder.",
-      "Kopiér eller del output og indsæt det i dit opgavesystem."
+      "Erstellen Sie Ihre Meeting-Protokolle wie gewohnt (iOS, Android oder Web).",
+      "Tippen Sie auf die 'Strategie'-Schaltfläche, um das vollständige Transkript mit ChatGPT-5 & Gemini 2.5 Pro zu analysieren.",
+      "Erhalten Sie Ihre 6-teilige Analyse: Boost, Konter, Top-Thema und die three Denkmodi.",
+      "Teilen, kopieren oder exportieren Sie die Einblicke direkt in Ihr Aufgabenverwaltungssystem oder Ihren Bericht."
     ],
-    "note": "Output tilpasser sig sprog og domæne; kortfattethed som standard for hurtig læsning."
+    "note": "Die Ergebnisse passen sich an Sprache und Domäne an; standardmäßig auf Kürze ausgelegt für schnelles Lesen."
   },
   "samples": {
-    "h2": "Korte, læsevenlige eksempler",
+    "h2": "Sehen Sie es in Aktion: Ein Beispiel aus der Praxis",
     "minutes": {
-      "h3": "Referat (eksempel)",
+      "h3": "Beispiel-Protokoll: 'Solar Chill' Sommermischung-Meeting",
       "lines": [
-        "Emne: sommer-limited blend “Solar Chill”",
-        "Beslutninger: fortsæt med Solar Chill; behold navnet; færdiggør opskrift.",
-        "To-dos: designmockups; upload endelig opskrift til delt mappe.",
-        "Risiko: 15 % feedback siger “for sur”."
+        "Thema: Neue limitierte Sommermischung 'Solar Chill' (Cold Brew + Passionsfrucht + Minze).",
+        "Entscheidung: Mit 'Solar Chill' als Haupt-Sommerprodukt fortfahren. Den Namen beibehalten.",
+        "To-Dos: Designteam soll Mockups erstellen. Endgültiges Rezept soll in 'FlavorSync' hochgeladen werden.",
+        "Risiko: 15% des Mitarbeiterfeedbacks bemängelten, das Getränk sei 'zu sauer'.",
+        "Zusammenfassung: Produkt wurde für Konzept, Name und SNS-Potenzial hoch bewertet."
       ]
     },
     "strategy": {
-      "h3": "Strategy (eksempel)",
+      "h3": "Strategie-Ergebnis (KI-gestützt)",
       "boost": [
-        "Boost: Høj intention om genkøb → pilot i 10 butikker + social kampagne; mål genbestilling inden for 7 dage."
+        "Boost: 74% 'würden es wieder trinken' ist ein starker Indikator für die Marktakzeptanz. Maßnahme: Das Feedback der 15% ('zu sauer') genauer untersuchen. Nicht nur die Säure reduzieren; erwägen Sie A/B-Tests einer 'süß-angepassten' Option in Pilotgeschäften, um die Attraktivität zu maximieren, ohne die Kernidentität des Produkts zu verlieren."
       ],
       "counter": [
-        "Counter: Håndter syrlighed → tilføj “mild sweet”-valg; A/B-test sirupniveau i 2 uger."
+        "Konter: Das Meeting hat den 'Gewürz-Infusion'-Vorschlag ohne Diskussion abgetan. War das eine verpasste Chance angesichts der Markttrends (z.B. Chai, Kurkuma)? Die Entscheidung, 'Bloom Latte' exklusiv im Laden anzubieten, könnte auch dessen Potenzial unterschätzen. Maßnahme: Das 'Gewürz'-Konzept anhand von Marktdaten neu bewerten. 'Bloom Latte' online oder über Partnerschaften testen, nicht nur im Laden."
       ],
       "top": [
-        "Top Issue: Balancér smagen så rækkevidden øges uden at miste brandets særpræg."
+        "Top-Thema: Wie man zwei unterschiedliche, limitierte Produkte ('Solar Chill' und 'Bloom Latte') erfolgreich einführt und ihre jeweiligen Markteinführungsstrategien (Mainstream vs. Nische) optimiert."
       ],
       "modes": {
         "logical": [
-          "Logisk: Definér målsegmenter → sæt succes-KPI’er → kør A/B → udrul vinderspec."
+          "Logisch: 1. Zielsegmente für jedes Produkt definieren (Solar Chill = jünger, SNS-fokussiert; Bloom Latte = gesundheitsbewusst, Entspannung). 2. Unterschiedliche Wertversprechen schaffen (Erfrischung vs. Wellness). 3. 'Sirup-Level'-Anpassung für Solar Chill anbieten, um auf 'sauer'-Feedback zu reagieren."
         ],
         "critical": [
-          "Kritisk: Overtilpasser vi os ‘social buzz’? Verificér med blindsmagning."
+          "Kritisch: Ist das Team durch 'SNS-Hype' und vergangene Erfolge voreingenommen? Die Ablehnung der 'Gewürz'-Idee deutet auf einen potenziellen blinden Fleck hin. Maßnahme: Ein quantitatives Bewertungsmodell für neue Vorschläge einführen (Kosten, Trend-Passung, Marken-Passung), um subjektive Voreingenommenheit aus der Entscheidungsfindung zu entfernen."
         ],
         "lateral": [
-          "Lateral: Lav en duft/room-mist-udgave for at udvide brandet ud over drikke."
+          "Lateral: Aus dem 'Getränke'-Rahmen ausbrechen. Maßnahme: Eine 'nicht trinkbare' Version der Mischung entwickeln. Einen 'Solar Chill'-Raumduft oder 'Bloom Latte'-Badeprodukte kreieren. Dies erweitert die Marke in den Lifestyle-Bereich, erreicht Nicht-Kaffeekunden und schafft neue Einnahmequellen."
         ]
       }
     }
   },
   "platform": {
-    "h2": "Tilgængelighed",
-    "p1": "Strategy er tilgængelig på iOS. Gå fra “noter” til “beslutninger”."
+    "h2": "Verfügbarkeit",
+    "p1": "Was denken Sie? Die Strategie-Funktion deckt Einsichten auf, die Sie übersehen haben, bringt die Gegenargumente zur Sprache, die andere zögerten zu äußern, und liefert bahnbrechende Ideen. Sie ist ab sofort in unseren iOS- und Android-Apps verfügbar. Probieren Sie sie bei Ihrem nächsten Meeting aus und wechseln Sie von reinen 'Notizen' zu 'Entscheidungen'."
   },
   "image": {
-    "alt": "Referat AI Strategy UI",
-    "caption": "Boost / Counter / Top Issue + tre tænkemåder på ét overblik."
+    "alt": "Die Benutzeroberfläche der Protokoll KI Strategie-Funktion auf einem Smartphone",
+    "caption": "Erhalten Sie Boost, Konter, Top-Thema und drei Denkmodi auf einen Blick."
   },
   "meta": {
     "h2": "Meta",
-    "published": "Udgivet",
+    "published": "Veröffentlicht",
     "type": "Funktion",
-    "category": "Strategi"
+    "category": "Strategie"
   },
   "cta": {
-    "openBrowser": "Åbn i browser",
-    "downloadIOS": "Hent iOS-app"
+    "openBrowser": "Im Web nutzen",
+    "downloadIOS": "Im App Store laden",
+    "downloadAndroid": "Bei Google Play holen"
   }
 }

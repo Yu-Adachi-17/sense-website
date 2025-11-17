@@ -1,106 +1,103 @@
 {
   "seo": {
-    "title": "Biên bản AI Strategy — biến biên bản họp thành quyết định (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy chắt lọc cuộc họp thành Boost/Counter/Top Issue cùng ba chế độ tư duy cho bước tiếp theo rõ ràng. SEO cho truy vấn: AI meeting minutes, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy trong Biên bản AI: quyết định, không chỉ ghi chú",
-    "ogDescription": "Boost/Counter/Top Issue + tư duy Logic/Phê phán/Liên tưởng cho đầu ra có thể hành động.",
+    "title": "Chiến lược Biên bản AI: Từ Biên bản đến Thông tin chi tiết hữu ích (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Tính năng 'Chiến lược' của Biên bản AI biến các ghi chú cuộc họp thô thành một bộ công cụ ra quyết định mạnh mẽ. Sử dụng ChatGPT-5 và Gemini 2.5 Pro, nó tạo ra Thúc đẩy, Phản biện, Vấn đề hàng đầu và ba chế độ tư duy độc đáo để thúc đẩy doanh nghiệp của bạn.",
+    "ogTitle": "Chiến lược Biên bản AI: Biến Biên bản thành Hành động",
+    "ogDescription": "Đừng chỉ ghi lại các cuộc họp. Hãy biến chúng thành chiến lược. Nhận Thúc đẩy (điều gì đang hoạt động tốt), Phản biện (điều gì cần khắc phục), Vấn đề hàng đầu (vấn đề cốt lõi) và các chế độ tư duy Logic, Phê phán & Đột phá.",
     "ld": {
-      "headline": "Biên bản AI bổ sung Strategy",
-      "description": "Dùng ChatGPT-5 và Gemini 2.5 Pro để chuyển thảo luận thành quyết định nhanh và rõ."
+      "headline": "Tính năng Chiến lược của Biên bản AI: Từ Ghi chú đơn giản đến Đối tác Cuộc họp",
+      "description": "Tính năng 'Chiến lược' nâng tầm biên bản lên mức hỗ trợ ra quyết định bằng cách sử dụng phân tích AI tiên tiến (ChatGPT-5 và Gemini 2.5 Pro) để cung cấp thông tin chi tiết hữu ích."
     },
-    "keywords": "Biên bản AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, hỗ trợ ra quyết định, tư duy logic, tư duy phê phán, tư duy liên tưởng, Boost, Counter, Top Issue, biên bản cuộc họp"
+    "keywords": "Biên bản AI, biên bản họp AI, Chiến lược, ChatGPT-5, Gemini 2.5 Pro, hỗ trợ ra quyết định, thông tin chi tiết hữu ích, Tư duy Logic, Tư duy Phê phán, Tư duy Đột phá, Thúc đẩy, Phản biện, Vấn đề hàng đầu, đối tác cuộc họp, chiến lược kinh doanh"
   },
-  "aria": { "home": "Trang chủ Biên bản AI" },
-  "a11y": { "home": "Trang chủ Biên bản AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Chiến lược"
+  },
   "hero": {
-    "kicker": "Hướng dẫn tính năng",
-    "h1": "Strategy cho Biên bản AI",
-    "tagline": "Không chỉ biên bản — Strategy biến thảo luận thành quyết định với ChatGPT-5 và Gemini 2.5 Pro."
-  },
-  "image": {
-    "alt": "Giao diện Biên bản AI Strategy",
-    "caption": "Xem Boost / Counter / Top Issue và 3 chế độ tư duy trong một màn hình."
+    "kicker": "Tìm hiểu sâu về Tính năng",
+    "h1": "Vượt xa Biên bản: Chức năng Chiến lược",
+    "tagline": "Ngừng việc chỉ tổ chức các ghi chú. Chức năng 'Chiến lược' biến Biên bản AI thành đối tác cuộc họp cốt lõi của bạn, chuyển đổi các cuộc thảo luận thành các hành động có tác động cao, tất cả đều được hỗ trợ bởi ChatGPT-5 và Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Strategy là gì?",
-    "p1": "Strategy là một lớp hỗ trợ ra quyết định đặt lên trên biên bản họp của bạn.",
-    "p2": "Hệ thống tạo ra Boost (mở rộng điều đang hiệu quả), Counter (rủi ro và hành động khắc phục) và Top Issue (vấn đề cốt lõi), cùng ba chế độ tư duy áp dụng cho Top Issue.",
+    "h2": "Chức năng Chiến lược là gì?",
+    "p1": "'Chiến lược' là lớp hỗ trợ ra quyết định nâng tầm biên bản của bạn từ một bản ghi đơn giản thành một kế hoạch hành động. Đây là một trong những tính năng phổ biến nhất của chúng tôi vì nó đưa bạn từ 'những gì đã được nói' đến 'những gì cần làm tiếp theo'.",
+    "p2": "Thay vì chỉ là một bản tóm tắt, 'Chiến lược' phân tích toàn bộ cuộc thảo luận bằng AI tiên tiến để cung cấp sáu kết quả đầu ra riêng biệt và hữu ích:",
     "bullets": [
-      "Boost — điều gì hiệu quả & cách mở rộng",
-      "Counter — rủi ro & hành động khắc phục",
-      "Top Issue — câu hỏi cốt lõi cần giải",
-      "Tư duy Logic — tiếp cận có cấu trúc, từng bước",
-      "Tư duy Phê phán — chất vấn giả định và tìm mâu thuẫn",
-      "Tư duy Liên tưởng — vượt khỏi khuôn khổ để bật ra ý tưởng mới"
+      "Thúc đẩy (Boost) — Các điểm tích cực & Cách khuếch đại chúng: Xác định những gì đang hoạt động tốt và đề xuất các cách cụ thể để nhân rộng thành công đó.",
+      "Phản biện (Counter) — Phản đối mang tính xây dựng & Cải tiến: Cố ý đưa ra quan điểm đối lập hoặc xác định rủi ro, đề xuất cách khắc phục các vấn đề cơ bản.",
+      "Vấn đề hàng đầu (Top Issue) — Vấn đề cốt lõi: Chỉ ra câu hỏi hoặc xung đột quan trọng nhất từ cuộc họp cần được giải quyết.",
+      "Tư duy Logic — Một giải pháp có cấu trúc, từng bước cho Vấn đề hàng đầu.",
+      "Tư duy Phê phán — Thách thức các giả định cốt lõi, thành kiến và các câu hỏi chưa được đặt ra đằng sau Vấn đề hàng đầu.",
+      "Tư duy Đột phá (Lateral) — Một ý tưởng 'đột phá' vượt ra ngoài các giải pháp thông thường, rõ ràng cho Vấn đề hàng đầu."
     ]
   },
   "how": {
-    "h2": "Cách sử dụng",
+    "h2": "Cách thức hoạt động",
     "steps": [
-      "Tạo biên bản (trên ứng dụng hoặc web).",
-      "Chạm “Strategy” và để ChatGPT-5 cùng Gemini 2.5 Pro phân tích.",
-      "Nhận Boost / Counter / Top Issue + ba chế độ tư duy.",
-      "Chia sẻ kết quả hoặc dán vào trình quản lý tác vụ để triển khai."
+      "Tạo biên bản cuộc họp của bạn như bình thường (iOS, Android hoặc Web).",
+      "Nhấn vào nút 'Chiến lược' để phân tích toàn bộ bản ghi với ChatGPT-5 & Gemini 2.5 Pro.",
+      "Nhận phân tích 6 phần của bạn: Thúc đẩy, Phản biện, Vấn đề hàng đầu và ba chế độ tư duy.",
+      "Chia sẻ, sao chép hoặc xuất thông tin chi tiết trực tiếp vào hệ thống quản lý công việc hoặc báo cáo của bạn."
     ],
-    "note": "Đầu ra thích ứng theo ngôn ngữ và lĩnh vực, được cố ý súc tích để đọc nhanh."
+    "note": "Kết quả đầu ra thích ứng với ngôn ngữ và lĩnh vực; mặc định là ngắn gọn để đọc nhanh."
   },
   "samples": {
-    "h2": "Ví dụ ngắn, dễ đọc",
+    "h2": "Xem thực tế: Một ví dụ từ thế giới thực",
     "minutes": {
-      "h3": "Biên bản (ví dụ)",
+      "h3": "Biên bản mẫu: Cuộc họp về hỗn hợp mùa hè 'Solar Chill'",
       "lines": [
-        "Chủ đề: blend mùa hè “Solar Chill”",
-        "Quyết định: Tiếp tục Solar Chill / giữ tên / chốt công thức",
-        "Việc cần làm: Soạn đề xuất thiết kế / tải công thức cuối vào thư mục chung",
-        "Rủi ro: 15% phản hồi cho rằng “quá chua”"
+        "Chủ đề: Hỗn hợp giới hạn mùa hè mới 'Solar Chill' (cold brew + chanh dây + bạc hà).",
+        "Quyết định: Tiếp tục với 'Solar Chill' là sản phẩm mùa hè chính. Giữ nguyên tên.",
+        "Việc cần làm: Nhóm thiết kế tạo mockup. Công thức cuối cùng sẽ được tải lên 'FlavorSync'.",
+        "Rủi ro: 15% phản hồi của nhân viên lưu ý rằng đồ uống 'quá chua'.",
+        "Tóm tắt: Sản phẩm được đánh giá cao về ý tưởng, tên gọi và tiềm năng trên mạng xã hội."
       ]
     },
     "strategy": {
-      "h3": "Strategy (ví dụ)",
+      "h3": "Kết quả Chiến lược (Được hỗ trợ bởi AI)",
       "boost": [
-        "Boost: Ý định mua lại cao → pilot tại 10 cửa hàng + chiến dịch mạng xã hội. Đo tỉ lệ đặt lại trong 7 ngày."
+        "Thúc đẩy: 74% 'sẽ uống lại' là một chỉ số mạnh mẽ về sự phù hợp với thị trường. Hành động: Tìm hiểu sâu về 15% phản hồi 'quá chua'. Đừng chỉ giảm độ chua; hãy xem xét thử nghiệm A/B một tùy chọn 'điều chỉnh độ ngọt' tại các cửa hàng thí điểm để tối đa hóa sự hấp dẫn mà không làm mất đi bản sắc cốt lõi của sản phẩm."
       ],
       "counter": [
-        "Counter: Giảm độ chua → thêm tùy chọn “mild sweet”. A/B test lượng si-rô trong 2 tuần."
+        "Phản biện: Cuộc họp đã bác bỏ đề xuất 'Pha chế Gia vị' mà không thảo luận. Đây có phải là một cơ hội bị bỏ lỡ khi xét đến xu hướng thị trường (ví dụ: trà chai, nghệ) không? Quyết định biến 'Bloom Latte' thành độc quyền tại cửa hàng cũng có thể đang đánh giá thấp tiềm năng của nó. Hành động: Đánh giá lại khái niệm 'gia vị' so với dữ liệu thị trường. Thử nghiệm 'Bloom Latte' trực tuyến hoặc thông qua các đối tác, không chỉ tại cửa hàng."
       ],
       "top": [
-        "Top Issue: ‘Điểm cân bằng’ hương vị nào mở rộng tệp người dùng mà không mất bản sắc thương hiệu?"
+        "Vấn đề hàng đầu: Làm thế nào để ra mắt thành công hai sản phẩm phiên bản giới hạn riêng biệt ('Solar Chill' và 'Bloom Latte') và tối ưu hóa các chiến lược tiếp cận thị trường tương ứng của chúng (chính thống vs. ngách)."
       ],
       "modes": {
         "logical": [
-          "Logic: Xác định phân khúc mục tiêu → đặt KPI thành công → A/B → triển khai cấu hình thắng."
+          "Logic: 1. Xác định phân khúc mục tiêu cho mỗi sản phẩm (Solar Chill = trẻ hơn, tập trung vào SNS; Bloom Latte = ý thức về sức khỏe, thư giãn). 2. Tạo ra các đề xuất giá trị riêng biệt (Giải khát vs. Sức khỏe). 3. Cung cấp tùy chỉnh 'mức độ si-rô' cho Solar Chill để xử lý phản hồi 'chua'."
         ],
         "critical": [
-          "Phê phán: Có đang tối ưu quá mức cho ‘độ lan truyền’ trên mạng xã hội? Lặp lại thử mù."
+          "Phê phán: Nhóm có bị thiên vị bởi 'sự cường điệu trên SNS' và các thành công trong quá khứ không? Việc bác bỏ ý tưởng 'gia vị' cho thấy một điểm mù tiềm ẩn. Hành động: Thực hiện một mô hình chấm điểm định lượng cho các đề xuất mới (chi phí, phù hợp xu hướng, phù hợp thương hiệu) để loại bỏ thành kiến chủ quan khỏi việc ra quyết định."
         ],
         "lateral": [
-          "Liên tưởng: Mở rộng ngoài đồ uống (vd. xịt thơm phòng/room mist) để tăng điểm chạm."
+          "Đột phá: Thoát ra khỏi khuôn khổ 'đồ uống'. Hành động: Phát triển một phiên bản 'không uống được' của hỗn hợp. Tạo ra một loại nước hoa phòng 'Solar Chill' hoặc các sản phẩm tắm 'Bloom Latte'. Điều này mở rộng thương hiệu sang hàng hóa phong cách sống, tiếp cận những khách hàng không uống cà phê và tạo ra các nguồn doanh thu mới."
         ]
       }
     }
   },
   "platform": {
-    "h2": "Khả dụng",
-    "p1": "Strategy hiện có trên iOS — từ “biên bản” đến “quyết định”."
+    "h2": "Tính khả dụng",
+    "p1": "Bạn nghĩ sao? Chức năng 'Chiến lược' khám phá những thông tin chi tiết bạn đã bỏ lỡ, đưa ra các lập luận phản biện mà mọi người ngần ngại nói ra, và cung cấp các ý tưởng đột phá. Nó có sẵn ngay bây giờ trên các ứng dụng iOS và Android của chúng tôi. Hãy thử nó trong cuộc họp tiếp theo của bạn và chuyển từ chỉ 'ghi chú' sang 'ra quyết định'."
   },
-  "features": {
-    "h2": "Điểm nổi bật",
-    "items": [
-      "Tập trung vào quyết định, không chỉ tóm tắt",
-      "Tối ưu cho ChatGPT-5 & Gemini 2.5 Pro",
-      "Đầu ra ngắn gọn, có thể hành động",
-      "Hỗ trợ đa ngôn ngữ cho đội ngũ toàn cầu"
-    ]
+  "image": {
+    "alt": "Giao diện người dùng tính năng Chiến lược của Biên bản AI trên điện thoại thông minh",
+    "caption": "Nhận Thúc đẩy, Phản biện, Vấn đề hàng đầu và ba chế độ tư duy trong nháy mắt."
   },
-  "notes": {
-    "h2": "Ghi chú",
-    "items": [
-      "Chất lượng đầu ra phản ánh chất lượng đầu vào",
-      "Dùng mẫu phù hợp với từng loại cuộc họp"
-    ],
-    "foot": "Có trên iOS. Hãy thử hôm nay."
+  "meta": {
+    "h2": "Meta",
+    "published": "Đã xuất bản",
+    "type": "Tính năng",
+    "category": "Chiến lược"
   },
-  "meta": { "h2": "Meta", "published": "Đã xuất bản", "type": "Tính năng", "category": "Strategy" },
-  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải ứng dụng iOS" }
+  "cta": {
+    "openBrowser": "Sử dụng trên Web",
+    "downloadIOS": "Tải về trên App Store",
+    "downloadAndroid": "Tải trên Google Play"
+  }
 }

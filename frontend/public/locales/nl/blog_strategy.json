@@ -1,103 +1,103 @@
 {
   "seo": {
-    "title": "Strategy in Notulen AI — maak van notulen beslissingen (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy vat meetings samen tot Boost/Counter/Top Issue plus drie denkmodi voor duidelijke next steps. SEO: notulen AI, ChatGPT-5, Gemini 2.5 Pro.",
-    "ogTitle": "Strategy in Notulen AI: beslissingen, geen losse notities",
-    "ogDescription": "Boost/Counter/Top Issue + Logisch/Kritisch/Lateraal voor actiegerichte output.",
+    "title": "Notulen AI Strategie: Van notulen naar bruikbare inzichten (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "De 'Strategie'-functie van Notulen AI transformeert ruwe notulen in een krachtige toolkit voor besluitvorming. Met ChatGPT-5 en Gemini 2.5 Pro genereert het Boost, Tegengeluid, Topkwestie en drie unieke denkwijzen om uw bedrijf vooruit te helpen.",
+    "ogTitle": "Notulen AI Strategie: Zet notulen om in actie",
+    "ogDescription": "Neem niet alleen vergaderingen op. Zet ze om in strategie. Krijg Boost (wat werkt), Tegengeluid (wat te repareren), Topkwestie (het kernprobleem) en Logische, Kritische & Laterale denkwijzen.",
     "ld": {
-      "headline": "Notulen AI voegt Strategy toe",
-      "description": "Zet met ChatGPT-5 en Gemini 2.5 Pro discussies snel en helder om in beslissingen."
+      "headline": "Notulen AI Strategie Functie: Van eenvoudige notities tot vergaderpartner",
+      "description": "De 'Strategie'-functie tilt notulen naar beslissingsondersteuning met geavanceerde AI-analyse (ChatGPT-5 en Gemini 2.5 Pro) om bruikbare inzichten te bieden."
     },
-    "keywords": "Notulen AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, besluitvorming, logische denkwijze, kritisch denken, lateraal denken, Boost, Counter, Top Issue"
+    "keywords": "Notulen AI, AI notulen, Strategie, ChatGPT-5, Gemini 2.5 Pro, beslissingsondersteuning, bruikbare inzichten, Logisch denken, Kritisch denken, Lateraal denken, Boost, Tegengeluid, Topkwestie, vergaderpartner, bedrijfsstrategie"
   },
-  "aria": { "home": "Startpagina Notulen AI" },
-  "a11y": { "home": "Startpagina Notulen AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategie"
+  },
   "hero": {
-    "kicker": "Functiegids",
-    "h1": "Strategy voor Notulen AI",
-    "tagline": "Niet alleen notuleren—Strategy maakt van discussie beslissingen met ChatGPT-5 en Gemini 2.5 Pro."
+    "kicker": "Feature Deep Dive",
+    "h1": "Voorbij de notulen: De Strategiefunctie",
+    "tagline": "Stop met het alleen maar organiseren van notities. De 'Strategie'-functie verandert Notulen AI in uw kernpartner voor vergaderingen, en zet discussies om in acties met hoge impact, allemaal aangedreven door ChatGPT-5 en Gemini 2.5 Pro."
   },
-  "image": { "alt": "Notulen AI Strategy UI", "caption": "Breng kernvraag en vervolgstappen in één keer boven tafel." },
   "what": {
-    "h2": "Wat is Strategy?",
-    "p1": "Strategy is een besluitvormingslaag bovenop je notulen.",
-    "p2": "Het genereert Boost (opschalen wat werkt), Counter (risico’s en tegenmaatregelen) en Top Issue (de kernvraag), plus drie denkmodi voor het Top Issue.",
+    "h2": "Wat is de Strategiefunctie?",
+    "p1": "'Strategie' is de laag voor beslissingsondersteuning die uw notulen verheft van een eenvoudig verslag tot een actieplan. Het is een van onze populairste functies omdat het u verplaatst van 'wat er is gezegd' naar 'wat nu te doen'.",
+    "p2": "In plaats van alleen een samenvatting, analyseert 'Strategie' de hele discussie met geavanceerde AI om zes verschillende, bruikbare outputs te leveren:",
     "bullets": [
-      "Boost — wat werkt & hoe opschalen",
-      "Counter — risico’s & corrigerende acties",
-      "Top Issue — de kernvraag die we móéten oplossen",
-      "Logical Thinking — gestructureerde, stapsgewijze aanpak",
-      "Critical Thinking — veronderstellingen bevragen en inconsistenties vinden",
-      "Lateral Thinking — buiten de kaders voor spronginnovatie"
+      "Boost — Positieve punten & hoe deze te versterken: Identificeert wat werkt en stelt concrete manieren voor om dat succes op te schalen.",
+      "Tegengeluid (Counter) — Constructieve oppositie & verbeteringen: Biedt opzettelijk een tegengesteld standpunt of identificeert risico's, en suggereert hoe de onderliggende problemen kunnen worden opgelost.",
+      "Topkwestie (Top Issue) — Het kernprobleem: Wijst de belangrijkste vraag of het conflict uit de vergadering aan dat moet worden opgelost.",
+      "Logisch denken — Een gestructureerde, stapsgewijze oplossing voor de Topkwestie.",
+      "Kritisch denken — Daagt de kernaannames, vooroordelen en ongestelde vragen achter de Topkwestie uit.",
+      "Lateraal denken — Een 'doorbraak'-idee dat verder springt dan de voor de hand liggende, conventionele oplossingen voor de Topkwestie."
     ]
   },
   "how": {
-    "h2": "Hoe gebruik je het",
+    "h2": "Hoe het werkt",
     "steps": [
-      "Genereer notulen (in de app of op het web).",
-      "Tik op “Strategy” en laat ChatGPT-5 en Gemini 2.5 Pro analyseren.",
-      "Ontvang Boost / Counter / Top Issue + drie denkmodi.",
-      "Deel het resultaat of plak het in je taaksysteem voor uitvoering."
+      "Genereer uw notulen zoals gewoonlijk (iOS, Android of Web).",
+      "Tik op de 'Strategie'-knop om het volledige transcript te analyseren met ChatGPT-5 & Gemini 2.5 Pro.",
+      "Ontvang uw 6-delige analyse: Boost, Tegengeluid, Topkwestie en de drie denkwijzen.",
+      "Deel, kopieer of exporteer de inzichten rechtstreeks naar uw taakbeheersysteem of rapport."
     ],
-    "note": "Uitvoer past zich aan aan taal en domein, en blijft bewust compact voor snelle leesbaarheid."
+    "note": "Outputs passen zich aan taal en domein aan; beknoptheid is standaard voor snel lezen."
   },
   "samples": {
-    "h2": "Korte, leesbare voorbeelden",
+    "h2": "Zie het in actie: Een praktijkvoorbeeld",
     "minutes": {
-      "h3": "Notulen (voorbeeld)",
+      "h3": "Voorbeeldnotulen: 'Solar Chill' Zomermix Vergadering",
       "lines": [
-        "Topic: Zomerblend “Solar Chill”",
-        "Besluit: Doorgaan met Solar Chill / naam behouden / recept finaliseren",
-        "To-do: Designvoorstellen maken / definitief recept in gedeelde map",
-        "Risico: 15% feedback zegt ‘te zuur’"
+        "Onderwerp: Nieuwe zomerse limited blend 'Solar Chill' (cold brew + passievrucht + munt).",
+        "Besluit: Doorgaan met 'Solar Chill' als het belangrijkste zomerproduct. De naam behouden.",
+        "To-Do's: Ontwerpteam maakt mockups. Definitief recept wordt geüpload naar 'FlavorSync'.",
+        "Risico: 15% van de feedback van het personeel gaf aan dat het drankje 'te zuur' was.",
+        "Samenvatting: Product hoog beoordeeld op concept, naam en SNS-potentieel."
       ]
     },
     "strategy": {
-      "h3": "Strategy (voorbeeld)",
+      "h3": "Strategie Output (Aangedreven door AI)",
       "boost": [
-        "Boost: Hoge herhaalaankoopintentie → pilot in 10 winkels + social-campagne. Meet herbestelratio binnen 7 dagen."
+        "Boost: 74% 'zou het opnieuw drinken' is een krachtige indicator van marktaansluiting. Actie: Duik dieper in de 15% 'te zuur' feedback. Verminder niet alleen de zuurgraad; overweeg A/B-testen van een 'zoetheid-aangepaste' optie in pilotwinkels om de aantrekkingskracht te maximaliseren zonder de kernproductidentiteit te verliezen."
       ],
       "counter": [
-        "Counter: Zuurte mitigeren → optie ‘mild sweet’ toevoegen. Syrup-hoeveelheid 2 weken A/B-testen."
+        "Tegengeluid: De vergadering verwierp het 'Kruiden-infusie'-voorstel zonder discussie. Was dit een gemiste kans gezien de markttrends (bijv. chai, kurkuma)? Het besluit om 'Bloom Latte' exclusief in de winkel te houden, onderschat mogelijk ook het potentieel ervan. Actie: Heroverweeg het 'kruiden'-concept tegen marktgegevens. Test 'Bloom Latte' online of via partnerschappen, niet alleen in de winkel."
       ],
       "top": [
-        "Top Issue: Wat is het smaak–sweet spot die toegankelijker is zonder merk-eigenheid te verliezen?"
+        "Topkwestie: Hoe twee verschillende producten in beperkte oplage ('Solar Chill' en 'Bloom Latte') succesvol te lanceren en hun respectieve go-to-market strategieën (mainstream vs. niche) te optimaliseren."
       ],
       "modes": {
         "logical": [
-          "Logical: Doelsegment definiëren → succes-KPI’s vastleggen → A/B → winnende specificatie uitrollen."
+          "Logisch: 1. Definieer doelgroepen voor elk product (Solar Chill = jonger, SNS-gericht; Bloom Latte = gezondheidsbewust, ontspanning). 2. Creëer verschillende waardeproposities (Verfrissing vs. Wellness). 3. Bied 'siroop-niveau' aanpassing voor Solar Chill om 'zure' feedback te behandelen."
         ],
         "critical": [
-          "Critical: Optimaliseren we niet te veel op ‘talkability’ van socials? Blindproeverij herhalen."
+          "Kritisch: Is het team bevooroordeeld door 'SNS-hype' en successen uit het verleden? De afwijzing van het 'kruiden'-idee suggereert een potentiële blinde vlek. Actie: Implementeer een kwantitatief scoremodel voor nieuwe voorstellen (kosten, trend-fit, merk-fit) om subjectieve vooringenomenheid uit de besluitvorming te verwijderen."
         ],
         "lateral": [
-          "Lateral: Denk buiten dranken (bv. geur/roommist) om contactpunten te verbreden."
+          "Lateraal: Breek los uit het 'drank'-kader. Actie: Ontwikkel een 'niet-drinkbare' versie van de mix. Creëer een 'Solar Chill' kamergeur of 'Bloom Latte' badproducten. Dit breidt het merk uit naar lifestyle-goederen, bereikt niet-koffiedrinkers en creëert nieuwe inkomstenstromen."
         ]
       }
     }
   },
   "platform": {
     "h2": "Beschikbaarheid",
-    "p1": "Strategy is beschikbaar op iOS—van ‘notulen’ naar ‘beslissingen’."
+    "p1": "Wat denkt u? De 'Strategie'-functie onthult inzichten die u had gemist, brengt de tegenargumenten naar voren die mensen aarzelden te uiten, en levert doorbraakideeën. Het is nu beschikbaar op onze iOS- en Android-apps. Probeer het bij uw volgende vergadering en ga van alleen 'notities' naar 'beslissingen'."
   },
-  "features": {
-    "h2": "Highlights",
-    "items": [
-      "Beslissingsgericht, niet alleen samenvatting",
-      "Geoptimaliseerd voor ChatGPT-5 & Gemini 2.5 Pro",
-      "Korte, actiegerichte output",
-      "Meertalig voor globale teams"
-    ]
+  "image": {
+    "alt": "De UI van de Notulen AI Strategie functie op een smartphone",
+    "caption": "Krijg Boost, Tegengeluid, Topkwestie en drie denkwijzen in één oogopslag."
   },
-  "notes": {
-    "h2": "Opmerkingen",
-    "items": [
-      "Kwaliteit van input bepaalt de kwaliteit van output",
-      "Gebruik sjablonen per meetingtype"
-    ],
-    "foot": "Beschikbaar op iOS. Probeer het vandaag."
+  "meta": {
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Functie",
+    "category": "Strategie"
   },
-  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Functie", "category": "Strategy" },
-  "cta": { "openBrowser": "Openen in browser", "downloadIOS": "iOS-app downloaden" }
+  "cta": {
+    "openBrowser": "Gebruik op Web",
+    "downloadIOS": "Download in de App Store",
+    "downloadAndroid": "Download op Google Play"
+  }
 }

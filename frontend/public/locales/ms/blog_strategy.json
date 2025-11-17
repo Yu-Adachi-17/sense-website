@@ -1,97 +1,103 @@
 {
   "seo": {
-    "title": "Strategy dalam Minit AI — ubah minit mesyuarat jadi keputusan (ChatGPT-5 / Gemini 2.5 Pro)",
-    "description": "Strategy Minit AI menukar minit mesyuarat kepada langkah seterusnya. Dengan ChatGPT-5 dan Gemini 2.5 Pro, ia menghasilkan Boost, Counter, Top Issue serta tiga mod pemikiran.",
-    "ogTitle": "Minit AI Strategy: daripada ringkasan kepada keputusan",
-    "ogDescription": "Ubah perbincangan menjadi strategi dengan Boost, Counter, Top Issue dan Pemikiran Logik/Kritikal/Lateral.",
+    "title": "Strategi Minit AI: Daripada Minit kepada Wawasan Boleh Tindak (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Ciri 'Strategi' Minit AI mengubah nota mesyuarat mentah menjadi kit alat membuat keputusan yang berkuasa. Menggunakan ChatGPT-5 dan Gemini 2.5 Pro, ia menjana Dorongan, Tindak Balas, Isu Utama, dan tiga mod pemikiran unik untuk memacu perniagaan anda ke hadapan.",
+    "ogTitle": "Strategi Minit AI: Tukar Minit kepada Tindakan",
+    "ogDescription": "Jangan hanya rekod mesyuarat. Tukarkannya kepada strategi. Dapatkan Dorongan (apa yang berkesan), Tindak Balas (apa yang perlu dibaiki), Isu Utama (masalah teras), dan mod pemikiran Logik, Kritikal, & Lateral.",
     "ld": {
-      "headline": "Minit AI menambah ciri Strategy",
-      "description": "Ciri Strategy mengangkat minit menjadi sokongan keputusan menggunakan output ChatGPT-5 dan Gemini 2.5 Pro."
+      "headline": "Ciri Strategi Minit AI: Daripada Nota Ringkas kepada Rakan Mesyuarat",
+      "description": "Ciri 'Strategi' meningkatkan minit kepada sokongan keputusan menggunakan analisis AI lanjutan (ChatGPT-5 dan Gemini 2.5 Pro) untuk memberikan wawasan yang boleh ditindaklanjuti."
     },
-    "keywords": "Minit AI, minit mesyuarat AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, sokongan keputusan, Pemikiran Logik, Pemikiran Kritikal, Pemikiran Lateral, Boost, Counter, Top Issue"
+    "keywords": "Minit AI, minit mesyuarat AI, Strategi, ChatGPT-5, Gemini 2.5 Pro, sokongan keputusan, wawasan boleh tindak, Pemikiran Logik, Pemikiran Kritikal, Pemikiran Lateral, Dorongan, Tindak Balas, Isu Utama, rakan mesyuarat, strategi perniagaan"
   },
-  "aria": { "home": "Ke laman utama Minit AI" },
-  "a11y": { "home": "Ke laman utama Minit AI" },
-  "nav": { "blog": "Blog", "strategy": "Strategy" },
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "strategy": "Strategi"
+  },
   "hero": {
-    "kicker": "Sorotan Ciri",
-    "h1": "Strategy untuk Minit AI",
-    "tagline": "Bukan sekadar ringkasan. Strategy menukar perbincangan kepada tindakan jelas dengan ChatGPT-5 dan Gemini 2.5 Pro."
+    "kicker": "Selaman Mendalam Ciri",
+    "h1": "Melangkaui Minit: Fungsi Strategi",
+    "tagline": "Berhenti sekadar menyusun nota. Fungsi 'Strategi' mengubah Minit AI menjadi rakan mesyuarat teras anda, menukar perbincangan kepada tindakan berimpak tinggi, semuanya dikuasakan oleh ChatGPT-5 dan Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Apakah itu Strategy?",
-    "p1": "Strategy ialah lapisan sokongan keputusan di atas minit anda.",
-    "p2": "Ia menghasilkan Boost (apa yang berkesan & cara skala), Counter (risiko & pembaikan), Top Issue (isu teras), serta tiga mod pemikiran untuk Top Issue.",
+    "h2": "Apakah Fungsi Strategi?",
+    "p1": "Strategi ialah lapisan sokongan keputusan yang meningkatkan minit anda daripada rekod biasa kepada pelan yang boleh ditindaklanjuti. Ia adalah salah satu ciri kami yang paling popular kerana ia menggerakkan anda daripada 'apa yang telah diperkatakan' kepada 'apa yang perlu dilakukan seterusnya'.",
+    "p2": "Daripada hanya ringkasan, 'Strategi' menganalisis keseluruhan perbincangan menggunakan AI lanjutan untuk menyediakan enam output yang berbeza dan boleh ditindaklanjuti:",
     "bullets": [
-      "Boost — perkara yang berkesan dan cara menskalakannya",
-      "Counter — risiko dan tindakan pembetulan",
-      "Top Issue — soalan teras yang perlu diselesaikan",
-      "Pemikiran Logik — penyelesaian berstruktur langkah demi langkah",
-      "Pemikiran Kritikal — cabar andaian dan kesahihan",
-      "Pemikiran Lateral — loncatan idea di luar kebiasaan"
+      "Dorongan (Boost) — Perkara Positif & Cara Menguatkannya: Mengenal pasti apa yang berkesan dan mencadangkan cara konkrit untuk meningkatkan kejayaan itu.",
+      "Tindak Balas (Counter) — Penentangan Membina & Penambahbaikan: Sengaja memberikan pandangan berbeza atau mengenal pasti risiko, mencadangkan cara untuk membetulkan isu-isu asas.",
+      "Isu Utama (Top Issue) — Masalah Teras: Menunjukkan satu soalan atau konflik paling penting dari mesyuarat yang perlu diselesaikan.",
+      "Pemikiran Logik — Penyelesaian berstruktur, langkah demi langkah untuk Isu Utama.",
+      "Pemikiran Kritikal — Mencabar andaian teras, berat sebelah, dan soalan yang tidak ditanya di sebalik Isu Utama.",
+      "Pemikiran Lateral — Idea 'lonjakan' yang melangkaui penyelesaian konvensional yang jelas untuk Isu Utama."
     ]
   },
   "how": {
-    "h2": "Cara berfungsi",
+    "h2": "Bagaimana Ia Berfungsi",
     "steps": [
-      "Jana minit seperti biasa (aplikasi atau web).",
-      "Ketik “Strategy” untuk analisis dengan ChatGPT-5 & Gemini 2.5 Pro.",
-      "Dapatkan Boost/Counter/Top Issue + tiga mod pemikiran.",
-      "Kongsi atau tampal hasil ke sistem tugasan anda."
+      "Jana minit mesyuarat anda seperti biasa (iOS, Android, atau Web).",
+      "Ketik butang 'Strategi' untuk menganalisis transkrip penuh dengan ChatGPT-5 & Gemini 2.5 Pro.",
+      "Terima analisis 6-bahagian anda: Dorongan, Tindak Balas, Isu Utama, dan tiga mod pemikiran.",
+      "Kongsi, salin, atau eksport wawasan terus ke dalam sistem pengurusan tugas atau laporan anda."
     ],
-    "note": "Output menyesuaikan bahasa dan domain; ringkas secara lalai untuk bacaan pantas."
+    "note": "Output disesuaikan dengan bahasa dan domain; keringkasan secara lalai untuk bacaan pantas."
   },
   "samples": {
-    "h2": "Contoh ringkas dan mudah dibaca",
+    "h2": "Lihat Ia Beraksi: Contoh Dunia Sebenar",
     "minutes": {
-      "h3": "Minit (contoh)",
+      "h3": "Contoh Minit: Mesyuarat Adunan Musim Panas 'Solar Chill'",
       "lines": [
-        "Topik: Blen terhad musim panas “Solar Chill”",
-        "Keputusan: Teruskan Solar Chill; kekal nama; muktamadkan resipi.",
-        "Tugasan: Cipta mockup reka bentuk; muat naik resipi akhir ke folder kongsi.",
-        "Risiko: 15% maklum balas menyatakan “terlalu masam”."
+        "Topik: Adunan terhad musim panas baru 'Solar Chill' (cold brew + buah markisa + pudina).",
+        "Keputusan: Teruskan dengan 'Solar Chill' sebagai produk musim panas utama. Kekalkan nama.",
+        "Tindakan: Pasukan reka bentuk untuk mencipta mockup. Resipi akhir akan dimuat naik ke 'FlavorSync'.",
+        "Risiko: 15% maklum balas kakitangan menyatakan minuman itu 'terlalu masam'.",
+        "Ringkasan: Produk dinilai tinggi untuk konsep, nama, dan potensi SNS."
       ]
     },
     "strategy": {
-      "h3": "Strategy (contoh)",
+      "h3": "Output Strategi (Dikuasakan oleh AI)",
       "boost": [
-        "Boost: Niat pembelian semula tinggi → perintis di 10 kedai + promosi sosial; ukur pesanan semula dalam 7 hari."
+        "Dorongan: 74% 'akan minum lagi' adalah penunjuk kuat kesesuaian pasaran. Tindakan: Selami maklum balas 15% 'terlalu masam'. Jangan hanya kurangkan kemasaman; pertimbangkan ujian A/B pilihan 'kemanisan disesuaikan' di kedai perintis untuk memaksimumkan tarikan tanpa kehilangan identiti produk teras."
       ],
       "counter": [
-        "Counter: Tangani kemasaman → tambah pilihan ‘sedikit manis’; A/B tahap sirap selama 2 minggu."
+        "Tindak Balas: Mesyuarat menolak cadangan 'Infusi Rempah' tanpa perbincangan. Adakah ini peluang yang terlepas memandangkan trend pasaran (cth., chai, kunyit)? Keputusan untuk menjadikan 'Bloom Latte' eksklusif di kedai mungkin juga memandang rendah potensinya. Tindakan: Nilaikan semula konsep 'rempah' berbanding data pasaran. Uji 'Bloom Latte' dalam talian atau melalui perkongsian, bukan hanya di kedai."
       ],
       "top": [
-        "Top Issue: Seimbangkan rasa untuk memperluas tarikan tanpa hilang keunikan jenama."
+        "Isu Utama: Bagaimana untuk berjaya melancarkan dua produk edisi terhad yang berbeza ('Solar Chill' dan 'Bloom Latte') dan mengoptimumkan strategi pergi-ke-pasaran masing-masing (arus perdana vs. niche)."
       ],
       "modes": {
         "logical": [
-          "Logik: Tentukan segmen sasaran → tetapkan KPI kejayaan → jalankan A/B → lancarkan spesifikasi pemenang."
+          "Logik: 1. Tentukan segmen sasaran untuk setiap produk (Solar Chill = lebih muda, fokus SNS; Bloom Latte = sedar kesihatan, santai). 2. Cipta proposisi nilai yang berbeza (Penyegaran vs. Kesejahteraan). 3. Tawarkan penyesuaian 'tahap sirap' untuk Solar Chill bagi menangani maklum balas 'masam'."
         ],
         "critical": [
-          "Kritikal: Adakah kita terlebih menyesuaikan kepada ‘buzz’ sosial? Sahkan semula dengan ujian rasa buta."
+          "Kritikal: Adakah pasukan berat sebelah oleh 'gembar-gembur SNS' dan kejayaan lalu? Penolakan idea 'rempah' mencadangkan titik buta yang berpotensi. Tindakan: Laksanakan model pemarkahan kuantitatif untuk cadangan baru (kos, kesesuaian trend, kesesuaian jenama) untuk menghapuskan berat sebelah subjektif daripada pembuatan keputusan."
         ],
         "lateral": [
-          "Lateral: Tawar edisi haruman/room-mist untuk melanjutkan jenama melampaui minuman."
+          "Lateral: Lepaskan diri daripada rangka kerja 'minuman'. Tindakan: Bangunkan versi 'tidak boleh diminum' adunan itu. Cipta wangian bilik 'Solar Chill' atau produk mandian 'Bloom Latte'. Ini mengembangkan jenama kepada barangan gaya hidup, mencapai pelanggan bukan peminum kopi, dan mencipta aliran pendapatan baru."
         ]
       }
     }
   },
   "platform": {
     "h2": "Ketersediaan",
-    "p1": "Strategy tersedia di iOS. Beralih daripada ‘nota’ kepada ‘keputusan’."
+    "p1": "Apa pendapat anda? Fungsi 'Strategi' mendedahkan wawasan yang anda terlepas pandang, membangkitkan hujah balas yang orang teragak-agak untuk katakan, dan memberikan idea terobosan. Ia tersedia sekarang di aplikasi iOS dan Android kami. Cubalah pada mesyuarat anda yang seterusnya dan beralih daripada hanya 'nota' kepada 'keputusan'."
   },
   "image": {
-    "alt": "Antara muka Strategy Minit AI",
-    "caption": "Boost/Counter/Top Issue + tiga mod pemikiran, sepintas lalu."
+    "alt": "UI ciri Strategi Minit AI pada telefon pintar",
+    "caption": "Dapatkan Dorongan, Tindak Balas, Isu Utama, dan tiga mod pemikiran sekali imbas."
   },
   "meta": {
     "h2": "Meta",
     "published": "Diterbitkan",
     "type": "Ciri",
-    "category": "Strategy"
+    "category": "Strategi"
   },
   "cta": {
-    "openBrowser": "Buka dalam pelayar",
-    "downloadIOS": "Muat turun aplikasi iOS"
+    "openBrowser": "Guna di Web",
+    "downloadIOS": "Muat turun di App Store",
+    "downloadAndroid": "Dapatkannya di Google Play"
   }
 }

@@ -1,95 +1,93 @@
 {
   "seo": {
-    "title": "Pöytäkirja AI Strategy — tee muistioista päätöksiä (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy Pöytäkirja AI:ssa muuttaa kokousmuistiot selkeiksi seuraaviksi askeleiksi. ChatGPT-5:n ja Gemini 2.5 Pro:n avulla se tuottaa Boost-, Counter- ja Top Issue -osiot sekä kolme ajattelutapaa.",
-    "ogTitle": "Strategy Pöytäkirja AI:ssa: päätöksiä, ei pelkkiä muistiinpanoja",
-    "ogDescription": "Muuta muistiot strategiaksi: Boost / Counter / Top Issue + looginen / kriittinen / lateraalinen ajattelu.",
+    "title": "Pöytäkirja AI Strategia: Muistioista toiminnallisiksi oivalluksiksi (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Pöytäkirja AI:n Strategia-ominaisuus muuttaa raa'at kokousmuistiinpanot tehokkaaksi päätöksenteon työkalupakiksi. Käyttäen ChatGPT-5:tä ja Gemini 2.5 Pro:ta, se luo Tehostus, Vastaväite, Ydinongelma ja kolme ainutlaatuista ajattelutilaa liiketoimintasi edistämiseksi.",
+    "ogTitle": "Pöytäkirja AI Strategia: Muuta pöytäkirjat toiminnaksi",
+    "ogDescription": "Älä vain tallenna kokouksia. Muuta ne strategiaksi. Hanki Tehostus (mikä toimii), Vastaväite (mitä korjata), Ydinongelma (ongelman ydin) sekä Loogisen, Kriittisen ja Lateraalisen ajattelun tilat.",
     "ld": {
-      "headline": "Pöytäkirja AI lisää Strategy-toiminnon",
-      "description": "Hyödynnä ChatGPT-5:tä ja Gemini 2.5 Pro:ta nostaaksesi muistiot päätöksenteon tueksi ja määritelläksesi selkeät seuraavat askeleet."
+      "headline": "Pöytäkirja AI Strategia-ominaisuus: Yksinkertaisista muistiinpanoista kokouskumppaniksi",
+      "description": "Strategia-ominaisuus nostaa pöytäkirjat päätöksenteon tueksi käyttämällä edistynyttä tekoälyanalyysiä (ChatGPT-5 ja Gemini 2.5 Pro) tuottaakseen toiminnallisia oivalluksia."
     },
-    "keywords": "Pöytäkirja AI, kokousmuistioiden AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, päätöksenteon tuki, looginen ajattelu, kriittinen ajattelu, lateraalinen ajattelu, Boost, Counter, Top Issue"
+    "keywords": "Pöytäkirja AI, kokouspöytäkirja AI, Strategia, ChatGPT-5, Gemini 2.5 Pro, päätöksenteon tuki, toiminnalliset oivallukset, Looginen ajattelu, Kriittinen ajattelu, Lateraalinen ajattelu, Tehostus, Vastaväite, Ydinongelma, kokouskumppani, liiketoimintastrategia"
   },
   "aria": {
-    "home": "Pöytäkirja AI etusivu"
-  },
-  "a11y": {
-    "home": "Pöytäkirja AI etusivu"
+    "home": "Pöytäkirja AI Koti"
   },
   "nav": {
     "blog": "Blogi",
     "strategy": "Strategia"
   },
   "hero": {
-    "kicker": "Ominaisuusopas",
-    "h1": "Strategy Pöytäkirja AI:lle",
-    "tagline": "Ei pelkkiä muistioita. Strategy muuttaa keskustelun päätöksiksi ChatGPT-5:llä ja Gemini 2.5 Pro:lla."
+    "kicker": "Ominaisuuden syväluotaus",
+    "h1": "Pöytäkirjojen tuolla puolen: Strategia-toiminto",
+    "tagline": "Älä tyydy vain järjestämään muistiinpanoja. Strategia-toiminto tekee Pöytäkirja AI:stä ydinkokouskumppanisi, joka muuttaa keskustelut vaikuttaviksi toimiksi – kaiken tämän takana ovat ChatGPT-5 ja Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Mikä on Strategy?",
-    "p1": "Strategy on päätöksenteon tukikerros, joka rakentuu kokousmuistioidesi päälle.",
-    "p2": "Se tuottaa kolme ydinosiota — Boost, Counter ja Top Issue — sekä kolme ajattelutapaa Top Issue -ongelman läpivalaisuun.",
+    "h2": "Mikä on Strategia-toiminto?",
+    "p1": "Strategia on päätöksenteon tukikerros, joka nostaa pöytäkirjasi yksinkertaisesta tallenteesta toimintasuunnitelmaksi. Se on yksi suosituimmista ominaisuuksistamme, koska se siirtää sinut 'mitä sanottiin' -tasolta 'mitä tehdä seuraavaksi' -tasolle.",
+    "p2": "Pelkän yhteenvedon sijaan Strategia analysoi koko keskustelun edistyneen tekoälyn avulla ja tuottaa kuusi erillistä, toiminnallista tulosta:",
     "bullets": [
-      "Boost — mikä toimii ja miten sitä skaalataan",
-      "Counter — riskit ja miten ne korjataan",
-      "Top Issue — ratkaistava ydinkysymys",
-      "Looginen ajattelu — jäsennelty, vaiheittainen ratkaisu",
-      "Kriittinen ajattelu — oletusten haastaminen ja aukkojen löytäminen",
-      "Lateraalinen ajattelu — luovat harppaukset ilmeisen yli"
+      "Tehostus (Boost) — Positiiviset asiat ja niiden vahvistaminen: Tunnistaa, mikä toimii, ja ehdottaa konkreettisia tapoja menestyksen skaalaamiseksi.",
+      "Vastaväite (Counter) — Rakentava vastustus ja parannukset: Tarjoaa tarkoituksellisesti vastakkaisen näkökulman tai tunnistaa riskejä ja ehdottaa, miten perimmäiset ongelmat korjataan.",
+      "Ydinongelma (Top Issue) — Keskeinen ongelma: Paikantaa kokouksen yhden tärkeimmän kysymyksen tai konfliktin, joka on ratkaistava.",
+      "Looginen ajattelu — Jäsennelty, askel askeleelta etenevä ratkaisu Ydinongelmaan.",
+      "Kriittinen ajattelu — Haastaa Ydinongelman taustalla olevat perusoletukset, vinoumat ja esittämättä jääneet kysymykset.",
+      "Lateraalinen ajattelu — 'Läpimurtoidea', joka hyppää Ydinongelman ilmeisten, tavanomaisten ratkaisujen yli."
     ]
   },
   "how": {
-    "h2": "Miten se toimii",
+    "h2": "Kuinka se toimii",
     "steps": [
-      "Luo muistio kuten tavallisesti (sovelluksessa tai verkossa).",
-      "Napauta ”Strategy” analysoidaksesi sisällön ChatGPT-5:llä ja Gemini 2.5 Pro:lla.",
-      "Saat Boost / Counter / Top Issue + kolme ajattelutapaa.",
-      "Kopioi tai jaa tulokset ja lisää ne tehtäväjärjestelmääsi."
+      "Luo kokouspöytäkirjasi tavalliseen tapaan (iOS, Android tai Web).",
+      "Napauta 'Strategia'-painiketta analysoidaksesi koko transkription ChatGPT-5:llä ja Gemini 2.5 Pro:lla.",
+      "Saat 6-osaisen analyysisi: Tehostus, Vastaväite, Ydinongelma ja kolme ajattelutilaa.",
+      "Jaa, kopioi tai vie oivallukset suoraan tehtävänhallintajärjestelmääsi tai raporttiisi."
     ],
-    "note": "Tulokset mukautuvat kieleen ja toimialaan; ytimekkyys on oletus nopeaa lukemista varten."
+    "note": "Tulosteet mukautuvat kieleen ja toimialaan; oletuksena ytimekkyys nopeaa lukemista varten."
   },
   "samples": {
-    "h2": "Lyhyet, luettavat esimerkit",
+    "h2": "Näe se toiminnassa: Tosielämän esimerkki",
     "minutes": {
-      "h3": "Muistio (esimerkki)",
+      "h3": "Esimerkkipöytäkirja: 'Solar Chill' -kesäsekoituksen kokous",
       "lines": [
-        "Aihe: kesän limited-blend ”Solar Chill”",
-        "Päätökset: jatketaan Solar Chilliä; nimi säilytetään; resepti viimeistellään.",
-        "Tehtävät: design-mockupit; lopullinen resepti jaettuun kansioon.",
-        "Riski: 15 % palautteesta kertoo ”liian hapokas”."
+        "Aihe: Uusi kesän rajoitettu sekoitus 'Solar Chill' (kylmäuutettu kahvi + passionhedelmä + minttu).",
+        "Päätös: Edetään 'Solar Chill' -tuotteella pääasiallisena kesätuotteena. Nimi pidetään.",
+        "Tehtävät: Suunnittelutiimi luo mallikuvat. Lopullinen resepti ladataan 'FlavorSynciin'.",
+        "Riski: 15 % henkilöstön palautteesta totesi juoman olevan 'liian hapan'.",
+        "Yhteenveto: Tuote arvioitiin korkealle konseptin, nimen ja SNS-potentiaalin osalta."
       ]
     },
     "strategy": {
-      "h3": "Strategy (esimerkki)",
+      "h3": "Strategia-tulos (Tekoälyn tuottama)",
       "boost": [
-        "Boost: Korkea uudelleenoston aikomus → pilotti 10 liikkeessä + somemarkkinointi; mittaa uusintatilaus 7 päivän sisällä."
+        "Tehostus: 74 % 'joisi uudelleen' on vahva indikaattori markkinasopivuudesta. Toimenpide: Syvenny 15 % 'liian hapan' -palautteeseen. Älä vain vähennä happamuutta; harkitse A/B-testausta 'makeudeltaan säädetyllä' vaihtoehdolla pilottimyymälöissä maksimoidaksesi vetovoiman menettämättä tuotteen ydinidentiteettiä."
       ],
       "counter": [
-        "Counter: Hapoakkuuden hallinta → lisää ”miedosti makea” -vaihtoehto; A/B-testi siirapin tasosta 2 viikon ajan."
+        "Vastaväite: Kokous hylkäsi 'Mausteinfuusio'-ehdotuksen keskustelematta. Oliko tämä menetetty tilaisuus markkinatrendit huomioiden (esim. chai, kurkuma)? Päätös tehdä 'Bloom Latte' -tuotteesta myymäläkohtainen saattaa myös aliarvioida sen potentiaalia. Toimenpide: Arvioi 'mauste'-konsepti uudelleen markkinadataa vasten. Testaa 'Bloom Latte' -tuotetta verkossa tai kumppanuuksien kautta, ei vain myymälässä."
       ],
       "top": [
-        "Top Issue: Miten tasapainottaa maku niin, että suosio laajenee ilman brändin omaleimaisuuden menetystä?"
+        "Ydinongelma: Kuinka lanseerata onnistuneesti kaksi erillistä rajoitetun erän tuotetta ('Solar Chill' ja 'Bloom Latte') ja optimoida niiden markkinoilletulostrategiat (valtavirta vs. niche)."
       ],
       "modes": {
         "logical": [
-          "Looginen: Määritä kohdesegmentit → aseta onnistumisen KPI:t → aja A/B → julkaise voittava spesifikaatio."
+          "Looginen: 1. Määrittele kohdesegmentit kullekin tuotteelle (Solar Chill = nuorempi, SNS-keskeinen; Bloom Latte = terveystietoinen, rentoutuminen). 2. Luo erilliset arvolupaukset (Virkistys vs. Hyvinvointi). 3. Tarjoa 'siirappitason' räätälöinti Solar Chillille 'hapan'-palautteen käsittelemiseksi."
         ],
         "critical": [
-          "Kriittinen: Ylioptimoimmeko ”sosiaaliseen pöhinään”? Vahvista sokkomaisteluilla."
+          "Kriittinen: Onko tiimi sokaistunut 'SNS-hypestä' ja menneistä onnistumisista? 'Mauste'-idean hylkääminen viittaa mahdolliseen sokeaan pisteeseen. Toimenpide: Ota käyttöön kvantitatiivinen pisteytysmalli uusille ehdotuksille (kustannus, trendisopivuus, brändisopivuus) subjektiivisen vinouman poistamiseksi päätöksenteosta."
         ],
         "lateral": [
-          "Lateraalinen: Tarjoa tuoksu/room-mist -versio brändin laajentamiseksi juomien ulkopuolelle."
+          "Lateraalinen: Murtaudu ulos 'juoma'-kehyksestä. Toimenpide: Kehitä sekoituksesta 'ei-juotava' versio. Luo 'Solar Chill' -huonetuoksu tai 'Bloom Latte' -kylpytuotteita. Tämä laajentaa brändin lifestyle-tuotteisiin, tavoittaa ei-kahvia juovat asiakkaat ja luo uusia tulovirtoja."
         ]
       }
     }
   },
   "platform": {
     "h2": "Saatavuus",
-    "p1": "Strategy on saatavilla iOS:lle. Siirry ”muistiinpanoista” ”päätöksiin”."
+    "p1": "Mitä mieltä olet? Strategia-toiminto paljastaa oivalluksia, jotka sinulta jäivät huomaamatta, nostaa esiin vasta-argumentteja, joita ihmiset epäröivät sanoa, ja tarjoaa läpimurtoideoita. Se on saatavilla juuri nyt iOS- ja Android-sovelluksissamme. Kokeile sitä seuraavassa kokouksessasi ja siirry pelkistä 'muistiinpanoista' 'päätöksiin'."
   },
   "image": {
-    "alt": "Pöytäkirja AI Strategy -käyttöliittymä",
-    "caption": "Boost / Counter / Top Issue + kolme ajattelutapaa yhdellä silmäyksellä."
+    "alt": "Pöytäkirja AI Strategia-ominaisuuden käyttöliittymä älypuhelimessa",
+    "caption": "Hanki Tehostus, Vastaväite, Ydinongelma ja kolme ajattelutilaa yhdellä silmäyksellä."
   },
   "meta": {
     "h2": "Meta",
@@ -98,7 +96,8 @@
     "category": "Strategia"
   },
   "cta": {
-    "openBrowser": "Avaa selaimessa",
-    "downloadIOS": "Lataa iOS-sovellus"
+    "openBrowser": "Käytä selaimessa",
+    "downloadIOS": "Lataa App Storesta",
+    "downloadAndroid": "Hanki se Google Playsta"
   }
 }

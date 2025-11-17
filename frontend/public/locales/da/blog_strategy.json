@@ -1,95 +1,93 @@
 {
   "seo": {
-    "title": "Strategy i Referat AI — gør referater til beslutninger (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Strategy i Referat AI omsætter mødenoter til næste skridt. Med ChatGPT-5 og Gemini 2.5 Pro leverer den Boost, Counter, Top Issue og tre tænkemåder.",
-    "ogTitle": "Strategy i Referat AI: fra referat til handling",
-    "ogDescription": "Gør referater handlingsklare med Boost / Counter / Top Issue og logisk / kritisk / lateral tænkning.",
+    "title": "Referat AI Strategi: Fra referater til handlingsorienterede indsigter (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "Referat AI's Strategi-funktion omdanner rå mødereferater til et stærkt beslutningsværktøj. Ved hjælp af ChatGPT-5 og Gemini 2.5 Pro genererer den Boost, Kontra, Topemne og tre unikke tænkemåder for at drive din virksomhed fremad.",
+    "ogTitle": "Referat AI Strategi: Omdan referater til handling",
+    "ogDescription": "Du skal ikke bare optage møder. Omdan dem til strategi. Få Boost (hvad der virker), Kontra (hvad der skal rettes), Topemne (kerneproblemet) og tilstandene Logisk, Kritisk & Lateral tænkning.",
     "ld": {
-      "headline": "Referat AI lancerer Strategy",
-      "description": "Brug ChatGPT-5 og Gemini 2.5 Pro til at konvertere diskussioner til beslutningsstøtte og klare næste skridt."
+      "headline": "Referat AI Strategi-funktion: Fra simple noter til mødepartner",
+      "description": "Strategi-funktionen løfter referater til beslutningsstøtte ved hjælp af avanceret AI-analyse (ChatGPT-5 og Gemini 2.5 Pro) for at give handlingsorienterede indsigter."
     },
-    "keywords": "Referat AI, AI referat, Strategy, ChatGPT-5, Gemini 2.5 Pro, beslutningsstøtte, logisk tænkning, kritisk tænkning, lateral tænkning, Boost, Counter, Top Issue"
+    "keywords": "Referat AI, AI mødereferater, Strategi, ChatGPT-5, Gemini 2.5 Pro, beslutningsstøtte, handlingsorienterede indsigter, Logisk tænkning, Kritisk tænkning, Lateral tænkning, Boost, Kontra, Topemne, mødepartner, forretningsstrategi"
   },
   "aria": {
-    "home": "Referat AI forside"
-  },
-  "a11y": {
-    "home": "Referat AI forside"
+    "home": "Referat AI Hjem"
   },
   "nav": {
     "blog": "Blog",
     "strategy": "Strategi"
   },
   "hero": {
-    "kicker": "Funktionsguide",
-    "h1": "Strategy til Referat AI",
-    "tagline": "Ikke kun referater. Strategy gør diskussioner til beslutninger med ChatGPT-5 og Gemini 2.5 Pro."
+    "kicker": "Funktion: Dybdegående",
+    "h1": "Mere end referater: Strategifunktionen",
+    "tagline": "Stop med blot at organisere noter. Strategifunktionen gør Referat AI til din kerne-mødepartner, der omdanner diskussioner til handlinger med høj effekt, alt sammen drevet af ChatGPT-5 og Gemini 2.5 Pro."
   },
   "what": {
-    "h2": "Hvad er Strategy?",
-    "p1": "Strategy er et beslutningsstøttelag oven på dine referater.",
-    "p2": "Den genererer tre kerne-output — Boost, Counter og Top Issue — plus tre tænkemåder, der angriber Top Issue fra forskellige vinkler.",
+    "h2": "Hvad er Strategifunktionen?",
+    "p1": "Strategi er det beslutningsstøttende lag, der løfter dine referater fra en simpel registrering til en handlingsplan. Det er en af vores mest populære funktioner, fordi den flytter dig fra 'hvad blev der sagt' til 'hvad skal vi gøre nu'.",
+    "p2": "I stedet for blot et resumé analyserer Strategi hele diskussionen ved hjælp af avanceret AI for at levere seks forskellige, handlingsorienterede output:",
     "bullets": [
-      "Boost — det der virker, og hvordan det skaleres",
-      "Counter — risici og hvordan de afhjælpes",
-      "Top Issue — det centrale spørgsmål der skal løses",
-      "Logisk tænkning — struktureret, trinvis løsning",
-      "Kritisk tænkning — udfordr antagelser og find huller",
-      "Lateral tænkning — kreative spring ud over det oplagte"
+      "Boost — Positiver & Hvordan man forstærker dem: Identificerer, hvad der virker, og foreslår konkrete måder at skalere den succes på.",
+      "Kontra — Konstruktiv modstand & Forbedringer: Giver bevidst et modsatrettet synspunkt eller identificerer risici og foreslår, hvordan man løser de underliggende problemer.",
+      "Topemne — Kerneproblemet: Udpeger det absolut vigtigste spørgsmål eller konflikt fra mødet, der skal løses.",
+      "Logisk tænkning — En struktureret, trinvis løsning på Topemnet.",
+      "Kritisk tænkning — Udfordrer kerneantagelser, fordomme og de ubesvarede spørgsmål bag Topemnet.",
+      "Lateral tænkning — En 'gennembruds'-idé, der springer ud over de åbenlyse, konventionelle løsninger på Topemnet."
     ]
   },
   "how": {
-    "h2": "Sådan fungerer det",
+    "h2": "Hvordan det virker",
     "steps": [
-      "Generér referat som vanligt (i appen eller på web).",
-      "Tryk på “Strategy” for analyse med ChatGPT-5 og Gemini 2.5 Pro.",
-      "Få Boost / Counter / Top Issue + tre tænkemåder.",
-      "Kopiér eller del output og indsæt det i dit opgavesystem."
+      "Generer dine mødereferater som normalt (iOS, Android eller Web).",
+      "Tryk på 'Strategi'-knappen for at analysere det fulde transskript med ChatGPT-5 & Gemini 2.5 Pro.",
+      "Modtag din 6-delte analyse: Boost, Kontra, Topemne og de tre tænkemåder.",
+      "Del, kopier eller eksporter indsigterne direkte til dit opgavestyringssystem eller din rapport."
     ],
     "note": "Output tilpasser sig sprog og domæne; kortfattethed som standard for hurtig læsning."
   },
   "samples": {
-    "h2": "Korte, læsevenlige eksempler",
+    "h2": "Se det i aktion: Et eksempel fra den virkelige verden",
     "minutes": {
-      "h3": "Referat (eksempel)",
+      "h3": "Eksempel på referat: 'Solar Chill' Sommerblanding Møde",
       "lines": [
-        "Emne: sommer-limited blend “Solar Chill”",
-        "Beslutninger: fortsæt med Solar Chill; behold navnet; færdiggør opskrift.",
-        "To-dos: designmockups; upload endelig opskrift til delt mappe.",
-        "Risiko: 15 % feedback siger “for sur”."
+        "Emne: Ny sommer-limited blanding 'Solar Chill' (koldbryg + passionsfrugt + mynte).",
+        "Beslutning: Fortsæt med 'Solar Chill' som hoved-sommerprodukt. Behold navnet.",
+        "To-Dos: Designteam skal lave mockups. Endelig opskrift skal uploades til 'FlavorSync'.",
+        "Risiko: 15% af personalets feedback bemærkede, at drikken var 'for sur'.",
+        "Resumé: Produkt vurderet højt for koncept, navn og SNS-potentiale."
       ]
     },
     "strategy": {
-      "h3": "Strategy (eksempel)",
+      "h3": "Strategi Output (Drevet af AI)",
       "boost": [
-        "Boost: Høj intention om genkøb → pilot i 10 butikker + social kampagne; mål genbestilling inden for 7 dage."
+        "Boost: 74% 'ville drikke igen' er en stærk indikator for markedstilpasning. Handling: Dyk ned i de 15% 'for sur' feedback. Reducer ikke bare surheden; overvej A/B-testning af en 'sødmejusteret' mulighed i pilotbutikker for at maksimere appellen uden at miste kerneproduktidentiteten."
       ],
       "counter": [
-        "Counter: Håndter syrlighed → tilføj “mild sweet”-valg; A/B-test sirupniveau i 2 uger."
+        "Kontra: Mødet afviste 'Krydderi-infusion'-forslaget uden diskussion. Var dette en tabt mulighed givet markedstendenser (f.eks. chai, gurkemeje)? Beslutningen om at gøre 'Bloom Latte' butikseksklusiv undervurderer måske også dens potentiale. Handling: Re-evaluer 'krydderi'-konceptet mod markedsdata. Test 'Bloom Latte' online eller via partnerskaber, ikke kun i butik."
       ],
       "top": [
-        "Top Issue: Balancér smagen så rækkevidden øges uden at miste brandets særpræg."
+        "Topemne: Hvordan man succesfuldt lancerer to forskellige limited-run produkter ('Solar Chill' og 'Bloom Latte') og optimerer deres respektive go-to-market strategier (mainstream vs. niche)."
       ],
       "modes": {
         "logical": [
-          "Logisk: Definér målsegmenter → sæt succes-KPI’er → kør A/B → udrul vinderspec."
+          "Logisk: 1. Definer målsegmenter for hvert produkt (Solar Chill = yngre, SNS-fokuseret; Bloom Latte = sundhedsbevidst, afslapning). 2. Skab distinkte værditilbud (Forfriskning vs. Wellness). 3. Tilbyd 'sirup-niveau' tilpasning for Solar Chill for at håndtere 'sur' feedback."
         ],
         "critical": [
-          "Kritisk: Overtilpasser vi os ‘social buzz’? Verificér med blindsmagning."
+          "Kritisk: Er teamet forudindtaget af 'SNS-hype' og tidligere succeser? Afvisningen af 'krydderi'-idéen tyder på en potentiel blind vinkel. Handling: Implementer en kvantitativ scoremodel for nye forslag (omkostninger, trend-fit, brand-fit) for at fjerne subjektiv bias fra beslutningstagning."
         ],
         "lateral": [
-          "Lateral: Lav en duft/room-mist-udgave for at udvide brandet ud over drikke."
+          "Lateral: Bryd fri fra 'drikkevare'-rammen. Handling: Udvikl en 'ikke-drikkelig' version af blandingen. Skab en 'Solar Chill' rumduft eller 'Bloom Latte' badeprodukter. Dette udvider brandet til livsstilsvarer, når ud til ikke-kaffekunder og skaber nye indtægtsstrømme."
         ]
       }
     }
   },
   "platform": {
     "h2": "Tilgængelighed",
-    "p1": "Strategy er tilgængelig på iOS. Gå fra “noter” til “beslutninger”."
+    "p1": "Hvad synes du? Strategifunktionen afdækker indsigter, du gik glip af, rejser modargumenter, folk tøvede med at sige, og giver gennembrudsidéer. Den er tilgængelig lige nu på vores iOS- og Android-apps. Prøv den til dit næste møde og gå fra blot 'noter' til 'beslutninger'."
   },
   "image": {
-    "alt": "Referat AI Strategy UI",
-    "caption": "Boost / Counter / Top Issue + tre tænkemåder på ét overblik."
+    "alt": "Brugergrænsefladen for Referat AI Strategi-funktionen på en smartphone",
+    "caption": "Få Boost, Kontra, Topemne og tre tænkemåder med et enkelt blik."
   },
   "meta": {
     "h2": "Meta",
@@ -98,7 +96,8 @@
     "category": "Strategi"
   },
   "cta": {
-    "openBrowser": "Åbn i browseren",
-    "downloadIOS": "Hent iOS-app"
+    "openBrowser": "Brug på Web",
+    "downloadIOS": "Download i App Store",
+    "downloadAndroid": "Få den på Google Play"
   }
 }
