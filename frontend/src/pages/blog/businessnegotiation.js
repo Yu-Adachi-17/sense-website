@@ -12,14 +12,11 @@ import HomeIcon from "../homeIcon";
 import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
+import React from "react"; // ★ BoldParserのためにReactをインポート
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* * ---------- 
- * ★★★ 再構成された EN_FALLBACK ★★★
- * (前回分に加え、Pricingサマリーを "why" の後に追加)
- * ---------- 
- */
+/* ---------- EN_FALLBACK (変更なし) ---------- */
 const EN_FALLBACK = {
   seo: {
     title: "Why Generic Minutes Fail Negotiations | Minutes.AI",
@@ -43,7 +40,6 @@ const EN_FALLBACK = {
       "A simple list of 'decisions' is not enough. High-stakes negotiations are about context, trade-offs, and 'who-said-what.' Minutes.AI helps you capture the full story, not just a shallow summary.",
   },
   byline: { name: "Written by Yu Adachi", title: "CEO, Sense G.K." },
-
   recap: {
     h2: "Previously: The 'Universal Minutes' Mindset",
     p1: {
@@ -60,7 +56,6 @@ const EN_FALLBACK = {
     focus:
       "But negotiations are different. The structure must reflect conflicting interests, options, and trade-offs.",
   },
-
   diversity: {
     h2: "Meeting Diversity: Purpose Defines the Output",
     core: {
@@ -81,12 +76,10 @@ const EN_FALLBACK = {
     },
     p1: "If people talk for a common purpose, it's a meeting. Because purposes differ, the valuable output must adapt—especially for negotiations.",
   },
-
   negotiation: {
     h2: "What is a Negotiation, Really?",
     p1: "How is a negotiation different from an internal meeting? In one word: **Profit.** A negotiation is a 'battlefield' where two companies protect their own interests—price, scope, timeline. It's not a one-way street; it's a back-and-forth of concessions to find a path to agreement. A simple 'To-Do' list can't capture this.",
   },
-
   limits: {
     h2: "Why One-Size-Fits-All Fails",
     p1: "Using a generic template for a negotiation creates 'shallow' minutes. This loses critical context and forces costly follow-up meetings.",
@@ -109,14 +102,12 @@ const EN_FALLBACK = {
       ],
     },
   },
-
   example: {
     h2: "From 'Dry' Data to Deal 'Context'",
     block:
       "Client: The price is too high for our Q4 budget.\nAE: I understand. If we limit seats to 40 and move SSO to Phase 2, we can meet your cap.\nClient: That could work. I need legal approval. Can we lock that pricing until 12/15?\nAE: Agreed. I'll send Proposal v3 today. Legal review by EOW, close by 12/15.",
     p1: "A generic minute might just say: 'Decision: Sell for $X.' A *negotiation-optimized* minute makes the progression explicit: **Objection** (price) → **Concession** (scope) → **Commitment** (deadline). This context is everything for the decision-makers who weren't in the room.",
   },
-
   why: {
     h2: "Why Minutes.AI for Negotiation",
     items: [
@@ -127,33 +118,28 @@ const EN_FALLBACK = {
       "**Multilingual Outputs:** Close global deals with clear, accurate minutes for all stakeholders, in their language.",
     ],
   },
-
-  /* ---------- ★★★ NEW PRICING SECTION ★★★ ---------- */
   pricing: {
     h2: "Simple, Flexible Pricing That Fits Your Rhythm",
     p1: "Your meeting schedule isn't 'one-size-fits-all,' so your pricing shouldn't be either. Choose the plan that makes sense for you.",
     timepacks: {
       h3: "One-Time Packs",
-      note: "Buy once, use forever. Your minutes never expire.",
+      note: "Buy once, use forever. Your minutes **never expire**.",
       items: ["Trial (120 min): $1.99", "Light (1200 min): $11.99"],
     },
     subs: {
       h3: "Unlimited Subscriptions",
-      note: "Truly unlimited minutes. No caps, no monthly resets.",
+      note: "**Truly unlimited** minutes. No caps, no monthly resets.",
       items: ["Monthly: $16.99", "Annual: $149.99 (Save ≈26%)"],
     },
     free: {
       h3: "Try It Free, Every Day",
-      p1: "Every user gets a free 3-minute ticket to try Minutes.AI, every single day. No credit card required.",
+      p1: "Every user gets a free **3-minute ticket** to try Minutes.AI, every single day. No credit card required.",
     },
   },
-  /* ---------- ★★★ END NEW SECTION ★★★ ---------- */
-
   wrap: {
     h2: "Wrap-up: Stop Settling for Shallow Minutes",
-    p: "Negotiations are won or lost in the details. A summary that captures the *atmosphere*, *context*, and *concessions* is what empowers your team to make faster, smarter decisions. Structure isn't just about clarity; it's about capturing the reality of the deal.",
+    p: "Negotiations are won or lost in the details. A summary that captures the **atmosphere**, **context**, and **concessions** is what empowers your team to make faster, smarter decisions. Structure isn't just about clarity; it's about capturing the reality of the deal.",
   },
-
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
 };
 
@@ -183,6 +169,30 @@ function useTx(ns) {
   };
   return { txs, txa };
 }
+
+/* ---------- ★ NEW HELPER: Simple Markdown Bold Parser ★ ---------- */
+/**
+ * A simple component to parse strings with **bold** syntax.
+ * @param {{children: string}} props
+ */
+function BoldParser({ children }) {
+  if (!children || typeof children !== "string") {
+    return null;
+  }
+  // Split the string by the ** delimiter
+  const parts = children.split("**");
+  
+  // Reassemble the parts, wrapping every odd-indexed part in <strong>
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+      )}
+    </>
+  );
+}
+/* ---------- ★ END NEW HELPER ★ ---------- */
+
 
 /* ---------- Small UI components ---------- */
 function Kicker({ children }) {
@@ -376,7 +386,10 @@ export default function BlogBusinessNegotiation() {
           {/* What is negotiation */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("negotiation.h2")}</h2>
-            <p className="mt-2 text-base leading-7 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: txs("negotiation.p1") }} />
+            {/* ★ FIXED ★ */}
+            <p className="mt-2 text-base leading-7 text-indigo-100/90">
+              <BoldParser>{txs("negotiation.p1")}</BoldParser>
+            </p>
           </SectionCard>
 
           {/* Limits of one-size-fits-all */}
@@ -412,20 +425,24 @@ export default function BlogBusinessNegotiation() {
 {txs("example.block")}
               </pre>
             </div>
-            <p className="mt-3 text-base leading-7 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: txs("example.p1") }} />
+            {/* ★ FIXED ★ */}
+            <p className="mt-3 text-base leading-7 text-indigo-100/90">
+              <BoldParser>{txs("example.p1")}</BoldParser>
+            </p>
           </SectionCard>
 
           {/* Why Minutes.AI for negotiation */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("why.h2")}</h2>
             <ul className="mt-4 ml-5 list-disc space-y-2 text-indigo-100/90">
+              {/* ★ FIXED ★ */}
               {whyItems.map((p, i) => (
-                <li key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                <li key={i}><BoldParser>{p}</BoldParser></li>
               ))}
             </ul>
           </SectionCard>
 
-          {/* ---------- ★★★ NEW PRICING SECTION ★★★ ---------- */}
+          {/* ---------- ★ PRICING SECTION (FIXED) ★ ---------- */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
             <p className="mt-2 text-base leading-7 text-indigo-100/90">{txs("pricing.p1")}</p>
@@ -434,7 +451,10 @@ export default function BlogBusinessNegotiation() {
               {/* Time Packs */}
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <h3 className="text-lg font-semibold">{txs("pricing.timepacks.h3")}</h3>
-                <p className="mt-1 text-sm text-indigo-200/80" dangerouslySetInnerHTML={{ __html: txs("pricing.timepacks.note") }} />
+                {/* ★ FIXED ★ */}
+                <p className="mt-1 text-sm text-indigo-200/80">
+                  <BoldParser>{txs("pricing.timepacks.note")}</BoldParser>
+                </p>
                 <ul className="mt-3 ml-5 list-disc space-y-1 text-indigo-100/90">
                   {pricingTimepackItems.map((p, i) => (
                     <li key={i}>{p}</li>
@@ -444,7 +464,10 @@ export default function BlogBusinessNegotiation() {
               {/* Subscriptions */}
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 <h3 className="text-lg font-semibold">{txs("pricing.subs.h3")}</h3>
-                <p className="mt-1 text-sm text-indigo-200/80">{txs("pricing.subs.note")}</p>
+                 {/* ★ FIXED ★ */}
+                <p className="mt-1 text-sm text-indigo-200/80">
+                  <BoldParser>{txs("pricing.subs.note")}</BoldParser>
+                </p>
                 <ul className="mt-3 ml-5 list-disc space-y-1 text-indigo-100/90">
                   {pricingSubItems.map((p, i) => (
                     <li key={i}>{p}</li>
@@ -456,15 +479,21 @@ export default function BlogBusinessNegotiation() {
             {/* Free Offer */}
             <div className="mt-5 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-4">
                <h3 className="text-sm font-semibold uppercase tracking-wide text-emerald-200">{txs("pricing.free.h3")}</h3>
-               <p className="mt-1 text-sm text-emerald-100/90" dangerouslySetInnerHTML={{ __html: txs("pricing.free.p1") }} />
+               {/* ★ FIXED ★ */}
+               <p className="mt-1 text-sm text-emerald-100/90">
+                 <BoldParser>{txs("pricing.free.p1")}</BoldParser>
+               </p>
             </div>
           </SectionCard>
-          {/* ---------- ★★★ END NEW SECTION ★★★ ---------- */}
+          {/* ---------- ★ END SECTION ★ ---------- */}
 
           {/* Wrap-up */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("wrap.h2")}</h2>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: txs("wrap.p") }} />
+            {/* ★ FIXED ★ */}
+            <p className="mt-4 text-base leading-7 text-indigo-100/90">
+              <BoldParser>{txs("wrap.p")}</BoldParser>
+            </p>
           </SectionCard>
 
           {/* CTA */}
