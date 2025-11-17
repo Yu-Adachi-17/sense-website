@@ -571,51 +571,48 @@ export default function Home() {
       </Head>
 
       {/* ===== Fixed Header ===== */}
-      <FixedHeaderPortal>
-        <header className="top" role="banner">
-          <div className="topInner">
-            {/* 左：ブランドロゴ＋テキスト（白） */}
-            <Link href="/" className="brand" aria-label={t("Minutes.AI Home")}>
-              <span className="brandIcon" aria-hidden="true">
-                <HomeIcon size={26} color="currentColor" />
-              </span>
-              <span className="brandText">{t("Minutes.AI")}</span>
-            </Link>
+<FixedHeaderPortal>
+  <header className="top" role="banner">
+    <div className="topInner">
+      
+      {/* 左：ブランド */}
+      <Link href="/" className="brand" aria-label={t("Minutes.AI Home")}>
+        <span className="brandIcon" aria-hidden="true">
+          <HomeIcon size={26} color="currentColor" />
+        </span>
+        <span className="brandText">{t("Minutes.AI")}</span>
+      </Link>
 
-            {/* 中央：シンプルなナビ（Reflect 風 / プレーン白） */}
-            <nav className="nav" aria-label={t("Primary") || "Primary"}>
-              <Link href="/blog" className="navLink">
-                {t("Blog")}
-              </Link>
-              <Link href="/company" className="navLink">
-                Company
-              </Link>
-            </nav>
+      {/* 右：Blog / Company / iOS / Android → 1つの枠で囲む */}
+      <nav className="navGroup" aria-label={t("Primary") || "Primary"}>
+        <Link href="/blog" className="navItem">{t("Blog")}</Link>
+        <Link href="/company" className="navItem">{t("Company")}</Link>
 
-            {/* 右：ストアリンク（白文字＋アイコンのみ） */}
-            <div className="storeNav">
-              <a
-                href={LINK_IOS}
-                className="storeLink"
-                rel="noopener noreferrer"
-                aria-label={t("Download on iOS")}
-              >
-                <FaAppStore className="storeIcon" aria-hidden="true" />
-                <span className="storeText">{t("iOS")}</span>
-              </a>
-              <a
-                href={LINK_ANDROID}
-                className="storeLink"
-                rel="noopener noreferrer"
-                aria-label={t("Download on Android")}
-              >
-                <BsGooglePlay className="storeIcon" aria-hidden="true" />
-                <span className="storeText">{t("Android")}</span>
-              </a>
-            </div>
-          </div>
-        </header>
-      </FixedHeaderPortal>
+        <a
+          href={LINK_IOS}
+          className="navItem"
+          rel="noopener noreferrer"
+          aria-label={t("Download on iOS")}
+        >
+          <FaAppStore className="navIcon" aria-hidden="true" />
+          {t("iOS")}
+        </a>
+
+        <a
+          href={LINK_ANDROID}
+          className="navItem"
+          rel="noopener noreferrer"
+          aria-label={t("Download on Android")}
+        >
+          <BsGooglePlay className="navIcon" aria-hidden="true" />
+          {t("Android")}
+        </a>
+      </nav>
+
+    </div>
+  </header>
+</FixedHeaderPortal>
+
 
 
       {/* ===== Main ===== */}
@@ -1020,135 +1017,82 @@ export default function Home() {
           );
         }
 
-        header.top {
-          position: fixed;
-          left: 0;
-          right: 0;
-          top: 0;
-          z-index: 2147483647;
-          padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px
-            var(--header-py);
-          height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          background: linear-gradient(
-            180deg,
-            rgba(5, 8, 20, 0.9) 0%,
-            rgba(5, 8, 20, 0.75) 100%
-          );
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+header.top {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2147483647;
+  padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px var(--header-py);
+  height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(5, 8, 20, 0.82);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
 
-        header.top .topInner {
-          max-width: 1200px;
-          margin: 0 auto;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 24px;
-        }
+header.top .topInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-        header.top .brand {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          text-decoration: none;
-          color: #ffffff;
-        }
+/* 左ロゴ */
+header.top .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+header.top .brandText {
+  font-weight: 800;
+  font-size: 22px;
+}
 
-        header.top .brandIcon {
-          width: 26px;
-          height: 26px;
-          display: inline-flex;
-        }
+/* ▼ 右ナビ全体をひとつの枠で囲む */
+header.top .navGroup {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  background: rgba(20,40,60,0.4);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
 
-        header.top .brandText {
-          font-weight: 800;
-          font-size: 22px;
-          letter-spacing: 0.2px;
-          white-space: nowrap;
-        }
+header.top .navItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  opacity: 0.85;
+}
+header.top .navItem:hover {
+  opacity: 1;
+}
 
-        header.top .nav {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-          justify-content: center;
-          flex: 1;
-        }
+header.top .navIcon {
+  font-size: 14px;
+}
 
-        header.top .navLink {
-          font-weight: 600;
-          font-size: 14px;
-          color: #f5f7ff;
-          text-decoration: none;
-          opacity: 0.8;
-        }
+/* モバイル時：必要ならナビを折り畳む（お好みで） */
+@media (max-width: 720px) {
+  header.top .navGroup {
+    gap: 14px;
+    padding: 6px 14px;
+  }
+  header.top .brandText {
+    font-size: 18px;
+  }
+}
 
-        header.top .navLink:hover {
-          opacity: 1;
-        }
-
-        header.top .storeNav {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        header.top .storeLink {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 6px 10px;
-          border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          text-decoration: none;
-          color: #ffffff;
-          font-weight: 700;
-          font-size: 12px;
-          background: transparent;
-        }
-
-        header.top .storeLink:hover {
-          border-color: rgba(255, 255, 255, 0.32);
-        }
-
-        header.top .storeIcon {
-          font-size: 14px;
-        }
-
-        header.top .storeText {
-          white-space: nowrap;
-        }
-
-        @supports not (backdrop-filter: blur(12px)) {
-          header.top {
-            background: rgba(5, 8, 20, 0.94);
-          }
-        }
-
-        .srOnly {
-          position: absolute !important;
-          width: 1px !important;
-          height: 1px !important;
-          padding: 0 !important;
-          margin: -1px !important;
-          overflow: hidden !important;
-          clip: rect(0, 0, 0, 0) !important;
-          border: 0 !important;
-        }
-
-        @media (max-width: 720px) {
-          header.top .topInner {
-            gap: 12px;
-          }
-          header.top .brandText {
-            font-size: 18px;
-          }
-          header.top .nav {
-            display: none; /* モバイルではロゴ＋ストアだけにしてさらにスッキリ */
-          }
-        }
       `}</style>
 
 
