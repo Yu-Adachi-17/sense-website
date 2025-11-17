@@ -1,43 +1,43 @@
 {
   "seo": {
-    "title": "Die KI-Modelle hinter Protokoll KI",
-    "description": "Warum Protokoll KI professionelle Besprechungsprotokolle liefert: Quality-First-Prinzip und aktuelle Modelle (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Protokoll KI: Modellstrategie mit Qualitätsfokus",
-    "ogDescription": "Wir legen offen, welche Modelle wir einsetzen—ChatGPT-5 und Gemini 2.5 Pro—für klare, umsetzbare, konsistente Protokolle.",
+    "title": "Hinter den Kulissen: Die KI-Modelle von Protokoll KI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Entdecken Sie, warum Protokoll KI überlegene Meeting-Protokolle liefert. Wir enthüllen unsere modellunabhängige Strategie und die leistungsstarken LLMs, die wir verwenden (derzeit ChatGPT-5 und Gemini 2.5 Pro).",
+    "ogTitle": "Qualität vor Kosten: Die KI-Modelle, die wir bei Protokoll KI einsetzen",
+    "ogDescription": "Protokoll KI priorisiert die Ausgabequalität und setzt erstklassige Modelle wie ChatGPT-5 und Gemini 2.5 Pro ein, um professionelle Ergebnisse zu gewährleisten.",
     "ld": {
-      "headline": "KI-Modelle, die Protokoll KI nutzt",
-      "description": "Protokoll KI priorisiert Ausgabequalität und setzt derzeit auf ChatGPT-5 und Gemini 2.5 Pro für entscheidungsreife Protokolle."
+      "headline": "Die KI-Modelle, die Protokoll KI antreiben",
+      "description": "Erfahren Sie mehr über unsere Philosophie bei der Modellauswahl und warum sie für die Erstellung handlungsorientierter, professioneller Meeting-Protokolle entscheidend ist."
     }
   },
   "aria": { "home": "Protokoll KI Startseite" },
-  "nav": { "blog": "Blog", "aimodel": "KI-Modelle" },
+  "nav": { "blog": "Blog", "aimodel": "KI-Modelle, die wir verwenden" },
   "hero": {
-    "kicker": "Hinter den Kulissen",
-    "h1": "Diese KI-Modelle nutzen wir für Protokoll KI",
-    "tagline": "Nicht irgendein LLM: Wir wählen Modelle, die Protokolle klar und handlungsorientiert halten. Aktuell: ChatGPT-5 und Gemini 2.5 Pro."
+    "kicker": "Einblick in Protokoll KI",
+    "h1": "Was steckt unter der Haube? Die KI-Modelle hinter Protokoll KI",
+    "tagline": "Wir glauben an Transparenz. Das ist unsere Philosophie bei der Modellauswahl und die genaue KI, die wir für Ihre professionellen Protokolle verwenden."
   },
   "philosophy": {
-    "h2": "Warum Qualität zuerst kommt",
-    "p1": "Viele Produkte wählen Modelle nach Kosten. Wir priorisieren Klarheit, Umsetzbarkeit und Konsistenz, damit stets der nächste Schritt klar ist.",
-    "p2": "Gute Zutaten und eine gute Küche garantieren kein Spitzengericht—Handwerk zählt. Modellwahl und Prompts sind für Profi-Protokolle abgestimmt."
+    "h2": "Unser Ansatz vs. der Markt: Warum wir uns nicht zufriedengeben",
+    "p1": "Viele KI-Tools wählen Modelle wie ChatGPT-4o aus Kostengründen. Wir verfolgen einen anderen Ansatz: **Wir priorisieren die Ausgabequalität jederzeit über die Kosten.**",
+    "p2": "Aber eine großartige Philosophie allein reicht nicht aus. Wie bei einem Michelin-Sterne-Gericht braucht man die besten Zutaten (Ihr Meeting), die besten Werkzeuge (unsere Software) und einen Weltklasse-Koch (das KI-Modell), um ein perfektes Ergebnis zu erzielen."
   },
   "adopted": {
-    "h2": "Eingesetzte Modelle (zum Zeitpunkt der Veröffentlichung)",
+    "h2": "Unsere aktuellen KI-Modelle (Stand heute)",
     "items": [
-      "ChatGPT-5 (OpenAI): starkes Schlussfolgern, Tonkontrolle, verlässliche Struktur für entscheidungsreife Protokolle.",
-      "Gemini 2.5 Pro (Google): Kohärenz bei langem Kontext und robuste Extraktion von Kernaussagen."
+      "ChatGPT-5 (OpenAI): Unübertroffenes logisches Denken und präzise Tonkontrolle. Perfekt für komplexe Diskussionen, bei denen Entscheidungen und Verantwortlichkeit entscheidend sind.",
+      "Gemini 2.5 Pro (Google): Unglaubliche Fähigkeit, lange Gespräche zu verstehen, den Kontext zu wahren und wichtige Punkte zu extrahieren. Gewährleistet stabile, hochwertige Zusammenfassungen, selbst bei Nischen- oder Fachthemen."
     ],
-    "foot": "Wir evaluieren neue Modelle fortlaufend und wechseln, sobald sie unsere Qualitätsmesslatte übertreffen."
+    "foot": "Bitte beachten Sie: Die KI-Landschaft verändert sich rasant. Wir sind 'modellunabhängig' und werden immer Modelle testen, einführen oder wechseln, um sicherzustellen, dass Sie das absolut beste Ergebnis erhalten. Wenn morgen ein besseres Modell erscheint, werden wir es verwenden."
   },
   "image": {
-    "alt": "Modell-Stack für Protokoll KI",
-    "caption": "Protokoll KI wählt Modelle nach Klarheit und Umsetzbarkeit, nicht nur nach Kosten."
+    "alt": "Ein Diagramm, das die Entscheidungs-Engine von Protokoll KI zeigt, wie sie die besten KI-Modelle wie ChatGPT-5 und Gemini 2.5 Pro auswählt.",
+    "caption": "Wir wählen das optimale Modell, nicht das billigste. Das ist das Prinzip von Protokoll KI."
   },
   "links": {
-    "h2": "Weiterführend",
-    "intro": "Einführung",
-    "nego": "Protokolle für Verhandlungen"
+    "h2": "Weiterführende Lektüre",
+    "intro": "Produkteinführung",
+    "nego": "Protokolle von Geschäftsverhandlungen"
   },
   "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Artikel", "category": "KI-Modelle" },
-  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App laden" }
+  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App herunterladen" }
 }

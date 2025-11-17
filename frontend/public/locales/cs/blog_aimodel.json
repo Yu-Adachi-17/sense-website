@@ -1,43 +1,43 @@
 {
   "seo": {
-    "title": "Modely AI stojící za Zápisník AI",
-    "description": "Proč Zápisník AI přináší profesionální zápisy: zásada kvality na prvním místě a aktuálně používané modely (ChatGPT-5 a Gemini 2.5 Pro).",
-    "ogTitle": "Politika modelů v Zápisník AI: kvalita především",
-    "ogDescription": "Zveřejňujeme modely, na které spoléháme—ChatGPT-5 a Gemini 2.5 Pro—pro jasné, akční a konzistentní zápisy.",
+    "title": "Pod pokličkou: Modely AI pohánějící Zápisník AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Zjistěte, proč Zápisník AI poskytuje špičkové zápisy ze schůzek. Odhalujeme naši politiku nezávislosti na modelu a výkonné LLM, které používáme (aktuálně ChatGPT-5 a Gemini 2.5 Pro).",
+    "ogTitle": "Kvalita nad náklady: Modely AI, které používáme v Zápisník AI",
+    "ogDescription": "Zápisník AI upřednostňuje kvalitu výstupu a používá nejlepší modely ve své třídě, jako jsou ChatGPT-5 a Gemini 2.5 Pro, aby zajistila profesionální výsledky.",
     "ld": {
-      "headline": "Modely umělé inteligence používané v Zápisník AI",
-      "description": "Zápisník AI klade důraz na kvalitu a aktuálně využívá ChatGPT-5 a Gemini 2.5 Pro pro zápisy připravené k rozhodnutí."
+      "headline": "Modely AI pohánějící Zápisník AI",
+      "description": "Přečtěte si o naší filozofii výběru modelů a o tom, proč je klíčová pro vytváření profesionálních zápisů ze schůzek zaměřených na akci."
     }
   },
   "aria": { "home": "Domovská stránka Zápisník AI" },
-  "nav": { "blog": "Blog", "aimodel": "Modely AI" },
+  "nav": { "blog": "Blog", "aimodel": "Modely AI, které používáme" },
   "hero": {
-    "kicker": "Za oponou",
-    "h1": "Modely, které v Zápisník AI používáme",
-    "tagline": "Nevybíráme náhodné LLM; volíme to, co dělá zápisy jasnými a akčními. Nyní: ChatGPT-5 a Gemini 2.5 Pro."
+    "kicker": "Uvnitř Zápisník AI",
+    "h1": "Co se skrývá pod kapotou? Modely AI pohánějící Zápisník AI",
+    "tagline": "Věříme v transparentnost. Toto je naše filozofie výběru modelů a přesná AI, kterou používáme k vytváření vašich profesionálních zápisů."
   },
   "philosophy": {
-    "h2": "Proč dáváme přednost kvalitě",
-    "p1": "Mnohé produkty volí podle nákladů. My jdeme po jasnosti, akceschopnosti a konzistenci, aby čtenář vždy znal další krok.",
-    "p2": "Nejlepší ingredience a kuchyně samy nezaručí skvělé jídlo—rozhoduje dovednost. Ladíme výběr modelů a promptů pro profesionální zápisy."
+    "h2": "Náš postoj vs. trh: Proč se nespokojíme s málem",
+    "p1": "Mnoho nástrojů AI volí modely jako ChatGPT-4o, protože je to nákladově efektivní. My volíme jiný přístup: **vždy upřednostňujeme kvalitu výstupu před náklady.**",
+    "p2": "Ale skvělá filozofie nestačí. Stejně jako u jídla oceněného michelinskou hvězdou potřebujete ty nejlepší ingredience (vaše schůzka), nejlepší nástroje (náš software) a šéfkuchaře světové třídy (model AI), abyste vytvořili dokonalý výsledek."
   },
   "adopted": {
-    "h2": "Přijaté modely (v době psaní)",
+    "h2": "Naše aktuální sestava AI (k dnešnímu dni)",
     "items": [
-      "ChatGPT-5 (OpenAI): silné uvažování, kontrola tónu a spolehlivá struktura pro zápisy připravené k rozhodnutí.",
-      "Gemini 2.5 Pro (Google): vysoká konzistentnost na dlouhých kontextech a robustní extrakce klíčových bodů."
+      "ChatGPT-5 (OpenAI): Bezkonkurenční logické uvažování a přesné ovládání tónu. Je ideální pro složité diskuse, kde jsou klíčová rozhodnutí a odpovědnost.",
+      "Gemini 2.5 Pro (Google): Neuvěřitelná schopnost porozumět dlouhým konverzacím, udržet kontext a extrahovat klíčové body. Zajišťuje stabilní, vysoce kvalitní shrnutí, a to i u specializovaných nebo technických témat."
     ],
-    "foot": "Průběžně hodnotíme nové modely a přecházíme na ně, jakmile překročí náš kvalitativní práh."
+    "foot": "Upozornění: Svět AI se rychle mění. Jsme „agnostičtí vůči modelům“ a vždy budeme testovat, přijímat nebo měnit modely, abychom zajistili, že dostanete ten absolutně nejlepší výsledek. Pokud se zítra objeví lepší model, budeme ho používat."
   },
   "image": {
-    "alt": "Modelová architektura pohánějící Zápisník AI",
-    "caption": "Modely vybíráme podle jasnosti a akceschopnosti — ne jen podle ceny."
+    "alt": "Diagram znázorňující rozhodovací jádro Zápisník AI, které vybírá nejlepší modely AI, jako jsou ChatGPT-5 a Gemini 2.5 Pro.",
+    "caption": "Vybíráme optimální model, nikoli ten nejlevnější. To je princip Zápisník AI."
   },
   "links": {
-    "h2": "Související témata",
-    "intro": "Úvod",
-    "nego": "Zápisy z obchodního vyjednávání"
+    "h2": "Související články",
+    "intro": "Představení produktu",
+    "nego": "Zápisy z obchodních jednání"
   },
-  "meta": { "h2": "Metadata", "published": "Datum publikace", "type": "Článek", "category": "Modely AI" },
+  "meta": { "h2": "Meta", "published": "Zveřejněno", "type": "Článek", "category": "Modely AI" },
   "cta": { "openBrowser": "Otevřít v prohlížeči", "downloadIOS": "Stáhnout aplikaci pro iOS" }
 }

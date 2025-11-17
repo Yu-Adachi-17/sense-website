@@ -1,36 +1,43 @@
 {
   "seo": {
-    "title": "Les modèles d’IA derrière Minutes.AI",
-    "description": "Pourquoi Minutes.AI produit des comptes rendus professionnels : politique qualité d’abord et modèles actuels (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Minutes.AI : une stratégie de modèles axée sur la qualité",
-    "ogDescription": "Nous dévoilons les modèles utilisés — ChatGPT-5 et Gemini 2.5 Pro — pour des comptes rendus clairs, actionnables et cohérents.",
+    "title": "Sous le capot : Les modèles d'IA de Minutes.AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Découvrez pourquoi Minutes.AI fournit des comptes rendus de réunion de qualité supérieure. Nous révélons notre politique indépendante des modèles et les puissants LLM que nous utilisons (actuellement ChatGPT-5 et Gemini 2.5 Pro).",
+    "ogTitle": "La qualité avant le coût : Les modèles d'IA que nous utilisons chez Minutes.AI",
+    "ogDescription": "Minutes.AI privilégie la qualité des résultats, en utilisant les meilleurs modèles de leur catégorie comme ChatGPT-5 et Gemini 2.5 Pro pour garantir des résultats professionnels.",
     "ld": {
-      "headline": "Modèles d’IA utilisés par Minutes.AI",
-      "description": "Minutes.AI privilégie la qualité de sortie et adopte actuellement ChatGPT-5 et Gemini 2.5 Pro pour des comptes rendus prêts à la décision."
+      "headline": "Les modèles d'IA qui alimentent Minutes.AI",
+      "description": "Découvrez notre philosophie de sélection des modèles et pourquoi elle est cruciale pour créer des comptes rendus de réunion professionnels et orientés vers l'action."
     }
   },
-  "aria": { "home": "Accueil Minutes.AI" },
-  "nav": { "blog": "Blog", "aimodel": "Modèles d’IA" },
+  "aria": { "home": "Accueil de Minutes.AI" },
+  "nav": { "blog": "Blog", "aimodel": "Modèles d'IA utilisés" },
   "hero": {
-    "kicker": "Coulisses",
-    "h1": "Les modèles d’IA que nous utilisons pour Minutes.AI",
-    "tagline": "Pas n’importe quel LLM : nous choisissons des modèles qui gardent le compte rendu clair et exploitable. À ce jour : ChatGPT-5 et Gemini 2.5 Pro."
+    "kicker": "Dans les coulisses de Minutes.AI",
+    "h1": "Qu'y a-t-il sous le capot ? Les modèles d'IA qui alimentent Minutes.AI",
+    "tagline": "Nous croyons en la transparence. Voici notre philosophie de sélection des modèles et l'IA exacte que nous utilisons pour créer vos comptes rendus de qualité professionnelle."
   },
   "philosophy": {
-    "h2": "Pourquoi la qualité d’abord",
-    "p1": "Beaucoup d’apps choisissent selon le coût. Nous priorisons la clarté, l’actionnabilité et la cohérence pour que le lecteur sache toujours quoi faire ensuite.",
-    "p2": "De bons ingrédients ne garantissent pas un grand plat : le savoir-faire compte. Choix des modèles et prompts sont réglés pour un rendu professionnel."
+    "h2": "Notre position face au marché : Pourquoi nous ne faisons pas de compromis",
+    "p1": "De nombreux outils d'IA choisissent des modèles comme ChatGPT-4o pour leur rentabilité. Nous adoptons une approche différente : **nous privilégions la qualité du résultat avant le coût, à chaque fois.**",
+    "p2": "Mais une grande philosophie ne suffit pas. Comme pour un plat étoilé au guide Michelin, il faut les meilleurs ingrédients (votre réunion), les meilleurs outils (notre logiciel) et un chef de classe mondiale (le modèle d'IA) pour créer un résultat parfait."
   },
   "adopted": {
-    "h2": "Modèles adoptés (à la date de rédaction)",
+    "h2": "Notre sélection d'IA actuelle (à ce jour)",
     "items": [
-      "ChatGPT-5 (OpenAI) : excellent raisonnement, contrôle du ton, structure fiable pour des comptes rendus prêts à la décision.",
-      "Gemini 2.5 Pro (Google) : forte cohérence sur long contexte et extraction robuste des points clés."
+      "ChatGPT-5 (OpenAI) : Un raisonnement logique inégalé et un contrôle précis du ton. Parfait pour les discussions complexes où les décisions et la responsabilité sont clés.",
+      "Gemini 2.5 Pro (Google) : Incroyable capacité à comprendre de longues conversations, à maintenir le contexte et à extraire les points cruciaux. Garantit des résumés stables et de haute qualité, même pour des sujets de niche ou techniques."
     ],
-    "foot": "Nous évaluons en continu de nouveaux modèles et basculons dès qu’ils dépassent notre seuil de qualité."
+    "foot": "Veuillez noter : Le paysage de l'IA évolue rapidement. Nous sommes 'agnostiques' vis-à-vis des modèles et nous testerons, adopterons ou changerons toujours de modèle pour garantir que vous obtenez le meilleur résultat possible. Si un meilleur modèle apparaît demain, nous l'utiliserons."
   },
-  "image": { "alt": "Pile de modèles alimentant Minutes.AI", "caption": "Minutes.AI privilégie la clarté et l’actionnabilité, pas seulement le coût." },
-  "links": { "h2": "Lectures liées", "intro": "Introduction", "nego": "Comptes rendus de négociation" },
-  "meta": { "h2": "Méta", "published": "Publié", "type": "Article", "category": "Modèles d’IA" },
-  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l’app iOS" }
+  "image": {
+    "alt": "Un diagramme illustrant le moteur de décision de Minutes.AI sélectionnant les meilleurs modèles d'IA, comme ChatGPT-5 et Gemini 2.5 Pro.",
+    "caption": "Nous choisissons le modèle optimal, pas le moins cher. C'est le principe de Minutes.AI."
+  },
+  "links": {
+    "h2": "Lectures associées",
+    "intro": "Présentation du produit",
+    "nego": "Comptes rendus de négociations commerciales"
+  },
+  "meta": { "h2": "Méta", "published": "Publié", "type": "Article", "category": "Modèles d'IA" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l'app iOS" }
 }

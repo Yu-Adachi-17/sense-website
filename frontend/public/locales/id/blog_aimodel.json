@@ -1,36 +1,43 @@
 {
   "seo": {
-    "title": "Model AI di balik Minutes AI",
-    "description": "Mengapa Minutes AI menghasilkan notulen profesional: kebijakan quality-first dan model yang dipakai (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Minutes AI: strategi model berfokus kualitas",
-    "ogDescription": "Kami paparkan model yang kami gunakan—ChatGPT-5 dan Gemini 2.5 Pro—untuk notulen yang jelas, dapat-tindak, dan konsisten.",
+    "title": "Di Balik Teknologi: Model AI yang Mendukung Minutes AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Temukan mengapa Minutes AI menghasilkan notulen rapat yang unggul. Kami mengungkapkan kebijakan agnostik model kami dan LLM kuat yang kami gunakan (saat ini ChatGPT-5 dan Gemini 2.5 Pro).",
+    "ogTitle": "Kualitas di Atas Biaya: Model AI yang Kami Gunakan di Minutes AI",
+    "ogDescription": "Minutes AI memprioritaskan kualitas hasil, menggunakan model terbaik di kelasnya seperti ChatGPT-5 dan Gemini 2.5 Pro untuk memastikan hasil profesional.",
     "ld": {
-      "headline": "Model AI yang digunakan Minutes AI",
-      "description": "Minutes AI memprioritaskan kualitas keluaran dan kini mengadopsi ChatGPT-5 serta Gemini 2.5 Pro untuk notulen siap keputusan."
+      "headline": "Model AI yang Mendukung Minutes AI",
+      "description": "Pelajari tentang filosofi kami dalam pemilihan model dan mengapa ini penting untuk membuat notulen rapat yang profesional dan berorientasi pada tindakan."
     }
   },
   "aria": { "home": "Beranda Minutes AI" },
-  "nav": { "blog": "Blog", "aimodel": "Model AI" },
+  "nav": { "blog": "Blog", "aimodel": "Model AI yang Kami Gunakan" },
   "hero": {
-    "kicker": "Di balik layar",
-    "h1": "Model AI yang kami gunakan untuk Minutes AI",
-    "tagline": "Bukan sekadar LLM apa pun—kami memilih model yang menjaga notulen tetap jelas dan dapat ditindaklanjuti. Saat ini: ChatGPT-5 dan Gemini 2.5 Pro."
+    "kicker": "Di dalam Minutes AI",
+    "h1": "Apa yang Ada di Balik Layar? Model AI yang Mendukung Minutes AI",
+    "tagline": "Kami percaya pada transparansi. Ini adalah filosofi pemilihan model kami, dan AI yang kami gunakan untuk membuat notulen kelas profesional Anda."
   },
   "philosophy": {
-    "h2": "Mengapa kualitas didahulukan",
-    "p1": "Banyak aplikasi memilih berdasarkan biaya. Kami mengutamakan kejelasan, aksiabilitas, dan konsistensi agar pembaca tahu langkah berikutnya.",
-    "p2": "Bahan dan dapur terbaik tak otomatis jadi hidangan terbaik—keahlian itu penting. Kami menyetel pemilihan model dan prompt untuk notulen profesional."
+    "h2": "Sikap Kami vs. Pasar: Mengapa Kami Tidak Mudah Puas",
+    "p1": "Banyak alat AI memilih model seperti ChatGPT-4o karena hemat biaya. Kami mengambil pendekatan yang berbeda: **kami memprioritaskan kualitas hasil di atas biaya, setiap saat.**",
+    "p2": "Tapi filosofi hebat saja tidak cukup. Seperti hidangan berbintang Michelin, Anda memerlukan bahan-bahan terbaik (rapat Anda), alat terbaik (perangkat lunak kami), dan koki kelas dunia (model AI) untuk menciptakan hasil yang sempurna."
   },
   "adopted": {
-    "h2": "Model yang diadopsi (saat penulisan)",
+    "h2": "Daftar AI Kami Saat Ini (Per hari ini)",
     "items": [
-      "ChatGPT-5 (OpenAI): penalaran kuat, kontrol nada, struktur andal untuk notulen siap keputusan.",
-      "Gemini 2.5 Pro (Google): koheren pada konteks panjang dan ekstraksi poin kunci yang mantap."
+      "ChatGPT-5 (OpenAI): Penalaran logis yang tak tertandingi dan kontrol nada yang presisi. Sempurna untuk diskusi kompleks di mana keputusan dan akuntabilitas adalah kunci.",
+      "Gemini 2.5 Pro (Google): Kemampuan luar biasa untuk memahami percakapan panjang, menjaga konteks, dan mengekstrak poin-poin penting. Memastikan ringkasan yang stabil dan berkualitas tinggi, bahkan untuk topik khusus atau teknis."
     ],
-    "foot": "Kami terus mengevaluasi model baru dan beralih saat kualitasnya melampaui standar kami."
+    "foot": "Harap dicatat: Lanskap AI berubah dengan cepat. Kami 'agnostik terhadap model' dan akan selalu menguji, mengadopsi, atau mengganti model untuk memastikan Anda mendapatkan hasil terbaik. Jika model yang lebih baik muncul besok, kami akan menggunakannya."
   },
-  "image": { "alt": "Tumpukan model yang menjalankan Minutes AI", "caption": "Minutes AI memilih model demi kejelasan dan aksiabilitas, bukan sekadar biaya." },
-  "links": { "h2": "Bacaan terkait", "intro": "Pengantar", "nego": "Notulen negosiasi bisnis" },
-  "meta": { "h2": "Meta", "published": "Terbit", "type": "Artikel", "category": "Model AI" },
+  "image": {
+    "alt": "Diagram yang mengilustrasikan mesin keputusan Minutes AI memilih model AI terbaik, seperti ChatGPT-5 dan Gemini 2.5 Pro.",
+    "caption": "Kami memilih model yang optimal, bukan yang termurah. Itulah prinsip Minutes AI."
+  },
+  "links": {
+    "h2": "Bacaan Terkait",
+    "intro": "Pengenalan Produk",
+    "nego": "Notulen Negosiasi Bisnis"
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Artikel", "category": "Model AI" },
   "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
 }

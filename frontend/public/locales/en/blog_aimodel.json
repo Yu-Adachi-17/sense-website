@@ -1,42 +1,42 @@
 {
   "seo": {
-    "title": "The AI models behind Minutes.AI",
-    "description": "Why Minutes.AI produces professional meeting minutes: our quality-first policy and current models (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Minutes.AI model policy: quality first",
-    "ogDescription": "We disclose the AI models we use—ChatGPT-5 and Gemini 2.5 Pro—for clear, actionable, consistent minutes.",
+    "title": "Behind the Tech: The AI Models Powering Minutes.AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Discover why Minutes.AI delivers superior meeting minutes. We reveal our model-agnostic policy and the powerful LLMs we use (currently ChatGPT-5 and Gemini 2.5 Pro).",
+    "ogTitle": "Quality Over Cost: The AI Models We Use at Minutes.AI",
+    "ogDescription": "We don't settle for 'good enough.' Minutes.AI prioritizes output quality, using best-in-class models like ChatGPT-5 and Gemini 2.5 Pro to ensure professional results.",
     "ld": {
-      "headline": "AI models used by Minutes.AI",
-      "description": "Minutes.AI prioritizes output quality and currently adopts ChatGPT-5 and Gemini 2.5 Pro to generate decision-ready minutes."
+      "headline": "The AI Models Powering Minutes.AI",
+      "description": "Learn about our philosophy on model selection and why it's crucial for creating action-oriented, professional meeting minutes."
     }
   },
   "aria": { "home": "Minutes.AI Home" },
-  "nav": { "blog": "Blog", "aimodel": "AI models" },
+  "nav": { "blog": "Blog", "aimodel": "AI Models We Use" },
   "hero": {
-    "kicker": "Behind the scenes",
-    "h1": "The AI models we use for Minutes.AI",
-    "tagline": "Not just any LLMs—we pick models that keep minutes clear and actionable. At the time of writing: ChatGPT-5 and Gemini 2.5 Pro."
+    "kicker": "Inside Minutes.AI",
+    "h1": "What’s Under the Hood? The AI Models Powering Minutes.AI",
+    "tagline": "We believe in transparency. This is our model selection philosophy, and the exact AI we use to create your professional-grade minutes."
   },
   "philosophy": {
-    "h2": "Why quality comes first",
-    "p1": "Many apps choose models by price. We prioritize clarity, actionability, and consistency so readers always know the next step.",
-    "p2": "Great ingredients and a great kitchen don’t guarantee a great dish—craft matters. Model choice and prompts are tuned for professional minutes."
+    "h2": "Our Stance vs. The Market: Why We Don't Settle",
+    "p1": "Many AI tools choose models like ChatGPT-4o because it's cost-effective. We take a different approach: **we prioritize output quality over cost, every time.**",
+    "p2": "But a great philosophy isn't enough. Like a Michelin-star dish, you need the best ingredients (your meeting), the best tools (our software), and a world-class chef (the AI model) to create a perfect result."
   },
   "adopted": {
-    "h2": "Adopted models (at the time of writing)",
+    "h2": "Our Current AI Roster (As of Today)",
     "items": [
-      "ChatGPT-5 (OpenAI): strong reasoning, tone control, reliable structure for decision-ready minutes.",
-      "Gemini 2.5 Pro (Google): long-context coherence and robust key-point extraction."
+      "ChatGPT-5 (OpenAI): Unmatched logical reasoning and precise tone control. It's perfect for complex discussions where decisions and accountability are key.",
+      "Gemini 2.5 Pro (Google): Incredible at understanding long conversations, maintaining context, and extracting crucial points. It ensures stable, high-quality summaries, even for niche or technical topics."
     ],
-    "foot": "We continuously evaluate new models and switch when they exceed our quality bar."
+    "foot": "Please note: The AI landscape changes fast. We are 'model-agnostic' and will always test, adopt, or switch models to ensure you're getting the absolute best result. If a better model appears tomorrow, we'll be using it."
   },
   "image": {
-    "alt": "AI model stack powering Minutes.AI",
-    "caption": "Minutes.AI selects models for clarity and actionability, not just cost."
+    "alt": "A diagram illustrating the Minutes.AI decision engine selecting the best AI models, like ChatGPT-5 and Gemini 2.5 Pro.",
+    "caption": "We choose the optimal model, not the cheapest one. That is the Minutes.AI principle."
   },
   "links": {
-    "h2": "Related reading",
-    "intro": "Introduction",
-    "nego": "Business negotiation minutes"
+    "h2": "Related Reading",
+    "intro": "Product Introduction",
+    "nego": "Business Negotiation Minutes"
   },
   "meta": { "h2": "Meta", "published": "Published", "type": "Article", "category": "AI Models" },
   "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" }

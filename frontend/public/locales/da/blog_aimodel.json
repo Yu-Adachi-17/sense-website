@@ -1,43 +1,43 @@
 {
   "seo": {
-    "title": "AI-modellerne bag Referat AI",
-    "description": "Hvorfor Referat AI leverer professionelle referater: kvalitet først og de nuværende modeller (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Referat AI: Modelpolitik med kvalitetsfokus",
-    "ogDescription": "Vi offentliggør de modeller, vi bruger—ChatGPT-5 og Gemini 2.5 Pro—for klare, handlekraftige og konsistente referater.",
+    "title": "Bag teknologien: AI-modellerne bag Referat AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Opdag, hvorfor Referat AI leverer overlegne mødereferater. Vi afslører vores model-agnostiske politik og de kraftfulde LLM'er, vi bruger (i øjeblikket ChatGPT-5 og Gemini 2.5 Pro).",
+    "ogTitle": "Kvalitet over omkostninger: De AI-modeller, vi bruger hos Referat AI",
+    "ogDescription": "Referat AI prioriterer outputkvalitet og bruger de bedste modeller som ChatGPT-5 og Gemini 2.5 Pro for at sikre professionelle resultater.",
     "ld": {
-      "headline": "AI-modeller brugt af Referat AI",
-      "description": "Referat AI prioriterer outputkvalitet og anvender aktuelt ChatGPT-5 og Gemini 2.5 Pro til beslutningsklare referater."
+      "headline": "AI-modellerne, der driver Referat AI",
+      "description": "Lær om vores filosofi for modelvalg, og hvorfor det er afgørende for at skabe handlingsorienterede, professionelle mødereferater."
     }
   },
-  "aria": { "home": "Referat AI startside" },
-  "nav": { "blog": "Blog", "aimodel": "AI-modeller" },
+  "aria": { "home": "Referat AI Hjem" },
+  "nav": { "blog": "Blog", "aimodel": "AI-modeller vi bruger" },
   "hero": {
-    "kicker": "Bag kulissen",
-    "h1": "De AI-modeller vi bruger i Referat AI",
-    "tagline": "Ikke bare et vilkårligt LLM—vi vælger modeller, der holder referater klare og handlingsbare. Aktuelt: ChatGPT-5 og Gemini 2.5 Pro."
+    "kicker": "Bag om Referat AI",
+    "h1": "Hvad gemmer sig under motorhjelmen? AI-modellerne bag Referat AI",
+    "tagline": "Vi tror på gennemsigtighed. Dette er vores filosofi for modelvalg, og den præcise AI, vi bruger til at skabe dine professionelle referater."
   },
   "philosophy": {
-    "h2": "Hvorfor kvalitet først",
-    "p1": "Mange vælger model ud fra pris. Vi prioriterer klarhed, handlekraft og konsistens, så næste skridt altid er tydeligt.",
-    "p2": "Gode råvarer og køkken giver ikke automatisk en topret—håndværk betyder alt. Valg og prompt-tuning er målrettet professionelle referater."
+    "h2": "Vores holdning vs. markedet: Hvorfor vi ikke nøjes",
+    "p1": "Mange AI-værktøjer vælger modeller som ChatGPT-4o, fordi det er omkostningseffektivt. Vi har en anden tilgang: **vi prioriterer outputkvalitet over omkostninger, hver gang.**",
+    "p2": "Men en god filosofi er ikke nok. Ligesim en Michelin-ret har du brug for de bedste ingredienser (dit møde), de bedste værktøjer (vores software) og en kok i verdensklasse (AI-modellen) for at skabe et perfekt resultat."
   },
   "adopted": {
-    "h2": "Valgte modeller (på skrivningstidspunktet)",
+    "h2": "Vores nuværende AI-sammensætning (pr. i dag)",
     "items": [
-      "ChatGPT-5 (OpenAI): stærk ræsonnering, tonekontrol og stabil struktur til beslutningsklare referater.",
-      "Gemini 2.5 Pro (Google): sammenhæng på langt kontekst og robust udtræk af nøglepunkter."
+      "ChatGPT-5 (OpenAI): Uovertruffen logisk ræsonnement og præcis tonekontrol. Perfekt til komplekse diskussioner, hvor beslutninger og ansvarlighed er nøglen.",
+      "Gemini 2.5 Pro (Google): Utrolig til at forstå lange samtaler, bevare kontekst og udtrække afgørende pointer. Sikrer stabile resuméer af høj kvalitet, selv for nicheprægede eller tekniske emner."
     ],
-    "foot": "Vi evaluerer løbende nye modeller og skifter, når de overgår vores kvalitetskrav."
+    "foot": "Bemærk venligst: AI-landskabet ændrer sig hurtigt. Vi er 'model-agnostiske' og vil altid teste, implementere eller skifte modeller for at sikre, at du får det absolut bedste resultat. Hvis der kommer en bedre model i morgen, bruger vi den."
   },
   "image": {
-    "alt": "Model-stack der driver Referat AI",
-    "caption": "Referat AI vælger modeller efter klarhed og handlekraft—ikke kun pris."
+    "alt": "Et diagram, der illustrerer Referat AI's beslutningsmotor, som vælger de bedste AI-modeller, som ChatGPT-5 og Gemini 2.5 Pro.",
+    "caption": "Vi vælger den optimale model, ikke den billigste. Det er Referat AI-princippet."
   },
   "links": {
-    "h2": "Relateret",
-    "intro": "Introduktion",
-    "nego": "Referater til forhandlinger"
+    "h2": "Relateret læsning",
+    "intro": "Produktintroduktion",
+    "nego": "Referater fra forretningsforhandlinger"
   },
   "meta": { "h2": "Meta", "published": "Udgivet", "type": "Artikel", "category": "AI-modeller" },
-  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Hent iOS-app" }
+  "cta": { "openBrowser": "Åbn i browser", "downloadIOS": "Download iOS-app" }
 }

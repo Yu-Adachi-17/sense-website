@@ -1,43 +1,43 @@
 {
   "seo": {
-    "title": "Los modelos de IA detrás de Actas IA",
-    "description": "Por qué Actas IA produce actas profesionales: política de calidad primero y modelos actuales (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Actas IA: política de modelos con foco en calidad",
-    "ogDescription": "Revelamos los modelos que usamos—ChatGPT-5 y Gemini 2.5 Pro—para actas claras, accionables y consistentes.",
+    "title": "Detrás de la tecnología: Los modelos de IA de Actas IA (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Descubra por qué Actas IA ofrece actas de reunión superiores. Revelamos nuestra política independiente del modelo y los potentes LLM que utilizamos (actualmente ChatGPT-5 y Gemini 2.5 Pro).",
+    "ogTitle": "Calidad sobre coste: Los modelos de IA que usamos en Actas IA",
+    "ogDescription": "Actas IA prioriza la calidad del resultado, utilizando los mejores modelos de su clase como ChatGPT-5 y Gemini 2.5 Pro para garantizar resultados profesionales.",
     "ld": {
-      "headline": "Modelos de IA usados por Actas IA",
-      "description": "Actas IA prioriza la calidad de salida y adopta hoy ChatGPT-5 y Gemini 2.5 Pro para actas listas para decidir."
+      "headline": "Los modelos de IA que impulsan Actas IA",
+      "description": "Conozca nuestra filosofía sobre la selección de modelos y por qué es crucial para crear actas de reunión profesionales y orientadas a la acción."
     }
   },
   "aria": { "home": "Inicio de Actas IA" },
-  "nav": { "blog": "Blog", "aimodel": "Modelos de IA" },
+  "nav": { "blog": "Blog", "aimodel": "Modelos de IA que usamos" },
   "hero": {
-    "kicker": "Detrás de escena",
-    "h1": "Los modelos de IA que usamos en Actas IA",
-    "tagline": "No cualquier LLM: elegimos modelos que mantienen las actas claras y accionables. A día de hoy: ChatGPT-5 y Gemini 2.5 Pro."
+    "kicker": "Dentro de Actas IA",
+    "h1": "¿Qué hay bajo el capó? Los modelos de IA que impulsan Actas IA",
+    "tagline": "Creemos en la transparencia. Esta es nuestra filosofía de selección de modelos y la IA exacta que utilizamos para crear sus actas de calidad profesional."
   },
   "philosophy": {
-    "h2": "Por qué priorizamos la calidad",
-    "p1": "Muchos eligen por coste. Nosotros priorizamos claridad, accionabilidad y consistencia para que el lector sepa el siguiente paso.",
-    "p2": "Buenos ingredientes y cocina no garantizan un gran plato: el oficio importa. Elegimos y ajustamos modelos para actas profesionales."
+    "h2": "Nuestra postura frente al mercado: Por qué no nos conformamos",
+    "p1": "Muchas herramientas de IA eligen modelos como ChatGPT-4o porque es rentable. Nosotros adoptamos un enfoque diferente: **priorizamos la calidad del resultado sobre el coste, siempre.**",
+    "p2": "Pero una gran filosofía no es suficiente. Como un plato con estrella Michelin, necesita los mejores ingredientes (su reunión), las mejores herramientas (nuestro software) y un chef de primera clase (el modelo de IA) para crear un resultado perfecto."
   },
   "adopted": {
-    "h2": "Modelos adoptados (a día de hoy)",
+    "h2": "Nuestra lista actual de IA (a día de hoy)",
     "items": [
-      "ChatGPT-5 (OpenAI): gran razonamiento, control de tono y estructura fiable para actas listas para decidir.",
-      "Gemini 2.5 Pro (Google): coherencia en contexto largo y extracción robusta de puntos clave."
+      "ChatGPT-5 (OpenAI): Razonamiento lógico inigualable y control preciso del tono. Es perfecto para debates complejos donde las decisiones y la responsabilidad son clave.",
+      "Gemini 2.5 Pro (Google): Increíble capacidad para entender conversaciones largas, mantener el contexto y extraer puntos cruciales. Garantiza resúmenes estables y de alta calidad, incluso para temas técnicos o de nicho."
     ],
-    "foot": "Evaluamos continuamente nuevos modelos y cambiamos cuando superan nuestro listón de calidad."
+    "foot": "Nota: El panorama de la IA cambia rápidamente. Somos 'agnósticos' en cuanto a modelos y siempre probaremos, adoptaremos o cambiaremos de modelo para asegurarnos de que obtiene el mejor resultado posible. Si mañana aparece un modelo mejor, lo usaremos."
   },
   "image": {
-    "alt": "Pila de modelos que impulsa Actas IA",
-    "caption": "Actas IA elige modelos por claridad y accionabilidad, no solo por coste."
+    "alt": "Un diagrama que ilustra el motor de decisiones de Actas IA seleccionando los mejores modelos de IA, como ChatGPT-5 y Gemini 2.5 Pro.",
+    "caption": "Elegimos el modelo óptimo, no el más barato. Ese es el principio de Actas IA."
   },
   "links": {
     "h2": "Lecturas relacionadas",
-    "intro": "Introducción",
-    "nego": "Actas de negociación comercial"
+    "intro": "Introducción al producto",
+    "nego": "Actas de negociaciones comerciales"
   },
   "meta": { "h2": "Meta", "published": "Publicado", "type": "Artículo", "category": "Modelos de IA" },
-  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar la app de iOS" }
+  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app iOS" }
 }

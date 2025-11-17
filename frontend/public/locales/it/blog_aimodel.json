@@ -1,43 +1,43 @@
 {
   "seo": {
-    "title": "I modelli di IA dietro Verbali IA",
-    "description": "Perché Verbali IA produce verbali professionali: principio della qualità prima di tutto e modelli attualmente adottati (ChatGPT-5 e Gemini 2.5 Pro).",
-    "ogTitle": "Politica dei modelli in Verbali IA: qualità prima di tutto",
-    "ogDescription": "Rendiamo noti i modelli che utilizziamo—ChatGPT-5 e Gemini 2.5 Pro—per verbali chiari, azionabili e coerenti.",
+    "title": "Dietro le quinte: I modelli AI di Verbali IA (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Scopri perché Verbali IA produce verbali di riunione di qualità superiore. Rivelliamo la nostra policy indipendente dai modelli e i potenti LLM che utilizziamo (attualmente ChatGPT-5 e Gemini 2.5 Pro).",
+    "ogTitle": "Qualità prima del costo: I modelli AI che usiamo in Verbali IA",
+    "ogDescription": "Verbali IA dà priorità alla qualità dell'output, utilizzando i migliori modelli della categoria come ChatGPT-5 e Gemini 2.5 Pro per garantire risultati professionali.",
     "ld": {
-      "headline": "Modelli di intelligenza artificiale usati in Verbali IA",
-      "description": "Verbali IA mette la qualità al primo posto e attualmente si affida a ChatGPT-5 e Gemini 2.5 Pro per produrre verbali pronti alle decisioni."
+      "headline": "I modelli AI che alimentano Verbali IA",
+      "description": "Scopri la nostra filosofia sulla selezione dei modelli e perché è fondamentale per creare verbali di riunione professionali e orientati all'azione."
     }
   },
-  "aria": { "home": "Pagina iniziale di Verbali IA" },
-  "nav": { "blog": "Blog", "aimodel": "Modelli di IA" },
+  "aria": { "home": "Home di Verbali IA" },
+  "nav": { "blog": "Blog", "aimodel": "Modelli AI che usiamo" },
   "hero": {
-    "kicker": "Dietro le quinte",
-    "h1": "I modelli che usiamo in Verbali IA",
-    "tagline": "Non scegliamo un LLM qualsiasi; selezioniamo ciò che rende i verbali chiari e azionabili. Al momento: ChatGPT-5 e Gemini 2.5 Pro."
+    "kicker": "Dentro Verbali IA",
+    "h1": "Cosa c'è sotto il cofano? I modelli AI che alimentano Verbali IA",
+    "tagline": "Crediamo nella trasparenza. Questa è la nostra filosofia di selezione dei modelli e l'IA esatta che usiamo per creare i tuoi verbali di livello professionale."
   },
   "philosophy": {
-    "h2": "Perché mettiamo la qualità al primo posto",
-    "p1": "Molti prodotti scelgono in base ai costi. Noi puntiamo su chiarezza, azionabilità e coerenza, così chi legge sa sempre il prossimo passo.",
-    "p2": "I migliori ingredienti e la cucina migliore non garantiscono da soli un grande piatto: è l’abilità a fare la differenza. Affiniamo scelta dei modelli e prompt per verbali professionali."
+    "h2": "La nostra posizione rispetto al mercato: Perché non ci accontentiamo",
+    "p1": "Molti strumenti AI scelgono modelli come ChatGPT-4o perché è conveniente. Noi adottiamo un approccio diverso: **diamo priorità alla qualità dell'output rispetto al costo, sempre.**",
+    "p2": "Ma una grande filosofia non è sufficiente. Come per un piatto stellato Michelin, hai bisogno dei migliori ingredienti (la tua riunione), dei migliori strumenti (il nostro software) e di uno chef di livello mondiale (il modello AI) per creare un risultato perfetto."
   },
   "adopted": {
-    "h2": "Modelli adottati (al momento della stesura)",
+    "h2": "La nostra attuale squadra AI (Ad oggi)",
     "items": [
-      "ChatGPT-5 (OpenAI): ottimo ragionamento, controllo del tono e struttura affidabile per verbali pronti alla decisione.",
-      "Gemini 2.5 Pro (Google): forte coerenza su contesti lunghi ed estrazione solida dei punti chiave."
+      "ChatGPT-5 (OpenAI): Ragionamento logico impareggiabile e controllo preciso del tono. Perfetto per discussioni complesse in cui decisioni e responsabilità sono fondamentali.",
+      "Gemini 2.5 Pro (Google): Incredibile capacità di comprendere lunghe conversazioni, mantenere il contesto ed estrarre punti cruciali. Garantisce riassunti stabili e di alta qualità, anche per argomenti di nicchia o tecnici."
     ],
-    "foot": "Valutiamo continuamente nuovi modelli e passiamo ad essi quando superano la nostra soglia di qualità."
+    "foot": "Nota bene: Il panorama dell'IA cambia rapidamente. Siamo 'agnostici rispetto ai modelli' e testeremo, adotteremo o cambieremo sempre i modelli per assicurarci che tu ottenga il miglior risultato possibile. Se domani apparirà un modello migliore, lo useremo."
   },
   "image": {
-    "alt": "Architettura dei modelli che supporta Verbali IA",
-    "caption": "Selezioniamo i modelli in base a chiarezza e azionabilità — non solo al costo."
+    "alt": "Un diagramma che illustra il motore decisionale di Verbali IA mentre seleziona i migliori modelli AI, come ChatGPT-5 e Gemini 2.5 Pro.",
+    "caption": "Scegliamo il modello ottimale, non il più economico. Questo è il principio di Verbali IA."
   },
   "links": {
-    "h2": "Argomenti correlati",
-    "intro": "Introduzione",
+    "h2": "Letture correlate",
+    "intro": "Introduzione al prodotto",
     "nego": "Verbali di negoziazione commerciale"
   },
-  "meta": { "h2": "Dati", "published": "Data di pubblicazione", "type": "Articolo", "category": "Modelli di IA" },
-  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica l’app iOS" }
+  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Articolo", "category": "Modelli AI" },
+  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica l'app iOS" }
 }

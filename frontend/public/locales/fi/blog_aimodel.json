@@ -1,43 +1,43 @@
 {
   "seo": {
-    "title": "Pöytäkirja AI:n taustalla olevat AI-mallit",
-    "description": "Miksi Pöytäkirja AI tuottaa ammattimaiset pöytäkirjat: laatu ensin -periaate ja tällä hetkellä käytössä olevat mallit (ChatGPT-5 ja Gemini 2.5 Pro).",
-    "ogTitle": "Mallipolitiikka Pöytäkirja AI:ssa: laatu ensin",
-    "ogDescription": "Kerroimme avoimesti käyttämämme mallit—ChatGPT-5 ja Gemini 2.5 Pro—selkeiden, toteutettavien ja johdonmukaisten pöytäkirjojen tuottamiseksi.",
+    "title": "Tekniikan takana: Pöytäkirja AI:n käyttämät tekoälymallit (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Tutustu, miksi Pöytäkirja AI tuottaa ylivoimaisia kokouspöytäkirjoja. Paljastamme malliriippumattoman käytäntömme ja tehokkaat LLM-mallit, joita käytämme (tällä hetkellä ChatGPT-5 ja Gemini 2.5 Pro).",
+    "ogTitle": "Laatu ennen kustannuksia: Tekoälymallit, joita käytämme Pöytäkirja AI:ssa",
+    "ogDescription": "Pöytäkirja AI asettaa tulosten laadun etusijalle ja käyttää luokkansa parhaita malleja, kuten ChatGPT-5 ja Gemini 2.5 Pro, varmistaakseen ammattimaiset tulokset.",
     "ld": {
-      "headline": "Pöytäkirja AI:ssa käytettävät tekoälymallit",
-      "description": "Pöytäkirja AI asettaa laadun etusijalle ja käyttää tällä hetkellä ChatGPT-5:ttä ja Gemini 2.5 Pro:ta päätöksentekoon valmiisiin pöytäkirjoihin."
+      "headline": "Tekoälymallit Pöytäkirja AI:n taustalla",
+      "description": "Lue lisää mallinvalintafilosofiastamme ja siitä, miksi se on ratkaisevan tärkeää toimintalähtöisten, ammattimaisten kokouspöytäkirjojen luomisessa."
     }
   },
-  "aria": { "home": "Pöytäkirja AI-etusivu" },
-  "nav": { "blog": "Blogi", "aimodel": "AI-mallit" },
+  "aria": { "home": "Pöytäkirja AI - Koti" },
+  "nav": { "blog": "Blogi", "aimodel": "Käyttämämme tekoälymallit" },
   "hero": {
-    "kicker": "Kulissien takana",
-    "h1": "Mallit, joita käytämme Pöytäkirja AI:ssa",
-    "tagline": "Emme valitse mitä tahansa LLM:ää; valitsemme sen, joka tekee pöytäkirjoista selkeitä ja toteutettavia. Nyt: ChatGPT-5 ja Gemini 2.5 Pro."
+    "kicker": "Pöytäkirja AI:n sisällä",
+    "h1": "Mitä konepellin alla on? Tekoälymallit Pöytäkirja AI:n taustalla",
+    "tagline": "Uskomme läpinäkyvyyteen. Tämä on mallinvalintafilosofiamme ja tarkka tekoäly, jota käytämme ammattitason pöytäkirjojen luomiseen."
   },
   "philosophy": {
-    "h2": "Miksi laatu ensin",
-    "p1": "Monet tuotteet valitsevat hinnan perusteella. Me tavoittelemme selkeyttä, toteutettavuutta ja johdonmukaisuutta, jotta lukija tietää aina seuraavan askeleen.",
-    "p2": "Parhaat raaka-aineet ja keittiö eivät yksin takaa huippuruokaa—taidot ratkaisevat. Hiomme mallivalintaa ja promptteja ammattilaispöytäkirjoja varten."
+    "h2": "Kantapamme vs. markkinat: Miksi emme tyydy vähempään",
+    "p1": "Monet tekoälytyökalut valitsevat malleja, kuten ChatGPT-4o, kustannustehokkuuden vuoksi. Meillä on erilainen lähestymistapa: **asetamme aina tulosten laadun kustannusten edelle.**",
+    "p2": "Mutta loistava filosofia ei riitä. Kuten Michelin-tähden annos, tarvitset parhaat raaka-aineet (kokouksesi), parhaat työkalut (ohjelmistomme) ja maailmanluokan kokin (tekoälymalli) täydellisen tuloksen luomiseksi."
   },
   "adopted": {
-    "h2": "Käytössä olevat mallit (kirjoitushetkellä)",
+    "h2": "Nykyinen tekoälyvalikoimamme (tämänhetkinen tilanne)",
     "items": [
-      "ChatGPT-5 (OpenAI): vahva päättely, sävyn hallinta ja luotettava rakenne päätöksiin valmiille pöytäkirjoille.",
-      "Gemini 2.5 Pro (Google): vahva johdonmukaisuus pitkillä konteksteilla ja vankka ydinkohtien poiminta."
+      "ChatGPT-5 (OpenAI): Vertaansa vailla oleva looginen päättelykyky ja tarkka sävyhallinta. Täydellinen monimutkaisiin keskusteluihin, joissa päätökset ja vastuullisuus ovat avainasemassa.",
+      "Gemini 2.5 Pro (Google): Uskomaton kyky ymmärtää pitkiä keskusteluja, ylläpitää kontekstia ja poimia keskeiset kohdat. Takaa vakaat, korkealaatuiset yhteenvedot jopa kapea-alaisista tai teknisistä aiheista."
     ],
-    "foot": "Arvioimme uusia malleja jatkuvasti ja siirrymme niihin, kun ne ylittävät laatukynnyksemme."
+    "foot": "Huomaa: Tekoälymaailma muuttuu nopeasti. Olemme 'malliriippumattomia' ja testaamme, otamme käyttöön tai vaihdamme malleja aina varmistaaksemme, että saat ehdottomasti parhaan tuloksen. Jos huomenna ilmestyy parempi malli, käytämme sitä."
   },
   "image": {
-    "alt": "Pöytäkirja AI:ta tukeva malliarkkitehtuuri",
-    "caption": "Valitsemme mallit selkeyden ja toteutettavuuden perusteella — emme vain hinnan."
+    "alt": "Kaavio, joka kuvaa Pöytäkirja AI:n päätöksentekomoottoria valitsemassa parhaita tekoälymalleja, kuten ChatGPT-5 ja Gemini 2.5 Pro.",
+    "caption": "Valitsemme optimaalisen mallin, emme halvinta. Se on Pöytäkirja AI -periaate."
   },
   "links": {
-    "h2": "Aiheeseen liittyvää",
-    "intro": "Johdanto",
-    "nego": "Liikeneuvottelujen pöytäkirjat"
+    "h2": "Aiheeseen liittyvää lukemista",
+    "intro": "Tuote-esittely",
+    "nego": "Liikeneuvottelupöytäkirjat"
   },
-  "meta": { "h2": "Metatiedot", "published": "Julkaisupäivä", "type": "Artikkeli", "category": "AI-mallit" },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Artikkeli", "category": "Tekoälymallit" },
   "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" }
 }
