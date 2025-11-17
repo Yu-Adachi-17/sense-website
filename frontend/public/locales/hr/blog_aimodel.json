@@ -3,41 +3,89 @@
     "title": "Iza tehnologije: AI modeli koji pokreću AI Zapisnik (ChatGPT-5, Gemini 2.5 Pro)",
     "description": "Otkrijte zašto AI Zapisnik pruža vrhunske zapisnike sa sastanaka. Otkrivamo našu politiku neovisnosti o modelima i moćne LLM-ove koje koristimo (trenutno ChatGPT-5 i Gemini 2.5 Pro).",
     "ogTitle": "Kvaliteta iznad cijene: AI modeli koje koristimo u AI Zapisnik",
-    "ogDescription": "AI Zapisnik daje prednost kvaliteti rezultata, koristeći najbolje modele u klasi poput ChatGPT-5 i Gemini 2.5 Pro kako bi osigurao profesionalne rezultate.",
+    "ogDescription": "Ne zadovoljavamo se s \"dovoljno dobrim\". AI Zapisnik daje prednost kvaliteti rezultata, koristeći najbolje modele u klasi poput ChatGPT-5 i Gemini 2.5 Pro kako bi osigurao profesionalne rezultate.",
     "ld": {
       "headline": "AI modeli koji pokreću AI Zapisnik",
       "description": "Saznajte više o našoj filozofiji odabira modela i zašto je ključna za stvaranje profesionalnih zapisnika sa sastanaka usmjerenih na akciju."
     }
   },
-  "aria": { "home": "AI Zapisnik Početna" },
-  "nav": { "blog": "Blog", "aimodel": "AI modeli koje koristimo" },
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "AI modeli koje koristimo"
+  },
   "hero": {
     "kicker": "Unutar AI Zapisnik",
     "h1": "Što je ispod haube? AI modeli koji pokreću AI Zapisnik",
     "tagline": "Vjerujemo u transparentnost. Ovo je naša filozofija odabira modela i točan AI koji koristimo za izradu vaših profesionalnih zapisnika."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Zašto su naši zapisnici drugačiji (i bolji)",
+    "p1": "Možda smo počeli na iOS-u, ali naši korisnici diljem svijeta to najbolje kažu: naš rezultat nazivaju \"prekrasno izrađenim\" i hvale njegovu \"izvanrednu točnost\".",
+    "p2pre": "Ovo nije samo sirovi AI izlaz. Naša osnovna filozofija je generiranje zapisnika koji su **usmjereni na akciju**, čineći sljedeće korake kristalno jasnima svima uključenima. Pogledajte naš",
+    "p2link1": "Uvod u proizvod",
+    "p2mid": "i",
+    "p2link2": "Zapisnici s poslovnih pregovora",
+    "p2post": "da vidite kako to funkcionira.",
+    "focus": "Ali sjajna filozofija nije dovoljna. Poput jela s Michelinovom zvjezdicom, trebate najbolje sastojke (vaš sastanak), najbolje alate (naš softver) i kuhara svjetske klase (AI model) da biste stvorili savršen rezultat."
+  },
+  "market": {
     "h2": "Naš stav naspram tržišta: Zašto ne pristajemo na kompromise",
     "p1": "Mnogi AI alati odabiru modele poput ChatGPT-4o zbog isplativosti. Mi zauzimamo drugačiji pristup: **uvijek dajemo prednost kvaliteti rezultata nad cijenom.**",
-    "p2": "Ali sjajna filozofija nije dovoljna. Poput jela s Michelinovom zvjezdicom, trebate najbolje sastojke (vaš sastanak), najbolje alate (naš softver) i kuhara svjetske klase (AI model) da biste stvorili savršen rezultat."
+    "common": {
+      "h3": "Pristup \"Dovoljno dobro\" (Tipičan)",
+      "items": [
+        "Daje prednost niskim operativnim troškovima",
+        "Prihvaća vezanost za dobavljača radi jednostavnog održavanja",
+        "Pruža generičko iskustvo koje odgovara svima"
+      ]
+    },
+    "ours": {
+      "h3": "Pristup \"Najbolji u klasi\" (AI Zapisnik)",
+      "items": [
+        "Aktivno usvaja najuspješniji dostupni model",
+        "Daje prednost kvaliteti rezultata i prikladnosti za zadatak iznad svega",
+        "Odbija koristiti modele koji ne zadovoljavaju našu visoku ljestvicu kvalitete"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Naš trenutni popis AI modela (od danas)",
+    "p1": "Kako bismo osigurali da su vaši zapisnici jasni, točni i spremni za akciju, trenutno koristimo hibridni pristup s ovim vrhunskim modelima:",
     "items": [
-      "ChatGPT-5 (OpenAI): Nenadmašno logičko zaključivanje i precizna kontrola tona. Savršeno za složene rasprave gdje su odluke i odgovornost ključni.",
-      "Gemini 2.5 Pro (Google): Nevjerojatna sposobnost razumijevanja dugih razgovora, održavanja konteksta i izdvajanja ključnih točaka. Osigurava stabilne, visokokvalitetne sažetke, čak i za usko specijalizirane ili tehničke teme."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Nenadmašno logičko zaključivanje i precizna kontrola tona. Savršeno za složene rasprave gdje su odluke i odgovornost ključni."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Nevjerojatna sposobnost razumijevanja dugih razgovora, održavanja konteksta i izdvajanja ključnih točaka. Osigurava stabilne, visokokvalitetne sažetke, čak i za usko specijalizirane ili tehničke teme."
+      }
     ],
-    "foot": "Napomena: AI okruženje se brzo mijenja. Mi smo 'agnostični prema modelima' i uvijek ćemo testirati, usvajati ili mijenjati modele kako bismo osigurali da dobivate apsolutno najbolji rezultat. Ako se sutra pojavi bolji model, koristit ćemo ga."
+    "note": "Napomena: AI okruženje se brzo mijenja. Mi smo 'agnostični prema modelima' i uvijek ćemo testirati, usvajati ili mijenjati modele kako bismo osigurali da dobivate apsolutno najbolji rezultat. Ako se sutra pojavi bolji model, koristit ćemo ga."
   },
-  "image": {
-    "alt": "Dijagram koji prikazuje kako AI Zapisnik motor za odlučivanje odabire najbolje AI modele, poput ChatGPT-5 i Gemini 2.5 Pro.",
-    "caption": "Biramo optimalan model, ne najjeftiniji. To je princip AI Zapisnik."
+  "philosophy": {
+    "h2": "Više od samog AI-ja: Dizajnirano za akciju",
+    "p1": "Najbolji AI modeli samo su alati. Naš pravi cilj je pružiti zapisnike koji *potiču na akciju*. Dizajniramo naš sustav i biramo naše modele tako da proizvode dosljedne, pouzdane i djelotvorne rezultate.",
+    "points": [
+      "Jasna identifikacija uloga, vlasnika akcijskih stavki i rokova.",
+      "Optimizirani predlošci za različite vrste sastanaka (npr. pregovori, redovita ažuriranja, predavanja).",
+      "Nemilosrdan fokus na činjeničnu točnost i kontekstualnu dosljednost."
+    ]
   },
-  "links": {
-    "h2": "Povezano štivo",
-    "intro": "Predstavljanje proizvoda",
-    "nego": "Zapisnici s poslovnih pregovora"
+  "quality": {
+    "h2": "Kvaliteta iznad cijene: Investicija koja se isplati",
+    "p1": "Korištenje premium AI modela košta nas više, ali o tome se ne pregovara. Zašto? Zato što dramatično smanjuje vrijeme koje *vi* provodite uređujući, pojašnjava odgovornosti i povećava zadovoljstvo cijelog tima. To je vrijednost koja se sama isplati.",
+    "p2": "Mi biramo **optimalan** model, ne najjeftiniji. To je princip AI Zapisnik."
   },
-  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Članak", "category": "AI modeli" },
-  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Preuzmite iOS aplikaciju" }
+  "wrap": {
+    "h2": "Iskusite razliku sami",
+    "p": "Prestanite se zadovoljavati osrednjim sažecima. Isprobajte AI Zapisnik danas i osjetite snagu istinski profesionalnih zapisnika. Naša beskompromisna predanost kvaliteti ubrzat će odluke vašeg tima."
+  },
+  "cta": {
+    "openBrowser": "Otvori u pregledniku",
+    "downloadIOS": "Preuzmite iOS aplikaciju"
+  }
 }

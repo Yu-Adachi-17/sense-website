@@ -3,41 +3,89 @@
     "title": "Detrás de la tecnología: Los modelos de IA de Actas IA (ChatGPT-5, Gemini 2.5 Pro)",
     "description": "Descubra por qué Actas IA ofrece actas de reunión superiores. Revelamos nuestra política independiente del modelo y los potentes LLM que utilizamos (actualmente ChatGPT-5 y Gemini 2.5 Pro).",
     "ogTitle": "Calidad sobre coste: Los modelos de IA que usamos en Actas IA",
-    "ogDescription": "Actas IA prioriza la calidad del resultado, utilizando los mejores modelos de su clase como ChatGPT-5 y Gemini 2.5 Pro para garantizar resultados profesionales.",
+    "ogDescription": "No nos conformamos con lo \"suficientemente bueno\". Actas IA prioriza la calidad del resultado, utilizando los mejores modelos de su clase como ChatGPT-5 y Gemini 2.5 Pro para garantizar resultados profesionales.",
     "ld": {
       "headline": "Los modelos de IA que impulsan Actas IA",
       "description": "Conozca nuestra filosofía sobre la selección de modelos y por qué es crucial para crear actas de reunión profesionales y orientadas a la acción."
     }
   },
-  "aria": { "home": "Inicio de Actas IA" },
-  "nav": { "blog": "Blog", "aimodel": "Modelos de IA que usamos" },
+  "aria": {
+    "home": "Inicio de Actas IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Modelos de IA que usamos"
+  },
   "hero": {
     "kicker": "Dentro de Actas IA",
     "h1": "¿Qué hay bajo el capó? Los modelos de IA que impulsan Actas IA",
     "tagline": "Creemos en la transparencia. Esta es nuestra filosofía de selección de modelos y la IA exacta que utilizamos para crear sus actas de calidad profesional."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Por qué nuestras actas se sienten diferentes (y mejores)",
+    "p1": "Puede que hayamos empezado en iOS, pero nuestros usuarios de todo el mundo lo dicen mejor: califican nuestros resultados como \"bellamente elaborados\" y elogian su \"precisión excepcional\".",
+    "p2pre": "Esto no es solo un resultado de IA en bruto. Nuestra filosofía principal es generar actas **orientadas a la acción**, que dejen los siguientes pasos meridianamente claros para todos los involucrados. Consulte nuestra",
+    "p2link1": "Introducción al producto",
+    "p2mid": "y",
+    "p2link2": "Actas de negociaciones comerciales",
+    "p2post": "para ver cómo funciona.",
+    "focus": "Pero una gran filosofía no es suficiente. Como un plato con estrella Michelin, necesita los mejores ingredientes (su reunión), las mejores herramientas (nuestro software) y un chef de primera clase (el modelo de IA) para crear un resultado perfecto."
+  },
+  "market": {
     "h2": "Nuestra postura frente al mercado: Por qué no nos conformamos",
     "p1": "Muchas herramientas de IA eligen modelos como ChatGPT-4o porque es rentable. Nosotros adoptamos un enfoque diferente: **priorizamos la calidad del resultado sobre el coste, siempre.**",
-    "p2": "Pero una gran filosofía no es suficiente. Como un plato con estrella Michelin, necesita los mejores ingredientes (su reunión), las mejores herramientas (nuestro software) y un chef de primera clase (el modelo de IA) para crear un resultado perfecto."
+    "common": {
+      "h3": "El enfoque de \"lo suficientemente bueno\" (Típico)",
+      "items": [
+        "Prioriza bajos costes operativos",
+        "Acepta la dependencia de un proveedor para un mantenimiento sencillo",
+        "Ofrece una experiencia genérica y única para todos"
+      ]
+    },
+    "ours": {
+      "h3": "El enfoque de \"el mejor de su clase\" (Actas IA)",
+      "items": [
+        "Adopta activamente el modelo con mejor rendimiento disponible",
+        "Prioriza la calidad del resultado y la idoneidad para la tarea por encima de todo",
+        "Se niega a utilizar modelos que no cumplan nuestro alto listón de calidad"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Nuestra lista actual de IA (a día de hoy)",
+    "p1": "Para garantizar que sus actas sean claras, precisas y listas para la acción, actualmente aprovechamos un enfoque híbrido con estos modelos de primer nivel:",
     "items": [
-      "ChatGPT-5 (OpenAI): Razonamiento lógico inigualable y control preciso del tono. Es perfecto para debates complejos donde las decisiones y la responsabilidad son clave.",
-      "Gemini 2.5 Pro (Google): Increíble capacidad para entender conversaciones largas, mantener el contexto y extraer puntos cruciales. Garantiza resúmenes estables y de alta calidad, incluso para temas técnicos o de nicho."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Razonamiento lógico inigualable y control preciso del tono. Es perfecto para debates complejos donde las decisiones y la responsabilidad son clave."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Increíble capacidad para entender conversaciones largas, mantener el contexto y extraer puntos cruciales. Garantiza resúmenes estables y de alta calidad, incluso para temas técnicos o de nicho."
+      }
     ],
-    "foot": "Nota: El panorama de la IA cambia rápidamente. Somos 'agnósticos' en cuanto a modelos y siempre probaremos, adoptaremos o cambiaremos de modelo para asegurarnos de que obtiene el mejor resultado posible. Si mañana aparece un modelo mejor, lo usaremos."
+    "note": "Nota: El panorama de la IA cambia rápidamente. Somos 'agnósticos' en cuanto a modelos y siempre probaremos, adoptaremos o cambiaremos de modelo para asegurarnos de que obtiene el mejor resultado posible. Si mañana aparece un modelo mejor, lo usaremos."
   },
-  "image": {
-    "alt": "Un diagrama que ilustra el motor de decisiones de Actas IA seleccionando los mejores modelos de IA, como ChatGPT-5 y Gemini 2.5 Pro.",
-    "caption": "Elegimos el modelo óptimo, no el más barato. Ese es el principio de Actas IA."
+  "philosophy": {
+    "h2": "Más que solo IA: Diseñado para la acción",
+    "p1": "Los mejores modelos de IA son solo herramientas. Nuestro verdadero objetivo es proporcionar actas que *impulsen la acción*. Diseñamos nuestro sistema y elegimos nuestros modelos para producir resultados consistentes, fiables y accionables.",
+    "points": [
+      "Identificación clara de roles, propietarios de acciones y plazos.",
+      "Plantillas optimizadas para diferentes tipos de reuniones (por ejemplo, negociaciones, actualizaciones periódicas, conferencias).",
+      "Un enfoque implacable en la precisión fáctica y la coherencia contextual."
+    ]
   },
-  "links": {
-    "h2": "Lecturas relacionadas",
-    "intro": "Introducción al producto",
-    "nego": "Actas de negociaciones comerciales"
+  "quality": {
+    "h2": "Calidad sobre coste: Una inversión que vale la pena",
+    "p1": "Usar modelos de IA prémium nos cuesta más, pero no es negociable. ¿Por qué? Porque reduce drásticamente el tiempo que *usted* pasa editando, clarifica responsabilidades y aumenta la satisfacción de todo el equipo. Es un valor que se amortiza solo.",
+    "p2": "Elegimos el modelo **óptimo**, no el más barato. Ese es el principio de Actas IA."
   },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artículo", "category": "Modelos de IA" },
-  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Descargar app iOS" }
+  "wrap": {
+    "h2": "Experimente la diferencia usted mismo",
+    "p": "Deje de conformarse con resúmenes mediocres. Pruebe Actas IA hoy mismo y sienta el poder de unas actas de nivel verdaderamente profesional. Nuestro compromiso inflexible con la calidad acelerará las decisiones de su equipo."
+  },
+  "cta": {
+    "openBrowser": "Abrir en el navegador",
+    "downloadIOS": "Descargar app iOS"
+  }
 }

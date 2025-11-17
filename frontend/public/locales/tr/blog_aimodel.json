@@ -1,36 +1,91 @@
 {
   "seo": {
-    "title": "Tutanakları AI’ın arkasındaki yapay zekâ modelleri",
-    "description": "Tutanakları AI neden profesyonel tutanaklar üretir: kalite-öncelikli yaklaşım ve güncel modeller (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Tutanakları AI: kalite odaklı model stratejisi",
-    "ogDescription": "Kullandığımız modelleri açıklıyoruz — ChatGPT-5 ve Gemini 2.5 Pro — net, eyleme dönük ve tutarlı tutanaklar için.",
+    "title": "Teknolojinin Arkası: Tutanakları AI'yı Güçlendiren AI Modelleri (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Tutanakları AI'nın neden üstün toplantı tutanakları sunduğunu keşfedin. Model-agnostik politikamızı ve kullandığımız güçlü LLM'leri (şu anda ChatGPT-5 ve Gemini 2.5 Pro) açıklıyoruz.",
+    "ogTitle": "Maliyetten Önce Kalite: Tutanakları AI'da Kullandığımız AI Modelleri",
+    "ogDescription": "'Yeterince iyi' ile yetinmiyoruz. Tutanakları AI, profesyonel sonuçlar sağlamak için ChatGPT-5 ve Gemini 2.5 Pro gibi sınıfının en iyisi modelleri kullanarak çıktı kalitesine öncelik verir.",
     "ld": {
-      "headline": "Tutanakları AI’ın kullandığı yapay zekâ modelleri",
-      "description": "Tutanakları AI çıktı kalitesini önceleyerek bugün ChatGPT-5 ve Gemini 2.5 Pro ile karar-hazır tutanaklar üretir."
+      "headline": "Tutanakları AI'yı Güçlendiren AI Modelleri",
+      "description": "Model seçimi felsefemizi ve eylem odaklı, profesyonel toplantı tutanakları oluşturmak için neden bu kadar önemli olduğunu öğrenin."
     }
   },
-  "aria": { "home": "Tutanakları AI Ana Sayfa" },
-  "nav": { "blog": "Blog", "aimodel": "Yapay zekâ modelleri" },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Kullandığımız AI Modelleri"
+  },
   "hero": {
-    "kicker": "Perde arkası",
-    "h1": "Tutanakları AI’da kullandığımız yapay zekâ modelleri",
-    "tagline": "Herhangi bir LLM değil; tutanakları net ve eyleme dönük tutan modelleri seçiyoruz. Bugün: ChatGPT-5 ve Gemini 2.5 Pro."
+    "kicker": "Tutanakları AI'nın İçinden",
+    "h1": "Kaputun Altında Ne Var? Tutanakları AI'yı Güçlendiren AI Modelleri",
+    "tagline": "Şeffaflığa inanıyoruz. Bu, bizim model seçim felsefemiz ve profesyonel kalitede tutanaklarınızı oluşturmak için kullandığımız AI'nın ta kendisi."
+  },
+  "intro": {
+    "h2": "Tutanaklarımız Neden Farklı (ve Daha İyi) Hissettiriyor?",
+    "p1": "iOS'ta başlamış olabiliriz, ancak dünya çapındaki kullanıcılarımız bunu en iyi şekilde ifade ediyor: çıktımızı \"harika hazırlanmış\" olarak adlandırıyor ve \"olağanüstü doğruluğunu\" övüyorlar.",
+    "p2pre": "Bu sadece ham bir AI çıktısı değil. Temel felsefemiz, ilgili herkes için sonraki adımları kristal netliğinde ortaya koyan **eylem odaklı** tutanaklar oluşturmaktır. Nasıl çalıştığını görmek için",
+    "p2link1": "Ürün Tanıtımımıza",
+    "p2mid": "ve",
+    "p2link2": "İş Müzakeresi Tutanaklarına",
+    "p2post": " bakın.",
+    "focus": "Ancak harika bir felsefe yeterli değildir. Bir Michelin yıldızlı yemek gibi, mükemmel bir sonuç yaratmak için en iyi malzemelere (toplantınız), en iyi araçlara (yazılımımız) ve dünya standartlarında bir şefe (AI modeli) ihtiyacınız var."
+  },
+  "market": {
+    "h2": "Pazara Karşı Duruşumuz: Neden Yetinmiyoruz?",
+    "p1": "Birçok AI aracı, maliyet etkin olduğu için ChatGPT-4o gibi modelleri seçer. Biz farklı bir yaklaşım benimsiyoruz: **her zaman çıktı kalitesini maliyetin üzerinde tutuyoruz.**",
+    "common": {
+      "h3": "Yeterince İyi' Yaklaşımı (Tipik)",
+      "items": [
+        "Düşük işletme maliyetlerini önceliklendirir",
+        "Basit bakım için tek bir sağlayıcıya bağlı kalmayı kabul eder",
+        "Genel, herkese uyan tek tip bir deneyim sunar"
+      ]
+    },
+    "ours": {
+      "h3": "Sınıfının En İyisi' Yaklaşımı (Tutanakları AI)",
+      "items": [
+        "Mevcut en iyi performans gösteren modeli aktif olarak benimser",
+        "Çıktı kalitesini ve göreve özgü uyumu her şeyin üzerinde tutar",
+        "Yüksek kalite çıtamızı karşılamayan modelleri kullanmayı reddeder"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Mevcut AI Kadromuz (Bugün itibarıyla)",
+    "p1": "Tutanaklarınızın net, doğru ve eyleme hazır olmasını sağlamak için şu anda bu üst düzey modellerle hibrit bir yaklaşım kullanıyoruz:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Eşsiz mantıksal akıl yürütme ve hassas ton kontrolü. Kararların ve sorumluluğun kilit olduğu karmaşık tartışmalar için mükemmeldir."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Uzun konuşmaları anlama, bağlamı koruma ve kritik noktaları çıkarma konusunda inanılmaz bir yetenek. Niş veya teknik konularda bile istikrarlı, yüksek kaliteli özetler sağlar."
+      }
+    ],
+    "note": "Lütfen dikkat: AI dünyası hızla değişiyor. Biz 'model-agnostiğiz' ve her zaman en iyi sonucu aldığınızdan emin olmak için modelleri test edecek, benimseyecek veya değiştireceğiz. Yarın daha iyi bir model ortaya çıkarsa, onu kullanıyor olacağız."
   },
   "philosophy": {
-    "h2": "Neden kalite önce",
-    "p1": "Birçok uygulama maliyete göre seçer. Biz netlik, eyleme dönüklük ve tutarlılığı önceleriz.",
-    "p2": "İyi malzeme ve mutfak tek başına yetmez—ustalık gerekir. Model seçimi ve prompt’lar profesyonel tutanaklar için ayarlanır."
+    "h2": "AI'dan Daha Fazlası: Eylem Odaklı Tasarım",
+    "p1": "En iyi AI modelleri sadece araçlardır. Bizim asıl hedefimiz, *eyleme yönlendiren* tutanaklar sağlamaktır. Sistemimizi, tutarlı, güvenilir ve eyleme geçirilebilir sonuçlar üretmek için tasarlıyor ve modellerimizi seçiyoruz.",
+    "points": [
+      "Rollerin, eylem maddesi sahiplerinin ve son teslim tarihlerinin net bir şekilde belirlenmesi.",
+      "Farklı toplantı türleri için optimize edilmiş şablonlar (örn. müzakereler, düzenli güncellemeler, dersler).",
+      "Gerçeklere dayalı doğruluk ve bağlamsal tutarlılığa sürekli odaklanma."
+    ]
   },
-  "adopted": {
-    "h2": "Benimsenen modeller (yazı zamanı)",
-    "items": [
-      "ChatGPT-5 (OpenAI): güçlü akıl yürütme, ton kontrolü ve güvenilir yapı; karar-hazır tutanaklar.",
-      "Gemini 2.5 Pro (Google): uzun bağlamda tutarlılık ve sağlam ana nokta çıkarımı."
-    ],
-    "foot": "Yeni modelleri sürekli değerlendirir ve kalite eşiğimizi aşınca hızla geçiş yaparız."
+  "quality": {
+    "h2": "Maliyetten Önce Kalite: Karşılığını Veren Bir Yatırım",
+    "p1": "Premium AI modellerini kullanmak bize daha pahalıya mal oluyor, ancak bu tartışılamaz bir konu. Neden mi? Çünkü *sizin* düzenlemeye harcadığınız zamanı önemli ölçüde azaltır, sorumlulukları netleştirir ve ekip çapında memnuniyeti artırır. Bu, kendi masrafını çıkaran bir değerdir.",
+    "p2": "En ucuz olanı değil, **optimal** modeli seçiyoruz. Tutanakları AI'nın prensibi budur."
   },
-  "image": { "alt": "Tutanakları AI’ı çalıştıran model yığını", "caption": "Seçim kriterimiz maliyet değil; netlik ve eyleme dönüklük." },
-  "links": { "h2": "İlgili yazılar", "intro": "Giriş", "nego": "Ticari müzakere tutanakları" },
-  "meta": { "h2": "Meta", "published": "Yayın", "type": "Makale", "category": "Yapay zekâ modelleri" },
-  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" }
+  "wrap": {
+    "h2": "Farkı Kendiniz Yaşayın",
+    "p": "Vasat özetlerle yetinmeyi bırakın. Tutanakları AI'yı bugün deneyin ve gerçekten profesyonel düzeydeki tutanakların gücünü hissedin. Kaliteye olan tavizsiz bağlılığımız, ekibinizin kararlarını hızlandıracaktır."
+  },
+  "cta": {
+    "openBrowser": "Tarayıcıda aç",
+    "downloadIOS": "iOS uygulamasını indir"
+  }
 }

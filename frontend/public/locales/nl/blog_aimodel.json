@@ -1,36 +1,91 @@
 {
   "seo": {
-    "title": "De AI-modellen achter Notulen AI",
-    "description": "Waarom Notulen AI professionele notulen levert: quality-first beleid en huidige modellen (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Notulen AI: modelstrategie met kwaliteitsfocus",
-    "ogDescription": "We maken onze modellen openbaar—ChatGPT-5 en Gemini 2.5 Pro—voor duidelijke, actiegerichte en consistente notulen.",
+    "title": "Achter de technologie: De AI-modellen van Notulen AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Ontdek waarom Notulen AI superieure notulen levert. We onthullen ons model-agnostische beleid en de krachtige LLM's die we gebruiken (momenteel ChatGPT-5 en Gemini 2.5 Pro).",
+    "ogTitle": "Kwaliteit boven kosten: De AI-modellen die we gebruiken bij Notulen AI",
+    "ogDescription": "We nemen geen genoegen met 'goed genoeg'. Notulen AI geeft prioriteit aan de uitvoerkwaliteit en gebruikt de beste modellen zoals ChatGPT-5 en Gemini 2.5 Pro om professionele resultaten te garanderen.",
     "ld": {
-      "headline": "AI-modellen gebruikt door Notulen AI",
-      "description": "Notulen AI geeft prioriteit aan outputkwaliteit en gebruikt momenteel ChatGPT-5 en Gemini 2.5 Pro voor besluitklare notulen."
+      "headline": "De AI-modellen die Notulen AI aandrijven",
+      "description": "Leer meer over onze filosofie bij het selecteren van modellen en waarom dit cruciaal is voor het creëren van actiegerichte, professionele notulen."
     }
   },
-  "aria": { "home": "Startpagina Notulen AI" },
-  "nav": { "blog": "Blog", "aimodel": "AI-modellen" },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Gebruikte AI-modellen"
+  },
   "hero": {
-    "kicker": "Achter de schermen",
-    "h1": "De AI-modellen die we gebruiken voor Notulen AI",
-    "tagline": "Niet zomaar een LLM: we kiezen modellen die notulen helder en actiegericht houden. Nu: ChatGPT-5 en Gemini 2.5 Pro."
+    "kicker": "Binnen Notulen AI",
+    "h1": "Wat zit er onder de motorkap? De AI-modellen die Notulen AI aandrijven",
+    "tagline": "Wij geloven in transparantie. Dit is onze filosofie voor modelselectie en de exacte AI die we gebruiken om uw professionele notulen te maken."
+  },
+  "intro": {
+    "h2": "Waarom onze notulen anders (en beter) aanvoelen",
+    "p1": "We zijn misschien begonnen op iOS, maar onze gebruikers wereldwijd zeggen het het best: ze noemen onze output \"prachtig vormgegeven\" en prijzen de \"uitstekende nauwkeurigheid\".",
+    "p2pre": "Dit is niet zomaar ruwe AI-output. Onze kernfilosofie is het genereren van notulen die **actiegericht** zijn, waardoor de volgende stappen glashelder zijn voor iedereen die erbij betrokken is. Bekijk onze",
+    "p2link1": "Productintroductie",
+    "p2mid": "en",
+    "p2link2": "Notulen van zakelijke onderhandelingen",
+    "p2post": "om te zien hoe het werkt.",
+    "focus": "Maar een geweldige filosofie is niet genoeg. Net als bij een Michelin-sterrengerecht heb je de beste ingrediënten (uw vergadering), de beste tools (onze software) en een chef-kok van wereldklasse (het AI-model) nodig om een perfect resultaat te creëren."
+  },
+  "market": {
+    "h2": "Ons standpunt vs. de markt: Waarom wij geen genoegen nemen met minder",
+    "p1": "Veel AI-tools kiezen modellen zoals ChatGPT-4o vanwege de kostenefficiëntie. Wij hanteren een andere aanpak: **wij geven altijd prioriteit aan de kwaliteit van de output boven de kosten.**",
+    "common": {
+      "h3": "De 'Goed genoeg'-aanpak (Typisch)",
+      "items": [
+        "Prioriteert lage operationele kosten",
+        "Accepteert vendor lock-in voor eenvoudig onderhoud",
+        "Levert een generieke, one-size-fits-all ervaring"
+      ]
+    },
+    "ours": {
+      "h3": "De 'Beste-in-zijn-soort'-aanpak (Notulen AI)",
+      "items": [
+        "Adopteert actief het best presterende model dat beschikbaar is",
+        "Prioriteert uitvoerkwaliteit en taakspecifieke geschiktheid boven alles",
+        "Weigert modellen te gebruiken die niet aan onze hoge kwaliteitsnorm voldoen"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Onze huidige AI-selectie (Vanaf vandaag)",
+    "p1": "Om ervoor te zorgen dat uw notulen duidelijk, nauwkeurig en klaar voor actie zijn, maken we momenteel gebruik van een hybride aanpak met deze topmodellen:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Ongeëvenaard logisch redeneren en nauwkeurige tooncontrole. Perfect voor complexe discussies waar beslissingen en verantwoordelijkheid centraal staan."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Ongelooflijk vermogen om lange gesprekken te begrijpen, context te behouden en cruciale punten te extraheren. Zorgt voor stabiele samenvattingen van hoge kwaliteit, zelfs voor niche- of technische onderwerpen."
+      }
+    ],
+    "note": "Let op: Het AI-landschap verandert snel. Wij zijn 'model-agnostisch' en zullen altijd modellen testen, adopteren of wisselen om ervoor te zorgen dat u het absoluut beste resultaat krijgt. Als er morgen een beter model verschijnt, gebruiken we dat."
   },
   "philosophy": {
-    "h2": "Waarom kwaliteit eerst komt",
-    "p1": "Veel apps kiezen op prijs. Wij prioriteren helderheid, actiegerichtheid en consistentie zodat de volgende stap altijd duidelijk is.",
-    "p2": "Goede ingrediënten en keuken garanderen geen topgerecht—vakmanschap telt. Modelkeuze en prompts zijn afgestemd op professionele notulen."
+    "h2": "Meer dan alleen AI: Ontworpen voor actie",
+    "p1": "De beste AI-modellen zijn slechts hulpmiddelen. Ons ware doel is om notulen te leveren die *aanzetten tot actie*. We ontwerpen ons systeem en kiezen onze modellen om consistente, betrouwbare en bruikbare resultaten te produceren.",
+    "points": [
+      "Duidelijke identificatie van rollen, eigenaren van actie-items en deadlines.",
+      "Geoptimaliseerde sjablonen voor verschillende vergadertypes (bijv. onderhandelingen, regelmatige updates, lezingen).",
+      "Een onophoudelijke focus op feitelijke nauwkeurigheid en contextuele consistentie."
+    ]
   },
-  "adopted": {
-    "h2": "Ingezet (ten tijde van schrijven)",
-    "items": [
-      "ChatGPT-5 (OpenAI): sterk redeneren, tooncontrole en betrouwbare structuur voor besluitklare notulen.",
-      "Gemini 2.5 Pro (Google): coherentie bij lange context en robuuste kernpunt-extractie."
-    ],
-    "foot": "We evalueren continu nieuwe modellen en stappen over zodra ze onze kwaliteitslat overtreffen."
+  "quality": {
+    "h2": "Kwaliteit boven kosten: Een investering die loont",
+    "p1": "Het gebruik van premium AI-modellen kost ons meer, maar het is niet onderhandelbaar. Waarom? Omdat het de tijd die *u* besteedt aan bewerken drastisch vermindert, verantwoordelijkheden verduidelijkt en de tevredenheid van het hele team verhoogt. Dat is waarde die zichzelf terugbetaalt.",
+    "p2": "Wij kiezen het **optimale** model, niet het goedkoopste. Dat is het principe van Notulen AI."
   },
-  "image": { "alt": "Modelstack achter Notulen AI", "caption": "Notulen AI kiest modellen op helderheid en actiegerichtheid, niet alleen op kosten." },
-  "links": { "h2": "Gerelateerd", "intro": "Introductie", "nego": "Notulen voor zakelijke onderhandelingen" },
-  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Artikel", "category": "AI-modellen" },
-  "cta": { "openBrowser": "Openen in browser", "downloadIOS": "iOS-app downloaden" }
+  "wrap": {
+    "h2": "Ervaar het verschil zelf",
+    "p": "Stop met genoegen te nemen met middelmatige samenvattingen. Probeer Notulen AI vandaag nog en voel de kracht van echt professionele notulen. Onze compromisloze toewijding aan kwaliteit zal de beslissingen van uw team versnellen."
+  },
+  "cta": {
+    "openBrowser": "Openen in browser",
+    "downloadIOS": "Download iOS-app"
+  }
 }

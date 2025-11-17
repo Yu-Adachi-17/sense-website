@@ -9,35 +9,83 @@
       "description": "Learn about our philosophy on model selection and why it's crucial for creating action-oriented, professional meeting minutes."
     }
   },
-  "aria": { "home": "Minutes.AI Home" },
-  "nav": { "blog": "Blog", "aimodel": "AI Models We Use" },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "AI Models We Use"
+  },
   "hero": {
     "kicker": "Inside Minutes.AI",
     "h1": "What’s Under the Hood? The AI Models Powering Minutes.AI",
     "tagline": "We believe in transparency. This is our model selection philosophy, and the exact AI we use to create your professional-grade minutes."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Why Our Minutes Feel Different (and Better)",
+    "p1": "We may have started on iOS, but our users worldwide say it best: they call our output \"beautifully crafted\" and praise its \"outstanding accuracy\".",
+    "p2pre": "This isn't just raw AI output. Our core philosophy is to generate minutes that are **action-oriented**, making the next steps crystal-clear for everyone involved. See our",
+    "p2link1": "Product Introduction",
+    "p2mid": "and",
+    "p2link2": "Business Negotiation Minutes",
+    "p2post": "to see how it works.",
+    "focus": "But a great philosophy isn't enough. Like a Michelin-star dish, you need the best ingredients (your meeting), the best tools (our software), and a world-class chef (the AI model) to create a perfect result."
+  },
+  "market": {
     "h2": "Our Stance vs. The Market: Why We Don't Settle",
     "p1": "Many AI tools choose models like ChatGPT-4o because it's cost-effective. We take a different approach: **we prioritize output quality over cost, every time.**",
-    "p2": "But a great philosophy isn't enough. Like a Michelin-star dish, you need the best ingredients (your meeting), the best tools (our software), and a world-class chef (the AI model) to create a perfect result."
+    "common": {
+      "h3": "The 'Good Enough' Approach (Typical)",
+      "items": [
+        "Prioritizes low operating costs",
+        "Accepts vendor lock-in for simple maintenance",
+        "Delivers a generic, one-size-fits-all experience"
+      ]
+    },
+    "ours": {
+      "h3": "The 'Best-in-Class' Approach (Minutes.AI)",
+      "items": [
+        "Actively adopt the best-performing model available",
+        "Prioritize output quality and task-specific fit above all",
+        "Refuse to use models that don't meet our high quality bar"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Our Current AI Roster (As of Today)",
+    "p1": "To ensure your minutes are clear, accurate, and ready for action, we currently leverage a hybrid approach with these top-tier models:",
     "items": [
-      "ChatGPT-5 (OpenAI): Unmatched logical reasoning and precise tone control. It's perfect for complex discussions where decisions and accountability are key.",
-      "Gemini 2.5 Pro (Google): Incredible at understanding long conversations, maintaining context, and extracting crucial points. It ensures stable, high-quality summaries, even for niche or technical topics."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Unmatched logical reasoning and precise tone control. It's perfect for complex discussions where decisions and accountability are key."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Incredible at understanding long conversations, maintaining context, and extracting crucial points. It ensures stable, high-quality summaries, even for niche or technical topics."
+      }
     ],
-    "foot": "Please note: The AI landscape changes fast. We are 'model-agnostic' and will always test, adopt, or switch models to ensure you're getting the absolute best result. If a better model appears tomorrow, we'll be using it."
+    "note": "Please note: The AI landscape changes fast. We are 'model-agnostic' and will always test, adopt, or switch models to ensure you're getting the absolute best result. If a better model appears tomorrow, we'll be using it."
   },
-  "image": {
-    "alt": "A diagram illustrating the Minutes.AI decision engine selecting the best AI models, like ChatGPT-5 and Gemini 2.5 Pro.",
-    "caption": "We choose the optimal model, not the cheapest one. That is the Minutes.AI principle."
+  "philosophy": {
+    "h2": "More Than Just AI: Action-Oriented by Design",
+    "p1": "The best AI models are just tools. Our true goal is to provide minutes that *drive action*. We design our system and choose our models to produce consistent, reliable, and actionable results.",
+    "points": [
+      "Clear identification of roles, action item owners, and deadlines.",
+      "Optimized templates for different meeting types (e.g., negotiations, regular updates, lectures).",
+      "A relentless focus on factual accuracy and contextual consistency."
+    ]
   },
-  "links": {
-    "h2": "Related Reading",
-    "intro": "Product Introduction",
-    "nego": "Business Negotiation Minutes"
+  "quality": {
+    "h2": "Quality Over Cost: An Investment That Pays Off",
+    "p1": "Using premium AI models costs us more, but it's a non-negotiable. Why? Because it dramatically reduces the time *you* spend editing, clarifies responsibilities, and increases team-wide satisfaction. That's value that pays for itself.",
+    "p2": "We choose the **optimal** model, not the cheapest one. That is the Minutes.AI principle."
   },
-  "meta": { "h2": "Meta", "published": "Published", "type": "Article", "category": "AI Models" },
-  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS app" }
+  "wrap": {
+    "h2": "Experience the Difference Yourself",
+    "p": "Stop settling for mediocre summaries. Try Minutes.AI today and feel the power of truly professional-grade minutes. Our uncompromising commitment to quality will accelerate your team's decisions."
+  },
+  "cta": {
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS app"
+  }
 }

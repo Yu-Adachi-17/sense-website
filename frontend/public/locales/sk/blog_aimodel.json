@@ -1,43 +1,91 @@
 {
   "seo": {
-    "title": "Modely AI za AI Zápisnica",
-    "description": "Prečo AI Zápisnica vytvára profesionálne zápisy: princíp „kvalita na prvom mieste“ a aktuálne používané modely (ChatGPT-5 a Gemini 2.5 Pro).",
-    "ogTitle": "Politika modelov v AI Zápisnica: kvalita na prvom mieste",
-    "ogDescription": "Zverejňujeme modely, na ktoré sa spoliehame—ChatGPT-5 a Gemini 2.5 Pro—pre jasné, akčné a konzistentné zápisy.",
+    "title": "Pod pokrievkou: Modely AI poháňajúce AI Zápisnica (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Objavte, prečo AI Zápisnica poskytuje vynikajúce zápisnice zo stretnutí. Odhaľujeme našu politiku nezávislosti od modelov a výkonné LLM, ktoré používame (momentálne ChatGPT-5 a Gemini 2.5 Pro).",
+    "ogTitle": "Kvalita nad náklady: Modely AI, ktoré používame v AI Zápisnica",
+    "ogDescription": "Neuspokojíme sa s „dosť dobrým“. AI Zápisnica uprednostňuje kvalitu výstupu a na zabezpečenie profesionálnych výsledkov používa najlepšie modely vo svojej triede, ako sú ChatGPT-5 a Gemini 2.5 Pro.",
     "ld": {
-      "headline": "Modely umelej inteligencie používané v AI Zápisnica",
-      "description": "AI Zápisnica uprednostňuje kvalitu a aktuálne používa ChatGPT-5 a Gemini 2.5 Pro na zápisy pripravené na rozhodovanie."
+      "headline": "Modely AI poháňajúce AI Zápisnica",
+      "description": "Zistite viac o našej filozofii výberu modelov a prečo je kľúčová pre vytváranie profesionálnych zápisníc zo stretnutí zameraných na akciu."
     }
   },
-  "aria": { "home": "Domovská stránka AI Zápisnica" },
-  "nav": { "blog": "Blog", "aimodel": "Modely AI" },
+  "aria": {
+    "home": "Domov AI Zápisnica"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Modely AI, ktoré používame"
+  },
   "hero": {
-    "kicker": "Zo zákulisia",
-    "h1": "Modely, ktoré používame v AI Zápisnica",
-    "tagline": "Nevolíme náhodné LLM; vyberáme to, čo robí zápisy jasnými a akčnými. Momentálne: ChatGPT-5 a Gemini 2.5 Pro."
+    "kicker": "Vo vnútri AI Zápisnica",
+    "h1": "Čo je pod kapotou? Modely AI poháňajúce AI Zápisnica",
+    "tagline": "Veríme v transparentnosť. Toto je naša filozofia výberu modelov a presne tá AI, ktorú používame na vytváranie vašich profesionálnych zápisníc."
+  },
+  "intro": {
+    "h2": "Prečo sú naše zápisnice iné (a lepšie)",
+    "p1": "Možno sme začali na iOS, ale naši používatelia po celom svete to hovoria najlepšie: náš výstup nazývajú „krásne spracovaný“ a chvália jeho „vynikajúcu presnosť“.",
+    "p2pre": "Toto nie je len surový výstup AI. Našou základnou filozofiou je generovať zápisnice, ktoré sú **zamerané na akciu**, aby boli ďalšie kroky krištáľovo jasné pre všetkých zúčastnených. Pozrite si naše",
+    "p2link1": "Predstavenie produktu",
+    "p2mid": "a",
+    "p2link2": "Zápisnice z obchodných rokovaní",
+    "p2post": ", aby ste videli, ako to funguje.",
+    "focus": "Ale skvelá filozofia nestačí. Podobne ako pri jedle ocenenom hviezdičkou Michelin, potrebujete tie najlepšie ingrediencie (vaše stretnutie), najlepšie nástroje (náš softvér) a šéfkuchára svetovej triedy (model AI), aby ste vytvorili dokonalý výsledok."
+  },
+  "market": {
+    "h2": "Náš postoj vs. trh: Prečo sa neuspokojíme s málom",
+    "p1": "Mnohé nástroje AI si vyberajú modely ako ChatGPT-4o, pretože je to nákladovo efektívne. My volíme iný prístup: **vždy uprednostňujeme kvalitu výstupu pred nákladmi.**",
+    "common": {
+      "h3": "Prístup „Dosť dobré“ (Typický)",
+      "items": [
+        "Uprednostňuje nízke prevádzkové náklady",
+        "Akceptuje viazanosť na dodávateľa pre jednoduchú údržbu",
+        "Poskytuje generický, univerzálny zážitok"
+      ]
+    },
+    "ours": {
+      "h3": "Prístup „Najlepší v triede“ (AI Zápisnica)",
+      "items": [
+        "Aktívne prijíma najvýkonnejší dostupný model",
+        "Uprednostňuje kvalitu výstupu a vhodnosť pre danú úlohu nadovšetko",
+        "Odmieta používať modely, ktoré nespĺňajú našu vysokú latku kvality"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Naša aktuálna zostava AI (k dnešnému dňu)",
+    "p1": "Aby sme zabezpečili, že vaše zápisnice budú jasné, presné a pripravené na akciu, v súčasnosti využívame hybridný prístup s týmito špičkovými modelmi:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Neprekonateľné logické uvažovanie a presné ovládanie tónu. Je ideálny pre zložité diskusie, kde sú kľúčové rozhodnutia a zodpovednosť."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Neuveriteľná schopnosť porozumieť dlhým konverzáciám, udržať kontext a extrahovať kľúčové body. Zabezpečuje stabilné, vysokokvalitné zhrnutia, dokonca aj pre úzko špecializované alebo technické témy."
+      }
+    ],
+    "note": "Upozornenie: Krajina AI sa rýchlo mení. Sme „agnostickí voči modelom“ a vždy budeme testovať, prijímať alebo meniť modely, aby sme zaistili, že dostanete ten absolútne najlepší výsledok. Ak sa zajtra objaví lepší model, budeme ho používať."
   },
   "philosophy": {
-    "h2": "Prečo uprednostňujeme kvalitu",
-    "p1": "Mnohé produkty sa rozhodujú podľa nákladov. My cielime na jasnosť, akčnosť a konzistentnosť, aby čitateľ vždy poznal ďalší krok.",
-    "p2": "Najlepšie ingrediencie a kuchyňa samy o sebe negarantujú skvelé jedlo—rozhoduje zručnosť. Vyladzujeme výber modelov a promptov pre profesionálne zápisy."
+    "h2": "Viac než len AI: Navrhnuté pre akciu",
+    "p1": "Najlepšie modely AI sú len nástroje. Naším skutočným cieľom je poskytovať zápisnice, ktoré *podnecujú k akcii*. Navrhujeme náš systém a vyberáme naše modely tak, aby produkovali konzistentné, spoľahlivé a použiteľné výsledky.",
+    "points": [
+      "Jasná identifikácia rolí, vlastníkov úloh a termínov.",
+      "Optimalizované šablóny pre rôzne typy stretnutí (napr. rokovania, pravidelné aktualizácie, prednášky).",
+      "Neustále zameranie na faktickú presnosť a kontextovú konzistentnosť."
+    ]
   },
-  "adopted": {
-    "h2": "Prijaté modely (v čase písania)",
-    "items": [
-      "ChatGPT-5 (OpenAI): silné uvažovanie, kontrola tónu a spoľahlivá štruktúra pre zápisy pripravené na rozhodnutie.",
-      "Gemini 2.5 Pro (Google): vysoká konzistentnosť pri dlhých kontextoch a pevná extrakcia kľúčových bodov."
-    ],
-    "foot": "Nové modely priebežne hodnotíme a prechádzame na ne, keď prekročia náš kvalitatívny prah."
+  "quality": {
+    "h2": "Kvalita nad náklady: Investícia, ktorá sa oplatí",
+    "p1": "Používanie prémiových modelov AI nás stojí viac, ale o tom sa nediskutuje. Prečo? Pretože to dramaticky znižuje čas, ktorý *vy* strávite úpravami, objasňuje zodpovednosti a zvyšuje spokojnosť celého tímu. To je hodnota, ktorá sa sama zaplatí.",
+    "p2": "Vyberáme **optimálny** model, nie najlacnejší. To je princíp AI Zápisnica."
   },
-  "image": {
-    "alt": "Modelová architektúra, ktorá poháňa AI Zápisnica",
-    "caption": "Modely vyberáme podľa jasnosti a akčnosti — nie len podľa ceny."
+  "wrap": {
+    "h2": "Zažite ten rozdiel na vlastnej koži",
+    "p": "Prestaňte sa uspokojovať s priemernými zhrnutiami. Vyskúšajte AI Zápisnica ešte dnes a pocíťte silu skutočne profesionálnych zápisníc. Náš nekompromisný záväzok ku kvalite urýchli rozhodnutia vášho tímu."
   },
-  "links": {
-    "h2": "Súvisiace témy",
-    "intro": "Úvod",
-    "nego": "Zápisy z obchodného vyjednávania"
-  },
-  "meta": { "h2": "Metaúdaje", "published": "Dátum publikovania", "type": "Článok", "category": "Modely AI" },
-  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Stiahnuť iOS aplikáciu" }
+  "cta": {
+    "openBrowser": "Otvoriť v prehliadači",
+    "downloadIOS": "Stiahnuť aplikáciu pre iOS"
+  }
 }

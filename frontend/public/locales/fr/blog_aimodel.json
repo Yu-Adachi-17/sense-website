@@ -3,41 +3,89 @@
     "title": "Sous le capot : Les modèles d'IA de Minutes.AI (ChatGPT-5, Gemini 2.5 Pro)",
     "description": "Découvrez pourquoi Minutes.AI fournit des comptes rendus de réunion de qualité supérieure. Nous révélons notre politique indépendante des modèles et les puissants LLM que nous utilisons (actuellement ChatGPT-5 et Gemini 2.5 Pro).",
     "ogTitle": "La qualité avant le coût : Les modèles d'IA que nous utilisons chez Minutes.AI",
-    "ogDescription": "Minutes.AI privilégie la qualité des résultats, en utilisant les meilleurs modèles de leur catégorie comme ChatGPT-5 et Gemini 2.5 Pro pour garantir des résultats professionnels.",
+    "ogDescription": "Nous ne nous contentons pas de \"suffisant\". Minutes.AI privilégie la qualité des résultats, en utilisant les meilleurs modèles de leur catégorie comme ChatGPT-5 et Gemini 2.5 Pro pour garantir des résultats professionnels.",
     "ld": {
       "headline": "Les modèles d'IA qui alimentent Minutes.AI",
       "description": "Découvrez notre philosophie de sélection des modèles et pourquoi elle est cruciale pour créer des comptes rendus de réunion professionnels et orientés vers l'action."
     }
   },
-  "aria": { "home": "Accueil de Minutes.AI" },
-  "nav": { "blog": "Blog", "aimodel": "Modèles d'IA utilisés" },
+  "aria": {
+    "home": "Accueil de Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Modèles d'IA utilisés"
+  },
   "hero": {
     "kicker": "Dans les coulisses de Minutes.AI",
     "h1": "Qu'y a-t-il sous le capot ? Les modèles d'IA qui alimentent Minutes.AI",
     "tagline": "Nous croyons en la transparence. Voici notre philosophie de sélection des modèles et l'IA exacte que nous utilisons pour créer vos comptes rendus de qualité professionnelle."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Pourquoi nos comptes rendus sont différents (et meilleurs)",
+    "p1": "Nous avons peut-être commencé sur iOS, mais ce sont nos utilisateurs du monde entier qui en parlent le mieux : ils qualifient nos résultats de \"magnifiquement rédigés\" et louent leur \"précision exceptionnelle\".",
+    "p2pre": "Ce n'est pas seulement un résultat brut de l'IA. Notre philosophie de base est de générer des comptes rendus **orientés vers l'action**, en rendant les prochaines étapes parfaitement claires pour toutes les personnes impliquées. Consultez notre",
+    "p2link1": "Présentation du produit",
+    "p2mid": "et",
+    "p2link2": "Comptes rendus de négociations commerciales",
+    "p2post": "pour voir comment cela fonctionne.",
+    "focus": "Mais une grande philosophie ne suffit pas. Comme pour un plat étoilé au guide Michelin, il faut les meilleurs ingrédients (votre réunion), les meilleurs outils (notre logiciel) et un chef de classe mondiale (le modèle d'IA) pour créer un résultat parfait."
+  },
+  "market": {
     "h2": "Notre position face au marché : Pourquoi nous ne faisons pas de compromis",
     "p1": "De nombreux outils d'IA choisissent des modèles comme ChatGPT-4o pour leur rentabilité. Nous adoptons une approche différente : **nous privilégions la qualité du résultat avant le coût, à chaque fois.**",
-    "p2": "Mais une grande philosophie ne suffit pas. Comme pour un plat étoilé au guide Michelin, il faut les meilleurs ingrédients (votre réunion), les meilleurs outils (notre logiciel) et un chef de classe mondiale (le modèle d'IA) pour créer un résultat parfait."
+    "common": {
+      "h3": "L'approche \"suffisante\" (Typique)",
+      "items": [
+        "Donne la priorité aux faibles coûts d'exploitation",
+        "Accepte la dépendance vis-à-vis d'un fournisseur pour une maintenance simple",
+        "Fournit une expérience générique et universelle"
+      ]
+    },
+    "ours": {
+      "h3": "L'approche \"la meilleure de sa catégorie\" (Minutes.AI)",
+      "items": [
+        "Adopte activement le modèle le plus performant disponible",
+        "Donne la priorité à la qualité des résultats et à l'adéquation aux tâches avant tout",
+        "Refuse d'utiliser des modèles qui ne répondent pas à nos exigences de qualité élevées"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Notre sélection d'IA actuelle (à ce jour)",
+    "p1": "Pour garantir que vos comptes rendus soient clairs, précis et prêts à l'action, nous exploitons actuellement une approche hybride avec ces modèles de premier plan :",
     "items": [
-      "ChatGPT-5 (OpenAI) : Un raisonnement logique inégalé et un contrôle précis du ton. Parfait pour les discussions complexes où les décisions et la responsabilité sont clés.",
-      "Gemini 2.5 Pro (Google) : Incroyable capacité à comprendre de longues conversations, à maintenir le contexte et à extraire les points cruciaux. Garantit des résumés stables et de haute qualité, même pour des sujets de niche ou techniques."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Un raisonnement logique inégalé et un contrôle précis du ton. Parfait pour les discussions complexes où les décisions et la responsabilité sont clés."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Incroyable capacité à comprendre de longues conversations, à maintenir le contexte et à extraire les points cruciaux. Garantit des résumés stables et de haute qualité, même pour des sujets de niche ou techniques."
+      }
     ],
-    "foot": "Veuillez noter : Le paysage de l'IA évolue rapidement. Nous sommes 'agnostiques' vis-à-vis des modèles et nous testerons, adopterons ou changerons toujours de modèle pour garantir que vous obtenez le meilleur résultat possible. Si un meilleur modèle apparaît demain, nous l'utiliserons."
+    "note": "Veuillez noter : Le paysage de l'IA évolue rapidement. Nous sommes 'agnostiques' vis-à-vis des modèles et nous testerons, adopterons ou changerons toujours de modèle pour garantir que vous obtenez le meilleur résultat possible. Si un meilleur modèle apparaît demain, nous l'utiliserons."
   },
-  "image": {
-    "alt": "Un diagramme illustrant le moteur de décision de Minutes.AI sélectionnant les meilleurs modèles d'IA, comme ChatGPT-5 et Gemini 2.5 Pro.",
-    "caption": "Nous choisissons le modèle optimal, pas le moins cher. C'est le principe de Minutes.AI."
+  "philosophy": {
+    "h2": "Plus qu'une simple IA : Conçu pour l'action",
+    "p1": "Les meilleurs modèles d'IA ne sont que des outils. Notre véritable objectif est de fournir des comptes rendus qui *suscitent l'action*. Nous concevons notre système et choisissons nos modèles pour produire des résultats cohérents, fiables et exploitables.",
+    "points": [
+      "Identification claire des rôles, des responsables d'actions et des délais.",
+      "Modèles optimisés pour différents types de réunions (par exemple, négociations, mises à jour régulières, conférences).",
+      "Une attention constante à l'exactitude factuelle et à la cohérence contextuelle."
+    ]
   },
-  "links": {
-    "h2": "Lectures associées",
-    "intro": "Présentation du produit",
-    "nego": "Comptes rendus de négociations commerciales"
+  "quality": {
+    "h2": "La qualité avant le coût : Un investissement rentable",
+    "p1": "L'utilisation de modèles d'IA premium nous coûte plus cher, mais ce n'est pas négociable. Pourquoi ? Parce que cela réduit considérablement le temps que *vous* passez à éditer, clarifie les responsabilités et augmente la satisfaction de toute l'équipe. C'est une valeur qui s'amortit d'elle-même.",
+    "p2": "Nous choisissons le modèle **optimal**, pas le moins cher. C'est le principe de Minutes.AI."
   },
-  "meta": { "h2": "Méta", "published": "Publié", "type": "Article", "category": "Modèles d'IA" },
-  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l'app iOS" }
+  "wrap": {
+    "h2": "Découvrez la différence par vous-même",
+    "p": "Arrêtez de vous contenter de résumés médiocres. Essayez Minutes.AI dès aujourd'hui et ressentez la puissance de comptes rendus de niveau vraiment professionnel. Notre engagement sans compromis envers la qualité accélérera les décisions de votre équipe."
+  },
+  "cta": {
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l'app iOS"
+  }
 }

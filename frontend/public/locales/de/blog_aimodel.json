@@ -3,41 +3,89 @@
     "title": "Hinter den Kulissen: Die KI-Modelle von Protokoll KI (ChatGPT-5, Gemini 2.5 Pro)",
     "description": "Entdecken Sie, warum Protokoll KI überlegene Meeting-Protokolle liefert. Wir enthüllen unsere modellunabhängige Strategie und die leistungsstarken LLMs, die wir verwenden (derzeit ChatGPT-5 und Gemini 2.5 Pro).",
     "ogTitle": "Qualität vor Kosten: Die KI-Modelle, die wir bei Protokoll KI einsetzen",
-    "ogDescription": "Protokoll KI priorisiert die Ausgabequalität und setzt erstklassige Modelle wie ChatGPT-5 und Gemini 2.5 Pro ein, um professionelle Ergebnisse zu gewährleisten.",
+    "ogDescription": "Wir geben uns nicht mit „gut genug“ zufrieden. Protokoll KI priorisiert die Ausgabequalität und setzt erstklassige Modelle wie ChatGPT-5 und Gemini 2.5 Pro ein, um professionelle Ergebnisse zu gewährleisten.",
     "ld": {
       "headline": "Die KI-Modelle, die Protokoll KI antreiben",
       "description": "Erfahren Sie mehr über unsere Philosophie bei der Modellauswahl und warum sie für die Erstellung handlungsorientierter, professioneller Meeting-Protokolle entscheidend ist."
     }
   },
-  "aria": { "home": "Protokoll KI Startseite" },
-  "nav": { "blog": "Blog", "aimodel": "KI-Modelle, die wir verwenden" },
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "KI-Modelle, die wir verwenden"
+  },
   "hero": {
     "kicker": "Einblick in Protokoll KI",
     "h1": "Was steckt unter der Haube? Die KI-Modelle hinter Protokoll KI",
     "tagline": "Wir glauben an Transparenz. Das ist unsere Philosophie bei der Modellauswahl und die genaue KI, die wir für Ihre professionellen Protokolle verwenden."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Warum sich unsere Protokolle anders (und besser) anfühlen",
+    "p1": "Wir haben vielleicht mit iOS angefangen, aber unsere weltweiten Nutzer bringen es auf den Punkt: Sie nennen unsere Ergebnisse „wunderschön ausgearbeitet“ und loben die „herausragende Genauigkeit“.",
+    "p2pre": "Dies ist nicht nur rohe KI-Ausgabe. Unsere Kernphilosophie ist es, Protokolle zu erstellen, die **handlungsorientiert** sind und die nächsten Schritte für alle Beteiligten glasklar machen. Sehen Sie sich unsere",
+    "p2link1": "Produkteinführung",
+    "p2mid": "und",
+    "p2link2": "Protokolle von Geschäftsverhandlungen",
+    "p2post": "an, um zu sehen, wie es funktioniert.",
+    "focus": "Aber eine großartige Philosophie ist nicht genug. Wie bei einem Michelin-Sterne-Gericht braucht man die besten Zutaten (Ihr Meeting), die besten Werkzeuge (unsere Software) und einen Weltklasse-Koch (das KI-Modell), um ein perfektes Ergebnis zu erzielen."
+  },
+  "market": {
     "h2": "Unser Ansatz vs. der Markt: Warum wir uns nicht zufriedengeben",
     "p1": "Viele KI-Tools wählen Modelle wie ChatGPT-4o aus Kostengründen. Wir verfolgen einen anderen Ansatz: **Wir priorisieren die Ausgabequalität jederzeit über die Kosten.**",
-    "p2": "Aber eine großartige Philosophie allein reicht nicht aus. Wie bei einem Michelin-Sterne-Gericht braucht man die besten Zutaten (Ihr Meeting), die besten Werkzeuge (unsere Software) und einen Weltklasse-Koch (das KI-Modell), um ein perfektes Ergebnis zu erzielen."
+    "common": {
+      "h3": "Der „Gut genug“-Ansatz (Typisch)",
+      "items": [
+        "Priorisiert niedrige Betriebskosten",
+        "Akzeptiert Vendor-Lock-in für einfache Wartung",
+        "Liefert ein generisches Einheitserlebnis"
+      ]
+    },
+    "ours": {
+      "h3": "Der „Klassenbeste“-Ansatz (Protokoll KI)",
+      "items": [
+        "Setzt aktiv das leistungsstärkste verfügbare Modell ein",
+        "Priorisiert Ausgabequalität undAufgabenanpassung über alles andere",
+        "Weigert sich, Modelle zu verwenden, die unsere hohe Qualitätslatte nicht erfüllen"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Unsere aktuellen KI-Modelle (Stand heute)",
+    "p1": "Um sicherzustellen, dass Ihre Protokolle klar, genau und sofort umsetzbar sind, nutzen wir derzeit einen hybriden Ansatz mit diesen Spitzenmodellen:",
     "items": [
-      "ChatGPT-5 (OpenAI): Unübertroffenes logisches Denken und präzise Tonkontrolle. Perfekt für komplexe Diskussionen, bei denen Entscheidungen und Verantwortlichkeit entscheidend sind.",
-      "Gemini 2.5 Pro (Google): Unglaubliche Fähigkeit, lange Gespräche zu verstehen, den Kontext zu wahren und wichtige Punkte zu extrahieren. Gewährleistet stabile, hochwertige Zusammenfassungen, selbst bei Nischen- oder Fachthemen."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Unübertroffenes logisches Denken und präzise Tonkontrolle. Perfekt für komplexe Diskussionen, bei denen Entscheidungen und Verantwortlichkeit entscheidend sind."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Unglaubliche Fähigkeit, lange Gespräche zu verstehen, den Kontext zu wahren und wichtige Punkte zu extrahieren. Gewährleistet stabile, hochwertige Zusammenfassungen, selbst bei Nischen- oder Fachthemen."
+      }
     ],
-    "foot": "Bitte beachten Sie: Die KI-Landschaft verändert sich rasant. Wir sind 'modellunabhängig' und werden immer Modelle testen, einführen oder wechseln, um sicherzustellen, dass Sie das absolut beste Ergebnis erhalten. Wenn morgen ein besseres Modell erscheint, werden wir es verwenden."
+    "note": "Bitte beachten Sie: Die KI-Landschaft verändert sich rasant. Wir sind 'modellunabhängig' und werden immer Modelle testen, einführen oder wechseln, um sicherzustellen, dass Sie das absolut beste Ergebnis erhalten. Wenn morgen ein besseres Modell erscheint, werden wir es verwenden."
   },
-  "image": {
-    "alt": "Ein Diagramm, das die Entscheidungs-Engine von Protokoll KI zeigt, wie sie die besten KI-Modelle wie ChatGPT-5 und Gemini 2.5 Pro auswählt.",
-    "caption": "Wir wählen das optimale Modell, nicht das billigste. Das ist das Prinzip von Protokoll KI."
+  "philosophy": {
+    "h2": "Mehr als nur KI: Handlungsorientiertes Design",
+    "p1": "Die besten KI-Modelle sind nur Werkzeuge. Unser wahres Ziel ist es, Protokolle zu liefern, die *Handlungen anstoßen*. Wir gestalten unser System und wählen unsere Modelle so, dass sie konsistente, zuverlässige und umsetzbare Ergebnisse liefern.",
+    "points": [
+      "Klare Identifizierung von Rollen, Verantwortlichen für Aktionspunkte und Fristen.",
+      "Optimierte Vorlagen für verschiedene Meeting-Typen (z. B. Verhandlungen, regelmäßige Updates, Vorträge).",
+      "Ein unermüdlicher Fokus auf faktische Genauigkeit und kontextuelle Konsistenz."
+    ]
   },
-  "links": {
-    "h2": "Weiterführende Lektüre",
-    "intro": "Produkteinführung",
-    "nego": "Protokolle von Geschäftsverhandlungen"
+  "quality": {
+    "h2": "Qualität vor Kosten: Eine Investition, die sich auszahlt",
+    "p1": "Die Verwendung von Premium-KI-Modellen kostet uns mehr, ist aber nicht verhandelbar. Warum? Weil es die Zeit, die *Sie* mit der Bearbeitung verbringen, drastisch reduziert, Verantwortlichkeiten klärt und die Zufriedenheit im gesamten Team erhöht. Das ist ein Wert, der sich bezahlt macht.",
+    "p2": "Wir wählen das **optimale** Modell, nicht das billigste. Das ist das Protokoll KI-Prinzip."
   },
-  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Artikel", "category": "KI-Modelle" },
-  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS-App herunterladen" }
+  "wrap": {
+    "h2": "Erleben Sie den Unterschied selbst",
+    "p": "Geben Sie sich nicht mit mittelmäßigen Zusammenfassungen zufrieden. Testen Sie Protokoll KI noch heute und spüren Sie die Kraft von wirklich professionellen Protokollen. Unser kompromissloses Engagement für Qualität wird die Entscheidungen Ihres Teams beschleunigen."
+  },
+  "cta": {
+    "openBrowser": "Im Browser öffnen",
+    "downloadIOS": "iOS-App herunterladen"
+  }
 }

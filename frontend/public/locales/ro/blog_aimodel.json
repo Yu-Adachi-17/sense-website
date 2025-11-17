@@ -1,43 +1,91 @@
 {
   "seo": {
-    "title": "Modelele de AI din spatele Proces-verbal AI",
-    "description": "De ce Proces-verbal AI livrează procese-verbale profesionale: principiul „calitatea pe primul loc” și modelele folosite în prezent (ChatGPT-5 și Gemini 2.5 Pro).",
-    "ogTitle": "Politica de modele la Proces-verbal AI: calitatea înainte de toate",
-    "ogDescription": "Facem publice modelele pe care ne bazăm—ChatGPT-5 și Gemini 2.5 Pro—pentru procese-verbale clare, aplicabile și consecvente.",
+    "title": "În culisele tehnologiei: Modelele AI care stau la baza Proces-verbal AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Descoperiți de ce Proces-verbal AI livrează procese-verbale de ședință superioare. Dezvăluim politica noastră agnostică față de modele și LLM-urile puternice pe care le folosim (în prezent ChatGPT-5 și Gemini 2.5 Pro).",
+    "ogTitle": "Calitatea în detrimentul costului: Modelele AI pe care le folosim la Proces-verbal AI",
+    "ogDescription": "Nu ne mulțumim cu „suficient de bun”. Proces-verbal AI prioritizează calitatea rezultatelor, folosind cele mai bune modele din clasă, cum ar fi ChatGPT-5 și Gemini 2.5 Pro, pentru a asigura rezultate profesionale.",
     "ld": {
-      "headline": "Modele de inteligență artificială folosite de Proces-verbal AI",
-      "description": "Proces-verbal AI prioritizează calitatea și folosește în prezent ChatGPT-5 și Gemini 2.5 Pro pentru procese-verbale gata de decizie."
+      "headline": "Modelele AI care stau la baza Proces-verbal AI",
+      "description": "Aflați despre filozofia noastră privind selecția modelelor și de ce este crucială pentru crearea unor procese-verbale de ședință profesionale și orientate spre acțiune."
     }
   },
-  "aria": { "home": "Pagina principală Proces-verbal AI" },
-  "nav": { "blog": "Blog", "aimodel": "Modele AI" },
+  "aria": {
+    "home": "Pagina principală Proces-verbal AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Modele AI folosite"
+  },
   "hero": {
-    "kicker": "În culise",
-    "h1": "Modelele pe care le folosim la Proces-verbal AI",
-    "tagline": "Nu alegem orice LLM; alegem ce face procese-verbale clare și aplicabile. În prezent: ChatGPT-5 și Gemini 2.5 Pro."
+    "kicker": "În interiorul Proces-verbal AI",
+    "h1": "Ce se află sub capotă? Modelele AI care stau la baza Proces-verbal AI",
+    "tagline": "Credem în transparență. Aceasta este filozofia noastră de selecție a modelelor și AI-ul exact pe care îl folosim pentru a crea procesele-verbale de nivel profesional."
+  },
+  "intro": {
+    "h2": "De ce procesele-verbale noastre se simt diferite (și mai bune)",
+    "p1": "Poate că am început pe iOS, dar utilizatorii noștri din întreaga lume o spun cel mai bine: ei numesc rezultatele noastre „frumos elaborate” și laudă „precizia remarcabilă” a acestora.",
+    "p2pre": "Acesta nu este doar un rezultat AI brut. Filozofia noastră de bază este să generăm procese-verbale **orientate spre acțiune**, făcând pașii următori extrem de clari pentru toți cei implicați. Vedeți",
+    "p2link1": "Prezentarea produsului",
+    "p2mid": "și",
+    "p2link2": "Procese-verbale ale negocierilor de afaceri",
+    "p2post": "pentru a vedea cum funcționează.",
+    "focus": "Dar o filozofie măreață nu este suficientă. Asemenea unui fel de mâncare cu stele Michelin, aveți nevoie de cele mai bune ingrediente (ședința dvs.), cele mai bune unelte (software-ul nostru) și un bucătar de talie mondială (modelul AI) pentru a crea un rezultat perfect."
+  },
+  "market": {
+    "h2": "Poziția noastră vs. Piață: De ce nu facem compromisuri",
+    "p1": "Multe instrumente AI aleg modele precum ChatGPT-4o pentru că sunt rentabile. Noi adoptăm o abordare diferită: **prioritizăm calitatea rezultatelor în detrimentul costului, de fiecare dată.**",
+    "common": {
+      "h3": "Abordarea „Suficient de bun” (Tipică)",
+      "items": [
+        "Prioritizează costurile operaționale scăzute",
+        "Acceptă dependența de un singur furnizor pentru întreținere simplă",
+        "Oferă o experiență generică, universală"
+      ]
+    },
+    "ours": {
+      "h3": "Abordarea „Cel mai bun din clasă” (Proces-verbal AI)",
+      "items": [
+        "Adoptă activ cel mai performant model disponibil",
+        "Prioritizează calitatea rezultatelor și potrivirea pentru sarcini specifice mai presus de orice",
+        "Refuză să folosească modele care nu ating standardul nostru înalt de calitate"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Lista noastră actuală de AI (La zi)",
+    "p1": "Pentru a ne asigura că procesele-verbale sunt clare, precise și gata de acțiune, în prezent mizăm pe o abordare hibridă cu aceste modele de top:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Raționament logic de neegalat și control precis al tonului. Este perfect pentru discuțiile complexe în care deciziile și responsabilitatea sunt cheia."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Capacitate incredibilă de a înțelege conversații lungi, de a menține contextul și de a extrage puncte cruciale. Asigură rezumate stabile, de înaltă calitate, chiar și pentru subiecte de nișă sau tehnice."
+      }
+    ],
+    "note": "Vă rugăm să rețineți: Peisajul AI se schimbă rapid. Suntem „agnostici față de modele” și vom testa, adopta sau schimba mereu modelele pentru a ne asigura că obțineți cel mai bun rezultat posibil. Dacă mâine apare un model mai bun, îl vom folosi."
   },
   "philosophy": {
-    "h2": "De ce punem calitatea pe primul loc",
-    "p1": "Multe produse aleg în funcție de cost. Noi vizăm claritate, aplicabilitate și consecvență, astfel încât cititorul să știe mereu pasul următor.",
-    "p2": "Cele mai bune ingrediente și cea mai bună bucătărie nu garantează un fel grozav—abilitatea face diferența. Rafinam selecția de modele și prompturi pentru procese-verbale profesionale."
+    "h2": "Mai mult decât AI: Proiectat pentru acțiune",
+    "p1": "Cele mai bune modele AI sunt doar unelte. Scopul nostru adevărat este să oferim procese-verbale care *stimulează acțiunea*. Proiectăm sistemul nostru și alegem modelele noastre pentru a produce rezultate consecvente, fiabile și aplicabile.",
+    "points": [
+      "Identificarea clară a rolurilor, a responsabililor pentru sarcini și a termenelor limită.",
+      "Șabloane optimizate pentru diferite tipuri de ședințe (de exemplu, negocieri, actualizări periodice, prelegeri).",
+      "Un accent neîncetat pe acuratețea factuală și coerența contextuală."
+    ]
   },
-  "adopted": {
-    "h2": "Modele adoptate (la momentul scrierii)",
-    "items": [
-      "ChatGPT-5 (OpenAI): raționament puternic, control al tonului și structură de încredere pentru procese-verbale gata de decizie.",
-      "Gemini 2.5 Pro (Google): consistență ridicată pe contexte lungi și extragere solidă a punctelor cheie."
-    ],
-    "foot": "Evaluăm constant modele noi și trecem la ele când depășesc pragul nostru de calitate."
+  "quality": {
+    "h2": "Calitatea în detrimentul costului: O investiție care se amortizează",
+    "p1": "Folosirea modelelor AI premium ne costă mai mult, dar acest lucru nu este negociabil. De ce? Pentru că reduce dramatic timpul pe care *îl* petreceți editând, clarifică responsabilitățile și crește satisfacția întregii echipe. Aceasta este o valoare care se amortizează singură.",
+    "p2": "Alegem modelul **optim**, nu pe cel mai ieftin. Acesta este principiul Proces-verbal AI."
   },
-  "image": {
-    "alt": "Arhitectura de modele care susține Proces-verbal AI",
-    "caption": "Selectăm modelele în funcție de claritate și aplicabilitate — nu doar de cost."
+  "wrap": {
+    "h2": "Experimentați diferența pe cont propriu",
+    "p": "Nu vă mai mulțumiți cu rezumate mediocre. Încercați Proces-verbal AI astăzi și simțiți puterea unor procese-verbale cu adevărat de nivel profesional. Angajamentul nostru fără compromisuri față de calitate va accelera deciziile echipei dumneavoastră."
   },
-  "links": {
-    "h2": "Subiecte conexe",
-    "intro": "Introducere",
-    "nego": "Procese-verbale de negociere comercială"
-  },
-  "meta": { "h2": "Metadate", "published": "Data publicării", "type": "Articol", "category": "Modele AI" },
-  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Descarcă aplicația iOS" }
+  "cta": {
+    "openBrowser": "Deschide în browser",
+    "downloadIOS": "Descarcă aplicația iOS"
+  }
 }

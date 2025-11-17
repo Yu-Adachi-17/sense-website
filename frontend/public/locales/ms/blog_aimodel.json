@@ -1,36 +1,91 @@
 {
   "seo": {
-    "title": "Model AI di sebalik Minit AI",
-    "description": "Mengapa Minit AI menghasilkan minit mesyuarat profesional: dasar kualiti diutamakan dan model semasa (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Minit AI: strategi model berfokus kualiti",
-    "ogDescription": "Kami dedahkan model yang digunakan—ChatGPT-5 dan Gemini 2.5 Pro—untuk minit yang jelas, boleh-tindak dan konsisten.",
+    "title": "Di Sebalik Teknologi: Model AI yang Menjana Minit AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Ketahui mengapa Minit AI menghasilkan minit mesyuarat yang unggul. Kami mendedahkan dasar agnostik-model kami dan LLM berkuasa yang kami gunakan (kini ChatGPT-5 dan Gemini 2.5 Pro).",
+    "ogTitle": "Kualiti Melebihi Kos: Model AI yang Kami Gunakan di Minit AI",
+    "ogDescription": "Kami tidak berpuas hati dengan 'cukup baik'. Minit AI mengutamakan kualiti hasil, menggunakan model terbaik dalam kelasnya seperti ChatGPT-5 dan Gemini 2.5 Pro untuk memastikan hasil profesional.",
     "ld": {
-      "headline": "Model AI yang digunakan oleh Minit AI",
-      "description": "Minit AI mengutamakan kualiti output dan kini mengguna ChatGPT-5 serta Gemini 2.5 Pro untuk minit sedia keputusan."
+      "headline": "Model AI yang Menjana Minit AI",
+      "description": "Ketahui tentang falsafah kami dalam pemilihan model dan mengapa ia penting untuk mencipta minit mesyuarat yang profesional dan berorientasikan tindakan."
     }
   },
-  "aria": { "home": "Laman utama Minit AI" },
-  "nav": { "blog": "Blog", "aimodel": "Model AI" },
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Model AI yang Kami Guna"
+  },
   "hero": {
-    "kicker": "Di sebalik tabir",
-    "h1": "Model AI yang kami gunakan untuk Minit AI",
-    "tagline": "Bukan sebarang LLM—kami memilih model yang mengekalkan minit jelas dan boleh-tindak. Ketika ini: ChatGPT-5 dan Gemini 2.5 Pro."
+    "kicker": "Di Dalam Minit AI",
+    "h1": "Apa Di Sebalik Tabir? Model AI yang Menjana Minit AI",
+    "tagline": "Kami percaya pada ketelusan. Ini adalah falsafah pemilihan model kami, dan AI sebenar yang kami gunakan untuk mencipta minit gred profesional anda."
+  },
+  "intro": {
+    "h2": "Mengapa Minit Kami Dirasai Berbeza (dan Lebih Baik)",
+    "p1": "Kami mungkin bermula di iOS, tetapi pengguna kami di seluruh dunia menyatakannya dengan terbaik: mereka menggelar hasil kami \"direka dengan indah\" dan memuji \"ketepatan yang luar biasa\".",
+    "p2pre": "Ini bukan sekadar output AI mentah. Falsafah teras kami adalah untuk menjana minit yang **berorientasikan tindakan**, menjadikan langkah seterusnya jelas difahami oleh semua orang yang terlibat. Lihat",
+    "p2link1": "Pengenalan Produk",
+    "p2mid": "kami dan",
+    "p2link2": "Minit Rundingan Perniagaan",
+    "p2post": "untuk melihat cara ia berfungsi.",
+    "focus": "Tetapi falsafah yang hebat sahaja tidak mencukupi. Seperti hidangan berbintang Michelin, anda memerlukan bahan terbaik (mesyuarat anda), alatan terbaik (perisian kami), dan cef bertaraf dunia (model AI) untuk mencipta hasil yang sempurna."
+  },
+  "market": {
+    "h2": "Pendirian Kami vs Pasaran: Mengapa Kami Tidak Bertolak Ansur",
+    "p1": "Banyak alatan AI memilih model seperti ChatGPT-4o kerana ia kos efektif. Kami mengambil pendekatan berbeza: **kami mengutamakan kualiti hasil berbanding kos, setiap masa.**",
+    "common": {
+      "h3": "Pendekatan 'Cukup Baik' (Tipikal)",
+      "items": [
+        "Mengutamakan kos operasi yang rendah",
+        "Menerima ikatan vendor untuk penyelenggaraan yang mudah",
+        "Menyampaikan pengalaman generik yang sama untuk semua"
+      ]
+    },
+    "ours": {
+      "h3": "Pendekatan 'Terbaik dalam Kelas' (Minit AI)",
+      "items": [
+        "Mengguna pakai model berprestasi terbaik yang ada secara aktif",
+        "Mengutamakan kualiti hasil dan kesesuaian tugas melebihi segala-galanya",
+        "Enggan menggunakan model yang tidak melepasi tahap kualiti tinggi kami"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Senarai AI Semasa Kami (Setakat hari ini)",
+    "p1": "Untuk memastikan minit anda jelas, tepat, dan sedia untuk tindakan, kami kini memanfaatkan pendekatan hibrid dengan model-model teratas ini:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Penaakulan logik yang tiada tandingan dan kawalan nada yang tepat. Sesuai untuk perbincangan kompleks di mana keputusan dan akauntabiliti adalah kunci."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Kebolehan luar biasa untuk memahami perbualan panjang, mengekalkan konteks, dan mengekstrak perkara penting. Memastikan ringkasan yang stabil dan berkualiti tinggi, walaupun untuk topik khusus atau teknikal."
+      }
+    ],
+    "note": "Sila ambil perhatian: Landskap AI berubah dengan pantas. Kami 'agnostik-model' dan akan sentiasa menguji, menerima pakai atau menukar model untuk memastikan anda mendapat hasil yang terbaik. Jika model yang lebih baik muncul esok, kami akan menggunakannya."
   },
   "philosophy": {
-    "h2": "Mengapa kualiti didahulukan",
-    "p1": "Banyak aplikasi memilih berdasarkan kos. Kami mengutamakan kejelasan, kebolehlaksanaan dan konsistensi.",
-    "p2": "Bahan dan dapur terbaik tidak menjamin hidangan terbaik—kemahiran penting. Pemilihan model dan prompt ditala untuk minit profesional."
+    "h2": "Lebih Daripada Sekadar AI: Direka untuk Tindakan",
+    "p1": "Model AI terbaik hanyalah alatan. Matlamat utama kami adalah untuk menyediakan minit yang *mendorong tindakan*. Kami mereka bentuk sistem kami dan memilih model kami untuk menghasilkan keputusan yang konsisten, boleh dipercayai dan boleh diambil tindakan.",
+    "points": [
+      "Pengenalpastian jelas peranan, pemilik item tindakan, dan tarikh akhir.",
+      "Templat yang dioptimumkan untuk pelbagai jenis mesyuarat (cth., rundingan, kemas kini berkala, syarahan).",
+      "Fokus yang tidak berbelah bahagi pada ketepatan fakta dan ketekalan kontekstual."
+    ]
   },
-  "adopted": {
-    "h2": "Model diguna (pada masa penulisan)",
-    "items": [
-      "ChatGPT-5 (OpenAI): penaakulan kukuh, kawalan nada, struktur boleh dipercayai untuk minit sedia keputusan.",
-      "Gemini 2.5 Pro (Google): koheren pada konteks panjang dan pengekstrakan titik utama yang mantap."
-    ],
-    "foot": "Kami menilai model baharu secara berterusan dan beralih apabila melepasi piawaian kualiti kami."
+  "quality": {
+    "h2": "Kualiti Melebihi Kos: Pelaburan yang Berbaloi",
+    "p1": "Menggunakan model AI premium memerlukan kos yang lebih tinggi, tetapi ia tidak boleh dirunding. Mengapa? Kerana ia secara drastik mengurangkan masa yang *anda* habiskan untuk menyunting, menjelaskan tanggungjawab, dan meningkatkan kepuasan seluruh pasukan. Itulah nilai yang setimpal dengan harganya.",
+    "p2": "Kami memilih model yang **optimum**, bukan yang termurah. Itulah prinsip Minit AI."
   },
-  "image": { "alt": "Timbunan model yang menggerakkan Minit AI", "caption": "Minit AI memilih model berdasarkan kejelasan dan kebolehtindakan, bukan kos semata-mata." },
-  "links": { "h2": "Bacaan berkaitan", "intro": "Pengenalan", "nego": "Minit perundingan perniagaan" },
-  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Artikel", "category": "Model AI" },
-  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun aplikasi iOS" }
+  "wrap": {
+    "h2": "Alami Sendiri Perbezaannya",
+    "p": "Berhenti berpuas hati dengan ringkasan yang biasa-biasa sahaja. Cuba Minit AI hari ini dan rasai kuasa minit gred profesional yang sebenar. Komitmen kami yang tanpa kompromi terhadap kualiti akan mempercepatkan keputusan pasukan anda."
+  },
+  "cta": {
+    "openBrowser": "Buka dalam pelayar",
+    "downloadIOS": "Muat turun aplikasi iOS"
+  }
 }

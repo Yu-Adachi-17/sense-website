@@ -1,43 +1,91 @@
 {
   "seo": {
     "title": "Dietro le quinte: I modelli AI di Verbali IA (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Scopri perché Verbali IA produce verbali di riunione di qualità superiore. Rivelliamo la nostra policy indipendente dai modelli e i potenti LLM che utilizziamo (attualmente ChatGPT-5 e Gemini 2.5 Pro).",
+    "description": "Scopri perché Verbali IA produce verbali di riunione di qualità superiore. Riveliamo la nostra policy indipendente dai modelli e i potenti LLM che utilizziamo (attualmente ChatGPT-5 e Gemini 2.5 Pro).",
     "ogTitle": "Qualità prima del costo: I modelli AI che usiamo in Verbali IA",
-    "ogDescription": "Verbali IA dà priorità alla qualità dell'output, utilizzando i migliori modelli della categoria come ChatGPT-5 e Gemini 2.5 Pro per garantire risultati professionali.",
+    "ogDescription": "Non ci accontentiamo di \"abbastanza buono\". Verbali IA dà priorità alla qualità dell'output, utilizzando i migliori modelli della categoria come ChatGPT-5 e Gemini 2.5 Pro per garantire risultati professionali.",
     "ld": {
       "headline": "I modelli AI che alimentano Verbali IA",
       "description": "Scopri la nostra filosofia sulla selezione dei modelli e perché è fondamentale per creare verbali di riunione professionali e orientati all'azione."
     }
   },
-  "aria": { "home": "Home di Verbali IA" },
-  "nav": { "blog": "Blog", "aimodel": "Modelli AI che usiamo" },
+  "aria": {
+    "home": "Home di Verbali IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Modelli AI che usiamo"
+  },
   "hero": {
     "kicker": "Dentro Verbali IA",
     "h1": "Cosa c'è sotto il cofano? I modelli AI che alimentano Verbali IA",
     "tagline": "Crediamo nella trasparenza. Questa è la nostra filosofia di selezione dei modelli e l'IA esatta che usiamo per creare i tuoi verbali di livello professionale."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Perché i nostri verbali sono diversi (e migliori)",
+    "p1": "Abbiamo iniziato su iOS, ma i nostri utenti in tutto il mondo lo dicono meglio di noi: definiscono i nostri risultati \"splendidamente realizzati\" e ne lodano la \"straordinaria precisione\".",
+    "p2pre": "Non si tratta solo di un output grezzo di IA. La nostra filosofia di base è generare verbali **orientati all'azione**, rendendo i passi successivi chiarissimi per tutti i soggetti coinvolti. Vedi la nostra",
+    "p2link1": "Presentazione del prodotto",
+    "p2mid": "e",
+    "p2link2": "Verbali di negoziazione commerciale",
+    "p2post": "per vedere come funziona.",
+    "focus": "Ma una grande filosofia non è sufficiente. Come per un piatto stellato Michelin, hai bisogno dei migliori ingredienti (la tua riunione), dei migliori strumenti (il nostro software) e di uno chef di livello mondiale (il modello AI) per creare un risultato perfetto."
+  },
+  "market": {
     "h2": "La nostra posizione rispetto al mercato: Perché non ci accontentiamo",
     "p1": "Molti strumenti AI scelgono modelli come ChatGPT-4o perché è conveniente. Noi adottiamo un approccio diverso: **diamo priorità alla qualità dell'output rispetto al costo, sempre.**",
-    "p2": "Ma una grande filosofia non è sufficiente. Come per un piatto stellato Michelin, hai bisogno dei migliori ingredienti (la tua riunione), dei migliori strumenti (il nostro software) e di uno chef di livello mondiale (il modello AI) per creare un risultato perfetto."
+    "common": {
+      "h3": "L'approccio \"abbastanza buono\" (Tipico)",
+      "items": [
+        "Dà priorità ai bassi costi operativi",
+        "Accetta il vendor lock-in per una manutenzione semplice",
+        "Offre un'esperienza generica e valida per tutti"
+      ]
+    },
+    "ours": {
+      "h3": "L'approccio \"il migliore della categoria\" (Verbali IA)",
+      "items": [
+        "Adotta attivamente il modello più performante disponibile",
+        "Dà priorità alla qualità dell'output e all'adattamento al compito sopra ogni cosa",
+        "Rifiuta di utilizzare modelli che non soddisfano i nostri elevati standard di qualità"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "La nostra attuale squadra AI (Ad oggi)",
+    "p1": "Per garantire che i tuoi verbali siano chiari, accurati e pronti per l'azione, attualmente sfruttiamo un approccio ibrido con questi modelli di alto livello:",
     "items": [
-      "ChatGPT-5 (OpenAI): Ragionamento logico impareggiabile e controllo preciso del tono. Perfetto per discussioni complesse in cui decisioni e responsabilità sono fondamentali.",
-      "Gemini 2.5 Pro (Google): Incredibile capacità di comprendere lunghe conversazioni, mantenere il contesto ed estrarre punti cruciali. Garantisce riassunti stabili e di alta qualità, anche per argomenti di nicchia o tecnici."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Ragionamento logico impareggiabile e controllo preciso del tono. Perfetto per discussioni complesse in cui decisioni e responsabilità sono fondamentali."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Incredibile capacità di comprendere lunghe conversazioni, mantenere il contesto ed estrarre punti cruciali. Garantisce riassunti stabili e di alta qualità, anche per argomenti di nicchia o tecnici."
+      }
     ],
-    "foot": "Nota bene: Il panorama dell'IA cambia rapidamente. Siamo 'agnostici rispetto ai modelli' e testeremo, adotteremo o cambieremo sempre i modelli per assicurarci che tu ottenga il miglior risultato possibile. Se domani apparirà un modello migliore, lo useremo."
+    "note": "Nota bene: Il panorama dell'IA cambia rapidamente. Siamo 'agnostici rispetto ai modelli' e testeremo, adotteremo o cambieremo sempre i modelli per assicurarci che tu ottenga il miglior risultato possibile. Se domani apparirà un modello migliore, lo useremo."
   },
-  "image": {
-    "alt": "Un diagramma che illustra il motore decisionale di Verbali IA mentre seleziona i migliori modelli AI, come ChatGPT-5 e Gemini 2.5 Pro.",
-    "caption": "Scegliamo il modello ottimale, non il più economico. Questo è il principio di Verbali IA."
+  "philosophy": {
+    "h2": "Più che semplice IA: Progettato per l'azione",
+    "p1": "I migliori modelli di IA sono solo strumenti. Il nostro vero obiettivo è fornire verbali che *guidino all'azione*. Progettiamo il nostro sistema e scegliamo i nostri modelli per produrre risultati coerenti, affidabili e attuabili.",
+    "points": [
+      "Chiara identificazione di ruoli, responsabili delle azioni e scadenze.",
+      "Modelli ottimizzati per diversi tipi di riunioni (ad es. negoziazioni, aggiornamenti periodici, lezioni).",
+      "Un'attenzione incessante all'accuratezza fattuale e alla coerenza contestuale."
+    ]
   },
-  "links": {
-    "h2": "Letture correlate",
-    "intro": "Introduzione al prodotto",
-    "nego": "Verbali di negoziazione commerciale"
+  "quality": {
+    "h2": "Qualità prima del costo: Un investimento che si ripaga",
+    "p1": "L'uso di modelli AI premium ci costa di più, ma non è negoziabile. Perché? Perché riduce drasticamente il tempo che *tu* impieghi per l'editing, chiarisce le responsabilità e aumenta la soddisfazione dell'intero team. È un valore che si ripaga da solo.",
+    "p2": "Scegliamo il modello **ottimale**, non il più economico. Questo è il principio di Verbali IA."
   },
-  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Articolo", "category": "Modelli AI" },
-  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica l'app iOS" }
+  "wrap": {
+    "h2": "Sperimenta tu stesso la differenza",
+    "p": "Smetti di accontentarti di riassunti mediocri. Prova Verbali IA oggi stesso e senti la potenza di verbali di livello veramente professionale. Il nostro impegno senza compromessi per la qualità accelererà le decisioni del tuo team."
+  },
+  "cta": {
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica l'app iOS"
+  }
 }

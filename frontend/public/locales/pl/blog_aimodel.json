@@ -1,43 +1,91 @@
 {
   "seo": {
-    "title": "Modele AI stojące za Protokół AI",
-    "description": "Dlaczego Protokół AI dostarcza profesjonalne protokoły: zasada „najpierw jakość” i aktualnie stosowane modele (ChatGPT-5 oraz Gemini 2.5 Pro).",
-    "ogTitle": "Polityka modeli w Protokół AI: najpierw jakość",
-    "ogDescription": "Ujawniamy modele, na których polegamy—ChatGPT-5 i Gemini 2.5 Pro—aby tworzyć protokoły klarowne, użyteczne i spójne.",
+    "title": "Kulisy technologii: Modele AI napędzające Protokół AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Odkryj, dlaczego Protokół AI dostarcza doskonałe protokoły ze spotkań. Ujawniamy naszą politykę agnostyczną wobec modeli oraz potężne LLM, których używamy (obecnie ChatGPT-5 i Gemini 2.5 Pro).",
+    "ogTitle": "Jakość ponad kosztami: Modele AI, których używamy w Protokół AI",
+    "ogDescription": "Nie zadowalamy się „wystarczająco dobrym”. Protokół AI priorytetowo traktuje jakość wyników, używając najlepszych w swojej klasie modeli, takich jak ChatGPT-5 i Gemini 2.5 Pro, aby zapewnić profesjonalne rezultaty.",
     "ld": {
-      "headline": "Modele sztucznej inteligencji używane w Protokół AI",
-      "description": "Protokół AI stawia na jakość i obecnie korzysta z ChatGPT-5 oraz Gemini 2.5 Pro, aby tworzyć protokoły gotowe do decyzji."
+      "headline": "Modele AI napędzające Protokół AI",
+      "description": "Poznaj naszą filozofię doboru modeli i dowiedz się, dlaczego jest ona kluczowa dla tworzenia profesjonalnych protokołów ze spotkań zorientowanych na działanie."
     }
   },
-  "aria": { "home": "Strona główna Protokół AI" },
-  "nav": { "blog": "Blog", "aimodel": "Modele AI" },
+  "aria": {
+    "home": "Strona główna Protokół AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Używane modele AI"
+  },
   "hero": {
-    "kicker": "Za kulisami",
-    "h1": "Modele używane w Protokół AI",
-    "tagline": "Nie wybieramy przypadkowego LLM; wybieramy to, co czyni protokoły jasnymi i możliwymi do działania. Obecnie: ChatGPT-5 i Gemini 2.5 Pro."
+    "kicker": "Wewnątrz Protokół AI",
+    "h1": "Co kryje się pod maską? Modele AI napędzające Protokół AI",
+    "tagline": "Wierzymy w przejrzystość. Oto nasza filozofia doboru modeli i dokładna sztuczna inteligencja, której używamy do tworzenia Twoich profesjonalnych protokołów."
+  },
+  "intro": {
+    "h2": "Dlaczego nasze protokoły są inne (i lepsze)",
+    "p1": "Być może zaczynaliśmy na iOS, ale nasi użytkownicy na całym świecie mówią to najlepiej: nazywają nasze wyniki „pięknie wykonanymi” i chwalą ich „wyjątkową dokładność”.",
+    "p2pre": "To nie jest tylko surowy wynik AI. Naszą podstawową filozofią jest generowanie protokołów **zorientowanych na działanie**, sprawiając, że kolejne kroki są krystalicznie jasne dla wszystkich zaangażowanych. Zobacz nasze",
+    "p2link1": "Wprowadzenie do produktu",
+    "p2mid": "i",
+    "p2link2": "Protokoły z negocjacji biznesowych",
+    "p2post": ", aby zobaczyć, jak to działa.",
+    "focus": "Ale świetna filozofia to nie wszystko. Podobnie jak w przypadku dania z gwiazdką Michelin, potrzebujesz najlepszych składników (Twoje spotkanie), najlepszych narzędzi (nasze oprogramowanie) i światowej klasy szefa kuchni (model AI), aby stworzyć doskonały wynik."
+  },
+  "market": {
+    "h2": "Nasze stanowisko a rynek: Dlaczego nie idziemy na kompromis",
+    "p1": "Wiele narzędzi AI wybiera modele takie jak ChatGPT-4o ze względu na opłacalność. My przyjmujemy inne podejście: **zawsze priorytetowo traktujemy jakość wyników ponad kosztami.**",
+    "common": {
+      "h3": "Podejście „wystarczająco dobre” (typowe)",
+      "items": [
+        "Priorytetem są niskie koszty operacyjne",
+        "Akceptuje uzależnienie od dostawcy w celu prostego utrzymania",
+        "Dostarcza ogólne, uniwersalne doświadczenie"
+      ]
+    },
+    "ours": {
+      "h3": "Podejście „najlepsze w swojej klasie” (Protokół AI)",
+      "items": [
+        "Aktywnie adoptuje najlepszy dostępny model pod względem wydajności",
+        "Priorytetowo traktuje jakość wyników i dopasowanie do zadania ponad wszystko inne",
+        "Odrzuca używanie modeli, które nie spełniają naszych wysokich standardów jakości"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Nasz obecny skład AI (stan na dziś)",
+    "p1": "Aby zapewnić, że Twoje protokoły są jasne, dokładne i gotowe do działania, obecnie wykorzystujemy podejście hybrydowe z tymi modelami najwyższej klasy:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Niezrównane logiczne rozumowanie i precyzyjna kontrola tonu. Idealne do złożonych dyskusji, w których kluczowe są decyzje i odpowiedzialność."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Niesamowita zdolność rozumienia długich rozmów, utrzymywania kontekstu i wydobywania kluczowych punktów. Zapewnia stabilne, wysokiej jakości podsumowania, nawet w przypadku niszowych lub technicznych tematów."
+      }
+    ],
+    "note": "Uwaga: Krajobraz AI szybko się zmienia. Jesteśmy „agnostyczni wobec modeli” i zawsze będziemy testować, adoptować lub zmieniać modele, aby zapewnić Ci absolutnie najlepszy wynik. Jeśli jutro pojawi się lepszy model, będziemy go używać."
   },
   "philosophy": {
-    "h2": "Dlaczego stawiamy na jakość",
-    "p1": "Wiele produktów wybiera według kosztów. My stawiamy na klarowność, możliwość działania i spójność, by czytelnik zawsze znał kolejny krok.",
-    "p2": "Najlepsze składniki i kuchnia nie gwarantują świetnego dania—różnicę robi umiejętność. Doskonalimy dobór modeli i promptów, by tworzyć profesjonalne protokoły."
+    "h2": "Więcej niż tylko AI: Zaprojektowane do działania",
+    "p1": "Najlepsze modele AI to tylko narzędzia. Naszym prawdziwym celem jest dostarczanie protokołów, które *napędzają działanie*. Projektujemy nasz system i wybieramy nasze modele tak, aby przynosiły spójne, niezawodne i użyteczne wyniki.",
+    "points": [
+      "Jasna identyfikacja ról, właścicieli zadań i terminów.",
+      "Zoptymalizowane szablony dla różnych typów spotkań (np. negocjacji, regularnych aktualizacji, wykładów).",
+      "Nieustanne skupienie na dokładności faktów i spójności kontekstowej."
+    ]
   },
-  "adopted": {
-    "h2": "Zastosowane modele (w chwili pisania)",
-    "items": [
-      "ChatGPT-5 (OpenAI): silne rozumowanie, kontrola tonu i niezawodna struktura dla protokołów gotowych do decyzji.",
-      "Gemini 2.5 Pro (Google): wysoka spójność przy długich kontekstach i solidna ekstrakcja kluczowych punktów."
-    ],
-    "foot": "Nieustannie oceniamy nowe modele i przechodzimy na nie, gdy przekroczą nasz próg jakości."
+  "quality": {
+    "h2": "Jakość ponad kosztami: Inwestycja, która się zwraca",
+    "p1": "Korzystanie z modeli AI premium kosztuje nas więcej, ale nie podlega to negocjacjom. Dlaczego? Ponieważ radykalnie skraca czas, który *Ty* spędzasz na edycji, wyjaśnia obowiązki i zwiększa satysfakcję całego zespołu. To wartość, która sama się zwraca.",
+    "p2": "Wybieramy **optymalny** model, a nie najtańszy. Taka jest zasada Protokół AI."
   },
-  "image": {
-    "alt": "Architektura modeli wspierająca Protokół AI",
-    "caption": "Wybieramy modele na podstawie klarowności i możliwości działania — nie tylko kosztu."
+  "wrap": {
+    "h2": "Doświadcz różnicy na własnej skórze",
+    "p": "Przestań zadowalać się przeciętnymi podsumowaniami. Wypróbuj Protokół AI już dziś i poczuj moc prawdziwie profesjonalnych protokołów. Nasze bezkompromisowe zaangażowanie w jakość przyspieszy decyzje Twojego zespołu."
   },
-  "links": {
-    "h2": "Powiązane tematy",
-    "intro": "Wprowadzenie",
-    "nego": "Protokóły negocjacji biznesowych"
-  },
-  "meta": { "h2": "Metadane", "published": "Data publikacji", "type": "Artykuł", "category": "Modele AI" },
-  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" }
+  "cta": {
+    "openBrowser": "Otwórz w przeglądarce",
+    "downloadIOS": "Pobierz aplikację iOS"
+  }
 }

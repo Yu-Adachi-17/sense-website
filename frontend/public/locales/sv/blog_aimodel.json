@@ -1,36 +1,91 @@
 {
   "seo": {
-    "title": "AI-modellerna bakom Protokoll AI",
-    "description": "Varför Protokoll AI ger professionella protokoll: kvalitet först och aktuella modeller (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Protokoll AI: modellstrategi med kvalitetsfokus",
-    "ogDescription": "Vi redovisar modellerna vi använder—ChatGPT-5 och Gemini 2.5 Pro—för tydliga, handlingsbara och konsekventa protokoll.",
+    "title": "Bakom tekniken: AI-modellerna som driver Protokoll AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Upptäck varför Protokoll AI levererar överlägsna mötesprotokoll. Vi avslöjar vår modellagnostiska policy och de kraftfulla LLM:er vi använder (för närvarande ChatGPT-5 och Gemini 2.5 Pro).",
+    "ogTitle": "Kvalitet före kostnad: AI-modellerna vi använder på Protokoll AI",
+    "ogDescription": "Vi nöjer oss inte med 'tillräckligt bra'. Protokoll AI prioriterar utdatakvalitet och använder klassens bästa modeller som ChatGPT-5 och Gemini 2.5 Pro för att säkerställa professionella resultat.",
     "ld": {
-      "headline": "AI-modeller som Protokoll AI använder",
-      "description": "Protokoll AI prioriterar utdata-kvalitet och använder nu ChatGPT-5 och Gemini 2.5 Pro för beslutsredo protokoll."
+      "headline": "AI-modellerna som driver Protokoll AI",
+      "description": "Lär dig om vår filosofi kring modellval och varför det är avgörande för att skapa handlingsorienterade, professionella mötesprotokoll."
     }
   },
-  "aria": { "home": "Startsida Protokoll AI" },
-  "nav": { "blog": "Blogg", "aimodel": "AI-modeller" },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "aimodel": "AI-modeller vi använder"
+  },
   "hero": {
-    "kicker": "Bakom kulisserna",
-    "h1": "AI-modellerna vi använder i Protokoll AI",
-    "tagline": "Inte vilket LLM som helst: vi väljer modeller som gör protokoll tydliga och handlingsbara. Nu: ChatGPT-5 och Gemini 2.5 Pro."
+    "kicker": "Inuti Protokoll AI",
+    "h1": "Vad finns under huven? AI-modellerna som driver Protokoll AI",
+    "tagline": "Vi tror på transparens. Detta är vår filosofi för modellval, och den exakta AI vi använder för att skapa dina professionella protokoll."
+  },
+  "intro": {
+    "h2": "Varför våra protokoll känns annorlunda (och bättre)",
+    "p1": "Vi må ha börjat på iOS, men våra användare världen över säger det bäst: de kallar vårt resultat \"vackert utformat\" och hyllar dess \"enastående noggrannhet\".",
+    "p2pre": "Detta är inte bara rå AI-output. Vår kärnfilosofi är att generera protokoll som är **handlingsorienterade**, vilket gör nästa steg kristallklara för alla inblandade. Se vår",
+    "p2link1": "Produktintroduktion",
+    "p2mid": "och",
+    "p2link2": "Protokoll från affärsförhandlingar",
+    "p2post": "för att se hur det fungerar.",
+    "focus": "Men en fantastisk filosofi räcker inte. Precis som en Michelin-stjärnerätt behöver du de bästa ingredienserna (ditt möte), de bästa verktygen (vår programvara) och en kock i världsklass (AI-modellen) för att skapa ett perfekt resultat."
+  },
+  "market": {
+    "h2": "Vår ståndpunkt vs. marknaden: Varför vi inte nöjer oss",
+    "p1": "Många AI-verktyg väljer modeller som ChatGPT-4o för att det är kostnadseffektivt. Vi har ett annat tillvägagångssätt: **vi prioriterar alltid utdatakvalitet framför kostnad.**",
+    "common": {
+      "h3": "”Tillräckligt bra”-metoden (Typisk)",
+      "items": [
+        "Prioriterar låga driftskostnader",
+        "Accepterar leverantörsberoende för enkelt underhåll",
+        "Levererar en generisk upplevelse som passar alla"
+      ]
+    },
+    "ours": {
+      "h3": "”Bäst-i-klassen”-metoden (Protokoll AI)",
+      "items": [
+        "Använder aktivt den bäst presterande modellen som finns tillgänglig",
+        "Prioriterar utdatakvalitet och uppgiftsanpassning framför allt annat",
+        "Vägrar att använda modeller som inte uppfyller vår höga kvalitetsstandard"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Vår nuvarande AI-uppsättning (Från och med idag)",
+    "p1": "För att säkerställa att dina protokoll är tydliga, korrekta och redo för handling, använder vi för närvarande en hybridmetod med dessa toppmodeller:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Oöverträffat logiskt resonemang och exakt tonkontroll. Perfekt för komplexa diskussioner där beslut och ansvar är avgörande."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Otrolig förmåga att förstå långa konversationer, bibehålla sammanhang och extrahera avgörande punkter. Garanterar stabila sammanfattningar av hög kvalitet, även för nischade eller tekniska ämnen."
+      }
+    ],
+    "note": "Observera: AI-landskapet förändras snabbt. Vi är 'modellagnostiska' och kommer alltid att testa, anta eller byta modeller för att säkerställa att du får det absolut bästa resultatet. Om en bättre modell dyker upp imorgon kommer vi att använda den."
   },
   "philosophy": {
-    "h2": "Varför kvalitet först",
-    "p1": "Många väljer efter kostnad. Vi prioriterar tydlighet, handlingsbarhet och konsekvens så nästa steg alltid är tydligt.",
-    "p2": "Bra ingredienser och kök garanterar inte toppresultat—hantverket räknas. Modellval och promptar trimmas för proffsiga protokoll."
+    "h2": "Mer än bara AI: Designad för handling",
+    "p1": "De bästa AI-modellerna är bara verktyg. Vårt verkliga mål är att tillhandahålla protokoll som *driver till handling*. Vi designar vårt system och väljer våra modeller för att producera konsekventa, tillförlitliga och handlingsbara resultat.",
+    "points": [
+      "Tydlig identifiering av roller, ägare av åtgärdspunkter och tidsfrister.",
+      "Optimerade mallar för olika mötestyper (t.ex. förhandlingar, regelbundna uppdateringar, föreläsningar).",
+      "Ett obevekligt fokus på faktanoggrannhet och kontextuell konsekvens."
+    ]
   },
-  "adopted": {
-    "h2": "Antagna modeller (vid skrivtillfället)",
-    "items": [
-      "ChatGPT-5 (OpenAI): starkt resonemang, tonkontroll och pålitlig struktur för beslutsredo protokoll.",
-      "Gemini 2.5 Pro (Google): koherens i lång kontext och robust nyckelpunkts-extraktion."
-    ],
-    "foot": "Vi utvärderar kontinuerligt nya modeller och byter när de överträffar vår kvalitetsnivå."
+  "quality": {
+    "h2": "Kvalitet före kostnad: En investering som lönar sig",
+    "p1": "Att använda premium AI-modeller kostar oss mer, men det är icke förhandlingsbart. Varför? För att det dramatiskt minskar tiden *du* lägger på att redigera, förtydligar ansvar och ökar tillfredsställelsen i hela teamet. Det är ett värde som betalar sig självt.",
+    "p2": "Vi väljer den **optimala** modellen, inte den billigaste. Det är Protokoll AI-principen."
   },
-  "image": { "alt": "Modellstack för Protokoll AI", "caption": "Protokoll AI väljer modeller efter tydlighet och handlingsbarhet, inte bara kostnad." },
-  "links": { "h2": "Relaterat", "intro": "Introduktion", "nego": "Protokoll för affärsförhandlingar" },
-  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Artikel", "category": "AI-modeller" },
-  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Hämta iOS-app" }
+  "wrap": {
+    "h2": "Upplev skillnaden själv",
+    "p": "Sluta nöja dig med mediokra sammanfattningar. Prova Protokoll AI idag och känn kraften i verkligt professionella protokoll. Vårt kompromisslösa engagemang för kvalitet kommer att påskynda ditt teams beslut."
+  },
+  "cta": {
+    "openBrowser": "Öppna i webbläsare",
+    "downloadIOS": "Ladda ner iOS-app"
+  }
 }

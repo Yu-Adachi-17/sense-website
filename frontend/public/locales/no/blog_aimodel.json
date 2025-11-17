@@ -1,36 +1,91 @@
 {
   "seo": {
-    "title": "AI-modellene bak Referat AI",
-    "description": "Hvorfor Referat AI leverer profesjonelle referater: kvalitet først og dagens modeller (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Referat AI: modellstrategi med kvalitetsfokus",
-    "ogDescription": "Vi åpner hvilke modeller vi bruker—ChatGPT-5 og Gemini 2.5 Pro—for klare, handlingsbare og konsistente referater.",
+    "title": "Bak teknologien: AI-modellene som driver Referat AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Oppdag hvorfor Referat AI leverer overlegne møtereferater. Vi avslører vår modell-agnostiske policy og de kraftige LLM-ene vi bruker (for tiden ChatGPT-5 og Gemini 2.5 Pro).",
+    "ogTitle": "Kvalitet over kostnad: AI-modellene vi bruker i Referat AI",
+    "ogDescription": "Vi nøyer oss ikke med 'godt nok'. Referat AI prioriterer utskriftskvalitet, og bruker de beste modellene i klassen som ChatGPT-5 og Gemini 2.5 Pro for å sikre profesjonelle resultater.",
     "ld": {
-      "headline": "AI-modeller brukt av Referat AI",
-      "description": "Referat AI prioriterer utgangskvalitet og bruker nå ChatGPT-5 og Gemini 2.5 Pro for beslutningsklare referater."
+      "headline": "AI-modellene som driver Referat AI",
+      "description": "Lær om vår filosofi for modellvalg og hvorfor det er avgjørende for å lage handlingsorienterte, profesjonelle møtereferater."
     }
   },
-  "aria": { "home": "Hjem for Referat AI" },
-  "nav": { "blog": "Blogg", "aimodel": "AI-modeller" },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "aimodel": "AI-modeller vi bruker"
+  },
   "hero": {
-    "kicker": "Bak kulissene",
-    "h1": "AI-modellene vi bruker i Referat AI",
-    "tagline": "Ikke hvilket som helst LLM—vi velger modeller som gjør referater tydelige og handlingsbare. Nå: ChatGPT-5 og Gemini 2.5 Pro."
+    "kicker": "Innsiden av Referat AI",
+    "h1": "Hva er under panseret? AI-modellene som driver Referat AI",
+    "tagline": "Vi tror på åpenhet. Dette er vår filosofi for modellvalg, og nøyaktig den AI-en vi bruker for å lage dine profesjonelle referater."
+  },
+  "intro": {
+    "h2": "Hvorfor våre referater føles annerledes (og bedre)",
+    "p1": "Vi har kanskje startet på iOS, men våre brukere over hele verden sier det best: de kaller resultatet vårt \"vakkert utformet\" og roser dets \"enestående nøyaktighet\".",
+    "p2pre": "Dette er ikke bare rå AI-output. Vår kjernefilosofi er å generere referater som er **handlingsorienterte**, og som gjør de neste trinnene krystallklare for alle involverte. Se vår",
+    "p2link1": "Produktintroduksjon",
+    "p2mid": "og",
+    "p2link2": "Referater fra forretningsforhandlinger",
+    "p2post": "for å se hvordan det fungerer.",
+    "focus": "Men en god filosofi er ikke nok. Som en Michelin-stjernerett, trenger du de beste ingrediensene (ditt møte), de beste verktøyene (vår programvare), og en kokk i verdensklasse (AI-modellen) for å skape et perfekt resultat."
+  },
+  "market": {
+    "h2": "Vårt standpunkt vs. markedet: Hvorfor vi ikke nøyer oss",
+    "p1": "Mange AI-verktøy velger modeller som ChatGPT-4o fordi det er kostnadseffektivt. Vi tar en annen tilnærming: **vi prioriterer utskriftskvalitet over kostnad, hver gang.**",
+    "common": {
+      "h3": "«Godt nok»-tilnærmingen (Typisk)",
+      "items": [
+        "Prioriterer lave driftskostnader",
+        "Aksepterer leverandørbinding for enkelt vedlikehold",
+        "Leverer en generisk, 'en-størrelse-passer-alle'-opplevelse"
+      ]
+    },
+    "ours": {
+      "h3": "«Best-i-klassen»-tilnærmingen (Referat AI)",
+      "items": [
+        "Aktivt adopterer den best presterende modellen som er tilgjengelig",
+        "Prioriterer utskriftskvalitet og oppgavespesifikk tilpasning over alt annet",
+        "Nekter å bruke modeller som ikke oppfyller vår høye kvalitetsstandard"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Vår nåværende AI-stall (Per i dag)",
+    "p1": "For å sikre at referatene dine er klare, nøyaktige og klare til handling, bruker vi for tiden en hybrid tilnærming med disse toppmodellene:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Uovertruffen logisk resonnement og presis tonekontroll. Perfekt for komplekse diskusjoner der beslutninger og ansvarlighet er nøkkelen."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Utrolig evne til å forstå lange samtaler, opprettholde kontekst og trekke ut avgjørende poeng. Sikrer stabile sammendrag av høy kvalitet, selv for nisje- eller tekniske emner."
+      }
+    ],
+    "note": "Vennligst merk: AI-landskapet endrer seg raskt. Vi er 'modell-agnostiske' og vil alltid teste, adoptere eller bytte modeller for å sikre at du får det absolutt beste resultatet. Hvis en bedre modell dukker opp i morgen, vil vi bruke den."
   },
   "philosophy": {
-    "h2": "Hvorfor kvalitet først",
-    "p1": "Mange velger etter pris. Vi prioriterer klarhet, gjennomførbarhet og konsistens slik at neste steg alltid er tydelig.",
-    "p2": "Gode ingredienser og kjøkken gir ikke automatisk et toppmåltid—håndverk teller. Modellsvalg og prompt-tuning er tilpasset proffe referater."
+    "h2": "Mer enn bare AI: Handlingsorientert av design",
+    "p1": "De beste AI-modellene er bare verktøy. Vårt sanne mål er å levere referater som *driver handling*. Vi designer systemet vårt og velger våre modeller for å produsere konsistente, pålitelige og handlingsrettede resultater.",
+    "points": [
+      "Klar identifisering av roller, eiere av handlingselementer og tidsfrister.",
+      "Optimaliserte maler for ulike møtetyper (f.eks. forhandlinger, regelmessige oppdateringer, forelesninger).",
+      "Et nådeløst fokus på fakta-nøyaktighet og kontekstuell konsistens."
+    ]
   },
-  "adopted": {
-    "h2": "I bruk (per skrivende stund)",
-    "items": [
-      "ChatGPT-5 (OpenAI): sterk resonnering, tonestyring og pålitelig struktur for beslutningsklare referater.",
-      "Gemini 2.5 Pro (Google): god koherens i langt kontekst og robust uttrekk av nøkkelpunkter."
-    ],
-    "foot": "Vi evaluerer fortløpende nye modeller og bytter når de passerer vår kvalitetslist."
+  "quality": {
+    "h2": "Kvalitet over kostnad: En investering som lønner seg",
+    "p1": "Å bruke premium AI-modeller koster oss mer, men det er ikke omsettelig. Hvorfor? Fordi det dramatisk reduserer tiden *du* bruker på redigering, tydeliggjør ansvar og øker tilfredsheten i hele teamet. Det er verdi som betaler for seg selv.",
+    "p2": "Vi velger den **optimale** modellen, ikke den billigste. Det er Referat AI-prinsippet."
   },
-  "image": { "alt": "Modellstacken som driver Referat AI", "caption": "Referat AI velger modeller etter klarhet og handlingsbarhet, ikke bare kostnad." },
-  "links": { "h2": "Relatert", "intro": "Introduksjon", "nego": "Referater for forretningsforhandlinger" },
-  "meta": { "h2": "Meta", "published": "Publisert", "type": "Artikkel", "category": "AI-modeller" },
-  "cta": { "openBrowser": "Åpne i nettleser", "downloadIOS": "Last ned iOS-app" }
+  "wrap": {
+    "h2": "Opplev forskjellen selv",
+    "p": "Slutt å nøye deg med middelmådige sammendrag. Prøv Referat AI i dag og føl kraften av virkelig profesjonelle referater. Vår kompromissløse forpliktelse til kvalitet vil akselerere teamets beslutninger."
+  },
+  "cta": {
+    "openBrowser": "Åpne i nettleser",
+    "downloadIOS": "Last ned iOS-app"
+  }
 }

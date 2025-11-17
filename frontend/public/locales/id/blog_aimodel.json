@@ -3,41 +3,89 @@
     "title": "Di Balik Teknologi: Model AI yang Mendukung Minutes AI (ChatGPT-5, Gemini 2.5 Pro)",
     "description": "Temukan mengapa Minutes AI menghasilkan notulen rapat yang unggul. Kami mengungkapkan kebijakan agnostik model kami dan LLM kuat yang kami gunakan (saat ini ChatGPT-5 dan Gemini 2.5 Pro).",
     "ogTitle": "Kualitas di Atas Biaya: Model AI yang Kami Gunakan di Minutes AI",
-    "ogDescription": "Minutes AI memprioritaskan kualitas hasil, menggunakan model terbaik di kelasnya seperti ChatGPT-5 dan Gemini 2.5 Pro untuk memastikan hasil profesional.",
+    "ogDescription": "Kami tidak puas dengan 'cukup baik'. Minutes AI memprioritaskan kualitas hasil, menggunakan model terbaik di kelasnya seperti ChatGPT-5 dan Gemini 2.5 Pro untuk memastikan hasil profesional.",
     "ld": {
       "headline": "Model AI yang Mendukung Minutes AI",
       "description": "Pelajari tentang filosofi kami dalam pemilihan model dan mengapa ini penting untuk membuat notulen rapat yang profesional dan berorientasi pada tindakan."
     }
   },
-  "aria": { "home": "Beranda Minutes AI" },
-  "nav": { "blog": "Blog", "aimodel": "Model AI yang Kami Gunakan" },
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Model AI yang Kami Gunakan"
+  },
   "hero": {
     "kicker": "Di dalam Minutes AI",
     "h1": "Apa yang Ada di Balik Layar? Model AI yang Mendukung Minutes AI",
     "tagline": "Kami percaya pada transparansi. Ini adalah filosofi pemilihan model kami, dan AI yang kami gunakan untuk membuat notulen kelas profesional Anda."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Mengapa Notulen Kami Terasa Berbeda (dan Lebih Baik)",
+    "p1": "Kami mungkin memulai di iOS, tetapi pengguna kami di seluruh dunia menyampaikannya dengan paling baik: mereka menyebut hasil kami \"dibuat dengan indah\" dan memuji \"akurasi yang luar biasa\".",
+    "p2pre": "Ini bukan sekadar hasil AI mentah. Filosofi inti kami adalah menghasilkan notulen yang **berorientasi pada tindakan**, membuat langkah selanjutnya sangat jelas bagi semua orang yang terlibat. Lihat",
+    "p2link1": "Pengenalan Produk",
+    "p2mid": "kami dan",
+    "p2link2": "Notulen Negosiasi Bisnis",
+    "p2post": "untuk melihat cara kerjanya.",
+    "focus": "Tapi filosofi hebat saja tidak cukup. Seperti hidangan berbintang Michelin, Anda memerlukan bahan-bahan terbaik (rapat Anda), alat terbaik (perangkat lunak kami), dan koki kelas dunia (model AI) untuk menciptakan hasil yang sempurna."
+  },
+  "market": {
     "h2": "Sikap Kami vs. Pasar: Mengapa Kami Tidak Mudah Puas",
     "p1": "Banyak alat AI memilih model seperti ChatGPT-4o karena hemat biaya. Kami mengambil pendekatan yang berbeda: **kami memprioritaskan kualitas hasil di atas biaya, setiap saat.**",
-    "p2": "Tapi filosofi hebat saja tidak cukup. Seperti hidangan berbintang Michelin, Anda memerlukan bahan-bahan terbaik (rapat Anda), alat terbaik (perangkat lunak kami), dan koki kelas dunia (model AI) untuk menciptakan hasil yang sempurna."
+    "common": {
+      "h3": "Pendekatan 'Cukup Baik' (Umum)",
+      "items": [
+        "Memprioritaskan biaya operasional yang rendah",
+        "Menerima keterikatan pada vendor demi pemeliharaan yang sederhana",
+        "Memberikan pengalaman yang generik dan seragam"
+      ]
+    },
+    "ours": {
+      "h3": "Pendekatan 'Terbaik di Kelasnya' (Minutes AI)",
+      "items": [
+        "Secara aktif mengadopsi model berkinerja terbaik yang tersedia",
+        "Memprioritaskan kualitas hasil dan kesesuaian tugas di atas segalanya",
+        "Menolak menggunakan model yang tidak memenuhi standar kualitas tinggi kami"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Daftar AI Kami Saat Ini (Per hari ini)",
+    "p1": "Untuk memastikan notulen Anda jelas, akurat, dan siap untuk ditindaklanjuti, kami saat ini memanfaatkan pendekatan hibrida dengan model-model papan atas ini:",
     "items": [
-      "ChatGPT-5 (OpenAI): Penalaran logis yang tak tertandingi dan kontrol nada yang presisi. Sempurna untuk diskusi kompleks di mana keputusan dan akuntabilitas adalah kunci.",
-      "Gemini 2.5 Pro (Google): Kemampuan luar biasa untuk memahami percakapan panjang, menjaga konteks, dan mengekstrak poin-poin penting. Memastikan ringkasan yang stabil dan berkualitas tinggi, bahkan untuk topik khusus atau teknis."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Penalaran logis yang tak tertandingi dan kontrol nada yang presisi. Sempurna untuk diskusi kompleks di mana keputusan dan akuntabilitas adalah kunci."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Kemampuan luar biasa untuk memahami percakapan panjang, menjaga konteks, dan mengekstrak poin-poin penting. Memastikan ringkasan yang stabil dan berkualitas tinggi, bahkan untuk topik khusus atau teknis."
+      }
     ],
-    "foot": "Harap dicatat: Lanskap AI berubah dengan cepat. Kami 'agnostik terhadap model' dan akan selalu menguji, mengadopsi, atau mengganti model untuk memastikan Anda mendapatkan hasil terbaik. Jika model yang lebih baik muncul besok, kami akan menggunakannya."
+    "note": "Harap dicatat: Lanskap AI berubah dengan cepat. Kami 'agnostik terhadap model' dan akan selalu menguji, mengadopsi, atau mengganti model untuk memastikan Anda mendapatkan hasil terbaik. Jika model yang lebih baik muncul besok, kami akan menggunakannya."
   },
-  "image": {
-    "alt": "Diagram yang mengilustrasikan mesin keputusan Minutes AI memilih model AI terbaik, seperti ChatGPT-5 dan Gemini 2.5 Pro.",
-    "caption": "Kami memilih model yang optimal, bukan yang termurah. Itulah prinsip Minutes AI."
+  "philosophy": {
+    "h2": "Lebih dari Sekadar AI: Dirancang untuk Bertindak",
+    "p1": "Model AI terbaik hanyalah alat. Tujuan kami sebenarnya adalah menyediakan notulen yang *mendorong tindakan*. Kami merancang sistem kami dan memilih model kami untuk menghasilkan hasil yang konsisten, andal, dan dapat ditindaklanjuti.",
+    "points": [
+      "Identifikasi yang jelas tentang peran, pemilik item tindakan, dan tenggat waktu.",
+      "Template yang dioptimalkan untuk berbagai jenis rapat (misalnya, negosiasi, pembaruan rutin, kuliah).",
+      "Fokus tanpa henti pada akurasi faktual dan konsistensi kontekstual."
+    ]
   },
-  "links": {
-    "h2": "Bacaan Terkait",
-    "intro": "Pengenalan Produk",
-    "nego": "Notulen Negosiasi Bisnis"
+  "quality": {
+    "h2": "Kualitas di Atas Biaya: Investasi yang Sebanding",
+    "p1": "Menggunakan model AI premium memang lebih mahal bagi kami, tetapi itu tidak bisa ditawar. Mengapa? Karena itu secara dramatis mengurangi waktu yang *Anda* habiskan untuk mengedit, memperjelas tanggung jawab, dan meningkatkan kepuasan seluruh tim. Itulah nilai yang sepadan dengan biayanya.",
+    "p2": "Kami memilih model yang **optimal**, bukan yang termurah. Itulah prinsip Minutes AI."
   },
-  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Artikel", "category": "Model AI" },
-  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+  "wrap": {
+    "h2": "Rasakan Sendiri Perbedaannya",
+    "p": "Berhentilah puas dengan ringkasan yang biasa-biasa saja. Coba Minutes AI hari ini dan rasakan kekuatan notulen kelas profesional yang sesungguhnya. Komitmen kami tanpa kompromi terhadap kualitas akan mempercepat pengambilan keputusan tim Anda."
+  },
+  "cta": {
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS"
+  }
 }

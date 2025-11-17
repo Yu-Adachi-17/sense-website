@@ -3,41 +3,89 @@
     "title": "A színfalak mögött: A Jegyzőkönyv AI-t működtető MI modellek (ChatGPT-5, Gemini 2.5 Pro)",
     "description": "Fedezze fel, miért készít a Jegyzőkönyv AI kiváló minőségű értekezlet-jegyzőkönyveket. Bemutatjuk modellfüggetlen irányelvünket és az általunk használt nagy teljesítményű LLM-eket (jelenleg ChatGPT-5 és Gemini 2.5 Pro).",
     "ogTitle": "Minőség a költségek felett: Az általunk használt MI modellek a Jegyzőkönyv AI-nál",
-    "ogDescription": "A Jegyzőkönyv AI a kimeneti minőséget helyezi előtérbe, és kategóriájában a legjobb modelleket, például a ChatGPT-5-öt és a Gemini 2.5 Pro-t használja a professzionális eredmények biztosítása érdekében.",
+    "ogDescription": "Nem elégszünk meg a „majdnem jóval”. A Jegyzőkönyv AI a kimeneti minőséget helyezi előtérbe, és kategóriájában a legjobb modelleket, például a ChatGPT-5-öt és a Gemini 2.5 Pro-t használja a professzionális eredmények biztosítása érdekében.",
     "ld": {
       "headline": "A Jegyzőkönyv AI-t működtető MI modellek",
       "description": "Ismerje meg modellválasztási filozófiánkat, és hogy miért kulcsfontosságú a cselekvésorientált, professzionális értekezlet-jegyzőkönyvek készítéséhez."
     }
   },
-  "aria": { "home": "Jegyzőkönyv AI Kezdőlap" },
-  "nav": { "blog": "Blog", "aimodel": "Használt MI modellek" },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Használt MI modellek"
+  },
   "hero": {
     "kicker": "A Jegyzőkönyv AI belülről",
     "h1": "Mi van a motorháztető alatt? A Jegyzőkönyv AI-t működtető MI modellek",
     "tagline": "Hiszünk az átláthatóságban. Ez a modellválasztási filozófiánk, és pontosan az az MI, amelyet a professzionális minőségű jegyzőkönyvek elkészítéséhez használunk."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Miért érzi másnak (és jobbnak) a jegyzőkönyveinket",
+    "p1": "Talán iOS-en kezdtük, de világszerte a felhasználóink mondják el a legjobban: „gyönyörűen kidolgozottnak” nevezik a kimenetünket, és dicsérik annak „kiemelkedő pontosságát”.",
+    "p2pre": "Ez nem csak nyers MI kimenet. Alapfilozófiánk, hogy **cselekvésorientált** jegyzőkönyveket hozzunk létre, amelyek kristálytisztává teszik a következő lépéseket minden érintett számára. Tekintse meg a",
+    "p2link1": "Termékbemutatónkat",
+    "p2mid": "és a",
+    "p2link2": "Üzleti tárgyalási jegyzőkönyveket",
+    "p2post": ", hogy lássa, hogyan működik.",
+    "focus": "De egy nagyszerű filozófia önmagában nem elég. Mint egy Michelin-csillagos ételhez, a legjobb alapanyagokra (az Ön értekezlete), a legjobb eszközökre (a mi szoftverünk) és egy világszínvonalú séfre (az MI modell) van szükség a tökéletes eredmény eléréséhez."
+  },
+  "market": {
     "h2": "Álláspontunk vs. a piac: Miért nem elégszünk meg kevesebbel",
     "p1": "Sok MI eszköz költséghatékonysági okokból választ olyan modelleket, mint a ChatGPT-4o. Mi más megközelítést alkalmazunk: **mindig a kimeneti minőséget helyezzük előtérbe a költségekkel szemben.**",
-    "p2": "De egy nagyszerű filozófia önmagában nem elég. Mint egy Michelin-csillagos ételhez, a legjobb alapanyagokra (az Ön értekezlete), a legjobb eszközökre (a mi szoftverünk) és egy világszínvonalú séfre (az MI modell) van szükség a tökéletes eredmény eléréséhez."
+    "common": {
+      "h3": "A „Elég jó” megközelítés (Jellemző)",
+      "items": [
+        "Az alacsony működési költségeket helyezi előtérbe",
+        "Elfogadja a beszállítói kötöttséget az egyszerű karbantartás érdekében",
+        "Általános, egy kaptafára készült élményt nyújt"
+      ]
+    },
+    "ours": {
+      "h3": "A „Kategória legjobbja” megközelítés (Jegyzőkönyv AI)",
+      "items": [
+        "Aktívan alkalmazza a rendelkezésre álló legjobb teljesítményű modellt",
+        "Mindenekelőtt a kimeneti minőséget és a feladathoz való illeszkedést helyezi előtérbe",
+        "Nem használunk olyan modelleket, amelyek nem érik el a magas minőségi követelményeinket"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Jelenlegi MI-kínálatunk (a mai naptól)",
+    "p1": "Annak érdekében, hogy jegyzőkönyvei világosak, pontosak és cselekvésre készek legyenek, jelenleg egy hibrid megközelítést alkalmazunk ezekkel a csúcskategóriás modellekkel:",
     "items": [
-      "ChatGPT-5 (OpenAI): Páratlan logikai érvelés és pontos hangnemszabályozás. Tökéletes összetett megbeszélésekhez, ahol a döntések és az elszámoltathatóság kulcsfontosságú.",
-      "Gemini 2.5 Pro (Google): Hihetetlen képesség a hosszú beszélgetések megértésére, a kontextus fenntartására és a kulcsfontosságú pontok kiemelésére. Stabil, magas minőségű összefoglalókat biztosít, még szűk szakterületeken vagy műszaki témákban is."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Páratlan logikai érvelés és pontos hangnemszabályozás. Tökéletes összetett megbeszélésekhez, ahol a döntések és az elszámoltathatóság kulcsfontosságú."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Hihetetlen képesség a hosszú beszélgetések megértésére, a kontextus fenntartására és a kulcsfontosságú pontok kiemelésére. Stabil, magas minőségű összefoglalókat biztosít, még szűk szakterületeken vagy műszaki témákban is."
+      }
     ],
-    "foot": "Kérjük, vegye figyelembe: Az MI világa gyorsan változik. 'Modellagnosztikusak' vagyunk, és mindig tesztelni, alkalmazni vagy váltani fogunk modelleket, hogy biztosítsuk Önnek a legjobb eredményt. Ha holnap megjelenik egy jobb modell, azt fogjuk használni."
+    "note": "Kérjük, vegye figyelembe: Az MI világa gyorsan változik. 'Modellagnosztikusak' vagyunk, és mindig tesztelni, alkalmazni vagy váltani fogunk modelleket, hogy biztosítsuk Önnek a legjobb eredményt. Ha holnap megjelenik egy jobb modell, azt fogjuk használni."
   },
-  "image": {
-    "alt": "Egy diagram, amely a Jegyzőkönyv AI döntéshozó motorját ábrázolja, amint kiválasztja a legjobb MI modelleket, mint például a ChatGPT-5 és a Gemini 2.5 Pro.",
-    "caption": "Az optimális modellt választjuk, nem a legolcsóbbat. Ez a Jegyzőkönyv AI alapelve."
+  "philosophy": {
+    "h2": "Több mint pusztán MI: Tervezés a cselekvésért",
+    "p1": "A legjobb MI modellek csupán eszközök. Valódi célunk, hogy *cselekvésre ösztönző* jegyzőkönyveket biztosítsunk. Rendszerünket úgy tervezzük és modelljeinket úgy választjuk ki, hogy következetes, megbízható és cselekvésre alkalmas eredményeket hozzanak létre.",
+    "points": [
+      "Szerepek, felelősök és határidők egyértelmű azonosítása.",
+      "Optimalizált sablonok különböző típusú értekezletekhez (pl. tárgyalások, rendszeres frissítések, előadások).",
+      "Fáradhatatlan összpontosítás a ténybeli pontosságra és a kontextuális következetességre."
+    ]
   },
-  "links": {
-    "h2": "Kapcsolódó olvasmányok",
-    "intro": "Termékbemutató",
-    "nego": "Üzleti tárgyalási jegyzőkönyvek"
+  "quality": {
+    "h2": "Minőség a költségek felett: Egy megtérülő befektetés",
+    "p1": "A prémium MI modellek használata többe kerül nekünk, de ez nem alku tárgya. Miért? Mert drámaian csökkenti az *Ön* által szerkesztéssel töltött időt, tisztázza a felelősségi köröket, és növeli az egész csapat elégedettségét. Ez egy olyan érték, amely megtérül.",
+    "p2": "Az **optimális** modellt választjuk, nem a legolcsóbbat. Ez a Jegyzőkönyv AI alapelve."
   },
-  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Cikk", "category": "MI modellek" },
-  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS alkalmazás letöltése" }
+  "wrap": {
+    "h2": "Tapasztalja meg a különbséget Ön is",
+    "p": "Ne elégedjen meg középszerű összefoglalókkal. Próbálja ki a Jegyzőkönyv AI-t még ma, és érezze át az igazi professzionális minőségű jegyzőkönyvek erejét. A minőség iránti kompromisszumok nélküli elkötelezettségünk felgyorsítja csapata döntéshozatalát."
+  },
+  "cta": {
+    "openBrowser": "Megnyitás böngészőben",
+    "downloadIOS": "iOS alkalmazás letöltése"
+  }
 }

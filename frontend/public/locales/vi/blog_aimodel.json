@@ -1,43 +1,91 @@
 {
   "seo": {
-    "title": "Các mô hình AI đứng sau Biên bản AI",
-    "description": "Vì sao Biên bản AI tạo ra biên bản họp chuyên nghiệp: nguyên tắc ưu tiên chất lượng và các mô hình đang dùng (ChatGPT-5 và Gemini 2.5 Pro).",
-    "ogTitle": "Chính sách mô hình tại Biên bản AI: chất lượng trên hết",
-    "ogDescription": "Chúng tôi công khai các mô hình sử dụng—ChatGPT-5 và Gemini 2.5 Pro—để có biên bản rõ ràng, khả thi và nhất quán.",
+    "title": "Bên trong công nghệ: Các mô hình AI vận hành Biên bản AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Khám phá lý do tại sao Biên bản AI cung cấp biên bản cuộc họp vượt trội. Chúng tôi tiết lộ chính sách không phụ thuộc vào mô hình và các LLM mạnh mẽ mà chúng tôi sử dụng (hiện tại là ChatGPT-5 và Gemini 2.5 Pro).",
+    "ogTitle": "Chất lượng hơn chi phí: Các mô hình AI chúng tôi sử dụng tại Biên bản AI",
+    "ogDescription": "Chúng tôi không chấp nhận mức 'đủ tốt'. Biên bản AI ưu tiên chất lượng đầu ra, sử dụng các mô hình tốt nhất như ChatGPT-5 và Gemini 2.5 Pro để đảm bảo kết quả chuyên nghiệp.",
     "ld": {
-      "headline": "Các mô hình trí tuệ nhân tạo được Biên bản AI sử dụng",
-      "description": "Biên bản AI đặt chất lượng lên hàng đầu và hiện dựa vào ChatGPT-5 và Gemini 2.5 Pro để tạo biên bản sẵn sàng cho quyết định."
+      "headline": "Các mô hình AI vận hành Biên bản AI",
+      "description": "Tìm hiểu về triết lý lựa chọn mô hình của chúng tôi và tại sao nó quan trọng để tạo ra các biên bản cuộc họp chuyên nghiệp, hướng đến hành động."
     }
   },
-  "aria": { "home": "Trang chủ Biên bản AI" },
-  "nav": { "blog": "Blog", "aimodel": "Mô hình AI" },
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Mô hình AI chúng tôi sử dụng"
+  },
   "hero": {
-    "kicker": "Hậu trường",
-    "h1": "Những mô hình chúng tôi dùng tại Biên bản AI",
-    "tagline": "Chúng tôi không chọn LLM ngẫu nhiên; chúng tôi chọn thứ khiến biên bản rõ ràng và có thể hành động. Hiện tại: ChatGPT-5 và Gemini 2.5 Pro."
+    "kicker": "Bên trong Biên bản AI",
+    "h1": "Bên dưới là gì? Các mô hình AI vận hành Biên bản AI",
+    "tagline": "Chúng tôi tin vào sự minh bạch. Đây là triết lý lựa chọn mô hình của chúng tôi và là AI chính xác mà chúng tôi sử dụng để tạo ra các biên bản chuyên nghiệp cho bạn."
+  },
+  "intro": {
+    "h2": "Tại sao biên bản của chúng tôi mang lại cảm giác khác biệt (và tốt hơn)",
+    "p1": "Chúng tôi có thể đã bắt đầu trên iOS, nhưng người dùng của chúng tôi trên toàn thế giới nói lên điều đó rõ nhất: họ gọi sản phẩm của chúng tôi là \"được trau chuốt đẹp đẽ\" và ca ngợi \"độ chính xác vượt trội\" của nó.",
+    "p2pre": "Đây không chỉ là kết quả AI thô. Triết lý cốt lõi của chúng tôi là tạo ra các biên bản **hướng đến hành động**, làm cho các bước tiếp theo rõ ràng với tất cả những người liên quan. Xem phần",
+    "p2link1": "Giới thiệu sản phẩm",
+    "p2mid": "và",
+    "p2link2": "Biên bản đàm phán kinh doanh",
+    "p2post": "của chúng tôi để biết cách thức hoạt động.",
+    "focus": "Nhưng một triết lý tuyệt vời là không đủ. Giống như một món ăn đạt sao Michelin, bạn cần có nguyên liệu tốt nhất (cuộc họp của bạn), công cụ tốt nhất (phần mềm của chúng tôi) và một đầu bếp đẳng cấp thế giới (mô hình AI) để tạo ra một kết quả hoàn hảo."
+  },
+  "market": {
+    "h2": "Quan điểm của chúng tôi so với thị trường: Tại sao chúng tôi không thỏa hiệp",
+    "p1": "Nhiều công cụ AI chọn các mô hình như ChatGPT-4o vì nó tiết kiệm chi phí. Chúng tôi có một cách tiếp cận khác: **chúng tôi luôn ưu tiên chất lượng đầu ra hơn chi phí.**",
+    "common": {
+      "h3": "Cách tiếp cận 'Đủ tốt' (Điển hình)",
+      "items": [
+        "Ưu tiên chi phí vận hành thấp",
+        "Chấp nhận sự phụ thuộc vào nhà cung cấp để bảo trì đơn giản",
+        "Cung cấp trải nghiệm chung chung, một kích cỡ cho tất cả"
+      ]
+    },
+    "ours": {
+      "h3": "Cách tiếp cận 'Tốt nhất' (Biên bản AI)",
+      "items": [
+        "Chủ động áp dụng mô hình hoạt động tốt nhất hiện có",
+        "Ưu tiên chất lượng đầu ra và sự phù hợp với nhiệm vụ trên hết",
+        "Từ chối sử dụng các mô hình không đạt tiêu chuẩn chất lượng cao của chúng tôi"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Danh sách AI hiện tại của chúng tôi (Tính đến hôm nay)",
+    "p1": "Để đảm bảo biên bản của bạn rõ ràng, chính xác và sẵn sàng để hành động, chúng tôi hiện đang tận dụng phương pháp tiếp cận kết hợp với các mô hình hàng đầu này:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Khả năng suy luận logic vô song và kiểm soát giọng điệu chính xác. Hoàn hảo cho các cuộc thảo luận phức tạp, nơi các quyết định và trách nhiệm giải trình là chìa khóa."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Khả năng đáng kinh ngạc trong việc hiểu các cuộc hội thoại dài, duy trì bối cảnh và trích xuất các điểm quan trọng. Đảm bảo các bản tóm tắt ổn định, chất lượng cao, ngay cả đối với các chủ đề chuyên ngành hoặc kỹ thuật."
+      }
+    ],
+    "note": "Xin lưu ý: Bối cảnh AI thay đổi nhanh chóng. Chúng tôi 'không phụ thuộc vào mô hình' và sẽ luôn kiểm tra, áp dụng hoặc chuyển đổi mô hình để đảm bảo bạn nhận được kết quả tốt nhất. Nếu một mô hình tốt hơn xuất hiện vào ngày mai, chúng tôi sẽ sử dụng nó."
   },
   "philosophy": {
-    "h2": "Vì sao chúng tôi đặt chất lượng lên trước",
-    "p1": "Nhiều sản phẩm chọn theo chi phí. Chúng tôi ưu tiên sự rõ ràng, khả năng hành động và tính nhất quán để người đọc luôn biết bước tiếp theo.",
-    "p2": "Nguyên liệu và nhà bếp tốt nhất chưa đủ để có món ăn tuyệt vời—kỹ năng mới tạo nên khác biệt. Chúng tôi tối ưu chọn mô hình và prompt để có biên bản chuyên nghiệp."
+    "h2": "Không chỉ là AI: Thiết kế hướng đến hành động",
+    "p1": "Các mô hình AI tốt nhất chỉ là công cụ. Mục tiêu thực sự của chúng tôi là cung cấp các biên bản *thúc đẩy hành động*. Chúng tôi thiết kế hệ thống và lựa chọn mô hình của mình để tạo ra các kết quả nhất quán, đáng tin cậy và có thể hành động.",
+    "points": [
+      "Xác định rõ ràng vai trò, người chịu trách nhiệm mục hành động và thời hạn.",
+      "Các mẫu được tối ưu hóa cho các loại cuộc họp khác nhau (ví dụ: đàm phán, cập nhật thường xuyên, bài giảng).",
+      "Tập trung không ngừng vào tính chính xác của dữ kiện và tính nhất quán theo ngữ cảnh."
+    ]
   },
-  "adopted": {
-    "h2": "Mô hình đang áp dụng (tại thời điểm viết)",
-    "items": [
-      "ChatGPT-5 (OpenAI): lập luận mạnh, kiểm soát giọng điệu và cấu trúc đáng tin cậy cho biên bản sẵn sàng quyết định.",
-      "Gemini 2.5 Pro (Google): nhất quán cao với ngữ cảnh dài và trích xuất điểm chính vững chắc."
-    ],
-    "foot": "Chúng tôi liên tục đánh giá các mô hình mới và sẽ chuyển sang khi chúng vượt ngưỡng chất lượng của chúng tôi."
+  "quality": {
+    "h2": "Chất lượng hơn chi phí: Một khoản đầu tư xứng đáng",
+    "p1": "Sử dụng các mô hình AI cao cấp khiến chúng tôi tốn kém hơn, nhưng đó là điều không thể thương lượng. Tại sao? Bởi vì nó làm giảm đáng kể thời gian *bạn* dành cho việc chỉnh sửa, làm rõ trách nhiệm và tăng sự hài lòng của toàn đội. Đó là giá trị tự nó sinh lời.",
+    "p2": "Chúng tôi chọn mô hình **tối ưu**, không phải rẻ nhất. Đó là nguyên tắc của Biên bản AI."
   },
-  "image": {
-    "alt": "Kiến trúc mô hình hỗ trợ Biên bản AI",
-    "caption": "Chúng tôi chọn mô hình dựa trên sự rõ ràng và khả năng hành động — không chỉ chi phí."
+  "wrap": {
+    "h2": "Tự mình trải nghiệm sự khác biệt",
+    "p": "Hãy ngừng chấp nhận những bản tóm tắt tầm thường. Hãy thử Biên bản AI ngay hôm nay và cảm nhận sức mạnh của các biên bản chuyên nghiệp thực thụ. Cam kết không khoan nhượng về chất lượng của chúng tôi sẽ đẩy nhanh các quyết định của nhóm bạn."
   },
-  "links": {
-    "h2": "Chủ đề liên quan",
-    "intro": "Giới thiệu",
-    "nego": "Biên bản đàm phán kinh doanh"
-  },
-  "meta": { "h2": "Siêu dữ liệu", "published": "Ngày xuất bản", "type": "Bài viết", "category": "Mô hình AI" },
-  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải ứng dụng iOS" }
+  "cta": {
+    "openBrowser": "Mở trong trình duyệt",
+    "downloadIOS": "Tải xuống ứng dụng iOS"
+  }
 }

@@ -1,36 +1,91 @@
 {
   "seo": {
-    "title": "Os modelos de IA por detrás de Ata AI",
-    "description": "Porque é que a Ata AI produz atas profissionais: política de qualidade primeiro e modelos atuais (ChatGPT-5, Gemini 2.5 Pro).",
-    "ogTitle": "Ata AI: estratégia de modelos com foco na qualidade",
-    "ogDescription": "Revelamos os modelos usados—ChatGPT-5 e Gemini 2.5 Pro—para atas claras, acionáveis e consistentes.",
+    "title": "Por trás da tecnologia: Os modelos de IA que movem o Ata AI (ChatGPT-5, Gemini 2.5 Pro)",
+    "description": "Descubra por que o Ata AI entrega atas de reunião superiores. Revelamos nossa política agnóstica de modelos e os poderosos LLMs que usamos (atualmente ChatGPT-5 e Gemini 2.5 Pro).",
+    "ogTitle": "Qualidade acima do custo: Os modelos de IA que usamos no Ata AI",
+    "ogDescription": "Não nos contentamos com o 'bom o suficiente'. O Ata AI prioriza a qualidade da saída, usando os melhores modelos da categoria, como ChatGPT-5 e Gemini 2.5 Pro, para garantir resultados profissionais.",
     "ld": {
-      "headline": "Modelos de IA usados pela Ata AI",
-      "description": "A Ata AI prioriza a qualidade e adota atualmente o ChatGPT-5 e o Gemini 2.5 Pro para atas prontas para decisão."
+      "headline": "Os modelos de IA que movem o Ata AI",
+      "description": "Aprenda sobre nossa filosofia na seleção de modelos e por que ela é crucial para criar atas de reunião profissionais e orientadas para a ação."
     }
   },
-  "aria": { "home": "Início da Ata AI" },
-  "nav": { "blog": "Blogue", "aimodel": "Modelos de IA" },
+  "aria": {
+    "home": "Página Inicial do Ata AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "aimodel": "Modelos de IA que usamos"
+  },
   "hero": {
-    "kicker": "Bastidores",
-    "h1": "Os modelos de IA que usamos na Ata AI",
-    "tagline": "Não é qualquer LLM—escolhemos modelos que mantêm as atas claras e acionáveis. Atualmente: ChatGPT-5 e Gemini 2.5 Pro."
+    "kicker": "Por dentro do Ata AI",
+    "h1": "O que há sob o capô? Os modelos de IA que movem o Ata AI",
+    "tagline": "Acreditamos na transparência. Esta é a nossa filosofia de seleção de modelos e a IA exata que usamos para criar suas atas de nível profissional."
+  },
+  "intro": {
+    "h2": "Por que nossas atas parecem diferentes (e melhores)",
+    "p1": "Podemos ter começado no iOS, mas nossos usuários em todo o mundo dizem melhor: eles chamam nosso resultado de \"lindamente elaborado\" e elogiam sua \"precisão excepcional\".",
+    "p2pre": "Isso não é apenas uma saída de IA bruta. Nossa filosofia central é gerar atas que sejam **orientadas para a ação**, tornando os próximos passos cristalinos para todos os envolvidos. Veja nossa",
+    "p2link1": "Introdução ao Produto",
+    "p2mid": "e",
+    "p2link2": "Atas de Negociação Comercial",
+    "p2post": "para ver como funciona.",
+    "focus": "Mas uma ótima filosofia não é suficiente. Como um prato com estrela Michelin, você precisa dos melhores ingredientes (sua reunião), das melhores ferramentas (nosso software) e de um chef de classe mundial (o modelo de IA) para criar um resultado perfeito."
+  },
+  "market": {
+    "h2": "Nossa Posição vs. O Mercado: Por que não nos contentamos",
+    "p1": "Muitas ferramentas de IA escolhem modelos como o ChatGPT-4o porque é econômico. Nós adotamos uma abordagem diferente: **priorizamos a qualidade da saída acima do custo, sempre.**",
+    "common": {
+      "h3": "A Abordagem \"Bom o Suficiente\" (Típica)",
+      "items": [
+        "Prioriza custos operacionais baixos",
+        "Aceita a dependência de fornecedor para manutenção simples",
+        "Oferece uma experiência genérica e de tamanho único"
+      ]
+    },
+    "ours": {
+      "h3": "A Abordagem \"Melhor da Categoria\" (Ata AI)",
+      "items": [
+        "Adota ativamente o modelo de melhor desempenho disponível",
+        "Prioriza a qualidade da saída e o ajuste à tarefa acima de tudo",
+        "Recusa-se a usar modelos que não atendem ao nosso alto padrão de qualidade"
+      ]
+    }
+  },
+  "models": {
+    "h2": "Nossa Lista Atual de IA (Até hoje)",
+    "p1": "Para garantir que suas atas sejam claras, precisas e prontas para a ação, atualmente aproveitamos uma abordagem híbrida com estes modelos de ponta:",
+    "items": [
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Raciocínio lógico incomparável e controle preciso do tom. É perfeito para discussões complexas onde decisões e responsabilidades são cruciais."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Incrível capacidade de entender conversas longas, manter o contexto e extrair pontos cruciais. Garante resumos estáveis e de alta qualidade, mesmo para tópicos de nicho ou técnicos."
+      }
+    ],
+    "note": "Atenção: O cenário da IA muda rapidamente. Somos 'agnósticos em relação a modelos' e sempre testaremos, adotaremos ou trocaremos de modelos para garantir que você obtenha o melhor resultado absoluto. Se um modelo melhor aparecer amanhã, nós o usaremos."
   },
   "philosophy": {
-    "h2": "Porque a qualidade primeiro",
-    "p1": "Muitas apps escolhem pelo custo. Priorizamos clareza, acionabilidade e consistência para que o próximo passo seja evidente.",
-    "p2": "Bons ingredientes e cozinha não garantem um prato excelente—conta o ofício. Ajustamos modelos e prompts para atas profissionais."
+    "h2": "Mais do que apenas IA: Projetado para a Ação",
+    "p1": "Os melhores modelos de IA são apenas ferramentas. Nosso verdadeiro objetivo é fornecer atas que *impulsionem a ação*. Projetamos nosso sistema e escolhemos nossos modelos para produzir resultados consistentes, confiáveis e acionáveis.",
+    "points": [
+      "Identificação clara de papéis, responsáveis por itens de ação e prazos.",
+      "Modelos otimizados para diferentes tipos de reunião (por exemplo, negociações, atualizações regulares, palestras).",
+      "Um foco incansável na precisão factual e consistência contextual."
+    ]
   },
-  "adopted": {
-    "h2": "Modelos adotados (à data de redação)",
-    "items": [
-      "ChatGPT-5 (OpenAI): raciocínio forte, controlo de tom e estrutura fiável para atas prontas à decisão.",
-      "Gemini 2.5 Pro (Google): coerência em contexto longo e extração robusta de pontos-chave."
-    ],
-    "foot": "Avaliamos continuamente novos modelos e mudamos quando superam o nosso padrão de qualidade."
+  "quality": {
+    "h2": "Qualidade acima do custo: Um investimento que se paga",
+    "p1": "Usar modelos de IA premium nos custa mais, mas não é negociável. Por quê? Porque reduz drasticamente o tempo que *você* gasta editando, esclarece responsabilidades e aumenta a satisfação de toda a equipe. É um valor que se paga por si só.",
+    "p2": "Nós escolhemos o modelo **ideal**, não o mais barato. Esse é o princípio do Ata AI."
   },
-  "image": { "alt": "Stack de modelos que alimenta a Ata AI", "caption": "A Ata AI escolhe modelos pela clareza e acionabilidade, não só pelo custo." },
-  "links": { "h2": "Leituras relacionadas", "intro": "Introdução", "nego": "Atas de negociação empresarial" },
-  "meta": { "h2": "Meta", "published": "Publicado", "type": "Artigo", "category": "Modelos de IA" },
-  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Descarregar app iOS" }
+  "wrap": {
+    "h2": "Experimente a diferença você mesmo",
+    "p": "Pare de se contentar com resumos medíocres. Experimente o Ata AI hoje e sinta o poder de atas de nível verdadeiramente profissional. Nosso compromisso inabalável com a qualidade acelerará as decisões da sua equipe."
+  },
+  "cta": {
+    "openBrowser": "Abrir no navegador",
+    "downloadIOS": "Baixar app iOS"
+  }
 }

@@ -3,41 +3,89 @@
     "title": "Tekniikan takana: Pöytäkirja AI:n käyttämät tekoälymallit (ChatGPT-5, Gemini 2.5 Pro)",
     "description": "Tutustu, miksi Pöytäkirja AI tuottaa ylivoimaisia kokouspöytäkirjoja. Paljastamme malliriippumattoman käytäntömme ja tehokkaat LLM-mallit, joita käytämme (tällä hetkellä ChatGPT-5 ja Gemini 2.5 Pro).",
     "ogTitle": "Laatu ennen kustannuksia: Tekoälymallit, joita käytämme Pöytäkirja AI:ssa",
-    "ogDescription": "Pöytäkirja AI asettaa tulosten laadun etusijalle ja käyttää luokkansa parhaita malleja, kuten ChatGPT-5 ja Gemini 2.5 Pro, varmistaakseen ammattimaiset tulokset.",
+    "ogDescription": "Emme tyydy \"ihan hyvään\". Pöytäkirja AI asettaa tulosten laadun etusijalle ja käyttää luokkansa parhaita malleja, kuten ChatGPT-5 ja Gemini 2.5 Pro, varmistaakseen ammattimaiset tulokset.",
     "ld": {
       "headline": "Tekoälymallit Pöytäkirja AI:n taustalla",
       "description": "Lue lisää mallinvalintafilosofiastamme ja siitä, miksi se on ratkaisevan tärkeää toimintalähtöisten, ammattimaisten kokouspöytäkirjojen luomisessa."
     }
   },
-  "aria": { "home": "Pöytäkirja AI - Koti" },
-  "nav": { "blog": "Blogi", "aimodel": "Käyttämämme tekoälymallit" },
+  "aria": {
+    "home": "Pöytäkirja AI - Koti"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "aimodel": "Käyttämämme tekoälymallit"
+  },
   "hero": {
     "kicker": "Pöytäkirja AI:n sisällä",
     "h1": "Mitä konepellin alla on? Tekoälymallit Pöytäkirja AI:n taustalla",
     "tagline": "Uskomme läpinäkyvyyteen. Tämä on mallinvalintafilosofiamme ja tarkka tekoäly, jota käytämme ammattitason pöytäkirjojen luomiseen."
   },
-  "philosophy": {
+  "intro": {
+    "h2": "Miksi pöytäkirjamme tuntuvat erilaisilta (ja paremmilta)",
+    "p1": "Aloitimme ehkä iOS:llä, mutta maailmanlaajuiset käyttäjämme sanovat sen parhaiten: he kutsuvat tulostamme \"kauniisti laadituksi\" ja kehuvat sen \"erinomaisesta tarkkuudesta\".",
+    "p2pre": "Tämä ei ole vain raakaa tekoälyn tuotosta. Ydinfilosofiamme on tuottaa pöytäkirjoja, jotka ovat **toimintalähtöisiä** ja tekevät seuraavista askelista kristallinkirkkaita kaikille osallisille. Katso",
+    "p2link1": "Tuote-esittelymme",
+    "p2mid": "ja",
+    "p2link2": "Liikeneuvottelupöytäkirjat",
+    "p2post": "nähdäksesi, miten se toimii.",
+    "focus": "Mutta loistava filosofia ei riitä. Kuten Michelin-tähden annos, tarvitset parhaat raaka-aineet (kokouksesi), parhaat työkalut (ohjelmistomme) ja maailmanluokan kokin (tekoälymalli) täydellisen tuloksen luomiseksi."
+  },
+  "market": {
     "h2": "Kantapamme vs. markkinat: Miksi emme tyydy vähempään",
     "p1": "Monet tekoälytyökalut valitsevat malleja, kuten ChatGPT-4o, kustannustehokkuuden vuoksi. Meillä on erilainen lähestymistapa: **asetamme aina tulosten laadun kustannusten edelle.**",
-    "p2": "Mutta loistava filosofia ei riitä. Kuten Michelin-tähden annos, tarvitset parhaat raaka-aineet (kokouksesi), parhaat työkalut (ohjelmistomme) ja maailmanluokan kokin (tekoälymalli) täydellisen tuloksen luomiseksi."
+    "common": {
+      "h3": "”Ihan hyvä” -lähestymistapa (Tyypillinen)",
+      "items": [
+        "Priorisoi alhaiset käyttökustannukset",
+        "Hyväksyy toimittajalukituksen yksinkertaista ylläpitoa varten",
+        "Tarjoaa yleisen, kaikille sopivan kokemuksen"
+      ]
+    },
+    "ours": {
+      "h3": "”Luokkansa paras” -lähestymistapa (Pöytäkirja AI)",
+      "items": [
+        "Ottaa aktiivisesti käyttöön parhaiten suoriutuvan saatavilla olevan mallin",
+        "Priorisoi tulosten laadun ja tehtäväkohtaisen sopivuuden kaiken muun edelle",
+        "Kieltäytyy käyttämästä malleja, jotka eivät täytä korkeaa laatutasoamme"
+      ]
+    }
   },
-  "adopted": {
+  "models": {
     "h2": "Nykyinen tekoälyvalikoimamme (tämänhetkinen tilanne)",
+    "p1": "Varmistaaksemme, että pöytäkirjasi ovat selkeitä, tarkkoja ja toimintavalmiita, hyödynnämme tällä hetkellä hybridimallia näillä huippuluokan malleilla:",
     "items": [
-      "ChatGPT-5 (OpenAI): Vertaansa vailla oleva looginen päättelykyky ja tarkka sävyhallinta. Täydellinen monimutkaisiin keskusteluihin, joissa päätökset ja vastuullisuus ovat avainasemassa.",
-      "Gemini 2.5 Pro (Google): Uskomaton kyky ymmärtää pitkiä keskusteluja, ylläpitää kontekstia ja poimia keskeiset kohdat. Takaa vakaat, korkealaatuiset yhteenvedot jopa kapea-alaisista tai teknisistä aiheista."
+      {
+        "h3": "ChatGPT-5 (OpenAI)",
+        "p": "Vertaansa vailla oleva looginen päättelykyky ja tarkka sävyhallinta. Täydellinen monimutkaisiin keskusteluihin, joissa päätökset ja vastuullisuus ovat avainasemassa."
+      },
+      {
+        "h3": "Gemini 2.5 Pro (Google)",
+        "p": "Uskomaton kyky ymmärtää pitkiä keskusteluja, ylläpitää kontekstia ja poimia keskeiset kohdat. Takaa vakaat, korkealaatuiset yhteenvedot jopa kapea-alaisista tai teknisistä aiheista."
+      }
     ],
-    "foot": "Huomaa: Tekoälymaailma muuttuu nopeasti. Olemme 'malliriippumattomia' ja testaamme, otamme käyttöön tai vaihdamme malleja aina varmistaaksemme, että saat ehdottomasti parhaan tuloksen. Jos huomenna ilmestyy parempi malli, käytämme sitä."
+    "note": "Huomaa: Tekoälymaailma muuttuu nopeasti. Olemme 'malliriippumattomia' ja testaamme, otamme käyttöön tai vaihdamme malleja aina varmistaaksemme, että saat ehdottomasti parhaan tuloksen. Jos huomenna ilmestyy parempi malli, käytämme sitä."
   },
-  "image": {
-    "alt": "Kaavio, joka kuvaa Pöytäkirja AI:n päätöksentekomoottoria valitsemassa parhaita tekoälymalleja, kuten ChatGPT-5 ja Gemini 2.5 Pro.",
-    "caption": "Valitsemme optimaalisen mallin, emme halvinta. Se on Pöytäkirja AI -periaate."
+  "philosophy": {
+    "h2": "Enemmän kuin vain tekoälyä: Suunniteltu toimintaa varten",
+    "p1": "Parhaat tekoälymallit ovat vain työkaluja. Todellinen tavoitteemme on tarjota pöytäkirjoja, jotka *ajavat toimintaan*. Suunnittelemme järjestelmämme ja valitsemme mallimme tuottamaan johdonmukaisia, luotettavia ja toimintakelpoisia tuloksia.",
+    "points": [
+      "Roolien, tehtävien omistajien ja määräaikojen selkeä tunnistaminen.",
+      "Optimoidut mallit eri kokoustyypeille (esim. neuvottelut, säännölliset päivitykset, luennot).",
+      "Häikäilemätön keskittyminen faktatarkkuuteen ja kontekstuaaliseen johdonmukaisuuteen."
+    ]
   },
-  "links": {
-    "h2": "Aiheeseen liittyvää lukemista",
-    "intro": "Tuote-esittely",
-    "nego": "Liikeneuvottelupöytäkirjat"
+  "quality": {
+    "h2": "Laatu ennen kustannuksia: Investointi, joka maksaa itsensä takaisin",
+    "p1": "Premium-tekoälymallien käyttö maksaa meille enemmän, mutta siitä ei tingitä. Miksi? Koska se vähentää dramaattisesti *sinun* editointiin käyttämääsi aikaa, selkeyttää vastuita ja lisää koko tiimin tyytyväisyyttä. Se on arvoa, joka maksaa itsensä takaisin.",
+    "p2": "Valitsemme **optimaalisen** mallin, emme halvinta. Se on Pöytäkirja AI -periaate."
   },
-  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Artikkeli", "category": "Tekoälymallit" },
-  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" }
+  "wrap": {
+    "h2": "Koe ero itse",
+    "p": "Lakkaa tyytymästä keskinkertaisiin yhteenvetoihin. Kokeile Pöytäkirja AI:ta tänään ja tunne todellisten ammattitason pöytäkirjojen voima. Tinkimätön sitoutumisemme laatuun nopeuttaa tiimisi päätöksentekoa."
+  },
+  "cta": {
+    "openBrowser": "Avaa selaimessa",
+    "downloadIOS": "Lataa iOS-sovellus"
+  }
 }
