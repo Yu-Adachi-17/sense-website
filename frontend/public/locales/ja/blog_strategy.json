@@ -1,20 +1,17 @@
 {
   "seo": {
-    "title": "Strategy機能：議事録を意思決定へ（ChatGPT-5 / Gemini 2.5 Pro）",
-    "description": "Minutes.AIのStrategyは、議事録を次の一手に変換します。ChatGPT-5とGemini 2.5 Proを用い、Boost / Counter / Top Issue と3つの思考法を提示します。",
-    "ogTitle": "Minutes.AI Strategy 機能",
-    "ogDescription": "Boost・Counter・Top Issue と 論理/批判/水平の3思考で、議論を戦略に変える。",
+    "title": "議事録AI Strategy: ただの議事録から、実用的な洞察へ (ChatGPT-5 & Gemini 2.5 Pro)",
+    "description": "議事録AIのStrategy機能は、会議メモを強力な「意思決定ツールキット」に変えます。ChatGPT-5とGemini 2.5 Proを使用し、Boost, Counter, Top Issue、そして3つの思考モードを生成し、ビジネスを前進させます。",
+    "ogTitle": "議事録AI Strategy: 議事録を「行動」に移す",
+    "ogDescription": "会議を記録するだけではありません。戦略に変えましょう。Boost (長所), Counter (課題), Top Issue (核心的な問題), そして論理的・批判的・水平的思考モードを提供します。",
     "ld": {
-      "headline": "Minutes.AIにStrategyを搭載",
-      "description": "ChatGPT-5 と Gemini 2.5 Pro の出力を活用し、議事録を意思決定支援へ引き上げる機能です。"
+      "headline": "議事録AI Strategy機能: ただのメモから、会議のパートナーへ",
+      "description": "Strategy機能は、高度なAI分析(ChatGPT-5 & Gemini 2.5 Pro)を用い、議事録を実用的な洞察を提供する意思決定サポートへと昇華させます。"
     },
-    "keywords": "Minutes.AI, 議事録AI, Strategy, 戦略, ChatGPT-5, Gemini 2.5 Pro, 意思決定支援, 論理的思考, クリティカルシンキング, ラテラルシンキング, Boost, Counter, Top Issue"
+    "keywords": "議事録AI, Minutes.AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, 意思決定サポート, 実用的な洞察, 論理的思考, 批判的思考, 水平的思考, Boost, Counter, Top Issue, 会議パートナー, ビジネス戦略"
   },
   "aria": {
-    "home": "議事録AI ホームへ戻る"
-  },
-  "a11y": {
-    "home": "議事録AI ホームへ戻る"
+    "home": "Minutes.AI ホーム"
   },
   "nav": {
     "blog": "ブログ",
@@ -22,83 +19,85 @@
   },
   "hero": {
     "kicker": "機能ディープダイブ",
-    "h1": "Minutes.AIのStrategy",
-    "tagline": "「要約」で終わらせない。StrategyはChatGPT-5とGemini 2.5 Proで議論を明確なアクションに変換します。"
+    "h1": "議事録の、その先へ: Strategy機能",
+    "tagline": "メモを整理するだけでは終わりません。Strategy機能は、議事録AIをあなたの「会議パートナー」に変え、議論をインパクトのある行動へと転換します。ChatGPT-5とGemini 2.5 Proの力で。"
   },
   "what": {
-    "h2": "Strategyとは？",
-    "p1": "Strategyは、あなたの議事録の上に重ねる意思決定支援レイヤーです。",
-    "p2": "Boost（強みの拡張）/ Counter（建設的対抗）/ Top Issue（最重要課題）と、Top Issueに対する3つの思考法を生成します。",
+    "h2": "Strategy機能とは？",
+    "p1": "Strategyは、議事録を単なる記録から実行可能な計画へと昇華させる「意思決定サポート」レイヤーです。「何を話したか」から「次に何をすべきか」へ移行できるため、最も人気のある機能の一つです。",
+    "p2": "単なる要約ではなく、StrategyはAIが議論全体を分析し、6つの実用的なアウトプットを提供します：",
     "bullets": [
-      "Boost — うまくいっている点と拡張方法",
-      "Counter — リスクと是正アクション",
-      "Top Issue — 解くべき核心課題",
-      "Logical Thinking — 構造化された段階的解法",
-      "Critical Thinking — 前提を疑い矛盾を洗う",
-      "Lateral Thinking — 常識を越える跳躍発想"
+      "Boost — 長所とそれを伸ばす方法: うまくいっている点を特定し、その成功を拡大するための具体的な方法を提案します。",
+      "Counter — 建設的な反論と改善策: あえて反対意見やリスクを提示し、根本的な問題の修正方法を提案します。",
+      "Top Issue — 核心的な問題: 会議で解決すべき、最も重要な単一の論点や対立点をピンポイントで示します。",
+      "論理的思考 (Logical) — Top Issueに対する構造化された、段階的な解決策。",
+      "批判的思考 (Critical) — Top Issueの背後にある中核的な仮定、バイアス、問われなかった疑問に異議を唱えます。",
+      "水平的思考 (Lateral) — Top Issueに対する、明白で型にはまった解決策を超えた「飛躍的な」アイデア。"
     ]
   },
   "how": {
-    "h2": "使い方",
+    "h2": "機能の仕組み",
     "steps": [
-      "通常どおり（アプリ/ブラウザ）で議事録を生成。",
-      "「Strategy」をタップし、ChatGPT-5 と Gemini 2.5 Pro で解析。",
-      "Boost / Counter / Top Issue と 3つの思考法を取得。",
-      "結果を共有するか、タスク管理に貼り付けて実行へ。"
+      "通常通り、議事録を生成します (iOS, Android, またはWeb)。",
+      "「Strategy」ボタンをタップし、ChatGPT-5 & Gemini 2.5 Proで全内容を分析します。",
+      "6つの分析結果（Boost, Counter, Top Issue, 3つの思考モード）を受け取ります。",
+      "分析結果をタスク管理システムやレポートに共有・コピーします。"
     ],
-    "note": "出力は言語や領域に適応。素早く読めるよう簡潔性を優先します。"
+    "note": "アウトプットは言語や専門領域に適応します。素早く読めるよう、デフォルトで簡潔に要約されます。"
   },
   "samples": {
-    "h2": "短く読みやすいサンプル",
+    "h2": "実際の活用例",
     "minutes": {
-      "h3": "議事録（例）",
+      "h3": "議事録サンプル: 夏の限定ブレンド『Solar Chill』会議",
       "lines": [
-        "トピック：夏限定ブレンド「Solar Chill」",
-        "決定：Solar Chill を進める／名称は継続／レシピ最終化",
-        "ToDo：デザイン案作成／最終レシピを共有フォルダへ",
-        "リスク：15%のフィードバックで「酸味が強い」"
+        "議題: 夏の限定ブレンド『Solar Chill』（コールドブリュー＋パッションフルーツ＋ミント）の検討。",
+        "決定事項: 『Solar Chill』を夏のメイン商品として採用。ネーミングも決定。",
+        "ToDo: デザインチームがモックアップ作成。最終レシピを『FlavorSync』にアップロード。",
+        "リスク: スタッフアンケートで15%が「酸味が強すぎる」と指摘。",
+        "概要: コンセプト、ネーミング、SNSでのポテンシャルが高く評価された。"
       ]
     },
     "strategy": {
-      "h3": "Strategy（例）",
+      "h3": "Strategy アウトプット (AIによる分析)",
       "boost": [
-        "Boost：再購入意向が高い → 10店舗でパイロット＋SNS施策。7日以内の再注文率を測定。"
+        "Boost: 74%が「もう一度飲みたい」と回答したことは、市場適合性を示す強力な指標である。アクション: 15%の「酸味が強すぎる」というフィードバックを深掘りする。単に酸味を抑えるのではなく、パイロット店舗で「甘さ調整」オプションをA/Bテストし、製品の個性を失わずに魅力を最大化することを検討する。"
       ],
       "counter": [
-        "Counter：酸味対策 → “mild sweet”の選択肢を追加。シロップ量を2週間A/B。"
+        "Counter: 会議では「スパイス・インフュージョン系」の提案が議論されなかった。チャイやターメリックなどの市場トレンドを考えると、これは機会損失ではないか？また「Bloom Latte」を店舗限定とする決定は、その潜在能力を過小評価している可能性がある。アクション: 「スパイス系」のコンセプトを市場データと照らし合わせて再評価する。「Bloom Latte」は店舗限定でなく、オンラインやパートナーシップ経由でのテストも検討する。"
       ],
       "top": [
-        "Top Issue：ブランド独自性を損なわずに、間口を広げる味の最適点は？"
+        "Top Issue: 2つの異なる限定商品（『Solar Chill』と『Bloom Latte』）をいかに成功裏にローンチし、それぞれの市場投入戦略（メインストリーム vs ニッチ）を最適化するか。"
       ],
       "modes": {
         "logical": [
-          "Logical：対象セグメント定義 → 成功KPI設定 → A/B → 勝ち仕様を出荷"
+          "論理的思考: 1. 各製品のターゲットセグメントを定義する（Solar Chill = 若年層・SNS重視、Bloom Latte = 健康志向・リラックス）。 2. 明確な価値提案を行う（爽快感 vs ウェルネス）。 3. 「酸味」フィードバックに対応するため、『Solar Chill』に「シロップ量調整」のカスタマイズを提供する。"
         ],
         "critical": [
-          "Critical：SNSの“話題性”に過度最適化していないか？ ブラインド試飲で再検証。"
+          "批判的思考: チームは「SNS映え」や過去の成功体験にバイアスがかかっていないか？「スパイス系」の提案が棄却されたことは、盲点を示唆している。アクション: 新規提案に対し、コスト、トレンド適合性、ブランド適合性などの定量的スコアリングモデルを導入し、主観的判断を排除する。"
         ],
         "lateral": [
-          "Lateral：飲料外への拡張案（例：香り/ルームミスト）で接点を拡げる。"
+          "水平的思考: 「飲料」という枠組みから脱却する。アクション: 「飲まない」限定ブレンドを開発する。例えば、『Solar Chill』のルームフレグランスや『Bloom Latte』のバス製品。これにより、ブランドをライフスタイル商品へと拡大し、非コーヒー顧客層にリーチし、新たな収益源を創出する。"
         ]
       }
     }
   },
   "platform": {
-    "h2": "提供状況",
-    "p1": "StrategyはiOSで利用できます。“メモ”から“意思決定”へ。"
+    "h2": "利用可能なプラットフォーム",
+    "p1": "どうでしょうか。Strategy機能は、あなたが見逃していた洞察を明らかにし、会議では言い出しづらかった反対意見を提示し、飛躍的なアイデアを提供します。この機能は、iOSおよびAndroidアプリで今すぐ利用可能です。次の会議で試し、ただの「メモ」から「決断」へと進んでみてください。"
   },
   "image": {
-    "alt": "Minutes.AIのStrategy UI",
-    "caption": "Boost / Counter / Top Issue と 3つの思考法を一望。"
+    "alt": "スマートフォンの画面に表示された議事録AIのStrategy機能のUI",
+    "caption": "Boost, Counter, Top Issue、そして3つの思考モードが一目でわかります。"
   },
   "meta": {
-    "h2": "メタ",
+    "h2": "記事情報",
     "published": "公開日",
-    "type": "種別",
+    "type": "機能紹介",
     "category": "Strategy"
   },
   "cta": {
-    "openBrowser": "ブラウザ版を開く",
-    "downloadIOS": "iOS版をダウンロード"
+    "openBrowser": "Webで利用",
+    "downloadIOS": "App Storeでダウンロード",
+    "downloadAndroid": "Google Playで手に入れよう"
   }
 }

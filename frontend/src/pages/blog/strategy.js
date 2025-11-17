@@ -13,88 +13,112 @@ import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ---------- Inline English fallback (used when i18n returns keys) ---------- */
+/* ---------- Inline English fallback (REVISED & ENHANCED) ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "Minutes.AI Strategy: From minutes to decisions (ChatGPT-5 & Gemini 2.5 Pro)",
+    title:
+      "Minutes.AI Strategy: From Minutes to Actionable Insights (ChatGPT-5 & Gemini 2.5 Pro)",
     description:
-      "Minutes.AI’s Strategy turns meeting minutes into next steps. Using ChatGPT-5 and Gemini 2.5 Pro, it provides Boost, Counter, Top Issue, and three thinking modes.",
-    ogTitle: "Minutes.AI Strategy Feature",
+      "Minutes.AI’s Strategy feature transforms raw meeting notes into a powerful decision-making toolkit. Using ChatGPT-5 and Gemini 2.5 Pro, it generates Boost, Counter, Top Issue, and three unique thinking modes to drive your business forward.",
+    ogTitle: "Minutes.AI Strategy: Turn Minutes into Action",
     ogDescription:
-      "Transform minutes into strategy with Boost, Counter, Top Issue, and Logical/Critical/Lateral Thinking.",
+      "Don't just record meetings. Turn them into strategy. Get Boost (what works), Counter (what to fix), Top Issue (the core problem), and Logical, Critical, & Lateral thinking modes.",
     ld: {
-      headline: "Minutes.AI adds Strategy",
+      headline:
+        "Minutes.AI Strategy Feature: From Simple Notes to Meeting Partner",
       description:
-        "The Strategy feature elevates minutes to decision support using ChatGPT-5 and Gemini 2.5 Pro outputs.",
+        "The Strategy feature elevates minutes to decision support using advanced AI analysis (ChatGPT-5 and Gemini 2.5 Pro) to provide actionable insights.",
     },
     keywords:
-      "Minutes.AI, meeting minutes AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, decision support, Logical Thinking, Critical Thinking, Lateral Thinking, Boost, Counter, Top Issue",
+      "Minutes.AI, meeting minutes AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, decision support, actionable insights, Logical Thinking, Critical Thinking, Lateral Thinking, Boost, Counter, Top Issue, meeting partner, business strategy",
   },
   aria: { home: "Minutes.AI Home" },
   nav: { blog: "Blog", strategy: "Strategy" },
   hero: {
     kicker: "Feature Deep Dive",
-    h1: "Strategy for Minutes.AI",
+    h1: "Beyond Minutes: The Strategy Function",
     tagline:
-      "Not just minutes. Strategy converts discussions into clear actions using ChatGPT-5 and Gemini 2.5 Pro.",
+      "Stop just organizing notes. The Strategy function turns Minutes.AI into your core meeting partner, converting discussions into high-impact actions, all powered by ChatGPT-5 and Gemini 2.5 Pro.",
   },
   what: {
-    h2: "What is Strategy?",
-    p1: "Strategy is Minutes.AI’s decision-support layer on top of your minutes.",
-    p2: "It produces: Boost (amplify what works), Counter (constructive opposition), Top Issue (the core problem), and three thinking modes for the Top Issue.",
+    h2: "What is the Strategy Function?",
+    p1: "Strategy is the decision-support layer that elevates your minutes from a simple record to an actionable plan. It's one of our most popular features because it moves you from 'what was said' to 'what to do next'.",
+    p2: "Instead of just a summary, Strategy analyzes the entire discussion using advanced AI to provide six distinct, actionable outputs:",
     bullets: [
-      "Boost — positives and how to scale them",
-      "Counter — risks and how to fix them",
-      "Top Issue — the key question to solve",
-      "Logical Thinking — structured, stepwise solution",
-      "Critical Thinking — challenge assumptions",
-      "Lateral Thinking — leap beyond obvious ideas",
+      "Boost — Positives & How to Amplify Them: Identifies what's working and suggests concrete ways to scale that success.",
+      "Counter — Constructive Opposition & Improvements: Deliberately provides an opposing viewpoint or identifies risks, suggesting how to fix the underlying issues.",
+      "Top Issue — The Core Problem: Pinpoints the single most important question or conflict from the meeting that needs to be solved.",
+      "Logical Thinking — A structured, step-by-step solution for the Top Issue.",
+      "Critical Thinking — Challenges the core assumptions, biases, and unasked questions behind the Top Issue.",
+      "Lateral Thinking — A 'breakthrough' idea that leaps beyond the obvious, conventional solutions for the Top Issue.",
     ],
   },
   how: {
-    h2: "How it works",
+    h2: "How It Works",
     steps: [
-      "Generate minutes as usual (app or web).",
-      "Tap “Strategy” to analyze with ChatGPT-5 & Gemini 2.5 Pro.",
-      "Get Boost/Counter/Top Issue + three thinking modes.",
-      "Share or copy results into your task system.",
+      "Generate your meeting minutes as usual (iOS, Android, or Web).",
+      "Tap the 'Strategy' button to analyze the full transcript with ChatGPT-5 & Gemini 2.5 Pro.",
+      "Receive your 6-part analysis: Boost, Counter, Top Issue, and the three thinking modes.",
+      "Share, copy, or export the insights directly into your task management system or report.",
     ],
     note: "Outputs adapt to language and domain; concision by default for quick reading.",
   },
   samples: {
-    h2: "Short, readable examples",
+    h2: "See It in Action: A Real-World Example",
     minutes: {
-      h3: "Minutes (example)",
+      h3: "Example Minutes: 'Solar Chill' Summer Blend Meeting",
       lines: [
-        "Topic: Summer limited blend “Solar Chill”",
-        "Decisions: Proceed with Solar Chill; keep the name; finalize recipe.",
-        "To-Dos: Design mockups; upload final recipe to shared folder.",
-        "Risk: 15% feedback says “too sour”.",
+        "Topic: New summer limited blend 'Solar Chill' (cold brew + passion fruit + mint).",
+        "Decision: Proceed with 'Solar Chill' as the main summer product. Keep the name.",
+        "To-Dos: Design team to create mockups. Final recipe to be uploaded to 'FlavorSync'.",
+        "Risk: 15% of staff feedback noted the drink was 'too sour'.",
+        "Summary: Product rated highly for concept, name, and SNS potential.",
       ],
     },
     strategy: {
-      h3: "Strategy (example)",
+      h3: "Strategy Output (Powered by AI)",
       boost: [
-        "Boost: High repeat-intent → pilot in 10 stores + social promo; measure re-order within 7 days.",
+        "Boost: 74% 'would drink again' is a powerful indicator of market fit. Action: Deep-dive into the 15% 'too sour' feedback. Don't just reduce sourness; consider A/B testing a 'sweetness-adjusted' option in pilot stores to maximize appeal without losing the core product identity.",
       ],
       counter: [
-        "Counter: Address sourness → add ‘mild sweet’ option; A/B test syrup level for 2 weeks.",
+        "Counter: The meeting dismissed the 'Spice-Infusion' proposal without discussion. Was this a missed opportunity given market trends (e.g., chai, turmeric)? The decision to make 'Bloom Latte' store-exclusive might also be underestimating its potential. Action: Re-evaluate the 'spice' concept against market data. Test 'Bloom Latte' online or via partnerships, not just in-store.",
       ],
-      top: ["Top Issue: Balance flavor to widen appeal without losing brand distinctiveness."],
+      top: [
+        "Top Issue: How to successfully launch two distinct limited-run products ('Solar Chill' and 'Bloom Latte') and optimize their respective go-to-market strategies (mainstream vs. niche).",
+      ],
       modes: {
-        logical: ["Logical: Define target segments → set success KPIs → run A/B → ship winning spec."],
-        critical: ["Critical: Are we overfitting to ‘social buzz’? Validate with blind taste tests."],
-        lateral: ["Lateral: Offer a scent/room-mist edition to extend the brand beyond beverages."],
+        logical: [
+          "Logical: 1. Define target segments for each product (Solar Chill = younger, SNS-focused; Bloom Latte = health-conscious, relaxation). 2. Create distinct value propositions (Refreshment vs. Wellness). 3. Offer 'syrup-level' customization for Solar Chill to handle 'sour' feedback.",
+        ],
+        critical: [
+          "Critical: Is the team biased by 'SNS-hype' and past successes? The dismissal of the 'spice' idea suggests a potential blind spot. Action: Implement a quantitative scoring model for new proposals (cost, trend-fit, brand-fit) to remove subjective bias from decision-making.",
+        ],
+        lateral: [
+          "Lateral: Break free from the 'beverage' framework. Action: Develop a 'non-drinkable' version of the blend. Create a 'Solar Chill' room fragrance or 'Bloom Latte' bath products. This expands the brand into lifestyle goods, reaches non-coffee customers, and creates new revenue streams.",
+        ],
       },
     },
   },
   platform: {
     h2: "Availability",
-    p1: "Strategy is available on iOS. Use it to move from ‘notes’ to ‘decisions’.",
+    p1: "What do you think? The Strategy function uncovers insights you missed, raises the counter-arguments people were hesitant to say, and provides breakthrough ideas. It's available right now on our iOS and Android apps. Try it on your next meeting and move from just 'notes' to 'decisions'.",
   },
-  image: { alt: "Minutes.AI Strategy UI", caption: "Boost/Counter/Top Issue + three thinking modes at a glance." },
-  meta: { h2: "Meta", published: "Published", type: "Feature", category: "Strategy" },
-  cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
+  image: {
+    alt: "The Minutes.AI Strategy feature UI on a smartphone",
+    caption:
+      "Get Boost, Counter, Top Issue, and three thinking modes at a single glance.",
+  },
+  meta: {
+    h2: "Meta",
+    published: "Published",
+    type: "Feature",
+    category: "Strategy",
+  },
+  cta: {
+    openBrowser: "Use on Web",
+    downloadIOS: "Download on the App Store",
+    downloadAndroid: "Get it on Google Play",
+  },
 };
 
 /* ---------- tiny helpers ---------- */
@@ -419,7 +443,8 @@ export default function BlogStrategy() {
               className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:border-emerald-100/80 hover:bg-emerald-500/20 hover:text-white"
             >
               <BsGooglePlay className="text-lg sm:text-xl text-emerald-200 group-hover:text-white" />
-              <span>Google Play</span>
+              {/* This was hardcoded as "Google Play" in the original file, so I kept it, but used the new cta key */}
+              <span>{txs("cta.downloadAndroid")}</span>
             </a>
           </div>
         </main>
