@@ -586,7 +586,7 @@ export default function Home() {
       {/* 右：Blog / Company / iOS / Android → 1つの枠で囲む */}
       <nav className="navGroup" aria-label={t("Primary") || "Primary"}>
         <Link href="/blog" className="navItem">{t("Blog")}</Link>
-        <Link href="/company" className="navItem">{t("Company")}</Link>
+        <Link href="/company" className="navItem">Company</Link>
 
         <a
           href={LINK_IOS}
