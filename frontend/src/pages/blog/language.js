@@ -16,41 +16,43 @@ import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
+/**
+ * [改善版] 
+ * 英語のフォールバック用テキスト。
+ * SEOライティングの観点でブラッシュアップ済み。
+ * + "pricing"セクションを追記。
+ */
 const EN_FALLBACK = {
   seo: {
-    title: "Why Minutes.AI is used worldwide — languages & Whisper support (2025)",
-    description:
-      'If you search "meeting-minutes AI app", here’s the reason Minutes.AI works globally: multilingual STT (Whisper), 100+ languages, clean minutes, and adoption in 153 countries with 30K users as of Nov 2025.',
-    ogTitle: "Why Minutes.AI works for global teams",
-    ogDescription:
-      "Multilingual speech-to-text via Whisper (100+ languages), readable minutes, and simple UX — used in 153 countries.",
-    keywords: "meeting-minutes AI app, Minutes.AI, Whisper, speech-to-text, multilingual, meeting minutes",
+    title: "Why Minutes.AI is the Global Choice: 100+ Languages & Whisper Integration (2025)",
+    description: "Need a meeting-minutes AI app that works globally? Minutes.AI leads with multilingual STT (Whisper), 100+ language support, flexible pricing, and clean summaries. See why 30K users in 153 countries trust it (Nov 2025).", // pricingを追記
+    ogTitle: "The AI Scribe for Global Teams: Why Minutes.AI Just Works",
+    ogDescription: "Powered by Whisper for 100+ languages, Minutes.AI delivers accurate transcripts and simple, readable minutes. Used in 153 countries.",
+    keywords: "meeting-minutes AI app, Minutes.AI, Whisper, speech-to-text, multilingual, meeting minutes, pricing", // pricingを追記
     ld: {
-      headline: "Why Minutes.AI is used worldwide",
-      description:
-        "Minutes.AI uses Whisper for multilingual STT across 100+ languages, enabling clean, readable minutes for global teams.",
-    },
+      headline: "Why Minutes.AI is the Global Choice for Meeting Minutes",
+      description: "Minutes.AI leverages OpenAI's Whisper for high-accuracy STT across 100+ languages, creating clean, readable minutes for global teams."
+    }
   },
   aria: { home: "Minutes.AI Home" },
   nav: { blog: "Blog", language: "Language" },
   hero: {
     kicker: "Global Adoption",
-    h1: "Why Minutes.AI is used around the world",
-    tagline:
-      "Multilingual speech-to-text (Whisper) across 100+ languages delivers accurate transcripts and clean, readable minutes.",
+    h1: "Why Teams Around theWorld Choose Minutes.AI",
+    tagline: "Powered by Whisper, our high-accuracy STT masters 100+ languages, transforming raw transcripts into clean, actionable minutes."
   },
   intro: {
-    h2: "Used in 153 countries by 30,000 users",
-    p1: "Minutes.AI has grown to 30,000 users across 153 countries in just 15 months after launch (iOS downloads, Nov 2025).",
-    p2: "You might wonder if your language is covered. The key is STT — speech-to-text. We use OpenAI’s Whisper, which supports 100+ languages. That’s why Minutes.AI works anywhere.",
+    h2: "Trusted by 30,000 Users in 153 Countries",
+    p1: "In just 15 months since launch, Minutes.AI has grown to support 30,000 users across 153 countries (based on iOS downloads, Nov 2025).",
+    p2: "Wondering if your language is supported? The answer lies in our STT (speech-to-text) engine: OpenAI's Whisper. With support for over 100 languages, Minutes.AI is built to work for everyone, everywhere."
   },
   stt: {
-    h2: "Why Whisper matters",
-    p1: "Whisper’s multilingual models recognize speech in a wide range of languages with robust accuracy, even for minority languages and accents.",
-    p2: "Paired with Minutes.AI’s formatting pipeline, transcripts become action-ready minutes: decisions, owners, and next steps are clearly captured.",
+    h2: "The Whisper Difference: More Than Just Transcription",
+    p1: "Whisper's advanced multilingual models deliver robust accuracy across a vast range of languages, handling accents and even minority languages with remarkable precision.",
+    p2: "But accuracy is just the start. We pair Whisper's raw power with Minutes.AI’s intelligent formatting pipeline. This turns a simple transcript into action-ready minutes, clearly capturing decisions, owners, and next steps."
   },
   langs: {
-    h2: "Whisper-supported languages (selection)",
+    h2: "Whisper-Supported Languages (Selection)",
     note: "Find your language by code or name.",
     searchPlaceholder: "Filter by code or name…",
     list: [
@@ -156,7 +158,20 @@ const EN_FALLBACK = {
       { code: "yue", name: "Cantonese" },
     ],
   },
-  meta: { h2: "Meta", published: "Published", type: "Article", category: "Language" },
+  // --- [NEW] Pricing Section ---
+  pricing: {
+    h2: "Simple, Flexible Pricing for Global Teams",
+    p1: "Minutes.AI supports your workflow, whether you have meetings daily or just occasionally. We offer simple plans that work for everyone, everywhere.",
+    free_badge: "Daily Free Ticket",
+    free_text: "Get 3 free minutes to use Minutes.AI every single day. No credit card required.",
+    pack_title: "One-Time Packs (No Expiry)",
+    pack_text: "Buy a block of minutes (like 120 or 1200) and use them whenever you need. They *never* expire.",
+    sub_title: "Unlimited Subscriptions",
+    sub_text: "For heavy users. Get *truly* unlimited minutes for a flat monthly or annual fee. No caps, no worries.",
+    link_text: "See Full Pricing Details"
+  },
+  // --- [END NEW] ---
+  meta: { h2: "Article Info", published: "Published", type: "Article", category: "Language" },
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
 };
 
@@ -366,6 +381,44 @@ export default function BlogLanguages() {
               ))}
             </ul>
           </SectionCard>
+
+          {/* --- [NEW] Pricing Section --- */}
+          <SectionCard className="mt-8">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("pricing.p1")}</p>
+            
+            {/* Free plan */}
+            <div className="mt-5 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-4">
+              <div className="text-xs font-semibold uppercase tracking-wide text-emerald-200">
+                {txs("pricing.free_badge")}
+              </div>
+              <p className="mt-1 text-sm text-emerald-100/90">{txs("pricing.free_text")}</p>
+            </div>
+
+            {/* Plan types */}
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-white/10 bg-black/25 p-4">
+                <h3 className="font-semibold text-white">{txs("pricing.pack_title")}</h3>
+                <p className="mt-1 text-sm text-indigo-100/90">{txs("pricing.pack_text")}</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-black/25 p-4">
+                <h3 className="font-semibold text-white">{txs("pricing.sub_title")}</h3>
+                <p className="mt-1 text-sm text-indigo-100/90">{txs("pricing.sub_text")}</p>
+              </div>
+            </div>
+            
+            {/* Link to full pricing page */}
+            <div className="mt-5">
+              <Link
+                href="/pricing"
+                className="inline-flex items-center text-sm font-medium text-indigo-300 hover:text-white transition"
+              >
+                <span>{txs("pricing.link_text")}</span>
+                <span className="ml-1.5">→</span>
+              </Link>
+            </div>
+          </SectionCard>
+          {/* --- [END NEW] --- */}
 
           {/* Meta */}
           <SectionCard className="mt-8">
