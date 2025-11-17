@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { TbClipboardList, TbClipboardText } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosDownload } from "react-icons/io";
-import { FaRegCopy } from "react-icons/fa";
+import { FaRegCopy, FaRegEdit } from "react-icons/fa"; // 編集アイコンをインポート
 import { getDb } from "../firebaseConfig";
 import { useTranslation } from "next-i18next";
 
@@ -282,6 +282,9 @@ export default function FullScreenOverlay({
       alignItems: "center",
       justifyContent: "center",
       width: "100%",
+      // "Edit"ボタンがなくなったため、"Save"ボタンのみになった
+      // 高さを確保するため、最小高さを設定（ボタンの高さに合わせるなど）
+      minHeight: "31px", // (padding 5px * 2 + text 10px + border 1px * 2) 
     },
     saveButton: {
       backgroundColor: "#000000",
@@ -292,7 +295,7 @@ export default function FullScreenOverlay({
       marginLeft: "10px",
       borderRadius: "5px",
     },
-    editButton: {
+    editButton: { // このスタイルはSideMenuでは使用しなくなりましたが、念のため残します
       backgroundColor: "transparent",
       color: "#000000",
       border: "1px solid #000000",
@@ -375,16 +378,11 @@ export default function FullScreenOverlay({
         </button>
 
         <div style={styles.titleContainer}>
-          {isEditing ? (
+          {/* "Edit" ボタンは SideMenu に移動しました */}
+          {/* "Save" ボタンは編集中にここに表示されます */}
+          {isEditing && (
             <button style={styles.saveButton} onClick={handleSave}>
               {t("Save")}
-            </button>
-          ) : (
-            <button
-              style={styles.editButton}
-              onClick={() => setIsEditing(true)}
-            >
-              {t("Edit")}
             </button>
           )}
         </div>
@@ -440,6 +438,20 @@ export default function FullScreenOverlay({
             >
               &times;
             </button>
+
+            {/* ----- 修正：ここに "Edit" ボタンを移動 ----- */}
+            {!isEditing && (
+              <MenuRow
+                icon={(p) => <FaRegEdit {...p} />}
+                iconColor={"#2196F3"} // アイコンの色（Blue）
+                title={t("Edit")}
+                onClick={() => {
+                  setIsEditing(true);
+                  setShowSideMenu(false);
+                }}
+              />
+            )}
+            {/* ------------------------------------- */}
 
             {!isExpanded ? (
               <MenuRow
