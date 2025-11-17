@@ -10,8 +10,14 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 // import { getAuth } from "firebase/auth";
 import HomeIcon from "./homeIcon";
 import { getClientAuth } from "../firebaseConfig";
+import { FaAppStore } from "react-icons/fa";
+import { BsGooglePlay } from "react-icons/bs";
 
 const SITE_URL = "https://www.sense-ai.world";
+const LINK_IOS =
+  "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
+const LINK_ANDROID =
+  "https://play.google.com/store/apps/details?id=world.senseai.minutes";
 
 /* ===== FixedHeaderPortal（/home と同じ） ===== */
 function FixedHeaderPortal({ children }) {
@@ -34,15 +40,22 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
   }, []);
   const S = isPhone ? mobileSize : size;
 
-  const W = S, H = S;
-  const cx = W / 2, cy = H / 2;
+  const W = S,
+    H = S;
+  const cx = W / 2,
+    cy = H / 2;
   const r = S * 0.46;
   const strokeW = Math.max(4, Math.floor(S * 0.01));
   const headR = strokeW * 0.95;
   const toRad = (deg) => (Math.PI / 180) * (deg - 90);
-  const pt = (deg, rad = r) => [cx + rad * Math.cos(toRad(deg)), cy + rad * Math.sin(toRad(deg))];
+  const pt = (deg, rad = r) => [
+    cx + rad * Math.cos(toRad(deg)),
+    cy + rad * Math.sin(toRad(deg)),
+  ];
   const arc = (a0, a1) =>
-    `M ${pt(a0)[0]} ${pt(a0)[1]} A ${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${pt(a1)[0]} ${pt(a1)[1]}`;
+    `M ${pt(a0)[0]} ${pt(a0)[1]} A ${r} ${r} 0 ${
+      a1 - a0 > 180 ? 1 : 0
+    } 1 ${pt(a1)[0]} ${pt(a1)[1]}`;
 
   const HEAD = 0;
   const TAIL_START = HEAD - 360;
@@ -60,7 +73,14 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
 
   return (
     <div className="neonCircle" style={{ "--sz": `${S}px` }} aria-label={ariaLabel}>
-      <svg className="ringSvg" width={W} height={H} viewBox={`0 0 ${W} ${H}`} role="img" aria-hidden="true">
+      <svg
+        className="ringSvg"
+        width={W}
+        height={H}
+        viewBox={`0 0 ${W} ${H}`}
+        role="img"
+        aria-hidden="true"
+      >
         <defs>
           <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="b1" />
@@ -82,18 +102,36 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
             <stop offset="100%" stopColor="rgba(140,220,255,0)" />
           </radialGradient>
         </defs>
-        <g filter="url(#softGlow)" stroke="rgba(175,240,255,1)" fill="none" strokeLinecap="round" style={{ pointerEvents: "none" }}>
+        <g
+          filter="url(#softGlow)"
+          stroke="rgba(175,240,255,1)"
+          fill="none"
+          strokeLinecap="round"
+          style={{ pointerEvents: "none" }}
+        >
           {segments.map((s, i) => (
-            <path key={i} d={arc(s.a0, s.a1)} strokeOpacity={s.alpha} strokeWidth={s.w} />
+            <path
+              key={i}
+              d={arc(s.a0, s.a1)}
+              strokeOpacity={s.alpha}
+              strokeWidth={s.w}
+            />
           ))}
         </g>
-        <circle cx={pt(HEAD)[0]} cy={pt(HEAD)[1]} r={headR} fill="url(#headGrad)" filter="url(#softGlow)" style={{ pointerEvents: "none" }} />
+        <circle
+          cx={pt(HEAD)[0]}
+          cy={pt(HEAD)[1]}
+          r={headR}
+          fill="url(#headGrad)"
+          filter="url(#softGlow)"
+          style={{ pointerEvents: "none" }}
+        />
       </svg>
 
       <div className="neonInner">{children}</div>
 
       <style jsx>{`
-        .neonCircle{
+        .neonCircle {
           position: relative;
           width: min(100%, var(--sz));
           aspect-ratio: 1 / 1;
@@ -102,23 +140,55 @@ function NeonCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
           isolation: isolate;
           overflow: visible;
         }
-        .ringSvg{
-          position: absolute; inset: 0;
+        .ringSvg {
+          position: absolute;
+          inset: 0;
           overflow: visible;
           transform: translateZ(0);
           mix-blend-mode: screen;
           image-rendering: optimizeQuality;
         }
         /* ★ /home と同じ文字スケール */
-        :global(.pCard){ place-items: start; justify-items: start; align-items: start; text-align: left; gap: 10px; width: 100%; }
-        :global(.pKicker){ font-weight: 700; letter-spacing: 0.2px; opacity: 0.85; font-size: clamp(22px, calc(var(--sz) * 0.07), 42px); color: white; text-shadow: 0 2px 6px rgba(255,255,255,0.1); }
-        :global(.pPrice .big){ font-size: clamp(28px, calc(var(--sz) * 0.10), 54px); }
-        :global(.pPrice .unit){ font-size: clamp(14px, calc(var(--sz) * 0.038), 22px); }
-        :global(.pBullets){ font-size: clamp(12px, calc(var(--sz) * 0.028), 16px); line-height: 1.5; }
-        .neonInner{ position: relative; z-index: 2; width: min(86%, calc(var(--sz) * 0.9)); text-align: left; }
-        @media (max-width: 640px){
-          .neonCircle{ overflow: hidden; border-radius: 20px; }
-          .ringSvg{ overflow: hidden; }
+        :global(.pCard) {
+          place-items: start;
+          justify-items: start;
+          align-items: start;
+          text-align: left;
+          gap: 10px;
+          width: 100%;
+        }
+        :global(.pKicker) {
+          font-weight: 700;
+          letter-spacing: 0.2px;
+          opacity: 0.85;
+          font-size: clamp(22px, calc(var(--sz) * 0.07), 42px);
+          color: white;
+          text-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+        }
+        :global(.pPrice .big) {
+          font-size: clamp(28px, calc(var(--sz) * 0.1), 54px);
+        }
+        :global(.pPrice .unit) {
+          font-size: clamp(14px, calc(var(--sz) * 0.038), 22px);
+        }
+        :global(.pBullets) {
+          font-size: clamp(12px, calc(var(--sz) * 0.028), 16px);
+          line-height: 1.5;
+        }
+        .neonInner {
+          position: relative;
+          z-index: 2;
+          width: min(86%, calc(var(--sz) * 0.9));
+          text-align: left;
+        }
+        @media (max-width: 640px) {
+          .neonCircle {
+            overflow: hidden;
+            border-radius: 20px;
+          }
+          .ringSvg {
+            overflow: hidden;
+          }
         }
       `}</style>
     </div>
@@ -140,7 +210,7 @@ function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
 
   // 正方形ビューにそのまま描く
   const strokeW = Math.max(2, Math.floor(S * 0.012));
-  const inset = strokeW / 2;                  // ストロークが切れないよう内側へ半分オフセット
+  const inset = strokeW / 2; // ストロークが切れないよう内側へ半分オフセット
   const rx = Math.max(12, Math.floor(S * 0.08)); // 角丸半径（お好みで）
 
   return (
@@ -156,8 +226,8 @@ function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
         <defs>
           {/* 枠線カラーだけグラデーション */}
           <linearGradient id="oacGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"   stopColor="#65e0c4" />
-            <stop offset="60%"  stopColor="#8db4ff" />
+            <stop offset="0%" stopColor="#65e0c4" />
+            <stop offset="60%" stopColor="#8db4ff" />
             <stop offset="100%" stopColor="#7cc7ff" />
           </linearGradient>
         </defs>
@@ -179,34 +249,38 @@ function OneArcCircle({ size = 560, mobileSize = 360, children, ariaLabel }) {
       <div className="oacInner">{children}</div>
 
       <style jsx>{`
-        .oacWrap{
+        .oacWrap {
           position: relative;
           width: min(100%, var(--sz));
-          aspect-ratio: 1 / 1;     /* 正方形固定 */
+          aspect-ratio: 1 / 1; /* 正方形固定 */
           display: grid;
           place-items: center;
           isolation: isolate;
           overflow: visible;
         }
-        .oacSvg{
-          position: absolute; inset: 0;
+        .oacSvg {
+          position: absolute;
+          inset: 0;
           pointer-events: none;
         }
-        .oacInner{
-          position: relative; z-index: 1;
-          width: min(78%, calc(var(--sz) * 0.78));  /* お好みで */
+        .oacInner {
+          position: relative;
+          z-index: 1;
+          width: min(78%, calc(var(--sz) * 0.78)); /* お好みで */
           text-align: left;
         }
-        @media (max-width: 640px){
-          .oacWrap { overflow: hidden; border-radius: 20px; } /* セクションに合わせた角丸 */
+        @media (max-width: 640px) {
+          .oacWrap {
+            overflow: hidden;
+            border-radius: 20px;
+          } /* セクションに合わせた角丸 */
         }
       `}</style>
     </div>
   );
 }
 
-
-/* ===== 価格テキストをボタン化（hoverで“ふわっ”） ===== */
+/* ===== 価格テキストを「ボタンっぽく」（薄い背景＋枠付き） ===== */
 function PriceBtn({ onClick, disabled, children, ariaLabel }) {
   return (
     <button
@@ -218,34 +292,56 @@ function PriceBtn({ onClick, disabled, children, ariaLabel }) {
     >
       {children}
       <style jsx>{`
-        .priceBtn{
+        .priceBtn {
           display: inline-flex;
           align-items: baseline;
           gap: 8px;
-          border: 0;
-          background: rgba(0,0,0,0.0);
+          border-radius: 999px;
+          padding: 8px 14px;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          background: radial-gradient(
+              140% 140% at 50% 0%,
+              rgba(120, 180, 255, 0.16),
+              transparent 65%
+            ),
+            rgba(8, 18, 36, 0.82);
+          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45),
+            0 0 0 1px rgba(255, 255, 255, 0.04) inset;
           color: inherit;
-          padding: 6px 10px;
-          border-radius: 12px;
           cursor: pointer;
-          transition: transform 180ms ease, text-shadow 180ms ease, box-shadow 180ms ease;
+          transition:
+            transform 180ms ease,
+            text-shadow 180ms ease,
+            box-shadow 180ms ease,
+            background 180ms ease,
+            border-color 180ms ease;
         }
         .priceBtn:hover,
-        .priceBtn:focus-visible{
+        .priceBtn:focus-visible {
           transform: translateY(-3px);
-          text-shadow: 0 6px 24px rgba(100,160,255,0.35);
-          box-shadow: 0 0 0 2px rgba(255,255,255,0.06) inset;
+          text-shadow: 0 6px 24px rgba(100, 160, 255, 0.35);
+          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+          background: radial-gradient(
+              140% 140% at 50% 0%,
+              rgba(140, 210, 255, 0.22),
+              transparent 70%
+            ),
+            rgba(10, 26, 50, 0.95);
+          border-color: rgba(255, 255, 255, 0.32);
           outline: none;
         }
-        .priceBtn:disabled{
-          opacity: .6;
+        .priceBtn:disabled {
+          opacity: 0.6;
           cursor: not-allowed;
           transform: none !important;
           text-shadow: none !important;
           box-shadow: none !important;
         }
-        @media (prefers-reduced-motion: reduce){
-          .priceBtn{ transition: none !important; }
+        @media (prefers-reduced-motion: reduce) {
+          .priceBtn {
+            transition: none !important;
+          }
         }
       `}</style>
     </button>
@@ -269,12 +365,16 @@ export default function BuyTicketsPage() {
         console.error("Failed to init Firebase Auth:", e);
       }
     })();
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const handleBuyClick = async (productId) => {
     if (!productId) {
-      console.error("❌ productId is undefined. Please check your environment variables.");
+      console.error(
+        "❌ productId is undefined. Please check your environment variables."
+      );
       return;
     }
     if (!authInstance || !authInstance.currentUser) {
@@ -362,29 +462,66 @@ export default function BuyTicketsPage() {
         <title>{t("Minutes.AI — Upgrade")}</title>
         <meta
           name="description"
-          content={t("Purchase prepaid minutes or subscriptions for Minutes.AI.")}
+          content={t(
+            "Purchase prepaid minutes or subscriptions for Minutes.AI."
+          )}
         />
         <link rel="canonical" href={`${SITE_URL}/upgrade`} />
       </Head>
 
-      {/* ===== /home と同じヘッダー（Fixed） ===== */}
+      {/* ===== /home と同じヘッダー ===== */}
       <FixedHeaderPortal>
         <header className="top" role="banner">
-          <a href="/" className="brand" aria-label={t("Minutes.AI Home")}>
-            <span className="brandIcon" aria-hidden="true">
-              <HomeIcon size={26} color="currentColor" />
-            </span>
-            <span className="brandText">{t("Minutes.AI")}</span>
-          </a>
-          <nav className="nav" aria-label={t("Primary") || "Primary"}>
-            <a href="/" className="navLink">
-              <span className="navText gradHeader">{t("Home")}</span>
-            </a>
-          </nav>
+          <div className="topInner">
+            {/* 左：ブランド */}
+            <Link
+              href="/"
+              className="brand"
+              aria-label={t("Minutes.AI Home")}
+            >
+              <span className="brandIcon" aria-hidden="true">
+                <HomeIcon size={26} color="currentColor" />
+              </span>
+              <span className="brandText">{t("Minutes.AI")}</span>
+            </Link>
+
+            {/* 右：Blog / Company / iOS / Android → 1つの枠内に4つ */}
+            <nav
+              className="navGroup"
+              aria-label={t("Primary") || "Primary"}
+            >
+              <Link href="/blog" className="navItem">
+                {t("Blog")}
+              </Link>
+              <Link href="/company" className="navItem">
+                {t("Company")}
+              </Link>
+
+              <a
+                href={LINK_IOS}
+                className="navItem"
+                rel="noopener noreferrer"
+                aria-label={t("Download on iOS")}
+              >
+                <FaAppStore className="navIcon" aria-hidden="true" />
+                {t("iOS")}
+              </a>
+
+              <a
+                href={LINK_ANDROID}
+                className="navItem"
+                rel="noopener noreferrer"
+                aria-label={t("Download on Android")}
+              >
+                <BsGooglePlay className="navIcon" aria-hidden="true" />
+                {t("Android")}
+              </a>
+            </nav>
+          </div>
         </header>
       </FixedHeaderPortal>
 
-      {/* ===== Main：/home の Pricing セクションをそのまま ===== */}
+      {/* ===== Main：/home の Pricing セクションをベースにした Upgrade ===== */}
       <main className="scene buyScene">
         <section className="pricingSection" aria-labelledby="pricingHead">
           <div className="pricingHeadWrap">
@@ -468,44 +605,63 @@ export default function BuyTicketsPage() {
           </p>
         </section>
 
-        {/* ===== 追加：Custom / Tema セクション（見出しは Upgrade と同フォント） ===== */}
-<section className="customSection" aria-labelledby="customHead">
-  <h3 id="customHead" className="pricingH2 gradText">Custom / Team</h3>
-  <p className="customLead">Available worldwide for teams and individuals of all sizes</p>
+        {/* ===== Custom / Team セクション ===== */}
+        <section className="customSection" aria-labelledby="customHead">
+          <h3 id="customHead" className="pricingH2 gradText">
+            Custom / Team
+          </h3>
+          <p className="customLead">
+            Available worldwide for teams and individuals of all sizes
+          </p>
 
-  <div className="customArcWrap">
-    <OneArcCircle size={560} mobileSize={360} ariaLabel="Custom plan highlight">
-      <div className="customCard">
-<ul className="customBullets">
-  <li>
-    <span className="liMain">Customizable minutes output</span>
-    <span className="liSub">Terminology, output formats, etc.</span>
-  </li>
-  <li>
-    <span className="liMain">Unlimited plan for all members</span>
-    <span className="liSub">Volume discounts by team size</span>
-  </li>
-  <li><span className="liMain">Centralized management of team minutes</span></li>
-  <li><span className="liMain">Invoice billing available</span></li>
-  <li><span className="liMain">We can accommodate other needs. Contact us to discuss.</span></li>
-</ul>
+          <div className="customArcWrap">
+            <OneArcCircle
+              size={560}
+              mobileSize={360}
+              ariaLabel="Custom plan highlight"
+            >
+              <div className="customCard">
+                <ul className="customBullets">
+                  <li>
+                    <span className="liMain">Customizable minutes output</span>
+                    <span className="liSub">
+                      Terminology, output formats, etc.
+                    </span>
+                  </li>
+                  <li>
+                    <span className="liMain">
+                      Unlimited plan for all members
+                    </span>
+                    <span className="liSub">
+                      Volume discounts by team size
+                    </span>
+                  </li>
+                  <li>
+                    <span className="liMain">
+                      Centralized management of team minutes
+                    </span>
+                  </li>
+                  <li>
+                    <span className="liMain">Invoice billing available</span>
+                  </li>
+                  <li>
+                    <span className="liMain">
+                      We can accommodate other needs. Contact us to discuss.
+                    </span>
+                  </li>
+                </ul>
 
-
-        <a
-          className="customBtn"
-          href="mailto:info@sense-ai.world"
-          aria-label="Contact Us by Email"
-        >
-          Contact Us (Email)
-        </a>
-      </div>
-    </OneArcCircle>
-  </div>
-
-  {/* ← 枠（円弧）の“下”に改行して表示 */}
-
-</section>
-
+                <a
+                  className="customBtn"
+                  href="mailto:info@sense-ai.world"
+                  aria-label="Contact Us by Email"
+                >
+                  Contact Us (Email)
+                </a>
+              </div>
+            </OneArcCircle>
+          </div>
+        </section>
       </main>
 
       {/* ===== /home の Footer を移植 + company を追加 ===== */}
@@ -528,7 +684,7 @@ export default function BuyTicketsPage() {
         </div>
       </footer>
 
-      {/* ===== styles（/home から必要分をそのまま + Custom 追記） ===== */}
+      {/* ===== styles（背景などは既存のまま） ===== */}
       <style jsx>{`
         .scene {
           --bg-1: #05060e;
@@ -540,7 +696,8 @@ export default function BuyTicketsPage() {
           padding-bottom: 24vh;
           overflow: hidden;
           color: #fff;
-          background: radial-gradient(
+          background:
+            radial-gradient(
               130vmax 130vmax at 50% 120%,
               #10163a 0%,
               var(--bg-2) 50%,
@@ -670,323 +827,251 @@ export default function BuyTicketsPage() {
           opacity: 0.9;
         }
 
-        /* ===== Custom / Tema ===== */
-        .customSection{
-          margin: clamp(12px, 6vh, 80px) auto 0;
+        /* ===== Custom / Team ===== */
+        .customSection {
+          margin: clamp(8px, 3vh, 40px) auto 0;
           padding: 0 22px;
           max-width: 1200px;
           text-align: center;
           position: relative;
         }
-        .customLead{
+        .customLead {
           margin: 6px 0 18px 0;
           opacity: 0.9;
           font-weight: 700;
           font-size: clamp(14px, 1.9vw, 18px);
         }
-/* 余白を全体的にタイトに */
-.customArcWrap{
-  display: grid;
-  place-items: center;
-  margin-top: 8px;            /* 以前より小さく */
-}
-
-/* 箇条書き：結論を大きく、補足は小さく＆やや薄く */
-.customBullets{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.customBullets li{
-  margin: 10px 0;             /* 行間はキュッと */
-}
-.customBullets li::before{
-  content: "• ";
-  opacity: 0.9;
-  margin-right: 4px;
-}
-.customBullets .liMain{
-  display: inline;            /* ドットの横に結論 */
-  font-weight: 900;
-  font-size: clamp(16px, 2vw, 22px);
-}
-.customBullets .liSub{
-  display: block;             /* 補足は改行して小さく */
-  margin: 4px 0 0 20px;       /* ドット分のインデントを合わせる */
-  font-weight: 700;
-  font-size: clamp(12px, 1.5vw, 15px);
-  opacity: 0.85;
-}
-
-        .customBtn{
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 10px 16px;
-          border-radius: 999px;
-          font-weight: 900;
-          letter-spacing: 0.2px;
-          text-decoration: none;
-          color: #eaf4f7;
-          border: 2px solid rgba(255,255,255,0.35);
-          box-shadow: 0 8px 30px rgba(80,140,220,0.22);
-          width: fit-content;
-          transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-          margin: 12px auto 0;
+        .customArcWrap {
+          display: grid;
+          place-items: center;
+          margin-top: clamp(8px, 2vh, 18px);
         }
-        .customBtn:hover, .customBtn:focus-visible{
+        .customCard {
+          margin: 0 auto;
+          max-width: 820px;
+          display: grid;
+          gap: 14px;
+          text-align: left;
+        }
+        .customBullets {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          font-weight: 700;
+          line-height: 1.55;
+          opacity: 0.95;
+        }
+        .customBullets li {
+          margin: 4px 0;
+        }
+        .customBullets li::before {
+          content: "• ";
+          opacity: 0.9;
+        }
+        .customBullets .liMain {
+          display: inline;
+          font-weight: 900;
+          font-size: clamp(16px, 2vw, 22px);
+        }
+        .customBullets .liSub {
+          display: block;
+          margin: 4px 0 0 0;
+          font-weight: 600;
+          opacity: 0.9;
+          font-size: clamp(13px, 1.7vw, 17px);
+        }
+
+        .customBtn {
+          align-self: start;
+          justify-self: start;
+          margin-top: 10px;
+          border-radius: 999px;
+          padding: 10px 20px;
+          font-weight: 800;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
+          font-size: 13px;
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          background: rgba(8, 18, 36, 0.9);
+          color: #f5f9ff;
+          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45),
+            0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+          text-decoration: none;
+          transition:
+            background 160ms ease,
+            transform 160ms ease,
+            box-shadow 160ms ease,
+            border-color 160ms ease;
+        }
+        .customBtn:hover,
+        .customBtn:focus-visible {
+          background: rgba(16, 38, 82, 0.98);
+          border-color: rgba(255, 255, 255, 0.9);
           transform: translateY(-2px);
-          box-shadow: 0 12px 42px rgba(100,160,255,0.36);
-          border-color: rgba(255,255,255,0.6);
+          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6);
           outline: none;
         }
 
-        .pageFooter {
-          position: relative;
-          z-index: 3;
-          padding: 20px 22px 28px;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
+        .pricingNote {
+          margin-top: clamp(14px, 3vh, 26px);
+          opacity: 0.8;
+          font-size: 13px;
+        }
+
+        /* ===== Fixed header (ほぼ /home と同じ) ===== */
+        :root {
+          --header-offset: 72px;
+        }
+
+        .top {
+          position: fixed;
+          inset: 0 0 auto 0;
+          z-index: 40;
+          backdrop-filter: blur(20px);
           background: linear-gradient(
-            0deg,
-            rgba(10, 14, 28, 0.6) 0%,
-            rgba(10, 14, 28, 0.3) 100%
+            to bottom,
+            rgba(5, 8, 24, 0.94),
+            rgba(5, 8, 24, 0.72),
+            transparent
           );
-          color: #eaf4f7;
+        }
+        .topInner {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 14px 22px 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+        }
+        .brand {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-weight: 800;
+          font-size: 18px;
+          text-decoration: none;
+          color: #f8fbff;
+        }
+        .brandIcon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .brandText {
+          letter-spacing: -0.03em;
+        }
+
+        .navGroup {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 4px;
+          border-radius: 999px;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          background: rgba(5, 10, 28, 0.85);
+        }
+        .navItem {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 14px;
+          border-radius: 999px;
+          font-size: 13px;
+          font-weight: 700;
+          text-decoration: none;
+          color: #f5f8ff;
+          opacity: 0.9;
+          border: 1px solid transparent;
+          transition:
+            background 160ms ease,
+            border-color 160ms ease,
+            color 160ms ease,
+            transform 160ms ease;
+        }
+        .navItem:hover,
+        .navItem:focus-visible {
+          background: rgba(15, 32, 70, 0.96);
+          border-color: rgba(255, 255, 255, 0.22);
+          transform: translateY(-1px);
+          outline: none;
+        }
+        .navIcon {
+          font-size: 16px;
+        }
+
+        @media (max-width: 640px) {
+          .topInner {
+            padding-inline: 14px;
+          }
+          .navGroup {
+            gap: 2px;
+            padding: 3px;
+          }
+          .navItem {
+            padding-inline: 10px;
+            font-size: 12px;
+          }
+          .brandText {
+            font-size: 16px;
+          }
+        }
+
+        /* ===== Footer ===== */
+        .pageFooter {
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 18px 22px 26px;
+          margin-top: auto;
+          background: radial-gradient(
+              160% 160% at 50% -40%,
+              rgba(44, 76, 130, 0.76),
+              transparent
+            ),
+            rgba(2, 4, 12, 0.96);
         }
         .footInner {
           max-width: 1200px;
           margin: 0 auto;
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           justify-content: space-between;
-          gap: 12px;
+          gap: 10px;
+          font-size: 12px;
+          color: rgba(235, 244, 255, 0.86);
         }
         .legal {
           display: flex;
-          gap: 12px;
-          align-items: center;
-          font-size: 13px;
-          opacity: 0.7;
           flex-wrap: wrap;
-        }
-        .legalLink {
-          color: #ffffff;
-          text-decoration: none;
-        }
-        .sep {
-          opacity: 0.55;
-        }
-        .copyright {
-          font-size: 13px;
-          opacity: 0.7;
-          white-space: nowrap;
-        }
-        .gradText{
-          background: linear-gradient(90deg,#7cc7ff 0%,#8db4ff 35%,#65e0c4 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          -webkit-text-fill-color: transparent;
-        }
-        .buyScene .pricingSection{
-          margin-top: clamp(8px, 4vh, 60px);
-        }
-          /* ===== Custom / Team ===== */
-.customSection{
-  margin: clamp(8px, 3vh, 40px) auto 0;
-  padding: 0 22px;
-  max-width: 1200px;
-  text-align: center;
-  position: relative;
-}
-.customLead{
-  margin: 6px 0 18px 0;
-  opacity: 0.9;
-  font-weight: 700;
-  font-size: clamp(14px, 1.9vw, 18px);
-}
-.customArcWrap{
-  display: grid;
-  place-items: center;
-  margin-top: clamp(8px, 2vh, 18px);
-}
-.customCard{
-  margin: 0 auto;
-  max-width: 820px;
-  display: grid;
-  gap: 14px;
-  text-align: left;
-}
-.customBullets{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-weight: 700;
-  line-height: 1.55;
-  opacity: 0.95;
-}
-.customBullets li{ margin: 4px 0; }
-.customBullets li::before{ content: "• "; opacity: 0.9; }
-.customBtn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 900;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-  color: #eaf4f7;
-  border: 2px solid rgba(255,255,255,0.35);
-  box-shadow: 0 8px 30px rgba(80,140,220,0.22);
-  width: fit-content;
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-}
-.customBtn:hover, .customBtn:focus-visible{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 42px rgba(100,160,255,0.36);
-  border-color: rgba(255,255,255,0.6);
-  outline: none;
-}
-
-        @media (max-width: 640px) {
-          .footInner {
-            flex-direction: column;
-            gap: 8px;
-          }
-        }
-      `}</style>
-
-      {/* ===== 追加修正：リンクの紫・下線を強制的にオフ／注釈下の余白調整 ===== */}
-      <style jsx global>{`
-        .pageFooter .legalLink,
-        .pageFooter .legalLink:visited,
-        .pageFooter .legalLink:hover,
-        .pageFooter .legalLink:active {
-          color: #eaf4f7 !important;
-          text-decoration: none !important;
-          border-bottom: none !important;
-        }
-        .pageFooter .legalLink:focus-visible {
-          outline: 2px solid rgba(234, 244, 247, 0.65);
-          outline-offset: 2px;
-          border-radius: 6px;
-        }
-
-        .buyScene {
-          padding-bottom: clamp(28px, 7vh, 84px);
-        }
-        .buyScene .pricingSection {
-          padding-bottom: clamp(18px, 5vh, 60px);
-          margin-bottom: clamp(6px, 2vh, 18px);
-        }
-        .buyScene .pricingNote {
-          margin-bottom: 0;
-        }
-      `}</style>
-
-      {/* ===== /home と同じヘッダーの共通グローバル変数／装飾 ===== */}
-      <style jsx global>{`
-        :root {
-          --header-h: clamp(56px, 7.2vh, 72px);
-          --header-py: 10px;
-          --header-offset: calc(
-            var(--header-h) + env(safe-area-inset-top, 0px) + (var(--header-py) * 2)
-          );
-        }
-        header.top {
-          position: fixed;
-          left: 0;
-          right: 0;
-          top: 0;
-          z-index: 2147483647;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
-          padding: calc(var(--header-py) + env(safe-area-inset-top, 0px)) 22px
-            var(--header-py);
-          -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px);
-          background: linear-gradient(
-            180deg,
-            rgba(10, 14, 28, 0.75) 0%,
-            rgba(10, 14, 28, 0.45) 100%
-          );
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        header.top .brand {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          text-decoration: none;
-          color: #b6eaff;
-        }
-        header.top .brandText {
-          font-weight: 800;
-          font-size: 24px;
-          letter-spacing: 0.2px;
-        }
-        header.top .brand .brandIcon {
-          width: 26px;
-          height: 26px;
-          display: inline-flex;
-        }
-        header.top .nav {
-          background: rgba(20, 40, 60, 0.7);
-          -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px);
-          padding: 10px 18px;
-          border-radius: 999px;
-          display: flex;
-          align-items: center;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        header.top .navLink,
-        header.top .navLink:visited,
-        header.top .navLink:hover,
-        header.top .navLink:active {
-          color: #eaf4f7 !important;
-          text-decoration: none !important;
-          margin: 0 8px;
-          opacity: 0.95;
-          display: inline-flex;
           align-items: center;
           gap: 6px;
         }
-        header.top .navText {
-          font-weight: 800;
-          font-size: clamp(14px, 1.6vw, 18px);
+        .legalLink {
+          color: inherit;
+          text-decoration: none;
+          font-weight: 600;
         }
-        header.top .gradHeader {
-          background: linear-gradient(
-            90deg,
-            #7cc7ff 0%,
-            #8db4ff 35%,
-            #65e0c4 100%
-          );
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+        .legalLink:hover,
+        .legalLink:focus-visible {
+          text-decoration: underline;
+          outline: none;
         }
-        @supports not (backdrop-filter: blur(12px)) {
-          header.top {
-            background: rgba(10, 14, 28, 0.92);
-          }
-          header.top .nav {
-            background: rgba(20, 40, 60, 0.92);
-          }
+        .sep {
+          opacity: 0.5;
+        }
+        .copyright {
+          opacity: 0.75;
         }
       `}</style>
     </>
   );
 }
 
-/* i18n：/home と同じ辞書を読む（タイトルが消える問題の予防） */
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
+  const currentLocale = locale || "en";
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "home"])),
+      ...(await serverSideTranslations(currentLocale, ["common"])),
     },
   };
 }
