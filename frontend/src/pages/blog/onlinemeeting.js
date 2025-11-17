@@ -7,6 +7,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
+import React from "react"; // BoldParserのためにReactをインポート
 
 // CTA icons
 import { TbWorld } from "react-icons/tb";
@@ -15,7 +16,7 @@ import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ---------- Inline English fallback (used when i18n returns keys) ---------- */
+/* ---------- Inline English fallback (リライト版コンテンツに更新) ---------- */
 const EN_FALLBACK = {
   seo: {
     title: "Minutes.AI now supports Online Meetings (iOS)",
@@ -36,42 +37,62 @@ const EN_FALLBACK = {
     kicker: "Release Note",
     h1: "Online Meetings for Minutes.AI (iOS)",
     tagline:
-      'Click "Online", issue a URL, share it, and you’re in. When you hang up, minutes start generating automatically.',
+      'Go from "Start Meeting" to "Finished Minutes"—Instantly.\nClick the new **"Online"** button, issue a unique URL, and share it with your team. Just like that, you’re in a live meeting. When you hang up, Minutes.AI automatically gets to work generating your complete, formatted minutes.',
   },
   release: {
-    h2: "What’s new",
-    p1: 'Minutes.AI now supports Online Meetings. It’s as simple as clicking "Online" to issue a URL and share it to start a Zoom-like call.',
-    p2: "When the meeting ends, minutes are generated automatically to clearly capture decisions and action items.",
+    h2: "What’s New",
+    p1: "Forget switching between apps. We’ve built a powerful, Zoom-like online meeting feature directly into Minutes.AI for iOS.",
+    p2: "This update transforms your workflow: you no longer need one app to host the call and another to analyze it. It’s an all-in-one solution.",
+    p3: "Host your call with a clean, familiar interface. The moment your meeting ends, Minutes.AI automatically generates your high-quality minutes, complete with clearly captured **decisions and action items**.",
   },
-  image: { alt: "Minutes.AI Online Meeting UI", caption: 'Start a Zoom-like meeting from the "Online" button.' },
+  image: { alt: "Minutes.AI Online Meeting UI", caption: 'Start a Zoom-like meeting right from the "Online" button.' },
   steps: {
-    h2: "How to start",
+    h2: "How to Start in 4 Simple Steps",
     items: [
-      'Click "Online" in the app or web',
-      "Issue a meeting URL",
-      "Share the URL with participants",
-      "End the meeting → automatic minutes",
+      '**Tap "Online"**: Find the new "Online" button in the app or on the web.',
+      "**Issue URL**: Instantly get a unique, shareable meeting link.",
+      "**Share & Meet**: Send the link to your participants to join the call.",
+      "**Get Minutes**: End the meeting, and your automated minutes will be ready moments later.",
     ],
-    note: "Meeting duration depends on your plan and remaining quota.",
   },
   features: {
-    h2: "Highlights",
+    h2: "Key Highlights",
     items: [
-      "Zoom-like UX (LiveKit-based)",
-      "One-click URL issuance",
-      "Automatic minutes at end of meeting",
-      "Readable, formatted outputs",
-      "Multilingual for global teams",
+      "**Familiar, High-Quality UX**: Enjoy a smooth, Zoom-like video call experience (powered by LiveKit).",
+      "**One-Click Simplicity**: No setup required. Just tap once to get your meeting link.",
+      "**Fully Automatic Minutes**: The core strength of Minutes.AI, now built directly into your calls.",
+      "**Clean, Readable Formats**: Get minutes that highlight decisions and actions, not just a wall of text.",
+      "**Multilingual Support**: Perfect for global teams, with support for multiple languages.",
     ],
   },
   notes: {
-    h2: "Notes",
+    h2: "Important Notes",
     items: [
-      "Duration limits and remaining time depend on your plan/quota",
-      "Network conditions and device settings may affect quality",
+      "**Meeting Duration:** The total available meeting time is based on your current Minutes.AI plan and remaining quota.",
+      "**Call Quality:** As with any online call, audio and video quality may be affected by your network conditions and device settings.",
     ],
-    foot: "Try it on web or download the iOS app.",
   },
+  // --- 新規 Pricing セクション ---
+  pricing: {
+    h2: "How This Works With Your Minutes.AI Plan",
+    p1: 'Since "pricing" is a top question, here’s a simple breakdown of how this new feature works with our plans.',
+    p2: "Your meeting time quota is the same as your transcription quota. We offer two simple options that fit how you work.",
+    timepacks: {
+      h3: "1. One-Time Packs (They Never Expire)",
+      p1: "Perfect for occasional meetings. Buy a pack of minutes, and use them whenever you want—this month, or next year.",
+      items: ["Trial: 120 minutes for **$1.99**", "Light: 1200 minutes for **$11.99**"],
+    },
+    subs: {
+      h3: "2. Subscriptions (Truly Unlimited)",
+      p1: "For teams with regular or daily meetings. Forget watching the clock—just go truly unlimited.",
+      items: ["Monthly: **$16.99** / month", "Annual: **$149.99** / year (Saves you about 26%!)"],
+    },
+    free: {
+      quote:
+        "**Don't forget:** You get a **3-minute free ticket every single day** to try any feature, including Online Meetings!",
+    },
+  },
+  // --- ここまで ---
   meta: { h2: "Meta", published: "Published", type: "Release", category: "Online Meeting" },
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
 };
@@ -102,6 +123,29 @@ function useTx(ns) {
   };
   return { txs, txa };
 }
+
+/* ---------- NEW HELPER: Simple Markdown Bold Parser ---------- */
+/**
+ * A simple component to parse strings with **bold** syntax.
+ * @param {{children: string}} props
+ */
+function BoldParser({ children }) {
+  if (!children || typeof children !== "string") {
+    return null;
+  }
+  // Split the string by the ** delimiter
+  const parts = children.split("**");
+
+  // Reassemble the parts, wrapping every odd-indexed part in <strong>
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+      )}
+    </>
+  );
+}
+/* ---------- END NEW HELPER ---------- */
 
 /* ---------- UI bits ---------- */
 function Kicker({ children }) {
@@ -156,6 +200,10 @@ export default function BlogOnlineMeeting() {
   const features = txa("features.items");
   const steps = txa("steps.items");
   const notes = txa("notes.items");
+
+  // Pricing data
+  const pricingTimepackItems = txa("pricing.timepacks.items");
+  const pricingSubItems = txa("pricing.subs.items");
 
   return (
     <>
@@ -221,18 +269,24 @@ export default function BlogOnlineMeeting() {
                 {txs("hero.h1")}
               </span>
             </h1>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">{txs("hero.tagline")}</p>
+            {/* whitespace-pre-wrap を追加して \n を改行として解釈させる */}
+            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl whitespace-pre-wrap">
+              <BoldParser>{txs("hero.tagline")}</BoldParser>
+            </p>
           </div>
         </section>
 
         {/* Main */}
         <main className="mx-auto max-w-3xl px-6 pb-20">
-          {/* Release Note */}
+          {/* Release Note (リライト版) */}
           <SectionCard>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("release.h2")}</h2>
             <div className="mt-4 space-y-4">
               <p className="text-base leading-7 text-indigo-100/90">{txs("release.p1")}</p>
               <p className="text-base leading-7 text-indigo-100/90">{txs("release.p2")}</p>
+              <p className="text-base leading-7 text-indigo-100/90">
+                <BoldParser>{txs("release.p3")}</BoldParser>
+              </p>
               <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-3">
                 <img
                   src="/images/LivekitMeeting.png"
@@ -245,41 +299,84 @@ export default function BlogOnlineMeeting() {
             </div>
           </SectionCard>
 
-          {/* How to start */}
+          {/* How to start (リライト版) */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("steps.h2")}</h2>
             <ol className="mt-4 space-y-2 text-indigo-100/90 list-decimal ml-5">
               {steps.map((s, i) => (
-                <li key={i}>{s}</li>
+                <li key={i}>
+                  <BoldParser>{s}</BoldParser>
+                </li>
               ))}
             </ol>
-            <div className="mt-3 text-xs text-indigo-200/70">
-              <Pill>{txs("steps.note")}</Pill>
-            </div>
+            {/* Pill (steps.note) は削除 */}
           </SectionCard>
 
-          {/* Features */}
+          {/* Features (リライト版) */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("features.h2")}</h2>
             <ul className="mt-4 space-y-2 text-indigo-100/90 list-disc ml-5">
               {features.map((f, i) => (
-                <li key={i}>{f}</li>
+                <li key={i}>
+                  <BoldParser>{f}</BoldParser>
+                </li>
               ))}
             </ul>
           </SectionCard>
 
-          {/* Notes */}
+          {/* Notes (リライト版) */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("notes.h2")}</h2>
             <ul className="mt-4 space-y-2 text-indigo-100/90 list-disc ml-5">
               {notes.map((n, i) => (
-                <li key={i}>{n}</li>
+                <li key={i}>
+                  <BoldParser>{n}</BoldParser>
+                </li>
               ))}
             </ul>
-            <p className="mt-3 text-sm text-indigo-200/80">{txs("notes.foot")}</p>
+            {/* foot は削除 */}
           </SectionCard>
 
-          {/* Meta */}
+          {/* --- 新規 Pricing セクション --- */}
+          <SectionCard className="mt-8">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("pricing.p1")}</p>
+            <p className="mt-2 text-base leading-7 text-indigo-100/90">{txs("pricing.p2")}</p>
+            
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {/* Time Packs */}
+              <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                <h3 className="text-lg font-semibold">{txs("pricing.timepacks.h3")}</h3>
+                <p className="mt-1 text-sm text-indigo-200/80">{txs("pricing.timepacks.p1")}</p>
+                <ul className="mt-3 ml-5 list-disc space-y-1 text-indigo-100/90">
+                  {pricingTimepackItems.map((p, i) => (
+                    <li key={i}><BoldParser>{p}</BoldParser></li>
+                  ))}
+                </ul>
+              </div>
+              {/* Subscriptions */}
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-lg font-semibold">{txs("pricing.subs.h3")}</h3>
+                <p className="mt-1 text-sm text-indigo-200/80">{txs("pricing.subs.p1")}</p>
+                <ul className="mt-3 ml-5 list-disc space-y-1 text-indigo-100/90">
+                  {pricingSubItems.map((p, i) => (
+                    <li key={i}><BoldParser>{p}</BoldParser></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+            {/* Free Offer */}
+            <div className="mt-5 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-4">
+               <blockquote className="text-sm text-emerald-100/90">
+                 <BoldParser>{txs("pricing.free.quote")}</BoldParser>
+               </blockquote>
+            </div>
+          </SectionCard>
+          {/* --- ここまで --- */}
+
+
+          {/* Meta (元のまま維持) */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("meta.h2")}</h2>
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
@@ -296,7 +393,7 @@ export default function BlogOnlineMeeting() {
             </div>
           </SectionCard>
 
-          {/* CTA */}
+          {/* CTA (元のまま維持) */}
           <div className="mt-10 flex flex-wrap gap-4">
             {/* Browser */}
             <Link
