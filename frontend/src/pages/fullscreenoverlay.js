@@ -463,13 +463,6 @@ export default function FullScreenOverlay({
             )}
 
             <MenuRow
-              icon={(p) => <IoIosDownload {...p} />}
-              iconColor={"#4CAF50"} // アイコンの色は適宜調整
-              title={t("Download Audio Data")}
-              onClick={handleDownload}
-            />
-
-            <MenuRow
               icon={(p) => <FaRegCopy {...p} />}
               iconColor={"#FF9800"} // アイコンの色は適宜調整
               title={t("Copy to Clipboard")}
