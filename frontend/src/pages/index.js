@@ -343,58 +343,73 @@ function App() {
   useEffect(() => { if (showFullScreen) setIsExpanded(false); }, [showFullScreen]);
 
   // ===== 音声 → STT → minutes =====
-  const processAudioFile = async (file) => {
-    dbg('[stt] uploading', { name: file?.name, type: file?.type, size: file?.size });
-    const url = URL.createObjectURL(file);
-    setAudioURL(url);
-    setProgressStep("uploading");
+// ===== 音声 → STT → minutes =====
+const processAudioFile = async (file) => {
+  dbg('[stt] uploading', { name: file?.name, type: file?.type, size: file?.size });
+  const url = URL.createObjectURL(file);
+  setAudioURL(url);
 
-    setTimeout(async () => {
+  // パイプライン開始
+  setProgressStep("uploading");
+  setIsProcessing(true);
+
+  setTimeout(async () => {
+    try {
+      // STT フェーズ
       setProgressStep("transcribing");
-      try {
-        const { transcription: newTranscription } = await transcribeAudio(
-          file,
-          "",
-          setIsProcessing
-        );
 
-        const fallbackLocale =
-          normalizeLocaleTag(i18n.language) ||
-          normalizeLocaleTag(router.locale) ||
-          normalizeLocaleTag(typeof navigator !== 'undefined' ? navigator.language : 'en') ||
-          'en';
-        const effectiveLocale = guessLocaleFromText(newTranscription, fallbackLocale);
+      // ★ transcribeAudio に setIsProcessing を渡さない（中で isProcessing をいじらせない）
+      const { transcription: newTranscription } = await transcribeAudio(
+        file,
+        "",
+        () => {} // no-op
+      );
 
-        const gen = await apiFetch(`/api/generate-minutes`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-User-Locale": effectiveLocale,
-          },
-          body: JSON.stringify({
-            transcript: newTranscription || "",
-            formatId: selectedMeetingFormat?.id || "general",
-            locale: effectiveLocale,
-          })
-        });
-        if (!gen.ok) throw new Error(`HTTP ${gen.status}`);
-        const genJson = await gen.json();
+      const fallbackLocale =
+        normalizeLocaleTag(i18n.language) ||
+        normalizeLocaleTag(router.locale) ||
+        normalizeLocaleTag(typeof navigator !== 'undefined' ? navigator.language : 'en') ||
+        'en';
+      const effectiveLocale = guessLocaleFromText(newTranscription, fallbackLocale);
 
-        const newMinutes = genJson?.minutes || "";
-        setTranscription(newTranscription || "");
-        setMinutes(newMinutes || "");
+      // 議事録生成フェーズ
+      const gen = await apiFetch(`/api/generate-minutes`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-User-Locale": effectiveLocale,
+        },
+        body: JSON.stringify({
+          transcript: newTranscription || "",
+          formatId: selectedMeetingFormat?.id || "general",
+          locale: effectiveLocale,
+        })
+      });
+      if (!gen.ok) throw new Error(`HTTP ${gen.status}`);
+      const genJson = await gen.json();
 
-        if (newTranscription && newMinutes) {
-          await saveMeetingRecord(newTranscription, newMinutes);
-        }
-      } catch (error) {
-        console.error("An error occurred during STT/Generate processing:", error);
-        setProgressStep("error");
+      const newMinutes = genJson?.minutes || "";
+      setTranscription(newTranscription || "");
+      setMinutes(newMinutes || "");
+
+      // Firestore 保存フェーズ
+      if (newTranscription && newMinutes) {
+        await saveMeetingRecord(newTranscription, newMinutes);
       }
+
+      // パイプライン完了
       setProgressStep("transcriptionComplete");
       setShowFullScreen(true);
-    }, 500);
-  };
+    } catch (error) {
+      console.error("An error occurred during STT/Generate processing:", error);
+      setProgressStep("error");
+    } finally {
+      // ここで初めて isProcessing を false にする
+      setIsProcessing(false);
+    }
+  }, 500);
+};
+
 
   // === デバッグ: テキスト直処理 ===
   const processDebugText = async (rawText) => {
@@ -437,32 +452,32 @@ function App() {
   };
 
   // Firestore 保存
-  const saveMeetingRecord = async (transcriptionText, minutesText) => {
-    try {
-      if (!authInstance?.currentUser || !dbInstance) {
-        console.error("User is not logged in or DB not ready. Aborting save.");
-        return;
-      }
-      const { collection, addDoc } = await import('firebase/firestore');
-
-      const finalTranscription = transcriptionText || "No transcription available.";
-      const finalMinutes = minutesText || "No minutes available.";
-      const paperID = uuidv4();
-      const creationDate = new Date();
-
-      const docRef = await addDoc(collection(dbInstance, 'meetingRecords'), {
-        paperID,
-        transcription: finalTranscription,
-        minutes: finalMinutes,
-        createdAt: creationDate,
-        uid: authInstance.currentUser.uid,
-      });
-      setMeetingRecordId(docRef.id);
-      setProgressStep("completed");
-    } catch (error) {
-      console.error("Error occurred while saving meeting record:", error);
+const saveMeetingRecord = async (transcriptionText, minutesText) => {
+  try {
+    if (!authInstance?.currentUser || !dbInstance) {
+      console.error("User is not logged in or DB not ready. Aborting save.");
+      return;
     }
-  };
+    const { collection, addDoc } = await import('firebase/firestore');
+
+    const finalTranscription = transcriptionText || "No transcription available.";
+    const finalMinutes = minutesText || "No minutes available.";
+    const paperID = uuidv4();
+    const creationDate = new Date();
+
+    const docRef = await addDoc(collection(dbInstance, 'meetingRecords'), {
+      paperID,
+      transcription: finalTranscription,
+      minutes: finalMinutes,
+      createdAt: creationDate,
+      uid: authInstance.currentUser.uid,
+    });
+    setMeetingRecordId(docRef.id);
+  } catch (error) {
+    console.error("Error occurred while saving meeting record:", error);
+  }
+};
+
 
   // 録音トグル
   const toggleRecording = async () => {
