@@ -304,32 +304,29 @@ function App() {
 // src/pages/index.js
 
   // ===== 音声 → STT → minutes =====
-// src/pages/index.js
-
-  // ===== 音声 → STT → minutes =====
   const processAudioFile = async (file) => {
     dbg('[stt] uploading', { name: file?.name, type: file?.type, size: file?.size });
     const url = URL.createObjectURL(file);
     setAudioURL(url);
     setProgressStep("uploading");
 
-    // 1. 処理が開始したことをセット
+    // ★ 1. 処理が開始したことをセット
     setIsProcessing(true);
 
     setTimeout(async () => {
-      // 2. "transcribing" (25%) をセット
+      // ★ 2. "transcribing" (25%) をセット
       setProgressStep("transcribing");
 
       try {
-        // 3. Whisper で文字起こし
         const { transcription: newTranscription } = await transcribeAudio(
           file,
           ""
+          // setIsProcessing は渡さない
         );
 
-        // 4. Gemini で議事録生成
-        // (もし "generating" ステップがあるなら、ここでセットすると 75% などに進みます)
-        // setProgressStep("generating");
+        // ★ 3. 「25%で停滞」問題を（一時的に）許容するため、
+        // Gemini処理中もあえてステップを変更せず "transcribing" のままにする
+        // setProgressStep("generating"); // ← これが ProgressIndicator に無いため停滞する
 
         const fallbackLocale =
           normalizeLocaleTag(i18n.language) ||
@@ -350,13 +347,7 @@ function App() {
             locale: effectiveLocale,
           })
         });
-        
-        // ★ おそらく、ここでエラーが発生しています
-        if (!gen.ok) {
-            // サーバーが 4xx, 5xx を返した場合
-            throw new Error(`Server returned status ${gen.status}`);
-        }
-        
+        if (!gen.ok) throw new Error(`HTTP ${gen.status}`);
         const genJson = await gen.json();
 
         const newMinutes = genJson?.minutes || "";
@@ -367,27 +358,25 @@ function App() {
           await saveMeetingRecord(newTranscription, newMinutes);
         }
 
-        // 5. 【成功時】
+        // ★ 4. 【成功時】
         setProgressStep("transcriptionComplete");
-        setShowFullScreen(true); // 結果画面のアニメーション(0.5s)が開始
+        setShowFullScreen(true); // ← ここで結果画面のアニメーション(0.5s)が開始
 
-        // 6. アニメーションが終わるまでインジケーターを非表示にしない
+        // ★ 5. アニメーションが終わるまでインジケーターを非表示にしない
+        // 0.5秒（500ms）待ってから isProcessing を false にする
         setTimeout(() => {
           setIsProcessing(false);
-        }, 500); // 500msは fullscreenoverlay.js の transition 時間と一致
+        }, 500); // 500msは fullscreenoverlay.js の transition 時間と一致させる
 
       } catch (error) {
-        // 7. 【エラー発生時】
-        // ★ 議事録が立ち上がらないため、現在ここが実行されています
         console.error("An error occurred during STT/Generate processing:", error);
-        setProgressStep("error"); // "0%へ減少" のアニメーションを開始
+        setProgressStep("error");
 
-        // 8. ★ FIX: エラーアニメーションが「消失」するのを防ぐ
-        // アニメーションが終わるのを待ってからインジケーターを消す
-        setTimeout(() => {
-          setIsProcessing(false);
-        }, 2000); // 2秒間、エラー表示(0%)をキープする
+        // ★ 6. 【エラー時】
+        // エラー時はすぐにインジケーターを消す
+        setIsProcessing(false);
       }
+      // finally ブロックは不要
     }, 500);
   };
 
