@@ -1048,6 +1048,7 @@ const saveMeetingRecord = async (transcriptionText, minutesText) => {
           </div>
         )}
 
+      </div>
 
       <style jsx>{`
         @keyframes pulse { 0%,100% { transform: scale(0.92); } 50% { transform: scale(1.18); } }
