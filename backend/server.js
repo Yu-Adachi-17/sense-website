@@ -3,13 +3,16 @@
 require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
+console.log("✅ OPENAI_API_KEY (for Whisper):", process.env.OPENAI_API_KEY ? "Loaded" : "Not found");
+console.log("✅ GEMINI_API_KEY (for NLP):", process.env.GEMINI_API_KEY ? "Loaded" : "Not found");
+
 
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
 const multer = require('multer');
-const axios = require('axios');
+const axios = require('axios'); // (Whisper / Zoom等でまだ使用)
 
 const fs = require('fs');
 const path = require('path');
@@ -44,10 +47,72 @@ const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath('ffmpeg');
 ffmpeg.setFfprobePath('ffprobe');
 
+// ==== ★ NEW: Gemini (Google AI) Setup ====
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+if (!GEMINI_API_KEY) {
+  console.warn("[WARN] GEMINI_API_KEY is not set. Gemini NLP functions will fail.");
+}
+const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+const GEMINI_MODEL_NAME = "gemini-2.5-flash"; // ユーザー指定のモデル
+
+/**
+ * ★ NEW: Helper function to call the Gemini API.
+ */
+async function callGemini(systemInstruction, userMessage, generationConfig) {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not set.");
+  }
+
+  try {
+    const model = genAI.getGenerativeModel({
+      model: GEMINI_MODEL_NAME,
+      systemInstruction: systemInstruction, // システムプロンプトを設定
+    });
+
+    const result = await model.generateContent({
+      contents: [{ role: "user", parts: [{ text: userMessage }] }],
+      generationConfig: generationConfig, // temperature, maxOutputTokens, responseMimeType
+    });
+
+    const response = result.response;
+
+    // レスポンスのテキスト部分を安全に抽出
+    if (response.candidates && 
+        response.candidates.length > 0 &&
+        response.candidates[0].content &&
+        response.candidates[0].content.parts &&
+        response.candidates[0].content.parts.length > 0) {
+          
+      return response.candidates[0].content.parts[0].text.trim();
+    
+    } else if (response.promptFeedback && response.promptFeedback.blockReason) {
+        // 安全性などでブロックされた場合
+        console.error(`[ERROR] Gemini call blocked: ${response.promptFeedback.blockReason}`);
+        throw new Error(`Gemini API call blocked: ${response.promptFeedback.blockReason}`);
+    } else {
+        // その他の理由でテキストが返されなかった場合
+        console.error('[ERROR] Gemini API returned no text content.', JSON.stringify(response, null, 2));
+        throw new Error('Gemini API returned no text content.');
+    }
+
+  } catch (error) {
+    console.error('[ERROR] Failed to call Gemini API:', error.response?.data || error.message);
+    if (error.message.includes("GEMINI_API_KEY")) {
+        throw error;
+    }
+    throw new Error(`Failed to generate content using Gemini API: ${error.message}`);
+  }
+}
+// ==== End of Gemini Setup ====
+
+
 const app = express();
 
 // ---- Helpers ------------------------------------------------------------
 function logLong(label, text, size = 8000) {
+  // ... (変更なし) ...
   const s = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
   console.log(`${label} len=${s?.length ?? 0} >>> BEGIN`);
   if (s) {
@@ -61,6 +126,7 @@ function logLong(label, text, size = 8000) {
 const pickFirstTag = (s) => (s || '').split(',')[0].trim();
 const toShort = (tag) => (tag || '').split('-')[0].toLowerCase();
 function resolveLocale(req, bodyLocale) {
+  // ... (変更なし) ...
   const hxu = req.headers['x-user-locale'];
   const hal = req.headers['accept-language'];
   const bcp47 = bodyLocale || hxu || pickFirstTag(hal) || 'en';
@@ -72,22 +138,14 @@ function resolveLocale(req, bodyLocale) {
 }
 
 // --- Security headers (Helmet) ---
-
 app.use(helmet({
-  // Zoom に埋め込みたいので X-Frame-Options は出さない
+  // ... (変更なし) ...
   frameguard: false,
-
-  // ポップアップが自分を閉じられるように COOP を緩める
-  // （Helmet v6/7 いずれもこの指定でOK）
   crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
-
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
-      // 必要に応じて拡張
       "default-src": ["'self'"],
-
-      // Next.js のインライン/評価を許容（ビルド構成に合わせて調整可）
       "script-src": [
         "'self'",
         "'unsafe-inline'",
@@ -96,8 +154,6 @@ app.use(helmet({
         "https://www.google.com",
         "https://www.googletagmanager.com"
       ],
-
-      // Firebase/Google 関連のネットワーク先
       "connect-src": [
         "'self'",
         "https://www.googleapis.com",
@@ -107,15 +163,12 @@ app.use(helmet({
         "https://firestore.googleapis.com",
         "https://*.firebaseio.com",
         "https://www.google-analytics.com",
-        "https://*.ingest.sentry.io"
+        "https://*.ingest.sentry.io",
+        "https://generativelanguage.googleapis.com", // ★ Gemini APIのエンドポイントを追加
       ],
-
-      // 画像・スタイル・フォント
       "img-src": ["'self'", "data:", "https:", "blob:"],
       "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       "font-src": ["'self'", "https://fonts.gstatic.com", "data:"],
-
-      // ← ここがポイント：Firebase/Googleのiframeを許可
       "frame-src": [
         "'self'",
         "https://*.firebaseapp.com",
@@ -126,31 +179,29 @@ app.use(helmet({
         "https://*.zoom.us",
         "https://*.zoom.com"
       ],
-
-      // あなたのページを埋め込める親（Zoom想定）
       "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],
     },
   },
-
   referrerPolicy: { policy: "strict-origin-when-cross-origin" },
 }));
 
 
 // ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
 const allowedOrigins = [
+  // ... (変更なし) ...
   'https://sense-ai.world',
   'https://www.sense-ai.world',
   'https://sense-website-production.up.railway.app', // 静的+API の Origin
   'http://localhost:3000' // ローカル開発時
 ];
 app.use(cors({
+  // ... (変更なし) ...
   origin: (origin, cb) => {
     if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
     cb(new Error('Not allowed by CORS'));
   },
   credentials: true,
   methods: ['GET','POST','OPTIONS'],
-  // ★ カスタムヘッダ（X-User-Locale / X-Debug-Log）も許可
   allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With','X-User-Locale','X-Debug-Log'],
 }));
 app.options('*', cors());
@@ -166,38 +217,24 @@ const {
   loadFormatJSON,
 } = require('./services/formatLoader');
 
-// 念のため（旧ブラウザ向け/明示）
-app.use((req, res, next) => {
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  next();
-});
+// ... (Middleware Order, Request Debug Logging, Router Registration) ...
+// (このセクションは変更なし)
 
 /*==============================================
 =            Middleware Order                  =
 ==============================================*/
-
-// ① For Stripe Webhook: Use raw body for /api/stripe (applied before JSON parsing)
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
-
-// ② LiveKit Webhook: raw（署名検証のため。express.json より前に置く）
 app.use('/api/livekit/webhook',
   express.raw({ type: 'application/webhook+json' }),
   livekitWebhookRouter
 );
-
-
-
-// ③ For Apple Webhook: Use raw body for /api/apple/notifications → 直後に JSON 解析
 app.use('/api/apple/notifications', express.json());
-
-// ④ For all other endpoints: Parse JSON body（生データも保持）
 app.use(express.json({
   verify: (req, res, buf) => {
     req._rawBody = buf ? buf.toString('utf8') : '';
   },
   limit: '2mb',
 }));
-
 /*==============================================
 =            Request Debug Logging             =
 ==============================================*/
@@ -209,53 +246,23 @@ app.use((req, res, next) => {
   console.log(`[DEBUG] Body: ${JSON.stringify(req.body)}`);
   next();
 });
-
 /*==============================================
 =            Router Registration               =
 ==============================================*/
-
-// Webhook routes (register under /api/stripe)
 app.use('/api/stripe', webhookRouter);
-
-// Apple Webhook route (内部で /notifications を持つ想定)
 app.use('/api/apple', appleRouter);
-
-// Zoom: SDK JWT 発行など（/api/zoom/sdk-jwt 等）
 app.use('/api', zoomAuthRoute);
-
-// Zoom: join token 関連
 app.use('/api/zoom', zoomJoinTokenRoute);
-
-// Zoom: OAuth トークン交換 (/api/zoom/oauth/exchange 等)
 app.use('/api/zoom/oauth', zoomOAuthExchangeRoute);
-
-// Zoom: OAuth コールバック (/zoom/oauth/callback)
 app.use('/', zoomOAuthCallbackRoute);
-
-// Zoom: 録音 Bot 起動 (/api/recordings/zoom/start)
 app.use('/api', zoomRecordingRoute);
-
-// Stripe: Checkout
 app.use('/api', stripeCheckoutRoute);
-
-// Stripe: Subscription
 app.use('/api', stripeSubscriptionRoute);
-
-// LiveKit のトークン発行API
 app.use('/api/livekit', livekitRouter);
-
 app.use('/api/meetings', meetingsRouter);
-
 app.use('/api', egressRouter);
-
 app.use('/api/rooms', livekitRoomsRouter);
-
 app.use('/api', recordingsRouter);
-
-
-
-
-// デバッグエコー
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
   res.set('Access-Control-Allow-Credentials', 'true');
@@ -276,8 +283,6 @@ app.post('/api/_debug/echo', (req, res) => {
 /*==============================================
 =            Other Middleware                  =
 ==============================================*/
-
-// Extend request timeout (e.g., 10 minutes)
 app.use((req, res, next) => {
   req.setTimeout(600000, () => {
     console.error('Request timed out.');
@@ -289,8 +294,6 @@ app.use((req, res, next) => {
   });
   next();
 });
-
-// Debug endpoint: ffprobe path
 const { exec } = require('child_process');
 app.get('/api/debug/ffprobe', (req, res) => {
   exec('which ffprobe', (error, stdout, stderr) => {
@@ -303,8 +306,6 @@ app.get('/api/debug/ffprobe', (req, res) => {
     res.json({ ffprobePath: ffprobePathDetected });
   });
 });
-
-// Detailed request debug logging tail
 app.use((req, res, next) => {
   console.log(`[DEBUG] Request received:
   - Method: ${req.method}
@@ -319,7 +320,7 @@ app.use((req, res, next) => {
 =            Upload / Transcription            =
 ==============================================*/
 
-// multer configuration: Save files to temp directory
+// ... (multer configuration - 変更なし) ...
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     const tempDir = path.join(__dirname, 'temp');
@@ -338,14 +339,17 @@ const upload = multer({
   limits: { fileSize: 500 * 1024 * 1024 } // 500MB
 });
 
+
 // OpenAI API endpoints
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
-const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
+// (削除) const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
 
 /**
  * splitText: Splits text into chunks of specified size.
+ * (変更なし)
  */
 function splitText(text, chunkSize) {
+  // ... (変更なし) ...
   const chunks = [];
   let startIndex = 0;
   while (startIndex < text.length) {
@@ -357,7 +361,8 @@ function splitText(text, chunkSize) {
 }
 
 /**
- * combineMinutes: Calls the ChatGPT API to combine partial meeting minutes.
+ * combineMinutes: Calls the Gemini API to combine partial meeting minutes.
+ * (★ 修正: Gemini API 呼び出しに変更)
  */
 async function combineMinutes(combinedText, meetingFormat) {
   const template = (meetingFormat && meetingFormat.trim()) || '';
@@ -370,32 +375,27 @@ async function combineMinutes(combinedText, meetingFormat) {
 ${template}
 </MINUTES_TEMPLATE>`;
 
-  const data = {
-    model: "gpt-4.1-mini", // ★ 新モデル名
-    temperature: 0,
-    max_tokens: 16000,
-    messages: [
-      { role: 'system', content: systemMessage },
-      { role: 'user', content: combinedText },
-    ],
-  };
-
   try {
-    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-      headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
-      timeout: 600000,
-    });
-    return response.data.choices[0].message.content.trim();
+    // ★ Gemini呼び出し
+    const generationConfig = {
+      temperature: 0,
+      maxOutputTokens: 16000,
+      // (responseMimeType: 'text/plain' (default))
+    };
+    return await callGemini(systemMessage, combinedText, generationConfig);
+
   } catch (error) {
-    console.error('[ERROR] Failed to call ChatGPT API for combining minutes:', error.response?.data || error.message);
+    console.error('[ERROR] Failed to call Gemini API for combining minutes:', error.message);
     throw new Error('Failed to combine meeting minutes');
   }
 }
 
 /**
- * generateMinutes: Uses ChatGPT API to generate meeting minutes (classic template text).
+ * generateMinutes: Uses Gemini API to generate meeting minutes (classic template text).
+ * (★ 修正: Gemini API 呼び出しに変更)
  */
 function isValidMinutes(out) {
+  // ... (変更なし) ...
   if (!out) return false;
   const must = ["【Meeting Name】", "【Date】", "【Location】", "【Attendees】", "【Agenda(1)】", "【Agenda(2)】", "【Agenda(3)】"];
   return must.every(k => out.includes(k));
@@ -411,26 +411,19 @@ Unknown items should be written as “—”. Preface, appendix, or explanatory 
 ${template.trim()}
 </MINUTES_TEMPLATE>`;
 
-  const data = {
-    model: "gpt-4.1-mini", // ★ 新モデル名
-    temperature: 0,
-    max_tokens: 16000,
-    messages: [
-      { role: 'system', content: systemMessage },
-      { role: 'user', content:
+  const userMessage =
 `Please format this into the template (output only the body).:
 
 <MODEL_OUTPUT>
 ${badOutput}
-</MODEL_OUTPUT>` }
-    ]
-  };
+</MODEL_OUTPUT>`;
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-    headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
-    timeout: 600000,
-  });
-  return resp.data.choices[0].message.content.trim();
+  // ★ Gemini呼び出し
+  const generationConfig = {
+    temperature: 0,
+    maxOutputTokens: 16000,
+  };
+  return await callGemini(systemMessage, userMessage, generationConfig);
 }
 
 const generateMinutes = async (transcription, formatTemplate) => {
@@ -463,30 +456,22 @@ ${template}
 ${transcription}
 </TRANSCRIPT>`;
 
-  const data = {
-    model: "gpt-4.1-mini", // ★ 新モデル名
-    temperature: 0,
-    max_tokens: 16000,
-    messages: [
-      { role: 'system', content: systemMessage },
-      { role: 'user', content: userMessage },
-    ],
-  };
-
   try {
-    const response = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-      headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
-      timeout: 600000,
-    });
-    let out = response.data.choices[0].message.content.trim();
+    // ★ Gemini呼び出し
+    const generationConfig = {
+      temperature: 0,
+      maxOutputTokens: 16000,
+    };
+    let out = await callGemini(systemMessage, userMessage, generationConfig);
 
     if (!isValidMinutes(out)) {
+      // (repairToTemplate も Gemini 化済み)
       out = await repairToTemplate(out, template);
     }
     return out;
   } catch (error) {
-    console.error('[ERROR] Failed to call ChatGPT API:', error.response?.data || error.message);
-    throw new Error('Failed to generate meeting minutes using ChatGPT API');
+    console.error('[ERROR] Failed to call Gemini API:', error.message);
+    throw new Error('Failed to generate meeting minutes using Gemini API');
   }
 };
 
@@ -495,6 +480,7 @@ ${transcription}
    ================================ */
 
 function isValidFlexibleJSON(str) {
+  // ... (変更なし) ...
   try {
     const obj = JSON.parse(str);
     if (!obj) return false;
@@ -506,15 +492,8 @@ function isValidFlexibleJSON(str) {
 }
 
 async function repairFlexibleJSON(badOutput, langHint) {
-  const data = {
-    model: "gpt-4.1-mini", // ★ 新モデル名
-    response_format: { type: "json_object" },
-    temperature: 0,
-    max_tokens: 16000,
-    messages: [
-      {
-        role: 'system',
-        content:
+  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
+  const systemMessage =
 `You repair malformed JSON that should match the schema:
 {
   "meetingTitle": "",
@@ -524,59 +503,63 @@ async function repairFlexibleJSON(badOutput, langHint) {
     { "title": "", "topics": [ { "subTitle": "", "details": [] } ] }
   ]
 }
-Rules: Return JSON only. Do not add comments. Keep keys and order. No trailing commas.`
-      },
-      {
-        role: 'user',
-        content:
+Rules: Return JSON only. Do not add comments. Keep keys and order. No trailing commas.`;
+
+  const userMessage =
 `Language hint: ${langHint || 'auto'}
 
 Fix this into valid JSON per schema, preserving semantic content:
 
 <MODEL_OUTPUT>
 ${badOutput}
-</MODEL_OUTPUT>`
-      }
-    ]
-  };
+</MODEL_OUTPUT>`;
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-    headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
-    timeout: 600000,
-  });
-  return resp.data.choices[0].message.content.trim();
+  // ★ Gemini呼び出し (JSONモード)
+  const generationConfig = {
+    temperature: 0,
+    maxOutputTokens: 16000,
+    responseMimeType: "application/json", // JSONモード
+  };
+  return await callGemini(systemMessage, userMessage, generationConfig);
 }
 
 async function generateFlexibleMinutes(transcription, langHint) {
-  const messages = buildFlexibleMessages({
+  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
+  
+  // buildFlexibleMessages は OpenAI 形式の messages 配列を返す
+  const openAIMessages = buildFlexibleMessages({
     transcript: transcription,
     lang: langHint,
     currentDateISO: new Date().toISOString(),
   });
+  
+  // OpenAI形式の 'messages' を Gemini 形式 (systemInstruction, userMessage) に変換
+  // (system が最初、user が最後と仮定)
+  const systemMessage = openAIMessages.find(m => m.role === 'system')?.content || '';
+  const userMessage = openAIMessages.find(m => m.role === 'user')?.content || '';
 
-  const data = {
-    model: "gpt-4.1-mini", // ★ 新モデル名
-    response_format: { type: "json_object" },
-    temperature: 0,
-    max_tokens: 16000,
-    messages,
-  };
+  if (!userMessage) {
+    console.error("[ERROR] generateFlexibleMinutes: Could not find user message in buildFlexibleMessages output.");
+    throw new Error("Failed to parse messages for Gemini.");
+  }
 
   try {
-    const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      timeout: 600000,
-    });
-    let out = resp.data.choices[0].message.content.trim();
+    // ★ Gemini呼び出し (JSONモード)
+    const generationConfig = {
+      temperature: 0,
+      maxOutputTokens: 16000,
+      responseMimeType: "application/json", // JSONモード
+    };
+    
+    let out = await callGemini(systemMessage, userMessage, generationConfig);
+
     if (!isValidFlexibleJSON(out)) {
+      // (repairFlexibleJSON も Gemini 化済み)
       out = await repairFlexibleJSON(out, langHint);
     }
     return out;
   } catch (err) {
-    console.error('[ERROR] generateFlexibleMinutes:', err.response?.data || err.message);
+    console.error('[ERROR] generateFlexibleMinutes:', err.message);
     throw new Error('Failed to generate flexible minutes');
   }
 }
@@ -586,36 +569,29 @@ async function generateFlexibleMinutes(transcription, langHint) {
    ================================ */
 
 async function generateWithFormatJSON(transcript, fmt) {
+  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
   // fmt = { formatId, locale, schemaId, title, prompt, notes }
-  // 各プロンプトは「JSON形式で出せ」と明示されている想定なので JSON モードで投げる。
-  const data = {
-    model: "gpt-4.1-mini", // ★ 新モデル名
-    response_format: { type: "json_object" },
-    temperature: 0,
-    max_tokens: 16000,
-    messages: [
-      { role: 'system', content: fmt.prompt || '' },
-      {
-        role: 'user',
-        content:
+
+  const systemMessage = fmt.prompt || '';
+  const userMessage =
 `currentDate: ${new Date().toISOString()}
 
 <TRANSCRIPT>
 ${transcript}
-</TRANSCRIPT>`
-      }
-    ]
-  };
+</TRANSCRIPT>`;
 
-  const resp = await axios.post(OPENAI_API_ENDPOINT_CHATGPT, data, {
-    headers: { 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 'Content-Type': 'application/json' },
-    timeout: 600000,
-  });
-  return resp.data.choices[0].message.content.trim();
+  // ★ Gemini呼び出し (JSONモード)
+  const generationConfig = {
+    temperature: 0,
+    maxOutputTokens: 16000,
+    responseMimeType: "application/json", // JSONモード
+  };
+  return await callGemini(systemMessage, userMessage, generationConfig);
 }
 
 /**
  * transcribeWithOpenAI: Uses the Whisper API for transcription.
+ * (★ 変更なし: これはSTT（音声認識）であり、NLP（テキスト生成）ではないため)
  */
 const transcribeWithOpenAI = async (filePath) => {
   try {
@@ -642,6 +618,8 @@ const transcribeWithOpenAI = async (filePath) => {
     throw new Error('Transcription with Whisper API failed');
   }
 };
+
+// ... (TRANSCRIPTION_CHUNK_THRESHOLD, splitAudioFile, convertToM4A - 変更なし) ...
 
 // Constant for chunk splitting (process in one batch if file is below this size)
 const TRANSCRIPTION_CHUNK_THRESHOLD = 5 * 1024 * 1024; // 5MB in bytes
@@ -748,21 +726,21 @@ const convertToM4A = async (inputFilePath) => {
   });
 };
 
-// Health check API for debugging
-app.get('/api/health', (req, res) => {
-  console.log('[DEBUG] /api/health was accessed');
-  res.status(200).json({ status: 'OK', message: 'Health check passed!' });
-});
 
-// Simple test endpoints
-app.get('/api/hello', (req, res) => {
-  res.json({ message: "Hello from backend!" });
-});
+// ... (Health check, /api/transcribe - 変更なし) ...
+// (Note: /api/transcribe 内の generateFlexibleMinutes や generateMinutes は
+// すでにGemini化されているため、このエンドポイントも自動的にGeminiを使うようになります)
 
 /*==============================================
 =                  /api/transcribe             =
 ==============================================*/
-
+app.get('/api/health', (req, res) => {
+  console.log('[DEBUG] /api/health was accessed');
+  res.status(200).json({ status: 'OK', message: 'Health check passed!' });
+});
+app.get('/api/hello', (req, res) => {
+  res.json({ message: "Hello from backend!" });
+});
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe endpoint called');
 
@@ -790,7 +768,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     let minutes = '';
     const cleanupExtra = []; // 変換で作った一時ファイルの削除用
 
-    // ① Whisper への送信方針：まずはオリジナルを送る。失敗時のみ m4a 変換して再送。
+    // ① Whisper への送信方針（変更なし）
     if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
       console.log('[DEBUG] <= threshold: send original file to Whisper');
       try {
@@ -804,11 +782,9 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     } else {
       console.log('[DEBUG] > threshold: split by duration/size and transcribe chunks');
 
-      // 分割は拡張子に依存せず ffmpeg で行う
       const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
       console.log(`[DEBUG] Number of generated chunks: ${chunkPaths.length}`);
 
-      // 可能ならまずは“そのまま”で並列文字起こし
       try {
         const transcriptionChunks = await Promise.all(
           chunkPaths.map((p) => transcribeWithOpenAI(p))
@@ -829,7 +805,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
         transcription = transcriptionChunks.join(' ').trim();
       }
 
-      // チャンクの後片付け
       for (const chunkPath of chunkPaths) {
         try {
           fs.unlinkSync(chunkPath);
@@ -840,7 +815,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       }
     }
 
-    // ② 議事録生成（Flexible が既定。Classic はテンプレ使用）
+    // ② 議事録生成（★ ここで呼ばれる関数はGemini化されている）
     if (transcription.length <= 10000) {
       if (outputType === 'flexible') {
         minutes = await generateFlexibleMinutes(transcription, langHint);
@@ -887,16 +862,11 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 /*==============================================
 =        フォーマット関連 API（新規追加）       =
 ==============================================*/
-
-// 1) レジストリ：一覧
-// GET /api/formats
+// (変更なし)
 app.get('/api/formats', (_req, res) => {
   const registry = getRegistry();
   res.json(registry);
 });
-
-// 2) 単一フォーマット・単一言語のJSONを返す
-// GET /api/formats/:formatId/:locale
 app.get('/api/formats/:formatId/:locale', (req, res) => {
   const { formatId, locale } = req.params;
   const payload = loadFormatJSON(formatId, locale);
@@ -904,27 +874,17 @@ app.get('/api/formats/:formatId/:locale', (req, res) => {
   res.json(payload);
 });
 
-// 3) 生成API（formatId/locale に対応、旧形式とも後方互換）
-/*
-  新形式:
-    body: { transcript, formatId, locale }
-  旧形式:
-    body: { transcript, outputType: 'flexible'|'classic', meetingFormat, lang }
-*/
+
 /*==============================================
 =     FORCE-REGISTER: /api/generate-minutes    =
 ==============================================*/
-
-// ここで “必ず” 最初に登録して、どの /api/* ルーターより前に通す
+// (★ 内部の呼び出しがGemini化されている)
 console.log('[BOOT] registering POST/GET /api/generate-minutes (early)');
-
-// 存在確認用（GET は 405 を返すことで「ルートはある」を示す）
 app.get('/api/generate-minutes', (req, res) => {
   res.set('Allow', 'POST');
   return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
 });
 
-// 本体
 app.post('/api/generate-minutes', async (req, res) => {
   try {
     const {
@@ -940,20 +900,19 @@ app.post('/api/generate-minutes', async (req, res) => {
       return res.status(400).json({ error: 'Missing transcript' });
     }
 
-    // ★ locale を最終決定（body > X-User-Locale > Accept-Language > 'en'）
     const localeResolved = resolveLocale(req, localeFromBody);
 
     let minutes;
     let meta = null;
 
     if (formatId && localeResolved) {
-      // 新：formatLoader を使った JSON プロンプト解決
+      // ★ 新：generateWithFormatJSON (Gemini化済み)
       const fmt = loadFormatJSON(formatId, localeResolved);
       if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
       minutes = await generateWithFormatJSON(transcript, fmt);
       meta = { formatId, locale: localeResolved, schemaId: fmt.schemaId || null, title: fmt.title || null };
     } else {
-      // 旧：テンプレ文字列 or flexible
+      // ★ 旧：generateFlexibleMinutes / generateMinutes (Gemini化済み)
       const langHint = lang || localeResolved || null;
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
         minutes = await generateFlexibleMinutes(transcript, langHint);
@@ -963,25 +922,20 @@ app.post('/api/generate-minutes', async (req, res) => {
       meta = { legacy: true, outputType, lang: langHint };
     }
 
-    // ===== ここからログ出力（Railway に出る）========================
-    // スイッチ条件：環境変数 or 一時的ヘッダ/クエリ
+    // ===== ログ出力（変更なし）=====
     const shouldLog =
       process.env.LOG_GENERATED_MINUTES === '1' ||
       req.headers['x-debug-log'] === '1' ||
       req.query.debug === '1';
     if (shouldLog) {
-      // 1) 生成本文そのまま（フェンス入りや長文でも欠落しない）
       logLong('[GENERATED_MINUTES raw]', minutes);
-      // 2) JSONとして解釈できるなら見やすく整形してもう一回
       try {
         const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
         logLong('[GENERATED_MINUTES pretty]', pretty);
       } catch { /* JSONでなければ無視 */ }
-      // 3) 参照のため入力トランスクリプトも必要なら
       if (process.env.LOG_TRANSCRIPT === '1') {
         logLong('[TRANSCRIPT]', transcript);
       }
-      // 4) 併せて locale も
       if (process.env.LOG_LOCALE === '1') {
         console.log(`[GENERATE] localeResolved=${localeResolved}`);
       }
@@ -1000,7 +954,6 @@ app.post('/api/generate-minutes', async (req, res) => {
 });
 
 
-// Debug GET endpoint
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
 });
@@ -1008,8 +961,7 @@ app.get('/api/transcribe', (req, res) => {
 /*==============================================
 =               Static Frontend                =
 ==============================================*/
-
-// 「frontend/build」 or 「public」を自動選択
+// (変更なし)
 const candidates = [
   path.join(__dirname, 'frontend', 'build'),
   path.join(__dirname, 'public'),
@@ -1019,12 +971,10 @@ const staticPath = candidates.find(p => fs.existsSync(p)) || path.join(__dirname
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
 
-// Undefined API routes return a 404 error
 app.use('/api', (req, res, next) => {
   res.status(404).json({ error: 'API route not found' });
 });
 
-// Handle React routes (e.g., /success)
 app.get(["/success", "/cancel"], (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
@@ -1036,6 +986,7 @@ app.get('*', (req, res) => {
 /*==============================================
 =              Global Error Handler            =
 ==============================================*/
+// (変更なし)
 app.use((err, req, res, next) => {
   console.error('[GLOBAL ERROR HANDLER]', err);
   const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
@@ -1048,6 +999,7 @@ app.use((err, req, res, next) => {
 /*==============================================
 =                 Start Server                 =
 ==============================================*/
+// (変更なし)
 const PORT = process.env.PORT || 5001;
 console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
 app.listen(PORT, () => {
