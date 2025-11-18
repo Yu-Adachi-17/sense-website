@@ -343,20 +343,34 @@ function App() {
   useEffect(() => { if (showFullScreen) setIsExpanded(false); }, [showFullScreen]);
 
   // ===== 音声 → STT → minutes =====
+// src/pages/index.js
+
+  // ===== 音声 → STT → minutes =====
   const processAudioFile = async (file) => {
     dbg('[stt] uploading', { name: file?.name, type: file?.type, size: file?.size });
     const url = URL.createObjectURL(file);
     setAudioURL(url);
     setProgressStep("uploading");
 
+    // ★ FIX: 処理開始時に isProcessing を true にする
+    // (setTimeout の外でセットすることで "uploading" ステップから表示される)
+    setIsProcessing(true);
+
     setTimeout(async () => {
+      // isProcessing は既に true になっている
       setProgressStep("transcribing");
+
       try {
+        // ★ FIX: transcribeAudio から setIsProcessing を渡すのをやめる
+        // この関数の責務は文字起こしのみにする
         const { transcription: newTranscription } = await transcribeAudio(
           file,
-          "",
-          setIsProcessing
+          ""
+          // setIsProcessing  <-- 削除
         );
+
+        // ★ UX改善: Gemini の処理中であることがわかるステップを追加
+        setProgressStep("generating");
 
         const fallbackLocale =
           normalizeLocaleTag(i18n.language) ||
@@ -387,13 +401,20 @@ function App() {
         if (newTranscription && newMinutes) {
           await saveMeetingRecord(newTranscription, newMinutes);
         }
+
+        // 成功時
+        setProgressStep("transcriptionComplete");
+        setShowFullScreen(true);
+
       } catch (error) {
         console.error("An error occurred during STT/Generate processing:", error);
         setProgressStep("error");
+      } finally {
+        // ★ FIX: 成功しようがエラーになろうが、
+        // 全ての処理が終わった最終段階で isProcessing を false にする
+        setIsProcessing(false);
       }
-      setProgressStep("transcriptionComplete");
-      setShowFullScreen(true);
-    }, 500);
+    }, 500); // 500msの遅延は "uploading" を見せるため
   };
 
   // === デバッグ: テキスト直処理 ===
