@@ -352,69 +352,51 @@ function App() {
     setAudioURL(url);
     setProgressStep("uploading");
 
-    // ★ FIX: 処理開始時に isProcessing を true にする
-    // (setTimeout の外でセットすることで "uploading" ステップから表示される)
+    // 1. ★ 処理が開始したことをセット (インジケーター表示)
     setIsProcessing(true);
 
     setTimeout(async () => {
-      // isProcessing は既に true になっている
+      // 2. "transcribing" (25%) をセット
       setProgressStep("transcribing");
 
       try {
-        // ★ FIX: transcribeAudio から setIsProcessing を渡すのをやめる
-        // この関数の責務は文字起こしのみにする
-        const { transcription: newTranscription } = await transcribeAudio(
+        // 3. ★ あなたの「正常に動作していた」コードのロジック
+        // transcribeAudio が文字起こしと議事録生成の両方を実行する
+        const { transcription: newTranscription, minutes: newMinutes } = await transcribeAudio(
           file,
-          ""
-          // setIsProcessing  <-- 削除
+          selectedMeetingFormat.template, // ← おそらく、この引数が重要
+          null // ★ setIsProcessing を渡すのをやめる
         );
 
-        // ★ UX改善: Gemini の処理中であることがわかるステップを追加
-        setProgressStep("generating");
-
-        const fallbackLocale =
-          normalizeLocaleTag(i18n.language) ||
-          normalizeLocaleTag(router.locale) ||
-          normalizeLocaleTag(typeof navigator !== 'undefined' ? navigator.language : 'en') ||
-          'en';
-        const effectiveLocale = guessLocaleFromText(newTranscription, fallbackLocale);
-
-        const gen = await apiFetch(`/api/generate-minutes`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-User-Locale": effectiveLocale,
-          },
-          body: JSON.stringify({
-            transcript: newTranscription || "",
-            formatId: selectedMeetingFormat?.id || "general",
-            locale: effectiveLocale,
-          })
-        });
-        if (!gen.ok) throw new Error(`HTTP ${gen.status}`);
-        const genJson = await gen.json();
-
-        const newMinutes = genJson?.minutes || "";
+        // 4. state を更新
         setTranscription(newTranscription || "");
         setMinutes(newMinutes || "");
 
+        // 5. 結果が存在すれば議事録を保存
         if (newTranscription && newMinutes) {
           await saveMeetingRecord(newTranscription, newMinutes);
         }
 
-        // 成功時
+        // 6. 【成功時】
         setProgressStep("transcriptionComplete");
-        setShowFullScreen(true);
+        setShowFullScreen(true); // 結果画面のアニメーション(0.5s)が開始
+
+        // 7. ★ FIX: 画面遷移のアニメーションが終わるまでインジケーターを消さない
+        setTimeout(() => {
+          setIsProcessing(false);
+        }, 500); // 500msは fullscreenoverlay.js の transition 時間と一致
 
       } catch (error) {
+        // 8. 【エラー発生時】
         console.error("An error occurred during STT/Generate processing:", error);
-        setProgressStep("error");
-      } finally {
-        // ★ FIX: 成功しようがエラーになろうが、
-        // 全ての処理が終わった最終段階で isProcessing を false にする
-        setIsProcessing(false);
+        setProgressStep("error"); // "0%へ減少" のアニメーションを開始
+
+        // 9. ★ FIX: エラーアニメーションが終わるのを待ってからインジケーターを消す
+        setTimeout(() => {
+          setIsProcessing(false);
+        }, 2000); // 2秒間、エラー表示(0%)をキープする
       }
-    }, 500); // 500msの遅延は "uploading" を見せるため
+    }, 500);
   };
 
   // === デバッグ: テキスト直処理 ===
