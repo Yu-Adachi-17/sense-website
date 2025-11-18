@@ -985,48 +985,69 @@ const saveMeetingRecord = async (transcriptionText, minutesText) => {
         </div>
 
         {/* 左上 MAX 60:00 */}
-        <div
-          aria-label="Recording countdown (max 60:00)"
-          style={{
-            position: 'fixed',
-            top: safeTop,
-            left: '12px',
-            width: RING_SIZE,
-            height: RING_SIZE,
-            zIndex: 2147483600,
-            pointerEvents: 'none',
-          }}
-        >
-          <svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`} style={{ display: 'block' }}>
-            <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
-              <circle
-                cx={RING_SIZE / 2}
-                cy={RING_SIZE / 2}
-                r={R}
-                fill="none"
-                stroke="#000"
-                strokeWidth={STROKE}
-                strokeLinecap="butt"
-                strokeDasharray={C}
-                strokeDashoffset={dashoffset}
-              />
-            </g>
-          </svg>
-
+        {!showFullScreen && (
           <div
+            aria-label="Recording countdown (max 60:00)"
             style={{
-              position: 'absolute', inset: 0, display: 'flex',
-              flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-              gap: 2, color: '#000', userSelect: 'none', pointerEvents: 'none', lineHeight: 1.05,
+              position: 'fixed',
+              top: safeTop,
+              left: '12px',
+              width: RING_SIZE,
+              height: RING_SIZE,
+              zIndex: 2147483600,
+              pointerEvents: 'none',
             }}
           >
-            <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700 }}>MAX</div>
-            <div style={{ fontFamily: 'Impact, sans-serif', fontWeight: 900, fontSize: 22 }}>
-              {formatTime(recordingCountdown)}
+            <svg
+              width={RING_SIZE}
+              height={RING_SIZE}
+              viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}
+              style={{ display: 'block' }}
+            >
+              <g style={{ transform: 'rotate(-90deg)', transformOrigin: '50% 50%' }}>
+                <circle
+                  cx={RING_SIZE / 2}
+                  cy={RING_SIZE / 2}
+                  r={R}
+                  fill="none"
+                  stroke="#000"
+                  strokeWidth={STROKE}
+                  strokeLinecap="butt"
+                  strokeDasharray={C}
+                  strokeDashoffset={dashoffset}
+                />
+              </g>
+            </svg>
+
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 2,
+                color: '#000',
+                userSelect: 'none',
+                pointerEvents: 'none',
+                lineHeight: 1.05,
+              }}
+            >
+              <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700 }}>MAX</div>
+              <div
+                style={{
+                  fontFamily: 'Impact, sans-serif',
+                  fontWeight: 900,
+                  fontSize: 22,
+                }}
+              >
+                {formatTime(recordingCountdown)}
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+
 
       <style jsx>{`
         @keyframes pulse { 0%,100% { transform: scale(0.92); } 50% { transform: scale(1.18); } }
