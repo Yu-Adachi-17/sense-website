@@ -6,7 +6,6 @@ console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? 
 console.log("✅ OPENAI_API_KEY (for Whisper):", process.env.OPENAI_API_KEY ? "Loaded" : "Not found");
 console.log("✅ GEMINI_API_KEY (for NLP):", process.env.GEMINI_API_KEY ? "Loaded" : "Not found");
 
-
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -55,7 +54,7 @@ if (!GEMINI_API_KEY) {
   console.warn("[WARN] GEMINI_API_KEY is not set. Gemini NLP functions will fail.");
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const GEMINI_MODEL_NAME = "gemini-2.5-flash"; // ユーザー指定のモデル
+const GEMINI_MODEL_NAME = "gemini-2.5-flash"; // 使用するモデル名
 
 /**
  * ★ NEW: Helper function to call the Gemini API.
@@ -79,28 +78,27 @@ async function callGemini(systemInstruction, userMessage, generationConfig) {
     const response = result.response;
 
     // レスポンスのテキスト部分を安全に抽出
-    if (response.candidates && 
-        response.candidates.length > 0 &&
-        response.candidates[0].content &&
-        response.candidates[0].content.parts &&
-        response.candidates[0].content.parts.length > 0) {
-          
+    if (
+      response.candidates &&
+      response.candidates.length > 0 &&
+      response.candidates[0].content &&
+      response.candidates[0].content.parts &&
+      response.candidates[0].content.parts.length > 0
+    ) {
       return response.candidates[0].content.parts[0].text.trim();
-    
     } else if (response.promptFeedback && response.promptFeedback.blockReason) {
-        // 安全性などでブロックされた場合
-        console.error(`[ERROR] Gemini call blocked: ${response.promptFeedback.blockReason}`);
-        throw new Error(`Gemini API call blocked: ${response.promptFeedback.blockReason}`);
+      // 安全性などでブロックされた場合
+      console.error(`[ERROR] Gemini call blocked: ${response.promptFeedback.blockReason}`);
+      throw new Error(`Gemini API call blocked: ${response.promptFeedback.blockReason}`);
     } else {
-        // その他の理由でテキストが返されなかった場合
-        console.error('[ERROR] Gemini API returned no text content.', JSON.stringify(response, null, 2));
-        throw new Error('Gemini API returned no text content.');
+      // その他の理由でテキストが返されなかった場合
+      console.error('[ERROR] Gemini API returned no text content.', JSON.stringify(response, null, 2));
+      throw new Error('Gemini API returned no text content.');
     }
-
   } catch (error) {
     console.error('[ERROR] Failed to call Gemini API:', error.response?.data || error.message);
     if (error.message.includes("GEMINI_API_KEY")) {
-        throw error;
+      throw error;
     }
     throw new Error(`Failed to generate content using Gemini API: ${error.message}`);
   }
@@ -112,7 +110,6 @@ const app = express();
 
 // ---- Helpers ------------------------------------------------------------
 function logLong(label, text, size = 8000) {
-  // ... (変更なし) ...
   const s = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
   console.log(`${label} len=${s?.length ?? 0} >>> BEGIN`);
   if (s) {
@@ -125,85 +122,88 @@ function logLong(label, text, size = 8000) {
 
 const pickFirstTag = (s) => (s || '').split(',')[0].trim();
 const toShort = (tag) => (tag || '').split('-')[0].toLowerCase();
+
 function resolveLocale(req, bodyLocale) {
-  // ... (変更なし) ...
   const hxu = req.headers['x-user-locale'];
   const hal = req.headers['accept-language'];
   const bcp47 = bodyLocale || hxu || pickFirstTag(hal) || 'en';
   const short = toShort(bcp47);
   if (process.env.LOG_LOCALE === '1') {
-    console.log(`[LOCALE] body=${bodyLocale || ''} x-user-locale=${hxu || ''} accept-language=${hal || ''} -> resolved=${short}`);
+    console.log(
+      `[LOCALE] body=${bodyLocale || ''} x-user-locale=${hxu || ''} accept-language=${hal || ''} -> resolved=${short}`
+    );
   }
   return short;
 }
 
 // --- Security headers (Helmet) ---
-app.use(helmet({
-  // ... (変更なし) ...
-  frameguard: false,
-  crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
-  contentSecurityPolicy: {
-    useDefaults: true,
-    directives: {
-      "default-src": ["'self'"],
-      "script-src": [
-        "'self'",
-        "'unsafe-inline'",
-        "'unsafe-eval'",
-        "https://www.gstatic.com",
-        "https://www.google.com",
-        "https://www.googletagmanager.com"
-      ],
-      "connect-src": [
-        "'self'",
-        "https://www.googleapis.com",
-        "https://identitytoolkit.googleapis.com",
-        "https://securetoken.googleapis.com",
-        "https://firebaseinstallations.googleapis.com",
-        "https://firestore.googleapis.com",
-        "https://*.firebaseio.com",
-        "https://www.google-analytics.com",
-        "https://*.ingest.sentry.io",
-        "https://generativelanguage.googleapis.com", // ★ Gemini APIのエンドポイントを追加
-      ],
-      "img-src": ["'self'", "data:", "https:", "blob:"],
-      "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      "font-src": ["'self'", "https://fonts.gstatic.com", "data:"],
-      "frame-src": [
-        "'self'",
-        "https://*.firebaseapp.com",
-        "https://*.google.com",
-        "https://*.googleusercontent.com",
-        "https://*.gstatic.com",
-        "https://accounts.google.com",
-        "https://*.zoom.us",
-        "https://*.zoom.com"
-      ],
-      "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],
+app.use(
+  helmet({
+    frameguard: false,
+    crossOriginOpenerPolicy: { policy: 'same-origin-allow-popups' },
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        "default-src": ["'self'"],
+        "script-src": [
+          "'self'",
+          "'unsafe-inline'",
+          "'unsafe-eval'",
+          "https://www.gstatic.com",
+          "https://www.google.com",
+          "https://www.googletagmanager.com",
+        ],
+        "connect-src": [
+          "'self'",
+          "https://www.googleapis.com",
+          "https://identitytoolkit.googleapis.com",
+          "https://securetoken.googleapis.com",
+          "https://firebaseinstallations.googleapis.com",
+          "https://firestore.googleapis.com",
+          "https://*.firebaseio.com",
+          "https://www.google-analytics.com",
+          "https://*.ingest.sentry.io",
+          "https://generativelanguage.googleapis.com", // ★ Gemini APIのエンドポイントを追加
+        ],
+        "img-src": ["'self'", "data:", "https:", "blob:"],
+        "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        "font-src": ["'self'", "https://fonts.gstatic.com", "data:"],
+        "frame-src": [
+          "'self'",
+          "https://*.firebaseapp.com",
+          "https://*.google.com",
+          "https://*.googleusercontent.com",
+          "https://*.gstatic.com",
+          "https://accounts.google.com",
+          "https://*.zoom.us",
+          "https://*.zoom.com",
+        ],
+        "frame-ancestors": ["'self'", "*.zoom.us", "*.zoom.com"],
+      },
     },
-  },
-  referrerPolicy: { policy: "strict-origin-when-cross-origin" },
-}));
-
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+  })
+);
 
 // ── CORS を “全ルートより前” に適用（preflight も自動対応） ──
 const allowedOrigins = [
-  // ... (変更なし) ...
   'https://sense-ai.world',
   'https://www.sense-ai.world',
   'https://sense-website-production.up.railway.app', // 静的+API の Origin
-  'http://localhost:3000' // ローカル開発時
+  'http://localhost:3000', // ローカル開発時
 ];
-app.use(cors({
-  // ... (変更なし) ...
-  origin: (origin, cb) => {
-    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-    cb(new Error('Not allowed by CORS'));
-  },
-  credentials: true,
-  methods: ['GET','POST','OPTIONS'],
-  allowedHeaders: ['Content-Type','Authorization','Accept','X-Requested-With','X-User-Locale','X-Debug-Log'],
-}));
+
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+      cb(new Error('Not allowed by CORS'));
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With', 'X-User-Locale', 'X-Debug-Log'],
+  })
+);
 app.options('*', cors());
 
 // Flexible Minutes 用（旧）プロンプト
@@ -217,24 +217,25 @@ const {
   loadFormatJSON,
 } = require('./services/formatLoader');
 
-// ... (Middleware Order, Request Debug Logging, Router Registration) ...
-// (このセクションは変更なし)
-
 /*==============================================
 =            Middleware Order                  =
 ==============================================*/
 app.use('/api/stripe', express.raw({ type: 'application/json' }));
-app.use('/api/livekit/webhook',
+app.use(
+  '/api/livekit/webhook',
   express.raw({ type: 'application/webhook+json' }),
   livekitWebhookRouter
 );
 app.use('/api/apple/notifications', express.json());
-app.use(express.json({
-  verify: (req, res, buf) => {
-    req._rawBody = buf ? buf.toString('utf8') : '';
-  },
-  limit: '2mb',
-}));
+app.use(
+  express.json({
+    verify: (req, res, buf) => {
+      req._rawBody = buf ? buf.toString('utf8') : '';
+    },
+    limit: '2mb',
+  })
+);
+
 /*==============================================
 =            Request Debug Logging             =
 ==============================================*/
@@ -246,6 +247,7 @@ app.use((req, res, next) => {
   console.log(`[DEBUG] Body: ${JSON.stringify(req.body)}`);
   next();
 });
+
 /*==============================================
 =            Router Registration               =
 ==============================================*/
@@ -263,6 +265,7 @@ app.use('/api/meetings', meetingsRouter);
 app.use('/api', egressRouter);
 app.use('/api/rooms', livekitRoomsRouter);
 app.use('/api', recordingsRouter);
+
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
   res.set('Access-Control-Allow-Credentials', 'true');
@@ -288,13 +291,15 @@ app.use((req, res, next) => {
     console.error('Request timed out.');
     res.set({
       'Access-Control-Allow-Origin': req.headers.origin || '*',
-      'Access-Control-Allow-Credentials': 'true'
+      'Access-Control-Allow-Credentials': 'true',
     });
     res.status(503).send('Service Unavailable: request timed out.');
   });
   next();
 });
+
 const { exec } = require('child_process');
+
 app.get('/api/debug/ffprobe', (req, res) => {
   exec('which ffprobe', (error, stdout, stderr) => {
     if (error) {
@@ -306,21 +311,22 @@ app.get('/api/debug/ffprobe', (req, res) => {
     res.json({ ffprobePath: ffprobePathDetected });
   });
 });
+
 app.use((req, res, next) => {
-  console.log(`[DEBUG] Request received:
+  console.log(
+    `[DEBUG] Request received:
   - Method: ${req.method}
   - Origin: ${req.headers.origin || 'Not set'}
   - Path: ${req.path}
   - Headers: ${JSON.stringify(req.headers, null, 2)}
-`);
+`
+  );
   next();
 });
 
 /*==============================================
 =            Upload / Transcription            =
 ==============================================*/
-
-// ... (multer configuration - 変更なし) ...
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     const tempDir = path.join(__dirname, 'temp');
@@ -332,24 +338,20 @@ const multerStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
-  }
+  },
 });
+
 const upload = multer({
   storage: multerStorage,
-  limits: { fileSize: 500 * 1024 * 1024 } // 500MB
+  limits: { fileSize: 500 * 1024 * 1024 }, // 500MB
 });
 
-
-// OpenAI API endpoints
 const OPENAI_API_ENDPOINT_TRANSCRIPTION = 'https://api.openai.com/v1/audio/transcriptions';
-// (削除) const OPENAI_API_ENDPOINT_CHATGPT = 'https://api.openai.com/v1/chat/completions';
 
 /**
  * splitText: Splits text into chunks of specified size.
- * (変更なし)
  */
 function splitText(text, chunkSize) {
-  // ... (変更なし) ...
   const chunks = [];
   let startIndex = 0;
   while (startIndex < text.length) {
@@ -362,7 +364,6 @@ function splitText(text, chunkSize) {
 
 /**
  * combineMinutes: Calls the Gemini API to combine partial meeting minutes.
- * (★ 修正: Gemini API 呼び出しに変更)
  */
 async function combineMinutes(combinedText, meetingFormat) {
   const template = (meetingFormat && meetingFormat.trim()) || '';
@@ -376,14 +377,11 @@ ${template}
 </MINUTES_TEMPLATE>`;
 
   try {
-    // ★ Gemini呼び出し
     const generationConfig = {
       temperature: 0,
       maxOutputTokens: 16000,
-      // (responseMimeType: 'text/plain' (default))
     };
     return await callGemini(systemMessage, combinedText, generationConfig);
-
   } catch (error) {
     console.error('[ERROR] Failed to call Gemini API for combining minutes:', error.message);
     throw new Error('Failed to combine meeting minutes');
@@ -392,13 +390,19 @@ ${template}
 
 /**
  * generateMinutes: Uses Gemini API to generate meeting minutes (classic template text).
- * (★ 修正: Gemini API 呼び出しに変更)
  */
 function isValidMinutes(out) {
-  // ... (変更なし) ...
   if (!out) return false;
-  const must = ["【Meeting Name】", "【Date】", "【Location】", "【Attendees】", "【Agenda(1)】", "【Agenda(2)】", "【Agenda(3)】"];
-  return must.every(k => out.includes(k));
+  const must = [
+    "【Meeting Name】",
+    "【Date】",
+    "【Location】",
+    "【Attendees】",
+    "【Agenda(1)】",
+    "【Agenda(2)】",
+    "【Agenda(3)】",
+  ];
+  return must.every((k) => out.includes(k));
 }
 
 async function repairToTemplate(badOutput, template) {
@@ -418,7 +422,6 @@ ${template.trim()}
 ${badOutput}
 </MODEL_OUTPUT>`;
 
-  // ★ Gemini呼び出し
   const generationConfig = {
     temperature: 0,
     maxOutputTokens: 16000,
@@ -427,8 +430,9 @@ ${badOutput}
 }
 
 const generateMinutes = async (transcription, formatTemplate) => {
-  const template = (formatTemplate && formatTemplate.trim()) || 
-`【Meeting Name】
+  const template =
+    (formatTemplate && formatTemplate.trim()) ||
+    `【Meeting Name】
 【Date】
 【Location】
 【Attendees】
@@ -457,7 +461,6 @@ ${transcription}
 </TRANSCRIPT>`;
 
   try {
-    // ★ Gemini呼び出し
     const generationConfig = {
       temperature: 0,
       maxOutputTokens: 16000,
@@ -465,7 +468,6 @@ ${transcription}
     let out = await callGemini(systemMessage, userMessage, generationConfig);
 
     if (!isValidMinutes(out)) {
-      // (repairToTemplate も Gemini 化済み)
       out = await repairToTemplate(out, template);
     }
     return out;
@@ -480,19 +482,17 @@ ${transcription}
    ================================ */
 
 function isValidFlexibleJSON(str) {
-  // ... (変更なし) ...
   try {
     const obj = JSON.parse(str);
     if (!obj) return false;
-    const must = ["meetingTitle","date","summary","sections"];
-    return must.every(k => Object.prototype.hasOwnProperty.call(obj, k));
+    const must = ["meetingTitle", "date", "summary", "sections"];
+    return must.every((k) => Object.prototype.hasOwnProperty.call(obj, k));
   } catch {
     return false;
   }
 }
 
 async function repairFlexibleJSON(badOutput, langHint) {
-  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
   const systemMessage =
 `You repair malformed JSON that should match the schema:
 {
@@ -514,11 +514,10 @@ Fix this into valid JSON per schema, preserving semantic content:
 ${badOutput}
 </MODEL_OUTPUT>`;
 
-  // ★ Gemini呼び出し (JSONモード)
   const generationConfig = {
     temperature: 0,
     maxOutputTokens: 16000,
-    responseMimeType: "application/json", // JSONモード
+    responseMimeType: "application/json",
   };
   return await callGemini(systemMessage, userMessage, generationConfig);
 }
@@ -543,6 +542,13 @@ async function generateFlexibleMinutes(transcription, langHint) {
     throw new Error("Failed to parse messages for Gemini.");
   }
 
+  // ★ ここでプロンプトをログに出す（必要なときだけ）
+  if (process.env.LOG_PROMPT === '1') {
+    console.log(`[PROMPT flexible] langHint=${langHint || 'auto'}`);
+    logLong('[PROMPT flexible system]', systemMessage);
+    logLong('[PROMPT flexible user]', userMessage);
+  }
+
   try {
     // ★ Gemini呼び出し (JSONモード)
     const generationConfig = {
@@ -564,6 +570,7 @@ async function generateFlexibleMinutes(transcription, langHint) {
   }
 }
 
+
 /* ================================
    新：フォーマットJSONに基づく生成（formatId/locale）
    ================================ */
@@ -580,6 +587,16 @@ async function generateWithFormatJSON(transcript, fmt) {
 ${transcript}
 </TRANSCRIPT>`;
 
+  // ★ ここで formats/*/*.json の prompt をログ出力
+  if (process.env.LOG_PROMPT === '1') {
+    const id = fmt.formatId || '(unknown formatId)';
+    const loc = fmt.locale   || '(unknown locale)';
+    console.log(`[PROMPT formatJSON] formatId=${id} locale=${loc}`);
+    logLong('[PROMPT formatJSON system]', systemMessage);
+    // userMessage はいつも同じ構造なので必要ならコメント外してもOK
+    // logLong('[PROMPT formatJSON user]', userMessage);
+  }
+
   // ★ Gemini呼び出し (JSONモード)
   const generationConfig = {
     temperature: 0,
@@ -589,9 +606,9 @@ ${transcript}
   return await callGemini(systemMessage, userMessage, generationConfig);
 }
 
+
 /**
  * transcribeWithOpenAI: Uses the Whisper API for transcription.
- * (★ 変更なし: これはSTT（音声認識）であり、NLP（テキスト生成）ではないため)
  */
 const transcribeWithOpenAI = async (filePath) => {
   try {
@@ -619,8 +636,6 @@ const transcribeWithOpenAI = async (filePath) => {
   }
 };
 
-// ... (TRANSCRIPTION_CHUNK_THRESHOLD, splitAudioFile, convertToM4A - 変更なし) ...
-
 // Constant for chunk splitting (process in one batch if file is below this size)
 const TRANSCRIPTION_CHUNK_THRESHOLD = 5 * 1024 * 1024; // 5MB in bytes
 
@@ -640,7 +655,7 @@ const splitAudioFile = (filePath, maxFileSize) => {
         console.error('[ERROR]', errMsg);
         return reject(new Error(errMsg));
       }
-      
+
       let duration = parseFloat(metadata.format.duration);
       if (isNaN(duration)) {
         if (metadata.streams && metadata.streams.length > 0 && metadata.streams[0].duration) {
@@ -651,47 +666,49 @@ const splitAudioFile = (filePath, maxFileSize) => {
         console.warn('[WARN] No valid duration found. Using default of 60 seconds.');
         duration = 60;
       }
-      
+
       const fileSize = fs.statSync(filePath).size;
       console.log('[DEBUG] ffprobe result - duration:', duration, 'seconds, fileSize:', fileSize, 'bytes');
-      
+
       if (fileSize <= maxFileSize) {
         console.log('[DEBUG] File size is below threshold; returning file as is');
         return resolve([filePath]);
       }
-      
+
       let chunkDuration = duration * (maxFileSize / fileSize);
       if (chunkDuration < 5) chunkDuration = 5;
       const numChunks = Math.ceil(duration / chunkDuration);
-      
+
       console.log(`[DEBUG] Starting chunk split: chunkDuration=${chunkDuration} seconds, numChunks=${numChunks}`);
-      
+
       const chunkPaths = [];
       const tasks = [];
-      
+
       for (let i = 0; i < numChunks; i++) {
         const startTime = i * chunkDuration;
         const outputPath = path.join(path.dirname(filePath), `${Date.now()}_chunk_${i}.m4a`);
         chunkPaths.push(outputPath);
         console.log(`[DEBUG] Chunk ${i + 1}: startTime=${startTime} seconds, outputPath=${outputPath}`);
-        
-        tasks.push(new Promise((resolveTask, rejectTask) => {
-          ffmpeg(filePath)
-            .setStartTime(startTime)
-            .setDuration(chunkDuration)
-            .output(outputPath)
-            .on('end', () => {
-              console.log(`[DEBUG] Export of chunk ${i + 1}/${numChunks} completed: ${outputPath}`);
-              resolveTask();
-            })
-            .on('error', (err) => {
-              console.error(`[ERROR] Export of chunk ${i + 1} failed:`, err);
-              rejectTask(err);
-            })
-            .run();
-        }));
+
+        tasks.push(
+          new Promise((resolveTask, rejectTask) => {
+            ffmpeg(filePath)
+              .setStartTime(startTime)
+              .setDuration(chunkDuration)
+              .output(outputPath)
+              .on('end', () => {
+                console.log(`[DEBUG] Export of chunk ${i + 1}/${numChunks} completed: ${outputPath}`);
+                resolveTask();
+              })
+              .on('error', (err) => {
+                console.error(`[ERROR] Export of chunk ${i + 1} failed:`, err);
+                rejectTask(err);
+              })
+              .run();
+          })
+        );
       }
-      
+
       Promise.all(tasks)
         .then(() => {
           console.log('[DEBUG] All chunk exports completed');
@@ -713,7 +730,7 @@ const convertToM4A = async (inputFilePath) => {
     const outputFilePath = path.join(path.dirname(inputFilePath), `${Date.now()}_converted.m4a`);
     console.log(`[DEBUG] convertToM4A: Converting input file ${inputFilePath} to ${outputFilePath}`);
     ffmpeg(inputFilePath)
-      .toFormat('ipod') // ipod format is equivalent to m4a
+      .toFormat('ipod')
       .on('end', () => {
         console.log(`[DEBUG] File conversion completed: ${outputFilePath}`);
         resolve(outputFilePath);
@@ -726,11 +743,6 @@ const convertToM4A = async (inputFilePath) => {
   });
 };
 
-
-// ... (Health check, /api/transcribe - 変更なし) ...
-// (Note: /api/transcribe 内の generateFlexibleMinutes や generateMinutes は
-// すでにGemini化されているため、このエンドポイントも自動的にGeminiを使うようになります)
-
 /*==============================================
 =                  /api/transcribe             =
 ==============================================*/
@@ -738,9 +750,11 @@ app.get('/api/health', (req, res) => {
   console.log('[DEBUG] /api/health was accessed');
   res.status(200).json({ status: 'OK', message: 'Health check passed!' });
 });
+
 app.get('/api/hello', (req, res) => {
   res.json({ message: "Hello from backend!" });
 });
+
 app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   console.log('[DEBUG] /api/transcribe endpoint called');
 
@@ -761,14 +775,13 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
     console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
 
-    // multer が保存した一時ファイルパス
     let tempFilePath = file.path;
 
     let transcription = '';
     let minutes = '';
-    const cleanupExtra = []; // 変換で作った一時ファイルの削除用
+    const cleanupExtra = [];
 
-    // ① Whisper への送信方針（変更なし）
+    // ① Whisper への送信方針
     if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
       console.log('[DEBUG] <= threshold: send original file to Whisper');
       try {
@@ -815,7 +828,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       }
     }
 
-    // ② 議事録生成（★ ここで呼ばれる関数はGemini化されている）
+    // ② 議事録生成（Gemini）
     if (transcription.length <= 10000) {
       if (outputType === 'flexible') {
         minutes = await generateFlexibleMinutes(transcription, langHint);
@@ -836,7 +849,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       }
     }
 
-    // オリジナル一時ファイル削除
+    // 一時ファイル削除
     try {
       fs.unlinkSync(file.path);
       console.log('[DEBUG] Deleted original temporary file:', file.path);
@@ -844,9 +857,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       console.error('[ERROR] Failed to delete temporary file:', file.path, err);
     }
 
-    // 変換で作った一時ファイルの削除
     for (const p of cleanupExtra) {
-      try { fs.unlinkSync(p); } catch {}
+      try {
+        fs.unlinkSync(p);
+      } catch (_) {}
     }
 
     console.log('[DEBUG] Final transcription result length:', transcription.length);
@@ -862,11 +876,11 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 /*==============================================
 =        フォーマット関連 API（新規追加）       =
 ==============================================*/
-// (変更なし)
 app.get('/api/formats', (_req, res) => {
   const registry = getRegistry();
   res.json(registry);
 });
+
 app.get('/api/formats/:formatId/:locale', (req, res) => {
   const { formatId, locale } = req.params;
   const payload = loadFormatJSON(formatId, locale);
@@ -874,12 +888,11 @@ app.get('/api/formats/:formatId/:locale', (req, res) => {
   res.json(payload);
 });
 
-
 /*==============================================
 =     FORCE-REGISTER: /api/generate-minutes    =
 ==============================================*/
-// (★ 内部の呼び出しがGemini化されている)
 console.log('[BOOT] registering POST/GET /api/generate-minutes (early)');
+
 app.get('/api/generate-minutes', (req, res) => {
   res.set('Allow', 'POST');
   return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
@@ -891,9 +904,9 @@ app.post('/api/generate-minutes', async (req, res) => {
       transcript,
       formatId,
       locale: localeFromBody,
-      outputType = 'flexible',    // 旧互換
+      outputType = 'flexible', // 旧互換
       meetingFormat,
-      lang
+      lang,
     } = req.body || {};
 
     if (!transcript || typeof transcript !== 'string' || !transcript.trim()) {
@@ -905,14 +918,20 @@ app.post('/api/generate-minutes', async (req, res) => {
     let minutes;
     let meta = null;
 
-    if (formatId && localeResolved) {
-      // ★ 新：generateWithFormatJSON (Gemini化済み)
-      const fmt = loadFormatJSON(formatId, localeResolved);
-      if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
-      minutes = await generateWithFormatJSON(transcript, fmt);
-      meta = { formatId, locale: localeResolved, schemaId: fmt.schemaId || null, title: fmt.title || null };
-    } else {
-      // ★ 旧：generateFlexibleMinutes / generateMinutes (Gemini化済み)
+if (formatId && localeResolved) {
+  // ★ 新：generateWithFormatJSON (Gemini化済み)
+  const fmt = loadFormatJSON(formatId, localeResolved);
+  if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
+
+  // ★ ログ用に formatId / locale を埋め込む
+  fmt.formatId = formatId;
+  fmt.locale   = localeResolved;
+
+  minutes = await generateWithFormatJSON(transcript, fmt);
+  meta = { formatId, locale: localeResolved, schemaId: fmt.schemaId || null, title: fmt.title || null };
+} else {
+
+      // 旧 flexible / classic
       const langHint = lang || localeResolved || null;
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
         minutes = await generateFlexibleMinutes(transcript, langHint);
@@ -922,17 +941,19 @@ app.post('/api/generate-minutes', async (req, res) => {
       meta = { legacy: true, outputType, lang: langHint };
     }
 
-    // ===== ログ出力（変更なし）=====
     const shouldLog =
       process.env.LOG_GENERATED_MINUTES === '1' ||
       req.headers['x-debug-log'] === '1' ||
       req.query.debug === '1';
+
     if (shouldLog) {
       logLong('[GENERATED_MINUTES raw]', minutes);
       try {
         const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
         logLong('[GENERATED_MINUTES pretty]', pretty);
-      } catch { /* JSONでなければ無視 */ }
+      } catch {
+        // JSONでなければ無視
+      }
       if (process.env.LOG_TRANSCRIPT === '1') {
         logLong('[TRANSCRIPT]', transcript);
       }
@@ -940,19 +961,17 @@ app.post('/api/generate-minutes', async (req, res) => {
         console.log(`[GENERATE] localeResolved=${localeResolved}`);
       }
     }
-    // ===
 
     return res.json({
       transcription: transcript.trim(),
       minutes,
-      meta
+      meta,
     });
   } catch (err) {
     console.error('[ERROR] /api/generate-minutes:', err);
     return res.status(500).json({ error: 'Internal error', details: err.message });
   }
 });
-
 
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
@@ -961,12 +980,11 @@ app.get('/api/transcribe', (req, res) => {
 /*==============================================
 =               Static Frontend                =
 ==============================================*/
-// (変更なし)
 const candidates = [
   path.join(__dirname, 'frontend', 'build'),
   path.join(__dirname, 'public'),
 ];
-const staticPath = candidates.find(p => fs.existsSync(p)) || path.join(__dirname, 'public');
+const staticPath = candidates.find((p) => fs.existsSync(p)) || path.join(__dirname, 'public');
 
 console.log(`[DEBUG] Static files served from: ${staticPath}`);
 app.use(express.static(staticPath));
@@ -975,21 +993,24 @@ app.use('/api', (req, res, next) => {
   res.status(404).json({ error: 'API route not found' });
 });
 
-app.get(["/success", "/cancel"], (req, res) => {
-  res.sendFile(path.join(staticPath, "index.html"));
+app.get(['/success', '/cancel'], (req, res) => {
+  res.sendFile(path.join(staticPath, 'index.html'));
 });
+
 app.get('*', (req, res) => {
   console.log(`[DEBUG] Redirecting ${req.url} to index.html`);
-  res.sendFile(path.join(staticPath, "index.html"));
+  res.sendFile(path.join(staticPath, 'index.html'));
 });
 
 /*==============================================
 =              Global Error Handler            =
 ==============================================*/
-// (変更なし)
 app.use((err, req, res, next) => {
   console.error('[GLOBAL ERROR HANDLER]', err);
-  const origin = req.headers.origin && allowedOrigins.includes(req.headers.origin) ? req.headers.origin : '*';
+  const origin =
+    req.headers.origin && allowedOrigins.includes(req.headers.origin)
+      ? req.headers.origin
+      : '*';
   res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Credentials', 'true');
   res.status(err.status || 500);
@@ -999,7 +1020,6 @@ app.use((err, req, res, next) => {
 /*==============================================
 =                 Start Server                 =
 ==============================================*/
-// (変更なし)
 const PORT = process.env.PORT || 5001;
 console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
 app.listen(PORT, () => {
