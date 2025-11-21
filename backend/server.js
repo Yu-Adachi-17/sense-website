@@ -536,6 +536,110 @@ async function generateFlexibleMinutes(transcription, langHint) {
   // (system が最初、user が最後と仮定)
   const systemMessage = openAIMessages.find(m => m.role === 'system')?.content || '';
   const userMessage = openAIMessages.find(m => m.role === 'user')?.content || '';
+  // === Gemini transcript normalization (mirror iOS GeminiFlashModel) ===
+const MAX_TOTAL_TRANSCRIPT_CHARS = 1_000_000;        // 生テキストの絶対上限（保険）
+const MAX_ONESHOT_TRANSCRIPT_CHARS = 300_000;        // iOS と合わせる「1回投げ」の上限
+const LONG_MEETING_SLICE_COUNT = 5;                  // 超長時間会議の分割数（iOS と同じ思想）
+
+/**
+ * 超長時間の transcript を、Gemini に投げる前に圧縮する（iOS の保険ロジックの BE 版）
+ * - 30万文字以下ならそのまま返す
+ * - それ以上なら:
+ *   1) 最大100万文字まで頭から切り出し
+ *   2) 5分割
+ *   3) 各チャンクを 20〜25% 目安で要約（重要情報だけ残す）
+ *   4) 結合して 30万文字を超えた分は末尾カット
+ */
+async function compressTranscriptForGemini(rawTranscript, langHint) {
+  if (!rawTranscript || typeof rawTranscript !== 'string') return '';
+  let transcript = rawTranscript.trim();
+
+  if (transcript.length <= MAX_ONESHOT_TRANSCRIPT_CHARS) {
+    // 30万文字以内ならそのまま 1-shot
+    return transcript;
+  }
+
+  // 念のためのハード上限（あまりに長い場合は頭から100万文字だけ使う）
+  if (transcript.length > MAX_TOTAL_TRANSCRIPT_CHARS) {
+    console.log(
+      `[DEBUG] compressTranscriptForGemini: transcript length ${transcript.length} > MAX_TOTAL_TRANSCRIPT_CHARS=${MAX_TOTAL_TRANSCRIPT_CHARS}. Truncating head.`
+    );
+    transcript = transcript.slice(0, MAX_TOTAL_TRANSCRIPT_CHARS);
+  }
+
+  const totalLen = transcript.length;
+  const sliceCount = LONG_MEETING_SLICE_COUNT;
+  const sliceSize = Math.ceil(totalLen / sliceCount);
+  const chunks = [];
+
+  for (let i = 0; i < sliceCount; i++) {
+    const start = i * sliceSize;
+    if (start >= totalLen) break;
+    const end = Math.min(start + sliceSize, totalLen);
+    chunks.push(transcript.slice(start, end));
+  }
+
+  console.log(
+    `[DEBUG] compressTranscriptForGemini: length=${totalLen}, slices=${chunks.length}, approx sliceSize=${sliceSize}`
+  );
+
+  const compressedChunks = [];
+
+  // ★ 安全面重視でシーケンシャルに処理（最大5回）
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i];
+
+    const systemMessage = `
+You are a professional assistant compressing long meeting transcripts before they are converted into structured minutes.
+Your job is to shorten the text while preserving ALL important information that could matter for minutes.
+
+Rules:
+- Preserve decisions, action items, owners, deadlines.
+- Preserve important numbers (prices, quantities, percentages, KPIs, times).
+- Preserve key arguments, options, and risks that were seriously discussed.
+- Keep the chronological order of events.
+- Remove filler talk, small talk, repetitions, and obvious acknowledgements ("yes", "ok", etc.).
+- Target about 20–25% of the original length of this chunk.
+- Output plain text only (no headings, no JSON, no bullet markers).
+`.trim();
+
+    const userMessage = `
+Language hint: ${langHint || 'auto'}
+
+This is part ${i + 1} of ${chunks.length} of a single long meeting transcript.
+
+<TRANSCRIPT_PART_${i + 1}>
+${chunk}
+</TRANSCRIPT_PART_${i + 1}>
+`.trim();
+
+    const generationConfig = {
+      temperature: 0,
+      maxOutputTokens: 8000,
+    };
+
+    console.log(
+      `[DEBUG] compressTranscriptForGemini: calling Gemini for part ${i + 1}/${chunks.length}`
+    );
+    const compressed = await callGemini(systemMessage, userMessage, generationConfig);
+    compressedChunks.push((compressed || '').trim());
+  }
+
+  let combined = compressedChunks.join('\n\n').trim();
+
+  if (combined.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+    console.log(
+      `[DEBUG] compressTranscriptForGemini: combined length ${combined.length} > MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}. Cutting tail.`
+    );
+    combined = combined.slice(0, MAX_ONESHOT_TRANSCRIPT_CHARS); // ★ お尻カット
+  }
+
+  console.log(
+    `[DEBUG] compressTranscriptForGemini: final compressed length=${combined.length} (from original ${rawTranscript.length})`
+  );
+  return combined;
+}
+
 
   if (!userMessage) {
     console.error("[ERROR] generateFlexibleMinutes: Could not find user message in buildFlexibleMessages output.");
@@ -913,30 +1017,46 @@ app.post('/api/generate-minutes', async (req, res) => {
       return res.status(400).json({ error: 'Missing transcript' });
     }
 
+    const rawTranscript = transcript.trim();
     const localeResolved = resolveLocale(req, localeFromBody);
+    const langHint = lang || localeResolved || null;
+
+    // ★ iOS GeminiFlashModel と同じ思想：
+    //   「30万文字まではそのまま 1-shot、
+    //     それ以上は 5分割 → 要約圧縮 → 30万文字以内にお尻カット」
+    let effectiveTranscript = rawTranscript;
+    if (rawTranscript.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+      console.log(
+        `[DEBUG] /api/generate-minutes: transcript length=${rawTranscript.length} exceeds MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}. Compressing before Gemini.`
+      );
+      effectiveTranscript = await compressTranscriptForGemini(rawTranscript, langHint);
+    }
 
     let minutes;
     let meta = null;
 
-if (formatId && localeResolved) {
-  // ★ 新：generateWithFormatJSON (Gemini化済み)
-  const fmt = loadFormatJSON(formatId, localeResolved);
-  if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
+    if (formatId && localeResolved) {
+      // ★ 新：formatId / locale 指定パスでも、effectiveTranscript を使う
+      const fmt = loadFormatJSON(formatId, localeResolved);
+      if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
 
-  // ★ ログ用に formatId / locale を埋め込む
-  fmt.formatId = formatId;
-  fmt.locale   = localeResolved;
+      // ログ用
+      fmt.formatId = formatId;
+      fmt.locale = localeResolved;
 
-  minutes = await generateWithFormatJSON(transcript, fmt);
-  meta = { formatId, locale: localeResolved, schemaId: fmt.schemaId || null, title: fmt.title || null };
-} else {
-
-      // 旧 flexible / classic
-      const langHint = lang || localeResolved || null;
+      minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
+      meta = {
+        formatId,
+        locale: localeResolved,
+        schemaId: fmt.schemaId || null,
+        title: fmt.title || null,
+      };
+    } else {
+      // 旧 flexible / classic パスも同じく effectiveTranscript を利用
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
-        minutes = await generateFlexibleMinutes(transcript, langHint);
+        minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
       } else {
-        minutes = await generateMinutes(transcript, meetingFormat || '');
+        minutes = await generateMinutes(effectiveTranscript, meetingFormat || '');
       }
       meta = { legacy: true, outputType, lang: langHint };
     }
@@ -955,15 +1075,16 @@ if (formatId && localeResolved) {
         // JSONでなければ無視
       }
       if (process.env.LOG_TRANSCRIPT === '1') {
-        logLong('[TRANSCRIPT]', transcript);
+        logLong('[TRANSCRIPT]', rawTranscript);
       }
       if (process.env.LOG_LOCALE === '1') {
         console.log(`[GENERATE] localeResolved=${localeResolved}`);
       }
     }
 
+    // ★ レスポンスの transcription は「元の全文」を返す（iOS の allText と同じ発想）
     return res.json({
-      transcription: transcript.trim(),
+      transcription: rawTranscript,
       minutes,
       meta,
     });
@@ -972,6 +1093,7 @@ if (formatId && localeResolved) {
     return res.status(500).json({ error: 'Internal error', details: err.message });
   }
 });
+
 
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
