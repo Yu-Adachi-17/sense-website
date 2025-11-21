@@ -522,21 +522,7 @@ ${badOutput}
   return await callGemini(systemMessage, userMessage, generationConfig);
 }
 
-async function generateFlexibleMinutes(transcription, langHint) {
-  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
-  
-  // buildFlexibleMessages は OpenAI 形式の messages 配列を返す
-  const openAIMessages = buildFlexibleMessages({
-    transcript: transcription,
-    lang: langHint,
-    currentDateISO: new Date().toISOString(),
-  });
-  
-  // OpenAI形式の 'messages' を Gemini 形式 (systemInstruction, userMessage) に変換
-  // (system が最初、user が最後と仮定)
-  const systemMessage = openAIMessages.find(m => m.role === 'system')?.content || '';
-  const userMessage = openAIMessages.find(m => m.role === 'user')?.content || '';
-  // === Gemini transcript normalization (mirror iOS GeminiFlashModel) ===
+// === Gemini transcript normalization (mirror iOS GeminiFlashModel) ===
 const MAX_TOTAL_TRANSCRIPT_CHARS = 1_000_000;        // 生テキストの絶対上限（保険）
 const MAX_ONESHOT_TRANSCRIPT_CHARS = 300_000;        // iOS と合わせる「1回投げ」の上限
 const LONG_MEETING_SLICE_COUNT = 5;                  // 超長時間会議の分割数（iOS と同じ思想）
@@ -640,6 +626,21 @@ ${chunk}
   return combined;
 }
 
+
+async function generateFlexibleMinutes(transcription, langHint) {
+  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
+  
+  // buildFlexibleMessages は OpenAI 形式の messages 配列を返す
+  const openAIMessages = buildFlexibleMessages({
+    transcript: transcription,
+    lang: langHint,
+    currentDateISO: new Date().toISOString(),
+  });
+  
+  // OpenAI形式の 'messages' を Gemini 形式 (systemInstruction, userMessage) に変換
+  // (system が最初、user が最後と仮定)
+  const systemMessage = openAIMessages.find(m => m.role === 'system')?.content || '';
+  const userMessage = openAIMessages.find(m => m.role === 'user')?.content || '';
 
   if (!userMessage) {
     console.error("[ERROR] generateFlexibleMinutes: Could not find user message in buildFlexibleMessages output.");
