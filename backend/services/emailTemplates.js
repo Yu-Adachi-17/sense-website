@@ -36,7 +36,7 @@ function normalizeTranscript(transcription) {
   }
 }
 
-// locale → 短縮コード (ja-JP → ja)
+// locale → 短縮コード (ja-JP / ja_jp → ja)
 function getShortLocale(locale) {
   if (!locale) return "en";
   return String(locale).toLowerCase().split(/[-_]/)[0] || "en";
@@ -46,78 +46,123 @@ function getShortLocale(locale) {
 
 const EMAIL_LOCALES_DIR = path.join(__dirname, "..", "locales", "email");
 
-// 英語のデフォルト（どの言語でも、足りないキーはここで補完）
+// 「メール本文で使うラベル」のマスタ
 const BASE_LABELS_EN = {
+  // 章タイトル
   minutesHeading: "Minutes",
   transcriptHeading: "Full Transcript",
+
+  // メタ情報
+  dateLabel: "Date",
+  locationLabel: "Location",
+  attendeesLabel: "Attendees",
+  coreMessageLabel: "Core Message",
+
+  // FlexibleNote / MeetingMinutes 共通
   date: "Date",
   summary: "Summary",
+  summaryLabel: "Summary",
   section: "Section",
+  sectionLabel: "Section",
   topic: "Topic",
+  topicFallback: "Topic",
 
-  location: "Location",
-  attendees: "Attendees",
-  coreMessage: "Core Message",
-
-  discussion: "Discussion",
-  decisions: "Decisions",
-  actionItems: "Action Items",
-  concerns: "Concerns",
-  keyMessages: "Key Messages",
+  // トピック内セクション
+  discussionLabel: "Discussion",
+  decisionsLabel: "Decisions",
+  actionItemsLabel: "Action Items",
+  concernsLabel: "Concerns",
+  keyMessagesLabel: "Key Messages",
 };
 
 const labelsCache = {}; // shortLocale → labels
 
-// ja.json 等の構造を、メール用ラベル構造にマッピングする
-function buildLabelsFromJson(json) {
-  // { "labels": { ... } } 形式も許容
-  const root =
-    json && typeof json === "object" && json.labels ? json.labels : json || {};
-
-  // まず英語で初期化
+// locales/email/ja.json の巨大な JSON から、メールで使うラベルだけを抜き出す
+function buildLabelsFromJson(root) {
   const labels = { ...BASE_LABELS_EN };
+  if (!root || typeof root !== "object") return labels;
 
-  // --- グローバル直下のキーから取れるもの ---
-  if (root["Minutes"]) labels.minutesHeading = root["Minutes"];
-  if (root["Full Transcript"])
-    labels.transcriptHeading = root["Full Transcript"];
-
-  if (root["Date"]) labels.date = root["Date"];
-  if (root["Summary"]) labels.summary = root["Summary"];
-  if (root["Topic"]) labels.topic = root["Topic"];
-  if (root["Section"]) labels.section = root["Section"];
-
-  if (root["Location"]) labels.location = root["Location"];
-  if (root["Attendees"]) labels.attendees = root["Attendees"];
-  if (root["Core Message"]) labels.coreMessage = root["Core Message"];
-
-  if (root["Discussion"]) labels.discussion = root["Discussion"];
-  if (root["Decisions"]) labels.decisions = root["Decisions"];
-  if (root["Action Items"]) labels.actionItems = root["Action Items"];
-  if (root["Concerns"]) labels.concerns = root["Concerns"];
-  if (root["Key Messages"]) labels.keyMessages = root["Key Messages"];
-
-  // --- minutes セクション（今回一番使いたいところ） ---
-  const m = root.minutes && typeof root.minutes === "object" ? root.minutes : null;
-  if (m) {
-    // タイトル用: minutesTitleFallback があればそれを優先
-    if (m.minutesTitleFallback) labels.minutesHeading = m.minutesTitleFallback;
-
-    if (m.date) labels.date = m.date;
-    if (m.summary) labels.summary = m.summary;
-    if (m.topic) labels.topic = m.topic;
-    if (m.sections) labels.section = m.sections;
-
-    if (m.location) labels.location = m.location;
-    if (m.attendees) labels.attendees = m.attendees;
-    if (m.coreMessage) labels.coreMessage = m.coreMessage;
-
-    if (m.discussion) labels.discussion = m.discussion;
-    if (m.decisions) labels.decisions = m.decisions;
-    if (m.actionItems) labels.actionItems = m.actionItems;
-    if (m.concerns) labels.concerns = m.concerns;
-    if (m.keyMessages) labels.keyMessages = m.keyMessages;
+  // --- 1) トップレベル（"Minutes", "Full Transcript" など） ---
+  if (typeof root["Minutes"] === "string") {
+    labels.minutesHeading = root["Minutes"];
   }
+  if (typeof root["Full Transcript"] === "string") {
+    labels.transcriptHeading = root["Full Transcript"];
+  }
+
+  // Date / Summary / Topic / Section のトップレベルキー（あれば仮で採用）
+  if (typeof root["Date"] === "string") {
+    labels.date = root["Date"];
+    labels.dateLabel = root["Date"];
+  }
+  if (typeof root["Summary"] === "string") {
+    labels.summary = root["Summary"];
+    labels.summaryLabel = root["Summary"];
+  }
+  if (typeof root["Topic"] === "string") {
+    labels.topic = root["Topic"];
+    labels.topicFallback = root["Topic"];
+  }
+  if (typeof root["Section"] === "string") {
+    labels.section = root["Section"];
+    labels.sectionLabel = root["Section"];
+  }
+
+  // --- 2) minutes ネームスペース配下を優先採用 ---
+  const minutes =
+    root.minutes && typeof root.minutes === "object" ? root.minutes : {};
+
+  // メタ情報
+  if (typeof minutes.date === "string") {
+    labels.date = minutes.date;
+    labels.dateLabel = minutes.date;
+  }
+  if (typeof minutes.location === "string") {
+    labels.locationLabel = minutes.location;
+  }
+  if (typeof minutes.attendees === "string") {
+    labels.attendeesLabel = minutes.attendees;
+  }
+  if (typeof minutes.coreMessage === "string") {
+    labels.coreMessageLabel = minutes.coreMessage;
+  }
+
+  // トピック系の共通ラベル
+  if (typeof minutes.topic === "string") {
+    labels.topic = minutes.topic;
+  }
+  if (typeof minutes.topicFallback === "string") {
+    labels.topicFallback = minutes.topicFallback;
+  }
+  if (typeof minutes.sections === "string") {
+    labels.section = minutes.sections;
+    labels.sectionLabel = minutes.sections;
+  }
+  if (typeof minutes.summary === "string") {
+    labels.summary = minutes.summary;
+    labels.summaryLabel = minutes.summary;
+  }
+
+  // セクション名（議論 / 決定 / TODO / 懸念 / 重要ポイント）
+  if (typeof minutes.discussion === "string") {
+    labels.discussionLabel = minutes.discussion;
+  }
+  if (typeof minutes.decisions === "string") {
+    labels.decisionsLabel = minutes.decisions;
+  }
+  if (typeof minutes.actionItems === "string") {
+    labels.actionItemsLabel = minutes.actionItems;
+  }
+  if (typeof minutes.concerns === "string") {
+    labels.concernsLabel = minutes.concerns;
+  }
+  if (typeof minutes.keyMessages === "string") {
+    labels.keyMessagesLabel = minutes.keyMessages;
+  }
+
+  // 将来の拡張用にそのまま持っておく（Brainstorm / Interview / Lecture など）
+  labels.formats = root.formats || {};
+  labels.minutesDict = minutes;
 
   return labels;
 }
@@ -125,10 +170,7 @@ function buildLabelsFromJson(json) {
 function loadLabelsFromFile(locale) {
   const short = getShortLocale(locale);
 
-  // 優先順:
-  //   1) 完全なロケール名のファイル (例: pt-BR.json)
-  //   2) 短縮ロケール名のファイル (例: pt.json)
-  //   3) en.json
+  // 優先順: 完全ロケール → 短縮ロケール → en
   const candidates = [];
   if (locale) {
     candidates.push(`${locale}.json`);
@@ -145,13 +187,13 @@ function loadLabelsFromFile(locale) {
     try {
       const raw = fs.readFileSync(fullPath, "utf8");
       const json = JSON.parse(raw);
-
       const labels = buildLabelsFromJson(json);
 
       console.log(
         `[EMAIL_I18N] loaded labels for locale=${locale} (file=${file}) ` +
-          `(minutesHeading=${labels.minutesHeading}, date=${labels.date}, summary=${labels.summary}, topic=${labels.topic})`
+          `minutesHeading=${labels.minutesHeading}, date=${labels.date}, summary=${labels.summary}, topic=${labels.topic}`
       );
+
       return labels;
     } catch (e) {
       console.error(
@@ -171,12 +213,10 @@ function loadLabelsFromFile(locale) {
 // 呼び出し側は getLabels(locale) だけ使えば OK
 function getLabels(locale) {
   const short = getShortLocale(locale);
-  if (labelsCache[short]) {
-    return labelsCache[short];
+  if (!labelsCache[short]) {
+    labelsCache[short] = loadLabelsFromFile(locale);
   }
-
-  const labels = loadLabelsFromFile(locale);
-  labelsCache[short] = labels;
+  const labels = labelsCache[short];
 
   console.log(
     `[EMAIL_I18N] getLabels locale=${locale} short=${short} -> ` +
@@ -185,8 +225,6 @@ function getLabels(locale) {
 
   return labels;
 }
-
-
 
 // ========== JSON 判定ヘルパー ==========
 
@@ -274,7 +312,9 @@ function buildFlexibleNoteHTML(note, locale) {
   }
   if (note.date) {
     out.push(
-      `<p><strong>${escapeHtml(date)}:</strong> ${escapeHtml(note.date)}</p>`
+      `<p><strong>${escapeHtml(date)}:</strong> ${escapeHtml(
+        note.date
+      )}</p>`
     );
   }
 
@@ -313,24 +353,23 @@ function buildFlexibleNoteHTML(note, locale) {
   return out.join("\n");
 }
 
-// ========== MeetingMinutes レンダリング（簡易版） ==========
-// ここは FlexibleNote ほどきっちりでなくてOKな前提
-
+// ========== MeetingMinutes レンダリング ==========
+// MeetingMinutes 構造体を「共通フォーマット」で描画する
 
 function buildMeetingMinutesText(mm, locale) {
-  const labels = getLabels(locale);
+  const L = getLabels(locale);
   const lines = [];
 
   if (mm.meetingTitle) lines.push(String(mm.meetingTitle));
-  if (mm.date) lines.push(`${labels.date}: ${mm.date}`);
-  if (mm.location) lines.push(`${labels.location}: ${mm.location}`);
+  if (mm.date) lines.push(`${L.date}: ${mm.date}`);
+  if (mm.location) lines.push(`${L.locationLabel}: ${mm.location}`);
   if (Array.isArray(mm.attendees) && mm.attendees.length > 0) {
-    lines.push(`${labels.attendees}: ${mm.attendees.join(", ")}`);
+    lines.push(`${L.attendeesLabel}: ${mm.attendees.join(", ")}`);
   }
   lines.push("");
 
   if (mm.coreMessage) {
-    lines.push(labels.coreMessage);
+    lines.push(L.coreMessageLabel);
     lines.push("");
     lines.push(mm.coreMessage);
     lines.push("");
@@ -341,15 +380,15 @@ function buildMeetingMinutesText(mm, locale) {
       const title =
         t.topic && String(t.topic).trim().length > 0
           ? String(t.topic)
-          : `${labels.topic} ${idx + 1}`;
+          : `${L.topicFallback || L.topic} ${idx + 1}`;
       lines.push(title);
 
       const sections = [
-        { key: "discussion", label: labels.discussion },
-        { key: "decisions", label: labels.decisions },
-        { key: "actionItems", label: labels.actionItems },
-        { key: "concerns", label: labels.concerns },
-        { key: "keyMessages", label: labels.keyMessages },
+        { key: "discussion", label: L.discussionLabel },
+        { key: "decisions", label: L.decisionsLabel },
+        { key: "actionItems", label: L.actionItemsLabel },
+        { key: "concerns", label: L.concernsLabel },
+        { key: "keyMessages", label: L.keyMessagesLabel },
       ];
 
       sections.forEach(({ key, label }) => {
@@ -370,9 +409,8 @@ function buildMeetingMinutesText(mm, locale) {
   return lines.join("\n").trim();
 }
 
-
 function buildMeetingMinutesHTML(mm, locale) {
-  const labels = getLabels(locale);
+  const L = getLabels(locale);
   const out = [];
 
   if (mm.meetingTitle) {
@@ -380,24 +418,28 @@ function buildMeetingMinutesHTML(mm, locale) {
   }
   if (mm.date) {
     out.push(
-      `<p><strong>${escapeHtml(labels.date)}:</strong> ${escapeHtml(
+      `<p><strong>${escapeHtml(L.date)}:</strong> ${escapeHtml(
         mm.date
       )}</p>`
     );
   }
   if (mm.location) {
-    out.push(`<p><strong>Location:</strong> ${escapeHtml(mm.location)}</p>`);
+    out.push(
+      `<p><strong>${escapeHtml(L.locationLabel)}:</strong> ${escapeHtml(
+        mm.location
+      )}</p>`
+    );
   }
   if (Array.isArray(mm.attendees) && mm.attendees.length > 0) {
     out.push(
-      `<p><strong>Attendees:</strong> ${escapeHtml(
+      `<p><strong>${escapeHtml(L.attendeesLabel)}:</strong> ${escapeHtml(
         mm.attendees.join(", ")
       )}</p>`
     );
   }
 
   if (mm.coreMessage) {
-    out.push("<h2>Core Message</h2>");
+    out.push(`<h2>${escapeHtml(L.coreMessageLabel)}</h2>`);
     out.push(`<p>${escapeHtml(mm.coreMessage)}</p>`);
   }
 
@@ -406,15 +448,15 @@ function buildMeetingMinutesHTML(mm, locale) {
       const title =
         t.topic && String(t.topic).trim().length > 0
           ? String(t.topic)
-          : `${labels.topic} ${idx + 1}`;
+          : `${L.topicFallback || L.topic} ${idx + 1}`;
       out.push(`<h2>${escapeHtml(title)}</h2>`);
 
       const sections = [
-        { key: "discussion", label: "Discussion" },
-        { key: "decisions", label: "Decisions" },
-        { key: "actionItems", label: "Action Items" },
-        { key: "concerns", label: "Concerns" },
-        { key: "keyMessages", label: "Key Messages" },
+        { key: "discussion", label: L.discussionLabel },
+        { key: "decisions", label: L.decisionsLabel },
+        { key: "actionItems", label: L.actionItemsLabel },
+        { key: "concerns", label: L.concernsLabel },
+        { key: "keyMessages", label: L.keyMessagesLabel },
       ];
 
       sections.forEach(({ key, label }) => {
@@ -446,7 +488,7 @@ function buildCoreMinutesBodies({ minutes, locale }) {
     minutesText = buildFlexibleNoteText(obj, locale);
     minutesHtml = buildFlexibleNoteHTML(obj, locale);
   } else if (isMeetingMinutesShape(obj)) {
-    // MeetingMinutes JSON → 簡易レイアウト
+    // MeetingMinutes JSON → 共通レイアウト
     minutesText = buildMeetingMinutesText(obj, locale);
     minutesHtml = buildMeetingMinutesHTML(obj, locale);
   } else {
@@ -475,27 +517,25 @@ function buildMinutesEmailBodies({ minutes, transcription, locale }) {
   });
   const transcriptText = normalizeTranscript(transcription);
 
-  // ★ デバッグ
-  console.log(
-    `[EMAIL_I18N] buildMinutesEmailBodies locale=${locale} ` +
-      `(minutesHeading=${labels.minutesHeading})`
-  );
+  // テキスト版（上に Minutes 見出しは付けない）
+  const parts = [];
 
-  // テキスト版は「Minutes」のラベルをつけず、素の minutesText から始める
-  const textParts = [
-    minutesText || "(no minutes)",
-  ];
-
-  if (transcriptText) {
-    textParts.push("");
-    textParts.push(`=== ${labels.transcriptHeading} ===`);
-    textParts.push("");
-    textParts.push(transcriptText);
+  if (minutesText && minutesText.trim().length > 0) {
+    parts.push(minutesText);
+  } else {
+    parts.push("(no minutes)");
   }
 
-  const textBody = textParts.join("\n");
+  if (transcriptText) {
+    parts.push("");
+    parts.push(`=== ${labels.transcriptHeading} ===`);
+    parts.push("");
+    parts.push(transcriptText);
+  }
 
-  // HTML版も <h2>Minutes</h2> をつけずに、minutesHtml をそのまま使う
+  const textBody = parts.join("\n");
+
+  // HTML 版（こちらも Minutes 見出しは付けずに、そのまま本文から）
   let htmlBody = minutesHtml;
 
   if (transcriptText) {
@@ -510,35 +550,29 @@ function buildMinutesEmailBodies({ minutes, transcription, locale }) {
   return { textBody, htmlBody };
 }
 
-
 /**
  * Minutes だけを送るメール本文
  * - /api/minutes-email-from-audio で使用（Transcriptは付けない）
  */
 function buildMinutesOnlyEmailBodies({ minutes, locale }) {
-  const labels = getLabels(locale);
   const { minutesText, minutesHtml } = buildCoreMinutesBodies({
     minutes,
     locale,
   });
-
-  // ★ デバッグ
-  console.log(
-    `[EMAIL_I18N] buildMinutesOnlyEmailBodies locale=${locale} ` +
-      `(minutesHeading=${labels.minutesHeading})`
-  );
 
   const textBody =
     minutesText && minutesText.trim().length > 0
       ? minutesText
       : "(no minutes)";
 
-  // ここでも <h2>Minutes</h2> は付けず、生成済み minutesHtml をそのまま使う
   const htmlBody = minutesHtml;
+
+  console.log(
+    `[EMAIL_I18N] buildMinutesOnlyEmailBodies locale=${locale}`
+  );
 
   return { textBody, htmlBody };
 }
-
 
 module.exports = {
   buildMinutesEmailBodies, // ({ minutes, transcription, locale })
