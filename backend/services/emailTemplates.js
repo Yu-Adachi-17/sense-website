@@ -1,5 +1,3 @@
-// backend/services/emailTemplates.js
-
 const fs = require("fs");
 const path = require("path");
 
@@ -67,12 +65,147 @@ const BASE_LABELS_EN = {
   topic: "Topic",
   topicFallback: "Topic",
 
-  // トピック内セクション
+  // トピック内セクション（共通）
   discussionLabel: "Discussion",
   decisionsLabel: "Decisions",
   actionItemsLabel: "Action Items",
   concernsLabel: "Concerns",
   keyMessagesLabel: "Key Messages",
+
+  // ===== Minutes 共通項目（拡張） =====
+  minutesTitleFallback: "Minutes",
+  noContentProvided: "No content provided",
+  noContentProvidedTitle: "No content provided",
+
+  proposal: "Proposal",
+  background: "Background",
+  discussionPoints: "Discussion points",
+  decisionsAndTasks: "Decisions & tasks",
+  coreProblem: "Core problem",
+  expectedResult: "Expected result",
+  overview: "Overview",
+
+  sections: "Sections",
+  topics: "Topics",
+  items: "Items",
+  content: "Content",
+  body: "Body",
+
+  meetingTitle: "Meeting title",
+  location: "Location",
+  attendees: "Attendees",
+  coreMessage: "Core message",
+  keyMessages: "Key messages",
+
+  // ===== Brainstorming =====
+  brainstorming: {
+    problemToSolve: "Problem to solve",
+    topIdea: "Top idea",
+    meritsAndEffects: "Benefits & impact",
+    drawbacksAndRisks: "Drawbacks & risks",
+    runnerUpIdea: "Runner-up idea",
+    allIdeas: "All ideas",
+    ideaTitle: "Idea title",
+
+    ideaDetail: "Idea details",
+    benefitsAndEffects: "Benefits & impact",
+    brainstormRunnerUps: "Runner-up ideas",
+    brainstormIdeaTable: "Idea list",
+    description: "Description",
+    runnerUpIdeas: "Runner-up ideas",
+    ideaTable: "Idea list"
+  },
+
+  // ===== Job Interview =====
+  jobInterview: {
+    motivation: "Motivation",
+    careerSummary: "Career summary",
+    successes: "Successes",
+    failures: "Failures",
+    strengths: "Strengths & skills",
+    weaknesses: "Weaknesses & improvements",
+    values: "Work values",
+    careerVision: "Career vision",
+    understandingOfCompany: "Understanding of the company",
+    workStyleAndConditions: "Work style & conditions",
+    applicantQuestions: "Questions from applicant (Q&A)",
+    passionMessage: "Passion & message"
+  },
+
+  // ===== Lecture / Training =====
+  lecture: {
+    objectives: "Lecture objectives",
+    procedures: "Operations",
+    notesAndRemarks: "Notes & remarks",
+    examplesAndScenarios: "Examples & scenarios",
+    dos: "Dos",
+    donts: "Don'ts",
+    tipsAndInsights: "Tips & insights",
+
+    attendees: "Attendees",
+    lectureObjectives: "Lecture objectives",
+    lectureProcedures: "Operations",
+    section: "Section",
+    steps: "Steps",
+    lectureExamples: "Examples & scenarios",
+    lectureDosAndDonts: "Dos & don'ts",
+    lectureTips: "Tips",
+    highlightedStatements: "Highlighted statements"
+  },
+
+  // ===== 1on1 =====
+  oneonone: {
+    title: "1on1",
+    recentSuccess: "Recent success",
+    contributingFactors: "Contributing factors",
+    scalableAction: "Scalable action",
+    managerFeedback: "Manager feedback",
+    challengeFaced: "Challenge faced",
+    bottleneck: "Bottleneck",
+    improvementStrategy: "Improvement strategy",
+    futureExpectation: "Future expectation",
+    reasonForExpectation: "Reason for expectation",
+    preparationForFuture: "Preparation for the future",
+    concern: "Concern",
+    reasonForConcern: "Reason for concern",
+    mitigationIdeas: "Mitigation ideas",
+    mentalAspects: "Mental aspects",
+    feelingsAndBackground: "Feelings & background",
+    emotionalChange: "Emotional change",
+    nextAction: "Next action",
+    coreEmotion: "Core emotion",
+    topicGroup: "Topic group",
+    expectation: "Expectation",
+    worry: "Worry",
+    why: "Why",
+    whatCausedIt: "What caused it",
+    nextTimeStrategy: "Strategy for next time",
+    preparation: "Preparation",
+
+    groupedOneOnOneTopics: "Grouped topics",
+    topicNumber: "Topic number",
+    groupTitle: "Group title",
+    momentOfSuccess: "Recent success moment",
+    yourContribution: "Your contribution",
+    emotionAndBackground: "Emotion & background",
+    solutionHint: "Hint for solution",
+    forBetter: "Actions going forward"
+  },
+
+  // ===== 共通：提案・プレゼン =====
+  proposals: "Proposals",
+  proposalReasons: "Reasons for proposal",
+  proposedBy: "Proposed by",
+  keyDiscussion: "Key discussion",
+
+  presentationPresenter: "Presenter",
+  presentationCoreProblem: "Problem to solve",
+  presentationProposal: "Proposal",
+  presentationExpectedResult: "Expected result",
+  presentationSpeakerPassion: "Closing message",
+  presentationQandA: "Q&A",
+  presentationDecisionsAndTasks: "Decisions & tasks",
+  presentationFeedback: "Feedback"
 };
 
 const labelsCache = {}; // shortLocale → labels
@@ -125,6 +258,7 @@ function buildLabelsFromJson(root) {
   }
   if (typeof minutes.coreMessage === "string") {
     labels.coreMessageLabel = minutes.coreMessage;
+    labels.coreMessage = minutes.coreMessage;
   }
 
   // トピック系の共通ラベル
@@ -158,7 +292,65 @@ function buildLabelsFromJson(root) {
   }
   if (typeof minutes.keyMessages === "string") {
     labels.keyMessagesLabel = minutes.keyMessages;
+    labels.keyMessages = minutes.keyMessages;
   }
+
+  // ===== Minutes 共通項目（スカラー系） =====
+  const scalarMinutesKeys = [
+    "minutesTitleFallback",
+    "noContentProvided",
+    "noContentProvidedTitle",
+    "proposal",
+    "background",
+    "discussionPoints",
+    "decisionsAndTasks",
+    "coreProblem",
+    "expectedResult",
+    "overview",
+    "sections",
+    "topics",
+    "items",
+    "content",
+    "body",
+    "meetingTitle",
+    "location",
+    "attendees",
+    "coreMessage",
+    "keyMessages",
+    "proposals",
+    "proposalReasons",
+    "proposedBy",
+    "keyDiscussion",
+    "presentationPresenter",
+    "presentationCoreProblem",
+    "presentationProposal",
+    "presentationExpectedResult",
+    "presentationSpeakerPassion",
+    "presentationQandA",
+    "presentationDecisionsAndTasks",
+    "presentationFeedback"
+  ];
+
+  scalarMinutesKeys.forEach((key) => {
+    if (typeof minutes[key] === "string") {
+      labels[key] = minutes[key];
+    }
+  });
+
+  // ===== ネストされた minutes セクション（brainstorming / jobInterview / lecture / oneonone） =====
+  const nestedSections = ["brainstorming", "jobInterview", "lecture", "oneonone"];
+
+  nestedSections.forEach((sectionName) => {
+    const baseSection =
+      labels[sectionName] && typeof labels[sectionName] === "object"
+        ? labels[sectionName]
+        : {};
+    const localeSection =
+      minutes[sectionName] && typeof minutes[sectionName] === "object"
+        ? minutes[sectionName]
+        : {};
+    labels[sectionName] = { ...baseSection, ...localeSection };
+  });
 
   // 将来の拡張用にそのまま持っておく（Brainstorm / Interview / Lecture など）
   labels.formats = root.formats || {};
@@ -388,7 +580,7 @@ function buildMeetingMinutesText(mm, locale) {
         { key: "decisions", label: L.decisionsLabel },
         { key: "actionItems", label: L.actionItemsLabel },
         { key: "concerns", label: L.concernsLabel },
-        { key: "keyMessages", label: L.keyMessagesLabel },
+        { key: "keyMessages", label: L.keyMessagesLabel }
       ];
 
       sections.forEach(({ key, label }) => {
@@ -456,7 +648,7 @@ function buildMeetingMinutesHTML(mm, locale) {
         { key: "decisions", label: L.decisionsLabel },
         { key: "actionItems", label: L.actionItemsLabel },
         { key: "concerns", label: L.concernsLabel },
-        { key: "keyMessages", label: L.keyMessagesLabel },
+        { key: "keyMessages", label: L.keyMessagesLabel }
       ];
 
       sections.forEach(({ key, label }) => {
@@ -513,7 +705,7 @@ function buildMinutesEmailBodies({ minutes, transcription, locale }) {
   const labels = getLabels(locale);
   const { minutesText, minutesHtml } = buildCoreMinutesBodies({
     minutes,
-    locale,
+    locale
   });
   const transcriptText = normalizeTranscript(transcription);
 
@@ -557,7 +749,7 @@ function buildMinutesEmailBodies({ minutes, transcription, locale }) {
 function buildMinutesOnlyEmailBodies({ minutes, locale }) {
   const { minutesText, minutesHtml } = buildCoreMinutesBodies({
     minutes,
-    locale,
+    locale
   });
 
   const textBody =
@@ -576,5 +768,5 @@ function buildMinutesOnlyEmailBodies({ minutes, locale }) {
 
 module.exports = {
   buildMinutesEmailBodies, // ({ minutes, transcription, locale })
-  buildMinutesOnlyEmailBodies, // ({ minutes, locale })
+  buildMinutesOnlyEmailBodies // ({ minutes, locale })
 };
