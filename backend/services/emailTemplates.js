@@ -1,3 +1,5 @@
+// services/emailTemplates.js
+
 const fs = require("fs");
 const path = require("path");
 
@@ -548,6 +550,97 @@ function buildFlexibleNoteHTML(note, locale) {
 // ========== MeetingMinutes レンダリング ==========
 // MeetingMinutes 構造体を「共通フォーマット」で描画する
 
+// セクション値をテキスト行配列に正規化
+function normalizeSectionValueToLines(val) {
+  if (val == null) return [];
+  if (Array.isArray(val)) {
+    const out = [];
+    val.forEach((item) => {
+      if (item == null) return;
+      if (typeof item === "string") {
+        const trimmed = item.trim();
+        if (trimmed) out.push(trimmed);
+      } else {
+        out.push(String(item));
+      }
+    });
+    return out;
+  }
+  if (typeof val === "string") {
+    const trimmed = val.trim();
+    if (!trimmed) return [];
+    return trimmed
+      .split(/\r?\n/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+  return [String(val)];
+}
+
+function stringifyKeyDiscussionItem(item) {
+  if (item == null) return "";
+  if (typeof item === "string") return item.trim();
+  if (typeof item !== "object") return String(item);
+
+  const speaker =
+    item.speaker ||
+    item.speakerName ||
+    item.name ||
+    item.role ||
+    item.presenter ||
+    null;
+  const summary =
+    item.summary ||
+    item.content ||
+    item.message ||
+    item.text ||
+    item.comment ||
+    null;
+
+  if (speaker && summary) return `${speaker}: ${summary}`;
+  if (summary) return String(summary);
+  if (speaker) return String(speaker);
+
+  try {
+    return JSON.stringify(item);
+  } catch {
+    return String(item);
+  }
+}
+
+function appendSectionText(lines, label, value) {
+  const rows = normalizeSectionValueToLines(value);
+  if (!rows || rows.length === 0) return;
+
+  if (label) {
+    lines.push("");
+    lines.push(String(label));
+  }
+
+  rows.forEach((row) => {
+    if (row && row.trim().length > 0) {
+      lines.push(`- ${row}`);
+    }
+  });
+}
+
+function appendSectionHTML(out, label, value) {
+  const rows = normalizeSectionValueToLines(value);
+  if (!rows || rows.length === 0) return;
+
+  if (label) {
+    out.push(`<h3>${escapeHtml(String(label))}</h3>`);
+  }
+
+  out.push("<ul>");
+  rows.forEach((row) => {
+    if (row && row.trim().length > 0) {
+      out.push(`<li>${escapeHtml(row)}</li>`);
+    }
+  });
+  out.push("</ul>");
+}
+
 function buildMeetingMinutesText(mm, locale) {
   const L = getLabels(locale);
   const lines = [];
@@ -567,15 +660,39 @@ function buildMeetingMinutesText(mm, locale) {
     lines.push("");
   }
 
+  // ルートレベルの提案系フィールド（交渉・プレゼンなどで使う）
+  const rootSections = [
+    { key: "overview", label: L.overview },
+    { key: "coreProblem", label: L.coreProblem },
+    { key: "proposal", label: L.proposal },
+    { key: "expectedResult", label: L.expectedResult },
+    { key: "discussionPoints", label: L.discussionPoints },
+    { key: "decisionsAndTasks", label: L.decisionsAndTasks },
+    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages }
+  ];
+
+  rootSections.forEach(({ key, label }) => {
+    if (mm[key] != null) {
+      appendSectionText(lines, label, mm[key]);
+    }
+  });
+
   if (Array.isArray(mm.topics)) {
     mm.topics.forEach((t, idx) => {
       const title =
         t.topic && String(t.topic).trim().length > 0
           ? String(t.topic)
           : `${L.topicFallback || L.topic} ${idx + 1}`;
+      lines.push("");
       lines.push(title);
 
-      const sections = [
+      const topicSections = [
+        { key: "overview", label: L.overview },
+        { key: "coreProblem", label: L.coreProblem },
+        { key: "proposal", label: L.proposal },
+        { key: "expectedResult", label: L.expectedResult },
+        { key: "discussionPoints", label: L.discussionPoints },
+        { key: "decisionsAndTasks", label: L.decisionsAndTasks },
         { key: "discussion", label: L.discussionLabel },
         { key: "decisions", label: L.decisionsLabel },
         { key: "actionItems", label: L.actionItemsLabel },
@@ -583,16 +700,25 @@ function buildMeetingMinutesText(mm, locale) {
         { key: "keyMessages", label: L.keyMessagesLabel }
       ];
 
-      sections.forEach(({ key, label }) => {
-        const val = t[key];
-        if (Array.isArray(val) && val.length > 0) {
-          lines.push("");
-          lines.push(label);
-          val.forEach((d) => {
-            lines.push(`- ${d}`);
-          });
+      topicSections.forEach(({ key, label }) => {
+        if (t[key] != null) {
+          appendSectionText(lines, label, t[key]);
         }
       });
+
+      // keyDiscussion（話者付き要約など）専用処理
+      if (Array.isArray(t.keyDiscussion) && t.keyDiscussion.length > 0) {
+        const kdLines = t.keyDiscussion
+          .map(stringifyKeyDiscussionItem)
+          .filter((s) => s && s.trim().length > 0);
+        if (kdLines.length > 0) {
+          appendSectionText(
+            lines,
+            L.keyDiscussion || "Key discussion",
+            kdLines
+          );
+        }
+      }
 
       lines.push("");
     });
@@ -635,6 +761,23 @@ function buildMeetingMinutesHTML(mm, locale) {
     out.push(`<p>${escapeHtml(mm.coreMessage)}</p>`);
   }
 
+  // ルートレベルの提案系フィールド
+  const rootSections = [
+    { key: "overview", label: L.overview },
+    { key: "coreProblem", label: L.coreProblem },
+    { key: "proposal", label: L.proposal },
+    { key: "expectedResult", label: L.expectedResult },
+    { key: "discussionPoints", label: L.discussionPoints },
+    { key: "decisionsAndTasks", label: L.decisionsAndTasks },
+    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages }
+  ];
+
+  rootSections.forEach(({ key, label }) => {
+    if (mm[key] != null) {
+      appendSectionHTML(out, label, mm[key]);
+    }
+  });
+
   if (Array.isArray(mm.topics)) {
     mm.topics.forEach((t, idx) => {
       const title =
@@ -643,7 +786,13 @@ function buildMeetingMinutesHTML(mm, locale) {
           : `${L.topicFallback || L.topic} ${idx + 1}`;
       out.push(`<h2>${escapeHtml(title)}</h2>`);
 
-      const sections = [
+      const topicSections = [
+        { key: "overview", label: L.overview },
+        { key: "coreProblem", label: L.coreProblem },
+        { key: "proposal", label: L.proposal },
+        { key: "expectedResult", label: L.expectedResult },
+        { key: "discussionPoints", label: L.discussionPoints },
+        { key: "decisionsAndTasks", label: L.decisionsAndTasks },
         { key: "discussion", label: L.discussionLabel },
         { key: "decisions", label: L.decisionsLabel },
         { key: "actionItems", label: L.actionItemsLabel },
@@ -651,17 +800,24 @@ function buildMeetingMinutesHTML(mm, locale) {
         { key: "keyMessages", label: L.keyMessagesLabel }
       ];
 
-      sections.forEach(({ key, label }) => {
-        const val = t[key];
-        if (Array.isArray(val) && val.length > 0) {
-          out.push(`<h3>${escapeHtml(label)}</h3>`);
-          out.push("<ul>");
-          val.forEach((d) => {
-            out.push(`<li>${escapeHtml(d)}</li>`);
-          });
-          out.push("</ul>");
+      topicSections.forEach(({ key, label }) => {
+        if (t[key] != null) {
+          appendSectionHTML(out, label, t[key]);
         }
       });
+
+      if (Array.isArray(t.keyDiscussion) && t.keyDiscussion.length > 0) {
+        const kdLines = t.keyDiscussion
+          .map(stringifyKeyDiscussionItem)
+          .filter((s) => s && s.trim().length > 0);
+        if (kdLines.length > 0) {
+          appendSectionHTML(
+            out,
+            L.keyDiscussion || "Key discussion",
+            kdLines
+          );
+        }
+      }
     });
   }
 

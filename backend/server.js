@@ -1328,9 +1328,17 @@ app.post(
       });
 
       console.log(
+        '[EMAIL_JOB] textBody length =',
+        textBody ? textBody.length : 0,
+        'htmlBody length =',
+        htmlBody ? htmlBody.length : 0
+      );
+
+      console.log(
         '[EMAIL_JOB] Ready to send email with minutes to:',
         recipients
       );
+
 
       let mailgunResult = null;
       try {
