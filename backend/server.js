@@ -930,9 +930,15 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 
     const meetingFormat = req.body.meetingFormat;
     const outputType = (req.body.outputType || 'flexible').toLowerCase(); // 'flexible' | 'classic'
-    const langHint = req.body.lang || null;
+
+    // locale/lang 解決（Gemini のヒント + メール本文ラベル）
+    const localeResolved = resolveLocale(req, req.body.locale || req.body.lang);
+    const langHint = req.body.lang || localeResolved || null;
+
     console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
-    console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
+    console.log(
+      `[DEBUG] outputType=${outputType}, lang=${langHint}, locale=${localeResolved}`
+    );
 
     // ★ オプション: メール送信関連のパラメータ
     const emailTo = req.body.emailTo || req.body.to || null;
@@ -950,16 +956,26 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       try {
         transcription = (await transcribeWithOpenAI(tempFilePath)).trim();
       } catch (e) {
-        console.warn('[WARN] direct transcription failed, retry with m4a:', e.message);
+        console.warn(
+          '[WARN] direct transcription failed, retry with m4a:',
+          e.message
+        );
         const m4aPath = await convertToM4A(tempFilePath);
         cleanupExtra.push(m4aPath);
         transcription = (await transcribeWithOpenAI(m4aPath)).trim();
       }
     } else {
-      console.log('[DEBUG] > threshold: split by duration/size and transcribe chunks');
+      console.log(
+        '[DEBUG] > threshold: split by duration/size and transcribe chunks'
+      );
 
-      const chunkPaths = await splitAudioFile(tempFilePath, TRANSCRIPTION_CHUNK_THRESHOLD);
-      console.log(`[DEBUG] Number of generated chunks: ${chunkPaths.length}`);
+      const chunkPaths = await splitAudioFile(
+        tempFilePath,
+        TRANSCRIPTION_CHUNK_THRESHOLD
+      );
+      console.log(
+        `[DEBUG] Number of generated chunks: ${chunkPaths.length}`
+      );
 
       try {
         const transcriptionChunks = await Promise.all(
@@ -967,7 +983,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
         );
         transcription = transcriptionChunks.join(' ').trim();
       } catch (e) {
-        console.warn('[WARN] chunk transcription failed somewhere, retry each with m4a:', e.message);
+        console.warn(
+          '[WARN] chunk transcription failed somewhere, retry each with m4a:',
+          e.message
+        );
         const transcriptionChunks = [];
         for (const p of chunkPaths) {
           try {
@@ -986,7 +1005,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
           fs.unlinkSync(chunkPath);
           console.log(`[DEBUG] Deleted chunk file: ${chunkPath}`);
         } catch (err) {
-          console.error(`[ERROR] Failed to delete chunk file: ${chunkPath}`, err);
+          console.error(
+            `[ERROR] Failed to delete chunk file: ${chunkPath}`,
+            err
+          );
         }
       }
     }
@@ -999,13 +1021,17 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
         minutes = await generateMinutes(transcription, meetingFormat);
       }
     } else {
-      console.log('[DEBUG] Transcription exceeds 10,000 characters; processing for output type');
+      console.log(
+        '[DEBUG] Transcription exceeds 10,000 characters; processing for output type'
+      );
       if (outputType === 'flexible') {
         minutes = await generateFlexibleMinutes(transcription, langHint);
       } else {
         const textChunks = splitText(transcription, 10000);
         const partialMinutes = await Promise.all(
-          textChunks.map((chunk) => generateMinutes(chunk.trim(), meetingFormat))
+          textChunks.map((chunk) =>
+            generateMinutes(chunk.trim(), meetingFormat)
+          )
         );
         const combinedPartialMinutes = partialMinutes.join('\n\n');
         minutes = await combineMinutes(combinedPartialMinutes, meetingFormat);
@@ -1017,7 +1043,11 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       fs.unlinkSync(file.path);
       console.log('[DEBUG] Deleted original temporary file:', file.path);
     } catch (err) {
-      console.error('[ERROR] Failed to delete temporary file:', file.path, err);
+      console.error(
+        '[ERROR] Failed to delete temporary file:',
+        file.path,
+        err
+      );
     }
 
     for (const p of cleanupExtra) {
@@ -1026,16 +1056,20 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       } catch (_) {}
     }
 
-    console.log('[DEBUG] Final transcription result length:', transcription.length);
-    console.log('[DEBUG] Final minutes length:', minutes.length);
+    console.log(
+      '[DEBUG] Final transcription result length:',
+      transcription.length
+    );
+    console.log('[DEBUG] Final minutes length:', String(minutes).length);
 
-    // ★★ ここで Mailgun 経由のメール送信（任意） ★★
+    // ★★ Mailgun 経由のメール送信（任意） ★★
     let emailResult = null;
     if (emailTo && MAILGUN_API_KEY && MAILGUN_DOMAIN) {
       try {
         const { textBody, htmlBody } = buildMinutesEmailBodies({
           minutes,
           transcription,
+          locale: localeResolved,
         });
 
         emailResult = await sendMinutesEmail({
@@ -1047,7 +1081,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 
         console.log(`[MAILGUN] Email sent successfully to ${emailTo}`);
       } catch (err) {
-        console.error('[MAILGUN] Error while sending minutes email:', err.message);
+        console.error(
+          '[MAILGUN] Error while sending minutes email:',
+          err.message
+        );
       }
     }
 
@@ -1058,228 +1095,280 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     });
   } catch (err) {
     console.error('[ERROR] Internal error in /api/transcribe:', err);
-    return res.status(500).json({ error: 'Internal server error', details: err.message });
+    return res
+      .status(500)
+      .json({ error: 'Internal server error', details: err.message });
   }
 });
+
 
 // ==============================================
 //  /api/minutes-email-from-audio
 //  iOS から送られてきた音声を STT → minutes 生成 → メール送信用ジョブとして受け取る
 // ==============================================
-app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res) => {
-  console.log('[/api/minutes-email-from-audio] called');
+app.post(
+  '/api/minutes-email-from-audio',
+  upload.single('file'),
+  async (req, res) => {
+    console.log('[/api/minutes-email-from-audio] called');
 
-  try {
-    const file = req.file;
-    if (!file) {
-      console.error('[EMAIL_JOB] No file uploaded');
-      return res.status(400).json({ error: 'No file uploaded' });
-    }
-
-    // ---- フォームフィールド ----
-    const {
-      jobId,
-      locale: localeFromBody,
-      lang,
-      outputType = 'flexible',
-      formatId,
-      userId,
-      emailSubject, // 任意: iOS から件名を渡したい場合用（meetingTitle があればそちら優先）
-    } = req.body || {};
-
-    // recipients は JSON 文字列として送られてくる想定（iOS 側で JSON.stringify）
-    let recipients = [];
     try {
-      if (req.body.recipients) {
-        recipients = JSON.parse(req.body.recipients);
+      const file = req.file;
+      if (!file) {
+        console.error('[EMAIL_JOB] No file uploaded');
+        return res.status(400).json({ error: 'No file uploaded' });
       }
-    } catch (e) {
-      console.warn('[EMAIL_JOB] Failed to parse recipients JSON:', e.message);
-    }
 
-    if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
-      console.error('[EMAIL_JOB] recipients is empty');
-      return res.status(400).json({ error: 'No recipients specified' });
-    }
+      // ---- フォームフィールド ----
+      const {
+        jobId,
+        locale: localeFromBody,
+        lang,
+        outputType = 'flexible',
+        formatId,
+        userId,
+        emailSubject, // 任意: iOS から件名を渡す場合（meetingTitle があればそちら優先）
+      } = req.body || {};
 
-    console.log('[EMAIL_JOB] jobId      =', jobId || '(none)');
-    console.log('[EMAIL_JOB] userId     =', userId || '(guest)');
-    console.log('[EMAIL_JOB] formatId   =', formatId || '(none)');
-    console.log('[EMAIL_JOB] outputType =', outputType);
-    console.log('[EMAIL_JOB] recipients =', recipients);
-    console.log('[EMAIL_JOB] file path  =', file.path, 'size=', file.size, 'bytes');
-
-    // ---- locale / lang を決定 ----
-    const localeResolved = resolveLocale(req, localeFromBody);
-    const langHint = lang || localeResolved || null;
-
-    // ---- Whisper で STT ----
-    let transcription = '';
-    try {
-      transcription = (await transcribeWithOpenAI(file.path)).trim();
-    } catch (e) {
-      console.error('[EMAIL_JOB] Whisper transcription error:', e.message);
-      // ファイルはここで消しておく
+      // recipients は JSON 文字列として送られてくる想定（iOS 側で JSON.stringify）
+      let recipients = [];
       try {
-        fs.unlinkSync(file.path);
-      } catch (_) {}
-      return res.status(500).json({
-        error: 'Transcription failed',
-        details: e.message,
-      });
-    }
+        if (req.body.recipients) {
+          recipients = JSON.parse(req.body.recipients);
+        }
+      } catch (e) {
+        console.warn(
+          '[EMAIL_JOB] Failed to parse recipients JSON:',
+          e.message
+        );
+      }
 
-    console.log('[EMAIL_JOB] transcription length =', transcription.length);
+      if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
+        console.error('[EMAIL_JOB] recipients is empty');
+        return res.status(400).json({ error: 'No recipients specified' });
+      }
 
-    // ---- 長大な transcript は圧縮 ----
-    let effectiveTranscript = transcription;
-    if (transcription.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+      console.log('[EMAIL_JOB] jobId      =', jobId || '(none)');
+      console.log('[EMAIL_JOB] userId     =', userId || '(guest)');
+      console.log('[EMAIL_JOB] formatId   =', formatId || '(none)');
+      console.log('[EMAIL_JOB] outputType =', outputType);
+      console.log('[EMAIL_JOB] recipients =', recipients);
       console.log(
-        `[EMAIL_JOB] transcript length=${transcription.length} > ${MAX_ONESHOT_TRANSCRIPT_CHARS}, compressing...`
+        '[EMAIL_JOB] file path  =',
+        file.path,
+        'size=',
+        file.size,
+        'bytes'
       );
-      effectiveTranscript = await compressTranscriptForGemini(transcription, langHint);
-    }
 
-    // ---- minutes 生成 ----
-    let minutes = null;
-    let meta = null;
+      // ---- locale / lang を決定 ----
+      const localeResolved = resolveLocale(req, localeFromBody);
+      const langHint = lang || localeResolved || null;
 
-    if (formatId && localeResolved) {
-      const fmt = loadFormatJSON(formatId, localeResolved);
-      if (!fmt) {
-        console.error('[EMAIL_JOB] formatId / locale not found:', formatId, localeResolved);
+      // ---- Whisper で STT ----
+      let transcription = '';
+      try {
+        transcription = (await transcribeWithOpenAI(file.path)).trim();
+      } catch (e) {
+        console.error(
+          '[EMAIL_JOB] Whisper transcription error:',
+          e.message
+        );
+        // ファイルはここで消しておく
         try {
           fs.unlinkSync(file.path);
         } catch (_) {}
-        return res.status(404).json({ error: 'Format or locale not found' });
+        return res.status(500).json({
+          error: 'Transcription failed',
+          details: e.message,
+        });
       }
 
-      fmt.formatId = formatId;
-      fmt.locale = localeResolved;
+      console.log(
+        '[EMAIL_JOB] transcription length =',
+        transcription.length
+      );
 
-      minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
-      meta = {
-        formatId,
-        locale: localeResolved,
-        schemaId: fmt.schemaId || null,
-        title: fmt.title || null,
-      };
-    } else {
-      if ((outputType || 'flexible').toLowerCase() === 'flexible') {
-        minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
-      } else {
-        minutes = await generateMinutes(effectiveTranscript, '');
+      // ---- 長大な transcript は圧縮 ----
+      let effectiveTranscript = transcription;
+      if (transcription.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+        console.log(
+          `[EMAIL_JOB] transcript length=${transcription.length} > ${MAX_ONESHOT_TRANSCRIPT_CHARS}, compressing...`
+        );
+        effectiveTranscript = await compressTranscriptForGemini(
+          transcription,
+          langHint
+        );
       }
-      meta = { legacy: true, outputType, lang: langHint };
-    }
 
-    console.log('[EMAIL_JOB] minutes length =', minutes ? String(minutes).length : 0);
+      // ---- minutes 生成 ----
+      let minutes = null;
+      let meta = null;
 
-    // ========= ここからメール送信処理 =========
-
-    if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
-      console.error('[EMAIL_JOB] Mailgun is not configured');
-      try {
-        fs.unlinkSync(file.path);
-      } catch (_) {}
-      return res.status(500).json({
-        error: 'Mailgun is not configured (missing API key or domain)',
-      });
-    }
-
-    // 1. meetingTitle を JSON から抽出（あれば件名に使う）
-    let meetingTitleForSubject = null;
-    try {
-      // minutes が JSON文字列のケース
-      if (typeof minutes === 'string') {
-        const parsed = JSON.parse(minutes);
-        if (
-          parsed &&
-          typeof parsed === 'object' &&
-          typeof parsed.meetingTitle === 'string' &&
-          parsed.meetingTitle.trim()
-        ) {
-          // 改行などは潰して件名用に整形
-          meetingTitleForSubject = parsed.meetingTitle.replace(/\s+/g, ' ').trim();
+      if (formatId && localeResolved) {
+        const fmt = loadFormatJSON(formatId, localeResolved);
+        if (!fmt) {
+          console.error(
+            '[EMAIL_JOB] formatId / locale not found:',
+            formatId,
+            localeResolved
+          );
+          try {
+            fs.unlinkSync(file.path);
+          } catch (_) {}
+          return res
+            .status(404)
+            .json({ error: 'Format or locale not found' });
         }
+
+        fmt.formatId = formatId;
+        fmt.locale = localeResolved;
+
+        minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
+        meta = {
+          formatId,
+          locale: localeResolved,
+          schemaId: fmt.schemaId || null,
+          title: fmt.title || null,
+        };
+      } else {
+        if ((outputType || 'flexible').toLowerCase() === 'flexible') {
+          minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
+        } else {
+          minutes = await generateMinutes(effectiveTranscript, '');
+        }
+        meta = { legacy: true, outputType, lang: langHint };
       }
-      // minutes がオブジェクトのケース（保険）
-      else if (
-        minutes &&
-        typeof minutes === 'object' &&
-        typeof minutes.meetingTitle === 'string' &&
-        minutes.meetingTitle.trim()
-      ) {
-        meetingTitleForSubject = minutes.meetingTitle.replace(/\s+/g, ' ').trim();
+
+      console.log(
+        '[EMAIL_JOB] minutes length =',
+        minutes ? String(minutes).length : 0
+      );
+
+      // ========= ここからメール送信処理 =========
+
+      if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+        console.error('[EMAIL_JOB] Mailgun is not configured');
+        try {
+          fs.unlinkSync(file.path);
+        } catch (_) {}
+        return res.status(500).json({
+          error: 'Mailgun is not configured (missing API key or domain)',
+        });
       }
-    } catch (e) {
-      console.warn('[EMAIL_JOB] Failed to parse minutes JSON for subject:', e.message);
-    }
 
-    // 1. 件名：meetingTitle > emailSubject > デフォルト
-    const subject =
-      meetingTitleForSubject ||
-      (emailSubject && emailSubject.trim()) ||
-      'Your meeting minutes (Minutes.AI)';
+      // 1. meetingTitle を JSON から抽出（あれば件名に使う）
+      let meetingTitleForSubject = null;
+      try {
+        // minutes が JSON文字列のケース
+        if (typeof minutes === 'string') {
+          const parsed = JSON.parse(minutes);
+          if (
+            parsed &&
+            typeof parsed === 'object' &&
+            typeof parsed.meetingTitle === 'string' &&
+            parsed.meetingTitle.trim()
+          ) {
+            meetingTitleForSubject = parsed.meetingTitle
+              .replace(/\s+/g, ' ')
+              .trim();
+          }
+        }
+        // minutes がオブジェクトのケース（保険）
+        else if (
+          minutes &&
+          typeof minutes === 'object' &&
+          typeof minutes.meetingTitle === 'string' &&
+          minutes.meetingTitle.trim()
+        ) {
+          meetingTitleForSubject = minutes.meetingTitle
+            .replace(/\s+/g, ' ')
+            .trim();
+        }
+      } catch (e) {
+        console.warn(
+          '[EMAIL_JOB] Failed to parse minutes JSON for subject:',
+          e.message
+        );
+      }
 
-    // 2. 本文：minutes のみ（Transcript は付けない）
-    const { textBody, htmlBody } = buildMinutesOnlyEmailBodies({
-      minutes,
-    });
+      // 1. 件名：meetingTitle > emailSubject > デフォルト
+      const subject =
+        meetingTitleForSubject ||
+        (emailSubject && emailSubject.trim()) ||
+        'Your meeting minutes (Minutes.AI)';
 
-    console.log('[EMAIL_JOB] Ready to send email with minutes to:', recipients);
-
-    let mailgunResult = null;
-    try {
-      // sendMinutesEmail は `to` に文字列を期待しているので join して渡す
-      mailgunResult = await sendMinutesEmail({
-        to: recipients.join(','),
-        subject,
-        text: textBody,
-        html: htmlBody,
+      // 2. 本文生成（minutes のみ、ロケールでラベルを切り替え）
+      const { textBody, htmlBody } = buildMinutesOnlyEmailBodies({
+        minutes,
+        locale: localeResolved,
       });
 
-      console.log('[EMAIL_JOB] Mailgun send OK:', mailgunResult.id || mailgunResult);
-    } catch (e) {
-      console.error('[EMAIL_JOB] Mailgun send FAILED:', e);
+      console.log(
+        '[EMAIL_JOB] Ready to send email with minutes to:',
+        recipients
+      );
+
+      let mailgunResult = null;
+      try {
+        // sendMinutesEmail は `to` に文字列を期待しているので join して渡す
+        mailgunResult = await sendMinutesEmail({
+          to: recipients.join(','),
+          subject,
+          text: textBody,
+          html: htmlBody,
+        });
+
+        console.log(
+          '[EMAIL_JOB] Mailgun send OK:',
+          mailgunResult.id || mailgunResult
+        );
+      } catch (e) {
+        console.error('[EMAIL_JOB] Mailgun send FAILED:', e);
+        try {
+          fs.unlinkSync(file.path);
+        } catch (_) {}
+        return res.status(500).json({
+          error: 'Failed to send email',
+          details: e.message,
+        });
+      }
+
+      // ========= メール送信ここまで =========
+
+      // ---- 一時ファイル削除 ----
       try {
         fs.unlinkSync(file.path);
-      } catch (_) {}
-      return res.status(500).json({
-        error: 'Failed to send email',
-        details: e.message,
+        console.log('[EMAIL_JOB] Deleted temporary file:', file.path);
+      } catch (err) {
+        console.error(
+          '[EMAIL_JOB] Failed to delete temporary file:',
+          file.path,
+          err
+        );
+      }
+
+      // クライアント(iOS)に「ジョブ受け付け完了」を返す
+      return res.json({
+        ok: true,
+        jobId: jobId || null,
+        userId: userId || null,
+        recipients,
+        locale: localeResolved,
+        lang: langHint,
+        transcriptionLength: transcription.length,
+        minutesLength: minutes ? String(minutes).length : 0,
+        meta,
+        mailgunId: mailgunResult && mailgunResult.id ? mailgunResult.id : null,
       });
-    }
-
-    // ========= メール送信ここまで =========
-
-    // ---- 一時ファイル削除 ----
-    try {
-      fs.unlinkSync(file.path);
-      console.log('[EMAIL_JOB] Deleted temporary file:', file.path);
     } catch (err) {
-      console.error('[EMAIL_JOB] Failed to delete temporary file:', file.path, err);
+      console.error('[EMAIL_JOB] Internal error:', err);
+      return res
+        .status(500)
+        .json({ error: 'Internal server error', details: err.message });
     }
-
-    // クライアント(iOS)に「ジョブ受け付け完了」を返す
-    return res.json({
-      ok: true,
-      jobId: jobId || null,
-      userId: userId || null,
-      recipients,
-      locale: localeResolved,
-      lang: langHint,
-      transcriptionLength: transcription.length,
-      minutesLength: minutes ? String(minutes).length : 0,
-      meta,
-      mailgunId: mailgunResult && mailgunResult.id ? mailgunResult.id : null,
-    });
-  } catch (err) {
-    console.error('[EMAIL_JOB] Internal error:', err);
-    return res.status(500).json({ error: 'Internal server error', details: err.message });
   }
-});
-
+);
 
 
 /*==============================================
@@ -1401,17 +1490,22 @@ app.post('/api/generate-minutes', async (req, res) => {
 // body: { to, subject?, minutes, transcript? }
 app.post('/api/send-minutes-email', async (req, res) => {
   try {
-    const { to, subject, minutes, transcript } = req.body || {};
+    const { to, subject, minutes, transcript, locale, lang } = req.body || {};
     if (!to || !minutes) {
-      return res.status(400).json({ error: 'Missing "to" or "minutes" in body' });
+      return res
+        .status(400)
+        .json({ error: 'Missing "to" or "minutes" in body' });
     }
     if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
       return res.status(500).json({ error: 'Mailgun is not configured' });
     }
 
+    const localeResolved = resolveLocale(req, locale || lang);
+
     const { textBody, htmlBody } = buildMinutesEmailBodies({
       minutes,
-      transcription: transcript || null,
+      transcription: transcript,
+      locale: localeResolved,
     });
 
     const result = await sendMinutesEmail({
@@ -1424,13 +1518,12 @@ app.post('/api/send-minutes-email', async (req, res) => {
     return res.json({ ok: true, result });
   } catch (err) {
     console.error('[ERROR] /api/send-minutes-email:', err);
-    return res.status(500).json({ error: 'Internal error', details: err.message });
+    return res
+      .status(500)
+      .json({ error: 'Internal error', details: err.message });
   }
 });
 
-app.get('/api/transcribe', (req, res) => {
-  res.status(200).json({ message: 'GET /api/transcribe is working!' });
-});
 
 /*==============================================
 =               Static Frontend                =
