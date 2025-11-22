@@ -44,6 +44,8 @@ const recordingsRouter = require('./routes/recordings');
 
 const livekitRoomsRouter = require('./routes/livekitRooms');
 
+const { getProductName } = require('./services/productName');
+
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath('ffmpeg');
@@ -111,61 +113,70 @@ async function callGemini(systemInstruction, userMessage, generationConfig) {
 // ==== ★ NEW: Mailgun Setup (for minutes email) ====
 const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY || null;
 const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN || null;
-const MAILGUN_FROM =
+// 「環境変数にフル表記が来ていた場合」は、アドレスだけ抜き取る
+const RAW_MAILGUN_FROM =
   process.env.MAILGUN_FROM || 'Minutes.AI <no-reply@mg.sense-ai.world>';
 
-if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
-  console.warn(
-    "[WARN] MAILGUN_API_KEY or MAILGUN_DOMAIN is not set. Email sending via Mailgun will be disabled."
-  );
+function extractAddress(fromHeader) {
+  const m = String(fromHeader).match(/<(.*)>/);
+  return m ? m[1] : String(fromHeader); // "xxx <addr>" → "addr"
 }
 
-function buildMailgunAuthHeader() {
-  if (!MAILGUN_API_KEY) return null;
-  const token = Buffer.from(`api:${MAILGUN_API_KEY}`).toString('base64');
-  return `Basic ${token}`;
+const MAILGUN_FROM_ADDRESS = extractAddress(RAW_MAILGUN_FROM);
+
+// locale ごとに "議事録AI <no-reply@...>" のような from を作る
+function buildLocalizedFrom(locale) {
+  const productName = getProductName(locale); // ja → 議事録AI, da → Referat AI
+  return `${productName} <${MAILGUN_FROM_ADDRESS}>`;
 }
+
 
 /**
  * sendMinutesEmail: Mailgun 経由で議事録メールを送信するヘルパー
- * params = { to, subject, text, html }
+ * params = { to, subject, text, html, locale }
  */
 async function sendMinutesEmail(params) {
   if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
     throw new Error("Mailgun is not configured (missing API key or domain).");
   }
 
-  const { to, subject, text, html } = params;
+  const { to, subject, text, html, locale } = params;
+
+  // ★ここでローカライズ済みの From を作る
+  const fromHeader = buildLocalizedFrom(locale || "en");
 
   const url = `https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`;
   const body = new URLSearchParams();
 
-  body.append('from', MAILGUN_FROM);
-  body.append('to', to);
-  body.append('subject', subject || 'Your minutes from Minutes.AI');
-  body.append('text', text || '');
+  body.append("from", fromHeader);
+  body.append("to", to);
+  body.append("subject", subject || "Your minutes from Minutes.AI");
+  body.append("text", text || "");
   if (html) {
-    body.append('html', html);
+    body.append("html", html);
   }
 
   const headers = {
     Authorization: buildMailgunAuthHeader(),
-    'Content-Type': 'application/x-www-form-urlencoded',
+    "Content-Type": "application/x-www-form-urlencoded",
   };
 
-  console.log(`[MAILGUN] Sending minutes email to=${to}`);
+  console.log(
+    `[MAILGUN] Sending minutes email from=${fromHeader} to=${to}`
+  );
   try {
     const resp = await axios.post(url, body.toString(), { headers });
-    console.log('[MAILGUN] Response status:', resp.status, resp.data);
+    console.log("[MAILGUN] Response status:", resp.status, resp.data);
     return resp.data;
   } catch (err) {
     console.error(
-      '[MAILGUN] Failed to send email:',
+      "[MAILGUN] Failed to send email:",
       err.response?.data || err.message
     );
-    throw new Error('Failed to send minutes email via Mailgun');
+    throw new Error("Failed to send minutes email via Mailgun");
   }
 }
+
 
 // ==== ★ NEW: Email Templates (Minutes / Transcript) ====
 const {
@@ -1077,6 +1088,8 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
           subject: emailSubject || 'Your minutes from Minutes.AI',
           text: textBody,
           html: htmlBody,
+          // ★ From 名ローカライズ用
+          locale: localeResolved,
         });
 
         console.log(`[MAILGUN] Email sent successfully to ${emailTo}`);
@@ -1106,6 +1119,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 //  /api/minutes-email-from-audio
 //  iOS から送られてきた音声を STT → minutes 生成 → メール送信用ジョブとして受け取る
 // ==============================================
+
 app.post(
   '/api/minutes-email-from-audio',
   upload.single('file'),
@@ -1317,6 +1331,8 @@ app.post(
           subject,
           text: textBody,
           html: htmlBody,
+          // ★ From 名ローカライズ用
+          locale: localeResolved,
         });
 
         console.log(
@@ -1369,7 +1385,6 @@ app.post(
     }
   }
 );
-
 
 /*==============================================
 =        フォーマット関連 API（新規追加）       =
@@ -1513,6 +1528,8 @@ app.post('/api/send-minutes-email', async (req, res) => {
       subject: subject || 'Your minutes from Minutes.AI',
       text: textBody,
       html: htmlBody,
+      // ★ From 名ローカライズ用
+      locale: localeResolved,
     });
 
     return res.json({ ok: true, result });
@@ -1523,6 +1540,7 @@ app.post('/api/send-minutes-email', async (req, res) => {
       .json({ error: 'Internal error', details: err.message });
   }
 });
+
 
 
 /*==============================================
