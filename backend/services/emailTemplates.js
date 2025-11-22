@@ -641,10 +641,14 @@ function appendSectionHTML(out, label, value) {
   out.push("</ul>");
 }
 
+// ========== MeetingMinutes レンダリング ==========
+// MeetingMinutes 構造体を「共通フォーマット」で描画する
+
 function buildMeetingMinutesText(mm, locale) {
   const L = getLabels(locale);
   const lines = [];
 
+  // 基本メタ情報
   if (mm.meetingTitle) lines.push(String(mm.meetingTitle));
   if (mm.date) lines.push(`${L.date}: ${mm.date}`);
   if (mm.location) lines.push(`${L.locationLabel}: ${mm.location}`);
@@ -653,6 +657,7 @@ function buildMeetingMinutesText(mm, locale) {
   }
   lines.push("");
 
+  // コアメッセージ
   if (mm.coreMessage) {
     lines.push(L.coreMessageLabel);
     lines.push("");
@@ -660,7 +665,7 @@ function buildMeetingMinutesText(mm, locale) {
     lines.push("");
   }
 
-  // ルートレベルの提案系フィールド（交渉・プレゼンなどで使う）
+  // ルートレベルの提案/プレゼン系フィールド
   const rootSections = [
     { key: "overview", label: L.overview },
     { key: "coreProblem", label: L.coreProblem },
@@ -668,7 +673,32 @@ function buildMeetingMinutesText(mm, locale) {
     { key: "expectedResult", label: L.expectedResult },
     { key: "discussionPoints", label: L.discussionPoints },
     { key: "decisionsAndTasks", label: L.decisionsAndTasks },
-    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages }
+    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages },
+
+    // ★ プレゼン系（フォーマット presentation 用）
+    { key: "presentationPresenter", label: L.presentationPresenter },
+    {
+      key: "presentationCoreProblem",
+      label: L.presentationCoreProblem || L.coreProblem,
+    },
+    {
+      key: "presentationProposal",
+      label: L.presentationProposal || L.proposal,
+    },
+    {
+      key: "presentationExpectedResult",
+      label: L.presentationExpectedResult || L.expectedResult,
+    },
+    {
+      key: "presentationDecisionsAndTasks",
+      label: L.presentationDecisionsAndTasks || L.decisionsAndTasks,
+    },
+    {
+      key: "presentationSpeakerPassion",
+      label: L.presentationSpeakerPassion,
+    },
+    { key: "presentationQandA", label: L.presentationQandA },
+    { key: "presentationFeedback", label: L.presentationFeedback },
   ];
 
   rootSections.forEach(({ key, label }) => {
@@ -677,12 +707,29 @@ function buildMeetingMinutesText(mm, locale) {
     }
   });
 
+  // ルートレベルの keyDiscussion（あれば）
+  if (Array.isArray(mm.keyDiscussion) && mm.keyDiscussion.length > 0) {
+    const kdLines = mm.keyDiscussion
+      .map(stringifyKeyDiscussionItem)
+      .filter((s) => s && s.trim().length > 0);
+
+    if (kdLines.length > 0) {
+      appendSectionText(
+        lines,
+        L.keyDiscussion || "Key discussion",
+        kdLines
+      );
+    }
+  }
+
+  // トピックごとの内容
   if (Array.isArray(mm.topics)) {
     mm.topics.forEach((t, idx) => {
       const title =
         t.topic && String(t.topic).trim().length > 0
           ? String(t.topic)
           : `${L.topicFallback || L.topic} ${idx + 1}`;
+
       lines.push("");
       lines.push(title);
 
@@ -697,7 +744,32 @@ function buildMeetingMinutesText(mm, locale) {
         { key: "decisions", label: L.decisionsLabel },
         { key: "actionItems", label: L.actionItemsLabel },
         { key: "concerns", label: L.concernsLabel },
-        { key: "keyMessages", label: L.keyMessagesLabel }
+        { key: "keyMessages", label: L.keyMessagesLabel },
+
+        // ★ プレゼン系（トピック単位）
+        { key: "presentationPresenter", label: L.presentationPresenter },
+        {
+          key: "presentationCoreProblem",
+          label: L.presentationCoreProblem || L.coreProblem,
+        },
+        {
+          key: "presentationProposal",
+          label: L.presentationProposal || L.proposal,
+        },
+        {
+          key: "presentationExpectedResult",
+          label: L.presentationExpectedResult || L.expectedResult,
+        },
+        {
+          key: "presentationDecisionsAndTasks",
+          label: L.presentationDecisionsAndTasks || L.decisionsAndTasks,
+        },
+        {
+          key: "presentationSpeakerPassion",
+          label: L.presentationSpeakerPassion,
+        },
+        { key: "presentationQandA", label: L.presentationQandA },
+        { key: "presentationFeedback", label: L.presentationFeedback },
       ];
 
       topicSections.forEach(({ key, label }) => {
@@ -706,11 +778,12 @@ function buildMeetingMinutesText(mm, locale) {
         }
       });
 
-      // keyDiscussion（話者付き要約など）専用処理
+      // トピック単位の keyDiscussion
       if (Array.isArray(t.keyDiscussion) && t.keyDiscussion.length > 0) {
         const kdLines = t.keyDiscussion
           .map(stringifyKeyDiscussionItem)
           .filter((s) => s && s.trim().length > 0);
+
         if (kdLines.length > 0) {
           appendSectionText(
             lines,
@@ -726,6 +799,172 @@ function buildMeetingMinutesText(mm, locale) {
 
   return lines.join("\n").trim();
 }
+
+function buildMeetingMinutesHTML(mm, locale) {
+  const L = getLabels(locale);
+  const out = [];
+
+  // 基本メタ情報
+  if (mm.meetingTitle) {
+    out.push(`<h1>${escapeHtml(mm.meetingTitle)}</h1>`);
+  }
+  if (mm.date) {
+    out.push(
+      `<p><strong>${escapeHtml(L.date)}:</strong> ${escapeHtml(
+        mm.date
+      )}</p>`
+    );
+  }
+  if (mm.location) {
+    out.push(
+      `<p><strong>${escapeHtml(L.locationLabel)}:</strong> ${escapeHtml(
+        mm.location
+      )}</p>`
+    );
+  }
+  if (Array.isArray(mm.attendees) && mm.attendees.length > 0) {
+    out.push(
+      `<p><strong>${escapeHtml(L.attendeesLabel)}:</strong> ${escapeHtml(
+        mm.attendees.join(", ")
+      )}</p>`
+    );
+  }
+
+  if (mm.coreMessage) {
+    out.push(`<h2>${escapeHtml(L.coreMessageLabel)}</h2>`);
+    out.push(`<p>${escapeHtml(mm.coreMessage)}</p>`);
+  }
+
+  // ルートレベルの提案/プレゼン系フィールド
+  const rootSections = [
+    { key: "overview", label: L.overview },
+    { key: "coreProblem", label: L.coreProblem },
+    { key: "proposal", label: L.proposal },
+    { key: "expectedResult", label: L.expectedResult },
+    { key: "discussionPoints", label: L.discussionPoints },
+    { key: "decisionsAndTasks", label: L.decisionsAndTasks },
+    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages },
+
+    // ★ プレゼン系
+    { key: "presentationPresenter", label: L.presentationPresenter },
+    {
+      key: "presentationCoreProblem",
+      label: L.presentationCoreProblem || L.coreProblem,
+    },
+    {
+      key: "presentationProposal",
+      label: L.presentationProposal || L.proposal,
+    },
+    {
+      key: "presentationExpectedResult",
+      label: L.presentationExpectedResult || L.expectedResult,
+    },
+    {
+      key: "presentationDecisionsAndTasks",
+      label: L.presentationDecisionsAndTasks || L.decisionsAndTasks,
+    },
+    {
+      key: "presentationSpeakerPassion",
+      label: L.presentationSpeakerPassion,
+    },
+    { key: "presentationQandA", label: L.presentationQandA },
+    { key: "presentationFeedback", label: L.presentationFeedback },
+  ];
+
+  rootSections.forEach(({ key, label }) => {
+    if (mm[key] != null) {
+      appendSectionHTML(out, label, mm[key]);
+    }
+  });
+
+  // ルートレベルの keyDiscussion
+  if (Array.isArray(mm.keyDiscussion) && mm.keyDiscussion.length > 0) {
+    const kdLines = mm.keyDiscussion
+      .map(stringifyKeyDiscussionItem)
+      .filter((s) => s && s.trim().length > 0);
+
+    if (kdLines.length > 0) {
+      appendSectionHTML(
+        out,
+        L.keyDiscussion || "Key discussion",
+        kdLines
+      );
+    }
+  }
+
+  // トピックごとの内容
+  if (Array.isArray(mm.topics)) {
+    mm.topics.forEach((t, idx) => {
+      const title =
+        t.topic && String(t.topic).trim().length > 0
+          ? String(t.topic)
+          : `${L.topicFallback || L.topic} ${idx + 1}`;
+      out.push(`<h2>${escapeHtml(title)}</h2>`);
+
+      const topicSections = [
+        { key: "overview", label: L.overview },
+        { key: "coreProblem", label: L.coreProblem },
+        { key: "proposal", label: L.proposal },
+        { key: "expectedResult", label: L.expectedResult },
+        { key: "discussionPoints", label: L.discussionPoints },
+        { key: "decisionsAndTasks", label: L.decisionsAndTasks },
+        { key: "discussion", label: L.discussionLabel },
+        { key: "decisions", label: L.decisionsLabel },
+        { key: "actionItems", label: L.actionItemsLabel },
+        { key: "concerns", label: L.concernsLabel },
+        { key: "keyMessages", label: L.keyMessagesLabel },
+
+        // ★ プレゼン系
+        { key: "presentationPresenter", label: L.presentationPresenter },
+        {
+          key: "presentationCoreProblem",
+          label: L.presentationCoreProblem || L.coreProblem,
+        },
+        {
+          key: "presentationProposal",
+          label: L.presentationProposal || L.proposal,
+        },
+        {
+          key: "presentationExpectedResult",
+          label: L.presentationExpectedResult || L.expectedResult,
+        },
+        {
+          key: "presentationDecisionsAndTasks",
+          label: L.presentationDecisionsAndTasks || L.decisionsAndTasks,
+        },
+        {
+          key: "presentationSpeakerPassion",
+          label: L.presentationSpeakerPassion,
+        },
+        { key: "presentationQandA", label: L.presentationQandA },
+        { key: "presentationFeedback", label: L.presentationFeedback },
+      ];
+
+      topicSections.forEach(({ key, label }) => {
+        if (t[key] != null) {
+          appendSectionHTML(out, label, t[key]);
+        }
+      });
+
+      if (Array.isArray(t.keyDiscussion) && t.keyDiscussion.length > 0) {
+        const kdLines = t.keyDiscussion
+          .map(stringifyKeyDiscussionItem)
+          .filter((s) => s && s.trim().length > 0);
+
+        if (kdLines.length > 0) {
+          appendSectionHTML(
+            out,
+            L.keyDiscussion || "Key discussion",
+            kdLines
+          );
+        }
+      }
+    });
+  }
+
+  return out.join("\n");
+}
+
 
 function buildMeetingMinutesHTML(mm, locale) {
   const L = getLabels(locale);
