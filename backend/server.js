@@ -1067,6 +1067,146 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
   }
 });
 
+// ==============================================
+//  /api/minutes-email-from-audio
+//  iOS から送られてきた音声を STT → minutes 生成 → メール送信用ジョブとして受け取る
+// ==============================================
+app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res) => {
+  console.log('[/api/minutes-email-from-audio] called');
+
+  try {
+    const file = req.file;
+    if (!file) {
+      console.error('[EMAIL_JOB] No file uploaded');
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    // ---- フォームフィールド ----
+    const {
+      jobId,
+      locale: localeFromBody,
+      lang,
+      outputType = 'flexible',
+      formatId,
+      userId,
+    } = req.body || {};
+
+    // recipients は JSON 文字列として送られてくる想定（iOS 側で JSON.stringify）
+    let recipients = [];
+    try {
+      if (req.body.recipients) {
+        recipients = JSON.parse(req.body.recipients);
+      }
+    } catch (e) {
+      console.warn('[EMAIL_JOB] Failed to parse recipients JSON:', e.message);
+    }
+
+    if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
+      console.error('[EMAIL_JOB] recipients is empty');
+      return res.status(400).json({ error: 'No recipients specified' });
+    }
+
+    console.log('[EMAIL_JOB] jobId      =', jobId || '(none)');
+    console.log('[EMAIL_JOB] userId     =', userId || '(guest)');
+    console.log('[EMAIL_JOB] formatId   =', formatId || '(none)');
+    console.log('[EMAIL_JOB] outputType =', outputType);
+    console.log('[EMAIL_JOB] recipients =', recipients);
+    console.log('[EMAIL_JOB] file path  =', file.path, 'size=', file.size, 'bytes');
+
+    // ---- locale / lang を決定（/api/generate-minutes と同じ思想）----
+    const localeResolved = resolveLocale(req, localeFromBody);
+    const langHint = lang || localeResolved || null;
+
+    // ---- Whisper で STT ----
+    let transcription = '';
+    try {
+      // 小さいファイル想定なのでそのまま投げる（必要なら convertToM4A 再利用も可）
+      transcription = (await transcribeWithOpenAI(file.path)).trim();
+    } catch (e) {
+      console.error('[EMAIL_JOB] Whisper transcription error:', e.message);
+      return res.status(500).json({
+        error: 'Transcription failed',
+        details: e.message,
+      });
+    }
+
+    console.log('[EMAIL_JOB] transcription length =', transcription.length);
+
+    // ---- 長大な transcript は圧縮（iOS と同じ保険）----
+    let effectiveTranscript = transcription;
+    if (transcription.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+      console.log(
+        `[EMAIL_JOB] transcript length=${transcription.length} > ${MAX_ONESHOT_TRANSCRIPT_CHARS}, compressing...`
+      );
+      effectiveTranscript = await compressTranscriptForGemini(transcription, langHint);
+    }
+
+    // ---- minutes 生成（formatId があれば JSON フォーマット、なければ flexible JSON）----
+    let minutes = null;
+    let meta = null;
+
+    if (formatId && localeResolved) {
+      const fmt = loadFormatJSON(formatId, localeResolved);
+      if (!fmt) {
+        console.error('[EMAIL_JOB] formatId / locale not found:', formatId, localeResolved);
+        return res.status(404).json({ error: 'Format or locale not found' });
+      }
+
+      fmt.formatId = formatId;
+      fmt.locale = localeResolved;
+
+      minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
+      meta = {
+        formatId,
+        locale: localeResolved,
+        schemaId: fmt.schemaId || null,
+        title: fmt.title || null,
+      };
+    } else {
+      // デフォルトは flexible JSON
+      if ((outputType || 'flexible').toLowerCase() === 'flexible') {
+        minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
+      } else {
+        minutes = await generateMinutes(effectiveTranscript, ''); // classic テンプレートを使いたい場合は meetingFormat を渡す
+      }
+      meta = { legacy: true, outputType, lang: langHint };
+    }
+
+    console.log('[EMAIL_JOB] minutes length =', minutes ? String(minutes).length : 0);
+
+    // ---- TODO: minutes を使ってメール送信（Mailgun 等）----
+    // ここではひとまず「ジョブ受け付けた」レベルまで。
+    // 実際のメール送信ロジックは、別サービスやキューに渡すなど好みで実装。
+
+    console.log('[EMAIL_JOB] Ready to send email with minutes to:', recipients);
+
+    // ---- 一時ファイル削除 ----
+    try {
+      fs.unlinkSync(file.path);
+      console.log('[EMAIL_JOB] Deleted temporary file:', file.path);
+    } catch (err) {
+      console.error('[EMAIL_JOB] Failed to delete temporary file:', file.path, err);
+    }
+
+    // クライアント(iOS)に「ジョブ受け付け完了」を返す
+    return res.json({
+      ok: true,
+      jobId: jobId || null,
+      userId: userId || null,
+      recipients,
+      locale: localeResolved,
+      lang: langHint,
+      transcriptionLength: transcription.length,
+      minutesLength: minutes ? String(minutes).length : 0,
+      meta,
+    });
+  } catch (err) {
+    console.error('[EMAIL_JOB] Internal error:', err);
+    return res.status(500).json({ error: 'Internal server error', details: err.message });
+  }
+});
+
+
 /*==============================================
 =        フォーマット関連 API（新規追加）       =
 ==============================================*/
