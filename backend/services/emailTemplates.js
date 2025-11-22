@@ -966,107 +966,38 @@ function buildMeetingMinutesHTML(mm, locale) {
 }
 
 
-function buildMeetingMinutesHTML(mm, locale) {
-  const L = getLabels(locale);
-  const out = [];
-
-  if (mm.meetingTitle) {
-    out.push(`<h1>${escapeHtml(mm.meetingTitle)}</h1>`);
-  }
-  if (mm.date) {
-    out.push(
-      `<p><strong>${escapeHtml(L.date)}:</strong> ${escapeHtml(
-        mm.date
-      )}</p>`
-    );
-  }
-  if (mm.location) {
-    out.push(
-      `<p><strong>${escapeHtml(L.locationLabel)}:</strong> ${escapeHtml(
-        mm.location
-      )}</p>`
-    );
-  }
-  if (Array.isArray(mm.attendees) && mm.attendees.length > 0) {
-    out.push(
-      `<p><strong>${escapeHtml(L.attendeesLabel)}:</strong> ${escapeHtml(
-        mm.attendees.join(", ")
-      )}</p>`
-    );
-  }
-
-  if (mm.coreMessage) {
-    out.push(`<h2>${escapeHtml(L.coreMessageLabel)}</h2>`);
-    out.push(`<p>${escapeHtml(mm.coreMessage)}</p>`);
-  }
-
-  // ルートレベルの提案系フィールド
-  const rootSections = [
-    { key: "overview", label: L.overview },
-    { key: "coreProblem", label: L.coreProblem },
-    { key: "proposal", label: L.proposal },
-    { key: "expectedResult", label: L.expectedResult },
-    { key: "discussionPoints", label: L.discussionPoints },
-    { key: "decisionsAndTasks", label: L.decisionsAndTasks },
-    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages }
-  ];
-
-  rootSections.forEach(({ key, label }) => {
-    if (mm[key] != null) {
-      appendSectionHTML(out, label, mm[key]);
-    }
-  });
-
-  if (Array.isArray(mm.topics)) {
-    mm.topics.forEach((t, idx) => {
-      const title =
-        t.topic && String(t.topic).trim().length > 0
-          ? String(t.topic)
-          : `${L.topicFallback || L.topic} ${idx + 1}`;
-      out.push(`<h2>${escapeHtml(title)}</h2>`);
-
-      const topicSections = [
-        { key: "overview", label: L.overview },
-        { key: "coreProblem", label: L.coreProblem },
-        { key: "proposal", label: L.proposal },
-        { key: "expectedResult", label: L.expectedResult },
-        { key: "discussionPoints", label: L.discussionPoints },
-        { key: "decisionsAndTasks", label: L.decisionsAndTasks },
-        { key: "discussion", label: L.discussionLabel },
-        { key: "decisions", label: L.decisionsLabel },
-        { key: "actionItems", label: L.actionItemsLabel },
-        { key: "concerns", label: L.concernsLabel },
-        { key: "keyMessages", label: L.keyMessagesLabel }
-      ];
-
-      topicSections.forEach(({ key, label }) => {
-        if (t[key] != null) {
-          appendSectionHTML(out, label, t[key]);
-        }
-      });
-
-      if (Array.isArray(t.keyDiscussion) && t.keyDiscussion.length > 0) {
-        const kdLines = t.keyDiscussion
-          .map(stringifyKeyDiscussionItem)
-          .filter((s) => s && s.trim().length > 0);
-        if (kdLines.length > 0) {
-          appendSectionHTML(
-            out,
-            L.keyDiscussion || "Key discussion",
-            kdLines
-          );
-        }
-      }
-    });
-  }
-
-  return out.join("\n");
-}
-
 // ========== Core: JSON かどうかを見て minutes 本文を作る ==========
 
 function buildCoreMinutesBodies({ minutes, locale }) {
-  const obj = safeParseJSON(minutes);
+  // 1) 生の minutes を「文字列」に正規化（JSONでも文字列でもOKにする）
+  const raw = normalizeMinutesRaw(minutes);
+
+  // 2) デバッグ用：環境変数 LOG_RAW_MINUTES=1 のときだけ、Railwayログに「NLP生出力」を吐く
+  if (process.env.LOG_RAW_MINUTES === "1") {
+    try {
+      const chunkSize = 4000; // 1ログあたりの最大文字数（多すぎるときは分割）
+      console.log(
+        `[EMAIL_RAW_MINUTES] locale=${locale} length=${raw.length}`
+      );
+      for (let i = 0; i < raw.length; i += chunkSize) {
+        const chunk = raw.slice(i, i + chunkSize);
+        console.log(
+          `[EMAIL_RAW_MINUTES] [${i}-${Math.min(
+            i + chunkSize,
+            raw.length
+          )}]\n${chunk}`
+        );
+      }
+    } catch (e) {
+      console.error(
+        "[EMAIL_RAW_MINUTES] failed to log raw minutes:",
+        e.message
+      );
+    }
+  }
+
+  // 3) ここから先は従来通り：JSONならパースしてFlexibleNote/MeetingMinutesとして扱う
+  const obj = safeParseJSON(raw);
   let minutesText;
   let minutesHtml;
 
@@ -1080,16 +1011,17 @@ function buildCoreMinutesBodies({ minutes, locale }) {
     minutesHtml = buildMeetingMinutesHTML(obj, locale);
   } else {
     // どの形式でもなければ「生文字列」として扱う
-    const raw = normalizeMinutesRaw(minutes);
-    minutesText = raw || "(no minutes)";
+    const fallback = raw || "(no minutes)";
+    minutesText = fallback;
     minutesHtml =
-      "<pre style=\"white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\">" +
-      escapeHtml(raw || "(no minutes)") +
+      '<pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, \'Segoe UI\', sans-serif;">' +
+      escapeHtml(fallback) +
       "</pre>";
   }
 
   return { minutesText, minutesHtml };
 }
+
 
 /**
  * Minutes + Transcript 両方を含んだメール本文
