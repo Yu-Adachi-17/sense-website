@@ -650,8 +650,8 @@ function buildMeetingMinutesText(mm, locale) {
 
   // 基本メタ情報
   if (mm.meetingTitle) lines.push(String(mm.meetingTitle));
-  if (mm.date) lines.push(`${L.date}: ${mm.date}`);
-  if (mm.location) lines.push(`${L.locationLabel}: ${mm.location}`);
+  if (mm.date)        lines.push(`${L.date}: ${mm.date}`);
+  if (mm.location)    lines.push(`${L.locationLabel}: ${mm.location}`);
   if (Array.isArray(mm.attendees) && mm.attendees.length > 0) {
     lines.push(`${L.attendeesLabel}: ${mm.attendees.join(", ")}`);
   }
@@ -665,18 +665,18 @@ function buildMeetingMinutesText(mm, locale) {
     lines.push("");
   }
 
-  // ルートレベルの提案/プレゼン系フィールド
+  // ルートレベルの提案/プレゼン系フィールド（共通 + presentation 派生）
   const rootSections = [
-    { key: "overview", label: L.overview },
-    { key: "coreProblem", label: L.coreProblem },
-    { key: "proposal", label: L.proposal },
-    { key: "expectedResult", label: L.expectedResult },
-    { key: "discussionPoints", label: L.discussionPoints },
-    { key: "decisionsAndTasks", label: L.decisionsAndTasks },
-    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages },
+    { key: "overview",             label: L.overview },
+    { key: "coreProblem",          label: L.coreProblem },
+    { key: "proposal",             label: L.proposal },
+    { key: "expectedResult",       label: L.expectedResult },
+    { key: "discussionPoints",     label: L.discussionPoints },
+    { key: "decisionsAndTasks",    label: L.decisionsAndTasks },
+    { key: "keyMessages",          label: L.keyMessagesLabel || L.keyMessages },
 
-    // ★ プレゼン系（フォーマット presentation 用）
-    { key: "presentationPresenter", label: L.presentationPresenter },
+    // プレゼン系（ルート）
+    { key: "presentationPresenter",           label: L.presentationPresenter },
     {
       key: "presentationCoreProblem",
       label: L.presentationCoreProblem || L.coreProblem,
@@ -697,12 +697,24 @@ function buildMeetingMinutesText(mm, locale) {
       key: "presentationSpeakerPassion",
       label: L.presentationSpeakerPassion,
     },
-    { key: "presentationQandA", label: L.presentationQandA },
+    { key: "presentationQandA",    label: L.presentationQandA },
     { key: "presentationFeedback", label: L.presentationFeedback },
+
+    // 1on1 / 感情系（ルート）
+    {
+      key: "coreEmotion",
+      label:
+        (L.oneonone && (L.oneonone.coreEmotion || L.oneonone.title)) ||
+        "Core emotion",
+    },
+    {
+      key: "toneInsights",
+      label: L.toneInsights || "Tone & sentiment",
+    }
   ];
 
   rootSections.forEach(({ key, label }) => {
-    if (mm[key] != null) {
+    if (mm[key] != null && label) {
       appendSectionText(lines, label, mm[key]);
     }
   });
@@ -722,9 +734,11 @@ function buildMeetingMinutesText(mm, locale) {
     }
   }
 
-  // トピックごとの内容
+  // トピックごとの内容（共通 + presentation）
   if (Array.isArray(mm.topics)) {
     mm.topics.forEach((t, idx) => {
+      if (!t || typeof t !== "object") return;
+
       const title =
         t.topic && String(t.topic).trim().length > 0
           ? String(t.topic)
@@ -734,20 +748,20 @@ function buildMeetingMinutesText(mm, locale) {
       lines.push(title);
 
       const topicSections = [
-        { key: "overview", label: L.overview },
-        { key: "coreProblem", label: L.coreProblem },
-        { key: "proposal", label: L.proposal },
-        { key: "expectedResult", label: L.expectedResult },
+        { key: "overview",         label: L.overview },
+        { key: "coreProblem",      label: L.coreProblem },
+        { key: "proposal",         label: L.proposal },
+        { key: "expectedResult",   label: L.expectedResult },
         { key: "discussionPoints", label: L.discussionPoints },
-        { key: "decisionsAndTasks", label: L.decisionsAndTasks },
-        { key: "discussion", label: L.discussionLabel },
-        { key: "decisions", label: L.decisionsLabel },
-        { key: "actionItems", label: L.actionItemsLabel },
-        { key: "concerns", label: L.concernsLabel },
-        { key: "keyMessages", label: L.keyMessagesLabel },
+        { key: "decisionsAndTasks",label: L.decisionsAndTasks },
+        { key: "discussion",       label: L.discussionLabel },
+        { key: "decisions",        label: L.decisionsLabel },
+        { key: "actionItems",      label: L.actionItemsLabel },
+        { key: "concerns",         label: L.concernsLabel },
+        { key: "keyMessages",      label: L.keyMessagesLabel },
 
-        // ★ プレゼン系（トピック単位）
-        { key: "presentationPresenter", label: L.presentationPresenter },
+        // プレゼン系（トピック単位）
+        { key: "presentationPresenter",           label: L.presentationPresenter },
         {
           key: "presentationCoreProblem",
           label: L.presentationCoreProblem || L.coreProblem,
@@ -770,10 +784,22 @@ function buildMeetingMinutesText(mm, locale) {
         },
         { key: "presentationQandA", label: L.presentationQandA },
         { key: "presentationFeedback", label: L.presentationFeedback },
+
+        // 1on1 / 感情系（トピック単位に載せる場合用）
+        {
+          key: "coreEmotion",
+          label:
+            (L.oneonone && (L.oneonone.coreEmotion || L.oneonone.title)) ||
+            "Core emotion",
+        },
+        {
+          key: "toneInsights",
+          label: L.toneInsights || "Tone & sentiment",
+        }
       ];
 
       topicSections.forEach(({ key, label }) => {
-        if (t[key] != null) {
+        if (t[key] != null && label) {
           appendSectionText(lines, label, t[key]);
         }
       });
@@ -794,6 +820,184 @@ function buildMeetingMinutesText(mm, locale) {
       }
 
       lines.push("");
+    });
+  }
+
+  // ===== ここからフォーマット別の追加フィールド =====
+
+  // === ブレスト（brainstorming） ===
+  if (mm.brainstorming && typeof mm.brainstorming === "object") {
+    const B = L.brainstorming || {};
+    const b = mm.brainstorming;
+
+    lines.push("");
+    lines.push(B.title || B.problemToSolve || "Brainstorming");
+
+    appendSectionText(lines, B.problemToSolve || "Problem to solve", b.problemToSolve);
+    appendSectionText(lines, B.topIdea || "Top idea", b.topIdea);
+    appendSectionText(lines, B.meritsAndEffects || "Benefits & impact", b.meritsAndEffects);
+    appendSectionText(lines, B.drawbacksAndRisks || "Drawbacks & risks", b.drawbacksAndRisks);
+    appendSectionText(lines, B.runnerUpIdea || "Runner-up idea", b.runnerUpIdea);
+    appendSectionText(lines, B.allIdeas || "All ideas", b.allIdeas);
+    appendSectionText(lines, B.ideaTitle || "Idea title", b.ideaTitle);
+    appendSectionText(lines, B.ideaDetail || "Idea details", b.ideaDetail);
+    appendSectionText(lines, B.benefitsAndEffects || "Benefits & impact", b.benefitsAndEffects);
+  }
+
+  // === 面接（jobInterview） ===
+  if (mm.jobInterview && typeof mm.jobInterview === "object") {
+    const J = L.jobInterview || {};
+    const j = mm.jobInterview;
+
+    lines.push("");
+    lines.push(J.title || "Job interview");
+
+    appendSectionText(lines, J.motivation || "Motivation", j.motivation);
+    appendSectionText(lines, J.careerSummary || "Career summary", j.careerSummary);
+    appendSectionText(lines, J.successes || "Successes", j.successes);
+    appendSectionText(lines, J.failures || "Failures", j.failures);
+    appendSectionText(lines, J.strengths || "Strengths & skills", j.strengths);
+    appendSectionText(lines, J.weaknesses || "Weaknesses & improvements", j.weaknesses);
+    appendSectionText(lines, J.values || "Work values", j.values);
+    appendSectionText(lines, J.careerVision || "Career vision", j.careerVision);
+    appendSectionText(lines, J.understandingOfCompany || "Understanding of the company", j.understandingOfCompany);
+    appendSectionText(lines, J.workStyleAndConditions || "Work style & conditions", j.workStyleAndConditions);
+    appendSectionText(lines, J.applicantQuestions || "Questions from applicant", j.applicantQuestions);
+    appendSectionText(lines, J.passionMessage || "Passion & message", j.passionMessage);
+  }
+
+  // === 講義（lecture / training） ===
+  if (mm.lecture && typeof mm.lecture === "object") {
+    const Lec = L.lecture || {};
+    const le = mm.lecture;
+
+    lines.push("");
+    lines.push(Lec.title || Lec.objectives || "Lecture / Training");
+
+    appendSectionText(
+      lines,
+      Lec.objectives || Lec.lectureObjectives || "Lecture objectives",
+      le.objectives || le.lectureObjectives
+    );
+    appendSectionText(
+      lines,
+      Lec.procedures || Lec.lectureProcedures || "Operations",
+      le.procedures || le.lectureProcedures
+    );
+    appendSectionText(
+      lines,
+      Lec.notesAndRemarks || "Notes & remarks",
+      le.notesAndRemarks
+    );
+    appendSectionText(
+      lines,
+      Lec.examplesAndScenarios || Lec.lectureExamples || "Examples & scenarios",
+      le.examplesAndScenarios || le.lectureExamples
+    );
+    appendSectionText(
+      lines,
+      Lec.dos || "Dos",
+      le.dos
+    );
+    appendSectionText(
+      lines,
+      Lec.donts || "Don'ts",
+      le.donts
+    );
+    appendSectionText(
+      lines,
+      Lec.tipsAndInsights || Lec.lectureTips || "Tips & insights",
+      le.tipsAndInsights || le.lectureTips
+    );
+    appendSectionText(
+      lines,
+      Lec.highlightedStatements || "Highlighted statements",
+      le.highlightedStatements
+    );
+  }
+
+  // === 1on1（oneonone） ===
+  if (mm.oneonone && typeof mm.oneonone === "object") {
+    const O = L.oneonone || {};
+    const o = mm.oneonone;
+
+    lines.push("");
+    lines.push(O.title || "1on1");
+
+    appendSectionText(lines, O.recentSuccess || "Recent success", o.recentSuccess);
+    appendSectionText(lines, O.contributingFactors || "Contributing factors", o.contributingFactors);
+    appendSectionText(lines, O.scalableAction || "Scalable action", o.scalableAction);
+    appendSectionText(lines, O.managerFeedback || "Manager feedback", o.managerFeedback);
+    appendSectionText(lines, O.challengeFaced || "Challenge faced", o.challengeFaced);
+    appendSectionText(lines, O.bottleneck || "Bottleneck", o.bottleneck);
+    appendSectionText(lines, O.improvementStrategy || "Improvement strategy", o.improvementStrategy);
+    appendSectionText(lines, O.futureExpectation || "Future expectation", o.futureExpectation);
+    appendSectionText(lines, O.reasonForExpectation || "Reason for expectation", o.reasonForExpectation);
+    appendSectionText(lines, O.preparationForFuture || "Preparation for the future", o.preparationForFuture);
+    appendSectionText(lines, O.concern || "Concern", o.concern);
+    appendSectionText(lines, O.reasonForConcern || "Reason for concern", o.reasonForConcern);
+    appendSectionText(lines, O.mitigationIdeas || "Mitigation ideas", o.mitigationIdeas);
+    appendSectionText(lines, O.mentalAspects || "Mental aspects", o.mentalAspects);
+    appendSectionText(lines, O.feelingsAndBackground || "Feelings & background", o.feelingsAndBackground);
+    appendSectionText(lines, O.emotionalChange || "Emotional change", o.emotionalChange);
+    appendSectionText(lines, O.nextAction || "Next action", o.nextAction);
+  }
+
+  // === 1on1 グルーピング（groupedOneOnOneTopics） ===
+  if (Array.isArray(mm.groupedOneOnOneTopics) && mm.groupedOneOnOneTopics.length > 0) {
+    const O = L.oneonone || {};
+
+    lines.push("");
+    lines.push(O.groupedOneOnOneTopics || "1on1 Topics");
+
+    mm.groupedOneOnOneTopics.forEach((g, gIdx) => {
+      if (!g || typeof g !== "object") return;
+
+      const groupTitle =
+        g.groupTitle ||
+        g.title ||
+        `${O.topicGroup || "Topic group"} ${gIdx + 1}`;
+
+      lines.push("");
+      lines.push(groupTitle);
+
+      // グループ内のトピック配列（想定：g.topics）
+      if (Array.isArray(g.topics)) {
+        g.topics.forEach((t, tIdx) => {
+          if (!t || typeof t !== "object") return;
+
+          const topicHeader =
+            `${O.topicNumber || "Topic"} ${tIdx + 1}`;
+          lines.push("");
+          lines.push(topicHeader);
+
+          appendSectionText(
+            lines,
+            O.momentOfSuccess || "Recent success moment",
+            t.momentOfSuccess
+          );
+          appendSectionText(
+            lines,
+            O.yourContribution || "Your contribution",
+            t.yourContribution
+          );
+          appendSectionText(
+            lines,
+            O.emotionAndBackground || "Emotion & background",
+            t.emotionAndBackground
+          );
+          appendSectionText(
+            lines,
+            O.solutionHint || "Hint for solution",
+            t.solutionHint
+          );
+          appendSectionText(
+            lines,
+            O.forBetter || "Actions going forward",
+            t.forBetter
+          );
+        });
+      }
     });
   }
 
@@ -837,16 +1041,16 @@ function buildMeetingMinutesHTML(mm, locale) {
 
   // ルートレベルの提案/プレゼン系フィールド
   const rootSections = [
-    { key: "overview", label: L.overview },
-    { key: "coreProblem", label: L.coreProblem },
-    { key: "proposal", label: L.proposal },
-    { key: "expectedResult", label: L.expectedResult },
-    { key: "discussionPoints", label: L.discussionPoints },
-    { key: "decisionsAndTasks", label: L.decisionsAndTasks },
-    { key: "keyMessages", label: L.keyMessagesLabel || L.keyMessages },
+    { key: "overview",             label: L.overview },
+    { key: "coreProblem",          label: L.coreProblem },
+    { key: "proposal",             label: L.proposal },
+    { key: "expectedResult",       label: L.expectedResult },
+    { key: "discussionPoints",     label: L.discussionPoints },
+    { key: "decisionsAndTasks",    label: L.decisionsAndTasks },
+    { key: "keyMessages",          label: L.keyMessagesLabel || L.keyMessages },
 
-    // ★ プレゼン系
-    { key: "presentationPresenter", label: L.presentationPresenter },
+    // プレゼン系
+    { key: "presentationPresenter",           label: L.presentationPresenter },
     {
       key: "presentationCoreProblem",
       label: L.presentationCoreProblem || L.coreProblem,
@@ -867,12 +1071,24 @@ function buildMeetingMinutesHTML(mm, locale) {
       key: "presentationSpeakerPassion",
       label: L.presentationSpeakerPassion,
     },
-    { key: "presentationQandA", label: L.presentationQandA },
+    { key: "presentationQandA",    label: L.presentationQandA },
     { key: "presentationFeedback", label: L.presentationFeedback },
+
+    // 1on1 / 感情系
+    {
+      key: "coreEmotion",
+      label:
+        (L.oneonone && (L.oneonone.coreEmotion || L.oneonone.title)) ||
+        "Core emotion",
+    },
+    {
+      key: "toneInsights",
+      label: L.toneInsights || "Tone & sentiment",
+    }
   ];
 
   rootSections.forEach(({ key, label }) => {
-    if (mm[key] != null) {
+    if (mm[key] != null && label) {
       appendSectionHTML(out, label, mm[key]);
     }
   });
@@ -895,6 +1111,8 @@ function buildMeetingMinutesHTML(mm, locale) {
   // トピックごとの内容
   if (Array.isArray(mm.topics)) {
     mm.topics.forEach((t, idx) => {
+      if (!t || typeof t !== "object") return;
+
       const title =
         t.topic && String(t.topic).trim().length > 0
           ? String(t.topic)
@@ -902,20 +1120,20 @@ function buildMeetingMinutesHTML(mm, locale) {
       out.push(`<h2>${escapeHtml(title)}</h2>`);
 
       const topicSections = [
-        { key: "overview", label: L.overview },
-        { key: "coreProblem", label: L.coreProblem },
-        { key: "proposal", label: L.proposal },
-        { key: "expectedResult", label: L.expectedResult },
+        { key: "overview",         label: L.overview },
+        { key: "coreProblem",      label: L.coreProblem },
+        { key: "proposal",         label: L.proposal },
+        { key: "expectedResult",   label: L.expectedResult },
         { key: "discussionPoints", label: L.discussionPoints },
-        { key: "decisionsAndTasks", label: L.decisionsAndTasks },
-        { key: "discussion", label: L.discussionLabel },
-        { key: "decisions", label: L.decisionsLabel },
-        { key: "actionItems", label: L.actionItemsLabel },
-        { key: "concerns", label: L.concernsLabel },
-        { key: "keyMessages", label: L.keyMessagesLabel },
+        { key: "decisionsAndTasks",label: L.decisionsAndTasks },
+        { key: "discussion",       label: L.discussionLabel },
+        { key: "decisions",        label: L.decisionsLabel },
+        { key: "actionItems",      label: L.actionItemsLabel },
+        { key: "concerns",         label: L.concernsLabel },
+        { key: "keyMessages",      label: L.keyMessagesLabel },
 
-        // ★ プレゼン系
-        { key: "presentationPresenter", label: L.presentationPresenter },
+        // プレゼン系
+        { key: "presentationPresenter",           label: L.presentationPresenter },
         {
           key: "presentationCoreProblem",
           label: L.presentationCoreProblem || L.coreProblem,
@@ -938,10 +1156,22 @@ function buildMeetingMinutesHTML(mm, locale) {
         },
         { key: "presentationQandA", label: L.presentationQandA },
         { key: "presentationFeedback", label: L.presentationFeedback },
+
+        // 1on1 / 感情系
+        {
+          key: "coreEmotion",
+          label:
+            (L.oneonone && (L.oneonone.coreEmotion || L.oneonone.title)) ||
+            "Core emotion",
+        },
+        {
+          key: "toneInsights",
+          label: L.toneInsights || "Tone & sentiment",
+        }
       ];
 
       topicSections.forEach(({ key, label }) => {
-        if (t[key] != null) {
+        if (t[key] != null && label) {
           appendSectionHTML(out, label, t[key]);
         }
       });
@@ -958,6 +1188,174 @@ function buildMeetingMinutesHTML(mm, locale) {
             kdLines
           );
         }
+      }
+    });
+  }
+
+  // === ブレスト（brainstorming） ===
+  if (mm.brainstorming && typeof mm.brainstorming === "object") {
+    const B = L.brainstorming || {};
+    const b = mm.brainstorming;
+
+    out.push(`<h2>${escapeHtml(B.title || B.problemToSolve || "Brainstorming")}</h2>`);
+
+    appendSectionHTML(out, B.problemToSolve || "Problem to solve", b.problemToSolve);
+    appendSectionHTML(out, B.topIdea || "Top idea", b.topIdea);
+    appendSectionHTML(out, B.meritsAndEffects || "Benefits & impact", b.meritsAndEffects);
+    appendSectionHTML(out, B.drawbacksAndRisks || "Drawbacks & risks", b.drawbacksAndRisks);
+    appendSectionHTML(out, B.runnerUpIdea || "Runner-up idea", b.runnerUpIdea);
+    appendSectionHTML(out, B.allIdeas || "All ideas", b.allIdeas);
+    appendSectionHTML(out, B.ideaTitle || "Idea title", b.ideaTitle);
+    appendSectionHTML(out, B.ideaDetail || "Idea details", b.ideaDetail);
+    appendSectionHTML(out, B.benefitsAndEffects || "Benefits & impact", b.benefitsAndEffects);
+  }
+
+  // === 面接（jobInterview） ===
+  if (mm.jobInterview && typeof mm.jobInterview === "object") {
+    const J = L.jobInterview || {};
+    const j = mm.jobInterview;
+
+    out.push(`<h2>${escapeHtml(J.title || "Job interview")}</h2>`);
+
+    appendSectionHTML(out, J.motivation || "Motivation", j.motivation);
+    appendSectionHTML(out, J.careerSummary || "Career summary", j.careerSummary);
+    appendSectionHTML(out, J.successes || "Successes", j.successes);
+    appendSectionHTML(out, J.failures || "Failures", j.failures);
+    appendSectionHTML(out, J.strengths || "Strengths & skills", j.strengths);
+    appendSectionHTML(out, J.weaknesses || "Weaknesses & improvements", j.weaknesses);
+    appendSectionHTML(out, J.values || "Work values", j.values);
+    appendSectionHTML(out, J.careerVision || "Career vision", j.careerVision);
+    appendSectionHTML(out, J.understandingOfCompany || "Understanding of the company", j.understandingOfCompany);
+    appendSectionHTML(out, J.workStyleAndConditions || "Work style & conditions", j.workStyleAndConditions);
+    appendSectionHTML(out, J.applicantQuestions || "Questions from applicant", j.applicantQuestions);
+    appendSectionHTML(out, J.passionMessage || "Passion & message", j.passionMessage);
+  }
+
+  // === 講義（lecture） ===
+  if (mm.lecture && typeof mm.lecture === "object") {
+    const Lec = L.lecture || {};
+    const le = mm.lecture;
+
+    out.push(
+      `<h2>${escapeHtml(
+        Lec.title || Lec.objectives || "Lecture / Training"
+      )}</h2>`
+    );
+
+    appendSectionHTML(
+      out,
+      Lec.objectives || Lec.lectureObjectives || "Lecture objectives",
+      le.objectives || le.lectureObjectives
+    );
+    appendSectionHTML(
+      out,
+      Lec.procedures || Lec.lectureProcedures || "Operations",
+      le.procedures || le.lectureProcedures
+    );
+    appendSectionHTML(
+      out,
+      Lec.notesAndRemarks || "Notes & remarks",
+      le.notesAndRemarks
+    );
+    appendSectionHTML(
+      out,
+      Lec.examplesAndScenarios || Lec.lectureExamples || "Examples & scenarios",
+      le.examplesAndScenarios || le.lectureExamples
+    );
+    appendSectionHTML(out, Lec.dos || "Dos", le.dos);
+    appendSectionHTML(out, Lec.donts || "Don'ts", le.donts);
+    appendSectionHTML(
+      out,
+      Lec.tipsAndInsights || Lec.lectureTips || "Tips & insights",
+      le.tipsAndInsights || le.lectureTips
+    );
+    appendSectionHTML(
+      out,
+      Lec.highlightedStatements || "Highlighted statements",
+      le.highlightedStatements
+    );
+  }
+
+  // === 1on1（oneonone） ===
+  if (mm.oneonone && typeof mm.oneonone === "object") {
+    const O = L.oneonone || {};
+    const o = mm.oneonone;
+
+    out.push(`<h2>${escapeHtml(O.title || "1on1")}</h2>`);
+
+    appendSectionHTML(out, O.recentSuccess || "Recent success", o.recentSuccess);
+    appendSectionHTML(out, O.contributingFactors || "Contributing factors", o.contributingFactors);
+    appendSectionHTML(out, O.scalableAction || "Scalable action", o.scalableAction);
+    appendSectionHTML(out, O.managerFeedback || "Manager feedback", o.managerFeedback);
+    appendSectionHTML(out, O.challengeFaced || "Challenge faced", o.challengeFaced);
+    appendSectionHTML(out, O.bottleneck || "Bottleneck", o.bottleneck);
+    appendSectionHTML(out, O.improvementStrategy || "Improvement strategy", o.improvementStrategy);
+    appendSectionHTML(out, O.futureExpectation || "Future expectation", o.futureExpectation);
+    appendSectionHTML(out, O.reasonForExpectation || "Reason for expectation", o.reasonForExpectation);
+    appendSectionHTML(out, O.preparationForFuture || "Preparation for the future", o.preparationForFuture);
+    appendSectionHTML(out, O.concern || "Concern", o.concern);
+    appendSectionHTML(out, O.reasonForConcern || "Reason for concern", o.reasonForConcern);
+    appendSectionHTML(out, O.mitigationIdeas || "Mitigation ideas", o.mitigationIdeas);
+    appendSectionHTML(out, O.mentalAspects || "Mental aspects", o.mentalAspects);
+    appendSectionHTML(out, O.feelingsAndBackground || "Feelings & background", o.feelingsAndBackground);
+    appendSectionHTML(out, O.emotionalChange || "Emotional change", o.emotionalChange);
+    appendSectionHTML(out, O.nextAction || "Next action", o.nextAction);
+  }
+
+  // === 1on1 グルーピング（groupedOneOnOneTopics） ===
+  if (Array.isArray(mm.groupedOneOnOneTopics) && mm.groupedOneOnOneTopics.length > 0) {
+    const O = L.oneonone || {};
+
+    out.push(
+      `<h2>${escapeHtml(
+        O.groupedOneOnOneTopics || "1on1 Topics"
+      )}</h2>`
+    );
+
+    mm.groupedOneOnOneTopics.forEach((g, gIdx) => {
+      if (!g || typeof g !== "object") return;
+
+      const groupTitle =
+        g.groupTitle ||
+        g.title ||
+        `${O.topicGroup || "Topic group"} ${gIdx + 1}`;
+
+      out.push(`<h3>${escapeHtml(groupTitle)}</h3>`);
+
+      if (Array.isArray(g.topics)) {
+        g.topics.forEach((t, tIdx) => {
+          if (!t || typeof t !== "object") return;
+
+          const topicHeader =
+            `${O.topicNumber || "Topic"} ${tIdx + 1}`;
+          out.push(`<h4>${escapeHtml(topicHeader)}</h4>`);
+
+          appendSectionHTML(
+            out,
+            O.momentOfSuccess || "Recent success moment",
+            t.momentOfSuccess
+          );
+          appendSectionHTML(
+            out,
+            O.yourContribution || "Your contribution",
+            t.yourContribution
+          );
+          appendSectionHTML(
+            out,
+            O.emotionAndBackground || "Emotion & background",
+            t.emotionAndBackground
+          );
+          appendSectionHTML(
+            out,
+            O.solutionHint || "Hint for solution",
+            t.solutionHint
+          );
+          appendSectionHTML(
+            out,
+            O.forBetter || "Actions going forward",
+            t.forBetter
+          );
+        });
       }
     });
   }
