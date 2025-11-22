@@ -49,14 +49,78 @@ const EMAIL_LOCALES_DIR = path.join(__dirname, "..", "locales", "email");
 // 英語のデフォルト（どの言語でも、足りないキーはここで補完）
 const BASE_LABELS_EN = {
   minutesHeading: "Minutes",
-  transcriptHeading: "Transcript",
+  transcriptHeading: "Full Transcript",
   date: "Date",
   summary: "Summary",
   section: "Section",
   topic: "Topic",
+
+  location: "Location",
+  attendees: "Attendees",
+  coreMessage: "Core Message",
+
+  discussion: "Discussion",
+  decisions: "Decisions",
+  actionItems: "Action Items",
+  concerns: "Concerns",
+  keyMessages: "Key Messages",
 };
 
 const labelsCache = {}; // shortLocale → labels
+
+// ja.json 等の構造を、メール用ラベル構造にマッピングする
+function buildLabelsFromJson(json) {
+  // { "labels": { ... } } 形式も許容
+  const root =
+    json && typeof json === "object" && json.labels ? json.labels : json || {};
+
+  // まず英語で初期化
+  const labels = { ...BASE_LABELS_EN };
+
+  // --- グローバル直下のキーから取れるもの ---
+  if (root["Minutes"]) labels.minutesHeading = root["Minutes"];
+  if (root["Full Transcript"])
+    labels.transcriptHeading = root["Full Transcript"];
+
+  if (root["Date"]) labels.date = root["Date"];
+  if (root["Summary"]) labels.summary = root["Summary"];
+  if (root["Topic"]) labels.topic = root["Topic"];
+  if (root["Section"]) labels.section = root["Section"];
+
+  if (root["Location"]) labels.location = root["Location"];
+  if (root["Attendees"]) labels.attendees = root["Attendees"];
+  if (root["Core Message"]) labels.coreMessage = root["Core Message"];
+
+  if (root["Discussion"]) labels.discussion = root["Discussion"];
+  if (root["Decisions"]) labels.decisions = root["Decisions"];
+  if (root["Action Items"]) labels.actionItems = root["Action Items"];
+  if (root["Concerns"]) labels.concerns = root["Concerns"];
+  if (root["Key Messages"]) labels.keyMessages = root["Key Messages"];
+
+  // --- minutes セクション（今回一番使いたいところ） ---
+  const m = root.minutes && typeof root.minutes === "object" ? root.minutes : null;
+  if (m) {
+    // タイトル用: minutesTitleFallback があればそれを優先
+    if (m.minutesTitleFallback) labels.minutesHeading = m.minutesTitleFallback;
+
+    if (m.date) labels.date = m.date;
+    if (m.summary) labels.summary = m.summary;
+    if (m.topic) labels.topic = m.topic;
+    if (m.sections) labels.section = m.sections;
+
+    if (m.location) labels.location = m.location;
+    if (m.attendees) labels.attendees = m.attendees;
+    if (m.coreMessage) labels.coreMessage = m.coreMessage;
+
+    if (m.discussion) labels.discussion = m.discussion;
+    if (m.decisions) labels.decisions = m.decisions;
+    if (m.actionItems) labels.actionItems = m.actionItems;
+    if (m.concerns) labels.concerns = m.concerns;
+    if (m.keyMessages) labels.keyMessages = m.keyMessages;
+  }
+
+  return labels;
+}
 
 function loadLabelsFromFile(locale) {
   const short = getShortLocale(locale);
@@ -82,19 +146,13 @@ function loadLabelsFromFile(locale) {
       const raw = fs.readFileSync(fullPath, "utf8");
       const json = JSON.parse(raw);
 
-      // もし { "labels": { ... } } という構造にしていたら labels を優先
-      const src =
-        json && typeof json === "object" && json.labels ? json.labels : json;
-
-      const merged = {
-        ...BASE_LABELS_EN,
-        ...src,
-      };
+      const labels = buildLabelsFromJson(json);
 
       console.log(
-        `[EMAIL_I18N] loaded labels for locale=${locale} (file=${file})`
+        `[EMAIL_I18N] loaded labels for locale=${locale} (file=${file}) ` +
+          `(minutesHeading=${labels.minutesHeading}, date=${labels.date}, summary=${labels.summary}, topic=${labels.topic})`
       );
-      return merged;
+      return labels;
     } catch (e) {
       console.error(
         "[EMAIL_I18N] Failed to load locale file:",
@@ -107,7 +165,7 @@ function loadLabelsFromFile(locale) {
   console.warn(
     `[EMAIL_I18N] No locale file found for ${locale}. Fallback to BASE_LABELS_EN`
   );
-  return BASE_LABELS_EN;
+  return { ...BASE_LABELS_EN };
 }
 
 // 呼び出し側は getLabels(locale) だけ使えば OK
@@ -120,7 +178,6 @@ function getLabels(locale) {
   const labels = loadLabelsFromFile(locale);
   labelsCache[short] = labels;
 
-  // ★ デバッグ用ログ
   console.log(
     `[EMAIL_I18N] getLabels locale=${locale} short=${short} -> ` +
       `minutesHeading=${labels.minutesHeading}, date=${labels.date}, summary=${labels.summary}, topic=${labels.topic}`
@@ -128,6 +185,7 @@ function getLabels(locale) {
 
   return labels;
 }
+
 
 
 // ========== JSON 判定ヘルパー ==========
@@ -258,20 +316,21 @@ function buildFlexibleNoteHTML(note, locale) {
 // ========== MeetingMinutes レンダリング（簡易版） ==========
 // ここは FlexibleNote ほどきっちりでなくてOKな前提
 
+
 function buildMeetingMinutesText(mm, locale) {
   const labels = getLabels(locale);
   const lines = [];
 
   if (mm.meetingTitle) lines.push(String(mm.meetingTitle));
   if (mm.date) lines.push(`${labels.date}: ${mm.date}`);
-  if (mm.location) lines.push(`Location: ${mm.location}`);
+  if (mm.location) lines.push(`${labels.location}: ${mm.location}`);
   if (Array.isArray(mm.attendees) && mm.attendees.length > 0) {
-    lines.push(`Attendees: ${mm.attendees.join(", ")}`);
+    lines.push(`${labels.attendees}: ${mm.attendees.join(", ")}`);
   }
   lines.push("");
 
   if (mm.coreMessage) {
-    lines.push("Core Message");
+    lines.push(labels.coreMessage);
     lines.push("");
     lines.push(mm.coreMessage);
     lines.push("");
@@ -286,11 +345,11 @@ function buildMeetingMinutesText(mm, locale) {
       lines.push(title);
 
       const sections = [
-        { key: "discussion", label: "Discussion" },
-        { key: "decisions", label: "Decisions" },
-        { key: "actionItems", label: "Action Items" },
-        { key: "concerns", label: "Concerns" },
-        { key: "keyMessages", label: "Key Messages" },
+        { key: "discussion", label: labels.discussion },
+        { key: "decisions", label: labels.decisions },
+        { key: "actionItems", label: labels.actionItems },
+        { key: "concerns", label: labels.concerns },
+        { key: "keyMessages", label: labels.keyMessages },
       ];
 
       sections.forEach(({ key, label }) => {
@@ -310,6 +369,7 @@ function buildMeetingMinutesText(mm, locale) {
 
   return lines.join("\n").trim();
 }
+
 
 function buildMeetingMinutesHTML(mm, locale) {
   const labels = getLabels(locale);
