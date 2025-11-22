@@ -1089,6 +1089,7 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
       outputType = 'flexible',
       formatId,
       userId,
+      emailSubject, // 任意: iOS から件名を渡したい場合用
     } = req.body || {};
 
     // recipients は JSON 文字列として送られてくる想定（iOS 側で JSON.stringify）
@@ -1113,17 +1114,20 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
     console.log('[EMAIL_JOB] recipients =', recipients);
     console.log('[EMAIL_JOB] file path  =', file.path, 'size=', file.size, 'bytes');
 
-    // ---- locale / lang を決定（/api/generate-minutes と同じ思想）----
+    // ---- locale / lang を決定 ----
     const localeResolved = resolveLocale(req, localeFromBody);
     const langHint = lang || localeResolved || null;
 
     // ---- Whisper で STT ----
     let transcription = '';
     try {
-      // 小さいファイル想定なのでそのまま投げる（必要なら convertToM4A 再利用も可）
       transcription = (await transcribeWithOpenAI(file.path)).trim();
     } catch (e) {
       console.error('[EMAIL_JOB] Whisper transcription error:', e.message);
+      // ファイルはここで消しておく
+      try {
+        fs.unlinkSync(file.path);
+      } catch (_) {}
       return res.status(500).json({
         error: 'Transcription failed',
         details: e.message,
@@ -1132,7 +1136,7 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
 
     console.log('[EMAIL_JOB] transcription length =', transcription.length);
 
-    // ---- 長大な transcript は圧縮（iOS と同じ保険）----
+    // ---- 長大な transcript は圧縮 ----
     let effectiveTranscript = transcription;
     if (transcription.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
       console.log(
@@ -1141,7 +1145,7 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
       effectiveTranscript = await compressTranscriptForGemini(transcription, langHint);
     }
 
-    // ---- minutes 生成（formatId があれば JSON フォーマット、なければ flexible JSON）----
+    // ---- minutes 生成 ----
     let minutes = null;
     let meta = null;
 
@@ -1149,6 +1153,9 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
       const fmt = loadFormatJSON(formatId, localeResolved);
       if (!fmt) {
         console.error('[EMAIL_JOB] formatId / locale not found:', formatId, localeResolved);
+        try {
+          fs.unlinkSync(file.path);
+        } catch (_) {}
         return res.status(404).json({ error: 'Format or locale not found' });
       }
 
@@ -1163,11 +1170,10 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
         title: fmt.title || null,
       };
     } else {
-      // デフォルトは flexible JSON
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
         minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
       } else {
-        minutes = await generateMinutes(effectiveTranscript, ''); // classic テンプレートを使いたい場合は meetingFormat を渡す
+        minutes = await generateMinutes(effectiveTranscript, '');
       }
       meta = { legacy: true, outputType, lang: langHint };
     }
@@ -1176,8 +1182,19 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
 
     // ========= ここからメール送信処理 =========
 
-    // 件名と本文テンプレ（最低限）
-    const subject = 'Your meeting minutes (Minutes.AI)';
+    if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+      console.error('[EMAIL_JOB] Mailgun is not configured');
+      // ここで 500 を返すか、「メールは送れなかったが minutes 生成は成功」として返すかはお好み
+      try {
+        fs.unlinkSync(file.path);
+      } catch (_) {}
+      return res.status(500).json({
+        error: 'Mailgun is not configured (missing API key or domain)',
+      });
+    }
+
+    const subject = emailSubject || 'Your meeting minutes (Minutes.AI)';
+
     const textBody = [
       'Hi,',
       '',
@@ -1210,7 +1227,7 @@ ${(transcription.length > 500
   .replace(/>/g, '&gt;')}
       </pre>
       <hr/>
-      <p><strong>Minutes (JSON or text, truncated):</strong></p>
+      <p><strong>Minutes (JSON or text, truncated):</strong> </p>
       <pre style="white-space:pre-wrap;font-family:monospace;">
 ${(typeof minutes === 'string'
   ? minutes.slice(0, 2000)
@@ -1225,12 +1242,11 @@ ${(typeof minutes === 'string'
     console.log('[EMAIL_JOB] Ready to send email with minutes to:', recipients);
 
     let mailgunResult = null;
-
     try {
-      mailgunResult = await mg.messages.create(MAILGUN_DOMAIN, {
-        from: FROM_EMAIL,
-        to: recipients,          // 配列のままでOK
-        subject: subject,
+      // sendMinutesEmail は `to` に文字列を期待しているので join して渡す
+      mailgunResult = await sendMinutesEmail({
+        to: recipients.join(','),
+        subject,
         text: textBody,
         html: htmlBody,
       });
@@ -1238,7 +1254,9 @@ ${(typeof minutes === 'string'
       console.log('[EMAIL_JOB] Mailgun send OK:', mailgunResult.id || mailgunResult);
     } catch (e) {
       console.error('[EMAIL_JOB] Mailgun send FAILED:', e);
-      // メールだけ失敗した場合、クライアントにもエラーを返すならここで return しても良い
+      try {
+        fs.unlinkSync(file.path);
+      } catch (_) {}
       return res.status(500).json({
         error: 'Failed to send email',
         details: e.message,
@@ -1268,33 +1286,12 @@ ${(typeof minutes === 'string'
       meta,
       mailgunId: mailgunResult && mailgunResult.id ? mailgunResult.id : null,
     });
-
-
-    // ---- 一時ファイル削除 ----
-    try {
-      fs.unlinkSync(file.path);
-      console.log('[EMAIL_JOB] Deleted temporary file:', file.path);
-    } catch (err) {
-      console.error('[EMAIL_JOB] Failed to delete temporary file:', file.path, err);
-    }
-
-    // クライアント(iOS)に「ジョブ受け付け完了」を返す
-    return res.json({
-      ok: true,
-      jobId: jobId || null,
-      userId: userId || null,
-      recipients,
-      locale: localeResolved,
-      lang: langHint,
-      transcriptionLength: transcription.length,
-      minutesLength: minutes ? String(minutes).length : 0,
-      meta,
-    });
   } catch (err) {
     console.error('[EMAIL_JOB] Internal error:', err);
     return res.status(500).json({ error: 'Internal server error', details: err.message });
   }
 });
+
 
 
 /*==============================================
