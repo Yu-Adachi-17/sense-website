@@ -5,13 +5,16 @@ console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" :
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 console.log("✅ OPENAI_API_KEY (for Whisper):", process.env.OPENAI_API_KEY ? "Loaded" : "Not found");
 console.log("✅ GEMINI_API_KEY (for NLP):", process.env.GEMINI_API_KEY ? "Loaded" : "Not found");
+console.log("✅ MAILGUN_API_KEY:", process.env.MAILGUN_API_KEY ? "Loaded" : "Not found");
+console.log("✅ MAILGUN_DOMAIN:", process.env.MAILGUN_DOMAIN ? "Loaded" : "Not found");
+console.log("✅ MAILGUN_FROM:", process.env.MAILGUN_FROM ? process.env.MAILGUN_FROM : "Not set (use default)");
 
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
 const multer = require('multer');
-const axios = require('axios'); // (Whisper / Zoom等でまだ使用)
+const axios = require('axios'); // (Whisper / Zoom / Mailgun 等で使用)
 
 const fs = require('fs');
 const path = require('path');
@@ -105,6 +108,66 @@ async function callGemini(systemInstruction, userMessage, generationConfig) {
 }
 // ==== End of Gemini Setup ====
 
+// ==== ★ NEW: Mailgun Setup (for minutes email) ====
+const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY || null;
+const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN || null;
+const MAILGUN_FROM =
+  process.env.MAILGUN_FROM || 'Minutes.AI <no-reply@mg.sense-ai.world>';
+
+if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+  console.warn(
+    "[WARN] MAILGUN_API_KEY or MAILGUN_DOMAIN is not set. Email sending via Mailgun will be disabled."
+  );
+}
+
+function buildMailgunAuthHeader() {
+  if (!MAILGUN_API_KEY) return null;
+  const token = Buffer.from(`api:${MAILGUN_API_KEY}`).toString('base64');
+  return `Basic ${token}`;
+}
+
+/**
+ * sendMinutesEmail: Mailgun 経由で議事録メールを送信するヘルパー
+ * params = { to, subject, text, html }
+ */
+async function sendMinutesEmail(params) {
+  if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+    throw new Error("Mailgun is not configured (missing API key or domain).");
+  }
+
+  const { to, subject, text, html } = params;
+
+  const url = `https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`;
+  const body = new URLSearchParams();
+
+  body.append('from', MAILGUN_FROM);
+  body.append('to', to);
+  body.append('subject', subject || 'Your minutes from Minutes.AI');
+  body.append('text', text || '');
+  if (html) {
+    body.append('html', html);
+  }
+
+  const headers = {
+    Authorization: buildMailgunAuthHeader(),
+    'Content-Type': 'application/x-www-form-urlencoded',
+  };
+
+  console.log(`[MAILGUN] Sending minutes email to=${to}`);
+  try {
+    const resp = await axios.post(url, body.toString(), { headers });
+    console.log('[MAILGUN] Response status:', resp.status, resp.data);
+    return resp.data;
+  } catch (err) {
+    console.error(
+      '[MAILGUN] Failed to send email:',
+      err.response?.data || err.message
+    );
+    throw new Error('Failed to send minutes email via Mailgun');
+  }
+}
+
+// =======================================================================
 
 const app = express();
 
@@ -524,17 +587,11 @@ ${badOutput}
 
 // === Gemini transcript normalization (mirror iOS GeminiFlashModel) ===
 const MAX_TOTAL_TRANSCRIPT_CHARS = 1_000_000;        // 生テキストの絶対上限（保険）
-const MAX_ONESHOT_TRANSCRIPT_CHARS = 300_000;        // iOS と合わせる「1回投げ」の上限
-const LONG_MEETING_SLICE_COUNT = 5;                  // 超長時間会議の分割数（iOS と同じ思想）
+const MAX_ONESHOT_TRANSCRIPT_CHARS = 300_000;        // 「1回投げ」の上限
+const LONG_MEETING_SLICE_COUNT = 5;                  // 超長時間会議の分割数
 
 /**
- * 超長時間の transcript を、Gemini に投げる前に圧縮する（iOS の保険ロジックの BE 版）
- * - 30万文字以下ならそのまま返す
- * - それ以上なら:
- *   1) 最大100万文字まで頭から切り出し
- *   2) 5分割
- *   3) 各チャンクを 20〜25% 目安で要約（重要情報だけ残す）
- *   4) 結合して 30万文字を超えた分は末尾カット
+ * 超長時間の transcript を、Gemini に投げる前に圧縮する
  */
 async function compressTranscriptForGemini(rawTranscript, langHint) {
   if (!rawTranscript || typeof rawTranscript !== 'string') return '';
@@ -571,7 +628,7 @@ async function compressTranscriptForGemini(rawTranscript, langHint) {
 
   const compressedChunks = [];
 
-  // ★ 安全面重視でシーケンシャルに処理（最大5回）
+  // 安全面重視でシーケンシャルに処理（最大5回）
   for (let i = 0; i < chunks.length; i++) {
     const chunk = chunks[i];
 
@@ -617,7 +674,7 @@ ${chunk}
     console.log(
       `[DEBUG] compressTranscriptForGemini: combined length ${combined.length} > MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}. Cutting tail.`
     );
-    combined = combined.slice(0, MAX_ONESHOT_TRANSCRIPT_CHARS); // ★ お尻カット
+    combined = combined.slice(0, MAX_ONESHOT_TRANSCRIPT_CHARS); // お尻カット
   }
 
   console.log(
@@ -628,8 +685,6 @@ ${chunk}
 
 
 async function generateFlexibleMinutes(transcription, langHint) {
-  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
-  
   // buildFlexibleMessages は OpenAI 形式の messages 配列を返す
   const openAIMessages = buildFlexibleMessages({
     transcript: transcription,
@@ -638,7 +693,6 @@ async function generateFlexibleMinutes(transcription, langHint) {
   });
   
   // OpenAI形式の 'messages' を Gemini 形式 (systemInstruction, userMessage) に変換
-  // (system が最初、user が最後と仮定)
   const systemMessage = openAIMessages.find(m => m.role === 'system')?.content || '';
   const userMessage = openAIMessages.find(m => m.role === 'user')?.content || '';
 
@@ -647,7 +701,7 @@ async function generateFlexibleMinutes(transcription, langHint) {
     throw new Error("Failed to parse messages for Gemini.");
   }
 
-  // ★ ここでプロンプトをログに出す（必要なときだけ）
+  // プロンプトログ
   if (process.env.LOG_PROMPT === '1') {
     console.log(`[PROMPT flexible] langHint=${langHint || 'auto'}`);
     logLong('[PROMPT flexible system]', systemMessage);
@@ -655,7 +709,6 @@ async function generateFlexibleMinutes(transcription, langHint) {
   }
 
   try {
-    // ★ Gemini呼び出し (JSONモード)
     const generationConfig = {
       temperature: 0,
       maxOutputTokens: 16000,
@@ -665,7 +718,6 @@ async function generateFlexibleMinutes(transcription, langHint) {
     let out = await callGemini(systemMessage, userMessage, generationConfig);
 
     if (!isValidFlexibleJSON(out)) {
-      // (repairFlexibleJSON も Gemini 化済み)
       out = await repairFlexibleJSON(out, langHint);
     }
     return out;
@@ -681,7 +733,6 @@ async function generateFlexibleMinutes(transcription, langHint) {
    ================================ */
 
 async function generateWithFormatJSON(transcript, fmt) {
-  // ★ 修正: Gemini API (JSONモード) 呼び出しに変更
   // fmt = { formatId, locale, schemaId, title, prompt, notes }
 
   const systemMessage = fmt.prompt || '';
@@ -692,17 +743,14 @@ async function generateWithFormatJSON(transcript, fmt) {
 ${transcript}
 </TRANSCRIPT>`;
 
-  // ★ ここで formats/*/*.json の prompt をログ出力
+  // プロンプトログ
   if (process.env.LOG_PROMPT === '1') {
     const id = fmt.formatId || '(unknown formatId)';
     const loc = fmt.locale   || '(unknown locale)';
     console.log(`[PROMPT formatJSON] formatId=${id} locale=${loc}`);
     logLong('[PROMPT formatJSON system]', systemMessage);
-    // userMessage はいつも同じ構造なので必要ならコメント外してもOK
-    // logLong('[PROMPT formatJSON user]', userMessage);
   }
 
-  // ★ Gemini呼び出し (JSONモード)
   const generationConfig = {
     temperature: 0,
     maxOutputTokens: 16000,
@@ -880,6 +928,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log(`[DEBUG] Received meetingFormat: ${meetingFormat}`);
     console.log(`[DEBUG] outputType=${outputType}, lang=${langHint}`);
 
+    // ★ オプション: メール送信関連のパラメータ
+    const emailTo = req.body.emailTo || req.body.to || null;
+    const emailSubject = req.body.emailSubject || null;
+
     let tempFilePath = file.path;
 
     let transcription = '';
@@ -971,7 +1023,44 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     console.log('[DEBUG] Final transcription result length:', transcription.length);
     console.log('[DEBUG] Final minutes length:', minutes.length);
 
-    return res.json({ transcription: transcription.trim(), minutes });
+    // ★★ ここで Mailgun 経由のメール送信（任意） ★★
+    let emailResult = null;
+    if (emailTo && MAILGUN_API_KEY && MAILGUN_DOMAIN) {
+      try {
+        const textBody = [
+          '=== Minutes ===',
+          '',
+          minutes,
+          '',
+          '=== Transcript ===',
+          '',
+          transcription,
+        ].join('\n');
+
+        const htmlBody =
+          `<h2>Minutes</h2><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">` +
+          `${minutes.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>` +
+          `<hr/><h3>Transcript</h3><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">` +
+          `${transcription.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>`;
+
+        emailResult = await sendMinutesEmail({
+          to: emailTo,
+          subject: emailSubject || 'Your minutes from Minutes.AI',
+          text: textBody,
+          html: htmlBody,
+        });
+
+        console.log(`[MAILGUN] Email sent successfully to ${emailTo}`);
+      } catch (err) {
+        console.error('[MAILGUN] Error while sending minutes email:', err.message);
+      }
+    }
+
+    return res.json({
+      transcription: transcription.trim(),
+      minutes,
+      email: emailResult,
+    });
   } catch (err) {
     console.error('[ERROR] Internal error in /api/transcribe:', err);
     return res.status(500).json({ error: 'Internal server error', details: err.message });
@@ -1022,9 +1111,7 @@ app.post('/api/generate-minutes', async (req, res) => {
     const localeResolved = resolveLocale(req, localeFromBody);
     const langHint = lang || localeResolved || null;
 
-    // ★ iOS GeminiFlashModel と同じ思想：
-    //   「30万文字まではそのまま 1-shot、
-    //     それ以上は 5分割 → 要約圧縮 → 30万文字以内にお尻カット」
+    // 30万文字超えた場合は iOS と同様に圧縮
     let effectiveTranscript = rawTranscript;
     if (rawTranscript.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
       console.log(
@@ -1037,7 +1124,6 @@ app.post('/api/generate-minutes', async (req, res) => {
     let meta = null;
 
     if (formatId && localeResolved) {
-      // ★ 新：formatId / locale 指定パスでも、effectiveTranscript を使う
       const fmt = loadFormatJSON(formatId, localeResolved);
       if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
 
@@ -1053,7 +1139,6 @@ app.post('/api/generate-minutes', async (req, res) => {
         title: fmt.title || null,
       };
     } else {
-      // 旧 flexible / classic パスも同じく effectiveTranscript を利用
       if ((outputType || 'flexible').toLowerCase() === 'flexible') {
         minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
       } else {
@@ -1083,7 +1168,7 @@ app.post('/api/generate-minutes', async (req, res) => {
       }
     }
 
-    // ★ レスポンスの transcription は「元の全文」を返す（iOS の allText と同じ発想）
+    // transcription は元の全文を返す
     return res.json({
       transcription: rawTranscript,
       minutes,
@@ -1095,6 +1180,49 @@ app.post('/api/generate-minutes', async (req, res) => {
   }
 });
 
+/*==============================================
+=        単純なメール送信 API（テスト用）      =
+==============================================*/
+// body: { to, subject?, minutes, transcript? }
+app.post('/api/send-minutes-email', async (req, res) => {
+  try {
+    const { to, subject, minutes, transcript } = req.body || {};
+    if (!to || !minutes) {
+      return res.status(400).json({ error: 'Missing "to" or "minutes" in body' });
+    }
+    if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+      return res.status(500).json({ error: 'Mailgun is not configured' });
+    }
+
+    const textBody = [
+      '=== Minutes ===',
+      '',
+      minutes,
+      transcript ? '\n\n=== Transcript ===\n' + transcript : '',
+    ].join('');
+
+    const htmlBody =
+      `<h2>Minutes</h2><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">` +
+      `${minutes.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>` +
+      (transcript
+        ? `<hr/><h3>Transcript</h3><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">${transcript
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')}</pre>`
+        : '');
+
+    const result = await sendMinutesEmail({
+      to,
+      subject: subject || 'Your minutes from Minutes.AI',
+      text: textBody,
+      html: htmlBody,
+    });
+
+    return res.json({ ok: true, result });
+  } catch (err) {
+    console.error('[ERROR] /api/send-minutes-email:', err);
+    return res.status(500).json({ error: 'Internal error', details: err.message });
+  }
+});
 
 app.get('/api/transcribe', (req, res) => {
   res.status(200).json({ message: 'GET /api/transcribe is working!' });
