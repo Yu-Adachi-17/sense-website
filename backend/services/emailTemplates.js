@@ -113,12 +113,22 @@ function loadLabelsFromFile(locale) {
 // 呼び出し側は getLabels(locale) だけ使えば OK
 function getLabels(locale) {
   const short = getShortLocale(locale);
-  if (labelsCache[short]) return labelsCache[short];
+  if (labelsCache[short]) {
+    return labelsCache[short];
+  }
 
   const labels = loadLabelsFromFile(locale);
   labelsCache[short] = labels;
+
+  // ★ デバッグ用ログ
+  console.log(
+    `[EMAIL_I18N] getLabels locale=${locale} short=${short} -> ` +
+      `minutesHeading=${labels.minutesHeading}, date=${labels.date}, summary=${labels.summary}, topic=${labels.topic}`
+  );
+
   return labels;
 }
+
 
 // ========== JSON 判定ヘルパー ==========
 
@@ -405,9 +415,14 @@ function buildMinutesEmailBodies({ minutes, transcription, locale }) {
   });
   const transcriptText = normalizeTranscript(transcription);
 
+  // ★ デバッグ
+  console.log(
+    `[EMAIL_I18N] buildMinutesEmailBodies locale=${locale} ` +
+      `(minutesHeading=${labels.minutesHeading})`
+  );
+
+  // テキスト版は「Minutes」のラベルをつけず、素の minutesText から始める
   const textParts = [
-    `=== ${labels.minutesHeading} ===`,
-    "",
     minutesText || "(no minutes)",
   ];
 
@@ -420,8 +435,8 @@ function buildMinutesEmailBodies({ minutes, transcription, locale }) {
 
   const textBody = textParts.join("\n");
 
-  let htmlBody =
-    `<h2>${escapeHtml(labels.minutesHeading)}</h2>\n` + minutesHtml;
+  // HTML版も <h2>Minutes</h2> をつけずに、minutesHtml をそのまま使う
+  let htmlBody = minutesHtml;
 
   if (transcriptText) {
     htmlBody +=
@@ -435,6 +450,7 @@ function buildMinutesEmailBodies({ minutes, transcription, locale }) {
   return { textBody, htmlBody };
 }
 
+
 /**
  * Minutes だけを送るメール本文
  * - /api/minutes-email-from-audio で使用（Transcriptは付けない）
@@ -446,16 +462,23 @@ function buildMinutesOnlyEmailBodies({ minutes, locale }) {
     locale,
   });
 
+  // ★ デバッグ
+  console.log(
+    `[EMAIL_I18N] buildMinutesOnlyEmailBodies locale=${locale} ` +
+      `(minutesHeading=${labels.minutesHeading})`
+  );
+
   const textBody =
     minutesText && minutesText.trim().length > 0
       ? minutesText
       : "(no minutes)";
 
-  const htmlBody =
-    `<h2>${escapeHtml(labels.minutesHeading)}</h2>\n` + minutesHtml;
+  // ここでも <h2>Minutes</h2> は付けず、生成済み minutesHtml をそのまま使う
+  const htmlBody = minutesHtml;
 
   return { textBody, htmlBody };
 }
+
 
 module.exports = {
   buildMinutesEmailBodies, // ({ minutes, transcription, locale })
