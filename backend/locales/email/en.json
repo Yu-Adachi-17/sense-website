@@ -1,0 +1,95 @@
+{
+  "user_data_error": "User data retrieval error",
+  "unsupported_file_format": "Unsupported file format. Please use m4a, webm, mp3, wav, or ogg.",
+
+  "minutes": {
+    "minutesTitleFallback": "Minutes",
+    "noContentProvided": "No Content Provided",
+    "noContentProvidedTitle": "No Content Provided",
+    "topic": "Topic",
+    "topicFallback": "Topic",
+
+    "discussion": "Discussion",
+    "decisions": "Decisions",
+    "actionItems": "Action Items",
+    "concerns": "Concerns",
+    "summary": "Summary",
+    "proposal": "Proposal",
+    "background": "Background",
+    "discussionPoints": "Discussion Points",
+    "decisionsAndTasks": "Decisions & Tasks",
+    "coreProblem": "Core Problem",
+    "expectedResult": "Expected Result",
+
+    "overview": "Overview",
+    "sections": "Sections",
+    "topics": "Topics",
+    "items": "Items",
+    "content": "Content",
+    "body": "Body",
+
+    "brainstorming": {
+      "problemToSolve": "Problem to solve",
+      "topIdea": "Top Idea",
+      "meritsAndEffects": "Merits and Effects",
+      "drawbacksAndRisks": "Drawbacks and Risks",
+      "runnerUpIdea": "Runner-up Idea",
+      "allIdeas": "All Ideas",
+      "ideaTitle": "Idea Title"
+    },
+
+    "jobInterview": {
+      "motivation": "Motivation",
+      "careerSummary": "Career Summary",
+      "successes": "Successes",
+      "failures": "Failures",
+      "strengths": "Strengths and Skills",
+      "weaknesses": "Weaknesses and Areas for Improvement",
+      "values": "Values at Work",
+      "careerVision": "Career Vision",
+      "understandingOfCompany": "Understanding of the Company",
+      "workStyleAndConditions": "Work Style and Conditions",
+      "applicantQuestions": "Questions from the Applicant (Q&A)",
+      "passionMessage": "Passion and Message"
+    },
+
+    "lecture": {
+      "objectives": "Lecture Objectives",
+      "procedures": "Procedures",
+      "notesAndRemarks": "Notes & Remarks",
+      "examplesAndScenarios": "Examples & Scenarios",
+      "dos": "Dos",
+      "donts": "Don'ts",
+      "tipsAndInsights": "Tips & Insights"
+    },
+
+    "oneonone": {
+      "title": "1on1",
+      "recentSuccess": "Recent Success",
+      "contributingFactors": "Contributing Factors",
+      "scalableAction": "Scalable Action",
+      "managerFeedback": "Manager Feedback",
+      "challengeFaced": "Challenge Faced",
+      "bottleneck": "Bottleneck",
+      "improvementStrategy": "Improvement Strategy",
+      "futureExpectation": "Future Expectation",
+      "reasonForExpectation": "Reason for Expectation",
+      "preparationForFuture": "Preparation for the Future",
+      "concern": "Concern",
+      "reasonForConcern": "Reason for Concern",
+      "mitigationIdeas": "Mitigation Ideas",
+      "mentalAspects": "Mental Aspects",
+      "feelingsAndBackground": "Feelings and Background",
+      "emotionalChange": "Emotional Change",
+      "nextAction": "Next Action",
+      "coreEmotion": "Core Emotion",
+      "topicGroup": "Topic Group",
+      "expectation": "Expectation",
+      "worry": "Worry",
+      "why": "Why",
+      "whatCausedIt": "What Caused It",
+      "nextTimeStrategy": "Next Time Strategy",
+      "preparation": "Preparation"
+    }
+  }
+}

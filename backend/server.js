@@ -167,6 +167,12 @@ async function sendMinutesEmail(params) {
   }
 }
 
+// ==== ★ NEW: Email Templates (Minutes / Transcript) ====
+const {
+  buildMinutesEmailBodies,
+  buildMinutesOnlyEmailBodies,
+} = require('./services/emailTemplates');
+
 // =======================================================================
 
 const app = express();
@@ -1027,21 +1033,10 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
     let emailResult = null;
     if (emailTo && MAILGUN_API_KEY && MAILGUN_DOMAIN) {
       try {
-        const textBody = [
-          '=== Minutes ===',
-          '',
+        const { textBody, htmlBody } = buildMinutesEmailBodies({
           minutes,
-          '',
-          '=== Transcript ===',
-          '',
           transcription,
-        ].join('\n');
-
-        const htmlBody =
-          `<h2>Minutes</h2><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">` +
-          `${minutes.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>` +
-          `<hr/><h3>Transcript</h3><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">` +
-          `${transcription.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>`;
+        });
 
         emailResult = await sendMinutesEmail({
           to: emailTo,
@@ -1227,25 +1222,10 @@ app.post('/api/minutes-email-from-audio', upload.single('file'), async (req, res
       (emailSubject && emailSubject.trim()) ||
       'Your meeting minutes (Minutes.AI)';
 
-    // 2. 本文：議事録のみ（テキスト / HTML 共通のベース）
-    const minutesText =
-      typeof minutes === 'string'
-        ? minutes
-        : JSON.stringify(minutes, null, 2);
-
-    const safeMinutesHtml = minutesText
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-
-    // テキストメール本文：そのまま minutes からスタート
-    const textBody = minutesText;
-
-    // HTMLメール本文：プレーンに <pre> で minutes だけ表示
-    const htmlBody = `
-<pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-${safeMinutesHtml}
-</pre>
-`.trim();
+    // 2. 本文：minutes のみ（Transcript は付けない）
+    const { textBody, htmlBody } = buildMinutesOnlyEmailBodies({
+      minutes,
+    });
 
     console.log('[EMAIL_JOB] Ready to send email with minutes to:', recipients);
 
@@ -1429,21 +1409,10 @@ app.post('/api/send-minutes-email', async (req, res) => {
       return res.status(500).json({ error: 'Mailgun is not configured' });
     }
 
-    const textBody = [
-      '=== Minutes ===',
-      '',
+    const { textBody, htmlBody } = buildMinutesEmailBodies({
       minutes,
-      transcript ? '\n\n=== Transcript ===\n' + transcript : '',
-    ].join('');
-
-    const htmlBody =
-      `<h2>Minutes</h2><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">` +
-      `${minutes.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>` +
-      (transcript
-        ? `<hr/><h3>Transcript</h3><pre style="white-space:pre-wrap;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">${transcript
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')}</pre>`
-        : '');
+      transcription: transcript || null,
+    });
 
     const result = await sendMinutesEmail({
       to,
