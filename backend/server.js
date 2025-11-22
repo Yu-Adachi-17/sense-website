@@ -130,6 +130,14 @@ function buildLocalizedFrom(locale) {
   return `${productName} <${MAILGUN_FROM_ADDRESS}>`;
 }
 
+// Mailgun Basic 認証ヘッダー生成
+function buildMailgunAuthHeader() {
+  if (!MAILGUN_API_KEY) {
+    throw new Error("MAILGUN_API_KEY is not set.");
+  }
+  const token = Buffer.from(`api:${MAILGUN_API_KEY}`).toString('base64');
+  return `Basic ${token}`;
+}
 
 /**
  * sendMinutesEmail: Mailgun 経由で議事録メールを送信するヘルパー
@@ -176,6 +184,7 @@ async function sendMinutesEmail(params) {
     throw new Error("Failed to send minutes email via Mailgun");
   }
 }
+
 
 
 // ==== ★ NEW: Email Templates (Minutes / Transcript) ====
