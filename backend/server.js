@@ -45,9 +45,6 @@ const recordingsRouter = require('./routes/recordings');
 const livekitRoomsRouter = require('./routes/livekitRooms');
 
 const { getProductName } = require('./services/productName');
-const bodyParser = require('body-parser');
-const { generateMinutesWithLongLogic } = require("./services/geminiLongMinutes");
-
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -287,34 +284,16 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin(origin, cb) {
-      // curl / Postman のような Origin 無しは許可
-      if (!origin) return cb(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        return cb(null, true);
-      }
-
-      return cb(new Error(`Not allowed by CORS: ${origin}`));
+    origin: (origin, cb) => {
+      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+      cb(new Error('Not allowed by CORS'));
     },
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: [
-      'Content-Type',
-      'Authorization',
-      'Accept',
-      'X-Requested-With',
-      'X-User-Locale',
-      'X-Debug-Log',
-    ],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With', 'X-User-Locale', 'X-Debug-Log'],
   })
 );
-
-// Preflight（OPTIONS）
 app.options('*', cors());
-
-// JSON パース
-app.use(express.json());
 
 // Flexible Minutes 用（旧）プロンプト
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
@@ -1449,126 +1428,61 @@ app.get('/api/generate-minutes', (req, res) => {
   return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
 });
 
-/*==============================================
-=     /api/generate-minutes （統合版）         =
-==============================================*/
-console.log('[BOOT] registering POST/GET /api/generate-minutes (early)');
-
-app.get('/api/generate-minutes', (req, res) => {
-  res.set('Allow', 'POST');
-  return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
-});
-
 app.post('/api/generate-minutes', async (req, res) => {
   try {
     const {
-      // 旧APIスタイル（元の実装）
       transcript,
       formatId,
       locale: localeFromBody,
       outputType = 'flexible', // 旧互換
       meetingFormat,
       lang,
-
-      // 新スタイル（geminiLongMinutes 用に導入したやつ）
-      prompt: customPrompt,
-      currentTime,
-      allText,
-      maxRounds,
     } = req.body || {};
 
-    // === 1. ベースの本文テキストを決定（allText 優先・なければ transcript） ===
-    const rawText =
-      (typeof allText === 'string' && allText.trim().length > 0)
-        ? allText.trim()
-        : (typeof transcript === 'string' ? transcript.trim() : '');
-
-    if (!rawText) {
-      return res.status(400).json({ error: 'Missing transcript/allText' });
+    if (!transcript || typeof transcript !== 'string' || !transcript.trim()) {
+      return res.status(400).json({ error: 'Missing transcript' });
     }
 
+    const rawTranscript = transcript.trim();
     const localeResolved = resolveLocale(req, localeFromBody);
     const langHint = lang || localeResolved || null;
+
+    // 30万文字超えた場合は iOS と同様に圧縮
+    let effectiveTranscript = rawTranscript;
+    if (rawTranscript.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+      console.log(
+        `[DEBUG] /api/generate-minutes: transcript length=${rawTranscript.length} exceeds MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}. Compressing before Gemini.`
+      );
+      effectiveTranscript = await compressTranscriptForGemini(rawTranscript, langHint);
+    }
 
     let minutes;
     let meta = null;
 
-    // === 2. formatId + locale がある場合 → フォーマットJSONベースの minutes 生成 ===
-    //      ここで generateMinutesWithLongLogic を優先的に使う
     if (formatId && localeResolved) {
       const fmt = loadFormatJSON(formatId, localeResolved);
-      if (!fmt) {
-        return res.status(404).json({ error: 'format/locale not found' });
-      }
+      if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
 
-      // ログ用メタ
+      // ログ用
       fmt.formatId = formatId;
       fmt.locale = localeResolved;
 
-      // スキーマプロンプト：
-      //   - リクエスト側が customPrompt を渡してきたらそれを優先
-      //   - なければ format JSON 側の prompt を使う
-      const schemaPrompt =
-        (typeof customPrompt === 'string' && customPrompt.trim().length > 0)
-          ? customPrompt.trim()
-          : (fmt.prompt || '').toString();
-
-      if (!schemaPrompt) {
-        // format JSON に prompt が無い（旧フォーマットなど）場合は
-        // 旧来の generateWithFormatJSON にフォールバック
-        minutes = await generateWithFormatJSON(rawText, fmt);
-        meta = {
-          formatId,
-          locale: localeResolved,
-          schemaId: fmt.schemaId || null,
-          title: fmt.title || null,
-          engine: 'formatJSON-legacy',
-        };
-      } else {
-        // ★ 新ロジック：Swift の Gemini2.0FlashModel と同等の長文対応ロジック
-        const minutesJson = await generateMinutesWithLongLogic({
-          prompt: schemaPrompt,
-          currentTime: currentTime || new Date().toISOString(),
-          allText: rawText,
-          maxRounds: maxRounds || 10,
-        });
-        minutes = minutesJson;
-        meta = {
-          formatId,
-          locale: localeResolved,
-          schemaId: fmt.schemaId || null,
-          title: fmt.title || null,
-          engine: 'formatJSON-long',
-        };
-      }
-    } else {
-      // === 3. formatId が無い場合 → 旧「flexible / classic」パスで後方互換を維持 ===
-      const ot = (outputType || 'flexible').toLowerCase();
-      let effectiveText = rawText;
-
-      // 元の実装どおり、長すぎる transcript は事前圧縮
-      if (rawText.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
-        console.log(
-          `[DEBUG] /api/generate-minutes legacy path: transcript length=${rawText.length} > MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}, compressing...`
-        );
-        effectiveText = await compressTranscriptForGemini(rawText, langHint);
-      }
-
-      if (ot === 'flexible') {
-        minutes = await generateFlexibleMinutes(effectiveText, langHint);
-      } else {
-        minutes = await generateMinutes(effectiveText, meetingFormat || '');
-      }
-
+      minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
       meta = {
-        legacy: true,
-        outputType: ot,
-        lang: langHint,
-        engine: 'legacy-flexible',
+        formatId,
+        locale: localeResolved,
+        schemaId: fmt.schemaId || null,
+        title: fmt.title || null,
       };
+    } else {
+      if ((outputType || 'flexible').toLowerCase() === 'flexible') {
+        minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
+      } else {
+        minutes = await generateMinutes(effectiveTranscript, meetingFormat || '');
+      }
+      meta = { legacy: true, outputType, lang: langHint };
     }
 
-    // === 4. ログ（元のロジックを踏襲） ===
     const shouldLog =
       process.env.LOG_GENERATED_MINUTES === '1' ||
       req.headers['x-debug-log'] === '1' ||
@@ -1577,22 +1491,22 @@ app.post('/api/generate-minutes', async (req, res) => {
     if (shouldLog) {
       logLong('[GENERATED_MINUTES raw]', minutes);
       try {
-        const pretty = JSON.stringify(JSON.parse(String(minutes)), null, 2);
+        const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
         logLong('[GENERATED_MINUTES pretty]', pretty);
       } catch {
-        // JSON でなければ無視
+        // JSONでなければ無視
       }
       if (process.env.LOG_TRANSCRIPT === '1') {
-        logLong('[TRANSCRIPT]', rawText);
+        logLong('[TRANSCRIPT]', rawTranscript);
       }
       if (process.env.LOG_LOCALE === '1') {
         console.log(`[GENERATE] localeResolved=${localeResolved}`);
       }
     }
 
-    // transcript は「元の本文」を返す（old: rawTranscript と同等の扱い）
+    // transcription は元の全文を返す
     return res.json({
-      transcription: rawText,
+      transcription: rawTranscript,
       minutes,
       meta,
     });
@@ -1601,7 +1515,6 @@ app.post('/api/generate-minutes', async (req, res) => {
     return res.status(500).json({ error: 'Internal error', details: err.message });
   }
 });
-
 
 /*==============================================
 =        単純なメール送信 API（テスト用）      =
