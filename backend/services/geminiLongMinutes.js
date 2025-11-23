@@ -1,4 +1,4 @@
-// backend/geminiLongMinutes.js
+// services/geminiLongMinutes.js
 // iOS の Gemini2.0FlashModel と同等の「長時間議事録生成ロジック」を
 // Node.js（@google/generative-ai）に移植した版
 
