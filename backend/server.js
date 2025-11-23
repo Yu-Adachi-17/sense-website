@@ -45,7 +45,9 @@ const recordingsRouter = require('./routes/recordings');
 const livekitRoomsRouter = require('./routes/livekitRooms');
 
 const { getProductName } = require('./services/productName');
+const bodyParser = require('body-parser');
 const { generateMinutesWithLongLogic } = require("./services/geminiLongMinutes");
+
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -197,8 +199,6 @@ const {
 // =======================================================================
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
 
 // ---- Helpers ------------------------------------------------------------
 function logLong(label, text, size = 8000) {
@@ -287,16 +287,34 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-      cb(new Error('Not allowed by CORS'));
+    origin(origin, cb) {
+      // curl / Postman のような Origin 無しは許可
+      if (!origin) return cb(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return cb(null, true);
+      }
+
+      return cb(new Error(`Not allowed by CORS: ${origin}`));
     },
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With', 'X-User-Locale', 'X-Debug-Log'],
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'Accept',
+      'X-Requested-With',
+      'X-User-Locale',
+      'X-Debug-Log',
+    ],
   })
 );
+
+// Preflight（OPTIONS）
 app.options('*', cors());
+
+// JSON パース
+app.use(express.json());
 
 // Flexible Minutes 用（旧）プロンプト
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
