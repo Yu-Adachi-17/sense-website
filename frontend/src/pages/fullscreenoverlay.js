@@ -37,23 +37,44 @@ export default function FullScreenOverlay({
     return value == null ? "" : String(value);
   };
 
-  // ```json ... ``` にも対応した JSON 判定
-  const normalizeForJsonDetection = (raw) => {
-    if (typeof raw !== "string") return "";
-    let text = raw.trim();
-    if (!text.startsWith("```")) return text;
-    const lines = text.split("\n");
-    const first = lines[0].trim();
-    if (!first.startsWith("```")) return text;
-    let endIndex = lines.length;
-    if (lines[lines.length - 1].trim() === "```") {
-      endIndex = lines.length - 1;
+  // Swift 側 cleanJSON とほぼ同じロジック
+  const cleanJsonForMinutes = (raw) => {
+    if (raw == null) return "";
+    let cleaned = String(raw);
+
+    // 1. ```json ... ``` ブロックを優先的に抜き出し
+    const fenceMatch = cleaned.match(/```json([\s\S]*?)```/i);
+    if (fenceMatch && fenceMatch[1]) {
+      cleaned = fenceMatch[1];
     }
-    return lines.slice(1, endIndex).join("\n");
+
+    // 残りの ``` を全部削除
+    cleaned = cleaned.replace(/```/g, "");
+
+    // 2. 行コメント //... を削除
+    cleaned = cleaned.replace(/\/\/.*$/gm, "");
+
+    // 3. 最初の { or [ から最後の } or ] までにクランプ
+    const firstBrace = cleaned.search(/[\{\[]/);
+    const lastCurly = cleaned.lastIndexOf("}");
+    const lastSquare = cleaned.lastIndexOf("]");
+    const lastBrace = Math.max(lastCurly, lastSquare);
+    if (firstBrace !== -1 && lastBrace !== -1 && firstBrace < lastBrace) {
+      cleaned = cleaned.slice(firstBrace, lastBrace + 1);
+    }
+
+    // 4. 前後の空白・改行を削除
+    cleaned = cleaned.trim();
+
+    // 5. JSON 的に無効な \\' を補正（\' -> '）
+    cleaned = cleaned.replace(/\\'/g, "'");
+
+    return cleaned;
   };
 
+  // JSON かどうかの判定（フェンスや前後のゴミを取り除いた上でパース）
   const looksLikeJsonObject = (text) => {
-    const cleaned = normalizeForJsonDetection(text);
+    const cleaned = cleanJsonForMinutes(text);
     const trimmed = cleaned.trim();
     if (!trimmed.startsWith("{") && !trimmed.startsWith("[")) return false;
     try {
@@ -167,7 +188,7 @@ export default function FullScreenOverlay({
 
   const stopPropagation = (e) => e.stopPropagation();
 
-  // 2枚目のビジュアルに合わせたスタイルの定義をここに追加
+  // 2枚目のビジュアルに合わせたスタイルの定義
   const ui = {
     chipBgLight: "#E3F2FD",
     cardShadow: "0 8px 28px rgba(0,0,0,0.08), 0 4px 14px rgba(0,0,0,0.06)",
@@ -177,43 +198,65 @@ export default function FullScreenOverlay({
       ease: "cubic-bezier(.2,.7,.2,1)",
     },
     sideMenu: {
-      position: "fixed", top: 0, right: 0,
-      width: isMobile ? "66.66%" : "30%", maxWidth: 560, minWidth: 320,
+      position: "fixed",
+      top: 0,
+      right: 0,
+      width: isMobile ? "66.66%" : "30%",
+      maxWidth: 560,
+      minWidth: 320,
       height: "100%",
       color: "#0A0F1B",
-      padding: "22px 18px", boxSizing: "border-box",
-      display: "flex", flexDirection: "column", alignItems: "stretch",
-      zIndex: 1200, // Z-indexを調整
+      padding: "22px 18px",
+      boxSizing: "border-box",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "stretch",
+      zIndex: 1200,
       transition: `transform .30s cubic-bezier(.2,.7,.2,1)`,
       transform: showSideMenu ? "translateX(0)" : "translateX(100%)",
       background: "#FFFFFF",
-      boxShadow: showSideMenu ? "0 18px 42px rgba(0,0,0,0.10), 0 10px 20px rgba(0,0,0,0.06)" : "none",
+      boxShadow: showSideMenu
+        ? "0 18px 42px rgba(0,0,0,0.10), 0 10px 20px rgba(0,0,0,0.06)"
+        : "none",
       pointerEvents: showSideMenu ? "auto" : "none",
-      borderLeft: "1px solid rgba(0,0,0,0.08)", // subtle border
+      borderLeft: "1px solid rgba(0,0,0,0.08)",
     },
     rowCard: {
-      borderRadius: 16, // base.radius
+      borderRadius: 16,
       background: "#FFFFFF",
-      border: "1px solid rgba(0,0,0,0.04)", padding: "12px 10px",
+      border: "1px solid rgba(0,0,0,0.04)",
+      padding: "12px 10px",
       margin: "10px 6px 12px 6px",
       boxShadow: "0 6px 16px rgba(0,0,0,0.05)",
-      transform: "translateZ(0)", transition: "transform .2s ease, box-shadow .2s ease",
+      transform: "translateZ(0)",
+      transition: "transform .2s ease, box-shadow .2s ease",
       cursor: "pointer",
     },
-    rowCardHover: { transform: "translateY(-2px)", boxShadow: "0 10px 24px rgba(0,0,0,0.08)" },
-    iconBadge: { width: 44, height: 44, borderRadius: 12, display: "grid", placeItems: "center", background: "#E3F2FD", border: "1px solid rgba(0,0,0,0.04)", flex: "0 0 44px" }, // chipBgLight
+    rowCardHover: {
+      transform: "translateY(-2px)",
+      boxShadow: "0 10px 24px rgba(0,0,0,0.08)",
+    },
+    iconBadge: {
+      width: 44,
+      height: 44,
+      borderRadius: 12,
+      display: "grid",
+      placeItems: "center",
+      background: "#E3F2FD",
+      border: "1px solid rgba(0,0,0,0.04)",
+      flex: "0 0 44px",
+    },
     rowTitle: { fontSize: 14, fontWeight: 600, color: "#0A0F1B" },
-    blankOverlay: { // SideMenuが表示されているときに背後を暗くするオーバーレイ
-      position: "fixed", inset: 0,
+    blankOverlay: {
+      position: "fixed",
+      inset: 0,
       background: "rgba(0, 0, 0, 0.5)",
-      zIndex: 1100, // SideMenuより低いZ-index
+      zIndex: 1100,
       display: showSideMenu ? "block" : "none",
       opacity: showSideMenu ? 1 : 0,
       transition: "opacity 0.3s ease",
     },
-    // その他のスタイルも必要に応じてここに定義します
   };
-
 
   const styles = {
     fullScreenOverlay: {
@@ -282,9 +325,7 @@ export default function FullScreenOverlay({
       alignItems: "center",
       justifyContent: "center",
       width: "100%",
-      // "Edit"ボタンがなくなったため、"Save"ボタンのみになった
-      // 高さを確保するため、最小高さを設定（ボタンの高さに合わせるなど）
-      minHeight: "31px", // (padding 5px * 2 + text 10px + border 1px * 2) 
+      minHeight: "31px",
     },
     saveButton: {
       backgroundColor: "#000000",
@@ -295,7 +336,7 @@ export default function FullScreenOverlay({
       marginLeft: "10px",
       borderRadius: "5px",
     },
-    editButton: { // このスタイルはSideMenuでは使用しなくなりましたが、念のため残します
+    editButton: {
       backgroundColor: "transparent",
       color: "#000000",
       border: "1px solid #000000",
@@ -317,9 +358,6 @@ export default function FullScreenOverlay({
       outline: "none",
       resize: "none",
     },
-    // sideMenuOverlay は ui.blankOverlay に置き換える
-    // sideMenu は ui.sideMenu に置き換える
-    // sideMenuButton は MenuRow コンポーネントに置き換える
     sideMenuClose: {
       position: "absolute",
       top: "20px",
@@ -334,27 +372,42 @@ export default function FullScreenOverlay({
   };
 
   const isJsonMinutes = !isExpanded && looksLikeJsonObject(editedText);
+  const jsonCandidate = isJsonMinutes ? cleanJsonForMinutes(editedText) : null;
 
-  // 2枚目の MenuRow コンポーネントを参考に、FullScreenOverlay 用に調整
+  // 2枚目の MenuRow コンポーネント
   const MenuRow = ({ icon, iconColor, title, onClick, trailing, disabled }) => {
     const [hover, setHover] = useState(false);
     return (
       <div
-        role="button" tabIndex={0} aria-disabled={!!disabled}
+        role="button"
+        tabIndex={0}
+        aria-disabled={!!disabled}
         onClick={() => !disabled && onClick?.()}
-        onKeyDown={(e) => { if (!disabled && (e.key === "Enter" || e.key === " ")) onClick?.(); }}
+        onKeyDown={(e) => {
+          if (!disabled && (e.key === "Enter" || e.key === " ")) onClick?.();
+        }}
         style={{
           ...ui.rowCard,
           ...(hover && !disabled ? ui.rowCardHover : null),
           opacity: disabled ? 0.6 : 1,
           pointerEvents: disabled ? "none" : "auto",
         }}
-        onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div style={ui.iconBadge}>{icon({ size: 22, color: iconColor })}</div>
           <div style={ui.rowTitle}>{title}</div>
-          <div style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 8 }}>{trailing}</div>
+          <div
+            style={{
+              marginLeft: "auto",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+            }}
+          >
+            {trailing}
+          </div>
         </div>
       </div>
     );
@@ -378,8 +431,6 @@ export default function FullScreenOverlay({
         </button>
 
         <div style={styles.titleContainer}>
-          {/* "Edit" ボタンは SideMenu に移動しました */}
-          {/* "Save" ボタンは編集中にここに表示されます */}
           {isEditing && (
             <button style={styles.saveButton} onClick={handleSave}>
               {t("Save")}
@@ -402,11 +453,11 @@ export default function FullScreenOverlay({
                 onChange={(e) => setEditedText(e.target.value)}
               />
             ) : isJsonMinutes ? (
-              // ✅ JSON minutes は構造化エディタ
+              // JSON minutes は構造化エディタ（事前に clean 済み）
               <MinutesDocumentEditorView
-                text={editedText}
+                text={jsonCandidate ?? editedText}
                 onChangeText={setEditedText}
-                t={t}           // ← これを追加
+                t={t}
               />
             ) : (
               // 非JSON minutes はプレーンテキスト
@@ -418,7 +469,10 @@ export default function FullScreenOverlay({
             )
           ) : (
             <MinutesDocumentView
-              doc={toUnifiedDoc(editedText, { t, ns: "common" })}
+              doc={toUnifiedDoc(jsonCandidate ?? editedText, {
+                t,
+                ns: "common",
+              })}
             />
           )}
         </div>
@@ -426,17 +480,14 @@ export default function FullScreenOverlay({
 
       {showSideMenu && (
         <div
-          style={ui.blankOverlay} // 新しいリッチなスタイルを適用
+          style={ui.blankOverlay}
           onClick={() => setShowSideMenu(false)}
         >
           <div style={ui.sideMenu} onClick={stopPropagation}>
-
-
-            {/* ----- 修正：ここに "Edit" ボタンを移動 ----- */}
             {!isEditing && (
               <MenuRow
                 icon={(p) => <FaRegEdit {...p} />}
-                iconColor={"#2196F3"} // アイコンの色（Blue）
+                iconColor={"#2196F3"}
                 title={t("Edit")}
                 onClick={() => {
                   setIsEditing(true);
@@ -444,19 +495,18 @@ export default function FullScreenOverlay({
                 }}
               />
             )}
-            {/* ------------------------------------- */}
 
             {!isExpanded ? (
               <MenuRow
                 icon={(p) => <TbClipboardText {...p} />}
-                iconColor={"#0D47A1"} // アイコンの色は適宜調整
+                iconColor={"#0D47A1"}
                 title={t("Show Full Transcript")}
                 onClick={handleSwitchView}
               />
             ) : (
               <MenuRow
                 icon={(p) => <TbClipboardList {...p} />}
-                iconColor={"#0D47A1"} // アイコンの色は適宜調整
+                iconColor={"#0D47A1"}
                 title={t("Show Minutes")}
                 onClick={handleSwitchToMinutes}
               />
@@ -464,7 +514,7 @@ export default function FullScreenOverlay({
 
             <MenuRow
               icon={(p) => <FaRegCopy {...p} />}
-              iconColor={"#FF9800"} // アイコンの色は適宜調整
+              iconColor={"#FF9800"}
               title={t("Copy to Clipboard")}
               onClick={handleShare}
             />
