@@ -60,13 +60,29 @@ if (!GEMINI_API_KEY) {
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const GEMINI_MODEL_NAME = "gemini-2.5-flash"; // 使用するモデル名
+const DEFAULT_THINKING_BUDGET = 2048
 
 /**
  * ★ NEW: Helper function to call the Gemini API.
  */
-async function callGemini(systemInstruction, userMessage, generationConfig) {
+/**
+ * ★ NEW: Helper function to call the Gemini API.
+ */
+async function callGemini(systemInstruction, userMessage, generationConfig = {}) {
   if (!GEMINI_API_KEY) {
     throw new Error("GEMINI_API_KEY is not set.");
+  }
+
+  // ここで generationConfig に thinkingConfig をマージする
+  const mergedConfig = {
+    ...generationConfig,
+  };
+
+  // 呼び出し側で thinkingConfig を明示していない場合だけ、デフォルトを挿す
+  if (!mergedConfig.thinkingConfig) {
+    mergedConfig.thinkingConfig = {
+      thinkingBudget: DEFAULT_THINKING_BUDGET,
+    };
   }
 
   try {
@@ -77,7 +93,7 @@ async function callGemini(systemInstruction, userMessage, generationConfig) {
 
     const result = await model.generateContent({
       contents: [{ role: "user", parts: [{ text: userMessage }] }],
-      generationConfig: generationConfig, // temperature, maxOutputTokens, responseMimeType
+      generationConfig: mergedConfig, // temperature, maxOutputTokens, responseMimeType + thinkingConfig
     });
 
     const response = result.response;
@@ -88,26 +104,40 @@ async function callGemini(systemInstruction, userMessage, generationConfig) {
       response.candidates.length > 0 &&
       response.candidates[0].content &&
       response.candidates[0].content.parts &&
-      response.candidates[0].content.parts.length > 0
+      response.candidates[0].content.parts.length > 0 &&
+      typeof response.candidates[0].content.parts[0].text === "string"
     ) {
       return response.candidates[0].content.parts[0].text.trim();
     } else if (response.promptFeedback && response.promptFeedback.blockReason) {
       // 安全性などでブロックされた場合
-      console.error(`[ERROR] Gemini call blocked: ${response.promptFeedback.blockReason}`);
-      throw new Error(`Gemini API call blocked: ${response.promptFeedback.blockReason}`);
+      console.error(
+        `[ERROR] Gemini call blocked: ${response.promptFeedback.blockReason}`
+      );
+      throw new Error(
+        `Gemini API call blocked: ${response.promptFeedback.blockReason}`
+      );
     } else {
       // その他の理由でテキストが返されなかった場合
-      console.error('[ERROR] Gemini API returned no text content.', JSON.stringify(response, null, 2));
-      throw new Error('Gemini API returned no text content.');
+      console.error(
+        "[ERROR] Gemini API returned no text content.",
+        JSON.stringify(response, null, 2)
+      );
+      throw new Error("Gemini API returned no text content.");
     }
   } catch (error) {
-    console.error('[ERROR] Failed to call Gemini API:', error.response?.data || error.message);
+    console.error(
+      "[ERROR] Failed to call Gemini API:",
+      error.response?.data || error.message
+    );
     if (error.message.includes("GEMINI_API_KEY")) {
       throw error;
     }
-    throw new Error(`Failed to generate content using Gemini API: ${error.message}`);
+    throw new Error(
+      `Failed to generate content using Gemini API: ${error.message}`
+    );
   }
 }
+
 // ==== End of Gemini Setup ====
 
 // ==== ★ NEW: Mailgun Setup (for minutes email) ====
