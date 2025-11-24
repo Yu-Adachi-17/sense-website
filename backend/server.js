@@ -1258,6 +1258,11 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 //  iOS から送られてきた音声を STT → minutes 生成 → メール送信用ジョブとして受け取る
 // ==============================================
 
+// ==============================================
+//  /api/minutes-email-from-audio
+//  iOS から送られてきた音声を STT → minutes 生成 → メール送信用ジョブとして受け取る
+// ==============================================
+
 app.post(
   '/api/minutes-email-from-audio',
   upload.single('file'),
@@ -1313,23 +1318,93 @@ app.post(
         'bytes'
       );
 
+      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+      console.log(`[EMAIL_JOB] Uploaded file size: ${fileSizeMB} MB`);
+
       // ---- locale / lang を決定 ----
       const localeResolved = resolveLocale(req, localeFromBody);
       const langHint = lang || localeResolved || null;
 
-      // ---- Whisper で STT ----
+      // ---- Whisper で STT（/api/transcribe と同じ分割ロジック）----
       let transcription = '';
+      const cleanupExtra = [];
+      const chunkPathsForCleanup = [];
+
       try {
-        transcription = (await transcribeWithOpenAI(file.path)).trim();
+        if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
+          console.log('[EMAIL_JOB] <= threshold: send original file to Whisper');
+          try {
+            transcription = (await transcribeWithOpenAI(file.path)).trim();
+          } catch (e) {
+            console.warn(
+              '[EMAIL_JOB] direct transcription failed, retry with m4a:',
+              e.message
+            );
+            const m4aPath = await convertToM4A(file.path);
+            cleanupExtra.push(m4aPath);
+            transcription = (await transcribeWithOpenAI(m4aPath)).trim();
+          }
+        } else {
+          console.log(
+            '[EMAIL_JOB] > threshold: split by duration/size and transcribe chunks'
+          );
+
+          const chunkPaths = await splitAudioFile(
+            file.path,
+            TRANSCRIPTION_CHUNK_THRESHOLD
+          );
+          chunkPathsForCleanup.push(...chunkPaths);
+          console.log(
+            `[EMAIL_JOB] Number of generated chunks: ${chunkPaths.length}`
+          );
+
+          try {
+            const transcriptionChunks = await Promise.all(
+              chunkPaths.map((p) => transcribeWithOpenAI(p))
+            );
+            transcription = transcriptionChunks.join(' ').trim();
+          } catch (e) {
+            console.warn(
+              '[EMAIL_JOB] chunk transcription failed somewhere, retry each with m4a:',
+              e.message
+            );
+            const transcriptionChunks = [];
+            for (const p of chunkPaths) {
+              try {
+                transcriptionChunks.push(await transcribeWithOpenAI(p));
+              } catch (_) {
+                const m4a = await convertToM4A(p);
+                cleanupExtra.push(m4a);
+                transcriptionChunks.push(await transcribeWithOpenAI(m4a));
+              }
+            }
+            transcription = transcriptionChunks.join(' ').trim();
+          }
+        }
       } catch (e) {
         console.error(
           '[EMAIL_JOB] Whisper transcription error:',
           e.message
         );
-        // ファイルはここで消しておく
+
+        // チャンク & 変換ファイルを掃除
+        for (const p of chunkPathsForCleanup) {
+          try {
+            fs.unlinkSync(p);
+            console.log('[EMAIL_JOB] Deleted chunk file:', p);
+          } catch (_) {}
+        }
+        for (const p of cleanupExtra) {
+          try {
+            fs.unlinkSync(p);
+            console.log('[EMAIL_JOB] Deleted extra temp file:', p);
+          } catch (_) {}
+        }
         try {
           fs.unlinkSync(file.path);
+          console.log('[EMAIL_JOB] Deleted original file after STT error:', file.path);
         } catch (_) {}
+
         return res.status(500).json({
           error: 'Transcription failed',
           details: e.message,
@@ -1365,9 +1440,22 @@ app.post(
             formatId,
             localeResolved
           );
+
+          // 一時ファイル削除
           try {
             fs.unlinkSync(file.path);
           } catch (_) {}
+          for (const p of chunkPathsForCleanup) {
+            try {
+              fs.unlinkSync(p);
+            } catch (_) {}
+          }
+          for (const p of cleanupExtra) {
+            try {
+              fs.unlinkSync(p);
+            } catch (_) {}
+          }
+
           return res
             .status(404)
             .json({ error: 'Format or locale not found' });
@@ -1401,9 +1489,21 @@ app.post(
 
       if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
         console.error('[EMAIL_JOB] Mailgun is not configured');
+
         try {
           fs.unlinkSync(file.path);
         } catch (_) {}
+        for (const p of chunkPathsForCleanup) {
+          try {
+            fs.unlinkSync(p);
+          } catch (_) {}
+        }
+        for (const p of cleanupExtra) {
+          try {
+            fs.unlinkSync(p);
+          } catch (_) {}
+        }
+
         return res.status(500).json({
           error: 'Mailgun is not configured (missing API key or domain)',
         });
@@ -1468,7 +1568,6 @@ app.post(
         recipients
       );
 
-
       let mailgunResult = null;
       try {
         // sendMinutesEmail は `to` に文字列を期待しているので join して渡す
@@ -1487,16 +1586,26 @@ app.post(
         );
       } catch (e) {
         console.error('[EMAIL_JOB] Mailgun send FAILED:', e);
+
         try {
           fs.unlinkSync(file.path);
         } catch (_) {}
+        for (const p of chunkPathsForCleanup) {
+          try {
+            fs.unlinkSync(p);
+          } catch (_) {}
+        }
+        for (const p of cleanupExtra) {
+          try {
+            fs.unlinkSync(p);
+          } catch (_) {}
+        }
+
         return res.status(500).json({
           error: 'Failed to send email',
           details: e.message,
         });
       }
-
-      // ========= メール送信ここまで =========
 
       // ---- 一時ファイル削除 ----
       try {
@@ -1508,6 +1617,18 @@ app.post(
           file.path,
           err
         );
+      }
+      for (const p of chunkPathsForCleanup) {
+        try {
+          fs.unlinkSync(p);
+          console.log('[EMAIL_JOB] Deleted chunk file:', p);
+        } catch (_) {}
+      }
+      for (const p of cleanupExtra) {
+        try {
+          fs.unlinkSync(p);
+          console.log('[EMAIL_JOB] Deleted extra temp file:', p);
+        } catch (_) {}
       }
 
       // クライアント(iOS)に「ジョブ受け付け完了」を返す
@@ -1531,6 +1652,7 @@ app.post(
     }
   }
 );
+
 
 /*==============================================
 =        フォーマット関連 API（新規追加）       =
