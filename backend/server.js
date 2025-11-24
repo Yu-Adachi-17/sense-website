@@ -611,102 +611,201 @@ ${badOutput}
   return await callGemini(systemMessage, userMessage, generationConfig);
 }
 
-// === Gemini transcript normalization (mirror iOS GeminiFlashModel) ===
-const MAX_TOTAL_TRANSCRIPT_CHARS = 1_000_000;        // 生テキストの絶対上限（保険）
-const MAX_ONESHOT_TRANSCRIPT_CHARS = 300_000;        // 「1回投げ」の上限
-const LONG_MEETING_SLICE_COUNT = 5;                  // 超長時間会議の分割数
+// === Gemini transcript normalization (same logic as iOS GeminiFlashModel) ===
+
+// 生テキストの絶対上限（保険）
+const MAX_TOTAL_TRANSCRIPT_CHARS = 1_000_000;
+
+// 「一撃で Gemini に投げるテキスト」の実務上限（iOS と同じ 30,000 文字）
+const MAX_ONESHOT_TRANSCRIPT_CHARS = 30_000;
+
+// 元テキストを 1 セグメントあたり最大何文字までにするか（iOS と同じ 3,000 文字）
+const MAX_SEGMENT_SOURCE_CHARS = 3_000;
 
 /**
- * 超長時間の transcript を、Gemini に投げる前に圧縮する
+ * 1 セグメント分を要約する（iOS の summarizeSegment 相当）
+ * - targetLength は「このチャンクの要約を何文字くらいに収めたいか」
+ */
+async function summarizeSegment({
+  segmentText,
+  partIndex,
+  totalParts,
+  targetLength,
+  langHint,
+}) {
+  const systemMessage = `
+You are summarizing a long meeting transcript (part ${partIndex} of ${totalParts}).
+Summarize this part into at most approximately ${targetLength} characters.
+
+Rules:
+- Preserve all key decisions, conclusions, and agreements.
+- Preserve all action items with assignees and due dates if they appear.
+- Preserve important numbers (prices, quantities, percentages, dates, times) and proper nouns (people, companies, products, projects).
+- Remove small talk, greetings, filler phrases, and repetitions.
+- Keep the tone neutral and concise.
+- Output PLAIN TEXT only. Do NOT output JSON. Do NOT wrap the result in backticks. Do NOT add any explanation before or after the summary.
+`.trim();
+
+  const userMessage = `
+Language hint: ${langHint || 'auto'}
+
+Here is the transcript for this part:
+${segmentText}
+`.trim();
+
+  const generationConfig = {
+    temperature: 0,
+    maxOutputTokens: 8000,
+  };
+
+  try {
+    const summary = await callGemini(systemMessage, userMessage, generationConfig);
+    const text = (summary || '').trim();
+
+    if (text.length > targetLength) {
+      return text.slice(0, targetLength);
+    }
+    return text;
+  } catch (err) {
+    console.error(
+      `[DEBUG] summarizeSegment failed for part ${partIndex}:`,
+      err.message || err
+    );
+
+    // 失敗時は元テキストを「生で targetLength まで切って」返す（iOS と同じ思想）
+    if (!segmentText) return '';
+    if (segmentText.length > targetLength) {
+      return segmentText.slice(0, targetLength);
+    }
+    return segmentText;
+  }
+}
+
+/**
+ * iOS の compressLongTranscriptToMaxLength と同じロジック
+ * - allText が maxLength を超えるときだけ呼ばれる想定
+ * - 3,000 文字ごとに分割 → 各チャンクに targetLength を割り当てて要約
+ * - 全チャンクを結合して、最終的に maxLength で尻カット
+ */
+async function compressLongTranscriptToMaxLength(allText, maxLength, langHint) {
+  if (!allText || typeof allText !== 'string') return '';
+
+  let text = allText.trim();
+  const totalLength = text.length;
+
+  if (totalLength <= maxLength) {
+    return text;
+  }
+
+  // 念のためのハード上限（iOS: maxTextLength 相当）
+  if (totalLength > MAX_TOTAL_TRANSCRIPT_CHARS) {
+    console.log(
+      `[DEBUG] compressLongTranscriptToMaxLength: totalLength=${totalLength} > MAX_TOTAL_TRANSCRIPT_CHARS=${MAX_TOTAL_TRANSCRIPT_CHARS}. Truncating head.`
+    );
+    text = text.slice(0, MAX_TOTAL_TRANSCRIPT_CHARS);
+  }
+
+  const actualTotalLength = text.length;
+
+  // 1 セグメントに渡す元テキストの上限（3,000）
+  const perSegmentLimit = MAX_SEGMENT_SOURCE_CHARS;
+
+  // 必要なセグメント数 = ceil(totalLength / perSegmentLimit)
+  const segmentCount = Math.max(
+    1,
+    Math.ceil(actualTotalLength / perSegmentLimit)
+  );
+
+  // 実際に使うチャンクサイズ（perSegmentLimit 以下になる）
+  const segmentSize = Math.ceil(actualTotalLength / segmentCount);
+
+  console.log(
+    `[DEBUG] compressLongTranscriptToMaxLength: totalLength=${actualTotalLength}, segmentCount=${segmentCount}, segmentSize=${segmentSize}`
+  );
+
+  // 既存の splitText(text, chunkSize) をそのまま再利用
+  const segments = splitText(text, segmentSize);
+
+  const totalLenDouble = actualTotalLength;
+  // 全体で maxLength の 95% を目標にする（少し余白）
+  const safetyTotal = Math.floor(maxLength * 0.95);
+
+  const compressedSegments = [];
+
+  for (let i = 0; i < segments.length; i++) {
+    const segment = segments[i];
+    const li = segment.length;
+
+    // このセグメントが全体に占める割合で safetyTotal を割り振る
+    let targetLength = Math.floor((li / totalLenDouble) * safetyTotal);
+
+    // 小さすぎるチャンクに対する下限（iOS と同じ思想）
+    const minPerSegment = Math.max(200, Math.floor(safetyTotal / (segments.length * 4)));
+    targetLength = Math.max(minPerSegment, targetLength);
+
+    const summary = await summarizeSegment({
+      segmentText: segment,
+      partIndex: i + 1,
+      totalParts: segments.length,
+      targetLength,
+      langHint,
+    });
+
+    compressedSegments.push(summary);
+  }
+
+  let joined = compressedSegments.join('\n\n');
+
+  // 念のため、最終的には maxLength で尻カット
+  if (joined.length > maxLength) {
+    console.log(
+      `[DEBUG] compressLongTranscriptToMaxLength: joined length=${joined.length} > maxLength=${maxLength}. Cutting tail.`
+    );
+    joined = joined.slice(0, maxLength);
+  }
+
+  return joined;
+}
+
+/**
+ * iOS の「下準備編」と同じレイヤーの関数
+ * - ポイント1: 一撃生成の上限は 30,000 文字
+ * - ポイント2: 30,000 を超える場合は 3,000 字ごとに分割して要約し、全体を ~30,000 に圧縮
+ * - ポイント3: その結合テキストを minutes 生成のベースとして使う
  */
 async function compressTranscriptForGemini(rawTranscript, langHint) {
   if (!rawTranscript || typeof rawTranscript !== 'string') return '';
+
   let transcript = rawTranscript.trim();
 
+  // 30,000 文字以内ならそのまま 1-shot
   if (transcript.length <= MAX_ONESHOT_TRANSCRIPT_CHARS) {
-    // 30万文字以内ならそのまま 1-shot
     return transcript;
   }
 
-  // 念のためのハード上限（あまりに長い場合は頭から100万文字だけ使う）
+  // ハード上限を超えていた場合は先頭から 1,000,000 文字だけ使う
   if (transcript.length > MAX_TOTAL_TRANSCRIPT_CHARS) {
     console.log(
-      `[DEBUG] compressTranscriptForGemini: transcript length ${transcript.length} > MAX_TOTAL_TRANSCRIPT_CHARS=${MAX_TOTAL_TRANSCRIPT_CHARS}. Truncating head.`
+      `[DEBUG] compressTranscriptForGemini: transcript length=${transcript.length} > MAX_TOTAL_TRANSCRIPT_CHARS=${MAX_TOTAL_TRANSCRIPT_CHARS}. Truncating head.`
     );
     transcript = transcript.slice(0, MAX_TOTAL_TRANSCRIPT_CHARS);
   }
 
-  const totalLen = transcript.length;
-  const sliceCount = LONG_MEETING_SLICE_COUNT;
-  const sliceSize = Math.ceil(totalLen / sliceCount);
-  const chunks = [];
-
-  for (let i = 0; i < sliceCount; i++) {
-    const start = i * sliceSize;
-    if (start >= totalLen) break;
-    const end = Math.min(start + sliceSize, totalLen);
-    chunks.push(transcript.slice(start, end));
-  }
-
   console.log(
-    `[DEBUG] compressTranscriptForGemini: length=${totalLen}, slices=${chunks.length}, approx sliceSize=${sliceSize}`
+    `[DEBUG] compressTranscriptForGemini: length=${transcript.length} > ${MAX_ONESHOT_TRANSCRIPT_CHARS}, start compressLongTranscriptToMaxLength...`
   );
 
-  const compressedChunks = [];
-
-  // 安全面重視でシーケンシャルに処理（最大5回）
-  for (let i = 0; i < chunks.length; i++) {
-    const chunk = chunks[i];
-
-    const systemMessage = `
-You are a professional assistant compressing long meeting transcripts before they are converted into structured minutes.
-Your job is to shorten the text while preserving ALL important information that could matter for minutes.
-
-Rules:
-- Preserve decisions, action items, owners, deadlines.
-- Preserve important numbers (prices, quantities, percentages, KPIs, times).
-- Preserve key arguments, options, and risks that were seriously discussed.
-- Keep the chronological order of events.
-- Remove filler talk, small talk, repetitions, and obvious acknowledgements ("yes", "ok", etc.).
-- Target about 20–25% of the original length of this chunk.
-- Output plain text only (no headings, no JSON, no bullet markers).
-`.trim();
-
-    const userMessage = `
-Language hint: ${langHint || 'auto'}
-
-This is part ${i + 1} of ${chunks.length} of a single long meeting transcript.
-
-<TRANSCRIPT_PART_${i + 1}>
-${chunk}
-</TRANSCRIPT_PART_${i + 1}>
-`.trim();
-
-    const generationConfig = {
-      temperature: 0,
-      maxOutputTokens: 8000,
-    };
-
-    console.log(
-      `[DEBUG] compressTranscriptForGemini: calling Gemini for part ${i + 1}/${chunks.length}`
-    );
-    const compressed = await callGemini(systemMessage, userMessage, generationConfig);
-    compressedChunks.push((compressed || '').trim());
-  }
-
-  let combined = compressedChunks.join('\n\n').trim();
-
-  if (combined.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
-    console.log(
-      `[DEBUG] compressTranscriptForGemini: combined length ${combined.length} > MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}. Cutting tail.`
-    );
-    combined = combined.slice(0, MAX_ONESHOT_TRANSCRIPT_CHARS); // お尻カット
-  }
+  const compressed = await compressLongTranscriptToMaxLength(
+    transcript,
+    MAX_ONESHOT_TRANSCRIPT_CHARS,
+    langHint
+  );
 
   console.log(
-    `[DEBUG] compressTranscriptForGemini: final compressed length=${combined.length} (from original ${rawTranscript.length})`
+    `[DEBUG] compressTranscriptForGemini: compressed length=${compressed.length}`
   );
-  return combined;
+
+  return compressed;
 }
 
 
