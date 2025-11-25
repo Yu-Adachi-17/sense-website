@@ -455,7 +455,7 @@ function isMeetingMinutesShape(obj) {
 // ========== FlexibleNote レンダリング ==========
 
 function buildFlexibleNoteText(note, locale) {
-  const { date, summary, section, topic } = getLabels(locale);
+  const { date, summary, section /*, topic*/ } = getLabels(locale);
   const lines = [];
 
   if (note.meetingTitle) lines.push(String(note.meetingTitle));
@@ -481,7 +481,8 @@ function buildFlexibleNoteText(note, locale) {
       if (Array.isArray(sec.topics)) {
         sec.topics.forEach((t) => {
           if (t.subTitle) {
-            lines.push(`${topic}: ${t.subTitle}`);
+            // ★ ここを変更：「議題: 」を付けず、サブタイトルだけ出す
+            lines.push(String(t.subTitle));
           }
           if (Array.isArray(t.details) && t.details.length > 0) {
             t.details.forEach((d) => {
@@ -497,8 +498,9 @@ function buildFlexibleNoteText(note, locale) {
   return lines.join("\n").trim();
 }
 
+
 function buildFlexibleNoteHTML(note, locale) {
-  const { date, summary, section, topic } = getLabels(locale);
+  const { date, summary, section /*, topic*/ } = getLabels(locale);
   const out = [];
 
   if (note.meetingTitle) {
@@ -528,9 +530,8 @@ function buildFlexibleNoteHTML(note, locale) {
       if (Array.isArray(sec.topics)) {
         sec.topics.forEach((t) => {
           if (t.subTitle) {
-            out.push(
-              `<h3>${escapeHtml(topic)}: ${escapeHtml(t.subTitle)}</h3>`
-            );
+            // ★ ここを変更：「議題: 」を付けず、サブタイトルだけ見出しにする
+            out.push(`<h3>${escapeHtml(t.subTitle)}</h3>`);
           }
           if (Array.isArray(t.details) && t.details.length > 0) {
             out.push("<ul>");
@@ -546,6 +547,7 @@ function buildFlexibleNoteHTML(note, locale) {
 
   return out.join("\n");
 }
+
 
 // ========== MeetingMinutes レンダリング ==========
 // MeetingMinutes 構造体を「共通フォーマット」で描画する

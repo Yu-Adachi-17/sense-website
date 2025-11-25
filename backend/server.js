@@ -1428,12 +1428,7 @@ app.post(
       let minutes = null;
       let meta = null;
 
-      // Flexible だけは旧 Flexible ルートに落とす
-      const isFlexibleFmt = formatId === 'flexible';
-      const effectiveOutputType = (outputType || 'flexible').toLowerCase();
-
-      if (formatId && localeResolved && !isFlexibleFmt) {
-        // ========= FMT（新フォーマット JSON）ルート =========
+      if (formatId && localeResolved) {
         const fmt = loadFormatJSON(formatId, localeResolved);
         if (!fmt) {
           console.error(
@@ -1473,20 +1468,12 @@ app.post(
           title: fmt.title || null,
         };
       } else {
-        // ========= レガシー Flexible / General ルート =========
-        if (effectiveOutputType === 'flexible') {
-          // 旧 Flexible プロンプト（FlexibleNote）
+        if ((outputType || 'flexible').toLowerCase() === 'flexible') {
           minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
         } else {
-          // 旧 General（MeetingMinutes）
           minutes = await generateMinutes(effectiveTranscript, '');
         }
-        meta = {
-          legacy: true,
-          outputType: effectiveOutputType,
-          lang: langHint,
-          formatId: formatId || null,
-        };
+        meta = { legacy: true, outputType, lang: langHint };
       }
 
       console.log(
@@ -1661,7 +1648,6 @@ app.post(
     }
   }
 );
-
 
 
 /*==============================================
