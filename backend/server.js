@@ -1253,10 +1253,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 });
 
 
-// ==============================================
-//  /api/minutes-email-from-audio
-//  iOS から送られてきた音声を STT → minutes 生成 → メール送信用ジョブとして受け取る
-// ==============================================
 
 // ==============================================
 //  /api/minutes-email-from-audio
@@ -1432,7 +1428,12 @@ app.post(
       let minutes = null;
       let meta = null;
 
-      if (formatId && localeResolved) {
+      // Flexible だけは旧 Flexible ルートに落とす
+      const isFlexibleFmt = formatId === 'flexible';
+      const effectiveOutputType = (outputType || 'flexible').toLowerCase();
+
+      if (formatId && localeResolved && !isFlexibleFmt) {
+        // ========= FMT（新フォーマット JSON）ルート =========
         const fmt = loadFormatJSON(formatId, localeResolved);
         if (!fmt) {
           console.error(
@@ -1472,12 +1473,20 @@ app.post(
           title: fmt.title || null,
         };
       } else {
-        if ((outputType || 'flexible').toLowerCase() === 'flexible') {
+        // ========= レガシー Flexible / General ルート =========
+        if (effectiveOutputType === 'flexible') {
+          // 旧 Flexible プロンプト（FlexibleNote）
           minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
         } else {
+          // 旧 General（MeetingMinutes）
           minutes = await generateMinutes(effectiveTranscript, '');
         }
-        meta = { legacy: true, outputType, lang: langHint };
+        meta = {
+          legacy: true,
+          outputType: effectiveOutputType,
+          lang: langHint,
+          formatId: formatId || null,
+        };
       }
 
       console.log(
@@ -1652,6 +1661,7 @@ app.post(
     }
   }
 );
+
 
 
 /*==============================================
