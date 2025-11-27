@@ -46,6 +46,13 @@ const livekitRoomsRouter = require('./routes/livekitRooms');
 
 const { getProductName } = require('./services/productName');
 
+// ====== DEBUG: minutes-email-from-audio 用に STT をスキップして固定テキストを使う ======
+const DEBUG_BYPASS_STT_FOR_EMAIL = true; // 本番に戻すときは false にする
+const DEBUG_FIXED_TRANSCRIPT_FOR_EMAIL = `
+ここに事前に用意した全文トランスクリプトをベタ書き
+複数行でもOK。実運用に近いサンプルを突っ込んでおく。
+`;
+
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
 ffmpeg.setFfmpegPath('ffmpeg');
@@ -1378,91 +1385,102 @@ app.post(
       const langHint = lang || localeResolved || null;
 
       // ---- Whisper で STT（/api/transcribe と同じ分割ロジック）----
+      // ---- Whisper で STT（/api/transcribe と同じ分割ロジック）----
       let transcription = "";
       const cleanupExtra = [];
       const chunkPathsForCleanup = [];
 
-      try {
-        if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
-          console.log(
-            "[EMAIL_JOB] <= threshold: send original file to Whisper"
-          );
-          try {
-            transcription = (await transcribeWithOpenAI(file.path)).trim();
-          } catch (e) {
-            console.warn(
-              "[EMAIL_JOB] direct transcription failed, retry with m4a:",
-              e.message
-            );
-            const m4aPath = await convertToM4A(file.path);
-            cleanupExtra.push(m4aPath);
-            transcription = (await transcribeWithOpenAI(m4aPath)).trim();
-          }
-        } else {
-          console.log(
-            "[EMAIL_JOB] > threshold: split by duration/size and transcribe chunks"
-          );
-
-          const chunkPaths = await splitAudioFile(
-            file.path,
-            TRANSCRIPTION_CHUNK_THRESHOLD
-          );
-          chunkPathsForCleanup.push(...chunkPaths);
-          console.log(
-            `[EMAIL_JOB] Number of generated chunks: ${chunkPaths.length}`
-          );
-
-          try {
-            const transcriptionChunks = await Promise.all(
-              chunkPaths.map((p) => transcribeWithOpenAI(p))
-            );
-            transcription = transcriptionChunks.join(" ").trim();
-          } catch (e) {
-            console.warn(
-              "[EMAIL_JOB] chunk transcription failed somewhere, retry each with m4a:",
-              e.message
-            );
-            const transcriptionChunks = [];
-            for (const p of chunkPaths) {
-              try {
-                transcriptionChunks.push(await transcribeWithOpenAI(p));
-              } catch (_) {
-                const m4a = await convertToM4A(p);
-                cleanupExtra.push(m4a);
-                transcriptionChunks.push(await transcribeWithOpenAI(m4a));
-              }
-            }
-            transcription = transcriptionChunks.join(" ").trim();
-          }
-        }
-      } catch (e) {
-        console.error("[EMAIL_JOB] Whisper transcription error:", e.message);
-
-        // チャンク & 変換ファイルを掃除
-        for (const p of chunkPathsForCleanup) {
-          try {
-            fs.unlinkSync(p);
-            console.log("[EMAIL_JOB] Deleted chunk file:", p);
-          } catch (_) {}
-        }
-        for (const p of cleanupExtra) {
-          try {
-            fs.unlinkSync(p);
-            console.log("[EMAIL_JOB] Deleted extra temp file:", p);
-          } catch (_) {}
-        }
+      // ★ デバッグ中は STT を完全にスキップして固定テキストを使用
+      if (DEBUG_BYPASS_STT_FOR_EMAIL) {
+        transcription = (DEBUG_FIXED_TRANSCRIPT_FOR_EMAIL || "").trim();
+        console.log(
+          "[EMAIL_JOB][DEBUG] Bypass STT and use DEBUG_FIXED_TRANSCRIPT_FOR_EMAIL. length =",
+          transcription.length
+        );
+      } else {
+        // 通常運転：Whisper に投げる（元の try～catch をそのまま中に入れる）
         try {
-          fs.unlinkSync(file.path);
-          console.log(
-            "[EMAIL_JOB] Deleted original file after STT error:",
-            file.path
-          );
-        } catch (_) {}
+          if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
+            console.log(
+              "[EMAIL_JOB] <= threshold: send original file to Whisper"
+            );
+            try {
+              transcription = (await transcribeWithOpenAI(file.path)).trim();
+            } catch (e) {
+              console.warn(
+                "[EMAIL_JOB] direct transcription failed, retry with m4a:",
+                e.message
+              );
+              const m4aPath = await convertToM4A(file.path);
+              cleanupExtra.push(m4aPath);
+              transcription = (await transcribeWithOpenAI(m4aPath)).trim();
+            }
+          } else {
+            console.log(
+              "[EMAIL_JOB] > threshold: split by duration/size and transcribe chunks"
+            );
 
-        return res.status(500).json({
-          error: "Transcription failed",
-          details: e.message,
-        });
+            const chunkPaths = await splitAudioFile(
+              file.path,
+              TRANSCRIPTION_CHUNK_THRESHOLD
+            );
+            chunkPathsForCleanup.push(...chunkPaths);
+            console.log(
+              `[EMAIL_JOB] Number of generated chunks: ${chunkPaths.length}`
+            );
+
+            try {
+              const transcriptionChunks = await Promise.all(
+                chunkPaths.map((p) => transcribeWithOpenAI(p))
+              );
+              transcription = transcriptionChunks.join(" ").trim();
+            } catch (e) {
+              console.warn(
+                "[EMAIL_JOB] chunk transcription failed somewhere, retry each with m4a:",
+                e.message
+              );
+              const transcriptionChunks = [];
+              for (const p of chunkPaths) {
+                try {
+                  transcriptionChunks.push(await transcribeWithOpenAI(p));
+                } catch (_) {
+                  const m4a = await convertToM4A(p);
+                  cleanupExtra.push(m4a);
+                  transcriptionChunks.push(await transcribeWithOpenAI(m4a));
+                }
+              }
+              transcription = transcriptionChunks.join(" ").trim();
+            }
+          }
+        } catch (e) {
+          console.error("[EMAIL_JOB] Whisper transcription error:", e.message);
+
+          // チャンク & 変換ファイルを掃除
+          for (const p of chunkPathsForCleanup) {
+            try {
+              fs.unlinkSync(p);
+              console.log("[EMAIL_JOB] Deleted chunk file:", p);
+            } catch (_) {}
+          }
+          for (const p of cleanupExtra) {
+            try {
+              fs.unlinkSync(p);
+              console.log("[EMAIL_JOB] Deleted extra temp file:", p);
+            } catch (_) {}
+          }
+          try {
+            fs.unlinkSync(file.path);
+            console.log(
+              "[EMAIL_JOB] Deleted original file after STT error:",
+              file.path
+            );
+          } catch (_) {}
+
+          return res.status(500).json({
+            error: "Transcription failed",
+            details: e.message,
+          });
+        }
       }
 
       console.log(
