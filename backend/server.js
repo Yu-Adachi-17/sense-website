@@ -48,10 +48,12 @@ const { getProductName } = require('./services/productName');
 
 // ====== DEBUG: minutes-email-from-audio 用に STT をスキップして固定テキストを使う ======
 const DEBUG_BYPASS_STT_FOR_EMAIL = true; // 本番に戻すときは false にする
-const DEBUG_FIXED_TRANSCRIPT_FOR_EMAIL = `
-ここに事前に用意した全文トランスクリプトをベタ書き
-複数行でもOK。実運用に近いサンプルを突っ込んでおく。
-`;
+// ★ デバッグ用：固定トランスクリプトを別ファイルから読む
+const DEBUG_FIXED_TRANSCRIPT_FOR_EMAIL = fs.readFileSync(
+  path.join(__dirname, 'debug-json-killer.txt'),
+  'utf8'
+);
+
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
