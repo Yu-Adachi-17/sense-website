@@ -1317,7 +1317,6 @@ async function saveMeetingRecordFromEmailJob({
 //  ・ログインユーザーなら Firestore(meetingRecords) 保存
 //  ・Mailgun でメール送信
 // ==============================================
-
 app.post(
   "/api/minutes-email-from-audio",
   upload.single("file"),
@@ -1328,7 +1327,13 @@ app.post(
       const file = req.file;
       if (!file) {
         console.error("[EMAIL_JOB] No file uploaded");
-        return res.status(400).json({ error: "No file uploaded" });
+        return res.status(400).json({
+          error: "No file uploaded",
+          errorCode: "NO_FILE",
+          stage: "upload",
+          retryable: false,
+          canEmailResend: false,
+        });
       }
 
       // ---- フォームフィールド ----
@@ -1354,7 +1359,13 @@ app.post(
 
       if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
         console.error("[EMAIL_JOB] recipients is empty");
-        return res.status(400).json({ error: "No recipients specified" });
+        return res.status(400).json({
+          error: "No recipients specified",
+          errorCode: "NO_RECIPIENTS",
+          stage: "input",
+          retryable: false,
+          canEmailResend: false,
+        });
       }
 
       console.log("[EMAIL_JOB] jobId      =", jobId || "(none)");
@@ -1461,6 +1472,12 @@ app.post(
 
         return res.status(500).json({
           error: "Transcription failed",
+          errorCode: "STT_FAILED",
+          stage: "transcription",
+          retryable: true,
+          canEmailResend: false,
+          failedRecipients: recipients,
+          savedRecord: null,
           details: e.message,
         });
       }
@@ -1486,52 +1503,87 @@ app.post(
       let minutes = null;
       let meta = null;
 
-      if (formatId && localeResolved) {
-        const fmt = loadFormatJSON(formatId, localeResolved);
-        if (!fmt) {
-          console.error(
-            "[EMAIL_JOB] formatId / locale not found:",
+      try {
+        if (formatId && localeResolved) {
+          const fmt = loadFormatJSON(formatId, localeResolved);
+          if (!fmt) {
+            console.error(
+              "[EMAIL_JOB] formatId / locale not found:",
+              formatId,
+              localeResolved
+            );
+
+            // 一時ファイル削除
+            try {
+              fs.unlinkSync(file.path);
+            } catch (_) {}
+            for (const p of chunkPathsForCleanup) {
+              try {
+                fs.unlinkSync(p);
+              } catch (_) {}
+            }
+            for (const p of cleanupExtra) {
+              try {
+                fs.unlinkSync(p);
+              } catch (_) {}
+            }
+
+            return res.status(404).json({
+              error: "Format or locale not found",
+              errorCode: "FORMAT_NOT_FOUND",
+              stage: "minutesFormat",
+              retryable: false,
+              canEmailResend: false,
+              failedRecipients: recipients,
+              savedRecord: null,
+            });
+          }
+
+          fmt.formatId = formatId;
+          fmt.locale = localeResolved;
+
+          minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
+          meta = {
             formatId,
-            localeResolved
-          );
-
-          // 一時ファイル削除
-          try {
-            fs.unlinkSync(file.path);
-          } catch (_) {}
-          for (const p of chunkPathsForCleanup) {
-            try {
-              fs.unlinkSync(p);
-            } catch (_) {}
-          }
-          for (const p of cleanupExtra) {
-            try {
-              fs.unlinkSync(p);
-            } catch (_) {}
-          }
-
-          return res
-            .status(404)
-            .json({ error: "Format or locale not found" });
-        }
-
-        fmt.formatId = formatId;
-        fmt.locale = localeResolved;
-
-        minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
-        meta = {
-          formatId,
-          locale: localeResolved,
-          schemaId: fmt.schemaId || null,
-          title: fmt.title || null,
-        };
-      } else {
-        if ((outputType || "flexible").toLowerCase() === "flexible") {
-          minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
+            locale: localeResolved,
+            schemaId: fmt.schemaId || null,
+            title: fmt.title || null,
+          };
         } else {
-          minutes = await generateMinutes(effectiveTranscript, "");
+          if ((outputType || "flexible").toLowerCase() === "flexible") {
+            minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
+          } else {
+            minutes = await generateMinutes(effectiveTranscript, "");
+          }
+          meta = { legacy: true, outputType, lang: langHint };
         }
-        meta = { legacy: true, outputType, lang: langHint };
+      } catch (e) {
+        console.error("[EMAIL_JOB] minutes generation error:", e);
+
+        try {
+          fs.unlinkSync(file.path);
+        } catch (_) {}
+        for (const p of chunkPathsForCleanup) {
+          try {
+            fs.unlinkSync(p);
+          } catch (_) {}
+        }
+        for (const p of cleanupExtra) {
+          try {
+            fs.unlinkSync(p);
+          } catch (_) {}
+        }
+
+        return res.status(500).json({
+          error: "Minutes generation failed",
+          errorCode: "MINUTES_GENERATION_FAILED",
+          stage: "minutesGeneration",
+          retryable: true,
+          canEmailResend: false,
+          failedRecipients: recipients,
+          savedRecord: null,
+          details: e.message,
+        });
       }
 
       console.log(
@@ -1584,6 +1636,12 @@ app.post(
 
         return res.status(500).json({
           error: "Mailgun is not configured (missing API key or domain)",
+          errorCode: "MAIL_CONFIG_MISSING",
+          stage: "mailgunConfig",
+          retryable: false,
+          canEmailResend: false,
+          failedRecipients: recipients,
+          savedRecord: savedRecordInfo,
         });
       }
 
@@ -1668,6 +1726,12 @@ app.post(
 
         return res.status(500).json({
           error: "Failed to send email",
+          errorCode: "MAIL_SEND_FAILED",
+          stage: "mailgun",
+          retryable: true,
+          canEmailResend: !!savedRecordInfo,
+          failedRecipients: recipients,
+          savedRecord: savedRecordInfo,
           details: e.message,
         });
       }
@@ -1718,11 +1782,69 @@ app.post(
       console.error("[EMAIL_JOB] Internal error:", err);
       return res.status(500).json({
         error: "Internal server error",
+        errorCode: "INTERNAL_ERROR",
+        stage: "unknown",
+        retryable: false,
+        canEmailResend: false,
         details: err.message,
       });
     }
   }
 );
+
+// body: { paperID, recipients, locale?, subject? }
+app.post('/api/minutes-email-resend', async (req, res) => {
+  try {
+    const { paperID, recipients, locale, subject } = req.body || {};
+    if (!paperID || !Array.isArray(recipients) || recipients.length === 0) {
+      return res.status(400).json({ error: 'paperID or recipients missing' });
+    }
+    if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+      return res.status(500).json({ error: 'Mailgun is not configured' });
+    }
+
+    // Firestore から minutes / transcription を復元
+    const snap = await db
+      .collection("meetingRecords")
+      .where("paperID", "==", paperID)
+      .limit(1)
+      .get();
+
+    if (snap.empty) {
+      return res.status(404).json({ error: 'meetingRecord not found' });
+    }
+    const doc = snap.docs[0];
+    const data = doc.data();
+
+    const minutesString = data.minutes || "";
+    const transcription = data.transcription || "";
+    const localeResolved = locale || "en";
+
+    const { textBody, htmlBody } = buildMinutesOnlyEmailBodies({
+      minutes: minutesString,
+      locale: localeResolved,
+    });
+
+    const mailgunResult = await sendMinutesEmail({
+      to: recipients.join(","),
+      subject: subject || 'Your meeting minutes (Minutes.AI)',
+      text: textBody,
+      html: htmlBody,
+      locale: localeResolved,
+    });
+
+    return res.json({
+      ok: true,
+      mailgunId: mailgunResult.id || null,
+    });
+  } catch (err) {
+    console.error('[ERROR] /api/minutes-email-resend:', err);
+    return res.status(500).json({
+      error: 'MAIL_RESEND_FAILED',
+      details: err.message,
+    });
+  }
+});
 
 
 /*==============================================
