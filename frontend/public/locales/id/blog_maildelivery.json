@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Baru di 2025: Minutes AI (iOS) Sekarang Mengirim Notulen Anda via Email Secara Otomatis",
+    "description": "Lelah menunggu hasil AI? Dengan Pengiriman Email Otomatis baru di iOS, Anda dapat menutup aplikasi segera setelah merekam. Kami akan mengirimkan notulen ke tim Anda segera setelah siap.",
+    "ogTitle": "Berhenti Menunggu: Minutes AI (iOS) Sekarang Mengirim Notulen Secara Otomatis",
+    "ogDescription": "Rekam, hentikan, dan tutup aplikasi. Kami yang urus sisanya. Pelajari fitur baru yang menghapus waktu tunggu dari alur kerja rapat Anda.",
+    "ld": {
+      "headline": "Minutes AI untuk iOS Menambahkan Pengiriman Email Otomatis untuk Notulen Rapat",
+      "description": "Artikel ini menjelaskan fitur pengiriman email otomatis baru untuk iOS, memungkinkan pengguna melewati waktu tunggu dan mengirim notulen langsung ke tim mereka."
+    }
+  },
+  "aria": {
+    "home": "Kembali ke Beranda Minutes AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Pengiriman Email Otomatis (iOS)"
+  },
+  "hero": {
+    "kicker": "Fitur Baru iOS 2025",
+    "h1": "Rekam, Berhenti, Selesai. Notulen Anda Dikirim Secara Otomatis.",
+    "tagline": "Jika Anda pernah mencari 'aplikasi rapat AI' dengan harapan menghemat waktu, pembaruan ini untuk Anda. Tidak perlu lagi menatap layar loading menunggu notulen dibuat."
+  },
+  "lead": {
+    "p1": "Kepada pengguna setia Minutes AI: pernahkah Anda menyelesaikan rapat, menekan 'Generate', lalu berdiri memegang ponsel menunggu teks muncul agar bisa dibagikan? Itu adalah titik hambatan yang ingin kami perbaiki. Dengan pembaruan ini, kami menghapus waktu tunggu itu sepenuhnya."
+  },
+  "feature": {
+    "h2": "Apa itu 'Pengiriman Email Otomatis'?",
+    "p1": "Konsepnya sederhana. Anda mengatur penerima (seperti tim atau manajer Anda) sebelumnya di pengaturan. Kemudian, Anda cukup merekam rapat seperti biasa.",
+    "p2": "Sebelumnya, Anda harus membiarkan aplikasi tetap terbuka sampai AI selesai memproses. Sekarang, **Anda dapat menutup aplikasi sedetik setelah Anda menghentikan rekaman.** Backend menangani pekerjaan berat dan secara otomatis mengirim email notulen yang sudah jadi ke penerima pilihan Anda segera setelah siap.",
+    "note": "Catatan: Fitur ini saat ini sedang diluncurkan untuk iOS (iPhone/iPad). Pengguna Android, pantau terus—kami sedang mengerjakannya!"
+  },
+  "benefits": {
+    "h2": "Bagaimana Ini Mengubah Alur Kerja Anda",
+    "items": [
+      {
+        "t": "1. Berbagi menjadi 'di bawah sadar'",
+        "p": "Notulen rapat hanya bernilai jika dibagikan. Dengan mengotomatiskan langkah ini, Anda memastikan peserta dan yang berhalangan hadir menerima ringkasan secara instan, tanpa Anda pernah lupa menekan 'Kirim'. Ini mengubah tugas manual menjadi proses latar belakang otomatis."
+      },
+      {
+        "t": "2. Bebas dari kompromi 'Kualitas vs Kecepatan'",
+        "p": "Minutes AI menggunakan model papan atas seperti OpenAI Whisper, ChatGPT-5, dan Gemini 3. Presisi tinggi membutuhkan waktu pemrosesan—kadang beberapa menit untuk rapat yang panjang. Kami tahu menunggu itu menyebalkan. Dengan pembaruan ini, waktu pemrosesan tetap ada (untuk memastikan kualitas), tetapi **waktu tunggu Anda turun menjadi nol**. Masukkan ponsel ke saku dan lanjutkan ke tugas berikutnya."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Dari siapa email tersebut?",
+    "p1": "Ketika pengiriman otomatis aktif, tim Anda akan menerima email dari alamat di bawah ini. Jika Anda memiliki filter spam perusahaan yang ketat, harap masukkan domain ini ke daftar putih (whitelist).",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Pengirim: no-reply@mg.sense-ai.world",
+      "Domain: mg.sense-ai.world (Dikelola oleh Minutes AI / Sense G.K.)",
+      "Isi: Notulen rapat yang dibuat oleh aplikasi"
+    ],
+    "note": "Jika Anda melihat email dari alamat ini, jangan khawatir—itu hanya notulen yang Anda (atau rekan tim) rekam."
+  },
+  "workflow": {
+    "h2": "Pengaturan dalam 3 Langkah Mudah",
+    "intro": "Tidak diperlukan integrasi yang rumit. Begini cara memulainya sekarang:",
+    "steps": [
+      "1) Pergi ke Pengaturan dan tambahkan alamat email yang ingin Anda kirimi notulen (misalnya, alias tim Anda).",
+      "2) Sebelum merekam, ubah tombol 'Pengiriman Email' ke ON.",
+      "3) Rekam rapat Anda dan berhenti saat selesai.",
+      "4) Itu saja. Anda bisa menutup aplikasi segera. Backend kami (Whisper / GPT-5 / Gemini 3) akan memproses audio.",
+      "5) Setelah selesai, notulen dikirim secara otomatis dari no-reply@mg.sense-ai.world.",
+      "6) Salinan juga disimpan di riwayat aplikasi Anda untuk pengeditan di masa mendatang."
+    ]
+  },
+  "unique": {
+    "h2": "Mengapa Kami Membuat Ini",
+    "lead": "Ada banyak aplikasi yang mentranskrip audio. Tapi tujuan kami bukan hanya memberi Anda teks—tetapi membantu Anda **menyelesaikan pekerjaan Anda**.",
+    "bullets": [
+      "Sebagian besar alat berhenti di 'Ini teks Anda'. Anda masih harus menyalin, menempel, dan mengirim email secara manual.",
+      "Minutes AI berfokus pada seluruh alur kerja: Perekaman -> Analisis -> Pengiriman.",
+      "Tidak perlu Zapier atau alat pihak ketiga yang rumit. Ini dibangun langsung di dalam aplikasi.",
+      "Ini dirancang untuk para profesional yang menginginkan akurasi tertinggi tanpa membuang waktu."
+    ]
+  },
+  "faq": {
+    "h2": "Pertanyaan yang Sering Diajukan (FAQ)",
+    "items": [
+      {
+        "q": "Apakah pengiriman otomatis wajib?",
+        "a": "Tidak, ini opsional. Anda dapat menyalakan atau mematikannya untuk setiap rapat. Jika Anda merekam catatan pribadi, biarkan saja mati."
+      },
+      {
+        "q": "Apakah saya akan menerima spam pemasaran?",
+        "a": "Sama sekali tidak. Fitur ini khusus untuk mengirimkan konten rapat Anda. Kami tidak pernah mencampur email pemasaran dengan notulen Anda."
+      },
+      {
+        "q": "Bisakah saya mengubah penerima nanti?",
+        "a": "Ya. Anda dapat mengelola daftar penerima di Pengaturan kapan saja untuk beradaptasi dengan proyek atau tim yang berbeda."
+      },
+      {
+        "q": "Apakah ini biaya tambahan?",
+        "a": "Tidak. Fitur pengiriman otomatis gratis. Notulen yang dibuat hanya menghabiskan waktu paket Anda yang ada (Paket Waktu atau Langganan Tanpa Batas)."
+      },
+      {
+        "q": "Kapan Android tersedia?",
+        "a": "Kami meluncurkan di iOS terlebih dahulu, tetapi infrastruktur backend digunakan bersama. Kami bekerja keras untuk membawa pengalaman ini ke Android segera."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Harga & Paket",
+    "lead": "Khawatir tentang biaya tersembunyi? Jangan khawatir. Fitur ini sangat pas dengan harga kami yang ada.",
+    "bullets": [
+      "**Tanpa Biaya Ekstra:** Pengiriman otomatis adalah fitur standar untuk semua pengguna.",
+      "**Paket Waktu:** Bekerja sempurna dengan menit prabayar (120/1200 menit).",
+      "**Langganan Tanpa Batas:** Nilai terbaik untuk pengguna berat. Rekam sepanjang hari, kirim semuanya secara otomatis, dan jangan pernah khawatir tentang batas."
+    ],
+    "tableNote": "Cek aplikasi atau halaman harga kami untuk tarif terbaru di wilayah Anda.",
+    "linkText": "Lihat Detail Harga Lengkap"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Layar utama iPhone Minutes AI menampilkan pengaturan email otomatis",
+      "caption": "Minutes AI (iOS) — Satu ketukan untuk merekam, nol tunggu untuk berbagi."
+    }
+  },
+  "meta": {
+    "h2": "Info Artikel",
+    "published": "Diterbitkan",
+    "type": "Pembaruan Fitur",
+    "category": "Aplikasi iOS"
+  },
+  "cta": {
+    "openBrowser": "Buka Web App",
+    "downloadIOS": "Unduh untuk iOS"
+  }
+}

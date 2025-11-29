@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Nou în 2025: Proces-verbal AI (iOS) trimite acum procesele-verbale automat pe email",
+    "description": "Te-ai săturat să aștepți generarea AI? Cu noua Livrare Automată prin Email pe iOS, poți închide aplicația imediat după înregistrare. Vom trimite procesul-verbal echipei tale de îndată ce este gata.",
+    "ogTitle": "Nu mai aștepta: Proces-verbal AI (iOS) trimite acum procesele-verbale automat",
+    "ogDescription": "Înregistrează, oprește și închide aplicația. Ne ocupăm noi de restul. Află despre noua funcție care elimină timpul de așteptare din fluxul tău de lucru.",
+    "ld": {
+      "headline": "Proces-verbal AI pentru iOS adaugă livrarea automată prin email a proceselor-verbale",
+      "description": "Acest articol explică noua funcție de livrare automată prin email pentru iOS, permițând utilizatorilor să sară peste timpul de așteptare și să trimită procesele-verbale direct echipei lor."
+    }
+  },
+  "aria": {
+    "home": "Înapoi la pagina principală Proces-verbal AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Livrare Auto Email (iOS)"
+  },
+  "hero": {
+    "kicker": "Funcție nouă iOS 2025",
+    "h1": "Înregistrează, Oprește, Gata. Procesele-verbale sunt trimise automat.",
+    "tagline": "Dacă ai căutat vreodată o „aplicație de ședințe AI” sperând să economisești timp, această actualizare este pentru tine. Nu mai trebuie să privești un ecran de încărcare așteptând generarea procesului-verbal."
+  },
+  "lead": {
+    "p1": "Către utilizatorii noștri loiali Proces-verbal AI: ți s-a întâmplat vreodată să termini o ședință, să apeși „Generează” și apoi să stai cu telefonul în mână, așteptând să apară textul pentru a-l putea partaja? A fost un punct de fricțiune pe care am vrut să-l reparăm. Cu această actualizare, eliminăm complet acea așteptare."
+  },
+  "feature": {
+    "h2": "Ce este „Livrarea Automată prin Email”?",
+    "p1": "Conceptul este simplu. Îți setezi destinatarii (cum ar fi echipa sau managerul tău) în prealabil în setări. Apoi, pur și simplu înregistrezi ședința ca de obicei.",
+    "p2": "Anterior, trebuia să ții aplicația deschisă până când AI-ul termina procesarea. Acum, **poți închide aplicația la o secundă după ce ai oprit înregistrarea.** Backend-ul se ocupă de munca grea și trimite automat procesul-verbal finalizat destinatarilor aleși, imediat ce este gata.",
+    "note": "Notă: Această funcție este lansată momentan pentru iOS (iPhone/iPad). Utilizatori Android, rămâneți pe recepție – lucrăm la asta!"
+  },
+  "benefits": {
+    "h2": "Cum îți schimbă asta fluxul de lucru",
+    "items": [
+      {
+        "t": "1. Partajarea devine „inconștientă”",
+        "p": "Procesele-verbale au valoare doar dacă sunt partajate. Automatizând acest pas, te asiguri că participanții și cei absenți primesc rezumatul instantaneu, fără să uiți vreodată să apeși „Trimite”. Transformă o sarcină manuală într-un proces automat de fundal."
+      },
+      {
+        "t": "2. Libertate de compromisul „Calitate vs Viteză”",
+        "p": "Proces-verbal AI folosește modele de top precum OpenAI Whisper, ChatGPT-5 și Gemini 3. Precizia ridicată necesită timp de procesare – uneori câteva minute pentru o ședință lungă. Știm că așteptarea este enervantă. Cu această actualizare, timpul de procesare rămâne (pentru a asigura calitatea), dar **timpul tău de așteptare scade la zero**. Pune telefonul în buzunar și treci la următoarea sarcină."
+      }
+    ]
+  },
+  "who": {
+    "h2": "De la cine este emailul?",
+    "p1": "Când livrarea automată este activată, echipa ta va primi emailuri de la adresa de mai jos. Dacă ai filtre spam corporative stricte, te rugăm să pui acest domeniu pe lista albă (whitelist).",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Expeditor: no-reply@mg.sense-ai.world",
+      "Domeniu: mg.sense-ai.world (Gestionat de Proces-verbal AI / Sense G.K.)",
+      "Conținut: Procesul-verbal generat de aplicație"
+    ],
+    "note": "Dacă vezi un email de la această adresă, nu-ți face griji – este doar procesul-verbal pe care tu (sau un coleg) l-ați înregistrat."
+  },
+  "workflow": {
+    "h2": "Configurare în 3 Pași Simpli",
+    "intro": "Nu sunt necesare integrări complicate. Iată cum să începi acum:",
+    "steps": [
+      "1) Mergi la Setări și adaugă adresele de email la care vrei să trimiți procesele-verbale (ex. alias-ul echipei tale).",
+      "2) Înainte de înregistrare, comută butonul „Livrare Email” pe PORNIT (ON).",
+      "3) Înregistrează ședința și oprește când ai terminat.",
+      "4) Asta e tot. Poți închide aplicația imediat. Backend-ul nostru (Whisper / GPT-5 / Gemini 3) va procesa audio-ul.",
+      "5) Odată finalizat, procesul-verbal este trimis automat de la no-reply@mg.sense-ai.world.",
+      "6) O copie este salvată și în istoricul aplicației tale pentru editări viitoare."
+    ]
+  },
+  "unique": {
+    "h2": "De ce am construit asta",
+    "lead": "Există multe aplicații care transcriu audio. Dar scopul nostru nu este doar să-ți oferim text – ci să te ajutăm să-ți **termini treaba**.",
+    "bullets": [
+      "Majoritatea instrumentelor se opresc la „Iată textul tău”. Încă trebuie să-l copiezi, să-l lipești și să-l trimiți prin email manual.",
+      "Proces-verbal AI se concentrează pe întregul flux de lucru: Înregistrare -> Analiză -> Livrare.",
+      "Nu e nevoie de Zapier sau instrumente complexe terțe. Este integrat direct în aplicație.",
+      "Este conceput pentru profesioniștii care doresc cea mai mare precizie fără a pierde timpul."
+    ]
+  },
+  "faq": {
+    "h2": "Întrebări Frecvente (FAQ)",
+    "items": [
+      {
+        "q": "Este livrarea automată obligatorie?",
+        "a": "Nu, este opțională. O poți activa sau dezactiva pentru fiecare ședință. Dacă înregistrezi notițe personale, las-o pur și simplu oprită."
+      },
+      {
+        "q": "Voi primi spam de marketing?",
+        "a": "Absolut nu. Această funcție este strict pentru livrarea conținutului ședințelor tale. Nu amestecăm niciodată emailurile de marketing cu procesele tale verbale."
+      },
+      {
+        "q": "Pot schimba destinatarii mai târziu?",
+        "a": "Da. Poți gestiona lista de destinatari în Setări oricând pentru a te adapta la diferite proiecte sau echipe."
+      },
+      {
+        "q": "Costă extra?",
+        "a": "Nu. Funcția de livrare automată este gratuită. Procesele-verbale generate consumă pur și simplu timpul din planul tău existent (Pachete de Timp sau Abonament Nelimitat)."
+      },
+      {
+        "q": "Când vine pe Android?",
+        "a": "Lansăm întâi pe iOS, dar infrastructura backend este comună. Muncim din greu să aducem această experiență pe Android în curând."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Prețuri și Planuri",
+    "lead": "Îngrijorat de costuri ascunse? Nu fi. Această funcție se încadrează perfect în prețurile noastre existente.",
+    "bullets": [
+      "**Fără Taxe Extra:** Livrarea automată este o funcție standard pentru toți utilizatorii.",
+      "**Pachete de Timp:** Funcționează perfect cu minutele preplătite (120/1200 min).",
+      "**Abonament Nelimitat:** Cea mai bună valoare pentru utilizatorii intensivi. Înregistrează toată ziua, trimite totul automat și nu-ți face griji de limite."
+    ],
+    "tableNote": "Verifică aplicația sau pagina noastră de prețuri pentru cele mai recente tarife din regiunea ta.",
+    "linkText": "Vezi Detaliile Complete de Preț"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Ecran principal iPhone Proces-verbal AI arătând setările de email automat",
+      "caption": "Proces-verbal AI (iOS) — O atingere pentru înregistrare, zero așteptare pentru partajare."
+    }
+  },
+  "meta": {
+    "h2": "Info Articol",
+    "published": "Publicat",
+    "type": "Actualizare Funcție",
+    "category": "Aplicație iOS"
+  },
+  "cta": {
+    "openBrowser": "Deschide Web App",
+    "downloadIOS": "Descarcă pentru iOS"
+  }
+}

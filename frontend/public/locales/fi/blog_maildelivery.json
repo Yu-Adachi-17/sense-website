@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Uutta 2025: Pöytäkirja AI (iOS) lähettää muistiot nyt automaattisesti sähköpostitse",
+    "description": "Kyllästynyt odottamaan tekoälyn generointia? Uuden iOS:n automaattisen sähköpostitoimituksen ansiosta voit sulkea sovelluksen heti nauhoituksen jälkeen. Lähetämme pöytäkirjan tiimillesi heti kun se on valmis.",
+    "ogTitle": "Lopeta odottelu: Pöytäkirja AI (iOS) lähettää muistiot automaattisesti",
+    "ogDescription": "Nauhoita, lopeta ja sulje sovellus. Me hoidamme loput. Lue uudesta ominaisuudesta, joka poistaa odotusajan kokoustesi työnkulusta.",
+    "ld": {
+      "headline": "Pöytäkirja AI iOS:lle lisää automaattisen sähköpostitoimituksen kokousmuistioille",
+      "description": "Tämä artikkeli selittää uuden automaattisen sähköpostitoimitusominaisuuden iOS:lle, jonka avulla käyttäjät voivat ohittaa odotusajan ja lähettää muistiot suoraan tiimilleen."
+    }
+  },
+  "aria": {
+    "home": "Takaisin Pöytäkirja AI -etusivulle"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "maildelivery": "Automaattinen toimitus (iOS)"
+  },
+  "hero": {
+    "kicker": "Uusi iOS-ominaisuus 2025",
+    "h1": "Nauhoita, lopeta, valmis. Muistiosi lähetetään automaattisesti.",
+    "tagline": "Jos olet koskaan etsinyt 'AI-kokoussovellusta' säästääksesi aikaa, tämä päivitys on sinulle. Ei enää latausruudun tuijottamista muistion valmistumista odotellessa."
+  },
+  "lead": {
+    "p1": "Uskollisille Pöytäkirja AI -käyttäjillemme: oletko koskaan lopettanut kokouksen, painanut 'Generoi' ja seissyt puhelin kädessäsi odottamassa tekstin ilmestymistä, jotta voisit jakaa sen? Se oli kitkakohta, jonka halusimme korjata. Tällä päivityksellä poistamme tuon odotuksen kokonaan."
+  },
+  "feature": {
+    "h2": "Mikä on 'Automaattinen sähköpostitoimitus'?",
+    "p1": "Konsepti on yksinkertainen. Määrität vastaanottajat (kuten tiimisi tai esihenkilösi) etukäteen asetuksissa. Sitten vain nauhoitat kokouksesi kuten tavallisesti.",
+    "p2": "Aiemmin sinun piti pitää sovellus auki, kunnes tekoäly sai prosessoinnin valmiiksi. Nyt **voit sulkea sovelluksen heti kun lopetat nauhoituksen.** Taustajärjestelmä hoitaa raskaan työn ja lähettää valmiin pöytäkirjan automaattisesti valitsemillesi vastaanottajille heti valmistuttuaan.",
+    "note": "Huomautus: Tämä ominaisuus julkaistaan tällä hetkellä iOS:lle (iPhone/iPad). Android-käyttäjät, pysykää kuulolla – teemme töitä sen eteen!"
+  },
+  "benefits": {
+    "h2": "Miten tämä muuttaa työnkulkuasi",
+    "items": [
+      {
+        "t": "1. Jakamisesta tulee 'tiedostamatonta'",
+        "p": "Kokousmuistioilla on arvoa vain, jos ne jaetaan. Automatisoimalla tämän vaiheen varmistat, että osallistujat ja poissaolijat saavat yhteenvedon välittömästi ilman, että unohdat painaa 'Lähetä'. Se muuttaa manuaalisen työn automaattiseksi taustaprosessiksi."
+      },
+      {
+        "t": "2. Vapaus 'Laatu vs. Nopeus' -kompromissista",
+        "p": "Pöytäkirja AI käyttää huippumalleja kuten OpenAI Whisper, ChatGPT-5 ja Gemini 3. Korkea tarkkuus vaatii prosessointiaikaa – joskus muutaman minuutin pitkälle kokoukselle. Tiedämme, että odottaminen on ärsyttävää. Tällä päivityksellä prosessointiaika pysyy (laadun takaamiseksi), mutta **sinun odotusaikasi putoaa nollaan**. Laita puhelin taskuun ja siirry seuraavaan tehtävään."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Keneltä sähköposti tulee?",
+    "p1": "Kun automaattinen toimitus on päällä, tiimisi saa sähköposteja alla olevasta osoitteesta. Jos teillä on tiukat yrityksen roskapostisuodattimet, lisää tämä verkkotunnus sallittujen listalle.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Lähettäjä: no-reply@mg.sense-ai.world",
+      "Verkkotunnus: mg.sense-ai.world (Hallinnoi Pöytäkirja AI / Sense G.K.)",
+      "Sisältö: Sovelluksen generoima kokouspöytäkirja"
+    ],
+    "note": "Jos näet sähköpostin tästä osoitteesta, älä huoli – se on vain pöytäkirja, jonka sinä (tai kollegasi) nauhoititte."
+  },
+  "workflow": {
+    "h2": "Asennus 3 helpossa vaiheessa",
+    "intro": "Ei vaadi monimutkaisia integraatioita. Näin pääset alkuun nyt:",
+    "steps": [
+      "1) Mene Asetuksiin ja lisää sähköpostiosoitteet, joihin haluat lähettää muistioita (esim. tiimisi alias).",
+      "2) Ennen nauhoitusta, kytke 'Sähköpostitoimitus' PÄÄLLE (ON).",
+      "3) Nauhoita kokouksesi ja lopeta kun olet valmis.",
+      "4) Siinä kaikki. Voit sulkea sovelluksen heti. Taustajärjestelmämme (Whisper / GPT-5 / Gemini 3) prosessoi äänen.",
+      "5) Kun valmista, muistio lähetetään automaattisesti osoitteesta no-reply@mg.sense-ai.world.",
+      "6) Kopio tallennetaan myös sovelluksesi historiaan tulevaa muokkausta varten."
+    ]
+  },
+  "unique": {
+    "h2": "Miksi rakensimme tämän",
+    "lead": "On paljon sovelluksia, jotka litteroivat ääntä. Mutta tavoitteemme ei ole vain antaa sinulle tekstiä – vaan auttaa sinua **saamaan työsi valmiiksi**.",
+    "bullets": [
+      "Useimmat työkalut pysähtyvät kohtaan 'Tässä on tekstisi'. Sinun täytyy silti kopioida, liittää ja lähettää se sähköpostitse manuaalisesti.",
+      "Pöytäkirja AI keskittyy koko työnkulkuun: Nauhoitus -> Analyysi -> Toimitus.",
+      "Ei tarvetta Zapierille tai monimutkaisille kolmannen osapuolen työkaluille. Se on rakennettu suoraan sovellukseen.",
+      "Se on suunniteltu ammattilaisille, jotka haluavat korkeinta tarkkuutta ilman ajanhukkaa."
+    ]
+  },
+  "faq": {
+    "h2": "Usein kysytyt kysymykset",
+    "items": [
+      {
+        "q": "Onko automaattinen toimitus pakollinen?",
+        "a": "Ei, se on valinnainen. Voit kytkeä sen päälle tai pois jokaista kokousta varten. Jos nauhoitat henkilökohtaisia muistiinpanoja, jätä se vain pois päältä."
+      },
+      {
+        "q": "Saanko markkinointiroskapostia?",
+        "a": "Ehdottomasti en. Tämä ominaisuus on tarkoitettu vain kokoussisältösi toimittamiseen. Emme koskaan sekoita markkinointisähköposteja pöytäkirjoihisi."
+      },
+      {
+        "q": "Voinko muuttaa vastaanottajia myöhemmin?",
+        "a": "Kyllä. Voit hallita vastaanottajalistaasi Asetuksissa milloin tahansa mukautuaksesi eri projekteihin tai tiimeihin."
+      },
+      {
+        "q": "Maksaako tämä ylimääräistä?",
+        "a": "Ei. Automaattinen toimitusominaisuus on ilmainen. Generoidut pöytäkirjat kuluttavat vain olemassa olevan tilauksesi aikaa (Aikapaketit tai Rajoittamaton tilaus)."
+      },
+      {
+        "q": "Milloin Android tulee?",
+        "a": "Julkaisemme ensin iOS:lle, mutta taustainfrastruktuuri on jaettu. Teemme kovasti töitä tuodaksemme tämän kokemuksen pian Androidille."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Hinnat ja suunnitelmat",
+    "lead": "Huolissasi piilokuluista? Älä ole. Tämä ominaisuus sopii saumattomasti olemassa olevaan hinnoitteluumme.",
+    "bullets": [
+      "**Ei lisämaksuja:** Automaattinen toimitus on vakiominaisuus kaikille käyttäjille.",
+      "**Aikapaketit:** Toimii täydellisesti ennakkoon maksettujen minuuttien kanssa (120/1200 min).",
+      "**Rajoittamaton tilaus:** Paras arvo tehokäyttäjille. Nauhoita koko päivä, lähetä kaikki automaattisesti, äläkä koskaan huolehdi rajoista."
+    ],
+    "tableNote": "Tarkista sovellus tai hinnastosivumme nähdäksesi uusimmat hinnat alueellasi.",
+    "linkText": "Katso täydelliset hintatiedot"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Pöytäkirja AI iPhone-päänäyttö näyttää automaattisen sähköpostin asetukset",
+      "caption": "Pöytäkirja AI (iOS) — Yksi napautus nauhoittamiseen, nolla odotusta jakamiseen."
+    }
+  },
+  "meta": {
+    "h2": "Artikkelin tiedot",
+    "published": "Julkaistu",
+    "type": "Ominaisuuspäivitys",
+    "category": "iOS-sovellus"
+  },
+  "cta": {
+    "openBrowser": "Avaa Web App",
+    "downloadIOS": "Lataa iOS:lle"
+  }
+}

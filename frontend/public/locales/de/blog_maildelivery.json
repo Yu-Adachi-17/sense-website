@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Neu in 2025: Protokoll KI (iOS) versendet Protokolle jetzt automatisch per E-Mail",
+    "description": "Müde vom Warten auf die KI-Generierung? Mit dem neuen automatischen E-Mail-Versand auf iOS können Sie die App sofort nach der Aufnahme schließen. Wir senden das Protokoll an Ihr Team, sobald es fertig ist.",
+    "ogTitle": "Kein Warten mehr: Protokoll KI (iOS) versendet Protokolle automatisch",
+    "ogDescription": "Aufnehmen, stoppen, App schließen. Wir erledigen den Rest. Erfahren Sie mehr über die neue Funktion, die Wartezeiten aus Ihrem Meeting-Workflow entfernt.",
+    "ld": {
+      "headline": "Protokoll KI für iOS führt automatischen E-Mail-Versand für Meeting-Protokolle ein",
+      "description": "Dieser Artikel erklärt die neue automatische E-Mail-Funktion für iOS, mit der Benutzer die Wartezeit überspringen und Protokolle direkt an ihr Team senden lassen können."
+    }
+  },
+  "aria": {
+    "home": "Zurück zur Protokoll KI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Autom. E-Mail-Versand (iOS)"
+  },
+  "hero": {
+    "kicker": "Neues iOS-Feature 2025",
+    "h1": "Aufnehmen, Stoppen, Fertig. Ihre Protokolle werden automatisch versendet.",
+    "tagline": "Wenn Sie jemals nach einer 'KI-Meeting-App' gesucht haben, um Zeit zu sparen, ist dieses Update für Sie. Kein Starren mehr auf Ladebildschirme während das Protokoll generiert wird."
+  },
+  "lead": {
+    "p1": "An unsere treuen Protokoll KI-Nutzer: Haben Sie schon einmal ein Meeting beendet, auf 'Generieren' gedrückt und dann mit dem Handy in der Hand dagestanden und gewartet, bis der Text erscheint, um ihn zu teilen? Das war ein Reibungspunkt, den wir lösen wollten. Mit diesem Update beseitigen wir diese Wartezeit vollständig."
+  },
+  "feature": {
+    "h2": "Was ist der 'Automatische E-Mail-Versand'?",
+    "p1": "Das Konzept ist einfach. Sie legen Ihre Empfänger (z. B. Ihr Team oder Ihren Manager) in den Einstellungen fest. Dann nehmen Sie Ihr Meeting einfach wie gewohnt auf.",
+    "p2": "Früher mussten Sie die App geöffnet lassen, bis die KI die Verarbeitung abgeschlossen hatte. Jetzt **können Sie die App in der Sekunde schließen, in der Sie die Aufnahme stoppen.** Das Backend übernimmt die schwere Arbeit und sendet das fertige Protokoll automatisch an Ihre gewählten Empfänger, sobald es bereit ist.",
+    "note": "Hinweis: Diese Funktion wird derzeit für iOS (iPhone/iPad) eingeführt. Android-Nutzer, bleiben Sie dran – wir arbeiten daran!"
+  },
+  "benefits": {
+    "h2": "Wie dies Ihren Workflow verändert",
+    "items": [
+      {
+        "t": "1. Teilen wird 'unterbewusst'",
+        "p": "Meeting-Protokolle haben nur einen Wert, wenn sie geteilt werden. Indem Sie diesen Schritt automatisieren, stellen Sie sicher, dass Teilnehmer und Abwesende die Zusammenfassung sofort erhalten, ohne dass Sie jemals vergessen, auf 'Senden' zu drücken. Es verwandelt eine manuelle Aufgabe in einen automatischen Hintergrundprozess."
+      },
+      {
+        "t": "2. Freiheit vom Kompromiss 'Qualität vs. Geschwindigkeit'",
+        "p": "Protokoll KI verwendet Spitzenmodelle wie OpenAI Whisper, ChatGPT-5 und Gemini 3. Hohe Präzision erfordert Verarbeitungszeit – manchmal ein paar Minuten für ein langes Meeting. Wir wissen, dass Warten nervig ist. Mit diesem Update bleibt die Verarbeitungszeit (um Qualität zu gewährleisten), aber **Ihre Wartezeit sinkt auf Null**. Stecken Sie Ihr Handy in die Tasche und machen Sie mit Ihrer nächsten Aufgabe weiter."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Von wem kommt die E-Mail?",
+    "p1": "Wenn der automatische Versand aktiviert ist, erhält Ihr Team E-Mails von der untenstehenden Adresse. Wenn Sie strenge Firmen-Spamfilter haben, setzen Sie diese Domain bitte auf die Whitelist.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Absender: no-reply@mg.sense-ai.world",
+      "Domain: mg.sense-ai.world (Verwaltet von Protokoll KI / Sense G.K.)",
+      "Inhalt: Das von der App generierte Meeting-Protokoll"
+    ],
+    "note": "Wenn Sie eine E-Mail von dieser Adresse sehen, machen Sie sich keine Sorgen – es ist nur das Protokoll, das Sie (oder ein Teamkollege) aufgenommen haben."
+  },
+  "workflow": {
+    "h2": "Einrichtung in 3 einfachen Schritten",
+    "intro": "Keine komplizierten Integrationen erforderlich. So legen Sie jetzt los:",
+    "steps": [
+      "1) Gehen Sie zu den Einstellungen und fügen Sie die E-Mail-Adressen hinzu, an die Sie Protokolle senden möchten (z. B. Ihren Team-Verteiler).",
+      "2) Schalten Sie vor der Aufnahme den 'E-Mail-Versand' auf EIN.",
+      "3) Nehmen Sie Ihr Meeting auf und stoppen Sie, wenn Sie fertig sind.",
+      "4) Das war's. Sie können die App sofort schließen. Unser Backend (Whisper / GPT-5 / Gemini 3) verarbeitet das Audio.",
+      "5) Sobald fertig, wird das Protokoll automatisch von no-reply@mg.sense-ai.world versendet.",
+      "6) Eine Kopie wird auch in Ihrem App-Verlauf für zukünftige Bearbeitungen gespeichert."
+    ]
+  },
+  "unique": {
+    "h2": "Warum wir das gebaut haben",
+    "lead": "Es gibt viele Apps, die Audio transkribieren. Aber unser Ziel ist es nicht nur, Ihnen Text zu geben – sondern Ihnen zu helfen, **Ihre Arbeit abzuschließen**.",
+    "bullets": [
+      "Die meisten Tools hören bei 'Hier ist Ihr Text' auf. Sie müssen ihn immer noch manuell kopieren, einfügen und per E-Mail versenden.",
+      "Protokoll KI konzentriert sich auf den gesamten Workflow: Aufnahme -> Analyse -> Lieferung.",
+      "Kein Bedarf für Zapier oder komplexe Drittanbieter-Tools. Es ist direkt in die App integriert.",
+      "Es ist für Profis konzipiert, die höchste Genauigkeit ohne Zeitverschwendung wollen."
+    ]
+  },
+  "faq": {
+    "h2": "Häufig gestellte Fragen (FAQ)",
+    "items": [
+      {
+        "q": "Ist der automatische Versand obligatorisch?",
+        "a": "Nein, er ist optional. Sie können ihn für jedes Meeting ein- oder ausschalten. Wenn Sie persönliche Notizen aufnehmen, lassen Sie ihn einfach aus."
+      },
+      {
+        "q": "Werde ich Marketing-Spam erhalten?",
+        "a": "Auf keinen Fall. Diese Funktion dient ausschließlich der Zustellung Ihrer Meeting-Inhalte. Wir mischen niemals Marketing-E-Mails mit Ihren Protokollen."
+      },
+      {
+        "q": "Kann ich die Empfänger später ändern?",
+        "a": "Ja. Sie können Ihre Empfängerliste jederzeit in den Einstellungen verwalten, um sie an verschiedene Projekte oder Teams anzupassen."
+      },
+      {
+        "q": "Kostet das extra?",
+        "a": "Nein. Die automatische Versandfunktion ist kostenlos. Die generierten Protokolle verbrauchen einfach die Zeit Ihres bestehenden Plans (Zeitpakete oder Unbegrenztes Abonnement)."
+      },
+      {
+        "q": "Wann kommt Android?",
+        "a": "Wir starten zuerst auf iOS, aber die Backend-Infrastruktur wird geteilt. Wir arbeiten hart daran, dieses Erlebnis bald auf Android zu bringen."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Preise & Pläne",
+    "lead": "Besorgt über versteckte Kosten? Das müssen Sie nicht. Diese Funktion fügt sich nahtlos in unsere bestehenden Preise ein.",
+    "bullets": [
+      "**Keine zusätzlichen Gebühren:** Der automatische Versand ist eine Standardfunktion für alle Benutzer.",
+      "**Zeitpakete:** Funktioniert perfekt mit vorausbezahlten Minuten (120/1200 Min).",
+      "**Unbegrenztes Abonnement:** Das beste Preis-Leistungs-Verhältnis für Vielnutzer. Den ganzen Tag aufnehmen, alles automatisch senden und sich nie um Limits sorgen."
+    ],
+    "tableNote": "Prüfen Sie die App oder unsere Preisseite für die neuesten Tarife in Ihrer Region.",
+    "linkText": "Vollständige Preisdetails ansehen"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Protokoll KI iPhone Hauptbildschirm mit Einstellungen für automatischen E-Mail-Versand",
+      "caption": "Protokoll KI (iOS) — Ein Tippen zum Aufnehmen, null Wartezeit zum Teilen."
+    }
+  },
+  "meta": {
+    "h2": "Artikel-Info",
+    "published": "Veröffentlicht",
+    "type": "Funktions-Update",
+    "category": "iOS App"
+  },
+  "cta": {
+    "openBrowser": "Web-App öffnen",
+    "downloadIOS": "Für iOS laden"
+  }
+}

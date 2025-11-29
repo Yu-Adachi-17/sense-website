@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Novedad 2025: Actas IA (iOS) ahora envía tus actas por email automáticamente",
+    "description": "¿Cansado de esperar a que la IA genere el texto? Con el nuevo Envío Automático de Email en iOS, puedes cerrar la app justo después de grabar. Enviaremos el acta a tu equipo en cuanto esté lista.",
+    "ogTitle": "Deja de esperar: Actas IA (iOS) ahora envía actas automáticamente",
+    "ogDescription": "Graba, para y cierra la app. Nosotros nos encargamos del resto. Descubre la nueva función que elimina los tiempos de espera de tu flujo de trabajo.",
+    "ld": {
+      "headline": "Actas IA para iOS añade envío automático de correos para actas de reuniones",
+      "description": "Este artículo explica la nueva función de envío automático para iOS, permitiendo a los usuarios saltarse el tiempo de espera y enviar actas directamente a su equipo."
+    }
+  },
+  "aria": {
+    "home": "Volver al inicio de Actas IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Envío Automático (iOS)"
+  },
+  "hero": {
+    "kicker": "Nueva Función iOS 2025",
+    "h1": "Graba, Para, Listo. Tus actas se envían automáticamente.",
+    "tagline": "Si alguna vez has buscado una 'app de actas IA' esperando ahorrar tiempo, esta actualización es para ti. Se acabó mirar una pantalla de carga esperando que se genere el acta."
+  },
+  "lead": {
+    "p1": "A nuestros fieles usuarios de Actas IA: ¿alguna vez habéis terminado una reunión, pulsado 'Generar' y os habéis quedado ahí sosteniendo el móvil, esperando a que aparezca el texto para poder compartirlo? Era un punto de fricción que queríamos arreglar. Con esta actualización, eliminamos esa espera por completo."
+  },
+  "feature": {
+    "h2": "¿Qué es el 'Envío Automático de Email'?",
+    "p1": "El concepto es simple. Preconfiguras tus destinatarios (como tu equipo o tu jefe) en los ajustes. Luego, simplemente grabas tu reunión como siempre.",
+    "p2": "Antes, tenías que mantener la app abierta hasta que la IA terminara de procesar. Ahora, **puedes cerrar la app el segundo después de parar la grabación.** El backend se encarga del trabajo pesado y envía automáticamente el acta terminada a tus destinatarios elegidos en cuanto está lista.",
+    "note": "Nota: Esta función se está lanzando actualmente para iOS (iPhone/iPad). Usuarios de Android, estad atentos: ¡estamos trabajando en ello!"
+  },
+  "benefits": {
+    "h2": "Cómo cambia esto tu flujo de trabajo",
+    "items": [
+      {
+        "t": "1. Compartir se vuelve 'inconsciente'",
+        "p": "Las actas de reunión solo tienen valor si se comparten. Al automatizar este paso, te aseguras de que los asistentes y los ausentes reciban el resumen al instante, sin que se te olvide nunca pulsar 'Enviar'. Convierte una tarea manual en un proceso automático en segundo plano."
+      },
+      {
+        "t": "2. Libertad del compromiso 'Calidad vs Velocidad'",
+        "p": "Actas IA usa modelos de primer nivel como OpenAI Whisper, ChatGPT-5 y Gemini 3. La alta precisión requiere tiempo de procesamiento, a veces unos minutos para una reunión larga. Sabemos que esperar es molesto. Con esta actualización, el tiempo de procesamiento se mantiene (para asegurar la calidad), pero **tu tiempo de espera baja a cero**. Guárdate el móvil en el bolsillo y pasa a tu siguiente tarea."
+      }
+    ]
+  },
+  "who": {
+    "h2": "¿De quién es el correo?",
+    "p1": "Cuando el envío automático está activado, tu equipo recibirá correos desde la dirección de abajo. Si tienes filtros de spam corporativos estrictos, por favor añade este dominio a la lista blanca.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Remitente: no-reply@mg.sense-ai.world",
+      "Dominio: mg.sense-ai.world (Gestionado por Actas IA / Sense G.K.)",
+      "Contenido: El acta de la reunión generada por la app"
+    ],
+    "note": "Si ves un correo de esta dirección, no te preocupes: es solo el acta que tú (o un compañero) habéis grabado."
+  },
+  "workflow": {
+    "h2": "Configuración en 3 pasos fáciles",
+    "intro": "No se requieren integraciones complicadas. Así es como puedes empezar ahora mismo:",
+    "steps": [
+      "1) Ve a Ajustes y añade las direcciones de email a las que quieres enviar actas (ej. el alias de tu equipo).",
+      "2) Antes de grabar, activa el interruptor de 'Envío por Email'.",
+      "3) Graba tu reunión y para cuando termines.",
+      "4) Eso es todo. Puedes cerrar la app inmediatamente. Nuestro backend (Whisper / GPT-5 / Gemini 3) procesará el audio.",
+      "5) Una vez terminado, el acta se envía automáticamente desde no-reply@mg.sense-ai.world.",
+      "6) También se guarda una copia en el historial de tu app para futuras ediciones."
+    ]
+  },
+  "unique": {
+    "h2": "Por qué hemos creado esto",
+    "lead": "Hay muchas apps que transcriben audio. Pero nuestro objetivo no es solo darte texto, es ayudarte a **terminar tu trabajo**.",
+    "bullets": [
+      "La mayoría de herramientas se quedan en 'Aquí tienes tu texto'. Aún tienes que copiarlo, pegarlo y enviarlo por email manualmente.",
+      "Actas IA se centra en el flujo de trabajo completo: Grabación -> Análisis -> Entrega.",
+      "No necesitas Zapier ni herramientas complejas de terceros. Está integrado directamente en la app.",
+      "Está diseñado para profesionales que quieren la mayor precisión sin perder tiempo."
+    ]
+  },
+  "faq": {
+    "h2": "Preguntas Frecuentes",
+    "items": [
+      {
+        "q": "¿Es obligatorio el envío automático?",
+        "a": "No, es opcional. Puedes activarlo o desactivarlo para cada reunión. Si estás grabando notas personales, simplemente déjalo apagado."
+      },
+      {
+        "q": "¿Recibiré spam de marketing?",
+        "a": "Absolutamente no. Esta función es estrictamente para entregar el contenido de tus reuniones. Nunca mezclamos correos de marketing con tus actas."
+      },
+      {
+        "q": "¿Puedo cambiar los destinatarios más tarde?",
+        "a": "Sí. Puedes gestionar tu lista de destinatarios en Ajustes en cualquier momento para adaptarte a diferentes proyectos o equipos."
+      },
+      {
+        "q": "¿Cuesta extra?",
+        "a": "No. La función de envío automático es gratuita. Las actas generadas simplemente consumen el tiempo de tu plan existente (Paquetes de Tiempo o Suscripción Ilimitada)."
+      },
+      {
+        "q": "¿Cuándo llega a Android?",
+        "a": "Estamos lanzando primero en iOS, pero la infraestructura backend es compartida. Estamos trabajando duro para llevar esta experiencia a Android pronto."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Precios y Planes",
+    "lead": "¿Preocupado por costes ocultos? No lo estés. Esta función encaja perfectamente en nuestros precios actuales.",
+    "bullets": [
+      "**Sin Tarifas Extra:** El envío automático es una función estándar para todos los usuarios.",
+      "**Paquetes de Tiempo:** Funciona perfectamente con minutos prepagados (120/1200 mins).",
+      "**Suscripción Ilimitada:** El mejor valor para usuarios intensivos. Graba todo el día, envía todo automáticamente y no te preocupes nunca por los límites."
+    ],
+    "tableNote": "Consulta la app o nuestra página de precios para las tarifas más recientes en tu región.",
+    "linkText": "Ver Detalles Completos de Precios"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Pantalla principal de iPhone de Actas IA mostrando ajustes de email automático",
+      "caption": "Actas IA (iOS) — Un toque para grabar, cero espera para compartir."
+    }
+  },
+  "meta": {
+    "h2": "Info del Artículo",
+    "published": "Publicado",
+    "type": "Actualización de Función",
+    "category": "App iOS"
+  },
+  "cta": {
+    "openBrowser": "Abrir Web App",
+    "downloadIOS": "Descargar para iOS"
+  }
+}

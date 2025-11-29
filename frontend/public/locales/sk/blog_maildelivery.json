@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Novinka v roku 2025: AI Zápisnica (iOS) teraz posiela zápisnice automaticky e-mailom",
+    "description": "Už vás nebaví čakať na generovanie AI? S novým automatickým doručovaním e-mailov na iOS môžete aplikáciu zatvoriť ihneď po nahrávaní. Zápisnicu pošleme vášmu tímu, hneď ako bude hotová.",
+    "ogTitle": "Už žiadne čakanie: AI Zápisnica (iOS) teraz posiela zápisnice automaticky",
+    "ogDescription": "Nahrajte, zastavte a zatvorte aplikáciu. My sa postaráme o zvyšok. Prečítajte si o novej funkcii, ktorá odstraňuje čakanie z vášho pracovného postupu.",
+    "ld": {
+      "headline": "AI Zápisnica pre iOS pridáva automatické doručovanie e-mailov pre zápisnice z porád",
+      "description": "Tento článok vysvetľuje novú funkciu automatického doručovania e-mailov pre iOS, ktorá umožňuje používateľom preskočiť čas čakania a poslať zápisnice priamo svojmu tímu."
+    }
+  },
+  "aria": {
+    "home": "Späť na domovskú stránku AI Zápisnica"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Automatické doručovanie (iOS)"
+  },
+  "hero": {
+    "kicker": "Nová funkcia pre iOS 2025",
+    "h1": "Nahrať, Zastaviť, Hotovo. Vaše zápisnice sa odošlú automaticky.",
+    "tagline": "Ak ste niekedy hľadali „AI aplikáciu na porady“ v nádeji, že ušetríte čas, táto aktualizácia je pre vás. Už žiadne pozeranie na obrazovku načítania pri čakaní na vygenerovanie zápisnice."
+  },
+  "lead": {
+    "p1": "Našim verným používateľom AI Zápisnica: stalo sa vám niekedy, že ste skončili poradu, stlačili „Generovať“ a potom tam stáli s telefónom v ruke a čakali, kým sa objaví text, aby ste ho mohli zdieľať? To bol bod trenia, ktorý sme chceli opraviť. S touto aktualizáciou toto čakanie úplne odstraňujeme."
+  },
+  "feature": {
+    "h2": "Čo je „Automatické doručovanie e-mailov“?",
+    "p1": "Koncept je jednoduchý. V nastaveniach si vopred nastavíte príjemcov (napríklad váš tím alebo manažéra). Potom jednoducho nahráte poradu ako zvyčajne.",
+    "p2": "Predtým ste museli nechať aplikáciu otvorenú, kým AI nedokončila spracovanie. Teraz **môžete aplikáciu zatvoriť sekundu po zastavení nahrávania.** Backend sa postará o ťažkú prácu a automaticky odošle hotovú zápisnicu vybraným príjemcom, hneď ako bude pripravená.",
+    "note": "Poznámka: Táto funkcia sa momentálne zavádza pre iOS (iPhone/iPad). Používatelia Androidu, zostaňte naladení – pracujeme na tom!"
+  },
+  "benefits": {
+    "h2": "Ako to mení váš pracovný postup",
+    "items": [
+      {
+        "t": "1. Zdieľanie sa stáva „podvedomým“",
+        "p": "Zápisnice z porád majú hodnotu len vtedy, ak sa zdieľajú. Automatizáciou tohto kroku zabezpečíte, že účastníci a neprítomní dostanú zhrnutie okamžite, bez toho, aby ste niekedy zabudli stlačiť „Odoslať“. Mení to manuálnu úlohu na automatický proces na pozadí."
+      },
+      {
+        "t": "2. Sloboda od kompromisu „Kvalita vs Rýchlosť“",
+        "p": "AI Zápisnica používa špičkové modely ako OpenAI Whisper, ChatGPT-5 a Gemini 3. Vysoká presnosť si vyžaduje čas na spracovanie – niekedy pár minút pri dlhej porade. Vieme, že čakanie je otravné. S touto aktualizáciou čas spracovania zostáva (na zabezpečenie kvality), ale **váš čas čakania klesá na nulu**. Dajte si telefón do vrecka a prejdite na ďalšiu úlohu."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Od koho je e-mail?",
+    "p1": "Keď je automatické doručovanie zapnuté, váš tím bude dostávať e-maily z nižšie uvedenej adresy. Ak máte prísne firemné spamové filtre, prosím, dajte túto doménu na bielu listinu (whitelist).",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Odosielateľ: no-reply@mg.sense-ai.world",
+      "Doména: mg.sense-ai.world (Spravované AI Zápisnica / Sense G.K.)",
+      "Obsah: Zápisnica z porady vygenerovaná aplikáciou"
+    ],
+    "note": "Ak uvidíte e-mail z tejto adresy, nebojte sa – je to len zápisnica, ktorú ste vy (alebo kolega) nahrali."
+  },
+  "workflow": {
+    "h2": "Nastavenie v 3 jednoduchých krokoch",
+    "intro": "Nie sú potrebné žiadne zložité integrácie. Tu je návod, ako začať teraz:",
+    "steps": [
+      "1) Choďte do Nastavení a pridajte e-mailové adresy, na ktoré chcete posielať zápisnice (napr. alias vášho tímu).",
+      "2) Pred nahrávaním prepnite prepínač „Doručovanie e-mailom“ na ZAPNUTÉ (ON).",
+      "3) Nahrajte svoju poradu a po skončení zastavte.",
+      "4) To je všetko. Aplikáciu môžete ihneď zatvoriť. Náš backend (Whisper / GPT-5 / Gemini 3) spracuje zvuk.",
+      "5) Po dokončení sa zápisnica automaticky odošle z no-reply@mg.sense-ai.world.",
+      "6) Kópia sa tiež uloží do histórie vašej aplikácie pre budúce úpravy."
+    ]
+  },
+  "unique": {
+    "h2": "Prečo sme to vytvorili",
+    "lead": "Existuje veľa aplikácií, ktoré prepisujú zvuk. Ale naším cieľom nie je len dať vám text – je to pomôcť vám **dokončiť vašu prácu**.",
+    "bullets": [
+      "Väčšina nástrojov končí pri „Tu je váš text“. Stále ho musíte manuálne kopírovať, vkladať a posielať e-mailom.",
+      "AI Zápisnica sa zameriava na celý pracovný postup: Nahrávanie -> Analýza -> Doručenie.",
+      "Nie je potrebný Zapier ani zložité nástroje tretích strán. Je to zabudované priamo v aplikácii.",
+      "Je to navrhnuté pre profesionálov, ktorí chcú najvyššiu presnosť bez straty času."
+    ]
+  },
+  "faq": {
+    "h2": "Často kladené otázky (FAQ)",
+    "items": [
+      {
+        "q": "Je automatické doručovanie povinné?",
+        "a": "Nie, je voliteľné. Môžete ho zapnúť alebo vypnúť pre každú poradu. Ak nahrávate osobné poznámky, jednoducho to nechajte vypnuté."
+      },
+      {
+        "q": "Budem dostávať marketingový spam?",
+        "a": "Absolútne nie. Táto funkcia slúži výlučne na doručovanie obsahu vašich porád. Nikdy nemiešame marketingové e-maily s vašimi zápisnicami."
+      },
+      {
+        "q": "Môžem zmeniť príjemcov neskôr?",
+        "a": "Áno. Zoznam príjemcov môžete v Nastaveniach kedykoľvek spravovať a prispôsobiť ho rôznym projektom alebo tímom."
+      },
+      {
+        "q": "Stojí to niečo navyše?",
+        "a": "Nie. Funkcia automatického doručovania je bezplatná. Vygenerované zápisnice jednoducho spotrebúvajú čas z vášho existujúceho plánu (Časové balíky alebo Neobmedzené predplatné)."
+      },
+      {
+        "q": "Kedy príde Android?",
+        "a": "Najprv spúšťame na iOS, ale backend infraštruktúra je spoločná. Tvrdo pracujeme na tom, aby sme túto skúsenosť čoskoro priniesli aj na Android."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Ceny a Plány",
+    "lead": "Obávate sa skrytých nákladov? Nemusíte. Táto funkcia bezproblémovo zapadá do našich existujúcich cien.",
+    "bullets": [
+      "**Žiadne extra poplatky:** Automatické doručovanie je štandardná funkcia pre všetkých používateľov.",
+      "**Časové balíky:** Funguje perfektne s predplatenými minútami (120/1200 min).",
+      "**Neobmedzené predplatné:** Najlepšia hodnota pre náročných používateľov. Nahrávajte celý deň, posielajte všetko automaticky a nikdy sa nestarajte o limity."
+    ],
+    "tableNote": "Skontrolujte aplikáciu alebo našu stránku s cenami pre najnovšie sadzby vo vašom regióne.",
+    "linkText": "Pozrieť úplné podrobnosti o cenách"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Hlavná obrazovka iPhone AI Zápisnica ukazujúca nastavenia automatického e-mailu",
+      "caption": "AI Zápisnica (iOS) — Jedno ťuknutie na nahrávanie, nulové čakanie na zdieľanie."
+    }
+  },
+  "meta": {
+    "h2": "Info o článku",
+    "published": "Publikované",
+    "type": "Aktualizácia funkcie",
+    "category": "iOS Aplikácia"
+  },
+  "cta": {
+    "openBrowser": "Otvoriť Web App",
+    "downloadIOS": "Stiahnuť pre iOS"
+  }
+}

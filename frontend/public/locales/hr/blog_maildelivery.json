@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Novo u 2025.: AI Zapisnik (iOS) sada automatski šalje zapisnike e-poštom",
+    "description": "Umorni ste od čekanja na AI generiranje? Uz novu automatsku dostavu e-pošte na iOS-u, aplikaciju možete zatvoriti odmah nakon snimanja. Zapisnik ćemo poslati vašem timu čim bude spreman.",
+    "ogTitle": "Nema više čekanja: AI Zapisnik (iOS) sada automatski šalje zapisnike",
+    "ogDescription": "Snimite, zaustavite i zatvorite aplikaciju. Mi ćemo se pobrinuti za ostalo. Saznajte više o novoj značajci koja uklanja vrijeme čekanja iz vašeg tijeka sastanaka.",
+    "ld": {
+      "headline": "AI Zapisnik za iOS dodaje automatsku dostavu e-pošte za zapisnike sa sastanaka",
+      "description": "Ovaj članak objašnjava novu značajku automatske dostave e-pošte za iOS, omogućujući korisnicima da preskoče vrijeme čekanja i pošalju zapisnike izravno svom timu."
+    }
+  },
+  "aria": {
+    "home": "Natrag na početnu stranicu AI Zapisnika"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Automatska dostava (iOS)"
+  },
+  "hero": {
+    "kicker": "Nova iOS značajka 2025",
+    "h1": "Snimite, zaustavite, gotovo. Vaši zapisnici se šalju automatski.",
+    "tagline": "Ako ste ikada tražili 'AI aplikaciju za sastanke' u nadi da ćete uštedjeti vrijeme, ovo ažuriranje je za vas. Nema više gledanja u zaslon učitavanja dok čekate generiranje zapisnika."
+  },
+  "lead": {
+    "p1": "Našim vjernim korisnicima AI Zapisnika: jeste li ikada završili sastanak, pritisnuli 'Generiraj', a zatim stajali s telefonom u ruci čekajući da se tekst pojavi kako biste ga mogli podijeliti? To je bila točka trenja koju smo željeli ispraviti. Ovim ažuriranjem potpuno uklanjamo to čekanje."
+  },
+  "feature": {
+    "h2": "Što je 'Automatska dostava e-pošte'?",
+    "p1": "Koncept je jednostavan. Unaprijed postavite primatelje (poput svog tima ili menadžera) u postavkama. Zatim jednostavno snimate sastanak kao i obično.",
+    "p2": "Prije ste morali držati aplikaciju otvorenom dok AI ne završi s obradom. Sada, **možete zatvoriti aplikaciju sekundu nakon što zaustavite snimanje.** Backend obavlja težak posao i automatski šalje gotov zapisnik odabranim primateljima čim bude spreman.",
+    "note": "Napomena: Ova se značajka trenutačno uvodi za iOS (iPhone/iPad). Korisnici Androida, ostanite s nama - radimo na tome!"
+  },
+  "benefits": {
+    "h2": "Kako ovo mijenja vaš tijek rada",
+    "items": [
+      {
+        "t": "1. Dijeljenje postaje 'nesvjesno'",
+        "p": "Zapisnici sa sastanaka imaju vrijednost samo ako se dijele. Automatiziranjem ovog koraka osiguravate da sudionici i odsutni odmah prime sažetak, a da nikada ne zaboravite pritisnuti 'Pošalji'. To pretvara ručni zadatak u automatski pozadinski proces."
+      },
+      {
+        "t": "2. Sloboda od kompromisa 'Kvaliteta naspram Brzine'",
+        "p": "AI Zapisnik koristi vrhunske modele kao što su OpenAI Whisper, ChatGPT-5 i Gemini 3. Visoka preciznost zahtijeva vrijeme obrade — ponekad nekoliko minuta za dugi sastanak. Znamo da je čekanje iritantno. S ovim ažuriranjem vrijeme obrade ostaje (kako bi se osigurala kvaliteta), ali **vaše vrijeme čekanja pada na nulu**. Stavite telefon u džep i prijeđite na sljedeći zadatak."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Od koga je e-mail?",
+    "p1": "Kada je automatska dostava uključena, vaš tim će primati e-poruke s donje adrese. Ako imate stroge korporativne filtre za neželjenu poštu, stavite ovu domenu na bijelu listu.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Pošiljatelj: no-reply@mg.sense-ai.world",
+      "Domena: mg.sense-ai.world (Upravlja AI Zapisnik / Sense G.K.)",
+      "Sadržaj: Zapisnik sa sastanka generiran aplikacijom"
+    ],
+    "note": "Ako vidite e-mail s ove adrese, ne brinite — to je samo zapisnik koji ste vi (ili kolega iz tima) snimili."
+  },
+  "workflow": {
+    "h2": "Postavljanje u 3 jednostavna koraka",
+    "intro": "Nisu potrebne komplicirane integracije. Evo kako započeti sada:",
+    "steps": [
+      "1) Idite na Postavke i dodajte e-mail adrese na koje želite slati zapisnike (npr. alias vašeg tima).",
+      "2) Prije snimanja prebacite 'Dostava e-poštom' na UKLJUČENO (ON).",
+      "3) Snimite sastanak i zaustavite kada završite.",
+      "4) To je to. Aplikaciju možete odmah zatvoriti. Naš backend (Whisper / GPT-5 / Gemini 3) obradit će zvuk.",
+      "5) Kada završi, zapisnik se automatski šalje s no-reply@mg.sense-ai.world.",
+      "6) Kopija se također sprema u povijest vaše aplikacije za buduće uređivanje."
+    ]
+  },
+  "unique": {
+    "h2": "Zašto smo ovo izgradili",
+    "lead": "Postoji mnogo aplikacija koje transkribiraju zvuk. Ali naš cilj nije samo dati vam tekst – već vam pomoći da **dovršite svoj posao**.",
+    "bullets": [
+      "Većina alata staje na 'Ovdje je vaš tekst'. Još uvijek ga morate ručno kopirati, zalijepiti i poslati e-poštom.",
+      "AI Zapisnik fokusira se na cijeli tijek rada: Snimanje -> Analiza -> Dostava.",
+      "Nema potrebe za Zapierom ili složenim alatima trećih strana. Ugrađeno je izravno u aplikaciju.",
+      "Dizajniran je za profesionalce koji žele najveću točnost bez gubljenja vremena."
+    ]
+  },
+  "faq": {
+    "h2": "Često postavljana pitanja",
+    "items": [
+      {
+        "q": "Je li automatska dostava obavezna?",
+        "a": "Ne, izborna je. Možete je uključiti ili isključiti za svaki sastanak. Ako snimate osobne bilješke, samo je ostavite isključenom."
+      },
+      {
+        "q": "Hoću li primati marketinšku neželjenu poštu?",
+        "a": "Apsolutno ne. Ova značajka služi isključivo za isporuku sadržaja vaših sastanaka. Nikada ne miješamo marketinške e-poruke s vašim zapisnicima."
+      },
+      {
+        "q": "Mogu li kasnije promijeniti primatelje?",
+        "a": "Da. Svojim popisom primatelja možete upravljati u postavkama u bilo kojem trenutku kako biste se prilagodili različitim projektima ili timovima."
+      },
+      {
+        "q": "Košta li ovo dodatno?",
+        "a": "Ne. Značajka automatske dostave je besplatna. Generirani zapisnici jednostavno troše vrijeme vašeg postojećeg plana (Vremenski paketi ili Neograničena pretplata)."
+      },
+      {
+        "q": "Kada stiže Android?",
+        "a": "Prvo lansiramo na iOS-u, ali backend infrastruktura je zajednička. Naporno radimo kako bismo ovo iskustvo uskoro donijeli i na Android."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Cijene i planovi",
+    "lead": "Zabrinuti ste zbog skrivenih troškova? Nemojte biti. Ova se značajka neprimjetno uklapa u naše postojeće cijene.",
+    "bullets": [
+      "**Bez dodatnih naknada:** Automatska dostava standardna je značajka za sve korisnike.",
+      "**Vremenski paketi:** Savršeno funkcionira s unaprijed plaćenim minutama (120/1200 min).",
+      "**Neograničena pretplata:** Najbolja vrijednost za česte korisnike. Snimajte cijeli dan, šaljite sve automatski i nikada ne brinite o ograničenjima."
+    ],
+    "tableNote": "Provjerite aplikaciju ili našu stranicu s cijenama za najnovije cijene u vašoj regiji.",
+    "linkText": "Pogledajte potpune detalje o cijenama"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Glavni zaslon iPhonea za AI Zapisnik koji prikazuje postavke automatske e-pošte",
+      "caption": "AI Zapisnik (iOS) — Jedan dodir za snimanje, nula čekanja za dijeljenje."
+    }
+  },
+  "meta": {
+    "h2": "Informacije o članku",
+    "published": "Objavljeno",
+    "type": "Ažuriranje značajke",
+    "category": "iOS Aplikacija"
+  },
+  "cta": {
+    "openBrowser": "Otvori Web aplikaciju",
+    "downloadIOS": "Preuzmi za iOS"
+  }
+}

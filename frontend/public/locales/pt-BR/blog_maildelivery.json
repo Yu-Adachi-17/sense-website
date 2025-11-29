@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Novidade em 2025: Ata AI (iOS) agora envia suas atas por e-mail automaticamente",
+    "description": "Cansado de esperar pela geração de IA? Com a nova Entrega Automática de E-mail no iOS, você pode fechar o aplicativo imediatamente após a gravação. Enviaremos a ata para sua equipe assim que estiver pronta.",
+    "ogTitle": "Pare de Esperar: Ata AI (iOS) agora envia atas automaticamente",
+    "ogDescription": "Grave, pare e feche o aplicativo. Nós cuidamos do resto. Saiba mais sobre o novo recurso que remove o tempo de espera do seu fluxo de trabalho de reuniões.",
+    "ld": {
+      "headline": "Ata AI para iOS adiciona entrega automática de e-mail para atas de reuniões",
+      "description": "Este artigo explica o novo recurso de entrega automática de e-mail para iOS, permitindo que os usuários pulem o tempo de espera e enviem atas diretamente para sua equipe."
+    }
+  },
+  "aria": {
+    "home": "Voltar para a Home do Ata AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Entrega Automática de E-mail (iOS)"
+  },
+  "hero": {
+    "kicker": "Novo Recurso iOS 2025",
+    "h1": "Gravar, Parar, Pronto. Suas atas são enviadas automaticamente.",
+    "tagline": "Se você já procurou por um 'aplicativo de reunião com IA' na esperança de economizar tempo, esta atualização é para você. Chega de encarar uma tela de carregamento esperando a ata ser gerada."
+  },
+  "lead": {
+    "p1": "Aos nossos fiéis usuários do Ata AI: você já terminou uma reunião, apertou 'Gerar' e ficou lá segurando o telefone, esperando o texto aparecer para poder compartilhá-lo? Esse era um ponto de atrito que queríamos corrigir. Com esta atualização, removemos essa espera completamente."
+  },
+  "feature": {
+    "h2": "O que é 'Entrega Automática de E-mail'?",
+    "p1": "O conceito é simples. Você predefine seus destinatários (como sua equipe ou gerente) nas configurações. Depois, você simplesmente grava sua reunião como de costume.",
+    "p2": "Anteriormente, você tinha que manter o aplicativo aberto até a IA terminar o processamento. Agora, **você pode fechar o aplicativo um segundo depois de parar a gravação.** O backend cuida do trabalho pesado e envia automaticamente a ata pronta para seus destinatários escolhidos assim que estiver disponível.",
+    "note": "Nota: Este recurso está sendo lançado atualmente para iOS (iPhone/iPad). Usuários de Android, fiquem ligados — estamos trabalhando nisso!"
+  },
+  "benefits": {
+    "h2": "Como isso muda seu fluxo de trabalho",
+    "items": [
+      {
+        "t": "1. Compartilhar torna-se 'inconsciente'",
+        "p": "Atas de reunião só têm valor se forem compartilhadas. Ao automatizar esta etapa, você garante que participantes e ausentes recebam o resumo instantaneamente, sem que você precise se lembrar de apertar 'Enviar'. Isso transforma uma tarefa manual em um processo automático em segundo plano."
+      },
+      {
+        "t": "2. Liberdade do compromisso 'Qualidade vs Velocidade'",
+        "p": "O Ata AI usa modelos de ponta como OpenAI Whisper, ChatGPT-5 e Gemini 3. Alta precisão requer tempo de processamento — às vezes alguns minutos para uma reunião longa. Sabemos que esperar é chato. Com esta atualização, o tempo de processamento permanece (para garantir a qualidade), mas **seu tempo de espera cai para zero**. Coloque o telefone no bolso e siga para sua próxima tarefa."
+      }
+    ]
+  },
+  "who": {
+    "h2": "De quem é o e-mail?",
+    "p1": "Quando a entrega automática está ativada, sua equipe receberá e-mails do endereço abaixo. Se você tiver filtros de spam corporativos rigorosos, por favor, coloque este domínio na lista branca (whitelist).",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Remetente: no-reply@mg.sense-ai.world",
+      "Domínio: mg.sense-ai.world (Gerenciado por Ata AI / Sense G.K.)",
+      "Conteúdo: A ata da reunião gerada pelo aplicativo"
+    ],
+    "note": "Se você vir um e-mail deste endereço, não se preocupe — é apenas a ata que você (ou um colega de equipe) gravou."
+  },
+  "workflow": {
+    "h2": "Configuração em 3 Passos Fáceis",
+    "intro": "Nenhuma integração complicada necessária. Veja como começar agora:",
+    "steps": [
+      "1) Vá em Ajustes e adicione os endereços de e-mail para os quais deseja enviar atas (ex: o alias da sua equipe).",
+      "2) Antes de gravar, mude a opção 'Entrega por E-mail' para LIGADO (ON).",
+      "3) Grave sua reunião e pare quando terminar.",
+      "4) É isso. Você pode fechar o aplicativo imediatamente. Nosso backend (Whisper / GPT-5 / Gemini 3) processará o áudio.",
+      "5) Assim que terminar, a ata é enviada automaticamente de no-reply@mg.sense-ai.world.",
+      "6) Uma cópia também é salva no histórico do seu aplicativo para edição futura."
+    ]
+  },
+  "unique": {
+    "h2": "Por que construímos isso",
+    "lead": "Existem muitos aplicativos que transcrevem áudio. Mas nosso objetivo não é apenas te dar texto — é te ajudar a **terminar seu trabalho**.",
+    "bullets": [
+      "A maioria das ferramentas para em 'Aqui está seu texto'. Você ainda tem que copiar, colar e enviar por e-mail manualmente.",
+      "O Ata AI foca em todo o fluxo de trabalho: Gravação -> Análise -> Entrega.",
+      "Não há necessidade de Zapier ou ferramentas complexas de terceiros. É construído diretamente no aplicativo.",
+      "É projetado para profissionais que querem a maior precisão sem desperdício de tempo."
+    ]
+  },
+  "faq": {
+    "h2": "Perguntas Frequentes (FAQ)",
+    "items": [
+      {
+        "q": "A entrega automática é obrigatória?",
+        "a": "Não, é opcional. Você pode ativá-la ou desativá-la para cada reunião. Se estiver gravando notas pessoais, apenas deixe desligado."
+      },
+      {
+        "q": "Vou receber spam de marketing?",
+        "a": "Absolutamente não. Este recurso é estritamente para entregar o conteúdo das suas reuniões. Nunca misturamos e-mails de marketing com suas atas."
+      },
+      {
+        "q": "Posso mudar os destinatários depois?",
+        "a": "Sim. Você pode gerenciar sua lista de destinatários nos Ajustes a qualquer momento para se adaptar a diferentes projetos ou equipes."
+      },
+      {
+        "q": "Isso custa extra?",
+        "a": "Não. O recurso de entrega automática é gratuito. As atas geradas simplesmente consomem o tempo do seu plano existente (Pacotes de Tempo ou Assinatura Ilimitada)."
+      },
+      {
+        "q": "Quando chega para Android?",
+        "a": "Estamos lançando primeiro no iOS, mas a infraestrutura de backend é compartilhada. Estamos trabalhando duro para trazer essa experiência para o Android em breve."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Preços e Planos",
+    "lead": "Preocupado com custos ocultos? Não fique. Este recurso se encaixa perfeitamente em nossos preços existentes.",
+    "bullets": [
+      "**Sem Taxas Extras:** A entrega automática é um recurso padrão para todos os usuários.",
+      "**Pacotes de Tempo:** Funciona perfeitamente com minutos pré-pagos (120/1200 min).",
+      "**Assinatura Ilimitada:** O melhor valor para usuários intensivos. Grave o dia todo, envie tudo automaticamente e nunca se preocupe com limites."
+    ],
+    "tableNote": "Verifique o aplicativo ou nossa página de preços para as taxas mais recentes em sua região.",
+    "linkText": "Ver Detalhes Completos de Preços"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Tela principal do iPhone do Ata AI mostrando configurações de e-mail automático",
+      "caption": "Ata AI (iOS) — Um toque para gravar, zero espera para compartilhar."
+    }
+  },
+  "meta": {
+    "h2": "Info do Artigo",
+    "published": "Publicado",
+    "type": "Atualização de Recurso",
+    "category": "App iOS"
+  },
+  "cta": {
+    "openBrowser": "Abrir Web App",
+    "downloadIOS": "Baixar para iOS"
+  }
+}

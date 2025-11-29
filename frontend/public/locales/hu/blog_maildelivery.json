@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Újdonság 2025-ben: A Jegyzőkönyv AI (iOS) mostantól automatikusan elküldi a jegyzőkönyveket e-mailben",
+    "description": "Unja már az AI generálásra való várakozást? Az új iOS-es automatikus e-mail kézbesítéssel a felvétel után azonnal bezárhatja az alkalmazást. Mi elküldjük a jegyzőkönyvet a csapatának, amint elkészült.",
+    "ogTitle": "Nincs több várakozás: A Jegyzőkönyv AI (iOS) automatikusan küldi a jegyzőkönyveket",
+    "ogDescription": "Rögzítse, állítsa le és zárja be az alkalmazást. A többit mi intézzük. Ismerje meg az új funkciót, amely eltávolítja a várakozási időt a megbeszélések folyamatából.",
+    "ld": {
+      "headline": "A Jegyzőkönyv AI iOS-re automatikus e-mail kézbesítést ad a megbeszélések jegyzőkönyveihez",
+      "description": "Ez a cikk elmagyarázza az új automatikus e-mail kézbesítési funkciót iOS-re, amely lehetővé teszi a felhasználók számára, hogy kihagyják a várakozási időt, és a jegyzőkönyveket közvetlenül a csapatuknak küldjék."
+    }
+  },
+  "aria": {
+    "home": "Vissza a Jegyzőkönyv AI kezdőlapjára"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Auto E-mail Kézbesítés (iOS)"
+  },
+  "hero": {
+    "kicker": "Új iOS funkció 2025",
+    "h1": "Felvétel, Leállítás, Kész. A jegyzőkönyvei automatikusan elküldésre kerülnek.",
+    "tagline": "Ha keresett már „AI megbeszélés alkalmazást” abban a reményben, hogy időt spóroljon, ez a frissítés Önnek szól. Nincs több töltőképernyő bámulása a jegyzőkönyv generálására várva."
+  },
+  "lead": {
+    "p1": "Hűséges Jegyzőkönyv AI felhasználóinknak: előfordult már Önnel, hogy befejezett egy megbeszélést, megnyomta a „Generálás” gombot, majd ott állt a telefonnal a kezében, várva, hogy megjelenjen a szöveg, hogy megoszthassa? Ez egy olyan súrlódási pont volt, amit ki akartunk javítani. Ezzel a frissítéssel teljesen megszüntetjük ezt a várakozást."
+  },
+  "feature": {
+    "h2": "Mi az az „Automatikus E-mail Kézbesítés”?",
+    "p1": "A koncepció egyszerű. A beállításokban előre megadja a címzetteket (például a csapatát vagy a vezetőjét). Ezután egyszerűen rögzíti a megbeszélést a szokásos módon.",
+    "p2": "Korábban nyitva kellett tartania az alkalmazást, amíg az AI be nem fejezte a feldolgozást. Most **a felvétel leállítása után egy másodperccel bezárhatja az alkalmazást.** A háttérrendszer elvégzi a nehéz munkát, és automatikusan elküldi a kész jegyzőkönyvet a kiválasztott címzetteknek, amint elkészült.",
+    "note": "Megjegyzés: Ez a funkció jelenleg iOS-re (iPhone/iPad) kerül bevezetésre. Android felhasználók, tartsanak velünk – dolgozunk rajta!"
+  },
+  "benefits": {
+    "h2": "Hogyan változtatja meg ez a munkafolyamatát",
+    "items": [
+      {
+        "t": "1. A megosztás „tudattalanná” válik",
+        "p": "A megbeszélések jegyzőkönyveinek csak akkor van értéke, ha megosztják őket. Ennek a lépésnek az automatizálásával biztosítja, hogy a résztvevők és a hiányzók azonnal megkapják az összefoglalót, anélkül, hogy Ön valaha is elfelejtené megnyomni a „Küldés” gombot. Ez egy manuális feladatot automatikus háttérfolyamattá alakít."
+      },
+      {
+        "t": "2. Szabadság a „Minőség vs. Sebesség” kompromisszumtól",
+        "p": "A Jegyzőkönyv AI olyan csúcsmodelleket használ, mint az OpenAI Whisper, ChatGPT-5 és Gemini 3. A nagy pontosság feldolgozási időt igényel – néha néhány percet egy hosszú megbeszélés esetén. Tudjuk, hogy a várakozás idegesítő. Ezzel a frissítéssel a feldolgozási idő megmarad (a minőség biztosítása érdekében), de **az Ön várakozási ideje nullára csökken**. Tegye a telefont a zsebébe, és folytassa a következő feladatával."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Kitől jön az e-mail?",
+    "p1": "Ha az automatikus kézbesítés be van kapcsolva, a csapata az alábbi címről kap e-maileket. Ha szigorú vállalati spamszűrői vannak, kérjük, tegye fehérlistára ezt a domaint.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Feladó: no-reply@mg.sense-ai.world",
+      "Domain: mg.sense-ai.world (A Jegyzőkönyv AI / Sense G.K. kezeli)",
+      "Tartalom: Az alkalmazás által generált megbeszélés jegyzőkönyve"
+    ],
+    "note": "Ha lát egy e-mailt erről a címről, ne aggódjon – ez csak az a jegyzőkönyv, amit Ön (vagy egy csapattársa) rögzített."
+  },
+  "workflow": {
+    "h2": "Beállítás 3 egyszerű lépésben",
+    "intro": "Nincs szükség bonyolult integrációkra. Így kezdheti el most:",
+    "steps": [
+      "1) Menjen a Beállításokba, és adja hozzá azokat az e-mail címeket, amelyekre jegyzőkönyveket szeretne küldeni (pl. a csapata aliasa).",
+      "2) Felvétel előtt kapcsolja BE az „E-mail Kézbesítés” kapcsolót.",
+      "3) Rögzítse a megbeszélést, és állítsa le, ha végzett.",
+      "4) Ennyi. Azonnal bezárhatja az alkalmazást. A háttérrendszerünk (Whisper / GPT-5 / Gemini 3) feldolgozza a hangot.",
+      "5) Ha kész, a jegyzőkönyv automatikusan elküldésre kerül a no-reply@mg.sense-ai.world címről.",
+      "6) Egy másolat az alkalmazás előzményeibe is mentésre kerül a későbbi szerkesztéshez."
+    ]
+  },
+  "unique": {
+    "h2": "Miért készítettük ezt",
+    "lead": "Sok alkalmazás van, ami átírja a hangot. De a mi célunk nem csak az, hogy szöveget adjunk Önnek – hanem hogy segítsünk **befejezni a munkáját**.",
+    "bullets": [
+      "A legtöbb eszköz megáll ott, hogy „Itt a szövege”. Még mindig manuálisan kell másolnia, beillesztenie és elküldenie e-mailben.",
+      "A Jegyzőkönyv AI a teljes munkafolyamatra összpontosít: Felvétel -> Elemzés -> Kézbesítés.",
+      "Nincs szükség Zapierre vagy bonyolult harmadik féltől származó eszközökre. Ez közvetlenül az alkalmazásba van beépítve.",
+      "Professzionálisoknak tervezték, akik a legnagyobb pontosságot akarják időpazarlás nélkül."
+    ]
+  },
+  "faq": {
+    "h2": "Gyakran Ismételt Kérdések",
+    "items": [
+      {
+        "q": "Kötelező az automatikus kézbesítés?",
+        "a": "Nem, opcionális. Minden megbeszélésnél be- vagy kikapcsolhatja. Ha személyes jegyzeteket rögzít, egyszerűen hagyja kikapcsolva."
+      },
+      {
+        "q": "Fogok marketing spamet kapni?",
+        "a": "Semmiképpen. Ez a funkció szigorúan a megbeszélés tartalmának kézbesítésére szolgál. Soha nem keverjük a marketing e-maileket a jegyzőkönyveivel."
+      },
+      {
+        "q": "Megváltoztathatom később a címzetteket?",
+        "a": "Igen. Bármikor kezelheti a címzettek listáját a Beállításokban, hogy alkalmazkodjon a különböző projektekhez vagy csapatokhoz."
+      },
+      {
+        "q": "Ez extra költséggel jár?",
+        "a": "Nem. Az automatikus kézbesítési funkció ingyenes. A generált jegyzőkönyvek egyszerűen a meglévő csomagjának idejét fogyasztják (Időcsomagok vagy Korlátlan Előfizetés)."
+      },
+      {
+        "q": "Mikor jön Androidra?",
+        "a": "Először iOS-en indítunk, de a háttér-infrastruktúra közös. Keményen dolgozunk azon, hogy hamarosan Androidra is elhozzuk ezt az élményt."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Árak és Csomagok",
+    "lead": "Aggódik a rejtett költségek miatt? Ne tegye. Ez a funkció zökkenőmentesen illeszkedik a meglévő árazásunkba.",
+    "bullets": [
+      "**Nincsenek Extra Díjak:** Az automatikus kézbesítés minden felhasználó számára alapfunkció.",
+      "**Időcsomagok:** Tökéletesen működik az előre fizetett percekkel (120/1200 perc).",
+      "**Korlátlan Előfizetés:** A legjobb ár-érték arány a gyakori felhasználóknak. Rögzítsen egész nap, küldjön mindent automatikusan, és soha ne aggódjon a korlátok miatt."
+    ],
+    "tableNote": "Ellenőrizze az alkalmazást vagy az árazási oldalunkat a régiójára vonatkozó legfrissebb díjakért.",
+    "linkText": "Teljes Árazási Részletek Megtekintése"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Jegyzőkönyv AI iPhone főképernyő az automatikus e-mail beállításokkal",
+      "caption": "Jegyzőkönyv AI (iOS) — Egy érintés a felvételhez, nulla várakozás a megosztáshoz."
+    }
+  },
+  "meta": {
+    "h2": "Cikk Infó",
+    "published": "Közzétéve",
+    "type": "Funkciófrissítés",
+    "category": "iOS Alkalmazás"
+  },
+  "cta": {
+    "openBrowser": "Web App Megnyitása",
+    "downloadIOS": "Letöltés iOS-re"
+  }
+}

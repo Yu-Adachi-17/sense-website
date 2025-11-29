@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Nouveau en 2025 : Minutes.AI (iOS) envoie désormais vos comptes-rendus par e-mail automatiquement",
+    "description": "Fatigué d'attendre la génération par l'IA ? Avec la nouvelle livraison automatique d'e-mails sur iOS, vous pouvez fermer l'application immédiatement après l'enregistrement. Nous envoyons le compte-rendu à votre équipe dès qu'il est prêt.",
+    "ogTitle": "Plus d'attente : Minutes.AI (iOS) envoie les comptes-rendus automatiquement",
+    "ogDescription": "Enregistrez, arrêtez et fermez l'application. Nous nous occupons du reste. Découvrez la nouvelle fonctionnalité qui supprime le temps d'attente de votre flux de travail.",
+    "ld": {
+      "headline": "Minutes.AI pour iOS ajoute la livraison automatique d'e-mails pour les comptes-rendus de réunion",
+      "description": "Cet article explique la nouvelle fonctionnalité de livraison automatique d'e-mails pour iOS, permettant aux utilisateurs d'éviter le temps d'attente et d'envoyer les comptes-rendus directement à leur équipe."
+    }
+  },
+  "aria": {
+    "home": "Retour à l'accueil Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Envoi Automatique (iOS)"
+  },
+  "hero": {
+    "kicker": "Nouvelle fonctionnalité iOS 2025",
+    "h1": "Enregistrez, Arrêtez, C'est fait. Vos comptes-rendus sont envoyés automatiquement.",
+    "tagline": "Si vous avez déjà cherché une « application de réunion IA » dans l'espoir de gagner du temps, cette mise à jour est pour vous. Fini de regarder un écran de chargement en attendant que le compte-rendu soit généré."
+  },
+  "lead": {
+    "p1": "À nos fidèles utilisateurs de Minutes.AI : vous est-il déjà arrivé de terminer une réunion, d'appuyer sur « Générer » et de rester là, téléphone à la main, à attendre que le texte apparaisse pour pouvoir le partager ? C'était un point de friction que nous voulions corriger. Avec cette mise à jour, nous supprimons complètement cette attente."
+  },
+  "feature": {
+    "h2": "Qu'est-ce que la « Livraison Automatique d'E-mails » ?",
+    "p1": "Le concept est simple. Vous prédéfinissez vos destinataires (comme votre équipe ou votre responsable) dans les paramètres. Ensuite, vous enregistrez simplement votre réunion comme d'habitude.",
+    "p2": "Auparavant, vous deviez garder l'application ouverte jusqu'à ce que l'IA termine le traitement. Maintenant, **vous pouvez fermer l'application la seconde après avoir arrêté l'enregistrement.** Le backend se charge du gros du travail et envoie automatiquement le compte-rendu terminé à vos destinataires choisis dès qu'il est prêt.",
+    "note": "Note : Cette fonctionnalité est actuellement en cours de déploiement pour iOS (iPhone/iPad). Utilisateurs Android, restez à l'écoute — nous y travaillons !"
+  },
+  "benefits": {
+    "h2": "Comment cela change votre flux de travail",
+    "items": [
+      {
+        "t": "1. Le partage devient « inconscient »",
+        "p": "Les comptes-rendus de réunion n'ont de valeur que s'ils sont partagés. En automatisant cette étape, vous vous assurez que les participants et les absents reçoivent le résumé instantanément, sans jamais oublier d'appuyer sur « Envoyer ». Cela transforme une corvée manuelle en un processus d'arrière-plan automatique."
+      },
+      {
+        "t": "2. Libéré du compromis « Qualité vs Vitesse »",
+        "p": "Minutes.AI utilise des modèles de pointe comme OpenAI Whisper, ChatGPT-5 et Gemini 3. Une haute précision nécessite du temps de traitement — parfois quelques minutes pour une longue réunion. Nous savons que l'attente est ennuyeuse. Avec cette mise à jour, le temps de traitement reste (pour assurer la qualité), mais **votre temps d'attente tombe à zéro**. Mettez votre téléphone dans votre poche et passez à votre tâche suivante."
+      }
+    ]
+  },
+  "who": {
+    "h2": "De qui vient l'e-mail ?",
+    "p1": "Lorsque la livraison automatique est activée, votre équipe recevra des e-mails de l'adresse ci-dessous. Si vous avez des filtres anti-spam d'entreprise stricts, veuillez mettre ce domaine sur liste blanche.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Expéditeur : no-reply@mg.sense-ai.world",
+      "Domaine : mg.sense-ai.world (Géré par Minutes.AI / Sense G.K.)",
+      "Contenu : Le compte-rendu de réunion généré par l'application"
+    ],
+    "note": "Si vous voyez un e-mail de cette adresse, ne vous inquiétez pas — c'est juste le compte-rendu que vous (ou un collègue) avez enregistré."
+  },
+  "workflow": {
+    "h2": "Configuration en 3 étapes faciles",
+    "intro": "Aucune intégration compliquée requise. Voici comment commencer maintenant :",
+    "steps": [
+      "1) Allez dans les Paramètres et ajoutez les adresses e-mail auxquelles vous souhaitez envoyer les comptes-rendus (par ex. l'alias de votre équipe).",
+      "2) Avant l'enregistrement, activez l'interrupteur « Livraison par E-mail ».",
+      "3) Enregistrez votre réunion et arrêtez quand vous avez fini.",
+      "4) C'est tout. Vous pouvez fermer l'application immédiatement. Notre backend (Whisper / GPT-5 / Gemini 3) traitera l'audio.",
+      "5) Une fois terminé, le compte-rendu est envoyé automatiquement depuis no-reply@mg.sense-ai.world.",
+      "6) Une copie est également enregistrée dans l'historique de votre application pour une modification future."
+    ]
+  },
+  "unique": {
+    "h2": "Pourquoi nous avons construit cela",
+    "lead": "Il existe de nombreuses applications qui transcrivent l'audio. Mais notre objectif n'est pas seulement de vous donner du texte — c'est de vous aider à **terminer votre travail**.",
+    "bullets": [
+      "La plupart des outils s'arrêtent à « Voici votre texte ». Vous devez encore le copier, le coller et l'envoyer par e-mail manuellement.",
+      "Minutes.AI se concentre sur le flux de travail complet : Enregistrement -> Analyse -> Livraison.",
+      "Pas besoin de Zapier ou d'outils tiers complexes. C'est intégré directement dans l'application.",
+      "C'est conçu pour les professionnels qui veulent la plus haute précision sans perdre de temps."
+    ]
+  },
+  "faq": {
+    "h2": "Questions Fréquentes (FAQ)",
+    "items": [
+      {
+        "q": "La livraison automatique est-elle obligatoire ?",
+        "a": "Non, c'est optionnel. Vous pouvez l'activer ou la désactiver pour chaque réunion. Si vous enregistrez des notes personnelles, laissez-la simplement désactivée."
+      },
+      {
+        "q": "Vais-je recevoir du spam marketing ?",
+        "a": "Absolument pas. Cette fonctionnalité est strictement réservée à la livraison du contenu de vos réunions. Nous ne mélangeons jamais les e-mails marketing avec vos comptes-rendus."
+      },
+      {
+        "q": "Puis-je changer les destinataires plus tard ?",
+        "a": "Oui. Vous pouvez gérer votre liste de destinataires dans les Paramètres à tout moment pour vous adapter à différents projets ou équipes."
+      },
+      {
+        "q": "Est-ce que cela coûte plus cher ?",
+        "a": "Non. La fonctionnalité de livraison automatique est gratuite. Les comptes-rendus générés consomment simplement le temps de votre forfait existant (Packs de Temps ou Abonnement Illimité)."
+      },
+      {
+        "q": "Quand arrive Android ?",
+        "a": "Nous lançons d'abord sur iOS, mais l'infrastructure backend est partagée. Nous travaillons dur pour apporter cette expérience sur Android bientôt."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Prix et Forfaits",
+    "lead": "Inquiet des coûts cachés ? Ne le soyez pas. Cette fonctionnalité s'intègre parfaitement à notre tarification existante.",
+    "bullets": [
+      "**Pas de frais supplémentaires :** La livraison automatique est une fonctionnalité standard pour tous les utilisateurs.",
+      "**Packs de Temps :** Fonctionne parfaitement avec les minutes prépayées (120/1200 min).",
+      "**Abonnement Illimité :** La meilleure valeur pour les utilisateurs intensifs. Enregistrez toute la journée, envoyez tout automatiquement et ne vous souciez jamais des limites."
+    ],
+    "tableNote": "Consultez l'application ou notre page de tarification pour les derniers tarifs dans votre région.",
+    "linkText": "Voir les détails complets des prix"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Écran principal de l'iPhone Minutes.AI montrant les paramètres d'e-mail automatique",
+      "caption": "Minutes.AI (iOS) — Une touche pour enregistrer, zéro attente pour partager."
+    }
+  },
+  "meta": {
+    "h2": "Info Article",
+    "published": "Publié",
+    "type": "Mise à jour de fonctionnalité",
+    "category": "App iOS"
+  },
+  "cta": {
+    "openBrowser": "Ouvrir Web App",
+    "downloadIOS": "Télécharger pour iOS"
+  }
+}

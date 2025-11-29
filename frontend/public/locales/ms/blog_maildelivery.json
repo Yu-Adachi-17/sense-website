@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Baharu pada 2025: Minit AI (iOS) Kini Menghantar Minit Anda Melalui E-mel Secara Automatik",
+    "description": "Penat menunggu penjanaan AI? Dengan Penghantaran E-mel Automatik baharu di iOS, anda boleh menutup aplikasi sejurus selepas merakam. Kami akan menghantar minit kepada pasukan anda sebaik sahaja ia siap.",
+    "ogTitle": "Berhenti Menunggu: Minit AI (iOS) Kini Menghantar Minit Secara Automatik",
+    "ogDescription": "Rekod, berhenti, dan tutup aplikasi. Kami uruskan selebihnya. Ketahui tentang ciri baharu yang membuang masa menunggu daripada aliran kerja mesyuarat anda.",
+    "ld": {
+      "headline": "Minit AI untuk iOS Menambah Penghantaran E-mel Automatik untuk Minit Mesyuarat",
+      "description": "Artikel ini menerangkan ciri penghantaran e-mel automatik baharu untuk iOS, membolehkan pengguna melangkau masa menunggu dan menghantar minit terus kepada pasukan mereka."
+    }
+  },
+  "aria": {
+    "home": "Kembali ke Laman Utama Minit AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Penghantaran E-mel Auto (iOS)"
+  },
+  "hero": {
+    "kicker": "Ciri Baharu iOS 2025",
+    "h1": "Rekod, Berhenti, Selesai. Minit Anda Dihantar Secara Automatik.",
+    "tagline": "Jika anda pernah mencari 'aplikasi mesyuarat AI' dengan harapan untuk menjimatkan masa, kemas kini ini adalah untuk anda. Tidak perlu lagi menatap skrin memuatkan menunggu minit dijana."
+  },
+  "lead": {
+    "p1": "Kepada pengguna setia Minit AI: pernahkah anda selesai mesyuarat, tekan 'Jana', dan kemudian berdiri memegang telefon menunggu teks muncul supaya anda boleh berkongsinya? Itu adalah titik masalah yang kami ingin perbaiki. Dengan kemas kini ini, kami membuang penantian itu sepenuhnya."
+  },
+  "feature": {
+    "h2": "Apakah itu 'Penghantaran E-mel Automatik'?",
+    "p1": "Konsepnya mudah. Anda pratetapkan penerima anda (seperti pasukan atau pengurus anda) dalam tetapan. Kemudian, anda hanya merakam mesyuarat anda seperti biasa.",
+    "p2": "Sebelum ini, anda perlu membiarkan aplikasi terbuka sehingga AI selesai memproses. Kini, **anda boleh menutup aplikasi sesaat selepas anda menghentikan rakaman.** Bahagian belakang (backend) mengendalikan kerja berat dan secara automatik menghantar e-mel minit yang telah siap kepada penerima pilihan anda sebaik sahaja ia sedia.",
+    "note": "Nota: Ciri ini sedang dilancarkan untuk iOS (iPhone/iPad). Pengguna Android, nantikan—kami sedang mengusahakannya!"
+  },
+  "benefits": {
+    "h2": "Bagaimana Ini Mengubah Aliran Kerja Anda",
+    "items": [
+      {
+        "t": "1. Perkongsian menjadi 'luar sedar'",
+        "p": "Minit mesyuarat hanya mempunyai nilai jika ia dikongsi. Dengan mengautomasikan langkah ini, anda memastikan peserta dan mereka yang tidak hadir menerima ringkasan dengan serta-merta, tanpa anda terlupa menekan 'Hantar'. Ia menukar tugas manual menjadi proses latar belakang automatik."
+      },
+      {
+        "t": "2. Bebas daripada kompromi 'Kualiti vs Kelajuan'",
+        "p": "Minit AI menggunakan model teratas seperti OpenAI Whisper, ChatGPT-5, dan Gemini 3. Ketepatan tinggi memerlukan masa pemprosesan—kadang-kadang beberapa minit untuk mesyuarat yang panjang. Kami tahu menunggu itu menjengkelkan. Dengan kemas kini ini, masa pemprosesan kekal (untuk memastikan kualiti), tetapi **masa menunggu anda turun kepada sifar**. Masukkan telefon ke dalam poket dan teruskan ke tugas seterusnya."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Daripada siapa e-mel itu?",
+    "p1": "Apabila penghantaran automatik dihidupkan, pasukan anda akan menerima e-mel daripada alamat di bawah. Jika anda mempunyai penapis spam korporat yang ketat, sila senarai putihkan domain ini.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Pengirim: no-reply@mg.sense-ai.world",
+      "Domain: mg.sense-ai.world (Diuruskan oleh Minit AI / Sense G.K.)",
+      "Kandungan: Minit mesyuarat yang dijana oleh aplikasi"
+    ],
+    "note": "Jika anda melihat e-mel daripada alamat ini, jangan risau—ia hanya minit yang anda (atau rakan sepasukan) rakam."
+  },
+  "workflow": {
+    "h2": "Persediaan dalam 3 Langkah Mudah",
+    "intro": "Tiada integrasi rumit diperlukan. Berikut ialah cara untuk bermula sekarang:",
+    "steps": [
+      "1) Pergi ke Tetapan dan tambah alamat e-mel yang anda ingin hantar minit (cth. alias pasukan anda).",
+      "2) Sebelum merakam, togol 'Penghantaran E-mel' kepada ON.",
+      "3) Rekod mesyuarat anda dan berhenti apabila selesai.",
+      "4) Itu sahaja. Anda boleh menutup aplikasi dengan segera. Backend kami (Whisper / GPT-5 / Gemini 3) akan memproses audio.",
+      "5) Setelah selesai, minit dihantar secara automatik dari no-reply@mg.sense-ai.world.",
+      "6) Salinan juga disimpan dalam sejarah aplikasi anda untuk penyuntingan masa hadapan."
+    ]
+  },
+  "unique": {
+    "h2": "Mengapa Kami Membina Ini",
+    "lead": "Terdapat banyak aplikasi yang mentranskrip audio. Tetapi matlamat kami bukan sekadar memberi anda teks—ia adalah untuk membantu anda **menyelesaikan kerja anda**.",
+    "bullets": [
+      "Kebanyakan alat berhenti pada 'Ini teks anda'. Anda masih perlu menyalin, menampal, dan menghantarnya melalui e-mel secara manual.",
+      "Minit AI memfokuskan pada keseluruhan aliran kerja: Rakaman -> Analisis -> Penghantaran.",
+      "Tidak memerlukan Zapier atau alat pihak ketiga yang kompleks. Ia dibina terus ke dalam aplikasi.",
+      "Ia direka untuk profesional yang mahukan ketepatan tertinggi tanpa membuang masa."
+    ]
+  },
+  "faq": {
+    "h2": "Soalan Lazim (FAQ)",
+    "items": [
+      {
+        "q": "Adakah penghantaran automatik wajib?",
+        "a": "Tidak, ia adalah pilihan. Anda boleh menghidupkan atau mematikannya untuk setiap mesyuarat. Jika anda merakam nota peribadi, biarkan sahaja ia dimatikan."
+      },
+      {
+        "q": "Adakah saya akan menerima spam pemasaran?",
+        "a": "Sama sekali tidak. Ciri ini adalah semata-mata untuk menyampaikan kandungan mesyuarat anda. Kami tidak pernah mencampurkan e-mel pemasaran dengan minit anda."
+      },
+      {
+        "q": "Bolehkah saya menukar penerima kemudian?",
+        "a": "Ya. Anda boleh mengurus senarai penerima anda dalam Tetapan pada bila-bila masa untuk menyesuaikan dengan projek atau pasukan yang berbeza."
+      },
+      {
+        "q": "Adakah ini memerlukan kos tambahan?",
+        "a": "Tidak. Ciri penghantaran automatik adalah percuma. Minit yang dijana hanya menggunakan masa pelan sedia ada anda (Pek Masa atau Langganan Tanpa Had)."
+      },
+      {
+        "q": "Bilakah Android akan tiba?",
+        "a": "Kami melancarkan pada iOS dahulu, tetapi infrastruktur backend dikongsi. Kami sedang berusaha keras untuk membawa pengalaman ini ke Android tidak lama lagi."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Harga & Pelan",
+    "lead": "Bimbang tentang kos tersembunyi? Jangan risau. Ciri ini sesuai dengan harga sedia ada kami.",
+    "bullets": [
+      "**Tiada Yuran Tambahan:** Penghantaran automatik ialah ciri standard untuk semua pengguna.",
+      "**Pek Masa:** Berfungsi dengan sempurna dengan minit prabayar (120/1200 min).",
+      "**Langganan Tanpa Had:** Nilai terbaik untuk pengguna berat. Rekod sepanjang hari, hantar semuanya secara automatik, dan jangan risau tentang had."
+    ],
+    "tableNote": "Semak aplikasi atau halaman harga kami untuk kadar terkini di rantau anda.",
+    "linkText": "Lihat Butiran Harga Penuh"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Skrin utama iPhone Minit AI menunjukkan tetapan e-mel automatik",
+      "caption": "Minit AI (iOS) — Satu ketikan untuk merakam, sifar menunggu untuk berkongsi."
+    }
+  },
+  "meta": {
+    "h2": "Info Artikel",
+    "published": "Diterbitkan",
+    "type": "Kemas Kini Ciri",
+    "category": "Aplikasi iOS"
+  },
+  "cta": {
+    "openBrowser": "Buka Aplikasi Web",
+    "downloadIOS": "Muat turun untuk iOS"
+  }
+}

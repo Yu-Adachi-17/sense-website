@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Nieuw in 2025: Notulen AI (iOS) mailt uw notulen nu automatisch",
+    "description": "Moe van het wachten op AI-generatie? Met de nieuwe automatische e-mailbezorging op iOS kunt u de app direct na de opname sluiten. Wij mailen de notulen naar uw team zodra ze klaar zijn.",
+    "ogTitle": "Stop met wachten: Notulen AI (iOS) verstuurt notulen nu automatisch",
+    "ogDescription": "Opnemen, stoppen en de app sluiten. Wij regelen de rest. Lees over de nieuwe functie die wachttijd uit uw vergaderworkflow haalt.",
+    "ld": {
+      "headline": "Notulen AI voor iOS voegt automatische e-mailbezorging toe voor vergadernotulen",
+      "description": "Dit artikel legt de nieuwe automatische e-mailfunctie voor iOS uit, waarmee gebruikers de wachttijd kunnen overslaan en notulen direct naar hun team kunnen sturen."
+    }
+  },
+  "aria": {
+    "home": "Terug naar Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Auto E-mailbezorging (iOS)"
+  },
+  "hero": {
+    "kicker": "Nieuwe iOS-functie 2025",
+    "h1": "Opnemen, Stoppen, Klaar. Uw notulen worden automatisch verzonden.",
+    "tagline": "Als u ooit heeft gezocht naar een 'AI-vergaderapp' in de hoop tijd te besparen, is deze update voor u. Niet meer staren naar een laadscherm wachtend tot de notulen zijn gegenereerd."
+  },
+  "lead": {
+    "p1": "Aan onze trouwe Notulen AI-gebruikers: heeft u ooit een vergadering afgerond, op 'Genereren' gedrukt en vervolgens met uw telefoon in de hand gestaan, wachtend tot de tekst verscheen zodat u deze kon delen? Dat was een pijnpunt dat we wilden oplossen. Met deze update nemen we die wachttijd volledig weg."
+  },
+  "feature": {
+    "h2": "Wat is 'Automatische E-mailbezorging'?",
+    "p1": "Het concept is simpel. U stelt uw ontvangers (zoals uw team of manager) vooraf in de instellingen in. Vervolgens neemt u uw vergadering gewoon op zoals altijd.",
+    "p2": "Voorheen moest u de app open houden totdat de AI klaar was met verwerken. Nu **kunt u de app sluiten de seconde nadat u de opname stopt.** De backend doet het zware werk en mailt automatisch de voltooide notulen naar uw gekozen ontvangers zodra ze klaar zijn.",
+    "note": "Let op: Deze functie wordt momenteel uitgerold voor iOS (iPhone/iPad). Android-gebruikers, blijf op de hoogte – we werken eraan!"
+  },
+  "benefits": {
+    "h2": "Hoe dit uw workflow verandert",
+    "items": [
+      {
+        "t": "1. Delen wordt 'onbewust'",
+        "p": "Vergadernotulen hebben alleen waarde als ze worden gedeeld. Door deze stap te automatiseren, zorgt u ervoor dat deelnemers en afwezigen de samenvatting direct ontvangen, zonder dat u ooit vergeet op 'Verzenden' te drukken. Het verandert een handmatige klus in een automatisch achtergrondproces."
+      },
+      {
+        "t": "2. Vrijheid van het 'Kwaliteit vs. Snelheid' compromis",
+        "p": "Notulen AI gebruikt topmodellen zoals OpenAI Whisper, ChatGPT-5 en Gemini 3. Hoge precisie vereist verwerkingstijd – soms een paar minuten voor een lange vergadering. We weten dat wachten vervelend is. Met deze update blijft de verwerkingstijd (om kwaliteit te garanderen), maar **uw wachttijd daalt naar nul**. Stop uw telefoon in uw zak en ga door naar uw volgende taak."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Van wie komt de e-mail?",
+    "p1": "Wanneer automatische bezorging is ingeschakeld, ontvangt uw team e-mails van het onderstaande adres. Als u strenge bedrijfsspamfilters heeft, zet dit domein dan op de witte lijst.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Afzender: no-reply@mg.sense-ai.world",
+      "Domein: mg.sense-ai.world (Beheerd door Notulen AI / Sense G.K.)",
+      "Inhoud: De door de app gegenereerde vergadernotulen"
+    ],
+    "note": "Als u een e-mail van dit adres ziet, maak u geen zorgen – het zijn gewoon de notulen die u (of een teamgenoot) heeft opgenomen."
+  },
+  "workflow": {
+    "h2": "Instellen in 3 Eenvoudige Stappen",
+    "intro": "Geen ingewikkelde integraties nodig. Hier is hoe u nu kunt beginnen:",
+    "steps": [
+      "1) Ga naar Instellingen en voeg de e-mailadressen toe waarnaar u notulen wilt sturen (bijv. uw team-alias).",
+      "2) Zet voor het opnemen de schakelaar 'E-mailbezorging' op AAN.",
+      "3) Neem uw vergadering op en stop wanneer u klaar bent.",
+      "4) Dat is alles. U kunt de app direct sluiten. Onze backend (Whisper / GPT-5 / Gemini 3) verwerkt de audio.",
+      "5) Zodra gereed, worden de notulen automatisch gemaild vanaf no-reply@mg.sense-ai.world.",
+      "6) Een kopie wordt ook opgeslagen in uw app-geschiedenis voor toekomstige bewerkingen."
+    ]
+  },
+  "unique": {
+    "h2": "Waarom we dit hebben gebouwd",
+    "lead": "Er zijn veel apps die audio transcriberen. Maar ons doel is niet alleen om u tekst te geven – het is om u te helpen **uw werk af te ronden**.",
+    "bullets": [
+      "De meeste tools stoppen bij 'Hier is uw tekst'. U moet het nog steeds handmatig kopiëren, plakken en mailen.",
+      "Notulen AI richt zich op de hele workflow: Opname -> Analyse -> Bezorging.",
+      "Geen Zapier of complexe tools van derden nodig. Het is direct in de app ingebouwd.",
+      "Het is ontworpen voor professionals die de hoogste nauwkeurigheid willen zonder tijdverspilling."
+    ]
+  },
+  "faq": {
+    "h2": "Veelgestelde Vragen (FAQ)",
+    "items": [
+      {
+        "q": "Is automatische bezorging verplicht?",
+        "a": "Nee, het is optioneel. U kunt het voor elke vergadering in- of uitschakelen. Als u persoonlijke notities opneemt, laat het dan gewoon uitstaan."
+      },
+      {
+        "q": "Krijg ik marketingspam?",
+        "a": "Absoluut niet. Deze functie is strikt bedoeld voor het bezorgen van uw vergaderinhoud. We mengen nooit marketing-e-mails met uw notulen."
+      },
+      {
+        "q": "Kan ik de ontvangers later wijzigen?",
+        "a": "Ja. U kunt uw lijst met ontvangers op elk moment in Instellingen beheren om u aan te passen aan verschillende projecten of teams."
+      },
+      {
+        "q": "Kost dit extra?",
+        "a": "Nee. De automatische bezorgfunctie is gratis. De gegenereerde notulen verbruiken gewoon de tijd van uw bestaande abonnement (Tijdpakketten of Onbeperkt Abonnement)."
+      },
+      {
+        "q": "Wanneer komt Android?",
+        "a": "We lanceren eerst op iOS, maar de backend-infrastructuur wordt gedeeld. We werken hard om deze ervaring binnenkort naar Android te brengen."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Prijzen & Abonnementen",
+    "lead": "Bezorgd over verborgen kosten? Niet nodig. Deze functie past naadloos in onze bestaande prijzen.",
+    "bullets": [
+      "**Geen Extra Kosten:** Automatische bezorging is een standaardfunctie voor alle gebruikers.",
+      "**Tijdpakketten:** Werkt perfect met vooraf betaalde minuten (120/1200 min).",
+      "**Onbeperkt Abonnement:** De beste waarde voor grootgebruikers. Neem de hele dag op, verstuur alles automatisch en maak u nooit zorgen over limieten."
+    ],
+    "tableNote": "Controleer de app of onze prijzenpagina voor de laatste tarieven in uw regio.",
+    "linkText": "Bekijk Volledige Prijsdetails"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Notulen AI iPhone hoofdscherm toont automatische e-mailinstellingen",
+      "caption": "Notulen AI (iOS) — Eén tik om op te nemen, nul wachttijd om te delen."
+    }
+  },
+  "meta": {
+    "h2": "Artikel Info",
+    "published": "Gepubliceerd",
+    "type": "Functie-update",
+    "category": "iOS App"
+  },
+  "cta": {
+    "openBrowser": "Open Web App",
+    "downloadIOS": "Download voor iOS"
+  }
+}

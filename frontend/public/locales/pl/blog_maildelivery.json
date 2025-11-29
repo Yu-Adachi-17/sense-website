@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Nowość w 2025: Protokół AI (iOS) teraz automatycznie wysyła protokoły e-mailem",
+    "description": "Masz dość czekania na generowanie przez AI? Dzięki nowemu automatycznemu dostarczaniu e-maili na iOS możesz zamknąć aplikację natychmiast po nagraniu. Wyślemy protokół do Twojego zespołu, gdy tylko będzie gotowy.",
+    "ogTitle": "Przestań czekać: Protokół AI (iOS) wysyła teraz protokoły automatycznie",
+    "ogDescription": "Nagraj, zatrzymaj i zamknij aplikację. My zajmiemy się resztą. Dowiedz się o nowej funkcji, która usuwa czas oczekiwania z przepływu pracy Twoich spotkań.",
+    "ld": {
+      "headline": "Protokół AI na iOS dodaje automatyczne dostarczanie e-maili dla protokołów spotkań",
+      "description": "Ten artykuł wyjaśnia nową funkcję automatycznego dostarczania e-maili na iOS, pozwalającą użytkownikom pominąć czas oczekiwania i wysłać protokoły bezpośrednio do swojego zespołu."
+    }
+  },
+  "aria": {
+    "home": "Powrót do strony głównej Protokół AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Auto Wysyłka E-mail (iOS)"
+  },
+  "hero": {
+    "kicker": "Nowa funkcja iOS 2025",
+    "h1": "Nagraj, Zatrzymaj, Gotowe. Twoje protokoły są wysyłane automatycznie.",
+    "tagline": "Jeśli kiedykolwiek szukałeś „aplikacji AI do spotkań” z nadzieją na zaoszczędzenie czasu, ta aktualizacja jest dla Ciebie. Koniec z wpatrywaniem się w ekran ładowania w oczekiwaniu na wygenerowanie protokołu."
+  },
+  "lead": {
+    "p1": "Do naszych lojalnych użytkowników Protokół AI: czy kiedykolwiek skończyłeś spotkanie, nacisnąłeś „Generuj”, a potem stałeś z telefonem w ręku, czekając na pojawienie się tekstu, aby móc go udostępnić? To był punkt tarcia, który chcieliśmy naprawić. Dzięki tej aktualizacji całkowicie usuwamy to oczekiwanie."
+  },
+  "feature": {
+    "h2": "Czym jest „Automatyczne Dostarczanie E-maili”?",
+    "p1": "Koncepcja jest prosta. W ustawieniach wstępnie definiujesz odbiorców (takich jak Twój zespół lub menedżer). Następnie po prostu nagrywasz spotkanie jak zwykle.",
+    "p2": "Wcześniej musiałeś trzymać aplikację otwartą, dopóki AI nie zakończy przetwarzania. Teraz **możesz zamknąć aplikację w sekundę po zatrzymaniu nagrywania.** Backend zajmuje się ciężką pracą i automatycznie wysyła gotowy protokół do wybranych odbiorców, gdy tylko będzie gotowy.",
+    "note": "Uwaga: Ta funkcja jest obecnie wprowadzana na iOS (iPhone/iPad). Użytkownicy Androida, bądźcie czujni – pracujemy nad tym!"
+  },
+  "benefits": {
+    "h2": "Jak to zmienia Twój przepływ pracy",
+    "items": [
+      {
+        "t": "1. Udostępnianie staje się „podświadome”",
+        "p": "Protokoły spotkań mają wartość tylko wtedy, gdy są udostępniane. Automatyzując ten krok, zapewniasz, że uczestnicy i nieobecni otrzymają podsumowanie natychmiast, bez ryzyka, że zapomnisz nacisnąć „Wyślij”. Zamienia to ręczne zadanie w automatyczny proces w tle."
+      },
+      {
+        "t": "2. Wolność od kompromisu „Jakość vs Prędkość”",
+        "p": "Protokół AI używa najwyższej klasy modeli, takich jak OpenAI Whisper, ChatGPT-5 i Gemini 3. Wysoka precyzja wymaga czasu przetwarzania – czasami kilku minut dla długiego spotkania. Wiemy, że czekanie jest irytujące. Dzięki tej aktualizacji czas przetwarzania pozostaje (aby zapewnić jakość), ale **Twój czas oczekiwania spada do zera**. Włóż telefon do kieszeni i przejdź do następnego zadania."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Od kogo jest ten e-mail?",
+    "p1": "Gdy automatyczne dostarczanie jest włączone, Twój zespół otrzyma e-maile z poniższego adresu. Jeśli masz rygorystyczne firmowe filtry antyspamowe, dodaj tę domenę do białej listy.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Nadawca: no-reply@mg.sense-ai.world",
+      "Domena: mg.sense-ai.world (Zarządzana przez Protokół AI / Sense G.K.)",
+      "Treść: Protokół spotkania wygenerowany przez aplikację"
+    ],
+    "note": "Jeśli zobaczysz e-mail z tego adresu, nie martw się – to tylko protokół, który Ty (lub członek zespołu) nagrałeś."
+  },
+  "workflow": {
+    "h2": "Konfiguracja w 3 Prostych Krokach",
+    "intro": "Nie są wymagane żadne skomplikowane integracje. Oto jak zacząć teraz:",
+    "steps": [
+      "1) Przejdź do Ustawień i dodaj adresy e-mail, na które chcesz wysyłać protokoły (np. alias Twojego zespołu).",
+      "2) Przed nagraniem przełącz opcję „Wysyłka E-mail” na WŁ (ON).",
+      "3) Nagraj spotkanie i zatrzymaj, gdy skończysz.",
+      "4) To wszystko. Możesz natychmiast zamknąć aplikację. Nasz backend (Whisper / GPT-5 / Gemini 3) przetworzy dźwięk.",
+      "5) Po zakończeniu, protokół jest wysyłany automatycznie z no-reply@mg.sense-ai.world.",
+      "6) Kopia jest również zapisywana w historii aplikacji do przyszłej edycji."
+    ]
+  },
+  "unique": {
+    "h2": "Dlaczego to stworzyliśmy",
+    "lead": "Istnieje wiele aplikacji, które transkrybują dźwięk. Ale naszym celem nie jest tylko danie Ci tekstu – jest nim pomoc w **ukończeniu Twojej pracy**.",
+    "bullets": [
+      "Większość narzędzi kończy się na „Oto Twój tekst”. Nadal musisz go ręcznie kopiować, wklejać i wysyłać e-mailem.",
+      "Protokół AI skupia się na całym przepływie pracy: Nagrywanie -> Analiza -> Dostarczanie.",
+      "Bez potrzeby Zapiera czy skomplikowanych narzędzi innych firm. Jest to wbudowane bezpośrednio w aplikację.",
+      "Zaprojektowane dla profesjonalistów, którzy chcą najwyższej dokładności bez marnowania czasu."
+    ]
+  },
+  "faq": {
+    "h2": "Często Zadawane Pytania (FAQ)",
+    "items": [
+      {
+        "q": "Czy automatyczne dostarczanie jest obowiązkowe?",
+        "a": "Nie, jest opcjonalne. Możesz je włączyć lub wyłączyć dla każdego spotkania. Jeśli nagrywasz osobiste notatki, po prostu zostaw je wyłączone."
+      },
+      {
+        "q": "Czy będę otrzymywać spam marketingowy?",
+        "a": "Absolutnie nie. Ta funkcja służy wyłącznie do dostarczania treści Twoich spotkań. Nigdy nie mieszamy e-maili marketingowych z Twoimi protokołami."
+      },
+      {
+        "q": "Czy mogę zmienić odbiorców później?",
+        "a": "Tak. W każdej chwili możesz zarządzać listą odbiorców w Ustawieniach, aby dostosować się do różnych projektów lub zespołów."
+      },
+      {
+        "q": "Czy to kosztuje dodatkowo?",
+        "a": "Nie. Funkcja automatycznego dostarczania jest bezpłatna. Wygenerowane protokoły po prostu zużywają czas z Twojego istniejącego planu (Pakiety Czasowe lub Nieograniczona Subskrypcja)."
+      },
+      {
+        "q": "Kiedy będzie wersja na Androida?",
+        "a": "Najpierw uruchamiamy na iOS, ale infrastruktura backendowa jest wspólna. Ciężko pracujemy, aby wkrótce przenieść to doświadczenie na Androida."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Ceny i Plany",
+    "lead": "Martwisz się ukrytymi kosztami? Niepotrzebnie. Ta funkcja idealnie wpisuje się w nasz obecny cennik.",
+    "bullets": [
+      "**Brak Dodatkowych Opłat:** Automatyczne dostarczanie to standardowa funkcja dla wszystkich użytkowników.",
+      "**Pakiety Czasowe:** Działa idealnie z przedpłaconymi minutami (120/1200 min).",
+      "**Nieograniczona Subskrypcja:** Najlepsza wartość dla intensywnych użytkowników. Nagrywaj cały dzień, wysyłaj wszystko automatycznie i nigdy nie martw się o limity."
+    ],
+    "tableNote": "Sprawdź aplikację lub naszą stronę z cennikiem, aby uzyskać najnowsze stawki w Twoim regionie.",
+    "linkText": "Zobacz Pełne Szczegóły Cennika"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Główny ekran iPhone'a Protokół AI pokazujący ustawienia automatycznego e-maila",
+      "caption": "Protokół AI (iOS) — Jedno dotknięcie, by nagrać, zero czekania, by udostępnić."
+    }
+  },
+  "meta": {
+    "h2": "Info o Artykule",
+    "published": "Opublikowano",
+    "type": "Aktualizacja Funkcji",
+    "category": "Aplikacja iOS"
+  },
+  "cta": {
+    "openBrowser": "Otwórz Aplikację Web",
+    "downloadIOS": "Pobierz na iOS"
+  }
+}

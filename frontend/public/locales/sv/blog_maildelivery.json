@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Nytt 2025: Protokoll AI (iOS) mailar nu dina protokoll automatiskt",
+    "description": "Trött på att vänta på AI-generering? Med den nya automatiska e-postleveransen på iOS kan du stänga appen direkt efter inspelning. Vi skickar protokollet till ditt team så snart det är klart.",
+    "ogTitle": "Sluta vänta: Protokoll AI (iOS) skickar nu protokoll automatiskt",
+    "ogDescription": "Spela in, stoppa och stäng appen. Vi sköter resten. Läs om den nya funktionen som tar bort väntetiden från ditt mötesflöde.",
+    "ld": {
+      "headline": "Protokoll AI för iOS lägger till automatisk e-postleverans för mötesprotokoll",
+      "description": "Denna artikel förklarar den nya funktionen för automatisk e-postleverans för iOS, vilket gör att användare kan hoppa över väntetiden och skicka protokoll direkt till sitt team."
+    }
+  },
+  "aria": {
+    "home": "Tillbaka till Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "maildelivery": "Auto E-postleverans (iOS)"
+  },
+  "hero": {
+    "kicker": "Ny iOS-funktion 2025",
+    "h1": "Spela in, Stoppa, Klart. Dina protokoll skickas automatiskt.",
+    "tagline": "Om du någonsin har sökt efter en 'AI-mötesapp' i hopp om att spara tid, är denna uppdatering för dig. Inget mer stirrande på en laddningsskärm i väntan på att protokollet ska genereras."
+  },
+  "lead": {
+    "p1": "Till våra lojala Protokoll AI-användare: har du någonsin avslutat ett möte, tryckt på 'Generera', och sedan stått där med telefonen i handen och väntat på att texten ska dyka upp så att du kan dela den? Det var ett friktionsmoment vi ville fixa. Med denna uppdatering tar vi bort den väntan helt."
+  },
+  "feature": {
+    "h2": "Vad är 'Automatisk E-postleverans'?",
+    "p1": "Konceptet är enkelt. Du förinställer dina mottagare (som ditt team eller din chef) i inställningarna. Sedan spelar du bara in ditt möte som vanligt.",
+    "p2": "Tidigare var du tvungen att hålla appen öppen tills AI:n var klar med bearbetningen. Nu **kan du stänga appen sekunden efter att du stoppat inspelningen.** Backenden hanterar det tunga arbetet och mailar automatiskt det färdiga protokollet till dina valda mottagare så snart det är redo.",
+    "note": "Obs: Denna funktion rullas för närvarande ut för iOS (iPhone/iPad). Android-användare, håll utkik – vi jobbar på det!"
+  },
+  "benefits": {
+    "h2": "Hur detta förändrar ditt arbetsflöde",
+    "items": [
+      {
+        "t": "1. Delning blir 'omedvetet'",
+        "p": "Mötesprotokoll har bara värde om de delas. Genom att automatisera detta steg säkerställer du att deltagare och frånvarande får sammanfattningen direkt, utan att du någonsin glömmer att trycka på 'Skicka'. Det förvandlar en manuell syssla till en automatisk bakgrundsprocess."
+      },
+      {
+        "t": "2. Frihet från kompromissen 'Kvalitet vs Hastighet'",
+        "p": "Protokoll AI använder toppmodeller som OpenAI Whisper, ChatGPT-5 och Gemini 3. Hög precision kräver bearbetningstid – ibland några minuter för ett långt möte. Vi vet att väntan är irriterande. Med denna uppdatering kvarstår bearbetningstiden (för att säkerställa kvalitet), men **din väntetid sjunker till noll**. Lägg telefonen i fickan och gå vidare till nästa uppgift."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Vem är mailet ifrån?",
+    "p1": "När automatisk leverans är påslagen kommer ditt team att få mail från adressen nedan. Om du har strikta företagsspamfilter, vänligen vitlista denna domän.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Avsändare: no-reply@mg.sense-ai.world",
+      "Domän: mg.sense-ai.world (Hanteras av Protokoll AI / Sense G.K.)",
+      "Innehåll: Mötesprotokollet genererat av appen"
+    ],
+    "note": "Om du ser ett mail från denna adress, oroa dig inte – det är bara protokollet du (eller en kollega) spelade in."
+  },
+  "workflow": {
+    "h2": "Konfiguration i 3 Enkla Steg",
+    "intro": "Inga komplicerade integrationer krävs. Så här kommer du igång nu:",
+    "steps": [
+      "1) Gå till Inställningar och lägg till de e-postadresser du vill skicka protokoll till (t.ex. ditt team-alias).",
+      "2) Innan inspelning, slå på reglaget 'E-postleverans' (ON).",
+      "3) Spela in ditt möte och stoppa när du är klar.",
+      "4) Det är allt. Du kan stänga appen omedelbart. Vår backend (Whisper / GPT-5 / Gemini 3) kommer att bearbeta ljudet.",
+      "5) När det är klart skickas protokollet automatiskt från no-reply@mg.sense-ai.world.",
+      "6) En kopia sparas också i din app-historik för framtida redigering."
+    ]
+  },
+  "unique": {
+    "h2": "Varför vi byggde detta",
+    "lead": "Det finns många appar som transkriberar ljud. Men vårt mål är inte bara att ge dig text – det är att hjälpa dig **slutföra ditt arbete**.",
+    "bullets": [
+      "De flesta verktyg stannar vid 'Här är din text'. Du måste fortfarande kopiera, klistra in och maila den manuellt.",
+      "Protokoll AI fokuserar på hela arbetsflödet: Inspelning -> Analys -> Leverans.",
+      "Inget behov av Zapier eller komplexa tredjepartsverktyg. Det är inbyggt direkt i appen.",
+      "Den är designad för proffs som vill ha högsta precision utan att slösa tid."
+    ]
+  },
+  "faq": {
+    "h2": "Vanliga Frågor (FAQ)",
+    "items": [
+      {
+        "q": "Är automatisk leverans obligatorisk?",
+        "a": "Nej, det är valfritt. Du kan slå på eller av det för varje möte. Om du spelar in personliga anteckningar, låt det bara vara avstängt."
+      },
+      {
+        "q": "Kommer jag att få marknadsföringsspam?",
+        "a": "Absolut inte. Denna funktion är strikt till för att leverera ditt mötesinnehåll. Vi blandar aldrig marknadsföringsmail med dina protokoll."
+      },
+      {
+        "q": "Kan jag ändra mottagare senare?",
+        "a": "Ja. Du kan hantera din mottagarlista i Inställningar när som helst för att anpassa dig till olika projekt eller team."
+      },
+      {
+        "q": "Kostar detta extra?",
+        "a": "Nej. Funktionen för automatisk leverans är gratis. De genererade protokollen förbrukar helt enkelt tiden från din befintliga plan (Tidspaket eller Obegränsad Prenumeration)."
+      },
+      {
+        "q": "När kommer Android?",
+        "a": "Vi lanserar först på iOS, men backend-infrastrukturen delas. Vi jobbar hårt för att ta denna upplevelse till Android snart."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Priser & Planer",
+    "lead": "Orolig för dolda kostnader? Var inte det. Denna funktion passar sömlöst in i vår befintliga prissättning.",
+    "bullets": [
+      "**Inga Extra Avgifter:** Automatisk leverans är en standardfunktion för alla användare.",
+      "**Tidspaket:** Fungerar perfekt med förbetalda minuter (120/1200 min).",
+      "**Obegränsad Prenumeration:** Bästa värdet för storanvändare. Spela in hela dagen, skicka allt automatiskt och oroa dig aldrig för gränser."
+    ],
+    "tableNote": "Kolla appen eller vår prissida för de senaste taxorna i din region.",
+    "linkText": "Se Fullständiga Prisuppgifter"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Protokoll AI iPhone huvudskärm som visar inställningar för automatisk e-post",
+      "caption": "Protokoll AI (iOS) — Ett tryck för att spela in, noll väntan för att dela."
+    }
+  },
+  "meta": {
+    "h2": "Artikelinfo",
+    "published": "Publicerad",
+    "type": "Funktionsuppdatering",
+    "category": "iOS App"
+  },
+  "cta": {
+    "openBrowser": "Öppna Web App",
+    "downloadIOS": "Ladda ner för iOS"
+  }
+}

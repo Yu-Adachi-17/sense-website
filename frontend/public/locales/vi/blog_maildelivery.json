@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Mới năm 2025: Biên bản AI (iOS) Hiện Tự Động Gửi Biên Bản Của Bạn Qua Email",
+    "description": "Mệt mỏi vì chờ đợi AI tạo nội dung? Với tính năng Gửi Email Tự Động mới trên iOS, bạn có thể đóng ứng dụng ngay sau khi ghi âm. Chúng tôi sẽ gửi biên bản cho nhóm của bạn ngay khi nó sẵn sàng.",
+    "ogTitle": "Ngừng chờ đợi: Biên bản AI (iOS) Hiện Tự Động Gửi Biên Bản",
+    "ogDescription": "Ghi âm, dừng và đóng ứng dụng. Chúng tôi sẽ lo phần còn lại. Tìm hiểu về tính năng mới giúp loại bỏ thời gian chờ đợi khỏi quy trình họp của bạn.",
+    "ld": {
+      "headline": "Biên bản AI cho iOS Thêm Tính Năng Gửi Email Tự Động cho Biên Bản Cuộc Họp",
+      "description": "Bài viết này giải thích tính năng gửi email tự động mới cho iOS, cho phép người dùng bỏ qua thời gian chờ đợi và gửi biên bản trực tiếp cho nhóm của họ."
+    }
+  },
+  "aria": {
+    "home": "Quay lại Trang chủ Biên bản AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Gửi Email Tự Động (iOS)"
+  },
+  "hero": {
+    "kicker": "Tính năng iOS Mới 2025",
+    "h1": "Ghi âm, Dừng, Xong. Biên bản của bạn được gửi tự động.",
+    "tagline": "Nếu bạn đã từng tìm kiếm 'ứng dụng họp AI' với hy vọng tiết kiệm thời gian, bản cập nhật này là dành cho bạn. Không còn phải nhìn chằm chằm vào màn hình tải chờ đợi biên bản được tạo."
+  },
+  "lead": {
+    "p1": "Gửi đến những người dùng Biên bản AI trung thành: bạn đã bao giờ kết thúc cuộc họp, nhấn 'Tạo', rồi đứng cầm điện thoại chờ văn bản hiện ra để chia sẻ chưa? Đó là một điểm bất tiện mà chúng tôi muốn khắc phục. Với bản cập nhật này, chúng tôi loại bỏ hoàn toàn sự chờ đợi đó."
+  },
+  "feature": {
+    "h2": "'Gửi Email Tự Động' là gì?",
+    "p1": "Khái niệm rất đơn giản. Bạn thiết lập trước người nhận (như nhóm hoặc quản lý của bạn) trong phần cài đặt. Sau đó, bạn chỉ cần ghi âm cuộc họp như bình thường.",
+    "p2": "Trước đây, bạn phải mở ứng dụng cho đến khi AI xử lý xong. Bây giờ, **bạn có thể đóng ứng dụng ngay giây lát sau khi dừng ghi âm.** Hệ thống backend sẽ xử lý công việc nặng nhọc và tự động gửi email biên bản hoàn chỉnh cho người nhận đã chọn ngay khi nó sẵn sàng.",
+    "note": "Lưu ý: Tính năng này hiện đang được triển khai cho iOS (iPhone/iPad). Người dùng Android, hãy chờ đợi nhé — chúng tôi đang thực hiện!"
+  },
+  "benefits": {
+    "h2": "Điều này thay đổi quy trình làm việc của bạn như thế nào",
+    "items": [
+      {
+        "t": "1. Chia sẻ trở nên 'vô thức'",
+        "p": "Biên bản cuộc họp chỉ có giá trị khi được chia sẻ. Bằng cách tự động hóa bước này, bạn đảm bảo rằng người tham dự và người vắng mặt nhận được bản tóm tắt ngay lập tức mà không bao giờ quên nhấn 'Gửi'. Nó biến một công việc thủ công thành một quy trình chạy ngầm tự động."
+      },
+      {
+        "t": "2. Thoát khỏi sự đánh đổi 'Chất lượng vs Tốc độ'",
+        "p": "Biên bản AI sử dụng các mô hình hàng đầu như OpenAI Whisper, ChatGPT-5 và Gemini 3. Độ chính xác cao đòi hỏi thời gian xử lý — đôi khi vài phút cho một cuộc họp dài. Chúng tôi biết chờ đợi rất phiền toái. Với bản cập nhật này, thời gian xử lý vẫn giữ nguyên (để đảm bảo chất lượng), nhưng **thời gian chờ đợi của bạn giảm xuống bằng không**. Hãy bỏ điện thoại vào túi và chuyển sang nhiệm vụ tiếp theo."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Email đến từ ai?",
+    "p1": "Khi tính năng gửi tự động được bật, nhóm của bạn sẽ nhận được email từ địa chỉ bên dưới. Nếu bạn có bộ lọc thư rác công ty nghiêm ngặt, vui lòng đưa miền này vào danh sách trắng (whitelist).",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Người gửi: no-reply@mg.sense-ai.world",
+      "Tên miền: mg.sense-ai.world (Được quản lý bởi Biên bản AI / Sense G.K.)",
+      "Nội dung: Biên bản cuộc họp được tạo bởi ứng dụng"
+    ],
+    "note": "Nếu bạn thấy email từ địa chỉ này, đừng lo lắng — đó chỉ là biên bản mà bạn (hoặc đồng nghiệp) đã ghi âm."
+  },
+  "workflow": {
+    "h2": "Thiết lập trong 3 Bước Dễ dàng",
+    "intro": "Không cần tích hợp phức tạp. Đây là cách bắt đầu ngay bây giờ:",
+    "steps": [
+      "1) Vào Cài đặt và thêm địa chỉ email bạn muốn gửi biên bản (ví dụ: email nhóm của bạn).",
+      "2) Trước khi ghi âm, chuyển nút 'Gửi qua Email' sang BẬT (ON).",
+      "3) Ghi âm cuộc họp và dừng khi kết thúc.",
+      "4) Thế là xong. Bạn có thể đóng ứng dụng ngay lập tức. Backend của chúng tôi (Whisper / GPT-5 / Gemini 3) sẽ xử lý âm thanh.",
+      "5) Sau khi hoàn tất, biên bản được gửi tự động từ no-reply@mg.sense-ai.world.",
+      "6) Một bản sao cũng được lưu trong lịch sử ứng dụng của bạn để chỉnh sửa trong tương lai."
+    ]
+  },
+  "unique": {
+    "h2": "Tại sao chúng tôi xây dựng tính năng này",
+    "lead": "Có rất nhiều ứng dụng chuyển đổi âm thanh thành văn bản. Nhưng mục tiêu của chúng tôi không chỉ là cung cấp văn bản cho bạn — mà là giúp bạn **hoàn thành công việc**.",
+    "bullets": [
+      "Hầu hết các công cụ dừng lại ở 'Đây là văn bản của bạn'. Bạn vẫn phải sao chép, dán và gửi email thủ công.",
+      "Biên bản AI tập trung vào toàn bộ quy trình: Ghi âm -> Phân tích -> Gửi đi.",
+      "Không cần Zapier hay công cụ bên thứ ba phức tạp. Nó được tích hợp trực tiếp vào ứng dụng.",
+      "Nó được thiết kế cho các chuyên gia muốn độ chính xác cao nhất mà không lãng phí thời gian."
+    ]
+  },
+  "faq": {
+    "h2": "Câu hỏi thường gặp (FAQ)",
+    "items": [
+      {
+        "q": "Gửi tự động có bắt buộc không?",
+        "a": "Không, nó là tùy chọn. Bạn có thể bật hoặc tắt cho mỗi cuộc họp. Nếu bạn ghi âm ghi chú cá nhân, chỉ cần để nó tắt."
+      },
+      {
+        "q": "Tôi có nhận được thư rác tiếp thị không?",
+        "a": "Tuyệt đối không. Tính năng này chỉ dành riêng cho việc gửi nội dung cuộc họp của bạn. Chúng tôi không bao giờ trộn lẫn email tiếp thị với biên bản của bạn."
+      },
+      {
+        "q": "Tôi có thể thay đổi người nhận sau này không?",
+        "a": "Có. Bạn có thể quản lý danh sách người nhận trong Cài đặt bất cứ lúc nào để thích ứng với các dự án hoặc nhóm khác nhau."
+      },
+      {
+        "q": "Có mất thêm phí không?",
+        "a": "Không. Tính năng gửi tự động là miễn phí. Các biên bản được tạo chỉ tiêu tốn thời gian trong gói hiện tại của bạn (Gói Thời gian hoặc Đăng ký Không giới hạn)."
+      },
+      {
+        "q": "Khi nào có trên Android?",
+        "a": "Chúng tôi ra mắt trên iOS trước, nhưng cơ sở hạ tầng backend là dùng chung. Chúng tôi đang làm việc chăm chỉ để sớm mang trải nghiệm này lên Android."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Giá cả & Gói cước",
+    "lead": "Lo lắng về chi phí ẩn? Đừng lo. Tính năng này phù hợp hoàn toàn với mức giá hiện tại của chúng tôi.",
+    "bullets": [
+      "**Không Phí Phụ:** Gửi tự động là tính năng tiêu chuẩn cho mọi người dùng.",
+      "**Gói Thời gian:** Hoạt động hoàn hảo với số phút trả trước (120/1200 phút).",
+      "**Đăng ký Không giới hạn:** Giá trị tốt nhất cho người dùng thường xuyên. Ghi âm cả ngày, gửi mọi thứ tự động và không bao giờ lo về giới hạn."
+    ],
+    "tableNote": "Kiểm tra ứng dụng hoặc trang giá của chúng tôi để biết mức giá mới nhất trong khu vực của bạn.",
+    "linkText": "Xem Chi Tiết Giá Đầy Đủ"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Màn hình chính iPhone Biên bản AI hiển thị cài đặt email tự động",
+      "caption": "Biên bản AI (iOS) — Một chạm để ghi âm, không giây chờ đợi để chia sẻ."
+    }
+  },
+  "meta": {
+    "h2": "Thông tin Bài viết",
+    "published": "Đã xuất bản",
+    "type": "Cập nhật Tính năng",
+    "category": "Ứng dụng iOS"
+  },
+  "cta": {
+    "openBrowser": "Mở Web App",
+    "downloadIOS": "Tải xuống cho iOS"
+  }
+}

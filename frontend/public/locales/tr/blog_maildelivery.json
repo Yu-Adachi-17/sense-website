@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "2025 Yeniliği: Tutanakları AI (iOS) Artık Tutanaklarınızı Otomatik Olarak E-postayla Gönderiyor",
+    "description": "Yapay zeka üretimini beklemekten yoruldunuz mu? iOS'taki yeni Otomatik E-posta Teslimatı ile kayıttan hemen sonra uygulamayı kapatabilirsiniz. Tutanak hazır olur olmaz ekibinize e-postayla göndereceğiz.",
+    "ogTitle": "Beklemeyi Bırakın: Tutanakları AI (iOS) Artık Tutanakları Otomatik Gönderiyor",
+    "ogDescription": "Kaydet, durdur ve uygulamayı kapat. Gerisini biz hallederiz. Toplantı iş akışınızdaki bekleme süresini ortadan kaldıran yeni özellik hakkında bilgi edinin.",
+    "ld": {
+      "headline": "iOS için Tutanakları AI, Toplantı Tutanakları için Otomatik E-posta Teslimatı Ekliyor",
+      "description": "Bu makale, kullanıcıların bekleme süresini atlamasına ve tutanakları doğrudan ekiplerine göndermesine olanak tanıyan iOS için yeni otomatik e-posta teslimatı özelliğini açıklamaktadır."
+    }
+  },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfasına Dön"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Oto. E-posta Teslimatı (iOS)"
+  },
+  "hero": {
+    "kicker": "Yeni iOS Özelliği 2025",
+    "h1": "Kaydet, Durdur, Bitti. Tutanaklarınız Otomatik Olarak Gönderilir.",
+    "tagline": "Zamandan tasarruf etmek umuduyla hiç 'AI toplantı uygulaması' aradıysanız, bu güncelleme tam size göre. Artık tutanakların oluşturulmasını beklerken yükleme ekranına bakmak yok."
+  },
+  "lead": {
+    "p1": "Sadık Tutanakları AI kullanıcılarımıza: Hiç bir toplantıyı bitirip 'Oluştur'a bastıktan sonra, metnin görünmesini ve böylece paylaşabilmeyi beklerken elinizde telefonla dikildiniz mi? Bu, düzeltmek istediğimiz bir pürüzdü. Bu güncellemeyle o beklemeyi tamamen kaldırıyoruz."
+  },
+  "feature": {
+    "h2": "'Otomatik E-posta Teslimatı' Nedir?",
+    "p1": "Konsept basit. Alıcılarınızı (ekibiniz veya yöneticiniz gibi) ayarlarda önceden belirlersiniz. Ardından, toplantınızı her zamanki gibi kaydedersiniz.",
+    "p2": "Eskiden, AI işlemeyi bitirene kadar uygulamayı açık tutmanız gerekiyordu. Şimdi, **kaydı durdurduktan bir saniye sonra uygulamayı kapatabilirsiniz.** Arka uç (backend) ağır işi halleder ve biten tutanağı hazır olur olmaz seçtiğiniz alıcılara otomatik olarak e-postalar.",
+    "note": "Not: Bu özellik şu anda iOS (iPhone/iPad) için sunulmaktadır. Android kullanıcıları, takipte kalın; üzerinde çalışıyoruz!"
+  },
+  "benefits": {
+    "h2": "Bu, İş Akışınızı Nasıl Değiştirir?",
+    "items": [
+      {
+        "t": "1. Paylaşım 'bilinçaltı' hale gelir",
+        "p": "Toplantı tutanakları yalnızca paylaşılırsa değer taşır. Bu adımı otomatikleştirerek, katılımcıların ve gelmeyenlerin özeti anında almasını sağlarsınız, üstelik 'Gönder'e basmayı asla unutmazsınız. Manuel bir işi otomatik bir arka plan sürecine dönüştürür."
+      },
+      {
+        "t": "2. 'Kalite vs Hız' ödününden kurtuluş",
+        "p": "Tutanakları AI, OpenAI Whisper, ChatGPT-5 ve Gemini 3 gibi üst düzey modeller kullanır. Yüksek hassasiyet işlem süresi gerektirir; uzun bir toplantı için bazen birkaç dakika. Beklemenin can sıkıcı olduğunu biliyoruz. Bu güncellemeyle işlem süresi kalır (kaliteyi sağlamak için), ancak **sizin bekleme süreniz sıfıra düşer**. Telefonu cebinize koyun ve bir sonraki görevinize geçin."
+      }
+    ]
+  },
+  "who": {
+    "h2": "E-posta kimden geliyor?",
+    "p1": "Otomatik teslimat açık olduğunda, ekibiniz aşağıdaki adresten e-postalar alacaktır. Sıkı kurumsal spam filtreleriniz varsa, lütfen bu alanı (domain) beyaz listeye ekleyin.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Gönderen: no-reply@mg.sense-ai.world",
+      "Alan Adı: mg.sense-ai.world (Tutanakları AI / Sense G.K. tarafından yönetilir)",
+      "İçerik: Uygulama tarafından oluşturulan toplantı tutanağı"
+    ],
+    "note": "Bu adresten bir e-posta görürseniz endişelenmeyin; bu sadece sizin (veya bir ekip arkadaşınızın) kaydettiği tutanaktır."
+  },
+  "workflow": {
+    "h2": "3 Kolay Adımda Kurulum",
+    "intro": "Karmaşık entegrasyonlar gerekmez. İşte hemen nasıl başlayacağınız:",
+    "steps": [
+      "1) Ayarlar'a gidin ve tutanak göndermek istediğiniz e-posta adreslerini ekleyin (örneğin, ekip takma adınız).",
+      "2) Kayıttan önce, 'E-posta Teslimatı' anahtarını AÇIK (ON) konuma getirin.",
+      "3) Toplantınızı kaydedin ve bittiğinde durdurun.",
+      "4) Bu kadar. Uygulamayı hemen kapatabilirsiniz. Arka ucunuz (Whisper / GPT-5 / Gemini 3) sesi işleyecektir.",
+      "5) Tamamlandığında, tutanak no-reply@mg.sense-ai.world adresinden otomatik olarak e-postalanır.",
+      "6) Gelecekteki düzenlemeler için bir kopyası da uygulama geçmişinize kaydedilir."
+    ]
+  },
+  "unique": {
+    "h2": "Bunu Neden İnşa Ettik?",
+    "lead": "Sesi metne dönüştüren birçok uygulama var. Ancak amacımız size sadece metin vermek değil, **işinizi bitirmenize** yardımcı olmaktır.",
+    "bullets": [
+      "Çoğu araç 'İşte metniniz' noktasında durur. Hâlâ manuel olarak kopyalamanız, yapıştırmanız ve e-postalamanız gerekir.",
+      "Tutanakları AI tüm iş akışına odaklanır: Kayıt -> Analiz -> Teslimat.",
+      "Zapier veya karmaşık üçüncü taraf araçlara gerek yok. Doğrudan uygulamanın içine yerleşiktir.",
+      "Zaman kaybetmeden en yüksek doğruluğu isteyen profesyoneller için tasarlanmıştır."
+    ]
+  },
+  "faq": {
+    "h2": "Sıkça Sorulan Sorular (SSS)",
+    "items": [
+      {
+        "q": "Otomatik teslimat zorunlu mu?",
+        "a": "Hayır, isteğe bağlıdır. Her toplantı için açıp kapatabilirsiniz. Kişisel notlar kaydediyorsanız, kapalı bırakın."
+      },
+      {
+        "q": "Pazarlama spam'i alacak mıyım?",
+        "a": "Kesinlikle hayır. Bu özellik yalnızca toplantı içeriğinizi teslim etmek içindir. Pazarlama e-postalarını asla tutanaklarınızla karıştırmayız."
+      },
+      {
+        "q": "Alıcıları daha sonra değiştirebilir miyim?",
+        "a": "Evet. Farklı projelere veya ekiplere uyum sağlamak için Ayarlar'dan alıcı listenizi istediğiniz zaman yönetebilirsiniz."
+      },
+      {
+        "q": "Bunun ekstra bir maliyeti var mı?",
+        "a": "Hayır. Otomatik teslimat özelliği ücretsizdir. Oluşturulan tutanaklar sadece mevcut planınızın süresini tüketir (Süre Paketleri veya Sınırsız Abonelik)."
+      },
+      {
+        "q": "Android ne zaman geliyor?",
+        "a": "Önce iOS'ta başlıyoruz ancak arka uç altyapısı ortaktır. Bu deneyimi yakında Android'e getirmek için çok çalışıyoruz."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Fiyatlar ve Planlar",
+    "lead": "Gizli maliyetlerden mi endişeleniyorsunuz? Endişelenmeyin. Bu özellik mevcut fiyatlandırmamıza sorunsuz bir şekilde uyar.",
+    "bullets": [
+      "**Ekstra Ücret Yok:** Otomatik teslimat tüm kullanıcılar için standart bir özelliktir.",
+      "**Süre Paketleri:** Ön ödemeli dakikalarla (120/1200 dk) mükemmel çalışır.",
+      "**Sınırsız Abonelik:** Yoğun kullanıcılar için en iyi değer. Tüm gün kaydedin, her şeyi otomatik gönderin ve sınırları asla dert etmeyin."
+    ],
+    "tableNote": "Bölgenizdeki en güncel fiyatlar için uygulamayı veya fiyatlandırma sayfamızı kontrol edin.",
+    "linkText": "Tam Fiyat Detaylarını Gör"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Otomatik e-posta ayarlarını gösteren Tutanakları AI iPhone ana ekranı",
+      "caption": "Tutanakları AI (iOS) — Kaydetmek için tek dokunuş, paylaşmak için sıfır bekleme."
+    }
+  },
+  "meta": {
+    "h2": "Makale Bilgisi",
+    "published": "Yayınlandı",
+    "type": "Özellik Güncellemesi",
+    "category": "iOS Uygulaması"
+  },
+  "cta": {
+    "openBrowser": "Web Uygulamasını Aç",
+    "downloadIOS": "iOS için İndir"
+  }
+}

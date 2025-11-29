@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Nytt i 2025: Referat AI (iOS) sender nå referatene dine automatisk på e-post",
+    "description": "Lei av å vente på AI-generering? Med den nye automatiske e-postleveringen på iOS kan du lukke appen umiddelbart etter opptak. Vi sender referatet til teamet ditt så snart det er klart.",
+    "ogTitle": "Slutt å vente: Referat AI (iOS) sender nå referater automatisk",
+    "ogDescription": "Ta opp, stopp og lukk appen. Vi tar oss av resten. Les om den nye funksjonen som fjerner ventetiden fra møtearbeidsflyten din.",
+    "ld": {
+      "headline": "Referat AI for iOS legger til automatisk e-postlevering for møtereferater",
+      "description": "Denne artikkelen forklarer den nye funksjonen for automatisk e-postlevering for iOS, som lar brukere hoppe over ventetiden og sende referater direkte til teamet sitt."
+    }
+  },
+  "aria": {
+    "home": "Tilbake til Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "maildelivery": "Auto E-postlevering (iOS)"
+  },
+  "hero": {
+    "kicker": "Ny iOS-funksjon 2025",
+    "h1": "Ta opp, Stopp, Ferdig. Referatene dine sendes automatisk.",
+    "tagline": "Hvis du noen gang har søkt etter en 'AI-møteapp' i håp om å spare tid, er denne oppdateringen for deg. Ikke mer stirring på en lasteskjerm mens du venter på at referatet skal genereres."
+  },
+  "lead": {
+    "p1": "Til våre lojale Referat AI-brukere: har du noen gang avsluttet et møte, trykket på 'Generer', og deretter blitt stående med telefonen i hånden og ventet på at teksten skal dukke opp slik at du kan dele den? Det var et irritasjonsmoment vi ønsket å fikse. Med denne oppdateringen fjerner vi den ventetiden helt."
+  },
+  "feature": {
+    "h2": "Hva er 'Automatisk E-postlevering'?",
+    "p1": "Konseptet er enkelt. Du forhåndsinnstiller mottakerne dine (som teamet eller lederen din) i innstillingene. Deretter tar du bare opp møtet som vanlig.",
+    "p2": "Tidligere måtte du holde appen åpen til AI-en var ferdig med å behandle. Nå **kan du lukke appen sekundet etter at du stopper opptaket.** Backend-systemet håndterer det tunge arbeidet og sender automatisk det ferdige referatet til dine valgte mottakere så snart det er klart.",
+    "note": "Merk: Denne funksjonen rulles for tiden ut for iOS (iPhone/iPad). Android-brukere, følg med – vi jobber med saken!"
+  },
+  "benefits": {
+    "h2": "Hvordan dette endrer arbeidsflyten din",
+    "items": [
+      {
+        "t": "1. Deling blir 'ubevisst'",
+        "p": "Møtereferater har bare verdi hvis de deles. Ved å automatisere dette trinnet sikrer du at deltakere og fraværende mottar sammendraget umiddelbart, uten at du noen gang glemmer å trykke 'Send'. Det gjør en manuell oppgave om til en automatisk bakgrunnsprosess."
+      },
+      {
+        "t": "2. Frihet fra kompromisset 'Kvalitet vs Hastighet'",
+        "p": "Referat AI bruker toppmodeller som OpenAI Whisper, ChatGPT-5 og Gemini 3. Høy presisjon krever behandlingstid – noen ganger noen minutter for et langt møte. Vi vet at venting er irriterende. Med denne oppdateringen forblir behandlingstiden (for å sikre kvalitet), men **ventetiden din faller til null**. Legg telefonen i lommen og gå videre til neste oppgave."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Hvem er e-posten fra?",
+    "p1": "Når automatisk levering er på, vil teamet ditt motta e-poster fra adressen nedenfor. Hvis du har strenge spamfiltre i bedriften, vennligst hvitelist dette domenet.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Avsender: no-reply@mg.sense-ai.world",
+      "Domene: mg.sense-ai.world (Administrert av Referat AI / Sense G.K.)",
+      "Innhold: Møtereferatet generert av appen"
+    ],
+    "note": "Hvis du ser en e-post fra denne adressen, ikke bekymre deg – det er bare referatet du (eller en kollega) tok opp."
+  },
+  "workflow": {
+    "h2": "Oppsett i 3 Enkle Trinn",
+    "intro": "Ingen kompliserte integrasjoner kreves. Slik kommer du i gang nå:",
+    "steps": [
+      "1) Gå til Innstillinger og legg til e-postadressene du vil sende referater til (f.eks. team-aliaset ditt).",
+      "2) Før opptak, slå bryteren 'E-postlevering' PÅ.",
+      "3) Ta opp møtet ditt og stopp når du er ferdig.",
+      "4) Det er alt. Du kan lukke appen umiddelbart. Vår backend (Whisper / GPT-5 / Gemini 3) vil behandle lyden.",
+      "5) Når det er ferdig, sendes referatet automatisk fra no-reply@mg.sense-ai.world.",
+      "6) En kopi lagres også i app-historikken din for fremtidig redigering."
+    ]
+  },
+  "unique": {
+    "h2": "Hvorfor vi bygget dette",
+    "lead": "Det finnes mange apper som transkriberer lyd. Men målet vårt er ikke bare å gi deg tekst – det er å hjelpe deg med å **fullføre arbeidet ditt**.",
+    "bullets": [
+      "De fleste verktøy stopper ved 'Her er teksten din'. Du må fortsatt kopiere, lime inn og sende den på e-post manuelt.",
+      "Referat AI fokuserer på hele arbeidsflyten: Opptak -> Analyse -> Levering.",
+      "Ingen behov for Zapier eller komplekse tredjepartsverktøy. Det er innebygd direkte i appen.",
+      "Den er designet for profesjonelle som ønsker høyest mulig nøyaktighet uten å kaste bort tid."
+    ]
+  },
+  "faq": {
+    "h2": "Ofte Stilte Spørsmål (FAQ)",
+    "items": [
+      {
+        "q": "Er automatisk levering obligatorisk?",
+        "a": "Nei, det er valgfritt. Du kan slå det av eller på for hvert møte. Hvis du tar opp personlige notater, bare la det være av."
+      },
+      {
+        "q": "Vil jeg motta markedsføringsspam?",
+        "a": "Absolutt ikke. Denne funksjonen er strengt for å levere møteinnholdet ditt. Vi blander aldri markedsførings-e-poster med referatene dine."
+      },
+      {
+        "q": "Kan jeg endre mottakere senere?",
+        "a": "Ja. Du kan administrere mottakerlisten din i Innstillinger når som helst for å tilpasse deg forskjellige prosjekter eller team."
+      },
+      {
+        "q": "Koster dette ekstra?",
+        "a": "Nei. Funksjonen for automatisk levering er gratis. De genererte referatene forbruker bare tiden fra din eksisterende plan (Tidspakker eller Ubegrenset Abonnement)."
+      },
+      {
+        "q": "Når kommer Android?",
+        "a": "Vi lanserer først på iOS, men backend-infrastrukturen er delt. Vi jobber hardt for å bringe denne opplevelsen til Android snart."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Priser og Planer",
+    "lead": "Bekymret for skjulte kostnader? Det trenger du ikke være. Denne funksjonen passer sømløst inn i våre eksisterende priser.",
+    "bullets": [
+      "**Ingen Ekstra Gebyrer:** Automatisk levering er en standardfunksjon for alle brukere.",
+      "**Tidspakker:** Fungerer perfekt med forhåndsbetalte minutter (120/1200 min).",
+      "**Ubegrenset Abonnement:** Den beste verdien for storbrukere. Ta opp hele dagen, send alt automatisk, og bekymre deg aldri om grenser."
+    ],
+    "tableNote": "Sjekk appen eller prissiden vår for de nyeste prisene i din region.",
+    "linkText": "Se Fulle Prisdetaljer"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Referat AI iPhone hovedskjerm som viser innstillinger for automatisk e-post",
+      "caption": "Referat AI (iOS) — Ett trykk for å ta opp, null venting for å dele."
+    }
+  },
+  "meta": {
+    "h2": "Artikkelinfo",
+    "published": "Publisert",
+    "type": "Funksjonsoppdatering",
+    "category": "iOS App"
+  },
+  "cta": {
+    "openBrowser": "Åpne Web App",
+    "downloadIOS": "Last ned for iOS"
+  }
+}

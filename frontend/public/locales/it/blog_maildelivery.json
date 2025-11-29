@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "Novità 2025: Verbali IA (iOS) ora invia i verbali via email automaticamente",
+    "description": "Stanco di aspettare l'IA? Con la nuova Consegna Automatica Email su iOS, puoi chiudere l'app subito dopo la registrazione. Invieremo il verbale al tuo team non appena sarà pronto.",
+    "ogTitle": "Basta attese: Verbali IA (iOS) invia i verbali automaticamente",
+    "ogDescription": "Registra, ferma e chiudi l'app. Al resto pensiamo noi. Scopri la nuova funzione che elimina i tempi di attesa dal tuo flusso di lavoro.",
+    "ld": {
+      "headline": "Verbali IA per iOS aggiunge la consegna automatica via email per i verbali delle riunioni",
+      "description": "Questo articolo spiega la nuova funzione di consegna automatica via email per iOS, consentendo agli utenti di saltare i tempi di attesa e inviare i verbali direttamente al proprio team."
+    }
+  },
+  "aria": {
+    "home": "Torna alla Home di Verbali IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "maildelivery": "Consegna Automatica Email (iOS)"
+  },
+  "hero": {
+    "kicker": "Nuova Funzionalità iOS 2025",
+    "h1": "Registra, Ferma, Fatto. I tuoi verbali vengono inviati automaticamente.",
+    "tagline": "Se hai mai cercato un'app per 'verbali con IA' sperando di risparmiare tempo, questo aggiornamento è per te. Niente più schermate di caricamento in attesa che il verbale venga generato."
+  },
+  "lead": {
+    "p1": "Ai nostri fedeli utenti di Verbali IA: ti è mai capitato di finire una riunione, premere 'Genera' e restare lì con il telefono in mano ad aspettare che appaia il testo per poterlo condividere? Era un punto critico che volevamo risolvere. Con questo aggiornamento, eliminiamo completamente questa attesa."
+  },
+  "feature": {
+    "h2": "Cos'è la 'Consegna Automatica Email'?",
+    "p1": "Il concetto è semplice. Imposti i destinatari (come il tuo team o il tuo manager) in anticipo nelle impostazioni. Poi, registri semplicemente la tua riunione come al solito.",
+    "p2": "In precedenza, dovevi tenere l'app aperta finché l'IA non finiva l'elaborazione. Ora, **puoi chiudere l'app un secondo dopo aver interrotto la registrazione.** Il backend gestisce il lavoro pesante e invia automaticamente il verbale finito ai destinatari scelti non appena è pronto.",
+    "note": "Nota: Questa funzione è attualmente in fase di rilascio per iOS (iPhone/iPad). Utenti Android, rimanete sintonizzati: ci stiamo lavorando!"
+  },
+  "benefits": {
+    "h2": "Come cambia il tuo flusso di lavoro",
+    "items": [
+      {
+        "t": "1. La condivisione diventa 'inconscia'",
+        "p": "I verbali delle riunioni hanno valore solo se condivisi. Automatizzando questo passaggio, assicuri che partecipanti e assenti ricevano il riepilogo istantaneamente, senza mai dimenticare di premere 'Invia'. Trasforma un compito manuale in un processo automatico in background."
+      },
+      {
+        "t": "2. Libertà dal compromesso 'Qualità vs Velocità'",
+        "p": "Verbali IA utilizza modelli di alto livello come OpenAI Whisper, ChatGPT-5 e Gemini 3. L'alta precisione richiede tempo di elaborazione, a volte alcuni minuti per una riunione lunga. Sappiamo che aspettare è fastidioso. Con questo aggiornamento, il tempo di elaborazione rimane (per garantire la qualità), ma **il tuo tempo di attesa scende a zero**. Metti il telefono in tasca e passa al tuo prossimo compito."
+      }
+    ]
+  },
+  "who": {
+    "h2": "Da chi arriva l'email?",
+    "p1": "Quando la consegna automatica è attiva, il tuo team riceverà email dall'indirizzo qui sotto. Se hai filtri antispam aziendali rigorosi, ti preghiamo di inserire questo dominio nella whitelist.",
+    "address": "no-reply@mg.sense-ai.world",
+    "bullets": [
+      "Mittente: no-reply@mg.sense-ai.world",
+      "Dominio: mg.sense-ai.world (Gestito da Verbali IA / Sense G.K.)",
+      "Contenuto: Il verbale della riunione generato dall'app"
+    ],
+    "note": "Se vedi un'email da questo indirizzo, non preoccuparti: è solo il verbale che tu (o un collega) avete registrato."
+  },
+  "workflow": {
+    "h2": "Configurazione in 3 Semplici Passaggi",
+    "intro": "Nessuna integrazione complicata richiesta. Ecco come iniziare ora:",
+    "steps": [
+      "1) Vai su Impostazioni e aggiungi gli indirizzi email a cui vuoi inviare i verbali (es. l'alias del tuo team).",
+      "2) Prima di registrare, imposta l'interruttore 'Consegna Email' su ON.",
+      "3) Registra la tua riunione e ferma quando hai finito.",
+      "4) Fatto. Puoi chiudere l'app immediatamente. Il nostro backend (Whisper / GPT-5 / Gemini 3) elaborerà l'audio.",
+      "5) Una volta terminato, il verbale viene inviato automaticamente da no-reply@mg.sense-ai.world.",
+      "6) Una copia viene anche salvata nella cronologia della tua app per modifiche future."
+    ]
+  },
+  "unique": {
+    "h2": "Perché lo abbiamo creato",
+    "lead": "Ci sono molte app che trascrivono l'audio. Ma il nostro obiettivo non è solo darti del testo, è aiutarti a **finire il tuo lavoro**.",
+    "bullets": [
+      "La maggior parte degli strumenti si ferma a 'Ecco il tuo testo'. Devi ancora copiarlo, incollarlo e inviarlo via email manualmente.",
+      "Verbali IA si concentra sull'intero flusso di lavoro: Registrazione -> Analisi -> Consegna.",
+      "Non c'è bisogno di Zapier o strumenti complessi di terze parti. È integrato direttamente nell'app.",
+      "È progettato per professionisti che vogliono la massima precisione senza perdite di tempo."
+    ]
+  },
+  "faq": {
+    "h2": "Domande Frequenti (FAQ)",
+    "items": [
+      {
+        "q": "La consegna automatica è obbligatoria?",
+        "a": "No, è facoltativa. Puoi attivarla o disattivarla per ogni riunione. Se registri note personali, lasciala semplicemente spenta."
+      },
+      {
+        "q": "Riceverò spam di marketing?",
+        "a": "Assolutamente no. Questa funzione è strettamente per consegnare i contenuti delle tue riunioni. Non mescoliamo mai email di marketing con i tuoi verbali."
+      },
+      {
+        "q": "Posso cambiare i destinatari più tardi?",
+        "a": "Sì. Puoi gestire la tua lista destinatari nelle Impostazioni in qualsiasi momento per adattarti a diversi progetti o team."
+      },
+      {
+        "q": "Costa extra?",
+        "a": "No. La funzione di consegna automatica è gratuita. I verbali generati consumano semplicemente il tempo del tuo piano esistente (Pacchetti Tempo o Abbonamento Illimitato)."
+      },
+      {
+        "q": "Quando arriva su Android?",
+        "a": "Stiamo lanciando prima su iOS, ma l'infrastruttura backend è condivisa. Stiamo lavorando sodo per portare questa esperienza su Android presto."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Prezzi e Piani",
+    "lead": "Preoccupato per costi nascosti? Non esserlo. Questa funzione si adatta perfettamente ai nostri prezzi esistenti.",
+    "bullets": [
+      "**Nessuna Tariffa Extra:** La consegna automatica è una funzione standard per tutti gli utenti.",
+      "**Pacchetti Tempo:** Funziona perfettamente con i minuti prepagati (120/1200 min).",
+      "**Abbonamento Illimitato:** Il miglior valore per utenti intensivi. Registra tutto il giorno, invia tutto automaticamente e non preoccuparti mai dei limiti."
+    ],
+    "tableNote": "Controlla l'app o la nostra pagina dei prezzi per le tariffe più recenti nella tua regione.",
+    "linkText": "Vedi Dettagli Completi Prezzi"
+  },
+  "images": {
+    "main": {
+      "src": "/images/mainscreen.png",
+      "alt": "Schermata principale iPhone di Verbali IA che mostra le impostazioni email automatiche",
+      "caption": "Verbali IA (iOS) — Un tocco per registrare, zero attesa per condividere."
+    }
+  },
+  "meta": {
+    "h2": "Info Articolo",
+    "published": "Pubblicato",
+    "type": "Aggiornamento Funzionalità",
+    "category": "App iOS"
+  },
+  "cta": {
+    "openBrowser": "Apri Web App",
+    "downloadIOS": "Scarica per iOS"
+  }
+}
