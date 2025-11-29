@@ -1262,6 +1262,54 @@ const db = admin.firestore();
 // UUID 生成用
 const { v4: uuidv4 } = require("uuid");
 
+const EMAIL_JOB_STAGE_PROGRESS = {
+  uploading: 5,
+  transcribing: 30,
+  generating: 70,
+  sendingMail: 90,
+  completed: 100,
+  failed: 100,
+};
+
+async function updateEmailJobStatus({
+  jobId,
+  userId,
+  stage,           // "uploading" / "transcribing" / ...
+  status,          // 基本 stage と同じで OK
+  error,
+  errorCode,
+  failedRecipients,
+}) {
+  if (!jobId) return;
+
+  const docRef = db.collection("emailJobs").doc(jobId);
+
+  const s = status || stage || "unknown";
+  const progress =
+    EMAIL_JOB_STAGE_PROGRESS[s] !== undefined
+      ? EMAIL_JOB_STAGE_PROGRESS[s]
+      : null;
+
+  const payload = {
+    jobId,
+    userId: userId || null,
+    stage: stage || s,
+    status: s,
+    progress,
+    error: error || null,
+    errorCode: errorCode || null,
+    failedRecipients: failedRecipients || [],
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+
+  // null は削ってから merge
+  Object.keys(payload).forEach((k) => {
+    if (payload[k] === null) delete payload[k];
+  });
+
+  await docRef.set(payload, { merge: true });
+}
+
 /**
  * minutes-email ジョブから meetingRecords に1件保存
  * Swift側 syncCoreDataToFirebase のレコード構造に合わせる:
@@ -1316,6 +1364,7 @@ async function saveMeetingRecordFromEmailJob({
 //  iOS から送られてきた音声を STT → minutes 生成 →
 //  ・ログインユーザーなら Firestore(meetingRecords) 保存
 //  ・Mailgun でメール送信
+//  ・進捗は Firestore(emailJobs/{jobId}) に書き出し
 // ==============================================
 app.post(
   "/api/minutes-email-from-audio",
@@ -1345,9 +1394,8 @@ app.post(
         formatId,
         userId,
         emailSubject,      // 任意: iOS から件名を渡す場合（meetingTitle があればそちら優先）
-        meetingStartLabel, // ★ 追加: FE から渡ってくる「会議開始時刻の表示用文字列」
+        meetingStartLabel, // FE から渡ってくる「会議開始時刻の表示用文字列」
       } = req.body || {};
-
 
       // recipients は JSON 文字列として送られてくる想定（iOS 側で JSON.stringify）
       let recipients = [];
@@ -1361,6 +1409,16 @@ app.post(
 
       if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
         console.error("[EMAIL_JOB] recipients is empty");
+
+        // 一応ジョブを failed として残しておく
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "No recipients specified",
+          errorCode: "NO_RECIPIENTS",
+        });
+
         return res.status(400).json({
           error: "No recipients specified",
           errorCode: "NO_RECIPIENTS",
@@ -1386,6 +1444,13 @@ app.post(
       const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
       console.log(`[EMAIL_JOB] Uploaded file size: ${fileSizeMB} MB`);
 
+      // ★ ジョブ受付: uploading ステージにしておく
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "uploading",
+      });
+
       // ---- locale / lang を決定 ----
       const localeResolved = resolveLocale(req, localeFromBody);
       const langHint = lang || localeResolved || null;
@@ -1394,6 +1459,13 @@ app.post(
       let transcription = "";
       const cleanupExtra = [];
       const chunkPathsForCleanup = [];
+
+      // ★ STT 開始
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "transcribing",
+      });
 
       try {
         if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
@@ -1451,6 +1523,15 @@ app.post(
       } catch (e) {
         console.error("[EMAIL_JOB] Whisper transcription error:", e.message);
 
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Transcription failed",
+          errorCode: "STT_FAILED",
+          failedRecipients: recipients,
+        });
+
         // チャンク & 変換ファイルを掃除
         for (const p of chunkPathsForCleanup) {
           try {
@@ -1505,6 +1586,13 @@ app.post(
       let minutes = null;
       let meta = null;
 
+      // ★ minutes 生成開始
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "generating",
+      });
+
       try {
         if (formatId && localeResolved) {
           const fmt = loadFormatJSON(formatId, localeResolved);
@@ -1514,6 +1602,15 @@ app.post(
               formatId,
               localeResolved
             );
+
+            await updateEmailJobStatus({
+              jobId,
+              userId,
+              stage: "failed",
+              error: "Format or locale not found",
+              errorCode: "FORMAT_NOT_FOUND",
+              failedRecipients: recipients,
+            });
 
             // 一時ファイル削除
             try {
@@ -1562,6 +1659,15 @@ app.post(
       } catch (e) {
         console.error("[EMAIL_JOB] minutes generation error:", e);
 
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Minutes generation failed",
+          errorCode: "MINUTES_GENERATION_FAILED",
+          failedRecipients: recipients,
+        });
+
         try {
           fs.unlinkSync(file.path);
         } catch (_) {}
@@ -1600,7 +1706,11 @@ app.post(
       // ★ 会議開始時刻が渡ってきていれば、JSON の date を上書きしたバージョンを作る
       let minutesStringForEmail = rawMinutesString;
 
-      if (meetingStartLabel && typeof meetingStartLabel === "string" && meetingStartLabel.trim()) {
+      if (
+        meetingStartLabel &&
+        typeof meetingStartLabel === "string" &&
+        meetingStartLabel.trim()
+      ) {
         try {
           const parsed = JSON.parse(rawMinutesString);
           if (parsed && typeof parsed === "object") {
@@ -1618,7 +1728,6 @@ app.post(
           );
         }
       }
-
 
       // ★ ログインユーザーなら meetingRecords に保存
       let savedRecordInfo = null;
@@ -1644,6 +1753,15 @@ app.post(
 
       if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
         console.error("[EMAIL_JOB] Mailgun is not configured");
+
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Mailgun is not configured (missing API key or domain)",
+          errorCode: "MAIL_CONFIG_MISSING",
+          failedRecipients: recipients,
+        });
 
         try {
           fs.unlinkSync(file.path);
@@ -1705,7 +1823,6 @@ app.post(
         locale: localeResolved,
       });
 
-
       console.log(
         "[EMAIL_JOB] textBody length =",
         textBody ? textBody.length : 0,
@@ -1718,6 +1835,13 @@ app.post(
         recipients
       );
 
+      // ★ メール送信開始
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "sendingMail",
+      });
+
       let mailgunResult = null;
       try {
         // sendMinutesEmail は `to` に文字列を期待しているので join して渡す
@@ -1726,16 +1850,25 @@ app.post(
           subject,
           text: textBody,
           html: htmlBody,
-          // ★ From 名ローカライズ用
+          // From 名ローカライズ用
           locale: localeResolved,
         });
 
         console.log(
           "[EMAIL_JOB] Mailgun send OK:",
-          mailgunResult.id || mailgunResult
+          mailgunResult && mailgunResult.id ? mailgunResult.id : mailgunResult
         );
       } catch (e) {
         console.error("[EMAIL_JOB] Mailgun send FAILED:", e);
+
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Failed to send email",
+          errorCode: "MAIL_SEND_FAILED",
+          failedRecipients: recipients,
+        });
 
         try {
           fs.unlinkSync(file.path);
@@ -1787,6 +1920,14 @@ app.post(
         } catch (_) {}
       }
 
+      // ★ 正常完了
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "completed",
+        failedRecipients: [],
+      });
+
       // クライアント(iOS)に「ジョブ受け付け完了」を返す
       return res.json({
         ok: true,
@@ -1800,13 +1941,22 @@ app.post(
         meta,
         mailgunId: mailgunResult && mailgunResult.id ? mailgunResult.id : null,
 
-        // ★ iOS/FE 用: Firestore 保存情報 & 本文そのもの
+        // iOS/FE 用: Firestore 保存情報 & 本文そのもの
         savedRecord: savedRecordInfo, // { docId, paperID } or null
         minutes: minutesStringForEmail,
         transcription,
       });
     } catch (err) {
       console.error("[EMAIL_JOB] Internal error:", err);
+
+      await updateEmailJobStatus({
+        jobId: req.body && req.body.jobId ? req.body.jobId : null,
+        userId: req.body && req.body.userId ? req.body.userId : null,
+        stage: "failed",
+        error: "Internal server error",
+        errorCode: "INTERNAL_ERROR",
+      });
+
       return res.status(500).json({
         error: "Internal server error",
         errorCode: "INTERNAL_ERROR",
