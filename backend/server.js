@@ -1344,8 +1344,10 @@ app.post(
         outputType = "flexible",
         formatId,
         userId,
-        emailSubject, // 任意: iOS から件名を渡す場合（meetingTitle があればそちら優先）
+        emailSubject,      // 任意: iOS から件名を渡す場合（meetingTitle があればそちら優先）
+        meetingStartLabel, // ★ 追加: FE から渡ってくる「会議開始時刻の表示用文字列」
       } = req.body || {};
+
 
       // recipients は JSON 文字列として送られてくる想定（iOS 側で JSON.stringify）
       let recipients = [];
@@ -1592,8 +1594,31 @@ app.post(
       );
 
       // ★ Firestore保存用に String 化した minutes を作る（MeetingList / CoreData と整合）
-      const minutesString =
+      const rawMinutesString =
         typeof minutes === "string" ? minutes : JSON.stringify(minutes);
+
+      // ★ 会議開始時刻が渡ってきていれば、JSON の date を上書きしたバージョンを作る
+      let minutesStringForEmail = rawMinutesString;
+
+      if (meetingStartLabel && typeof meetingStartLabel === "string" && meetingStartLabel.trim()) {
+        try {
+          const parsed = JSON.parse(rawMinutesString);
+          if (parsed && typeof parsed === "object") {
+            parsed.date = meetingStartLabel.trim();
+            minutesStringForEmail = JSON.stringify(parsed);
+            console.log(
+              "[EMAIL_JOB] Overwrote minutes.date with meetingStartLabel:",
+              meetingStartLabel
+            );
+          }
+        } catch (e) {
+          console.warn(
+            "[EMAIL_JOB] Failed to override minutes.date with meetingStartLabel:",
+            e.message
+          );
+        }
+      }
+
 
       // ★ ログインユーザーなら meetingRecords に保存
       let savedRecordInfo = null;
@@ -1602,7 +1627,7 @@ app.post(
           savedRecordInfo = await saveMeetingRecordFromEmailJob({
             uid: userId,
             transcription,
-            minutes: minutesString,
+            minutes: minutesStringForEmail,
             jobId,
           });
         } catch (e) {
@@ -1648,8 +1673,9 @@ app.post(
       // 1. meetingTitle を JSON から抽出（あれば件名に使う）
       let meetingTitleForSubject = null;
       try {
-        // minutesString（JSON文字列）から meetingTitle を抜く
-        const parsed = JSON.parse(minutesString);
+        // minutesStringForEmail（JSON文字列）から meetingTitle を抜く
+        const parsed = JSON.parse(minutesStringForEmail);
+
         if (
           parsed &&
           typeof parsed === "object" &&
@@ -1675,9 +1701,10 @@ app.post(
 
       // 2. 本文生成（minutes のみ、ロケールでラベルを切り替え）
       const { textBody, htmlBody } = buildMinutesOnlyEmailBodies({
-        minutes: minutesString, // ← ここも String 渡しで統一
+        minutes: minutesStringForEmail,
         locale: localeResolved,
       });
+
 
       console.log(
         "[EMAIL_JOB] textBody length =",
@@ -1769,13 +1796,13 @@ app.post(
         locale: localeResolved,
         lang: langHint,
         transcriptionLength: transcription.length,
-        minutesLength: minutesString.length,
+        minutesLength: minutesStringForEmail.length,
         meta,
         mailgunId: mailgunResult && mailgunResult.id ? mailgunResult.id : null,
 
         // ★ iOS/FE 用: Firestore 保存情報 & 本文そのもの
         savedRecord: savedRecordInfo, // { docId, paperID } or null
-        minutes: minutesString,
+        minutes: minutesStringForEmail,
         transcription,
       });
     } catch (err) {
