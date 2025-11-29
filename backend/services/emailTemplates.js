@@ -442,15 +442,33 @@ function isFlexibleNoteShape(obj) {
   );
 }
 
+// ここだけ差し替えでOK（isMeetingMinutesShape 全体）
+
 function isMeetingMinutesShape(obj) {
+  if (!obj || typeof obj !== "object") return false;
+
+  // MeetingMinutes として最低限ほしいもの
+  if (typeof obj.meetingTitle !== "string") return false;
+  if (typeof obj.date !== "string") return false;
+
+  // 「会議の構造を持っている」とみなすための最低条件
+  const hasTopics = Array.isArray(obj.topics);
+  const hasLectureObjectives = typeof obj.lectureObjectives === "string";
+  const hasGroupedOneOnOne = Array.isArray(obj.groupedOneOnOneTopics);
+  const hasCoreMessage = typeof obj.coreMessage === "string";
+  const hasCoreEmotion =
+    obj.coreEmotion && typeof obj.coreEmotion === "object";
+
+  // どれか 1 つでもあれば MeetingMinutes とみなす
   return (
-    obj &&
-    typeof obj === "object" &&
-    typeof obj.meetingTitle === "string" &&
-    typeof obj.date === "string" &&
-    Array.isArray(obj.topics)
+    hasTopics ||
+    hasLectureObjectives ||
+    hasGroupedOneOnOne ||
+    hasCoreMessage ||
+    hasCoreEmotion
   );
 }
+
 
 // ========== FlexibleNote レンダリング ==========
 
