@@ -1415,8 +1415,6 @@ function createEmailJobLogger(rawJobId) {
   };
 }
 
-
-
 // ==============================================
 //  /api/minutes-email-from-audio
 //  iOS から送られてきた音声を STT → minutes 生成 →
@@ -1424,6 +1422,7 @@ function createEmailJobLogger(rawJobId) {
 //  ・Mailgun でメール送信
 //  ・進捗は Firestore(emailJobs/{jobId}) に書き出し
 //  ・★修正: ファイルURL(Firebase)経由でのダウンロードに対応しタイムアウトを回避
+//  ・★修正: Whisper並列処理によるタイムアウトを防ぐため直列処理に変更
 // ==============================================
 app.post(
   "/api/minutes-email-from-audio",
@@ -1437,11 +1436,14 @@ app.post(
 
     // ★ HTTPコネクション切断タイミング監視
     const httpStartedAt = Date.now();
+    let isConnectionClosed = false;
     res.on("close", () => {
+      isConnectionClosed = true;
       const sec = ((Date.now() - httpStartedAt) / 1000).toFixed(1);
       console.log(
-        `[EMAIL_JOB][${jobIdFromBody}] HTTP connection closed at +${sec}s (status=${res.statusCode})`
+        `[EMAIL_JOB][${jobIdFromBody}] HTTP connection closed at +${sec}s (Client/Proxy disconnected)`
       );
+      // ※切断されても、サーバー処理は継続してメール送信まで完遂させる方針
     });
 
     try {
@@ -1493,11 +1495,14 @@ app.post(
             
         } catch (downloadErr) {
             console.error("[EMAIL_JOB] Download error:", downloadErr);
-            return res.status(400).json({
-                error: "Failed to download file from URL",
-                errorCode: "DOWNLOAD_FAILED",
-                details: downloadErr.message
-            });
+            if (!isConnectionClosed) {
+                return res.status(400).json({
+                    error: "Failed to download file from URL",
+                    errorCode: "DOWNLOAD_FAILED",
+                    details: downloadErr.message
+                });
+            }
+            return;
         }
       }
       // Case B: 直接アップロードされた場合 (後方互換性)
@@ -1511,13 +1516,16 @@ app.post(
         jobLog.mark("no_file_uploaded");
         console.error("[EMAIL_JOB] No file uploaded or provided via URL");
         jobLog.end("no_file");
-        return res.status(400).json({
-          error: "No file uploaded",
-          errorCode: "NO_FILE",
-          stage: "upload",
-          retryable: false,
-          canEmailResend: false,
-        });
+        if (!isConnectionClosed) {
+            return res.status(400).json({
+            error: "No file uploaded",
+            errorCode: "NO_FILE",
+            stage: "upload",
+            retryable: false,
+            canEmailResend: false,
+            });
+        }
+        return;
       }
 
       // ---------------------------------------------------------
@@ -1564,13 +1572,16 @@ app.post(
         // ファイル掃除
         try { fs.unlinkSync(file.path); } catch (_) {}
         
-        return res.status(400).json({
-          error: "No recipients specified",
-          errorCode: "NO_RECIPIENTS",
-          stage: "input",
-          retryable: false,
-          canEmailResend: false,
-        });
+        if (!isConnectionClosed) {
+            return res.status(400).json({
+            error: "No recipients specified",
+            errorCode: "NO_RECIPIENTS",
+            stage: "input",
+            retryable: false,
+            canEmailResend: false,
+            });
+        }
+        return;
       }
 
       console.log("[EMAIL_JOB] jobId      =", jobId || "(none)");
@@ -1604,6 +1615,7 @@ app.post(
         jobId,
         userId,
         stage: "transcribing",
+        progress: 0
       });
       jobLog.mark("stt_start");
 
@@ -1628,27 +1640,42 @@ app.post(
           );
           chunkPathsForCleanup.push(...chunkPaths);
           
-          // 並列処理だとAPI制限にかかる場合があるので直列推奨だが、現状はPromise.all
-          try {
-            const transcriptionChunks = await Promise.all(
-              chunkPaths.map((p) => transcribeWithOpenAI(p))
-            );
-            transcription = transcriptionChunks.join(" ").trim();
-          } catch (e) {
-            // エラー時のフォールバック (m4a変換)
-            console.warn("[EMAIL_JOB] chunk transcription failed, retrying with m4a conversion...");
-            const transcriptionChunks = [];
-            for (const p of chunkPaths) {
-              try {
-                transcriptionChunks.push(await transcribeWithOpenAI(p));
-              } catch (_) {
-                const m4a = await convertToM4A(p);
-                cleanupExtra.push(m4a);
-                transcriptionChunks.push(await transcribeWithOpenAI(m4a));
-              }
+          // ★修正: 並列(Promise.all)ではなく、直列(for...of)で実行してタイムアウトを防ぐ
+          const transcriptionChunks = [];
+          console.log(`[EMAIL_JOB] Processing ${chunkPaths.length} chunks sequentially...`);
+
+          let completedChunks = 0;
+          for (const [index, p] of chunkPaths.entries()) {
+            try {
+                console.log(`[EMAIL_JOB] Transcribing chunk ${index + 1}/${chunkPaths.length}...`);
+                const text = await transcribeWithOpenAI(p);
+                transcriptionChunks.push(text);
+            } catch (e) {
+                // エラー時のフォールバック (m4a変換して再トライ)
+                console.warn(`[EMAIL_JOB] chunk ${index + 1} failed, retrying with m4a conversion...`);
+                try {
+                    const m4a = await convertToM4A(p);
+                    cleanupExtra.push(m4a);
+                    const textRetry = await transcribeWithOpenAI(m4a);
+                    transcriptionChunks.push(textRetry);
+                } catch (retryErr) {
+                    console.error(`[EMAIL_JOB] chunk ${index + 1} failed completely.`);
+                    throw retryErr; // ここで失敗したら全体の失敗とする
+                }
             }
-            transcription = transcriptionChunks.join(" ").trim();
+            
+            // 進捗更新 (Firestore)
+            completedChunks++;
+            const progressPercent = Math.floor((completedChunks / chunkPaths.length) * 100);
+            // STTフェーズは全体の 0-70% くらいの重みで進捗表示
+            await updateEmailJobStatus({
+                jobId,
+                userId,
+                stage: "transcribing",
+                progress: progressPercent
+            });
           }
+          transcription = transcriptionChunks.join(" ").trim();
         }
       } catch (e) {
         jobLog.mark("stt_error");
@@ -1667,13 +1694,16 @@ app.post(
         cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
 
         jobLog.end("stt_failed");
-        return res.status(500).json({
-          error: "Transcription failed",
-          errorCode: "STT_FAILED",
-          stage: "transcription",
-          retryable: true,
-          details: e.message,
-        });
+        if (!isConnectionClosed) {
+            return res.status(500).json({
+            error: "Transcription failed",
+            errorCode: "STT_FAILED",
+            stage: "transcription",
+            retryable: true,
+            details: e.message,
+            });
+        }
+        return;
       }
 
       jobLog.mark(`stt_done length=${transcription.length}`);
@@ -1731,13 +1761,16 @@ app.post(
         });
 
         cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
-        return res.status(500).json({
-          error: "Minutes generation failed",
-          errorCode: "MINUTES_GENERATION_FAILED",
-          stage: "minutesGeneration",
-          retryable: true,
-          details: e.message,
-        });
+        if (!isConnectionClosed) {
+            return res.status(500).json({
+            error: "Minutes generation failed",
+            errorCode: "MINUTES_GENERATION_FAILED",
+            stage: "minutesGeneration",
+            retryable: true,
+            details: e.message,
+            });
+        }
+        return;
       }
 
       jobLog.mark("minutes_generation_done");
@@ -1784,7 +1817,10 @@ app.post(
           errorCode: "MAIL_CONFIG_MISSING",
         });
         cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
-        return res.status(500).json({ error: "Mailgun config missing", errorCode: "MAIL_CONFIG_MISSING" });
+        if (!isConnectionClosed) {
+            return res.status(500).json({ error: "Mailgun config missing", errorCode: "MAIL_CONFIG_MISSING" });
+        }
+        return;
       }
 
       // 件名抽出
@@ -1833,12 +1869,15 @@ app.post(
         });
         
         cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
-        return res.status(500).json({
-            error: "Failed to send email",
-            errorCode: "MAIL_SEND_FAILED",
-            canEmailResend: !!savedRecordInfo,
-            savedRecord: savedRecordInfo
-        });
+        if (!isConnectionClosed) {
+            return res.status(500).json({
+                error: "Failed to send email",
+                errorCode: "MAIL_SEND_FAILED",
+                canEmailResend: !!savedRecordInfo,
+                savedRecord: savedRecordInfo
+            });
+        }
+        return;
       }
 
       // 完了!
@@ -1853,20 +1892,25 @@ app.post(
       cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
       jobLog.end("ok");
 
-      return res.json({
-        ok: true,
-        jobId,
-        userId,
-        recipients,
-        locale: localeResolved,
-        transcriptionLength: transcription.length,
-        minutesLength: minutesStringForEmail.length,
-        meta,
-        mailgunId: mailgunResult?.id,
-        savedRecord: savedRecordInfo,
-        minutes: minutesStringForEmail,
-        transcription,
-      });
+      // クライアントがまだ繋がっていればレスポンスを返す
+      if (!isConnectionClosed) {
+          return res.json({
+            ok: true,
+            jobId,
+            userId,
+            recipients,
+            locale: localeResolved,
+            transcriptionLength: transcription.length,
+            minutesLength: minutesStringForEmail.length,
+            meta,
+            mailgunId: mailgunResult?.id,
+            savedRecord: savedRecordInfo,
+            minutes: minutesStringForEmail,
+            transcription,
+          });
+      } else {
+          console.log("[EMAIL_JOB] Job finished successfully (Client disconnected earlier)");
+      }
 
     } catch (err) {
       console.error("[EMAIL_JOB] Internal error:", err);
@@ -1879,11 +1923,15 @@ app.post(
             errorCode: "INTERNAL_ERROR",
           });
       }
-      return res.status(500).json({
-        error: "Internal server error",
-        errorCode: "INTERNAL_ERROR",
-        details: err.message,
-      });
+      jobLog.end("internal_error");
+
+      if (!isConnectionClosed) {
+          return res.status(500).json({
+            error: "Internal server error",
+            errorCode: "INTERNAL_ERROR",
+            details: err.message,
+          });
+      }
     }
   }
 );
