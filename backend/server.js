@@ -45,6 +45,7 @@ const recordingsRouter = require('./routes/recordings');
 const livekitRoomsRouter = require('./routes/livekitRooms');
 
 const { getProductName } = require('./services/productName');
+const https = require('https');
 
 // ==== ffmpeg (for transcription utilities) ====
 const ffmpeg = require('fluent-ffmpeg');
@@ -1414,550 +1415,103 @@ function createEmailJobLogger(rawJobId) {
   };
 }
 
-// ★ NEW: 重い minutes-email 生成本体を「バックグラウンド」で実行する関数
-async function runEmailJobInBackground({
-  jobId,
-  userId,
-  formatId,
-  outputType = "flexible",
-  recipients,
-  localeResolved,
-  langHint,
-  emailSubject,
-  meetingStartLabel,
-  filePath,
-  originalFileName,
-  fileSizeBytes,
-}) {
-  const jobLog = createEmailJobLogger(jobId || "(no-jobId)");
-  const chunkPathsForCleanup = [];
-  const cleanupExtra = [];
-
-  try {
-    // まず emailJobs にメタ情報だけ書いておく
-    await db
-      .collection("emailJobs")
-      .doc(jobId)
-      .set(
-        {
-          jobId,
-          userId: userId || null,
-          recipients: recipients || [],
-          locale: localeResolved || null,
-          outputType: outputType || null,
-          formatId: formatId || null,
-          fileSizeBytes: fileSizeBytes || null,
-          originalFileName: originalFileName || null,
-          acceptedAt: admin.firestore.FieldValue.serverTimestamp(),
-        },
-        { merge: true }
-      );
-
-    // uploading ステージにしておく（progress=5）
-    await updateEmailJobStatus({
-      jobId,
-      userId,
-      stage: "uploading",
-    });
-
-    const fileSizeMB = fileSizeBytes
-      ? (fileSizeBytes / (1024 * 1024)).toFixed(2)
-      : "unknown";
-    console.log(
-      `[EMAIL_JOB][${jobId}] [BG] file=${filePath} size=${fileSizeBytes} bytes (${fileSizeMB} MB)`
-    );
-    jobLog.mark("file_and_recipients_ok");
-
-    // ========= STT (Whisper) =========
-    let transcription = "";
-    await updateEmailJobStatus({
-      jobId,
-      userId,
-      stage: "transcribing",
-    });
-    jobLog.mark("stt_start");
-
-    try {
-      if (!fileSizeBytes || fileSizeBytes <= TRANSCRIPTION_CHUNK_THRESHOLD) {
-        console.log(
-          "[EMAIL_JOB] <= threshold: send original file to Whisper (BG)"
-        );
-        try {
-          transcription = (await transcribeWithOpenAI(filePath)).trim();
-        } catch (e) {
-          console.warn(
-            "[EMAIL_JOB] direct transcription failed, retry with m4a:",
-            e.message
-          );
-          const m4aPath = await convertToM4A(filePath);
-          cleanupExtra.push(m4aPath);
-          transcription = (await transcribeWithOpenAI(m4aPath)).trim();
-        }
-      } else {
-        console.log(
-          "[EMAIL_JOB] > threshold: split by duration/size and transcribe chunks (BG)"
-        );
-        jobLog.mark("stt_split_start");
-
-        const chunkPaths = await splitAudioFile(
-          filePath,
-          TRANSCRIPTION_CHUNK_THRESHOLD
-        );
-        chunkPathsForCleanup.push(...chunkPaths);
-        console.log(
-          `[EMAIL_JOB] Number of generated chunks: ${chunkPaths.length}`
-        );
-
-        try {
-          const transcriptionChunks = await Promise.all(
-            chunkPaths.map((p) => transcribeWithOpenAI(p))
-          );
-          transcription = transcriptionChunks.join(" ").trim();
-        } catch (e) {
-          console.warn(
-            "[EMAIL_JOB] chunk transcription failed somewhere, retry each with m4a:",
-            e.message
-          );
-          const transcriptionChunks = [];
-          for (const p of chunkPaths) {
-            try {
-              transcriptionChunks.push(await transcribeWithOpenAI(p));
-            } catch (_) {
-              const m4a = await convertToM4A(p);
-              cleanupExtra.push(m4a);
-              transcriptionChunks.push(await transcribeWithOpenAI(m4a));
-            }
-          }
-          transcription = transcriptionChunks.join(" ").trim();
-        }
-      }
-    } catch (e) {
-      jobLog.mark("stt_error");
-      console.error("[EMAIL_JOB] Whisper transcription error:", e.message);
-
-      await updateEmailJobStatus({
-        jobId,
-        userId,
-        stage: "failed",
-        error: "Transcription failed",
-        errorCode: "STT_FAILED",
-        failedRecipients: recipients,
-      });
-
-      // チャンク & 変換ファイル削除
-      for (const p of chunkPathsForCleanup) {
-        try {
-          fs.unlinkSync(p);
-          console.log("[EMAIL_JOB] Deleted chunk file:", p);
-        } catch (_) {}
-      }
-      for (const p of cleanupExtra) {
-        try {
-          fs.unlinkSync(p);
-          console.log("[EMAIL_JOB] Deleted extra temp file:", p);
-        } catch (_) {}
-      }
-      try {
-        fs.unlinkSync(filePath);
-        console.log(
-          "[EMAIL_JOB] Deleted original file after STT error:",
-          filePath
-        );
-      } catch (_) {}
-
-      jobLog.end("stt_failed");
-      return;
-    }
-
-    jobLog.mark(`stt_done length=${transcription.length}`);
-    console.log(
-      "[EMAIL_JOB] transcription length =",
-      transcription.length
-    );
-
-    // ========= 長大 transcript の圧縮 =========
-    let effectiveTranscript = transcription;
-    if (transcription.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
-      console.log(
-        `[EMAIL_JOB] transcript length=${transcription.length} > ${MAX_ONESHOT_TRANSCRIPT_CHARS}, compressing...`
-      );
-      effectiveTranscript = await compressTranscriptForGemini(
-        transcription,
-        langHint
-      );
-      jobLog.mark(
-        `transcript_compressed length=${effectiveTranscript.length}`
-      );
-    }
-
-    // ========= minutes 生成 (Gemini) =========
-    let minutes = null;
-    let meta = null;
-
-    await updateEmailJobStatus({
-      jobId,
-      userId,
-      stage: "generating",
-    });
-    jobLog.mark("minutes_generation_start");
-
-    try {
-      if (formatId && localeResolved) {
-        const fmt = loadFormatJSON(formatId, localeResolved);
-        if (!fmt) {
-          console.error(
-            "[EMAIL_JOB] formatId / locale not found:",
-            formatId,
-            localeResolved
-          );
-
-          await updateEmailJobStatus({
-            jobId,
-            userId,
-            stage: "failed",
-            error: "Format or locale not found",
-            errorCode: "FORMAT_NOT_FOUND",
-            failedRecipients: recipients,
-          });
-
-          // 後処理
-          try {
-            fs.unlinkSync(filePath);
-          } catch (_) {}
-          for (const p of chunkPathsForCleanup) {
-            try {
-              fs.unlinkSync(p);
-            } catch (_) {}
-          }
-          for (const p of cleanupExtra) {
-            try {
-              fs.unlinkSync(p);
-            } catch (_) {}
-          }
-
-          jobLog.end("format_not_found");
-          return;
-        }
-
-        fmt.formatId = formatId;
-        fmt.locale = localeResolved;
-
-        minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
-        meta = {
-          formatId,
-          locale: localeResolved,
-          schemaId: fmt.schemaId || null,
-          title: fmt.title || null,
-        };
-      } else {
-        if ((outputType || "flexible").toLowerCase() === "flexible") {
-          minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
-        } else {
-          minutes = await generateMinutes(effectiveTranscript, "");
-        }
-        meta = { legacy: true, outputType, lang: langHint };
-      }
-    } catch (e) {
-      jobLog.mark("minutes_generation_error");
-      console.error("[EMAIL_JOB] minutes generation error:", e);
-
-      await updateEmailJobStatus({
-        jobId,
-        userId,
-        stage: "failed",
-        error: "Minutes generation failed",
-        errorCode: "MINUTES_GENERATION_FAILED",
-        failedRecipients: recipients,
-      });
-
-      try {
-        fs.unlinkSync(filePath);
-      } catch (_) {}
-      for (const p of chunkPathsForCleanup) {
-        try {
-          fs.unlinkSync(p);
-        } catch (_) {}
-      }
-      for (const p of cleanupExtra) {
-        try {
-          fs.unlinkSync(p);
-        } catch (_) {}
-      }
-
-      jobLog.end("minutes_generation_failed");
-      return;
-    }
-
-    console.log(
-      "[EMAIL_JOB] minutes length =",
-      minutes ? String(minutes).length : 0
-    );
-    jobLog.mark(
-      `minutes_generation_done length=${
-        minutes ? String(minutes).length : 0
-      }`
-    );
-
-    // Firestore用・メール用の minutes 文字列
-    const rawMinutesString =
-      typeof minutes === "string" ? minutes : JSON.stringify(minutes);
-
-    let minutesStringForEmail = rawMinutesString;
-
-    // 会議開始時刻で date を上書き
-    if (
-      meetingStartLabel &&
-      typeof meetingStartLabel === "string" &&
-      meetingStartLabel.trim()
-    ) {
-      try {
-        const parsed = JSON.parse(rawMinutesString);
-        if (parsed && typeof parsed === "object") {
-          parsed.date = meetingStartLabel.trim();
-          minutesStringForEmail = JSON.stringify(parsed);
-          console.log(
-            "[EMAIL_JOB] Overwrote minutes.date with meetingStartLabel:",
-            meetingStartLabel
-          );
-        }
-      } catch (e) {
-        console.warn(
-          "[EMAIL_JOB] Failed to override minutes.date with meetingStartLabel:",
-          e.message
-        );
-      }
-    }
-
-    // ========= ログインユーザーなら meetingRecords 保存 =========
-    let savedRecordInfo = null;
-    if (userId) {
-      try {
-        savedRecordInfo = await saveMeetingRecordFromEmailJob({
-          uid: userId,
-          transcription,
-          minutes: minutesStringForEmail,
-          jobId,
-        });
-      } catch (e) {
-        console.error(
-          "[EMAIL_JOB] saveMeetingRecordFromEmailJob error:",
-          e
-        );
-      }
-    } else {
-      console.log("[EMAIL_JOB] guest user, skip saving meetingRecords");
-    }
-
-    // ========= Mailgun 設定チェック =========
-    if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
-      console.error("[EMAIL_JOB] Mailgun is not configured");
-
-      await updateEmailJobStatus({
-        jobId,
-        userId,
-        stage: "failed",
-        error: "Mailgun is not configured (missing API key or domain)",
-        errorCode: "MAIL_CONFIG_MISSING",
-        failedRecipients: recipients,
-      });
-
-      try {
-        fs.unlinkSync(filePath);
-      } catch (_) {}
-      for (const p of chunkPathsForCleanup) {
-        try {
-          fs.unlinkSync(p);
-        } catch (_) {}
-      }
-      for (const p of cleanupExtra) {
-        try {
-          fs.unlinkSync(p);
-        } catch (_) {}
-      }
-
-      jobLog.end("mail_config_missing");
-      return;
-    }
-
-    // ========= 件名・本文の組み立て =========
-    let meetingTitleForSubject = null;
-    try {
-      const parsed = JSON.parse(minutesStringForEmail);
-      if (
-        parsed &&
-        typeof parsed === "object" &&
-        typeof parsed.meetingTitle === "string" &&
-        parsed.meetingTitle.trim()
-      ) {
-        meetingTitleForSubject = parsed.meetingTitle
-          .replace(/\s+/g, " ")
-          .trim();
-      }
-    } catch (e) {
-      console.warn(
-        "[EMAIL_JOB] Failed to parse minutes JSON for subject:",
-        e.message
-      );
-    }
-
-    const subject =
-      meetingTitleForSubject ||
-      (emailSubject && emailSubject.trim()) ||
-      "Your meeting minutes (Minutes.AI)";
-
-    const { textBody, htmlBody } = buildMinutesOnlyEmailBodies({
-      minutes: minutesStringForEmail,
-      locale: localeResolved,
-    });
-
-    console.log(
-      "[EMAIL_JOB] textBody length =",
-      textBody ? textBody.length : 0,
-      "htmlBody length =",
-      htmlBody ? htmlBody.length : 0
-    );
-    console.log(
-      "[EMAIL_JOB] Ready to send email with minutes to:",
-      recipients
-    );
-
-    await updateEmailJobStatus({
-      jobId,
-      userId,
-      stage: "sendingMail",
-    });
-    jobLog.mark("mail_send_start");
-
-    try {
-      const mailgunResult = await sendMinutesEmail({
-        to: recipients.join(","),
-        subject,
-        text: textBody,
-        html: htmlBody,
-        locale: localeResolved,
-      });
-
-      console.log(
-        "[EMAIL_JOB] Mailgun send OK:",
-        mailgunResult && mailgunResult.id
-          ? mailgunResult.id
-          : mailgunResult
-      );
-    } catch (e) {
-      jobLog.mark("mail_send_error");
-      console.error("[EMAIL_JOB] Mailgun send FAILED:", e);
-
-      await updateEmailJobStatus({
-        jobId,
-        userId,
-        stage: "failed",
-        error: "Failed to send email",
-        errorCode: "MAIL_SEND_FAILED",
-        failedRecipients: recipients,
-      });
-
-      try {
-        fs.unlinkSync(filePath);
-      } catch (_) {}
-      for (const p of chunkPathsForCleanup) {
-        try {
-          fs.unlinkSync(p);
-        } catch (_) {}
-      }
-      for (const p of cleanupExtra) {
-        try {
-          fs.unlinkSync(p);
-        } catch (_) {}
-      }
-
-      jobLog.end("mail_send_failed");
-      return;
-    }
-
-    // ========= 一時ファイル削除 =========
-    try {
-      fs.unlinkSync(filePath);
-      console.log("[EMAIL_JOB] Deleted temporary file:", filePath);
-    } catch (err) {
-      console.error(
-        "[EMAIL_JOB] Failed to delete temporary file:",
-        filePath,
-        err
-      );
-    }
-    for (const p of chunkPathsForCleanup) {
-      try {
-        fs.unlinkSync(p);
-        console.log("[EMAIL_JOB] Deleted chunk file:", p);
-      } catch (_) {}
-    }
-    for (const p of cleanupExtra) {
-      try {
-        fs.unlinkSync(p);
-        console.log("[EMAIL_JOB] Deleted extra temp file:", p);
-      } catch (_) {}
-    }
-
-    // ========= 正常完了 =========
-    await updateEmailJobStatus({
-      jobId,
-      userId,
-      stage: "completed",
-      failedRecipients: [],
-    });
-
-    jobLog.end("ok");
-  } catch (err) {
-    console.error("[EMAIL_JOB] Background job internal error:", err);
-
-    try {
-      await updateEmailJobStatus({
-        jobId,
-        userId,
-        stage: "failed",
-        error: "Internal server error (background)",
-        errorCode: "BG_INTERNAL_ERROR",
-      });
-    } catch (_) {}
-
-    // 念のため cleanup
-    try {
-      fs.unlinkSync(filePath);
-    } catch (_) {}
-    for (const p of chunkPathsForCleanup) {
-      try {
-        fs.unlinkSync(p);
-      } catch (_) {}
-    }
-    for (const p of cleanupExtra) {
-      try {
-        fs.unlinkSync(p);
-      } catch (_) {}
-    }
-
-    jobLog.end("background_internal_error");
-  }
-}
 
 
 // ==============================================
-//  /api/minutes-email-from-audio  (BGジョブ版)
-//  - HTTPは「ファイル受付 + jobId返却」だけ
-//  - STT → minutes → Firestore保存 → Mailgun送信は
-//    runEmailJobInBackground() がバックグラウンドで実行
+//  /api/minutes-email-from-audio
+//  iOS から送られてきた音声を STT → minutes 生成 →
+//  ・ログインユーザーなら Firestore(meetingRecords) 保存
+//  ・Mailgun でメール送信
+//  ・進捗は Firestore(emailJobs/{jobId}) に書き出し
+//  ・★修正: ファイルURL(Firebase)経由でのダウンロードに対応しタイムアウトを回避
 // ==============================================
 app.post(
   "/api/minutes-email-from-audio",
   upload.single("file"),
   async (req, res) => {
-    console.log("[/api/minutes-email-from-audio] called (background-job version)");
+    console.log("[/api/minutes-email-from-audio] called");
+
+    // ★ body から仮 jobId を拾ってロガー作成
+    const jobIdFromBody = (req.body && req.body.jobId) || "(no-jobId-yet)";
+    const jobLog = createEmailJobLogger(jobIdFromBody);
+
+    // ★ HTTPコネクション切断タイミング監視
+    const httpStartedAt = Date.now();
+    res.on("close", () => {
+      const sec = ((Date.now() - httpStartedAt) / 1000).toFixed(1);
+      console.log(
+        `[EMAIL_JOB][${jobIdFromBody}] HTTP connection closed at +${sec}s (status=${res.statusCode})`
+      );
+    });
 
     try {
+      // ---------------------------------------------------------
+      // ★ 1. ファイルの取得ロジック (URL経由 or 直接アップロード)
+      // ---------------------------------------------------------
+      let tempFilePath = "";
+      
+      // Case A: iOSからURLが送られてきた場合 (Firebase経由・推奨)
+      if (req.body.fileUrl) {
+        const fileUrl = req.body.fileUrl;
+        console.log(`[EMAIL_JOB] URL provided. Downloading from: ${fileUrl}`);
+        
+        // 一時保存先の確保
+        const tempDir = path.join(__dirname, 'temp');
+        if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
+        
+        const fileName = `download_${Date.now()}_${uuidv4()}.m4a`;
+        tempFilePath = path.join(tempDir, fileName);
+
+        // サーバー側で高速ダウンロード
+        try {
+            await new Promise((resolve, reject) => {
+                const fileStream = fs.createWriteStream(tempFilePath);
+                https.get(fileUrl, (response) => {
+                    if (response.statusCode !== 200) {
+                        reject(new Error(`Failed to download file: status ${response.statusCode}`));
+                        return;
+                    }
+                    response.pipe(fileStream);
+                    fileStream.on('finish', () => {
+                        fileStream.close(resolve);
+                    });
+                }).on('error', (err) => {
+                    fs.unlink(tempFilePath, () => {});
+                    reject(err);
+                });
+            });
+            
+            // req.file を擬似的に作成して以降の処理を共通化
+            const stats = fs.statSync(tempFilePath);
+            req.file = {
+                path: tempFilePath,
+                size: stats.size,
+                originalname: "downloaded_audio.m4a",
+                mimetype: "audio/mp4" // 仮
+            };
+            console.log(`[EMAIL_JOB] Download complete. Size: ${(stats.size / 1024 / 1024).toFixed(2)} MB`);
+            
+        } catch (downloadErr) {
+            console.error("[EMAIL_JOB] Download error:", downloadErr);
+            return res.status(400).json({
+                error: "Failed to download file from URL",
+                errorCode: "DOWNLOAD_FAILED",
+                details: downloadErr.message
+            });
+        }
+      }
+      // Case B: 直接アップロードされた場合 (後方互換性)
+      else if (req.file) {
+        console.log("[EMAIL_JOB] File uploaded directly via multipart/form-data");
+      }
+
+      // ファイル有無チェック
       const file = req.file;
       if (!file) {
-        console.error("[EMAIL_JOB] No file uploaded");
+        jobLog.mark("no_file_uploaded");
+        console.error("[EMAIL_JOB] No file uploaded or provided via URL");
+        jobLog.end("no_file");
         return res.status(400).json({
-          ok: false,
           error: "No file uploaded",
           errorCode: "NO_FILE",
           stage: "upload",
@@ -1966,8 +1520,11 @@ app.post(
         });
       }
 
+      // ---------------------------------------------------------
+      // ★ 2. パラメータの取得 (JSONボディに対応)
+      // ---------------------------------------------------------
       const {
-        jobId: jobIdFromBody,
+        jobId,
         locale: localeFromBody,
         lang,
         outputType = "flexible",
@@ -1977,24 +1534,37 @@ app.post(
         meetingStartLabel,
       } = req.body || {};
 
-      // iOS側からは JSON.stringify された recipients が来ている想定
+      // recipientsのパース
       let recipients = [];
       try {
-        if (req.body && req.body.recipients) {
-          if (Array.isArray(req.body.recipients)) {
-            recipients = req.body.recipients;
-          } else {
-            recipients = JSON.parse(req.body.recipients);
+        if (req.body.recipients) {
+          // JSONリクエストの場合は既に配列の可能性もある
+          if (typeof req.body.recipients === 'string') {
+             recipients = JSON.parse(req.body.recipients);
+          } else if (Array.isArray(req.body.recipients)) {
+             recipients = req.body.recipients;
           }
         }
       } catch (e) {
-        console.warn("[EMAIL_JOB] Failed to parse recipients JSON:", e.message);
+        console.warn("[EMAIL_JOB] Failed to parse recipients:", e.message);
       }
 
-      if (!Array.isArray(recipients) || recipients.length === 0) {
-        console.error("[EMAIL_JOB] recipients is empty");
+      if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
+        jobLog.mark("recipients_empty");
+        // 失敗ステータス更新
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "No recipients specified",
+          errorCode: "NO_RECIPIENTS",
+        });
+        jobLog.end("no_recipients");
+        
+        // ファイル掃除
+        try { fs.unlinkSync(file.path); } catch (_) {}
+        
         return res.status(400).json({
-          ok: false,
           error: "No recipients specified",
           errorCode: "NO_RECIPIENTS",
           stage: "input",
@@ -2003,67 +1573,329 @@ app.post(
         });
       }
 
-      // jobId が無ければここで生成
-      const jobId = jobIdFromBody || uuidv4();
+      console.log("[EMAIL_JOB] jobId      =", jobId || "(none)");
+      console.log("[EMAIL_JOB] outputType =", outputType);
+      
+      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+      console.log(`[EMAIL_JOB] File size to process: ${fileSizeMB} MB`);
 
-      // locale/lang を解決（ヘッダーも考慮）
+      jobLog.mark("file_and_recipients_ok");
+
+      // ステータス更新: uploading (完了済み扱い)
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "uploading",
+        progress: 100 // URL受信時点でアップロードは終わっている
+      });
+
+      // ---- locale / lang を決定 ----
       const localeResolved = resolveLocale(req, localeFromBody);
       const langHint = lang || localeResolved || null;
 
-      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
-      console.log(
-        `[EMAIL_JOB] accepted jobId=${jobId}, file=${file.path}, size=${file.size} bytes (${fileSizeMB} MB)`
-      );
-      console.log("[EMAIL_JOB] recipients =", recipients);
-      console.log("[EMAIL_JOB] userId     =", userId || "(guest)");
-      console.log("[EMAIL_JOB] formatId   =", formatId || "(none)");
-      console.log("[EMAIL_JOB] outputType =", outputType);
+      // ---------------------------------------------------------
+      // ★ 3. STT (Whisper)
+      // ---------------------------------------------------------
+      let transcription = "";
+      const cleanupExtra = [];
+      const chunkPathsForCleanup = [];
 
-      // ★ ここで即レスポンスを返す（Railway 5分制限の回避ポイント）
-      res.json({
-        ok: true,
-        jobId,
-        userId: userId || null,
-        recipients,
-        locale: localeResolved,
-        lang: langHint,
-        fileSizeBytes: file.size,
-      });
-
-      // ★ レスポンス返却「後」に重い処理をバックグラウンドで走らせる
-      runEmailJobInBackground({
+      await updateEmailJobStatus({
         jobId,
         userId,
-        formatId,
-        outputType,
-        recipients,
-        localeResolved,
-        langHint,
-        emailSubject,
-        meetingStartLabel,
-        filePath: file.path,
-        originalFileName: file.originalname,
-        fileSizeBytes: file.size,
-      }).catch((e) => {
-        console.error("[EMAIL_JOB] Unhandled background error:", e);
+        stage: "transcribing",
       });
+      jobLog.mark("stt_start");
+
+      try {
+        if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
+          console.log("[EMAIL_JOB] <= threshold: send original file to Whisper");
+          try {
+            transcription = (await transcribeWithOpenAI(file.path)).trim();
+          } catch (e) {
+            console.warn("[EMAIL_JOB] direct transcription failed, retry with m4a:", e.message);
+            const m4aPath = await convertToM4A(file.path);
+            cleanupExtra.push(m4aPath);
+            transcription = (await transcribeWithOpenAI(m4aPath)).trim();
+          }
+        } else {
+          console.log("[EMAIL_JOB] > threshold: split and transcribe chunks");
+          jobLog.mark("stt_split_start");
+
+          const chunkPaths = await splitAudioFile(
+            file.path,
+            TRANSCRIPTION_CHUNK_THRESHOLD
+          );
+          chunkPathsForCleanup.push(...chunkPaths);
+          
+          // 並列処理だとAPI制限にかかる場合があるので直列推奨だが、現状はPromise.all
+          try {
+            const transcriptionChunks = await Promise.all(
+              chunkPaths.map((p) => transcribeWithOpenAI(p))
+            );
+            transcription = transcriptionChunks.join(" ").trim();
+          } catch (e) {
+            // エラー時のフォールバック (m4a変換)
+            console.warn("[EMAIL_JOB] chunk transcription failed, retrying with m4a conversion...");
+            const transcriptionChunks = [];
+            for (const p of chunkPaths) {
+              try {
+                transcriptionChunks.push(await transcribeWithOpenAI(p));
+              } catch (_) {
+                const m4a = await convertToM4A(p);
+                cleanupExtra.push(m4a);
+                transcriptionChunks.push(await transcribeWithOpenAI(m4a));
+              }
+            }
+            transcription = transcriptionChunks.join(" ").trim();
+          }
+        }
+      } catch (e) {
+        jobLog.mark("stt_error");
+        console.error("[EMAIL_JOB] Whisper transcription error:", e.message);
+
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Transcription failed",
+          errorCode: "STT_FAILED",
+          failedRecipients: recipients,
+        });
+
+        // 掃除
+        cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
+
+        jobLog.end("stt_failed");
+        return res.status(500).json({
+          error: "Transcription failed",
+          errorCode: "STT_FAILED",
+          stage: "transcription",
+          retryable: true,
+          details: e.message,
+        });
+      }
+
+      jobLog.mark(`stt_done length=${transcription.length}`);
+
+      // ---------------------------------------------------------
+      // ★ 4. Minutes生成 (Gemini)
+      // ---------------------------------------------------------
+      let effectiveTranscript = transcription;
+      if (transcription.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+        console.log(`[EMAIL_JOB] Compressing transcript (len=${transcription.length})...`);
+        effectiveTranscript = await compressTranscriptForGemini(transcription, langHint);
+        jobLog.mark("transcript_compressed");
+      }
+
+      let minutes = null;
+      let meta = null;
+
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "generating",
+      });
+      jobLog.mark("minutes_generation_start");
+
+      try {
+        if (formatId && localeResolved) {
+          const fmt = loadFormatJSON(formatId, localeResolved);
+          if (!fmt) {
+            throw new Error(`Format not found: ${formatId} / ${localeResolved}`);
+          }
+          fmt.formatId = formatId;
+          fmt.locale = localeResolved;
+          minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
+          meta = { formatId, locale: localeResolved, title: fmt.title };
+        } else {
+          // 旧互換
+          if ((outputType || "flexible").toLowerCase() === "flexible") {
+            minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
+          } else {
+            minutes = await generateMinutes(effectiveTranscript, "");
+          }
+          meta = { legacy: true, outputType, lang: langHint };
+        }
+      } catch (e) {
+        jobLog.mark("minutes_generation_error");
+        console.error("[EMAIL_JOB] minutes generation error:", e);
+
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Minutes generation failed",
+          errorCode: "MINUTES_GENERATION_FAILED",
+          failedRecipients: recipients,
+        });
+
+        cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
+        return res.status(500).json({
+          error: "Minutes generation failed",
+          errorCode: "MINUTES_GENERATION_FAILED",
+          stage: "minutesGeneration",
+          retryable: true,
+          details: e.message,
+        });
+      }
+
+      jobLog.mark("minutes_generation_done");
+
+      // ---------------------------------------------------------
+      // ★ 5. 保存 & メール送信
+      // ---------------------------------------------------------
+      const rawMinutesString = typeof minutes === "string" ? minutes : JSON.stringify(minutes);
+      let minutesStringForEmail = rawMinutesString;
+
+      // 日付の上書き (optional)
+      if (meetingStartLabel && typeof meetingStartLabel === "string") {
+        try {
+          const parsed = JSON.parse(rawMinutesString);
+          if (parsed && typeof parsed === "object") {
+            parsed.date = meetingStartLabel.trim();
+            minutesStringForEmail = JSON.stringify(parsed);
+          }
+        } catch (_) {}
+      }
+
+      // meetingRecordsへ保存
+      let savedRecordInfo = null;
+      if (userId) {
+        try {
+          savedRecordInfo = await saveMeetingRecordFromEmailJob({
+            uid: userId,
+            transcription,
+            minutes: minutesStringForEmail,
+            jobId,
+          });
+        } catch (e) {
+          console.error("[EMAIL_JOB] saveMeetingRecord error:", e);
+        }
+      }
+
+      // Mailgunチェック
+      if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Mailgun not configured",
+          errorCode: "MAIL_CONFIG_MISSING",
+        });
+        cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
+        return res.status(500).json({ error: "Mailgun config missing", errorCode: "MAIL_CONFIG_MISSING" });
+      }
+
+      // 件名抽出
+      let subject = emailSubject || "Your meeting minutes (Minutes.AI)";
+      try {
+        const parsed = JSON.parse(minutesStringForEmail);
+        if (parsed?.meetingTitle?.trim()) {
+            subject = parsed.meetingTitle.trim();
+        }
+      } catch (_) {}
+
+      // メール本文作成
+      const { textBody, htmlBody } = buildMinutesOnlyEmailBodies({
+        minutes: minutesStringForEmail,
+        locale: localeResolved,
+      });
+
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "sendingMail",
+      });
+      jobLog.mark("mail_send_start");
+
+      let mailgunResult = null;
+      try {
+        mailgunResult = await sendMinutesEmail({
+          to: recipients.join(","),
+          subject,
+          text: textBody,
+          html: htmlBody,
+          locale: localeResolved,
+        });
+        console.log("[EMAIL_JOB] Mailgun send OK:", mailgunResult?.id);
+      } catch (e) {
+        jobLog.mark("mail_send_error");
+        console.error("[EMAIL_JOB] Mailgun send FAILED:", e);
+        
+        await updateEmailJobStatus({
+          jobId,
+          userId,
+          stage: "failed",
+          error: "Failed to send email",
+          errorCode: "MAIL_SEND_FAILED",
+          failedRecipients: recipients,
+        });
+        
+        cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
+        return res.status(500).json({
+            error: "Failed to send email",
+            errorCode: "MAIL_SEND_FAILED",
+            canEmailResend: !!savedRecordInfo,
+            savedRecord: savedRecordInfo
+        });
+      }
+
+      // 完了!
+      await updateEmailJobStatus({
+        jobId,
+        userId,
+        stage: "completed",
+        failedRecipients: [],
+      });
+
+      // 最後にファイルを削除
+      cleanupFiles([file.path, ...chunkPathsForCleanup, ...cleanupExtra]);
+      jobLog.end("ok");
+
+      return res.json({
+        ok: true,
+        jobId,
+        userId,
+        recipients,
+        locale: localeResolved,
+        transcriptionLength: transcription.length,
+        minutesLength: minutesStringForEmail.length,
+        meta,
+        mailgunId: mailgunResult?.id,
+        savedRecord: savedRecordInfo,
+        minutes: minutesStringForEmail,
+        transcription,
+      });
+
     } catch (err) {
-      console.error(
-        "[EMAIL_JOB] Internal error before scheduling background job:",
-        err
-      );
+      console.error("[EMAIL_JOB] Internal error:", err);
+      // 念のためステータス更新
+      if (req.body.jobId) {
+          await updateEmailJobStatus({
+            jobId: req.body.jobId,
+            stage: "failed",
+            error: "Internal server error",
+            errorCode: "INTERNAL_ERROR",
+          });
+      }
       return res.status(500).json({
-        ok: false,
         error: "Internal server error",
         errorCode: "INTERNAL_ERROR",
-        stage: "upload",
-        retryable: true,
-        canEmailResend: false,
+        details: err.message,
       });
     }
   }
 );
 
+// ヘルパー: ファイル削除
+function cleanupFiles(paths) {
+    paths.forEach(p => {
+        if (p && typeof p === 'string') {
+            try { fs.unlinkSync(p); } catch (_) {}
+        }
+    });
+}
 
 /*==============================================
 =        フォーマット関連 API（新規追加）       =
