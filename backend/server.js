@@ -918,31 +918,56 @@ ${transcript}
 /**
  * transcribeWithOpenAI: Uses the Whisper API for transcription.
  */
+/**
+ * transcribeWithOpenAI: Uses the Whisper API for transcription.
+ */
 const transcribeWithOpenAI = async (filePath) => {
+  const startedAt = Date.now();
+  console.log(
+    `[Whisper] START file=${filePath} at ${new Date(startedAt).toISOString()}`
+  );
+
   try {
     const formData = new FormData();
-    formData.append('file', fs.createReadStream(filePath));
-    formData.append('model', 'whisper-1');
+    formData.append("file", fs.createReadStream(filePath));
+    formData.append("model", "whisper-1");
 
-    console.log(`[DEBUG] Sending file to Whisper API: ${filePath}`);
+    console.log(`[Whisper] Sending file to Whisper API: ${filePath}`);
 
-    const response = await axios.post(OPENAI_API_ENDPOINT_TRANSCRIPTION, formData, {
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        ...formData.getHeaders(),
-      },
-      timeout: 600000,
-      maxContentLength: Infinity,
-      maxBodyLength: Infinity,
-    });
+    const response = await axios.post(
+      OPENAI_API_ENDPOINT_TRANSCRIPTION,
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+          ...formData.getHeaders(),
+        },
+        timeout: 600000, // 10分（HTTPレベルのタイムアウト）
+        maxContentLength: Infinity,
+        maxBodyLength: Infinity,
+      }
+    );
 
-    console.log('[DEBUG] Whisper API response:', response.data);
+    const endedAt = Date.now();
+    const sec = ((endedAt - startedAt) / 1000).toFixed(1);
+    console.log(
+      `[Whisper] DONE file=${filePath} elapsed=${sec}s, textLength=${
+        response.data?.text?.length ?? 0
+      }`
+    );
+
     return response.data.text;
   } catch (error) {
-    console.error('[ERROR] Failed to call Whisper API:', error.response?.data || error.message);
-    throw new Error('Transcription with Whisper API failed');
+    const endedAt = Date.now();
+    const sec = ((endedAt - startedAt) / 1000).toFixed(1);
+    console.error(
+      `[Whisper] ERROR file=${filePath} elapsed=${sec}s:`,
+      error.response?.data || error.message
+    );
+    throw new Error("Transcription with Whisper API failed");
   }
 };
+
 
 // Constant for chunk splitting (process in one batch if file is below this size)
 const TRANSCRIPTION_CHUNK_THRESHOLD = 5 * 1024 * 1024; // 5MB in bytes
@@ -1358,6 +1383,38 @@ async function saveMeetingRecordFromEmailJob({
   };
 }
 
+// ★ 5分問題切り分け用：メールジョブ専用ロガー
+function createEmailJobLogger(rawJobId) {
+  const startedAt = Date.now();
+  const jobId = rawJobId || `(no-jobId-${startedAt})`;
+
+  console.log(
+    `[EMAIL_JOB][${jobId}] >>> START at ${new Date(startedAt).toISOString()}`
+  );
+
+  return {
+    mark(label) {
+      const now = Date.now();
+      const sec = ((now - startedAt) / 1000).toFixed(1);
+      console.log(
+        `[EMAIL_JOB][${jobId}] ${label} (+${sec}s, ${new Date(
+          now
+        ).toISOString()})`
+      );
+    },
+    end(status) {
+      const endAt = Date.now();
+      const sec = ((endAt - startedAt) / 1000).toFixed(1);
+      console.log(
+        `[EMAIL_JOB][${jobId}] <<< END status=${status} total=${sec}s at ${new Date(
+          endAt
+        ).toISOString()}`
+      );
+    },
+  };
+}
+
+
 
 // ==============================================
 //  /api/minutes-email-from-audio
@@ -1372,10 +1429,25 @@ app.post(
   async (req, res) => {
     console.log("[/api/minutes-email-from-audio] called");
 
+    // ★ body から仮 jobId を拾ってロガー作成（まだ undefined でもOK）
+    const jobIdFromBody = (req.body && req.body.jobId) || "(no-jobId-yet)";
+    const jobLog = createEmailJobLogger(jobIdFromBody);
+
+    // ★ HTTPコネクション切断タイミング（5分問題の疑い用）
+    const httpStartedAt = Date.now();
+    res.on("close", () => {
+      const sec = ((Date.now() - httpStartedAt) / 1000).toFixed(1);
+      console.log(
+        `[EMAIL_JOB][${jobIdFromBody}] HTTP connection closed at +${sec}s (status=${res.statusCode})`
+      );
+    });
+
     try {
       const file = req.file;
       if (!file) {
+        jobLog.mark("no_file_uploaded");
         console.error("[EMAIL_JOB] No file uploaded");
+        jobLog.end("no_file");
         return res.status(400).json({
           error: "No file uploaded",
           errorCode: "NO_FILE",
@@ -1408,6 +1480,7 @@ app.post(
       }
 
       if (!recipients || !Array.isArray(recipients) || recipients.length === 0) {
+        jobLog.mark("recipients_empty");
         console.error("[EMAIL_JOB] recipients is empty");
 
         // 一応ジョブを failed として残しておく
@@ -1419,6 +1492,7 @@ app.post(
           errorCode: "NO_RECIPIENTS",
         });
 
+        jobLog.end("no_recipients");
         return res.status(400).json({
           error: "No recipients specified",
           errorCode: "NO_RECIPIENTS",
@@ -1444,6 +1518,8 @@ app.post(
       const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
       console.log(`[EMAIL_JOB] Uploaded file size: ${fileSizeMB} MB`);
 
+      jobLog.mark("file_and_recipients_ok");
+
       // ★ ジョブ受付: uploading ステージにしておく
       await updateEmailJobStatus({
         jobId,
@@ -1466,6 +1542,7 @@ app.post(
         userId,
         stage: "transcribing",
       });
+      jobLog.mark("stt_start");
 
       try {
         if (file.size <= TRANSCRIPTION_CHUNK_THRESHOLD) {
@@ -1487,6 +1564,7 @@ app.post(
           console.log(
             "[EMAIL_JOB] > threshold: split by duration/size and transcribe chunks"
           );
+          jobLog.mark("stt_split_start");
 
           const chunkPaths = await splitAudioFile(
             file.path,
@@ -1521,6 +1599,7 @@ app.post(
           }
         }
       } catch (e) {
+        jobLog.mark("stt_error");
         console.error("[EMAIL_JOB] Whisper transcription error:", e.message);
 
         await updateEmailJobStatus({
@@ -1553,6 +1632,7 @@ app.post(
           );
         } catch (_) {}
 
+        jobLog.end("stt_failed");
         return res.status(500).json({
           error: "Transcription failed",
           errorCode: "STT_FAILED",
@@ -1565,6 +1645,7 @@ app.post(
         });
       }
 
+      jobLog.mark(`stt_done length=${transcription.length}`);
       console.log(
         "[EMAIL_JOB] transcription length =",
         transcription.length
@@ -1580,6 +1661,9 @@ app.post(
           transcription,
           langHint
         );
+        jobLog.mark(
+          `transcript_compressed length=${effectiveTranscript.length}`
+        );
       }
 
       // ---- minutes 生成 ----
@@ -1592,6 +1676,7 @@ app.post(
         userId,
         stage: "generating",
       });
+      jobLog.mark("minutes_generation_start");
 
       try {
         if (formatId && localeResolved) {
@@ -1627,6 +1712,7 @@ app.post(
               } catch (_) {}
             }
 
+            jobLog.end("format_not_found");
             return res.status(404).json({
               error: "Format or locale not found",
               errorCode: "FORMAT_NOT_FOUND",
@@ -1657,6 +1743,7 @@ app.post(
           meta = { legacy: true, outputType, lang: langHint };
         }
       } catch (e) {
+        jobLog.mark("minutes_generation_error");
         console.error("[EMAIL_JOB] minutes generation error:", e);
 
         await updateEmailJobStatus({
@@ -1682,6 +1769,7 @@ app.post(
           } catch (_) {}
         }
 
+        jobLog.end("minutes_generation_failed");
         return res.status(500).json({
           error: "Minutes generation failed",
           errorCode: "MINUTES_GENERATION_FAILED",
@@ -1697,6 +1785,10 @@ app.post(
       console.log(
         "[EMAIL_JOB] minutes length =",
         minutes ? String(minutes).length : 0
+      );
+
+      jobLog.mark(
+        `minutes_generation_done length=${minutes ? String(minutes).length : 0}`
       );
 
       // ★ Firestore保存用に String 化した minutes を作る（MeetingList / CoreData と整合）
@@ -1777,6 +1869,7 @@ app.post(
           } catch (_) {}
         }
 
+        jobLog.end("mail_config_missing");
         return res.status(500).json({
           error: "Mailgun is not configured (missing API key or domain)",
           errorCode: "MAIL_CONFIG_MISSING",
@@ -1841,6 +1934,7 @@ app.post(
         userId,
         stage: "sendingMail",
       });
+      jobLog.mark("mail_send_start");
 
       let mailgunResult = null;
       try {
@@ -1859,6 +1953,7 @@ app.post(
           mailgunResult && mailgunResult.id ? mailgunResult.id : mailgunResult
         );
       } catch (e) {
+        jobLog.mark("mail_send_error");
         console.error("[EMAIL_JOB] Mailgun send FAILED:", e);
 
         await updateEmailJobStatus({
@@ -1884,6 +1979,7 @@ app.post(
           } catch (_) {}
         }
 
+        jobLog.end("mail_send_failed");
         return res.status(500).json({
           error: "Failed to send email",
           errorCode: "MAIL_SEND_FAILED",
@@ -1928,6 +2024,8 @@ app.post(
         failedRecipients: [],
       });
 
+      jobLog.end("ok");
+
       // クライアント(iOS)に「ジョブ受け付け完了」を返す
       return res.json({
         ok: true,
@@ -1956,6 +2054,8 @@ app.post(
         error: "Internal server error",
         errorCode: "INTERNAL_ERROR",
       });
+
+      jobLog.end("internal_error");
 
       return res.status(500).json({
         error: "Internal server error",
