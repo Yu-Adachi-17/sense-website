@@ -2327,8 +2327,17 @@ app.use((err, req, res, next) => {
 ==============================================*/
 const PORT = process.env.PORT || 5001;
 console.log(`[DEBUG] API Key loaded: ${process.env.OPENAI_API_KEY ? 'Yes' : 'No'}`);
-app.listen(PORT, () => {
+
+// ★修正: serverインスタンスを変数に格納
+const server = app.listen(PORT, () => {
   console.log(`[DEBUG] Server started on port ${PORT}`);
 });
+
+// ★追加: 502エラー対策（大きなファイルのアップロードで接続が切れるのを防ぐ設定）
+// Railway/AWS等のLBのタイムアウト(通常60秒)より長くする必要があります
+server.keepAliveTimeout = 120 * 1000; // 120秒 (接続維持)
+server.headersTimeout = 125 * 1000;   // 125秒 (keepAliveTimeoutより大きくする必須ルール)
+server.requestTimeout = 600 * 1000;   // 10分 (リクエスト全体のタイムアウト)
+server.timeout = 600 * 1000;          // 10分 (ソケットのタイムアウト)
 
 module.exports = app;
