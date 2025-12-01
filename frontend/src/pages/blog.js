@@ -715,7 +715,7 @@ export async function getStaticProps({ locale, defaultLocale }) {
     });
   }
 
-  /* 2) サブディレクトリ（/businessnegotiation 等, ここに /aimodel も含まれる） */
+  /* 2) サブディレクトリ（/businessnegotiation 等, ここに /aimodelも含まれる） */
   for (const ent of ents.filter((e) => e.isDirectory())) {
     const dir = ent.name;
     const dirPath = path.join(contentDir, dir);
