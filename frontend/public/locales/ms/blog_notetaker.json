@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "compare": {
+    "h2": "Minit AI vs Aplikasi Biasa",
+    "rows": [
+      [
+        "Model Harga",
+        "Guna atau hangus (Reset bulanan)",
+        "Fleksibel (Pek tanpa tarikh luput)"
+      ],
+      [
+        "Kualiti Output",
+        "Selalunya hanya transkrip kasar",
+        "Minit tersusun & berorientasikan tindakan"
+      ],
+      [
+        "Platform",
+        "Fokus Web",
+        "Aplikasi iOS Asli + Web"
+      ]
+    ],
+    "th": [
+      "Ciri",
+      "Aplikasi Lain",
+      "Minit AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Muat turun aplikasi iOS",
+    "openBrowser": "Buka dalam pelayar"
+  },
+  "faq": {
+    "h2": "Soalan Lazim Mengenai Pencatat Minit AI",
+    "items": [
+      {
+        "a": "Ya! Minit AI memberikan anda **tiket percuma 3 minit setiap hari**. Sesuai untuk nota ringkas atau menguji kualiti.",
+        "q": "Adakah terdapat pilihan percuma?"
+      },
+      {
+        "a": "Tidak seperti perkhidmatan lain, pek masa kami (cth. 120 minit untuk $1.99) **tidak pernah luput**. Beli hari ini, guna tahun depan. Anda hanya bayar untuk masa yang anda perlukan.",
+        "q": "Bagaimana Pek Masa berfungsi? Adakah ia luput?"
+      },
+      {
+        "a": "Semestinya. Minit AI menyokong lebih 100 bahasa, menjadikannya pencatat minit ideal untuk mesyuarat antarabangsa.",
+        "q": "Adakah ia menyokong pelbagai bahasa?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI mendengar perbualan yang bercelaru dan terus menyusunnya mengikut topik yang jelas. Tiada lagi teks yang panjang berjela.",
+        "icon": "structure",
+        "title": "Menstrukturkan Kekalutan"
+      },
+      {
+        "desc": "Tugas utama pencatat minit adalah menjejak 'Siapa buat apa'. Minit AI mengekstrak item tindakan secara automatik.",
+        "icon": "action",
+        "title": "Menangkap Keputusan"
+      },
+      {
+        "desc": "Menggunakan Gemini 2.5 & GPT-5, ia mencadangkan langkah strategik seterusnya berdasarkan konteks mesyuarat.",
+        "icon": "strategy",
+        "title": "Berfikir Ke Hadapan"
+      }
+    ],
+    "h2": "Apa yang mendefinisikan 'Pencatat Minit' pro?",
+    "lead": "Perakam biasa hanya memberi anda teks. Pencatat Minit AI sebenar seperti Minit AI memberikan kejelasan. Begini cara ia menguruskan mesyuarat anda:"
+  },
+  "hero": {
+    "badges": [
+      "Pencatat Minit AI",
+      "Harga Fleksibel",
+      "iOS & Web"
+    ],
+    "h1": "Pencatat Minit AI yang Sesuai dengan Bajet Anda",
+    "kicker": "Panduan 2025",
+    "tagline": "Anda perlukan pencatat minit profesional, bukan sekadar alat perakam. Minit AI menggabungkan minit yang mudah dibaca dengan model harga paling fleksibel di pasaran."
+  },
+  "meta": {
+    "category": "Panduan",
+    "published": "Diterbitkan"
+  },
+  "nav": {
+    "active": "Panduan Minit",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Lihat senarai harga penuh",
+    "h2": "Harga: Bayar Hanya Untuk Penggunaan",
+    "lead": "Kebanyakan aplikasi memaksa anda melanggan pelan bulanan yang mahal. Minit AI berbeza. Kami menawarkan model 'Pay-as-you-go' di samping pelan tanpa had.",
+    "options": [
+      {
+        "desc": "Sesuai untuk mesyuarat sekali-sekala. Beli minit yang **TIDAK PERNAH luput**.",
+        "highlight": "Tiada yuran bulanan",
+        "price": "Bermula $1.99",
+        "title": "Pek Masa",
+        "type": "Penggunaan Sekali-sekala"
+      },
+      {
+        "desc": "Untuk profesional dengan mesyuarat harian. Rakamn tanpa had.",
+        "highlight": "Nilai Terbaik",
+        "price": "$16.99 / bulan",
+        "title": "Langganan Tanpa Had",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Lihat harga dalam:"
+  },
+  "seo": {
+    "description": "Mencari 'harga pencatat minit AI'? Minit AI menawarkan nota paling tersusun dan kos fleksibel. Dari pek $1.99 (tanpa luput) hingga tanpa had.",
+    "ld": {
+      "description": "Panduan lengkap ciri dan harga Minit AI. Satu-satunya pencatat minit AI dengan pek masa tanpa tarikh luput.",
+      "headline": "Pencatat Minit AI Terbaik: Harga & Ciri"
+    },
+    "ogDescription": "Jangan bayar untuk langganan yang tidak digunakan. Minit AI ialah pencatat minit yang menyesuaikan diri dengan jadual dan bajet anda.",
+    "ogTitle": "Pencatat Minit AI Terbaik (2025): Harga & Ciri",
+    "title": "(2025) Pencatat Minit AI Terbaik: Harga & Ulasan | Minit AI"
+  }
+}

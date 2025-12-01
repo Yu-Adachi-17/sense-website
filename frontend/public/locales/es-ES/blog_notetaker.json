@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Inicio Actas IA"
+  },
+  "compare": {
+    "h2": "Actas IA vs. Apps Estándar",
+    "rows": [
+      [
+        "Modelo de Precio",
+        "Úsalo o piérdelo (Reinicio mensual)",
+        "Flexible (Packs sin caducidad)"
+      ],
+      [
+        "Calidad del Resultado",
+        "A menudo solo transcripción",
+        "Actas estructuradas y accionables"
+      ],
+      [
+        "Plataforma",
+        "Enfoque web",
+        "App nativa iOS + Web"
+      ]
+    ],
+    "th": [
+      "Característica",
+      "Otras Apps",
+      "Actas IA"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Descargar app iOS",
+    "openBrowser": "Abrir en navegador"
+  },
+  "faq": {
+    "h2": "FAQ: Preguntas sobre el Tomador de Actas IA",
+    "items": [
+      {
+        "a": "¡Sí! Actas IA te regala un **ticket gratuito de 3 minutos cada día**. Perfecto para notas rápidas o probar la calidad.",
+        "q": "¿Hay una opción gratuita?"
+      },
+      {
+        "a": "A diferencia de otras apps, nuestros paquetes de tiempo (ej. 120 min por $1.99) **nunca caducan**. Cómpralos hoy, úsalos el próximo año. Solo pagas por lo que necesitas.",
+        "q": "¿Cómo funcionan los Packs de Tiempo? ¿Caducan?"
+      },
+      {
+        "a": "Absolutamente. Actas IA soporta más de 100 idiomas, siendo el asistente ideal para reuniones internacionales.",
+        "q": "¿Soporta múltiples idiomas?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "La IA escucha conversaciones desordenadas y las organiza instantáneamente en temas claros. Adiós a los muros de texto.",
+        "icon": "structure",
+        "title": "Estructura el caos"
+      },
+      {
+        "desc": "El trabajo principal de un tomador de actas es rastrear 'Quién hace qué'. Actas IA extrae tareas automáticamente.",
+        "icon": "action",
+        "title": "Captura decisiones"
+      },
+      {
+        "desc": "Usando Gemini 2.5 y GPT-5, sugiere próximos pasos estratégicos basados en el contexto de la reunión.",
+        "icon": "strategy",
+        "title": "Piensa a futuro"
+      }
+    ],
+    "h2": "¿Qué define a un 'Tomador de Actas' pro?",
+    "lead": "Una grabadora estándar solo te da texto. Un verdadero Tomador de Actas IA como Actas IA te da claridad. Así gestiona tus reuniones:"
+  },
+  "hero": {
+    "badges": [
+      "Tomador de Actas IA",
+      "Precios Flexibles",
+      "iOS y Web"
+    ],
+    "h1": "El Tomador de Actas IA que se ajusta a tu presupuesto",
+    "kicker": "Guía 2025",
+    "tagline": "Necesitas un redactor de actas profesional, no solo una grabadora. Actas IA combina actas legibles con el modelo de precios más flexible del mercado."
+  },
+  "meta": {
+    "category": "Guía",
+    "published": "Publicado"
+  },
+  "nav": {
+    "active": "Guía de Actas",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Ver tabla de precios completa",
+    "h2": "Precios: Paga solo por lo que usas",
+    "lead": "La mayoría de apps te fuerzan a suscripciones mensuales caras. Actas IA es diferente. Ofrecemos un modelo 'Pay-as-you-go' junto con planes ilimitados.",
+    "options": [
+      {
+        "desc": "Ideal para reuniones ocasionales. Compra minutos que **NUNCA caducan**.",
+        "highlight": "Sin cuota mensual",
+        "price": "Desde $1.99",
+        "title": "Packs de Tiempo",
+        "type": "Uso Ocasional"
+      },
+      {
+        "desc": "Para profesionales con reuniones diarias. Graba sin límites.",
+        "highlight": "Mejor Valor",
+        "price": "$16.99 / mes",
+        "title": "Suscripción Ilimitada",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Precios en:"
+  },
+  "seo": {
+    "description": "¿Buscas 'precio generador actas IA'? Actas IA ofrece las notas más estructuradas y costos flexibles. Desde packs de $1.99 (sin caducidad) hasta planes ilimitados.",
+    "ld": {
+      "description": "Guía completa de funciones y precios de Actas IA. El único tomador de actas con paquetes de tiempo sin fecha de vencimiento.",
+      "headline": "El Mejor Tomador de Actas IA: Precios y Funciones"
+    },
+    "ogDescription": "No pagues por suscripciones que no usas. Actas IA es el asistente que se adapta a tu agenda y bolsillo.",
+    "ogTitle": "El Mejor Tomador de Actas IA (2025): Precios y Funciones",
+    "title": "(2025) El Mejor Tomador de Actas IA: Precio y Prueba | Actas IA"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "compare": {
+    "h2": "Minutes AI vs Aplikasi Biasa",
+    "rows": [
+      [
+        "Model Harga",
+        "Pakai atau hangus (Reset bulanan)",
+        "Fleksibel (Paket tanpa kadaluarsa)"
+      ],
+      [
+        "Kualitas Output",
+        "Seringkali hanya transkrip kasar",
+        "Notulensi terstruktur & berorientasi tindakan"
+      ],
+      [
+        "Platform",
+        "Fokus Web",
+        "Aplikasi iOS Native + Web"
+      ]
+    ],
+    "th": [
+      "Fitur",
+      "Aplikasi Lain",
+      "Minutes AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Unduh aplikasi iOS",
+    "openBrowser": "Buka di browser"
+  },
+  "faq": {
+    "h2": "FAQ: Pertanyaan seputar Notulis AI",
+    "items": [
+      {
+        "a": "Ya! Minutes AI memberikan **tiket gratis 3 menit setiap hari**. Sempurna untuk catatan cepat atau menguji kualitas.",
+        "q": "Apakah ada opsi gratis?"
+      },
+      {
+        "a": "Berbeda dengan layanan lain, paket waktu kami (misal 120 menit seharga $1.99) **tidak pernah hangus**. Beli sekarang, pakai tahun depan. Anda hanya membayar waktu yang Anda butuhkan.",
+        "q": "Bagaimana cara kerja Paket Waktu? Apakah ada masa aktif?"
+      },
+      {
+        "a": "Tentu saja. Minutes AI mendukung lebih dari 100 bahasa, menjadikannya notulis ideal untuk rapat internasional.",
+        "q": "Apakah mendukung banyak bahasa?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI mendengarkan percakapan yang acak dan langsung mengaturnya menjadi topik yang jelas. Tidak ada lagi teks yang membingungkan.",
+        "icon": "structure",
+        "title": "Menstrukturkan Kekacauan"
+      },
+      {
+        "desc": "Tugas utama notulis adalah melacak 'Siapa melakukan apa'. Minutes AI mengekstrak butir tindakan secara otomatis.",
+        "icon": "action",
+        "title": "Menangkap Keputusan"
+      },
+      {
+        "desc": "Menggunakan Gemini 2.5 & GPT-5, aplikasi ini menyarankan langkah strategis berikutnya berdasarkan konteks rapat.",
+        "icon": "strategy",
+        "title": "Berpikir ke Depan"
+      }
+    ],
+    "h2": "Apa yang membuat 'Notulis' itu pro?",
+    "lead": "Perekam biasa hanya memberi Anda teks. Notulis AI sejati seperti Minutes AI memberi Anda kejelasan. Begini cara kerjanya:"
+  },
+  "hero": {
+    "badges": [
+      "Notulis AI",
+      "Harga Fleksibel",
+      "iOS & Web"
+    ],
+    "h1": "Notulis AI yang Sesuai dengan Anggaran Anda",
+    "kicker": "Panduan 2025",
+    "tagline": "Anda membutuhkan notulis profesional, bukan sekadar alat perekam. Minutes AI menggabungkan notulensi yang mudah dibaca dengan model harga paling fleksibel di pasar."
+  },
+  "meta": {
+    "category": "Panduan",
+    "published": "Diterbitkan"
+  },
+  "nav": {
+    "active": "Panduan Notulis",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Lihat tabel harga lengkap",
+    "h2": "Harga: Bayar Hanya yang Anda Pakai",
+    "lead": "Kebanyakan aplikasi memaksa Anda berlangganan bulanan yang mahal. Minutes AI berbeda. Kami menawarkan model 'Pay-as-you-go' di samping paket unlimited.",
+    "options": [
+      {
+        "desc": "Sempurna untuk rapat sesekali. Beli menit yang **TIDAK PERNAH hangus**.",
+        "highlight": "Tanpa biaya bulanan",
+        "price": "Mulai dari $1.99",
+        "title": "Paket Waktu",
+        "type": "Penggunaan Sesekali"
+      },
+      {
+        "desc": "Untuk profesional dengan rapat harian. Rekam sepuasnya tanpa batas.",
+        "highlight": "Nilai Terbaik",
+        "price": "$16.99 / bulan",
+        "title": "Langganan Unlimited",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Lihat harga dalam:"
+  },
+  "seo": {
+    "description": "Mencari 'harga notulis AI'? Minutes AI menawarkan catatan paling terstruktur dan biaya fleksibel. Mulai paket $1.99 (tanpa kadaluarsa) hingga unlimited.",
+    "ld": {
+      "description": "Panduan lengkap fitur dan harga Minutes AI. Satu-satunya notulis AI dengan paket waktu tanpa tanggal kadaluarsa.",
+      "headline": "Notulis AI Terbaik: Harga & Fitur"
+    },
+    "ogDescription": "Jangan membayar langganan yang tidak Anda pakai. Minutes AI adalah notulis yang menyesuaikan jadwal dan anggaran Anda.",
+    "ogTitle": "Notulis AI Terbaik (2025): Harga & Fitur",
+    "title": "(2025) Notulis AI Terbaik: Harga & Review | Minutes AI"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Ana Sayfa Tutanakları AI"
+  },
+  "compare": {
+    "h2": "Tutanakları AI vs Standart Uygulamalar",
+    "rows": [
+      [
+        "Fiyatlandırma Modeli",
+        "Kullan ya da kaybet (Aylık sıfırlama)",
+        "Esnek (Süresi dolmayan paketler)"
+      ],
+      [
+        "Çıktı Kalitesi",
+        "Genellikle sadece döküm (transkript)",
+        "Yapılandırılmış, aksiyon odaklı tutanaklar"
+      ],
+      [
+        "Platform",
+        "Web odaklı",
+        "Yerel iOS Uygulaması + Web"
+      ]
+    ],
+    "th": [
+      "Özellik",
+      "Diğer Uygulamalar",
+      "Tutanakları AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "iOS uygulamasını indir",
+    "openBrowser": "Tarayıcıda aç"
+  },
+  "faq": {
+    "h2": "SSS: AI Tutanakçısı Hakkında Sorular",
+    "items": [
+      {
+        "a": "Evet! Tutanakları AI size **her gün 3 dakikalık ücretsiz bilet** verir. Hızlı notlar almak veya kaliteyi test etmek için mükemmeldir.",
+        "q": "Ücretsiz bir seçenek var mı?"
+      },
+      {
+        "a": "Diğer hizmetlerin aksine, zaman paketlerimiz (örneğin 1,99 $ karşılığında 120 dakika) **asla sona ermez**. Bugün satın alın, seneye kullanın. Sadece ihtiyacınız olan süre için ödeme yaparsınız.",
+        "q": "Zaman Paketleri nasıl çalışır? Süresi dolar mı?"
+      },
+      {
+        "a": "Kesinlikle. Tutanakları AI, 100'den fazla dili destekler, bu da onu uluslararası toplantılar için ideal bir tutanakçı yapar.",
+        "q": "Birden fazla dili destekliyor mu?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "Yapay zeka, karmaşık konuşmaları dinler ve anında net konulara göre düzenler. Artık uzun metin duvarları yok.",
+        "icon": "structure",
+        "title": "Kaosu düzenler"
+      },
+      {
+        "desc": "Bir tutanakçının ana görevi 'Kimin ne yapacağını' takip etmektir. Tutanakları AI, aksiyon öğelerini otomatik olarak çıkarır.",
+        "icon": "action",
+        "title": "Kararları yakalar"
+      },
+      {
+        "desc": "Gemini 2.5 ve GPT-5 kullanarak, toplantı bağlamına dayalı stratejik sonraki adımları önerir.",
+        "icon": "strategy",
+        "title": "Geleceği düşünür"
+      }
+    ],
+    "h2": "Profesyonel bir 'Tutanakçıyı' ne tanımlar?",
+    "lead": "Standart bir ses kaydedici size sadece metin verir. Tutanakları AI gibi gerçek bir AI Tutanakçısı size netlik kazandırır. Toplantılarınızı şöyle yönetir:"
+  },
+  "hero": {
+    "badges": [
+      "AI Tutanakçısı",
+      "Esnek Fiyatlandırma",
+      "iOS ve Web"
+    ],
+    "h1": "Bütçenize uygun AI Toplantı Tutanakçısı",
+    "kicker": "2025 Rehberi",
+    "tagline": "Sadece bir ses kayıt cihazına değil, profesyonel bir tutanakçıya ihtiyacınız var. Tutanakları AI, okunabilir tutanakları piyasadaki en esnek fiyatlandırma modeliyle birleştirir."
+  },
+  "meta": {
+    "category": "Rehber",
+    "published": "Yayınlandı"
+  },
+  "nav": {
+    "active": "Tutanak Rehberi",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Tam fiyat listesini gör",
+    "h2": "Fiyatlandırma: Sadece kullandığını öde",
+    "lead": "Çoğu uygulama sizi pahalı aylık aboneliklere zorlar. Tutanakları AI farklıdır. Sınırsız planların yanı sıra 'Kullandıkça Öde' modeli sunuyoruz.",
+    "options": [
+      {
+        "desc": "Ara sıra yapılan toplantılar için mükemmel. **ASLA süresi dolmayan** dakikalar satın alın.",
+        "highlight": "Aylık ücret yok",
+        "price": "1,99 $'dan başlıyor",
+        "title": "Zaman Paketleri",
+        "type": "Ara Sıra Kullanım"
+      },
+      {
+        "desc": "Günlük toplantıları olan profesyoneller için. Sınırsız kayıt yapın.",
+        "highlight": "En İyi Değer",
+        "price": "16,99 $ / ay",
+        "title": "Sınırsız Abonelik",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Fiyatları şurada gör:"
+  },
+  "seo": {
+    "description": "'AI tutanak fiyatı' mı arıyorsunuz? Tutanakları AI, en yapılandırılmış notları ve esnek maliyetleri sunar. 1,99 $'lık paketlerden (süresiz) sınırsıza kadar.",
+    "ld": {
+      "description": "Tutanakları AI özellik ve fiyatları için tam rehber. Son kullanma tarihi olmayan zaman paketlerine sahip tek AI tutanakçısı.",
+      "headline": "En İyi AI Tutanakçısı: Fiyatlar ve Özellikler"
+    },
+    "ogDescription": "Kullanmadığınız abonelikler için ödeme yapmayın. Tutanakları AI, programınıza ve bütçenize uyum sağlayan tutanakçıdır.",
+    "ogTitle": "En İyi AI Tutanakçısı (2025): Fiyatlar ve Özellikler",
+    "title": "(2025) En İyi AI Tutanakçısı: Fiyat ve İnceleme | Tutanakları AI"
+  }
+}

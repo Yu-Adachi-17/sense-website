@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Home Notulen AI"
+  },
+  "compare": {
+    "h2": "Notulen AI vs. Standaard Apps",
+    "rows": [
+      [
+        "Prijsmodel",
+        "Gebruik het of verlies het (Maandelijkse reset)",
+        "Flexibel (Tegoed zonder vervaldatum)"
+      ],
+      [
+        "Kwaliteit Output",
+        "Vaak alleen transcriptie",
+        "Gestructureerde, actiegerichte notulen"
+      ],
+      [
+        "Platform",
+        "Web focus",
+        "Native iOS App + Web"
+      ]
+    ],
+    "th": [
+      "Functie",
+      "Andere Apps",
+      "Notulen AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Download iOS app",
+    "openBrowser": "Open in browser"
+  },
+  "faq": {
+    "h2": "FAQ: Vragen over de AI-notulist",
+    "items": [
+      {
+        "a": "Ja! Notulen AI geeft je **elke dag een gratis ticket van 3 minuten**. Perfect voor snelle notities of om de kwaliteit te testen.",
+        "q": "Is er een gratis optie?"
+      },
+      {
+        "a": "In tegenstelling tot andere diensten **verloopt ons tijdtegoed (bijv. 120 min voor $1.99) nooit**. Koop vandaag, gebruik volgend jaar. Je betaalt alleen voor wat je nodig hebt.",
+        "q": "Hoe werkt het tijdtegoed? Verloopt het?"
+      },
+      {
+        "a": "Zeker. Notulen AI ondersteunt meer dan 100 talen, wat het de ideale notulist maakt voor internationale vergaderingen.",
+        "q": "Ondersteunt het meerdere talen?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "De AI luistert naar rommelige gesprekken en ordent ze direct in heldere onderwerpen. Geen muren van tekst meer.",
+        "icon": "structure",
+        "title": "Structureert chaos"
+      },
+      {
+        "desc": "De hoofdtaak van een notulist is bijhouden 'Wie doet wat'. Notulen AI haalt actiepunten er automatisch uit.",
+        "icon": "action",
+        "title": "Vangt beslissingen"
+      },
+      {
+        "desc": "Met Gemini 2.5 & GPT-5 suggereert het strategische vervolgstappen op basis van de context van de vergadering.",
+        "icon": "strategy",
+        "title": "Denkt vooruit"
+      }
+    ],
+    "h2": "Wat maakt een 'Notulist' professioneel?",
+    "lead": "Een standaard recorder geeft alleen tekst. Een echte AI-notulist zoals Notulen AI geeft helderheid. Zo verwerkt het jouw vergaderingen:"
+  },
+  "hero": {
+    "badges": [
+      "AI-notulist",
+      "Flexibele prijzen",
+      "iOS & Web"
+    ],
+    "h1": "De AI-notulist die in je budget past",
+    "kicker": "Gids 2025",
+    "tagline": "Je hebt een professionele notulist nodig, geen dictafoon. Notulen AI combineert leesbare verslagen met het meest flexibele prijsmodel op de markt."
+  },
+  "meta": {
+    "category": "Gids",
+    "published": "Gepubliceerd"
+  },
+  "nav": {
+    "active": "Notulist Gids",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Bekijk volledige prijslijst",
+    "h2": "Prijzen: Betaal alleen voor gebruik",
+    "lead": "De meeste apps dwingen je in dure maandabonnementen. Notulen AI is anders. We bieden een 'Pay-as-you-go' model naast onbeperkte abonnementen.",
+    "options": [
+      {
+        "desc": "Ideaal voor incidentele meetings. Koop minuten die **NOOIT verlopen**.",
+        "highlight": "Geen maandelijkse kosten",
+        "price": "Vanaf $1.99",
+        "title": "Tijdtegoed",
+        "type": "Occasioneel gebruik"
+      },
+      {
+        "desc": "Voor professionals met dagelijkse meetings. Neem onbeperkt op.",
+        "highlight": "Beste waarde",
+        "price": "$16.99 / maand",
+        "title": "Onbeperkt Abonnement",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Toon prijzen in:"
+  },
+  "seo": {
+    "description": "Zoek je 'kosten AI notulist'? Notulen AI biedt de meest gestructureerde notities en flexibele kosten. Van $1.99 bundels (zonder vervaldatum) tot onbeperkt.",
+    "ld": {
+      "description": "Complete gids voor functies en prijzen van Notulen AI. De enige AI-notulist met tijdtegoed zonder vervaldatum.",
+      "headline": "De Beste AI-notulist: Prijzen & Functies"
+    },
+    "ogDescription": "Betaal niet voor abonnementen die je niet gebruikt. Notulen AI is de notulist die zich aanpast aan jouw agenda en budget.",
+    "ogTitle": "De Beste AI-notulist (2025): Prijzen & Functies",
+    "title": "(2025) De Beste AI-notulist: Prijs & Review | Notulen AI"
+  }
+}

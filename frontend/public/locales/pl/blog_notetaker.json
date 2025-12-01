@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Strona główna Protokół AI"
+  },
+  "compare": {
+    "h2": "Protokół AI kontra Zwykłe Aplikacje",
+    "rows": [
+      [
+        "Model cenowy",
+        "Użyj lub strać (Miesięczny reset)",
+        "Elastyczny (Pakiety bez daty ważności)"
+      ],
+      [
+        "Jakość wyników",
+        "Często tylko transkrypcja",
+        "Strukturalny protokół z zadaniami"
+      ],
+      [
+        "Platforma",
+        "Głównie Web",
+        "Natywna aplikacja iOS + Web"
+      ]
+    ],
+    "th": [
+      "Funkcja",
+      "Inne aplikacje",
+      "Protokół AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Pobierz aplikację iOS",
+    "openBrowser": "Otwórz w przeglądarce"
+  },
+  "faq": {
+    "h2": "FAQ: Pytania o Protokolanta AI",
+    "items": [
+      {
+        "a": "Tak! Protokół AI daje Ci **darmowy bilet na 3 minuty każdego dnia**. Idealne do szybkich notatek lub sprawdzenia jakości.",
+        "q": "Czy jest darmowa opcja?"
+      },
+      {
+        "a": "W przeciwieństwie do innych usług, nasze pakiety czasowe (np. 120 min za 1,99 $) **nigdy nie wygasają**. Kup dziś, użyj za rok. Płacisz tylko za czas, którego potrzebujesz.",
+        "q": "Jak działają Pakiety Czasowe? Czy wygasają?"
+      },
+      {
+        "a": "Oczywiście. Protokół AI obsługuje ponad 100 języków, co czyni go idealnym protokolantem na spotkania międzynarodowe.",
+        "q": "Czy obsługuje wiele języków?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI słucha chaotycznych rozmów i natychmiast porządkuje je w jasne tematy. Koniec ze ścianami tekstu.",
+        "icon": "structure",
+        "title": "Porządkuje chaos"
+      },
+      {
+        "desc": "Głównym zadaniem protokolanta jest śledzenie 'Kto co robi'. Protokół AI automatycznie wyodrębnia zadania.",
+        "icon": "action",
+        "title": "Wychwytuje decyzje"
+      },
+      {
+        "desc": "Używając Gemini 2.5 i GPT-5, sugeruje strategiczne kolejne kroki w oparciu o kontekst spotkania.",
+        "icon": "strategy",
+        "title": "Myśli przyszłościowo"
+      }
+    ],
+    "h2": "Co definiuje profesjonalnego 'Protokolanta'?",
+    "lead": "Zwykły dyktafon daje tylko tekst. Prawdziwy Protokolant AI, taki jak Protokół AI, daje jasność. Tak przetwarza Twoje spotkania:"
+  },
+  "hero": {
+    "badges": [
+      "Protokolant AI",
+      "Elastyczne ceny",
+      "iOS i Web"
+    ],
+    "h1": "Protokolant AI, który pasuje do Twojego budżetu",
+    "kicker": "Przewodnik 2025",
+    "tagline": "Potrzebujesz profesjonalnego protokolanta, a nie tylko dyktafonu. Protokół AI łączy czytelne protokoły z najbardziej elastycznym modelem cenowym na rynku."
+  },
+  "meta": {
+    "category": "Przewodnik",
+    "published": "Opublikowano"
+  },
+  "nav": {
+    "active": "Przewodnik Protokolanta",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Zobacz pełny cennik",
+    "h2": "Cennik: Płać tylko za użycie",
+    "lead": "Większość aplikacji zmusza Cię do drogich miesięcznych subskrypcji. Protokół AI jest inny. Oferujemy model 'Pay-as-you-go' obok nielimitowanych planów.",
+    "options": [
+      {
+        "desc": "Idealne na sporadyczne spotkania. Kup minuty, które **NIGDY nie przepadają**.",
+        "highlight": "Brak opłat miesięcznych",
+        "price": "Od 1,99 $",
+        "title": "Pakiety Czasowe",
+        "type": "Okazjonalne użycie"
+      },
+      {
+        "desc": "Dla profesjonalistów z codziennymi spotkaniami. Nagrywaj bez limitu.",
+        "highlight": "Najlepsza wartość",
+        "price": "16,99 $ / mies",
+        "title": "Subskrypcja Nielimitowana",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Ceny w:"
+  },
+  "seo": {
+    "description": "Szukasz 'cena AI protokół'? Protokół AI oferuje najbardziej uporządkowane notatki i elastyczne koszty. Od pakietów 1,99 $ (bez wygasania) do nielimitowanych.",
+    "ld": {
+      "description": "Kompletny przewodnik po funkcjach i cenach Protokół AI. Jedyny protokolant AI z pakietami czasowymi bez daty ważności.",
+      "headline": "Najlepszy Protokolant AI: Ceny i Funkcje"
+    },
+    "ogDescription": "Nie płać za subskrypcje, których nie używasz. Protokół AI to protokolant, który dostosowuje się do Twojego grafiku i portfela.",
+    "ogTitle": "Najlepszy Protokolant AI (2025): Ceny i Funkcje",
+    "title": "(2025) Najlepszy Protokolant AI: Cena i Test | Protokół AI"
+  }
+}

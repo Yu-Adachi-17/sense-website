@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "compare": {
+    "h2": "Minutes.AI vs Applications standards",
+    "rows": [
+      [
+        "Modèle de prix",
+        "Utiliser ou perdre (Réinitialisation mensuelle)",
+        "Flexible (Packs sans date d'expiration)"
+      ],
+      [
+        "Qualité du rendu",
+        "Souvent une simple transcription",
+        "Compte-rendu structuré et actionnable"
+      ],
+      [
+        "Plateforme",
+        "Principalement Web",
+        "App native iOS + Web"
+      ]
+    ],
+    "th": [
+      "Fonctionnalité",
+      "Autres applications",
+      "Minutes.AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Télécharger l'app iOS",
+    "openBrowser": "Ouvrir dans le navigateur"
+  },
+  "faq": {
+    "h2": "FAQ : Questions sur le Preneur de notes IA",
+    "items": [
+      {
+        "a": "Oui ! Minutes.AI vous offre **un ticket gratuit de 3 minutes chaque jour**. Parfait pour des notes rapides ou tester la qualité.",
+        "q": "Existe-t-il une option gratuite ?"
+      },
+      {
+        "a": "Contrairement à d'autres services, nos packs de temps (ex. 120 min pour 1,99 $) **n'expirent jamais**. Achetez aujourd'hui, utilisez l'année prochaine. Vous ne payez que ce que vous utilisez.",
+        "q": "Comment fonctionnent les packs de temps ? Expirent-ils ?"
+      },
+      {
+        "a": "Absolument. Minutes.AI prend en charge plus de 100 langues, ce qui en fait le secrétaire idéal pour vos réunions internationales.",
+        "q": "Gère-t-il plusieurs langues ?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "L'IA écoute les conversations confuses et les organise instantanément par thèmes clairs. Fini les murs de texte.",
+        "icon": "structure",
+        "title": "Structure le chaos"
+      },
+      {
+        "desc": "Le rôle principal d'un preneur de notes est de suivre 'Qui fait quoi'. Minutes.AI extrait automatiquement les actions.",
+        "icon": "action",
+        "title": "Capture les décisions"
+      },
+      {
+        "desc": "Grâce à Gemini 2.5 & GPT-5, il suggère des prochaines étapes stratégiques basées sur le contexte de la réunion.",
+        "icon": "strategy",
+        "title": "Pense à l'avenir"
+      }
+    ],
+    "h2": "Qu'est-ce qu'un 'Preneur de notes' pro ?",
+    "lead": "Un enregistreur standard ne donne que du texte. Un vrai Preneur de notes IA comme Minutes.AI apporte de la clarté. Voici comment il gère vos réunions :"
+  },
+  "hero": {
+    "badges": [
+      "Preneur de notes IA",
+      "Tarification flexible",
+      "iOS & Web"
+    ],
+    "h1": "Le Preneur de notes IA adapté à votre budget",
+    "kicker": "Guide 2025",
+    "tagline": "Vous avez besoin d'un secrétaire de séance, pas juste d'un dictaphone. Minutes.AI allie des comptes-rendus lisibles au modèle de prix le plus flexible du marché."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Publié"
+  },
+  "nav": {
+    "active": "Guide Preneur de notes",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Voir tous les tarifs",
+    "h2": "Tarifs : Payez selon votre utilisation",
+    "lead": "La plupart des apps imposent des abonnements mensuels coûteux. Minutes.AI est différent. Nous offrons un modèle 'Pay-as-you-go' aux côtés des forfaits illimités.",
+    "options": [
+      {
+        "desc": "Idéal pour les réunions occasionnelles. Achetez des minutes qui **n'expirent JAMAIS**.",
+        "highlight": "Aucun frais mensuel",
+        "price": "Dès 1,99 $",
+        "title": "Packs de Temps",
+        "type": "Usage occasionnel"
+      },
+      {
+        "desc": "Pour les pros aux réunions quotidiennes. Enregistrez sans limites.",
+        "highlight": "Meilleure valeur",
+        "price": "16,99 $ / mois",
+        "title": "Abonnement Illimité",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Prix en :"
+  },
+  "seo": {
+    "description": "Vous cherchez 'prix IA compte-rendu' ? Minutes.AI offre les notes les plus structurées et des coûts flexibles. Packs à 1,99 $ (sans expiration) ou illimité.",
+    "ld": {
+      "description": "Guide complet des fonctionnalités et tarifs de Minutes.AI. Le seul preneur de notes IA avec des packs de temps sans date d'expiration.",
+      "headline": "Le meilleur Preneur de notes IA : Prix et Fonctions"
+    },
+    "ogDescription": "Ne payez pas pour des abonnements inutilisés. Minutes.AI s'adapte à votre agenda et votre budget.",
+    "ogTitle": "Le meilleur Preneur de notes IA (2025) : Prix et Fonctions",
+    "title": "(2025) Le meilleur Preneur de notes IA : Prix & Test | Minutes.AI"
+  }
+}

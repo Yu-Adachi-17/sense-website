@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Hem Protokoll AI"
+  },
+  "compare": {
+    "h2": "Protokoll AI vs. Standardappar",
+    "rows": [
+      [
+        "Prismodell",
+        "Använd eller förlora (Nollställs varje månad)",
+        "Flexibel (Paket utan utgångsdatum)"
+      ],
+      [
+        "Kvalitet",
+        "Ofta bara transkribering",
+        "Strukturerade, åtgärdsinriktade protokoll"
+      ],
+      [
+        "Plattform",
+        "Webbfokus",
+        "Nativ iOS-app + Webb"
+      ]
+    ],
+    "th": [
+      "Funktion",
+      "Andra appar",
+      "Protokoll AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Ladda ner iOS-app",
+    "openBrowser": "Öppna i webbläsare"
+  },
+  "faq": {
+    "h2": "FAQ: Frågor om AI-protokollföraren",
+    "items": [
+      {
+        "a": "Ja! Protokoll AI ger dig en **gratis 3-minuters biljett varje dag**. Perfekt för snabba anteckningar eller för att testa kvaliteten.",
+        "q": "Finns det ett gratisalternativ?"
+      },
+      {
+        "a": "Till skillnad från andra tjänster **går våra tidspaket (t.ex. 120 min för 1,99 $) aldrig ut**. Köp idag, använd nästa år. Du betalar bara för tiden du behöver.",
+        "q": "Hur fungerar tidspaket? Går de ut?"
+      },
+      {
+        "a": "Absolut. Protokoll AI stöder över 100 språk, vilket gör den till den perfekta protokollföraren för internationella möten.",
+        "q": "Stöder den flera språk?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI:n lyssnar på röriga samtal och organiserar dem omedelbart i tydliga ämnen. Inga fler textväggar.",
+        "icon": "structure",
+        "title": "Strukturerar kaos"
+      },
+      {
+        "desc": "En protokollförares huvuduppgift är att spåra 'Vem gör vad'. Protokoll AI extraherar åtgärdspunkter automatiskt.",
+        "icon": "action",
+        "title": "Fångar beslut"
+      },
+      {
+        "desc": "Med hjälp av Gemini 2.5 & GPT-5 föreslår den strategiska nästa steg baserat på mötets kontext.",
+        "icon": "strategy",
+        "title": "Tänker framåt"
+      }
+    ],
+    "h2": "Vad definierar en proffs-'Protokollförare'?",
+    "lead": "En vanlig inspelare ger dig bara text. En riktig AI-protokollförare som Protokoll AI ger dig klarhet. Så här hanterar den dina möten:"
+  },
+  "hero": {
+    "badges": [
+      "AI-protokollförare",
+      "Flexibla priser",
+      "iOS & Webb"
+    ],
+    "h1": "AI-protokollföraren som passar din budget",
+    "kicker": "Guide 2025",
+    "tagline": "Du behöver en professionell protokollförare, inte bara en bandspelare. Protokoll AI kombinerar läsbara protokoll med marknadens mest flexibla prismodell."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Publicerad"
+  },
+  "nav": {
+    "active": "Protokollguide",
+    "blog": "Blogg"
+  },
+  "pricing": {
+    "cta": "Se fullständig prislista",
+    "h2": "Priser: Betala endast för användning",
+    "lead": "De flesta appar tvingar in dig i dyra månadsabonnemang. Protokoll AI är annorlunda. Vi erbjuder en 'Pay-as-you-go'-modell vid sidan av obegränsade abonnemang.",
+    "options": [
+      {
+        "desc": "Perfekt för enstaka möten. Köp minuter som **ALDRIG går ut**.",
+        "highlight": "Ingen månadsavgift",
+        "price": "Från 1,99 $",
+        "title": "Tidspaket",
+        "type": "Sporadisk användning"
+      },
+      {
+        "desc": "För proffs med dagliga möten. Spela in obegränsat.",
+        "highlight": "Bästa värde",
+        "price": "16,99 $ / mån",
+        "title": "Obegränsat abonnemang",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Visa priser i:"
+  },
+  "seo": {
+    "description": "Letar du efter 'pris AI protokoll'? Protokoll AI erbjuder de mest strukturerade anteckningarna och flexibla kostnader. Från 1,99 $ paket (utan utgångsdatum) till obegränsat.",
+    "ld": {
+      "description": "Komplett guide till funktioner och priser för Protokoll AI. Den enda AI-protokollföraren med tidspaket utan utgångsdatum.",
+      "headline": "Bästa AI-protokollföraren: Priser & Funktioner"
+    },
+    "ogDescription": "Betala inte för abonnemang du inte använder. Protokoll AI är protokollföraren som anpassar sig till ditt schema och din plånbok.",
+    "ogTitle": "Bästa AI-protokollföraren (2025): Priser & Funktioner",
+    "title": "(2025) Bästa AI-protokollföraren: Pris & Test | Protokoll AI"
+  }
+}

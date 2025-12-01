@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Home Verbali IA"
+  },
+  "compare": {
+    "h2": "Verbali IA vs App Standard",
+    "rows": [
+      [
+        "Modello di Prezzo",
+        "Usalo o perdilo (Reset mensile)",
+        "Flessibile (Pacchetti senza scadenza)"
+      ],
+      [
+        "Qualità Output",
+        "Spesso solo trascrizione",
+        "Verbali strutturati e azionabili"
+      ],
+      [
+        "Piattaforma",
+        "Focus Web",
+        "App nativa iOS + Web"
+      ]
+    ],
+    "th": [
+      "Caratteristica",
+      "Altre App",
+      "Verbali IA"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Scarica app iOS",
+    "openBrowser": "Apri nel browser"
+  },
+  "faq": {
+    "h2": "FAQ: Domande sul Verbalizzante IA",
+    "items": [
+      {
+        "a": "Sì! Verbali IA ti offre un **ticket gratuito di 3 minuti ogni giorno**. Perfetto per note veloci o testare la qualità.",
+        "q": "C'è un'opzione gratuita?"
+      },
+      {
+        "a": "A differenza di altri servizi, i nostri pacchetti tempo (es. 120 min per 1,99 $) **non scadono mai**. Comprali oggi, usali l'anno prossimo. Paghi solo per il tempo che ti serve.",
+        "q": "Come funzionano i Pacchetti Tempo? Scadono?"
+      },
+      {
+        "a": "Assolutamente. Verbali IA supporta oltre 100 lingue, rendendolo il verbalizzante ideale per riunioni internazionali.",
+        "q": "Supporta più lingue?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "L'IA ascolta conversazioni caotiche e le organizza istantaneamente in argomenti chiari. Basta muri di testo.",
+        "icon": "structure",
+        "title": "Struttura il caos"
+      },
+      {
+        "desc": "Il compito principale di chi fa i verbali è tracciare 'Chi fa cosa'. Verbali IA estrae le azioni automaticamente.",
+        "icon": "action",
+        "title": "Cattura le decisioni"
+      },
+      {
+        "desc": "Usando Gemini 2.5 & GPT-5, suggerisce i prossimi passi strategici basandosi sul contesto della riunione.",
+        "icon": "strategy",
+        "title": "Pensa in prospettiva"
+      }
+    ],
+    "h2": "Cosa definisce un 'Verbalizzante' pro?",
+    "lead": "Un registratore standard ti dà solo testo. Un vero Verbalizzante IA come Verbali IA ti dà chiarezza. Ecco come gestisce le tue riunioni:"
+  },
+  "hero": {
+    "badges": [
+      "Verbalizzante IA",
+      "Prezzi flessibili",
+      "iOS & Web"
+    ],
+    "h1": "Il Verbalizzante IA che rispetta il tuo budget",
+    "kicker": "Guida 2025",
+    "tagline": "Hai bisogno di un verbalizzante professionista, non solo di un registratore. Verbali IA combina verbali leggibili con il modello di prezzo più flessibile sul mercato."
+  },
+  "meta": {
+    "category": "Guida",
+    "published": "Pubblicato"
+  },
+  "nav": {
+    "active": "Guida Verbali",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Vedi listino completo",
+    "h2": "Prezzi: Paga solo l'utilizzo",
+    "lead": "La maggior parte delle app ti costringe ad abbonamenti mensili costosi. Verbali IA è diversa. Offriamo un modello 'Pay-as-you-go' accanto ai piani illimitati.",
+    "options": [
+      {
+        "desc": "Ideale per riunioni occasionali. Compra minuti che **NON scadono MAI**.",
+        "highlight": "Nessun canone mensile",
+        "price": "Da 1,99 $",
+        "title": "Pacchetti Tempo",
+        "type": "Uso Occasionale"
+      },
+      {
+        "desc": "Per professionisti con riunioni quotidiane. Registra senza limiti.",
+        "highlight": "Miglior Valore",
+        "price": "16,99 $ / mese",
+        "title": "Abbonamento Illimitato",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Prezzi in:"
+  },
+  "seo": {
+    "description": "Cerchi 'prezzi IA verbali'? Verbali IA offre le note più strutturate e costi flessibili. Da pacchetti a 1,99 $ (senza scadenza) all'illimitato.",
+    "ld": {
+      "description": "Guida completa a funzionalità e prezzi di Verbali IA. L'unico verbalizzante IA con pacchetti tempo senza data di scadenza.",
+      "headline": "Il Miglior Verbalizzante IA: Prezzi e Funzioni"
+    },
+    "ogDescription": "Non pagare per abbonamenti che non usi. Verbali IA è il verbalizzante che si adatta alla tua agenda e al tuo portafoglio.",
+    "ogTitle": "Il Miglior Verbalizzante IA (2025): Prezzi e Funzioni",
+    "title": "(2025) Il Miglior Verbalizzante IA: Prezzi e Test | Verbali IA"
+  }
+}

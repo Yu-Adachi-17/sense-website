@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "compare": {
+    "h2": "Protokoll KI vs. Standard-Apps",
+    "rows": [
+      [
+        "Preismodell",
+        "Verfällt monatlich (Kein Rollover)",
+        "Flexibel (Zeitguthaben ohne Ablaufdatum)"
+      ],
+      [
+        "Qualität der Ergebnisse",
+        "Oft nur reines Transkript",
+        "Strukturierte, handlungsorientierte Protokolle"
+      ],
+      [
+        "Plattform",
+        "Meist Web-fokussiert",
+        "Native iOS App + Web"
+      ]
+    ],
+    "th": [
+      "Funktion",
+      "Andere Anbieter",
+      "Protokoll KI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "iOS App laden",
+    "openBrowser": "Im Browser öffnen"
+  },
+  "faq": {
+    "h2": "FAQ: Häufige Fragen",
+    "items": [
+      {
+        "a": "Ja! Mit Protokoll KI erhalten Sie **jeden Tag ein kostenloses 3-Minuten-Ticket**. Perfekt für kurze Notizen oder um die Qualität zu testen.",
+        "q": "Gibt es eine kostenlose Option?"
+      },
+      {
+        "a": "Im Gegensatz zu anderen Anbietern **verfallen unsere Zeitpakete nie**. Sie können heute 120 Minuten für 1,99 $ kaufen und sie erst nächsten Monat nutzen. Sie zahlen nur für das, was Sie brauchen.",
+        "q": "Wie funktionieren die Zeitpakete? Verfallen sie?"
+      },
+      {
+        "a": "Absolut. Protokoll KI unterstützt über 100 Sprachen und ist damit der ideale Protokollführer für internationale Teams.",
+        "q": "Werden mehrere Sprachen unterstützt?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "Die KI filtert das Wesentliche aus chaotischen Gesprächen und strukturiert es nach Themen. Keine Textwüsten mehr.",
+        "icon": "structure",
+        "title": "Struktur statt Chaos"
+      },
+      {
+        "desc": "Die Hauptaufgabe eines Protokollführers ist es, festzuhalten, „Wer was bis wann tut“. Protokoll KI extrahiert Aufgaben automatisch.",
+        "icon": "action",
+        "title": "Entscheidungen erfassen"
+      },
+      {
+        "desc": "Mit modernster Logik (Gemini 2.5 & GPT-5) schlägt die App strategische nächste Schritte basierend auf dem Meeting-Kontext vor.",
+        "icon": "strategy",
+        "title": "Strategisches Mitdenken"
+      }
+    ],
+    "h2": "Was macht einen Profi-Protokollführer aus?",
+    "lead": "Ein Standard-Rekorder liefert nur Text. Ein echter AI-Protokollführer wie Protokoll KI schafft Klarheit. So werden Ihre Meetings verarbeitet:"
+  },
+  "hero": {
+    "badges": [
+      "AI-Protokollführer",
+      "Flexible Preise",
+      "iOS & Web"
+    ],
+    "h1": "Der AI-Protokollführer, der in Ihr Budget passt",
+    "kicker": "Guide 2025",
+    "tagline": "Sie brauchen professionelle Protokolle, keine bloßen Aufnahmen. Protokoll KI kombiniert strukturierte Ergebnisse mit dem flexibelsten Preismodell am Markt."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Veröffentlicht"
+  },
+  "nav": {
+    "active": "Protokoll-Guide",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Alle Preise ansehen",
+    "h2": "Preise: Zahlen Sie nur für Nutzung",
+    "lead": "Die meisten Anbieter zwingen Sie in teure Monatsabos. Protokoll KI ist anders. Wir bieten ein „Pay-as-you-go“-Modell neben echten Flatrates.",
+    "options": [
+      {
+        "desc": "Ideal für gelegentliche Meetings. Kaufen Sie Minuten, die **NIE verfallen**.",
+        "highlight": "Keine monatliche Gebühr",
+        "price": "Ab 1,99 $",
+        "title": "Zeitpakete",
+        "type": "Gelegenheitsnutzer"
+      },
+      {
+        "desc": "Für Profis mit täglichen Meetings. Nehmen Sie so viel auf, wie Sie wollen.",
+        "highlight": "Bester Wert",
+        "price": "16,99 $ / Monat",
+        "title": "Unlimited Abo",
+        "type": "Power-User"
+      }
+    ],
+    "toggleLabel": "Preise in:"
+  },
+  "seo": {
+    "description": "Suchen Sie nach 'Protokoll App Preise'? Protokoll KI bietet die besten strukturierten Protokolle und flexible Kosten. Zeitpakete ab 1,99 $ (ohne Ablaufdatum) oder Flatrate.",
+    "ld": {
+      "description": "Ein kompletter Guide zu Funktionen und Preisen von Protokoll KI. Der einzige AI-Protokollführer mit Zeitguthaben ohne Verfallsdatum.",
+      "headline": "Der beste AI-Protokollführer: Preise & Funktionen"
+    },
+    "ogDescription": "Zahlen Sie nicht für Abos, die Sie nicht nutzen. Protokoll KI passt sich Ihrem Zeitplan und Budget an.",
+    "ogTitle": "Der beste AI-Protokollführer (2025): Preise & Funktionen",
+    "title": "(2025) Der beste AI-Protokollführer: Preise & Test | Protokoll KI"
+  }
+}

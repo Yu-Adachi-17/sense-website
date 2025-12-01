@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "compare": {
+    "h2": "Referat AI vs. Standard Løsninger",
+    "rows": [
+      [
+        "Prismodel",
+        "Brug det eller mist det (Nulstilles månedligt)",
+        "Fleksibel (Tidspakker uden udløbsdato)"
+      ],
+      [
+        "Kvalitet",
+        "Ofte blot en transskription",
+        "Strukturerede, handlingsorienterede referater"
+      ],
+      [
+        "Platform",
+        "Primært Web",
+        "Native iOS App + Web"
+      ]
+    ],
+    "th": [
+      "Funktion",
+      "Andre Apps",
+      "Referat AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Hent iOS app",
+    "openBrowser": "Åbn i browser"
+  },
+  "faq": {
+    "h2": "FAQ: Spørgsmål om AI-referenten",
+    "items": [
+      {
+        "a": "Ja! Referat AI giver dig en **gratis 3-minutters billet hver eneste dag**. Perfekt til korte notater eller for at teste kvaliteten.",
+        "q": "Findes der en gratis løsning?"
+      },
+      {
+        "a": "I modsætning til andre tjenester, **udløber vores tidspakker aldrig**. Du kan købe 120 minutter for $1.99 i dag og bruge dem næste år. Du betaler kun for den tid, du bruger.",
+        "q": "Hvordan fungerer tidspakkerne? Udløber de?"
+      },
+      {
+        "a": "Absolut. Referat AI understøtter over 100 sprog, hvilket gør den til den ideelle referent for internationale møder.",
+        "q": "Understøttes flere sprog?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI'en lytter til rodede samtaler og organiserer dem øjeblikkeligt i klare emner. Ingen lange tekstblokke.",
+        "icon": "structure",
+        "title": "Strukturerer kaos"
+      },
+      {
+        "desc": "En referents vigtigste job er at spore 'Hvem gør hvad'. Referat AI udtrækker automatisk handlingspunkter.",
+        "icon": "action",
+        "title": "Fanger beslutninger"
+      },
+      {
+        "desc": "Ved hjælp af Gemini 2.5 & GPT-5 foreslår den strategiske næste skridt baseret på mødets kontekst.",
+        "icon": "strategy",
+        "title": "Tænker fremad"
+      }
+    ],
+    "h2": "Hvad gør en professionel 'Referent'?",
+    "lead": "En standard optager giver dig bare tekst. En ægte AI-referent som Referat AI giver dig klarhed. Sådan håndteres dine møder:"
+  },
+  "hero": {
+    "badges": [
+      "AI-referent",
+      "Fleksible priser",
+      "iOS & Web"
+    ],
+    "h1": "AI-mødereferenten der passer til dit budget",
+    "kicker": "Guide 2025",
+    "tagline": "Du har brug for en professionel referent, ikke bare en optager. Referat AI kombinerer strukturerede referater med markedets mest fleksible prismodel."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Udgivet"
+  },
+  "nav": {
+    "active": "Referat Guide",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Se alle priser",
+    "h2": "Priser: Betal kun for det du bruger",
+    "lead": "De fleste apps tvinger dig ind i dyre månedlige abonnementer. Referat AI er anderledes. Vi tilbyder en 'Pay-as-you-go' model samt ubegrænset brug.",
+    "options": [
+      {
+        "desc": "Perfekt hvis du har få møder. Køb minutter der **ALDRIG udløber**.",
+        "highlight": "Ingen månedlig afgift",
+        "price": "Fra $1.99",
+        "title": "Tidspakker",
+        "type": "Lejlighedsvis"
+      },
+      {
+        "desc": "Til den professionelle bruger. Optag så meget du vil uden begrænsninger.",
+        "highlight": "Bedste værdi",
+        "price": "$16.99 / md",
+        "title": "Ubegrænset Abo",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Vis priser i:"
+  },
+  "seo": {
+    "description": "Leder du efter 'AI referat pris'? Referat AI tilbyder de mest strukturerede noter og fleksible omkostninger. Fra $1.99 pakker til ubegrænset abonnement.",
+    "ld": {
+      "description": "En komplet guide til Referat AI funktioner og priser. Den eneste AI-referent med tidspakker uden udløbsdato.",
+      "headline": "Den bedste AI-referent: Priser & Funktioner"
+    },
+    "ogDescription": "Betal ikke for abonnementer, du ikke bruger. Referat AI er referenten, der passer til din kalender og dit budget.",
+    "ogTitle": "Den bedste AI-referent (2025): Priser & Funktioner",
+    "title": "(2025) Den bedste AI-referent: Pris & Test | Referat AI"
+  }
+}

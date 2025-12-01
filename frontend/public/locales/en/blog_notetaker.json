@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "compare": {
+    "h2": "Minutes.AI vs. Standard Note Takers",
+    "rows": [
+      [
+        "Pricing Model",
+        "Use it or lose it (Monthly reset)",
+        "Flexible (Non-expiring packs available)"
+      ],
+      [
+        "Output Quality",
+        "Often just a transcript",
+        "Structured, Action-Oriented Minutes"
+      ],
+      [
+        "Platform",
+        "Web focused",
+        "Native iOS App + Web"
+      ]
+    ],
+    "th": [
+      "Feature",
+      "Standard Apps",
+      "Minutes.AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Download iOS app",
+    "openBrowser": "Open in browser"
+  },
+  "faq": {
+    "h2": "FAQ: AI Note Taker Questions",
+    "items": [
+      {
+        "a": "Yes! Minutes.AI gives you a **free 3-minute ticket every single day**. Perfect for quick memos or testing the quality.",
+        "q": "Is there a free AI note taker option?"
+      },
+      {
+        "a": "Unlike other note takers, our Time Packs (e.g., 120 mins for $1.99) **never expire**. You can buy them today and use them next month. You only pay for the time you need.",
+        "q": "How does the 'Time Pack' pricing work?"
+      },
+      {
+        "a": "Absolutely. Minutes.AI supports over 100 languages, making it an ideal global note taker.",
+        "q": "Can this note taker handle multiple languages?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "The AI listens to messy conversations and instantly organizes them into clear topics. No walls of text.",
+        "icon": "structure",
+        "title": "It Structures Chaos"
+      },
+      {
+        "desc": "The primary job of a note taker is to track 'Who does What'. Minutes.AI extracts action items automatically.",
+        "icon": "action",
+        "title": "It Captures Decisions"
+      },
+      {
+        "desc": "Using Gemini 2.5 & GPT-5 logic, it suggests strategic next steps based on the meeting context.",
+        "icon": "strategy",
+        "title": "It Thinks Ahead"
+      }
+    ],
+    "h2": "What makes a pro 'Note Taker'?",
+    "lead": "A standard recorder just gives you text. A true AI Note Taker like Minutes.AI gives you clarity. Here is how it handles your meetings."
+  },
+  "hero": {
+    "badges": [
+      "AI Note Taker",
+      "Flexible Pricing",
+      "iOS & Web"
+    ],
+    "h1": "The AI Meeting Note Taker That Actually Fits Your Budget",
+    "kicker": "2025 Note Taker Guide",
+    "tagline": "You need a professional note taker, not just a recorder. Minutes.AI combines structured, readable minutes with the market's most flexible pricing model."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Published"
+  },
+  "nav": {
+    "active": "Note Taker Guide",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "See Full Pricing Table",
+    "h2": "AI Note Taker Pricing: Pay for What You Use",
+    "lead": "Most note takers force you into expensive monthly contracts. Minutes.AI is different. We offer a 'Pay-as-you-go' model alongside unlimited plans.",
+    "options": [
+      {
+        "desc": "Perfect if you have few meetings. Buy minutes that **NEVER expire**.",
+        "highlight": "No monthly fees",
+        "price": "Starts at $1.99",
+        "title": "Time Packs",
+        "type": "Occasional User"
+      },
+      {
+        "desc": "For daily meeting pros. Record as much as you want without limits.",
+        "highlight": "Best value",
+        "price": "$16.99 / mo",
+        "title": "Unlimited Sub",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Show prices in:"
+  },
+  "seo": {
+    "description": "Searching for 'note taker pricing'? Minutes.AI offers the most structured notes and flexible costs. From $1.99 packs to unlimited plans, see why it's the top choice.",
+    "ld": {
+      "description": "A complete guide to Minutes.AI capabilities and pricing. The only note taker offering both non-expiring time packs and unlimited subscriptions.",
+      "headline": "The Best AI Note Taker: Pricing & Features"
+    },
+    "ogDescription": "Don't overpay for subscriptions you don't use. Minutes.AI is the note taker that fits your schedule and budget. See full pricing.",
+    "ogTitle": "The Best AI Note Taker (2025): Pricing & Features",
+    "title": "(2025) The Best AI Note Taker: Pricing & Features Review | Minutes.AI"
+  }
+}

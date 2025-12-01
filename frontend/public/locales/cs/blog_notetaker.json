@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Domů Zápisník AI"
+  },
+  "compare": {
+    "h2": "Zápisník AI vs. Běžné aplikace",
+    "rows": [
+      [
+        "Cenový model",
+        "Použij nebo ztratíš (Měsíční reset)",
+        "Flexibilní (Balíčky bez expirace)"
+      ],
+      [
+        "Kvalita výstupu",
+        "Často jen přepis textu",
+        "Strukturovaný zápis s úkoly"
+      ],
+      [
+        "Platforma",
+        "Hlavně web",
+        "Nativní iOS aplikace + Web"
+      ]
+    ],
+    "th": [
+      "Funkce",
+      "Ostatní aplikace",
+      "Zápisník AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Stáhnout iOS aplikaci",
+    "openBrowser": "Otevřít v prohlížeči"
+  },
+  "faq": {
+    "h2": "FAQ: Otázky k AI zapisovateli",
+    "items": [
+      {
+        "a": "Ano! Zápisník AI vám dává **zdarma 3minutový lístek každý den**. Ideální pro rychlé poznámky nebo testování kvality.",
+        "q": "Existuje verze zdarma?"
+      },
+      {
+        "a": "Na rozdíl od jiných služeb naše časové balíčky (např. 120 min za 1,99 $) **nikdy neexspirují**. Můžete je koupit dnes a použít příští rok. Platíte jen za čas, který potřebujete.",
+        "q": "Jak fungují časové balíčky? Mají expiraci?"
+      },
+      {
+        "a": "Rozhodně. Zápisník AI podporuje více než 100 jazyků, což z něj činí ideálního zapisovatele pro mezinárodní porady.",
+        "q": "Podporuje více jazyků?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI naslouchá chaotické diskuzi a okamžitě ji třídí do jasných témat. Žádné dlouhé bloky textu.",
+        "icon": "structure",
+        "title": "Strukturalizuje chaos"
+      },
+      {
+        "desc": "Hlavním úkolem zapisovatele je sledovat 'Kdo co udělá'. Zápisník AI automaticky vytahuje akční body.",
+        "icon": "action",
+        "title": "Zachycuje rozhodnutí"
+      },
+      {
+        "desc": "S využitím modelů Gemini 2.5 a GPT-5 navrhuje strategické další kroky na základě kontextu schůzky.",
+        "icon": "strategy",
+        "title": "Myslí dopředu"
+      }
+    ],
+    "h2": "Co dělá profesionální 'Zapisovatel'?",
+    "lead": "Běžný diktafon vám dá jen text. Skutečný AI zapisovatel jako Zápisník AI vám dá přehled. Takto zpracovává vaše porady:"
+  },
+  "hero": {
+    "badges": [
+      "AI Zapisovatel",
+      "Flexibilní ceny",
+      "iOS a Web"
+    ],
+    "h1": "AI zapisovatel, který sedí do vašeho rozpočtu",
+    "kicker": "Průvodce 2025",
+    "tagline": "Potřebujete profesionálního zapisovatele, ne jen nahrávání. Zápisník AI kombinuje čitelné zápisy s nejflexibilnějším ceníkem na trhu."
+  },
+  "meta": {
+    "category": "Průvodce",
+    "published": "Publikováno"
+  },
+  "nav": {
+    "active": "Průvodce zapisovatelem",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Zobrazit kompletní ceník",
+    "h2": "Ceník: Plaťte jen za to, co využijete",
+    "lead": "Většina aplikací vás nutí do drahého měsíčního předplatného. Zápisník AI je jiný. Nabízíme model 'Pay-as-you-go' vedle neomezených tarifů.",
+    "options": [
+      {
+        "desc": "Ideální pro občasné porady. Kupte si minuty, které **NIKDY nepropadnou**.",
+        "highlight": "Žádný měsíční poplatek",
+        "price": "Od 1,99 $",
+        "title": "Časové balíčky",
+        "type": "Občasné použití"
+      },
+      {
+        "desc": "Pro profesionály s denními schůzkami. Nahrávejte neomezeně.",
+        "highlight": "Nejlepší hodnota",
+        "price": "16,99 $ / měsíc",
+        "title": "Neomezené předplatné",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Zobrazit ceny v:"
+  },
+  "seo": {
+    "description": "Hledáte 'cena AI zápisu'? Zápisník AI nabízí nejlépe strukturované zápisy a flexibilní náklady. Od balíčků za 1,99 $ (bez expirace) po neomezený tarif.",
+    "ld": {
+      "description": "Kompletní průvodce funkcemi a cenami Zápisník AI. Jediný AI zapisovatel s časovými balíčky bez data expirace.",
+      "headline": "Nejlepší AI zapisovatel: Ceny a funkce"
+    },
+    "ogDescription": "Neplaťte za předplatné, které nevyužijete. Zápisník AI se přizpůsobí vašemu kalendáři i rozpočtu.",
+    "ogTitle": "Nejlepší AI zapisovatel (2025): Ceny a funkce",
+    "title": "(2025) Nejlepší AI zapisovatel: Ceny a test | Zápisník AI"
+  }
+}

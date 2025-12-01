@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "compare": {
+    "h2": "Proces-verbal AI vs Aplicații Standard",
+    "rows": [
+      [
+        "Model de preț",
+        "Folosești sau pierzi (Resetare lunară)",
+        "Flexibil (Pachete fără expirare)"
+      ],
+      [
+        "Calitatea rezultatului",
+        "Deseori doar transcriere",
+        "Procese-verbale structurate și acționabile"
+      ],
+      [
+        "Platformă",
+        "Focus pe Web",
+        "Aplicație nativă iOS + Web"
+      ]
+    ],
+    "th": [
+      "Funcționalitate",
+      "Alte Aplicații",
+      "Proces-verbal AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Descarcă aplicația iOS",
+    "openBrowser": "Deschide în browser"
+  },
+  "faq": {
+    "h2": "FAQ: Întrebări despre Secretarul AI",
+    "items": [
+      {
+        "a": "Da! Proces-verbal AI îți oferă **un tichet gratuit de 3 minute în fiecare zi**. Perfect pentru notițe rapide sau testarea calității.",
+        "q": "Există o opțiune gratuită?"
+      },
+      {
+        "a": "Spre deosebire de alte servicii, pachetele noastre de timp (ex. 120 min pentru 1,99 $) **nu expiră niciodată**. Cumperi azi, folosești la anul. Plătești doar pentru timpul necesar.",
+        "q": "Cum funcționează Pachetele de Timp? Expiră?"
+      },
+      {
+        "a": "Absolut. Proces-verbal AI suportă peste 100 de limbi, fiind secretarul ideal pentru ședințe internaționale.",
+        "q": "Suportă mai multe limbi?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI-ul ascultă conversațiile haotice și le organizează instantaneu în subiecte clare. Fără ziduri de text.",
+        "icon": "structure",
+        "title": "Structurează haosul"
+      },
+      {
+        "desc": "Sarcina principală a unui secretar este să urmărească 'Cine ce face'. Proces-verbal AI extrage automat acțiunile.",
+        "icon": "action",
+        "title": "Captează deciziile"
+      },
+      {
+        "desc": "Folosind Gemini 2.5 & GPT-5, sugerează pașii strategici următori bazați pe contextul ședinței.",
+        "icon": "strategy",
+        "title": "Gândește în perspectivă"
+      }
+    ],
+    "h2": "Ce definește un 'Secretar' pro?",
+    "lead": "Un reportofon standard îți dă doar text. Un adevărat Secretar AI precum Proces-verbal AI îți oferă claritate. Iată cum gestionează ședințele:"
+  },
+  "hero": {
+    "badges": [
+      "Secretar AI",
+      "Prețuri flexibile",
+      "iOS & Web"
+    ],
+    "h1": "Secretarul AI care se potrivește bugetului tău",
+    "kicker": "Ghid 2025",
+    "tagline": "Ai nevoie de un secretar profesionist, nu doar de un reportofon. Proces-verbal AI combină minutele lizibile cu cel mai flexibil model de preț de pe piață."
+  },
+  "meta": {
+    "category": "Ghid",
+    "published": "Publicat"
+  },
+  "nav": {
+    "active": "Ghid Proces-verbal",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Vezi lista completă de prețuri",
+    "h2": "Prețuri: Plătește doar utilizarea",
+    "lead": "Majoritatea aplicațiilor te forțează la abonamente lunare scumpe. Proces-verbal AI e diferit. Oferim un model 'Pay-as-you-go' alături de planuri nelimitate.",
+    "options": [
+      {
+        "desc": "Perfect pentru ședințe ocazionale. Cumpără minute care **NU expiră NICIODATĂ**.",
+        "highlight": "Fără taxă lunară",
+        "price": "De la 1,99 $",
+        "title": "Pachete de Timp",
+        "type": "Utilizare Ocazională"
+      },
+      {
+        "desc": "Pentru profesioniști cu ședințe zilnice. Înregistrează nelimitat.",
+        "highlight": "Cea mai bună valoare",
+        "price": "16,99 $ / lună",
+        "title": "Abonament Nelimitat",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Prețuri în:"
+  },
+  "seo": {
+    "description": "Cauți 'preț proces-verbal AI'? Proces-verbal AI oferă cele mai structurate notițe și costuri flexibile. De la pachete de 1,99 $ (fără expirare) la nelimitat.",
+    "ld": {
+      "description": "Ghid complet pentru funcțiile și prețurile Proces-verbal AI. Singurul secretar AI cu pachete de timp fără dată de expirare.",
+      "headline": "Cel mai bun Secretar AI: Prețuri și Funcții"
+    },
+    "ogDescription": "Nu plăti pentru abonamente pe care nu le folosești. Proces-verbal AI este secretarul care se adaptează programului tău.",
+    "ogTitle": "Cel mai bun Secretar AI (2025): Prețuri și Funcții",
+    "title": "(2025) Cel mai bun Secretar AI: Preț și Test | Proces-verbal AI"
+  }
+}

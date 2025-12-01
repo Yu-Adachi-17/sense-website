@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Início Ata AI"
+  },
+  "compare": {
+    "h2": "Ata AI vs Apps Padrão",
+    "rows": [
+      [
+        "Modelo de Preço",
+        "Use ou perca (Reinicia mensalmente)",
+        "Flexível (Pacotes sem validade)"
+      ],
+      [
+        "Qualidade do Output",
+        "Muitas vezes apenas transcrição",
+        "Atas estruturadas e acionáveis"
+      ],
+      [
+        "Plataforma",
+        "Foco em Web",
+        "App Nativo iOS + Web"
+      ]
+    ],
+    "th": [
+      "Funcionalidade",
+      "Outros Apps",
+      "Ata AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Baixar app iOS",
+    "openBrowser": "Abrir no navegador"
+  },
+  "faq": {
+    "h2": "FAQ: Perguntas sobre o Tomador de Atas IA",
+    "items": [
+      {
+        "a": "Sim! O Ata AI oferece **um ticket gratuito de 3 minutos todos os dias**. Perfeito para notas rápidas ou testar a qualidade.",
+        "q": "Existe uma opção gratuita?"
+      },
+      {
+        "a": "Ao contrário de outros serviços, nossos pacotes de tempo (ex. 120 min por $1.99) **nunca expiram**. Compre hoje, use no próximo ano. Você só paga pelo tempo que precisa.",
+        "q": "Como funcionam os Pacotes de Tempo? Eles expiram?"
+      },
+      {
+        "a": "Com certeza. O Ata AI suporta mais de 100 idiomas, tornando-o o redator ideal para reuniões internacionais.",
+        "q": "Suporta múltiplos idiomas?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "A IA ouve conversas caóticas e as organiza instantaneamente em tópicos claros. Chega de paredões de texto.",
+        "icon": "structure",
+        "title": "Estrutura o caos"
+      },
+      {
+        "desc": "O trabalho principal de um redator de atas é rastrear 'Quem faz o quê'. O Ata AI extrai itens de ação automaticamente.",
+        "icon": "action",
+        "title": "Captura decisões"
+      },
+      {
+        "desc": "Usando Gemini 2.5 & GPT-5, sugere os próximos passos estratégicos com base no contexto da reunião.",
+        "icon": "strategy",
+        "title": "Pensa no futuro"
+      }
+    ],
+    "h2": "O que define um 'Tomador de Atas' pro?",
+    "lead": "Um gravador padrão só te dá texto. Um verdadeiro Tomador de Atas IA como o Ata AI traz clareza. É assim que ele lida com suas reuniões:"
+  },
+  "hero": {
+    "badges": [
+      "Tomador de Atas IA",
+      "Preço Flexível",
+      "iOS e Web"
+    ],
+    "h1": "O Tomador de Atas IA que cabe no seu orçamento",
+    "kicker": "Guia 2025",
+    "tagline": "Você precisa de um redator de atas profissional, não apenas um gravador. O Ata AI combina atas legíveis com o modelo de preços mais flexível do mercado."
+  },
+  "meta": {
+    "category": "Guia",
+    "published": "Publicado"
+  },
+  "nav": {
+    "active": "Guia de Atas",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Ver tabela de preços completa",
+    "h2": "Preços: Pague apenas pelo uso",
+    "lead": "A maioria dos apps força assinaturas mensais caras. O Ata AI é diferente. Oferecemos um modelo 'Pay-as-you-go' ao lado de planos ilimitados.",
+    "options": [
+      {
+        "desc": "Perfeito para reuniões ocasionais. Compre minutos que **NUNCA expiram**.",
+        "highlight": "Sem taxa mensal",
+        "price": "A partir de $1.99",
+        "title": "Pacotes de Tempo",
+        "type": "Uso Ocasional"
+      },
+      {
+        "desc": "Para profissionais com reuniões diárias. Grave sem limites.",
+        "highlight": "Melhor Valor",
+        "price": "$16.99 / mês",
+        "title": "Assinatura Ilimitada",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Ver preços em:"
+  },
+  "seo": {
+    "description": "Procurando 'preço ata IA'? O Ata AI oferece as notas mais estruturadas e custos flexíveis. De pacotes de $1.99 (sem validade) ao ilimitado.",
+    "ld": {
+      "description": "Guia completo de recursos e preços do Ata AI. O único tomador de atas IA com pacotes de tempo sem data de validade.",
+      "headline": "O Melhor Tomador de Atas IA: Preços e Recursos"
+    },
+    "ogDescription": "Não pague por assinaturas que você não usa. O Ata AI é o redator que se adapta à sua agenda e bolso.",
+    "ogTitle": "O Melhor Tomador de Atas IA (2025): Preços e Recursos",
+    "title": "(2025) O Melhor Tomador de Atas IA: Preço e Teste | Ata AI"
+  }
+}

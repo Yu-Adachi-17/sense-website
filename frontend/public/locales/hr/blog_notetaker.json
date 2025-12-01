@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Naslovnica AI Zapisnik"
+  },
+  "compare": {
+    "h2": "AI Zapisnik vs. Standardne aplikacije",
+    "rows": [
+      [
+        "Model cijena",
+        "Iskoristi ili izgubi (Mjesečni reset)",
+        "Fleksibilno (Paketi bez isteka roka)"
+      ],
+      [
+        "Kvaliteta rezultata",
+        "Često samo transkript",
+        "Strukturirani zapisnik s zadacima"
+      ],
+      [
+        "Platforma",
+        "Glavnom Web",
+        "Nativna iOS aplikacija + Web"
+      ]
+    ],
+    "th": [
+      "Značajka",
+      "Druge aplikacije",
+      "AI Zapisnik"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Preuzmi iOS aplikaciju",
+    "openBrowser": "Otvori u pregledniku"
+  },
+  "faq": {
+    "h2": "FAQ: Pitanja o AI Zapisničaru",
+    "items": [
+      {
+        "a": "Da! AI Zapisnik vam daje **besplatnu kartu od 3 minute svaki dan**. Savršeno za brze bilješke ili testiranje kvalitete.",
+        "q": "Postoji li besplatna opcija?"
+      },
+      {
+        "a": "Za razliku od drugih, naši vremenski paketi (npr. 120 min za 1,99 $) **nikada ne istječu**. Kupite danas, koristite sljedeće godine. Plaćate samo ono što trebate.",
+        "q": "Kako funkcioniraju vremenski paketi? Istječu li?"
+      },
+      {
+        "a": "Apsolutno. AI Zapisnik podržava više od 100 jezika, što ga čini idealnim zapisničarom za međunarodne sastanke.",
+        "q": "Podržava li više jezika?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI sluša kaotične razgovore i odmah ih organizira u jasne teme. Nema više zidova teksta.",
+        "icon": "structure",
+        "title": "Strukturira kaos"
+      },
+      {
+        "desc": "Glavni posao zapisničara je pratiti 'Tko što radi'. AI Zapisnik automatski izvlači zadatke.",
+        "icon": "action",
+        "title": "Hvata odluke"
+      },
+      {
+        "desc": "Koristeći Gemini 2.5 & GPT-5, predlaže strateške iduće korake na temelju konteksta sastanka.",
+        "icon": "strategy",
+        "title": "Misli unaprijed"
+      }
+    ],
+    "h2": "Što čini profesionalnog 'Zapisničara'?",
+    "lead": "Običan snimač daje vam samo tekst. Pravi AI Zapisničar poput AI Zapisnika daje vam jasnoću. Evo kako on obrađuje vaše sastanke:"
+  },
+  "hero": {
+    "badges": [
+      "AI Zapisničar",
+      "Fleksibilne cijene",
+      "iOS i Web"
+    ],
+    "h1": "AI Zapisničar koji odgovara vašem budžetu",
+    "kicker": "Vodič 2025",
+    "tagline": "Trebate profesionalnog zapisničara, ne samo diktafon. AI Zapisnik kombinira čitljive zapisnike s najfleksibilnijim modelom cijena na tržištu."
+  },
+  "meta": {
+    "category": "Vodič",
+    "published": "Objavljeno"
+  },
+  "nav": {
+    "active": "Vodič za zapisnike",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Vidi cjenik",
+    "h2": "Cijene: Platite samo korištenje",
+    "lead": "Većina aplikacija vas tjera na skupe mjesečne pretplate. AI Zapisnik je drugačiji. Nudimo 'Pay-as-you-go' model uz neograničene pretplate.",
+    "options": [
+      {
+        "desc": "Savršeno za povremene sastanke. Kupite minute koje **NIKADA ne istječu**.",
+        "highlight": "Bez mjesečne naknade",
+        "price": "Od 1,99 $",
+        "title": "Vremenski paketi",
+        "type": "Povremena upotreba"
+      },
+      {
+        "desc": "Za profesionalce s dnevnim sastancima. Snimajte neograničeno.",
+        "highlight": "Najbolja vrijednost",
+        "price": "16,99 $ / mj",
+        "title": "Neograničena pretplata",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Cijene u:"
+  },
+  "seo": {
+    "description": "Tražite 'cijena AI zapisnika'? AI Zapisnik nudi najstrukturiranije bilješke i fleksibilne troškove. Od paketa za 1,99 $ (bez isteka) do neograničenog plana.",
+    "ld": {
+      "description": "Potpuni vodič kroz funkcije i cijene AI Zapisnika. Jedini AI zapisničar s vremenskim paketima bez datuma isteka.",
+      "headline": "Najbolji AI Zapisničar: Cijene i Funkcije"
+    },
+    "ogDescription": "Ne plaćajte pretplate koje ne koristite. AI Zapisnik je zapisničar koji se prilagođava vašem rasporedu i budžetu.",
+    "ogTitle": "Najbolji AI Zapisničar (2025): Cijene i Funkcije",
+    "title": "(2025) Najbolji AI Zapisničar: Cijena i Test | AI Zapisnik"
+  }
+}

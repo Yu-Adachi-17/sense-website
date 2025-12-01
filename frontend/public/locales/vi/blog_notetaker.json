@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "compare": {
+    "h2": "Biên bản AI so với Ứng dụng thường",
+    "rows": [
+      [
+        "Mô hình giá",
+        "Dùng hoặc mất (Đặt lại hàng tháng)",
+        "Linh hoạt (Gói không hết hạn)"
+      ],
+      [
+        "Chất lượng đầu ra",
+        "Thường chỉ là văn bản thô",
+        "Biên bản có cấu trúc & hành động"
+      ],
+      [
+        "Nền tảng",
+        "Tập trung Web",
+        "Ứng dụng iOS gốc + Web"
+      ]
+    ],
+    "th": [
+      "Tính năng",
+      "Ứng dụng khác",
+      "Biên bản AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Tải ứng dụng iOS",
+    "openBrowser": "Mở trong trình duyệt"
+  },
+  "faq": {
+    "h2": "FAQ: Câu hỏi về Thư ký AI",
+    "items": [
+      {
+        "a": "Có! Biên bản AI tặng bạn **vé miễn phí 3 phút mỗi ngày**. Hoàn hảo để ghi chú nhanh hoặc kiểm tra chất lượng.",
+        "q": "Có tùy chọn miễn phí không?"
+      },
+      {
+        "a": "Không giống các dịch vụ khác, các gói thời gian của chúng tôi (ví dụ: 120 phút với giá $1.99) **không bao giờ hết hạn**. Mua hôm nay, dùng năm sau. Bạn chỉ trả tiền cho thời gian bạn cần.",
+        "q": "Gói Thời gian hoạt động thế nào? Có hết hạn không?"
+      },
+      {
+        "a": "Chắc chắn rồi. Biên bản AI hỗ trợ hơn 100 ngôn ngữ, biến nó thành thư ký lý tưởng cho các cuộc họp quốc tế.",
+        "q": "Có hỗ trợ đa ngôn ngữ không?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "AI lắng nghe các cuộc trò chuyện lộn xộn và sắp xếp ngay lập tức thành các chủ đề rõ ràng. Không còn những đoạn văn bản dài dòng.",
+        "icon": "structure",
+        "title": "Sắp xếp sự hỗn độn"
+      },
+      {
+        "desc": "Nhiệm vụ chính của thư ký là theo dõi 'Ai làm gì'. Biên bản AI tự động trích xuất các mục hành động.",
+        "icon": "action",
+        "title": "Nắm bắt quyết định"
+      },
+      {
+        "desc": "Sử dụng Gemini 2.5 & GPT-5, nó đề xuất các bước chiến lược tiếp theo dựa trên ngữ cảnh cuộc họp.",
+        "icon": "strategy",
+        "title": "Tư duy chiến lược"
+      }
+    ],
+    "h2": "Điều gì tạo nên một 'Thư ký' chuyên nghiệp?",
+    "lead": "Máy ghi âm thường chỉ cho bạn văn bản. Một Thư ký AI thực thụ như Biên bản AI mang lại sự rõ ràng. Đây là cách nó xử lý cuộc họp của bạn:"
+  },
+  "hero": {
+    "badges": [
+      "Thư ký AI",
+      "Giá linh hoạt",
+      "iOS & Web"
+    ],
+    "h1": "Thư ký AI phù hợp với ngân sách của bạn",
+    "kicker": "Hướng dẫn 2025",
+    "tagline": "Bạn cần một thư ký chuyên nghiệp, không chỉ là máy ghi âm. Biên bản AI kết hợp các biên bản dễ đọc với mô hình giá linh hoạt nhất thị trường."
+  },
+  "meta": {
+    "category": "Hướng dẫn",
+    "published": "Đã xuất bản"
+  },
+  "nav": {
+    "active": "Hướng dẫn Biên bản",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Xem bảng giá đầy đủ",
+    "h2": "Giá cả: Chỉ trả tiền khi sử dụng",
+    "lead": "Hầu hết các ứng dụng ép bạn đăng ký gói tháng đắt đỏ. Biên bản AI thì khác. Chúng tôi cung cấp mô hình 'Dùng bao nhiêu trả bấy nhiêu' bên cạnh các gói không giới hạn.",
+    "options": [
+      {
+        "desc": "Hoàn hảo cho các cuộc họp không thường xuyên. Mua phút **KHÔNG BAO GIỜ hết hạn**.",
+        "highlight": "Không phí hàng tháng",
+        "price": "Từ $1.99",
+        "title": "Gói Thời gian",
+        "type": "Sử dụng thỉnh thoảng"
+      },
+      {
+        "desc": "Dành cho chuyên gia họp hàng ngày. Ghi âm không giới hạn.",
+        "highlight": "Giá trị nhất",
+        "price": "$16.99 / tháng",
+        "title": "Đăng ký Không giới hạn",
+        "type": "Người dùng thường xuyên"
+      }
+    ],
+    "toggleLabel": "Xem giá bằng:"
+  },
+  "seo": {
+    "description": "Tìm kiếm 'giá thư ký AI'? Biên bản AI cung cấp các ghi chú có cấu trúc nhất và chi phí linh hoạt. Từ gói $1.99 (không hết hạn) đến không giới hạn.",
+    "ld": {
+      "description": "Hướng dẫn đầy đủ về tính năng và giá của Biên bản AI. Thư ký AI duy nhất có gói thời gian không ngày hết hạn.",
+      "headline": "Thư ký AI Tốt nhất: Giá và Tính năng"
+    },
+    "ogDescription": "Đừng trả tiền cho các gói đăng ký bạn không dùng. Biên bản AI là thư ký thích ứng với lịch trình và ngân sách của bạn.",
+    "ogTitle": "Thư ký AI Tốt nhất (2025): Giá và Tính năng",
+    "title": "(2025) Thư ký AI Tốt nhất: Giá và Đánh giá | Biên bản AI"
+  }
+}

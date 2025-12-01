@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Pöytäkirja AI Etusivu"
+  },
+  "compare": {
+    "h2": "Pöytäkirja AI vs. Tavalliset sovellukset",
+    "rows": [
+      [
+        "Hinnoittelu",
+        "Käytä tai menetä (Nollautuu kuukausittain)",
+        "Joustava (Ei vanhenemista)"
+      ],
+      [
+        "Laatu",
+        "Usein pelkkä litterointi",
+        "Jäsennelty, toimenpidekeskeinen pöytäkirja"
+      ],
+      [
+        "Alusta",
+        "Selainpainotteinen",
+        "Natiivi iOS-sovellus + Web"
+      ]
+    ],
+    "th": [
+      "Ominaisuus",
+      "Muut sovellukset",
+      "Pöytäkirja AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "Lataa iOS-sovellus",
+    "openBrowser": "Avaa selaimessa"
+  },
+  "faq": {
+    "h2": "FAQ: Kysymyksiä AI-pöytäkirjurista",
+    "items": [
+      {
+        "a": "Kyllä! Pöytäkirja AI antaa sinulle **ilmaisen 3 minuutin lipun joka päivä**. Täydellinen pikamuistiinpanoihin tai laadun testaamiseen.",
+        "q": "Onko olemassa ilmaisversiota?"
+      },
+      {
+        "a": "Toisin kuin muut palvelut, aikapakettimme (esim. 120 min / 1,99 $) **eivät koskaan vanhene**. Voit ostaa tänään ja käyttää ensi vuonna. Maksat vain tarvitsemastasi ajasta.",
+        "q": "Miten aikapaketit toimivat? Vanhenevatko ne?"
+      },
+      {
+        "a": "Ehdottomasti. Pöytäkirja AI tukee yli 100 kieltä, mikä tekee siitä ihanteellisen pöytäkirjurin kansainvälisiin kokouksiin.",
+        "q": "Tukeeko se useita kieliä?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "Tekoäly kuuntelee sekavaa keskustelua ja järjestää sen heti selkeiksi aiheiksi. Ei enää tekstimuureja.",
+        "icon": "structure",
+        "title": "Jäsentää kaaoksen"
+      },
+      {
+        "desc": "Pöytäkirjurin tärkein tehtävä on kirjata 'Kuka tekee mitä'. Pöytäkirja AI poimii tehtävät automaattisesti.",
+        "icon": "action",
+        "title": "Kirjaa päätökset"
+      },
+      {
+        "desc": "Käyttäen Gemini 2.5 & GPT-5 -malleja, se ehdottaa strategisia seuraavia askeleita kokouksen kontekstin perusteella.",
+        "icon": "strategy",
+        "title": "Ajattelee eteenpäin"
+      }
+    ],
+    "h2": "Mikä tekee ammattimaisen 'Pöytäkirjurin'?",
+    "lead": "Tavallinen tallennin tuottaa vain tekstiä. Todellinen AI-pöytäkirjuri, kuten Pöytäkirja AI, tuo selkeyttä. Näin se käsittelee kokouksesi:"
+  },
+  "hero": {
+    "badges": [
+      "AI-pöytäkirjuri",
+      "Joustava hinnoittelu",
+      "iOS & Web"
+    ],
+    "h1": "AI-pöytäkirjuri, joka sopii budjettiisi",
+    "kicker": "Opas 2025",
+    "tagline": "Tarvitset ammattimaisen pöytäkirjurin, et vain nauhuria. Pöytäkirja AI yhdistää luettavat pöytäkirjat markkinoiden joustavimpaan hinnoitteluun."
+  },
+  "meta": {
+    "category": "Opas",
+    "published": "Julkaistu"
+  },
+  "nav": {
+    "active": "Pöytäkirja-opas",
+    "blog": "Blogi"
+  },
+  "pricing": {
+    "cta": "Katso koko hinnasto",
+    "h2": "Hinnoittelu: Maksa vain käytöstä",
+    "lead": "Useimmat sovellukset pakottavat kalliisiin kuukausitilauksiin. Pöytäkirja AI on erilainen. Tarjoamme 'Pay-as-you-go' -mallin sekä rajoittamattoman käytön.",
+    "options": [
+      {
+        "desc": "Täydellinen satunnaisiin kokouksiin. Osta minuutteja, jotka **EIVÄT vanhene**.",
+        "highlight": "Ei kuukausimaksua",
+        "price": "Alkaen 1,99 $",
+        "title": "Aikapaketit",
+        "type": "Satunnainen käyttö"
+      },
+      {
+        "desc": "Ammattilaisille päivittäisiin kokouksiin. Tallenna rajattomasti.",
+        "highlight": "Paras arvo",
+        "price": "16,99 $ / kk",
+        "title": "Rajaton tilaus",
+        "type": "Tehokäyttäjä"
+      }
+    ],
+    "toggleLabel": "Hinnat valuutassa:"
+  },
+  "seo": {
+    "description": "Etsitkö 'pöytäkirja AI hinta'? Pöytäkirja AI tarjoaa jäsennellyimmät muistiinpanot ja joustavat kulut. 1,99 $ paketit (ei vanhene) tai rajaton käyttö.",
+    "ld": {
+      "description": "Täydellinen opas Pöytäkirja AI:n ominaisuuksiin ja hintoihin. Ainoa AI-pöytäkirjuri, jonka aikapaketeilla ei ole viimeistä käyttöpäivää.",
+      "headline": "Paras AI-pöytäkirjuri: Hinnat ja toiminnot"
+    },
+    "ogDescription": "Älä maksa turhista tilauksista. Pöytäkirja AI on pöytäkirjuri, joka joustaa aikataulusi ja budjettisi mukaan.",
+    "ogTitle": "Paras AI-pöytäkirjuri (2025): Hinnat ja toiminnot",
+    "title": "(2025) Paras AI-pöytäkirjuri: Hinta & Testi | Pöytäkirja AI"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "compare": {
+    "h2": "Jegyzőkönyv AI vs. Hagyományos alkalmazások",
+    "rows": [
+      [
+        "Árazási modell",
+        "Használd vagy veszítsd el (Havi nullázás)",
+        "Rugalmas (Lejárat nélküli csomagok)"
+      ],
+      [
+        "Kimenet minősége",
+        "Gyakran csak nyers leirat",
+        "Strukturált, feladatorientált jegyzőkönyv"
+      ],
+      [
+        "Platform",
+        "Főleg Web",
+        "Natív iOS app + Web"
+      ]
+    ],
+    "th": [
+      "Funkció",
+      "Más alkalmazások",
+      "Jegyzőkönyv AI"
+    ]
+  },
+  "cta": {
+    "downloadIOS": "iOS app letöltése",
+    "openBrowser": "Megnyitás böngészőben"
+  },
+  "faq": {
+    "h2": "GYIK: Kérdések az AI Jegyzőkönyvvezetőről",
+    "items": [
+      {
+        "a": "Igen! A Jegyzőkönyv AI **minden nap ad egy ingyenes 3 perces jegyet**. Tökéletes gyors jegyzetekhez vagy a minőség teszteléséhez.",
+        "q": "Van ingyenes lehetőség?"
+      },
+      {
+        "a": "Más szolgáltatásokkal ellentétben az időcsomagjaink (pl. 120 perc 1,99 dollárért) **soha nem járnak le**. Megveheti ma, és használhatja jövőre. Csak azért fizet, amit használ.",
+        "q": "Hogyan működnek az időcsomagok? Lejárnak?"
+      },
+      {
+        "a": "Természetesen. A Jegyzőkönyv AI több mint 100 nyelvet támogat, így ideális jegyzőkönyvvezető nemzetközi megbeszélésekhez.",
+        "q": "Támogat több nyelvet is?"
+      }
+    ]
+  },
+  "features": {
+    "cards": [
+      {
+        "desc": "Az AI meghallgatja a zavaros beszélgetéseket, és azonnal tiszta témákba rendezi azokat. Nincsenek többé átláthatatlan szövegfalak.",
+        "icon": "structure",
+        "title": "Rendszerezi a káoszt"
+      },
+      {
+        "desc": "A jegyzőkönyvvezető fő feladata rögzíteni, hogy 'Ki mit csinál'. A Jegyzőkönyv AI automatikusan kigyűjti a feladatokat.",
+        "icon": "action",
+        "title": "Rögzíti a döntéseket"
+      },
+      {
+        "desc": "A Gemini 2.5 és GPT-5 modellek segítségével stratégiai következő lépéseket javasol a megbeszélés kontextusa alapján.",
+        "icon": "strategy",
+        "title": "Előre gondolkodik"
+      }
+    ],
+    "h2": "Mitől profi egy 'Jegyzőkönyvvezető'?",
+    "lead": "Egy átlagos diktafon csak szöveget ad. Egy igazi AI Jegyzőkönyvvezető, mint a Jegyzőkönyv AI, átláthatóságot biztosít. Így kezeli az értekezleteket:"
+  },
+  "hero": {
+    "badges": [
+      "AI Jegyzőkönyvvezető",
+      "Rugalmas árazás",
+      "iOS és Web"
+    ],
+    "h1": "Az AI jegyzőkönyvvezető, amely illik a költségvetéséhez",
+    "kicker": "2025-ös útmutató",
+    "tagline": "Önnek profi jegyzőkönyvvezetőre van szüksége, nem csak egy felvevőre. A Jegyzőkönyv AI ötvözi az olvasható jegyzőkönyveket a piac legrugalmasabb árazásával."
+  },
+  "meta": {
+    "category": "Útmutató",
+    "published": "Közzétéve"
+  },
+  "nav": {
+    "active": "Jegyzőkönyv útmutató",
+    "blog": "Blog"
+  },
+  "pricing": {
+    "cta": "Teljes árlista megtekintése",
+    "h2": "Árazás: Csak a használatért fizessen",
+    "lead": "A legtöbb alkalmazás drága havi előfizetésekbe kényszeríti. A Jegyzőkönyv AI más. 'Pay-as-you-go' modellt kínálunk a korlátlan csomagok mellett.",
+    "options": [
+      {
+        "desc": "Ideális alkalmi megbeszélésekhez. Vásároljon perceket, amelyek **SOHA nem járnak le**.",
+        "highlight": "Nincs havidíj",
+        "price": "1,99 $-tól",
+        "title": "Időcsomagok",
+        "type": "Alkalmi használat"
+      },
+      {
+        "desc": "Profiknak napi értekezletekhez. Rögzítsen korlátlanul.",
+        "highlight": "Legjobb ár-érték",
+        "price": "16,99 $ / hó",
+        "title": "Korlátlan előfizetés",
+        "type": "Power User"
+      }
+    ],
+    "toggleLabel": "Árak megjelenítése:"
+  },
+  "seo": {
+    "description": "'AI jegyzőkönyv árakat' keres? A Jegyzőkönyv AI kínálja a legstrukturáltabb jegyzeteket és rugalmas költségeket. 1,99 $-os csomagoktól (lejárat nélkül) a korlátlanig.",
+    "ld": {
+      "description": "Teljes útmutató a Jegyzőkönyv AI funkcióihoz és áraihoz. Az egyetlen AI jegyzőkönyvvezető lejárati dátum nélküli időcsomagokkal.",
+      "headline": "A legjobb AI Jegyzőkönyvvezető: Árak és Funkciók"
+    },
+    "ogDescription": "Ne fizessen kihasználatlan előfizetésekért. A Jegyzőkönyv AI az a jegyzőkönyvvezető, amely alkalmazkodik naptárához és pénztárcájához.",
+    "ogTitle": "A legjobb AI Jegyzőkönyvvezető (2025): Árak és Funkciók",
+    "title": "(2025) A legjobb AI Jegyzőkönyvvezető: Ár és Teszt | Jegyzőkönyv AI"
+  }
+}
