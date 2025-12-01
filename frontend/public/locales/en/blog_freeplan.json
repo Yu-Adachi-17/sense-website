@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "cta": {
+    "downloadIOS": "Download iOS app",
+    "openBrowser": "Open in browser",
+    "text": "Try it risk-free today"
+  },
+  "hero": {
+    "h1": "Stop Paying for AI Note Takers You Might Not Use",
+    "kicker": "Honest Pricing",
+    "tagline": "Have you ever subscribed to an app only to realize it wasn't what you needed? We believe you shouldn't have to pay to find out if a service works."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Published"
+  },
+  "nav": {
+    "active": "Free Plan Guide",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "The 'Subscription Trap'",
+    "p1": "It's a common story: You download a note taker app, hit a paywall immediately, and sign up for a trial that turns into a monthly charge. Then you realize the app doesn't quite fit your workflow.",
+    "p2": "We don't want that. We want you to be 100% convinced before you commit to a subscription."
+  },
+  "philosophy": {
+    "h2": "Our Promise",
+    "p1": "Minutes.AI aims to be the best note taker for many, but we know we can't be perfect for everyone (100 out of 100 people).",
+    "p2": "That's why we offer these low-risk options. We only want you to subscribe when you are sure we are the right partner for your meetings."
+  },
+  "seo": {
+    "description": "Tired of paying for apps before you know if they work? Minutes.AI offers a free daily ticket and non-expiring $1.99 packs so you can test our AI Note Taker risk-free.",
+    "ld": {
+      "description": "Minutes.AI provides a risk-free way to test AI note taking. Includes a daily free 3-minute ticket and low-cost non-expiring time packs.",
+      "headline": "Free AI Note Taker Options: Daily Tickets & Non-Expiring Packs"
+    },
+    "ogDescription": "We hate 'paywall traps' too. That's why we give you free daily minutes and $1.99 non-expiring packs. See if we fit your needs first.",
+    "ogTitle": "Don't Subscribe Blindly. Try Minutes.AI Risk-Free.",
+    "title": "Free AI Note Taker: Try Minutes.AI Without The Subscription Risk"
+  },
+  "solution_free": {
+    "h2": "Solution 1: The Daily Free Ticket",
+    "list": [
+      "Does the AI understand my voice?",
+      "Is the summary format readable?",
+      "Does the UI feel right?"
+    ],
+    "note": "Use it daily to record quick stand-ups or voice memos. Completely free.",
+    "p1": "Every single user gets a **3-minute free ticket, every single day**.",
+    "p2": "We know 3 minutes sounds short. But it's enough to test:"
+  },
+  "solution_paid": {
+    "h2": "Solution 2: The $1.99 'Forever' Pack",
+    "p1": "Need more time to test? Don't buy a month yet. We offer a **Trial Pack (120 mins) for just $1.99**.",
+    "p2": "The best part? **It never expires.**",
+    "p3": "You can buy it today and use the minutes next month or next year. It's the perfect safety net for 'occasional' users or those still deciding."
+  }
+}

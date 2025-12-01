@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "cta": {
+    "downloadIOS": "Tải ứng dụng iOS",
+    "openBrowser": "Mở trong trình duyệt",
+    "text": "Thử nghiệm không rủi ro ngay hôm nay"
+  },
+  "hero": {
+    "h1": "Ngừng trả tiền cho AI mà có thể bạn không dùng",
+    "kicker": "Giá trung thực",
+    "tagline": "Bạn đã bao giờ đăng ký một ứng dụng chỉ để nhận ra nó không phải thứ bạn cần? Chúng tôi tin rằng bạn không nên phải trả tiền để biết một dịch vụ có hoạt động hay không."
+  },
+  "meta": {
+    "category": "Hướng dẫn",
+    "published": "Đã xuất bản"
+  },
+  "nav": {
+    "active": "Hướng dẫn Gói Miễn phí",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Cái bẫy đăng ký'",
+    "p1": "Đó là một câu chuyện phổ biến: Bạn tải xuống một ứng dụng ghi chú, gặp ngay bức tường phí và đăng ký dùng thử, sau đó chuyển thành phí hàng tháng. Rồi bạn nhận ra ứng dụng không phù hợp với quy trình làm việc của mình.",
+    "p2": "Chúng tôi không muốn điều đó. Chúng tôi muốn bạn bị thuyết phục 100% trước khi cam kết đăng ký."
+  },
+  "philosophy": {
+    "h2": "Lời hứa của chúng tôi",
+    "p1": "Biên bản AI đặt mục tiêu trở thành thư ký tốt nhất cho nhiều người, nhưng chúng tôi biết mình không thể hoàn hảo cho tất cả mọi người (100 trên 100 người).",
+    "p2": "Đó là lý do tại sao chúng tôi cung cấp các tùy chọn rủi ro thấp này. Chúng tôi chỉ muốn bạn đăng ký khi bạn chắc chắn rằng chúng tôi là đối tác phù hợp cho các cuộc họp của bạn."
+  },
+  "seo": {
+    "description": "Mệt mỏi vì phải trả tiền cho ứng dụng trước khi biết chúng có hoạt động không? Biên bản AI cung cấp vé miễn phí hàng ngày và các gói $1.99 không hết hạn để bạn thử nghiệm không rủi ro.",
+    "ld": {
+      "description": "Biên bản AI cung cấp cách không rủi ro để thử nghiệm ghi chú AI. Bao gồm vé miễn phí 3 phút hàng ngày và các gói thời gian giá rẻ không ngày hết hạn.",
+      "headline": "Tùy chọn Thư ký AI Miễn phí: Vé hàng ngày & Gói không hết hạn"
+    },
+    "ogDescription": "Chúng tôi cũng ghét 'bẫy trả phí'. Đó là lý do chúng tôi tặng bạn phút miễn phí hàng ngày và gói $1.99 không bao giờ hết hạn. Hãy thử chúng tôi trước.",
+    "ogTitle": "Đừng đăng ký mù quáng. Hãy thử Biên bản AI không rủi ro.",
+    "title": "Thư ký AI Miễn phí: Thử Biên bản AI Không Rủi ro Đăng ký"
+  },
+  "solution_free": {
+    "h2": "Giải pháp 1: Vé Miễn phí Hàng ngày",
+    "list": [
+      "AI có hiểu giọng tôi không?",
+      "Định dạng tóm tắt có dễ đọc không?",
+      "Giao diện có thoải mái không?"
+    ],
+    "note": "Sử dụng hàng ngày cho các ghi chú thoại nhanh. Hoàn toàn miễn phí.",
+    "p1": "Mỗi người dùng nhận được **một vé miễn phí 3 phút, mỗi ngày**.",
+    "p2": "Chúng tôi biết 3 phút nghe có vẻ ngắn. Nhưng đủ để kiểm tra:"
+  },
+  "solution_paid": {
+    "h2": "Giải pháp 2: Gói 'Mãi mãi' giá $1.99",
+    "p1": "Cần thêm thời gian để thử nghiệm? Đừng mua một tháng vội. Chúng tôi cung cấp **Gói Thử nghiệm (120 phút) chỉ với $1.99**.",
+    "p2": "Phần tuyệt nhất? **Nó không bao giờ hết hạn.**",
+    "p3": "Bạn có thể mua hôm nay và dùng số phút vào tháng sau hoặc năm sau. Đó là lưới an toàn hoàn hảo cho người dùng 'thỉnh thoảng' hoặc những người còn lưỡng lự."
+  }
+}

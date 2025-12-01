@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Strona główna Protokół AI"
+  },
+  "cta": {
+    "downloadIOS": "Pobierz aplikację iOS",
+    "openBrowser": "Otwórz w przeglądarce",
+    "text": "Wypróbuj bez ryzyka już dziś"
+  },
+  "hero": {
+    "h1": "Przestań płacić za AI, którego możesz nie używać",
+    "kicker": "Uczciwe Ceny",
+    "tagline": "Czy kiedykolwiek subskrybowałeś aplikację tylko po to, by zdać sobie sprawę, że to nie to, czego potrzebujesz? Wierzymy, że nie powinieneś płacić, aby dowiedzieć się, czy usługa działa."
+  },
+  "meta": {
+    "category": "Przewodnik",
+    "published": "Opublikowano"
+  },
+  "nav": {
+    "active": "Przewodnik po darmowym planie",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Pułapka Subskrypcji'",
+    "p1": "To częsta historia: pobierasz aplikację do notatek, natychmiast trafiasz na ścianę płatności i rejestrujesz się na okres próbny, który zamienia się w miesięczną opłatę. Wtedy zdajesz sobie sprawę, że aplikacja nie pasuje do Twojego stylu pracy.",
+    "p2": "My tego nie chcemy. Chcemy, abyś był w 100% przekonany, zanim zdecydujesz się na subskrypcję."
+  },
+  "philosophy": {
+    "h2": "Nasza Obietnica",
+    "p1": "Protokół AI dąży do bycia najlepszym protokolantem dla wielu, ale wiemy, że nie możemy być idealni dla wszystkich (100 na 100 osób).",
+    "p2": "Dlatego oferujemy te opcje o niskim ryzyku. Chcemy, abyś subskrybował tylko wtedy, gdy masz pewność, że jesteśmy właściwym partnerem dla Twoich spotkań."
+  },
+  "seo": {
+    "description": "Masz dość płacenia za aplikacje, zanim dowiesz się, czy działają? Protokół AI oferuje darmowy bilet dzienny i pakiety za 1,99 $ bez daty ważności, abyś mógł testować bez ryzyka.",
+    "ld": {
+      "description": "Protokół AI zapewnia wolny od ryzyka sposób na przetestowanie notowania AI. Obejmuje darmowy bilet 3-minutowy dziennie i tanie pakiety czasowe bez wygasania.",
+      "headline": "Darmowe Opcje Protokolanta AI: Bilety Dzienne i Pakiety Bez Wygasania"
+    },
+    "ogDescription": "My też nienawidzimy 'pułapek płatniczych'. Dlatego dajemy Ci darmowe minuty dzienne i pakiety za 1,99 $, które nigdy nie przepadają. Sprawdź nas najpierw.",
+    "ogTitle": "Nie subskrybuj w ciemno. Wypróbuj Protokół AI bez ryzyka.",
+    "title": "Darmowy Protokolant AI: Wypróbuj Protokół AI Bez Ryzyka Subskrypcji"
+  },
+  "solution_free": {
+    "h2": "Rozwiązanie 1: Darmowy Bilet Dzienny",
+    "list": [
+      "Czy AI rozumie mój głos?",
+      "Czy format podsumowania jest czytelny?",
+      "Czy interfejs jest wygodny?"
+    ],
+    "note": "Używaj codziennie do szybkich notatek głosowych. Całkowicie za darmo.",
+    "p1": "Każdy użytkownik otrzymuje **darmowy bilet na 3 minuty, każdego dnia**.",
+    "p2": "Wiemy, że 3 minuty brzmią krótko. Ale to wystarczy, aby przetestować:"
+  },
+  "solution_paid": {
+    "h2": "Rozwiązanie 2: Pakiet 'Na Zawsze' za 1,99 $",
+    "p1": "Potrzebujesz więcej czasu na testy? Nie kupuj jeszcze miesiąca. Oferujemy **Pakiet Próbny (120 min) za jedyne 1,99 $**.",
+    "p2": "Najlepsza część? **Nigdy nie wygasa.**",
+    "p3": "Możesz go kupić dzisiaj i użyć minut w przyszłym miesiącu lub roku. To idealna siatka bezpieczeństwa dla 'okazjonalnych' użytkowników lub niezdecydowanych."
+  }
+}

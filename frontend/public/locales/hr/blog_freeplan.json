@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Naslovnica AI Zapisnik"
+  },
+  "cta": {
+    "downloadIOS": "Preuzmi iOS aplikaciju",
+    "openBrowser": "Otvori u pregledniku",
+    "text": "Isprobajte bez rizika danas"
+  },
+  "hero": {
+    "h1": "Prestanite plaćati AI aplikacije koje možda nećete koristiti",
+    "kicker": "Poštene cijene",
+    "tagline": "Jeste li se ikada pretplatili na aplikaciju samo da biste shvatili da to nije ono što vam treba? Vjerujemo da ne biste trebali plaćati kako biste saznali radi li usluga."
+  },
+  "meta": {
+    "category": "Vodič",
+    "published": "Objavljeno"
+  },
+  "nav": {
+    "active": "Vodič za besplatni plan",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Zamka pretplate'",
+    "p1": "To je uobičajena priča: preuzmete aplikaciju za bilješke, odmah udarite u zid plaćanja i prijavite se za probu koja se pretvori u mjesečnu naplatu. Tada shvatite da aplikacija ne odgovara vašem tijeku rada.",
+    "p2": "Mi to ne želimo. Želimo da budete 100% uvjereni prije nego što se obvežete na pretplatu."
+  },
+  "philosophy": {
+    "h2": "Naše obećanje",
+    "p1": "AI Zapisnik želi biti najbolji zapisničar za mnoge, ali znamo da ne možemo biti savršeni za sve (100 od 100 ljudi).",
+    "p2": "Zato nudimo ove opcije niskog rizika. Želimo da se pretplatite samo kada ste sigurni da smo pravi partner za vaše sastanke."
+  },
+  "seo": {
+    "description": "Umorni ste od plaćanja aplikacija prije nego što znate rade li? AI Zapisnik nudi besplatnu dnevnu kartu i pakete od 1,99 $ bez isteka kako biste mogli testirati bez rizika.",
+    "ld": {
+      "description": "AI Zapisnik pruža način testiranja AI bilješki bez rizika. Uključuje dnevnu besplatnu kartu od 3 minute i jeftine vremenske pakete bez isteka.",
+      "headline": "Besplatne opcije AI Zapisnika: Dnevne karte i paketi bez isteka"
+    },
+    "ogDescription": "I mi mrzimo 'zamke plaćanja'. Zato vam dajemo besplatne dnevne minute i pakete od 1,99 $ koji ne istječu. Prvo provjerite odgovaramo li vam.",
+    "ogTitle": "Ne pretplaćujte se na slijepo. Isprobajte AI Zapisnik bez rizika.",
+    "title": "Besplatan AI Zapisničar: Isprobajte AI Zapisnik bez rizika pretplate"
+  },
+  "solution_free": {
+    "h2": "Rješenje 1: Dnevna besplatna karta",
+    "list": [
+      "Razumije li AI moj glas?",
+      "Je li format sažetka čitljiv?",
+      "Osjećam li se ugodno u sučelju?"
+    ],
+    "note": "Koristite svakodnevno za brze glasovne bilješke. Potpuno besplatno.",
+    "p1": "Svaki korisnik dobiva **besplatnu kartu od 3 minute, svaki dan**.",
+    "p2": "Znamo da 3 minute zvuči malo. Ali dovoljno je za testiranje:"
+  },
+  "solution_paid": {
+    "h2": "Rješenje 2: Paket 'Zauvijek' za 1,99 $",
+    "p1": "Trebate više vremena za testiranje? Nemojte još kupovati mjesec dana. Nudimo **Probni paket (120 min) za samo 1,99 $**.",
+    "p2": "Najbolji dio? **Nikada ne istječe.**",
+    "p3": "Možete ga kupiti danas i iskoristiti minute sljedeći mjesec ili sljedeće godine. To je savršena sigurnosna mreža za 'povremene' korisnike ili one koji se još odlučuju."
+  }
+}

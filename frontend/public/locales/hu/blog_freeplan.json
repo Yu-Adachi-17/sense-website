@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "cta": {
+    "downloadIOS": "iOS app letöltése",
+    "openBrowser": "Megnyitás böngészőben",
+    "text": "Próbálja ki kockázatmentesen"
+  },
+  "hero": {
+    "h1": "Ne fizessen olyan AI jegyzőkönyvvezetőért, amit talán nem is használ",
+    "kicker": "Őszinte árazás",
+    "tagline": "Előfizetett már olyan alkalmazásra, amiről később kiderült, hogy nem az, amire szüksége volt? Hiszünk abban, hogy nem kellene fizetnie azért, hogy kiderítse, működik-e egy szolgáltatás."
+  },
+  "meta": {
+    "category": "Útmutató",
+    "published": "Közzétéve"
+  },
+  "nav": {
+    "active": "Ingyenes csomag útmutató",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "Az 'Előfizetési Csapda'",
+    "p1": "Gyakori történet: Letölt egy jegyzetelő alkalmazást, azonnal fizetési falba ütközik, és regisztrál egy próbaverzióra, ami havi díjjá változik. Aztán rájön, hogy az app nem illik a munkafolyamatába.",
+    "p2": "Mi ezt nem akarjuk. Azt szeretnénk, ha 100%-ig meggyőződne, mielőtt elkötelezi magát egy előfizetés mellett."
+  },
+  "philosophy": {
+    "h2": "Ígéretünk",
+    "p1": "A Jegyzőkönyv AI célja, hogy sokak számára a legjobb jegyzőkönyvvezető legyen, de tudjuk, hogy nem lehetünk tökéletesek mindenki számára (100-ból 100 embernek).",
+    "p2": "Ezért kínáljuk ezeket az alacsony kockázatú lehetőségeket. Csak akkor fizessen elő, ha biztos benne, hogy mi vagyunk a megfelelő partner a megbeszéléseihez."
+  },
+  "seo": {
+    "description": "Unja, hogy fizetnie kell az alkalmazásokért, mielőtt tudná, működnek-e? A Jegyzőkönyv AI ingyenes napi jegyet és 1,99 dolláros, le nem járó csomagokat kínál a kockázatmentes teszteléshez.",
+    "ld": {
+      "description": "A Jegyzőkönyv AI kockázatmentes módot kínál az AI jegyzőkönyvvezetés tesztelésére. Tartalmaz napi ingyenes 3 perces jegyet és olcsó, lejárat nélküli időcsomagokat.",
+      "headline": "Ingyenes AI Jegyzőkönyvvezető opciók: Napi jegyek és le nem járó csomagok"
+    },
+    "ogDescription": "Mi is utáljuk a 'fizetési csapdákat'. Ezért adunk ingyenes napi perceket és 1,99 dolláros csomagokat, amelyek soha nem járnak le. Teszteljen minket bátran.",
+    "ogTitle": "Ne fizessen elő vakon. Próbálja ki a Jegyzőkönyv AI-t kockázatmentesen.",
+    "title": "Ingyenes AI Jegyzőkönyvvezető: Próbálja ki a Jegyzőkönyv AI-t előfizetési kockázat nélkül"
+  },
+  "solution_free": {
+    "h2": "1. megoldás: A napi ingyenes jegy",
+    "list": [
+      "Érti az AI a hangomat?",
+      "Olvasható az összefoglaló formátuma?",
+      "Kényelmes a kezelőfelület?"
+    ],
+    "note": "Használja naponta gyors hangjegyzetekhez. Teljesen ingyen.",
+    "p1": "Minden felhasználó kap egy **ingyenes 3 perces jegyet, minden egyes nap**.",
+    "p2": "Tudjuk, hogy a 3 perc kevésnek tűnik. De elég arra, hogy tesztelje:"
+  },
+  "solution_paid": {
+    "h2": "2. megoldás: Az 1,99 $-os 'Örök' csomag",
+    "p1": "Több időre van szüksége a teszteléshez? Ne vegyen még hónapot. Kínálunk egy **Próbacsomagot (120 perc) mindössze 1,99 dollárért**.",
+    "p2": "A legjobb rész? **Soha nem jár le.**",
+    "p3": "Megveheti ma, és felhasználhatja a perceket jövő hónapban vagy jövőre. Ez a tökéletes biztonsági háló az 'alkalmi' felhasználók vagy a még döntés előtt állók számára."
+  }
+}

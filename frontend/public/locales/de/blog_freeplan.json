@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "cta": {
+    "downloadIOS": "iOS App laden",
+    "openBrowser": "Im Browser öffnen",
+    "text": "Heute risikofrei testen"
+  },
+  "hero": {
+    "h1": "Zahlen Sie nicht für AI-Protokolle, die Sie vielleicht nicht nutzen",
+    "kicker": "Ehrliche Preise",
+    "tagline": "Haben Sie schon einmal ein Abo abgeschlossen, nur um festzustellen, dass die App nicht das Richtige war? Wir finden, Sie sollten nicht zahlen müssen, um herauszufinden, ob ein Service funktioniert."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Veröffentlicht"
+  },
+  "nav": {
+    "active": "Kostenlos-Guide",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "Die 'Abo-Falle'",
+    "p1": "Es ist eine typische Geschichte: Sie laden eine App herunter, stoßen sofort auf eine Paywall und melden sich für eine Testphase an, die zur monatlichen Gebühr wird. Dann merken Sie, dass die App nicht zu Ihnen passt.",
+    "p2": "Das wollen wir nicht. Wir wollen, dass Sie zu 100 % überzeugt sind, bevor Sie sich für ein Abo entscheiden."
+  },
+  "philosophy": {
+    "h2": "Unser Versprechen",
+    "p1": "Protokoll KI möchte für viele der beste Protokollführer sein, aber wir wissen, dass wir nicht für jeden (100 von 100 Personen) perfekt sein können.",
+    "p2": "Deshalb bieten wir diese risikoarmen Optionen an. Wir möchten nur, dass Sie ein Abo abschließen, wenn Sie sicher sind, dass wir der richtige Partner für Ihre Meetings sind."
+  },
+  "seo": {
+    "description": "Müde, für Apps zu zahlen, bevor Sie wissen, ob sie funktionieren? Protokoll KI bietet ein kostenloses Tagesticket und 1,99 $-Pakete ohne Ablaufdatum zum risikofreien Testen.",
+    "ld": {
+      "description": "Protokoll KI bietet einen risikofreien Weg, AI-Protokolle zu testen. Inklusive täglichem 3-Minuten-Ticket und günstigen Zeitpaketen ohne Verfallsdatum.",
+      "headline": "Kostenlose AI-Protokoll-Optionen: Tagestickets & Pakete ohne Ablaufdatum"
+    },
+    "ogDescription": "Wir hassen 'Paywall-Fallen' auch. Deshalb geben wir Ihnen kostenlose Tagesminuten und 1,99 $-Pakete ohne Verfallsdatum. Testen Sie uns erst.",
+    "ogTitle": "Nicht blind abonnieren. Testen Sie Protokoll KI risikofrei.",
+    "title": "Kostenloser AI-Protokollführer: Testen Sie Protokoll KI ohne Abo-Risiko"
+  },
+  "solution_free": {
+    "h2": "Lösung 1: Das kostenlose Tagesticket",
+    "list": [
+      "Versteht die KI meine Stimme?",
+      "Ist das Protokollformat lesbar?",
+      "Fühlt sich die Bedienung gut an?"
+    ],
+    "note": "Nutzen Sie es täglich für kurze Stand-ups oder Sprachnotizen. Komplett kostenlos.",
+    "p1": "Jeder Nutzer erhält **ein 3-Minuten-Gratisticket, jeden Tag**.",
+    "p2": "Wir wissen, 3 Minuten klingen kurz. Aber es reicht, um zu testen:"
+  },
+  "solution_paid": {
+    "h2": "Lösung 2: Das 1,99 $ 'Für immer'-Paket",
+    "p1": "Brauchen Sie mehr Zeit zum Testen? Kaufen Sie noch keinen Monat. Wir bieten ein **Testpaket (120 Min.) für nur 1,99 $** an.",
+    "p2": "Das Beste daran? **Es verfällt nie.**",
+    "p3": "Sie können es heute kaufen und die Minuten nächsten Monat oder nächstes Jahr nutzen. Es ist das perfekte Sicherheitsnetz für Gelegenheitsnutzer oder Unentschlossene."
+  }
+}

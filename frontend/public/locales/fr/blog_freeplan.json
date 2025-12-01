@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "cta": {
+    "downloadIOS": "Télécharger l'app iOS",
+    "openBrowser": "Ouvrir dans le navigateur",
+    "text": "Essayez sans risque aujourd'hui"
+  },
+  "hero": {
+    "h1": "Arrêtez de payer pour des IA que vous n'utiliserez peut-être pas",
+    "kicker": "Prix Honnêtes",
+    "tagline": "Vous êtes-vous déjà abonné à une application pour réaliser qu'elle ne vous convenait pas ? Nous pensons que vous ne devriez pas payer pour savoir si un service fonctionne."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Publié"
+  },
+  "nav": {
+    "active": "Guide Gratuit",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "Le 'Piège de l'abonnement'",
+    "p1": "C'est une histoire courante : vous téléchargez une application de notes, vous heurtez un mur payant immédiatement et vous vous inscrivez à un essai qui se transforme en frais mensuels. Puis vous réalisez que l'application ne correspond pas à votre flux de travail.",
+    "p2": "Nous ne voulons pas de cela. Nous voulons que vous soyez convaincu à 100 % avant de vous engager."
+  },
+  "philosophy": {
+    "h2": "Notre Promesse",
+    "p1": "Minutes.AI vise à être le meilleur preneur de notes pour beaucoup, mais nous savons que nous ne pouvons pas être parfaits pour tout le monde (100 personnes sur 100).",
+    "p2": "C'est pourquoi nous proposons ces options à faible risque. Abonnez-vous seulement quand vous êtes sûr que nous sommes le bon partenaire pour vos réunions."
+  },
+  "seo": {
+    "description": "Fatigué de payer avant de savoir si ça marche ? Minutes.AI offre un ticket quotidien gratuit et des packs à 1,99 $ sans expiration pour tester sans risque.",
+    "ld": {
+      "description": "Minutes.AI offre un moyen sans risque de tester la prise de notes IA. Comprend un ticket gratuit de 3 minutes par jour et des packs de temps économiques sans expiration.",
+      "headline": "Options Gratuites Minutes.AI : Tickets Quotidiens & Packs Sans Expiration"
+    },
+    "ogDescription": "Nous détestons aussi les 'pièges à abonnement'. C'est pourquoi nous vous donnons des minutes gratuites et des packs à 1,99 $ sans expiration. Testez-nous d'abord.",
+    "ogTitle": "Ne vous abonnez pas à l'aveugle. Essayez Minutes.AI sans risque.",
+    "title": "Preneur de Notes IA Gratuit : Essayez Minutes.AI Sans Risque d'Abonnement"
+  },
+  "solution_free": {
+    "h2": "Solution 1 : Le Ticket Gratuit Quotidien",
+    "list": [
+      "L'IA comprend-elle ma voix ?",
+      "Le format du résumé est-il lisible ?",
+      "L'interface est-elle agréable ?"
+    ],
+    "note": "Utilisez-le quotidiennement pour des mémos vocaux rapides. Totalement gratuit.",
+    "p1": "Chaque utilisateur reçoit **un ticket gratuit de 3 minutes, chaque jour**.",
+    "p2": "Nous savons que 3 minutes semblent courts. Mais c'est suffisant pour tester :"
+  },
+  "solution_paid": {
+    "h2": "Solution 2 : Le Pack 'Pour Toujours' à 1,99 $",
+    "p1": "Besoin de plus de temps pour tester ? N'achetez pas encore un mois. Nous offrons un **Pack d'Essai (120 min) pour seulement 1,99 $**.",
+    "p2": "Le meilleur ? **Il n'expire jamais.**",
+    "p3": "Vous pouvez l'acheter aujourd'hui et l'utiliser le mois prochain ou l'année prochaine. C'est le filet de sécurité parfait pour les utilisateurs 'occasionnels' ou indécis."
+  }
+}

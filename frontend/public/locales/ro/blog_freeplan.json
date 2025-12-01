@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "cta": {
+    "downloadIOS": "Descarcă aplicația iOS",
+    "openBrowser": "Deschide în browser",
+    "text": "Încearcă fără riscuri azi"
+  },
+  "hero": {
+    "h1": "Nu mai plăti pentru AI pe care poate nu îl folosești",
+    "kicker": "Prețuri Oneste",
+    "tagline": "Te-ai abonat vreodată la o aplicație doar pentru a realiza că nu era ceea ce aveai nevoie? Credem că nu ar trebui să plătești pentru a afla dacă un serviciu funcționează."
+  },
+  "meta": {
+    "category": "Ghid",
+    "published": "Publicat"
+  },
+  "nav": {
+    "active": "Ghid Plan Gratuit",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Capcana Abonamentului'",
+    "p1": "Este o poveste comună: descarci o aplicație de notițe, te lovești imediat de un paywall și te înscrii pentru un trial care se transformă într-o taxă lunară. Apoi realizezi că aplicația nu se potrivește fluxului tău de lucru.",
+    "p2": "Noi nu vrem asta. Vrem să fii 100% convins înainte de a te angaja la un abonament."
+  },
+  "philosophy": {
+    "h2": "Promisiunea Noastră",
+    "p1": "Proces-verbal AI își propune să fie cel mai bun secretar pentru mulți, dar știm că nu putem fi perfecți pentru toată lumea (100 din 100 de persoane).",
+    "p2": "De aceea oferim aceste opțiuni cu risc scăzut. Vrem să te abonezi doar când ești sigur că suntem partenerul potrivit pentru ședințele tale."
+  },
+  "seo": {
+    "description": "Sătul să plătești pentru aplicații înainte să știi dacă funcționează? Proces-verbal AI oferă un tichet zilnic gratuit și pachete de 1,99 $ fără expirare pentru a testa fără riscuri.",
+    "ld": {
+      "description": "Proces-verbal AI oferă o modalitate fără riscuri de a testa notarea cu AI. Include un tichet gratuit de 3 minute zilnic și pachete de timp ieftine fără expirare.",
+      "headline": "Opțiuni Gratuite Secretar AI: Tichete Zilnice & Pachete Fără Expirare"
+    },
+    "ogDescription": "Și noi urâm 'capcanele paywall'. De aceea îți oferim minute zilnice gratuite și pachete de 1,99 $ care nu expiră. Testează-ne mai întâi.",
+    "ogTitle": "Nu te abona orbește. Încearcă Proces-verbal AI fără riscuri.",
+    "title": "Secretar AI Gratuit: Încearcă Proces-verbal AI Fără Riscul Abonamentului"
+  },
+  "solution_free": {
+    "h2": "Soluția 1: Tichetul Gratuit Zilnic",
+    "list": [
+      "Înțelege AI-ul vocea mea?",
+      "Este formatul rezumatului lizibil?",
+      "Interfața este confortabilă?"
+    ],
+    "note": "Folosește-l zilnic pentru notițe vocale rapide. Complet gratuit.",
+    "p1": "Fiecare utilizator primește **un tichet gratuit de 3 minute, în fiecare zi**.",
+    "p2": "Știm că 3 minute sună puțin. Dar este suficient pentru a testa:"
+  },
+  "solution_paid": {
+    "h2": "Soluția 2: Pachetul 'Pe viață' la 1,99 $",
+    "p1": "Ai nevoie de mai mult timp de testare? Nu cumpăra încă o lună. Oferim un **Pachet de Probă (120 min) la doar 1,99 $**.",
+    "p2": "Partea cea mai bună? **Nu expiră niciodată.**",
+    "p3": "Îl poți cumpăra azi și folosi minutele luna viitoare sau la anul. Este plasa de siguranță perfectă pentru utilizatorii 'ocazionali' sau cei indeciși."
+  }
+}

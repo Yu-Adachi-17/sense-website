@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Ana Sayfa Tutanakları AI"
+  },
+  "cta": {
+    "downloadIOS": "iOS uygulamasını indir",
+    "openBrowser": "Tarayıcıda aç",
+    "text": "Bugün risksiz dene"
+  },
+  "hero": {
+    "h1": "Kullanmayabileceğin AI Tutanakçıları İçin Ödeme Yapmayı Bırak",
+    "kicker": "Dürüst Fiyatlandırma",
+    "tagline": "Hiç bir uygulamaya abone olup, sonradan ihtiyacınız olan şeyin o olmadığını fark ettiğiniz oldu mu? Bir hizmetin işe yarayıp yaramadığını öğrenmek için ödeme yapmamanız gerektiğine inanıyoruz."
+  },
+  "meta": {
+    "category": "Rehber",
+    "published": "Yayınlandı"
+  },
+  "nav": {
+    "active": "Ücretsiz Plan Rehberi",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Abonelik Tuzağı'",
+    "p1": "Yaygın bir hikaye: Bir not alma uygulaması indirirsiniz, hemen bir ödeme duvarına çarparsınız ve aylık ücrete dönüşen bir deneme sürümüne kaydolursunuz. Sonra uygulamanın iş akışınıza uymadığını fark edersiniz.",
+    "p2": "Biz bunu istemiyoruz. Bir aboneliği taahhüt etmeden önce %100 ikna olmanızı istiyoruz."
+  },
+  "philosophy": {
+    "h2": "Sözümüz",
+    "p1": "Tutanakları AI, birçok kişi için en iyi tutanakçı olmayı hedefliyor, ancak herkes için (100 kişiden 100'ü) mükemmel olamayacağımızı biliyoruz.",
+    "p2": "Bu yüzden bu düşük riskli seçenekleri sunuyoruz. Sadece toplantılarınız için doğru ortak olduğumuzdan emin olduğunuzda abone olmanızı istiyoruz."
+  },
+  "seo": {
+    "description": "İşe yarayıp yaramadığını bilmeden uygulamalara ödeme yapmaktan bıktınız mı? Tutanakları AI, risksiz test etmeniz için ücretsiz günlük bilet ve süresi dolmayan 1,99 $'lık paketler sunar.",
+    "ld": {
+      "description": "Tutanakları AI, AI not almayı test etmek için risksiz bir yol sağlar. Günlük ücretsiz 3 dakikalık bilet ve son kullanma tarihi olmayan ucuz zaman paketleri içerir.",
+      "headline": "Ücretsiz AI Tutanakçı Seçenekleri: Günlük Biletler & Süresiz Paketler"
+    },
+    "ogDescription": "Biz de 'ödeme duvarı tuzaklarından' nefret ediyoruz. Bu yüzden size ücretsiz günlük dakikalar ve süresi dolmayan 1,99 $'lık paketler veriyoruz. Önce bizi deneyin.",
+    "ogTitle": "Körü körüne abone olmayın. Tutanakları AI'ı risksiz deneyin.",
+    "title": "Ücretsiz AI Tutanakçısı: Tutanakları AI'ı Abonelik Riski Olmadan Deneyin"
+  },
+  "solution_free": {
+    "h2": "Çözüm 1: Günlük Ücretsiz Bilet",
+    "list": [
+      "Yapay zeka sesimi anlıyor mu?",
+      "Özet formatı okunabilir mi?",
+      "Arayüz rahat hissettiriyor mu?"
+    ],
+    "note": "Hızlı sesli notlar için günlük kullanın. Tamamen ücretsiz.",
+    "p1": "Her kullanıcı **her gün, 3 dakikalık ücretsiz bir bilet** alır.",
+    "p2": "3 dakikanın kulağa az geldiğini biliyoruz. Ancak test etmek için yeterli:"
+  },
+  "solution_paid": {
+    "h2": "Çözüm 2: 1,99 $'lık 'Sonsuza Kadar' Paketi",
+    "p1": "Test etmek için daha fazla zamana mı ihtiyacınız var? Henüz bir ay satın almayın. **Sadece 1,99 $ karşılığında Deneme Paketi (120 dk)** sunuyoruz.",
+    "p2": "En iyi kısmı mı? **Asla süresi dolmaz.**",
+    "p3": "Bugün satın alabilir ve dakikaları gelecek ay veya gelecek yıl kullanabilirsiniz. 'Ara sıra' kullananlar veya hala kararsız olanlar için mükemmel bir güvenlik ağıdır."
+  }
+}

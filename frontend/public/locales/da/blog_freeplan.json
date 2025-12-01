@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "cta": {
+    "downloadIOS": "Hent iOS app",
+    "openBrowser": "Åbn i browser",
+    "text": "Prøv risikofrit i dag"
+  },
+  "hero": {
+    "h1": "Stop med at betale for AI-referenter du måske ikke bruger",
+    "kicker": "Ærlige priser",
+    "tagline": "Har du nogensinde abonneret på en app, kun for at indse, at det ikke var det, du havde brug for? Vi mener ikke, du skal betale for at finde ud af, om en service virker."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Udgivet"
+  },
+  "nav": {
+    "active": "Guide til gratis plan",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "Abonnementsfælden",
+    "p1": "Det er en klassisk historie: Du downloader en note-app, rammer en betalingsmur med det samme, og tilmelder dig en prøveperiode, der bliver til en månedlig opkrævning. Så indser du, at appen ikke passer til din arbejdsgang.",
+    "p2": "Det ønsker vi ikke. Vi vil have, at du er 100% overbevist, før du binder dig til et abonnement."
+  },
+  "philosophy": {
+    "h2": "Vores løfte",
+    "p1": "Referat AI sigter mod at være den bedste referent for mange, men vi ved, at vi ikke kan være perfekte for alle (100 ud af 100 personer).",
+    "p2": "Derfor tilbyder vi disse muligheder med lav risiko. Vi ønsker kun, at du abonnerer, når du er sikker på, at vi er den rette partner til dine møder."
+  },
+  "seo": {
+    "description": "Træt af at betale for apps, før du ved, om de virker? Referat AI tilbyder en gratis daglig billet og pakker til $1.99 uden udløb, så du kan teste risikofrit.",
+    "ld": {
+      "description": "Referat AI giver en risikofri måde at teste AI-referat på. Inkluderer en daglig gratis 3-minutters billet og billige tidspakker uden udløb.",
+      "headline": "Gratis AI-referent muligheder: Daglige billetter & Pakker uden udløb"
+    },
+    "ogDescription": "Vi hader også 'betalingsmursfælder'. Derfor giver vi dig gratis daglige minutter og pakker til $1.99 uden udløb. Se om vi passer til dine behov.",
+    "ogTitle": "Abonner ikke i blinde. Prøv Referat AI risikofrit.",
+    "title": "Gratis AI-referent: Prøv Referat AI uden abonnementsrisiko"
+  },
+  "solution_free": {
+    "h2": "Løsning 1: Den daglige gratis billet",
+    "list": [
+      "Forstår AI'en min stemme?",
+      "Er referatformatet læsbart?",
+      "Føles brugerfladen rigtig?"
+    ],
+    "note": "Brug den dagligt til hurtige stand-ups eller stemmenoter. Helt gratis.",
+    "p1": "Hver eneste bruger får en **3-minutters gratis billet, hver eneste dag**.",
+    "p2": "Vi ved, at 3 minutter lyder af lidt. Men det er nok til at teste:"
+  },
+  "solution_paid": {
+    "h2": "Løsning 2: '$1.99 for altid' pakken",
+    "p1": "Har du brug for mere tid til at teste? Køb ikke en måned endnu. Vi tilbyder en **Prøvepakke (120 min) for kun $1.99**.",
+    "p2": "Det bedste af det hele? **Den udløber aldrig.**",
+    "p3": "Du kan købe den i dag og bruge minutterne næste måned eller næste år. Det er det perfekte sikkerhedsnet for 'lejlighedsvise' brugere eller dem, der stadig overvejer."
+  }
+}

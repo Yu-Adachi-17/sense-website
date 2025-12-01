@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Inicio Actas IA"
+  },
+  "cta": {
+    "downloadIOS": "Descargar app iOS",
+    "openBrowser": "Abrir en navegador",
+    "text": "Pruébalo hoy sin riesgos"
+  },
+  "hero": {
+    "h1": "Deja de pagar por IAs que quizás no uses",
+    "kicker": "Precios Honestos",
+    "tagline": "¿Alguna vez te has suscrito a una app solo para darte cuenta de que no era lo que necesitabas? Creemos que no deberías pagar para averiguar si un servicio funciona."
+  },
+  "meta": {
+    "category": "Guía",
+    "published": "Publicado"
+  },
+  "nav": {
+    "active": "Guía Plan Gratuito",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "La 'Trampa de la Suscripción'",
+    "p1": "Es una historia común: descargas una app de notas, te topas con un muro de pago de inmediato y te registras para una prueba que se convierte en un cargo mensual. Luego te das cuenta de que la app no encaja en tu flujo de trabajo.",
+    "p2": "No queremos eso. Queremos que estés 100% convencido antes de comprometerte con una suscripción."
+  },
+  "philosophy": {
+    "h2": "Nuestra Promesa",
+    "p1": "Actas IA aspira a ser el mejor tomador de actas para muchos, pero sabemos que no podemos ser perfectos para todos (100 de cada 100 personas).",
+    "p2": "Por eso ofrecemos estas opciones de bajo riesgo. Solo queremos que te suscribas cuando estés seguro de que somos el socio adecuado para tus reuniones."
+  },
+  "seo": {
+    "description": "¿Cansado de pagar por apps antes de saber si funcionan? Actas IA ofrece un ticket diario gratuito y packs de $1.99 sin caducidad para que pruebes sin riesgos.",
+    "ld": {
+      "description": "Actas IA ofrece una forma sin riesgos de probar la toma de notas con IA. Incluye un ticket gratuito de 3 minutos diarios y paquetes de tiempo económicos sin caducidad.",
+      "headline": "Opciones Gratuitas de Actas IA: Tickets Diarios y Packs Sin Caducidad"
+    },
+    "ogDescription": "También odiamos las 'trampas de pago'. Por eso te damos minutos diarios gratis y packs de $1.99 que no caducan. Comprueba si encajamos contigo.",
+    "ogTitle": "No te suscribas a ciegas. Prueba Actas IA sin riesgos.",
+    "title": "Tomador de Actas IA Gratis: Prueba Actas IA Sin Riesgo de Suscripción"
+  },
+  "solution_free": {
+    "h2": "Solución 1: El Ticket Diario Gratuito",
+    "list": [
+      "¿La IA entiende mi voz?",
+      "¿El formato del resumen es legible?",
+      "¿La interfaz se siente bien?"
+    ],
+    "note": "Úsalo a diario para notas de voz rápidas o stand-ups. Completamente gratis.",
+    "p1": "Cada usuario recibe un **ticket gratuito de 3 minutos, todos los días**.",
+    "p2": "Sabemos que 3 minutos suena a poco. Pero es suficiente para probar:"
+  },
+  "solution_paid": {
+    "h2": "Solución 2: El Pack 'Para Siempre' de $1.99",
+    "p1": "¿Necesitas más tiempo para probar? No compres un mes todavía. Ofrecemos un **Pack de Prueba (120 min) por solo $1.99**.",
+    "p2": "¿Lo mejor? **Nunca caduca.**",
+    "p3": "Puedes comprarlo hoy y usar los minutos el próximo mes o el próximo año. Es la red de seguridad perfecta para usuarios 'ocasionales' o indecisos."
+  }
+}

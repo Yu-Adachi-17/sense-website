@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Domov AI Zápisnica"
+  },
+  "cta": {
+    "downloadIOS": "Stiahnuť iOS aplikáciu",
+    "openBrowser": "Otvoriť v prehliadači",
+    "text": "Vyskúšajte bez rizika dnes"
+  },
+  "hero": {
+    "h1": "Prestaňte platiť za AI, ktorú možno nevyužijete",
+    "kicker": "Férové ceny",
+    "tagline": "Už sa vám stalo, že ste si predplatili aplikáciu len preto, aby ste zistili, že to nie je to pravé? Veríme, že by ste nemali platiť za zistenie, či služba funguje."
+  },
+  "meta": {
+    "category": "Sprievodca",
+    "published": "Publikované"
+  },
+  "nav": {
+    "active": "Sprievodca verziou zadarmo",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Pasca predplatného'",
+    "p1": "Je to bežný príbeh: stiahnete si aplikáciu na poznámky, okamžite narazíte na paywall a zaregistrujete sa na skúšobnú verziu, ktorá sa zmení na mesačný poplatok. Potom zistíte, že vám aplikácia nesedí.",
+    "p2": "To my nechceme. Chceme, aby ste boli 100% presvedčení, kým sa zaviažete k predplatnému."
+  },
+  "philosophy": {
+    "h2": "Náš sľub",
+    "p1": "AI Zápisnica chce byť najlepším zapisovateľom pre mnohých, ale vieme, že nemôžeme byť perfektní pre každého (100 zo 100 ľudí).",
+    "p2": "Preto ponúkame tieto nízkorizikové možnosti. Chceme, aby ste si predplatné kúpili až vtedy, keď si budete istí, že sme pre vaše porady tí praví."
+  },
+  "seo": {
+    "description": "Nebaví vás platiť za aplikácie skôr, ako viete, či fungujú? AI Zápisnica ponúka denný lístok zadarmo a balíčky za 1,99 $, ktoré neexspirujú, takže môžete testovať bez rizika.",
+    "ld": {
+      "description": "AI Zápisnica poskytuje bezrizikový spôsob testovania AI zápisu. Zahŕňa denný 3-minútový lístok zadarmo a lacné časové balíčky bez expirácie.",
+      "headline": "AI Zapisovateľ zadarmo: Denné lístky a balíčky bez expirácie"
+    },
+    "ogDescription": "Tiež neznášame 'pasce paywallov'. Preto vám dávame minúty zadarmo a balíčky za 1,99 $ bez expirácie. Zistite, či vám sedíme.",
+    "ogTitle": "Nepredplácajte naslepo. Skúste AI Zápisnicu bez rizika.",
+    "title": "AI Zapisovateľ zadarmo: Skúste AI Zápisnicu bez rizika predplatného"
+  },
+  "solution_free": {
+    "h2": "Riešenie 1: Denný lístok zadarmo",
+    "list": [
+      "Rozumie AI môjmu hlasu?",
+      "Je formát zhrnutia čitateľný?",
+      "Vyhovuje mi používateľské rozhranie?"
+    ],
+    "note": "Používajte denne pre rýchle hlasové poznámky. Úplne zadarmo.",
+    "p1": "Každý používateľ dostane **3-minútový lístok zadarmo, každý deň**.",
+    "p2": "Vieme, že 3 minúty znie málo. Ale stačí to na otestovanie:"
+  },
+  "solution_paid": {
+    "h2": "Riešenie 2: Balíček 'Navždy' za 1,99 $",
+    "p1": "Potrebujete viac času na testovanie? Nekupujte hneď mesiac. Ponúkame **Skúšobný balíček (120 min) za len 1,99 $**.",
+    "p2": "A to najlepšie? **Nikdy neexspiruje.**",
+    "p3": "Môžete ho kúpiť dnes a minúty použiť budúci mesiac alebo o rok. Je to dokonalá záchranná sieť pre 'občasných' používateľov alebo tých, ktorí sa stále rozhodujú."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Home Notulen AI"
+  },
+  "cta": {
+    "downloadIOS": "Download iOS app",
+    "openBrowser": "Open in browser",
+    "text": "Probeer vandaag zonder risico"
+  },
+  "hero": {
+    "h1": "Stop met betalen voor AI-notulisten die je misschien niet gebruikt",
+    "kicker": "Eerlijke Prijzen",
+    "tagline": "Heb je ooit een abonnement genomen op een app om er vervolgens achter te komen dat het niet was wat je nodig had? Wij vinden dat je niet hoeft te betalen om te ontdekken of een dienst werkt."
+  },
+  "meta": {
+    "category": "Gids",
+    "published": "Gepubliceerd"
+  },
+  "nav": {
+    "active": "Gratis Plan Gids",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "De 'Abonnementsval'",
+    "p1": "Het is een bekend verhaal: je downloadt een notitie-app, stuit direct op een betaalmuur en meldt je aan voor een proefperiode die verandert in maandelijkse kosten. Dan realiseer je je dat de app niet bij jouw workflow past.",
+    "p2": "Dat willen wij niet. We willen dat je 100% overtuigd bent voordat je je vastlegt aan een abonnement."
+  },
+  "philosophy": {
+    "h2": "Onze Belofte",
+    "p1": "Notulen AI streeft ernaar de beste notulist te zijn voor velen, maar we weten dat we niet perfect kunnen zijn voor iedereen (100 van de 100 mensen).",
+    "p2": "Daarom bieden we deze opties met een laag risico. We willen dat je pas een abonnement neemt als je zeker weet dat wij de juiste partner zijn voor jouw vergaderingen."
+  },
+  "seo": {
+    "description": "Moe van betalen voor apps voordat je weet of ze werken? Notulen AI biedt een gratis dagelijks ticket en pakketten van $1.99 zonder vervaldatum om zonder risico te testen.",
+    "ld": {
+      "description": "Notulen AI biedt een risicovrije manier om AI-notuleren te testen. Inclusief een dagelijks gratis ticket van 3 minuten en goedkope tijdtegoedpakketten zonder vervaldatum.",
+      "headline": "Gratis AI-notulist Opties: Dagelijkse Tickets & Pakketten Zonder Vervaldatum"
+    },
+    "ogDescription": "Wij haten 'betaalmuurvallen' ook. Daarom geven we je gratis dagelijkse minuten en pakketten van $1.99 die nooit verlopen. Test ons eerst.",
+    "ogTitle": "Abonneer niet blindelings. Probeer Notulen AI zonder risico.",
+    "title": "Gratis AI-notulist: Probeer Notulen AI Zonder Abonnementsrisico"
+  },
+  "solution_free": {
+    "h2": "Oplossing 1: Het Dagelijkse Gratis Ticket",
+    "list": [
+      "Begrijpt de AI mijn stem?",
+      "Is het samenvattingsformaat leesbaar?",
+      "Voelt de interface goed aan?"
+    ],
+    "note": "Gebruik het dagelijks voor snelle spraaknotities. Helemaal gratis.",
+    "p1": "Elke gebruiker krijgt **een gratis ticket van 3 minuten, elke dag**.",
+    "p2": "We weten dat 3 minuten kort klinkt. Maar het is genoeg om te testen:"
+  },
+  "solution_paid": {
+    "h2": "Oplossing 2: Het '$1.99 Voor Altijd' Pakket",
+    "p1": "Meer tijd nodig om te testen? Koop nog geen maand. We bieden een **Proefpakket (120 min) voor slechts $1.99**.",
+    "p2": "Het beste deel? **Het verloopt nooit.**",
+    "p3": "Je kunt het vandaag kopen en de minuten volgende maand of volgend jaar gebruiken. Het is het perfecte vangnet voor 'incidentele' gebruikers of twijfelaars."
+  }
+}

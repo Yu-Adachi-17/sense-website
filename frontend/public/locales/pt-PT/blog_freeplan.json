@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Início Ata AI"
+  },
+  "cta": {
+    "downloadIOS": "Baixar app iOS",
+    "openBrowser": "Abrir no navegador",
+    "text": "Experimente sem riscos hoje"
+  },
+  "hero": {
+    "h1": "Pare de pagar por IAs que talvez você não use",
+    "kicker": "Preço Honesto",
+    "tagline": "Você já assinou um aplicativo apenas para perceber que não era o que precisava? Acreditamos que você não deve pagar para descobrir se um serviço funciona."
+  },
+  "meta": {
+    "category": "Guia",
+    "published": "Publicado"
+  },
+  "nav": {
+    "active": "Guia Plano Gratuito",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "A 'Armadilha da Assinatura'",
+    "p1": "É uma história comum: você baixa um aplicativo de notas, dá de cara com um paywall imediatamente e se inscreve para um teste que vira uma cobrança mensal. Então percebe que o app não se encaixa no seu fluxo de trabalho.",
+    "p2": "Nós não queremos isso. Queremos que você esteja 100% convencido antes de se comprometer com uma assinatura."
+  },
+  "philosophy": {
+    "h2": "Nossa Promessa",
+    "p1": "O Ata AI visa ser o melhor redator de atas para muitos, mas sabemos que não podemos ser perfeitos para todos (100 em cada 100 pessoas).",
+    "p2": "É por isso que oferecemos essas opções de baixo risco. Queremos que você assine apenas quando tiver certeza de que somos o parceiro certo para suas reuniões."
+  },
+  "seo": {
+    "description": "Cansado de pagar por apps antes de saber se funcionam? O Ata AI oferece um ticket diário gratuito e pacotes de $1.99 sem validade para você testar sem riscos.",
+    "ld": {
+      "description": "O Ata AI oferece uma maneira sem riscos de testar a tomada de notas por IA. Inclui um ticket gratuito de 3 minutos diários e pacotes de tempo econômicos sem expiração.",
+      "headline": "Opções Gratuitas do Ata AI: Tickets Diários & Pacotes Sem Validade"
+    },
+    "ogDescription": "Também odiamos 'armadilhas de pagamento'. Por isso, damos minutos diários grátis e pacotes de $1.99 que não expiram. Teste-nos primeiro.",
+    "ogTitle": "Não assine às cegas. Experimente o Ata AI sem riscos.",
+    "title": "Redator de Atas IA Grátis: Experimente o Ata AI Sem Risco de Assinatura"
+  },
+  "solution_free": {
+    "h2": "Solução 1: O Ticket Diário Gratuito",
+    "list": [
+      "A IA entende minha voz?",
+      "O formato do resumo é legível?",
+      "A interface é confortável?"
+    ],
+    "note": "Use diariamente para notas de voz rápidas. Totalmente grátis.",
+    "p1": "Cada usuário recebe um **ticket gratuito de 3 minutos, todos os dias**.",
+    "p2": "Sabemos que 3 minutos parece pouco. Mas é o suficiente para testar:"
+  },
+  "solution_paid": {
+    "h2": "Solução 2: O Pacote 'Para Sempre' de $1.99",
+    "p1": "Precisa de mais tempo para testar? Não compre um mês ainda. Oferecemos um **Pacote de Teste (120 min) por apenas $1.99**.",
+    "p2": "A melhor parte? **Ele nunca expira.**",
+    "p3": "Você pode comprá-lo hoje e usar os minutos no próximo mês ou no próximo ano. É a rede de segurança perfeita para usuários 'ocasionais' ou indecisos."
+  }
+}

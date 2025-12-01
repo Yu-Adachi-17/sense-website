@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Home Verbali IA"
+  },
+  "cta": {
+    "downloadIOS": "Scarica app iOS",
+    "openBrowser": "Apri nel browser",
+    "text": "Provalo oggi senza rischi"
+  },
+  "hero": {
+    "h1": "Smetti di pagare per IA che potresti non usare",
+    "kicker": "Prezzi Onesti",
+    "tagline": "Ti sei mai abbonato a un'app solo per scoprire che non era ciò che ti serviva? Crediamo che non dovresti pagare per scoprire se un servizio funziona."
+  },
+  "meta": {
+    "category": "Guida",
+    "published": "Pubblicato"
+  },
+  "nav": {
+    "active": "Guida Piano Gratuito",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "La 'Trappola dell'Abbonamento'",
+    "p1": "È una storia comune: scarichi un'app, trovi subito un paywall e ti iscrivi a una prova che si trasforma in un addebito mensile. Poi ti accorgi che l'app non è adatta al tuo flusso di lavoro.",
+    "p2": "Noi non vogliamo questo. Vogliamo che tu sia convinto al 100% prima di impegnarti in un abbonamento."
+  },
+  "philosophy": {
+    "h2": "La Nostra Promessa",
+    "p1": "Verbali IA punta ad essere il miglior verbalizzante per molti, ma sappiamo di non poter essere perfetti per tutti (100 persone su 100).",
+    "p2": "Ecco perché offriamo queste opzioni a basso rischio. Abbonati solo quando sei sicuro che siamo il partner giusto per le tue riunioni."
+  },
+  "seo": {
+    "description": "Stanco di pagare per app prima di sapere se funzionano? Verbali IA offre un ticket giornaliero gratuito e pacchetti da 1,99 $ senza scadenza per testare senza rischi.",
+    "ld": {
+      "description": "Verbali IA offre un modo senza rischi per testare i verbali IA. Include un ticket gratuito di 3 minuti al giorno e pacchetti tempo economici senza scadenza.",
+      "headline": "Opzioni Gratuite Verbali IA: Ticket Giornalieri & Pacchetti Senza Scadenza"
+    },
+    "ogDescription": "Odiamo anche noi le 'trappole dei paywall'. Ecco perché ti diamo minuti giornalieri gratuiti e pacchetti da 1,99 $ che non scadono mai. Mettici alla prova.",
+    "ogTitle": "Non abbonarti alla cieca. Prova Verbali IA senza rischi.",
+    "title": "Verbalizzante IA Gratis: Prova Verbali IA Senza Rischio Abbonamento"
+  },
+  "solution_free": {
+    "h2": "Soluzione 1: Il Ticket Gratuito Giornaliero",
+    "list": [
+      "L'IA capisce la mia voce?",
+      "Il formato del riassunto è leggibile?",
+      "L'interfaccia è comoda?"
+    ],
+    "note": "Usalo quotidianamente per note vocali veloci. Completamente gratis.",
+    "p1": "Ogni utente riceve **un ticket gratuito di 3 minuti, ogni giorno**.",
+    "p2": "Sappiamo che 3 minuti sembrano pochi. Ma bastano per testare:"
+  },
+  "solution_paid": {
+    "h2": "Soluzione 2: Il Pacchetto 'Per Sempre' a 1,99 $",
+    "p1": "Ti serve più tempo per testare? Non comprare ancora un mese. Offriamo un **Pacchetto Prova (120 min) a soli 1,99 $**.",
+    "p2": "La parte migliore? **Non scade mai.**",
+    "p3": "Puoi comprarlo oggi e usare i minuti il mese prossimo o l'anno prossimo. È la rete di sicurezza perfetta per utenti 'occasionali' o indecisi."
+  }
+}

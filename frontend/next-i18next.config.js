@@ -32,6 +32,7 @@ module.exports = {
     'blog_android',
     'blog_maildelivery',
     'blog_notetaker',
+    'blog_freeplan',
   ],
   defaultNS: 'common',
 

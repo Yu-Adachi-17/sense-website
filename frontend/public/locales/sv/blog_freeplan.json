@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Hem Protokoll AI"
+  },
+  "cta": {
+    "downloadIOS": "Ladda ner iOS-app",
+    "openBrowser": "Öppna i webbläsare",
+    "text": "Prova riskfritt idag"
+  },
+  "hero": {
+    "h1": "Sluta betala för AI-verktyg du kanske inte använder",
+    "kicker": "Ärlig prissättning",
+    "tagline": "Har du någonsin prenumererat på en app bara för att inse att det inte var vad du behövde? Vi tycker inte att du ska behöva betala för att ta reda på om en tjänst fungerar."
+  },
+  "meta": {
+    "category": "Guide",
+    "published": "Publicerad"
+  },
+  "nav": {
+    "active": "Guide till gratisplan",
+    "blog": "Blogg"
+  },
+  "pain": {
+    "h2": "'Prenumerationsfällan'",
+    "p1": "Det är en vanlig historia: du laddar ner en anteckningsapp, möts direkt av en betalvägg och registrerar dig för en provperiod som övergår i en månadsavgift. Sedan inser du att appen inte passar ditt arbetsflöde.",
+    "p2": "Vi vill inte ha det så. Vi vill att du ska vara 100 % övertygad innan du binder dig till en prenumeration."
+  },
+  "philosophy": {
+    "h2": "Vårt löfte",
+    "p1": "Protokoll AI strävar efter att vara den bästa protokollföraren för många, men vi vet att vi inte kan vara perfekta för alla (100 av 100 personer).",
+    "p2": "Därför erbjuder vi dessa alternativ med låg risk. Vi vill att du ska prenumerera först när du är säker på att vi är rätt partner för dina möten."
+  },
+  "seo": {
+    "description": "Trött på att betala för appar innan du vet om de fungerar? Protokoll AI erbjuder en gratis daglig biljett och paket för 1,99 $ utan utgångsdatum så att du kan testa riskfritt.",
+    "ld": {
+      "description": "Protokoll AI erbjuder ett riskfritt sätt att testa AI-protokollföring. Inkluderar en daglig gratisbiljett på 3 minuter och billiga tidspaket utan utgångsdatum.",
+      "headline": "Gratis AI-protokollförare: Dagsbiljetter & Paket utan utgångsdatum"
+    },
+    "ogDescription": "Vi hatar också 'betalväggsfällor'. Därför ger vi dig gratis dagliga minuter och paket för 1,99 $ som aldrig går ut. Testa oss först.",
+    "ogTitle": "Prenumerera inte i blindo. Prova Protokoll AI riskfritt.",
+    "title": "Gratis AI-protokollförare: Prova Protokoll AI utan prenumerationsrisk"
+  },
+  "solution_free": {
+    "h2": "Lösning 1: Den dagliga gratisbiljetten",
+    "list": [
+      "Förstår AI:n min röst?",
+      "Är sammanfattningsformatet läsbart?",
+      "Känns gränssnittet rätt?"
+    ],
+    "note": "Använd den dagligen för snabba röstanteckningar. Helt gratis.",
+    "p1": "Varje användare får en **gratis 3-minuters biljett, varje dag**.",
+    "p2": "Vi vet att 3 minuter låter lite. Men det räcker för att testa:"
+  },
+  "solution_paid": {
+    "h2": "Lösning 2: 'För alltid'-paketet för 1,99 $",
+    "p1": "Behöver du mer tid att testa? Köp inte en månad än. Vi erbjuder ett **Provpaket (120 min) för bara 1,99 $**.",
+    "p2": "Det bästa? **Det går aldrig ut.**",
+    "p3": "Du kan köpa det idag och använda minuterna nästa månad eller nästa år. Det är det perfekta skyddsnätet för 'sporadiska' användare eller de som fortfarande funderar."
+  }
+}

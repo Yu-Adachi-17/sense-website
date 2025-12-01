@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "cta": {
+    "downloadIOS": "Unduh aplikasi iOS",
+    "openBrowser": "Buka di browser",
+    "text": "Coba tanpa risiko hari ini"
+  },
+  "hero": {
+    "h1": "Berhenti Membayar untuk Notulis AI yang Mungkin Tidak Anda Gunakan",
+    "kicker": "Harga Jujur",
+    "tagline": "Pernahkah Anda berlangganan aplikasi hanya untuk menyadari bahwa itu bukan yang Anda butuhkan? Kami percaya Anda tidak perlu membayar untuk mengetahui apakah sebuah layanan berfungsi."
+  },
+  "meta": {
+    "category": "Panduan",
+    "published": "Diterbitkan"
+  },
+  "nav": {
+    "active": "Panduan Paket Gratis",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Jebakan Berlangganan'",
+    "p1": "Ini cerita umum: Anda mengunduh aplikasi pencatat, langsung menabrak paywall, dan mendaftar uji coba yang berubah menjadi tagihan bulanan. Kemudian Anda sadar aplikasi itu tidak cocok dengan alur kerja Anda.",
+    "p2": "Kami tidak menginginkan itu. Kami ingin Anda yakin 100% sebelum berkomitmen untuk berlangganan."
+  },
+  "philosophy": {
+    "h2": "Janji Kami",
+    "p1": "Minutes AI bertujuan menjadi notulis terbaik bagi banyak orang, tetapi kami tahu kami tidak bisa sempurna untuk semua orang (100 dari 100 orang).",
+    "p2": "Itulah sebabnya kami menawarkan opsi berisiko rendah ini. Kami hanya ingin Anda berlangganan ketika Anda yakin kami adalah mitra yang tepat untuk rapat Anda."
+  },
+  "seo": {
+    "description": "Bosan membayar aplikasi sebelum tahu apakah itu berfungsi? Minutes AI menawarkan tiket harian gratis dan paket $1.99 tanpa kadaluarsa sehingga Anda bisa mencoba tanpa risiko.",
+    "ld": {
+      "description": "Minutes AI menyediakan cara bebas risiko untuk menguji pencatatan AI. Termasuk tiket gratis 3 menit setiap hari dan paket waktu murah tanpa tanggal kadaluarsa.",
+      "headline": "Opsi Notulis AI Gratis: Tiket Harian & Paket Tanpa Kadaluarsa"
+    },
+    "ogDescription": "Kami juga membenci 'jebakan paywall'. Itu sebabnya kami memberi Anda menit harian gratis dan paket $1.99 yang tidak pernah hangus. Coba kami dulu.",
+    "ogTitle": "Jangan Berlangganan Buta. Coba Minutes AI Tanpa Risiko.",
+    "title": "Notulis AI Gratis: Coba Minutes AI Tanpa Risiko Berlangganan"
+  },
+  "solution_free": {
+    "h2": "Solusi 1: Tiket Gratis Harian",
+    "list": [
+      "Apakah AI memahami suara saya?",
+      "Apakah format ringkasan mudah dibaca?",
+      "Apakah antarmukanya nyaman?"
+    ],
+    "note": "Gunakan setiap hari untuk memo suara cepat. Sepenuhnya gratis.",
+    "p1": "Setiap pengguna mendapatkan **tiket gratis 3 menit, setiap hari**.",
+    "p2": "Kami tahu 3 menit terdengar singkat. Tapi itu cukup untuk menguji:"
+  },
+  "solution_paid": {
+    "h2": "Solusi 2: Paket 'Selamanya' $1.99",
+    "p1": "Butuh lebih banyak waktu untuk menguji? Jangan beli sebulan dulu. Kami menawarkan **Paket Uji Coba (120 menit) hanya seharga $1.99**.",
+    "p2": "Bagian terbaiknya? **Tidak pernah kadaluarsa.**",
+    "p3": "Anda bisa membelinya hari ini dan menggunakan menitnya bulan depan atau tahun depan. Ini jaring pengaman sempurna untuk pengguna 'sesekali' atau yang masih ragu."
+  }
+}

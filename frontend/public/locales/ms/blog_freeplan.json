@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "cta": {
+    "downloadIOS": "Muat turun aplikasi iOS",
+    "openBrowser": "Buka dalam pelayar",
+    "text": "Cuba tanpa risiko hari ini"
+  },
+  "hero": {
+    "h1": "Berhenti Membayar untuk Pencatat Nota AI yang Mungkin Anda Tidak Guna",
+    "kicker": "Harga Jujur",
+    "tagline": "Pernahkah anda melanggan aplikasi hanya untuk menyedari ia bukan apa yang anda perlukan? Kami percaya anda tidak sepatutnya membayar untuk mengetahui sama ada perkhidmatan berfungsi."
+  },
+  "meta": {
+    "category": "Panduan",
+    "published": "Diterbitkan"
+  },
+  "nav": {
+    "active": "Panduan Pelan Percuma",
+    "blog": "Blog"
+  },
+  "pain": {
+    "h2": "'Perangkap Langganan'",
+    "p1": "Ini kisah biasa: Anda memuat turun aplikasi, terus berdepan dengan paywall, dan mendaftar percubaan yang bertukar menjadi caj bulanan. Kemudian anda sedar aplikasi itu tidak sesuai dengan cara kerja anda.",
+    "p2": "Kami tidak mahu begitu. Kami mahu anda yakin 100% sebelum anda komited untuk melanggan."
+  },
+  "philosophy": {
+    "h2": "Janji Kami",
+    "p1": "Minit AI bermatlamat menjadi pencatat nota terbaik untuk ramai orang, tetapi kami tahu kami tidak boleh menjadi sempurna untuk semua orang (100 daripada 100 orang).",
+    "p2": "Sebab itu kami menawarkan pilihan berisiko rendah ini. Kami hanya mahu anda melanggan apabila anda pasti kami adalah rakan kongsi yang tepat untuk mesyuarat anda."
+  },
+  "seo": {
+    "description": "Bosan membayar aplikasi sebelum tahu jika ia berfungsi? Minit AI menawarkan tiket harian percuma dan pek $1.99 tanpa luput supaya anda boleh menguji tanpa risiko.",
+    "ld": {
+      "description": "Minit AI menyediakan cara bebas risiko untuk menguji pencatatan AI. Termasuk tiket percuma 3 minit setiap hari dan pek masa murah tanpa tarikh luput.",
+      "headline": "Pilihan Pencatat AI Percuma: Tiket Harian & Pek Tanpa Luput"
+    },
+    "ogDescription": "Kami juga membenci 'perangkap paywall'. Sebab itu kami berikan minit harian percuma dan pek $1.99 yang tidak luput. Cuba kami dahulu.",
+    "ogTitle": "Jangan Langgan Buta Tuli. Cuba Minit AI Tanpa Risiko.",
+    "title": "Pencatat AI Percuma: Cuba Minit AI Tanpa Risiko Langganan"
+  },
+  "solution_free": {
+    "h2": "Penyelesaian 1: Tiket Percuma Harian",
+    "list": [
+      "Adakah AI memahami suara saya?",
+      "Adakah format ringkasan mudah dibaca?",
+      "Adakah antaramuka selesa?"
+    ],
+    "note": "Gunakan setiap hari untuk memo suara pantas. Percuma sepenuhnya.",
+    "p1": "Setiap pengguna mendapat **tiket percuma 3 minit, setiap hari**.",
+    "p2": "Kami tahu 3 minit berbunyi singkat. Tetapi ia cukup untuk menguji:"
+  },
+  "solution_paid": {
+    "h2": "Penyelesaian 2: Pek 'Selamanya' $1.99",
+    "p1": "Perlukan lebih masa untuk menguji? Jangan beli sebulan lagi. Kami menawarkan **Pek Percubaan (120 min) dengan hanya $1.99**.",
+    "p2": "Bahagian terbaik? **Ia tidak pernah luput.**",
+    "p3": "Anda boleh membelinya hari ini dan menggunakan minit tersebut bulan depan atau tahun depan. Ia adalah jaringan keselamatan sempurna untuk pengguna 'sekali-sekala' atau yang masih ragu-ragu."
+  }
+}

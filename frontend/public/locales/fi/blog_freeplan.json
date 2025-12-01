@@ -1,0 +1,60 @@
+{
+  "aria": {
+    "home": "Pöytäkirja AI Etusivu"
+  },
+  "cta": {
+    "downloadIOS": "Lataa iOS-sovellus",
+    "openBrowser": "Avaa selaimessa",
+    "text": "Kokeile riskittömästi tänään"
+  },
+  "hero": {
+    "h1": "Lopeta maksaminen sovelluksista, joita et ehkä käytä",
+    "kicker": "Rehellinen hinnoittelu",
+    "tagline": "Oletko koskaan tilannut sovelluksen vain huomataksesi, ettei se ollutkaan sitä mitä tarvitsit? Meidän mielestämme sinun ei pitäisi joutua maksamaan selvittääksesi, toimiiko palvelu."
+  },
+  "meta": {
+    "category": "Opas",
+    "published": "Julkaistu"
+  },
+  "nav": {
+    "active": "Ilmaisopas",
+    "blog": "Blogi"
+  },
+  "pain": {
+    "h2": "'Tilausansa'",
+    "p1": "Se on yleinen tarina: Lataat muistiinpanosovelluksen, törmäät heti maksumuuriin ja rekisteröidyt kokeilujaksolle, joka muuttuu kuukausimaksuksi. Sitten tajuat, ettei sovellus sovi työtapoihisi.",
+    "p2": "Me emme halua sitä. Haluamme sinun olevan 100 % vakuuttunut ennen kuin sitoudut tilaukseen."
+  },
+  "philosophy": {
+    "h2": "Lupauksemme",
+    "p1": "Pöytäkirja AI pyrkii olemaan paras pöytäkirjuri monille, mutta tiedämme, ettemme voi olla täydellisiä kaikille (100:lle sadasta).",
+    "p2": "Siksi tarjoamme nämä pienen riskin vaihtoehdot. Haluamme sinun tilaavan vain, kun olet varma, että olemme oikea kumppani kokouksiisi."
+  },
+  "seo": {
+    "description": "Kyllästynyt maksamaan sovelluksista ennen kuin tiedät toimivatko ne? Pöytäkirja AI tarjoaa ilmaisen päivälipun ja vanhenemattomia 1,99 $ paketteja riskittömään kokeiluun.",
+    "ld": {
+      "description": "Pöytäkirja AI tarjoaa riskittömän tavan testata AI-pöytäkirjanpitoa. Sisältää päivittäisen ilmaisen 3 minuutin lipun ja edullisia aikapaketteja ilman vanhenemista.",
+      "headline": "Ilmainen AI-pöytäkirjuri: Päiväliput & Vanhenemattomat paketit"
+    },
+    "ogDescription": "Me vihaamme myös 'maksumuuriansoja'. Siksi annamme sinulle ilmaisia päivittäisiä minuutteja ja 1,99 $ paketteja ilman vanhenemista. Katso sovimmeko sinulle.",
+    "ogTitle": "Älä tilaa sokkona. Kokeile Pöytäkirja AI:ta riskittömästi.",
+    "title": "Ilmainen AI-pöytäkirjuri: Kokeile Pöytäkirja AI:ta ilman tilausriskiä"
+  },
+  "solution_free": {
+    "h2": "Ratkaisu 1: Päivittäinen ilmainen lippu",
+    "list": [
+      "Ymmärtääkö tekoäly ääntäni?",
+      "Onko tiivistelmämuoto luettava?",
+      "Tuntuuko käyttöliittymä oikealta?"
+    ],
+    "note": "Käytä päivittäin nopeisiin katsauksiin tai äänimuistiinpanoihin. Täysin ilmaiseksi.",
+    "p1": "Jokainen käyttäjä saa **3 minuutin ilmaisen lipun, joka ikinen päivä**.",
+    "p2": "Tiedämme, että 3 minuuttia kuulostaa lyhyeltä. Mutta se riittää testaamaan:"
+  },
+  "solution_paid": {
+    "h2": "Ratkaisu 2: 1,99 $ 'Ikuinen' paketti",
+    "p1": "Tarvitsetko enemmän aikaa testaamiseen? Älä osta kuukautta vielä. Tarjoamme **Kokeilupaketin (120 min) vain 1,99 dollarilla**.",
+    "p2": "Paras osa? **Se ei vanhene koskaan.**",
+    "p3": "Voit ostaa sen tänään ja käyttää minuutit ensi kuussa tai ensi vuonna. Se on täydellinen turvaverkko 'satunnaisille' käyttäjille tai vielä harkitseville."
+  }
+}
