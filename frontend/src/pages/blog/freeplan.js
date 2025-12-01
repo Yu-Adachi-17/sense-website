@@ -10,7 +10,8 @@ import * as React from "react";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
 
-import { TbTicket, TbCoin, TbLockOpen, TbHeartHandshake } from "react-icons/tb";
+import { TbWorld, TbTicket, TbCoin, TbLockOpen, TbHeartHandshake } from "react-icons/tb";
+
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
