@@ -448,8 +448,16 @@ export default function BlogNoteTaker() {
 
           {/* Meta & CTA */}
           <SectionCard className="mt-8">
-             <div className="flex gap-3 text-xs text-indigo-200/60 mb-6">
-                <span className="bg-white/5 px-2 py-1 rounded">{txs("meta.published")}: {new Date().toLocaleDateString()}</span>
+<div className="flex gap-3 text-xs text-indigo-200/60 mb-6">
+                <span className="bg-white/5 px-2 py-1 rounded">
+                  {txs("meta.published")}:{" "}
+                  {/* 修正箇所：現在時刻(new Date())ではなく、固定日(LAST_UPDATED_ISO)を使用 */}
+                  {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
                 <span className="bg-white/5 px-2 py-1 rounded">{txs("meta.category")}</span>
              </div>
 
