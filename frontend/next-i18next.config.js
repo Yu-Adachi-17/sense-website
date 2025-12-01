@@ -30,6 +30,8 @@ module.exports = {
     'blog_strategy',
     'blog_universal',
     'blog_android',
+    'blog_maildelivery',
+    'blog_notetaker',
   ],
   defaultNS: 'common',
 
