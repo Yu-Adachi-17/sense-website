@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Secretarul AI suprem: Rezumate perfecte ale ședințelor | Proces-verbal AI",
+    "description": "Obosit de ședințe lungi? Lasă Proces-verbal AI să ia notițe automat. Captează fiecare detaliu, generează rezumate concise și extrage sarcinile.",
+    "ogTitle": "Nu mai lua notițe. Începe să colaborezi. | Proces-verbal AI",
+    "ogDescription": "Descoperă cum un asistent AI transformă maratoanele de 3 ore în rezumate clare și acționabile.",
+    "ld": {
+      "headline": "De ce ședințele tale au nevoie de un secretar AI",
+      "description": "Cum să automatizezi rezumatele ședințelor și să te asiguri că nicio sarcină nu este uitată."
+    }
+  },
+  "aria": { "home": "Acasă Proces-verbal AI" },
+  "nav": { "blog": "Blog", "summary": "Rezumat & Notițe" },
+  "hero": {
+    "kicker": "Productivitate",
+    "h1": "Secretarul care nu doarme niciodată",
+    "tagline": "Ședințele pot dura ore întregi. Concentrarea ta poate scădea, dar Proces-verbal AI rămâne vigilent. Transformă discuțiile lungi în rezumate cristaline instantaneu.",
+    "badges": ["Auto-Rezumat", "Extragere Sarcini", "Focus pe Discuție"]
+  },
+  "pain": {
+    "h2": "Realitatea oboselii din ședințe",
+    "p1": "Cât durează ședințele tale tipice? Un sync rapid de 15 minute? O oră? Sau maratoane de 3 ore? Cu toții am trecut prin asta.",
+    "questions": [
+      "**Poți rămâne cu adevărat concentrat** ore în șir?",
+      "**Ești epuizat** când se termină apelul?",
+      "**Ratezi pașii următori** pentru că erai ocupat să scrii?",
+      "**Este ședința scopul**, sau doar un mijloc?"
+    ]
+  },
+  "solution": {
+    "h2": "Noul tău asistent AI",
+    "p1": "Ședința este un instrument, nu destinația. Munca reală începe *după* apel. De aceea ai nevoie de un **secretar (Note Taker)** care nu obosește.",
+    "p2": "Proces-verbal AI este construit să reziste celor mai lungi sesiuni. Ascultă, procesează și livrează un **rezumat** structurat fără lipsuri.",
+    "features": [
+      {
+        "title": "Concentrează-te pe conversație",
+        "desc": "Nu mai scrie frenetic. Fii prezent pentru echipa ta în timp ce AI-ul se ocupă de documentare."
+      },
+      {
+        "title": "Rezumate Perfecte",
+        "desc": "Primește o privire de ansamblu concisă a discuției, organizată logic pe subiecte."
+      },
+      {
+        "title": "Sarcini Detectate",
+        "desc": "Nu rata niciodată un ToDo. AI-ul extrage automat sarcinile pentru o execuție fluidă."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Prețuri simple pentru echipe inteligente",
+    "note": "Gata să-ți îmbunătățești fluxul de lucru? Alege un plan.",
+    "light": { "name": "Pachet Light", "detail": "1200 min", "foot": "Nu expiră niciodată — $11.99" },
+    "annual": { "name": "Anual", "detail": "Nelimitat", "foot": "$149.99 / an" },
+    "free": { "badge": "Bilet Zilnic Gratuit", "text": "Încearcă gratuit timp de 3 minute, în fiecare zi." },
+    "foot_pre": "* Prețurile afișate în {currency}.",
+    "foot_post": "Plata este procesată în USD."
+  },
+  "meta": { "h2": "Meta", "published": "Publicat", "type": "Insight", "category": "Productivitate" },
+  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Descarcă aplicația iOS" }
+}

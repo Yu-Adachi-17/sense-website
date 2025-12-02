@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Ultimaattinen tekoälykirjuri: Täydelliset kokousmuistiot | Pöytäkirja AI",
+    "description": "Väsyttävätkö pitkät kokoukset? Anna Pöytäkirja AI:n toimia automaattisena kirjurina. Se tallentaa kaiken, luo tiiviit yhteenvedot ja poimii tehtävät.",
+    "ogTitle": "Lopeta muistiinpanojen teko. Aloita yhteistyö. | Pöytäkirja AI",
+    "ogDescription": "Katso, miten tekoälykirjuri muuttaa 3 tunnin maratonit selkeiksi yhteenvedoiksi.",
+    "ld": {
+      "headline": "Miksi kokouksesi tarvitsevat tekoälykirjurin",
+      "description": "Näin automatisoit kokousmuistiot ja varmistat, ettei yksikään tehtävä unohdu."
+    }
+  },
+  "aria": { "home": "Pöytäkirja AI Etusivu" },
+  "nav": { "blog": "Blogi", "summary": "Yhteenveto & Muistiot" },
+  "hero": {
+    "kicker": "Tuottavuus",
+    "h1": "Kirjuri, joka ei nuku koskaan",
+    "tagline": "Kokoukset voivat venyä tuntikausiksi. Keskittymisesi voi herpaantua, mutta Pöytäkirja AI pysyy valppaana. Muuta pitkät keskustelut kristallinkirkkaiksi yhteenvedoiksi heti.",
+    "badges": ["Auto-Yhteenveto", "Tehtävien poiminta", "Keskity puheeseen"]
+  },
+  "pain": {
+    "h2": "Kokousväsymyksen todellisuus",
+    "p1": "Kuinka pitkiä kokouksenne yleensä ovat? Nopea 15 minuuttia? Tunti? Vai 3 tunnin maratoneja? Olemme kaikki kokeneet sen.",
+    "questions": [
+      "**Pystytkö todella keskittymään** tuntikausia?",
+      "**Oletko uupunut**, kun puhelu päättyy?",
+      "**Menevätkö seuraavat askeleet ohi**, koska kirjoitit muistiinpanoja?",
+      "**Onko kokous päämäärä**, vai vain keino?"
+    ]
+  },
+  "solution": {
+    "h2": "Uusi tekoälysihteerisi",
+    "p1": "Kokoukset ovat työkalu, eivät päämäärä. Oikea työ alkaa puhelun *jälkeen*. Siksi tarvitset **kirjurin (Note Taker)**, joka ei väsy.",
+    "p2": "Pöytäkirja AI on tehty kestämään pisimmätkin istunnot. Se kuuntelee, prosessoi ja toimittaa jäsennellyn **yhteenvedon** ilman aukkoja.",
+    "features": [
+      {
+        "title": "Keskity keskusteluun",
+        "desc": "Lopeta vimmainen kirjoittaminen. Ole läsnä tiimillesi, kun tekoäly hoitaa dokumentoinnin."
+      },
+      {
+        "title": "Täydelliset yhteenvedot",
+        "desc": "Saat tiiviin katsauksen käsitellyistä asioista, loogisesti aiheittain järjestettynä."
+      },
+      {
+        "title": "Tehtävät tunnistettu",
+        "desc": "Älä koskaan missaa tehtävää. Tekoäly poimii toimenpiteet automaattisesti sujuvaa toteutusta varten."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Selkeä hinnoittelu älykkäille tiimeille",
+    "note": "Valmis tehostamaan työnkulkuasi? Valitse paketti.",
+    "light": { "name": "Light-paketti", "detail": "1200 min", "foot": "Ei vanhene koskaan — 11,99 $" },
+    "annual": { "name": "Vuositilaus", "detail": "Rajoittamaton", "foot": "149,99 $ / vuosi" },
+    "free": { "badge": "Ilmainen päivälippu", "text": "Kokeile ilmaiseksi 3 minuuttia, joka ikinen päivä." },
+    "foot_pre": "* Hinnat valuutassa {currency}.",
+    "foot_post": "Maksu käsitellään Yhdysvaltain dollareina (USD)."
+  },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Näkökulma", "category": "Tuottavuus" },
+  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Lataa iOS-sovellus" }
+}

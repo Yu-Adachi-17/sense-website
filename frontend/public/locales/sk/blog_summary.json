@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Špičkový AI zapisovateľ: Dokonalé zhrnutia porád | AI Zápisnica",
+    "description": "Unavujú vás dlhé porady? Nechajte AI Zápisnicu byť vaším automatickým zapisovateľom. Zachytí každý detail, vytvorí stručné zhrnutia a extrahuje úlohy.",
+    "ogTitle": "Prestaňte písať poznámky. Začnite spolupracovať. | AI Zápisnica",
+    "ogDescription": "Zistite, ako AI zapisovateľ premení 3-hodinové maratóny na jasné a akčné zhrnutia.",
+    "ld": {
+      "headline": "Prečo vaše porady potrebujú AI zapisovateľa",
+      "description": "Ako automatizovať zhrnutia porád a zaistiť, aby sa nezabudlo na žiadnu úlohu."
+    }
+  },
+  "aria": { "home": "AI Zápisnica Domov" },
+  "nav": { "blog": "Blog", "summary": "Zhrnutie a Zápisnica" },
+  "hero": {
+    "kicker": "Produktivita",
+    "h1": "Zapisovateľ, ktorý nikdy nespí",
+    "tagline": "Porady sa môžu ťahať hodiny. Vaša pozornosť môže klesať, ale AI Zápisnica zostáva v strehu. Premeňte dlhé diskusie na krištáľovo čisté zhrnutia okamžite.",
+    "badges": ["Auto-Zhrnutie", "Extrakcia úloh", "Sústredenie na reč"]
+  },
+  "pain": {
+    "h2": "Realita únavy z porád",
+    "p1": "Aké dlhé sú vaše bežné porady? Rýchla 15-minútovka? Hodina? Alebo 3-hodinové maratóny? Všetci sme to zažili.",
+    "questions": [
+      "**Dokážete sa naozaj sústrediť** celé hodiny?",
+      "**Ste vyčerpaní**, keď hovor skončí?",
+      "**Unikajú vám ďalšie kroky**, pretože ste boli zaneprázdnení písaním?",
+      "**Je porada cieľom**, alebo len prostriedkom?"
+    ]
+  },
+  "solution": {
+    "h2": "Váš nový AI sekretár",
+    "p1": "Porada je nástroj, nie cieľ. Skutočná práca začína *po* hovore. Preto potrebujete **zapisovateľa (Note Taker)**, ktorý sa neunaví.",
+    "p2": "AI Zápisnica je stvorená pre najdlhšie sedenia. Počúva, spracováva a dodáva štruktúrované **zhrnutie** bez medzier.",
+    "features": [
+      {
+        "title": "Sústreďte sa na konverzáciu",
+        "desc": "Prestaňte horlivo zapisovať. Buďte prítomní pre svoj tím, zatiaľ čo AI rieši dokumentáciu."
+      },
+      {
+        "title": "Perfektné zhrnutia",
+        "desc": "Získajte stručný prehľad preberaných bodov, logicky usporiadaný podľa tém."
+      },
+      {
+        "title": "Detekcia úloh",
+        "desc": "Nikdy nezmeškajte ToDo. AI automaticky extrahuje úlohy pre hladké vykonanie."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Jednoduché ceny pre chytré tímy",
+    "note": "Pripravení vylepšiť svoje workflow? Vyberte si plán.",
+    "light": { "name": "Balíček Light", "detail": "1200 min", "foot": "Nikdy neexspiruje — 11,99 $" },
+    "annual": { "name": "Ročné predplatné", "detail": "Neobmedzene", "foot": "149,99 $ / rok" },
+    "free": { "badge": "Denný lístok zdarma", "text": "Vyskúšajte to zadarmo na 3 minúty, každý deň." },
+    "foot_pre": "* Ceny zobrazené v {currency}.",
+    "foot_post": "Platba prebieha v USD."
+  },
+  "meta": { "h2": "Meta", "published": "Publikované", "type": "Insight", "category": "Produktivita" },
+  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Stiahnuť iOS aplikáciu" }
+}

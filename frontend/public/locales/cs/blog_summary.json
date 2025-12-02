@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Zápisník AI: Dokonalé shrnutí schůzky pokaždé",
+    "description": "Unavují vás dlouhé porady? Nechte Zápisník AI, aby dělal zápisy za vás. Zachytí každý detail, vytvoří stručné shrnutí a extrahuje úkoly.",
+    "ogTitle": "Přestaňte psát. Začněte spolupracovat. | Zápisník AI",
+    "ogDescription": "Zjistěte, jak AI zapisovatel promění tříhodinové maratony v jasné a akční shrnutí.",
+    "ld": {
+      "headline": "Proč vaše schůzky potřebují AI zapisovatele",
+      "description": "Jak automatizovat shrnutí schůzek a zajistit, aby se nezapomnělo na žádný úkol."
+    }
+  },
+  "aria": { "home": "Zápisník AI Domů" },
+  "nav": { "blog": "Blog", "summary": "Shrnutí a zápisy" },
+  "hero": {
+    "kicker": "Produktivita",
+    "h1": "Zapisovatel, který nikdy nespí",
+    "tagline": "Schůzky se mohou táhnout hodiny. Vaše pozornost může klesat, ale Zápisník AI zůstává ve střehu. Proměňte dlouhé diskuze v křišťálově čisté shrnutí.",
+    "badges": ["Auto-Shrnutí", "Extrakce úkolů", "Soustředění na řeč"]
+  },
+  "pain": {
+    "h2": "Realita únavy ze schůzek",
+    "p1": "Jak dlouhé jsou vaše běžné porady? Rychlá patnáctiminutovka? Hodina? Nebo tříhodinový maraton? Všichni to známe.",
+    "questions": [
+      "**Dokážete se opravdu soustředit** celé hodiny?",
+      "**Jste vyčerpaní**, když hovor skončí?",
+      "**Unikají vám další kroky**, protože jste příliš zaneprázdněni psaním?",
+      "**Je schůzka cílem**, nebo jen prostředkem k cíli?"
+    ]
+  },
+  "solution": {
+    "h2": "Váš nový AI sekretář",
+    "p1": "Schůzka je nástroj, ne cíl. Skutečná práce začíná *po* hovoru. Proto potřebujete **zapisovatele**, který se neunaví.",
+    "p2": "Zápisník AI je stvořen pro nejdlouší sezení. Poslouchá, zpracovává a dodává strukturované **shrnutí (summary)** bez mezer.",
+    "features": [
+      {
+        "title": "Soustřeďte se na konverzaci",
+        "desc": "Přestaňte zběsile zapisovat. Věnujte se týmu, zatímco AI řeší dokumentaci."
+      },
+      {
+        "title": "Perfektní shrnutí",
+        "desc": "Získejte stručný přehled projednávaných bodů, logicky uspořádaný podle témat."
+      },
+      {
+        "title": "Detekce úkolů",
+        "desc": "Nikdy nezmeškejte ToDo. AI automaticky extrahuje úkoly pro hladké provedení."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Jednoduché ceny pro chytré týmy",
+    "note": "Připraveni vylepšit své workflow? Vyberte si plán.",
+    "light": { "name": "Balíček Light", "detail": "1200 min", "foot": "Bez expirace — 11.99 $" },
+    "annual": { "name": "Roční předplatné", "detail": "Neomezeně", "foot": "149.99 $ / rok" },
+    "free": { "badge": "Denní lístek zdarma", "text": "Zkuste to zdarma na 3 minuty, každý den." },
+    "foot_pre": "* Ceny zobrazeny v {currency}.",
+    "foot_post": "Platba probíhá v USD."
+  },
+  "meta": { "h2": "Meta", "published": "Publikováno", "type": "Insight", "category": "Produktivita" },
+  "cta": { "openBrowser": "Otevřít v prohlížeči", "downloadIOS": "Stáhnout iOS aplikaci" }
+}

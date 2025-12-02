@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "The Ultimate AI Note Taker: Perfect Meeting Summaries | Minutes.AI",
+    "description": "Tired of long meetings? Let Minutes.AI be your automated note taker. It captures every detail, generates concise summaries, and extracts action items.",
+    "ogTitle": "Stop Taking Notes. Start Collaborating. | Minutes.AI",
+    "ogDescription": "Discover how an AI note taker transforms 3-hour marathons into clear, actionable summaries.",
+    "ld": {
+      "headline": "Why Your Meetings Need an AI Note Taker",
+      "description": "How to automate meeting summaries and ensure no action item is ever left behind."
+    }
+  },
+  "aria": { "home": "Minutes.AI Home" },
+  "nav": { "blog": "Blog", "summary": "Summary & Note Taking" },
+  "hero": {
+    "kicker": "Productivity",
+    "h1": "The Note Taker That Never Sleeps",
+    "tagline": "Meetings can drag on for hours. Your focus might fade, but Minutes.AI stays sharp. Transform long discussions into crystal-clear summaries instantly.",
+    "badges": ["Auto-Summary", "Action Extraction", "Focus on Talk"]
+  },
+  "pain": {
+    "h2": "The Reality of Meeting Fatigue",
+    "p1": "How long are your typical meetings? A quick 15-minute sync? A standard hour? Or do they stretch into 3-hour marathons? We've all been there.",
+    "questions": [
+      "**Can you truly stay focused** for hours on end?",
+      "**Are you exhausted** by the time the call ends?",
+      "**Do you miss next steps** because you were too busy typing?",
+      "**Is the meeting the goal**, or just a means to an end?"
+    ]
+  },
+  "solution": {
+    "h2": "Your New AI Secretary",
+    "p1": "Meetings are a tool, not the destination. The real work happens *after* the call. That's why you need a dedicated **note taker** that doesn't get tired.",
+    "p2": "Minutes.AI is built to withstand the longest sessions. It listens, processes, and delivers a structured **summary** with zero gaps.",
+    "features": [
+      {
+        "title": "Focus on the conversation",
+        "desc": "Stop scrambling to write everything down. Engage with your team while the AI handles the documentation."
+      },
+      {
+        "title": "Perfect Summaries",
+        "desc": "Get a concise overview of what was discussed, logically organized by topic."
+      },
+      {
+        "title": "Action Items Detected",
+        "desc": "Never miss a ToDo. The AI automatically extracts tasks and assigns them, ensuring smooth execution."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Simple Pricing for Smart Teams",
+    "note": "Ready to upgrade your workflow? Choose a plan that fits your rhythm.",
+    "light": { "name": "Light Pack", "detail": "1200 min", "foot": "Never expires — $11.99" },
+    "annual": { "name": "Annual", "detail": "Unlimited", "foot": "$149.99 / yr" },
+    "free": { "badge": "Daily Free Ticket", "text": "Try it free for 3 minutes, every single day." },
+    "foot_pre": "* Prices shown in {currency}.",
+    "foot_post": "Checkout processed in USD."
+  },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Insight", "category": "Productivity" },
+  "cta": { "openBrowser": "Try in Browser", "downloadIOS": "Get iOS App" }
+}

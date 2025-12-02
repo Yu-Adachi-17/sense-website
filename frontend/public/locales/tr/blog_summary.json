@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "En İyi Yapay Zeka Not Tutucu: Mükemmel Toplantı Özetleri | Tutanakları AI",
+    "description": "Uzun toplantılardan bıktınız mı? Tutanakları AI sizin otomatik not tutucunuz olsun. Her detayı yakalar, kısa özetler oluşturur ve aksiyon maddelerini çıkarır.",
+    "ogTitle": "Not Almayı Bırakın. İşbirliğine Başlayın. | Tutanakları AI",
+    "ogDescription": "Bir yapay zeka not tutucunun 3 saatlik maratonları nasıl net ve uygulanabilir özetlere dönüştürdüğünü keşfedin.",
+    "ld": {
+      "headline": "Toplantılarınızın Neden Bir Yapay Zeka Sekreterine İhtiyacı Var?",
+      "description": "Toplantı özetlerini nasıl otomatikleştireceğiniz ve hiçbir görevin unutulmadığından nasıl emin olacağınız."
+    }
+  },
+  "aria": { "home": "Tutanakları AI Ana Sayfa" },
+  "nav": { "blog": "Blog", "summary": "Özet ve Notlar" },
+  "hero": {
+    "kicker": "Üretkenlik",
+    "h1": "Asla Uyumayan Not Tutucu",
+    "tagline": "Toplantılar saatlerce sürebilir. Dikkatiniz dağılabilir ama Tutanakları AI keskin kalır. Uzun tartışmaları anında kristal netliğinde özetlere dönüştürün.",
+    "badges": ["Otomatik Özet", "Görev Çıkarma", "Konuşmaya Odaklan"]
+  },
+  "pain": {
+    "h2": "Toplantı Yorgunluğu Gerçeği",
+    "p1": "Tipik toplantılarınız ne kadar sürüyor? Hızlı bir 15 dakika? Bir saat? Yoksa 3 saatlik maratonlar mı? Hepimiz bunu yaşadık.",
+    "questions": [
+      "**Gerçekten saatlerce odaklanabiliyor musunuz?**",
+      "**Görüşme bittiğinde tükenmiş hissediyor musunuz?**",
+      "**Yazmakla meşgul olduğunuz için sonraki adımları kaçırıyor musunuz?**",
+      "**Toplantı bir amaç mı,** yoksa sadece bir araç mı?"
+    ]
+  },
+  "solution": {
+    "h2": "Yeni Yapay Zeka Sekreteriniz",
+    "p1": "Toplantı bir araçtır, varış noktası değil. Asıl iş görüşmeden *sonra* başlar. Bu yüzden yorulmayan bir **not tutucuya (Note Taker)** ihtiyacınız var.",
+    "p2": "Tutanakları AI, en uzun oturumlara dayanacak şekilde üretildi. Dinler, işler ve boşluksuz, yapılandırılmış bir **özet (summary)** sunar.",
+    "features": [
+      {
+        "title": "Sohbete odaklanın",
+        "desc": "Çılgınca not almayı bırakın. Yapay zeka dokümantasyonu hallederken siz ekibinizle ilgilenin."
+      },
+      {
+        "title": "Mükemmel Özetler",
+        "desc": "Tartışılanların konulara göre mantıksal olarak düzenlenmiş kısa bir özetini alın."
+      },
+      {
+        "title": "Tespit Edilen Görevler",
+        "desc": "Hiçbir görevi (ToDo) kaçırmayın. Yapay zeka, sorunsuz yürütme için görevleri otomatik olarak çıkarır."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Akıllı ekipler için basit fiyatlandırma",
+    "note": "İş akışınızı yükseltmeye hazır mısınız? Bir plan seçin.",
+    "light": { "name": "Light Paketi", "detail": "1200 dk", "foot": "Asla süresi dolmaz — $11.99" },
+    "annual": { "name": "Yıllık", "detail": "Sınırsız", "foot": "$149.99 / yıl" },
+    "free": { "badge": "Ücretsiz Günlük Bilet", "text": "Her gün 3 dakika ücretsiz deneyin." },
+    "foot_pre": "* Fiyatlar {currency} cinsindendir.",
+    "foot_post": "Ödeme USD olarak işlenir."
+  },
+  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "İçgörü", "category": "Üretkenlik" },
+  "cta": { "openBrowser": "Tarayıcıda aç", "downloadIOS": "iOS uygulamasını indir" }
+}

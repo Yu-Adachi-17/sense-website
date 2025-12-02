@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Pencatat AI Terbaik: Ringkasan Mesyuarat Sempurna | Minit AI",
+    "description": "Penat dengan mesyuarat panjang? Biarkan Minit AI menjadi pencatat automatik anda. Ia merakam setiap butiran, menjana ringkasan padat, dan mengekstrak item tindakan.",
+    "ogTitle": "Berhenti Mencatat. Mula Bekerjasama. | Minit AI",
+    "ogDescription": "Ketahui bagaimana pencatat AI mengubah maraton 3 jam menjadi ringkasan yang jelas dan boleh diambil tindakan.",
+    "ld": {
+      "headline": "Mengapa Mesyuarat Anda Perlukan Pencatat AI",
+      "description": "Cara mengautomasikan ringkasan mesyuarat dan memastikan tiada tugasan yang tertinggal."
+    }
+  },
+  "aria": { "home": "Laman Utama Minit AI" },
+  "nav": { "blog": "Blog", "summary": "Ringkasan & Nota" },
+  "hero": {
+    "kicker": "Produktiviti",
+    "h1": "Pencatat yang Tidak Pernah Tidur",
+    "tagline": "Mesyuarat boleh berlarutan berjam-jam. Fokus anda mungkin hilang, tetapi Minit AI kekal tajam. Ubah perbincangan panjang menjadi ringkasan yang jelas serta-merta.",
+    "badges": ["Auto-Ringkasan", "Ekstrak Tindakan", "Fokus pada Bicara"]
+  },
+  "pain": {
+    "h2": "Realiti Keletihan Mesyuarat",
+    "p1": "Berapa lama mesyuarat biasa anda? Sesi cepat 15 minit? Satu jam? Atau maraton 3 jam? Kita semua pernah melaluinya.",
+    "questions": [
+      "**Bolehkah anda benar-benar kekal fokus** berjam-jam?",
+      "**Adakah anda keletihan** apabila panggilan tamat?",
+      "**Adakah anda terlepas langkah seterusnya** kerana sibuk menaip?",
+      "**Adakah mesyuarat itu matlamatnya**, atau hanya satu cara?"
+    ]
+  },
+  "solution": {
+    "h2": "Setiausaha AI Baharu Anda",
+    "p1": "Mesyuarat adalah alat, bukan destinasi. Kerja sebenar bermula *selepas* panggilan. Itulah sebabnya anda memerlukan **pencatat (Note Taker)** yang tidak penat.",
+    "p2": "Minit AI dibina untuk menahan sesi paling lama. Ia mendengar, memproses, dan menyampaikan **ringkasan** berstruktur tanpa lompang.",
+    "features": [
+      {
+        "title": "Fokus pada perbualan",
+        "desc": "Berhenti mencatat dengan panik. Hadir untuk pasukan anda sementara AI mengendalikan dokumentasi."
+      },
+      {
+        "title": "Ringkasan Sempurna",
+        "desc": "Dapatkan gambaran ringkas tentang apa yang dibincangkan, disusun secara logik mengikut topik."
+      },
+      {
+        "title": "Item Tindakan Dikesan",
+        "desc": "Jangan sesekali terlepas ToDo. AI mengekstrak tugasan secara automatik untuk pelaksanaan yang lancar."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Harga Mudah untuk Pasukan Pintar",
+    "note": "Bersedia untuk menaik taraf aliran kerja anda? Pilih pelan.",
+    "light": { "name": "Pek Light", "detail": "1200 min", "foot": "Tiada tarikh luput — $11.99" },
+    "annual": { "name": "Tahunan", "detail": "Tanpa Had", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket Harian Percuma", "text": "Cuba percuma selama 3 minit, setiap hari." },
+    "foot_pre": "* Harga dipaparkan dalam {currency}.",
+    "foot_post": "Pembayaran diproses dalam USD."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Wawasan", "category": "Produktiviti" },
+  "cta": { "openBrowser": "Buka dalam pelayar", "downloadIOS": "Muat turun apl iOS" }
+}

@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Vrhunski AI bilježnik: Savršeni sažeci sastanaka | AI Zapisnik",
+    "description": "Umorni ste od dugih sastanaka? Neka AI Zapisnik bude vaš automatski bilježnik. Bilježi svaki detalj, generira sažete sažetke i izvlači zadatke.",
+    "ogTitle": "Prestanite pisati bilješke. Počnite surađivati. | AI Zapisnik",
+    "ogDescription": "Otkrijte kako AI bilježnik pretvara maratone od 3 sata u jasne, djelotvorne sažetke.",
+    "ld": {
+      "headline": "Zašto vaši sastanci trebaju AI zapisničara",
+      "description": "Kako automatizirati sažetke sastanaka i osigurati da nijedan zadatak ne ostane zaboravljen."
+    }
+  },
+  "aria": { "home": "AI Zapisnik Početna" },
+  "nav": { "blog": "Blog", "summary": "Sažetak i bilješke" },
+  "hero": {
+    "kicker": "Produktivnost",
+    "h1": "Zapisničar koji nikad ne spava",
+    "tagline": "Sastanci mogu trajati satima. Vaš fokus može pasti, ali AI Zapisnik ostaje oštar. Pretvorite duge rasprave u kristalno jasne sažetke u trenu.",
+    "badges": ["Auto-Sažetak", "Izvlačenje zadataka", "Fokus na razgovor"]
+  },
+  "pain": {
+    "h2": "Stvarnost umora od sastanaka",
+    "p1": "Koliko traju vaši tipični sastanci? Brzih 15 minuta? Sat vremena? Ili maratoni od 3 sata? Svi smo to prošli.",
+    "questions": [
+      "**Možete li zaista ostati fokusirani** satima?",
+      "**Jeste li iscrpljeni** kada poziv završi?",
+      "**Propuštate li sljedeće korake** jer ste bili zauzeti tipkanjem?",
+      "**Je li sastanak cilj**, ili samo sredstvo?"
+    ]
+  },
+  "solution": {
+    "h2": "Vaš novi AI tajnik",
+    "p1": "Sastanci su alat, a ne odredište. Pravi posao počinje *nakon* poziva. Zato trebate **zapisničara (Note Taker)** koji se ne umara.",
+    "p2": "AI Zapisnik je stvoren da izdrži najduže sjednice. Sluša, obrađuje i isporučuje strukturirani **sažetak** bez praznina.",
+    "features": [
+      {
+        "title": "Fokusirajte se na razgovor",
+        "desc": "Prestanite bjesomučno pisati. Budite prisutni za svoj tim dok AI rješava dokumentaciju."
+      },
+      {
+        "title": "Savršeni sažeci",
+        "desc": "Dobijte sažeti pregled onoga o čemu se raspravljalo, logično organizirano po temama."
+      },
+      {
+        "title": "Prepoznati zadaci",
+        "desc": "Nikada ne propustite zadatak (ToDo). AI automatski izvlači zadatke za glatku provedbu."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Jednostavne cijene za pametne timove",
+    "note": "Spremni za nadogradnju tijeka rada? Odaberite plan.",
+    "light": { "name": "Light Paket", "detail": "1200 min", "foot": "Nikad ne istječe — 11,99 $" },
+    "annual": { "name": "Godišnji", "detail": "Neograničeno", "foot": "149,99 $ / god" },
+    "free": { "badge": "Besplatna dnevna karta", "text": "Isprobajte besplatno 3 minute, svaki dan." },
+    "foot_pre": "* Cijene prikazane u {currency}.",
+    "foot_post": "Plaćanje se obrađuje u USD."
+  },
+  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Uvid", "category": "Produktivnost" },
+  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Preuzmi iOS aplikaciju" }
+}

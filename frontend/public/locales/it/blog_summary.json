@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Il Note Taker AI definitivo: Verbali perfetti ogni volta | Verbali IA",
+    "description": "Stanco delle lunghe riunioni? Lascia che Verbali IA sia il tuo assistente automatico. Cattura ogni dettaglio, genera riassunti concisi ed estrae le attività.",
+    "ogTitle": "Smetti di prendere appunti. Inizia a collaborare. | Verbali IA",
+    "ogDescription": "Scopri come un note taker AI trasforma maratone di 3 ore in riassunti chiari e azionabili.",
+    "ld": {
+      "headline": "Perché le tue riunioni hanno bisogno di un assistente AI",
+      "description": "Come automatizzare i riassunti delle riunioni e assicurarsi che nessuna attività venga dimenticata."
+    }
+  },
+  "aria": { "home": "Home Verbali IA" },
+  "nav": { "blog": "Blog", "summary": "Riassunti & Note" },
+  "hero": {
+    "kicker": "Produttività",
+    "h1": "L'assistente che non dorme mai",
+    "tagline": "Le riunioni possono durare ore. La tua concentrazione può calare, ma Verbali IA rimane vigile. Trasforma lunghe discussioni in riassunti cristallini all'istante.",
+    "badges": ["Auto-Riassunto", "Estrazione Attività", "Focus sul Discorso"]
+  },
+  "pain": {
+    "h2": "La realtà della stanchezza da riunione",
+    "p1": "Quanto durano le tue riunioni tipiche? Un rapido sync di 15 minuti? Un'ora? O maratone di 3 ore? Ci siamo passati tutti.",
+    "questions": [
+      "**Riesci davvero a rimanere concentrato** per ore?",
+      "**Sei esausto** quando termina la chiamata?",
+      "**Perdi i passaggi successivi** perché eri occupato a scrivere?",
+      "**La riunione è l'obiettivo**, o solo un mezzo?"
+    ]
+  },
+  "solution": {
+    "h2": "Il tuo nuovo segretario AI",
+    "p1": "La riunione è uno strumento, non la destinazione. Il vero lavoro inizia *dopo* la chiamata. Ecco perché hai bisogno di un **note taker** che non si stanca.",
+    "p2": "Verbali IA è costruito per resistere alle sessioni più lunghe. Ascolta, elabora e fornisce un **riassunto (summary)** strutturato senza lacune.",
+    "features": [
+      {
+        "title": "Concentrati sulla conversazione",
+        "desc": "Smetti di scrivere freneticamente. Sii presente per il tuo team mentre l'IA gestisce la documentazione."
+      },
+      {
+        "title": "Riassunti Perfetti",
+        "desc": "Ottieni una panoramica concisa di ciò che è stato discusso, organizzata logicamente per argomento."
+      },
+      {
+        "title": "Attività Rilevate",
+        "desc": "Non perdere mai un ToDo. L'IA estrae automaticamente i compiti per un'esecuzione fluida."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Prezzi semplici per team intelligenti",
+    "note": "Pronto a migliorare il tuo flusso di lavoro? Scegli un piano.",
+    "light": { "name": "Pacchetto Light", "detail": "1200 min", "foot": "Non scade mai — $11.99" },
+    "annual": { "name": "Annuale", "detail": "Illimitato", "foot": "$149.99 / anno" },
+    "free": { "badge": "Biglietto Giornaliero Gratuito", "text": "Provalo gratis per 3 minuti, ogni singolo giorno." },
+    "foot_pre": "* Prezzi mostrati in {currency}.",
+    "foot_post": "Il pagamento è elaborato in USD."
+  },
+  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Insight", "category": "Produttività" },
+  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Scarica app iOS" }
+}

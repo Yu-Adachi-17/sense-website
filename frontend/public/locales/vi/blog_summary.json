@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Người ghi chép AI tối ưu: Tóm tắt cuộc họp hoàn hảo | Biên bản AI",
+    "description": "Mệt mỏi vì các cuộc họp dài? Hãy để Biên bản AI là người ghi chép tự động của bạn. Nó nắm bắt mọi chi tiết, tạo bản tóm tắt súc tích và trích xuất các mục hành động.",
+    "ogTitle": "Ngừng ghi chép. Bắt đầu cộng tác. | Biên bản AI",
+    "ogDescription": "Khám phá cách một thư ký AI biến các cuộc họp marathon 3 giờ thành các bản tóm tắt rõ ràng và khả thi.",
+    "ld": {
+      "headline": "Tại sao cuộc họp của bạn cần một thư ký AI",
+      "description": "Cách tự động hóa tóm tắt cuộc họp và đảm bảo không có nhiệm vụ nào bị bỏ sót."
+    }
+  },
+  "aria": { "home": "Trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "summary": "Tóm tắt & Ghi chú" },
+  "hero": {
+    "kicker": "Năng suất",
+    "h1": "Người ghi chép không bao giờ ngủ",
+    "tagline": "Các cuộc họp có thể kéo dài hàng giờ. Sự tập trung của bạn có thể giảm, nhưng Biên bản AI vẫn sắc bén. Biến các cuộc thảo luận dài thành bản tóm tắt rõ ràng ngay lập tức.",
+    "badges": ["Tự động tóm tắt", "Trích xuất nhiệm vụ", "Tập trung vào cuộc trò chuyện"]
+  },
+  "pain": {
+    "h2": "Thực tế của sự mệt mỏi khi họp",
+    "p1": "Các cuộc họp điển hình của bạn kéo dài bao lâu? 15 phút nhanh chóng? Một giờ? Hay marathon 3 giờ? Chúng ta đều đã trải qua.",
+    "questions": [
+      "**Bạn có thực sự giữ được sự tập trung** trong nhiều giờ?",
+      "**Bạn có kiệt sức** khi cuộc gọi kết thúc không?",
+      "**Bạn có bỏ lỡ các bước tiếp theo** vì bận gõ phím không?",
+      "**Cuộc họp là mục tiêu**, hay chỉ là phương tiện?"
+    ]
+  },
+  "solution": {
+    "h2": "Thư ký AI mới của bạn",
+    "p1": "Cuộc họp là công cụ, không phải đích đến. Công việc thực sự bắt đầu *sau* cuộc gọi. Đó là lý do bạn cần một **người ghi chép (Note Taker)** không biết mệt.",
+    "p2": "Biên bản AI được xây dựng để chịu đựng các phiên họp dài nhất. Nó lắng nghe, xử lý và cung cấp **bản tóm tắt** có cấu trúc không lỗ hổng.",
+    "features": [
+      {
+        "title": "Tập trung vào cuộc trò chuyện",
+        "desc": "Ngừng ghi chép điên cuồng. Hãy hiện diện cùng nhóm của bạn trong khi AI xử lý tài liệu."
+      },
+      {
+        "title": "Tóm tắt hoàn hảo",
+        "desc": "Nhận cái nhìn tổng quan súc tích về những gì đã thảo luận, được sắp xếp hợp lý theo chủ đề."
+      },
+      {
+        "title": "Phát hiện nhiệm vụ",
+        "desc": "Không bao giờ bỏ lỡ ToDo. AI tự động trích xuất các nhiệm vụ để thực hiện suôn sẻ."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Giá đơn giản cho các đội nhóm thông minh",
+    "note": "Sẵn sàng nâng cấp quy trình làm việc? Chọn một gói.",
+    "light": { "name": "Gói Light", "detail": "1200 phút", "foot": "Không bao giờ hết hạn — $11.99" },
+    "annual": { "name": "Hàng năm", "detail": "Không giới hạn", "foot": "$149.99 / năm" },
+    "free": { "badge": "Vé Hàng Ngày Miễn Phí", "text": "Dùng thử miễn phí 3 phút, mỗi ngày." },
+    "foot_pre": "* Giá hiển thị bằng {currency}.",
+    "foot_post": "Thanh toán được xử lý bằng USD."
+  },
+  "meta": { "h2": "Meta", "published": "Đã xuất bản", "type": "Thông tin chi tiết", "category": "Năng suất" },
+  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Tải ứng dụng iOS" }
+}

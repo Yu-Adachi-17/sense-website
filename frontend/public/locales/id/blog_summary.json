@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Pencatat AI Utama: Ringkasan Rapat Sempurna | Minutes AI",
+    "description": "Lelah dengan rapat panjang? Biarkan Minutes AI menjadi pencatat otomatis Anda. Ia menangkap setiap detail, membuat ringkasan ringkas, dan mengekstrak item tindakan.",
+    "ogTitle": "Berhenti Mencatat. Mulai Berkolaborasi. | Minutes AI",
+    "ogDescription": "Temukan bagaimana pencatat AI mengubah maraton 3 jam menjadi ringkasan yang jelas dan dapat ditindaklanjuti.",
+    "ld": {
+      "headline": "Mengapa Rapat Anda Membutuhkan Pencatat AI",
+      "description": "Cara mengotomatiskan ringkasan rapat dan memastikan tidak ada tugas yang tertinggal."
+    }
+  },
+  "aria": { "home": "Beranda Minutes AI" },
+  "nav": { "blog": "Blog", "summary": "Ringkasan & Catatan" },
+  "hero": {
+    "kicker": "Produktivitas",
+    "h1": "Pencatat yang Tak Pernah Tidur",
+    "tagline": "Rapat bisa berlangsung berjam-jam. Fokus Anda mungkin memudar, tetapi Minutes AI tetap tajam. Ubah diskusi panjang menjadi ringkasan sebening kristal secara instan.",
+    "badges": ["Ringkasan Otomatis", "Ekstraksi Tindakan", "Fokus pada Bicara"]
+  },
+  "pain": {
+    "h2": "Realitas Kelelahan Rapat",
+    "p1": "Berapa lama rapat tipikal Anda? Sinkronisasi cepat 15 menit? Satu jam? Atau maraton 3 jam? Kita semua pernah mengalaminya.",
+    "questions": [
+      "**Bisakah Anda benar-benar tetap fokus** selama berjam-jam?",
+      "**Apakah Anda kelelahan** saat panggilan berakhir?",
+      "**Apakah Anda melewatkan langkah selanjutnya** karena sibuk mengetik?",
+      "**Apakah rapat itu tujuannya**, atau hanya sarana?"
+    ]
+  },
+  "solution": {
+    "h2": "Sekretaris AI Baru Anda",
+    "p1": "Rapat adalah alat, bukan tujuan. Pekerjaan nyata dimulai *setelah* panggilan. Itulah mengapa Anda membutuhkan **pencatat (Note Taker)** yang tidak kenal lelah.",
+    "p2": "Minutes AI dibangun untuk menahan sesi terlama. Ia mendengarkan, memproses, dan memberikan **ringkasan** terstruktur tanpa celah.",
+    "features": [
+      {
+        "title": "Fokus pada percakapan",
+        "desc": "Berhenti mencatat dengan panik. Hadirlah untuk tim Anda sementara AI menangani dokumentasi."
+      },
+      {
+        "title": "Ringkasan Sempurna",
+        "desc": "Dapatkan gambaran ringkas tentang apa yang dibahas, diatur secara logis berdasarkan topik."
+      },
+      {
+        "title": "Item Tindakan Terdeteksi",
+        "desc": "Jangan pernah melewatkan ToDo. AI secara otomatis mengekstrak tugas untuk eksekusi yang lancar."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Harga Sederhana untuk Tim Cerdas",
+    "note": "Siap meningkatkan alur kerja Anda? Pilih paket.",
+    "light": { "name": "Paket Light", "detail": "1200 mnt", "foot": "Tidak pernah kedaluwarsa — $11.99" },
+    "annual": { "name": "Tahunan", "detail": "Tak Terbatas", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket Harian Gratis", "text": "Coba gratis selama 3 menit, setiap hari." },
+    "foot_pre": "* Harga ditampilkan dalam {currency}.",
+    "foot_post": "Pembayaran diproses dalam USD."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Wawasan", "category": "Produktivitas" },
+  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Unduh aplikasi iOS" }
+}

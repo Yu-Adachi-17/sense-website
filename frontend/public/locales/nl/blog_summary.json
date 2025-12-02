@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "De ultieme AI-notulist: Perfecte vergadersamenvattingen | Notulen AI",
+    "description": "Moe van lange vergaderingen? Laat Notulen AI uw geautomatiseerde notulist zijn. Het legt elk detail vast, genereert beknopte samenvattingen en haalt actiepunten eruit.",
+    "ogTitle": "Stop met notuleren. Begin met samenwerken. | Notulen AI",
+    "ogDescription": "Ontdek hoe een AI-notulist marathonsessies van 3 uur omzet in heldere, bruikbare samenvattingen.",
+    "ld": {
+      "headline": "Waarom uw vergaderingen een AI-notulist nodig hebben",
+      "description": "Hoe u vergadersamenvattingen automatiseert en ervoor zorgt dat geen enkel actiepunt wordt vergeten."
+    }
+  },
+  "aria": { "home": "Notulen AI Home" },
+  "nav": { "blog": "Blog", "summary": "Samenvatting & Notulen" },
+  "hero": {
+    "kicker": "Productiviteit",
+    "h1": "De notulist die nooit slaapt",
+    "tagline": "Vergaderingen kunnen uren duren. Uw aandacht kan verslappen, maar Notulen AI blijft scherp. Zet lange discussies direct om in glasheldere samenvattingen.",
+    "badges": ["Auto-Samenvatting", "Actiepunten Extractie", "Focus op Gesprek"]
+  },
+  "pain": {
+    "h2": "De realiteit van vergadermoeheid",
+    "p1": "Hoe lang duren uw typische vergaderingen? Een snelle 15 minuten? Een uur? Of marathons van 3 uur? We hebben het allemaal meegemaakt.",
+    "questions": [
+      "**Kunt u echt urenlang gefocust** blijven?",
+      "**Bent u uitgeput** als het gesprek eindigt?",
+      "**Mist u vervolgstappen** omdat u druk bezig was met typen?",
+      "**Is de vergadering het doel**, of slechts een middel?"
+    ]
+  },
+  "solution": {
+    "h2": "Uw nieuwe AI-secretaresse",
+    "p1": "Vergaderen is een hulpmiddel, niet de bestemming. Het echte werk begint *na* het gesprek. Daarom heeft u een **notulist (Note Taker)** nodig die niet moe wordt.",
+    "p2": "Notulen AI is gebouwd om de langste sessies te doorstaan. Het luistert, verwerkt en levert een gestructureerde **samenvatting (summary)** zonder gaten.",
+    "features": [
+      {
+        "title": "Focus op het gesprek",
+        "desc": "Stop met verwoed meeschrijven. Wees aanwezig voor uw team terwijl de AI de documentatie regelt."
+      },
+      {
+        "title": "Perfecte Samenvattingen",
+        "desc": "Krijg een beknopt overzicht van wat er is besproken, logisch georganiseerd per onderwerp."
+      },
+      {
+        "title": "Actiepunten Gedetecteerd",
+        "desc": "Mis nooit meer een ToDo. De AI haalt taken automatisch uit het gesprek voor een soepele uitvoering."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Eenvoudige prijzen voor slimme teams",
+    "note": "Klaar om uw workflow te upgraden? Kies een plan.",
+    "light": { "name": "Light Pakket", "detail": "1200 min", "foot": "Verloopt nooit — $11.99" },
+    "annual": { "name": "Jaarlijks", "detail": "Onbeperkt", "foot": "$149.99 / jaar" },
+    "free": { "badge": "Gratis Dagkaart", "text": "Probeer het gratis gedurende 3 minuten, elke dag." },
+    "foot_pre": "* Prijzen weergegeven in {currency}.",
+    "foot_post": "Betaling wordt verwerkt in USD."
+  },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Inzicht", "category": "Productiviteit" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Download iOS-app" }
+}

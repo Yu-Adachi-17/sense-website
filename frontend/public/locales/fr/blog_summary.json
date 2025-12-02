@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Le preneur de notes IA ultime : Comptes rendus parfaits | Minutes.AI",
+    "description": "Fatigué des longues réunions ? Laissez Minutes.AI être votre preneur de notes automatisé. Il capture chaque détail, génère des synthèses concises et extrait les actions.",
+    "ogTitle": "Arrêtez de prendre des notes. Commencez à collaborer. | Minutes.AI",
+    "ogDescription": "Découvrez comment un assistant IA transforme des marathons de 3 heures en synthèses claires et exploitables.",
+    "ld": {
+      "headline": "Pourquoi vos réunions ont besoin d'un secrétaire IA",
+      "description": "Comment automatiser les résumés de réunion et s'assurer qu'aucune tâche n'est oubliée."
+    }
+  },
+  "aria": { "home": "Accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "summary": "Synthèse & Notes" },
+  "hero": {
+    "kicker": "Productivité",
+    "h1": "Le preneur de notes qui ne dort jamais",
+    "tagline": "Les réunions peuvent s'éterniser. Votre attention peut faiblir, mais Minutes.AI reste vigilant. Transformez instantanément de longues discussions en synthèses cristallines.",
+    "badges": ["Auto-Synthèse", "Extraction d'actions", "Focus sur la parole"]
+  },
+  "pain": {
+    "h2": "La réalité de la fatigue des réunions",
+    "p1": "Combien de temps durent vos réunions ? 15 minutes ? Une heure ? Ou des marathons de 3 heures ? Nous connaissons tous cela.",
+    "questions": [
+      "**Pouvez-vous vraiment rester concentré** pendant des heures ?",
+      "**Êtes-vous épuisé** à la fin de l'appel ?",
+      "**Manquez-vous les prochaines étapes** parce que vous écriviez ?",
+      "**La réunion est-elle le but**, ou juste un moyen ?"
+    ]
+  },
+  "solution": {
+    "h2": "Votre nouveau secrétaire IA",
+    "p1": "La réunion est un outil, pas la destination. Le vrai travail commence *après* l'appel. C'est pourquoi vous avez besoin d'un **preneur de notes** qui ne se fatigue pas.",
+    "p2": "Minutes.AI est conçu pour endurer les sessions les plus longues. Il écoute, traite et livre une **synthèse (summary)** structurée sans lacunes.",
+    "features": [
+      {
+        "title": "Concentrez-vous sur la conversation",
+        "desc": "Arrêtez de noter frénétiquement. Soyez présent pour votre équipe pendant que l'IA gère la documentation."
+      },
+      {
+        "title": "Synthèses Parfaites",
+        "desc": "Obtenez un aperçu concis de ce qui a été discuté, organisé logiquement par sujet."
+      },
+      {
+        "title": "Actions Détectées",
+        "desc": "Ne manquez jamais un ToDo. L'IA extrait automatiquement les tâches pour une exécution fluide."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Prix simples pour équipes intelligentes",
+    "note": "Prêt à améliorer votre flux de travail ? Choisissez un plan.",
+    "light": { "name": "Pack Light", "detail": "1200 min", "foot": "N'expire jamais — 11,99 $" },
+    "annual": { "name": "Annuel", "detail": "Illimité", "foot": "149,99 $ / an" },
+    "free": { "badge": "Ticket Journalier Gratuit", "text": "Essayez gratuitement 3 minutes, chaque jour." },
+    "foot_pre": "* Prix affichés en {currency}.",
+    "foot_post": "Le paiement est traité en USD."
+  },
+  "meta": { "h2": "Méta", "published": "Publié le", "type": "Insight", "category": "Productivité" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Télécharger l'app iOS" }
+}

@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Ostateczny asystent notatek AI: Idealne podsumowania spotkań | Protokół AI",
+    "description": "Zmęczony długimi spotkaniami? Niech Protokół AI będzie Twoim automatycznym protokolantem. Rejestruje każdy szczegół, generuje zwięzłe podsumowania i wyodrębnia zadania.",
+    "ogTitle": "Przestań robić notatki. Zacznij współpracować. | Protokół AI",
+    "ogDescription": "Sprawdź, jak asystent AI zmienia 3-godzinne maratony w jasne, możliwe do wykonania podsumowania.",
+    "ld": {
+      "headline": "Dlaczego Twoje spotkania potrzebują asystenta AI",
+      "description": "Jak zautomatyzować podsumowania spotkań i upewnić się, że żadne zadanie nie zostanie pominięte."
+    }
+  },
+  "aria": { "home": "Protokół AI Strona Główna" },
+  "nav": { "blog": "Blog", "summary": "Podsumowanie i Notatki" },
+  "hero": {
+    "kicker": "Produktywność",
+    "h1": "Protokolant, który nigdy nie śpi",
+    "tagline": "Spotkania mogą trwać godzinami. Twoja koncentracja może spaść, ale Protokół AI pozostaje czujny. Zamień długie dyskusje w krystalicznie czyste podsumowania natychmiast.",
+    "badges": ["Auto-Podsumowanie", "Ekstrakcja Zadań", "Skup się na Rozmowie"]
+  },
+  "pain": {
+    "h2": "Rzeczywistość zmęczenia spotkaniami",
+    "p1": "Jak długie są Twoje typowe spotkania? Szybkie 15 minut? Godzina? Czy 3-godzinne maratony? Wszyscy to znamy.",
+    "questions": [
+      "**Czy naprawdę potrafisz utrzymać skupienie** przez wiele godzin?",
+      "**Czy jesteś wyczerpany**, gdy rozmowa się kończy?",
+      "**Czy umykają Ci kolejne kroki**, bo byłeś zajęty pisaniem?",
+      "**Czy spotkanie jest celem**, czy tylko środkiem?"
+    ]
+  },
+  "solution": {
+    "h2": "Twój nowy sekretarz AI",
+    "p1": "Spotkanie to narzędzie, a nie cel. Prawdziwa praca zaczyna się *po* rozmowie. Dlatego potrzebujesz **protokolanta (Note Taker)**, który się nie męczy.",
+    "p2": "Protokół AI jest stworzony, aby wytrzymać najdłuższe sesje. Słucha, przetwarza i dostarcza ustrukturyzowane **podsumowanie** bez luk.",
+    "features": [
+      {
+        "title": "Skup się na rozmowie",
+        "desc": "Przestań gorączkowo notować. Bądź obecny dla swojego zespołu, podczas gdy AI zajmuje się dokumentacją."
+      },
+      {
+        "title": "Idealne Podsumowania",
+        "desc": "Otrzymaj zwięzły przegląd omówionych kwestii, logicznie uporządkowany według tematów."
+      },
+      {
+        "title": "Wykryte Zadania",
+        "desc": "Nigdy nie przegap zadania (ToDo). AI automatycznie wyodrębnia działania dla płynnej realizacji."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Proste ceny dla mądrych zespołów",
+    "note": "Gotowy na ulepszenie przepływu pracy? Wybierz plan.",
+    "light": { "name": "Pakiet Light", "detail": "1200 min", "foot": "Nigdy nie wygasa — $11.99" },
+    "annual": { "name": "Roczny", "detail": "Nielimitowany", "foot": "$149.99 / rok" },
+    "free": { "badge": "Darmowy Bilet Dzienny", "text": "Wypróbuj za darmo przez 3 minuty, każdego dnia." },
+    "foot_pre": "* Ceny wyświetlane w {currency}.",
+    "foot_post": "Płatność przetwarzana w USD."
+  },
+  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Wgląd", "category": "Produktywność" },
+  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Pobierz aplikację iOS" }
+}

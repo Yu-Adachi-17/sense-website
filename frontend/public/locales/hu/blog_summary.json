@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Az ultimatív AI jegyzetelő: Tökéletes értekezlet-összefoglalók | Jegyzőkönyv AI",
+    "description": "Fárasztják a hosszú megbeszélések? Hagyja, hogy a Jegyzőkönyv AI legyen az automatikus jegyzetelője. Rögzít minden részletet, tömör összefoglalókat készít és kigyűjti a feladatokat.",
+    "ogTitle": "Hagyja abba a jegyzetelést. Kezdjen el együttműködni. | Jegyzőkönyv AI",
+    "ogDescription": "Fedezze fel, hogyan alakítja át egy AI jegyzetelő a 3 órás maratonokat világos, cselekvésre ösztönző összefoglalókká.",
+    "ld": {
+      "headline": "Miért van szüksége értekezleteinek AI jegyzetelőre",
+      "description": "Hogyan automatizálhatja a megbeszélések összefoglalóit, és biztosíthatja, hogy egyetlen feladat se vesszen el."
+    }
+  },
+  "aria": { "home": "Jegyzőkönyv AI Kezdőlap" },
+  "nav": { "blog": "Blog", "summary": "Összefoglaló & Jegyzetek" },
+  "hero": {
+    "kicker": "Hatékonyság",
+    "h1": "A jegyzetelő, aki sosem alszik",
+    "tagline": "A megbeszélések órákig tarthatnak. A figyelme lankadhat, de a Jegyzőkönyv AI éber marad. Változtassa a hosszú vitákat azonnal kristálytiszta összefoglalókká.",
+    "badges": ["Auto-Összefoglaló", "Feladatkigyűjtés", "Fókusz a beszédre"]
+  },
+  "pain": {
+    "h2": "A meeting-fáradtság valósága",
+    "p1": "Milyen hosszúak a tipikus megbeszélései? Egy gyors 15 perces egyeztetés? Egy óra? Vagy 3 órás maratonok? Mindannyian átéltük már.",
+    "questions": [
+      "**Valóban képes koncentrálni** órákon át?",
+      "**Kimerültnek érzi magát**, amikor vége a hívásnak?",
+      "**Lemarad a következő lépésekről**, mert a gépeléssel volt elfoglalva?",
+      "**A megbeszélés a cél**, vagy csak egy eszköz?"
+    ]
+  },
+  "solution": {
+    "h2": "Az új AI titkárnője",
+    "p1": "A megbeszélés egy eszköz, nem a cél. A valódi munka a hívás *után* kezdődik. Ezért van szüksége egy **jegyzetelőre (Note Taker)**, aki nem fárad el.",
+    "p2": "A Jegyzőkönyv AI a leghosszabb ülésekre lett tervezve. Hallgat, feldolgoz és strukturált **összefoglalót (summary)** készít hiányosságok nélkül.",
+    "features": [
+      {
+        "title": "Koncentráljon a beszélgetésre",
+        "desc": "Hagyja abba a lázas jegyzetelést. Legyen jelen a csapata számára, miközben az AI kezeli a dokumentációt."
+      },
+      {
+        "title": "Tökéletes összefoglalók",
+        "desc": "Kapjon tömör áttekintést a megbeszéltekről, logikusan, témák szerint rendszerezve."
+      },
+      {
+        "title": "Feladatok észlelve",
+        "desc": "Soha ne mulasszon el egy teendőt (ToDo). Az AI automatikusan kinyeri a feladatokat a zökkenőmentes végrehajtás érdekében."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Egyszerű árazás okos csapatoknak",
+    "note": "Készen áll a munkafolyamat fejlesztésére? Válasszon csomagot.",
+    "light": { "name": "Light Csomag", "detail": "1200 perc", "foot": "Soha nem jár le — 11,99 $" },
+    "annual": { "name": "Éves", "detail": "Korlátlan", "foot": "149,99 $ / év" },
+    "free": { "badge": "Ingyenes Napi Jegy", "text": "Próbálja ki ingyen 3 percig, minden egyes nap." },
+    "foot_pre": "* Az árak {currency}-ban vannak feltüntetve.",
+    "foot_post": "A fizetés USD-ben történik."
+  },
+  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Betekintés", "category": "Hatékonyság" },
+  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "iOS app letöltése" }
+}

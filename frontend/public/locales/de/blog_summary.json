@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Die ultimative Protokoll-KI: Perfekte Meeting-Zusammenfassungen | Protokoll KI",
+    "description": "Müde von langen Meetings? Lassen Sie Protokoll KI Ihren Notiznehmer sein. Sie erfasst jedes Detail, erstellt präzise Zusammenfassungen und extrahiert Action Items.",
+    "ogTitle": "Schluss mit Mitschreiben. Starten Sie die Zusammenarbeit. | Protokoll KI",
+    "ogDescription": "Entdecken Sie, wie eine KI-Notizhilfe 3-Stunden-Marathons in klare Zusammenfassungen verwandelt.",
+    "ld": {
+      "headline": "Warum Ihre Meetings einen KI-Protokollführer brauchen",
+      "description": "So automatisieren Sie Meeting-Zusammenfassungen und stellen sicher, dass kein To-Do vergessen wird."
+    }
+  },
+  "aria": { "home": "Protokoll KI Home" },
+  "nav": { "blog": "Blog", "summary": "Zusammenfassung & Notizen" },
+  "hero": {
+    "kicker": "Produktivität",
+    "h1": "Der Protokollführer, der nie schläft",
+    "tagline": "Meetings können sich über Stunden ziehen. Ihre Konzentration mag nachlassen, aber Protokoll KI bleibt wachsam. Verwandeln Sie lange Diskussionen sofort in glasklare Zusammenfassungen.",
+    "badges": ["Auto-Zusammenfassung", "Action Items", "Fokus aufs Gespräch"]
+  },
+  "pain": {
+    "h2": "Die Realität der Meeting-Müdigkeit",
+    "p1": "Wie lange dauern Ihre typischen Meetings? Ein kurzes 15-Minuten-Sync? Eine Stunde? Oder 3-Stunden-Marathons? Wir kennen das alle.",
+    "questions": [
+      "**Können Sie wirklich stundenlang** fokussiert bleiben?",
+      "**Sind Sie erschöpft**, wenn der Call endet?",
+      "**Verpassen Sie nächste Schritte**, weil Sie mit Tippen beschäftigt waren?",
+      "**Ist das Meeting das Ziel**, oder nur Mittel zum Zweck?"
+    ]
+  },
+  "solution": {
+    "h2": "Ihre neue KI-Sekretärin",
+    "p1": "Meetings sind ein Werkzeug, nicht das Ziel. Die eigentliche Arbeit beginnt *nach* dem Call. Deshalb brauchen Sie einen **Note Taker**, der nicht müde wird.",
+    "p2": "Protokoll KI ist für die längsten Sitzungen gebaut. Sie hört zu, verarbeitet und liefert eine strukturierte **Zusammenfassung (Summary)** ohne Lücken.",
+    "features": [
+      {
+        "title": "Fokus auf das Gespräch",
+        "desc": "Hören Sie auf, hektisch mitzuschreiben. Widmen Sie sich Ihrem Team, während die KI die Dokumentation übernimmt."
+      },
+      {
+        "title": "Perfekte Zusammenfassungen",
+        "desc": "Erhalten Sie einen präzisen Überblick über das Besprochene, logisch nach Themen geordnet."
+      },
+      {
+        "title": "Aufgaben erkannt",
+        "desc": "Verpassen Sie nie ein To-Do. Die KI extrahiert Aufgaben automatisch für eine reibungslose Umsetzung."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Einfache Preise für smarte Teams",
+    "note": "Bereit für ein Upgrade? Wählen Sie Ihren Plan.",
+    "light": { "name": "Light Paket", "detail": "1200 Min", "foot": "Läuft nie ab — 11,99 $" },
+    "annual": { "name": "Jährlich", "detail": "Unbegrenzt", "foot": "149,99 $ / Jahr" },
+    "free": { "badge": "Tägliches Gratisticket", "text": "Testen Sie es kostenlos für 3 Minuten, jeden Tag." },
+    "foot_pre": "* Preise in {currency}.",
+    "foot_post": "Zahlung erfolgt in USD."
+  },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Insight", "category": "Produktivität" },
+  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "iOS App laden" }
+}

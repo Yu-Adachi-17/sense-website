@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Den ultimate AI-referenten: Perfekte møtesammendrag | Referat AI",
+    "description": "Lei av lange møter? La Referat AI være din automatiske notatskriver. Den fanger hver detalj, genererer konsise sammendrag og trekker ut gjøremål.",
+    "ogTitle": "Slutt å ta notater. Begynn å samarbeide. | Referat AI",
+    "ogDescription": "Oppdag hvordan en AI-referent forvandler 3-timers maratonmøter til klare, handlingsrettede sammendrag.",
+    "ld": {
+      "headline": "Hvorfor møtene dine trenger en AI-referent",
+      "description": "Hvordan automatisere møtesammendrag og sikre at ingen oppgaver blir glemt."
+    }
+  },
+  "aria": { "home": "Referat AI Hjem" },
+  "nav": { "blog": "Blogg", "summary": "Sammendrag & Referat" },
+  "hero": {
+    "kicker": "Produktivitet",
+    "h1": "Referenten som aldri sover",
+    "tagline": "Møter kan trekke ut i timevis. Fokuset ditt kan svikte, men Referat AI forblir skarp. Forvandle lange diskusjoner til krystallklare sammendrag umiddelbart.",
+    "badges": ["Auto-Sammendrag", "Oppgaveuttrekk", "Fokus på praten"]
+  },
+  "pain": {
+    "h2": "Realiteten ved møtetretthet",
+    "p1": "Hvor lange er dine typiske møter? En rask 15-minutters sjekk? En time? Eller 3-timers maraton? Vi har alle vært der.",
+    "questions": [
+      "**Klarer du virkelig å holde fokus** i timevis?",
+      "**Er du utslitt** når samtalen er over?",
+      "**Går du glipp av neste steg** fordi du var opptatt med å skrive?",
+      "**Er møtet målet**, eller bare et middel?"
+    ]
+  },
+  "solution": {
+    "h2": "Din nye AI-sekretær",
+    "p1": "Møter er et verktøy, ikke destinasjonen. Det virkelige arbeidet starter *etter* samtalen. Derfor trenger du en **referent (Note Taker)** som ikke blir sliten.",
+    "p2": "Referat AI er bygget for å tåle de lengste øktene. Den lytter, behandler og leverer et strukturert **sammendrag** uten hull.",
+    "features": [
+      {
+        "title": "Fokusér på samtalen",
+        "desc": "Slutt å skrive febrilsk. Vær til stede for teamet ditt mens AI-en håndterer dokumentasjonen."
+      },
+      {
+        "title": "Perfekte sammendrag",
+        "desc": "Få en konsis oversikt over hva som ble diskutert, logisk organisert etter emne."
+      },
+      {
+        "title": "Oppgaver oppdaget",
+        "desc": "Gå aldri glipp av en ToDo. AI-en trekker automatisk ut oppgaver for smidig gjennomføring."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Enkle priser for smarte team",
+    "note": "Klar for å oppgradere arbeidsflyten? Velg en plan.",
+    "light": { "name": "Light-pakke", "detail": "1200 min", "foot": "Utløper aldri — $11.99" },
+    "annual": { "name": "Årlig", "detail": "Ubegrenset", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis dagsbillett", "text": "Prøv gratis i 3 minutter, hver eneste dag." },
+    "foot_pre": "* Priser vist i {currency}.",
+    "foot_post": "Betaling behandles i USD."
+  },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Innsikt", "category": "Produktivitet" },
+  "cta": { "openBrowser": "Åpne i nettleser", "downloadIOS": "Last ned iOS-app" }
+}

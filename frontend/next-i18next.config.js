@@ -34,6 +34,7 @@ module.exports = {
     'blog_notetaker',
     'blog_freeplan',
     'blog_comparison',
+    'blog_summary',
   ],
   defaultNS: 'common',
 

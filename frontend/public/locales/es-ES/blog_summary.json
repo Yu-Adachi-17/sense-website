@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "El mejor tomador de notas con IA: Resúmenes perfectos | Actas IA",
+    "description": "¿Cansado de reuniones largas? Deja que Actas IA sea tu tomador de notas automatizado. Captura cada detalle, genera resúmenes concisos y extrae tareas.",
+    "ogTitle": "Deja de tomar notas. Empieza a colaborar. | Actas IA",
+    "ogDescription": "Descubre cómo un tomador de notas con IA transforma maratones de 3 horas en resúmenes claros y accionables.",
+    "ld": {
+      "headline": "Por qué tus reuniones necesitan un secretario de IA",
+      "description": "Cómo automatizar los resúmenes de reuniones y asegurar que ninguna tarea se olvide."
+    }
+  },
+  "aria": { "home": "Inicio Actas IA" },
+  "nav": { "blog": "Blog", "summary": "Resumen y Notas" },
+  "hero": {
+    "kicker": "Productividad",
+    "h1": "El tomador de notas que nunca duerme",
+    "tagline": "Las reuniones pueden durar horas. Tu concentración puede fallar, pero Actas IA se mantiene alerta. Transforma largas discusiones en resúmenes cristalinos al instante.",
+    "badges": ["Auto-Resumen", "Extracción de Tareas", "Enfoque en la Charla"]
+  },
+  "pain": {
+    "h2": "La realidad de la fatiga en reuniones",
+    "p1": "¿Cuánto duran tus reuniones típicas? ¿15 minutos rápidos? ¿Una hora? ¿O maratones de 3 horas? Todos hemos estado ahí.",
+    "questions": [
+      "**¿Puedes realmente mantener el enfoque** durante horas?",
+      "**¿Terminas agotado** cuando finaliza la llamada?",
+      "**¿Pierdes los siguientes pasos** por estar ocupado escribiendo?",
+      "**¿La reunión es el objetivo**, o solo un medio?"
+    ]
+  },
+  "solution": {
+    "h2": "Tu nueva secretaria de IA",
+    "p1": "Las reuniones son una herramienta, no el destino. El trabajo real comienza *después* de la llamada. Por eso necesitas un **tomador de notas** que no se canse.",
+    "p2": "Actas IA está construido para soportar las sesiones más largas. Escucha, procesa y entrega un **resumen** estructurado sin huecos.",
+    "features": [
+      {
+        "title": "Enfócate en la conversación",
+        "desc": "Deja de escribir frenéticamente. Interactúa con tu equipo mientras la IA maneja la documentación."
+      },
+      {
+        "title": "Resúmenes Perfectos",
+        "desc": "Obtén una visión general concisa de lo discutido, organizada lógicamente por temas."
+      },
+      {
+        "title": "Detección de Tareas",
+        "desc": "Nunca pierdas un ToDo. La IA extrae automáticamente las tareas para una ejecución fluida."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Precios simples para equipos inteligentes",
+    "note": "¿Listo para mejorar tu flujo de trabajo? Elige un plan.",
+    "light": { "name": "Paquete Light", "detail": "1200 min", "foot": "Nunca caduca — $11.99" },
+    "annual": { "name": "Anual", "detail": "Ilimitado", "foot": "$149.99 / año" },
+    "free": { "badge": "Ticket Diario Gratis", "text": "Pruébalo gratis por 3 minutos, todos los días." },
+    "foot_pre": "* Precios en {currency}.",
+    "foot_post": "El pago se procesa en USD."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Insight", "category": "Productividad" },
+  "cta": { "openBrowser": "Abrir en navegador", "downloadIOS": "Bajar App iOS" }
+}

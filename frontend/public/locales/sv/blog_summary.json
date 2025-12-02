@@ -1,0 +1,60 @@
+{
+  "seo": {
+    "title": "Den ultimata AI-sekreteraren: Perfekta mötessammanfattningar | Protokoll AI",
+    "description": "Trött på långa möten? Låt Protokoll AI vara din automatiska antecknare. Den fångar varje detalj, genererar koncisa sammanfattningar och extraherar uppgifter.",
+    "ogTitle": "Sluta anteckna. Börja samarbeta. | Protokoll AI",
+    "ogDescription": "Upptäck hur en AI-sekreterare förvandlar 3-timmars maratonmöten till tydliga, handlingsbara sammanfattningar.",
+    "ld": {
+      "headline": "Varför dina möten behöver en AI-sekreterare",
+      "description": "Hur man automatiserar mötessammanfattningar och säkerställer att ingen uppgift glöms bort."
+    }
+  },
+  "aria": { "home": "Protokoll AI Hem" },
+  "nav": { "blog": "Blogg", "summary": "Sammanfattning & Protokoll" },
+  "hero": {
+    "kicker": "Produktivitet",
+    "h1": "Sekreteraren som aldrig sover",
+    "tagline": "Möten kan dra ut på tiden i timmar. Ditt fokus kan svikta, men Protokoll AI förblir skarp. Förvandla långa diskussioner till kristallklara sammanfattningar direkt.",
+    "badges": ["Auto-Sammanfattning", "Uppgiftsutdragning", "Fokus på samtalet"]
+  },
+  "pain": {
+    "h2": "Verkligheten med möteströtthet",
+    "p1": "Hur långa är dina typiska möten? En snabb 15-minuters avstämning? En timme? Eller 3-timmars maraton? Vi har alla varit där.",
+    "questions": [
+      "**Kan du verkligen hålla fokus** i timmar?",
+      "**Är du utmattad** när samtalet är slut?",
+      "**Missar du nästa steg** för att du var upptagen med att skriva?",
+      "**Är mötet målet**, eller bara ett medel?"
+    ]
+  },
+  "solution": {
+    "h2": "Din nya AI-assistent",
+    "p1": "Mötet är ett verktyg, inte destinationen. Det verkliga arbetet börjar *efter* samtalet. Därför behöver du en **antecknare (Note Taker)** som inte blir trött.",
+    "p2": "Protokoll AI är byggd för att klara de längsta sessionerna. Den lyssnar, bearbetar och levererar en strukturerad **sammanfattning** utan luckor.",
+    "features": [
+      {
+        "title": "Fokusera på konversationen",
+        "desc": "Sluta anteckna frenetiskt. Var närvarande för ditt team medan AI:n hanterar dokumentationen."
+      },
+      {
+        "title": "Perfekta sammanfattningar",
+        "desc": "Få en koncis överblick över vad som diskuterades, logiskt organiserad efter ämne."
+      },
+      {
+        "title": "Uppgifter upptäckta",
+        "desc": "Missa aldrig en ToDo. AI:n extraherar automatiskt uppgifter för smidigt genomförande."
+      }
+    ]
+  },
+  "pricing": {
+    "h2": "Enkla priser för smarta team",
+    "note": "Redo att uppgradera ditt arbetsflöde? Välj en plan.",
+    "light": { "name": "Light-paket", "detail": "1200 min", "foot": "Går aldrig ut — $11.99" },
+    "annual": { "name": "Årlig", "detail": "Obegränsat", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis dagsbiljett", "text": "Prova gratis i 3 minuter, varje dag." },
+    "foot_pre": "* Priser visas i {currency}.",
+    "foot_post": "Betalning behandlas i USD."
+  },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Insikt", "category": "Produktivitet" },
+  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Ladda ner iOS-app" }
+}
