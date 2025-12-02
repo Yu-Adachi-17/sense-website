@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Review 2025) Otter vs Notta vs Notulen AI — Welke AI notulist is het beste voor jou?",
+    "description": "Otter, Notta en Notulen AI in een eerlijke vergelijking. We kijken naar echte behoeften: taalondersteuning, type vergaderingen en prijzen. Zie waarom Notulen AI de meest veelzijdige keuze is in 2025.",
+    "ogTitle": "Otter vs Notta vs Notulen AI — Eerlijke Vergelijking 2025",
+    "ogDescription": "Twijfel je tussen Otter, Notta en Notulen AI? We zetten de voor- en nadelen op een rij. Ontdek waarom wij Notulen AI aanbevelen voor productieve teams.",
+    "ld": {
+      "headline": "Otter vs Notta vs Notulen AI — Vergelijkingsgids 2025",
+      "description": "Een praktische vergelijking van AI-notitietools. We analyseren functies en prijzen. Spoiler: Notulen AI is vaak de veiligste keuze voor bedrijven."
+    }
+  },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Notulen AI"
+  },
+  "hero": {
+    "kicker": "Gids voor AI Notulen 2025",
+    "h1": "Otter vs Notta vs Notulen AI — Welke tool past bij jouw workflow?",
+    "tagline": "We zullen eerlijk zijn: wij hebben Notulen AI gebouwd, dus natuurlijk houden we ervan. Maar we respecteren ook Otter en Notta. Dit artikel is onze eerlijke mening over wie welke tool zou moeten kiezen — en waarom Notulen AI de veiligste standaardkeuze is voor de meeste teams."
+  },
+  "lead": {
+    "p1": "Op zoek naar een 'Otter alternatief' of de 'beste AI notulist'? Je bent waarschijnlijk moe van het handmatig typen van notities of het opschonen van rommelige transcripties. In 2025 zijn er veel tools, maar weinigen kunnen de realiteit van werk aan: terugkerende vergaderingen, verkoopgesprekken en brainstorms. Hier is een probleemgerichte vergelijking tussen Otter.ai, Notta en Notulen AI."
+  },
+  "tools": {
+    "h2": "In één oogopslag: Waar elke tool in uitblinkt",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "De standaard voor Engelssprekende teams op afstand",
+        "p": "Otter begon als transcriptie-app en werd een 'AI-vergaderagent'. De belangrijkste belofte is gemak: het neemt deel aan je Zoom/Teams-gesprekken, luistert in het Engels en stuurt je notities.",
+        "bullets": [
+          "Beste voor: Teams die 100% in het Engels werken en leven op Zoom/Teams.",
+          "Lost op: 'We hebben iemand nodig om notulen te maken bij onze online gesprekken.'",
+          "Het nadeel: Het heeft moeite met andere talen en behandelt elk type vergadering op dezelfde manier."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "De krachtpatser voor meertalige transcriptie",
+        "p": "Notta is gespecialiseerd in flexibiliteit. Of het nu een live vergadering, videobestand of opname is, Notta transcribeert het. De kracht ligt in de ondersteuning van tientallen talen en vertalingen.",
+        "bullets": [
+          "Beste voor: Mensen die opnames van veel bronnen en in veel talen moeten transcriberen.",
+          "Lost op: 'Ik heb een stapel audiobestanden in verschillende talen die tekst moeten worden.'",
+          "Het nadeel: Je krijgt een woordelijk transcript, maar je moet het nog steeds handmatig samenvatten tot taken."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Notulen AI",
+        "role": "De productiviteitstool voor gestructureerde notulen",
+        "p": "Notulen AI richt zich niet alleen op transcriptie; het gaat om 'Wat gebeurt er nu?'. Met ondersteuning voor meer dan 100 talen (via Whisper) formatteert het je notities op basis van het type vergadering — Verkoop, 1-op-1 of Brainstorm. Het doel is om je direct een samenvatting, beslissingen en takenlijst te geven.",
+        "bullets": [
+          "Beste voor: Teams die kant-en-klare notulen willen (niet alleen tekst) om te delen op Slack of e-mail.",
+          "Lost op: 'We hebben transcripten, maar niemand leest ze. We hebben actiepunten nodig.'",
+          "De Bonus: Gespecialiseerde formats en 'Pay-as-you-go' opties maken de adoptie heel eenvoudig."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Hoe kies je de juiste",
+    "intro": "Verdwaal niet in lijsten met functies. Stel jezelf in plaats daarvan deze vier vragen om de tool te vinden die je dagelijkse frustraties echt oplost.",
+    "items": [
+      {
+        "label": "1) Taal en Context",
+        "description": "Spreekt je team alleen Engels? Of heb je internationale vergaderingen, gemengde talen en verschillende stijlen (Verkoop vs HR)?"
+      },
+      {
+        "label": "2) Opnamebron",
+        "description": "Gebeurt alles op Zoom? Of neem je ook fysieke vergaderingen op, upload je grote videobestanden of gebruik je spraakmemo's?"
+      },
+      {
+        "label": "3) Verwachtingen van de output",
+        "description": "Ben je tevreden met een ruw teksttranscript? Of heb je een gestructureerd document nodig met 'Beslissingen' en 'Volgende stappen' klaar voor verzending?"
+      },
+      {
+        "label": "4) Betalingsvoorkeur",
+        "description": "Wil je een vast maandelijks abonnement? Of geef je de voorkeur aan een flexibel 'betaal naar gebruik' model dat nooit verloopt?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Functie-overzicht",
+    "th": ["Vergelijkingspunt", "Otter.ai", "Notta", "Notulen AI"],
+    "rows": [
+      [
+        "Kernfilosofie",
+        "Geautomatiseerde agent voor Engelse online vergaderingen.",
+        "Universele transcribent voor elk audio/videobestand.",
+        "Zakelijke tool voor gestructureerde, actiegerichte notulen."
+      ],
+      [
+        "Talen",
+        "Sterk in Engels. Beperkte ondersteuning elders.",
+        "Geweldige meertalige ondersteuning met vertaalfuncties.",
+        "100+ talen (Whisper engine) ontworpen voor wereldwijde zaken."
+      ],
+      [
+        "Ideale vergadertypes",
+        "Standaard videogesprekken (Zoom/Teams).",
+        "Gemengd gebruik: interviews, lezingen en bestandsuploads.",
+        "Zakelijke scenario's: Verkoop, 1-op-1, reviews en workshops."
+      ],
+      [
+        "De Output",
+        "Transcript + Puntenlijst samenvatting.",
+        "Transcript + AI samenvatting (afhankelijk van plan).",
+        "Geformatteerde Notulen: Kernpunten, Beslissingen, Verantwoordelijken, Deadlines."
+      ],
+      [
+        "Prijsmodel",
+        "Maandelijks abonnement (per gebruiker).",
+        "Freemium + Maandelijks abonnement.",
+        "Flexibel: Keuze tussen Abonnement OF Tijdpakketten (verlopen nooit)."
+      ],
+      [
+        "Wie is er dol op?",
+        "Remote werkers die een hekel hebben aan typen tijdens gesprekken.",
+        "Onderzoekers & Journalisten die veel bestanden en talen verwerken.",
+        "Teams die duidelijkheid nodig hebben en resultaten direct willen delen."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Welk type gebruiker ben jij?",
+    "items": [
+      {
+        "title": "Patroon A: Het Engelssprekende remote team",
+        "otter": "Hier is Otter perfect. Als je wereld 100% Engels op Zoom is, is dit een sterke keuze.",
+        "notta": "Notta werkt goed, maar de meertalige krachten zijn voor jou misschien overbodig.",
+        "minutes": "Notulen AI is een sterke kanshebber als je je notities gestructureerd per onderwerp wilt in plaats van alleen chronologisch."
+      },
+      {
+        "title": "Patroon B: Het wereldwijde / meertalige team",
+        "otter": "Otter zal hier moeite hebben. Het is voornamelijk gebouwd voor Engelssprekenden.",
+        "notta": "Een uitstekende keuze. Het vermogen om te transcriberen en vertalen houdt iedereen op één lijn.",
+        "minutes": "De beste langetermijnkeuze. Het ondersteunt 100+ talen en formatteert de output zodat zowel het hoofdkantoor als lokale vestigingen de beslissingen begrijpen."
+      },
+      {
+        "title": "Patroon C: De drukke manager (Veel vergadertypes)",
+        "otter": "Goed voor het vastleggen van audio, maar taken vinden in een lange tekst is nog steeds werk.",
+        "notta": "Uitstekend om alles te transcriberen, maar je moet de ruwe tekst nog steeds herschrijven tot een rapport.",
+        "minutes": "Gemaakt voor jou. Kies de modus 'Verkoop' of '1-op-1', en de AI formatteert de notities automatisch passend bij de context."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Ons eindoordeel",
+    "lead": "We beloofden een eerlijke mening. Otter en Notta zijn uitstekende tools, maar voor algemeen zakelijk gebruik biedt Notulen AI het meest complete pakket.",
+    "bullets": [
+      "**Kies Otter** als je alleen Engelse Zoom-vergaderingen hebt en gewoon een opname wilt van wat er is gezegd.",
+      "**Kies Notta** als je hoofddoel is om diverse audiobestanden om te zetten naar tekst in veel talen.",
+      "**Kies Notulen AI** als je **kant-en-klare notulen** wilt. Als je duidelijke beslissingen, taken en ondersteuning voor veel talen nodig hebt, is dit de veiligste keuze.",
+      "**Nog steeds onzeker?** Probeer Notulen AI met een klein tijdpakket. Het is een risicovrije manier om het te testen."
+    ],
+    "note": "Ja, we zijn bevooroordeeld – maar we hebben Notulen AI gebouwd juist om de gaten te vullen die we in andere tools vonden."
+  },
+  "pricing": {
+    "h2": "Prijzen: Abonnement vs. Pay-As-You-Go",
+    "lead": "Prijzen veranderen, maar de filosofie telt. Otter en Notta vertrouwen op maandelijkse abonnementen. Notulen AI biedt een uniek hybride model.",
+    "bullets": [
+      "**Otter & Notta:** Standaard SaaS-model. Je betaalt een maandbedrag voor een bepaalde hoeveelheid minuten.",
+      "**Notulen AI:** Biedt zowel Abonnementen ALS **Tijdpakketten**. Tijdpakketten verlopen nooit. Je kunt vandaag 10 uur kopen en ze over zes maanden gebruiken."
+    ],
+    "disclaimer": "Opmerking: Prijzen en details van plannen veranderen vaak. Controleer de officiële prijspagina's voor de laatste info.",
+    "linkText": "Bekijk prijzen Notulen AI"
+  },
+  "faq": {
+    "h2": "Veelgestelde vragen (FAQ)",
+    "items": [
+      {
+        "q": "Moeten we meerdere tools gebruiken?",
+        "a": "Meestal is het beter om te standaardiseren. Als je Engels, wereldwijde talen en gestructureerde notulen in één nodig hebt, is Notulen AI het meest veelzijdig."
+      },
+      {
+        "q": "Mijn team groeit wereldwijd. Wat is veiliger?",
+        "a": "Begin met Notulen AI. Omdat het vanaf het begin 100+ talen ondersteunt, hoef je niet van tool te wisselen als je internationaal personeel aanneemt."
+      },
+      {
+        "q": "Ik heb al transcripten. Waarom heb ik dit nodig?",
+        "a": "Een transcript is slechts ruwe data. **Notulen** zijn inzichten. Notulen AI verandert de 'muur van tekst' in Beslissingen en Deadlines."
+      },
+      {
+        "q": "Kan ik Notulen AI alleen voor belangrijke vergaderingen gebruiken?",
+        "a": "Absoluut. Dankzij het tijdpakketmodel heb je geen maandelijks abonnement nodig. Gebruik het alleen wanneer het telt."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Artikelinfo",
+    "published": "Gepubliceerd",
+    "type": "Vergelijking",
+    "category": "Productiviteit"
+  },
+  "cta": {
+    "openBrowser": "Probeer Notulen AI Web",
+    "downloadIOS": "Download iOS App"
+  }
+}

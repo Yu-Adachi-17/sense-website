@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(2025 Review) Otter vs Notta vs Minutes.AI — Which AI Note Taker is Best for You?",
+    "description": "Otter, Notta, and Minutes.AI compared honestly. We look at real-world needs: language support, meeting types, and pricing. See why Minutes.AI is the most versatile choice for teams in 2025.",
+    "ogTitle": "Otter vs Notta vs Minutes.AI — 2025 Honest Comparison",
+    "ogDescription": "Struggling to choose between Otter, Notta, and Minutes.AI? We break down the pros, cons, and best use cases. Find out why Minutes.AI is our top recommendation for productive teams.",
+    "ld": {
+      "headline": "Otter vs Notta vs Minutes.AI — 2025 Comparison Guide",
+      "description": "A practical comparison of AI note-taking tools. We analyze features, pricing, and use cases to help you decide. Spoiler: Minutes.AI is often the safest bet for business use."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Minutes.AI"
+  },
+  "hero": {
+    "kicker": "2025 AI Note Taker Guide",
+    "h1": "Otter vs Notta vs Minutes.AI — Which Tool Fits Your Workflow?",
+    "tagline": "Full disclosure: We built Minutes.AI, so we love it. But we also respect Otter and Notta. This guide helps you decide which tool matches your style—and why we believe Minutes.AI is the safest default for most teams."
+  },
+  "lead": {
+    "p1": "Searching for 'Otter alternatives' or 'best AI minute taker'? You're likely tired of manually typing notes or fixing messy transcripts. In 2025, there are many AI tools, but few handle the reality of work: recurring syncs, sales calls, and messy brainstorms. Here is a problem-first comparison of Otter.ai, Notta, and Minutes.AI to help you stop searching and start recording."
+  },
+  "tools": {
+    "h2": "At a Glance: What Each Tool Does Best",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "The standard for English-speaking remote teams",
+        "p": "Otter evolved from a transcription app into an 'AI meeting agent.' Its main promise is convenience: it joins your Zoom/Teams calls, listens in English, and sends you notes so you can focus on the conversation.",
+        "bullets": [
+          "Best for: Teams that work 100% in English and live on Zoom/Teams/Meet.",
+          "Solves: 'We need a designated note-taker for our online calls.'",
+          "The Catch: It struggles with non-English speakers and treats every meeting format the same way."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "The powerhouse for multilingual transcription",
+        "p": "Notta specializes in flexibility. Whether it's a live meeting, a video file, or a microphone recording, Notta transcribes it. Its strength lies in handling dozens of languages and translating them efficiently.",
+        "bullets": [
+          "Best for: People who need to transcribe recordings from various sources in many languages.",
+          "Solves: 'I have a pile of audio files in different languages that need to be text.'",
+          "The Catch: You get a transcript, but you still have to manually summarize it into actionable tasks."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Minutes.AI",
+        "role": "The productivity tool for structured, shareable minutes",
+        "p": "Minutes.AI isn't just about transcription; it's about 'What happens next?'. Supporting over 100 languages via Whisper, it formats your notes based on the meeting type—Sales, 1-on-1, or Brainstorming. The goal is to give you a clear summary, decisions, and to-do list immediately.",
+        "bullets": [
+          "Best for: Teams that want finished meeting minutes (not just transcripts) to share on Slack or Notion.",
+          "Solves: 'We have transcripts, but nobody reads them. We need action items.'",
+          "The Bonus: Specialized formats for different meetings and 'Pay-as-you-go' options make it very easy to adopt."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "How to Choose the Right One",
+    "intro": "Don't get lost in feature lists. Instead, ask yourself these four questions to find the tool that actually solves your daily frustrations.",
+    "items": [
+      {
+        "label": "1) Language & Context",
+        "description": "Is your team 100% English-speaking? Or do you have cross-border meetings, mixed languages, and different meeting styles (Sales vs. HR)?"
+      },
+      {
+        "label": "2) Recording Source",
+        "description": "Is everything on Zoom? or do you also record face-to-face meetings, upload heavy video files, or use mobile voice memos?"
+      },
+      {
+        "label": "3) Output Expectations",
+        "description": "Are you happy with a raw text transcript? Or do you need a structured document with 'Decisions' and 'Next Actions' ready to send?"
+      },
+      {
+        "label": "4) Payment Preference",
+        "description": "Do you want a fixed monthly subscription? Or do you prefer a flexible 'Pay-as-you-go' model that never expires?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Feature Snapshot",
+    "th": ["Comparison Point", "Otter.ai", "Notta", "Minutes.AI"],
+    "rows": [
+      [
+        "Core Philosophy",
+        "An automated agent for English online meetings.",
+        "A universal transcriber for any audio/video file.",
+        "A business tool for structured, actionable minutes."
+      ],
+      [
+        "Languages",
+        "Strong in English. Limited support otherwise.",
+        "Great multilingual support with translation features.",
+        "100+ languages (Whisper engine) designed for global business."
+      ],
+      [
+        "Ideal Meeting Types",
+        "Standard remote video calls (Zoom/Teams).",
+        "Mixed use: Interviews, lectures, and file uploads.",
+        "Specific business scenarios: Sales, 1-on-1s, periodic reviews, and workshops."
+      ],
+      [
+        "The Output",
+        "Transcript + Summary bullets.",
+        "Transcript + AI summary (depending on plan).",
+        "Formatted Minutes: Key points, Decisions, Owners, Deadlines."
+      ],
+      [
+        "Pricing Model",
+        "Monthly subscription (per user).",
+        "Freemium + Monthly subscription.",
+        "Flexible: Choose between Subscription OR Non-expiring Time Packs."
+      ],
+      [
+        "Who loves it?",
+        "Remote workers who hate typing during Zoom calls.",
+        "Researchers/Journalists handling many files and languages.",
+        "Teams who need clarity and want to share results instantly."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Which User Pattern Are You?",
+    "items": [
+      {
+        "title": "Pattern A: The English-Only Remote Team",
+        "otter": "Otter is perfect here. It lives in your Zoom calls and handles English beautifully. If you don't work globally, this is a solid pick.",
+        "notta": "Notta works fine, but its multilingual strengths might be overkill for you.",
+        "minutes": "Minutes.AI is a strong contender if you want your notes structured by topic (e.g., separating 'Strategy' from 'HR') rather than just a timeline."
+      },
+      {
+        "title": "Pattern B: The Global / Multilingual Team",
+        "otter": "Otter will struggle here. It is primarily built for English speakers.",
+        "notta": "A great choice. Its ability to transcribe and translate between languages keeps everyone on the same page.",
+        "minutes": "The best long-term choice. It supports 100+ languages natively and formats the output so local branches and HQ can both understand the key decisions instantly."
+      },
+      {
+        "title": "Pattern C: The Busy Manager (Many Meeting Types)",
+        "otter": "Good for capturing audio, but finding specific 'To-Dos' in a long transcript can still be a chore.",
+        "notta": "Excellent for transcribing everything, but you still need to rewrite the raw text into a shareable report.",
+        "minutes": "Built for you. Select 'Sales Mode' for client calls or '1-on-1 Mode' for staff reviews. The AI automatically formats the notes to fit the context, saving you editing time."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Final Verdict",
+    "lead": "We promised an honest take. Otter and Notta are excellent tools, but for general business use, Minutes.AI offers the most complete package.",
+    "bullets": [
+      "**Choose Otter** if you only have English Zoom meetings and just want a record of what was said.",
+      "**Choose Notta** if your main goal is converting various audio files into text across many languages.",
+      "**Choose Minutes.AI** if you want **finished minutes**. If you need clear decisions, action items, and support for multiple languages and meeting styles, this is the safest default.",
+      "**Still unsure?** Try Minutes.AI with a small Time Pack. It's a low-risk way to see if it fits your workflow before committing to a subscription."
+    ],
+    "note": "Yes, we are biased—but we built Minutes.AI specifically to fix the gaps we found in other tools."
+  },
+  "pricing": {
+    "h2": "Pricing: Subscription vs. Pay-As-You-Go",
+    "lead": "Pricing plans change, but the philosophy matters. Otter and Notta rely on monthly subscriptions. Minutes.AI offers a unique hybrid model.",
+    "bullets": [
+      "**Otter & Notta:** Standard SaaS model. You pay a monthly fee for a set amount of minutes. Good for predictable, heavy usage.",
+      "**Minutes.AI:** Offers both Subscriptions AND **Time Packs**. Time packs never expire. You can buy 10 hours today and use them over six months. This is perfect for users whose meeting volume varies."
+    ],
+    "disclaimer": "Note: Prices and plan details change frequently. Please check the official pricing pages for the latest info.",
+    "linkText": "Check Minutes.AI Pricing"
+  },
+  "faq": {
+    "h2": "FAQ",
+    "items": [
+      {
+        "q": "Should we use multiple tools?",
+        "a": "It's usually better to standardize. If you need English transcription, global language support, and structured minutes all in one, Minutes.AI is the most versatile 'all-in-one' choice."
+      },
+      {
+        "q": "My team is growing globally. Which is safest?",
+        "a": "Start with Minutes.AI. Since it supports 100+ languages and structured formatting from day one, you won't have to switch tools when you hire non-English speakers."
+      },
+      {
+        "q": "I already have transcripts. Why do I need this?",
+        "a": "A transcript is just raw data. **Minutes** are insights. Minutes.AI converts the 'wall of text' into Decisions, Deadlines, and Owners, so your team knows exactly what to do next."
+      },
+      {
+        "q": "Can I use Minutes.AI just for specific important meetings?",
+        "a": "Absolutely. Because of the 'Time Pack' model, you don't need a monthly subscription. You can just use it for high-stakes Board Meetings or Client Negotiations."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Article Info",
+    "published": "Published",
+    "type": "Comparison",
+    "category": "Productivity Tools"
+  },
+  "cta": {
+    "openBrowser": "Try Minutes.AI Web",
+    "downloadIOS": "Get iOS App"
+  }
+}

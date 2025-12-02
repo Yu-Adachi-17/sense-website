@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Reseña 2025) Otter vs Notta vs Actas IA — ¿Cuál te conviene más?",
+    "description": "Comparativa honesta entre Otter, Notta y Actas IA. Analizamos necesidades reales: idiomas, tipos de reunión y precios. Descubre por qué Actas IA es la opción más versátil en 2025.",
+    "ogTitle": "Otter vs Notta vs Actas IA — Comparativa Honesta 2025",
+    "ogDescription": "¿Dudas entre Otter, Notta y Actas IA? Desglosamos pros, contras y usos. Descubre por qué recomendamos Actas IA para equipos productivos.",
+    "ld": {
+      "headline": "Otter vs Notta vs Actas IA — Guía de Comparación 2025",
+      "description": "Una comparación práctica de herramientas de IA para actas. Analizamos funciones y precios. Spoiler: Actas IA suele ser la apuesta más segura para empresas."
+    }
+  },
+  "aria": {
+    "home": "Inicio de Actas IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Actas IA"
+  },
+  "hero": {
+    "kicker": "Guía de Actas con IA 2025",
+    "h1": "Otter vs Notta vs Actas IA — ¿Qué herramienta encaja con tu flujo de trabajo?",
+    "tagline": "Seremos claros: nosotros creamos Actas IA, así que nos encanta. Pero también respetamos a Otter y Notta. Esta guía es nuestra opinión honesta sobre quién debería elegir cada herramienta, y por qué Actas IA es la opción predeterminada más segura para la mayoría de los equipos."
+  },
+  "lead": {
+    "p1": "¿Buscas una 'alternativa a Otter' o la 'mejor IA para actas'? Probablemente estés cansado de tomar notas a mano o arreglar transcripciones desordenadas. En 2025 hay muchas herramientas, pero pocas manejan la realidad: reuniones recurrentes, llamadas de ventas y lluvias de ideas. Aquí tienes una comparación centrada en problemas entre Otter.ai, Notta y Actas IA."
+  },
+  "tools": {
+    "h2": "De un vistazo: En qué destaca cada herramienta",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "El estándar para equipos remotos en inglés",
+        "p": "Otter empezó como app de transcripción y se convirtió en un 'agente de reuniones'. Su promesa es la comodidad: se une a tus llamadas de Zoom/Teams, escucha en inglés y te envía las notas.",
+        "bullets": [
+          "Mejor para: Equipos que trabajan 100% en inglés y viven en Zoom/Teams.",
+          "Resuelve: 'Necesitamos a alguien que tome notas en nuestras llamadas online'.",
+          "La pega: Le cuesta entender otros idiomas y trata todas las reuniones igual."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "La potencia en transcripción multilingüe",
+        "p": "Notta se especializa en flexibilidad. Ya sea una reunión en vivo, un archivo de video o una grabación, Notta lo transcribe. Su fuerza reside en soportar docenas de idiomas y traducir.",
+        "bullets": [
+          "Mejor para: Personas que necesitan transcribir grabaciones de muchas fuentes y en muchos idiomas.",
+          "Resuelve: 'Tengo un montón de audios en varios idiomas que deben convertirse a texto'.",
+          "La pega: Obtienes una transcripción literal, pero aún debes resumirla manualmente en tareas."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Actas IA",
+        "role": "La herramienta de productividad para actas estructuradas",
+        "p": "Actas IA no solo transcribe, se enfoca en '¿Qué pasa después?'. Con soporte para más de 100 idiomas (vía Whisper), formatea tus notas según el tipo de reunión: Ventas, 1 a 1 o Lluvia de ideas. El objetivo es darte un resumen, decisiones y lista de tareas al instante.",
+        "bullets": [
+          "Mejor para: Equipos que quieren actas terminadas (no solo transcripciones) para compartir en Slack o correo.",
+          "Resuelve: 'Tenemos transcripciones, pero nadie las lee. Necesitamos acción'.",
+          "El extra: Formatos especializados y opciones de 'Pago por uso' facilitan mucho su adopción."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Cómo elegir la correcta",
+    "intro": "No te pierdas en listas de funciones. Pregúntate estas cuatro cosas para encontrar la herramienta que realmente resuelve tus frustraciones diarias.",
+    "items": [
+      {
+        "label": "1) Idioma y Contexto",
+        "description": "¿Tu equipo habla solo inglés? ¿O tienes reuniones internacionales, varios idiomas y estilos (Ventas vs RRHH)?"
+      },
+      {
+        "label": "2) Fuente de grabación",
+        "description": "¿Todo es por Zoom? ¿O también grabas reuniones presenciales, subes videos pesados o usas notas de voz?"
+      },
+      {
+        "label": "3) Expectativas del resultado",
+        "description": "¿Te basta con una transcripción cruda? ¿O necesitas un documento estructurado con 'Decisiones' y 'Próximos pasos' listo para enviar?"
+      },
+      {
+        "label": "4) Preferencia de pago",
+        "description": "¿Quieres una suscripción mensual fija? ¿O prefieres un modelo flexible de 'paga lo que uses' que nunca caduca?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Comparación de Funciones",
+    "th": ["Punto de Comparación", "Otter.ai", "Notta", "Actas IA"],
+    "rows": [
+      [
+        "Filosofía Principal",
+        "Agente automatizado para reuniones online en inglés.",
+        "Transcriptor universal para cualquier archivo de audio/video.",
+        "Herramienta de negocios para actas estructuradas y accionables."
+      ],
+      [
+        "Idiomas",
+        "Fuerte en inglés. Soporte limitado en otros.",
+        "Gran soporte multilingüe con funciones de traducción.",
+        "100+ idiomas (motor Whisper) diseñado para negocios globales."
+      ],
+      [
+        "Tipos de Reunión Ideales",
+        "Videollamadas estándar (Zoom/Teams).",
+        "Uso mixto: entrevistas, conferencias y subida de archivos.",
+        "Escenarios de negocios: Ventas, 1 a 1, revisiones y talleres."
+      ],
+      [
+        "El Resultado",
+        "Transcripción + Resumen con viñetas.",
+        "Transcripción + Resumen IA (según el plan).",
+        "Acta Formateada: Puntos clave, Decisiones, Responsables, Plazos."
+      ],
+      [
+        "Modelo de Precios",
+        "Suscripción mensual (por usuario).",
+        "Freemium + Suscripción mensual.",
+        "Flexible: Elige entre Suscripción O Paquetes de Tiempo (sin caducidad)."
+      ],
+      [
+        "¿Quién la ama?",
+        "Trabajadores remotos que odian escribir durante llamadas.",
+        "Investigadores y periodistas con muchos archivos e idiomas.",
+        "Equipos que necesitan claridad y quieren compartir resultados al instante."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "¿Qué tipo de usuario eres?",
+    "items": [
+      {
+        "title": "Patrón A: El equipo remoto solo en inglés",
+        "otter": "Aquí Otter es perfecto. Si tu mundo es 100% inglés en Zoom, es una opción sólida.",
+        "notta": "Notta funciona bien, pero sus fortalezas multilingües podrían sobrarte.",
+        "minutes": "Actas IA es un fuerte candidato si quieres tus notas estructuradas por tema en lugar de solo cronológicamente."
+      },
+      {
+        "title": "Patrón B: El equipo global / multilingüe",
+        "otter": "Otter sufrirá aquí. Está hecho principalmente para angloparlantes.",
+        "notta": "Una excelente opción. Su capacidad de transcribir y traducir mantiene a todos alineados.",
+        "minutes": "La mejor opción a largo plazo. Soporta 100+ idiomas y formatea el resultado para que tanto la sede como las filiales entiendan las decisiones."
+      },
+      {
+        "title": "Patrón C: El gerente ocupado (Muchos tipos de reunión)",
+        "otter": "Bueno para capturar audio, pero encontrar tareas en un texto largo sigue siendo trabajo.",
+        "notta": "Excelente para transcribir todo, pero aún debes reescribir el texto crudo en un informe.",
+        "minutes": "Hecho para ti. Elige modo 'Ventas' o '1 a 1', y la IA formatea automáticamente las notas para encajar en el contexto."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Nuestro veredicto final",
+    "lead": "Prometimos una opinión honesta. Otter y Notta son herramientas excelentes, pero para uso general en negocios, Actas IA ofrece el paquete más completo.",
+    "bullets": [
+      "**Elige Otter** si solo tienes reuniones de Zoom en inglés y solo quieres un registro de lo dicho.",
+      "**Elige Notta** si tu objetivo principal es convertir varios archivos de audio a texto en muchos idiomas.",
+      "**Elige Actas IA** si quieres **actas terminadas**. Si necesitas decisiones claras, tareas y soporte para múltiples idiomas, es la opción más segura.",
+      "**¿Aún no estás seguro?** Prueba Actas IA con un paquete de tiempo pequeño. Es una forma sin riesgo de probarlo."
+    ],
+    "note": "Sí, somos parciales, pero creamos Actas IA precisamente para llenar los vacíos que encontramos en otras herramientas."
+  },
+  "pricing": {
+    "h2": "Precios: Suscripción vs. Pago por uso",
+    "lead": "Los precios cambian, pero la filosofía importa. Otter y Notta dependen de suscripciones mensuales. Actas IA ofrece un modelo híbrido único.",
+    "bullets": [
+      "**Otter & Notta:** Modelo SaaS estándar. Pagas una cuota mensual por una cantidad de minutos.",
+      "**Actas IA:** Ofrece tanto Suscripciones COMO **Paquetes de Tiempo**. Los paquetes no caducan. Puedes comprar 10 horas hoy y usarlas en seis meses."
+    ],
+    "disclaimer": "Nota: Los precios y detalles cambian con frecuencia. Por favor revisa las páginas oficiales para info actualizada.",
+    "linkText": "Ver precios de Actas IA"
+  },
+  "faq": {
+    "h2": "Preguntas Frecuentes",
+    "items": [
+      {
+        "q": "¿Deberíamos usar múltiples herramientas?",
+        "a": "Suele ser mejor estandarizar. Si necesitas inglés, idiomas globales y actas estructuradas en uno, Actas IA es lo más versátil."
+      },
+      {
+        "q": "Mi equipo crece globalmente. ¿Qué es más seguro?",
+        "a": "Empieza con Actas IA. Como soporta 100+ idiomas desde el primer día, no tendrás que cambiar de herramienta al contratar internacionalmente."
+      },
+      {
+        "q": "Ya tengo transcripciones. ¿Para qué necesito esto?",
+        "a": "Una transcripción son datos crudos. Las **Actas** son conclusiones. Actas IA convierte el 'muro de texto' en Decisiones y Plazos."
+      },
+      {
+        "q": "¿Puedo usar Actas IA solo para reuniones importantes?",
+        "a": "Absolutamente. Gracias al modelo de paquetes de tiempo, no necesitas suscripción mensual. Úsalo solo cuando importe."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Info del Artículo",
+    "published": "Publicado",
+    "type": "Comparación",
+    "category": "Productividad"
+  },
+  "cta": {
+    "openBrowser": "Probar Actas IA Web",
+    "downloadIOS": "Bajar App iOS"
+  }
+}

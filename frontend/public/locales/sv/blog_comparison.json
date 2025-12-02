@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Recension 2025) Otter vs Notta vs Protokoll AI — Vilken AI-assistent är bäst för dig?",
+    "description": "Otter, Notta och Protokoll AI i en ärlig jämförelse. Vi tittar på verkliga behov: språkstöd, mötestyper och priser. Se varför Protokoll AI är det mest mångsidiga valet 2025.",
+    "ogTitle": "Otter vs Notta vs Protokoll AI — Ärlig jämförelse 2025",
+    "ogDescription": "Velar du mellan Otter, Notta och Protokoll AI? Vi går igenom för- och nackdelar. Ta reda på varför vi rekommenderar Protokoll AI för produktiva team.",
+    "ld": {
+      "headline": "Otter vs Notta vs Protokoll AI — Jämförelseguide 2025",
+      "description": "En praktisk jämförelse av AI-verktyg för anteckningar. Vi analyserar funktioner och priser. Spoiler: Protokoll AI är ofta det säkraste valet för företag."
+    }
+  },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "comparison": "Otter vs Notta vs Protokoll AI"
+  },
+  "hero": {
+    "kicker": "Guide till AI-protokoll 2025",
+    "h1": "Otter vs Notta vs Protokoll AI — Vilket verktyg passar ditt arbetsflöde?",
+    "tagline": "Vi ska vara ärliga: vi byggde Protokoll AI, så vi älskar det. Men vi respekterar också Otter och Notta. Den här artikeln är vår ärliga åsikt om vem som bör välja vilket verktyg – och varför Protokoll AI är det säkraste standardvalet för de flesta team."
+  },
+  "lead": {
+    "p1": "Letar du efter ett 'Otter-alternativ' eller den 'bästa AI:n för mötesprotokoll'? Du är antagligen trött på att skriva anteckningar för hand eller fixa röriga transkriberingar. 2025 finns det många verktyg, men få hanterar verkligheten: återkommande avstämningar, säljsamtal och brainstorms. Här är en problemorienterad jämförelse av Otter.ai, Notta och Protokoll AI."
+  },
+  "tools": {
+    "h2": "I korthet: Vad varje verktyg gör bäst",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Standarden för engelsktalande distansteam",
+        "p": "Otter började som en transkriberingsapp och blev en 'AI-mötesagent'. Dess främsta löfte är bekvämlighet: den går med i dina Zoom/Teams-samtal, lyssnar på engelska och skickar anteckningar.",
+        "bullets": [
+          "Bäst för: Team som jobbar 100% på engelska och lever på Zoom/Teams.",
+          "Löser: 'Vi behöver någon som för anteckningar på våra onlinesamtal.'",
+          "Haken: Den har svårt med andra språk och behandlar alla mötesformat på samma sätt."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Kraftpaketet för flerspråkig transkribering",
+        "p": "Notta specialiserar sig på flexibilitet. Oavsett om det är ett livemöte, en videofil eller en inspelning, transkriberar Notta det. Styrkan ligger i stödet för dussintals språk och översättning.",
+        "bullets": [
+          "Bäst för: Folk som behöver transkribera inspelningar från många källor och på många språk.",
+          "Löser: 'Jag har en hög med ljudfiler på olika språk som måste bli text.'",
+          "Haken: Du får en ordagrann transkribering, men du måste fortfarande sammanfatta den manuellt till uppgifter."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Protokoll AI",
+        "role": "Produktivitetsverktyget för strukturerade protokoll",
+        "p": "Protokoll AI fokuserar inte bara på transkribering, utan på 'Vad händer härnäst?'. Med stöd för över 100 språk (via Whisper), formaterar den anteckningarna baserat på mötestypen – Sälj, 1-mot-1 eller Brainstorm. Målet är att ge dig en sammanfattning, beslut och en att-göra-lista direkt.",
+        "bullets": [
+          "Bäst för: Team som vill ha färdiga protokoll (inte bara text) att dela på Slack eller e-post.",
+          "Löser: 'Vi har transkriberingar, men ingen läser dem. Vi behöver åtgärdspunkter.'",
+          "Bonusen: Specialiserade format och 'Betala-per-användning' gör det väldigt enkelt att komma igång."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Hur du väljer rätt",
+    "intro": "Gå inte vilse i listor över funktioner. Fråga dig istället dessa fyra frågor för att hitta verktyget som faktiskt löser dina dagliga frustrationer.",
+    "items": [
+      {
+        "label": "1) Språk och kontext",
+        "description": "Pratar ditt team bara engelska? Eller har ni internationella möten, blandade språk och olika stilar (Sälj vs HR)?"
+      },
+      {
+        "label": "2) Inspelningskälla",
+        "description": "Händer allt på Zoom? Eller spelar ni också in fysiska möten, laddar upp stora videofiler eller använder röstmemon?"
+      },
+      {
+        "label": "3) Förväntan på resultat",
+        "description": "Är du nöjd med en rå texttranskribering? Eller behöver du ett strukturerat dokument med 'Beslut' och 'Nästa steg' redo att skickas?"
+      },
+      {
+        "label": "4) Betalningspreferens",
+        "description": "Vill du ha en fast månadsprenumeration? Eller föredrar du en flexibel 'betala för det du använder'-modell som aldrig löper ut?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Funktionsjämförelse",
+    "th": ["Jämförelsepunkt", "Otter.ai", "Notta", "Protokoll AI"],
+    "rows": [
+      [
+        "Kärnfilosofi",
+        "Automatiserad agent för engelska onlinemöten.",
+        "Universell transkriberare för alla ljud/videofiler.",
+        "Affärsverktyg för strukturerade, handlingsbara protokoll."
+      ],
+      [
+        "Språk",
+        "Stark på engelska. Annars begränsat stöd.",
+        "Bra flerspråkigt stöd med översättningsfunktioner.",
+        "100+ språk (Whisper-motor) designad för globala företag."
+      ],
+      [
+        "Ideala mötestyper",
+        "Standard videosamtal (Zoom/Teams).",
+        "Blandad användning: intervjuer, föreläsningar och filuppladdningar.",
+        "Affärsscenarier: Sälj, 1-mot-1, genomgångar och workshops."
+      ],
+      [
+        "Resultatet",
+        "Transkribering + punktsammanfattning.",
+        "Transkribering + AI-sammanfattning (beroende på plan).",
+        "Formaterat protokoll: Nyckelpunkter, Beslut, Ansvariga, Deadlines."
+      ],
+      [
+        "Prismodell",
+        "Månadsprenumeration (per användare).",
+        "Freemium + Månadsprenumeration.",
+        "Flexibel: Val mellan Prenumeration ELLER Tidspaket (löper aldrig ut)."
+      ],
+      [
+        "Vem älskar det?",
+        "Distansarbetare som hatar att skriva under samtal.",
+        "Forskare och journalister som hanterar många filer och språk.",
+        "Team som behöver tydlighet och vill dela resultat direkt."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Vilken användartyp är du?",
+    "items": [
+      {
+        "title": "Mönster A: Det rent engelska distansteamet",
+        "otter": "Här är Otter perfekt. Om din värld är 100% engelska på Zoom, är det ett starkt val.",
+        "notta": "Notta fungerar bra, men dess flerspråkiga styrkor kan vara överflödiga för dig.",
+        "minutes": "Protokoll AI är en stark kandidat om du vill ha anteckningarna strukturerade efter ämne istället för bara en tidslinje."
+      },
+      {
+        "title": "Mönster B: Det globala / flerspråkiga teamet",
+        "otter": "Otter kommer att ha det svårt här. Den är byggd främst för engelsktalande.",
+        "notta": "Ett utmärkt val. Förmågan att transkribera och översätta håller alla uppdaterade.",
+        "minutes": "Det bästa långsiktiga valet. Den stöder 100+ språk och formaterar resultatet så att både huvudkontoret och lokala avdelningar förstår besluten."
+      },
+      {
+        "title": "Mönster C: Den upptagna chefen (Många mötestyper)",
+        "otter": "Bra för att fånga ljud, men att hitta uppgifter i en lång text är fortfarande jobb.",
+        "notta": "Utmärkt på att transkribera allt, men du måste fortfarande skriva om råtexten till en rapport.",
+        "minutes": "Gjord för dig. Välj 'Sälj' eller '1-mot-1'-läge, och AI:n formaterar automatiskt anteckningarna för att passa kontexten."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Vårt slutgiltiga omdöme",
+    "lead": "Vi lovade en ärlig åsikt. Otter och Notta är utmärkta verktyg, men för allmänt företagsbruk erbjuder Protokoll AI det mest kompletta paketet.",
+    "bullets": [
+      "**Välj Otter** om du bara har engelska Zoom-möten och bara vill ha en inspelning av vad som sades.",
+      "**Välj Notta** om ditt huvudmål är att konvertera olika ljudfiler till text på många språk.",
+      "**Välj Protokoll AI** om du vill ha **färdiga protokoll**. Om du behöver tydliga beslut, uppgifter och stöd för många språk, är detta det säkraste valet.",
+      "**Fortfarande osäker?** Prova Protokoll AI med ett litet tidspaket. Det är ett riskfritt sätt att testa."
+    ],
+    "note": "Ja, vi är partiska – men vi byggde Protokoll AI just för att fylla luckorna vi hittade i andra verktyg."
+  },
+  "pricing": {
+    "h2": "Priser: Prenumeration vs. Betala-per-användning",
+    "lead": "Priser ändras, men filosofin räknas. Otter och Notta förlitar sig på månadsprenumerationer. Protokoll AI erbjuder en unik hybridmodell.",
+    "bullets": [
+      "**Otter & Notta:** Standard SaaS-modell. Du betalar en månadsavgift för en viss mängd minuter.",
+      "**Protokoll AI:** Erbjuder både Prenumeration OCH **Tidspaket**. Tidspaket löper aldrig ut. Du kan köpa 10 timmar idag och använda dem över sex månader."
+    ],
+    "disclaimer": "Obs: Priser och plandetaljer ändras ofta. Vänligen kontrollera de officiella prissidorna för den senaste infon.",
+    "linkText": "Se priser för Protokoll AI"
+  },
+  "faq": {
+    "h2": "Vanliga frågor (FAQ)",
+    "items": [
+      {
+        "q": "Borde vi använda flera verktyg?",
+        "a": "Det är oftast bättre att standardisera. Om du behöver engelska, globala språk och strukturerade protokoll i ett, är Protokoll AI det mest mångsidiga."
+      },
+      {
+        "q": "Mitt team växer globalt. Vad är säkrast?",
+        "a": "Börja med Protokoll AI. Eftersom den stöder 100+ språk från dag ett, behöver du inte byta verktyg när du anställer internationellt."
+      },
+      {
+        "q": "Jag har redan transkriberingar. Varför behöver jag detta?",
+        "a": "En transkribering är bara rådata. **Protokoll** är insikter. Protokoll AI förvandlar 'textväggen' till Beslut och Deadlines."
+      },
+      {
+        "q": "Kan jag använda Protokoll AI bara för viktiga möten?",
+        "a": "Absolut. Tack vare tidspaketmodellen behöver du ingen månadsprenumeration. Använd den bara när det räknas."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Artikelinfo",
+    "published": "Publicerad",
+    "type": "Jämförelse",
+    "category": "Produktivitet"
+  },
+  "cta": {
+    "openBrowser": "Prova Protokoll AI Webb",
+    "downloadIOS": "Ladda ner iOS-app"
+  }
+}

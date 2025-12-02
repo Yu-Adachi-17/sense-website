@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(2025-ös teszt) Otter vs Notta vs Jegyzőkönyv AI — Melyik AI jegyzetelő a legjobb neked?",
+    "description": "Otter, Notta és Jegyzőkönyv AI őszinte összehasonlítása. Valós igényeket vizsgálunk: nyelvi támogatás, értekezlet típusok és árazás. Nézd meg, miért a Jegyzőkönyv AI a legsokoldalúbb választás 2025-ben.",
+    "ogTitle": "Otter vs Notta vs Jegyzőkönyv AI — Őszinte összehasonlítás 2025",
+    "ogDescription": "Nem tudsz választani az Otter, a Notta és a Jegyzőkönyv AI között? Elemezzük az előnyöket és hátrányokat. Tudja meg, miért ajánljuk a Jegyzőkönyv AI-t produktív csapatoknak.",
+    "ld": {
+      "headline": "Otter vs Notta vs Jegyzőkönyv AI — 2025-ös Összehasonlító Útmutató",
+      "description": "Gyakorlati összehasonlítás az AI jegyzetelő eszközökről. Elemezzük a funkciókat és árakat. Spoiler: A Jegyzőkönyv AI gyakran a legbiztosabb választás üzleti célokra."
+    }
+  },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Jegyzőkönyv AI"
+  },
+  "hero": {
+    "kicker": "2025-ös AI Jegyzetelő Útmutató",
+    "h1": "Otter vs Notta vs Jegyzőkönyv AI — Melyik eszköz illik a munkafolyamatodhoz?",
+    "tagline": "Őszinték leszünk: mi készítettük a Jegyzőkönyv AI-t, így természetesen szeretjük. De tiszteljük az Ottert és a Nottát is. Ez a cikk a mi őszinte véleményünk arról, kinek melyik eszközt érdemes választania — és miért a Jegyzőkönyv AI a legbiztonságosabb alapértelmezett választás a legtöbb csapat számára."
+  },
+  "lead": {
+    "p1": "„Otter alternatívát” vagy a „legjobb AI jegyzőkönyvvezetőt” keresed? Valószínűleg eleged van a kézi jegyzetelésből vagy a zavaros átiratok javítgatásából. 2025-ben sok eszköz létezik, de kevés kezeli a munka valóságát: ismétlődő egyeztetések, értékesítési hívások és ötletbörzék. Íme egy problémaközpontú összehasonlítás az Otter.ai, a Notta és a Jegyzőkönyv AI között."
+  },
+  "tools": {
+    "h2": "Röviden: Miben a legjobb az egyes eszközök",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Az alapértelmezés angol nyelvű távoli csapatoknak",
+        "p": "Az Otter átíró alkalmazásként indult, és „AI értekezlet-ügynökké” vált. Fő ígérete a kényelem: csatlakozik a Zoom/Teams hívásaidhoz, angolul hallgat, és elküldi a jegyzeteket.",
+        "bullets": [
+          "Legjobb: Olyan csapatoknak, amelyek 100%-ban angolul dolgoznak és Zoomon/Teamsen élnek.",
+          "Megoldja: „Szükségünk van valakire, aki jegyzetel az online hívásainkon.”",
+          "A bökkenő: Nehezen boldogul más nyelvekkel, és minden értekezletet egyformán kezel."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "A többnyelvű átírás erőműve",
+        "p": "A Notta a rugalmasságra specializálódott. Legyen szó élő értekezletről, videófájlról vagy felvételről, a Notta átírja. Erőssége a több tucat nyelv támogatásában és a fordításban rejlik.",
+        "bullets": [
+          "Legjobb: Azoknak, akiknek sok forrásból és sok nyelven kell felvételeket átírniuk.",
+          "Megoldja: „Van egy halom hangfájlom különböző nyelveken, amiket szöveggé kell alakítani.”",
+          "A bökkenő: Szószerinti átiratot kapsz, de még mindig kézzel kell összefoglalnod feladatokká."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Jegyzőkönyv AI",
+        "role": "Produktivitási eszköz strukturált jegyzőkönyvekhez",
+        "p": "A Jegyzőkönyv AI nem csak az átírásra koncentrál, hanem arra, hogy „Mi történik ezután?”. Több mint 100 nyelv támogatásával (Whisper motorral), az értekezlet típusa alapján formázza a jegyzeteket — Értékesítés, 1-on-1 vagy Ötletbörze. A cél, hogy azonnal összefoglalót, döntéseket és feladatlistát adjon.",
+        "bullets": [
+          "Legjobb: Csapatoknak, akik kész jegyzőkönyveket (nem csak szöveget) akarnak megosztani Slacken vagy e-mailben.",
+          "Megoldja: „Vannak átirataink, de senki nem olvassa őket. Akciótervre van szükségünk.”",
+          "A bónusz: Speciális formátumok és „Használat alapú fizetés” opciók teszik nagyon egyszerűvé a bevezetést."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Hogyan válaszd ki a megfelelőt",
+    "intro": "Ne vessz el a funkciólistákban. Inkább tedd fel magadnak ezt a négy kérdést, hogy megtaláld azt az eszközt, amely valóban megoldja a napi frusztrációidat.",
+    "items": [
+      {
+        "label": "1) Nyelv és kontextus",
+        "description": "A csapatod csak angolul beszél? Vagy vannak nemzetközi megbeszéléseid, különböző nyelvek és stílusok (Értékesítés vs HR)?"
+      },
+      {
+        "label": "2) Felvétel forrása",
+        "description": "Minden Zoomon történik? Vagy személyes találkozókat is rögzítesz, nagy videófájlokat töltesz fel vagy diktafont használsz?"
+      },
+      {
+        "label": "3) Elvárások az eredménnyel kapcsolatban",
+        "description": "Megelégszel egy nyers szöveges átirattal? Vagy strukturált dokumentumra van szükséged „Döntésekkel” és „Következő lépésekkel”, küldésre készen?"
+      },
+      {
+        "label": "4) Fizetési preferencia",
+        "description": "Fix havi előfizetést szeretnél? Vagy egy rugalmas, soha le nem járó „fizess, ahogy használod” modellt részesítesz előnyben?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Funkciók összehasonlítása",
+    "th": ["Összehasonlítási pont", "Otter.ai", "Notta", "Jegyzőkönyv AI"],
+    "rows": [
+      [
+        "Fő filozófia",
+        "Automatizált ügynök angol online értekezletekhez.",
+        "Univerzális átíró bármilyen hang/videó fájlhoz.",
+        "Üzleti eszköz strukturált, cselekvésre ösztönző jegyzőkönyvekhez."
+      ],
+      [
+        "Nyelvek",
+        "Erős angolban. Egyébként korlátozott támogatás.",
+        "Kiváló többnyelvű támogatás fordítási funkciókkal.",
+        "100+ nyelv (Whisper motor) globális üzletre tervezve."
+      ],
+      [
+        "Ideális értekezlet típusok",
+        "Szabványos videohívások (Zoom/Teams).",
+        "Vegyes használat: interjúk, előadások és fájlfeltöltések.",
+        "Üzleti forgatókönyvek: Értékesítés, 1-on-1, értékelések és workshopok."
+      ],
+      [
+        "Az eredmény",
+        "Átirat + Pontokba szedett összefoglaló.",
+        "Átirat + AI összefoglaló (csomagtól függően).",
+        "Formázott jegyzőkönyv: Kulcspontok, Döntések, Felelősök, Határidők."
+      ],
+      [
+        "Árazási modell",
+        "Havi előfizetés (felhasználónként).",
+        "Ingyenes + Havi előfizetés.",
+        "Rugalmas: Választás Előfizetés VAGY Időcsomagok (soha nem jár le) között."
+      ],
+      [
+        "Kik szeretik?",
+        "Távoli dolgozók, akik utálnak gépelni hívás közben.",
+        "Kutatók és újságírók, akik sok fájllal és nyelvvel dolgoznak.",
+        "Csapatok, akiknek tisztánlátásra van szükségük és azonnal meg akarják osztani az eredményeket."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Melyik felhasználói típus vagy?",
+    "items": [
+      {
+        "title": "A minta: A teljesen távoli, csak angol nyelvű csapat",
+        "otter": "Itt az Otter tökéletes. Ha a világod 100%-ban angol Zoomon, ez egy erős választás.",
+        "notta": "A Notta jól működik, de a többnyelvű erősségei feleslegesek lehetnek számodra.",
+        "minutes": "A Jegyzőkönyv AI erős versenytárs, ha a jegyzeteidet téma szerint strukturálva szeretnéd látni, nem csak időrendben."
+      },
+      {
+        "title": "B minta: A globális / többnyelvű csapat",
+        "otter": "Az Otter itt küszködni fog. Elsősorban angol beszélőknek készült.",
+        "notta": "Kiváló választás. Átíró és fordító képessége mindenkit képben tart.",
+        "minutes": "A legjobb hosszú távú választás. Támogatja a 100+ nyelvet és formázza az eredményt, így a központ és a helyi fiókok is értik a döntéseket."
+      },
+      {
+        "title": "C minta: Az elfoglalt menedzser (Sokféle értekezlet)",
+        "otter": "Jó a hang rögzítésére, de feladatokat keresni egy hosszú szövegben még mindig munka.",
+        "notta": "Kiváló mindent átírni, de a nyers szöveget még mindig át kell írnod jelentéssé.",
+        "minutes": "Neked készült. Válaszd az 'Értékesítés' vagy '1-on-1' módot, és az AI automatikusan formázza a jegyzeteket a kontextushoz."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Végső ítéletünk",
+    "lead": "Őszinte véleményt ígértünk. Az Otter és a Notta kiváló eszközök, de általános üzleti használatra a Jegyzőkönyv AI kínálja a legteljesebb csomagot.",
+    "bullets": [
+      "**Válaszd az Ottert**, ha csak angol Zoom értekezleteid vannak, és csak egy felvételt akarsz az elhangzottakról.",
+      "**Válaszd a Nottát**, ha a fő célod különféle hangfájlok szöveggé alakítása sok nyelven.",
+      "**Válaszd a Jegyzőkönyv AI-t**, ha **kész jegyzőkönyveket** akarsz. Ha világos döntésekre, feladatokra és több nyelv támogatására van szükséged, ez a legbiztosabb választás.",
+      "**Még mindig bizonytalan vagy?** Próbáld ki a Jegyzőkönyv AI-t egy kis időcsomaggal. Ez egy kockázatmentes módja a tesztelésnek."
+    ],
+    "note": "Igen, elfogultak vagyunk – de a Jegyzőkönyv AI-t pontosan azért építettük, hogy betöltsük azokat az űröket, amelyeket más eszközökben találtunk."
+  },
+  "pricing": {
+    "h2": "Árazás: Előfizetés vs. Használat alapú",
+    "lead": "Az árak változnak, de a filozófia számít. Az Otter és a Notta havi előfizetésekre támaszkodik. A Jegyzőkönyv AI egyedi hibrid modellt kínál.",
+    "bullets": [
+      "**Otter & Notta:** Szabványos SaaS modell. Havi díjat fizetsz egy meghatározott percmennyiségért.",
+      "**Jegyzőkönyv AI:** Kínál Előfizetést ÉS **Időcsomagokat** is. Az időcsomagok soha nem járnak le. Vehetsz ma 10 órát, és felhasználhatod fél év alatt."
+    ],
+    "disclaimer": "Megjegyzés: Az árak és a csomagok részletei gyakran változnak. Kérjük, ellenőrizd a hivatalos árazási oldalakat a legfrissebb információkért.",
+    "linkText": "Jegyzőkönyv AI árak megtekintése"
+  },
+  "faq": {
+    "h2": "Gyakran Ismételt Kérdések",
+    "items": [
+      {
+        "q": "Több eszközt kellene használnunk?",
+        "a": "Általában jobb egységesíteni. Ha angolra, globális nyelvekre és strukturált jegyzőkönyvekre van szükséged egyben, a Jegyzőkönyv AI a legsokoldalúbb."
+      },
+      {
+        "q": "A csapatom globálisan növekszik. Mi a biztonságosabb?",
+        "a": "Kezdd a Jegyzőkönyv AI-val. Mivel a kezdetektől támogat 100+ nyelvet, nem kell eszközt váltanod, ha nemzetközileg veszel fel embereket."
+      },
+      {
+        "q": "Már vannak átirataim. Miért van erre szükségem?",
+        "a": "Az átirat csak nyers adat. A **Jegyzőkönyv** betekintés. A Jegyzőkönyv AI a 'szövegfalat' Döntésekké és Határidőkké alakítja."
+      },
+      {
+        "q": "Használhatom a Jegyzőkönyv AI-t csak fontos értekezletekre?",
+        "a": "Abszolút. Az időcsomag modellnek köszönhetően nincs szükség havi előfizetésre. Csak akkor használd, amikor számít."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Cikk információ",
+    "published": "Közzétéve",
+    "type": "Összehasonlítás",
+    "category": "Produktivitás"
+  },
+  "cta": {
+    "openBrowser": "Próbáld ki a Jegyzőkönyv AI Webet",
+    "downloadIOS": "iOS alkalmazás letöltése"
+  }
+}

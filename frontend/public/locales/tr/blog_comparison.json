@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(İnceleme 2025) Otter vs Notta vs Tutanakları AI — Sizin İçin En İyi Yapay Zeka Not Tutucu Hangisi?",
+    "description": "Otter, Notta ve Tutanakları AI dürüst karşılaştırması. Gerçek ihtiyaçlara bakıyoruz: dil desteği, toplantı türleri ve fiyatlandırma. 2025'te Tutanakları AI'ın neden en çok yönlü seçim olduğunu görün.",
+    "ogTitle": "Otter vs Notta vs Tutanakları AI — 2025 Dürüst Karşılaştırma",
+    "ogDescription": "Otter, Notta ve Tutanakları AI arasında kararsız mı kaldınız? Artılarını ve eksilerini inceliyoruz. Üretken ekipler için neden Tutanakları AI'ı önerdiğimizi keşfedin.",
+    "ld": {
+      "headline": "Otter vs Notta vs Tutanakları AI — 2025 Karşılaştırma Rehberi",
+      "description": "Yapay zeka not alma araçlarının pratik karşılaştırması. Özellikleri ve fiyatları analiz ediyoruz. Spoiler: Tutanakları AI genellikle işletmeler için en güvenli bahistir."
+    }
+  },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Tutanakları AI"
+  },
+  "hero": {
+    "kicker": "2025 Yapay Zeka Not Rehberi",
+    "h1": "Otter vs Notta vs Tutanakları AI — Hangi Araç İş Akışınıza Uygun?",
+    "tagline": "Açık olacağız: Tutanakları AI'ı biz geliştirdik, bu yüzden onu seviyoruz. Ama Otter ve Notta'ya da saygı duyuyoruz. Bu makale, kimin hangi aracı seçmesi gerektiğine dair dürüst görüşümüzdür — ve neden Tutanakları AI çoğu ekip için en güvenli varsayılan seçimdir."
+  },
+  "lead": {
+    "p1": "'Otter alternatifi' veya 'en iyi AI tutanak tutucu' mu arıyorsunuz? Muhtemelen elle not almaktan veya dağınık transkriptleri düzeltmekten yoruldunuz. 2025'te birçok araç var ama çok azı işin gerçekliğini yönetebiliyor: tekrarlayan toplantılar, satış görüşmeleri ve beyin fırtınaları. İşte sorun odaklı bir Otter.ai, Notta ve Tutanakları AI karşılaştırması."
+  },
+  "tools": {
+    "h2": "Bir Bakışta: Her Aracın En İyi Yaptığı Şey",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "İngilizce konuşan uzak ekipler için standart",
+        "p": "Otter bir transkripsiyon uygulaması olarak başladı ve bir 'AI toplantı asistanı' oldu. Ana vaadi kolaylıktır: Zoom/Teams görüşmelerinize katılır, İngilizce dinler ve size notları gönderir.",
+        "bullets": [
+          "En iyisi: %100 İngilizce çalışan ve Zoom/Teams üzerinde yaşayan ekipler.",
+          "Çözdüğü sorun: 'Online görüşmelerimizde not tutacak birine ihtiyacımız var.'",
+          "Dezavantajı: İngilizce dışındaki dillerle zorlanır ve her toplantı formatına aynı şekilde davranır."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Çok dilli transkripsiyonun güç merkezi",
+        "p": "Notta esneklik konusunda uzmanlaşmıştır. Canlı bir toplantı, video dosyası veya kayıt olsun, Notta bunu yazıya döker. Gücü, düzinelerce dil desteği ve çeviride yatmaktadır.",
+        "bullets": [
+          "En iyisi: Birçok kaynaktan ve birçok dilde kayıtları deşifre etmesi gereken insanlar.",
+          "Çözdüğü sorun: 'Farklı dillerde metne dönüştürülmesi gereken bir yığın ses dosyam var.'",
+          "Dezavantajı: Kelimesi kelimesine bir transkript alırsınız, ancak yine de bunu manuel olarak görevlere özetlemeniz gerekir."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Tutanakları AI",
+        "role": "Yapılandırılmış tutanaklar için üretkenlik aracı",
+        "p": "Tutanakları AI sadece transkripsiyona değil, 'Sırada ne var?' sorusuna odaklanır. 100'den fazla dili destekleyerek (Whisper ile), notlarınızı toplantı türüne göre — Satış, 1'e 1 veya Beyin Fırtınası — biçimlendirir. Amaç size anında bir özet, kararlar ve yapılacaklar listesi vermektir.",
+        "bullets": [
+          "En iyisi: Slack veya e-postada paylaşmak için (sadece metin değil) bitmiş toplantı tutanakları isteyen ekipler.",
+          "Çözdüğü sorun: 'Transkriptlerimiz var ama kimse okumuyor. Aksiyon öğelerine ihtiyacımız var.'",
+          "Bonus: Özelleştirilmiş formatlar ve 'Kullandıkça Öde' seçenekleri benimsemeyi çok kolaylaştırır."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Doğru Olanı Nasıl Seçersiniz",
+    "intro": "Özellik listelerinde kaybolmayın. Bunun yerine, günlük hayal kırıklıklarınızı gerçekten çözen aracı bulmak için kendinize bu dört soruyu sorun.",
+    "items": [
+      {
+        "label": "1) Dil ve Bağlam",
+        "description": "Ekibiniz sadece İngilizce mi konuşuyor? Yoksa uluslararası toplantılarınız, karışık diller ve farklı stilleriniz (Satış vs İK) mi var?"
+      },
+      {
+        "label": "2) Kayıt Kaynağı",
+        "description": "Her şey Zoom'da mı oluyor? Yoksa yüz yüze toplantıları da kaydediyor, büyük video dosyaları yüklüyor veya sesli notlar mı kullanıyorsunuz?"
+      },
+      {
+        "label": "3) Çıktı Beklentisi",
+        "description": "Ham bir metin transkriptiyle yetiniyor musunuz? Yoksa gönderilmeye hazır 'Kararlar' ve 'Sonraki Adımlar' içeren yapılandırılmış bir belgeye mi ihtiyacınız var?"
+      },
+      {
+        "label": "4) Ödeme Tercihi",
+        "description": "Sabit bir aylık abonelik mi istiyorsunuz? Yoksa hiç süresi dolmayan esnek bir 'kullandığın kadar öde' modelini mi tercih edersiniz?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Özellik Özeti",
+    "th": ["Karşılaştırma Noktası", "Otter.ai", "Notta", "Tutanakları AI"],
+    "rows": [
+      [
+        "Temel Felsefe",
+        "İngilizce online toplantılar için otomatik ajan.",
+        "Herhangi bir ses/video dosyası için evrensel dönüştürücü.",
+        "Yapılandırılmış, eyleme geçirilebilir tutanaklar için iş aracı."
+      ],
+      [
+        "Diller",
+        "İngilizcede güçlü. Diğerlerinde sınırlı destek.",
+        "Çeviri özellikleriyle harika çoklu dil desteği.",
+        "Küresel iş dünyası için tasarlanmış 100+ dil (Whisper motoru)."
+      ],
+      [
+        "İdeal Toplantı Türleri",
+        "Standart görüntülü görüşmeler (Zoom/Teams).",
+        "Karışık kullanım: röportajlar, dersler ve dosya yüklemeleri.",
+        "İş senaryoları: Satış, 1'e 1, değerlendirmeler ve çalıştaylar."
+      ],
+      [
+        "Çıktı",
+        "Transkript + Madde işaretli özet.",
+        "Transkript + AI özeti (plana bağlı).",
+        "Biçimlendirilmiş Tutanak: Kilit noktalar, Kararlar, Sorumlular, Bitiş Tarihleri."
+      ],
+      [
+        "Fiyatlandırma Modeli",
+        "Aylık abonelik (kullanıcı başına).",
+        "Freemium + Aylık abonelik.",
+        "Esnek: Abonelik VEYA Zaman Paketleri (süresi dolmaz) arasında seçim."
+      ],
+      [
+        "Kimler seviyor?",
+        "Görüşme sırasında yazmaktan nefret eden uzaktan çalışanlar.",
+        "Çok sayıda dosya ve dille uğraşan araştırmacılar ve gazeteciler.",
+        "Netliğe ihtiyaç duyan ve sonuçları anında paylaşmak isteyen ekipler."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Hangi Kullanıcı Tipisiniz?",
+    "items": [
+      {
+        "title": "Model A: Sadece İngilizce Konuşan Uzak Ekip",
+        "otter": "Burada Otter mükemmel. Dünyanız Zoom'da %100 İngilizce ise, güçlü bir seçimdir.",
+        "notta": "Notta iyi çalışır, ancak çok dilli güçleri sizin için gereksiz olabilir.",
+        "minutes": "Notlarınızın sadece kronolojik değil, konuya göre yapılandırılmasını istiyorsanız Tutanakları AI güçlü bir adaydır."
+      },
+      {
+        "title": "Model B: Küresel / Çok Dilli Ekip",
+        "otter": "Otter burada zorlanacaktır. Öncelikle İngilizce konuşanlar için yapılmıştır.",
+        "notta": "Mükemmel bir seçim. Yazıya dökme ve çevirme yeteneği herkesi aynı sayfada tutar.",
+        "minutes": "En iyi uzun vadeli seçim. 100+ dili destekler ve çıktıyı hem merkezin hem de yerel şubelerin kararları anlayacağı şekilde biçimlendirir."
+      },
+      {
+        "title": "Model C: Meşgul Yönetici (Birçok Toplantı Türü)",
+        "otter": "Sesi yakalamak için iyi, ancak uzun bir metinde görevleri bulmak hala iştir.",
+        "notta": "Her şeyi yazıya dökmek için mükemmel, ancak ham metni bir rapora dönüştürmeniz gerekir.",
+        "minutes": "Sizin için yapıldı. 'Satış' veya '1'e 1' modunu seçin, AI notları bağlama uyacak şekilde otomatik olarak biçimlendirir."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Son Kararımız",
+    "lead": "Dürüst bir görüş sözü verdik. Otter ve Notta mükemmel araçlar, ancak genel iş kullanımı için Tutanakları AI en eksiksiz paketi sunuyor.",
+    "bullets": [
+      "**Otter'ı seçin** eğer sadece İngilizce Zoom toplantılarınız varsa ve sadece ne söylendiğinin kaydını istiyorsanız.",
+      "**Notta'yı seçin** eğer ana hedefiniz çeşitli ses dosyalarını birçok dilde metne dönüştürmekse.",
+      "**Tutanakları AI'ı seçin** eğer **bitmiş tutanaklar** istiyorsanız. Net kararlar, görevler ve birçok dil desteği istiyorsanız, bu en güvenli seçimdir.",
+      "**Hala emin değil misiniz?** Tutanakları AI'ı küçük bir zaman paketiyle deneyin. Test etmek için risksiz bir yoldur."
+    ],
+    "note": "Evet, taraflıyız – ama Tutanakları AI'ı tam da diğer araçlarda bulduğumuz boşlukları doldurmak için geliştirdik."
+  },
+  "pricing": {
+    "h2": "Fiyatlandırma: Abonelik vs. Kullandıkça Öde",
+    "lead": "Fiyatlar değişir ama felsefe önemlidir. Otter ve Notta aylık aboneliklere dayanır. Tutanakları AI benzersiz bir hibrit model sunar.",
+    "bullets": [
+      "**Otter & Notta:** Standart SaaS modeli. Belirli bir dakika miktarı için aylık ücret ödersiniz.",
+      "**Tutanakları AI:** Hem Abonelik HEM DE **Zaman Paketleri** sunar. Zaman paketlerinin süresi asla dolmaz. Bugün 10 saat alıp altı ay boyunca kullanabilirsiniz."
+    ],
+    "disclaimer": "Not: Fiyatlar ve plan detayları sık sık değişir. En son bilgiler için lütfen resmi fiyatlandırma sayfalarını kontrol edin.",
+    "linkText": "Tutanakları AI Fiyatlarını Gör"
+  },
+  "faq": {
+    "h2": "Sıkça Sorulan Sorular (SSS)",
+    "items": [
+      {
+        "q": "Birden fazla araç mı kullanmalıyız?",
+        "a": "Genellikle standartlaştırmak daha iyidir. İngilizce, küresel diller ve yapılandırılmış tutanaklar tek bir yerde lazımsa, Tutanakları AI en çok yönlü olandır."
+      },
+      {
+        "q": "Ekibim küresel olarak büyüyor. Hangisi daha güvenli?",
+        "a": "Tutanakları AI ile başlayın. Baştan 100+ dili desteklediği için, uluslararası işe alım yaparken araç değiştirmeniz gerekmez."
+      },
+      {
+        "q": "Zaten transkriptlerim var. Buna neden ihtiyacım var?",
+        "a": "Transkript sadece ham veridir. **Tutanaklar** içgörüdür. Tutanakları AI 'metin duvarını' Kararlara ve Bitiş Tarihlerine dönüştürür."
+      },
+      {
+        "q": "Tutanakları AI'ı sadece önemli toplantılar için kullanabilir miyim?",
+        "a": "Kesinlikle. Zaman paketi modeli sayesinde aylık aboneliğe ihtiyacınız yok. Sadece önemli olduğunda kullanın."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Makale Bilgisi",
+    "published": "Yayınlandı",
+    "type": "Karşılaştırma",
+    "category": "Üretkenlik"
+  },
+  "cta": {
+    "openBrowser": "Tutanakları AI Web'i Dene",
+    "downloadIOS": "iOS Uygulamasını İndir"
+  }
+}

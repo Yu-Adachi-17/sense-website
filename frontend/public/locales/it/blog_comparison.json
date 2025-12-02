@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Recensione 2025) Otter vs Notta vs Verbali IA — Quale assistente AI è il migliore per te?",
+    "description": "Otter, Notta e Verbali IA in un confronto onesto. Analizziamo le esigenze reali: lingue, tipi di riunione e prezzi. Scopri perché Verbali IA è la scelta più versatile per i team nel 2025.",
+    "ogTitle": "Otter vs Notta vs Verbali IA — Confronto Onesto 2025",
+    "ogDescription": "Indeciso tra Otter, Notta e Verbali IA? Analizziamo pro, contro e migliori casi d'uso. Scopri perché consigliamo Verbali IA per team produttivi.",
+    "ld": {
+      "headline": "Otter vs Notta vs Verbali IA — Guida al Confronto 2025",
+      "description": "Un confronto pratico degli strumenti di AI per appunti. Analizziamo funzionalità e prezzi. Spoiler: Verbali IA è spesso la scommessa più sicura per il business."
+    }
+  },
+  "aria": {
+    "home": "Home Verbali IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Verbali IA"
+  },
+  "hero": {
+    "kicker": "Guida ai Verbali AI 2025",
+    "h1": "Otter vs Notta vs Verbali IA — Quale strumento si adatta al tuo flusso di lavoro?",
+    "tagline": "Saremo sinceri: abbiamo creato Verbali IA, quindi ci piace. Ma rispettiamo anche Otter e Notta. Questo articolo è la nostra opinione onesta su chi dovrebbe scegliere quale strumento — e perché Verbali IA è la scelta predefinita più sicura per la maggior parte dei team."
+  },
+  "lead": {
+    "p1": "Cerchi un'«alternativa a Otter» o la «migliore IA per verbali»? Probabilmente sei stanco di prendere appunti a mano o correggere trascrizioni disordinate. Nel 2025 ci sono molti strumenti, ma pochi gestiscono la realtà lavorativa: riunioni ricorrenti, chiamate di vendita e brainstorm. Ecco un confronto orientato ai problemi tra Otter.ai, Notta e Verbali IA."
+  },
+  "tools": {
+    "h2": "In breve: In cosa eccelle ogni strumento",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Lo standard per i team remoti in lingua inglese",
+        "p": "Otter è nato come app di trascrizione ed è diventato un 'agente di riunione AI'. La sua promessa principale è la comodità: si unisce alle tue chiamate Zoom/Teams, ascolta in inglese e ti invia gli appunti.",
+        "bullets": [
+          "Ideale per: Team che lavorano al 100% in inglese e vivono su Zoom/Teams.",
+          "Risolve: «Abbiamo bisogno di qualcuno che prenda appunti nelle nostre chiamate online».",
+          "Il problema: Fatica con altre lingue e tratta ogni formato di riunione allo stesso modo."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "La potenza per la trascrizione multilingue",
+        "p": "Notta è specializzata nella flessibilità. Che si tratti di una riunione dal vivo, un file video o una registrazione, Notta lo trascrive. La sua forza sta nel supportare decine di lingue e nella traduzione.",
+        "bullets": [
+          "Ideale per: Persone che devono trascrivere registrazioni da molte fonti e in molte lingue.",
+          "Risolve: «Ho una pila di file audio in diverse lingue che devono diventare testo».",
+          "Il problema: Ottieni una trascrizione letterale, ma devi ancora riassumerla manualmente in attività."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Verbali IA",
+        "role": "Lo strumento di produttività per verbali strutturati",
+        "p": "Verbali IA non si concentra solo sulla trascrizione, ma su «Cosa succede dopo?». Supportando oltre 100 lingue (tramite Whisper), formatta i tuoi appunti in base al tipo di riunione — Vendite, 1-on-1 o Brainstorming. L'obiettivo è darti subito un riassunto, decisioni e lista delle cose da fare.",
+        "bullets": [
+          "Ideale per: Team che vogliono verbali finiti (non solo testo) da condividere su Slack o via email.",
+          "Risolve: «Abbiamo le trascrizioni, ma nessuno le legge. Abbiamo bisogno di azioni».",
+          "Il Bonus: Formati specializzati e opzioni «Paga al consumo» rendono l'adozione molto semplice."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Come scegliere quello giusto",
+    "intro": "Non perderti nelle liste di funzionalità. Poniti invece queste quattro domande per trovare lo strumento che risolve davvero le tue frustrazioni quotidiane.",
+    "items": [
+      {
+        "label": "1) Lingua e Contesto",
+        "description": "Il tuo team parla solo inglese? O hai riunioni internazionali, lingue miste e stili diversi (Vendite vs HR)?"
+      },
+      {
+        "label": "2) Fonte di registrazione",
+        "description": "Tutto avviene su Zoom? O registri anche riunioni dal vivo, carichi file video pesanti o usi memo vocali?"
+      },
+      {
+        "label": "3) Aspettative sul risultato",
+        "description": "Ti accontenti di una trascrizione di testo grezzo? O hai bisogno di un documento strutturato con «Decisioni» e «Prossimi passi» pronto per l'invio?"
+      },
+      {
+        "label": "4) Preferenza di pagamento",
+        "description": "Vuoi un abbonamento mensile fisso? O preferisci un modello flessibile «paga ciò che usi» che non scade mai?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Istantanea delle Funzionalità",
+    "th": ["Punto di Confronto", "Otter.ai", "Notta", "Verbali IA"],
+    "rows": [
+      [
+        "Filosofia Principale",
+        "Agente automatizzato per riunioni online in inglese.",
+        "Trascrizionista universale per qualsiasi file audio/video.",
+        "Strumento aziendale per verbali strutturati e azionabili."
+      ],
+      [
+        "Lingue",
+        "Forte in inglese. Supporto limitato altrove.",
+        "Ottimo supporto multilingue con funzioni di traduzione.",
+        "100+ lingue (motore Whisper) progettato per il business globale."
+      ],
+      [
+        "Tipi di Riunione Ideali",
+        "Videochiamate standard (Zoom/Teams).",
+        "Uso misto: interviste, lezioni e caricamento file.",
+        "Scenari aziendali: Vendite, 1-on-1, revisioni e workshop."
+      ],
+      [
+        "Il Risultato",
+        "Trascrizione + Riassunto per punti.",
+        "Trascrizione + Riassunto AI (in base al piano).",
+        "Verbale Formattato: Punti chiave, Decisioni, Responsabili, Scadenze."
+      ],
+      [
+        "Modello di Prezzo",
+        "Abbonamento mensile (per utente).",
+        "Freemium + Abbonamento mensile.",
+        "Flessibile: Scelta tra Abbonamento O Pacchetti Tempo (senza scadenza)."
+      ],
+      [
+        "Chi lo ama?",
+        "Lavoratori remoti che odiano scrivere durante le chiamate.",
+        "Ricercatori e giornalisti che gestiscono molti file e lingue.",
+        "Team che hanno bisogno di chiarezza e vogliono condividere i risultati all'istante."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Che tipo di utente sei?",
+    "items": [
+      {
+        "title": "Modello A: Il team remoto solo in inglese",
+        "otter": "Qui Otter è perfetto. Se il tuo mondo è 100% inglese su Zoom, è una scelta solida.",
+        "notta": "Notta funziona bene, ma i suoi punti di forza multilingue potrebbero essere superflui per te.",
+        "minutes": "Verbali IA è un forte candidato se vuoi che i tuoi appunti siano strutturati per argomento anziché solo cronologicamente."
+      },
+      {
+        "title": "Modello B: Il team globale / multilingue",
+        "otter": "Otter farà fatica qui. È costruito principalmente per anglofoni.",
+        "notta": "Una scelta eccellente. La sua capacità di trascrivere e tradurre mantiene tutti allineati.",
+        "minutes": "La scelta migliore a lungo termine. Supporta 100+ lingue e formatta il risultato in modo che sia la sede centrale che le filiali locali capiscano le decisioni."
+      },
+      {
+        "title": "Modello C: Il manager impegnato (Molti tipi di riunione)",
+        "otter": "Buono per catturare l'audio, ma trovare attività in un testo lungo è comunque lavoro.",
+        "notta": "Eccellente per trascrivere tutto, ma devi comunque riscrivere il testo grezzo in un report.",
+        "minutes": "Fatto per te. Scegli la modalità 'Vendite' o '1-on-1', e l'AI formatta automaticamente gli appunti per adattarsi al contesto."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Il nostro verdetto finale",
+    "lead": "Abbiamo promesso un'opinione onesta. Otter e Notta sono strumenti eccellenti, ma per un uso aziendale generale, Verbali IA offre il pacchetto più completo.",
+    "bullets": [
+      "**Scegli Otter** se hai solo riunioni Zoom in inglese e vuoi solo una registrazione di ciò che è stato detto.",
+      "**Scegli Notta** se il tuo obiettivo principale è convertire vari file audio in testo in molte lingue.",
+      "**Scegli Verbali IA** se vuoi **verbali finiti**. Se hai bisogno di decisioni chiare, attività e supporto per più lingue, questa è la scelta più sicura.",
+      "**Ancora insicuro?** Prova Verbali IA con un piccolo pacchetto tempo. È un modo senza rischi per testarlo."
+    ],
+    "note": "Sì, siamo di parte – ma abbiamo creato Verbali IA proprio per colmare le lacune che abbiamo trovato in altri strumenti."
+  },
+  "pricing": {
+    "h2": "Prezzi: Abbonamento vs. Paga-al-consumo",
+    "lead": "I prezzi cambiano, ma la filosofia conta. Otter e Notta si basano su abbonamenti mensili. Verbali IA offre un modello ibrido unico.",
+    "bullets": [
+      "**Otter & Notta:** Modello SaaS standard. Paghi una quota mensile per una quantità di minuti.",
+      "**Verbali IA:** Offre sia Abbonamenti CHE **Pacchetti Tempo**. I pacchetti tempo non scadono mai. Puoi acquistare 10 ore oggi e usarle nel corso di sei mesi."
+    ],
+    "disclaimer": "Nota: I prezzi e i dettagli dei piani cambiano spesso. Si prega di controllare le pagine ufficiali dei prezzi per le informazioni più recenti.",
+    "linkText": "Vedi prezzi Verbali IA"
+  },
+  "faq": {
+    "h2": "Domande Frequenti (FAQ)",
+    "items": [
+      {
+        "q": "Dovremmo usare più strumenti?",
+        "a": "Di solito è meglio standardizzare. Se hai bisogno di inglese, lingue globali e verbali strutturati in uno, Verbali IA è il più versatile."
+      },
+      {
+        "q": "Il mio team sta crescendo a livello globale. Cosa è più sicuro?",
+        "a": "Inizia con Verbali IA. Poiché supporta 100+ lingue fin dall'inizio, non dovrai cambiare strumento quando assumi a livello internazionale."
+      },
+      {
+        "q": "Ho già delle trascrizioni. Perché ne ho bisogno?",
+        "a": "Una trascrizione è solo dati grezzi. I **Verbali** sono insight. Verbali IA trasforma il 'muro di testo' in Decisioni e Scadenze."
+      },
+      {
+        "q": "Posso usare Verbali IA solo per riunioni importanti?",
+        "a": "Assolutamente. Grazie al modello a pacchetti tempo, non hai bisogno di un abbonamento mensile. Usalo solo quando conta."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Info Articolo",
+    "published": "Pubblicato",
+    "type": "Confronto",
+    "category": "Produttività"
+  },
+  "cta": {
+    "openBrowser": "Prova Verbali IA Web",
+    "downloadIOS": "Scarica App iOS"
+  }
+}

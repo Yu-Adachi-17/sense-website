@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Đánh giá 2025) Otter vs Notta vs Biên bản AI — Trợ lý AI nào tốt nhất cho bạn?",
+    "description": "So sánh trung thực Otter, Notta và Biên bản AI. Chúng tôi xem xét nhu cầu thực tế: ngôn ngữ, loại cuộc họp và giá cả. Xem tại sao Biên bản AI là lựa chọn linh hoạt nhất năm 2025.",
+    "ogTitle": "Otter vs Notta vs Biên bản AI — So sánh trung thực 2025",
+    "ogDescription": "Phân vân giữa Otter, Notta và Biên bản AI? Chúng tôi phân tích ưu và nhược điểm. Tìm hiểu lý do chúng tôi đề xuất Biên bản AI cho các nhóm làm việc hiệu quả.",
+    "ld": {
+      "headline": "Otter vs Notta vs Biên bản AI — Hướng dẫn so sánh 2025",
+      "description": "So sánh thực tế các công cụ ghi chú AI. Chúng tôi phân tích tính năng và giá cả. Bật mí: Biên bản AI thường là lựa chọn an toàn nhất cho doanh nghiệp."
+    }
+  },
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Biên bản AI"
+  },
+  "hero": {
+    "kicker": "Hướng dẫn AI Ghi chú 2025",
+    "h1": "Otter vs Notta vs Biên bản AI — Công cụ nào phù hợp với quy trình của bạn?",
+    "tagline": "Chúng tôi sẽ thẳng thắn: chúng tôi xây dựng Biên bản AI, nên tất nhiên chúng tôi yêu thích nó. Nhưng chúng tôi cũng tôn trọng Otter và Notta. Bài viết này là quan điểm trung thực của chúng tôi về việc ai nên chọn công cụ nào — và tại sao Biên bản AI là lựa chọn mặc định an toàn nhất cho hầu hết các nhóm."
+  },
+  "lead": {
+    "p1": "Bạn đang tìm kiếm 'giải pháp thay thế Otter' hay 'AI ghi biên bản tốt nhất'? Có lẽ bạn đã mệt mỏi với việc ghi chép thủ công hoặc sửa các bản ghi lộn xộn. Năm 2025 có nhiều công cụ, nhưng ít công cụ xử lý được thực tế công việc: họp định kỳ, gọi bán hàng và brainstorming. Dưới đây là so sánh tập trung vào vấn đề giữa Otter.ai, Notta và Biên bản AI."
+  },
+  "tools": {
+    "h2": "Sơ lược: Điểm mạnh của từng công cụ",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Tiêu chuẩn cho các nhóm làm việc từ xa dùng tiếng Anh",
+        "p": "Otter bắt đầu là ứng dụng chuyển đổi giọng nói thành văn bản và trở thành 'trợ lý cuộc họp AI'. Lời hứa chính là sự tiện lợi: nó tham gia cuộc gọi Zoom/Teams của bạn, nghe tiếng Anh và gửi ghi chú cho bạn.",
+        "bullets": [
+          "Tốt nhất cho: Các nhóm làm việc 100% bằng tiếng Anh và hoạt động trên Zoom/Teams.",
+          "Giải quyết: 'Chúng tôi cần ai đó ghi chép trong các cuộc gọi trực tuyến.'",
+          "Nhược điểm: Gặp khó khăn với các ngôn ngữ khác và xử lý mọi loại cuộc họp như nhau."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Công cụ mạnh mẽ cho chuyển đổi đa ngôn ngữ",
+        "p": "Notta chuyên về sự linh hoạt. Dù là cuộc họp trực tiếp, tệp video hay ghi âm, Notta đều chuyển đổi được. Sức mạnh nằm ở việc hỗ trợ hàng chục ngôn ngữ và dịch thuật.",
+        "bullets": [
+          "Tốt nhất cho: Những người cần chuyển đổi bản ghi từ nhiều nguồn và nhiều ngôn ngữ.",
+          "Giải quyết: 'Tôi có một đống tệp âm thanh bằng nhiều ngôn ngữ cần chuyển thành văn bản.'",
+          "Nhược điểm: Bạn nhận được bản ghi nguyên văn, nhưng vẫn phải tự tóm tắt thủ công thành các nhiệm vụ."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Biên bản AI",
+        "role": "Công cụ năng suất cho biên bản có cấu trúc",
+        "p": "Biên bản AI không chỉ tập trung vào chuyển đổi văn bản; mà là 'Chuyện gì tiếp theo?'. Hỗ trợ hơn 100 ngôn ngữ (qua Whisper), nó định dạng ghi chú dựa trên loại cuộc họp — Bán hàng, 1-1, hoặc Brainstorm. Mục tiêu là cung cấp tóm tắt, quyết định và danh sách việc cần làm ngay lập tức.",
+        "bullets": [
+          "Tốt nhất cho: Các nhóm muốn biên bản hoàn chỉnh (không chỉ văn bản thô) để chia sẻ trên Slack hoặc email.",
+          "Giải quyết: 'Chúng tôi có bản ghi chép, nhưng không ai đọc. Chúng tôi cần các mục hành động.'",
+          "Điểm cộng: Các định dạng chuyên biệt và tùy chọn 'Thanh toán theo mức dùng' giúp việc áp dụng rất dễ dàng."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Cách chọn đúng công cụ",
+    "intro": "Đừng lạc lối trong danh sách tính năng. Thay vào đó, hãy tự hỏi bốn câu này để tìm công cụ thực sự giải quyết nỗi lo hàng ngày của bạn.",
+    "items": [
+      {
+        "label": "1) Ngôn ngữ & Bối cảnh",
+        "description": "Nhóm của bạn chỉ nói tiếng Anh? Hay bạn có các cuộc họp quốc tế, ngôn ngữ hỗn hợp và phong cách khác nhau (Bán hàng vs Nhân sự)?"
+      },
+      {
+        "label": "2) Nguồn ghi âm",
+        "description": "Mọi thứ diễn ra trên Zoom? Hay bạn cũng ghi âm cuộc họp trực tiếp, tải lên tệp video lớn hoặc dùng ghi âm giọng nói?"
+      },
+      {
+        "label": "3) Kỳ vọng về kết quả",
+        "description": "Bạn hài lòng với bản ghi văn bản thô? Hay bạn cần một tài liệu có cấu trúc với 'Quyết định' và 'Bước tiếp theo' sẵn sàng để gửi?"
+      },
+      {
+        "label": "4) Sở thích thanh toán",
+        "description": "Bạn muốn đăng ký hàng tháng cố định? Hay thích mô hình linh hoạt 'dùng bao nhiêu trả bấy nhiêu' không bao giờ hết hạn?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "So sánh tính năng",
+    "th": ["Điểm so sánh", "Otter.ai", "Notta", "Biên bản AI"],
+    "rows": [
+      [
+        "Triết lý cốt lõi",
+        "Trợ lý tự động cho cuộc họp trực tuyến tiếng Anh.",
+        "Công cụ chuyển đổi vạn năng cho mọi tệp âm thanh/video.",
+        "Công cụ kinh doanh cho biên bản có cấu trúc và khả thi."
+      ],
+      [
+        "Ngôn ngữ",
+        "Mạnh về tiếng Anh. Hạn chế ở các ngôn ngữ khác.",
+        "Hỗ trợ đa ngôn ngữ tuyệt vời với tính năng dịch.",
+        "100+ ngôn ngữ (động cơ Whisper) thiết kế cho kinh doanh toàn cầu."
+      ],
+      [
+        "Loại cuộc họp lý tưởng",
+        "Cuộc gọi video tiêu chuẩn (Zoom/Teams).",
+        "Sử dụng hỗn hợp: phỏng vấn, bài giảng và tải lên tệp.",
+        "Kịch bản kinh doanh: Bán hàng, 1-1, đánh giá và hội thảo."
+      ],
+      [
+        "Kết quả",
+        "Bản ghi chép + Tóm tắt gạch đầu dòng.",
+        "Bản ghi chép + Tóm tắt AI (tùy theo gói).",
+        "Biên bản định dạng: Điểm chính, Quyết định, Người phụ trách, Hạn chót."
+      ],
+      [
+        "Mô hình giá",
+        "Đăng ký hàng tháng (theo người dùng).",
+        "Miễn phí + Đăng ký hàng tháng.",
+        "Linh hoạt: Chọn giữa Đăng ký HOẶC Gói thời gian (không hết hạn)."
+      ],
+      [
+        "Ai yêu thích nó?",
+        "Người làm việc từ xa ghét gõ phím khi gọi.",
+        "Nhà nghiên cứu & Nhà báo xử lý nhiều tệp và ngôn ngữ.",
+        "Các nhóm cần sự rõ ràng và muốn chia sẻ kết quả ngay lập tức."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Bạn thuộc kiểu người dùng nào?",
+    "items": [
+      {
+        "title": "Kiểu A: Nhóm từ xa chỉ dùng tiếng Anh",
+        "otter": "Ở đây Otter là hoàn hảo. Nếu thế giới của bạn là 100% tiếng Anh trên Zoom, đây là lựa chọn mạnh mẽ.",
+        "notta": "Notta hoạt động tốt, nhưng sức mạnh đa ngôn ngữ của nó có thể thừa thãi với bạn.",
+        "minutes": "Biên bản AI là đối thủ mạnh nếu bạn muốn ghi chú được cấu trúc theo chủ đề thay vì chỉ theo thời gian."
+      },
+      {
+        "title": "Kiểu B: Nhóm toàn cầu / Đa ngôn ngữ",
+        "otter": "Otter sẽ gặp khó khăn. Nó được xây dựng chủ yếu cho người nói tiếng Anh.",
+        "notta": "Lựa chọn xuất sắc. Khả năng chuyển đổi và dịch thuật giúp mọi người nắm bắt thông tin.",
+        "minutes": "Lựa chọn lâu dài tốt nhất. Hỗ trợ 100+ ngôn ngữ và định dạng kết quả để cả trụ sở chính và chi nhánh địa phương đều hiểu các quyết định."
+      },
+      {
+        "title": "Kiểu C: Quản lý bận rộn (Nhiều loại cuộc họp)",
+        "otter": "Tốt để thu âm, nhưng tìm nhiệm vụ trong văn bản dài vẫn là công việc tốn sức.",
+        "notta": "Tuyệt vời để chuyển đổi mọi thứ, nhưng bạn vẫn phải viết lại văn bản thô thành báo cáo.",
+        "minutes": "Được làm cho bạn. Chọn chế độ 'Bán hàng' hoặc '1-1', và AI tự động định dạng ghi chú phù hợp với bối cảnh."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Phán quyết cuối cùng",
+    "lead": "Chúng tôi đã hứa một ý kiến trung thực. Otter và Notta là công cụ tuyệt vời, nhưng cho mục đích kinh doanh chung, Biên bản AI cung cấp gói hoàn chỉnh nhất.",
+    "bullets": [
+      "**Chọn Otter** nếu bạn chỉ có cuộc họp Zoom tiếng Anh và chỉ muốn ghi lại những gì đã nói.",
+      "**Chọn Notta** nếu mục tiêu chính là chuyển đổi các tệp âm thanh khác nhau thành văn bản ở nhiều ngôn ngữ.",
+      "**Chọn Biên bản AI** nếu bạn muốn **biên bản hoàn chỉnh**. Nếu cần quyết định rõ ràng, nhiệm vụ và hỗ trợ nhiều ngôn ngữ, đây là lựa chọn an toàn nhất.",
+      "**Vẫn chưa chắc chắn?** Thử Biên bản AI với gói thời gian nhỏ. Đây là cách không rủi ro để kiểm tra."
+    ],
+    "note": "Vâng, chúng tôi có thiên vị – nhưng chúng tôi xây dựng Biên bản AI chính là để lấp đầy những khoảng trống tìm thấy ở các công cụ khác."
+  },
+  "pricing": {
+    "h2": "Giá cả: Đăng ký vs. Thanh toán theo mức dùng",
+    "lead": "Giá cả thay đổi, nhưng triết lý mới quan trọng. Otter và Notta dựa vào đăng ký hàng tháng. Biên bản AI cung cấp mô hình lai độc đáo.",
+    "bullets": [
+      "**Otter & Notta:** Mô hình SaaS tiêu chuẩn. Bạn trả phí hàng tháng cho một lượng phút nhất định.",
+      "**Biên bản AI:** Cung cấp cả Đăng ký VÀ **Gói thời gian**. Gói thời gian không bao giờ hết hạn. Bạn có thể mua 10 giờ hôm nay và dùng trong sáu tháng."
+    ],
+    "disclaimer": "Lưu ý: Giá và chi tiết gói thường xuyên thay đổi. Vui lòng kiểm tra trang giá chính thức để có thông tin mới nhất.",
+    "linkText": "Xem giá Biên bản AI"
+  },
+  "faq": {
+    "h2": "Câu hỏi thường gặp (FAQ)",
+    "items": [
+      {
+        "q": "Chúng tôi có nên dùng nhiều công cụ?",
+        "a": "Thường thì chuẩn hóa sẽ tốt hơn. Nếu bạn cần tiếng Anh, ngôn ngữ toàn cầu và biên bản có cấu trúc trong một, Biên bản AI là linh hoạt nhất."
+      },
+      {
+        "q": "Nhóm của tôi đang phát triển toàn cầu. Cái nào an toàn hơn?",
+        "a": "Bắt đầu với Biên bản AI. Vì hỗ trợ 100+ ngôn ngữ ngay từ đầu, bạn sẽ không phải đổi công cụ khi tuyển dụng quốc tế."
+      },
+      {
+        "q": "Tôi đã có bản ghi văn bản. Tại sao tôi cần cái này?",
+        "a": "Bản ghi văn bản chỉ là dữ liệu thô. **Biên bản** là thông tin chi tiết. Biên bản AI biến 'bức tường văn bản' thành Quyết định và Hạn chót."
+      },
+      {
+        "q": "Tôi có thể dùng Biên bản AI chỉ cho các cuộc họp quan trọng không?",
+        "a": "Chắc chắn rồi. Nhờ mô hình gói thời gian, bạn không cần đăng ký hàng tháng. Chỉ dùng khi cần thiết."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Thông tin bài viết",
+    "published": "Đã xuất bản",
+    "type": "So sánh",
+    "category": "Năng suất"
+  },
+  "cta": {
+    "openBrowser": "Thử Biên bản AI Web",
+    "downloadIOS": "Tải ứng dụng iOS"
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Recenzja 2025) Otter vs Notta vs Protokół AI — Który notatnik AI jest dla Ciebie najlepszy?",
+    "description": "Otter, Notta i Protokół AI w szczerym porównaniu. Analizujemy rzeczywiste potrzeby: obsługę języków, typy spotkań i ceny. Zobacz, dlaczego Protokół AI to najbardziej wszechstronny wybór dla zespołów w 2025 roku.",
+    "ogTitle": "Otter vs Notta vs Protokół AI — Uczciwe porównanie 2025",
+    "ogDescription": "Wahasz się między Otter, Notta a Protokół AI? Omawiamy wady i zalety. Sprawdź, dlaczego polecamy Protokół AI dla produktywnych zespołów.",
+    "ld": {
+      "headline": "Otter vs Notta vs Protokół AI — Przewodnik porównawczy 2025",
+      "description": "Praktyczne porównanie narzędzi AI do notowania. Analizujemy funkcje i ceny. Spoiler: Protokół AI to często najbezpieczniejszy wybór dla biznesu."
+    }
+  },
+  "aria": {
+    "home": "Protokół AI Strona główna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Protokół AI"
+  },
+  "hero": {
+    "kicker": "Przewodnik po notatnikach AI 2025",
+    "h1": "Otter vs Notta vs Protokół AI — Które narzędzie pasuje do Twojego stylu pracy?",
+    "tagline": "Będziemy szczerzy: stworzyliśmy Protokół AI, więc oczywiście go uwielbiamy. Ale szanujemy też Otter i Notta. Ten artykuł to nasza uczciwa opinia o tym, kto powinien wybrać które narzędzie — i dlaczego Protokół AI jest najbezpieczniejszym domyślnym wyborem dla większości zespołów."
+  },
+  "lead": {
+    "p1": "Szukasz „alternatywy dla Otter” lub „najlepszego AI do protokołów”? Prawdopodobnie masz dość ręcznego pisania notatek lub poprawiania chaotycznych transkrypcji. W 2025 roku istnieje wiele narzędzi, ale niewiele radzi sobie z realiami pracy: cyklicznymi spotkaniami, rozmowami sprzedażowymi i burzami mózgów. Oto porównanie Otter.ai, Notta i Protokół AI z perspektywy rozwiązywania problemów."
+  },
+  "tools": {
+    "h2": "W skrócie: W czym każde narzędzie jest najlepsze",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Standard dla anglojęzycznych zespołów zdalnych",
+        "p": "Otter zaczynał jako aplikacja do transkrypcji, a stał się „agentem spotkań AI”. Jego główną obietnicą jest wygoda: dołącza do Twoich rozmów na Zoom/Teams, słucha po angielsku i wysyła notatki.",
+        "bullets": [
+          "Najlepsze dla: Zespołów pracujących w 100% po angielsku i żyjących na Zoom/Teams.",
+          "Rozwiązuje: „Potrzebujemy kogoś do robienia notatek podczas naszych rozmów online”.",
+          "Wada: Ma problemy z innymi językami i traktuje każdy format spotkania tak samo."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Potęga wielojęzycznej transkrypcji",
+        "p": "Notta specjalizuje się w elastyczności. Czy to spotkanie na żywo, plik wideo czy nagranie, Notta to transkrybuje. Jej siła leży w obsłudze dziesiątek języków i tłumaczeniu.",
+        "bullets": [
+          "Najlepsze dla: Osób, które muszą transkrybować nagrania z wielu źródeł i w wielu językach.",
+          "Rozwiązuje: „Mam stos plików audio w różnych językach, które muszą stać się tekstem”.",
+          "Wada: Otrzymujesz dosłowny transkrypt, ale nadal musisz ręcznie streścić go w zadania."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Protokół AI",
+        "role": "Narzędzie produktywności do ustrukturyzowanych protokołów",
+        "p": "Protokół AI nie skupia się tylko na transkrypcji; chodzi o „Co dalej?”. Obsługując ponad 100 języków (przez Whisper), formatuje notatki w oparciu o typ spotkania — Sprzedaż, 1-na-1 lub Burza mózgów. Celem jest natychmiastowe dostarczenie podsumowania, decyzji i listy zadań.",
+        "bullets": [
+          "Najlepsze dla: Zespołów, które chcą gotowych protokołów (nie tylko tekstu) do udostępnienia na Slacku lub e-mailu.",
+          "Rozwiązuje: „Mamy transkrypcje, ale nikt ich nie czyta. Potrzebujemy konkretnych działań”.",
+          "Bonus: Specjalistyczne formaty i opcje „Płać za użycie” sprawiają, że wdrożenie jest bardzo proste."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Jak wybrać właściwe narzędzie",
+    "intro": "Nie zgub się w listach funkcji. Zamiast tego zadaj sobie te cztery pytania, aby znaleźć narzędzie, które faktycznie rozwiąże Twoje codzienne frustracje.",
+    "items": [
+      {
+        "label": "1) Język i kontekst",
+        "description": "Czy Twój zespół mówi tylko po angielsku? Czy może masz spotkania międzynarodowe, mieszane języki i różne style (Sprzedaż vs HR)?"
+      },
+      {
+        "label": "2) Źródło nagrywania",
+        "description": "Czy wszystko dzieje się na Zoomie? Czy nagrywasz też spotkania twarzą w twarz, przesyłasz duże pliki wideo lub używasz notatek głosowych?"
+      },
+      {
+        "label": "3) Oczekiwania co do wyniku",
+        "description": "Czy zadowala Cię surowa transkrypcja tekstu? Czy potrzebujesz ustrukturyzowanego dokumentu z „Decyzjami” i „Następnymi krokami” gotowego do wysłania?"
+      },
+      {
+        "label": "4) Preferencje płatności",
+        "description": "Chcesz stałej miesięcznej subskrypcji? Czy wolisz elastyczny model „płać za to, co zużyjesz”, który nigdy nie wygasa?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Porównanie funkcji",
+    "th": ["Punkt porównania", "Otter.ai", "Notta", "Protokół AI"],
+    "rows": [
+      [
+        "Główna filozofia",
+        "Zautomatyzowany agent do spotkań online w języku angielskim.",
+        "Uniwersalny transkrybent dla każdego pliku audio/wideo.",
+        "Narzędzie biznesowe do ustrukturyzowanych, praktycznych protokołów."
+      ],
+      [
+        "Języki",
+        "Mocny w angielskim. Poza tym ograniczone wsparcie.",
+        "Świetne wsparcie wielojęzyczne z funkcjami tłumaczenia.",
+        "100+ języków (silnik Whisper) zaprojektowane dla globalnego biznesu."
+      ],
+      [
+        "Idealne typy spotkań",
+        "Standardowe rozmowy wideo (Zoom/Teams).",
+        "Mieszane użycie: wywiady, wykłady i przesyłanie plików.",
+        "Scenariusze biznesowe: Sprzedaż, 1-na-1, przeglądy i warsztaty."
+      ],
+      [
+        "Wynik",
+        "Transkrypcja + Podsumowanie w punktach.",
+        "Transkrypcja + Podsumowanie AI (zależnie od planu).",
+        "Sformatowany protokół: Kluczowe punkty, Decyzje, Odpowiedzialni, Terminy."
+      ],
+      [
+        "Model cenowy",
+        "Miesięczna subskrypcja (na użytkownika).",
+        "Freemium + Miesięczna subskrypcja.",
+        "Elastyczny: Wybór między Subskrypcją LUB Pakietami Czasu (nie wygasają)."
+      ],
+      [
+        "Kto to uwielbia?",
+        "Pracownicy zdalni, którzy nienawidzą pisać podczas rozmów.",
+        "Badacze i dziennikarze obsługujący wiele plików i języków.",
+        "Zespoły, które potrzebują jasności i chcą natychmiast dzielić się wynikami."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Jakim typem użytkownika jesteś?",
+    "items": [
+      {
+        "title": "Wzorzec A: Zespół zdalny tylko anglojęzyczny",
+        "otter": "Tutaj Otter jest idealny. Jeśli Twój świat to 100% angielski na Zoomie, to solidny wybór.",
+        "notta": "Notta działa dobrze, ale jej wielojęzyczne atuty mogą być dla Ciebie zbędne.",
+        "minutes": "Protokół AI jest silnym kandydatem, jeśli chcesz notatek ułożonych tematycznie, a nie tylko chronologicznie."
+      },
+      {
+        "title": "Wzorzec B: Zespół globalny / wielojęzyczny",
+        "otter": "Otter będzie miał tu trudności. Jest zbudowany głównie dla osób anglojęzycznych.",
+        "notta": "Doskonały wybór. Zdolność do transkrypcji i tłumaczenia utrzymuje wszystkich na bieżąco.",
+        "minutes": "Najlepszy wybór długoterminowy. Obsługuje 100+ języków i formatuje wynik tak, aby centrala i lokalne oddziały rozumiały decyzje."
+      },
+      {
+        "title": "Wzorzec C: Zajęty menedżer (Wiele typów spotkań)",
+        "otter": "Dobry do przechwytywania dźwięku, ale szukanie zadań w długim tekście to wciąż praca.",
+        "notta": "Świetna do transkrypcji wszystkiego, ale wciąż musisz przepisać surowy tekst na raport.",
+        "minutes": "Stworzony dla Ciebie. Wybierz tryb „Sprzedaż” lub „1-na-1”, a AI automatycznie sformatuje notatki, aby pasowały do kontekstu."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Nasz ostateczny werdykt",
+    "lead": "Obiecaliśmy szczerą opinię. Otter i Notta to doskonałe narzędzia, ale do ogólnego użytku biznesowego Protokół AI oferuje najbardziej kompletny pakiet.",
+    "bullets": [
+      "**Wybierz Otter**, jeśli masz tylko spotkania Zoom po angielsku i chcesz tylko zapisu tego, co powiedziano.",
+      "**Wybierz Notta**, jeśli Twoim głównym celem jest konwersja różnych plików audio na tekst w wielu językach.",
+      "**Wybierz Protokół AI**, jeśli chcesz **gotowych protokołów**. Jeśli potrzebujesz jasnych decyzji, zadań i wsparcia dla wielu języków, to najbezpieczniejszy wybór.",
+      "**Nadal niepewny?** Wypróbuj Protokół AI z małym pakietem czasu. To sposób na przetestowanie bez ryzyka."
+    ],
+    "note": "Tak, jesteśmy stronniczy – ale zbudowaliśmy Protokół AI właśnie po to, by wypełnić luki, które znaleźliśmy w innych narzędziach."
+  },
+  "pricing": {
+    "h2": "Ceny: Subskrypcja vs. Płać za użycie",
+    "lead": "Ceny się zmieniają, ale liczy się filozofia. Otter i Notta polegają na miesięcznych subskrypcjach. Protokół AI oferuje unikalny model hybrydowy.",
+    "bullets": [
+      "**Otter & Notta:** Standardowy model SaaS. Płacisz miesięczną opłatę za określoną ilość minut.",
+      "**Protokół AI:** Oferuje zarówno Subskrypcje, JAK I **Pakiety Czasu**. Pakiety czasu nigdy nie wygasają. Możesz kupić 10 godzin dzisiaj i wykorzystać je w ciągu pół roku."
+    ],
+    "disclaimer": "Uwaga: Ceny i szczegóły planów często się zmieniają. Sprawdź oficjalne strony z cennikami, aby uzyskać najnowsze informacje.",
+    "linkText": "Zobacz ceny Protokół AI"
+  },
+  "faq": {
+    "h2": "Często zadawane pytania (FAQ)",
+    "items": [
+      {
+        "q": "Czy powinniśmy używać wielu narzędzi?",
+        "a": "Zazwyczaj lepiej jest ujednolicić. Jeśli potrzebujesz angielskiego, języków globalnych i ustrukturyzowanych protokołów w jednym, Protokół AI jest najbardziej wszechstronny."
+      },
+      {
+        "q": "Mój zespół rośnie globalnie. Co jest bezpieczniejsze?",
+        "a": "Zacznij od Protokół AI. Ponieważ obsługuje 100+ języków od początku, nie będziesz musiał zmieniać narzędzi przy zatrudnianiu międzynarodowym."
+      },
+      {
+        "q": "Mam już transkrypcje. Po co mi to?",
+        "a": "Transkrypcja to tylko surowe dane. **Protokoły** to wnioski. Protokół AI zamienia „ścianę tekstu” w Decyzje i Terminy."
+      },
+      {
+        "q": "Czy mogę używać Protokół AI tylko do ważnych spotkań?",
+        "a": "Absolutnie. Dzięki modelowi pakietów czasu nie potrzebujesz miesięcznej subskrypcji. Używaj go tylko wtedy, gdy to ważne."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Info o artykule",
+    "published": "Opublikowano",
+    "type": "Porównanie",
+    "category": "Produktywność"
+  },
+  "cta": {
+    "openBrowser": "Wypróbuj Protokół AI Web",
+    "downloadIOS": "Pobierz aplikację iOS"
+  }
+}

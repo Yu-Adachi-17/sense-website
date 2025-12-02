@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Análise 2025) Otter vs Notta vs Ata AI — Qual assistente de IA é melhor para você?",
+    "description": "Otter, Notta e Ata AI em uma comparação honesta. Analisamos necessidades reais: suporte a idiomas, tipos de reunião e preços. Veja por que o Ata AI é a escolha mais versátil em 2025.",
+    "ogTitle": "Otter vs Notta vs Ata AI — Comparação Honesta 2025",
+    "ogDescription": "Em dúvida entre Otter, Notta e Ata AI? Detalhamos os prós, contras e melhores usos. Descubra por que recomendamos o Ata AI para equipes produtivas.",
+    "ld": {
+      "headline": "Otter vs Notta vs Ata AI — Guia de Comparação 2025",
+      "description": "Uma comparação prática de ferramentas de IA para notas. Analisamos recursos e preços. Spoiler: O Ata AI é frequentemente a aposta mais segura para negócios."
+    }
+  },
+  "aria": {
+    "home": "Início Ata AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Ata AI"
+  },
+  "hero": {
+    "kicker": "Guia de Atas com IA 2025",
+    "h1": "Otter vs Notta vs Ata AI — Qual ferramenta se adapta ao seu fluxo de trabalho?",
+    "tagline": "Seremos diretos: nós criamos o Ata AI, então é claro que gostamos dele. Mas também respeitamos o Otter e o Notta. Este artigo é nossa opinião honesta sobre quem deve escolher qual ferramenta — e por que o Ata AI é a escolha padrão mais segura para a maioria das equipes."
+  },
+  "lead": {
+    "p1": "Procurando uma 'alternativa ao Otter' ou a 'melhor IA para atas'? Você provavelmente está cansado de digitar notas manualmente ou corrigir transcrições bagunçadas. Em 2025 existem muitas ferramentas, mas poucas lidam com a realidade do trabalho: reuniões recorrentes, chamadas de vendas e brainstorms. Aqui está uma comparação focada em problemas entre Otter.ai, Notta e Ata AI."
+  },
+  "tools": {
+    "h2": "Resumo: O que cada ferramenta faz de melhor",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "O padrão para equipes remotas anglófonas",
+        "p": "O Otter começou como um app de transcrição e tornou-se um 'agente de reuniões IA'. Sua principal promessa é conveniência: ele entra nas suas chamadas Zoom/Teams, ouve em inglês e envia as notas.",
+        "bullets": [
+          "Melhor para: Equipes que trabalham 100% em inglês e vivem no Zoom/Teams.",
+          "Resolve: 'Precisamos de alguém para anotar nossas chamadas online.'",
+          "O problema: Ele tem dificuldade com outros idiomas e trata todo formato de reunião da mesma maneira."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "A potência em transcrição multilíngue",
+        "p": "O Notta é especializado em flexibilidade. Seja uma reunião ao vivo, arquivo de vídeo ou gravação, o Notta transcreve. Sua força está no suporte a dezenas de idiomas e tradução.",
+        "bullets": [
+          "Melhor para: Pessoas que precisam transcrever gravações de várias fontes e em muitos idiomas.",
+          "Resolve: 'Tenho uma pilha de arquivos de áudio em línguas diferentes que precisam virar texto.'",
+          "O problema: Você recebe uma transcrição literal, mas ainda precisa resumi-la manualmente em tarefas."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Ata AI",
+        "role": "A ferramenta de produtividade para atas estruturadas",
+        "p": "O Ata AI não foca apenas na transcrição; foca em 'O que acontece a seguir?'. Com suporte a mais de 100 idiomas (via Whisper), ele formata suas notas com base no tipo de reunião — Vendas, 1-a-1 ou Brainstorming. O objetivo é dar um resumo, decisões e lista de tarefas imediatamente.",
+        "bullets": [
+          "Melhor para: Equipes que querem atas prontas (não apenas texto) para compartilhar no Slack ou e-mail.",
+          "Resolve: 'Temos transcrições, mas ninguém lê. Precisamos de itens de ação.'",
+          "O Bônus: Formatos especializados e opções 'Pague pelo uso' tornam a adoção muito fácil."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Como escolher a ferramenta certa",
+    "intro": "Não se perca em listas de recursos. Em vez disso, faça a si mesmo estas quatro perguntas para encontrar a ferramenta que realmente resolve suas frustrações diárias.",
+    "items": [
+      {
+        "label": "1) Idioma e Contexto",
+        "description": "Sua equipe fala apenas inglês? Ou você tem reuniões internacionais, idiomas mistos e estilos diferentes (Vendas vs RH)?"
+      },
+      {
+        "label": "2) Fonte de gravação",
+        "description": "Tudo acontece no Zoom? Ou você também grava reuniões presenciais, envia arquivos de vídeo grandes ou usa notas de voz?"
+      },
+      {
+        "label": "3) Expectativas de resultado",
+        "description": "Você se contenta com uma transcrição de texto crua? Ou precisa de um documento estruturado com 'Decisões' e 'Próximos Passos' pronto para enviar?"
+      },
+      {
+        "label": "4) Preferência de pagamento",
+        "description": "Você quer uma assinatura mensal fixa? Ou prefere um modelo flexível 'pague o que usar' que nunca expira?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Comparação de Recursos",
+    "th": ["Ponto de Comparação", "Otter.ai", "Notta", "Ata AI"],
+    "rows": [
+      [
+        "Filosofia Central",
+        "Agente automatizado para reuniões online em inglês.",
+        "Transcritor universal para qualquer arquivo de áudio/vídeo.",
+        "Ferramenta de negócios para atas estruturadas e acionáveis."
+      ],
+      [
+        "Idiomas",
+        "Forte em inglês. Suporte limitado em outros.",
+        "Ótimo suporte multilíngue com recursos de tradução.",
+        "100+ idiomas (motor Whisper) projetado para negócios globais."
+      ],
+      [
+        "Tipos de Reunião Ideais",
+        "Videochamadas padrão (Zoom/Teams).",
+        "Uso misto: entrevistas, palestras e upload de arquivos.",
+        "Cenários de negócios: Vendas, 1-a-1, revisões e workshops."
+      ],
+      [
+        "O Resultado",
+        "Transcrição + Resumo em tópicos.",
+        "Transcrição + Resumo IA (dependendo do plano).",
+        "Ata Formatada: Pontos-chave, Decisões, Responsáveis, Prazos."
+      ],
+      [
+        "Modelo de Preços",
+        "Assinatura mensal (por usuário).",
+        "Freemium + Assinatura mensal.",
+        "Flexível: Escolha entre Assinatura OU Pacotes de Tempo (sem expiração)."
+      ],
+      [
+        "Quem ama?",
+        "Trabalhadores remotos que odeiam digitar durante chamadas.",
+        "Pesquisadores e jornalistas lidando com muitos arquivos e idiomas.",
+        "Equipes que precisam de clareza e querem compartilhar resultados instantaneamente."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Que tipo de usuário é você?",
+    "items": [
+      {
+        "title": "Padrão A: A equipe remota apenas em inglês",
+        "otter": "Aqui o Otter é perfeito. Se seu mundo é 100% inglês no Zoom, é uma escolha sólida.",
+        "notta": "O Notta funciona bem, mas seus pontos fortes multilíngues podem ser excessivos para você.",
+        "minutes": "O Ata AI é um forte concorrente se você quiser suas notas estruturadas por tópico em vez de apenas cronologicamente."
+      },
+      {
+        "title": "Padrão B: A equipe global / multilíngue",
+        "otter": "O Otter terá dificuldades aqui. Ele é feito principalmente para falantes de inglês.",
+        "notta": "Uma excelente escolha. Sua capacidade de transcrever e traduzir mantém todos alinhados.",
+        "minutes": "A melhor escolha a longo prazo. Suporta 100+ idiomas e formata o resultado para que tanto a sede quanto as filiais locais entendam as decisões."
+      },
+      {
+        "title": "Padrão C: O gerente ocupado (Muitos tipos de reunião)",
+        "otter": "Bom para capturar áudio, mas encontrar tarefas em um texto longo ainda é trabalho.",
+        "notta": "Excelente para transcrever tudo, mas você ainda precisa reescrever o texto cru em um relatório.",
+        "minutes": "Feito para você. Escolha o modo 'Vendas' ou '1-a-1', e a IA formata automaticamente as notas para se adequar ao contexto."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Nosso veredito final",
+    "lead": "Prometemos uma opinião honesta. Otter e Notta são ferramentas excelentes, mas para uso geral nos negócios, o Ata AI oferece o pacote mais completo.",
+    "bullets": [
+      "**Escolha o Otter** se você só tem reuniões Zoom em inglês e quer apenas um registro do que foi dito.",
+      "**Escolha o Notta** se seu objetivo principal é converter vários arquivos de áudio em texto em muitos idiomas.",
+      "**Escolha o Ata AI** se você quer **atas prontas**. Se precisa de decisões claras, tarefas e suporte para muitos idiomas, esta é a escolha mais segura.",
+      "**Ainda inseguro?** Teste o Ata AI com um pequeno pacote de tempo. É uma maneira sem risco de experimentar."
+    ],
+    "note": "Sim, somos tendenciosos – mas construímos o Ata AI justamente para preencher as lacunas que encontramos em outras ferramentas."
+  },
+  "pricing": {
+    "h2": "Preços: Assinatura vs. Pague-pelo-uso",
+    "lead": "Os preços mudam, mas a filosofia importa. Otter e Notta dependem de assinaturas mensais. O Ata AI oferece um modelo híbrido único.",
+    "bullets": [
+      "**Otter & Notta:** Modelo SaaS padrão. Você paga uma taxa mensal por uma quantidade de minutos.",
+      "**Ata AI:** Oferece tanto Assinaturas QUANTO **Pacotes de Tempo**. Os pacotes de tempo nunca expiram. Você pode comprar 10 horas hoje e usá-las ao longo de seis meses."
+    ],
+    "disclaimer": "Nota: Preços e detalhes dos planos mudam frequentemente. Verifique as páginas oficiais de preços para informações atualizadas.",
+    "linkText": "Ver preços do Ata AI"
+  },
+  "faq": {
+    "h2": "Perguntas Frequentes (FAQ)",
+    "items": [
+      {
+        "q": "Devemos usar várias ferramentas?",
+        "a": "Geralmente é melhor padronizar. Se você precisa de inglês, idiomas globais e atas estruturadas em um só, o Ata AI é o mais versátil."
+      },
+      {
+        "q": "Minha equipe está crescendo globalmente. O que é mais seguro?",
+        "a": "Comece com o Ata AI. Como ele suporta 100+ idiomas desde o início, você não precisará trocar de ferramenta ao contratar internacionalmente."
+      },
+      {
+        "q": "Já tenho transcrições. Por que preciso disso?",
+        "a": "Uma transcrição é apenas dado bruto. **Atas** são insights. O Ata AI transforma a 'parede de texto' em Decisões e Prazos."
+      },
+      {
+        "q": "Posso usar o Ata AI apenas para reuniões importantes?",
+        "a": "Com certeza. Graças ao modelo de pacotes de tempo, você não precisa de assinatura mensal. Use apenas quando importar."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Info do Artigo",
+    "published": "Publicado",
+    "type": "Comparação",
+    "category": "Produtividade"
+  },
+  "cta": {
+    "openBrowser": "Testar Ata AI Web",
+    "downloadIOS": "Baixar App iOS"
+  }
+}

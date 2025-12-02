@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Recenzia 2025) Otter vs Notta vs AI Zápisnica — Ktorý nástroj je pre vás najlepší?",
+    "description": "Otter, Notta a AI Zápisnica v úprimnom porovnaní. Zameriavame sa na reálne potreby: jazyky, typy porád a ceny. Zistite, prečo je AI Zápisnica najvšestrannejšou voľbou pre rok 2025.",
+    "ogTitle": "Otter vs Notta vs AI Zápisnica — Úprimné porovnanie 2025",
+    "ogDescription": "Váhate medzi Otter, Notta a AI Zápisnicou? Rozoberáme pre a proti. Zistite, prečo odporúčame AI Zápisnicu pre produktívne tímy.",
+    "ld": {
+      "headline": "Otter vs Notta vs AI Zápisnica — Porovnávací sprievodca 2025",
+      "description": "Praktické porovnanie AI nástrojov na zápisnice. Analyzujeme funkcie a ceny. Spoiler: AI Zápisnica je pre firmy často najbezpečnejšia stávka."
+    }
+  },
+  "aria": {
+    "home": "AI Zápisnica Domov"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs AI Zápisnica"
+  },
+  "hero": {
+    "kicker": "Sprievodca AI zápisnicami 2025",
+    "h1": "Otter vs Notta vs AI Zápisnica — Ktorý nástroj sedí vášmu štýlu?",
+    "tagline": "Budeme úprimní: AI Zápisnicu sme vyvinuli my, takže ju máme radi. Ale rešpektujeme aj Otter a Nottu. Tento článok je náš úprimný pohľad na to, kto by si mal vybrať ktorý nástroj – a prečo je AI Zápisnica najbezpečnejšou predvolenou voľbou pre väčšinu tímov."
+  },
+  "lead": {
+    "p1": "Ak hľadáte „alternatívu k Otter“ alebo „najlepšiu AI na zápisnice“, pravdepodobne vás už nebaví ručné písanie alebo úprava neprehľadných prepisov. V roku 2025 existuje mnoho nástrojov, ale len málo z nich zvláda realitu práce: opakované porady, obchodné hovory a brainstormingy. Tu je porovnanie Otter.ai, Notta a AI Zápisnice z pohľadu riešenia problémov."
+  },
+  "tools": {
+    "h2": "V skratke: V čom každý nástroj vyniká",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Štandard pre anglicky hovoriace tímy na diaľku",
+        "p": "Otter začínal ako prepisovacia aplikácia a stal sa „AI agentom pre schôdzky“. Jeho hlavným sľubom je pohodlie: pripojí sa k hovoru na Zoom/Teams, počúva v angličtine a pošle vám poznámky.",
+        "bullets": [
+          "Najlepšie pre: Tímy, ktoré fungujú 100% v angličtine a žijú na Zoome/Teams.",
+          "Rieši: „Potrebujeme niekoho na písanie poznámok pri online hovoroch.“",
+          "Háčik: Má ťažkosti s inými jazykmi a ku každej schôdzke pristupuje rovnako."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Veľmoc pre viacjazyčné prepisy",
+        "p": "Notta sa špecializuje na flexibilitu. Či už ide o živú schôdzku, video súbor alebo nahrávku, Notta to prepíše. Jej sila spočíva v podpore desiatok jazykov a prekladoch.",
+        "bullets": [
+          "Najlepšie pre: Ľudí, ktorí potrebujú prepisovať nahrávky z rôznych zdrojov v mnohých jazykoch.",
+          "Rieši: „Mám kopu audio súborov v rôznych jazykoch, ktoré potrebujem previesť na text.“",
+          "Háčik: Dostanete doslovný prepis, ale stále ho musíte ručne zhrnúť do úloh."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "AI Zápisnica",
+        "role": "Produktívny nástroj pre štruktúrované zápisnice",
+        "p": "AI Zápisnica sa nesústredí len na prepis, ale na to „Čo bude ďalej?“. Podporuje vyše 100 jazykov (vďaka Whisper) a formátuje poznámky podľa typu schôdzky – Obchod, 1-na-1 alebo Brainstorming. Cieľom je okamžite poskytnúť zhrnutie, rozhodnutia a úlohy.",
+        "bullets": [
+          "Najlepšie pre: Tímy, ktoré chcú hotové zápisnice (nie len text) na zdieľanie na Slacku alebo e-mailom.",
+          "Rieši: „Máme prepisy, ale nikto ich nečíta. Potrebujeme akčné kroky.“",
+          "Bonus: Špeciálne formáty a možnosť „platby za čas“ (bez expirácie) uľahčujú zavedenie."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Ako vybrať ten pravý",
+    "intro": "Nestracajte sa v zoznamoch funkcií. Spýtajte sa sami seba na tieto štyri otázky, aby ste našli nástroj, ktorý skutočne vyrieši vaše každodenné frustrácie.",
+    "items": [
+      {
+        "label": "1) Jazyk a kontext",
+        "description": "Hovorí váš tím len anglicky? Alebo máte medzinárodné schôdzky, rôzne jazyky a štýly (Obchod vs. HR)?"
+      },
+      {
+        "label": "2) Zdroj nahrávania",
+        "description": "Je všetko na Zoome? Alebo nahrávate aj osobné stretnutia, nahrávate veľké video súbory alebo používate diktafón?"
+      },
+      {
+        "label": "3) Očakávania od výstupu",
+        "description": "Stačí vám surový textový prepis? Alebo potrebujete štruktúrovaný dokument s „Rozhodnutiami“ a „Ďalšími krokmi“ pripravený na odoslanie?"
+      },
+      {
+        "label": "4) Preferencia platby",
+        "description": "Chcete fixné mesačné predplatné? Alebo preferujete flexibilný model „plaťte, ako používate“, ktorý nikdy neexspiruje?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Porovnanie funkcií",
+    "th": ["Bod porovnania", "Otter.ai", "Notta", "AI Zápisnica"],
+    "rows": [
+      [
+        "Hlavná filozofia",
+        "Automatizovaný agent pre anglické online schôdzky.",
+        "Univerzálny prepisovač pre akýkoľvek audio/video súbor.",
+        "Nástroj pre štruktúrované, akčné zápisnice."
+      ],
+      [
+        "Jazyky",
+        "Silný v angličtine. Inak obmedzená podpora.",
+        "Skvelá viacjazyčná podpora s funkciami prekladu.",
+        "100+ jazykov (engine Whisper) navrhnuté pre globálny biznis."
+      ],
+      [
+        "Ideálne typy schôdzok",
+        "Štandardné videohovory (Zoom/Teams).",
+        "Zmiešané použitie: rozhovory, prednášky a nahrávanie súborov.",
+        "Biznis scenáre: Predaj, 1-na-1, revízie a workshopy."
+      ],
+      [
+        "Výstup",
+        "Prepis + odrážkové zhrnutie.",
+        "Prepis + AI zhrnutie (v závislosti od plánu).",
+        "Formátovaná zápisnica: Kľúčové body, Rozhodnutia, Zodpovední, Termíny."
+      ],
+      [
+        "Cenový model",
+        "Mesačné predplatné (na používateľa).",
+        "Freemium + mesačné predplatné.",
+        "Flexibilné: Voľba medzi Predplatným ALEBO Balíkmi času (bez expirácie)."
+      ],
+      [
+        "Kto ho miluje?",
+        "Pracovníci na diaľku, ktorí neradi píšu počas hovorov.",
+        "Výskumníci a novinári spracovávajúci veľa súborov a jazykov.",
+        "Tímy, ktoré potrebujú jasnosť a chcú okamžite zdieľať výsledky."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Ktorý typ používateľa ste vy?",
+    "items": [
+      {
+        "title": "Typ A: Plne vzdialený tím (iba angličtina)",
+        "otter": "Tu je Otter perfektný. Ak je váš svet 100% v angličtine na Zoome, je to silná voľba.",
+        "notta": "Notta funguje dobre, ale jej viacjazyčné funkcie môžu byť pre vás zbytočné.",
+        "minutes": "AI Zápisnica je silným kandidátom, ak chcete poznámky štruktúrované podľa témy, nie len chronologicky."
+      },
+      {
+        "title": "Typ B: Globálny / Viacjazyčný tím",
+        "otter": "Otter tu narazí na limity. Je stavaný primárne pre angličtinu.",
+        "notta": "Skvelá voľba. Jej schopnosť prepisovať a prekladať udržuje všetkých v obraze.",
+        "minutes": "Najlepšia dlhodobá voľba. Podporuje 100+ jazykov a formátuje výstup tak, aby centrála aj pobočky rozumeli kľúčovým rozhodnutiam."
+      },
+      {
+        "title": "Typ C: Vyťažený manažér (Veľa typov porád)",
+        "otter": "Dobrý na zachytenie zvuku, ale hľadanie úloh v dlhom prepise je práca navyše.",
+        "notta": "Vynikajúce na prepis všetkého, ale stále musíte surový text prepísať do reportu.",
+        "minutes": "Stvorený pre vás. Zvoľte režim „Obchod“ alebo „1-na-1“ a AI automaticky naformátuje poznámky tak, aby zodpovedali kontextu."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Náš finálny verdikt",
+    "lead": "Sľúbili sme úprimný názor. Otter a Notta sú skvelé nástroje, ale pre všeobecné firemné použitie ponúka AI Zápisnica najkomplexnejší balík.",
+    "bullets": [
+      "**Zvoľte Otter**, ak máte len anglické Zoom schôdzky a chcete len záznam toho, čo zaznelo.",
+      "**Zvoľte Nottu**, ak je vaším hlavným cieľom prevod rôznych audio súborov na text v mnohých jazykoch.",
+      "**Zvoľte AI Zápisnicu**, ak chcete **hotové zápisnice**. Ak potrebujete jasné rozhodnutia, úlohy a podporu viac jazykov, je to najbezpečnejšia voľba.",
+      "**Stále si nie ste istí?** Skúste AI Zápisnicu s malým časovým balíkom. Je to bezrizikový spôsob, ako ho vyskúšať."
+    ],
+    "note": "Áno, sme zaujatí – ale AI Zápisnicu sme vytvorili práve preto, aby sme zaplnili medzery, ktoré sme našli pri iných nástrojoch."
+  },
+  "pricing": {
+    "h2": "Ceny: Predplatné vs. Platba za použitie",
+    "lead": "Cenníky sa menia, ale filozofia zostáva. Otter a Notta spoliehajú na mesačné predplatné. AI Zápisnica ponúka unikátny hybridný model.",
+    "bullets": [
+      "**Otter & Notta:** Štandardný SaaS model. Platíte mesačný poplatok za určitý počet minút.",
+      "**AI Zápisnica:** Ponúka ako predplatné, tak **Časové balíky**. Balíky nikdy neexspirujú. Môžete si kúpiť 10 hodín dnes a spotrebovať ich pokojne za pol roka."
+    ],
+    "disclaimer": "Poznámka: Ceny a detaily plánov sa často menia. Skontrolujte prosím oficiálne cenníky pre aktuálne informácie.",
+    "linkText": "Cenník AI Zápisnica"
+  },
+  "faq": {
+    "h2": "Často kladené otázky",
+    "items": [
+      {
+        "q": "Mali by sme používať viac nástrojov?",
+        "a": "Zvyčajne je lepšie sa zjednotiť. Ak potrebujete angličtinu, globálne jazyky a štruktúrované zápisnice v jednom, AI Zápisnica je najvšestrannejšia."
+      },
+      {
+        "q": "Môj tím rastie globálne. Čo je bezpečnejšie?",
+        "a": "Začnite s AI Zápisnicou. Pretože podporuje 100+ jazykov od začiatku, nebudete musieť meniť nástroj, keď naberiete kolegov zo zahraničia."
+      },
+      {
+        "q": "Už mám prepisy. Prečo potrebujem toto?",
+        "a": "Prepis sú len surové dáta. **Zápisnice** sú vhľady. AI Zápisnica prevedie „stenu textu“ na Rozhodnutia a Termíny."
+      },
+      {
+        "q": "Môžem používať AI Zápisnicu len pre dôležité schôdzky?",
+        "a": "Rozhodne. Vďaka modelu časových balíkov nepotrebujete mesačné predplatné. Použite ho len pre kľúčové jednania."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Info o článku",
+    "published": "Publikované",
+    "type": "Porovnanie",
+    "category": "Produktivita"
+  },
+  "cta": {
+    "openBrowser": "Skúsiť AI Zápisnicu Web",
+    "downloadIOS": "Stiahnuť iOS aplikáciu"
+  }
+}

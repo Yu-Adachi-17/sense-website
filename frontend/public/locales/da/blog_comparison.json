@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(2025 Review) Otter vs. Notta vs. Referat AI — Hvilken AI-referent er bedst til dig?",
+    "description": "Otter, Notta og Referat AI i en ærlig sammenligning. Vi ser på reelle behov: sprogstøtte, mødetyper og priser. Se hvorfor Referat AI er det mest alsidige valg til teams i 2025.",
+    "ogTitle": "Otter vs. Notta vs. Referat AI — Ærlig sammenligning 2025",
+    "ogDescription": "Er du i tvivl om valget mellem Otter, Notta og Referat AI? Vi gennemgår fordele, ulemper og bedste brugsscenarier. Se hvorfor vi anbefaler Referat AI til produktive teams.",
+    "ld": {
+      "headline": "Otter vs. Notta vs. Referat AI — Sammenligningsguide 2025",
+      "description": "En praktisk sammenligning af AI-notatværktøjer. Vi analyserer funktioner, priser og use cases. Spoiler: Referat AI er ofte det sikreste valg til erhvervsbrug."
+    }
+  },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs. Notta vs. Referat AI"
+  },
+  "hero": {
+    "kicker": "Guide til AI-referater 2025",
+    "h1": "Otter vs. Notta vs. Referat AI — Hvilket værktøj passer til dit workflow?",
+    "tagline": "Vi lægger kortene på bordet: Vi har bygget Referat AI, så vi elsker det. Men vi respekterer også Otter og Notta. Denne artikel er vores ærlige syn på, hvem der bør vælge hvilket værktøj – og hvorfor Referat AI er det sikreste standardvalg for de fleste teams."
+  },
+  "lead": {
+    "p1": "Leder du efter et 'alternativ til Otter' eller den 'bedste AI til mødereferater'? Du er sikkert træt af at skrive noter manuelt eller rette i rodede transskriberinger. I 2025 findes der mange værktøjer, men kun få håndterer virkeligheden: faste statusmøder, salgskald og brainstorms. Her er en problemorienteret sammenligning af Otter.ai, Notta og Referat AI."
+  },
+  "tools": {
+    "h2": "Kort fortalt: Hvad hvert værktøj gør bedst",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Standarden for engelsktalende remote teams",
+        "p": "Otter startede som en transskriberings-app og blev en 'AI-mødeagent'. Dets primære løfte er bekvemmelighed: den deltager i dine Zoom/Teams-kald, lytter på engelsk og sender dig noter.",
+        "bullets": [
+          "Bedst til: Teams der arbejder 100% på engelsk og lever på Zoom/Teams.",
+          "Løser: 'Vi mangler en fast referent til vores onlinemøder.'",
+          "Ulempen: Den kæmper med andre sprog end engelsk og behandler alle møder ens."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Kraftværket til flersproget transskribering",
+        "p": "Notta specialiserer sig i fleksibilitet. Uanset om det er et live-møde, en videofil eller en optagelse, transskriberer Notta det. Styrken ligger i understøttelsen af dusinvis af sprog.",
+        "bullets": [
+          "Bedst til: Folk der skal transskribere optagelser fra mange kilder og på mange sprog.",
+          "Løser: 'Jeg har en bunke lydfiler på forskellige sprog, der skal gøres til tekst.'",
+          "Ulempen: Du får en transskribering, men du skal stadig selv manuelt koge det ned til opgaver."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Referat AI",
+        "role": "Produktivitetsværktøjet til strukturerede referater",
+        "p": "Referat AI fokuserer ikke kun på transskribering, men på 'Hvad sker der nu?'. Med støtte til over 100 sprog (via Whisper) formaterer den noterne baseret på mødetypen – Salg, 1-til-1 eller Brainstorm. Målet er straks at give dig et resume, beslutninger og en to-do liste.",
+        "bullets": [
+          "Bedst til: Teams der ønsker færdige mødereferater (ikke bare tekst) til deling på Slack eller mail.",
+          "Løser: 'Vi har transskriberinger, men ingen læser dem. Vi har brug for handling.'",
+          "Bonus: Specialiserede formater og 'Betal-per-brug' gør det nemt at komme i gang."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Sådan vælger du det rigtige",
+    "intro": "Far vild ikke i funktionslister. Spørg i stedet dig selv om disse fire ting for at finde det værktøj, der faktisk løser dine daglige frustrationer.",
+    "items": [
+      {
+        "label": "1) Sprog og kontekst",
+        "description": "Er dit team 100% engelsktalende? Eller har du møder på tværs af grænser, sprog og stilarter (Salg vs. HR)?"
+      },
+      {
+        "label": "2) Optagelseskilde",
+        "description": "Foregår alt på Zoom? Eller optager du også fysiske møder, uploader store videofiler eller bruger diktafon?"
+      },
+      {
+        "label": "3) Forventning til output",
+        "description": "Er du tilfreds med en rå tekst? Eller har du brug for et struktureret dokument med 'Beslutninger' og 'Næste skridt' klar til at sende?"
+      },
+      {
+        "label": "4) Betalingspræference",
+        "description": "Vil du have et fast månedligt abonnement? Eller foretrækker du en fleksibel 'Betal når du bruger'-model, der aldrig udløber?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Funktionssammenligning",
+    "th": ["Sammenligningspunkt", "Otter.ai", "Notta", "Referat AI"],
+    "rows": [
+      [
+        "Kernefilosofi",
+        "Automatiseret agent til engelske onlinemøder.",
+        "Universel transskribent til enhver lyd/video-fil.",
+        "Business-værktøj til strukturerede, handlingsorienterede referater."
+      ],
+      [
+        "Sprog",
+        "Stærk på engelsk. Begrænset støtte ellers.",
+        "God flersproget støtte med oversættelsesfunktioner.",
+        "100+ sprog (Whisper-motor) designet til global forretning."
+      ],
+      [
+        "Ideelle mødetyper",
+        "Standard videoopkald (Zoom/Teams).",
+        "Blandet brug: interviews, foredrag og filuploads.",
+        "Business-scenarier: Salg, 1-til-1, statusmøder og workshops."
+      ],
+      [
+        "Outputtet",
+        "Transskribering + punktopstilling.",
+        "Transskribering + AI-resume (afhængig af plan).",
+        "Formateret referat: Nøglepunkter, Beslutninger, Ansvarlige, Deadlines."
+      ],
+      [
+        "Prismodel",
+        "Månedligt abonnement (pr. bruger).",
+        "Gratis + månedligt abonnement.",
+        "Fleksibel: Vælg mellem Abonnement ELLER Tidspakker (udløber aldrig)."
+      ],
+      [
+        "Hvem elsker det?",
+        "Remote-medarbejdere der hader at skrive under Zoom-kald.",
+        "Forskere og journalister med mange filer og sprog.",
+        "Teams der har brug for klarhed og vil dele resultater med det samme."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Hvilken brugertype er du?",
+    "items": [
+      {
+        "title": "Mønster A: Det rent engelske remote team",
+        "otter": "Her er Otter perfekt. Hvis din verden er 100% engelsk på Zoom, er det et stærkt valg.",
+        "notta": "Notta fungerer fint, men dens flersprogede styrker er måske overkill for dig.",
+        "minutes": "Referat AI er en stærk kandidat, hvis du vil have dine noter struktureret efter emne i stedet for bare en tidslinje."
+      },
+      {
+        "title": "Mønster B: Det globale / flersprogede team",
+        "otter": "Otter vil have det svært her. Det er primært bygget til engelsk.",
+        "notta": "Et fremragende valg. Evnen til at transskribere og oversætte holder alle opdateret.",
+        "minutes": "Det bedste langsigtede valg. Det understøtter 100+ sprog og formaterer outputtet, så både hovedkontor og lokale afdelinger forstår beslutningerne."
+      },
+      {
+        "title": "Mønster C: Den travle leder (Mange mødetyper)",
+        "otter": "God til at fange lyden, men at finde opgaver i en lang tekst er stadig arbejde.",
+        "notta": "Fremragende til at transskribere alt, men du skal stadig omskrive den rå tekst til en rapport.",
+        "minutes": "Bygget til dig. Vælg 'Salg' eller '1-til-1' mode, og AI'en formaterer automatisk noterne til konteksten."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Vores endelige dom",
+    "lead": "Vi lovede en ærlig mening. Otter og Notta er fremragende værktøjer, men til generel forretningsbrug tilbyder Referat AI den mest komplette pakke.",
+    "bullets": [
+      "**Vælg Otter**, hvis du kun har engelske Zoom-møder og bare vil have en optagelse af samtalen.",
+      "**Vælg Notta**, hvis dit hovedmål er at konvertere diverse lydfiler til tekst på mange sprog.",
+      "**Vælg Referat AI**, hvis du vil have **færdige referater**. Hvis du har brug for klare beslutninger, opgaver og støtte til flere sprog, er dette det sikreste valg.",
+      "**Stadig usikker?** Prøv Referat AI med en lille tidspakke. Det er en risikofri måde at teste det på."
+    ],
+    "note": "Ja, vi er farvede – men vi byggede Referat AI netop for at løse de mangler, vi fandt i andre værktøjer."
+  },
+  "pricing": {
+    "h2": "Priser: Abonnement vs. Betal-per-brug",
+    "lead": "Priser ændrer sig, men filosofien består. Otter og Notta satser på månedlige abonnementer. Referat AI tilbyder en unik hybridmodel.",
+    "bullets": [
+      "**Otter & Notta:** Standard SaaS-model. Du betaler et månedligt gebyr for en mængde minutter.",
+      "**Referat AI:** Tilbyder både abonnementer OG **Tidspakker**. Tidspakker udløber aldrig. Du kan købe 10 timer i dag og bruge dem over seks måneder."
+    ],
+    "disclaimer": "Bemærk: Priser og plandetaljer ændres ofte. Tjek venligst de officielle prissider for den nyeste info.",
+    "linkText": "Se Referat AI priser"
+  },
+  "faq": {
+    "h2": "Ofte stillede spørgsmål",
+    "items": [
+      {
+        "q": "Skal vi bruge flere værktøjer?",
+        "a": "Det er som regel bedst at standardisere. Hvis du har brug for engelsk, globale sprog og strukturerede referater i ét, er Referat AI det mest alsidige valg."
+      },
+      {
+        "q": "Mit team vokser globalt. Hvad er sikrest?",
+        "a": "Start med Referat AI. Da det understøtter 100+ sprog fra dag ét, behøver du ikke skifte værktøj, når du ansætter folk i udlandet."
+      },
+      {
+        "q": "Jeg har allerede transskriberinger. Hvorfor har jeg brug for dette?",
+        "a": "Transskribering er rå data. **Referater** er indsigt. Referat AI forvandler 'tekstmuren' til Beslutninger og Deadlines."
+      },
+      {
+        "q": "Kan jeg nøjes med at bruge Referat AI til vigtige møder?",
+        "a": "Absolut. Takket være tidspakke-modellen behøver du ikke et månedligt abonnement. Brug det kun til de vigtigste møder."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Artikelinfo",
+    "published": "Udgivet",
+    "type": "Sammenligning",
+    "category": "Produktivitet"
+  },
+  "cta": {
+    "openBrowser": "Prøv Referat AI Web",
+    "downloadIOS": "Hent iOS App"
+  }
+}

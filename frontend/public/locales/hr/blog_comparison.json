@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Recenzija 2025.) Otter vs Notta vs AI Zapisnik — Koji AI alat je najbolji za vas?",
+    "description": "Otter, Notta i AI Zapisnik u iskrenoj usporedbi. Gledamo stvarne potrebe: podršku za jezike, vrste sastanaka i cijene. Pogledajte zašto je AI Zapisnik najsvestraniji izbor u 2025.",
+    "ogTitle": "Otter vs Notta vs AI Zapisnik — Iskrena usporedba 2025.",
+    "ogDescription": "Dvojite između Ottera, Notte i AI Zapisnika? Raščlanjujemo prednosti, nedostatke i najbolje slučajeve upotrebe. Saznajte zašto preporučujemo AI Zapisnik za produktivne timove.",
+    "ld": {
+      "headline": "Otter vs Notta vs AI Zapisnik — Vodič za usporedbu 2025.",
+      "description": "Praktična usporedba AI alata za bilježenje. Analiziramo značajke i cijene. Spoiler: AI Zapisnik je često najsigurnija oklada za poslovanje."
+    }
+  },
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs AI Zapisnik"
+  },
+  "hero": {
+    "kicker": "Vodič za AI bilježenje 2025.",
+    "h1": "Otter vs Notta vs AI Zapisnik — Koji alat odgovara vašem tijeku rada?",
+    "tagline": "Bit ćemo iskreni: mi smo napravili AI Zapisnik, pa ga volimo. Ali poštujemo i Otter i Nottu. Ovaj je članak naše iskreno mišljenje o tome tko bi trebao odabrati koji alat — i zašto je AI Zapisnik najsigurniji zadani izbor za većinu timova."
+  },
+  "lead": {
+    "p1": "Tražite 'alternativu Otteru' ili 'najbolji AI za zapisnike'? Vjerojatno ste umorni od ručnog pisanja bilješki ili popravljanja neurednih transkripata. U 2025. postoji mnogo alata, ali malo njih rješava stvarnost rada: ponavljajuće sastanke, prodajne pozive i brainstorminge. Ovdje je usporedba Otter.ai, Notte i AI Zapisnika usmjerena na rješavanje problema."
+  },
+  "tools": {
+    "h2": "Ukratko: U čemu je svaki alat najbolji",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Standard za udaljene timove koji govore engleski",
+        "p": "Otter je počeo kao aplikacija za transkripciju i postao 'AI agent za sastanke'. Njegovo glavno obećanje je praktičnost: pridružuje se vašim Zoom/Teams pozivima, sluša na engleskom i šalje vam bilješke.",
+        "bullets": [
+          "Najbolje za: Timove koji rade 100% na engleskom i žive na Zoomu/Teamsu.",
+          "Rješava: 'Trebamo nekoga tko će voditi bilješke na našim online pozivima.'",
+          "Kvaka: Muči se s drugim jezicima i tretira svaki format sastanka na isti način."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Moćan alat za višejezičnu transkripciju",
+        "p": "Notta je specijalizirana za fleksibilnost. Bilo da se radi o sastanku uživo, video datoteci ili snimci, Notta to transkribira. Njezina snaga leži u podršci za desetke jezika i prevođenju.",
+        "bullets": [
+          "Najbolje za: Ljude koji trebaju transkribirati snimke iz mnogih izvora i na mnogim jezicima.",
+          "Rješava: 'Imam hrpu audio datoteka na različitim jezicima koje treba pretvoriti u tekst.'",
+          "Kvaka: Dobivate doslovni transkript, ali ga i dalje morate ručno sažeti u zadatke."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "AI Zapisnik",
+        "role": "Alat za produktivnost za strukturirane zapisnike",
+        "p": "AI Zapisnik se ne fokusira samo na transkripciju; fokusira se na 'Što slijedi?'. Uz podršku za više od 100 jezika (putem Whispera), formatira bilješke na temelju vrste sastanka — Prodaja, 1-na-1 ili Brainstorming. Cilj je odmah vam dati sažetak, odluke i popis obaveza.",
+        "bullets": [
+          "Najbolje za: Timove koji žele gotove zapisnike (ne samo tekst) za dijeljenje na Slacku ili e-mailom.",
+          "Rješava: 'Imamo transkripte, ali ih nitko ne čita. Trebamo akcijske točke.'",
+          "Bonus: Specijalizirani formati i opcije 'Plaćanje po korištenju' čine usvajanje vrlo jednostavnim."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Kako odabrati pravi",
+    "intro": "Nemojte se izgubiti u popisima značajki. Umjesto toga, postavite si ova četiri pitanja kako biste pronašli alat koji stvarno rješava vaše svakodnevne frustracije.",
+    "items": [
+      {
+        "label": "1) Jezik i kontekst",
+        "description": "Govori li vaš tim samo engleski? Ili imate međunarodne sastanke, različite jezike i stilove (Prodaja vs HR)?"
+      },
+      {
+        "label": "2) Izvor snimanja",
+        "description": "Događa li se sve na Zoomu? Ili snimate i sastanke uživo, učitavate velike video datoteke ili koristite diktafon?"
+      },
+      {
+        "label": "3) Očekivanja od rezultata",
+        "description": "Jeste li zadovoljni sirovim tekstualnim transkriptom? Ili trebate strukturirani dokument s 'Odlukama' i 'Sljedećim koracima' spreman za slanje?"
+      },
+      {
+        "label": "4) Preferencija plaćanja",
+        "description": "Želite li fiksnu mjesečnu pretplatu? Ili preferirate fleksibilan model 'plati koliko potrošiš' koji nikada ne istječe?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Usporedba značajki",
+    "th": ["Točka usporedbe", "Otter.ai", "Notta", "AI Zapisnik"],
+    "rows": [
+      [
+        "Glavna filozofija",
+        "Automatizirani agent za online sastanke na engleskom.",
+        "Univerzalni transkriber za bilo koju audio/video datoteku.",
+        "Poslovni alat za strukturirane, djelotvorne zapisnike."
+      ],
+      [
+        "Jezici",
+        "Jak u engleskom. Inače ograničena podrška.",
+        "Odlična višejezična podrška sa značajkama prevođenja.",
+        "100+ jezika (Whisper engine) dizajnirano za globalno poslovanje."
+      ],
+      [
+        "Idealne vrste sastanaka",
+        "Standardni videopozivi (Zoom/Teams).",
+        "Mješovita uporaba: intervjui, predavanja i učitavanje datoteka.",
+        "Poslovni scenariji: Prodaja, 1-na-1, recenzije i radionice."
+      ],
+      [
+        "Rezultat",
+        "Transkript + Sažetak u točkama.",
+        "Transkript + AI sažetak (ovisno o planu).",
+        "Formatirani zapisnik: Ključne točke, Odluke, Odgovorne osobe, Rokovi."
+      ],
+      [
+        "Model cijena",
+        "Mjesečna pretplata (po korisniku).",
+        "Freemium + Mjesečna pretplata.",
+        "Fleksibilno: Birajte između Pretplate ILI Paketa vremena (bez isteka)."
+      ],
+      [
+        "Tko ga voli?",
+        "Radnici na daljinu koji mrze tipkati tijekom poziva.",
+        "Istraživači i novinari koji barataju mnogim datotekama i jezicima.",
+        "Timovi koji trebaju jasnoću i žele odmah podijeliti rezultate."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Koji ste tip korisnika?",
+    "items": [
+      {
+        "title": "Uzorak A: Potpuno udaljeni tim samo na engleskom",
+        "otter": "Ovdje je Otter savršen. Ako je vaš svijet 100% engleski na Zoomu, to je snažan izbor.",
+        "notta": "Notta radi dobro, ali njezine višejezične snage mogle bi vam biti suvišne.",
+        "minutes": "AI Zapisnik je jak kandidat ako želite da vaše bilješke budu strukturirane po temi, a ne samo kronološki."
+      },
+      {
+        "title": "Uzorak B: Globalni / Višejezični tim",
+        "otter": "Otter će se ovdje mučiti. Napravljen je prvenstveno za govornike engleskog.",
+        "notta": "Izvrstan izbor. Njezina sposobnost transkripcije i prevođenja drži sve usklađenima.",
+        "minutes": "Najbolji dugoročni izbor. Podržava 100+ jezika i formatira rezultat tako da i sjedište i lokalne podružnice razumiju odluke."
+      },
+      {
+        "title": "Uzorak C: Zauzeti menadžer (Mnogo vrsta sastanaka)",
+        "otter": "Dobar za snimanje zvuka, ali pronalaženje zadataka u dugom tekstu i dalje je posao.",
+        "notta": "Izvrsno za transkripciju svega, ali i dalje morate prepisati sirovi tekst u izvješće.",
+        "minutes": "Napravljen za vas. Odaberite način 'Prodaja' ili '1-na-1', i AI automatski formatira bilješke kako bi odgovarale kontekstu."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Naša konačna presuda",
+    "lead": "Obećali smo iskreno mišljenje. Otter i Notta su izvrsni alati, ali za opću poslovnu upotrebu, AI Zapisnik nudi najkompletniji paket.",
+    "bullets": [
+      "**Odaberite Otter** ako imate samo Zoom sastanke na engleskom i želite samo zapis onoga što je rečeno.",
+      "**Odaberite Nottu** ako je vaš glavni cilj pretvaranje raznih audio datoteka u tekst na mnogim jezicima.",
+      "**Odaberite AI Zapisnik** ako želite **gotove zapisnike**. Ako trebate jasne odluke, zadatke i podršku za više jezika, ovo je najsigurniji izbor.",
+      "**Još niste sigurni?** Isprobajte AI Zapisnik s malim paketom vremena. To je bezrizičan način za testiranje."
+    ],
+    "note": "Da, pristrani smo – ali AI Zapisnik smo izgradili upravo kako bismo popunili praznine koje smo pronašli u drugim alatima."
+  },
+  "pricing": {
+    "h2": "Cijene: Pretplata vs. Plaćanje po korištenju",
+    "lead": "Cijene se mijenjaju, ali filozofija je bitna. Otter i Notta oslanjaju se na mjesečne pretplate. AI Zapisnik nudi jedinstveni hibridni model.",
+    "bullets": [
+      "**Otter & Notta:** Standardni SaaS model. Plaćate mjesečnu naknadu za određenu količinu minuta.",
+      "**AI Zapisnik:** Nudi i pretplate I **Pakete vremena**. Paketi vremena nikada ne istječu. Možete kupiti 10 sati danas i iskoristiti ih tijekom šest mjeseci."
+    ],
+    "disclaimer": "Napomena: Cijene i detalji planova često se mijenjaju. Molimo provjerite službene stranice za najnovije informacije.",
+    "linkText": "Pogledajte cijene AI Zapisnika"
+  },
+  "faq": {
+    "h2": "Često postavljana pitanja",
+    "items": [
+      {
+        "q": "Trebamo li koristiti više alata?",
+        "a": "Obično je bolje standardizirati. Ako trebate engleski, globalne jezike i strukturirane zapisnike u jednom, AI Zapisnik je najsvestraniji."
+      },
+      {
+        "q": "Moj tim raste globalno. Što je sigurnije?",
+        "a": "Počnite s AI Zapisnikom. Budući da podržava 100+ jezika od početka, nećete morati mijenjati alate kada zapošljavate međunarodno."
+      },
+      {
+        "q": "Već imam transkripte. Zašto mi ovo treba?",
+        "a": "Transkript je samo sirovi podatak. **Zapisnici** su uvidi. AI Zapisnik pretvara 'zid teksta' u Odluke i Rokove."
+      },
+      {
+        "q": "Mogu li koristiti AI Zapisnik samo za važne sastanke?",
+        "a": "Apsolutno. Zahvaljujući modelu paketa vremena, ne trebate mjesečnu pretplatu. Koristite ga samo kada je važno."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Informacije o članku",
+    "published": "Objavljeno",
+    "type": "Usporedba",
+    "category": "Produktivnost"
+  },
+  "cta": {
+    "openBrowser": "Isprobajte AI Zapisnik Web",
+    "downloadIOS": "Preuzmite iOS aplikaciju"
+  }
+}

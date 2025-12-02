@@ -33,6 +33,7 @@ module.exports = {
     'blog_maildelivery',
     'blog_notetaker',
     'blog_freeplan',
+    'blog_comparison',
   ],
   defaultNS: 'common',
 

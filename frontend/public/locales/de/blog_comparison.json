@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Review 2025) Otter vs. Notta vs. Protokoll KI — Welcher KI-Notizassistent passt zu Ihnen?",
+    "description": "Otter, Notta und Protokoll KI im ehrlichen Vergleich. Wir prüfen reale Anforderungen: Sprachen, Meeting-Typen und Preise. Warum Protokoll KI 2025 die vielseitigste Wahl für Teams ist.",
+    "ogTitle": "Otter vs. Notta vs. Protokoll KI — Der ehrliche Vergleich 2025",
+    "ogDescription": "Schwanken Sie zwischen Otter, Notta und Protokoll KI? Wir analysieren Vor- und Nachteile. Erfahren Sie, warum wir Protokoll KI für produktive Teams empfehlen.",
+    "ld": {
+      "headline": "Otter vs. Notta vs. Protokoll KI — Vergleichsguide 2025",
+      "description": "Ein praktischer Vergleich von KI-Tools für Protokolle. Wir analysieren Funktionen und Preise. Spoiler: Protokoll KI ist oft die sicherste Wahl für Unternehmen."
+    }
+  },
+  "aria": {
+    "home": "Protokoll KI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs. Notta vs. Protokoll KI"
+  },
+  "hero": {
+    "kicker": "Guide für KI-Protokolle 2025",
+    "h1": "Otter vs. Notta vs. Protokoll KI — Welches Tool passt zu Ihrem Workflow?",
+    "tagline": "Wir sind ganz offen: Wir entwickeln Protokoll KI, also mögen wir es natürlich. Aber wir respektieren auch Otter und Notta. Dieser Artikel ist unsere ehrliche Einschätzung, wer welches Tool wählen sollte – und warum Protokoll KI für die meisten Teams die sicherste Standardwahl ist."
+  },
+  "lead": {
+    "p1": "Suchen Sie nach einer „Otter-Alternative“ oder der „besten KI für Meeting-Protokolle“? Wahrscheinlich sind Sie es leid, manuell mitzuschreiben oder chaotische Transkripte zu formatieren. 2025 gibt es viele Tools, aber nur wenige meistern den Arbeitsalltag: wiederkehrende Jour Fixes, Sales-Calls und Brainstormings. Hier ist ein problemorientierter Vergleich von Otter.ai, Notta und Protokoll KI."
+  },
+  "tools": {
+    "h2": "Auf einen Blick: Was jedes Tool am besten kann",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Der Standard für englischsprachige Remote-Teams",
+        "p": "Otter startete als Transkriptions-App und wurde zum „KI-Meeting-Agenten“. Das Hauptversprechen ist Bequemlichkeit: Es klinkt sich in Ihre Zoom/Teams-Calls ein, hört auf Englisch zu und sendet Ihnen Notizen.",
+        "bullets": [
+          "Beste Wahl für: Teams, die zu 100% auf Englisch arbeiten und in Zoom/Teams leben.",
+          "Löst: „Wir brauchen jemanden, der bei Online-Calls mitschreibt.“",
+          "Der Haken: Es hat Mühe mit anderen Sprachen und behandelt jedes Meeting gleich."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Das Kraftpaket für mehrsprachige Transkription",
+        "p": "Notta spezialisiert sich auf Flexibilität. Ob Live-Meeting, Videodatei oder Mikrofonaufnahme – Notta transkribiert es. Die Stärke liegt in der Unterstützung dutzender Sprachen und Übersetzungen.",
+        "bullets": [
+          "Beste Wahl für: Leute, die Aufnahmen aus vielen Quellen und in vielen Sprachen transkribieren müssen.",
+          "Löst: „Ich habe einen Stapel Audiodateien in verschiedenen Sprachen, die Text werden müssen.“",
+          "Der Haken: Sie erhalten ein Transkript, müssen es aber oft noch manuell zu Aufgaben zusammenfassen."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Protokoll KI",
+        "role": "Das Produktivitäts-Tool für strukturierte Protokolle",
+        "p": "Protokoll KI konzentriert sich nicht nur auf Text, sondern auf „Was passiert als Nächstes?“. Mit Unterstützung für über 100 Sprachen (via Whisper) formatiert es Notizen basierend auf dem Meeting-Typ – Vertrieb, 1-on-1 oder Brainstorming. Ziel ist ein sofortiges Resümee mit Entscheidungen und To-Dos.",
+        "bullets": [
+          "Beste Wahl für: Teams, die fertige Protokolle (nicht nur Transkripte) zum Teilen auf Slack oder per Mail wollen.",
+          "Löst: „Wir haben Transkripte, aber niemand liest sie. Wir brauchen Action Items.“",
+          "Der Bonus: Spezielle Formate und „Pay-as-you-go“-Optionen machen den Einstieg sehr einfach."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "So treffen Sie die richtige Wahl",
+    "intro": "Verlieren Sie sich nicht in Feature-Listen. Stellen Sie sich stattdessen diese vier Fragen, um das Tool zu finden, das Ihre täglichen Probleme wirklich löst.",
+    "items": [
+      {
+        "label": "1) Sprache & Kontext",
+        "description": "Spricht Ihr Team nur Englisch? Oder haben Sie internationale Meetings, verschiedene Sprachen und Meeting-Stile (Vertrieb vs. HR)?"
+      },
+      {
+        "label": "2) Aufnahmequelle",
+        "description": "Findet alles auf Zoom statt? Oder nehmen Sie auch persönliche Meetings auf, laden große Videodateien hoch oder nutzen Diktiergeräte?"
+      },
+      {
+        "label": "3) Erwartung an den Output",
+        "description": "Reicht Ihnen ein rohes Text-Transkript? Oder brauchen Sie ein strukturiertes Dokument mit „Entscheidungen“ und „Nächsten Schritten“, bereit zum Versenden?"
+      },
+      {
+        "label": "4) Zahlungspräferenz",
+        "description": "Wollen Sie ein fixes Monatsabo? Oder bevorzugen Sie ein flexibles Modell, bei dem gekauftes Guthaben nie verfällt?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Funktionsvergleich",
+    "th": ["Vergleichspunkt", "Otter.ai", "Notta", "Protokoll KI"],
+    "rows": [
+      [
+        "Kernphilosophie",
+        "Automatisierter Agent für englische Online-Meetings.",
+        "Universeller Transkribierer für jede Audio/Video-Datei.",
+        "Business-Tool für strukturierte, handlungsorientierte Protokolle."
+      ],
+      [
+        "Sprachen",
+        "Stark in Englisch. Sonst begrenzte Unterstützung.",
+        "Gute mehrsprachige Unterstützung mit Übersetzungsfunktionen.",
+        "100+ Sprachen (Whisper Engine) für globales Business."
+      ],
+      [
+        "Ideale Meeting-Typen",
+        "Standard-Videocalls (Zoom/Teams).",
+        "Gemischte Nutzung: Interviews, Vorlesungen und Datei-Uploads.",
+        "Business-Szenarien: Vertrieb, 1-on-1s, Jour Fixes und Workshops."
+      ],
+      [
+        "Der Output",
+        "Transkript + Zusammenfassung.",
+        "Transkript + KI-Zusammenfassung (je nach Plan).",
+        "Formatiertes Protokoll: Kernpunkte, Entscheidungen, Verantwortliche, Fristen."
+      ],
+      [
+        "Preismodell",
+        "Monatliches Abo (pro Nutzer).",
+        "Freemium + Monatsabo.",
+        "Flexibel: Wahl zwischen Abo ODER Zeitpaketen (verfallen nie)."
+      ],
+      [
+        "Wer liebt es?",
+        "Remote-Arbeiter, die Tippen während Zoom-Calls hassen.",
+        "Forscher & Journalisten mit vielen Dateien und Sprachen.",
+        "Teams, die Klarheit brauchen und Ergebnisse sofort teilen wollen."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Welcher Nutzertyp sind Sie?",
+    "items": [
+      {
+        "title": "Muster A: Das rein englische Remote-Team",
+        "otter": "Hier ist Otter perfekt. Wenn Ihre Welt zu 100% aus englischen Zoom-Calls besteht, ist es eine starke Wahl.",
+        "notta": "Notta funktioniert gut, aber die mehrsprachigen Stärken sind für Sie vielleicht unnötig.",
+        "minutes": "Protokoll KI ist ein starker Kandidat, wenn Sie Notizen thematisch strukturiert (z.B. Strategie vs. HR) statt chronologisch wollen."
+      },
+      {
+        "title": "Muster B: Das internationale / mehrsprachige Team",
+        "otter": "Otter stößt hier an Grenzen. Es ist primär für Englisch gebaut.",
+        "notta": "Eine exzellente Wahl. Die Fähigkeit zu transkribieren und zu übersetzen hält alle auf dem Laufenden.",
+        "minutes": "Die beste langfristige Wahl. Es unterstützt 100+ Sprachen und formatiert den Output so, dass Zentrale und lokale Teams die Entscheidungen verstehen."
+      },
+      {
+        "title": "Muster C: Der beschäftigte Manager (Viele Meeting-Typen)",
+        "otter": "Gut für die Audioaufnahme, aber Aufgaben in einem langen Text zu suchen, bleibt Arbeit.",
+        "notta": "Hervorragend zum Transkribieren, aber Sie müssen den Rohtext immer noch in einen Bericht umschreiben.",
+        "minutes": "Für Sie gemacht. Wählen Sie den Modus „Vertrieb“ oder „1-on-1“, und die KI formatiert die Notizen automatisch passend zum Kontext."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Unser Fazit",
+    "lead": "Wir haben eine ehrliche Meinung versprochen. Otter und Notta sind exzellente Tools, aber für den allgemeinen Business-Einsatz bietet Protokoll KI das kompletteste Paket.",
+    "bullets": [
+      "**Wählen Sie Otter**, wenn Sie nur englische Zoom-Meetings haben und ein Protokoll des Gesagten wollen.",
+      "**Wählen Sie Notta**, wenn Ihr Hauptziel die Umwandlung diverser Audiodateien in Text über viele Sprachen hinweg ist.",
+      "**Wählen Sie Protokoll KI**, wenn Sie **fertige Protokolle** wollen. Wenn Sie klare Entscheidungen, Aufgaben und Support für viele Sprachen brauchen, ist dies die sicherste Wahl.",
+      "**Noch unsicher?** Testen Sie Protokoll KI mit einem kleinen Zeitpaket. Ein risikofreier Weg, es auszuprobieren."
+    ],
+    "note": "Ja, wir sind voreingenommen – aber wir haben Protokoll KI gebaut, um genau die Lücken zu schließen, die wir bei anderen Tools fanden."
+  },
+  "pricing": {
+    "h2": "Preise: Abo vs. Pay-As-You-Go",
+    "lead": "Preise ändern sich, aber die Philosophie bleibt. Otter und Notta setzen auf Monatsabos. Protokoll KI bietet ein einzigartiges Hybridmodell.",
+    "bullets": [
+      "**Otter & Notta:** Standard SaaS-Modell. Sie zahlen eine monatliche Gebühr für ein Minutenkontingent.",
+      "**Protokoll KI:** Bietet Abos UND **Zeitpakete**. Zeitpakete verfallen nie. Sie können heute 10 Stunden kaufen und sie über sechs Monate nutzen."
+    ],
+    "disclaimer": "Hinweis: Preise und Plandetails ändern sich oft. Bitte prüfen Sie die offiziellen Preisseiten für aktuelle Infos.",
+    "linkText": "Protokoll KI Preise ansehen"
+  },
+  "faq": {
+    "h2": "Häufig gestellte Fragen (FAQ)",
+    "items": [
+      {
+        "q": "Sollten wir mehrere Tools nutzen?",
+        "a": "Meist ist Standardisierung besser. Wenn Sie Englisch, globale Sprachen und strukturierte Protokolle in einem brauchen, ist Protokoll KI am vielseitigsten."
+      },
+      {
+        "q": "Mein Team wächst global. Was ist sicherer?",
+        "a": "Starten Sie mit Protokoll KI. Da es von Beginn an 100+ Sprachen unterstützt, müssen Sie das Tool nicht wechseln, wenn internationale Kollegen dazu kommen."
+      },
+      {
+        "q": "Ich habe schon Transkripte. Wozu brauche ich das?",
+        "a": "Ein Transkript ist nur Rohdaten. **Protokolle** sind Erkenntnisse. Protokoll KI verwandelt die „Textwand“ in Entscheidungen und Fristen."
+      },
+      {
+        "q": "Kann ich Protokoll KI nur für wichtige Meetings nutzen?",
+        "a": "Absolut. Dank der Zeitpakete brauchen Sie kein Monatsabo. Nutzen Sie es einfach nur für die wichtigsten Termine."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Artikel-Info",
+    "published": "Veröffentlicht",
+    "type": "Vergleich",
+    "category": "Produktivität"
+  },
+  "cta": {
+    "openBrowser": "Protokoll KI Web testen",
+    "downloadIOS": "iOS App laden"
+  }
+}

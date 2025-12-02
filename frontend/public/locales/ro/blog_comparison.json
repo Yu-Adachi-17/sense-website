@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Recenzie 2025) Otter vs Notta vs Proces-verbal AI — Ce asistent AI ți se potrivește?",
+    "description": "Otter, Notta și Proces-verbal AI într-o comparație onestă. Analizăm nevoile reale: suport lingvistic, tipuri de ședințe și prețuri. Vezi de ce Proces-verbal AI este cea mai versatilă alegere în 2025.",
+    "ogTitle": "Otter vs Notta vs Proces-verbal AI — Comparație Onestă 2025",
+    "ogDescription": "Eziți între Otter, Notta și Proces-verbal AI? Analizăm avantajele și dezavantajele. Află de ce recomandăm Proces-verbal AI pentru echipe productive.",
+    "ld": {
+      "headline": "Otter vs Notta vs Proces-verbal AI — Ghid de Comparație 2025",
+      "description": "O comparație practică a instrumentelor AI de notare. Analizăm funcții și prețuri. Spoiler: Proces-verbal AI este adesea pariul cel mai sigur pentru afaceri."
+    }
+  },
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "comparison": "Otter vs Notta vs Proces-verbal AI"
+  },
+  "hero": {
+    "kicker": "Ghid AI pentru Procese-verbale 2025",
+    "h1": "Otter vs Notta vs Proces-verbal AI — Ce unealtă se potrivește fluxului tău?",
+    "tagline": "Vom fi sinceri: noi am creat Proces-verbal AI, deci îl iubim. Dar respectăm și Otter și Notta. Acest articol este opinia noastră onestă despre cine ar trebui să aleagă ce unealtă — și de ce Proces-verbal AI este alegerea implicită cea mai sigură pentru majoritatea echipelor."
+  },
+  "lead": {
+    "p1": "Cauți o 'alternativă la Otter' sau 'cel mai bun AI pentru procese-verbale'? Probabil te-ai săturat să scrii note manual sau să corectezi transcrieri dezordonate. În 2025 există multe unelte, dar puține gestionează realitatea muncii: ședințe recurente, apeluri de vânzări și brainstorming. Iată o comparație bazată pe probleme între Otter.ai, Notta și Proces-verbal AI."
+  },
+  "tools": {
+    "h2": "Pe scurt: La ce excelează fiecare unealtă",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Standardul pentru echipe remote vorbitoare de engleză",
+        "p": "Otter a început ca o aplicație de transcriere și a devenit un 'agent de ședințe AI'. Promisiunea sa principală este confortul: intră în apelurile tale Zoom/Teams, ascultă în engleză și îți trimite notițele.",
+        "bullets": [
+          "Cel mai bun pentru: Echipe care lucrează 100% în engleză și trăiesc pe Zoom/Teams.",
+          "Rezolvă: 'Avem nevoie de cineva să ia notițe la apelurile noastre online.'",
+          "Dezavantajul: Se luptă cu alte limbi și tratează orice format de ședință la fel."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Puterea transcrierii multilingve",
+        "p": "Notta se specializează în flexibilitate. Fie că e o ședință live, un fișier video sau o înregistrare, Notta o transcrie. Puterea sa stă în suportul pentru zeci de limbi și traducere.",
+        "bullets": [
+          "Cel mai bun pentru: Oameni care trebuie să transcrie înregistrări din multe surse și în multe limbi.",
+          "Rezolvă: 'Am o grămadă de fișiere audio în limbi diferite care trebuie să devină text.'",
+          "Dezavantajul: Primești o transcriere cuvânt-cu-cuvânt, dar tot trebuie să o rezumi manual în sarcini."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Proces-verbal AI",
+        "role": "Unealta de productivitate pentru procese-verbale structurate",
+        "p": "Proces-verbal AI nu se concentrează doar pe transcriere; ci pe 'Ce urmează?'. Suportând peste 100 de limbi (prin Whisper), formatează notițele în funcție de tipul ședinței — Vânzări, 1-la-1 sau Brainstorming. Scopul este să îți ofere un rezumat, decizii și o listă de sarcini imediat.",
+        "bullets": [
+          "Cel mai bun pentru: Echipe care vor procese-verbale gata făcute (nu doar text) de partajat pe Slack sau email.",
+          "Rezolvă: 'Avem transcrieri, dar nimeni nu le citește. Avem nevoie de acțiune.'",
+          "Bonusul: Formate specializate și opțiuni 'Plătești-pe-măsură-ce-folosești' fac adoptarea foarte ușoară."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Cum să alegi corect",
+    "intro": "Nu te pierde în liste de funcții. Întreabă-te aceste patru lucruri pentru a găsi unealta care îți rezolvă cu adevărat frustrările zilnice.",
+    "items": [
+      {
+        "label": "1) Limbă și Context",
+        "description": "Echipa ta vorbește doar engleză? Sau aveți ședințe internaționale, limbi amestecate și stiluri diferite (Vânzări vs HR)?"
+      },
+      {
+        "label": "2) Sursa înregistrării",
+        "description": "Totul se întâmplă pe Zoom? Sau înregistrați și ședințe față în față, încărcați fișiere video mari sau folosiți note vocale?"
+      },
+      {
+        "label": "3) Așteptări de la rezultat",
+        "description": "Ești mulțumit cu o transcriere text brută? Sau ai nevoie de un document structurat cu 'Decizii' și 'Pași Următori' gata de trimis?"
+      },
+      {
+        "label": "4) Preferința de plată",
+        "description": "Vrei un abonament lunar fix? Sau preferi un model flexibil 'plătești cât folosești' care nu expiră niciodată?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Comparație Funcții",
+    "th": ["Punct de Comparație", "Otter.ai", "Notta", "Proces-verbal AI"],
+    "rows": [
+      [
+        "Filozofie Centrală",
+        "Agent automatizat pentru ședințe online în engleză.",
+        "Transcriptor universal pentru orice fișier audio/video.",
+        "Unealtă de business pentru procese-verbale structurate și acționabile."
+      ],
+      [
+        "Limbi",
+        "Puternic în engleză. Suport limitat în rest.",
+        "Suport multilingv excelent cu funcții de traducere.",
+        "100+ limbi (motor Whisper) conceput pentru afaceri globale."
+      ],
+      [
+        "Tipuri de Ședințe Ideale",
+        "Apeluri video standard (Zoom/Teams).",
+        "Utilizare mixtă: interviuri, prelegeri și încărcări de fișiere.",
+        "Scenarii de business: Vânzări, 1-la-1, recenzii și workshop-uri."
+      ],
+      [
+        "Rezultatul",
+        "Transcriere + Rezumat cu puncte.",
+        "Transcriere + Rezumat AI (în funcție de plan).",
+        "Proces-verbal Formatat: Puncte cheie, Decizii, Responsabili, Termene."
+      ],
+      [
+        "Model de Preț",
+        "Abonament lunar (per utilizator).",
+        "Freemium + Abonament lunar.",
+        "Flexibil: Alegere între Abonament SAU Pachete de Timp (fără expirare)."
+      ],
+      [
+        "Cine îl adoră?",
+        "Lucrătorii remote care urăsc să tasteze în timpul apelurilor.",
+        "Cercetători și jurnaliști care gestionează multe fișiere și limbi.",
+        "Echipe care au nevoie de claritate și vor să partajeze rezultatele instantaneu."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Ce tip de utilizator ești?",
+    "items": [
+      {
+        "title": "Tiparul A: Echipa Remote Doar în Engleză",
+        "otter": "Aici Otter este perfect. Dacă lumea ta e 100% engleză pe Zoom, e o alegere solidă.",
+        "notta": "Notta funcționează bine, dar atuurile sale multilingve ar putea fi inutile pentru tine.",
+        "minutes": "Proces-verbal AI este un candidat puternic dacă vrei notițele structurate pe subiecte, nu doar cronologic."
+      },
+      {
+        "title": "Tiparul B: Echipa Globală / Multilingvă",
+        "otter": "Otter se va chinui aici. Este construit primar pentru vorbitori de engleză.",
+        "notta": "O alegere excelentă. Abilitatea sa de a transcrie și traduce menține pe toată lumea aliniată.",
+        "minutes": "Cea mai bună alegere pe termen lung. Suportă 100+ limbi și formatează rezultatul astfel încât și sediul central și filialele locale să înțeleagă deciziile."
+      },
+      {
+        "title": "Tiparul C: Managerul Ocupat (Multe tipuri de ședințe)",
+        "otter": "Bun pentru capturarea audio, dar să găsești sarcini într-un text lung e totuși muncă.",
+        "notta": "Excelent pentru a transcrie totul, dar tot trebuie să rescrii textul brut într-un raport.",
+        "minutes": "Făcut pentru tine. Alege modul 'Vânzări' sau '1-la-1', și AI-ul formatează automat notițele pentru a se potrivi contextului."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Verdictul nostru final",
+    "lead": "Am promis o opinie onestă. Otter și Notta sunt unelte excelente, dar pentru uz general în afaceri, Proces-verbal AI oferă pachetul cel mai complet.",
+    "bullets": [
+      "**Alege Otter** dacă ai doar ședințe Zoom în engleză și vrei doar o înregistrare a ce s-a spus.",
+      "**Alege Notta** dacă scopul tău principal este conversia diverselor fișiere audio în text în multe limbi.",
+      "**Alege Proces-verbal AI** dacă vrei **procese-verbale gata făcute**. Dacă ai nevoie de decizii clare, sarcini și suport pentru multe limbi, aceasta este alegerea cea mai sigură.",
+      "**Încă nesigur?** Încearcă Proces-verbal AI cu un pachet mic de timp. Este o metodă fără riscuri de a testa."
+    ],
+    "note": "Da, suntem părtinitori – dar am construit Proces-verbal AI tocmai pentru a umple golurile găsite în alte unelte."
+  },
+  "pricing": {
+    "h2": "Prețuri: Abonament vs. Plată-la-utilizare",
+    "lead": "Prețurile se schimbă, dar filozofia contează. Otter și Notta se bazează pe abonamente lunare. Proces-verbal AI oferă un model hibrid unic.",
+    "bullets": [
+      "**Otter & Notta:** Model SaaS standard. Plătești o taxă lunară pentru o cantitate de minute.",
+      "**Proces-verbal AI:** Oferă atât Abonamente CÂT ȘI **Pachete de Timp**. Pachetele de timp nu expiră niciodată. Poți cumpăra 10 ore azi și să le folosești în decurs de șase luni."
+    ],
+    "disclaimer": "Notă: Prețurile și detaliile planurilor se schimbă des. Te rugăm să verifici paginiile oficiale de prețuri pentru info actualizate.",
+    "linkText": "Vezi prețuri Proces-verbal AI"
+  },
+  "faq": {
+    "h2": "Întrebări Frecvente (FAQ)",
+    "items": [
+      {
+        "q": "Ar trebui să folosim mai multe unelte?",
+        "a": "De obicei e mai bine să standardizezi. Dacă ai nevoie de engleză, limbi globale și procese-verbale structurate într-un singur loc, Proces-verbal AI este cel mai versatil."
+      },
+      {
+        "q": "Echipa mea crește global. Ce e mai sigur?",
+        "a": "Începe cu Proces-verbal AI. Deoarece suportă 100+ limbi de la început, nu va trebui să schimbi unealta când angajezi internațional."
+      },
+      {
+        "q": "Am deja transcrieri. De ce am nevoie de asta?",
+        "a": "O transcriere e doar date brute. **Procesele-verbale** sunt perspective. Proces-verbal AI transformă 'zidul de text' în Decizii și Termene."
+      },
+      {
+        "q": "Pot folosi Proces-verbal AI doar pentru ședințe importante?",
+        "a": "Absolut. Datorită modelului cu pachete de timp, nu ai nevoie de abonament lunar. Folosește-l doar când contează."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Info Articol",
+    "published": "Publicat",
+    "type": "Comparație",
+    "category": "Productivitate"
+  },
+  "cta": {
+    "openBrowser": "Încearcă Proces-verbal AI Web",
+    "downloadIOS": "Descarcă Aplicația iOS"
+  }
+}

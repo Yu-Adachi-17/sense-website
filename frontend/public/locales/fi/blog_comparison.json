@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "(Arvostelu 2025) Otter vs Notta vs Pöytäkirja AI — Mikä sopii sinulle?",
+    "description": "Otter, Notta ja Pöytäkirja AI rehellisessä vertailussa. Tarkastelemme todellisia tarpeita: kielet, kokoustyypit ja hinnoittelu. Katso miksi Pöytäkirja AI on monipuolisin valinta vuonna 2025.",
+    "ogTitle": "Otter vs Notta vs Pöytäkirja AI — Rehellinen vertailu 2025",
+    "ogDescription": "Mietitkö Otterin, Nottan ja Pöytäkirja AI:n välillä? Käymme läpi plussat ja miinukset. Lue miksi suosittelemme Pöytäkirja AI:ta tuottaville tiimeille.",
+    "ld": {
+      "headline": "Otter vs Notta vs Pöytäkirja AI — Vertailuopas 2025",
+      "description": "Käytännönläheinen vertailu AI-muistiinpanotyökaluista. Analysoimme ominaisuudet ja hinnat. Spoiler: Pöytäkirja AI on useimmiten turvallisin valinta yrityksille."
+    }
+  },
+  "aria": {
+    "home": "Pöytäkirja AI Etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "comparison": "Otter vs Notta vs Pöytäkirja AI"
+  },
+  "hero": {
+    "kicker": "AI-pöytäkirjaopas 2025",
+    "h1": "Otter vs Notta vs Pöytäkirja AI — Mikä työkalu sopii työtapoihisi?",
+    "tagline": "Olemme rehellisiä: kehitimme Pöytäkirja AI:n, joten rakastamme sitä. Mutta kunnioitamme myös Otteria ja Nottaa. Tämä artikkeli on rehellinen näkemyksemme siitä, kenelle mikäkin työkalu sopii – ja miksi Pöytäkirja AI on turvallisin oletusvalinta useimmille tiimeille."
+  },
+  "lead": {
+    "p1": "Etsitkö 'vaihtoehtoa Otterille' tai 'parasta AI-pöytäkirjuria'? Olet luultavasti kyllästynyt kirjoittamaan muistiinpanoja käsin tai korjaamaan sekavia litterointeja. Vuonna 2025 työkaluja on monia, mutta harva selviää arjesta: toistuvat palaverit, myyntipuhelut ja aivoriihet. Tässä on ongelmakeskeinen vertailu Otter.ain, Nottan ja Pöytäkirja AI:n välillä."
+  },
+  "tools": {
+    "h2": "Lyhyesti: Missä kukin työkalu loistaa",
+    "items": [
+      {
+        "key": "otter",
+        "name": "Otter.ai",
+        "role": "Standardi englanninkielisille etätiimeille",
+        "p": "Otter aloitti litterointisovelluksena ja kehittyi 'AI-kokousagentiksi'. Sen lupaus on helppous: se liittyy Zoom/Teams-puheluihin, kuuntelee englanniksi ja lähettää muistiinpanot.",
+        "bullets": [
+          "Paras: Tiimeille, jotka toimivat 100% englanniksi ja elävät Zoomissa/Teamsissa.",
+          "Ratkaisee: 'Tarvitsemme jonkun kirjaamaan muistiinpanot verkkopuheluissa.'",
+          "Huono puoli: Se kamppailee muiden kielten kanssa ja käsittelee kaikkia kokouksia samalla tavalla."
+        ]
+      },
+      {
+        "key": "notta",
+        "name": "Notta",
+        "role": "Monikielisen litteroinnin tehopakkaus",
+        "p": "Notta erikoistuu joustavuuteen. Olipa kyseessä live-kokous, videotiedosto tai nauhoitus, Notta litteroi sen. Sen vahvuus on kymmenien kielten tuessa ja käännöksissä.",
+        "bullets": [
+          "Paras: Ihmisille, joiden täytyy litteroida tallenteita monista lähteistä ja monilla kielillä.",
+          "Ratkaisee: 'Minulla on kasa äänitiedostoja eri kielillä, jotka pitää saada tekstiksi.'",
+          "Huono puoli: Saat tarkan litteroinnin, mutta se pitää yhä tiivistää käsin tehtäviksi."
+        ]
+      },
+      {
+        "key": "minutes",
+        "name": "Pöytäkirja AI",
+        "role": "Tuottavuustyökalu rakenteellisiin pöytäkirjoihin",
+        "p": "Pöytäkirja AI ei keskity vain litterointiin, vaan siihen 'Mitä tapahtuu seuraavaksi?'. Tukemalla yli 100 kieltä (Whisperillä), se muotoilee muistiinpanot kokoustyypin mukaan – Myynti, 1-on-1 tai Aivoriihi. Tavoite on antaa tiivistelmä, päätökset ja tehtävälista heti.",
+        "bullets": [
+          "Paras: Tiimeille, jotka haluavat valmiita pöytäkirjoja (ei vain tekstiä) jaettavaksi Slackissa tai sähköpostissa.",
+          "Ratkaisee: 'Meillä on litterointeja, mutta kukaan ei lue niitä. Tarvitsemme toimintaa.'",
+          "Bonus: Erikoistuneet formaatit ja 'Maksa käytöstä' -vaihtoehdot tekevät käyttöönotosta helppoa."
+        ]
+      }
+    ]
+  },
+  "axes": {
+    "h2": "Kuinka valita oikea",
+    "intro": "Älä eksy ominaisuuslistoihin. Kysy itseltäsi nämä neljä kysymystä löytääksesi työkalun, joka oikeasti ratkaisee päivittäiset ongelmasi.",
+    "items": [
+      {
+        "label": "1) Kieli ja konteksti",
+        "description": "Puhuuko tiimisi vain englantia? Vai onko teillä kansainvälisiä kokouksia, eri kieliä ja tyylejä (Myynti vs HR)?"
+      },
+      {
+        "label": "2) Tallennuslähde",
+        "description": "Tapahtuuko kaikki Zoomissa? Vai nauhoitatteko myös kasvokkain, lataatte isoja videoita tai käytätte sanelinta?"
+      },
+      {
+        "label": "3) Odotukset lopputuloksesta",
+        "description": "Riittääkö raakamuotoinen teksti? Vai tarvitsetko rakenteellisen dokumentin, jossa on 'Päätökset' ja 'Seuraavat askeleet' valmiina lähetettäväksi?"
+      },
+      {
+        "label": "4) Maksuvaihtoehdot",
+        "description": "Haluatko kiinteän kuukausimaksun? Vai 'maksa kun käytät' -mallin, joka ei vanhene koskaan?"
+      }
+    ]
+  },
+  "compare": {
+    "h2": "Ominaisuusvertailu",
+    "th": ["Vertailukohta", "Otter.ai", "Notta", "Pöytäkirja AI"],
+    "rows": [
+      [
+        "Pääfilosofia",
+        "Automaattinen agentti englanninkielisiin verkkokouksiin.",
+        "Yleinen litteroija kaikille ääni/videotiedostoille.",
+        "Bisnestyökalu rakenteellisiin, toimintaa tukeviin pöytäkirjoihin."
+      ],
+      [
+        "Kielet",
+        "Vahva englannissa. Muuten rajallinen tuki.",
+        "Hyvä monikielinen tuki käännöstoiminnoilla.",
+        "100+ kieltä (Whisper-moottori) suunniteltu globaaliin liiketoimintaan."
+      ],
+      [
+        "Ihanteelliset kokoustyypit",
+        "Standardit videopuhelut (Zoom/Teams).",
+        "Sekakäyttö: haastattelut, luennot ja tiedostolataukset.",
+        "Bisnesskenaariot: Myynti, 1-on-1, katselmukset ja työpajat."
+      ],
+      [
+        "Lopputulos",
+        "Litterointi + ranskalaiset viivat.",
+        "Litterointi + AI-tiivistelmä (riippuen paketista).",
+        "Muotoiltu pöytäkirja: Avainkohdat, Päätökset, Vastuuhenkilöt, Määräajat."
+      ],
+      [
+        "Hinnoittelumalli",
+        "Kuukausitilaus (per käyttäjä).",
+        "Freemium + kuukausitilaus.",
+        "Joustava: Valitse Tilaus TAI Aikapaketit (ei vanhene)."
+      ],
+      [
+        "Kuka rakastaa sitä?",
+        "Etätyöntekijät, jotka vihaavat kirjoittamista puheluiden aikana.",
+        "Tutkijat ja toimittajat, joilla on paljon tiedostoja ja kieliä.",
+        "Tiimit, jotka tarvitsevat selkeyttä ja haluavat jakaa tulokset heti."
+      ]
+    ]
+  },
+  "personas": {
+    "h2": "Mikä käyttäjätyyppi olet?",
+    "items": [
+      {
+        "title": "Malli A: Täysin etänä toimiva englanninkielinen tiimi",
+        "otter": "Tässä Otter on täydellinen. Jos maailmasi on 100% englantia Zoomissa, se on vahva valinta.",
+        "notta": "Notta toimii hyvin, mutta sen monikieliset vahvuudet saattavat olla turhia sinulle.",
+        "minutes": "Pöytäkirja AI on vahva kilpailija, jos haluat muistiinpanot jäsenneltynä aiheittain pelkän aikajanan sijaan."
+      },
+      {
+        "title": "Malli B: Globaali / monikielinen tiimi",
+        "otter": "Otterilla on vaikeuksia tässä. Se on tehty ensisijaisesti englannin puhujille.",
+        "notta": "Erinomainen valinta. Sen kyky litteroida ja kääntää pitää kaikki ajan tasalla.",
+        "minutes": "Paras pitkän aikavälin valinta. Se tukee yli 100 kieltä ja muotoilee tuloksen niin, että sekä pääkonttori että paikalliset ymmärtävät päätökset."
+      },
+      {
+        "title": "Malli C: Kiireinen johtaja (Paljon kokoustyyppejä)",
+        "otter": "Hyvä äänen tallentamiseen, mutta tehtävien etsiminen pitkästä tekstistä on yhä työtä.",
+        "notta": "Erinomainen kaiken litterointiin, mutta raakateksti pitää silti kirjoittaa raportiksi.",
+        "minutes": "Tehty sinulle. Valitse 'Myynti' tai '1-on-1' -tila, ja AI muotoilee muistiinpanot automaattisesti kontekstiin sopiviksi."
+      }
+    ]
+  },
+  "recommendation": {
+    "h2": "Lopullinen tuomiomme",
+    "lead": "Lupasimme rehellisen mielipiteen. Otter ja Notta ovat erinomaisia työkaluja, mutta yleiseen yrityskäyttöön Pöytäkirja AI tarjoaa kattavimman paketin.",
+    "bullets": [
+      "**Valitse Otter**, jos sinulla on vain englanninkielisiä Zoom-kokouksia ja haluat vain tallenteen sanotusta.",
+      "**Valitse Notta**, jos päätavoitteesi on muuntaa erilaisia äänitiedostoja tekstiksi monilla kielillä.",
+      "**Valitse Pöytäkirja AI**, jos haluat **valmiita pöytäkirjoja**. Jos tarvitset selkeitä päätöksiä, tehtäviä ja tukea monille kielille, tämä on turvallisin valinta.",
+      "**Yhä epävarma?** Kokeile Pöytäkirja AI:ta pienellä aikapaketilla. Se on riskitön tapa testata."
+    ],
+    "note": "Kyllä, olemme puolueellisia – mutta rakensimme Pöytäkirja AI:n juuri korjaamaan puutteet, joita löysimme muista työkaluista."
+  },
+  "pricing": {
+    "h2": "Hinnat: Tilaus vs. Maksa käytöstä",
+    "lead": "Hinnat muuttuvat, mutta filosofia ratkaisee. Otter ja Notta luottavat kuukausitilauksiin. Pöytäkirja AI tarjoaa ainutlaatuisen hybridimallin.",
+    "bullets": [
+      "**Otter & Notta:** Standardi SaaS-malli. Maksat kuukausimaksun tietystä minuuttimäärästä.",
+      "**Pöytäkirja AI:** Tarjoaa sekä tilauksia ETTÄ **Aikapaketteja**. Aikapaketit eivät vanhene koskaan. Voit ostaa 10 tuntia tänään ja käyttää ne puolen vuoden aikana."
+    ],
+    "disclaimer": "Huom: Hinnat ja pakettien tiedot muuttuvat usein. Tarkista viralliset hinnastosivut saadaksesi ajantasaisimmat tiedot.",
+    "linkText": "Katso Pöytäkirja AI:n hinnat"
+  },
+  "faq": {
+    "h2": "Usein kysytyt kysymykset",
+    "items": [
+      {
+        "q": "Pitäisikö meidän käyttää useita työkaluja?",
+        "a": "Yleensä yhtenäistäminen on parempi. Jos tarvitset englantia, globaaleja kieliä ja rakenteellisia pöytäkirjoja yhdessä, Pöytäkirja AI on monipuolisin."
+      },
+      {
+        "q": "Tiimini kasvaa globaalisti. Mikä on turvallisinta?",
+        "a": "Aloita Pöytäkirja AI:lla. Koska se tukee yli 100 kieltä alusta asti, sinun ei tarvitse vaihtaa työkalua kun palkkaat kansainvälisesti."
+      },
+      {
+        "q": "Minulla on jo litterointeja. Miksi tarvitsen tätä?",
+        "a": "Litterointi on raakadataa. **Pöytäkirjat** ovat oivalluksia. Pöytäkirja AI muuttaa 'tekstimuurin' Päätöksiksi ja Määräajoiksi."
+      },
+      {
+        "q": "Voinko käyttää Pöytäkirja AI:ta vain tärkeisiin kokouksiin?",
+        "a": "Ehdottomasti. Aikapakettimallin ansiosta et tarvitse kuukausitilausta. Käytä sitä vain silloin kun sillä on väliä."
+      }
+    ]
+  },
+  "meta": {
+    "h2": "Artikkelin tiedot",
+    "published": "Julkaistu",
+    "type": "Vertailu",
+    "category": "Tuottavuus"
+  },
+  "cta": {
+    "openBrowser": "Kokeile Pöytäkirja AI Webiä",
+    "downloadIOS": "Lataa iOS-sovellus"
+  }
+}
