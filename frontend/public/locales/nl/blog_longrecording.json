@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Beste AI voor lange opnames (2025): Waarom Notulen AI wint van Otter & Notta",
+    "description": "Moe van de 90-minuten limiet op Otter of bestandslimieten op Notta? Ontdek waarom Notulen AI de beste keuze is voor het opnemen van lange vergaderingen en workshops zonder onderbreking.",
+    "ogTitle": "Onbeperkt opnemen: Notulen AI vs Otter vs Notta",
+    "ogDescription": "Laat je AI niet halverwege stoppen. Zie waarom Notulen AI de standaard is voor lange verslagen.",
+    "ld": {
+      "headline": "Beste AI notulist voor lange opnames",
+      "description": "Een diepgaande vergelijking van opnamelimieten: Otter.ai, Notta en Notulen AI."
+    }
+  },
+  "hero": {
+    "kicker": "Lange Opnames",
+    "h1": "De muur van 90 minuten is verleden tijd. Neem onbeperkt op.",
+    "tagline": "De meeste AI-notulisten kappen je af precies wanneer het gesprek diepgang krijgt. Notulen AI is anders gebouwd — ontworpen om urenlange discussies te verwerken zonder één detail te verliezen.",
+    "badges": ["Echt onbeperkte duur", "Geen bestandsgrootte limieten", "Lange-context AI"]
+  },
+  "problem": {
+    "h2": "Het verborgen probleem met Otter & Notta",
+    "p1": "Stel je voor: Je zit in een kritieke strategieworkshop van 3 uur. Plotseling stopt je AI met opnemen omdat je een 'vergaderlimiet' hebt bereikt. Je verliest je focus om opnieuw te starten en breekt de flow.",
+    "p2": "Dit is de realiteit voor gebruikers van veel populaire tools. Ze behandelen lange opnames als uitzonderingen. Wij behandelen ze als de standaard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Harde limiet van 90 minuten per gesprek." },
+      { "title": "Notta (Pro)", "desc": "Vaak beperkt tot ca. 3-5 uur of door bestandsgrootte." }
+    ]
+  },
+  "comparison": {
+    "h2": "Duurlimieten vergeleken",
+    "note": "Gegevens gebaseerd op 'Pro/Standard' betaalde abonnementen eind 2025.",
+    "tableHead": ["Dienst", "Max. Duur (Per sessie)", "Wat gebeurt er bij de limiet?"],
+    "rows": [
+      {
+        "service": "Notulen AI",
+        "duration": "Onbeperkt",
+        "outcome": "Niets. Hij blijft opnemen tot je stopt."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minuten",
+        "outcome": "Opname stopt. Je moet een nieuwe sessie starten."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Ca. 3-5 Uur",
+        "outcome": "Upload mislukt of opname stopt door grootte."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Het gaat niet alleen om 'Opnemen' — het gaat om 'Denken'",
+    "p1": "Technisch gezien kan elke app je 10 uur laten opnemen. Het moeilijke deel is die informatie **verwerken**.",
+    "p2": "De meeste AI-modellen hebben een klein 'contextvenster'. Als je ze een transcript van 4 uur geeft, vergeten ze het eerste uur voordat ze het einde bereiken. Ze gaan hallucineren of geven vage samenvattingen.",
+    "p3": "**Notulen AI is anders.** Onze architectuur is specifiek ontworpen voor het behoud van lange context. We transcriberen niet alleen; we behouden de draad van het argument van minuut 1 tot minuut 240.",
+    "badge": "Lange-context voordeel"
+  },
+  "pricing": {
+    "h2": "Eenvoudige prijzen voor grootgebruikers",
+    "p1": "Of je nu een eenmalige lange opname nodig hebt of een dagelijkse tool, wij hebben een plan.",
+    "trial": { "name": "Proefpakket", "detail": "120 min", "foot": "$1.99 (Verloopt nooit)" },
+    "light": { "name": "Light pakket", "detail": "1200 min", "foot": "$11.99 (Verloopt nooit)" },
+    "monthly": { "name": "Maandelijks", "detail": "Onbeperkt", "foot": "$16.99 / mnd" },
+    "annual": { "name": "Jaarlijks", "detail": "Onbeperkt", "foot": "$149.99 / jr" },
+    "free": { "badge": "Gratis dagticket", "text": "Probeer 3 minuten gratis per dag." },
+    "bullets": [
+      "**Tijdbundels**: Perfect voor eenmalige lange seminars.",
+      "**Abonnementen**: Echt onbeperkt voor professionals.",
+      "**100+ Talen**: Werkt wereldwijd."
+    ],
+    "foot": {
+      "pre": "* Prijzen in {currency}.",
+      "post": "Belastingen kunnen van toepassing zijn bij het afrekenen."
+    }
+  },
+  "cta": { "openBrowser": "Start opname", "downloadIOS": "Download iOS-app" },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Vergelijking", "category": "Functies" }
+}

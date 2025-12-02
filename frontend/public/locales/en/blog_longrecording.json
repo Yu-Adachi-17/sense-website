@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Best AI for Long Recordings (2025): Why Minutes.AI Beats Otter & Notta",
+    "description": "Tired of the 90-minute limit on Otter or file limits on Notta? Discover why Minutes.AI is the best choice for recording long meetings, workshops, and interviews without interruption.",
+    "ogTitle": "Unlimited Recording AI: Minutes.AI vs Otter vs Notta",
+    "ogDescription": "Don't let your AI stop recording halfway through. See why Minutes.AI is the standard for long-form meeting minutes.",
+    "ld": {
+      "headline": "Best AI Note Taker for Long Recordings",
+      "description": "A deep dive into recording limits: Comparing Otter.ai, Notta, and Minutes.AI for long-duration sessions."
+    }
+  },
+  "hero": {
+    "kicker": "Long-Form Recording",
+    "h1": "The 90-Minute Wall is History. Record Without Limits.",
+    "tagline": "Most AI note-takers cut you off just when the conversation gets deep. Minutes.AI is built differently—designed to handle hours of continuous discussion without dropping a single detail.",
+    "badges": ["Truly Unlimited Duration", "No File Size Caps", "Long-Context AI"]
+  },
+  "problem": {
+    "h2": "The hidden problem with Otter & Notta",
+    "p1": "Imagine this: You are in a critical 3-hour strategy workshop. Suddenly, your AI stops recording because you hit a 'per-meeting limit'. You lose focus, scramble to restart, and break the flow.",
+    "p2": "This is the reality for users of many popular tools. They treat long recordings as edge cases. We treat them as standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Hard cap at 90 minutes per conversation." },
+      { "title": "Notta (Pro)", "desc": "Often capped around 3-5 hours or strictly by file size." }
+    ]
+  },
+  "comparison": {
+    "h2": "Duration Limits Compared",
+    "note": "Data based on 'Pro/Standard' paid plans as of late 2025.",
+    "tableHead": ["Service", "Max Duration (Per Session)", "What happens when limit hits?"],
+    "rows": [
+      {
+        "service": "Minutes.AI",
+        "duration": "Unlimited",
+        "outcome": "Nothing. It keeps recording until you stop."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minutes",
+        "outcome": "Recording stops. You must start a new session."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Approx. 3-5 Hours",
+        "outcome": "Upload fails or recording stops due to size limits."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "It’s not just about 'Recording'—it’s about 'Thinking'",
+    "p1": "Technically, any app could let you record for 10 hours. The hard part is **processing** that information.",
+    "p2": "Most AI models have a small 'context window.' If you feed them a 4-hour transcript, they forget the first hour by the time they reach the end. They hallucinate or give vague summaries.",
+    "p3": "**Minutes.AI is different.** Our architecture is specifically designed for long-context retention. We don't just transcribe; we maintain the thread of the argument from minute 1 to minute 240, ensuring your final minutes are coherent.",
+    "badge": "The Long-Context Advantage"
+  },
+  "pricing": {
+    "h2": "Simple Pricing for Heavy Users",
+    "p1": "Whether you need a one-off long recording or a daily workhorse, we have a plan.",
+    "trial": { "name": "Trial Pack", "detail": "120 min", "foot": "$1.99 (No expiry)" },
+    "light": { "name": "Light Pack", "detail": "1200 min", "foot": "$11.99 (No expiry)" },
+    "monthly": { "name": "Monthly", "detail": "Unlimited", "foot": "$16.99 / mo" },
+    "annual": { "name": "Annual", "detail": "Unlimited", "foot": "$149.99 / yr" },
+    "free": { "badge": "Free Daily Ticket", "text": "Try it free for 3 mins every day." },
+    "bullets": [
+      "**Time Packs**: Perfect for one-off long seminars.",
+      "**Subscriptions**: truly unlimited for power users.",
+      "**100+ Languages**: Works globally."
+    ],
+    "foot": {
+      "pre": "* Prices in {currency}.",
+      "post": "Taxes may apply at checkout."
+    }
+  },
+  "cta": { "openBrowser": "Start Recording Now", "downloadIOS": "Download iOS app" },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Comparison", "category": "Features" }
+}

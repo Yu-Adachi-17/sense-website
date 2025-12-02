@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "La mejor IA para grabaciones largas (2025): Por qué Actas IA supera a Otter y Notta",
+    "description": "¿Cansado del límite de 90 minutos en Otter o los límites de archivo en Notta? Descubre por qué Actas IA es la mejor opción para grabar reuniones largas y talleres sin interrupciones.",
+    "ogTitle": "Grabación ilimitada: Actas IA vs Otter vs Notta",
+    "ogDescription": "No dejes que tu IA deje de grabar a mitad de camino. Descubre el nuevo estándar para actas largas.",
+    "ld": {
+      "headline": "El mejor asistente de IA para grabaciones largas",
+      "description": "Una inmersión profunda en los límites de grabación: Comparando Otter.ai, Notta y Actas IA."
+    }
+  },
+  "hero": {
+    "kicker": "Grabación de larga duración",
+    "h1": "El muro de los 90 minutos es historia. Graba sin límites.",
+    "tagline": "La mayoría de las IAs te cortan justo cuando la conversación se pone profunda. Actas IA está diseñada de manera diferente: para manejar horas de discusión continua sin perder un solo detalle.",
+    "badges": ["Duración realmente ilimitada", "Sin límites de tamaño de archivo", "IA de contexto largo"]
+  },
+  "problem": {
+    "h2": "El problema oculto con Otter y Notta",
+    "p1": "Imagina esto: Estás en un taller de estrategia crítico de 3 horas. De repente, tu IA deja de grabar porque alcanzaste un 'límite por reunión'. Pierdes el foco tratando de reiniciar y rompes el flujo.",
+    "p2": "Esta es la realidad para los usuarios de muchas herramientas populares. Tratan las grabaciones largas como casos raros. Nosotros las tratamos como el estándar.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Límite estricto de 90 minutos por conversación." },
+      { "title": "Notta (Pro)", "desc": "A menudo limitado a aprox. 3-5 horas o por tamaño." }
+    ]
+  },
+  "comparison": {
+    "h2": "Límites de duración comparados",
+    "note": "Datos basados en planes de pago 'Pro/Standard' a finales de 2025.",
+    "tableHead": ["Servicio", "Duración máx. (por sesión)", "¿Qué pasa al llegar al límite?"],
+    "rows": [
+      {
+        "service": "Actas IA",
+        "duration": "Ilimitado",
+        "outcome": "Nada. Sigue grabando hasta que tú pares."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minutos",
+        "outcome": "La grabación se detiene. Debes iniciar una nueva sesión."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Aprox. 3-5 horas",
+        "outcome": "La subida falla o se detiene por tamaño."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "No se trata solo de 'Grabar', se trata de 'Pensar'",
+    "p1": "Técnicamente, cualquier app podría dejarte grabar 10 horas. La parte difícil es **procesar** esa información.",
+    "p2": "La mayoría de los modelos de IA tienen una 'ventana de contexto' pequeña. Si les das una transcripción de 4 horas, olvidan la primera hora antes de llegar al final. Alucinan o dan resúmenes vagos.",
+    "p3": "**Actas IA es diferente.** Nuestra arquitectura está diseñada específicamente para retener contextos largos. No solo transcribimos; mantenemos el hilo argumental desde el minuto 1 hasta el 240, asegurando actas coherentes.",
+    "badge": "La ventaja del contexto largo"
+  },
+  "pricing": {
+    "h2": "Precios simples para usuarios intensivos",
+    "p1": "Ya sea para una grabación larga puntual o para uso diario, tenemos un plan.",
+    "trial": { "name": "Pack Prueba", "detail": "120 min", "foot": "$1.99 (No caduca)" },
+    "light": { "name": "Pack Light", "detail": "1200 min", "foot": "$11.99 (No caduca)" },
+    "monthly": { "name": "Mensual", "detail": "Ilimitado", "foot": "$16.99 / mes" },
+    "annual": { "name": "Anual", "detail": "Ilimitado", "foot": "$149.99 / año" },
+    "free": { "badge": "Ticket diario gratis", "text": "Pruébalo gratis 3 minutos cada día." },
+    "bullets": [
+      "**Packs de tiempo**: Perfectos para seminarios largos puntuales.",
+      "**Suscripciones**: Realmente ilimitadas para profesionales.",
+      "**100+ Idiomas**: Funciona globalmente."
+    ],
+    "foot": {
+      "pre": "* Precios en {currency}.",
+      "post": "Pueden aplicarse impuestos al pagar."
+    }
+  },
+  "cta": { "openBrowser": "Empezar a grabar", "downloadIOS": "Descargar app iOS" },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Comparación", "category": "Funciones" }
+}

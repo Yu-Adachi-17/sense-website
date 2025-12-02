@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Cel mai bun AI pentru înregistrări lungi (2025): De ce Proces-verbal AI bate Otter & Notta",
+    "description": "Te-ai săturat de limita de 90 de minute la Otter sau de limitele de fișiere la Notta? Descoperă de ce Proces-verbal AI este cea mai bună alegere pentru înregistrarea ședințelor lungi și a workshop-urilor fără întreruperi.",
+    "ogTitle": "Înregistrare nelimitată: Proces-verbal AI vs Otter vs Notta",
+    "ogDescription": "Nu lăsa AI-ul să se oprească la jumătate. Vezi de ce Proces-verbal AI este standardul pentru procese-verbale lungi.",
+    "ld": {
+      "headline": "Cel mai bun asistent AI pentru înregistrări lungi",
+      "description": "O comparație detaliată a limitelor de înregistrare: Otter.ai, Notta și Proces-verbal AI."
+    }
+  },
+  "hero": {
+    "kicker": "Înregistrare de lungă durată",
+    "h1": "Zidul de 90 de minute e istorie. Înregistrează fără limite.",
+    "tagline": "Majoritatea asistenților AI te întrerup exact când discuția devine profundă. Proces-verbal AI este construit diferit — conceput să gestioneze ore de discuții continue fără a pierde niciun detaliu.",
+    "badges": ["Durată cu adevărat nelimitată", "Fără limite de mărime fișier", "AI cu context lung"]
+  },
+  "problem": {
+    "h2": "Problema ascunsă cu Otter & Notta",
+    "p1": "Imaginează-ți asta: Ești într-un workshop strategic critic de 3 ore. Deodată, AI-ul tău se oprește din înregistrat pentru că ai atins o 'limită de ședință'. Îți pierzi concentrarea pentru a reporni și strici fluxul.",
+    "p2": "Aceasta este realitatea pentru utilizatorii multor instrumente populare. Ei tratează înregistrările lungi ca excepții. Noi le tratăm ca standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Limită strictă de 90 de minute per conversație." },
+      { "title": "Notta (Pro)", "desc": "Adesea limitat la aprox. 3-5 ore sau de mărimea fișierului." }
+    ]
+  },
+  "comparison": {
+    "h2": "Limite de durată comparate",
+    "note": "Date bazate pe planurile plătite 'Pro/Standard' la sfârșitul anului 2025.",
+    "tableHead": ["Serviciu", "Durată Max. (Per sesiune)", "Ce se întâmplă la limită?"],
+    "rows": [
+      {
+        "service": "Proces-verbal AI",
+        "duration": "Nelimitat",
+        "outcome": "Nimic. Continuă să înregistreze până când te oprești."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minute",
+        "outcome": "Înregistrarea se oprește. Trebuie să începi o sesiune nouă."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Aprox. 3-5 Ore",
+        "outcome": "Încărcarea eșuează sau înregistrarea se oprește din cauza mărimii."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Nu e vorba doar de 'Înregistrare' — e vorba de 'Gândire'",
+    "p1": "Tehnic, orice aplicație te-ar putea lăsa să înregistrezi 10 ore. Partea grea este **procesarea** acelei informații.",
+    "p2": "Majoritatea modelelor AI au o 'fereastră de context' mică. Dacă le dai un transcript de 4 ore, uită prima oră înainte să ajungă la final. Încep să halucineze sau oferă rezumate vagi.",
+    "p3": "**Proces-verbal AI este diferit.** Arhitectura noastră este concepută special pentru reținerea contextului lung. Nu doar transcriem; menținem firul argumentării de la minutul 1 până la minutul 240.",
+    "badge": "Avantajul contextului lung"
+  },
+  "pricing": {
+    "h2": "Prețuri simple pentru utilizatori intensivi",
+    "p1": "Fie că ai nevoie de o înregistrare lungă unică sau de un instrument zilnic, avem un plan.",
+    "trial": { "name": "Pachet Trial", "detail": "120 min", "foot": "$1.99 (Nu expiră)" },
+    "light": { "name": "Pachet Light", "detail": "1200 min", "foot": "$11.99 (Nu expiră)" },
+    "monthly": { "name": "Lunar", "detail": "Nelimitat", "foot": "$16.99 / lună" },
+    "annual": { "name": "Anual", "detail": "Nelimitat", "foot": "$149.99 / an" },
+    "free": { "badge": "Bilet zilnic gratuit", "text": "Încearcă gratuit 3 minute în fiecare zi." },
+    "bullets": [
+      "**Pachete de timp**: Perfect pentru seminarii lungi unice.",
+      "**Abonamente**: Cu adevărat nelimitat pentru profesioniști.",
+      "**100+ Limbi**: Funcționează global."
+    ],
+    "foot": {
+      "pre": "* Prețuri în {currency}.",
+      "post": "Se pot aplica taxe la finalizarea comenzii."
+    }
+  },
+  "cta": { "openBrowser": "Începe înregistrarea", "downloadIOS": "Descarcă aplicația iOS" },
+  "meta": { "h2": "Meta", "published": "Publicat", "type": "Comparație", "category": "Funcționalități" }
+}

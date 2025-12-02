@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Beste KI für lange Aufnahmen (2025): Warum Protokoll KI Otter & Notta schlägt",
+    "description": "Genervt vom 90-Minuten-Limit bei Otter oder Dateigrenzen bei Notta? Entdecken Sie, warum Protokoll KI die beste Wahl für lange Meetings und Workshops ohne Unterbrechung ist.",
+    "ogTitle": "Unbegrenzte Aufnahme: Protokoll KI vs. Otter vs. Notta",
+    "ogDescription": "Lassen Sie Ihre KI nicht auf halbem Weg stoppen. Sehen Sie, warum Protokoll KI der Standard für lange Meeting-Protokolle ist.",
+    "ld": {
+      "headline": "Bester KI-Notiznehmer für lange Aufnahmen",
+      "description": "Ein detaillierter Vergleich der Aufnahmelimits: Otter.ai, Notta und Protokoll KI."
+    }
+  },
+  "hero": {
+    "kicker": "Langzeitaufnahme",
+    "h1": "Die 90-Minuten-Mauer ist Geschichte. Nehmen Sie unbegrenzt auf.",
+    "tagline": "Die meisten KI-Notiz-Tools unterbrechen Sie genau dann, wenn das Gespräch tiefgründig wird. Protokoll KI ist anders gebaut – entwickelt, um stundenlange Diskussionen zu verarbeiten, ohne ein einziges Detail zu verlieren.",
+    "badges": ["Echt unbegrenzte Dauer", "Keine Dateigrößen-Limits", "Langzeit-Kontext-KI"]
+  },
+  "problem": {
+    "h2": "Das versteckte Problem bei Otter & Notta",
+    "p1": "Stellen Sie sich vor: Sie sind in einem kritischen 3-Stunden-Strategieworkshop. Plötzlich stoppt Ihre KI die Aufnahme, weil Sie ein 'Meeting-Limit' erreicht haben. Sie verlieren den Fokus und müssen neu starten.",
+    "p2": "Das ist die Realität für Nutzer vieler beliebter Tools. Sie behandeln lange Aufnahmen als Randfälle. Wir behandeln sie als Standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Hartes Limit von 90 Minuten pro Gespräch." },
+      { "title": "Notta (Pro)", "desc": "Oft begrenzt auf ca. 3-5 Stunden oder durch Dateigröße." }
+    ]
+  },
+  "comparison": {
+    "h2": "Dauer-Limits im Vergleich",
+    "note": "Daten basieren auf 'Pro/Standard' Bezahlplänen, Stand Ende 2025.",
+    "tableHead": ["Dienst", "Max. Dauer (pro Sitzung)", "Was passiert beim Limit?"],
+    "rows": [
+      {
+        "service": "Protokoll KI",
+        "duration": "Unbegrenzt",
+        "outcome": "Nichts. Es nimmt weiter auf, bis Sie stoppen."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minuten",
+        "outcome": "Aufnahme stoppt. Sie müssen eine neue Sitzung starten."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Ca. 3-5 Stunden",
+        "outcome": "Upload schlägt fehl oder Aufnahme stoppt wegen Größe."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Es geht nicht nur ums 'Aufnehmen' – es geht ums 'Mitdenken'",
+    "p1": "Technisch gesehen könnte jede App Sie 10 Stunden lang aufnehmen lassen. Der schwierige Teil ist die **Verarbeitung** dieser Informationen.",
+    "p2": "Die meisten KI-Modelle haben ein kleines 'Kontextfenster'. Wenn Sie ihnen ein 4-Stunden-Transkript geben, vergessen sie die erste Stunde, bevor sie das Ende erreichen. Sie halluzinieren oder geben vage Zusammenfassungen.",
+    "p3": "**Protokoll KI ist anders.** Unsere Architektur ist speziell für den Erhalt langer Kontexte ausgelegt. Wir transkribieren nicht nur; wir behalten den roten Faden von Minute 1 bis Minute 240 bei, damit Ihr Protokoll kohärent ist.",
+    "badge": "Der Langzeit-Kontext-Vorteil"
+  },
+  "pricing": {
+    "h2": "Einfache Preise für Power-User",
+    "p1": "Egal ob Sie eine einmalige lange Aufnahme brauchen oder ein tägliches Arbeitstier – wir haben den Plan.",
+    "trial": { "name": "Trial Paket", "detail": "120 min", "foot": "$1.99 (Verfällt nie)" },
+    "light": { "name": "Light Paket", "detail": "1200 min", "foot": "$11.99 (Verfällt nie)" },
+    "monthly": { "name": "Monatlich", "detail": "Unbegrenzt", "foot": "$16.99 / Monat" },
+    "annual": { "name": "Jährlich", "detail": "Unbegrenzt", "foot": "$149.99 / Jahr" },
+    "free": { "badge": "Gratis Tagesticket", "text": "Testen Sie es täglich 3 Minuten kostenlos." },
+    "bullets": [
+      "**Zeit-Pakete**: Perfekt für einmalige lange Seminare.",
+      "**Abos**: Wirklich unbegrenzt für Vielnutzer.",
+      "**100+ Sprachen**: Funktioniert weltweit."
+    ],
+    "foot": {
+      "pre": "* Preise in {currency}.",
+      "post": "Steuern können an der Kasse anfallen."
+    }
+  },
+  "cta": { "openBrowser": "Jetzt aufnehmen", "downloadIOS": "iOS-App laden" },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Vergleich", "category": "Features" }
+}

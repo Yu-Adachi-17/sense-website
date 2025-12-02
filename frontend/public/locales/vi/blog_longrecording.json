@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "AI tốt nhất cho Ghi âm dài (2025): Tại sao Biên bản AI đánh bại Otter & Notta",
+    "description": "Mệt mỏi với giới hạn 90 phút trên Otter hoặc giới hạn tệp trên Notta? Khám phá lý do tại sao Biên bản AI là lựa chọn tốt nhất để ghi âm các cuộc họp dài và hội thảo mà không bị gián đoạn.",
+    "ogTitle": "Ghi âm không giới hạn: Biên bản AI so với Otter & Notta",
+    "ogDescription": "Đừng để AI của bạn ngừng ghi âm giữa chừng. Xem tại sao Biên bản AI là tiêu chuẩn cho biên bản họp dài.",
+    "ld": {
+      "headline": "Trợ lý ghi chú AI tốt nhất cho ghi âm dài",
+      "description": "So sánh chuyên sâu về giới hạn ghi âm: Otter.ai, Notta và Biên bản AI."
+    }
+  },
+  "hero": {
+    "kicker": "Ghi âm thời lượng dài",
+    "h1": "Bức tường 90 phút đã là lịch sử. Ghi âm không giới hạn.",
+    "tagline": "Hầu hết các trợ lý ghi chú AI đều ngắt lời bạn ngay khi cuộc trò chuyện trở nên sâu sắc. Biên bản AI được xây dựng khác biệt—được thiết kế để xử lý hàng giờ thảo luận liên tục mà không bỏ sót một chi tiết nào.",
+    "badges": ["Thời lượng thực sự không giới hạn", "Không giới hạn kích thước tệp", "AI ngữ cảnh dài"]
+  },
+  "problem": {
+    "h2": "Vấn đề ẩn giấu với Otter & Notta",
+    "p1": "Hãy tưởng tượng: Bạn đang trong một hội thảo chiến lược quan trọng kéo dài 3 giờ. Đột nhiên, AI của bạn ngừng ghi âm vì bạn đã đạt đến 'giới hạn cuộc họp'. Bạn mất tập trung để khởi động lại và làm gián đoạn dòng chảy.",
+    "p2": "Đây là thực tế đối với người dùng của nhiều công cụ phổ biến. Họ coi các bản ghi âm dài là trường hợp ngoại lệ. Chúng tôi coi đó là tiêu chuẩn.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Giới hạn cứng 90 phút mỗi cuộc trò chuyện." },
+      { "title": "Notta (Pro)", "desc": "Thường bị giới hạn khoảng 3-5 giờ hoặc theo kích thước tệp." }
+    ]
+  },
+  "comparison": {
+    "h2": "So sánh giới hạn thời lượng",
+    "note": "Dữ liệu dựa trên các gói trả phí 'Pro/Standard' vào cuối năm 2025.",
+    "tableHead": ["Dịch vụ", "Thời lượng tối đa (Mỗi phiên)", "Điều gì xảy ra khi đạt giới hạn?"],
+    "rows": [
+      {
+        "service": "Biên bản AI",
+        "duration": "Không giới hạn",
+        "outcome": "Không có gì. Nó tiếp tục ghi âm cho đến khi bạn dừng lại."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Phút",
+        "outcome": "Ghi âm dừng lại. Bạn phải bắt đầu một phiên mới."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Khoảng 3-5 Giờ",
+        "outcome": "Tải lên thất bại hoặc ghi âm dừng lại do kích thước."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Không chỉ là 'Ghi âm' — mà là 'Tư duy'",
+    "p1": "Về mặt kỹ thuật, bất kỳ ứng dụng nào cũng có thể cho phép bạn ghi âm 10 giờ. Phần khó là **xử lý** thông tin đó.",
+    "p2": "Hầu hết các mô hình AI có 'cửa sổ ngữ cảnh' nhỏ. Nếu bạn đưa cho chúng một bản ghi dài 4 giờ, chúng sẽ quên giờ đầu tiên trước khi đến cuối. Chúng bắt đầu ảo giác hoặc đưa ra tóm tắt mơ hồ.",
+    "p3": "**Biên bản AI thì khác.** Kiến trúc của chúng tôi được thiết kế đặc biệt để lưu giữ ngữ cảnh dài. Chúng tôi không chỉ chép lại; chúng tôi duy trì mạch tranh luận từ phút thứ 1 đến phút 240.",
+    "badge": "Lợi thế Ngữ cảnh Dài"
+  },
+  "pricing": {
+    "h2": "Giá đơn giản cho người dùng tần suất cao",
+    "p1": "Dù bạn cần một bản ghi dài một lần hay một công cụ làm việc hàng ngày, chúng tôi đều có gói phù hợp.",
+    "trial": { "name": "Gói Dùng thử", "detail": "120 phút", "foot": "$1.99 (Không hết hạn)" },
+    "light": { "name": "Gói Light", "detail": "1200 phút", "foot": "$11.99 (Không hết hạn)" },
+    "monthly": { "name": "Hàng tháng", "detail": "Không giới hạn", "foot": "$16.99 / tháng" },
+    "annual": { "name": "Hàng năm", "detail": "Không giới hạn", "foot": "$149.99 / năm" },
+    "free": { "badge": "Vé miễn phí hàng ngày", "text": "Dùng thử miễn phí 3 phút mỗi ngày." },
+    "bullets": [
+      "**Gói Thời gian**: Hoàn hảo cho các hội thảo dài một lần.",
+      "**Đăng ký**: Thực sự không giới hạn cho chuyên gia.",
+      "**100+ Ngôn ngữ**: Hoạt động trên toàn cầu."
+    ],
+    "foot": {
+      "pre": "* Giá tính bằng {currency}.",
+      "post": "Thuế có thể được áp dụng khi thanh toán."
+    }
+  },
+  "cta": { "openBrowser": "Bắt đầu Ghi âm", "downloadIOS": "Tải ứng dụng iOS" },
+  "meta": { "h2": "Thông tin", "published": "Đã xuất bản", "type": "So sánh", "category": "Tính năng" }
+}

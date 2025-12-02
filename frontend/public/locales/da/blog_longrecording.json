@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Bedste AI til lange optagelser (2025): Hvorfor Referat AI slår Otter & Notta",
+    "description": "Træt af grænsen på 90 minutter hos Otter eller filbegrænsninger hos Notta? Se hvorfor Referat AI er det bedste valg til lange møder og workshops uden afbrydelser.",
+    "ogTitle": "Ubegrænset optagelse: Referat AI vs Otter vs Notta",
+    "ogDescription": "Lad ikke din AI stoppe halvvejs. Se hvorfor Referat AI er standarden for lange mødereferater.",
+    "ld": {
+      "headline": "Bedste AI-notetager til lange optagelser",
+      "description": "En dybdegående sammenligning af optagelsesgrænser: Otter.ai, Notta og Referat AI."
+    }
+  },
+  "hero": {
+    "kicker": "Langtidsoptagelse",
+    "h1": "Muren på 90 minutter er historie. Optag uden grænser.",
+    "tagline": "De fleste AI-notetagere afbryder dig, lige når samtalen bliver dyb. Referat AI er bygget anderledes – designet til at håndtere timevis af kontinuerlig diskussion uden at miste en eneste detalje.",
+    "badges": ["Virkelig ubegrænset varighed", "Ingen filstørrelseslofter", "Lang-kontekst AI"]
+  },
+  "problem": {
+    "h2": "Det skjulte problem med Otter & Notta",
+    "p1": "Forestil dig dette: Du sidder i en kritisk 3-timers strategiworkshop. Pludselig stopper din AI med at optage, fordi du har ramt en 'mødegrænse'. Du mister fokus og skal skynde dig at genstarte.",
+    "p2": "Dette er virkeligheden for brugere af mange populære værktøjer. De behandler lange optagelser som særtilfælde. Vi behandler dem som standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Hård grænse på 90 minutter pr. samtale." },
+      { "title": "Notta (Pro)", "desc": "Ofte begrænset omkring 3-5 timer eller af filstørrelse." }
+    ]
+  },
+  "comparison": {
+    "h2": "Varighedsgrænser sammenlignet",
+    "note": "Data baseret på 'Pro/Standard' betalte planer pr. slutningen af 2025.",
+    "tableHead": ["Tjeneste", "Maks. varighed (pr. session)", "Hvad sker der ved grænsen?"],
+    "rows": [
+      {
+        "service": "Referat AI",
+        "duration": "Ubegrænset",
+        "outcome": "Intet. Den bliver ved med at optage, indtil du stopper."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minutter",
+        "outcome": "Optagelsen stopper. Du skal starte en ny session."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Ca. 3-5 timer",
+        "outcome": "Upload mislykkes, eller optagelsen stopper pga. størrelse."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Det handler ikke kun om at 'optage' – det handler om at 'tænke'",
+    "p1": "Teknisk set kunne enhver app lade dig optage i 10 timer. Den svære del er at **behandle** den information.",
+    "p2": "De fleste AI-modeller har et lille 'kontekstvindue'. Hvis du giver dem et 4-timers transskript, glemmer de den første time, når de når slutningen. De begynder at hallucinere eller give vage resuméer.",
+    "p3": "**Referat AI er anderledes.** Vores arkitektur er specifikt designet til at fastholde lang kontekst. Vi transskriberer ikke bare; vi fastholder argumentationen fra minut 1 til minut 240, så dit endelige referat er sammenhængende.",
+    "badge": "Lang-kontekst fordelen"
+  },
+  "pricing": {
+    "h2": "Enkel prissætning for storforbrugere",
+    "p1": "Uanset om du har brug for en enkelt lang optagelse eller et dagligt arbejdsredskab, har vi en plan.",
+    "trial": { "name": "Trial Pakke", "detail": "120 min", "foot": "$1.99 (Udløber aldrig)" },
+    "light": { "name": "Light Pakke", "detail": "1200 min", "foot": "$11.99 (Udløber aldrig)" },
+    "monthly": { "name": "Månedlig", "detail": "Ubegrænset", "foot": "$16.99 / md" },
+    "annual": { "name": "Årlig", "detail": "Ubegrænset", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis dagsbillet", "text": "Prøv gratis i 3 minutter hver dag." },
+    "bullets": [
+      "**Tidspakker**: Perfekt til enkelte lange seminarer.",
+      "**Abonnementer**: Virkelig ubegrænset for superbrugere.",
+      "**100+ sprog**: Fungerer globalt."
+    ],
+    "foot": {
+      "pre": "* Priser i {currency}.",
+      "post": "Moms kan pålægges ved kassen."
+    }
+  },
+  "cta": { "openBrowser": "Start optagelse nu", "downloadIOS": "Hent iOS-app" },
+  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Sammenligning", "category": "Funktioner" }
+}

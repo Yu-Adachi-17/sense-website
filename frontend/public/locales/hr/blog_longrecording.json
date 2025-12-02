@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Najbolji AI za duga snimanja (2025): Zašto AI Zapisnik pobjeđuje Otter i Nottu",
+    "description": "Umorni ste od limita od 90 minuta na Otteru ili ograničenja datoteka na Notti? Otkrijte zašto je AI Zapisnik najbolji izbor za snimanje dugih sastanaka i radionica bez prekida.",
+    "ogTitle": "Neograničeno snimanje: AI Zapisnik vs Otter vs Notta",
+    "ogDescription": "Ne dopustite da vaš AI prestane snimati na pola puta. Pogledajte zašto je AI Zapisnik standard za duge zapisnike.",
+    "ld": {
+      "headline": "Najbolji AI bilježnik za duga snimanja",
+      "description": "Dubinska usporedba ograničenja snimanja: Otter.ai, Notta i AI Zapisnik."
+    }
+  },
+  "hero": {
+    "kicker": "Snimanje dugog formata",
+    "h1": "Zid od 90 minuta je povijest. Snimajte bez ograničenja.",
+    "tagline": "Većina AI bilježnika vas prekine baš kada razgovor postane dubok. AI Zapisnik je građen drugačije — dizajniran da podnese sate kontinuirane rasprave bez gubitka ijednog detalja.",
+    "badges": ["Istinski neograničeno trajanje", "Nema ograničenja veličine datoteke", "AI dugog konteksta"]
+  },
+  "problem": {
+    "h2": "Skriveni problem s Otterom i Nottom",
+    "p1": "Zamislite ovo: Nalazite se na kritičnoj 3-satnoj strateškoj radionici. Odjednom, vaš AI prestaje snimati jer ste pogodili 'limit sastanka'. Gubite fokus i morate ponovno pokretati.",
+    "p2": "Ovo je stvarnost za korisnike mnogih popularnih alata. Oni tretiraju duga snimanja kao rubne slučajeve. Mi ih tretiramo kao standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Čvrsto ograničenje od 90 minuta po razgovoru." },
+      { "title": "Notta (Pro)", "desc": "Često ograničeno na oko 3-5 sati ili veličinom datoteke." }
+    ]
+  },
+  "comparison": {
+    "h2": "Usporedba limita trajanja",
+    "note": "Podaci temeljeni na 'Pro/Standard' plaćenim planovima krajem 2025.",
+    "tableHead": ["Usluga", "Maks. trajanje (po sesiji)", "Što se događa na limitu?"],
+    "rows": [
+      {
+        "service": "AI Zapisnik",
+        "duration": "Neograničeno",
+        "outcome": "Ništa. Nastavlja snimati dok ne stanete."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minuta",
+        "outcome": "Snimanje prestaje. Morate započeti novu sesiju."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Cca 3-5 sati",
+        "outcome": "Prijenos ne uspijeva ili snimanje staje zbog veličine."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Nije samo stvar 'Snimanja' — stvar je 'Razmišljanja'",
+    "p1": "Tehnički, bilo koja aplikacija bi vam mogla dopustiti snimanje 10 sati. Teži dio je **obrada** tih informacija.",
+    "p2": "Većina AI modela ima mali 'prozor konteksta'. Ako im date transkript od 4 sata, zaborave prvi sat prije nego dođu do kraja. Počinju halucinirati ili daju nejasne sažetke.",
+    "p3": "**AI Zapisnik je drugačiji.** Naša arhitektura je posebno dizajnirana za zadržavanje dugog konteksta. Ne samo da transkribiramo; zadržavamo nit argumentacije od 1. do 240. minute.",
+    "badge": "Prednost dugog konteksta"
+  },
+  "pricing": {
+    "h2": "Jednostavne cijene za zahtjevne korisnike",
+    "p1": "Bilo da trebate jednokratno dugo snimanje ili svakodnevni alat, imamo plan.",
+    "trial": { "name": "Trial Paket", "detail": "120 min", "foot": "$1.99 (Ne istječe)" },
+    "light": { "name": "Light Paket", "detail": "1200 min", "foot": "$11.99 (Ne istječe)" },
+    "monthly": { "name": "Mjesečno", "detail": "Neograničeno", "foot": "$16.99 / mj" },
+    "annual": { "name": "Godišnje", "detail": "Neograničeno", "foot": "$149.99 / god" },
+    "free": { "badge": "Besplatna dnevna karta", "text": "Isprobajte besplatno 3 minute svaki dan." },
+    "bullets": [
+      "**Vremenski paketi**: Savršeno za jednokratne duge seminare.",
+      "**Pretplate**: Istinski neograničeno za profesionalce.",
+      "**100+ Jezika**: Radi globalno."
+    ],
+    "foot": {
+      "pre": "* Cijene u {currency}.",
+      "post": "Porezi se mogu primijeniti na blagajni."
+    }
+  },
+  "cta": { "openBrowser": "Započni snimanje", "downloadIOS": "Preuzmi iOS aplikaciju" },
+  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Usporedba", "category": "Značajke" }
+}

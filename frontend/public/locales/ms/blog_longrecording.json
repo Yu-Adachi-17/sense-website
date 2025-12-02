@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "AI Terbaik untuk Rakaman Panjang (2025): Mengapa Minit AI Mengalahkan Otter & Notta",
+    "description": "Bosan dengan had 90 minit di Otter atau had fail di Notta? Temui sebab mengapa Minit AI ialah pilihan terbaik untuk merakam mesyuarat panjang dan bengkel tanpa gangguan.",
+    "ogTitle": "Rakaman Tanpa Had: Minit AI vs Otter vs Notta",
+    "ogDescription": "Jangan biarkan AI anda berhenti merakam di tengah jalan. Lihat mengapa Minit AI menjadi standard untuk minit mesyuarat panjang.",
+    "ld": {
+      "headline": "Pencatat Nota AI Terbaik untuk Rakaman Panjang",
+      "description": "Ulasan mendalam tentang had rakaman: Perbandingan Otter.ai, Notta, dan Minit AI."
+    }
+  },
+  "hero": {
+    "kicker": "Rakaman Bentuk Panjang",
+    "h1": "Tembok 90 Minit Sudah Berlalu. Rakam Tanpa Had.",
+    "tagline": "Kebanyakan pencatat nota AI memotong anda tepat apabila perbualan menjadi mendalam. Minit AI dibina secara berbeza—direka untuk mengendalikan perbincangan berjam-jam tanpa kehilangan satu butiran pun.",
+    "badges": ["Tempoh Benar-benar Tanpa Had", "Tiada Had Saiz Fail", "AI Konteks Panjang"]
+  },
+  "problem": {
+    "h2": "Masalah tersembunyi dengan Otter & Notta",
+    "p1": "Bayangkan ini: Anda berada dalam bengkel strategi kritikal selama 3 jam. Tiba-tiba, AI anda berhenti merakam kerana anda mencapai 'had mesyuarat'. Anda hilang fokus untuk memulakan semula, dan memecahkan aliran.",
+    "p2": "Ini adalah realiti bagi pengguna banyak alat popular. Mereka menganggap rakaman panjang sebagai kes terpencil. Kami menganggapnya sebagai standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Had ketat 90 minit setiap perbualan." },
+      { "title": "Notta (Pro)", "desc": "Sering dihadkan sekitar 3-5 jam atau mengikut saiz fail." }
+    ]
+  },
+  "comparison": {
+    "h2": "Perbandingan Had Tempoh",
+    "note": "Data berdasarkan pelan berbayar 'Pro/Standard' pada akhir 2025.",
+    "tableHead": ["Perkhidmatan", "Tempoh Maks (Setiap Sesi)", "Apa berlaku apabila had dicapai?"],
+    "rows": [
+      {
+        "service": "Minit AI",
+        "duration": "Tanpa Had",
+        "outcome": "Tiada apa-apa. Ia terus merakam sehingga anda berhenti."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minit",
+        "outcome": "Rakaman berhenti. Anda mesti memulakan sesi baharu."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Kira-kira 3-5 Jam",
+        "outcome": "Muat naik gagal atau rakaman berhenti kerana saiz."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Bukan sekadar 'Merakam' — ini tentang 'Berfikir'",
+    "p1": "Secara teknikal, mana-mana aplikasi boleh membenarkan anda merakam 10 jam. Bahagian yang sukar ialah **memproses** maklumat tersebut.",
+    "p2": "Kebanyakan model AI mempunyai 'tingkap konteks' yang kecil. Jika anda memberi mereka transkrip 4 jam, mereka melupakan jam pertama sebelum sampai ke penghujung. Mereka mula berhalusinasi atau memberikan ringkasan yang kabur.",
+    "p3": "**Minit AI berbeza.** Seni bina kami direka khusus untuk pengekalan konteks panjang. Kami bukan sekadar menyalin; kami mengekalkan benang hujah dari minit 1 hingga minit 240.",
+    "badge": "Kelebihan Konteks Panjang"
+  },
+  "pricing": {
+    "h2": "Harga Mudah untuk Pengguna Tegar",
+    "p1": "Sama ada anda memerlukan rakaman panjang sekali sahaja atau alat kerja harian, kami ada pelannya.",
+    "trial": { "name": "Pek Percubaan", "detail": "120 min", "foot": "$1.99 (Tidak luput)" },
+    "light": { "name": "Pek Light", "detail": "1200 min", "foot": "$11.99 (Tidak luput)" },
+    "monthly": { "name": "Bulanan", "detail": "Tanpa Had", "foot": "$16.99 / bln" },
+    "annual": { "name": "Tahunan", "detail": "Tanpa Had", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket Harian Percuma", "text": "Cuba percuma selama 3 minit setiap hari." },
+    "bullets": [
+      "**Pek Masa**: Sesuai untuk seminar panjang sekali sahaja.",
+      "**Langganan**: Benar-benar tanpa had untuk profesional.",
+      "**100+ Bahasa**: Berfungsi secara global."
+    ],
+    "foot": {
+      "pre": "* Harga dalam {currency}.",
+      "post": "Cukai mungkin dikenakan semasa pembayaran."
+    }
+  },
+  "cta": { "openBrowser": "Mula Merakam", "downloadIOS": "Muat turun aplikasi iOS" },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Perbandingan", "category": "Ciri" }
+}

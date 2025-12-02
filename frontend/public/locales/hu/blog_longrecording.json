@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "A legjobb AI hosszú felvételekhez (2025): Miért veri a Jegyzőkönyv AI az Ottert és a Nottát",
+    "description": "Eleged van az Otter 90 perces korlátjából vagy a Notta fájlméret-korlátjaiból? Tudd meg, miért a Jegyzőkönyv AI a legjobb választás hosszú megbeszélések és workshopok megszakítás nélküli rögzítésére.",
+    "ogTitle": "Korlátlan felvétel: Jegyzőkönyv AI vs Otter vs Notta",
+    "ogDescription": "Ne hagyd, hogy az AI félúton leálljon. Nézd meg, miért a Jegyzőkönyv AI a szabvány a hosszú jegyzőkönyvekhez.",
+    "ld": {
+      "headline": "A legjobb AI jegyzetelő hosszú felvételekhez",
+      "description": "A felvételi korlátok mélyreható összehasonlítása: Otter.ai, Notta és Jegyzőkönyv AI."
+    }
+  },
+  "hero": {
+    "kicker": "Hosszú formátumú felvétel",
+    "h1": "A 90 perces fal már a múlté. Rögzíts korlátok nélkül.",
+    "tagline": "A legtöbb AI jegyzetelő pont akkor vág el, amikor a beszélgetés elmélyül. A Jegyzőkönyv AI másképp épül fel — úgy tervezték, hogy órákig tartó folyamatos vitát kezeljen anélkül, hogy egyetlen részletet is elveszítene.",
+    "badges": ["Valóban korlátlan időtartam", "Nincs fájlméret-korlát", "Hosszú kontextusú AI"]
+  },
+  "problem": {
+    "h2": "A rejtett probléma az Otterrel és a Nottával",
+    "p1": "Képzeld el: Egy kritikus, 3 órás stratégiai workshopon vagy. Hirtelen az AI leállítja a felvételt, mert elérted a 'megbeszélés limitet'. Elveszíted a fókuszt, hogy újraindítsd, és megtöröd a folyamatot.",
+    "p2": "Ez a valóság sok népszerű eszköz felhasználója számára. Ők a hosszú felvételeket kivételes esetként kezelik. Mi alapértelmezettként.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Szigorú 90 perces korlát beszélgetésenként." },
+      { "title": "Notta (Pro)", "desc": "Gyakran kb. 3-5 órára vagy fájlméretre korlátozva." }
+    ]
+  },
+  "comparison": {
+    "h2": "Időtartam-korlátok összehasonlítása",
+    "note": "Az adatok a 2025 végi 'Pro/Standard' fizetős csomagokon alapulnak.",
+    "tableHead": ["Szolgáltatás", "Max. időtartam (ülésenként)", "Mi történik a limitnél?"],
+    "rows": [
+      {
+        "service": "Jegyzőkönyv AI",
+        "duration": "Korlátlan",
+        "outcome": "Semmi. Tovább rögzít, amíg le nem állítod."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 perc",
+        "outcome": "A felvétel leáll. Új ülést kell indítanod."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Kb. 3-5 óra",
+        "outcome": "A feltöltés sikertelen vagy a felvétel leáll méret miatt."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Ez nem csak 'Felvétel' — ez 'Gondolkodás'",
+    "p1": "Technikailag bármelyik alkalmazás engedhetné, hogy 10 órát rögzíts. A nehéz rész az információ **feldolgozása**.",
+    "p2": "A legtöbb AI modellnek kicsi a 'kontextus ablaka'. Ha egy 4 órás átiratot adsz nekik, elfelejtik az első órát, mire a végére érnek. Hallucinálni kezdenek vagy homályos összefoglalókat adnak.",
+    "p3": "**A Jegyzőkönyv AI más.** Architektúránkat kifejezetten a hosszú kontextus megőrzésére terveztük. Nem csak átírunk; fenntartjuk az érvelés fonalát az 1. perctől a 240. percig.",
+    "badge": "Hosszú kontextus előnye"
+  },
+  "pricing": {
+    "h2": "Egyszerű árazás nagyfelhasználóknak",
+    "p1": "Akár egyszeri hosszú felvételre, akár napi munkaeszközre van szükséged, van tervünk.",
+    "trial": { "name": "Próba csomag", "detail": "120 perc", "foot": "$1.99 (Sosem jár le)" },
+    "light": { "name": "Light csomag", "detail": "1200 perc", "foot": "$11.99 (Sosem jár le)" },
+    "monthly": { "name": "Havi", "detail": "Korlátlan", "foot": "$16.99 / hó" },
+    "annual": { "name": "Éves", "detail": "Korlátlan", "foot": "$149.99 / év" },
+    "free": { "badge": "Ingyenes napijegy", "text": "Próbáld ki ingyen 3 percig minden nap." },
+    "bullets": [
+      "**Időcsomagok**: Tökéletes egyszeri hosszú szemináriumokhoz.",
+      "**Előfizetések**: Valóban korlátlan a profiknak.",
+      "**100+ nyelv**: Globálisan működik."
+    ],
+    "foot": {
+      "pre": "* Árak {currency}-ben.",
+      "post": "Adók kerülhetnek felszámításra fizetéskor."
+    }
+  },
+  "cta": { "openBrowser": "Felvétel indítása", "downloadIOS": "iOS app letöltése" },
+  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Összehasonlítás", "category": "Funkciók" }
+}

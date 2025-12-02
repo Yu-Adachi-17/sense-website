@@ -35,6 +35,7 @@ module.exports = {
     'blog_freeplan',
     'blog_comparison',
     'blog_summary',
+    'blog_longrecording',
   ],
   defaultNS: 'common',
 

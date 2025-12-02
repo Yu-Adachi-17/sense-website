@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Najlepsze AI do długich nagrań (2025): Dlaczego Protokół AI pokonuje Otter i Notta",
+    "description": "Masz dość limitu 90 minut w Otter lub limitów plików w Notta? Sprawdź, dlaczego Protokół AI to najlepszy wybór do nagrywania długich spotkań i warsztatów bez przerw.",
+    "ogTitle": "Nagrywanie bez limitu: Protokół AI vs Otter vs Notta",
+    "ogDescription": "Nie pozwól, aby AI przerwało nagrywanie w połowie. Zobacz, dlaczego Protokół AI to standard dla długich protokołów.",
+    "ld": {
+      "headline": "Najlepszy asystent AI do długich nagrań",
+      "description": "Dogłębne porównanie limitów nagrywania: Otter.ai, Notta i Protokół AI."
+    }
+  },
+  "hero": {
+    "kicker": "Nagrywanie długoterminowe",
+    "h1": "Mur 90 minut to przeszłość. Nagrywaj bez limitów.",
+    "tagline": "Większość asystentów AI przerywa Ci dokładnie wtedy, gdy rozmowa staje się głęboka. Protokół AI jest zbudowany inaczej — zaprojektowany, aby obsłużyć godziny ciągłej dyskusji bez utraty ani jednego szczegółu.",
+    "badges": ["Prawdziwie nieograniczony czas", "Brak limitów rozmiaru pliku", "AI o długim kontekście"]
+  },
+  "problem": {
+    "h2": "Ukryty problem z Otter i Notta",
+    "p1": "Wyobraź sobie: Jesteś na kluczowym, 3-godzinnym warsztacie strategicznym. Nagle Twoje AI przestaje nagrywać, ponieważ osiągnąłeś 'limit spotkania'. Tracisz skupienie na restart i przerywasz flow.",
+    "p2": "To rzeczywistość użytkowników wielu popularnych narzędzi. Traktują oni długie nagrania jako przypadki brzegowe. My traktujemy je jako standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Sztywny limit 90 minut na rozmowę." },
+      { "title": "Notta (Pro)", "desc": "Często ograniczone do ok. 3-5 godzin lub rozmiarem pliku." }
+    ]
+  },
+  "comparison": {
+    "h2": "Porównanie limitów czasu",
+    "note": "Dane oparte na płatnych planach 'Pro/Standard' na koniec 2025 roku.",
+    "tableHead": ["Usługa", "Maks. czas (na sesję)", "Co się dzieje po osiągnięciu limitu?"],
+    "rows": [
+      {
+        "service": "Protokół AI",
+        "duration": "Bez limitu",
+        "outcome": "Nic. Nagrywa dalej, dopóki nie zatrzymasz."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minut",
+        "outcome": "Nagrywanie zatrzymuje się. Musisz zacząć nową sesję."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Ok. 3-5 godzin",
+        "outcome": "Przesyłanie nieudane lub nagrywanie zatrzymane przez rozmiar."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Nie chodzi tylko o 'Nagrywanie' — chodzi o 'Myślenie'",
+    "p1": "Technicznie każda aplikacja może pozwolić Ci nagrywać przez 10 godzin. Trudna część to **przetworzenie** tych informacji.",
+    "p2": "Większość modeli AI ma małe 'okno kontekstowe'. Jeśli dasz im transkrypcję z 4 godzin, zapominają o pierwszej godzinie, zanim dotrą do końca. Zaczynają halucynować lub dają niejasne podsumowania.",
+    "p3": "**Protokół AI jest inny.** Nasza architektura jest specjalnie zaprojektowana do zachowania długiego kontekstu. Nie tylko transkrybujemy; utrzymujemy wątek argumentacji od 1. do 240. minuty.",
+    "badge": "Przewaga długiego kontekstu"
+  },
+  "pricing": {
+    "h2": "Prosty cennik dla wymagających",
+    "p1": "Niezależnie od tego, czy potrzebujesz jednorazowego długiego nagrania, czy codziennego narzędzia, mamy plan.",
+    "trial": { "name": "Pakiet Próbny", "detail": "120 min", "foot": "$1.99 (Nie wygasa)" },
+    "light": { "name": "Pakiet Light", "detail": "1200 min", "foot": "$11.99 (Nie wygasa)" },
+    "monthly": { "name": "Miesięczny", "detail": "Bez limitu", "foot": "$16.99 / mies" },
+    "annual": { "name": "Roczny", "detail": "Bez limitu", "foot": "$149.99 / rok" },
+    "free": { "badge": "Darmowy bilet dzienny", "text": "Wypróbuj za darmo przez 3 minuty dziennie." },
+    "bullets": [
+      "**Pakiety czasowe**: Idealne na jednorazowe długie seminaria.",
+      "**Subskrypcje**: Prawdziwie nielimitowane dla profesjonalistów.",
+      "**100+ Języków**: Działa globalnie."
+    ],
+    "foot": {
+      "pre": "* Ceny w {currency}.",
+      "post": "Podatki mogą zostać naliczone przy kasie."
+    }
+  },
+  "cta": { "openBrowser": "Zacznij nagrywać", "downloadIOS": "Pobierz aplikację iOS" },
+  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Porównanie", "category": "Funkcje" }
+}

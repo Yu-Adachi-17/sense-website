@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Paras tekoäly pitkiin nauhoituksiin (2025): Miksi Pöytäkirja AI voittaa Otterin ja Nottan",
+    "description": "Kyllästynyt Otterin 90 minuutin rajoitukseen tai Nottan tiedostorajoihin? Lue, miksi Pöytäkirja AI on paras valinta pitkien kokousten ja työpajojen tallentamiseen keskeytyksettä.",
+    "ogTitle": "Rajaton nauhoitus: Pöytäkirja AI vs Otter vs Notta",
+    "ogDescription": "Älä anna tekoälyn lopettaa kesken. Katso, miksi Pöytäkirja AI on standardi pitkille muistioille.",
+    "ld": {
+      "headline": "Paras AI-muistiinpanija pitkiin nauhoituksiin",
+      "description": "Syväluotaus nauhoitusrajoihin: Vertailussa Otter.ai, Notta ja Pöytäkirja AI."
+    }
+  },
+  "hero": {
+    "kicker": "Pitkäkestoinen nauhoitus",
+    "h1": "90 minuutin raja on historiaa. Nauhoita rajattomasti.",
+    "tagline": "Useimmat AI-muistiinpanosovellukset katkaisevat nauhoituksen juuri kun keskustelu syvenee. Pöytäkirja AI on suunniteltu toisin – käsittelemään tuntien yhtäjaksoista keskustelua menettämättä yhtäkään yksityiskohtaa.",
+    "badges": ["Aidosti rajoittamaton kesto", "Ei tiedostokokorajoja", "Pitkän kontekstin tekoäly"]
+  },
+  "problem": {
+    "h2": "Otterin ja Nottan piilotettu ongelma",
+    "p1": "Kuvittele tämä: Olet kriittisessä 3 tunnin strategiapajassa. Yhtäkkiä tekoälysi lopettaa nauhoituksen, koska olet saavuttanut 'kokousrajan'. Menetät keskittymisesi yrittäessäsi käynnistää sen uudelleen.",
+    "p2": "Tämä on todellisuutta monien suosittujen työkalujen käyttäjille. He kohtelevat pitkiä nauhoituksia poikkeustapauksina. Me pidämme niitä vakiona.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Tiukka 90 minuutin raja per keskustelu." },
+      { "title": "Notta (Pro)", "desc": "Usein rajoitettu n. 3-5 tuntiin tai tiedostokoon mukaan." }
+    ]
+  },
+  "comparison": {
+    "h2": "Kestorajat vertailussa",
+    "note": "Tiedot perustuvat 'Pro/Standard' maksullisiin suunnitelmiin loppuvuodesta 2025.",
+    "tableHead": ["Palvelu", "Maks. kesto (per istunto)", "Mitä tapahtuu rajalla?"],
+    "rows": [
+      {
+        "service": "Pöytäkirja AI",
+        "duration": "Rajoittamaton",
+        "outcome": "Ei mitään. Se jatkaa nauhoitusta, kunnes lopetat."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minuuttia",
+        "outcome": "Nauhoitus pysähtyy. Sinun on aloitettava uusi istunto."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "n. 3-5 tuntia",
+        "outcome": "Lataus epäonnistuu tai nauhoitus katkeaa koon vuoksi."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Kyse ei ole vain 'nauhoittamisesta' – kyse on 'ajattelusta'",
+    "p1": "Teknisesti mikä tahansa sovellus voisi antaa sinun nauhoittaa 10 tuntia. Vaikea osa on tiedon **käsittely**.",
+    "p2": "Useimmilla tekoälymalleilla on pieni 'konteksti-ikkuna'. Jos syötät niille 4 tunnin litteroinnin, ne unohtavat ensimmäisen tunnin ennen loppuun pääsyä. Ne alkavat hallusinoida tai antavat epämääräisiä yhteenvetoja.",
+    "p3": "**Pöytäkirja AI on erilainen.** Arkkitehtuurimme on suunniteltu erityisesti pitkän kontekstin säilyttämiseen. Emme vain litteroi; säilytämme argumentoinnin punaisen langan alusta loppuun.",
+    "badge": "Pitkän kontekstin etu"
+  },
+  "pricing": {
+    "h2": "Yksinkertainen hinnoittelu tehokäyttäjille",
+    "p1": "Tarvitsitpa kertaluonteisen pitkän nauhoituksen tai päivittäisen työkalun, meillä on ratkaisu.",
+    "trial": { "name": "Kokeilupaketti", "detail": "120 min", "foot": "$1.99 (Ei vanhene)" },
+    "light": { "name": "Light-paketti", "detail": "1200 min", "foot": "$11.99 (Ei vanhene)" },
+    "monthly": { "name": "Kuukausi", "detail": "Rajoittamaton", "foot": "$16.99 / kk" },
+    "annual": { "name": "Vuosi", "detail": "Rajoittamaton", "foot": "$149.99 / vuosi" },
+    "free": { "badge": "Ilmainen päivälippu", "text": "Kokeile ilmaiseksi 3 minuuttia joka päivä." },
+    "bullets": [
+      "**Aikapaketit**: Täydellinen yksittäisiin pitkiin seminaareihin.",
+      "**Tilaukset**: Aidosti rajoittamaton ammattilaisille.",
+      "**100+ kieltä**: Toimii maailmanlaajuisesti."
+    ],
+    "foot": {
+      "pre": "* Hinnat valuutassa {currency}.",
+      "post": "Veroja voidaan lisätä kassalla."
+    }
+  },
+  "cta": { "openBrowser": "Aloita nauhoitus", "downloadIOS": "Lataa iOS-sovellus" },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Vertailu", "category": "Ominaisuudet" }
+}

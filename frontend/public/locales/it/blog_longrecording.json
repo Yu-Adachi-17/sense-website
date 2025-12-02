@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Migliore IA per registrazioni lunghe (2025): Perché Verbali IA batte Otter & Notta",
+    "description": "Stanco del limite di 90 minuti su Otter o dei limiti di file su Notta? Scopri perché Verbali IA è la scelta migliore per registrare lunghe riunioni e workshop senza interruzioni.",
+    "ogTitle": "Registrazione illimitata: Verbali IA vs Otter vs Notta",
+    "ogDescription": "Non lasciare che la tua IA si fermi a metà. Scopri perché Verbali IA è lo standard per i verbali lunghi.",
+    "ld": {
+      "headline": "Miglior assistente IA per registrazioni lunghe",
+      "description": "Un confronto approfondito sui limiti di registrazione: Otter.ai, Notta e Verbali IA."
+    }
+  },
+  "hero": {
+    "kicker": "Registrazione a lunga durata",
+    "h1": "Il muro dei 90 minuti è storia. Registra senza limiti.",
+    "tagline": "La maggior parte delle IA ti interrompe proprio quando la conversazione si fa profonda. Verbali IA è costruita diversamente: progettata per gestire ore di discussione continua senza perdere un singolo dettaglio.",
+    "badges": ["Durata veramente illimitata", "Nessun limite dimensione file", "IA a lungo contesto"]
+  },
+  "problem": {
+    "h2": "Il problema nascosto con Otter & Notta",
+    "p1": "Immagina questo: sei in un workshop strategico critico di 3 ore. Improvvisamente, la tua IA smette di registrare perché hai raggiunto un 'limite riunione'. Perdi la concentrazione per riavviare e rompi il flusso.",
+    "p2": "Questa è la realtà per gli utenti di molti strumenti popolari. Trattano le registrazioni lunghe come casi rari. Noi le trattiamo come lo standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Limite rigido di 90 minuti per conversazione." },
+      { "title": "Notta (Pro)", "desc": "Spesso limitato a circa 3-5 ore o per dimensione file." }
+    ]
+  },
+  "comparison": {
+    "h2": "Limiti di durata a confronto",
+    "note": "Dati basati sui piani a pagamento 'Pro/Standard' a fine 2025.",
+    "tableHead": ["Servizio", "Durata Max (Per sessione)", "Cosa succede al limite?"],
+    "rows": [
+      {
+        "service": "Verbali IA",
+        "duration": "Illimitata",
+        "outcome": "Nulla. Continua a registrare finché non ti fermi."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minuti",
+        "outcome": "La registrazione si ferma. Devi avviare una nuova sessione."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Circa 3-5 Ore",
+        "outcome": "L'upload fallisce o la registrazione si ferma."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Non si tratta solo di 'Registrare' — si tratta di 'Pensare'",
+    "p1": "Tecnicamente, qualsiasi app potrebbe lasciarti registrare 10 ore. La parte difficile è **elaborare** quelle informazioni.",
+    "p2": "La maggior parte dei modelli IA ha una piccola 'finestra di contesto'. Se dai loro una trascrizione di 4 ore, dimenticano la prima ora prima di arrivare alla fine. Iniziano ad avere allucinazioni o danno riassunti vaghi.",
+    "p3": "**Verbali IA è diversa.** La nostra architettura è progettata specificamente per mantenere un lungo contesto. Non trascriviamo soltanto; manteniamo il filo del discorso dal 1° al 240° minuto.",
+    "badge": "Vantaggio del lungo contesto"
+  },
+  "pricing": {
+    "h2": "Prezzi semplici per utenti intensivi",
+    "p1": "Che tu abbia bisogno di una registrazione lunga una tantum o di uno strumento quotidiano, abbiamo un piano.",
+    "trial": { "name": "Pacchetto Trial", "detail": "120 min", "foot": "$1.99 (Non scade mai)" },
+    "light": { "name": "Pacchetto Light", "detail": "1200 min", "foot": "$11.99 (Non scade mai)" },
+    "monthly": { "name": "Mensile", "detail": "Illimitato", "foot": "$16.99 / mese" },
+    "annual": { "name": "Annuale", "detail": "Illimitato", "foot": "$149.99 / anno" },
+    "free": { "badge": "Ticket giornaliero gratuito", "text": "Prova gratis per 3 minuti ogni giorno." },
+    "bullets": [
+      "**Pacchetti Tempo**: Perfetti per seminari lunghi una tantum.",
+      "**Abbonamenti**: Veramente illimitati per i professionisti.",
+      "**100+ Lingue**: Funziona globalmente."
+    ],
+    "foot": {
+      "pre": "* Prezzi in {currency}.",
+      "post": "Tasse applicabili al checkout."
+    }
+  },
+  "cta": { "openBrowser": "Inizia a registrare", "downloadIOS": "Scarica app iOS" },
+  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Confronto", "category": "Funzionalità" }
+}

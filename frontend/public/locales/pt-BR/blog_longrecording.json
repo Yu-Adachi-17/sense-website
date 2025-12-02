@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Melhor IA para Gravações Longas (2025): Por que a Ata AI supera Otter e Notta",
+    "description": "Cansado do limite de 90 minutos no Otter ou limites de arquivo no Notta? Descubra por que a Ata AI é a melhor escolha para gravar reuniões longas e workshops sem interrupções.",
+    "ogTitle": "Gravação Ilimitada: Ata AI vs Otter vs Notta",
+    "ogDescription": "Não deixe sua IA parar no meio do caminho. Veja por que a Ata AI é o padrão para atas longas.",
+    "ld": {
+      "headline": "Melhor assistente de IA para gravações longas",
+      "description": "Uma análise profunda dos limites de gravação: Otter.ai, Notta e Ata AI."
+    }
+  },
+  "hero": {
+    "kicker": "Gravação de Longa Duração",
+    "h1": "A barreira dos 90 minutos é história. Grave sem limites.",
+    "tagline": "A maioria das IAs corta você exatamente quando a conversa fica profunda. A Ata AI é construída de forma diferente — projetada para lidar com horas de discussão contínua sem perder um único detalhe.",
+    "badges": ["Duração Realmente Ilimitada", "Sem Limites de Tamanho de Arquivo", "IA de Longo Contexto"]
+  },
+  "problem": {
+    "h2": "O problema oculto com Otter e Notta",
+    "p1": "Imagine isto: Você está em um workshop estratégico crítico de 3 horas. De repente, sua IA para de gravar porque você atingiu um 'limite de reunião'. Você perde o foco para reiniciar e quebra o fluxo.",
+    "p2": "Esta é a realidade para usuários de muitas ferramentas populares. Eles tratam gravações longas como exceções. Nós as tratamos como padrão.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Limite rígido de 90 minutos por conversa." },
+      { "title": "Notta (Pro)", "desc": "Frequentemente limitado a aprox. 3-5 horas ou por tamanho." }
+    ]
+  },
+  "comparison": {
+    "h2": "Limites de Duração Comparados",
+    "note": "Dados baseados em planos pagos 'Pro/Standard' no final de 2025.",
+    "tableHead": ["Serviço", "Duração Máx. (Por sessão)", "O que acontece no limite?"],
+    "rows": [
+      {
+        "service": "Ata AI",
+        "duration": "Ilimitado",
+        "outcome": "Nada. Continua gravando até você parar."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minutos",
+        "outcome": "A gravação para. Você deve iniciar uma nova sessão."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Aprox. 3-5 Horas",
+        "outcome": "O upload falha ou a gravação para devido ao tamanho."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Não é apenas sobre 'Gravar' — é sobre 'Pensar'",
+    "p1": "Tecnicamente, qualquer aplicativo poderia deixar você gravar 10 horas. A parte difícil é **processar** essa informação.",
+    "p2": "A maioria dos modelos de IA tem uma pequena 'janela de contexto'. Se você der a eles uma transcrição de 4 horas, eles esquecem a primeira hora antes de chegar ao fim. Começam a alucinar ou dar resumos vagos.",
+    "p3": "**A Ata AI é diferente.** Nossa arquitetura é projetada especificamente para retenção de longo contexto. Não apenas transcrevemos; mantemos o fio da argumentação do minuto 1 ao minuto 240.",
+    "badge": "Vantagem do Longo Contexto"
+  },
+  "pricing": {
+    "h2": "Preços Simples para Usuários Intensivos",
+    "p1": "Seja para uma gravação longa única ou uma ferramenta diária, temos um plano.",
+    "trial": { "name": "Pacote Teste", "detail": "120 min", "foot": "$1.99 (Nunca expira)" },
+    "light": { "name": "Pacote Light", "detail": "1200 min", "foot": "$11.99 (Nunca expira)" },
+    "monthly": { "name": "Mensal", "detail": "Ilimitado", "foot": "$16.99 / mês" },
+    "annual": { "name": "Anual", "detail": "Ilimitado", "foot": "$149.99 / ano" },
+    "free": { "badge": "Bilhete Diário Grátis", "text": "Teste grátis por 3 minutos todo dia." },
+    "bullets": [
+      "**Pacotes de Tempo**: Perfeito para seminários longos únicos.",
+      "**Assinaturas**: Realmente ilimitado para profissionais.",
+      "**100+ Idiomas**: Funciona globalmente."
+    ],
+    "foot": {
+      "pre": "* Preços em {currency}.",
+      "post": "Impostos podem ser aplicados no checkout."
+    }
+  },
+  "cta": { "openBrowser": "Começar a Gravar", "downloadIOS": "Baixar app iOS" },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Comparação", "category": "Recursos" }
+}

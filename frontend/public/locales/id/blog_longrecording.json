@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "AI Terbaik untuk Rekaman Panjang (2025): Mengapa Minutes AI Mengalahkan Otter & Notta",
+    "description": "Lelah dengan batas 90 menit di Otter atau batas file di Notta? Temukan mengapa Minutes AI adalah pilihan terbaik untuk merekam rapat panjang dan workshop tanpa gangguan.",
+    "ogTitle": "Rekaman Tanpa Batas: Minutes AI vs Otter vs Notta",
+    "ogDescription": "Jangan biarkan AI Anda berhenti merekam di tengah jalan. Lihat mengapa Minutes AI adalah standar untuk notulen rapat panjang.",
+    "ld": {
+      "headline": "Pencatat Notulen AI Terbaik untuk Rekaman Panjang",
+      "description": "Ulasan mendalam tentang batas rekaman: Perbandingan Otter.ai, Notta, dan Minutes AI."
+    }
+  },
+  "hero": {
+    "kicker": "Rekaman Durasi Panjang",
+    "h1": "Tembok 90 Menit Sudah Kuno. Rekam Tanpa Batas.",
+    "tagline": "Sebagian besar pencatat notulen AI memotong Anda tepat saat percakapan semakin dalam. Minutes AI dibangun berbeda—dirancang untuk menangani diskusi berjam-jam tanpa kehilangan satu detail pun.",
+    "badges": ["Durasi Benar-Benar Tanpa Batas", "Tanpa Batas Ukuran File", "AI Konteks Panjang"]
+  },
+  "problem": {
+    "h2": "Masalah tersembunyi dengan Otter & Notta",
+    "p1": "Bayangkan ini: Anda berada dalam workshop strategi penting selama 3 jam. Tiba-tiba, AI Anda berhenti merekam karena Anda mencapai 'batas rapat'. Anda kehilangan fokus untuk memulai ulang, dan memutus alur.",
+    "p2": "Ini adalah kenyataan bagi pengguna banyak alat populer. Mereka memperlakukan rekaman panjang sebagai kasus langka. Kami memperlakukannya sebagai standar.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Batas ketat 90 menit per percakapan." },
+      { "title": "Notta (Pro)", "desc": "Sering dibatasi sekitar 3-5 jam atau berdasarkan ukuran file." }
+    ]
+  },
+  "comparison": {
+    "h2": "Perbandingan Batas Durasi",
+    "note": "Data berdasarkan paket berbayar 'Pro/Standard' per akhir 2025.",
+    "tableHead": ["Layanan", "Durasi Maks (Per Sesi)", "Apa yang terjadi saat batas tercapai?"],
+    "rows": [
+      {
+        "service": "Minutes AI",
+        "duration": "Tanpa Batas",
+        "outcome": "Tidak ada. Terus merekam sampai Anda berhenti."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Menit",
+        "outcome": "Rekaman berhenti. Anda harus memulai sesi baru."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Sekitar 3-5 Jam",
+        "outcome": "Upload gagal atau rekaman berhenti karena ukuran."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Ini bukan sekadar 'Merekam' — ini tentang 'Berpikir'",
+    "p1": "Secara teknis, aplikasi apa pun bisa membiarkan Anda merekam 10 jam. Bagian yang sulit adalah **memproses** informasi tersebut.",
+    "p2": "Sebagian besar model AI memiliki 'jendela konteks' yang kecil. Jika Anda memberi mereka transkrip 4 jam, mereka melupakan jam pertama sebelum mencapai akhir. Mereka mulai berhalusinasi atau memberikan ringkasan yang samar.",
+    "p3": "**Minutes AI berbeda.** Arsitektur kami dirancang khusus untuk retensi konteks panjang. Kami tidak hanya mentranskrip; kami menjaga benang merah argumen dari menit 1 hingga menit 240.",
+    "badge": "Keunggulan Konteks Panjang"
+  },
+  "pricing": {
+    "h2": "Harga Sederhana untuk Pengguna Berat",
+    "p1": "Baik Anda membutuhkan rekaman panjang sekali pakai atau alat kerja harian, kami punya rencananya.",
+    "trial": { "name": "Paket Trial", "detail": "120 mnt", "foot": "$1.99 (Tidak kadaluarsa)" },
+    "light": { "name": "Paket Light", "detail": "1200 mnt", "foot": "$11.99 (Tidak kadaluarsa)" },
+    "monthly": { "name": "Bulanan", "detail": "Tanpa Batas", "foot": "$16.99 / bln" },
+    "annual": { "name": "Tahunan", "detail": "Tanpa Batas", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket Harian Gratis", "text": "Coba gratis selama 3 menit setiap hari." },
+    "bullets": [
+      "**Paket Waktu**: Sempurna untuk seminar panjang sekali pakai.",
+      "**Langganan**: Benar-benar tanpa batas untuk profesional.",
+      "**100+ Bahasa**: Bekerja secara global."
+    ],
+    "foot": {
+      "pre": "* Harga dalam {currency}.",
+      "post": "Pajak mungkin berlaku saat checkout."
+    }
+  },
+  "cta": { "openBrowser": "Mulai Merekam", "downloadIOS": "Unduh aplikasi iOS" },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Perbandingan", "category": "Fitur" }
+}

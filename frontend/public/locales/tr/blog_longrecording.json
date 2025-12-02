@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Uzun Kayıtlar İçin En İyi AI (2025): Tutanakları AI Neden Otter ve Notta'dan Üstün?",
+    "description": "Otter'daki 90 dakika sınırından veya Notta'daki dosya limitlerinden bıktınız mı? Uzun toplantıları ve atölyeleri kesintisiz kaydetmek için Tutanakları AI'ın neden en iyi seçenek olduğunu keşfedin.",
+    "ogTitle": "Sınırsız Kayıt: Tutanakları AI vs Otter vs Notta",
+    "ogDescription": "AI'ınızın kaydı yarıda kesmesine izin vermeyin. Uzun toplantı tutanakları için neden Tutanakları AI'ın standart olduğunu görün.",
+    "ld": {
+      "headline": "Uzun Kayıtlar İçin En İyi AI Not Tutucu",
+      "description": "Kayıt sınırlarına derinlemesine bir bakış: Otter.ai, Notta ve Tutanakları AI karşılaştırması."
+    }
+  },
+  "hero": {
+    "kicker": "Uzun Süreli Kayıt",
+    "h1": "90 Dakika Duvarı Tarih Oldu. Sınırsız Kayıt Alın.",
+    "tagline": "Çoğu AI not tutucu, konuşma derinleştiği anda sizi keser. Tutanakları AI farklı inşa edilmiştir; saatlerce süren kesintisiz tartışmaları tek bir detayı bile kaçırmadan işlemek için tasarlanmıştır.",
+    "badges": ["Gerçekten Sınırsız Süre", "Dosya Boyutu Sınırı Yok", "Uzun Bağlamlı (Long-Context) AI"]
+  },
+  "problem": {
+    "h2": "Otter ve Notta ile ilgili gizli sorun",
+    "p1": "Şunu hayal edin: 3 saatlik kritik bir strateji atölyesindesiniz. Aniden, AI'ınız 'toplantı sınırına' ulaştığınız için kaydı durduruyor. Yeniden başlatmak için odağınızı kaybediyorsunuz ve akışı bozuyorsunuz.",
+    "p2": "Bu, birçok popüler aracın kullanıcıları için bir gerçekliktir. Onlar uzun kayıtları istisnai durumlar olarak görür. Biz standart olarak görüyoruz.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Konuşma başına 90 dakikalık katı sınır." },
+      { "title": "Notta (Pro)", "desc": "Genellikle yaklaşık 3-5 saat veya dosya boyutuyla sınırlıdır." }
+    ]
+  },
+  "comparison": {
+    "h2": "Süre Sınırları Karşılaştırması",
+    "note": "Veriler, 2025 sonu itibarıyla 'Pro/Standard' ücretli planlarına dayanmaktadır.",
+    "tableHead": ["Hizmet", "Maks. Süre (Oturum Başına)", "Sınıra ulaşınca ne olur?"],
+    "rows": [
+      {
+        "service": "Tutanakları AI",
+        "duration": "Sınırsız",
+        "outcome": "Hiçbir şey. Siz durdurana kadar kaydetmeye devam eder."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Dakika",
+        "outcome": "Kayıt durur. Yeni bir oturum başlatmanız gerekir."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Yaklaşık 3-5 Saat",
+        "outcome": "Yükleme başarısız olur veya boyut nedeniyle kayıt durur."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Mesele sadece 'Kaydetmek' değil — mesele 'Düşünmek'",
+    "p1": "Teknik olarak, herhangi bir uygulama 10 saat kaydetmenize izin verebilir. Zor olan kısım bu bilgiyi **işlemektir**.",
+    "p2": "Çoğu AI modelinin küçük bir 'bağlam penceresi' (context window) vardır. Onlara 4 saatlik bir döküm verirseniz, sona gelmeden ilk saati unuturlar. Halüsinasyon görmeye başlar veya belirsiz özetler verirler.",
+    "p3": "**Tutanakları AI farklıdır.** Mimarimiz, uzun bağlamı korumak için özel olarak tasarlanmıştır. Sadece yazıya dökmüyoruz; argümanın ipini 1. dakikadan 240. dakikaya kadar tutuyoruz.",
+    "badge": "Uzun Bağlam Avantajı"
+  },
+  "pricing": {
+    "h2": "Yoğun Kullanıcılar İçin Basit Fiyatlandırma",
+    "p1": "İster tek seferlik uzun bir kayda, ister günlük bir iş aracına ihtiyacınız olsun, bir planımız var.",
+    "trial": { "name": "Deneme Paketi", "detail": "120 dk", "foot": "$1.99 (Süresi dolmaz)" },
+    "light": { "name": "Light Paket", "detail": "1200 dk", "foot": "$11.99 (Süresi dolmaz)" },
+    "monthly": { "name": "Aylık", "detail": "Sınırsız", "foot": "$16.99 / ay" },
+    "annual": { "name": "Yıllık", "detail": "Sınırsız", "foot": "$149.99 / yıl" },
+    "free": { "badge": "Ücretsiz Günlük Bilet", "text": "Her gün 3 dakika ücretsiz deneyin." },
+    "bullets": [
+      "**Zaman Paketleri**: Tek seferlik uzun seminerler için mükemmel.",
+      "**Abonelikler**: Profesyoneller için gerçekten sınırsız.",
+      "**100+ Dil**: Dünya çapında çalışır."
+    ],
+    "foot": {
+      "pre": "* Fiyatlar {currency} cinsindendir.",
+      "post": "Ödeme sırasında vergiler uygulanabilir."
+    }
+  },
+  "cta": { "openBrowser": "Kaydı Başlat", "downloadIOS": "iOS uygulamasını indir" },
+  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "Karşılaştırma", "category": "Özellikler" }
+}

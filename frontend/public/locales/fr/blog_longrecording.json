@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Meilleure IA pour enregistrements longs (2025) : Pourquoi Minutes.AI bat Otter & Notta",
+    "description": "Fatigué de la limite de 90 minutes sur Otter ou des limites de fichiers sur Notta ? Découvrez pourquoi Minutes.AI est le meilleur choix pour enregistrer de longues réunions et ateliers sans interruption.",
+    "ogTitle": "Enregistrement illimité : Minutes.AI vs Otter vs Notta",
+    "ogDescription": "Ne laissez pas votre IA s'arrêter au milieu. Voyez pourquoi Minutes.AI est la référence pour les longs procès-verbaux.",
+    "ld": {
+      "headline": "Meilleur preneur de notes IA pour longs enregistrements",
+      "description": "Une comparaison approfondie des limites d'enregistrement : Otter.ai, Notta et Minutes.AI."
+    }
+  },
+  "hero": {
+    "kicker": "Enregistrement Longue Durée",
+    "h1": "Le mur des 90 minutes appartient au passé. Enregistrez sans limites.",
+    "tagline": "La plupart des IA vous coupent juste au moment où la conversation devient intéressante. Minutes.AI est conçu différemment — pour gérer des heures de discussion continue sans perdre un seul détail.",
+    "badges": ["Durée vraiment illimitée", "Pas de limite de taille de fichier", "IA à long contexte"]
+  },
+  "problem": {
+    "h2": "Le problème caché d'Otter & Notta",
+    "p1": "Imaginez : Vous êtes dans un atelier stratégique critique de 3 heures. Soudain, votre IA arrête d'enregistrer car vous avez atteint une 'limite par réunion'. Vous perdez le fil pour relancer l'outil.",
+    "p2": "C'est la réalité pour les utilisateurs de nombreux outils populaires. Ils traitent les longs enregistrements comme des cas rares. Nous les traitons comme la norme.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Limite stricte de 90 minutes par conversation." },
+      { "title": "Notta (Pro)", "desc": "Souvent limité à env. 3-5 heures ou par taille de fichier." }
+    ]
+  },
+  "comparison": {
+    "h2": "Comparaison des limites de durée",
+    "note": "Données basées sur les plans payants 'Pro/Standard' fin 2025.",
+    "tableHead": ["Service", "Durée Max. (par session)", "Que se passe-t-il à la limite ?"],
+    "rows": [
+      {
+        "service": "Minutes.AI",
+        "duration": "Illimité",
+        "outcome": "Rien. L'enregistrement continue jusqu'à votre arrêt."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 Minutes",
+        "outcome": "L'enregistrement s'arrête. Vous devez relancer une session."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Env. 3-5 Heures",
+        "outcome": "L'upload échoue ou l'enregistrement stoppe."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Il ne s'agit pas seulement d'enregistrer, mais de 'Penser'",
+    "p1": "Techniquement, n'importe quelle app peut vous laisser enregistrer 10 heures. Le plus dur est de **traiter** cette information.",
+    "p2": "La plupart des modèles IA ont une petite 'fenêtre contextuelle'. Si vous leur donnez une transcription de 4 heures, ils oublient la première heure avant d'arriver à la fin, créant des hallucinations ou des résumés vagues.",
+    "p3": "**Minutes.AI est différent.** Notre architecture est conçue pour retenir un long contexte. Nous maintenons le fil de l'argumentation de la 1ère à la 240ème minute pour un rendu cohérent.",
+    "badge": "L'avantage du Long Contexte"
+  },
+  "pricing": {
+    "h2": "Prix simples pour utilisateurs intensifs",
+    "p1": "Que ce soit pour un long enregistrement unique ou un usage quotidien, nous avons un plan.",
+    "trial": { "name": "Pack Essai", "detail": "120 min", "foot": "$1.99 (N'expire jamais)" },
+    "light": { "name": "Pack Light", "detail": "1200 min", "foot": "$11.99 (N'expire jamais)" },
+    "monthly": { "name": "Mensuel", "detail": "Illimité", "foot": "$16.99 / mois" },
+    "annual": { "name": "Annuel", "detail": "Illimité", "foot": "$149.99 / an" },
+    "free": { "badge": "Ticket journalier gratuit", "text": "Essayez gratuitement 3 minutes chaque jour." },
+    "bullets": [
+      "**Packs Temps**: Parfait pour des séminaires ponctuels.",
+      "**Abonnements**: Vraiment illimité pour les pros.",
+      "**100+ Langues**: Fonctionne mondialement."
+    ],
+    "foot": {
+      "pre": "* Prix en {currency}.",
+      "post": "Taxes applicables au paiement."
+    }
+  },
+  "cta": { "openBrowser": "Commencer l'enregistrement", "downloadIOS": "Télécharger l'app iOS" },
+  "meta": { "h2": "Méta", "published": "Publié le", "type": "Comparaison", "category": "Fonctionnalités" }
+}

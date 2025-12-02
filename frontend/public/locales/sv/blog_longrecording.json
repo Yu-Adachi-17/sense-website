@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Bästa AI för långa inspelningar (2025): Varför Protokoll AI slår Otter & Notta",
+    "description": "Trött på 90-minutersgränsen hos Otter eller filbegränsningar hos Notta? Se varför Protokoll AI är det bästa valet för att spela in långa möten och workshops utan avbrott.",
+    "ogTitle": "Obegränsad inspelning: Protokoll AI vs Otter vs Notta",
+    "ogDescription": "Låt inte din AI sluta spela in halvvägs. Se varför Protokoll AI är standarden för långa protokoll.",
+    "ld": {
+      "headline": "Bästa AI-antecknare för långa inspelningar",
+      "description": "En djupgående jämförelse av inspelningsgränser: Otter.ai, Notta och Protokoll AI."
+    }
+  },
+  "hero": {
+    "kicker": "Långtidsinspelning",
+    "h1": "90-minutersväggen är historia. Spela in utan gränser.",
+    "tagline": "De flesta AI-antecknare avbryter dig precis när samtalet blir djupt. Protokoll AI är byggt annorlunda – designat för att hantera timmar av kontinuerlig diskussion utan att tappa en enda detalj.",
+    "badges": ["Verkligt obegränsad tid", "Inga filstorleksgränser", "Lång-kontext AI"]
+  },
+  "problem": {
+    "h2": "Det dolda problemet med Otter & Notta",
+    "p1": "Föreställ dig detta: Du sitter i en kritisk 3-timmars strategiworkshop. Plötsligt slutar din AI att spela in eftersom du nått en 'mötesgräns'. Du tappar fokus för att starta om, och bryter flödet.",
+    "p2": "Detta är verkligheten för användare av många populära verktyg. De behandlar långa inspelningar som undantag. Vi behandlar dem som standard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Hård gräns på 90 minuter per samtal." },
+      { "title": "Notta (Pro)", "desc": "Ofta begränsat till ca 3-5 timmar eller filstorlek." }
+    ]
+  },
+  "comparison": {
+    "h2": "Varaktighetsgränser jämförda",
+    "note": "Data baserad på 'Pro/Standard' betalplaner i slutet av 2025.",
+    "tableHead": ["Tjänst", "Max tid (per session)", "Vad händer vid gränsen?"],
+    "rows": [
+      {
+        "service": "Protokoll AI",
+        "duration": "Obegränsat",
+        "outcome": "Inget. Den fortsätter spela in tills du stoppar."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minuter",
+        "outcome": "Inspelningen stoppas. Du måste starta en ny session."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Ca 3-5 timmar",
+        "outcome": "Uppladdning misslyckas eller inspelning stoppas pga storlek."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Det handlar inte bara om att 'Spela in' — det handlar om att 'Tänka'",
+    "p1": "Tekniskt sett kan vilken app som helst låta dig spela in i 10 timmar. Den svåra delen är att **bearbeta** den informationen.",
+    "p2": "De flesta AI-modeller har ett litet 'kontextfönster'. Om du ger dem ett 4-timmars transkript glömmer de den första timmen innan de når slutet. De börjar hallucinera eller ge vaga sammanfattningar.",
+    "p3": "**Protokoll AI är annorlunda.** Vår arkitektur är specifikt designad för att behålla lång kontext. Vi transkriberar inte bara; vi behåller tråden i argumentationen från minut 1 till minut 240.",
+    "badge": "Fördelen med lång kontext"
+  },
+  "pricing": {
+    "h2": "Enkel prissättning för storanvändare",
+    "p1": "Oavsett om du behöver en enstaka lång inspelning eller ett dagligt verktyg har vi en plan.",
+    "trial": { "name": "Testpaket", "detail": "120 min", "foot": "$1.99 (Går aldrig ut)" },
+    "light": { "name": "Light-paket", "detail": "1200 min", "foot": "$11.99 (Går aldrig ut)" },
+    "monthly": { "name": "Månadsvis", "detail": "Obegränsat", "foot": "$16.99 / mån" },
+    "annual": { "name": "Årsvis", "detail": "Obegränsat", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis dagsbiljett", "text": "Prova gratis i 3 minuter varje dag." },
+    "bullets": [
+      "**Tidspaket**: Perfekt för enstaka långa seminarier.",
+      "**Prenumerationer**: Verkligen obegränsat för proffs.",
+      "**100+ Språk**: Fungerar globalt."
+    ],
+    "foot": {
+      "pre": "* Priser i {currency}.",
+      "post": "Moms kan tillkomma i kassan."
+    }
+  },
+  "cta": { "openBrowser": "Börja spela in", "downloadIOS": "Ladda ner iOS-app" },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Jämförelse", "category": "Funktioner" }
+}

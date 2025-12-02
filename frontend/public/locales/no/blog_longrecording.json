@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Beste AI for lange opptak (2025): Hvorfor Referat AI slår Otter og Notta",
+    "description": "Lei av 90-minuttersgrensen på Otter eller filbegrensninger på Notta? Se hvorfor Referat AI er det beste valget for å ta opp lange møter og workshops uten avbrudd.",
+    "ogTitle": "Ubegrenset opptak: Referat AI vs Otter vs Notta",
+    "ogDescription": "Ikke la din AI stoppe halvveis. Se hvorfor Referat AI er standarden for lange møtereferater.",
+    "ld": {
+      "headline": "Beste AI-notattaker for lange opptak",
+      "description": "En grundig sammenligning av opptaksgrenser: Otter.ai, Notta og Referat AI."
+    }
+  },
+  "hero": {
+    "kicker": "Langtidsopptak",
+    "h1": "90-minuttersgrensen er historie. Ta opp uten begrensninger.",
+    "tagline": "De fleste AI-verktøy kutter deg av akkurat når samtalen blir dyp. Referat AI er bygget annerledes – designet for å håndtere timevis med kontinuerlig diskusjon uten å miste en eneste detalj.",
+    "badges": ["Virkelig ubegrenset varighet", "Ingen filstørrelsesgrenser", "Lang-kontekst AI"]
+  },
+  "problem": {
+    "h2": "Det skjulte problemet med Otter & Notta",
+    "p1": "Se for deg dette: Du er i en kritisk 3-timers strategiworkshop. Plutselig stopper AI-en din å ta opp fordi du traff en 'møtegrense'. Du mister fokus for å starte på nytt, og bryter flyten.",
+    "p2": "Dette er virkeligheten for brukere av mange populære verktøy. De behandler lange opptak som unntak. Vi behandler dem som standarden.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Hard grense på 90 minutter per samtale." },
+      { "title": "Notta (Pro)", "desc": "Ofte begrenset til ca. 3-5 timer eller etter filstørrelse." }
+    ]
+  },
+  "comparison": {
+    "h2": "Varighetsgrenser sammenlignet",
+    "note": "Data basert på 'Pro/Standard' betalte abonnementer per slutten av 2025.",
+    "tableHead": ["Tjeneste", "Maks varighet (per økt)", "Hva skjer ved grensen?"],
+    "rows": [
+      {
+        "service": "Referat AI",
+        "duration": "Ubegrenset",
+        "outcome": "Ingenting. Den fortsetter å ta opp til du stopper."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minutter",
+        "outcome": "Opptaket stopper. Du må starte en ny økt."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Ca. 3-5 timer",
+        "outcome": "Opplasting feiler eller opptaket stopper pga. størrelse."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Det handler ikke bare om å 'ta opp' – det handler om å 'tenke'",
+    "p1": "Teknisk sett kan hvilken som helst app la deg ta opp i 10 timer. Den vanskelige delen er å **behandle** den informasjonen.",
+    "p2": "De fleste AI-modeller har et lite 'kontekstvindu'. Hvis du gir dem et 4-timers transkript, glemmer de den første timen før de når slutten. De begynner å hallusinere eller gir vage sammendrag.",
+    "p3": "**Referat AI er annerledes.** Vår arkitektur er spesifikt designet for å bevare lang kontekst. Vi transkriberer ikke bare; vi beholder tråden i argumentasjonen fra minutt 1 til minutt 240.",
+    "badge": "Fordelen med lang kontekst"
+  },
+  "pricing": {
+    "h2": "Enkel prising for storbrukere",
+    "p1": "Enten du trenger et enkeltstående langt opptak eller et daglig verktøy, har vi en plan.",
+    "trial": { "name": "Prøvepakke", "detail": "120 min", "foot": "$1.99 (Utløper aldri)" },
+    "light": { "name": "Light-pakke", "detail": "1200 min", "foot": "$11.99 (Utløper aldri)" },
+    "monthly": { "name": "Månedlig", "detail": "Ubegrenset", "foot": "$16.99 / mnd" },
+    "annual": { "name": "Årlig", "detail": "Ubegrenset", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis dagsbillett", "text": "Prøv gratis i 3 minutter hver dag." },
+    "bullets": [
+      "**Tidspakker**: Perfekt for enkeltstående lange seminarer.",
+      "**Abonnementer**: Virkelig ubegrenset for proffe.",
+      "**100+ Språk**: Fungerer globalt."
+    ],
+    "foot": {
+      "pre": "* Priser i {currency}.",
+      "post": "MVA kan tilkomme i kassen."
+    }
+  },
+  "cta": { "openBrowser": "Start opptak", "downloadIOS": "Last ned iOS-app" },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Sammenligning", "category": "Funksjoner" }
+}

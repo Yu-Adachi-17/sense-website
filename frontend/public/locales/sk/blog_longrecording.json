@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Najlepšia AI na dlhé nahrávky (2025): Prečo AI Zápisnica poráža Otter a Nottu",
+    "description": "Unavuje vás 90-minútový limit na Otteri alebo limity súborov na Notte? Zistite, prečo je AI Zápisnica najlepšou voľbou pre nahrávanie dlhých stretnutí a workshopov bez prerušenia.",
+    "ogTitle": "Neobmedzené nahrávanie: AI Zápisnica vs Otter vs Notta",
+    "ogDescription": "Nedovoľte, aby AI prestala nahrávať v polovici. Pozrite sa, prečo je AI Zápisnica štandardom pre dlhé zápisnice.",
+    "ld": {
+      "headline": "Najlepší AI zapisovateľ pre dlhé nahrávky",
+      "description": "Hĺbkové porovnanie limitov nahrávania: Otter.ai, Notta a AI Zápisnica."
+    }
+  },
+  "hero": {
+    "kicker": "Dlhé nahrávanie",
+    "h1": "90-minútová stena je minulosťou. Nahrávajte bez limitov.",
+    "tagline": "Väčšina AI nástrojov vás utne práve vo chvíli, keď ide diskusia do hĺbky. AI Zápisnica je iná – navrhnutá tak, aby zvládla hodiny nepretržitej diskusie bez straty jediného detailu.",
+    "badges": ["Skutočne neobmedzené trvanie", "Žiadne limity veľkosti súboru", "AI s dlhým kontextom"]
+  },
+  "problem": {
+    "h2": "Skrytý problém s Otter & Notta",
+    "p1": "Predstavte si to: Ste na kritickom 3-hodinovom strategickom workshope. Zrazu AI prestane nahrávať, pretože ste narazili na 'limit stretnutia'. Stratíte sústredenie a musíte riešiť reštart.",
+    "p2": "To je realita používateľov mnohých populárnych nástrojov. Dlhé nahrávky berú ako okrajové prípady. My ich berieme ako štandard.",
+    "items": [
+      { "title": "Otter.ai (Pro)", "desc": "Tvrdý limit 90 minút na konverzáciu." },
+      { "title": "Notta (Pro)", "desc": "Často obmedzené na cca 3-5 hodín alebo veľkosťou súboru." }
+    ]
+  },
+  "comparison": {
+    "h2": "Porovnanie limitov trvania",
+    "note": "Údaje vychádzajú z platených plánov 'Pro/Standard' ku koncu roka 2025.",
+    "tableHead": ["Služba", "Max. trvanie (na reláciu)", "Čo sa stane pri limite?"],
+    "rows": [
+      {
+        "service": "AI Zápisnica",
+        "duration": "Neobmedzené",
+        "outcome": "Nič. Nahráva ďalej, kým neskončíte."
+      },
+      {
+        "service": "Otter.ai (Pro)",
+        "duration": "90 minút",
+        "outcome": "Nahrávanie sa zastaví. Musíte začať novú reláciu."
+      },
+      {
+        "service": "Notta (Pro)",
+        "duration": "Cca 3-5 hodín",
+        "outcome": "Upload zlyhá alebo sa nahrávanie zastaví kvôli veľkosti."
+      }
+    ]
+  },
+  "quality": {
+    "h2": "Nejde len o 'nahrávanie' – ide o 'myslenie'",
+    "p1": "Technicky by vám akákoľvek aplikácia mohla dovoliť nahrávať 10 hodín. Ťažká časť je tieto informácie **spracovať**.",
+    "p2": "Väčšina modelov AI má malé 'kontextové okno'. Ak im dáte 4-hodinový prepis, zabudnú prvú hodinu, kým sa dostanú na koniec. Halucinujú alebo dávajú vágne zhrnutia.",
+    "p3": "**AI Zápisnica je iná.** Naša architektúra je špeciálne navrhnutá pre udržanie dlhého kontextu. Nielen prepisujeme; držíme niť argumentácie od 1. do 240. minúty.",
+    "badge": "Výhoda dlhého kontextu"
+  },
+  "pricing": {
+    "h2": "Jednoduché ceny pre náročných",
+    "p1": "Či už potrebujete jednorazovú dlhú nahrávku alebo každodenný nástroj, máme plán.",
+    "trial": { "name": "Balíček Trial", "detail": "120 min", "foot": "$1.99 (Bez expirácie)" },
+    "light": { "name": "Balíček Light", "detail": "1200 min", "foot": "$11.99 (Bez expirácie)" },
+    "monthly": { "name": "Mesačne", "detail": "Neobmedzene", "foot": "$16.99 / mes" },
+    "annual": { "name": "Ročne", "detail": "Neobmedzene", "foot": "$149.99 / rok" },
+    "free": { "badge": "Denný lístok zadarmo", "text": "Skúste to zadarmo na 3 minúty každý deň." },
+    "bullets": [
+      "**Časové balíčky**: Ideálne pre jednorazové dlhé semináre.",
+      "**Predplatné**: Skutočne neobmedzené pre power users.",
+      "**100+ jazykov**: Funguje globálne."
+    ],
+    "foot": {
+      "pre": "* Ceny v {currency}.",
+      "post": "Dane môžu byť pripočítané pri pokladni."
+    }
+  },
+  "cta": { "openBrowser": "Začať nahrávať", "downloadIOS": "Stiahnuť iOS aplikáciu" },
+  "meta": { "h2": "Meta", "published": "Publikované", "type": "Porovnanie", "category": "Funkcie" }
+}
