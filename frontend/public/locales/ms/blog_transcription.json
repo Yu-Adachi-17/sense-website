@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Lebih Daripada Sekadar Ringkasan: Kuasa Transkripsi Teks Penuh | Minit AI",
+    "description": "Temui kuasa tersembunyi Minit AI: transkripsi teks penuh yang tepat dikuasakan oleh Whisper. Sempurna untuk mengesahkan petikan dan merakam setiap butiran.",
+    "ogTitle": "Mengapa Anda Memerlukan Transkripsi Teks Penuh (Dikuasakan oleh Whisper)",
+    "ogDescription": "Ringkasan memang bagus, tetapi kadangkala anda memerlukan perkataan yang tepat. Lihat bagaimana Minit AI mengendalikan rakaman kata demi kata."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Harga"
+  },
+  "hero": {
+    "kicker": "Ciri Tersembunyi",
+    "h1": "Wira Tak Didendang: Transkripsi Teks Penuh",
+    "tagline": "Minit AI terkenal dengan ringkasannya yang kemas. Tetapi tahukah anda ia juga mencipta rekaman verbatim yang sempurna bagi mesyuarat anda? Inilah sebabnya ia penting.",
+    "badges": [
+      "Dikuasakan oleh Whisper",
+      "Mod Verbatim",
+      "Bukti Rakaman"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Ringkasan memberitahu apa yang berlaku. Transkripsi membuktikannya.",
+      "p1": "Misi utama kami di Minit AI sentiasa untuk mencipta 'Ringkasan Unggul'—nota ringkas dan boleh bertindak yang memajukan perniagaan anda tanpa membuang masa.",
+      "p2": "Walau bagaimanapun, terdapat ciri 'permata tersembunyi' yang diguna pakai oleh ramai pengguna setiap hari: **Transkripsi Teks Penuh**."
+    },
+    "problem": {
+      "h3": "Elakkan perangkap 'siapa kata apa'",
+      "p1": "Malah ringkasan AI terbaik mungkin terlepas nuansa halus. Anda mungkin tertanya-tanya:",
+      "bullets": [
+        "Nanti, apa sebenarnya yang Encik Tan katakan tentang bajet?",
+        "Adakah Sarah benar-benar bersetuju dengan tarikh akhir itu, atau dia ragu-ragu?",
+        "Saya ingat ada hujah balas, tetapi tiada dalam ringkasan."
+      ],
+      "p2": "Dalam rundingan berisiko tinggi atau mesyuarat pelanggan, butiran yang hilang ini boleh membawa padah. Ringkasan memberi anda konteks, tetapi transkripsi memberi anda **bukti**."
+    },
+    "solution": {
+      "h3": "Ketepatan dikuasakan oleh Whisper",
+      "p1": "Jika ragu-ragu, tukar kepada paparan 'Teks Penuh'. Kami menggunakan model **OpenAI Whisper** terkini untuk memastikan ketepatan peneraju industri.",
+      "p2": "Ia merakam setiap perkataan, setiap kegagapan, dan setiap idea bernas yang mungkin terlepas pandang. Ia adalah jaring keselamatan anda terhadap kekeliruan."
+    }
+  },
+  "pricing": {
+    "h2": "Bersedia untuk merakam setiap perkataan?",
+    "p": "Mula secara percuma dengan tiket harian kami, atau naik taraf untuk rakaman tanpa had.",
+    "trial": {
+      "name": "Pek Percubaan",
+      "detail": "120 min",
+      "foot": "Tiada tamat tempoh. $1.99"
+    },
+    "light": {
+      "name": "Pek Light",
+      "detail": "1200 min",
+      "foot": "Tiada tamat tempoh. Nilai Terbaik."
+    },
+    "monthly": {
+      "name": "Bulanan",
+      "foot": "Benar-benar Tanpa Had."
+    },
+    "annual": {
+      "name": "Tahunan",
+      "detail": "Diskaun 26%",
+      "foot": "Terbaik untuk pasukan."
+    },
+    "free": "Dapatkan 3 minit percuma setiap hari."
+  },
+  "cta": {
+    "openBrowser": "Cuba di Web",
+    "downloadIOS": "Muat Turun App iOS"
+  }
+}

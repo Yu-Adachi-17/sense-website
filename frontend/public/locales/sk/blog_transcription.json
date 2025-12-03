@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Viac než len zhrnutia: Sila doslovného prepisu | AI Zápisnica",
+    "description": "Objavte skrytú silu AI Zápisnice: presný, doslovný prepis poháňaný technológiou Whisper. Ideálne na overovanie citátov a zachytenie každého detailu.",
+    "ogTitle": "Prečo potrebujete doslovný prepis (Powered by Whisper)",
+    "ogDescription": "Zhrnutia sú skvelé, ale niekedy potrebujete presné slová. Zistite, ako AI Zápisnica zvláda doslovný záznam."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Cenník"
+  },
+  "hero": {
+    "kicker": "Skryté funkcie",
+    "h1": "Nedocenený hrdina: Doslovný prepis",
+    "tagline": "AI Zápisnica je známa svojimi čistými zhrnutiami. Vedeli ste však, že vytvára aj bezchybný doslovný záznam vašich stretnutí? Tu je dôvod, prečo na tom záleží.",
+    "badges": [
+      "Poháňané Whisper",
+      "Doslovný režim",
+      "Ochrana dôkazov"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Zhrnutia vám povedia, čo sa stalo. Prepisy to dokážu.",
+      "p1": "Našou hlavnou misiou v AI Zápisnici bolo vždy vytvoriť „Ultimátne zhrnutie“ – stručné, akcieschopné poznámky, ktoré posúvajú vaše podnikanie vpred bez zbytočností.",
+      "p2": "Existuje však funkcia „skrytý klenot“, na ktorú sa mnoho pokročilých používateľov denne spolieha: **Prepis celého textu**."
+    },
+    "problem": {
+      "h3": "Vyhnite sa pasci „tvrdenie proti tvrdeniu“",
+      "p1": "Aj to najlepšie AI zhrnutie môže vynechať jemnú nuansu. Môžete sa pýtať:",
+      "bullets": [
+        "„Počkať, čo presne povedal pán Novák o rozpočte?“",
+        "„Naozaj Jana súhlasila s tým termínom, alebo váhala?“",
+        "„Pamätám si protiargument, ale v zhrnutí nie je.“"
+      ],
+      "p2": "Pri dôležitých rokovaniach alebo stretnutiach s klientmi môžu byť tieto chýbajúce detaily osudné. Zhrnutie vám dáva kontext, ale prepis vám dáva **dôkaz**."
+    },
+    "solution": {
+      "h3": "Presnosť vďaka technológii Whisper",
+      "p1": "Ak máte pochybnosti, prepnite na zobrazenie „Celý text“. Využívame najnovšie modely **OpenAI Whisper**, aby sme zabezpečili špičkovú presnosť.",
+      "p2": "Zachytí každé slovo, každé zakoktanie a každú skvelú myšlienku, ktorá by mohla prepadnúť sitom. Je to vaša záchranná sieť proti nejednoznačnosti."
+    }
+  },
+  "pricing": {
+    "h2": "Ste pripravení zachytiť každé slovo?",
+    "p": "Začnite zadarmo s naším denným lístkom alebo upgradujte na neobmedzené nahrávanie.",
+    "trial": {
+      "name": "Skúšobný balíček",
+      "detail": "120 min",
+      "foot": "Bez expirácie. 1,99 $"
+    },
+    "light": {
+      "name": "Balíček Light",
+      "detail": "1200 min",
+      "foot": "Bez expirácie. Najlepšia hodnota."
+    },
+    "monthly": {
+      "name": "Mesačne",
+      "foot": "Skutočne neobmedzené."
+    },
+    "annual": {
+      "name": "Ročne",
+      "detail": "-26 % zľava",
+      "foot": "Najlepšie pre tímy."
+    },
+    "free": "Získajte 3 minúty zadarmo každý deň."
+  },
+  "cta": {
+    "openBrowser": "Skúsiť na webe",
+    "downloadIOS": "Stiahnuť iOS aplikáciu"
+  }
+}

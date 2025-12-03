@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Più che semplici riassunti: Il potere della trascrizione letterale | Verbali IA",
+    "description": "Scopri la forza nascosta di Verbali IA: trascrizione precisa e integrale basata su Whisper. Perfetta per verificare citazioni e catturare ogni dettaglio.",
+    "ogTitle": "Perché hai bisogno della trascrizione integrale (Powered by Whisper)",
+    "ogDescription": "I riassunti sono ottimi, ma a volte servono le parole esatte. Scopri come Verbali IA gestisce la trascrizione verbatim."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Prezzi"
+  },
+  "hero": {
+    "kicker": "Funzionalità nascoste",
+    "h1": "L'eroe nascosto: La trascrizione integrale",
+    "tagline": "Verbali IA è famoso per i suoi riassunti chiari. Ma sapevi che crea anche una registrazione verbatim impeccabile delle tue riunioni? Ecco perché è importante.",
+    "badges": [
+      "Powered by Whisper",
+      "Modalità Verbatim",
+      "Prova documentale"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "I riassunti ti dicono cos'è successo. Le trascrizioni lo provano.",
+      "p1": "La nostra missione principale in Verbali IA è sempre stata quella di creare il 'Riassunto Definitivo': note concise e azionabili che fanno progredire il tuo business senza fronzoli.",
+      "p2": "Tuttavia, c'è una 'gemma nascosta' su cui molti utenti esperti contano ogni giorno: **La Trascrizione del Testo Integrale**."
+    },
+    "problem": {
+      "h3": "Evita la trappola del 'chi ha detto cosa'",
+      "p1": "Anche il miglior riassunto AI potrebbe perdere una sfumatura sottile. Potresti chiederti:",
+      "bullets": [
+        "Aspetta, cosa ha detto esattamente il Sig. Rossi sul budget?",
+        "Giulia ha davvero accettato quella scadenza o ha esitato?",
+        "Ricordo una contro-argomentazione, ma non c'è nel riassunto."
+      ],
+      "p2": "In negoziazioni ad alto rischio o riunioni con i clienti, questi dettagli mancanti possono essere fatali. Un riassunto ti dà il contesto, ma la trascrizione ti dà la **prova**."
+    },
+    "solution": {
+      "h3": "Precisione guidata da Whisper",
+      "p1": "Nel dubbio, passa alla visualizzazione 'Testo completo'. Utilizziamo gli ultimi modelli **OpenAI Whisper** per garantire una precisione leader nel settore.",
+      "p2": "Cattura ogni parola, ogni balbettio e ogni idea brillante che potrebbe essere sfuggita. È la tua rete di sicurezza contro l'ambiguità."
+    }
+  },
+  "pricing": {
+    "h2": "Pronto a catturare ogni parola?",
+    "p": "Inizia gratuitamente con il nostro ticket giornaliero o passa alla registrazione illimitata.",
+    "trial": {
+      "name": "Pacchetto Prova",
+      "detail": "120 min",
+      "foot": "Non scade mai. 1,99 $"
+    },
+    "light": {
+      "name": "Pacchetto Light",
+      "detail": "1200 min",
+      "foot": "Non scade mai. Valore migliore."
+    },
+    "monthly": {
+      "name": "Mensile",
+      "foot": "Veramente illimitato."
+    },
+    "annual": {
+      "name": "Annuale",
+      "detail": "-26% sconto",
+      "foot": "Ideale per i team."
+    },
+    "free": "Ottieni 3 minuti gratis ogni giorno."
+  },
+  "cta": {
+    "openBrowser": "Prova sul Web",
+    "downloadIOS": "Scarica app iOS"
+  }
+}

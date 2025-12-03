@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Mehr als nur Zusammenfassungen: Die Macht der Volltext-Transkription | Protokoll KI",
+    "description": "Entdecken Sie die verborgene Stärke von Protokoll KI: präzise Volltext-Transkription, powered by Whisper. Perfekt zur Überprüfung von Zitaten und zum Festhalten jedes Details.",
+    "ogTitle": "Warum Sie Volltext-Transkription brauchen (Powered by Whisper)",
+    "ogDescription": "Zusammenfassungen sind großartig, aber manchmal braucht man den genauen Wortlaut. Erfahren Sie, wie Protokoll KI wörtliche Protokolle erstellt."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Preise"
+  },
+  "hero": {
+    "kicker": "Verborgene Funktionen",
+    "h1": "Der unbesungene Held: Volltext-Transkription",
+    "tagline": "Protokoll KI ist bekannt für seine klaren Zusammenfassungen. Aber wussten Sie, dass es auch ein fehlerfreies wörtliches Protokoll Ihrer Meetings erstellt? Hier erfahren Sie, warum das wichtig ist.",
+    "badges": [
+      "Powered by Whisper",
+      "Wortwörtlicher Modus",
+      "Beweissicherung"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Zusammenfassungen sagen Ihnen, was passiert ist. Transkripte beweisen es.",
+      "p1": "Unsere Kernmission bei Protokoll KI war es immer, die 'Ultimative Zusammenfassung' zu erstellen – prägnante, umsetzbare Notizen, die Ihr Geschäft voranbringen, ohne unnötigen Ballast.",
+      "p2": "Es gibt jedoch eine 'versteckte Perle' von einer Funktion, auf die sich viele Power-User täglich verlassen: **Volltext-Transkription**."
+    },
+    "problem": {
+      "h3": "Vermeiden Sie die 'Er hat gesagt, sie hat gesagt'-Falle",
+      "p1": "Selbst die beste KI-Zusammenfassung könnte eine subtile Nuance übersehen. Vielleicht fragen Sie sich:",
+      "bullets": [
+        "„Moment, was genau hat Herr Müller über das Budget gesagt?“",
+        "„Hat Sarah dem Termin wirklich zugestimmt oder hat sie gezögert?“",
+        "„Ich erinnere mich an ein Gegenargument, aber es steht nicht in der Zusammenfassung.“"
+      ],
+      "p2": "In Verhandlungen mit hohem Einsatz oder Kundengesprächen können diese fehlenden Details fatal sein. Eine Zusammenfassung gibt Ihnen den Kontext, aber das Transkript liefert den **Beweis**."
+    },
+    "solution": {
+      "h3": "Präzision dank Whisper-Technologie",
+      "p1": "Im Zweifelsfall wechseln Sie zur Ansicht 'Volltext'. Wir nutzen die neuesten **OpenAI Whisper**-Modelle, um branchenführende Genauigkeit zu gewährleisten.",
+      "p2": "Es erfasst jedes Wort, jedes Stottern und jede brillante Idee, die sonst vielleicht untergegangen wäre. Es ist Ihr Sicherheitsnetz gegen Mehrdeutigkeit."
+    }
+  },
+  "pricing": {
+    "h2": "Bereit, jedes Wort festzuhalten?",
+    "p": "Starten Sie kostenlos mit unserem Tagesticket oder upgraden Sie auf unbegrenzte Aufnahme.",
+    "trial": {
+      "name": "Test-Paket",
+      "detail": "120 Min",
+      "foot": "Verfällt nie. 1,99 $"
+    },
+    "light": {
+      "name": "Light-Paket",
+      "detail": "1200 Min",
+      "foot": "Verfällt nie. Bester Wert."
+    },
+    "monthly": {
+      "name": "Monatlich",
+      "foot": "Wirklich unbegrenzt."
+    },
+    "annual": {
+      "name": "Jährlich",
+      "detail": "-26% Rabatt",
+      "foot": "Beste Wahl für Teams."
+    },
+    "free": "Erhalten Sie jeden Tag 3 kostenlose Minuten."
+  },
+  "cta": {
+    "openBrowser": "Im Web testen",
+    "downloadIOS": "iOS-App laden"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Hơn cả tóm tắt: Sức mạnh của bản ghi nguyên văn | Biên bản AI",
+    "description": "Khám phá sức mạnh tiềm ẩn của Biên bản AI: bản ghi âm nguyên văn chính xác sử dụng công nghệ Whisper. Hoàn hảo để xác minh trích dẫn và ghi lại mọi chi tiết.",
+    "ogTitle": "Tại sao bạn cần bản ghi nguyên văn (Powered by Whisper)",
+    "ogDescription": "Tóm tắt rất tuyệt, nhưng đôi khi bạn cần chính xác từng từ ngữ. Xem cách Biên bản AI xử lý ghi chép nguyên văn."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Bảng giá"
+  },
+  "hero": {
+    "kicker": "Tính năng ẩn",
+    "h1": "Người hùng thầm lặng: Bản ghi nguyên văn",
+    "tagline": "Biên bản AI nổi tiếng với các bản tóm tắt gọn gàng. Nhưng bạn có biết nó cũng tạo ra một bản ghi chép nguyên văn hoàn hảo cho cuộc họp của bạn không? Đây là lý do tại sao nó quan trọng.",
+    "badges": [
+      "Công nghệ Whisper",
+      "Chế độ nguyên văn",
+      "Bằng chứng rõ ràng"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Bản tóm tắt cho bạn biết điều gì đã xảy ra. Bản ghi nguyên văn chứng minh điều đó.",
+      "p1": "Sứ mệnh cốt lõi của chúng tôi tại Biên bản AI luôn là tạo ra 'Bản tóm tắt tối thượng' — những ghi chú ngắn gọn, khả thi giúp doanh nghiệp của bạn tiến lên mà không rườm rà.",
+      "p2": "Tuy nhiên, có một tính năng 'viên ngọc ẩn' mà nhiều người dùng chuyên nghiệp dựa vào hàng ngày: **Bản ghi chép toàn văn (Full-Text)**."
+    },
+    "problem": {
+      "h3": "Tránh bẫy tranh cãi 'ai đã nói gì'",
+      "p1": "Ngay cả bản tóm tắt AI tốt nhất cũng có thể bỏ qua một sắc thái tinh tế. Bạn có thể tự hỏi:",
+      "bullets": [
+        "Khoan đã, chính xác thì ông Tuấn đã nói gì về ngân sách?",
+        "Lan có thực sự đồng ý với thời hạn đó không, hay cô ấy lưỡng lự?",
+        "Tôi nhớ có một ý kiến phản biện, nhưng nó không có trong bản tóm tắt."
+      ],
+      "p2": "Trong các cuộc đàm phán quan trọng hoặc họp với khách hàng, những chi tiết thiếu sót này có thể gây hậu quả nghiêm trọng. Bản tóm tắt cung cấp ngữ cảnh, nhưng bản ghi nguyên văn cung cấp **bằng chứng**."
+    },
+    "solution": {
+      "h3": "Độ chính xác từ Whisper",
+      "p1": "Khi nghi ngờ, hãy chuyển sang chế độ xem 'Toàn văn'. Chúng tôi sử dụng các mô hình **OpenAI Whisper** mới nhất để đảm bảo độ chính xác hàng đầu trong ngành.",
+      "p2": "Nó nắm bắt từng từ, từng tiếng lắp bắp và từng ý tưởng tuyệt vời có thể đã bị bỏ sót. Đó là lưới an toàn của bạn chống lại sự mơ hồ."
+    }
+  },
+  "pricing": {
+    "h2": "Sẵn sàng nắm bắt từng từ một?",
+    "p": "Bắt đầu miễn phí với vé hàng ngày của chúng tôi, hoặc nâng cấp để ghi âm không giới hạn.",
+    "trial": {
+      "name": "Gói Dùng thử",
+      "detail": "120 phút",
+      "foot": "Không hết hạn. $1.99"
+    },
+    "light": {
+      "name": "Gói Light",
+      "detail": "1200 phút",
+      "foot": "Không hết hạn. Giá trị nhất."
+    },
+    "monthly": {
+      "name": "Hàng tháng",
+      "foot": "Thực sự không giới hạn."
+    },
+    "annual": {
+      "name": "Hàng năm",
+      "detail": "Giảm 26%",
+      "foot": "Tốt nhất cho nhóm."
+    },
+    "free": "Nhận 3 phút miễn phí mỗi ngày."
+  },
+  "cta": {
+    "openBrowser": "Thử trên Web",
+    "downloadIOS": "Tải App iOS"
+  }
+}

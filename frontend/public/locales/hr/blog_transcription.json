@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Više od samih sažetaka: Snaga doslovnog transkripta | AI Zapisnik",
+    "description": "Otkrijte skrivenu snagu AI Zapisnika: precizan, cjelovit transkript pokretan Whisper tehnologijom. Savršeno za provjeru citata i bilježenje svakog detalja.",
+    "ogTitle": "Zašto vam treba cjeloviti transkript (Pokreće Whisper)",
+    "ogDescription": "Sažeci su izvrsni, ali ponekad su vam potrebne točne riječi. Saznajte kako AI Zapisnik obrađuje doslovni zapis."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Cijene"
+  },
+  "hero": {
+    "kicker": "Skrivene značajke",
+    "h1": "Neopjevani heroj: Cjeloviti transkript",
+    "tagline": "AI Zapisnik poznat je po svojim čistim sažecima. No jeste li znali da stvara i besprijekoran doslovni zapis vaših sastanaka? Evo zašto je to važno.",
+    "badges": [
+      "Pokreće Whisper",
+      "Doslovni način rada",
+      "Zaštita dokaza"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Sažeci vam govore što se dogodilo. Transkripti to dokazuju.",
+      "p1": "Naša glavna misija u AI Zapisniku uvijek je bila stvoriti 'Ultimativni sažetak' – jezgrovite, korisne bilješke koje pokreću vaše poslovanje naprijed bez suvišnih riječi.",
+      "p2": "Međutim, postoji značajka 'skriveni dragulj' na koju se mnogi napredni korisnici svakodnevno oslanjaju: **Transkript cijelog teksta**."
+    },
+    "problem": {
+      "h3": "Izbjegnite zamku 'rekla-kazala'",
+      "p1": "Čak i najbolji AI sažetak može propustiti suptilnu nijansu. Mogli biste se zapitati:",
+      "bullets": [
+        "Čekaj, što je točno g. Horvat rekao o proračunu?",
+        "Je li Sara stvarno pristala na taj rok ili je oklijevala?",
+        "Sjećam se protuargumenta, ali nema ga u sažetku."
+      ],
+      "p2": "U pregovorima s visokim ulozima ili sastancima s klijentima, ovi detalji koji nedostaju mogu biti kobni. Sažetak vam daje kontekst, ali transkript vam daje **dokaz**."
+    },
+    "solution": {
+      "h3": "Preciznost koju pokreće Whisper",
+      "p1": "Kada ste u nedoumici, prebacite se na prikaz 'Cijeli tekst'. Koristimo najnovije **OpenAI Whisper** modele kako bismo osigurali vodeću točnost u industriji.",
+      "p2": "Hvata svaku riječ, svako zamuckivanje i svaku briljantnu ideju koja je možda promakla. To je vaša sigurnosna mreža protiv dvosmislenosti."
+    }
+  },
+  "pricing": {
+    "h2": "Spremni uhvatiti svaku riječ?",
+    "p": "Započnite besplatno s našom dnevnom ulaznicom ili nadogradite za neograničeno snimanje.",
+    "trial": {
+      "name": "Probni paket",
+      "detail": "120 min",
+      "foot": "Nikad ne istječe. 1,99 $"
+    },
+    "light": {
+      "name": "Light paket",
+      "detail": "1200 min",
+      "foot": "Nikad ne istječe. Najbolja vrijednost."
+    },
+    "monthly": {
+      "name": "Mjesečno",
+      "foot": "Doista neograničeno."
+    },
+    "annual": {
+      "name": "Godišnje",
+      "detail": "-26% popusta",
+      "foot": "Najbolje za timove."
+    },
+    "free": "Dobijte 3 besplatne minute svaki dan."
+  },
+  "cta": {
+    "openBrowser": "Isprobajte na webu",
+    "downloadIOS": "Preuzmite iOS aplikaciju"
+  }
+}

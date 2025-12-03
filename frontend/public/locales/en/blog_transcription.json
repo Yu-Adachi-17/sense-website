@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "More Than Just Summaries: The Power of Full-Text Transcription | Minutes.AI",
+    "description": "Discover the hidden power of Minutes.AI: precise, full-text transcription powered by Whisper. Perfect for verifying quotes, resolving disputes, and capturing every detail.",
+    "ogTitle": "Why You Need Full-Text Transcription (Powered by Whisper)",
+    "ogDescription": "Summaries are great, but sometimes you need the exact words. Learn how Minutes.AI handles verbatim transcription."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Pricing"
+  },
+  "hero": {
+    "kicker": "Hidden Features",
+    "h1": "The Unsung Hero: Full-Text Transcription",
+    "tagline": "Minutes.AI is famous for its clean summaries. But did you know it also creates a flawless verbatim record of your meetings? Here is why that matters.",
+    "badges": [
+      "Powered by Whisper",
+      "Verbatim Mode",
+      "Evidence Protection"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Summaries tell you what happened. Transcripts prove it.",
+      "p1": "Our core mission at Minutes.AI has always been to create the “Ultimate Summary”—concise, actionable notes that move your business forward without the fluff.",
+      "p2": "However, there is a “hidden gem” feature that many power users rely on daily: **Full-Text Transcription**."
+    },
+    "problem": {
+      "h3": "Avoiding the “He Said, She Said” Trap",
+      "p1": "Even the best AI summary might skip a subtle nuance. You might find yourself asking:",
+      "bullets": [
+        "“Wait, what exactly did Mr. Tanaka say about the budget?”",
+        "“Did Sarah actually agree to that deadline, or did she hesitate?”",
+        "“I remember a counter-argument, but it’s not in the summary.”"
+      ],
+      "p2": "In high-stakes negotiations or client meetings, these missing details can be fatal. A summary gives you the context, but the transcript gives you the **evidence**."
+    },
+    "solution": {
+      "h3": "Precision Powered by Whisper",
+      "p1": "When in doubt, switch to the “Full Text” view. We utilize the latest **OpenAI Whisper** models to ensure industry-leading accuracy.",
+      "p2": "It captures every word, every stutter, and every dazzling idea that might have slipped through the cracks. It’s your safety net against ambiguity."
+    }
+  },
+  "pricing": {
+    "h2": "Ready to capture every word?",
+    "p": "Start for free with our daily ticket, or upgrade for unlimited recording.",
+    "trial": {
+      "name": "Trial Pack",
+      "detail": "120 min",
+      "foot": "No expiry. $1.99"
+    },
+    "light": {
+      "name": "Light Pack",
+      "detail": "1200 min",
+      "foot": "No expiry. Best Value."
+    },
+    "monthly": {
+      "name": "Monthly",
+      "foot": "Truly Unlimited."
+    },
+    "annual": {
+      "name": "Annual",
+      "detail": "-26% off",
+      "foot": "Best for teams."
+    },
+    "free": "Get 3 free minutes every single day."
+  },
+  "cta": {
+    "openBrowser": "Try on Web",
+    "downloadIOS": "Download iOS App"
+  }
+}

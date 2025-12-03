@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Özetlerden Çok Daha Fazlası: Tam Metin Deşifrenin Gücü | Tutanakları AI",
+    "description": "Tutanakları AI'nın gizli gücünü keşfedin: Whisper destekli hassas, tam metin deşifre. Alıntıları doğrulamak ve her ayrıntıyı yakalamak için mükemmel.",
+    "ogTitle": "Neden Tam Metin Deşifreye İhtiyacınız Var (Powered by Whisper)",
+    "ogDescription": "Özetler harikadır, ancak bazen tam kelimelere ihtiyaç duyarsınız. Tutanakları AI'nın kelimesi kelimesine kaydı nasıl işlediğini görün."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Fiyatlandırma"
+  },
+  "hero": {
+    "kicker": "Gizli Özellikler",
+    "h1": "Gizli Kahraman: Tam Metin Deşifre",
+    "tagline": "Tutanakları AI, net özetleriyle ünlüdür. Ancak toplantılarınızın kusursuz, kelimesi kelimesine kaydını da oluşturduğunu biliyor muydunuz? İşte bu yüzden önemli.",
+    "badges": [
+      "Whisper Destekli",
+      "Kelimesi Kelimesine Mod",
+      "Kanıt Niteliğinde"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Özetler size ne olduğunu söyler. Deşifreler bunu kanıtlar.",
+      "p1": "Tutanakları AI'daki temel misyonumuz her zaman 'Nihai Özet'i oluşturmak olmuştur; işinizi gereksiz ayrıntılar olmadan ileriye taşıyan kısa, eyleme geçirilebilir notlar.",
+      "p2": "Ancak, birçok uzman kullanıcının her gün güvendiği bir 'gizli mücevher' özelliği var: **Tam Metin Deşifre**."
+    },
+    "problem": {
+      "h3": "'Kim ne dedi' karmaşasından kaçının",
+      "p1": "En iyi yapay zeka özeti bile ince bir nüansı kaçırabilir. Kendinize şunu sorabilirsiniz:",
+      "bullets": [
+        "\"Bir dakika, Bay Yılmaz bütçe hakkında tam olarak ne dedi?\"",
+        "\"Selin o teslim tarihini gerçekten kabul etti mi, yoksa tereddüt mü etti?\"",
+        "\"Bir karşı argüman hatırlıyorum ama özette yok.\""
+      ],
+      "p2": "Yüksek riskli müzakerelerde veya müşteri toplantılarında, bu eksik ayrıntılar ölümcül olabilir. Özet size bağlamı verir, ancak deşifre size **kanıtı** verir."
+    },
+    "solution": {
+      "h3": "Whisper destekli hassasiyet",
+      "p1": "Şüpheye düştüğünüzde, 'Tam Metin' görünümüne geçin. Endüstri lideri doğruluk sağlamak için en son **OpenAI Whisper** modellerini kullanıyoruz.",
+      "p2": "Aradan kaçabilecek her kelimeyi, her duraksamayı ve her parlak fikri yakalar. Belirsizliğe karşı güvenlik ağınızdır."
+    }
+  },
+  "pricing": {
+    "h2": "Her kelimeyi yakalamaya hazır mısınız?",
+    "p": "Günlük biletinizle ücretsiz başlayın veya sınırsız kayıt için yükseltin.",
+    "trial": {
+      "name": "Deneme Paketi",
+      "detail": "120 dk",
+      "foot": "Süresi dolmaz. $1.99"
+    },
+    "light": {
+      "name": "Light Paket",
+      "detail": "1200 dk",
+      "foot": "Süresi dolmaz. En iyi değer."
+    },
+    "monthly": {
+      "name": "Aylık",
+      "foot": "Gerçekten Sınırsız."
+    },
+    "annual": {
+      "name": "Yıllık",
+      "detail": "%26 indirim",
+      "foot": "Ekipler için en iyisi."
+    },
+    "free": "Her gün 3 ücretsiz dakika kazanın."
+  },
+  "cta": {
+    "openBrowser": "Web'de dene",
+    "downloadIOS": "iOS uygulamasını indir"
+  }
+}

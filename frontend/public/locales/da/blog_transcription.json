@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Mere end bare referater: Styrken ved fuld transskription | Referat AI",
+    "description": "Opdag den skjulte styrke ved Referat AI: præcis, fuld transskription drevet af Whisper. Perfekt til at verificere citater og fange hver eneste detalje.",
+    "ogTitle": "Hvorfor du har brug for fuld transskription (Powered by Whisper)",
+    "ogDescription": "Referater er gode, men nogle gange har du brug for de præcise ord. Se hvordan Referat AI håndterer ordret gengivelse."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Priser"
+  },
+  "hero": {
+    "kicker": "Skjulte funktioner",
+    "h1": "Den usungne helt: Fuld transskription",
+    "tagline": "Referat AI er kendt for sine rene resuméer. Men vidste du, at den også skaber en fejlfri ordret optegnelse af dine møder? Her er hvorfor det er vigtigt.",
+    "badges": [
+      "Drevet af Whisper",
+      "Ordret tilstand",
+      "Evidenssikring"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Referatet fortæller, hvad der skete. Transskriptionen beviser det.",
+      "p1": "Vores kernemission hos Referat AI har altid været at skabe det 'Ultimative Resumé' – korte, handlingsrettede noter, der driver din forretning fremad uden fyld.",
+      "p2": "Der er dog en 'skjult perle' af en funktion, som mange superbrugere er afhængige af dagligt: **Fuld Tekst Transskription**."
+    },
+    "problem": {
+      "h3": "Undgå tvivl om hvem der sagde hvad",
+      "p1": "Selv det bedste AI-referat kan overse en subtil nuance. Du spørger måske dig selv:",
+      "bullets": [
+        "\"Vent, hvad sagde hr. Jensen præcis om budgettet?\"",
+        "\"Sagde Sarah faktisk ja til den deadline, eller tøvede hun?\"",
+        "\"Jeg husker et modargument, men det er ikke i referatet.\""
+      ],
+      "p2": "I vigtige forhandlinger eller kundemøder kan disse manglende detaljer være fatale. Et referat giver dig konteksten, men transskriptionen giver dig **beviset**."
+    },
+    "solution": {
+      "h3": "Præcision drevet af Whisper",
+      "p1": "Når du er i tvivl, skift til visningen 'Fuld tekst'. Vi bruger de nyeste **OpenAI Whisper** modeller for at sikre branchens bedste præcision.",
+      "p2": "Den fanger hvert ord, hver tøven og hver genial idé, der måske er smuttet gennem sprækkerne. Det er dit sikkerhedsnet mod tvetydighed."
+    }
+  },
+  "pricing": {
+    "h2": "Klar til at fange hvert ord?",
+    "p": "Start gratis med vores daglige billet, eller opgrader til ubegrænset optagelse.",
+    "trial": {
+      "name": "Prøvepakke",
+      "detail": "120 min",
+      "foot": "Udløber aldrig. $1.99"
+    },
+    "light": {
+      "name": "Light-pakke",
+      "detail": "1200 min",
+      "foot": "Udløber aldrig. Bedste værdi."
+    },
+    "monthly": {
+      "name": "Månedlig",
+      "foot": "Virkelig ubegrænset."
+    },
+    "annual": {
+      "name": "Årlig",
+      "detail": "-26% rabat",
+      "foot": "Bedst til teams."
+    },
+    "free": "Få 3 gratis minutter hver eneste dag."
+  },
+  "cta": {
+    "openBrowser": "Prøv på nettet",
+    "downloadIOS": "Hent iOS-app"
+  }
+}

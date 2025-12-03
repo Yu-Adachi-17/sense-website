@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Mai mult decât simple rezumate: Puterea transcrierii complete | Proces-verbal AI",
+    "description": "Descoperiți puterea ascunsă a Proces-verbal AI: transcriere precisă, text integral, susținută de Whisper. Perfect pentru verificarea citatelor și captarea fiecărui detaliu.",
+    "ogTitle": "De ce aveți nevoie de transcriere completă (Powered by Whisper)",
+    "ogDescription": "Rezumatele sunt grozave, dar uneori aveți nevoie de cuvintele exacte. Vedeți cum gestionează Proces-verbal AI înregistrarea verbatim."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Prețuri"
+  },
+  "hero": {
+    "kicker": "Funcții ascunse",
+    "h1": "Eroul necunoscut: Transcrierea completă",
+    "tagline": "Proces-verbal AI este faimos pentru rezumatele sale clare. Dar știați că creează și o înregistrare verbatim impecabilă a ședințelor dvs.? Iată de ce contează.",
+    "badges": [
+      "Susținut de Whisper",
+      "Mod Verbatim",
+      "Dovadă clară"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Rezumatele îți spun ce s-a întâmplat. Transcrierile dovedesc asta.",
+      "p1": "Misiunea noastră principală la Proces-verbal AI a fost întotdeauna crearea 'Rezumatului Suprem' – note concise, acționabile, care vă propulsează afacerea fără detalii inutile.",
+      "p2": "Totuși, există o funcție 'bijuterie ascunsă' pe care mulți utilizatori experimentați se bazează zilnic: **Transcrierea Textului Integral**."
+    },
+    "problem": {
+      "h3": "Evitați capcana 'vorbelor la proces'",
+      "p1": "Chiar și cel mai bun rezumat AI poate omite o nuanță subtilă. S-ar putea să vă întrebați:",
+      "bullets": [
+        "Stai, ce a spus exact Dl. Ionescu despre buget?",
+        "A fost Sarah de acord cu acel termen sau a ezitat?",
+        "Îmi amintesc un contraargument, dar nu este în rezumat."
+      ],
+      "p2": "În negocieri importante sau ședințe cu clienții, aceste detalii lipsă pot fi fatale. Un rezumat vă oferă contextul, dar transcrierea vă oferă **dovada**."
+    },
+    "solution": {
+      "h3": "Precizie susținută de Whisper",
+      "p1": "Când aveți dubii, comutați la vizualizarea 'Text complet'. Folosim cele mai recente modele **OpenAI Whisper** pentru a asigura o precizie de top în industrie.",
+      "p2": "Captează fiecare cuvânt, fiecare bâlbâială și fiecare idee genială care ar fi putut scăpa. Este plasa dvs. de siguranță împotriva ambiguității."
+    }
+  },
+  "pricing": {
+    "h2": "Gata să captați fiecare cuvânt?",
+    "p": "Începeți gratuit cu tichetul nostru zilnic sau faceți upgrade pentru înregistrare nelimitată.",
+    "trial": {
+      "name": "Pachet Test",
+      "detail": "120 min",
+      "foot": "Fără expirare. 1.99 $"
+    },
+    "light": {
+      "name": "Pachet Light",
+      "detail": "1200 min",
+      "foot": "Fără expirare. Cel mai bun preț."
+    },
+    "monthly": {
+      "name": "Lunar",
+      "foot": "Cu adevărat nelimitat."
+    },
+    "annual": {
+      "name": "Anual",
+      "detail": "-26% reducere",
+      "foot": "Cel mai bun pentru echipe."
+    },
+    "free": "Primiți 3 minute gratuite în fiecare zi."
+  },
+  "cta": {
+    "openBrowser": "Încercați pe Web",
+    "downloadIOS": "Descărcați aplicația iOS"
+  }
+}

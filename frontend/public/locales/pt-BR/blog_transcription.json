@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Mais do que apenas resumos: O poder da transcrição completa | Ata AI",
+    "description": "Descubra o poder oculto do Ata AI: transcrição precisa e integral impulsionada pelo Whisper. Perfeito para verificar citações e capturar todos os detalhes.",
+    "ogTitle": "Porque precisa da transcrição completa (Powered by Whisper)",
+    "ogDescription": "Os resumos são ótimos, mas às vezes precisa das palavras exatas. Veja como o Ata AI lida com o registo verbatim."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Preços"
+  },
+  "hero": {
+    "kicker": "Funcionalidades ocultas",
+    "h1": "O herói anónimo: Transcrição completa",
+    "tagline": "O Ata AI é famoso pelos seus resumos claros. Mas sabia que também cria um registo verbatim impecável das suas reuniões? Eis porque isso é importante.",
+    "badges": [
+      "Impulsionado por Whisper",
+      "Modo Verbatim",
+      "Proteção de provas"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Os resumos dizem-lhe o que aconteceu. As transcrições provam-no.",
+      "p1": "A nossa missão principal no Ata AI sempre foi criar o 'Resumo Definitivo' — notas concisas e acionáveis que impulsionam o seu negócio sem rodeios.",
+      "p2": "No entanto, existe uma 'joia escondida' em que muitos utilizadores avançados confiam diariamente: **Transcrição de Texto Integral**."
+    },
+    "problem": {
+      "h3": "Evite a armadilha do 'diz-que-diz'",
+      "p1": "Mesmo o melhor resumo de IA pode omitir uma nuance subtil. Pode dar por si a perguntar:",
+      "bullets": [
+        "\"Espere, o que disse exatamente o Sr. Silva sobre o orçamento?\"",
+        "\"A Sara concordou realmente com esse prazo, ou hesitou?\"",
+        "\"Lembro-me de um contra-argumento, mas não está no resumo.\""
+      ],
+      "p2": "Em negociações de alto risco ou reuniões com clientes, estes detalhes em falta podem ser fatais. Um resumo dá-lhe o contexto, mas a transcrição dá-lhe a **prova**."
+    },
+    "solution": {
+      "h3": "Precisão impulsionada pelo Whisper",
+      "p1": "Em caso de dúvida, mude para a vista 'Texto Completo'. Utilizamos os modelos **OpenAI Whisper** mais recentes para garantir uma precisão líder na indústria.",
+      "p2": "Captura cada palavra, cada gaguejo e cada ideia brilhante que poderia ter escapado. É a sua rede de segurança contra a ambiguidade."
+    }
+  },
+  "pricing": {
+    "h2": "Pronto para capturar cada palavra?",
+    "p": "Comece gratuitamente com o nosso bilhete diário ou atualize para gravação ilimitada.",
+    "trial": {
+      "name": "Pacote de Teste",
+      "detail": "120 min",
+      "foot": "Sem validade. 1,99 $"
+    },
+    "light": {
+      "name": "Pacote Light",
+      "detail": "1200 min",
+      "foot": "Sem validade. Melhor valor."
+    },
+    "monthly": {
+      "name": "Mensal",
+      "foot": "Verdadeiramente ilimitado."
+    },
+    "annual": {
+      "name": "Anual",
+      "detail": "-26% desconto",
+      "foot": "Melhor para equipas."
+    },
+    "free": "Receba 3 minutos grátis todos os dias."
+  },
+  "cta": {
+    "openBrowser": "Experimentar na Web",
+    "downloadIOS": "Descarregar App iOS"
+  }
+}

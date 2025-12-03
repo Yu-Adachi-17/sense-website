@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Meer dan alleen samenvattingen: De kracht van woordelijke transcriptie | Notulen AI",
+    "description": "Ontdek de verborgen kracht van Notulen AI: nauwkeurige, volledige transcriptie aangedreven door Whisper. Perfect voor het verifiëren van citaten en het vastleggen van elk detail.",
+    "ogTitle": "Waarom je volledige transcriptie nodig hebt (Powered by Whisper)",
+    "ogDescription": "Samenvattingen zijn geweldig, maar soms heb je de exacte woorden nodig. Ontdek hoe Notulen AI omgaat met woordelijke verslaglegging."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Prijzen"
+  },
+  "hero": {
+    "kicker": "Verborgen functies",
+    "h1": "De onbezongen held: Volledige transcriptie",
+    "tagline": "Notulen AI staat bekend om zijn heldere samenvattingen. Maar wist je dat het ook een foutloos woordelijk verslag van je vergaderingen maakt? Dit is waarom dat belangrijk is.",
+    "badges": [
+      "Aangedreven door Whisper",
+      "Woordelijke modus",
+      "Bewijsvoering"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Samenvattingen vertellen wat er gebeurde. Transcripties bewijzen het.",
+      "p1": "Onze kernmissie bij Notulen AI is altijd geweest om de 'Ultieme Samenvatting' te creëren: beknopte, actiegerichte notities die je bedrijf vooruit helpen zonder overbodige details.",
+      "p2": "Er is echter een 'verborgen juweeltje' waar veel power-users dagelijks op vertrouwen: **Volledige Tekst Transcriptie**."
+    },
+    "problem": {
+      "h3": "Vermijd het 'welles-nietes' spelletje",
+      "p1": "Zelfs de beste AI-samenvatting kan een subtiele nuance missen. Je vraagt je misschien af:",
+      "bullets": [
+        "\"Wacht, wat zei meneer Jansen precies over het budget?\"",
+        "\"Ging Sarah echt akkoord met die deadline, of twijfelde ze?\"",
+        "\"Ik herinner me een tegenargument, maar dat staat niet in de samenvatting.\""
+      ],
+      "p2": "Bij onderhandelingen met hoge inzet of klantgesprekken kunnen deze ontbrekende details fataal zijn. Een samenvatting geeft de context, maar de transcriptie levert het **bewijs**."
+    },
+    "solution": {
+      "h3": "Precisie aangedreven door Whisper",
+      "p1": "Schakel bij twijfel over naar de weergave 'Volledige tekst'. We gebruiken de nieuwste **OpenAI Whisper**-modellen om toonaangevende nauwkeurigheid te garanderen.",
+      "p2": "Het legt elk woord, elke hapering en elk briljant idee vast dat anders door de mazen van het net zou zijn geglipt. Het is je vangnet tegen ambiguïteit."
+    }
+  },
+  "pricing": {
+    "h2": "Klaar om elk woord vast te leggen?",
+    "p": "Begin gratis met ons dagticket of upgrade voor onbeperkt opnemen.",
+    "trial": {
+      "name": "Proefpakket",
+      "detail": "120 min",
+      "foot": "Verloopt nooit. $1.99"
+    },
+    "light": {
+      "name": "Light Pakket",
+      "detail": "1200 min",
+      "foot": "Verloopt nooit. Beste waarde."
+    },
+    "monthly": {
+      "name": "Maandelijks",
+      "foot": "Echt onbeperkt."
+    },
+    "annual": {
+      "name": "Jaarlijks",
+      "detail": "-26% korting",
+      "foot": "Beste voor teams."
+    },
+    "free": "Ontvang elke dag 3 gratis minuten."
+  },
+  "cta": {
+    "openBrowser": "Probeer op het web",
+    "downloadIOS": "Download iOS-app"
+  }
+}

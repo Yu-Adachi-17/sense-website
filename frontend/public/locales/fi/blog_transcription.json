@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Enemmän kuin tiivistelmiä: Sanatarkan litteroinnin voima | Pöytäkirja AI",
+    "description": "Löydä Pöytäkirja AI:n piilotettu voima: tarkka, kokotekstilitterointi Whisperin avulla. Täydellinen sitaattien tarkistamiseen ja jokaisen yksityiskohdan tallentamiseen.",
+    "ogTitle": "Miksi tarvitset kokotekstilitteroinnin (Powered by Whisper)",
+    "ogDescription": "Tiivistelmät ovat hienoja, mutta joskus tarvitset tarkat sanat. Katso, miten Pöytäkirja AI hoitaa sanatarkan tallennuksen."
+  },
+  "nav": {
+    "blog": "Blogi",
+    "pricing": "Hinnoittelu"
+  },
+  "hero": {
+    "kicker": "Piilotetut ominaisuudet",
+    "h1": "Arjen sankari: Kokotekstilitterointi",
+    "tagline": "Pöytäkirja AI tunnetaan selkeistä tiivistelmistään. Mutta tiesitkö, että se luo myös virheettömän sanatarkan tallenteen kokouksistasi? Tässä syy, miksi se on tärkeää.",
+    "badges": [
+      "Whisper-teknologia",
+      "Sanatarkka tila",
+      "Todistusaineisto"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Tiivistelmät kertovat mitä tapahtui. Litterointi todistaa sen.",
+      "p1": "Pöytäkirja AI:n ydinmissiona on aina ollut luoda 'Ultimaattinen tiivistelmä' – ytimekkäät, toimintaan johtavat muistiinpanot, jotka vievät liiketoimintaasi eteenpäin ilman turhaa täytettä.",
+      "p2": "On kuitenkin olemassa 'piilotettu helmi', johon monet tehokäyttäjät luottavat päivittäin: **Kokotekstilitterointi**."
+    },
+    "problem": {
+      "h3": "Vältä 'hän sanoi, se sanoi' -ansa",
+      "p1": "Jopa paras tekoälytiivistelmä saattaa ohittaa hienovaraisen sävyn. Saatat kysyä itseltäsi:",
+      "bullets": [
+        "Hetkinen, mitä herra Tanaka tarkalleen ottaen sanoi budjetista?",
+        "Hyväksyikö Sarah todella määräajan vai epäröikö hän?",
+        "Muistan vasta-argumentin, mutta sitä ei ole tiivistelmässä."
+      ],
+      "p2": "Tärkeissä neuvotteluissa tai asiakastapaamisissa nämä puuttuvat yksityiskohdat voivat olla kohtalokkaita. Tiivistelmä antaa kontekstin, mutta litterointi antaa **todisteet**."
+    },
+    "solution": {
+      "h3": "Tarkkuutta Whisperin voimalla",
+      "p1": "Jos olet epävarma, vaihda 'Koko teksti' -näkymään. Käytämme uusimpia **OpenAI Whisper** -malleja varmistaaksemme alan johtavan tarkkuuden.",
+      "p2": "Se tallentaa jokaisen sanan, jokaisen änkytyksen ja jokaisen loistavan idean, joka olisi voinut muuten kadota. Se on turvaverkkosi epäselvyyksiä vastaan."
+    }
+  },
+  "pricing": {
+    "h2": "Valmis tallentamaan joka sanan?",
+    "p": "Aloita ilmaiseksi päivälipullamme tai päivitä rajoittamattomaan tallennukseen.",
+    "trial": {
+      "name": "Kokeilupaketti",
+      "detail": "120 min",
+      "foot": "Ei vanhene. 1,99 $"
+    },
+    "light": {
+      "name": "Light-paketti",
+      "detail": "1200 min",
+      "foot": "Ei vanhene. Paras arvo."
+    },
+    "monthly": {
+      "name": "Kuukausittain",
+      "foot": "Aidosti rajoittamaton."
+    },
+    "annual": {
+      "name": "Vuosittain",
+      "detail": "-26% alennus",
+      "foot": "Paras tiimeille."
+    },
+    "free": "Saat 3 ilmaista minuuttia joka päivä."
+  },
+  "cta": {
+    "openBrowser": "Kokeile selaimessa",
+    "downloadIOS": "Lataa iOS-sovellus"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Több mint puszta összefoglaló: A szó szerinti leirat ereje | Jegyzőkönyv AI",
+    "description": "Fedezze fel a Jegyzőkönyv AI rejtett erejét: precíz, teljes szöveges átirat a Whisper technológiával. Tökéletes idézetek ellenőrzésére és minden részlet rögzítésére.",
+    "ogTitle": "Miért van szüksége teljes szöveges átiratra (Powered by Whisper)",
+    "ogDescription": "Az összefoglalók remekek, de néha a pontos szavakra van szükség. Tudja meg, hogyan kezeli a Jegyzőkönyv AI a szó szerinti rögzítést."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Árazás"
+  },
+  "hero": {
+    "kicker": "Rejtett funkciók",
+    "h1": "A névtelen hős: Teljes szöveges átirat",
+    "tagline": "A Jegyzőkönyv AI híres a tiszta összefoglalóiról. De tudta, hogy hibátlan, szó szerinti felvételt is készít az értekezleteiről? Íme, miért fontos ez.",
+    "badges": [
+      "Whisper technológia",
+      "Szó szerinti mód",
+      "Bizonyíték"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Az összefoglalók elmondják, mi történt. A leiratok bizonyítják.",
+      "p1": "Fő küldetésünk a Jegyzőkönyv AI-nál mindig is a „Végső Összefoglaló” létrehozása volt – tömör, cselekvésre ösztönző jegyzetek, amelyek felesleges sallangok nélkül viszik előre üzletét.",
+      "p2": "Van azonban egy „rejtett gyémánt” funkció, amelyre sok profi felhasználó nap mint nap támaszkodik: a **Teljes Szöveges Átirat**."
+    },
+    "problem": {
+      "h3": "Kerülje el a „ki mit mondott” csapdát",
+      "p1": "Még a legjobb AI összefoglaló is kihagyhat egy finom árnyalatot. Felmerülhet Önben a kérdés:",
+      "bullets": [
+        "„Várjunk csak, pontosan mit mondott Kovács úr a költségvetésről?”",
+        "„Sára tényleg beleegyezett a határidőbe, vagy hezitált?”",
+        "„Emlékszem egy ellenérvre, de nincs benne az összefoglalóban.”"
+      ],
+      "p2": "Nagy tétű tárgyalásokon vagy ügyféltalálkozókon ezek a hiányzó részletek végzetesek lehetnek. Az összefoglaló megadja a kontextust, de a leirat adja a **bizonyítékot**."
+    },
+    "solution": {
+      "h3": "Whisper által vezérelt pontosság",
+      "p1": "Ha kétségei vannak, váltson a „Teljes szöveg” nézetre. A legújabb **OpenAI Whisper** modelleket használjuk az iparágvezető pontosság érdekében.",
+      "p2": "Minden szót, minden dadogást és minden zseniális ötletet rögzít, ami egyébként elveszhetett volna. Ez az Ön biztonsági hálója a kétértelműség ellen."
+    }
+  },
+  "pricing": {
+    "h2": "Készen áll minden szót rögzíteni?",
+    "p": "Kezdje ingyenesen a napi jegyünkkel, vagy váltson korlátlan rögzítésre.",
+    "trial": {
+      "name": "Próba csomag",
+      "detail": "120 perc",
+      "foot": "Soha nem jár le. 1.99 $"
+    },
+    "light": {
+      "name": "Light csomag",
+      "detail": "1200 perc",
+      "foot": "Soha nem jár le. Legjobb ár-érték."
+    },
+    "monthly": {
+      "name": "Havi",
+      "foot": "Valóban korlátlan."
+    },
+    "annual": {
+      "name": "Éves",
+      "detail": "-26% kedvezmény",
+      "foot": "Legjobb csapatoknak."
+    },
+    "free": "Kapjon 3 ingyenes percet minden nap."
+  },
+  "cta": {
+    "openBrowser": "Próbálja ki a Weben",
+    "downloadIOS": "iOS app letöltése"
+  }
+}

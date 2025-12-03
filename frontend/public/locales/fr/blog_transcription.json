@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Plus que de simples résumés : Le pouvoir de la transcription intégrale | Minutes.AI",
+    "description": "Découvrez la force cachée de Minutes.AI : une transcription intégrale et précise propulsée par Whisper. Parfait pour vérifier des citations et capturer chaque détail.",
+    "ogTitle": "Pourquoi vous avez besoin de la transcription intégrale (Powered by Whisper)",
+    "ogDescription": "Les résumés sont excellents, mais parfois vous avez besoin des mots exacts. Découvrez comment Minutes.AI gère la transcription verbatim."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Tarifs"
+  },
+  "hero": {
+    "kicker": "Fonctionnalités cachées",
+    "h1": "Le héros méconnu : La transcription intégrale",
+    "tagline": "Minutes.AI est célèbre pour ses résumés clairs. Mais saviez-vous qu'il crée également un enregistrement verbatim impeccable de vos réunions ? Voici pourquoi c'est important.",
+    "badges": [
+      "Propulsé par Whisper",
+      "Mode Verbatim",
+      "Preuve à l'appui"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Les résumés vous disent ce qu'il s'est passé. Les transcriptions le prouvent.",
+      "p1": "Notre mission principale chez Minutes.AI a toujours été de créer le 'Résumé Ultime' : des notes concises et exploitables qui font avancer votre entreprise sans superflu.",
+      "p2": "Cependant, il existe une fonctionnalité 'joyau caché' sur laquelle de nombreux utilisateurs experts comptent quotidiennement : **La Transcription Texte Intégral**."
+    },
+    "problem": {
+      "h3": "Évitez le piège du 'qui a dit quoi'",
+      "p1": "Même le meilleur résumé par IA peut omettre une nuance subtile. Vous pourriez vous demander :",
+      "bullets": [
+        "« Attendez, qu'a dit exactement M. Tanaka à propos du budget ? »",
+        "« Sarah a-t-elle vraiment accepté cette échéance, ou a-t-elle hésité ? »",
+        "« Je me souviens d'un contre-argument, mais il n'est pas dans le résumé. »"
+      ],
+      "p2": "Dans les négociations à enjeux élevés ou les réunions clients, ces détails manquants peuvent être fatals. Un résumé vous donne le contexte, mais la transcription vous donne la **preuve**."
+    },
+    "solution": {
+      "h3": "Précision propulsée par Whisper",
+      "p1": "En cas de doute, passez à la vue 'Texte intégral'. Nous utilisons les derniers modèles **OpenAI Whisper** pour garantir une précision de pointe.",
+      "p2": "Il capture chaque mot, chaque hésitation et chaque idée brillante qui aurait pu passer entre les mailles du filet. C'est votre filet de sécurité contre l'ambiguïté."
+    }
+  },
+  "pricing": {
+    "h2": "Prêt à capturer chaque mot ?",
+    "p": "Commencez gratuitement avec notre ticket journalier ou passez à l'enregistrement illimité.",
+    "trial": {
+      "name": "Pack Essai",
+      "detail": "120 min",
+      "foot": "N'expire jamais. 1,99 $"
+    },
+    "light": {
+      "name": "Pack Light",
+      "detail": "1200 min",
+      "foot": "N'expire jamais. Meilleure valeur."
+    },
+    "monthly": {
+      "name": "Mensuel",
+      "foot": "Vraiment illimité."
+    },
+    "annual": {
+      "name": "Annuel",
+      "detail": "-26% de réduction",
+      "foot": "Idéal pour les équipes."
+    },
+    "free": "Obtenez 3 minutes gratuites chaque jour."
+  },
+  "cta": {
+    "openBrowser": "Essayer sur le Web",
+    "downloadIOS": "Télécharger l'app iOS"
+  }
+}

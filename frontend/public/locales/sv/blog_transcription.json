@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Mer än bara sammanfattningar: Kraften i fullständig transkribering | Protokoll AI",
+    "description": "Upptäck den dolda styrkan hos Protokoll AI: exakt, fullständig transkribering driven av Whisper. Perfekt för att verifiera citat och fånga varje detalj.",
+    "ogTitle": "Varför du behöver fullständig transkribering (Powered by Whisper)",
+    "ogDescription": "Sammanfattningar är bra, men ibland behöver du de exakta orden. Se hur Protokoll AI hanterar ordagrann dokumentation."
+  },
+  "nav": {
+    "blog": "Blogg",
+    "pricing": "Priser"
+  },
+  "hero": {
+    "kicker": "Dolda funktioner",
+    "h1": "Den okända hjälten: Fullständig transkribering",
+    "tagline": "Protokoll AI är känt för sina tydliga sammanfattningar. Men visste du att det också skapar en felfri ordagrann logg av dina möten? Här är varför det är viktigt.",
+    "badges": [
+      "Drivs av Whisper",
+      "Ordagrant läge",
+      "Bevissäkring"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Sammanfattningar berättar vad som hände. Transkriberingar bevisar det.",
+      "p1": "Vårt huvuduppdrag på Protokoll AI har alltid varit att skapa den 'Ultimata Sammanfattningen' – koncisa, handlingsbara anteckningar som driver din verksamhet framåt utan onödigt brus.",
+      "p2": "Det finns dock en funktion som är en 'dold juvel' och som många power-users förlitar sig på dagligen: **Fullständig Texttranskribering**."
+    },
+    "problem": {
+      "h3": "Undvik fällan där 'ord står mot ord'",
+      "p1": "Även den bästa AI-sammanfattningen kan missa en subtil nyans. Du kanske frågar dig:",
+      "bullets": [
+        "\"Vänta, vad sa egentligen herr Andersson om budgeten?\"",
+        "\"Sa Sarah verkligen ja till den deadlinen, eller tvekade hon?\"",
+        "\"Jag minns ett motargument, men det står inte i sammanfattningen.\""
+      ],
+      "p2": "I viktiga förhandlingar eller kundmöten kan dessa saknade detaljer vara ödesdigra. En sammanfattning ger dig kontexten, men transkriberingen ger dig **beviset**."
+    },
+    "solution": {
+      "h3": "Precision driven av Whisper",
+      "p1": "Om du är osäker, byt till vyn 'Hela texten'. Vi använder de senaste **OpenAI Whisper**-modellerna för att säkerställa branschledande precision.",
+      "p2": "Den fångar varje ord, varje tvekan och varje briljant idé som annars kunde ha fallit mellan stolarna. Det är ditt skyddsnät mot otydlighet."
+    }
+  },
+  "pricing": {
+    "h2": "Redo att fånga varje ord?",
+    "p": "Börja gratis med vår dagsbiljett, eller uppgradera för obegränsad inspelning.",
+    "trial": {
+      "name": "Provpaket",
+      "detail": "120 min",
+      "foot": "Går aldrig ut. 1,99 $"
+    },
+    "light": {
+      "name": "Light-paket",
+      "detail": "1200 min",
+      "foot": "Går aldrig ut. Bästa värde."
+    },
+    "monthly": {
+      "name": "Månadsvis",
+      "foot": "Verkligen obegränsat."
+    },
+    "annual": {
+      "name": "Årsvis",
+      "detail": "-26% rabatt",
+      "foot": "Bäst för team."
+    },
+    "free": "Få 3 gratis minuter varje dag."
+  },
+  "cta": {
+    "openBrowser": "Prova på webben",
+    "downloadIOS": "Ladda ner iOS-app"
+  }
+}

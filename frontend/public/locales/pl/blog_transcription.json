@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Więcej niż tylko podsumowania: Potęga pełnej transkrypcji | Protokół AI",
+    "description": "Odkryj ukrytą siłę Protokół AI: precyzyjną, pełną transkrypcję wspieraną przez Whisper. Idealna do weryfikacji cytatów i rejestrowania każdego szczegółu.",
+    "ogTitle": "Dlaczego potrzebujesz pełnej transkrypcji (Powered by Whisper)",
+    "ogDescription": "Podsumowania są świetne, ale czasem potrzebujesz dokładnych słów. Zobacz, jak Protokół AI radzi sobie z dosłownym zapisem."
+  },
+  "nav": {
+    "blog": "Blog",
+    "pricing": "Cennik"
+  },
+  "hero": {
+    "kicker": "Ukryte funkcje",
+    "h1": "Cichy bohater: Pełna transkrypcja",
+    "tagline": "Protokół AI słynie z przejrzystych podsumowań. Ale czy wiesz, że tworzy również bezbłędny, dosłowny zapis Twoich spotkań? Oto dlaczego to ważne.",
+    "badges": [
+      "Wspierane przez Whisper",
+      "Tryb dosłowny",
+      "Materiał dowodowy"
+    ]
+  },
+  "article": {
+    "intro": {
+      "h2": "Podsumowania mówią, co się stało. Transkrypcje to udowadniają.",
+      "p1": "Naszą główną misją w Protokół AI zawsze było tworzenie „Ostatecznego Podsumowania” – zwięzłych, praktycznych notatek, które popychają Twój biznes do przodu bez zbędnych treści.",
+      "p2": "Istnieje jednak funkcja będąca „ukrytym klejnotem”, na której wielu zaawansowanych użytkowników polega każdego dnia: **Pełna Transkrypcja Tekstu**."
+    },
+    "problem": {
+      "h3": "Uniknij pułapki „słowo przeciwko słowu”",
+      "p1": "Nawet najlepsze podsumowanie AI może pominąć subtelny niuans. Możesz zadać sobie pytanie:",
+      "bullets": [
+        "„Zaraz, co dokładnie powiedział pan Kowalski o budżecie?”",
+        "„Czy Sara faktycznie zgodziła się na ten termin, czy się wahała?”",
+        "„Pamiętam kontrargument, ale nie ma go w podsumowaniu”."
+      ],
+      "p2": "W negocjacjach o wysoką stawkę lub spotkaniach z klientami te brakujące szczegóły mogą być fatalne. Podsumowanie daje kontekst, ale transkrypcja daje **dowód**."
+    },
+    "solution": {
+      "h3": "Precyzja dzięki technologii Whisper",
+      "p1": "W razie wątpliwości przełącz się na widok „Pełny tekst”. Używamy najnowszych modeli **OpenAI Whisper**, aby zapewnić wiodącą w branży dokładność.",
+      "p2": "Wychwytuje każde słowo, każde zająknięcie i każdy genialny pomysł, który mógłby umknąć. To Twoja sieć bezpieczeństwa przeciwko niejasnościom."
+    }
+  },
+  "pricing": {
+    "h2": "Gotowy, by uchwycić każde słowo?",
+    "p": "Zacznij za darmo z naszym biletem dziennym lub przejdź na nielimitowane nagrywanie.",
+    "trial": {
+      "name": "Pakiet Próbny",
+      "detail": "120 min",
+      "foot": "Bezterminowo. 1,99 $"
+    },
+    "light": {
+      "name": "Pakiet Light",
+      "detail": "1200 min",
+      "foot": "Bezterminowo. Najlepsza wartość."
+    },
+    "monthly": {
+      "name": "Miesięczny",
+      "foot": "Naprawdę nielimitowany."
+    },
+    "annual": {
+      "name": "Roczny",
+      "detail": "-26% zniżki",
+      "foot": "Najlepszy dla zespołów."
+    },
+    "free": "Odbierz 3 darmowe minuty każdego dnia."
+  },
+  "cta": {
+    "openBrowser": "Wypróbuj w przeglądarce",
+    "downloadIOS": "Pobierz aplikację iOS"
+  }
+}
