@@ -73,7 +73,7 @@ const EN_FALLBACK = {
       border: "border-cyan-500/20"
     },
     {
-      "name: "4. Canva (Magic Studio)",
+      name: "4. Canva (Magic Studio)",
       role: "Best for: Visuals & Slides",
       desc: "You don't need to be a designer. Canva's AI features let you generate images, resize assets for social media, and even build entire slide decks from a text prompt.",
       icon: "palette",
