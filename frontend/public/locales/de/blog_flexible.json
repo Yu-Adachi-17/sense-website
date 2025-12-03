@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Das ist 'Flexible': Das ultimative KI-Meetingformat für jedes Gespräch | Minutes.AI",
+    "description": "Schluss mit dem Raten, welches Meeting-Format passt. Ob Brainstorming, Verkaufsgespräch oder Gedankenprotokoll – der 'Flexible'-Modus passt sich sofort an und verwandelt Chaos in kristallklare Logik.",
+    "ogTitle": "Ein Format für alle Fälle: Der Flexible Modus",
+    "ogDescription": "Chaos rein, Struktur raus. Entdecken Sie, warum das 'Flexible'-Format der intelligenteste Weg ist, Meetings, Interviews und Ideen aufzuzeichnen.",
+    "ld": {
+      "headline": "Das 'Flexible'-Format: Perfekte Protokolle, null Aufwand",
+      "description": "Ein detaillierter Blick auf den vielseitigsten Aufnahmemodus von Minutes.AI, der sich jedem Kontext anpasst."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Feature-Spotlight"
+  },
+  "hero": {
+    "kicker": "Feature-Spotlight",
+    "h1": "Das einzige Format, das Sie wirklich brauchen: \"Flexible\"",
+    "tagline": "Allgemein, Vertrieb, Interview, Präsentation... müde von der Auswahl? Wir haben 'Flexible' entwickelt, um die Qual der Wahl zu beenden. Es passt sich Ihrem Gespräch in Echtzeit an und verwandelt jede Diskussion in ein Meisterwerk der Logik.",
+    "subtag": "Vom chaotischen Brainstorming bis zum strukturierten Interview – Flexible erfasst die Essenz, ohne dass Sie einen Finger rühren müssen.",
+    "badges": [
+      "Kontext-sensitiv",
+      "Null Konfiguration",
+      "Universeller Adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Die Qual der Wahl",
+    "p1": "Minutes.AI bietet spezialisierte Formate wie 'Vertrieb', 'Vorlesung' und '1-on-1'. Sie sind mächtig, aber manchmal passt das Leben nicht in eine Schublade.",
+    "p2": "Haben Sie jemals gezögert, bevor Sie auf Aufnahme gedrückt haben? \"Ist das ein Meeting oder nur ein Plausch?\" \"Es ist irgendwie eine Vorlesung, aber auch ein Brainstorming...\" Das Format 'Allgemein' zu wählen, fühlt sich oft wie ein Kompromiss an, der zu einem vagen Protokoll führen könnte.",
+    "quote": "\"Ich will einfach, dass es funktioniert, ohne über Einstellungen nachzudenken.\""
+  },
+  "solution": {
+    "h2": "Chaos rein, Struktur raus",
+    "p1": "Genau deshalb haben wir **Flexible** entwickelt. Es ist unser bisher intelligentester und anpassungsfähigster Algorithmus.",
+    "p2": "Er nimmt keine Struktur vorweg; er entdeckt sie. Egal, ob Sie Selbstgespräche führen, um Gedanken zu ordnen, oder in einem 5-Personen-Strategiemeeting debattieren – Flexible erkennt den Kontext und organisiert den Output logisch.",
+    "highlights": [
+      "**Kontext-Erkennung**: Identifiziert automatisch, ob es sich um einen Dialog, Monolog oder eine Debatte handelt.",
+      "**Smarte Extraktion**: Zieht Aufgaben und Entscheidungen selbst aus unübersichtlichen Gesprächen heraus.",
+      "**Logischer Fluss**: Ordnet verstreute Punkte zu einer kohärenten Erzählung neu."
+    ]
+  },
+  "scenarios": {
+    "h2": "Ein Format, unendliche Möglichkeiten",
+    "note": "Sehen Sie, wie 'Flexible' völlig unterschiedliche Szenarien nahtlos bewältigt.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Solo Brain-Dumping",
+        "desc": "Sie gehen spazieren und sprechen mit sich selbst? Flexible behandelt es wie ein strukturiertes Memo und gruppiert Ihre verstreuten Ideen unter klaren Überschriften."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybride Meetings",
+        "desc": "Beginnt als 'Check-in', wird zum 'Brainstorming' und endet mit 'Vertriebsstrategie'? Flexible verfolgt den Wechsel und formatiert entsprechend."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Komplexe Interviews",
+        "desc": "Frage-Antwort-Runden, bei denen die Themen springen? Flexible gruppiert Antworten nach Themen, nicht nur chronologisch."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Sehen heißt glauben",
+    "text": "Nehmen Sie uns nicht beim Wort. Öffnen Sie Minutes.AI, wählen Sie 'Flexible' und fangen Sie an zu sprechen. Erleben Sie die Magie, wenn Ihre Gedanken von einem Profi organisiert werden.",
+    "openBrowser": "Flexible-Modus testen (Web)",
+    "downloadIOS": "iOS-App laden"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Veröffentlicht",
+    "type": "Feature",
+    "category": "Produkt-Update"
+  }
+}

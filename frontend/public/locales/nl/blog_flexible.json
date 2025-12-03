@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Maak kennis met 'Flexible': Het ultieme AI-vergaderformat voor elk gesprek | Notulen AI",
+    "description": "Stop met gissen welk vergaderformat u moet gebruiken. Of het nu gaat om een brainstormsessie, een verkoopgesprek of een solo-denkproces, de 'Flexible'-modus past zich direct aan om uw chaos te ordenen in glasheldere logica.",
+    "ogTitle": "Eén format om alles te beheersen: Maak kennis met de Flexible-modus",
+    "ogDescription": "Chaos erin, structuur eruit. Ontdek waarom het 'Flexible'-format de slimste manier is om vergaderingen, interviews en ideeën op te nemen.",
+    "ld": {
+      "headline": "Het 'Flexible'-format: Perfecte notulen, geen instellingen",
+      "description": "Een diepgaande blik op de meest veelzijdige opnamemodus van Notulen AI die zich aan elke context aanpast."
+    }
+  },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Functie in de schijnwerpers"
+  },
+  "hero": {
+    "kicker": "Functie in de schijnwerpers",
+    "h1": "Het enige format dat u echt nodig hebt: \"Flexible\"",
+    "tagline": "Algemeen, Verkoop, Interview, Presentatie... moe van het kiezen? We hebben 'Flexible' gebouwd om een einde te maken aan keuzestress. Het past zich in realtime aan uw gesprek aan en verandert elke discussie in een meesterwerk van logica.",
+    "subtag": "Van chaotische brainstorms tot gestructureerde interviews, Flexible legt de essentie vast zonder dat u een vinger uitsteekt.",
+    "badges": [
+      "Context-bewust",
+      "Nul configuratie",
+      "Universele adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Keuzestress is echt",
+    "p1": "Notulen AI biedt gespecialiseerde formats zoals 'Verkoop', 'Lezing' en '1-op-1'. Ze zijn krachtig, maar soms past het leven niet in een net hokje.",
+    "p2": "Heeft u ooit geaarzeld voordat u op opnemen drukte? \"Is dit een vergadering of gewoon een praatje?\" \"Het is een soort lezing, maar ook een brainstorm...\" Het kiezen van het format 'Algemeen' voelt vaak als een compromis dat kan leiden tot een vage samenvatting.",
+    "quote": "\"Ik wil gewoon dat het werkt zonder na te denken over instellingen.\""
+  },
+  "solution": {
+    "h2": "Chaos erin, structuur eruit",
+    "p1": "Daarom hebben we **Flexible** gecreëerd. Het is ons slimste en meest adaptieve algoritme tot nu toe.",
+    "p2": "Het veronderstelt de structuur niet vooraf; het ontdekt deze. Of u nu tegen uzelf praat om gedachten te ordenen of discussieert in een strategievergadering met 5 personen, Flexible detecteert de context en organiseert de output logisch.",
+    "highlights": [
+      "**Contextdetectie**: Identificeert automatisch of het een dialoog, monoloog of debat is.",
+      "**Slimme extractie**: Haalt actiepunten en beslissingen zelfs uit rommelige gesprekken.",
+      "**Logische stroom**: Herschikt verspreide punten tot een samenhangend verhaal."
+    ]
+  },
+  "scenarios": {
+    "h2": "Eén format, eindeloze mogelijkheden",
+    "note": "Zie hoe 'Flexible' volledig verschillende scenario's naadloos afhandelt.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Solo Brain Dumping",
+        "desc": "Loopt u tegen uzelf te praten? Flexible behandelt het als een gestructureerde memo en groepeert uw verspreide ideeën onder duidelijke koppen."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybride vergaderingen",
+        "desc": "Begint als een 'Check-in', verandert in een 'Brainstorm' en eindigt met 'Verkoopstrategie'? Flexible volgt de verschuiving en formatteert dienovereenkomstig."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Complexe interviews",
+        "desc": "Vraag-en-antwoordsessies waarbij onderwerpen verspringen? Flexible hergroepeert antwoorden per onderwerp, niet alleen chronologisch."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Zien is geloven",
+    "text": "Geloof ons niet zomaar op ons woord. Open Notulen AI, selecteer 'Flexible' en begin te praten. Ervaar de magie van het laten ordenen van uw gedachten door een professional.",
+    "openBrowser": "Probeer Flexible Mode (Web)",
+    "downloadIOS": "Download iOS-app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Functie",
+    "category": "Productupdate"
+  }
+}

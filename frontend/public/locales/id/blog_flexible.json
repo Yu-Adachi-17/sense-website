@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Temui 'Flexible': Format Notulen Rapat AI Pamungkas untuk Setiap Percakapan | Minutes AI",
+    "description": "Berhenti menebak format rapat mana yang harus digunakan. Baik itu brainstorming, panggilan penjualan, atau proses berpikir sendiri, mode 'Flexible' beradaptasi secara instan untuk mengatur kekacauan Anda menjadi logika yang sangat jelas.",
+    "ogTitle": "Satu Format untuk Menguasai Semuanya: Temui Mode Flexible",
+    "ogDescription": "Kekacauan masuk, struktur keluar. Temukan mengapa format 'Flexible' adalah cara tercerdas untuk merekam rapat, wawancara, dan ide.",
+    "ld": {
+      "headline": "Format 'Flexible': Notulen Sempurna, Tanpa Pengaturan",
+      "description": "Tinjauan mendalam tentang mode perekaman Minutes AI yang paling serbaguna yang beradaptasi dengan konteks apa pun."
+    }
+  },
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Sorotan Fitur"
+  },
+  "hero": {
+    "kicker": "Sorotan Fitur",
+    "h1": "Satu-satunya Format yang Benar-benar Anda Butuhkan: \"Flexible\"",
+    "tagline": "Umum, Penjualan, Wawancara, Presentasi... lelah memilih? Kami membuat 'Flexible' untuk mengakhiri kelelahan pengambilan keputusan. Ini beradaptasi dengan percakapan Anda secara real-time, mengubah diskusi apa pun menjadi mahakarya logika.",
+    "subtag": "Dari brainstorming yang kacau hingga wawancara terstruktur, Flexible menangkap esensinya tanpa Anda perlu bersusah payah.",
+    "badges": [
+      "Sadar Konteks",
+      "Tanpa Konfigurasi",
+      "Adaptor Universal"
+    ]
+  },
+  "problem": {
+    "h2": "Kelumpuhan Analisis itu Nyata",
+    "p1": "Minutes AI menawarkan format khusus seperti 'Penjualan', 'Kuliah', dan '1-on-1'. Mereka kuat, tetapi terkadang hidup tidak pas dalam kotak yang rapi.",
+    "p2": "Pernahkah Anda ragu sebelum menekan tombol rekam? \"Apakah ini rapat atau hanya obrolan?\" \"Ini agak seperti kuliah tapi juga brainstorming...\" Memilih format 'Umum' sering terasa seperti kompromi yang mungkin menghasilkan ringkasan yang samar.",
+    "quote": "\"Saya hanya ingin ini bekerja tanpa memikirkan pengaturan.\""
+  },
+  "solution": {
+    "h2": "Kekacauan Masuk, Struktur Keluar",
+    "p1": "Itulah mengapa kami menciptakan **Flexible**. Ini adalah algoritma kami yang paling cerdas dan adaptif hingga saat ini.",
+    "p2": "Ia tidak mengasumsikan struktur sebelumnya; ia menemukannya. Baik Anda berbicara sendiri untuk mengatur pikiran atau berdebat dalam rapat strategi 5 orang, Flexible mendeteksi konteks dan mengatur hasilnya secara logis.",
+    "highlights": [
+      "**Deteksi Konteks**: Secara otomatis mengidentifikasi apakah itu dialog, monolog, atau debat.",
+      "**Ekstraksi Cerdas**: Menarik item tindakan dan keputusan bahkan dari percakapan yang berantakan.",
+      "**Alur Logis**: Menyusun ulang poin-poin yang tersebar menjadi narasi yang koheren."
+    ]
+  },
+  "scenarios": {
+    "h2": "Satu Format, Kemungkinan Tak Terbatas",
+    "note": "Lihat bagaimana 'Flexible' menangani skenario yang sangat berbeda dengan mulus.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Curah Pikiran Solo",
+        "desc": "Berjalan dan berbicara sendiri? Flexible memperlakukannya sebagai memo terstruktur, mengelompokkan ide-ide Anda yang tersebar di bawah tajuk yang jelas."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Rapat Hibrida",
+        "desc": "Dimulai sebagai 'Check-in', berubah menjadi 'Brainstorm', dan berakhir dengan 'Strategi Penjualan'? Flexible melacak pergeseran dan memformatnya."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Wawancara Kompleks",
+        "desc": "Sesi Tanya Jawab di mana topiknya melompat-lompat? Flexible mengelompokkan kembali jawaban berdasarkan topik, bukan hanya secara kronologis."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Melihat adalah Percaya",
+    "text": "Jangan hanya percaya kata-kata kami. Buka Minutes AI, pilih 'Flexible', dan mulailah berbicara. Rasakan keajaiban pikiran Anda diatur oleh seorang profesional.",
+    "openBrowser": "Coba Mode Flexible (Web)",
+    "downloadIOS": "Unduh aplikasi iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Fitur",
+    "category": "Pembaruan Produk"
+  }
+}

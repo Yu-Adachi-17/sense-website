@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Conoce a \"Flexible\": El formato de acta IA definitivo para cada conversación | Actas IA",
+    "description": "Deja de adivinar qué formato de reunión usar. Ya sea una lluvia de ideas, una llamada de ventas o un proceso de pensamiento en solitario, el modo \"Flexible\" se adapta instantáneamente para organizar tu caos en una lógica cristalina.",
+    "ogTitle": "Un formato para dominarlos a todos: Conoce el Modo Flexible",
+    "ogDescription": "Caos entra, estructura sale. Descubre por qué el formato \"Flexible\" es la forma más inteligente de grabar reuniones, entrevistas e ideas.",
+    "ld": {
+      "headline": "El formato \"Flexible\": Actas perfectas, cero configuración",
+      "description": "Una mirada profunda al modo de grabación más versátil de Actas IA que se adapta a cualquier contexto."
+    }
+  },
+  "aria": {
+    "home": "Inicio de Actas IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Función destacada"
+  },
+  "hero": {
+    "kicker": "Función destacada",
+    "h1": "El único formato que realmente necesitas: Conoce a \"Flexible\"",
+    "tagline": "General, Ventas, Entrevista, Presentación... ¿cansado de elegir? Creamos \"Flexible\" para acabar con la fatiga de decisión. Se adapta a tu conversación en tiempo real, convirtiendo cualquier discusión en una obra maestra de lógica.",
+    "subtag": "Desde lluvias de ideas caóticas hasta entrevistas estructuradas, Flexible captura la esencia sin que muevas un dedo.",
+    "badges": [
+      "Sensible al contexto",
+      "Cero configuración",
+      "Adaptador universal"
+    ]
+  },
+  "problem": {
+    "h2": "La parálisis por análisis es real",
+    "p1": "Actas IA ofrece formatos especializados como 'Ventas', 'Conferencia' y '1 a 1'. Son potentes, pero a veces la vida no encaja en una caja ordenada.",
+    "p2": "¿Alguna vez has dudado antes de presionar grabar? \"¿Es esto una reunión o solo una charla?\" \"Es una especie de conferencia pero también una lluvia de ideas...\" Elegir el formato 'General' a menudo se siente como un compromiso que podría resultar en un resumen vago.",
+    "quote": "\"Solo quiero que funcione sin pensar en configuraciones.\""
+  },
+  "solution": {
+    "h2": "Caos entra, estructura sale",
+    "p1": "Por eso creamos **Flexible**. Es nuestro algoritmo más inteligente y adaptable hasta la fecha.",
+    "p2": "No asume la estructura de antemano; la descubre. Ya sea que estés divagando contigo mismo para organizar pensamientos o discutiendo en una reunión estratégica de 5 personas, Flexible detecta el contexto y organiza el resultado lógicamente.",
+    "highlights": [
+      "**Detección de contexto**: Identifica automáticamente si es un diálogo, un monólogo o un debate.",
+      "**Extracción inteligente**: Extrae elementos de acción y decisiones incluso de conversaciones desordenadas.",
+      "**Flujo lógico**: Reordena puntos dispersos en una narrativa coherente."
+    ]
+  },
+  "scenarios": {
+    "h2": "Un formato, infinitas posibilidades",
+    "note": "Mira cómo \"Flexible\" maneja escenarios completamente diferentes sin problemas.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Descarga cerebral en solitario",
+        "desc": "¿Caminando y hablando solo? Flexible lo trata como un memorándum estructurado, agrupando tus ideas dispersas bajo encabezados claros."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Reuniones híbridas",
+        "desc": "¿Empieza como un 'Check-in', se convierte en 'Lluvia de ideas' y termina con 'Estrategia de ventas'? Flexible sigue el cambio y formatea en consecuencia."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Entrevistas complejas",
+        "desc": "¿Sesiones de preguntas y respuestas donde los temas saltan? Flexible reagrupa las respuestas por tema, no solo cronológicamente."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Ver para creer",
+    "text": "No te fíes solo de nuestra palabra. Abre Actas IA, selecciona 'Flexible' y empieza a hablar. Experimenta la magia de tener tus pensamientos organizados por un profesional.",
+    "openBrowser": "Probar Modo Flexible Web",
+    "downloadIOS": "Descargar app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Función",
+    "category": "Actualización de producto"
+  }
+}

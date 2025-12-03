@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Scopri 'Flexible': Il formato di verbale IA definitivo per ogni conversazione | Verbali IA",
+    "description": "Smetti di indovinare quale formato di riunione usare. Che si tratti di brainstorming, una chiamata di vendita o un flusso di pensieri, la modalità 'Flexible' si adatta istantaneamente per organizzare il tuo caos in una logica cristallina.",
+    "ogTitle": "Un formato per dominarli tutti: Scopri la modalità Flexible",
+    "ogDescription": "Caos in entrata, struttura in uscita. Scopri perché il formato 'Flexible' è il modo più intelligente per registrare riunioni, interviste e idee.",
+    "ld": {
+      "headline": "Il formato 'Flexible': Verbali perfetti, zero configurazione",
+      "description": "Uno sguardo approfondito alla modalità di registrazione più versatile di Verbali IA che si adatta a qualsiasi contesto."
+    }
+  },
+  "aria": {
+    "home": "Home Verbali IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Funzionalità in evidenza"
+  },
+  "hero": {
+    "kicker": "Funzionalità in evidenza",
+    "h1": "L'unico formato di cui hai davvero bisogno: \"Flexible\"",
+    "tagline": "Generale, Vendite, Intervista, Presentazione... stanco di scegliere? Abbiamo creato 'Flexible' per porre fine alla fatica decisionale. Si adatta alla tua conversazione in tempo reale, trasformando qualsiasi discussione in un capolavoro di logica.",
+    "subtag": "Dai brainstorming caotici alle interviste strutturate, Flexible cattura l'essenza senza che tu muova un dito.",
+    "badges": [
+      "Consapevole del contesto",
+      "Configurazione zero",
+      "Adattatore universale"
+    ]
+  },
+  "problem": {
+    "h2": "La paralisi da analisi è reale",
+    "p1": "Verbali IA offre formati specializzati come 'Vendite', 'Lezione' e '1-a-1'. Sono potenti, ma a volte la vita non rientra in una scatola ordinata.",
+    "p2": "Hai mai esitato prima di premere registra? \"È una riunione o solo una chiacchierata?\" \"È un po' una lezione ma anche un brainstorming...\" Scegliere il formato 'Generale' sembra spesso un compromesso che potrebbe portare a un riepilogo vago.",
+    "quote": "\"Voglio solo che funzioni senza pensare alle impostazioni.\""
+  },
+  "solution": {
+    "h2": "Caos in entrata, struttura in uscita",
+    "p1": "Ecco perché abbiamo creato **Flexible**. È il nostro algoritmo più intelligente e adattivo fino ad oggi.",
+    "p2": "Non presume la struttura in anticipo; la scopre. Che tu stia parlando da solo per organizzare i pensieri o discutendo in una riunione strategica di 5 persone, Flexible rileva il contesto e organizza l'output logicamente.",
+    "highlights": [
+      "**Rilevamento del contesto**: Identifica automaticamente se si tratta di un dialogo, un monologo o un dibattito.",
+      "**Estrazione intelligente**: Estrae le azioni da intraprendere e le decisioni anche da conversazioni disordinate.",
+      "**Flusso logico**: Riordina i punti sparsi in una narrazione coerente."
+    ]
+  },
+  "scenarios": {
+    "h2": "Un formato, infinite possibilità",
+    "note": "Guarda come 'Flexible' gestisce scenari completamente diversi senza problemi.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Brain Dumping in solitaria",
+        "desc": "Cammini e parli da solo? Flexible lo tratta come un promemoria strutturato, raggruppando le tue idee sparse sotto titoli chiari."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Riunioni ibride",
+        "desc": "Inizia come 'Check-in', si trasforma in 'Brainstorming' e finisce con 'Strategia di vendita'? Flexible traccia il cambiamento e formatta di conseguenza."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Interviste complesse",
+        "desc": "Sessioni Q&A dove gli argomenti saltano? Flexible raggruppa le risposte per argomento, non solo cronologicamente."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Vedere per credere",
+    "text": "Non prenderci solo in parola. Apri Verbali IA, seleziona 'Flexible' e inizia a parlare. Vivi la magia di avere i tuoi pensieri organizzati da un professionista.",
+    "openBrowser": "Prova la modalità Flexible (Web)",
+    "downloadIOS": "Scarica app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Funzionalità",
+    "category": "Aggiornamento prodotto"
+  }
+}

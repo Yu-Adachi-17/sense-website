@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Möt \"Flexible\": Det ultimata AI-mötesformatet för varje samtal | Protokoll AI",
+    "description": "Sluta gissa vilket mötesformat du ska använda. Oavsett om det är brainstorming, ett säljsamtal eller en tankeprocess, anpassar sig \"Flexible\"-läget direkt för att organisera ditt kaos till kristallklar logik.",
+    "ogTitle": "Ett format för att styra dem alla: Möt Flexible Mode",
+    "ogDescription": "Kaos in, struktur ut. Upptäck varför formatet \"Flexible\" är det smartaste sättet att spela in möten, intervjuer och idéer.",
+    "ld": {
+      "headline": "Formatet \"Flexible\": Perfekta protokoll, noll konfiguration",
+      "description": "En djupdykning i Protokoll AI:s mest mångsidiga inspelningsläge som anpassar sig till alla sammanhang."
+    }
+  },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "feature": "Funktion i fokus"
+  },
+  "hero": {
+    "kicker": "Funktion i fokus",
+    "h1": "Det enda formatet du verkligen behöver: \"Flexible\"",
+    "tagline": "Allmänt, Sälj, Intervju, Presentation... trött på att välja? Vi skapade \"Flexible\" för att få slut på beslutströttheten. Det anpassar sig till ditt samtal i realtid och förvandlar varje diskussion till ett mästerverk av logik.",
+    "subtag": "Från kaotiska brainstorms till strukturerade intervjuer – Flexible fångar essensen utan att du lyfter ett finger.",
+    "badges": [
+      "Kontextmedveten",
+      "Noll konfiguration",
+      "Universell adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Beslutsångest är verkligt",
+    "p1": "Protokoll AI erbjuder specialiserade format som 'Sälj', 'Föreläsning' och '1-mot-1'. De är kraftfulla, men ibland passar livet inte i en snygg låda.",
+    "p2": "Har du någonsin tvekat innan du tryckte på spela in? \"Är det här ett möte eller bara prat?\" \"Det är lite av en föreläsning men också brainstorming...\" Att välja formatet 'Allmänt' känns ofta som en kompromiss som kan resultera i en vag sammanfattning.",
+    "quote": "\"Jag vill bara att det ska fungera utan att tänka på inställningar.\""
+  },
+  "solution": {
+    "h2": "Kaos in, struktur ut",
+    "p1": "Det är därför vi skapade **Flexible**. Det är vår smartaste och mest adaptiva algoritm hittills.",
+    "p2": "Den antar inte strukturen i förväg; den upptäcker den. Oavsett om du pratar för dig själv för att organisera tankar eller debatterar i ett strategimöte med 5 personer, upptäcker Flexible kontexten och organiserar resultatet logiskt.",
+    "highlights": [
+      "**Kontextdetektering**: Identifierar automatiskt om det är en dialog, monolog eller debatt.",
+      "**Smart extrahering**: Drar ut åtgärdspunkter och beslut även från röriga samtal.",
+      "**Logiskt flöde**: Omorganiserar spridda punkter till en sammanhängande berättelse."
+    ]
+  },
+  "scenarios": {
+    "h2": "Ett format, oändliga möjligheter",
+    "note": "Se hur \"Flexible\" hanterar helt olika scenarier sömlöst.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Solo tankedumpning",
+        "desc": "Går du och pratar för dig själv? Flexible behandlar det som ett strukturerat pm och grupperar dina spridda idéer under tydliga rubriker."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybridmöten",
+        "desc": "Börjar som en 'Avstämning', övergår till 'Brainstorming' och slutar med 'Säljstrategi'? Flexible följer skiftet och formaterar därefter."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Komplexa intervjuer",
+        "desc": "Frågestunder där ämnena hoppar runt? Flexible omgrupperar svar efter ämne, inte bara kronologiskt."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Att se är att tro",
+    "text": "Lita inte bara på våra ord. Öppna Protokoll AI, välj 'Flexible' och börja prata. Upplev magin i att få dina tankar organiserade av ett proffs.",
+    "openBrowser": "Prova Flexible Mode (Web)",
+    "downloadIOS": "Ladda ner iOS-app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Funktion",
+    "category": "Produktuppdatering"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Seznamte se s \"Flexible\": Univerzální formát AI zápisu pro každou konverzaci | Minutes.AI",
+    "description": "Přestaňte hádat, jaký formát porady použít. Ať už jde o brainstorming, obchodní hovor nebo utřídění myšlenek, režim \"Flexible\" se okamžitě přizpůsobí a promění váš chaos v krystalicky čistou logiku.",
+    "ogTitle": "Jeden formát vládne všem: Představujeme režim Flexible",
+    "ogDescription": "Vstup: Chaos, Výstup: Struktura. Zjistěte, proč je formát \"Flexible\" tím nejchytřejším způsobem, jak zaznamenávat porady, pohovory a nápady.",
+    "ld": {
+      "headline": "Formát \"Flexible\": Perfektní zápis, žádné nastavování",
+      "description": "Podrobný pohled na nejuniverzálnější režim nahrávání Minutes.AI, který se přizpůsobí jakémukoli kontextu."
+    }
+  },
+  "aria": {
+    "home": "Domů Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Představení funkce"
+  },
+  "hero": {
+    "kicker": "Představení funkce",
+    "h1": "Jediný formát, který opravdu potřebujete: \"Flexible\"",
+    "tagline": "Obecné, Obchod, Pohovor, Prezentace... nebaví vás vybírat? Vytvořili jsme \"Flexible\", abychom ukončili rozhodovací paralýzu. Přizpůsobí se vaší konverzaci v reálném čase a promění jakoukoli diskusi v logické mistrovské dílo.",
+    "subtag": "Od chaotických brainstormingů po strukturované pohovory – Flexible zachytí podstatu, aniž byste hnuli prstem.",
+    "badges": [
+      "Detekce kontextu",
+      "Nulová konfigurace",
+      "Univerzální adaptér"
+    ]
+  },
+  "problem": {
+    "h2": "Rozhodovací paralýza je skutečná",
+    "p1": "Minutes.AI nabízí specializované formáty jako 'Obchod', 'Přednáška' a '1 na 1'. Jsou mocné, ale život se někdy nevejde do úhledné škatulky.",
+    "p2": "Zaváhali jste někdy před stisknutím nahrávání? \"Je to porada, nebo jen pokec?\" \"Je to tak trochu přednáška, ale i brainstorming...\" Výběr formátu 'Obecné' často působí jako kompromis, který může vést k vágnímu shrnutí.",
+    "quote": "\"Chci prostě, aby to fungovalo, aniž bych musel řešit nastavení.\""
+  },
+  "solution": {
+    "h2": "Vstup: Chaos, Výstup: Struktura",
+    "p1": "Proto jsme vytvořili **Flexible**. Je to náš nejchytřejší a nejadaptabilnější algoritmus.",
+    "p2": "Nepředpokládá strukturu předem; objevuje ji. Ať už si mumláte pro sebe, abyste si utřídili myšlenky, nebo se hádáte na strategické poradě v pěti lidech, Flexible detekuje kontext a výstup logicky uspořádá.",
+    "highlights": [
+      "**Detekce kontextu**: Automaticky rozpozná, zda jde o dialog, monolog nebo debatu.",
+      "**Chytrá extrakce**: Vytáhne akční body a rozhodnutí i z nepřehledných konverzací.",
+      "**Logický tok**: Přeuspořádá roztroušené body do souvislého příběhu."
+    ]
+  },
+  "scenarios": {
+    "h2": "Jeden formát, nekonečno možností",
+    "note": "Podívejte se, jak \"Flexible\" hladce zvládá zcela odlišné scénáře.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Sólo třídění myšlenek",
+        "desc": "Chodíte a mluvíte sami se sebou? Flexible to zpracuje jako strukturované poznámky a seskupí vaše roztroušené nápady pod jasná záhlaví."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybridní porady",
+        "desc": "Začíná to jako 'Check-in', změní se na 'Brainstorming' a končí 'Obchodní strategií'? Flexible sleduje posun a formátuje podle toho."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Komplexní pohovory",
+        "desc": "Q&A relace, kde se skáče mezi tématy? Flexible přeskupí odpovědi podle témat, nejen chronologicky."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Vidět znamená uvěřit",
+    "text": "Nedejte jen na naše slova. Otevřete Minutes.AI, vyberte 'Flexible' a začněte mluvit. Zažijte kouzlo toho, když vaše myšlenky organizuje profesionál.",
+    "openBrowser": "Zkusit Flexible na webu",
+    "downloadIOS": "Stáhnout iOS aplikaci"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Funkce",
+    "category": "Aktualizace produktu"
+  }
+}

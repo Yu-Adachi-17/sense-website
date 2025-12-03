@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Gặp gỡ \"Flexible\": Định dạng biên bản AI tối ưu cho mọi cuộc trò chuyện | Biên bản AI",
+    "description": "Ngừng đoán xem nên sử dụng định dạng cuộc họp nào. Dù là động não, gọi bán hàng hay suy nghĩ một mình, chế độ \"Flexible\" thích ứng ngay lập tức để sắp xếp sự hỗn loạn của bạn thành logic rõ ràng.",
+    "ogTitle": "Một định dạng để làm chủ tất cả: Gặp gỡ chế độ Flexible",
+    "ogDescription": "Hỗn loạn đi vào, cấu trúc đi ra. Khám phá lý do tại sao định dạng \"Flexible\" là cách thông minh nhất để ghi lại các cuộc họp, phỏng vấn và ý tưởng.",
+    "ld": {
+      "headline": "Định dạng \"Flexible\": Biên bản hoàn hảo, không cần thiết lập",
+      "description": "Cái nhìn sâu sắc về chế độ ghi âm linh hoạt nhất của Biên bản AI, thích ứng với mọi ngữ cảnh."
+    }
+  },
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Tiêu điểm tính năng"
+  },
+  "hero": {
+    "kicker": "Tiêu điểm tính năng",
+    "h1": "Định dạng duy nhất bạn thực sự cần: \"Flexible\"",
+    "tagline": "Chung, Bán hàng, Phỏng vấn, Thuyết trình... mệt mỏi vì phải lựa chọn? Chúng tôi đã tạo ra \"Flexible\" để chấm dứt sự mệt mỏi khi ra quyết định. Nó thích ứng với cuộc trò chuyện của bạn trong thời gian thực, biến mọi cuộc thảo luận thành một kiệt tác logic.",
+    "subtag": "Từ những buổi động não hỗn loạn đến các cuộc phỏng vấn có cấu trúc, Flexible nắm bắt bản chất mà bạn không cần động tay.",
+    "badges": [
+      "Nhận biết ngữ cảnh",
+      "Không cần cấu hình",
+      "Bộ chuyển đổi vạn năng"
+    ]
+  },
+  "problem": {
+    "h2": "Tê liệt phân tích là có thật",
+    "p1": "Biên bản AI cung cấp các định dạng chuyên biệt như 'Bán hàng', 'Bài giảng' và '1-1'. Chúng mạnh mẽ, nhưng đôi khi cuộc sống không nằm gọn trong một chiếc hộp ngăn nắp.",
+    "p2": "Bạn đã bao giờ do dự trước khi nhấn ghi âm? \"Đây là cuộc họp hay chỉ là trò chuyện?\" \"Nó hơi giống bài giảng nhưng cũng là động não...\" Việc chọn định dạng 'Chung' thường có cảm giác như một sự thỏa hiệp có thể dẫn đến một bản tóm tắt mơ hồ.",
+    "quote": "\"Tôi chỉ muốn nó hoạt động mà không cần suy nghĩ về cài đặt.\""
+  },
+  "solution": {
+    "h2": "Hỗn loạn đi vào, cấu trúc đi ra",
+    "p1": "Đó là lý do tại sao chúng tôi tạo ra **Flexible**. Đây là thuật toán thông minh nhất và thích ứng tốt nhất của chúng tôi cho đến nay.",
+    "p2": "Nó không giả định cấu trúc trước; nó khám phá ra cấu trúc đó. Cho dù bạn đang lẩm bẩm một mình để sắp xếp suy nghĩ hay tranh luận trong cuộc họp chiến lược 5 người, Flexible sẽ phát hiện ngữ cảnh và sắp xếp kết quả đầu ra một cách logic.",
+    "highlights": [
+      "**Phát hiện ngữ cảnh**: Tự động xác định xem đó là đối thoại, độc thoại hay tranh luận.",
+      "**Trích xuất thông minh**: Rút ra các mục hành động và quyết định ngay cả từ các cuộc trò chuyện lộn xộn.",
+      "**Luồng logic**: Sắp xếp lại các điểm rời rạc thành một câu chuyện mạch lạc."
+    ]
+  },
+  "scenarios": {
+    "h2": "Một định dạng, vô vàn khả năng",
+    "note": "Xem cách \"Flexible\" xử lý các tình huống hoàn toàn khác nhau một cách liền mạch.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Động não một mình",
+        "desc": "Vừa đi vừa nói chuyện một mình? Flexible coi đó như một bản ghi nhớ có cấu trúc, nhóm các ý tưởng rời rạc của bạn dưới các tiêu đề rõ ràng."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Cuộc họp kết hợp",
+        "desc": "Bắt đầu như 'Kiểm tra', chuyển thành 'Động não', và kết thúc bằng 'Chiến lược bán hàng'? Flexible theo dõi sự thay đổi và định dạng phù hợp."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Phỏng vấn phức tạp",
+        "desc": "Các phiên hỏi đáp nơi chủ đề nhảy lung tung? Flexible nhóm lại các câu trả lời theo chủ đề, không chỉ theo trình tự thời gian."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Trăm nghe không bằng một thấy",
+    "text": "Đừng chỉ tin lời chúng tôi. Mở Biên bản AI, chọn 'Flexible' và bắt đầu nói. Trải nghiệm phép màu khi suy nghĩ của bạn được sắp xếp bởi một chuyên gia.",
+    "openBrowser": "Thử chế độ Flexible (Web)",
+    "downloadIOS": "Tải ứng dụng iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Đã xuất bản",
+    "type": "Tính năng",
+    "category": "Cập nhật sản phẩm"
+  }
+}

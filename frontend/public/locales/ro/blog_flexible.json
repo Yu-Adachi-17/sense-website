@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Faceți cunoștință cu „Flexible”: Formatul suprem de proces-verbal AI pentru orice conversație | Proces-verbal AI",
+    "description": "Nu mai ghiciți ce format de întâlnire să folosiți. Fie că este vorba de o sesiune de brainstorming, un apel de vânzări sau un proces de gândire solo, modul „Flexible” se adaptează instantaneu pentru a organiza haosul dvs. într-o logică clară.",
+    "ogTitle": "Un format care le stăpânește pe toate: Faceți cunoștință cu modul Flexible",
+    "ogDescription": "Haos la intrare, structură la ieșire. Descoperiți de ce formatul „Flexible” este cel mai inteligent mod de a înregistra întâlniri, interviuri și idei.",
+    "ld": {
+      "headline": "Formatul „Flexible”: Procese-verbale perfecte, zero configurare",
+      "description": "O privire aprofundată asupra celui mai versatil mod de înregistrare al Proces-verbal AI, care se adaptează oricărui context."
+    }
+  },
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Funcție în prim-plan"
+  },
+  "hero": {
+    "kicker": "Funcție în prim-plan",
+    "h1": "Singurul format de care aveți cu adevărat nevoie: „Flexible”",
+    "tagline": "General, Vânzări, Interviu, Prezentare... v-ați săturat să alegeți? Am creat „Flexible” pentru a pune capăt oboselii decizionale. Se adaptează conversației dvs. în timp real, transformând orice discuție într-o capodoperă de logică.",
+    "subtag": "De la brainstorming-uri haotice la interviuri structurate, Flexible surprinde esența fără ca dvs. să ridicați un deget.",
+    "badges": [
+      "Conștient de context",
+      "Zero configurare",
+      "Adaptor universal"
+    ]
+  },
+  "problem": {
+    "h2": "Paralizia analizei este reală",
+    "p1": "Proces-verbal AI oferă formate specializate precum „Vânzări”, „Prelegere” și „1-la-1”. Sunt puternice, dar uneori viața nu încape într-o cutie ordonată.",
+    "p2": "Ați ezitat vreodată înainte de a apăsa înregistrare? „Este o întâlnire sau doar o discuție?” „E un fel de prelegere, dar și brainstorming...” Alegerea formatului „General” se simte adesea ca un compromis care ar putea duce la un rezumat vag.",
+    "quote": "„Vreau doar să funcționeze fără să mă gândesc la setări.”"
+  },
+  "solution": {
+    "h2": "Haos la intrare, structură la ieșire",
+    "p1": "De aceea am creat **Flexible**. Este algoritmul nostru cel mai inteligent și adaptabil de până acum.",
+    "p2": "Nu presupune structura dinainte; o descoperă. Fie că vorbiți singur pentru a vă organiza gândurile, fie că dezbateți într-o ședință de strategie cu 5 persoane, Flexible detectează contextul și organizează rezultatul în mod logic.",
+    "highlights": [
+      "**Detecție context**: Identifică automat dacă este un dialog, un monolog sau o dezbatere.",
+      "**Extracție inteligentă**: Extrage elementele de acțiune și deciziile chiar și din conversații dezordonate.",
+      "**Flux logic**: Reordonează punctele împrăștiate într-o narațiune coerentă."
+    ]
+  },
+  "scenarios": {
+    "h2": "Un format, posibilități infinite",
+    "note": "Vedeți cum „Flexible” gestionează scenarii complet diferite fără probleme.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Descărcare de idei solo",
+        "desc": "Vă plimbați și vorbiți singur? Flexible tratează acest lucru ca pe un memo structurat, grupând ideile dvs. împrăștiate sub titluri clare."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Întâlniri hibride",
+        "desc": "Începe ca un „Check-in”, se transformă în „Brainstorm” și se termină cu „Strategie de vânzări”? Flexible urmărește schimbarea și formatează în consecință."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Interviuri complexe",
+        "desc": "Sesiuni Q&A unde subiectele sar de la unul la altul? Flexible regrupează răspunsurile după subiect, nu doar cronologic."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "A vedea înseamnă a crede",
+    "text": "Nu ne credeți pe cuvânt. Deschideți Proces-verbal AI, selectați „Flexible” și începeți să vorbiți. Experimentați magia de a avea gândurile organizate de un profesionist.",
+    "openBrowser": "Încercați modul Flexible (Web)",
+    "downloadIOS": "Descărcați aplicația iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Funcție",
+    "category": "Actualizare produs"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Upoznajte \"Flexible\": Vrhunski AI format zapisnika za svaki razgovor | AI Zapisnik",
+    "description": "Prestanite nagađati koji format sastanka koristiti. Bilo da se radi o brainstormingu, prodajnom pozivu ili razmišljanju naglas, način rada \"Flexible\" trenutno se prilagođava kako bi vaš kaos organizirao u kristalno jasnu logiku.",
+    "ogTitle": "Jedan format da vlada svima: Upoznajte način rada Flexible",
+    "ogDescription": "Kaos unutra, struktura van. Otkrijte zašto je format \"Flexible\" najpametniji način za snimanje sastanaka, intervjua i ideja.",
+    "ld": {
+      "headline": "Format \"Flexible\": Savršeni zapisnici, nula podešavanja",
+      "description": "Detaljan pogled na najsvestraniji način snimanja AI Zapisnika koji se prilagođava svakom kontekstu."
+    }
+  },
+  "aria": {
+    "home": "AI Zapisnik Naslovnica"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Istaknuta značajka"
+  },
+  "hero": {
+    "kicker": "Istaknuta značajka",
+    "h1": "Jedini format koji vam stvarno treba: Upoznajte \"Flexible\"",
+    "tagline": "Općenito, Prodaja, Intervju, Prezentacija... umorni ste od biranja? Stvorili smo \"Flexible\" kako bismo okončali zamor od odlučivanja. Prilagođava se vašem razgovoru u stvarnom vremenu, pretvarajući svaku raspravu u remek-djelo logike.",
+    "subtag": "Od kaotičnih brainstorming sesija do strukturiranih intervjua, Flexible hvata bit bez da maknete prstom.",
+    "badges": [
+      "Svjestan konteksta",
+      "Nula konfiguracije",
+      "Univerzalni adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Paraliza analize je stvarna",
+    "p1": "AI Zapisnik nudi specijalizirane formate poput 'Prodaja', 'Predavanje' i '1 na 1'. Oni su moćni, ali ponekad život ne stane u urednu kutiju.",
+    "p2": "Jeste li ikada oklijevali prije nego što pritisnete snimanje? \"Je li ovo sastanak ili samo čavrljanje?\" \"To je pomalo predavanje, ali i brainstorming...\" Odabir formata 'Općenito' često se čini kao kompromis koji bi mogao rezultirati nejasnim sažetkom.",
+    "quote": "\"Samo želim da radi bez razmišljanja o postavkama.\""
+  },
+  "solution": {
+    "h2": "Kaos unutra, struktura van",
+    "p1": "Zato smo stvorili **Flexible**. To je naš najpametniji i najprilagodljiviji algoritam do sada.",
+    "p2": "Ne pretpostavlja strukturu unaprijed; on je otkriva. Bilo da mrmljate sebi kako biste organizirali misli ili raspravljate na strateškom sastanku od 5 ljudi, Flexible detektira kontekst i logično organizira izlaz.",
+    "highlights": [
+      "**Detekcija konteksta**: Automatski prepoznaje radi li se o dijalogu, monologu ili debati.",
+      "**Pametno izvlačenje**: Izvlači akcijske stavke i odluke čak i iz neurednih razgovora.",
+      "**Logičan tijek**: Preuređuje razbacane točke u koherentnu priču."
+    ]
+  },
+  "scenarios": {
+    "h2": "Jedan format, beskonačne mogućnosti",
+    "note": "Pogledajte kako \"Flexible\" besprijekorno rješava potpuno različite scenarije.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Solo izbacivanje misli",
+        "desc": "Hodate i pričate sami sa sobom? Flexible to tretira kao strukturirani dopis, grupirajući vaše razbacane ideje pod jasne naslove."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hibridni sastanci",
+        "desc": "Počinje kao 'Check-in', pretvara se u 'Brainstorm' i završava s 'Prodajnom strategijom'? Flexible prati promjenu i formatira u skladu s tim."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Složeni intervjui",
+        "desc": "Q&A sesije gdje teme skaču? Flexible regrupira odgovore po temama, ne samo kronološki."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Vidjeti znači vjerovati",
+    "text": "Ne vjerujte nam samo na riječ. Otvorite AI Zapisnik, odaberite 'Flexible' i počnite pričati. Doživite čaroliju organiziranja vaših misli od strane profesionalca.",
+    "openBrowser": "Isprobaj Flexible Mode (Web)",
+    "downloadIOS": "Preuzmi iOS aplikaciju"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Značajka",
+    "category": "Ažuriranje proizvoda"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Poznaj „Flexible”: Ostateczny format notatek AI do każdej rozmowy | Protokół AI",
+    "description": "Przestań zgadywać, jakiego formatu spotkania użyć. Niezależnie od tego, czy jest to burza mózgów, rozmowa sprzedażowa, czy samotny proces myślowy, tryb „Flexible” natychmiast dostosowuje się, aby uporządkować Twój chaos w krystalicznie czystą logikę.",
+    "ogTitle": "Jeden format, by wszystkimi rządzić: Poznaj tryb Flexible",
+    "ogDescription": "Chaos na wejściu, struktura na wyjściu. Odkryj, dlaczego format „Flexible” to najmądrzejszy sposób na nagrywanie spotkań, wywiadów i pomysłów.",
+    "ld": {
+      "headline": "Format „Flexible”: Idealne protokoły, zero konfiguracji",
+      "description": "Szczegółowe spojrzenie na najbardziej wszechstronny tryb nagrywania Protokół AI, który dostosowuje się do każdego kontekstu."
+    }
+  },
+  "aria": {
+    "home": "Protokół AI Strona główna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Wyróżniona funkcja"
+  },
+  "hero": {
+    "kicker": "Wyróżniona funkcja",
+    "h1": "Jedyny format, którego naprawdę potrzebujesz: „Flexible”",
+    "tagline": "Ogólne, Sprzedaż, Wywiad, Prezentacja... zmęczony wybieraniem? Stworzyliśmy „Flexible”, aby zakończyć paraliż decyzyjny. Dostosowuje się do Twojej rozmowy w czasie rzeczywistym, zamieniając każdą dyskusję w arcydzieło logiki.",
+    "subtag": "Od chaotycznych burz mózgów po ustrukturyzowane wywiady, Flexible chwyta sedno bez kiwnięcia palcem z Twojej strony.",
+    "badges": [
+      "Świadomy kontekstu",
+      "Zero konfiguracji",
+      "Uniwersalny adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Paraliż analityczny jest prawdziwy",
+    "p1": "Protokół AI oferuje specjalistyczne formaty, takie jak „Sprzedaż”, „Wykład” i „1 na 1”. Są potężne, ale czasami życie nie mieści się w zgrabnym pudełku.",
+    "p2": "Czy kiedykolwiek wahałeś się przed naciśnięciem nagrywania? „Czy to spotkanie, czy tylko pogawędka?” „To trochę wykład, ale też burza mózgów...” Wybór formatu „Ogólne” często wydaje się kompromisem, który może skutkować niejasnym podsumowaniem.",
+    "quote": "„Chcę po prostu, żeby to działało bez myślenia o ustawieniach”."
+  },
+  "solution": {
+    "h2": "Chaos na wejściu, struktura na wyjściu",
+    "p1": "Dlatego stworzyliśmy **Flexible**. To nasz najmądrzejszy i najbardziej adaptacyjny algorytm do tej pory.",
+    "p2": "Nie zakłada struktury z góry; odkrywa ją. Niezależnie od tego, czy mówisz do siebie, aby uporządkować myśli, czy debatujesz na 5-osobowym spotkaniu strategicznym, Flexible wykrywa kontekst i logicznie organizuje wynik.",
+    "highlights": [
+      "**Wykrywanie kontekstu**: Automatycznie identyfikuje, czy jest to dialog, monolog czy debata.",
+      "**Inteligentna ekstrakcja**: Wyciąga zadania i decyzje nawet z nieuporządkowanych rozmów.",
+      "**Logiczny przepływ**: Zmienia kolejność rozproszonych punktów w spójną narrację."
+    ]
+  },
+  "scenarios": {
+    "h2": "Jeden format, nieskończone możliwości",
+    "note": "Zobacz, jak „Flexible” płynnie radzi sobie z zupełnie różnymi scenariuszami.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Samotny zrzut myśli",
+        "desc": "Chodzisz i mówisz do siebie? Flexible traktuje to jak ustrukturyzowaną notatkę, grupując Twoje rozproszone pomysły pod jasnymi nagłówkami."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Spotkania hybrydowe",
+        "desc": "Zaczyna się jako „Check-in”, zamienia się w „Burzę mózgów”, a kończy „Strategią sprzedaży”? Flexible śledzi zmianę i odpowiednio formatuje."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Złożone wywiady",
+        "desc": "Sesje pytań i odpowiedzi, gdzie tematy skaczą? Flexible przegrupowuje odpowiedzi według tematu, a nie tylko chronologicznie."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Zobaczyć znaczy uwierzyć",
+    "text": "Nie wierz nam tylko na słowo. Otwórz Protokół AI, wybierz „Flexible” i zacznij mówić. Poczuj magię porządkowania myśli przez profesjonalistę.",
+    "openBrowser": "Wypróbuj tryb Flexible (Web)",
+    "downloadIOS": "Pobierz aplikację iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Funkcja",
+    "category": "Aktualizacja produktu"
+  }
+}

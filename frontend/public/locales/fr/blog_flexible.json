@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Découvrez « Flexible » : Le format de réunion IA ultime pour chaque conversation | Minutes.AI",
+    "description": "Arrêtez de deviner quel format de réunion utiliser. Qu'il s'agisse d'un brainstorming, d'un appel commercial ou d'une réflexion en solo, le mode « Flexible » s'adapte instantanément pour transformer votre chaos en une logique cristalline.",
+    "ogTitle": "Un format pour les gouverner tous : Voici le mode Flexible",
+    "ogDescription": "Du chaos à la structure. Découvrez pourquoi le format « Flexible » est le moyen le plus intelligent d'enregistrer réunions, interviews et idées.",
+    "ld": {
+      "headline": "Le format « Flexible » : Procès-verbaux parfaits, zéro configuration",
+      "description": "Un regard approfondi sur le mode d'enregistrement le plus polyvalent de Minutes.AI qui s'adapte à tout contexte."
+    }
+  },
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Fonctionnalité en vedette"
+  },
+  "hero": {
+    "kicker": "Fonctionnalité en vedette",
+    "h1": "Le seul format dont vous avez vraiment besoin : Voici « Flexible »",
+    "tagline": "Général, Vente, Interview, Présentation... fatigué de choisir ? Nous avons créé « Flexible » pour mettre fin à la fatigue décisionnelle. Il s'adapte à votre conversation en temps réel, transformant toute discussion en un chef-d'œuvre de logique.",
+    "subtag": "Des brainstormings chaotiques aux interviews structurées, Flexible capture l'essence sans que vous ayez à lever le petit doigt.",
+    "badges": [
+      "Conscient du contexte",
+      "Zéro configuration",
+      "Adaptateur universel"
+    ]
+  },
+  "problem": {
+    "h2": "La paralysie de l'analyse est réelle",
+    "p1": "Minutes.AI propose des formats spécialisés comme « Vente », « Conférence » et « 1-à-1 ». Ils sont puissants, mais parfois la vie ne rentre pas dans une case bien nette.",
+    "p2": "Avez-vous déjà hésité avant d'appuyer sur enregistrer ? « Est-ce une réunion ou juste une discussion ? » « C'est un peu une conférence mais aussi un brainstorming... » Choisir le format « Général » ressemble souvent à un compromis qui pourrait aboutir à un résumé vague.",
+    "quote": "« Je veux juste que ça marche sans penser aux réglages. »"
+  },
+  "solution": {
+    "h2": "Du chaos à la structure",
+    "p1": "C'est pourquoi nous avons créé **Flexible**. C'est notre algorithme le plus intelligent et le plus adaptatif à ce jour.",
+    "p2": "Il ne suppose pas la structure à l'avance ; il la découvre. Que vous parliez seul pour organiser vos pensées ou que vous débattiez lors d'une réunion stratégique à 5 personnes, Flexible détecte le contexte et organise le résultat logiquement.",
+    "highlights": [
+      "**Détection de contexte** : Identifie automatiquement s'il s'agit d'un dialogue, d'un monologue ou d'un débat.",
+      "**Extraction intelligente** : Extrait les points d'action et les décisions même des conversations désordonnées.",
+      "**Flux logique** : Réorganise les points dispersés en un récit cohérent."
+    ]
+  },
+  "scenarios": {
+    "h2": "Un format, des possibilités infinies",
+    "note": "Voyez comment « Flexible » gère sans problème des scénarios complètement différents.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Brain-dumping en solo",
+        "desc": "Vous marchez et parlez tout seul ? Flexible traite cela comme une note structurée, regroupant vos idées dispersées sous des titres clairs."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Réunions hybrides",
+        "desc": "Commence comme un « Check-in », se transforme en « Brainstorming » et finit par « Stratégie de vente » ? Flexible suit le changement et formate en conséquence."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Interviews complexes",
+        "desc": "Des sessions Q&A où les sujets sautent du coq à l'âne ? Flexible regroupe les réponses par sujet, pas seulement chronologiquement."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Il faut le voir pour le croire",
+    "text": "Ne nous croyez pas sur parole. Ouvrez Minutes.AI, sélectionnez « Flexible » et commencez à parler. Vivez la magie d'avoir vos pensées organisées par un professionnel.",
+    "openBrowser": "Essayer le mode Flexible Web",
+    "downloadIOS": "Télécharger l'app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publié le",
+    "type": "Fonctionnalité",
+    "category": "Mise à jour produit"
+  }
+}

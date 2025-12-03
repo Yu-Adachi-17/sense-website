@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Tapaa \"Flexible\": Lopullinen AI-pöytäkirjaformaatti jokaiseen keskusteluun | Pöytäkirja AI",
+    "description": "Lopeta arvailu siitä, mitä kokousmuotoa käyttää. Olipa kyseessä aivoriihi, myyntipuhelu tai yksinajattelu, \"Flexible\"-tila mukautuu välittömästi järjestämään kaaoksesi kristallinkirkkaaksi logiikaksi.",
+    "ogTitle": "Yksi formaatti hallitsemaan kaikkia: Tapaa Flexible-tila",
+    "ogDescription": "Kaaos sisään, rakenne ulos. Tutustu miksi \"Flexible\"-formaatti on älykkäin tapa tallentaa kokoukset, haastattelut ja ideat.",
+    "ld": {
+      "headline": "\"Flexible\"-formaatti: Täydelliset pöytäkirjat, nolla asetusta",
+      "description": "Syvällinen katsaus Pöytäkirja AI:n monipuolisimpaan tallennustilaan, joka mukautuu mihin tahansa kontekstiin."
+    }
+  },
+  "aria": {
+    "home": "Pöytäkirja AI Koti"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "feature": "Ominaisuus valokeilassa"
+  },
+  "hero": {
+    "kicker": "Ominaisuus valokeilassa",
+    "h1": "Ainoa formaatti, jonka oikeasti tarvitset: Tapaa \"Flexible\"",
+    "tagline": "Yleinen, Myynti, Haastattelu, Esitys... kyllästynyt valitsemaan? Loimme \"Flexible\"-tilan lopettamaan päätösväsymyksen. Se mukautuu keskusteluusi reaaliajassa, muuttaen minkä tahansa keskustelun loogiseksi mestariteokseksi.",
+    "subtag": "Kaaottisista aivoriihistä jäsenneltyihin haastatteluihin, Flexible vangitsee olennaisen ilman, että sinun tarvitsee tehdä mitään.",
+    "badges": [
+      "Kontekstitietoinen",
+      "Nolla konfiguraatiota",
+      "Universaali sovitin"
+    ]
+  },
+  "problem": {
+    "h2": "Valinnan vaikeus on todellista",
+    "p1": "Pöytäkirja AI tarjoaa erikoistuneita formaatteja kuten 'Myynti', 'Luento' ja 'Kahdenkeskinen'. Ne ovat tehokkaita, mutta joskus elämä ei mahdu siistiin laatikkoon.",
+    "p2": "Oletko koskaan epäröinyt ennen tallennuksen aloittamista? \"Onko tämä kokous vai vain juttelua?\" \"Se on tavallaan luento mutta myös aivoriihi...\" 'Yleinen'-formaatin valitseminen tuntuu usein kompromissilta, joka voi johtaa epämääräiseen yhteenvetoon.",
+    "quote": "\"Haluan vain sen toimivan ilman asetusten miettimistä.\""
+  },
+  "solution": {
+    "h2": "Kaaos sisään, rakenne ulos",
+    "p1": "Siksi loimme **Flexiblen**. Se on tähän mennessä älykkäin ja mukautuvin algoritmimme.",
+    "p2": "Se ei oleta rakennetta etukäteen; se löytää sen. Puhutpa sitten itseksesi järjestääksesi ajatuksia tai väittelet 5 hengen strategiapalaverissa, Flexible tunnistaa kontekstin ja järjestää tulosteen loogisesti.",
+    "highlights": [
+      "**Kontekstin tunnistus**: Tunnistaa automaattisesti onko kyseessä dialogi, monologi vai väittely.",
+      "**Älykäs poiminta**: Poimii toimintakohdat ja päätökset jopa sekavista keskusteluista.",
+      "**Looginen virta**: Järjestää hajallaan olevat kohdat yhtenäiseksi kertomukseksi."
+    ]
+  },
+  "scenarios": {
+    "h2": "Yksi formaatti, äärettömät mahdollisuudet",
+    "note": "Katso kuinka \"Flexible\" käsittelee täysin erilaiset skenaariot saumattomasti.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Soolo-ajatusvirta",
+        "desc": "Kävelet ja puhut itseksesi? Flexible käsittelee sitä jäsenneltynä muistiona, ryhmitellen hajallaan olevat ideasi selkeiden otsikoiden alle."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybridikokoukset",
+        "desc": "Alkaa 'Tsekkauksena', muuttuu 'Aivoriiheksi' ja päättyy 'Myyntistrategiaan'? Flexible seuraa muutosta ja muotoilee sen mukaisesti."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Monimutkaiset haastattelut",
+        "desc": "Q&A-sessiot, joissa aiheet hyppivät? Flexible ryhmittelee vastaukset aiheittain, ei vain kronologisesti."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Usko kun näet",
+    "text": "Älä usko vain sanaamme. Avaa Pöytäkirja AI, valitse 'Flexible' ja ala puhua. Koe taika, kun ammattilainen järjestää ajatuksesi.",
+    "openBrowser": "Kokeile Flexible-tilaa (Web)",
+    "downloadIOS": "Lataa iOS-sovellus"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Julkaistu",
+    "type": "Ominaisuus",
+    "category": "Tuotepäivitys"
+  }
+}

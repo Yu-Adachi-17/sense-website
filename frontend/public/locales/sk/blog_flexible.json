@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Zoznámte sa s \"Flexible\": Dokonalý formát AI zápisnice pre každú konverzáciu | AI Zápisnica",
+    "description": "Prestaňte hádať, ktorý formát stretnutia použiť. Či už ide o brainstorming, obchodný hovor alebo utriedenie myšlienok, režim \"Flexible\" sa okamžite prispôsobí a premení váš chaos na krištáľovo čistú logiku.",
+    "ogTitle": "Jeden formát, ktorý vládne všetkým: Režim Flexible",
+    "ogDescription": "Chaos dnu, štruktúra von. Zistite, prečo je formát \"Flexible\" najchytrejším spôsobom nahrávania stretnutí, rozhovorov a nápadov.",
+    "ld": {
+      "headline": "Formát \"Flexible\": Perfektné zápisnice, nulové nastavenie",
+      "description": "Hĺbkový pohľad na najvšestrannejší režim nahrávania AI Zápisnica, ktorý sa prispôsobí každému kontextu."
+    }
+  },
+  "aria": {
+    "home": "Domov AI Zápisnica"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Predstavenie funkcie"
+  },
+  "hero": {
+    "kicker": "Predstavenie funkcie",
+    "h1": "Jediný formát, ktorý naozaj potrebujete: \"Flexible\"",
+    "tagline": "Všeobecné, Obchod, Rozhovor, Prezentácia... nebaví vás vyberať? Vytvorili sme \"Flexible\", aby sme ukončili rozhodovaciu paralýzu. Prispôsobí sa vašej konverzácii v reálnom čase a premení akúkoľvek diskusiu na logické majstrovské dielo.",
+    "subtag": "Od chaotických brainstormingov po štruktúrované rozhovory – Flexible zachytí podstatu bez toho, aby ste pohli prstom.",
+    "badges": [
+      "Detekcia kontextu",
+      "Nulová konfigurácia",
+      "Univerzálny adaptér"
+    ]
+  },
+  "problem": {
+    "h2": "Rozhodovacia paralýza je skutočná",
+    "p1": "AI Zápisnica ponúka špecializované formáty ako 'Obchod', 'Prednáška' a '1 na 1'. Sú silné, ale niekedy sa život nezmestí do úhľadnej škatuľky.",
+    "p2": "Zaváhali ste niekedy pred stlačením nahrávania? \"Je toto porada alebo len pokec?\" \"Je to tak trochu prednáška, ale aj brainstorming...\" Výber formátu 'Všeobecné' často pôsobí ako kompromis, ktorý môže viesť k nejasnému zhrnutiu.",
+    "quote": "\"Chcem len, aby to fungovalo bez rozmýšľania o nastaveniach.\""
+  },
+  "solution": {
+    "h2": "Chaos dnu, štruktúra von",
+    "p1": "Preto sme vytvorili **Flexible**. Je to náš najchytrejší a najadaptabilnejší algoritmus doteraz.",
+    "p2": "Nepredpokladá štruktúru vopred; objavuje ju. Či už si mrmlete pre seba, aby ste si utriedili myšlienky, alebo diskutujete na strategickej porade piatich ľudí, Flexible detekuje kontext a výstup logicky usporiada.",
+    "highlights": [
+      "**Detekcia kontextu**: Automaticky rozpozná, či ide o dialóg, monológ alebo debatu.",
+      "**Chytrá extrakcia**: Vytiahne akčné body a rozhodnutia aj z neprehľadných konverzácií.",
+      "**Logický tok**: Preusporiada roztrúsené body do súvislého príbehu."
+    ]
+  },
+  "scenarios": {
+    "h2": "Jeden formát, nekonečné možnosti",
+    "note": "Pozrite sa, ako \"Flexible\" hladko zvláda úplne odlišné scenáre.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Sólo triedenie myšlienok",
+        "desc": "Chodíte a hovoríte sami so sebou? Flexible to spracuje ako štruktúrovanú poznámku a zoskupí vaše roztrúsené nápady pod jasné nadpisy."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybridné stretnutia",
+        "desc": "Začína to ako 'Check-in', zmení sa na 'Brainstorming' a končí 'Obchodnou stratégiou'? Flexible sleduje posun a formátuje podľa toho."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Komplexné rozhovory",
+        "desc": "Q&A relácie, kde témy skáču? Flexible preskupí odpovede podľa témy, nielen chronologicky."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Vidieť znamená uveriť",
+    "text": "Neverte nám len na slovo. Otvorte AI Zápisnica, vyberte 'Flexible' a začnite hovoriť. Zažite čaro toho, keď vaše myšlienky organizuje profesionál.",
+    "openBrowser": "Skúsiť Flexible Mode (Web)",
+    "downloadIOS": "Stiahnuť iOS aplikáciu"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikované",
+    "type": "Funkcia",
+    "category": "Aktualizácia produktu"
+  }
+}

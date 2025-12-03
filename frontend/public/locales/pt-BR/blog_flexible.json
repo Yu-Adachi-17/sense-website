@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Conheça o \"Flexible\": O formato de ata com IA definitivo para qualquer conversa | Ata AI",
+    "description": "Pare de adivinhar qual formato de reunião usar. Seja um brainstorming, uma chamada de vendas ou um processo de pensamento solo, o modo \"Flexible\" adapta-se instantaneamente para organizar o seu caos numa lógica cristalina.",
+    "ogTitle": "Um formato para governar todos: Conheça o modo Flexible",
+    "ogDescription": "Caos entra, estrutura sai. Descubra porque o formato \"Flexible\" é a forma mais inteligente de gravar reuniões, entrevistas e ideias.",
+    "ld": {
+      "headline": "O formato \"Flexible\": Atas perfeitas, configuração zero",
+      "description": "Um olhar aprofundado sobre o modo de gravação mais versátil do Ata AI que se adapta a qualquer contexto."
+    }
+  },
+  "aria": {
+    "home": "Início Ata AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Destaque da Funcionalidade"
+  },
+  "hero": {
+    "kicker": "Destaque da Funcionalidade",
+    "h1": "O único formato de que realmente precisa: \"Flexible\"",
+    "tagline": "Geral, Vendas, Entrevista, Apresentação... cansado de escolher? Criámos o \"Flexible\" para acabar com a fadiga da decisão. Adapta-se à sua conversa em tempo real, transformando qualquer discussão numa obra-prima de lógica.",
+    "subtag": "De brainstormings caóticos a entrevistas estruturadas, o Flexible capta a essência sem que tenha de mexer um dedo.",
+    "badges": [
+      "Consciente do Contexto",
+      "Configuração Zero",
+      "Adaptador Universal"
+    ]
+  },
+  "problem": {
+    "h2": "A paralisia da análise é real",
+    "p1": "O Ata AI oferece formatos especializados como 'Vendas', 'Palestra' e '1-para-1'. São poderosos, mas por vezes a vida não cabe numa caixa arrumada.",
+    "p2": "Já hesitou antes de carregar em gravar? \"Isto é uma reunião ou apenas uma conversa?\" \"É uma espécie de palestra, mas também brainstorming...\" Escolher o formato 'Geral' parece muitas vezes um compromisso que pode resultar num resumo vago.",
+    "quote": "\"Só quero que funcione sem pensar em definições.\""
+  },
+  "solution": {
+    "h2": "Caos entra, estrutura sai",
+    "p1": "É por isso que criámos o **Flexible**. É o nosso algoritmo mais inteligente e adaptável até à data.",
+    "p2": "Não assume a estrutura de antemão; descobre-a. Quer esteja a falar sozinho para organizar pensamentos ou a debater numa reunião de estratégia de 5 pessoas, o Flexible deteta o contexto e organiza o resultado logicamente.",
+    "highlights": [
+      "**Deteção de Contexto**: Identifica automaticamente se é um diálogo, um monólogo ou um debate.",
+      "**Extração Inteligente**: Retira itens de ação e decisões mesmo de conversas desorganizadas.",
+      "**Fluxo Lógico**: Reordena pontos dispersos numa narrativa coerente."
+    ]
+  },
+  "scenarios": {
+    "h2": "Um formato, possibilidades infinitas",
+    "note": "Veja como o \"Flexible\" lida com cenários completamente diferentes sem problemas.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Despejo de Ideias Solo",
+        "desc": "A andar e a falar sozinho? O Flexible trata isso como um memorando estruturado, agrupando as suas ideias dispersas sob cabeçalhos claros."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Reuniões Híbridas",
+        "desc": "Começa como um 'Ponto de situação', transforma-se em 'Brainstorm' e termina com 'Estratégia de vendas'? O Flexible acompanha a mudança e formata em conformidade."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Entrevistas Complexas",
+        "desc": "Sessões de P&R onde os tópicos saltam? O Flexible reagrupa as respostas por tópico, não apenas cronologicamente."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Ver para crer",
+    "text": "Não acredite apenas na nossa palavra. Abra o Ata AI, selecione 'Flexible' e comece a falar. Experimente a magia de ter os seus pensamentos organizados por um profissional.",
+    "openBrowser": "Experimentar Modo Flexible (Web)",
+    "downloadIOS": "Descarregar app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Funcionalidade",
+    "category": "Atualização do Produto"
+  }
+}

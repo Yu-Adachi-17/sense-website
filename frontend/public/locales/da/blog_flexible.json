@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Mød 'Flexible': Det ultimative AI-mødeformat til enhver samtale | Minutes.AI",
+    "description": "Stop med at gætte, hvilket mødeformat du skal bruge. Uanset om det er brainstorming, et salgsmøde eller en tankestrøm, tilpasser 'Flexible'-tilstanden sig øjeblikkeligt og organiserer dit kaos til krystalklar logik.",
+    "ogTitle": "Ét format til det hele: Mød Flexible Mode",
+    "ogDescription": "Kaos ind, struktur ud. Opdag hvorfor 'Flexible' er den smarteste måde at optage møder, interviews og ideer på.",
+    "ld": {
+      "headline": "'Flexible'-formatet: Perfekte referater, nul opsætning",
+      "description": "Et dybdegående kig på Minutes.AI's mest alsidige optagetilstand, der tilpasser sig enhver kontekst."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Hjem"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Funktion i fokus"
+  },
+  "hero": {
+    "kicker": "Funktion i fokus",
+    "h1": "Det eneste format, du virkelig behøver: Mød \"Flexible\"",
+    "tagline": "Generelt, Salg, Interview, Præsentation... træt af at vælge? Vi byggede 'Flexible' for at gøre en ende på beslutningstrætheden. Det tilpasser sig din samtale i realtid og forvandler enhver diskussion til et logisk mesterværk.",
+    "subtag": "Fra kaotiske brainstorms til strukturerede interviews – Flexible fanger essensen, uden at du rører en finger.",
+    "badges": [
+      "Kontekst-bevidst",
+      "Nul konfiguration",
+      "Universal adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Beslutningslammelse er ægte",
+    "p1": "Minutes.AI tilbyder specialiserede formater som 'Salg', 'Forelæsning' og '1-on-1'. De er kraftfulde, men nogle gange passer livet ikke ned i en pæn kasse.",
+    "p2": "Har du nogensinde tøvet, før du trykkede på optag? \"Er dette et møde eller bare en snak?\" \"Det er lidt en forelæsning, men også en brainstorm...\" At vælge formatet 'Generelt' føles ofte som et kompromis, der kan resultere i et vagt referat.",
+    "quote": "\"Jeg vil bare have det til at virke uden at tænke på indstillinger.\""
+  },
+  "solution": {
+    "h2": "Kaos ind, struktur ud",
+    "p1": "Det er derfor, vi skabte **Flexible**. Det er vores hidtil smarteste og mest tilpasningsdygtige algoritme.",
+    "p2": "Den antager ikke strukturen på forhånd; den opdager den. Uanset om du taler med dig selv for at organisere tanker eller diskuterer i et strategimøde med 5 personer, registrerer Flexible konteksten og organiserer outputtet logisk.",
+    "highlights": [
+      "**Kontekst-registrering**: Identificerer automatisk, om det er en dialog, en monolog eller en debat.",
+      "**Smart udtræk**: Trækker handlingspunkter og beslutninger ud selv fra rodede samtaler.",
+      "**Logisk flow**: Omorganiserer spredte punkter til en sammenhængende fortælling."
+    ]
+  },
+  "scenarios": {
+    "h2": "Ét format, uendelige muligheder",
+    "note": "Se hvordan 'Flexible' håndterer vidt forskellige scenarier problemfrit.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Solo tankestrøm",
+        "desc": "Går du og taler med dig selv? Flexible behandler det som et struktureret notat og grupperer dine spredte ideer under klare overskrifter."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybride møder",
+        "desc": "Starter som 'Check-in', bliver til 'Brainstorm' og ender med 'Salgsstrategi'? Flexible følger skiftet og formaterer derefter."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Komplekse interviews",
+        "desc": "Q&A-sessioner hvor emnerne hopper rundt? Flexible omgrupperer svar efter emne, ikke kun kronologisk."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Se det for at tro det",
+    "text": "Tag ikke kun vores ord for det. Åbn Minutes.AI, vælg 'Flexible', og begynd at tale. Oplev magien ved at få dine tanker organiseret af en professionel.",
+    "openBrowser": "Prøv Flexible Mode (Web)",
+    "downloadIOS": "Hent iOS-app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Udgivet",
+    "type": "Funktion",
+    "category": "Produktopdatering"
+  }
+}

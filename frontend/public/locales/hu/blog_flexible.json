@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Ismerje meg a „Flexible”-t: A végső AI jegyzőkönyv formátum minden beszélgetéshez | Jegyzőkönyv AI",
+    "description": "Ne találgassa többé, melyik értekezlet-formátumot használja. Legyen szó ötletbörzéről, értékesítési hívásról vagy egyéni gondolatmenetről, a „Flexible” mód azonnal alkalmazkodik, hogy a káoszt kristálytiszta logikává rendszerezze.",
+    "ogTitle": "Egy formátum mind felett: Ismerje meg a Flexible módot",
+    "ogDescription": "Káosz be, struktúra ki. Fedezze fel, miért a „Flexible” formátum a legokosabb módja az értekezletek, interjúk és ötletek rögzítésének.",
+    "ld": {
+      "headline": "A „Flexible” formátum: Tökéletes jegyzőkönyvek, nulla beállítás",
+      "description": "Részletes betekintés a Jegyzőkönyv AI legsokoldalúbb rögzítési módjába, amely bármilyen kontextushoz alkalmazkodik."
+    }
+  },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Funkció reflektorfényben"
+  },
+  "hero": {
+    "kicker": "Funkció reflektorfényben",
+    "h1": "Az egyetlen formátum, amire igazán szüksége van: „Flexible”",
+    "tagline": "Általános, Értékesítés, Interjú, Prezentáció... fárasztó a választás? Létrehoztuk a „Flexible”-t, hogy véget vessünk a döntési fáradtságnak. Valós időben alkalmazkodik a beszélgetéséhez, és bármilyen vitát logikai remekművé alakít.",
+    "subtag": "A kaotikus ötletbörzéktől a strukturált interjúkig a Flexible anélkül ragadja meg a lényeget, hogy Ön a kisujját is mozdítaná.",
+    "badges": [
+      "Kontextus-érzékeny",
+      "Nulla konfiguráció",
+      "Univerzális adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Az elemzési bénultság valós",
+    "p1": "A Jegyzőkönyv AI olyan speciális formátumokat kínál, mint az „Értékesítés”, „Előadás” és „1-on-1”. Ezek erősek, de néha az élet nem illik egy takaros dobozba.",
+    "p2": "Hestitált már valaha a felvétel gomb megnyomása előtt? „Ez most értekezlet vagy csak beszélgetés?” „Kicsit előadás, de ötletbörze is...” Az „Általános” formátum kiválasztása gyakran kompromisszumnak tűnik, ami homályos összefoglalót eredményezhet.",
+    "quote": "„Csak azt akarom, hogy működjön anélkül, hogy a beállításokon kellene gondolkodnom.”"
+  },
+  "solution": {
+    "h2": "Káosz be, struktúra ki",
+    "p1": "Ezért hoztuk létre a **Flexible**-t. Ez az eddigi legokosabb és legalkalmazkodóbb algoritmusunk.",
+    "p2": "Nem feltételezi előre a struktúrát; felfedezi azt. Akár magában beszél, hogy rendezze gondolatait, akár egy 5 fős stratégiai értekezleten vitázik, a Flexible érzékeli a kontextust, és logikusan rendezi a kimenetet.",
+    "highlights": [
+      "**Kontextus-felismerés**: Automatikusan azonosítja, hogy párbeszédről, monológról vagy vitáról van-e szó.",
+      "**Okos kivonatolás**: Még a zavaros beszélgetésekből is kinyeri a teendőket és a döntéseket.",
+      "**Logikai folyamat**: A szétszórt pontokat koherens történetté rendezi át."
+    ]
+  },
+  "scenarios": {
+    "h2": "Egy formátum, végtelen lehetőség",
+    "note": "Nézze meg, hogyan kezeli a „Flexible” zökkenőmentesen a teljesen eltérő forgatókönyveket.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Szóló gondolatdömping",
+        "desc": "Sétál és magában beszél? A Flexible strukturált emlékeztetőként kezeli, és szétszórt ötleteit világos címszavak alá rendezi."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hibrid értekezletek",
+        "desc": "„Bejelentkezésként” indul, „Ötletbörzévé” alakul, és „Értékesítési stratégiával” végződik? A Flexible követi a váltást, és ennek megfelelően formáz."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Komplex interjúk",
+        "desc": "Kérdés-felelet ülések, ahol a témák ugrálnak? A Flexible téma szerint csoportosítja a válaszokat, nem csak időrendben."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Hiszem, ha látom",
+    "text": "Ne higgyen csak a szavunknak. Nyissa meg a Jegyzőkönyv AI-t, válassza a „Flexible” lehetőséget, és kezdjen el beszélni. Tapasztalja meg a varázslatot, ahogy gondolatait egy profi rendezi.",
+    "openBrowser": "Flexible mód kipróbálása (Web)",
+    "downloadIOS": "iOS alkalmazás letöltése"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Funkció",
+    "category": "Termékfrissítés"
+  }
+}

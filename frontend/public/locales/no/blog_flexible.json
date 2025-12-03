@@ -1,0 +1,79 @@
+{
+  "seo": {
+    "title": "Møt «Flexible»: Det ultimate AI-møteformatet for enhver samtale | Referat AI",
+    "description": "Slutt å gjette hvilket møteformat du skal bruke. Enten det er en idédugnad, en salgssamtale eller en tankeprosess alene, tilpasser «Flexible»-modus seg umiddelbart for å organisere kaoset ditt til krystallklar logikk.",
+    "ogTitle": "Ett format for å styre dem alle: Møt Flexible-modus",
+    "ogDescription": "Kaos inn, struktur ut. Oppdag hvorfor «Flexible»-formatet er den smarteste måten å ta opp møter, intervjuer og ideer på.",
+    "ld": {
+      "headline": "«Flexible»-formatet: Perfekte referater, null oppsett",
+      "description": "Et dypdykk i Referat AIs mest allsidige opptaksmodus som tilpasser seg enhver kontekst."
+    }
+  },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "feature": "Funksjon i fokus"
+  },
+  "hero": {
+    "kicker": "Funksjon i fokus",
+    "h1": "Det eneste formatet du virkelig trenger: «Flexible»",
+    "tagline": "Generelt, Salg, Intervju, Presentasjon... lei av å velge? Vi bygde «Flexible» for å få slutt på beslutningstrettheten. Den tilpasser seg samtalen din i sanntid, og gjør enhver diskusjon om til et mesterverk av logikk.",
+    "subtag": "Fra kaotiske idédugnader til strukturerte intervjuer, Flexible fanger essensen uten at du løfter en finger.",
+    "badges": [
+      "Kontekst-bevisst",
+      "Null konfigurasjon",
+      "Universell adapter"
+    ]
+  },
+  "problem": {
+    "h2": "Valgets kval er ekte",
+    "p1": "Referat AI tilbyr spesialiserte formater som «Salg», «Forelesning» og «1-til-1». De er kraftige, men noen ganger passer ikke livet inn i en ryddig boks.",
+    "p2": "Har du noen gang nølt før du trykket på opptak? «Er dette et møte eller bare en prat?» «Det er litt som en forelesning, men også en idédugnad...» Å velge formatet «Generelt» føles ofte som et kompromiss som kan resultere i et vagt sammendrag.",
+    "quote": "«Jeg vil bare at det skal fungere uten å tenke på innstillinger.»"
+  },
+  "solution": {
+    "h2": "Kaos inn, struktur ut",
+    "p1": "Derfor skapte vi **Flexible**. Det er vår smarteste og mest tilpasningsdyktige algoritme hittil.",
+    "p2": "Den antar ikke strukturen på forhånd; den oppdager den. Enten du snakker med deg selv for å organisere tanker eller diskuterer i et strategimøte med 5 personer, oppdager Flexible konteksten og organiserer resultatet logisk.",
+    "highlights": [
+      "**Kontekstdeteksjon**: Identifiserer automatisk om det er en dialog, monolog eller debatt.",
+      "**Smart uthenting**: Trekker ut handlingselementer og beslutninger selv fra rotete samtaler.",
+      "**Logisk flyt**: Omorganiserer spredte punkter til en sammenhengende fortelling."
+    ]
+  },
+  "scenarios": {
+    "h2": "Ett format, uendelige muligheter",
+    "note": "Se hvordan «Flexible» håndterer helt forskjellige scenarier sømløst.",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Solo hjernedumping",
+        "desc": "Går du og snakker med deg selv? Flexible behandler det som et strukturert notat, og grupperer de spredte ideene dine under klare overskrifter."
+      },
+      {
+        "icon": "shuffle",
+        "title": "Hybride møter",
+        "desc": "Starter som en «Sjekk-inn», blir til «Idédugnad» og ender med «Salgsstrategi»? Flexible følger skiftet og formaterer deretter."
+      },
+      {
+        "icon": "hierarchy",
+        "title": "Komplekse intervjuer",
+        "desc": "Spørsmål og svar-økter der temaene hopper rundt? Flexible omgrupperer svar etter emne, ikke bare kronologisk."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Å se er å tro",
+    "text": "Ikke bare ta vårt ord for det. Åpne Referat AI, velg «Flexible» og begynn å snakke. Opplev magien ved å få tankene dine organisert av en proff.",
+    "openBrowser": "Prøv Flexible-modus (Web)",
+    "downloadIOS": "Last ned iOS-app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publisert",
+    "type": "Funksjon",
+    "category": "Produktoppdatering"
+  }
+}
