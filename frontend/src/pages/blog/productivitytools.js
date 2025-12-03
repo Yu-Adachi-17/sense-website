@@ -191,7 +191,7 @@ const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=world.sens
 
 export default function BlogProductivityTools() {
   const router = useRouter();
-  const { txs, txa } = useTx("blog_productivity"); // New namespace
+  const { txs, txa } = useTx("blog_productivitytools"); // New namespace
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical =
