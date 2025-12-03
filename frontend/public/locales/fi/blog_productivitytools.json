@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "5 parasta tekoälytyökalua tuottavuuteen vuonna 2025",
+    "description": "Lopeta yleisten työkalujen kanssa jonglööraus. Tässä ovat 5 välttämätöntä tekoälysovellusta tekstille, tutkimukselle, suunnittelulle ja kokouksille, jotka säästävät aikaasi vuonna 2025.",
+    "ogTitle": "5 parasta tekoälytyökalua tuottavuuteen (Vuoden 2025 painos)",
+    "ogDescription": "ChatGPT ei riitä. Olemme valinneet täydellisen tekoälykokonaisuuden kirjoittamiseen, tutkimukseen, suunnitteluun ja kokouksiin.",
+    "ld": {
+      "headline": "Vuoden 2025 5 parasta tekoälytyökalua tuottavuuteen",
+      "description": "Valikoitu lista parhaista tekoälytyökaluista, mukaan lukien ChatGPT, Notion, Perplexity, Canva ja Pöytäkirja AI."
+    }
+  },
+  "aria": {
+    "home": "Pöytäkirja AI Etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "current": "Top 5 AI-työkalut"
+  },
+  "hero": {
+    "kicker": "Tuottavuustyökalut 2025",
+    "h1": "5 parasta tekoälytyökalua työpäiväsi automatisointiin (2025)",
+    "tagline": "Tekoälyn käyttö ei ole enää vain ChatGPT:tä. Tuottavuuden todelliseen tehostamiseen tarvitset oikean asiantuntijan jokaiseen tehtävään. Tässä on täydellinen setti kirjoittamiseen, tutkimiseen, suunnitteluun ja – mikä tärkeintä – kokouksiin."
+  },
+  "intro": {
+    "p": "Testasimme kymmeniä sovelluksia löytääksemme ne, jotka sopivat saumattomasti ammattimaiseen työnkulkuun. Nämä eivät ole leluja; ne ovat työkaluja, jotka maksavat itsensä takaisin säästettynä aikana."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Paras: Ideointi & Luonnostelu",
+      "desc": "Generatiivisen tekstin kiistaton kuningas. Tarvitsitpa sähköpostiluonnosta, koodin virheenkorjausta tai markkinointikulmien ideointia, ChatGPT on monipuolisin lähtökohta.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Paras: Tieto & Dokumentit",
+      "desc": "Notion on paikka, jossa tiimisi tieto asuu. Notion AI toimii älykkäänä kirjastonhoitajana, jonka avulla voit tiivistää valtavia wikejä, täyttää tietokannan ominaisuuksia ja kirjoittaa sotkuiset muistiinpanot puhtaiksi hetkessä.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Paras: Tutkimus & Haku",
+      "desc": "Lopeta Googlettaminen ja kymmenen välilehden avaaminen. Perplexity skannaa verkon ja antaa sinulle viitatun, tiivistetyn vastauksen. Se on nopein tapa tarkistaa faktoja tai tutkia kilpailijoita.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Paras: Visuaalit & Diat",
+      "desc": "Sinun ei tarvitse olla suunnittelija. Canvan tekoälyominaisuudet antavat sinun luoda kuvia, muuttaa aineistojen kokoa sosiaaliseen mediaan ja jopa rakentaa kokonaisia diaesityksiä tekstikehotteesta.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Kokousasiantuntija",
+    "h2": "Pöytäkirja AI (Paras valinta äänelle)",
+    "lead": "Siinä missä yllä olevat työkalut hoitavat tekstin ja kuvat, kokoukset ovat usein suurin tuottavuusvuoto. Tässä Pöytäkirja AI loistaa.",
+    "reasons": [
+      {
+        "title": "Miksi se on listalla:",
+        "text": "Useimmat ihmiset tekevät edelleen muistiinpanoja käsin yrittäessään kuunnella. Pöytäkirja AI tallentaa, litteroi ja tiivistää samanaikaisesti, jotta voit keskittyä itse keskusteluun."
+      },
+      {
+        "title": "Huippuominaisuus:",
+        "text": "<strong>Joustava hinnoittelu.</strong> Toisin kuin useimmat yritystyökalut, jotka vaativat kuukausitilauksen, Pöytäkirja AI tarjoaa aikapaketteja, jotka eivät vanhene (alkaen 1,99 $). Täydellinen, jos sinulla ei ole kokouksia joka päivä."
+      },
+      {
+        "title": "Paras:",
+        "text": "Freelancereille, projektipäälliköille ja kaikille, jotka ovat kyllästyneet kirjoittamaan pöytäkirjoja puhelun päätyttyä."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Oletko valmis täydentämään tekoälysettiäsi?",
+    "p": "Älä anna kokousten olla päiväsi ainoa manuaalinen osa. Kokeile Pöytäkirja AI iPhone -sovellusta.",
+    "openBrowser": "Avaa selaimessa",
+    "downloadIOS": "Lataa iOS-sovellus"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Julkaistu",
+    "type": "Kooste",
+    "category": "Tuottavuus"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Die 5 besten KI-Produktivitätstools für 2025",
+    "description": "Schluss mit generischen Tools. Hier sind die 5 wichtigsten KI-Apps für Text, Recherche, Design und Meetings, die Ihnen 2025 wirklich Zeit sparen.",
+    "ogTitle": "Die 5 besten KI-Produktivitätstools (Edition 2025)",
+    "ogDescription": "ChatGPT reicht nicht aus. Wir haben den perfekten KI-Stack für Schreiben, Recherche, Design und Meetings zusammengestellt.",
+    "ld": {
+      "headline": "Die 5 besten KI-Produktivitätstools für 2025",
+      "description": "Eine kuratierte Liste der besten KI-Tools, darunter ChatGPT, Notion, Perplexity, Canva und Protokoll KI."
+    }
+  },
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 KI-Tools"
+  },
+  "hero": {
+    "kicker": "Produktivitäts-Stack 2025",
+    "h1": "Die 5 besten KI-Tools für Ihren Arbeitsalltag (2025)",
+    "tagline": "KI-Nutzung bedeutet nicht mehr nur ChatGPT. Um die Produktivität wirklich zu steigern, brauchen Sie den richtigen Spezialisten für jede Aufgabe. Hier ist der ultimative Stack für Schreiben, Recherchieren, Design und – am wichtigsten – Meetings."
+  },
+  "intro": {
+    "p": "Wir haben Dutzende von Apps getestet, um diejenigen zu finden, die sich nahtlos in einen professionellen Arbeitsablauf einfügen. Das sind keine Spielereien; es sind Werkzeuge, die sich durch gesparte Zeit bezahlt machen."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Beste für: Ideen & Entwürfe",
+      "desc": "Der unangefochtene König der Texterstellung. Egal, ob Sie eine E-Mail entwerfen, Code debuggen oder Marketingideen sammeln müssen, ChatGPT bleibt der vielseitigste Ausgangspunkt.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Beste für: Wissen & Doku",
+      "desc": "In Notion lebt das Wissen Ihres Teams. Notion AI fungiert als intelligenter Bibliothekar, mit dem Sie riesige Wikis zusammenfassen, Datenbankeigenschaften automatisch ausfüllen und chaotische Notizen sofort umschreiben können.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Beste für: Recherche & Suche",
+      "desc": "Hören Sie auf zu googeln und zehn Tabs zu öffnen. Perplexity scannt das Web und liefert eine zitierte, zusammengefasste Antwort. Es ist der schnellste Weg, Fakten zu überprüfen oder Wettbewerber zu recherchieren.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Beste für: Visuals & Folien",
+      "desc": "Sie müssen kein Designer sein. Mit den KI-Funktionen von Canva können Sie Bilder generieren, Assets für soziale Medien anpassen und sogar ganze Präsentationsfolien aus einem Text-Prompt erstellen.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Der Meeting-Spezialist",
+    "h2": "Protokoll KI (Die beste Wahl für Audio)",
+    "lead": "Während die oben genannten Tools Text und Bilder verarbeiten, sind Ihre Meetings oft das größte Produktivitätsleck. Hier glänzt Protokoll KI.",
+    "reasons": [
+      {
+        "title": "Warum es auf der Liste steht:",
+        "text": "Die meisten Menschen machen sich immer noch manuell Notizen, während sie versuchen zuzuhören. Protokoll KI nimmt auf, transkribiert und fasst gleichzeitig zusammen, sodass Sie sich tatsächlich auf das Gespräch konzentrieren können."
+      },
+      {
+        "title": "Killer-Feature:",
+        "text": "<strong>Flexible Preisgestaltung.</strong> Im Gegensatz zu den meisten Unternehmenstools, die 30 €/Monat verlangen, bietet Protokoll KI Zeitpakete ohne Ablaufdatum (ab 1,99 €). Perfekt, wenn Sie nicht jeden Tag Meetings haben."
+      },
+      {
+        "title": "Am besten für:",
+        "text": "Freelancer, Projektmanager und alle, die es leid sind, nach dem Anruf Sitzungsprotokolle zu schreiben."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Bereit, Ihren KI-Stack zu vervollständigen?",
+    "p": "Lassen Sie Meetings nicht den einzigen manuellen Teil Ihres Tages sein. Testen Sie die Protokoll KI iPhone-App.",
+    "openBrowser": "Im Browser öffnen",
+    "downloadIOS": "iOS-App laden"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Veröffentlicht",
+    "type": "Roundup",
+    "category": "Produktivität"
+  }
+}

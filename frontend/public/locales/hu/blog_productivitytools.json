@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Az 5 legjobb AI produktivitási eszköz 2025-ben",
+    "description": "Hagyja abba az általános eszközökkel való zsonglőrködést. Itt van az az 5 alapvető AI alkalmazás szöveghez, kutatáshoz, tervezéshez és megbeszélésekhez, amelyek 2025-ben valóban időt takarítanak meg.",
+    "ogTitle": "Az 5 legjobb AI produktivitási eszköz (2025-ös kiadás)",
+    "ogDescription": "A ChatGPT nem elég. Összeállítottuk a tökéletes AI csomagot íráshoz, kutatáshoz, tervezéshez és megbeszélésekhez.",
+    "ld": {
+      "headline": "Az 5 legjobb AI produktivitási eszköz 2025-ben",
+      "description": "A legjobb AI eszközök válogatott listája, beleértve a ChatGPT-t, a Notion-t, a Perplexity-t, a Canvát és a Jegyzőkönyv AI-t."
+    }
+  },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 AI Eszköz"
+  },
+  "hero": {
+    "kicker": "Produktivitási csomag 2025",
+    "h1": "Az 5 legjobb AI eszköz a munkanap automatizálásához (2025)",
+    "tagline": "Az AI használata már nem csak a ChatGPT-ről szól. A termelékenység valódi növeléséhez minden feladathoz a megfelelő specialistára van szüksége. Itt a végső csomag íráshoz, kutatáshoz, tervezéshez és – ami a legfontosabb – megbeszélésekhez."
+  },
+  "intro": {
+    "p": "Több tucat alkalmazást teszteltünk, hogy megtaláljuk azokat, amelyek zökkenőmentesen illeszkednek a professzionális munkafolyamatba. Ezek nem játékok; ezek olyan eszközök, amelyek a megtakarított időben térülnek meg."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Legjobb: Ötletelés és vázlatok",
+      "desc": "A generatív szöveg vitathatatlan királya. Akár e-mailt kell írnia, kódot hibakeresnie, akár marketing szempontokat kell ötletelnie, a ChatGPT marad a legsokoldalúbb kiindulópont.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Legjobb: Tudás és dokumentumok",
+      "desc": "A Notion az a hely, ahol a csapat tudása él. A Notion AI intelligens könyvtárosként működik, lehetővé téve hatalmas wikik összefoglalását, adatbázis-tulajdonságok automatikus kitöltését és rendezetlen jegyzetek azonnali átírását.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Legjobb: Kutatás és keresés",
+      "desc": "Hagyja abba a Google-keresést és tíz lap megnyitását. A Perplexity átvizsgálja a webet, és hivatkozott, összefoglalt választ ad. Ez a leggyorsabb módja a tények ellenőrzésének vagy a versenytársak kutatásának.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Legjobb: Vizuális elemek és diák",
+      "desc": "Nem kell tervezőnek lennie. A Canva AI funkciói lehetővé teszik képek generálását, a közösségi média eszközeinek átméretezését, és akár teljes diavetítések készítését egyetlen szöveges utasításból.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. A megbeszélések specialistája",
+    "h2": "Jegyzőkönyv AI (A legjobb választás hanghoz)",
+    "lead": "Míg a fenti eszközök a szöveget és a vizuális elemeket kezelik, a megbeszélések gyakran a legnagyobb produktivitási veszteséget jelentik. Itt ragyog a Jegyzőkönyv AI.",
+    "reasons": [
+      {
+        "title": "Miért van a listán:",
+        "text": "A legtöbb ember még mindig kézzel jegyzetel, miközben próbál figyelni. A Jegyzőkönyv AI egyszerre rögzít, átír és összefoglal, így Ön valóban a beszélgetésre koncentrálhat."
+      },
+      {
+        "title": "Killer funkció:",
+        "text": "<strong>Rugalmas árazás.</strong> A legtöbb vállalati eszközzel ellentétben, amelyek havi előfizetést követelnek, a Jegyzőkönyv AI le nem járó időcsomagokat kínál (már 1,99 $-tól). Tökéletes, ha nincs minden nap megbeszélése."
+      },
+      {
+        "title": "Legjobb:",
+        "text": "Szabadúszóknak, projektmenedzsereknek és bárkinek, aki belefáradt abba, hogy a hívás után jegyzőkönyvet írjon."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Készen áll az AI csomagjának kiegészítésére?",
+    "p": "Ne hagyja, hogy a megbeszélések legyenek a nap egyetlen manuális része. Próbálja ki a Jegyzőkönyv AI iPhone alkalmazást.",
+    "openBrowser": "Megnyitás böngészőben",
+    "downloadIOS": "iOS alkalmazás letöltése"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Összeállítás",
+    "category": "Produktivitás"
+  }
+}

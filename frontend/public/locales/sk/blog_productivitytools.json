@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "5 najlepších AI nástrojov na produktivitu v roku 2025",
+    "description": "Prestaňte žonglovať s bežnými nástrojmi. Tu je 5 kľúčových AI aplikácií na text, výskum, dizajn a stretnutia, ktoré vám v roku 2025 skutočne ušetria čas.",
+    "ogTitle": "5 najlepších AI nástrojov na produktivitu (Edícia 2025)",
+    "ogDescription": "ChatGPT nestačí. Vybrali sme perfektnú sadu AI nástrojov na písanie, výskum, dizajn a stretnutia.",
+    "ld": {
+      "headline": "5 najlepších AI nástrojov na produktivitu pre rok 2025",
+      "description": "Výber najlepších AI nástrojov vrátane ChatGPT, Notion, Perplexity, Canva a AI Zápisnica."
+    }
+  },
+  "aria": {
+    "home": "AI Zápisnica Domov"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 AI nástrojov"
+  },
+  "hero": {
+    "kicker": "Balík produktivity 2025",
+    "h1": "5 najlepších AI nástrojov na automatizáciu vášho pracovného dňa (2025)",
+    "tagline": "Používanie AI už nie je len o ChatGPT. Aby ste skutočne zvýšili produktivitu, potrebujete na každú úlohu toho správneho špecialistu. Tu je ultimátny balík na písanie, výskum, dizajn a – čo je najdôležitejšie – stretnutia."
+  },
+  "intro": {
+    "p": "Otestovali sme desiatky aplikácií, aby sme našli tie, ktoré hladko zapadnú do profesionálneho pracovného toku. Nie sú to len hračky; sú to nástroje, ktoré sa zaplatia ušetreným časom."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Najlepšie na: Nápady a koncepty",
+      "desc": "Nesporný kráľ generatívneho textu. Či už potrebujete napísať e-mail, ladiť kód alebo brainstormovať marketingové uhly, ChatGPT zostáva najvšestrannejším východiskovým bodom.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Najlepšie na: Znalosti a dokumenty",
+      "desc": "Notion je miesto, kde žijú znalosti vášho tímu. Notion AI funguje ako inteligentný knihovník, ktorý vám umožní zhrnúť obrovské wiki, automaticky vyplniť vlastnosti databázy a okamžite prepísať chaotické poznámky.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Najlepšie na: Výskum a vyhľadávanie",
+      "desc": "Prestaňte googliť a otvárať desať kariet. Perplexity prehľadá web a poskytne vám citovanú, zhrnutú odpoveď. Je to najrýchlejší spôsob, ako overiť fakty alebo preskúmať konkurenciu.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Najlepšie na: Vizuály a prezentácie",
+      "desc": "Nemusíte byť dizajnér. AI funkcie v Canve vám umožnia generovať obrázky, meniť veľkosť podkladov pre sociálne siete a dokonca vytvárať celé sady snímok z textového zadania.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Špecialista na stretnutia",
+    "h2": "AI Zápisnica (Najlepšia voľba pre audio)",
+    "lead": "Zatiaľ čo vyššie uvedené nástroje spracúvajú text a vizuály, vaše stretnutia sú často najväčšou stratou produktivity. Tu žiari AI Zápisnica.",
+    "reasons": [
+      {
+        "title": "Prečo je na zozname:",
+        "text": "Väčšina ľudí si stále robí poznámky ručne, zatiaľ čo sa snaží počúvať. AI Zápisnica nahráva, prepisuje a sumarizuje súčasne, takže sa môžete skutočne sústrediť na konverzáciu."
+      },
+      {
+        "title": "Kľúčová funkcia:",
+        "text": "<strong>Flexibilné ceny.</strong> Na rozdiel od väčšiny podnikových nástrojov, ktoré vyžadujú mesačné predplatné, AI Zápisnica ponúka časové balíčky bez expirácie (od 1,99 $). Ideálne, ak nemáte stretnutia každý deň."
+      },
+      {
+        "title": "Najlepšie pre:",
+        "text": "Freelancerov, projektových manažérov a kohokoľvek, koho nebaví písať zápisnice po skončení hovoru."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Ste pripravení skompletizovať svoj AI balík?",
+    "p": "Nedovoľte, aby stretnutia boli jedinou manuálnou časťou vášho dňa. Skúste aplikáciu AI Zápisnica pre iPhone.",
+    "openBrowser": "Otvoriť v prehliadači",
+    "downloadIOS": "Stiahnuť iOS aplikáciu"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikované",
+    "type": "Prehľad",
+    "category": "Produktivita"
+  }
+}

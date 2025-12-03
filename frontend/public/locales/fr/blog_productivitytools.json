@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Les 5 meilleurs outils IA de productivité pour 2025",
+    "description": "Arrêtez de jongler avec des outils génériques. Voici les 5 applications IA essentielles pour le texte, la recherche, le design et les réunions qui vous feront vraiment gagner du temps en 2025.",
+    "ogTitle": "Les 5 meilleurs outils de productivité IA (Édition 2025)",
+    "ogDescription": "ChatGPT ne suffit pas. Nous avons sélectionné la suite IA parfaite pour la rédaction, la recherche, le design et les réunions.",
+    "ld": {
+      "headline": "Les 5 meilleurs outils IA de productivité pour 2025",
+      "description": "Une liste organisée des meilleurs outils d'IA incluant ChatGPT, Notion, Perplexity, Canva et Minutes.AI."
+    }
+  },
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Outils IA"
+  },
+  "hero": {
+    "kicker": "Pack Productivité 2025",
+    "h1": "Les 5 meilleurs outils IA pour automatiser votre journée (2025)",
+    "tagline": "L'utilisation de l'IA ne se limite plus à ChatGPT. Pour vraiment booster la productivité, vous avez besoin du bon spécialiste pour chaque tâche. Voici le pack ultime pour rédiger, rechercher, concevoir et – surtout – gérer vos réunions."
+  },
+  "intro": {
+    "p": "Nous avons testé des dizaines d'applications pour trouver celles qui s'intègrent parfaitement dans un flux de travail professionnel. Ce ne sont pas des jouets, ce sont des outils qui se rentabilisent par le temps gagné."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Idéal pour : Idées & Rédaction",
+      "desc": "Le roi incontesté du texte génératif. Que vous ayez besoin de rédiger un e-mail, de déboguer du code ou de trouver des angles marketing, ChatGPT reste le point de départ le plus polyvalent.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Idéal pour : Connaissances & Docs",
+      "desc": "Notion est l'endroit où vit le savoir de votre équipe. Notion AI agit comme un bibliothécaire intelligent, vous permettant de résumer d'énormes wikis, de remplir automatiquement des bases de données et de réécrire des notes brouillonnes instantanément.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Idéal pour : Recherche & Faits",
+      "desc": "Arrêtez de chercher sur Google et d'ouvrir dix onglets. Perplexity scanne le web et vous donne une réponse résumée et citée. C'est le moyen le plus rapide de vérifier des faits ou d'étudier la concurrence.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Idéal pour : Visuels & Slides",
+      "desc": "Pas besoin d'être graphiste. Les fonctionnalités IA de Canva vous permettent de générer des images, de redimensionner des visuels pour les réseaux sociaux et même de créer des présentations entières à partir d'un simple texte.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Le Spécialiste des Réunions",
+    "h2": "Minutes.AI (Le meilleur choix pour l'audio)",
+    "lead": "Alors que les outils ci-dessus gèrent le texte et les images, vos réunions sont souvent la plus grande fuite de productivité. C'est là que Minutes.AI brille.",
+    "reasons": [
+      {
+        "title": "Pourquoi il est dans la liste :",
+        "text": "La plupart des gens prennent encore des notes manuellement tout en essayant d'écouter. Minutes.AI enregistre, transcrit et résume simultanément, pour que vous puissiez vraiment vous concentrer sur la conversation."
+      },
+      {
+        "title": "Fonctionnalité Clé :",
+        "text": "<strong>Tarification Flexible.</strong> Contrairement à la plupart des outils d'entreprise qui exigent un abonnement mensuel, Minutes.AI propose des Packs de Temps sans expiration (dès 1,99 $). Parfait si vous n'avez pas de réunions tous les jours."
+      },
+      {
+        "title": "Idéal pour :",
+        "text": "Les freelances, les chefs de projet et tous ceux qui en ont assez de rédiger des comptes-rendus après avoir raccroché."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Prêt à compléter votre suite IA ?",
+    "p": "Ne laissez pas les réunions être la seule tâche manuelle de votre journée. Essayez l'app iPhone Minutes.AI.",
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l'app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publié le",
+    "type": "Sélection",
+    "category": "Productivité"
+  }
+}

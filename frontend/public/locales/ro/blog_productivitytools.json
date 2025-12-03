@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Top 5 instrumente AI de productivitate pentru 2025",
+    "description": "Nu mai jongla cu instrumente generice. Iată cele 5 aplicații AI esențiale pentru text, cercetare, design și ședințe care îți vor economisi cu adevărat timpul în 2025.",
+    "ogTitle": "Top 5 instrumente de productivitate AI (Ediția 2025)",
+    "ogDescription": "ChatGPT nu este suficient. Am selectat stiva AI perfectă pentru scriere, cercetare, design și ședințe.",
+    "ld": {
+      "headline": "Top 5 instrumente AI de productivitate pentru 2025",
+      "description": "O listă curatorială a celor mai bune instrumente AI, inclusiv ChatGPT, Notion, Perplexity, Canva și Proces-verbal AI."
+    }
+  },
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Instrumente AI"
+  },
+  "hero": {
+    "kicker": "Stiva de productivitate 2025",
+    "h1": "Cele mai bune 5 instrumente AI pentru automatizarea zilei de lucru (2025)",
+    "tagline": "Folosirea AI nu mai este doar despre ChatGPT. Pentru a crește cu adevărat productivitatea, ai nevoie de specialistul potrivit pentru fiecare sarcină. Iată stiva supremă pentru scriere, cercetare, design și — cel mai important — ședințe."
+  },
+  "intro": {
+    "p": "Am testat zeci de aplicații pentru a le găsi pe cele care se integrează perfect într-un flux de lucru profesional. Acestea nu sunt jucării; sunt instrumente care se plătesc singure prin timpul economisit."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Cel mai bun pentru: Idei & Ciorne",
+      "desc": "Regele necontestat al textului generativ. Fie că trebuie să redactezi un e-mail, să depanezi cod sau să faci brainstorming pentru unghiuri de marketing, ChatGPT rămâne cel mai versatil punct de plecare.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Cel mai bun pentru: Cunoștințe & Documente",
+      "desc": "Notion este locul unde trăiesc cunoștințele echipei tale. Notion AI acționează ca un bibliotecar inteligent, permițându-ți să rezumi wiki-uri uriașe, să completezi automat proprietățile bazei de date și să rescrii notițele dezordonate instantaneu.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Cel mai bun pentru: Cercetare & Căutare",
+      "desc": "Încetează să cauți pe Google și să deschizi zece tab-uri. Perplexity scanează web-ul și îți oferă un răspuns citat și rezumat. Este cel mai rapid mod de a verifica fapte sau de a cerceta concurența.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Cel mai bun pentru: Vizual & Slide-uri",
+      "desc": "Nu trebuie să fii designer. Funcțiile AI ale Canva îți permit să generezi imagini, să redimensionezi active pentru rețelele sociale și chiar să construiești prezentări întregi dintr-un prompt text.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Specialistul în ședințe",
+    "h2": "Proces-verbal AI (Cea mai bună alegere pentru audio)",
+    "lead": "În timp ce instrumentele de mai sus se ocupă de text și vizual, ședințele tale sunt adesea cea mai mare pierdere de productivitate. Aici strălucește Proces-verbal AI.",
+    "reasons": [
+      {
+        "title": "De ce este pe listă:",
+        "text": "Majoritatea oamenilor încă iau notițe manual în timp ce încearcă să asculte. Proces-verbal AI înregistrează, transcrie și rezumă simultan, astfel încât să te poți concentra cu adevărat pe conversație."
+      },
+      {
+        "title": "Funcție cheie:",
+        "text": "<strong>Prețuri flexibile.</strong> Spre deosebire de majoritatea instrumentelor enterprise care cer abonament lunar, Proces-verbal AI oferă Pachete de Timp care nu expiră (de la 1.99$). Perfect dacă nu ai ședințe în fiecare zi."
+      },
+      {
+        "title": "Cel mai bun pentru:",
+        "text": "Freelanceri, Manageri de Proiect și oricine s-a săturat să scrie procese-verbale după terminarea apelului."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Ești gata să-ți completezi stiva AI?",
+    "p": "Nu lăsa ședințele să fie singura parte manuală a zilei tale. Încearcă aplicația Proces-verbal AI pentru iPhone.",
+    "openBrowser": "Deschide în browser",
+    "downloadIOS": "Descarcă aplicația iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Rezumate",
+    "category": "Productivitate"
+  }
+}

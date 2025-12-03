@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "I 5 migliori strumenti di IA per la produttività nel 2025",
+    "description": "Smetti di destreggiarti tra strumenti generici. Ecco le 5 app di IA essenziali per testo, ricerca, design e riunioni che ti faranno risparmiare tempo nel 2025.",
+    "ogTitle": "I 5 migliori strumenti di produttività IA (Edizione 2025)",
+    "ogDescription": "ChatGPT non basta. Abbiamo selezionato lo stack IA perfetto per scrittura, ricerca, design e riunioni.",
+    "ld": {
+      "headline": "I 5 migliori strumenti di IA per la produttività del 2025",
+      "description": "Una lista curata dei migliori strumenti IA tra cui ChatGPT, Notion, Perplexity, Canva e Verbali IA."
+    }
+  },
+  "aria": {
+    "home": "Home Verbali IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Strumenti IA"
+  },
+  "hero": {
+    "kicker": "Stack Produttività 2025",
+    "h1": "I 5 migliori strumenti IA per automatizzare la tua giornata lavorativa (2025)",
+    "tagline": "Usare l'IA non significa più solo ChatGPT. Per aumentare davvero la produttività, hai bisogno dello specialista giusto per ogni compito. Ecco lo stack definitivo per scrivere, ricercare, progettare e, soprattutto, per le riunioni."
+  },
+  "intro": {
+    "p": "Abbiamo testato dozzine di app per trovare quelle che si adattano perfettamente a un flusso di lavoro professionale. Questi non sono giocattoli; sono strumenti che si ripagano da soli con il tempo risparmiato."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Migliore per: Idee & Bozze",
+      "desc": "Il re indiscusso del testo generativo. Che tu debba redigere un'email, eseguire il debug di codice o fare brainstorming per il marketing, ChatGPT rimane il punto di partenza più versatile.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Migliore per: Conoscenza & Documenti",
+      "desc": "Notion è dove risiede la conoscenza del tuo team. Notion AI agisce come un bibliotecario intelligente, permettendoti di riassumere enormi wiki, compilare automaticamente le proprietà del database e riscrivere note disordinate all'istante.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Migliore per: Ricerca & Cerca",
+      "desc": "Smetti di cercare su Google e aprire dieci schede. Perplexity scansiona il web e ti fornisce una risposta riassunta e citata. È il modo più veloce per verificare i fatti o fare ricerche sui concorrenti.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Migliore per: Visual & Slide",
+      "desc": "Non hai bisogno di essere un designer. Le funzionalità IA di Canva ti permettono di generare immagini, ridimensionare risorse per i social media e persino costruire intere presentazioni da un prompt di testo.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Lo specialista delle riunioni",
+    "h2": "Verbali IA (La scelta migliore per l'audio)",
+    "lead": "Mentre gli strumenti sopra gestiscono testo e immagini, le tue riunioni sono spesso la più grande perdita di produttività. Qui è dove brilla Verbali IA.",
+    "reasons": [
+      {
+        "title": "Perché è nella lista:",
+        "text": "La maggior parte delle persone prende ancora appunti manualmente mentre cerca di ascoltare. Verbali IA registra, trascrive e riassume simultaneamente, così puoi concentrarti davvero sulla conversazione."
+      },
+      {
+        "title": "Funzionalità Killer:",
+        "text": "<strong>Prezzi Flessibili.</strong> A differenza della maggior parte degli strumenti aziendali che richiedono un abbonamento mensile, Verbali IA offre Pacchetti Tempo che non scadono (a partire da 1,99 $). Perfetto se non hai riunioni ogni giorno."
+      },
+      {
+        "title": "Ideale per:",
+        "text": "Freelance, Project Manager e chiunque sia stanco di scrivere verbali dopo aver riagganciato."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Pronto a completare il tuo stack IA?",
+    "p": "Non lasciare che le riunioni siano l'unica parte manuale della tua giornata. Prova l'app iPhone Verbali IA.",
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Rassegna",
+    "category": "Produttività"
+  }
+}

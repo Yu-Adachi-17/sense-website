@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "De 5 beste AI-productiviteitstools voor 2025",
+    "description": "Stop met het jongleren met generieke tools. Hier zijn de 5 essentiële AI-apps voor tekst, onderzoek, ontwerp en vergaderingen die je in 2025 echt tijd besparen.",
+    "ogTitle": "De 5 beste AI-productiviteitstools (Editie 2025)",
+    "ogDescription": "ChatGPT is niet genoeg. We hebben de perfecte AI-stack samengesteld voor schrijven, onderzoek, ontwerp en vergaderingen.",
+    "ld": {
+      "headline": "De 5 beste AI-productiviteitstools voor 2025",
+      "description": "Een samengestelde lijst van de beste AI-tools, waaronder ChatGPT, Notion, Perplexity, Canva en Notulen AI."
+    }
+  },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 AI Tools"
+  },
+  "hero": {
+    "kicker": "Productiviteits-stack 2025",
+    "h1": "De 5 beste AI-tools om je werkdag te automatiseren (2025)",
+    "tagline": "AI gebruiken draait niet meer alleen om ChatGPT. Om de productiviteit echt te verhogen, heb je voor elke taak de juiste specialist nodig. Hier is de ultieme combinatie voor schrijven, onderzoeken, ontwerpen en – het belangrijkste – vergaderen."
+  },
+  "intro": {
+    "p": "We hebben tientallen apps getest om de apps te vinden die naadloos in een professionele workflow passen. Dit is geen speelgoed; het zijn tools die zichzelf terugverdienen in bespaarde tijd."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Beste voor: Ideeën & Concepten",
+      "desc": "De onbetwiste koning van generatieve tekst. Of je nu een e-mail moet opstellen, code moet debuggen of over marketinginvalshoeken moet brainstormen, ChatGPT blijft het meest veelzijdige startpunt.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Beste voor: Kennis & Documenten",
+      "desc": "Notion is waar de kennis van je team leeft. Notion AI fungeert als een slimme bibliothecaris, waarmee je enorme wiki's kunt samenvatten, database-eigenschappen automatisch kunt invullen en rommelige notities direct kunt herschrijven.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Beste voor: Onderzoek & Zoeken",
+      "desc": "Stop met googelen en tien tabbladen openen. Perplexity scant het web en geeft je een geciteerd, samengevat antwoord. Het is de snelste manier om feiten te verifiëren of concurrenten te onderzoeken.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Beste voor: Visuals & Slides",
+      "desc": "Je hoeft geen ontwerper te zijn. Met de AI-functies van Canva kun je afbeeldingen genereren, assets voor sociale media vergroten of verkleinen en zelfs hele diapresentaties bouwen op basis van een tekstprompt.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. De Vergaderspecialist",
+    "h2": "Notulen AI (De beste keuze voor audio)",
+    "lead": "Terwijl de bovenstaande tools tekst en beelden verwerken, zijn je vergaderingen vaak het grootste productiviteitslek. Dit is waar Notulen AI uitblinkt.",
+    "reasons": [
+      {
+        "title": "Waarom het op de lijst staat:",
+        "text": "De meeste mensen maken nog steeds handmatig aantekeningen terwijl ze proberen te luisteren. Notulen AI neemt op, transcribeert en vat tegelijkertijd samen, zodat je je echt op het gesprek kunt concentreren."
+      },
+      {
+        "title": "Killer Feature:",
+        "text": "<strong>Flexibele prijzen.</strong> In tegenstelling tot de meeste zakelijke tools die een maandelijks abonnement vereisen, biedt Notulen AI tijdpakketten die niet verlopen (vanaf $1,99). Perfect als je niet elke dag vergaderingen hebt."
+      },
+      {
+        "title": "Beste voor:",
+        "text": "Freelancers, projectmanagers en iedereen die moe is van het schrijven van notulen nadat het gesprek is beëindigd."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Klaar om je AI-stack compleet te maken?",
+    "p": "Laat vergaderingen niet het enige handmatige deel van je dag zijn. Probeer de Notulen AI iPhone-app.",
+    "openBrowser": "Openen in browser",
+    "downloadIOS": "Download iOS-app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Overzicht",
+    "category": "Productiviteit"
+  }
+}

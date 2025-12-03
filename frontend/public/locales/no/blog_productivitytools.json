@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "De 5 beste AI-produktivitetsverktøyene i 2025",
+    "description": "Slutt å sjonglere med generiske verktøy. Her er de 5 viktigste AI-appene for tekst, research, design og møter som faktisk vil spare deg for tid i 2025.",
+    "ogTitle": "De 5 beste AI-produktivitetsverktøyene (2025-utgave)",
+    "ogDescription": "ChatGPT er ikke nok. Vi har satt sammen den perfekte AI-pakken for skriving, research, design og møter.",
+    "ld": {
+      "headline": "De 5 beste AI-produktivitetsverktøyene for 2025",
+      "description": "En kuratert liste over de beste AI-verktøyene inkludert ChatGPT, Notion, Perplexity, Canva og Referat AI."
+    }
+  },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Topp 5 AI-verktøy"
+  },
+  "hero": {
+    "kicker": "Produktivitets-stack 2025",
+    "h1": "De 5 beste AI-verktøyene for å automatisere arbeidsdagen din (2025)",
+    "tagline": "Bruk av AI handler ikke lenger bare om ChatGPT. For å virkelig øke produktiviteten trenger du den rette spesialisten for hver oppgave. Her er den ultimate pakken for skriving, undersøkelser, design og – viktigst av alt – møter."
+  },
+  "intro": {
+    "p": "Vi testet dusinvis av apper for å finne de som passer sømløst inn i en profesjonell arbeidsflyt. Dette er ikke leketøy; det er verktøy som betaler seg selv i spart tid."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Best for: Idéer og utkast",
+      "desc": "Den ubestridte kongen av generativ tekst. Enten du trenger å lage et utkast til en e-post, feilsøke kode eller brainstorme markedsvinkler, er ChatGPT fortsatt det mest allsidige utgangspunktet.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Best for: Kunnskap og dokumenter",
+      "desc": "Notion er der teamets kunnskap bor. Notion AI fungerer som en smart bibliotekar som lar deg oppsummere enorme wikier, fylle ut databaseegenskaper automatisk og omskrive rotete notater umiddelbart.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Best for: Research og søk",
+      "desc": "Slutt å Google og åpne ti faner. Perplexity skanner nettet og gir deg et sitert, oppsummert svar. Det er den raskeste måten å verifisere fakta eller undersøke konkurrenter på.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Best for: Visuelt og presentasjoner",
+      "desc": "Du trenger ikke å være designer. Canvas AI-funksjoner lar deg generere bilder, endre størrelse på innhold for sosiale medier og til og med bygge hele lysbildeserier fra en tekst-prompt.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Møtespesialisten",
+    "h2": "Referat AI (Det beste valget for lyd)",
+    "lead": "Mens verktøyene ovenfor håndterer tekst og bilder, er møtene dine ofte den største produktivitetslekkasjen. Det er her Referat AI skinner.",
+    "reasons": [
+      {
+        "title": "Hvorfor den er på listen:",
+        "text": "De fleste tar fortsatt notater manuelt mens de prøver å lytte. Referat AI tar opp, transkriberer og oppsummerer samtidig, slik at du faktisk kan fokusere på samtalen."
+      },
+      {
+        "title": "Killer Feature:",
+        "text": "<strong>Fleksibel prising.</strong> I motsetning til de fleste bedriftsverktøy som krever månedlig abonnement, tilbyr Referat AI tidspakker som ikke utløper (fra $1.99). Perfekt hvis du ikke har møter hver eneste dag."
+      },
+      {
+        "title": "Best for:",
+        "text": "Frilansere, prosjektledere og alle som er lei av å skrive møtereferater etter at samtalen er over."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Klar for å fullføre din AI-stack?",
+    "p": "Ikke la møter være den eneste manuelle delen av dagen din. Prøv Referat AI iPhone-appen.",
+    "openBrowser": "Åpne i nettleser",
+    "downloadIOS": "Last ned iOS-app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publisert",
+    "type": "Oversikt",
+    "category": "Produktivitet"
+  }
+}

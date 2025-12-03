@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "5 nejlepších AI nástrojů pro produktivitu v roce 2025",
+    "description": "Přestaňte žonglovat s obecnými nástroji. Zde je 5 klíčových AI aplikací pro text, výzkum, design a schůzky, které vám v roce 2025 skutečně ušetří čas.",
+    "ogTitle": "5 nejlepších AI nástrojů pro produktivitu (Edice 2025)",
+    "ogDescription": "ChatGPT nestačí. Vybrali jsme perfektní sadu AI nástrojů pro psaní, výzkum, design a schůzky.",
+    "ld": {
+      "headline": "5 nejlepších AI nástrojů pro produktivitu pro rok 2025",
+      "description": "Výběr nejlepších AI nástrojů včetně ChatGPT, Notion, Perplexity, Canva a Zápisník AI."
+    }
+  },
+  "aria": {
+    "home": "Zápisník AI Domů"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 AI nástrojů"
+  },
+  "hero": {
+    "kicker": "Sada produktivity 2025",
+    "h1": "5 nejlepších AI nástrojů pro automatizaci vašeho pracovního dne (2025)",
+    "tagline": "Používání AI už není jen o ChatGPT. Abyste skutečně zvýšili produktivitu, potřebujete pro každý úkol toho správného specialistu. Zde je ultimátní sada pro psaní, výzkum, design a – co je nejdůležitější – schůzky."
+  },
+  "intro": {
+    "p": "Otestovali jsme desítky aplikací, abychom našli ty, které hladce zapadnou do profesionálního pracovního toku. Nejsou to jen hračky; jsou to nástroje, které se zaplatí ušetřeným časem."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Nejlepší pro: Nápady a návrhy",
+      "desc": "Nesporný král generativního textu. Ať už potřebujete napsat e-mail, ladit kód nebo brainstormovat marketingové úhly, ChatGPT zůstává nejvšestrannějším výchozím bodem.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Nejlepší pro: Znalosti a dokumenty",
+      "desc": "Notion je místem, kde žijí znalosti vašeho týmu. Notion AI funguje jako chytrý knihovník, který vám umožní shrnout obrovské wiki, automaticky vyplnit vlastnosti databáze a okamžitě přepsat chaotické poznámky.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Nejlepší pro: Výzkum a hledání",
+      "desc": "Přestaňte googlovat a otevírat deset záložek. Perplexity prohledá web a poskytne vám citovanou, shrnutou odpověď. Je to nejrychlejší způsob, jak ověřit fakta nebo prozkoumat konkurenci.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Nejlepší pro: Vizuály a prezentace",
+      "desc": "Nemusíte být designér. Funkce AI v Canvě vám umožní generovat obrázky, měnit velikost podkladů pro sociální sítě a dokonce vytvářet celé sady snímků z textového zadání.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Specialista na schůzky",
+    "h2": "Zápisník AI (Nejlepší volba pro audio)",
+    "lead": "Zatímco výše uvedené nástroje zpracovávají text a vizuály, vaše schůzky jsou často největší ztrátou produktivity. Zde září Zápisník AI.",
+    "reasons": [
+      {
+        "title": "Proč je na seznamu:",
+        "text": "Většina lidí si stále dělá poznámky ručně, zatímco se snaží poslouchat. Zápisník AI nahrává, přepisuje a shrnuje současně, takže se můžete skutečně soustředit na konverzaci."
+      },
+      {
+        "title": "Zabijácká funkce:",
+        "text": "<strong>Flexibilní ceník.</strong> Na rozdíl od většiny podnikových nástrojů, které vyžadují měsíční paušál, nabízí Zápisník AI časové balíčky bez expirace (od 1,99 $). Ideální, pokud nemáte schůzky každý den."
+      },
+      {
+        "title": "Nejlepší pro:",
+        "text": "Nezávislé pracovníky, projektové manažery a kohokoli, koho nebaví psát zápisy po skončení hovoru."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Jste připraveni zkompletovat svou AI sadu?",
+    "p": "Nedovolte, aby schůzky byly jedinou manuální částí vašeho dne. Zkuste aplikaci Zápisník AI pro iPhone.",
+    "openBrowser": "Otevřít v prohlížeči",
+    "downloadIOS": "Stáhnout iOS aplikaci"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Přehled",
+    "category": "Produktivita"
+  }
+}

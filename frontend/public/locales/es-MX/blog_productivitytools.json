@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Las 5 mejores herramientas de IA para productividad en 2025",
+    "description": "Deja de usar herramientas genéricas. Aquí tienes las 5 apps de IA esenciales para texto, investigación, diseño y reuniones que realmente te ahorrarán tiempo en 2025.",
+    "ogTitle": "Las 5 mejores herramientas de productividad con IA (Edición 2025)",
+    "ogDescription": "ChatGPT no es suficiente. Hemos seleccionado el stack de IA perfecto para redacción, investigación, diseño y reuniones.",
+    "ld": {
+      "headline": "Las 5 mejores herramientas de IA para productividad de 2025",
+      "description": "Una lista seleccionada de las mejores herramientas de IA, incluyendo ChatGPT, Notion, Perplexity, Canva y Actas IA."
+    }
+  },
+  "aria": {
+    "home": "Inicio Actas IA"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Herramientas IA"
+  },
+  "hero": {
+    "kicker": "Stack de Productividad 2025",
+    "h1": "Las 5 mejores herramientas de IA para automatizar tu día (2025)",
+    "tagline": "Usar IA ya no es solo cosa de ChatGPT. Para aumentar realmente la productividad, necesitas al especialista adecuado para cada tarea. Aquí tienes el stack definitivo para escribir, investigar, diseñar y, lo más importante, reuniones."
+  },
+  "intro": {
+    "p": "Probamos docenas de aplicaciones para encontrar las que se integran perfectamente en un flujo de trabajo profesional. No son juguetes; son herramientas que se pagan solas con el tiempo ahorrado."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Mejor para: Ideas y Borradores",
+      "desc": "El rey indiscutible del texto generativo. Ya sea que necesites redactar un correo, depurar código o hacer una lluvia de ideas de marketing, ChatGPT sigue siendo el punto de partida más versátil.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Mejor para: Conocimiento y Docs",
+      "desc": "Notion es donde vive el conocimiento de tu equipo. Notion AI actúa como un bibliotecario inteligente que te permite resumir wikis enormes, autocompletar propiedades de bases de datos y reescribir notas desordenadas al instante.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Mejor para: Investigación y Búsqueda",
+      "desc": "Deja de buscar en Google y abrir diez pestañas. Perplexity escanea la web y te da una respuesta resumida y citada. Es la forma más rápida de verificar hechos o investigar a la competencia.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Mejor para: Visuales y Presentaciones",
+      "desc": "No necesitas ser diseñador. Las funciones de IA de Canva te permiten generar imágenes, redimensionar recursos para redes sociales e incluso crear presentaciones completas a partir de un texto.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. El Especialista en Reuniones",
+    "h2": "Actas IA (La mejor opción para audio)",
+    "lead": "Mientras las herramientas anteriores manejan texto y visuales, tus reuniones suelen ser la mayor fuga de productividad. Aquí es donde brilla Actas IA.",
+    "reasons": [
+      {
+        "title": "Por qué está en la lista:",
+        "text": "La mayoría de la gente sigue tomando notas manualmente mientras intenta escuchar. Actas IA graba, transcribe y resume simultáneamente, para que puedas concentrarte realmente en la conversación."
+      },
+      {
+        "title": "Función Estrella:",
+        "text": "<strong>Precios Flexibles.</strong> A diferencia de la mayoría de herramientas empresariales que exigen suscripción mensual, Actas IA ofrece Paquetes de Tiempo sin caducidad (desde $1.99). Perfecto si no tienes reuniones todos los días."
+      },
+      {
+        "title": "Ideal para:",
+        "text": "Freelancers, gestores de proyectos y cualquiera cansado de redactar actas después de colgar la llamada."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "¿Listo para completar tu stack de IA?",
+    "p": "No dejes que las reuniones sean la única parte manual de tu día. Prueba la app Actas IA para iPhone.",
+    "openBrowser": "Abrir en navegador",
+    "downloadIOS": "Descargar app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Resumen",
+    "category": "Productividad"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "As 5 melhores ferramentas de IA para produtividade em 2025",
+    "description": "Pare de fazer malabarismos com ferramentas genéricas. Aqui estão as 5 aplicações de IA essenciais para texto, pesquisa, design e reuniões que realmente lhe pouparão tempo em 2025.",
+    "ogTitle": "As 5 melhores ferramentas de produtividade com IA (Edição 2025)",
+    "ogDescription": "O ChatGPT não é suficiente. Selecionámos o conjunto de IA perfeito para escrita, pesquisa, design e reuniões.",
+    "ld": {
+      "headline": "As 5 melhores ferramentas de IA para produtividade de 2025",
+      "description": "Uma lista selecionada das melhores ferramentas de IA, incluindo ChatGPT, Notion, Perplexity, Canva e Ata AI."
+    }
+  },
+  "aria": {
+    "home": "Início Ata AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Ferramentas IA"
+  },
+  "hero": {
+    "kicker": "Stack de Produtividade 2025",
+    "h1": "As 5 melhores ferramentas de IA para automatizar o seu dia de trabalho (2025)",
+    "tagline": "Usar IA já não é apenas sobre o ChatGPT. Para aumentar verdadeiramente a produtividade, precisa do especialista certo para cada tarefa. Aqui está o conjunto definitivo para escrever, pesquisar, desenhar e — o mais importante — reuniões."
+  },
+  "intro": {
+    "p": "Testámos dezenas de aplicações para encontrar aquelas que se integram perfeitamente num fluxo de trabalho profissional. Não são brinquedos; são ferramentas que se pagam a si mesmas com o tempo poupado."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Melhor para: Ideias e Rascunhos",
+      "desc": "O rei indiscutível do texto generativo. Quer precise de redigir um email, depurar código ou fazer um brainstorming de ângulos de marketing, o ChatGPT continua a ser o ponto de partida mais versátil.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Melhor para: Conhecimento e Docs",
+      "desc": "O Notion é onde vive o conhecimento da sua equipa. O Notion AI atua como um bibliotecário inteligente, permitindo resumir wikis enormes, preencher automaticamente propriedades de bases de dados e reescrever notas desorganizadas instantaneamente.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Melhor para: Pesquisa e Busca",
+      "desc": "Pare de pesquisar no Google e abrir dez separadores. O Perplexity analisa a web e dá-lhe uma resposta resumida e citada. É a forma mais rápida de verificar factos ou pesquisar concorrentes.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Melhor para: Visuais e Apresentações",
+      "desc": "Não precisa de ser designer. As funcionalidades de IA do Canva permitem gerar imagens, redimensionar recursos para as redes sociais e até construir apresentações completas a partir de um texto.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. O Especialista em Reuniões",
+    "h2": "Ata AI (A melhor escolha para áudio)",
+    "lead": "Enquanto as ferramentas acima lidam com texto e visuais, as suas reuniões são frequentemente a maior fuga de produtividade. É aqui que o Ata AI brilha.",
+    "reasons": [
+      {
+        "title": "Por que está na lista:",
+        "text": "A maioria das pessoas ainda toma notas manualmente enquanto tenta ouvir. O Ata AI grava, transcreve e resume simultaneamente, para que se possa realmente concentrar na conversa."
+      },
+      {
+        "title": "Funcionalidade Matadora:",
+        "text": "<strong>Preços Flexíveis.</strong> Ao contrário da maioria das ferramentas empresariais que exigem subscrição mensal, o Ata AI oferece Pacotes de Tempo que não expiram (a partir de $1.99). Perfeito se não tiver reuniões todos os dias."
+      },
+      {
+        "title": "Melhor para:",
+        "text": "Freelancers, Gestores de Projetos e qualquer pessoa cansada de escrever atas após desligar a chamada."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Pronto para completar o seu stack de IA?",
+    "p": "Não deixe que as reuniões sejam a única parte manual do seu dia. Experimente a app Ata AI para iPhone.",
+    "openBrowser": "Abrir no navegador",
+    "downloadIOS": "Descarregar app iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Resumo",
+    "category": "Produtividade"
+  }
+}

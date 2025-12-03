@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Top 5 Công cụ AI Năng suất Bạn Cần trong Năm 2025",
+    "description": "Đừng loay hoay với các công cụ chung chung nữa. Dưới đây là 5 ứng dụng AI thiết yếu cho văn bản, nghiên cứu, thiết kế và cuộc họp sẽ thực sự giúp bạn tiết kiệm thời gian trong năm 2025.",
+    "ogTitle": "Top 5 Công cụ Năng suất AI (Phiên bản 2025)",
+    "ogDescription": "ChatGPT thôi là chưa đủ. Chúng tôi đã chọn ra bộ công cụ AI hoàn hảo cho việc viết lách, nghiên cứu, thiết kế và họp hành.",
+    "ld": {
+      "headline": "Top 5 Công cụ AI Năng suất cho năm 2025",
+      "description": "Danh sách chọn lọc các công cụ AI tốt nhất bao gồm ChatGPT, Notion, Perplexity, Canva và Biên bản AI."
+    }
+  },
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Công cụ AI"
+  },
+  "hero": {
+    "kicker": "Bộ Công cụ Năng suất 2025",
+    "h1": "5 Công cụ AI Tốt nhất để Tự động hóa Ngày làm việc của Bạn (2025)",
+    "tagline": "Sử dụng AI không còn chỉ là ChatGPT. Để thực sự tăng năng suất, bạn cần chuyên gia phù hợp cho từng nhiệm vụ. Dưới đây là bộ công cụ tối ưu cho việc viết, nghiên cứu, thiết kế và—quan trọng nhất—các cuộc họp."
+  },
+  "intro": {
+    "p": "Chúng tôi đã thử nghiệm hàng chục ứng dụng để tìm ra những ứng dụng phù hợp nhất với quy trình làm việc chuyên nghiệp. Đây không phải là đồ chơi; chúng là những công cụ tự chi trả bằng chính thời gian tiết kiệm được."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Tốt nhất cho: Ý tưởng & Soạn thảo",
+      "desc": "Vua không ngai của văn bản tạo sinh. Cho dù bạn cần soạn thảo email, gỡ lỗi mã (debug) hay lên ý tưởng tiếp thị, ChatGPT vẫn là điểm khởi đầu linh hoạt nhất.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Tốt nhất cho: Kiến thức & Tài liệu",
+      "desc": "Notion là nơi lưu trữ kiến thức của nhóm bạn. Notion AI hoạt động như một thủ thư thông minh, cho phép bạn tóm tắt các wiki khổng lồ, tự động điền thuộc tính cơ sở dữ liệu và viết lại các ghi chú lộn xộn ngay lập tức.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Tốt nhất cho: Nghiên cứu & Tìm kiếm",
+      "desc": "Ngừng Google và mở mười tab cùng lúc. Perplexity quét web và đưa ra câu trả lời tóm tắt có trích dẫn nguồn. Đây là cách nhanh nhất để xác minh sự thật hoặc nghiên cứu đối thủ cạnh tranh.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Tốt nhất cho: Hình ảnh & Slide",
+      "desc": "Bạn không cần phải là nhà thiết kế. Các tính năng AI của Canva cho phép bạn tạo hình ảnh, thay đổi kích thước nội dung cho mạng xã hội và thậm chí xây dựng toàn bộ bài thuyết trình từ một câu lệnh văn bản.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Chuyên gia Cuộc họp",
+    "h2": "Biên bản AI (Lựa chọn tốt nhất cho Âm thanh)",
+    "lead": "Trong khi các công cụ trên xử lý văn bản và hình ảnh, các cuộc họp của bạn thường là nơi rò rỉ năng suất lớn nhất. Đây là lúc Biên bản AI tỏa sáng.",
+    "reasons": [
+      {
+        "title": "Tại sao nó có trong danh sách:",
+        "text": "Hầu hết mọi người vẫn ghi chú thủ công trong khi cố gắng lắng nghe. Biên bản AI ghi âm, chuyển văn bản và tóm tắt đồng thời, vì vậy bạn có thể thực sự tập trung vào cuộc trò chuyện."
+      },
+      {
+        "title": "Tính năng 'Sát thủ':",
+        "text": "<strong>Giá cả linh hoạt.</strong> Không giống như hầu hết các công cụ doanh nghiệp yêu cầu đăng ký hàng tháng, Biên bản AI cung cấp các Gói Thời gian không bao giờ hết hạn (chỉ từ $1.99). Hoàn hảo nếu bạn không có cuộc họp mỗi ngày."
+      },
+      {
+        "title": "Tốt nhất cho:",
+        "text": "Freelancer, Quản lý dự án và bất kỳ ai mệt mỏi với việc viết biên bản sau khi kết thúc cuộc gọi."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Sẵn sàng hoàn thiện bộ công cụ AI của bạn?",
+    "p": "Đừng để các cuộc họp là phần thủ công duy nhất trong ngày của bạn. Hãy thử ứng dụng iPhone Biên bản AI.",
+    "openBrowser": "Mở trong trình duyệt",
+    "downloadIOS": "Tải ứng dụng iOS"
+  },
+  "meta": {
+    "h2": "Thông tin",
+    "published": "Đã xuất bản",
+    "type": "Tổng hợp",
+    "category": "Năng suất"
+  }
+}

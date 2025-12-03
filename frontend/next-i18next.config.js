@@ -36,6 +36,7 @@ module.exports = {
     'blog_comparison',
     'blog_summary',
     'blog_longrecording',
+    'blog_productivitytools',
   ],
   defaultNS: 'common',
 

@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "5 najboljih AI alata za produktivnost u 2025.",
+    "description": "Prestanite žonglirati generičkim alatima. Ovo je 5 ključnih AI aplikacija za tekst, istraživanje, dizajn i sastanke koje će vam stvarno uštedjeti vrijeme u 2025.",
+    "ogTitle": "5 najboljih AI alata za produktivnost (izdanje 2025.)",
+    "ogDescription": "ChatGPT nije dovoljan. Odabrali smo savršen AI paket za pisanje, istraživanje, dizajn i sastanke.",
+    "ld": {
+      "headline": "5 najboljih AI alata za produktivnost u 2025.",
+      "description": "Odabrani popis najboljih AI alata uključujući ChatGPT, Notion, Perplexity, Canva i AI Zapisnik."
+    }
+  },
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 AI alata"
+  },
+  "hero": {
+    "kicker": "Paket produktivnosti 2025.",
+    "h1": "5 najboljih AI alata za automatizaciju vašeg radnog dana (2025.)",
+    "tagline": "Korištenje AI-a više nije samo ChatGPT. Da biste stvarno povećali produktivnost, trebate pravog stručnjaka za svaki zadatak. Ovo je ultimativni paket za pisanje, istraživanje, dizajn i – najvažnije – sastanke."
+  },
+  "intro": {
+    "p": "Testirali smo desetke aplikacija kako bismo pronašli one koje se besprijekorno uklapaju u profesionalni tijek rada. Ovo nisu samo igračke; ovo su alati koji se isplaćuju kroz ušteđeno vrijeme."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Najbolje za: Ideje i skiciranje",
+      "desc": "Neosporni kralj generativnog teksta. Bilo da trebate napisati e-mail, ispraviti kod ili osmisliti marketinške ideje, ChatGPT ostaje najsvestranija početna točka.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Najbolje za: Znanje i dokumente",
+      "desc": "Notion je mjesto gdje živi znanje vašeg tima. Notion AI djeluje kao pametni knjižničar, omogućujući vam sažimanje ogromnih wikija, automatsko popunjavanje svojstava baze podataka i trenutno prepisivanje neurednih bilješki.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Najbolje za: Istraživanje i pretraživanje",
+      "desc": "Prestanite guglati i otvarati deset kartica. Perplexity skenira web i daje vam citiran, sažet odgovor. To je najbrži način za provjeru činjenica ili istraživanje konkurencije.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Najbolje za: Vizuale i slajdove",
+      "desc": "Ne morate biti dizajner. Canva AI značajke omogućuju vam generiranje slika, promjenu veličine materijala za društvene mreže, pa čak i izradu cijelih prezentacija iz tekstualnog upita.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Stručnjak za sastanke",
+    "h2": "AI Zapisnik (Najbolji izbor za audio)",
+    "lead": "Dok gore navedeni alati obrađuju tekst i vizuale, vaši sastanci često su najveći gubitak produktivnosti. Ovdje AI Zapisnik briljira.",
+    "reasons": [
+      {
+        "title": "Zašto je na popisu:",
+        "text": "Većina ljudi još uvijek ručno vodi bilješke dok pokušava slušati. AI Zapisnik snima, transkribira i sažima istovremeno, tako da se možete stvarno usredotočiti na razgovor."
+      },
+      {
+        "title": "Ključna značajka:",
+        "text": "<strong>Fleksibilne cijene.</strong> Za razliku od većine poslovnih alata koji zahtijevaju mjesečnu pretplatu, AI Zapisnik nudi vremenske pakete koji nikada ne istječu (već od 1,99 $). Savršeno ako nemate sastanke svaki dan."
+      },
+      {
+        "title": "Najbolje za:",
+        "text": "Freelancere, voditelje projekata i sve koji su umorni od pisanja zapisnika nakon završetka poziva."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Spremni za kompletiranje vašeg AI paketa?",
+    "p": "Ne dopustite da sastanci budu jedini ručni dio vašeg dana. Isprobajte AI Zapisnik iPhone aplikaciju.",
+    "openBrowser": "Otvori u pregledniku",
+    "downloadIOS": "Preuzmi iOS aplikaciju"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Pregled",
+    "category": "Produktivnost"
+  }
+}

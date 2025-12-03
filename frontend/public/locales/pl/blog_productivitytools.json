@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "5 najlepszych narzędzi AI do produktywności na 2025 rok",
+    "description": "Przestań żonglować ogólnymi narzędziami. Oto 5 niezbędnych aplikacji AI do tekstu, badań, projektowania i spotkań, które w 2025 roku naprawdę zaoszczędzą Twój czas.",
+    "ogTitle": "5 najlepszych narzędzi produktywności AI (Edycja 2025)",
+    "ogDescription": "ChatGPT to za mało. Wybraliśmy idealny zestaw AI do pisania, badań, projektowania i spotkań.",
+    "ld": {
+      "headline": "5 najlepszych narzędzi AI do produktywności na 2025 rok",
+      "description": "Wyselekcjonowana lista najlepszych narzędzi AI, w tym ChatGPT, Notion, Perplexity, Canva i Protokół AI."
+    }
+  },
+  "aria": {
+    "home": "Strona główna Protokół AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Narzędzi AI"
+  },
+  "hero": {
+    "kicker": "Pakiet produktywności 2025",
+    "h1": "5 najlepszych narzędzi AI do automatyzacji dnia pracy (2025)",
+    "tagline": "Korzystanie z AI to już nie tylko ChatGPT. Aby naprawdę zwiększyć produktywność, potrzebujesz odpowiedniego specjalisty do każdego zadania. Oto ostateczny zestaw do pisania, wyszukiwania, projektowania i – co najważniejsze – spotkań."
+  },
+  "intro": {
+    "p": "Przetestowaliśmy dziesiątki aplikacji, aby znaleźć te, które bezproblemowo pasują do profesjonalnego przepływu pracy. To nie są zabawki; to narzędzia, które zwracają się dzięki zaoszczędzonemu czasowi."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Najlepsze do: Pomysłów i szkiców",
+      "desc": "Niekwestionowany król generatywnego tekstu. Niezależnie od tego, czy musisz przygotować wersję roboczą e-maila, debugować kod czy przeprowadzić burzę mózgów marketingowych, ChatGPT pozostaje najbardziej wszechstronnym punktem wyjścia.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Najlepsze do: Wiedzy i dokumentów",
+      "desc": "Notion to miejsce, w którym żyje wiedza Twojego zespołu. Notion AI działa jak inteligentny bibliotekarz, umożliwiając streszczanie ogromnych wiki, automatyczne uzupełnianie właściwości bazy danych i natychmiastowe przepisywanie chaotycznych notatek.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Najlepsze do: Badań i wyszukiwania",
+      "desc": "Przestań googlować i otwierać dziesięć kart. Perplexity skanuje sieć i podaje cytowaną, podsumowaną odpowiedź. To najszybszy sposób na weryfikację faktów lub badanie konkurencji.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Najlepsze do: Wizualizacji i slajdów",
+      "desc": "Nie musisz być projektantem. Funkcje AI w Canva pozwalają generować obrazy, zmieniać rozmiar zasobów do mediów społecznościowych, a nawet tworzyć całe prezentacje slajdów z podpowiedzi tekstowej.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Specjalista od spotkań",
+    "h2": "Protokół AI (Najlepszy wybór do audio)",
+    "lead": "Podczas gdy powyższe narzędzia zajmują się tekstem i obrazem, Twoje spotkania są często największym wyciekiem produktywności. Tutaj błyszczy Protokół AI.",
+    "reasons": [
+      {
+        "title": "Dlaczego jest na liście:",
+        "text": "Większość ludzi wciąż robi notatki ręcznie, próbując jednocześnie słuchać. Protokół AI nagrywa, transkrybuje i podsumowuje jednocześnie, dzięki czemu możesz naprawdę skupić się na rozmowie."
+      },
+      {
+        "title": "Zabójcza funkcja:",
+        "text": "<strong>Elastyczne ceny.</strong> W przeciwieństwie do większości narzędzi korporacyjnych, które wymagają miesięcznej subskrypcji, Protokół AI oferuje Pakiety Czasowe, które nie wygasają (już od 1,99 $). Idealne, jeśli nie masz spotkań codziennie."
+      },
+      {
+        "title": "Najlepsze dla:",
+        "text": "Freelancerów, Project Managerów i każdego, kto ma dość pisania protokołów po zakończeniu rozmowy."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Gotowy na skompletowanie swojego zestawu AI?",
+    "p": "Nie pozwól, aby spotkania były jedyną ręczną częścią Twojego dnia. Wypróbuj aplikację Protokół AI na iPhone'a.",
+    "openBrowser": "Otwórz w przeglądarce",
+    "downloadIOS": "Pobierz aplikację iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Zestawienie",
+    "category": "Produktywność"
+  }
+}

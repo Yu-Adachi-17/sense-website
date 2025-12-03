@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "De 5 bästa AI-verktygen för produktivitet 2025",
+    "description": "Sluta jonglera med generiska verktyg. Här är de 5 viktigaste AI-apparna för text, research, design och möten som faktiskt sparar tid åt dig under 2025.",
+    "ogTitle": "De 5 bästa AI-verktygen för produktivitet (2025 års upplaga)",
+    "ogDescription": "ChatGPT räcker inte. Vi har satt ihop den perfekta AI-stacken för skrivande, research, design och möten.",
+    "ld": {
+      "headline": "De 5 bästa AI-verktygen för produktivitet 2025",
+      "description": "En utvald lista över de bästa AI-verktygen inklusive ChatGPT, Notion, Perplexity, Canva och Protokoll AI."
+    }
+  },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Topp 5 AI-verktyg"
+  },
+  "hero": {
+    "kicker": "Produktivitets-stack 2025",
+    "h1": "De 5 bästa AI-verktygen för att automatisera din arbetsdag (2025)",
+    "tagline": "Att använda AI handlar inte längre bara om ChatGPT. För att verkligen öka produktiviteten behöver du rätt specialist för varje uppgift. Här är den ultimata uppsättningen för att skriva, göra research, designa och – viktigast av allt – möten."
+  },
+  "intro": {
+    "p": "Vi testade dussintals appar för att hitta de som passar sömlöst in i ett professionellt arbetsflöde. Det här är inga leksaker; det är verktyg som betalar sig själva i sparad tid."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Bäst för: Idéer & Utkast",
+      "desc": "Den obestridda kungen av generativ text. Oavsett om du behöver utforma ett e-postmeddelande, felsöka kod eller brainstorma marknadsföringsvinklar är ChatGPT fortfarande den mest mångsidiga utgångspunkten.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Bäst för: Kunskap & Dokument",
+      "desc": "Notion är där ditt teams kunskap bor. Notion AI fungerar som en smart bibliotekarie som låter dig sammanfatta enorma wikis, automatiskt fylla i databasegenskaper och skriva om röriga anteckningar direkt.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Bäst för: Research & Sök",
+      "desc": "Sluta googla och öppna tio flikar. Perplexity skannar webben och ger dig ett citerat, sammanfattat svar. Det är det snabbaste sättet att verifiera fakta eller undersöka konkurrenter.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Bäst för: Visuellt & Presentationer",
+      "desc": "Du behöver inte vara designer. Canvas AI-funktioner låter dig generera bilder, ändra storlek på material för sociala medier och till och med bygga hela bildspel från en textprompt.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Mötesexperten",
+    "h2": "Protokoll AI (Det bästa valet för ljud)",
+    "lead": "Medan verktygen ovan hanterar text och bilder är dina möten ofta det största produktivitetsläckaget. Det är här Protokoll AI glänser.",
+    "reasons": [
+      {
+        "title": "Varför den är med på listan:",
+        "text": "De flesta tar fortfarande anteckningar för hand medan de försöker lyssna. Protokoll AI spelar in, transkriberar och sammanfattar samtidigt, så att du faktiskt kan fokusera på samtalet."
+      },
+      {
+        "title": "Nyckelfunktion:",
+        "text": "<strong>Flexibel prissättning.</strong> Till skillnad från de flesta företagsverktyg som kräver månadsabonnemang erbjuder Protokoll AI Tidspaket som inte går ut (från $1.99). Perfekt om du inte har möten varje dag."
+      },
+      {
+        "title": "Bäst för:",
+        "text": "Frilansare, projektledare och alla som är trötta på att skriva mötesprotokoll efter att samtalet avslutats."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Redo att komplettera din AI-stack?",
+    "p": "Låt inte möten vara den enda manuella delen av din dag. Prova iPhone-appen Protokoll AI.",
+    "openBrowser": "Öppna i webbläsare",
+    "downloadIOS": "Ladda ner iOS-app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Sammanställning",
+    "category": "Produktivitet"
+  }
+}

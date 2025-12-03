@@ -1,0 +1,96 @@
+{
+  "seo": {
+    "title": "Top 5 Productivity AI Tools You Need in 2025",
+    "description": "Stop juggling generic tools. Here are the 5 essential AI apps for text, research, design, and meetings that will actually save you time in 2025.",
+    "ogTitle": "The 5 Best Productivity AI Tools (2025 Edition)",
+    "ogDescription": "ChatGPT is not enough. We curated the perfect AI stack for writing, research, design, and meetings.",
+    "ld": {
+      "headline": "Top 5 Productivity AI Tools for 2025",
+      "description": "A curated list of the best AI tools including ChatGPT, Notion, Perplexity, Canva, and Minutes.AI."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 AI Tools"
+  },
+  "hero": {
+    "kicker": "2025 Productivity Stack",
+    "h1": "The 5 Best AI Tools to Automate Your Workday (2025)",
+    "tagline": "Using AI isn't just about ChatGPT anymore. To truly boost productivity, you need the right specialist for each task. Here is the ultimate stack for writing, researching, designing, and—most importantly—meetings."
+  },
+  "intro": {
+    "p": "We tested dozens of apps to find the ones that seamlessly fit into a professional workflow. These aren't just toys; they are tools that pay for themselves in saved time."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Best for: Ideation & Drafting",
+      "desc": "The undisputed king of generative text. Whether you need to draft an email, debug code, or brainstorm marketing angles, ChatGPT remains the most versatile starting point.",
+      "icon": "bulb",
+      "color": "text-emerald-300",
+      "bg": "bg-emerald-500/10",
+      "border": "border-emerald-500/20"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Best for: Knowledge & Docs",
+      "desc": "Notion is where your team's knowledge lives. Notion AI acts as a smart librarian, letting you summarize huge wikis, auto-fill database properties, and rewrite messy notes instantly.",
+      "icon": "notes",
+      "color": "text-neutral-300",
+      "bg": "bg-neutral-500/10",
+      "border": "border-neutral-500/20"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Best for: Research & Search",
+      "desc": "Stop Googling and opening ten tabs. Perplexity scans the web and gives you a cited, summarized answer. It’s the fastest way to verify facts or research competitors.",
+      "icon": "search",
+      "color": "text-cyan-300",
+      "bg": "bg-cyan-500/10",
+      "border": "border-cyan-500/20"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Best for: Visuals & Slides",
+      "desc": "You don't need to be a designer. Canva's AI features let you generate images, resize assets for social media, and even build entire slide decks from a text prompt.",
+      "icon": "palette",
+      "color": "text-fuchsia-300",
+      "bg": "bg-fuchsia-500/10",
+      "border": "border-fuchsia-500/20"
+    }
+  ],
+  "spotlight": {
+    "label": "5. The Meeting Specialist",
+    "h2": "Minutes.AI (The Best Choice for Audio)",
+    "lead": "While the tools above handle text and visuals, your meetings are often the biggest productivity leak. This is where Minutes.AI shines.",
+    "reasons": [
+      {
+        "title": "Why it makes the list:",
+        "text": "Most people still take notes manually while trying to listen. Minutes.AI records, transcribes, and summarizes simultaneously, so you can actually focus on the conversation."
+      },
+      {
+        "title": "Killer Feature:",
+        "text": "<strong>Flexible Pricing.</strong> Unlike most enterprise tools that demand $30/month, Minutes.AI offers non-expiring Time Packs (starting at $1.99). Perfect if you don't have meetings every single day."
+      },
+      {
+        "title": "Best For:",
+        "text": "Freelancers, Project Managers, and anyone tired of writing meeting minutes after the call ends."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Ready to complete your AI stack?",
+    "p": "Don't let meetings be the only manual part of your day. Try the Minutes.AI iPhone app.",
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS app"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Roundup",
+    "category": "Productivity"
+  }
+}

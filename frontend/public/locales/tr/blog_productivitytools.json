@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "2025 İçin En İyi 5 Üretkenlik Yapay Zeka Aracı",
+    "description": "Sıradan araçlarla uğraşmayı bırakın. İşte 2025'te size gerçekten zaman kazandıracak metin, araştırma, tasarım ve toplantılar için 5 temel yapay zeka uygulaması.",
+    "ogTitle": "En İyi 5 Yapay Zeka Üretkenlik Aracı (2025 Sürümü)",
+    "ogDescription": "ChatGPT yeterli değil. Yazma, araştırma, tasarım ve toplantılar için mükemmel yapay zeka setini seçtik.",
+    "ld": {
+      "headline": "2025 İçin En İyi 5 Üretkenlik Yapay Zeka Aracı",
+      "description": "ChatGPT, Notion, Perplexity, Canva ve Tutanakları AI dahil olmak üzere en iyi yapay zeka araçlarının derlenmiş listesi."
+    }
+  },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 YZ Aracı"
+  },
+  "hero": {
+    "kicker": "2025 Üretkenlik Seti",
+    "h1": "İş Gününüzü Otomatikleştirecek En İyi 5 Yapay Zeka Aracı (2025)",
+    "tagline": "Yapay zeka kullanımı artık sadece ChatGPT'den ibaret değil. Üretkenliği gerçekten artırmak için her görev için doğru uzmana ihtiyacınız var. İşte yazma, araştırma, tasarım ve — en önemlisi — toplantılar için nihai set."
+  },
+  "intro": {
+    "p": "Profesyonel bir iş akışına sorunsuz bir şekilde uyanları bulmak için düzinelerce uygulamayı test ettik. Bunlar sadece oyuncak değil; tasarruf edilen zamanla kendi maliyetini çıkaran araçlardır."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "En iyisi: Fikirler & Taslaklar",
+      "desc": "Üretken metnin tartışmasız kralı. Bir e-posta taslağı hazırlamanız, kodu ayıklamanız veya pazarlama açıları üzerine beyin fırtınası yapmanız gerekse de, ChatGPT en çok yönlü başlangıç noktası olmaya devam ediyor.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "En iyisi: Bilgi & Dokümanlar",
+      "desc": "Notion, ekibinizin bilgisinin yaşadığı yerdir. Notion AI, devasa wikileri özetlemenize, veritabanı özelliklerini otomatik doldurmanıza ve dağınık notları anında yeniden yazmanıza olanak tanıyan akıllı bir kütüphaneci gibi davranır.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "En iyisi: Araştırma & Arama",
+      "desc": "Google'da arama yapmayı ve on sekme açmayı bırakın. Perplexity ağı tarar ve size alıntılanmış, özetlenmiş bir yanıt verir. Gerçekleri doğrulamanın veya rakipleri araştırmanın en hızlı yoludur.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "En iyisi: Görseller & Slaytlar",
+      "desc": "Tasarımcı olmanıza gerek yok. Canva'nın yapay zeka özellikleri, görüntüler oluşturmanıza, sosyal medya için varlıkları yeniden boyutlandırmanıza ve hatta bir metin isteminden tüm sunum slaytlarını oluşturmanıza olanak tanır.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Toplantı Uzmanı",
+    "h2": "Tutanakları AI (Ses için En İyi Seçim)",
+    "lead": "Yukarıdaki araçlar metin ve görselleri ele alırken, toplantılarınız genellikle en büyük üretkenlik sızıntısıdır. İşte Tutanakları AI burada parlıyor.",
+    "reasons": [
+      {
+        "title": "Neden listede:",
+        "text": "Çoğu insan dinlemeye çalışırken hala manuel olarak not alıyor. Tutanakları AI aynı anda kaydeder, yazıya döker ve özetler, böylece konuşmaya gerçekten odaklanabilirsiniz."
+      },
+      {
+        "title": "Öldürücü Özellik:",
+        "text": "<strong>Esnek Fiyatlandırma.</strong> Aylık abonelik talep eden çoğu kurumsal aracın aksine, Tutanakları AI süresi dolmayan Zaman Paketleri sunar (1,99$'dan başlayan fiyatlarla). Her gün toplantınız yoksa mükemmeldir."
+      },
+      {
+        "title": "En iyisi:",
+        "text": "Serbest Çalışanlar, Proje Yöneticileri ve arama bittikten sonra tutanak yazmaktan yorulan herkes."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Yapay zeka setinizi tamamlamaya hazır mısınız?",
+    "p": "Toplantıların gününüzün tek manuel parçası olmasına izin vermeyin. Tutanakları AI iPhone uygulamasını deneyin.",
+    "openBrowser": "Tarayıcıda aç",
+    "downloadIOS": "iOS uygulamasını indir"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Yayınlandı",
+    "type": "Derleme",
+    "category": "Üretkenlik"
+  }
+}

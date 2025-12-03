@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "5 Alat AI Produktivitas Terbaik di 2025",
+    "description": "Berhenti berkutat dengan alat generik. Berikut adalah 5 aplikasi AI penting untuk teks, riset, desain, dan rapat yang benar-benar akan menghemat waktu Anda di 2025.",
+    "ogTitle": "5 Alat AI Produktivitas Terbaik (Edisi 2025)",
+    "ogDescription": "ChatGPT saja tidak cukup. Kami telah menyusun stack AI yang sempurna untuk menulis, riset, desain, dan rapat.",
+    "ld": {
+      "headline": "5 Alat AI Produktivitas Terbaik untuk 2025",
+      "description": "Daftar kurasi alat AI terbaik termasuk ChatGPT, Notion, Perplexity, Canva, dan Minutes AI."
+    }
+  },
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Top 5 Alat AI"
+  },
+  "hero": {
+    "kicker": "Stack Produktivitas 2025",
+    "h1": "5 Alat AI Terbaik untuk Mengotomatiskan Hari Kerja Anda (2025)",
+    "tagline": "Menggunakan AI bukan lagi sekadar tentang ChatGPT. Untuk benar-benar meningkatkan produktivitas, Anda memerlukan spesialis yang tepat untuk setiap tugas. Berikut adalah stack terbaik untuk menulis, riset, mendesain, dan—yang paling penting—rapat."
+  },
+  "intro": {
+    "p": "Kami menguji puluhan aplikasi untuk menemukan aplikasi yang pas dalam alur kerja profesional. Ini bukan mainan; ini adalah alat yang membayar harganya sendiri dengan waktu yang dihemat."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Terbaik untuk: Ide & Drafting",
+      "desc": "Raja teks generatif yang tak terbantahkan. Baik Anda perlu membuat draf email, debug kode, atau brainstorming sudut pandang pemasaran, ChatGPT tetap menjadi titik awal yang paling serbaguna.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Terbaik untuk: Pengetahuan & Dokumen",
+      "desc": "Notion adalah tempat pengetahuan tim Anda berada. Notion AI bertindak sebagai pustakawan cerdas, memungkinkan Anda meringkas wiki besar, mengisi properti database secara otomatis, dan menulis ulang catatan berantakan secara instan.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Terbaik untuk: Riset & Pencarian",
+      "desc": "Berhenti Googling dan membuka sepuluh tab. Perplexity memindai web dan memberi Anda jawaban yang dikutip dan diringkas. Ini cara tercepat untuk memverifikasi fakta atau meriset kompetitor.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Terbaik untuk: Visual & Slide",
+      "desc": "Anda tidak perlu menjadi desainer. Fitur AI Canva memungkinkan Anda membuat gambar, mengubah ukuran aset untuk media sosial, dan bahkan membangun seluruh slide presentasi dari perintah teks.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Spesialis Rapat",
+    "h2": "Minutes AI (Pilihan Terbaik untuk Audio)",
+    "lead": "Sementara alat di atas menangani teks dan visual, rapat Anda sering kali menjadi kebocoran produktivitas terbesar. Di sinilah Minutes AI bersinar.",
+    "reasons": [
+      {
+        "title": "Mengapa masuk daftar:",
+        "text": "Sebagian besar orang masih mencatat secara manual sambil mencoba mendengarkan. Minutes AI merekam, mentranskripsikan, dan meringkas secara bersamaan, sehingga Anda bisa benar-benar fokus pada percakapan."
+      },
+      {
+        "title": "Fitur Andalan:",
+        "text": "<strong>Harga Fleksibel.</strong> Tidak seperti kebanyakan alat perusahaan yang menuntut langganan bulanan, Minutes AI menawarkan Paket Waktu yang tidak kedaluwarsa (mulai dari $1.99). Sempurna jika Anda tidak memiliki rapat setiap hari."
+      },
+      {
+        "title": "Terbaik untuk:",
+        "text": "Freelancer, Manajer Proyek, dan siapa saja yang lelah menulis notulen rapat setelah panggilan berakhir."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Siap melengkapi stack AI Anda?",
+    "p": "Jangan biarkan rapat menjadi satu-satunya bagian manual dari hari Anda. Coba aplikasi iPhone Minutes AI.",
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Roundup",
+    "category": "Produktivitas"
+  }
+}

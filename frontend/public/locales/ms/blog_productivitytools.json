@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "5 Alat AI Produktiviti Terbaik untuk 2025",
+    "description": "Berhenti bergelut dengan alat generik. Berikut ialah 5 aplikasi AI penting untuk teks, penyelidikan, reka bentuk dan mesyuarat yang benar-benar akan menjimatkan masa anda pada 2025.",
+    "ogTitle": "5 Alat AI Produktiviti Terbaik (Edisi 2025)",
+    "ogDescription": "ChatGPT tidak mencukupi. Kami telah memilih susunan AI yang sempurna untuk penulisan, penyelidikan, reka bentuk dan mesyuarat.",
+    "ld": {
+      "headline": "5 Alat AI Produktiviti Terbaik untuk 2025",
+      "description": "Senarai susun atur alat AI terbaik termasuk ChatGPT, Notion, Perplexity, Canva dan Minit AI."
+    }
+  },
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "5 Alat AI Teratas"
+  },
+  "hero": {
+    "kicker": "Timbunan Produktiviti 2025",
+    "h1": "5 Alat AI Terbaik untuk Mengautomasikan Hari Kerja Anda (2025)",
+    "tagline": "Penggunaan AI bukan lagi sekadar tentang ChatGPT. Untuk benar-benar meningkatkan produktiviti, anda memerlukan pakar yang tepat untuk setiap tugas. Berikut ialah gabungan terbaik untuk menulis, menyelidik, mereka bentuk dan—paling penting—mesyuarat."
+  },
+  "intro": {
+    "p": "Kami menguji berpuluh-puluh aplikasi untuk mencari aplikasi yang sesuai dengan lancar dalam aliran kerja profesional. Ini bukan mainan; ia adalah alat yang berbaloi dengan masa yang dijimatkan."
+  },
+  "tools": [
+    {
+      "name": "1. ChatGPT (o1/GPT-4o)",
+      "role": "Terbaik untuk: Idea & Draf",
+      "desc": "Raja teks generatif yang tidak dapat dipertikaikan. Sama ada anda perlu merangka e-mel, nyahpepijat kod atau memikirkan sudut pemasaran, ChatGPT kekal sebagai titik permulaan yang paling serba boleh.",
+      "icon": "bulb"
+    },
+    {
+      "name": "2. Notion AI",
+      "role": "Terbaik untuk: Pengetahuan & Dokumen",
+      "desc": "Notion ialah tempat pengetahuan pasukan anda berada. Notion AI bertindak sebagai pustakawan pintar, membolehkan anda meringkaskan wiki yang besar, mengisi sifat pangkalan data secara automatik dan menulis semula nota yang tidak kemas serta-merta.",
+      "icon": "notes"
+    },
+    {
+      "name": "3. Perplexity",
+      "role": "Terbaik untuk: Penyelidikan & Carian",
+      "desc": "Berhenti menggunakan Google dan membuka sepuluh tab. Perplexity mengimbas web dan memberi anda jawapan yang dipetik dan diringkaskan. Ia adalah cara terpantas untuk mengesahkan fakta atau menyelidik pesaing.",
+      "icon": "search"
+    },
+    {
+      "name": "4. Canva (Magic Studio)",
+      "role": "Terbaik untuk: Visual & Slaid",
+      "desc": "Anda tidak perlu menjadi pereka. Ciri AI Canva membolehkan anda menjana imej, mengubah saiz aset untuk media sosial, dan juga membina keseluruhan slaid pembentangan daripada prom teks.",
+      "icon": "palette"
+    }
+  ],
+  "spotlight": {
+    "label": "5. Pakar Mesyuarat",
+    "h2": "Minit AI (Pilihan Terbaik untuk Audio)",
+    "lead": "Walaupun alat di atas mengendalikan teks dan visual, mesyuarat anda selalunya merupakan kebocoran produktiviti terbesar. Di sinilah Minit AI bersinar.",
+    "reasons": [
+      {
+        "title": "Mengapa ia dalam senarai:",
+        "text": "Kebanyakan orang masih mencatat nota secara manual semasa cuba mendengar. Minit AI merekod, menyalin dan meringkaskan secara serentak, supaya anda benar-benar boleh fokus pada perbualan."
+      },
+      {
+        "title": "Ciri Hebat:",
+        "text": "<strong>Harga Fleksibel.</strong> Tidak seperti kebanyakan alat perusahaan yang menuntut langganan bulanan, Minit AI menawarkan Pek Masa yang tidak luput (bermula dari $1.99). Sempurna jika anda tidak mempunyai mesyuarat setiap hari."
+      },
+      {
+        "title": "Terbaik untuk:",
+        "text": "Pekerja bebas, Pengurus Projek dan sesiapa sahaja yang penat menulis minit mesyuarat selepas panggilan tamat."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Bersedia untuk melengkapkan timbunan AI anda?",
+    "p": "Jangan biarkan mesyuarat menjadi satu-satunya bahagian manual hari anda. Cuba aplikasi iPhone Minit AI.",
+    "openBrowser": "Buka dalam penyemak imbas",
+    "downloadIOS": "Muat turun aplikasi iOS"
+  },
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Rumusan",
+    "category": "Produktiviti"
+  }
+}
