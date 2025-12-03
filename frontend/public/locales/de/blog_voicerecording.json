@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Warum Sprachaufzeichnung für Protokolle wichtig ist — Die Atmosphäre einfangen",
+    "description": "Texttranskripte reichen nicht aus. Entdecken Sie, warum hochwertige Sprachaufzeichnung entscheidend ist, um Nuancen, Emotionen und den 'Vibe' Ihrer Meetings mit Protokoll KI einzufangen.",
+    "ogTitle": "Nicht nur das Protokoll lesen. Den Moment hören.",
+    "ogDescription": "Ein Transkript sagt Ihnen, was gesagt wurde. Die Sprachaufzeichnung sagt Ihnen, wie es gefühlt wurde. Erleben Sie die Tiefe des Audios mit Protokoll KI.",
+    "ld": {
+      "headline": "Warum Sprachaufzeichnung das Herzstück großartiger Meeting-Protokolle ist",
+      "description": "Protokoll KI kombiniert präzise Transkription mit klarer Sprachaufzeichnung, um die wahre Atmosphäre Ihrer Meetings zu bewahren."
+    }
+  },
+  "aria": { "home": "Protokoll KI Home" },
+  "nav": { "blog": "Blog", "pricing": "Preise", "current": "Sprachaufzeichnung" },
+  "hero": {
+    "kicker": "Funktion im Fokus",
+    "h1": "Nicht nur Protokolle lesen. Die Atmosphäre neu erleben.",
+    "tagline": "KI-Transkriptionsdienste gibt es überall. Aber Text allein ist flach. Um eine Entscheidung wirklich zu verstehen, müssen Sie die Stimme dahinter hören.",
+    "badges": ["Kristallklares Audio", "Synchrone Wiedergabe", "Nuancen erfassen"]
+  },
+  "intro": {
+    "h2": "Das fehlende Puzzleteil bei KI-Transkriptionen",
+    "p1": "Notta, Otter, tl;dv, Protokoll KI... der Markt ist überflutet mit 'KI-Meeting-Assistenten'. Sie alle sind hervorragend darin, Sprache in Text zu verwandeln. Aber selbst die beste KI der Welt verpasst eine entscheidende Sache, wenn sie nur Text generiert:",
+    "highlight": "Die Atmosphäre im Raum."
+  },
+  "problem": {
+    "h2": "Das 'Plan A'-Paradoxon",
+    "p1": "Stellen Sie sich vor, Sie lesen diese Zeile in Ihrem Meeting-Protokoll:",
+    "quote": "“Das Team entschied sich einstimmig für Plan A.”",
+    "p2": "Auf dem Papier ist das ein Fakt. Aber was ist in Wirklichkeit passiert?",
+    "scenarios": [
+      {
+        "title": "Szenario 1: Hohe Energie",
+        "desc": "Alle waren begeistert, riefen 'Ja!' und klatschten ab. Der Schwung ist unaufhaltsam."
+      },
+      {
+        "title": "Szenario 2: Zögerlicher Kompromiss",
+        "desc": "Es herrschte langes Schweigen. Schließlich seufzte jemand: 'Ich schätze, Plan A ist die einzige verbleibende Option...' und die anderen nickten nur vor Müdigkeit."
+      }
+    ],
+    "summary": "Diese beiden Szenarien haben gegensätzliche Bedeutungen für Ihre Geschäftsstrategie, doch das Texttranskript sieht genau gleich aus. Das ist die 'Tiefe', die Text allein zerstört."
+  },
+  "solution": {
+    "h2": "Protokoll KI: Text + Audio = Wahrheit",
+    "p1": "Wir glauben, dass Informationen ohne Kontext gefährlich sind. Deshalb ist Protokoll KI nicht nur ein Zusammenfasser – es ist ein High-Fidelity-Diktiergerät.",
+    "p2": "Wir weigern uns, die Audiodaten nach der Verarbeitung wegzuwerfen. Indem wir die originale Sprachaufzeichnung mit dem Transkript verknüpfen, ermöglichen wir Ihnen eine Zeitreise.",
+    "features": [
+      "**Kontextuelle Wiedergabe**: Tippen Sie auf einen Satz, um genau zu hören, wie er gesagt wurde.",
+      "**Tonanalyse**: War der Stakeholder wütend oder machte er Witze? Überprüfen Sie es sofort.",
+      "**Komplettes Archiv**: Ihr Protokoll ist die Zusammenfassung; das Audio ist der Beweis."
+    ]
+  },
+  "cta": {
+    "h2": "Erleben Sie das Gesamtbild",
+    "p1": "Geben Sie sich nicht mit flachem Text zufrieden. Erleben Sie die Dreifaltigkeit moderner Meeting-Aufzeichnungen: Zusammenfassungen, vollständige Transkripte und Original-Audio.",
+    "openBrowser": "Im Web testen",
+    "downloadIOS": "iOS-App laden"
+  },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Einblick", "category": "Funktionen" }
+}

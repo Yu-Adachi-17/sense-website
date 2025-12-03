@@ -38,6 +38,7 @@ module.exports = {
     'blog_longrecording',
     'blog_productivitytools',
     'blog_transcription',
+    'blog_voicerecording',
   ],
   defaultNS: 'common',
 

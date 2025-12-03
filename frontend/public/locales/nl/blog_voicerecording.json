@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Waarom spraakopname belangrijk is voor Notulen AI — Vang de sfeer",
+    "description": "Teksttranscripties zijn niet genoeg. Ontdek waarom hoogwaardige spraakopname essentieel is voor het vastleggen van de nuances, emoties en 'vibe' van uw vergaderingen met Notulen AI.",
+    "ogTitle": "Lees niet alleen de notulen. Hoor het moment.",
+    "ogDescription": "Een transcriptie vertelt u wat er is gezegd. Spraakopname vertelt u hoe het voelde. Ervaar de diepte van audio met Notulen AI.",
+    "ld": {
+      "headline": "Waarom spraakopname het hart is van geweldige vergadernotulen",
+      "description": "Notulen AI combineert nauwkeurige transcriptie met heldere spraakopname om de ware sfeer van uw vergaderingen te bewaren."
+    }
+  },
+  "aria": { "home": "Notulen AI Home" },
+  "nav": { "blog": "Blog", "pricing": "Prijzen", "current": "Spraakopname" },
+  "hero": {
+    "kicker": "Functie in de schijnwerpers",
+    "h1": "Lees niet alleen de notulen. Speel de sfeer opnieuw af.",
+    "tagline": "AI-transcriptiediensten zijn overal. Maar tekst alleen is plat. Om een beslissing echt te begrijpen, moet u de stem erachter horen.",
+    "badges": ["Kristalheldere audio", "Synchrone weergave", "Vang nuances"]
+  },
+  "intro": {
+    "h2": "Het ontbrekende stukje in AI-transcriptie",
+    "p1": "Notta, Otter, tl;dv, Notulen AI... de markt wordt overspoeld met 'AI-vergaderassistenten'. Ze zijn allemaal uitstekend in het omzetten van spraak naar tekst. Maar zelfs de beste AI ter wereld mist één cruciaal ding wanneer het alleen tekst genereert:",
+    "highlight": "De sfeer in de kamer."
+  },
+  "problem": {
+    "h2": "De 'Plan A'-paradox",
+    "p1": "Stel u voor dat u deze regel in uw vergadernotulen leest:",
+    "quote": "“Het team besloot unaniem om door te gaan met Plan A.”",
+    "p2": "Op papier is dit een feit. Maar wat gebeurde er in werkelijkheid?",
+    "scenarios": [
+      {
+        "title": "Scenario 1: Hoge energie",
+        "desc": "Iedereen was enthousiast, riep 'Ja!' en gaf high-fives. Het momentum is niet te stoppen."
+      },
+      {
+        "title": "Scenario 2: Aarzelend compromis",
+        "desc": "Er viel een lange stilte. Uiteindelijk zuchtte iemand: 'Ik denk dat Plan A de enige overgebleven optie is...' en de anderen knikten alleen uit vermoeidheid."
+      }
+    ],
+    "summary": "Deze twee scenario's hebben tegengestelde betekenissen voor uw bedrijfsstrategie, toch ziet de teksttranscriptie er precies hetzelfde uit. Dit is de 'diepte' die tekst alleen vernietigt."
+  },
+  "solution": {
+    "h2": "Notulen AI: Tekst + Audio = Waarheid",
+    "p1": "Wij geloven dat informatie zonder context gevaarlijk is. Daarom is Notulen AI niet zomaar een samenvatter – het is een high-fidelity voicerecorder.",
+    "p2": "We weigeren audiogegevens weg te gooien na verwerking. Door de originele spraakopname aan het transcript te koppelen, laten we u terugreizen in de tijd.",
+    "features": [
+      "**Contextuele weergave**: Tik op een zin om precies te horen hoe deze werd gezegd.",
+      "**Toonanalyse**: Was de stakeholder boos of maakte hij een grapje? Verifieer het direct.",
+      "**Compleet archief**: Uw notulen zijn de samenvatting; de audio is het bewijs."
+    ]
+  },
+  "cta": {
+    "h2": "Ervaar het volledige plaatje",
+    "p1": "Neem geen genoegen met platte tekst. Ervaar de drie-eenheid van moderne vergaderverslagen: Samenvattingen, Volledige transcripties en Originele spraakaudio.",
+    "openBrowser": "Probeer op Web",
+    "downloadIOS": "Download iOS-app"
+  },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Inzicht", "category": "Functies" }
+}

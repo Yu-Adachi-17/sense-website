@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Miksi äänitys on tärkeää tekoälypöytäkirjoissa — Tallenna tunnelma",
+    "description": "Tekstinkirjoitukset eivät riitä. Lue, miksi laadukas äänitys on välttämätön kokousten sävyjen, tunteiden ja 'fiiliksen' tallentamiseksi Pöytäkirja AI:n avulla.",
+    "ogTitle": "Älä lue vain pöytäkirjaa. Kuuntele hetki.",
+    "ogDescription": "Litterointi kertoo, mitä sanottiin. Äänitys kertoo, miltä se tuntui. Koe äänen syvyys Pöytäkirja AI:n avulla.",
+    "ld": {
+      "headline": "Miksi äänitys on loistavien kokouspöytäkirjojen sydän",
+      "description": "Pöytäkirja AI yhdistää tarkan litteroinnin ja selkeän äänityksen säilyttääkseen kokousten todellisen ilmapiirin."
+    }
+  },
+  "aria": { "home": "Pöytäkirja AI Koti" },
+  "nav": { "blog": "Blogi", "pricing": "Hinnasto", "current": "Äänitys" },
+  "hero": {
+    "kicker": "Ominaisuus esittelyssä",
+    "h1": "Älä lue vain pöytäkirjaa. Toista tunnelma.",
+    "tagline": "Tekoälypohjaiset litterointipalvelut ovat kaikkialla. Mutta pelkkä teksti on lattea. Ymmärtääksesi päätöksen todella, sinun on kuultava ääni sen takana.",
+    "badges": ["Kristallinkirkas ääni", "Synkronoitu toisto", "Tallenna sävyt"]
+  },
+  "intro": {
+    "h2": "Puuttuva palanen tekoälylitteroinnissa",
+    "p1": "Notta, Otter, tl;dv, Pöytäkirja AI... markkinat ovat täynnä 'tekoälykokousavustajia'. Ne kaikki ovat erinomaisia muuttamaan puheen tekstiksi. Mutta jopa maailman paras tekoäly menettää yhden ratkaisevan asian, kun se tuottaa vain tekstiä:",
+    "highlight": "Huoneen tunnelman."
+  },
+  "problem": {
+    "h2": "'Suunnitelma A' -paradoksi",
+    "p1": "Kuvittele lukevasi tämä rivi kokouspöytäkirjastasi:",
+    "quote": "“Tiimi päätti yksimielisesti edetä Suunnitelma A:n kanssa.”",
+    "p2": "Paperilla tämä on fakta. Mutta mitä todellisuudessa tapahtui?",
+    "scenarios": [
+      {
+        "title": "Skenaario 1: Korkea energia",
+        "desc": "Kaikki olivat innoissaan, huusivat 'Kyllä!' ja heittivät ylävitosia. Vauhti on pysäyttämätön."
+      },
+      {
+        "title": "Skenaario 2: Vastahakoinen kompromissi",
+        "desc": "Seurasi pitkä hiljaisuus. Lopulta joku huokaisi: 'Luulen, että Suunnitelma A on ainoa jäljellä oleva vaihtoehto...' ja muut nyökkäsivät vain väsymyksestä."
+      }
+    ],
+    "summary": "Näillä kahdella skenaariolla on päinvastaiset merkitykset liiketoimintastrategiallesi, mutta tekstilitterointi näyttää täsmälleen samalta. Tämä on se 'syvyys', jonka pelkkä teksti tuhoaa."
+  },
+  "solution": {
+    "h2": "Pöytäkirja AI: Teksti + Ääni = Totuus",
+    "p1": "Uskomme, että tieto ilman kontekstia on vaarallista. Siksi Pöytäkirja AI ei ole vain tiivistäjä – se on korkealaatuinen sanelin.",
+    "p2": "Emme suostu heittämään äänidataa pois käsittelyn jälkeen. Pitämällä alkuperäisen äänityksen linkitettynä litterointiin, annamme sinun matkustaa ajassa taaksepäin.",
+    "features": [
+      "**Kontekstuaalinen toisto**: Napauta mitä tahansa lausetta kuullaksesi tarkalleen, miten se sanottiin.",
+      "**Äänensävyn analyysi**: Oliko sidosryhmän edustaja vihainen vai vitsailiko hän? Tarkista se heti.",
+      "**Täydellinen arkisto**: Pöytäkirjasi on tiivistelmä; ääni on todiste."
+    ]
+  },
+  "cta": {
+    "h2": "Koe koko kuva",
+    "p1": "Älä tyydy latteaan tekstiin. Koe modernien kokoustallenteiden kolminaisuus: Tiivistelmät, Täydelliset litteroinnit ja Alkuperäinen ääni.",
+    "openBrowser": "Kokeile verkossa",
+    "downloadIOS": "Lataa iOS-sovellus"
+  },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Näkökulma", "category": "Ominaisuudet" }
+}

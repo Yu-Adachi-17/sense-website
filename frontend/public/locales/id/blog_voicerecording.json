@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Mengapa Rekaman Suara Penting dalam Notulen AI — Menangkap Suasana",
+    "description": "Transkrip teks saja tidak cukup. Temukan mengapa rekaman suara berkualitas tinggi sangat penting untuk menangkap nuansa, emosi, dan 'atmosfer' rapat Anda dengan Minutes AI.",
+    "ogTitle": "Jangan Hanya Membaca Notulen. Dengarkan Momennya.",
+    "ogDescription": "Transkrip memberi tahu Anda apa yang dikatakan. Rekaman suara memberi tahu Anda bagaimana rasanya. Rasakan kedalaman audio dengan Minutes AI.",
+    "ld": {
+      "headline": "Mengapa Rekaman Suara Adalah Inti dari Notulen Rapat yang Hebat",
+      "description": "Minutes AI menggabungkan transkripsi akurat dengan rekaman suara yang jernih untuk menjaga suasana asli rapat Anda."
+    }
+  },
+  "aria": { "home": "Beranda Minutes AI" },
+  "nav": { "blog": "Blog", "pricing": "Harga", "current": "Rekaman Suara" },
+  "hero": {
+    "kicker": "Fitur Unggulan",
+    "h1": "Jangan Hanya Baca Notulen. Putar Ulang Suasananya.",
+    "tagline": "Layanan transkripsi AI ada di mana-mana. Tapi teks saja terasa datar. Untuk benar-benar memahami keputusan, Anda perlu mendengar suara di baliknya.",
+    "badges": ["Audio Jernih", "Pemutaran Sinkron", "Tangkap Nuansa"]
+  },
+  "intro": {
+    "h2": "Bagian yang Hilang dalam Transkripsi AI",
+    "p1": "Notta, Otter, tl;dv, Minutes AI... pasar dibanjiri dengan 'Asisten Rapat AI'. Semuanya sangat baik dalam mengubah ucapan menjadi teks. Namun, bahkan AI terbaik di dunia pun melewatkan satu hal krusial ketika hanya menghasilkan teks:",
+    "highlight": "Suasana di dalam ruangan."
+  },
+  "problem": {
+    "h2": "Paradoks 'Rencana A'",
+    "p1": "Bayangkan membaca baris ini dalam notulen rapat Anda:",
+    "quote": "“Tim dengan bulat memutuskan untuk melanjutkan dengan Rencana A.”",
+    "p2": "Di atas kertas, ini adalah fakta. Tapi kenyataannya, apa yang sebenarnya terjadi?",
+    "scenarios": [
+      {
+        "title": "Skenario 1: Energi Tinggi",
+        "desc": "Semua orang bersemangat, berteriak 'Ya!' dan melakukan tos. Momentumnya tak terbendung."
+      },
+      {
+        "title": "Skenario 2: Kompromi yang Enggan",
+        "desc": "Hening panjang terjadi. Akhirnya, seseorang menghela nafas: 'Saya rasa Rencana A adalah satu-satunya pilihan...' dan yang lain mengangguk hanya karena lelah."
+      }
+    ],
+    "summary": "Kedua skenario ini memiliki arti yang berlawanan bagi strategi bisnis Anda, namun transkrip teksnya terlihat persis sama. Inilah 'kedalaman' yang dihancurkan oleh teks saja."
+  },
+  "solution": {
+    "h2": "Minutes AI: Teks + Audio = Kebenaran",
+    "p1": "Kami percaya bahwa informasi tanpa konteks itu berbahaya. Itulah sebabnya Minutes AI bukan hanya pembuat ringkasan—ini adalah perekam suara fidelitas tinggi.",
+    "p2": "Kami menolak membuang data audio setelah diproses. Dengan menjaga rekaman suara asli tertaut ke transkrip, kami memungkinkan Anda menjelajah waktu ke masa lalu.",
+    "features": [
+      "**Pemutaran Kontekstual**: Ketuk kalimat apa saja untuk mendengar persis bagaimana kalimat itu diucapkan.",
+      "**Analisis Nada**: Apakah pemangku kepentingan marah atau bercanda? Verifikasi secara instan.",
+      "**Arsip Lengkap**: Notulen Anda adalah ringkasannya; audio adalah buktinya."
+    ]
+  },
+  "cta": {
+    "h2": "Rasakan Gambaran Utuhnya",
+    "p1": "Jangan puas dengan teks yang datar. Rasakan trinitas catatan rapat modern: Ringkasan, Transkrip Lengkap, dan Audio Suara Asli.",
+    "openBrowser": "Coba di Web",
+    "downloadIOS": "Unduh App iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Wawasan", "category": "Fitur" }
+}

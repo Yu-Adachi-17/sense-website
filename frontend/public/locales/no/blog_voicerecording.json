@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Hvorfor lydopptak er viktig for AI-referater — Fang stemningen",
+    "description": "Teksttranskripsjoner er ikke nok. Oppdag hvorfor lydopptak av høy kvalitet er avgjørende for å fange nyanser, følelser og 'vibe' i møtene dine med Referat AI.",
+    "ogTitle": "Ikke bare les referatet. Hør øyeblikket.",
+    "ogDescription": "En transkripsjon forteller deg hva som ble sagt. Lydopptak forteller deg hvordan det føltes. Opplev dybden av lyd med Referat AI.",
+    "ld": {
+      "headline": "Hvorfor lydopptak er hjertet i gode møtereferater",
+      "description": "Referat AI kombinerer nøyaktig transkripsjon med klare lydopptak for å bevare den sanne atmosfæren i møtene dine."
+    }
+  },
+  "aria": { "home": "Referat AI Hjem" },
+  "nav": { "blog": "Blogg", "pricing": "Priser", "current": "Lydopptak" },
+  "hero": {
+    "kicker": "Funksjon i fokus",
+    "h1": "Ikke bare les referatet. Spill av atmosfæren.",
+    "tagline": "AI-transkripsjonstjenester er overalt. Men tekst alene er flatt. For å virkelig forstå en beslutning, må du høre stemmen bak den.",
+    "badges": ["Krystallklar lyd", "Synkron avspilling", "Fang nyanser"]
+  },
+  "intro": {
+    "h2": "Den manglende brikken i AI-transkripsjon",
+    "p1": "Notta, Otter, tl;dv, Referat AI... markedet flommer over av 'AI-møteassistenter'. Alle er utmerkede til å gjøre tale om til tekst. Men selv verdens beste AI går glipp av én avgjørende ting når den kun genererer tekst:",
+    "highlight": "Atmosfæren i rommet."
+  },
+  "problem": {
+    "h2": "'Plan A'-paradokset",
+    "p1": "Se for deg at du leser denne linjen i møtereferatet ditt:",
+    "quote": "“Teamet bestemte enstemmig å gå for Plan A.”",
+    "p2": "På papiret er dette et faktum. Men hva skjedde egentlig?",
+    "scenarios": [
+      {
+        "title": "Scenario 1: Høy energi",
+        "desc": "Alle var begeistret, ropte 'Ja!' og ga high-fives. Fremdriften er ustoppelig."
+      },
+      {
+        "title": "Scenario 2: Motvillig kompromiss",
+        "desc": "Det var en lang stillhet. Til slutt sukket noen: 'Jeg antar at Plan A er det eneste valget vi har...' og de andre nikket bare av utmattelse."
+      }
+    ],
+    "summary": "Disse to scenarioene har motsatt betydning for forretningsstrategien din, likevel ser teksttranskripsjonen helt lik ut. Dette er 'dybden' som tekst alene ødelegger."
+  },
+  "solution": {
+    "h2": "Referat AI: Tekst + Lyd = Sannhet",
+    "p1": "Vi mener at informasjon uten kontekst er farlig. Derfor er Referat AI ikke bare et oppsummeringsverktøy – det er en diktafon med høy kvalitet.",
+    "p2": "Vi nekter å kaste lyddataene etter behandling. Ved å holde det originale lydopptaket knyttet til transkripsjonen, lar vi deg reise tilbake i tid.",
+    "features": [
+      "**Kontekstuell avspilling**: Trykk på en setning for å høre nøyaktig hvordan den ble sagt.",
+      "**Toneanalyse**: Var interessenten sint eller spøkte hen? Bekreft det umiddelbart.",
+      "**Komplett arkiv**: Referatet ditt er sammendraget; lyden er beviset."
+    ]
+  },
+  "cta": {
+    "h2": "Opplev hele bildet",
+    "p1": "Ikke nøy deg med flat tekst. Opplev treenigheten av moderne møtereferater: Sammendrag, Fulle transkripsjoner og Originalt lydopptak.",
+    "openBrowser": "Prøv på nettet",
+    "downloadIOS": "Last ned iOS-app"
+  },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Innsikt", "category": "Funksjoner" }
+}

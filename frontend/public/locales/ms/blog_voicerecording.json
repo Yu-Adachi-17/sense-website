@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Mengapa Rakaman Suara Penting dalam Minit AI — Menangkap Suasana",
+    "description": "Transkrip teks sahaja tidak memadai. Temui mengapa rakaman suara berkualiti tinggi adalah penting untuk menangkap nuansa, emosi, dan 'vibe' mesyuarat anda dengan Minit AI.",
+    "ogTitle": "Jangan Hanya Baca Minit. Dengar Detiknya.",
+    "ogDescription": "Transkrip memberitahu anda apa yang dikatakan. Rakaman suara memberitahu anda bagaimana rasanya. Alami kedalaman audio dengan Minit AI.",
+    "ld": {
+      "headline": "Mengapa Rakaman Suara Adalah Nadi Minit Mesyuarat yang Hebat",
+      "description": "Minit AI menggabungkan transkripsi tepat dengan rakaman suara yang jelas untuk mengekalkan suasana sebenar mesyuarat anda."
+    }
+  },
+  "aria": { "home": "Laman Utama Minit AI" },
+  "nav": { "blog": "Blog", "pricing": "Harga", "current": "Rakaman Suara" },
+  "hero": {
+    "kicker": "Sorotan Ciri",
+    "h1": "Jangan Hanya Baca Minit. Main Semula Suasananya.",
+    "tagline": "Perkhidmatan transkripsi AI ada di mana-mana. Tetapi teks sahaja adalah rata. Untuk benar-benar memahami keputusan, anda perlu mendengar suara di sebaliknya.",
+    "badges": ["Audio Jelas", "Main Semula Segerak", "Tangkap Nuansa"]
+  },
+  "intro": {
+    "h2": "Kepingan yang Hilang dalam Transkripsi AI",
+    "p1": "Notta, Otter, tl;dv, Minit AI... pasaran dibanjiri dengan 'Pembantu Mesyuarat AI'. Semuanya sangat baik dalam menukar pertuturan kepada teks. Tetapi AI terbaik di dunia pun terlepas satu perkara penting apabila hanya menjana teks:",
+    "highlight": "Suasana bilik tersebut."
+  },
+  "problem": {
+    "h2": "Paradoks 'Pelan A'",
+    "p1": "Bayangkan membaca baris ini dalam minit mesyuarat anda:",
+    "quote": "“Pasukan sebulat suara memutuskan untuk meneruskan dengan Pelan A.”",
+    "p2": "Di atas kertas, ini adalah fakta. Tetapi realitinya, apa yang sebenarnya berlaku?",
+    "scenarios": [
+      {
+        "title": "Senario 1: Tenaga Tinggi",
+        "desc": "Semua orang teruja, menjerit 'Ya!' dan bertepuk tampar. Momentum tidak dapat disekat."
+      },
+      {
+        "title": "Senario 2: Kompromi Berat Hati",
+        "desc": "Berlaku kesunyian yang panjang. Akhirnya, seseorang mengeluh: 'Saya rasa Pelan A adalah satu-satunya pilihan yang tinggal...' dan yang lain hanya mengangguk kerana keletihan."
+      }
+    ],
+    "summary": "Kedua-dua senario ini mempunyai makna yang bertentangan untuk strategi perniagaan anda, namun transkrip teks kelihatan sama persis. Inilah 'kedalaman' yang dimusnahkan oleh teks semata-mata."
+  },
+  "solution": {
+    "h2": "Minit AI: Teks + Audio = Kebenaran",
+    "p1": "Kami percaya bahawa maklumat tanpa konteks adalah berbahaya. Itulah sebabnya Minit AI bukan sekadar peringkas—ia adalah perakam suara berketepatan tinggi.",
+    "p2": "Kami enggan membuang data audio selepas pemprosesan. Dengan mengekalkan rakaman suara asal yang dipautkan kepada transkrip, kami membolehkan anda kembali ke masa lampau.",
+    "features": [
+      "**Main Semula Kontekstual**: Ketik mana-mana ayat untuk mendengar dengan tepat bagaimana ia diucapkan.",
+      "**Analisis Nada**: Adakah pihak berkepentingan marah atau bergurau? Sahkan serta-merta.",
+      "**Arkib Lengkap**: Minit anda adalah ringkasan; audio adalah buktinya."
+    ]
+  },
+  "cta": {
+    "h2": "Alami Gambaran Penuh",
+    "p1": "Jangan berpuas hati dengan teks yang rata. Alami triniti rekod mesyuarat moden: Ringkasan, Transkrip Penuh, dan Audio Suara Asli.",
+    "openBrowser": "Cuba di Web",
+    "downloadIOS": "Muat Turun App iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Wawasan", "category": "Ciri" }
+}

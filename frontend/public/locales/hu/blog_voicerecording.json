@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Miért fontos a hangfelvétel az AI jegyzőkönyveknél? — A hangulat rögzítése",
+    "description": "A szöveges leirat önmagában nem elég. Fedezze fel, miért elengedhetetlen a kiváló minőségű hangfelvétel a megbeszélések árnyalatainak és 'hangulatának' rögzítéséhez a Jegyzőkönyv AI-val.",
+    "ogTitle": "Ne csak olvassa a jegyzőkönyvet. Hallgassa meg a pillanatot.",
+    "ogDescription": "A leirat elmondja, mi hangzott el. A hangfelvétel elmondja, hogyan érezték. Tapasztalja meg a hang mélységét a Jegyzőkönyv AI-val.",
+    "ld": {
+      "headline": "Miért a hangfelvétel a kiváló megbeszélés-jegyzőkönyvek lelke",
+      "description": "A Jegyzőkönyv AI a pontos leiratot tiszta hangfelvétellel ötvözi, hogy megőrizze a megbeszélések valódi légkörét."
+    }
+  },
+  "aria": { "home": "Jegyzőkönyv AI Kezdőlap" },
+  "nav": { "blog": "Blog", "pricing": "Árazás", "current": "Hangfelvétel" },
+  "hero": {
+    "kicker": "Kiemelt funkció",
+    "h1": "Ne csak a jegyzőkönyvet olvassa. Játssza vissza a hangulatot.",
+    "tagline": "Az AI leiratozó szolgáltatások mindenhol ott vannak. De a szöveg önmagában lapos. Ahhoz, hogy valóban megértsen egy döntést, hallania kell a mögötte lévő hangot.",
+    "badges": ["Kristálytiszta hang", "Szinkronizált lejátszás", "Árnyalatok rögzítése"]
+  },
+  "intro": {
+    "h2": "A hiányzó láncszem az AI leiratozásban",
+    "p1": "Notta, Otter, tl;dv, Jegyzőkönyv AI... a piac tele van 'AI megbeszélés-asszisztensekkel'. Mindegyik kiválóan alakítja át a beszédet szöveggé. De még a világ legjobb AI-ja is kihagy egy döntő dolgot, amikor csak szöveget generál:",
+    "highlight": "A szoba hangulatát."
+  },
+  "problem": {
+    "h2": "Az 'A Terv' paradoxon",
+    "p1": "Képzelje el, hogy ezt a sort olvassa a jegyzőkönyvben:",
+    "quote": "“A csapat egyhangúlag úgy döntött, hogy az A Tervet választja.”",
+    "p2": "Papíron ez tény. De mi történt a valóságban?",
+    "scenarios": [
+      {
+        "title": "1. forgatókönyv: Nagy energia",
+        "desc": "Mindenki izgatott volt, 'Igen!'-t kiáltottak és pacsiztak. A lendület megállíthatatlan."
+      },
+      {
+        "title": "2. forgatókönyv: Vonakodó kompromisszum",
+        "desc": "Hosszú csend volt. Végül valaki felsóhajtott: 'Azt hiszem, az A Terv az egyetlen lehetőségünk...' és a többiek csak a fáradtságtól bólintottak."
+      }
+    ],
+    "summary": "Ennek a két forgatókönyvnek ellentétes jelentése van az üzleti stratégiája szempontjából, mégis a szöveges leirat pontosan ugyanúgy néz ki. Ez az a 'mélység', amit a szöveg önmagában megöl."
+  },
+  "solution": {
+    "h2": "Jegyzőkönyv AI: Szöveg + Hang = Igazság",
+    "p1": "Hisszük, hogy az információ kontextus nélkül veszélyes. Ezért a Jegyzőkönyv AI nem csak egy összefoglaló eszköz – hanem egy kiváló minőségű hangrögzítő is.",
+    "p2": "Nem vagyunk hajlandóak eldobni a hangadatokat a feldolgozás után. Az eredeti hangfelvétel és a leirat összekapcsolásával lehetővé tesszük az időutazást.",
+    "features": [
+      "**Kontextuális lejátszás**: Koppintson bármelyik mondatra, hogy hallja, pontosan hogyan hangzott el.",
+      "**Hangnem-elemzés**: Az érintett fél mérges volt vagy viccelődött? Ellenőrizze azonnal.",
+      "**Teljes archívum**: A jegyzőkönyv az összefoglaló; a hang a bizonyíték."
+    ]
+  },
+  "cta": {
+    "h2": "Tapasztalja meg a teljes képet",
+    "p1": "Ne elégedjen meg a lapos szöveggel. Tapasztalja meg a modern megbeszélés-rögzítés szentháromságát: Összefoglalók, Teljes leiratok és Eredeti hangfelvétel.",
+    "openBrowser": "Próbálja ki weben",
+    "downloadIOS": "iOS app letöltése"
+  },
+  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Betekintés", "category": "Funkciók" }
+}

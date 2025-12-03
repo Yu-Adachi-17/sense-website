@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Dlaczego nagrywanie głosu jest ważne w protokołach AI — Uchwyć atmosferę",
+    "description": "Transkrypcje tekstowe to za mało. Odkryj, dlaczego wysokiej jakości nagrywanie głosu jest niezbędne do uchwycenia niuansów, emocji i 'klimatu' spotkań z Protokół AI.",
+    "ogTitle": "Nie czytaj tylko protokołu. Usłysz ten moment.",
+    "ogDescription": "Transkrypcja mówi ci, co zostało powiedziane. Nagranie głosu mówi, jak to zostało odebrane. Doświadcz głębi dźwięku z Protokół AI.",
+    "ld": {
+      "headline": "Dlaczego nagrywanie głosu jest sercem świetnych protokołów ze spotkań",
+      "description": "Protokół AI łączy dokładną transkrypcję z czystym nagraniem głosu, aby zachować prawdziwą atmosferę Twoich spotkań."
+    }
+  },
+  "aria": { "home": "Strona główna Protokół AI" },
+  "nav": { "blog": "Blog", "pricing": "Cennik", "current": "Nagrywanie Głosu" },
+  "hero": {
+    "kicker": "Wyróżniona funkcja",
+    "h1": "Nie czytaj tylko protokołu. Odtwórz atmosferę.",
+    "tagline": "Usługi transkrypcji AI są wszędzie. Ale sam tekst jest płaski. Aby naprawdę zrozumieć decyzję, musisz usłyszeć głos, który za nią stoi.",
+    "badges": ["Krystalicznie czysty dźwięk", "Odtwarzanie synchroniczne", "Uchwyć niuanse"]
+  },
+  "intro": {
+    "h2": "Brakujący element w transkrypcji AI",
+    "p1": "Notta, Otter, tl;dv, Protokół AI... rynek jest zalany 'asystentami spotkań AI'. Wszyscy świetnie radzą sobie z zamianą mowy na tekst. Ale nawet najlepsza AI na świecie traci jedną kluczową rzecz, gdy generuje tylko tekst:",
+    "highlight": "Atmosferę panującą w pokoju."
+  },
+  "problem": {
+    "h2": "Paradoks 'Planu A'",
+    "p1": "Wyobraź sobie, że czytasz ten wiersz w protokole ze spotkania:",
+    "quote": "“Zespół jednogłośnie zdecydował się na realizację Planu A.”",
+    "p2": "Na papierze to fakt. Ale w rzeczywistości, co się stało?",
+    "scenarios": [
+      {
+        "title": "Scenariusz 1: Wysoka energia",
+        "desc": "Wszyscy byli podekscytowani, krzyczeli 'Tak!' i przybijali piątki. Rozpęd jest nie do zatrzymania."
+      },
+      {
+        "title": "Scenariusz 2: Niechętny kompromis",
+        "desc": "Zapadła długa cisza. W końcu ktoś westchnął: 'Chyba Plan A to jedyna opcja, jaka nam została...' a inni kiwnęli głowami tylko ze zmęczenia."
+      }
+    ],
+    "summary": "Te dwa scenariusze mają przeciwne znaczenie dla Twojej strategii biznesowej, a mimo to transkrypcja tekstowa wygląda dokładnie tak samo. To jest ta 'głębia', którą sam tekst niszczy."
+  },
+  "solution": {
+    "h2": "Protokół AI: Tekst + Dźwięk = Prawda",
+    "p1": "Wierzymy, że informacja bez kontekstu jest niebezpieczna. Dlatego Protokół AI to nie tylko narzędzie do streszczania — to dyktafon wysokiej jakości.",
+    "p2": "Odmawiamy wyrzucania danych audio po przetworzeniu. Utrzymując oryginalne nagranie głosowe powiązane z transkrypcją, pozwalamy Ci podróżować w czasie.",
+    "features": [
+      "**Odtwarzanie kontekstowe**: Stuknij w dowolne zdanie, aby usłyszeć dokładnie, jak zostało powiedziane.",
+      "**Analiza tonu**: Czy interesariusz był zły, czy żartował? Zweryfikuj to natychmiast.",
+      "**Kompletne archiwum**: Twój protokół to streszczenie; dźwięk to dowód."
+    ]
+  },
+  "cta": {
+    "h2": "Doświadcz pełnego obrazu",
+    "p1": "Nie zadowalaj się płaskim tekstem. Poznaj trójcę nowoczesnych zapisów spotkań: Podsumowania, Pełne transkrypcje i Oryginalny dźwięk głosowy.",
+    "openBrowser": "Wypróbuj w przeglądarce",
+    "downloadIOS": "Pobierz aplikację iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Spostrzeżenie", "category": "Funkcje" }
+}

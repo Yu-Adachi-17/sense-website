@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Hvorfor lydoptagelse er vigtig for AI-referater — Fang stemningen",
+    "description": "Teksttransskriptioner er ikke nok. Opdag hvorfor højkvalitets lydoptagelse er afgørende for at fange nuancer, følelser og 'vibe' i dine møder med Referat AI.",
+    "ogTitle": "Læs ikke bare referatet. Hør øjeblikket.",
+    "ogDescription": "En transskription fortæller dig, hvad der blev sagt. Lydoptagelse fortæller dig, hvordan det blev følt. Oplev dybden af lyd med Referat AI.",
+    "ld": {
+      "headline": "Hvorfor lydoptagelse er hjertet i gode mødereferater",
+      "description": "Referat AI kombinerer præcis transskription med klar lydoptagelse for at bevare den sande atmosfære i dine møder."
+    }
+  },
+  "aria": { "home": "Referat AI Hjem" },
+  "nav": { "blog": "Blog", "pricing": "Priser", "current": "Lydoptagelse" },
+  "hero": {
+    "kicker": "Funktion i fokus",
+    "h1": "Læs ikke kun referatet. Genoplev stemningen.",
+    "tagline": "AI-transskriptionstjenester er overalt. Men tekst alene er flad. For virkelig at forstå en beslutning skal du høre stemmen bag den.",
+    "badges": ["Krystalklar lyd", "Synkron afspilning", "Fang nuancer"]
+  },
+  "intro": {
+    "h2": "Den manglende brik i AI-transskription",
+    "p1": "Notta, Otter, tl;dv, Referat AI... markedet flyder over med 'AI-mødeassistenter'. De er alle fremragende til at omdanne tale til tekst. Men selv den bedste AI i verden mangler én afgørende ting, når den kun genererer tekst:",
+    "highlight": "Stemningen i lokalet."
+  },
+  "problem": {
+    "h2": "'Plan A'-paradokset",
+    "p1": "Forestil dig at læse denne linje i dit mødereferat:",
+    "quote": "“Teamet besluttede enstemmigt at gå med Plan A.”",
+    "p2": "På papiret er dette et faktum. Men hvad skete der i virkeligheden?",
+    "scenarios": [
+      {
+        "title": "Scenarie 1: Høj energi",
+        "desc": "Alle var begejstrede, råbte 'Ja!' og gav high-fives. Fremdriften er ustoppelig."
+      },
+      {
+        "title": "Scenarie 2: Modvilligt kompromis",
+        "desc": "Der var en lang stilhed. Til sidst sukkede nogen: 'Jeg gætter på, at Plan A er den eneste mulighed tilbage...' og andre nikkede bare af træthed."
+      }
+    ],
+    "summary": "Disse to scenarier har modsatte betydninger for din forretningsstrategi, men teksttransskriptionen ser præcis ens ud. Dette er den 'dybde', som tekst alene ødelægger."
+  },
+  "solution": {
+    "h2": "Referat AI: Tekst + Lyd = Sandhed",
+    "p1": "Vi mener, at information uden kontekst er farlig. Derfor er Referat AI ikke bare en opsummeringsmaskine – det er en high-fidelity lydoptager.",
+    "p2": "Vi nægter at smide lyddata væk efter behandling. Ved at holde den originale lydoptagelse knyttet til transskriptionen, giver vi dig mulighed for at rejse tilbage i tiden.",
+    "features": [
+      "**Kontekstuel afspilning**: Tryk på en sætning for at høre præcis, hvordan den blev sagt.",
+      "**Toneanalyse**: Var interessenten vred eller lavede de sjov? Bekræft det øjeblikkeligt.",
+      "**Komplet arkiv**: Dit referat er resuméet; lyden er beviset."
+    ]
+  },
+  "cta": {
+    "h2": "Oplev det fulde billede",
+    "p1": "Lad dig ikke nøjes med flad tekst. Oplev treenigheden af moderne mødeoptegnelser: Resuméer, Fulde Transskriptioner og Original Lyd.",
+    "openBrowser": "Prøv på nettet",
+    "downloadIOS": "Hent iOS-app"
+  },
+  "meta": { "h2": "Meta", "published": "Udgivet", "type": "Indsigt", "category": "Funktioner" }
+}

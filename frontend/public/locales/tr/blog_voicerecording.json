@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Tutanakları AI'da Ses Kaydı Neden Önemlidir — Atmosferi Yakalamak",
+    "description": "Metin transkriptleri yeterli değildir. Tutanakları AI ile toplantılarınızın nüanslarını, duygularını ve 'havasını' yakalamak için yüksek kaliteli ses kaydının neden gerekli olduğunu keşfedin.",
+    "ogTitle": "Sadece tutanakları okumayın. O anı dinleyin.",
+    "ogDescription": "Bir transkript size ne söylendiğini anlatır. Ses kaydı ise nasıl hissedildiğini anlatır. Tutanakları AI ile sesin derinliğini deneyimleyin.",
+    "ld": {
+      "headline": "Ses kaydı neden harika toplantı tutanaklarının kalbidir",
+      "description": "Tutanakları AI, toplantılarınızın gerçek atmosferini korumak için doğru transkripsiyonu net ses kaydı ile birleştirir."
+    }
+  },
+  "aria": { "home": "Tutanakları AI Anasayfa" },
+  "nav": { "blog": "Blog", "pricing": "Fiyatlandırma", "current": "Ses Kaydı" },
+  "hero": {
+    "kicker": "Öne Çıkan Özellik",
+    "h1": "Sadece tutanakları okumayın. Atmosferi yeniden yaşayın.",
+    "tagline": "AI transkripsiyon hizmetleri her yerde. Ancak metin tek başına yüzeyseldir. Bir kararı gerçekten anlamak için, arkasındaki sesi duymanız gerekir.",
+    "badges": ["Kristal Netliğinde Ses", "Senkronize Oynatma", "Nüansları Yakala"]
+  },
+  "intro": {
+    "h2": "AI Transkripsiyonundaki Eksik Parça",
+    "p1": "Notta, Otter, tl;dv, Tutanakları AI... piyasa 'AI Toplantı Asistanları' ile dolu. Hepsi konuşmayı metne dönüştürmekte mükemmel. Ancak dünyanın en iyi yapay zekası bile sadece metin ürettiğinde çok önemli bir şeyi kaçırır:",
+    "highlight": "Odada bulunan atmosfer."
+  },
+  "problem": {
+    "h2": "'A Planı' Paradoksu",
+    "p1": "Toplantı tutanaklarınızda şu satırı okuduğunuzu hayal edin:",
+    "quote": "“Ekip oybirliğiyle A Planı ile ilerlemeye karar verdi.”",
+    "p2": "Kağıt üzerinde bu bir gerçektir. Ama gerçekte ne oldu?",
+    "scenarios": [
+      {
+        "title": "Senaryo 1: Yüksek Enerji",
+        "desc": "Herkes heyecanlıydı, 'Evet!' diye bağırıyor ve beşlik çakıyordu. İvme durdurulamaz."
+      },
+      {
+        "title": "Senaryo 2: İsteksiz Uzlaşma",
+        "desc": "Uzun bir sessizlik oldu. Sonunda biri içini çekti: 'Sanırım A Planı kalan tek seçenek...' ve diğerleri sadece yorgunluktan başlarını salladılar."
+      }
+    ],
+    "summary": "Bu iki senaryo iş stratejiniz için zıt anlamlara sahiptir, ancak metin transkripti tamamen aynı görünür. İşte metnin tek başına yok ettiği 'derinlik' budur."
+  },
+  "solution": {
+    "h2": "Tutanakları AI: Metin + Ses = Gerçek",
+    "p1": "Bağlamı olmayan bilginin tehlikeli olduğuna inanıyoruz. Bu yüzden Tutanakları AI sadece bir özetleyici değil, yüksek kaliteli bir ses kayıt cihazıdır.",
+    "p2": "İşlemden sonra ses verilerini atmayı reddediyoruz. Orijinal ses kaydını transkript ile bağlantılı tutarak, zamanda yolculuk yapmanızı sağlıyoruz.",
+    "features": [
+      "**Bağlamsal Oynatma**: Herhangi bir cümlenin tam olarak nasıl söylendiğini duymak için üzerine dokunun.",
+      "**Ton Analizi**: Paydaş kızgın mıydı yoksa şaka mı yapıyordu? Anında doğrulayın.",
+      "**Tam Arşiv**: Tutanağınız özettir; ses ise kanıttır."
+    ]
+  },
+  "cta": {
+    "h2": "Resmin Tamamını Deneyimleyin",
+    "p1": "Yüzeysel metinle yetinmeyin. Modern toplantı kayıtlarının üçlüsünü deneyimleyin: Özetler, Tam Transkriptler ve Orijinal Ses.",
+    "openBrowser": "Web'de dene",
+    "downloadIOS": "iOS Uygulamasını İndir"
+  },
+  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "İçgörü", "category": "Özellikler" }
+}

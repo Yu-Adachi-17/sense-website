@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Pourquoi l'enregistrement vocal compte pour les comptes rendus IA — Capturer l'ambiance",
+    "description": "Les transcriptions textuelles ne suffisent pas. Découvrez pourquoi un enregistrement vocal de haute qualité est essentiel pour capturer les nuances, les émotions et la 'vibe' de vos réunions avec Minutes.AI.",
+    "ogTitle": "Ne lisez pas juste le compte rendu. Écoutez le moment.",
+    "ogDescription": "Une transcription vous dit ce qui a été dit. L'enregistrement vocal vous dit comment cela a été ressenti. Découvrez la profondeur de l'audio avec Minutes.AI.",
+    "ld": {
+      "headline": "Pourquoi l'enregistrement vocal est le cœur des bons comptes rendus de réunion",
+      "description": "Minutes.AI combine une transcription précise avec un enregistrement vocal clair pour préserver la véritable atmosphère de vos réunions."
+    }
+  },
+  "aria": { "home": "Accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "pricing": "Tarifs", "current": "Enregistrement Vocal" },
+  "hero": {
+    "kicker": "Fonctionnalité en vedette",
+    "h1": "Ne lisez pas juste les minutes. Rejouez l'ambiance.",
+    "tagline": "Les services de transcription par IA sont partout. Mais le texte seul est plat. Pour vraiment comprendre une décision, vous devez entendre la voix derrière elle.",
+    "badges": ["Audio cristallin", "Lecture synchronisée", "Capturer les nuances"]
+  },
+  "intro": {
+    "h2": "La pièce manquante de la transcription IA",
+    "p1": "Notta, Otter, tl;dv, Minutes.AI... le marché est inondé d'assistants de réunion IA. Ils excellent tous à transformer la parole en texte. Mais même la meilleure IA du monde manque une chose cruciale lorsqu'elle ne génère que du texte :",
+    "highlight": "L'atmosphère de la salle."
+  },
+  "problem": {
+    "h2": "Le paradoxe du 'Plan A'",
+    "p1": "Imaginez lire cette ligne dans votre compte rendu de réunion :",
+    "quote": "“L'équipe a décidé à l'unanimité de poursuivre avec le Plan A.”",
+    "p2": "Sur le papier, c'est un fait. Mais en réalité, que s'est-il passé ?",
+    "scenarios": [
+      {
+        "title": "Scénario 1 : Haute énergie",
+        "desc": "Tout le monde était excité, criait 'Oui !' et se tapait dans les mains. L'élan est imparable."
+      },
+      {
+        "title": "Scénario 2 : Compromis réticent",
+        "desc": "Il y a eu un long silence. Finalement, quelqu'un a soupiré : 'Je suppose que le Plan A est la seule option qui reste...' et les autres ont hoché la tête par fatigue."
+      }
+    ],
+    "summary": "Ces deux scénarios ont des significations opposées pour votre stratégie d'entreprise, et pourtant la transcription textuelle est exactement la même. C'est cette 'profondeur' que le texte seul détruit."
+  },
+  "solution": {
+    "h2": "Minutes.AI : Texte + Audio = Vérité",
+    "p1": "Nous pensons que l'information sans contexte est dangereuse. C'est pourquoi Minutes.AI n'est pas juste un résumeur, c'est un enregistreur vocal haute fidélité.",
+    "p2": "Nous refusons de jeter les données audio après traitement. En gardant l'enregistrement vocal original lié à la transcription, nous vous permettons de voyager dans le temps.",
+    "features": [
+      "**Lecture contextuelle** : Appuyez sur n'importe quelle phrase pour entendre exactement comment elle a été dite.",
+      "**Analyse du ton** : L'intervenant était-il en colère ou plaisantait-il ? Vérifiez-le instantanément.",
+      "**Archive complète** : Vos minutes sont le résumé ; l'audio est la preuve."
+    ]
+  },
+  "cta": {
+    "h2": "Découvrez l'image complète",
+    "p1": "Ne vous contentez pas d'un texte plat. Découvrez la trinité des archives de réunion modernes : Résumés, Transcriptions complètes et Audio vocal original.",
+    "openBrowser": "Essayer sur le Web",
+    "downloadIOS": "Télécharger l'app iOS"
+  },
+  "meta": { "h2": "Méta", "published": "Publié", "type": "Insight", "category": "Fonctionnalités" }
+}

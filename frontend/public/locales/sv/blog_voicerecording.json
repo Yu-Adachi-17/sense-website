@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Varför röstinspelning är viktigt för Protokoll AI — Fånga atmosfären",
+    "description": "Texttranskriptioner räcker inte. Upptäck varför högkvalitativ röstinspelning är avgörande för att fånga nyanser, känslor och 'vibe' i dina möten med Protokoll AI.",
+    "ogTitle": "Läs inte bara protokollet. Hör ögonblicket.",
+    "ogDescription": "En transkription berättar vad som sades. Röstinspelning berättar hur det kändes. Upplev ljudets djup med Protokoll AI.",
+    "ld": {
+      "headline": "Varför röstinspelning är hjärtat i bra mötesprotokoll",
+      "description": "Protokoll AI kombinerar exakt transkribering med tydlig röstinspelning för att bevara den sanna atmosfären i dina möten."
+    }
+  },
+  "aria": { "home": "Protokoll AI Hem" },
+  "nav": { "blog": "Blogg", "pricing": "Priser", "current": "Röstinspelning" },
+  "hero": {
+    "kicker": "Funktion i fokus",
+    "h1": "Läs inte bara protokollen. Spela upp atmosfären.",
+    "tagline": "AI-transkriberingstjänster finns överallt. Men text ensamt är platt. För att verkligen förstå ett beslut måste du höra rösten bakom det.",
+    "badges": ["Kristallklart ljud", "Synkron uppspelning", "Fånga nyanser"]
+  },
+  "intro": {
+    "h2": "Den saknade pusselbiten i AI-transkribering",
+    "p1": "Notta, Otter, tl;dv, Protokoll AI... marknaden svämmar över av 'AI-mötesassistenter'. Alla är utmärkta på att omvandla tal till text. Men även världens bästa AI missar en avgörande sak när den bara genererar text:",
+    "highlight": "Atmosfären i rummet."
+  },
+  "problem": {
+    "h2": "'Plan A'-paradoxen",
+    "p1": "Föreställ dig att du läser den här raden i ditt mötesprotokoll:",
+    "quote": "“Teamet beslutade enhälligt att gå vidare med Plan A.”",
+    "p2": "På papperet är detta ett faktum. Men vad hände i verkligheten?",
+    "scenarios": [
+      {
+        "title": "Scenario 1: Hög energi",
+        "desc": "Alla var exalterade, skrek 'Ja!' och gjorde high-fives. Drivkraften är ohejdbar."
+      },
+      {
+        "title": "Scenario 2: Motvillig kompromiss",
+        "desc": "Det blev en lång tystnad. Till slut suckade någon: 'Jag antar att Plan A är det enda alternativet som finns kvar...' och de andra nickade bara av trötthet."
+      }
+    ],
+    "summary": "Dessa två scenarier har motsatta betydelser för din affärsstrategi, ändå ser texttranskriptionen exakt likadan ut. Detta är det 'djup' som text ensamt förstör."
+  },
+  "solution": {
+    "h2": "Protokoll AI: Text + Ljud = Sanning",
+    "p1": "Vi anser att information utan kontext är farligt. Därför är Protokoll AI inte bara ett sammanfattningsverktyg – det är en röstinspelare med hög kvalitet.",
+    "p2": "Vi vägrar att kasta bort ljuddata efter bearbetning. Genom att behålla den ursprungliga röstinspelningen kopplad till transkriptionen låter vi dig resa tillbaka i tiden.",
+    "features": [
+      "**Kontextuell uppspelning**: Tryck på vilken mening som helst för att höra exakt hur den sades.",
+      "**Tonanalys**: Var intressenten arg eller skämtade hen? Verifiera det direkt.",
+      "**Komplett arkiv**: Ditt protokoll är sammanfattningen; ljudet är beviset."
+    ]
+  },
+  "cta": {
+    "h2": "Upplev hela bilden",
+    "p1": "Nöj dig inte med platt text. Upplev treenigheten av moderna mötesanteckningar: Sammanfattningar, Fullständiga transkriptioner och Originalljud.",
+    "openBrowser": "Prova på webben",
+    "downloadIOS": "Ladda ner iOS-app"
+  },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Insikt", "category": "Funktioner" }
+}

@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Prečo je nahrávanie hlasu dôležité v AI Zápisnici — Zachyťte atmosféru",
+    "description": "Textové prepisy nestačia. Zistite, prečo je kvalitný záznam hlasu nevyhnutný na zachytenie nuancií, emócií a 'vibe' vašich stretnutí s AI Zápisnicou.",
+    "ogTitle": "Nečítajte len zápisnicu. Počúvajte ten moment.",
+    "ogDescription": "Prepis vám povie, čo bolo povedané. Hlasový záznam vám povie, ako to bolo cítiť. Zažite hĺbku zvuku s AI Zápisnicou.",
+    "ld": {
+      "headline": "Prečo je nahrávanie hlasu srdcom skvelých zápisníc zo stretnutí",
+      "description": "AI Zápisnica kombinuje presný prepis s čistým nahrávaním hlasu, aby sa zachovala skutočná atmosféra vašich stretnutí."
+    }
+  },
+  "aria": { "home": "Domov AI Zápisnica" },
+  "nav": { "blog": "Blog", "pricing": "Cenník", "current": "Nahrávanie Hlasu" },
+  "hero": {
+    "kicker": "Predstavenie funkcie",
+    "h1": "Nečítajte len zápisnice. Prehrajte si atmosféru.",
+    "tagline": "Služby AI prepisu sú všade. Ale samotný text je plochý. Aby ste skutočne pochopili rozhodnutie, musíte počuť hlas, ktorý za ním stojí.",
+    "badges": ["Krištáľovo čistý zvuk", "Synchrónne prehrávanie", "Zachyťte nuansy"]
+  },
+  "intro": {
+    "h2": "Chýbajúci kúsok v AI prepise",
+    "p1": "Notta, Otter, tl;dv, AI Zápisnica... trh je zaplavený 'AI asistentmi pre stretnutia'. Všetci sú vynikajúci v premene reči na text. Ale aj tá najlepšia AI na svete vynecháva jednu kľúčovú vec, keď generuje iba text:",
+    "highlight": "Atmosféru miestnosti."
+  },
+  "problem": {
+    "h2": "Paradox 'Plánu A'",
+    "p1": "Predstavte si, že čítate tento riadok v zápisnici zo stretnutia:",
+    "quote": "“Tím sa jednomyseľne rozhodol pre Plán A.”",
+    "p2": "Na papieri je to fakt. Ale v skutočnosti, čo sa stalo?",
+    "scenarios": [
+      {
+        "title": "Scenár 1: Vysoká energia",
+        "desc": "Všetci boli nadšení, kričali 'Áno!' a dávali si high-fives. Hybná sila je nezastaviteľná."
+      },
+      {
+        "title": "Scenár 2: Neochotný kompromis",
+        "desc": "Nastalo dlhé ticho. Nakoniec si niekto vzdychol: 'Myslím, že Plán A je jediná možnosť, ktorá nám zostala...' a ostatní prikývli len od únavy."
+      }
+    ],
+    "summary": "Tieto dva scenáre majú opačný význam pre vašu obchodnú stratégiu, a predsa textový prepis vyzerá úplne rovnako. Toto je tá 'hĺbka', ktorú samotný text ničí."
+  },
+  "solution": {
+    "h2": "AI Zápisnica: Text + Zvuk = Pravda",
+    "p1": "Veríme, že informácie bez kontextu sú nebezpečné. Preto AI Zápisnica nie je len nástroj na zhrnutie — je to diktafón s vysokou vernosťou.",
+    "p2": "Odmietame zahodiť zvukové dáta po spracovaní. Tým, že uchovávame pôvodný hlasový záznam prepojený s prepisom, vám umožňujeme cestovať v čase.",
+    "features": [
+      "**Kontextové prehrávanie**: Ťuknite na akúkoľvek vetu, aby ste počuli presne, ako bola povedaná.",
+      "**Analýza tónu**: Bol zainteresovaný nahnevaný alebo žartoval? Overte si to okamžite.",
+      "**Kompletný archív**: Vaša zápisnica je zhrnutie; zvuk je dôkaz."
+    ]
+  },
+  "cta": {
+    "h2": "Zažite celkový obraz",
+    "p1": "Uspokojte sa s plochým textom. Zažite trojicu moderných záznamov zo stretnutí: Zhrnutia, Úplné prepisy a Pôvodný hlasový zvuk.",
+    "openBrowser": "Vyskúšať na webe",
+    "downloadIOS": "Stiahnuť iOS aplikáciu"
+  },
+  "meta": { "h2": "Meta", "published": "Publikované", "type": "Náhľad", "category": "Funkcie" }
+}

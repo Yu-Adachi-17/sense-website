@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Perché la registrazione vocale conta nei verbali IA — Catturare l'atmosfera",
+    "description": "Le trascrizioni testuali non bastano. Scopri perché una registrazione vocale di alta qualità è essenziale per catturare le sfumature, le emozioni e il 'vibe' delle tue riunioni con Verbali IA.",
+    "ogTitle": "Non leggere solo il verbale. Ascolta il momento.",
+    "ogDescription": "Una trascrizione ti dice cosa è stato detto. La registrazione vocale ti dice come è stato percepito. Vivi la profondità dell'audio con Verbali IA.",
+    "ld": {
+      "headline": "Perché la registrazione vocale è il cuore dei grandi verbali di riunione",
+      "description": "Verbali IA combina una trascrizione accurata con una registrazione vocale chiara per preservare la vera atmosfera delle tue riunioni."
+    }
+  },
+  "aria": { "home": "Home Verbali IA" },
+  "nav": { "blog": "Blog", "pricing": "Prezzi", "current": "Registrazione Vocale" },
+  "hero": {
+    "kicker": "Funzionalità in evidenza",
+    "h1": "Non leggere solo i verbali. Rivivi l'atmosfera.",
+    "tagline": "I servizi di trascrizione AI sono ovunque. Ma il testo da solo è piatto. Per capire davvero una decisione, devi ascoltare la voce che c'è dietro.",
+    "badges": ["Audio cristallino", "Riproduzione sincronizzata", "Cattura le sfumature"]
+  },
+  "intro": {
+    "h2": "Il pezzo mancante nella trascrizione AI",
+    "p1": "Notta, Otter, tl;dv, Verbali IA... il mercato è inondato di 'Assistenti per riunioni AI'. Sono tutti eccellenti nel trasformare il parlato in testo. Ma anche la migliore IA del mondo perde una cosa cruciale quando genera solo testo:",
+    "highlight": "L'atmosfera della stanza."
+  },
+  "problem": {
+    "h2": "Il paradosso del 'Piano A'",
+    "p1": "Immagina di leggere questa riga nel verbale della tua riunione:",
+    "quote": "“Il team ha deciso all'unanimità di procedere con il Piano A.”",
+    "p2": "Sulla carta, è un fatto. Ma in realtà, cosa è successo?",
+    "scenarios": [
+      {
+        "title": "Scenario 1: Alta energia",
+        "desc": "Tutti erano eccitati, gridavano 'Sì!' e si davano il cinque. Lo slancio è inarrestabile."
+      },
+      {
+        "title": "Scenario 2: Compromesso riluttante",
+        "desc": "C'è stato un lungo silenzio. Alla fine, qualcuno ha sospirato: 'Immagino che il Piano A sia l'unica opzione rimasta...' e gli altri hanno annuito solo per stanchezza."
+      }
+    ],
+    "summary": "Questi due scenari hanno significati opposti per la tua strategia aziendale, eppure la trascrizione testuale appare identica. Questa è la 'profondità' che il testo da solo distrugge."
+  },
+  "solution": {
+    "h2": "Verbali IA: Testo + Audio = Verità",
+    "p1": "Crediamo che l'informazione senza contesto sia pericolosa. Ecco perché Verbali IA non è solo un riassuntore: è un registratore vocale ad alta fedeltà.",
+    "p2": "Ci rifiutiamo di scartare i dati audio dopo l'elaborazione. Mantenendo la registrazione vocale originale collegata alla trascrizione, ti permettiamo di viaggiare nel tempo.",
+    "features": [
+      "**Riproduzione contestuale**: Tocca qualsiasi frase per ascoltare esattamente come è stata detta.",
+      "**Analisi del tono**: L'interlocutore era arrabbiato o stava scherzando? verificalo all'istante.",
+      "**Archivio completo**: Il tuo verbale è il riassunto; l'audio è la prova."
+    ]
+  },
+  "cta": {
+    "h2": "Scopri il quadro completo",
+    "p1": "Non accontentarti di un testo piatto. Scopri la trinità delle moderne registrazioni delle riunioni: Riassunti, Trascrizioni complete e Audio vocale originale.",
+    "openBrowser": "Prova su Web",
+    "downloadIOS": "Scarica app iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Approfondimento", "category": "Funzionalità" }
+}

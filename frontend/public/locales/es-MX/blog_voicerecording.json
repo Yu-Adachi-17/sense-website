@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Por qué importa la grabación de voz en las actas IA — Captura la atmósfera",
+    "description": "Las transcripciones de texto no son suficientes. Descubre por qué una grabación de voz de alta calidad es esencial para capturar los matices, las emociones y la 'vibe' de tus reuniones con Actas IA.",
+    "ogTitle": "No leas solo el acta. Escucha el momento.",
+    "ogDescription": "Una transcripción te dice lo que se dijo. La grabación de voz te dice cómo se sintió. Experimenta la profundidad del audio con Actas IA.",
+    "ld": {
+      "headline": "Por qué la grabación de voz es el corazón de unas buenas actas de reunión",
+      "description": "Actas IA combina una transcripción precisa con una grabación de voz clara para preservar la verdadera atmósfera de tus reuniones."
+    }
+  },
+  "aria": { "home": "Inicio de Actas IA" },
+  "nav": { "blog": "Blog", "pricing": "Precios", "current": "Grabación de voz" },
+  "hero": {
+    "kicker": "Función destacada",
+    "h1": "No leas solo las actas. Reproduce la atmósfera.",
+    "tagline": "Los servicios de transcripción por IA están por todas partes. Pero el texto por sí solo es plano. Para entender realmente una decisión, necesitas escuchar la voz detrás de ella.",
+    "badges": ["Audio cristalino", "Reproducción sincronizada", "Captura de matices"]
+  },
+  "intro": {
+    "h2": "La pieza que falta en la transcripción por IA",
+    "p1": "Notta, Otter, tl;dv, Actas IA... el mercado está inundado de 'Asistentes de reuniones con IA'. Todos son excelentes convirtiendo voz a texto. Pero incluso la mejor IA del mundo pierde algo crucial cuando solo genera texto:",
+    "highlight": "La atmósfera de la sala."
+  },
+  "problem": {
+    "h2": "La paradoja del 'Plan A'",
+    "p1": "Imagina leer esta línea en el acta de tu reunión:",
+    "quote": "“El equipo decidió por unanimidad seguir con el Plan A.”",
+    "p2": "Sobre el papel, esto es un hecho. Pero en realidad, ¿qué pasó?",
+    "scenarios": [
+      {
+        "title": "Escenario 1: Alta energía",
+        "desc": "Todos estaban emocionados, gritando '¡Sí!' y chocando las manos. El impulso es imparable."
+      },
+      {
+        "title": "Escenario 2: Compromiso reacio",
+        "desc": "Hubo un largo silencio. Finalmente, alguien suspiró: 'Supongo que el Plan A es la única opción que queda...' y los demás asintieron solo por fatiga."
+      }
+    ],
+    "summary": "Estos dos escenarios tienen significados opuestos para tu estrategia de negocio, y sin embargo, la transcripción de texto se ve exactamente igual. Esta es la 'profundidad' que el texto por sí solo destruye."
+  },
+  "solution": {
+    "h2": "Actas IA: Texto + Audio = Verdad",
+    "p1": "Creemos que la información sin contexto es peligrosa. Por eso Actas IA no es solo un resumidor, es una grabadora de voz de alta fidelidad.",
+    "p2": "Nos negamos a desechar los datos de audio tras el procesamiento. Al mantener la grabación de voz original vinculada a la transcripción, te permitimos viajar en el tiempo.",
+    "features": [
+      "**Reproducción contextual**: Toca cualquier frase para escuchar exactamente cómo se dijo.",
+      "**Análisis de tono**: ¿El interesado estaba enfadado o bromeando? Verifícalo al instante.",
+      "**Archivo completo**: Tu acta es el resumen; el audio es la prueba."
+    ]
+  },
+  "cta": {
+    "h2": "Experimenta la imagen completa",
+    "p1": "No te conformes con texto plano. Experimenta la trinidad de los registros de reuniones modernos: Resúmenes, Transcripciones completas y Audio de voz original.",
+    "openBrowser": "Probar en Web",
+    "downloadIOS": "Descargar App iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Insight", "category": "Funciones" }
+}

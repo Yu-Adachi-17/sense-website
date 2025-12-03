@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "De ce contează înregistrarea vocală în Proces-verbal AI — Capturarea atmosferei",
+    "description": "Transcrierea textului nu este suficientă. Descoperă de ce înregistrarea vocală de înaltă calitate este esențială pentru a surprinde nuanțele, emoțiile și 'vibe-ul' ședințelor tale cu Proces-verbal AI.",
+    "ogTitle": "Nu citi doar procesul-verbal. Ascultă momentul.",
+    "ogDescription": "O transcriere îți spune ce s-a spus. Înregistrarea vocală îți spune cum s-a simțit. Experimentează profunzimea audio cu Proces-verbal AI.",
+    "ld": {
+      "headline": "De ce înregistrarea vocală este inima proceselor-verbale excelente",
+      "description": "Proces-verbal AI combină transcrierea precisă cu înregistrarea vocală clară pentru a păstra adevărata atmosferă a ședințelor tale."
+    }
+  },
+  "aria": { "home": "Acasă Proces-verbal AI" },
+  "nav": { "blog": "Blog", "pricing": "Prețuri", "current": "Înregistrare Vocală" },
+  "hero": {
+    "kicker": "Funcționalitate în prim-plan",
+    "h1": "Nu citi doar procesele-verbale. Redă atmosfera.",
+    "tagline": "Serviciile de transcriere AI sunt peste tot. Dar textul singur este plat. Pentru a înțelege cu adevărat o decizie, trebuie să auzi vocea din spatele ei.",
+    "badges": ["Audio cristalin", "Redare sincronizată", "Capturează nuanțele"]
+  },
+  "intro": {
+    "h2": "Piesa lipsă din transcrierea AI",
+    "p1": "Notta, Otter, tl;dv, Proces-verbal AI... piața este inundată de 'Asistenți de ședință AI'. Toți excelează la transformarea vorbirii în text. Dar chiar și cea mai bună AI din lume ratează un lucru crucial atunci când generează doar text:",
+    "highlight": "Atmosfera din încăpere."
+  },
+  "problem": {
+    "h2": "Paradoxul 'Planului A'",
+    "p1": "Imaginează-ți că citești acest rând în procesul-verbal al ședinței:",
+    "quote": "“Echipa a decis în unanimitate să continue cu Planul A.”",
+    "p2": "Pe hârtie, acesta este un fapt. Dar în realitate, ce s-a întâmplat?",
+    "scenarios": [
+      {
+        "title": "Scenariul 1: Energie ridicată",
+        "desc": "Toată lumea era entuziasmată, strigând 'Da!' și bătând palma. Impulsul este de neoprit."
+      },
+      {
+        "title": "Scenariul 2: Compromis reticent",
+        "desc": "A urmat o tăcere lungă. În cele din urmă, cineva a oftat: 'Presupun că Planul A este singura opțiune rămasă...' iar ceilalți au dat din cap doar de oboseală."
+      }
+    ],
+    "summary": "Aceste două scenarii au semnificații opuse pentru strategia ta de afaceri, și totuși transcrierea textului arată exact la fel. Aceasta este 'profunzimea' pe care textul singur o distruge."
+  },
+  "solution": {
+    "h2": "Proces-verbal AI: Text + Audio = Adevăr",
+    "p1": "Credem că informația fără context este periculoasă. De aceea, Proces-verbal AI nu este doar un rezumator — este un reportofon de înaltă fidelitate.",
+    "p2": "Refuzăm să aruncăm datele audio după procesare. Păstrând înregistrarea vocală originală legată de transcriere, îți permitem să călătorești în timp.",
+    "features": [
+      "**Redare contextuală**: Atinge orice propoziție pentru a auzi exact cum a fost spusă.",
+      "**Analiza tonului**: Persoana interesată era furioasă sau glumea? Verifică instantaneu.",
+      "**Arhivă completă**: Procesul tău verbal este rezumatul; audio-ul este dovada."
+    ]
+  },
+  "cta": {
+    "h2": "Experimentează imaginea completă",
+    "p1": "Nu te mulțumi cu text plat. Experimentează trinitatea înregistrărilor moderne de ședințe: Rezumate, Transcrieri complete și Audio vocal original.",
+    "openBrowser": "Încearcă pe Web",
+    "downloadIOS": "Descarcă aplicația iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Publicat", "type": "Perspectivă", "category": "Funcționalități" }
+}

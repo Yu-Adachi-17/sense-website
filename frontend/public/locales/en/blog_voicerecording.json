@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Why Voice Recording Matters in AI Meeting Notes — Capturing the Atmosphere",
+    "description": "Text transcripts aren't enough. Discover why high-quality voice recording is essential for capturing the nuance, emotion, and 'vibe' of your meetings with Minutes.AI.",
+    "ogTitle": "Don't Just Read the Minutes. Hear the Moment.",
+    "ogDescription": "A transcript tells you what was said. Voice recording tells you how it was felt. Experience the depth of audio with Minutes.AI.",
+    "ld": {
+      "headline": "Why Voice Recording is the Heart of Great Meeting Notes",
+      "description": "Minutes.AI combines accurate transcription with clear voice recording to preserve the true atmosphere of your meetings."
+    }
+  },
+  "aria": { "home": "Minutes.AI Home" },
+  "nav": { "blog": "Blog", "pricing": "Pricing", "current": "Voice Recording" },
+  "hero": {
+    "kicker": "Feature Spotlight",
+    "h1": "Don't Just Read the Minutes. Replay the Atmosphere.",
+    "tagline": "AI transcription services are everywhere. But text alone is flat. To truly understand a decision, you need to hear the voice behind it.",
+    "badges": ["Crystal Clear Audio", "Sync Playback", "Capture Nuance"]
+  },
+  "intro": {
+    "h2": "The Missing Piece in AI Transcription",
+    "p1": "Notta, Otter, tl;dv, Minutes.AI... the market is flooded with 'AI Meeting Assistants'. They are all excellent at turning speech into text. But even the best AI in the world misses one crucial thing when it only generates text:",
+    "highlight": "The atmosphere of the room."
+  },
+  "problem": {
+    "h2": "The 'Plan A' Paradox",
+    "p1": "Imagine reading this line in your meeting minutes:",
+    "quote": "“The team unanimously decided to go with Plan A.”",
+    "p2": "On paper, this is a fact. But in reality, what actually happened?",
+    "scenarios": [
+      {
+        "title": "Scenario 1: High Energy",
+        "desc": "Everyone was excited, shouting 'Yes!' and high-fiving. The momentum is unstoppable."
+      },
+      {
+        "title": "Scenario 2: Reluctant Compromise",
+        "desc": "There was a long silence. Finally, someone sighed, 'I guess Plan A is the only option left...' and others nodded strictly out of fatigue."
+      }
+    ],
+    "summary": "These two scenarios have opposite meanings for your business strategy, yet the text transcript looks exactly the same. This is the 'depth' of a meeting that text alone destroys."
+  },
+  "solution": {
+    "h2": "Minutes.AI: Text + Audio = Truth",
+    "p1": "We believe that information without context is dangerous. That's why Minutes.AI isn't just a summarizer—it's a high-fidelity voice recorder.",
+    "p2": "We refuse to discard the audio data after processing. By keeping the original voice recording linked to the transcript, we allow you to travel back in time.",
+    "features": [
+      "**Contextual Playback**: Tap any sentence to hear exactly how it was said.",
+      "**Tone Analysis**: Was the stakeholder angry or joking? Verify it instantly.",
+      "**Complete Archive**: Your minutes are the summary; the audio is the proof."
+    ]
+  },
+  "cta": {
+    "h2": "Experience the Full Picture",
+    "p1": "Don't settle for flat text. Experience the trinity of modern meeting records: Summaries, Full Transcripts, and Original Voice Audio.",
+    "openBrowser": "Try on Web",
+    "downloadIOS": "Download iOS App"
+  },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Insight", "category": "Features" }
+}

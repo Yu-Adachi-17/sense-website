@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Tại sao Ghi âm giọng nói quan trọng trong Biên bản AI — Nắm bắt Bầu không khí",
+    "description": "Chỉ văn bản thôi là chưa đủ. Khám phá lý do tại sao ghi âm giọng nói chất lượng cao là điều cần thiết để nắm bắt sắc thái, cảm xúc và 'vibe' của các cuộc họp với Biên bản AI.",
+    "ogTitle": "Đừng chỉ đọc biên bản. Hãy nghe lại khoảnh khắc.",
+    "ogDescription": "Bản chép lời cho bạn biết những gì đã được nói. Ghi âm giọng nói cho bạn biết cảm xúc như thế nào. Trải nghiệm chiều sâu của âm thanh với Biên bản AI.",
+    "ld": {
+      "headline": "Tại sao ghi âm giọng nói là trái tim của những biên bản cuộc họp tuyệt vời",
+      "description": "Biên bản AI kết hợp khả năng chuyển đổi văn bản chính xác với ghi âm giọng nói rõ ràng để bảo tồn bầu không khí thực sự của các cuộc họp."
+    }
+  },
+  "aria": { "home": "Trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "pricing": "Giá cả", "current": "Ghi âm" },
+  "hero": {
+    "kicker": "Tính năng nổi bật",
+    "h1": "Đừng chỉ đọc biên bản. Hãy nghe lại bầu không khí.",
+    "tagline": "Dịch vụ chuyển đổi giọng nói thành văn bản bằng AI có ở khắp mọi nơi. Nhưng chỉ văn bản thôi thì rất phẳng lặng. Để thực sự hiểu một quyết định, bạn cần nghe giọng nói đằng sau nó.",
+    "badges": ["Âm thanh rõ nét", "Phát lại đồng bộ", "Nắm bắt sắc thái"]
+  },
+  "intro": {
+    "h2": "Mảnh ghép còn thiếu trong chuyển đổi văn bản AI",
+    "p1": "Notta, Otter, tl;dv, Biên bản AI... thị trường tràn ngập các 'Trợ lý cuộc họp AI'. Tất cả đều xuất sắc trong việc chuyển đổi giọng nói thành văn bản. Nhưng ngay cả AI tốt nhất thế giới cũng bỏ lỡ một điều quan trọng khi chỉ tạo ra văn bản:",
+    "highlight": "Bầu không khí trong phòng."
+  },
+  "problem": {
+    "h2": "Nghịch lý 'Kế hoạch A'",
+    "p1": "Hãy tưởng tượng bạn đọc dòng này trong biên bản cuộc họp:",
+    "quote": "“Cả nhóm nhất trí quyết định tiến hành Kế hoạch A.”",
+    "p2": "Trên giấy tờ, đây là một sự thật. Nhưng trên thực tế, chuyện gì đã xảy ra?",
+    "scenarios": [
+      {
+        "title": "Kịch bản 1: Năng lượng cao",
+        "desc": "Mọi người đều hào hứng, hét lên 'Đồng ý!' và đập tay nhau. Động lực không thể ngăn cản."
+      },
+      {
+        "title": "Kịch bản 2: Thỏa hiệp miễn cưỡng",
+        "desc": "Có một sự im lặng kéo dài. Cuối cùng, ai đó thở dài: 'Tôi đoán Kế hoạch A là lựa chọn duy nhất còn lại...' và những người khác gật đầu chỉ vì mệt mỏi."
+      }
+    ],
+    "summary": "Hai kịch bản này có ý nghĩa trái ngược nhau đối với chiến lược kinh doanh của bạn, nhưng bản chép lời văn bản trông hoàn toàn giống nhau. Đây là 'chiều sâu' mà chỉ văn bản thôi sẽ phá hủy."
+  },
+  "solution": {
+    "h2": "Biên bản AI: Văn bản + Âm thanh = Sự thật",
+    "p1": "Chúng tôi tin rằng thông tin không có ngữ cảnh là nguy hiểm. Đó là lý do tại sao Biên bản AI không chỉ là một công cụ tóm tắt—nó là một máy ghi âm độ trung thực cao.",
+    "p2": "Chúng tôi từ chối vứt bỏ dữ liệu âm thanh sau khi xử lý. Bằng cách giữ bản ghi âm gốc liên kết với bản chép lời, chúng tôi cho phép bạn du hành ngược thời gian.",
+    "features": [
+      "**Phát lại theo ngữ cảnh**: Nhấn vào bất kỳ câu nào để nghe chính xác cách nó được nói.",
+      "**Phân tích tông giọng**: Người liên quan đang tức giận hay đang nói đùa? Xác minh ngay lập tức.",
+      "**Lưu trữ hoàn chỉnh**: Biên bản của bạn là bản tóm tắt; âm thanh là bằng chứng."
+    ]
+  },
+  "cta": {
+    "h2": "Trải nghiệm bức tranh toàn cảnh",
+    "p1": "Đừng hài lòng với văn bản phẳng lặng. Trải nghiệm bộ ba của hồ sơ cuộc họp hiện đại: Tóm tắt, Bản chép lời đầy đủ và Âm thanh giọng nói gốc.",
+    "openBrowser": "Thử trên Web",
+    "downloadIOS": "Tải ứng dụng iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Đã xuất bản", "type": "Thông tin", "category": "Tính năng" }
+}

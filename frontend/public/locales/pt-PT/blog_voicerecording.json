@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Por que a gravação de voz é importante na Ata AI — Capturando a atmosfera",
+    "description": "As transcrições de texto não são suficientes. Descubra por que a gravação de voz de alta qualidade é essencial para capturar as nuances, as emoções e a 'vibe' das suas reuniões com a Ata AI.",
+    "ogTitle": "Não leia apenas a ata. Ouça o momento.",
+    "ogDescription": "Uma transcrição diz-lhe o que foi dito. A gravação de voz diz-lhe como foi sentido. Experimente a profundidade do áudio com a Ata AI.",
+    "ld": {
+      "headline": "Por que a gravação de voz é o coração das grandes atas de reunião",
+      "description": "A Ata AI combina transcrição precisa com gravação de voz clara para preservar a verdadeira atmosfera das suas reuniões."
+    }
+  },
+  "aria": { "home": "Início Ata AI" },
+  "nav": { "blog": "Blog", "pricing": "Preços", "current": "Gravação de Voz" },
+  "hero": {
+    "kicker": "Destaque da Funcionalidade",
+    "h1": "Não leia apenas as atas. Reproduza a atmosfera.",
+    "tagline": "Os serviços de transcrição por IA estão por todo o lado. Mas o texto por si só é plano. Para compreender realmente uma decisão, precisa de ouvir a voz por trás dela.",
+    "badges": ["Áudio cristalino", "Reprodução sincronizada", "Captura de nuances"]
+  },
+  "intro": {
+    "h2": "A peça que falta na transcrição de IA",
+    "p1": "Notta, Otter, tl;dv, Ata AI... o mercado está inundado de 'Assistentes de Reunião IA'. Todos são excelentes a transformar a fala em texto. Mas mesmo a melhor IA do mundo perde uma coisa crucial quando gera apenas texto:",
+    "highlight": "A atmosfera da sala."
+  },
+  "problem": {
+    "h2": "O Paradoxo do 'Plano A'",
+    "p1": "Imagine ler esta linha na ata da sua reunião:",
+    "quote": "“A equipa decidiu unanimemente avançar com o Plano A.”",
+    "p2": "No papel, isto é um facto. Mas na realidade, o que aconteceu?",
+    "scenarios": [
+      {
+        "title": "Cenário 1: Alta energia",
+        "desc": "Todos estavam entusiasmados, a gritar 'Sim!' e a dar 'high-fives'. O ímpeto é imparável."
+      },
+      {
+        "title": "Cenário 2: Compromisso relutante",
+        "desc": "Houve um longo silêncio. Finalmente, alguém suspirou: 'Suponho que o Plano A seja a única opção que resta...' e os outros acenaram apenas por cansaço."
+      }
+    ],
+    "summary": "Estes dois cenários têm significados opostos para a sua estratégia de negócio, mas a transcrição de texto parece exatamente a mesma. Esta é a 'profundidade' que o texto por si só destrói."
+  },
+  "solution": {
+    "h2": "Ata AI: Texto + Áudio = Verdade",
+    "p1": "Acreditamos que a informação sem contexto é perigosa. É por isso que a Ata AI não é apenas um resumidor — é um gravador de voz de alta fidelidade.",
+    "p2": "Recusamo-nos a deitar fora os dados de áudio após o processamento. Ao manter a gravação de voz original ligada à transcrição, permitimos-lhe viajar no tempo.",
+    "features": [
+      "**Reprodução contextual**: Toque em qualquer frase para ouvir exatamente como foi dita.",
+      "**Análise de tom**: O interveniente estava zangado ou a brincar? Verifique instantaneamente.",
+      "**Arquivo completo**: A sua ata é o resumo; o áudio é a prova."
+    ]
+  },
+  "cta": {
+    "h2": "Experimente a imagem completa",
+    "p1": "Não se contente com texto plano. Experimente a trindade dos registos de reuniões modernos: Resumos, Transcrições completas e Áudio de voz original.",
+    "openBrowser": "Experimentar na Web",
+    "downloadIOS": "Descarregar App iOS"
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Insight", "category": "Funcionalidades" }
+}

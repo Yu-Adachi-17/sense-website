@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Zašto je snimanje glasa važno za AI zapisnike — Uhvatite atmosferu",
+    "description": "Tekstualni transkripti nisu dovoljni. Otkrijte zašto je visokokvalitetno snimanje glasa ključno za hvatanje nijansi, emocija i 'vibra' vaših sastanaka uz AI Zapisnik.",
+    "ogTitle": "Nemojte samo čitati zapisnik. Poslušajte trenutak.",
+    "ogDescription": "Transkript vam govori što je rečeno. Snimanje glasa vam govori kako se to osjećalo. Doživite dubinu zvuka uz AI Zapisnik.",
+    "ld": {
+      "headline": "Zašto je snimanje glasa srce izvrsnih zapisnika sa sastanaka",
+      "description": "AI Zapisnik kombinira preciznu transkripciju s jasnim snimanjem glasa kako bi sačuvao pravu atmosferu vaših sastanaka."
+    }
+  },
+  "aria": { "home": "AI Zapisnik Početna" },
+  "nav": { "blog": "Blog", "pricing": "Cijene", "current": "Snimanje glasa" },
+  "hero": {
+    "kicker": "Istaknuta značajka",
+    "h1": "Nemojte samo čitati zapisnik. Reproducirajte atmosferu.",
+    "tagline": "Usluge AI transkripcije su posvuda. Ali sam tekst je ravan. Da biste doista razumjeli odluku, morate čuti glas koji stoji iza nje.",
+    "badges": ["Kristalno čist zvuk", "Sinkronizirana reprodukcija", "Uhvatite nijanse"]
+  },
+  "intro": {
+    "h2": "Dio koji nedostaje u AI transkripciji",
+    "p1": "Notta, Otter, tl;dv, AI Zapisnik... tržište je preplavljeno 'AI asistentima za sastanke'. Svi su izvrsni u pretvaranju govora u tekst. Ali čak i najbolji AI na svijetu propušta jednu ključnu stvar kada generira samo tekst:",
+    "highlight": "Atmosferu u prostoriji."
+  },
+  "problem": {
+    "h2": "Paradoks 'Plana A'",
+    "p1": "Zamislite da čitate ovaj redak u svom zapisniku sa sastanka:",
+    "quote": "“Tim je jednoglasno odlučio ići s Planom A.”",
+    "p2": "Na papiru, to je činjenica. Ali u stvarnosti, što se zapravo dogodilo?",
+    "scenarios": [
+      {
+        "title": "Scenarij 1: Visoka energija",
+        "desc": "Svi su bili uzbuđeni, vikali 'Da!' i davali petice. Zamah je nezaustavljiv."
+      },
+      {
+        "title": "Scenarij 2: Nevoljki kompromis",
+        "desc": "Nastupila je duga tišina. Napokon je netko uzdahnuo: 'Pretpostavljam da je Plan A jedina preostala opcija...' a ostali su kimnuli samo od umora."
+      }
+    ],
+    "summary": "Ova dva scenarija imaju suprotna značenja za vašu poslovnu strategiju, a ipak tekstualni transkript izgleda potpuno isto. To je ta 'dubina' koju sam tekst uništava."
+  },
+  "solution": {
+    "h2": "AI Zapisnik: Tekst + Zvuk = Istina",
+    "p1": "Vjerujemo da su informacije bez konteksta opasne. Zato AI Zapisnik nije samo alat za sažimanje — to je diktafon visoke vjernosti.",
+    "p2": "Odbijamo odbaciti audio podatke nakon obrade. Zadržavanjem izvorne snimke glasa povezane s transkriptom, omogućujemo vam putovanje kroz vrijeme.",
+    "features": [
+      "**Kontekstualna reprodukcija**: Dodirnite bilo koju rečenicu da biste čuli točno kako je izgovorena.",
+      "**Analiza tona**: Je li dionik bio ljut ili se šalio? Provjerite to odmah.",
+      "**Kompletna arhiva**: Vaš zapisnik je sažetak; zvuk je dokaz."
+    ]
+  },
+  "cta": {
+    "h2": "Doživite potpunu sliku",
+    "p1": "Nemojte se zadovoljiti ravnim tekstom. Doživite trojstvo modernih zapisa sa sastanaka: Sažetke, Potpune transkripte i Izvorni glasovni zvuk.",
+    "openBrowser": "Isprobajte na webu",
+    "downloadIOS": "Preuzmite iOS aplikaciju"
+  },
+  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Uvid", "category": "Značajke" }
+}
