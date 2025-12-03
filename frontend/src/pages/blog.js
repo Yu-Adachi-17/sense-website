@@ -4,7 +4,12 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import HomeIcon from "./homeIcon";
+
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -397,7 +402,6 @@ const I18N = {
   },
 };
 
-
 /* ===================== UI bits ===================== */
 function Badge({ children, active = false, onClick }) {
   return (
@@ -418,8 +422,6 @@ function Badge({ children, active = false, onClick }) {
 function localeWithExtensions(loc) {
   if (!loc) return undefined;
   const base = String(loc).replace(/-u-.*$/i, ""); // strip existing -u- extensions
-  // Use gregorian calendar + latin digits to keep SSR/CSR consistent.
-  // If you want Eastern Arabic numerals, change nu-latn -> nu-arab.
   return `${base}-u-ca-gregory-nu-latn`;
 }
 
@@ -452,12 +454,13 @@ function Card({ post, locale }) {
       className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur transition-colors hover:bg-white/10"
     >
       <div className="relative aspect-[16/9] w-full overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           alt={post.title}
           src={coverSrc}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           loading="lazy"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
       </div>
@@ -530,9 +533,7 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
         <meta property="og:image" content={OG_IMG} />
         {/* hreflang（最低限：現在と言語無し） */}
         <link rel="alternate" hrefLang="x-default" href={`${siteUrl}/blog`} />
-        {locale && (
-          <link rel="alternate" hrefLang={locale} href={canonical} />
-        )}
+        {locale && <link rel="alternate" hrefLang={locale} href={canonical} />}
       </Head>
 
       <div
@@ -541,9 +542,11 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
         {/* Header */}
         <header className="mx-auto max-w-7xl px-6 pt-6">
           <Link
-            href={locale && defaultLocale && locale !== defaultLocale ? `/${locale}` : "/"}
+            href={
+              locale && defaultLocale && locale !== defaultLocale ? `/${locale}` : "/"
+            }
             aria-label={L.backHome}
-            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg白/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
           >
             <HomeIcon size={28} />
           </Link>
@@ -560,7 +563,11 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
             {/* Tags */}
             <div className="mt-8 flex flex-wrap gap-3">
               {tags.map((t) => (
-                <Badge key={t} active={activeTag === t} onClick={() => setActiveTag(t)}>
+                <Badge
+                  key={t}
+                  active={activeTag === t}
+                  onClick={() => setActiveTag(t)}
+                >
                   {t === "All" ? L.allTags : t}
                 </Badge>
               ))}
@@ -586,15 +593,15 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
               (activeTag === "All"
                 ? posts.length
                 : posts.filter((p) => p.tags?.includes(activeTag)).length) && (
-              <div className="mt-10 flex justify-center">
-                <button
-                  onClick={() => setLimit((v) => v + 9)}
-                  className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
-                >
-                  {L.loadMore}
-                </button>
-              </div>
-            )}
+                <div className="mt-10 flex justify-center">
+                  <button
+                    onClick={() => setLimit((v) => v + 9)}
+                    className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+                  >
+                    {L.loadMore}
+                  </button>
+                </div>
+              )}
           </div>
         </section>
       </div>
@@ -603,9 +610,6 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
 }
 
 /* ===================== Build-time: read markdown from /content/blog ===================== */
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 
 function toISO(v, fallbackNow = false) {
   if (!v && fallbackNow) return new Date().toISOString();
@@ -710,7 +714,10 @@ export async function getStaticProps({ locale, defaultLocale }) {
       updatedAt: toISO(data.updatedAt, false),
       excerpt: data.excerpt || (content ? content.slice(0, 180) : ""),
       coverImage,
-      tags: Array.isArray(data.tags) && data.tags.length ? data.tags : ["Articles"],
+      tags:
+        Array.isArray(data.tags) && data.tags.length
+          ? data.tags
+          : ["Articles"],
       href,
     });
   }
@@ -728,8 +735,12 @@ export async function getStaticProps({ locale, defaultLocale }) {
     // Frontmatterが薄いときは i18n JSON（public/locales/<loc>/blog_<dir>.json）から補完
     const localesBase = path.join(process.cwd(), "public", "locales");
     const j =
-      readI18nJsonFallback(localesBase, locale || "en", defaultLocale || "en", `blog_${dir}.json`) ||
-      {};
+      readI18nJsonFallback(
+        localesBase,
+        locale || "en",
+        defaultLocale || "en",
+        `blog_${dir}.json`
+      ) || {};
     let title = (data?.title || j?.hero?.h1 || dir).toString().trim();
     let excerpt = (data?.excerpt || j?.hero?.tagline || "").toString().trim();
 
@@ -746,7 +757,10 @@ export async function getStaticProps({ locale, defaultLocale }) {
       updatedAt: toISO(data?.updatedAt, false),
       excerpt: excerpt || (content ? content.slice(0, 180) : ""),
       coverImage,
-      tags: Array.isArray(data?.tags) && data.length ? data.tags : ["Articles"],
+      tags:
+        Array.isArray(data?.tags) && data.tags.length
+          ? data.tags
+          : ["Articles"],
       href,
     });
   }
@@ -785,7 +799,12 @@ export async function getStaticProps({ locale, defaultLocale }) {
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return {
-    props: { posts, siteUrl, locale: locale || null, defaultLocale: defaultLocale || null },
+    props: {
+      posts,
+      siteUrl,
+      locale: locale || null,
+      defaultLocale: defaultLocale || null,
+    },
     revalidate: 600,
   };
 }
