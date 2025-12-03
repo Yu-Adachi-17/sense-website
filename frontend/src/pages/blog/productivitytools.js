@@ -399,7 +399,7 @@ export default function BlogProductivityTools() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_productivity"], i18nConfig)),
+      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_productivitytools"], i18nConfig)),
     },
   };
 }
