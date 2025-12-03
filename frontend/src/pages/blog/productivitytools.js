@@ -73,7 +73,7 @@ const EN_FALLBACK = {
       border: "border-cyan-500/20"
     },
     {
-      name: "4. Canva (Magic Studio)",
+      "name: "4. Canva (Magic Studio)",
       role: "Best for: Visuals & Slides",
       desc: "You don't need to be a designer. Canva's AI features let you generate images, resize assets for social media, and even build entire slide decks from a text prompt.",
       icon: "palette",
@@ -115,7 +115,7 @@ const EN_FALLBACK = {
 };
 /* ---------- end of fallback block ---------- */
 
-/* ---------- Helpers (Same as previous file) ---------- */
+/* ---------- Helpers ---------- */
 const getPath = (obj, path) =>
   path.split(".").reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
 
@@ -191,7 +191,7 @@ const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=world.sens
 
 export default function BlogProductivityTools() {
   const router = useRouter();
-  const { txs, txa } = useTx("blog_productivitytools"); // New namespace
+  const { txs, txa } = useTx("blog_productivitytools");
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical =
@@ -212,7 +212,6 @@ export default function BlogProductivityTools() {
         <meta property="og:title" content={txs("seo.ogTitle")} />
         <meta property="og:description" content={txs("seo.ogDescription")} />
         <meta property="og:url" content={canonical} />
-        {/* Placeholder image for OG */}
         <meta property="og:image" content={`${siteUrl}/images/mainscreen.png`} />
 
         <script
@@ -329,7 +328,7 @@ export default function BlogProductivityTools() {
                     
                     {/* Visual for App */}
                     <div className="w-full sm:w-1/3 flex-shrink-0">
-                        <div className="rounded-2xl border border-white/10 bg-black/30 p-2 rotate-1 shadow-2xl">
+                        <div className="rounded-2xl border border-white/10 bg-black/30 p-2 shadow-2xl">
                              <img
                                 src="/images/mainscreen.png"
                                 alt="Minutes.AI App Screen"
