@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Acasă Proces-verbal AI" },
+  "nav": { "blog": "Blog", "cost": "Analiza Costurilor" },
+  "hero": {
+    "kicker": "Ghid de Eficiență a Costurilor",
+    "h1": "Costul real al proceselor-verbale: Plătiți prea mult?",
+    "tagline": "Majoritatea instrumentelor de productivitate își ascund costul real în spatele unor taxe lunare pe care rareori le utilizați pe deplin. Iată o privire transparentă asupra costului Proces-verbal AI în comparație cu timpul dvs. și alte instrumente.",
+    "subtag": "Nu mai plătiți 'chirie' pentru software. Plătiți doar pentru valoarea pe care o utilizați efectiv."
+  },
+  "intro": {
+    "h2": "Costul ascuns al \"Taxelor Lunare Fixe\"",
+    "p1": "Când căutați costul notițelor AI, vedeți de obicei un tarif lunar fix (ex: 30 $/lună). Dar dacă aveți doar 3 ședințe în acea lună, **costul dvs. real per ședință** este de 10 $. Asta este scump.",
+    "p2": "Am creat Proces-verbal AI pentru a corecta această ineficiență cu un model care vă respectă portofelul."
+  },
+  "breakdown": {
+    "h2": "Defalcarea Costurilor: Pachete de Timp vs. Abonamente",
+    "note": "Oferim două moduri de plată, în funcție de frecvența dvs. Iată analiza eficienței costurilor pentru fiecare.",
+    "packTitle": "Opțiunea A: Abordarea \"Plătești cât folosești\" (Cel mai bun ROI)",
+    "packDesc": "Ideal dacă programul ședințelor variază. Cumpărați minute care **nu expiră niciodată**. Zero bani irosiți.",
+    "packMetric": "Eficiență: Aprox. 0,50 $ - 1,00 $ pe oră de înregistrare",
+    "subTitle": "Opțiunea B: Abonament \"Power User\"",
+    "subDesc": "Ideal dacă înregistrați zilnic. Cu cât înregistrați mai mult, cu atât devine mai ieftin.",
+    "subMetric": "Eficiență: Utilizare nelimitată pentru un plafon fix"
+  },
+  "roi": {
+    "h2": "Comparație ROI: AI vs. Om vs. Concurenți",
+    "lead": "Cât costă de fapt transcrierea unei ședințe de 1 oră? Să ne uităm la cifre.",
+    "tableHead": ["Metodă", "Cost Est. pentru 1 Oră", "Cost Timp (Munca dvs.)", "Riscuri Ascunse"],
+    "rows": [
+      { "method": "Om / Dvs. înșivă", "cost": "0 $ (tehnic)", "labor": "1-2 ore de tastare", "risk": "Cost de oportunitate ridicat. Nu vă faceți munca reală." },
+      { "method": "Serviciu Uman", "cost": "60 $ - 100 $", "labor": "Zero", "risk": "Foarte scump. Îngrijorări privind confidențialitatea la partajarea audio." },
+      { "method": "Abonament AI Lunar Tipic", "cost": "15 $ - 30 $ / lună", "labor": "Scăzut", "risk": "Cost irecuperabil. Plătiți chiar dacă aveți zero ședințe." },
+      { "method": "Proces-verbal AI (Pachet Timp)", "cost": "~0,60 $ (via Pachet Light)", "labor": "Scăzut", "risk": "Niciunul. Minutele nu expiră niciodată." }
+    ]
+  },
+  "value": {
+    "h2": "Pentru ce plătesc de fapt?",
+    "p1": "Costul acoperă mai mult decât simpla transformare a vocii în text. Acoperă inteligența care vă structurează datele.",
+    "items": [
+      "**Costuri de Securitate:** Nu vindem datele dvs. Ne plătiți pentru a vă păstra datele private.",
+      "**Modele de Top:** Folosim modele premium (Whisper, GPT-4o, Gemini Pro) care au costuri API mai mari, dar oferă o precizie lizibilă.",
+      "**Stocare Cloud:** Găzduirea securizată pentru audio și transcrieri este inclusă în preț."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Întrebări Frecvente despre Costuri",
+    "items": [
+      { "q": "Există taxe de configurare ascunse?", "a": "Nu. Prețul pe care îl vedeți pentru Pachetul de Timp sau Abonament este prețul final (excluzând TVA/taxe locale)." },
+      { "q": "De ce Pachetul de Timp este considerat 'risc mai mic'?", "a": "Pentru că elimină 'oboseala abonamentelor'. Dacă nu folosiți aplicația timp de 3 luni, pierdeți 0 $. Minutele dvs. vă așteaptă." },
+      { "q": "Versiunea gratuită este chiar gratuită?", "a": "Da. 'Biletul Zilnic' vă oferă 3 minute de înregistrare/procesare în fiecare zi la un cost de 0 $. Excelent pentru note vocale rapide." },
+      { "q": "Cum se compară costul Anual cu cel Lunar?", "a": "Plata anuală (149,99 $) scade costul lunar efectiv la aproximativ 12,50 $, comparativ cu planul lunar de 16,99 $. Aceasta este o economie de ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Sunteți gata să nu mai irosiți bani pe abonamente goale?",
+    "button": "Verifică Prețurile Actuale",
+    "sub": "Începeți cu un pachet de probă de 1,99 $. Cel mai mic risc din industrie."
+  },
+  "meta": { "h2": "Meta", "published": "Publicat", "type": "Analiză", "category": "Cost și ROI" },
+  "seo": {
+    "title": "Analiza Costurilor Proces-verbal AI (2025) — ROI Real",
+    "description": "Merită costul un asistent AI? Defalcăm 'Costul per Ședință' al Proces-verbal AI vs. transcrierea umană și abonamentele lunare.",
+    "ogTitle": "Costul Real al Proceselor-verbale: AI vs Om (Ghid 2025)",
+    "ogDescription": "Îngrijorat de costul instrumentelor AI? Analizăm costul real al Proces-verbal AI. Vedeți de ce modelul nostru economisește bani.",
+    "ld": { "headline": "Ghid Costuri și ROI Proces-verbal AI (2025)", "description": "Defalcarea costurilor proceselor-verbale de ședință. Comparație Pachete de Timp vs. Abonamente." }
+  }
+}

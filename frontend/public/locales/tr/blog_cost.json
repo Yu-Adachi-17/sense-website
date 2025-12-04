@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Tutanakları AI Anasayfa" },
+  "nav": { "blog": "Blog", "cost": "Maliyet Analizi" },
+  "hero": {
+    "kicker": "Maliyet Verimliliği Rehberi",
+    "h1": "Toplantı Tutanaklarının Gerçek Maliyeti: Fazla mı Ödüyorsunuz?",
+    "tagline": "Çoğu üretkenlik aracı, gerçek maliyetini nadiren tam olarak kullandığınız aylık ücretlerin arkasına saklar. İşte Tutanakları AI'nın maliyetine, zamanınıza ve diğer araçlara kıyasla şeffaf bir bakış.",
+    "subtag": "Yazılım için 'kira' ödemeyi bırakın. Sadece gerçekten kullandığınız değer için ödeme yapın."
+  },
+  "intro": {
+    "h2": "\"Sabit Aylık Ücretlerin\" gizli maliyeti",
+    "p1": "Yapay zeka not tutucuların maliyetini aradığınızda, genellikle sabit bir aylık ücret (örneğin 30$/ay) görürsünüz. Ancak o ay sadece 3 toplantınız varsa, **toplantı başına gerçek maliyetiniz** 10$'dır. Bu pahalıdır.",
+    "p2": "Tutanakları AI'yı, cüzdanınıza saygı duyan bir modelle bu verimsizliği düzeltmek için geliştirdik."
+  },
+  "breakdown": {
+    "h2": "Maliyet Dökümü: Zaman Paketleri vs. Abonelikler",
+    "note": "Sıklığınıza bağlı olarak iki ödeme yöntemi sunuyoruz. İşte her biri için maliyet verimliliği analizi.",
+    "packTitle": "Seçenek A: \"Kullandıkça Öde\" Yaklaşımı (En İyi ROI)",
+    "packDesc": "Toplantı programınız değişkenlik gösteriyorsa idealdir. **Asla süresi dolmayan** dakikalar satın alırsınız. Boşa giden para yok.",
+    "packMetric": "Verimlilik: Kayıt saati başına yaklaşık $0.50 - $1.00",
+    "subTitle": "Seçenek B: \"Power User\" Aboneliği",
+    "subDesc": "Günlük kayıt yapıyorsanız idealdir. Ne kadar çok kaydederseniz, o kadar ucuzlar.",
+    "subMetric": "Verimlilik: Sabit bir tavan fiyatla sınırsız kullanım"
+  },
+  "roi": {
+    "h2": "ROI Karşılaştırması: Yapay Zeka vs. İnsan vs. Rakipler",
+    "lead": "1 saatlik bir toplantıyı deşifre etmek gerçekte ne kadara mal olur? Rakamlara bakalım.",
+    "tableHead": ["Yöntem", "1 Saat için Tahmini Maliyet", "Zaman Maliyeti (Sizin emeğiniz)", "Gizli Riskler"],
+    "rows": [
+      { "method": "İnsan / Kendiniz", "cost": "$0 (teknik olarak)", "labor": "1-2 saat yazma", "risk": "Yüksek fırsat maliyeti. Asıl işinizi yapamıyorsunuz." },
+      { "method": "İnsan Hizmeti", "cost": "$60 - $100", "labor": "Sıfır", "risk": "Çok pahalı. Ses paylaşımında gizlilik endişeleri." },
+      { "method": "Tipik Aylık AI Aboneliği", "cost": "$15 - $30 / ay", "labor": "Düşük", "risk": "Batık maliyet. Hiç toplantınız olmasa bile ödeme yaparsınız." },
+      { "method": "Tutanakları AI (Zaman Paketi)", "cost": "~$0.60 (Light Paket ile)", "labor": "Düşük", "risk": "Yok. Dakikaların süresi asla dolmaz." }
+    ]
+  },
+  "value": {
+    "h2": "Aslında ne için ödeme yapıyorum?",
+    "p1": "Maliyet, sadece sesi metne dönüştürmekten fazlasını kapsar. Verilerinizi yapılandıran zekayı kapsar.",
+    "items": [
+      "**Güvenlik Maliyetleri:** Verilerinizi satmıyoruz. Verilerinizi gizli tutmamız için bize ödeme yapıyorsunuz.",
+      "**Üst Düzey Modeller:** Daha yüksek API maliyetleri olan ancak okunabilir doğruluk sağlayan premium modeller (Whisper, GPT-4o, Gemini Pro) kullanıyoruz.",
+      "**Bulut Depolama:** Ses ve dökümleriniz için güvenli barındırma fiyata dahildir."
+    ]
+  },
+  "faq": {
+    "h2": "SSS — Maliyet Hakkında Sıkça Sorulan Sorular",
+    "items": [
+      { "q": "Gizli kurulum ücretleri var mı?", "a": "Hayır. Zaman Paketi veya Abonelik için gördüğünüz fiyat son fiyattır (KDV/yerel vergiler hariç)." },
+      { "q": "Neden Zaman Paketi 'daha düşük riskli' kabul edilir?", "a": "Çünkü 'abonelik yorgunluğunu' ortadan kaldırır. Uygulamayı 3 ay kullanmazsanız, 0$ kaybedersiniz. Dakikalarınız sizi bekler." },
+      { "q": "Ücretsiz sürüm gerçekten ücretsiz mi?", "a": "Evet. 'Günlük Bilet', size her gün 0$ maliyetle 3 dakikalık kayıt/işleme hakkı verir. Hızlı sesli notlar için harikadır." },
+      { "q": "Yıllık maliyet Aylık maliyetle nasıl karşılaştırılır?", "a": "Yıllık ödeme yapmak ($149.99), aylık plana ($16.99) kıyasla efektif aylık maliyeti yaklaşık $12.50'a düşürür. Bu ~%26 tasarruftur." }
+    ]
+  },
+  "cta": {
+    "text": "Boş aboneliklere para harcamayı bırakmaya hazır mısınız?",
+    "button": "Güncel Fiyatları Kontrol Et",
+    "sub": "$1.99'lık deneme paketiyle başlayın. Sektördeki en düşük risk."
+  },
+  "meta": { "h2": "Meta", "published": "Yayınlandı", "type": "Analiz", "category": "Maliyet ve ROI" },
+  "seo": {
+    "title": "Tutanakları AI Maliyet Analizi (2025) — Gerçek ROI",
+    "description": "Bir AI not tutucu maliyetine değer mi? Tutanakları AI'nın 'Toplantı Başına Maliyetini', insan transkripsiyonu ve aylık aboneliklerle karşılaştırıyoruz.",
+    "ogTitle": "Toplantı Tutanaklarının Gerçek Maliyeti: AI vs İnsan (2025 Rehberi)",
+    "ogDescription": "AI araçlarının maliyeti hakkında endişeli misiniz? Tutanakları AI'nın gerçek maliyetini analiz ediyoruz. Modelimizin neden tasarruf sağladığını görün.",
+    "ld": { "headline": "Tutanakları AI Maliyet ve ROI Rehberi (2025)", "description": "Toplantı tutanağı maliyetlerinin dökümü. Zaman Paketleri vs. Abonelikler karşılaştırması." }
+  }
+}

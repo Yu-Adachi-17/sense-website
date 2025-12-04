@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Notulen AI Home" },
+  "nav": { "blog": "Blog", "cost": "Kostenanalyse" },
+  "hero": {
+    "kicker": "Gids voor Kostenefficiëntie",
+    "h1": "De werkelijke kosten van notulen: Betaalt u te veel?",
+    "tagline": "De meeste productiviteitstools verbergen hun werkelijke kosten achter maandelijkse kosten die u zelden volledig benut. Hier is een transparante blik op de kosten van Notulen AI in vergelijking met uw tijd en andere tools.",
+    "subtag": "Stop met het betalen van 'huur' voor software. Betaal alleen voor de waarde die u daadwerkelijk gebruikt."
+  },
+  "intro": {
+    "h2": "De verborgen kosten van \"Vaste Maandelijkse Kosten\"",
+    "p1": "Als u zoekt naar de kosten van AI-notulisten, ziet u meestal een vast maandbedrag (bijv. $30/maand). Maar als u die maand slechts 3 vergaderingen heeft, zijn uw **werkelijke kosten per vergadering** $10. Dat is duur.",
+    "p2": "We hebben Notulen AI gebouwd om deze inefficiëntie op te lossen met een model dat uw portemonnee respecteert."
+  },
+  "breakdown": {
+    "h2": "Kostenoverzicht: Tijdbundels vs. Abonnementen",
+    "note": "We bieden twee betaalmethoden, afhankelijk van uw frequentie. Hier is de kostenefficiëntie-analyse voor elk.",
+    "packTitle": "Optie A: De \"Pay-As-You-Go\" Aanpak (Beste ROI)",
+    "packDesc": "Ideaal als uw vergaderplanning varieert. U koopt minuten die **nooit verlopen**. Geen verspild geld.",
+    "packMetric": "Efficiëntie: Ca. $0,50 - $1,00 per uur opname",
+    "subTitle": "Optie B: Het \"Power User\" Abonnement",
+    "subDesc": "Ideaal als u dagelijks opneemt. Hoe meer u opneemt, hoe goedkoper het wordt.",
+    "subMetric": "Efficiëntie: Onbeperkt gebruik voor een vast plafond"
+  },
+  "roi": {
+    "h2": "ROI Vergelijking: AI vs. Mens vs. Concurrenten",
+    "lead": "Wat kost het eigenlijk om een vergadering van 1 uur te transcriberen? Laten we naar de cijfers kijken.",
+    "tableHead": ["Methode", "Gesch. Kosten voor 1 Uur", "Tijdkosten (Uw arbeid)", "Verborgen Risico's"],
+    "rows": [
+      { "method": "Mens / Uzelf", "cost": "$0 (technisch gezien)", "labor": "1-2 uur typen", "risk": "Hoge opportuniteitskosten. U doet uw echte werk niet." },
+      { "method": "Menselijke Service", "cost": "$60 - $100", "labor": "Nul", "risk": "Zeer duur. Privacyzorgen bij het delen van audio." },
+      { "method": "Typisch Maandelijks AI-Abo", "cost": "$15 - $30 / maand", "labor": "Laag", "risk": "Verzonken kosten. U betaalt zelfs als u nul vergaderingen heeft." },
+      { "method": "Notulen AI (Tijdbundel)", "cost": "~$0,60 (via Light Bundel)", "labor": "Laag", "risk": "Geen. Minuten verlopen nooit." }
+    ]
+  },
+  "value": {
+    "h2": "Waar betaal ik eigenlijk voor?",
+    "p1": "De kosten dekken meer dan alleen spraak-naar-tekst. Het dekt de intelligentie die uw gegevens structureert.",
+    "items": [
+      "**Beveiligingskosten:** We verkopen uw gegevens niet. U betaalt ons om uw gegevens privé te houden.",
+      "**High-End Modellen:** We gebruiken premium modellen (Whisper, GPT-4o, Gemini Pro) die hogere API-kosten hebben maar leesbare nauwkeurigheid leveren.",
+      "**Cloudopslag:** Veilige hosting voor uw audio en transcripties is bij de prijs inbegrepen."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Veelgestelde Vragen over Kosten",
+    "items": [
+      { "q": "Zijn er verborgen installatiekosten?", "a": "Nee. De prijs die u ziet voor de Tijdbundel of het Abonnement is de eindprijs (excl. BTW/lokale belastingen)." },
+      { "q": "Waarom wordt de Tijdbundel als 'lager risico' beschouwd?", "a": "Omdat het 'abonnementsmoeheid' elimineert. Als u de app 3 maanden niet gebruikt, verliest u $0. Uw minuten wachten op u." },
+      { "q": "Is de gratis versie echt gratis?", "a": "Ja. Het 'Dagkaartje' geeft u elke dag 3 minuten opnemen/verwerken voor $0. Geweldig voor snelle spraaknotities." },
+      { "q": "Hoe verhoudt de Jaarprijs zich tot de Maandprijs?", "a": "Jaarlijks betalen ($149,99) verlaagt de effectieve maandelijkse kosten tot ongeveer $12,50, vergeleken met het maandplan van $16,99. Dat is een besparing van ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Klaar om te stoppen met geld verspillen aan lege abonnementen?",
+    "button": "Bekijk Huidige Prijzen",
+    "sub": "Begin met een proefbundel van $1,99. Het laagste risico in de branche."
+  },
+  "meta": { "h2": "Meta", "published": "Gepubliceerd", "type": "Analyse", "category": "Kosten & ROI" },
+  "seo": {
+    "title": "Notulen AI Kostenanalyse (2025) — Ware ROI",
+    "description": "Is een AI-notulist de kosten waard? We splitsen de 'Kosten per Vergadering' van Notulen AI uit t.o.v. menselijke transcriptie en maandelijkse abonnementen.",
+    "ogTitle": "De Werkelijke Kosten van Notulen: AI vs Mens (Gids 2025)",
+    "ogDescription": "Bezorgd over de kosten van AI-tools? We analyseren de werkelijke kosten van Notulen AI. Zie waarom ons model geld bespaart.",
+    "ld": { "headline": "Notulen AI Kosten & ROI Gids (2025)", "description": "Uitsplitsing van kosten voor vergadernotulen. Vergelijking Tijdbundels vs. Abonnementen." }
+  }
+}

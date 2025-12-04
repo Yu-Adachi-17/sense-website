@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Minutes.AI Home" },
+  "nav": { "blog": "Blog", "cost": "Cost Analysis" },
+  "hero": {
+    "kicker": "Cost Efficiency Guide",
+    "h1": "The Real Cost of Meeting Minutes: Are You Overpaying?",
+    "tagline": "Most productivity tools hide their true cost behind monthly fees you rarely utilize fully. Here is a transparent look at the cost of Minutes.AI compared to your time and other tools.",
+    "subtag": "Stop paying 'rent' for software. Pay only for the value you actually use."
+  },
+  "intro": {
+    "h2": "The hidden cost of \"Fixed Monthly Fees\"",
+    "p1": "When searching for the cost of AI note-takers, you usually see a flat monthly rate (e.g., $30/month). But if you only have 3 meetings that month, your **actual cost per meeting** is $10. That's expensive.",
+    "p2": "We built Minutes.AI to fix this inefficiency with a model that respects your wallet."
+  },
+  "breakdown": {
+    "h2": "Cost Breakdown: Time Packs vs. Subscriptions",
+    "note": "We offer two ways to pay, depending on your frequency. Here is the cost efficiency analysis for each.",
+    "packTitle": "Option A: The \"Pay-As-You-Go\" Approach (Best for ROI)",
+    "packDesc": "Ideal if your meeting schedule varies. You buy minutes that **never expire**. Zero wasted money.",
+    "packMetric": "Cost Efficiency: Approx $0.50 - $1.00 per hour of recording",
+    "subTitle": "Option B: The \"Power User\" Subscription",
+    "subDesc": "Ideal if you record daily. The more you record, the cheaper it gets.",
+    "subMetric": "Cost Efficiency: Unlimited usage for a fixed cap"
+  },
+  "roi": {
+    "h2": "ROI Comparison: AI vs. Human vs. Competitors",
+    "lead": "What does it actually cost to transcribe a 1-hour meeting? Let's look at the numbers.",
+    "tableHead": ["Method", "Est. Cost for 1 Hour", "Time Cost (Your Labor)", "Hidden Risks"],
+    "rows": [
+      { "method": "Human / Yourself", "cost": "$0 (technically)", "labor": "1-2 hours of typing", "risk": "High opportunity cost. You aren't doing your actual job." },
+      { "method": "Human Service", "cost": "$60 - $100", "labor": "Zero", "risk": "Very expensive. Privacy concerns with sharing audio." },
+      { "method": "Typical Monthly AI Sub", "cost": "$15 - $30 / month", "labor": "Low", "risk": "Sunk cost. You pay even if you have zero meetings." },
+      { "method": "Minutes.AI (Time Pack)", "cost": "~$0.60 (via Light Pack)", "labor": "Low", "risk": "None. Minutes never expire." }
+    ]
+  },
+  "value": {
+    "h2": "What am I actually paying for?",
+    "p1": "The cost covers more than just speech-to-text. It covers the intelligence that structures your data.",
+    "items": [
+      "**Security Costs:** We don't sell your data to offset costs. You pay us so we can keep your data private.",
+      "**High-End Models:** We use premium models (Whisper, GPT-4o, Gemini Pro) which have higher API costs but deliver readable accuracy.",
+      "**Cloud Storage:** Secure hosting for your audio and transcripts is included in the price."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Common Questions on Cost",
+    "items": [
+      { "q": "Are there any hidden setup fees?", "a": "No. The price you see for the Time Pack or Subscription is the final price (excluding local VAT/taxes)." },
+      { "q": "Why is the Time Pack considered 'lower risk'?", "a": "Because it eliminates the 'subscription fatigue'. If you don't use the app for 3 months, you lose $0. Your minutes wait for you." },
+      { "q": "Is the Free version actually free?", "a": "Yes. The 'Daily Ticket' gives you 3 minutes of recording/processing every day for $0 cost. It's great for quick voice memos." },
+      { "q": "How does the Annual cost compare to Monthly?", "a": "Paying annually ($149.99) lowers the effective monthly cost to about $12.50, compared to the $16.99 monthly plan. That's a ~26% saving." }
+    ]
+  },
+  "cta": {
+    "text": "Ready to stop wasting money on empty subscriptions?",
+    "button": "Check Current Prices",
+    "sub": "Start with a $1.99 trial pack. Lowest risk in the industry."
+  },
+  "meta": { "h2": "Meta", "published": "Published", "type": "Analysis", "category": "Cost & ROI" },
+  "seo": {
+    "title": "Minutes.AI Cost Analysis (2025) — True ROI of AI Meeting Notes",
+    "description": "Is an AI note taker worth the cost? We break down the 'Cost Per Meeting' of Minutes.AI vs. human transcription and monthly subscriptions. Learn how to stop paying for unused minutes.",
+    "ogTitle": "The Real Cost of Meeting Minutes: AI vs Human (2025 Guide)",
+    "ogDescription": "Worried about the cost of AI tools? We analyze the true cost of Minutes.AI. See why our 'Pay-as-you-go' model saves you money compared to rigid subscriptions.",
+    "ld": { "headline": "Minutes.AI Cost & ROI Guide (2025)", "description": "A breakdown of meeting minute costs. Comparison of Time Packs vs. Subscriptions vs. Human Transcription costs." }
+  }
+}

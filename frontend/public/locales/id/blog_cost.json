@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Beranda Minutes AI" },
+  "nav": { "blog": "Blog", "cost": "Analisis Biaya" },
+  "hero": {
+    "kicker": "Panduan Efisiensi Biaya",
+    "h1": "Biaya Sebenarnya Notulen Rapat: Apakah Anda Membayar Terlalu Mahal?",
+    "tagline": "Sebagian besar alat produktivitas menyembunyikan biaya sebenarnya di balik biaya bulanan yang jarang Anda gunakan sepenuhnya. Berikut adalah panduan transparan tentang biaya Minutes AI dibandingkan dengan waktu Anda dan alat lainnya.",
+    "subtag": "Berhenti membayar 'sewa' untuk perangkat lunak. Bayar hanya untuk nilai yang benar-benar Anda gunakan."
+  },
+  "intro": {
+    "h2": "Biaya tersembunyi dari \"Biaya Bulanan Tetap\"",
+    "p1": "Saat mencari biaya pencatat notulen AI, Anda biasanya melihat tarif bulanan tetap (misalnya $30/bulan). Namun, jika Anda hanya memiliki 3 rapat bulan itu, **biaya aktual per rapat** Anda adalah $10. Itu mahal.",
+    "p2": "Kami membangun Minutes AI untuk memperbaiki inefisiensi ini dengan model yang menghargai dompet Anda."
+  },
+  "breakdown": {
+    "h2": "Rincian Biaya: Paket Waktu vs. Langganan",
+    "note": "Kami menawarkan dua cara pembayaran, tergantung frekuensi Anda. Berikut analisis efisiensi biaya untuk masing-masing.",
+    "packTitle": "Opsi A: Pendekatan \"Bayar Sesuai Pemakaian\" (ROI Terbaik)",
+    "packDesc": "Ideal jika jadwal rapat Anda bervariasi. Anda membeli menit yang **tidak pernah kedaluwarsa**. Tidak ada uang terbuang.",
+    "packMetric": "Efisiensi: Sekitar $0.50 - $1.00 per jam rekaman",
+    "subTitle": "Opsi B: Langganan \"Power User\"",
+    "subDesc": "Ideal jika Anda merekam setiap hari. Semakin banyak Anda merekam, semakin murah biayanya.",
+    "subMetric": "Efisiensi: Penggunaan tak terbatas dengan batas tetap"
+  },
+  "roi": {
+    "h2": "Perbandingan ROI: AI vs. Manusia vs. Kompetitor",
+    "lead": "Berapa sebenarnya biaya untuk mentranskrip rapat 1 jam? Mari kita lihat angkanya.",
+    "tableHead": ["Metode", "Perkiraan Biaya per 1 Jam", "Biaya Waktu (Kerja Anda)", "Risiko Tersembunyi"],
+    "rows": [
+      { "method": "Manusia / Anda Sendiri", "cost": "$0 (secara teknis)", "labor": "1-2 jam mengetik", "risk": "Biaya peluang tinggi. Anda tidak melakukan pekerjaan utama Anda." },
+      { "method": "Jasa Manusia", "cost": "$60 - $100", "labor": "Nol", "risk": "Sangat mahal. Masalah privasi saat membagikan audio." },
+      { "method": "Langganan AI Bulanan Khas", "cost": "$15 - $30 / bulan", "labor": "Rendah", "risk": "Biaya hangus. Anda membayar meskipun tidak ada rapat." },
+      { "method": "Minutes AI (Paket Waktu)", "cost": "~$0.60 (via Paket Light)", "labor": "Rendah", "risk": "Tidak ada. Menit tidak pernah kedaluwarsa." }
+    ]
+  },
+  "value": {
+    "h2": "Apa yang sebenarnya saya bayar?",
+    "p1": "Biayanya mencakup lebih dari sekadar ucapan-ke-teks. Ini mencakup kecerdasan yang menyusun data Anda.",
+    "items": [
+      "**Biaya Keamanan:** Kami tidak menjual data Anda. Anda membayar kami untuk menjaga privasi data Anda.",
+      "**Model Kelas Atas:** Kami menggunakan model premium (Whisper, GPT-4o, Gemini Pro) yang memiliki biaya API lebih tinggi tetapi memberikan akurasi yang dapat dibaca.",
+      "**Penyimpanan Cloud:** Hosting aman untuk audio dan transkrip Anda sudah termasuk dalam harga."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Pertanyaan Umum tentang Biaya",
+    "items": [
+      { "q": "Apakah ada biaya penyiapan tersembunyi?", "a": "Tidak. Harga yang Anda lihat untuk Paket Waktu atau Langganan adalah harga akhir (belum termasuk PPN/pajak lokal)." },
+      { "q": "Mengapa Paket Waktu dianggap 'risiko lebih rendah'?", "a": "Karena menghilangkan 'kelelahan langganan'. Jika Anda tidak menggunakan aplikasi selama 3 bulan, Anda kehilangan $0. Menit Anda menunggu Anda." },
+      { "q": "Apakah versi gratis benar-benar gratis?", "a": "Ya. 'Tiket Harian' memberi Anda 3 menit perekaman/pemrosesan setiap hari dengan biaya $0. Bagus untuk catatan suara cepat." },
+      { "q": "Bagaimana perbandingan biaya Tahunan dengan Bulanan?", "a": "Membayar tahunan ($149.99) menurunkan biaya bulanan efektif menjadi sekitar $12.50, dibandingkan dengan paket bulanan $16.99. Itu hemat ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Siap berhenti membuang uang untuk langganan kosong?",
+    "button": "Cek Harga Saat Ini",
+    "sub": "Mulai dengan paket uji coba $1.99. Risiko terendah di industri."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Analisis", "category": "Biaya & ROI" },
+  "seo": {
+    "title": "Analisis Biaya Minutes AI (2025) — ROI Sebenarnya",
+    "description": "Apakah pencatat notulen AI sepadan dengan biayanya? Kami merinci 'Biaya per Rapat' Minutes AI vs. transkripsi manusia dan langganan bulanan.",
+    "ogTitle": "Biaya Sebenarnya Notulen Rapat: AI vs Manusia (Panduan 2025)",
+    "ogDescription": "Khawatir tentang biaya alat AI? Kami menganalisis biaya sebenarnya dari Minutes AI. Lihat mengapa model kami menghemat uang.",
+    "ld": { "headline": "Panduan Biaya & ROI Minutes AI (2025)", "description": "Rincian biaya notulen rapat. Perbandingan Paket Waktu vs. Langganan." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Referat AI Hjem" },
+  "nav": { "blog": "Blogg", "cost": "Kostnadsanalyse" },
+  "hero": {
+    "kicker": "Guide til kostnadseffektivitet",
+    "h1": "Den virkelige prisen på møtereferater: Betaler du for mye?",
+    "tagline": "De fleste produktivitetsverktøy skjuler sine sanne kostnader bak månedlige gebyrer du sjelden utnytter fullt ut. Her er et gjennomsiktig blikk på prisen for Referat AI sammenlignet med din tid og andre verktøy.",
+    "subtag": "Slutt å betale 'leie' for programvare. Betal kun for verdien du faktisk bruker."
+  },
+  "intro": {
+    "h2": "Den skjulte kostnaden ved \"Faste månedsgebyrer\"",
+    "p1": "Når du søker etter prisen på AI-notattakere, ser du vanligvis en fast månedspris (f.eks. $30/måned). Men hvis du bare har 3 møter den måneden, er din **faktiske pris per møte** $10. Det er dyrt.",
+    "p2": "Vi bygde Referat AI for å rette opp denne ineffektiviteten med en modell som respekterer lommeboken din."
+  },
+  "breakdown": {
+    "h2": "Kostnadsoversikt: Tidspakker vs. Abonnement",
+    "note": "Vi tilbyr to betalingsmåter avhengig av din frekvens. Her er analysen av kostnadseffektivitet for hver.",
+    "packTitle": "Alternativ A: \"Pay-As-You-Go\" (Best ROI)",
+    "packDesc": "Ideelt hvis møteplanen din varierer. Du kjøper minutter som **aldri utløper**. Ingen bortkastede penger.",
+    "packMetric": "Effektivitet: Ca. $0.50 - $1.00 per time med opptak",
+    "subTitle": "Alternativ B: \"Power User\" Abonnement",
+    "subDesc": "Ideelt hvis du tar opp daglig. Jo mer du tar opp, jo billigere blir det.",
+    "subMetric": "Effektivitet: Ubegrenset bruk for et fast tak"
+  },
+  "roi": {
+    "h2": "ROI-sammenligning: AI vs. Menneske vs. Konkurrenter",
+    "lead": "Hva koster det faktisk å transkribere et 1-times møte? La oss se på tallene.",
+    "tableHead": ["Metode", "Est. pris for 1 time", "Tidskostnad (Ditt arbeid)", "Skjulte risikoer"],
+    "rows": [
+      { "method": "Menneske / Deg selv", "cost": "$0 (teknisk sett)", "labor": "1-2 timer skriving", "risk": "Høy alternativkostnad. Du gjør ikke din egentlige jobb." },
+      { "method": "Menneskelig tjeneste", "cost": "$60 - $100", "labor": "Null", "risk": "Veldig dyrt. Personvernbekymringer ved deling av lyd." },
+      { "method": "Typisk månedlig AI-abo", "cost": "$15 - $30 / måned", "labor": "Lav", "risk": "Sunk cost. Du betaler selv om du har null møter." },
+      { "method": "Referat AI (Tidspakke)", "cost": "~$0.60 (via Light Pakke)", "labor": "Lav", "risk": "Ingen. Minutter utløper aldri." }
+    ]
+  },
+  "value": {
+    "h2": "Hva betaler jeg egentlig for?",
+    "p1": "Prisen dekker mer enn bare tale-til-tekst. Den dekker intelligensen som strukturerer dataene dine.",
+    "items": [
+      "**Sikkerhetskostnader:** Vi selger ikke dataene dine. Du betaler oss for å holde dataene dine private.",
+      "**High-End Modeller:** Vi bruker premium-modeller (Whisper, GPT-4o, Gemini Pro) som har høyere API-kostnader, men leverer lesbar nøyaktighet.",
+      "**Skylagring:** Sikker hosting for lyd og transkripsjoner er inkludert i prisen."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Vanlige spørsmål om pris",
+    "items": [
+      { "q": "Er det skjulte oppstartsgebyrer?", "a": "Nei. Prisen du ser for Tidspakken eller Abonnementet er den endelige prisen (ekskl. MVA/lokale skatter)." },
+      { "q": "Hvorfor anses Tidspakken som 'lavere risiko'?", "a": "Fordi den eliminerer 'abonnementstrøtthet'. Hvis du ikke bruker appen på 3 måneder, taper du $0. Minuttene dine venter på deg." },
+      { "q": "Er gratisversjonen faktisk gratis?", "a": "Ja. 'Daglig Billett' gir deg 3 minutter opptak/behandling hver dag for $0. Flott for raske talenotater." },
+      { "q": "Hvordan er årsprisen sammenlignet med månedsprisen?", "a": "Årlig betaling ($149.99) senker den effektive månedskostnaden til ca. $12.50, sammenlignet med $16.99-planen. Det er en besparelse på ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Klar til å slutte å kaste bort penger på tomme abonnementer?",
+    "button": "Sjekk aktuelle priser",
+    "sub": "Start med en $1.99 prøvepakke. Laveste risiko i bransjen."
+  },
+  "meta": { "h2": "Meta", "published": "Publisert", "type": "Analyse", "category": "Pris og ROI" },
+  "seo": {
+    "title": "Referat AI Kostnadsanalyse (2025) — Sann ROI",
+    "description": "Er en AI-notattaker verdt prisen? Vi bryter ned 'Pris per møte' for Referat AI vs. menneskelig transkripsjon og månedlige abonnementer.",
+    "ogTitle": "Den virkelige prisen på møtereferater: AI vs Menneske (2025 Guide)",
+    "ogDescription": "Bekymret for prisen på AI-verktøy? Vi analyserer den sanne prisen for Referat AI. Se hvorfor vår modell sparer deg for penger.",
+    "ld": { "headline": "Referat AI Pris & ROI Guide (2025)", "description": "En oversikt over kostnader ved møtereferater. Sammenligning av Tidspakker vs. Abonnement." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Inicio de Actas IA" },
+  "nav": { "blog": "Blog", "cost": "Análisis de Costos" },
+  "hero": {
+    "kicker": "Guía de Eficiencia de Costos",
+    "h1": "El costo real de las actas de reuniones: ¿Estás pagando de más?",
+    "tagline": "La mayoría de las herramientas ocultan su costo real tras tarifas mensuales que rara vez aprovechas al máximo. Aquí tienes un análisis transparente del costo de Actas IA en comparación con tu tiempo y otras herramientas.",
+    "subtag": "Deja de pagar 'alquiler' por software. Paga solo por el valor que realmente usas."
+  },
+  "intro": {
+    "h2": "El costo oculto de las \"Tarifas Mensuales Fijas\"",
+    "p1": "Al buscar costos de IA para notas, sueles ver una tarifa plana (ej. $30/mes). Pero si solo tienes 3 reuniones ese mes, tu **costo real por reunión** es de $10. Eso es caro.",
+    "p2": "Creamos Actas IA para corregir esta ineficiencia con un modelo que respeta tu bolsillo."
+  },
+  "breakdown": {
+    "h2": "Desglose de Costos: Paquetes de Tiempo vs. Suscripciones",
+    "note": "Ofrecemos dos formas de pago. Aquí está el análisis de eficiencia para cada una.",
+    "packTitle": "Opción A: Enfoque \"Pago por uso\" (Mejor ROI)",
+    "packDesc": "Ideal si tu agenda varía. Compras minutos que **nunca caducan**. Cero dinero desperdiciado.",
+    "packMetric": "Eficiencia: Aprox. $0.50 - $1.00 por hora de grabación",
+    "subTitle": "Opción B: Suscripción \"Power User\"",
+    "subDesc": "Ideal si grabas a diario. Cuanto más grabas, más barato sale.",
+    "subMetric": "Eficiencia: Uso ilimitado por un tope fijo"
+  },
+  "roi": {
+    "h2": "Comparación de ROI: IA vs. Humano vs. Competencia",
+    "lead": "¿Cuánto cuesta realmente transcribir 1 hora de reunión? Veamos los números.",
+    "tableHead": ["Método", "Costo Est. por 1 Hora", "Costo de Tiempo (Tu trabajo)", "Riesgos Ocultos"],
+    "rows": [
+      { "method": "Humano / Tú mismo", "cost": "$0 (técnicamente)", "labor": "1-2 horas escribiendo", "risk": "Alto costo de oportunidad. No estás haciendo tu trabajo real." },
+      { "method": "Servicio Humano", "cost": "$60 - $100", "labor": "Cero", "risk": "Muy caro. Preocupaciones de privacidad al compartir audio." },
+      { "method": "Subscripción IA Mensual Típica", "cost": "$15 - $30 / mes", "labor": "Bajo", "risk": "Costo hundido. Pagas aunque tengas cero reuniones." },
+      { "method": "Actas IA (Paquete de Tiempo)", "cost": "~$0.60 (vía Paquete Light)", "labor": "Bajo", "risk": "Ninguno. Los minutos nunca caducan." }
+    ]
+  },
+  "value": {
+    "h2": "¿Qué estoy pagando realmente?",
+    "p1": "El costo cubre más que solo voz a texto. Cubre la inteligencia que estructura tus datos.",
+    "items": [
+      "**Costos de Seguridad:** No vendemos tus datos. Nos pagas para mantener tus datos privados.",
+      "**Modelos de Alta Gama:** Usamos modelos premium (Whisper, GPT-4o, Gemini Pro) que tienen costos de API más altos pero ofrecen precisión legible.",
+      "**Almacenamiento en la Nube:** El alojamiento seguro para tu audio y transcripciones está incluido."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Preguntas Comunes sobre Costos",
+    "items": [
+      { "q": "¿Hay tarifas de configuración ocultas?", "a": "No. El precio que ves es el precio final (excluyendo IVA/impuestos locales)." },
+      { "q": "¿Por qué el Paquete de Tiempo tiene 'menor riesgo'?", "a": "Porque elimina la 'fatiga de suscripción'. Si no usas la app por 3 meses, pierdes $0. Tus minutos te esperan." },
+      { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí. El 'Ticket Diario' te da 3 minutos gratis cada día. Genial para notas de voz rápidas." },
+      { "q": "¿Cómo se compara el costo Anual con el Mensual?", "a": "Pagar anualmente ($149.99) baja el costo mensual efectivo a unos $12.50, comparado con los $16.99 mensuales. Es un ahorro del ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "¿Listo para dejar de desperdiciar dinero en suscripciones vacías?",
+    "button": "Ver Precios Actuales",
+    "sub": "Empieza con un paquete de prueba de $1.99. El riesgo más bajo de la industria."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Análisis", "category": "Costo y ROI" },
+  "seo": {
+    "title": "Análisis de Costos Actas IA (2025) — ROI Real",
+    "description": "¿Vale la pena una IA de actas? Desglosamos el 'Costo por Reunión' de Actas IA frente a la transcripción humana y suscripciones mensuales.",
+    "ogTitle": "El Costo Real de las Actas: IA vs Humano (Guía 2025)",
+    "ogDescription": "Analizamos el costo real de Actas IA. Mira por qué nuestro modelo 'pago por uso' te ahorra dinero.",
+    "ld": { "headline": "Guía de Costos y ROI de Actas IA (2025)", "description": "Desglose de costos de actas de reuniones. Comparación Paquetes vs Suscripciones." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Strona główna Protokół AI" },
+  "nav": { "blog": "Blog", "cost": "Analiza kosztów" },
+  "hero": {
+    "kicker": "Przewodnik po efektywności kosztowej",
+    "h1": "Prawdziwy koszt protokołów ze spotkań: Czy przepłacasz?",
+    "tagline": "Większość narzędzi biurowych ukrywa swoje prawdziwe koszty za miesięcznymi opłatami, których rzadko w pełni używasz. Oto przejrzyste spojrzenie na koszt Protokół AI w porównaniu z Twoim czasem i innymi narzędziami.",
+    "subtag": "Przestań płacić 'czynsz' za oprogramowanie. Płać tylko za wartość, z której faktycznie korzystasz."
+  },
+  "intro": {
+    "h2": "Ukryty koszt \"Stałych opłat miesięcznych\"",
+    "p1": "Szukając kosztów notatników AI, zazwyczaj widzisz stałą stawkę miesięczną (np. 30 USD/miesiąc). Ale jeśli w danym miesiącu masz tylko 3 spotkania, Twój **rzeczywisty koszt za spotkanie** wynosi 10 USD. To drogo.",
+    "p2": "Stworzyliśmy Protokół AI, aby naprawić tę nieefektywność za pomocą modelu, który szanuje Twój portfel."
+  },
+  "breakdown": {
+    "h2": "Podział kosztów: Pakiety Czasowe vs. Subskrypcje",
+    "note": "Oferujemy dwa sposoby płatności, w zależności od częstotliwości spotkań. Oto analiza efektywności kosztowej dla każdego z nich.",
+    "packTitle": "Opcja A: Podejście \"Płać za to, czego używasz\" (Najlepsze ROI)",
+    "packDesc": "Idealne, jeśli Twój harmonogram spotkań jest zmienny. Kupujesz minuty, które **nigdy nie wygasają**. Żadnych zmarnowanych pieniędzy.",
+    "packMetric": "Efektywność: Ok. 0,50 USD - 1,00 USD za godzinę nagrania",
+    "subTitle": "Opcja B: Subskrypcja \"Power User\"",
+    "subDesc": "Idealne, jeśli nagrywasz codziennie. Im więcej nagrywasz, tym taniej wychodzi.",
+    "subMetric": "Efektywność: Nieograniczone użycie za stałą cenę"
+  },
+  "roi": {
+    "h2": "Porównanie ROI: AI vs. Człowiek vs. Konkurencja",
+    "lead": "Ile tak naprawdę kosztuje transkrypcja 1 godziny spotkania? Spójrzmy na liczby.",
+    "tableHead": ["Metoda", "Szac. koszt za 1 godz.", "Koszt czasu (Twoja praca)", "Ukryte ryzyko"],
+    "rows": [
+      { "method": "Człowiek / Ty sam", "cost": "0 USD (teoretycznie)", "labor": "1-2 godziny pisania", "risk": "Wysoki koszt alternatywny. Nie wykonujesz swojej właściwej pracy." },
+      { "method": "Usługa ludzka", "cost": "60 USD - 100 USD", "labor": "Zero", "risk": "Bardzo drogo. Obawy o prywatność przy udostępnianiu nagrań." },
+      { "method": "Typowa miesięczna subskrypcja AI", "cost": "15 USD - 30 USD / mies.", "labor": "Niski", "risk": "Koszt utopiony. Płacisz nawet, jeśli nie masz żadnych spotkań." },
+      { "method": "Protokół AI (Pakiet Czasowy)", "cost": "~0,60 USD (przez Pakiet Light)", "labor": "Niski", "risk": "Brak. Minuty nigdy nie wygasają." }
+    ]
+  },
+  "value": {
+    "h2": "Za co tak naprawdę płacę?",
+    "p1": "Koszt obejmuje więcej niż tylko zamianę mowy na tekst. Obejmuje inteligencję, która porządkuje Twoje dane.",
+    "items": [
+      "**Koszty bezpieczeństwa:** Nie sprzedajemy Twoich danych. Płacisz nam za zachowanie prywatności Twoich danych.",
+      "**Modele High-End:** Używamy modeli premium (Whisper, GPT-4o, Gemini Pro), które mają wyższe koszty API, ale zapewniają czytelną dokładność.",
+      "**Przechowywanie w chmurze:** Bezpieczny hosting Twoich nagrań i transkrypcji jest wliczony w cenę."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Częste pytania o koszty",
+    "items": [
+      { "q": "Czy są jakieś ukryte opłaty konfiguracyjne?", "a": "Nie. Cena, którą widzisz za Pakiet Czasowy lub Subskrypcję, jest ceną ostateczną (bez VAT/podatków lokalnych)." },
+      { "q": "Dlaczego Pakiet Czasowy jest uważany za 'niższe ryzyko'?", "a": "Ponieważ eliminuje 'zmęczenie subskrypcją'. Jeśli nie używasz aplikacji przez 3 miesiące, tracisz 0 USD. Twoje minuty czekają na Ciebie." },
+      { "q": "Czy wersja darmowa jest naprawdę darmowa?", "a": "Tak. 'Bilet Dzienny' daje Ci 3 minuty nagrywania/przetwarzania każdego dnia za 0 USD. Świetne do szybkich notatek głosowych." },
+      { "q": "Jak koszt roczny ma się do miesięcznego?", "a": "Płacąc rocznie (149,99 USD), obniżasz efektywny koszt miesięczny do około 12,50 USD, w porównaniu z planem miesięcznym za 16,99 USD. To oszczędność ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Gotowy przestać marnować pieniądze na puste subskrypcje?",
+    "button": "Sprawdź aktualne ceny",
+    "sub": "Zacznij od pakietu próbnego za 1,99 USD. Najniższe ryzyko w branży."
+  },
+  "meta": { "h2": "Meta", "published": "Opublikowano", "type": "Analiza", "category": "Koszt i ROI" },
+  "seo": {
+    "title": "Analiza kosztów Protokół AI (2025) — Prawdziwe ROI",
+    "description": "Czy asystent notatek AI jest wart swojej ceny? Rozkładamy 'Koszt za spotkanie' w Protokół AI w porównaniu z ludzką transkrypcją i miesięcznymi subskrypcjami.",
+    "ogTitle": "Prawdziwy koszt protokołów: AI vs Człowiek (Przewodnik 2025)",
+    "ogDescription": "Martwisz się o koszty narzędzi AI? Analizujemy prawdziwy koszt Protokół AI. Zobacz, dlaczego nasz model oszczędza pieniądze.",
+    "ld": { "headline": "Przewodnik po kosztach i ROI Protokół AI (2025)", "description": "Zestawienie kosztów protokołowania spotkań. Porównanie Pakietów Czasowych vs. Subskrypcji." }
+  }
+}

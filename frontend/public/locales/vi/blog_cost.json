@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "cost": "Phân tích Chi phí" },
+  "hero": {
+    "kicker": "Hướng dẫn Hiệu quả Chi phí",
+    "h1": "Chi phí thực tế của biên bản cuộc họp: Bạn có đang trả quá nhiều?",
+    "tagline": "Hầu hết các công cụ năng suất đều ẩn chi phí thực tế đằng sau các khoản phí hàng tháng mà bạn hiếm khi sử dụng hết. Đây là cái nhìn minh bạch về chi phí của Biên bản AI so với thời gian của bạn và các công cụ khác.",
+    "subtag": "Ngừng trả tiền 'thuê' phần mềm. Chỉ trả tiền cho giá trị bạn thực sự sử dụng."
+  },
+  "intro": {
+    "h2": "Chi phí ẩn của \"Phí hàng tháng cố định\"",
+    "p1": "Khi tìm kiếm chi phí cho thư ký AI, bạn thường thấy mức giá cố định hàng tháng (ví dụ: $30/tháng). Nhưng nếu bạn chỉ có 3 cuộc họp trong tháng đó, **chi phí thực tế cho mỗi cuộc họp** của bạn là $10. Điều đó thật đắt đỏ.",
+    "p2": "Chúng tôi đã xây dựng Biên bản AI để khắc phục sự kém hiệu quả này bằng một mô hình tôn trọng ví tiền của bạn."
+  },
+  "breakdown": {
+    "h2": "Chi tiết chi phí: Gói thời gian vs Đăng ký định kỳ",
+    "note": "Chúng tôi cung cấp hai cách thanh toán, tùy thuộc vào tần suất của bạn. Dưới đây là phân tích hiệu quả chi phí cho từng loại.",
+    "packTitle": "Lựa chọn A: Tiếp cận \"Dùng bao nhiêu trả bấy nhiêu\" (ROI tốt nhất)",
+    "packDesc": "Lý tưởng nếu lịch trình cuộc họp của bạn thay đổi. Bạn mua số phút **không bao giờ hết hạn**. Không lãng phí tiền.",
+    "packMetric": "Hiệu quả: Khoảng $0.50 - $1.00 mỗi giờ ghi âm",
+    "subTitle": "Lựa chọn B: Đăng ký \"Power User\"",
+    "subDesc": "Lý tưởng nếu bạn ghi âm hàng ngày. Càng ghi âm nhiều, chi phí càng rẻ.",
+    "subMetric": "Hiệu quả: Sử dụng không giới hạn với mức trần cố định"
+  },
+  "roi": {
+    "h2": "So sánh ROI: AI vs Con người vs Đối thủ cạnh tranh",
+    "lead": "Thực sự tốn bao nhiêu để gỡ băng một cuộc họp 1 giờ? Hãy nhìn vào các con số.",
+    "tableHead": ["Phương pháp", "Chi phí ước tính cho 1 giờ", "Chi phí thời gian (Công sức của bạn)", "Rủi ro tiềm ẩn"],
+    "rows": [
+      { "method": "Con người / Chính bạn", "cost": "$0 (về mặt kỹ thuật)", "labor": "1-2 giờ gõ máy", "risk": "Chi phí cơ hội cao. Bạn không làm công việc thực sự của mình." },
+      { "method": "Dịch vụ con người", "cost": "$60 - $100", "labor": "Không", "risk": "Rất đắt. Lo ngại về quyền riêng tư khi chia sẻ âm thanh." },
+      { "method": "Đăng ký AI hàng tháng điển hình", "cost": "$15 - $30 / tháng", "labor": "Thấp", "risk": "Chi phí chìm. Bạn phải trả tiền ngay cả khi không có cuộc họp nào." },
+      { "method": "Biên bản AI (Gói thời gian)", "cost": "~$0.60 (qua Gói Light)", "labor": "Thấp", "risk": "Không. Số phút không bao giờ hết hạn." }
+    ]
+  },
+  "value": {
+    "h2": "Tôi thực sự đang trả tiền cho cái gì?",
+    "p1": "Chi phí bao gồm nhiều thứ hơn là chỉ chuyển giọng nói thành văn bản. Nó bao gồm trí tuệ cấu trúc dữ liệu của bạn.",
+    "items": [
+      "**Chi phí bảo mật:** Chúng tôi không bán dữ liệu của bạn. Bạn trả tiền cho chúng tôi để giữ dữ liệu của bạn riêng tư.",
+      "**Mô hình cao cấp:** Chúng tôi sử dụng các mô hình cao cấp (Whisper, GPT-4o, Gemini Pro) có chi phí API cao hơn nhưng mang lại độ chính xác dễ đọc.",
+      "**Lưu trữ đám mây:** Lưu trữ an toàn cho âm thanh và bản ghi của bạn đã bao gồm trong giá."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Các câu hỏi thường gặp về chi phí",
+    "items": [
+      { "q": "Có phí cài đặt ẩn nào không?", "a": "Không. Giá bạn thấy cho Gói thời gian hoặc Đăng ký là giá cuối cùng (chưa bao gồm VAT/thuế địa phương)." },
+      { "q": "Tại sao Gói thời gian được coi là 'rủi ro thấp hơn'?", "a": "Vì nó loại bỏ 'sự mệt mỏi khi đăng ký'. Nếu bạn không sử dụng ứng dụng trong 3 tháng, bạn mất $0. Số phút của bạn vẫn đợi bạn." },
+      { "q": "Phiên bản miễn phí có thực sự miễn phí không?", "a": "Có. 'Vé hàng ngày' cung cấp cho bạn 3 phút ghi âm/xử lý mỗi ngày với chi phí $0. Tuyệt vời cho các ghi chú thoại nhanh." },
+      { "q": "Chi phí hàng năm so với hàng tháng như thế nào?", "a": "Thanh toán hàng năm ($149.99) làm giảm chi phí hàng tháng thực tế xuống còn khoảng $12.50, so với gói hàng tháng $16.99. Đó là khoản tiết kiệm ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Sẵn sàng ngừng lãng phí tiền vào các đăng ký trống rỗng?",
+    "button": "Kiểm tra giá hiện tại",
+    "sub": "Bắt đầu với gói dùng thử $1.99. Rủi ro thấp nhất trong ngành."
+  },
+  "meta": { "h2": "Meta", "published": "Đã xuất bản", "type": "Phân tích", "category": "Chi phí & ROI" },
+  "seo": {
+    "title": "Phân tích chi phí Biên bản AI (2025) — ROI thực tế",
+    "description": "Thư ký AI có đáng giá không? Chúng tôi phân tích 'Chi phí mỗi cuộc họp' của Biên bản AI so với gỡ băng thủ công và đăng ký hàng tháng.",
+    "ogTitle": "Chi phí thực tế của biên bản: AI vs Con người (Hướng dẫn 2025)",
+    "ogDescription": "Lo lắng về chi phí của các công cụ AI? Chúng tôi phân tích chi phí thực tế của Biên bản AI. Xem lý do tại sao mô hình của chúng tôi tiết kiệm tiền.",
+    "ld": { "headline": "Hướng dẫn chi phí và ROI của Biên bản AI (2025)", "description": "Bảng phân tích chi phí biên bản cuộc họp. So sánh Gói thời gian vs Đăng ký." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "AI Zapisnik Početna" },
+  "nav": { "blog": "Blog", "cost": "Analiza Troškova" },
+  "hero": {
+    "kicker": "Vodič za troškovnu učinkovitost",
+    "h1": "Stvarna cijena zapisnika sa sastanaka: Plaćate li previše?",
+    "tagline": "Većina alata za produktivnost skriva svoje stvarne troškove iza mjesečnih naknada koje rijetko iskoristite u potpunosti. Ovdje je transparentan pogled na cijenu AI Zapisnika u usporedbi s vašim vremenom i drugim alatima.",
+    "subtag": "Prestanite plaćati 'najam' za softver. Platite samo za vrijednost koju stvarno koristite."
+  },
+  "intro": {
+    "h2": "Skriveni trošak \"Fiksnih mjesečnih naknada\"",
+    "p1": "Kada tražite cijenu AI bilježnika, obično vidite paušalnu mjesečnu stopu (npr. 30 $/mjesečno). Ali ako taj mjesec imate samo 3 sastanka, vaš **stvarni trošak po sastanku** je 10 $. To je skupo.",
+    "p2": "Izgradili smo AI Zapisnik kako bismo ispravili tu neučinkovitost modelom koji poštuje vaš novčanik."
+  },
+  "breakdown": {
+    "h2": "Raščlamba troškova: Vremenski paketi vs. Pretplate",
+    "note": "Nudimo dva načina plaćanja, ovisno o vašoj učestalosti. Ovdje je analiza troškovne učinkovitosti za svaki.",
+    "packTitle": "Opcija A: Pristup \"Plati po korištenju\" (Najbolji ROI)",
+    "packDesc": "Idealno ako vaš raspored sastanaka varira. Kupujete minute koje **nikada ne istječu**. Nema bačenog novca.",
+    "packMetric": "Učinkovitost: Pribl. 0,50 $ - 1,00 $ po satu snimanja",
+    "subTitle": "Opcija B: Pretplata \"Power User\"",
+    "subDesc": "Idealno ako snimate svakodnevno. Što više snimate, to je jeftinije.",
+    "subMetric": "Učinkovitost: Neograničeno korištenje za fiksni limit"
+  },
+  "roi": {
+    "h2": "Usporedba ROI-a: AI vs. Čovjek vs. Konkurencija",
+    "lead": "Koliko zapravo košta transkripcija sastanka od 1 sata? Pogledajmo brojke.",
+    "tableHead": ["Metoda", "Procijenjeni trošak za 1 sat", "Trošak vremena (Vaš rad)", "Skriveni rizici"],
+    "rows": [
+      { "method": "Čovjek / Vi sami", "cost": "0 $ (tehnički)", "labor": "1-2 sata tipkanja", "risk": "Visok oportunitetni trošak. Ne radite svoj pravi posao." },
+      { "method": "Ljudska usluga", "cost": "60 $ - 100 $", "labor": "Nula", "risk": "Vrlo skupo. Zabrinutost za privatnost pri dijeljenju zvuka." },
+      { "method": "Tipična mjesečna AI pretplata", "cost": "15 $ - 30 $ / mjesečno", "labor": "Nisko", "risk": "Nepovratni trošak. Plaćate čak i ako nemate sastanaka." },
+      { "method": "AI Zapisnik (Vremenski paket)", "cost": "~0,60 $ (putem Light paketa)", "labor": "Nisko", "risk": "Nema. Minute nikada ne istječu." }
+    ]
+  },
+  "value": {
+    "h2": "Što zapravo plaćam?",
+    "p1": "Cijena pokriva više od samog pretvaranja govora u tekst. Pokriva inteligenciju koja strukturira vaše podatke.",
+    "items": [
+      "**Troškovi sigurnosti:** Ne prodajemo vaše podatke. Plaćate nam da vaše podatke držimo privatnima.",
+      "**Vrhunski modeli:** Koristimo premium modele (Whisper, GPT-4o, Gemini Pro) koji imaju veće troškove API-ja, ali pružaju čitljivu točnost.",
+      "**Pohrana u oblaku:** Siguran hosting za vaš audio i transkripte uključen je u cijenu."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Česta pitanja o troškovima",
+    "items": [
+      { "q": "Postoje li skrivene naknade za postavljanje?", "a": "Ne. Cijena koju vidite za Vremenski paket ili Pretplatu je konačna cijena (bez PDV-a/lokalnih poreza)." },
+      { "q": "Zašto se Vremenski paket smatra 'manjim rizikom'?", "a": "Jer eliminira 'zamor od pretplata'. Ako aplikaciju ne koristite 3 mjeseca, gubite 0 $. Vaše minute vas čekaju." },
+      { "q": "Je li besplatna verzija stvarno besplatna?", "a": "Da. 'Dnevna karta' daje vam 3 minute snimanja/obrade svaki dan po cijeni od 0 $. Odlično za brze glasovne bilješke." },
+      { "q": "Kakva je godišnja cijena u usporedbi s mjesečnom?", "a": "Godišnje plaćanje (149,99 $) smanjuje efektivni mjesečni trošak na oko 12,50 $, u usporedbi s mjesečnim planom od 16,99 $. To je ušteda od ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Jeste li spremni prestati bacati novac na prazne pretplate?",
+    "button": "Provjeri trenutne cijene",
+    "sub": "Započnite s probnim paketom od 1,99 $. Najniži rizik u industriji."
+  },
+  "meta": { "h2": "Meta", "published": "Objavljeno", "type": "Analiza", "category": "Trošak i ROI" },
+  "seo": {
+    "title": "Analiza troškova AI Zapisnik (2025) — Stvarni ROI",
+    "description": "Isplati li se AI bilježnik? Raščlanjujemo 'Trošak po sastanku' za AI Zapisnik u odnosu na ljudsku transkripciju i mjesečne pretplate.",
+    "ogTitle": "Stvarna cijena zapisnika sa sastanaka: AI vs Čovjek (Vodič 2025)",
+    "ogDescription": "Zabrinuti ste zbog cijene AI alata? Analiziramo stvarni trošak AI Zapisnika. Pogledajte zašto naš model štedi novac.",
+    "ld": { "headline": "Vodič za troškove i ROI AI Zapisnika (2025)", "description": "Raščlamba troškova zapisnika sa sastanaka. Usporedba Vremenskih paketa vs. Pretplate." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Laman Utama Minit AI" },
+  "nav": { "blog": "Blog", "cost": "Analisis Kos" },
+  "hero": {
+    "kicker": "Panduan Kecekapan Kos",
+    "h1": "Kos Sebenar Minit Mesyuarat: Adakah Anda Membayar Terlalu Mahal?",
+    "tagline": "Kebanyakan alat produktiviti menyembunyikan kos sebenar mereka di sebalik yuran bulanan yang jarang anda gunakan sepenuhnya. Berikut adalah pandangan telus tentang kos Minit AI berbanding masa anda dan alat lain.",
+    "subtag": "Berhenti membayar 'sewa' untuk perisian. Bayar hanya untuk nilai yang anda benar-benar gunakan."
+  },
+  "intro": {
+    "h2": "Kos tersembunyi \"Yuran Bulanan Tetap\"",
+    "p1": "Apabila mencari kos pencatat nota AI, anda biasanya melihat kadar bulanan tetap (cth. $30/bulan). Tetapi jika anda hanya mempunyai 3 mesyuarat pada bulan tersebut, **kos sebenar setiap mesyuarat** anda ialah $10. Itu mahal.",
+    "p2": "Kami membina Minit AI untuk membetulkan ketidakcekapan ini dengan model yang menghormati dompet anda."
+  },
+  "breakdown": {
+    "h2": "Pecahan Kos: Pek Masa vs. Langganan",
+    "note": "Kami menawarkan dua cara pembayaran, bergantung pada kekerapan anda. Berikut ialah analisis kecekapan kos untuk setiap satu.",
+    "packTitle": "Pilihan A: Pendekatan \"Bayar Ikut Penggunaan\" (ROI Terbaik)",
+    "packDesc": "Ideal jika jadual mesyuarat anda berubah-ubah. Anda membeli minit yang **tidak akan luput**. Tiada wang terbazir.",
+    "packMetric": "Kecekapan: Kira-kira $0.50 - $1.00 setiap jam rakaman",
+    "subTitle": "Pilihan B: Langganan \"Power User\"",
+    "subDesc": "Ideal jika anda merakam setiap hari. Semakin banyak anda merakam, semakin murah kosnya.",
+    "subMetric": "Kecekapan: Penggunaan tanpa had untuk had tetap"
+  },
+  "roi": {
+    "h2": "Perbandingan ROI: AI vs. Manusia vs. Pesaing",
+    "lead": "Berapakah sebenarnya kos untuk mentranskripsi mesyuarat 1 jam? Mari lihat angkanya.",
+    "tableHead": ["Kaedah", "Anggaran Kos untuk 1 Jam", "Kos Masa (Kerja Anda)", "Risiko Tersembunyi"],
+    "rows": [
+      { "method": "Manusia / Anda Sendiri", "cost": "$0 (secara teknikal)", "labor": "1-2 jam menaip", "risk": "Kos peluang yang tinggi. Anda tidak melakukan kerja sebenar anda." },
+      { "method": "Perkhidmatan Manusia", "cost": "$60 - $100", "labor": "Sifar", "risk": "Sangat mahal. Kebimbangan privasi semasa berkongsi audio." },
+      { "method": "Langganan AI Bulanan Biasa", "cost": "$15 - $30 / bulan", "labor": "Rendah", "risk": "Kos hangus. Anda membayar walaupun anda tidak mempunyai mesyuarat." },
+      { "method": "Minit AI (Pek Masa)", "cost": "~$0.60 (melalui Pek Light)", "labor": "Rendah", "risk": "Tiada. Minit tidak pernah luput." }
+    ]
+  },
+  "value": {
+    "h2": "Apa yang sebenarnya saya bayar?",
+    "p1": "Kosnya meliputi lebih daripada sekadar ucapan-ke-teks. Ia meliputi kecerdasan yang menyusun data anda.",
+    "items": [
+      "**Kos Keselamatan:** Kami tidak menjual data anda. Anda membayar kami untuk memastikan data anda sulit.",
+      "**Model Mewah:** Kami menggunakan model premium (Whisper, GPT-4o, Gemini Pro) yang mempunyai kos API lebih tinggi tetapi memberikan ketepatan yang boleh dibaca.",
+      "**Storan Awan:** Pengehosan selamat untuk audio dan transkrip anda termasuk dalam harga."
+    ]
+  },
+  "faq": {
+    "h2": "Soalan Lazim — Soalan Umum mengenai Kos",
+    "items": [
+      { "q": "Adakah terdapat yuran persediaan tersembunyi?", "a": "Tidak. Harga yang anda lihat untuk Pek Masa atau Langganan ialah harga akhir (tidak termasuk VAT/cukai tempatan)." },
+      { "q": "Mengapa Pek Masa dianggap 'berisiko lebih rendah'?", "a": "Kerana ia menghapuskan 'keletihan langganan'. Jika anda tidak menggunakan aplikasi selama 3 bulan, anda kerugian $0. Minit anda tetap menunggu anda." },
+      { "q": "Adakah versi percuma benar-benar percuma?", "a": "Ya. 'Tiket Harian' memberikan anda 3 minit rakaman/pemprosesan setiap hari dengan kos $0. Bagus untuk nota suara pantas." },
+      { "q": "Bagaimanakah kos Tahunan berbanding Bulanan?", "a": "Membayar secara tahunan ($149.99) menurunkan kos bulanan efektif kepada kira-kira $12.50, berbanding pelan bulanan $16.99. Itu penjimatan ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Bersedia untuk berhenti membazir wang pada langganan kosong?",
+    "button": "Semak Harga Semasa",
+    "sub": "Mula dengan pek percubaan $1.99. Risiko terendah dalam industri."
+  },
+  "meta": { "h2": "Meta", "published": "Diterbitkan", "type": "Analisis", "category": "Kos & ROI" },
+  "seo": {
+    "title": "Analisis Kos Minit AI (2025) — ROI Sebenar",
+    "description": "Adakah pencatat nota AI berbaloi dengan kosnya? Kami memperincikan 'Kos Setiap Mesyuarat' Minit AI vs. transkripsi manusia dan langganan bulanan.",
+    "ogTitle": "Kos Sebenar Minit Mesyuarat: AI vs Manusia (Panduan 2025)",
+    "ogDescription": "Bimbang tentang kos alat AI? Kami menganalisis kos sebenar Minit AI. Lihat mengapa model kami menjimatkan wang.",
+    "ld": { "headline": "Panduan Kos & ROI Minit AI (2025)", "description": "Pecahan kos minit mesyuarat. Perbandingan Pek Masa vs. Langganan." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Pöytäkirja AI Etusivu" },
+  "nav": { "blog": "Blogi", "cost": "Kustannusanalyysi" },
+  "hero": {
+    "kicker": "Kustannustehokkuusopas",
+    "h1": "Pöytäkirjojen todellinen hinta: Maksatko liikaa?",
+    "tagline": "Useimmat tuottavuustyökalut piilottavat todelliset kustannuksensa kuukausimaksujen taakse, joita harvoin hyödynnät täysin. Tässä on läpinäkyvä katsaus Pöytäkirja AI:n hintaan verrattuna aikaasi ja muihin työkaluihin.",
+    "subtag": "Lopeta ohjelmistojen 'vuokraaminen'. Maksa vain siitä arvosta, jota todella käytät."
+  },
+  "intro": {
+    "h2": "\"Kiinteiden kuukausimaksujen\" piilokustannukset",
+    "p1": "Kun etsit AI-muistiinpanotyökalujen hintaa, näet yleensä kiinteän kuukausihinnan (esim. 30 $/kk). Mutta jos sinulla on vain 3 kokousta siinä kuussa, **todellinen hinta per kokous** on 10 $. Se on kallista.",
+    "p2": "Rakensimme Pöytäkirja AI:n korjaamaan tämän tehottomuuden mallilla, joka kunnioittaa lompakkoasi."
+  },
+  "breakdown": {
+    "h2": "Kustannuserittely: Aikapaketit vs. Tilaukset",
+    "note": "Tarjoamme kaksi maksutapaa käyttötiheydestäsi riippuen. Tässä on kustannustehokkuusanalyysi molemmille.",
+    "packTitle": "Vaihtoehto A: \"Maksa käytön mukaan\" (Paras ROI)",
+    "packDesc": "Ihanteellinen, jos kokousaikataulusi vaihtelee. Ostat minuutteja, jotka **eivät koskaan vanhene**. Ei hukattua rahaa.",
+    "packMetric": "Tehokkuus: N. 0,50 $ - 1,00 $ per tallennustunti",
+    "subTitle": "Vaihtoehto B: \"Tehokäyttäjän\" tilaus",
+    "subDesc": "Ihanteellinen, jos tallennat päivittäin. Mitä enemmän tallennat, sitä halvemmaksi se tulee.",
+    "subMetric": "Tehokkuus: Rajoittamaton käyttö kiinteään hintaan"
+  },
+  "roi": {
+    "h2": "ROI-vertailu: AI vs. Ihminen vs. Kilpailijat",
+    "lead": "Mitä 1 tunnin kokouksen litterointi oikeasti maksaa? Katsotaanpa lukuja.",
+    "tableHead": ["Menetelmä", "Arvioitu hinta / 1 tunti", "Aikakustannus (Sinun työsi)", "Piilohaitat"],
+    "rows": [
+      { "method": "Ihminen / Sinä itse", "cost": "0 $ (teknisesti)", "labor": "1-2 tuntia kirjoittamista", "risk": "Korkea vaihtoehtoiskustannus. Et tee varsinaista työtäsi." },
+      { "method": "Ihmisen tekemä palvelu", "cost": "60 $ - 100 $", "labor": "Nolla", "risk": "Erittäin kallista. Yksityisyyshuolet äänen jakamisessa." },
+      { "method": "Tyypillinen AI-kuukausitilaus", "cost": "15 $ - 30 $ / kk", "labor": "Matala", "risk": "Uponnut kustannus. Maksat vaikka sinulla olisi nolla kokousta." },
+      { "method": "Pöytäkirja AI (Aikapaketti)", "cost": "~0,60 $ (Light-paketin kautta)", "labor": "Matala", "risk": "Ei ole. Minuutit eivät vanhene." }
+    ]
+  },
+  "value": {
+    "h2": "Mistä oikeastaan maksan?",
+    "p1": "Hinta kattaa enemmän kuin vain puheen muuttamisen tekstiksi. Se kattaa älykkyyden, joka jäsentää tietosi.",
+    "items": [
+      "**Turvallisuuskustannukset:** Emme myy tietojasi. Maksat meille tietojesi pitämisestä yksityisinä.",
+      "**Huippumallit:** Käytämme premium-malleja (Whisper, GPT-4o, Gemini Pro), joilla on korkeammat API-kustannukset mutta jotka tarjoavat luettavaa tarkkuutta.",
+      "**Pilvitallennus:** Äänesi ja litterointiesi turvallinen säilytys sisältyy hintaan."
+    ]
+  },
+  "faq": {
+    "h2": "UKK — Yleisiä kysymyksiä hinnasta",
+    "items": [
+      { "q": "Onko piilotettuja aloitusmaksuja?", "a": "Ei. Hinta, jonka näet Aikapaketille tai Tilaukselle, on lopullinen hinta (ilman ALV/paikallisia veroja)." },
+      { "q": "Miksi Aikapakettia pidetään 'pienempänä riskinä'?", "a": "Koska se poistaa 'tilausväsymyksen'. Jos et käytä sovellusta 3 kuukauteen, menetät 0 $. Minuuttisi odottavat sinua." },
+      { "q": "Onko ilmainen versio oikeasti ilmainen?", "a": "Kyllä. 'Päivälippu' antaa sinulle 3 minuuttia tallennusta/käsittelyä joka päivä hintaan 0 $. Loistava nopeille äänimuistiinpanoille." },
+      { "q": "Miten vuosihinta vertautuu kuukausihintaan?", "a": "Maksamalla vuosittain (149,99 $) lasket efektiivisen kuukausihinnan noin 12,50 $:iin, verrattuna 16,99 $ kuukausisuunnitelmaan. Se on ~26 % säästö." }
+    ]
+  },
+  "cta": {
+    "text": "Oletko valmis lopettamaan rahan tuhlaamisen tyhjiin tilauksiin?",
+    "button": "Tarkista nykyiset hinnat",
+    "sub": "Aloita 1,99 $ kokeilupaketilla. Alan pienin riski."
+  },
+  "meta": { "h2": "Meta", "published": "Julkaistu", "type": "Analyysi", "category": "Hinta & ROI" },
+  "seo": {
+    "title": "Pöytäkirja AI Kustannusanalyysi (2025) — Todellinen ROI",
+    "description": "Kannattaako AI-kirjuri? Eritellään Pöytäkirja AI:n 'hinta per kokous' verrattuna ihmisen tekemään litterointiin ja kuukausitilauksiin.",
+    "ogTitle": "Pöytäkirjojen todellinen hinta: AI vs Ihminen (2025 Opas)",
+    "ogDescription": "Huolissasi AI-työkalujen hinnasta? Analysoimme Pöytäkirja AI:n todelliset kustannukset. Katso miksi mallimme säästää rahaa.",
+    "ld": { "headline": "Pöytäkirja AI Hinta & ROI Opas (2025)", "description": "Eritelmä kokouspöytäkirjojen kustannuksista. Aikapakettien ja tilausten vertailu." }
+  }
+}

@@ -40,6 +40,7 @@ module.exports = {
     'blog_transcription',
     'blog_voicerecording',
     'blog_flexible',
+    'blog_cost',
   ],
   defaultNS: 'common',
 

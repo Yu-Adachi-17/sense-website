@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Domovská stránka Zápisník AI" },
+  "nav": { "blog": "Blog", "cost": "Analýza nákladů" },
+  "hero": {
+    "kicker": "Průvodce efektivitou nákladů",
+    "h1": "Skutečná cena zápisů z porad: Neplatíte zbytečně moc?",
+    "tagline": "Většina nástrojů produktivity skrývá svou skutečnou cenu za měsíční poplatky, které málokdy využijete naplno. Zde je transparentní pohled na cenu Zápisník AI v porovnání s vaším časem a jinými nástroji.",
+    "subtag": "Přestaňte platit 'nájem' za software. Plaťte jen za hodnotu, kterou skutečně využijete."
+  },
+  "intro": {
+    "h2": "Skrytá cena \"fixních měsíčních poplatků\"",
+    "p1": "Když hledáte cenu AI zapisovatelů, obvykle vidíte paušální měsíční sazbu (např. 30 $/měsíc). Pokud ale máte v daném měsíci jen 3 schůzky, vaše **skutečná cena za schůzku** je 10 $. To je drahé.",
+    "p2": "Zápisník AI jsme vytvořili, abychom tuto neefektivitu napravili modelem, který respektuje vaši peněženku."
+  },
+  "breakdown": {
+    "h2": "Rozpis nákladů: Časové balíčky vs. Předplatné",
+    "note": "Nabízíme dva způsoby platby v závislosti na vaší frekvenci. Zde je analýza nákladové efektivity pro každý z nich.",
+    "packTitle": "Možnost A: Přístup \"Pay-As-You-Go\" (Nejlepší ROI)",
+    "packDesc": "Ideální, pokud se váš rozvrh schůzek mění. Kupujete minuty, které **nikdy neexspirují**. Žádné vyhozené peníze.",
+    "packMetric": "Efektivita: Cca 0,50 - 1,00 $ za hodinu záznamu",
+    "subTitle": "Možnost B: Předplatné \"Power User\"",
+    "subDesc": "Ideální, pokud nahráváte denně. Čím více nahráváte, tím je to levnější.",
+    "subMetric": "Efektivita: Neomezené použití za fixní strop"
+  },
+  "roi": {
+    "h2": "Srovnání ROI: AI vs. Člověk vs. Konkurence",
+    "lead": "Kolik skutečně stojí přepis 1 hodiny schůzky? Podívejme se na čísla.",
+    "tableHead": ["Metoda", "Odhad ceny za 1 hodinu", "Časová náročnost (Vaše práce)", "Skrytá rizika"],
+    "rows": [
+      { "method": "Člověk / Vy sami", "cost": "0 $ (technicky)", "labor": "1-2 hodiny psaní", "risk": "Vysoké náklady obětované příležitosti. Neděláte svou skutečnou práci." },
+      { "method": "Lidská služba", "cost": "60 - 100 $", "labor": "Nula", "risk": "Velmi drahé. Obavy o soukromí při sdílení zvuku." },
+      { "method": "Typické měsíční AI předplatné", "cost": "15 - 30 $ / měsíc", "labor": "Nízká", "risk": "Utopené náklady. Platíte, i když nemáte žádné schůzky." },
+      { "method": "Zápisník AI (Časový balíček)", "cost": "~0,60 $ (přes balíček Light)", "labor": "Nízká", "risk": "Žádné. Minuty neexspirují." }
+    ]
+  },
+  "value": {
+    "h2": "Za co vlastně platím?",
+    "p1": "Cena pokrývá více než jen převod řeči na text. Pokrývá inteligenci, která strukturuje vaše data.",
+    "items": [
+      "**Náklady na bezpečnost:** Neprodáváme vaše data. Platíte nám, abychom udrželi vaše data v soukromí.",
+      "**Špičkové modely:** Používáme prémiové modely (Whisper, GPT-4o, Gemini Pro), které mají vyšší náklady na API, ale poskytují čitelnou přesnost.",
+      "**Cloudové úložiště:** Bezpečný hosting pro vaše audio a přepisy je v ceně."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Časté dotazy k ceně",
+    "items": [
+      { "q": "Existují nějaké skryté poplatky?", "a": "Ne. Cena, kterou vidíte za časový balíček nebo předplatné, je konečná (bez DPH/místních daní)." },
+      { "q": "Proč je časový balíček považován za 'nižší riziko'?", "a": "Protože eliminuje 'únavu z předplatného'. Pokud aplikaci 3 měsíce nepoužijete, ztratíte 0 $. Vaše minuty na vás počkají." },
+      { "q": "Je bezplatná verze skutečně zdarma?", "a": "Ano. 'Denní lístek' vám dává 3 minuty nahrávání/zpracování každý den za 0 $. Skvělé pro rychlé hlasové poznámky." },
+      { "q": "Jak vychází roční cena oproti měsíční?", "a": "Platba ročně (149,99 $) snižuje efektivní měsíční náklady na cca 12,50 $ oproti 16,99 $ měsíčně. To je úspora ~26 %." }
+    ]
+  },
+  "cta": {
+    "text": "Jste připraveni přestat vyhazovat peníze za prázdná předplatná?",
+    "button": "Zkontrolovat aktuální ceny",
+    "sub": "Začněte se zkušebním balíčkem za 1,99 $. Nejnižší riziko v oboru."
+  },
+  "meta": { "h2": "Meta", "published": "Publikováno", "type": "Analýza", "category": "Cena a ROI" },
+  "seo": {
+    "title": "Analýza nákladů Zápisník AI (2025) — Skutečné ROI",
+    "description": "Vyplatí se AI zapisovatel? Rozebíráme 'Cenu za schůzku' u Zápisník AI oproti lidskému přepisu a měsíčnímu předplatnému.",
+    "ogTitle": "Skutečná cena zápisů z porad: AI vs Člověk (Průvodce 2025)",
+    "ogDescription": "Obáváte se ceny AI nástrojů? Analyzujeme skutečnou cenu Zápisník AI. Zjistěte, proč náš model šetří peníze.",
+    "ld": { "headline": "Průvodce cenou a ROI Zápisník AI (2025)", "description": "Rozpis nákladů na zápisy z porad. Srovnání časových balíčků vs. předplatného." }
+  }
+}

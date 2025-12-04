@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Home Verbali IA" },
+  "nav": { "blog": "Blog", "cost": "Analisi dei Costi" },
+  "hero": {
+    "kicker": "Guida all'Efficienza dei Costi",
+    "h1": "Il vero costo dei verbali di riunione: Stai pagando troppo?",
+    "tagline": "La maggior parte degli strumenti di produttività nasconde il costo reale dietro canoni mensili che raramente sfrutti appieno. Ecco uno sguardo trasparente al costo di Verbali IA rispetto al tuo tempo e ad altri strumenti.",
+    "subtag": "Smetti di pagare un 'affitto' per il software. Paga solo per il valore che usi realmente."
+  },
+  "intro": {
+    "h2": "Il costo nascosto dei \"Canoni Mensili Fissi\"",
+    "p1": "Quando cerchi i costi per i verbali AI, di solito vedi una tariffa mensile fissa (es. 30 $/mese). Ma se hai solo 3 riunioni quel mese, il tuo **costo effettivo per riunione** è di 10 $. È costoso.",
+    "p2": "Abbiamo creato Verbali IA per correggere questa inefficienza con un modello che rispetta il tuo portafoglio."
+  },
+  "breakdown": {
+    "h2": "Ripartizione dei Costi: Pacchetti Tempo vs Abbonamenti",
+    "note": "Offriamo due metodi di pagamento, a seconda della tua frequenza. Ecco l'analisi dell'efficienza dei costi per ciascuno.",
+    "packTitle": "Opzione A: Approccio \"A Consumo\" (Miglior ROI)",
+    "packDesc": "Ideale se il tuo programma di riunioni varia. Acquisti minuti che **non scadono mai**. Nessuno spreco di denaro.",
+    "packMetric": "Efficienza: Circa 0,50 $ - 1,00 $ per ora di registrazione",
+    "subTitle": "Opzione B: Abbonamento \"Power User\"",
+    "subDesc": "Ideale se registri quotidianamente. Più registri, meno costa.",
+    "subMetric": "Efficienza: Utilizzo illimitato per un tetto fisso"
+  },
+  "roi": {
+    "h2": "Confronto ROI: IA vs Umano vs Concorrenti",
+    "lead": "Quanto costa davvero trascrivere 1 ora di riunione? Guardiamo i numeri.",
+    "tableHead": ["Metodo", "Costo Stimato per 1 Ora", "Costo Tempo (Il tuo lavoro)", "Rischi Nascosti"],
+    "rows": [
+      { "method": "Umano / Tu stesso", "cost": "0 $ (tecnicamente)", "labor": "1-2 ore di digitazione", "risk": "Alto costo opportunità. Non stai facendo il tuo vero lavoro." },
+      { "method": "Servizio Umano", "cost": "60 $ - 100 $", "labor": "Zero", "risk": "Molto costoso. Preoccupazioni per la privacy nella condivisione dell'audio." },
+      { "method": "Abbonamento AI Mensile Tipico", "cost": "15 $ - 30 $ / mese", "labor": "Basso", "risk": "Costo irrecuperabile. Paghi anche se hai zero riunioni." },
+      { "method": "Verbali IA (Pacchetto Tempo)", "cost": "~0,60 $ (via Pacchetto Light)", "labor": "Basso", "risk": "Nessuno. I minuti non scadono mai." }
+    ]
+  },
+  "value": {
+    "h2": "Per cosa sto pagando davvero?",
+    "p1": "Il costo copre più della semplice trasformazione voce-testo. Copre l'intelligenza che struttura i tuoi dati.",
+    "items": [
+      "**Costi di Sicurezza:** Non vendiamo i tuoi dati. Ci paghi per mantenere i tuoi dati privati.",
+      "**Modelli di Fascia Alta:** Utilizziamo modelli premium (Whisper, GPT-4o, Gemini Pro) che hanno costi API più elevati ma offrono una precisione leggibile.",
+      "**Archiviazione Cloud:** L'hosting sicuro per il tuo audio e le tue trascrizioni è incluso nel prezzo."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Domande Comuni sui Costi",
+    "items": [
+      { "q": "Ci sono costi di installazione nascosti?", "a": "No. Il prezzo che vedi per il Pacchetto Tempo o l'Abbonamento è il prezzo finale (escluse IVA/tasse locali)." },
+      { "q": "Perché il Pacchetto Tempo è considerato a 'rischio minore'?", "a": "Perché elimina la 'fatica da abbonamento'. Se non usi l'app per 3 mesi, perdi 0 $. I tuoi minuti ti aspettano." },
+      { "q": "La versione gratuita è davvero gratuita?", "a": "Sì. Il 'Biglietto Giornaliero' ti dà 3 minuti di registrazione/elaborazione ogni giorno a costo 0. Ottimo per note vocali veloci." },
+      { "q": "Come si confronta il costo Annuale con quello Mensile?", "a": "Pagare annualmente (149,99 $) abbassa il costo mensile effettivo a circa 12,50 $, rispetto al piano mensile di 16,99 $. È un risparmio del ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Pronto a smettere di sprecare soldi in abbonamenti vuoti?",
+    "button": "Controlla i Prezzi Attuali",
+    "sub": "Inizia con un pacchetto di prova da 1,99 $. Il rischio più basso del settore."
+  },
+  "meta": { "h2": "Meta", "published": "Pubblicato", "type": "Analisi", "category": "Costi e ROI" },
+  "seo": {
+    "title": "Analisi dei Costi Verbali IA (2025) — Vero ROI",
+    "description": "Vale la pena un verbalizzatore AI? Analizziamo il 'Costo per Riunione' di Verbali IA rispetto alla trascrizione umana e agli abbonamenti mensili.",
+    "ogTitle": "Il Vero Costo dei Verbali: IA vs Umano (Guida 2025)",
+    "ogDescription": "Preoccupato per il costo degli strumenti AI? Analizziamo il costo reale di Verbali IA. Scopri perché il nostro modello ti fa risparmiare.",
+    "ld": { "headline": "Guida Costi e ROI Verbali IA (2025)", "description": "Ripartizione dei costi dei verbali di riunione. Confronto Pacchetti Tempo vs Abbonamenti." }
+  }
+}

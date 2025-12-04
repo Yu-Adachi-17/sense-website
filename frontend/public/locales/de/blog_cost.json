@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Protokoll KI Startseite" },
+  "nav": { "blog": "Blog", "cost": "Kostenanalyse" },
+  "hero": {
+    "kicker": "Leitfaden zur Kosteneffizienz",
+    "h1": "Die wahren Kosten von Protokollen: Zahlen Sie zu viel?",
+    "tagline": "Die meisten Produktivitätstools verstecken ihre wahren Kosten hinter monatlichen Gebühren, die Sie selten voll ausschöpfen. Hier ist ein transparenter Blick auf die Kosten von Protokoll KI im Vergleich zu Ihrer Zeit und anderen Tools.",
+    "subtag": "Hören Sie auf, 'Miete' für Software zu zahlen. Zahlen Sie nur für den Wert, den Sie tatsächlich nutzen."
+  },
+  "intro": {
+    "h2": "Die versteckten Kosten von \"Fixen Monatsgebühren\"",
+    "p1": "Wenn Sie nach den Kosten für KI-Notiz-Tools suchen, sehen Sie meist eine pauschale Monatsrate (z. B. 30 €/Monat). Aber wenn Sie in diesem Monat nur 3 Meetings haben, betragen Ihre **tatsächlichen Kosten pro Meeting** 10 €. Das ist teuer.",
+    "p2": "Wir haben Protokoll KI entwickelt, um diese Ineffizienz mit einem Modell zu beheben, das Ihren Geldbeutel respektiert."
+  },
+  "breakdown": {
+    "h2": "Kostenaufschlüsselung: Zeitpakete vs. Abonnements",
+    "note": "Wir bieten zwei Zahlungsweisen an, abhängig von Ihrer Häufigkeit. Hier ist die Kosteneffizienzanalyse für beide.",
+    "packTitle": "Option A: Der \"Pay-As-You-Go\"-Ansatz (Bester ROI)",
+    "packDesc": "Ideal, wenn Ihr Meetingplan variiert. Sie kaufen Minuten, die **niemals verfallen**. Kein verschwendetes Geld.",
+    "packMetric": "Effizienz: Ca. 0,50 $ - 1,00 $ pro Aufnahmestunde",
+    "subTitle": "Option B: Das \"Power User\"-Abonnement",
+    "subDesc": "Ideal, wenn Sie täglich aufnehmen. Je mehr Sie aufnehmen, desto günstiger wird es.",
+    "subMetric": "Effizienz: Unbegrenzte Nutzung für eine feste Obergrenze"
+  },
+  "roi": {
+    "h2": "ROI-Vergleich: KI vs. Mensch vs. Wettbewerber",
+    "lead": "Was kostet es tatsächlich, ein 1-stündiges Meeting zu transkribieren? Schauen wir uns die Zahlen an.",
+    "tableHead": ["Methode", "Gesch. Kosten für 1 Std.", "Zeitkosten (Ihre Arbeit)", "Versteckte Risiken"],
+    "rows": [
+      { "method": "Mensch / Sie selbst", "cost": "0 $ (technisch gesehen)", "labor": "1-2 Stunden Tippen", "risk": "Hohe Opportunitätskosten. Sie machen nicht Ihre eigentliche Arbeit." },
+      { "method": "Menschlicher Dienstleister", "cost": "60 $ - 100 $", "labor": "Null", "risk": "Sehr teuer. Datenschutzbedenken beim Teilen von Audio." },
+      { "method": "Typisches monatliches KI-Abo", "cost": "15 $ - 30 $ / Monat", "labor": "Niedrig", "risk": "Sunk Cost. Sie zahlen, auch wenn Sie null Meetings haben." },
+      { "method": "Protokoll KI (Zeitpaket)", "cost": "~0,60 $ (via Light Paket)", "labor": "Niedrig", "risk": "Keine. Minuten verfallen nie." }
+    ]
+  },
+  "value": {
+    "h2": "Wofür zahle ich eigentlich?",
+    "p1": "Die Kosten decken mehr als nur Speech-to-Text ab. Sie decken die Intelligenz ab, die Ihre Daten strukturiert.",
+    "items": [
+      "**Sicherheitskosten:** Wir verkaufen Ihre Daten nicht. Sie bezahlen uns, damit wir Ihre Daten privat halten.",
+      "**High-End-Modelle:** Wir nutzen Premium-Modelle (Whisper, GPT-4o, Gemini Pro), die höhere API-Kosten haben, aber lesbare Genauigkeit liefern.",
+      "**Cloud-Speicher:** Sicheres Hosting für Ihr Audio und Ihre Transkripte ist im Preis inbegriffen."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Häufige Fragen zu den Kosten",
+    "items": [
+      { "q": "Gibt es versteckte Einrichtungsgebühren?", "a": "Nein. Der Preis, den Sie für das Zeitpaket oder Abonnement sehen, ist der Endpreis (exkl. MwSt./lokale Steuern)." },
+      { "q": "Warum gilt das Zeitpaket als 'geringeres Risiko'?", "a": "Weil es die 'Abo-Müdigkeit' eliminiert. Wenn Sie die App 3 Monate lang nicht nutzen, verlieren Sie 0 $. Ihre Minuten warten auf Sie." },
+      { "q": "Ist die kostenlose Version wirklich kostenlos?", "a": "Ja. Das 'Tagesticket' gibt Ihnen jeden Tag 3 Minuten Aufnahme/Verarbeitung für 0 $. Großartig für schnelle Sprachnotizen." },
+      { "q": "Wie verhält sich der Jahrespreis zum Monatspreis?", "a": "Die jährliche Zahlung (149,99 $) senkt die effektiven monatlichen Kosten auf ca. 12,50 $, verglichen mit dem 16,99 $-Plan. Das ist eine Ersparnis von ~26 %." }
+    ]
+  },
+  "cta": {
+    "text": "Bereit, kein Geld mehr für leere Abos zu verschwenden?",
+    "button": "Aktuelle Preise prüfen",
+    "sub": "Starten Sie mit einem 1,99 $ Testpaket. Das geringste Risiko in der Branche."
+  },
+  "meta": { "h2": "Meta", "published": "Veröffentlicht", "type": "Analyse", "category": "Kosten & ROI" },
+  "seo": {
+    "title": "Protokoll KI Kostenanalyse (2025) — Der wahre ROI",
+    "description": "Lohnt sich ein KI-Notiz-Tool? Wir schlüsseln die 'Kosten pro Meeting' von Protokoll KI im Vergleich zu menschlicher Transkription und monatlichen Abos auf.",
+    "ogTitle": "Die wahren Kosten von Protokollen: KI vs. Mensch (Leitfaden 2025)",
+    "ogDescription": "Besorgt über die Kosten von KI-Tools? Wir analysieren die wahren Kosten von Protokoll KI. Sehen Sie, warum unser Modell Geld spart.",
+    "ld": { "headline": "Protokoll KI Kosten & ROI Leitfaden (2025)", "description": "Eine Aufschlüsselung der Protokollkosten. Vergleich von Zeitpaketen vs. Abonnements." }
+  }
+}

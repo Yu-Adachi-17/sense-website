@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Accueil Minutes.AI" },
+  "nav": { "blog": "Blog", "cost": "Analyse des Coûts" },
+  "hero": {
+    "kicker": "Guide de Rentabilité",
+    "h1": "Le coût réel des comptes-rendus : Payez-vous trop ?",
+    "tagline": "La plupart des outils masquent leur coût réel derrière des forfaits mensuels que vous utilisez rarement à fond. Voici une analyse transparente du coût de Minutes.AI comparé à votre temps et aux autres outils.",
+    "subtag": "Arrêtez de payer un 'loyer' logiciel. Payez uniquement pour la valeur que vous utilisez réellement."
+  },
+  "intro": {
+    "h2": "Le coût caché des \"Forfaits Mensuels Fixes\"",
+    "p1": "Lorsque vous cherchez le prix d'un assistant IA, vous voyez souvent un tarif plat (ex: 30 $/mois). Mais si vous n'avez que 3 réunions ce mois-là, votre **coût réel par réunion** est de 10 $. C'est cher.",
+    "p2": "Nous avons conçu Minutes.AI pour corriger cette inefficacité avec un modèle qui respecte votre budget."
+  },
+  "breakdown": {
+    "h2": "Détail des Coûts : Packs de Temps vs Abonnements",
+    "note": "Nous offrons deux modes de paiement selon votre fréquence. Voici l'analyse de rentabilité pour chacun.",
+    "packTitle": "Option A : L'approche \"Paiement à l'usage\" (Meilleur ROI)",
+    "packDesc": "Idéal si votre planning varie. Vous achetez des minutes qui **n'expirent jamais**. Zéro gaspillage.",
+    "packMetric": "Efficacité : Env. 0,50 $ - 1,00 $ par heure d'enregistrement",
+    "subTitle": "Option B : L'abonnement \"Power User\"",
+    "subDesc": "Idéal si vous enregistrez quotidiennement. Plus vous enregistrez, moins c'est cher.",
+    "subMetric": "Efficacité : Usage illimité pour un plafond fixe"
+  },
+  "roi": {
+    "h2": "Comparaison ROI : IA vs Humain vs Concurrents",
+    "lead": "Combien coûte réellement la transcription d'une heure de réunion ? Regardons les chiffres.",
+    "tableHead": ["Méthode", "Coût Est. pour 1 Heure", "Coût Temps (Votre travail)", "Risques Cachés"],
+    "rows": [
+      { "method": "Humain / Vous-même", "cost": "0 $ (techniquement)", "labor": "1-2 heures de frappe", "risk": "Coût d'opportunité élevé. Vous ne faites pas votre vrai travail." },
+      { "method": "Service Humain", "cost": "60 $ - 100 $", "labor": "Zéro", "risk": "Très cher. Soucis de confidentialité lors du partage audio." },
+      { "method": "Abo IA Mensuel Typique", "cost": "15 $ - 30 $ / mois", "labor": "Faible", "risk": "Coût irrécupérable. Vous payez même avec zéro réunion." },
+      { "method": "Minutes.AI (Pack Temps)", "cost": "~0,60 $ (via Pack Light)", "labor": "Faible", "risk": "Aucun. Les minutes n'expirent jamais." }
+    ]
+  },
+  "value": {
+    "h2": "Pour quoi je paie vraiment ?",
+    "p1": "Le coût couvre plus que la simple transcription. Il couvre l'intelligence qui structure vos données.",
+    "items": [
+      "**Coûts de Sécurité :** Nous ne vendons pas vos données. Vous nous payez pour garder vos données privées.",
+      "**Modèles Haut de Gamme :** Nous utilisons des modèles premium (Whisper, GPT-4o, Gemini Pro) qui ont des coûts d'API plus élevés mais offrent une précision lisible.",
+      "**Stockage Cloud :** L'hébergement sécurisé de vos audios et transcriptions est inclus."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Questions fréquentes sur les coûts",
+    "items": [
+      { "q": "Y a-t-il des frais d'installation cachés ?", "a": "Non. Le prix affiché pour le Pack ou l'Abonnement est le prix final (hors TVA/taxes locales)." },
+      { "q": "Pourquoi le Pack de Temps est-il 'moins risqué' ?", "a": "Parce qu'il élimine la 'fatigue d'abonnement'. Si vous n'utilisez pas l'app pendant 3 mois, vous perdez 0 $. Vos minutes vous attendent." },
+      { "q": "La version gratuite est-elle vraiment gratuite ?", "a": "Oui. Le 'Ticket Journalier' vous offre 3 minutes d'enregistrement chaque jour pour 0 $. Idéal pour les notes vocales rapides." },
+      { "q": "Comment le coût Annuel se compare-t-il au Mensuel ?", "a": "Payer annuellement (149,99 $) réduit le coût mensuel effectif à environ 12,50 $, contre 16,99 $ pour le plan mensuel. C'est une économie de ~26 %." }
+    ]
+  },
+  "cta": {
+    "text": "Prêt à arrêter de gaspiller de l'argent dans des abonnements vides ?",
+    "button": "Voir les Prix Actuels",
+    "sub": "Commencez avec un pack d'essai à 1,99 $. Le risque le plus faible du marché."
+  },
+  "meta": { "h2": "Méta", "published": "Publié", "type": "Analyse", "category": "Coût & ROI" },
+  "seo": {
+    "title": "Analyse des Coûts Minutes.AI (2025) — Vrai ROI",
+    "description": "Un preneur de notes IA vaut-il son coût ? Nous analysons le 'Coût par Réunion' de Minutes.AI face à la transcription humaine et aux abonnements.",
+    "ogTitle": "Le Vrai Coût des Comptes-Rendus : IA vs Humain (Guide 2025)",
+    "ogDescription": "Inquiet du prix des outils IA ? Nous analysons le coût réel de Minutes.AI. Découvrez pourquoi notre modèle économise de l'argent.",
+    "ld": { "headline": "Guide Coût & ROI Minutes.AI (2025)", "description": "Détail des coûts de minutes de réunion. Comparaison Packs vs Abonnements." }
+  }
+}

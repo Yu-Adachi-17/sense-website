@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Jegyzőkönyv AI Kezdőlap" },
+  "nav": { "blog": "Blog", "cost": "Költségelemzés" },
+  "hero": {
+    "kicker": "Költséghatékonysági útmutató",
+    "h1": "Az értekezleti jegyzőkönyvek valódi ára: Túl sokat fizet?",
+    "tagline": "A legtöbb hatékonyságnövelő eszköz havi díjak mögé rejti valódi költségeit, amelyeket ritkán használ ki teljesen. Íme egy átlátható áttekintés a Jegyzőkönyv AI költségeiről az idejéhez és más eszközökhöz képest.",
+    "subtag": "Ne fizessen 'bérleti díjat' szoftverekért. Csak azért az értékért fizessen, amit ténylegesen használ."
+  },
+  "intro": {
+    "h2": "A \"Fix havi díjak\" rejtett költsége",
+    "p1": "Amikor AI jegyzetelők árát keresi, általában átalány havidíjat lát (pl. 30 $/hó). De ha abban a hónapban csak 3 megbeszélése van, a **tényleges költsége értekezletenként** 10 $. Ez drága.",
+    "p2": "A Jegyzőkönyv AI-t azért hoztuk létre, hogy ezt a hatékonytalanságot egy olyan modellel javítsuk ki, amely kíméli a pénztárcáját."
+  },
+  "breakdown": {
+    "h2": "Költségbontás: Időcsomagok vs. Előfizetések",
+    "note": "Két fizetési módot kínálunk, a gyakoriságtól függően. Íme a költséghatékonysági elemzés mindkettőhöz.",
+    "packTitle": "A lehetőség: \"Használat alapú fizetés\" (Legjobb megtérülés)",
+    "packDesc": "Ideális, ha a megbeszélések ütemezése változó. Olyan perceket vásárol, amelyek **soha nem járnak le**. Nincs kidobott pénz.",
+    "packMetric": "Hatékonyság: Kb. 0,50 $ - 1,00 $ rögzített óránként",
+    "subTitle": "B lehetőség: \"Power User\" előfizetés",
+    "subDesc": "Ideális, ha naponta rögzít. Minél többet rögzít, annál olcsóbb lesz.",
+    "subMetric": "Hatékonyság: Korlátlan használat fix áron"
+  },
+  "roi": {
+    "h2": "Megtérülés (ROI) összehasonlítás: AI vs. Ember vs. Versenytársak",
+    "lead": "Mennyibe kerül valójában egy 1 órás megbeszélés átírása? Nézzük a számokat.",
+    "tableHead": ["Módszer", "Becsült költség / 1 óra", "Időköltség (Az Ön munkája)", "Rejtett kockázatok"],
+    "rows": [
+      { "method": "Ember / Ön maga", "cost": "0 $ (technikailag)", "labor": "1-2 óra gépelés", "risk": "Magas alternatív költség. Nem a valódi munkáját végzi." },
+      { "method": "Emberi szolgáltatás", "cost": "60 $ - 100 $", "labor": "Nulla", "risk": "Nagyon drága. Adatvédelmi aggályok a hangmegosztásnál." },
+      { "method": "Tipikus havi AI előfizetés", "cost": "15 $ - 30 $ / hó", "labor": "Alacsony", "risk": "Elsüllyedt költség. Akkor is fizet, ha nulla megbeszélése van." },
+      { "method": "Jegyzőkönyv AI (Időcsomag)", "cost": "~0,60 $ (Light csomaggal)", "labor": "Alacsony", "risk": "Nincs. A percek soha nem járnak le." }
+    ]
+  },
+  "value": {
+    "h2": "Miért fizetek valójában?",
+    "p1": "Az ár többet fedez, mint a beszéd szöveggé alakítását. Fedezi az intelligenciát, amely strukturálja adatait.",
+    "items": [
+      "**Biztonsági költségek:** Nem adjuk el az adatait. Azért fizet nekünk, hogy adatait privátban tartsuk.",
+      "**Csúcsmodellek:** Prémium modelleket használunk (Whisper, GPT-4o, Gemini Pro), amelyeknek magasabb az API költsége, de olvasható pontosságot nyújtanak.",
+      "**Felhőtárhely:** A hanganyagok és átiratok biztonságos tárhelye benne van az árban."
+    ]
+  },
+  "faq": {
+    "h2": "GYIK — Gyakori kérdések a költségekről",
+    "items": [
+      { "q": "Vannak rejtett beállítási díjak?", "a": "Nem. Az Időcsomagért vagy Előfizetésért látott ár a végső ár (ÁFA/helyi adók nélkül)." },
+      { "q": "Miért tekinthető az Időcsomag 'alacsonyabb kockázatúnak'?", "a": "Mert kiküszöböli az 'előfizetési fáradtságot'. Ha 3 hónapig nem használja az alkalmazást, 0 dollárt veszít. A percei megvárják." },
+      { "q": "Az ingyenes verzió tényleg ingyenes?", "a": "Igen. A 'Napi Jegy' minden nap 3 perc rögzítést/feldolgozást ad 0 $ költséggel. Kiváló gyors hangjegyzetekhez." },
+      { "q": "Hogyan viszonyul az éves díj a havihoz?", "a": "Az éves fizetés (149,99 $) az effektív havi költséget kb. 12,50 $-ra csökkenti a 16,99 $-os havi tervhez képest. Ez ~26% megtakarítás." }
+    ]
+  },
+  "cta": {
+    "text": "Készen áll arra, hogy ne pazarolja a pénzt üres előfizetésekre?",
+    "button": "Aktuális árak ellenőrzése",
+    "sub": "Kezdje egy 1,99 $-os próbacsomaggal. A legalacsonyabb kockázat az iparágban."
+  },
+  "meta": { "h2": "Meta", "published": "Közzétéve", "type": "Elemzés", "category": "Költség és ROI" },
+  "seo": {
+    "title": "Jegyzőkönyv AI Költségelemzés (2025) — Valódi ROI",
+    "description": "Megéri az árát egy AI jegyzetelő? Elemezzük a Jegyzőkönyv AI 'Megbeszélésenkénti költségét' az emberi átírással és havi előfizetésekkel szemben.",
+    "ogTitle": "Az értekezleti jegyzőkönyvek valódi ára: AI vs Ember (2025 Útmutató)",
+    "ogDescription": "Aggódik az AI eszközök költsége miatt? Elemezzük a Jegyzőkönyv AI valódi költségeit. Nézze meg, miért takarít meg pénzt a modellünk.",
+    "ld": { "headline": "Jegyzőkönyv AI Költség és ROI Útmutató (2025)", "description": "Értekezleti jegyzőkönyvek költségeinek bontása. Időcsomagok vs. Előfizetések összehasonlítása." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Início Ata AI" },
+  "nav": { "blog": "Blog", "cost": "Análise de Custos" },
+  "hero": {
+    "kicker": "Guia de Eficiência de Custos",
+    "h1": "O custo real das atas de reunião: Você está pagando demais?",
+    "tagline": "A maioria das ferramentas de produtividade esconde seu custo real atrás de taxas mensais que você raramente utiliza totalmente. Aqui está um olhar transparente sobre o custo do Ata AI em comparação com o seu tempo e outras ferramentas.",
+    "subtag": "Pare de pagar 'aluguel' por software. Pague apenas pelo valor que você realmente usa."
+  },
+  "intro": {
+    "h2": "O custo oculto das \"Taxas Mensais Fixas\"",
+    "p1": "Ao pesquisar custos de IA para anotações, você geralmente vê uma taxa mensal fixa (ex: $30/mês). Mas se você tiver apenas 3 reuniões naquele mês, seu **custo real por reunião** é de $10. Isso é caro.",
+    "p2": "Criamos o Ata AI para corrigir essa ineficiência com um modelo que respeita sua carteira."
+  },
+  "breakdown": {
+    "h2": "Detalhamento de Custos: Pacotes de Tempo vs. Assinaturas",
+    "note": "Oferecemos duas formas de pagamento, dependendo da sua frequência. Aqui está a análise de eficiência de custo para cada uma.",
+    "packTitle": "Opção A: Abordagem \"Pague pelo uso\" (Melhor ROI)",
+    "packDesc": "Ideal se sua agenda de reuniões varia. Você compra minutos que **nunca expiram**. Zero dinheiro desperdiçado.",
+    "packMetric": "Eficiência: Aprox. $0.50 - $1.00 por hora de gravação",
+    "subTitle": "Opção B: Assinatura \"Power User\"",
+    "subDesc": "Ideal se você grava diariamente. Quanto mais você grava, mais barato fica.",
+    "subMetric": "Eficiência: Uso ilimitado por um teto fixo"
+  },
+  "roi": {
+    "h2": "Comparação de ROI: IA vs. Humano vs. Concorrentes",
+    "lead": "Quanto custa realmente transcrever 1 hora de reunião? Vamos olhar os números.",
+    "tableHead": ["Método", "Custo Est. por 1 Hora", "Custo de Tempo (Seu trabalho)", "Riscos Ocultos"],
+    "rows": [
+      { "method": "Humano / Você mesmo", "cost": "$0 (tecnicamente)", "labor": "1-2 horas digitando", "risk": "Alto custo de oportunidade. Você não está fazendo seu trabalho real." },
+      { "method": "Serviço Humano", "cost": "$60 - $100", "labor": "Zero", "risk": "Muito caro. Preocupações de privacidade ao compartilhar áudio." },
+      { "method": "Assinatura IA Mensal Típica", "cost": "$15 - $30 / mês", "labor": "Baixo", "risk": "Custo irrecuperável. Você paga mesmo se tiver zero reuniões." },
+      { "method": "Ata AI (Pacote de Tempo)", "cost": "~$0.60 (via Pacote Light)", "labor": "Baixo", "risk": "Nenhum. Os minutos nunca expiram." }
+    ]
+  },
+  "value": {
+    "h2": "Pelo que estou realmente pagando?",
+    "p1": "O custo cobre mais do que apenas voz para texto. Cobre a inteligência que estrutura seus dados.",
+    "items": [
+      "**Custos de Segurança:** Não vendemos seus dados. Você nos paga para manter seus dados privados.",
+      "**Modelos de Ponta:** Usamos modelos premium (Whisper, GPT-4o, Gemini Pro) que têm custos de API mais altos, mas oferecem precisão legível.",
+      "**Armazenamento na Nuvem:** Hospedagem segura para seu áudio e transcrições está incluída no preço."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Perguntas Comuns sobre Custos",
+    "items": [
+      { "q": "Existem taxas de configuração ocultas?", "a": "Não. O preço que você vê para o Pacote de Tempo ou Assinatura é o preço final (excluindo IVA/impostos locais)." },
+      { "q": "Por que o Pacote de Tempo é considerado de 'menor risco'?", "a": "Porque elimina a 'fadiga de assinatura'. Se você não usar o aplicativo por 3 meses, perde $0. Seus minutos esperam por você." },
+      { "q": "A versão gratuita é realmente gratuita?", "a": "Sim. O 'Bilhete Diário' oferece 3 minutos de gravação/processamento todos os dias a um custo de $0. Ótimo para notas de voz rápidas." },
+      { "q": "Como o custo Anual se compara ao Mensal?", "a": "Pagar anualmente ($149.99) reduz o custo mensal efetivo para cerca de $12.50, em comparação com o plano mensal de $16.99. É uma economia de ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Pronto para parar de desperdiçar dinheiro em assinaturas vazias?",
+    "button": "Ver Preços Atuais",
+    "sub": "Comece com um pacote de teste de $1.99. O menor risco da indústria."
+  },
+  "meta": { "h2": "Meta", "published": "Publicado", "type": "Análise", "category": "Custo e ROI" },
+  "seo": {
+    "title": "Análise de Custos Ata AI (2025) — ROI Real",
+    "description": "Vale a pena um anotador de IA? Detalhamos o 'Custo por Reunião' do Ata AI vs. transcrição humana e assinaturas mensais.",
+    "ogTitle": "O Custo Real das Atas: IA vs Humano (Guia 2025)",
+    "ogDescription": "Preocupado com o custo das ferramentas de IA? Analisamos o custo real do Ata AI. Veja por que nosso modelo economiza dinheiro.",
+    "ld": { "headline": "Guia de Custos e ROI do Ata AI (2025)", "description": "Detalhamento dos custos de atas de reunião. Comparação Pacotes de Tempo vs. Assinaturas." }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "aria": { "home": "Hem Protokoll AI" },
+  "nav": { "blog": "Blogg", "cost": "Kostnadsanalys" },
+  "hero": {
+    "kicker": "Guide till kostnadseffektivitet",
+    "h1": "Den verkliga kostnaden för protokoll: Betalar du för mycket?",
+    "tagline": "De flesta produktivitetsverktyg döljer sin verkliga kostnad bakom månadsavgifter som du sällan utnyttjar fullt ut. Här är en transparent titt på kostnaden för Protokoll AI jämfört med din tid och andra verktyg.",
+    "subtag": "Sluta betala 'hyra' för programvara. Betala bara för det värde du faktiskt använder."
+  },
+  "intro": {
+    "h2": "Den dolda kostnaden för \"Fasta månadsavgifter\"",
+    "p1": "När du söker efter kostnaden för AI-anteckningsverktyg ser du vanligtvis en fast månadsavgift (t.ex. $30/månad). Men om du bara har 3 möten den månaden är din **faktiska kostnad per möte** $10. Det är dyrt.",
+    "p2": "Vi byggde Protokoll AI för att åtgärda denna ineffektivitet med en modell som respekterar din plånbok."
+  },
+  "breakdown": {
+    "h2": "Kostnadsfördelning: Tidspaket vs. Abonnemang",
+    "note": "Vi erbjuder två betalningssätt beroende på din frekvens. Här är analysen av kostnadseffektivitet för varje.",
+    "packTitle": "Alternativ A: \"Pay-As-You-Go\" (Bäst ROI)",
+    "packDesc": "Perfekt om ditt mötesschema varierar. Du köper minuter som **aldrig löper ut**. Inga bortkastade pengar.",
+    "packMetric": "Effektivitet: Ca $0.50 - $1.00 per timme inspelning",
+    "subTitle": "Alternativ B: \"Power User\"-abonnemang",
+    "subDesc": "Perfekt om du spelar in dagligen. Ju mer du spelar in, desto billigare blir det.",
+    "subMetric": "Effektivitet: Obegränsad användning för ett fast tak"
+  },
+  "roi": {
+    "h2": "ROI-jämförelse: AI vs. Människa vs. Konkurrenter",
+    "lead": "Vad kostar det egentligen att transkribera ett 1-timmars möte? Låt oss titta på siffrorna.",
+    "tableHead": ["Metod", "Uppsk. kostnad för 1 timme", "Tidskostnad (Ditt arbete)", "Dolda risker"],
+    "rows": [
+      { "method": "Människa / Du själv", "cost": "$0 (tekniskt sett)", "labor": "1-2 timmars skrivande", "risk": "Hög alternativkostnad. Du gör inte ditt egentliga jobb." },
+      { "method": "Mänsklig tjänst", "cost": "$60 - $100", "labor": "Noll", "risk": "Mycket dyrt. Integritetsproblem vid delning av ljud." },
+      { "method": "Typiskt månatligt AI-abb", "cost": "$15 - $30 / månad", "labor": "Låg", "risk": "Sunk cost. Du betalar även om du har noll möten." },
+      { "method": "Protokoll AI (Tidspaket)", "cost": "~$0.60 (via Light-paket)", "labor": "Låg", "risk": "Ingen. Minuter löper aldrig ut." }
+    ]
+  },
+  "value": {
+    "h2": "Vad betalar jag egentligen för?",
+    "p1": "Kostnaden täcker mer än bara tal-till-text. Den täcker intelligensen som strukturerar dina data.",
+    "items": [
+      "**Säkerhetskostnader:** Vi säljer inte dina data. Du betalar oss för att hålla dina data privata.",
+      "**High-End-modeller:** Vi använder premiummodeller (Whisper, GPT-4o, Gemini Pro) som har högre API-kostnader men levererar läsbar noggrannhet.",
+      "**Molnlagring:** Säker hosting för ditt ljud och dina transkriptioner ingår i priset."
+    ]
+  },
+  "faq": {
+    "h2": "FAQ — Vanliga frågor om kostnader",
+    "items": [
+      { "q": "Finns det dolda startavgifter?", "a": "Nej. Priset du ser för Tidspaketet eller Abonnemanget är det slutliga priset (exkl. moms/lokala skatter)." },
+      { "q": "Varför anses Tidspaketet vara 'lägre risk'?", "a": "Eftersom det eliminerar 'abonnemangströtthet'. Om du inte använder appen på 3 månader förlorar du $0. Dina minuter väntar på dig." },
+      { "q": "Är gratisversionen verkligen gratis?", "a": "Ja. 'Dagbiljett' ger dig 3 minuters inspelning/bearbetning varje dag till en kostnad av $0. Bra för snabba röstanteckningar." },
+      { "q": "Hur jämförs den årliga kostnaden med den månatliga?", "a": "Att betala årligen ($149.99) sänker den effektiva månadskostnaden till cirka $12.50, jämfört med månadsplanen på $16.99. Det är en besparing på ~26%." }
+    ]
+  },
+  "cta": {
+    "text": "Redo att sluta slösa pengar på tomma abonnemang?",
+    "button": "Kolla aktuella priser",
+    "sub": "Börja med ett provpaket för $1.99. Lägsta risken i branschen."
+  },
+  "meta": { "h2": "Meta", "published": "Publicerad", "type": "Analys", "category": "Kostnad & ROI" },
+  "seo": {
+    "title": "Protokoll AI Kostnadsanalys (2025) — Verklig ROI",
+    "description": "Är en AI-sekreterare värd kostnaden? Vi bryter ner 'Kostnad per möte' för Protokoll AI kontra mänsklig transkribering och månadsabonnemang.",
+    "ogTitle": "Den verkliga kostnaden för protokoll: AI vs Människa (2025 Guide)",
+    "ogDescription": "Orolig för kostnaden för AI-verktyg? Vi analyserar den verkliga kostnaden för Protokoll AI. Se varför vår modell sparar pengar.",
+    "ld": { "headline": "Protokoll AI Kostnads- och ROI-guide (2025)", "description": "Uppdelning av kostnader för mötesprotokoll. Jämförelse Tidspaket vs. Abonnemang." }
+  }
+}
