@@ -339,7 +339,7 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
           </SectionCard>
 
           {/* Cost Breakdown Analysis */}
-          <SectionCard className="mt-8">
+<SectionCard className="mt-8">
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight">{txs("breakdown.h2")}</h2>
             <p className="mt-2 text-sm text-indigo-200/80 mb-6">{txs("breakdown.note")}</p>
 
@@ -349,7 +349,8 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
                 <div className="text-sm font-semibold text-emerald-200 mb-2">{txs("breakdown.packTitle")}</div>
                 <p className="text-sm text-indigo-100/90 leading-relaxed min-h-[3rem]">{txs("breakdown.packDesc")}</p>
                 <div className="mt-4 pt-4 border-t border-emerald-500/20">
-                  <span className="text-xs font-mono text-emerald-300">{txs("breakdown.packMetric")}</span>
+                  {/* 修正箇所: font-mono を削除し、font-semibold に変更 */}
+                  <span className="text-xs font-semibold text-emerald-300">{txs("breakdown.packMetric")}</span>
                 </div>
               </div>
 
@@ -358,7 +359,8 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
                 <div className="text-sm font-semibold text-indigo-200 mb-2">{txs("breakdown.subTitle")}</div>
                 <p className="text-sm text-indigo-100/90 leading-relaxed min-h-[3rem]">{txs("breakdown.subDesc")}</p>
                 <div className="mt-4 pt-4 border-t border-indigo-500/20">
-                  <span className="text-xs font-mono text-indigo-300">{txs("breakdown.subMetric")}</span>
+                  {/* 修正箇所: font-mono を削除し、font-semibold に変更 */}
+                  <span className="text-xs font-semibold text-indigo-300">{txs("breakdown.subMetric")}</span>
                 </div>
               </div>
             </div>
