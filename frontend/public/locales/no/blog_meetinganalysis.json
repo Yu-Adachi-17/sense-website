@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Hjemmeside for Referat AI"
+  },
+  "cta": {
+    "downloadAndroid": "Last ned for Android",
+    "downloadIOS": "Last ned for iOS",
+    "h2": "Begynn å analysere møtene dine i dag",
+    "openBrowser": "Analyser på nettet",
+    "p": "Slutt å behandle møter som 'write-only'-minne. Gjør dem til ditt konkurransefortrinn."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI-en skiller automatisk 'småprat' fra 'beslutninger'. Referatet formateres slik at du kan skanne et 60-minutters møte på 30 sekunder.",
+        "title": "1. Strukturell Analyse"
+      },
+      {
+        "desc": "Med 'Strategi'-funksjonen fungerer AI-en som en konsulent. Den finner 'Kjerneproblemet', tilbyr 'Motargumenter' (Counter) du kanskje har gått glipp av, og foreslår 'Laterale løsninger'.",
+        "title": "2. Strategisk Analyse (Hjernen)"
+      },
+      {
+        "desc": "Ved å identifisere ansvarlige og frister, gjør AI-en samtaler om til prosjektstyringsdata. Den svarer automatisk på spørsmålet 'Hvem gjør hva?'.",
+        "title": "3. Kontekstuell Analyse"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Ikke bare ta opp. Analyser.",
+    "kicker": "Business Intelligence",
+    "tagline": "Tiden for den enkle 'referenten' er forbi. Referat AI fungerer som din automatiserte forretningsanalytiker, og gjør timer med samtale om til strukturerte data, risikovurderinger og strategiske neste steg."
+  },
+  "intro": {
+    "h2": "Hvorfor 'Transkripsjon' ikke lenger er nok",
+    "p1": "Mange team lider av 'Datagjeld'. Hvert møte tas opp, men ingen har tid til å gå gjennom dem. En rå transkripsjon er bare en vegg av tekst – det er data, men ikke *informasjon*.",
+    "p2": "Ekte 'Referatanalyse' betyr å forstå konteksten. Referat AI bare lytter ikke; den tenker. Den strukturerer kaoset ditt til klare beslutninger, bekymringer og gjøremål."
+  },
+  "meta": {
+    "category": "AI-funksjoner",
+    "h2": "Info",
+    "published": "Publisert",
+    "type": "Analyseguide"
+  },
+  "nav": {
+    "analysis": "AI-analyse",
+    "blog": "Blogg"
+  },
+  "seo": {
+    "description": "Slutt å bare transkribere. Begynn å analysere. Lær hvordan Referat AI gjør rå møtelyd om til strukturerte data og strategisk innsikt.",
+    "keywords": "AI-analyse, møteintelligens, referatanalyse, forretningsinnsikt, Referat AI strategi",
+    "ld": {
+      "description": "En guide til bruk av AI ikke bare for opptak, men for å analysere møtedynamikk, trekke ut kjerneproblemer og generere strategiske mottiltak.",
+      "headline": "AI-analyse av referater: Mer enn enkel transkripsjon"
+    },
+    "ogDescription": "Leter du etter 'AI-referatanalyse'? Se hvordan Referat AI bruker ChatGPT-5 og Gemini 2.5 Pro til å trekke ut trender og beslutninger.",
+    "ogTitle": "Fra referent til analytiker: Kraften i AI-møteanalyse",
+    "title": "AI-analyse av referater: Gjør lyd om til Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost-analyse:** Identifiserer hva som fungerer bra, og foreslår hvordan det kan skaleres.",
+    "counter": "**Counter-analyse:** Spiller 'Djevelens Advokat' for å hjelpe deg med å oppdage risikoer før de oppstår.",
+    "cta": "Se Strategi-funksjonen",
+    "h2": "Deep Dive: 'Analytiker'-modus",
+    "p1": "For dypere innsikt bruker vår Strategi-funksjon avanserte modeller (som Gemini 2.5 Pro) på referatet ditt."
+  },
+  "visual": {
+    "h2": "Visuelt bevis: Analyseresultatet",
+    "p": "Dette er ikke en modell. Slik gjør Referat AI et kaotisk markedsføringsmøte om til et strukturert, analysert referat.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Annonser)",
+        "Elena (Produkt)"
+      ],
+      "coreMessage": "Flytt 30 % av TV-budsjettet til Influencer Marketing; fokuser på kampanjen 'Brukertillit'.",
+      "date": "12. nov 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Markedsføringsstrategi & Budsjettallokering",
+      "topics": [
+        {
+          "concerns": [
+            "Trenger en streng godkjenningsprosess for influencere for å unngå skandaler."
+          ],
+          "decisions": [
+            "GODKJENT: Kutt TV-utgifter med 30 %.",
+            "GODKJENT: Omdisponer midler til 'Tech-Influencer'-nivå."
+          ],
+          "discussion": [
+            "ROI for TV-annonser har falt med 12 % år-over-år.",
+            "Influencer-kampanjer (Micro-tier) viser 4,5x ROAS.",
+            "Elena uttrykte bekymring for merkevaresikkerhet med influencere."
+          ],
+          "topic": "Analyse av budsjettomdisponering"
+        },
+        {
+          "actionItems": [
+            "James — Utarbeid nye retningslinjer for uredigerte anmeldelser innen fredag.",
+            "Sarah — Godkjenn endelig liste over skapere."
+          ],
+          "keyMessages": [
+            "Brukere er lei av hype. De vil ha rå, uredigerte anmeldelser."
+          ],
+          "topic": "Kampanjetema: 'Tillit'"
+        }
+      ]
+    }
+  }
+}

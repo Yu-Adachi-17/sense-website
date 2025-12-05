@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "cta": {
+    "downloadAndroid": "Get Android App",
+    "downloadIOS": "Download iOS App",
+    "h2": "Start Analyzing Your Meetings Today",
+    "openBrowser": "Analyze on Web",
+    "p": "Stop treating meetings as 'write-only' memory. Turn them into your competitive advantage."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "The AI automatically separates 'Chatter' from 'Decisions'. It formats the protocol so you can scan a 60-minute meeting in 30 seconds.",
+        "title": "1. Structural Analysis"
+      },
+      {
+        "desc": "Using our Strategy feature, the AI acts as a consultant. It finds the 'Top Issue', offers 'Counter-arguments' you might have missed, and proposes 'Lateral Thinking' solutions.",
+        "title": "2. Strategic Analysis (The 'Brain')"
+      },
+      {
+        "desc": "By identifying owners and deadlines automatically, the AI turns talk into a project management feed. It answers 'Who needs to do what?' without you asking.",
+        "title": "3. Contextual Analysis"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Don't Just Record. Analyze.",
+    "kicker": "Business Intelligence",
+    "tagline": "The era of the 'scribe' is over. Minutes.AI acts as your automated business analyst, turning hours of conversation into structured data, risk assessments, and strategic next steps."
+  },
+  "intro": {
+    "h2": "Why 'Transcription' is Not Enough",
+    "p1": "Many teams suffer from 'Data Debt'. They record every meeting, but nobody has time to review them. A raw transcript is just a wall of text—it's data, but it's not *information*.",
+    "p2": "True 'Protocol Analysis' means understanding the context. Minutes.AI doesn't just listen; it thinks. It structures your chaos into clear Decisions, Concerns, and Action Items."
+  },
+  "meta": {
+    "category": "AI Features",
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Analysis Guide"
+  },
+  "nav": {
+    "analysis": "AI Analysis",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Stop just transcribing. Start analyzing. Learn how Minutes.AI transforms raw meeting audio into structured data, strategic insights, and decision-ready reports.",
+    "keywords": "AI analysis, meeting intelligence, protocol analysis, business insights, Minutes.AI strategy",
+    "ld": {
+      "description": "A guide to using AI not just for recording, but for analyzing meeting dynamics, extracting core issues, and generating strategic counter-measures.",
+      "headline": "AI Protocol Analysis: Beyond Simple Transcription"
+    },
+    "ogDescription": "Searching for 'AI protocol analysis'? See how Minutes.AI uses ChatGPT-5 & Gemini 2.5 Pro to extract trends, decisions, and counter-arguments from your meetings.",
+    "ogTitle": "From Scribe to Analyst: The Power of AI Meeting Analysis",
+    "title": "AI Protocol Analysis: Turning Meeting Audio into Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost Analysis:** Identifies what is working well and suggests how to scale it.",
+    "counter": "**Counter Analysis:** Plays 'Devil's Advocate' to help you spot risks before they happen.",
+    "cta": "See Strategy Feature",
+    "h2": "Deep Dive: The 'Analyst' Mode",
+    "p1": "For deeper insights, our Strategy function applies advanced models (like Gemini 2.5 Pro) to your protocol."
+  },
+  "visual": {
+    "h2": "Visual Proof: The Analysis Result",
+    "p": "This is not a mock-up. This is how Minutes.AI renders a chaotic marketing meeting into a structured, analyzed protocol.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Ads)",
+        "Elena (Product)"
+      ],
+      "coreMessage": "Shift 30% of the TV budget to Influencer Marketing; focus on 'User Trust' campaign.",
+      "date": "Nov 12, 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Marketing Strategy & Budget Allocation",
+      "topics": [
+        {
+          "concerns": [
+            "Need a strict vetting process for influencers to avoid scandals."
+          ],
+          "decisions": [
+            "APPROVED: Cut TV spend by 30%.",
+            "APPROVED: Reallocate funds to 'Tech-Influencer' tier."
+          ],
+          "discussion": [
+            "TV ads ROI has dropped by 12% YoY.",
+            "Influencer campaigns (Micro-tier) showing 4.5x ROAS.",
+            "Elena raised concerns about brand safety with influencers."
+          ],
+          "topic": "Budget Reallocation Analysis"
+        },
+        {
+          "actionItems": [
+            "James — Draft new guidelines for unscripted reviews by Friday.",
+            "Sarah — Approve final creator list."
+          ],
+          "keyMessages": [
+            "Users are tired of hype. They want raw, unedited reviews."
+          ],
+          "topic": "Campaign Theme: 'Trust'"
+        }
+      ]
+    }
+  }
+}

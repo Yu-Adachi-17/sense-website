@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Acasă Proces-verbal AI"
+  },
+  "cta": {
+    "downloadAndroid": "Descarcă pentru Android",
+    "downloadIOS": "Descarcă pentru iOS",
+    "h2": "Începe să-ți analizezi ședințele azi",
+    "openBrowser": "Analizează pe Web",
+    "p": "Nu mai trata ședințele ca pe o memorie 'doar de scris'. Transformă-le în avantajul tău competitiv."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI-ul separă automat 'pălăvrăgeala' de 'decizii'. Procesul-verbal este formatat astfel încât să poți scana o ședință de 60 de minute în 30 de secunde.",
+        "title": "1. Analiză Structurală"
+      },
+      {
+        "desc": "Cu funcția 'Strategie', AI-ul acționează ca un consultant. Găsește 'Problema Principală', oferă 'Contraargumente' (Counter) pe care poate le-ai ratat și sugerează 'Soluții Laterale'.",
+        "title": "2. Analiză Strategică (Creierul)"
+      },
+      {
+        "desc": "Prin identificarea responsabililor și a termenelor limită, AI-ul transformă conversațiile în date de project management. Răspunde automat la întrebarea 'Cine ce face?'.",
+        "title": "3. Analiză Contextuală"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Nu doar înregistra. Analizează.",
+    "kicker": "Business Intelligence",
+    "tagline": "Era simplului 'grefier' s-a încheiat. Proces-verbal AI acționează ca analistul tău de business automatizat, transformând ore de conversație în date structurate, evaluări de risc și pași strategici următori."
+  },
+  "intro": {
+    "h2": "De ce 'Transcrierea' nu mai este suficientă",
+    "p1": "Multe echipe suferă de 'Datoria de Date'. Fiecare ședință este înregistrată, dar nimeni nu are timp să le revadă. O transcriere brută este doar un zid de text — sunt date, dar nu *informație*.",
+    "p2": "Adevărata 'Analiză a Proceselor-verbale' înseamnă înțelegerea contextului. Proces-verbal AI nu doar ascultă; gândește. Îți structurează haosul în decizii clare, îngrijorări și acțiuni."
+  },
+  "meta": {
+    "category": "Funcții AI",
+    "h2": "Info",
+    "published": "Publicat",
+    "type": "Ghid de Analiză"
+  },
+  "nav": {
+    "analysis": "Analiză AI",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Nu te mai limita la transcriere. Începe să analizezi. Află cum Proces-verbal AI transformă sunetul brut al ședințelor în date structurate și insight-uri strategice.",
+    "keywords": "analiză AI, inteligența ședințelor, analiză procese-verbale, insight-uri de business, strategie Proces-verbal AI",
+    "ld": {
+      "description": "Un ghid pentru utilizarea AI nu doar pentru înregistrare, ci și pentru analiza dinamicii ședințelor, extragerea problemelor cheie și generarea de contramăsuri strategice.",
+      "headline": "Analiza Proceselor-verbale cu AI: Dincolo de simpla transcriere"
+    },
+    "ogDescription": "Cauți 'analiză procese-verbale AI'? Vezi cum Proces-verbal AI folosește ChatGPT-5 și Gemini 2.5 Pro pentru a extrage tendințe și decizii.",
+    "ogTitle": "De la grefier la analist: Puterea analizei ședințelor cu AI",
+    "title": "Analiza Proceselor-verbale cu AI: Transformă Audio în Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Analiză Boost:** Identifică ce funcționează bine și sugerează cum să scalezi.",
+    "counter": "**Analiză Counter:** Joacă rolul de 'Avocatul Diavolului' pentru a te ajuta să depistezi riscurile înainte să apară.",
+    "cta": "Vezi funcția Strategie",
+    "h2": "Deep Dive: Modul 'Analist'",
+    "p1": "Pentru insight-uri mai profunde, funcția noastră Strategie aplică modele avansate (precum Gemini 2.5 Pro) procesului tău verbal."
+  },
+  "visual": {
+    "h2": "Dovada Vizuală: Rezultatul Analizei",
+    "p": "Aceasta nu este o machetă. Așa transformă Proces-verbal AI o ședință de marketing haotică într-un proces-verbal structurat și analizat.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Reclame)",
+        "Elena (Produs)"
+      ],
+      "coreMessage": "Mutare 30% din bugetul TV către Influencer Marketing; focus pe campania 'Încrederea Utilizatorilor'.",
+      "date": "12 Nov 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Strategie Marketing Q4 și Alocare Buget",
+      "topics": [
+        {
+          "concerns": [
+            "Nevoie de un proces strict de verificare a influencerilor pentru a evita scandalurile."
+          ],
+          "decisions": [
+            "APROBAT: Tăiere cheltuieli TV cu 30%.",
+            "APROBAT: Realocare fonduri către nivelul 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "ROI-ul reclamelor TV a scăzut cu 12% față de anul trecut.",
+            "Campaniile cu influenceri (Micro-tier) arată un ROAS de 4.5x.",
+            "Elena a ridicat îngrijorări privind siguranța brandului cu influencerii."
+          ],
+          "topic": "Analiza Realocării Bugetului"
+        },
+        {
+          "actionItems": [
+            "James — Redactare noi ghiduri pentru recenzii nescriptate până vineri.",
+            "Sarah — Aprobare listă finală creatori."
+          ],
+          "keyMessages": [
+            "Utilizatorii s-au săturat de hype. Vor recenzii brute și needitate."
+          ],
+          "topic": "Tema Campaniei: 'Încredere'"
+        }
+      ]
+    }
+  }
+}

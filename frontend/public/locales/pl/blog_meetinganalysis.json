@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Strona główna Protokół AI"
+  },
+  "cta": {
+    "downloadAndroid": "Pobierz na Androida",
+    "downloadIOS": "Pobierz na iOS",
+    "h2": "Zacznij analizować swoje spotkania już dziś",
+    "openBrowser": "Analizuj w przeglądarce",
+    "p": "Przestań traktować spotkania jako pamięć 'tylko do zapisu'. Zmień je w swoją przewagę konkurencyjną."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI automatycznie oddziela 'pogaduszki' od 'decyzji'. Protokół jest formatowany tak, abyś mógł przeskanować 60-minutowe spotkanie w 30 sekund.",
+        "title": "1. Analiza strukturalna"
+      },
+      {
+        "desc": "Dzięki funkcji 'Strategia', AI działa jak konsultant. Znajduje 'Główny problem', oferuje 'Kontrargumenty' (Counter), które mogłeś przeoczyć, i sugeruje 'Rozwiązania lateralne'.",
+        "title": "2. Analiza strategiczna (Mózg)"
+      },
+      {
+        "desc": "Identyfikując właścicieli i terminy, AI zamienia rozmowy w dane do zarządzania projektami. Automatycznie odpowiada na pytanie 'Kto co robi?'.",
+        "title": "3. Analiza kontekstowa"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Nie tylko nagrywaj. Analizuj.",
+    "kicker": "Business Intelligence",
+    "tagline": "Era prostego 'protokolanta' się skończyła. Protokół AI działa jak Twój zautomatyzowany analityk biznesowy, zamieniając godziny rozmów w ustrukturyzowane dane, oceny ryzyka i strategiczne kolejne kroki."
+  },
+  "intro": {
+    "h2": "Dlaczego 'Transkrypcja' to już za mało",
+    "p1": "Wiele zespołów cierpi na 'Dług Danych'. Każde spotkanie jest nagrywane, ale nikt nie ma czasu ich przeglądać. Surowa transkrypcja to tylko ściana tekstu — to dane, ale nie *informacja*.",
+    "p2": "Prawdziwa 'Analiza Protokołów' oznacza zrozumienie kontekstu. Protokół AI nie tylko słucha; on myśli. Porządkuje Twój chaos w jasne decyzje, obawy i działania."
+  },
+  "meta": {
+    "category": "Funkcje AI",
+    "h2": "Info",
+    "published": "Opublikowano",
+    "type": "Przewodnik po analizie"
+  },
+  "nav": {
+    "analysis": "Analiza AI",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Przestań tylko transkrybować. Zacznij analizować. Dowiedz się, jak Protokół AI zamienia surowy dźwięk ze spotkań w ustrukturyzowane dane i strategiczne wnioski.",
+    "keywords": "analiza AI, inteligencja spotkań, analiza protokołów, wnioski biznesowe, strategia Protokół AI",
+    "ld": {
+      "description": "Przewodnik po wykorzystaniu AI nie tylko do nagrywania, ale do analizy dynamiki spotkań, wyodrębniania kluczowych problemów i generowania strategicznych środków zaradczych.",
+      "headline": "Analiza protokołów AI: Więcej niż prosta transkrypcja"
+    },
+    "ogDescription": "Szukasz 'analizy protokołów AI'? Zobacz, jak Protokół AI wykorzystuje ChatGPT-5 i Gemini 2.5 Pro do wyodrębniania trendów i decyzji.",
+    "ogTitle": "Od protokolanta do analityka: Potęga analizy spotkań AI",
+    "title": "Analiza protokołów AI: Zamień dźwięk w Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Analiza Boost:** Identyfikuje, co działa dobrze, i sugeruje, jak to skalować.",
+    "counter": "**Analiza Counter:** Gra 'Adwokata Diabła', aby pomóc Ci wykryć ryzyka, zanim wystąpią.",
+    "cta": "Zobacz funkcję Strategia",
+    "h2": "Deep Dive: Tryb 'Analityka'",
+    "p1": "Aby uzyskać głębsze wnioski, nasza funkcja Strategii stosuje zaawansowane modele (takie jak Gemini 2.5 Pro) do Twojego protokołu."
+  },
+  "visual": {
+    "h2": "Dowód wizualny: Wynik analizy",
+    "p": "To nie jest makieta. Tak Protokół AI zamienia chaotyczne spotkanie marketingowe w ustrukturyzowany, przeanalizowany protokół.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Reklama)",
+        "Elena (Produkt)"
+      ],
+      "coreMessage": "Przesunięcie 30% budżetu TV na Influencer Marketing; skupienie na kampanii 'Zaufanie Użytkowników'.",
+      "date": "12 lis 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Strategia Marketingowa Q4 i Alokacja Budżetu",
+      "topics": [
+        {
+          "concerns": [
+            "Potrzebny rygorystyczny proces weryfikacji influencerów, aby uniknąć skandali."
+          ],
+          "decisions": [
+            "ZATWIERDZONO: Cięcie wydatków na TV o 30%.",
+            "ZATWIERDZONO: Realokacja środków na poziom 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "ROI z reklam TV spadło o 12% rok do roku.",
+            "Kampanie influencerskie (poziom Micro) wykazują 4,5x ROAS.",
+            "Elena wyraziła obawy dotyczące bezpieczeństwa marki przy współpracy z influencerami."
+          ],
+          "topic": "Analiza realokacji budżetu"
+        },
+        {
+          "actionItems": [
+            "James — Opracowanie nowych wytycznych dla nieskryptowanych recenzji do piątku.",
+            "Sarah — Zatwierdzenie ostatecznej listy twórców."
+          ],
+          "keyMessages": [
+            "Użytkownicy są zmęczeni szumem medialnym. Chcą surowych, nieedytowanych opinii."
+          ],
+          "topic": "Temat kampanii: 'Zaufanie'"
+        }
+      ]
+    }
+  }
+}

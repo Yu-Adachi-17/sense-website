@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Inicio de Minutes.AI"
+  },
+  "cta": {
+    "downloadAndroid": "Descargar para Android",
+    "downloadIOS": "Descargar para iOS",
+    "h2": "Empieza a analizar tus reuniones hoy",
+    "openBrowser": "Analizar en Web",
+    "p": "Deja de tratar las reuniones como memoria de 'solo escritura'. Conviértelas en tu ventaja competitiva."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "La IA separa automáticamente la 'charla' de las 'decisiones'. El acta se formatea para que puedas escanear una reunión de 60 minutos en 30 segundos.",
+        "title": "1. Análisis Estructural"
+      },
+      {
+        "desc": "Con la función 'Estrategia', la IA actúa como consultor. Encuentra el 'Problema Principal', ofrece 'Contraargumentos' (Counter) que quizás pasaste por alto y sugiere 'Soluciones Laterales'.",
+        "title": "2. Análisis Estratégico (El Cerebro)"
+      },
+      {
+        "desc": "Al identificar responsables y plazos, la IA convierte las conversaciones en datos de gestión de proyectos. Responde automáticamente a '¿Quién hace qué?'.",
+        "title": "3. Análisis Contextual"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "No te limites a grabar. Analiza.",
+    "kicker": "Business Intelligence",
+    "tagline": "La era del simple 'escriba' ha terminado. Minutes.AI actúa como tu analista de negocios automatizado, convirtiendo horas de conversación en datos estructurados, evaluaciones de riesgos y próximos pasos estratégicos."
+  },
+  "intro": {
+    "h2": "Por qué la 'Transcripción' ya no es suficiente",
+    "p1": "Muchos equipos sufren de 'Deuda de Datos'. Se graban todas las reuniones, pero nadie tiene tiempo de revisarlas. Una transcripción cruda es solo un muro de texto: son datos, pero no *información*.",
+    "p2": "El verdadero 'Análisis de Actas' significa entender el contexto. Minutes.AI no solo escucha; piensa. Estructura tu caos en decisiones claras, preocupaciones y elementos de acción."
+  },
+  "meta": {
+    "category": "Funciones de IA",
+    "h2": "Info",
+    "published": "Publicado",
+    "type": "Guía de Análisis"
+  },
+  "nav": {
+    "analysis": "Análisis IA",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Deja de transcribir. Empieza a analizar. Descubre cómo Minutes.AI transforma el audio crudo de las reuniones en datos estructurados e insights estratégicos.",
+    "keywords": "análisis IA, inteligencia de reuniones, análisis de actas, insights de negocios, estrategia Minutes.AI",
+    "ld": {
+      "description": "Una guía para usar la IA no solo para grabar, sino para analizar la dinámica de las reuniones, extraer problemas clave y generar contramedidas estratégicas.",
+      "headline": "Análisis de Actas con IA: Más allá de la simple transcripción"
+    },
+    "ogDescription": "¿Buscas 'análisis de actas con IA'? Mira cómo Minutes.AI usa ChatGPT-5 y Gemini 2.5 Pro para extraer tendencias y decisiones.",
+    "ogTitle": "De escriba a analista: El poder del análisis de reuniones con IA",
+    "title": "Análisis de Actas con IA: Convierte el audio en Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Análisis Boost:** Identifica qué está funcionando bien y sugiere cómo escalarlo.",
+    "counter": "**Análisis Counter:** Juega al 'Abogado del Diablo' para ayudarte a detectar riesgos antes de que ocurran.",
+    "cta": "Ver función Estrategia",
+    "h2": "Deep Dive: Modo 'Analista'",
+    "p1": "Para insights más profundos, nuestra función Estrategia aplica modelos avanzados (como Gemini 2.5 Pro) a tu acta."
+  },
+  "visual": {
+    "h2": "Prueba visual: El resultado del análisis",
+    "p": "Esto no es una maqueta. Así es como Minutes.AI convierte una reunión de marketing caótica en un acta estructurada y analizada.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Ads)",
+        "Elena (Producto)"
+      ],
+      "coreMessage": "Mover el 30% del presupuesto de TV a Influencer Marketing; enfoque en campaña 'Confianza del Usuario'.",
+      "date": "12 Nov 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Estrategia de Marketing Q4 y Asignación de Presupuesto",
+      "topics": [
+        {
+          "concerns": [
+            "Necesidad de un proceso de selección estricto para influencers para evitar escándalos."
+          ],
+          "decisions": [
+            "APROBADO: Recortar gasto en TV un 30%.",
+            "APROBADO: Reasignar fondos al nivel 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "El ROI de anuncios en TV ha caído un 12% interanual.",
+            "Las campañas de influencers (Micro-tier) muestran un ROAS de 4.5x.",
+            "Elena planteó preocupaciones sobre la seguridad de marca con influencers."
+          ],
+          "topic": "Análisis de Reasignación de Presupuesto"
+        },
+        {
+          "actionItems": [
+            "James — Redactar nuevas pautas para reseñas sin guion para el viernes.",
+            "Sarah — Aprobar lista final de creadores."
+          ],
+          "keyMessages": [
+            "Los usuarios están cansados del hype. Quieren reseñas crudas y sin editar."
+          ],
+          "topic": "Tema de Campaña: 'Confianza'"
+        }
+      ]
+    }
+  }
+}

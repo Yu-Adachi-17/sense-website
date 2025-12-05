@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "cta": {
+    "downloadAndroid": "Letöltés Androidra",
+    "downloadIOS": "Letöltés iOS-re",
+    "h2": "Kezdje el értekezleteinek elemzését még ma",
+    "openBrowser": "Elemzés a weben",
+    "p": "Ne kezelje az értekezleteket 'csak írásra' való memóriaként. Változtassa őket versenyelőnnyé."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "Az AI automatikusan elkülöníti a 'csevegést' a 'döntésektől'. A jegyzőkönyv formázása lehetővé teszi, hogy egy 60 perces értekezletet 30 másodperc alatt áttekintsen.",
+        "title": "1. Szerkezeti elemzés"
+      },
+      {
+        "desc": "A 'Stratégia' funkcióval az AI tanácsadóként működik. Megtalálja a 'Fő problémát', olyan 'Ellenérveket' (Counter) kínál, amelyeket talán elmulasztott, és 'Laterális megoldásokat' javasol.",
+        "title": "2. Stratégiai elemzés (Az Agy)"
+      },
+      {
+        "desc": "A felelősök és határidők azonosításával az AI projektmenedzsment-adatokká alakítja a beszélgetéseket. Automatikusan válaszol a 'Ki mit csinál?' kérdésre.",
+        "title": "3. Kontextuális elemzés"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Ne csak rögzítsen. Elemezzen.",
+    "kicker": "Üzleti intelligencia",
+    "tagline": "Az egyszerű 'jegyző' korszaka lejárt. A Jegyzőkönyv AI automatizált üzleti elemzőként működik, órákig tartó beszélgetéseket alakítva át strukturált adatokká, kockázatértékelésekké és stratégiai következő lépésekké."
+  },
+  "intro": {
+    "h2": "Miért nem elég már a 'Transzkripció'",
+    "p1": "Sok csapat szenved az 'Adatadósságtól'. Minden értekezletet rögzítenek, de senkinek nincs ideje visszanézni őket. A nyers leirat csak egy szövegfal – ez adat, de nem *információ*.",
+    "p2": "A valódi 'Jegyzőkönyv-elemzés' a kontextus megértését jelenti. A Jegyzőkönyv AI nemcsak hallgat; gondolkodik. Káoszát egyértelmű döntésekké, aggályokká és akciópontokká strukturálja."
+  },
+  "meta": {
+    "category": "AI Funkciók",
+    "h2": "Infó",
+    "published": "Közzétéve",
+    "type": "Elemzési útmutató"
+  },
+  "nav": {
+    "analysis": "AI Elemzés",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Hagyja abba a puszta transzkribálást. Kezdjen elemezni. Tudja meg, hogyan alakítja a Jegyzőkönyv AI a nyers értekezlethangot strukturált adatokká és stratégiai betekintésekké.",
+    "keywords": "AI elemzés, értekezlet intelligencia, jegyzőkönyv elemzés, üzleti betekintések, Jegyzőkönyv AI stratégia",
+    "ld": {
+      "description": "Útmutató az AI használatához nemcsak rögzítésre, hanem az értekezletek dinamikájának elemzésére, a fő problémák kinyerésére és stratégiai ellenintézkedések generálására.",
+      "headline": "AI Jegyzőkönyv-elemzés: Túl az egyszerű transzkripción"
+    },
+    "ogDescription": "'AI jegyzőkönyv-elemzést' keres? Nézze meg, hogyan használja a Jegyzőkönyv AI a ChatGPT-5-öt és a Gemini 2.5 Pro-t a trendek és döntések kinyerésére.",
+    "ogTitle": "Jegyzőtől elemzőig: Az AI értekezletelemzés ereje",
+    "title": "AI Jegyzőkönyv-elemzés: Hang átalakítása Üzleti Intelligenciává (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost elemzés:** Azonosítja, mi működik jól, és javaslatot tesz a skálázásra.",
+    "counter": "**Counter elemzés:** Az 'Ördög ügyvédjét' játssza, hogy segítsen felismerni a kockázatokat, mielőtt azok bekövetkeznének.",
+    "cta": "Stratégia funkció megtekintése",
+    "h2": "Deep Dive: 'Elemző' mód",
+    "p1": "A mélyebb betekintések érdekében Stratégia funkciónk fejlett modelleket (mint a Gemini 2.5 Pro) alkalmaz a jegyzőkönyvére."
+  },
+  "visual": {
+    "h2": "Vizuális bizonyíték: Az elemzés eredménye",
+    "p": "Ez nem makett. Így alakít át a Jegyzőkönyv AI egy kaotikus marketingértekezletet strukturált, elemzett jegyzőkönyvvé.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Hirdetések)",
+        "Elena (Termék)"
+      ],
+      "coreMessage": "A TV-költségvetés 30%-ának átcsoportosítása az Influencer Marketingre; fókusz a 'Felhasználói bizalom' kampányra.",
+      "date": "2025. nov. 12.",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Marketingstratégia és Költségvetés-elosztás",
+      "topics": [
+        {
+          "concerns": [
+            "Szigorú átvilágítási folyamat szükséges az influencereknél a botrányok elkerülése érdekében."
+          ],
+          "decisions": [
+            "JÓVÁHAGYVA: TV-kiadások csökkentése 30%-kal.",
+            "JÓVÁHAGYVA: Források átcsoportosítása a 'Tech-Influencer' szintre."
+          ],
+          "discussion": [
+            "A TV-reklámok megtérülése (ROI) 12%-kal csökkent éves szinten.",
+            "Az influencer kampányok (Micro-szint) 4,5x ROAS-t mutatnak.",
+            "Elena aggodalmát fejezte ki a márka biztonságával kapcsolatban az influencereknél."
+          ],
+          "topic": "Költségvetés-átcsoportosítás elemzése"
+        },
+        {
+          "actionItems": [
+            "James — Új irányelvek kidolgozása a forgatókönyv nélküli véleményekhez péntekig.",
+            "Sarah — A végső alkotói lista jóváhagyása."
+          ],
+          "keyMessages": [
+            "A felhasználók belefáradtak a felhajtásba. Nyers, szerkesztetlen véleményeket akarnak."
+          ],
+          "topic": "Kampánytéma: 'Bizalom'"
+        }
+      ]
+    }
+  }
+}

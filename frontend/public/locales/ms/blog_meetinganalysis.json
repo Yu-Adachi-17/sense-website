@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Laman Utama Minit AI"
+  },
+  "cta": {
+    "downloadAndroid": "Muat turun untuk Android",
+    "downloadIOS": "Muat turun untuk iOS",
+    "h2": "Mula menganalisis mesyuarat anda hari ini",
+    "openBrowser": "Analisis di Web",
+    "p": "Berhenti menganggap mesyuarat sebagai memori 'untuk ditulis sahaja'. Jadikan ia kelebihan daya saing anda."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI secara automatik memisahkan 'bualan' daripada 'keputusan'. Minit diformatkan supaya anda boleh mengimbas mesyuarat 60 minit dalam 30 saat.",
+        "title": "1. Analisis Struktur"
+      },
+      {
+        "desc": "Dengan ciri 'Strategi', AI bertindak sebagai perunding. Ia mencari 'Isu Utama', menawarkan 'Hujah Balas' (Counter) yang mungkin anda terlepas, dan mencadangkan 'Penyelesaian Lateral'.",
+        "title": "2. Analisis Strategik (Otak)"
+      },
+      {
+        "desc": "Dengan mengenal pasti pemilik dan tarikh akhir, AI menukar perbualan kepada data pengurusan projek. Ia menjawab soalan 'Siapa buat apa?' secara automatik.",
+        "title": "3. Analisis Kontekstual"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Jangan sekadar rakam. Analisis.",
+    "kicker": "Risikan Perniagaan",
+    "tagline": "Era 'pencatat' mudah telah berakhir. Minit AI bertindak sebagai penganalisis perniagaan automatik anda, menukar berjam-jam perbualan kepada data berstruktur, penilaian risiko, dan langkah seterusnya yang strategik."
+  },
+  "intro": {
+    "h2": "Mengapa 'Transkripsi' Tidak Mencukupi",
+    "p1": "Banyak pasukan mengalami 'Hutang Data'. Setiap mesyuarat direkodkan, tetapi tiada siapa yang mempunyai masa untuk menyemaknya. Transkrip mentah hanyalah dinding teks—ia adalah data, tetapi bukan *maklumat*.",
+    "p2": "'Analisis Minit' yang sebenar bermaksud memahami konteks. Minit AI bukan sekadar mendengar; ia berfikir. Ia menyusun kekacauan anda kepada keputusan yang jelas, kebimbangan, dan item tindakan."
+  },
+  "meta": {
+    "category": "Ciri AI",
+    "h2": "Info",
+    "published": "Diterbitkan",
+    "type": "Panduan Analisis"
+  },
+  "nav": {
+    "analysis": "Analisis AI",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Berhenti sekadar mentranskripsi. Mula menganalisis. Ketahui bagaimana Minit AI menukar audio mesyuarat mentah kepada data berstruktur dan pandangan strategik.",
+    "keywords": "analisis AI, risikan mesyuarat, analisis minit, pandangan perniagaan, strategi Minit AI",
+    "ld": {
+      "description": "Panduan menggunakan AI bukan sahaja untuk merekod, tetapi untuk menganalisis dinamik mesyuarat, mengekstrak isu utama, dan menjana langkah balas strategik.",
+      "headline": "Analisis Minit AI: Lebih Daripada Transkripsi Mudah"
+    },
+    "ogDescription": "Mencari 'analisis minit AI'? Lihat bagaimana Minit AI menggunakan ChatGPT-5 & Gemini 2.5 Pro untuk mengekstrak trend dan keputusan.",
+    "ogTitle": "Daripada Pencatat kepada Penganalisis: Kuasa Analisis Mesyuarat AI",
+    "title": "Analisis Minit AI: Tukar Audio Kepada Risikan Perniagaan (2025)"
+  },
+  "strategy": {
+    "boost": "**Analisis Boost:** Mengenal pasti apa yang berjalan lancar dan mencadangkan cara untuk mengembangkannya.",
+    "counter": "**Analisis Counter:** Bertindak sebagai 'Peguam Bela Syaitan' untuk membantu anda mengesan risiko sebelum ia berlaku.",
+    "cta": "Lihat Ciri Strategi",
+    "h2": "Selaman Dalam: Mod 'Penganalisis'",
+    "p1": "Untuk pandangan yang lebih mendalam, fungsi Strategi kami menggunakan model canggih (seperti Gemini 2.5 Pro) pada minit anda."
+  },
+  "visual": {
+    "h2": "Bukti Visual: Hasil Analisis",
+    "p": "Ini bukan maket. Beginilah cara Minit AI menukar mesyuarat pemasaran yang huru-hara kepada minit yang berstruktur dan dianalisis.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Iklan)",
+        "Elena (Produk)"
+      ],
+      "coreMessage": "Alihkan 30% belanjawan TV kepada Pemasaran Influencer; tumpukan pada kempen 'Kepercayaan Pengguna'.",
+      "date": "12 Nov 2025",
+      "location": "Dalam Talian / Teams",
+      "meetingTitle": "Strategi Pemasaran Q4 & Peruntukan Belanjawan",
+      "topics": [
+        {
+          "concerns": [
+            "Perlukan proses penapisan ketat untuk influencer bagi mengelakkan skandal."
+          ],
+          "decisions": [
+            "DILULUSKAN: Potong perbelanjaan TV sebanyak 30%.",
+            "DILULUSKAN: Peruntukkan semula dana ke tahap 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "ROI iklan TV telah jatuh 12% tahun ke tahun.",
+            "Kempen influencer (tahap Mikro) menunjukkan ROAS 4.5x.",
+            "Elena menyuarakan kebimbangan mengenai keselamatan jenama dengan influencer."
+          ],
+          "topic": "Analisis Peruntukan Semula Belanjawan"
+        },
+        {
+          "actionItems": [
+            "James — Rangka garis panduan baharu untuk ulasan tanpa skrip menjelang Jumaat.",
+            "Sarah — Luluskan senarai pencipta akhir."
+          ],
+          "keyMessages": [
+            "Pengguna bosan dengan gembar-gembur. Mereka mahukan ulasan mentah dan tidak disunting."
+          ],
+          "topic": "Tema Kempen: 'Kepercayaan'"
+        }
+      ]
+    }
+  }
+}

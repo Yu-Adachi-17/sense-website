@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Domovská stránka Zápisník AI"
+  },
+  "cta": {
+    "downloadAndroid": "Stáhnout pro Android",
+    "downloadIOS": "Stáhnout pro iOS",
+    "h2": "Začněte analyzovat své schůzky ještě dnes",
+    "openBrowser": "Analyzovat na webu",
+    "p": "Přestaňte brát schůzky jako data 'pouze k zápisu'. Proměňte je ve svou konkurenční výhodu."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI automaticky oddělí 'klábosení' od 'rozhodnutí'. Zápis je formátován tak, abyste mohli 60minutovou schůzku projít za 30 sekund.",
+        "title": "1. Strukturální analýza"
+      },
+      {
+        "desc": "S funkcí 'Strategie' funguje AI jako konzultant. Najde 'Hlavní problém', nabídne 'Protiargumenty' (Counter), které vám mohly uniknout, a navrhne 'Laterální řešení'.",
+        "title": "2. Strategická analýza (Mozek)"
+      },
+      {
+        "desc": "Identifikací vlastníků a termínů mění AI rozhovory na data pro řízení projektů. Automaticky odpovídá na otázku 'Kdo má co udělat?'.",
+        "title": "3. Kontextová analýza"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Nenahrávejte. Analyzujte.",
+    "kicker": "Business Intelligence",
+    "tagline": "Éra pouhého 'zapisovatele' skončila. Zápisník AI funguje jako váš automatizovaný obchodní analytik, který mění hodiny konverzace na strukturovaná data, hodnocení rizik a strategické další kroky."
+  },
+  "intro": {
+    "h2": "Proč 'přepis' už nestačí",
+    "p1": "Mnoho týmů trpí 'datovým dluhem'. Každá schůzka se nahrává, ale nikdo nemá čas je procházet. Hrubý přepis je jen zeď textu – jsou to data, ale ne *informace*.",
+    "p2": "Skutečná 'analýza zápisu' znamená pochopení kontextu. Zápisník AI jen neposlouchá; přemýšlí. Strukturuje váš chaos do jasných rozhodnutí, obav a akčních bodů."
+  },
+  "meta": {
+    "category": "Funkce AI",
+    "h2": "Info",
+    "published": "Publikováno",
+    "type": "Průvodce analýzou"
+  },
+  "nav": {
+    "analysis": "AI Analýza",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Přestaňte jen přepisovat. Začněte analyzovat. Zjistěte, jak Zápisník AI mění hrubé audio ze schůzek na strukturovaná data a strategické poznatky.",
+    "keywords": "AI analýza, meeting intelligence, analýza protokolů, business insights, strategie Zápisník AI",
+    "ld": {
+      "description": "Průvodce využitím AI nejen k nahrávání, ale k analýze dynamiky schůzek, extrakci klíčových problémů a generování strategických protiopatření.",
+      "headline": "Analýza zápisů pomocí AI: Více než jen prostý přepis"
+    },
+    "ogDescription": "Hledáte 'AI analýzu zápisů'? Podívejte se, jak Zápisník AI využívá ChatGPT-5 a Gemini 2.5 Pro k extrakci trendů a rozhodnutí.",
+    "ogTitle": "Od písaře k analytikovi: Síla analýzy schůzek pomocí AI",
+    "title": "AI analýza zápisů: Proměňte audio ze schůzek v Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost analýza:** Identifikuje, co funguje dobře, a navrhuje, jak to škálovat.",
+    "counter": "**Counter analýza:** Hraje 'Ďáblova advokáta', aby vám pomohla odhalit rizika dříve, než nastanou.",
+    "cta": "Zobrazit funkci Strategie",
+    "h2": "Deep Dive: Režim 'Analytik'",
+    "p1": "Pro hlubší vhledy aplikuje naše funkce Strategie na váš zápis pokročilé modely (jako Gemini 2.5 Pro)."
+  },
+  "visual": {
+    "h2": "Vizuální důkaz: Výsledek analýzy",
+    "p": "Toto není maketa. Takto Zápisník AI převede chaotickou marketingovou schůzku na strukturovaný, analyzovaný zápis.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "Jakub (Ads)",
+        "Elena (Produkt)"
+      ],
+      "coreMessage": "Přesunout 30 % TV rozpočtu do influencer marketingu; zaměřit se na kampaň 'Důvěra uživatelů'.",
+      "date": "12. listopadu 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Marketingová strategie & Alokace rozpočtu",
+      "topics": [
+        {
+          "concerns": [
+            "Potřeba přísného procesu prověřování influencerů, aby se předešlo skandálům."
+          ],
+          "decisions": [
+            "SCHVÁLENO: Snížit výdaje na TV o 30 %.",
+            "SCHVÁLENO: Realokovat prostředky do tieru 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "ROI televizních reklam kleslo meziročně o 12 %.",
+            "Influencer kampaně (Micro-tier) vykazují 4,5x ROAS.",
+            "Elena vznesla obavy ohledně bezpečnosti značky u influencerů."
+          ],
+          "topic": "Analýza realokace rozpočtu"
+        },
+        {
+          "actionItems": [
+            "Jakub — Navrhnout nové směrnice pro neskriptované recenze do pátku.",
+            "Sarah — Schválit finální seznam tvůrců."
+          ],
+          "keyMessages": [
+            "Uživatelé jsou unavení z humbuku. Chtějí syrové, needitované recenze."
+          ],
+          "topic": "Téma kampaně: 'Důvěra'"
+        }
+      ]
+    }
+  }
+}

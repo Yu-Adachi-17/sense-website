@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Trang chủ Biên bản AI"
+  },
+  "cta": {
+    "downloadAndroid": "Tải xuống cho Android",
+    "downloadIOS": "Tải xuống cho iOS",
+    "h2": "Bắt đầu phân tích cuộc họp của bạn ngay hôm nay",
+    "openBrowser": "Phân tích trên Web",
+    "p": "Ngừng coi các cuộc họp là bộ nhớ 'chỉ ghi'. Biến chúng thành lợi thế cạnh tranh của bạn."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI tự động tách 'chuyện phiếm' khỏi 'quyết định'. Biên bản được định dạng để bạn có thể quét cuộc họp 60 phút trong 30 giây.",
+        "title": "1. Phân tích Cấu trúc"
+      },
+      {
+        "desc": "Với tính năng 'Chiến lược', AI hoạt động như một nhà tư vấn. Nó tìm ra 'Vấn đề cốt lõi', đưa ra 'Phản biện' (Counter) mà bạn có thể đã bỏ lỡ và đề xuất 'Giải pháp đa chiều'.",
+        "title": "2. Phân tích Chiến lược (Bộ não)"
+      },
+      {
+        "desc": "Bằng cách xác định người chịu trách nhiệm và thời hạn, AI chuyển đổi các cuộc trò chuyện thành dữ liệu quản lý dự án. Nó tự động trả lời câu hỏi 'Ai làm gì?'.",
+        "title": "3. Phân tích Ngữ cảnh"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Đừng chỉ ghi âm. Hãy phân tích.",
+    "kicker": "Trí tuệ Doanh nghiệp (BI)",
+    "tagline": "Kỷ nguyên của 'thư ký' đơn thuần đã qua. Biên bản AI hoạt động như nhà phân tích kinh doanh tự động của bạn, chuyển đổi hàng giờ trò chuyện thành dữ liệu có cấu trúc, đánh giá rủi ro và các bước chiến lược tiếp theo."
+  },
+  "intro": {
+    "h2": "Tại sao 'Gỡ băng' không còn đủ nữa",
+    "p1": "Nhiều nhóm đang phải chịu 'Nợ dữ liệu'. Mọi cuộc họp đều được ghi lại, nhưng không ai có thời gian để xem lại. Một bản gỡ băng thô chỉ là một bức tường văn bản — đó là dữ liệu, nhưng không phải là *thông tin*.",
+    "p2": "'Phân tích Biên bản' thực sự có nghĩa là hiểu ngữ cảnh. Biên bản AI không chỉ lắng nghe; nó suy nghĩ. Nó cấu trúc sự hỗn độn của bạn thành các quyết định rõ ràng, mối lo ngại và các mục hành động."
+  },
+  "meta": {
+    "category": "Tính năng AI",
+    "h2": "Thông tin",
+    "published": "Đã đăng",
+    "type": "Hướng dẫn Phân tích"
+  },
+  "nav": {
+    "analysis": "Phân tích AI",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Ngừng chỉ gỡ băng. Bắt đầu phân tích. Tìm hiểu cách Biên bản AI chuyển đổi âm thanh cuộc họp thô thành dữ liệu có cấu trúc và thông tin chi tiết về chiến lược.",
+    "keywords": "phân tích AI, trí tuệ cuộc họp, phân tích biên bản, thông tin doanh nghiệp, chiến lược Biên bản AI",
+    "ld": {
+      "description": "Hướng dẫn sử dụng AI không chỉ để ghi lại mà còn để phân tích động lực cuộc họp, trích xuất các vấn đề cốt lõi và tạo ra các biện pháp đối phó chiến lược.",
+      "headline": "Phân tích Biên bản AI: Hơn cả việc gỡ băng đơn thuần"
+    },
+    "ogDescription": "Đang tìm kiếm 'phân tích biên bản AI'? Xem cách Biên bản AI sử dụng ChatGPT-5 & Gemini 2.5 Pro để trích xuất xu hướng và quyết định.",
+    "ogTitle": "Từ thư ký đến nhà phân tích: Sức mạnh của Phân tích cuộc họp AI",
+    "title": "Phân tích Biên bản AI: Biến âm thanh thành Trí tuệ Doanh nghiệp (2025)"
+  },
+  "strategy": {
+    "boost": "**Phân tích Boost:** Xác định những gì đang hoạt động tốt và đề xuất cách mở rộng quy mô.",
+    "counter": "**Phân tích Counter:** Đóng vai 'Người biện hộ của quỷ' để giúp bạn phát hiện rủi ro trước khi chúng xảy ra.",
+    "cta": "Xem tính năng Chiến lược",
+    "h2": "Deep Dive: Chế độ 'Nhà phân tích'",
+    "p1": "Để có những hiểu biết sâu sắc hơn, chức năng Chiến lược của chúng tôi áp dụng các mô hình tiên tiến (như Gemini 2.5 Pro) vào biên bản của bạn."
+  },
+  "visual": {
+    "h2": "Bằng chứng trực quan: Kết quả phân tích",
+    "p": "Đây không phải là mô hình mẫu. Đây là cách Biên bản AI biến một cuộc họp tiếp thị hỗn loạn thành một biên bản có cấu trúc và được phân tích.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Quảng cáo)",
+        "Elena (Sản phẩm)"
+      ],
+      "coreMessage": "Chuyển 30% ngân sách TV sang Influencer Marketing; tập trung vào chiến dịch 'Niềm tin Người dùng'.",
+      "date": "12 Th11 2025",
+      "location": "Trực tuyến / Teams",
+      "meetingTitle": "Chiến lược Tiếp thị Q4 & Phân bổ Ngân sách",
+      "topics": [
+        {
+          "concerns": [
+            "Cần quy trình kiểm duyệt nghiêm ngặt đối với influencer để tránh bê bối."
+          ],
+          "decisions": [
+            "ĐÃ PHÊ DUYỆT: Cắt giảm 30% chi tiêu TV.",
+            "ĐÃ PHÊ DUYỆT: Tái phân bổ quỹ cho cấp 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "ROI của quảng cáo TV đã giảm 12% so với cùng kỳ năm ngoái.",
+            "Các chiến dịch influencer (cấp Micro) cho thấy ROAS gấp 4,5 lần.",
+            "Elena nêu lo ngại về an toàn thương hiệu với các influencer."
+          ],
+          "topic": "Phân tích Tái phân bổ Ngân sách"
+        },
+        {
+          "actionItems": [
+            "James — Soạn thảo hướng dẫn mới cho các bài đánh giá không kịch bản trước thứ Sáu.",
+            "Sarah — Phê duyệt danh sách người sáng tạo cuối cùng."
+          ],
+          "keyMessages": [
+            "Người dùng đã chán ngấy sự cường điệu. Họ muốn những đánh giá thô, không chỉnh sửa."
+          ],
+          "topic": "Chủ đề Chiến dịch: 'Niềm tin'"
+        }
+      ]
+    }
+  }
+}

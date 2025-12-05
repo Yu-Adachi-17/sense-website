@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "cta": {
+    "downloadAndroid": "Download voor Android",
+    "downloadIOS": "Download voor iOS",
+    "h2": "Begin vandaag met het analyseren van uw vergaderingen",
+    "openBrowser": "Analyseer op het web",
+    "p": "Stop met het behandelen van vergaderingen als 'write-only' geheugen. Maak er uw concurrentievoordeel van."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "De AI scheidt automatisch 'gepraat' van 'beslissingen'. De notulen worden zo geformatteerd dat u een vergadering van 60 minuten in 30 seconden kunt scannen.",
+        "title": "1. Structurele Analyse"
+      },
+      {
+        "desc": "Met de 'Strategie'-functie fungeert de AI als consultant. Hij vindt het 'Kernprobleem', biedt 'Tegenargumenten' (Counter) die u misschien hebt gemist, en stelt 'Laterale Oplossingen' voor.",
+        "title": "2. Strategische Analyse (Het Brein)"
+      },
+      {
+        "desc": "Door eigenaren en deadlines te identificeren, zet de AI gesprekken om in projectmanagementdata. Hij beantwoordt automatisch de vraag 'Wie doet wat?'.",
+        "title": "3. Contextuele Analyse"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Neem niet alleen op. Analyseer.",
+    "kicker": "Business Intelligence",
+    "tagline": "Het tijdperk van de simpele 'notulist' is voorbij. Notulen AI fungeert als uw geautomatiseerde bedrijfsanalist, die uren aan gesprekken omzet in gestructureerde data, risicobeoordelingen en strategische vervolgstappen."
+  },
+  "intro": {
+    "h2": "Waarom 'Transcriptie' niet meer genoeg is",
+    "p1": "Veel teams lijden aan 'Data Debt'. Elke vergadering wordt opgenomen, maar niemand heeft tijd om ze terug te kijken. Een ruwe transcriptie is slechts een muur van tekst — het is data, maar geen *informatie*.",
+    "p2": "Echte 'Notulenanalyse' betekent de context begrijpen. Notulen AI luistert niet alleen; hij denkt na. Hij structureert uw chaos in duidelijke beslissingen, zorgen en actiepunten."
+  },
+  "meta": {
+    "category": "AI-functies",
+    "h2": "Info",
+    "published": "Gepubliceerd",
+    "type": "Analyse Gids"
+  },
+  "nav": {
+    "analysis": "AI Analyse",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Stop met alleen transcriberen. Begin met analyseren. Ontdek hoe Notulen AI ruwe vergaderaudio omzet in gestructureerde data en strategische inzichten.",
+    "keywords": "AI analyse, vergaderintelligentie, notulenanalyse, bedrijfsinzichten, Notulen AI strategie",
+    "ld": {
+      "description": "Een gids voor het gebruik van AI, niet alleen voor opname, maar voor het analyseren van vergaderdynamiek, het extraheren van kernproblemen en het genereren van strategische tegenmaatregelen.",
+      "headline": "AI-analyse van Notulen: Meer dan simpele transcriptie"
+    },
+    "ogDescription": "Op zoek naar 'AI notulenanalyse'? Zie hoe Notulen AI ChatGPT-5 & Gemini 2.5 Pro gebruikt om trends en beslissingen te extraheren.",
+    "ogTitle": "Van notulist naar analist: De kracht van AI-vergaderanalyse",
+    "title": "AI-analyse van Notulen: Zet Audio om in Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost Analyse:** Identificeert wat goed gaat en stelt voor hoe dit op te schalen.",
+    "counter": "**Counter Analyse:** Speelt 'Advocaat van de Duivel' om u te helpen risico's te spotten voordat ze zich voordoen.",
+    "cta": "Bekijk Strategie-functie",
+    "h2": "Deep Dive: 'Analist'-modus",
+    "p1": "Voor diepere inzichten past onze Strategie-functie geavanceerde modellen (zoals Gemini 2.5 Pro) toe op uw notulen."
+  },
+  "visual": {
+    "h2": "Visueel bewijs: Het analyseresultaat",
+    "p": "Dit is geen mockup. Zo zet Notulen AI een chaotische marketingvergadering om in gestructureerde, geanalyseerde notulen.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Ads)",
+        "Elena (Product)"
+      ],
+      "coreMessage": "Verschuif 30% van TV-budget naar Influencer Marketing; focus op 'Gebruikersvertrouwen'-campagne.",
+      "date": "12 Nov 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Marketingstrategie & Budgetallocatie",
+      "topics": [
+        {
+          "concerns": [
+            "Noodzaak voor een strikt screeningproces voor influencers om schandalen te voorkomen."
+          ],
+          "decisions": [
+            "GOEDGEKEURD: TV-uitgaven met 30% verlagen.",
+            "GOEDGEKEURD: Fondsen heralloceren naar 'Tech-Influencer'-niveau."
+          ],
+          "discussion": [
+            "ROI van TV-advertenties is jaar-op-jaar met 12% gedaald.",
+            "Influencercampagnes (Micro-tier) tonen 4,5x ROAS.",
+            "Elena uitte zorgen over merkveiligheid bij influencers."
+          ],
+          "topic": "Analyse van Budgetherallocatie"
+        },
+        {
+          "actionItems": [
+            "James — Stel tegen vrijdag nieuwe richtlijnen op voor ongescripte reviews.",
+            "Sarah — Keur definitieve lijst van creators goed."
+          ],
+          "keyMessages": [
+            "Gebruikers zijn moe van de hype. Ze willen ruwe, onbewerkte reviews."
+          ],
+          "topic": "Campagnethema: 'Vertrouwen'"
+        }
+      ]
+    }
+  }
+}

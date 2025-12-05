@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "cta": {
+    "downloadAndroid": "Android için İndir",
+    "downloadIOS": "iOS için İndir",
+    "h2": "Toplantılarınızı bugün analiz etmeye başlayın",
+    "openBrowser": "Web'de Analiz Et",
+    "p": "Toplantılara 'salt yazılır' bellek muamelesi yapmayı bırakın. Onları rekabet avantajınıza dönüştürün."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "YZ, 'muhabbeti' 'kararlardan' otomatik olarak ayırır. Tutanak, 60 dakikalık bir toplantıyı 30 saniyede tarayabileceğiniz şekilde biçimlendirilir.",
+        "title": "1. Yapısal Analiz"
+      },
+      {
+        "desc": "'Strateji' özelliği ile YZ bir danışman gibi hareket eder. 'Temel Sorunu' bulur, gözden kaçırmış olabileceğiniz 'Karşı Argümanlar' (Counter) sunar ve 'Yanal Çözümler' önerir.",
+        "title": "2. Stratejik Analiz (Beyin)"
+      },
+      {
+        "desc": "Sorumluları ve son tarihleri belirleyen YZ, konuşmaları proje yönetimi verilerine dönüştürür. 'Kim ne yapıyor?' sorusunu otomatik olarak yanıtlar.",
+        "title": "3. Bağlamsal Analiz"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Sadece kaydetmeyin. Analiz edin.",
+    "kicker": "İş Zekası (BI)",
+    "tagline": "Basit 'katip' dönemi sona erdi. Tutanakları AI, saatler süren konuşmaları yapılandırılmış verilere, risk değerlendirmelerine ve stratejik sonraki adımlara dönüştüren otomatik iş analistiniz olarak hareket eder."
+  },
+  "intro": {
+    "h2": "Neden 'Deşifre' Artık Yeterli Değil",
+    "p1": "Birçok ekip 'Veri Borcu' çekiyor. Her toplantı kaydediliyor ama kimsenin bunları gözden geçirecek zamanı yok. Ham bir deşifre sadece bir metin duvarıdır; veridir ama *bilgi* değildir.",
+    "p2": "Gerçek 'Tutanak Analizi', bağlamı anlamak demektir. Tutanakları AI sadece dinlemez; düşünür. Kaosunuzu net kararlara, endişelere ve aksiyon öğelerine dönüştürür."
+  },
+  "meta": {
+    "category": "YZ Özellikleri",
+    "h2": "Bilgi",
+    "published": "Yayınlandı",
+    "type": "Analiz Rehberi"
+  },
+  "nav": {
+    "analysis": "YZ Analizi",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Sadece deşifre etmeyi bırakın. Analiz etmeye başlayın. Tutanakları AI'ın ham toplantı sesini nasıl yapılandırılmış verilere ve stratejik içgörülere dönüştürdüğünü öğrenin.",
+    "keywords": "YZ analizi, toplantı zekası, tutanak analizi, iş içgörüleri, Tutanakları AI stratejisi",
+    "ld": {
+      "description": "YZ'yi sadece kayıt için değil, toplantı dinamiklerini analiz etmek, temel sorunları çıkarmak ve stratejik karşı önlemler üretmek için kullanma rehberi.",
+      "headline": "YZ Tutanak Analizi: Basit Deşifrenin Ötesinde"
+    },
+    "ogDescription": "'YZ tutanak analizi' mi arıyorsunuz? Tutanakları AI'ın trendleri ve kararları çıkarmak için ChatGPT-5 ve Gemini 2.5 Pro'yu nasıl kullandığını görün.",
+    "ogTitle": "Katipten Analiste: YZ Toplantı Analizinin Gücü",
+    "title": "YZ Tutanak Analizi: Sesi İş Zekasına Dönüştürün (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost Analizi:** Neyin iyi gittiğini belirler ve nasıl ölçeklendirileceğini önerir.",
+    "counter": "**Counter Analizi:** Riskleri gerçekleşmeden önce fark etmenize yardımcı olmak için 'Şeytanın Avukatı'nı oynar.",
+    "cta": "Strateji Özelliğini Gör",
+    "h2": "Derinlemesine Bakış: 'Analist' Modu",
+    "p1": "Daha derin içgörüler için Strateji fonksiyonumuz, tutanağınıza gelişmiş modeller (Gemini 2.5 Pro gibi) uygular."
+  },
+  "visual": {
+    "h2": "Görsel Kanıt: Analiz Sonucu",
+    "p": "Bu bir maket değil. Tutanakları AI, kaotik bir pazarlama toplantısını yapılandırılmış, analiz edilmiş bir tutanağa böyle dönüştürür.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Reklamlar)",
+        "Elena (Ürün)"
+      ],
+      "coreMessage": "TV bütçesinin %30'unu Influencer Pazarlamasına kaydırın; 'Kullanıcı Güveni' kampanyasına odaklanın.",
+      "date": "12 Kas 2025",
+      "location": "Çevrimiçi / Teams",
+      "meetingTitle": "4. Çeyrek Pazarlama Stratejisi ve Bütçe Dağılımı",
+      "topics": [
+        {
+          "concerns": [
+            "Skandalları önlemek için influencerlar için sıkı bir inceleme süreci gerekli."
+          ],
+          "decisions": [
+            "ONAYLANDI: TV harcamalarını %30 azalt.",
+            "ONAYLANDI: Fonları 'Teknoloji-Influencer' seviyesine yeniden tahsis et."
+          ],
+          "discussion": [
+            "TV reklamları ROI'si yıllık bazda %12 düştü.",
+            "Influencer kampanyaları (Mikro seviye) 4.5x ROAS gösteriyor.",
+            "Elena, influencerlar ile marka güvenliği konusunda endişelerini dile getirdi."
+          ],
+          "topic": "Bütçe Yeniden Tahsisi Analizi"
+        },
+        {
+          "actionItems": [
+            "James — Cuma gününe kadar senaryosuz incelemeler için yeni yönergeler hazırla.",
+            "Sarah — Nihai içerik üretici listesini onayla."
+          ],
+          "keyMessages": [
+            "Kullanıcılar abartıdan sıkıldı. Ham, düzenlenmemiş incelemeler istiyorlar."
+          ],
+          "topic": "Kampanya Teması: 'Güven'"
+        }
+      ]
+    }
+  }
+}

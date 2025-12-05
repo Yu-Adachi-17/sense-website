@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "cta": {
+    "downloadAndroid": "Télécharger pour Android",
+    "downloadIOS": "Télécharger pour iOS",
+    "h2": "Commencez à analyser vos réunions aujourd'hui",
+    "openBrowser": "Analyser sur le Web",
+    "p": "Cessez de traiter les réunions comme une mémoire en 'écriture seule'. Faites-en votre avantage concurrentiel."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "L'IA sépare automatiquement le 'bavardage' des 'décisions'. Le compte-rendu est formaté pour que vous puissiez scanner une réunion de 60 minutes en 30 secondes.",
+        "title": "1. Analyse Structurelle"
+      },
+      {
+        "desc": "Avec la fonction 'Stratégie', l'IA agit comme un consultant. Elle trouve le 'Problème Principal', offre des 'Contre-arguments' (Counter) que vous auriez pu manquer, et propose des 'Solutions Latérales'.",
+        "title": "2. Analyse Stratégique (Le Cerveau)"
+      },
+      {
+        "desc": "En identifiant les responsables et les échéances, l'IA transforme les conversations en données de gestion de projet. Elle répond automatiquement à la question 'Qui fait quoi ?'.",
+        "title": "3. Analyse Contextuelle"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Ne vous contentez pas d'enregistrer. Analysez.",
+    "kicker": "Business Intelligence",
+    "tagline": "L'ère du simple 'scribe' est révolue. Minutes.AI agit comme votre analyste commercial automatisé, transformant des heures de conversation en données structurées, évaluations des risques et prochaines étapes stratégiques."
+  },
+  "intro": {
+    "h2": "Pourquoi la 'Transcription' ne suffit plus",
+    "p1": "De nombreuses équipes souffrent de 'Dette de Données'. Chaque réunion est enregistrée, mais personne n'a le temps de les revoir. Une transcription brute n'est qu'un mur de texte — ce sont des données, mais pas de *l'information*.",
+    "p2": "La véritable 'Analyse de Compte-Rendu' signifie comprendre le contexte. Minutes.AI ne fait pas qu'écouter ; elle réfléchit. Elle structure votre chaos en décisions claires, préoccupations et points d'action."
+  },
+  "meta": {
+    "category": "Fonctionnalités IA",
+    "h2": "Info",
+    "published": "Publié",
+    "type": "Guide d'Analyse"
+  },
+  "nav": {
+    "analysis": "Analyse IA",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Arrêtez de simplement transcrire. Commencez à analyser. Découvrez comment Minutes.AI transforme l'audio brut des réunions en données structurées et insights stratégiques.",
+    "keywords": "analyse IA, intelligence de réunion, analyse de compte-rendu, insights commerciaux, stratégie Minutes.AI",
+    "ld": {
+      "description": "Un guide pour utiliser l'IA non seulement pour enregistrer, mais pour analyser la dynamique des réunions, extraire les problèmes clés et générer des contre-mesures stratégiques.",
+      "headline": "Analyse de Comptes-Rendus par IA : Au-delà de la simple transcription"
+    },
+    "ogDescription": "Vous cherchez 'analyse de compte-rendu IA' ? Voyez comment Minutes.AI utilise ChatGPT-5 & Gemini 2.5 Pro pour extraire tendances et décisions.",
+    "ogTitle": "De scribe à analyste : La puissance de l'analyse de réunion par IA",
+    "title": "Analyse de Comptes-Rendus par IA : Transformez l'audio en Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Analyse Boost :** Identifie ce qui fonctionne bien et suggère comment le développer.",
+    "counter": "**Analyse Counter :** Joue 'L'Avocat du Diable' pour vous aider à repérer les risques avant qu'ils ne surviennent.",
+    "cta": "Voir la fonction Stratégie",
+    "h2": "Deep Dive : Mode 'Analyste'",
+    "p1": "Pour des insights plus profonds, notre fonction Stratégie applique des modèles avancés (comme Gemini 2.5 Pro) à votre compte-rendu."
+  },
+  "visual": {
+    "h2": "Preuve visuelle : Le résultat de l'analyse",
+    "p": "Ce n'est pas une maquette. Voici comment Minutes.AI transforme une réunion marketing chaotique en un compte-rendu structuré et analysé.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Pub)",
+        "Elena (Produit)"
+      ],
+      "coreMessage": "Déplacer 30% du budget TV vers le Marketing d'Influence ; focus sur la campagne 'Confiance Utilisateur'.",
+      "date": "12 Nov 2025",
+      "location": "En ligne / Teams",
+      "meetingTitle": "Stratégie Marketing T4 & Allocation Budgétaire",
+      "topics": [
+        {
+          "concerns": [
+            "Besoin d'un processus de vérification strict pour les influenceurs afin d'éviter les scandales."
+          ],
+          "decisions": [
+            "APPROUVÉ : Réduire les dépenses TV de 30%.",
+            "APPROUVÉ : Réallouer les fonds au niveau 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "Le ROI des publicités TV a chuté de 12% sur un an.",
+            "Les campagnes d'influenceurs (Micro-tier) montrent un ROAS de 4,5x.",
+            "Elena a soulevé des préoccupations concernant la sécurité de la marque avec les influenceurs."
+          ],
+          "topic": "Analyse de la Réallocation Budgétaire"
+        },
+        {
+          "actionItems": [
+            "James — Rédiger de nouvelles directives pour les avis non scénarisés d'ici vendredi.",
+            "Sarah — Approuver la liste finale des créateurs."
+          ],
+          "keyMessages": [
+            "Les utilisateurs sont fatigués du battage médiatique. Ils veulent des avis bruts et non édités."
+          ],
+          "topic": "Thème de Campagne : 'Confiance'"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "cta": {
+    "downloadAndroid": "Android-App holen",
+    "downloadIOS": "iOS-App laden",
+    "h2": "Beginnen Sie heute mit der Analyse Ihrer Meetings",
+    "openBrowser": "Im Browser analysieren",
+    "p": "Behandeln Sie Meetings nicht länger als ‚Write-Only‘-Speicher. Machen Sie sie zu Ihrem Wettbewerbsvorteil."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "Die KI trennt automatisch ‚Smalltalk‘ von ‚Entscheidungen‘. Das Protokoll wird so formatiert, dass Sie ein 60-Minuten-Meeting in 30 Sekunden scannen können.",
+        "title": "1. Strukturelle Analyse"
+      },
+      {
+        "desc": "Mit der ‚Strategie‘-Funktion agiert die KI als Berater. Sie findet das ‚Kernproblem‘, liefert ‚Gegenargumente‘ (Counter) und schlägt ‚Laterale Lösungen‘ vor.",
+        "title": "2. Strategische Analyse (Das Gehirn)"
+      },
+      {
+        "desc": "Durch die Identifizierung von Verantwortlichen und Fristen verwandelt die KI Gespräche in Projektmanagement-Daten. Sie beantwortet die Frage ‚Wer macht was?‘ automatisch.",
+        "title": "3. Kontextuelle Analyse"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Nicht nur aufnehmen. Analysieren.",
+    "kicker": "Business Intelligence",
+    "tagline": "Die Ära des reinen Protokollanten ist vorbei. Protokoll KI agiert als Ihr Business-Analyst und verwandelt stundenlange Gespräche in strukturierte Daten, Risikobewertungen und strategische nächste Schritte."
+  },
+  "intro": {
+    "h2": "Warum ‚Transkription‘ nicht mehr reicht",
+    "p1": "Viele Teams leiden unter ‚Datenschulden‘. Jedes Meeting wird aufgezeichnet, aber niemand hat Zeit, es zu prüfen. Ein rohes Transkript ist nur eine Textwüste – es sind Daten, aber keine *Informationen*.",
+    "p2": "Echte ‚Protokoll-Analyse‘ bedeutet, den Kontext zu verstehen. Protokoll KI hört nicht nur zu; sie denkt mit. Sie strukturiert Ihr Chaos in klare Entscheidungen, Bedenken und Maßnahmen."
+  },
+  "meta": {
+    "category": "KI-Funktionen",
+    "h2": "Meta-Informationen",
+    "published": "Veröffentlicht",
+    "type": "Analyse-Leitfaden"
+  },
+  "nav": {
+    "analysis": "KI-Analyse",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Hören Sie auf, nur zu transkribieren. Starten Sie die Analyse. Erfahren Sie, wie Protokoll KI rohes Meeting-Audio in strukturierte Daten und strategische Erkenntnisse verwandelt.",
+    "keywords": "KI-Analyse, Meeting-Intelligenz, Protokollanalyse, Business Insights, Protokoll KI Strategie",
+    "ld": {
+      "description": "Ein Leitfaden zur Nutzung von KI nicht nur für Aufnahmen, sondern zur Analyse der Meeting-Dynamik, Extraktion von Kernproblemen und Generierung strategischer Gegenmaßnahmen.",
+      "headline": "KI-Analyse von Protokollen: Jenseits einfacher Transkription"
+    },
+    "ogDescription": "Suchen Sie nach ‚KI-Analyse von Protokollen‘? Sehen Sie, wie Protokoll KI mit ChatGPT-5 & Gemini 2.5 Pro Trends und Entscheidungen extrahiert.",
+    "ogTitle": "Vom Schreiber zum Analysten: Die Kraft der KI-Meeting-Analyse",
+    "title": "KI-Analyse von Protokollen: Verwandeln Sie Audio in Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost-Analyse:** Identifiziert, was gut läuft, und schlägt vor, wie man es skalieren kann.",
+    "counter": "**Counter-Analyse:** Spielt ‚Des Teufels Advokat‘, um Risiken zu erkennen, bevor sie eintreten.",
+    "cta": "Strategie-Funktion ansehen",
+    "h2": "Deep Dive: Der ‚Analysten‘-Modus",
+    "p1": "Für tiefere Einblicke wendet unsere Strategie-Funktion fortgeschrittene Modelle (wie Gemini 2.5 Pro) auf Ihr Protokoll an."
+  },
+  "visual": {
+    "h2": "Der visuelle Beweis: Das Analyse-Ergebnis",
+    "p": "Dies ist kein Mock-up. So verwandelt Protokoll KI ein chaotisches Marketing-Meeting in ein strukturiertes, analysiertes Protokoll.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "Jonas (Ads)",
+        "Elena (Produkt)"
+      ],
+      "coreMessage": "30 % des TV-Budgets auf Influencer-Marketing verlagern; Fokus auf Kampagne ‚Nutzervertrauen‘.",
+      "date": "12. Nov. 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Marketingstrategie & Budgetverteilung",
+      "topics": [
+        {
+          "concerns": [
+            "Strenge Prüfung der Influencer nötig, um Skandale zu vermeiden."
+          ],
+          "decisions": [
+            "GENEHMIGT: TV-Ausgaben um 30 % kürzen.",
+            "GENEHMIGT: Mittel in ‚Tech-Influencer‘-Tier umschichten."
+          ],
+          "discussion": [
+            "TV-Anzeigen ROI ist im Jahresvergleich um 12 % gesunken.",
+            "Influencer-Kampagnen (Micro-Tier) zeigen 4,5-fachen ROAS.",
+            "Elena äußerte Bedenken zur Markensicherheit bei Influencern."
+          ],
+          "topic": "Analyse der Budgetumschichtung"
+        },
+        {
+          "actionItems": [
+            "Jonas — Entwurf neuer Richtlinien für ungeskriptete Reviews bis Freitag.",
+            "Sarah — Finale Creator-Liste genehmigen."
+          ],
+          "keyMessages": [
+            "Nutzer sind des Hypes müde. Sie wollen rohe, unbearbeitete Reviews."
+          ],
+          "topic": "Kampagnenthema: ‚Vertrauen‘"
+        }
+      ]
+    }
+  }
+}

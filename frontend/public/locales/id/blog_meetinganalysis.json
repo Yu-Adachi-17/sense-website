@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Beranda Minutes AI"
+  },
+  "cta": {
+    "downloadAndroid": "Unduh untuk Android",
+    "downloadIOS": "Unduh untuk iOS",
+    "h2": "Mulai analisis rapat Anda hari ini",
+    "openBrowser": "Analisis di Web",
+    "p": "Berhentilah memperlakukan rapat sebagai memori 'tulis-saja'. Ubah menjadi keunggulan kompetitif Anda."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI secara otomatis memisahkan 'obrolan' dari 'keputusan'. Notulen diformat agar Anda bisa memindai rapat 60 menit dalam 30 detik.",
+        "title": "1. Analisis Struktural"
+      },
+      {
+        "desc": "Dengan fitur 'Strategy', AI bertindak sebagai konsultan. Ia menemukan 'Masalah Utama', menawarkan 'Argumen Kontra' (Counter) yang mungkin Anda lewatkan, dan menyarankan 'Solusi Lateral'.",
+        "title": "2. Analisis Strategis (Otak)"
+      },
+      {
+        "desc": "Dengan mengidentifikasi penanggung jawab dan tenggat waktu, AI mengubah percakapan menjadi data manajemen proyek. Menjawab pertanyaan 'Siapa melakukan apa?' secara otomatis.",
+        "title": "3. Analisis Kontekstual"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Jangan cuma rekam. Analisis.",
+    "kicker": "Business Intelligence",
+    "tagline": "Era 'pencatat' sederhana sudah berakhir. Minutes AI bertindak sebagai analis bisnis otomatis Anda, mengubah berjam-jam percakapan menjadi data terstruktur, penilaian risiko, dan langkah strategis berikutnya."
+  },
+  "intro": {
+    "h2": "Mengapa 'Transkripsi' Saja Tidak Cukup",
+    "p1": "Banyak tim menderita 'Utang Data'. Setiap rapat direkam, tapi tidak ada yang punya waktu untuk meninjaunya kembali. Transkrip mentah hanyalah dinding teks—itu data, tapi bukan *informasi*.",
+    "p2": "'Analisis Notulen' yang sejati berarti memahami konteks. Minutes AI tidak hanya mendengarkan; ia berpikir. Ia menata kekacauan Anda menjadi keputusan yang jelas, kekhawatiran, dan butir tindakan."
+  },
+  "meta": {
+    "category": "Fitur AI",
+    "h2": "Info",
+    "published": "Diterbitkan",
+    "type": "Panduan Analisis"
+  },
+  "nav": {
+    "analysis": "Analisis AI",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Berhenti sekadar mentranskrip. Mulailah menganalisis. Pelajari bagaimana Minutes AI mengubah audio rapat mentah menjadi data terstruktur dan wawasan strategis.",
+    "keywords": "analisis AI, kecerdasan rapat, analisis notulen, wawasan bisnis, strategi Minutes AI",
+    "ld": {
+      "description": "Panduan menggunakan AI tidak hanya untuk merekam, tetapi untuk menganalisis dinamika rapat, mengekstrak masalah inti, dan menghasilkan tindakan pencegahan strategis.",
+      "headline": "Analisis Notulen AI: Lebih dari Sekadar Transkripsi Sederhana"
+    },
+    "ogDescription": "Mencari 'analisis notulen AI'? Lihat bagaimana Minutes AI menggunakan ChatGPT-5 & Gemini 2.5 Pro untuk mengekstrak tren dan keputusan.",
+    "ogTitle": "Dari Pencatat ke Analis: Kekuatan Analisis Rapat AI",
+    "title": "Analisis Notulen AI: Ubah Audio Menjadi Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Analisis Boost:** Mengidentifikasi apa yang berjalan baik dan menyarankan cara untuk meningkatkannya.",
+    "counter": "**Analisis Counter:** Bermain sebagai 'Devil's Advocate' untuk membantu Anda melihat risiko sebelum terjadi.",
+    "cta": "Lihat Fitur Strategy",
+    "h2": "Deep Dive: Mode 'Analis'",
+    "p1": "Untuk wawasan yang lebih dalam, fungsi Strategi kami menerapkan model canggih (seperti Gemini 2.5 Pro) pada notulen Anda."
+  },
+  "visual": {
+    "h2": "Bukti Visual: Hasil Analisis",
+    "p": "Ini bukan maket. Beginilah cara Minutes AI mengubah rapat pemasaran yang kacau menjadi notulen yang terstruktur dan dianalisis.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Iklan)",
+        "Elena (Produk)"
+      ],
+      "coreMessage": "Geser 30% anggaran TV ke Influencer Marketing; fokus pada kampanye 'Kepercayaan Pengguna'.",
+      "date": "12 Nov 2025",
+      "location": "Daring / Teams",
+      "meetingTitle": "Strategi Pemasaran Q4 & Alokasi Anggaran",
+      "topics": [
+        {
+          "concerns": [
+            "Perlu proses penyaringan ketat untuk influencer guna menghindari skandal."
+          ],
+          "decisions": [
+            "DISETUJUI: Potong pengeluaran TV sebesar 30%.",
+            "DISETUJUI: Realokasi dana ke tingkat 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "ROI iklan TV turun 12% YoY.",
+            "Kampanye influencer (Micro-tier) menunjukkan ROAS 4,5x.",
+            "Elena menyampaikan kekhawatiran tentang keamanan merek dengan influencer."
+          ],
+          "topic": "Analisis Realokasi Anggaran"
+        },
+        {
+          "actionItems": [
+            "James — Susun pedoman baru untuk ulasan tanpa naskah paling lambat Jumat.",
+            "Sarah — Setujui daftar kreator final."
+          ],
+          "keyMessages": [
+            "Pengguna lelah dengan sensasi. Mereka menginginkan ulasan mentah yang tidak diedit."
+          ],
+          "topic": "Tema Kampanye: 'Kepercayaan'"
+        }
+      ]
+    }
+  }
+}

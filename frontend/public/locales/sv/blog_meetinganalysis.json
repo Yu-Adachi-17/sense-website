@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "cta": {
+    "downloadAndroid": "Ladda ner för Android",
+    "downloadIOS": "Ladda ner för iOS",
+    "h2": "Börja analysera dina möten idag",
+    "openBrowser": "Analysera på webben",
+    "p": "Sluta behandla möten som 'write-only'-minne. Gör dem till din konkurrensfördel."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI:n separerar automatiskt 'småprat' från 'beslut'. Protokollet formateras så att du kan skanna ett 60-minuters möte på 30 sekunder.",
+        "title": "1. Strukturell analys"
+      },
+      {
+        "desc": "Med funktionen 'Strategi' agerar AI:n som en konsult. Den hittar 'Kärnfrågan', erbjuder 'Motargument' (Counter) som du kanske missat, och föreslår 'Laterala lösningar'.",
+        "title": "2. Strategisk analys (Hjärnan)"
+      },
+      {
+        "desc": "Genom att identifiera ansvariga och deadlines omvandlar AI:n samtal till projektledningsdata. Den svarar automatiskt på frågan 'Vem gör vad?'.",
+        "title": "3. Kontextuell analys"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Spela inte bara in. Analysera.",
+    "kicker": "Business Intelligence",
+    "tagline": "Den enkla 'sekreterarens' tid är förbi. Protokoll AI agerar som din automatiserade affärsanalytiker och omvandlar timmar av samtal till strukturerad data, riskbedömningar och strategiska nästa steg."
+  },
+  "intro": {
+    "h2": "Varför 'Transkribering' inte längre räcker",
+    "p1": "Många team lider av 'Dataskuld'. Varje möte spelas in, men ingen har tid att granska dem. En rå transkribering är bara en vägg av text – det är data, men inte *information*.",
+    "p2": "Äkta 'Protokollanalys' innebär att förstå kontexten. Protokoll AI lyssnar inte bara; den tänker. Den strukturerar ditt kaos till tydliga beslut, farhågor och åtgärdspunkter."
+  },
+  "meta": {
+    "category": "AI-funktioner",
+    "h2": "Info",
+    "published": "Publicerad",
+    "type": "Analysguide"
+  },
+  "nav": {
+    "analysis": "AI-analys",
+    "blog": "Blogg"
+  },
+  "seo": {
+    "description": "Sluta bara transkribera. Börja analysera. Lär dig hur Protokoll AI omvandlar rått mötesljud till strukturerad data och strategiska insikter.",
+    "keywords": "AI-analys, mötesintelligens, protokollanalys, affärsinsikter, Protokoll AI strategi",
+    "ld": {
+      "description": "En guide till att använda AI inte bara för inspelning, utan för att analysera mötesdynamik, extrahera kärnfrågor och generera strategiska motåtgärder.",
+      "headline": "AI-protokollanalys: Mer än enkel transkribering"
+    },
+    "ogDescription": "Letar du efter 'AI-protokollanalys'? Se hur Protokoll AI använder ChatGPT-5 och Gemini 2.5 Pro för att extrahera trender och beslut.",
+    "ogTitle": "Från sekreterare till analytiker: Kraften i AI-mötesanalys",
+    "title": "AI-protokollanalys: Omvandla ljud till Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost-analys:** Identifierar vad som fungerar bra och föreslår hur det kan skalas upp.",
+    "counter": "**Counter-analys:** Spelar 'Djävulens advokat' för att hjälpa dig upptäcka risker innan de inträffar.",
+    "cta": "Se Strategi-funktionen",
+    "h2": "Deep Dive: 'Analytiker'-läge",
+    "p1": "För djupare insikter tillämpar vår Strategi-funktion avancerade modeller (som Gemini 2.5 Pro) på ditt protokoll."
+  },
+  "visual": {
+    "h2": "Visuellt bevis: Analysresultatet",
+    "p": "Detta är ingen modell. Så här omvandlar Protokoll AI ett kaotiskt marknadsföringsmöte till ett strukturerat, analyserat protokoll.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Annonser)",
+        "Elena (Produkt)"
+      ],
+      "coreMessage": "Flytta 30 % av TV-budgeten till Influencer Marketing; fokusera på kampanjen 'Användartillit'.",
+      "date": "12 nov 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Marknadsföringsstrategi & Budgetallokering",
+      "topics": [
+        {
+          "concerns": [
+            "Krävs en strikt granskningsprocess för influencers för att undvika skandaler."
+          ],
+          "decisions": [
+            "GODKÄNT: Skär ner TV-utgifterna med 30 %.",
+            "GODKÄNT: Omallokera medel till 'Tech-Influencer'-nivå."
+          ],
+          "discussion": [
+            "ROI för TV-annonser har sjunkit med 12 % jämfört med föregående år.",
+            "Influencer-kampanjer (Micro-nivå) visar 4,5x ROAS.",
+            "Elena uttryckte oro för varumärkessäkerhet med influencers."
+          ],
+          "topic": "Analys av budgetomallokering"
+        },
+        {
+          "actionItems": [
+            "James — Ta fram nya riktlinjer för oskriptade recensioner senast fredag.",
+            "Sarah — Godkänn slutgiltig lista över kreatörer."
+          ],
+          "keyMessages": [
+            "Användare är trötta på hype. De vill ha råa, oredigerade recensioner."
+          ],
+          "topic": "Kampanjtema: 'Tillit'"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Pöytäkirja AI Etusivu"
+  },
+  "cta": {
+    "downloadAndroid": "Lataa Androidille",
+    "downloadIOS": "Lataa iOS:lle",
+    "h2": "Aloita kokousten analysointi tänään",
+    "openBrowser": "Analysoi selaimessa",
+    "p": "Lopeta kokousten käsittely pelkkänä 'vain kirjoitettuna' muistina. Tee niistä kilpailuetusi."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "Tekoäly erottaa automaattisesti 'jutustelun' 'päätöksistä'. Pöytäkirja muotoillaan niin, että voit silmäillä 60 minuutin kokouksen 30 sekunnissa.",
+        "title": "1. Rakenteellinen analyysi"
+      },
+      {
+        "desc": "'Strategia'-toiminnolla tekoäly toimii konsulttina. Se löytää 'ydinongelman', tarjoaa 'vasta-argumentteja' (Counter), jotka olet ehkä missannut, ja ehdottaa 'lateraalisia ratkaisuja'.",
+        "title": "2. Strateginen analyysi (Aivot)"
+      },
+      {
+        "desc": "Tunnistamalla vastuuhenkilöt ja määräajat tekoäly muuttaa keskustelut projektinhallintadataksi. Se vastaa automaattisesti kysymykseen 'Kuka tekee mitä?'.",
+        "title": "3. Kontekstuaalinen analyysi"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Älä vain tallenna. Analysoi.",
+    "kicker": "Business Intelligence",
+    "tagline": "Pelkän 'kirjurin' aika on ohi. Pöytäkirja AI toimii automaattisena liiketoiminta-analyytikkonasi, muuttaen tuntien keskustelut rakenteelliseksi dataksi, riskiarvioiksi ja strategisiksi seuraaviksi askeleiksi."
+  },
+  "intro": {
+    "h2": "Miksi 'literoinnin' ei enää riitä",
+    "p1": "Monet tiimit kärsivät 'datavelasta'. Jokainen kokous nauhoitetaan, mutta kenelläkään ei ole aikaa käydä niitä läpi. Raaka litterointi on vain tekstimuuri – se on dataa, mutta ei *tietoa*.",
+    "p2": "Todellinen 'pöytäkirja-analyysi' tarkoittaa kontekstin ymmärtämistä. Pöytäkirja AI ei vain kuuntele; se ajattelee. Se jäsentää kaaoksesi selkeiksi päätöksiksi, huolenaiheiksi ja toimenpiteiksi."
+  },
+  "meta": {
+    "category": "AI-ominaisuudet",
+    "h2": "Tiedot",
+    "published": "Julkaistu",
+    "type": "Analyysiopas"
+  },
+  "nav": {
+    "analysis": "AI-analyysi",
+    "blog": "Blogi"
+  },
+  "seo": {
+    "description": "Lopeta pelkkä litterointi. Aloita analysointi. Katso, miten Pöytäkirja AI muuttaa kokousten raakaäänen rakenteelliseksi dataksi ja strategisiksi oivalluksiksi.",
+    "keywords": "AI-analyysi, kokousäly, pöytäkirja-analyysi, liiketoimintaoivallukset, Pöytäkirja AI strategia",
+    "ld": {
+      "description": "Opas tekoälyn käyttöön ei vain tallentamiseen, vaan kokousdynamiikan analysointiin, ydinongelmien poimimiseen ja strategisten vastatoimien luomiseen.",
+      "headline": "Pöytäkirjojen AI-analyysi: Enemmän kuin yksinkertainen litterointi"
+    },
+    "ogDescription": "Etsitkö 'pöytäkirjojen AI-analyysiä'? Katso, miten Pöytäkirja AI käyttää ChatGPT-5:ttä ja Gemini 2.5 Prota trendien ja päätösten poimimiseen.",
+    "ogTitle": "Kirjurista analyytikoksi: AI-kokousanalyysin voima",
+    "title": "Pöytäkirjojen AI-analyysi: Muuta ääni liiketoimintatiedoksi (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost-analyysi:** Tunnistaa, mikä toimii hyvin, ja ehdottaa, miten sitä voidaan skaalata.",
+    "counter": "**Counter-analyysi:** Leikkii 'paholaisen asianajajaa' auttaakseen sinua havaitsemaan riskit ennen kuin ne tapahtuvat.",
+    "cta": "Katso Strategia-ominaisuus",
+    "h2": "Deep Dive: 'Analyytikko'-tila",
+    "p1": "Syvempiä oivalluksia varten Strategia-toimintomme soveltaa edistyneitä malleja (kuten Gemini 2.5 Pro) pöytäkirjaasi."
+  },
+  "visual": {
+    "h2": "Visuaalinen todiste: Analyysin tulos",
+    "p": "Tämä ei ole mallikuva. Näin Pöytäkirja AI muuttaa kaoottisen markkinointikokouksen jäsennellyksi, analysoiduksi pöytäkirjaksi.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Mainonta)",
+        "Elena (Tuote)"
+      ],
+      "coreMessage": "Siirrä 30 % TV-budjetista vaikuttajamarkkinointiin; keskity 'Käyttäjien luottamus' -kampanjaan.",
+      "date": "12. marraskuuta 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Markkinointistrategia & Budjetin jako",
+      "topics": [
+        {
+          "concerns": [
+            "Tarvitaan tiukka seulontaprosessi vaikuttajille skandaalien välttämiseksi."
+          ],
+          "decisions": [
+            "HYVÄKSYTTY: Leikkaa TV-kuluja 30 %.",
+            "HYVÄKSYTTY: Kohdista varat uudelleen 'Tech-Influencer' -tasolle."
+          ],
+          "discussion": [
+            "TV-mainosten ROI on laskenut 12 % vuodentakaisesta.",
+            "Vaikuttajakampanjat (Micro-taso) osoittavat 4,5-kertaista ROAS:ia.",
+            "Elena ilmaisi huolensa bränditurvallisuudesta vaikuttajien kanssa."
+          ],
+          "topic": "Budjetin uudelleenjaon analyysi"
+        },
+        {
+          "actionItems": [
+            "James — Laadi uudet ohjeet käsikirjoittamattomille arvosteluille perjantaihin mennessä.",
+            "Sarah — Hyväksy lopullinen tekijälista."
+          ],
+          "keyMessages": [
+            "Käyttäjät ovat kyllästyneet hypetykseen. He haluavat raakoja, muokkaamattomia arvosteluja."
+          ],
+          "topic": "Kampanjan teema: 'Luottamus'"
+        }
+      ]
+    }
+  }
+}

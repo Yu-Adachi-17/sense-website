@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Home Verbali IA"
+  },
+  "cta": {
+    "downloadAndroid": "Scarica per Android",
+    "downloadIOS": "Scarica per iOS",
+    "h2": "Inizia ad analizzare le tue riunioni oggi",
+    "openBrowser": "Analizza sul Web",
+    "p": "Smetti di trattare le riunioni come memoria di 'sola scrittura'. Trasformale nel tuo vantaggio competitivo."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "L'IA separa automaticamente le 'chiacchiere' dalle 'decisioni'. Il verbale è formattato in modo da poter scansionare una riunione di 60 minuti in 30 secondi.",
+        "title": "1. Analisi Strutturale"
+      },
+      {
+        "desc": "Con la funzione 'Strategia', l'IA agisce come consulente. Trova il 'Problema Principale', offre 'Controargomentazioni' (Counter) che potresti aver perso e suggerisce 'Soluzioni Laterali'.",
+        "title": "2. Analisi Strategica (Il Cervello)"
+      },
+      {
+        "desc": "Identificando responsabili e scadenze, l'IA trasforma le conversazioni in dati di project management. Risponde automaticamente a 'Chi fa cosa?'.",
+        "title": "3. Analisi Contestuale"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Non limitarti a registrare. Analizza.",
+    "kicker": "Business Intelligence",
+    "tagline": "L'era del semplice 'scriba' è finita. Verbali IA agisce come il tuo analista aziendale automatizzato, trasformando ore di conversazione in dati strutturati, valutazioni dei rischi e prossimi passi strategici."
+  },
+  "intro": {
+    "h2": "Perché la 'Trascrizione' non basta più",
+    "p1": "Molti team soffrono di 'Debito di Dati'. Ogni riunione viene registrata, ma nessuno ha tempo di rivederle. Una trascrizione grezza è solo un muro di testo: sono dati, ma non *informazione*.",
+    "p2": "La vera 'Analisi dei Verbali' significa comprendere il contesto. Verbali IA non si limita ad ascoltare; pensa. Struttura il tuo caos in decisioni chiare, preoccupazioni e punti d'azione."
+  },
+  "meta": {
+    "category": "Funzionalità IA",
+    "h2": "Info",
+    "published": "Pubblicato",
+    "type": "Guida all'Analisi"
+  },
+  "nav": {
+    "analysis": "Analisi IA",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Smetti di trascrivere e basta. Inizia ad analizzare. Scopri come Verbali IA trasforma l'audio grezzo delle riunioni in dati strutturati e insight strategici.",
+    "keywords": "analisi IA, intelligenza delle riunioni, analisi verbali, insight aziendali, strategia Verbali IA",
+    "ld": {
+      "description": "Una guida per utilizzare l'IA non solo per registrare, ma per analizzare le dinamiche delle riunioni, estrarre problemi chiave e generare contromisure strategiche.",
+      "headline": "Analisi dei Verbali con IA: Oltre la semplice trascrizione"
+    },
+    "ogDescription": "Cerchi 'analisi verbali IA'? Guarda come Verbali IA usa ChatGPT-5 e Gemini 2.5 Pro per estrarre trend e decisioni.",
+    "ogTitle": "Da scriba ad analista: Il potere dell'analisi delle riunioni con IA",
+    "title": "Analisi dei Verbali con IA: Trasforma l'audio in Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Analisi Boost:** Identifica cosa funziona bene e suggerisce come scalarlo.",
+    "counter": "**Analisi Counter:** Gioca a fare l''Avvocato del Diavolo' per aiutarti a individuare i rischi prima che accadano.",
+    "cta": "Vedi funzione Strategia",
+    "h2": "Deep Dive: Modalità 'Analista'",
+    "p1": "Per insight più profondi, la nostra funzione Strategia applica modelli avanzati (come Gemini 2.5 Pro) al tuo verbale."
+  },
+  "visual": {
+    "h2": "Prova visiva: Il risultato dell'analisi",
+    "p": "Questo non è un mockup. Ecco come Verbali IA trasforma una riunione marketing caotica in un verbale strutturato e analizzato.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Ads)",
+        "Elena (Prodotto)"
+      ],
+      "coreMessage": "Spostare il 30% del budget TV sull'Influencer Marketing; focus sulla campagna 'Fiducia Utente'.",
+      "date": "12 Nov 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Strategia Marketing Q4 & Allocazione Budget",
+      "topics": [
+        {
+          "concerns": [
+            "Necessità di un processo di vetting rigoroso per gli influencer per evitare scandali."
+          ],
+          "decisions": [
+            "APPROVATO: Tagliare la spesa TV del 30%.",
+            "APPROVATO: Riallocare fondi al livello 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "Il ROI degli annunci TV è sceso del 12% su base annua.",
+            "Le campagne influencer (Micro-tier) mostrano un ROAS di 4.5x.",
+            "Elena ha sollevato preoccupazioni sulla sicurezza del brand con gli influencer."
+          ],
+          "topic": "Analisi della Riallocazione Budget"
+        },
+        {
+          "actionItems": [
+            "James — Redigere nuove linee guida per recensioni non scritte entro venerdì.",
+            "Sarah — Approvare lista finale dei creator."
+          ],
+          "keyMessages": [
+            "Gli utenti sono stanchi dell'hype. Vogliono recensioni grezze e non modificate."
+          ],
+          "topic": "Tema Campagna: 'Fiducia'"
+        }
+      ]
+    }
+  }
+}

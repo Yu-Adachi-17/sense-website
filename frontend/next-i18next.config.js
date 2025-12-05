@@ -41,6 +41,7 @@ module.exports = {
     'blog_voicerecording',
     'blog_flexible',
     'blog_cost',
+    'blog_meetinganalysis',
   ],
   defaultNS: 'common',
 

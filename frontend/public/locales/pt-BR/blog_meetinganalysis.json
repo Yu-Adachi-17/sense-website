@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "Início do Ata AI"
+  },
+  "cta": {
+    "downloadAndroid": "Baixar para Android",
+    "downloadIOS": "Baixar para iOS",
+    "h2": "Comece a analisar suas reuniões hoje",
+    "openBrowser": "Analisar na Web",
+    "p": "Pare de tratar as reuniões como memória 'somente gravação'. Transforme-as em sua vantagem competitiva."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "A IA separa automaticamente o 'bate-papo' das 'decisões'. A ata é formatada para que você possa escanear uma reunião de 60 minutos em 30 segundos.",
+        "title": "1. Análise Estrutural"
+      },
+      {
+        "desc": "Com o recurso 'Estratégia', a IA atua como um consultor. Ela encontra a 'Questão Principal', oferece 'Contra-argumentos' (Counter) que você pode ter perdido e sugere 'Soluções Laterais'.",
+        "title": "2. Análise Estratégica (O Cérebro)"
+      },
+      {
+        "desc": "Ao identificar responsáveis e prazos, a IA transforma conversas em dados de gerenciamento de projetos. Ela responde automaticamente à pergunta 'Quem faz o quê?'.",
+        "title": "3. Análise Contextual"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Não grave apenas. Analise.",
+    "kicker": "Business Intelligence",
+    "tagline": "A era do simples 'escriba' acabou. O Ata AI atua como seu analista de negócios automatizado, transformando horas de conversa em dados estruturados, avaliações de risco e próximos passos estratégicos."
+  },
+  "intro": {
+    "h2": "Por que a 'Transcrição' não é mais suficiente",
+    "p1": "Muitas equipes sofrem de 'Dívida de Dados'. Todas as reuniões são gravadas, mas ninguém tem tempo para revisá-las. Uma transcrição bruta é apenas um muro de texto — são dados, mas não *informação*.",
+    "p2": "A verdadeira 'Análise de Atas' significa entender o contexto. O Ata AI não apenas ouve; ele pensa. Ele estrutura seu caos em decisões claras, preocupações e itens de ação."
+  },
+  "meta": {
+    "category": "Recursos de IA",
+    "h2": "Info",
+    "published": "Publicado",
+    "type": "Guia de Análise"
+  },
+  "nav": {
+    "analysis": "Análise de IA",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Pare de apenas transcrever. Comece a analisar. Saiba como o Ata AI transforma o áudio bruto de reuniões em dados estruturados e insights estratégicos.",
+    "keywords": "análise de IA, inteligência de reuniões, análise de atas, insights de negócios, estratégia Ata AI",
+    "ld": {
+      "description": "Um guia para usar a IA não apenas para gravar, mas para analisar a dinâmica das reuniões, extrair questões principais e gerar contramedidas estratégicas.",
+      "headline": "Análise de Atas com IA: Além da simples transcrição"
+    },
+    "ogDescription": "Procurando por 'análise de atas com IA'? Veja como o Ata AI usa ChatGPT-5 e Gemini 2.5 Pro para extrair tendências e decisões.",
+    "ogTitle": "De escriba a analista: O poder da análise de reuniões com IA",
+    "title": "Análise de Atas com IA: Transforme Áudio em Business Intelligence (2025)"
+  },
+  "strategy": {
+    "boost": "**Análise Boost:** Identifica o que está funcionando bem e sugere como escalar.",
+    "counter": "**Análise Counter:** Atua como 'Advogado do Diabo' para ajudá-lo a detectar riscos antes que aconteçam.",
+    "cta": "Ver recurso Estratégia",
+    "h2": "Deep Dive: Modo 'Analista'",
+    "p1": "Para insights mais profundos, nossa função Estratégia aplica modelos avançados (como Gemini 2.5 Pro) à sua ata."
+  },
+  "visual": {
+    "h2": "Prova Visual: O Resultado da Análise",
+    "p": "Isso não é um modelo. É assim que o Ata AI transforma uma reunião de marketing caótica em uma ata estruturada e analisada.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Anúncios)",
+        "Elena (Produto)"
+      ],
+      "coreMessage": "Mover 30% do orçamento de TV para Marketing de Influência; foco na campanha 'Confiança do Usuário'.",
+      "date": "12 de Nov de 2025",
+      "location": "Online / Teams",
+      "meetingTitle": "Estratégia de Marketing Q4 e Alocação de Orçamento",
+      "topics": [
+        {
+          "concerns": [
+            "Necessidade de um processo rigoroso de verificação de influenciadores para evitar escândalos."
+          ],
+          "decisions": [
+            "APROVADO: Cortar gastos com TV em 30%.",
+            "APROVADO: Realocar fundos para o nível 'Tech-Influencer'."
+          ],
+          "discussion": [
+            "O ROI de anúncios de TV caiu 12% em relação ao ano anterior.",
+            "Campanhas de influenciadores (Micro-tier) mostram ROAS de 4,5x.",
+            "Elena levantou preocupações sobre a segurança da marca com influenciadores."
+          ],
+          "topic": "Análise de Realocação de Orçamento"
+        },
+        {
+          "actionItems": [
+            "James — Redigir novas diretrizes para avaliações não roteirizadas até sexta-feira.",
+            "Sarah — Aprovar lista final de criadores."
+          ],
+          "keyMessages": [
+            "Os usuários estão cansados de hype. Eles querem avaliações cruas e não editadas."
+          ],
+          "topic": "Tema da Campanha: 'Confiança'"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "cta": {
+    "downloadAndroid": "Preuzmite za Android",
+    "downloadIOS": "Preuzmite za iOS",
+    "h2": "Počnite analizirati svoje sastanke danas",
+    "openBrowser": "Analizirajte na webu",
+    "p": "Prestanite tretirati sastanke kao memoriju 'samo za pisanje'. Pretvorite ih u svoju konkurentsku prednost."
+  },
+  "features": {
+    "items": [
+      {
+        "desc": "AI automatski odvaja 'čavrljanje' od 'odluka'. Zapisnik je formatiran tako da možete skenirati sastanak od 60 minuta u 30 sekundi.",
+        "title": "1. Strukturna analiza"
+      },
+      {
+        "desc": "Uz značajku 'Strategija', AI djeluje kao konzultant. Pronalazi 'Ključni problem', nudi 'Protuargumente' (Counter) koje ste možda propustili i predlaže 'Lateralna rješenja'.",
+        "title": "2. Strateška analiza (Mozak)"
+      },
+      {
+        "desc": "Identificiranjem odgovornih osoba i rokova, AI pretvara razgovore u podatke za upravljanje projektima. Automatski odgovara na pitanje 'Tko što radi?'.",
+        "title": "3. Kontekstualna analiza"
+      }
+    ]
+  },
+  "hero": {
+    "h1": "Nemojte samo snimati. Analizirajte.",
+    "kicker": "Poslovna inteligencija",
+    "tagline": "Era jednostavnog 'zapisničara' je gotova. AI Zapisnik djeluje kao vaš automatizirani poslovni analitičar, pretvarajući sate razgovora u strukturirane podatke, procjene rizika i strateške iduće korake."
+  },
+  "intro": {
+    "h2": "Zašto 'Transkripcija' više nije dovoljna",
+    "p1": "Mnogi timovi pate od 'podatkovnog duga'. Svaki sastanak se snima, ali nitko nema vremena pregledavati ih. Sirovi transkript je samo zid teksta — to su podaci, ali ne i *informacije*.",
+    "p2": "Prava 'Analiza zapisnika' znači razumijevanje konteksta. AI Zapisnik ne samo da sluša; on razmišlja. Strukturira vaš kaos u jasne odluke, brige i akcijske stavke."
+  },
+  "meta": {
+    "category": "AI značajke",
+    "h2": "Info",
+    "published": "Objavljeno",
+    "type": "Vodič za analizu"
+  },
+  "nav": {
+    "analysis": "AI Analiza",
+    "blog": "Blog"
+  },
+  "seo": {
+    "description": "Prestanite samo transkribirati. Počnite analizirati. Saznajte kako AI Zapisnik pretvara sirovi zvuk sastanka u strukturirane podatke i strateške uvide.",
+    "keywords": "AI analiza, inteligencija sastanaka, analiza zapisnika, poslovni uvidi, AI Zapisnik strategija",
+    "ld": {
+      "description": "Vodič za korištenje AI-a ne samo za snimanje, već i za analizu dinamike sastanaka, izvlačenje ključnih problema i generiranje strateških protumjera.",
+      "headline": "AI Analiza zapisnika: Više od jednostavne transkripcije"
+    },
+    "ogDescription": "Tražite 'AI analizu zapisnika'? Pogledajte kako AI Zapisnik koristi ChatGPT-5 i Gemini 2.5 Pro za izvlačenje trendova i odluka.",
+    "ogTitle": "Od zapisničara do analitičara: Moć AI analize sastanaka",
+    "title": "AI Analiza zapisnika: Pretvorite audio u poslovnu inteligenciju (2025)"
+  },
+  "strategy": {
+    "boost": "**Boost analiza:** Identificira što dobro funkcionira i predlaže kako to skalirati.",
+    "counter": "**Counter analiza:** Igra 'Đavoljeg odvjetnika' kako bi vam pomogao uočiti rizike prije nego što se dogode.",
+    "cta": "Pogledaj značajku Strategija",
+    "h2": "Deep Dive: Način rada 'Analitičar'",
+    "p1": "Za dublje uvide, naša funkcija Strategije primjenjuje napredne modele (poput Gemini 2.5 Pro) na vaš zapisnik."
+  },
+  "visual": {
+    "h2": "Vizualni dokaz: Rezultat analize",
+    "p": "Ovo nije maketa. Ovako AI Zapisnik pretvara kaotičan marketinški sastanak u strukturirani, analizirani zapisnik.",
+    "sample": {
+      "attendees": [
+        "Sarah (CMO)",
+        "James (Oglasi)",
+        "Elena (Proizvod)"
+      ],
+      "coreMessage": "Prebaciti 30% TV budžeta na Influencer Marketing; fokus na kampanju 'Povjerenje korisnika'.",
+      "date": "12. studenog 2025.",
+      "location": "Online / Teams",
+      "meetingTitle": "Q4 Marketinška strategija i raspodjela budžeta",
+      "topics": [
+        {
+          "concerns": [
+            "Potreban strog proces provjere influencera kako bi se izbjegli skandali."
+          ],
+          "decisions": [
+            "ODOBRENO: Smanjiti TV potrošnju za 30%.",
+            "ODOBRENO: Preraspodijeliti sredstva na 'Tech-Influencer' razinu."
+          ],
+          "discussion": [
+            "ROI TV oglasa pao je za 12% u odnosu na prošlu godinu.",
+            "Influencer kampanje (Micro-tier) pokazuju 4,5x ROAS.",
+            "Elena je izrazila zabrinutost oko sigurnosti brenda s influencerima."
+          ],
+          "topic": "Analiza preraspodjele budžeta"
+        },
+        {
+          "actionItems": [
+            "James — Sastaviti nove smjernice za neskriptirane recenzije do petka.",
+            "Sarah — Odobriti konačni popis kreatora."
+          ],
+          "keyMessages": [
+            "Korisnici su umorni od pompe. Žele sirove, neuređene recenzije."
+          ],
+          "topic": "Tema kampanje: 'Povjerenje'"
+        }
+      ]
+    }
+  }
+}
