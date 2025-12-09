@@ -67,8 +67,8 @@
     "pricing": "定价"
   },
   "plans": {
-    "h2_queryHub": "会议记录AI 定价 / 会议记录AI APP 价格 / 会议记录AI 免费",
-    "queryHub_p": "会议记录AI 定价 / 会议记录AI APP 价格 / 会议记录AI 免费方案 / 会议纪要工具价格",
+"h2_queryHub": "会议记录AI 价格方案",
+    "queryHub_p": "会议记录AI 套餐对比：每日免费试用、无过期充值包或无限畅享订阅。",
     "h3_timepacks": "时间包 (一次性购买)",
     "timepacks_note": "您购买的分钟数**永不过期**。您可以随时使用它们从录音生成AI会议纪要，无需担心时间。",
     "trial": {

@@ -67,8 +67,8 @@
     "pricing": "Preços"
   },
   "plans": {
-    "h2_queryHub": "Preços Ata AI / Preço app Ata AI / Ata AI grátis",
-    "queryHub_p": "Preços Ata AI / Preço app Ata AI / Plano gratuito Ata AI / Preço ferramenta de atas",
+"h2_queryHub": "Preços e Planos do Ata AI",
+    "queryHub_p": "Opções do Ata AI: Acesso diário gratuito, pacotes sem validade ou assinaturas ilimitadas.",
     "h3_timepacks": "Pacotes de Tempo (Compra única)",
     "timepacks_note": "Os minutos que você compra **nunca expiram**. Use-os para gerar atas com IA a partir de gravações sempre que precisar – sem estresse.",
     "trial": {

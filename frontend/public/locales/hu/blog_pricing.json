@@ -67,9 +67,8 @@
     "pricing": "Árazás"
   },
   "plans": {
-    "h2_queryHub": "Jegyzőkönyv AI árak / Jegyzőkönyv AI app ára / Jegyzőkönyv AI ingyen",
-    "queryHub_p": "Jegyzőkönyv AI árak / Jegyzőkönyv AI app ára / Jegyzőkönyv AI ingyenes csomag / jegyzőkönyv készítő eszköz ára",
-    "h3_timepacks": "Időcsomagok (Egyszeri vásárlás)",
+"h2_queryHub": "Jegyzőkönyv AI Árak",
+    "queryHub_p": "Fedezze fel a Jegyzőkönyv AI lehetőségeit: Ingyenes napi használat, lejárat nélküli csomagok vagy korlátlan előfizetés.",    "h3_timepacks": "Időcsomagok (Egyszeri vásárlás)",
     "timepacks_note": "A megvásárolt percek **soha nem járnak le**. Használja fel őket AI jegyzőkönyvek készítésére felvételekből, amikor csak szüksége van rá – stresszmentesen.",
     "trial": {
       "detail": "120 perc / 1.99 $",

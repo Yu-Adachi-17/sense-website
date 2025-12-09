@@ -81,8 +81,8 @@ const EN_FALLBACK = {
 
   /* ---- Plans ---- */
   plans: {
-    h2_queryHub: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan",
-    queryHub_p: "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing",
+h2_queryHub: "Transparent Pricing Plans",
+queryHub_p: "Whether you need a free daily plan or professional unlimited access, compare our options below.",
     h3_timepacks: "One-time time packs (no expiry)",
     timepacks_note:
       "Buy once, use forever. Your purchased minutes **never expire**. Use them to generate AI minutes from recordings whenever you need to—no rush.",

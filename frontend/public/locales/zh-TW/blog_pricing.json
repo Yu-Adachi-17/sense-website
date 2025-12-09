@@ -67,9 +67,9 @@
     "pricing": "價格"
   },
   "plans": {
-    "h2_queryHub": "會議紀錄AI 價格 / 會議紀錄AI APP 價格 / 會議紀錄AI 免費",
-    "queryHub_p": "會議紀錄AI 價格 / 會議紀錄AI APP 價格 / 會議紀錄AI 免費方案 / 會議紀錄工具價格",
-    "h3_timepacks": "時間包 (一次性購買)",
+ "h2_queryHub": "會議紀錄AI 價格方案",
+    "queryHub_p": "會議紀錄AI 方案比較：每日免費試用、無過期儲值包或無限暢享訂閱。",
+        "h3_timepacks": "時間包 (一次性購買)",
     "timepacks_note": "您購買的分鐘數**永不過期**。您可以隨時使用它們從錄音產生AI會議紀錄，無需擔心時間。",
     "trial": {
       "detail": "120 分鐘 / $1.99",

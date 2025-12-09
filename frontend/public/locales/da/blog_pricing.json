@@ -67,9 +67,8 @@
     "pricing": "Priser"
   },
   "plans": {
-    "h2_queryHub": "Referat AI priser / Referat AI app priser / Referat AI gratis",
-    "queryHub_p": "Referat AI priser / Referat AI app priser / Referat AI gratis plan / priser mødereferat værktøj",
-    "h3_timepacks": "Tidspakker (Engangskøb)",
+"h2_queryHub": "Priser for Referat AI",
+    "queryHub_p": "Udforsk Referat AI-muligheder: Gratis daglig adgang, tidspakker uden udløb eller ubegrænsede abonnementer.",    "h3_timepacks": "Tidspakker (Engangskøb)",
     "timepacks_note": "Købte minutter **udløber aldrig**. Brug dem til at generere AI-referater fra optagelser, præcis når du har brug for det – helt uden stress.",
     "trial": {
       "detail": "120 min / $1.99",

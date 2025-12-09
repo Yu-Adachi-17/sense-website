@@ -67,8 +67,8 @@
     "pricing": "Prijzen"
   },
   "plans": {
-    "h2_queryHub": "Notulen AI prijzen / Notulen AI app prijs / Notulen AI gratis",
-    "queryHub_p": "Notulen AI prijzen / Notulen AI app prijs / Notulen AI gratis abonnement / prijzen notulentool",
+"h2_queryHub": "Notulen AI Prijzen",
+    "queryHub_p": "Vergelijk Notulen AI plannen: Dagelijks gratis, bundels zonder vervaldatum of onbeperkte abonnementen.",
     "h3_timepacks": "Minutenbundels (Eenmalige aankoop)",
     "timepacks_note": "Aangeschafte minuten **verlopen nooit**. Gebruik ze om AI-notulen van opnames te genereren wanneer u maar wilt – geen stress.",
     "trial": {

@@ -67,9 +67,8 @@
     "pricing": "Preise"
   },
   "plans": {
-    "h2_queryHub": "Protokoll KI Preise / Protokoll KI App Preise / Protokoll KI kostenlos",
-    "queryHub_p": "Protokoll KI Preise / Protokoll KI App Preise / Protokoll KI kostenloser Plan / Preise Protokoll-Tool",
-    "h3_timepacks": "Zeitpakete (Einmalkauf)",
+"h2_queryHub": "Preise für Protokoll KI",
+    "queryHub_p": "Vergleichen Sie die Pläne für Protokoll KI: Täglich kostenlos, zeitlich unbegrenzte Pakete oder Flatrate-Abos.",    "h3_timepacks": "Zeitpakete (Einmalkauf)",
     "timepacks_note": "Gekaufte Minuten **verfallen nie**. Nutzen Sie sie, um KI-Protokolle aus Aufnahmen zu erstellen, wann immer Sie sie brauchen – ganz ohne Stress.",
     "trial": {
       "detail": "120 Min / $1.99",

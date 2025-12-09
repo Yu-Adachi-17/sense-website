@@ -67,8 +67,8 @@
     "pricing": "Ceny"
   },
   "plans": {
-    "h2_queryHub": "AI Zápisnica ceny / AI Zápisnica aplikácia cena / AI Zápisnica zadarmo",
-    "queryHub_p": "AI Zápisnica ceny / AI Zápisnica aplikácia cena / AI Zápisnica bezplatný plán / ceny nástroja na zápisnice",
+"h2_queryHub": "Cenník AI Zápisnica",
+    "queryHub_p": "Možnosti AI Zápisnica: Denne zdarma, balíčky bez exspirácie alebo neobmedzené predplatné.",
     "h3_timepacks": "Časové balíky (Jednorazový nákup)",
     "timepacks_note": "Zakúpené minúty **nikdy nevypršia**. Použite ich na generovanie AI zápisníc z nahrávok, kedykoľvek potrebujete – bez stresu.",
     "trial": {

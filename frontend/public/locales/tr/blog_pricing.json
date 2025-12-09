@@ -67,8 +67,8 @@
     "pricing": "Fiyatlandırma"
   },
   "plans": {
-    "h2_queryHub": "Tutanakları AI fiyatları / Tutanakları AI uygulama fiyatı / Tutanakları AI ücretsiz",
-    "queryHub_p": "Tutanakları AI fiyatları / Tutanakları AI uygulama fiyatı / Tutanakları AI ücretsiz plan / toplantı notu aracı fiyatları",
+"h2_queryHub": "Tutanakları AI Fiyatlandırma",
+    "queryHub_p": "Tutanakları AI seçeneklerini inceleyin: Günlük ücretsiz erişim, süresiz paketler veya sınırsız abonelikler.",
     "h3_timepacks": "Tek Seferlik Süre Paketleri (Süresi Dolmaz)",
     "timepacks_note": "Satın aldığınız dakikaların **süresi asla dolmaz**. İhtiyacınız olduğunda kayıtlardan AI tutanakları oluşturmak için kullanın – acele etmenize gerek yok.",
     "trial": {

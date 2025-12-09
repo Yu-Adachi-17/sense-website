@@ -67,9 +67,8 @@
     "pricing": "Prezzi"
   },
   "plans": {
-    "h2_queryHub": "Prezzi Verbali IA / Prezzo app Verbali IA / Verbali IA gratis",
-    "queryHub_p": "Prezzi Verbali IA / Prezzo app Verbali IA / Piano gratuito Verbali IA / Prezzi strumento verbali",
-    "h3_timepacks": "Pacchetti di Minuti (Acquisto singolo)",
+"h2_queryHub": "Piani e Prezzi di Verbali IA",
+    "queryHub_p": "Scopri le opzioni di Verbali IA: Accesso giornaliero gratuito, pacchetti senza scadenza o abbonamenti illimitati.",    "h3_timepacks": "Pacchetti di Minuti (Acquisto singolo)",
     "timepacks_note": "I minuti che acquisti **non scadono mai**. Usali per generare verbali IA dalle registrazioni ogni volta che ne hai bisogno – senza stress.",
     "trial": {
       "detail": "120 min / $1.99",

@@ -67,9 +67,8 @@
     "pricing": "Tarifs"
   },
   "plans": {
-    "h2_queryHub": "Tarifs Minutes.AI / Prix application Minutes.AI / Minutes.AI gratuit",
-    "queryHub_p": "Tarifs Minutes.AI / Prix application Minutes.AI / Plan gratuit Minutes.AI / Prix outil comptes rendus",
-    "h3_timepacks": "Packs de Temps (Achat unique)",
+"h2_queryHub": "Tarifs de Minutes.AI",
+    "queryHub_p": "Découvrez les offres Minutes.AI : Accès quotidien gratuit, packs sans expiration ou abonnements illimités.",    "h3_timepacks": "Packs de Temps (Achat unique)",
     "timepacks_note": "Les minutes que vous achetez **n'expirent jamais**. Utilisez-les pour générer des comptes rendus IA à partir d'enregistrements quand vous en avez besoin – sans stress.",
     "trial": {
       "detail": "120 min / 1.99 $",

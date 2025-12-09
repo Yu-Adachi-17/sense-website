@@ -67,8 +67,8 @@
     "pricing": "Cennik"
   },
   "plans": {
-    "h2_queryHub": "Protokół AI cennik / Protokół AI aplikacja cena / Protokół AI za darmo",
-    "queryHub_p": "Protokół AI cennik / Protokół AI aplikacja cena / Protokół AI darmowy plan / cena narzędzia do protokołów",
+"h2_queryHub": "Cennik Protokół AI",
+    "queryHub_p": "Porównaj opcje Protokół AI: darmowy dostęp codziennie, pakiety bezterminowe lub nielimitowane subskrypcje.",
     "h3_timepacks": "Pakiety czasu (Zakup jednorazowy)",
     "timepacks_note": "Zakupione minuty **nigdy nie wygasają**. Używaj ich do generowania protokołów AI z nagrań, kiedy tylko potrzebujesz – bez stresu.",
     "trial": {

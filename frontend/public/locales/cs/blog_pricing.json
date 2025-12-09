@@ -67,9 +67,8 @@
     "pricing": "Ceny"
   },
   "plans": {
-    "h2_queryHub": "Zápisník AI ceny / Zápisník AI aplikace cena / Zápisník AI zdarma",
-    "queryHub_p": "Zápisník AI ceny / Zápisník AI aplikace cena / Zápisník AI plán zdarma / ceny nástroje na zápisy z jednání",
-    "h3_timepacks": "Časové balíčky (Jednorázový nákup)",
+"h2_queryHub": "Ceník Zápisník AI",
+    "queryHub_p": "Porovnejte plány Zápisník AI: Denně zdarma, balíčky bez expirace nebo zcela neomezené předplatné.",    "h3_timepacks": "Časové balíčky (Jednorázový nákup)",
     "timepacks_note": "Zakoupené minuty **nikdy nevyprší**. Použijte je k vytváření AI zápisů z nahrávek, kdykoli potřebujete – žádný stres.",
     "trial": {
       "detail": "120 min / 1.99 $",

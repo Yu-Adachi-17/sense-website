@@ -32,9 +32,8 @@
     "p1": "Daily meetings, occasional catch-ups, or just testing the waters? We've got a simple plan that gets you right to what you need."
   },
   "plans": {
-    "h2_queryHub": "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan",
-    "queryHub_p": "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / meeting note taker pricing",
-    "h3_timepacks": "One-time time packs (no expiry)",
+"h2_queryHub": "Minutes.AI Pricing Plans",
+    "queryHub_p": "Explore Minutes.AI options: Free daily access, no-expiry time packs, or truly unlimited subscriptions.",    "h3_timepacks": "One-time time packs (no expiry)",
     "timepacks_note": "Buy once, use forever. Your purchased minutes **never expire**. Use them to generate AI minutes from recordings whenever you need to—no rush.",
     "trial": {
       "name": "Trial",

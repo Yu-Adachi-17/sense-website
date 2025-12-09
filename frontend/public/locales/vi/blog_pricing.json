@@ -67,8 +67,8 @@
     "pricing": "Giá cả"
   },
   "plans": {
-    "h2_queryHub": "Giá Biên bản AI / Giá ứng dụng Biên bản AI / Biên bản AI miễn phí",
-    "queryHub_p": "Giá Biên bản AI / Giá ứng dụng Biên bản AI / Gói miễn phí Biên bản AI / Giá công cụ ghi biên bản",
+"h2_queryHub": "Bảng giá Biên bản AI",
+    "queryHub_p": "Các lựa chọn với Biên bản AI: Dùng miễn phí hàng ngày, gói không hết hạn hoặc thuê bao không giới hạn.",
     "h3_timepacks": "Gói thời gian (Mua một lần)",
     "timepacks_note": "Số phút bạn mua **không bao giờ hết hạn**. Sử dụng chúng để tạo biên bản AI từ các bản ghi bất cứ khi nào bạn cần – không cần vội vàng.",
     "trial": {

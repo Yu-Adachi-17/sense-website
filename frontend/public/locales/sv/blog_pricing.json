@@ -67,8 +67,8 @@
     "pricing": "Priser"
   },
   "plans": {
-    "h2_queryHub": "Protokoll AI priser / Protokoll AI app pris / Protokoll AI gratis",
-    "queryHub_p": "Protokoll AI priser / Protokoll AI app pris / Protokoll AI gratisplan / priser protokollverktyg",
+"h2_queryHub": "Priser för Protokoll AI",
+    "queryHub_p": "Utforska alternativ för Protokoll AI: Gratis daglig tillgång, tidspaket utan utgångsdatum eller obegränsade abonnemang.",
     "h3_timepacks": "Tidspaket (Engångsköp)",
     "timepacks_note": "Köpta minuter **upphör aldrig att gälla**. Använd dem för att generera AI-protokoll från inspelningar när du behöver dem – ingen stress.",
     "trial": {

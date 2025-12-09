@@ -67,9 +67,8 @@
     "pricing": "Precios"
   },
   "plans": {
-    "h2_queryHub": "Precios Actas IA / Precio app Actas IA / Actas IA gratis",
-    "queryHub_p": "Precios Actas IA / Precio app Actas IA / Plan gratuito Actas IA / Precios herramienta de actas",
-    "h3_timepacks": "Paquetes de Tiempo (Pago único)",
+"h2_queryHub": "Planes y precios de Actas IA",
+    "queryHub_p": "Opciones de Actas IA: Acceso diario gratuito, paquetes sin caducidad o suscripciones verdaderamente ilimitadas.",    "h3_timepacks": "Paquetes de Tiempo (Pago único)",
     "timepacks_note": "Los minutos que compras **nunca caducan**. Úsalos para generar actas con IA a partir de grabaciones cuando lo necesites, sin estrés.",
     "trial": {
       "detail": "120 min / 1.99 $",

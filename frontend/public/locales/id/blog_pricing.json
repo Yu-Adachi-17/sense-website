@@ -67,9 +67,8 @@
     "pricing": "Harga"
   },
   "plans": {
-    "h2_queryHub": "Harga Minutes AI / Harga aplikasi Minutes AI / Minutes AI gratis",
-    "queryHub_p": "Harga Minutes AI / Harga aplikasi Minutes AI / Paket gratis Minutes AI / Harga alat notulen rapat",
-    "h3_timepacks": "Paket Waktu (Sekali Beli)",
+"h2_queryHub": "Daftar Harga Minutes AI",
+    "queryHub_p": "Bandingkan paket Minutes AI: Gratis setiap hari, paket waktu tanpa kadaluarsa, atau langganan tanpa batas.",    "h3_timepacks": "Paket Waktu (Sekali Beli)",
     "timepacks_note": "Menit yang Anda beli **tidak pernah kedaluwarsa**. Gunakan untuk membuat notulen AI dari rekaman kapan pun Anda butuh – tanpa perlu terburu-buru.",
     "trial": {
       "detail": "120 mnt / $1.99",

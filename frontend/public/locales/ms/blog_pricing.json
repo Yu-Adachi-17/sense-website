@@ -67,9 +67,9 @@
     "pricing": "Harga"
   },
   "plans": {
-    "h2_queryHub": "Harga Minit AI / Harga aplikasi Minit AI / Minit AI percuma",
-    "queryHub_p": "Harga Minit AI / Harga aplikasi Minit AI / Pelan percuma Minit AI / Harga alat minit mesyuarat",
-    "h3_timepacks": "Pek Masa (Beli sekali)",
+"h2_queryHub": "Harga Pelan Minit AI",
+    "queryHub_p": "Lihat pilihan Minit AI: Akses percuma harian, pek masa tanpa tamat tempoh, atau langganan tanpa had.",
+       "h3_timepacks": "Pek Masa (Beli sekali)",
     "timepacks_note": "Minit yang anda beli **tidak pernah luput**. Gunakannya untuk menjana minit AI daripada rakaman pada bila-bila masa anda perlukan – tanpa tekanan.",
     "trial": {
       "detail": "120 min / $1.99",

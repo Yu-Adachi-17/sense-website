@@ -67,8 +67,8 @@
     "pricing": "Priser"
   },
   "plans": {
-    "h2_queryHub": "Minutes AI pricing / Minutes AI app pricing / Minutes AI free plan / møtereferat ai priser",
-    "queryHub_p": "meeting note taker pricing · notta pricing minutes · notta pricing usd · referat ai priser (2025)",
+"h2_queryHub": "Priser for Referat AI",
+    "queryHub_p": "Utforsk Referat AI-alternativer: Gratis daglig tilgang, tidspakker uten utløpsdato eller ubegrensede abonnementer.",
     "h3_timepacks": "Tidspakker (Engangskjøp)",
     "timepacks_note": "Minuttene du kjøper **utløper aldri**. Bruk dem til å generere AI-møtereferater fra opptak akkurat når du trenger det – null stress.",
     "trial": {

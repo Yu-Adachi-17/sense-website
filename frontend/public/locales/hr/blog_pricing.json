@@ -67,9 +67,8 @@
     "pricing": "Cijene"
   },
   "plans": {
-    "h2_queryHub": "AI Zapisnik cijene / AI Zapisnik cijena aplikacije / AI Zapisnik besplatno",
-    "queryHub_p": "AI Zapisnik cijene / AI Zapisnik cijena aplikacije / AI Zapisnik besplatni plan / cijene alata za zapisnike",
-    "h3_timepacks": "Paketi vremena (Jednokratna kupnja)",
+"h2_queryHub": "Cjenik za AI Zapisnik",
+    "queryHub_p": "Istražite opcije za AI Zapisnik: Besplatan dnevni pristup, paketi bez isteka ili neograničene pretplate.",    "h3_timepacks": "Paketi vremena (Jednokratna kupnja)",
     "timepacks_note": "Minute koje kupite **nikada ne istječu**. Koristite ih za generiranje AI zapisnika iz snimki kad god vam zatreba – bez stresa.",
     "trial": {
       "detail": "120 min / 1.99 $",

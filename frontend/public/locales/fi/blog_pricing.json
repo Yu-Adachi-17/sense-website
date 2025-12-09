@@ -67,9 +67,8 @@
     "pricing": "Hinnasto"
   },
   "plans": {
-    "h2_queryHub": "Pöytäkirja AI hinta / Pöytäkirja AI sovelluksen hinta / Pöytäkirja AI ilmainen",
-    "queryHub_p": "Pöytäkirja AI hinta / Pöytäkirja AI sovelluksen hinta / Pöytäkirja AI ilmaisversio / pöytäkirjatyökalun hinta",
-    "h3_timepacks": "Aitapaketit (Kertamaksu)",
+"h2_queryHub": "Pöytäkirja AI Hinnat",
+    "queryHub_p": "Tutustu Pöytäkirja AI:n vaihtoehtoihin: Ilmainen päivittäinen käyttö, vanhenemattomat aikapaketit tai rajaton tilaus.",    "h3_timepacks": "Aitapaketit (Kertamaksu)",
     "timepacks_note": "Ostamasi minuutit **eivät vanhene koskaan**. Käytä niitä tekoälypöytäkirjojen luomiseen tallenteista juuri silloin, kun tarvitset – ilman stressiä.",
     "trial": {
       "detail": "120 min / 1.99 $",
