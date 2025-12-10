@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "Minit AI untuk Android Dilancarkan — Aplikasi Minit Mesyuarat AI Anda di Android",
-    "description": "Minit AI untuk Android kini di Google Play. Hanya rakam mesyuarat anda, dan AI akan menjana minit secara automatik. Pilihan yang disyorkan untuk sesiapa yang mencari aplikasi minit AI di Android.",
-    "ogTitle": "Minit AI untuk Android — Standard Baharu untuk Aplikasi Minit Mesyuarat AI",
-    "ogDescription": "Rakam mesyuarat anda dan biarkan AI mencipta minit secara automatik. Aplikasi Minit AI Android kini di Google Play, menjadi alat praktikal untuk pengguna yang mencari \"aplikasi minit AI terbaik untuk Android\".",
+    "title": "Pelancaran Android Minit AI — Aplikasi minit mesyuarat AI",
+    "description": "Minit AI, aplikasi minit mesyuarat yang digunakan oleh 30,000 orang di seluruh dunia, kini tersedia di Android. Mula merakam di telefon anda hari ini.",
+    "ogTitle": "Minit AI kini di Android",
+    "ogDescription": "Aplikasi minit AI yang digemari oleh 30,000 pengguna telah tiba di Google Play. Dapatkan minit yang kemas dan berstruktur di peranti Android anda.",
     "ld": {
-      "headline": "Minit AI untuk Android Dilancarkan",
-      "description": "\"Minit AI\", yang menjana minit mesyuarat secara automatik daripada rakaman menggunakan AI, kini tersedia sebagai aplikasi Android. Pasang dari Google Play untuk mencatat minit berkualiti tinggi semasa dalam perjalanan."
+      "headline": "Minit AI melancarkan aplikasi Android",
+      "description": "Minit AI, aplikasi minit mesyuarat AI yang dipercayai oleh lebih 30,000 pengguna di 150 negara, kini berada di Google Play."
     }
   },
   "aria": {
@@ -18,55 +18,58 @@
   },
   "hero": {
     "kicker": "Nota Keluaran",
-    "h1": "Memperkenalkan Minit AI untuk Android",
-    "tagline": "\"Minit AI\", aplikasi yang mencipta minit mesyuarat secara automatik hanya dengan merakam mesyuarat, akhirnya tersedia sebagai aplikasi Android di Google Play. Dapatkan minit berkualiti tinggi pada bila-bila masa, di mana sahaja, hanya dengan telefon pintar anda."
+    "h1": "Minit AI kini tersedia di Android",
+    "tagline": "Minit AI, aplikasi minit mesyuarat yang digemari oleh lebih 30,000 pengguna merentasi 150 negara, telah mendarat di Google Play. Mula merakam di Android dan jana minit berstruktur secara automatik."
   },
   "release": {
-    "h2": "Gambaran Keseluruhan Pelancaran Android",
-    "p1": "Selain versi iOS dan pelayar web kami yang sedia ada, Minit AI kini tersedia sebagai aplikasi Android. Hanya rakam mesyuarat anda, dan AI kami akan menyusun perkara penting secara automatik dan mengubahnya menjadi ringkasan mesyuarat yang mudah dibaca.",
-    "p2": "Versi awal menyokong format \"Flexible\" yang fleksibel, dengan format mesyuarat lain dijadualkan untuk dikeluarkan secara berurutan. Jika anda mencari aplikasi minit AI untuk Android, cubalah Minit AI."
+    "h2": "Apa yang baharu di Android",
+    "p1": "Minit AI, aplikasi minit AI kami yang dipercayai oleh lebih 30,000 pengguna di iOS dan web, kini tersedia sebagai aplikasi Android di Google Play.",
+    "p2": "Keluaran awal Android menyokong format 'Flexible'. Kami akan menambah semua format lain secara berperingkat supaya anda boleh menggunakan gaya minit kegemaran anda di Android juga.",
+    "p3": ""
   },
   "image": {
-    "alt": "Tangkapan skrin aplikasi Minit AI Android",
-    "caption": "Rakam mesyuarat dari telefon pintar Android anda, dan AI akan menjana minit secara langsung."
+    "alt": "Antara muka aplikasi Android Minit AI",
+    "caption": "Versi Android Minit AI kini tersedia di Google Play. Sertai 30,000+ pengguna dan automasikan minit mesyuarat anda."
   },
   "steps": {
-    "h2": "Cara Bermula dengan Versi Android",
+    "h2": "Cara bermula di Android",
     "items": [
-      "Cari \"Minit AI\" di Google Play, atau pasang dari pautan di halaman ini",
-      "Lancarkan aplikasi dan mula merakam mesyuarat anda",
-      "Apabila mesyuarat selesai, hentikan rakaman dan tunggu AI menjana minit",
-      "Semak minit yang dijana, kemudian kongsi atau simpan mengikut keperluan"
+      "Buka Google Play pada peranti Android anda",
+      "Cari “Minit AI” atau ketik pautan pada halaman ini",
+      "Pasang aplikasi dan log masuk atau buat akaun",
+      "Mula merakam mesyuarat dan biarkan AI menjana minit fleksibel"
     ],
-    "note": "Masa rakaman yang tersedia dan format bergantung pada pelan semasa anda dan baki masa."
+    "note": "Kami akan terus memperkenalkan lebih banyak format minit di Android dari semasa ke semasa."
   },
   "features": {
-    "h2": "Apa yang Anda Boleh Lakukan dengan Versi Android",
+    "h2": "Mengapa Minit AI hebat untuk Android",
     "items": [
-      "Rakam mesyuarat hanya menggunakan telefon pintar anda dan biarkan AI mencipta minit secara automatik",
-      "Ringkaskan mesyuarat yang panjang dengan jelas menggunakan format \"Flexible\"",
-      "Penyegerakan awan & sokongan pelbagai peranti untuk digunakan semasa dalam perjalanan",
-      "Aplikasi minit AI global yang menyokong lebih 100 bahasa",
-      "Pelan harga berdasarkan pek masa atau langganan untuk disesuaikan dengan gaya penggunaan anda"
+      "Minit automatik dan kemas daripada rakaman Android anda",
+      "Rekod prestasi terbukti: Dipercayai oleh 30,000+ pengguna di 150 negara",
+      "Format minit fleksibel yang dioptimumkan untuk kebolehbacaan",
+      "Pek masa dan pelan langganan yang sesuai dengan penggunaan anda",
+      "Berfungsi merentasi Android, iOS dan pelayar di bawah satu akaun"
     ]
   },
   "notes": {
-    "h2": "Nota Penggunaan",
+    "h2": "Nota",
     "items": [
-      "Beberapa ciri dan format akan ditambah secara berurutan dalam kemas kini akan datang.",
-      "Kualiti rakaman dan ketepatan minit dipengaruhi oleh prestasi mikrofon peranti dan persekitaran mesyuarat (cth., bunyi bising, bilangan penceramah).",
-      "UI dan ciri yang tersedia mungkin sedikit berbeza antara versi Android, iOS dan pelayar web."
+      "Versi Android awal hanya menyokong format Flexible",
+      "Format minit lain akan ditambah dalam kemas kini akan datang",
+      "Tempoh mesyuarat dan masa tersedia bergantung pada pelan dan kuota anda",
+      "Keadaan rangkaian dan prestasi peranti mungkin menjejaskan kualiti pengecaman"
     ],
-    "foot": "Cuba versi Android Minit AI dahulu. Jika anda menyukainya, gunakannya dalam kombinasi dengan aplikasi iOS dan versi pelayar web."
+    "foot": "Anda juga boleh menggunakan Minit AI di web dan iOS. Cuba kombinasi yang sesuai dengan aliran kerja anda."
   },
   "meta": {
-    "h2": "Maklumat Meta",
-    "published": "Tarikh Diterbitkan",
+    "h2": "Meta",
+    "published": "Diterbitkan",
     "type": "Keluaran",
-    "category": "Aplikasi Android"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Buka Versi Web",
-    "downloadAndroid": "Muat Turun Versi Android"
+    "openBrowser": "Buka di pelayar",
+    "downloadIOS": "Muat turun iOS",
+    "downloadAndroid": "Dapatkan di Google Play"
   }
 }

@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "Notulen AI Android-release — Jouw AI Notulen App op Android",
-    "description": "Notulen AI voor Android is nu beschikbaar op Google Play. Neem simpelweg je vergaderingen op en de AI genereert automatisch de notulen. Een aanbevolen app voor iedereen die een AI-notulenapp op Android zoekt.",
-    "ogTitle": "Notulen AI voor Android — De nieuwe standaard voor AI Notulen Apps",
-    "ogDescription": "Neem je vergaderingen op en laat AI automatisch de notulen maken. De Notulen AI Android-app is nu op Google Play en wordt een praktische tool voor gebruikers die zoeken naar \"beste AI notulen app Android\".",
+    "title": "Notulen AI Android release — Vergader notulen app",
+    "description": "Notulen AI, de notulen-app die wereldwijd door 30.000 mensen wordt gebruikt, is nu op Android. Begin vandaag nog met opnemen op je telefoon.",
+    "ogTitle": "Notulen AI komt naar Android",
+    "ogDescription": "De AI-notulenapp waar 30.000 gebruikers dol op zijn, is nu in Google Play. Krijg schone, gestructureerde notulen op je Android-toestel.",
     "ld": {
-      "headline": "Notulen AI Android-release",
-      "description": "\"Notulen AI\", die automatisch notulen genereert uit opnames van vergaderingen met behulp van AI, is nu beschikbaar als Android-app. Installeer het vanuit Google Play om onderweg hoogwaardige notulen vast te leggen."
+      "headline": "Notulen AI lanceert Android-app",
+      "description": "Notulen AI, een AI-app voor vergadernotulen die wordt vertrouwd door meer dan 30.000 gebruikers in 150 landen, is nu in Google Play."
     }
   },
   "aria": {
@@ -14,59 +14,62 @@
   },
   "nav": {
     "blog": "Blog",
-    "android": "Android-release"
+    "android": "Android release"
   },
   "hero": {
-    "kicker": "Release-opmerkingen",
-    "h1": "Introductie van Notulen AI voor Android",
-    "tagline": "\"Notulen AI\", de app die automatisch notulen van vergaderingen maakt door simpelweg de vergadering op te nemen, is eindelijk beschikbaar als Android-app op Google Play. Krijg altijd en overal hoogwaardige notulen, gewoon met je smartphone."
+    "kicker": "Release-opmerking",
+    "h1": "Notulen AI is nu beschikbaar op Android",
+    "tagline": "Notulen AI, de notulen-app die geliefd is bij meer dan 30.000 gebruikers in 150 landen, is geland in Google Play. Neem op met Android en genereer automatisch gestructureerde notulen."
   },
   "release": {
-    "h2": "Overzicht van de Android-release",
-    "p1": "Naast onze bestaande iOS- en browserversies is Notulen AI nu beschikbaar als Android-app. Neem gewoon je vergadering op en onze AI organiseert automatisch de belangrijkste punten en zet ze om in een gemakkelijk leesbaar vergaderverslag.",
-    "p2": "De eerste versie ondersteunt het flexibele \"Flexible\"-formaat, en andere vergaderformaten zullen binnenkort volgen. Als je op zoek bent naar een AI-notulenapp voor Android, probeer dan Notulen AI."
+    "h2": "Wat is er nieuw op Android",
+    "p1": "Notulen AI, onze AI-notulenapp die wordt vertrouwd door meer dan 30.000 gebruikers op iOS en web, is nu beschikbaar als Android-app in Google Play.",
+    "p2": "De eerste Android-release ondersteunt het 'Flexible'-formaat. We zullen geleidelijk alle andere formaten toevoegen, zodat je je favoriete notulenstijl ook op Android kunt gebruiken.",
+    "p3": ""
   },
   "image": {
-    "alt": "Screenshot van de Notulen AI Android-app",
-    "caption": "Neem vergaderingen op vanaf je Android-smartphone en de AI genereert direct de notulen."
+    "alt": "Notulen AI Android app interface",
+    "caption": "De Android-versie van Notulen AI is nu beschikbaar in Google Play. Sluit je aan bij 30.000+ gebruikers en automatiseer je notulen."
   },
   "steps": {
-    "h2": "Aan de slag met de Android-versie",
+    "h2": "Aan de slag op Android",
     "items": [
-      "Zoek naar \"Notulen AI\" op Google Play, of installeer via de link op deze pagina",
-      "Start de app en begin met het opnemen van je vergadering",
-      "Wanneer de vergadering eindigt, stop je de opname en wacht je tot de AI de notulen heeft gegenereerd",
-      "Controleer de gegenereerde notulen en deel of bewaar ze indien nodig"
+      "Open Google Play op je Android-apparaat",
+      "Zoek naar 'Notulen AI' of tik op de link op deze pagina",
+      "Installeer de app en log in of maak een account aan",
+      "Start met het opnemen van een vergadering en laat AI flexibele notulen genereren"
     ],
-    "note": "Beschikbare opnametijd en formaten zijn afhankelijk van je huidige abonnement en resterende tijd."
+    "note": "We zullen in de loop van de tijd meer notulenformaten uitrollen op Android."
   },
   "features": {
-    "h2": "Wat je kunt doen met de Android-versie",
+    "h2": "Waarom Notulen AI geweldig is voor Android",
     "items": [
-      "Vergaderingen opnemen met alleen je smartphone en de AI automatisch notulen laten maken",
-      "Zelfs lange vergaderingen duidelijk samenvatten met het \"Flexible\"-formaat",
-      "Cloudsynchronisatie & ondersteuning voor meerdere apparaten voor gebruik onderweg",
-      "Een wereldwijde AI-notulenapp die meer dan 100 talen ondersteunt",
-      "Prijsplannen op basis van tijdspakketten of abonnementen die passen bij jouw gebruik"
+      "Automatische, schone notulen van je Android-opnames",
+      "Bewezen succes: Vertrouwd door 30.000+ gebruikers in 150 landen",
+      "Flexibel notulenformaat geoptimaliseerd voor leesbaarheid",
+      "Tijdpakketten en abonnementen die passen bij je gebruik",
+      "Werkt op Android, iOS en browser onder één account"
     ]
   },
   "notes": {
-    "h2": "Gebruiksopmerkingen",
+    "h2": "Opmerkingen",
     "items": [
-      "Sommige functies en formaten worden opeenvolgend toegevoegd in toekomstige updates.",
-      "De opnamekwaliteit en de nauwkeurigheid van de notulen worden beïnvloed door de microfoonprestaties van het apparaat en de vergaderomgeving (bijv. lawaai, aantal sprekers).",
-      "De gebruikersinterface en beschikbare functies kunnen enigszins verschillen tussen de Android-, iOS- en browserversies."
+      "De eerste Android-versie ondersteunt alleen het Flexible-formaat",
+      "Andere notulenformaten worden toegevoegd in toekomstige updates",
+      "Vergaderduur en beschikbare tijd hangen af van je plan",
+      "Netwerkomstandigheden en apparaatprestaties kunnen de herkenningskwaliteit beïnvloeden"
     ],
-    "foot": "Probeer eerst de Android-versie van Notulen AI. Als het je bevalt, gebruik het dan in combinatie met de iOS-app en de browserversie."
+    "foot": "Je kunt Notulen AI ook op het web en iOS gebruiken. Probeer de combinatie die bij je workflow past."
   },
   "meta": {
-    "h2": "Meta-informatie",
-    "published": "Publicatiedatum",
+    "h2": "Meta",
+    "published": "Gepubliceerd",
     "type": "Release",
-    "category": "Android-app"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Open webversie",
-    "downloadAndroid": "Download Android-versie"
+    "openBrowser": "Open in browser",
+    "downloadIOS": "Download iOS-app",
+    "downloadAndroid": "Download in Google Play"
   }
 }

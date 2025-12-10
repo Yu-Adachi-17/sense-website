@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "Minutes AI untuk Android Dirilis — Aplikasi Notulen Rapat AI Anda di Android",
-    "description": "Minutes AI untuk Android kini ada di Google Play. Cukup rekam rapat Anda, dan AI akan secara otomatis menghasilkan notulen. Pilihan yang direkomendasikan bagi siapa saja yang mencari aplikasi notulen AI di Android.",
-    "ogTitle": "Minutes AI untuk Android — Standar Baru untuk Aplikasi Notulen Rapat AI",
-    "ogDescription": "Rekam rapat Anda dan biarkan AI membuat notulen secara otomatis. Aplikasi Minutes AI Android kini ada di Google Play, menjadi alat praktis bagi pengguna yang mencari \"aplikasi notulen AI terbaik untuk Android\".",
+    "title": "Rilis Android Minutes AI — Aplikasi notulen rapat AI",
+    "description": "Minutes AI, aplikasi notulen yang digunakan oleh 30.000 orang secara global, kini tersedia di Android. Mulai merekam di ponsel Anda hari ini.",
+    "ogTitle": "Minutes AI hadir di Android",
+    "ogDescription": "Aplikasi notulen AI yang disukai oleh 30.000 pengguna telah tiba di Google Play. Dapatkan notulen yang rapi dan terstruktur di perangkat Android Anda.",
     "ld": {
-      "headline": "Minutes AI untuk Android Dirilis",
-      "description": "\"Minutes AI\", yang secara otomatis menghasilkan notulen rapat dari rekaman menggunakan AI, kini tersedia sebagai aplikasi Android. Instal dari Google Play untuk mencatat notulen berkualitas tinggi saat bepergian."
+      "headline": "Minutes AI meluncurkan aplikasi Android",
+      "description": "Minutes AI, aplikasi notulen rapat AI yang dipercaya oleh lebih dari 30.000 pengguna di 150 negara, kini ada di Google Play."
     }
   },
   "aria": {
@@ -18,55 +18,58 @@
   },
   "hero": {
     "kicker": "Catatan Rilis",
-    "h1": "Memperkenalkan Minutes AI untuk Android",
-    "tagline": "\"Minutes AI\", aplikasi yang secara otomatis membuat notulen rapat hanya dengan merekam rapat, akhirnya tersedia sebagai aplikasi Android di Google Play. Dapatkan notulen berkualitas tinggi kapan saja, di mana saja, hanya dengan smartphone Anda."
+    "h1": "Minutes AI kini tersedia di Android",
+    "tagline": "Minutes AI, aplikasi notulen rapat yang disukai oleh lebih dari 30.000 pengguna di 150 negara, telah mendarat di Google Play. Mulai merekam di Android dan buat notulen terstruktur secara otomatis."
   },
   "release": {
-    "h2": "Gambaran Umum Rilis Android",
-    "p1": "Selain versi iOS dan browser kami yang sudah ada, Minutes AI kini tersedia sebagai aplikasi Android. Cukup rekam rapat Anda, dan AI kami akan secara otomatis mengatur poin-poin penting dan mengubahnya menjadi ringkasan rapat yang mudah dibaca.",
-    "p2": "Versi awal mendukung format \"Flexible\" yang fleksibel, dengan format rapat lainnya dijadwalkan untuk rilis secara berurutan. Jika Anda mencari aplikasi notulen AI untuk Android, cobalah Minutes AI."
+    "h2": "Apa yang baru di Android",
+    "p1": "Minutes AI, aplikasi AI notulen kami yang dipercaya oleh lebih dari 30.000 pengguna di iOS dan web, kini tersedia sebagai aplikasi Android di Google Play.",
+    "p2": "Rilis awal Android mendukung format 'Flexible'. Kami akan menambahkan format lainnya secara bertahap agar Anda dapat menggunakan gaya notulen favorit Anda di Android juga.",
+    "p3": ""
   },
   "image": {
-    "alt": "Tangkapan layar aplikasi Minutes AI Android",
-    "caption": "Rekam rapat dari smartphone Android Anda, dan AI akan langsung menghasilkan notulen."
+    "alt": "Antarmuka aplikasi Android Minutes AI",
+    "caption": "Versi Android Minutes AI kini tersedia di Google Play. Bergabunglah dengan 30.000+ pengguna dan mulai otomatisasi notulen Anda."
   },
   "steps": {
-    "h2": "Cara Memulai dengan Versi Android",
+    "h2": "Cara memulai di Android",
     "items": [
-      "Cari \"Minutes AI\" di Google Play, atau instal dari tautan di halaman ini",
-      "Luncurkan aplikasi dan mulai rekam rapat Anda",
-      "Saat rapat berakhir, hentikan perekaman dan tunggu AI menghasilkan notulen",
-      "Tinjau notulen yang dihasilkan, lalu bagikan atau simpan sesuai kebutuhan"
+      "Buka Google Play di perangkat Android Anda",
+      "Cari “Minutes AI” atau ketuk tautan di halaman ini",
+      "Instal aplikasi dan masuk atau buat akun",
+      "Mulai merekam rapat dan biarkan AI membuat notulen fleksibel"
     ],
-    "note": "Waktu perekaman yang tersedia dan format bergantung pada paket Anda saat ini dan sisa waktu."
+    "note": "Kami akan terus meluncurkan lebih banyak format notulen di Android seiring waktu."
   },
   "features": {
-    "h2": "Apa yang Dapat Anda Lakukan dengan Versi Android",
+    "h2": "Mengapa Minutes AI sangat cocok untuk Android",
     "items": [
-      "Rekam rapat hanya menggunakan smartphone Anda dan minta AI membuat notulen secara otomatis",
-      "Ringkas rapat yang panjang sekalipun dengan jelas menggunakan format \"Flexible\"",
-      "Sinkronisasi cloud & dukungan multi-perangkat untuk digunakan saat bepergian",
-      "Aplikasi notulen AI global yang mendukung lebih dari 100 bahasa",
-      "Paket harga berdasarkan paket waktu atau langganan yang sesuai dengan gaya penggunaan Anda"
+      "Notulen otomatis dan rapi dari rekaman Android Anda",
+      "Rekam jejak terbukti: Dipercaya oleh 30.000+ pengguna di 150 negara",
+      "Format notulen fleksibel yang dioptimalkan untuk keterbacaan",
+      "Paket waktu dan paket berlangganan yang sesuai dengan penggunaan Anda",
+      "Bekerja di Android, iOS, dan browser dalam satu akun"
     ]
   },
   "notes": {
-    "h2": "Catatan Penggunaan",
+    "h2": "Catatan",
     "items": [
-      "Beberapa fitur dan format akan ditambahkan secara berurutan dalam pembaruan mendatang.",
-      "Kualitas rekaman dan akurasi notulen dipengaruhi oleh kinerja mikrofon perangkat dan lingkungan rapat (misalnya, kebisingan, jumlah pembicara).",
-      "UI dan fitur yang tersedia mungkin sedikit berbeda antara versi Android, iOS, dan browser."
+      "Versi Android awal hanya mendukung format Flexible",
+      "Format notulen lainnya akan ditambahkan pada pembaruan mendatang",
+      "Durasi rapat dan waktu yang tersedia bergantung pada paket dan sisa kuota Anda",
+      "Kondisi jaringan dan kinerja perangkat dapat memengaruhi kualitas pengenalan"
     ],
-    "foot": "Coba versi Android Minutes AI terlebih dahulu. Jika Anda menyukainya, gunakan dalam kombinasi dengan aplikasi iOS dan versi browser."
+    "foot": "Anda juga dapat menggunakan Minutes AI di web dan iOS. Coba kombinasi yang sesuai dengan alur kerja Anda."
   },
   "meta": {
-    "h2": "Informasi Meta",
-    "published": "Tanggal Publikasi",
+    "h2": "Meta",
+    "published": "Diterbitkan",
     "type": "Rilis",
-    "category": "Aplikasi Android"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Buka Versi Web",
-    "downloadAndroid": "Unduh Versi Android"
+    "openBrowser": "Buka di browser",
+    "downloadIOS": "Unduh aplikasi iOS",
+    "downloadAndroid": "Dapatkan di Google Play"
   }
 }

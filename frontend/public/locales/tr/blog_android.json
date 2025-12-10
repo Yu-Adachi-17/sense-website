@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "Tutanakları AI Android Sürümü Yayınlandı — Android'de AI Toplantı Tutanakları Uygulamanız",
-    "description": "Tutanakları AI'nin Android sürümü şimdi Google Play'de. Sadece toplantılarınızı kaydedin, AI otomatik olarak tutanakları oluştursun. Android'de bir AI tutanak uygulaması arayan herkes için önerilir.",
-    "ogTitle": "Android için Tutanakları AI — AI Toplantı Tutanakları Uygulamaları için Yeni Standart",
-    "ogDescription": "Toplantılarınızı kaydedin ve bırakın AI tutanakları otomatik olarak oluştursun. Tutanakları AI Android uygulaması şimdi Google Play'de, \"Android için en iyi AI tutanak uygulaması\" arayan kullanıcılar için pratik bir araç haline geliyor.",
+    "title": "Tutanakları AI Android sürümü — AI toplantı tutanağı uygulaması",
+    "description": "Dünya genelinde 30.000 kişi tarafından kullanılan Tutanakları AI artık Android'de. Telefonunuzda kaydetmeye bugün başlayın.",
+    "ogTitle": "Tutanakları AI Android'e geliyor",
+    "ogDescription": "30.000 kullanıcının sevdiği AI tutanak uygulaması artık Google Play'de. Android cihazınızda temiz ve yapılandırılmış tutanaklar alın.",
     "ld": {
-      "headline": "Tutanakları AI Android Sürümü Yayınlandı",
-      "description": "AI kullanarak kayıtlardan otomatik olarak toplantı tutanakları oluşturan \"Tutanakları AI\", şimdi bir Android uygulaması olarak mevcut. Hareket halindeyken yüksek kaliteli tutanaklar yakalamak için Google Play'den yükleyin."
+      "headline": "Tutanakları AI Android uygulamasını başlatıyor",
+      "description": "150 ülkede 30.000'den fazla kullanıcının güvendiği AI toplantı tutanağı uygulaması Tutanakları AI, artık Google Play'de."
     }
   },
   "aria": {
@@ -14,59 +14,62 @@
   },
   "nav": {
     "blog": "Blog",
-    "android": "Android Sürümü"
+    "android": "Android sürümü"
   },
   "hero": {
-    "kicker": "Sürüm Notları",
-    "h1": "Tutanakları AI Android Sürümüyle Tanışın",
-    "tagline": "Sadece toplantıyı kaydederek otomatik olarak toplantı tutanakları oluşturan uygulama \"Tutanakları AI\", nihayet Google Play'de bir Android uygulaması olarak mevcut. Sadece akıllı telefonunuzla istediğiniz zaman, istediğiniz yerde yüksek kaliteli tutanaklar alın."
+    "kicker": "Sürüm Notu",
+    "h1": "Tutanakları AI artık Android'de mevcut",
+    "tagline": "150 ülkede 30.000'den fazla kullanıcı tarafından sevilen Tutanakları AI, Google Play'e indi. Android'de kaydedin ve otomatik olarak yapılandırılmış tutanaklar oluşturun."
   },
   "release": {
-    "h2": "Android Sürümüne Genel Bakış",
-    "p1": "Mevcut iOS ve tarayıcı sürümlerimize ek olarak, Tutanakları AI şimdi bir Android uygulaması olarak kullanılabilir. Sadece toplantınızı kaydedin, AI'mız kilit noktaları otomatik olarak düzenleyecek ve okunması kolay bir toplantı özetine dönüştürecektir.",
-    "p2": "İlk sürüm esnek \"Flexible\" formatını desteklemektedir, diğer toplantı formatlarının da sırayla yayınlanması planlanmaktadır. Android için bir AI tutanak uygulaması arıyorsanız, Tutanakları AI'ı deneyin."
+    "h2": "Android'de neler yeni",
+    "p1": "iOS ve web'de 30.000'den fazla kullanıcının güvendiği AI uygulamamız Tutanakları AI, artık Google Play'de Android uygulaması olarak mevcut.",
+    "p2": "İlk Android sürümü 'Flexible' formatını destekliyor. Favori tutanak tarzınızı Android'de de kullanabilmeniz için diğer tüm formatları kademeli olarak ekleyeceğiz.",
+    "p3": ""
   },
   "image": {
-    "alt": "Tutanakları AI Android uygulamasının ekran görüntüsü",
-    "caption": "Android akıllı telefonunuzdan toplantıları kaydedin ve AI tutanakları doğrudan oluştursun."
+    "alt": "Tutanakları AI Android uygulaması arayüzü",
+    "caption": "Tutanakları AI Android sürümü şimdi Google Play'de. 30.000+ kullanıcıya katılın ve tutanaklarınızı otomatikleştirin."
   },
   "steps": {
-    "h2": "Android Sürümü Nasıl Kullanılmaya Başlanır",
+    "h2": "Android'de nasıl başlanır",
     "items": [
-      "Google Play'de \"Tutanakları AI\" aratın veya bu sayfadaki bağlantıdan yükleyin",
-      "Uygulamayı başlatın ve toplantınızı kaydetmeye başlayın",
-      "Toplantı bittiğinde kaydı durdurun ve AI'nin tutanağı oluşturmasını bekleyin",
-      "Oluşturulan tutanağı gözden geçirin, ardından gerektiği gibi paylaşın veya kaydedin"
+      "Android cihazınızda Google Play'i açın",
+      "“Tutanakları AI” araması yapın veya bu sayfadaki bağlantıya dokunun",
+      "Uygulamayı yükleyin ve giriş yapın veya bir hesap oluşturun",
+      "Bir toplantı kaydetmeye başlayın ve AI'nın esnek bir tutanak oluşturmasına izin verin"
     ],
-    "note": "Kullanılabilir kayıt süresi ve formatlar, mevcut planınıza ve kalan sürenize bağlıdır."
+    "note": "Zamanla Android'de daha fazla tutanak formatı sunmaya devam edeceğiz."
   },
   "features": {
-    "h2": "Android Sürümüyle Neler Yapabilirsiniz",
+    "h2": "Tutanakları AI Android için neden harika",
     "items": [
-      "Sadece akıllı telefonunuzu kullanarak toplantıları kaydedin ve AI'nin otomatik olarak tutanak oluşturmasını sağlayın",
-      "\"Flexible\" formatıyla uzun toplantıları bile net bir şekilde özetleyin",
-      "Hareket halindeyken kullanım için bulut senkronizasyonu ve çoklu cihaz desteği",
-      "100'den fazla dili destekleyen küresel bir AI tutanak uygulaması",
-      "Kullanım tarzınıza uygun zaman paketlerine veya aboneliklere dayalı fiyatlandırma planları"
+      "Android kayıtlarınızdan otomatik, temiz tutanaklar",
+      "Kanıtlanmış başarı: 150 ülkede 30.000+ kullanıcı tarafından güveniliyor",
+      "Okunabilirlik için optimize edilmiş esnek tutanak formatı",
+      "Kullanımınıza uygun zaman paketleri ve abonelik planları",
+      "Tek bir hesap altında Android, iOS ve tarayıcıda çalışır"
     ]
   },
   "notes": {
-    "h2": "Kullanım Notları",
+    "h2": "Notlar",
     "items": [
-      "Bazı özellikler ve formatlar gelecekteki güncellemelerde sırayla eklenecektir.",
-      "Kayıt kalitesi ve tutanak doğruluğu, cihazın mikrofon performansından ve toplantı ortamından (örn. gürültü, konuşmacı sayısı) etkilenir.",
-      "Kullanıcı arayüzü ve mevcut özellikler Android, iOS ve tarayıcı sürümleri arasında biraz farklılık gösterebilir."
+      "İlk Android sürümü yalnızca Flexible formatını destekler",
+      "Diğer tutanak formatları gelecekteki güncellemelerde eklenecektir",
+      "Toplantı süresi ve mevcut süre planınıza bağlıdır",
+      "Ağ koşulları ve cihaz performansı tanıma kalitesini etkileyebilir"
     ],
-    "foot": "Önce Tutanakları AI'nin Android sürümünü deneyin. Beğenirseniz, iOS uygulaması ve tarayıcı sürümüyle birlikte kullanın."
+    "foot": "Tutanakları AI'yı web'de ve iOS'ta da kullanabilirsiniz. İş akışınıza uygun kombinasyonu deneyin."
   },
   "meta": {
-    "h2": "Meta Bilgileri",
-    "published": "Yayın Tarihi",
+    "h2": "Meta",
+    "published": "Yayınlandı",
     "type": "Sürüm",
-    "category": "Android Uygulaması"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Web Sürümünü Aç",
-    "downloadAndroid": "Android Sürümünü İndir"
+    "openBrowser": "Tarayıcıda aç",
+    "downloadIOS": "iOS uygulamasını indir",
+    "downloadAndroid": "Google Play'den edin"
   }
 }

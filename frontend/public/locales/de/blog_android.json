@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "Protokoll KI Android-Version veröffentlicht — Die Protokoll KI App für Android",
-    "description": "Die Android-Version von Protokoll KI ist jetzt bei Google Play erhältlich. Nehmen Sie einfach Ihre Meetings auf, und die KI erstellt automatisch Protokolle. Eine empfehlenswerte App für alle, die eine KI-Protokoll-App für Android suchen.",
-    "ogTitle": "Protokoll KI für Android — Der neue Standard für KI-Protokoll-Apps",
-    "ogDescription": "Nehmen Sie Meetings auf und die KI erstellt automatisch Protokolle. Die Android-App von Protokoll KI ist jetzt bei Google Play verfügbar und ein praktisches Tool, das auf Suchen nach \"beste KI Protokoll App Android\" abzielt.",
+    "title": "Protokoll KI Android-Release — KI-Meeting-Protokoll-App",
+    "description": "Protokoll KI, die von 30.000 Nutzern weltweit verwendete Protokoll-App, ist jetzt für Android verfügbar. Starten Sie Ihre Aufnahme noch heute.",
+    "ogTitle": "Protokoll KI kommt auf Android",
+    "ogDescription": "Die von 30.000 Nutzern geliebte Protokoll-KI-App ist jetzt auf Google Play. Erhalten Sie saubere, strukturierte Protokolle auf Ihrem Android-Gerät.",
     "ld": {
-      "headline": "Protokoll KI Android-Version veröffentlicht",
-      "description": "\"Protokoll KI\", die App, die automatisch Protokolle aus Meeting-Aufzeichnungen mithilfe von KI generiert, ist jetzt als Android-App verfügbar. Installieren Sie sie von Google Play und erstellen Sie auch unterwegs hochwertige Protokolle."
+      "headline": "Protokoll KI startet Android-App",
+      "description": "Protokoll KI, eine KI-App für Meeting-Protokolle, der über 30.000 Nutzer in 150 Ländern vertrauen, ist jetzt bei Google Play."
     }
   },
   "aria": {
@@ -14,59 +14,62 @@
   },
   "nav": {
     "blog": "Blog",
-    "android": "Android-Version"
+    "android": "Android-Release"
   },
   "hero": {
-    "kicker": "Veröffentlichungshinweise",
-    "h1": "Protokoll KI jetzt für Android verfügbar",
-    "tagline": "\"Protokoll KI\", die App, die automatisch Meeting-Protokolle durch einfaches Aufzeichnen des Meetings erstellt, ist endlich als Android-App bei Google Play verfügbar. Erhalten Sie hochwertige Protokolle jederzeit und überall, nur mit Ihrem Smartphone."
+    "kicker": "Release Note",
+    "h1": "Protokoll KI ist jetzt für Android verfügbar",
+    "tagline": "Protokoll KI, die Meeting-Protokoll-App, die von über 30.000 Nutzern in 150 Ländern geliebt wird, ist auf Google Play gelandet. Starten Sie die Aufnahme auf Android und erstellen Sie automatisch saubere Protokolle."
   },
   "release": {
-    "h2": "Übersicht über die Android-Version",
-    "p1": "Zusätzlich zu den bestehenden iOS- und Browser-Versionen ist Protokoll KI nun auch als Android-App verfügbar. Wenn Sie Ihr Meeting aufzeichnen, organisiert die KI automatisch die wichtigsten Punkte und wandelt sie in ein leicht lesbares Protokoll um.",
-    "p2": "Die erste Version unterstützt das flexible \"Flexible\"-Format, weitere Meeting-Formate werden nach und nach unterstützt. Wenn Sie nach einer KI-Protokoll-App für Android suchen, probieren Sie Protokoll KI jetzt aus."
+    "h2": "Was ist neu auf Android",
+    "p1": "Protokoll KI, unsere KI-Protokoll-App, der bereits über 30.000 Nutzer auf iOS und im Web vertrauen, ist jetzt als Android-App auf Google Play verfügbar.",
+    "p2": "Das erste Android-Release unterstützt das flexible Protokollformat. Wir werden nach und nach alle anderen Formate hinzufügen, damit Sie Ihren bevorzugten Protokollstil auch auf Android nutzen können.",
+    "p3": ""
   },
   "image": {
-    "alt": "Screenshot der Protokoll KI Android-App",
-    "caption": "Nehmen Sie Meetings von Ihrem Android-Smartphone auf, und die KI generiert direkt das Protokoll."
+    "alt": "Protokoll KI Android-App UI",
+    "caption": "Die Android-Version von Protokoll KI ist jetzt auf Google Play verfügbar. Schließen Sie sich 30.000+ Nutzern an und automatisieren Sie Ihre Protokolle."
   },
   "steps": {
-    "h2": "Erste Schritte mit der Android-Version",
+    "h2": "So starten Sie auf Android",
     "items": [
-      "Suchen Sie nach \"Protokoll KI\" bei Google Play oder installieren Sie über den Link auf dieser Seite",
-      "Starten Sie die App und beginnen Sie mit der Aufzeichnung Ihres Meetings",
-      "Stoppen Sie die Aufnahme nach dem Meeting und warten Sie, bis die KI das Protokoll generiert hat",
-      "Überprüfen Sie das generierte Protokoll und teilen oder speichern Sie es bei Bedarf"
+      "Öffnen Sie Google Play auf Ihrem Android-Gerät",
+      "Suchen Sie nach „Protokoll KI“ oder tippen Sie auf den Link auf dieser Seite",
+      "Installieren Sie die App und melden Sie sich an",
+      "Starten Sie die Aufnahme eines Meetings und lassen Sie die KI ein flexibles Protokoll erstellen"
     ],
-    "note": "Die verfügbare Aufnahmezeit und die nutzbaren Formate hängen von Ihrem aktuellen Plan und der verbleibenden Zeit ab."
+    "note": "Wir werden im Laufe der Zeit weitere Protokollformate auf Android einführen."
   },
   "features": {
-    "h2": "Was Sie mit der Android-Version tun können",
+    "h2": "Warum Protokoll KI ideal für Android ist",
     "items": [
-      "Meetings nur mit Ihrem Smartphone aufnehmen und Protokolle automatisch von der KI erstellen lassen",
-      "Lange Meetings mit dem \"Flexible\"-Format übersichtlich zusammenfassen",
-      "Cloud-Synchronisierung & Unterstützung mehrerer Geräte für den Einsatz unterwegs",
-      "Eine globale KI-Protokoll-App, die über 100 Sprachen unterstützt",
-      "Preispläne basierend auf Zeitpaketen oder Abonnements, passend zu Ihrem Nutzungsstil"
+      "Automatische, saubere Protokolle aus Ihren Android-Aufnahmen",
+      "Bewährte Qualität: Vertraut von über 30.000 Nutzern in 150 Ländern",
+      "Flexibles Protokollformat, optimiert für Lesbarkeit",
+      "Zeitpakete und Abopläne passend zu Ihrer Nutzung",
+      "Funktioniert über Android, iOS und Browser unter einem Konto"
     ]
   },
   "notes": {
-    "h2": "Nutzungshinweise",
+    "h2": "Hinweise",
     "items": [
-      "Einige Funktionen und Formate werden in zukünftigen Updates nach und nach hinzugefügt.",
-      "Die Aufnahmequalität und die Genauigkeit des Protokolls werden von der Mikrofonleistung des Geräts und der Meeting-Umgebung (z. B. Lärm, Anzahl der Sprecher) beeinflusst.",
-      "Die Benutzeroberfläche und die verfügbaren Funktionen können sich zwischen der Android-, iOS- und der Browser-Version geringfügig unterscheiden."
+      "Die erste Android-Version unterstützt nur das flexible Format",
+      "Andere Protokollformate werden in zukünftigen Updates hinzugefügt",
+      "Meeting-Dauer und verfügbare Zeit hängen von Ihrem Plan und der verbleibenden Quote ab",
+      "Netzwerkbedingungen und Geräteleistung können die Erkennungsqualität beeinträchtigen"
     ],
-    "foot": "Testen Sie zuerst die Android-Version von Protokoll KI. Wenn sie Ihnen gefällt, nutzen Sie sie in Kombination mit der iOS-App und der Browser-Version."
+    "foot": "Sie können Protokoll KI auch im Web und auf iOS nutzen. Probieren Sie die Kombination aus, die zu Ihrem Workflow passt."
   },
   "meta": {
-    "h2": "Meta-Informationen",
-    "published": "Veröffentlichungsdatum",
-    "type": "Veröffentlichung",
-    "category": "Android-App"
+    "h2": "Meta",
+    "published": "Veröffentlicht",
+    "type": "Release",
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Browser-Version öffnen",
-    "downloadAndroid": "Android-Version herunterladen"
+    "openBrowser": "Im Browser öffnen",
+    "downloadIOS": "iOS-App laden",
+    "downloadAndroid": "Jetzt bei Google Play"
   }
 }

@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "会议记录AI Android版发布 — 您的Android端AI会议记录应用",
-    "description": "会议记录AI的Android版现已登陆Google Play。您只需录制会议，AI即可自动生成会议记录。推荐给正在寻找Android端AI会议记录应用的用户。",
-    "ogTitle": "会议记录AI Android版 — AI会议记录应用的新标杆",
-    "ogDescription": "只需录制会议，AI即可自动生成会议记录。会议记录AI的Android应用现已登陆Google Play，对于搜索“会议记录 AI 应用 Android 推荐”的用户来说，这是一个实用的工具。",
+    "title": "会议记录AI 安卓版发布 — AI会议纪要App",
+    "description": "全球30,000人正在使用的“会议记录AI”现已登陆Android。立即在您的手机上开始录音，自动生成清晰的会议纪要。",
+    "ogTitle": "会议记录AI 登陆 Android",
+    "ogDescription": "备受30,000名用户喜爱的AI会议纪要App已上架Google Play。在Android设备上获取整洁、结构化的会议记录。",
     "ld": {
-      "headline": "会议记录AI Android版发布",
-      "description": "“会议记录AI”可通过AI技术从会议录音中自动生成会议记录，现已推出Android应用。您可以从Google Play安装，随时随地创建高质量的会议记录。"
+      "headline": "会议记录AI 发布 Android 应用",
+      "description": "“会议记录AI”，一款深受全球150个国家、超过30,000名用户信赖的AI会议纪要应用，现已登陆Google Play。"
     }
   },
   "aria": {
@@ -18,55 +18,58 @@
   },
   "hero": {
     "kicker": "发布说明",
-    "h1": "会议记录AI Android版现已推出",
-    "tagline": "“会议记录AI”是一款只需录制会议即可自动生成会议记录的应用，现已作为Android应用登陆Google Play。现在，您只需一部智能手机，即可随时随地创建高质量的会议记录。"
+    "h1": "会议记录AI 现已支持 Android",
+    "tagline": "全球150个国家、超过30,000名用户信赖的“会议记录AI”，已正式登陆Google Play。在Android上录音，自动生成结构清晰的会议纪要。"
   },
   "release": {
-    "h2": "Android版发布概览",
-    "p1": "继iOS和浏览器版之后，会议记录AI现已推出Android应用版。您只需录制会议，AI将自动整理要点，并将其转换为易于阅读的会议记录。",
-    "p2": "初始版本支持灵活的“Flexible”格式，其他会议格式也将陆续支持。如果您正在寻找一款适用于Android的AI会议记录应用，请立即试用会议记录AI。"
+    "h2": "Android版新功能",
+    "p1": "在iOS和Web端深受30,000多名用户信赖的“会议记录AI”，现已作为Android应用在Google Play上架。",
+    "p2": "首个Android版本支持“Flexible（灵活）”格式。我们将逐步添加所有其他格式，以便您在Android上也能使用您喜欢的纪要风格。",
+    "p3": ""
   },
   "image": {
-    "alt": "会议记录AI Android应用界面截图",
-    "caption": "通过您的Android智能手机录制会议，AI将立即生成会议记录。"
+    "alt": "会议记录AI Android版界面",
+    "caption": "会议记录AI Android版现已在Google Play上架。加入30,000多名用户的行列，实现会议纪要自动化。"
   },
   "steps": {
-    "h2": "如何开始使用Android版",
+    "h2": "如何在 Android 上开始使用",
     "items": [
-      "在Google Play搜索“会议记录AI”，或通过本页链接安装",
-      "启动应用并开始录制您的会议",
-      "会议结束后，停止录制，等待AI生成会议记录",
-      "查看生成的会议记录，并根据需要进行分享或保存"
+      "在您的 Android 设备上打开 Google Play",
+      "搜索“会议记录AI”或点击本页面的链接",
+      "安装应用并登录或创建账户",
+      "开始录制会议，让 AI 生成灵活格式的纪要"
     ],
-    "note": "可用的录制时长和格式取决于您当前的套餐和剩余时间。"
+    "note": "随着时间的推移，我们将继续在 Android 上推出更多纪要格式。"
   },
   "features": {
-    "h2": "Android版可实现的功能",
+    "h2": "为什么会议记录AI是Android上的绝佳选择",
     "items": [
-      "仅用智能手机即可录制会议，并由AI自动创建会议记录",
-      "使用“Flexible”格式清晰总结长时间会议",
-      "支持云同步和多设备，方便随时随地使用",
-      "支持100多种语言的全球化AI会议记录应用",
-      "提供按时长计费和订阅制两种套餐，以适应您的使用方式"
+      "从您的 Android 录音中自动生成清晰的纪要",
+      "久经考验的成功：受到150个国家/地区30,000+用户的信赖",
+      "专为可读性优化的灵活纪要格式",
+      "符合您使用习惯的时间包和订阅计划",
+      "一个账户即可在 Android、iOS 和浏览器上通用"
     ]
   },
   "notes": {
-    "h2": "使用注意事项",
+    "h2": "注意事项",
     "items": [
-      "部分功能和格式将在未来的更新中陆续添加。",
-      "录音质量和会议记录的准确性受设备麦克风性能和会议环境（如噪音、发言人数）的影响。",
-      "Android版与iOS/浏览器版在用户界面和功能上可能存在部分差异。"
+      "Android 初始版本仅支持 Flexible 格式",
+      "其他纪要格式将在未来的更新中添加",
+      "会议时长和可用时间取决于您的套餐",
+      "网络状况和设备性能可能会影响识别质量"
     ],
-    "foot": "请先试用会议记录AI的Android版，如果您喜欢它，可以将其与iOS应用和浏览器版结合使用。"
+    "foot": "您也可以在 Web 和 iOS 上使用会议记录AI。尝试适合您工作流程的组合。"
   },
   "meta": {
-    "h2": "元信息",
-    "published": "发布日期",
+    "h2": "元数据",
+    "published": "发布于",
     "type": "发布",
-    "category": "Android应用"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "打开网页版",
-    "downloadAndroid": "下载Android版"
+    "openBrowser": "在浏览器打开",
+    "downloadIOS": "下载 iOS 应用",
+    "downloadAndroid": "在 Google Play 获取"
   }
 }

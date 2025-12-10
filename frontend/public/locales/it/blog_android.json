@@ -1,72 +1,75 @@
 {
   "seo": {
-    "title": "Rilascio Verbali IA per Android — L'app Verbali IA per Android",
-    "description": "La versione Android di Verbali IA è ora su Google Play. Basta registrare le tue riunioni e l'IA genererà automaticamente i verbali. Un'app consigliata per chi cerca un'app di verbali IA su Android.",
-    "ogTitle": "Verbali IA per Android — Il nuovo standard per le app di verbali IA",
-    "ogDescription": "Registra le riunioni e l'IA crea automaticamente i verbali. L'app Android di Verbali IA è ora su Google Play, diventando uno strumento pratico che punta a ricerche come \"migliore app verbali IA Android\".",
+    "title": "Rilascio Android di Verbali IA — App per verbali con IA",
+    "description": "Verbali IA, l'app utilizzata da 30.000 persone nel mondo, è ora su Android. Inizia a registrare le tue riunioni oggi stesso.",
+    "ogTitle": "Verbali IA arriva su Android",
+    "ogDescription": "L'app di verbali IA amata da 30.000 utenti è ora su Google Play. Ottieni verbali puliti e strutturati sul tuo dispositivo Android.",
     "ld": {
-      "headline": "Rilascio di Verbali IA per Android",
-      "description": "\"Verbali IA\", che genera automaticamente verbali delle riunioni dalle registrazioni utilizzando l'IA, è ora disponibile come app Android. Installala da Google Play per acquisire verbali di alta qualità anche in mobilità."
+      "headline": "Verbali IA lancia l'app per Android",
+      "description": "Verbali IA, l'app per verbali di riunione scelta da oltre 30.000 utenti in 150 paesi, è ora disponibile su Google Play."
     }
   },
   "aria": {
-    "home": "Verbali IA Home"
+    "home": "Home di Verbali IA"
   },
   "nav": {
     "blog": "Blog",
-    "android": "Versione Android"
+    "android": "Rilascio Android"
   },
   "hero": {
     "kicker": "Note di rilascio",
-    "h1": "Presentazione di Verbali IA per Android",
-    "tagline": "\"Verbali IA\", l'app che crea automaticamente verbali delle riunioni semplicemente registrando la riunione, è finalmente disponibile come app Android su Google Play. Ottieni verbali di alta qualità sempre e ovunque, solo con il tuo smartphone."
+    "h1": "Verbali IA è ora disponibile su Android",
+    "tagline": "Verbali IA, l'app per verbali amata da oltre 30.000 utenti in 150 paesi, è sbarcata su Google Play. Registra su Android e genera automaticamente verbali strutturati."
   },
   "release": {
-    "h2": "Panoramica della versione Android",
-    "p1": "Oltre alle nostre versioni esistenti per iOS e browser, Verbali IA è ora disponibile come app Android. Registra semplicemente la tua riunione e la nostra IA organizzerà automaticamente i punti chiave e li trasformerà in un riepilogo della riunione facile da leggere.",
-    "p2": "La versione iniziale supporta il formato flessibile \"Flexible\", con altri formati di riunione previsti per il rilascio in sequenza. Se stai cercando un'app di verbali IA per Android, prova Verbali IA."
+    "h2": "Novità su Android",
+    "p1": "Verbali IA, la nostra app affidabile per oltre 30.000 utenti su iOS e web, è ora disponibile come app Android su Google Play.",
+    "p2": "La versione iniziale per Android supporta il formato 'Flexible'. Aggiungeremo gradualmente tutti gli altri formati in modo che tu possa utilizzare il tuo stile preferito anche su Android.",
+    "p3": ""
   },
   "image": {
-    "alt": "Screenshot dell'app Verbali IA per Android",
-    "caption": "Registra le riunioni dal tuo smartphone Android e l'IA genererà direttamente i verbali."
+    "alt": "Interfaccia app Android Verbali IA",
+    "caption": "La versione Android di Verbali IA è ora disponibile su Google Play. Unisciti a 30.000+ utenti e automatizza i tuoi verbali."
   },
   "steps": {
-    "h2": "Come iniziare con la versione Android",
+    "h2": "Come iniziare su Android",
     "items": [
-      "Cerca \"Verbali IA\" su Google Play, o installa dal link su questa pagina",
-      "Avvia l'app e inizia a registrare la tua riunione",
-      "Quando la riunione termina, interrompi la registrazione e attendi che l'IA generi il verbale",
-      "Rivedi il verbale generato, quindi condividilo o salvalo secondo necessità"
+      "Apri Google Play sul tuo dispositivo Android",
+      "Cerca 'Verbali IA' o tocca il link in questa pagina",
+      "Installa l'app e accedi o crea un account",
+      "Inizia a registrare una riunione e lascia che l'IA generi un verbale flessibile"
     ],
-    "note": "Il tempo di registrazione disponibile e i formati dipendono dal tuo piano attuale e dal tempo rimanente."
+    "note": "Continueremo a rilasciare altri formati di verbali su Android nel tempo."
   },
   "features": {
-    "h2": "Cosa puoi fare con la versione Android",
+    "h2": "Perché Verbali IA è ideale per Android",
     "items": [
-      "Registrare riunioni usando solo il tuo smartphone e far creare automaticamente i verbali dall'IA",
-      "Riassumere chiaramente anche lunghe riunioni con il formato \"Flexible\"",
-      "Sincronizzazione cloud e supporto multi-dispositivo per l'uso in mobilità",
-      "Un'app globale di verbali IA che supporta oltre 100 lingue",
-      "Piani tariffari basati su pacchetti di tempo o abbonamenti per adattarsi al tuo stile di utilizzo"
+      "Verbali automatici e puliti dalle tue registrazioni Android",
+      "Successo comprovato: Scelta da 30.000+ utenti in 150 paesi",
+      "Formato di verbale flessibile ottimizzato per la leggibilità",
+      "Pacchetti orari e abbonamenti adatti al tuo utilizzo",
+      "Funziona su Android, iOS e browser con un unico account"
     ]
   },
   "notes": {
-    "h2": "Note sull'utilizzo",
+    "h2": "Note",
     "items": [
-      "Alcune funzionalità e formati verranno aggiunti in sequenza nei futuri aggiornamenti.",
-      "La qualità della registrazione e l'accuratezza del verbale sono influenzate dalle prestazioni del microfono del dispositivo e dall'ambiente della riunione (ad es. rumore, numero di oratori).",
-      "L'interfaccia utente e le funzionalità disponibili potrebbero differire leggermente tra le versioni Android, iOS e browser."
+      "La versione iniziale Android supporta solo il formato Flexible",
+      "Altri formati di verbali verranno aggiunti nei futuri aggiornamenti",
+      "La durata della riunione e il tempo disponibile dipendono dal tuo piano",
+      "Le condizioni di rete e le prestazioni del dispositivo possono influire sulla qualità"
     ],
-    "foot": "Prova prima la versione Android di Verbali IA. Se ti piace, usala in combinazione con l'app iOS e la versione browser."
+    "foot": "Puoi utilizzare Verbali IA anche sul web e su iOS. Prova la combinazione più adatta al tuo flusso di lavoro."
   },
   "meta": {
-    "h2": "Meta informazioni",
-    "published": "Data di pubblicazione",
+    "h2": "Meta",
+    "published": "Pubblicato",
     "type": "Rilascio",
-    "category": "App Android"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Apri la versione Web",
-    "downloadAndroid": "Scarica la versione Android"
+    "openBrowser": "Apri nel browser",
+    "downloadIOS": "Scarica app iOS",
+    "downloadAndroid": "Ottieni su Google Play"
   }
 }

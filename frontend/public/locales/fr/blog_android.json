@@ -1,72 +1,75 @@
 {
   "seo": {
-    "title": "Minutes.AI pour Android est sorti — Votre application de comptes rendus IA sur Android",
-    "description": "Minutes.AI pour Android est maintenant sur Google Play. Enregistrez simplement vos réunions et l'IA générera automatiquement les comptes rendus. Un choix recommandé pour quiconque recherche une application de comptes rendus IA sur Android.",
-    "ogTitle": "Minutes.AI pour Android — Le nouveau standard des applications de comptes rendus IA",
-    "ogDescription": "Enregistrez vos réunions et laissez l'IA créer automatiquement les comptes rendus. L'application Android Minutes.AI est maintenant sur Google Play, devenant un outil pratique pour les utilisateurs recherchant la \"meilleure application de comptes rendus IA pour Android\".",
+    "title": "Sortie Android de Minutes.AI — L'IA de compte rendu",
+    "description": "Minutes.AI, l'application de compte rendu utilisée par 30 000 personnes dans le monde, est sur Android. Commencez à enregistrer sur votre téléphone dès aujourd'hui.",
+    "ogTitle": "Minutes.AI arrive sur Android",
+    "ogDescription": "L'appli de compte rendu IA aimée par 30 000 utilisateurs arrive sur Google Play. Obtenez des minutes claires et structurées sur Android.",
     "ld": {
-      "headline": "Sortie de Minutes.AI pour Android",
-      "description": "\"Minutes.AI\", qui génère automatiquement des comptes rendus de réunion à partir d'enregistrements à l'aide de l'IA, est désormais disponible en tant qu'application Android. Installez-la depuis Google Play pour capturer des comptes rendus de haute qualité en déplacement."
+      "headline": "Minutes.AI lance son application Android",
+      "description": "Minutes.AI, l'IA de compte rendu de réunion approuvée par plus de 30 000 utilisateurs dans 150 pays, est maintenant sur Google Play."
     }
   },
   "aria": {
-    "home": "Minutes.AI Accueil"
+    "home": "Accueil Minutes.AI"
   },
   "nav": {
     "blog": "Blog",
     "android": "Sortie Android"
   },
   "hero": {
-    "kicker": "Notes de version",
-    "h1": "Découvrez Minutes.AI pour Android",
-    "tagline": "\"Minutes.AI\", l'application qui crée automatiquement des comptes rendus de réunion simplement en enregistrant la réunion, est enfin disponible en tant qu'application Android sur Google Play. Obtenez des comptes rendus de haute qualité à tout moment, n'importe où, avec juste votre smartphone."
+    "kicker": "Note de version",
+    "h1": "Minutes.AI est maintenant disponible sur Android",
+    "tagline": "Minutes.AI, l'application de compte rendu plébiscitée par plus de 30 000 utilisateurs dans 150 pays, a atterri sur Google Play. Enregistrez sur Android et générez automatiquement des comptes rendus structurés."
   },
   "release": {
-    "h2": "Aperçu de la version Android",
-    "p1": "En plus de nos versions iOS et navigateur existantes, Minutes.AI est désormais disponible en tant qu'application Android. Enregistrez simplement votre réunion, et notre IA organisera automatiquement les points clés et les transformera en un résumé de réunion facile à lire.",
-    "p2": "La version initiale prend en charge le format flexible \"Flexible\", et d'autres formats de réunion seront bientôt disponibles. Si vous recherchez une application de comptes rendus IA pour Android, essayez Minutes.AI."
+    "h2": "Quoi de neuf sur Android",
+    "p1": "Minutes.AI, notre application IA de confiance pour plus de 30 000 utilisateurs sur iOS et Web, est désormais disponible en tant qu'application Android sur Google Play.",
+    "p2": "La version initiale Android prend en charge le format « Flexible ». Nous ajouterons progressivement tous les autres formats afin que vous puissiez utiliser votre style préféré sur Android également.",
+    "p3": ""
   },
   "image": {
-    "alt": "Capture d'écran de l'application Android Minutes.AI",
-    "caption": "Enregistrez des réunions depuis votre smartphone Android, et l'IA générera directement les comptes rendus."
+    "alt": "Interface de l'application Android Minutes.AI",
+    "caption": "La version Android de Minutes.AI est disponible sur Google Play. Rejoignez 30 000+ utilisateurs et automatisez vos comptes rendus."
   },
   "steps": {
-    "h2": "Comment démarrer avec la version Android",
+    "h2": "Comment démarrer sur Android",
     "items": [
-      "Recherchez \"Minutes.AI\" sur Google Play, ou installez depuis le lien sur cette page",
-      "Lancez l'application et commencez à enregistrer votre réunion",
-      "Lorsque la réunion se termine, arrêtez l'enregistrement et attendez que l'IA génère le compte rendu",
-      "Révisez le compte rendu généré, puis partagez-le ou enregistrez-le au besoin"
+      "Ouvrez Google Play sur votre appareil Android",
+      "Recherchez « Minutes.AI » ou appuyez sur le lien de cette page",
+      "Installez l'application et connectez-vous ou créez un compte",
+      "Commencez à enregistrer une réunion et laissez l'IA générer un compte rendu flexible"
     ],
-    "note": "Le temps d'enregistrement disponible et les formats dépendent de votre forfait actuel et du temps restant."
+    "note": "Nous continuerons à déployer plus de formats de comptes rendus sur Android au fil du temps."
   },
   "features": {
-    "h2": "Ce que vous pouvez faire avec la version Android",
+    "h2": "Pourquoi Minutes.AI est idéal pour Android",
     "items": [
-      "Enregistrer des réunions en utilisant uniquement votre smartphone et laisser l'IA créer automatiquement les comptes rendus",
-      "Résumer clairement même les longues réunions avec le format \"Flexible\"",
-      "Synchronisation cloud et support multi-appareils pour une utilisation en déplacement",
-      "Une application mondiale de comptes rendus IA prenant en charge plus de 100 langues",
-      "Plans tarifaires basés sur des packs de temps ou des abonnements pour s'adapter à votre style d'utilisation"
+      "Comptes rendus automatiques et propres depuis vos enregistrements Android",
+      "Succès prouvé : Approuvé par plus de 30 000 utilisateurs dans 150 pays",
+      "Format de compte rendu flexible optimisé pour la lisibilité",
+      "Packs de temps et abonnements adaptés à votre usage",
+      "Fonctionne sur Android, iOS et navigateur avec un seul compte"
     ]
   },
   "notes": {
-    "h2": "Notes d'utilisation",
+    "h2": "Remarques",
     "items": [
-      "Certaines fonctionnalités et formats seront ajoutés séquentiellement dans les futures mises à jour.",
-      "La qualité de l'enregistrement et la précision du compte rendu sont affectées par les performances du microphone de l'appareil et l'environnement de la réunion (par ex. bruit, nombre d'intervenants).",
-      "L'interface utilisateur et les fonctionnalités disponibles peuvent différer légèrement entre les versions Android, iOS et navigateur."
+      "La version initiale Android ne prend en charge que le format Flexible",
+      "D'autres formats seront ajoutés dans les futures mises à jour",
+      "La durée de réunion et le temps disponible dépendent de votre forfait",
+      "Les conditions réseau et la performance de l'appareil peuvent affecter la qualité"
     ],
-    "foot": "Essayez d'abord la version Android de Minutes.AI. Si vous l'aimez, utilisez-la en combinaison avec l'application iOS et la version navigateur."
+    "foot": "Vous pouvez aussi utiliser Minutes.AI sur le Web et iOS. Essayez la combinaison qui convient à votre flux de travail."
   },
   "meta": {
-    "h2": "Méta-informations",
-    "published": "Date de publication",
-    "type": "Version",
-    "category": "Application Android"
+    "h2": "Méta",
+    "published": "Publié le",
+    "type": "Sortie",
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Ouvrir la version Web",
-    "downloadAndroid": "Télécharger la version Android"
+    "openBrowser": "Ouvrir dans le navigateur",
+    "downloadIOS": "Télécharger l'app iOS",
+    "downloadAndroid": "Obtenir sur Google Play"
   }
 }

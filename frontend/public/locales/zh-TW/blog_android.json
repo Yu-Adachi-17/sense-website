@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "會議紀錄AI Android版發佈 — 您的Android版AI會議紀錄App",
-    "description": "會議紀錄AI的Android版現已登上Google Play。您只需錄製會議，AI即可自動生成會議紀錄。推薦給正在尋找Android版AI會議紀錄App的使用者。",
-    "ogTitle": "會議紀錄AI Android版 — AI會議紀錄App的新標竿",
-    "ogDescription": "只需錄製會議，AI即可自動生成會議紀錄。會議紀錄AI的Android應用程式現已登上Google Play，對於搜尋「會議紀錄 AI App Android 推薦」的使用者來說，這是一款實用的工具。",
+    "title": "會議紀錄AI Android 版發布 — AI 會議紀錄 App",
+    "description": "全球 30,000 人正在使用的「會議紀錄AI」現已登陸 Android。立即在您的手機上開始錄音，自動生成清晰的會議紀錄。",
+    "ogTitle": "會議紀錄AI 登陸 Android",
+    "ogDescription": "備受 30,000 名用戶喜愛的 AI 會議紀錄 App 已上架 Google Play。在 Android 裝置上獲取整潔、結構化的會議紀錄。",
     "ld": {
-      "headline": "會議紀錄AI Android版發佈",
-      "description": "「會議紀錄AI」可透過AI技術從會議錄音中自動生成會議紀錄，現已推出Android應用程式。您可以從Google Play安裝，隨時隨地建立高品質的會議紀錄。"
+      "headline": "會議紀錄AI 發布 Android 應用程式",
+      "description": "「會議紀錄AI」，一款深受全球 150 個國家、超過 30,000 名用戶信賴的 AI 會議紀錄應用程式，現已登陸 Google Play。"
     }
   },
   "aria": {
@@ -14,59 +14,62 @@
   },
   "nav": {
     "blog": "部落格",
-    "android": "Android版發佈"
+    "android": "Android 版發布"
   },
   "hero": {
-    "kicker": "發佈說明",
-    "h1": "會議紀錄AI Android版現已推出",
-    "tagline": "「會議紀錄AI」是一款只需錄製會議即可自動生成會議紀錄的應用程式，現已作為Android應用程式登上Google Play。現在，您只需一部智慧型手機，即可隨時随地建立高品質的會議紀錄。"
+    "kicker": "發布說明",
+    "h1": "會議紀錄AI 現已支援 Android",
+    "tagline": "全球 150 個國家、超過 30,000 名用戶信賴的「會議紀錄AI」，已正式登陸 Google Play。在 Android 上錄音，自動生成結構清晰的會議紀錄。"
   },
   "release": {
-    "h2": "Android版發佈概覽",
-    "p1": "繼iOS和瀏覽器版之後，會議紀錄AI現已推出Android應用程式版。您只需錄製會議，AI將自動整理要點，並将其轉換為易於閱讀的會議紀錄。",
-    "p2": "初始版本支援靈活的「Flexible」格式，其他會議格式也將陸續支援。如果您正在尋找一款適用於Android的AI會議紀錄App，請立即試用會議紀錄AI。"
+    "h2": "Android 版新功能",
+    "p1": "在 iOS 和 Web 端深受 30,000 多名用戶信賴的「會議紀錄AI」，現已作為 Android 應用程式在 Google Play 上架。",
+    "p2": "首個 Android 版本支援「Flexible（靈活）」格式。我們將逐步添加所有其他格式，以便您在 Android 上也能使用您喜歡的紀錄風格。",
+    "p3": ""
   },
   "image": {
-    "alt": "會議紀錄AI Android應用程式介面截圖",
-    "caption": "透過您的Android智慧型手機錄製會議，AI將立即生成會議紀錄。"
+    "alt": "會議紀錄AI Android 版介面",
+    "caption": "會議紀錄AI Android 版現已在 Google Play 上架。加入 30,000 多名用戶的行列，實現會議紀錄自動化。"
   },
   "steps": {
-    "h2": "如何開始使用Android版",
+    "h2": "如何在 Android 上開始使用",
     "items": [
-      "在Google Play搜尋「會議紀錄AI」，或透過本頁連結安装",
-      "啟動應用程式並開始錄製您的會議",
-      "會議結束後，停止錄製，等待AI生成會議紀錄",
-      "查看生成的會議紀錄，並根據需要進行分享或儲存"
+      "在您的 Android 裝置上開啟 Google Play",
+      "搜尋「會議紀錄AI」或點擊本頁面的連結",
+      "安裝應用程式並登入或建立帳戶",
+      "開始錄製會議，讓 AI 生成靈活格式的紀錄"
     ],
-    "note": "可用的錄製時長和格式取決於您目前的方案和剩餘時間。"
+    "note": "隨著時間的推移，我們將繼續在 Android 上推出更多紀錄格式。"
   },
   "features": {
-    "h2": "Android版可實現的功能",
+    "h2": "為什麼會議紀錄AI是 Android 上的絕佳選擇",
     "items": [
-      "僅用智慧型手機即可錄製會議，並由AI自動建立會議紀錄",
-      "使用「Flexible」格式清晰總結長時間會議",
-      "支援雲端同步和多裝置，方便隨時隨地使用",
-      "支援100多種語言的全球化AI會議紀錄App",
-      "提供按時數計費和訂閱制兩種方案，以適應您的使用方式"
+      "從您的 Android 錄音中自動生成清晰的紀錄",
+      "久經考驗的成功：受到 150 個國家/地區 30,000+ 用戶的信賴",
+      "專為可讀性優化的靈活紀錄格式",
+      "符合您使用習慣的時間包和訂閱計畫",
+      "一個帳戶即可在 Android、iOS 和瀏覽器上通用"
     ]
   },
   "notes": {
-    "h2": "使用注意事項",
+    "h2": "注意事項",
     "items": [
-      "部分功能和格式將在未來的更新中陸續新增。",
-      "錄音品質和會議紀錄的準確性受裝置麥克風效能和會議環境（如噪音、發言人數）的影響。",
-      "Android版與iOS/瀏覽器版在使用者介面和功能上可能存在部分差異。"
+      "Android 初始版本僅支援 Flexible 格式",
+      "其他紀錄格式將在未來的更新中添加",
+      "會議時長和可用時間取決於您的方案",
+      "網路狀況和裝置效能可能會影響識別品質"
     ],
-    "foot": "請先試用會議紀錄AI的Android版，如果您喜歡它，可以將其與iOS應用程式和瀏覽器版結合使用。"
+    "foot": "您也可以在 Web 和 iOS 上使用會議紀錄AI。嘗試適合您工作流程的組合。"
   },
   "meta": {
-    "h2": "中繼資訊",
-    "published": "發佈日期",
-    "type": "發佈",
-    "category": "Android應用程式"
+    "h2": "中繼資料",
+    "published": "發布於",
+    "type": "發布",
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "開啟網頁版",
-    "downloadAndroid": "下載Android版"
+    "openBrowser": "在瀏覽器開啟",
+    "downloadIOS": "下載 iOS App",
+    "downloadAndroid": "在 Google Play 獲取"
   }
 }

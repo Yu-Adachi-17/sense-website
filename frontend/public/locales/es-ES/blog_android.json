@@ -1,12 +1,12 @@
 {
   "seo": {
-    "title": "Lanzamiento de Actas IA para Android — Tu app de Actas con IA en Android",
-    "description": "Actas IA para Android ya está en Google Play. Solo graba tus reuniones y la IA generará las actas automáticamente. Una app recomendada para quienes buscan una app de actas con IA en Android.",
-    "ogTitle": "Actas IA para Android — El nuevo estándar en apps de actas con IA",
-    "ogDescription": "Graba tus reuniones y deja que la IA cree las actas automáticamente. La app de Actas IA para Android ya está en Google Play, convirtiéndose en una herramienta práctica para quienes buscan la \"mejor app de actas con IA para Android\".",
+    "title": "Lanzamiento de Actas IA para Android — App de actas con IA",
+    "description": "Actas IA, la aplicación utilizada por 30.000 personas en todo el mundo, ya está en Android. Empieza a grabar tus reuniones hoy mismo.",
+    "ogTitle": "Actas IA llega a Android",
+    "ogDescription": "La app de actas con IA amada por 30.000 usuarios llega a Google Play. Obtén actas limpias y estructuradas en tu dispositivo Android.",
     "ld": {
-      "headline": "Lanzamiento de Actas IA para Android",
-      "description": "\"Actas IA\", que genera automáticamente actas de reuniones a partir de grabaciones usando IA, ya está disponible como app para Android. Instálala desde Google Play y captura actas de alta calidad sobre la marcha."
+      "headline": "Actas IA lanza su aplicación para Android",
+      "description": "Actas IA, una aplicación de actas de reuniones en la que confían más de 30.000 usuarios en 150 países, ya está en Google Play."
     }
   },
   "aria": {
@@ -14,59 +14,62 @@
   },
   "nav": {
     "blog": "Blog",
-    "android": "Lanzamiento de Android"
+    "android": "Lanzamiento Android"
   },
   "hero": {
-    "kicker": "Notas de lanzamiento",
-    "h1": "Presentamos Actas IA para Android",
-    "tagline": "\"Actas IA\", la aplicación que crea actas de reuniones automáticamente con solo grabar la reunión, finalmente está disponible como app para Android en Google Play. Obtén actas de alta calidad en cualquier momento y lugar, solo con tu smartphone."
+    "kicker": "Nota de la versión",
+    "h1": "Actas IA ya está disponible en Android",
+    "tagline": "Actas IA, la aplicación de actas amada por más de 30.000 usuarios en 150 países, ha aterrizado en Google Play. Graba en Android y genera actas estructuradas automáticamente."
   },
   "release": {
-    "h2": "Resumen del lanzamiento de Android",
-    "p1": "Además de nuestras versiones existentes para iOS y navegador, Actas IA ya está disponible como app para Android. Simplemente graba tu reunión y nuestra IA organizará automáticamente los puntos clave y los transformará en un resumen de reunión fácil de leer.",
-    "p2": "La versión inicial admite el formato flexible \"Flexible\", y otros formatos de reunión se lanzarán secuencialmente. Si estás buscando una app de actas con IA para Android, prueba Actas IA."
+    "h2": "Novedades en Android",
+    "p1": "Actas IA, nuestra app de actas en la que confían más de 30.000 usuarios en iOS y web, ahora está disponible como aplicación Android en Google Play.",
+    "p2": "La versión inicial para Android es compatible con el formato 'Flexible'. Añadiremos gradualmente el resto de formatos para que puedas usar tu estilo favorito también en Android.",
+    "p3": ""
   },
   "image": {
-    "alt": "Captura de pantalla de la app Actas IA para Android",
-    "caption": "Graba reuniones desde tu smartphone Android y la IA generará las actas directamente."
+    "alt": "Interfaz de usuario de Actas IA en Android",
+    "caption": "La versión Android de Actas IA ya está disponible en Google Play. Únete a más de 30.000 usuarios y automatiza tus actas."
   },
   "steps": {
-    "h2": "Cómo empezar con la versión de Android",
+    "h2": "Cómo empezar en Android",
     "items": [
-      "Busca \"Actas IA\" en Google Play, o instálala desde el enlace de esta página",
-      "Inicia la app y comienza a grabar tu reunión",
-      "Cuando termine la reunión, detén la grabación y espera a que la IA genere las actas",
-      "Revisa las actas generadas, luego compártelas o guárdalas según sea necesario"
+      "Abre Google Play en tu dispositivo Android",
+      "Busca 'Actas IA' o toca el enlace en esta página",
+      "Instala la aplicación e inicia sesión o crea una cuenta",
+      "Empieza a grabar una reunión y deja que la IA genere un acta flexible"
     ],
-    "note": "El tiempo de grabación disponible y los formatos dependen de tu plan actual y del tiempo restante."
+    "note": "Seguiremos implementando más formatos de actas en Android con el tiempo."
   },
   "features": {
-    "h2": "Qué puedes hacer con la versión de Android",
+    "h2": "Por qué Actas IA es ideal para Android",
     "items": [
-      "Grabar reuniones usando solo tu smartphone y hacer que la IA cree las actas automáticamente",
-      "Resumir claramente incluso reuniones largas con el formato \"Flexible\"",
-      "Sincronización en la nube y soporte multidispositivo para usar sobre la marcha",
-      "Una app global de actas con IA que admite más de 100 idiomas",
-      "Planes de precios basados en paquetes de tiempo o suscripciones que se adaptan a tu estilo de uso"
+      "Actas automáticas y limpias desde tus grabaciones en Android",
+      "Éxito probado: Confiada por más de 30.000 usuarios en 150 países",
+      "Formato de acta flexible optimizado para la lectura",
+      "Planes de tiempo y suscripciones que se adaptan a tu uso",
+      "Funciona en Android, iOS y navegador con una sola cuenta"
     ]
   },
   "notes": {
-    "h2": "Notas de uso",
+    "h2": "Notas",
     "items": [
-      "Algunas funciones y formatos se agregarán secuencialmente en futuras actualizaciones.",
-      "La calidad de la grabación y la precisión de las actas se ven afectadas por el rendimiento del micrófono del dispositivo y el entorno de la reunión (p. ej., ruido, número de hablantes).",
-      "La interfaz de usuario y las funciones disponibles pueden diferir ligeramente entre las versiones de Android, iOS y navegador."
+      "La versión inicial para Android solo soporta el formato Flexible",
+      "Otros formatos de actas se añadirán en futuras actualizaciones",
+      "La duración de la reunión y el tiempo disponible dependen de tu plan",
+      "Las condiciones de la red y el rendimiento del dispositivo pueden afectar la calidad"
     ],
-    "foot": "Prueba primero la versión de Android de Actas IA. Si te gusta, úsala en combinación con la app de iOS y la versión de navegador."
+    "foot": "También puedes usar Actas IA en la web y en iOS. Prueba la combinación que mejor se adapte a tu flujo de trabajo."
   },
   "meta": {
-    "h2": "Metainformación",
-    "published": "Fecha de publicación",
+    "h2": "Meta",
+    "published": "Publicado",
     "type": "Lanzamiento",
-    "category": "App de Android"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Abrir versión web",
-    "downloadAndroid": "Descargar versión de Android"
+    "openBrowser": "Abrir en navegador",
+    "downloadIOS": "Descargar app iOS",
+    "downloadAndroid": "Obtener en Google Play"
   }
 }

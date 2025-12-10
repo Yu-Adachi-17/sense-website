@@ -7,11 +7,15 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
-
-// ★ 追加：アイコン
 import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
+
+// ★ 設定項目：公開日や評価は適宜更新してください
+const PUBLISHED_DATE = "2025-11-20T10:00:00+09:00"; 
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+const APP_RATING_VALUE = "4.3";
+const APP_RATING_COUNT = "283";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,14 +24,14 @@ const EN_FALLBACK = {
   seo: {
     title: "Minutes.AI Android release — Meeting minutes AI app for Android",
     description:
-      "Minutes.AI, the meeting minutes AI app, is now available on Android. Start recording on your Android phone and let AI create clean, structured minutes automatically.",
+      "Minutes.AI, the meeting minutes AI app used by 30,000 people globally, is now available on Android. Start recording on your Android phone today.",
     ogTitle: "Minutes.AI comes to Android",
     ogDescription:
-      "Looking for a meeting minutes AI app on Android? Minutes.AI arrives on Google Play with Flexible minutes and more formats coming soon.",
+      "The meeting minutes AI app loved by 30,000 users arrives on Google Play. Get clean, structured minutes on your Android device.",
     ld: {
       headline: "Minutes.AI launches Android app",
       description:
-        "Minutes.AI, a meeting minutes AI app, is now on Google Play. Start meetings on Android and get automatic minutes with clear decisions and action items.",
+        "Minutes.AI, a meeting minutes AI app trusted by over 30,000 users in 150 countries, is now on Google Play.",
     },
   },
   aria: { home: "Minutes.AI Home" },
@@ -35,18 +39,21 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Release Note",
     h1: "Minutes.AI is now available on Android",
+    // ★ 実績を追加（Tagline）
     tagline:
-      "Minutes.AI, the meeting minutes AI app, has landed on Google Play. Start recording on Android and automatically generate clean, structured minutes. Flexible format first, more formats will follow.",
+      "Minutes.AI, the meeting minutes AI app loved by over 30,000 users across 150 countries, has landed on Google Play. Start recording on Android and automatically generate clean, structured minutes.",
   },
   release: {
     h2: "What’s new on Android",
-    p1: "Minutes.AI, our meeting minutes AI app trusted on iOS and web, is now available as an Android app on Google Play.",
+    // ★ 実績を追加（Intro）
+    p1: "Minutes.AI, our meeting minutes AI app trusted by over 30,000 users on iOS and web, is now available as an Android app on Google Play.",
     p2: "The initial Android release supports the Flexible minutes format. We will gradually add all other formats so you can use your favorite style of minutes on Android as well.",
+    p3: "",
   },
   image: {
     alt: "Minutes.AI Android app UI on Google Play",
     caption:
-      "Minutes.AI Android version is now available on Google Play. Start recording and get AI-generated minutes.",
+      "Minutes.AI Android version is now available on Google Play. Join 30,000+ users and start automating your minutes.",
   },
   steps: {
     h2: "How to get started on Android",
@@ -62,10 +69,11 @@ const EN_FALLBACK = {
     h2: "Why Minutes.AI is a great meeting minutes AI app for Android",
     items: [
       "Automatic, clean minutes from your Android recordings",
+      // ★ 実績を追加（List item）
+      "Proven track record: Trusted by 30,000+ users in 150 countries",
       "Flexible minutes format optimized for readability",
       "Time-pack and subscription plans to match your usage",
       "Works across Android, iOS and browser under one account",
-      "Supports multiple languages for global teams",
     ],
   },
   notes: {
@@ -96,11 +104,9 @@ const getPath = (obj, path) =>
   path
     .split(".")
     .reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
-
 const toArray = (v) =>
   Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : [];
 
-/* If i18n returns the key (missing), use EN fallback */
 function useTx(ns) {
   const { t } = useTranslation(ns);
   const txs = (key) => {
@@ -156,14 +162,14 @@ function Pill({ children }) {
 export default function BlogAndroid() {
   const router = useRouter();
   const { txs, txa } = useTx("blog_android");
-
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical =
     siteUrl + (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) + "/blog/android";
-
   const features = txa("features.items");
   const steps = txa("steps.items");
   const notes = txa("notes.items");
+
+  const googlePlayLink = "https://play.google.com/store/apps/details?id=world.senseai.minutes";
 
   return (
     <>
@@ -176,29 +182,44 @@ export default function BlogAndroid() {
         <meta property="og:description" content={txs("seo.ogDescription")} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/images/AndroidRelease.png`} />
+        
+        {/* ★ Schema: SoftwareApplication + 実績反映 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Article",
-              headline: txs("seo.ld.headline"),
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
-              mainEntityOfPage: canonical,
-              author: { "@type": "Organization", name: "Minutes.AI" },
-              publisher: {
+              "@type": "SoftwareApplication",
+              "name": "Minutes.AI",
+              "headline": txs("seo.ld.headline"),
+              "operatingSystem": "ANDROID",
+              "applicationCategory": "ProductivityApplication",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": APP_RATING_VALUE,
+                "ratingCount": APP_RATING_COUNT
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "JPY"
+              },
+              "author": { "@type": "Organization", name: "Minutes.AI" },
+              "publisher": {
                 "@type": "Organization",
                 name: "Minutes.AI",
                 logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` },
               },
-              image: [`${siteUrl}/images/AndroidRelease.png`],
-              description: txs("seo.ld.description"),
+              "datePublished": PUBLISHED_DATE,
+              "dateModified": MODIFIED_DATE,
+              "mainEntityOfPage": canonical,
+              "image": [`${siteUrl}/images/AndroidRelease.png`],
+              "description": txs("seo.ld.description"),
+              "installUrl": googlePlayLink
             }),
           }}
         />
       </Head>
-
       <div
         className={`${inter.className} min-h-screen bg-[#0b0e2e] text-white [background:radial-gradient(1200px_800px_at_10%_-20%,rgba(70,69,255,.25),transparent),radial-gradient(800px_600px_at_100%_0%,rgba(192,132,252,.18),transparent)]`}
       >
@@ -210,7 +231,6 @@ export default function BlogAndroid() {
           >
             <HomeIcon size={28} />
           </Link>
-
           <nav className="mt-4 text-sm text-indigo-200/80">
             <Link href="/blog" className="hover:underline">
               {txs("nav.blog")}
@@ -230,6 +250,19 @@ export default function BlogAndroid() {
               </span>
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-indigo-100/90">{txs("hero.tagline")}</p>
+            
+            {/* ★ ファーストビュー CTA */}
+            <div className="mt-8">
+              <a
+                href={googlePlayLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-5 py-3 text-sm font-bold text-emerald-50/90 backdrop-blur shadow-[0_10px_30px_rgba(16,185,129,0.3)] transition hover:bg-emerald-500/20 hover:border-emerald-100/80 hover:text-white hover:-translate-y-0.5"
+              >
+                <BsGooglePlay className="text-xl text-emerald-200 group-hover:text-white" />
+                <span>{txs("cta.downloadAndroid")}</span>
+              </a>
+            </div>
           </div>
         </section>
 
@@ -241,7 +274,7 @@ export default function BlogAndroid() {
             <div className="mt-4 space-y-4">
               <p className="text-base leading-7 text-indigo-100/90">{txs("release.p1")}</p>
               <p className="text-base leading-7 text-indigo-100/90">{txs("release.p2")}</p>
-              <p className="text-base leading-7 text-indigo-100/90">{txs("release.p3")}</p>
+              {txs("release.p3") && <p className="text-base leading-7 text-indigo-100/90">{txs("release.p3")}</p>}
               <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-3">
                 <img
                   src="/images/AndroidRelease.png"
@@ -294,7 +327,7 @@ export default function BlogAndroid() {
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
               <Pill>
                 {txs("meta.published")}:{" "}
-                {new Date().toLocaleDateString(router.locale || "ja-JP", {
+                {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "ja-JP", {
                   year: "numeric",
                   month: "short",
                   day: "2-digit",
@@ -315,7 +348,6 @@ export default function BlogAndroid() {
               <TbWorld className="text-lg sm:text-xl text-indigo-200 group-hover:text-white" />
               <span>Browser</span>
             </Link>
-
             {/* App Store */}
             <a
               href="https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901"
@@ -326,10 +358,9 @@ export default function BlogAndroid() {
               <FaAppStore className="text-lg sm:text-xl text-sky-200 group-hover:text-white" />
               <span>App Store</span>
             </a>
-
             {/* Google Play */}
             <a
-              href="https://play.google.com/store/apps/details?id=world.senseai.minutes"
+              href={googlePlayLink}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-4 py-2.5 text-sm font-medium text-emerald-50/90 backdrop-blur shadow-[0_18px_50px_rgba(16,185,129,0.7)] transition hover:bg-emerald-500/20 hover:border-emerald-100/80 hover:text-white"
@@ -338,7 +369,6 @@ export default function BlogAndroid() {
               <span>Google Play</span>
             </a>
           </div>
-
         </main>
       </div>
     </>

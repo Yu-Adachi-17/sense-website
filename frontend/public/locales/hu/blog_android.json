@@ -1,72 +1,75 @@
 {
   "seo": {
-    "title": "Jegyzőkönyv AI Android kiadás — AI jegyzőkönyv alkalmazás Androidra",
-    "description": "A Jegyzőkönyv AI Android verziója már elérhető a Google Playen. Csak rögzítse megbeszéléseit, és az MI automatikusan elkészíti a jegyzőkönyvet. Ajánlott választás azoknak, akik AI jegyzőkönyv alkalmazást keresnek Androidra.",
-    "ogTitle": "Jegyzőkönyv AI Androidra — Az AI jegyzőkönyv alkalmazások új szabványa",
-    "ogDescription": "Rögzítse megbeszéléseit, és hagyja, hogy az MI automatikusan elkészítse a jegyzőkönyvet. A Jegyzőkönyv AI Android alkalmazás már elérhető a Google Playen, praktikus eszközként szolgálva azoknak, akik a \"legjobb AI jegyzőkönyv alkalmazás Androidra\" kulcsszóra keresnek.",
+    "title": "Jegyzőkönyv AI Android kiadás — AI jegyzőkönyv alkalmazás",
+    "description": "A Jegyzőkönyv AI, a világszerte 30 000 ember által használt alkalmazás, már Androidon is elérhető. Kezdje el a rögzítést a telefonján még ma.",
+    "ogTitle": "A Jegyzőkönyv AI megérkezett Androidra",
+    "ogDescription": "A 30 000 felhasználó által kedvelt AI jegyzőkönyv alkalmazás már a Google Play-en is elérhető. Készítsen tiszta, strukturált jegyzőkönyveket Android eszközén.",
     "ld": {
-      "headline": "Jegyzőkönyv AI Android kiadás",
-      "description": "A \"Jegyzőkönyv AI\", amely az MI segítségével automatikusan készít jegyzőkönyveket a megbeszélésekről, mostantól Android alkalmazásként is elérhető. Telepítse a Google Playről, és készítsen magas minőségű jegyzőkönyveket útközben is."
+      "headline": "A Jegyzőkönyv AI elindítja Android alkalmazását",
+      "description": "A Jegyzőkönyv AI, amelyben 150 ország több mint 30 000 felhasználója bízik, mostantól elérhető a Google Play-en."
     }
   },
   "aria": {
-    "home": "Jegyzőkönyv AI Kezdőlap"
+    "home": "Jegyzőkönyv AI Főoldal"
   },
   "nav": {
     "blog": "Blog",
     "android": "Android kiadás"
   },
   "hero": {
-    "kicker": "Kiadási megjegyzések",
-    "h1": "Bemutatkozik a Jegyzőkönyv AI Androidra",
-    "tagline": "A \"Jegyzőkönyv AI\", az alkalmazás, amely automatikusan készít jegyzőkönyveket a megbeszélés puszta rögzítésével, végre elérhető Android alkalmazásként a Google Playen. Készítsen magas minőségű jegyzőkönyveket bármikor, bárhol, csak az okostelefonjával."
+    "kicker": "Kiadási megjegyzés",
+    "h1": "A Jegyzőkönyv AI már elérhető Androidon",
+    "tagline": "A Jegyzőkönyv AI, a 150 ország több mint 30 000 felhasználója által kedvelt alkalmazás megérkezett a Google Play-re. Rögzítsen Androidon, és generáljon automatikusan tiszta jegyzőkönyveket."
   },
   "release": {
-    "h2": "Az Android kiadás áttekintése",
-    "p1": "A meglévő iOS és böngészős verziók mellett a Jegyzőkönyv AI mostantól Android alkalmazásként is elérhető. Egyszerűen rögzítse a megbeszélést, és az MI automatikusan rendszerezi a kulcspontokat, és könnyen olvasható jegyzőkönyvvé alakítja azokat.",
-    "p2": "A kezdeti verzió támogatja a rugalmas \"Flexible\" formátumot, és hamarosan további megbeszélés-formátumok is támogatottak lesznek. Ha AI jegyzőkönyv alkalmazást keres Androidra, próbálja ki a Jegyzőkönyv AI-t."
+    "h2": "Újdonságok Androidon",
+    "p1": "A Jegyzőkönyv AI, amelyben iOS-en és weben már több mint 30 000 felhasználó bízik, mostantól Android alkalmazásként is elérhető a Google Play-en.",
+    "p2": "A kezdeti Android verzió a 'Flexible' formátumot támogatja. Fokozatosan hozzáadjuk az összes többi formátumot is, hogy kedvenc stílusát Androidon is használhassa.",
+    "p3": ""
   },
   "image": {
-    "alt": "Képernyőkép a Jegyzőkönyv AI Android alkalmazásról",
-    "caption": "Rögzítsen megbeszéléseket Android okostelefonjáról, és az MI azonnal elkészíti a jegyzőkönyvet."
+    "alt": "Jegyzőkönyv AI Android alkalmazás felülete",
+    "caption": "A Jegyzőkönyv AI Android verziója már elérhető a Google Play-en. Csatlakozzon a 30 000+ felhasználóhoz, és automatizálja jegyzőkönyveit."
   },
   "steps": {
-    "h2": "Hogyan kezdje el használni az Android verziót",
+    "h2": "Így kezdjen hozzá Androidon",
     "items": [
-      "Keresse meg a \"Jegyzőkönyv AI\" alkalmazást a Google Playen, vagy telepítse az ezen az oldalon található linkről",
-      "Indítsa el az alkalmazást, és kezdje el rögzíteni a megbeszélést",
-      "Amikor a megbeszélés véget ér, állítsa le a felvételt, és várja meg, amíg az MI elkészíti a jegyzőkönyvet",
-      "Nézze át az elkészült jegyzőkönyvet, majd ossza meg vagy mentse el szükség szerint"
+      "Nyissa meg a Google Play-t Android eszközén",
+      "Keressen rá a „Jegyzőkönyv AI” kifejezésre, vagy koppintson a linkre ezen az oldalon",
+      "Telepítse az alkalmazást, és jelentkezzen be vagy hozzon létre fiókot",
+      "Kezdjen el rögzíteni egy megbeszélést, és hagyja, hogy az AI rugalmas jegyzőkönyvet készítsen"
     ],
-    "note": "A rendelkezésre álló felvételi idő és formátumok az aktuális csomagjától és a fennmaradó időtől függenek."
+    "note": "Idővel további jegyzőkönyv-formátumokat fogunk bevezetni Androidra."
   },
   "features": {
-    "h2": "Mit tehet az Android verzióval",
+    "h2": "Miért kiváló választás a Jegyzőkönyv AI Androidra",
     "items": [
-      "Megbeszélések rögzítése csak az okostelefonjával, és az MI automatikusan elkészíti a jegyzőkönyveket",
-      "Hosszú megbeszélések áttekinthető összefoglalása a \"Flexible\" formátummal",
-      "Felhő szinkronizáció és több eszköz támogatása útközbeni használathoz",
-      "Globális AI jegyzőkönyv alkalmazás, amely több mint 100 nyelvet támogat",
-      "Időcsomagokon vagy előfizetéseken alapuló árképzési tervek, amelyek illeszkednek a használati stílusához"
+      "Automatikus, tiszta jegyzőkönyvek az Android felvételeiből",
+      "Bizonyított siker: 150 ország 30 000+ felhasználója bízik benne",
+      "Olvashatóságra optimalizált rugalmas jegyzőkönyv-formátum",
+      "Az Ön használatához illeszkedő időcsomagok és előfizetések",
+      "Egyetlen fiókkal működik Androidon, iOS-en és böngészőben"
     ]
   },
   "notes": {
-    "h2": "Használati megjegyzések",
+    "h2": "Megjegyzések",
     "items": [
-      "Néhány funkció és formátum fokozatosan kerül hozzáadásra a jövőbeli frissítések során.",
-      "A felvétel minőségét és a jegyzőkönyv pontosságát befolyásolja az eszköz mikrofonjának teljesítménye és a megbeszélés környezete (pl. zaj, beszélők száma).",
-      "A felhasználói felület és az elérhető funkciók kissé eltérhetnek az Android, iOS és böngészős verziók között."
+      "A kezdeti Android verzió csak a Flexible formátumot támogatja",
+      "A többi formátum a jövőbeli frissítésekben kerül hozzáadásra",
+      "A megbeszélés időtartama és a rendelkezésre álló idő a csomagjától függ",
+      "A hálózati feltételek és az eszköz teljesítménye befolyásolhatja a felismerés minőségét"
     ],
-    "foot": "Először próbálja ki a Jegyzőkönyv AI Android verzióját. Ha tetszik, használja kombinálva az iOS alkalmazással és a böngészős verzióval."
+    "foot": "A Jegyzőkönyv AI-t weben és iOS-en is használhatja. Próbálja ki a munkafolyamatához illő kombinációt."
   },
   "meta": {
-    "h2": "Meta információk",
-    "published": "Közzététel dátuma",
+    "h2": "Meta",
+    "published": "Közzétéve",
     "type": "Kiadás",
-    "category": "Android alkalmazás"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Böngészős verzió megnyitása",
-    "downloadAndroid": "Android verzió letöltése"
+    "openBrowser": "Megnyitás böngészőben",
+    "downloadIOS": "iOS alkalmazás letöltése",
+    "downloadAndroid": "Szerezze be a Google Play-en"
   }
 }

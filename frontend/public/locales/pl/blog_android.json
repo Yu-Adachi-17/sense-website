@@ -1,72 +1,75 @@
 {
   "seo": {
-    "title": "Wydanie Protokół AI na Androida — Twoja aplikacja do protokołów AI na Androida",
-    "description": "Protokół AI na Androida jest już w Google Play. Po prostu nagrywaj swoje spotkania, a AI automatycznie wygeneruje protokoły. Polecana aplikacja dla każdego, kto szuka aplikacji do protokołów AI na Androida.",
-    "ogTitle": "Protokół AI na Androida — Nowy standard aplikacji do protokołów AI",
-    "ogDescription": "Nagrywaj spotkania i pozwól AI automatycznie tworzyć protokoły. Aplikacja Protokół AI na Androida jest już w Google Play, stając się praktycznym narzędziem dla użytkowników szukających \"najlepszej aplikacji do protokołów AI na Androida\".",
+    "title": "Wydanie Protokół AI na Androida — Aplikacja do protokołowania",
+    "description": "Protokół AI, aplikacja używana przez 30 000 osób na całym świecie, jest już na Androidzie. Zacznij nagrywać na telefonie już dziś.",
+    "ogTitle": "Protokół AI trafia na Androida",
+    "ogDescription": "Aplikacja AI do protokołów, którą pokochało 30 000 użytkowników, jest już w Google Play. Uzyskaj czyste, ustrukturyzowane protokoły na Androidzie.",
     "ld": {
-      "headline": "Wydanie Protokół AI na Androida",
-      "description": "\"Protokół AI\", który automatycznie generuje protokoły ze spotkań na podstawie nagrań przy użyciu AI, jest teraz dostępny jako aplikacja na Androida. Zainstaluj ją z Google Play, aby tworzyć wysokiej jakości protokoły w podróży."
+      "headline": "Protokół AI uruchamia aplikację na Androida",
+      "description": "Protokół AI, aplikacja do protokołowania spotkań, której zaufało ponad 30 000 użytkowników w 150 krajach, jest teraz w Google Play."
     }
   },
   "aria": {
-    "home": "Protokół AI Strona główna"
+    "home": "Strona główna Protokół AI"
   },
   "nav": {
     "blog": "Blog",
     "android": "Wydanie na Androida"
   },
   "hero": {
-    "kicker": "Informacje o wydaniu",
-    "h1": "Przedstawiamy Protokół AI na Androida",
-    "tagline": "\"Protokół AI\", aplikacja, która automatycznie tworzy protokoły ze spotkań po prostu przez nagranie spotkania, jest w końcu dostępna jako aplikacja na Androida w Google Play. Otrzymuj wysokiej jakości protokoły w dowolnym miejscu i czasie, tylko za pomocą smartfona."
+    "kicker": "Informacja o wydaniu",
+    "h1": "Protokół AI jest teraz dostępny na Androidzie",
+    "tagline": "Protokół AI, aplikacja do protokołowania, którą pokochało ponad 30 000 użytkowników w 150 krajach, wylądowała w Google Play. Nagrywaj na Androidzie i automatycznie generuj ustrukturyzowane protokoły."
   },
   "release": {
-    "h2": "Przegląd wydania na Androida",
-    "p1": "Oprócz istniejących wersji na iOS i przeglądarkę, Protokół AI jest teraz dostępny jako aplikacja na Androida. Po prostu nagraj spotkanie, a nasza AI automatycznie uporządkuje kluczowe punkty i przekształci je w łatwe do czytania streszczenie spotkania.",
-    "p2": "Początkowa wersja obsługuje elastyczny format \"Flexible\", a inne formaty spotkań będą wprowadzane kolejno. Jeśli szukasz aplikacji do protokołów AI na Androida, wypróbuj Protokół AI."
+    "h2": "Co nowego na Androidzie",
+    "p1": "Protokół AI, nasza aplikacja AI, której zaufało ponad 30 000 użytkowników na iOS i w sieci, jest teraz dostępna jako aplikacja na Androida w Google Play.",
+    "p2": "Początkowa wersja na Androida obsługuje format 'Flexible'. Stopniowo dodamy wszystkie inne formaty, abyś mógł korzystać ze swojego ulubionego stylu protokołowania również na Androidzie.",
+    "p3": ""
   },
   "image": {
-    "alt": "Zrzut ekranu aplikacji Protokół AI na Androida",
-    "caption": "Nagrywaj spotkania ze swojego smartfona z Androidem, a AI bezpośrednio wygeneruje protokół."
+    "alt": "Interfejs aplikacji Protokół AI na Androida",
+    "caption": "Wersja Android aplikacji Protokół AI jest już dostępna w Google Play. Dołącz do 30 000+ użytkowników i zautomatyzuj swoje protokoły."
   },
   "steps": {
-    "h2": "Jak zacząć korzystać z wersji na Androida",
+    "h2": "Jak zacząć na Androidzie",
     "items": [
-      "Wyszukaj \"Protokół AI\" w Google Play lub zainstaluj z linku na tej stronie",
-      "Uruchom aplikację i zacznij nagrywać spotkanie",
-      "Gdy spotkanie się zakończy, zatrzymaj nagrywanie i poczekaj, aż AI wygeneruje protokół",
-      "Przejrzyj wygenerowany protokół, a następnie udostępnij go lub zapisz w razie potrzeby"
+      "Otwórz Google Play na swoim urządzeniu z Androidem",
+      "Wyszukaj „Protokół AI” lub dotknij linku na tej stronie",
+      "Zainstaluj aplikację i zaloguj się lub utwórz konto",
+      "Zacznij nagrywać spotkanie i pozwól AI wygenerować elastyczny protokół"
     ],
-    "note": "Dostępny czas nagrywania i formaty zależą od Twojego aktualnego planu i pozostałego czasu."
+    "note": "Z czasem będziemy wprowadzać więcej formatów protokołów na Androida."
   },
   "features": {
-    "h2": "Co możesz zrobić w wersji na Androida",
+    "h2": "Dlaczego Protokół AI jest świetny na Androida",
     "items": [
-      "Nagrywanie spotkań za pomocą samego smartfona i automatyczne tworzenie protokołów przez AI",
-      "Przejrzyste podsumowanie nawet długich spotkań w formacie \"Flexible\"",
-      "Synchronizacja z chmurą i obsługa wielu urządzeń do użytku w podróży",
-      "Globalna aplikacja do protokołów AI obsługująca ponad 100 języków",
-      "Plany cenowe oparte na pakietach czasowych lub subskrypcjach, dopasowane do Twojego stylu użytkowania"
+      "Automatyczne, czyste protokoły z Twoich nagrań na Androidzie",
+      "Sprawdzony sukces: Zaufało nam 30 000+ użytkowników w 150 krajach",
+      "Elastyczny format protokołu zoptymalizowany pod kątem czytelności",
+      "Pakiety czasowe i plany subskrypcji dopasowane do Twojego użycia",
+      "Działa na Androidzie, iOS i w przeglądarce na jednym koncie"
     ]
   },
   "notes": {
-    "h2": "Uwagi dotyczące użytkowania",
+    "h2": "Uwagi",
     "items": [
-      "Niektóre funkcje i formaty będą dodawane kolejno w przyszłych aktualizacjach.",
-      "Na jakość nagrywania i dokładność protokołu wpływa wydajność mikrofonu urządzenia oraz środowisko spotkania (np. hałas, liczba mówców).",
-      "Interfejs użytkownika i dostępne funkcje mogą się nieznacznie różnić między wersjami na Androida, iOS i przeglądarkę."
+      "Początkowa wersja na Androida obsługuje tylko format Flexible",
+      "Inne formaty protokołów zostaną dodane w przyszłych aktualizacjach",
+      "Czas trwania spotkania i dostępny czas zależą od Twojego planu",
+      "Warunki sieciowe i wydajność urządzenia mogą wpływać na jakość rozpoznawania"
     ],
-    "foot": "Najpierw wypróbuj wersję Protokół AI na Androida. Jeśli Ci się spodoba, używaj jej w połączeniu z aplikacją na iOS i wersją przeglądarkową."
+    "foot": "Możesz również używać Protokół AI w przeglądarce i na iOS. Wypróbuj kombinację pasującą do Twojego przepływu pracy."
   },
   "meta": {
-    "h2": "Meta informacje",
-    "published": "Data publikacji",
+    "h2": "Meta",
+    "published": "Opublikowano",
     "type": "Wydanie",
-    "category": "Aplikacja na Androida"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Otwórz wersję przeglądarkową",
-    "downloadAndroid": "Pobierz wersję na Androida"
+    "openBrowser": "Otwórz w przeglądarce",
+    "downloadIOS": "Pobierz na iOS",
+    "downloadAndroid": "Pobierz w Google Play"
   }
 }

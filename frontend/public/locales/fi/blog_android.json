@@ -1,72 +1,75 @@
 {
   "seo": {
-    "title": "Pöytäkirja AI Android-julkaisu — AI-pöytäkirjasovellus Androidille",
-    "description": "Pöytäkirja AI Androidille on nyt Google Playssä. Nauhoita vain kokouksesi, ja tekoäly luo pöytäkirjat automaattisesti. Suositeltu sovellus kaikille, jotka etsivät AI-pöytäkirjasovellusta Androidille.",
-    "ogTitle": "Pöytäkirja AI Androidille — AI-pöytäkirjasovellusten uusi standardi",
-    "ogDescription": "Nauhoita kokouksesi ja anna tekoälyn luoda pöytäkirjat automaattisesti. Pöytäkirja AI Android-sovellus on nyt Google Playssä, tarjoten käytännöllisen työkalun käyttäjille, jotka hakevat \"paras AI-pöytäkirjasovellus Androidille\".",
+    "title": "Pöytäkirja AI Android-julkaisu — Tekoälykokouspöytäkirjat",
+    "description": "Pöytäkirja AI, jota käyttää 30 000 ihmistä maailmanlaajuisesti, on nyt Androidilla. Aloita kokousten tallennus puhelimellasi tänään.",
+    "ogTitle": "Pöytäkirja AI saapuu Androidille",
+    "ogDescription": "30 000 käyttäjän rakastama pöytäkirjasovellus on nyt Google Playssa. Saat selkeät ja jäsennellyt pöytäkirjat Android-laitteellesi.",
     "ld": {
-      "headline": "Pöytäkirja AI Android-julkaisu",
-      "description": "\"Pöytäkirja AI\", joka luo automaattisesti kokouspöytäkirjoja nauhoituksista tekoälyn avulla, on nyt saatavilla Android-sovelluksena. Asenna se Google Playsta ja tallenna laadukkaita pöytäkirjoja myös liikkeellä ollessasi."
+      "headline": "Pöytäkirja AI julkaisee Android-sovelluksen",
+      "description": "Pöytäkirja AI, kokouspöytäkirjasovellus, johon yli 30 000 käyttäjää 150 maassa luottaa, on nyt Google Playssa."
     }
   },
   "aria": {
-    "home": "Pöytäkirja AI Koti"
+    "home": "Pöytäkirja AI Etusivu"
   },
   "nav": {
     "blog": "Blogi",
     "android": "Android-julkaisu"
   },
   "hero": {
-    "kicker": "Julkaisutiedot",
-    "h1": "Esittelyssä Pöytäkirja AI Androidille",
-    "tagline": "\"Pöytäkirja AI\", sovellus, joka luo kokouspöytäkirjat automaattisesti vain nauhoittamalla kokouksen, on vihdoin saatavilla Android-sovelluksena Google Playssä. Saa laadukkaita pöytäkirjoja milloin ja missä tahansa, pelkällä älypuhelimellasi."
+    "kicker": "Julkaisutiedote",
+    "h1": "Pöytäkirja AI on nyt saatavilla Androidille",
+    "tagline": "Pöytäkirja AI, sovellus jota yli 30 000 käyttäjää 150 maassa rakastaa, on saapunut Google Playhin. Aloita tallennus Androidilla ja luo automaattisesti selkeät pöytäkirjat."
   },
   "release": {
-    "h2": "Android-julkaisun yleiskatsaus",
-    "p1": "Olemassa olevien iOS- ja selainversioiden lisäksi Pöytäkirja AI on nyt saatavilla Android-sovelluksena. Nauhoita vain kokouksesi, ja tekoälymme järjestää automaattisesti avainkohdat ja muuntaa ne helppolukuiseksi kokoustiivistelmäksi.",
-    "p2": "Alkuperäinen versio tukee joustavaa \"Flexible\"-muotoa, ja muut kokousmuodot julkaistaan peräkkäin. Jos etsit AI-pöytäkirjasovellusta Androidille, kokeile Pöytäkirja AI:ta."
+    "h2": "Mitä uutta Androidilla",
+    "p1": "Pöytäkirja AI, tekoälysovelluksemme johon yli 30 000 käyttäjää iOS:lla ja webissä luottaa, on nyt saatavilla Android-sovelluksena Google Playssa.",
+    "p2": "Ensimmäinen Android-versio tukee Flexible-muotoa. Lisäämme vähitellen kaikki muutkin muodot, jotta voit käyttää suosikkityyliäsi myös Androidilla.",
+    "p3": ""
   },
   "image": {
-    "alt": "Kuvakaappaus Pöytäkirja AI Android-sovelluksesta",
-    "caption": "Nauhoita kokouksia Android-älypuhelimellasi, ja tekoäly luo pöytäkirjat suoraan."
+    "alt": "Pöytäkirja AI Android-sovelluksen käyttöliittymä",
+    "caption": "Pöytäkirja AI:n Android-versio on nyt saatavilla Google Playssa. Liity 30 000+ käyttäjän joukkoon ja automatisoi pöytäkirjasi."
   },
   "steps": {
-    "h2": "Näin pääset alkuun Android-version kanssa",
+    "h2": "Näin pääset alkuun Androidilla",
     "items": [
-      "Etsi \"Pöytäkirja AI\" Google Playsta tai asenna tämän sivun linkistä",
-      "Käynnistä sovellus ja aloita kokouksen nauhoittaminen",
-      "Kun kokous päättyy, pysäytä nauhoitus ja odota, että tekoäly luo pöytäkirjan",
-      "Tarkista luotu pöytäkirja, jaa tai tallenna se tarpeen mukaan"
+      "Avaa Google Play Android-laitteellasi",
+      "Etsi ”Pöytäkirja AI” tai napauta linkkiä tällä sivulla",
+      "Asenna sovellus ja kirjaudu sisään tai luo tili",
+      "Aloita kokouksen tallennus ja anna tekoälyn luoda joustava pöytäkirja"
     ],
-    "note": "Saatavilla oleva nauhoitusaika ja muodot riippuvat nykyisestä tilauksestasi ja jäljellä olevasta ajasta."
+    "note": "Tuomme ajan myötä lisää pöytäkirjamuotoja Androidille."
   },
   "features": {
-    "h2": "Mitä voit tehdä Android-versiolla",
+    "h2": "Miksi Pöytäkirja AI on loistava valinta Androidille",
     "items": [
-      "Nauhoita kokouksia pelkällä älypuhelimellasi ja anna tekoälyn luoda pöytäkirjat automaattisesti",
-      "Tee selkeä yhteenveto jopa pitkistä kokouksista \"Flexible\"-muodolla",
-      "Pilvisynkronointi & monilaitetuki liikkeellä ollessasi",
-      "Maailmanlaajuinen AI-pöytäkirjasovellus, joka tukee yli 100 kieltä",
-      "Aikapaketteihin tai tilauksiin perustuvat hinnoittelumallit, jotka sopivat käyttötyyliisi"
+      "Automaattiset, selkeät pöytäkirjat Android-tallenteistasi",
+      "Todistettu menestys: Yli 30 000 käyttäjän luottama 150 maassa",
+      "Joustava pöytäkirjamuoto, joka on optimoitu luettavuutta varten",
+      "Aikapaketit ja tilaussopimukset käyttötarpeesi mukaan",
+      "Toimii Androidilla, iOS:lla ja selaimessa samalla tilillä"
     ]
   },
   "notes": {
-    "h2": "Käyttöhuomautuksia",
+    "h2": "Huomioitavaa",
     "items": [
-      "Jotkin ominaisuudet ja muodot lisätään peräkkäin tulevissa päivityksissä.",
-      "Nauhoituksen laatuun ja pöytäkirjan tarkkuuteen vaikuttavat laitteen mikrofonin suorituskyky ja kokousympäristö (esim. melu, puhujien määrä).",
-      "Käyttöliittymä ja käytettävissä olevat ominaisuudet voivat hieman erota Android-, iOS- ja selainversioiden välillä."
+      "Ensimmäinen Android-versio tukee vain Flexible-muotoa",
+      "Muut pöytäkirjamuodot lisätään tulevissa päivityksissä",
+      "Kokouksen kesto ja käytettävissä oleva aika riippuvat sopimuksestasi",
+      "Verkko-olosuhteet ja laitteen suorituskyky voivat vaikuttaa tunnistuksen laatuun"
     ],
-    "foot": "Kokeile ensin Pöytäkirja AI:n Android-versiota. Jos pidät siitä, käytä sitä yhdessä iOS-sovelluksen ja selainversion kanssa."
+    "foot": "Voit käyttää Pöytäkirja AI:ta myös verkossa ja iOS:lla. Kokeile työnkulkuusi sopivaa yhdistelmää."
   },
   "meta": {
-    "h2": "Metatiedot",
-    "published": "Julkaisupäivä",
+    "h2": "Meta",
+    "published": "Julkaistu",
     "type": "Julkaisu",
-    "category": "Android-sovellus"
+    "category": "Android"
   },
   "cta": {
-    "openBrowser": "Avaa selainversio",
-    "downloadAndroid": "Lataa Android-versio"
+    "openBrowser": "Avaa selaimessa",
+    "downloadIOS": "Lataa iOS-sovellus",
+    "downloadAndroid": "Hae Google Playsta"
   }
 }
