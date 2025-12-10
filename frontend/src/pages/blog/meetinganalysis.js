@@ -40,6 +40,7 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Business Intelligence",
     h1: "Don't Just Record. Analyze.",
+    // ★ 修正：実績を追加
     tagline:
       "The era of the 'scribe' is over. Used by over 30,000 professionals, Minutes.AI acts as your automated business analyst, turning hours of conversation into structured data, risk assessments, and strategic next steps.",
   },
@@ -154,8 +155,7 @@ function useTx(ns) {
     const fb = getPath(EN_FALLBACK, key);
     return toArray(fb);
   };
-  // t関数もコンポーネント内で使うために返す
-  return { txs, txa, t };
+  return { txs, txa, t }; // t is also returned for the renderer
 }
 
 /* ---------- UI COMPONENTS (Reused for consistency) ---------- */
@@ -191,7 +191,7 @@ function Pill({ children }) {
   );
 }
 
-/* ---------- RENDERER COMPONENTS ---------- */
+/* ---------- RENDERER COMPONENTS (Inlined from introduction.js to make this file standalone) ---------- */
 function SectionLabel({ children }) {
   return <h5 className="mt-4 mb-2 text-base sm:text-lg font-semibold tracking-wide text-indigo-100/90">{children}</h5>;
 }
@@ -205,6 +205,7 @@ function ActionItemLine({ text }) {
 }
 
 function TopicBlock({ index, topic }) {
+  // Hardcoded labels for the fallback view, or use translation if needed
   const { topic: title, discussion = [], decisions, actionItems, concerns, keyMessages } = topic || {};
   return (
     <article className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
@@ -281,18 +282,12 @@ const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=world.sens
 
 export default function BlogMeetingAnalysis() {
   const router = useRouter();
-  const { txs, txa, t } = useTx("blog_meeting_analysis"); // t関数を取得
+  const { txs, txa } = useTx("blog_meetinganalysis");
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = siteUrl + (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) + "/blog/meetinganalysis";
 
-  // ★ 修正：ここで翻訳データを取得するように変更。
-  // 以前は `const sampleData = EN_FALLBACK.visual.sample;` と固定されていたため、ローカライズが無視されていました。
-  const rawSample = t("visual.sample", { returnObjects: true });
-  
-  // 翻訳データがオブジェクトとして正しく取得できた場合はそれを使い、そうでなければFallbackを使う
-  const sampleData = (rawSample && typeof rawSample === 'object' && !Array.isArray(rawSample) && Object.keys(rawSample).length > 0)
-    ? rawSample
-    : EN_FALLBACK.visual.sample;
+  // Get sample data for the renderer (fallback only for now)
+  const sampleData = EN_FALLBACK.visual.sample; 
 
   const featureList = txa("features.items");
 
@@ -307,6 +302,7 @@ export default function BlogMeetingAnalysis() {
         <meta property="og:title" content={txs("seo.ogTitle")} />
         <meta property="og:description" content={txs("seo.ogDescription")} />
         <meta property="og:url" content={canonical} />
+        {/* Reuse the Minutes visual for OG image as it implies analysis */}
         <meta property="og:image" content={`${siteUrl}/images/minutesimage.png`} />
         
         {/* JSON-LDの日付を固定化 */}
@@ -477,7 +473,7 @@ export default function BlogMeetingAnalysis() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_meeting_analysis"], i18nConfig)),
+      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_meetinganalysis"], i18nConfig)),
     },
   };
 }
