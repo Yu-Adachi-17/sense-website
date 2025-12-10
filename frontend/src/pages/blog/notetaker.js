@@ -14,10 +14,13 @@ import { TbWorld, TbCheck, TbCpu, TbCoin } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+const PUBLISHED_DATE = "2025-11-28T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-03T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Currency / Logic Setup ---------- */
-const LAST_UPDATED_ISO = "2025-11-12";
 const FX = { EUR_PER_USD: 0.92 };
 
 const formatMoney = (amountUSD, currency) => {
@@ -45,7 +48,7 @@ const EN_FALLBACK = {
   seo: {
     title: "(2025) The Best AI Note Taker: Pricing & Features Review | Minutes.AI",
     description:
-      "Searching for 'note taker pricing'? Minutes.AI offers the most structured notes and flexible costs. From $1.99 packs to unlimited plans, see why it's the top choice.",
+      "Searching for 'note taker pricing'? Trusted by 30,000 users, Minutes.AI offers the most structured notes and flexible costs. From $1.99 packs to unlimited plans.",
     ogTitle: "The Best AI Note Taker (2025): Pricing & Features",
     ogDescription:
       "Don't overpay for subscriptions you don't use. Minutes.AI is the note taker that fits your schedule and budget. See full pricing.",
@@ -61,8 +64,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "2025 Note Taker Guide",
     h1: "The AI Meeting Note Taker That Actually Fits Your Budget",
+    // ★ 修正：実績を追加
     tagline:
-      "You need a professional note taker, not just a recorder. Minutes.AI combines structured, readable minutes with the market's most flexible pricing model.",
+      "You need a professional note taker, not just a recorder. Chosen by over 30,000 users, Minutes.AI combines structured, readable minutes with the market's most flexible pricing model.",
     badges: ["AI Note Taker", "Flexible Pricing", "iOS & Web"],
   },
 
@@ -256,7 +260,8 @@ export default function BlogNoteTaker() {
                   "@type": "Article",
                   headline: txs("seo.ld.headline"),
                   description: txs("seo.ld.description"),
-                  datePublished: new Date().toISOString(),
+                  datePublished: PUBLISHED_DATE,
+                  dateModified: MODIFIED_DATE,
                   author: { "@type": "Organization", name: "Minutes.AI" },
                   image: [`${siteUrl}/images/pricing-hero.png`],
                 },
@@ -448,11 +453,11 @@ export default function BlogNoteTaker() {
 
           {/* Meta & CTA */}
           <SectionCard className="mt-8">
-<div className="flex gap-3 text-xs text-indigo-200/60 mb-6">
+             <div className="flex gap-3 text-xs text-indigo-200/60 mb-6">
                 <span className="bg-white/5 px-2 py-1 rounded">
                   {txs("meta.published")}:{" "}
-                  {/* 修正箇所：現在時刻(new Date())ではなく、固定日(LAST_UPDATED_ISO)を使用 */}
-                  {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", {
+                  {/* ★ 日付を固定（SEO/ハイドレーションエラー対策） */}
+                  {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "en-US", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",

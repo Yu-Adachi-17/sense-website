@@ -13,10 +13,11 @@ import { TbWorld, TbMicrophone, TbWaveSine } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
-const inter = Inter({ subsets: ["latin"] });
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+const PUBLISHED_DATE = "2025-12-03T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
 
-/* ---------- Constants ---------- */
-const LAST_UPDATED_ISO = "2025-12-03";
+const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- English-first fallback (keys missing -> EN) ---------- */
 const EN_FALLBACK = {
@@ -24,7 +25,7 @@ const EN_FALLBACK = {
     title:
       "Why Voice Recording Matters in AI Meeting Notes — Capturing the Atmosphere",
     description:
-      "Text transcripts aren't enough. Discover why high-quality voice recording is essential for capturing the nuance, emotion, and 'vibe' of your meetings with Minutes.AI.",
+      "Text transcripts aren't enough. Discover why 30,000+ users trust Minutes.AI for capturing the nuance, emotion, and 'vibe' of their meetings.",
     ogTitle: "Don't Just Read the Minutes. Hear the Moment.",
     ogDescription:
       "A transcript tells you what was said. Voice recording tells you how it was felt. Experience the depth of audio with Minutes.AI.",
@@ -40,8 +41,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Feature Spotlight",
     h1: "Don't Just Read the Minutes. Replay the Atmosphere.",
+    // ★ 修正：実績を追加
     tagline:
-      "AI transcription services are everywhere. But text alone is flat. To truly understand a decision, you need to hear the voice behind it.",
+      "AI transcription services are everywhere. But text alone is flat. Trusted by over 30,000 users, Minutes.AI lets you truly understand a decision by hearing the voice behind it.",
     badges: ["Crystal Clear Audio", "Sync Playback", "Capture Nuance"],
   },
 
@@ -83,7 +85,7 @@ const EN_FALLBACK = {
 
   cta: {
     h2: "Experience the Full Picture",
-    p1: "Don't settle for flat text. Experience the trinity of modern meeting records: Summaries, Full Transcripts, and Original Voice Audio.",
+    p1: "Don't settle for flat text. Join 30,000 users and experience the trinity of modern meeting records: Summaries, Full Transcripts, and Original Voice Audio.",
     openBrowser: "Try on Web",
     downloadIOS: "Download iOS App",
   },
@@ -178,6 +180,7 @@ export default function BlogVoiceRecording() {
         {/* Placeholder for blog image */}
         <meta property="og:image" content={`${siteUrl}/images/blog-voice-hero.png`} />
 
+        {/* JSON-LDの日付を固定化 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -185,8 +188,8 @@ export default function BlogVoiceRecording() {
               "@context": "https://schema.org",
               "@type": "Article",
               headline: txs("seo.ld.headline"),
-              datePublished: LAST_UPDATED_ISO,
-              dateModified: LAST_UPDATED_ISO,
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: { "@type": "Organization", name: "Minutes.AI", logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` } },
@@ -346,7 +349,11 @@ export default function BlogVoiceRecording() {
 
           {/* Meta Footer */}
           <div className="mt-12 flex flex-wrap gap-2 text-xs text-indigo-300/50 justify-center">
-            <span>{txs("meta.published")}: {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+            <span>
+              {txs("meta.published")}:{" "}
+              {/* 表示用日付も安全に固定 */}
+              {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "long", day: "numeric" })}
+            </span>
             <span>•</span>
             <span>{txs("meta.category")}</span>
           </div>

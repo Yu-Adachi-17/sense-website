@@ -14,21 +14,25 @@ import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+// 記事内の "Nov 2025" という記述に合わせて設定
+const PUBLISHED_DATE = "2025-11-15T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-05T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /**
  * [改善版] 
  * 英語のフォールバック用テキスト。
  * SEOライティングの観点でブラッシュアップ済み。
- * + "pricing"セクションを追記。
  */
 const EN_FALLBACK = {
   seo: {
     title: "Why Minutes.AI is the Global Choice: 100+ Languages & Whisper Integration (2025)",
-    description: "Need a meeting-minutes AI app that works globally? Minutes.AI leads with multilingual STT (Whisper), 100+ language support, flexible pricing, and clean summaries. See why 30K users in 153 countries trust it (Nov 2025).", // pricingを追記
+    description: "Need a meeting-minutes AI app that works globally? Minutes.AI leads with multilingual STT (Whisper), 100+ language support, flexible pricing, and clean summaries. See why 30K users in 153 countries trust it.",
     ogTitle: "The AI Scribe for Global Teams: Why Minutes.AI Just Works",
     ogDescription: "Powered by Whisper for 100+ languages, Minutes.AI delivers accurate transcripts and simple, readable minutes. Used in 153 countries.",
-    keywords: "meeting-minutes AI app, Minutes.AI, Whisper, speech-to-text, multilingual, meeting minutes, pricing", // pricingを追記
+    keywords: "meeting-minutes AI app, Minutes.AI, Whisper, speech-to-text, multilingual, meeting minutes, pricing",
     ld: {
       headline: "Why Minutes.AI is the Global Choice for Meeting Minutes",
       description: "Minutes.AI leverages OpenAI's Whisper for high-accuracy STT across 100+ languages, creating clean, readable minutes for global teams."
@@ -38,8 +42,9 @@ const EN_FALLBACK = {
   nav: { blog: "Blog", language: "Language" },
   hero: {
     kicker: "Global Adoption",
-    h1: "Why Teams Around theWorld Choose Minutes.AI",
-    tagline: "Powered by Whisper, our high-accuracy STT masters 100+ languages, transforming raw transcripts into clean, actionable minutes."
+    h1: "Why Teams Around the World Choose Minutes.AI",
+    // ★ 修正：実績を追加して信頼性を強化
+    tagline: "Trusted by over 30,000 users globally. Powered by Whisper, our high-accuracy STT masters 100+ languages, transforming raw transcripts into clean, actionable minutes."
   },
   intro: {
     h2: "Trusted by 30,000 Users in 153 Countries",
@@ -158,7 +163,6 @@ const EN_FALLBACK = {
       { code: "yue", name: "Cantonese" },
     ],
   },
-  // --- [NEW] Pricing Section ---
   pricing: {
     h2: "Simple, Flexible Pricing for Global Teams",
     p1: "Minutes.AI supports your workflow, whether you have meetings daily or just occasionally. We offer simple plans that work for everyone, everywhere.",
@@ -170,7 +174,6 @@ const EN_FALLBACK = {
     sub_text: "For heavy users. Get *truly* unlimited minutes for a flat monthly or annual fee. No caps, no worries.",
     link_text: "See Full Pricing Details"
   },
-  // --- [END NEW] ---
   meta: { h2: "Article Info", published: "Published", type: "Article", category: "Language" },
   cta: { openBrowser: "Open in browser", downloadIOS: "Download iOS app" },
 };
@@ -271,6 +274,8 @@ export default function BlogLanguages() {
         <meta property="og:description" content={txs("seo.ogDescription")} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/icon-master.png`} />
+        
+        {/* JSON-LDの日付を固定化 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -278,8 +283,8 @@ export default function BlogLanguages() {
               "@context": "https://schema.org",
               "@type": "Article",
               headline: txs("seo.ld.headline"),
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: {
@@ -382,7 +387,7 @@ export default function BlogLanguages() {
             </ul>
           </SectionCard>
 
-          {/* --- [NEW] Pricing Section --- */}
+          {/* Pricing Section */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
             <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("pricing.p1")}</p>
@@ -407,7 +412,6 @@ export default function BlogLanguages() {
               </div>
             </div>
             
-            {/* Link to full pricing page */}
             <div className="mt-5">
               <Link
                 href="/pricing"
@@ -418,7 +422,6 @@ export default function BlogLanguages() {
               </Link>
             </div>
           </SectionCard>
-          {/* --- [END NEW] --- */}
 
           {/* Meta */}
           <SectionCard className="mt-8">
@@ -426,7 +429,8 @@ export default function BlogLanguages() {
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
               <Pill>
                 {txs("meta.published")}:{" "}
-                {new Date().toLocaleDateString(router.locale || "ja-JP", {
+                {/* 表示用日付も安全に固定 */}
+                {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "ja-JP", {
                   year: "numeric",
                   month: "short",
                   day: "2-digit",

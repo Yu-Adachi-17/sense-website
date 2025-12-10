@@ -12,6 +12,10 @@ import { TbWorld, TbBrain, TbListSearch } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+const PUBLISHED_DATE = "2025-12-01T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English Fallback (TARGETING "ANALYSIS" INTENT) ---------- */
@@ -19,7 +23,7 @@ const EN_FALLBACK = {
   seo: {
     title: "AI Protocol Analysis: Turning Meeting Audio into Business Intelligence (2025)",
     description:
-      "Stop just transcribing. Start analyzing. Learn how Minutes.AI transforms raw meeting audio into structured data, strategic insights, and decision-ready reports.",
+      "Stop just transcribing. Start analyzing. Trusted by 30,000 users, Minutes.AI transforms raw meeting audio into structured data, strategic insights, and decision-ready reports.",
     ogTitle: "From Scribe to Analyst: The Power of AI Meeting Analysis",
     ogDescription:
       "Searching for 'AI protocol analysis'? See how Minutes.AI uses ChatGPT-5 & Gemini 2.5 Pro to extract trends, decisions, and counter-arguments from your meetings.",
@@ -36,8 +40,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Business Intelligence",
     h1: "Don't Just Record. Analyze.",
+    // ★ 修正：実績を追加
     tagline:
-      "The era of the 'scribe' is over. Minutes.AI acts as your automated business analyst, turning hours of conversation into structured data, risk assessments, and strategic next steps.",
+      "The era of the 'scribe' is over. Used by over 30,000 professionals, Minutes.AI acts as your automated business analyst, turning hours of conversation into structured data, risk assessments, and strategic next steps.",
   },
 
   intro: {
@@ -300,6 +305,7 @@ export default function BlogMeetingAnalysis() {
         {/* Reuse the Minutes visual for OG image as it implies analysis */}
         <meta property="og:image" content={`${siteUrl}/images/minutesimage.png`} />
         
+        {/* JSON-LDの日付を固定化 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -307,8 +313,8 @@ export default function BlogMeetingAnalysis() {
               "@context": "https://schema.org",
               "@type": "Article",
               headline: txs("seo.ld.headline"),
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: {
@@ -449,7 +455,11 @@ export default function BlogMeetingAnalysis() {
 
           {/* Meta Info */}
           <div className="mt-8 flex justify-center gap-2 text-xs text-indigo-200/50">
-             <span>{txs("meta.published")}: {new Date().toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short" })}</span>
+             <span>
+                {txs("meta.published")}:{" "}
+                {/* 表示用日付も安全に固定 */}
+                {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short" })}
+             </span>
              <span>•</span>
              <span>{txs("meta.type")}</span>
           </div>

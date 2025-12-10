@@ -12,6 +12,10 @@ import { TbWorld, TbBulb, TbSearch, TbPalette, TbNotes } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+const PUBLISHED_DATE = "2025-12-02T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-06T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback ---------- */
@@ -19,10 +23,10 @@ const EN_FALLBACK = {
   seo: {
     title: "Top 5 Productivity AI Tools You Need in 2025",
     description:
-      "Stop juggling generic tools. Here are the 5 essential AI apps for text, research, design, and meetings that will actually save you time in 2025.",
+      "Stop juggling generic tools. Here are the 5 essential AI apps for text, research, design, and meetings that will actually save you time in 2025. Featuring Minutes.AI, trusted by 30,000 users.",
     ogTitle: "The 5 Best Productivity AI Tools (2025 Edition)",
     ogDescription:
-      "ChatGPT is not enough. We curated the perfect AI stack: One for writing, one for research, one for design, and the ultimate tool for meetings.",
+      "ChatGPT is not enough. We curated the perfect AI stack: One for writing, one for research, one for design, and Minutes.AI for meetings.",
     ld: {
       headline: "Top 5 Productivity AI Tools for 2025",
       description:
@@ -35,8 +39,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "2025 Productivity Stack",
     h1: "The 5 Best AI Tools to Automate Your Workday (2025)",
+    // ★ 修正：実績を追加
     tagline:
-      "Using AI isn't just about ChatGPT anymore. To truly boost productivity, you need the right specialist for each task. Here is the ultimate stack for writing, researching, designing, and—most importantly—meetings.",
+      "Using AI isn't just about ChatGPT anymore. To truly boost productivity, you need the right specialist for each task. Here is the ultimate stack for writing, researching, designing, and—most importantly—meetings (featuring Minutes.AI, trusted by 30,000 users).",
   },
 
   intro: {
@@ -214,6 +219,7 @@ export default function BlogProductivityTools() {
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/images/mainscreen.png`} />
 
+        {/* JSON-LDの日付を固定化 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -222,8 +228,8 @@ export default function BlogProductivityTools() {
               "@type": "Article",
               headline: txs("seo.ld.headline"),
               description: txs("seo.ld.description"),
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: {
@@ -380,7 +386,8 @@ export default function BlogProductivityTools() {
             <div className="flex flex-wrap justify-center gap-2 text-sm text-indigo-100/50">
               <Pill>
                 {txs("meta.published")}:{" "}
-                {new Date().toLocaleDateString(router.locale || "ja-JP", {
+                {/* ★ 日付を固定化（ハイドレーションエラー回避） */}
+                {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "ja-JP", {
                   year: "numeric",
                   month: "short",
                 })}

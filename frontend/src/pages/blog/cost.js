@@ -14,10 +14,13 @@ import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+const PUBLISHED_DATE = "2025-11-20T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Constants ---------- */
-// Cost記事用に通貨計算ロジックは保持しつつ、より「計算」にフォーカスした内容にします
 const FX = { EUR_PER_USD: 0.92 };
 const formatMoney = (amountUSD, currency) => {
   let value = amountUSD;
@@ -43,10 +46,10 @@ const EN_FALLBACK = {
   seo: {
     title: "Minutes.AI Cost Analysis (2025) — True ROI of AI Meeting Notes",
     description:
-      "Is an AI note taker worth the cost? We break down the 'Cost Per Meeting' of Minutes.AI vs. human transcription and monthly subscriptions. Learn how to stop paying for unused minutes.",
+      "Is an AI note taker worth the cost? Trusted by 30,000 users, we break down the 'Cost Per Meeting' of Minutes.AI vs. human transcription and monthly subscriptions.",
     ogTitle: "The Real Cost of Meeting Minutes: AI vs Human (2025 Guide)",
     ogDescription:
-      "Worried about the cost of AI tools? We analyze the true cost of Minutes.AI. See why our 'Pay-as-you-go' model saves you money compared to rigid subscriptions.",
+      "Worried about the cost of AI tools? Join 30,000 users who save money with our 'Pay-as-you-go' model compared to rigid subscriptions.",
     ld: {
       headline: "Minutes.AI Cost & ROI Guide (2025)",
       description:
@@ -59,8 +62,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Cost Efficiency Guide",
     h1: "The Real Cost of Meeting Minutes: Are You Overpaying?",
+    // ★ 修正：実績を追加
     tagline:
-      "Most productivity tools hide their true cost behind monthly fees you rarely utilize fully. Here is a transparent look at the cost of Minutes.AI compared to your time and other tools.",
+      "Most productivity tools hide their true cost behind monthly fees you rarely utilize fully. Trusted by over 30,000 users, Minutes.AI offers a transparent look at costs compared to your time and other tools.",
     subtag:
       "Stop paying 'rent' for software. Pay only for the value you actually use.",
   },
@@ -77,7 +81,7 @@ const EN_FALLBACK = {
     
     packTitle: "Option A: The \"Pay-As-You-Go\" Approach (Best for ROI)",
     packDesc: "Ideal if your meeting schedule varies. You buy minutes that **never expire**. Zero wasted money.",
-    packMetric: "Cost Efficiency: Approx $0.50 - $1.00 per hour of recording", // Approximate calc based on $11.99/1200min
+    packMetric: "Cost Efficiency: Approx $0.50 - $1.00 per hour of recording", 
     
     subTitle: "Option B: The \"Power User\" Subscription",
     subDesc: "Ideal if you record daily. The more you record, the cheaper it gets.",
@@ -255,6 +259,7 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
             }),
           }}
         />
+        {/* JSON-LDの日付を固定化 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -262,7 +267,8 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
               "@context": "https://schema.org",
               "@type": "Article",
               headline: txs("seo.ld.headline"),
-              datePublished: new Date().toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: { "@type": "Organization", name: "Minutes.AI", logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` } },
@@ -349,7 +355,6 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
                 <div className="text-sm font-semibold text-emerald-200 mb-2">{txs("breakdown.packTitle")}</div>
                 <p className="text-sm text-indigo-100/90 leading-relaxed min-h-[3rem]">{txs("breakdown.packDesc")}</p>
                 <div className="mt-4 pt-4 border-t border-emerald-500/20">
-                  {/* 修正箇所: font-mono を削除し、font-semibold に変更 */}
                   <span className="text-xs font-semibold text-emerald-300">{txs("breakdown.packMetric")}</span>
                 </div>
               </div>
@@ -359,7 +364,6 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
                 <div className="text-sm font-semibold text-indigo-200 mb-2">{txs("breakdown.subTitle")}</div>
                 <p className="text-sm text-indigo-100/90 leading-relaxed min-h-[3rem]">{txs("breakdown.subDesc")}</p>
                 <div className="mt-4 pt-4 border-t border-indigo-500/20">
-                  {/* 修正箇所: font-mono を削除し、font-semibold に変更 */}
                   <span className="text-xs font-semibold text-indigo-300">{txs("breakdown.subMetric")}</span>
                 </div>
               </div>
@@ -407,7 +411,15 @@ export default function BlogCost({ canonicalPath = "/blog/cost" }) {
             </Link>
 
             <div className="mt-10 flex flex-wrap justify-center gap-2 text-xs text-indigo-300/50">
-               <Pill>{txs("meta.published")}: {new Date().toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short", day: "2-digit" })}</Pill>
+               <Pill>
+                {txs("meta.published")}:{" "}
+                {/* 日付表示を安全に（固定定数を使用） */}
+                {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "ja-JP", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit"
+                })}
+               </Pill>
                <Pill>{txs("meta.category")}</Pill>
             </div>
           </div>

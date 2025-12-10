@@ -13,6 +13,10 @@ import { TbWorld, TbQuote, TbMicrophone } from "react-icons/tb";
 import { BsGooglePlay, BsCheckCircleFill } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+const PUBLISHED_DATE = "2025-11-25T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Constants & Currency Logic ---------- */
@@ -37,16 +41,21 @@ const guessCurrency = () => {
 const EN_FALLBACK = {
   seo: {
     title: "More Than Just Summaries: The Power of Full-Text Transcription | Minutes.AI",
-    description: "Discover the hidden power of Minutes.AI: precise, full-text transcription powered by Whisper. Perfect for verifying quotes, resolving disputes, and capturing every detail.",
+    description: "Discover the hidden power of Minutes.AI: precise, full-text transcription powered by Whisper. Trusted by 30,000 users for verifying quotes and resolving disputes.",
     ogTitle: "Why You Need Full-Text Transcription (Powered by Whisper)",
     ogDescription: "Summaries are great, but sometimes you need the exact words. Learn how Minutes.AI handles verbatim transcription.",
+    ld: {
+      headline: "The Power of Full-Text Transcription with Minutes.AI",
+      description: "Minutes.AI isn't just for summaries. It offers precise, full-text transcription using OpenAI Whisper, essential for evidence and detail verification.",
+    },
   },
   nav: { blog: "Blog", pricing: "Pricing" },
 
   hero: {
     kicker: "Hidden Features",
     h1: "The Unsung Hero: Full-Text Transcription",
-    tagline: "Minutes.AI is famous for its clean summaries. But did you know it also creates a flawless verbatim record of your meetings? Here is why that matters.",
+    // ★ 修正：実績を追加
+    tagline: "Minutes.AI is famous for its clean summaries, loved by over 30,000 users. But did you know it also creates a flawless verbatim record of your meetings? Here is why that matters.",
     badges: ["Powered by Whisper", "Verbatim Mode", "Evidence Protection"],
   },
 
@@ -119,7 +128,8 @@ function SectionCard({ children, className = "" }) {
 export default function BlogTranscription() {
   const router = useRouter();
   const { txs, txa } = useTx("blog_transcription");
-  const siteUrl = "https://www.sense-ai.world";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
+  const canonical = siteUrl + (router.locale === i18nConfig.i18n.defaultLocale ? "" : `/${router.locale}`) + "/blog/transcription";
   
   // Currency State
   const [currency, setCurrency] = React.useState("USD");
@@ -132,7 +142,32 @@ export default function BlogTranscription() {
         <meta name="description" content={txs("seo.description")} />
         <meta property="og:title" content={txs("seo.ogTitle")} />
         <meta property="og:description" content={txs("seo.ogDescription")} />
-        <link rel="canonical" href={`${siteUrl}/blog/transcription`} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={`${siteUrl}/images/pricing-hero.png`} />
+        <link rel="canonical" href={canonical} />
+
+        {/* ★ 追加：Article構造化データ（JSON-LD） */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: txs("seo.ld.headline"),
+              description: txs("seo.ld.description"),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
+              mainEntityOfPage: canonical,
+              author: { "@type": "Organization", name: "Minutes.AI" },
+              publisher: {
+                "@type": "Organization",
+                name: "Minutes.AI",
+                logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` },
+              },
+              image: [`${siteUrl}/images/pricing-hero.png`], // 適切な画像があれば変更
+            }),
+          }}
+        />
       </Head>
 
       <div className={`${inter.className} min-h-screen bg-[#0b0e2e] text-white selection:bg-teal-500/30`}>
@@ -283,6 +318,29 @@ export default function BlogTranscription() {
               <FaAppStore className="text-lg" />
               <span>{txs("cta.downloadIOS")}</span>
             </a>
+            
+            {/* Google Playボタンも追加 */}
+            <a
+              href="https://play.google.com/store/apps/details?id=world.senseai.minutes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-emerald-300/45 bg-emerald-500/10 px-6 py-3 text-sm font-medium text-emerald-50/90 backdrop-blur transition hover:border-emerald-100/80 hover:bg-emerald-500/20 hover:text-white"
+            >
+              <BsGooglePlay className="text-lg" />
+              <span>Google Play</span>
+            </a>
+          </div>
+
+          {/* Meta Info */}
+          <div className="mt-12 text-center">
+            <div className="flex flex-wrap justify-center gap-2 text-sm text-indigo-100/50">
+              <span className="inline-block rounded-full bg-white/10 px-2.5 py-1 text-xs text-indigo-100/90">
+                Published: {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short", day: "numeric" })}
+              </span>
+              <span className="inline-block rounded-full bg-white/10 px-2.5 py-1 text-xs text-indigo-100/90">
+                Transcription Guide
+              </span>
+            </div>
           </div>
 
         </main>

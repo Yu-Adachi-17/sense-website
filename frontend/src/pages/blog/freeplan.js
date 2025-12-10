@@ -15,10 +15,13 @@ import { TbWorld, TbTicket, TbCoin, TbLockOpen, TbHeartHandshake } from "react-i
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を時間付きで固定し、ハイドレーションエラーを防止
+const PUBLISHED_DATE = "2025-11-20T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Currency / Logic Setup ---------- */
-const LAST_UPDATED_ISO = "2025-11-20";
 const FX = { EUR_PER_USD: 0.92 };
 
 const formatMoney = (amountUSD, currency) => {
@@ -43,10 +46,10 @@ const EN_FALLBACK = {
   seo: {
     title: "Free AI Note Taker: Try Minutes.AI Without The Subscription Risk",
     description:
-      "Tired of paying for apps before you know if they work? Minutes.AI offers a free daily ticket and non-expiring $1.99 packs so you can test our AI Note Taker risk-free.",
+      "Tired of paying for apps before you know if they work? Minutes.AI, trusted by 30,000 users, offers a free daily ticket and non-expiring $1.99 packs.",
     ogTitle: "Don't Subscribe Blindly. Try Minutes.AI Risk-Free.",
     ogDescription:
-      "We hate 'paywall traps' too. That's why we give you free daily minutes and $1.99 non-expiring packs. See if we fit your needs first.",
+      "We hate 'paywall traps' too. That's why we give you free daily minutes and $1.99 non-expiring packs. Join 30,000 users and see if we fit your needs.",
     ld: {
       headline: "Free AI Note Taker Options: Daily Tickets & Non-Expiring Packs",
       description:
@@ -59,8 +62,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Honest Pricing",
     h1: "Stop Paying for AI Note Takers You Might Not Use",
+    // ★ 修正：実績を追加
     tagline:
-      "Have you ever subscribed to an app only to realize it wasn't what you needed? We believe you shouldn't have to pay to find out if a service works.",
+      "Have you ever subscribed to an app only to realize it wasn't what you needed? We believe you shouldn't have to pay to find out if a service works. Join 30,000+ users across 150 countries who trust Minutes.AI.",
   },
 
   pain: {
@@ -92,7 +96,8 @@ const EN_FALLBACK = {
 
   philosophy: {
     h2: "Our Promise",
-    p1: "Minutes.AI aims to be the best note taker for many, but we know we can't be perfect for everyone (100 out of 100 people).",
+    // ★ 修正：実績を追加
+    p1: "Minutes.AI aims to be the best note taker for many. Trusted by over 30,000 users, we know we can't be perfect for everyone (100 out of 100 people).",
     p2: "That's why we offer these low-risk options. We only want you to subscribe when you are sure we are the right partner for your meetings.",
   },
 
@@ -198,6 +203,7 @@ export default function BlogFreePlan() {
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/images/pricing-hero.png`} />
 
+        {/* JSON-LD の日付を定数化して安全に */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -206,7 +212,8 @@ export default function BlogFreePlan() {
               "@type": "Article",
               headline: txs("seo.ld.headline"),
               description: txs("seo.ld.description"),
-              datePublished: new Date(LAST_UPDATED_ISO).toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               author: { "@type": "Organization", name: "Minutes.AI" },
               image: [`${siteUrl}/images/pricing-hero.png`],
             }),
@@ -330,13 +337,12 @@ export default function BlogFreePlan() {
              <div className="flex gap-3 text-xs text-indigo-200/60 mb-6">
                 <span className="bg-white/5 px-2 py-1 rounded">
                   {txs("meta.published")}:{" "}
-                  {(() => {
-                    const d = new Date(LAST_UPDATED_ISO);
-                    if (router.locale === "ja") {
-                      return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()}`;
-                    }
-                    return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-                  })()}
+                  {/* 表示用日付もハイドレーションエラーを避けるため安全な方法に変更 */}
+                  {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "ja-JP", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit"
+                  })}
                 </span>
                 <span className="bg-white/5 px-2 py-1 rounded">{txs("meta.category")}</span>
              </div>

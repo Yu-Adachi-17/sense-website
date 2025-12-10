@@ -12,6 +12,11 @@ import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
+// 記事のタイトルが "New in 2025" なので、それに合わせた日付に設定
+const PUBLISHED_DATE = "2025-12-05T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-08T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback (Refined & Humanized) ---------- */
@@ -20,7 +25,7 @@ const EN_FALLBACK = {
     title:
       "New in 2025: Minutes.AI (iOS) Now Emails Your Minutes Automatically",
     description:
-      "Tired of waiting for AI generation? With the new Automatic Email Delivery on iOS, you can close the app immediately after recording. We'll email the minutes to your team as soon as they're ready.",
+      "Tired of waiting for AI generation? Trusted by 30,000 users, the new Automatic Email Delivery lets you close the app immediately. We'll email the minutes as soon as they're ready.",
     ogTitle:
       "Stop Waiting: Minutes.AI (iOS) Now Emails Minutes Automatically",
     ogDescription:
@@ -43,8 +48,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "New iOS Feature 2025",
     h1: "Record, Stop, Done. Your Minutes Are Sent Automatically.",
+    // ★ 修正：実績を追加
     tagline:
-      "If you've ever searched for an 'AI meeting app' hoping to save time, this update is for you. No more staring at a loading screen waiting for minutes to generate.",
+      "If you've ever searched for an 'AI meeting app' hoping to save time, this update is for you. Join over 30,000 users who have stopped staring at a loading screen waiting for minutes to generate.",
   },
 
   lead: {
@@ -307,8 +313,8 @@ export default function BlogMailDelivery() {
               "@type": "Article",
               headline: txs("seo.ld.headline"),
               description: txs("seo.ld.description"),
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: {
@@ -536,7 +542,8 @@ export default function BlogMailDelivery() {
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
               <Pill>
                 {txs("meta.published")}:{" "}
-                {new Date().toLocaleDateString(router.locale || "en-US", {
+                {/* ★ 日付を固定化（ハイドレーションエラー回避） */}
+                {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "en-US", {
                   year: "numeric",
                   month: "short",
                   day: "2-digit",

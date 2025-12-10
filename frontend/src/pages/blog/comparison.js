@@ -12,6 +12,11 @@ import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+// ★ 追加：記事の公開日・更新日を固定（SEO/ハイドレーションエラー対策）
+// 必要に応じて日付を変更してください
+const PUBLISHED_DATE = "2025-12-02T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback for blog_comparison ---------- */
@@ -37,7 +42,8 @@ const EN_FALLBACK = {
     kicker: "2025 AI Note Taker Guide",
     h1: "Otter vs Notta vs Minutes.AI — Which Tool Fits Your Workflow?",
     tagline:
-      "Full disclosure: We built Minutes.AI, so we love it. But we also respect Otter and Notta. This guide helps you decide which tool matches your style—and why we believe Minutes.AI is the safest default for most teams.",
+      // ★ 修正：「3万人・150カ国」の実績を反映
+      "Full disclosure: We built Minutes.AI, the app trusted by 30,000+ users in 150 countries. But we also respect Otter and Notta. This guide helps you decide which tool matches your style—and why we believe Minutes.AI is the safest default for most teams.",
   },
 
   lead: {
@@ -364,7 +370,7 @@ export default function BlogComparison() {
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}${EN_FALLBACK.images.main.src}`} />
 
-        {/* Article structured data */}
+        {/* Article structured data - 日付を固定 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -373,8 +379,8 @@ export default function BlogComparison() {
               "@type": "Article",
               headline: txs("seo.ld.headline"),
               description: txs("seo.ld.description"),
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: {
@@ -612,7 +618,8 @@ export default function BlogComparison() {
             <div className="mt-3 flex flex-wrap gap-2 text-sm text-indigo-100/90">
               <Pill>
                 {txs("meta.published")}:{" "}
-                {new Date().toLocaleDateString(router.locale || "ja-JP", {
+                {/* ★ 日付を固定化（ハイドレーションエラー回避） */}
+                {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "ja-JP", {
                   year: "numeric",
                   month: "short",
                   day: "2-digit",

@@ -16,8 +16,9 @@ import { FaAppStore } from "react-icons/fa";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ---------- Constants ---------- */
-const LAST_UPDATED_ISO = "2025-12-03";
+// ★ 追加：日付を固定（ハイドレーションエラー＆SEO対策）
+const PUBLISHED_DATE = "2025-12-03T10:00:00+09:00";
+const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
 
 /* ---------- English-first fallback (keys missing -> EN) ---------- */
 const EN_FALLBACK = {
@@ -25,7 +26,7 @@ const EN_FALLBACK = {
     title:
       "Meet 'Flexible': The Ultimate AI Meeting Format for Every Conversation | Minutes.AI",
     description:
-      "Stop guessing which meeting format to use. Whether it's a brainstorming session, a sales call, or a solo thought process, 'Flexible' mode adapts instantly to organize your chaos into crystal-clear logic.",
+      "Stop guessing which meeting format to use. Trusted by 30,000 users, 'Flexible' mode adapts instantly to organize your chaos into crystal-clear logic.",
     ogTitle: "One Format to Rule Them All: Meet Flexible Mode",
     ogDescription:
       "Chaos in, structure out. Discover why the 'Flexible' format is the smartest way to record meetings, interviews, and ideas.",
@@ -41,8 +42,9 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Feature Spotlight",
     h1: "The Only Format You Really Need: Meet \"Flexible\"",
+    // ★ 修正：実績を追加
     tagline:
-      "General, Sales, Interview, Presentation... tired of choosing? We built 'Flexible' to end the decision fatigue. It adapts to your conversation in real-time, turning any discussion into a masterpiece of logic.",
+      "General, Sales, Interview, Presentation... tired of choosing? We built 'Flexible' to end the decision fatigue. Trusted by over 30,000 users, it adapts to your conversation in real-time, turning any discussion into a masterpiece of logic.",
     subtag:
       "From chaotic brainstorms to structured interviews, Flexible captures the essence without you lifting a finger.",
     badges: ["Context-Aware", "Zero Config", "Universal Adapter"],
@@ -90,7 +92,7 @@ const EN_FALLBACK = {
 
   cta: {
     h2: "Seeing is Believing",
-    text: "Don't just take our word for it. Open Minutes.AI, select 'Flexible', and start talking. Experience the magic of having your thoughts organized by a pro.",
+    text: "Don't just take our word for it. Join 30,000+ users on Minutes.AI, select 'Flexible', and start talking. Experience the magic of having your thoughts organized by a pro.",
     openBrowser: "Try Flexible Mode Web",
     downloadIOS: "Download iOS app",
   },
@@ -238,6 +240,7 @@ export default function BlogFlexible({ canonicalPath = "/blog/flexible" }) {
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={`${siteUrl}/images/flexible-hero.png`} />
 
+        {/* JSON-LDの日付を固定化 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -245,8 +248,8 @@ export default function BlogFlexible({ canonicalPath = "/blog/flexible" }) {
               "@context": "https://schema.org",
               "@type": "Article",
               headline: txs("seo.ld.headline"),
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
+              datePublished: PUBLISHED_DATE,
+              dateModified: MODIFIED_DATE,
               mainEntityOfPage: canonical,
               author: { "@type": "Organization", name: "Minutes.AI" },
               publisher: { "@type": "Organization", name: "Minutes.AI", logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` } },
@@ -406,7 +409,15 @@ export default function BlogFlexible({ canonicalPath = "/blog/flexible" }) {
 
           {/* Meta Info */}
           <div className="mt-16 border-t border-white/10 pt-6 flex flex-wrap gap-2 text-xs text-indigo-200/50">
-             <span>{txs("meta.published")}: {new Date(LAST_UPDATED_ISO).toLocaleDateString()}</span>
+             <span>
+               {txs("meta.published")}:{" "}
+               {/* 日付表示を安全に（固定定数を使用） */}
+               {new Date(PUBLISHED_DATE).toLocaleDateString(router.locale || "ja-JP", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit"
+               })}
+             </span>
              <span>•</span>
              <span>{txs("meta.category")}</span>
           </div>
