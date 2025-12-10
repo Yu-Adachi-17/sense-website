@@ -178,7 +178,7 @@ function SectionCard({ children, className = "" }) {
 /* ---------- Page Component ---------- */
 export default function BlogSlideAI({ canonicalPath = "/blog/slideaipro" }) {
   const router = useRouter();
-  const { txs, txa } = useTx("blog_slideai");
+  const { txs, txa } = useTx("blog_slideaipro");
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = `${siteUrl}${canonicalPath}`;
 
