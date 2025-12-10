@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Slutten på manuell PowerPoint-laging (iOS)",
+    "description": "Slutt å formatere lysbilder manuelt. SlideAIPro genererer profesjonelle presentasjoner fra enkle tekstprompter på sekunder. Tilgjengelig nå på iOS.",
+    "ogTitle": "Generer profesjonelle lysbilder fra tekst på sekunder | SlideAIPro",
+    "ogDescription": "Ikke kast bort timer i PowerPoint. Bare lim inn teksten din, og la AI designe presentasjonen.",
+    "ld": {
+      "headline": "Hvordan lage presentasjonslysbilder fra tekst med AI (2025)",
+      "description": "En guide til å bruke SlideAIPro for å generere forretningspresentasjoner umiddelbart ved bruk av råtekst."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "SlideAIPro Lansering"
+  },
+  "hero": {
+    "kicker": "Produktlansering",
+    "h1": "Æraen for manuell PowerPoint-laging er over.",
+    "tagline": "Hvorfor kaste bort timer på å justere fonter og justere bokser? SlideAIPro gjør om råteksten din til profesjonelle, presentasjonsklare lysbilder umiddelbart. Mobile-first for den moderne lederen.",
+    "subtag": "Tilgjengelig eksklusivt på iOS."
+  },
+  "problem": {
+    "h2": "Ideene dine er raske. Lysbildedesign er tregt.",
+    "p1": "Den største flaskehalsen i forretninger er ikke 'tenking' — det er formatering. Du har strategien i hodet eller skrevet i et notat, men å gjøre det om til en kortstokk på 10 lysbilder tar 2 timer med kjedelig arbeid.",
+    "p2": "Vi bygde **SlideAIPro** for å ta tilbake den tiden. Det er ikke bare en malmotor; den forstår teksten din og strukturerer logikken visuelt."
+  },
+  "demo": {
+    "h2": "Å se er å tro: Et eksempel fra den virkelige verden",
+    "lead": "La oss sette det på prøve. Nedenfor er en rå, ustrukturert forretningsplan. Vi limte inn akkurat denne teksten i appen.",
+    "inputLabel": "Ledeteksten (Input)",
+    "inputText": "Salgsmål og resultater for 2025\nSalgsmålene for de første fire månedene av 2025 ble satt til $50 000 per måned. Faktisk salg var $45 000 i januar, $32 000 i februar, $52 000 i mars og $68 000 i april.\n\nSalgsinnsikt per kategori for 2025\nSalgsanalysen etter kategori for de fire månedene viste at Produkt A sto for 40 %, Produkt B for 30 %, og Produkt C for 20 %.\n\nSalgsmålstrender for 2025\nSalgsmålene for 2025 er satt som følger: $50 000 i januar, $30 000 i februar, $60 000 i mars og $70 000 i april.\n\nStrategier for å nå mål\n* Januar: Utvidelse av kundebasen og styrking av kampanjer.\n* Februar: Forbedring av salgsfremmende tiltak og tiltak for å øke gjenkjøpsraten.\n* Mars: Resultatanalyse og endelige strategier.\n\nOppgavefordeling\nAs oppgaver:\n* Innen 10. januar: Planlegg møter med nøkkelkunder og forbered forslagsmateriell.\n* Innen 5. februar: Fullfør henvendelser til den nye kundelisten og rapporter fremdrift.\nBs oppgaver:\n* Innen 15. januar: Lag reklamekreativt og lanser sosiale medier-kampanjer.\n* Innen 1. februar: Planlegg lanseringsarrangementet for Produkt A og forbered driftsmanualen.\nCs oppgaver:\n* Innen 20. januar: Utvikle FAQ og støtteguider for nye kunder.\n* Innen 15. februar: Samle kundetilbakemeldinger og send inn forbedringsforslag.\n\nNye ideer og mål\nIdeer for vekst:\n1. Introduser en abonnementsmodell for å øke gjentakende inntekter.\n2. Utvikle Produkt D rettet mot high-end brukere for å utvide premiummarkedet.\n3. Lanser partnerskapsprogrammer for å nå nye kundesegmenter.\nMål:\n* Øk kundeanskaffelsen med 20 % i Q2.\n* Øk gjenkjøp med 15 % gjennom kampanjer.\n* Generer $10 000 i salg fra Produkt D innen Q4.\n\nEndelige beslutninger og bakgrunn\nNøkkelbeslutninger:\n1. Fokuser på Produkt As premiummodell for å tiltrekke høyverdikunder.\n2. Bevilg 15 % av budsjettet til digitale annonser og influencermarkedsføring.\n3. Forbedre kundestøtte og lojalitetsprogrammer.\nBakgrunn:\nDisse beslutningene er basert på salgstrender for 2025 som viser etterspørsel etter premiumprodukter.",
+    "outputLabel": "Resultatet (Output)",
+    "outputNote": "Generert på ca. 15 sekunder på iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Hvorfor SlideAIPro?",
+    "items": [
+      {
+        "title": "Fra Prompt til Profesjonell",
+        "desc": "Ingen grunn til å skille lysbilder manuelt. AI-en analyserer konteksten og deler teksten din inn i logiske lysbilder automatisk."
+      },
+      {
+        "title": "Mobile First Arbeidsflyt",
+        "desc": "Lag presentasjonen din i taxien på vei til klienten. Designet spesielt for iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Eksporter og Rediger",
+        "desc": "Trenger du siste justeringer? Eksporter direkte til PDF eller redigerbare formater."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Slutt å formatere. Begynn å presentere.",
+    "sub": "Last ned SlideAIPro i dag og spar 5 timer denne uken.",
+    "button": "Last ned i App Store"
+  },
+  "meta": {
+    "published": "Publisert",
+    "category": "Produktnyheter"
+  }
+}

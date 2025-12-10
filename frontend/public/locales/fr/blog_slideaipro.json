@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro : La fin de la création manuelle de PowerPoint (iOS)",
+    "description": "Arrêtez de formater vos diapositives manuellement. SlideAIPro génère des présentations professionnelles à partir de simples textes en quelques secondes. Disponible sur iOS.",
+    "ogTitle": "Générez des diapositives pro à partir de texte en secondes | SlideAIPro",
+    "ogDescription": "Ne passez plus des heures sur PowerPoint. Collez simplement votre texte et laissez l'IA concevoir la présentation.",
+    "ld": {
+      "headline": "Comment créer des diapositives de présentation à partir de texte avec l'IA (2025)",
+      "description": "Un guide pour utiliser SlideAIPro afin de générer des présentations professionnelles instantanément à partir de texte brut."
+    }
+  },
+  "aria": {
+    "home": "Accueil Sense AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Lancement SlideAIPro"
+  },
+  "hero": {
+    "kicker": "Lancement Produit",
+    "h1": "L'ère de la création manuelle de PowerPoint est révolue.",
+    "tagline": "Pourquoi perdre des heures à ajuster les polices et aligner des boîtes ? SlideAIPro transforme votre texte brut en diapositives professionnelles, prêtes à présenter, instantanément. Mobile-first pour le leader moderne.",
+    "subtag": "Disponible exclusivement sur iOS."
+  },
+  "problem": {
+    "h2": "Vos idées sont rapides. Le design de slides est lent.",
+    "p1": "Le plus gros goulot d'étranglement en entreprise n'est pas la « réflexion », c'est le formatage. Vous avez la stratégie en tête ou écrite dans une note, mais la transformer en une présentation de 10 diapositives prend 2 heures de travail fastidieux.",
+    "p2": "Nous avons créé **SlideAIPro** pour récupérer ce temps. Ce n'est pas juste un moteur de modèles ; il comprend votre texte et structure la logique visuellement."
+  },
+  "demo": {
+    "h2": "Le voir pour le croire : Un exemple concret",
+    "lead": "Faisons le test. Ci-dessous se trouve un plan d'affaires brut et non structuré. Nous avons collé ce texte exact dans l'application.",
+    "inputLabel": "Le Prompt (Entrée)",
+    "inputText": "Objectifs de vente et performance pour 2025\nLes objectifs de vente pour les quatre premiers mois de 2025 ont été fixés à 50 000 $ par mois. Les ventes réelles ont été de 45 000 $ en janvier, 32 000 $ en février, 52 000 $ en mars et 68 000 $ en avril.\n\nAnalyse des ventes par catégorie pour 2025\nL'analyse des ventes par catégorie pour les quatre mois a révélé que le Produit A représentait 40 %, le Produit B 30 % et le Produit C 20 %.\n\nTendances des objectifs de vente pour 2025\nLes objectifs de vente pour 2025 sont fixés comme suit : 50 000 $ en janvier, 30 000 $ en février, 60 000 $ en mars et 70 000 $ en avril.\n\nStratégies pour atteindre les objectifs\n* Janvier : Expansion de la base de clients et renforcement des promotions.\n* Février : Amélioration de la promotion des ventes et mesures pour augmenter le taux de rachat.\n* Mars : Analyse de la performance et stratégies finales.\n\nAttribution des tâches\nTâches de A :\n* D'ici le 10 janvier : Planifier des réunions avec les clients clés et préparer les documents de proposition.\n* D'ici le 5 février : Terminer les approches vers la nouvelle liste de clients et rendre compte des progrès.\nTâches de B :\n* D'ici le 15 janvier : Créer des publicités et lancer des campagnes sur les réseaux sociaux.\n* D'ici le 1er février : Planifier l'événement de lancement du Produit A et préparer le manuel d'opération.\nTâches de C :\n* D'ici le 20 janvier : Développer des FAQ et des guides de support pour les nouveaux clients.\n* D'ici le 15 février : Compiler les retours clients et soumettre des propositions d'amélioration.\n\nNouvelles idées et objectifs\nIdées de croissance :\n1. Introduire un modèle d'abonnement pour augmenter les revenus récurrents.\n2. Développer le Produit D ciblant les utilisateurs haut de gamme.\n3. Lancer des programmes de partenariat.\nObjectifs :\n* Augmenter l'acquisition de clients de 20 % au T2.\n* Booster les achats répétés de 15 % grâce aux promotions.\n* Générer 10 000 $ de ventes du Produit D d'ici le T4.\n\nDécisions finales et contexte\nDécisions clés :\n1. Se concentrer sur le modèle premium du Produit A.\n2. Allouer 15 % du budget aux publicités numériques.\n3. Améliorer le support client.\nContexte :\nCes décisions sont basées sur les tendances de vente de 2025 montrant une demande pour des produits premium.",
+    "outputLabel": "Le Résultat (Sortie)",
+    "outputNote": "Généré en environ 15 secondes sur iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Pourquoi SlideAIPro ?",
+    "items": [
+      {
+        "title": "Du Prompt au Pro",
+        "desc": "Pas besoin de séparer les diapositives manuellement. L'IA analyse le contexte et découpe votre texte en diapositives logiques automatiquement."
+      },
+      {
+        "title": "Flux de travail Mobile First",
+        "desc": "Créez votre présentation dans le taxi en allant chez le client. Conçu spécifiquement pour iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Exporter & Éditer",
+        "desc": "Besoin de retouches finales ? Exportez directement en PDF ou en formats éditables."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Arrêtez de formater. Commencez à présenter.",
+    "sub": "Téléchargez SlideAIPro aujourd'hui et économisez 5 heures cette semaine.",
+    "button": "Télécharger sur l'App Store"
+  },
+  "meta": {
+    "published": "Publié",
+    "category": "Actualités Produit"
+  }
+}

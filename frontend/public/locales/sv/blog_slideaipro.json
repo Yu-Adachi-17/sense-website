@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Slutet för manuellt PowerPoint-skapande (iOS)",
+    "description": "Sluta formatera bilder manuellt. SlideAIPro genererar professionella presentationer från enkla textprompter på sekunder. Tillgängligt nu på iOS.",
+    "ogTitle": "Generera professionella bilder från text på sekunder | SlideAIPro",
+    "ogDescription": "Slösa inte timmar i PowerPoint. Klistra bara in din text och låt AI designa presentationen.",
+    "ld": {
+      "headline": "Hur man skapar presentationsbilder från text med AI (2025)",
+      "description": "En guide för att använda SlideAIPro för att generera affärspresentationer omedelbart med råtext."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "SlideAIPro Lansering"
+  },
+  "hero": {
+    "kicker": "Produktlansering",
+    "h1": "Eran av manuellt PowerPoint-skapande är över.",
+    "tagline": "Varför slösa timmar på att justera teckensnitt och justera rutor? SlideAIPro förvandlar din råtext till professionella, presentationsklara bilder direkt. Mobile-first för den moderna ledaren.",
+    "subtag": "Tillgängligt exklusivt på iOS."
+  },
+  "problem": {
+    "h2": "Dina idéer är snabba. Bilddesign är långsamt.",
+    "p1": "Den största flaskhalsen i affärer är inte att 'tänka' — det är formatering. Du har strategin i huvudet eller nedskriven i en anteckning, men att omvandla det till en lek med 10 bilder tar 2 timmar av tråkigt arbete.",
+    "p2": "Vi byggde **SlideAIPro** för att återta den tiden. Det är inte bara en mallmotor; den förstår din text och strukturerar logiken visuellt."
+  },
+  "demo": {
+    "h2": "Att se är att tro: Ett exempel från verkligheten",
+    "lead": "Låt oss testa det. Nedan är en rå, ostrukturerad affärsplan. Vi klistrade in exakt denna text i appen.",
+    "inputLabel": "Prompten (Input)",
+    "inputText": "Försäljningsmål och resultat för 2025\nFörsäljningsmålen för de första fyra månaderna av 2025 sattes till $50 000 per månad. Den faktiska försäljningen var $45 000 i januari, $32 000 i februari, $52 000 i mars och $68 000 i april.\n\nKategorivis försäljningsanalys för 2025\nFörsäljningsanalys per kategori för de fyra månaderna visade att Produkt A stod för 40%, Produkt B för 30%, och Produkt C för 20%.\n\nTrender för försäljningsmål 2025\nFörsäljningsmålen för 2025 är fastställda enligt följande: $50 000 i januari, $30 000 i februari, $60 000 i mars och $70 000 i april.\n\nStrategier för att nå mål\n* Januari: Expansion av kundbasen och förstärkning av kampanjer.\n* Februari: Förbättring av sälifrämjande åtgärder och åtgärder för att öka återköpsfrekvensen.\n* Mars: Resultatanalys och slutliga strategier.\n\nUppgiftsfördelning\nA:s uppgifter:\n* Senast 10 januari: Boka möten med nyckelkunder och förbereda förslagsmaterial.\n* Senast 5 februari: Slutföra kontakter med den nya kundlistan och rapportera framsteg.\nB:s uppgifter:\n* Senast 15 januari: Skapa annonskreativ och lansera kampanjer på sociala medier.\n* Senast 1 februari: Planera lanseringsevenemang för Produkt A och förbereda driftmanual.\nC:s uppgifter:\n* Senast 20 januari: Utveckla FAQ och supportguider för nya kunder.\n* Senast 15 februari: Sammanställa kundfeedback och lämna förbättringsförslag.\n\nNya idéer och mål\nIdéer för tillväxt:\n1. Inför en prenumerationsmodell för att öka återkommande intäkter.\n2. Utveckla Produkt D riktad mot high-end-användare för att expandera premiummarknaden.\n3. Lansera partnerskapsprogram för att nå nya kundsegment.\nMål:\n* Öka kundanskaffningen med 20% under Q2.\n* Öka återköpen med 15% genom kampanjer.\n* Generera $10 000 i försäljning från Produkt D till Q4.\n\nSlutliga beslut och bakgrund\nNyckelbeslut:\n1. Fokusera på Produkt A:s premiummodell för att locka kunder med högt värde.\n2. Allokera 15% av budgeten till digitala annonser och influencer-marknadsföring.\n3. Förbättra kundsupport och lojalitetsprogram.\nBakgrund:\nDessa beslut baseras på försäljningstrender för 2025 som visar efterfrågan på premiumprodukter.",
+    "outputLabel": "Resultatet (Output)",
+    "outputNote": "Genererat på ca 15 sekunder på iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Varför SlideAIPro?",
+    "items": [
+      {
+        "title": "Från Prompt till Proffs",
+        "desc": "Inget behov av att separera bilder manuellt. AI:n analyserar kontexten och delar upp din text i logiska bilder automatiskt."
+      },
+      {
+        "title": "Mobile First arbetsflöde",
+        "desc": "Skapa din presentation i taxin på väg till kunden. Designad specifikt för iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Exportera & Redigera",
+        "desc": "Behöver du sista justeringar? Exportera direkt till PDF eller redigerbara format."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Sluta formatera. Börja presentera.",
+    "sub": "Ladda ner SlideAIPro idag och spara 5 timmar denna vecka.",
+    "button": "Hämta i App Store"
+  },
+  "meta": {
+    "published": "Publicerad",
+    "category": "Produktnyheter"
+  }
+}

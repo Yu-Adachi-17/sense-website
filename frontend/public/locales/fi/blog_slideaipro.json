@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Manuaalisen PowerPoint-luonnin loppu (iOS)",
+    "description": "Lopeta diojen manuaalinen muotoilu. SlideAIPro luo ammattimaisia esityksiä yksinkertaisista tekstikehotteista sekunneissa. Saatavilla nyt iOS:lle.",
+    "ogTitle": "Luo ammattimaisia dioja tekstistä sekunneissa | SlideAIPro",
+    "ogDescription": "Älä käytä tunteja PowerPointissa. Liitä vain tekstisi ja anna tekoälyn suunnitella esitys.",
+    "ld": {
+      "headline": "Kuinka luoda esitysdioja tekstistä tekoälyllä (2025)",
+      "description": "Opas SlideAIPro:n käyttöön liike-esitysten luomiseksi välittömästi raakamuotoisesta tekstistä."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "current": "SlideAIPro Julkaisu"
+  },
+  "hero": {
+    "kicker": "Tuotejulkaisu",
+    "h1": "Manuaalisen PowerPoint-luonnin aikakausi on ohi.",
+    "tagline": "Miksi tuhlata tunteja fonttien säätämiseen ja laatikoiden kohdistamiseen? SlideAIPro muuttaa raakatekstisi ammattimaisiksi, esitysvalmiiksi dioiksi hetkessä. Mobile-first modernille johtajalle.",
+    "subtag": "Saatavilla yksinomaan iOS:lle."
+  },
+  "problem": {
+    "h2": "Ideasi ovat nopeita. Diojen suunnittelu on hidasta.",
+    "p1": "Suurin pullonkaula liiketoiminnassa ei ole 'ajattelu' – se on muotoilu. Sinulla on strategia päässäsi tai kirjoitettuna muistioon, mutta sen muuttaminen 10 dian pakaksi vie 2 tuntia tylsää työtä.",
+    "p2": "Rakensimme **SlideAIPro**:n palauttamaan tuon ajan. Se ei ole vain mallipohjainen moottori; se ymmärtää tekstisi ja rakentaa logiikan visuaalisesti."
+  },
+  "demo": {
+    "h2": "Näkeminen on uskomista: Esimerkki todellisesta maailmasta",
+    "lead": "Laitetaan se testiin. Alla on raaka, rakenteeton liiketoimintasuunnitelma. Liitimme juuri tämän tekstin sovellukseen.",
+    "inputLabel": "Kehote (Syöte)",
+    "inputText": "Myyntitavoitteet ja suorituskyky vuodelle 2025\nVuoden 2025 neljän ensimmäisen kuukauden myyntitavoitteet asetettiin 50 000 dollariin kuukaudessa. Todellinen myynti oli 45 000 $ tammikuussa, 32 000 $ helmikuussa, 52 000 $ maaliskuussa ja 68 000 $ huhtikuussa.\n\nKategoriakohtainen myyntianalyysi 2025\nNeljän kuukauden myyntianalyysi kategorioittain paljasti, että Tuote A vastasi 40 %:sta, Tuote B 30 %:sta ja Tuote C 20 %:sta.\n\nMyyntitavoitetrendit 2025\nVuoden 2025 myyntitavoitteet on asetettu seuraavasti: 50 000 $ tammikuussa, 30 000 $ helmikuussa, 60 000 $ maaliskuussa ja 70 000 $ huhtikuussa.\n\nStrategiat tavoitteiden saavuttamiseksi\n* Tammikuu: Asiakaskunnan laajentaminen ja promootioiden vahvistaminen.\n* Helmikuu: Myynninedistämisen tehostaminen ja toimet uusintaostojen lisäämiseksi.\n* Maaliskuu: Suorituskykyanalyysi ja loppukirin strategiat.\n\nTehtävien jako\nA:n tehtävät:\n* 10. tammikuuta mennessä: Aikatauluta tapaamiset avainasiakkaiden kanssa ja valmistele ehdotusmateriaalit.\n* 5. helmikuuta mennessä: Suorita lähestymiset uudelle asiakaslistalle ja raportoi edistymisestä.\nB:n tehtävät:\n* 15. tammikuuta mennessä: Luo mainosmateriaalit ja käynnistä sosiaalisen median kampanjat.\n* 1. helmikuuta mennessä: Suunnittele Tuotteen A lanseeraustapahtuma ja valmistele käyttöohje.\nC:n tehtävät:\n* 20. tammikuuta mennessä: Kehitä UKK ja tukioppaat uusille asiakkaille.\n* 15. helmikuuta mennessä: Kokoa asiakaspalaute ja lähetä parannusehdotukset.\n\nUudet ideat ja tavoitteet\nIdeat kasvulle:\n1. Esittele tilausmalli toistuvien tulojen lisäämiseksi.\n2. Kehitä Tuote D high-end-käyttäjille premium-markkinan laajentamiseksi.\n3. Käynnistä kumppanuusohjelmat uusien asiakassegmenttien tavoittamiseksi.\nTavoitteet:\n* Kasvata asiakashankintaa 20 % Q2:lla.\n* Lisää uusintaostoja 15 % promootioiden avulla.\n* Tuota 10 000 $ myyntiä Tuotteesta D Q4:ään mennessä.\n\nLopulliset päätökset ja tausta\nKeskeiset päätökset:\n1. Keskity Tuotteen A premium-malliin arvokkaiden asiakkaiden houkuttelemiseksi.\n2. Kohdista 15 % budjetista digitaalisiin mainoksiin ja vaikuttajamarkkinointiin.\n3. Paranna asiakastukea ja kanta-asiakasohjelmia.\nTausta:\nNämä päätökset perustuvat vuoden 2025 myyntitrendeihin, jotka osoittavat kysyntää premium-tuotteille.",
+    "outputLabel": "Tulos (Tuloste)",
+    "outputNote": "Luotu noin 15 sekunnissa iPhone 15 Prolla."
+  },
+  "features": {
+    "h2": "Miksi SlideAIPro?",
+    "items": [
+      {
+        "title": "Kehotteesta ammattilaiseksi",
+        "desc": "Dioja ei tarvitse erotella manuaalisesti. Tekoäly analysoi kontekstin ja jakaa tekstisi loogisiin dioihin automaattisesti."
+      },
+      {
+        "title": "Mobile First -työnkulku",
+        "desc": "Luo esityksesi taksissa matkalla asiakkaan luo. Suunniteltu erityisesti iOS:lle (iPhone/iPad)."
+      },
+      {
+        "title": "Vie ja muokkaa",
+        "desc": "Tarvitsetko viimeisiä hienosäätöjä? Vie suoraan PDF-muotoon tai muokattaviin formaatteihin."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Lopeta muotoilu. Aloita esittäminen.",
+    "sub": "Lataa SlideAIPro tänään ja säästä 5 tuntia tällä viikolla.",
+    "button": "Lataa App Storesta"
+  },
+  "meta": {
+    "published": "Julkaistu",
+    "category": "Tuoteuutiset"
+  }
+}

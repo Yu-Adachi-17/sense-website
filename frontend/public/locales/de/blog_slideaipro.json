@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Das Ende der manuellen PowerPoint-Erstellung (iOS)",
+    "description": "Schluss mit manueller Formatierung. SlideAIPro erstellt in Sekunden professionelle Präsentationen aus einfachen Text-Prompts. Jetzt für iOS verfügbar.",
+    "ogTitle": "Professionelle Folien aus Text in Sekunden | SlideAIPro",
+    "ogDescription": "Verwenden Sie keine Stunden für PowerPoint. Einfach Text einfügen und die KI das Design übernehmen lassen.",
+    "ld": {
+      "headline": "Präsentationsfolien mit KI aus Text erstellen (2025)",
+      "description": "Ein Leitfaden zur Nutzung von SlideAIPro für die sofortige Erstellung von Business-Präsentationen."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "SlideAIPro Launch"
+  },
+  "hero": {
+    "kicker": "Produkt-Launch",
+    "h1": "Die Ära der manuellen PowerPoint-Erstellung ist vorbei.",
+    "tagline": "Warum Stunden mit dem Anpassen von Schriftarten und Ausrichten von Boxen verschwenden? SlideAIPro verwandelt Ihren Rohtext sofort in professionelle, präsentationsbereite Folien. Mobile-First für moderne Führungskräfte.",
+    "subtag": "Exklusiv für iOS verfügbar."
+  },
+  "problem": {
+    "h2": "Ihre Ideen sind schnell. Foliendesign ist langsam.",
+    "p1": "Der größte Engpass im Geschäft ist nicht das „Denken“, sondern die Formatierung. Sie haben die Strategie im Kopf oder in einem Memo, aber daraus eine 10-Folien-Präsentation zu machen, dauert 2 Stunden mühsamer Arbeit.",
+    "p2": "Wir haben **SlideAIPro** entwickelt, um diese Zeit zurückzugewinnen. Es ist nicht nur eine Vorlagen-Engine; es versteht Ihren Text und strukturiert die Logik visuell."
+  },
+  "demo": {
+    "h2": "Sehen heißt Glauben: Ein Beispiel aus der Praxis",
+    "lead": "Machen wir den Test. Unten ist ein roher, unstrukturierter Geschäftsplan. Wir haben genau diesen Text in die App eingefügt.",
+    "inputLabel": "Der Prompt (Eingabe)",
+    "inputText": "Verkaufsziele und Leistung für 2025\nDie Verkaufsziele für die ersten vier Monate von 2025 wurden auf 50.000 $ pro Monat festgelegt. Der tatsächliche Umsatz betrug 45.000 $ im Januar, 32.000 $ im Februar, 52.000 $ im März und 68.000 $ im April.\n\nKategorieweise Verkaufsanalyse für 2025\nDie Verkaufsanalyse nach Kategorien für die vier Monate ergab, dass Produkt A 40%, Produkt B 30% und Produkt C 20% ausmachte.\n\nVerkaufsziel-Trends für 2025\nDie Verkaufsziele für 2025 sind wie folgt festgelegt: 50.000 $ im Januar, 30.000 $ im Februar, 60.000 $ im März und 70.000 $ im April.\n\nStrategien zur Zielerreichung\n* Januar: Erweiterung der Kundenbasis und Stärkung der Promotionen.\n* Februar: Verbesserung der Verkaufsförderung und Maßnahmen zur Steigerung der Wiederverkaufsrate.\n* März: Leistungsanalyse und finale Strategien.\n\nAufgabenverteilung\nAufgaben von A:\n* Bis 10. Januar: Meetings mit Schlüsselkunden planen und Vorschlagsmaterialien vorbereiten.\n* Bis 5. Februar: Ansprache der neuen Kundenliste abschließen und Fortschrittsbericht erstellen.\nAufgaben von B:\n* Bis 15. Januar: Werbemittel erstellen und Social-Media-Kampagnen starten.\n* Bis 1. Februar: Launch-Event für Produkt A planen und Betriebshandbuch vorbereiten.\nAufgaben von C:\n* Bis 20. Januar: FAQs und Support-Leitfäden für Neukunden entwickeln.\n* Bis 15. Februar: Kundenfeedback zusammenstellen und Verbesserungsvorschläge einreichen.\n\nNeue Ideen und Ziele\nIdeen für Wachstum:\n1. Einführung eines Abo-Modells zur Steigerung der wiederkehrenden Einnahmen.\n2. Entwicklung von Produkt D für High-End-Nutzer zur Erweiterung des Premium-Marktes.\n3. Start von Partnerprogrammen zur Erschließung neuer Kundensegmente.\nZiele:\n* Kundenakquise im Q2 um 20% steigern.\n* Wiederholungskäufe durch Promotionen um 15% steigern.\n* 10.000 $ Umsatz mit Produkt D bis Q4 generieren.\n\nEntscheidungen und Hintergrund\nWichtige Entscheidungen:\n1. Fokus auf das Premium-Modell von Produkt A, um hochwertige Kunden zu gewinnen.\n2. Zuweisung von 15% des Budgets für digitale Anzeigen und Influencer-Marketing.\n3. Verbesserung des Kundensupports und der Treueprogramme.\nHintergrund:\nDiese Entscheidungen basieren auf den Verkaufstrends 2025, die eine Nachfrage nach Premium-Produkten zeigen.",
+    "outputLabel": "Das Ergebnis (Ausgabe)",
+    "outputNote": "Generiert in ca. 15 Sekunden auf einem iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Warum SlideAIPro?",
+    "items": [
+      {
+        "title": "Vom Prompt zum Profi",
+        "desc": "Keine Notwendigkeit, Folien manuell zu trennen. Die KI analysiert den Kontext und bricht Ihren Text automatisch in logische Folien herunter."
+      },
+      {
+        "title": "Mobile-First Workflow",
+        "desc": "Erstellen Sie Ihre Präsentation im Taxi auf dem Weg zum Kunden. Speziell für iOS (iPhone/iPad) entwickelt."
+      },
+      {
+        "title": "Exportieren & Bearbeiten",
+        "desc": "Benötigen Sie letzte Anpassungen? Exportieren Sie direkt als PDF oder in bearbeitbare Formate."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Hören Sie auf zu formatieren. Fangen Sie an zu präsentieren.",
+    "sub": "Laden Sie SlideAIPro heute herunter und sparen Sie diese Woche 5 Stunden.",
+    "button": "Im App Store laden"
+  },
+  "meta": {
+    "published": "Veröffentlicht",
+    "category": "Produkt-News"
+  }
+}

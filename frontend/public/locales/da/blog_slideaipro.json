@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Slut med manuel PowerPoint-oprettelse (iOS)",
+    "description": "Stop med at formatere slides manuelt. SlideAIPro genererer professionelle præsentationer fra enkle tekstprompts på få sekunder. Tilgængelig nu på iOS.",
+    "ogTitle": "Generer professionelle slides fra tekst på sekunder | SlideAIPro",
+    "ogDescription": "Brug ikke timer på PowerPoint. Indsæt blot din tekst, og lad AI designe præsentationen.",
+    "ld": {
+      "headline": "Sådan opretter du præsentationsslides fra tekst med AI (2025)",
+      "description": "En guide til brug af SlideAIPro til øjeblikkelig oprettelse af forretningspræsentationer."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Hjem"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "SlideAIPro Lancering"
+  },
+  "hero": {
+    "kicker": "Produktlancering",
+    "h1": "Tiden med manuel PowerPoint-oprettelse er forbi.",
+    "tagline": "Hvorfor bruge timer på at justere skrifttyper og justere bokse? SlideAIPro forvandler din rå tekst til professionelle, klar-til-brug slides med det samme. Mobile-first til den moderne leder.",
+    "subtag": "Tilgængelig eksklusivt på iOS."
+  },
+  "problem": {
+    "h2": "Dine ideer er hurtige. Slide-design er langsomt.",
+    "p1": "Den største flaskehals i forretning er ikke 'at tænke' – det er formatering. Du har strategien i hovedet eller skrevet i et notat, men at omdanne det til et 10-slides deck tager 2 timers kedeligt arbejde.",
+    "p2": "Vi byggede **SlideAIPro** for at genvinde den tid. Det er ikke bare en skabelon-motor; den forstår din tekst og strukturerer logikken visuelt."
+  },
+  "demo": {
+    "h2": "At se er at tro: Et eksempel fra virkeligheden",
+    "lead": "Lad os teste det. Nedenfor er en rå, ustruktureret forretningsplan. Vi indsatte præcis denne tekst i appen.",
+    "inputLabel": "Prompten (Input)",
+    "inputText": "Salgsmål og Resultater for 2025\nSalgsmålene for de første fire måneder af 2025 blev sat til $50.000 pr. måned. Det faktiske salg var $45.000 i januar, $32.000 i februar, $52.000 i marts og $68.000 i april.\n\nKategorimæssig Salgsanalyse for 2025\nSalgsanalysen pr. kategori for de fire måneder viste, at Produkt A udgjorde 40%, Produkt B 30% og Produkt C 20%.\n\nSalgsmål Trends for 2025\nSalgsmålene for 2025 er fastsat som følger: $50.000 i januar, $30.000 i februar, $60.000 i marts og $70.000 i april.\n\nStrategier til Målopfyldelse\n* Januar: Udvidelse af kundebasen og styrkelse af kampagner.\n* Februar: Forbedring af salgsfremstød og tiltag for at øge genkøbsraten.\n* Marts: Præstationsanalyse og endelige strategier.\n\nOpgavefordeling\nA's Opgaver:\n* Inden 10. januar: Planlægge møder med nøglekunder og forberede tilbudsmateriale.\n* Inden 5. februar: Afslutte henvendelser til den nye kundeliste og rapportere fremskridt.\nB's Opgaver:\n* Inden 15. januar: Oprette annoncekreativer og lancere kampagner på sociale medier.\n* Inden 1. februar: Planlægge lanceringsevent for Produkt A og forberede driftsmanualen.\nC's Opgaver:\n* Inden 20. januar: Udvikle FAQ og supportguides til nye kunder.\n* Inden 15. februar: Samle kundefeedback og indsende forbedringsforslag.\n\nNye Ideer og Mål\nIdeer til Vækst:\n1. Indføre en abonnementsmodel for at øge tilbagevendende indtægter.\n2. Udvikle Produkt D målrettet high-end brugere for at udvide premium-markedet.\n3. Lancere partnerskabsprogrammer for at nå nye kundesegmenter.\nMål:\n* Øge kundeakkvisition med 20% i 2. kvartal.\n* Øge genkøb med 15% gennem kampagner.\n* Generere $10.000 i salg fra Produkt D inden 4. kvartal.\n\nEndelige Beslutninger og Baggrund\nNøglebeslutninger:\n1. Fokusere på Produkt A's premium-model for at tiltrække værdifulde kunder.\n2. Allokere 15% af budgettet til digitale annoncer og influencer marketing.\n3. Forbedre kundesupport og loyalitetsprogrammer.\nBaggrund:\nDisse beslutninger er baseret på salgstrends for 2025, der viser efterspørgsel efter premium-produkter.",
+    "outputLabel": "Resultatet (Output)",
+    "outputNote": "Genereret på ca. 15 sekunder på iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Hvorfor SlideAIPro?",
+    "items": [
+      {
+        "title": "Fra Prompt til Professionel",
+        "desc": "Ingen grund til at opdele slides manuelt. AI'en analyserer konteksten og opdeler din tekst i logiske slides automatisk."
+      },
+      {
+        "title": "Mobile First Workflow",
+        "desc": "Opret din præsentation i taxaen på vej til kunden. Designet specifikt til iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Eksportér & Rediger",
+        "desc": "Brug for sidste justeringer? Eksportér direkte til PDF eller redigerbare formater."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Stop med at formatere. Begynd at præsentere.",
+    "sub": "Download SlideAIPro i dag og spar 5 timer denne uge.",
+    "button": "Hent i App Store"
+  },
+  "meta": {
+    "published": "Udgivet",
+    "category": "Produktnyheder"
+  }
+}

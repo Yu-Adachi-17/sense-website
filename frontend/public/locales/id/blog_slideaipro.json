@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Akhir dari Pembuatan PowerPoint Manual (iOS)",
+    "description": "Berhenti memformat slide secara manual. SlideAIPro membuat presentasi profesional dari perintah teks sederhana dalam hitungan detik. Tersedia sekarang di iOS.",
+    "ogTitle": "Buat Slide Profesional dari Teks dalam Detik | SlideAIPro",
+    "ogDescription": "Jangan habiskan waktu berjam-jam di PowerPoint. Cukup tempel teks Anda, dan biarkan AI mendesain presentasinya.",
+    "ld": {
+      "headline": "Cara Membuat Slide Presentasi dari Teks dengan AI (2025)",
+      "description": "Panduan menggunakan SlideAIPro untuk membuat presentasi bisnis secara instan menggunakan teks mentah."
+    }
+  },
+  "aria": {
+    "home": "Beranda Sense AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Peluncuran SlideAIPro"
+  },
+  "hero": {
+    "kicker": "Peluncuran Produk",
+    "h1": "Era pembuatan PowerPoint manual telah berakhir.",
+    "tagline": "Mengapa membuang waktu berjam-jam menyesuaikan font dan menyelaraskan kotak? SlideAIPro mengubah teks mentah Anda menjadi slide profesional yang siap dipresentasikan secara instan. Mobile-first untuk pemimpin modern.",
+    "subtag": "Tersedia secara eksklusif di iOS."
+  },
+  "problem": {
+    "h2": "Ide Anda cepat. Desain slide lambat.",
+    "p1": "Hambatan terbesar dalam bisnis bukanlah 'berpikir' — melainkan pemformatan. Anda memiliki strategi di kepala atau tertulis dalam memo, tetapi mengubahnya menjadi dek 10 slide membutuhkan 2 jam kerja yang membosankan.",
+    "p2": "Kami membangun **SlideAIPro** untuk mengembalikan waktu itu. Ini bukan hanya mesin templat; ia memahami teks Anda dan menyusun logika secara visual."
+  },
+  "demo": {
+    "h2": "Melihat adalah Percaya: Contoh Dunia Nyata",
+    "lead": "Mari kita uji. Di bawah ini adalah rencana bisnis mentah yang tidak terstruktur. Kami menempelkan teks persis ini ke dalam aplikasi.",
+    "inputLabel": "Prompt (Input)",
+    "inputText": "Target Penjualan dan Kinerja untuk 2025\nTarget penjualan untuk empat bulan pertama tahun 2025 ditetapkan sebesar $50.000 per bulan. Penjualan aktual adalah $45.000 pada Januari, $32.000 pada Februari, $52.000 pada Maret, dan $68.000 pada April.\n\nAnalisis Penjualan per Kategori untuk 2025\nAnalisis penjualan berdasarkan kategori selama empat bulan mengungkapkan bahwa Produk A menyumbang 40%, Produk B 30%, dan Produk C 20%.\n\nTren Target Penjualan untuk 2025\nTarget penjualan untuk tahun 2025 ditetapkan sebagai berikut: $50.000 pada Januari, $30.000 pada Februari, $60.000 pada Maret, dan $70.000 pada April.\n\nStrategi untuk Mencapai Target\n* Januari: Perluasan basis pelanggan dan penguatan promosi.\n* Februari: Peningkatan promosi penjualan dan langkah-langkah untuk meningkatkan tingkat pembelian berulang.\n* Maret: Analisis kinerja dan strategi dorongan akhir.\n\nPembagian Tugas\nTugas A:\n* Paling lambat 10 Januari: Jadwalkan pertemuan dengan klien utama dan siapkan materi proposal.\n* Paling lambat 5 Februari: Selesaikan pendekatan ke daftar pelanggan baru dan laporkan kemajuan.\nTugas B:\n* Paling lambat 15 Januari: Buat materi iklan dan luncurkan kampanye media sosial.\n* Paling lambat 1 Februari: Rencanakan acara peluncuran Produk A dan siapkan manual operasi.\nTugas C:\n* Paling lambat 20 Januari: Kembangkan FAQ dan panduan dukungan untuk pelanggan baru.\n* Paling lambat 15 Februari: Kumpulkan umpan balik pelanggan dan ajukan proposal perbaikan.\n\nIde dan Tujuan Baru\nIde untuk Pertumbuhan:\n1. Perkenalkan model berlangganan untuk meningkatkan pendapatan berulang.\n2. Kembangkan Produk D yang menargetkan pengguna kelas atas untuk memperluas pasar premium.\n3. Luncurkan program kemitraan untuk menjangkau segmen pelanggan baru.\nTujuan:\n* Tingkatkan akuisisi pelanggan sebesar 20% di Q2.\n* Tingkatkan pembelian berulang sebesar 15% melalui promosi.\n* Hasilkan $10.000 dalam penjualan dari Produk D pada Q4.\n\nKeputusan Akhir dan Latar Belakang\nKeputusan Utama:\n1. Fokus pada model premium Produk A untuk menarik pelanggan bernilai tinggi.\n2. Alokasikan 15% dari anggaran untuk iklan digital dan pemasaran influencer.\n3. Tingkatkan dukungan pelanggan dan program loyalitas.\nLatar Belakang:\nKeputusan ini didasarkan pada tren penjualan 2025 yang menunjukkan permintaan untuk produk premium.",
+    "outputLabel": "Hasil (Output)",
+    "outputNote": "Dihasilkan dalam sekitar 15 detik di iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Mengapa SlideAIPro?",
+    "items": [
+      {
+        "title": "Dari Prompt ke Profesional",
+        "desc": "Tidak perlu memisahkan slide secara manual. AI menganalisis konteks dan memecah teks Anda menjadi slide logis secara otomatis."
+      },
+      {
+        "title": "Alur Kerja Mobile First",
+        "desc": "Buat presentasi Anda di taksi dalam perjalanan ke klien. Dirancang khusus untuk iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Ekspor & Edit",
+        "desc": "Butuh penyesuaian akhir? Ekspor langsung ke PDF atau format yang dapat diedit."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Berhenti memformat. Mulai mempresentasikan.",
+    "sub": "Unduh SlideAIPro hari ini dan hemat 5 jam minggu ini.",
+    "button": "Unduh di App Store"
+  },
+  "meta": {
+    "published": "Diterbitkan",
+    "category": "Berita Produk"
+  }
+}

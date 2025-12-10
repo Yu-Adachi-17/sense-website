@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: The End of Manual PowerPoint Creation (iOS)",
+    "description": "Stop formatting slides manually. SlideAIPro generates professional presentations from simple text prompts in seconds. Available now on iOS.",
+    "ogTitle": "Generate Professional Slides from Text in Seconds | SlideAIPro",
+    "ogDescription": "Don't spend hours on PowerPoint. Just paste your text, and let AI design the deck. See the demo inside.",
+    "ld": {
+      "headline": "How to Create Presentation Slides from Text with AI (2025)",
+      "description": "A guide to using SlideAIPro to generate business presentations instantly using raw text prompts."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "SlideAIPro Launch"
+  },
+  "hero": {
+    "kicker": "Product Launch",
+    "h1": "The Era of Manual PowerPoint Creation is Over.",
+    "tagline": "Why spend hours adjusting fonts and aligning boxes? SlideAIPro turns your raw text into professional, ready-to-present slides instantly. Mobile-first, for the modern leader.",
+    "subtag": "Available exclusively on iOS."
+  },
+  "problem": {
+    "h2": "Your ideas are fast. Slide design is slow.",
+    "p1": "The biggest bottleneck in business isn't 'thinking'—it's formatting. You have the strategy in your head, or written in a memo, but turning that into a 10-slide deck takes 2 hours of tedious work.",
+    "p2": "We built **SlideAIPro** to reclaim that time. It's not just a template engine; it understands your text and structures the logic visually."
+  },
+  "demo": {
+    "h2": "Seeing is Believing: A Real World Example",
+    "lead": "Let's put it to the test. Below is a raw, unstructured business plan. We pasted this exact text into the app.",
+    "inputLabel": "The Prompt (Input)",
+    "inputText": "Sales Targets and Performance for 2025\nThe sales targets for the first four months of 2025 were set at $50,000 per month. Actual sales were $45,000 in January, $32,000 in February, $52,000 in March, and $68,000 in April.\n\nCategory-wise Sales Analysis for 2025\nSales analysis by category for the four months revealed that Product A accounted for 40%, Product B for 30%, and Product C for 20%.\n\nSales Goal Trends for 2025\nThe sales goals for 2025 are set as follows: $50,000 in January, $30,000 in February, $60,000 in March, and $70,000 in April.\n\nStrategies for Achieving Goals\n* January: Expansion of the customer base and strengthening of promotions.\n* February: Enhancement of sales promotion and measures to improve repeat purchase rates.\n* March: Performance analysis and final push strategies.\n\nTask Assignments\nA’s Tasks:\n* By January 10: Schedule meetings with key clients and prepare proposal materials.\n* By February 5: Complete approaches to the new customer list and report progress on follow-ups.\nB’s Tasks:\n* By January 15: Create advertising creatives and launch social media campaigns.\n* By February 1: Plan Product A’s launch event and prepare the operation manual.\nC’s Tasks:\n* By January 20: Develop FAQs and support guides for new customers.\n* By February 15: Compile customer feedback and submit improvement proposals.\n\nNew Ideas and Goals\nIdeas for Growth:\n1. Introduce a subscription model to increase recurring revenue.\n2. Develop Product D targeting high-end users to expand the premium market.\n3. Launch partnership programs to reach new customer segments.\nGoals:\n* Increase customer acquisition by 20% in Q2.\n* Boost repeat purchases by 15% through promotions.\n* Generate $10,000 in sales from Product D by Q4.\n\nFinal Decisions and Background\nKey Decisions:\n1. Focus on Product A’s premium model to attract high-value customers.\n2. Allocate 15% of the budget to digital ads and influencer marketing.\n3. Enhance customer support and loyalty programs to improve retention.\nBackground:\nThese decisions are based on 2025 sales trends showing demand for premium products and customer interest in personalized experiences.",
+    "outputLabel": "The Result (Output)",
+    "outputNote": "Generated in approx 15 seconds on iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Why SlideAIPro?",
+    "items": [
+      {
+        "title": "Prompt to Professional",
+        "desc": "No need to separate slides manually. The AI analyzes context and breaks down your text into logical slides automatically."
+      },
+      {
+        "title": "Mobile First Workflow",
+        "desc": "Create your presentation in the taxi on the way to the client. Designed specifically for iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Export & Edit",
+        "desc": "Need final tweaks? Export directly to PDF or editable formats compatible with major presentation software."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Stop Formatting. Start Presenting.",
+    "sub": "Download SlideAIPro today and save 5 hours this week.",
+    "button": "Download on the App Store"
+  },
+  "meta": {
+    "published": "Published",
+    "category": "Product News"
+  }
+}

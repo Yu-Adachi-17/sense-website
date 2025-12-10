@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Manuel PowerPoint Oluşturmanın Sonu (iOS)",
+    "description": "Slaytları manuel olarak biçimlendirmeyi bırakın. SlideAIPro, basit metin komutlarından saniyeler içinde profesyonel sunumlar oluşturur. Şimdi iOS'ta mevcut.",
+    "ogTitle": "Saniyeler içinde metinden profesyonel slaytlar oluşturun | SlideAIPro",
+    "ogDescription": "PowerPoint'te saatler harcamayın. Sadece metninizi yapıştırın ve yapay zekanın sunumu tasarlamasına izin verin.",
+    "ld": {
+      "headline": "Yapay Zeka ile metinden sunum slaytları nasıl oluşturulur (2025)",
+      "description": "Ham metin kullanarak anında iş sunumları oluşturmak için SlideAIPro kullanım kılavuzu."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "SlideAIPro Lansmanı"
+  },
+  "hero": {
+    "kicker": "Ürün Lansmanı",
+    "h1": "Manuel PowerPoint oluşturma çağı sona erdi.",
+    "tagline": "Neden yazı tiplerini ayarlamak ve kutuları hizalamak için saatler harcayasınız? SlideAIPro, ham metninizi anında profesyonel, sunuma hazır slaytlara dönüştürür. Modern liderler için öncelik mobilde.",
+    "subtag": "Sadece iOS'ta mevcut."
+  },
+  "problem": {
+    "h2": "Fikirleriniz hızlı. Slayt tasarımı yavaş.",
+    "p1": "İş dünyasındaki en büyük darboğaz 'düşünmek' değil, biçimlendirmedir. Strateji kafanızda veya bir notta yazılı, ancak bunu 10 slaytlık bir sunuma dönüştürmek 2 saatlik sıkıcı bir çalışma gerektiriyor.",
+    "p2": "Bu zamanı geri kazanmak için **SlideAIPro**'yu geliştirdik. Bu sadece bir şablon motoru değil; metninizi anlar ve mantığı görsel olarak yapılandırır."
+  },
+  "demo": {
+    "h2": "Görmek İnanmaktır: Gerçek Bir Örnek",
+    "lead": "Hadi test edelim. Aşağıda ham, yapılandırılmamış bir iş planı var. Bu metni aynen uygulamaya yapıştırdık.",
+    "inputLabel": "İstem (Giriş)",
+    "inputText": "2025 Satış Hedefleri ve Performansı\n2025'in ilk dört ayı için satış hedefleri aylık 50.000$ olarak belirlendi. Gerçekleşen satışlar Ocak'ta 45.000$, Şubat'ta 32.000$, Mart'ta 52.000$ ve Nisan'da 68.000$ oldu.\n\n2025 Kategori Bazlı Satış Analizi\nDört aylık kategori bazlı satış analizi, Ürün A'nın %40, Ürün B'nin %30 ve Ürün C'nin %20 pay aldığını ortaya koydu.\n\n2025 Satış Hedefi Trendleri\n2025 satış hedefleri şu şekilde belirlenmiştir: Ocak'ta 50.000$, Şubat'ta 30.000$, Mart'ta 60.000$ ve Nisan'da 70.000$.\n\nHedeﬂere Ulaşma Stratejileri\n* Ocak: Müşteri tabanının genişletilmesi ve promosyonların güçlendirilmesi.\n* Şubat: Satış promosyonlarının iyileştirilmesi ve tekrar satın alma oranlarını artıracak önlemler.\n* Mart: Performans analizi ve son atılım stratejileri.\n\nGörev Dağılımı\nA'nın Görevleri:\n* 10 Ocak'a kadar: Kilit müşterilerle toplantılar planla ve teklif materyallerini hazırla.\n* 5 Şubat'a kadar: Yeni müşteri listesine yaklaşımları tamamla ve ilerlemeyi raporla.\nB'nin Görevleri:\n* 15 Ocak'a kadar: Reklam görselleri oluştur ve sosyal medya kampanyalarını başlat.\n* 1 Şubat'a kadar: Ürün A lansman etkinliğini planla ve operasyon el kitabını hazırla.\nC'nin Görevleri:\n* 20 Ocak'a kadar: Yeni müşteriler için SSS ve destek kılavuzları geliştir.\n* 15 Şubat'a kadar: Müşteri geri bildirimlerini derle ve iyileştirme önerileri sun.\n\nYeni Fikirler ve Hedefler\nBüyüme Fikirleri:\n1. Tekrarlayan geliri artırmak için bir abonelik modeli sun.\n2. Premium pazarı genişletmek için üst düzey kullanıcıları hedefleyen Ürün D'yi geliştir.\n3. Yeni müşteri segmentlerine ulaşmak için ortaklık programları başlat.\nHedeﬂer:\n* 2. çeyrekte müşteri kazanımını %20 artır.\n* Promosyonlar yoluyla tekrar satın almaları %15 artır.\n* 4. çeyreğe kadar Ürün D satışlarından 10.000$ gelir elde et.\n\nNihai Kararlar ve Arka Plan\nÖnemli Kararlar:\n1. Yüksek değerli müşterileri çekmek için Ürün A'nın premium modeline odaklan.\n2. Bütçenin %15'ini dijital reklamlara ve influencer pazarlamasına ayır.\n3. Müşteri desteğini ve sadakat programlarını iyileştir.\nArka Plan:\nBu kararlar, premium ürünlere olan talebi gösteren 2025 satış trendlerine dayanmaktadır.",
+    "outputLabel": "Sonuç (Çıktı)",
+    "outputNote": "iPhone 15 Pro'da yaklaşık 15 saniyede oluşturuldu."
+  },
+  "features": {
+    "h2": "Neden SlideAIPro?",
+    "items": [
+      {
+        "title": "İstemden Profesyonelliğe",
+        "desc": "Slaytları manuel olarak ayırmaya gerek yok. Yapay zeka bağlamı analiz eder ve metninizi otomatik olarak mantıklı slaytlara böler."
+      },
+      {
+        "title": "Önce Mobil İş Akışı",
+        "desc": "Sunumunuzu müşteriye giderken takside oluşturun. iOS (iPhone/iPad) için özel olarak tasarlandı."
+      },
+      {
+        "title": "Dışa Aktar ve Düzenle",
+        "desc": "Son dokunuşlara mı ihtiyacınız var? Doğrudan PDF'e veya düzenlenebilir formatlara aktarın."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Biçimlendirmeyi bırak. Sunmaya başla.",
+    "sub": "SlideAIPro'yu bugün indirin ve bu hafta 5 saat tasarruf edin.",
+    "button": "App Store'dan İndir"
+  },
+  "meta": {
+    "published": "Yayınlandı",
+    "category": "Ürün Haberleri"
+  }
+}

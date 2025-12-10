@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Akhir Penciptaan PowerPoint Manual (iOS)",
+    "description": "Berhenti memformat slaid secara manual. SlideAIPro menjana pembentangan profesional daripada prom teks mudah dalam beberapa saat. Tersedia sekarang di iOS.",
+    "ogTitle": "Hasilkan Slaid Profesional daripada Teks dalam Beberapa Saat | SlideAIPro",
+    "ogDescription": "Jangan habiskan masa berjam-jam di PowerPoint. Hanya tampal teks anda, dan biarkan AI mereka bentuk pembentangan.",
+    "ld": {
+      "headline": "Cara Membuat Slaid Pembentangan daripada Teks dengan AI (2025)",
+      "description": "Panduan menggunakan SlideAIPro untuk menjana pembentangan perniagaan serta-merta menggunakan teks mentah."
+    }
+  },
+  "aria": {
+    "home": "Laman Utama Sense AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Pelancaran SlideAIPro"
+  },
+  "hero": {
+    "kicker": "Pelancaran Produk",
+    "h1": "Era penciptaan PowerPoint manual telah berakhir.",
+    "tagline": "Mengapa membazirkan masa berjam-jam melaraskan fon dan menyelaraskan kotak? SlideAIPro menukar teks mentah anda menjadi slaid profesional yang sedia untuk dibentangkan serta-merta. Mobile-first untuk pemimpin moden.",
+    "subtag": "Tersedia secara eksklusif di iOS."
+  },
+  "problem": {
+    "h2": "Idea anda pantas. Reka bentuk slaid lambat.",
+    "p1": "Kesesakan terbesar dalam perniagaan bukanlah 'berfikir' — ia adalah pemformatan. Anda mempunyai strategi di kepala atau tertulis dalam memo, tetapi menukarnya menjadi dek 10 slaid mengambil masa 2 jam kerja yang membosankan.",
+    "p2": "Kami membina **SlideAIPro** untuk mendapatkan semula masa itu. Ia bukan sekadar enjin templat; ia memahami teks anda dan menyusun logik secara visual."
+  },
+  "demo": {
+    "h2": "Melihat adalah Percaya: Contoh Dunia Sebenar",
+    "lead": "Mari kita ujinya. Di bawah adalah pelan perniagaan mentah yang tidak berstruktur. Kami menampal teks ini tepat ke dalam aplikasi.",
+    "inputLabel": "Prom (Input)",
+    "inputText": "Sasaran Jualan dan Prestasi untuk 2025\nSasaran jualan bagi empat bulan pertama 2025 ditetapkan pada $50,000 sebulan. Jualan sebenar adalah $45,000 pada Januari, $32,000 pada Februari, $52,000 pada Mac, dan $68,000 pada April.\n\nAnalisis Jualan mengikut Kategori untuk 2025\nAnalisis jualan mengikut kategori selama empat bulan mendedahkan bahawa Produk A menyumbang 40%, Produk B 30%, dan Produk C 20%.\n\nTrend Sasaran Jualan untuk 2025\nSasaran jualan untuk 2025 ditetapkan seperti berikut: $50,000 pada Januari, $30,000 pada Februari, $60,000 pada Mac, dan $70,000 pada April.\n\nStrategi untuk Mencapai Sasaran\n* Januari: Pengembangan pangkalan pelanggan dan pengukuhan promosi.\n* Februari: Peningkatan promosi jualan dan langkah-langkah untuk meningkatkan kadar pembelian berulang.\n* Mac: Analisis prestasi dan strategi dorongan akhir.\n\nTugasan Kerja\nTugasan A:\n* Menjelang 10 Januari: Jadualkan mesyuarat dengan pelanggan utama dan sediakan bahan cadangan.\n* Menjelang 5 Februari: Lengkapkan pendekatan ke senarai pelanggan baharu dan laporkan kemajuan.\nTugasan B:\n* Menjelang 15 Januari: Cipta kreatif iklan dan lancarkan kempen media sosial.\n* Menjelang 1 Februari: Rancang acara pelancaran Produk A dan sediakan manual operasi.\nTugasan C:\n* Menjelang 20 Januari: Bangunkan Soalan Lazim dan panduan sokongan untuk pelanggan baharu.\n* Menjelang 15 Februari: Kumpul maklum balas pelanggan dan serahkan cadangan penambahbaikan.\n\nIdea dan Matlamat Baharu\nIdea untuk Pertumbuhan:\n1. Perkenalkan model langganan untuk meningkatkan hasil berulang.\n2. Bangunkan Produk D yang menyasarkan pengguna kelas atasan untuk mengembangkan pasaran premium.\n3. Lancarkan program perkongsian untuk mencapai segmen pelanggan baharu.\nMatlamat:\n* Tingkatkan pemerolehan pelanggan sebanyak 20% pada S2.\n* Tingkatkan pembelian berulang sebanyak 15% melalui promosi.\n* Hasilkan $10,000 dalam jualan daripada Produk D menjelang S4.\n\nKeputusan Akhir dan Latar Belakang\nKeputusan Utama:\n1. Fokus pada model premium Produk A untuk menarik pelanggan bernilai tinggi.\n2. Peruntukkan 15% daripada bajet untuk iklan digital dan pemasaran pempengaruh.\n3. Tingkatkan sokongan pelanggan dan program kesetiaan.\nLatar Belakang:\nKeputusan ini berdasarkan trend jualan 2025 yang menunjukkan permintaan untuk produk premium.",
+    "outputLabel": "Hasil (Output)",
+    "outputNote": "Dijana dalam kira-kira 15 saat pada iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Kenapa SlideAIPro?",
+    "items": [
+      {
+        "title": "Daripada Prom ke Profesional",
+        "desc": "Tidak perlu memisahkan slaid secara manual. AI menganalisis konteks dan memecahkan teks anda menjadi slaid logik secara automatik."
+      },
+      {
+        "title": "Alur Kerja Mobile First",
+        "desc": "Cipta pembentangan anda di dalam teksi dalam perjalanan ke klien. Direka khusus untuk iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Eksport & Edit",
+        "desc": "Perlukan sentuhan terakhir? Eksport terus ke PDF atau format yang boleh diedit."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Berhenti memformat. Mula membentang.",
+    "sub": "Muat turun SlideAIPro hari ini dan jimat 5 jam minggu ini.",
+    "button": "Muat turun di App Store"
+  },
+  "meta": {
+    "published": "Diterbitkan",
+    "category": "Berita Produk"
+  }
+}

@@ -42,6 +42,7 @@ module.exports = {
     'blog_flexible',
     'blog_cost',
     'blog_meetinganalysis',
+    'blog_slideaipro',
   ],
   defaultNS: 'common',
 

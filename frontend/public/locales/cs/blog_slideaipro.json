@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Konec ruční tvorby PowerPoint prezentací (iOS)",
+    "description": "Přestaňte ručně formátovat slajdy. SlideAIPro vytvoří profesionální prezentace z jednoduchých textových pokynů během několika sekund.",
+    "ogTitle": "Profesionální slajdy z textu během sekund | SlideAIPro",
+    "ogDescription": "Neztrácejte hodiny v PowerPointu. Stačí vložit text a nechat AI navrhnout celou prezentaci.",
+    "ld": {
+      "headline": "Jak vytvořit prezentaci z textu pomocí AI (2025)",
+      "description": "Průvodce používáním SlideAIPro pro okamžitou tvorbu obchodních prezentací."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Domů"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Představení SlideAIPro"
+  },
+  "hero": {
+    "kicker": "Nový produkt",
+    "h1": "Éra ruční tvorby PowerPointů skončila.",
+    "tagline": "Proč trávit hodiny úpravou písem a zarovnáváním rámečků? SlideAIPro okamžitě promění váš hrubý text na profesionální prezentaci připravenou k předvedení. Mobile-first řešení pro moderní lídry.",
+    "subtag": "Dostupné exkluzivně na iOS."
+  },
+  "problem": {
+    "h2": "Vaše nápady jsou rychlé. Design slajdů je pomalý.",
+    "p1": "Největší brzdou v podnikání není „myšlení“, ale formátování. Strategii máte v hlavě nebo v poznámkách, ale přetvořit ji do 10snímkové prezentace zabere 2 hodiny nudné práce.",
+    "p2": "Vytvořili jsme **SlideAIPro**, abychom vám tento čas vrátili. Není to jen šablona; aplikace rozumí vašemu textu a vizuálně strukturuje logiku."
+  },
+  "demo": {
+    "h2": "Vidět znamená uvěřit: Příklad z praxe",
+    "lead": "Pojďme to otestovat. Níže je hrubý, nestrukturovaný obchodní plán. Tento text jsme vložili přímo do aplikace.",
+    "inputLabel": "Zadání (Input)",
+    "inputText": "Cíle prodeje a výkon v roce 2025\nProdejní cíle pro první čtyři měsíce roku 2025 byly stanoveny na 50 000 USD měsíčně. Skutečný prodej činil 45 000 USD v lednu, 32 000 USD v únoru, 52 000 USD v březnu a 68 000 USD v dubnu.\n\nAnalýza prodeje podle kategorií pro rok 2025\nAnalýza prodeje podle kategorií za čtyři měsíce ukázala, že Produkt A tvořil 40 %, Produkt B 30 % a Produkt C 20 %.\n\nTrendy prodejních cílů pro rok 2025\nProdejní cíle pro rok 2025 jsou nastaveny následovně: 50 000 USD v lednu, 30 000 USD v únoru, 60 000 USD v březnu a 70 000 USD v dubnu.\n\nStrategie pro dosažení cílů\n* Leden: Rozšíření zákaznické základny a posílení propagace.\n* Únor: Zlepšení podpory prodeje a opatření ke zvýšení míry opakovaných nákupů.\n* Březen: Analýza výkonu a strategie pro závěrečný tlak.\n\nPřiřazení úkolů\nÚkoly osoby A:\n* Do 10. ledna: Naplánovat schůzky s klíčovými klienty a připravit návrhy materiálů.\n* Do 5. února: Dokončit oslovování nového seznamu zákazníků a podat zprávu o pokroku.\nÚkoly osoby B:\n* Do 15. ledna: Vytvořit reklamní kreativu a spustit kampaně na sociálních sítích.\n* Do 1. února: Naplánovat zahajovací akci Produktu A a připravit provozní manuál.\nÚkoly osoby C:\n* Do 20. ledna: Vypracovat FAQ a průvodce podporou pro nové zákazníky.\n* Do 15. února: Zkompilovat zpětnou vazbu od zákazníků a předložit návrhy na zlepšení.\n\nNové nápady a cíle\nNápady pro růst:\n1. Zavést model předplatného pro zvýšení opakujících se příjmů.\n2. Vyvinout Produkt D zaměřený na high-end uživatele pro rozšíření prémiového trhu.\n3. Spustit partnerské programy pro oslovení nových zákaznických segmentů.\nCíle:\n* Zvýšit akvizici zákazníků o 20 % ve 2. čtvrtletí.\n* Zvýšit opakované nákupy o 15 % pomocí propagace.\n* Vygenerovat 10 000 USD z prodeje Produktu D do 4. čtvrtletí.\n\nZávěrečná rozhodnutí a pozadí\nKlíčová rozhodnutí:\n1. Zaměřit se na prémiový model Produktu A pro přilákání hodnotných zákazníků.\n2. Vyčlenit 15 % rozpočtu na digitální reklamy a influencer marketing.\n3. Zlepšit zákaznickou podporu a věrnostní programy.\nPozadí:\nTato rozhodnutí jsou založena na prodejních trendech roku 2025.",
+    "outputLabel": "Výsledek (Output)",
+    "outputNote": "Vygenerováno za cca 15 sekund na iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Proč SlideAIPro?",
+    "items": [
+      {
+        "title": "Od textu k profesionálovi",
+        "desc": "Není třeba ručně rozdělovat slajdy. AI analyzuje kontext a automaticky rozdělí váš text do logických snímků."
+      },
+      {
+        "title": "Mobile First Workflow",
+        "desc": "Vytvořte prezentaci v taxíku cestou ke klientovi. Navrženo speciálně pro iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Export a úpravy",
+        "desc": "Potřebujete finální úpravy? Exportujte přímo do PDF nebo do upravitelných formátů."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Přestaňte formátovat. Začněte prezentovat.",
+    "sub": "Stáhněte si SlideAIPro ještě dnes a ušetřete tento týden 5 hodin.",
+    "button": "Stáhnout na App Store"
+  },
+  "meta": {
+    "published": "Publikováno",
+    "category": "Novinky o produktu"
+  }
+}

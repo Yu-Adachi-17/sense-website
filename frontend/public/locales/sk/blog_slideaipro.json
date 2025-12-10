@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Koniec ručnej tvorby PowerPoint prezentácií (iOS)",
+    "description": "Prestaňte ručne formátovať snímky. SlideAIPro vytvára profesionálne prezentácie z jednoduchých textových príkazov za pár sekúnd. Dostupné teraz na iOS.",
+    "ogTitle": "Profesionálne snímky z textu za pár sekúnd | SlideAIPro",
+    "ogDescription": "Nestrávte hodiny v PowerPointe. Stačí vložiť text a nechať AI navrhnúť celú prezentáciu.",
+    "ld": {
+      "headline": "Ako vytvoriť prezentačné snímky z textu pomocou AI (2025)",
+      "description": "Sprievodca používaním SlideAIPro na okamžité vytváranie obchodných prezentácií pomocou hrubého textu."
+    }
+  },
+  "aria": {
+    "home": "Domov Sense AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Uvedenie SlideAIPro"
+  },
+  "hero": {
+    "kicker": "Uvedenie produktu",
+    "h1": "Éra ručnej tvorby PowerPointov sa skončila.",
+    "tagline": "Prečo strácať hodiny úpravou písiem a zarovnávaním rámčekov? SlideAIPro okamžite premení váš hrubý text na profesionálne snímky pripravené na prezentáciu. Mobile-first pre moderných lídrov.",
+    "subtag": "Dostupné exkluzívne na iOS."
+  },
+  "problem": {
+    "h2": "Vaše nápady sú rýchle. Dizajn snímok je pomalý.",
+    "p1": "Najväčšou brzdou v podnikaní nie je „myslenie“ – je to formátovanie. Stratégiu máte v hlave alebo v poznámkach, ale premeniť ju na 10-snímkovú prezentáciu zaberie 2 hodiny nudnej práce.",
+    "p2": "Vytvorili sme **SlideAIPro**, aby sme vám tento čas vrátili. Nie je to len šablónový motor; rozumie vášmu textu a vizuálne štruktúruje logiku."
+  },
+  "demo": {
+    "h2": "Vidieť znamená uveriť: Príklad z reálneho sveta",
+    "lead": "Poďme to otestovať. Nižšie je hrubý, neštruktúrovaný obchodný plán. Tento text sme vložili priamo do aplikácie.",
+    "inputLabel": "Príkaz (Vstup)",
+    "inputText": "Ciele predaja a výkon v roku 2025\nPredajné ciele na prvé štyri mesiace roku 2025 boli stanovené na 50 000 USD mesačne. Skutočný predaj bol 45 000 USD v januári, 32 000 USD vo februári, 52 000 USD v marci a 68 000 USD v apríli.\n\nAnalýza predaja podľa kategórií pre rok 2025\nAnalýza predaja podľa kategórií za štyri mesiace ukázala, že Produkt A tvoril 40 %, Produkt B 30 % a Produkt C 20 %.\n\nTrendy predajných cieľov pre rok 2025\nPredajné ciele na rok 2025 sú nastavené nasledovne: 50 000 USD v januári, 30 000 USD vo februári, 60 000 USD v marci a 70 000 USD v apríli.\n\nStratégie na dosiahnutie cieľov\n* Január: Rozšírenie zákazníckej základne a posilnenie propagácie.\n* Február: Zlepšenie podpory predaja a opatrenia na zvýšenie miery opakovaných nákupov.\n* Marec: Analýza výkonu a stratégie pre záverečný tlak.\n\nPriradenie úloh\nÚlohy osoby A:\n* Do 10. januára: Naplánovať stretnutia s kľúčovými klientmi a pripraviť návrhy materiálov.\n* Do 5. februára: Dokončiť oslovovanie nového zoznamu zákazníkov a podať správu o pokroku.\nÚlohy osoby B:\n* Do 15. januára: Vytvoriť reklamnú kreatívu a spustiť kampane na sociálnych sieťach.\n* Do 1. februára: Naplánovať zahajovaciu akciu Produktu A a pripraviť prevádzkový manuál.\nÚlohy osoby C:\n* Do 20. januára: Vypracovať FAQ a sprievodcov podpory pre nových zákazníkov.\n* Do 15. februára: Zozbierať spätnú väzbu od zákazníkov a predložiť návrhy na zlepšenie.\n\nNové nápady a ciele\nNápady pre rast:\n1. Zaviesť model predplatného na zvýšenie opakujúcich sa príjmov.\n2. Vyvinúť Produkt D zameraný na high-end používateľov na rozšírenie prémiového trhu.\n3. Spustiť partnerské programy na oslovenie nových zákazníckych segmentov.\nCiele:\n* Zvýšiť akvizíciu zákazníkov o 20 % v 2. štvrťroku.\n* Zvýšiť opakované nákupy o 15 % pomocou propagácie.\n* Vygenerovať 10 000 USD z predaja Produktu D do 4. štvrťroka.\n\nZáverečné rozhodnutia a pozadie\nKľúčové rozhodnutia:\n1. Zamerať sa na prémiový model Produktu A na prilákanie hodnotných zákazníkov.\n2. Vyčleniť 15 % rozpočtu na digitálne reklamy a influencer marketing.\n3. Zlepšiť zákaznícku podporu a vernostné programy.\nPozadie:\nTieto rozhodnutia sú založené na predajných trendoch roku 2025, ktoré ukazujú dopyt po prémiových produktoch.",
+    "outputLabel": "Výsledok (Výstup)",
+    "outputNote": "Vygenerované za cca 15 sekúnd na iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Prečo SlideAIPro?",
+    "items": [
+      {
+        "title": "Od príkazu k profesionálovi",
+        "desc": "Nie je potrebné ručne rozdeľovať snímky. AI analyzuje kontext a automaticky rozdelí váš text do logických snímok."
+      },
+      {
+        "title": "Mobile First workflow",
+        "desc": "Vytvorte prezentáciu v taxíku cestou ku klientovi. Navrhnuté špeciálne pre iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Export a úpravy",
+        "desc": "Potrebujete finálne úpravy? Exportujte priamo do PDF alebo do upraviteľných formátov."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Prestaňte formátovať. Začnite prezentovať.",
+    "sub": "Stiahnite si SlideAIPro ešte dnes a ušetrite tento týždeň 5 hodín.",
+    "button": "Stiahnuť na App Store"
+  },
+  "meta": {
+    "published": "Publikované",
+    "category": "Novinky o produkte"
+  }
+}

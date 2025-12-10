@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Koniec ręcznego tworzenia PowerPointa (iOS)",
+    "description": "Przestań ręcznie formatować slajdy. SlideAIPro tworzy profesjonalne prezentacje z prostych tekstów w kilka sekund. Dostępne teraz na iOS.",
+    "ogTitle": "Twórz profesjonalne slajdy z tekstu w sekundy | SlideAIPro",
+    "ogDescription": "Nie trać godzin w PowerPoint. Po prostu wklej swój tekst i pozwól AI zaprojektować prezentację.",
+    "ld": {
+      "headline": "Jak tworzyć slajdy prezentacji z tekstu za pomocą AI (2025)",
+      "description": "Przewodnik po używaniu SlideAIPro do natychmiastowego generowania prezentacji biznesowych przy użyciu surowego tekstu."
+    }
+  },
+  "aria": {
+    "home": "Strona główna Sense AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Premiera SlideAIPro"
+  },
+  "hero": {
+    "kicker": "Premiera Produktu",
+    "h1": "Era ręcznego tworzenia PowerPointa dobiegła końca.",
+    "tagline": "Po co marnować godziny na dostosowywanie czcionek i wyrównywanie pól? SlideAIPro natychmiast zmienia Twój surowy tekst w profesjonalne slajdy gotowe do prezentacji. Mobile-first dla nowoczesnego lidera.",
+    "subtag": "Dostępne wyłącznie na iOS."
+  },
+  "problem": {
+    "h2": "Twoje pomysły są szybkie. Projektowanie slajdów jest wolne.",
+    "p1": "Największym wąskim gardłem w biznesie nie jest 'myślenie' — to formatowanie. Masz strategię w głowie lub zapisaną w notatce, ale zamiana jej w prezentację na 10 slajdów zajmuje 2 godziny żmudnej pracy.",
+    "p2": "Stworzyliśmy **SlideAIPro**, aby odzyskać ten czas. To nie tylko silnik szablonów; rozumie Twój tekst i wizualnie strukturyzuje logikę."
+  },
+  "demo": {
+    "h2": "Zobaczyć znaczy uwierzyć: Przykład z prawdziwego świata",
+    "lead": "Przetestujmy to. Poniżej znajduje się surowy, nieustrukturyzowany biznesplan. Wkleiliśmy dokładnie ten tekst do aplikacji.",
+    "inputLabel": "Prompt (Wejście)",
+    "inputText": "Cele sprzedażowe i wyniki na rok 2025\nCele sprzedażowe na pierwsze cztery miesiące 2025 roku ustalono na 50 000 USD miesięcznie. Rzeczywista sprzedaż wyniosła 45 000 USD w styczniu, 32 000 USD w lutym, 52 000 USD w marcu i 68 000 USD w kwietniu.\n\nAnaliza sprzedaży według kategorii na rok 2025\nAnaliza sprzedaży według kategorii za cztery miesiące wykazała, że Produkt A stanowił 40%, Produkt B 30%, a Produkt C 20%.\n\nTrendy celów sprzedażowych na rok 2025\nCele sprzedażowe na rok 2025 ustalono następująco: 50 000 USD w styczniu, 30 000 USD w lutym, 60 000 USD w marcu i 70 000 USD w kwietniu.\n\nStrategie osiągania celów\n* Styczeń: Rozszerzenie bazy klientów i wzmocnienie promocji.\n* Luty: Ulepszenie promocji sprzedaży i środki mające na celu zwiększenie wskaźnika powtórnych zakupów.\n* Marzec: Analiza wyników i strategie końcowego nacisku.\n\nPrzydział zadań\nZadania A:\n* Do 10 stycznia: Zaplanować spotkania z kluczowymi klientami i przygotować materiały ofertowe.\n* Do 5 lutego: Zakończyć podejścia do nowej listy klientów i zgłosić postępy.\nZadania B:\n* Do 15 stycznia: Stworzyć kreacje reklamowe i uruchomić kampanie w mediach społecznościowych.\n* Do 1 lutego: Zaplanować wydarzenie premierowe Produktu A i przygotować instrukcję obsługi.\nZadania C:\n* Do 20 stycznia: Opracować FAQ i przewodniki wsparcia dla nowych klientów.\n* Do 15 lutego: Zebrać opinie klientów i przesłać propozycje ulepszeń.\n\nNowe pomysły i cele\nPomysły na wzrost:\n1. Wprowadzić model subskrypcji w celu zwiększenia przychodów powtarzalnych.\n2. Opracować Produkt D skierowany do użytkowników high-end w celu rozszerzenia rynku premium.\n3. Uruchomić programy partnerskie, aby dotrzeć do nowych segmentów klientów.\nCele:\n* Zwiększyć pozyskiwanie klientów o 20% w Q2.\n* Zwiększyć powtórne zakupy o 15% dzięki promocjom.\n* Wygenerować 10 000 USD sprzedaży z Produktu D do Q4.\n\nOstateczne decyzje i tło\nKluczowe decyzje:\n1. Skupić się na modelu premium Produktu A, aby przyciągnąć klientów o wysokiej wartości.\n2. Przeznaczyć 15% budżetu na reklamy cyfrowe i influencer marketing.\n3. Ulepszyć obsługę klienta i programy lojalnościowe.\nTło:\nDecyzje te opierają się na trendach sprzedaży z 2025 roku, wskazujących na popyt na produkty premium.",
+    "outputLabel": "Wynik (Wyjście)",
+    "outputNote": "Wygenerowano w ok. 15 sekund na iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Dlaczego SlideAIPro?",
+    "items": [
+      {
+        "title": "Od Promptu do Profesjonalisty",
+        "desc": "Nie trzeba ręcznie dzielić slajdów. AI analizuje kontekst i automatycznie dzieli tekst na logiczne slajdy."
+      },
+      {
+        "title": "Workflow Mobile First",
+        "desc": "Stwórz prezentację w taksówce w drodze do klienta. Zaprojektowane specjalnie dla iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Eksportuj i Edytuj",
+        "desc": "Potrzebujesz ostatnich poprawek? Eksportuj bezpośrednio do PDF lub formatów edytowalnych."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Przestań formatować. Zacznij prezentować.",
+    "sub": "Pobierz SlideAIPro już dziś i zaoszczędź 5 godzin w tym tygodniu.",
+    "button": "Pobierz w App Store"
+  },
+  "meta": {
+    "published": "Opublikowano",
+    "category": "Aktualności Produktowe"
+  }
+}

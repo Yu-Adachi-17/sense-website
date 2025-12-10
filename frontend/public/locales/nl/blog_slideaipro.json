@@ -1,0 +1,64 @@
+{
+  "seo": {
+    "title": "SlideAIPro: Het einde van handmatige PowerPoint-creatie (iOS)",
+    "description": "Stop met het handmatig opmaken van dia's. SlideAIPro genereert in seconden professionele presentaties van eenvoudige tekstprompts. Nu beschikbaar op iOS.",
+    "ogTitle": "Genereer professionele dia's van tekst in seconden | SlideAIPro",
+    "ogDescription": "Verspil geen uren aan PowerPoint. Plak gewoon je tekst en laat AI de presentatie ontwerpen.",
+    "ld": {
+      "headline": "Hoe maak je presentatiedia's van tekst met AI (2025)",
+      "description": "Een gids voor het gebruik van SlideAIPro om direct zakelijke presentaties te genereren met ruwe tekst."
+    }
+  },
+  "aria": {
+    "home": "Sense AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "SlideAIPro Lancering"
+  },
+  "hero": {
+    "kicker": "Productlancering",
+    "h1": "Het tijdperk van handmatige PowerPoint-creatie is voorbij.",
+    "tagline": "Waarom uren verspillen aan het aanpassen van lettertypen en het uitlijnen van vakken? SlideAIPro zet je ruwe tekst direct om in professionele, presentatieklare dia's. Mobile-first voor de moderne leider.",
+    "subtag": "Exclusief beschikbaar op iOS."
+  },
+  "problem": {
+    "h2": "Je ideeën zijn snel. Dia-ontwerp is traag.",
+    "p1": "Het grootste knelpunt in het bedrijfsleven is niet 'denken' — het is opmaak. Je hebt de strategie in je hoofd of geschreven in een notitie, maar het omzetten in een deck van 10 dia's kost 2 uur saai werk.",
+    "p2": "We hebben **SlideAIPro** gebouwd om die tijd terug te winnen. Het is niet zomaar een sjabloon-engine; het begrijpt je tekst en structureert de logica visueel."
+  },
+  "demo": {
+    "h2": "Zien is geloven: Een voorbeeld uit de echte wereld",
+    "lead": "Laten we het testen. Hieronder staat een ruw, ongestructureerd bedrijfsplan. We hebben precies deze tekst in de app geplakt.",
+    "inputLabel": "De Prompt (Input)",
+    "inputText": "Verkoopdoelstellingen en prestaties voor 2025\nDe verkoopdoelstellingen voor de eerste vier maanden van 2025 zijn vastgesteld op $50.000 per maand. De werkelijke verkoop was $45.000 in januari, $32.000 in februari, $52.000 in maart en $68.000 in april.\n\nVerkoopanalyse per categorie voor 2025\nUit de verkoopanalyse per categorie voor de vier maanden bleek dat Product A goed was voor 40%, Product B voor 30% en Product C voor 20%.\n\nTrends in verkoopdoelen voor 2025\nDe verkoopdoelen voor 2025 zijn als volgt vastgesteld: $50.000 in januari, $30.000 in februari, $60.000 in maart en $70.000 in april.\n\nStrategieën om doelen te bereiken\n* Januari: Uitbreiding van het klantenbestand en versterking van promoties.\n* Februari: Verbetering van verkooppromotie en maatregelen om het herhalingsaankoop percentage te verhogen.\n* Maart: Prestatieanalyse en laatste push-strategieën.\n\nTaakverdeling\nTaken van A:\n* Tegen 10 januari: Vergaderingen plannen met belangrijke klanten en voorstelmateriaal voorbereiden.\n* Tegen 5 februari: Benadering van de nieuwe klantenlijst voltooien en voortgang rapporteren.\nTaken van B:\n* Tegen 15 januari: Advertentie-creatives maken en social media campagnes lanceren.\n* Tegen 1 februari: Lanceringsevenement voor Product A plannen en operationele handleiding voorbereiden.\nTaken van C:\n* Tegen 20 januari: FAQ's en ondersteuningsgidsen ontwikkelen voor nieuwe klanten.\n* Tegen 15 februari: Klantfeedback verzamelen en verbetervoorstellen indienen.\n\nNieuwe ideeën en doelen\nIdeeën voor groei:\n1. Een abonnementsmodel introduceren om terugkerende inkomsten te verhogen.\n2. Product D ontwikkelen gericht op high-end gebruikers om de premiummarkt uit te breiden.\n3. Partnerschapsprogramma's lanceren om nieuwe klantsegmenten te bereiken.\nDoelen:\n* Klantenwerving verhogen met 20% in Q2.\n* Herhalingsaankopen stimuleren met 15% door middel van promoties.\n* $10.000 aan verkoop genereren uit Product D tegen Q4.\n\nDefinitieve beslissingen en achtergrond\nBelangrijkste beslissingen:\n1. Focussen op het premiummodel van Product A om waardevolle klanten aan te trekken.\n2. 15% van het budget toewijzen aan digitale advertenties en influencer marketing.\n3. Klantenservice en loyaliteitsprogramma's verbeteren.\nAchtergrond:\nDeze beslissingen zijn gebaseerd op verkoop trends van 2025 die vraag naar premiumproducten tonen.",
+    "outputLabel": "Het Resultaat (Output)",
+    "outputNote": "Gegenereerd in ongeveer 15 seconden op iPhone 15 Pro."
+  },
+  "features": {
+    "h2": "Waarom SlideAIPro?",
+    "items": [
+      {
+        "title": "Van Prompt naar Professional",
+        "desc": "Het is niet nodig om dia's handmatig te scheiden. De AI analyseert de context en breekt je tekst automatisch op in logische dia's."
+      },
+      {
+        "title": "Mobile First Workflow",
+        "desc": "Maak je presentatie in de taxi op weg naar de klant. Speciaal ontworpen voor iOS (iPhone/iPad)."
+      },
+      {
+        "title": "Exporteren & Bewerken",
+        "desc": "Laatste aanpassingen nodig? Exporteer direct naar PDF of bewerkbare formaten."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Stop met opmaken. Begin met presenteren.",
+    "sub": "Download SlideAIPro vandaag en bespaar deze week 5 uur.",
+    "button": "Download in de App Store"
+  },
+  "meta": {
+    "published": "Gepubliceerd",
+    "category": "Productnieuws"
+  }
+}
