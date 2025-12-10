@@ -392,7 +392,7 @@ export default function BlogSlideAI({ canonicalPath = "/blog/slideaipro" }) {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_slideai"], i18nConfig)),
+      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_slideaipro"], i18nConfig)),
     },
   };
 }
