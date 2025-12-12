@@ -43,6 +43,7 @@ const livekitWebhookRouter = require('./routes/livekitWebhook');
 const recordingsRouter = require('./routes/recordings');
 
 const livekitRoomsRouter = require('./routes/livekitRooms');
+const formatsPromptRouter = require('./routes/formatsPrompt');
 
 const { getProductName } = require('./services/productName');
 const https = require('https');
@@ -385,6 +386,7 @@ app.use('/api/meetings', meetingsRouter);
 app.use('/api', egressRouter);
 app.use('/api/rooms', livekitRoomsRouter);
 app.use('/api', recordingsRouter);
+app.use('/api', formatsPromptRouter);
 
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
