@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android-uppdatering: Välj ditt Perfekta Mötesformat | Protokoll AI",
+    "description": "Stor uppdatering för Android! Gå med 30 000 användare i 150 länder. Du kan nu välja specifika AI-format (Medicinsk, Försäljning, Allmän) direkt på din Android-enhet.",
+    "ogTitle": "Android-användare: Uppdateringen 'Formatval' är här",
+    "ogDescription": "Sluta nöja dig med generiska sammanfattningar. Protokoll AI för Android låter dig nu omedelbart växla mellan Förhandling, Brainstorming och Medicinska format.",
+    "ld": {
+      "headline": "Protokoll AI Android-uppdatering: Formatval Nu Live",
+      "description": "Funktionen som iOS-användare älskar finns nu på Android. Välj bland flera AI-strukturer för att passa ditt möteskontext perfekt."
+    }
+  },
+  "aria": {
+    "home": "Protokoll AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Android Format Uppdatering"
+  },
+  "hero": {
+    "kicker": "Produktuppdatering",
+    "h1": "Android-användare: Lås upp Kontextens Kraft",
+    "tagline": "Väntan är över. Funktionen som älskas av vårt iOS-community är nu live på Android. Välj den perfekta strukturen för din konversation – omedelbart."
+  },
+  "stats": {
+    "users": "30 000+",
+    "countries": "150 Länder",
+    "label": "Lita på Protokoll AI",
+    "desc": "Gå med i det globala samhället som transformerar hur världen spelar in möten."
+  },
+  "byline": {
+    "name": "Skriven av Yu Adachi",
+    "title": "VD, Sense G.K."
+  },
+  "intro": {
+    "h2": "Varför 'Ett Format' Inte Var Tillräckligt",
+    "p1": "Fram till idag erbjöd vår Android-version en kraftfull – men enkel – sammanfattningsstil. Men som vi diskuterade i våra tidigare anteckningar om 'Meningsfulla Protokoll', behöver ett läkarbesök en annan struktur än en säljpitch.",
+    "p2": "Vi tror att AI ska anpassa sig *till dig*, inte tvärtom. Därför tar vi Formatval till Google Play Butik."
+  },
+  "formats": {
+    "h2": "Nya Format Tillgängliga på Android",
+    "p1": "Med denna uppdatering kan du trycka på en knapp för att berätta för AI exakt vilken typ av konversation du spelar in. Här är vad du får:",
+    "list": [
+      {
+        "title": "Standard Allmänt",
+        "desc": "Klassikern. Perfekt för interna synkroniseringar. Fokuserar på Beslut, Att göra och Risker."
+      },
+      {
+        "title": "Försäljning & Förhandling",
+        "desc": "Spårar monetära siffror, invändningar, kundbekymmer och avslutningsåtaganden."
+      },
+      {
+        "title": "Medicinsk (SOAP)",
+        "desc": "Strukturerad för vårdpersonal. Subjektivt, Objektivt, Bedömning och Plan."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Fångar råa idéer, teman och 'tänk om'-scenarier utan att filtrera kreativitet."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Se Skillnaden",
+    "context": "Kontext: En klient diskuterar en budgetbekymmer.",
+    "old": {
+      "label": "Generiskt Läge",
+      "text": "Användaren diskuterade pris. Användare A sa att det är för högt. Användare B erbjöd en rabatt."
+    },
+    "new": {
+      "label": "Nytt Försäljningsformat",
+      "text": "**Invändning:** Klienten flaggade 15% budgetavvikelse.\n**Motåtgärd:** Föreslog förlängning av betalningsvillkor (Net 60).\n**Resultat:** Klienten gick med på att granska uppdaterat förslag senast fredag."
+    }
+  },
+  "wrap": {
+    "h2": "Uppdatera Idag",
+    "p": "Låt inte dina möten gå förlorade i översättningen. Gå med de 30 000 professionella över 150 länder som redan har uppgraderat sitt arbetsflöde."
+  },
+  "cta": {
+    "openBrowser": "Webbversion",
+    "downloadIOS": "iOS App",
+    "downloadGooglePlay": "Uppdatera på Android"
+  }
+}

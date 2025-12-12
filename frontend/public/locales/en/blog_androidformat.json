@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android Update: Select Your Perfect Meeting Format | Minutes.AI",
+    "description": "Huge update for Android! Join 30,000 users in 150 countries. You can now select specific AI formats (Medical, Sales, General) directly on your Android device.",
+    "ogTitle": "Android Users: The 'Format Selection' Update is Here",
+    "ogDescription": "Stop settling for generic summaries. Minutes.AI for Android now lets you switch between Negotiation, Brainstorming, and Medical formats instantly.",
+    "ld": {
+      "headline": "Minutes.AI Android Update: Format Selection Now Live",
+      "description": "The feature iOS users love is now on Android. Select from multiple AI structures to fit your meeting context perfectly."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Android Format Update"
+  },
+  "hero": {
+    "kicker": "Product Update",
+    "h1": "Android Users: Unlock the Power of Context",
+    "tagline": "The wait is over. The feature loved by our iOS community is now live on Android. Choose the perfect structure for your conversation—instantly."
+  },
+  "stats": {
+    "users": "30,000+",
+    "countries": "150 Countries",
+    "label": "Trust Minutes.AI",
+    "desc": "Join the global community transforming how the world records meetings."
+  },
+  "byline": {
+    "name": "Written by Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Why 'One Format' Wasn't Enough",
+    "p1": "Until today, our Android version offered a powerful—but singular—summary style. But as we discussed in our previous notes on 'Meaningful Minutes,' a doctor's appointment needs a different structure than a sales pitch.",
+    "p2": "We believe AI should adapt to *you*, not the other way around. That is why we are bringing Format Selection to the Google Play Store."
+  },
+  "formats": {
+    "h2": "New Formats Available on Android",
+    "p1": "With this update, you can tap a button to tell the AI exactly what kind of conversation you are recording. Here is what you get:",
+    "list": [
+      {
+        "title": "Standard General",
+        "desc": "The classic. Perfect for internal syncs. Focuses on Decisions, To-Dos, and Risks."
+      },
+      {
+        "title": "Sales & Negotiation",
+        "desc": "Tracks monetary figures, objections, client concerns, and closing commitments."
+      },
+      {
+        "title": "Medical (SOAP)",
+        "desc": "Structured for healthcare professionals. Subjective, Objective, Assessment, and Plan."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Captures raw ideas, themes, and 'what if' scenarios without filtering creativity."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "See the Difference",
+    "context": "Context: A client discusses a budget concern.",
+    "old": {
+      "label": "Generic Mode",
+      "text": "User discussed price. User A said it is too high. User B offered a discount."
+    },
+    "new": {
+      "label": "New Sales Format",
+      "text": "**Objection:** Client flagged 15% budget variance.\n**Counter:** Proposed payment terms extension (Net 60).\n**Outcome:** Client agreed to review updated proposal by Friday."
+    }
+  },
+  "wrap": {
+    "h2": "Update Today",
+    "p": "Don't let your meetings get lost in translation. Join the 30,000 professionals across 150 countries who have already upgraded their workflow."
+  },
+  "cta": {
+    "openBrowser": "Web Version",
+    "downloadIOS": "iOS App",
+    "downloadGooglePlay": "Update on Android"
+  }
+}

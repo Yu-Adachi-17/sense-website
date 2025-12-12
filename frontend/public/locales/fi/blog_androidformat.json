@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android-päivitys: Valitse täydellinen kokousmuoto | Pöytäkirja AI",
+    "description": "Valtava päivitys Androidille! Liity 30 000 käyttäjän joukkoon 150 maassa. Voit nyt valita tietyt tekoälymuodot (Lääketieteellinen, Myynti, Yleinen) suoraan Android-laitteellasi.",
+    "ogTitle": "Android-käyttäjät: 'Muodonvalinta'-päivitys on täällä",
+    "ogDescription": "Lopeta tyytyminen yleisiin yhteenvetoihin. Pöytäkirja AI Androidille antaa sinun nyt vaihtaa neuvottelu-, aivoriihi- ja lääketieteellisten muotojen välillä välittömästi.",
+    "ld": {
+      "headline": "Pöytäkirja AI Android-päivitys: Muodonvalinta nyt käytössä",
+      "description": "Ominaisuus, jota iOS-käyttäjät rakastavat, on nyt Androidilla. Valitse useista tekoälyrakenteista, jotka sopivat täydellisesti kokouksesi kontekstiin."
+    }
+  },
+  "aria": {
+    "home": "Pöytäkirja AI Etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "current": "Android Muotopäivitys"
+  },
+  "hero": {
+    "kicker": "Tuotepäivitys",
+    "h1": "Android-käyttäjät: Vapauta kontekstin voima",
+    "tagline": "Odotus on ohi. iOS-yhteisömme rakastama ominaisuus on nyt live-tilassa Androidilla. Valitse täydellinen rakenne keskustelullesi – välittömästi."
+  },
+  "stats": {
+    "users": "30 000+",
+    "countries": "150 Maata",
+    "label": "Luota Pöytäkirja AI:hin",
+    "desc": "Liity globaaliin yhteisöön, joka muuttaa tapaa, jolla maailma tallentaa kokouksia."
+  },
+  "byline": {
+    "name": "Kirjoittanut Yu Adachi",
+    "title": "Toimitusjohtaja, Sense G.K."
+  },
+  "intro": {
+    "h2": "Miksi 'yksi muoto' ei riittänyt",
+    "p1": "Tähän päivään asti Android-versiomme tarjosi tehokkaan – mutta yhden – yhteenvetotyylin. Mutta kuten keskustelimme aiemmissa muistiinpanoissamme 'Merkityksellisistä Pöytäkirjoista', lääkärin vastaanotto tarvitsee erilaisen rakenteen kuin myyntipuhe.",
+    "p2": "Uskomme, että tekoälyn tulisi mukautua *sinuun*, ei toisin päin. Siksi tuomme Muodonvalinnan Google Play Storeen."
+  },
+  "formats": {
+    "h2": "Uudet muodot saatavilla Androidilla",
+    "p1": "Tämän päivityksen avulla voit napauttaa painiketta kertoaksesi tekoälylle tarkalleen, millaista keskustelua nauhoitat. Tässä mitä saat:",
+    "list": [
+      {
+        "title": "Standardi Yleinen",
+        "desc": "Klassikko. Täydellinen sisäisiin synkronointeihin. Keskittyy päätöksiin, tehtäviin ja riskeihin."
+      },
+      {
+        "title": "Myynti & Neuvottelu",
+        "desc": "Seuraa rahasummia, vastaväitteitä, asiakkaiden huolenaiheita ja sulkemissitoumuksia."
+      },
+      {
+        "title": "Lääketieteellinen (SOAP)",
+        "desc": "Strukturoitu terveydenhuollon ammattilaisille. Subjektiivinen, Objektiivinen, Arviointi ja Suunnitelma."
+      },
+      {
+        "title": "Aivoriihi",
+        "desc": "Tallentaa raakaideat, teemat ja 'entä jos' -skenaariot suodattamatta luovuutta."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Katso Ero",
+    "context": "Konteksti: Asiakas keskustelee budjettihuolesta.",
+    "old": {
+      "label": "Yleinen Tila",
+      "text": "Käyttäjä keskusteli hinnasta. Käyttäjä A sanoi sen olevan liian korkea. Käyttäjä B tarjosi alennuksen."
+    },
+    "new": {
+      "label": "Uusi Myyntimuoto",
+      "text": "**Vastaväite:** Asiakas ilmoitti 15 %:n budjettivaihtelusta.\n**Vastaehdotus:** Ehdotettiin maksuaikojen pidennystä (Net 60).\n**Tulos:** Asiakas suostui tarkistamaan päivitetyn ehdotuksen perjantaihin mennessä."
+    }
+  },
+  "wrap": {
+    "h2": "Päivitä Tänään",
+    "p": "Älä anna kokousten mennä hukkaan käännöksessä. Liity 30 000 ammattilaisen joukkoon 150 maassa, jotka ovat jo päivittäneet työnkulkunsa."
+  },
+  "cta": {
+    "openBrowser": "Verkkoversio",
+    "downloadIOS": "iOS-sovellus",
+    "downloadGooglePlay": "Päivitä Androidilla"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android aktualizace: Vyberte si perfektní formát schůzky | Zápisník AI",
+    "description": "Obrovská aktualizace pro Android! Připojte se k 30 000 uživatelům ve 150 zemích. Nyní můžete přímo na svém Androidu zvolit specifické formáty AI (Lékařský, Obchodní, Obecný).",
+    "ogTitle": "Uživatelé Androidu: Aktualizace 'Výběr formátu' je zde",
+    "ogDescription": "Přestaňte se spokojovat s obecnými shrnutími. Zápisník AI pro Android vám nyní umožní okamžitě přepínat mezi formáty pro vyjednávání, brainstorming a lékařství.",
+    "ld": {
+      "headline": "Aktualizace Zápisník AI pro Android: Výběr formátu nyní aktivní",
+      "description": "Funkce, kterou milují uživatelé iOS, je nyní na Androidu. Vyberte si z více struktur AI, které dokonale odpovídají kontextu vaší schůzky."
+    }
+  },
+  "aria": {
+    "home": "Zápisník AI Domů"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Android Formáty"
+  },
+  "hero": {
+    "kicker": "Produktová aktualizace",
+    "h1": "Uživatelé Androidu: Odemkněte sílu kontextu",
+    "tagline": "Čekání je u konce. Funkce, kterou miluje naše iOS komunita, je nyní živě na Androidu. Vyberte si perfektní strukturu pro vaši konverzaci – okamžitě."
+  },
+  "stats": {
+    "users": "30 000+",
+    "countries": "150 Zemí",
+    "label": "Důvěřujte Zápisník AI",
+    "desc": "Připojte se ke globální komunitě, která mění způsob, jakým svět zaznamenává schůzky."
+  },
+  "byline": {
+    "name": "Napsal Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Proč 'jeden formát' nestačil",
+    "p1": "Až do dnešního dne nabízela naše verze pro Android silný – ale jediný – styl shrnutí. Ale jak jsme diskutovali v našich předchozích poznámkách o 'Smysluplných zápisech', návštěva lékaře vyžaduje jinou strukturu než obchodní prezentace.",
+    "p2": "Věříme, že AI by se měla přizpůsobit *vám*, ne naopak. Proto přinášíme Výběr formátu do obchodu Google Play."
+  },
+  "formats": {
+    "h2": "Nové formáty dostupné na Androidu",
+    "p1": "S touto aktualizací můžete klepnutím na tlačítko sdělit AI přesně to, jaký druh konverzace nahráváte. Zde je to, co získáte:",
+    "list": [
+      {
+        "title": "Standardní Obecný",
+        "desc": "Klasika. Ideální pro interní synchronizace. Zaměřuje se na rozhodnutí, úkoly a rizika."
+      },
+      {
+        "title": "Prodej a Vyjednávání",
+        "desc": "Sleduje peněžní částky, námitky, obavy klientů a závazky k uzavření."
+      },
+      {
+        "title": "Lékařský (SOAP)",
+        "desc": "Strukturováno pro zdravotníky. Subjektivní, Objektivní, Hodnocení a Plán."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Zachycuje surové nápady, témata a scénáře 'co kdyby' bez filtrování kreativity."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Podívejte se na rozdíl",
+    "context": "Kontext: Klient diskutuje o obavách z rozpočtu.",
+    "old": {
+      "label": "Obecný režim",
+      "text": "Uživatel diskutoval o ceně. Uživatel A řekl, že je příliš vysoká. Uživatel B nabídl slevu."
+    },
+    "new": {
+      "label": "Nový Obchodní Formát",
+      "text": "**Námitka:** Klient upozornil na 15% odchylku v rozpočtu.\n**Protiargument:** Navrženo prodloužení platebních podmínek (Net 60).\n**Výsledek:** Klient souhlasil s přezkoumáním aktualizovaného návrhu do pátku."
+    }
+  },
+  "wrap": {
+    "h2": "Aktualizujte ještě dnes",
+    "p": "Nenechte své schůzky ztratit se v překladu. Připojte se k 30 000 profesionálům ve 150 zemích, kteří již vylepšili svůj pracovní postup."
+  },
+  "cta": {
+    "openBrowser": "Webová verze",
+    "downloadIOS": "iOS aplikace",
+    "downloadGooglePlay": "Aktualizovat na Androidu"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Pembaruan Android: Pilih Format Rapat Sempurna Anda | Minutes AI",
+    "description": "Pembaruan besar untuk Android! Bergabunglah dengan 30.000 pengguna di 150 negara. Anda sekarang dapat memilih format AI spesifik (Medis, Penjualan, Umum) langsung di perangkat Android Anda.",
+    "ogTitle": "Pengguna Android: Pembaruan 'Pemilihan Format' Telah Hadir",
+    "ogDescription": "Berhenti puas dengan ringkasan umum. Minutes AI untuk Android kini memungkinkan Anda beralih antara format Negosiasi, Brainstorming, dan Medis secara instan.",
+    "ld": {
+      "headline": "Pembaruan Minutes AI Android: Pemilihan Format Sekarang Aktif",
+      "description": "Fitur yang disukai pengguna iOS kini ada di Android. Pilih dari beberapa struktur AI agar sesuai dengan konteks rapat Anda dengan sempurna."
+    }
+  },
+  "aria": {
+    "home": "Minutes AI Beranda"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Pembaruan Format Android"
+  },
+  "hero": {
+    "kicker": "Pembaruan Produk",
+    "h1": "Pengguna Android: Buka Kekuatan Konteks",
+    "tagline": "Penantian telah berakhir. Fitur yang disukai oleh komunitas iOS kami kini tayang langsung di Android. Pilih struktur yang sempurna untuk percakapan Anda—secara instan."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Negara",
+    "label": "Percayai Minutes AI",
+    "desc": "Bergabunglah dengan komunitas global yang mengubah cara dunia merekam rapat."
+  },
+  "byline": {
+    "name": "Ditulis oleh Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Mengapa 'Satu Format' Tidak Cukup",
+    "p1": "Sampai hari ini, versi Android kami menawarkan gaya ringkasan yang kuat—tetapi tunggal. Tetapi seperti yang kami diskusikan dalam catatan kami sebelumnya tentang 'Notulen Bermakna,' janji temu dokter membutuhkan struktur yang berbeda dari promosi penjualan.",
+    "p2": "Kami percaya AI harus beradaptasi *dengan Anda*, bukan sebaliknya. Itulah mengapa kami membawa Pemilihan Format ke Google Play Store."
+  },
+  "formats": {
+    "h2": "Format Baru Tersedia di Android",
+    "p1": "Dengan pembaruan ini, Anda dapat mengetuk tombol untuk memberi tahu AI persis jenis percakapan apa yang Anda rekam. Inilah yang Anda dapatkan:",
+    "list": [
+      {
+        "title": "Standar Umum",
+        "desc": "Yang klasik. Sempurna untuk sinkronisasi internal. Berfokus pada Keputusan, To-Do, dan Risiko."
+      },
+      {
+        "title": "Penjualan & Negosiasi",
+        "desc": "Melacak angka moneter, keberatan, kekhawatiran klien, dan komitmen penutupan."
+      },
+      {
+        "title": "Medis (SOAP)",
+        "desc": "Terstruktur untuk profesional kesehatan. Subjektif, Objektif, Penilaian, dan Rencana."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Menangkap ide mentah, tema, dan skenario 'bagaimana jika' tanpa menyaring kreativitas."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Lihat Perbedaannya",
+    "context": "Konteks: Seorang klien mendiskusikan masalah anggaran.",
+    "old": {
+      "label": "Mode Generik",
+      "text": "Pengguna membahas harga. Pengguna A mengatakan itu terlalu tinggi. Pengguna B menawarkan diskon."
+    },
+    "new": {
+      "label": "Format Penjualan Baru",
+      "text": "**Keberatan:** Klien menandai 15% varian anggaran.\n**Kontra:** Perpanjangan ketentuan pembayaran yang diusulkan (Net 60).\n**Hasil:** Klien setuju untuk meninjau proposal yang diperbarui pada hari Jumat."
+    }
+  },
+  "wrap": {
+    "h2": "Perbarui Hari Ini",
+    "p": "Jangan biarkan rapat Anda hilang dalam terjemahan. Bergabunglah dengan 30.000 profesional di 150 negara yang telah meningkatkan alur kerja mereka."
+  },
+  "cta": {
+    "openBrowser": "Versi Web",
+    "downloadIOS": "Aplikasi iOS",
+    "downloadGooglePlay": "Perbarui di Android"
+  }
+}

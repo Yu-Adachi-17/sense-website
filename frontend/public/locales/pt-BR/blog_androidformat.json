@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Atualização Android: Selecione Seu Formato de Reunião Perfeito | Ata AI",
+    "description": "Grande atualização para Android! Junte-se a 30.000 usuários em 150 países. Agora você pode selecionar formatos de IA específicos (Médico, Vendas, Geral) diretamente no seu dispositivo Android.",
+    "ogTitle": "Usuários Android: A Atualização de 'Seleção de Formato' Chegou",
+    "ogDescription": "Pare de se contentar com resumos genéricos. Ata AI para Android agora permite alternar entre formatos de Negociação, Brainstorming e Médicos instantaneamente.",
+    "ld": {
+      "headline": "Ata AI Atualização Android: Seleção de Formato Agora Ativa",
+      "description": "O recurso que os usuários de iOS amam está agora no Android. Selecione entre várias estruturas de IA para se adequar perfeitamente ao contexto de sua reunião."
+    }
+  },
+  "aria": {
+    "home": "Ata AI Início"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Atualização de Formato Android"
+  },
+  "hero": {
+    "kicker": "Atualização do Produto",
+    "h1": "Usuários Android: Desbloqueie o Poder do Contexto",
+    "tagline": "A espera acabou. O recurso amado por nossa comunidade iOS está agora disponível no Android. Escolha a estrutura perfeita para sua conversa — instantaneamente."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Países",
+    "label": "Confie na Ata AI",
+    "desc": "Junte-se à comunidade global que está transformando a forma como o mundo registra reuniões."
+  },
+  "byline": {
+    "name": "Escrito por Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Por que 'Um Formato' Não Era Suficiente",
+    "p1": "Até hoje, nossa versão Android oferecia um estilo de resumo potente – mas singular. Mas como discutimos em nossas notas anteriores sobre 'Atas Significativas', uma consulta médica precisa de uma estrutura diferente de um discurso de vendas.",
+    "p2": "Acreditamos que a IA deve se adaptar *a você*, não o contrário. É por isso que estamos trazendo a Seleção de Formato para a Google Play Store."
+  },
+  "formats": {
+    "h2": "Novos Formatos Disponíveis no Android",
+    "p1": "Com esta atualização, você pode tocar em um botão para dizer à IA exatamente que tipo de conversa está gravando. Veja o que você ganha:",
+    "list": [
+      {
+        "title": "Padrão Geral",
+        "desc": "O clássico. Perfeito para sincronizações internas. Foca em Decisões, Tarefas e Riscos."
+      },
+      {
+        "title": "Vendas & Negociação",
+        "desc": "Rastreia valores monetários, objeções, preocupações do cliente e compromissos de fechamento."
+      },
+      {
+        "title": "Médico (SOAP)",
+        "desc": "Estruturado para profissionais de saúde. Subjetivo, Objetivo, Avaliação e Plano."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Captura ideias brutas, temas e cenários 'e se' sem filtrar a criatividade."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Veja a Diferença",
+    "context": "Contexto: Um cliente discute uma preocupação orçamentária.",
+    "old": {
+      "label": "Modo Genérico",
+      "text": "O usuário discutiu o preço. O Usuário A disse que é muito alto. O Usuário B ofereceu um desconto."
+    },
+    "new": {
+      "label": "Novo Formato de Vendas",
+      "text": "**Objeção:** O cliente sinalizou 15% de variação orçamentária.\n**Contraproposta:** Sugerida prorrogação dos termos de pagamento (Net 60).\n**Resultado:** O cliente concordou em revisar a proposta atualizada até sexta-feira."
+    }
+  },
+  "wrap": {
+    "h2": "Atualize Hoje",
+    "p": "Não deixe suas reuniões se perderem na tradução. Junte-se aos 30.000 profissionais em 150 países que já atualizaram seu fluxo de trabalho."
+  },
+  "cta": {
+    "openBrowser": "Versão Web",
+    "downloadIOS": "App iOS",
+    "downloadGooglePlay": "Atualizar no Android"
+  }
+}

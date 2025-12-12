@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android Update: Selecteer Uw Perfecte Vergaderformaat | Notulen AI",
+    "description": "Enorme update voor Android! Sluit u aan bij 30.000 gebruikers in 150 landen. U kunt nu specifieke AI-formaten (Medisch, Verkoop, Algemeen) rechtstreeks op uw Android-apparaat selecteren.",
+    "ogTitle": "Android Gebruikers: De 'Formaat Selectie' Update is hier",
+    "ogDescription": "Neem geen genoegen meer met generieke samenvattingen. Notulen AI voor Android laat u nu direct schakelen tussen Onderhandeling, Brainstormen en Medische formaten.",
+    "ld": {
+      "headline": "Notulen AI Android Update: Formaat Selectie Nu Live",
+      "description": "De functie waar iOS-gebruikers van houden is nu op Android. Kies uit meerdere AI-structuren om perfect bij de context van uw vergadering te passen."
+    }
+  },
+  "aria": {
+    "home": "Notulen AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Android Formaat Update"
+  },
+  "hero": {
+    "kicker": "Product Update",
+    "h1": "Android Gebruikers: Ontgrendel de Kracht van Context",
+    "tagline": "Het wachten is voorbij. De functie geliefd bij onze iOS-community is nu live op Android. Kies de perfecte structuur voor uw gesprek - direct."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Landen",
+    "label": "Vertrouw op Notulen AI",
+    "desc": "Sluit u aan bij de wereldwijde community die de manier verandert waarop de wereld vergaderingen opneemt."
+  },
+  "byline": {
+    "name": "Geschreven door Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Waarom 'Eén Formaat' Niet Genoeg Was",
+    "p1": "Tot op heden bood onze Android-versie een krachtige – maar enkelvoudige – samenvattingsstijl. Maar zoals we bespraken in onze vorige notities over 'Betekenisvolle Notulen', heeft een doktersafspraak een andere structuur nodig dan een verkooppraatje.",
+    "p2": "Wij geloven dat AI zich *aan u* moet aanpassen, niet andersom. Daarom brengen we Formaat Selectie naar de Google Play Store."
+  },
+  "formats": {
+    "h2": "Nieuwe Formaten Beschikbaar op Android",
+    "p1": "Met deze update kunt u op een knop tikken om de AI precies te vertellen welk soort gesprek u opneemt. Dit is wat u krijgt:",
+    "list": [
+      {
+        "title": "Standaard Algemeen",
+        "desc": "De klassieker. Perfect voor interne synchronisaties. Richt zich op Beslissingen, To-Do's en Risico's."
+      },
+      {
+        "title": "Verkoop & Onderhandeling",
+        "desc": "Houdt geldelijke cijfers, bezwaren, klantenzorgen en afsluitingsverbintenissen bij."
+      },
+      {
+        "title": "Medisch (SOAP)",
+        "desc": "Gestructureerd voor zorgprofessionals. Subjectief, Objectief, Beoordeling en Plan."
+      },
+      {
+        "title": "Brainstormen",
+        "desc": "Vangt ruwe ideeën, thema's en 'wat als'-scenario's op zonder creativiteit te filteren."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Zie het Verschil",
+    "context": "Context: Een klant bespreekt een budgetzorg.",
+    "old": {
+      "label": "Generieke Modus",
+      "text": "Gebruiker besprak prijs. Gebruiker A zei dat deze te hoog is. Gebruiker B bood korting aan."
+    },
+    "new": {
+      "label": "Nieuw Verkoop Formaat",
+      "text": "**Bezwaar:** Klant meldde 15% budgetafwijking.\n**Tegenvoorstel:** Voorgestelde verlenging betalingsvoorwaarden (Net 60).\n**Resultaat:** Klant stemde ermee in het bijgewerkte voorstel tegen vrijdag te beoordelen."
+    }
+  },
+  "wrap": {
+    "h2": "Update Vandaag Nog",
+    "p": "Laat uw vergaderingen niet verloren gaan in de vertaling. Sluit u aan bij de 30.000 professionals in 150 landen die hun workflow al hebben geüpgraded."
+  },
+  "cta": {
+    "openBrowser": "Webversie",
+    "downloadIOS": "iOS App",
+    "downloadGooglePlay": "Update op Android"
+  }
+}

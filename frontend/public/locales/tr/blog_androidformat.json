@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android Güncellemesi: Mükemmel Toplantı Formatınızı Seçin | Tutanakları AI",
+    "description": "Android için dev güncelleme! 150 ülkede 30.000 kullanıcıya katılın. Artık doğrudan Android cihazınızda belirli yapay zeka formatlarını (Tıbbi, Satış, Genel) seçebilirsiniz.",
+    "ogTitle": "Android Kullanıcıları: 'Format Seçimi' Güncellemesi Burada",
+    "ogDescription": "Artık genel özetlerle yetinmeyin. Tutanakları AI for Android, Müzakere, Beyin Fırtınası ve Tıbbi formatlar arasında anında geçiş yapmanızı sağlar.",
+    "ld": {
+      "headline": "Tutanakları AI Android Güncellemesi: Format Seçimi Şimdi Aktif",
+      "description": "iOS kullanıcılarının sevdiği özellik artık Android'de. Toplantınızın bağlamına mükemmel şekilde uyması için birden çok yapay zeka yapısı arasından seçim yapın."
+    }
+  },
+  "aria": {
+    "home": "Tutanakları AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Android Format Güncellemesi"
+  },
+  "hero": {
+    "kicker": "Ürün Güncellemesi",
+    "h1": "Android Kullanıcıları: Bağlamın Gücünü Açığa Çıkarın",
+    "tagline": "Bekleyiş sona erdi. iOS topluluğumuzun sevdiği özellik artık Android'de yayında. Konuşmanız için mükemmel yapıyı anında seçin."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Ülke",
+    "label": "Tutanakları AI'ya Güvenin",
+    "desc": "Dünyanın toplantıları kaydetme şeklini dönüştüren küresel topluluğa katılın."
+  },
+  "byline": {
+    "name": "Yazan Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Neden 'Tek Bir Format' Yeterli Değildi",
+    "p1": "Bugüne kadar, Android sürümümüz güçlü ancak tekil bir özetleme stili sunuyordu. Ancak 'Anlamlı Tutanaklar' hakkındaki önceki notlarımızda tartıştığımız gibi, bir doktor randevusu bir satış sunumundan farklı bir yapıya ihtiyaç duyar.",
+    "p2": "Yapay zekanın tam tersi değil, *size* uyum sağlaması gerektiğine inanıyoruz. Bu yüzden Format Seçimi'ni Google Play Store'a getiriyoruz."
+  },
+  "formats": {
+    "h2": "Android'de Yeni Formatlar Mevcut",
+    "p1": "Bu güncellemeyle, tam olarak ne tür bir konuşma kaydettiğinizi yapay zekaya söylemek için bir düğmeye dokunabilirsiniz. İşte elde edecekleriniz:",
+    "list": [
+      {
+        "title": "Standart Genel",
+        "desc": "Klasik. Dahili senkronizasyonlar için mükemmel. Kararlar, Yapılacaklar ve Riskler'e odaklanır."
+      },
+      {
+        "title": "Satış ve Müzakere",
+        "desc": "Parasal rakamları, itirazları, müşteri endişelerini ve kapanış taahhütlerini takip eder."
+      },
+      {
+        "title": "Tıbbi (SOAP)",
+        "desc": "Sağlık profesyonelleri için yapılandırılmıştır. Subjektif, Objektif, Değerlendirme ve Plan."
+      },
+      {
+        "title": "Beyin Fırtınası",
+        "desc": "Yaratıcılığı filtrelemeden ham fikirleri, temaları ve 'ne olurdu eğer' senaryolarını yakalar."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Farkı Görün",
+    "context": "Bağlam: Bir müşteri bütçe endişesini tartışıyor.",
+    "old": {
+      "label": "Genel Mod",
+      "text": "Kullanıcı fiyatı tartıştı. Kullanıcı A çok yüksek olduğunu söyledi. Kullanıcı B indirim teklif etti."
+    },
+    "new": {
+      "label": "Yeni Satış Formatı",
+      "text": "**İtiraz:** Müşteri %15 bütçe farkı bildirdi.\n**Karşı Teklif:** Ödeme koşullarının uzatılması önerildi (Net 60).\n**Sonuç:** Müşteri, güncellenmiş teklifi Cuma gününe kadar incelemeyi kabul etti."
+    }
+  },
+  "wrap": {
+    "h2": "Bugün Güncelleyin",
+    "p": "Toplantılarınızın çeviride kaybolmasına izin vermeyin. İş akışlarını zaten yükseltmiş olan 150 ülkedeki 30.000 profesyonele katılın."
+  },
+  "cta": {
+    "openBrowser": "Web Versiyonu",
+    "downloadIOS": "iOS Uygulaması",
+    "downloadGooglePlay": "Android'de Güncelle"
+  }
+}

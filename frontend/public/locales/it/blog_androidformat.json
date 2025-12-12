@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Aggiornamento Android: Seleziona il Tuo Formato di Riunione Perfetto | Verbali IA",
+    "description": "Enorme aggiornamento per Android! Unisciti a 30.000 utenti in 150 paesi. Ora puoi selezionare formati AI specifici (Medico, Vendite, Generale) direttamente sul tuo dispositivo Android.",
+    "ogTitle": "Utenti Android: L'aggiornamento 'Selezione Formato' è qui",
+    "ogDescription": "Smetti di accontentarti di riepiloghi generici. Verbali IA per Android ti consente ora di passare istantaneamente tra i formati di Negoziazione, Brainstorming e Medici.",
+    "ld": {
+      "headline": "Aggiornamento Verbali IA Android: Selezione Formato Ora Live",
+      "description": "La funzione che gli utenti iOS amano è ora su Android. Scegli tra più strutture AI per adattarsi perfettamente al contesto della tua riunione."
+    }
+  },
+  "aria": {
+    "home": "Verbali IA Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Aggiornamento Formato Android"
+  },
+  "hero": {
+    "kicker": "Aggiornamento Prodotto",
+    "h1": "Utenti Android: Sblocca il Potere del Contesto",
+    "tagline": "L'attesa è finita. La funzione amata dalla nostra comunità iOS è ora disponibile su Android. Scegli la struttura perfetta per la tua conversazione—all'istante."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Paesi",
+    "label": "Fidati di Verbali IA",
+    "desc": "Unisciti alla comunità globale che sta trasformando il modo in cui il mondo registra le riunioni."
+  },
+  "byline": {
+    "name": "Scritto da Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Perché 'Un Solo Formato' Non Era Sufficiente",
+    "p1": "Fino ad oggi, la nostra versione Android offriva uno stile di riepilogo potente, ma singolare. Ma come abbiamo discusso nelle nostre note precedenti sui 'Verbali Significativi', un appuntamento dal medico ha bisogno di una struttura diversa da un discorso di vendita.",
+    "p2": "Crediamo che l'IA debba adattarsi *a te*, non il contrario. Ecco perché stiamo portando la Selezione Formato sul Google Play Store."
+  },
+  "formats": {
+    "h2": "Nuovi Formati Disponibili su Android",
+    "p1": "Con questo aggiornamento, puoi toccare un pulsante per dire all'IA esattamente che tipo di conversazione stai registrando. Ecco cosa ottieni:",
+    "list": [
+      {
+        "title": "Generale Standard",
+        "desc": "Il classico. Perfetto per sincronizzazioni interne. Si concentra su Decisioni, Cose da fare e Rischi."
+      },
+      {
+        "title": "Vendite & Negoziazione",
+        "desc": "Traccia le cifre monetarie, le obiezioni, le preoccupazioni dei clienti e gli impegni di chiusura."
+      },
+      {
+        "title": "Medico (SOAP)",
+        "desc": "Strutturato per i professionisti sanitari. Soggettivo, Oggettivo, Valutazione e Piano."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Cattura idee grezze, temi e scenari 'e se' senza filtrare la creatività."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Guarda la Differenza",
+    "context": "Contesto: Un cliente discute un problema di budget.",
+    "old": {
+      "label": "Modalità Generica",
+      "text": "L'utente ha discusso il prezzo. L'utente A ha detto che è troppo alto. L'utente B ha offerto uno sconto."
+    },
+    "new": {
+      "label": "Nuovo Formato di Vendite",
+      "text": "**Obiezione:** Il cliente ha segnalato una variazione di budget del 15%.\n**Controproposta:** Proposta estensione dei termini di pagamento (Net 60).\n**Risultato:** Il cliente ha accettato di rivedere la proposta aggiornata entro venerdì."
+    }
+  },
+  "wrap": {
+    "h2": "Aggiorna Oggi Stesso",
+    "p": "Non lasciare che le tue riunioni si perdano nella traduzione. Unisciti ai 30.000 professionisti in 150 paesi che hanno già migliorato il loro flusso di lavoro."
+  },
+  "cta": {
+    "openBrowser": "Versione Web",
+    "downloadIOS": "App iOS",
+    "downloadGooglePlay": "Aggiorna su Android"
+  }
+}

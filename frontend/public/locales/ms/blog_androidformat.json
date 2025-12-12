@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Kemas Kini Android: Pilih Format Mesyuarat Sempurna Anda | Minit AI",
+    "description": "Kemas kini besar untuk Android! Sertai 30,000 pengguna di 150 negara. Anda kini boleh memilih format AI spesifik (Perubatan, Jualan, Umum) secara terus pada peranti Android anda.",
+    "ogTitle": "Pengguna Android: Kemas Kini 'Pemilihan Format' Telah Tiba",
+    "ogDescription": "Berhenti berpuas hati dengan ringkasan generik. Minit AI untuk Android kini membolehkan anda bertukar antara format Negosiasi, Sumbangsaran, dan Perubatan dengan serta-merta.",
+    "ld": {
+      "headline": "Kemas Kini Minit AI Android: Pemilihan Format Kini Langsung",
+      "description": "Ciri yang digemari pengguna iOS kini ada pada Android. Pilih daripada pelbagai struktur AI untuk disesuaikan dengan konteks mesyuarat anda dengan sempurna."
+    }
+  },
+  "aria": {
+    "home": "Minit AI Laman Utama"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Kemas Kini Format Android"
+  },
+  "hero": {
+    "kicker": "Kemas Kini Produk",
+    "h1": "Pengguna Android: Buka Kunci Kuasa Konteks",
+    "tagline": "Penantian telah berakhir. Ciri yang disukai oleh komuniti iOS kami kini tersedia secara langsung di Android. Pilih struktur yang sempurna untuk perbualan anda—serta-merta."
+  },
+  "stats": {
+    "users": "30,000+",
+    "countries": "150 Negara",
+    "label": "Percayai Minit AI",
+    "desc": "Sertai komuniti global yang mengubah cara dunia merekodkan mesyuarat."
+  },
+  "byline": {
+    "name": "Ditulis oleh Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Mengapa 'Satu Format' Tidak Mencukupi",
+    "p1": "Sehingga hari ini, versi Android kami menawarkan gaya ringkasan yang kuat—tetapi tunggal. Tetapi seperti yang kami bincangkan dalam nota kami sebelum ini mengenai 'Minit Bermakna,' janji temu doktor memerlukan struktur yang berbeza daripada promosi jualan.",
+    "p2": "Kami percaya AI harus menyesuaikan diri *dengan anda*, bukan sebaliknya. Itulah sebabnya kami membawa Pemilihan Format ke Gedung Google Play."
+  },
+  "formats": {
+    "h2": "Format Baharu Tersedia di Android",
+    "p1": "Dengan kemas kini ini, anda boleh mengetik butang untuk memberitahu AI dengan tepat jenis perbualan yang anda rakamkan. Inilah yang anda dapat:",
+    "list": [
+      {
+        "title": "Standard Umum",
+        "desc": "Yang klasik. Sempurna untuk penyegerakan dalaman. Berfokus pada Keputusan, Perkara Untuk Dilakukan, dan Risiko."
+      },
+      {
+        "title": "Jualan & Negosiasi",
+        "desc": "Menjejaki angka kewangan, bantahan, kebimbangan pelanggan, dan komitmen penutupan."
+      },
+      {
+        "title": "Perubatan (SOAP)",
+        "desc": "Berstruktur untuk profesional penjagaan kesihatan. Subjektif, Objektif, Penilaian, dan Pelan."
+      },
+      {
+        "title": "Sumbangsaran",
+        "desc": "Menangkap idea mentah, tema, dan senario 'bagaimana jika' tanpa menapis kreativiti."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Lihat Perbezaannya",
+    "context": "Konteks: Seorang pelanggan membincangkan kebimbangan bajet.",
+    "old": {
+      "label": "Mod Generik",
+      "text": "Pengguna membincangkan harga. Pengguna A berkata ia terlalu tinggi. Pengguna B menawarkan diskaun."
+    },
+    "new": {
+      "label": "Format Jualan Baharu",
+      "text": "**Bantahan:** Klien menandakan 15% varian bajet.\n**Tindakan Balas:** Mencadangkan lanjutan terma pembayaran (Net 60).\n**Hasil:** Klien bersetuju untuk menyemak semula cadangan yang dikemas kini menjelang hari Jumaat."
+    }
+  },
+  "wrap": {
+    "h2": "Kemas Kini Hari Ini",
+    "p": "Jangan biarkan mesyuarat anda hilang dalam terjemahan. Sertai 30,000 profesional di 150 negara yang telah menaik taraf aliran kerja mereka."
+  },
+  "cta": {
+    "openBrowser": "Versi Web",
+    "downloadIOS": "Aplikasi iOS",
+    "downloadGooglePlay": "Kemas Kini di Android"
+  }
+}

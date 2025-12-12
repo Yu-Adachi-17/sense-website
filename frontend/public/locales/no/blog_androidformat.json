@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android-oppdatering: Velg ditt Perfekte Møteformat | Referat AI",
+    "description": "Stor oppdatering for Android! Bli med 30 000 brukere i 150 land. Du kan nå velge spesifikke AI-formater (Medisinsk, Salg, Generelt) direkte på Android-enheten din.",
+    "ogTitle": "Android-brukere: Oppdateringen 'Formatvalg' er her",
+    "ogDescription": "Slutt å nøye deg med generiske sammendrag. Referat AI for Android lar deg nå umiddelbart bytte mellom Forhandling, Brainstorming og Medisinske formater.",
+    "ld": {
+      "headline": "Referat AI Android-oppdatering: Formatvalg Nå Live",
+      "description": "Funksjonen som iOS-brukere elsker er nå på Android. Velg fra flere AI-strukturer for å passe perfekt til møtekonteksten din."
+    }
+  },
+  "aria": {
+    "home": "Referat AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "current": "Android Formatoppdatering"
+  },
+  "hero": {
+    "kicker": "Produktoppdatering",
+    "h1": "Android-brukere: Lås opp Kraften i Konteksten",
+    "tagline": "Ventetiden er over. Funksjonen elsket av vårt iOS-fellesskap er nå live på Android. Velg den perfekte strukturen for samtalen din – umiddelbart."
+  },
+  "stats": {
+    "users": "30 000+",
+    "countries": "150 Land",
+    "label": "Stol på Referat AI",
+    "desc": "Bli med i det globale fellesskapet som transformerer hvordan verden registrerer møter."
+  },
+  "byline": {
+    "name": "Skrevet av Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Hvorfor 'Ett Format' Ikke Var Nok",
+    "p1": "Frem til i dag tilbød vår Android-versjon en kraftig – men enkel – sammendragsstil. Men som vi diskuterte i våre tidligere notater om 'Meningsfulle Referater', trenger en legetime en annen struktur enn en salgspresentasjon.",
+    "p2": "Vi mener at AI skal tilpasse seg *deg*, ikke omvendt. Derfor bringer vi Formatvalg til Google Play Butikk."
+  },
+  "formats": {
+    "h2": "Nye Formater Tilgjengelig på Android",
+    "p1": "Med denne oppdateringen kan du trykke på en knapp for å fortelle AI-en nøyaktig hva slags samtale du spiller inn. Her er hva du får:",
+    "list": [
+      {
+        "title": "Standard Generelt",
+        "desc": "Klassikeren. Perfekt for interne synkroniseringer. Fokuserer på Beslutninger, Oppgaver og Risikoer."
+      },
+      {
+        "title": "Salg & Forhandling",
+        "desc": "Sporer pengebeløp, innvendinger, kundebekymringer og avslutningsforpliktelser."
+      },
+      {
+        "title": "Medisinsk (SOAP)",
+        "desc": "Strukturert for helsepersonell. Subjektivt, Objektivt, Vurdering og Plan."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Fanger opp rå ideer, temaer og 'hva hvis'-scenarier uten å filtrere kreativitet."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Se Forskjellen",
+    "context": "Kontekst: En klient diskuterer en budsjettbekymring.",
+    "old": {
+      "label": "Generisk Modus",
+      "text": "Bruker diskuterte pris. Bruker A sa den var for høy. Bruker B tilbød en rabatt."
+    },
+    "new": {
+      "label": "Nytt Salgsformat",
+      "text": "**Innvending:** Klienten flagget 15 % budsjettavvik.\n**Motsvar:** Foreslo forlengelse av betalingsbetingelser (Net 60).\n**Resultat:** Klienten godtok å gjennomgå oppdatert forslag innen fredag."
+    }
+  },
+  "wrap": {
+    "h2": "Oppdater i Dag",
+    "p": "Ikke la møtene dine gå tapt i oversettelsen. Bli med de 30 000 profesjonelle på tvers av 150 land som allerede har oppgradert arbeidsflyten sin."
+  },
+  "cta": {
+    "openBrowser": "Nettversjon",
+    "downloadIOS": "iOS-app",
+    "downloadGooglePlay": "Oppdater på Android"
+  }
+}

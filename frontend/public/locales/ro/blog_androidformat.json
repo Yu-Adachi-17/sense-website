@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Actualizare Android: Selectați Formatul Perfect de Ședință | Proces-verbal AI",
+    "description": "O actualizare uriașă pentru Android! Alăturați-vă celor 30.000 de utilizatori din 150 de țări. Acum puteți selecta formate AI specifice (Medical, Vânzări, General) direct pe dispozitivul dvs. Android.",
+    "ogTitle": "Utilizatori Android: Actualizarea 'Selecție Format' a Sosit",
+    "ogDescription": "Nu vă mai mulțumiți cu rezumate generice. Proces-verbal AI pentru Android vă permite acum să comutați instantaneu între formatele de Negociere, Brainstorming și cele Medicale.",
+    "ld": {
+      "headline": "Proces-verbal AI Actualizare Android: Selecție Format Acum Live",
+      "description": "Funcția pe care o iubesc utilizatorii iOS este acum pe Android. Alegeți dintre mai multe structuri AI pentru a se potrivi perfect contextului ședinței dvs."
+    }
+  },
+  "aria": {
+    "home": "Proces-verbal AI Acasă"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Actualizare Format Android"
+  },
+  "hero": {
+    "kicker": "Actualizare Produs",
+    "h1": "Utilizatori Android: Deblocați Puterea Contextului",
+    "tagline": "Așteptarea a luat sfârșit. Funcția iubită de comunitatea noastră iOS este acum disponibilă pe Android. Alegeți structura perfectă pentru conversația dvs. - instantaneu."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Țări",
+    "label": "Aveți încredere în Proces-verbal AI",
+    "desc": "Alăturați-vă comunității globale care transformă modul în care lumea înregistrează ședințele."
+  },
+  "byline": {
+    "name": "Scris de Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "De Ce 'Un Singur Format' Nu Era Suficient",
+    "p1": "Până astăzi, versiunea noastră de Android oferea un stil de rezumat puternic – dar singular. Dar, așa cum am discutat în notele noastre anterioare despre 'Procese-verbale Semnificative', o programare la medic are nevoie de o structură diferită față de un pitch de vânzări.",
+    "p2": "Credem că AI ar trebui să se adapteze *la dumneavoastră*, nu invers. De aceea aducem Selecția Formatului în Magazinul Google Play."
+  },
+  "formats": {
+    "h2": "Formate Noi Disponibile pe Android",
+    "p1": "Cu această actualizare, puteți atinge un buton pentru a-i spune AI-ului exact ce fel de conversație înregistrați. Iată ce primiți:",
+    "list": [
+      {
+        "title": "Standard General",
+        "desc": "Clasicul. Perfect pentru sincronizările interne. Se concentrează pe Decizii, Lucruri de Făcut și Riscuri."
+      },
+      {
+        "title": "Vânzări & Negociere",
+        "desc": "Urmărește cifrele monetare, obiecțiile, preocupările clienților și angajamentele de încheiere."
+      },
+      {
+        "title": "Medical (SOAP)",
+        "desc": "Structurat pentru profesioniștii din domeniul sănătății. Subiectiv, Obiectiv, Evaluare și Plan."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Captează idei brute, teme și scenarii 'ce ar fi dacă' fără a filtra creativitatea."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Vedeți Diferența",
+    "context": "Context: Un client discută o problemă de buget.",
+    "old": {
+      "label": "Modul Generic",
+      "text": "Utilizatorul a discutat prețul. Utilizatorul A a spus că este prea mare. Utilizatorul B a oferit o reducere."
+    },
+    "new": {
+      "label": "Noul Format de Vânzări",
+      "text": "**Obiecție:** Clientul a semnalat o variație bugetară de 15%.\n**Contrapropunere:** S-a propus extinderea termenelor de plată (Net 60).\n**Rezultat:** Clientul a fost de acord să revizuiască propunerea actualizată până vineri."
+    }
+  },
+  "wrap": {
+    "h2": "Actualizați Astăzi",
+    "p": "Nu lăsați ședințele să se piardă în traducere. Alăturați-vă celor 30.000 de profesioniști din 150 de țări care și-au îmbunătățit deja fluxul de lucru."
+  },
+  "cta": {
+    "openBrowser": "Versiunea Web",
+    "downloadIOS": "Aplicație iOS",
+    "downloadGooglePlay": "Actualizați pe Android"
+  }
+}

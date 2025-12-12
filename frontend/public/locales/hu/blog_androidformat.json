@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android Frissítés: Válaszd ki a Tökéletes Tárgyalási Formátumot | Jegyzőkönyv AI",
+    "description": "Hatalmas frissítés Androidra! Csatlakozz 30.000 felhasználóhoz 150 országban. Mostantól közvetlenül Android készülékeden választhatsz specifikus AI formátumokat (Orvosi, Értékesítés, Általános).",
+    "ogTitle": "Android Felhasználók: Megérkezett a 'Formátumválasztás' Frissítés",
+    "ogDescription": "Ne elégedj meg többé az általános összefoglalókkal. A Jegyzőkönyv AI Androidra lehetővé teszi, hogy azonnal válts a Tárgyalás, Ötletbörze és Orvosi formátumok között.",
+    "ld": {
+      "headline": "Jegyzőkönyv AI Android Frissítés: Formátumválasztás Élőben",
+      "description": "Az a funkció, amit az iOS felhasználók imádnak, mostantól Androidon is elérhető. Válassz több AI struktúra közül, hogy tökéletesen illeszkedjen a megbeszélésed kontextusához."
+    }
+  },
+  "aria": {
+    "home": "Jegyzőkönyv AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Android Formátum Frissítés"
+  },
+  "hero": {
+    "kicker": "Termékfrissítés",
+    "h1": "Android Felhasználók: Oldd fel a Kontextus Erejét",
+    "tagline": "Vége a várakozásnak. Az iOS közösségünk által kedvelt funkció mostantól élőben elérhető Androidon. Válaszd ki a tökéletes struktúrát a beszélgetésedhez – azonnal."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Ország",
+    "label": "Bízz a Jegyzőkönyv AI-ban",
+    "desc": "Csatlakozz a globális közösséghez, amely átalakítja, ahogy a világ rögzíti a megbeszéléseket."
+  },
+  "byline": {
+    "name": "Írta: Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Miért nem volt elég az 'Egy Formátum'",
+    "p1": "Egészen eddig az Android verziónk egy hatékony – de szinguláris – összefoglaló stílust kínált. De ahogy azt a 'Jelentőségteljes Jegyzőkönyvekről' szóló korábbi jegyzeteinkben tárgyaltuk, egy orvosi találkozó más struktúrát igényel, mint egy értékesítési prezentáció.",
+    "p2": "Hiszünk abban, hogy az AI-nak *hozzád* kell alkalmazkodnia, nem fordítva. Ezért hozzuk el a Formátumválasztást a Google Play Áruházba."
+  },
+  "formats": {
+    "h2": "Új Formátumok Elérhetők Androidon",
+    "p1": "Ezzel a frissítéssel egy gombnyomással pontosan megmondhatod az AI-nak, milyen típusú beszélgetést rögzítesz. Íme, amit kapsz:",
+    "list": [
+      {
+        "title": "Standard Általános",
+        "desc": "A klasszikus. Tökéletes belső szinkronizálásokhoz. Fókuszban a Döntések, Teendők és Kockázatok."
+      },
+      {
+        "title": "Értékesítés & Tárgyalás",
+        "desc": "Követi a pénzügyi adatokat, kifogásokat, ügyfélproblémákat és lezárási kötelezettségeket."
+      },
+      {
+        "title": "Orvosi (SOAP)",
+        "desc": "Egészségügyi szakemberek számára strukturált. Szubjektív, Objektív, Értékelés és Terv."
+      },
+      {
+        "title": "Ötletbörze",
+        "desc": "Rögzíti a nyers ötleteket, témákat és 'mi lenne ha' forgatókönyveket a kreativitás szűrése nélkül."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Lásd a Különbséget",
+    "context": "Kontextus: Egy ügyfél költségvetési aggályokat vitat meg.",
+    "old": {
+      "label": "Általános Mód",
+      "text": "A felhasználó megbeszélte az árat. A felhasználó A azt mondta, túl magas. A felhasználó B kedvezményt ajánlott."
+    },
+    "new": {
+      "label": "Új Értékesítési Formátum",
+      "text": "**Kifogás:** Az ügyfél 15%-os költségvetési eltérést jelzett.\n**Ellenvetés:** Javasolt fizetési feltételek meghosszabbítása (Net 60).\n**Eredmény:** Az ügyfél beleegyezett a frissített javaslat péntekig történő áttekintésébe."
+    }
+  },
+  "wrap": {
+    "h2": "Frissíts Ma",
+    "p": "Ne hagyd, hogy a megbeszéléseid elveszjenek a fordításban. Csatlakozz a 150 ország 30.000 szakembereihez, akik már frissítették a munkafolyamatukat."
+  },
+  "cta": {
+    "openBrowser": "Web Verzió",
+    "downloadIOS": "iOS Alkalmazás",
+    "downloadGooglePlay": "Frissítés Androidon"
+  }
+}

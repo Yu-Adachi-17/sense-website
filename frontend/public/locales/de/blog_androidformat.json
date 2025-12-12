@@ -1,0 +1,83 @@
+{
+  "seo": {
+    "title": "Android-Update: Wählen Sie Ihr perfektes Meeting-Format | Protokoll KI",
+    "description": "Riesiges Update für Android! Schließen Sie sich 30.000 Nutzern in 150 Ländern an. Sie können jetzt spezifische KI-Formate (Medizin, Vertrieb, Allgemein) direkt auf Ihrem Android-Gerät auswählen.",
+    "ogTitle": "Android-Nutzer: Das Update zur 'Formatauswahl' ist da",
+    "ogDescription": "Geben Sie sich nicht mehr mit generischen Zusammenfassungen zufrieden. Protokoll KI für Android lässt Sie jetzt sofort zwischen Verhandlung, Brainstorming und medizinischen Formaten wechseln.",
+    "ld": {
+      "headline": "Protokoll KI Android-Update: Formatauswahl jetzt live",
+      "description": "Das Feature, das iOS-Nutzer lieben, ist jetzt auf Android. Wählen Sie aus mehreren KI-Strukturen, um Ihren Meeting-Kontext perfekt abzubilden."
+    }
+  },
+  "aria": {
+    "home": "Protokoll KI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Android Format-Update"
+  },
+  "hero": {
+    "kicker": "Produkt-Update",
+    "h1": "Android-Nutzer: Nutzen Sie die Kraft des Kontexts",
+    "tagline": "Das Warten hat ein Ende. Das von unserer iOS-Community geliebte Feature ist jetzt live auf Android. Wählen Sie die perfekte Struktur für Ihr Gespräch – sofort.",
+    "subtag": "Werden Sie Teil der globalen Community, die verändert, wie die Welt Meetings aufzeichnet."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Länder",
+    "label": "Vertrauen Sie Protokoll KI",
+    "desc": "Werden Sie Teil der globalen Community, die verändert, wie die Welt Meetings aufzeichnet."
+  },
+  "byline": {
+    "name": "Geschrieben von Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Warum 'ein Format' nicht genug war",
+    "p1": "Bis heute bot unsere Android-Version einen starken – aber einzigen – Zusammenfassungsstil. Aber wie wir in unseren früheren Notizen über 'Aussagekräftige Protokolle' besprochen haben, braucht ein Arzttermin eine andere Struktur als ein Verkaufsgespräch.",
+    "p2": "Wir glauben, dass KI sich an *Sie* anpassen sollte, nicht umgekehrt. Deshalb bringen wir die Formatauswahl in den Google Play Store."
+  },
+  "formats": {
+    "h2": "Neue Formate auf Android verfügbar",
+    "p1": "Mit diesem Update können Sie per Knopfdruck der KI genau mitteilen, welche Art von Gespräch Sie aufzeichnen. Das bekommen Sie:",
+    "list": [
+      {
+        "title": "Standard Allgemein",
+        "desc": "Der Klassiker. Perfekt für interne Abstimmungen. Fokussiert auf Entscheidungen, To-Dos und Risiken."
+      },
+      {
+        "title": "Vertrieb & Verhandlung",
+        "desc": "Erfasst Geldbeträge, Einwände, Kundenbedenken und Abschlussverpflichtungen."
+      },
+      {
+        "title": "Medizinisch (SOAP)",
+        "desc": "Strukturiert für medizinisches Fachpersonal. Subjektiv, Objektiv, Bewertung und Plan."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Erfasst rohe Ideen, Themen und 'Was-wäre-wenn'-Szenarien ohne Kreativitätsfilter."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Sehen Sie den Unterschied",
+    "context": "Kontext: Ein Kunde bespricht ein Budgetbedenken.",
+    "old": {
+      "label": "Generischer Modus",
+      "text": "Benutzer diskutierte Preis. Benutzer A sagte, er sei zu hoch. Benutzer B bot einen Rabatt an."
+    },
+    "new": {
+      "label": "Neues Vertriebsformat",
+      "text": "**Einwand:** Kunde markierte 15% Budgetabweichung.\n**Gegenangebot:** Verlängerung der Zahlungsziele vorgeschlagen (Net 60).\n**Ergebnis:** Kunde stimmte zu, das aktualisierte Angebot bis Freitag zu prüfen."
+    }
+  },
+  "wrap": {
+    "h2": "Update noch heute",
+    "p": "Lassen Sie Ihre Meetings nicht in der Übersetzung verloren gehen. Schließen Sie sich den 30.000 Profis in 150 Ländern an, die ihren Arbeitsablauf bereits verbessert haben."
+  },
+  "cta": {
+    "openBrowser": "Web-Version",
+    "downloadIOS": "iOS-App",
+    "downloadGooglePlay": "Auf Android aktualisieren"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Cập Nhật Android: Chọn Định Dạng Cuộc Họp Hoàn Hảo Của Bạn | Biên bản AI",
+    "description": "Cập nhật lớn cho Android! Tham gia cùng 30.000 người dùng tại 150 quốc gia. Giờ đây, bạn có thể chọn các định dạng AI cụ thể (Y tế, Bán hàng, Chung) trực tiếp trên thiết bị Android của mình.",
+    "ogTitle": "Người Dùng Android: Bản Cập Nhật 'Chọn Định Dạng' Đã Có Mặt",
+    "ogDescription": "Đừng chấp nhận các bản tóm tắt chung chung nữa. Biên bản AI cho Android giờ đây cho phép bạn chuyển đổi giữa các định dạng Đàm phán, Động não và Y tế ngay lập tức.",
+    "ld": {
+      "headline": "Biên bản AI Cập Nhật Android: Chọn Định Dạng Hiện Đang Hoạt Động",
+      "description": "Tính năng mà người dùng iOS yêu thích giờ đã có trên Android. Chọn từ nhiều cấu trúc AI để phù hợp hoàn hảo với bối cảnh cuộc họp của bạn."
+    }
+  },
+  "aria": {
+    "home": "Biên bản AI Trang Chủ"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Cập Nhật Định Dạng Android"
+  },
+  "hero": {
+    "kicker": "Cập Nhật Sản Phẩm",
+    "h1": "Người Dùng Android: Mở Khóa Sức Mạnh của Bối Cảnh",
+    "tagline": "Sự chờ đợi đã kết thúc. Tính năng được cộng đồng iOS của chúng tôi yêu thích hiện đã có trên Android. Chọn cấu trúc hoàn hảo cho cuộc trò chuyện của bạn—ngay lập tức."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Quốc Gia",
+    "label": "Tin tưởng vào Biên bản AI",
+    "desc": "Tham gia cộng đồng toàn cầu đang thay đổi cách thế giới ghi lại các cuộc họp."
+  },
+  "byline": {
+    "name": "Viết bởi Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Tại Sao 'Một Định Dạng' Là Không Đủ",
+    "p1": "Cho đến hôm nay, phiên bản Android của chúng tôi chỉ cung cấp một kiểu tóm tắt mạnh mẽ—nhưng đơn lẻ. Nhưng như chúng tôi đã thảo luận trong các ghi chú trước đây về 'Biên Bản Có Ý Nghĩa', cuộc hẹn với bác sĩ cần một cấu trúc khác với bài thuyết trình bán hàng.",
+    "p2": "Chúng tôi tin rằng AI nên thích ứng *với bạn*, chứ không phải ngược lại. Đó là lý do tại sao chúng tôi mang tính năng Chọn Định Dạng đến Cửa hàng Google Play."
+  },
+  "formats": {
+    "h2": "Định Dạng Mới Có Sẵn Trên Android",
+    "p1": "Với bản cập nhật này, bạn có thể chạm vào một nút để cho AI biết chính xác loại cuộc trò chuyện nào bạn đang ghi âm. Đây là những gì bạn nhận được:",
+    "list": [
+      {
+        "title": "Chung Tiêu Chuẩn",
+        "desc": "Cổ điển. Hoàn hảo cho các buổi đồng bộ nội bộ. Tập trung vào Quyết định, Việc cần làm và Rủi ro."
+      },
+      {
+        "title": "Bán Hàng & Đàm Phán",
+        "desc": "Theo dõi các số liệu tiền tệ, phản đối, mối quan tâm của khách hàng và cam kết chốt giao dịch."
+      },
+      {
+        "title": "Y Tế (SOAP)",
+        "desc": "Được cấu trúc cho các chuyên gia chăm sóc sức khỏe. Chủ quan, Khách quan, Đánh giá và Kế hoạch."
+      },
+      {
+        "title": "Động Não (Brainstorming)",
+        "desc": "Ghi lại các ý tưởng thô, chủ đề và kịch bản 'điều gì sẽ xảy ra nếu' mà không lọc bỏ sự sáng tạo."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Xem Sự Khác Biệt",
+    "context": "Bối cảnh: Một khách hàng thảo luận về mối lo ngại về ngân sách.",
+    "old": {
+      "label": "Chế Độ Chung",
+      "text": "Người dùng đã thảo luận về giá. Người dùng A nói rằng nó quá cao. Người dùng B đề nghị giảm giá."
+    },
+    "new": {
+      "label": "Định Dạng Bán Hàng Mới",
+      "text": "**Phản đối:** Khách hàng báo hiệu chênh lệch ngân sách 15%.\n**Biện pháp đối phó:** Đề xuất gia hạn điều khoản thanh toán (Net 60).\n**Kết quả:** Khách hàng đồng ý xem xét đề xuất cập nhật trước thứ Sáu."
+    }
+  },
+  "wrap": {
+    "h2": "Cập Nhật Ngay Hôm Nay",
+    "p": "Đừng để các cuộc họp của bạn bị lạc trong bản dịch. Tham gia cùng 30.000 chuyên gia tại 150 quốc gia đã nâng cấp quy trình làm việc của họ."
+  },
+  "cta": {
+    "openBrowser": "Phiên Bản Web",
+    "downloadIOS": "Ứng Dụng iOS",
+    "downloadGooglePlay": "Cập Nhật trên Android"
+  }
+}

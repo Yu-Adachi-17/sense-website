@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Mise à jour Android : Sélectionnez votre Format de Réunion Parfait | Minutes.AI",
+    "description": "Énorme mise à jour pour Android ! Rejoignez 30 000 utilisateurs dans 150 pays. Vous pouvez maintenant sélectionner des formats d'IA spécifiques (Médical, Ventes, Général) directement sur votre appareil Android.",
+    "ogTitle": "Utilisateurs Android : La mise à jour 'Sélection de Format' est arrivée",
+    "ogDescription": "Arrêtez de vous contenter de résumés génériques. Minutes.AI pour Android vous permet désormais de basculer instantanément entre les formats de Négociation, Brainstorming et Médical.",
+    "ld": {
+      "headline": "Mise à jour Minutes.AI Android : Sélection de Format Maintenant Disponible",
+      "description": "La fonctionnalité que les utilisateurs iOS adorent est maintenant sur Android. Choisissez parmi plusieurs structures d'IA pour correspondre parfaitement au contexte de votre réunion."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Accueil"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Mise à jour Format Android"
+  },
+  "hero": {
+    "kicker": "Mise à jour Produit",
+    "h1": "Utilisateurs Android : Libérez la Puissance du Contexte",
+    "tagline": "L'attente est terminée. La fonctionnalité adorée par notre communauté iOS est maintenant disponible en direct sur Android. Choisissez la structure parfaite pour votre conversation — instantanément."
+  },
+  "stats": {
+    "users": "30 000+",
+    "countries": "150 Pays",
+    "label": "Faites confiance à Minutes.AI",
+    "desc": "Rejoignez la communauté mondiale qui transforme la façon dont le monde enregistre les réunions."
+  },
+  "byline": {
+    "name": "Écrit par Yu Adachi",
+    "title": "PDG, Sense G.K."
+  },
+  "intro": {
+    "h2": "Pourquoi 'Un Seul Format' n'était pas suffisant",
+    "p1": "Jusqu'à aujourd'hui, notre version Android offrait un style de résumé puissant, mais singulier. Mais comme nous l'avons discuté dans nos notes précédentes sur les 'Procès-verbaux Significatifs', un rendez-vous chez le médecin nécessite une structure différente d'un argumentaire de vente.",
+    "p2": "Nous croyons que l'IA devrait s'adapter à *vous*, et non l'inverse. C'est pourquoi nous apportons la Sélection de Format sur le Google Play Store."
+  },
+  "formats": {
+    "h2": "Nouveaux Formats Disponibles sur Android",
+    "p1": "Avec cette mise à jour, vous pouvez appuyer sur un bouton pour indiquer à l'IA exactement le type de conversation que vous enregistrez. Voici ce que vous obtenez :",
+    "list": [
+      {
+        "title": "Général Standard",
+        "desc": "Le classique. Parfait pour les synchronisations internes. Se concentre sur les Décisions, les Tâches à faire et les Risques."
+      },
+      {
+        "title": "Ventes & Négociation",
+        "desc": "Suit les chiffres monétaires, les objections, les préoccupations des clients et les engagements de clôture."
+      },
+      {
+        "title": "Médical (SOAP)",
+        "desc": "Structuré pour les professionnels de la santé. Subjectif, Objectif, Évaluation et Plan."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Capture les idées brutes, les thèmes et les scénarios 'et si' sans filtrer la créativité."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Voyez la Différence",
+    "context": "Contexte : Un client discute d'une préoccupation budgétaire.",
+    "old": {
+      "label": "Mode Générique",
+      "text": "L'utilisateur a discuté du prix. L'utilisateur A a dit qu'il était trop élevé. L'utilisateur B a offert une réduction."
+    },
+    "new": {
+      "label": "Nouveau Format de Ventes",
+      "text": "**Objection :** Le client a signalé un écart budgétaire de 15 %.\n**Contre-proposition :** Extension des conditions de paiement (Net 60) proposée.\n**Résultat :** Le client a accepté d'examiner la proposition mise à jour d'ici vendredi."
+    }
+  },
+  "wrap": {
+    "h2": "Mettez à Jour Aujourd'hui",
+    "p": "Ne laissez pas vos réunions se perdre dans la traduction. Rejoignez les 30 000 professionnels à travers 150 pays qui ont déjà amélioré leur flux de travail."
+  },
+  "cta": {
+    "openBrowser": "Version Web",
+    "downloadIOS": "Appli iOS",
+    "downloadGooglePlay": "Mettre à jour sur Android"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Android Ažuriranje: Odaberite Savršen Format Sastanka | AI Zapisnik",
+    "description": "Veliko ažuriranje za Android! Pridružite se 30.000 korisnika u 150 zemalja. Sada možete odabrati specifične AI formate (Medicinski, Prodaja, Opći) izravno na svom Android uređaju.",
+    "ogTitle": "Korisnici Androida: Ažuriranje 'Odabir Formata' je stiglo",
+    "ogDescription": "Prestanite se zadovoljavati generičkim sažecima. AI Zapisnik za Android sada vam omogućuje trenutno prebacivanje između formata za pregovore, brainstorming i medicinskih formata.",
+    "ld": {
+      "headline": "AI Zapisnik Android Ažuriranje: Odabir Formata Sada Aktivan",
+      "description": "Značajka koju korisnici iOS-a vole sada je na Androidu. Odaberite između više AI struktura kako bi savršeno odgovarale kontekstu vašeg sastanka."
+    }
+  },
+  "aria": {
+    "home": "AI Zapisnik Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Android Ažuriranje Formata"
+  },
+  "hero": {
+    "kicker": "Ažuriranje Proizvoda",
+    "h1": "Korisnici Androida: Otključajte Moć Konteksta",
+    "tagline": "Čekanje je gotovo. Značajka koju voli naša iOS zajednica sada je uživo na Androidu. Odaberite savršenu strukturu za svoj razgovor – trenutno."
+  },
+  "stats": {
+    "users": "30.000+",
+    "countries": "150 Zemalja",
+    "label": "Vjerujte AI Zapisniku",
+    "desc": "Pridružite se globalnoj zajednici koja transformira način na koji svijet bilježi sastanke."
+  },
+  "byline": {
+    "name": "Napisao Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Zašto 'Jedan Format' Nije Bio Dovoljan",
+    "p1": "Do danas, naša Android verzija nudila je snažan – ali jedinstven – stil sažetka. Ali kao što smo raspravljali u našim prethodnim bilješkama o 'Smislenim Zapisnicima', liječnički pregled zahtijeva drugačiju strukturu od prodajnog predstavljanja.",
+    "p2": "Vjerujemo da bi se AI trebao prilagoditi *vama*, a ne obrnuto. Zato donosimo Odabir Formata u Google Play Trgovinu."
+  },
+  "formats": {
+    "h2": "Novi Formati Dostupni na Androidu",
+    "p1": "S ovim ažuriranjem, možete dodirnuti gumb da biste AI-u rekli točno kakvu vrstu razgovora snimate. Evo što dobivate:",
+    "list": [
+      {
+        "title": "Standardni Opći",
+        "desc": "Klasika. Savršeno za interne sinkronizacije. Fokusira se na Odluke, Zadaci i Rizike."
+      },
+      {
+        "title": "Prodaja i Pregovaranje",
+        "desc": "Prati novčane iznose, prigovore, brige klijenata i obveze zatvaranja."
+      },
+      {
+        "title": "Medicinski (SOAP)",
+        "desc": "Strukturirano za zdravstvene djelatnike. Subjektivno, Objektivno, Procjena i Plan."
+      },
+      {
+        "title": "Brainstorming",
+        "desc": "Bilježi sirove ideje, teme i 'što ako' scenarije bez filtriranja kreativnosti."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Pogledajte Razliku",
+    "context": "Kontekst: Klijent raspravlja o zabrinutosti zbog proračuna.",
+    "old": {
+      "label": "Generički Način",
+      "text": "Korisnik je raspravljao o cijeni. Korisnik A je rekao da je previsoka. Korisnik B je ponudio popust."
+    },
+    "new": {
+      "label": "Novi Format Prodaje",
+      "text": "**Prigovor:** Klijent je istaknuo 15% odstupanja u proračunu.\n**Protuponuda:** Predloženo produljenje uvjeta plaćanja (Net 60).\n**Ishod:** Klijent se složio pregledati ažurirani prijedlog do petka."
+    }
+  },
+  "wrap": {
+    "h2": "Ažurirajte Danas",
+    "p": "Ne dopustite da se vaši sastanci izgube u prijevodu. Pridružite se 30.000 profesionalaca diljem 150 zemalja koji su već nadogradili svoj tijek rada."
+  },
+  "cta": {
+    "openBrowser": "Web Verzija",
+    "downloadIOS": "iOS Aplikacija",
+    "downloadGooglePlay": "Ažuriraj na Androidu"
+  }
+}

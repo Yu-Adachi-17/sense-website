@@ -1,0 +1,82 @@
+{
+  "seo": {
+    "title": "Aktualizacja Android: Wybierz Idealny Format Spotkania | Protokół AI",
+    "description": "Ogromna aktualizacja dla Androida! Dołącz do 30 000 użytkowników w 150 krajach. Teraz możesz wybrać określone formaty AI (Medyczny, Sprzedażowy, Ogólny) bezpośrednio na swoim urządzeniu z Androidem.",
+    "ogTitle": "Użytkownicy Androida: Aktualizacja 'Wybór Formatu' już jest",
+    "ogDescription": "Przestań zadowalać się ogólnymi podsumowaniami. Protokół AI dla Androida pozwala teraz natychmiast przełączać się między formatami Negocjacji, Burzy Mózgów i Medycznymi.",
+    "ld": {
+      "headline": "Protokół AI Aktualizacja Android: Wybór Formatu Teraz Dostępny",
+      "description": "Funkcja, którą kochają użytkownicy iOS, jest teraz na Androidzie. Wybierz spośród wielu struktur AI, aby idealnie pasowały do kontekstu Twojego spotkania."
+    }
+  },
+  "aria": {
+    "home": "Protokół AI Strona Główna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "current": "Aktualizacja Formatu Android"
+  },
+  "hero": {
+    "kicker": "Aktualizacja Produktu",
+    "h1": "Użytkownicy Androida: Odblokuj Potęgę Kontekstu",
+    "tagline": "Czekanie się skończyło. Funkcja uwielbiana przez naszą społeczność iOS jest teraz dostępna na Androidzie. Wybierz idealną strukturę dla swojej rozmowy — natychmiast."
+  },
+  "stats": {
+    "users": "30 000+",
+    "countries": "150 Krajów",
+    "label": "Zaufaj Protokół AI",
+    "desc": "Dołącz do globalnej społeczności, która zmienia sposób, w jaki świat rejestruje spotkania."
+  },
+  "byline": {
+    "name": "Napisane przez Yu Adachi",
+    "title": "CEO, Sense G.K."
+  },
+  "intro": {
+    "h2": "Dlaczego 'Jeden Format' Nie Wystarczył",
+    "p1": "Do dziś nasza wersja na Androida oferowała mocny – ale pojedynczy – styl podsumowania. Ale jak omówiliśmy w naszych poprzednich notatkach na temat 'Sensownych Protokółów', wizyta u lekarza wymaga innej struktury niż prezentacja sprzedażowa.",
+    "p2": "Wierzymy, że AI powinno dostosowywać się *do Ciebie*, a nie odwrotnie. Dlatego wprowadzamy Wybór Formatu do Sklepu Google Play."
+  },
+  "formats": {
+    "h2": "Nowe Formaty Dostępne na Androidzie",
+    "p1": "Dzięki tej aktualizacji możesz dotknąć przycisku, aby powiedzieć AI, jaki rodzaj rozmowy nagrywasz. Oto co otrzymujesz:",
+    "list": [
+      {
+        "title": "Standard Ogólny",
+        "desc": "Klasyka. Idealny do wewnętrznych synchronizacji. Koncentruje się na Decyzjach, Zadania i Ryzyku."
+      },
+      {
+        "title": "Sprzedaż i Negocjacje",
+        "desc": "Śledzi kwoty pieniężne, zastrzeżenia, obawy klientów i zobowiązania do zamknięcia."
+      },
+      {
+        "title": "Medyczny (SOAP)",
+        "desc": "Struktura dla pracowników służby zdrowia. Subiektywny, Obiektywny, Ocena i Plan."
+      },
+      {
+        "title": "Burza Mózgów",
+        "desc": "Przechwytuje surowe pomysły, tematy i scenariusze 'co by było, gdyby' bez filtrowania kreatywności."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Zobacz Różnicę",
+    "context": "Kontekst: Klient omawia obawy budżetowe.",
+    "old": {
+      "label": "Tryb Ogólny",
+      "text": "Użytkownik omówił cenę. Użytkownik A powiedział, że jest za wysoka. Użytkownik B zaoferował rabat."
+    },
+    "new": {
+      "label": "Nowy Format Sprzedażowy",
+      "text": "**Zastrzeżenie:** Klient zgłosił 15% odchylenie budżetowe.\n**Kontra:** Zaproponowano przedłużenie warunków płatności (Net 60).\n**Wynik:** Klient zgodził się przejrzeć zaktualizowaną propozycję do piątku."
+    }
+  },
+  "wrap": {
+    "h2": "Zaktualizuj Dzisiaj",
+    "p": "Nie pozwól, aby Twoje spotkania zaginęły w tłumaczeniu. Dołącz do 30 000 profesjonalistów w 150 krajach, którzy już ulepszyli swój przepływ pracy."
+  },
+  "cta": {
+    "openBrowser": "Wersja Webowa",
+    "downloadIOS": "Aplikacja iOS",
+    "downloadGooglePlay": "Zaktualizuj na Androidzie"
+  }
+}
