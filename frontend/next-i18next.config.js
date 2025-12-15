@@ -43,7 +43,8 @@ module.exports = {
     'blog_cost',
     'blog_meetinganalysis',
     'blog_slideaipro',
-    'blog_androidformat' 
+    'blog_androidformat' ,
+    'blog_bringinaudio' 
   ],
   defaultNS: 'common',
 

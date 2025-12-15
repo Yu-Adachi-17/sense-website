@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Audio importeren naar AI: Zet spraakmemo's om in notulen (Nieuwe functie)",
+    "description": "Vergadering opgenomen met spraakmemo's? Nu kun je audiobestanden (m4a, mp3, wav, mp4) direct importeren in Notulen AI voor volledige transcripties en samenvattingen.",
+    "ogTitle": "Audiobestanden importeren in Notulen AI — M4A, MP3, WAV ondersteund",
+    "ogDescription": "Eindelijk een manier om die grote audiobestanden om te zetten in bruikbare notulen. Ondersteunt tot 200MB en diverse formaten zoals m4a, mp3 en flac.",
+    "ld": {
+      "headline": "Hoe maak je vergadernotulen van bestaande audiobestanden",
+      "description": "Een gids voor het gebruik van de nieuwe audio-importfunctie in Notulen AI. Lost het probleem op van beperkt apparaatgebruik tijdens vergaderingen door vooraf opgenomen audio te verwerken."
+    }
+  },
+  "aria": { "home": "Notulen AI Home" },
+  "nav": { "blog": "Blog", "current": "Audio Import Functie" },
+  "hero": {
+    "kicker": "Nieuwe Update",
+    "h1": "Elders opgenomen? Geen probleem. Zet audiobestanden om in AI-notulen.",
+    "tagline": "Of het nu een spraakmemo, een Zoom-opname of een bestand van een voice recorder is—je kunt ze nu direct importeren in Notulen AI voor directe transcriptie en samenvatting."
+  },
+  "problem": {
+    "p1": "We kennen het allemaal. Je zit in een streng beveiligde vergadering waar 'cloud apps' verboden zijn, maar offline opnemen mag wel. Of misschien vergat je gewoon de AI-app te openen en gebruikte je Apple Spraakmemo's.",
+    "p2": "Tot nu toe zat je vast aan een audiobestand van 60 minuten en een leeg blad. Alles opnieuw beluisteren om notities te typen is pijnlijk. **Dat is nu verleden tijd.**"
+  },
+  "solution": {
+    "h2": "Jouw opnames, nu actiegericht",
+    "intro": "We hebben de iOS-app geüpdatet om **'Externe Audio Import'** te ondersteunen. Je kunt nu bestanden van andere apps, je iCloud Drive of je apparaatopslag direct in onze verwerkingsengine laden.",
+    "features": [
+      {
+        "t": "200MB Bestandondersteuning",
+        "d": "Lange vergadering? Geen stress. We ondersteunen momenteel bestanden tot 200MB, wat de meeste standaardsessies dekt. (En we breiden dit binnenkort uit!)"
+      },
+      {
+        "t": "Volledig Transcript + Samenvatting",
+        "d": "Je krijgt niet alleen een samenvatting. Je krijgt de ruwe tekst met tijdstempels van wie wat zei, plus de gestructureerde notulen."
+      },
+      {
+        "t": "Formaatvrijheid",
+        "d": "M4A, MP3, WAV, MP4... wij regelen de conversie zodat jij dat niet hoeft te doen."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Ondersteunde Bestandsformaten",
+    "intro": "Onze engine herkent de meest voorkomende audio- en videoconainers in het bedrijfsleven:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Spraakmemo's / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standaard Audio Layer III" },
+      { "ext": "wav", "type": "Hoge Kwaliteit Waveform" },
+      { "ext": "mp4", "type": "Video Vergaderopnames" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Lossless Audio" },
+      { "ext": "ogg / webm", "type": "Web Audio Formaten" }
+    ]
+  },
+  "workflow": {
+    "h2": "Hoe het jouw workflow oplost",
+    "items": [
+      {
+        "title": "De 'Strenge Beveiliging' Vergadering",
+        "desc": "Sommige bedrijven blokkeren internet in vergaderzalen maar staan offline dictafoons toe. Neem daar op en importeer het bestand later als je weer online bent."
+      },
+      {
+        "title": "Het 'Oeps, vergeten' Moment",
+        "desc": "Uit gewoonte de standaard recorder gebruikt? Geen paniek. Deel het bestand vanuit Spraakmemo's naar Notulen AI en red je avond."
+      },
+      {
+        "title": "Het Oude Archief",
+        "desc": "Heb je een map met oude interviews op je schijf? Importeer ze om ze eindelijk doorzoekbaar en samengevat te maken."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Geüpdatet", "type": "Functie", "category": "iOS / Productiviteit" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Probeer Import op iOS" }
+}

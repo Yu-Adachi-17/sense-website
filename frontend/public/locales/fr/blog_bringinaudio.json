@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Importer de l'Audio dans l'IA : Transformez vos Mémos Vocaux en Procès-verbaux de Réunion (Nouvelle Fonctionnalité)",
+    "description": "Vous avez enregistré une réunion sur Mémos Vocaux ? Vous pouvez maintenant importer des fichiers audio (m4a, mp3, wav, mp4) directement dans Minutes.AI pour générer des transcriptions complètes et des résumés.",
+    "ogTitle": "Importez des Fichiers Audio dans Minutes.AI — M4A, MP3, WAV Pris en Charge",
+    "ogDescription": "Enfin, un moyen de transformer ces fichiers audio volumineux en procès-verbaux exploitables. Prend en charge jusqu'à 200 Mo et divers formats comme m4a, mp3 et flac.",
+    "ld": {
+      "headline": "Comment créer des procès-verbaux de réunion à partir de fichiers audio existants",
+      "description": "Un guide sur l'utilisation de la nouvelle fonction d'Importation Audio dans Minutes.AI. Résout le problème de l'utilisation restreinte des appareils pendant les réunions en traitant l'audio pré-enregistré."
+    }
+  },
+  "aria": { "home": "Minutes.AI Accueil" },
+  "nav": { "blog": "Blog", "current": "Fonction d'Importation Audio" },
+  "hero": {
+    "kicker": "Nouvelle Mise à Jour",
+    "h1": "Enregistré Ailleurs ? Pas de Problème. Convertissez des Fichiers Audio en Procès-verbaux IA.",
+    "tagline": "Qu'il s'agisse d'un Mémo Vocal, d'un enregistrement Zoom ou d'un fichier provenant d'un enregistreur dédié—vous pouvez maintenant les importer directement dans Minutes.AI pour une transcription et une synthèse instantanées."
+  },
+  "problem": {
+    "p1": "Nous avons tous connu cela. Vous êtes dans une réunion hautement sécurisée où les 'applications cloud' sont interdites, mais l'enregistrement hors ligne est autorisé. Ou peut-être avez-vous simplement oublié d'ouvrir l'application IA et avez appuyé sur enregistrer sur Mémos Vocaux Apple à la place.",
+    "p2": "Jusqu'à présent, vous étiez bloqué avec un fichier audio de 60 minutes et une page blanche. Réécouter le tout juste pour taper des notes est pénible. **Cela se termine aujourd'hui.**"
+  },
+  "solution": {
+    "h2": "Vos Enregistrements, Maintenant Exploitables",
+    "intro": "Nous avons mis à jour l'application iOS pour prendre en charge l'**'Importation d'Audio Externe'**. Vous pouvez désormais apporter des fichiers d'autres applications, de votre iCloud Drive ou du stockage de votre appareil directement dans notre moteur de traitement.",
+    "features": [
+      {
+        "t": "Support des Fichiers de 200 Mo",
+        "d": "Une longue réunion ? Pas de souci. Nous prenons actuellement en charge les fichiers jusqu'à 200 Mo, couvrant la plupart des longues sessions standard. (Et nous prévoyons d'étendre cela bientôt !)"
+      },
+      {
+        "t": "Transcription Complète + Résumé",
+        "d": "Vous n'obtenez pas seulement un résumé. Vous obtenez le texte brut, horodaté de qui a dit quoi, ainsi que les procès-verbaux structurés que vous connaissez et aimez."
+      },
+      {
+        "t": "Liberté de Format",
+        "d": "M4A, MP3, WAV, MP4... nous nous occupons de la conversion pour que vous n'ayez pas à le faire."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Formats de Fichier Pris en Charge",
+    "intro": "Nous avons conçu notre moteur pour reconnaître les conteneurs audio et vidéo les plus courants utilisés dans les affaires aujourd'hui :",
+    "list": [
+      { "ext": "m4a", "type": "Mémos Vocaux Apple / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Couche Audio Standard III" },
+      { "ext": "wav", "type": "Forme d'Onde de Haute Qualité" },
+      { "ext": "mp4", "type": "Enregistrements de Réunions Vidéo" },
+      { "ext": "aac", "type": "Codage Audio Avancé" },
+      { "ext": "flac", "type": "Audio Sans Perte" },
+      { "ext": "ogg / webm", "type": "Formats Audio Web" }
+    ]
+  },
+  "workflow": {
+    "h2": "Comment cela Résout votre Flux de Travail",
+    "items": [
+      {
+        "title": "La Réunion à 'Sécurité Stricte'",
+        "desc": "Certaines entreprises bloquent l'accès à Internet dans les salles de conférence mais autorisent les dictaphones hors ligne. Enregistrez là, puis importez le fichier plus tard lorsque vous êtes de retour en ligne."
+      },
+      {
+        "title": "Le Moment 'Oups, j'ai Oublié'",
+        "desc": "Vous avez utilisé l'enregistreur par défaut par habitude ? Pas de panique. Partagez le fichier de Mémos Vocaux vers Minutes.AI et sauvez votre soirée."
+      },
+      {
+        "title": "L'Archive Héritée",
+        "desc": "Vous avez un dossier de vieilles interviews ou conférences sur votre disque ? Importez-les pour enfin les rendre consultables et résumées."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Mis à Jour", "type": "Fonctionnalité", "category": "iOS / Productivité" },
+  "cta": { "openBrowser": "Ouvrir dans le navigateur", "downloadIOS": "Essayer la Fonctionnalité d'Importation sur iOS" }
+}

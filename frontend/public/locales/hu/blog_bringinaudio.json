@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Hang importálása AI-ba: Alakítsa át a hangjegyzeteket jegyzőkönyvekké (Új funkció)",
+    "description": "Hangjegyzetekkel rögzített egy megbeszélést? Most már közvetlenül a Jegyzőkönyv AI-ba importálhat audiofájlokat (m4a, mp3, wav, mp4) a teljes átiratok és összefoglalók generálásához.",
+    "ogTitle": "Audiofájlok importálása a Jegyzőkönyv AI-ba — M4A, MP3, WAV támogatással",
+    "ogDescription": "Végre egy módszer, amellyel az óriási audiofájlokat cselekvésre ösztönző jegyzőkönyvekké alakíthatja. Akár 200 MB-ot és különféle formátumokat, például m4a-t, mp3-at és flac-et is támogat.",
+    "ld": {
+      "headline": "Hogyan készítsünk jegyzőkönyveket meglévő audiofájlokból",
+      "description": "Útmutató a Jegyzőkönyv AI új Hang Importálása funkciójának használatához. Megoldja az eszköz korlátozott használatának problémáját a megbeszélések alatt az előre rögzített hang feldolgozásával."
+    }
+  },
+  "aria": { "home": "Jegyzőkönyv AI Kezdőlap" },
+  "nav": { "blog": "Blog", "current": "Hang Importálása Funkció" },
+  "hero": {
+    "kicker": "Új funkciófrissítés",
+    "h1": "Máshol rögzítve? Nem probléma. Alakítsa át az audiofájlokat AI jegyzőkönyvekké.",
+    "tagline": "Legyen szó hangjegyzetről, Zoom felvételről vagy dedikált rögzítőről származó fájlról – most már közvetlenül a Jegyzőkönyv AI-ba importálhatja őket az azonnali átíráshoz és összefoglaláshoz."
+  },
+  "problem": {
+    "p1": "Mindannyian voltunk már ebben a helyzetben. Egy magas biztonsági szintű megbeszélésen van, ahol a 'felhőalkalmazások' tiltottak, de az offline rögzítés megengedett. Vagy talán egyszerűen elfelejtette megnyitni az AI alkalmazást, és helyette az Apple Hangjegyzetekkel nyomta meg a rögzítést.",
+    "p2": "Eddig egy 60 perces audiofájllal és egy üres oldallal volt elakadva. Fájdalmas az egészet újra meghallgatni, csak hogy jegyzeteket gépeljen. **Ez ma véget ér.**"
+  },
+  "solution": {
+    "h2": "Az Ön felvételei, mostantól cselekvőképesek",
+    "intro": "Frissítettük az iOS alkalmazást az **'Külső Hang Importálása'** támogatására. Mostantól más alkalmazásokból, az iCloud Drive-ból vagy az eszköz tárhelyéről is behozhat fájlokat közvetlenül a feldolgozó motorunkba.",
+    "features": [
+      {
+        "t": "200 MB fájltámogatás",
+        "d": "Hosszú megbeszélés? Semmi stressz. Jelenleg akár 200 MB-os fájlokat is támogatunk, ami lefedi a legtöbb szabványos hosszú munkamenetet. (És ezt hamarosan bővíteni tervezzük!)"
+      },
+      {
+        "t": "Teljes átirat + összefoglaló",
+        "d": "Nem csak összefoglalót kap. Megkapja a nyers, időbélyeggel ellátott szöveget arról, hogy ki mit mondott, plusz a strukturált jegyzőkönyveket, amelyeket ismer és szeret."
+      },
+      {
+        "t": "Formátum szabadság",
+        "d": "M4A, MP3, WAV, MP4... mi kezeljük az átalakítást, hogy Önnek ne kelljen."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Támogatott fájlformátumok",
+    "intro": "Motorunkat úgy építettük, hogy felismerje az üzleti életben ma használt leggyakoribb audio- és videotárolókat:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Hangjegyzetek / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standard Audio Layer III" },
+      { "ext": "wav", "type": "Magas minőségű hullámforma" },
+      { "ext": "mp4", "type": "Videomegbeszélés felvételek" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Veszteségmentes hang" },
+      { "ext": "ogg / webm", "type": "Webes audio formátumok" }
+    ]
+  },
+  "workflow": {
+    "h2": "Hogyan oldja meg a munkafolyamatát",
+    "items": [
+      {
+        "title": "A 'Szigorú Biztonságú' Megbeszélés",
+        "desc": "Egyes cégek blokkolják az internet-hozzáférést a tárgyalótermekben, de engedélyezik az offline diktafonokat. Rögzítsen ott, majd importálja a fájlt később, amikor újra online lesz."
+      },
+      {
+        "title": "Az 'Upsz, Elfelejtettem' Pillanat",
+        "desc": "Szokásból az alapértelmezett rögzítőt használta? Ne essen pánikba. Ossza meg a fájlt a Hangjegyzetekből a Jegyzőkönyv AI-ba, és mentse meg az estéjét."
+      },
+      {
+        "title": "Az Örökség Archívum",
+        "desc": "Van egy mappája régi interjúkból vagy előadásokból a meghajtóján? Importálja őket, hogy végre kereshetővé és összefoglalhatóvá váljanak."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Frissítve", "type": "Funkció", "category": "iOS / Produktivitás" },
+  "cta": { "openBrowser": "Megnyitás böngészőben", "downloadIOS": "Próbálja ki az Importálás funkciót iOS-en" }
+}

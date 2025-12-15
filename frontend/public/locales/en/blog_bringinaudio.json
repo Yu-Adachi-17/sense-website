@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Import Audio to AI: Turn Voice Memos into Meeting Minutes (New Feature)",
+    "description": "Recorded a meeting on Voice Memos? Now you can import audio files (m4a, mp3, wav, mp4) directly into Minutes.AI to generate full transcripts and summaries.",
+    "ogTitle": "Import Audio Files to Minutes.AI — M4A, MP3, WAV Supported",
+    "ogDescription": "Finally, a way to turn those giant audio files into actionable minutes. Supports up to 200MB and diverse formats like m4a, mp3, and flac.",
+    "ld": {
+      "headline": "How to Create Meeting Minutes from Existing Audio Files",
+      "description": "A guide on using the new Import Audio feature in Minutes.AI. Solves the problem of restricted device usage during meetings by processing pre-recorded audio."
+    }
+  },
+  "aria": { "home": "Minutes.AI Home" },
+  "nav": { "blog": "Blog", "current": "Import Audio Feature" },
+  "hero": {
+    "kicker": "New Feature Update",
+    "h1": "Recorded Elsewhere? No Problem. Turn Audio Files into AI Minutes.",
+    "tagline": "Whether it's a Voice Memo, a Zoom recording, or a file from a dedicated recorder—you can now import them directly into Minutes.AI for instant transcription and summarization."
+  },
+  "problem": {
+    "p1": "We've all been there. You're in a high-security meeting where 'cloud apps' are banned, but offline recording is allowed. Or maybe you simply forgot to open the AI app and hit record on Apple Voice Memos instead.",
+    "p2": "Until now, you were stuck with a 60-minute audio file and a blank page. Listening to the whole thing again just to type notes is painful. **That ends today.**"
+  },
+  "solution": {
+    "h2": "Your Recordings, Now Actionable",
+    "intro": "We have updated the iOS app to support **'External Audio Import'**. You can now bring files from other apps, your iCloud Drive, or your device storage directly into our processing engine.",
+    "features": [
+      {
+        "t": "200MB File Support",
+        "d": "Got a long meeting? No sweat. We currently support files up to 200MB, covering most standard lengthy sessions. (And we plan to expand this soon!)"
+      },
+      {
+        "t": "Full Transcript + Summary",
+        "d": "You don't just get a summary. You get the raw, time-stamped text of who said what, plus the structured minutes you know and love."
+      },
+      {
+        "t": "Format Freedom",
+        "d": "M4A, MP3, WAV, MP4... we handle the conversion so you don't have to."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Supported File Formats",
+    "intro": "We've built our engine to recognize the most common audio and video containers used in business today:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Voice Memos / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standard Audio Layer III" },
+      { "ext": "wav", "type": "High Quality Waveform" },
+      { "ext": "mp4", "type": "Video Meeting Recordings" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Lossless Audio" },
+      { "ext": "ogg / webm", "type": "Web Audio Formats" }
+    ]
+  },
+  "workflow": {
+    "h2": "How It Solves Your Workflow",
+    "items": [
+      {
+        "title": "The 'Strict Security' Meeting",
+        "desc": "Some companies block internet access in boardrooms but allow offline dictaphones. Record there, then import the file later when you're back online."
+      },
+      {
+        "title": "The 'Oops, I Forgot' Moment",
+        "desc": "Used the default recorder out of habit? Don't panic. Share the file from Voice Memos to Minutes.AI and save your evening."
+      },
+      {
+        "title": "The Legacy Archive",
+        "desc": "Have a folder of old interviews or lectures on your drive? Import them to finally make them searchable and summarized."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Updated", "type": "Feature", "category": "iOS / Productivity" },
+  "cta": { "openBrowser": "Open in browser", "downloadIOS": "Try Import Feature on iOS" }
+}

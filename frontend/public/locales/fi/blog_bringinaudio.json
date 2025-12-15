@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Tuo ääni tekoälyyn: Muuta sanelut kokouspöytäkirjoiksi (Uusi ominaisuus)",
+    "description": "Nauhoititko kokouksen Sanelimeen? Nyt voit tuoda äänitiedostot (m4a, mp3, wav, mp4) suoraan Pöytäkirja AI:hin ja luoda täydelliset transkriptiot ja yhteenvedot.",
+    "ogTitle": "Tuo äänitiedostoja Pöytäkirja AI:hin — M4A, MP3, WAV tuettu",
+    "ogDescription": "Vihdoinkin tapa muuttaa suuret äänitiedostot käyttökelpoisiksi pöytäkirjoiksi. Tukee jopa 200 Mt:n tiedostoja ja formaatteja kuten m4a, mp3 ja flac.",
+    "ld": {
+      "headline": "Kuinka luoda kokouspöytäkirjoja olemassa olevista äänitiedostoista",
+      "description": "Opas uuden Tuo Ääni -ominaisuuden käyttöön Pöytäkirja AI:ssa. Ratkaisee rajoitetun laitteiden käytön ongelman kokouksissa käsittelemällä valmiiksi nauhoitettua ääntä."
+    }
+  },
+  "aria": { "home": "Pöytäkirja AI Koti" },
+  "nav": { "blog": "Blogi", "current": "Äänen tuonti -ominaisuus" },
+  "hero": {
+    "kicker": "Uusi päivitys",
+    "h1": "Nauhoititko muualle? Ei ongelmaa. Muuta äänitiedostot AI-pöytäkirjoiksi.",
+    "tagline": "Olipa kyseessä sanelu, Zoom-tallenne tai tiedosto erillisestä nauhurista—voit nyt tuoda ne suoraan Pöytäkirja AI:hin välitöntä litterointia ja tiivistämistä varten."
+  },
+  "problem": {
+    "p1": "Olemme kaikki kokeneet sen. Olet korkean turvallisuustason kokouksessa, jossa 'pilvisovellukset' ovat kiellettyjä, mutta offline-nauhoitus on sallittu. Tai ehkä unohdit vain avata AI-sovelluksen ja käytit Apple Sanelinta sen sijaan.",
+    "p2": "Tähän asti jäit jumiin 60 minuutin äänitiedoston ja tyhjän paperin kanssa. Koko jutun kuunteleminen uudelleen muistiinpanojen kirjoittamiseksi on tuskallista. **Se loppuu tänään.**"
+  },
+  "solution": {
+    "h2": "Nauhoituksesi, nyt hyödynnettävissä",
+    "intro": "Olemme päivittäneet iOS-sovelluksen tukemaan **'Ulkoista äänen tuontia'**. Voit nyt tuoda tiedostoja muista sovelluksista, iCloud Drivesta tai laitteesi muistista suoraan käsittelymoottoriimme.",
+    "features": [
+      {
+        "t": "200 Mt Tiedostotuki",
+        "d": "Pitkä kokous? Ei huolta. Tuemme tällä hetkellä jopa 200 Mt:n tiedostoja, mikä kattaa useimmat vakioistunnot. (Ja aiomme laajentaa tätä pian!)"
+      },
+      {
+        "t": "Täysi Transkriptio + Yhteenveto",
+        "d": "Et saa vain tiivistelmää. Saat raakatekstin aikaleimoilla siitä, kuka sanoi mitä, sekä jäsennellyn pöytäkirjan."
+      },
+      {
+        "t": "Formaattivapaus",
+        "d": "M4A, MP3, WAV, MP4... me hoidamme muunnoksen, jotta sinun ei tarvitse."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Tuetut tiedostoformaatit",
+    "intro": "Moottorimme tunnistaa liikeelämässä yleisimmin käytetyt ääni- ja videomuodot:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Sanelin / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standard Audio Layer III" },
+      { "ext": "wav", "type": "Korkealaatuinen aaltomuoto" },
+      { "ext": "mp4", "type": "Videokokoustallenteet" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Häviötön ääni" },
+      { "ext": "ogg / webm", "type": "Web Audio -formaatit" }
+    ]
+  },
+  "workflow": {
+    "h2": "Miten se ratkaisee työnkulkusi",
+    "items": [
+      {
+        "title": "Tiukan tietoturvan kokous",
+        "desc": "Jotkut yritykset estävät internetin neuvotteluhuoneissa, mutta sallivat offline-sanelimet. Nauhoita siellä ja tuo tiedosto myöhemmin, kun olet taas verkossa."
+      },
+      {
+        "title": "'Hups, unohdin' -hetki",
+        "desc": "Käytitkö vakionauhuria tottumuksesta? Älä panikoi. Jaa tiedosto Sanelimesta Pöytäkirja AI:hin ja pelasta iltasi."
+      },
+      {
+        "title": "Vanha arkisto",
+        "desc": "Onko levylläsi kansio vanhoja haastatteluja? Tuo ne, jotta niistä tulee vihdoin haettavia ja tiivistettyjä."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Päivitetty", "type": "Ominaisuus", "category": "iOS / Tuottavuus" },
+  "cta": { "openBrowser": "Avaa selaimessa", "downloadIOS": "Kokeile tuontia iOS:lla" }
+}

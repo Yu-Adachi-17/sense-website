@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Nhập Âm thanh vào AI: Chuyển Ghi chú Thoại thành Biên bản Cuộc họp (Tính năng mới)",
+    "description": "Bạn đã ghi lại cuộc họp trên Ghi chú Thoại? Giờ đây, bạn có thể nhập các tệp âm thanh (m4a, mp3, wav, mp4) trực tiếp vào Biên bản AI để tạo bản ghi và tóm tắt đầy đủ.",
+    "ogTitle": "Nhập Tệp Âm thanh vào Biên bản AI — Hỗ trợ M4A, MP3, WAV",
+    "ogDescription": "Cuối cùng, một cách để biến các tệp âm thanh khổng lồ đó thành biên bản có thể hành động. Hỗ trợ tối đa 200MB và nhiều định dạng khác nhau như m4a, mp3 và flac.",
+    "ld": {
+      "headline": "Cách tạo biên bản cuộc họp từ các tệp âm thanh hiện có",
+      "description": "Hướng dẫn cách sử dụng tính năng Nhập Âm thanh mới trong Biên bản AI. Giải quyết vấn đề hạn chế sử dụng thiết bị trong cuộc họp bằng cách xử lý âm thanh đã ghi trước."
+    }
+  },
+  "aria": { "home": "Trang chủ Biên bản AI" },
+  "nav": { "blog": "Blog", "current": "Tính năng Nhập Âm thanh" },
+  "hero": {
+    "kicker": "Cập nhật Tính năng mới",
+    "h1": "Đã ghi ở nơi khác? Không sao cả. Chuyển tệp âm thanh thành Biên bản AI.",
+    "tagline": "Cho dù đó là Ghi chú Thoại, bản ghi Zoom hay tệp từ máy ghi âm chuyên dụng—giờ đây bạn có thể nhập chúng trực tiếp vào Biên bản AI để có bản ghi và tóm tắt tức thì."
+  },
+  "problem": {
+    "p1": "Tất cả chúng ta đều đã trải qua điều đó. Bạn đang ở trong một cuộc họp bảo mật cao, nơi 'ứng dụng đám mây' bị cấm, nhưng việc ghi âm ngoại tuyến được phép. Hoặc có lẽ bạn chỉ quên mở ứng dụng AI và thay vào đó nhấn ghi trên Ghi chú Thoại của Apple.",
+    "p2": "Cho đến nay, bạn đã bị mắc kẹt với tệp âm thanh dài 60 phút và một trang trắng. Việc nghe lại toàn bộ chỉ để gõ ghi chú thật đau đớn. **Điều đó kết thúc ngay hôm nay.**"
+  },
+  "solution": {
+    "h2": "Bản Ghi của Bạn, Giờ Đây Có Thể Hành Động",
+    "intro": "Chúng tôi đã cập nhật ứng dụng iOS để hỗ trợ **'Nhập Âm thanh Ngoài'**. Giờ đây, bạn có thể đưa các tệp từ các ứng dụng khác, iCloud Drive hoặc bộ nhớ thiết bị của mình trực tiếp vào công cụ xử lý của chúng tôi.",
+    "features": [
+      {
+        "t": "Hỗ trợ Tệp 200MB",
+        "d": "Có một cuộc họp dài? Đừng lo lắng. Chúng tôi hiện hỗ trợ các tệp lên đến 200MB, bao gồm hầu hết các phiên dài tiêu chuẩn. (Và chúng tôi dự định mở rộng điều này sớm!)"
+      },
+      {
+        "t": "Bản Ghi Đầy Đủ + Tóm Tắt",
+        "d": "Bạn không chỉ nhận được bản tóm tắt. Bạn nhận được văn bản thô, có dấu thời gian về người đã nói gì, cộng với biên bản có cấu trúc mà bạn biết và yêu thích."
+      },
+      {
+        "t": "Tự do Định dạng",
+        "d": "M4A, MP3, WAV, MP4... chúng tôi xử lý việc chuyển đổi để bạn không phải làm."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Định dạng Tệp Được Hỗ trợ",
+    "intro": "Chúng tôi đã xây dựng công cụ của mình để nhận dạng các bộ chứa âm thanh và video phổ biến nhất được sử dụng trong kinh doanh ngày nay:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Ghi chú Thoại / Âm thanh MPEG-4" },
+      { "ext": "mp3", "type": "Lớp Âm thanh Tiêu chuẩn III" },
+      { "ext": "wav", "type": "Dạng Sóng Chất lượng cao" },
+      { "ext": "mp4", "type": "Bản ghi Cuộc họp Video" },
+      { "ext": "aac", "type": "Mã hóa Âm thanh Nâng cao" },
+      { "ext": "flac", "type": "Âm thanh Không Mất Mát" },
+      { "ext": "ogg / webm", "type": "Định dạng Âm thanh Web" }
+    ]
+  },
+  "workflow": {
+    "h2": "Cách Giải quyết Quy trình Làm việc của Bạn",
+    "items": [
+      {
+        "title": "Cuộc họp 'Bảo mật Nghiêm ngặt'",
+        "desc": "Một số công ty chặn truy cập Internet trong phòng họp nhưng cho phép máy ghi âm ngoại tuyến. Ghi âm ở đó, sau đó nhập tệp sau khi bạn kết nối lại."
+      },
+      {
+        "title": "Khoảnh khắc 'Ối, tôi quên mất'",
+        "desc": "Sử dụng máy ghi âm mặc định theo thói quen? Đừng hoảng sợ. Chia sẻ tệp từ Ghi chú Thoại sang Biên bản AI và cứu buổi tối của bạn."
+      },
+      {
+        "title": "Kho Lưu trữ Cũ",
+        "desc": "Bạn có một thư mục các cuộc phỏng vấn hoặc bài giảng cũ trên ổ đĩa của mình không? Nhập chúng để cuối cùng chúng có thể tìm kiếm và tóm tắt được."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Đã cập nhật", "type": "Tính năng", "category": "iOS / Năng suất" },
+  "cta": { "openBrowser": "Mở trong trình duyệt", "downloadIOS": "Thử Tính năng Nhập trên iOS" }
+}

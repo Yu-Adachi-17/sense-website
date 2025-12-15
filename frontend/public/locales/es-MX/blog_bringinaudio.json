@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Importar Audio a IA: Convierte Notas de Voz en Actas de Reunión (Nueva Función)",
+    "description": "¿Grabaste una reunión en Notas de Voz? Ahora puedes importar archivos de audio (m4a, mp3, wav, mp4) directamente a Actas IA para generar transcripciones completas y resúmenes.",
+    "ogTitle": "Importar Archivos de Audio a Actas IA — Compatible con M4A, MP3, WAV",
+    "ogDescription": "Finalmente, una forma de convertir esos archivos de audio gigantes en actas procesables. Admite hasta 200 MB y diversos formatos como m4a, mp3 y flac.",
+    "ld": {
+      "headline": "Cómo crear actas de reuniones a partir de archivos de audio existentes",
+      "description": "Una guía sobre cómo usar la nueva función de Importar Audio en Actas IA. Resuelve el problema del uso restringido de dispositivos durante las reuniones procesando audio pregrabado."
+    }
+  },
+  "aria": { "home": "Actas IA Inicio" },
+  "nav": { "blog": "Blog", "current": "Función de Importar Audio" },
+  "hero": {
+    "kicker": "Actualización de Nueva Función",
+    "h1": "¿Grabado en otro lugar? No hay problema. Convierte archivos de audio en Actas IA.",
+    "tagline": "Ya sea una Nota de Voz, una grabación de Zoom o un archivo de una grabadora dedicada, ahora puedes importarlos directamente a Actas IA para obtener transcripciones y resúmenes instantáneos."
+  },
+  "problem": {
+    "p1": "Todos hemos pasado por eso. Estás en una reunión de alta seguridad donde las 'aplicaciones en la nube' están prohibidas, pero se permite la grabación sin conexión. O tal vez simplemente olvidaste abrir la aplicación de IA y presionaste grabar en Notas de Voz de Apple en su lugar.",
+    "p2": "Hasta ahora, estabas atascado con un archivo de audio de 60 minutos y una página en blanco. Escuchar todo de nuevo solo para escribir notas es doloroso. **Eso termina hoy.**"
+  },
+  "solution": {
+    "h2": "Tus Grabaciones, Ahora Procesables",
+    "intro": "Hemos actualizado la aplicación de iOS para admitir la **'Importación de Audio Externo'**. Ahora puedes traer archivos de otras aplicaciones, tu iCloud Drive o el almacenamiento de tu dispositivo directamente a nuestro motor de procesamiento.",
+    "features": [
+      {
+        "t": "Soporte de Archivos de 200MB",
+        "d": "¿Tienes una reunión larga? No te preocupes. Actualmente admitimos archivos de hasta 200 MB, cubriendo la mayoría de las sesiones largas estándar. (¡Y planeamos expandir esto pronto!)"
+      },
+      {
+        "t": "Transcipción Completa + Resumen",
+        "d": "No solo obtienes un resumen. Obtienes el texto sin procesar, con marcas de tiempo de quién dijo qué, además de las actas estructuradas que conoces y amas."
+      },
+      {
+        "t": "Libertad de Formato",
+        "d": "M4A, MP3, WAV, MP4... nosotros nos encargamos de la conversión para que no tengas que hacerlo."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Formatos de Archivo Compatibles",
+    "intro": "Hemos construido nuestro motor para reconocer los contenedores de audio y video más comunes utilizados en los negocios hoy en día:",
+    "list": [
+      { "ext": "m4a", "type": "Notas de Voz de Apple / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Capa de Audio Estándar III" },
+      { "ext": "wav", "type": "Forma de Onda de Alta Calidad" },
+      { "ext": "mp4", "type": "Grabaciones de Reuniones de Video" },
+      { "ext": "aac", "type": "Codificación de Audio Avanzada" },
+      { "ext": "flac", "type": "Audio sin Pérdida" },
+      { "ext": "ogg / webm", "type": "Formatos de Audio Web" }
+    ]
+  },
+  "workflow": {
+    "h2": "Cómo Resuelve tu Flujo de Trabajo",
+    "items": [
+      {
+        "title": "La Reunión de 'Seguridad Estricta'",
+        "desc": "Algunas empresas bloquean el acceso a Internet en las salas de juntas, pero permiten grabadoras de voz sin conexión. Graba allí, y luego importa el archivo más tarde cuando vuelvas a estar en línea."
+      },
+      {
+        "title": "El Momento 'Ups, lo Olvidé'",
+        "desc": "¿Usaste la grabadora predeterminada por costumbre? Que no cunda el pánico. Comparte el archivo desde Notas de Voz a Actas IA y salva tu tarde."
+      },
+      {
+        "title": "El Archivo Legado",
+        "desc": "¿Tienes una carpeta de entrevistas o conferencias antiguas en tu unidad? Impórtalas para que finalmente sean buscables y resumidas."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Actualizado", "type": "Función", "category": "iOS / Productividad" },
+  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Probar la Función de Importación en iOS" }
+}

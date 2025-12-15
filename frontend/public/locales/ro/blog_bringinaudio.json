@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Importați Audio în AI: Transformați Notițele Vocale în Procese-verbale de Ședință (Funcție Nouă)",
+    "description": "Ați înregistrat o ședință pe Notițe Vocale? Acum puteți importa fișiere audio (m4a, mp3, wav, mp4) direct în Proces-verbal AI pentru a genera transcrieri și rezumate complete.",
+    "ogTitle": "Importați Fișiere Audio în Proces-verbal AI — Suport M4A, MP3, WAV",
+    "ogDescription": "În sfârșit, o modalitate de a transforma acele fișiere audio gigantice în procese-verbale acționabile. Suportă până la 200 MB și diverse formate, cum ar fi m4a, mp3 și flac.",
+    "ld": {
+      "headline": "Cum să creați procese-verbale de ședință din fișiere audio existente",
+      "description": "Un ghid despre utilizarea noii funcții Import Audio în Proces-verbal AI. Rezolvă problema utilizării restricționate a dispozitivelor în timpul ședințelor prin procesarea audio preînregistrat."
+    }
+  },
+  "aria": { "home": "Proces-verbal AI Acasă" },
+  "nav": { "blog": "Blog", "current": "Funcția Import Audio" },
+  "hero": {
+    "kicker": "Actualizare Funcție Nouă",
+    "h1": "Înregistrat în altă parte? Nicio problemă. Transformați fișierele audio în Procese-verbale AI.",
+    "tagline": "Fie că este o Notiță Vocală, o înregistrare Zoom, sau un fișier de la un înregistrator dedicat—le puteți importa acum direct în Proces-verbal AI pentru transcriere și rezumat instantaneu."
+  },
+  "problem": {
+    "p1": "Toți am trecut prin asta. Sunteți într-o ședință de înaltă securitate unde 'aplicațiile cloud' sunt interzise, dar înregistrarea offline este permisă. Sau poate ați uitat pur și simplu să deschideți aplicația AI și ați apăsat înregistrare pe Notițe Vocale Apple în schimb.",
+    "p2": "Până acum, ați fost blocat cu un fișier audio de 60 de minute și o pagină goală. A reasculta totul doar pentru a tasta notițe este dureros. **Asta se termină astăzi.**"
+  },
+  "solution": {
+    "h2": "Înregistrările Dvs., Acum Acționabile",
+    "intro": "Am actualizat aplicația iOS pentru a suporta **'Importul Audio Extern'**. Acum puteți aduce fișiere din alte aplicații, din iCloud Drive sau din spațiul de stocare al dispozitivului direct în motorul nostru de procesare.",
+    "features": [
+      {
+        "t": "Suport Fișiere 200MB",
+        "d": "Aveți o ședință lungă? Fără probleme. În prezent, suportăm fișiere de până la 200 MB, acoperind majoritatea sesiunilor lungi standard. (Și plănuim să extindem acest lucru în curând!)"
+      },
+      {
+        "t": "Transciere Completă + Rezumat",
+        "d": "Nu obțineți doar un rezumat. Obțineți textul brut, marcat cu ora, cu cine a spus ce, plus procesele-verbale structurate pe care le cunoașteți și le iubiți."
+      },
+      {
+        "t": "Libertatea Formatului",
+        "d": "M4A, MP3, WAV, MP4... ne ocupăm noi de conversie, ca să nu fie nevoie să o faceți dumneavoastră."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Formate de Fișiere Suportate",
+    "intro": "Ne-am construit motorul pentru a recunoaște cele mai comune containere audio și video utilizate în afaceri astăzi:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Notițe Vocale / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Stratul Audio Standard III" },
+      { "ext": "wav", "type": "Formă de Undă de Înaltă Calitate" },
+      { "ext": "mp4", "type": "Înregistrări Ședințe Video" },
+      { "ext": "aac", "type": "Codare Audio Avansată" },
+      { "ext": "flac", "type": "Audio Fără Pierderi" },
+      { "ext": "ogg / webm", "type": "Formate Audio Web" }
+    ]
+  },
+  "workflow": {
+    "h2": "Cum vă Rezolvă Fluxul de Lucru",
+    "items": [
+      {
+        "title": "Ședința 'Securitate Strictă'",
+        "desc": "Unele companii blochează accesul la internet în sălile de ședințe, dar permit reportofoane offline. Înregistrați acolo, și apoi importați fișierul mai târziu când sunteți din nou online."
+      },
+      {
+        "title": "Momentul 'Ups, Am Uitat'",
+        "desc": "Ați folosit înregistratorul implicit din obișnuință? Nu vă panicați. Distribuiți fișierul de la Notițe Vocale la Proces-verbal AI și salvați-vă seara."
+      },
+      {
+        "title": "Arhiva Moștenită",
+        "desc": "Aveți un dosar de interviuri sau prelegeri vechi pe unitatea dvs.? Importați-le pentru a le face în sfârșit căutabile și rezumate."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Actualizat", "type": "Funcție", "category": "iOS / Productivitate" },
+  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Încercați Funcția de Import pe iOS" }
+}

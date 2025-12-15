@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Importowanie audio do AI: Konwertuj notatki głosowe na protokoły spotkań (Nowa funkcja)",
+    "description": "Nagrałeś spotkanie na Notatkach głosowych? Teraz możesz importować pliki audio (m4a, mp3, wav, mp4) bezpośrednio do Protokół AI, aby generować pełne transkrypcje i streszczenia.",
+    "ogTitle": "Importuj pliki audio do Protokół AI — Obsługa M4A, MP3, WAV",
+    "ogDescription": "W końcu sposób na przekształcenie tych gigantycznych plików audio w protokoły, na podstawie których można działać. Obsługuje do 200 MB i różnorodne formaty, takie jak m4a, mp3 i flac.",
+    "ld": {
+      "headline": "Jak tworzyć protokoły spotkań z istniejących plików audio",
+      "description": "Przewodnik po korzystaniu z nowej funkcji Importowania Audio w Protokół AI. Rozwiązuje problem ograniczonego użycia urządzenia podczas spotkań poprzez przetwarzanie wcześniej nagranego dźwięku."
+    }
+  },
+  "aria": { "home": "Protokół AI Strona główna" },
+  "nav": { "blog": "Blog", "current": "Funkcja Importowania Audio" },
+  "hero": {
+    "kicker": "Aktualizacja nowej funkcji",
+    "h1": "Nagrano gdzie indziej? Nie ma problemu. Konwertuj pliki audio na Protokoły AI.",
+    "tagline": "Niezależnie od tego, czy jest to notatka głosowa, nagranie z Zoom, czy plik z dedykowanego rejestratora—możesz je teraz importować bezpośrednio do Protokół AI w celu natychmiastowej transkrypcji i streszczenia."
+  },
+  "problem": {
+    "p1": "Wszyscy przez to przeszliśmy. Jesteś na spotkaniu o wysokim stopniu bezpieczeństwa, gdzie 'aplikacje w chmurze' są zabronione, ale nagrywanie offline jest dozwolone. A może po prostu zapomniałeś otworzyć aplikację AI i zamiast tego nacisnąłeś nagrywanie w Notatkach głosowych Apple.",
+    "p2": "Do tej pory utknąłeś z 60-minutowym plikiem audio i pustą stroną. Ponowne słuchanie tego wszystkiego tylko po to, by wpisać notatki, jest bolesne. **To kończy się dzisiaj.**"
+  },
+  "solution": {
+    "h2": "Twoje Nagrania, Teraz Do Działania",
+    "intro": "Zaktualizowaliśmy aplikację iOS, aby obsługiwać **'Importowanie Zewnętrznego Audio'**. Możesz teraz przenosić pliki z innych aplikacji, swojego iCloud Drive lub pamięci urządzenia bezpośrednio do naszego silnika przetwarzającego.",
+    "features": [
+      {
+        "t": "Obsługa plików 200 MB",
+        "d": "Długie spotkanie? Bez potu. Obecnie obsługujemy pliki do 200 MB, obejmujące większość standardowych długich sesji. (I planujemy to wkrótce rozszerzyć!)"
+      },
+      {
+        "t": "Pełna transkrypcja + Streszczenie",
+        "d": "Nie dostajesz tylko streszczenia. Otrzymujesz surowy, oznaczony czasem tekst tego, kto co powiedział, plus ustrukturyzowane protokoły, które znasz i lubisz."
+      },
+      {
+        "t": "Swoboda formatu",
+        "d": "M4A, MP3, WAV, MP4... my zajmujemy się konwersją, więc Ty nie musisz."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Obsługiwane formaty plików",
+    "intro": "Nasz silnik został zbudowany tak, aby rozpoznawał najczęściej używane w biznesie kontenery audio i wideo:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Notatki głosowe / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Standardowa Warstwa Audio III" },
+      { "ext": "wav", "type": "Wysokiej jakości przebieg fali" },
+      { "ext": "mp4", "type": "Nagrania spotkań wideo" },
+      { "ext": "aac", "type": "Zaawansowane Kodowanie Audio" },
+      { "ext": "flac", "type": "Audio bezstratne" },
+      { "ext": "ogg / webm", "type": "Formaty audio webowe" }
+    ]
+  },
+  "workflow": {
+    "h2": "Jak to rozwiązuje Twój przepływ pracy",
+    "items": [
+      {
+        "title": "Spotkanie 'Ścisłe Bezpieczeństwo'",
+        "desc": "Niektóre firmy blokują dostęp do Internetu w salach konferencyjnych, ale zezwalają na dyktafony offline. Nagraj tam, a następnie zaimportuj plik później, gdy wrócisz do sieci."
+      },
+      {
+        "title": "Moment 'Ups, zapomniałem'",
+        "desc": "Użyłeś domyślnego rejestratora z przyzwyczajenia? Bez paniki. Udostępnij plik z Notatek głosowych do Protokół AI i uratuj swój wieczór."
+      },
+      {
+        "title": "Archiwum Legacy",
+        "desc": "Masz folder starych wywiadów lub wykładów na swoim dysku? Zaimportuj je, aby w końcu były przeszukiwalne i streszczone."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Zaktualizowano", "type": "Funkcja", "category": "iOS / Produktywność" },
+  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Wypróbuj funkcję Importowania na iOS" }
+}

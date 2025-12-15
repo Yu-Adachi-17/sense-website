@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Importer lyd til AI: Gjør talememoer om til møtereferater (Ny funksjon)",
+    "description": "Tok du opp et møte på Talememoer? Nå kan du importere lydfiler (m4a, mp3, wav, mp4) direkte til Referat AI for å generere fullstendige transkripsjoner og sammendrag.",
+    "ogTitle": "Importer lydfiler til Referat AI — M4A, MP3, WAV støttet",
+    "ogDescription": "Endelig en måte å gjøre de store lydfilene om til nyttige referater. Støtter opptil 200 MB og formater som m4a, mp3 og flac.",
+    "ld": {
+      "headline": "Hvordan lage møtereferater fra eksisterende lydfiler",
+      "description": "En guide til bruk av den nye funksjonen for lydimport i Referat AI. Løser problemet med begrenset enhetsbruk under møter ved å behandle forhåndsinnspilt lyd."
+    }
+  },
+  "aria": { "home": "Referat AI Hjem" },
+  "nav": { "blog": "Blogg", "current": "Lydimport-funksjon" },
+  "hero": {
+    "kicker": "Ny oppdatering",
+    "h1": "Tatt opp et annet sted? Ikke noe problem. Gjør lydfiler om til AI-referater.",
+    "tagline": "Enten det er et talememo, et Zoom-opptak eller en fil fra en diktafon—du kan nå importere dem direkte til Referat AI for umiddelbar transkripsjon og oppsummering."
+  },
+  "problem": {
+    "p1": "Vi har alle vært der. Du sitter i et sikkerhetsmøte der 'sky-apper' er forbudt, men offline-opptak er tillatt. Eller kanskje du bare glemte å åpne AI-appen og brukte Apple Talememoer i stedet.",
+    "p2": "Inntil nå satt du igjen med en 60-minutters lydfil og et tomt ark. Å høre gjennom alt på nytt bare for å skrive notater er smertefullt. **Det tar slutt i dag.**"
+  },
+  "solution": {
+    "h2": "Dine opptak, nå handlingsbare",
+    "intro": "Vi har oppdatert iOS-appen for å støtte **'Ekstern Lydimport'**. Du kan nå hente filer fra andre apper, din iCloud Drive eller enhetslagring direkte inn i vår motor.",
+    "features": [
+      {
+        "t": "200 MB Filstøtte",
+        "d": "Langt møte? Ingen stress. Vi støtter for tiden filer opp til 200 MB, som dekker de fleste standardøkter. (Og vi planlegger å utvide dette snart!)"
+      },
+      {
+        "t": "Full Transkripsjon + Sammendrag",
+        "d": "Du får ikke bare et sammendrag. Du får den rå teksten med tidsstempler for hvem som sa hva, pluss det strukturerte referatet."
+      },
+      {
+        "t": "Formatfrihet",
+        "d": "M4A, MP3, WAV, MP4... vi håndterer konverteringen så du slipper."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Støttede filformater",
+    "intro": "Vår motor gjenkjenner de vanligste lyd- og videokontainerne som brukes i arbeidslivet:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Talememoer / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standard Audio Layer III" },
+      { "ext": "wav", "type": "Høy Kvalitet Waveform" },
+      { "ext": "mp4", "type": "Video Møteopptak" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Tapsfri Lyd" },
+      { "ext": "ogg / webm", "type": "Web Audio Formater" }
+    ]
+  },
+  "workflow": {
+    "h2": "Hvordan det løser arbeidsflyten din",
+    "items": [
+      {
+        "title": "Det 'Strengt Fortrolige' Møtet",
+        "desc": "Noen selskaper blokkerer internett i styrerom, men tillater offline diktafoner. Ta opp der, og importer filen senere når du er online igjen."
+      },
+      {
+        "title": "'Oisann, jeg glemte det'-øyeblikket",
+        "desc": "Brukte du standardopptakeren av gammel vane? Ikke få panikk. Del filen fra Talememoer til Referat AI og redd kvelden."
+      },
+      {
+        "title": "Det Gamle Arkivet",
+        "desc": "Har du en mappe med gamle intervjuer på disken din? Importer dem for endelig å gjøre dem søkbare og oppsummerte."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Oppdatert", "type": "Funksjon", "category": "iOS / Produktivitet" },
+  "cta": { "openBrowser": "Åpne i nettleser", "downloadIOS": "Prøv Import på iOS" }
+}

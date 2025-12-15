@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Import zvuku do AI: Preveďte hlasové poznámky na zápisnice zo stretnutí (Nová funkcia)",
+    "description": "Nahrali ste stretnutie na Hlasové poznámky? Teraz môžete importovať zvukové súbory (m4a, mp3, wav, mp4) priamo do AI Zápisnica a generovať kompletné prepisy a súhrny.",
+    "ogTitle": "Importujte zvukové súbory do AI Zápisnica — Podpora M4A, MP3, WAV",
+    "ogDescription": "Konečne spôsob, ako premeniť tie obrovské zvukové súbory na akčné zápisnice. Podporuje až 200 MB a rôzne formáty ako m4a, mp3 a flac.",
+    "ld": {
+      "headline": "Ako vytvoriť zápisnice zo stretnutí z existujúcich zvukových súborov",
+      "description": "Sprievodca použitím novej funkcie Import zvuku v AI Zápisnica. Rieši problém obmedzeného používania zariadenia počas stretnutí spracovaním vopred nahratého zvuku."
+    }
+  },
+  "aria": { "home": "AI Zápisnica Domov" },
+  "nav": { "blog": "Blog", "current": "Funkcia Import zvuku" },
+  "hero": {
+    "kicker": "Aktualizácia novej funkcie",
+    "h1": "Nahraté inde? Žiadny problém. Preveďte zvukové súbory na AI zápisnice.",
+    "tagline": "Či už je to Hlasová poznámka, záznam zo Zoomu, alebo súbor zo špeciálneho rekordéra—teraz ich môžete importovať priamo do AI Zápisnica pre okamžitý prepis a súhrn."
+  },
+  "problem": {
+    "p1": "Všetci sme to zažili. Ste na vysoko zabezpečenom stretnutí, kde sú 'cloudové aplikácie' zakázané, ale offline nahrávanie je povolené. Alebo ste jednoducho zabudli otvoriť AI aplikáciu a stlačili nahrávanie v Apple Hlasových poznámkach namiesto toho.",
+    "p2": "Doteraz ste boli zablokovaní 60-minútovým zvukovým súborom a prázdnou stránkou. Počúvať to všetko znova, len aby ste napísali poznámky, je bolestivé. **To dnes končí.**"
+  },
+  "solution": {
+    "h2": "Vaše nahrávky, teraz akčné",
+    "intro": "Aktualizovali sme aplikáciu pre iOS tak, aby podporovala **'Import externého zvuku'**. Teraz môžete prenášať súbory z iných aplikácií, vášho iCloud Drive alebo úložiska zariadenia priamo do nášho spracovateľského enginu.",
+    "features": [
+      {
+        "t": "Podpora súborov 200 MB",
+        "d": "Dlhé stretnutie? Žiadny pot. Aktuálne podporujeme súbory až do 200 MB, pokrývajúce väčšinu štandardných dlhých relácií. (A čoskoro to plánujeme rozšíriť!)"
+      },
+      {
+        "t": "Úplný prepis + Súhrn",
+        "d": "Nezískate len súhrn. Dostanete surový, časovo označený text toho, kto čo povedal, plus štruktúrované zápisnice, ktoré poznáte a milujete."
+      },
+      {
+        "t": "Sloboda formátov",
+        "d": "M4A, MP3, WAV, MP4... my sa postaráme o konverziu, takže nemusíte."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Podporované formáty súborov",
+    "intro": "Náš engine je postavený tak, aby rozpoznal najbežnejšie audio a video kontajnery používané v podnikaní dnes:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Hlasové poznámky / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Štandard Audio Layer III" },
+      { "ext": "wav", "type": "Vysoko kvalitná Waveform" },
+      { "ext": "mp4", "type": "Záznamy video stretnutí" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Bezeztrátový zvuk" },
+      { "ext": "ogg / webm", "type": "Webové audio formáty" }
+    ]
+  },
+  "workflow": {
+    "h2": "Ako rieši váš pracovný postup",
+    "items": [
+      {
+        "title": "Stretnutie 'Prísna Bezpečnosť'",
+        "desc": "Niektoré spoločnosti blokujú prístup k internetu v zasadacích miestnostiach, ale povoľujú offline diktafóny. Nahrávajte tam a súbor importujte neskôr, až budete späť online."
+      },
+      {
+        "title": "Moment 'Jejda, zabudol som'",
+        "desc": "Použili ste zo zvyku predvolený rekordér? Neprepadajte panike. Zdieľajte súbor z Hlasových poznámok do AI Zápisnica a zachráňte svoj večer."
+      },
+      {
+        "title": "Starý archív",
+        "desc": "Máte na disku priečinok starých rozhovorov alebo prednášok? Importujte ich, aby ste ich konečne mohli vyhľadávať a zhrnúť."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Aktualizované", "type": "Funkcia", "category": "iOS / Produktivita" },
+  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Vyskúšajte funkciu Import na iOS" }
+}

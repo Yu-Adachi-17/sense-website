@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Audio in KI importieren: Sprachmemos in Protokolle verwandeln (Neue Funktion)",
+    "description": "Meeting als Sprachmemo aufgenommen? Jetzt können Sie Audiodateien (m4a, mp3, wav, mp4) direkt in Protokoll KI importieren, um Transkripte und Zusammenfassungen zu erstellen.",
+    "ogTitle": "Audiodateien in Protokoll KI importieren – M4A, MP3, WAV unterstützt",
+    "ogDescription": "Endlich ein Weg, um große Audiodateien in handlungsrelevante Protokolle zu verwandeln. Unterstützt bis zu 200 MB und Formate wie m4a, mp3 und flac.",
+    "ld": {
+      "headline": "So erstellen Sie Meeting-Protokolle aus vorhandenen Audiodateien",
+      "description": "Eine Anleitung zur neuen Audio-Import-Funktion in Protokoll KI. Löst das Problem eingeschränkter Gerätenutzung während Meetings durch Verarbeitung voraufgezeichneter Audiodaten."
+    }
+  },
+  "aria": { "home": "Protokoll KI Startseite" },
+  "nav": { "blog": "Blog", "current": "Audio-Import Funktion" },
+  "hero": {
+    "kicker": "Neues Feature-Update",
+    "h1": "Woanders aufgenommen? Kein Problem. Verwandeln Sie Audiodateien in KI-Protokolle.",
+    "tagline": "Egal ob Sprachmemo, Zoom-Aufzeichnung oder Datei vom Diktiergerät – Sie können diese jetzt direkt in Protokoll KI importieren, um sofortige Transkripte und Zusammenfassungen zu erhalten."
+  },
+  "problem": {
+    "p1": "Wir kennen das alle. Sie sind in einem streng vertraulichen Meeting, in dem 'Cloud-Apps' verboten sind, aber Offline-Aufnahmen erlaubt sind. Oder Sie haben einfach vergessen, die KI-App zu öffnen und stattdessen Apple-Sprachmemos benutzt.",
+    "p2": "Bisher saßen Sie mit einer 60-minütigen Audiodatei und einem leeren Blatt Papier da. Das Ganze noch einmal anzuhören, nur um Notizen zu tippen, ist mühsam. **Damit ist heute Schluss.**"
+  },
+  "solution": {
+    "h2": "Ihre Aufnahmen, jetzt nutzbar",
+    "intro": "Wir haben die iOS-App aktualisiert, um **'Externen Audio-Import'** zu unterstützen. Sie können jetzt Dateien aus anderen Apps, Ihrem iCloud Drive oder Ihrem Gerätespeicher direkt in unsere Verarbeitungs-Engine laden.",
+    "features": [
+      {
+        "t": "200 MB Datei-Unterstützung",
+        "d": "Langes Meeting? Kein Stress. Wir unterstützen derzeit Dateien bis zu 200 MB, was die meisten Standard-Sitzungen abdeckt. (Erweiterung geplant!)"
+      },
+      {
+        "t": "Vollständiges Transkript + Zusammenfassung",
+        "d": "Sie erhalten nicht nur eine Zusammenfassung. Sie bekommen den rohen Text mit Zeitstempeln (wer hat was gesagt) plus das strukturierte Protokoll."
+      },
+      {
+        "t": "Format-Freiheit",
+        "d": "M4A, MP3, WAV, MP4... wir kümmern uns um die Konvertierung, damit Sie es nicht müssen."
+      }
+    ]
+  },
+  "formats": {
+    "h2": "Unterstützte Dateiformate",
+    "intro": "Unsere Engine erkennt die gängigsten Audio- und Video-Container im Geschäftsalltag:",
+    "list": [
+      { "ext": "m4a", "type": "Apple Sprachmemos / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standard Audio Layer III" },
+      { "ext": "wav", "type": "High Quality Waveform" },
+      { "ext": "mp4", "type": "Video-Meeting-Aufzeichnungen" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Verlustfreies Audio" },
+      { "ext": "ogg / webm", "type": "Web-Audio-Formate" }
+    ]
+  },
+  "workflow": {
+    "h2": "Wie es Ihren Workflow löst",
+    "items": [
+      {
+        "title": "Das 'Streng Geheime' Meeting",
+        "desc": "Manche Firmen blockieren Internet in Sitzungssälen, erlauben aber Offline-Diktiergeräte. Nehmen Sie dort auf und importieren Sie die Datei später, wenn Sie wieder online sind."
+      },
+      {
+        "title": "Der 'Ups, vergessen' Moment",
+        "desc": "Aus Gewohnheit den Standard-Rekorder benutzt? Keine Panik. Teilen Sie die Datei von Sprachmemos an Protokoll KI und retten Sie Ihren Feierabend."
+      },
+      {
+        "title": "Das Legacy-Archiv",
+        "desc": "Haben Sie einen Ordner mit alten Interviews auf Ihrem Laufwerk? Importieren Sie sie, um sie endlich durchsuchbar und zusammengefasst zu machen."
+      }
+    ]
+  },
+  "meta": { "h2": "Meta", "published": "Aktualisiert", "type": "Feature", "category": "iOS / Produktivität" },
+  "cta": { "openBrowser": "Im Browser öffnen", "downloadIOS": "Import-Feature auf iOS testen" }
+}
