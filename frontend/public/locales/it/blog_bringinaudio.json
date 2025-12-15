@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Importa Audio nell'IA: Trasforma i Memo Vocali in Verbali di Riunione (Nuova Funzione)",
-    "description": "Hai registrato una riunione su Memo Vocali? Ora puoi importare file audio (m4a, mp3, wav, mp4) direttamente in Verbali IA per generare trascrizioni complete e riassunti.",
-    "ogTitle": "Importa File Audio in Verbali IA — Supporto M4A, MP3, WAV",
-    "ogDescription": "Finalmente, un modo per trasformare quei file audio giganteschi in verbali attuabili. Supporta fino a 200 MB e vari formati come m4a, mp3 e flac.",
+    "title": "Importa Audio nell'IA: Trasforma i Memo Vocali in Verbali (Novità)",
+    "description": "Hai registrato una riunione con Memo Vocali? Importa file audio (m4a, mp3, wav, mp4) direttamente in Verbali IA per ottenere trascrizioni e riassunti completi.",
+    "ogTitle": "Importa File Audio in Verbali IA — Supporta M4A, MP3, WAV",
+    "ogDescription": "Finalmente puoi trasformare i file audio pesanti in verbali pronti all'uso. Supporta fino a 200 MB e formati come m4a, mp3 e flac.",
     "ld": {
-      "headline": "Come creare verbali di riunione da file audio esistenti",
-      "description": "Una guida sull'utilizzo della nuova funzione Importa Audio in Verbali IA. Risolve il problema dell'uso limitato del dispositivo durante le riunioni elaborando l'audio preregistrato."
+      "headline": "Come creare verbali da file audio esistenti",
+      "description": "Guida alla nuova funzione Importa Audio di Verbali IA. Risolve il problema delle riunioni dove non è possibile usare il telefono, elaborando l'audio preregistrato."
     }
   },
-  "aria": { "home": "Verbali IA Home" },
+  "aria": { "home": "Home Verbali IA" },
   "nav": { "blog": "Blog", "current": "Funzione Importa Audio" },
   "hero": {
-    "kicker": "Aggiornamento Nuova Funzione",
-    "h1": "Registrato altrove? Nessun problema. Trasforma i file audio in Verbali IA.",
-    "tagline": "Che si tratti di un Memo Vocale, una registrazione Zoom o un file da un registratore dedicato—ora puoi importarli direttamente in Verbali IA per una trascrizione e un riassunto istantanei."
+    "kicker": "Nuova Funzionalità",
+    "h1": "Registrato altrove? Nessun problema. Trasforma l'audio in Verbali IA.",
+    "tagline": "Memo Vocali, registrazioni Zoom o file da un registratore esterno: importali direttamente in Verbali IA per avere subito trascrizione e riassunto."
   },
   "problem": {
-    "p1": "Ci siamo passati tutti. Sei in una riunione ad alta sicurezza dove le 'app cloud' sono vietate, ma la registrazione offline è consentita. O forse hai semplicemente dimenticato di aprire l'app IA e hai premuto registra su Memo Vocali di Apple invece.",
-    "p2": "Fino ad ora, eri bloccato con un file audio di 60 minuti e una pagina bianca. Ascoltare tutto di nuovo solo per digitare note è doloroso. **Questo finisce oggi.**"
+    "p1": "È capitato a tutti. Sei in una riunione riservata dove le app cloud sono vietate, ma è permesso registrare offline. Oppure hai semplicemente dimenticato di aprire l'app IA e hai usato i Memo Vocali di Apple per abitudine.",
+    "p2": "Fino a ieri, ti ritrovavi con un file audio di un'ora e un foglio bianco. Riascoltare tutto per prendere appunti è un incubo. **Da oggi, la storia cambia.**"
   },
   "solution": {
-    "h2": "Le Tue Registrazioni, Ora Attuabili",
-    "intro": "Abbiamo aggiornato l'app iOS per supportare l'**'Importazione Audio Esterna'**. Ora puoi portare file da altre app, dal tuo iCloud Drive o dalla memoria del tuo dispositivo direttamente nel nostro motore di elaborazione.",
+    "h2": "Le tue registrazioni diventano utili",
+    "intro": "Abbiamo aggiornato l'app iOS con l'**Importazione Audio Esterna**. Ora puoi caricare file da altre app, da iCloud Drive o dalla memoria del dispositivo direttamente nel nostro motore IA.",
     "features": [
       {
-        "t": "Supporto File 200MB",
-        "d": "Hai una riunione lunga? Nessun problema. Attualmente supportiamo file fino a 200MB, coprendo la maggior parte delle sessioni lunghe standard. (E prevediamo di espanderlo presto!)"
+        "t": "File fino a 200MB",
+        "d": "Riunione lunga? Nessun problema. Supportiamo file fino a 200MB, coprendo la maggior parte delle sessioni standard. (Presto aumenteremo il limite!)"
       },
       {
         "t": "Trascrizione Completa + Riassunto",
-        "d": "Non ottieni solo un riassunto. Ottieni il testo grezzo, con timestamp di chi ha detto cosa, più i verbali strutturati che conosci e ami."
+        "d": "Non ricevi solo un riassunto. Ottieni il testo integrale con timestamp (chi ha detto cosa) e il verbale strutturato che già apprezzi."
       },
       {
-        "t": "Libertà di Formato",
-        "d": "M4A, MP3, WAV, MP4... gestiamo noi la conversione in modo che tu non debba farlo."
+        "t": "Qualsiasi Formato",
+        "d": "M4A, MP3, WAV, MP4... pensiamo noi alla conversione, tu non devi fare nulla."
       }
     ]
   },
   "formats": {
-    "h2": "Formati di File Supportati",
-    "intro": "Abbiamo costruito il nostro motore per riconoscere i contenitori audio e video più comuni utilizzati oggi nel business:",
+    "h2": "Formati Supportati",
+    "intro": "Il nostro motore riconosce i formati audio e video più diffusi nel mondo business:",
     "list": [
-      { "ext": "m4a", "type": "Memo Vocali Apple / Audio MPEG-4" },
-      { "ext": "mp3", "type": "Livello Audio Standard III" },
-      { "ext": "wav", "type": "Forma d'Onda di Alta Qualità" },
-      { "ext": "mp4", "type": "Registrazioni di Riunioni Video" },
-      { "ext": "aac", "type": "Codifica Audio Avanzata" },
-      { "ext": "flac", "type": "Audio Senza Perdite" },
+      { "ext": "m4a", "type": "Apple Memo Vocali / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Audio Standard MP3" },
+      { "ext": "wav", "type": "Waveform Alta Qualità" },
+      { "ext": "mp4", "type": "Registrazioni Video" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Audio Lossless" },
       { "ext": "ogg / webm", "type": "Formati Audio Web" }
     ]
   },
   "workflow": {
-    "h2": "Come Risolve il Tuo Flusso di Lavoro",
+    "h2": "La soluzione per il tuo lavoro",
     "items": [
       {
-        "title": "La Riunione a 'Sicurezza Stretta'",
-        "desc": "Alcune aziende bloccano l'accesso a Internet nelle sale riunioni, ma consentono i dittafoni offline. Registra lì, e poi importa il file più tardi quando sei di nuovo online."
+        "title": "Riunioni ad Alta Sicurezza",
+        "desc": "Niente internet in sala riunioni? Usa un registratore offline, poi importa il file appena torni online."
       },
       {
-        "title": "Il Momento 'Oops, Ho Dimenticato'",
-        "desc": "Hai usato il registratore predefinito per abitudine? Non farti prendere dal panico. Condividi il file da Memo Vocali a Verbali IA e salva la tua serata."
+        "title": "L'attimo \"Ops, ho dimenticato\"",
+        "desc": "Hai usato il registratore di default? Niente panico. Condividi il file da Memo Vocali a Verbali IA e salvati la serata."
       },
       {
-        "title": "L'Archivio Legacy",
-        "desc": "Hai una cartella di vecchie interviste o lezioni sul tuo drive? Importale per renderle finalmente ricercabili e riassunte."
+        "title": "I tuoi Archivi",
+        "desc": "Hai vecchie interviste o lezioni salvate? Importale per renderle finalmente ricercabili e riassunte."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Aggiornato", "type": "Funzione", "category": "iOS / Produttività" },
-  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Prova la Funzione Importa su iOS" }
+  "meta": { "h2": "Info", "published": "Aggiornato", "type": "Funzionalità", "category": "iOS / Produttività" },
+  "cta": { "openBrowser": "Apri nel browser", "downloadIOS": "Prova su iOS" }
 }

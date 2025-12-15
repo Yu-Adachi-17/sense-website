@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Sesi Yapay Zekaya Aktar: Sesli Notları Toplantı Tutanaklarına Dönüştür (Yeni Özellik)",
-    "description": "Toplantıyı Sesli Notlar'a mı kaydettiniz? Artık tam transkriptler ve özetler oluşturmak için ses dosyalarını (m4a, mp3, wav, mp4) doğrudan Tutanakları AI'a aktarabilirsiniz.",
+    "title": "Sesi İçe Aktar: Sesli Notları Toplantı Tutanaklarına Dönüştür (Yeni)",
+    "description": "Toplantıyı Sesli Notlar ile mi kaydettiniz? Artık ses dosyalarını (m4a, mp3, wav, mp4) doğrudan Tutanakları AI'a aktararak tam döküm ve özet alabilirsiniz.",
     "ogTitle": "Ses Dosyalarını Tutanakları AI'a Aktar — M4A, MP3, WAV Desteği",
-    "ogDescription": "Nihayet, bu devasa ses dosyalarını eyleme geçirilebilir tutanaklara dönüştürmenin bir yolu. 200MB'a kadar ve m4a, mp3 ve flac gibi çeşitli formatları destekler.",
+    "ogDescription": "Nihayet, o büyük ses dosyalarını işe yarar tutanaklara dönüştürmenin bir yolu. 200MB'a kadar dosya ve m4a, mp3 gibi formatları destekler.",
     "ld": {
-      "headline": "Mevcut Ses Dosyalarından Toplantı Tutanakları Nasıl Oluşturulur",
-      "description": "Tutanakları AI'daki yeni Ses Aktarma özelliğini kullanma kılavuzu. Önceden kaydedilmiş sesi işleyerek toplantılar sırasındaki kısıtlı cihaz kullanım sorununu çözer."
+      "headline": "Mevcut ses dosyalarından toplantı tutanakları nasıl oluşturulur",
+      "description": "Tutanakları AI'daki yeni Ses İçe Aktarma özelliğini kullanma rehberi. Toplantı sırasında telefon kullanımı kısıtlı olduğunda ideal çözüm."
     }
   },
   "aria": { "home": "Tutanakları AI Ana Sayfa" },
-  "nav": { "blog": "Blog", "current": "Ses Aktarma Özelliği" },
+  "nav": { "blog": "Blog", "current": "Ses İçe Aktarma Özelliği" },
   "hero": {
-    "kicker": "Yeni Özellik Güncellemesi",
-    "h1": "Başka bir yerde mi kaydedildi? Sorun değil. Ses dosyalarını Yapay Zeka Tutanaklarına dönüştürün.",
-    "tagline": "İster Sesli Not, ister Zoom kaydı veya özel bir kayıt cihazından gelen dosya olsun—artık anında transkripsiyon ve özet için doğrudan Tutanakları AI'a aktarabilirsiniz."
+    "kicker": "Yeni Özellik",
+    "h1": "Başka yerde mi kaydettiniz? Sorun değil. Ses dosyasını Yapay Zeka ile tutanağa çevirin.",
+    "tagline": "İster Sesli Not (Voice Memo), ister Zoom kaydı veya ses kayıt cihazından bir dosya olsun—artık anında döküm ve özet için doğrudan Tutanakları AI'a aktarabilirsiniz."
   },
   "problem": {
-    "p1": "Hepimiz bunu yaşadık. 'Bulut uygulamalarının' yasak olduğu, ancak çevrimdışı kaydın izin verildiği yüksek güvenlikli bir toplantıdasınız. Ya da belki sadece Yapay Zeka uygulamasını açmayı unuttunuz ve bunun yerine Apple Sesli Notlar'da kaydet tuşuna bastınız.",
-    "p2": "Şimdiye kadar, 60 dakikalık bir ses dosyası ve boş bir sayfayla sıkışıp kalmıştınız. Yalnızca not yazmak için her şeyi tekrar dinlemek acı vericidir. **Bu bugün sona eriyor.**"
+    "p1": "Hepimiz bunu yaşadık. Bulut uygulamalarının yasak olduğu ama çevrimdışı kaydın serbest olduğu yüksek güvenlikli bir toplantıdasınız. Ya da sadece Yapay Zeka uygulamasını açmayı unuttunuz ve alışkanlıkla Apple Sesli Notlar'ı kullandınız.",
+    "p2": "Şimdiye kadar, elinizde bir saatlik ses dosyası ve boş bir sayfayla kalıyordunuz. Sadece not almak için her şeyi baştan dinlemek tam bir işkence. **Bu çile bugün bitiyor.**"
   },
   "solution": {
-    "h2": "Kayıtlarınız, Artık Eyleme Geçirilebilir",
-    "intro": "iOS uygulamasını **'Harici Ses Aktarma'**yı destekleyecek şekilde güncelledik. Artık diğer uygulamalardan, iCloud Drive'ınızdan veya cihazınızın depolama alanından dosyaları doğrudan işleme motorumuza getirebilirsiniz.",
+    "h2": "Kayıtlarınız Artık İşe Yarıyor",
+    "intro": "iOS uygulamasını **'Harici Ses İçe Aktarma'**yı destekleyecek şekilde güncelledik. Artık diğer uygulamalardan, iCloud Drive'dan veya telefon hafızasından dosyaları doğrudan sistemimize yükleyebilirsiniz.",
     "features": [
       {
         "t": "200MB Dosya Desteği",
-        "d": "Uzun bir toplantınız mı var? Telaşlanmayın. Şu anda 200MB'a kadar dosyaları destekliyoruz, bu da çoğu standart uzun oturumu kapsar. (Ve yakında bunu genişletmeyi planlıyoruz!)"
+        "d": "Toplantı uzun mu sürdü? Hiç endişelenmeyin. Şu anda 200MB'a kadar dosyaları destekliyoruz, bu da çoğu toplantı için yeterli. (Yakında kapasiteyi artıracağız!)"
       },
       {
-        "t": "Tam Transkript + Özet",
-        "d": "Sadece bir özet almıyorsunuz. Kimin ne söylediğine dair ham, zaman damgalı metni ve bildiğiniz ve sevdiğiniz yapılandırılmış tutanakları alırsınız."
+        "t": "Tam Döküm + Özet",
+        "d": "Sadece kısa bir özet değil. Kimin ne söylediğini gösteren zaman damgalı tam metni ve düzenli toplantı tutanağını birlikte alırsınız."
       },
       {
         "t": "Format Özgürlüğü",
-        "d": "M4A, MP3, WAV, MP4... dönüştürmeyi biz hallederiz, böylece sizin yapmanıza gerek kalmaz."
+        "d": "M4A, MP3, WAV, MP4... dönüştürme işini biz hallediyoruz, siz yorulmayın."
       }
     ]
   },
   "formats": {
-    "h2": "Desteklenen Dosya Formatları",
-    "intro": "Motorumuzu, günümüzde iş dünyasında kullanılan en yaygın ses ve video konteynerlerini tanıyacak şekilde oluşturduk:",
+    "h2": "Desteklenen Formatlar",
+    "intro": "Motorumuz iş dünyasında en çok kullanılan ses ve video formatlarını tanır:",
     "list": [
       { "ext": "m4a", "type": "Apple Sesli Notlar / MPEG-4 Ses" },
-      { "ext": "mp3", "type": "Standart Ses Katmanı III" },
-      { "ext": "wav", "type": "Yüksek Kaliteli Dalga Formu" },
+      { "ext": "mp3", "type": "Standart MP3" },
+      { "ext": "wav", "type": "Yüksek Kaliteli Waveform" },
       { "ext": "mp4", "type": "Video Toplantı Kayıtları" },
       { "ext": "aac", "type": "Gelişmiş Ses Kodlaması" },
-      { "ext": "flac", "type": "Kayıpsız Ses" },
+      { "ext": "flac", "type": "Kayıpsız Ses (Lossless)" },
       { "ext": "ogg / webm", "type": "Web Ses Formatları" }
     ]
   },
   "workflow": {
-    "h2": "İş Akışınızı Nasıl Çözer",
+    "h2": "İş Akışınız İçin Çözümler",
     "items": [
       {
-        "title": "'Sıkı Güvenlik' Toplantısı",
-        "desc": "Bazı şirketler toplantı odalarında internet erişimini engeller ancak çevrimdışı ses kayıt cihazlarına izin verir. Orada kaydedin ve daha sonra çevrimiçi olduğunuzda dosyayı aktarın."
+        "title": "'Sıkı Güvenlik' Toplantıları",
+        "desc": "Toplantı odasında internet yok mu? Çevrimdışı kaydedin, tekrar çevrimiçi olduğunuzda dosyayı içe aktarın."
       },
       {
-        "title": "'Hata, Unuttum' Anı",
-        "desc": "Alışkanlıktan dolayı varsayılan kayıt cihazını mı kullandınız? Panik yapmayın. Dosyayı Sesli Notlar'dan Tutanakları AI'a paylaşın ve akşamınızı kurtarın."
+        "title": "'Tüh, unuttum' Anı",
+        "desc": "Alışkanlıkla normal kayıt cihazını mı açtınız? Panik yapmayın. Dosyayı Tutanakları AI ile paylaşın ve akşamınızı kurtarın."
       },
       {
-        "title": "Eski Arşiv",
-        "desc": "Sürücünüzde eski röportaj veya derslerden oluşan bir klasörünüz var mı? Sonunda aranabilir ve özetlenebilir hale getirmek için onları aktarın."
+        "title": "Eski Arşivler",
+        "desc": "Bilgisayarınızda eski röportajlar veya dersler mi var? Onları içe aktarın ve sonunda aranabilir hale getirin."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Güncellendi", "type": "Özellik", "category": "iOS / Verimlilik" },
-  "cta": { "openBrowser": "Tarayıcıda Aç", "downloadIOS": "iOS'te Aktarma Özelliğini Deneyin" }
+  "meta": { "h2": "Bilgi", "published": "Güncellendi", "type": "Özellik", "category": "iOS / Verimlilik" },
+  "cta": { "openBrowser": "Tarayıcıda Aç", "downloadIOS": "iOS'te Dene" }
 }

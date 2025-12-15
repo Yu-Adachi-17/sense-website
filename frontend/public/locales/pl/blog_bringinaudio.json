@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Importowanie audio do AI: Konwertuj notatki głosowe na protokoły spotkań (Nowa funkcja)",
-    "description": "Nagrałeś spotkanie na Notatkach głosowych? Teraz możesz importować pliki audio (m4a, mp3, wav, mp4) bezpośrednio do Protokół AI, aby generować pełne transkrypcje i streszczenia.",
+    "title": "Import audio do AI: Zamień notatki głosowe w protokoły spotkań (Nowość)",
+    "description": "Nagrałeś spotkanie na Dyktafonie? Teraz możesz zaimportować pliki audio (m4a, mp3, wav, mp4) bezpośrednio do Protokół AI, aby uzyskać pełną transkrypcję i podsumowanie.",
     "ogTitle": "Importuj pliki audio do Protokół AI — Obsługa M4A, MP3, WAV",
-    "ogDescription": "W końcu sposób na przekształcenie tych gigantycznych plików audio w protokoły, na podstawie których można działać. Obsługuje do 200 MB i różnorodne formaty, takie jak m4a, mp3 i flac.",
+    "ogDescription": "Wreszcie sposób na zamianę tych gigantycznych plików audio w użyteczne protokoły. Obsługa do 200 MB i formatów takich jak m4a i mp3.",
     "ld": {
-      "headline": "Jak tworzyć protokoły spotkań z istniejących plików audio",
-      "description": "Przewodnik po korzystaniu z nowej funkcji Importowania Audio w Protokół AI. Rozwiązuje problem ograniczonego użycia urządzenia podczas spotkań poprzez przetwarzanie wcześniej nagranego dźwięku."
+      "headline": "Jak tworzyć protokoły z istniejących plików audio",
+      "description": "Przewodnik po nowej funkcji Importu Audio w Protokół AI. Idealne rozwiązanie, gdy użycie telefonu podczas spotkania jest ograniczone."
     }
   },
-  "aria": { "home": "Protokół AI Strona główna" },
-  "nav": { "blog": "Blog", "current": "Funkcja Importowania Audio" },
+  "aria": { "home": "Strona główna Protokół AI" },
+  "nav": { "blog": "Blog", "current": "Funkcja Importu Audio" },
   "hero": {
-    "kicker": "Aktualizacja nowej funkcji",
-    "h1": "Nagrano gdzie indziej? Nie ma problemu. Konwertuj pliki audio na Protokoły AI.",
-    "tagline": "Niezależnie od tego, czy jest to notatka głosowa, nagranie z Zoom, czy plik z dedykowanego rejestratora—możesz je teraz importować bezpośrednio do Protokół AI w celu natychmiastowej transkrypcji i streszczenia."
+    "kicker": "Nowa Funkcja",
+    "h1": "Nagrane gdzie indziej? Żaden problem. Zamień audio w Protokół AI.",
+    "tagline": "Niezależnie czy to notatka głosowa, nagranie z Zoom, czy plik z profesjonalnego dyktafonu — teraz możesz je zaimportować bezpośrednio do Protokół AI, by natychmiast otrzymać transkrypcję i podsumowanie."
   },
   "problem": {
-    "p1": "Wszyscy przez to przeszliśmy. Jesteś na spotkaniu o wysokim stopniu bezpieczeństwa, gdzie 'aplikacje w chmurze' są zabronione, ale nagrywanie offline jest dozwolone. A może po prostu zapomniałeś otworzyć aplikację AI i zamiast tego nacisnąłeś nagrywanie w Notatkach głosowych Apple.",
-    "p2": "Do tej pory utknąłeś z 60-minutowym plikiem audio i pustą stroną. Ponowne słuchanie tego wszystkiego tylko po to, by wpisać notatki, jest bolesne. **To kończy się dzisiaj.**"
+    "p1": "Wszyscy to znamy. Jesteś na poufnym spotkaniu, gdzie aplikacje w chmurze są zabronione, ale nagrywanie offline jest dozwolone. A może po prostu zapomniałeś włączyć AI i z przyzwyczajenia użyłeś Dyktafonu Apple.",
+    "p2": "Do tej pory zostawałeś z godzinnym nagraniem i pustą kartką. Odsłuchiwanie wszystkiego od nowa tylko po to, by zrobić notatki, to udręka. **Ale to kończy się dzisiaj.**"
   },
   "solution": {
-    "h2": "Twoje Nagrania, Teraz Do Działania",
-    "intro": "Zaktualizowaliśmy aplikację iOS, aby obsługiwać **'Importowanie Zewnętrznego Audio'**. Możesz teraz przenosić pliki z innych aplikacji, swojego iCloud Drive lub pamięci urządzenia bezpośrednio do naszego silnika przetwarzającego.",
+    "h2": "Twoje nagrania stają się użyteczne",
+    "intro": "Zaktualizowaliśmy aplikację iOS o obsługę **'Importu Zewnętrznego Audio'**. Teraz możesz przenosić pliki z innych aplikacji, iCloud Drive lub pamięci urządzenia prosto do naszego silnika AI.",
     "features": [
       {
-        "t": "Obsługa plików 200 MB",
-        "d": "Długie spotkanie? Bez potu. Obecnie obsługujemy pliki do 200 MB, obejmujące większość standardowych długich sesji. (I planujemy to wkrótce rozszerzyć!)"
+        "t": "Obsługa plików do 200 MB",
+        "d": "Długie spotkanie? Bez obaw. Obecnie obsługujemy pliki do 200 MB, co wystarcza na większość standardowych sesji. (Wkrótce zwiększymy ten limit!)"
       },
       {
-        "t": "Pełna transkrypcja + Streszczenie",
-        "d": "Nie dostajesz tylko streszczenia. Otrzymujesz surowy, oznaczony czasem tekst tego, kto co powiedział, plus ustrukturyzowane protokoły, które znasz i lubisz."
+        "t": "Pełna Transkrypcja + Podsumowanie",
+        "d": "Nie otrzymujesz tylko skrótu. Dostajesz surowy tekst ze znacznikami czasu (kto co powiedział) oraz ustrukturyzowany protokół, który znasz i lubisz."
       },
       {
-        "t": "Swoboda formatu",
-        "d": "M4A, MP3, WAV, MP4... my zajmujemy się konwersją, więc Ty nie musisz."
+        "t": "Dowolny format",
+        "d": "M4A, MP3, WAV, MP4... my zajmiemy się konwersją, Ty nie musisz się tym martwić."
       }
     ]
   },
   "formats": {
-    "h2": "Obsługiwane formaty plików",
-    "intro": "Nasz silnik został zbudowany tak, aby rozpoznawał najczęściej używane w biznesie kontenery audio i wideo:",
+    "h2": "Obsługiwane formaty",
+    "intro": "Nasz silnik rozpoznaje najpopularniejsze formaty audio i wideo używane w biznesie:",
     "list": [
-      { "ext": "m4a", "type": "Apple Notatki głosowe / Audio MPEG-4" },
-      { "ext": "mp3", "type": "Standardowa Warstwa Audio III" },
-      { "ext": "wav", "type": "Wysokiej jakości przebieg fali" },
-      { "ext": "mp4", "type": "Nagrania spotkań wideo" },
-      { "ext": "aac", "type": "Zaawansowane Kodowanie Audio" },
-      { "ext": "flac", "type": "Audio bezstratne" },
-      { "ext": "ogg / webm", "type": "Formaty audio webowe" }
+      { "ext": "m4a", "type": "Apple Notatki głosowe / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standardowe MP3" },
+      { "ext": "wav", "type": "Wysokiej jakości Waveform" },
+      { "ext": "mp4", "type": "Nagrania wideo spotkań" },
+      { "ext": "aac", "type": "Zaawansowane kodowanie audio" },
+      { "ext": "flac", "type": "Audio bezstratne (Lossless)" },
+      { "ext": "ogg / webm", "type": "Webowe formaty audio" }
     ]
   },
   "workflow": {
-    "h2": "Jak to rozwiązuje Twój przepływ pracy",
+    "h2": "Rozwiązanie dla Twojej pracy",
     "items": [
       {
-        "title": "Spotkanie 'Ścisłe Bezpieczeństwo'",
-        "desc": "Niektóre firmy blokują dostęp do Internetu w salach konferencyjnych, ale zezwalają na dyktafony offline. Nagraj tam, a następnie zaimportuj plik później, gdy wrócisz do sieci."
+        "title": "Spotkania o wysokim rygorze bezpieczeństwa",
+        "desc": "Brak internetu w sali? Nagraj offline, a plik zaimportuj później, gdy będziesz online."
       },
       {
-        "title": "Moment 'Ups, zapomniałem'",
-        "desc": "Użyłeś domyślnego rejestratora z przyzwyczajenia? Bez paniki. Udostępnij plik z Notatek głosowych do Protokół AI i uratuj swój wieczór."
+        "title": "Moment „Ups, zapomniałem”",
+        "desc": "Użyłeś zwykłego dyktafonu z przyzwyczajenia? Nie panikuj. Udostępnij plik do Protokół AI i uratuj swój wieczór."
       },
       {
-        "title": "Archiwum Legacy",
-        "desc": "Masz folder starych wywiadów lub wykładów na swoim dysku? Zaimportuj je, aby w końcu były przeszukiwalne i streszczone."
+        "title": "Stare archiwum",
+        "desc": "Masz folder ze starymi wywiadami lub wykładami? Zaimportuj je, aby wreszcie stały się przeszukiwalne."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Zaktualizowano", "type": "Funkcja", "category": "iOS / Produktywność" },
-  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Wypróbuj funkcję Importowania na iOS" }
+  "meta": { "h2": "Info", "published": "Zaktualizowano", "type": "Funkcja", "category": "iOS / Produktywność" },
+  "cta": { "openBrowser": "Otwórz w przeglądarce", "downloadIOS": "Wypróbuj na iOS" }
 }

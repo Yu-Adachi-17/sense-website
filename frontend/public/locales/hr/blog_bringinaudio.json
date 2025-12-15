@@ -1,50 +1,50 @@
 {
   "seo": {
-    "title": "Uvoz zvuka u AI: Pretvorite glasovne bilješke u zapisnike sastanaka (Nova značajka)",
-    "description": "Snimili ste sastanak na Glasovnim bilješkama? Sada možete uvesti audio datoteke (m4a, mp3, wav, mp4) izravno u AI Zapisnik za generiranje punih transkripata i sažetaka.",
-    "ogTitle": "Uvezite audio datoteke u AI Zapisnik — Podržani M4A, MP3, WAV",
-    "ogDescription": "Konačno, način da te velike audio datoteke pretvorite u provedive zapisnike. Podržava do 200 MB i razne formate poput m4a, mp3 i flac.",
+    "title": "Uvoz zvuka u AI: Pretvorite glasovne zapise u zapisnike (Nova značajka)",
+    "description": "Snimili ste sastanak putem Glasovnih zapisa? Sada možete uvesti audio datoteke (m4a, mp3, wav, mp4) izravno u AI Zapisnik za generiranje potpunih transkripata i sažetaka.",
+    "ogTitle": "Uvezite audio datoteke u AI Zapisnik — Podrška za M4A, MP3, WAV",
+    "ogDescription": "Konačno, način da te velike audio datoteke pretvorite u korisne zapisnike. Podržava do 200 MB i formate poput m4a, mp3 i flac.",
     "ld": {
       "headline": "Kako stvoriti zapisnike sastanaka iz postojećih audio datoteka",
-      "description": "Vodič za korištenje nove značajke Uvoz zvuka u AI Zapisnik. Rješava problem ograničenog korištenja uređaja tijekom sastanaka obradom unaprijed snimljenog zvuka."
+      "description": "Vodič za korištenje nove značajke Uvoza zvuka u AI Zapisnik. Rješava problem ograničenog korištenja mobitela tijekom sastanaka obradom unaprijed snimljenog zvuka."
     }
   },
   "aria": { "home": "AI Zapisnik Početna" },
   "nav": { "blog": "Blog", "current": "Značajka Uvoza Zvuka" },
   "hero": {
-    "kicker": "Ažuriranje nove značajke",
-    "h1": "Snimljeno negdje drugdje? Nema problema. Pretvorite audio datoteke u AI zapisnike.",
-    "tagline": "Bilo da se radi o Glasovnoj bilješci, Zoom snimci ili datoteci s namjenskog snimača—sada ih možete uvesti izravno u AI Zapisnik za trenutnu transkripciju i sažetak."
+    "kicker": "Novo ažuriranje",
+    "h1": "Snimljeno negdje drugdje? Nema problema. Pretvorite audio u AI zapisnike.",
+    "tagline": "Bilo da se radi o Glasovnom zapisu, Zoom snimci ili datoteci s diktafona—sada ih možete uvesti izravno u AI Zapisnik za trenutnu transkripciju i sažetak."
   },
   "problem": {
-    "p1": "Svi smo to doživjeli. Nalazite se na sastanku visoke sigurnosti gdje su 'cloud aplikacije' zabranjene, ali je dopušteno snimanje izvan mreže. Ili ste možda jednostavno zaboravili otvoriti AI aplikaciju i umjesto toga pritisnuli snimanje na Apple Glasovnim bilješkama.",
-    "p2": "Do sada ste bili zaglavljeni sa 60-minutnom audio datotekom i praznom stranicom. Ponovno slušanje svega samo da biste upisali bilješke je bolno. **To danas prestaje.**"
+    "p1": "Svi smo to prošli. Nalazite se na sastanku visoke sigurnosti gdje su cloud aplikacije zabranjene, ali je dopušteno offline snimanje. Ili ste možda jednostavno zaboravili otvoriti AI aplikaciju i iz navike pritisnuli snimanje na običnom diktafonu.",
+    "p2": "Do sada ste imali samo 60-minutnu audio datoteku i prazan papir. Ponovno slušanje svega samo da biste napisali bilješke je mukotrpno. **Tome je danas kraj.**"
   },
   "solution": {
-    "h2": "Vaše snimke, sada provedive",
-    "intro": "Ažurirali smo iOS aplikaciju kako bismo podržali **'Uvoz vanjskog zvuka'**. Sada možete donijeti datoteke iz drugih aplikacija, vašeg iCloud Drivea ili pohrane uređaja izravno u naš mehanizam za obradu.",
+    "h2": "Vaše snimke postaju korisne",
+    "intro": "Ažurirali smo iOS aplikaciju za podršku **'Uvoza vanjskog zvuka'**. Sada možete prebaciti datoteke iz drugih aplikacija, vašeg iCloud Drivea ili pohrane uređaja izravno u naš sustav.",
     "features": [
       {
         "t": "Podrška za datoteke od 200 MB",
-        "d": "Dug sastanak? Bez brige. Trenutno podržavamo datoteke do 200 MB, pokrivajući većinu standardnih dugih sesija. (I planiramo to uskoro proširiti!)"
+        "d": "Dug sastanak? Bez brige. Trenutno podržavamo datoteke do 200 MB, što pokriva većinu standardnih sastanaka. (Uskoro planiramo i povećanje!)"
       },
       {
         "t": "Puni transkript + Sažetak",
-        "d": "Ne dobivate samo sažetak. Dobivate sirovi tekst, s vremenskim oznakama tko je što rekao, plus strukturirane zapisnike koje poznajete i volite."
+        "d": "Ne dobivate samo sažetak. Dobivate sirovi tekst s vremenskim oznakama (tko je što rekao), plus strukturirane zapisnike koje trebate."
       },
       {
-        "t": "Sloboda formata",
-        "d": "M4A, MP3, WAV, MP4... mi se brinemo za konverziju tako da vi ne morate."
+        "t": "Svi formati",
+        "d": "M4A, MP3, WAV, MP4... mi se brinemo za konverziju, vi ne morate."
       }
     ]
   },
   "formats": {
-    "h2": "Podržani formati datoteka",
-    "intro": "Izgradili smo naš mehanizam za prepoznavanje najčešćih audio i video kontejnera koji se koriste u poslovanju danas:",
+    "h2": "Podržani formati",
+    "intro": "Naš sustav prepoznaje najčešće audio i video formate koji se danas koriste u poslovanju:",
     "list": [
-      { "ext": "m4a", "type": "Apple Glasovne bilješke / MPEG-4 Audio" },
-      { "ext": "mp3", "type": "Standardni Audio Layer III" },
-      { "ext": "wav", "type": "Visokokvalitetni valni oblik" },
+      { "ext": "m4a", "type": "Apple Glasovni zapisi / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standardni MP3" },
+      { "ext": "wav", "type": "Visokokvalitetni Waveform" },
       { "ext": "mp4", "type": "Video snimke sastanaka" },
       { "ext": "aac", "type": "Napredno Audio Kodiranje" },
       { "ext": "flac", "type": "Audio bez gubitaka" },
@@ -52,22 +52,22 @@
     ]
   },
   "workflow": {
-    "h2": "Kako rješava vaš tijek rada",
+    "h2": "Rješenje za vaš tijek rada",
     "items": [
       {
-        "title": "Sastanak 'Stroge Sigurnosti'",
-        "desc": "Neke tvrtke blokiraju pristup internetu u dvoranama za sastanke, ali dopuštaju offline diktafone. Snimajte tamo, a zatim uvezite datoteku kasnije kada se vratite na mrežu."
+        "title": "Sastanci stroge sigurnosti",
+        "desc": "Nema interneta u dvorani? Snimajte offline, a datoteku uvezite kasnije kada budete online."
       },
       {
-        "title": "Trenutak 'Ups, zaboravio sam'",
-        "desc": "Koristili ste zadani snimač iz navike? Ne paničarite. Podijelite datoteku iz Glasovnih bilješki s AI Zapisnik i spasite svoju večer."
+        "title": "Trenutak \"Ups, zaboravio sam\"",
+        "desc": "Koristili ste obični snimač iz navike? Bez panike. Podijelite datoteku iz Glasovnih zapisa u AI Zapisnik i spasite svoju večer."
       },
       {
         "title": "Stara arhiva",
-        "desc": "Imate li mapu starih intervjua ili predavanja na pogonu? Uvezite ih kako bi konačno postali pretraživi i sažeti."
+        "desc": "Imate mapu starih intervjua ili predavanja na disku? Uvezite ih kako bi konačno postali pretraživi."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Ažurirano", "type": "Značajka", "category": "iOS / Produktivnost" },
-  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Isprobajte značajku Uvoza na iOS-u" }
+  "meta": { "h2": "Info", "published": "Ažurirano", "type": "Značajka", "category": "iOS / Produktivnost" },
+  "cta": { "openBrowser": "Otvori u pregledniku", "downloadIOS": "Isprobaj na iOS-u" }
 }

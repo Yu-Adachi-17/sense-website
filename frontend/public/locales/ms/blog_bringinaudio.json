@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Import Audio ke AI: Tukar Memo Suara kepada Minit Mesyuarat (Ciri Baharu)",
-    "description": "Merekod mesyuarat di Memo Suara? Kini anda boleh mengimport fail audio (m4a, mp3, wav, mp4) terus ke Minit AI untuk menjana transkrip penuh dan ringkasan.",
+    "title": "Import Audio ke AI: Tukar Memo Suara Jadi Minit Mesyuarat (Ciri Baharu)",
+    "description": "Terakam mesyuarat guna Voice Memos? Kini anda boleh import fail audio (m4a, mp3, wav, mp4) terus ke Minit AI untuk dapatkan transkrip penuh dan ringkasan.",
     "ogTitle": "Import Fail Audio ke Minit AI — Sokongan M4A, MP3, WAV",
-    "ogDescription": "Akhirnya, cara untuk menukar fail audio gergasi itu menjadi minit yang boleh diambil tindakan. Menyokong sehingga 200MB dan pelbagai format seperti m4a, mp3, dan flac.",
+    "ogDescription": "Akhirnya, cara mudah tukar fail audio besar jadi minit yang berguna. Sokong sehingga 200MB dan pelbagai format seperti m4a dan mp3.",
     "ld": {
-      "headline": "Cara Membuat Minit Mesyuarat daripada Fail Audio Sedia Ada",
-      "description": "Panduan tentang cara menggunakan ciri Import Audio baharu dalam Minit AI. Menyelesaikan masalah penggunaan peranti yang terhad semasa mesyuarat dengan memproses audio yang dirakam terlebih dahulu."
+      "headline": "Cara Buat Minit Mesyuarat daripada Fail Audio Sedia Ada",
+      "description": "Panduan guna ciri Import Audio baharu dalam Minit AI. Solusi terbaik bila penggunaan telefon terhad semasa mesyuarat."
     }
   },
   "aria": { "home": "Laman Utama Minit AI" },
   "nav": { "blog": "Blog", "current": "Ciri Import Audio" },
   "hero": {
-    "kicker": "Kemas Kini Ciri Baharu",
-    "h1": "Dirakam di Tempat Lain? Tiada Masalah. Tukar Fail Audio kepada Minit AI.",
-    "tagline": "Sama ada Memo Suara, rakaman Zoom, atau fail daripada perakam khusus—anda kini boleh mengimportnya terus ke Minit AI untuk transkripsi dan ringkasan segera."
+    "kicker": "Kemas Kini Baharu",
+    "h1": "Dirakam di tempat lain? Tiada masalah. Tukar jadi minit AI.",
+    "tagline": "Sama ada dari Memo Suara, rakaman Zoom, atau fail perakam khas—kini anda boleh import terus ke Minit AI untuk transkripsi dan ringkasan segera."
   },
   "problem": {
-    "p1": "Kita semua pernah mengalaminya. Anda berada dalam mesyuarat keselamatan tinggi di mana 'aplikasi awan' dilarang, tetapi rakaman luar talian dibenarkan. Atau mungkin anda hanya terlupa membuka aplikasi AI dan menekan rakam pada Memo Suara Apple sebaliknya.",
-    "p2": "Sehingga kini, anda terperangkap dengan fail audio 60 minit dan halaman kosong. Mendengar semula semuanya hanya untuk menaip nota adalah menyakitkan. **Itu berakhir hari ini.**"
+    "p1": "Kita semua pernah alaminya. Mesyuarat sulit di mana 'aplikasi awan' dilarang, tapi rakaman luar talian dibenarkan. Atau mungkin anda terlupa buka aplikasi AI dan terguna Memo Suara Apple kerana kebiasaan.",
+    "p2": "Dulu, anda terpaksa hadap fail audio 60 minit dan kertas kosong. Dengar semula semuanya semata-mata nak taip nota memang memenatkan. **Hari ini, masalah itu selesai.**"
   },
   "solution": {
-    "h2": "Rakaman Anda, Kini Boleh Diambil Tindakan",
-    "intro": "Kami telah mengemas kini aplikasi iOS untuk menyokong **'Import Audio Luaran'**. Anda kini boleh membawa fail daripada aplikasi lain, iCloud Drive anda, atau storan peranti anda terus ke enjin pemprosesan kami.",
+    "h2": "Rakaman Anda, Kini Lebih Berguna",
+    "intro": "Kami dah kemas kini aplikasi iOS untuk sokong **'Import Audio Luaran'**. Anda boleh ambil fail dari aplikasi lain, iCloud Drive, atau storan peranti terus ke enjin pemprosesan kami.",
     "features": [
       {
         "t": "Sokongan Fail 200MB",
-        "d": "Ada mesyuarat panjang? Jangan risau. Kami kini menyokong fail sehingga 200MB, meliputi kebanyakan sesi panjang standard. (Dan kami merancang untuk meluaskan ini tidak lama lagi!)"
+        "d": "Mesyuarat panjang? Jangan risau. Kami sokong fail hingga 200MB, cukup untuk kebanyakan sesi biasa. (Kapasiti akan ditambah tak lama lagi!)"
       },
       {
         "t": "Transkrip Penuh + Ringkasan",
-        "d": "Anda bukan sahaja mendapat ringkasan. Anda mendapat teks mentah, dengan cap masa tentang siapa berkata apa, serta minit berstruktur yang anda kenali dan sukai."
+        "d": "Bukan sekadar ringkasan. Anda dapat teks mentah dengan cap masa (siapa cakap apa), serta minit berstruktur yang kemas."
       },
       {
-        "t": "Kebebasan Format",
-        "d": "M4A, MP3, WAV, MP4... kami mengendalikan penukaran supaya anda tidak perlu."
+        "t": "Format Bebas",
+        "d": "M4A, MP3, WAV, MP4... kami uruskan penukaran, anda tak perlu pening kepala."
       }
     ]
   },
   "formats": {
-    "h2": "Format Fail yang Disokong",
-    "intro": "Kami telah membina enjin kami untuk mengenali kontena audio dan video yang paling biasa digunakan dalam perniagaan hari ini:",
+    "h2": "Format Fail Disokong",
+    "intro": "Enjin kami kenal format audio dan video yang paling biasa diguna dalam bisnes:",
     "list": [
-      { "ext": "m4a", "type": "Memo Suara Apple / Audio MPEG-4" },
-      { "ext": "mp3", "type": "Lapisan Audio Standard III" },
-      { "ext": "wav", "type": "Bentuk Gelombang Kualiti Tinggi" },
-      { "ext": "mp4", "type": "Rakaman Mesyuarat Video" },
+      { "ext": "m4a", "type": "Apple Memo Suara / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Standard MP3" },
+      { "ext": "wav", "type": "Gelombang Kualiti Tinggi" },
+      { "ext": "mp4", "type": "Rakaman Video Mesyuarat" },
       { "ext": "aac", "type": "Pengekodan Audio Lanjutan" },
-      { "ext": "flac", "type": "Audio Tanpa Kerugian" },
+      { "ext": "flac", "type": "Audio Tanpa Hilang (Lossless)" },
       { "ext": "ogg / webm", "type": "Format Audio Web" }
     ]
   },
   "workflow": {
-    "h2": "Bagaimana Ia Menyelesaikan Aliran Kerja Anda",
+    "h2": "Penyelesaian untuk Kerja Anda",
     "items": [
       {
         "title": "Mesyuarat 'Keselamatan Ketat'",
-        "desc": "Sesetengah syarikat menyekat akses internet di bilik mesyuarat tetapi membenarkan perakam suara luar talian. Rakam di sana, dan kemudian import fail itu kemudian apabila anda kembali dalam talian."
+        "desc": "Tiada internet di bilik mesyuarat? Rakam secara luar talian (offline), kemudian import fail bila anda dah ada talian semula."
       },
       {
-        "title": "Saat 'Oops, Saya Lupa'",
-        "desc": "Menggunakan perakam lalai kerana kebiasaan? Jangan panik. Kongsikan fail dari Memo Suara ke Minit AI dan selamatkan malam anda."
+        "title": "Saat 'Alamak, Terlupa'",
+        "desc": "Terbiasa guna perakam biasa? Jangan panik. Kongsi fail dari Memo Suara ke Minit AI dan selamatkan masa rehat anda."
       },
       {
-        "title": "Arkib Legasi",
-        "desc": "Adakah anda mempunyai folder temu bual atau kuliah lama pada pemacu anda? Importnya untuk akhirnya menjadikannya boleh dicari dan diringkaskan."
+        "title": "Arkib Lama",
+        "desc": "Ada folder temu bual atau kuliah lama dalam simpanan? Import sekarang untuk jadikan ia boleh dicari dan diringkaskan."
       }
     ]
   },
   "meta": { "h2": "Meta", "published": "Dikemas kini", "type": "Ciri", "category": "iOS / Produktiviti" },
-  "cta": { "openBrowser": "Buka dalam penyemak imbas", "downloadIOS": "Cuba Ciri Import pada iOS" }
+  "cta": { "openBrowser": "Buka di pelayar", "downloadIOS": "Cuba di iOS" }
 }

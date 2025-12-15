@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Importar Audio a IA: Convierte Notas de Voz en Actas de Reunión (Nueva Función)",
-    "description": "¿Grabaste una reunión en Notas de Voz? Ahora puedes importar archivos de audio (m4a, mp3, wav, mp4) directamente a Actas IA para generar transcripciones completas y resúmenes.",
-    "ogTitle": "Importar Archivos de Audio a Actas IA — Compatible con M4A, MP3, WAV",
-    "ogDescription": "Finalmente, una forma de convertir esos archivos de audio gigantes en actas procesables. Admite hasta 200 MB y diversos formatos como m4a, mp3 y flac.",
+    "title": "Importar Audio a IA: Convierte Notas de Voz en Actas (Nueva Función)",
+    "description": "¿Grabaste una reunión en Notas de Voz? Importa archivos de audio (m4a, mp3, wav, mp4) directamente a Actas IA para generar transcripciones y resúmenes completos.",
+    "ogTitle": "Importa Archivos de Audio a Actas IA — Soporte M4A, MP3, WAV",
+    "ogDescription": "Por fin, una forma de convertir esos archivos de audio pesados en actas útiles. Soporta hasta 200 MB y formatos como m4a, mp3 y flac.",
     "ld": {
-      "headline": "Cómo crear actas de reuniones a partir de archivos de audio existentes",
-      "description": "Una guía sobre cómo usar la nueva función de Importar Audio en Actas IA. Resuelve el problema del uso restringido de dispositivos durante las reuniones procesando audio pregrabado."
+      "headline": "Cómo crear actas de reuniones desde archivos de audio",
+      "description": "Guía para usar la nueva función de Importar Audio en Actas IA. Ideal para cuando no puedes usar el móvil durante la reunión pero sí grabar audio."
     }
   },
-  "aria": { "home": "Actas IA Inicio" },
-  "nav": { "blog": "Blog", "current": "Función de Importar Audio" },
+  "aria": { "home": "Inicio Actas IA" },
+  "nav": { "blog": "Blog", "current": "Función Importar Audio" },
   "hero": {
-    "kicker": "Actualización de Nueva Función",
-    "h1": "¿Grabado en otro lugar? No hay problema. Convierte archivos de audio en Actas IA.",
-    "tagline": "Ya sea una Nota de Voz, una grabación de Zoom o un archivo de una grabadora dedicada, ahora puedes importarlos directamente a Actas IA para obtener transcripciones y resúmenes instantáneos."
+    "kicker": "Novedad",
+    "h1": "¿Grabaste con otra app? No hay problema. Convierte tu audio en Actas IA.",
+    "tagline": "Ya sea una Nota de Voz, una grabación de Zoom o un archivo de una grabadora externa, impórtalos directamente a Actas IA para obtener transcripciones y resúmenes al instante."
   },
   "problem": {
-    "p1": "Todos hemos pasado por eso. Estás en una reunión de alta seguridad donde las 'aplicaciones en la nube' están prohibidas, pero se permite la grabación sin conexión. O tal vez simplemente olvidaste abrir la aplicación de IA y presionaste grabar en Notas de Voz de Apple en su lugar.",
-    "p2": "Hasta ahora, estabas atascado con un archivo de audio de 60 minutos y una página en blanco. Escuchar todo de nuevo solo para escribir notas es doloroso. **Eso termina hoy.**"
+    "p1": "A todos nos ha pasado. Estás en una reunión confidencial donde no se permiten móviles, pero sí grabadoras. O simplemente olvidaste abrir la app de IA y usaste las Notas de Voz de Apple por inercia.",
+    "p2": "Hasta ahora, te quedabas con un audio de 60 minutos y una hoja en blanco. Escucharlo todo de nuevo para tomar notas es una tortura. **Eso se acabó.**"
   },
   "solution": {
-    "h2": "Tus Grabaciones, Ahora Procesables",
-    "intro": "Hemos actualizado la aplicación de iOS para admitir la **'Importación de Audio Externo'**. Ahora puedes traer archivos de otras aplicaciones, tu iCloud Drive o el almacenamiento de tu dispositivo directamente a nuestro motor de procesamiento.",
+    "h2": "Tus grabaciones, ahora son útiles",
+    "intro": "Hemos actualizado la app de iOS con **'Importación de Audio Externo'**. Ahora puedes traer archivos desde otras apps, iCloud Drive o la memoria de tu dispositivo directamente a nuestro motor de IA.",
     "features": [
       {
-        "t": "Soporte de Archivos de 200MB",
-        "d": "¿Tienes una reunión larga? No te preocupes. Actualmente admitimos archivos de hasta 200 MB, cubriendo la mayoría de las sesiones largas estándar. (¡Y planeamos expandir esto pronto!)"
+        "t": "Archivos de hasta 200MB",
+        "d": "¿Una reunión larga? Sin complicaciones. Soportamos archivos de hasta 200 MB, suficiente para la mayoría de las sesiones. (¡Y pronto ampliaremos este límite!)"
       },
       {
-        "t": "Transcipción Completa + Resumen",
-        "d": "No solo obtienes un resumen. Obtienes el texto sin procesar, con marcas de tiempo de quién dijo qué, además de las actas estructuradas que conoces y amas."
+        "t": "Transcripción Completa + Resumen",
+        "d": "No solo obtienes un resumen. Recibes el texto completo con marcas de tiempo (quién dijo qué), además del acta estructurada lista para compartir."
       },
       {
-        "t": "Libertad de Formato",
-        "d": "M4A, MP3, WAV, MP4... nosotros nos encargamos de la conversión para que no tengas que hacerlo."
+        "t": "Libertad de Formatos",
+        "d": "M4A, MP3, WAV, MP4... nosotros nos encargamos de la conversión técnica."
       }
     ]
   },
   "formats": {
-    "h2": "Formatos de Archivo Compatibles",
-    "intro": "Hemos construido nuestro motor para reconocer los contenedores de audio y video más comunes utilizados en los negocios hoy en día:",
+    "h2": "Formatos Compatibles",
+    "intro": "Nuestro motor reconoce los formatos de audio y video más comunes en el mundo empresarial:",
     "list": [
-      { "ext": "m4a", "type": "Notas de Voz de Apple / Audio MPEG-4" },
-      { "ext": "mp3", "type": "Capa de Audio Estándar III" },
-      { "ext": "wav", "type": "Forma de Onda de Alta Calidad" },
-      { "ext": "mp4", "type": "Grabaciones de Reuniones de Video" },
+      { "ext": "m4a", "type": "Apple Notas de Voz / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Audio Estándar MP3" },
+      { "ext": "wav", "type": "Audio de Alta Calidad (Waveform)" },
+      { "ext": "mp4", "type": "Grabaciones de Videollamadas" },
       { "ext": "aac", "type": "Codificación de Audio Avanzada" },
-      { "ext": "flac", "type": "Audio sin Pérdida" },
+      { "ext": "flac", "type": "Audio Sin Pérdida" },
       { "ext": "ogg / webm", "type": "Formatos de Audio Web" }
     ]
   },
   "workflow": {
-    "h2": "Cómo Resuelve tu Flujo de Trabajo",
+    "h2": "Soluciones para tu día a día",
     "items": [
       {
-        "title": "La Reunión de 'Seguridad Estricta'",
-        "desc": "Algunas empresas bloquean el acceso a Internet en las salas de juntas, pero permiten grabadoras de voz sin conexión. Graba allí, y luego importa el archivo más tarde cuando vuelvas a estar en línea."
+        "title": "Reuniones de 'Alta Seguridad'",
+        "desc": "Si no hay internet en la sala de juntas, usa una grabadora offline. Graba ahora e importa el archivo cuando vuelvas a tener conexión."
       },
       {
-        "title": "El Momento 'Ups, lo Olvidé'",
-        "desc": "¿Usaste la grabadora predeterminada por costumbre? Que no cunda el pánico. Comparte el archivo desde Notas de Voz a Actas IA y salva tu tarde."
+        "title": "El momento 'Ups, se me olvidó'",
+        "desc": "¿Usaste la grabadora por defecto? No entres en pánico. Comparte el archivo desde Notas de Voz a Actas IA y salva tu tarde."
       },
       {
-        "title": "El Archivo Legado",
-        "desc": "¿Tienes una carpeta de entrevistas o conferencias antiguas en tu unidad? Impórtalas para que finalmente sean buscables y resumidas."
+        "title": "Archivos Antiguos",
+        "desc": "¿Tienes entrevistas o conferencias antiguas guardadas? Impórtalas para hacerlas buscables y tener un resumen en segundos."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Actualizado", "type": "Función", "category": "iOS / Productividad" },
-  "cta": { "openBrowser": "Abrir en el navegador", "downloadIOS": "Probar la Función de Importación en iOS" }
+  "meta": { "h2": "Info", "published": "Actualizado", "type": "Funcionalidad", "category": "iOS / Productividad" },
+  "cta": { "openBrowser": "Abrir en navegador", "downloadIOS": "Probar en iOS" }
 }

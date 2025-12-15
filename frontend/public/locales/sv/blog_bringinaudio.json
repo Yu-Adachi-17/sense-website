@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Importera Ljud till AI: Förvandla Röstmemon till Mötesprotokoll (Ny Funktion)",
-    "description": "Spelade du in ett möte på Röstmemon? Nu kan du importera ljudfiler (m4a, mp3, wav, mp4) direkt till Protokoll AI för att generera fullständiga transkriptioner och sammanfattningar.",
-    "ogTitle": "Importera Ljudfiler till Protokoll AI — Stöder M4A, MP3, WAV",
-    "ogDescription": "Äntligen ett sätt att förvandla de där gigantiska ljudfilerna till åtgärdbara protokoll. Stöder upp till 200 MB och olika format som m4a, mp3 och flac.",
+    "title": "Importera Ljud till AI: Förvandla Röstmemon till Mötesprotokoll (Nyhet)",
+    "description": "Spelade du in mötet med Röstmemon? Nu kan du importera ljudfiler (m4a, mp3, wav, mp4) direkt till Protokoll AI för att få kompletta transkriptioner och sammanfattningar.",
+    "ogTitle": "Importera ljudfiler till Protokoll AI — Stöd för M4A, MP3, WAV",
+    "ogDescription": "Äntligen ett sätt att omvandla stora ljudfiler till användbara protokoll. Stöder upp till 200 MB och format som m4a och mp3.",
     "ld": {
       "headline": "Hur man skapar mötesprotokoll från befintliga ljudfiler",
-      "description": "En guide till hur du använder den nya funktionen Ljudimport i Protokoll AI. Löser problemet med begränsad användning av enheten under möten genom att bearbeta förinspelat ljud."
+      "description": "Guide till den nya funktionen Ljudimport i Protokoll AI. Den perfekta lösningen när mobilanvändning är begränsad under möten."
     }
   },
-  "aria": { "home": "Protokoll AI Hem" },
-  "nav": { "blog": "Blogg", "current": "Funktion för Ljudimport" },
+  "aria": { "home": "Hem Protokoll AI" },
+  "nav": { "blog": "Blogg", "current": "Funktionen Ljudimport" },
   "hero": {
-    "kicker": "Ny funktionsuppdatering",
-    "h1": "Inspelat någon annanstans? Inga problem. Konvertera ljudfiler till AI-protokoll.",
-    "tagline": "Oavsett om det är ett Röstmemo, en Zoom-inspelning eller en fil från en dedikerad inspelare—kan du nu importera dem direkt till Protokoll AI för omedelbar transkription och sammanfattning."
+    "kicker": "Ny Funktion",
+    "h1": "Inspelat någon annanstans? Inga problem. Konvertera ljud till AI-protokoll.",
+    "tagline": "Oavsett om det är ett Röstmemo, en Zoom-inspelning eller en fil från en diktafon — nu kan du importera dem direkt till Protokoll AI för omedelbar transkribering och sammanfattning."
   },
   "problem": {
-    "p1": "Vi har alla varit där. Du är på ett möte med hög säkerhet där 'molnappar' är förbjudna, men offlineinspelning är tillåten. Eller kanske glömde du helt enkelt att öppna AI-appen och tryckte på spela in på Apple Röstmemon istället.",
-    "p2": "Fram till nu har du fastnat med en 60-minuters ljudfil och en tom sida. Att lyssna igenom allt igen bara för att skriva anteckningar är smärtsamt. **Det slutar idag.**"
+    "p1": "Vi har alla varit där. Du sitter i ett säkerhetsklassat möte där molnappar är förbjudna, men offline-inspelning är tillåten. Eller så glömde du helt enkelt att öppna AI-appen och använde vanliga Röstmemon av gammal vana.",
+    "p2": "Hittills har du stått där med en timmes ljudfil och ett tomt papper. Att lyssna igenom allt igen bara för att skriva anteckningar är ingen höjdare. **Men det är slut med det nu.**"
   },
   "solution": {
-    "h2": "Dina Inspelningar, Nu Åtgärdbara",
-    "intro": "Vi har uppdaterat iOS-appen för att stödja **'Extern Ljudimport'**. Du kan nu ta in filer från andra appar, din iCloud Drive eller din enhetslagring direkt till vår bearbetningsmotor.",
+    "h2": "Dina inspelningar kommer till nytta",
+    "intro": "Vi har uppdaterat iOS-appen med stöd för **'Extern Ljudimport'**. Nu kan du hämta filer från andra appar, iCloud Drive eller enhetens lagring direkt till vår AI-motor.",
     "features": [
       {
-        "t": "Stöd för 200 MB filer",
-        "d": "Långt möte? Inga problem. Vi stöder för närvarande filer upp till 200 MB, vilket täcker de flesta vanliga långa sessioner. (Och vi planerar att utöka detta snart!)"
+        "t": "Filer upp till 200 MB",
+        "d": "Långt möte? Inga problem. Vi stöder för närvarande filer upp till 200 MB, vilket räcker för de flesta möten. (Och vi planerar att öka gränsen snart!)"
       },
       {
-        "t": "Full Transkription + Sammanfattning",
-        "d": "Du får inte bara en sammanfattning. Du får den råa, tidsstämplade texten om vem som sa vad, plus de strukturerade protokollen du känner till och älskar."
+        "t": "Fullständig Transkribering + Sammanfattning",
+        "d": "Du får inte bara en kort sammanfattning. Du får den råa texten med tidsstämplar (vem sa vad), plus det strukturerade protokollet du behöver."
       },
       {
-        "t": "Formatfrihet",
-        "d": "M4A, MP3, WAV, MP4... vi hanterar konverteringen så att du inte behöver göra det."
+        "t": "Valfritt format",
+        "d": "M4A, MP3, WAV, MP4... vi sköter konverteringen, så du slipper tänka på det."
       }
     ]
   },
   "formats": {
     "h2": "Format som stöds",
-    "intro": "Vi har byggt vår motor för att känna igen de vanligaste ljud- och videocontainrarna som används i affärsvärlden idag:",
+    "intro": "Vår motor känner igen de vanligaste ljud- och videoformaten som används i arbetslivet:",
     "list": [
-      { "ext": "m4a", "type": "Apple Röstmemon / MPEG-4 Ljud" },
-      { "ext": "mp3", "type": "Standard Audio Layer III" },
-      { "ext": "wav", "type": "Högkvalitativ Vågform" },
-      { "ext": "mp4", "type": "Inspelningar av videomöten" },
-      { "ext": "aac", "type": "Avancerad Ljudkodning" },
-      { "ext": "flac", "type": "Förlustfritt ljud" },
+      { "ext": "m4a", "type": "Apple Röstmemon / MPEG-4 Audio" },
+      { "ext": "mp3", "type": "Standard MP3" },
+      { "ext": "wav", "type": "Högkvalitativ Waveform" },
+      { "ext": "mp4", "type": "Videoinspelningar" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Förlustfritt ljud (Lossless)" },
       { "ext": "ogg / webm", "type": "Webbljudformat" }
     ]
   },
   "workflow": {
-    "h2": "Hur det löser ditt arbetsflöde",
+    "h2": "Lösningar för din vardag",
     "items": [
       {
-        "title": "Mötet med 'Strikt Säkerhet'",
-        "desc": "Vissa företag blockerar internetåtkomst i mötesrummen men tillåter offline-diktafoner. Spela in där och importera sedan filen senare när du är online igen."
+        "title": "Möten med hög säkerhet",
+        "desc": "Inget internet i mötesrummet? Spela in offline och importera filen senare när du är online igen."
       },
       {
-        "title": "Ögonblicket 'Hoppsan, jag glömde'",
-        "desc": "Använde du standardinspelaren av vana? Ingen panik. Dela filen från Röstmemon till Protokoll AI och rädda din kväll."
+        "title": "Ögonblicket \"Hoppsan, jag glömde\"",
+        "desc": "Använde du vanliga diktafonen av misstag? Ingen panik. Dela filen till Protokoll AI och rädda din kväll."
       },
       {
-        "title": "Det Äldre Arkivet",
-        "desc": "Har du en mapp med gamla intervjuer eller föreläsningar på din enhet? Importera dem för att äntligen göra dem sökbara och sammanfattade."
+        "title": "Gamla arkiv",
+        "desc": "Har du gamla intervjuer eller föreläsningar sparade? Importera dem för att äntligen göra dem sökbara."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Uppdaterad", "type": "Funktion", "category": "iOS / Produktivitet" },
-  "cta": { "openBrowser": "Öppna i webbläsaren", "downloadIOS": "Prova funktionen Importera på iOS" }
+  "meta": { "h2": "Info", "published": "Uppdaterad", "type": "Funktion", "category": "iOS / Produktivitet" },
+  "cta": { "openBrowser": "Öppna i webbläsare", "downloadIOS": "Prova på iOS" }
 }

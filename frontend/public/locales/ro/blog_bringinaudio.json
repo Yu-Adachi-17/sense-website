@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Importați Audio în AI: Transformați Notițele Vocale în Procese-verbale de Ședință (Funcție Nouă)",
-    "description": "Ați înregistrat o ședință pe Notițe Vocale? Acum puteți importa fișiere audio (m4a, mp3, wav, mp4) direct în Proces-verbal AI pentru a genera transcrieri și rezumate complete.",
-    "ogTitle": "Importați Fișiere Audio în Proces-verbal AI — Suport M4A, MP3, WAV",
-    "ogDescription": "În sfârșit, o modalitate de a transforma acele fișiere audio gigantice în procese-verbale acționabile. Suportă până la 200 MB și diverse formate, cum ar fi m4a, mp3 și flac.",
+    "title": "Import Audio în AI: Transformă Memourile Vocale în Procese-verbale (Funcție nouă)",
+    "description": "Ai înregistrat ședința cu Reportofonul? Acum poți importa fișiere audio (m4a, mp3, wav, mp4) direct în Proces-verbal AI pentru a genera transcrieri și rezumate complete.",
+    "ogTitle": "Importă fișiere audio în Proces-verbal AI — Suport M4A, MP3, WAV",
+    "ogDescription": "În sfârșit, o modalitate de a transforma acele fișiere audio mari în procese-verbale utile. Suportă până la 200 MB și formate precum m4a și mp3.",
     "ld": {
-      "headline": "Cum să creați procese-verbale de ședință din fișiere audio existente",
-      "description": "Un ghid despre utilizarea noii funcții Import Audio în Proces-verbal AI. Rezolvă problema utilizării restricționate a dispozitivelor în timpul ședințelor prin procesarea audio preînregistrat."
+      "headline": "Cum să creezi procese-verbale din fișiere audio existente",
+      "description": "Ghid de utilizare a noii funcții Import Audio în Proces-verbal AI. Soluția ideală când utilizarea telefonului este restricționată în timpul ședințelor."
     }
   },
-  "aria": { "home": "Proces-verbal AI Acasă" },
+  "aria": { "home": "Acasă Proces-verbal AI" },
   "nav": { "blog": "Blog", "current": "Funcția Import Audio" },
   "hero": {
-    "kicker": "Actualizare Funcție Nouă",
-    "h1": "Înregistrat în altă parte? Nicio problemă. Transformați fișierele audio în Procese-verbale AI.",
-    "tagline": "Fie că este o Notiță Vocală, o înregistrare Zoom, sau un fișier de la un înregistrator dedicat—le puteți importa acum direct în Proces-verbal AI pentru transcriere și rezumat instantaneu."
+    "kicker": "Actualizare Nouă",
+    "h1": "Ai înregistrat în altă parte? Nicio problemă. Transformă totul în Proces-verbal AI.",
+    "tagline": "Fie că este un Memo Vocal, o înregistrare Zoom sau un fișier de pe un reportofon extern — acum le poți importa direct în Proces-verbal AI pentru transcriere și rezumat instantaneu."
   },
   "problem": {
-    "p1": "Toți am trecut prin asta. Sunteți într-o ședință de înaltă securitate unde 'aplicațiile cloud' sunt interzise, dar înregistrarea offline este permisă. Sau poate ați uitat pur și simplu să deschideți aplicația AI și ați apăsat înregistrare pe Notițe Vocale Apple în schimb.",
-    "p2": "Până acum, ați fost blocat cu un fișier audio de 60 de minute și o pagină goală. A reasculta totul doar pentru a tasta notițe este dureros. **Asta se termină astăzi.**"
+    "p1": "Tuturor ni s-a întâmplat. Ești într-o ședință confidențială unde aplicațiile cloud sunt interzise, dar înregistrarea offline este permisă. Sau poate pur și simplu ai uitat să deschizi aplicația AI și ai folosit Reportofonul Apple din obișnuință.",
+    "p2": "Până acum, rămâneai cu un fișier audio de o oră și o foaie goală. Să reasculți totul doar pentru a lua notițe este un coșmar. **Dar asta se termină astăzi.**"
   },
   "solution": {
-    "h2": "Înregistrările Dvs., Acum Acționabile",
-    "intro": "Am actualizat aplicația iOS pentru a suporta **'Importul Audio Extern'**. Acum puteți aduce fișiere din alte aplicații, din iCloud Drive sau din spațiul de stocare al dispozitivului direct în motorul nostru de procesare.",
+    "h2": "Înregistrările tale devin utile",
+    "intro": "Am actualizat aplicația iOS pentru a suporta **'Importul Audio Extern'**. Acum poți aduce fișiere din alte aplicații, din iCloud Drive sau din memoria telefonului direct în motorul nostru AI.",
     "features": [
       {
-        "t": "Suport Fișiere 200MB",
-        "d": "Aveți o ședință lungă? Fără probleme. În prezent, suportăm fișiere de până la 200 MB, acoperind majoritatea sesiunilor lungi standard. (Și plănuim să extindem acest lucru în curând!)"
+        "t": "Fișiere de până la 200MB",
+        "d": "O ședință lungă? Fără griji. Momentan suportăm fișiere de până la 200 MB, suficient pentru majoritatea sesiunilor standard. (Și vom mări limita în curând!)"
       },
       {
-        "t": "Transciere Completă + Rezumat",
-        "d": "Nu obțineți doar un rezumat. Obțineți textul brut, marcat cu ora, cu cine a spus ce, plus procesele-verbale structurate pe care le cunoașteți și le iubiți."
+        "t": "Transcriere Completă + Rezumat",
+        "d": "Nu primești doar un rezumat. Primești textul brut cu marcaje de timp (cine și ce a spus), plus procesul-verbal structurat pe care îl apreciezi."
       },
       {
-        "t": "Libertatea Formatului",
-        "d": "M4A, MP3, WAV, MP4... ne ocupăm noi de conversie, ca să nu fie nevoie să o faceți dumneavoastră."
+        "t": "Orice format",
+        "d": "M4A, MP3, WAV, MP4... noi ne ocupăm de conversie, tu nu trebuie să faci nimic."
       }
     ]
   },
   "formats": {
-    "h2": "Formate de Fișiere Suportate",
-    "intro": "Ne-am construit motorul pentru a recunoaște cele mai comune containere audio și video utilizate în afaceri astăzi:",
+    "h2": "Formate Suportate",
+    "intro": "Motorul nostru recunoaște cele mai comune formate audio și video utilizate în afaceri:",
     "list": [
-      { "ext": "m4a", "type": "Apple Notițe Vocale / Audio MPEG-4" },
-      { "ext": "mp3", "type": "Stratul Audio Standard III" },
-      { "ext": "wav", "type": "Formă de Undă de Înaltă Calitate" },
-      { "ext": "mp4", "type": "Înregistrări Ședințe Video" },
-      { "ext": "aac", "type": "Codare Audio Avansată" },
-      { "ext": "flac", "type": "Audio Fără Pierderi" },
+      { "ext": "m4a", "type": "Apple Memouri Vocale / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Audio Standard MP3" },
+      { "ext": "wav", "type": "Calitate Înaltă (Waveform)" },
+      { "ext": "mp4", "type": "Înregistrări Video" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Audio Fără Pierderi (Lossless)" },
       { "ext": "ogg / webm", "type": "Formate Audio Web" }
     ]
   },
   "workflow": {
-    "h2": "Cum vă Rezolvă Fluxul de Lucru",
+    "h2": "Soluții pentru munca ta",
     "items": [
       {
-        "title": "Ședința 'Securitate Strictă'",
-        "desc": "Unele companii blochează accesul la internet în sălile de ședințe, dar permit reportofoane offline. Înregistrați acolo, și apoi importați fișierul mai târziu când sunteți din nou online."
+        "title": "Ședințe cu securitate strictă",
+        "desc": "Nu ai internet în sală? Înregistrează offline și importă fișierul mai târziu, când ești din nou online."
       },
       {
-        "title": "Momentul 'Ups, Am Uitat'",
-        "desc": "Ați folosit înregistratorul implicit din obișnuință? Nu vă panicați. Distribuiți fișierul de la Notițe Vocale la Proces-verbal AI și salvați-vă seara."
+        "title": "Momentul „Ups, am uitat”",
+        "desc": "Ai folosit reportofonul implicit din greșeală? Nu te panica. Partajează fișierul către Proces-verbal AI și salvează-ți seara."
       },
       {
-        "title": "Arhiva Moștenită",
-        "desc": "Aveți un dosar de interviuri sau prelegeri vechi pe unitatea dvs.? Importați-le pentru a le face în sfârșit căutabile și rezumate."
+        "title": "Arhive Vechi",
+        "desc": "Ai interviuri sau prelegeri vechi salvate? Importă-le pentru a le face în sfârșit căutabile."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Actualizat", "type": "Funcție", "category": "iOS / Productivitate" },
-  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Încercați Funcția de Import pe iOS" }
+  "meta": { "h2": "Info", "published": "Actualizat", "type": "Funcție", "category": "iOS / Productivitate" },
+  "cta": { "openBrowser": "Deschide în browser", "downloadIOS": "Încearcă pe iOS" }
 }

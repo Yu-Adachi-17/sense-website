@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Impor Audio ke AI: Ubah Memo Suara menjadi Notulen Rapat (Fitur Baru)",
-    "description": "Merekam rapat di Memo Suara? Sekarang Anda dapat mengimpor file audio (m4a, mp3, wav, mp4) langsung ke Minutes AI untuk menghasilkan transkrip dan ringkasan lengkap.",
-    "ogTitle": "Impor File Audio ke Minutes AI — Mendukung M4A, MP3, WAV",
-    "ogDescription": "Akhirnya, cara untuk mengubah file audio besar itu menjadi notulen yang dapat ditindaklanjuti. Mendukung hingga 200MB dan beragam format seperti m4a, mp3, dan flac.",
+    "title": "Impor Audio ke AI: Ubah Memo Suara Jadi Notulen Rapat (Fitur Baru)",
+    "description": "Merekam rapat pakai Voice Memos? Sekarang Anda bisa impor file audio (m4a, mp3, wav, mp4) langsung ke Minutes AI untuk dapatkan transkrip dan ringkasan lengkap.",
+    "ogTitle": "Impor File Audio ke Minutes AI — Dukung M4A, MP3, WAV",
+    "ogDescription": "Akhirnya, cara mudah mengubah file audio besar menjadi notulen siap pakai. Mendukung hingga 200MB dan berbagai format seperti m4a dan mp3.",
     "ld": {
       "headline": "Cara Membuat Notulen Rapat dari File Audio yang Ada",
-      "description": "Panduan tentang cara menggunakan fitur Impor Audio baru di Minutes AI. Menyelesaikan masalah penggunaan perangkat yang dibatasi selama rapat dengan memproses audio yang direkam sebelumnya."
+      "description": "Panduan menggunakan fitur Impor Audio baru di Minutes AI. Solusi tepat saat penggunaan HP dibatasi dalam rapat."
     }
   },
   "aria": { "home": "Beranda Minutes AI" },
   "nav": { "blog": "Blog", "current": "Fitur Impor Audio" },
   "hero": {
-    "kicker": "Pembaruan Fitur Baru",
-    "h1": "Direkam di Tempat Lain? Tidak Masalah. Ubah File Audio menjadi Notulen AI.",
-    "tagline": "Baik itu Memo Suara, rekaman Zoom, atau file dari perekam khusus—Anda kini dapat mengimpornya langsung ke Minutes AI untuk transkripsi dan ringkasan instan."
+    "kicker": "Update Fitur Baru",
+    "h1": "Direkam di aplikasi lain? Tidak masalah. Ubah jadi notulen AI.",
+    "tagline": "Baik itu dari Memo Suara, rekaman Zoom, atau file dari alat perekam khusus—sekarang Anda bisa impor langsung ke Minutes AI untuk transkripsi dan ringkasan instan."
   },
   "problem": {
-    "p1": "Kita semua pernah mengalaminya. Anda berada dalam rapat keamanan tinggi di mana 'aplikasi cloud' dilarang, tetapi perekaman offline diizinkan. Atau mungkin Anda hanya lupa membuka aplikasi AI dan menekan rekam di Memo Suara Apple saja.",
-    "p2": "Sampai sekarang, Anda terjebak dengan file audio 60 menit dan halaman kosong. Mendengarkan semuanya lagi hanya untuk mengetik catatan itu menyakitkan. **Itu berakhir hari ini.**"
+    "p1": "Kita semua pernah mengalaminya. Rapat penting di mana 'aplikasi cloud' dilarang, tapi boleh merekam offline. Atau mungkin Anda lupa buka aplikasi AI dan malah pakai Memo Suara bawaan karena kebiasaan.",
+    "p2": "Dulu, Anda akan terjebak dengan file audio 60 menit dan kertas kosong. Mendengarkan ulang semuanya cuma buat ngetik notulen itu melelahkan. **Tapi hari ini, masalah itu selesai.**"
   },
   "solution": {
-    "h2": "Rekaman Anda, Sekarang Dapat Ditindaklanjuti",
-    "intro": "Kami telah memperbarui aplikasi iOS untuk mendukung **'Impor Audio Eksternal'**. Anda sekarang dapat membawa file dari aplikasi lain, iCloud Drive Anda, atau penyimpanan perangkat Anda langsung ke mesin pemrosesan kami.",
+    "h2": "Rekaman Anda, Kini Lebih Berguna",
+    "intro": "Kami memperbarui aplikasi iOS untuk mendukung **'Impor Audio Eksternal'**. Anda bisa ambil file dari aplikasi lain, iCloud Drive, atau penyimpanan HP langsung ke sistem AI kami.",
     "features": [
       {
         "t": "Dukungan File 200MB",
-        "d": "Rapat panjang? Tidak perlu khawatir. Kami saat ini mendukung file hingga 200MB, mencakup sebagian besar sesi panjang standar. (Dan kami berencana untuk segera memperluas ini!)"
+        "d": "Rapatnya panjang? Tidak perlu khawatir. Kami dukung file hingga 200MB, cukup untuk kebanyakan sesi rapat. (Kapasitas akan segera ditambah!)"
       },
       {
         "t": "Transkrip Penuh + Ringkasan",
-        "d": "Anda tidak hanya mendapatkan ringkasan. Anda mendapatkan teks mentah, dengan stempel waktu siapa mengatakan apa, ditambah notulen terstruktur yang Anda kenal dan sukai."
+        "d": "Bukan cuma ringkasan. Anda dapat teks mentah dengan timestamp (siapa bicara apa), plus notulen rapi yang siap dibagikan."
       },
       {
-        "t": "Kebebasan Format",
-        "d": "M4A, MP3, WAV, MP4... kami menangani konversi sehingga Anda tidak perlu melakukannya."
+        "t": "Format Bebas",
+        "d": "M4A, MP3, WAV, MP4... sistem kami yang urus konversinya, Anda terima beres."
       }
     ]
   },
   "formats": {
     "h2": "Format File yang Didukung",
-    "intro": "Kami telah membangun mesin kami untuk mengenali wadah audio dan video paling umum yang digunakan dalam bisnis saat ini:",
+    "intro": "Sistem kami mengenali format audio dan video yang paling umum dipakai dalam bisnis:",
     "list": [
-      { "ext": "m4a", "type": "Memo Suara Apple / Audio MPEG-4" },
-      { "ext": "mp3", "type": "Lapisan Audio Standar III" },
-      { "ext": "wav", "type": "Bentuk Gelombang Kualitas Tinggi" },
-      { "ext": "mp4", "type": "Rekaman Rapat Video" },
-      { "ext": "aac", "type": "Pengodean Audio Lanjutan" },
-      { "ext": "flac", "type": "Audio Tanpa Rugi" },
+      { "ext": "m4a", "type": "Apple Memo Suara / Audio MPEG-4" },
+      { "ext": "mp3", "type": "Standar MP3" },
+      { "ext": "wav", "type": "Kualitas Tinggi (Waveform)" },
+      { "ext": "mp4", "type": "Rekaman Video Call" },
+      { "ext": "aac", "type": "Advanced Audio Coding" },
+      { "ext": "flac", "type": "Audio Lossless" },
       { "ext": "ogg / webm", "type": "Format Audio Web" }
     ]
   },
   "workflow": {
-    "h2": "Bagaimana Ini Menyelesaikan Alur Kerja Anda",
+    "h2": "Solusi untuk Kerja Anda",
     "items": [
       {
         "title": "Rapat 'Keamanan Ketat'",
-        "desc": "Beberapa perusahaan memblokir akses internet di ruang rapat tetapi mengizinkan perekam suara offline. Rekam di sana, lalu impor file nanti saat Anda kembali online."
+        "desc": "Tidak ada internet di ruang rapat? Rekam offline dulu, lalu impor filenya nanti saat sudah online kembali."
       },
       {
-        "title": "Momen 'Ups, Saya Lupa'",
-        "desc": "Menggunakan perekam default karena kebiasaan? Jangan panik. Bagikan file dari Memo Suara ke Minutes AI dan selamatkan malam Anda."
+        "title": "Momen 'Waduh, Lupa'",
+        "desc": "Refleks pakai perekam bawaan? Jangan panik. Share filenya dari Memo Suara ke Minutes AI, dan selamatkan waktu istirahat Anda."
       },
       {
         "title": "Arsip Lama",
-        "desc": "Punya folder wawancara atau ceramah lama di drive Anda? Impor untuk akhirnya membuatnya dapat dicari dan diringkas."
+        "desc": "Punya folder rekaman wawancara atau kuliah lama? Impor sekarang biar bisa dicari teksnya dan diringkas."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Diperbarui", "type": "Fitur", "category": "iOS / Produktivitas" },
-  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Coba Fitur Impor di iOS" }
+  "meta": { "h2": "Info", "published": "Diupdate", "type": "Fitur", "category": "iOS / Produktivitas" },
+  "cta": { "openBrowser": "Buka di browser", "downloadIOS": "Coba di iOS" }
 }

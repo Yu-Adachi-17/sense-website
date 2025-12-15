@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Importar Áudio para IA: Transforme Memorandos de Voz em Atas de Reunião (Nova Funcionalidade)",
-    "description": "Gravou uma reunião no Voice Memos? Agora pode importar ficheiros de áudio (m4a, mp3, wav, mp4) diretamente para Ata AI para gerar transcrições e resumos completos.",
-    "ogTitle": "Importe Ficheiros de Áudio para Ata AI — Suporte M4A, MP3, WAV",
-    "ogDescription": "Finalmente, uma forma de transformar esses ficheiros de áudio gigantes em atas acionáveis. Suporta até 200 MB e vários formatos como m4a, mp3 e flac.",
+    "title": "Importar Áudio: Transforme Memos de Voz em Atas (Nova Funcionalidade)",
+    "description": "Gravou a reunião nos Memos de Voz? Agora pode importar ficheiros de áudio (m4a, mp3, wav, mp4) diretamente para a Ata AI para gerar transcrições e resumos completos.",
+    "ogTitle": "Importe Ficheiros de Áudio para Ata AI — Suporta M4A, MP3, WAV",
+    "ogDescription": "Finalmente, uma forma de transformar ficheiros de áudio pesados em atas úteis. Suporta até 200 MB e formatos como m4a e mp3.",
     "ld": {
       "headline": "Como criar atas de reuniões a partir de ficheiros de áudio existentes",
-      "description": "Um guia sobre como usar a nova funcionalidade Importar Áudio no Ata AI. Resolve o problema do uso restrito de dispositivos durante as reuniões, processando áudio pré-gravado."
+      "description": "Guia para usar a nova funcionalidade de Importar Áudio na Ata AI. Ideal para quando o uso do telemóvel é restrito durante as reuniões."
     }
   },
-  "aria": { "home": "Ata AI Início" },
+  "aria": { "home": "Início Ata AI" },
   "nav": { "blog": "Blog", "current": "Funcionalidade Importar Áudio" },
   "hero": {
-    "kicker": "Atualização de Nova Funcionalidade",
-    "h1": "Gravado noutro local? Não há problema. Converta ficheiros de áudio em Atas AI.",
-    "tagline": "Seja um Memo de Voz, uma gravação Zoom ou um ficheiro de um gravador dedicado—agora pode importá-los diretamente para Ata AI para transcrição e resumo instantâneos."
+    "kicker": "Novidade",
+    "h1": "Gravou noutro lugar? Sem problema. Converta áudio em Atas AI.",
+    "tagline": "Seja um Memo de Voz, uma gravação Zoom ou um ficheiro de um gravador externo — agora pode importá-los diretamente para a Ata AI para transcrição e resumo instantâneos."
   },
   "problem": {
-    "p1": "Todos nós já passámos por isso. Está numa reunião de alta segurança onde as 'aplicações cloud' são proibidas, mas a gravação offline é permitida. Ou talvez simplesmente se tenha esquecido de abrir a aplicação AI e pressionou gravar no Voice Memos da Apple.",
-    "p2": "Até agora, estava preso a um ficheiro de áudio de 60 minutos e a uma página em branco. Ouvir tudo de novo só para digitar notas é doloroso. **Isso acaba hoje.**"
+    "p1": "Todos nós já passámos por isso. Está numa reunião confidencial onde apps na nuvem são proibidas, mas a gravação offline é permitida. Ou talvez simplesmente se tenha esquecido de abrir a app de IA e usou o gravador padrão por hábito.",
+    "p2": "Até agora, ficava com um áudio de uma hora e uma folha em branco. Ouvir tudo de novo só para tirar notas é um pesadelo. **Mas isso acaba hoje.**"
   },
   "solution": {
-    "h2": "As Suas Gravações, Agora Acionáveis",
-    "intro": "Atualizámos a aplicação iOS para suportar a **'Importação de Áudio Externo'**. Agora pode trazer ficheiros de outras aplicações, do seu iCloud Drive ou do armazenamento do seu dispositivo diretamente para o nosso motor de processamento.",
+    "h2": "As suas gravações ganham vida",
+    "intro": "Atualizámos a app iOS com a **'Importação de Áudio Externo'**. Agora pode trazer ficheiros de outras apps, do iCloud Drive ou da memória do dispositivo diretamente para o nosso motor de IA.",
     "features": [
       {
-        "t": "Suporte de Ficheiros de 200MB",
-        "d": "Reunião longa? Sem stress. Atualmente, suportamos ficheiros até 200 MB, cobrindo a maioria das sessões longas padrão. (E planeamos expandir isto em breve!)"
+        "t": "Ficheiros até 200MB",
+        "d": "Reunião longa? Sem stress. Atualmente suportamos ficheiros até 200MB, o que cobre a maioria das sessões. (E vamos aumentar este limite em breve!)"
       },
       {
-        "t": "Transcipção Completa + Resumo",
-        "d": "Não obtém apenas um resumo. Obtém o texto bruto, com carimbos de data/hora de quem disse o quê, mais as atas estruturadas que conhece e adora."
+        "t": "Transcrição Completa + Resumo",
+        "d": "Não recebe apenas um resumo. Recebe o texto integral com carimbos de tempo (quem disse o quê), além da ata estruturada que já conhece."
       },
       {
-        "t": "Liberdade de Formato",
-        "d": "M4A, MP3, WAV, MP4... nós tratamos da conversão para que não tenha de o fazer."
+        "t": "Qualquer Formato",
+        "d": "M4A, MP3, WAV, MP4... nós tratamos da conversão, não se preocupe com isso."
       }
     ]
   },
   "formats": {
-    "h2": "Formatos de Ficheiro Suportados",
-    "intro": "Construímos o nosso motor para reconhecer os contentores de áudio e vídeo mais comuns utilizados nos negócios atualmente:",
+    "h2": "Formatos Suportados",
+    "intro": "O nosso motor reconhece os formatos de áudio e vídeo mais comuns no mundo empresarial:",
     "list": [
-      { "ext": "m4a", "type": "Apple Voice Memos / Áudio MPEG-4" },
-      { "ext": "mp3", "type": "Camada de Áudio Padrão III" },
-      { "ext": "wav", "type": "Forma de Onda de Alta Qualidade" },
-      { "ext": "mp4", "type": "Gravações de Reuniões de Vídeo" },
+      { "ext": "m4a", "type": "Apple Memos de Voz / Áudio MPEG-4" },
+      { "ext": "mp3", "type": "Áudio Padrão MP3" },
+      { "ext": "wav", "type": "Alta Qualidade (Waveform)" },
+      { "ext": "mp4", "type": "Gravações de Vídeo" },
       { "ext": "aac", "type": "Codificação de Áudio Avançada" },
-      { "ext": "flac", "type": "Áudio Sem Perdas" },
+      { "ext": "flac", "type": "Áudio Sem Perdas (Lossless)" },
       { "ext": "ogg / webm", "type": "Formatos de Áudio Web" }
     ]
   },
   "workflow": {
-    "h2": "Como Resolve o Seu Fluxo de Trabalho",
+    "h2": "Soluções para o seu dia a dia",
     "items": [
       {
-        "title": "A Reunião de 'Segurança Estrita'",
-        "desc": "Algumas empresas bloqueiam o acesso à Internet nas salas de reuniões, mas permitem ditafones offline. Grave lá e depois importe o ficheiro mais tarde, quando estiver novamente online."
+        "title": "Reuniões de Alta Segurança",
+        "desc": "Sem internet na sala? Grave offline e importe o ficheiro mais tarde, quando estiver novamente online."
       },
       {
-        "title": "O Momento 'Ups, Esqueci-me'",
-        "desc": "Usou o gravador predefinido por hábito? Não entre em pânico. Partilhe o ficheiro do Voice Memos para Ata AI e salve a sua noite."
+        "title": "O momento \"Ups, esqueci-me\"",
+        "desc": "Usou o gravador padrão por engano? Não entre em pânico. Partilhe o ficheiro dos Memos de Voz para a Ata AI e salve a sua noite."
       },
       {
-        "title": "O Arquivo Legado",
-        "desc": "Tem uma pasta de entrevistas ou palestras antigas na sua unidade? Importe-as para que finalmente se tornem pesquisáveis e resumidas."
+        "title": "Arquivos Antigos",
+        "desc": "Tem entrevistas ou palestras antigas guardadas? Importe-as para que se tornem finalmente pesquisáveis."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Atualizado", "type": "Funcionalidade", "category": "iOS / Produtividade" },
-  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Experimentar a Funcionalidade de Importação no iOS" }
+  "meta": { "h2": "Info", "published": "Atualizado", "type": "Funcionalidade", "category": "iOS / Produtividade" },
+  "cta": { "openBrowser": "Abrir no navegador", "downloadIOS": "Experimentar no iOS" }
 }

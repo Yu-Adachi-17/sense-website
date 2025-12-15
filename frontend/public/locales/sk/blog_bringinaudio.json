@@ -1,73 +1,73 @@
 {
   "seo": {
-    "title": "Import zvuku do AI: Preveďte hlasové poznámky na zápisnice zo stretnutí (Nová funkcia)",
-    "description": "Nahrali ste stretnutie na Hlasové poznámky? Teraz môžete importovať zvukové súbory (m4a, mp3, wav, mp4) priamo do AI Zápisnica a generovať kompletné prepisy a súhrny.",
+    "title": "Import zvuku do AI: Premeňte hlasové poznámky na zápisnice (Nová funkcia)",
+    "description": "Nahrali ste poradu cez Diktafón? Teraz môžete importovať zvukové súbory (m4a, mp3, wav, mp4) priamo do AI Zápisnica a získať kompletné prepisy a zhrnutia.",
     "ogTitle": "Importujte zvukové súbory do AI Zápisnica — Podpora M4A, MP3, WAV",
-    "ogDescription": "Konečne spôsob, ako premeniť tie obrovské zvukové súbory na akčné zápisnice. Podporuje až 200 MB a rôzne formáty ako m4a, mp3 a flac.",
+    "ogDescription": "Konečne spôsob, ako premeniť veľké zvukové súbory na užitočné zápisnice. Podporuje až 200 MB a formáty ako m4a a mp3.",
     "ld": {
-      "headline": "Ako vytvoriť zápisnice zo stretnutí z existujúcich zvukových súborov",
-      "description": "Sprievodca použitím novej funkcie Import zvuku v AI Zápisnica. Rieši problém obmedzeného používania zariadenia počas stretnutí spracovaním vopred nahratého zvuku."
+      "headline": "Ako vytvoriť zápisnicu z existujúcich zvukových súborov",
+      "description": "Sprievodca novou funkciou Import zvuku v AI Zápisnica. Ideálne riešenie, keď je počas porady obmedzené používanie mobilu."
     }
   },
-  "aria": { "home": "AI Zápisnica Domov" },
+  "aria": { "home": "Domov AI Zápisnica" },
   "nav": { "blog": "Blog", "current": "Funkcia Import zvuku" },
   "hero": {
-    "kicker": "Aktualizácia novej funkcie",
-    "h1": "Nahraté inde? Žiadny problém. Preveďte zvukové súbory na AI zápisnice.",
-    "tagline": "Či už je to Hlasová poznámka, záznam zo Zoomu, alebo súbor zo špeciálneho rekordéra—teraz ich môžete importovať priamo do AI Zápisnica pre okamžitý prepis a súhrn."
+    "kicker": "Nová aktualizácia",
+    "h1": "Nahraté inde? Žiadny problém. Preveďte audio na AI zápisnicu.",
+    "tagline": "Či už ide o Hlasovú poznámku, záznam zo Zoomu alebo súbor z diktafónu — teraz ich môžete importovať priamo do AI Zápisnica pre okamžitý prepis a zhrnutie."
   },
   "problem": {
-    "p1": "Všetci sme to zažili. Ste na vysoko zabezpečenom stretnutí, kde sú 'cloudové aplikácie' zakázané, ale offline nahrávanie je povolené. Alebo ste jednoducho zabudli otvoriť AI aplikáciu a stlačili nahrávanie v Apple Hlasových poznámkach namiesto toho.",
-    "p2": "Doteraz ste boli zablokovaní 60-minútovým zvukovým súborom a prázdnou stránkou. Počúvať to všetko znova, len aby ste napísali poznámky, je bolestivé. **To dnes končí.**"
+    "p1": "Všetci to poznáme. Ste na dôležitom stretnutí, kde sú zakázané cloudové aplikácie, ale offline nahrávanie je povolené. Alebo ste jednoducho zabudli zapnúť AI a zo zvyku stlačili nahrávanie v Diktafóne.",
+    "p2": "Doteraz ste ostali s hodinovým zvukovým súborom a prázdnym papierom. Počúvať to celé znova len kvôli poznámkam je utrpenie. **Tomu je dnes koniec.**"
   },
   "solution": {
-    "h2": "Vaše nahrávky, teraz akčné",
-    "intro": "Aktualizovali sme aplikáciu pre iOS tak, aby podporovala **'Import externého zvuku'**. Teraz môžete prenášať súbory z iných aplikácií, vášho iCloud Drive alebo úložiska zariadenia priamo do nášho spracovateľského enginu.",
+    "h2": "Vaše nahrávky sú konečne užitočné",
+    "intro": "Aktualizovali sme iOS aplikáciu o podporu **'Importu externého zvuku'**. Teraz môžete prenášať súbory z iných aplikácií, iCloud Drive alebo úložiska zariadenia priamo do nášho systému.",
     "features": [
       {
-        "t": "Podpora súborov 200 MB",
-        "d": "Dlhé stretnutie? Žiadny pot. Aktuálne podporujeme súbory až do 200 MB, pokrývajúce väčšinu štandardných dlhých relácií. (A čoskoro to plánujeme rozšíriť!)"
+        "t": "Súbory do 200 MB",
+        "d": "Dlhá porada? Žiadny strach. Aktuálne podporujeme súbory do 200 MB, čo stačí na väčšinu bežných stretnutí. (A čoskoro kapacitu navýšime!)"
       },
       {
-        "t": "Úplný prepis + Súhrn",
-        "d": "Nezískate len súhrn. Dostanete surový, časovo označený text toho, kto čo povedal, plus štruktúrované zápisnice, ktoré poznáte a milujete."
+        "t": "Kompletný prepis + Zhrnutie",
+        "d": "Nezískate len stručný výťah. Dostanete doslovný text s časovými značkami (kto čo povedal) a k tomu štruktúrovanú zápisnicu, ktorú poznáte."
       },
       {
-        "t": "Sloboda formátov",
-        "d": "M4A, MP3, WAV, MP4... my sa postaráme o konverziu, takže nemusíte."
+        "t": "Ľubovoľný formát",
+        "d": "M4A, MP3, WAV, MP4... s konverziou si nelámte hlavu, tú vybavíme my."
       }
     ]
   },
   "formats": {
-    "h2": "Podporované formáty súborov",
-    "intro": "Náš engine je postavený tak, aby rozpoznal najbežnejšie audio a video kontajnery používané v podnikaní dnes:",
+    "h2": "Podporované formáty",
+    "intro": "Náš systém rozpozná najbežnejšie audio a video formáty používané v biznise:",
     "list": [
       { "ext": "m4a", "type": "Apple Hlasové poznámky / MPEG-4 Audio" },
-      { "ext": "mp3", "type": "Štandard Audio Layer III" },
-      { "ext": "wav", "type": "Vysoko kvalitná Waveform" },
-      { "ext": "mp4", "type": "Záznamy video stretnutí" },
+      { "ext": "mp3", "type": "Štandardné MP3" },
+      { "ext": "wav", "type": "Vysoká kvalita (Waveform)" },
+      { "ext": "mp4", "type": "Záznamy videohovorov" },
       { "ext": "aac", "type": "Advanced Audio Coding" },
-      { "ext": "flac", "type": "Bezeztrátový zvuk" },
+      { "ext": "flac", "type": "Bezstratové audio" },
       { "ext": "ogg / webm", "type": "Webové audio formáty" }
     ]
   },
   "workflow": {
-    "h2": "Ako rieši váš pracovný postup",
+    "h2": "Riešenie pre vašu prácu",
     "items": [
       {
-        "title": "Stretnutie 'Prísna Bezpečnosť'",
-        "desc": "Niektoré spoločnosti blokujú prístup k internetu v zasadacích miestnostiach, ale povoľujú offline diktafóny. Nahrávajte tam a súbor importujte neskôr, až budete späť online."
+        "title": "Stretnutia s prísnym utajením",
+        "desc": "Bez internetu v zasadačke? Nahrajte to offline a súbor importujte neskôr, keď budete opäť online."
       },
       {
-        "title": "Moment 'Jejda, zabudol som'",
-        "desc": "Použili ste zo zvyku predvolený rekordér? Neprepadajte panike. Zdieľajte súbor z Hlasových poznámok do AI Zápisnica a zachráňte svoj večer."
+        "title": "Moment „Ups, zabudol som“",
+        "desc": "Použili ste zo zvyku obyčajný diktafón? Nepanikárte. Nazdieľajte súbor do AI Zápisnica a zachráňte si voľný večer."
       },
       {
         "title": "Starý archív",
-        "desc": "Máte na disku priečinok starých rozhovorov alebo prednášok? Importujte ich, aby ste ich konečne mohli vyhľadávať a zhrnúť."
+        "desc": "Máte v počítači priečinok so starými rozhovormi? Importujte ich, aby sa v nich dalo konečne vyhľadávať."
       }
     ]
   },
-  "meta": { "h2": "Meta", "published": "Aktualizované", "type": "Funkcia", "category": "iOS / Produktivita" },
-  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Vyskúšajte funkciu Import na iOS" }
+  "meta": { "h2": "Info", "published": "Aktualizované", "type": "Funkcia", "category": "iOS / Produktivita" },
+  "cta": { "openBrowser": "Otvoriť v prehliadači", "downloadIOS": "Vyskúšať na iOS" }
 }
