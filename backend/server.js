@@ -250,20 +250,6 @@ const upload = require('./src/middlewares/upload');
 
 
 /**
- * splitText: Splits text into chunks of specified size.
- */
-function splitText(text, chunkSize) {
-  const chunks = [];
-  let startIndex = 0;
-  while (startIndex < text.length) {
-    const chunk = text.slice(startIndex, startIndex + chunkSize);
-    chunks.push(chunk);
-    startIndex += chunkSize;
-  }
-  return chunks;
-}
-
-/**
  * combineMinutes: Calls the Gemini API to combine partial meeting minutes.
  */
 async function combineMinutes(combinedText, meetingFormat) {
