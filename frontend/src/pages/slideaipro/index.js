@@ -219,7 +219,7 @@ export default function SlideAIProHome() {
             <span className="hamburger" />
           </button>
 
-          <div className="title">SlideAI Pro</div>
+          <div className="title"></div>
 
           <button
             className="pillBtn"
