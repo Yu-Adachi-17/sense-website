@@ -144,11 +144,6 @@ export default function SlideAIProHome() {
     return () => window.clearInterval(id);
   };
 
-// ✅ ここだけ差し替え（handleGenerate ブロック全文）
-// - 絶対URLで Railway を叩く
-// - エンドポイントを /api/slideaipro/agenda-json に変更
-// - 戻り値に pdfUrl が無い前提なので、返ってきた JSON をそのまま開く処理はしない（今は成功/失敗の確認用）
-
 const handleGenerate = async () => {
   const brief = trimmed;
   if (!brief) return;
@@ -164,7 +159,6 @@ const handleGenerate = async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Client": "web-slideaipro",
       },
       body: JSON.stringify({
         brief,
@@ -180,10 +174,7 @@ const handleGenerate = async () => {
 
     setProgress(100);
 
-    // ✅ まずは疎通確認：返ってきた内容を確認
     console.log("[agenda-json response]", json);
-
-    // ✅ pdfUrl が返ってくる実装にした後はここを window.open(pdfUrl...) に差し替える
     alert("API疎通OK（consoleに response を出しました）");
   } catch (e) {
     console.error(e);
