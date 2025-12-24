@@ -5,9 +5,9 @@ console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" :
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
 console.log("✅ OPENAI_API_KEY (for Whisper):", process.env.OPENAI_API_KEY ? "Loaded" : "Not found");
 console.log("✅ GEMINI_API_KEY (for NLP):", process.env.GEMINI_API_KEY ? "Loaded" : "Not found");
-console.log("✅ MAILGUN_API_KEY:", process.env.MAILGUN_API_KEY ? "Loaded" : "Not found");
-console.log("✅ MAILGUN_DOMAIN:", process.env.MAILGUN_DOMAIN ? "Loaded" : "Not found");
-console.log("✅ MAILGUN_FROM:", process.env.MAILGUN_FROM ? process.env.MAILGUN_FROM : "Not set (use default)");
+console.log("✅ process.env.MAILGUN_API_KEY:", process.env.MAILGUN_API_KEY ? "Loaded" : "Not found");
+console.log("✅ process.env.MAILGUN_DOMAIN:", process.env.MAILGUN_DOMAIN ? "Loaded" : "Not found");
+console.log("✅ process.env.MAILGUN_FROM:", process.env.MAILGUN_FROM ? process.env.MAILGUN_FROM : "Not set (use default)");
 
 const express = require('express');
 const cors = require('cors');
@@ -655,7 +655,7 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
 
     // ★★ Mailgun 経由のメール送信（任意） ★★
     let emailResult = null;
-    if (emailTo && MAILGUN_API_KEY && MAILGUN_DOMAIN) {
+    if (emailTo && process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN) {
       try {
         const { textBody, htmlBody } = buildMinutesEmailBodies({
           minutes,
@@ -1053,7 +1053,7 @@ app.post(
       }
 
       // Mailgunチェック
-      if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+      if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
         await updateEmailJobStatus({
           jobId,
           userId,
@@ -1291,7 +1291,7 @@ app.post('/api/send-minutes-email', async (req, res) => {
         .status(400)
         .json({ error: 'Missing "to" or "minutes" in body' });
     }
-    if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
+    if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
       return res.status(500).json({ error: 'Mailgun is not configured' });
     }
 
