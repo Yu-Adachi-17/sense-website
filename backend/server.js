@@ -48,6 +48,7 @@ const { compressTranscriptForGemini, MAX_ONESHOT_TRANSCRIPT_CHARS } = require('.
 const livekitRoomsRouter = require('./routes/livekitRooms');
 const formatsPromptRouter = require('./routes/formatsPrompt');
 
+const crypto = require('crypto');
 const https = require('https');
 
 
@@ -736,7 +737,7 @@ app.post(
         const tempDir = path.join(__dirname, 'temp');
         if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
         
-        const fileName = `download_${Date.now()}_${uuidv4()}.m4a`;
+        const fileName = `download_${Date.now()}_${crypto.randomUUID()}.m4a`;
         tempFilePath = path.join(tempDir, fileName);
 
         // サーバー側で高速ダウンロード
