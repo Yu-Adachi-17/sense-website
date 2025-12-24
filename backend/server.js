@@ -75,6 +75,7 @@ const { logLong } = require('./src/utils/logLong');
 const { resolveLocale } = require('./src/utils/locale');
 const { splitText } = require('./src/utils/text');
 
+const requestTimeout = require('./src/middlewares/requestTimeout');
 const requestLogger = require('./src/middlewares/requestLogger');
 app.use(requestTimeout());
 
