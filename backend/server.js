@@ -45,8 +45,8 @@ const recordingsRouter = require('./routes/recordings');
 const livekitRoomsRouter = require('./routes/livekitRooms');
 const formatsPromptRouter = require('./routes/formatsPrompt');
 
-const createSlideAiProRouter = require('./routes/slideAiProRoute');
 
+const buildSlideaiproAgendaJsonRouter = require('./routes/slideaiproAgendaJson');
 
 const {
   sendMinutesEmail,
@@ -319,7 +319,8 @@ app.use('/api', egressRouter);
 app.use('/api/rooms', livekitRoomsRouter);
 app.use('/api', recordingsRouter);
 app.use('/api', formatsPromptRouter);
-app.use('/api', createSlideAiProRouter({ callGemini }));
+
+app.use('/api/slideaipro', buildSlideaiproAgendaJsonRouter({ callGemini, resolveLocale, logLong }));
 
 
 app.post('/api/_debug/echo', (req, res) => {
