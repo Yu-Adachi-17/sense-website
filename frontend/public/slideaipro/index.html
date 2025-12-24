@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SlideAI Pro Web</title>
+  <style>
+    :root {
+      --bg1: #ffffff;
+      --bg2: #ffffff;
+      --text: rgba(10, 18, 41, 0.92);
+      --muted: rgba(10, 18, 41, 0.38);
+      --card: rgba(0,0,0,0.03);
+      --stroke: rgba(0,0,0,0.06);
+      --shadow1: rgba(255,255,255,0.85);
+      --shadow2: rgba(0,0,0,0.12);
+      --atomBg: rgba(255,255,255,0.95);
+      --atomStroke: rgba(0,0,0,0.08);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    }
+
+    .wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    .stack {
+      width: min(860px, calc(100vw - 48px));
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .question {
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.25;
+      margin-top: 16px;
+    }
+
+    .card {
+      width: 100%;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.98);
+      box-shadow:
+        -4px -4px 8px var(--shadow1),
+         6px 10px 16px var(--shadow2);
+      border: 1px solid rgba(255,255,255,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .inner {
+      padding: 14px 14px 52px 14px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 96px;
+      max-height: 160px;
+      resize: vertical;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.45;
+      padding: 10px 10px 0 10px;
+      box-sizing: border-box;
+    }
+
+    textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .atomBtn {
+      position: absolute;
+      right: 12px;
+      bottom: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid var(--atomStroke);
+      background: var(--atomBg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.08s ease, opacity 0.12s ease;
+    }
+
+    .atomBtn:active { transform: scale(0.98); }
+    .atomBtn[disabled] {
+      opacity: 0.35;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .atomIcon {
+      width: 18px;
+      height: 18px;
+      opacity: 0.88;
+    }
+
+    .result {
+      width: 100%;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      line-height: 1.55;
+      color: rgba(10,18,41,0.86);
+      white-space: pre-wrap;
+      word-break: break-word;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 12px;
+      box-sizing: border-box;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .overlay.show { display: flex; }
+
+    .ringWrap {
+      width: 150px;
+      height: 150px;
+      position: relative;
+    }
+
+    .ring {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      border: 10px solid rgba(255,255,255,0.22);
+      box-sizing: border-box;
+      position: absolute;
+      inset: 0;
+    }
+
+    .ringSpin {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      border: 10px solid rgba(255,255,255,0.0);
+      border-top-color: rgba(255,255,255,0.92);
+      border-right-color: rgba(255,255,255,0.35);
+      box-sizing: border-box;
+      position: absolute;
+      inset: 0;
+      animation: spin 1.0s linear infinite;
+    }
+
+    .pct {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="stack">
+      <div class="question">どんな資料が欲しいですか？</div>
+
+      <div class="card">
+        <div class="inner">
+          <textarea id="brief" placeholder="例: 新機能リリースで解約率を下げたい。訴求・導線・オンボーディングを改善したい。"></textarea>
+        </div>
+
+        <button id="send" class="atomBtn" disabled>
+          <svg class="atomIcon" viewBox="0 0 24 24" fill="none">
+            <path d="M12 12m-1.3 0a1.3 1.3 0 1 0 2.6 0a1.3 1.3 0 1 0 -2.6 0" fill="black"/>
+            <path d="M12 12c3.8 0 7-1.6 7-3.5S15.8 5 12 5 5 6.6 5 8.5 8.2 12 12 12Z" stroke="black" stroke-width="1.2" opacity="0.55"/>
+            <path d="M12 12c0 3.8 1.6 7 3.5 7S19 15.8 19 12 17.4 5 15.5 5 12 8.2 12 12Z" stroke="black" stroke-width="1.2" opacity="0.55"/>
+            <path d="M12 12c-3.8 0-7 1.6-7 3.5S8.2 19 12 19s7-1.6 7-3.5S15.8 12 12 12Z" stroke="black" stroke-width="1.2" opacity="0.35"/>
+          </svg>
+        </button>
+      </div>
+
+      <pre id="out" class="result" style="display:none;"></pre>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay">
+    <div class="ringWrap">
+      <div class="ring"></div>
+      <div class="ringSpin"></div>
+      <div class="pct" id="pct">0%</div>
+    </div>
+  </div>
+
+  <script>
+    const briefEl = document.getElementById('brief');
+    const sendEl = document.getElementById('send');
+    const outEl = document.getElementById('out');
+    const overlayEl = document.getElementById('overlay');
+    const pctEl = document.getElementById('pct');
+
+    let ticker = null;
+    let pct = 0;
+
+    function setSending(isSending) {
+      if (isSending) {
+        overlayEl.classList.add('show');
+      } else {
+        overlayEl.classList.remove('show');
+      }
+    }
+
+    function startPct() {
+      pct = 3;
+      pctEl.textContent = pct + '%';
+      if (ticker) clearInterval(ticker);
+      ticker = setInterval(() => {
+        const cap = 28;
+        if (pct < cap) {
+          pct += 1;
+          pctEl.textContent = pct + '%';
+        }
+      }, 250);
+    }
+
+    function stopPct(finalPct) {
+      if (ticker) clearInterval(ticker);
+      ticker = null;
+      if (typeof finalPct === 'number') {
+        pct = finalPct;
+        pctEl.textContent = pct + '%';
+      }
+    }
+
+    function updateSendState() {
+      const t = (briefEl.value || '').trim();
+      sendEl.disabled = t.length === 0;
+    }
+
+    briefEl.addEventListener('input', updateSendState);
+    updateSendState();
+
+    sendEl.addEventListener('click', async () => {
+      const brief = (briefEl.value || '').trim();
+      if (!brief) return;
+
+      outEl.style.display = 'none';
+      outEl.textContent = '';
+
+      setSending(true);
+      startPct();
+
+      try {
+        const resp = await fetch('/api/slideaipro/agenda-json', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Debug-Log': '1'
+          },
+          body: JSON.stringify({
+            brief,
+            baseDate: ''
+          })
+        });
+
+        const json = await resp.json();
+
+        stopPct(100);
+        setTimeout(() => setSending(false), 150);
+
+        outEl.style.display = 'block';
+        outEl.textContent = JSON.stringify(json, null, 2);
+      } catch (e) {
+        stopPct(100);
+        setTimeout(() => setSending(false), 150);
+
+        outEl.style.display = 'block';
+        outEl.textContent = JSON.stringify({ ok:false, error: String(e) }, null, 2);
+      }
+    });
+  </script>
+</body>
+</html>
