@@ -160,6 +160,12 @@ const {
 // =======================================================================
 
 const app = express();
+app.use((req, res, next) => {
+  console.log(`[HIT0] ${req.method} ${req.originalUrl}`);
+  console.log(`[HIT0] host=${req.headers.host} ua=${req.headers['user-agent'] || ''}`);
+  console.log(`[HIT0] origin=${req.headers.origin || '(none)'} referer=${req.headers.referer || '(none)'}`);
+  next();
+});
 
 // ---- Helpers ------------------------------------------------------------
 function logLong(label, text, size = 8000) {
