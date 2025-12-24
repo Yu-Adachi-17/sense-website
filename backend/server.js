@@ -1823,49 +1823,6 @@ app.post('/api/generate-minutes', async (req, res) => {
   }
 });
 
-/*==============================================
-=        単純なメール送信 API（テスト用）      =
-==============================================*/
-// body: { to, subject?, minutes, transcript? }
-app.post('/api/send-minutes-email', async (req, res) => {
-  try {
-    const { to, subject, minutes, transcript, locale, lang } = req.body || {};
-    if (!to || !minutes) {
-      return res
-        .status(400)
-        .json({ error: 'Missing "to" or "minutes" in body' });
-    }
-    if (!isMailgunConfigured()) {
-      return res.status(500).json({ error: 'Mailgun is not configured' });
-    }
-
-    const localeResolved = resolveLocale(req, locale || lang);
-
-    const { textBody, htmlBody } = buildMinutesEmailBodies({
-      minutes,
-      transcription: transcript,
-      locale: localeResolved,
-    });
-
-    const result = await sendMinutesEmail({
-      to,
-      subject: subject || 'Your minutes from Minutes.AI',
-      text: textBody,
-      html: htmlBody,
-      // ★ From 名ローカライズ用
-      locale: localeResolved,
-    });
-
-    return res.json({ ok: true, result });
-  } catch (err) {
-    console.error('[ERROR] /api/send-minutes-email:', err);
-    return res
-      .status(500)
-      .json({ error: 'Internal error', details: err.message });
-  }
-});
-
-
 
 /*==============================================
 =               Static Frontend                =
