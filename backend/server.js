@@ -248,22 +248,31 @@ app.use(
 const allowedOrigins = [
   'https://sense-ai.world',
   'https://www.sense-ai.world',
-  'https://sense-website-production.up.railway.app', // 静的+API の Origin
-  'http://localhost:3000', // ローカル開発時
+  'https://sense-website-production.up.railway.app',
+  'http://localhost:3000',
 ];
 
-app.use(
-  cors({
-    origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-      cb(new Error('Not allowed by CORS'));
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With', 'X-User-Locale', 'X-Debug-Log'],
-  })
-);
-app.options('*', cors());
+const corsOptions = {
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+    cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'Accept',
+    'X-Requested-With',
+    'X-User-Locale',
+    'X-Debug-Log',
+    'X-Client',
+  ],
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 
 // Flexible Minutes 用（旧）プロンプト
 const { buildFlexibleMessages } = require('./prompts/flexibleprompt');
