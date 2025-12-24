@@ -351,17 +351,6 @@ app.use((req, res, next) => {
 
 const { exec } = require('child_process');
 
-app.get('/api/debug/ffprobe', (req, res) => {
-  exec('which ffprobe', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error finding ffprobe: ${stderr}`);
-      return res.status(500).json({ error: 'ffprobe not found', details: stderr });
-    }
-    const ffprobePathDetected = stdout.trim();
-    console.log(`Detected ffprobe path: ${ffprobePathDetected}`);
-    res.json({ ffprobePath: ffprobePathDetected });
-  });
-});
 
 app.use((req, res, next) => {
   console.log(
