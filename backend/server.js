@@ -42,10 +42,12 @@ const egressRouter = require('./routes/egress');
 const livekitWebhookRouter = require('./routes/livekitWebhook');
 const recordingsRouter = require('./routes/recordings');
 
+const { compressTranscriptForGemini, MAX_ONESHOT_TRANSCRIPT_CHARS } = require('./src/services/minutes/transcriptCompression');
+
+
 const livekitRoomsRouter = require('./routes/livekitRooms');
 const formatsPromptRouter = require('./routes/formatsPrompt');
 
-const { getProductName } = require('./services/productName');
 const https = require('https');
 
 
@@ -55,82 +57,7 @@ const { transcribeWithOpenAI } = require('./src/services/openai/whisperClient');
 
 const { splitAudioFile, convertToM4A, cleanupFiles } = require('./src/services/audio/ffmpegUtil');
 
-
-// ==== ★ NEW: Mailgun Setup (for minutes email) ====
-const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY || null;
-const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN || null;
-// 「環境変数にフル表記が来ていた場合」は、アドレスだけ抜き取る
-const RAW_MAILGUN_FROM =
-  process.env.MAILGUN_FROM || 'Minutes.AI <no-reply@mg.sense-ai.world>';
-
-function extractAddress(fromHeader) {
-  const m = String(fromHeader).match(/<(.*)>/);
-  return m ? m[1] : String(fromHeader); // "xxx <addr>" → "addr"
-}
-
-const MAILGUN_FROM_ADDRESS = extractAddress(RAW_MAILGUN_FROM);
-
-// locale ごとに "議事録AI <no-reply@...>" のような from を作る
-function buildLocalizedFrom(locale) {
-  const productName = getProductName(locale); // ja → 議事録AI, da → Referat AI
-  return `${productName} <${MAILGUN_FROM_ADDRESS}>`;
-}
-
-// Mailgun Basic 認証ヘッダー生成
-function buildMailgunAuthHeader() {
-  if (!MAILGUN_API_KEY) {
-    throw new Error("MAILGUN_API_KEY is not set.");
-  }
-  const token = Buffer.from(`api:${MAILGUN_API_KEY}`).toString('base64');
-  return `Basic ${token}`;
-}
-
-/**
- * sendMinutesEmail: Mailgun 経由で議事録メールを送信するヘルパー
- * params = { to, subject, text, html, locale }
- */
-async function sendMinutesEmail(params) {
-  if (!MAILGUN_API_KEY || !MAILGUN_DOMAIN) {
-    throw new Error("Mailgun is not configured (missing API key or domain).");
-  }
-
-  const { to, subject, text, html, locale } = params;
-
-  // ★ここでローカライズ済みの From を作る
-  const fromHeader = buildLocalizedFrom(locale || "en");
-
-  const url = `https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`;
-  const body = new URLSearchParams();
-
-  body.append("from", fromHeader);
-  body.append("to", to);
-  body.append("subject", subject || "Your minutes from Minutes.AI");
-  body.append("text", text || "");
-  if (html) {
-    body.append("html", html);
-  }
-
-  const headers = {
-    Authorization: buildMailgunAuthHeader(),
-    "Content-Type": "application/x-www-form-urlencoded",
-  };
-
-  console.log(
-    `[MAILGUN] Sending minutes email from=${fromHeader} to=${to}`
-  );
-  try {
-    const resp = await axios.post(url, body.toString(), { headers });
-    console.log("[MAILGUN] Response status:", resp.status, resp.data);
-    return resp.data;
-  } catch (err) {
-    console.error(
-      "[MAILGUN] Failed to send email:",
-      err.response?.data || err.message
-    );
-    throw new Error("Failed to send minutes email via Mailgun");
-  }
-}
-
+const { sendMinutesEmail, isMailgunConfigured } = require('./src/clients/mailgunClient');
 
 
 // ==== ★ NEW: Email Templates (Minutes / Transcript) ====
@@ -144,34 +71,19 @@ const {
 const app = express();
 
 // ---- Helpers ------------------------------------------------------------
-function logLong(label, text, size = 8000) {
-  const s = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
-  console.log(`${label} len=${s?.length ?? 0} >>> BEGIN`);
-  if (s) {
-    for (let i = 0; i < s.length; i += size) {
-      console.log(`${label} [${i}-${Math.min(i + size, s.length)}]\n${s.slice(i, i + size)}`);
-    }
-  }
-  console.log(`${label} <<< END`);
-}
-
-const pickFirstTag = (s) => (s || '').split(',')[0].trim();
-const toShort = (tag) => (tag || '').split('-')[0].toLowerCase();
-
-function resolveLocale(req, bodyLocale) {
-  const hxu = req.headers['x-user-locale'];
-  const hal = req.headers['accept-language'];
-  const bcp47 = bodyLocale || hxu || pickFirstTag(hal) || 'en';
-  const short = toShort(bcp47);
-  if (process.env.LOG_LOCALE === '1') {
-    console.log(
-      `[LOCALE] body=${bodyLocale || ''} x-user-locale=${hxu || ''} accept-language=${hal || ''} -> resolved=${short}`
-    );
-  }
-  return short;
-}
+const { logLong } = require('./src/utils/logLong');
+const { resolveLocale } = require('./src/utils/locale');
+const { splitText } = require('./src/utils/text');
 
 const requestLogger = require('./src/middlewares/requestLogger');
+app.use(requestTimeout());
+
+const {
+  updateEmailJobStatus,
+  saveMeetingRecordFromEmailJob,
+  createEmailJobLogger,
+} = require('./src/services/emailJobs/emailJobStore');
+
 
 // --- Security headers (Helmet) ---
 app.use(
@@ -314,17 +226,7 @@ app.post('/api/_debug/echo', (req, res) => {
 /*==============================================
 =            Other Middleware                  =
 ==============================================*/
-app.use((req, res, next) => {
-  req.setTimeout(600000, () => {
-    console.error('Request timed out.');
-    res.set({
-      'Access-Control-Allow-Origin': req.headers.origin || '*',
-      'Access-Control-Allow-Credentials': 'true',
-    });
-    res.status(503).send('Service Unavailable: request timed out.');
-  });
-  next();
-});
+app.use(requestTimeout());
 
 const { exec } = require('child_process');
 
@@ -344,24 +246,7 @@ app.get('/api/debug/ffprobe', (req, res) => {
 /*==============================================
 =            Upload / Transcription            =
 ==============================================*/
-const multerStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const tempDir = path.join(__dirname, 'temp');
-    if (!fs.existsSync(tempDir)) {
-      fs.mkdirSync(tempDir, { recursive: true });
-      console.log('[DEBUG] Created temporary directory:', tempDir);
-    }
-    cb(null, tempDir);
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}_${file.originalname}`);
-  },
-});
-
-const upload = multer({
-  storage: multerStorage,
-  limits: { fileSize: 500 * 1024 * 1024 }, // 500MB
-});
+const upload = require('./src/middlewares/upload');
 
 
 /**
@@ -538,203 +423,6 @@ ${badOutput}
   return await callGemini(systemMessage, userMessage, generationConfig);
 }
 
-// === Gemini transcript normalization (same logic as iOS GeminiFlashModel) ===
-
-// 生テキストの絶対上限（保険）
-const MAX_TOTAL_TRANSCRIPT_CHARS = 1_000_000;
-
-// 「一撃で Gemini に投げるテキスト」の実務上限（iOS と同じ 30,000 文字）
-const MAX_ONESHOT_TRANSCRIPT_CHARS = 30_000;
-
-// 元テキストを 1 セグメントあたり最大何文字までにするか（iOS と同じ 3,000 文字）
-const MAX_SEGMENT_SOURCE_CHARS = 3_000;
-
-/**
- * 1 セグメント分を要約する（iOS の summarizeSegment 相当）
- * - targetLength は「このチャンクの要約を何文字くらいに収めたいか」
- */
-async function summarizeSegment({
-  segmentText,
-  partIndex,
-  totalParts,
-  targetLength,
-  langHint,
-}) {
-  const systemMessage = `
-You are summarizing a long meeting transcript (part ${partIndex} of ${totalParts}).
-Summarize this part into at most approximately ${targetLength} characters.
-
-Rules:
-- Preserve all key decisions, conclusions, and agreements.
-- Preserve all action items with assignees and due dates if they appear.
-- Preserve important numbers (prices, quantities, percentages, dates, times) and proper nouns (people, companies, products, projects).
-- Remove small talk, greetings, filler phrases, and repetitions.
-- Keep the tone neutral and concise.
-- Output PLAIN TEXT only. Do NOT output JSON. Do NOT wrap the result in backticks. Do NOT add any explanation before or after the summary.
-`.trim();
-
-  const userMessage = `
-Language hint: ${langHint || 'auto'}
-
-Here is the transcript for this part:
-${segmentText}
-`.trim();
-
-  const generationConfig = {
-    temperature: 0,
-    maxOutputTokens: 8000,
-  };
-
-  try {
-    const summary = await callGemini(systemMessage, userMessage, generationConfig);
-    const text = (summary || '').trim();
-
-    if (text.length > targetLength) {
-      return text.slice(0, targetLength);
-    }
-    return text;
-  } catch (err) {
-    console.error(
-      `[DEBUG] summarizeSegment failed for part ${partIndex}:`,
-      err.message || err
-    );
-
-    // 失敗時は元テキストを「生で targetLength まで切って」返す（iOS と同じ思想）
-    if (!segmentText) return '';
-    if (segmentText.length > targetLength) {
-      return segmentText.slice(0, targetLength);
-    }
-    return segmentText;
-  }
-}
-
-/**
- * iOS の compressLongTranscriptToMaxLength と同じロジック
- * - allText が maxLength を超えるときだけ呼ばれる想定
- * - 3,000 文字ごとに分割 → 各チャンクに targetLength を割り当てて要約
- * - 全チャンクを結合して、最終的に maxLength で尻カット
- */
-async function compressLongTranscriptToMaxLength(allText, maxLength, langHint) {
-  if (!allText || typeof allText !== 'string') return '';
-
-  let text = allText.trim();
-  const totalLength = text.length;
-
-  if (totalLength <= maxLength) {
-    return text;
-  }
-
-  // 念のためのハード上限（iOS: maxTextLength 相当）
-  if (totalLength > MAX_TOTAL_TRANSCRIPT_CHARS) {
-    console.log(
-      `[DEBUG] compressLongTranscriptToMaxLength: totalLength=${totalLength} > MAX_TOTAL_TRANSCRIPT_CHARS=${MAX_TOTAL_TRANSCRIPT_CHARS}. Truncating head.`
-    );
-    text = text.slice(0, MAX_TOTAL_TRANSCRIPT_CHARS);
-  }
-
-  const actualTotalLength = text.length;
-
-  // 1 セグメントに渡す元テキストの上限（3,000）
-  const perSegmentLimit = MAX_SEGMENT_SOURCE_CHARS;
-
-  // 必要なセグメント数 = ceil(totalLength / perSegmentLimit)
-  const segmentCount = Math.max(
-    1,
-    Math.ceil(actualTotalLength / perSegmentLimit)
-  );
-
-  // 実際に使うチャンクサイズ（perSegmentLimit 以下になる）
-  const segmentSize = Math.ceil(actualTotalLength / segmentCount);
-
-  console.log(
-    `[DEBUG] compressLongTranscriptToMaxLength: totalLength=${actualTotalLength}, segmentCount=${segmentCount}, segmentSize=${segmentSize}`
-  );
-
-  // 既存の splitText(text, chunkSize) をそのまま再利用
-  const segments = splitText(text, segmentSize);
-
-  const totalLenDouble = actualTotalLength;
-  // 全体で maxLength の 95% を目標にする（少し余白）
-  const safetyTotal = Math.floor(maxLength * 0.95);
-
-  const compressedSegments = [];
-
-  for (let i = 0; i < segments.length; i++) {
-    const segment = segments[i];
-    const li = segment.length;
-
-    // このセグメントが全体に占める割合で safetyTotal を割り振る
-    let targetLength = Math.floor((li / totalLenDouble) * safetyTotal);
-
-    // 小さすぎるチャンクに対する下限（iOS と同じ思想）
-    const minPerSegment = Math.max(200, Math.floor(safetyTotal / (segments.length * 4)));
-    targetLength = Math.max(minPerSegment, targetLength);
-
-    const summary = await summarizeSegment({
-      segmentText: segment,
-      partIndex: i + 1,
-      totalParts: segments.length,
-      targetLength,
-      langHint,
-    });
-
-    compressedSegments.push(summary);
-  }
-
-  let joined = compressedSegments.join('\n\n');
-
-  // 念のため、最終的には maxLength で尻カット
-  if (joined.length > maxLength) {
-    console.log(
-      `[DEBUG] compressLongTranscriptToMaxLength: joined length=${joined.length} > maxLength=${maxLength}. Cutting tail.`
-    );
-    joined = joined.slice(0, maxLength);
-  }
-
-  return joined;
-}
-
-/**
- * iOS の「下準備編」と同じレイヤーの関数
- * - ポイント1: 一撃生成の上限は 30,000 文字
- * - ポイント2: 30,000 を超える場合は 3,000 字ごとに分割して要約し、全体を ~30,000 に圧縮
- * - ポイント3: その結合テキストを minutes 生成のベースとして使う
- */
-async function compressTranscriptForGemini(rawTranscript, langHint) {
-  if (!rawTranscript || typeof rawTranscript !== 'string') return '';
-
-  let transcript = rawTranscript.trim();
-
-  // 30,000 文字以内ならそのまま 1-shot
-  if (transcript.length <= MAX_ONESHOT_TRANSCRIPT_CHARS) {
-    return transcript;
-  }
-
-  // ハード上限を超えていた場合は先頭から 1,000,000 文字だけ使う
-  if (transcript.length > MAX_TOTAL_TRANSCRIPT_CHARS) {
-    console.log(
-      `[DEBUG] compressTranscriptForGemini: transcript length=${transcript.length} > MAX_TOTAL_TRANSCRIPT_CHARS=${MAX_TOTAL_TRANSCRIPT_CHARS}. Truncating head.`
-    );
-    transcript = transcript.slice(0, MAX_TOTAL_TRANSCRIPT_CHARS);
-  }
-
-  console.log(
-    `[DEBUG] compressTranscriptForGemini: length=${transcript.length} > ${MAX_ONESHOT_TRANSCRIPT_CHARS}, start compressLongTranscriptToMaxLength...`
-  );
-
-  const compressed = await compressLongTranscriptToMaxLength(
-    transcript,
-    MAX_ONESHOT_TRANSCRIPT_CHARS,
-    langHint
-  );
-
-  console.log(
-    `[DEBUG] compressTranscriptForGemini: compressed length=${compressed.length}`
-  );
-
-  return compressed;
-}
-
 
 async function generateFlexibleMinutes(transcription, langHint) {
   // buildFlexibleMessages は OpenAI 形式の messages 配列を返す
@@ -814,7 +502,7 @@ ${transcript}
 
 
 // Constant for chunk splitting (process in one batch if file is below this size)
-const TRANSCRIPTION_CHUNK_THRESHOLD = 1 * 1024 * 1024; // 5MB in bytes
+const TRANSCRIPTION_CHUNK_THRESHOLD = 1 * 1024 * 1024; // 1MB in bytes
 
 
 /*==============================================
@@ -1017,144 +705,6 @@ app.post('/api/transcribe', upload.single('file'), async (req, res) => {
       .json({ error: 'Internal server error', details: err.message });
   }
 });
-
-// ※重複していなければそのまま使ってOK
-const admin = require("firebase-admin");
-if (!admin.apps.length) {
-  admin.initializeApp();
-}
-const db = admin.firestore();
-
-// UUID 生成用
-const { v4: uuidv4 } = require("uuid");
-
-const EMAIL_JOB_STAGE_PROGRESS = {
-  uploading: 5,
-  transcribing: 30,
-  generating: 70,
-  sendingMail: 90,
-  completed: 100,
-  failed: 100,
-};
-
-async function updateEmailJobStatus({
-  jobId,
-  userId,
-  stage,           // "uploading" / "transcribing" / ...
-  status,          // 基本 stage と同じで OK
-  error,
-  errorCode,
-  failedRecipients,
-}) {
-  if (!jobId) return;
-
-  const docRef = db.collection("emailJobs").doc(jobId);
-
-  const s = status || stage || "unknown";
-  const progress =
-    EMAIL_JOB_STAGE_PROGRESS[s] !== undefined
-      ? EMAIL_JOB_STAGE_PROGRESS[s]
-      : null;
-
-  const payload = {
-    jobId,
-    userId: userId || null,
-    stage: stage || s,
-    status: s,
-    progress,
-    error: error || null,
-    errorCode: errorCode || null,
-    failedRecipients: failedRecipients || [],
-    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-  };
-
-  // null は削ってから merge
-  Object.keys(payload).forEach((k) => {
-    if (payload[k] === null) delete payload[k];
-  });
-
-  await docRef.set(payload, { merge: true });
-}
-
-/**
- * minutes-email ジョブから meetingRecords に1件保存
- * Swift側 syncCoreDataToFirebase のレコード構造に合わせる:
- * - transcription: String
- * - minutes:       String
- * - createdAt:     Timestamp
- * - uid:           String (Firebase UID)
- * - paperID:       String (UUID)
- */
-async function saveMeetingRecordFromEmailJob({
-  uid,
-  transcription,
-  minutes,
-  jobId,
-}) {
-  if (!uid) {
-    console.log("[EMAIL_JOB] No uid, skip saving meetingRecords");
-    return null;
-  }
-
-  const paperID = uuidv4(); // Swift側で UUID(uuidString:) できる形式
-
-  const recordData = {
-    transcription: transcription || "",
-    minutes: minutes || "",
-    createdAt: admin.firestore.FieldValue.serverTimestamp(),
-    uid,
-    paperID,
-    // デバッグ/将来拡張用のメタ
-    jobId: jobId || null,
-    source: "minutes-email-from-audio",
-  };
-
-  const docRef = await db.collection("meetingRecords").add(recordData);
-
-  console.log(
-    "[EMAIL_JOB] Saved meetingRecords docId=",
-    docRef.id,
-    "paperID=",
-    paperID
-  );
-
-  return {
-    docId: docRef.id,
-    paperID,
-  };
-}
-
-// ★ 5分問題切り分け用：メールジョブ専用ロガー
-function createEmailJobLogger(rawJobId) {
-  const startedAt = Date.now();
-  const jobId = rawJobId || `(no-jobId-${startedAt})`;
-
-  console.log(
-    `[EMAIL_JOB][${jobId}] >>> START at ${new Date(startedAt).toISOString()}`
-  );
-
-  return {
-    mark(label) {
-      const now = Date.now();
-      const sec = ((now - startedAt) / 1000).toFixed(1);
-      console.log(
-        `[EMAIL_JOB][${jobId}] ${label} (+${sec}s, ${new Date(
-          now
-        ).toISOString()})`
-      );
-    },
-    end(status) {
-      const endAt = Date.now();
-      const sec = ((endAt - startedAt) / 1000).toFixed(1);
-      console.log(
-        `[EMAIL_JOB][${jobId}] <<< END status=${status} total=${sec}s at ${new Date(
-          endAt
-        ).toISOString()}`
-      );
-    },
-  };
-}
-
 
 
 // ==============================================
