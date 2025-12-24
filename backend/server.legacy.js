@@ -257,8 +257,6 @@ function resolveLocale(req, bodyLocale) {
   return short;
 }
 
-const requestLogger = require('./src/middlewares/requestLogger');
-
 // --- Security headers (Helmet) ---
 app.use(
   helmet({
@@ -359,7 +357,17 @@ app.use(
   })
 );
 
-app.use(requestLogger());
+/*==============================================
+=            Request Debug Logging             =
+==============================================*/
+app.use((req, res, next) => {
+  const safeHeaders = { ...req.headers };
+  if (safeHeaders['x-internal-token']) safeHeaders['x-internal-token'] = '***';
+  console.log(`[DEBUG] ${req.method} ${req.url}`);
+  console.log(`[DEBUG] Headers: ${JSON.stringify(safeHeaders)}`);
+  console.log(`[DEBUG] Body: ${JSON.stringify(req.body)}`);
+  next();
+});
 
 /*==============================================
 =            Router Registration               =
@@ -426,6 +434,17 @@ app.get('/api/debug/ffprobe', (req, res) => {
   });
 });
 
+app.use((req, res, next) => {
+  console.log(
+    `[DEBUG] Request received:
+  - Method: ${req.method}
+  - Origin: ${req.headers.origin || 'Not set'}
+  - Path: ${req.path}
+  - Headers: ${JSON.stringify(req.headers, null, 2)}
+`
+  );
+  next();
+});
 
 /*==============================================
 =            Upload / Transcription            =
