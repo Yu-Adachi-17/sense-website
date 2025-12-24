@@ -144,47 +144,57 @@ export default function SlideAIProHome() {
     return () => window.clearInterval(id);
   };
 
-  const handleGenerate = async () => {
-    const brief = trimmed;
-    if (!brief) return;
-    if (isSending) return;
+// ✅ ここだけ差し替え（handleGenerate ブロック全文）
+// - 絶対URLで Railway を叩く
+// - エンドポイントを /api/slideaipro/agenda-json に変更
+// - 戻り値に pdfUrl が無い前提なので、返ってきた JSON をそのまま開く処理はしない（今は成功/失敗の確認用）
 
-    setIsSending(true);
-    const stop = startProgressTicker();
+const handleGenerate = async () => {
+  const brief = trimmed;
+  if (!brief) return;
+  if (isSending) return;
 
-    try {
-      const resp = await fetch("/api/slideaipro/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          brief,
-          renderMode: "vibeSlidingIdea",
-          locale: typeof navigator !== "undefined" ? navigator.language : "ja",
-          theme: isIntelMode ? "dark" : "light",
-        }),
-      });
+  setIsSending(true);
+  const stop = startProgressTicker();
 
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  try {
+    const API_BASE = "https://sense-website-production.up.railway.app";
 
-      const json = await resp.json();
-      const pdfUrl = json?.pdfUrl;
+    const resp = await fetch(`${API_BASE}/api/slideaipro/agenda-json`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Client": "web-slideaipro",
+      },
+      body: JSON.stringify({
+        brief,
+        renderMode: "vibeSlidingIdea",
+        locale: typeof navigator !== "undefined" ? navigator.language : "ja",
+        theme: isIntelMode ? "dark" : "light",
+      }),
+    });
 
-      setProgress(100);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
 
-      if (pdfUrl && typeof window !== "undefined") {
-        window.open(pdfUrl, "_blank", "noopener,noreferrer");
-      } else {
-        alert("PDF URL が返ってきませんでした（api/slideaipro/generate の戻り値を確認してください）");
-      }
-    } catch (e) {
-      console.error(e);
-      alert("生成に失敗しました。サーバー側ログを確認してください。");
-    } finally {
-      stop();
-      setTimeout(() => setIsSending(false), 180);
-      setTimeout(() => setProgress(0), 260);
-    }
-  };
+    const json = await resp.json();
+
+    setProgress(100);
+
+    // ✅ まずは疎通確認：返ってきた内容を確認
+    console.log("[agenda-json response]", json);
+
+    // ✅ pdfUrl が返ってくる実装にした後はここを window.open(pdfUrl...) に差し替える
+    alert("API疎通OK（consoleに response を出しました）");
+  } catch (e) {
+    console.error(e);
+    alert("生成に失敗しました。サーバー側ログを確認してください。");
+  } finally {
+    stop();
+    setTimeout(() => setIsSending(false), 180);
+    setTimeout(() => setProgress(0), 260);
+  }
+};
+
 
   return (
     <>
