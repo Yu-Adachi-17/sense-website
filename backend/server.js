@@ -187,6 +187,105 @@ app.use(
   })
 );
 
+/*==============================================
+=     FORCE-REGISTER: /api/generate-minutes    =
+==============================================*/
+console.log('[BOOT] registering POST/GET /api/generate-minutes (early)');
+
+app.get('/api/generate-minutes', (req, res) => {
+  res.set('Allow', 'POST');
+  return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
+});
+
+app.post('/api/generate-minutes', async (req, res) => {
+  try {
+    const {
+      transcript,
+      formatId,
+      locale: localeFromBody,
+      outputType = 'flexible', // 旧互換
+      meetingFormat,
+      lang,
+    } = req.body || {};
+
+    if (!transcript || typeof transcript !== 'string' || !transcript.trim()) {
+      return res.status(400).json({ error: 'Missing transcript' });
+    }
+
+    const rawTranscript = transcript.trim();
+    const localeResolved = resolveLocale(req, localeFromBody);
+    const langHint = lang || localeResolved || null;
+
+    // 30万文字超えた場合は iOS と同様に圧縮
+    let effectiveTranscript = rawTranscript;
+    if (rawTranscript.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
+      console.log(
+        `[DEBUG] /api/generate-minutes: transcript length=${rawTranscript.length} exceeds MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}. Compressing before Gemini.`
+      );
+      effectiveTranscript = await compressTranscriptForGemini(rawTranscript, langHint);
+    }
+
+    let minutes;
+    let meta = null;
+
+    if (formatId && localeResolved) {
+      const fmt = loadFormatJSON(formatId, localeResolved);
+      if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
+
+      // ログ用
+      fmt.formatId = formatId;
+      fmt.locale = localeResolved;
+
+      minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
+      meta = {
+        formatId,
+        locale: localeResolved,
+        schemaId: fmt.schemaId || null,
+        title: fmt.title || null,
+      };
+    } else {
+      if ((outputType || 'flexible').toLowerCase() === 'flexible') {
+        minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
+      } else {
+        minutes = await generateMinutes(effectiveTranscript, meetingFormat || '');
+      }
+      meta = { legacy: true, outputType, lang: langHint };
+    }
+
+    const shouldLog =
+      process.env.LOG_GENERATED_MINUTES === '1' ||
+      req.headers['x-debug-log'] === '1' ||
+      req.query.debug === '1';
+
+    if (shouldLog) {
+      logLong('[GENERATED_MINUTES raw]', minutes);
+      try {
+        const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
+        logLong('[GENERATED_MINUTES pretty]', pretty);
+      } catch {
+        // JSONでなければ無視
+      }
+      if (process.env.LOG_TRANSCRIPT === '1') {
+        logLong('[TRANSCRIPT]', rawTranscript);
+      }
+      if (process.env.LOG_LOCALE === '1') {
+        console.log(`[GENERATE] localeResolved=${localeResolved}`);
+      }
+    }
+
+    // transcription は元の全文を返す
+    return res.json({
+      transcription: rawTranscript,
+      minutes,
+      meta,
+    });
+  } catch (err) {
+    console.error('[ERROR] /api/generate-minutes:', err);
+    return res.status(500).json({ error: 'Internal error', details: err.message });
+  }
+});
+
+
 app.use(requestLogger());
 
 /*==============================================
@@ -1181,103 +1280,6 @@ app.get('/api/formats/:formatId/:locale', (req, res) => {
   res.json(payload);
 });
 
-/*==============================================
-=     FORCE-REGISTER: /api/generate-minutes    =
-==============================================*/
-console.log('[BOOT] registering POST/GET /api/generate-minutes (early)');
-
-app.get('/api/generate-minutes', (req, res) => {
-  res.set('Allow', 'POST');
-  return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
-});
-
-app.post('/api/generate-minutes', async (req, res) => {
-  try {
-    const {
-      transcript,
-      formatId,
-      locale: localeFromBody,
-      outputType = 'flexible', // 旧互換
-      meetingFormat,
-      lang,
-    } = req.body || {};
-
-    if (!transcript || typeof transcript !== 'string' || !transcript.trim()) {
-      return res.status(400).json({ error: 'Missing transcript' });
-    }
-
-    const rawTranscript = transcript.trim();
-    const localeResolved = resolveLocale(req, localeFromBody);
-    const langHint = lang || localeResolved || null;
-
-    // 30万文字超えた場合は iOS と同様に圧縮
-    let effectiveTranscript = rawTranscript;
-    if (rawTranscript.length > MAX_ONESHOT_TRANSCRIPT_CHARS) {
-      console.log(
-        `[DEBUG] /api/generate-minutes: transcript length=${rawTranscript.length} exceeds MAX_ONESHOT_TRANSCRIPT_CHARS=${MAX_ONESHOT_TRANSCRIPT_CHARS}. Compressing before Gemini.`
-      );
-      effectiveTranscript = await compressTranscriptForGemini(rawTranscript, langHint);
-    }
-
-    let minutes;
-    let meta = null;
-
-    if (formatId && localeResolved) {
-      const fmt = loadFormatJSON(formatId, localeResolved);
-      if (!fmt) return res.status(404).json({ error: 'format/locale not found' });
-
-      // ログ用
-      fmt.formatId = formatId;
-      fmt.locale = localeResolved;
-
-      minutes = await generateWithFormatJSON(effectiveTranscript, fmt);
-      meta = {
-        formatId,
-        locale: localeResolved,
-        schemaId: fmt.schemaId || null,
-        title: fmt.title || null,
-      };
-    } else {
-      if ((outputType || 'flexible').toLowerCase() === 'flexible') {
-        minutes = await generateFlexibleMinutes(effectiveTranscript, langHint);
-      } else {
-        minutes = await generateMinutes(effectiveTranscript, meetingFormat || '');
-      }
-      meta = { legacy: true, outputType, lang: langHint };
-    }
-
-    const shouldLog =
-      process.env.LOG_GENERATED_MINUTES === '1' ||
-      req.headers['x-debug-log'] === '1' ||
-      req.query.debug === '1';
-
-    if (shouldLog) {
-      logLong('[GENERATED_MINUTES raw]', minutes);
-      try {
-        const pretty = JSON.stringify(JSON.parse(minutes), null, 2);
-        logLong('[GENERATED_MINUTES pretty]', pretty);
-      } catch {
-        // JSONでなければ無視
-      }
-      if (process.env.LOG_TRANSCRIPT === '1') {
-        logLong('[TRANSCRIPT]', rawTranscript);
-      }
-      if (process.env.LOG_LOCALE === '1') {
-        console.log(`[GENERATE] localeResolved=${localeResolved}`);
-      }
-    }
-
-    // transcription は元の全文を返す
-    return res.json({
-      transcription: rawTranscript,
-      minutes,
-      meta,
-    });
-  } catch (err) {
-    console.error('[ERROR] /api/generate-minutes:', err);
-    return res.status(500).json({ error: 'Internal error', details: err.message });
-  }
-});
 
 /*==============================================
 =        単純なメール送信 API（テスト用）      =
