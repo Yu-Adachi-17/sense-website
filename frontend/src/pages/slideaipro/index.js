@@ -14,7 +14,7 @@ function AtomIcon({ size = 16 }) {
   );
 }
 
-function ProgressOverlay({ progress }) {
+function ProgressOverlay({ progress, label }) {
   const pct = Math.max(0, Math.min(100, Math.floor(progress)));
   const RING_SIZE = 150;
   const STROKE = 10;
@@ -49,6 +49,7 @@ function ProgressOverlay({ progress }) {
           </g>
         </svg>
         <div className="pct">{pct}%</div>
+        {!!label && <div className="label">{label}</div>}
       </div>
 
       <style jsx>{`
@@ -78,20 +79,68 @@ function ProgressOverlay({ progress }) {
           font-weight: 700;
           font-variant-numeric: tabular-nums;
           user-select: none;
+          transform: translateY(-6px);
+        }
+        .label {
+          position: absolute;
+          bottom: -34px;
+          width: 260px;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.78);
+          font-size: 13px;
+          font-weight: 650;
+          letter-spacing: 0.2px;
+          user-select: none;
         }
       `}</style>
     </div>
   );
 }
 
+function pickPdfUrl(obj) {
+  if (!obj) return "";
+  const candidates = [
+    obj.pdfUrl,
+    obj.url,
+    obj.fileUrl,
+    obj.pdf_url,
+    obj.pdfURL,
+    obj.result?.pdfUrl,
+    obj.result?.url,
+    obj.data?.pdfUrl,
+    obj.data?.url,
+  ].filter(Boolean);
+
+  const first = candidates.find((v) => typeof v === "string" && v.length > 0);
+  if (first) return first;
+
+  // どこかにURLが埋まってるケースも拾う（保険）
+  try {
+    const s = JSON.stringify(obj);
+    const m = s.match(/https?:\/\/[^\s"']+\.pdf(\?[^\s"']*)?/i);
+    return m?.[0] || "";
+  } catch {
+    return "";
+  }
+}
+
 export default function SlideAIProHome() {
   const [prompt, setPrompt] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [progressLabel, setProgressLabel] = useState("");
   const [isIntelMode, setIsIntelMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [agendaJson, setAgendaJson] = useState(null);
+  const [pdfUrl, setPdfUrl] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [copied, setCopied] = useState(false);
+
   const taRef = useRef(null);
+  const stopProgressRef = useRef(null);
+  const mountedRef = useRef(true);
+
   const trimmed = useMemo(() => prompt.trim(), [prompt]);
 
   const questionText = "どんな資料が欲しいですか？";
@@ -104,6 +153,13 @@ export default function SlideAIProHome() {
   }, [isIntelMode]);
 
   const textColor = isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.92)";
+
+  const API_BASE = useMemo(() => {
+    // 環境変数があれば優先（例: NEXT_PUBLIC_SLIDEAIPRO_API_BASE=https://xxx）
+    const env = process.env.NEXT_PUBLIC_SLIDEAIPRO_API_BASE || process.env.NEXT_PUBLIC_API_BASE;
+    if (env && typeof env === "string") return env.replace(/\/+$/, "");
+    return "https://sense-website-production.up.railway.app";
+  }, []);
 
   const focusIdea = () => {
     try {
@@ -120,6 +176,16 @@ export default function SlideAIProHome() {
   };
 
   useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      try {
+        stopProgressRef.current?.();
+      } catch {}
+    };
+  }, []);
+
+  useEffect(() => {
     autosize();
   }, [prompt]);
 
@@ -132,60 +198,143 @@ export default function SlideAIProHome() {
     return () => window.removeEventListener("keydown", onKey);
   }, [isMenuOpen]);
 
-  const startProgressTicker = () => {
-    setProgress(3);
+  const stopProgressTicker = () => {
+    try {
+      stopProgressRef.current?.();
+    } catch {}
+    stopProgressRef.current = null;
+  };
+
+  const startProgressTicker = (cap, base = 3, speedMs = 220) => {
+    stopProgressTicker();
+
+    setProgress(base);
     const startedAt = Date.now();
     const id = window.setInterval(() => {
       const elapsed = Date.now() - startedAt;
-      const cap = 28;
-      const step = 3 + Math.min(cap - 3, Math.floor(elapsed / 220));
+      const step = base + Math.min(cap - base, Math.floor(elapsed / speedMs));
       setProgress((p) => Math.min(cap, Math.max(p, step)));
     }, 120);
-    return () => window.clearInterval(id);
+
+    const stop = () => window.clearInterval(id);
+    stopProgressRef.current = stop;
+    return stop;
   };
 
-const handleGenerate = async () => {
-  const brief = trimmed;
-  if (!brief) return;
-  if (isSending) return;
+  const safeCopy = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+  };
 
-  setIsSending(true);
-  const stop = startProgressTicker();
+  const handleGenerate = async () => {
+    const brief = trimmed;
+    if (!brief) return;
+    if (isSending) return;
 
-  try {
-    const API_BASE = "https://sense-website-production.up.railway.app";
+    setErrorMsg("");
+    setPdfUrl("");
+    setAgendaJson(null);
+    setCopied(false);
 
-    const resp = await fetch(`${API_BASE}/api/slideaipro/agenda-json`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        brief,
-        renderMode: "vibeSlidingIdea",
-        locale: typeof navigator !== "undefined" ? navigator.language : "ja",
-        theme: isIntelMode ? "dark" : "light",
-      }),
-    });
+    setIsSending(true);
+    setProgressLabel("アウトライン生成中");
+    const stop1 = startProgressTicker(28, 3, 240);
 
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const locale = typeof navigator !== "undefined" ? navigator.language : "ja";
+    const theme = isIntelMode ? "dark" : "light";
+    const renderMode = "vibeSlidingIdea";
 
-    const json = await resp.json();
+    try {
+      // 1) agenda-json
+      const agendaResp = await fetch(`${API_BASE}/api/slideaipro/agenda-json`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ brief, renderMode, locale, theme }),
+      });
 
-    setProgress(100);
+      if (!agendaResp.ok) throw new Error(`agenda-json HTTP ${agendaResp.status}`);
+      const agenda = await agendaResp.json();
+      if (!mountedRef.current) return;
 
-    console.log("[agenda-json response]", json);
-    alert("API疎通OK（consoleに response を出しました）");
-  } catch (e) {
-    console.error(e);
-    alert("生成に失敗しました。サーバー側ログを確認してください。");
-  } finally {
-    stop();
-    setTimeout(() => setIsSending(false), 180);
-    setTimeout(() => setProgress(0), 260);
-  }
-};
+      setAgendaJson(agenda);
+      setProgress(34);
 
+      // 2) generate (pdfUrlを返す前提)
+      stop1();
+      setProgressLabel("PDF生成中");
+      const stop2 = startProgressTicker(92, 36, 260);
+
+      const genResp = await fetch(`${API_BASE}/api/slideaipro/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          brief,
+          renderMode,
+          locale,
+          theme,
+          agendaJson: agenda,
+          agenda,
+        }),
+      });
+
+      if (!genResp.ok) throw new Error(`generate HTTP ${genResp.status}`);
+      const gen = await genResp.json();
+      if (!mountedRef.current) return;
+
+      const url = pickPdfUrl(gen);
+      if (!url) {
+        throw new Error("pdfUrl not found in generate response");
+      }
+
+      setPdfUrl(url);
+      setProgress(100);
+      stop2();
+
+      // 自動で開く（UX: 生成完了の到達点）
+      window.setTimeout(() => {
+        try {
+          window.open(url, "_blank", "noopener,noreferrer");
+        } catch {}
+      }, 120);
+    } catch (e) {
+      console.error(e);
+      if (!mountedRef.current) return;
+
+      const msg =
+        typeof e?.message === "string"
+          ? e.message
+          : "生成に失敗しました。サーバー側ログを確認してください。";
+      setErrorMsg(msg);
+
+      // 失敗時も表示は0へ戻す
+      setProgress(0);
+    } finally {
+      stopProgressTicker();
+      if (!mountedRef.current) return;
+
+      window.setTimeout(() => setIsSending(false), 180);
+      window.setTimeout(() => {
+        setProgress(0);
+        setProgressLabel("");
+      }, 260);
+    }
+  };
 
   return (
     <>
@@ -280,6 +429,52 @@ const handleGenerate = async () => {
               <AtomIcon size={16} />
             </button>
           </div>
+
+          {!!errorMsg && (
+            <div className={`msg ${isIntelMode ? "msgDark" : "msgLight"}`} role="status" aria-live="polite">
+              <div className="msgTitle">Error</div>
+              <div className="msgBody">{errorMsg}</div>
+            </div>
+          )}
+
+          {!!pdfUrl && (
+            <div className={`result ${isIntelMode ? "resultDark" : "resultLight"}`} role="group" aria-label="Result">
+              <div className="resultTop">
+                <div className="resultTitle">PDF</div>
+                <div className="actions">
+                  <button
+                    className="miniBtn"
+                    onClick={() => {
+                      try {
+                        window.open(pdfUrl, "_blank", "noopener,noreferrer");
+                      } catch {}
+                    }}
+                  >
+                    Open
+                  </button>
+                  <a className="miniBtn" href={pdfUrl} download>
+                    Download
+                  </a>
+                  <button
+                    className="miniBtn"
+                    onClick={async () => {
+                      const ok = await safeCopy(pdfUrl);
+                      if (ok) {
+                        setCopied(true);
+                        window.setTimeout(() => setCopied(false), 1200);
+                      }
+                    }}
+                  >
+                    {copied ? "Copied" : "Copy link"}
+                  </button>
+                </div>
+              </div>
+
+              <div className="urlRow">
+                <code className="url">{pdfUrl}</code>
+              </div>
+            </div>
+          )}
         </main>
 
         {isMenuOpen && (
@@ -311,14 +506,28 @@ const handleGenerate = async () => {
                 </button>
               </div>
 
-              <div className="menuHint">
-                生成APIは <code>/api/slideaipro/generate</code> を叩きます（pdfUrl を返してください）。
+              <div className="menuItem">
+                <div className="miLeft">
+                  <div className="miTitle">API Base</div>
+                  <div className="miSub">{API_BASE}</div>
+                </div>
               </div>
+
+              <div className="menuHint">
+                フローは <code>/api/slideaipro/agenda-json</code> → <code>/api/slideaipro/generate</code>（pdfUrl返却）です。
+              </div>
+
+              {!!agendaJson && (
+                <details className="debug">
+                  <summary>Debug: agenda-json response</summary>
+                  <pre>{JSON.stringify(agendaJson, null, 2)}</pre>
+                </details>
+              )}
             </div>
           </div>
         )}
 
-        {isSending && <ProgressOverlay progress={progress} />}
+        {isSending && <ProgressOverlay progress={progress} label={progressLabel} />}
 
         <style jsx>{`
           .page {
@@ -448,7 +657,7 @@ const handleGenerate = async () => {
             align-content: center;
             justify-items: center;
             padding: 28px 18px 40px;
-            gap: 18px;
+            gap: 16px;
           }
 
           .q {
@@ -521,8 +730,8 @@ const handleGenerate = async () => {
             width: 40px;
             height: 40px;
             border-radius: 999px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.08)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.95)"};
             color: rgba(0, 0, 0, 0.85);
             display: grid;
             place-items: center;
@@ -537,6 +746,97 @@ const handleGenerate = async () => {
             transform: scale(0.99);
           }
 
+          .msg {
+            width: min(860px, calc(100vw - 36px));
+            border-radius: 16px;
+            padding: 14px 14px 12px;
+          }
+          .msgDark {
+            border: 1px solid rgba(255, 140, 140, 0.22);
+            background: rgba(255, 140, 140, 0.08);
+          }
+          .msgLight {
+            border: 1px solid rgba(200, 40, 40, 0.18);
+            background: rgba(200, 40, 40, 0.06);
+          }
+          .msgTitle {
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 0.2px;
+            opacity: 0.9;
+          }
+          .msgBody {
+            margin-top: 6px;
+            font-size: 13px;
+            opacity: 0.92;
+            line-height: 1.45;
+            word-break: break-word;
+          }
+
+          .result {
+            width: min(860px, calc(100vw - 36px));
+            border-radius: 16px;
+            padding: 14px 14px 12px;
+          }
+          .resultDark {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+          }
+          .resultLight {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(0, 0, 0, 0.03);
+          }
+
+          .resultTop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+          }
+          .resultTitle {
+            font-weight: 900;
+            letter-spacing: 0.2px;
+            font-size: 13px;
+            opacity: 0.95;
+          }
+          .actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+          }
+          .miniBtn {
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.10)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.65)"};
+            color: ${textColor};
+            padding: 7px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+          }
+          .miniBtn:active {
+            transform: scale(0.99);
+          }
+
+          .urlRow {
+            margin-top: 10px;
+          }
+          .url {
+            display: block;
+            width: 100%;
+            padding: 10px 10px;
+            border-radius: 12px;
+            background: ${isIntelMode ? "rgba(0,0,0,0.22)" : "rgba(255,255,255,0.7)"};
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)"};
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            color: ${textColor};
+          }
+
           .menuOverlay {
             position: fixed;
             inset: 0;
@@ -549,6 +849,7 @@ const handleGenerate = async () => {
             width: min(420px, 70vw);
             height: 100%;
             padding: 16px;
+            overflow: auto;
           }
           .menuDark {
             background: rgba(0, 0, 0, 0.78);
@@ -589,6 +890,7 @@ const handleGenerate = async () => {
             display: flex;
             flex-direction: column;
             gap: 2px;
+            min-width: 0;
           }
           .miTitle {
             font-weight: 800;
@@ -597,6 +899,10 @@ const handleGenerate = async () => {
           .miSub {
             font-size: 12px;
             opacity: 0.75;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 280px;
           }
 
           .menuHint {
@@ -612,10 +918,33 @@ const handleGenerate = async () => {
             border-radius: 8px;
             background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"};
           }
+
+          .debug {
+            margin-top: 14px;
+            border-radius: 14px;
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.02)"};
+            padding: 10px;
+          }
+          .debug summary {
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 800;
+            opacity: 0.9;
+          }
+          .debug pre {
+            margin: 10px 0 0;
+            font-size: 11px;
+            line-height: 1.45;
+            overflow: auto;
+            white-space: pre;
+          }
         `}</style>
 
         <style jsx global>{`
-          html, body, #__next {
+          html,
+          body,
+          #__next {
             height: 100%;
           }
           body {

@@ -47,6 +47,7 @@ const formatsPromptRouter = require('./routes/formatsPrompt');
 
 
 const buildSlideaiproAgendaJsonRouter = require('./routes/slideaiproAgendaJson');
+const slideaiproImageLow = require("./routes/slideaiproImageLow");
 
 const {
   sendMinutesEmail,
@@ -336,7 +337,7 @@ app.use('/api', recordingsRouter);
 app.use('/api', formatsPromptRouter);
 
 app.use('/api/slideaipro', buildSlideaiproAgendaJsonRouter({ callGemini, resolveLocale, logLong }));
-
+app.use("/api/slideaipro", slideaiproImageLow);
 
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
