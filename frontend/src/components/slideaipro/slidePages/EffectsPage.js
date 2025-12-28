@@ -110,7 +110,6 @@ function measureTextWidth(node, { text, fontSize, fontWeight, letterSpacing }) {
   return Math.ceil(w);
 }
 
-
 // ヘッダーを「N.」と「タイトル」に分けた実レイアウトで計測
 function measureHeaderHeight(
   node,
@@ -235,6 +234,11 @@ function cappedHeightForLines(fontSize, lineHeight, maxLines) {
   return Math.ceil(fontSize * lineHeight * maxLines + 0.5);
 }
 
+/**
+ * ✅ 省略禁止のため「capで切らない」。
+ * 行数は fit（フォント縮小）で保証し、rowHeight は実測値を採用する。
+ * 端数ズレの安全マージンで +2px。
+ */
 function measuredTextHeightCapped(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }) {
   const raw = measureTextHeight(node, {
     text,
@@ -245,12 +249,12 @@ function measuredTextHeightCapped(node, { text, width, fontSize, fontWeight, lin
     letterSpacing,
     textAlign: "left",
   });
-  const cap = cappedHeightForLines(fontSize, lineHeight, maxLines);
-  return Math.ceil(Math.min(raw, cap));
+
+  // maxLines は fit判定用。ここで切ると表示側が潰れて省略/欠けの原因になる。
+  return Math.ceil(raw + 2);
 }
 
 function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }) {
-  // ✅ 1行は「高さ」ではなく「横幅」で判定しないと、はみ出しを検出できない
   if (maxLines === 1) {
     const w = measureTextWidth(node, {
       text,
@@ -259,11 +263,9 @@ function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, 
       letterSpacing,
     });
 
-    // 端数ズレ対策で少し安全側に
-    return w <= Math.max(0, width - 2) * 0.995;
+    return w <= Math.max(0, width - 2) * 0.99;
   }
 
-  // 2行以上は従来通り「高さ」で判定
   const h = measureTextHeight(node, {
     text,
     width,
@@ -275,9 +277,10 @@ function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, 
   });
 
   const cap = cappedHeightForLines(fontSize, lineHeight, maxLines);
-  return h <= cap * 0.995;
-}
 
+  // 安全側（行数超過を確実に検知）
+  return h <= (cap - 2);
+}
 
 function unifiedBulletFontSize(node, texts, { base, min, width, maxLines, lineHeight, letterSpacing }) {
   const cleaned = (texts || []).map(normalizeBulletString).filter(Boolean);
@@ -300,7 +303,6 @@ function unifiedBulletFontSize(node, texts, { base, min, width, maxLines, lineHe
     })
   );
 
-  // Swift側の 0.975 安全マージン
   return Math.floor((Math.min(...perText) || base) * 0.975);
 }
 
@@ -368,7 +370,6 @@ function effectsRowHeightsLayout(node, beforeTexts, afterTexts, { fontSize, befo
 }
 
 function approxTitleLineHeightPx(titleFontPx) {
-  // SwiftのUIFont lineHeightに近い係数（太字/大サイズで過小評価しにくい）
   return Math.ceil(titleFontPx * 1.07);
 }
 
@@ -684,35 +685,35 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
 
       const commonTextW = Math.min(efBeforeTextW, efAfterTextW);
 
-const oneLineFont = unifiedBulletFontSize(
-  mTextRef.current,
-  [...beforeItems, ...afterItems],
-  {
-    base: base.bulletBaseSize,
-    min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
-    width: commonTextW,
-    maxLines: 1,
-    lineHeight: BULLET_LH,
-    letterSpacing: efBulletLS,
-  }
-);
-const twoLineFont = unifiedBulletFontSize(
-  mTextRef.current,
-  [...beforeItems, ...afterItems],
-  {
-    base: base.bulletBaseSize,
-    min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
-    width: commonTextW,
-    maxLines: 2,
-    lineHeight: BULLET_LH,
-    letterSpacing: efBulletLS,
-  }
-);
-const minOneLineFont = Math.max(22 * scale, base.bulletBaseSize * 0.52);
+      const oneLineFont = unifiedBulletFontSize(
+        mTextRef.current,
+        [...beforeItems, ...afterItems],
+        {
+          base: base.bulletBaseSize,
+          min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
+          width: commonTextW,
+          maxLines: 1,
+          lineHeight: BULLET_LH,
+          letterSpacing: efBulletLS,
+        }
+      );
+      const twoLineFont = unifiedBulletFontSize(
+        mTextRef.current,
+        [...beforeItems, ...afterItems],
+        {
+          base: base.bulletBaseSize,
+          min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
+          width: commonTextW,
+          maxLines: 2,
+          lineHeight: BULLET_LH,
+          letterSpacing: efBulletLS,
+        }
+      );
+      const minOneLineFont = Math.max(22 * scale, base.bulletBaseSize * 0.52);
 
-const useOneLine = oneLineFont >= minOneLineFont;
-const maxLines = useOneLine ? 1 : 2;
-const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
+      const useOneLine = oneLineFont >= minOneLineFont;
+      const maxLines = useOneLine ? 1 : 2;
+      const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
 
       const fitted = effectsFitSizer(mTextRef.current, {
         boxHeight: efBoxH,
@@ -904,7 +905,7 @@ const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
                         key={`${slide?.id || "slide"}-ef-b-${i}`}
                         className="efRow"
                         style={{
-                          height: beforeRowHeights[i] ? `${beforeRowHeights[i]}px` : undefined,
+                          minHeight: beforeRowHeights[i] ? `${beforeRowHeights[i]}px` : undefined,
                         }}
                       >
                         <span className="efIcon efIconBefore" aria-hidden="true" />
@@ -925,7 +926,7 @@ const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
                         key={`${slide?.id || "slide"}-ef-a-${i}`}
                         className="efRow"
                         style={{
-                          height: afterRowHeights[i] ? `${afterRowHeights[i]}px` : undefined,
+                          minHeight: afterRowHeights[i] ? `${afterRowHeights[i]}px` : undefined,
                         }}
                       >
                         <span className="efIcon efIconAfter" aria-hidden="true" />
@@ -1013,11 +1014,11 @@ const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
             align-items: flex-start;
             justify-content: flex-start;
           }
-            /* 追加（ppBody の overflow:hidden を Effects だけ解除） */
-.efBody {
-  overflow: visible;
-}
 
+          /* Effects だけ overflow を見える化（外側はppRootが管理） */
+          .efBody {
+            overflow: visible;
+          }
 
           .efStage {
             width: 100%;
@@ -1041,31 +1042,28 @@ const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
           }
 
           /* Before background (slanted, grey) */
-/* 置き換え推奨：Before のグレー背景 */
-.efBeforeBg {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+          .efBeforeBg {
+            position: absolute;
+            top: 0;
+            bottom: 0;
 
-  /* ✅ 左端まで：ppMain の左右padding分を打ち消す */
-  left: calc(-1 * var(--ppHPad));
-  width: calc(100% + var(--ppHPad));
+            left: calc(-1 * var(--ppHPad));
+            width: calc(100% + var(--ppHPad));
 
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.45) 55%,
-    rgba(0, 0, 0, 0.35) 100%
-  );
+            background: linear-gradient(
+              135deg,
+              rgba(0, 0, 0, 0.55) 0%,
+              rgba(0, 0, 0, 0.45) 55%,
+              rgba(0, 0, 0, 0.35) 100%
+            );
 
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    calc(100% - var(--efSlant)) 100%,
-    0% 100%
-  );
-}
-
+            clip-path: polygon(
+              0% 0%,
+              100% 0%,
+              calc(100% - var(--efSlant)) 100%,
+              0% 100%
+            );
+          }
 
           .efBeforeBg::after {
             content: "";
@@ -1108,9 +1106,10 @@ const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
             font-weight: 900;
             line-height: 1.05;
             letter-spacing: 0px;
+
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            overflow: visible;
+            text-overflow: clip;
           }
 
           .efBeforeTitle {
@@ -1194,6 +1193,11 @@ const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
             border-radius: 2px;
           }
 
+          /**
+           * ✅ 省略禁止：
+           * -webkit-line-clamp / overflow:hidden を撤去
+           * 折り返しは自然に行い、fit計算側で必ず領域内に収める。
+           */
           .efBulletText {
             font-size: var(--efBulletFont);
             font-weight: 900;
@@ -1201,10 +1205,13 @@ const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
             letter-spacing: var(--efBulletLS);
             min-width: 0;
 
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: var(--efMaxLines);
-            overflow: hidden;
+            display: block;
+            white-space: normal;
+            word-break: break-word;
+            line-break: strict;
+
+            overflow: visible;
+            text-overflow: clip;
           }
 
           .efBeforeText {
