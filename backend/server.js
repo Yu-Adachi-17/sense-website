@@ -48,6 +48,7 @@ const formatsPromptRouter = require('./routes/formatsPrompt');
 
 const buildSlideaiproAgendaJsonRouter = require('./routes/slideaiproAgendaJson');
 const slideaiproImageLow = require("./routes/slideaiproImageLow");
+const slideaiproPngToPdfRouter = require("./routes/slideaiproPngToPdf");
 
 const {
   sendMinutesEmail,
@@ -149,7 +150,6 @@ async function callGemini(systemInstruction, userMessage, generationConfig = {})
 }
 
 // ==== End of Gemini Setup ====
-
 
 
 // ==== ★ NEW: Email Templates (Minutes / Transcript) ====
@@ -296,14 +296,19 @@ app.use(
   livekitWebhookRouter
 );
 app.use('/api/apple/notifications', express.json());
-app.use(
-  express.json({
-    verify: (req, res, buf) => {
-      req._rawBody = buf ? buf.toString('utf8') : '';
-    },
-    limit: '2mb',
-  })
-);
+const jsonParser2mb = express.json({
+  verify: (req, res, buf) => {
+    req._rawBody = buf ? buf.toString('utf8') : '';
+  },
+  limit: '2mb',
+});
+
+// ★ png-to-pdf だけは巨大JSONなので、ここでは parse しない（ルータ側 80mb に任せる）
+app.use((req, res, next) => {
+  if (req.originalUrl.startsWith("/api/slideaipro/png-to-pdf")) return next();
+  return jsonParser2mb(req, res, next);
+});
+
 
 /*==============================================
 =            Request Debug Logging             =
@@ -338,6 +343,7 @@ app.use('/api', formatsPromptRouter);
 
 app.use('/api/slideaipro', buildSlideaiproAgendaJsonRouter({ callGemini, resolveLocale, logLong }));
 app.use("/api/slideaipro", slideaiproImageLow);
+app.use("/api/slideaipro", slideaiproPngToPdfRouter);
 
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
