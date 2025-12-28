@@ -163,18 +163,27 @@ function waitImagesIn(node) {
 }
 
 function buildSlidesFromAgenda({ brief, agenda }) {
+  const a = Array.isArray(agenda) ? agenda : [];
+
+  // coverTitle は (patternType=1001).data.coverTitle を優先して拾う
+  const firstProblem = a.find((it) => Number(it?.patternType) === 1001) || a[0] || {};
+  const coverTitle =
+    String(firstProblem?.data?.coverTitle || "").trim() ||
+    String(brief || "").trim() ||
+    "SlideAI Pro";
+
   const cover = {
     id: "cover",
     kind: "cover",
-    title: brief || "SlideAI Pro",
+    title: coverTitle,
     subtitle: "Generated slides preview",
   };
 
   const out = [cover];
 
-  for (let i = 0; i < (Array.isArray(agenda) ? agenda.length : 0); i++) {
-    const item = agenda[i] || {};
-    const pt = item.patternType;
+  for (let i = 0; i < a.length; i++) {
+    const item = a[i] || {};
+    const pt = Number(item.patternType);
     const d = item.data || {};
     const title = String(d.title || item.title || "");
 
@@ -267,6 +276,7 @@ function buildSlidesFromAgenda({ brief, agenda }) {
 
   return out;
 }
+
 
 export default function SlideAIProHome() {
   const [prompt, setPrompt] = useState("");

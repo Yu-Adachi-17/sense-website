@@ -6,7 +6,7 @@ function buildSlideAiProAgendaPromptJa() {
 
   return [
     "あなたは資料ラベル作成のJSONジェネレータです。これからユーザーは資料化したいテーマを短文で指定してきます。そこから(課題)→(提案)→(改善前後の顧客体験)→(期待できる効果: 数値)→(タスク)の流れで資料を作成してください。指定がない限り、ストーリーになるように数値などは創作可能です。ただし指定のキーのみで出力してください。資料のラベルにそのまま記載するため、敬語禁止、言い切り調の体言止めで。",
-    "重要: title / importantMessage / 箇条書き / taskTitles は資料ラベルとして短く完結にする。冗長な説明、前置き、接続詞だらけの文章は禁止。1行で読める長さを優先。",
+    "重要: coverTitle / title / importantMessage / 箇条書き / taskTitles は資料ラベルとして短く完結にする。冗長な説明、前置き、接続詞だらけの文章は禁止。1行で読める長さを優先。",
     "入力から、Swiftの AgendaItem / PatternData に適合する最終JSON(トップレベル配列1つ)を生成してください。",
     "",
     "【入力】",
@@ -41,6 +41,7 @@ function buildSlideAiProAgendaPromptJa() {
     "【patternType別 data フィールド仕様(これ以外のキーは禁止)】",
     "",
     "(1) patternType=1001(課題) data:",
+    "- coverTitle: String(資料全体の表紙タイトル。短く完結に。)",
     "- title: String(このページのタイトル。ここだけ指定: 解決したい課題 とだけ記載すること)",
     "- VSproblemsToSolve: [String](最大5。短く。資料ラベルとして完結に)",
     "- VSproblemImagePrompt: String(画像生成用プロンプト。課題感。英語でOK。短く要点のみ)",

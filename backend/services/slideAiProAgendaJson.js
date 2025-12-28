@@ -5,13 +5,14 @@ const { buildSlideAiProAgendaPromptJa } = require('../prompts/slideAiProAgendaPr
 const ORDER = [1001, 1002, 1003, 1005, 1004];
 
 const ALLOWED_DATA_KEYS = {
-  1001: new Set([
-    'title',
-    'VSproblemsToSolve',
-    'VSproblemImagePrompt',
-    'VSproblemImageCacheKey',
-    'importantMessage',
-  ]),
+1001: new Set([
+  'title',
+  'coverTitle',
+  'VSproblemsToSolve',
+  'VSproblemImagePrompt',
+  'VSproblemImageCacheKey',
+  'importantMessage',
+]),
   1002: new Set([
     'title',
     'VSproposalForBetter',
