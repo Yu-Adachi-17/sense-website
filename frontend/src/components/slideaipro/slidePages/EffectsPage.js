@@ -659,7 +659,7 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
         }
       );
 
-      const useOneLine = oneLineFont >= base.bulletBaseSize * 0.82;
+      const useOneLine = oneLineFont >= (base.bulletBaseSize * 0.80);
       const maxLines = useOneLine ? 1 : 2;
 
       const unifiedBulletFont = useOneLine
@@ -998,8 +998,9 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           .efBeforeBg {
             position: absolute;
             inset: 0;
-            left: calc(-1 * var(--efBleedLeft));
-            width: calc(100% + var(--efBleedLeft));
+
+  left: calc(-1 * (var(--ppHPad) + var(--efBleedLeft)));
+  width: calc(100% + var(--ppHPad) + var(--efBleedLeft));
             height: 100%;
 
             background: linear-gradient(
