@@ -646,32 +646,35 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
 
       const commonTextW = Math.min(efBeforeTextW, efAfterTextW);
 
-      const oneLineFont = unifiedBulletFontSize(
-        mTextRef.current,
-        [...beforeItems, ...afterItems],
-        {
-          base: base.bulletBaseSize,
-          min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
-          width: commonTextW,
-          maxLines: 1,
-          lineHeight: BULLET_LH,
-          letterSpacing: efBulletLS,
-        }
-      );
+const oneLineFont = unifiedBulletFontSize(
+  mTextRef.current,
+  [...beforeItems, ...afterItems],
+  {
+    base: base.bulletBaseSize,
+    min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
+    width: commonTextW,
+    maxLines: 1,
+    lineHeight: BULLET_LH,
+    letterSpacing: efBulletLS,
+  }
+);
+const twoLineFont = unifiedBulletFontSize(
+  mTextRef.current,
+  [...beforeItems, ...afterItems],
+  {
+    base: base.bulletBaseSize,
+    min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
+    width: commonTextW,
+    maxLines: 2,
+    lineHeight: BULLET_LH,
+    letterSpacing: efBulletLS,
+  }
+);
+const minOneLineFont = Math.max(22 * scale, base.bulletBaseSize * 0.52);
 
-      const useOneLine = oneLineFont >= (base.bulletBaseSize * 0.70);
-      const maxLines = useOneLine ? 1 : 2;
-
-      const unifiedBulletFont = useOneLine
-        ? oneLineFont
-        : unifiedBulletFontSize(mTextRef.current, [...beforeItems, ...afterItems], {
-            base: base.bulletBaseSize,
-            min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
-            width: commonTextW,
-            maxLines: 2,
-            lineHeight: BULLET_LH,
-            letterSpacing: efBulletLS,
-          });
+const useOneLine = oneLineFont >= minOneLineFont;
+const maxLines = useOneLine ? 1 : 2;
+const unifiedBulletFont = useOneLine ? oneLineFont : twoLineFont;
 
       const fitted = effectsFitSizer(mTextRef.current, {
         boxHeight: efBoxH,
