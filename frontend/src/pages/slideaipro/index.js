@@ -166,34 +166,112 @@ function waitImagesIn(node) {
   );
 }
 
-function buildSlidesModel({ title, prefetchPairs }) {
+function buildSlidesFromAgenda({ brief, agenda }) {
   const cover = {
     id: "cover",
     kind: "cover",
-    title: title || "SlideAI Pro",
+    title: brief || "SlideAI Pro",
     subtitle: "Generated slides preview",
-    images: [],
   };
 
-  const imageSlides = [];
-  const chunkSize = 2;
-  for (let i = 0; i < prefetchPairs.length; i += chunkSize) {
-    const chunk = prefetchPairs.slice(i, i + chunkSize);
-    imageSlides.push({
-      id: `imgs-${i}`,
-      kind: "images",
-      title: "Key Visuals",
-      subtitle: `Slide ${imageSlides.length + 2}`,
-      images: chunk.map((p) => ({
-        cacheKey: p.cacheKey,
-        label: p.cacheKey,
-        originalSrc: "",
-      })),
-    });
+  const out = [cover];
+
+  for (let i = 0; i < (Array.isArray(agenda) ? agenda.length : 0); i++) {
+    const item = agenda[i] || {};
+    const pt = item.patternType;
+    const d = item.data || {};
+    const title = String(d.title || item.title || "");
+
+    if (pt === 1001) {
+      out.push({
+        id: `pt-1001-${i}`,
+        kind: "problem",
+        title,
+        bullets: Array.isArray(d.VSproblemsToSolve) ? d.VSproblemsToSolve.map(String) : [],
+        message: String(d.importantMessage || ""),
+        image: {
+          cacheKey: String(d.VSproblemImageCacheKey || ""),
+          originalSrc: "",
+        },
+      });
+      continue;
+    }
+
+    if (pt === 1002) {
+      out.push({
+        id: `pt-1002-${i}`,
+        kind: "proposal",
+        title,
+        bullets: Array.isArray(d.VSproposalForBetter) ? d.VSproposalForBetter.map(String) : [],
+        message: String(d.importantMessage || ""),
+        image: {
+          cacheKey: String(d.VSproposalImageCacheKey || ""),
+          originalSrc: "",
+        },
+      });
+      continue;
+    }
+
+    if (pt === 1003) {
+      out.push({
+        id: `pt-1003-${i}`,
+        kind: "effects",
+        title,
+        before: Array.isArray(d.VSexpectedEffectsBefore) ? d.VSexpectedEffectsBefore.map(String) : [],
+        after: Array.isArray(d.VSexpectedEffectsAfter) ? d.VSexpectedEffectsAfter.map(String) : [],
+        message: String(d.importantMessage || ""),
+      });
+      continue;
+    }
+
+    if (pt === 1005) {
+      const barGroups = Array.isArray(d.barGroups) ? d.barGroups : [];
+      out.push({
+        id: `pt-1005-${i}`,
+        kind: "bar",
+        title,
+        yAxisName: String(d.yAxisName || ""),
+        unit: String(d.unit || ""),
+        barGroups: barGroups.map((g) => {
+          const category = String(g?.category ?? "");
+          const bars = Array.isArray(g?.bars) ? g.bars : [];
+          const actual = bars.find((b) => b?.label === "actual") || bars[0] || {};
+          const v = Number(actual?.value ?? 0);
+          return { category, value: Number.isFinite(v) ? v : 0 };
+        }),
+        message: String(d.importantMessage || ""),
+      });
+      continue;
+    }
+
+    if (pt === 1004) {
+      const taskTitles = Array.isArray(d.taskTitles) ? d.taskTitles.map(String) : [];
+      const assignees = Array.isArray(d.assignees) ? d.assignees.map(String) : [];
+      const deadlines = Array.isArray(d.deadlines) ? d.deadlines.map(String) : [];
+
+      const n = Math.min(taskTitles.length, assignees.length, deadlines.length);
+      const rows = [];
+      for (let k = 0; k < n; k++) {
+        rows.push({
+          title: taskTitles[k],
+          assignee: assignees[k],
+          deadline: deadlines[k],
+        });
+      }
+
+      out.push({
+        id: `pt-1004-${i}`,
+        kind: "tasks",
+        title,
+        rows,
+      });
+      continue;
+    }
   }
 
-  return [cover, ...imageSlides];
+  return out;
 }
+
 
 export default function SlideAIProHome() {
   const [prompt, setPrompt] = useState("");
@@ -364,10 +442,13 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
 
   // ★ Step 1: slidesRoot を「本番のスライド構造（複数枚）」として配列レンダリング
-  const slides = useMemo(() => {
-    if (!trimmed && !prefetchPairs.length) return [];
-    return buildSlidesModel({ title: trimmed || "SlideAI Pro", prefetchPairs });
-  }, [trimmed, prefetchPairs]);
+const slides = useMemo(() => {
+  if (agendaJson && Array.isArray(agendaJson) && agendaJson.length) {
+    return buildSlidesFromAgenda({ brief: trimmed || "SlideAI Pro", agenda: agendaJson });
+  }
+  return [];
+}, [trimmed, agendaJson]);
+
 
   const canExport = slides.length > 0 && !isSending && !isExporting;
 
@@ -591,89 +672,186 @@ export default function SlideAIProHome() {
           {/* ★ slidesRoot: “PDFにしたい見た目の最終形” を複数枚の配列レンダリング */}
           {slides.length > 0 && (
             <section className="slidesWrap" aria-label="Slides Preview">
-              <div id="slidesRoot" className="slidesRoot" data-theme={isIntelMode ? "dark" : "light"}>
-                {slides.map((s, idx) => {
-                  const pageNo = idx + 1;
+<div id="slidesRoot" className="slidesRoot" data-theme={isIntelMode ? "dark" : "light"}>
+  {slides.map((s, idx) => {
+    const pageNo = idx + 1;
 
-                  if (s.kind === "cover") {
-                    return (
-                      <div
-                        key={s.id}
-                        className={`slidePage ${isIntelMode ? "pageDark" : "pageLight"}`}
-                        data-slide-page="true"
-                      >
-                        <div className="pageChrome">
-                          <div className="pageTop">
-                            <div className="pageNo">Slide {pageNo}</div>
-                            <div className="brand">SlideAI Pro</div>
-                          </div>
+    // 共通ヘッダ/フッタの枠
+    const Page = ({ children, footerRight }) => (
+      <div key={s.id} className={`slidePage ${isIntelMode ? "pageDark" : "pageLight"}`} data-slide-page="true">
+        <div className="pageChrome">
+          <div className="pageTop">
+            <div className="pageNo">Slide {pageNo}</div>
+            <div className="brand">SlideAI Pro</div>
+          </div>
 
-                          <div className="coverCenter">
-                            <div className="coverTitle">{s.title}</div>
-                            <div className="coverSub">{s.subtitle}</div>
-                          </div>
+          <div className="content">{children}</div>
 
-                          <div className="pageBottom">
-                            <div className="muted">
-                              Images are pre-fetched as dataUrl and replaced by cacheKey to reduce CORS capture issues.
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  }
+          <div className="pageBottom">
+            <div className="muted">{hasPrefetched ? "Prefetched images ready" : "Prefetching images..."}</div>
+            <div className="muted">{footerRight || ""}</div>
+          </div>
+        </div>
+      </div>
+    );
 
-                  const imgs = Array.isArray(s.images) ? s.images : [];
+    if (s.kind === "cover") {
+      return (
+        <Page footerRight="">
+          <div className="coverCenter">
+            <div className="coverTitle">{s.title}</div>
+            <div className="coverSub">{s.subtitle}</div>
+          </div>
+        </Page>
+      );
+    }
 
-                  return (
-                    <div
-                      key={s.id}
-                      className={`slidePage ${isIntelMode ? "pageDark" : "pageLight"}`}
-                      data-slide-page="true"
-                    >
-                      <div className="pageChrome">
-                        <div className="pageTop">
-                          <div className="pageNo">Slide {pageNo}</div>
-                          <div className="brand">{s.title || "Key Visuals"}</div>
-                        </div>
+    if (s.kind === "problem" || s.kind === "proposal") {
+      const bullets = Array.isArray(s.bullets) ? s.bullets : [];
+      const cacheKey = String(s?.image?.cacheKey || "");
+      const originalSrc = String(s?.image?.originalSrc || "");
+      const resolvedSrc = resolveImageSrc(imageUrlByKey, cacheKey, originalSrc);
 
-                        <div className="content">
-                          <div className="h1">{s.title || "Key Visuals"}</div>
-                          <div className="sub">{s.subtitle || ""}</div>
+      return (
+        <Page footerRight={cacheKey ? `image: ${cacheKey}` : ""}>
+          <div className="twocol">
+            <div className="colText">
+              <div className="h1">{s.title}</div>
+              {s.message ? <div className="msg">{s.message}</div> : null}
 
-                          <div className={`imgGrid ${imgs.length === 1 ? "one" : "two"}`}>
-                            {imgs.map((im) => {
-                              const cacheKey = im.cacheKey;
-                              const originalSrc = im.originalSrc || "";
-                              const resolvedSrc = resolveImageSrc(imageUrlByKey, cacheKey, originalSrc);
+              {bullets.length ? (
+                <ul className="bullets">
+                  {bullets.map((b, i) => (
+                    <li key={`${s.id}-b-${i}`}>{b}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
 
-                              return (
-                                <div key={cacheKey} className="imgBox">
-                                  <div className="imgInner">
-                                    {resolvedSrc ? (
-                                      <img src={resolvedSrc} crossOrigin="anonymous" alt={cacheKey} />
-                                    ) : (
-                                      <div className="imgPh">image loading...</div>
-                                    )}
-                                  </div>
-                                  <div className="imgMeta">
-                                    <div className="imgLabel">{im.label || cacheKey}</div>
-                                    <div className="imgKey">{cacheKey}</div>
-                                  </div>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-
-                        <div className="pageBottom">
-                          <div className="muted">{hasPrefetched ? "Prefetched images ready" : "Prefetching images..."}</div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+            <div className="colImg">
+              <div className="imgFrame">
+                {resolvedSrc ? (
+                  <img src={resolvedSrc} crossOrigin="anonymous" alt={cacheKey || s.title} />
+                ) : (
+                  <div className="imgPh">image loading...</div>
+                )}
               </div>
+              {cacheKey ? <div className="imgKeySmall">{cacheKey}</div> : null}
+            </div>
+          </div>
+        </Page>
+      );
+    }
+
+    if (s.kind === "effects") {
+      const before = Array.isArray(s.before) ? s.before : [];
+      const after = Array.isArray(s.after) ? s.after : [];
+
+      return (
+        <Page footerRight="">
+          <div className="h1">{s.title}</div>
+          {s.message ? <div className="msg">{s.message}</div> : null}
+
+          <div className="twoBox">
+            <div className="box">
+              <div className="boxTitle">Before</div>
+              <ul className="bullets">
+                {before.map((x, i) => (
+                  <li key={`${s.id}-bf-${i}`}>{x}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="box">
+              <div className="boxTitle">After</div>
+              <ul className="bullets">
+                {after.map((x, i) => (
+                  <li key={`${s.id}-af-${i}`}>{x}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Page>
+      );
+    }
+
+    if (s.kind === "bar") {
+      const groups = Array.isArray(s.barGroups) ? s.barGroups : [];
+      const maxV = Math.max(1, ...groups.map((g) => Number(g?.value ?? 0)));
+
+      return (
+        <Page footerRight="">
+          <div className="h1">{s.title}</div>
+          {s.message ? <div className="msg">{s.message}</div> : null}
+
+          <div className="barMeta">
+            <div className="barAxis">
+              <span className="barAxisK">{s.yAxisName || "Value"}</span>
+              <span className="barAxisU">{s.unit ? `（${s.unit}）` : ""}</span>
+            </div>
+          </div>
+
+          <div className="barList">
+            {groups.map((g, i) => {
+              const v = Number(g?.value ?? 0);
+              const pct = Math.max(0, Math.min(1, v / maxV));
+              return (
+                <div key={`${s.id}-g-${i}`} className="barRow">
+                  <div className="barLabel">{String(g?.category ?? "")}</div>
+                  <div className="barTrack">
+                    <div className="barFill" style={{ width: `${Math.floor(pct * 100)}%` }} />
+                  </div>
+                  <div className="barValue">
+                    {Number.isFinite(v) ? v : 0}
+                    {s.unit || ""}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </Page>
+      );
+    }
+
+    if (s.kind === "tasks") {
+      const rows = Array.isArray(s.rows) ? s.rows : [];
+
+      return (
+        <Page footerRight="">
+          <div className="h1">{s.title}</div>
+
+          <div className="tableWrap">
+            <table className="taskTable">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Assignee</th>
+                  <th>Deadline</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((r, i) => (
+                  <tr key={`${s.id}-t-${i}`}>
+                    <td>{r.title}</td>
+                    <td>{r.assignee}</td>
+                    <td>{r.deadline}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Page>
+      );
+    }
+
+    // 予備（未知kind）
+    return (
+      <Page footerRight="">
+        <div className="h1">{s.title || "Slide"}</div>
+      </Page>
+    );
+  })}
+</div>
             </section>
           )}
 
@@ -1316,6 +1494,190 @@ export default function SlideAIProHome() {
             border-radius: 8px;
             background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"};
           }
+            .msg {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"};
+  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)"};
+}
+
+.twocol {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 14px;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.colText {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.42;
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.colImg {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 8px;
+}
+
+.imgFrame {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.10)"};
+  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.02)"};
+  position: relative;
+}
+
+.imgFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imgKeySmall {
+  font-size: 11px;
+  opacity: 0.72;
+  word-break: break-all;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.twoBox {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  min-height: 0;
+}
+
+.box {
+  border-radius: 14px;
+  padding: 12px 12px;
+  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)"};
+  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.02)"};
+  min-height: 0;
+}
+
+.boxTitle {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+.barMeta {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.barAxis {
+  font-size: 13px;
+  font-weight: 900;
+  opacity: 0.9;
+}
+
+.barAxisU {
+  margin-left: 6px;
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: 800;
+}
+
+.barList {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.barLabel {
+  font-size: 13px;
+  font-weight: 800;
+  opacity: 0.9;
+}
+
+.barTrack {
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.10)"};
+  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"};
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  background: ${isIntelMode ? "rgba(255,255,255,0.86)" : "rgba(0,0,0,0.78)"};
+}
+
+.barValue {
+  font-size: 12px;
+  font-weight: 900;
+  opacity: 0.9;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tableWrap {
+  margin-top: 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)"};
+}
+
+.taskTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.taskTable thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.03)"};
+  border-bottom: 1px solid ${isIntelMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)"};
+}
+
+.taskTable tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)"};
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.taskTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
         `}</style>
 
         <style jsx global>{`
