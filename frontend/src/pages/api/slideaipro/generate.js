@@ -1,57 +1,88 @@
 // src/pages/api/slideaipro/generate.js
 
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "10mb",
-    },
-  },
-};
+const DEFAULT_TIMEOUT_MS = 120000;
+
+function getBackendBaseUrl() {
+  const base = process.env.SLIDEAIPRO_BACKEND_BASE_URL;
+  if (!base) return null;
+  return base.replace(/\/+$/, "");
+}
+
+async function readJsonBody(req) {
+  // Next.js pages API: req.body is already parsed if JSON; but handle raw too.
+  if (req.body && typeof req.body === "object") return req.body;
+
+  const chunks = [];
+  for await (const c of req) chunks.push(Buffer.from(c));
+  const raw = Buffer.concat(chunks).toString("utf8").trim();
+  if (!raw) return {};
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return { __raw: raw };
+  }
+}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    res.setHeader("Allow", ["POST"]);
+    res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
+  const base = getBackendBaseUrl();
+  if (!base) {
+    return res.status(500).json({
+      error: 'Missing env: SLIDEAIPRO_BACKEND_BASE_URL',
+    });
+  }
+
+  // ここだけ必要なら変える（あなたのRailway側のエンドポイントに合わせる）
+  const backendUrl = `${base}/slideaipro/generate`;
+
+  const body = await readJsonBody(req);
+
+  const timeoutMs = Number(process.env.SLIDEAIPRO_GENERATE_TIMEOUT_MS || DEFAULT_TIMEOUT_MS);
+  const ac = new AbortController();
+  const timer = setTimeout(() => ac.abort(), timeoutMs);
+
   try {
-    const { text } = req.body || {};
-    if (!text || typeof text !== "string") {
-      return res.status(400).json({ error: "text is required" });
-    }
-
-    const base = process.env.SLIDEAIPRO_BACKEND_BASE_URL;
-    if (!base) {
-      return res.status(500).json({ error: "Missing env: SLIDEAIPRO_BACKEND_BASE_URL" });
-    }
-
-    // Railway 側のエンドポイントはあなたの実装に合わせて変更
-    // 例: POST /slideaipro/generate
-    const url = `${base.replace(/\/$/, "")}/slideaipro/generate`;
-
-    const r = await fetch(url, {
+    const r = await fetch(backendUrl, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // 必要なら Bearer
-        ...(process.env.SLIDEAIPRO_BACKEND_BEARER
-          ? { Authorization: `Bearer ${process.env.SLIDEAIPRO_BACKEND_BEARER}` }
-          : {}),
-      },
-      body: JSON.stringify({ text }),
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(body || {}),
+      signal: ac.signal,
     });
 
-    const contentType = r.headers.get("content-type") || "";
+    const text = await r.text();
 
+    // backendがJSON以外を返しても、フロント側が原因調査しやすいようにそのまま返す
     if (!r.ok) {
-      const t = contentType.includes("application/json") ? JSON.stringify(await r.json()) : await r.text();
-      return res.status(r.status).send(t);
+      return res.status(r.status).json({
+        error: "BackendError",
+        backendStatus: r.status,
+        backendBody: text.slice(0, 5000),
+      });
     }
 
-    // 生成結果は JSON 前提
-    const data = await r.json();
+    // JSONパース
+    let data = null;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = { raw: text };
+    }
+
     return res.status(200).json(data);
   } catch (e) {
-    return res.status(500).json({ error: String(e?.message || e) });
+    const msg = e && typeof e === "object" && "name" in e && e.name === "AbortError"
+      ? `Timeout after ${timeoutMs}ms`
+      : (e?.message || String(e));
+
+    return res.status(500).json({
+      error: "GenerateFailed",
+      message: msg,
+    });
+  } finally {
+    clearTimeout(timer);
   }
 }
