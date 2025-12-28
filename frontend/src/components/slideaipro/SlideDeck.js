@@ -4,14 +4,18 @@ import { slidePageRenderers } from "./slidePages";
 import UnknownPage from "./slidePages/UnknownPage";
 
 export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrlByKey }) {
+  const safeSlides = Array.isArray(slides) ? slides : [];
+
   return (
     <section className="slidesWrap" aria-label="Slides Preview">
       <div id="slidesRoot" className="slidesRoot" data-theme={isIntelMode ? "dark" : "light"}>
-        {slides.map((s, idx) => {
-          const Renderer = slidePageRenderers[s.kind] || UnknownPage;
+        {safeSlides.map((s, idx) => {
+          const kind = String(s?.kind || "");
+          const Renderer = slidePageRenderers[kind] || UnknownPage;
+
           return (
             <Renderer
-              key={s.id || `slide-${idx}`}
+              key={s?.id || `slide-${idx}`}
               slide={s}
               pageNo={idx + 1}
               isIntelMode={isIntelMode}
