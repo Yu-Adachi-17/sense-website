@@ -2,13 +2,14 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { toPng } from "html-to-image";
+import SlideDeck from "../../components/slideaipro/SlideDeck";
 
 function AtomIcon({ size = 16 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
       <g fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round">
         <path d="M12 12c3.6-3.6 7.9-5.7 9.6-4 1.7 1.7-.4 6-4 9.6-3.6 3.6-7.9 5.7-9.6 4-1.7-1.7.4-6 4-9.6Z" />
-        <path d="M12 12c-3.6-3.6-7.9-5.7-9.6-4-1.7 1.7.4 6 4 9.6 3.6 3.6 7.9 5.7 9.6 4 1.7-1.7-.4-6-4-9.6Z" />
+        <path d="M12 12c-3.6-3.6-7.9-5.7-9.6-4-1.7 1.7.4 6 4 9.6 3.6 3.6 7.9 5.7 9.6 4-1.7-1.7-.4-6-4-9.6Z" />
         <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />
       </g>
     </svg>
@@ -134,11 +135,6 @@ async function runPool(items, limit, worker) {
 
   await Promise.all(workers);
   return results;
-}
-
-// ★ ここが「差し替え本体」：cacheKeyがprefetch済みなら dataUrl を使う
-function resolveImageSrc(imageUrlByKey, cacheKey, originalSrc) {
-  return (cacheKey && imageUrlByKey?.[cacheKey]) || originalSrc || "";
 }
 
 function downloadDataUrl(dataUrl, filename) {
@@ -271,7 +267,6 @@ function buildSlidesFromAgenda({ brief, agenda }) {
 
   return out;
 }
-
 
 export default function SlideAIProHome() {
   const [prompt, setPrompt] = useState("");
@@ -441,18 +436,15 @@ export default function SlideAIProHome() {
 
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
 
-  // ★ Step 1: slidesRoot を「本番のスライド構造（複数枚）」として配列レンダリング
-const slides = useMemo(() => {
-  if (agendaJson && Array.isArray(agendaJson) && agendaJson.length) {
-    return buildSlidesFromAgenda({ brief: trimmed || "SlideAI Pro", agenda: agendaJson });
-  }
-  return [];
-}, [trimmed, agendaJson]);
-
+  const slides = useMemo(() => {
+    if (agendaJson && Array.isArray(agendaJson) && agendaJson.length) {
+      return buildSlidesFromAgenda({ brief: trimmed || "SlideAI Pro", agenda: agendaJson });
+    }
+    return [];
+  }, [trimmed, agendaJson]);
 
   const canExport = slides.length > 0 && !isSending && !isExporting;
 
-  // ★ Step 2: html-to-image で slidesRoot (内の各スライド) を PNG化
   const handleExportPNG = async () => {
     if (!canExport) return;
     setExportError("");
@@ -496,8 +488,6 @@ const slides = useMemo(() => {
     }
   };
 
-  // ★ Step 3（フロント側だけ先に用意）: PNG→PDF（BE完結）呼び出し口
-  // 期待するBE: POST /api/slideaipro/png-to-pdf { pages: [dataUrl...] } -> { pdfDataUrl } or application/pdf
   const handleExportPDF = async () => {
     if (!canExport) return;
     setExportError("");
@@ -650,12 +640,7 @@ const slides = useMemo(() => {
             </div>
 
             <div className="actions" onClick={(e) => e.stopPropagation()}>
-              <button
-                className="send"
-                aria-label="Generate"
-                disabled={!trimmed || isSending || isExporting}
-                onClick={handleGenerate}
-              >
+              <button className="send" aria-label="Generate" disabled={!trimmed || isSending || isExporting} onClick={handleGenerate}>
                 <AtomIcon size={16} />
               </button>
 
@@ -669,193 +654,10 @@ const slides = useMemo(() => {
             </div>
           </div>
 
-          {/* ★ slidesRoot: “PDFにしたい見た目の最終形” を複数枚の配列レンダリング */}
           {slides.length > 0 && (
-            <section className="slidesWrap" aria-label="Slides Preview">
-<div id="slidesRoot" className="slidesRoot" data-theme={isIntelMode ? "dark" : "light"}>
-  {slides.map((s, idx) => {
-    const pageNo = idx + 1;
-
-    // 共通ヘッダ/フッタの枠
-    const Page = ({ children, footerRight }) => (
-      <div key={s.id} className={`slidePage ${isIntelMode ? "pageDark" : "pageLight"}`} data-slide-page="true">
-        <div className="pageChrome">
-          <div className="pageTop">
-            <div className="pageNo">Slide {pageNo}</div>
-            <div className="brand">SlideAI Pro</div>
-          </div>
-
-          <div className="content">{children}</div>
-
-          <div className="pageBottom">
-            <div className="muted">{hasPrefetched ? "Prefetched images ready" : "Prefetching images..."}</div>
-            <div className="muted">{footerRight || ""}</div>
-          </div>
-        </div>
-      </div>
-    );
-
-    if (s.kind === "cover") {
-      return (
-        <Page footerRight="">
-          <div className="coverCenter">
-            <div className="coverTitle">{s.title}</div>
-            <div className="coverSub">{s.subtitle}</div>
-          </div>
-        </Page>
-      );
-    }
-
-    if (s.kind === "problem" || s.kind === "proposal") {
-      const bullets = Array.isArray(s.bullets) ? s.bullets : [];
-      const cacheKey = String(s?.image?.cacheKey || "");
-      const originalSrc = String(s?.image?.originalSrc || "");
-      const resolvedSrc = resolveImageSrc(imageUrlByKey, cacheKey, originalSrc);
-
-      return (
-        <Page footerRight={cacheKey ? `image: ${cacheKey}` : ""}>
-          <div className="twocol">
-            <div className="colText">
-              <div className="h1">{s.title}</div>
-              {s.message ? <div className="msg">{s.message}</div> : null}
-
-              {bullets.length ? (
-                <ul className="bullets">
-                  {bullets.map((b, i) => (
-                    <li key={`${s.id}-b-${i}`}>{b}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </div>
-
-            <div className="colImg">
-              <div className="imgFrame">
-                {resolvedSrc ? (
-                  <img src={resolvedSrc} crossOrigin="anonymous" alt={cacheKey || s.title} />
-                ) : (
-                  <div className="imgPh">image loading...</div>
-                )}
-              </div>
-              {cacheKey ? <div className="imgKeySmall">{cacheKey}</div> : null}
-            </div>
-          </div>
-        </Page>
-      );
-    }
-
-    if (s.kind === "effects") {
-      const before = Array.isArray(s.before) ? s.before : [];
-      const after = Array.isArray(s.after) ? s.after : [];
-
-      return (
-        <Page footerRight="">
-          <div className="h1">{s.title}</div>
-          {s.message ? <div className="msg">{s.message}</div> : null}
-
-          <div className="twoBox">
-            <div className="box">
-              <div className="boxTitle">Before</div>
-              <ul className="bullets">
-                {before.map((x, i) => (
-                  <li key={`${s.id}-bf-${i}`}>{x}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="box">
-              <div className="boxTitle">After</div>
-              <ul className="bullets">
-                {after.map((x, i) => (
-                  <li key={`${s.id}-af-${i}`}>{x}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Page>
-      );
-    }
-
-    if (s.kind === "bar") {
-      const groups = Array.isArray(s.barGroups) ? s.barGroups : [];
-      const maxV = Math.max(1, ...groups.map((g) => Number(g?.value ?? 0)));
-
-      return (
-        <Page footerRight="">
-          <div className="h1">{s.title}</div>
-          {s.message ? <div className="msg">{s.message}</div> : null}
-
-          <div className="barMeta">
-            <div className="barAxis">
-              <span className="barAxisK">{s.yAxisName || "Value"}</span>
-              <span className="barAxisU">{s.unit ? `（${s.unit}）` : ""}</span>
-            </div>
-          </div>
-
-          <div className="barList">
-            {groups.map((g, i) => {
-              const v = Number(g?.value ?? 0);
-              const pct = Math.max(0, Math.min(1, v / maxV));
-              return (
-                <div key={`${s.id}-g-${i}`} className="barRow">
-                  <div className="barLabel">{String(g?.category ?? "")}</div>
-                  <div className="barTrack">
-                    <div className="barFill" style={{ width: `${Math.floor(pct * 100)}%` }} />
-                  </div>
-                  <div className="barValue">
-                    {Number.isFinite(v) ? v : 0}
-                    {s.unit || ""}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </Page>
-      );
-    }
-
-    if (s.kind === "tasks") {
-      const rows = Array.isArray(s.rows) ? s.rows : [];
-
-      return (
-        <Page footerRight="">
-          <div className="h1">{s.title}</div>
-
-          <div className="tableWrap">
-            <table className="taskTable">
-              <thead>
-                <tr>
-                  <th>Task</th>
-                  <th>Assignee</th>
-                  <th>Deadline</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((r, i) => (
-                  <tr key={`${s.id}-t-${i}`}>
-                    <td>{r.title}</td>
-                    <td>{r.assignee}</td>
-                    <td>{r.deadline}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Page>
-      );
-    }
-
-    // 予備（未知kind）
-    return (
-      <Page footerRight="">
-        <div className="h1">{s.title || "Slide"}</div>
-      </Page>
-    );
-  })}
-</div>
-            </section>
+            <SlideDeck slides={slides} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} imageUrlByKey={imageUrlByKey} />
           )}
 
-          {/* Debug は残してOK */}
           {(agendaJson || prefetchPairs.length || hasPrefetched || prefetchError || exportError) && (
             <section className={`debug ${isIntelMode ? "debugDark" : "debugLight"}`} aria-label="Debug">
               <div className="debugRow">
@@ -1177,164 +979,6 @@ const slides = useMemo(() => {
             transform: scale(0.99);
           }
 
-          /* ★ Slides (capture-stable) */
-          .slidesWrap {
-            width: min(860px, calc(100vw - 36px));
-          }
-          .slidesRoot {
-            display: grid;
-            gap: 18px;
-          }
-
-          .slidePage {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 18px;
-            overflow: hidden;
-            position: relative;
-          }
-
-          .pageLight {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-            color: rgba(0, 0, 0, 0.92);
-          }
-          .pageDark {
-            background: #0b1220;
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
-            color: rgba(255, 255, 255, 0.92);
-          }
-
-          .pageChrome {
-            position: absolute;
-            inset: 0;
-            padding: 22px;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            gap: 14px;
-          }
-
-          .pageTop {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.2px;
-            opacity: 0.9;
-          }
-          .brand {
-            opacity: 0.85;
-          }
-
-          .content {
-            min-height: 0;
-            display: grid;
-            grid-template-rows: auto auto 1fr;
-            gap: 10px;
-          }
-
-          .h1 {
-            font-size: 22px;
-            font-weight: 900;
-            letter-spacing: 0.2px;
-          }
-          .sub {
-            font-size: 13px;
-            font-weight: 700;
-            opacity: 0.72;
-          }
-
-          .imgGrid {
-            display: grid;
-            gap: 14px;
-            min-height: 0;
-          }
-          .imgGrid.two {
-            grid-template-columns: 1fr 1fr;
-          }
-          .imgGrid.one {
-            grid-template-columns: 1fr;
-          }
-
-          .imgBox {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.10)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.02)"};
-            display: grid;
-            grid-template-rows: 1fr auto;
-            min-height: 0;
-          }
-
-          .imgInner {
-            min-height: 0;
-            position: relative;
-          }
-          .imgBox img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-          }
-          .imgPh {
-            position: absolute;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            font-size: 12px;
-            opacity: 0.6;
-          }
-
-          .imgMeta {
-            padding: 10px 12px;
-            display: grid;
-            gap: 4px;
-          }
-          .imgLabel {
-            font-size: 12px;
-            font-weight: 800;
-            opacity: 0.92;
-          }
-          .imgKey {
-            font-size: 11px;
-            opacity: 0.7;
-            word-break: break-all;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-          }
-
-          .pageBottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 11px;
-            opacity: 0.72;
-          }
-          .muted {
-            opacity: 0.78;
-          }
-
-          .coverCenter {
-            display: grid;
-            place-items: center;
-            text-align: center;
-            padding: 0 24px;
-            gap: 10px;
-          }
-          .coverTitle {
-            font-size: 34px;
-            font-weight: 900;
-            letter-spacing: 0.2px;
-            line-height: 1.15;
-          }
-          .coverSub {
-            font-size: 14px;
-            font-weight: 800;
-            opacity: 0.72;
-          }
-
           /* Debug */
           .debug {
             width: min(860px, calc(100vw - 36px));
@@ -1494,190 +1138,6 @@ const slides = useMemo(() => {
             border-radius: 8px;
             background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"};
           }
-            .msg {
-  margin-top: 6px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.45;
-  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"};
-  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)"};
-}
-
-.twocol {
-  display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: 14px;
-  align-items: stretch;
-  min-height: 0;
-}
-
-.colText {
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.bullets {
-  margin: 0;
-  padding-left: 18px;
-  display: grid;
-  gap: 8px;
-  font-size: 14px;
-  line-height: 1.42;
-  font-weight: 700;
-  opacity: 0.92;
-}
-
-.colImg {
-  min-height: 0;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  gap: 8px;
-}
-
-.imgFrame {
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.10)"};
-  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.02)"};
-  position: relative;
-}
-
-.imgFrame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.imgKeySmall {
-  font-size: 11px;
-  opacity: 0.72;
-  word-break: break-all;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-.twoBox {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  min-height: 0;
-}
-
-.box {
-  border-radius: 14px;
-  padding: 12px 12px;
-  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)"};
-  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.02)"};
-  min-height: 0;
-}
-
-.boxTitle {
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.2px;
-  opacity: 0.85;
-  margin-bottom: 10px;
-}
-
-.barMeta {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.barAxis {
-  font-size: 13px;
-  font-weight: 900;
-  opacity: 0.9;
-}
-
-.barAxisU {
-  margin-left: 6px;
-  font-size: 12px;
-  opacity: 0.7;
-  font-weight: 800;
-}
-
-.barList {
-  margin-top: 12px;
-  display: grid;
-  gap: 10px;
-}
-
-.barRow {
-  display: grid;
-  grid-template-columns: 1fr 2.2fr auto;
-  gap: 10px;
-  align-items: center;
-}
-
-.barLabel {
-  font-size: 13px;
-  font-weight: 800;
-  opacity: 0.9;
-}
-
-.barTrack {
-  height: 12px;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.10)"};
-  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"};
-}
-
-.barFill {
-  height: 100%;
-  border-radius: 999px;
-  background: ${isIntelMode ? "rgba(255,255,255,0.86)" : "rgba(0,0,0,0.78)"};
-}
-
-.barValue {
-  font-size: 12px;
-  font-weight: 900;
-  opacity: 0.9;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.tableWrap {
-  margin-top: 12px;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)"};
-}
-
-.taskTable {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-}
-
-.taskTable thead th {
-  text-align: left;
-  padding: 10px 12px;
-  font-weight: 900;
-  letter-spacing: 0.2px;
-  background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.03)"};
-  border-bottom: 1px solid ${isIntelMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)"};
-}
-
-.taskTable tbody td {
-  padding: 10px 12px;
-  border-bottom: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)"};
-  font-weight: 700;
-  opacity: 0.92;
-}
-
-.taskTable tbody tr:last-child td {
-  border-bottom: none;
-}
-
         `}</style>
 
         <style jsx global>{`
