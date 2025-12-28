@@ -135,6 +135,11 @@ async function runPool(items, limit, worker) {
   return results;
 }
 
+// ★ ここが「差し替え本体」：cacheKeyがprefetch済みなら dataUrl を使う
+function resolveImageSrc(imageUrlByKey, cacheKey, originalSrc) {
+  return (cacheKey && imageUrlByKey?.[cacheKey]) || originalSrc || "";
+}
+
 export default function SlideAIProHome() {
   const [prompt, setPrompt] = useState("");
   const [isSending, setIsSending] = useState(false);
@@ -248,6 +253,12 @@ export default function SlideAIProHome() {
     setPrefetchError("");
 
     const stop = startProgressTicker();
+    let stopped = false;
+    const safeStop = () => {
+      if (stopped) return;
+      stopped = true;
+      stop();
+    };
 
     try {
       const API_BASE = "https://sense-website-production.up.railway.app";
@@ -266,7 +277,6 @@ export default function SlideAIProHome() {
       if (!resp.ok) throw new Error(`agenda-json HTTP ${resp.status}`);
 
       const json = await resp.json();
-      stop();
 
       setProgress(32);
       setAgendaJson(json);
@@ -286,7 +296,7 @@ export default function SlideAIProHome() {
       setPrefetchError(String(e?.message || e));
       alert("生成に失敗しました。サーバー側ログを確認してください。");
     } finally {
-      stop();
+      safeStop();
       setTimeout(() => setIsSending(false), 180);
       setTimeout(() => setProgress(0), 260);
     }
@@ -388,6 +398,36 @@ export default function SlideAIProHome() {
             </button>
           </div>
 
+          {/* ★ スライドとしての描画DOM（次の html-to-image / PDF 化のキャプチャ対象） */}
+          {(agendaJson || prefetchPairs.length) && (
+            <section className="slidesWrap" aria-label="Slides Preview">
+              <div className={`slide ${isIntelMode ? "slideDark" : "slideLight"}`} id="slidesRoot">
+                <div className="slideTitle">{trimmed || "SlideAI Pro"}</div>
+
+                <div className="slideGrid">
+                  {prefetchPairs.slice(0, 2).map((p) => {
+                    const cacheKey = p.cacheKey;
+
+                    // いまは元URLをagendaJson側に持っていないので空でOK
+                    const originalSrc = "";
+                    const resolvedSrc = resolveImageSrc(imageUrlByKey, cacheKey, originalSrc);
+
+                    return (
+                      <div key={cacheKey} className="slideImgBox">
+                        {resolvedSrc ? (
+                          <img src={resolvedSrc} crossOrigin="anonymous" alt={cacheKey} />
+                        ) : (
+                          <div className="imgPh">image loading...</div>
+                        )}
+                        <div className="imgLabel">{cacheKey}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          )}
+
           {(agendaJson || prefetchPairs.length || hasPrefetched || prefetchError) && (
             <section className={`debug ${isIntelMode ? "debugDark" : "debugLight"}`} aria-label="Debug">
               <div className="debugRow">
@@ -407,7 +447,7 @@ export default function SlideAIProHome() {
                     if (!src) return null;
                     return (
                       <div key={p.cacheKey} className="thumb">
-                        <img src={src} alt={p.cacheKey} />
+                        <img src={src} crossOrigin="anonymous" alt={p.cacheKey} />
                         <div className="ck">{p.cacheKey}</div>
                       </div>
                     );
@@ -616,7 +656,7 @@ export default function SlideAIProHome() {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.13);
             backdrop-filter: blur(12px);
-            box-shadow: 0 12px 28px rgba(64, 110, 255, 0.10);
+            box-shadow: 0 12px 28px rgba(64, 110, 255, 0.1);
           }
 
           .cardLight {
@@ -678,6 +718,70 @@ export default function SlideAIProHome() {
             transform: scale(0.99);
           }
 
+          /* ★ Slides Preview */
+          .slidesWrap {
+            width: min(860px, calc(100vw - 36px));
+          }
+          .slide {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 18px;
+            overflow: hidden;
+            padding: 18px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 14px;
+          }
+          .slideDark {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+          }
+          .slideLight {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+          }
+          .slideTitle {
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: 0.2px;
+            opacity: 0.92;
+          }
+          .slideGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            min-height: 0;
+          }
+          .slideImgBox {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: rgba(0, 0, 0, 0.02);
+            display: grid;
+            grid-template-rows: 1fr auto;
+          }
+          .slideImgBox img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+          .imgPh {
+            display: grid;
+            place-items: center;
+            font-size: 12px;
+            opacity: 0.6;
+          }
+          .imgLabel {
+            padding: 8px 10px;
+            font-size: 11px;
+            opacity: 0.8;
+            word-break: break-all;
+          }
+
+          /* Debug */
           .debug {
             width: min(860px, calc(100vw - 36px));
             border-radius: 16px;
@@ -685,14 +789,14 @@ export default function SlideAIProHome() {
             margin-top: 6px;
           }
           .debugDark {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(10px);
           }
           .debugLight {
-            background: rgba(255,255,255,0.85);
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
           }
           .debugRow {
             display: flex;
@@ -777,7 +881,7 @@ export default function SlideAIProHome() {
           .menuDark {
             background: rgba(0, 0, 0, 0.78);
             backdrop-filter: blur(14px);
-            border-left: 1px solid rgba(255, 255, 255, 0.10);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.92);
           }
           .menuLight {
@@ -839,7 +943,9 @@ export default function SlideAIProHome() {
         `}</style>
 
         <style jsx global>{`
-          html, body, #__next {
+          html,
+          body,
+          #__next {
             height: 100%;
           }
           body {
