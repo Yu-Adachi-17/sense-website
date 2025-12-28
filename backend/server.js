@@ -71,7 +71,7 @@ if (!GEMINI_API_KEY) {
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const GEMINI_MODEL_NAME = "gemini-2.5-flash"; // 使用するモデル名
-const DEFAULT_THINKING_BUDGET = 2048
+const DEFAULT_THINKING_BUDGET = 4096
 
 /**
  * ★ NEW: Helper function to call the Gemini API.
