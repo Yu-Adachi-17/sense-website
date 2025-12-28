@@ -1,6 +1,7 @@
 // src/pages/slideaipro/index.js
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
+import { toPng } from "html-to-image";
 
 function AtomIcon({ size = 16 }) {
   return (
@@ -140,6 +141,60 @@ function resolveImageSrc(imageUrlByKey, cacheKey, originalSrc) {
   return (cacheKey && imageUrlByKey?.[cacheKey]) || originalSrc || "";
 }
 
+function downloadDataUrl(dataUrl, filename) {
+  const a = document.createElement("a");
+  a.href = dataUrl;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+function waitImagesIn(node) {
+  const imgs = Array.from(node.querySelectorAll("img"));
+  if (!imgs.length) return Promise.resolve();
+
+  return Promise.all(
+    imgs.map((img) => {
+      if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+      return new Promise((resolve) => {
+        const done = () => resolve();
+        img.onload = done;
+        img.onerror = done;
+      });
+    })
+  );
+}
+
+function buildSlidesModel({ title, prefetchPairs }) {
+  const cover = {
+    id: "cover",
+    kind: "cover",
+    title: title || "SlideAI Pro",
+    subtitle: "Generated slides preview",
+    images: [],
+  };
+
+  const imageSlides = [];
+  const chunkSize = 2;
+  for (let i = 0; i < prefetchPairs.length; i += chunkSize) {
+    const chunk = prefetchPairs.slice(i, i + chunkSize);
+    imageSlides.push({
+      id: `imgs-${i}`,
+      kind: "images",
+      title: "Key Visuals",
+      subtitle: `Slide ${imageSlides.length + 2}`,
+      images: chunk.map((p) => ({
+        cacheKey: p.cacheKey,
+        label: p.cacheKey,
+        originalSrc: "",
+      })),
+    });
+  }
+
+  return [cover, ...imageSlides];
+}
+
 export default function SlideAIProHome() {
   const [prompt, setPrompt] = useState("");
   const [isSending, setIsSending] = useState(false);
@@ -151,6 +206,9 @@ export default function SlideAIProHome() {
   const [imageUrlByKey, setImageUrlByKey] = useState({});
   const [prefetchPairs, setPrefetchPairs] = useState([]);
   const [prefetchError, setPrefetchError] = useState("");
+
+  const [isExporting, setIsExporting] = useState(false);
+  const [exportError, setExportError] = useState("");
 
   const taRef = useRef(null);
   const trimmed = useMemo(() => prompt.trim(), [prompt]);
@@ -251,6 +309,7 @@ export default function SlideAIProHome() {
     setImageUrlByKey({});
     setPrefetchPairs([]);
     setPrefetchError("");
+    setExportError("");
 
     const stop = startProgressTicker();
     let stopped = false;
@@ -303,6 +362,130 @@ export default function SlideAIProHome() {
   };
 
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
+
+  // ★ Step 1: slidesRoot を「本番のスライド構造（複数枚）」として配列レンダリング
+  const slides = useMemo(() => {
+    if (!trimmed && !prefetchPairs.length) return [];
+    return buildSlidesModel({ title: trimmed || "SlideAI Pro", prefetchPairs });
+  }, [trimmed, prefetchPairs]);
+
+  const canExport = slides.length > 0 && !isSending && !isExporting;
+
+  // ★ Step 2: html-to-image で slidesRoot (内の各スライド) を PNG化
+  const handleExportPNG = async () => {
+    if (!canExport) return;
+    setExportError("");
+    setIsExporting(true);
+
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
+
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
+
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+
+        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+      }
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      setExportError(msg);
+      alert(`PNG書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
+  // ★ Step 3（フロント側だけ先に用意）: PNG→PDF（BE完結）呼び出し口
+  // 期待するBE: POST /api/slideaipro/png-to-pdf { pages: [dataUrl...] } -> { pdfDataUrl } or application/pdf
+  const handleExportPDF = async () => {
+    if (!canExport) return;
+    setExportError("");
+    setIsExporting(true);
+
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
+
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
+
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+      const pngPages = [];
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+        pngPages.push(dataUrl);
+      }
+
+      const API_BASE = "https://sense-website-production.up.railway.app";
+      const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pages: pngPages }),
+      });
+
+      if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
+
+      const ct = resp.headers.get("content-type") || "";
+      if (ct.includes("application/pdf")) {
+        const blob = await resp.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "slides.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        return;
+      }
+
+      const j = await resp.json();
+      const pdfDataUrl = j?.pdfDataUrl || "";
+      if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
+      downloadDataUrl(pdfDataUrl, "slides.pdf");
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      setExportError(msg);
+      alert(`PDF書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
   return (
     <>
@@ -385,50 +568,117 @@ export default function SlideAIProHome() {
               />
             </div>
 
-            <button
-              className="send"
-              aria-label="Generate"
-              disabled={!trimmed || isSending}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleGenerate();
-              }}
-            >
-              <AtomIcon size={16} />
-            </button>
+            <div className="actions" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="send"
+                aria-label="Generate"
+                disabled={!trimmed || isSending || isExporting}
+                onClick={handleGenerate}
+              >
+                <AtomIcon size={16} />
+              </button>
+
+              <button className="exportBtn" disabled={!canExport} onClick={handleExportPNG} aria-label="Export PNG">
+                Export (PNG)
+              </button>
+
+              <button className="exportBtn" disabled={!canExport} onClick={handleExportPDF} aria-label="Export PDF">
+                Export (PDF)
+              </button>
+            </div>
           </div>
 
-          {/* ★ スライドとしての描画DOM（次の html-to-image / PDF 化のキャプチャ対象） */}
-          {(agendaJson || prefetchPairs.length) && (
+          {/* ★ slidesRoot: “PDFにしたい見た目の最終形” を複数枚の配列レンダリング */}
+          {slides.length > 0 && (
             <section className="slidesWrap" aria-label="Slides Preview">
-              <div className={`slide ${isIntelMode ? "slideDark" : "slideLight"}`} id="slidesRoot">
-                <div className="slideTitle">{trimmed || "SlideAI Pro"}</div>
+              <div id="slidesRoot" className="slidesRoot" data-theme={isIntelMode ? "dark" : "light"}>
+                {slides.map((s, idx) => {
+                  const pageNo = idx + 1;
 
-                <div className="slideGrid">
-                  {prefetchPairs.slice(0, 2).map((p) => {
-                    const cacheKey = p.cacheKey;
-
-                    // いまは元URLをagendaJson側に持っていないので空でOK
-                    const originalSrc = "";
-                    const resolvedSrc = resolveImageSrc(imageUrlByKey, cacheKey, originalSrc);
-
+                  if (s.kind === "cover") {
                     return (
-                      <div key={cacheKey} className="slideImgBox">
-                        {resolvedSrc ? (
-                          <img src={resolvedSrc} crossOrigin="anonymous" alt={cacheKey} />
-                        ) : (
-                          <div className="imgPh">image loading...</div>
-                        )}
-                        <div className="imgLabel">{cacheKey}</div>
+                      <div
+                        key={s.id}
+                        className={`slidePage ${isIntelMode ? "pageDark" : "pageLight"}`}
+                        data-slide-page="true"
+                      >
+                        <div className="pageChrome">
+                          <div className="pageTop">
+                            <div className="pageNo">Slide {pageNo}</div>
+                            <div className="brand">SlideAI Pro</div>
+                          </div>
+
+                          <div className="coverCenter">
+                            <div className="coverTitle">{s.title}</div>
+                            <div className="coverSub">{s.subtitle}</div>
+                          </div>
+
+                          <div className="pageBottom">
+                            <div className="muted">
+                              Images are pre-fetched as dataUrl and replaced by cacheKey to reduce CORS capture issues.
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     );
-                  })}
-                </div>
+                  }
+
+                  const imgs = Array.isArray(s.images) ? s.images : [];
+
+                  return (
+                    <div
+                      key={s.id}
+                      className={`slidePage ${isIntelMode ? "pageDark" : "pageLight"}`}
+                      data-slide-page="true"
+                    >
+                      <div className="pageChrome">
+                        <div className="pageTop">
+                          <div className="pageNo">Slide {pageNo}</div>
+                          <div className="brand">{s.title || "Key Visuals"}</div>
+                        </div>
+
+                        <div className="content">
+                          <div className="h1">{s.title || "Key Visuals"}</div>
+                          <div className="sub">{s.subtitle || ""}</div>
+
+                          <div className={`imgGrid ${imgs.length === 1 ? "one" : "two"}`}>
+                            {imgs.map((im) => {
+                              const cacheKey = im.cacheKey;
+                              const originalSrc = im.originalSrc || "";
+                              const resolvedSrc = resolveImageSrc(imageUrlByKey, cacheKey, originalSrc);
+
+                              return (
+                                <div key={cacheKey} className="imgBox">
+                                  <div className="imgInner">
+                                    {resolvedSrc ? (
+                                      <img src={resolvedSrc} crossOrigin="anonymous" alt={cacheKey} />
+                                    ) : (
+                                      <div className="imgPh">image loading...</div>
+                                    )}
+                                  </div>
+                                  <div className="imgMeta">
+                                    <div className="imgLabel">{im.label || cacheKey}</div>
+                                    <div className="imgKey">{cacheKey}</div>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        <div className="pageBottom">
+                          <div className="muted">{hasPrefetched ? "Prefetched images ready" : "Prefetching images..."}</div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </section>
           )}
 
-          {(agendaJson || prefetchPairs.length || hasPrefetched || prefetchError) && (
+          {/* Debug は残してOK */}
+          {(agendaJson || prefetchPairs.length || hasPrefetched || prefetchError || exportError) && (
             <section className={`debug ${isIntelMode ? "debugDark" : "debugLight"}`} aria-label="Debug">
               <div className="debugRow">
                 <div className="debugK">prefetch pairs</div>
@@ -438,7 +688,9 @@ export default function SlideAIProHome() {
                 <div className="debugK">prefetched images</div>
                 <div className="debugV">{Object.keys(imageUrlByKey || {}).length}</div>
               </div>
+
               {prefetchError && <div className="err">{prefetchError}</div>}
+              {exportError && <div className="err">{exportError}</div>}
 
               {hasPrefetched && (
                 <div className="thumbs">
@@ -497,11 +749,14 @@ export default function SlideAIProHome() {
               <div className="menuHint">
                 画像は <code>/api/slideaipro/image-low</code>（dataUrl返却）でプリフェッチし、cacheKeyで差し替えます。
               </div>
+              <div className="menuHint">
+                Export(PNG/PDF) は <code>slidesRoot</code> 内の <code>data-slide-page</code> を1枚ずつキャプチャします。
+              </div>
             </div>
           </div>
         )}
 
-        {isSending && <ProgressOverlay progress={progress} />}
+        {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
 
         <style jsx>{`
           .page {
@@ -667,7 +922,7 @@ export default function SlideAIProHome() {
 
           .taWrap {
             position: relative;
-            padding-right: 56px;
+            padding-right: 270px;
           }
 
           .ph {
@@ -695,10 +950,16 @@ export default function SlideAIProHome() {
             max-height: 140px;
           }
 
-          .send {
+          .actions {
             position: absolute;
             right: 12px;
             bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .send {
             width: 40px;
             height: 40px;
             border-radius: 999px;
@@ -718,67 +979,182 @@ export default function SlideAIProHome() {
             transform: scale(0.99);
           }
 
-          /* ★ Slides Preview */
+          .exportBtn {
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.12)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.04)"};
+            color: ${textColor};
+            padding: 10px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+          }
+          .exportBtn:disabled {
+            opacity: 0.35;
+            cursor: default;
+          }
+          .exportBtn:active:not(:disabled) {
+            transform: scale(0.99);
+          }
+
+          /* ★ Slides (capture-stable) */
           .slidesWrap {
             width: min(860px, calc(100vw - 36px));
           }
-          .slide {
+          .slidesRoot {
+            display: grid;
+            gap: 18px;
+          }
+
+          .slidePage {
             width: 100%;
             aspect-ratio: 16 / 9;
             border-radius: 18px;
             overflow: hidden;
-            padding: 18px;
+            position: relative;
+          }
+
+          .pageLight {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+            color: rgba(0, 0, 0, 0.92);
+          }
+          .pageDark {
+            background: #0b1220;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+            color: rgba(255, 255, 255, 0.92);
+          }
+
+          .pageChrome {
+            position: absolute;
+            inset: 0;
+            padding: 22px;
             display: grid;
-            grid-template-rows: auto 1fr;
+            grid-template-rows: auto 1fr auto;
             gap: 14px;
           }
-          .slideDark {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-          }
-          .slideLight {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-          }
-          .slideTitle {
-            font-weight: 900;
-            font-size: 16px;
+
+          .pageTop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 800;
             letter-spacing: 0.2px;
-            opacity: 0.92;
+            opacity: 0.9;
           }
-          .slideGrid {
+          .brand {
+            opacity: 0.85;
+          }
+
+          .content {
+            min-height: 0;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            grid-template-rows: auto auto 1fr;
+            gap: 10px;
+          }
+
+          .h1 {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 0.2px;
+          }
+          .sub {
+            font-size: 13px;
+            font-weight: 700;
+            opacity: 0.72;
+          }
+
+          .imgGrid {
+            display: grid;
+            gap: 14px;
             min-height: 0;
           }
-          .slideImgBox {
+          .imgGrid.two {
+            grid-template-columns: 1fr 1fr;
+          }
+          .imgGrid.one {
+            grid-template-columns: 1fr;
+          }
+
+          .imgBox {
             border-radius: 14px;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.14)" : "rgba(0,0,0,0.10)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.02)"};
             display: grid;
             grid-template-rows: 1fr auto;
+            min-height: 0;
           }
-          .slideImgBox img {
+
+          .imgInner {
+            min-height: 0;
+            position: relative;
+          }
+          .imgBox img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
           }
           .imgPh {
+            position: absolute;
+            inset: 0;
             display: grid;
             place-items: center;
             font-size: 12px;
             opacity: 0.6;
           }
+
+          .imgMeta {
+            padding: 10px 12px;
+            display: grid;
+            gap: 4px;
+          }
           .imgLabel {
-            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: 800;
+            opacity: 0.92;
+          }
+          .imgKey {
             font-size: 11px;
-            opacity: 0.8;
+            opacity: 0.7;
             word-break: break-all;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+          }
+
+          .pageBottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            opacity: 0.72;
+          }
+          .muted {
+            opacity: 0.78;
+          }
+
+          .coverCenter {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 0 24px;
+            gap: 10px;
+          }
+          .coverTitle {
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: 0.2px;
+            line-height: 1.15;
+          }
+          .coverSub {
+            font-size: 14px;
+            font-weight: 800;
+            opacity: 0.72;
           }
 
           /* Debug */
