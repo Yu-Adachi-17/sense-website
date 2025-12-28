@@ -89,6 +89,28 @@ function measureTextHeight(
   return Math.ceil(node.scrollHeight || 0);
 }
 
+function measureTextWidth(node, { text, fontSize, fontWeight, letterSpacing }) {
+  if (!node) return 0;
+  setupMeasureBase(node);
+
+  node.style.display = "inline-block";
+  node.style.width = "auto";
+  node.style.maxWidth = "none";
+  node.style.whiteSpace = "nowrap";
+  node.style.wordBreak = "normal";
+  node.style.lineBreak = "strict";
+
+  node.style.fontSize = `${fontSize}px`;
+  node.style.fontWeight = `${fontWeight}`;
+  node.style.lineHeight = "normal";
+  node.style.letterSpacing = `${letterSpacing}px`;
+  node.textContent = text || "";
+
+  const w = node.getBoundingClientRect?.().width || node.scrollWidth || 0;
+  return Math.ceil(w);
+}
+
+
 // ヘッダーを「N.」と「タイトル」に分けた実レイアウトで計測
 function measureHeaderHeight(
   node,
@@ -228,6 +250,20 @@ function measuredTextHeightCapped(node, { text, width, fontSize, fontWeight, lin
 }
 
 function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }) {
+  // ✅ 1行は「高さ」ではなく「横幅」で判定しないと、はみ出しを検出できない
+  if (maxLines === 1) {
+    const w = measureTextWidth(node, {
+      text,
+      fontSize,
+      fontWeight,
+      letterSpacing,
+    });
+
+    // 端数ズレ対策で少し安全側に
+    return w <= Math.max(0, width - 2) * 0.995;
+  }
+
+  // 2行以上は従来通り「高さ」で判定
   const h = measureTextHeight(node, {
     text,
     width,
@@ -237,9 +273,11 @@ function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, 
     letterSpacing,
     textAlign: "left",
   });
+
   const cap = cappedHeightForLines(fontSize, lineHeight, maxLines);
   return h <= cap * 0.995;
 }
+
 
 function unifiedBulletFontSize(node, texts, { base, min, width, maxLines, lineHeight, letterSpacing }) {
   const cleaned = (texts || []).map(normalizeBulletString).filter(Boolean);
