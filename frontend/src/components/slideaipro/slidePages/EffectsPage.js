@@ -659,7 +659,7 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
         }
       );
 
-      const useOneLine = oneLineFont >= (base.bulletBaseSize * 0.80);
+      const useOneLine = oneLineFont >= (base.bulletBaseSize * 0.70);
       const maxLines = useOneLine ? 1 : 2;
 
       const unifiedBulletFont = useOneLine
@@ -972,6 +972,11 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
             align-items: flex-start;
             justify-content: flex-start;
           }
+            /* 追加（ppBody の overflow:hidden を Effects だけ解除） */
+.efBody {
+  overflow: visible;
+}
+
 
           .efStage {
             width: 100%;
@@ -995,28 +1000,31 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           }
 
           /* Before background (slanted, grey) */
-          .efBeforeBg {
-            position: absolute;
-            inset: 0;
+/* 置き換え推奨：Before のグレー背景 */
+.efBeforeBg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
 
-  left: calc(-1 * (var(--ppHPad) + var(--efBleedLeft)));
-  width: calc(100% + var(--ppHPad) + var(--efBleedLeft));
-            height: 100%;
+  /* ✅ 左端まで：ppMain の左右padding分を打ち消す */
+  left: calc(-1 * var(--ppHPad));
+  width: calc(100% + var(--ppHPad));
 
-            background: linear-gradient(
-              135deg,
-              rgba(0, 0, 0, 0.55) 0%,
-              rgba(0, 0, 0, 0.45) 55%,
-              rgba(0, 0, 0, 0.35) 100%
-            );
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
 
-            clip-path: polygon(
-              0% 0%,
-              100% 0%,
-              calc(100% - var(--efSlant)) 100%,
-              0% 100%
-            );
-          }
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    calc(100% - var(--efSlant)) 100%,
+    0% 100%
+  );
+}
+
 
           .efBeforeBg::after {
             content: "";
