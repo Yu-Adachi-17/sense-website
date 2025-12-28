@@ -261,7 +261,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
       // ---- Header font ----
       const contentW = bodyW;
 
-      const headerFontTarget = 64 * scale;
+      const headerFontTarget = 58 * scale;
       const maxHeaderTextH = Math.min(190 * scale, H * 0.22);
 
       const headerFont = binarySearchMaxFont({
@@ -282,10 +282,10 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
       });
 
       // ---- Bottom font ----
-      const baseProblemsFont = problemsBaseFont(problems.length) * scale;
+      const baseProblemsFont = problemsBaseFont(problems.length) * scale* 0.92;
 
       // BottomはSwiftの“強め”を維持しつつ、bodyを殺しすぎない上限で収める
-      const bottomTarget = clamp(baseProblemsFont + 10 * scale, 52 * scale, 66 * scale);
+      const bottomTarget = clamp(baseProblemsFont + 10 * scale, 52 * scale, 74 * scale);
       const maxBottomTextH = Math.min(140 * scale, H * 0.14);
 
       const bottomFont = bottomMessage
