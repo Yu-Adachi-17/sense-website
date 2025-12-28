@@ -3,6 +3,9 @@ import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
 import SlidePageFrame from "./SlidePageFrame";
 import { resolveImageSrc } from "../utils/resolveImageSrc";
 
+const FONT_FAMILY =
+  '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", system-ui, sans-serif';
+
 function normalizeBulletString(raw) {
   let s = String(raw || "");
   s = s.replace(/\u2028|\u2029|\u0085/g, " ");
@@ -27,6 +30,81 @@ function problemsBaseFont(count) {
     default:
       return 44;
   }
+}
+
+function setupMeasureBase(node) {
+  if (!node) return;
+  node.style.position = "absolute";
+  node.style.left = "-99999px";
+  node.style.top = "-99999px";
+  node.style.visibility = "hidden";
+  node.style.pointerEvents = "none";
+  node.style.whiteSpace = "pre-wrap";
+  node.style.wordBreak = "break-word";
+  node.style.lineBreak = "strict";
+  node.style.textRendering = "geometricPrecision";
+  node.style.webkitFontSmoothing = "antialiased";
+  node.style.fontKerning = "normal";
+  node.style.fontFeatureSettings = '"palt"';
+  node.style.fontSynthesis = "none";
+  node.style.fontFamily = FONT_FAMILY;
+}
+
+function measureTextHeight(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, textAlign }) {
+  if (!node) return 0;
+  setupMeasureBase(node);
+
+  node.style.display = "block";
+  node.style.width = `${Math.max(10, Math.floor(width))}px`;
+  node.style.fontSize = `${fontSize}px`;
+  node.style.fontWeight = `${fontWeight}`;
+  node.style.lineHeight = `${lineHeight}`;
+  node.style.letterSpacing = `${letterSpacing}px`;
+  node.style.textAlign = textAlign || "left";
+  node.textContent = text || "";
+
+  return Math.ceil(node.scrollHeight || 0);
+}
+
+function measureBulletsHeight(node, { items, width, fontSize, fontWeight, lineHeight, letterSpacing, rowGap }) {
+  if (!node) return 0;
+  setupMeasureBase(node);
+
+  node.style.display = "flex";
+  node.style.flexDirection = "column";
+  node.style.rowGap = `${rowGap}px`;
+  node.style.width = `${Math.max(10, Math.floor(width))}px`;
+  node.style.fontSize = `${fontSize}px`;
+  node.style.fontWeight = `${fontWeight}`;
+  node.style.lineHeight = `${lineHeight}`;
+  node.style.letterSpacing = `${letterSpacing}px`;
+  node.style.textAlign = "left";
+
+  node.textContent = "";
+  for (const s of items) {
+    const d = document.createElement("div");
+    d.textContent = s;
+    node.appendChild(d);
+  }
+
+  return Math.ceil(node.scrollHeight || 0);
+}
+
+function binarySearchMaxFont({ low, high, fits }) {
+  let lo = low;
+  let hi = high;
+  let best = low;
+
+  while (hi - lo > 0.5) {
+    const mid = (lo + hi) * 0.5;
+    if (fits(mid)) {
+      best = mid;
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+  return best;
 }
 
 export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched, imageUrlByKey }) {
@@ -59,274 +137,171 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     bottomFont: 70,
     imgSize: 420,
     gap: 56,
-    leftRatio: 0.46,
-    footerReserve: 44, // SlidePageFrameのフッター/バッジに食われない安全域
   });
 
   useLayoutEffect(() => {
     const el = rootRef.current;
     if (!el) return;
 
-    const ro = new ResizeObserver(() => recompute());
-    ro.observe(el);
-    recompute();
+    const recompute = () => {
+      const root = rootRef.current;
+      if (!root) return;
 
-    return () => ro.disconnect();
+      const rect = root.getBoundingClientRect();
+      const W = rect.width;
+      const H = rect.height;
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [headerTitle, bottomMessage, problems.join("\n"), isIntelMode]);
+      // Swift相当の定数
+      const horizontalPadding = 24;
 
-  function setupMeasureBase(node) {
-    if (!node) return;
-    node.style.position = "absolute";
-    node.style.left = "-99999px";
-    node.style.top = "-99999px";
-    node.style.visibility = "hidden";
-    node.style.pointerEvents = "none";
-    node.style.whiteSpace = "pre-wrap";
-    node.style.wordBreak = "break-word";
-    node.style.lineBreak = "strict";
-    node.style.textRendering = "geometricPrecision";
-    node.style.webkitFontSmoothing = "antialiased";
-    node.style.fontKerning = "normal";
-    node.style.fontFeatureSettings = '"palt"';
-    node.style.fontSynthesis = "none"; // 擬似ボールド抑制（古臭さ対策）
-  }
+      // タイトルは「明確に上」＝ Web側は余白を少し強める
+      const headerTopPad = 26;
+      const headerBottomPad = 18; // 10 → 18（タイトルとBodyの分離を明確化）
 
-  function measureTextHeight(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, textAlign }) {
-    if (!node) return 0;
+      // 下段は「明確に下」
+      const bottomTopPad = bottomMessage ? 10 : 0;
+      const bottomBottomPad = 24;
 
-    setupMeasureBase(node);
-    node.style.display = "block";
-    node.style.width = `${Math.max(10, Math.floor(width))}px`;
-    node.style.fontSize = `${fontSize}px`;
-    node.style.fontWeight = `${fontWeight}`;
-    node.style.lineHeight = `${lineHeight}`;
-    node.style.letterSpacing = `${letterSpacing}px`;
-    node.style.textAlign = textAlign || "left";
-    node.textContent = text || "";
+      // Bullets
+      const bulletDot = 16;
+      const bulletToText = 18;
+      const trailingPad = 8;
+      const rowGap = 22;
 
-    return Math.ceil(node.scrollHeight || 0);
-  }
+      // SlidePageFrameの下部ステータス領域に被らない安全域（必要最小）
+      const footerReserve = 22;
 
-  function measureBulletsHeight(node, { items, width, fontSize, fontWeight, lineHeight, letterSpacing, rowGap }) {
-    if (!node) return 0;
+      const contentW = Math.max(10, W - horizontalPadding * 2);
 
-    setupMeasureBase(node);
-    node.style.display = "flex";
-    node.style.flexDirection = "column";
-    node.style.rowGap = `${rowGap}px`;
-    node.style.width = `${Math.max(10, Math.floor(width))}px`;
-    node.style.fontSize = `${fontSize}px`;
-    node.style.fontWeight = `${fontWeight}`;
-    node.style.lineHeight = `${lineHeight}`;
-    node.style.letterSpacing = `${letterSpacing}px`;
-    node.style.textAlign = "left";
-    node.textContent = "";
-
-    for (const s of items) {
-      const d = document.createElement("div");
-      d.textContent = s;
-      node.appendChild(d);
-    }
-
-    return Math.ceil(node.scrollHeight || 0);
-  }
-
-  function binarySearchMaxFont({ low, high, fits }) {
-    let lo = low;
-    let hi = high;
-    let best = low;
-
-    while (hi - lo > 0.5) {
-      const mid = (lo + hi) * 0.5;
-      if (fits(mid)) {
-        best = mid;
-        lo = mid;
-      } else {
-        hi = mid;
-      }
-    }
-    return best;
-  }
-
-  function recompute() {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const rect = root.getBoundingClientRect();
-    const W = rect.width;
-    const H = rect.height;
-
-    // Swift相当の定数
-    const horizontalPadding = 24;
-    const headerTopPad = 26;
-    const headerBottomPad = 10;
-    const bottomTopPad = bottomMessage ? 10 : 0;
-    const bottomBottomPad = 24;
-
-    const bulletDot = 16;
-    const bulletToText = 18;
-    const trailingPad = 8;
-    const rowGap = 22;
-
-    // テキスト見た目（Swiftに寄せる）
-    const fontFamily =
-      '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", system-ui, sans-serif';
-
-    // content領域（左右padding）
-    const contentW = Math.max(10, W - horizontalPadding * 2);
-
-    // 1) タイトル：64を基準に、長いときだけ縮める（最大高さを制限）
-    const maxHeaderBlockH = Math.min(170, H * 0.22);
-    const headerFont = binarySearchMaxFont({
-      low: 40,
-      high: 64,
-      fits: (fs) => {
-        const hText = measureTextHeight(mHeaderRef.current, {
-          text: headerTitle,
-          width: contentW,
-          fontSize: fs,
-          fontWeight: 800, // 900だと日本語が擬似ボールドになりやすいので800に寄せる
-          lineHeight: 1.05,
-          letterSpacing: -0.6,
-          textAlign: "left",
-        });
-        const blockH = headerTopPad + hText + headerBottomPad;
-        return blockH <= maxHeaderBlockH;
-      },
-    });
-
-    const headerTextH = measureTextHeight(mHeaderRef.current, {
-      text: headerTitle,
-      width: contentW,
-      fontSize: headerFont,
-      fontWeight: 800,
-      lineHeight: 1.05,
-      letterSpacing: -0.6,
-      textAlign: "left",
-    });
-    const headerBlockH = headerTopPad + headerTextH + headerBottomPad;
-
-    // 2) 体の横レイアウト（Swift: gap=56, leftRatio=0.46）
-    const gap = 56;
-    const leftW = (contentW - gap) * 0.46;
-    const rightW = (contentW - gap) - leftW;
-
-    // bulletsの実効幅（dot + spacing + trailingを引く）
-    const bulletTextW = Math.max(10, rightW - bulletDot - bulletToText - trailingPad);
-
-    // 3) 一旦 bulletsFont を base で置いて bottom を概算 → bodyH → bulletsFont fitting
-    const baseBullet = problemsBaseFont(problems.length);
-    const minBullet = 22;
-
-    // bottomFontは bulletsFont+16（62..74）を基準に、長文なら0.55まで縮める
-    function fitBottomFont(relatedBulletFont) {
-      if (!bottomMessage) return 0;
-
-      const desired = clamp(relatedBulletFont + 16, 62, 74);
-      const min = desired * 0.55;
-
-      // bottomは大きいほど良いが、最大高さを制限
-      const maxBottomTextH = Math.min(140, H * 0.22);
-
-      const best = binarySearchMaxFont({
-        low: min,
-        high: desired,
+      // Header font fitting
+      const maxHeaderTextH = Math.min(160, H * 0.20);
+      const headerFont = binarySearchMaxFont({
+        low: 42,
+        high: 66,
         fits: (fs) => {
-          const hText = measureTextHeight(mBottomRef.current, {
-            text: bottomMessage,
+          const hText = measureTextHeight(mHeaderRef.current, {
+            text: headerTitle,
             width: contentW,
             fontSize: fs,
-            fontWeight: 800,
+            fontWeight: 800, // 日本語の見た目が最も安定
             lineHeight: 1.05,
-            letterSpacing: -0.3,
-            textAlign: "center",
+            letterSpacing: -0.7,
+            textAlign: "left",
           });
-          return hText <= maxBottomTextH;
+          return hText <= maxHeaderTextH;
         },
       });
 
-      return best;
+      const headerTextH = measureTextHeight(mHeaderRef.current, {
+        text: headerTitle,
+        width: contentW,
+        fontSize: headerFont,
+        fontWeight: 800,
+        lineHeight: 1.05,
+        letterSpacing: -0.7,
+        textAlign: "left",
+      });
+      const headerBlockH = headerTopPad + headerTextH + headerBottomPad;
+
+      // Columns (Swift: gap=56, leftRatio=0.46)
+      const gap = 56;
+      const leftW = (contentW - gap) * 0.46;
+      const rightW = (contentW - gap) - leftW;
+
+      const bulletTextW = Math.max(10, rightW - bulletDot - bulletToText - trailingPad);
+
+      // Bullet font fitting (SwiftのfitFontSize相当)
+      const baseBullet = problemsBaseFont(problems.length);
+      const minBullet = 22;
+
+      // Bottom font fitting（problemsFont + 16, clamp 62..74 / SwiftのminimumScaleFactor相当をWebで近似）
+      const desiredBottom = clamp(baseBullet + 16, 62, 74);
+
+      // Bottomが取りうる最大高さ（ここを取りすぎるとBodyが痩せて画像が小さくなる）
+      const maxBottomTextH = Math.min(140, H * 0.20);
+
+      const bottomFont = bottomMessage
+        ? binarySearchMaxFont({
+            low: desiredBottom * 0.55,
+            high: desiredBottom,
+            fits: (fs) => {
+              const hText = measureTextHeight(mBottomRef.current, {
+                text: bottomMessage,
+                width: contentW,
+                fontSize: fs,
+                fontWeight: 800,
+                lineHeight: 1.05,
+                letterSpacing: -0.35,
+                textAlign: "center",
+              });
+              return hText <= maxBottomTextH;
+            },
+          })
+        : 0;
+
+      const bottomTextH = bottomMessage
+        ? measureTextHeight(mBottomRef.current, {
+            text: bottomMessage,
+            width: contentW,
+            fontSize: bottomFont,
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: -0.35,
+            textAlign: "center",
+          })
+        : 0;
+
+      const bottomBlockH = (bottomMessage ? bottomTopPad + bottomTextH : 0) + bottomBottomPad;
+
+      const bodyH = Math.max(10, H - headerBlockH - bottomBlockH - footerReserve);
+
+      const bulletFont = problems.length
+        ? binarySearchMaxFont({
+            low: minBullet,
+            high: baseBullet,
+            fits: (fs) => {
+              const bulletsH = measureBulletsHeight(mBulletsRef.current, {
+                items: problems,
+                width: bulletTextW,
+                fontSize: fs,
+                fontWeight: 800,
+                lineHeight: 1.08,
+                letterSpacing: -0.45,
+                rowGap,
+              });
+              return bulletsH <= bodyH;
+            },
+          })
+        : baseBullet;
+
+      // Image size（Swift: min(leftW, bodyH*0.92)）
+      const imgSize = Math.floor(Math.min(leftW, bodyH * 0.92));
+
+      setFit({
+        headerFont,
+        bulletFont,
+        bottomFont,
+        imgSize,
+        gap,
+      });
+    };
+
+    const ro = new ResizeObserver(() => {
+      requestAnimationFrame(() => requestAnimationFrame(recompute));
+    });
+    ro.observe(el);
+
+    // 初回
+    requestAnimationFrame(() => requestAnimationFrame(recompute));
+    // フォント読み込み後にも再計算（ズレ防止）
+    if (document?.fonts?.ready) {
+      document.fonts.ready.then(() => requestAnimationFrame(() => requestAnimationFrame(recompute)));
     }
 
-    // 1st pass
-    let bottomFont = fitBottomFont(baseBullet);
-    let bottomTextH = bottomMessage
-      ? measureTextHeight(mBottomRef.current, {
-          text: bottomMessage,
-          width: contentW,
-          fontSize: bottomFont,
-          fontWeight: 800,
-          lineHeight: 1.05,
-          letterSpacing: -0.3,
-          textAlign: "center",
-        })
-      : 0;
-
-    let bottomBlockH = (bottomMessage ? bottomTopPad + bottomTextH : 0) + bottomBottomPad;
-
-    // SlidePageFrameの下部表示分を安全域として引く（見切れ対策）
-    const footerReserve = 44;
-
-    let bodyH = Math.max(10, H - headerBlockH - bottomBlockH - footerReserve);
-
-    // bullets fitting (SwiftのfitFontSize相当)
-    const bulletFont = problems.length
-      ? binarySearchMaxFont({
-          low: minBullet,
-          high: baseBullet,
-          fits: (fs) => {
-            const bulletsH = measureBulletsHeight(mBulletsRef.current, {
-              items: problems,
-              width: bulletTextW,
-              fontSize: fs,
-              fontWeight: 800,
-              lineHeight: 1.08,
-              letterSpacing: -0.4,
-              rowGap,
-            });
-            return bulletsH <= bodyH;
-          },
-        })
-      : baseBullet;
-
-    // 2nd pass（bulletFont確定後の bottomFont を再計算して bodyH を微調整）
-    bottomFont = fitBottomFont(bulletFont);
-    bottomTextH = bottomMessage
-      ? measureTextHeight(mBottomRef.current, {
-          text: bottomMessage,
-          width: contentW,
-          fontSize: bottomFont,
-          fontWeight: 800,
-          lineHeight: 1.05,
-          letterSpacing: -0.3,
-          textAlign: "center",
-        })
-      : 0;
-
-    bottomBlockH = (bottomMessage ? bottomTopPad + bottomTextH : 0) + bottomBottomPad;
-    bodyH = Math.max(10, H - headerBlockH - bottomBlockH - footerReserve);
-
-    // 画像サイズ（Swift: imageSize = min(leftW, h*0.92)）
-    const imgSize = Math.floor(Math.min(leftW, bodyH * 0.92));
-
-    // 適用
-    setFit((prev) => ({
-      ...prev,
-      headerFont,
-      bulletFont,
-      bottomFont,
-      imgSize,
-      gap,
-      leftRatio: 0.46,
-      footerReserve,
-      fontFamily,
-    }));
-  }
+    return () => ro.disconnect();
+  }, [headerTitle, bottomMessage, problems.join("\n"), isIntelMode]);
 
   const styleVars = {
-    "--ppFontFamily": fit.fontFamily,
     "--ppHeaderFont": `${fit.headerFont}px`,
     "--ppBulletFont": `${fit.bulletFont}px`,
     "--ppBottomFont": `${fit.bottomFont}px`,
@@ -343,12 +318,12 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     >
       <div ref={rootRef} className="ppRoot ppProblemLikeSwift" style={styleVars}>
         <div className="ppMain">
-          {/* Header */}
+          {/* Header（必ず最上段） */}
           <div className="ppHeader">
             <div className="ppTitle">{headerTitle}</div>
           </div>
 
-          {/* Body */}
+          {/* Body（必ず中段：画像＋バレット） */}
           <div className="ppBody">
             <div className="ppImageCol">
               <div className="ppImageSquare">
@@ -381,7 +356,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             </div>
           </div>
 
-          {/* Bottom */}
+          {/* Bottom（必ず最下段） */}
           {bottomMessage ? (
             <div className="ppBottom">
               <div className="ppBottomText">{bottomMessage}</div>
@@ -400,61 +375,54 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           .ppRoot {
             width: 100%;
             height: 100%;
-            overflow: hidden; /* 見切れを外に逃さない */
+            overflow: hidden;
+            font-family: ${FONT_FAMILY};
+            text-rendering: geometricPrecision;
+            -webkit-font-smoothing: antialiased;
+            font-synthesis: none;
+            font-feature-settings: "palt";
           }
 
+          /* Gridで「上・中・下」を物理的に分離（被りを構造で防ぐ） */
           .ppMain {
             width: 100%;
             height: 100%;
             padding: 0 24px;
-            padding-bottom: 44px; /* footerReserve：SlidePageFrameの下端表示に被らない */
             box-sizing: border-box;
 
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: flex-start;
-
-            font-family: var(--ppFontFamily);
-            text-rendering: geometricPrecision;
-            -webkit-font-smoothing: antialiased;
-            font-kerning: normal;
-            font-feature-settings: "palt";
-            font-synthesis: none;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
           }
 
-          /* Header */
           .ppHeader {
             padding-top: 26px;
-            padding-bottom: 10px;
-            flex: 0 0 auto;
+            padding-bottom: 18px; /* タイトルを明確に上に */
           }
 
           .ppTitle {
             font-size: var(--ppHeaderFont);
             font-weight: 800;
             line-height: 1.05;
-            letter-spacing: -0.6px;
+            letter-spacing: -0.7px;
             color: #000;
-
             white-space: pre-wrap;
             word-break: break-word;
             line-break: strict;
           }
 
-          /* Body */
           .ppBody {
-            flex: 1 1 auto;
             min-height: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: var(--ppGap);
+            overflow: hidden; /* 万が一でも下段へ侵食しない */
           }
 
           .ppImageCol {
             flex: 0 0 46%;
             min-width: 0;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -474,7 +442,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           .ppImg {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Swift scaledToFill */
+            object-fit: cover;
             display: block;
           }
 
@@ -495,10 +463,11 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             height: 100%;
             min-height: 0;
             display: flex;
-            align-items: center; /* Swift: bullets are vertically centered */
+            align-items: center;
             justify-content: flex-start;
-            padding-right: 8px; /* trailingPadding */
+            padding-right: 8px;
             box-sizing: border-box;
+            overflow: hidden; /* バレットが下段へ侵食しない */
           }
 
           .ppBullets {
@@ -506,16 +475,15 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             padding: 0;
             margin: 0;
             width: 100%;
-
             display: flex;
             flex-direction: column;
-            gap: 22px; /* rowSpacing */
+            gap: 22px;
           }
 
           .ppBulletRow {
             display: flex;
-            align-items: center; /* Swift HStack(.center) */
-            gap: 18px; /* bulletToTextSpacing */
+            align-items: center;
+            gap: 18px;
             min-width: 0;
           }
 
@@ -532,20 +500,17 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             font-size: var(--ppBulletFont);
             font-weight: 800;
             line-height: 1.08;
-            letter-spacing: -0.4px;
+            letter-spacing: -0.45px;
             color: #000;
-
             white-space: pre-wrap;
             word-break: break-word;
             line-break: strict;
             min-width: 0;
           }
 
-          /* Bottom */
           .ppBottom {
             padding-top: 10px;
             padding-bottom: 24px;
-            flex: 0 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -555,9 +520,8 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             font-size: var(--ppBottomFont);
             font-weight: 800;
             line-height: 1.05;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.35px;
             text-align: center;
-
             white-space: pre-wrap;
             word-break: break-word;
             line-break: strict;
@@ -575,10 +539,8 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
           .ppBottomEmpty {
             padding-bottom: 24px;
-            flex: 0 0 auto;
           }
 
-          /* measure */
           .ppMeasure {
             position: absolute;
             left: -99999px;
