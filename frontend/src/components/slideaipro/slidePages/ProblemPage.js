@@ -18,9 +18,6 @@ const HEADER_LS_BASE = -0.7;
 const BULLET_LS_BASE = -0.45;
 const BOTTOM_LS_BASE = -0.35;
 
-// ここを変えると「N.」だけサイズが変わる（N側をタイトルに合わせる）
-const TITLE_NO_SCALE = 0.9;
-
 function normalizeBulletString(raw) {
   let s = String(raw || "");
   s = s.replace(/\u2028|\u2029|\u0085/g, " ");
@@ -84,6 +81,60 @@ function measureTextHeight(
   return Math.ceil(node.scrollHeight || 0);
 }
 
+// ヘッダーを「N.」と「タイトル」に分けた実レイアウトで計測
+function measureHeaderHeight(
+  node,
+  {
+    noText,
+    titleText,
+    width,
+    fontSize,
+    fontWeight,
+    lineHeight,
+    letterSpacing,
+    textAlign,
+    noScale,
+    noGapPx,
+  }
+) {
+  if (!node) return 0;
+  setupMeasureBase(node);
+
+  node.style.display = "block";
+  node.style.width = `${Math.max(10, Math.floor(width))}px`;
+  node.style.fontWeight = `${fontWeight}`;
+  node.style.lineHeight = `${lineHeight}`;
+  node.style.letterSpacing = `${letterSpacing}px`;
+  node.style.textAlign = textAlign || "left";
+
+  node.textContent = "";
+  while (node.firstChild) node.removeChild(node.firstChild);
+
+  const spanNo = document.createElement("span");
+  spanNo.textContent = String(noText || "");
+  spanNo.style.fontSize = `${Math.max(1, fontSize * (noScale || 1))}px`;
+  spanNo.style.fontWeight = `${fontWeight}`;
+  spanNo.style.lineHeight = `${lineHeight}`;
+  spanNo.style.letterSpacing = `${letterSpacing}px`;
+  spanNo.style.display = "inline";
+  spanNo.style.marginRight = `${Math.max(0, noGapPx || 0)}px`;
+
+  node.appendChild(spanNo);
+
+  if (String(titleText || "").trim()) {
+    const spanTitle = document.createElement("span");
+    spanTitle.textContent = String(titleText || "");
+    spanTitle.style.fontSize = `${fontSize}px`;
+    spanTitle.style.fontWeight = `${fontWeight}`;
+    spanTitle.style.lineHeight = `${lineHeight}`;
+    spanTitle.style.letterSpacing = `${letterSpacing}px`;
+    spanTitle.style.display = "inline";
+    node.appendChild(spanTitle);
+  }
+
+  return Math.ceil(node.scrollHeight || 0);
+}
+
 function measureBulletsHeight(
   node,
   { items, width, fontSize, fontWeight, lineHeight, letterSpacing, rowGap }
@@ -143,6 +194,12 @@ function nearlySameFit(a, b) {
   return true;
 }
 
+// CJK（日本語/中国語/韓国語）判定：N.が相対的に小さく見えるケースにだけ強め補正
+function hasCJK(s) {
+  const t = String(s || "");
+  return /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(t);
+}
+
 export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched, imageUrlByKey }) {
   const rootRef = useRef(null);
   const bodyRef = useRef(null);
@@ -156,13 +213,12 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
   const originalSrc = String(slide?.image?.originalSrc || "");
   const resolvedSrc = resolveImageSrc(imageUrlByKey, cacheKey, originalSrc);
 
-  const titleText = useMemo(() => String(slide?.title || "").trim(), [slide?.title]);
+  const headerNo = useMemo(() => `${pageNo}.`, [pageNo]);
 
-  // 計測は従来通り「1つの文字列」でOK（描画だけNを縮める）
-  const headerTitle = useMemo(() => {
-    const t = titleText;
-    return `${pageNo}. ${t}`.trim();
-  }, [pageNo, titleText]);
+  const headerText = useMemo(() => {
+    const t = String(slide?.title || "").trim();
+    return t;
+  }, [slide?.title]);
 
   const bottomMessage = useMemo(() => String(slide?.message || "").trim(), [slide?.message]);
 
@@ -180,8 +236,12 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     headerBottomPad: 10,
     gap: 56,
 
+    // header number tuning
+    headerNoScale: 1.06,
+    headerNoGap: 18,
+
     // columns (Swift logic)
-    imgColPx: 600, // px basis ( (bodyW-gap)*0.46 )
+    imgColPx: 600,
     imgRatio: 0.46,
 
     // bullets geometry
@@ -201,7 +261,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     bulletLH: BULLET_LH,
     bottomLH: BOTTOM_LH,
 
-    // image (Swift: min(leftW, h*0.92))
+    // image
     imgSize: 520,
     radius: 10,
 
@@ -264,9 +324,13 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
       const rightW = Math.max(0, (bodyW - gap) - leftW);
       const imgColPx = Math.floor(leftW);
 
+      // ---- Header number tuning (ここが今回の本題) ----
+      const cjk = hasCJK(headerText);
+      const headerNoScale = cjk ? 1.18 : 1.06; // CJKはN.が小さく見えるので強め
+      const headerNoGap = Math.round((cjk ? 18 : 16) * scale);
+
       // ---- Header font ----
       const contentW = bodyW;
-
       const headerFontTarget = 58 * scale;
       const maxHeaderTextH = Math.min(190 * scale, H * 0.22);
 
@@ -274,14 +338,17 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         low: 42 * scale,
         high: headerFontTarget,
         fits: (fs) => {
-          const hText = measureTextHeight(mHeaderRef.current, {
-            text: headerTitle,
+          const hText = measureHeaderHeight(mHeaderRef.current, {
+            noText: headerNo,
+            titleText: headerText,
             width: contentW,
             fontSize: fs,
             fontWeight: 900,
             lineHeight: HEADER_LH,
             letterSpacing: headerLS,
             textAlign: "left",
+            noScale: headerNoScale,
+            noGapPx: headerNoGap,
           });
           return hText <= maxHeaderTextH;
         },
@@ -312,6 +379,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           })
         : 0;
 
+      // 先にCSS変数を仮適用 → body高さの実測（grid計算を確定）
       const preVars = {
         "--ppHPad": `${hPad}px`,
         "--ppHeaderTopPad": `${headerTopPad}px`,
@@ -319,6 +387,8 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         "--ppHeaderFont": `${headerFont}px`,
         "--ppHeaderLS": `${headerLS}px`,
         "--ppHeaderLH": `${HEADER_LH}`,
+        "--ppHeaderNoScale": `${headerNoScale}`,
+        "--ppHeaderNoGap": `${headerNoGap}px`,
 
         "--ppGap": `${gap}px`,
         "--ppImgColPx": `${imgColPx}px`,
@@ -338,12 +408,11 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         "--ppTextColor": `${textColor}`,
         "--ppDotOpacity": `${dotOpacity}`,
         "--ppPhColor": `${phColor}`,
-
-        "--ppTitleNoScale": `${TITLE_NO_SCALE}`,
       };
 
       for (const [k, v] of Object.entries(preVars)) rootEl.style.setProperty(k, v);
 
+      // reflowを強制
       rootEl.offsetHeight;
 
       const bodyRect = bodyEl.getBoundingClientRect();
@@ -373,7 +442,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
                 letterSpacing: bulletLS,
                 rowGap,
               });
-              return bulletsH <= (availBulletsH - Math.round(2 * scale));
+              return bulletsH <= availBulletsH - Math.round(2 * scale);
             },
           })
         : baseProblemsFont;
@@ -385,6 +454,9 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         headerTopPad,
         headerBottomPad,
         gap,
+
+        headerNoScale,
+        headerNoGap,
 
         imgColPx,
         imgRatio,
@@ -414,11 +486,11 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
       setFit((prev) => (nearlySameFit(prev, next) ? prev : next));
 
+      // state反映前でも安定させる
       rootEl.style.setProperty("--ppBulletFont", `${bulletFont}px`);
       rootEl.style.setProperty("--ppBulletLS", `${bulletLS}px`);
       rootEl.style.setProperty("--ppBulletLH", `${BULLET_LH}`);
       rootEl.style.setProperty("--ppImgSize", `${imgSize}px`);
-      rootEl.style.setProperty("--ppTitleNoScale", `${TITLE_NO_SCALE}`);
     };
 
     const ro = new ResizeObserver(() => {
@@ -432,7 +504,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     }
 
     return () => ro.disconnect();
-  }, [headerTitle, bottomMessage, problems.join("\n"), isIntelMode]);
+  }, [headerNo, headerText, bottomMessage, problems.join("\n"), isIntelMode]);
 
   return (
     <SlidePageFrame
@@ -451,6 +523,8 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           "--ppHeaderFont": `${fit.headerFont}px`,
           "--ppHeaderLS": `${fit.headerLS}px`,
           "--ppHeaderLH": `${fit.headerLH}`,
+          "--ppHeaderNoScale": `${fit.headerNoScale}`,
+          "--ppHeaderNoGap": `${fit.headerNoGap}px`,
 
           "--ppGap": `${fit.gap}px`,
           "--ppImgColPx": `${fit.imgColPx}px`,
@@ -474,16 +548,13 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           "--ppTextColor": `${fit.textColor}`,
           "--ppDotOpacity": `${fit.dotOpacity}`,
           "--ppPhColor": `${fit.phColor}`,
-
-          "--ppTitleNoScale": `${TITLE_NO_SCALE}`,
         }}
       >
         <div className="ppMain">
           <div className="ppHeader">
             <div className="ppTitle">
-              <span className="ppTitleNo">{pageNo}.</span>
-              <span className="ppTitleSpace"> </span>
-              <span className="ppTitleText">{titleText}</span>
+              <span className="ppTitleNo">{headerNo}</span>
+              {headerText ? <span className="ppTitleText">{headerText}</span> : null}
             </div>
           </div>
 
@@ -528,6 +599,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           )}
         </div>
 
+        {/* measure nodes */}
         <div ref={mHeaderRef} className="ppMeasure" />
         <div ref={mBulletsRef} className="ppMeasure" />
         <div ref={mBottomRef} className="ppMeasure" />
@@ -560,7 +632,6 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           }
 
           .ppTitle {
-            font-size: var(--ppHeaderFont);
             font-weight: 900;
             line-height: var(--ppHeaderLH);
             letter-spacing: var(--ppHeaderLS);
@@ -571,9 +642,8 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           }
 
           .ppTitleNo {
-            display: inline-block;
-            font-size: calc(var(--ppHeaderFont) * var(--ppTitleNoScale));
-            letter-spacing: calc(var(--ppHeaderLS) * var(--ppTitleNoScale));
+            font-size: calc(var(--ppHeaderFont) * var(--ppHeaderNoScale));
+            margin-right: var(--ppHeaderNoGap);
           }
 
           .ppTitleText {
