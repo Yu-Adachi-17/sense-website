@@ -9,9 +9,9 @@ const FONT_FAMILY =
 const BASE_W = 1920;
 const BASE_H = 1080;
 
-// ここは「描画」と「計測」を完全一致させるための定数
+// 計測と描画を一致させる定数
 const HEADER_LH = 1.1;
-const BULLET_LH = 1.14; // 太字+CJKで上/下が欠けやすいので少し余裕
+const BULLET_LH = 1.14;
 const BOTTOM_LH = 1.1;
 
 const HEADER_LS_BASE = -0.7;
@@ -173,10 +173,10 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     headerTopPad: 26,
     headerBottomPad: 10,
     gap: 56,
-    bodyVPad: 10, // Body上下の“安全域”（文字欠け防止+視覚バランス）
 
-    // columns
-    imgColW: "52%", // 46%→52%（写真を大きく、左右バランス改善）
+    // columns (Swift logic)
+    imgColPx: 600, // px basis ( (bodyW-gap)*0.46 )
+    imgRatio: 0.46,
 
     // bullets geometry
     rowGap: 22,
@@ -195,7 +195,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     bulletLH: BULLET_LH,
     bottomLH: BOTTOM_LH,
 
-    // image
+    // image (Swift: min(leftW, h*0.92))
     imgSize: 520,
     radius: 10,
 
@@ -227,22 +227,21 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
       const headerTopPad = Math.round(26 * scale);
       const headerBottomPad = Math.round(10 * scale);
 
-      // gapは“写真を大きくする”ため微減（詰まりすぎない範囲）
-      const gap = Math.round(52 * scale);
+      const gap = Math.round(56 * scale);
 
-      // bulletsが多いほどrowGapを少し締める（Swift的な見た目を保ったまま上下欠け防止）
+      // bulletsが多いほどrowGapを少し締める（上下欠け防止）
       const rowGapBase =
         problems.length >= 5 ? 16 : problems.length === 4 ? 18 : problems.length === 3 ? 20 : 22;
       const rowGap = Math.round(rowGapBase * scale);
 
-      const bodyVPad = Math.round(12 * scale);
-
       const bulletToText = Math.round(18 * scale);
       const trailingPad = Math.round(8 * scale);
-
       const radius = Math.round(10 * scale);
 
-      // letterSpacingは“描画と計測を一致”させる（ここがズレると折返し行数がズレて上下欠けが出る）
+      // Swift: bulletSizeは固定(16)想定（全体スケールで追従）
+      const bulletSize = Math.round(16 * scale);
+
+      // letterSpacingは“描画と計測を一致”
       const headerLS = HEADER_LS_BASE * scale;
       const bulletLS = BULLET_LS_BASE * scale;
       const bottomLS = BOTTOM_LS_BASE * scale;
@@ -252,13 +251,16 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
       const phColor = isIntelMode ? "rgba(245,247,255,0.62)" : "rgba(0,0,0,0.55)";
       const dotOpacity = isIntelMode ? 0.8 : 0.82;
 
-      // columns（写真を優先して広げる）
-      const imgColW = "52%";
+      // Swift幅計算：bodyW ≒ (W - 2*hPad)
+      const bodyW = Math.max(10, W - hPad * 2);
+      const imgRatio = 0.46;
+      const leftW = Math.max(0, (bodyW - gap) * imgRatio);
+      const rightW = Math.max(0, (bodyW - gap) - leftW);
+      const imgColPx = Math.floor(leftW);
 
       // ---- Header font ----
-      const contentW = Math.max(10, W - hPad * 2);
+      const contentW = bodyW;
 
-      // Headerは“上位の要素”なので縮めすぎない。ただし2行以上になった時の安全策は持つ。
       const headerFontTarget = 64 * scale;
       const maxHeaderTextH = Math.min(190 * scale, H * 0.22);
 
@@ -282,7 +284,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
       // ---- Bottom font ----
       const baseProblemsFont = problemsBaseFont(problems.length) * scale;
 
-      // Bottomは“主張は強いが支配しすぎない”サイズに寄せる（現状の大きすぎ問題を抑える）
+      // BottomはSwiftの“強め”を維持しつつ、bodyを殺しすぎない上限で収める
       const bottomTarget = clamp(baseProblemsFont + 10 * scale, 52 * scale, 66 * scale);
       const maxBottomTextH = Math.min(140 * scale, H * 0.14);
 
@@ -305,7 +307,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           })
         : 0;
 
-      // 先にCSS変数を仮適用 → Bodyの実測を取る（reflow確定のため強制読み）
+      // 先にCSS変数を仮適用 → body高さの実測（grid計算を確定）
       const preVars = {
         "--ppHPad": `${hPad}px`,
         "--ppHeaderTopPad": `${headerTopPad}px`,
@@ -315,15 +317,15 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         "--ppHeaderLH": `${HEADER_LH}`,
 
         "--ppGap": `${gap}px`,
-        "--ppBodyVPad": `${bodyVPad}px`,
-        "--ppImgColW": `${imgColW}`,
+        "--ppImgColPx": `${imgColPx}px`,
 
         "--ppRowGap": `${rowGap}px`,
+        "--ppBulletSize": `${bulletSize}px`,
         "--ppBulletToText": `${bulletToText}px`,
         "--ppTrailingPad": `${trailingPad}px`,
 
         "--ppBottomTopPad": `${Math.round(10 * scale)}px`,
-        "--ppBottomBottomPad": `${Math.round(20 * scale)}px`,
+        "--ppBottomBottomPad": `${Math.round(24 * scale)}px`,
         "--ppBottomFont": `${bottomFont}px`,
         "--ppBottomLS": `${bottomLS}px`,
         "--ppBottomLH": `${BOTTOM_LH}`,
@@ -336,32 +338,21 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
       for (const [k, v] of Object.entries(preVars)) rootEl.style.setProperty(k, v);
 
-      // reflowを強制してからbody計測（ここがズレるとimgSize/fitが外れる）
+      // reflowを強制
       // eslint-disable-next-line no-unused-expressions
       rootEl.offsetHeight;
 
       const bodyRect = bodyEl.getBoundingClientRect();
-      const bodyW = bodyRect.width;
-      const bodyH = bodyRect.height;
-      const innerBodyH = Math.max(10, bodyH - bodyVPad * 2);
+      const bodyH = Math.max(10, bodyRect.height);
 
-      // Swift相当：左(画像)と右(箇条書き)の割当
-      const imgColRatio = 0.52;
-      const leftW = (bodyW - gap) * imgColRatio;
-      const rightW = (bodyW - gap) - leftW;
+      // Swift相当：画像は min(leftW, h*0.92)
+      const imgSize = Math.floor(Math.min(leftW, bodyH * 0.92));
 
-      // 画像は「列幅 or 内部高さ」の小さい方で最大化
-      const imgSize = Math.floor(Math.min(leftW, innerBodyH * 0.98));
-
-      // Bullet dotはフォントに追従（固定値だと太字で不格好になりやすい）
-      // ※dotサイズが変わると折返しが微妙に変わるので、ここは“弱い追従”に留める
-      const bulletSize = Math.round(clamp(14 * scale + (problems.length <= 2 ? 2 * scale : 0), 12 * scale, 20 * scale));
-
-      // 実際のテキスト領域幅
+      // Bulletテキストの実効幅（dot + 間隔 + trailingPad を差し引く）
       const bulletTextW = Math.max(10, rightW - bulletSize - bulletToText - trailingPad);
 
-      // Bullet font fitting（上下欠け防止のため、内側高さ - 微小安全域 で判定）
-      const availBulletsH = Math.max(10, innerBodyH - Math.round(4 * scale));
+      // Bullet font fitting（Swiftと同じく“bodyH内に収める”）
+      const availBulletsH = Math.max(10, bodyH);
       const minBullet = 20 * scale;
 
       const bulletFont = problems.length
@@ -378,7 +369,8 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
                 letterSpacing: bulletLS,
                 rowGap,
               });
-              return bulletsH <= availBulletsH;
+              // ブラウザの字面差でギリギリ欠けるのを避けるため、極小の安全域だけ引く
+              return bulletsH <= (availBulletsH - Math.round(2 * scale));
             },
           })
         : baseProblemsFont;
@@ -390,9 +382,9 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         headerTopPad,
         headerBottomPad,
         gap,
-        bodyVPad,
 
-        imgColW,
+        imgColPx,
+        imgRatio,
 
         rowGap,
         bulletSize,
@@ -419,11 +411,10 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
       setFit((prev) => (nearlySameFit(prev, next) ? prev : next));
 
-      // state反映前でも安定させる（ちらつき防止）
+      // state反映前でも安定させる
       rootEl.style.setProperty("--ppBulletFont", `${bulletFont}px`);
       rootEl.style.setProperty("--ppBulletLS", `${bulletLS}px`);
       rootEl.style.setProperty("--ppBulletLH", `${BULLET_LH}`);
-      rootEl.style.setProperty("--ppBulletSize", `${bulletSize}px`);
       rootEl.style.setProperty("--ppImgSize", `${imgSize}px`);
     };
 
@@ -460,8 +451,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           "--ppHeaderLH": `${fit.headerLH}`,
 
           "--ppGap": `${fit.gap}px`,
-          "--ppBodyVPad": `${fit.bodyVPad}px`,
-          "--ppImgColW": `${fit.imgColW}`,
+          "--ppImgColPx": `${fit.imgColPx}px`,
 
           "--ppRowGap": `${fit.rowGap}px`,
           "--ppBulletSize": `${fit.bulletSize}px`,
@@ -472,7 +462,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
           "--ppBulletLH": `${fit.bulletLH}`,
 
           "--ppBottomTopPad": `${Math.round(10 * fit.scale)}px`,
-          "--ppBottomBottomPad": `${Math.round(20 * fit.scale)}px`,
+          "--ppBottomBottomPad": `${Math.round(24 * fit.scale)}px`,
           "--ppBottomFont": `${fit.bottomFont}px`,
           "--ppBottomLS": `${fit.bottomLS}px`,
           "--ppBottomLH": `${fit.bottomLH}`,
@@ -575,22 +565,23 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
           .ppBody {
             min-height: 0;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             gap: var(--ppGap);
             overflow: hidden;
-            padding: var(--ppBodyVPad) 0; /* 上下の欠け防止＋見た目の安定 */
             box-sizing: border-box;
           }
 
+          /* Swift: leftW = (bodyW-gap)*0.46 を pxで固定 */
           .ppImageCol {
-            flex: 0 0 var(--ppImgColW);
+            flex: 0 0 var(--ppImgColPx);
             min-width: 0;
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center; /* 画像が列幅より小さい時も中央寄せでバランス */
+            justify-content: center;
           }
 
           .ppImageSquare {
@@ -628,7 +619,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             height: 100%;
             min-height: 0;
             display: flex;
-            align-items: center;
+            align-items: center; /* Swift: h内で中央寄せ */
             justify-content: flex-start;
             padding-right: var(--ppTrailingPad);
             box-sizing: border-box;
@@ -645,9 +636,10 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             gap: var(--ppRowGap);
           }
 
+          /* SwiftはRow alignment=center。dotのmargin-topは計測ズレ＆上下欠けの原因なので削除 */
           .ppBulletRow {
             display: flex;
-            align-items: flex-start; /* multi-line時にドットが上に寄る（Swiftっぽい） */
+            align-items: center;
             gap: var(--ppBulletToText);
             min-width: 0;
           }
@@ -659,7 +651,6 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             background: var(--ppTextColor);
             opacity: var(--ppDotOpacity);
             flex: 0 0 auto;
-            margin-top: 0.18em; /* 1行目の視覚中心に寄せる */
           }
 
           .ppBulletText {
