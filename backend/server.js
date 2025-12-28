@@ -70,7 +70,7 @@ if (!GEMINI_API_KEY) {
   console.warn("[WARN] GEMINI_API_KEY is not set. Gemini NLP functions will fail.");
 }
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const GEMINI_MODEL_NAME = "gemini-3.0-flash"; // 使用するモデル名
+const GEMINI_MODEL_NAME = "gemini-2.5-flash"; // 使用するモデル名
 const DEFAULT_THINKING_BUDGET = 2048
 
 /**
