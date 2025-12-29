@@ -2,19 +2,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { toPng } from "html-to-image";
+import { GiAtom } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
-
-function AtomIcon({ size = 16 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <g fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round">
-        <path d="M12 12c3.6-3.6 7.9-5.7 9.6-4 1.7 1.7-.4 6-4 9.6-3.6 3.6-7.9 5.7-9.6 4-1.7-1.7.4-6 4-9.6Z" />
-        <path d="M12 12c-3.6-3.6-7.9-5.7-9.6-4-1.7 1.7.4 6 4 9.6 3.6 3.6 7.9 5.7 9.6 4-1.7-1.7-.4-6-4-9.6Z" />
-        <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" />
-      </g>
-    </svg>
-  );
-}
 
 function ProgressOverlay({ progress }) {
   const pct = Math.max(0, Math.min(100, Math.floor(progress)));
@@ -275,8 +264,6 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
   return out;
 }
 
-
-
 export default function SlideAIProHome() {
   const [prompt, setPrompt] = useState("");
   const [isSending, setIsSending] = useState(false);
@@ -285,7 +272,7 @@ export default function SlideAIProHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [agendaJson, setAgendaJson] = useState(null);
-  const [subtitleDate, setSubtitleDate] = useState(""); // 追加：Coverのsubtitle用（YYYY-MM-DD）
+  const [subtitleDate, setSubtitleDate] = useState("");
   const [imageUrlByKey, setImageUrlByKey] = useState({});
   const [prefetchPairs, setPrefetchPairs] = useState([]);
   const [prefetchError, setPrefetchError] = useState("");
@@ -405,13 +392,11 @@ export default function SlideAIProHome() {
     try {
       const API_BASE = "https://sense-website-production.up.railway.app";
 
-      // ユーザー端末のローカル日付（YYYY-MM-DD）
       const baseDateLocal =
         typeof Intl !== "undefined"
           ? new Date().toLocaleDateString("sv-SE")
           : new Date().toISOString().slice(0, 10);
 
-      // Cover subtitle にも同じ日付を使う（Tokyo等は一切関与させない）
       setSubtitleDate(baseDateLocal);
 
       const resp = await fetch(`${API_BASE}/api/slideaipro/agenda-json`, {
@@ -419,7 +404,7 @@ export default function SlideAIProHome() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           brief,
-          baseDate: baseDateLocal, // 追加：サーバの Tokyo フォールバックを踏ませない
+          baseDate: baseDateLocal,
           renderMode: "vibeSlidingIdea",
           locale: typeof navigator !== "undefined" ? navigator.language : "ja",
           theme: isIntelMode ? "dark" : "light",
@@ -461,7 +446,7 @@ export default function SlideAIProHome() {
       return buildSlidesFromAgenda({
         brief: trimmed || "SlideAI Pro",
         agenda: agendaJson,
-        subtitleDate, // 追加
+        subtitleDate,
       });
     }
     return [];
@@ -582,6 +567,18 @@ export default function SlideAIProHome() {
     }
   };
 
+  const requestExportPNGFromMenu = () => {
+    if (!canExport) return;
+    setIsMenuOpen(false);
+    setTimeout(() => handleExportPNG(), 160);
+  };
+
+  const requestExportPDFFromMenu = () => {
+    if (!canExport) return;
+    setIsMenuOpen(false);
+    setTimeout(() => handleExportPDF(), 160);
+  };
+
   return (
     <>
       <Head>
@@ -664,16 +661,13 @@ export default function SlideAIProHome() {
             </div>
 
             <div className="actions" onClick={(e) => e.stopPropagation()}>
-              <button className="send" aria-label="Generate" disabled={!trimmed || isSending || isExporting} onClick={handleGenerate}>
-                <AtomIcon size={16} />
-              </button>
-
-              <button className="exportBtn" disabled={!canExport} onClick={handleExportPNG} aria-label="Export PNG">
-                Export (PNG)
-              </button>
-
-              <button className="exportBtn" disabled={!canExport} onClick={handleExportPDF} aria-label="Export PDF">
-                Export (PDF)
+              <button
+                className={`send ${isIntelMode ? "sendDark" : "sendLight"}`}
+                aria-label="Generate"
+                disabled={!trimmed || isSending || isExporting}
+                onClick={handleGenerate}
+              >
+                <GiAtom size={18} />
               </button>
             </div>
           </div>
@@ -748,6 +742,21 @@ export default function SlideAIProHome() {
                 <button className="pillBtn" onClick={() => setIsIntelMode((v) => !v)}>
                   {isIntelMode ? "Dark" : "Light"}
                 </button>
+              </div>
+
+              <div className="menuItem">
+                <div className="miLeft">
+                  <div className="miTitle">Export</div>
+                  <div className="miSub">PNG / PDF</div>
+                </div>
+                <div className="miActions">
+                  <button className="menuActionBtn" disabled={!canExport} onClick={requestExportPNGFromMenu} aria-label="Export PNG">
+                    PNG
+                  </button>
+                  <button className="menuActionBtn" disabled={!canExport} onClick={requestExportPDFFromMenu} aria-label="Export PDF">
+                    PDF
+                  </button>
+                </div>
               </div>
 
               <div className="menuHint">
@@ -926,7 +935,7 @@ export default function SlideAIProHome() {
 
           .taWrap {
             position: relative;
-            padding-right: 270px;
+            padding-right: 72px;
           }
 
           .ph {
@@ -967,13 +976,12 @@ export default function SlideAIProHome() {
             width: 40px;
             height: 40px;
             border-radius: 999px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            background: rgba(255, 255, 255, 0.95);
-            color: rgba(0, 0, 0, 0.85);
+            border: none;
             display: grid;
             place-items: center;
             cursor: pointer;
             user-select: none;
+            transition: transform 120ms ease, opacity 120ms ease;
           }
           .send:disabled {
             opacity: 0.35;
@@ -983,24 +991,18 @@ export default function SlideAIProHome() {
             transform: scale(0.99);
           }
 
-          .exportBtn {
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.12)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.04)"};
-            color: ${textColor};
-            padding: 10px 12px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            user-select: none;
-            white-space: nowrap;
+          .sendLight {
+            color: rgba(0, 0, 0, 0.86);
+            background: rgb(250, 250, 250);
+            box-shadow: -4px -4px 10px rgba(255, 255, 255, 0.9), 6px 10px 20px rgba(0, 0, 0, 0.12);
           }
-          .exportBtn:disabled {
-            opacity: 0.35;
-            cursor: default;
-          }
-          .exportBtn:active:not(:disabled) {
-            transform: scale(0.99);
+
+          .sendDark {
+            color: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 12px 28px rgba(64, 110, 255, 0.12);
           }
 
           .debug {
@@ -1147,6 +1149,31 @@ export default function SlideAIProHome() {
             font-size: 12px;
             opacity: 0.75;
           }
+          .miActions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .menuActionBtn {
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.12)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.04)"};
+            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.86)"};
+            padding: 10px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+          }
+          .menuActionBtn:disabled {
+            opacity: 0.35;
+            cursor: default;
+          }
+          .menuActionBtn:active:not(:disabled) {
+            transform: scale(0.99);
+          }
 
           .menuHint {
             margin-top: 14px;
@@ -1179,5 +1206,3 @@ export default function SlideAIProHome() {
     </>
   );
 }
-
-
