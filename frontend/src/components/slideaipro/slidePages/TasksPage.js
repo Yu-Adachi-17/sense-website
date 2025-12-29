@@ -5,21 +5,21 @@ import SlidePageFrame from "./SlidePageFrame";
 const MIN_DURATION_MS = 24 * 60 * 60 * 1000; // 24h
 const FIXED_BAR_RATIO = 0.2;
 const MAX_ROWS = 10;
+const MAX_TICKS = 5;
 
 // パース強め（"YYYY-MM-DD HH:mm" / "YYYY-MM-DD" / ISO を許容）
 function parseDeadline(v) {
   if (!v) return null;
-
   if (v instanceof Date && !Number.isNaN(v.getTime())) return v;
 
   const s = String(v).trim();
   if (!s) return null;
 
-  // 1) ISO っぽいなら Date に任せる
+  // ISO系は Date に任せる
   const isoTry = new Date(s);
   if (!Number.isNaN(isoTry.getTime())) return isoTry;
 
-  // 2) "YYYY-MM-DD HH:mm" / "YYYY-MM-DD HH:mm:ss"
+  // "YYYY-MM-DD HH:mm" / "YYYY-MM-DD HH:mm:ss"
   const m = s.match(
     /^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?$/
   );
@@ -41,7 +41,6 @@ function pad2(n) {
   const x = Math.floor(Math.abs(Number(n) || 0));
   return x < 10 ? `0${x}` : `${x}`;
 }
-
 function fmtDateMMDD(d) {
   return `${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
 }
@@ -62,10 +61,7 @@ function pickEvenly(list, k) {
     const idx = Math.round((i * (list.length - 1)) / (k - 1));
     out.push(list[idx]);
   }
-  // 重複が出たら間引き
-  const u = uniqByTimeSorted(out);
-  if (u.length >= 2) return u;
-  return list.slice(0, k);
+  return uniqByTimeSorted(out);
 }
 
 const BAR_GRADIENTS = [
@@ -85,7 +81,6 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
   const prepared = useMemo(() => {
     const rows = Array.isArray(slide?.rows) ? slide.rows : [];
 
-    // 入力整形
     const raw = rows
       .map((r) => {
         const title = String(r?.title ?? "").trim();
@@ -96,17 +91,12 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
       .filter((x) => x.title && x.assignee && x.deadline && !Number.isNaN(x.deadline.getTime()));
 
     if (!raw.length) {
-      return {
-        jobs: [],
-        minStartMs: 0,
-        maxEndMs: 0,
-        ticks: [],
-      };
+      return { jobs: [], axisStartMs: 0, axisEndMs: 0, ticks: [] };
     }
 
     const capped = raw.slice(0, MAX_ROWS);
 
-    // Swift踏襲：end(=deadline) の min/max で期間算出 → fixedDuration(=期間×0.20)
+    // Swift踏襲：deadline(min/max)から期間→固定バー長(=期間×0.20)
     const ends = capped.map((x) => x.deadline);
     const minEnd = ends.reduce((a, b) => (a.getTime() < b.getTime() ? a : b));
     const maxEnd = ends.reduce((a, b) => (a.getTime() > b.getTime() ? a : b));
@@ -116,7 +106,6 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
 
     const fixedDuration = total * FIXED_BAR_RATIO;
 
-    // start = end - fixedDuration
     let jobs = capped.map((x, i) => {
       const endMs = x.deadline.getTime();
       const startMs = endMs - fixedDuration;
@@ -129,34 +118,41 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
       };
     });
 
-    // Swift踏襲：階段状（start昇順）
+    // 階段状（start昇順）
     jobs = jobs.sort((a, b) => a.startMs - b.startMs);
 
     const minStartMs = jobs.reduce((m, j) => Math.min(m, j.startMs), jobs[0].startMs);
     const maxEndMs = jobs.reduce((m, j) => Math.max(m, j.endMs), jobs[0].endMs);
 
-    // 上部の目盛り：基本は各タスクの deadline を採用（多い場合は等間隔に間引き）
-    const uniqueEnds = uniqByTimeSorted(jobs.map((j) => new Date(j.endMs)));
-    const ticks = pickEvenly(uniqueEnds, Math.min(6, Math.max(5, uniqueEnds.length)));
+    // 右端・左端が“見切れない”ように軸に余白を入れる（重要）
+    let axisRange = maxEndMs - minStartMs;
+    if (axisRange < MIN_DURATION_MS) axisRange = MIN_DURATION_MS;
+    const pad = axisRange * 0.07; // 7% 余白（見切れ防止）
+    const axisStartMs = minStartMs - pad;
+    const axisEndMs = maxEndMs + pad;
 
-    return { jobs, minStartMs, maxEndMs, ticks };
+    // 目盛り：deadline を使う。多ければ等間隔に MAX_TICKS へ。
+    const uniqueEnds = uniqByTimeSorted(jobs.map((j) => new Date(j.endMs)));
+    const ticks = uniqueEnds.length <= MAX_TICKS ? uniqueEnds : pickEvenly(uniqueEnds, MAX_TICKS);
+
+    return { jobs, axisStartMs, axisEndMs, ticks };
   }, [slide]);
 
-  const { jobs, minStartMs, maxEndMs, ticks } = prepared;
+  const { jobs, axisStartMs, axisEndMs, ticks } = prepared;
 
-  const rangeMs = useMemo(() => {
+  const axisRangeMs = useMemo(() => {
     if (!jobs.length) return 1;
-    let r = maxEndMs - minStartMs;
+    let r = axisEndMs - axisStartMs;
     if (r < MIN_DURATION_MS) r = MIN_DURATION_MS;
     return r;
-  }, [jobs.length, minStartMs, maxEndMs]);
+  }, [jobs.length, axisStartMs, axisEndMs]);
 
-  // 行高（見た目優先で大きめ、潰れないように調整）
+  // 行高：詰めて、最大でもデカくしすぎない
   const rowH = useMemo(() => {
     const n = Math.max(1, jobs.length);
-    const base = 640; // ヘッダー除いた「だいたいの」有効高
+    const base = 600; // “詰める”方向（前より小さく）
     const h = Math.floor(base / n);
-    return Math.max(108, Math.min(150, h));
+    return Math.max(96, Math.min(128, h));
   }, [jobs.length]);
 
   const themeVars = useMemo(() => {
@@ -166,7 +162,6 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
         "--tp-muted": "rgba(255,255,255,0.55)",
         "--tp-line": "rgba(255,255,255,0.10)",
         "--tp-dash": "rgba(255,255,255,0.22)",
-        "--tp-card": "rgba(0,0,0,0.00)",
       };
     }
     return {
@@ -174,14 +169,25 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
       "--tp-muted": "rgba(0,0,0,0.42)",
       "--tp-line": "rgba(0,0,0,0.06)",
       "--tp-dash": "rgba(0,0,0,0.18)",
-      "--tp-card": "rgba(255,255,255,0.00)",
     };
   }, [isIntelMode]);
+
+  function tickStyle(ms) {
+    const xPct = Math.min(1, Math.max(0, (ms - axisStartMs) / axisRangeMs));
+    // 端は寄せてクリップ回避
+    if (xPct < 0.06) {
+      return { left: `${xPct * 100}%`, transform: "translateX(0%)", textAlign: "left" };
+    }
+    if (xPct > 0.94) {
+      return { left: `${xPct * 100}%`, transform: "translateX(-100%)", textAlign: "right" };
+    }
+    return { left: `${xPct * 100}%`, transform: "translateX(-50%)", textAlign: "center" };
+  }
 
   return (
     <SlidePageFrame pageNo={pageNo} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} footerRight="">
       <div className="tpRoot" style={themeVars}>
-        {/* Header（Swiftの 64 / black 相当） */}
+        {/* Header（大見出しは維持。ただし clamp で暴れない） */}
         <div className="tpHeader">
           <div className="tpHeaderText">
             <span className="tpHeaderNo">{pageNo}.</span>
@@ -189,13 +195,12 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           </div>
         </div>
 
-        {/* Content */}
         {jobs.length === 0 ? (
           <div className="tpEmpty" />
         ) : (
-          <div className="tpBody">
-            {/* Left labels */}
-            <div className="tpLeft" style={{ "--tp-rowh": `${rowH}px` }}>
+          <div className="tpBody" style={{ "--tp-rowh": `${rowH}px` }}>
+            {/* Left labels（幅を詰める：clamp で端末差吸収） */}
+            <div className="tpLeft">
               {jobs.map((j, idx) => (
                 <div className="tpRowLabel" key={`${slide?.id || "slide"}-job-${idx}`}>
                   <div className="tpTaskTitle">{j.taskTitle}</div>
@@ -206,35 +211,28 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
             </div>
 
             {/* Timeline */}
-            <div className="tpRight" style={{ "--tp-rowh": `${rowH}px` }}>
-              {/* Top ticks */}
-              <div className="tpTopAxis">
-                {ticks.map((d, i) => {
-                  const ms = d.getTime();
-                  const xPct = Math.min(1, Math.max(0, (ms - minStartMs) / rangeMs));
-                  return (
-                    <div className="tpTick" key={`tick-${i}`} style={{ left: `${xPct * 100}%` }}>
-                      <div className="tpTickDate">{fmtDateMMDD(d)}</div>
-                      <div className="tpTickTime">{fmtTimeHM(d)}</div>
-                    </div>
-                  );
-                })}
+            <div className="tpRight">
+              <div className="tpAxis">
+                {ticks.map((d, i) => (
+                  <div className="tpTick" key={`tick-${i}`} style={tickStyle(d.getTime())}>
+                    <div className="tpTickDate">{fmtDateMMDD(d)}</div>
+                    <div className="tpTickTime">{fmtTimeHM(d)}</div>
+                  </div>
+                ))}
               </div>
 
-              {/* Vertical dashed lines */}
-              <div className="tpGrid">
+              <div className="tpPlot">
+                {/* Vertical dashed lines */}
                 {ticks.map((d, i) => {
                   const ms = d.getTime();
-                  const xPct = Math.min(1, Math.max(0, (ms - minStartMs) / rangeMs));
+                  const xPct = Math.min(1, Math.max(0, (ms - axisStartMs) / axisRangeMs));
                   return <div className="tpVLine" key={`vline-${i}`} style={{ left: `${xPct * 100}%` }} />;
                 })}
-              </div>
 
-              {/* Bars */}
-              <div className="tpBars">
+                {/* Bars */}
                 {jobs.map((j, idx) => {
-                  const leftPct = Math.min(1, Math.max(0, (j.startMs - minStartMs) / rangeMs));
-                  const widthPct = Math.min(1, Math.max(0, (j.endMs - j.startMs) / rangeMs));
+                  const leftPct = Math.min(1, Math.max(0, (j.startMs - axisStartMs) / axisRangeMs));
+                  const widthPct = Math.min(1, Math.max(0, (j.endMs - j.startMs) / axisRangeMs));
                   const grad = BAR_GRADIENTS[j.colorIndex % BAR_GRADIENTS.length];
 
                   return (
@@ -271,35 +269,37 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           padding-top: 26px;
           padding-left: 24px;
           padding-right: 24px;
-          padding-bottom: 18px;
+          padding-bottom: 14px; /* 少し詰める */
         }
         .tpHeaderText {
           display: flex;
           align-items: baseline;
-          gap: 16px;
+          gap: 14px;
           font-weight: 900;
           letter-spacing: -0.6px;
           line-height: 1.02;
+          min-width: 0;
         }
         .tpHeaderNo {
-          font-size: 64px;
+          font-size: clamp(48px, 5.2vw, 64px);
+          flex: 0 0 auto;
         }
         .tpHeaderTitle {
-          font-size: 64px;
+          font-size: clamp(48px, 5.2vw, 64px);
           word-break: break-word;
           white-space: normal;
+          min-width: 0;
         }
 
-        /* Empty */
         .tpEmpty {
           flex: 1;
         }
 
-        /* Body layout */
+        /* Body */
         .tpBody {
           flex: 1;
           display: flex;
-          gap: 34px;
+          gap: 26px; /* 右側を広げる */
           padding-left: 24px;
           padding-right: 24px;
           padding-bottom: 16px;
@@ -308,31 +308,31 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
 
         /* Left labels */
         .tpLeft {
-          width: 520px;
-          min-width: 520px;
+          width: clamp(320px, 30vw, 460px); /* ←ここが重要：詰める */
+          min-width: clamp(320px, 30vw, 460px);
           display: flex;
           flex-direction: column;
         }
         .tpRowLabel {
           height: var(--tp-rowh);
-          padding-top: 18px;
-          padding-right: 12px;
+          padding-top: 14px;
+          padding-right: 10px;
           position: relative;
         }
         .tpTaskTitle {
-          font-size: 30px;
+          font-size: 22px; /* ←小さく */
           font-weight: 850;
-          letter-spacing: -0.35px;
-          line-height: 1.14;
+          letter-spacing: -0.3px;
+          line-height: 1.18;
           word-break: break-word;
           white-space: normal;
         }
         .tpAssignee {
-          margin-top: 10px;
-          font-size: 22px;
+          margin-top: 8px;
+          font-size: 18px; /* ←小さく */
           font-weight: 750;
           color: var(--tp-muted);
-          letter-spacing: -0.25px;
+          letter-spacing: -0.22px;
         }
         .tpRowDivider {
           position: absolute;
@@ -346,47 +346,42 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
         /* Right timeline */
         .tpRight {
           flex: 1;
-          position: relative;
+          min-width: 0;
           display: flex;
           flex-direction: column;
-          min-width: 0;
         }
 
-        .tpTopAxis {
+        .tpAxis {
           position: relative;
-          height: 54px;
-          margin-top: 4px;
-          margin-bottom: 6px;
+          height: 66px; /* ラベル被りを避けるため少し増やす */
+          margin-top: 2px;
+          margin-bottom: 8px;
+          overflow: visible; /* クリップ防止 */
         }
         .tpTick {
           position: absolute;
           top: 0;
-          transform: translateX(-50%);
-          text-align: center;
           user-select: none;
           pointer-events: none;
+          white-space: nowrap;
         }
         .tpTickDate {
           font-size: 16px;
-          font-weight: 800;
+          font-weight: 850;
           letter-spacing: -0.1px;
-          color: var(--tp-fg);
         }
         .tpTickTime {
           margin-top: 2px;
           font-size: 16px;
-          font-weight: 800;
+          font-weight: 850;
           letter-spacing: -0.1px;
-          color: var(--tp-fg);
         }
 
-        .tpGrid {
-          position: absolute;
-          top: 54px;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          pointer-events: none;
+        .tpPlot {
+          position: relative;
+          flex: 1;
+          min-height: 0;
+          overflow: visible; /* クリップ防止 */
         }
         .tpVLine {
           position: absolute;
@@ -395,23 +390,17 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           width: 0;
           border-left: 2px dotted var(--tp-dash);
           transform: translateX(-50%);
+          pointer-events: none;
         }
 
-        .tpBars {
-          position: relative;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          min-height: 0;
-        }
         .tpBarRow {
           height: var(--tp-rowh);
           position: relative;
         }
         .tpBar {
           position: absolute;
-          top: 28px;
-          height: 78px;
+          top: 22px; /* 少し上げて見た目を揃える */
+          height: 74px;
           border-radius: 10px;
           box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
           filter: saturate(1.05);
@@ -425,15 +414,12 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           background: var(--tp-line);
         }
 
-        /* 画面が極端に狭い時の保険 */
         @media (max-width: 1200px) {
-          .tpLeft {
-            width: 440px;
-            min-width: 440px;
+          .tpTaskTitle {
+            font-size: 21px;
           }
-          .tpHeaderNo,
-          .tpHeaderTitle {
-            font-size: 56px;
+          .tpAssignee {
+            font-size: 17px;
           }
         }
       `}</style>
