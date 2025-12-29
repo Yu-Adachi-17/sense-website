@@ -98,7 +98,7 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
     ro.observe(root);
 
     requestAnimationFrame(recompute);
-    if (document?.fonts?.ready) {
+    if (typeof document !== "undefined" && document?.fonts?.ready) {
       document.fonts.ready.then(() => requestAnimationFrame(recompute));
     }
 
@@ -114,7 +114,6 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
   const maxY = Math.max(1, ...points.map((p) => toNumber(p.value)));
 
   // ✅ 最大棒が気持ちよく伸びる（高すぎず低すぎず）
-  // Swift(0.75)のままだとHTML側は余白が二重になりがちなので、こちらは 0.82 を採用
   const HEADROOM_RATIO = 0.82;
   const scaledMaxY = maxY / HEADROOM_RATIO;
 
@@ -128,20 +127,27 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
   // ✅ タイトル/結論をProposal寄りのサイズに（= 少し小さめ）
   const headerFont = Math.round(clamp(58 * scale, 46, 60));
   const bottomFont = Math.round(clamp(56 * scale, 42, 60));
-
   const unitFont = Math.round(clamp(22 * scale, 16, 24));
 
-  // Swift: Bar width ratio
-  const barRatio = n <= 4 ? 0.55 : n <= 8 ? 0.42 : 0.32;
+  // ✅ 棒が少ない時に貧相にならないように、比率と間隔と左右パディングを“本数連動”で攻める
+  const barRatio =
+    n <= 1 ? 0.58 : n === 2 ? 0.76 : n <= 4 ? 0.62 : n <= 8 ? 0.44 : 0.34;
 
-  const colGapBase = n <= 2 ? 240 : n <= 4 ? 160 : n <= 8 ? 92 : 56;
+  const colGapBase =
+    n <= 2 ? 140 : n <= 4 ? 120 : n <= 8 ? 86 : 56;
   const colGap = Math.round(colGapBase * scale);
 
-  const padX = Math.round(80 * scale);
+  const padXBase =
+    n <= 2 ? 64 : n <= 4 ? 72 : 80;
+  const padX = Math.round(padXBase * scale);
+
   const plotTopPad = Math.round(10 * scale);
   const axisTopPad = Math.round(12 * scale);
 
   const barRadius = Math.round(clamp(18 * scale, 12, 22));
+
+  // ✅ 数値と棒を“ピッタリ”寄せるためのギャップ（Swift annotation の見た目に寄せる）
+  const valueGapPx = Math.round(clamp(10 * scale, 7, 14));
 
   const textColor = isIntelMode ? "rgba(255,255,255,0.96)" : "#0B0B0B";
   const baseLineColor = isIntelMode ? "rgba(255,255,255,0.22)" : "rgba(0,0,0,0.12)";
@@ -177,6 +183,7 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
           "--eefPadX": `${padX}px`,
           "--eefPlotTopPad": `${plotTopPad}px`,
           "--eefAxisTopPad": `${axisTopPad}px`,
+          "--eefValueGap": `${valueGapPx}px`,
         }}
       >
         {/* Header */}
@@ -207,15 +214,15 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
 
                   return (
                     <div className="eefCol" key={`${slide?.id || "slide"}-p-${idx}`}>
-                      <div className="eefValue" style={{ color: textColor }}>
-                        {formatValue(v)}
-                      </div>
+                      {/* ✅ barH をCSS変数に渡して、数値を“棒上端”に追従させる */}
+                      <div className="eefBarSlot" style={{ "--eefBarH": barH }}>
+                        <div className="eefValue" style={{ color: textColor }}>
+                          {formatValue(v)}
+                        </div>
 
-                      <div className="eefBarSlot">
                         <div
                           className="eefBar"
                           style={{
-                            height: barH,
                             background: isLast ? LAST_BAR_GRADIENT : OTHER_BAR_GRADIENT,
                           }}
                         />
@@ -330,28 +337,40 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
             justify-content: flex-end;
           }
 
+          /* ✅ 数値はバーに追従させるので、ここは“相対配置の土台”にする */
+          .eefBarSlot {
+            position: relative;
+            flex: 1 1 auto;
+            width: 100%;
+            min-height: 0;
+            display: block;
+          }
+
+          /* ✅ 数値 = 棒の上端 + gap（Swift annotation の見え方） */
           .eefValue {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: calc(var(--eefBarH) + var(--eefValueGap));
             font-size: var(--eefValueSize);
             font-weight: 900;
             letter-spacing: -0.25px;
             line-height: 1;
-            margin-bottom: 10px; /* 少し詰めて棒の高さを確保 */
             white-space: nowrap;
-          }
-
-          /* ✅ ここが肝：固定62%を廃止して、残り全高を棒に使う */
-          .eefBarSlot {
-            flex: 1 1 auto;
-            width: 100%;
-            min-height: 0;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            pointer-events: none;
           }
 
           .eefBar {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
             width: calc(100% * var(--eefBarRatio));
-            border-radius: var(--eefBarRadius);
+            height: var(--eefBarH);
+
+            /* ✅ 角丸は“上だけ” */
+            border-radius: var(--eefBarRadius) var(--eefBarRadius) 0 0;
+
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
           }
 
