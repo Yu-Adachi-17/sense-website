@@ -1,5 +1,5 @@
 // src/components/slideaipro/slidePages/CoverPage.js
-import React from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import SlidePageFrame from "./SlidePageFrame";
 
 const FONT_FAMILY =
@@ -10,65 +10,104 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
   const dateText = String(slide?.title || "").trim();
   const titleText = String(slide?.subtitle || "").trim();
 
-  // 互換（古いデータ用）: subtitle が無い場合だけ title をタイトルとして扱う
+  // 互換（古いデータ用）: subtitle が無い場合は title をタイトル扱い（この場合、日付は表示しない）
   const finalTitle = titleText || dateText;
   const finalDate = titleText ? dateText : "";
 
+  // タイトルを「厳密に」ど真ん中に置き、日付はタイトルの直下へ（タイトル高さに追従）
+  const titleRef = useRef(null);
+  const [titleHeight, setTitleHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (!titleRef.current) return;
+      const r = titleRef.current.getBoundingClientRect();
+      setTitleHeight(Math.max(0, Math.round(r.height)));
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [finalTitle]);
+
+  const GAP_PX = 28; // タイトルと日付の間隔（参考画像のニュアンス）
+
   return (
     <SlidePageFrame pageNo={pageNo} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} footerRight="">
-      <div className="coverCenter">
-        <div className="coverTitle">{finalTitle}</div>
-        {finalDate ? <div className="coverDate">{finalDate}</div> : null}
+      <div className="coverHeroRoot">
+        <div ref={titleRef} className="coverHeroTitle">
+          {finalTitle}
+        </div>
+
+        {finalDate ? (
+          <div
+            className="coverHeroDate"
+            style={{
+              top: `calc(50% + ${Math.max(0, Math.round(titleHeight / 2)) + GAP_PX}px)`,
+            }}
+          >
+            {finalDate}
+          </div>
+        ) : null}
       </div>
 
       <style jsx>{`
-        .coverCenter {
+        .coverHeroRoot {
+          position: relative;
           width: 100%;
           height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding: 0 180px;
+          overflow: hidden;
+          background: transparent;
         }
 
-        .coverTitle {
+        /* タイトルは「厳密に」ど真ん中 */
+        .coverHeroTitle {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: min(1680px, calc(100% - 360px));
+          text-align: center;
+
           font-family: ${FONT_FAMILY};
           font-weight: 900;
-          font-size: clamp(96px, 8.2vw, 168px);
-          line-height: 1.04;
-          letter-spacing: -0.04em;
+          font-size: clamp(120px, 9.2vw, 190px);
+          line-height: 1.02;
+          letter-spacing: -0.045em;
           color: #0b0b0b;
 
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: geometricPrecision;
 
-          max-width: 1680px;
           word-break: break-word;
           line-break: strict;
         }
 
-        .coverDate {
-          margin-top: 34px;
+        /* 日付はタイトルの直下（タイトル高さに追従） */
+        .coverHeroDate {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+
           font-family: ${FONT_FAMILY};
           font-weight: 800;
           font-size: 36px;
           line-height: 1.1;
           letter-spacing: -0.02em;
-          color: rgba(11, 11, 11, 0.72);
+          color: #0b0b0b;
 
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: geometricPrecision;
         }
 
-        :global(.pageDark) .coverTitle {
+        :global(.pageDark) .coverHeroTitle {
           color: #f5f7fb;
         }
-        :global(.pageDark) .coverDate {
-          color: rgba(245, 247, 251, 0.72);
+        :global(.pageDark) .coverHeroDate {
+          color: #f5f7fb;
         }
       `}</style>
     </SlidePageFrame>
