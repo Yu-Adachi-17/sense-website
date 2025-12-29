@@ -6,18 +6,19 @@ const FONT_FAMILY =
   '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", system-ui, sans-serif';
 
 export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
-  // 仕様: slide.title = 日付 / slide.subtitle = タイトル
-  // 互換: subtitle が無いデータでは title を見出しとして扱う
-  const hasSub = typeof slide?.subtitle === "string" && slide.subtitle.trim().length > 0;
+  // 仕様固定: slide.title = 日付 / slide.subtitle = タイトル
+  const dateText = String(slide?.title || "").trim();
+  const titleText = String(slide?.subtitle || "").trim();
 
-  const headline = (hasSub ? slide.subtitle : slide?.title || "").trim();
-  const dateText = (hasSub ? slide?.title : "").trim();
+  // 互換（古いデータ用）: subtitle が無い場合だけ title をタイトルとして扱う
+  const finalTitle = titleText || dateText;
+  const finalDate = titleText ? dateText : "";
 
   return (
     <SlidePageFrame pageNo={pageNo} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} footerRight="">
       <div className="coverCenter">
-        {headline ? <div className="coverHeadline">{headline}</div> : null}
-        {dateText ? <div className="coverDate">{dateText}</div> : null}
+        <div className="coverTitle">{finalTitle}</div>
+        {finalDate ? <div className="coverDate">{finalDate}</div> : null}
       </div>
 
       <style jsx>{`
@@ -29,18 +30,17 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           align-items: center;
           justify-content: center;
           text-align: center;
-          padding: 0 160px;
+          padding: 0 180px;
         }
 
-        .coverHeadline {
+        .coverTitle {
           font-family: ${FONT_FAMILY};
           font-weight: 900;
-          font-size: 132px;
-          line-height: 1.03;
+          font-size: clamp(96px, 8.2vw, 168px);
+          line-height: 1.04;
           letter-spacing: -0.04em;
           color: #0b0b0b;
 
-          /* くっきり */
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: geometricPrecision;
@@ -51,10 +51,10 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
         }
 
         .coverDate {
-          margin-top: 28px;
+          margin-top: 34px;
           font-family: ${FONT_FAMILY};
-          font-weight: 700;
-          font-size: 34px;
+          font-weight: 800;
+          font-size: 36px;
           line-height: 1.1;
           letter-spacing: -0.02em;
           color: rgba(11, 11, 11, 0.72);
@@ -64,8 +64,7 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           text-rendering: geometricPrecision;
         }
 
-        /* Dark page 対応 */
-        :global(.pageDark) .coverHeadline {
+        :global(.pageDark) .coverTitle {
           color: #f5f7fb;
         }
         :global(.pageDark) .coverDate {
