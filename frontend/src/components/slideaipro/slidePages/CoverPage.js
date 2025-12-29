@@ -5,16 +5,37 @@ import SlidePageFrame from "./SlidePageFrame";
 const FONT_FAMILY =
   '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", system-ui, sans-serif';
 
+function isDateLike(s) {
+  const t = String(s || "").trim();
+  if (!t) return false;
+  // 2025-12-29 / 2025/12/29 / 2025.12.29
+  return /^\d{4}[-/.]\d{2}[-/.]\d{2}$/.test(t);
+}
+
 export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
-  // 仕様固定: slide.title = 日付 / slide.subtitle = タイトル
-  const dateText = String(slide?.title || "").trim();
-  const titleText = String(slide?.subtitle || "").trim();
+  const a = String(slide?.title || "").trim();
+  const b = String(slide?.subtitle || "").trim();
 
-  // 互換（古いデータ用）: subtitle が無い場合は title をタイトル扱い（この場合、日付は表示しない）
-  const finalTitle = titleText || dateText;
-  const finalDate = titleText ? dateText : "";
+  // 自動判定: dateっぽい方を日付へ
+  let titleText = a;
+  let dateText = b;
 
-  // タイトルを「厳密に」ど真ん中に置き、日付はタイトルの直下へ（タイトル高さに追従）
+  const aIsDate = isDateLike(a);
+  const bIsDate = isDateLike(b);
+
+  if (aIsDate && !bIsDate) {
+    dateText = a;
+    titleText = b;
+  } else if (bIsDate && !aIsDate) {
+    dateText = b;
+    titleText = a;
+  } else {
+    // どちらも日付判定できない場合は「タイトル=title / 日付=subtitle」を優先
+    titleText = a;
+    dateText = b;
+  }
+
+  // タイトルを厳密に中央、日付はタイトル直下（タイトル高さ追従）
   const titleRef = useRef(null);
   const [titleHeight, setTitleHeight] = useState(0);
 
@@ -24,29 +45,28 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
       const r = titleRef.current.getBoundingClientRect();
       setTitleHeight(Math.max(0, Math.round(r.height)));
     };
-
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
-  }, [finalTitle]);
+  }, [titleText]);
 
-  const GAP_PX = 28; // タイトルと日付の間隔（参考画像のニュアンス）
+  const GAP_PX = 26;
 
   return (
     <SlidePageFrame pageNo={pageNo} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} footerRight="">
       <div className="coverHeroRoot">
         <div ref={titleRef} className="coverHeroTitle">
-          {finalDate}
+          {titleText}
         </div>
 
-        {finalDate ? (
+        {dateText ? (
           <div
             className="coverHeroDate"
             style={{
               top: `calc(50% + ${Math.max(0, Math.round(titleHeight / 2)) + GAP_PX}px)`,
             }}
           >
-            {finalTitle}
+            {dateText}
           </div>
         ) : null}
       </div>
@@ -57,21 +77,20 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           width: 100%;
           height: 100%;
           overflow: hidden;
-          background: transparent;
         }
 
-        /* タイトルは「厳密に」ど真ん中 */
+        /* タイトル：ど真ん中 */
         .coverHeroTitle {
           position: absolute;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          width: min(1680px, calc(100% - 360px));
+          width: min(1700px, calc(100% - 320px));
           text-align: center;
 
           font-family: ${FONT_FAMILY};
           font-weight: 900;
-          font-size: clamp(120px, 9.2vw, 190px);
+          font-size: clamp(120px, 9.0vw, 190px);
           line-height: 1.02;
           letter-spacing: -0.045em;
           color: #0b0b0b;
@@ -84,7 +103,7 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           line-break: strict;
         }
 
-        /* 日付はタイトルの直下（タイトル高さに追従） */
+        /* 日付：タイトル直下、小さく、絶対に改行しない */
         .coverHeroDate {
           position: absolute;
           left: 50%;
@@ -96,7 +115,10 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           font-size: 36px;
           line-height: 1.1;
           letter-spacing: -0.02em;
-          color: #0b0b0b;
+          color: rgba(11, 11, 11, 0.78);
+
+          white-space: nowrap;
+          font-variant-numeric: tabular-nums;
 
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
@@ -107,7 +129,7 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           color: #f5f7fb;
         }
         :global(.pageDark) .coverHeroDate {
-          color: #f5f7fb;
+          color: rgba(245, 247, 251, 0.78);
         }
       `}</style>
     </SlidePageFrame>
