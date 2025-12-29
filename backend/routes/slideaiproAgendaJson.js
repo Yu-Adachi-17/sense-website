@@ -1,18 +1,15 @@
 // routes/slideaiproAgendaJson.js
-
 const express = require('express');
 
 function extractJsonArray(raw) {
   if (typeof raw !== 'string') return null;
   const s = raw.trim();
 
-  // まずそのまま配列パースを試す
   try {
     const parsed = JSON.parse(s);
     if (Array.isArray(parsed)) return parsed;
   } catch (_) {}
 
-  // 次に「最初の[」〜「最後の]」で抽出
   const start = s.indexOf('[');
   const end = s.lastIndexOf(']');
   if (start === -1 || end === -1 || end <= start) return null;
@@ -28,7 +25,6 @@ function extractJsonArray(raw) {
 
 function sanitizeCacheKey(v) {
   const s = String(v || '').trim().toLowerCase();
-  // a-z, 0-9, - のみ
   const cleaned = s
     .replace(/[^a-z0-9-]/g, '-')
     .replace(/-+/g, '-')
@@ -44,15 +40,32 @@ function keepOnly(obj, allowedKeys) {
   return out;
 }
 
-function normalizeAgendaArray(arr) {
+function normalizeOneLine(s) {
+  return String(s || '')
+    .replace(/\s+/g, ' ')
+    .replace(/\u3000/g, ' ')
+    .trim();
+}
+
+function clamp(s, maxLen) {
+  const t = normalizeOneLine(s);
+  if (!t) return '';
+  if (t.length <= maxLen) return t;
+  return t.slice(0, maxLen).trim();
+}
+
+function normalizeAgendaArray(arr, opts = {}) {
   if (!Array.isArray(arr)) throw new Error('Output is not an array');
   if (arr.length !== 5) throw new Error(`Array length must be 5, got ${arr.length}`);
+
+  const fallbackCoverTitle = clamp(opts.fallbackCoverTitle || '', 52) || 'SlideAI Pro';
 
   const allowedPatternTypes = new Set([1001, 1002, 1003, 1005, 1004]);
   const expectedOrder = [1001, 1002, 1003, 1005, 1004];
 
   const schema = {
-    1001: ['title', 'VSproblemsToSolve', 'VSproblemImagePrompt', 'VSproblemImageCacheKey', 'importantMessage'],
+    // ✅ coverTitle を許可キーに追加（ここが本件の根本原因）
+    1001: ['coverTitle', 'title', 'VSproblemsToSolve', 'VSproblemImagePrompt', 'VSproblemImageCacheKey', 'importantMessage'],
     1002: ['title', 'VSproposalForBetter', 'VSproposalImagePrompt', 'VSproposalImageCacheKey', 'importantMessage'],
     1003: ['title', 'VSexpectedEffectsBefore', 'VSexpectedEffectsAfter', 'importantMessage'],
     1005: ['title', 'yAxisName', 'unit', 'barGroups', 'importantMessage'],
@@ -67,20 +80,23 @@ function normalizeAgendaArray(arr) {
       throw new Error(`Item[${i}] invalid patternType=${patternType}`);
     }
     if (patternType !== expectedOrder[i]) {
-      throw new Error(
-        `Item[${i}] patternType order mismatch. expected=${expectedOrder[i]} got=${patternType}`
-      );
+      throw new Error(`Item[${i}] patternType order mismatch. expected=${expectedOrder[i]} got=${patternType}`);
     }
 
     const title = typeof item.title === 'string' ? item.title : '';
     const data = item.data && typeof item.data === 'object' ? item.data : null;
     if (!data) throw new Error(`Item[${i}] missing data`);
 
-    // 余計なキーを落とす
     const allowedDataKeys = schema[patternType];
     let cleanData = keepOnly(data, allowedDataKeys);
 
-    // 1001/1002 cache key のサニタイズ（改行・混入事故の保険）
+    // ✅ 1001 coverTitle の補完・整形（モデルが落とした時の保険）
+    if (patternType === 1001) {
+      const ct = clamp(cleanData.coverTitle || '', 52);
+      cleanData.coverTitle = ct || fallbackCoverTitle;
+    }
+
+    // 1001/1002 cache key のサニタイズ
     if (patternType === 1001 && cleanData.VSproblemImageCacheKey !== undefined) {
       cleanData.VSproblemImageCacheKey = sanitizeCacheKey(cleanData.VSproblemImageCacheKey);
     }
@@ -88,7 +104,7 @@ function normalizeAgendaArray(arr) {
       cleanData.VSproposalImageCacheKey = sanitizeCacheKey(cleanData.VSproposalImageCacheKey);
     }
 
-    // 配列上限（過剰生成の保険）
+    // 配列上限
     if (patternType === 1001 && Array.isArray(cleanData.VSproblemsToSolve)) {
       cleanData.VSproblemsToSolve = cleanData.VSproblemsToSolve.slice(0, 5).map((x) => String(x));
     }
@@ -141,14 +157,13 @@ function normalizeAgendaArray(arr) {
 }
 
 function todayISOInTokyo() {
-  // "YYYY-MM-DD" を JST 基準で作る
   try {
     return new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
   } catch (_) {
-    // フォールバック（環境により timeZone が効かない場合）
     return new Date().toISOString().slice(0, 10);
   }
 }
+
 
 function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
   const lang = String(localeResolved || "en").toLowerCase();
@@ -381,27 +396,15 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
     const debug = req.headers['x-debug-log'] === '1';
 
     try {
-      const {
-        brief,
-        baseDate,
-        locale: localeFromBody,
-        prompt,
-        renderMode,
-        theme,
-      } = req.body || {};
+      const { brief, baseDate, locale: localeFromBody, prompt, renderMode, theme } = req.body || {};
 
-      // brief は必須（これは残す）
       if (!brief || !String(brief).trim()) {
         return res.status(400).json({ ok: false, error: 'bad_request', details: 'brief is required' });
       }
 
-      // baseDate は任意（なければ今日）
       const baseDateValue = String(baseDate || '').trim() || todayISOInTokyo();
-
-      // locale 解決
       const localeResolved = resolveLocale(req, localeFromBody);
 
-      // prompt は任意（なければサーバ既定プロンプト）
       const systemInstruction =
         (typeof prompt === 'string' && prompt.trim())
           ? String(prompt).trim()
@@ -428,9 +431,7 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
 
       const raw = await callGemini(filled, '', generationConfig);
 
-      if (debug) {
-        logLong('[AGENDA_JSON raw]', raw);
-      }
+      if (debug) logLong('[AGENDA_JSON raw]', raw);
 
       const extracted = extractJsonArray(raw);
       if (!extracted) {
@@ -443,11 +444,10 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
         });
       }
 
-      const normalized = normalizeAgendaArray(extracted);
+      // ✅ brief を coverTitle のフォールバックとして渡す
+      const normalized = normalizeAgendaArray(extracted, { fallbackCoverTitle: brief });
 
-      // ✅ 成功時は「トップレベル配列だけ」を返す（フロントのデコードが一番安定）
       return res.status(200).json(normalized);
-
     } catch (err) {
       console.error('[AGENDA_JSON] internal error:', err);
       return res.status(500).json({
@@ -460,3 +460,5 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
 
   return router;
 };
+
+
