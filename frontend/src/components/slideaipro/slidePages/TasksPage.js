@@ -6,9 +6,13 @@ const MIN_DURATION_MS = 24 * 60 * 60 * 1000; // 24h
 const FIXED_BAR_RATIO = 0.2;
 const MAX_ROWS = 10;
 const MAX_TICKS = 5;
+
 const FONT_FAMILY =
   '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", system-ui, sans-serif';
 
+// ヘッダーだけは「数字も日本語も同じ書体」に寄せる（Hiragino優先）
+const HEADER_FONT_FAMILY =
+  '"Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, sans-serif';
 
 // パース強め（"YYYY-MM-DD HH:mm" / "YYYY-MM-DD" / ISO を許容）
 function parseDeadline(v) {
@@ -23,9 +27,7 @@ function parseDeadline(v) {
   if (!Number.isNaN(isoTry.getTime())) return isoTry;
 
   // "YYYY-MM-DD HH:mm" / "YYYY-MM-DD HH:mm:ss"
-  const m = s.match(
-    /^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?$/
-  );
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?$/);
   if (m) {
     const yy = Number(m[1]);
     const mo = Number(m[2]);
@@ -212,25 +214,17 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
       const plotEl = plotRef.current;
       const plotH = plotEl ? plotEl.clientHeight : 0;
 
-      // 影がスライド外で切られる前提で、plotに安全余白を確保（高さから逆算して必ず入る範囲に）
-      // 下側は box-shadow(0 18 40) の “下方向” を飲み込むため厚め。
       const plotPadT = plotH > 0 ? Math.round(clamp(plotH * 0.045, 18, 32)) : 22;
       const plotPadB = plotH > 0 ? Math.round(clamp(plotH * 0.11, 48, 92)) : 70;
 
       const n = Math.max(1, jobs.length);
 
-      // ここが肝：
-      // rowH を floor で “絶対に溢れない” 値にする（下限で押し上げない）
       const innerPlotH = Math.max(0, plotH - plotPadT - plotPadB);
       const rowH0 = innerPlotH > 0 ? Math.floor(innerPlotH / n) : 1;
 
-      // 見た目の上限だけ制限（上げる方向の clamp はしない）
       let rowH = Math.min(150, Math.max(1, rowH0));
-
-      // 安全装置：万一ここで rowH*n が innerPlotH を超えたら rowH0 に戻す
       if (innerPlotH > 0 && rowH * n > innerPlotH) rowH = rowH0;
 
-      // bar は rowH に完全追従（必ず rowH 内に収める）
       const minInner = Math.max(1, rowH - 10);
       let barH = Math.round(rowH * 0.62);
       barH = clamp(barH, 16, minInner);
@@ -238,7 +232,6 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
       let barTop = Math.floor((rowH - barH) / 2);
       barTop = clamp(barTop, 2, Math.max(2, rowH - barH));
 
-      // 左ラベル：rowH が小さいときは確実に縮む（はみ出しはクリップ）
       const titleFs = clamp(Math.round(rowH * 0.20), 12, 22);
       const assigneeFs = clamp(Math.round(rowH * 0.16), 11, 18);
       const labelPadTop = clamp(Math.round(rowH * 0.12), 2, 14);
@@ -246,17 +239,13 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
 
       setLayoutVars({
         axisOuterPx,
-
         plotPadT,
         plotPadB,
-
         rowH,
         barH,
         barTop,
-
         labelPadTop,
         assigneeMt,
-
         titleFs,
         assigneeFs,
       });
@@ -271,7 +260,8 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
     return () => ro.disconnect();
   }, [jobs.length, isIntelMode, slide?.title]);
 
-  function tickStyle(ms) {
+
+    function tickStyle(ms) {
     const xPct = Math.min(1, Math.max(0, (ms - axisStartMs) / axisRangeMs));
     if (xPct < 0.06) return { left: `${xPct * 100}%`, transform: "translateX(0%)", textAlign: "left" };
     if (xPct > 0.94) return { left: `${xPct * 100}%`, transform: "translateX(-100%)", textAlign: "right" };
@@ -363,19 +353,19 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
       </div>
 
       <style jsx>{`
-.tpRoot {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--tp-fg);
+        .tpRoot {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          color: var(--tp-fg);
 
-  font-family: ${FONT_FAMILY};
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  font-synthesis: none;
-  font-feature-settings: "palt";
-}
+          font-family: ${FONT_FAMILY};
+          text-rendering: geometricPrecision;
+          -webkit-font-smoothing: antialiased;
+          font-synthesis: none;
+          font-feature-settings: "palt";
+        }
 
         .tpHeader {
           padding-top: 26px;
@@ -384,6 +374,7 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           padding-bottom: 14px;
           flex: 0 0 auto;
         }
+
         .tpHeaderText {
           display: flex;
           align-items: baseline;
@@ -392,19 +383,28 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           letter-spacing: -0.6px;
           line-height: 1.02;
           min-width: 0;
+
+          /* ここで「6.」と日本語を同じ書体に寄せる */
+          font-family: ${HEADER_FONT_FAMILY};
         }
+
         .tpHeaderNo {
           font-size: clamp(48px, 5.2vw, 64px);
           flex: 0 0 auto;
-        }
-.tpHeaderTitle {
-  font-size: clamp(48px, 5.2vw, 64px);
-  word-break: break-word;
-  white-space: normal;
-  min-width: 0;
 
-  font-weight: 900; /* ← 追加：タイトルだけ太字を明示 */
-}
+          /* 念のため明示（数字だけ別ウェイトになる事故防止） */
+          font-weight: 900;
+          font-family: inherit;
+        }
+
+        .tpHeaderTitle {
+          font-size: clamp(48px, 5.2vw, 64px);
+          word-break: break-word;
+          white-space: normal;
+          min-width: 0;
+          font-weight: 900;
+          font-family: inherit;
+        }
 
         .tpEmpty {
           flex: 1;
@@ -415,7 +415,10 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           flex: 1;
           min-height: 0;
           display: flex;
-          gap: 26px;
+
+          /* ガント領域を少し左に拡大 */
+          gap: 22px;
+
           padding-left: 24px;
           padding-right: 24px;
           padding-bottom: 16px;
@@ -423,16 +426,20 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
 
         /* Left labels */
         .tpLeft {
-          width: clamp(320px, 30vw, 460px);
-          min-width: clamp(320px, 30vw, 460px);
+          /* ガント領域を少し左に拡大（左カラムを少しだけ詰める） */
+          width: clamp(300px, 27vw, 430px);
+          min-width: clamp(300px, 27vw, 430px);
+
           display: flex;
           flex-direction: column;
           min-height: 0;
         }
+
         .tpLeftAxisSpacer {
           height: var(--tp-axisOuter);
           flex: 0 0 auto;
         }
+
         .tpLeftList {
           flex: 1;
           min-height: 0;
@@ -444,10 +451,10 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
         .tpRowLabel {
           height: var(--tp-rowh);
           padding-top: var(--tp-labelPadTop);
-          padding-right: 10px;
+          padding-right: 8px;
           position: relative;
           box-sizing: border-box;
-          overflow: hidden; /* ここで下方向の “漏れ” を確実に止める */
+          overflow: hidden;
         }
 
         /* 2行まで。…は出さない（切るだけ） */
@@ -471,7 +478,7 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           color: var(--tp-muted);
           letter-spacing: -0.22px;
           white-space: nowrap;
-          overflow: hidden; /* …は出さない */
+          overflow: hidden;
         }
 
         .tpRowDivider {
@@ -500,6 +507,7 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           overflow: visible;
           flex: 0 0 auto;
         }
+
         .tpTick {
           position: absolute;
           top: 0;
@@ -507,12 +515,14 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           pointer-events: none;
           white-space: nowrap;
         }
+
         .tpTickDate,
         .tpTickTime {
           font-size: 16px;
           font-weight: 850;
           letter-spacing: -0.1px;
         }
+
         .tpTickTime {
           margin-top: 2px;
         }
@@ -524,7 +534,7 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           padding-top: var(--tp-plotPadT);
           padding-bottom: var(--tp-plotPadB);
           box-sizing: border-box;
-          overflow: hidden; /* SlidePageFrame がクリップする前に “内側で必ず収める” */
+          overflow: hidden;
         }
 
         .tpVLine {
@@ -547,7 +557,6 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           top: var(--tp-bartop);
           height: var(--tp-barh);
           border-radius: 10px;
-          /* 影は残す。ただし plot の上下 padding が吸収する */
           box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
           filter: saturate(1.05);
         }
