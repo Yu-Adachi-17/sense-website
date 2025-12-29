@@ -36,7 +36,7 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
     <SlidePageFrame pageNo={pageNo} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} footerRight="">
       <div className="coverHeroRoot">
         <div ref={titleRef} className="coverHeroTitle">
-          {finalTitle}
+          {finalDate}
         </div>
 
         {finalDate ? (
@@ -46,7 +46,7 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
               top: `calc(50% + ${Math.max(0, Math.round(titleHeight / 2)) + GAP_PX}px)`,
             }}
           >
-            {finalDate}
+            {finalTitle}
           </div>
         ) : null}
       </div>
