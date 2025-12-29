@@ -165,11 +165,9 @@ function waitImagesIn(node) {
 function buildSlidesFromAgenda({ brief, agenda }) {
   const a = Array.isArray(agenda) ? agenda : [];
 
-  // coverTitle は (patternType=1001).data.coverTitle を優先して拾う
   const firstProblem = a.find((it) => Number(it?.patternType) === 1001) || a[0] || {};
   const coverTitle =
     String(firstProblem?.data?.coverTitle || "").trim() ||
-    String(brief || "").trim() ||
     "SlideAI Pro";
 
   const cover = {
@@ -276,6 +274,7 @@ function buildSlidesFromAgenda({ brief, agenda }) {
 
   return out;
 }
+
 
 
 export default function SlideAIProHome() {
