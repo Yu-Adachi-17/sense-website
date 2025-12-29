@@ -1,350 +1,323 @@
-// services/slideAiProAgendaJson.js
+// routes/slideaiproAgendaJson.js
 
-const { buildSlideAiProAgendaPromptJa } = require('../prompts/slideAiProAgendaPromptJa');
+const express = require("express");
 
-const ORDER = [1001, 1002, 1003, 1005, 1004];
+function extractJsonArray(raw) {
+  if (typeof raw !== "string") return null;
+  const s = raw.trim();
 
-const ALLOWED_DATA_KEYS = {
-1001: new Set([
-  'title',
-  'coverTitle',
-  'VSproblemsToSolve',
-  'VSproblemImagePrompt',
-  'VSproblemImageCacheKey',
-  'importantMessage',
-]),
-  1002: new Set([
-    'title',
-    'VSproposalForBetter',
-    'VSproposalImagePrompt',
-    'VSproposalImageCacheKey',
-    'importantMessage',
-  ]),
-  1003: new Set([
-    'title',
-    'VSexpectedEffectsBefore',
-    'VSexpectedEffectsAfter',
-    'importantMessage',
-  ]),
-  1005: new Set([
-    'title',
-    'yAxisName',
-    'unit',
-    'barGroups',
-    'importantMessage',
-  ]),
-  1004: new Set([
-    'title',
-    'taskTitles',
-    'assignees',
-    'deadlines',
-  ]),
-};
+  try {
+    const parsed = JSON.parse(s);
+    if (Array.isArray(parsed)) return parsed;
+  } catch (_) {}
 
-function pad2(n) {
-  return String(n).padStart(2, '0');
+  const start = s.indexOf("[");
+  const end = s.lastIndexOf("]");
+  if (start === -1 || end === -1 || end <= start) return null;
+
+  const sliced = s.slice(start, end + 1).trim();
+  try {
+    const parsed = JSON.parse(sliced);
+    if (Array.isArray(parsed)) return parsed;
+  } catch (_) {}
+
+  return null;
 }
 
-function todayJstYYYYMMDD() {
-  const now = new Date();
-  // サーバはUTCの場合があるので、JSTで日付を切る（最小の補正）
-  const jst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
-  return `${jst.getUTCFullYear()}-${pad2(jst.getUTCMonth() + 1)}-${pad2(jst.getUTCDate())}`;
+function sanitizeCacheKey(v) {
+  const s = String(v || "").trim().toLowerCase();
+  const cleaned = s.replace(/[^a-z0-9-]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+  return cleaned || "vibe-key";
 }
 
-function stripCodeFences(s) {
-  if (!s || typeof s !== 'string') return '';
-  let t = s.trim();
-  t = t.replace(/^json\s*\n/i, '');
-  t = t.replace(/^```(?:json)?\s*\n/i, '');
-  t = t.replace(/\n```$/i, '');
-  return t.trim();
-}
-
-function extractJsonArrayText(s) {
-  const t = stripCodeFences(s);
-  const first = t.indexOf('[');
-  const last = t.lastIndexOf(']');
-  if (first === -1 || last === -1 || last <= first) return null;
-  return t.slice(first, last + 1);
-}
-
-function isPlainObject(v) {
-  return !!v && typeof v === 'object' && !Array.isArray(v);
-}
-
-function validateAgendaArray(arr) {
-  const errors = [];
-
-  if (!Array.isArray(arr)) {
-    errors.push('top-level is not array');
-    return errors;
+function keepOnly(obj, allowedKeys) {
+  const out = {};
+  for (const k of allowedKeys) {
+    if (Object.prototype.hasOwnProperty.call(obj, k)) out[k] = obj[k];
   }
-
-  if (arr.length !== 5) errors.push(`array length must be 5, got ${arr.length}`);
-
-  for (let i = 0; i < Math.min(arr.length, 5); i++) {
-    const it = arr[i];
-    const expectedType = ORDER[i];
-
-    if (!isPlainObject(it)) {
-      errors.push(`item[${i}] is not object`);
-      continue;
-    }
-
-    const keys = Object.keys(it).sort();
-    const okKeys = ['data', 'patternType', 'title'];
-    if (keys.length !== 3 || keys.join(',') !== okKeys.join(',')) {
-      errors.push(`item[${i}] keys must be exactly title/patternType/data (got: ${keys.join(',')})`);
-    }
-
-    if (typeof it.title !== 'string' || !it.title.trim()) errors.push(`item[${i}].title must be non-empty string`);
-
-    if (typeof it.patternType !== 'number' || !Number.isInteger(it.patternType)) {
-      errors.push(`item[${i}].patternType must be int`);
-    } else {
-      if (it.patternType !== expectedType) {
-        errors.push(`item[${i}].patternType must be ${expectedType}, got ${it.patternType}`);
-      }
-    }
-
-    if (!isPlainObject(it.data)) {
-      errors.push(`item[${i}].data must be object`);
-      continue;
-    }
-
-    const allow = ALLOWED_DATA_KEYS[expectedType];
-    if (!allow) {
-      errors.push(`unknown patternType at item[${i}]`);
-      continue;
-    }
-
-    for (const k of Object.keys(it.data)) {
-      if (!allow.has(k)) errors.push(`item[${i}].data has forbidden key: ${k}`);
-    }
-    // 必須キーの存在（最小限）
-    for (const k of allow) {
-      if (!(k in it.data)) errors.push(`item[${i}].data missing key: ${k}`);
-      if (it.data[k] === null) errors.push(`item[${i}].data.${k} must not be null`);
-    }
-
-    // 追加の型・制約（最低限だが実務で効くところだけ）
-    if (expectedType === 1001) {
-      if (it.data.title !== '解決したい課題') errors.push(`item[${i}].data.title must be "解決したい課題"`);
-      if (!Array.isArray(it.data.VSproblemsToSolve) || it.data.VSproblemsToSolve.length < 1 || it.data.VSproblemsToSolve.length > 5) {
-        errors.push(`item[${i}].data.VSproblemsToSolve length must be 1..5`);
-      }
-      if (typeof it.data.VSproblemImageCacheKey !== 'string' || !/^[a-z0-9-]+$/.test(it.data.VSproblemImageCacheKey)) {
-        errors.push(`item[${i}].data.VSproblemImageCacheKey must be [a-z0-9-]+`);
-      }
-    }
-
-    if (expectedType === 1002) {
-      if (!Array.isArray(it.data.VSproposalForBetter) || it.data.VSproposalForBetter.length < 1 || it.data.VSproposalForBetter.length > 5) {
-        errors.push(`item[${i}].data.VSproposalForBetter length must be 1..5`);
-      }
-      if (typeof it.data.VSproposalImageCacheKey !== 'string' || !/^[a-z0-9-]+$/.test(it.data.VSproposalImageCacheKey)) {
-        errors.push(`item[${i}].data.VSproposalImageCacheKey must be [a-z0-9-]+`);
-      }
-    }
-
-    if (expectedType === 1003) {
-      if (!Array.isArray(it.data.VSexpectedEffectsBefore) || it.data.VSexpectedEffectsBefore.length < 1 || it.data.VSexpectedEffectsBefore.length > 3) {
-        errors.push(`item[${i}].data.VSexpectedEffectsBefore length must be 1..3`);
-      }
-      if (!Array.isArray(it.data.VSexpectedEffectsAfter) || it.data.VSexpectedEffectsAfter.length < 1 || it.data.VSexpectedEffectsAfter.length > 3) {
-        errors.push(`item[${i}].data.VSexpectedEffectsAfter length must be 1..3`);
-      }
-    }
-
-    if (expectedType === 1005) {
-      if (!Array.isArray(it.data.barGroups) || it.data.barGroups.length < 2) {
-        errors.push(`item[${i}].data.barGroups must be array (>=2 recommended)`);
-      } else {
-        for (let gi = 0; gi < it.data.barGroups.length; gi++) {
-          const g = it.data.barGroups[gi];
-          if (!isPlainObject(g)) {
-            errors.push(`item[${i}].data.barGroups[${gi}] is not object`);
-            continue;
-          }
-          if (typeof g.category !== 'string' || !g.category.trim()) errors.push(`item[${i}].data.barGroups[${gi}].category must be non-empty string`);
-          if (!Array.isArray(g.bars) || g.bars.length !== 1) {
-            errors.push(`item[${i}].data.barGroups[${gi}].bars must be array length=1`);
-            continue;
-          }
-          const b = g.bars[0];
-          if (!isPlainObject(b)) {
-            errors.push(`item[${i}].data.barGroups[${gi}].bars[0] is not object`);
-            continue;
-          }
-          if (b.label !== 'actual') errors.push(`item[${i}].data.barGroups[${gi}].bars[0].label must be "actual"`);
-          if (typeof b.value !== 'number' || Number.isNaN(b.value)) errors.push(`item[${i}].data.barGroups[${gi}].bars[0].value must be number`);
-        }
-      }
-    }
-
-    if (expectedType === 1004) {
-      const { taskTitles, assignees, deadlines } = it.data;
-      if (!Array.isArray(taskTitles) || taskTitles.length < 3 || taskTitles.length > 6) errors.push(`item[${i}].data.taskTitles length must be 3..6`);
-      if (!Array.isArray(assignees) || assignees.length !== (taskTitles?.length || -1)) errors.push(`item[${i}].data.assignees length must match taskTitles`);
-      if (!Array.isArray(deadlines) || deadlines.length !== (taskTitles?.length || -1)) errors.push(`item[${i}].data.deadlines length must match taskTitles`);
-      if (Array.isArray(deadlines)) {
-        for (let di = 0; di < deadlines.length; di++) {
-          const d = deadlines[di];
-          if (typeof d !== 'string' || !/^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}$/.test(d)) {
-            errors.push(`item[${i}].data.deadlines[${di}] must match yyyy-MM-dd HH:mm`);
-          }
-        }
-      }
-    }
-  }
-
-  return errors;
-}
-
-async function repairOnce({ callGemini, systemPrompt, badText, errors }) {
-  const repairSystem = [
-    "You are a strict JSON repair tool.",
-    "Return ONLY a top-level JSON array that satisfies the contract.",
-    "Do not output any text outside JSON.",
-    "",
-    "Contract summary:",
-    "- Top-level must be a single JSON array.",
-    "- Length must be exactly 5.",
-    "- Order of patternType must be: 1001,1002,1003,1005,1004.",
-    "- Each item must have exactly keys: title, patternType, data.",
-    "- No null.",
-    "- For 1005 bars: label must be 'actual' only and value must be number.",
-    "- For 1004 deadlines must be 'yyyy-MM-dd HH:mm'."
-  ].join("\n");
-
-  const repairUser = [
-    "Here is the original system prompt that must be followed:",
-    systemPrompt,
-    "",
-    "Validation errors found:",
-    errors.map((e) => `- ${e}`).join("\n"),
-    "",
-    "Broken output to repair (may include extra text; ignore it and output only valid JSON array):",
-    badText
-  ].join("\n");
-
-  const generationConfig = {
-    temperature: 0,
-    maxOutputTokens: 12000,
-    responseMimeType: 'application/json',
-  };
-
-  const out = await callGemini(repairSystem, repairUser, generationConfig);
   return out;
 }
 
-function createSlideAiProAgendaJsonGenerator(callGemini) {
-  if (typeof callGemini !== 'function') throw new Error('callGemini function is required');
+function normalizeAgendaArray(arr) {
+  if (!Array.isArray(arr)) throw new Error("Output is not an array");
+  if (arr.length !== 5) throw new Error(`Array length must be 5, got ${arr.length}`);
 
-  return async function generateAgendaJson({ userBrief, baseDate }) {
-    const brief = String(userBrief || '').trim();
-    if (!brief) throw new Error('userBrief is empty');
+  const allowedPatternTypes = new Set([1001, 1002, 1003, 1005, 1004]);
+  const expectedOrder = [1001, 1002, 1003, 1005, 1004];
 
-    const base = String(baseDate || '').trim() || todayJstYYYYMMDD();
-
-    const systemPrompt = buildSlideAiProAgendaPromptJa()
-      .replaceAll('{{USER_BRIEF}}', brief)
-      .replaceAll('{{BASE_DATE}}', base);
-
-    const generationConfig = {
-      temperature: 0,
-      maxOutputTokens: 16000,
-      responseMimeType: 'application/json',
-    };
-
-    // 1st try
-    let raw = await callGemini(systemPrompt, '', generationConfig);
-    raw = stripCodeFences(raw);
-
-    // parse attempt
-    let arr = null;
-    let parseUsedExtraction = false;
-
-    try {
-      arr = JSON.parse(raw);
-    } catch {
-      const extracted = extractJsonArrayText(raw);
-      if (extracted) {
-        parseUsedExtraction = true;
-        try {
-          arr = JSON.parse(extracted);
-          raw = extracted;
-        } catch {
-          arr = null;
-        }
-      }
-    }
-
-    let errors = arr ? validateAgendaArray(arr) : ['JSON parse failed'];
-
-    // 2nd try (repair once)
-    if (errors.length > 0) {
-      const repaired = await repairOnce({
-        callGemini,
-        systemPrompt,
-        badText: raw,
-        errors,
-      });
-
-      let repairedRaw = stripCodeFences(repaired);
-      let repairedArr = null;
-
-      try {
-        repairedArr = JSON.parse(repairedRaw);
-      } catch {
-        const extracted = extractJsonArrayText(repairedRaw);
-        if (extracted) {
-          repairedRaw = extracted;
-          repairedArr = JSON.parse(repairedRaw);
-        }
-      }
-
-      const repairedErrors = validateAgendaArray(repairedArr);
-      if (repairedErrors.length === 0) {
-        return {
-          ok: true,
-          baseDate: base,
-          raw: repairedRaw,
-          parsed: repairedArr,
-          meta: {
-            repaired: true,
-            parseUsedExtraction: false,
-          },
-        };
-      }
-
-      return {
-        ok: false,
-        baseDate: base,
-        raw: repairedRaw,
-        parsed: repairedArr || null,
-        meta: {
-          repaired: true,
-          parseUsedExtraction: false,
-          errors: repairedErrors,
-        },
-      };
-    }
-
-    return {
-      ok: true,
-      baseDate: base,
-      raw,
-      parsed: arr,
-      meta: {
-        repaired: false,
-        parseUsedExtraction,
-      },
-    };
+  const schema = {
+    1001: [
+      "title",
+      "coverTitle",
+      "VSproblemsToSolve",
+      "VSproblemImagePrompt",
+      "VSproblemImageCacheKey",
+      "importantMessage",
+    ],
+    1002: ["title", "VSproposalForBetter", "VSproposalImagePrompt", "VSproposalImageCacheKey", "importantMessage"],
+    1003: ["title", "VSexpectedEffectsBefore", "VSexpectedEffectsAfter", "importantMessage"],
+    1005: ["title", "yAxisName", "unit", "barGroups", "importantMessage"],
+    1004: ["title", "taskTitles", "assignees", "deadlines"],
   };
+
+  const normalized = arr.map((item, i) => {
+    if (!item || typeof item !== "object") throw new Error(`Item[${i}] is not object`);
+
+    const patternType = item.patternType;
+    if (!Number.isInteger(patternType) || !allowedPatternTypes.has(patternType)) {
+      throw new Error(`Item[${i}] invalid patternType=${patternType}`);
+    }
+    if (patternType !== expectedOrder[i]) {
+      throw new Error(`Item[${i}] patternType order mismatch. expected=${expectedOrder[i]} got=${patternType}`);
+    }
+
+    const title = typeof item.title === "string" ? item.title : "";
+    const data = item.data && typeof item.data === "object" ? item.data : null;
+    if (!data) throw new Error(`Item[${i}] missing data`);
+
+    const allowedDataKeys = schema[patternType];
+    let cleanData = keepOnly(data, allowedDataKeys);
+
+    // string化（モデル出力の型ブレ保険）
+    for (const k of Object.keys(cleanData)) {
+      if (cleanData[k] === null) cleanData[k] = "";
+    }
+
+    if (patternType === 1001) {
+      cleanData.coverTitle = String(cleanData.coverTitle || "").trim();
+      cleanData.title = String(cleanData.title || "").trim();
+      cleanData.importantMessage = String(cleanData.importantMessage || "").trim();
+      cleanData.VSproblemImagePrompt = String(cleanData.VSproblemImagePrompt || "").trim();
+      cleanData.VSproblemImageCacheKey = sanitizeCacheKey(cleanData.VSproblemImageCacheKey);
+
+      if (Array.isArray(cleanData.VSproblemsToSolve)) {
+        cleanData.VSproblemsToSolve = cleanData.VSproblemsToSolve.slice(0, 5).map((x) => String(x));
+      } else {
+        cleanData.VSproblemsToSolve = [];
+      }
+    }
+
+    if (patternType === 1002) {
+      cleanData.title = String(cleanData.title || "").trim();
+      cleanData.importantMessage = String(cleanData.importantMessage || "").trim();
+      cleanData.VSproposalImagePrompt = String(cleanData.VSproposalImagePrompt || "").trim();
+      cleanData.VSproposalImageCacheKey = sanitizeCacheKey(cleanData.VSproposalImageCacheKey);
+
+      if (Array.isArray(cleanData.VSproposalForBetter)) {
+        cleanData.VSproposalForBetter = cleanData.VSproposalForBetter.slice(0, 5).map((x) => String(x));
+      } else {
+        cleanData.VSproposalForBetter = [];
+      }
+    }
+
+    if (patternType === 1003) {
+      cleanData.title = String(cleanData.title || "").trim();
+      cleanData.importantMessage = String(cleanData.importantMessage || "").trim();
+
+      if (Array.isArray(cleanData.VSexpectedEffectsBefore)) {
+        cleanData.VSexpectedEffectsBefore = cleanData.VSexpectedEffectsBefore.slice(0, 3).map((x) => String(x));
+      } else {
+        cleanData.VSexpectedEffectsBefore = [];
+      }
+
+      if (Array.isArray(cleanData.VSexpectedEffectsAfter)) {
+        cleanData.VSexpectedEffectsAfter = cleanData.VSexpectedEffectsAfter.slice(0, 3).map((x) => String(x));
+      } else {
+        cleanData.VSexpectedEffectsAfter = [];
+      }
+    }
+
+    if (patternType === 1005) {
+      cleanData.title = String(cleanData.title || "").trim();
+      cleanData.yAxisName = String(cleanData.yAxisName || "").trim();
+      cleanData.unit = String(cleanData.unit || "").trim();
+      cleanData.importantMessage = String(cleanData.importantMessage || "").trim();
+
+      if (Array.isArray(cleanData.barGroups)) {
+        cleanData.barGroups = cleanData.barGroups.map((bg) => {
+          const category = String(bg?.category ?? "");
+          const bars = Array.isArray(bg?.bars) ? bg.bars : [];
+          const actual = bars.find((b) => b?.label === "actual") || bars[0];
+          const value = Number(actual?.value ?? 0);
+          return {
+            category,
+            bars: [{ label: "actual", value: Number.isFinite(value) ? value : 0 }],
+          };
+        });
+      } else {
+        cleanData.barGroups = [];
+      }
+    }
+
+    if (patternType === 1004) {
+      cleanData.title = String(cleanData.title || "").trim();
+
+      const taskTitles = Array.isArray(cleanData.taskTitles) ? cleanData.taskTitles.map(String) : [];
+      const assignees = Array.isArray(cleanData.assignees) ? cleanData.assignees.map(String) : [];
+      const deadlines = Array.isArray(cleanData.deadlines) ? cleanData.deadlines.map(String) : [];
+
+      const n = Math.min(taskTitles.length, assignees.length, deadlines.length);
+      if (n < 3) throw new Error("Task arrays must have at least 3 items and same length");
+
+      cleanData.taskTitles = taskTitles.slice(0, n);
+      cleanData.assignees = assignees.slice(0, n);
+      cleanData.deadlines = deadlines.slice(0, n);
+    }
+
+    return { title, patternType, data: cleanData };
+  });
+
+  return normalized;
 }
 
-module.exports = {
-  createSlideAiProAgendaJsonGenerator,
+function todayISOInTokyo() {
+  try {
+    return new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Tokyo" });
+  } catch (_) {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
+
+function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
+  const lang = String(localeResolved || "en").toLowerCase();
+  const isJa = lang === "ja";
+
+  const modeHint =
+    renderMode === "vibeSlidingIdea"
+      ? isJa
+        ? "アイデア提案資料（Vibe Sliding）"
+        : "Idea proposal deck (Vibe Sliding)"
+      : isJa
+        ? "資料"
+        : "Deck";
+
+  const themeHint =
+    theme === "dark" ? (isJa ? "ダークテーマ" : "dark theme") : isJa ? "ライトテーマ" : "light theme";
+
+  if (isJa) {
+    return [
+      "あなたは資料ラベル作成のJSONジェネレータです。これからユーザーは資料化したいテーマを短文で指定してきます。そこから(課題)→(提案)→(改善前後の顧客体験)→(期待できる効果: 数値)→(タスク)の流れで資料を作成してください。指定がない限り、ストーリーになるように数値などは創作可能です。ただし指定のキーのみで出力してください。資料のラベルにそのまま記載するため、敬語禁止、言い切り調の体言止めで。",
+      "重要: title / coverTitle / importantMessage / 箇条書き / taskTitles は資料ラベルとして短く簡潔にする。冗長な説明、前置き、接続詞だらけの文章は禁止。1行で読める長さを優先。",
+      "入力から、Swiftの AgendaItem / PatternData に適合する最終JSON(トップレベル配列1つ)を生成してください。",
+      `この資料は「${modeHint}」で、見た目は「${themeHint}」想定です（内容は変に装飾しない）。`,
+      "",
+      "【入力】",
+      "- ユーザーの資料テーマ: {{USER_BRIEF}}",
+      "- 基準日(YYYY-MM-DD): {{BASE_DATE_YYYY-MM-DD}}",
+      "",
+      "【出力契約(最重要・絶対)】",
+      "- 出力はJSONのみ。文章、前置き、解説、Markdown、コードブロック、バッククォート、箇条書き、jsonという見出し文字、注釈、追加の改行装飾は禁止。",
+      "- 出力はトップレベルJSON配列1つだけ。",
+      "- 要素数は必ず5固定。順序固定。増減禁止。",
+      "- 各要素は必ず3キーのみ: title, patternType, data(これ以外のキーは禁止)。",
+      "- patternTypeは必ず整数。順序は [1001, 1002, 1003, 1005, 1004]。",
+      "- null禁止。絵文字禁止。TBD禁止。プレースホルダ禁止。",
+      "",
+      "【patternType別 data フィールド仕様(これ以外のキーは禁止)】",
+      "(1) 1001 data: coverTitle,title,VSproblemsToSolve,VSproblemImagePrompt,VSproblemImageCacheKey,importantMessage",
+      "(2) 1002 data: title,VSproposalForBetter,VSproposalImagePrompt,VSproposalImageCacheKey,importantMessage",
+      "(3) 1003 data: title,VSexpectedEffectsBefore,VSexpectedEffectsAfter,importantMessage",
+      "(4) 1005 data: title,yAxisName,unit,barGroups,importantMessage",
+      "(5) 1004 data: title,taskTitles,assignees,deadlines",
+      "",
+      "以上の条件で、{{USER_BRIEF}}を最終JSON(配列)に変換して出力せよ。",
+    ].join("\n");
+  }
+
+  return [
+    "You are a JSON generator for slide label content for SlideAI Pro. The user provides a short deck theme. Create a 5-part deck in this flow: (Problem) → (Proposal) → (Before/After customer experience) → (Expected numeric impact) → (Tasks). If details are not provided, you may invent realistic numbers to form a coherent story. Output only the specified keys.",
+    "Important: title / coverTitle / importantMessage / bullet items / taskTitles must be short, label-ready, and self-contained. No verbose explanations.",
+    `Deck type is "${modeHint}" and visual theme is "${themeHint}".`,
+    "",
+    "Inputs:",
+    "- Deck theme: {{USER_BRIEF}}",
+    "- Base date (YYYY-MM-DD): {{BASE_DATE_YYYY-MM-DD}}",
+    "",
+    "Output Contract:",
+    "- Output JSON only. Exactly one top-level JSON array.",
+    "- Array length must be exactly 5. Order: [1001,1002,1003,1005,1004].",
+    "- Each element must have exactly 3 keys: title, patternType, data.",
+    "- data must contain ONLY allowed keys per patternType.",
+    "",
+    "Allowed keys:",
+    "- 1001 data: coverTitle,title,VSproblemsToSolve,VSproblemImagePrompt,VSproblemImageCacheKey,importantMessage",
+    "- 1002 data: title,VSproposalForBetter,VSproposalImagePrompt,VSproposalImageCacheKey,importantMessage",
+    "- 1003 data: title,VSexpectedEffectsBefore,VSexpectedEffectsAfter,importantMessage",
+    "- 1005 data: title,yAxisName,unit,barGroups,importantMessage",
+    "- 1004 data: title,taskTitles,assignees,deadlines",
+  ].join("\n");
+}
+
+module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveLocale, logLong }) {
+  const router = express.Router();
+
+  router.post("/agenda-json", async (req, res) => {
+    const debug = req.headers["x-debug-log"] === "1";
+
+    try {
+      const { brief, baseDate, locale: localeFromBody, prompt, renderMode, theme } = req.body || {};
+
+      if (!brief || !String(brief).trim()) {
+        return res.status(400).json({ ok: false, error: "bad_request", details: "brief is required" });
+      }
+
+      const baseDateValue = String(baseDate || "").trim() || todayISOInTokyo();
+      const localeResolved = resolveLocale(req, localeFromBody);
+
+      const systemInstruction =
+        typeof prompt === "string" && prompt.trim()
+          ? String(prompt).trim()
+          : buildDefaultSystemInstruction(localeResolved, renderMode, theme);
+
+      const filled = systemInstruction
+        .split("{{USER_BRIEF}}")
+        .join(String(brief).trim())
+        .split("{{BASE_DATE_YYYY-MM-DD}}")
+        .join(String(baseDateValue).trim());
+
+      const generationConfig = {
+        temperature: 0,
+        maxOutputTokens: 16000,
+        responseMimeType: "application/json",
+      };
+
+      if (debug) {
+        console.log("[AGENDA_JSON] hit /api/slideaipro/agenda-json");
+        console.log("[AGENDA_JSON] localeResolved=", localeResolved);
+        console.log("[AGENDA_JSON] renderMode=", renderMode || "(none)");
+        console.log("[AGENDA_JSON] theme=", theme || "(none)");
+        console.log("[AGENDA_JSON] baseDate=", baseDateValue);
+        logLong("[AGENDA_JSON systemInstruction]", filled);
+      }
+
+      const raw = await callGemini(filled, "", generationConfig);
+
+      if (debug) {
+        logLong("[AGENDA_JSON raw]", raw);
+      }
+
+      const extracted = extractJsonArray(raw);
+      if (!extracted) {
+        console.error("[AGENDA_JSON] failed to extract JSON array");
+        return res.status(500).json({
+          ok: false,
+          error: "invalid_model_output",
+          details: "cannot parse array",
+          raw,
+        });
+      }
+
+      const normalized = normalizeAgendaArray(extracted);
+      return res.status(200).json(normalized);
+    } catch (err) {
+      console.error("[AGENDA_JSON] internal error:", err);
+      return res.status(500).json({
+        ok: false,
+        error: "internal_error",
+        details: err.message || String(err),
+      });
+    }
+  });
+
+  return router;
 };
