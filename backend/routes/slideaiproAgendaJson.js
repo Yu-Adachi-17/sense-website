@@ -54,6 +54,31 @@ function clamp(s, maxLen) {
   return t.slice(0, maxLen).trim();
 }
 
+// ここが重要: “デッキ種別ラベル”っぽい coverTitle を弾く（最終防衛ライン）
+function isBadCoverTitle(v) {
+  const s = normalizeOneLine(v).toLowerCase();
+  if (!s) return true;
+
+  // 典型的な「混入して困る」固定ラベル群
+  const badExact = new Set([
+    'アイデア提案資料（vibe sliding）',
+    'idea proposal deck (vibe sliding)',
+    'vibe sliding',
+    '資料',
+    'deck',
+  ]);
+  if (badExact.has(s)) return true;
+
+  // “Vibe Sliding” が含まれるなら、ほぼラベル混入扱いにする（あなたの要望）
+  if (s.includes('vibe') && s.includes('sliding')) return true;
+
+  // 極端に一般名詞だけ
+  if (s === 'slideai pro') return false; // これは許容（フォールバックでも使う）
+  if (s.length <= 6 && (s.includes('資料') || s.includes('deck'))) return true;
+
+  return false;
+}
+
 function normalizeAgendaArray(arr, opts = {}) {
   if (!Array.isArray(arr)) throw new Error('Output is not an array');
   if (arr.length !== 5) throw new Error(`Array length must be 5, got ${arr.length}`);
@@ -64,7 +89,6 @@ function normalizeAgendaArray(arr, opts = {}) {
   const expectedOrder = [1001, 1002, 1003, 1005, 1004];
 
   const schema = {
-    // ✅ coverTitle を許可キーに追加（ここが本件の根本原因）
     1001: ['coverTitle', 'title', 'VSproblemsToSolve', 'VSproblemImagePrompt', 'VSproblemImageCacheKey', 'importantMessage'],
     1002: ['title', 'VSproposalForBetter', 'VSproposalImagePrompt', 'VSproposalImageCacheKey', 'importantMessage'],
     1003: ['title', 'VSexpectedEffectsBefore', 'VSexpectedEffectsAfter', 'importantMessage'],
@@ -90,10 +114,10 @@ function normalizeAgendaArray(arr, opts = {}) {
     const allowedDataKeys = schema[patternType];
     let cleanData = keepOnly(data, allowedDataKeys);
 
-    // ✅ 1001 coverTitle の補完・整形（モデルが落とした時の保険）
+    // ✅ 1001 coverTitle の補完・整形（モデルのラベル混入を弾く）
     if (patternType === 1001) {
       const ct = clamp(cleanData.coverTitle || '', 52);
-      cleanData.coverTitle = ct || fallbackCoverTitle;
+      cleanData.coverTitle = !isBadCoverTitle(ct) ? ct : fallbackCoverTitle;
     }
 
     // 1001/1002 cache key のサニタイズ
@@ -164,28 +188,20 @@ function todayISOInTokyo() {
   }
 }
 
-
 function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
-  const lang = String(localeResolved || "en").toLowerCase();
-  const isJa = lang === "ja";
+  const lang = String(localeResolved || 'en').toLowerCase();
+  const isJa = lang === 'ja';
 
-  // renderMode/theme は今は「文章の雰囲気」程度でしか使わない（壊さないために受け取る）
-  const modeHint =
-    renderMode === "vibeSlidingIdea"
-      ? (isJa ? "アイデア提案資料（Vibe Sliding）" : "Idea proposal deck (Vibe Sliding)")
-      : (isJa ? "資料" : "Deck");
-
-  const themeHint =
-    theme === "dark"
-      ? (isJa ? "ダークテーマ" : "dark theme")
-      : (isJa ? "ライトテーマ" : "light theme");
+  // “人間向けラベル”は書かない。メタは値だけ渡す（モデルが coverTitle に混入させないため）
+  const renderModeMeta = String(renderMode || 'default');
+  const themeMeta = theme === 'dark' ? 'dark' : 'light';
 
   if (isJa) {
     return [
       "あなたは資料ラベル作成のJSONジェネレータです。これからユーザーは資料化したいテーマを短文で指定してきます。そこから(課題)→(提案)→(改善前後の顧客体験)→(期待できる効果: 数値)→(タスク)の流れで資料を作成してください。指定がない限り、ストーリーになるように数値などは創作可能です。ただし指定のキーのみで出力してください。資料のラベルにそのまま記載するため、敬語禁止、言い切り調の体言止めで。",
       "重要: title / importantMessage / 箇条書き / taskTitles は資料ラベルとして短く簡潔にする。冗長な説明、前置き、接続詞だらけの文章は禁止。1行で読める長さを優先。",
       "入力から、Swiftの AgendaItem / PatternData に適合する最終JSON(トップレベル配列1つ)を生成してください。",
-      "この資料は「" + modeHint + "」で、見た目は「" + themeHint + "」想定です（内容は変に装飾しない）。",
+      "参考情報: renderMode=" + renderModeMeta + ", theme=" + themeMeta + "。この行の文言や値を、出力JSONの文字列として流用しない。",
       "",
       "【入力】",
       "- ユーザーの資料テーマ: {{USER_BRIEF}}",
@@ -210,11 +226,6 @@ function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
       "(4) 数値改善(patternType: 1005)",
       "(5) 誰が何をいつまでに(patternType: 1004)",
       "",
-      "【各アイテムの絶対スキーマ】",
-      "- すべて { title: String, patternType: Int, data: { ... } }",
-      "- dataの中身はpatternTypeごとの仕様キーのみ(不要キー禁止)。",
-      "- data直下以外にVS***等のフィールドを置くことは禁止(トップレベル/別階層禁止)。",
-      "",
       "【必須仕様(最重要)】",
       "- 配列の要素数は必ず 5",
       "- patternType の順序は必ず [1001, 1002, 1003, 1005, 1004]",
@@ -224,7 +235,7 @@ function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
       "【patternType別 data フィールド仕様(これ以外のキーは禁止)】",
       "",
       "(1) patternType=1001(課題) data:",
-      "- coverTitle: String(資料全体の表紙タイトル。短く完結に。)",
+      "- coverTitle: String(資料全体の表紙タイトル。ユーザー入力のテーマから意味のある短いタイトルを作る。禁止: 一般ラベル(例: 資料/デック/アイデア提案/ Vibe Sliding 等)の丸写し。)",
       "- title: String(このページのタイトル。ここだけ指定: 解決したい課題 とだけ記載すること)",
       "- VSproblemsToSolve: [String](最大5。短く。資料ラベルとして完結に)",
       "- VSproblemImagePrompt: String(画像生成用プロンプト。課題感。英語でOK。短く要点のみ)",
@@ -284,61 +295,51 @@ function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
     ].join("\n");
   }
 
-  // EN (follow the JA contract, but avoid Japanese-specific style rules such as 体言止め)
+  // EN (follow the JA contract, avoid Japanese-specific style rules)
   return [
-    "You are a JSON generator for slide label content for SlideAI Pro. The user provides a short deck theme. Create a 5-part deck in this flow: (Problem) → (Proposal) → (Before/After customer experience) → (Expected numeric impact) → (Tasks). If details are not provided, you may invent realistic numbers to form a coherent story. Output only the specified keys.",
-    "Important: title / importantMessage / bullet items / taskTitles must be short, label-ready, and self-contained. No verbose explanations, no long prefaces, no connector-heavy sentences. Prefer one-line readability.",
-    "From the input, generate the final JSON that matches Swift AgendaItem / PatternData. Output exactly one top-level JSON array.",
-    "Deck type is \"" + modeHint + "\" and visual theme is \"" + themeHint + "\" (do not over-decorate the content).",
+    "You are a JSON generator for slide label content for SlideAI Pro. The user provides a short deck theme. Create a 5-part deck in this flow: (Problem) → (Proposal) → (Before/After customer experience) → (Expected numeric impact) → (Tasks). If details are not provided, invent realistic numbers to form a coherent story. Output only the specified keys.",
+    "Important: title / importantMessage / bullet items / taskTitles must be short, label-ready, and self-contained. No verbose explanations, no long prefaces.",
+    "Generate the final JSON that matches Swift AgendaItem / PatternData. Output exactly one top-level JSON array.",
+    "Meta: renderMode=" + renderModeMeta + ", theme=" + themeMeta + ". Do not reuse these words/values verbatim in any output strings.",
     "",
     "【Inputs】",
     "- Deck theme: {{USER_BRIEF}}",
     "- Base date (YYYY-MM-DD): {{BASE_DATE_YYYY-MM-DD}}",
     "",
     "【Output Contract (STRICT)】",
-    "- Output JSON only. No prose, no preface, no explanations, no Markdown, no code blocks, no backticks, no headings like 'json', no annotations, no extra formatting line breaks.",
-    "- Output exactly one top-level JSON array.",
-    "  - Must start with [ and end with ].",
-    "  - After ] output nothing at all (no newline, no spaces, no second JSON, no trailing text).",
+    "- Output JSON only. No prose, no preface, no explanations, no Markdown, no code blocks, no backticks, no headings like 'json'.",
+    "- Output exactly one top-level JSON array. Must start with [ and end with ]. After ] output nothing at all.",
     "- Array length must be exactly 5. Do not add or remove items.",
     "- Each element must have exactly 3 keys: title, patternType, data (no other keys).",
     "- patternType must be an integer and must be one of: 1001, 1002, 1003, 1004, 1005.",
-    "- null is forbidden.",
-    "- Forbidden: emojis, strings containing //, TBD, placeholders like XXX.",
-    "- JSON must be parseable (no trailing commas; escape any double quotes inside strings).",
+    "- null is forbidden. Emojis are forbidden. Strings containing // are forbidden.",
+    "- JSON must be parseable (no trailing commas; escape double quotes inside strings).",
     "",
     "【Fixed 5 items (order is mandatory)】",
     "(1) Problem (patternType: 1001)",
     "(2) Proposal (patternType: 1002)",
     "(3) Before/After (patternType: 1003)",
     "(4) Numeric impact (patternType: 1005)",
-    "(5) Who does what by when (patternType: 1004)",
+    "(5) Tasks (patternType: 1004)",
     "",
-    "【Mandatory requirements (core)】",
-    "- Array length must be 5",
+    "【Mandatory requirements】",
     "- patternType order must be [1001, 1002, 1003, 1005, 1004]",
-    "- Each item must be { \"title\": string, \"patternType\": number, \"data\": object }",
     "- data must contain ONLY the allowed keys per patternType (no extra keys).",
-    "",
-    "【Absolute schema rules】",
-    "- Every item is { title: String, patternType: Int, data: { ... } }",
-    "- data contains only the allowed keys for that patternType.",
-    "- Never place VS*** fields outside data (no top-level or other nesting).",
     "",
     "【Allowed data fields per patternType (NO other keys)】",
     "",
     "(1) patternType=1001 (Problem) data:",
-    "- coverTitle: String(資料全体の表紙タイトル。短く完結に。)",
+    "- coverTitle: String (a meaningful short deck title derived from the user's theme; do NOT output generic labels like Deck/Proposal/Vibe Sliding)",
     "- title: String (must be exactly: \"Problem to solve\")",
     "- VSproblemsToSolve: [String] (max 5; short; label-ready)",
-    "- VSproblemImagePrompt: String (image prompt; conveys the problem; English OK; short, key points only)",
+    "- VSproblemImagePrompt: String (image prompt; problem; English OK; short key points only)",
     "- VSproblemImageCacheKey: String (ASCII only; lowercase letters/numbers/hyphen only; example: vibe-problem-1)",
     "- importantMessage: String (one-line conclusion; short)",
     "",
     "(2) patternType=1002 (Proposal) data:",
-    "- title: String (short phrase that names the proposal)",
+    "- title: String (short phrase naming the proposal)",
     "- VSproposalForBetter: [String] (max 5; short; label-ready)",
-    "- VSproposalImagePrompt: String (positive outcome prompt; English OK; short, key points only)",
+    "- VSproposalImagePrompt: String (positive outcome prompt; English OK; short key points only)",
     "- VSproposalImageCacheKey: String (ASCII only; lowercase letters/numbers/hyphen only; example: vibe-proposal-1)",
     "- importantMessage: String (one-line conclusion; short)",
     "",
@@ -350,44 +351,24 @@ function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
     "",
     "(4) patternType=1005 (Numeric impact bars) data:",
     "- title: String (short phrase summarizing the numeric impact)",
-    "- yAxisName: String (typically time axis labels; e.g., months or years)",
+    "- yAxisName: String (time axis labels)",
     "- unit: String (e.g., JPY, %, requests, minutes)",
     "- barGroups: [{ category: String, bars: [{ label: \"actual\", value: Number }] }]",
     "- importantMessage: String (one-line conclusion; short)",
-    "Constraints:",
-    "- Choose a convincing number of categories (e.g., 12 for a year, or 2 for before/after).",
-    "- Inside bars, label must be \"actual\" only, and value must be numeric.",
-    "- Values must be realistic.",
-    "- The numeric story must not contradict the Problem/Proposal/Before-After narrative.",
+    "Constraints: label must be \"actual\" only, value must be numeric, values realistic and consistent.",
     "",
     "(5) patternType=1004 (Tasks table) data:",
     "- title: String (short title for the task set)",
     "- taskTitles: [String] (3 to 6; short)",
     "- assignees: [String] (same length as taskTitles)",
-    "- deadlines: [String] (same length as taskTitles)",
-    "  - Format: yyyy-MM-dd HH:mm (zero-padding required)",
-    "  - If time is unknown, use 23:59",
-    "Constraints:",
-    "- The three arrays must have the same length.",
-    "- No empty arrays (minimum 3 tasks).",
-    "- Tasks must be concrete and consistent with the Proposal (1002).",
-    "- Deadlines must be within 1 to 8 weeks from the base date.",
+    "- deadlines: [String] (same length as taskTitles; format yyyy-MM-dd HH:mm; use 23:59 if unknown time; within 1–8 weeks from base date)",
     "",
-    "【Internal validation (must do before output; do NOT print)】",
-    "Keep fixing internally until all are true (never show this section in output):",
-    "1) JSON parses (one top-level array, no trailing characters)",
-    "2) Exactly 5 items, correct order",
-    "3) Each item has only title/patternType/data",
-    "4) data keys are exactly as specified (no extra keys)",
-    "5) (1005) bars use label=\"actual\" only and value is numeric",
-    "6) deadlines are within 1–8 weeks and strictly formatted",
-    "",
-    "If any rule is violated, do not output. Fix internally and output only the final valid JSON array that fully satisfies the contract.",
+    "【Internal validation】",
+    "Before output, ensure parseable JSON, exactly 5 items, correct order, only allowed keys, and strict deadline format/range.",
     "",
     "Convert {{USER_BRIEF}} into the final JSON array and output it under this contract."
   ].join("\n");
 }
-
 
 module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveLocale, logLong }) {
   const router = express.Router();
@@ -444,7 +425,7 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
         });
       }
 
-      // ✅ brief を coverTitle のフォールバックとして渡す
+      // brief を coverTitle フォールバックとして渡す（最終防衛）
       const normalized = normalizeAgendaArray(extracted, { fallbackCoverTitle: brief });
 
       return res.status(200).json(normalized);
@@ -460,5 +441,3 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
 
   return router;
 };
-
-
