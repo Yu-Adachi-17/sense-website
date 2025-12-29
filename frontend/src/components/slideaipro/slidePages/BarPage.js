@@ -36,8 +36,7 @@ function formatValue(v) {
 function buildTitle(pageNo, rawTitle) {
   const t = String(rawTitle ?? "").trim();
   if (!t) return `${pageNo}.`;
-  // 既に "N." で始まっているなら重複させない
-  if (/^\d+\s*\./.test(t)) return t;
+  if (/^\d+\s*\./.test(t)) return t; // 既に "N." なら重複しない
   return `${pageNo}. ${t}`;
 }
 
@@ -47,14 +46,14 @@ function buildTitle(pageNo, rawTitle) {
  * - g.bars[] があるなら label="actual" 優先（なければ先頭）
  */
 function normalizePoints(groups) {
-  const actualKeyJa = "actual"; // JS側はローカライズ前提が薄いので最低限
-  const actualKeyEn = "Actual";
   const actualKeyLower = "actual";
+  const actualKeyEn = "Actual";
+  const actualKeyJa = "actual";
 
   return (Array.isArray(groups) ? groups : [])
     .map((g) => {
       const category = String(g?.category ?? "");
-      let value = null;
+      let value = 0;
 
       if (g && Object.prototype.hasOwnProperty.call(g, "value")) {
         value = toNumber(g?.value);
@@ -66,8 +65,6 @@ function normalizePoints(groups) {
           bars.find((b) => String(b?.label ?? "") === actualKeyJa) ||
           bars[0];
         value = toNumber(actual?.value);
-      } else {
-        value = 0;
       }
 
       return { category, value };
@@ -92,7 +89,7 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
   // Swift: Bar width ratio
   const barRatio = n <= 4 ? 0.55 : n <= 8 ? 0.42 : 0.32;
 
-  // 見た目の “余白感” をSwiftに寄せる（少数ならバー間隔を大きく）
+  // 少数ならバー間隔を大きくしてSwiftの“余白感”
   const colGap = n <= 2 ? 240 : n <= 4 ? 160 : n <= 8 ? 92 : 56;
 
   const textColor = isIntelMode ? "rgba(255,255,255,0.96)" : "#0B0B0B";
@@ -105,21 +102,16 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
   const headerText = buildTitle(slide?.pageNumber ?? pageNo, slide?.title);
 
   return (
-    <SlidePageFrame
-      pageNo={pageNo}
-      isIntelMode={isIntelMode}
-      hasPrefetched={hasPrefetched}
-      footerRight=""
-    >
+    <SlidePageFrame pageNo={pageNo} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} footerRight="">
       <div
         className="eefRoot"
         style={{
-          ["--eefText" as any]: textColor,
-          ["--eefBaseline" as any]: baseLineColor,
-          ["--eefValueSize" as any]: `${valueFontSize}px`,
-          ["--eefXAxisSize" as any]: `${xAxisFontSize}px`,
-          ["--eefBarRatio" as any]: barRatio,
-          ["--eefColGap" as any]: `${colGap}px`,
+          "--eefText": textColor,
+          "--eefBaseline": baseLineColor,
+          "--eefValueSize": `${valueFontSize}px`,
+          "--eefXAxisSize": `${xAxisFontSize}px`,
+          "--eefBarRatio": String(barRatio),
+          "--eefColGap": `${colGap}px`,
         }}
       >
         {/* Header */}
@@ -245,7 +237,7 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
             position: relative;
             flex: 1 1 auto;
             min-height: 0;
-            padding: 10px 80px 0 80px; /* Swift: top 10 相当 / 横の余白を大きく */
+            padding: 10px 80px 0 80px;
             box-sizing: border-box;
             display: flex;
             align-items: flex-end;
@@ -274,7 +266,7 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
             font-size: var(--eefValueSize);
             font-weight: 900;
             letter-spacing: -0.25px;
-            line-height: 1.0;
+            line-height: 1;
             margin-bottom: 14px;
             white-space: nowrap;
           }
@@ -318,12 +310,11 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
             line-height: 1.05;
             text-align: center;
 
-            /* ✅ 省略（…）禁止 */
+            /* 省略（…）禁止 */
             white-space: normal;
             overflow: visible;
             text-overflow: clip;
 
-            /* 2行目まで想定（Swift lineLimit(2) + fixedSize(vertical: true) 寄せ） */
             display: block;
             max-width: 520px;
             word-break: break-word;
@@ -344,12 +335,11 @@ export default function BarPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
             line-height: 1.05;
             text-align: center;
 
-            /* ✅ 省略（…）禁止 */
+            /* 省略（…）禁止 */
             white-space: normal;
             overflow: visible;
             text-overflow: clip;
 
-            /* Swift: accentGradient */
             background: ${ACCENT_GRADIENT};
             -webkit-background-clip: text;
             background-clip: text;
