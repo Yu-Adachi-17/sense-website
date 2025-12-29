@@ -6,6 +6,9 @@ const MIN_DURATION_MS = 24 * 60 * 60 * 1000; // 24h
 const FIXED_BAR_RATIO = 0.2;
 const MAX_ROWS = 10;
 const MAX_TICKS = 5;
+const FONT_FAMILY =
+  '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", system-ui, sans-serif';
+
 
 // パース強め（"YYYY-MM-DD HH:mm" / "YYYY-MM-DD" / ISO を許容）
 function parseDeadline(v) {
@@ -360,13 +363,19 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
       </div>
 
       <style jsx>{`
-        .tpRoot {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          color: var(--tp-fg);
-        }
+.tpRoot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--tp-fg);
+
+  font-family: ${FONT_FAMILY};
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  font-feature-settings: "palt";
+}
 
         .tpHeader {
           padding-top: 26px;
@@ -388,12 +397,14 @@ export default function TasksPage({ slide, pageNo, isIntelMode, hasPrefetched })
           font-size: clamp(48px, 5.2vw, 64px);
           flex: 0 0 auto;
         }
-        .tpHeaderTitle {
-          font-size: clamp(48px, 5.2vw, 64px);
-          word-break: break-word;
-          white-space: normal;
-          min-width: 0;
-        }
+.tpHeaderTitle {
+  font-size: clamp(48px, 5.2vw, 64px);
+  word-break: break-word;
+  white-space: normal;
+  min-width: 0;
+
+  font-weight: 900; /* ← 追加：タイトルだけ太字を明示 */
+}
 
         .tpEmpty {
           flex: 1;
