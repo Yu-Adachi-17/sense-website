@@ -162,19 +162,19 @@ function waitImagesIn(node) {
   );
 }
 
-function buildSlidesFromAgenda({ brief, agenda }) {
+function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
   const a = Array.isArray(agenda) ? agenda : [];
 
   const firstProblem = a.find((it) => Number(it?.patternType) === 1001) || a[0] || {};
-  const coverTitle =
-    String(firstProblem?.data?.coverTitle || "").trim() ||
-    "SlideAI Pro";
+  const coverTitle = String(firstProblem?.data?.coverTitle || "").trim() || "SlideAI Pro";
+
+  const coverSubtitle = String(subtitleDate || "").trim() || "Generated slides preview";
 
   const cover = {
     id: "cover",
     kind: "cover",
     title: coverTitle,
-    subtitle: "Generated slides preview",
+    subtitle: coverSubtitle,
   };
 
   const out = [cover];
@@ -285,6 +285,7 @@ export default function SlideAIProHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [agendaJson, setAgendaJson] = useState(null);
+  const [subtitleDate, setSubtitleDate] = useState(""); // 追加：Coverのsubtitle用（YYYY-MM-DD）
   const [imageUrlByKey, setImageUrlByKey] = useState({});
   const [prefetchPairs, setPrefetchPairs] = useState([]);
   const [prefetchError, setPrefetchError] = useState("");
@@ -404,11 +405,21 @@ export default function SlideAIProHome() {
     try {
       const API_BASE = "https://sense-website-production.up.railway.app";
 
+      // ユーザー端末のローカル日付（YYYY-MM-DD）
+      const baseDateLocal =
+        typeof Intl !== "undefined"
+          ? new Date().toLocaleDateString("sv-SE")
+          : new Date().toISOString().slice(0, 10);
+
+      // Cover subtitle にも同じ日付を使う（Tokyo等は一切関与させない）
+      setSubtitleDate(baseDateLocal);
+
       const resp = await fetch(`${API_BASE}/api/slideaipro/agenda-json`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           brief,
+          baseDate: baseDateLocal, // 追加：サーバの Tokyo フォールバックを踏ませない
           renderMode: "vibeSlidingIdea",
           locale: typeof navigator !== "undefined" ? navigator.language : "ja",
           theme: isIntelMode ? "dark" : "light",
@@ -447,10 +458,14 @@ export default function SlideAIProHome() {
 
   const slides = useMemo(() => {
     if (agendaJson && Array.isArray(agendaJson) && agendaJson.length) {
-      return buildSlidesFromAgenda({ brief: trimmed || "SlideAI Pro", agenda: agendaJson });
+      return buildSlidesFromAgenda({
+        brief: trimmed || "SlideAI Pro",
+        agenda: agendaJson,
+        subtitleDate, // 追加
+      });
     }
     return [];
-  }, [trimmed, agendaJson]);
+  }, [trimmed, agendaJson, subtitleDate]);
 
   const canExport = slides.length > 0 && !isSending && !isExporting;
 
@@ -988,7 +1003,6 @@ export default function SlideAIProHome() {
             transform: scale(0.99);
           }
 
-          /* Debug */
           .debug {
             width: min(860px, calc(100vw - 36px));
             border-radius: 16px;
@@ -1165,3 +1179,5 @@ export default function SlideAIProHome() {
     </>
   );
 }
+
+

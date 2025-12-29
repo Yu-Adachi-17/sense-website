@@ -1,5 +1,4 @@
 // routes/slideaiproAgendaJson.js
-
 const express = require("express");
 
 function extractJsonArray(raw) {
@@ -38,9 +37,81 @@ function keepOnly(obj, allowedKeys) {
   return out;
 }
 
-function normalizeAgendaArray(arr) {
+function normalizeOneLine(s) {
+  return String(s || "")
+    .replace(/\s+/g, " ")
+    .replace(/\u3000/g, " ")
+    .trim();
+}
+
+function clamp(s, maxLen) {
+  const t = normalizeOneLine(s);
+  if (!t) return "";
+  if (t.length <= maxLen) return t;
+  return t.slice(0, maxLen).trim();
+}
+
+function isValidTimeZone(tz) {
+  const s = String(tz || "").trim();
+  if (!s) return false;
+  try {
+    Intl.DateTimeFormat("en-US", { timeZone: s }).format(new Date());
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
+function resolveTimeZone(req, timeZoneFromBody) {
+  const candidates = [
+    timeZoneFromBody,
+    req?.headers?.["x-timezone"],
+    req?.headers?.["x-time-zone"],
+    req?.headers?.["timezone"],
+  ].filter(Boolean);
+
+  for (const c of candidates) {
+    const tz = String(c).trim();
+    if (isValidTimeZone(tz)) return tz;
+  }
+  return null; // 不明ならUTC扱い
+}
+
+function todayISOForTimeZone(timeZone) {
+  // 返すのは常に YYYY-MM-DD
+  if (timeZone && isValidTimeZone(timeZone)) {
+    try {
+      return new Date().toLocaleDateString("sv-SE", { timeZone }); // => 2025-12-29
+    } catch (_) {}
+  }
+  // 最後の砦: UTC日付
+  return new Date().toISOString().slice(0, 10);
+}
+
+// “Vibe Sliding” 等のラベル混入を coverTitle から排除する（最終防衛）
+function isBadCoverTitle(v) {
+  const s = normalizeOneLine(v).toLowerCase();
+  if (!s) return true;
+
+  const badExact = new Set([
+    "アイデア提案資料（vibe sliding）",
+    "idea proposal deck (vibe sliding)",
+    "vibe sliding",
+    "資料",
+    "deck",
+  ]);
+  if (badExact.has(s)) return true;
+  if (s.includes("vibe") && s.includes("sliding")) return true;
+  if (s.length <= 6 && (s.includes("資料") || s.includes("deck"))) return true;
+
+  return false;
+}
+
+function normalizeAgendaArray(arr, opts = {}) {
   if (!Array.isArray(arr)) throw new Error("Output is not an array");
   if (arr.length !== 5) throw new Error(`Array length must be 5, got ${arr.length}`);
+
+  const fallbackCoverTitle = clamp(opts.fallbackCoverTitle || "", 52) || "SlideAI Pro";
 
   const allowedPatternTypes = new Set([1001, 1002, 1003, 1005, 1004]);
   const expectedOrder = [1001, 1002, 1003, 1005, 1004];
@@ -85,6 +156,9 @@ function normalizeAgendaArray(arr) {
 
     if (patternType === 1001) {
       cleanData.coverTitle = String(cleanData.coverTitle || "").trim();
+      const ct = clamp(cleanData.coverTitle, 52);
+      cleanData.coverTitle = !isBadCoverTitle(ct) ? ct : fallbackCoverTitle;
+
       cleanData.title = String(cleanData.title || "").trim();
       cleanData.importantMessage = String(cleanData.importantMessage || "").trim();
       cleanData.VSproblemImagePrompt = String(cleanData.VSproblemImagePrompt || "").trim();
@@ -170,36 +244,20 @@ function normalizeAgendaArray(arr) {
   return normalized;
 }
 
-function todayISOInTokyo() {
-  try {
-    return new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Tokyo" });
-  } catch (_) {
-    return new Date().toISOString().slice(0, 10);
-  }
-}
-
 function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
   const lang = String(localeResolved || "en").toLowerCase();
   const isJa = lang === "ja";
 
-  const modeHint =
-    renderMode === "vibeSlidingIdea"
-      ? isJa
-        ? "アイデア提案資料（Vibe Sliding）"
-        : "Idea proposal deck (Vibe Sliding)"
-      : isJa
-        ? "資料"
-        : "Deck";
-
-  const themeHint =
-    theme === "dark" ? (isJa ? "ダークテーマ" : "dark theme") : isJa ? "ライトテーマ" : "light theme";
+  // ラベル文言を本文に入れると coverTitle が汚染されやすいので、メタは値だけ渡す
+  const renderModeMeta = String(renderMode || "default");
+  const themeMeta = theme === "dark" ? "dark" : "light";
 
   if (isJa) {
     return [
       "あなたは資料ラベル作成のJSONジェネレータです。これからユーザーは資料化したいテーマを短文で指定してきます。そこから(課題)→(提案)→(改善前後の顧客体験)→(期待できる効果: 数値)→(タスク)の流れで資料を作成してください。指定がない限り、ストーリーになるように数値などは創作可能です。ただし指定のキーのみで出力してください。資料のラベルにそのまま記載するため、敬語禁止、言い切り調の体言止めで。",
       "重要: title / coverTitle / importantMessage / 箇条書き / taskTitles は資料ラベルとして短く簡潔にする。冗長な説明、前置き、接続詞だらけの文章は禁止。1行で読める長さを優先。",
       "入力から、Swiftの AgendaItem / PatternData に適合する最終JSON(トップレベル配列1つ)を生成してください。",
-      `この資料は「${modeHint}」で、見た目は「${themeHint}」想定です（内容は変に装飾しない）。`,
+      "参考情報: renderMode=" + renderModeMeta + ", theme=" + themeMeta + "。この行の文言や値を、出力JSONの文字列として流用しない。",
       "",
       "【入力】",
       "- ユーザーの資料テーマ: {{USER_BRIEF}}",
@@ -227,7 +285,7 @@ function buildDefaultSystemInstruction(localeResolved, renderMode, theme) {
   return [
     "You are a JSON generator for slide label content for SlideAI Pro. The user provides a short deck theme. Create a 5-part deck in this flow: (Problem) → (Proposal) → (Before/After customer experience) → (Expected numeric impact) → (Tasks). If details are not provided, you may invent realistic numbers to form a coherent story. Output only the specified keys.",
     "Important: title / coverTitle / importantMessage / bullet items / taskTitles must be short, label-ready, and self-contained. No verbose explanations.",
-    `Deck type is "${modeHint}" and visual theme is "${themeHint}".`,
+    "Meta: renderMode=" + renderModeMeta + ", theme=" + themeMeta + ". Do not reuse these words/values verbatim in output strings.",
     "",
     "Inputs:",
     "- Deck theme: {{USER_BRIEF}}",
@@ -255,14 +313,30 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
     const debug = req.headers["x-debug-log"] === "1";
 
     try {
-      const { brief, baseDate, locale: localeFromBody, prompt, renderMode, theme } = req.body || {};
+      const {
+        brief,
+        baseDate,
+        timeZone, // ← 追加: クライアントから IANA タイムゾーンを渡す
+        locale: localeFromBody,
+        prompt,
+        renderMode,
+        theme,
+      } = req.body || {};
 
       if (!brief || !String(brief).trim()) {
         return res.status(400).json({ ok: false, error: "bad_request", details: "brief is required" });
       }
 
-      const baseDateValue = String(baseDate || "").trim() || todayISOInTokyo();
       const localeResolved = resolveLocale(req, localeFromBody);
+      const timeZoneResolved = resolveTimeZone(req, timeZone);
+
+      // baseDate 未指定なら「ユーザータイムゾーン基準の今日」
+      const baseDateValue = String(baseDate || "").trim() || todayISOForTimeZone(timeZoneResolved);
+
+      // JSON配列のまま返すため、subtitle用日付はヘッダで返す（破壊的変更回避）
+      res.setHeader("x-slide-subtitle-date", baseDateValue);
+      // ブラウザからヘッダ参照できるように（別オリジンでも読めるように）
+      res.setHeader("Access-Control-Expose-Headers", "x-slide-subtitle-date");
 
       const systemInstruction =
         typeof prompt === "string" && prompt.trim()
@@ -284,6 +358,7 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
       if (debug) {
         console.log("[AGENDA_JSON] hit /api/slideaipro/agenda-json");
         console.log("[AGENDA_JSON] localeResolved=", localeResolved);
+        console.log("[AGENDA_JSON] timeZoneResolved=", timeZoneResolved || "(none => UTC fallback)");
         console.log("[AGENDA_JSON] renderMode=", renderMode || "(none)");
         console.log("[AGENDA_JSON] theme=", theme || "(none)");
         console.log("[AGENDA_JSON] baseDate=", baseDateValue);
@@ -307,7 +382,7 @@ module.exports = function buildSlideaiproAgendaJsonRouter({ callGemini, resolveL
         });
       }
 
-      const normalized = normalizeAgendaArray(extracted);
+      const normalized = normalizeAgendaArray(extracted, { fallbackCoverTitle: brief });
       return res.status(200).json(normalized);
     } catch (err) {
       console.error("[AGENDA_JSON] internal error:", err);
