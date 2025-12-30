@@ -4,6 +4,7 @@ import Head from "next/head";
 import { toPng } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
+import SideMenu from "../../components/slideaipro/SideMenu";
 
 function ProgressOverlay({ progress }) {
   const pct = Math.max(0, Math.min(100, Math.floor(progress)));
@@ -301,15 +302,6 @@ export default function SlideAIProHome() {
     autosize();
   }, [prompt]);
 
-  useEffect(() => {
-    const onKey = (e) => {
-      if (!isMenuOpen) return;
-      if (e.key === "Escape") setIsMenuOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [isMenuOpen]);
-
   const startProgressTicker = () => {
     setProgress(3);
     const startedAt = Date.now();
@@ -555,6 +547,11 @@ export default function SlideAIProHome() {
     setTimeout(() => handleExportPDF(), 160);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setTimeout(() => focusIdea(), 120);
+  };
+
   return (
     <>
       <Head>
@@ -639,56 +636,24 @@ export default function SlideAIProHome() {
           </div>
 
           {slides.length > 0 && (
-            <SlideDeck slides={slides} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} imageUrlByKey={imageUrlByKey} />
+            <SlideDeck
+              slides={slides}
+              isIntelMode={isIntelMode}
+              hasPrefetched={hasPrefetched}
+              imageUrlByKey={imageUrlByKey}
+            />
           )}
         </main>
 
-        {isMenuOpen && (
-          <div
-            className="menuOverlay"
-            onClick={() => {
-              setIsMenuOpen(false);
-              setTimeout(() => focusIdea(), 120);
-            }}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu"
-          >
-            <div className={`menuPanel ${isIntelMode ? "menuDark" : "menuLight"}`} onClick={(e) => e.stopPropagation()}>
-              <div className="menuHeader">
-                <div className="menuTitle">Menu</div>
-                <button className="iconBtn iconBtnInMenu" aria-label="Close" onClick={() => setIsMenuOpen(false)}>
-                  <span className="closeX" />
-                </button>
-              </div>
-
-              <div className="menuItem">
-                <div className="miLeft">
-                  <div className="miTitle">Theme</div>
-                  <div className="miSub">Light / Dark</div>
-                </div>
-                <button className="pillBtn" onClick={() => setIsIntelMode((v) => !v)}>
-                  {isIntelMode ? "Dark" : "Light"}
-                </button>
-              </div>
-
-              <div className="menuItem">
-                <div className="miLeft">
-                  <div className="miTitle">Export</div>
-                  <div className="miSub">PNG / PDF</div>
-                </div>
-                <div className="miActions">
-                  <button className="menuActionBtn" disabled={!canExport} onClick={requestExportPNGFromMenu} aria-label="Export PNG">
-                    PNG
-                  </button>
-                  <button className="menuActionBtn" disabled={!canExport} onClick={requestExportPDFFromMenu} aria-label="Export PDF">
-                    PDF
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        <SideMenu
+          isOpen={isMenuOpen}
+          isIntelMode={isIntelMode}
+          canExport={canExport}
+          onClose={closeMenu}
+          onToggleTheme={() => setIsIntelMode((v) => !v)}
+          onExportPNG={requestExportPNGFromMenu}
+          onExportPDF={requestExportPDFFromMenu}
+        />
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
 
@@ -697,7 +662,7 @@ export default function SlideAIProHome() {
             min-height: 100vh;
             position: relative;
             overflow: hidden;
-            color: ${textColor};
+            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.92)"};
           }
           .bg {
             position: absolute;
@@ -739,50 +704,6 @@ export default function SlideAIProHome() {
           }
           .iconBtn:active {
             transform: scale(0.98);
-          }
-
-          .iconBtnInMenu {
-            border-radius: 12px;
-          }
-
-          .closeX {
-            width: 18px;
-            height: 18px;
-            position: relative;
-            display: inline-block;
-          }
-          .closeX::before,
-          .closeX::after {
-            content: "";
-            position: absolute;
-            left: 8px;
-            top: 1px;
-            width: 2px;
-            height: 16px;
-            border-radius: 2px;
-            background: ${isIntelMode ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.75)"};
-          }
-          .closeX::before {
-            transform: rotate(45deg);
-          }
-          .closeX::after {
-            transform: rotate(-45deg);
-          }
-
-          .pillBtn {
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.08)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "#ffffff"};
-            color: ${textColor};
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 800;
-            cursor: pointer;
-            user-select: none;
-            box-shadow: ${isIntelMode ? "0 10px 22px rgba(0,0,0,0.25)" : "0 2px 10px rgba(0,0,0,0.06)"};
-          }
-          .pillBtn:active {
-            transform: scale(0.99);
           }
 
           .divider {
@@ -857,7 +778,7 @@ export default function SlideAIProHome() {
             border: none;
             outline: none;
             background: transparent;
-            color: ${textColor};
+            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.92)"};
             font-size: 17px;
             line-height: 1.35;
             padding: 10px 10px 10px 10px;
@@ -905,117 +826,6 @@ export default function SlideAIProHome() {
             border: 1px solid rgba(255, 255, 255, 0.13);
             backdrop-filter: blur(12px);
             box-shadow: 0 12px 28px rgba(64, 110, 255, 0.12);
-          }
-
-          /* ===== Side Menu (refined) ===== */
-          .menuOverlay {
-            position: fixed;
-            inset: 0;
-            background: ${isIntelMode ? "rgba(0,0,0,0.26)" : "rgba(0,0,0,0.10)"};
-            z-index: 9000;
-            display: flex;
-            justify-content: flex-end;
-          }
-
-          .menuPanel {
-            width: min(560px, 72vw);
-            min-width: 320px;
-            height: 100%;
-            padding: 22px 18px;
-            box-sizing: border-box;
-          }
-
-          .menuLight {
-            background: #ffffff;
-            color: rgba(10, 15, 27, 0.96);
-            border-left: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.10), 0 10px 20px rgba(0, 0, 0, 0.06);
-          }
-
-          .menuDark {
-            background: rgba(0, 0, 0, 0.84);
-            color: rgba(255, 255, 255, 0.92);
-            border-left: 1px solid rgba(255, 255, 255, 0.10);
-            backdrop-filter: blur(14px);
-            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42), 0 10px 20px rgba(0, 0, 0, 0.28);
-          }
-
-          .menuHeader {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 4px 4px 10px;
-            margin-bottom: 6px;
-          }
-          .menuTitle {
-            font-weight: 900;
-            letter-spacing: 0.2px;
-            font-size: 20px;
-          }
-
-          .menuItem {
-            margin: 10px 6px 12px;
-            padding: 14px 14px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            cursor: default;
-            transform: translateZ(0);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "#ffffff"};
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.04)"};
-            box-shadow: ${isIntelMode ? "0 10px 26px rgba(0,0,0,0.32)" : "0 6px 16px rgba(0,0,0,0.05)"};
-          }
-
-          .menuItem:hover {
-            transform: translateY(-2px);
-            box-shadow: ${isIntelMode ? "0 14px 34px rgba(0,0,0,0.40)" : "0 10px 24px rgba(0,0,0,0.08)"};
-          }
-
-          .miLeft {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            min-width: 0;
-          }
-          .miTitle {
-            font-weight: 900;
-            font-size: 14px;
-            letter-spacing: 0.15px;
-          }
-          .miSub {
-            font-size: 12px;
-            opacity: 0.72;
-          }
-          .miActions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-          }
-
-          .menuActionBtn {
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.08)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.10)" : "#ffffff"};
-            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(10,15,27,0.96)"};
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 900;
-            cursor: pointer;
-            user-select: none;
-            white-space: nowrap;
-            box-shadow: ${isIntelMode ? "0 10px 22px rgba(0,0,0,0.25)" : "0 2px 10px rgba(0,0,0,0.06)"};
-          }
-          .menuActionBtn:disabled {
-            opacity: 0.35;
-            cursor: default;
-            box-shadow: none;
-          }
-          .menuActionBtn:active:not(:disabled) {
-            transform: scale(0.99);
           }
         `}</style>
 
