@@ -1,5 +1,6 @@
 // src/components/slideaipro/SideMenu.js
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function SideMenu({
   isOpen,
@@ -10,6 +11,12 @@ export default function SideMenu({
   onExportPNG,
   onExportPDF,
 }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -21,26 +28,36 @@ export default function SideMenu({
     return () => window.removeEventListener("keydown", onKey);
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  // スクロール固定（メニューが開いている間）
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isOpen]);
+
+  if (!mounted || !isOpen) return null;
 
   const fg = isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(10,15,27,0.96)";
   const closeXColor = isIntelMode ? "rgba(255,255,255,0.85)" : "rgba(0,0,0,0.75)";
 
-  return (
+  const node = (
     <div
       className={`smOverlay ${isIntelMode ? "smOverlayDark" : "smOverlayLight"}`}
-      onClick={() => onClose?.()}
+      onPointerDown={() => onClose?.()}
       role="dialog"
       aria-modal="true"
       aria-label="Menu"
     >
       <div
         className={`smPanel ${isIntelMode ? "smDark" : "smLight"}`}
-        onClick={(e) => e.stopPropagation()}
+        onPointerDown={(e) => e.stopPropagation()}
       >
         <div className="smHeader">
           <div className="smTitle">Menu</div>
-          <button className="smIconBtn" aria-label="Close" onClick={() => onClose?.()}>
+          <button type="button" className="smIconBtn" aria-label="Close" onClick={() => onClose?.()}>
             <span className="smCloseX" />
           </button>
         </div>
@@ -50,7 +67,7 @@ export default function SideMenu({
             <div className="smItemTitle">Theme</div>
             <div className="smItemSub">Light / Dark</div>
           </div>
-          <button className="smPillBtn" onClick={() => onToggleTheme?.()}>
+          <button type="button" className="smPillBtn" onClick={() => onToggleTheme?.()}>
             {isIntelMode ? "Dark" : "Light"}
           </button>
         </div>
@@ -62,6 +79,7 @@ export default function SideMenu({
           </div>
           <div className="smActions">
             <button
+              type="button"
               className="smActionBtn"
               disabled={!canExport}
               onClick={() => onExportPNG?.()}
@@ -70,6 +88,7 @@ export default function SideMenu({
               PNG
             </button>
             <button
+              type="button"
               className="smActionBtn"
               disabled={!canExport}
               onClick={() => onExportPDF?.()}
@@ -84,9 +103,10 @@ export default function SideMenu({
           .smOverlay {
             position: fixed;
             inset: 0;
-            z-index: 9000;
+            z-index: 2147483000;
             display: flex;
             justify-content: flex-end;
+            touch-action: none;
           }
           .smOverlayLight {
             background: rgba(0, 0, 0, 0.10);
@@ -256,4 +276,6 @@ export default function SideMenu({
       </div>
     </div>
   );
+
+  return createPortal(node, document.body);
 }

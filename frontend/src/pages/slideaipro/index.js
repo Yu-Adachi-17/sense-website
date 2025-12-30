@@ -578,9 +578,12 @@ export default function SlideAIProHome() {
   type="button"
   className="iconBtn"
   aria-label="Menu"
-  onClick={(e) => {
+  aria-haspopup="dialog"
+  aria-expanded={isMenuOpen ? "true" : "false"}
+  onPointerDown={(e) => {
+    e.preventDefault();
     e.stopPropagation();
-    setIsMenuOpen(true);
+    setIsMenuOpen((v) => !v);
     try {
       document.activeElement?.blur?.();
     } catch {}
@@ -588,6 +591,7 @@ export default function SlideAIProHome() {
 >
   <GiHamburgerMenu size={20} />
 </button>
+
 
         </header>
 
@@ -651,11 +655,12 @@ export default function SlideAIProHome() {
   isOpen={isMenuOpen}
   isIntelMode={isIntelMode}
   canExport={canExport}
-  onClose={() => setIsMenuOpen(false)}
+  onClose={closeMenu}
   onToggleTheme={() => setIsIntelMode((v) => !v)}
   onExportPNG={requestExportPNGFromMenu}
   onExportPDF={requestExportPDFFromMenu}
 />
+
 
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
@@ -667,11 +672,13 @@ export default function SlideAIProHome() {
             overflow: hidden;
             color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.92)"};
           }
-          .bg {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, ${background.from}, ${background.to});
-          }
+.bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, ${background.from}, ${background.to});
+  pointer-events: none;
+}
+
 
           .header {
             position: relative;
