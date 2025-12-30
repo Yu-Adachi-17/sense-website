@@ -575,7 +575,6 @@ export default function SlideAIProHome() {
 
         <header className="header">
           <div className="leftSpacer" aria-hidden="true" />
-
           <div className="title"></div>
 
           <button
@@ -658,7 +657,7 @@ export default function SlideAIProHome() {
             <div className={`menuPanel ${isIntelMode ? "menuDark" : "menuLight"}`} onClick={(e) => e.stopPropagation()}>
               <div className="menuHeader">
                 <div className="menuTitle">Menu</div>
-                <button className="iconBtn" aria-label="Close" onClick={() => setIsMenuOpen(false)}>
+                <button className="iconBtn iconBtnInMenu" aria-label="Close" onClick={() => setIsMenuOpen(false)}>
                   <span className="closeX" />
                 </button>
               </div>
@@ -668,10 +667,7 @@ export default function SlideAIProHome() {
                   <div className="miTitle">Theme</div>
                   <div className="miSub">Light / Dark</div>
                 </div>
-                <button
-                  className="pillBtn"
-                  onClick={() => setIsIntelMode((v) => !v)}
-                >
+                <button className="pillBtn" onClick={() => setIsIntelMode((v) => !v)}>
                   {isIntelMode ? "Dark" : "Light"}
                 </button>
               </div>
@@ -689,13 +685,6 @@ export default function SlideAIProHome() {
                     PDF
                   </button>
                 </div>
-              </div>
-
-              <div className="menuHint">
-                画像は <code>/api/slideaipro/image-low</code>（dataUrl返却）でプリフェッチし、cacheKeyで差し替えます。
-              </div>
-              <div className="menuHint">
-                Export(PNG/PDF) は <code>slidesRoot</code> 内の <code>data-slide-page</code> を1枚ずつキャプチャします。
               </div>
             </div>
           </div>
@@ -752,6 +741,10 @@ export default function SlideAIProHome() {
             transform: scale(0.98);
           }
 
+          .iconBtnInMenu {
+            border-radius: 12px;
+          }
+
           .closeX {
             width: 18px;
             height: 18px;
@@ -777,15 +770,16 @@ export default function SlideAIProHome() {
           }
 
           .pillBtn {
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.14)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"};
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.08)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "#ffffff"};
             color: ${textColor};
-            padding: 8px 12px;
+            padding: 10px 14px;
             border-radius: 999px;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             user-select: none;
+            box-shadow: ${isIntelMode ? "0 10px 22px rgba(0,0,0,0.25)" : "0 2px 10px rgba(0,0,0,0.06)"};
           }
           .pillBtn:active {
             transform: scale(0.99);
@@ -913,105 +907,115 @@ export default function SlideAIProHome() {
             box-shadow: 0 12px 28px rgba(64, 110, 255, 0.12);
           }
 
+          /* ===== Side Menu (refined) ===== */
           .menuOverlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.22);
+            background: ${isIntelMode ? "rgba(0,0,0,0.26)" : "rgba(0,0,0,0.10)"};
             z-index: 9000;
             display: flex;
             justify-content: flex-end;
           }
+
           .menuPanel {
-            width: min(420px, 70vw);
+            width: min(560px, 72vw);
+            min-width: 320px;
             height: 100%;
-            padding: 16px;
+            padding: 22px 18px;
+            box-sizing: border-box;
           }
-          .menuDark {
-            background: rgba(0, 0, 0, 0.78);
-            backdrop-filter: blur(14px);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.92);
-          }
+
           .menuLight {
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(14px);
+            background: #ffffff;
+            color: rgba(10, 15, 27, 0.96);
             border-left: 1px solid rgba(0, 0, 0, 0.08);
-            color: rgba(0, 0, 0, 0.86);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.10), 0 10px 20px rgba(0, 0, 0, 0.06);
+          }
+
+          .menuDark {
+            background: rgba(0, 0, 0, 0.84);
+            color: rgba(255, 255, 255, 0.92);
+            border-left: 1px solid rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42), 0 10px 20px rgba(0, 0, 0, 0.28);
           }
 
           .menuHeader {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 6px 4px 12px;
+            padding: 4px 4px 10px;
+            margin-bottom: 6px;
           }
           .menuTitle {
-            font-weight: 800;
+            font-weight: 900;
             letter-spacing: 0.2px;
+            font-size: 20px;
           }
 
           .menuItem {
-            margin-top: 10px;
-            padding: 14px 12px;
-            border-radius: 14px;
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.03)"};
+            margin: 10px 6px 12px;
+            padding: 14px 14px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            gap: 12px;
+            cursor: default;
+            transform: translateZ(0);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "#ffffff"};
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.04)"};
+            box-shadow: ${isIntelMode ? "0 10px 26px rgba(0,0,0,0.32)" : "0 6px 16px rgba(0,0,0,0.05)"};
           }
+
+          .menuItem:hover {
+            transform: translateY(-2px);
+            box-shadow: ${isIntelMode ? "0 14px 34px rgba(0,0,0,0.40)" : "0 10px 24px rgba(0,0,0,0.08)"};
+          }
+
           .miLeft {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 3px;
+            min-width: 0;
           }
           .miTitle {
-            font-weight: 800;
-            font-size: 13px;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 0.15px;
           }
           .miSub {
             font-size: 12px;
-            opacity: 0.75;
+            opacity: 0.72;
           }
           .miActions {
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-shrink: 0;
           }
 
           .menuActionBtn {
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.18)" : "rgba(0,0,0,0.12)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.04)"};
-            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(0,0,0,0.86)"};
-            padding: 10px 12px;
+            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.08)"};
+            background: ${isIntelMode ? "rgba(255,255,255,0.10)" : "#ffffff"};
+            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(10,15,27,0.96)"};
+            padding: 10px 14px;
             border-radius: 999px;
             font-size: 12px;
-            font-weight: 800;
+            font-weight: 900;
             cursor: pointer;
             user-select: none;
             white-space: nowrap;
+            box-shadow: ${isIntelMode ? "0 10px 22px rgba(0,0,0,0.25)" : "0 2px 10px rgba(0,0,0,0.06)"};
           }
           .menuActionBtn:disabled {
             opacity: 0.35;
             cursor: default;
+            box-shadow: none;
           }
           .menuActionBtn:active:not(:disabled) {
             transform: scale(0.99);
-          }
-
-          .menuHint {
-            margin-top: 14px;
-            font-size: 12px;
-            opacity: 0.8;
-            line-height: 1.5;
-          }
-          .menuHint code {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-size: 12px;
-            padding: 2px 6px;
-            border-radius: 8px;
-            background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"};
           }
         `}</style>
 
