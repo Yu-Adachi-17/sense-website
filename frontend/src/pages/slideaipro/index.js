@@ -574,19 +574,21 @@ export default function SlideAIProHome() {
           <div className="leftSpacer" aria-hidden="true" />
           <div className="title"></div>
 
-          <button
-            className="iconBtn"
-            aria-label="Menu"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsMenuOpen(true);
-              try {
-                document.activeElement?.blur?.();
-              } catch {}
-            }}
-          >
-            <GiHamburgerMenu size={20} />
-          </button>
+<button
+  type="button"
+  className="iconBtn"
+  aria-label="Menu"
+  onClick={(e) => {
+    e.stopPropagation();
+    setIsMenuOpen(true);
+    try {
+      document.activeElement?.blur?.();
+    } catch {}
+  }}
+>
+  <GiHamburgerMenu size={20} />
+</button>
+
         </header>
 
         <div className="divider" />
@@ -645,15 +647,16 @@ export default function SlideAIProHome() {
           )}
         </main>
 
-        <SideMenu
-          isOpen={isMenuOpen}
-          isIntelMode={isIntelMode}
-          canExport={canExport}
-          onClose={closeMenu}
-          onToggleTheme={() => setIsIntelMode((v) => !v)}
-          onExportPNG={requestExportPNGFromMenu}
-          onExportPDF={requestExportPDFFromMenu}
-        />
+<SideMenu
+  isOpen={isMenuOpen}
+  isIntelMode={isIntelMode}
+  canExport={canExport}
+  onClose={() => setIsMenuOpen(false)}
+  onToggleTheme={() => setIsIntelMode((v) => !v)}
+  onExportPNG={requestExportPNGFromMenu}
+  onExportPDF={requestExportPDFFromMenu}
+/>
+
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
 
