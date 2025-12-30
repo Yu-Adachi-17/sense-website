@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { toPng } from "html-to-image";
-import { GiAtom } from "react-icons/gi";
+import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
 
 function ProgressOverlay({ progress }) {
@@ -574,6 +574,10 @@ export default function SlideAIProHome() {
         <div className="bg" />
 
         <header className="header">
+          <div className="leftSpacer" aria-hidden="true" />
+
+          <div className="title"></div>
+
           <button
             className="iconBtn"
             aria-label="Menu"
@@ -585,20 +589,7 @@ export default function SlideAIProHome() {
               } catch {}
             }}
           >
-            <span className="hamburger" />
-          </button>
-
-          <div className="title"></div>
-
-          <button
-            className="pillBtn"
-            aria-label="Toggle theme"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsIntelMode((v) => !v);
-            }}
-          >
-            {isIntelMode ? "Dark" : "Light"}
+            <GiHamburgerMenu size={20} />
           </button>
         </header>
 
@@ -677,7 +668,10 @@ export default function SlideAIProHome() {
                   <div className="miTitle">Theme</div>
                   <div className="miSub">Light / Dark</div>
                 </div>
-                <button className="pillBtn" onClick={() => setIsIntelMode((v) => !v)}>
+                <button
+                  className="pillBtn"
+                  onClick={() => setIsIntelMode((v) => !v)}
+                >
                   {isIntelMode ? "Dark" : "Light"}
                 </button>
               </div>
@@ -727,9 +721,13 @@ export default function SlideAIProHome() {
             z-index: 2;
             height: 62px;
             display: grid;
-            grid-template-columns: 52px 1fr auto;
+            grid-template-columns: 52px 1fr 52px;
             align-items: center;
             padding: 0 14px;
+          }
+          .leftSpacer {
+            width: 52px;
+            height: 1px;
           }
           .title {
             text-align: center;
@@ -752,34 +750,6 @@ export default function SlideAIProHome() {
           }
           .iconBtn:active {
             transform: scale(0.98);
-          }
-          .hamburger {
-            width: 18px;
-            height: 12px;
-            position: relative;
-            display: inline-block;
-          }
-          .hamburger::before,
-          .hamburger::after,
-          .hamburger {
-            background: transparent;
-          }
-          .hamburger::before,
-          .hamburger::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            width: 18px;
-            height: 2px;
-            border-radius: 2px;
-            background: ${textColor};
-            opacity: 0.9;
-          }
-          .hamburger::before {
-            top: 1px;
-          }
-          .hamburger::after {
-            bottom: 1px;
           }
 
           .closeX {
