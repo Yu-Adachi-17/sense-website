@@ -8,7 +8,6 @@ const FONT_FAMILY =
 function isDateLike(s) {
   const t = String(s || "").trim();
   if (!t) return false;
-  // 2025-12-29 / 2025/12/29 / 2025.12.29
   return /^\d{4}[-/.]\d{2}[-/.]\d{2}$/.test(t);
 }
 
@@ -16,7 +15,6 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
   const a = String(slide?.title || "").trim();
   const b = String(slide?.subtitle || "").trim();
 
-  // 自動判定: dateっぽい方を日付へ
   let titleText = a;
   let dateText = b;
 
@@ -30,7 +28,6 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
     dateText = b;
     titleText = a;
   } else {
-    // どちらも日付判定できない場合は「タイトル=title / 日付=subtitle」を優先
     titleText = a;
     dateText = b;
   }
@@ -40,14 +37,17 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
 
   const [titleHeight, setTitleHeight] = useState(0);
   const [titleFontPx, setTitleFontPx] = useState(96);
+  const [oneLine, setOneLine] = useState(true);
 
-  // タイトルの見た目を「大きすぎない」「改行が早すぎない」方向へ自動フィット
   useLayoutEffect(() => {
     const LINE_H = 1.05;
-    const MAX_FONT = 110; // ← 以前の約1/2（190→110）
+    const MAX_FONT = 110;
     const MIN_FONT = 56;
-    const MAX_LINES = 3; // 基本2行狙い、長文は最大3行まで許容
-    const MAX_HEIGHT_RATIO = 0.38; // 画面高さに対してこの割合以内に収める
+
+    // まず「1行で収める」試行を優先（入るなら必ず1行）
+    const ONE_LINE_MIN_FONT = 62; // ここまで落としても入らなければ折り返しへ
+    const MAX_HEIGHT_RATIO = 0.38;
+    const MAX_LINES = 3;
 
     const fit = () => {
       const root = rootRef.current;
@@ -58,31 +58,73 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
       const rootH = Math.max(1, rootRect.height);
       const rootW = Math.max(1, rootRect.width);
 
-      // 横幅が広いほど少し大きく開始（ただし上限はMAX_FONT）
-      let size = Math.min(MAX_FONT, Math.max(MIN_FONT, Math.round(rootW * 0.052))); // 1920px → 約100px
-      // まず当てる
-      el.style.fontSize = `${size}px`;
+      let size = Math.min(MAX_FONT, Math.max(MIN_FONT, Math.round(rootW * 0.052)));
       el.style.lineHeight = `${LINE_H}`;
 
-      // 高さ/行数が落ち着くまで少しずつ縮める
-      for (let i = 0; i < 40; i += 1) {
+      const canOneLineAt = (sz) => {
+        el.style.fontSize = `${sz}px`;
+        el.style.whiteSpace = "nowrap";
+        el.style.overflowWrap = "normal";
+        el.style.wordBreak = "normal";
+        el.style.lineBreak = "normal";
+
+        // レイアウト確定のために一度計測
+        const tooTall = el.getBoundingClientRect().height > rootH * MAX_HEIGHT_RATIO;
+        const tooWide = el.scrollWidth > el.clientWidth + 1; // 1px 余裕
+        return !tooTall && !tooWide;
+      };
+
+      let decidedOneLine = false;
+      let decidedSize = size;
+
+      // 1行で入るなら、サイズを落としてでも 1行を採用
+      for (let sz = size; sz >= Math.max(MIN_FONT, ONE_LINE_MIN_FONT); sz -= 2) {
+        if (canOneLineAt(sz)) {
+          decidedOneLine = true;
+          decidedSize = sz;
+          break;
+        }
+      }
+
+      if (decidedOneLine) {
+        el.style.fontSize = `${decidedSize}px`;
+        el.style.whiteSpace = "nowrap";
+
         const r = el.getBoundingClientRect();
-        const approxLines = Math.max(1, Math.round(r.height / (size * LINE_H)));
+        setOneLine(true);
+        setTitleFontPx(decidedSize);
+        setTitleHeight(Math.max(0, Math.round(r.height)));
+        return;
+      }
+
+      // 1行が無理なら、通常の折り返しでフィット（最大3行まで）
+      el.style.whiteSpace = "normal";
+      el.style.overflowWrap = "break-word"; // anywhere だと「不要な早割れ」を誘発しやすい
+      el.style.wordBreak = "normal";
+      el.style.lineBreak = "normal";
+
+      let multiSize = size;
+      el.style.fontSize = `${multiSize}px`;
+
+      for (let i = 0; i < 44; i += 1) {
+        const r = el.getBoundingClientRect();
+        const approxLines = Math.max(1, Math.ceil(r.height / (multiSize * LINE_H) - 0.02));
         const tooTall = r.height > rootH * MAX_HEIGHT_RATIO;
         const tooManyLines = approxLines > MAX_LINES;
 
         if (!tooTall && !tooManyLines) break;
 
-        size -= 2;
-        if (size < MIN_FONT) {
-          size = MIN_FONT;
+        multiSize -= 2;
+        if (multiSize < MIN_FONT) {
+          multiSize = MIN_FONT;
           break;
         }
-        el.style.fontSize = `${size}px`;
+        el.style.fontSize = `${multiSize}px`;
       }
 
       const finalRect = el.getBoundingClientRect();
-      setTitleFontPx(size);
+      setOneLine(false);
+      setTitleFontPx(multiSize);
       setTitleHeight(Math.max(0, Math.round(finalRect.height)));
     };
 
@@ -101,6 +143,7 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           className="coverHeroTitle"
           style={{
             fontSize: `${titleFontPx}px`,
+            whiteSpace: oneLine ? "nowrap" : "normal",
           }}
         >
           {titleText}
@@ -126,14 +169,13 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           overflow: hidden;
         }
 
-        /* タイトル：ど真ん中 / 改行が早すぎないよう横幅を拡大 */
         .coverHeroTitle {
           position: absolute;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
 
-          width: min(1760px, calc(100% - 160px));
+          width: min(1840px, calc(100% - 140px));
           text-align: center;
 
           font-family: ${FONT_FAMILY};
@@ -147,16 +189,14 @@ export default function CoverPage({ slide, pageNo, isIntelMode, hasPrefetched })
           -moz-osx-font-smoothing: grayscale;
           text-rendering: geometricPrecision;
 
-          /* 改行挙動：strict を捨てて「不自然な早割れ」を抑える */
+          /* 「入るなら1行」をJSで決める。CSS側は余計な早割れ要因を置かない */
           line-break: normal;
           word-break: normal;
-          overflow-wrap: anywhere;
+          overflow-wrap: break-word;
 
           hyphens: auto;
-          text-wrap: balance;
         }
 
-        /* 日付：タイトル直下、小さく、絶対に改行しない */
         .coverHeroDate {
           position: absolute;
           left: 50%;

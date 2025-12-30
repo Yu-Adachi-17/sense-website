@@ -18,14 +18,7 @@ function ProgressOverlay({ progress }) {
       <div className="ringWrap">
         <svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}>
           <g style={{ transform: "rotate(-90deg)", transformOrigin: "50% 50%" }}>
-            <circle
-              cx={RING_SIZE / 2}
-              cy={RING_SIZE / 2}
-              r={r}
-              fill="none"
-              stroke="rgba(255,255,255,0.22)"
-              strokeWidth={STROKE}
-            />
+            <circle cx={RING_SIZE / 2} cy={RING_SIZE / 2} r={r} fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth={STROKE} />
             <circle
               cx={RING_SIZE / 2}
               cy={RING_SIZE / 2}
@@ -156,7 +149,6 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
 
   const firstProblem = a.find((it) => Number(it?.patternType) === 1001) || a[0] || {};
   const coverTitle = String(firstProblem?.data?.coverTitle || "").trim() || "SlideAI Pro";
-
   const coverSubtitle = String(subtitleDate || "").trim() || "Generated slides preview";
 
   const cover = {
@@ -274,11 +266,8 @@ export default function SlideAIProHome() {
   const [agendaJson, setAgendaJson] = useState(null);
   const [subtitleDate, setSubtitleDate] = useState("");
   const [imageUrlByKey, setImageUrlByKey] = useState({});
-  const [prefetchPairs, setPrefetchPairs] = useState([]);
-  const [prefetchError, setPrefetchError] = useState("");
 
   const [isExporting, setIsExporting] = useState(false);
-  const [exportError, setExportError] = useState("");
 
   const taRef = useRef(null);
   const trimmed = useMemo(() => prompt.trim(), [prompt]);
@@ -334,7 +323,6 @@ export default function SlideAIProHome() {
   };
 
   const prefetchImages = async (API_BASE, pairs) => {
-    setPrefetchError("");
     if (!pairs.length) return;
 
     const fetchOne = async ({ cacheKey, prompt }) => {
@@ -377,9 +365,6 @@ export default function SlideAIProHome() {
     setIsSending(true);
     setAgendaJson(null);
     setImageUrlByKey({});
-    setPrefetchPairs([]);
-    setPrefetchError("");
-    setExportError("");
 
     const stop = startProgressTicker();
     let stopped = false;
@@ -419,8 +404,6 @@ export default function SlideAIProHome() {
       setAgendaJson(json);
 
       const pairs = extractPrefetchPairs(json);
-      setPrefetchPairs(pairs);
-
       setProgress(pairs.length ? 35 : 92);
 
       if (pairs.length) {
@@ -430,7 +413,6 @@ export default function SlideAIProHome() {
       setProgress(100);
     } catch (e) {
       console.error(e);
-      setPrefetchError(String(e?.message || e));
       alert("生成に失敗しました。サーバー側ログを確認してください。");
     } finally {
       safeStop();
@@ -456,7 +438,6 @@ export default function SlideAIProHome() {
 
   const handleExportPNG = async () => {
     if (!canExport) return;
-    setExportError("");
     setIsExporting(true);
 
     try {
@@ -478,19 +459,16 @@ export default function SlideAIProHome() {
 
       for (let i = 0; i < pages.length; i++) {
         const node = pages[i];
-
         const dataUrl = await toPng(node, {
           cacheBust: true,
           pixelRatio: 2,
           backgroundColor: bg,
         });
-
         downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
       }
     } catch (e) {
       console.error(e);
       const msg = String(e?.message || e);
-      setExportError(msg);
       alert(`PNG書き出しに失敗しました: ${msg}`);
     } finally {
       setIsExporting(false);
@@ -499,7 +477,6 @@ export default function SlideAIProHome() {
 
   const handleExportPDF = async () => {
     if (!canExport) return;
-    setExportError("");
     setIsExporting(true);
 
     try {
@@ -560,7 +537,6 @@ export default function SlideAIProHome() {
     } catch (e) {
       console.error(e);
       const msg = String(e?.message || e);
-      setExportError(msg);
       alert(`PDF書き出しに失敗しました: ${msg}`);
     } finally {
       setIsExporting(false);
@@ -674,44 +650,6 @@ export default function SlideAIProHome() {
 
           {slides.length > 0 && (
             <SlideDeck slides={slides} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} imageUrlByKey={imageUrlByKey} />
-          )}
-
-          {(agendaJson || prefetchPairs.length || hasPrefetched || prefetchError || exportError) && (
-            <section className={`debug ${isIntelMode ? "debugDark" : "debugLight"}`} aria-label="Debug">
-              <div className="debugRow">
-                <div className="debugK">prefetch pairs</div>
-                <div className="debugV">{prefetchPairs.length}</div>
-              </div>
-              <div className="debugRow">
-                <div className="debugK">prefetched images</div>
-                <div className="debugV">{Object.keys(imageUrlByKey || {}).length}</div>
-              </div>
-
-              {prefetchError && <div className="err">{prefetchError}</div>}
-              {exportError && <div className="err">{exportError}</div>}
-
-              {hasPrefetched && (
-                <div className="thumbs">
-                  {prefetchPairs.map((p) => {
-                    const src = imageUrlByKey[p.cacheKey];
-                    if (!src) return null;
-                    return (
-                      <div key={p.cacheKey} className="thumb">
-                        <img src={src} crossOrigin="anonymous" alt={p.cacheKey} />
-                        <div className="ck">{p.cacheKey}</div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-
-              {agendaJson && (
-                <details className="json">
-                  <summary>agenda-json</summary>
-                  <pre>{JSON.stringify(agendaJson, null, 2)}</pre>
-                </details>
-              )}
-            </section>
           )}
         </main>
 
@@ -1003,89 +941,6 @@ export default function SlideAIProHome() {
             border: 1px solid rgba(255, 255, 255, 0.13);
             backdrop-filter: blur(12px);
             box-shadow: 0 12px 28px rgba(64, 110, 255, 0.12);
-          }
-
-          .debug {
-            width: min(860px, calc(100vw - 36px));
-            border-radius: 16px;
-            padding: 14px 14px;
-            margin-top: 6px;
-          }
-          .debugDark {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-          }
-          .debugLight {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-          }
-          .debugRow {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 10px;
-            padding: 2px 2px;
-            font-size: 12px;
-            opacity: 0.9;
-          }
-          .debugK {
-            font-weight: 800;
-            letter-spacing: 0.2px;
-          }
-          .debugV {
-            font-variant-numeric: tabular-nums;
-          }
-          .err {
-            margin-top: 10px;
-            font-size: 12px;
-            opacity: 0.95;
-            color: ${isIntelMode ? "rgba(255,180,180,0.95)" : "rgba(180,0,0,0.85)"};
-            word-break: break-word;
-          }
-          .thumbs {
-            margin-top: 12px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-          }
-          .thumb {
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.02)"};
-          }
-          .thumb img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            display: block;
-          }
-          .ck {
-            padding: 8px 10px;
-            font-size: 11px;
-            opacity: 0.85;
-            word-break: break-all;
-          }
-          .json {
-            margin-top: 12px;
-          }
-          .json summary {
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 800;
-            opacity: 0.9;
-          }
-          .json pre {
-            margin: 10px 0 0;
-            max-height: 320px;
-            overflow: auto;
-            padding: 12px;
-            border-radius: 12px;
-            background: ${isIntelMode ? "rgba(0,0,0,0.35)" : "rgba(0,0,0,0.05)"};
-            font-size: 11px;
-            line-height: 1.45;
           }
 
           .menuOverlay {
