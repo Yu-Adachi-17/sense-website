@@ -1,6 +1,7 @@
 // src/pages/slideaipro/index.js
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { toPng } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
@@ -257,6 +258,8 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
 }
 
 export default function SlideAIProHome() {
+  const router = useRouter();
+
   const [prompt, setPrompt] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -555,6 +558,17 @@ export default function SlideAIProHome() {
     setTimeout(() => handleExportPDF(), 160);
   };
 
+  const requestUpgradeFromMenu = () => {
+    setIsMenuOpen(false);
+    setTimeout(() => {
+      try {
+        router.push("/slideaipro/slideaiupgrade");
+      } catch (e) {
+        console.error(e);
+      }
+    }, 160);
+  };
+
   return (
     <>
       <Head>
@@ -683,6 +697,31 @@ export default function SlideAIProHome() {
                   </button>
                   <button className="menuActionBtn" disabled={!canExport} onClick={requestExportPDFFromMenu} aria-label="Export PDF">
                     PDF
+                  </button>
+                </div>
+              </div>
+
+              {/* Upgrade */}
+              <div
+                className="menuItem menuItemClickable"
+                role="button"
+                tabIndex={0}
+                onClick={requestUpgradeFromMenu}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    requestUpgradeFromMenu();
+                  }
+                }}
+                aria-label="Open Upgrade page"
+              >
+                <div className="miLeft">
+                  <div className="miTitle">Upgrade</div>
+                  <div className="miSub">Plans / Billing / Pro features</div>
+                </div>
+                <div className="miActions">
+                  <button className="menuActionBtn" onClick={requestUpgradeFromMenu} aria-label="Upgrade">
+                    Open
                   </button>
                 </div>
               </div>
@@ -929,13 +968,13 @@ export default function SlideAIProHome() {
             background: #ffffff;
             color: rgba(10, 15, 27, 0.96);
             border-left: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.10), 0 10px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
           }
 
           .menuDark {
             background: rgba(0, 0, 0, 0.84);
             color: rgba(255, 255, 255, 0.92);
-            border-left: 1px solid rgba(255, 255, 255, 0.10);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(14px);
             box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42), 0 10px 20px rgba(0, 0, 0, 0.28);
           }
@@ -967,6 +1006,10 @@ export default function SlideAIProHome() {
             background: ${isIntelMode ? "rgba(255,255,255,0.08)" : "#ffffff"};
             border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.04)"};
             box-shadow: ${isIntelMode ? "0 10px 26px rgba(0,0,0,0.32)" : "0 6px 16px rgba(0,0,0,0.05)"};
+          }
+
+          .menuItemClickable {
+            cursor: pointer;
           }
 
           .menuItem:hover {
