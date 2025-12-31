@@ -1,53 +1,73 @@
 // src/pages/api/slideaipro/create-checkout-session.js
 import Stripe from "stripe";
 
-const PRODUCT_MONTHLY = "prod_ThflbIcHUiOs5j";
-const PRODUCT_YEARLY = "prod_ThfmqAQAfG5Ac0";
+const PRODUCT_MONTHLY = "prod_ThflbIcHUiOs5j"; // $9.99
+const PRODUCT_YEARLY = "prod_ThfmqAQAfG5Ac0"; // $89.99
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+  apiVersion: "2024-06-20",
+});
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const stripeKey = process.env.STRIPE_SECRET_KEY || "";
-  if (!stripeKey) return res.status(500).json({ error: "Stripe is not configured" });
-
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-
   try {
-    const { priceId } = req.body || {};
-    const pid = String(priceId || "").trim();
-    if (!pid) return res.status(400).json({ error: "priceId is required" });
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return res.status(500).json({ error: "STRIPE_SECRET_KEY is not set" });
+    }
 
-    const stripe = new Stripe(stripeKey);
+    const body = req.body && typeof req.body === "object" ? req.body : {};
+    const plan = String(body.plan || "");
+    const successPath = String(body.successPath || "/slideaipro?upgraded=1");
+    const cancelPath = String(body.cancelPath || "/slideaipro/slideaiupgrade?src=slideaipro");
 
-    const price = await stripe.prices.retrieve(pid);
-    if (!price || !price.active) return res.status(400).json({ error: "Invalid price" });
+    const origin =
+      String(req.headers.origin || "") ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://www.sense-ai.world";
 
-    const productId = typeof price.product === "string" ? price.product : price.product?.id;
-    const allowed = [PRODUCT_MONTHLY, PRODUCT_YEARLY].includes(String(productId || ""));
-    if (!allowed) return res.status(403).json({ error: "Forbidden price" });
-
-    if (price.type !== "recurring") {
-      return res.status(400).json({ error: "This price is not recurring" });
+    let lineItem;
+    if (plan === "monthly") {
+      lineItem = {
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          unit_amount: 999,
+          recurring: { interval: "month" },
+          product: PRODUCT_MONTHLY,
+        },
+      };
+    } else if (plan === "yearly") {
+      lineItem = {
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          unit_amount: 8999,
+          recurring: { interval: "year" },
+          product: PRODUCT_YEARLY,
+        },
+      };
+    } else {
+      return res.status(400).json({ error: "Invalid plan" });
     }
 
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
-      line_items: [{ price: pid, quantity: 1 }],
-      success_url: `${siteUrl}/slideaipro?checkout=success`,
-      cancel_url: `${siteUrl}/slideaipro/slideaiupgrade?src=slideaipro&checkout=cancel`,
-      allow_promotion_codes: true,
-      billing_address_collection: "auto",
+      line_items: [lineItem],
+      success_url: `${origin}${successPath}${successPath.includes("?") ? "&" : "?"}session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}${cancelPath}`,
+      metadata: {
+        app: "slideaipro",
+        plan,
+      },
     });
 
-    const url = session?.url || "";
-    if (!url) return res.status(500).json({ error: "Failed to create checkout session" });
-
-    return res.status(200).json({ url });
+    return res.status(200).json({ url: session.url });
   } catch (e) {
-    console.error(e);
-    return res.status(500).json({ error: "Server error" });
+    console.error("create-checkout-session error:", e);
+    return res.status(500).json({ error: "Failed to create checkout session" });
   }
 }
