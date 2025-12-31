@@ -596,26 +596,30 @@ export default function SlideAIProHome() {
     setTimeout(() => handleExportPDF(), 160);
   };
 
+
 // src/pages/slideaipro/index.js（SlideAIProHomeコンポーネント内）
 
 const requestUpgradeFromMenu = () => {
-  setIsMenuOpen(false);
+  if (isMenuOpen) setIsMenuOpen(false);
 
-  setTimeout(() => {
-    (async () => {
-      const nextPath = "/slideaipro/slideaiupgrade";
-      try {
-        const user = await getSignedInUserOnce();
-        if (user) {
-          router.push(nextPath);
-          return;
-        }
-        router.push(buildLoginUrl(nextPath));
-      } catch (e) {
-        console.error(e);
-        router.push(buildLoginUrl(nextPath));
+  const nextPath = "/slideaipro/slideaiupgrade?src=slideaipro";
+
+  window.setTimeout(async () => {
+    try {
+      const user = await getSignedInUserOnce();
+      if (user) {
+        await router.push(nextPath);
+        return;
       }
-    })();
+      await router.push(buildLoginUrl(nextPath));
+    } catch (e) {
+      console.error(e);
+      try {
+        await router.push(buildLoginUrl(nextPath));
+      } catch (ee) {
+        console.error(ee);
+      }
+    }
   }, 160);
 };
 

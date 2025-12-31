@@ -1,12 +1,44 @@
 // src/pages/slideaipro/slideaiupgrade.js
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import Stripe from "stripe";
+import { getClientAuth } from "../../firebaseConfig";
 
-export default function SlideAIUpgrade({ siteUrl }) {
+const PRODUCT_MONTHLY = "prod_ThflbIcHUiOs5j";
+const PRODUCT_YEARLY = "prod_ThfmqAQAfG5Ac0";
+
+function formatMoney(unitAmount, currency) {
+  const amt = Number(unitAmount || 0) / 100;
+  const cur = String(currency || "usd").toUpperCase();
+  try {
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: cur }).format(amt);
+  } catch {
+    return `$${amt.toFixed(2)}`;
+  }
+}
+
+function prettyInterval(recurring) {
+  const r = recurring || {};
+  const interval = String(r.interval || "");
+  const count = Number(r.interval_count || 1);
+  if (!interval) return "";
+  if (interval === "month") return count === 1 ? "/ month" : `/ ${count} months`;
+  if (interval === "year") return count === 1 ? "/ year" : `/ ${count} years`;
+  return "";
+}
+
+export default function SlideAIUpgrade({ siteUrl, plans }) {
+  const router = useRouter();
+
+  const [authReady, setAuthReady] = useState(false);
+  const [authed, setAuthed] = useState(false);
+  const [isStartingCheckout, setIsStartingCheckout] = useState(false);
+
   const year = useMemo(() => new Date().getFullYear(), []);
   const pageTitle = "SlideAI Pro — Upgrade";
-  const canonical = `${siteUrl}/slideaipro/slideaiupgrade`;
+  const canonical = `${siteUrl}/slideaipro/slideaiupgrade?src=slideaipro`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -21,15 +53,91 @@ export default function SlideAIUpgrade({ siteUrl }) {
     },
   };
 
+  // Auth gate: 未ログインなら login へ
+  useEffect(() => {
+    let unsub = null;
+
+    (async () => {
+      try {
+        const auth = await getClientAuth();
+        if (!auth) {
+          setAuthReady(true);
+          setAuthed(false);
+          return;
+        }
+
+        const { onAuthStateChanged } = await import("firebase/auth");
+
+        unsub = onAuthStateChanged(auth, (user) => {
+          if (!user) {
+            setAuthed(false);
+            setAuthReady(true);
+            const next = "/slideaipro/slideaiupgrade?src=slideaipro";
+            router.replace(`/login?from=slideaipro&next=${encodeURIComponent(next)}`);
+            return;
+          }
+          setAuthed(true);
+          setAuthReady(true);
+        });
+      } catch (e) {
+        console.error(e);
+        setAuthReady(true);
+        setAuthed(false);
+        const next = "/slideaipro/slideaiupgrade?src=slideaipro";
+        router.replace(`/login?from=slideaipro&next=${encodeURIComponent(next)}`);
+      }
+    })();
+
+    return () => {
+      try {
+        if (typeof unsub === "function") unsub();
+      } catch {}
+    };
+  }, [router]);
+
+  const monthlyPlan = plans.find((p) => p.key === "monthly") || null;
+  const yearlyPlan = plans.find((p) => p.key === "yearly") || null;
+
+  const startCheckout = async (priceId) => {
+    if (!priceId) return;
+    if (isStartingCheckout) return;
+
+    setIsStartingCheckout(true);
+    try {
+      const resp = await fetch("/api/slideaipro/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ priceId }),
+      });
+
+      if (!resp.ok) {
+        const t = await resp.text().catch(() => "");
+        throw new Error(`checkout HTTP ${resp.status}: ${t}`);
+      }
+
+      const j = await resp.json();
+      const url = String(j?.url || "");
+      if (!url.startsWith("http")) throw new Error("Invalid checkout URL");
+      window.location.href = url;
+    } catch (e) {
+      console.error(e);
+      window.alert("Checkoutの開始に失敗しました。Stripe設定とサーバーログを確認してください。");
+    } finally {
+      setIsStartingCheckout(false);
+    }
+  };
+
+  const isDisabled = !authReady || !authed || isStartingCheckout;
+
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
-        <meta name="description" content="Upgrade page for SlideAI Pro (placeholder)." />
+        <meta name="description" content="Upgrade page for SlideAI Pro." />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content="Upgrade page for SlideAI Pro (placeholder)." />
+        <meta property="og:description" content="Upgrade page for SlideAI Pro." />
         <meta property="og:url" content={canonical} />
         <script
           type="application/ld+json"
@@ -54,49 +162,66 @@ export default function SlideAIUpgrade({ siteUrl }) {
             <header className="header">
               <div className="kicker">Upgrade</div>
               <h1 className="h1">SlideAI Pro Plans</h1>
-              <p className="lead">
-                ここは一旦ハリボテです。決済・プラン表示・サブスク連携などは後で差し替える前提のページ構造だけ用意しています。
-              </p>
+              <p className="lead">2つのプランのみ提供します。決済はStripe Checkoutで行います。</p>
             </header>
 
             <div className="grid">
               <div className="plan">
-                <div className="planName">Trial</div>
-                <div className="planPrice">$1.99</div>
+                <div className="planName">{monthlyPlan?.label || "Monthly"}</div>
+                <div className="planPrice">
+                  {monthlyPlan ? (
+                    <>
+                      {formatMoney(monthlyPlan.unitAmount, monthlyPlan.currency)}
+                      <span className="per">{prettyInterval(monthlyPlan.recurring)}</span>
+                    </>
+                  ) : (
+                    <span className="muted">Plan unavailable</span>
+                  )}
+                </div>
+
                 <ul className="list">
-                  <li>Placeholder plan description</li>
-                  <li>Basic export</li>
-                  <li>Email support</li>
+                  <li>All Pro features</li>
+                  <li>PNG / PDF export</li>
+                  <li>Priority updates</li>
                 </ul>
-                <button className="cta" type="button" disabled>
-                  Coming soon
+
+                <button
+                  className="cta"
+                  type="button"
+                  disabled={isDisabled || !monthlyPlan?.priceId}
+                  onClick={() => startCheckout(monthlyPlan.priceId)}
+                >
+                  {isStartingCheckout ? "Opening..." : "Continue"}
                 </button>
               </div>
 
               <div className="plan planPrimary">
                 <div className="badge">Recommended</div>
-                <div className="planName">Monthly</div>
-                <div className="planPrice">$17.99</div>
-                <ul className="list">
-                  <li>All Pro features</li>
-                  <li>PNG / PDF export</li>
-                  <li>Priority support</li>
-                </ul>
-                <button className="cta ctaPrimary" type="button" disabled>
-                  Coming soon
-                </button>
-              </div>
+                <div className="planName">{yearlyPlan?.label || "Yearly"}</div>
+                <div className="planPrice">
+                  {yearlyPlan ? (
+                    <>
+                      {formatMoney(yearlyPlan.unitAmount, yearlyPlan.currency)}
+                      <span className="per">{prettyInterval(yearlyPlan.recurring)}</span>
+                    </>
+                  ) : (
+                    <span className="muted">Plan unavailable</span>
+                  )}
+                </div>
 
-              <div className="plan">
-                <div className="planName">Annual</div>
-                <div className="planPrice">$149.99</div>
                 <ul className="list">
-                  <li>Best value (placeholder)</li>
+                  <li>Best value</li>
                   <li>All Pro features</li>
                   <li>Priority support</li>
                 </ul>
-                <button className="cta" type="button" disabled>
-                  Coming soon
+
+                <button
+                  className="cta ctaPrimary"
+                  type="button"
+                  disabled={isDisabled || !yearlyPlan?.priceId}
+                  onClick={() => startCheckout(yearlyPlan.priceId)}
+                >
+                  {isStartingCheckout ? "Opening..." : "Continue"}
                 </button>
               </div>
             </div>
@@ -104,12 +229,11 @@ export default function SlideAIUpgrade({ siteUrl }) {
             <div className="note">
               <div className="noteTitle">Note</div>
               <div className="noteBody">
-                ここは「課金導線」「利用規約リンク」「返金ポリシー」「問い合わせ」などをまとめる想定です。
+                返金や特商法表記などは後でここに集約します。決済が完了すると /slideaipro へ戻ります。
               </div>
             </div>
           </section>
 
-          {/* Footer (company info) */}
           <footer className="footer">
             <div className="footerCard">
               <div className="footerTitle">Company Information</div>
@@ -153,6 +277,12 @@ export default function SlideAIUpgrade({ siteUrl }) {
             </div>
           </footer>
         </main>
+
+        {!authReady && (
+          <div className="authOverlay" role="status" aria-live="polite" aria-busy="true">
+            <div className="authCard">Checking login...</div>
+          </div>
+        )}
 
         <style jsx>{`
           .page {
@@ -265,7 +395,7 @@ export default function SlideAIUpgrade({ siteUrl }) {
 
           @media (min-width: 900px) {
             .grid {
-              grid-template-columns: 1fr 1fr 1fr;
+              grid-template-columns: 1fr 1fr;
               gap: 16px;
             }
           }
@@ -277,7 +407,7 @@ export default function SlideAIUpgrade({ siteUrl }) {
             border: 1px solid rgba(255, 255, 255, 0.10);
             padding: 18px 16px;
             box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
-            min-height: 220px;
+            min-height: 240px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -310,6 +440,22 @@ export default function SlideAIUpgrade({ siteUrl }) {
             font-size: 26px;
             font-weight: 950;
             letter-spacing: -0.3px;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+          }
+
+          .per {
+            font-size: 12px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.68);
+            letter-spacing: 0.2px;
+          }
+
+          .muted {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            font-weight: 800;
           }
 
           .list {
@@ -323,13 +469,20 @@ export default function SlideAIUpgrade({ siteUrl }) {
 
           .cta {
             margin-top: 6px;
-            height: 42px;
+            height: 44px;
             border-radius: 999px;
             border: 1px solid rgba(255, 255, 255, 0.14);
             background: rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 900;
-            cursor: not-allowed;
+            cursor: pointer;
+          }
+          .cta:disabled {
+            opacity: 0.45;
+            cursor: default;
+          }
+          .cta:active:not(:disabled) {
+            transform: scale(0.99);
           }
 
           .ctaPrimary {
@@ -432,6 +585,24 @@ export default function SlideAIUpgrade({ siteUrl }) {
             color: rgba(255, 255, 255, 0.62);
             text-align: center;
           }
+
+          .authOverlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.42);
+            display: grid;
+            place-items: center;
+          }
+          .authCard {
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, 0.62);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 900;
+            letter-spacing: 0.2px;
+          }
         `}</style>
 
         <style jsx global>{`
@@ -451,7 +622,79 @@ export default function SlideAIUpgrade({ siteUrl }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(ctx) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  return { props: { siteUrl }, revalidate: 600 };
+
+  // 直叩きNG: src が無ければ弾く
+  const src = String(ctx?.query?.src || "");
+  if (src !== "slideaipro") {
+    return {
+      redirect: { destination: "/slideaipro", permanent: false },
+    };
+  }
+
+  const stripeKey = process.env.STRIPE_SECRET_KEY || "";
+  if (!stripeKey) {
+    return {
+      props: {
+        siteUrl,
+        plans: [],
+      },
+    };
+  }
+
+  const stripe = new Stripe(stripeKey);
+
+  const pickPrice = (prices, wantInterval) => {
+    const a = Array.isArray(prices) ? prices : [];
+    const recurring = a.filter((p) => p?.type === "recurring" && p?.recurring?.interval);
+    const hit = recurring.find((p) => String(p?.recurring?.interval) === wantInterval);
+    return hit || recurring[0] || a[0] || null;
+  };
+
+  const fetchPlan = async ({ productId, key, wantInterval, label }) => {
+    const list = await stripe.prices.list({
+      product: productId,
+      active: true,
+      limit: 20,
+      expand: ["data.product"],
+    });
+
+    const price = pickPrice(list?.data || [], wantInterval);
+    if (!price) return null;
+
+    return {
+      key,
+      label,
+      productId,
+      priceId: price.id,
+      currency: price.currency || "usd",
+      unitAmount: price.unit_amount || 0,
+      recurring: price.recurring || null,
+      productName: price?.product?.name || "",
+    };
+  };
+
+  const monthly = await fetchPlan({
+    productId: PRODUCT_MONTHLY,
+    key: "monthly",
+    wantInterval: "month",
+    label: "Monthly",
+  });
+
+  const yearly = await fetchPlan({
+    productId: PRODUCT_YEARLY,
+    key: "yearly",
+    wantInterval: "year",
+    label: "Yearly",
+  });
+
+  const plans = [monthly, yearly].filter(Boolean);
+
+  return {
+    props: {
+      siteUrl,
+      plans,
+    },
+  };
 }
