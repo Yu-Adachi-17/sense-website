@@ -9,9 +9,30 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
 });
 
 export default async function handler(req, res) {
+  const originHeader = String(req.headers.origin || "");
+  const allowOrigin =
+    originHeader ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://www.sense-ai.world";
+
+  // CORS（同一オリジンでも害なし。cross-originになった時に即死しない）
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin);
+  res.setHeader("Vary", "Origin");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS, GET");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // プリフライト対応（ここが無いと環境によって 405/4xx になり得る）
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  // 動作確認用：ブラウザで叩けるように GET を一時的に許可
+  if (req.method === "GET") {
+    return res.status(200).json({ ok: true, route: "create-checkout-session" });
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
-    return res.status(405).json({ error: "Method Not Allowed" });
+    return res.status(405).json({ error: "Method Not Allowed", method: req.method });
   }
 
   try {
@@ -59,10 +80,7 @@ export default async function handler(req, res) {
       line_items: [lineItem],
       success_url: `${origin}${successPath}${successPath.includes("?") ? "&" : "?"}session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}${cancelPath}`,
-      metadata: {
-        app: "slideaipro",
-        plan,
-      },
+      metadata: { app: "slideaipro", plan },
     });
 
     return res.status(200).json({ url: session.url });
