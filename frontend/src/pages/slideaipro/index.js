@@ -562,11 +562,11 @@ export default function SlideAIProHome() {
     setIsMenuOpen(false);
     setTimeout(() => {
       try {
-        router.push("/slideaipro/slideaiupgrade");
-      } catch (e) {
-        console.error(e);
+        router.push("/slideaiupgrade");
+      } catch {
+        window.location.href = "/slideaiupgrade";
       }
-    }, 160);
+    }, 140);
   };
 
   return (
@@ -701,26 +701,15 @@ export default function SlideAIProHome() {
                 </div>
               </div>
 
-              {/* Upgrade */}
-              <div
-                className="menuItem menuItemClickable"
-                role="button"
-                tabIndex={0}
-                onClick={requestUpgradeFromMenu}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    requestUpgradeFromMenu();
-                  }
-                }}
-                aria-label="Open Upgrade page"
-              >
+              {/* ✅ Upgrade */}
+              <div className="menuItem menuItemClickable" onClick={requestUpgradeFromMenu} role="button" tabIndex={0}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); requestUpgradeFromMenu(); } }}>
                 <div className="miLeft">
                   <div className="miTitle">Upgrade</div>
-                  <div className="miSub">Plans / Billing / Pro features</div>
+                  <div className="miSub">$9.99 / $89.99</div>
                 </div>
                 <div className="miActions">
-                  <button className="menuActionBtn" onClick={requestUpgradeFromMenu} aria-label="Upgrade">
+                  <button className="menuActionBtn" onClick={(e) => { e.stopPropagation(); requestUpgradeFromMenu(); }} aria-label="Open Upgrade">
                     Open
                   </button>
                 </div>
@@ -968,13 +957,13 @@ export default function SlideAIProHome() {
             background: #ffffff;
             color: rgba(10, 15, 27, 0.96);
             border-left: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.10), 0 10px 20px rgba(0, 0, 0, 0.06);
           }
 
           .menuDark {
             background: rgba(0, 0, 0, 0.84);
             color: rgba(255, 255, 255, 0.92);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.10);
             backdrop-filter: blur(14px);
             box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42), 0 10px 20px rgba(0, 0, 0, 0.28);
           }
