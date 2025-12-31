@@ -5,6 +5,44 @@ import { useRouter } from "next/router";
 import { toPng } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
+import { getClientAuth } from "../../firebaseConfig";
+
+// src/pages/slideaipro/index.js
+
+function buildLoginUrl(nextPath) {
+  const safe =
+    typeof nextPath === "string" && nextPath.startsWith("/") && !nextPath.startsWith("//")
+      ? nextPath
+      : "/";
+  return `/login?next=${encodeURIComponent(safe)}`;
+}
+
+async function getSignedInUserOnce() {
+  if (typeof window === "undefined") return null;
+
+  const auth = await getClientAuth();
+  const { onAuthStateChanged } = await import("firebase/auth");
+
+  return await new Promise((resolve) => {
+    let unsub = () => {};
+    unsub = onAuthStateChanged(
+      auth,
+      (user) => {
+        try {
+          unsub();
+        } catch {}
+        resolve(user || null);
+      },
+      () => {
+        try {
+          unsub();
+        } catch {}
+        resolve(null);
+      }
+    );
+  });
+}
+
 
 function ProgressOverlay({ progress }) {
   const pct = Math.max(0, Math.min(100, Math.floor(progress)));
@@ -558,16 +596,29 @@ export default function SlideAIProHome() {
     setTimeout(() => handleExportPDF(), 160);
   };
 
-  const requestUpgradeFromMenu = () => {
-    setIsMenuOpen(false);
-    setTimeout(() => {
+// src/pages/slideaipro/index.js（SlideAIProHomeコンポーネント内）
+
+const requestUpgradeFromMenu = () => {
+  setIsMenuOpen(false);
+
+  setTimeout(() => {
+    (async () => {
+      const nextPath = "/slideaipro/slideaiupgrade";
       try {
-        router.push("/slideaipro/slideaiupgrade");
+        const user = await getSignedInUserOnce();
+        if (user) {
+          router.push(nextPath);
+          return;
+        }
+        router.push(buildLoginUrl(nextPath));
       } catch (e) {
         console.error(e);
+        router.push(buildLoginUrl(nextPath));
       }
-    }, 160);
-  };
+    })();
+  }, 160);
+};
+
 
   return (
     <>

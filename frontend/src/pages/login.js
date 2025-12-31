@@ -11,15 +11,20 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import HomeIcon from "./homeIcon";
 import Image from "next/image";
 
+function getSafeNextPath(router) {
+  const raw = router?.query?.next;
+  const v = Array.isArray(raw) ? raw[0] : raw;
+  if (typeof v !== "string") return "/";
+  if (!v.startsWith("/") || v.startsWith("//")) return "/";
+  return v;
+}
+
 export default function Login() {
   const router = useRouter();
   const { t, i18n } = useTranslation("common");
 
   useEffect(() => {
-    document.documentElement.setAttribute(
-      "dir",
-      i18n.language === "ar" ? "rtl" : "ltr"
-    );
+    document.documentElement.setAttribute("dir", i18n.language === "ar" ? "rtl" : "ltr");
   }, [i18n.language]);
 
   const [email, setEmail] = useState("");
@@ -36,6 +41,7 @@ export default function Login() {
       return;
     }
     setIsLoading(true);
+
     try {
       const auth = await getClientAuth();
       if (!auth) throw new Error("Auth is not available on server.");
@@ -47,9 +53,7 @@ export default function Login() {
       if (!user.emailVerified) {
         await signOut(auth);
         popup(
-          t(
-            "Your email has not been verified. Please click the link in the email to verify your account."
-          )
+          t("Your email has not been verified. Please click the link in the email to verify your account.")
         );
         return;
       }
@@ -60,6 +64,7 @@ export default function Login() {
 
       const userDocRef = doc(db, "users", user.uid);
       const userDocSnap = await getDoc(userDocRef);
+
       let remainingSecondsFromFirebase = 180;
       if (userDocSnap.exists()) {
         const data = userDocSnap.data();
@@ -69,11 +74,13 @@ export default function Login() {
       }
 
       await syncUserData(user, email, false, remainingSecondsFromFirebase);
-      await router.replace("/");
+
+      const nextPath = getSafeNextPath(router);
+      await router.replace(nextPath);
     } catch (error) {
       console.error("Login error:", error);
-      const code =
-        error && typeof error === "object" && "code" in error ? error.code : undefined;
+      const code = error && typeof error === "object" && "code" in error ? error.code : undefined;
+
       switch (code) {
         case "auth/invalid-email":
           popup(t("The email address is invalid."));
@@ -102,7 +109,8 @@ export default function Login() {
     setIsLoading(true);
     try {
       await signInWithGoogle();
-      await router.replace("/");
+      const nextPath = getSafeNextPath(router);
+      await router.replace(nextPath);
     } catch {
       popup(t("Google sign-in failed."));
     } finally {
@@ -114,7 +122,8 @@ export default function Login() {
     setIsLoading(true);
     try {
       await signInWithApple();
-      await router.replace("/");
+      const nextPath = getSafeNextPath(router);
+      await router.replace(nextPath);
     } catch {
       popup(t("Apple sign-in failed."));
     } finally {
@@ -140,6 +149,11 @@ export default function Login() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const goSignup = () => {
+    const nextPath = getSafeNextPath(router);
+    router.push(`/signup?next=${encodeURIComponent(nextPath)}`);
   };
 
   return (
@@ -181,53 +195,29 @@ export default function Login() {
           disabled={isLoading}
         />
 
-        <button
-          onClick={handleLogin}
-          disabled={isLoading}
-          aria-busy={isLoading}
-          className="btn primary"
-        >
+        <button onClick={handleLogin} disabled={isLoading} aria-busy={isLoading} className="btn primary">
           {t("Login")}
           {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button
-          onClick={handleGoogleSignIn}
-          disabled={isLoading}
-          aria-busy={isLoading}
-          className="btn social"
-        >
+        <button onClick={handleGoogleSignIn} disabled={isLoading} aria-busy={isLoading} className="btn social">
           <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Google")}
           {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button
-          onClick={handleAppleSignIn}
-          disabled={isLoading}
-          aria-busy={isLoading}
-          className="btn social strong"
-        >
+        <button onClick={handleAppleSignIn} disabled={isLoading} aria-busy={isLoading} className="btn social strong">
           <FaApple style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Apple")}
           {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button
-          onClick={handlePasswordReset}
-          disabled={isLoading}
-          aria-busy={isLoading}
-          className="link danger"
-        >
+        <button onClick={handlePasswordReset} disabled={isLoading} aria-busy={isLoading} className="link danger">
           {t("Forgot your password? Send a reset email.")}
           {isLoading && <span className="loader small" aria-hidden="true" />}
         </button>
 
-        <button
-          onClick={() => router.push("/signup")}
-          disabled={isLoading}
-          className="link"
-        >
+        <button onClick={goSignup} disabled={isLoading} className="link">
           {t("Don't have an account? Click here.")}
         </button>
       </div>
@@ -302,7 +292,9 @@ export default function Login() {
           position: relative;
           gap: 8px;
         }
-        .btn:active { transform: scale(0.99); }
+        .btn:active {
+          transform: scale(0.99);
+        }
         .btn.primary {
           border: 1px solid #000;
           margin-bottom: 16px;
@@ -349,7 +341,9 @@ export default function Login() {
           height: 14px;
         }
         @keyframes spin {
-          to { transform: rotate(360deg); }
+          to {
+            transform: rotate(360deg);
+          }
         }
 
         @media (max-width: 640px) {
@@ -359,8 +353,12 @@ export default function Login() {
             justify-content: center;
             height: 100svh;
           }
-          .visualPane { display: none; }
-          .vline { display: none; }
+          .visualPane {
+            display: none;
+          }
+          .vline {
+            display: none;
+          }
           .formPane {
             width: 100%;
             max-width: 420px;
@@ -370,9 +368,16 @@ export default function Login() {
             justify-content: center;
             min-height: 100svh;
           }
-          .title { font-size: 34px; margin-bottom: 18px; }
-          .input { width: min(92vw, 360px); }
-          .btn { width: min(92vw, 360px); }
+          .title {
+            font-size: 34px;
+            margin-bottom: 18px;
+          }
+          .input {
+            width: min(92vw, 360px);
+          }
+          .btn {
+            width: min(92vw, 360px);
+          }
         }
       `}</style>
     </div>

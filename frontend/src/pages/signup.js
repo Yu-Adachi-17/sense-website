@@ -12,19 +12,19 @@ import HomeIcon from "./homeIcon";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+function getSafeNextPath(router) {
+  const raw = router?.query?.next;
+  const v = Array.isArray(raw) ? raw[0] : raw;
+  if (typeof v !== "string") return "/";
+  if (!v.startsWith("/") || v.startsWith("//")) return "/";
+  return v;
+}
+
 const createUserDocument = async (user) => {
   const db = await getDb();
   if (!db) return;
 
-  const {
-    collection,
-    query,
-    where,
-    getDocs,
-    doc,
-    setDoc,
-    serverTimestamp,
-  } = await import("firebase/firestore");
+  const { collection, query, where, getDocs, doc, setDoc, serverTimestamp } = await import("firebase/firestore");
 
   const usersRef = collection(db, "users");
   const q = query(usersRef, where("email", "==", user.email));
@@ -76,21 +76,17 @@ export default function SignUp() {
   const handleSignUp = async () => {
     if (!email || !password) return;
     setIsLoading(true);
+
     try {
       const auth = await getClientAuth();
       if (!auth) throw new Error("Auth is not available on server.");
 
-      const {
-        createUserWithEmailAndPassword,
-        sendEmailVerification,
-        signOut,
-      } = await import("firebase/auth");
+      const { createUserWithEmailAndPassword, sendEmailVerification, signOut } = await import("firebase/auth");
 
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       const user = cred.user;
 
       await createUserDocument(user);
-
       await sendEmailVerification(user);
       await signOut(auth);
 
@@ -109,7 +105,8 @@ export default function SignUp() {
     try {
       const user = await signInWithGoogle();
       if (user) await createUserDocument(user);
-      await router.replace("/");
+      const nextPath = getSafeNextPath(router);
+      await router.replace(nextPath);
     } catch (error) {
       console.error(error);
       popup(error?.message || "Google sign-in failed");
@@ -123,13 +120,19 @@ export default function SignUp() {
     try {
       const user = await signInWithApple();
       if (user) await createUserDocument(user);
-      await router.replace("/");
+      const nextPath = getSafeNextPath(router);
+      await router.replace(nextPath);
     } catch (error) {
       console.error(error);
       popup(error?.message || "Apple sign-in failed");
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const gotoLoginWithNext = () => {
+    const nextPath = getSafeNextPath(router);
+    router.push(`/login?next=${encodeURIComponent(nextPath)}`);
   };
 
   if (isEmailSent) {
@@ -154,13 +157,9 @@ export default function SignUp() {
 
         <div className="formPane">
           <h1 className="title">{t("Verification Email Sent")}</h1>
-          <p className="desc">
-            {t("Please click the link in the email to verify your account and then log in.")}
-          </p>
-          <button
-            onClick={() => router.push("/login")}
-            className="btn primary"
-          >
+          <p className="desc">{t("Please click the link in the email to verify your account and then log in.")}</p>
+
+          <button onClick={gotoLoginWithNext} className="btn primary">
             {t("Log In After Verification")}
           </button>
         </div>
@@ -209,43 +208,24 @@ export default function SignUp() {
           disabled={isLoading}
         />
 
-        <button
-          onClick={handleSignUp}
-          disabled={isLoading}
-          aria-busy={isLoading}
-          className="btn primary"
-        >
+        <button onClick={handleSignUp} disabled={isLoading} aria-busy={isLoading} className="btn primary">
           {t("Email Verification")}
           {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button
-          onClick={handleGoogleSignIn}
-          disabled={isLoading}
-          aria-busy={isLoading}
-          className="btn social"
-        >
+        <button onClick={handleGoogleSignIn} disabled={isLoading} aria-busy={isLoading} className="btn social">
           <FcGoogle style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Google")}
           {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button
-          onClick={handleAppleSignIn}
-          disabled={isLoading}
-          aria-busy={isLoading}
-          className="btn social strong"
-        >
+        <button onClick={handleAppleSignIn} disabled={isLoading} aria-busy={isLoading} className="btn social strong">
           <FaApple style={{ marginRight: 10, fontSize: 20 }} />
           {t("Sign in with Apple")}
           {isLoading && <span className="loader" aria-hidden="true" />}
         </button>
 
-        <button
-          onClick={() => router.push("/login")}
-          disabled={isLoading}
-          className="link"
-        >
+        <button onClick={gotoLoginWithNext} disabled={isLoading} className="link">
           {t("Already have an account? Click here.")}
         </button>
       </div>
