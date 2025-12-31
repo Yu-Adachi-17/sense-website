@@ -4,50 +4,50 @@ import Stripe from "stripe";
 const PRODUCT_MONTHLY = "prod_ThflbIcHUiOs5j"; // $9.99
 const PRODUCT_YEARLY = "prod_ThfmqAQAfG5Ac0"; // $89.99
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
-  apiVersion: "2024-06-20",
-});
+function safeString(x) {
+  return typeof x === "string" ? x : "";
+}
 
 export default async function handler(req, res) {
-  const originHeader = String(req.headers.origin || "");
+  const originHeader = safeString(req.headers.origin);
   const allowOrigin =
     originHeader ||
     process.env.NEXT_PUBLIC_SITE_URL ||
     "https://www.sense-ai.world";
 
-  // CORS（同一オリジンでも害なし。cross-originになった時に即死しない）
   res.setHeader("Access-Control-Allow-Origin", allowOrigin);
   res.setHeader("Vary", "Origin");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS, GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // プリフライト対応（ここが無いと環境によって 405/4xx になり得る）
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
+  if (req.method === "OPTIONS") return res.status(200).end();
+  if (req.method === "GET") return res.status(200).json({ ok: true, route: "create-checkout-session" });
+  if (req.method !== "POST") return res.status(405).json({ error: "Method Not Allowed", method: req.method });
+
+  const key = safeString(process.env.STRIPE_SECRET_KEY);
+
+  // ここで「キー違い」を即判定して、500の原因を潰す
+  if (!key) return res.status(500).json({ error: "STRIPE_SECRET_KEY is not set" });
+  if (!key.startsWith("sk_")) {
+    // pk_ を入れてる/別の値を入れてる系を即発見
+    return res.status(500).json({
+      error: "STRIPE_SECRET_KEY looks invalid",
+      hint: "Secret key must start with sk_test_ or sk_live_",
+      gotPrefix: key.slice(0, 6),
+    });
   }
 
-  // 動作確認用：ブラウザで叩けるように GET を一時的に許可
-  if (req.method === "GET") {
-    return res.status(200).json({ ok: true, route: "create-checkout-session" });
-  }
-
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed", method: req.method });
-  }
+  const stripe = new Stripe(key, { apiVersion: "2024-06-20" });
 
   try {
-    if (!process.env.STRIPE_SECRET_KEY) {
-      return res.status(500).json({ error: "STRIPE_SECRET_KEY is not set" });
-    }
-
     const body = req.body && typeof req.body === "object" ? req.body : {};
-    const plan = String(body.plan || "");
-    const successPath = String(body.successPath || "/slideaipro?upgraded=1");
-    const cancelPath = String(body.cancelPath || "/slideaipro/slideaiupgrade?src=slideaipro");
+    const plan = safeString(body.plan);
+    const successPath = safeString(body.successPath) || "/slideaipro?upgraded=1";
+    const cancelPath = safeString(body.cancelPath) || "/slideaipro/slideaiupgrade?src=slideaipro";
 
     const origin =
-      String(req.headers.origin || "") ||
-      process.env.NEXT_PUBLIC_SITE_URL ||
+      originHeader ||
+      safeString(process.env.NEXT_PUBLIC_SITE_URL) ||
       "https://www.sense-ai.world";
 
     let lineItem;
@@ -72,7 +72,7 @@ export default async function handler(req, res) {
         },
       };
     } else {
-      return res.status(400).json({ error: "Invalid plan" });
+      return res.status(400).json({ error: "Invalid plan", plan });
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -85,7 +85,19 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ url: session.url });
   } catch (e) {
+    // Stripeが返した中身を返す（原因特定が最優先）
+    const err = e && typeof e === "object" ? e : {};
+    const statusCode = typeof err.statusCode === "number" ? err.statusCode : 500;
+
     console.error("create-checkout-session error:", e);
-    return res.status(500).json({ error: "Failed to create checkout session" });
+
+    return res.status(statusCode).json({
+      error: "Stripe error",
+      message: safeString(err.message) || "Unknown error",
+      type: safeString(err.type),
+      code: safeString(err.code),
+      param: safeString(err.param),
+      requestId: safeString(err.requestId),
+    });
   }
 }
