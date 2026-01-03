@@ -9,83 +9,40 @@ function safeString(x) {
   return typeof x === "string" ? x : "";
 }
 
-function initFirebaseAdmin() {
-  if (admin.apps.length) return;
+function getBearerToken(req) {
+  const h = safeString(req.headers.authorization || "");
+  const m = h.match(/^Bearer\s+(.+)$/i);
+  return m ? safeString(m[1]) : "";
+}
 
-  const raw = safeString(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
-  if (!raw) {
+function initFirebaseAdmin() {
+  if (admin.apps.length) return admin.app();
+
+  const b64 = safeString(process.env.FIREBASE_SERVICE_ACCOUNT_B64);
+  const jsonRaw = safeString(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+
+  let credObj = null;
+
+  if (b64) {
+    const decoded = Buffer.from(b64, "base64").toString("utf8");
+    credObj = JSON.parse(decoded);
+  } else if (jsonRaw) {
+    credObj = JSON.parse(jsonRaw);
+  } else {
     throw new Error("FIREBASE_SERVICE_ACCOUNT_JSON is not set");
   }
 
-  let serviceAccount;
-  try {
-    serviceAccount = JSON.parse(raw);
-  } catch (e) {
-    throw new Error("FIREBASE_SERVICE_ACCOUNT_JSON is not valid JSON");
+  if (credObj?.private_key && typeof credObj.private_key === "string") {
+    credObj.private_key = credObj.private_key.replace(/\\n/g, "\n");
   }
 
-  if (serviceAccount.private_key && typeof serviceAccount.private_key === "string") {
-    serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n");
-  }
-
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  });
-}
-
-function getSiteUrl() {
-  const siteUrl = safeString(process.env.NEXT_PUBLIC_SITE_URL) || "https://www.sense-ai.world";
-  return siteUrl.replace(/\/+$/, "");
-}
-
-function pickAllowedOrigin(originHeader, siteUrl) {
-  const o = safeString(originHeader).replace(/\/+$/, "");
-  if (!o) return siteUrl;
-
-  // 許可するのは自ドメインのみ（CORS + redirect起点の事故防止）
-  if (o === siteUrl) return o;
-  return siteUrl;
-}
-
-function getPlanConfig(plan) {
-  // planKey は Firestore の subscriptionPlan に入れる想定のキー（テスト例）
-  if (plan === "monthly") {
-    return {
-      plan,
-      planKey: "SlideAITest",
-      lineItem: {
-        quantity: 1,
-        price_data: {
-          currency: "usd",
-          unit_amount: 999,
-          recurring: { interval: "month" },
-          product: PRODUCT_MONTHLY,
-        },
-      },
-    };
-  }
-  if (plan === "yearly") {
-    return {
-      plan,
-      planKey: "SlideAIYearlyTest",
-      lineItem: {
-        quantity: 1,
-        price_data: {
-          currency: "usd",
-          unit_amount: 8999,
-          recurring: { interval: "year" },
-          product: PRODUCT_YEARLY,
-        },
-      },
-    };
-  }
-  return null;
+  admin.initializeApp({ credential: admin.credential.cert(credObj) });
+  return admin.app();
 }
 
 export default async function handler(req, res) {
-  const siteUrl = getSiteUrl();
   const originHeader = safeString(req.headers.origin);
-  const allowOrigin = pickAllowedOrigin(originHeader, siteUrl);
+  const allowOrigin = originHeader || safeString(process.env.NEXT_PUBLIC_SITE_URL) || "https://www.sense-ai.world";
 
   res.setHeader("Access-Control-Allow-Origin", allowOrigin);
   res.setHeader("Vary", "Origin");
@@ -97,93 +54,127 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method Not Allowed", method: req.method });
 
   const stripeKey = safeString(process.env.STRIPE_SECRET_KEY);
-  if (!stripeKey) return res.status(500).json({ error: "STRIPE_SECRET_KEY is not set" });
+  if (!stripeKey) return res.status(500).json({ error: "Stripe/Firebase error", message: "STRIPE_SECRET_KEY is not set" });
   if (!stripeKey.startsWith("sk_")) {
     return res.status(500).json({
-      error: "STRIPE_SECRET_KEY looks invalid",
-      hint: "Secret key must start with sk_test_ or sk_live_",
+      error: "Stripe/Firebase error",
+      message: "STRIPE_SECRET_KEY looks invalid",
       gotPrefix: stripeKey.slice(0, 6),
     });
   }
 
-  const stripe = new Stripe(stripeKey, { apiVersion: "2024-06-20" });
-
   try {
+    const idToken = getBearerToken(req);
+    if (!idToken) {
+      return res.status(401).json({
+        error: "Stripe/Firebase error",
+        message: "Missing idToken (Authorization: Bearer <idToken>)",
+      });
+    }
+
+    initFirebaseAdmin();
+
+    let decoded;
+    try {
+      decoded = await admin.auth().verifyIdToken(idToken);
+    } catch (e) {
+      return res.status(401).json({ error: "Stripe/Firebase error", message: safeString(e?.message) || "Invalid idToken" });
+    }
+
+    const uid = safeString(decoded?.uid);
+    const email = safeString(decoded?.email);
+    if (!uid) return res.status(401).json({ error: "Stripe/Firebase error", message: "uid missing in token" });
+
+    // ここが「購入ボタン押下段階で弾く」本丸（サーバー強制）
+    const db = admin.firestore();
+    const userRef = db.collection("users").doc(uid);
+    const snap = await userRef.get();
+    if (!snap.exists) {
+      return res.status(403).json({
+        error: "Stripe/Firebase error",
+        message: "User document not found",
+      });
+    }
+
+    const userData = snap.data() || {};
+    const isSubscribed = userData?.subscription === true;
+
+    if (isSubscribed) {
+      return res.status(409).json({
+        error: "Already subscribed",
+        message: "subscription:true のため購入は不要です",
+        subscriptionPlan: safeString(userData?.subscriptionPlan),
+      });
+    }
+
     const body = req.body && typeof req.body === "object" ? req.body : {};
     const plan = safeString(body.plan);
     const successPath = safeString(body.successPath) || "/slideaipro?upgraded=1";
     const cancelPath = safeString(body.cancelPath) || "/slideaipro/slideaiupgrade?src=slideaipro";
 
-    // idToken は body か Authorization: Bearer に乗ってくる前提で両対応
-    const authHeader = safeString(req.headers.authorization);
-    const bearer = authHeader.startsWith("Bearer ") ? authHeader.slice("Bearer ".length) : "";
-    const idToken = safeString(body.idToken) || safeString(bearer);
+    const origin = originHeader || safeString(process.env.NEXT_PUBLIC_SITE_URL) || "https://www.sense-ai.world";
 
-    if (!idToken) {
-      return res.status(401).json({ error: "Missing idToken" });
+    const planKeyMonthly = safeString(process.env.SLIDEAI_PLAN_KEY_MONTHLY) || "SlideAITest";
+    const planKeyYearly = safeString(process.env.SLIDEAI_PLAN_KEY_YEARLY) || "SlideAIYearlyTest";
+
+    let lineItem;
+    let planKey;
+
+    if (plan === "monthly") {
+      planKey = planKeyMonthly;
+      lineItem = {
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          unit_amount: 999,
+          recurring: { interval: "month" },
+          product: PRODUCT_MONTHLY,
+        },
+      };
+    } else if (plan === "yearly") {
+      planKey = planKeyYearly;
+      lineItem = {
+        quantity: 1,
+        price_data: {
+          currency: "usd",
+          unit_amount: 8999,
+          recurring: { interval: "year" },
+          product: PRODUCT_YEARLY,
+        },
+      };
+    } else {
+      return res.status(400).json({ error: "Invalid plan", plan });
     }
 
-    const cfg = getPlanConfig(plan);
-    if (!cfg) return res.status(400).json({ error: "Invalid plan", plan });
-
-    // Firebase Admin で token 検証 → uid 確定
-    initFirebaseAdmin();
-    const decoded = await admin.auth().verifyIdToken(idToken);
-    const uid = safeString(decoded?.uid);
-    const email = safeString(decoded?.email);
-
-    if (!uid) return res.status(401).json({ error: "Invalid idToken (no uid)" });
-
-    const successUrl =
-      `${siteUrl}${successPath}` +
-      `${successPath.includes("?") ? "&" : "?"}session_id={CHECKOUT_SESSION_ID}`;
-
-    const cancelUrl = `${siteUrl}${cancelPath}`;
-
-    const meta = {
-      app: "slideaipro",
-      uid,
-      plan: cfg.plan,
-      planKey: cfg.planKey,
-    };
+    const stripe = new Stripe(stripeKey, { apiVersion: "2024-06-20" });
 
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
-      line_items: [cfg.lineItem],
-
-      // ここは siteUrl 固定（Originヘッダ起点の誘導事故を避ける）
-      success_url: successUrl,
-      cancel_url: cancelUrl,
-
-      // Firestore更新のキー材料
-      metadata: meta,
-
-      // Subscriptionオブジェクトにも持たせる（後続イベントで参照しやすい）
-      subscription_data: {
-        metadata: meta,
-      },
-
-      // Stripe側でも uid を持てる（調査・突合が楽）
+      line_items: [lineItem],
       client_reference_id: uid,
-
-      // email が取れるなら入れる（Stripe customer作成/連携で有益）
-      ...(email ? { customer_email: email } : {}),
+      customer_email: email || undefined,
+      success_url: `${origin}${successPath}${successPath.includes("?") ? "&" : "?"}session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}${cancelPath}`,
+      metadata: {
+        app: "slideaipro",
+        uid,
+        plan,
+        planKey,
+      },
+      subscription_data: {
+        metadata: {
+          app: "slideaipro",
+          uid,
+          plan,
+          planKey,
+        },
+      },
     });
 
     return res.status(200).json({ url: session.url });
   } catch (e) {
-    const err = e && typeof e === "object" ? e : {};
-    const statusCode = typeof err.statusCode === "number" ? err.statusCode : 500;
-
+    const msg = safeString(e?.message) || "Unknown error";
     console.error("create-checkout-session error:", e);
-
-    return res.status(statusCode).json({
-      error: "Stripe/Firebase error",
-      message: safeString(err.message) || "Unknown error",
-      type: safeString(err.type),
-      code: safeString(err.code),
-      param: safeString(err.param),
-      requestId: safeString(err.requestId),
-    });
+    return res.status(500).json({ error: "Stripe/Firebase error", message: msg, type: "", code: "", param: "", requestId: "" });
   }
 }

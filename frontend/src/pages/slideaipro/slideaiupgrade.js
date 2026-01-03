@@ -87,28 +87,39 @@ const startCheckout = async (plan) => {
   setIsStarting(true);
 
   try {
-    const user = await getSignedInUserOnce();
-    if (!user) {
-      const nextPath = "/slideaipro/slideaiupgrade?src=slideaipro";
-      router.replace(buildLoginUrl(nextPath));
-      return;
-    }
+    const auth = await getClientAuth();
+    const u = auth?.currentUser;
+    if (!u) throw new Error("Not signed in");
 
-    const idToken = await user.getIdToken(true);
+    const idToken = await u.getIdToken(true);
 
     const resp = await fetch("/api/slideaipro/create-checkout-session", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${idToken}`,
+      },
       body: JSON.stringify({
         plan,
-        idToken,
         successPath: "/slideaipro?upgraded=1",
         cancelPath: "/slideaipro/slideaiupgrade?src=slideaipro",
       }),
     });
 
     if (!resp.ok) {
-      const txt = await resp.text().catch(() => "");
+      let j = null;
+      try {
+        j = await resp.json();
+      } catch {}
+
+      if (resp.status === 409) {
+        const planName = String(j?.subscriptionPlan || "").trim();
+        alert(planName ? `すでに有効なサブスクがあります: ${planName}` : "すでに有効なサブスクがあります。購入は不要です。");
+        setIsStarting(false);
+        return;
+      }
+
+      const txt = j ? JSON.stringify(j) : await resp.text().catch(() => "");
       throw new Error(`create-checkout-session HTTP ${resp.status} ${txt}`);
     }
 
