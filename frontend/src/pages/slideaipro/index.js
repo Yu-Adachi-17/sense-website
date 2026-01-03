@@ -5,11 +5,8 @@ import { useRouter } from "next/router";
 import { toPng } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
-import { getClientAuth } from "../../firebaseConfig";
-import SlideEditorPanel from "../../components/slideaipro/SlideEditorPanel";
 import SlideEditModal from "../../components/slideaipro/SlideEditModal";
-
-// src/pages/slideaipro/index.js
+import { getClientAuth } from "../../firebaseConfig";
 
 function buildLoginUrl(nextPath) {
   const safe =
@@ -44,7 +41,6 @@ async function getSignedInUserOnce() {
     );
   });
 }
-
 
 function ProgressOverlay({ progress }) {
   const pct = Math.max(0, Math.min(100, Math.floor(progress)));
@@ -312,17 +308,15 @@ export default function SlideAIProHome() {
 
   const [isExporting, setIsExporting] = useState(false);
 
-  // (2) slides を state 化
+  // slides state
   const [slidesState, setSlidesState] = useState([]);
 
-  // (5) Edit Panel state
-  const [isEditOpen, setIsEditOpen] = useState(false);
+  // Edit Modal state（ここが“配線”）
+  const [editOpen, setEditOpen] = useState(false);
   const [editIdx, setEditIdx] = useState(-1);
-  const [editText, setEditText] = useState("");
-  const [editError, setEditError] = useState("");
+  const [editSlide, setEditSlide] = useState(null);
 
   const taRef = useRef(null);
-  const editTaRef = useRef(null);
 
   const trimmed = useMemo(() => prompt.trim(), [prompt]);
 
@@ -355,36 +349,13 @@ export default function SlideAIProHome() {
     autosize();
   }, [prompt]);
 
-  // Edit open 中はスクロールロック & focus
-  useEffect(() => {
-    if (!isEditOpen) return;
-
-    const prevOverflow = document?.body?.style?.overflow ?? "";
-    try {
-      document.body.style.overflow = "hidden";
-    } catch {}
-
-    const t = window.setTimeout(() => {
-      try {
-        editTaRef.current?.focus();
-      } catch {}
-    }, 0);
-
-    return () => {
-      window.clearTimeout(t);
-      try {
-        document.body.style.overflow = prevOverflow;
-      } catch {}
-    };
-  }, [isEditOpen]);
-
   useEffect(() => {
     const onKey = (e) => {
-      if (isEditOpen && e.key === "Escape") {
+      if (editOpen && e.key === "Escape") {
         e.preventDefault();
-        setIsEditOpen(false);
-        setEditError("");
+        setEditOpen(false);
         setEditIdx(-1);
+        setEditSlide(null);
         return;
       }
       if (!isMenuOpen) return;
@@ -395,7 +366,7 @@ export default function SlideAIProHome() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [isMenuOpen, isEditOpen]);
+  }, [isMenuOpen, editOpen]);
 
   const startProgressTicker = () => {
     setProgress(3);
@@ -444,7 +415,7 @@ export default function SlideAIProHome() {
     });
   };
 
-  // (4) SlideDeck からの Edit リクエストを受ける
+  // SlideDeck からの edit 要求 → “モーダルを開く”
   const onRequestEditSlide = (slide, idx) => {
     let i = typeof idx === "number" ? idx : -1;
 
@@ -457,54 +428,33 @@ export default function SlideAIProHome() {
     }
 
     const base = (i >= 0 ? slidesState?.[i] : null) || slide || null;
-    if (!base) return;
+    if (!base || i < 0) return;
 
-    try {
-      setEditText(JSON.stringify(base, null, 2));
-    } catch {
-      setEditText(String(base || ""));
-    }
     setEditIdx(i);
-    setEditError("");
-    setIsEditOpen(true);
+    setEditSlide(base);
+    setEditOpen(true);
   };
 
-  const closeEditPanel = () => {
-    setIsEditOpen(false);
-    setEditError("");
+  // SlideEditModal からの save → slidesState に反映
+  const onSaveEditedSlide = (index, nextSlide) => {
+    const i = Number(index);
+    if (!Number.isFinite(i) || i < 0 || i >= (slidesState?.length || 0)) return;
+
+    setSlidesState((arr) => {
+      const copy = Array.isArray(arr) ? [...arr] : [];
+      copy[i] = nextSlide;
+      return copy;
+    });
+
+    setEditOpen(false);
     setEditIdx(-1);
+    setEditSlide(null);
   };
 
-  // (5) Save を slidesState に反映（parse は Save の時だけ）
-  const saveEditedSlide = () => {
-    const i = editIdx;
-    if (i < 0 || i >= (slidesState?.length || 0)) {
-      setEditError("編集対象スライドが不正です。");
-      return;
-    }
-
-    try {
-      const parsed = JSON.parse(editText || "");
-      if (!parsed || typeof parsed !== "object") throw new Error("JSON がオブジェクトではありません");
-
-      const prev = slidesState[i] || {};
-      const nextSlide = { ...parsed };
-
-      // 最低限の整合性（レンダラが壊れないように）
-      if (!nextSlide.kind) nextSlide.kind = prev.kind || "unknown";
-      if (!nextSlide.id) nextSlide.id = prev.id || `slide-${i + 1}`;
-
-      setSlidesState((arr) => {
-        const copy = Array.isArray(arr) ? [...arr] : [];
-        copy[i] = nextSlide;
-        return copy;
-      });
-
-      closeEditPanel();
-    } catch (e) {
-      const msg = String(e?.message || e);
-      setEditError(`JSON が不正です: ${msg}`);
-    }
+  const onCancelEdit = () => {
+    setEditOpen(false);
+    setEditIdx(-1);
+    setEditSlide(null);
   };
 
   const handleGenerate = async () => {
@@ -515,7 +465,12 @@ export default function SlideAIProHome() {
     setIsSending(true);
     setAgendaJson(null);
     setImageUrlByKey({});
-    setSlidesState([]); // 生成開始時に一旦クリア
+    setSlidesState([]);
+
+    // 生成中は編集も閉じる
+    setEditOpen(false);
+    setEditIdx(-1);
+    setEditSlide(null);
 
     const stop = startProgressTicker();
     let stopped = false;
@@ -554,7 +509,6 @@ export default function SlideAIProHome() {
       setProgress(32);
       setAgendaJson(json);
 
-      // (3) 生成成功時に setSlidesState(...)
       try {
         const built = buildSlidesFromAgenda({
           brief: brief || "SlideAI Pro",
@@ -586,7 +540,6 @@ export default function SlideAIProHome() {
   };
 
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
-
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
   const handleExportPNG = async () => {
@@ -732,12 +685,6 @@ export default function SlideAIProHome() {
     }, 160);
   };
 
-  const stopAll = (e) => {
-    try {
-      e.stopPropagation();
-    } catch {}
-  };
-
   return (
     <>
       <Head>
@@ -748,8 +695,8 @@ export default function SlideAIProHome() {
       <div
         className="page"
         onClick={() => {
-          // Edit open 中は blur を絶対に走らせない（TextEditorが編集不可になる原因）
-          if (isMenuOpen || isEditOpen) return;
+          // menu / edit open 中は blur を走らせない
+          if (isMenuOpen || editOpen) return;
           try {
             document.activeElement?.blur?.();
           } catch {}
@@ -828,7 +775,6 @@ export default function SlideAIProHome() {
               isIntelMode={isIntelMode}
               hasPrefetched={hasPrefetched}
               imageUrlByKey={imageUrlByKey}
-              // (4) SlideDeck に onRequestEditSlide を渡す（互換のため両方渡す）
               onRequestEditSlide={onRequestEditSlide}
               onEditSlide={onRequestEditSlide}
             />
@@ -908,62 +854,15 @@ export default function SlideAIProHome() {
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
 
-        {/* (5) Edit Panel */}
-        {isEditOpen && (
-          <div
-            className="editOverlay"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Edit slide"
-            onMouseDownCapture={stopAll}
-            onClick={() => closeEditPanel()}
-          >
-            <div
-              className={`editPanel ${isIntelMode ? "editDark" : "editLight"}`}
-              onMouseDownCapture={stopAll}
-              onClick={stopAll}
-            >
-              <div className="editHeader">
-                <div className="editTitle">Edit Slide {editIdx >= 0 ? editIdx + 1 : ""}</div>
-                <button className="iconBtn editCloseBtn" aria-label="Close" onClick={closeEditPanel}>
-                  <span className="closeX" />
-                </button>
-              </div>
-
-              <div className="editBody">
-                <div className="editHint">JSON を編集して Save してください。（Cmd/Ctrl + Enter で Save）</div>
-
-                <textarea
-                  ref={editTaRef}
-                  className="editTa"
-                  value={editText}
-                  onChange={(e) => {
-                    setEditText(e.target.value);
-                    if (editError) setEditError("");
-                  }}
-                  onKeyDown={(e) => {
-                    if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
-                      e.preventDefault();
-                      saveEditedSlide();
-                    }
-                  }}
-                  spellCheck={false}
-                />
-
-                {!!editError && <div className="editErr">{editError}</div>}
-              </div>
-
-              <div className="editActions">
-                <button className="editBtnSecondary" onClick={closeEditPanel}>
-                  Cancel
-                </button>
-                <button className="editBtnPrimary" onClick={saveEditedSlide}>
-                  Save
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* ★ここが本題：編集UIを“実際に使う” */}
+        <SlideEditModal
+          open={editOpen}
+          slide={editSlide}
+          slideIndex={editIdx >= 0 ? editIdx : 0}
+          isIntelMode={isIntelMode}
+          onCancel={onCancelEdit}
+          onSave={onSaveEditedSlide}
+        />
 
         <style jsx>{`
           .page {
@@ -1292,130 +1191,6 @@ export default function SlideAIProHome() {
             box-shadow: none;
           }
           .menuActionBtn:active:not(:disabled) {
-            transform: scale(0.99);
-          }
-
-          /* ===== Edit Panel ===== */
-          .editOverlay {
-            position: fixed;
-            inset: 0;
-            z-index: 9100;
-            background: ${isIntelMode ? "rgba(0,0,0,0.42)" : "rgba(0,0,0,0.18)"};
-            display: grid;
-            place-items: center;
-            padding: 18px;
-          }
-
-          .editPanel {
-            width: min(900px, calc(100vw - 24px));
-            height: min(80vh, 720px);
-            border-radius: 18px;
-            overflow: hidden;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-          }
-
-          .editLight {
-            background: #ffffff;
-            color: rgba(10, 15, 27, 0.96);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.16);
-          }
-
-          .editDark {
-            background: rgba(0, 0, 0, 0.86);
-            color: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            backdrop-filter: blur(14px);
-            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.46);
-          }
-
-          .editHeader {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 14px 10px;
-            border-bottom: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"};
-          }
-
-          .editTitle {
-            font-weight: 900;
-            letter-spacing: 0.2px;
-            font-size: 16px;
-          }
-
-          .editCloseBtn {
-            border-radius: 12px;
-          }
-
-          .editBody {
-            padding: 12px 14px 14px;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            gap: 10px;
-            min-height: 0;
-          }
-
-          .editHint {
-            font-size: 12px;
-            opacity: 0.72;
-            font-weight: 800;
-          }
-
-          .editTa {
-            width: 100%;
-            height: 100%;
-            resize: none;
-            border-radius: 14px;
-            padding: 12px 12px;
-            outline: none;
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.10)"};
-            background: ${isIntelMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.03)"};
-            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(10,15,27,0.96)"};
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-size: 12px;
-            line-height: 1.45;
-            min-height: 0;
-          }
-
-          .editErr {
-            font-size: 12px;
-            font-weight: 900;
-            color: ${isIntelMode ? "rgba(255,140,140,0.92)" : "rgba(180,0,0,0.92)"};
-          }
-
-          .editActions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            padding: 12px 14px 14px;
-            border-top: 1px solid ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)"};
-          }
-
-          .editBtnSecondary,
-          .editBtnPrimary {
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 900;
-            cursor: pointer;
-            user-select: none;
-            border: 1px solid ${isIntelMode ? "rgba(255,255,255,0.16)" : "rgba(0,0,0,0.10)"};
-          }
-
-          .editBtnSecondary {
-            background: transparent;
-            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(10,15,27,0.96)"};
-          }
-
-          .editBtnPrimary {
-            background: ${isIntelMode ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.06)"};
-            color: ${isIntelMode ? "rgba(255,255,255,0.92)" : "rgba(10,15,27,0.96)"};
-            box-shadow: ${isIntelMode ? "0 10px 22px rgba(0,0,0,0.25)" : "0 2px 10px rgba(0,0,0,0.06)"};
-          }
-
-          .editBtnSecondary:active,
-          .editBtnPrimary:active {
             transform: scale(0.99);
           }
         `}</style>
