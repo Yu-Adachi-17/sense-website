@@ -52,9 +52,7 @@ export default function Login() {
 
       if (!user.emailVerified) {
         await signOut(auth);
-        popup(
-          t("Your email has not been verified. Please click the link in the email to verify your account.")
-        );
+        popup(t("Your email has not been verified. Please click the link in the email to verify your account."));
         return;
       }
 
@@ -73,7 +71,8 @@ export default function Login() {
         }
       }
 
-      await syncUserData(user, email, false, remainingSecondsFromFirebase);
+      // 重要：ログインで subscription を false 上書きしない（undefined で「触らない」）
+      await syncUserData(user, email, undefined, remainingSecondsFromFirebase);
 
       const nextPath = getSafeNextPath(router);
       await router.replace(nextPath);
