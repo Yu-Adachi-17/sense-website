@@ -97,13 +97,20 @@ export default async function handler(req, res) {
     }
 
     const userData = snap.data() || {};
-    const isSubscribed = userData?.subscription === true;
 
-    if (isSubscribed) {
+    // Minutes.AI 購読（干渉しないが、購入ブロック判定には使う）
+    const hasMinutesSubscription = userData?.subscription === true;
+
+    // SlideAI 購読（今回の新ルール）
+    const hasSlideAiSubscription = userData?.slideAISubscription === true;
+
+    // どちらかが true なら Checkout を開始させない
+    if (hasMinutesSubscription || hasSlideAiSubscription) {
       return res.status(409).json({
         error: "Already subscribed",
-        message: "subscription:true のため購入は不要です",
-        subscriptionPlan: safeString(userData?.subscriptionPlan),
+        message: "You already have an active Minutes.AI or SlideAI subscription, so you don’t need to purchase SlideAI again.",
+        subscriptionPlan: safeString(userData?.subscriptionPlan), // 互換のため残す（UI表示用）
+        slideAISubscriptionPlan: safeString(userData?.slideAISubscriptionPlan),
       });
     }
 
