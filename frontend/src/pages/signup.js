@@ -20,29 +20,43 @@ function getSafeNextPath(router) {
   return v;
 }
 
-const createUserDocument = async (user) => {
+/**
+ * users/{uid} が存在しなければ初期Docを作成。
+ * 既存なら一切上書きしない（subscriptionPlan等の破壊を防ぐ）。
+ */
+const ensureUserDocument = async (user) => {
   const db = await getDb();
   if (!db) return;
 
-  const { collection, query, where, getDocs, doc, setDoc, serverTimestamp } = await import("firebase/firestore");
+  const { doc, getDoc, setDoc, serverTimestamp } = await import("firebase/firestore");
 
-  const usersRef = collection(db, "users");
-  const q = query(usersRef, where("email", "==", user.email));
-  const querySnapshot = await getDocs(q);
-  if (!querySnapshot.empty) throw new Error("This account is already registered.");
+  const uid = String(user?.uid || "");
+  if (!uid) throw new Error("Invalid user uid");
 
-  const userRef = doc(db, "users", user.uid);
+  const userRef = doc(db, "users", uid);
+  const snap = await getDoc(userRef);
+
+  if (snap.exists()) {
+    return;
+  }
+
+  const safeEmail = typeof user?.email === "string" ? user.email : "";
+  const userName = safeEmail ? safeEmail.substring(0, 3) : uid.substring(0, 6);
+
   await setDoc(userRef, {
     createdAt: serverTimestamp(),
-    userName: user.email.substring(0, 3),
-    email: user.email,
+    userName,
+    email: safeEmail,
+
     recordingDevice: null,
     recordingTimestamp: null,
     originalTransactionId: null,
+
     subscriptionPlan: null,
     subscriptionStartDate: null,
     subscriptionEndDate: null,
     lastSubscriptionUpdate: null,
+
     remainingSeconds: 180,
     subscription: false,
   });
@@ -73,9 +87,16 @@ export default function SignUp() {
     }
   }, []);
 
+  const gotoLoginWithNext = () => {
+    const nextPath = getSafeNextPath(router);
+    router.push(`/login?next=${encodeURIComponent(nextPath)}`);
+  };
+
   const handleSignUp = async () => {
     if (!email || !password) return;
     setIsLoading(true);
+
+    let createdUser = null;
 
     try {
       const auth = await getClientAuth();
@@ -85,8 +106,10 @@ export default function SignUp() {
 
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       const user = cred.user;
+      createdUser = user;
 
-      await createUserDocument(user);
+      await ensureUserDocument(user);
+
       await sendEmailVerification(user);
       await signOut(auth);
 
@@ -94,6 +117,25 @@ export default function SignUp() {
       window.location.reload();
     } catch (error) {
       console.error(error);
+
+      const code = String(error?.code || "");
+
+      // すでに登録済みのメール（Authが弾く）
+      if (code === "auth/email-already-in-use") {
+        popup("This email is already registered. Please log in.");
+        gotoLoginWithNext();
+        return;
+      }
+
+      // Firestore作成等で失敗した場合、作成直後ならAuthユーザーの削除を試行（孤児回避）
+      if (createdUser && typeof createdUser?.delete === "function") {
+        try {
+          await createdUser.delete();
+        } catch {
+          // delete できないケース（recent login要件など）は黙って継続
+        }
+      }
+
       popup(error?.message || "Sign up failed.");
     } finally {
       setIsLoading(false);
@@ -104,12 +146,19 @@ export default function SignUp() {
     setIsLoading(true);
     try {
       const user = await signInWithGoogle();
-      if (user) await createUserDocument(user);
+      if (user) await ensureUserDocument(user);
+
       const nextPath = getSafeNextPath(router);
       await router.replace(nextPath);
     } catch (error) {
       console.error(error);
-      popup(error?.message || "Google sign-in failed");
+
+      const code = String(error?.code || "");
+      if (code === "auth/account-exists-with-different-credential") {
+        popup("An account already exists with the same email but different sign-in method. Please log in.");
+      } else {
+        popup(error?.message || "Google sign-in failed");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -119,20 +168,22 @@ export default function SignUp() {
     setIsLoading(true);
     try {
       const user = await signInWithApple();
-      if (user) await createUserDocument(user);
+      if (user) await ensureUserDocument(user);
+
       const nextPath = getSafeNextPath(router);
       await router.replace(nextPath);
     } catch (error) {
       console.error(error);
-      popup(error?.message || "Apple sign-in failed");
+
+      const code = String(error?.code || "");
+      if (code === "auth/account-exists-with-different-credential") {
+        popup("An account already exists with the same email but different sign-in method. Please log in.");
+      } else {
+        popup(error?.message || "Apple sign-in failed");
+      }
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const gotoLoginWithNext = () => {
-    const nextPath = getSafeNextPath(router);
-    router.push(`/login?next=${encodeURIComponent(nextPath)}`);
   };
 
   if (isEmailSent) {
