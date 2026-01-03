@@ -44,6 +44,18 @@ function isSlideAiPlan(planVal) {
   return s.startsWith("SlideAI") || s.toLowerCase().includes("slideai");
 }
 
+// 「利用可能」判定。運用方針で調整可
+function isEntitledStatus(status) {
+  const s = safeString(status).toLowerCase();
+  return s === "active" || s === "trialing" || s === "past_due";
+}
+
+// Firestore Timestamp 化（秒 epoch -> Timestamp）
+function tsFromSec(sec) {
+  if (typeof sec !== "number") return null;
+  return admin.firestore.Timestamp.fromDate(new Date(sec * 1000));
+}
+
 export const config = {
   api: {
     bodyParser: false,
@@ -82,11 +94,17 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 最小構成：checkout.session.completed で確定更新
-    if (event.type === "checkout.session.completed") {
-      const session = event.data?.object;
+    initFirebaseAdmin();
+    const db = admin.firestore();
+    const now = admin.firestore.FieldValue.serverTimestamp();
 
+    // =============
+    // 1) checkout.session.completed（購入確定）
+    // =============
+    if (event.type === "checkout.session.completed") {
+      const session = event.data?.object || {};
       const metadata = session?.metadata || {};
+
       const uid = safeString(metadata?.uid);
       const plan = safeString(metadata?.plan);
       const planKey = safeString(metadata?.planKey);
@@ -99,7 +117,7 @@ export default async function handler(req, res) {
       const stripeCustomerId = safeString(session?.customer);
       const stripeSubscriptionId = safeString(session?.subscription);
 
-      // Subscription詳細（期間/status）を取る（失敗しても Firestore 更新はする）
+      // 期間/ステータス取得
       let sub = null;
       if (stripeSubscriptionId) {
         try {
@@ -113,8 +131,10 @@ export default async function handler(req, res) {
       const cps = typeof sub?.current_period_start === "number" ? sub.current_period_start : null;
       const cpe = typeof sub?.current_period_end === "number" ? sub.current_period_end : null;
 
-      initFirebaseAdmin();
-      const db = admin.firestore();
+      const startTs = tsFromSec(cps);
+      const endTs = tsFromSec(cpe);
+      const slideEntitled = isEntitledStatus(status);
+
       const userRef = db.collection("users").doc(uid);
 
       await db.runTransaction(async (tx) => {
@@ -123,20 +143,28 @@ export default async function handler(req, res) {
         const currentPlan = snap.exists ? snap.get("subscriptionPlan") : null;
         const currentSubscription = snap.exists ? Boolean(snap.get("subscription")) : false;
 
-        // 新ルール：
-        // subscription === true は “SlideAIより強い” 扱いで top-level を上書きしない
-        // ただし現在の subscriptionPlan が SlideAI 系なら SlideAI 更新（アップグレード等）を許可する
         const curPlanStr = safeString(currentPlan);
         const isAlreadySlide = isSlideAiPlan(curPlanStr);
 
+        // 既存ルール維持：Minutes等の強いsubscriptionがある場合は top-level を上書きしない
         const blockTopLevelOverwrite = currentSubscription === true && !isAlreadySlide;
 
-        const now = admin.firestore.FieldValue.serverTimestamp();
+        // slideAIOriginalTransactionId は IAP 用（Stripeでは意味がない）
+        // ただし「スキーマを揃えたい」場合のみ、存在しなければ null を一度だけ生やす
+        const hasSlideOrigField = snap.exists ? snap.get("slideAIOriginalTransactionId") !== undefined : false;
 
-        // 常に残す：SlideAI側購買情報（監査・復旧・機能判定に使える）
         const updates = {
+          // 既存互換（あなたの運用）
           lastSubscriptionUpdate: now,
 
+          // SlideAIトップレベル（機能判定用のミラー）
+          slideAISubscriptionPlan: planKey,
+          slideAISubscription: slideEntitled,
+          slideAILastSubscriptionUpdate: now,
+          slideAISubscriptionStartDate: startTs || null,
+          slideAISubscriptionEndDate: endTs || null,
+
+          // ネスト（監査・復旧・詳細判定）
           "subscriptions.slideaipro.app": "slideaipro",
           "subscriptions.slideaipro.plan": plan || null,
           "subscriptions.slideaipro.planKey": planKey,
@@ -144,28 +172,21 @@ export default async function handler(req, res) {
           "subscriptions.slideaipro.stripeCustomerId": stripeCustomerId || null,
           "subscriptions.slideaipro.stripeSubscriptionId": stripeSubscriptionId || null,
           "subscriptions.slideaipro.updatedAt": now,
+          "subscriptions.slideaipro.currentPeriodStart": startTs || null,
+          "subscriptions.slideaipro.currentPeriodEnd": endTs || null,
         };
 
-        if (cps) {
-          updates["subscriptions.slideaipro.currentPeriodStart"] =
-            admin.firestore.Timestamp.fromDate(new Date(cps * 1000));
-        }
-        if (cpe) {
-          updates["subscriptions.slideaipro.currentPeriodEnd"] =
-            admin.firestore.Timestamp.fromDate(new Date(cpe * 1000));
+        // ここが肝：IAP移行用フィールドは Stripe webhook で上書きしない
+        if (!hasSlideOrigField) {
+          updates.slideAIOriginalTransactionId = null;
         }
 
-        // top-level は「強いsubscriptionが存在しない」or「既にSlideAI」の場合のみ更新
+        // top-level（Minutes等と共通）を更新するかは既存ルール維持
         if (!blockTopLevelOverwrite) {
           updates.subscriptionPlan = planKey;
-          updates.subscription = true;
-
-          if (cps) {
-            updates.subscriptionStartDate = admin.firestore.Timestamp.fromDate(new Date(cps * 1000));
-          }
-          if (cpe) {
-            updates.subscriptionEndDate = admin.firestore.Timestamp.fromDate(new Date(cpe * 1000));
-          }
+          updates.subscription = slideEntitled;
+          if (startTs) updates.subscriptionStartDate = startTs;
+          if (endTs) updates.subscriptionEndDate = endTs;
         }
 
         tx.set(userRef, updates, { merge: true });
@@ -174,6 +195,86 @@ export default async function handler(req, res) {
       return res.status(200).json({ ok: true });
     }
 
+    // =============
+    // 2) customer.subscription.updated / deleted（更新・解約反映）
+    //   ※ これが無いと「解約しても slideAISubscription が true のまま」になりがち
+    // =============
+    if (event.type === "customer.subscription.updated" || event.type === "customer.subscription.deleted") {
+      const sub = event.data?.object || {};
+      const metadata = sub?.metadata || {};
+
+      const uid = safeString(metadata?.uid);
+      const plan = safeString(metadata?.plan);
+      const planKey = safeString(metadata?.planKey);
+
+      if (!uid || !planKey) {
+        // SlideAI由来でない更新は無視
+        return res.status(200).json({ ok: true, ignored: true });
+      }
+
+      const status = safeString(sub?.status) || "unknown";
+      const cps = typeof sub?.current_period_start === "number" ? sub.current_period_start : null;
+      const cpe = typeof sub?.current_period_end === "number" ? sub.current_period_end : null;
+
+      const startTs = tsFromSec(cps);
+      const endTs = tsFromSec(cpe);
+
+      const stripeCustomerId = safeString(sub?.customer);
+      const stripeSubscriptionId = safeString(sub?.id);
+
+      // deleted の場合も status を見るが、確実に false に寄せたいならここで強制falseでもよい
+      const slideEntitled = isEntitledStatus(status);
+
+      const userRef = db.collection("users").doc(uid);
+
+      await db.runTransaction(async (tx) => {
+        const snap = await tx.get(userRef);
+
+        const currentPlan = snap.exists ? snap.get("subscriptionPlan") : null;
+        const currentSubscription = snap.exists ? Boolean(snap.get("subscription")) : false;
+
+        const curPlanStr = safeString(currentPlan);
+        const isAlreadySlide = isSlideAiPlan(curPlanStr);
+
+        const blockTopLevelOverwrite = currentSubscription === true && !isAlreadySlide;
+
+        const updates = {
+          lastSubscriptionUpdate: now,
+
+          slideAISubscriptionPlan: planKey,
+          slideAISubscription: slideEntitled,
+          slideAILastSubscriptionUpdate: now,
+          slideAISubscriptionStartDate: startTs || null,
+          slideAISubscriptionEndDate: endTs || null,
+
+          "subscriptions.slideaipro.app": "slideaipro",
+          "subscriptions.slideaipro.plan": plan || null,
+          "subscriptions.slideaipro.planKey": planKey,
+          "subscriptions.slideaipro.status": status || "unknown",
+          "subscriptions.slideaipro.stripeCustomerId": stripeCustomerId || null,
+          "subscriptions.slideaipro.stripeSubscriptionId": stripeSubscriptionId || null,
+          "subscriptions.slideaipro.updatedAt": now,
+          "subscriptions.slideaipro.currentPeriodStart": startTs || null,
+          "subscriptions.slideaipro.currentPeriodEnd": endTs || null,
+        };
+
+        // IAP移行用フィールドは触らない（上書き禁止）
+        // updates.slideAIOriginalTransactionId は入れない
+
+        if (!blockTopLevelOverwrite) {
+          updates.subscriptionPlan = planKey;
+          updates.subscription = slideEntitled;
+          if (startTs) updates.subscriptionStartDate = startTs;
+          if (endTs) updates.subscriptionEndDate = endTs;
+        }
+
+        tx.set(userRef, updates, { merge: true });
+      });
+
+      return res.status(200).json({ ok: true });
+    }
+
+    // その他イベントは無視
     return res.status(200).json({ ok: true, ignored: true, type: event.type });
   } catch (e) {
     console.error("stripe-webhook handler error:", e);

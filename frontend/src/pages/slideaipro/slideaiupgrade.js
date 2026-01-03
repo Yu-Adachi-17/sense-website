@@ -115,10 +115,7 @@ const startCheckout = async (plan) => {
 if (resp.status === 409) {
   const planName = String(j?.subscriptionPlan || "").trim();
 
-  const msg =
-    planName && planName.startsWith("Minutes.AI")
-      ? "You already have an active Minutes.AI subscription, so you don’t need to purchase SlideAI again. Your current plan includes access to SlideAI features. We’ll take you back to SlideAI now—please continue using the service as usual."
-      : "You already have an active subscription. No additional purchase is required. We’ll take you back to SlideAI now.";
+  const msg = "You already have an active Minutes.AI or SlideAI subscription, so you don’t need to purchase SlideAI again. Your current plan includes access to SlideAI features. We’ll take you back to SlideAI now—please continue using the service as usual."
 
   alert(msg);
 
