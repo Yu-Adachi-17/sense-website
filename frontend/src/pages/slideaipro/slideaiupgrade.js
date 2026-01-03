@@ -112,12 +112,25 @@ const startCheckout = async (plan) => {
         j = await resp.json();
       } catch {}
 
-      if (resp.status === 409) {
-        const planName = String(j?.subscriptionPlan || "").trim();
-        alert(planName ? `すでに有効なサブスクがあります: ${planName}` : "すでに有効なサブスクがあります。購入は不要です。");
-        setIsStarting(false);
-        return;
-      }
+if (resp.status === 409) {
+  const planName = String(j?.subscriptionPlan || "").trim();
+
+  const msg =
+    planName && planName.startsWith("Minutes.AI")
+      ? "You already have an active Minutes.AI subscription, so you don’t need to purchase SlideAI again. Your current plan includes access to SlideAI features. We’ll take you back to SlideAI now—please continue using the service as usual."
+      : "You already have an active subscription. No additional purchase is required. We’ll take you back to SlideAI now.";
+
+  alert(msg);
+
+  // OK 押下後に自動で戻す
+  try {
+    window.location.assign("https://www.sense-ai.world/slideaipro");
+  } catch {}
+
+  setIsStarting(false);
+  return;
+}
+
 
       const txt = j ? JSON.stringify(j) : await resp.text().catch(() => "");
       throw new Error(`create-checkout-session HTTP ${resp.status} ${txt}`);
