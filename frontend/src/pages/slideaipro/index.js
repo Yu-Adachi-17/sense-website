@@ -7,6 +7,7 @@ import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
 import { getClientAuth } from "../../firebaseConfig";
 import SlideEditorPanel from "../../components/slideaipro/SlideEditorPanel";
+import SlideEditModal from "../../components/slideaipro/SlideEditModal";
 
 // src/pages/slideaipro/index.js
 
@@ -321,6 +322,8 @@ export default function SlideAIProHome() {
   const [editError, setEditError] = useState("");
 
   const taRef = useRef(null);
+  const editTaRef = useRef(null);
+
   const trimmed = useMemo(() => prompt.trim(), [prompt]);
 
   const questionText = "どんな資料が欲しいですか？";
@@ -352,15 +355,43 @@ export default function SlideAIProHome() {
     autosize();
   }, [prompt]);
 
+  // Edit open 中はスクロールロック & focus
+  useEffect(() => {
+    if (!isEditOpen) return;
+
+    const prevOverflow = document?.body?.style?.overflow ?? "";
+    try {
+      document.body.style.overflow = "hidden";
+    } catch {}
+
+    const t = window.setTimeout(() => {
+      try {
+        editTaRef.current?.focus();
+      } catch {}
+    }, 0);
+
+    return () => {
+      window.clearTimeout(t);
+      try {
+        document.body.style.overflow = prevOverflow;
+      } catch {}
+    };
+  }, [isEditOpen]);
+
   useEffect(() => {
     const onKey = (e) => {
       if (isEditOpen && e.key === "Escape") {
+        e.preventDefault();
         setIsEditOpen(false);
         setEditError("");
+        setEditIdx(-1);
         return;
       }
       if (!isMenuOpen) return;
-      if (e.key === "Escape") setIsMenuOpen(false);
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setIsMenuOpen(false);
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -415,8 +446,17 @@ export default function SlideAIProHome() {
 
   // (4) SlideDeck からの Edit リクエストを受ける
   const onRequestEditSlide = (slide, idx) => {
-    const i = typeof idx === "number" ? idx : -1;
-    const base = slidesState?.[i] || slide || null;
+    let i = typeof idx === "number" ? idx : -1;
+
+    if (i < 0 || i >= (slidesState?.length || 0)) {
+      const sid = String(slide?.id || "");
+      if (sid) {
+        const found = (slidesState || []).findIndex((s) => String(s?.id || "") === sid);
+        if (found >= 0) i = found;
+      }
+    }
+
+    const base = (i >= 0 ? slidesState?.[i] : null) || slide || null;
     if (!base) return;
 
     try {
@@ -435,7 +475,7 @@ export default function SlideAIProHome() {
     setEditIdx(-1);
   };
 
-  // (5) Save を slidesState に反映
+  // (5) Save を slidesState に反映（parse は Save の時だけ）
   const saveEditedSlide = () => {
     const i = editIdx;
     if (i < 0 || i >= (slidesState?.length || 0)) {
@@ -692,6 +732,12 @@ export default function SlideAIProHome() {
     }, 160);
   };
 
+  const stopAll = (e) => {
+    try {
+      e.stopPropagation();
+    } catch {}
+  };
+
   return (
     <>
       <Head>
@@ -702,7 +748,8 @@ export default function SlideAIProHome() {
       <div
         className="page"
         onClick={() => {
-          if (isMenuOpen) return;
+          // Edit open 中は blur を絶対に走らせない（TextEditorが編集不可になる原因）
+          if (isMenuOpen || isEditOpen) return;
           try {
             document.activeElement?.blur?.();
           } catch {}
@@ -868,9 +915,14 @@ export default function SlideAIProHome() {
             role="dialog"
             aria-modal="true"
             aria-label="Edit slide"
+            onMouseDownCapture={stopAll}
             onClick={() => closeEditPanel()}
           >
-            <div className={`editPanel ${isIntelMode ? "editDark" : "editLight"}`} onClick={(e) => e.stopPropagation()}>
+            <div
+              className={`editPanel ${isIntelMode ? "editDark" : "editLight"}`}
+              onMouseDownCapture={stopAll}
+              onClick={stopAll}
+            >
               <div className="editHeader">
                 <div className="editTitle">Edit Slide {editIdx >= 0 ? editIdx + 1 : ""}</div>
                 <button className="iconBtn editCloseBtn" aria-label="Close" onClick={closeEditPanel}>
@@ -879,16 +931,25 @@ export default function SlideAIProHome() {
               </div>
 
               <div className="editBody">
-                <div className="editHint">JSON を編集して Save してください。</div>
+                <div className="editHint">JSON を編集して Save してください。（Cmd/Ctrl + Enter で Save）</div>
+
                 <textarea
+                  ref={editTaRef}
                   className="editTa"
                   value={editText}
                   onChange={(e) => {
                     setEditText(e.target.value);
                     if (editError) setEditError("");
                   }}
+                  onKeyDown={(e) => {
+                    if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+                      e.preventDefault();
+                      saveEditedSlide();
+                    }
+                  }}
                   spellCheck={false}
                 />
+
                 {!!editError && <div className="editErr">{editError}</div>}
               </div>
 
