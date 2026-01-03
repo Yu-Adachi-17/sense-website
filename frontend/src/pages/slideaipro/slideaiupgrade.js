@@ -82,37 +82,48 @@ export default function SlideAIUpgrade({ siteUrl }) {
     })();
   }, [router.isReady, router.query?.src]);
 
-  const startCheckout = async (plan) => {
-    if (isStarting) return;
-    setIsStarting(true);
+const startCheckout = async (plan) => {
+  if (isStarting) return;
+  setIsStarting(true);
 
-    try {
-      const resp = await fetch("/api/slideaipro/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          plan,
-          successPath: "/slideaipro?upgraded=1",
-          cancelPath: "/slideaipro/slideaiupgrade?src=slideaipro",
-        }),
-      });
-
-      if (!resp.ok) {
-        const txt = await resp.text().catch(() => "");
-        throw new Error(`create-checkout-session HTTP ${resp.status} ${txt}`);
-      }
-
-      const j = await resp.json();
-      const url = String(j?.url || "");
-      if (!url.startsWith("http")) throw new Error("Invalid checkout url");
-
-      window.location.assign(url);
-    } catch (e) {
-      console.error(e);
-      alert("決済の開始に失敗しました。時間をおいて再度お試しください。");
-      setIsStarting(false);
+  try {
+    const user = await getSignedInUserOnce();
+    if (!user) {
+      const nextPath = "/slideaipro/slideaiupgrade?src=slideaipro";
+      router.replace(buildLoginUrl(nextPath));
+      return;
     }
-  };
+
+    const idToken = await user.getIdToken(true);
+
+    const resp = await fetch("/api/slideaipro/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        plan,
+        idToken,
+        successPath: "/slideaipro?upgraded=1",
+        cancelPath: "/slideaipro/slideaiupgrade?src=slideaipro",
+      }),
+    });
+
+    if (!resp.ok) {
+      const txt = await resp.text().catch(() => "");
+      throw new Error(`create-checkout-session HTTP ${resp.status} ${txt}`);
+    }
+
+    const j = await resp.json();
+    const url = String(j?.url || "");
+    if (!url.startsWith("http")) throw new Error("Invalid checkout url");
+
+    window.location.assign(url);
+  } catch (e) {
+    console.error(e);
+    alert("決済の開始に失敗しました。時間をおいて再度お試しください。");
+    setIsStarting(false);
+  }
+};
+
 
   return (
     <>
