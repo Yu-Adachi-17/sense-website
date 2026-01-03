@@ -9,8 +9,8 @@ import UnknownPage from "./UnknownPage";
 
 export const slidePageRenderers = {
   cover: CoverPage,
-  problem: ProblemPage,     // ← ここを分離
-  proposal: ProposalPage,   // ← ここを分離
+  problem: ProblemPage,
+  proposal: ProposalPage,
   effects: EffectsPage,
   bar: BarPage,
   tasks: TasksPage,
