@@ -2,11 +2,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { toPng, getFontEmbedCSS } from "html-to-image";
+import { toPng } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
-import SlideEditModal from "../../components/slideaipro/SlideEditModal";
 import { getClientAuth } from "../../firebaseConfig";
+
+// src/pages/slideaipro/index.js
 
 function buildLoginUrl(nextPath) {
   const safe =
@@ -41,6 +42,7 @@ async function getSignedInUserOnce() {
     );
   });
 }
+
 
 function ProgressOverlay({ progress }) {
   const pct = Math.max(0, Math.min(100, Math.floor(progress)));
@@ -292,120 +294,6 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
 
   return out;
 }
-function freezeBodyForCapture() {
-  const prevOverflow = document.body.style.overflow;
-  const prevPaddingRight = document.body.style.paddingRight;
-
-  const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
-
-  document.body.style.overflow = "hidden";
-  if (scrollbarW > 0) document.body.style.paddingRight = `${scrollbarW}px`;
-
-  return () => {
-    document.body.style.overflow = prevOverflow;
-    document.body.style.paddingRight = prevPaddingRight;
-  };
-}
-
-async function nextFrame(times = 1) {
-  for (let i = 0; i < times; i++) {
-    // requestAnimationFrame 2回くらい待つと“閉じた直後のレイアウト揺れ”が落ち着く
-    await new Promise((r) => requestAnimationFrame(r));
-  }
-}
-
-async function buildFontEmbedCSSSafe(node) {
-  try {
-    // ここが効くと「プレビューとexportでフォントが違う」問題が激減する
-    return await getFontEmbedCSS(node);
-  } catch {
-    return "";
-  }
-}
-
-function applyExportNoWrapForBullets(scopeEl) {
-  if (!scopeEl) return () => {};
-
-  const touched = [];
-
-  // 「箇条書きっぽい要素」を広めに拾う（li が無い実装でも効かせる）
-  const candidates = scopeEl.querySelectorAll(
-    "li, [role='listitem'], .bullets *, .bullet *, .bulletLine, .bulletItem"
-  );
-
-  candidates.forEach((el) => {
-    if (!el || el.nodeType !== 1) return;
-
-    const text = String(el.innerText || "").trim();
-    if (!text) return;
-
-    const isLikelyBullet =
-      el.tagName === "LI" ||
-      text.startsWith("•") ||
-      text.startsWith("・") ||
-      text.startsWith("●");
-
-    if (!isLikelyBullet) return;
-
-    touched.push([
-      el,
-      {
-        whiteSpace: el.style.whiteSpace,
-        wordBreak: el.style.wordBreak,
-        overflowWrap: el.style.overflowWrap,
-        lineBreak: el.style.lineBreak,
-      },
-    ]);
-
-    // ★本命：折り返し禁止
-    el.style.whiteSpace = "nowrap";
-    // 日本語の不自然な分割をさらに抑える
-    el.style.wordBreak = "keep-all";
-    el.style.overflowWrap = "normal";
-    el.style.lineBreak = "strict";
-  });
-
-  return () => {
-    touched.forEach(([el, prev]) => {
-      el.style.whiteSpace = prev.whiteSpace;
-      el.style.wordBreak = prev.wordBreak;
-      el.style.overflowWrap = prev.overflowWrap;
-      el.style.lineBreak = prev.lineBreak;
-    });
-  };
-}
-
-
-async function captureNodeToPngStable(node, { bg, pixelRatio, fontEmbedCSS }) {
-  const rect = node.getBoundingClientRect();
-  const width = Math.max(1, Math.round(rect.width));
-  const height = Math.max(1, Math.round(rect.height));
-
-  // ★追加：キャプチャ直前に「箇条書き nowrap」を強制
-  const revert = applyExportNoWrapForBullets(node);
-  await nextFrame(1);
-
-  try {
-    return await toPng(node, {
-      cacheBust: true,
-      pixelRatio: pixelRatio || 2,
-      backgroundColor: bg,
-      width,
-      height,
-      style: {
-        width: `${width}px`,
-        height: `${height}px`,
-        transform: "none",
-        transformOrigin: "top left",
-      },
-      fontEmbedCSS: fontEmbedCSS || "",
-    });
-  } finally {
-    // ★必ず元に戻す
-    revert();
-  }
-}
-
 
 export default function SlideAIProHome() {
   const router = useRouter();
@@ -422,16 +310,7 @@ export default function SlideAIProHome() {
 
   const [isExporting, setIsExporting] = useState(false);
 
-  // slides state
-  const [slidesState, setSlidesState] = useState([]);
-
-  // Edit Modal state（ここが“配線”）
-  const [editOpen, setEditOpen] = useState(false);
-  const [editIdx, setEditIdx] = useState(-1);
-  const [editSlide, setEditSlide] = useState(null);
-
   const taRef = useRef(null);
-
   const trimmed = useMemo(() => prompt.trim(), [prompt]);
 
   const questionText = "どんな資料が欲しいですか？";
@@ -465,22 +344,12 @@ export default function SlideAIProHome() {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (editOpen && e.key === "Escape") {
-        e.preventDefault();
-        setEditOpen(false);
-        setEditIdx(-1);
-        setEditSlide(null);
-        return;
-      }
       if (!isMenuOpen) return;
-      if (e.key === "Escape") {
-        e.preventDefault();
-        setIsMenuOpen(false);
-      }
+      if (e.key === "Escape") setIsMenuOpen(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [isMenuOpen, editOpen]);
+  }, [isMenuOpen]);
 
   const startProgressTicker = () => {
     setProgress(3);
@@ -529,48 +398,6 @@ export default function SlideAIProHome() {
     });
   };
 
-  // SlideDeck からの edit 要求 → “モーダルを開く”
-  const onRequestEditSlide = (slide, idx) => {
-    let i = typeof idx === "number" ? idx : -1;
-
-    if (i < 0 || i >= (slidesState?.length || 0)) {
-      const sid = String(slide?.id || "");
-      if (sid) {
-        const found = (slidesState || []).findIndex((s) => String(s?.id || "") === sid);
-        if (found >= 0) i = found;
-      }
-    }
-
-    const base = (i >= 0 ? slidesState?.[i] : null) || slide || null;
-    if (!base || i < 0) return;
-
-    setEditIdx(i);
-    setEditSlide(base);
-    setEditOpen(true);
-  };
-
-  // SlideEditModal からの save → slidesState に反映
-  const onSaveEditedSlide = (index, nextSlide) => {
-    const i = Number(index);
-    if (!Number.isFinite(i) || i < 0 || i >= (slidesState?.length || 0)) return;
-
-    setSlidesState((arr) => {
-      const copy = Array.isArray(arr) ? [...arr] : [];
-      copy[i] = nextSlide;
-      return copy;
-    });
-
-    setEditOpen(false);
-    setEditIdx(-1);
-    setEditSlide(null);
-  };
-
-  const onCancelEdit = () => {
-    setEditOpen(false);
-    setEditIdx(-1);
-    setEditSlide(null);
-  };
-
   const handleGenerate = async () => {
     const brief = trimmed;
     if (!brief) return;
@@ -579,12 +406,6 @@ export default function SlideAIProHome() {
     setIsSending(true);
     setAgendaJson(null);
     setImageUrlByKey({});
-    setSlidesState([]);
-
-    // 生成中は編集も閉じる
-    setEditOpen(false);
-    setEditIdx(-1);
-    setEditSlide(null);
 
     const stop = startProgressTicker();
     let stopped = false;
@@ -623,18 +444,6 @@ export default function SlideAIProHome() {
       setProgress(32);
       setAgendaJson(json);
 
-      try {
-        const built = buildSlidesFromAgenda({
-          brief: brief || "SlideAI Pro",
-          agenda: json,
-          subtitleDate: baseDateLocal,
-        });
-        setSlidesState(Array.isArray(built) ? built : []);
-      } catch (ee) {
-        console.error(ee);
-        setSlidesState([]);
-      }
-
       const pairs = extractPrefetchPairs(json);
       setProgress(pairs.length ? 35 : 92);
 
@@ -654,143 +463,126 @@ export default function SlideAIProHome() {
   };
 
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
-  const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
-const handleExportPNG = async () => {
-  if (!canExport) return;
-  setIsExporting(true);
-
-  const unfreeze = typeof window !== "undefined" ? freezeBodyForCapture() : () => {};
-
-  try {
-    const root = document.getElementById("slidesRoot");
-    if (!root) throw new Error("slidesRoot が見つかりません");
-
-    if (document?.fonts?.ready) {
-      try {
-        await document.fonts.ready;
-      } catch {}
+  const slides = useMemo(() => {
+    if (agendaJson && Array.isArray(agendaJson) && agendaJson.length) {
+      return buildSlidesFromAgenda({
+        brief: trimmed || "SlideAI Pro",
+        agenda: agendaJson,
+        subtitleDate,
+      });
     }
+    return [];
+  }, [trimmed, agendaJson, subtitleDate]);
 
-    await waitImagesIn(root);
+  const canExport = slides.length > 0 && !isSending && !isExporting;
 
-    // メニューを閉じた直後の揺れ対策：最低2フレーム待つ
-    await nextFrame(2);
+  const handleExportPNG = async () => {
+    if (!canExport) return;
+    setIsExporting(true);
 
-    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
 
-    const bg = isIntelMode ? "#0b1220" : "#ffffff";
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
 
-    // フォント埋め込みCSS（全ページ共通で1回だけ作る）
-    const fontEmbedCSS = await buildFontEmbedCSSSafe(root);
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
-    for (let i = 0; i < pages.length; i++) {
-      const node = pages[i];
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
 
-      // 各ページ内の画像待ち（root待ち済みでも保険で）
-      await waitImagesIn(node);
-      await nextFrame(1);
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+      }
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      alert(`PNG書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
-      const dataUrl = await captureNodeToPngStable(node, {
-        bg,
-        pixelRatio: 2,
-        fontEmbedCSS,
+  const handleExportPDF = async () => {
+    if (!canExport) return;
+    setIsExporting(true);
+
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
+
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
+
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+      const pngPages = [];
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+        pngPages.push(dataUrl);
+      }
+
+      const API_BASE = "https://sense-website-production.up.railway.app";
+      const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pages: pngPages }),
       });
 
-      downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+      if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
+
+      const ct = resp.headers.get("content-type") || "";
+      if (ct.includes("application/pdf")) {
+        const blob = await resp.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "slides.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        return;
+      }
+
+      const j = await resp.json();
+      const pdfDataUrl = j?.pdfDataUrl || "";
+      if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
+      downloadDataUrl(pdfDataUrl, "slides.pdf");
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      alert(`PDF書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
     }
-  } catch (e) {
-    console.error(e);
-    const msg = String(e?.message || e);
-    alert(`PNG書き出しに失敗しました: ${msg}`);
-  } finally {
-    try {
-      unfreeze();
-    } catch {}
-    setIsExporting(false);
-  }
-};
-
-const handleExportPDF = async () => {
-  if (!canExport) return;
-  setIsExporting(true);
-
-  const unfreeze = typeof window !== "undefined" ? freezeBodyForCapture() : () => {};
-
-  try {
-    const root = document.getElementById("slidesRoot");
-    if (!root) throw new Error("slidesRoot が見つかりません");
-
-    if (document?.fonts?.ready) {
-      try {
-        await document.fonts.ready;
-      } catch {}
-    }
-
-    await waitImagesIn(root);
-    await nextFrame(2);
-
-    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
-
-    const bg = isIntelMode ? "#0b1220" : "#ffffff";
-
-    const fontEmbedCSS = await buildFontEmbedCSSSafe(root);
-
-    const pngPages = [];
-    for (let i = 0; i < pages.length; i++) {
-      const node = pages[i];
-      await waitImagesIn(node);
-      await nextFrame(1);
-
-      const dataUrl = await captureNodeToPngStable(node, {
-        bg,
-        pixelRatio: 2,
-        fontEmbedCSS,
-      });
-      pngPages.push(dataUrl);
-    }
-
-    const API_BASE = "https://sense-website-production.up.railway.app";
-    const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pages: pngPages }),
-    });
-
-    if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
-
-    const ct = resp.headers.get("content-type") || "";
-    if (ct.includes("application/pdf")) {
-      const blob = await resp.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "slides.pdf";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-      return;
-    }
-
-    const j = await resp.json();
-    const pdfDataUrl = j?.pdfDataUrl || "";
-    if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
-    downloadDataUrl(pdfDataUrl, "slides.pdf");
-  } catch (e) {
-    console.error(e);
-    const msg = String(e?.message || e);
-    alert(`PDF書き出しに失敗しました: ${msg}`);
-  } finally {
-    try {
-      unfreeze();
-    } catch {}
-    setIsExporting(false);
-  }
-};
-
+  };
 
   const requestExportPNGFromMenu = () => {
     if (!canExport) return;
@@ -804,29 +596,33 @@ const handleExportPDF = async () => {
     setTimeout(() => handleExportPDF(), 160);
   };
 
-  const requestUpgradeFromMenu = () => {
-    if (isMenuOpen) setIsMenuOpen(false);
 
-    const nextPath = "/slideaipro/slideaiupgrade?src=slideaipro";
+// src/pages/slideaipro/index.js（SlideAIProHomeコンポーネント内）
 
-    window.setTimeout(async () => {
-      try {
-        const user = await getSignedInUserOnce();
-        if (user) {
-          await router.push(nextPath);
-          return;
-        }
-        await router.push(buildLoginUrl(nextPath));
-      } catch (e) {
-        console.error(e);
-        try {
-          await router.push(buildLoginUrl(nextPath));
-        } catch (ee) {
-          console.error(ee);
-        }
+const requestUpgradeFromMenu = () => {
+  if (isMenuOpen) setIsMenuOpen(false);
+
+  const nextPath = "/slideaipro/slideaiupgrade?src=slideaipro";
+
+  window.setTimeout(async () => {
+    try {
+      const user = await getSignedInUserOnce();
+      if (user) {
+        await router.push(nextPath);
+        return;
       }
-    }, 160);
-  };
+      await router.push(buildLoginUrl(nextPath));
+    } catch (e) {
+      console.error(e);
+      try {
+        await router.push(buildLoginUrl(nextPath));
+      } catch (ee) {
+        console.error(ee);
+      }
+    }
+  }, 160);
+};
+
 
   return (
     <>
@@ -838,8 +634,7 @@ const handleExportPDF = async () => {
       <div
         className="page"
         onClick={() => {
-          // menu / edit open 中は blur を走らせない
-          if (isMenuOpen || editOpen) return;
+          if (isMenuOpen) return;
           try {
             document.activeElement?.blur?.();
           } catch {}
@@ -912,15 +707,8 @@ const handleExportPDF = async () => {
             </div>
           </div>
 
-          {(slidesState?.length || 0) > 0 && (
-            <SlideDeck
-              slides={slidesState}
-              isIntelMode={isIntelMode}
-              hasPrefetched={hasPrefetched}
-              imageUrlByKey={imageUrlByKey}
-              onRequestEditSlide={onRequestEditSlide}
-              onEditSlide={onRequestEditSlide}
-            />
+          {slides.length > 0 && (
+            <SlideDeck slides={slides} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} imageUrlByKey={imageUrlByKey} />
           )}
         </main>
 
@@ -968,6 +756,7 @@ const handleExportPDF = async () => {
                 </div>
               </div>
 
+              {/* Upgrade */}
               <div
                 className="menuItem menuItemClickable"
                 role="button"
@@ -996,16 +785,6 @@ const handleExportPDF = async () => {
         )}
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
-
-        {/* ★ここが本題：編集UIを“実際に使う” */}
-        <SlideEditModal
-          open={editOpen}
-          slide={editSlide}
-          slideIndex={editIdx >= 0 ? editIdx : 0}
-          isIntelMode={isIntelMode}
-          onCancel={onCancelEdit}
-          onSave={onSaveEditedSlide}
-        />
 
         <style jsx>{`
           .page {
@@ -1222,7 +1001,7 @@ const handleExportPDF = async () => {
             box-shadow: 0 12px 28px rgba(64, 110, 255, 0.12);
           }
 
-          /* ===== Side Menu ===== */
+          /* ===== Side Menu (refined) ===== */
           .menuOverlay {
             position: fixed;
             inset: 0;

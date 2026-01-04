@@ -162,61 +162,6 @@ function measureBulletsHeight(
   return Math.ceil(node.scrollHeight || 0);
 }
 
-/**
- * ★追加：各 bullet を「nowrap 前提」で並べて、最も長い行の実幅(px)を返す
- * これを fits 条件に入れないと「最後の1文字だけ折り返し」が起きる。
- */
-function measureBulletsMaxLineWidth(
-  node,
-  { items, fontSize, fontWeight, lineHeight, letterSpacing }
-) {
-  if (!node) return 0;
-  setupMeasureBase(node);
-
-  node.style.display = "block";
-  node.style.width = "auto";
-  node.style.fontSize = `${fontSize}px`;
-  node.style.fontWeight = `${fontWeight}`;
-  node.style.lineHeight = `${lineHeight}`;
-  node.style.letterSpacing = `${letterSpacing}px`;
-  node.style.textAlign = "left";
-
-  // nowrap で「行幅」を測る
-  node.style.whiteSpace = "nowrap";
-  node.style.wordBreak = "normal";
-  node.style.overflowWrap = "normal";
-  node.style.lineBreak = "strict";
-
-  node.textContent = "";
-  while (node.firstChild) node.removeChild(node.firstChild);
-
-  let maxW = 0;
-
-  for (const s of items) {
-    const d = document.createElement("div");
-    d.textContent = s;
-
-    // scrollWidth を正しく取るため inline-block
-    d.style.display = "inline-block";
-    d.style.whiteSpace = "nowrap";
-    d.style.wordBreak = "normal";
-    d.style.overflowWrap = "normal";
-    d.style.lineBreak = "strict";
-
-    node.appendChild(d);
-
-    // scrollWidth の方が安全（subpixel差分も拾える）
-    const w = Math.ceil(d.scrollWidth || 0);
-    if (w > maxW) maxW = w;
-
-    // 次の行のために改行
-    const br = document.createElement("br");
-    node.appendChild(br);
-  }
-
-  return Math.ceil(maxW);
-}
-
 function binarySearchMaxFont({ low, high, fits }) {
   let lo = low;
   let hi = high;
@@ -479,10 +424,6 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
       // Bulletテキストの実効幅（dot + 間隔 + trailingPad を差し引く）
       const bulletTextW = Math.max(10, rightW - bulletSize - bulletToText - trailingPad);
 
-      // ★重要：export時のフォント差分で「数px太る」ので安全マージンを引く
-      const widthSafety = Math.max(6, Math.round(10 * scale)); // ここが効く（最後の1文字折り返し防止）
-      const bulletTextWFit = Math.max(10, bulletTextW - widthSafety);
-
       // Bullet font fitting
       const availBulletsH = Math.max(10, bodyH);
       const minBullet = 20 * scale;
@@ -492,7 +433,6 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
             low: minBullet,
             high: baseBulletsFont,
             fits: (fs) => {
-              // 1) 高さフィット（従来）
               const bulletsH = measureBulletsHeight(mBulletsRef.current, {
                 items: bullets,
                 width: bulletTextW,
@@ -502,20 +442,7 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
                 letterSpacing: bulletLS,
                 rowGap,
               });
-
-              // 2) ★横幅フィット（追加）：nowrap前提で最大行幅が収まるか
-              const maxLineW = measureBulletsMaxLineWidth(mBulletsRef.current, {
-                items: bullets,
-                fontSize: fs,
-                fontWeight: 900,
-                lineHeight: BULLET_LH,
-                letterSpacing: bulletLS,
-              });
-
-              const okH = bulletsH <= availBulletsH - Math.round(2 * scale);
-              const okW = maxLineW <= bulletTextWFit;
-
-              return okH && okW;
+              return bulletsH <= availBulletsH - Math.round(2 * scale);
             },
           })
         : baseBulletsFont;
@@ -841,12 +768,12 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
             word-break: break-word;
             line-break: strict;
 
-            background: linear-gradient(
-              135deg,
-              rgba(5, 71, 199, 1.0) 0%,
-              rgba(15, 122, 245, 0.98) 55%,
-              rgba(26, 199, 235, 0.96) 100%
-            );
+background: linear-gradient(
+  135deg,
+  rgba(5, 71, 199, 1.0) 0%,
+  rgba(15, 122, 245, 0.98) 55%,
+  rgba(26, 199, 235, 0.96) 100%
+);
 
             -webkit-background-clip: text;
             background-clip: text;
