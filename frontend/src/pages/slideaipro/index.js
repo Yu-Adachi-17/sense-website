@@ -542,6 +542,57 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
+  const handleExportPNG = async () => {
+    if (!canExport) return;
+    setIsExporting(true);
+
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
+
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
+
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+      }
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      alert(`PNG書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
+// 追加：dataUrl -> Uint8Array
+function dataUrlToU8(dataUrl) {
+  const s = String(dataUrl || "");
+  const i = s.indexOf(",");
+  const b64 = i >= 0 ? s.slice(i + 1) : s;
+  const bin = atob(b64);
+  const u8 = new Uint8Array(bin.length);
+  for (let k = 0; k < bin.length; k++) u8[k] = bin.charCodeAt(k);
+  return u8;
+}
+
+// 追加：Blob download
 function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -550,55 +601,8 @@ function downloadBlob(blob, filename) {
   document.body.appendChild(a);
   a.click();
   a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1500);
+  URL.revokeObjectURL(url);
 }
-
-function getExportTargets(root) {
-  const bases = Array.from(root.querySelectorAll('[data-slide-base="true"]'));
-  if (bases.length) return bases;
-
-  // フォールバック（古い構造でも一応動く）
-  return Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-}
-
-const handleExportPNG = async () => {
-  if (!canExport) return;
-  setIsExporting(true);
-
-  try {
-    const root = document.getElementById("slidesRoot");
-    if (!root) throw new Error("slidesRoot が見つかりません");
-
-    if (document?.fonts?.ready) {
-      try {
-        await document.fonts.ready;
-      } catch {}
-    }
-    await waitImagesIn(root);
-    await new Promise((r) => requestAnimationFrame(r));
-
-    const targets = getExportTargets(root);
-    if (!targets.length) throw new Error("キャプチャ対象スライドが0枚です");
-
-    const bg = isIntelMode ? "#0b1220" : "#ffffff";
-
-    for (let i = 0; i < targets.length; i++) {
-      const node = targets[i];
-      const dataUrl = await toPng(node, {
-        cacheBust: true,
-        pixelRatio: 2,
-        backgroundColor: bg,
-      });
-      downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
-    }
-  } catch (e) {
-    console.error(e);
-    const msg = String(e?.message || e);
-    alert(`PNG書き出しに失敗しました: ${msg}`);
-  } finally {
-    setIsExporting(false);
-  }
-};
 
 const handleExportPDF = async () => {
   if (!canExport) return;
@@ -616,43 +620,52 @@ const handleExportPDF = async () => {
     await waitImagesIn(root);
     await new Promise((r) => requestAnimationFrame(r));
 
-    const targets = getExportTargets(root);
-    if (!targets.length) throw new Error("キャプチャ対象スライドが0枚です");
+    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
     const bg = isIntelMode ? "#0b1220" : "#ffffff";
 
-    // PDF生成（クライアント内で完結）
+    // PDF生成をクライアント完結にする（= 変なfit/scaleを排除）
     const { PDFDocument } = await import("pdf-lib");
-    const pdfDoc = await PDFDocument.create();
+    const pdf = await PDFDocument.create();
 
-    // 16:9（PowerPoint既定のワイド）: 13.333in x 7.5in -> 960 x 540 pt
-    const PAGE_W = 960;
-    const PAGE_H = 540;
+    for (let i = 0; i < pages.length; i++) {
+      const node = pages[i];
 
-    for (let i = 0; i < targets.length; i++) {
-      const node = targets[i];
+      // ★ここが重要：キャプチャ寸法を整数に固定（clone時の微妙な差で折返しが変わるのを抑える）
+      const rect = node.getBoundingClientRect();
+      const w = Math.max(1, Math.round(rect.width));
+      const h = Math.max(1, Math.round(rect.height));
 
-      const pngDataUrl = await toPng(node, {
+      const dataUrl = await toPng(node, {
         cacheBust: true,
         pixelRatio: 2,
         backgroundColor: bg,
+
+        // “cloneのwidth/height” を固定して、ありのままのレイアウトでレンダさせる
+        width: w,
+        height: h,
+        style: {
+          width: `${w}px`,
+          height: `${h}px`,
+        },
       });
 
-      const pngBytes = await (await fetch(pngDataUrl)).arrayBuffer();
-      const pngImage = await pdfDoc.embedPng(pngBytes);
+      const pngBytes = dataUrlToU8(dataUrl);
+      const png = await pdf.embedPng(pngBytes);
 
-      const page = pdfDoc.addPage([PAGE_W, PAGE_H]);
-      page.drawImage(pngImage, {
+      // ★これが「ありのまま」：PDFページサイズ＝PNGの実サイズ、貼り付けも等倍
+      const page = pdf.addPage([png.width, png.height]);
+      page.drawImage(png, {
         x: 0,
         y: 0,
-        width: PAGE_W,
-        height: PAGE_H,
+        width: png.width,
+        height: png.height,
       });
     }
 
-    const pdfBytes = await pdfDoc.save();
-    const blob = new Blob([pdfBytes], { type: "application/pdf" });
-    downloadBlob(blob, "slides.pdf");
+    const pdfBytes = await pdf.save();
+    downloadBlob(new Blob([pdfBytes], { type: "application/pdf" }), "slides.pdf");
   } catch (e) {
     console.error(e);
     const msg = String(e?.message || e);
