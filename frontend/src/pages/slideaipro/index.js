@@ -542,112 +542,126 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
-  const handleExportPNG = async () => {
-    if (!canExport) return;
-    setIsExporting(true);
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
 
-    try {
-      const root = document.getElementById("slidesRoot");
-      if (!root) throw new Error("slidesRoot が見つかりません");
+function getExportTargets(root) {
+  const bases = Array.from(root.querySelectorAll('[data-slide-base="true"]'));
+  if (bases.length) return bases;
 
-      if (document?.fonts?.ready) {
-        try {
-          await document.fonts.ready;
-        } catch {}
-      }
-      await waitImagesIn(root);
-      await new Promise((r) => requestAnimationFrame(r));
+  // フォールバック（古い構造でも一応動く）
+  return Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+}
 
-      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+const handleExportPNG = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
 
-      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+  try {
+    const root = document.getElementById("slidesRoot");
+    if (!root) throw new Error("slidesRoot が見つかりません");
 
-      for (let i = 0; i < pages.length; i++) {
-        const node = pages[i];
-        const dataUrl = await toPng(node, {
-          cacheBust: true,
-          pixelRatio: 2,
-          backgroundColor: bg,
-        });
-        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
-      }
-    } catch (e) {
-      console.error(e);
-      const msg = String(e?.message || e);
-      alert(`PNG書き出しに失敗しました: ${msg}`);
-    } finally {
-      setIsExporting(false);
+    if (document?.fonts?.ready) {
+      try {
+        await document.fonts.ready;
+      } catch {}
     }
-  };
+    await waitImagesIn(root);
+    await new Promise((r) => requestAnimationFrame(r));
 
-  const handleExportPDF = async () => {
-    if (!canExport) return;
-    setIsExporting(true);
+    const targets = getExportTargets(root);
+    if (!targets.length) throw new Error("キャプチャ対象スライドが0枚です");
 
-    try {
-      const root = document.getElementById("slidesRoot");
-      if (!root) throw new Error("slidesRoot が見つかりません");
+    const bg = isIntelMode ? "#0b1220" : "#ffffff";
 
-      if (document?.fonts?.ready) {
-        try {
-          await document.fonts.ready;
-        } catch {}
-      }
-      await waitImagesIn(root);
-      await new Promise((r) => requestAnimationFrame(r));
+    for (let i = 0; i < targets.length; i++) {
+      const node = targets[i];
+      const dataUrl = await toPng(node, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: bg,
+      });
+      downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+    }
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PNG書き出しに失敗しました: ${msg}`);
+  } finally {
+    setIsExporting(false);
+  }
+};
 
-      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+const handleExportPDF = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
 
-      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+  try {
+    const root = document.getElementById("slidesRoot");
+    if (!root) throw new Error("slidesRoot が見つかりません");
 
-      const pngPages = [];
-      for (let i = 0; i < pages.length; i++) {
-        const node = pages[i];
-        const dataUrl = await toPng(node, {
-          cacheBust: true,
-          pixelRatio: 2,
-          backgroundColor: bg,
-        });
-        pngPages.push(dataUrl);
-      }
+    if (document?.fonts?.ready) {
+      try {
+        await document.fonts.ready;
+      } catch {}
+    }
+    await waitImagesIn(root);
+    await new Promise((r) => requestAnimationFrame(r));
 
-      const API_BASE = "https://sense-website-production.up.railway.app";
-      const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pages: pngPages }),
+    const targets = getExportTargets(root);
+    if (!targets.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+    const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+    // PDF生成（クライアント内で完結）
+    const { PDFDocument } = await import("pdf-lib");
+    const pdfDoc = await PDFDocument.create();
+
+    // 16:9（PowerPoint既定のワイド）: 13.333in x 7.5in -> 960 x 540 pt
+    const PAGE_W = 960;
+    const PAGE_H = 540;
+
+    for (let i = 0; i < targets.length; i++) {
+      const node = targets[i];
+
+      const pngDataUrl = await toPng(node, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: bg,
       });
 
-      if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
+      const pngBytes = await (await fetch(pngDataUrl)).arrayBuffer();
+      const pngImage = await pdfDoc.embedPng(pngBytes);
 
-      const ct = resp.headers.get("content-type") || "";
-      if (ct.includes("application/pdf")) {
-        const blob = await resp.blob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "slides.pdf";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-        return;
-      }
-
-      const j = await resp.json();
-      const pdfDataUrl = j?.pdfDataUrl || "";
-      if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
-      downloadDataUrl(pdfDataUrl, "slides.pdf");
-    } catch (e) {
-      console.error(e);
-      const msg = String(e?.message || e);
-      alert(`PDF書き出しに失敗しました: ${msg}`);
-    } finally {
-      setIsExporting(false);
+      const page = pdfDoc.addPage([PAGE_W, PAGE_H]);
+      page.drawImage(pngImage, {
+        x: 0,
+        y: 0,
+        width: PAGE_W,
+        height: PAGE_H,
+      });
     }
-  };
+
+    const pdfBytes = await pdfDoc.save();
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    downloadBlob(blob, "slides.pdf");
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PDF書き出しに失敗しました: ${msg}`);
+  } finally {
+    setIsExporting(false);
+  }
+};
+
 
   const requestExportPNGFromMenu = () => {
     if (!canExport) return;
