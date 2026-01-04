@@ -1,5 +1,5 @@
 // src/components/slideaipro/slidePages/ProblemPage.js
-import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { useLayoutEffect, useMemo, useRef, useState, useEffect } from "react";
 import SlidePageFrame from "./SlidePageFrame";
 import { resolveImageSrc } from "../utils/resolveImageSrc";
 
@@ -200,6 +200,165 @@ function hasCJK(s) {
   return /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(t);
 }
 
+/**
+ * ===== ここが本題：グラデ文字を canvas で PNG 化して <img> にする =====
+ * html-to-image が background-clip:text を壊すため、DOMのままでは安定しない。
+ */
+function isBreakChar(ch) {
+  return ch === " " || ch === "\t" || ch === "、" || ch === "。" || ch === "," || ch === ".";
+}
+
+function measureWithLetterSpacing(ctx, s, ls) {
+  const t = String(s || "");
+  if (!t) return 0;
+  if (!ls) return ctx.measureText(t).width;
+
+  let w = 0;
+  for (let i = 0; i < t.length; i++) {
+    w += ctx.measureText(t[i]).width;
+    if (i < t.length - 1) w += ls;
+  }
+  return w;
+}
+
+function wrapTextByWidth(ctx, text, maxW, ls) {
+  const raw = String(text || "");
+  const paras = raw.split(/\n/);
+  const lines = [];
+
+  for (const p of paras) {
+    const s = String(p || "");
+    if (!s) {
+      lines.push("");
+      continue;
+    }
+
+    let line = "";
+    let lastBreakIndex = -1;
+
+    for (let i = 0; i < s.length; i++) {
+      const ch = s[i];
+      const next = line + ch;
+      const w = measureWithLetterSpacing(ctx, next, ls);
+
+      if (w <= maxW || !line) {
+        line = next;
+        if (isBreakChar(ch)) lastBreakIndex = line.length - 1;
+        continue;
+      }
+
+      // 収まらない：直近のbreak位置があればそこで折る
+      if (lastBreakIndex >= 0) {
+        const head = line.slice(0, lastBreakIndex + 1).trimEnd();
+        const tail = (line.slice(lastBreakIndex + 1) + ch).trimStart();
+        lines.push(head);
+        line = tail;
+        lastBreakIndex = -1;
+        for (let k = 0; k < line.length; k++) {
+          if (isBreakChar(line[k])) lastBreakIndex = k;
+        }
+      } else {
+        lines.push(line.trimEnd());
+        line = ch.trimStart();
+        lastBreakIndex = isBreakChar(ch) ? 0 : -1;
+      }
+    }
+
+    lines.push(line);
+  }
+
+  // 末尾の不要な空行を除去（ただし完全消しはしない）
+  while (lines.length > 1 && lines[lines.length - 1] === "" && lines[lines.length - 2] === "") {
+    lines.pop();
+  }
+  return lines;
+}
+
+function drawTextLineCentered(ctx, text, centerX, baselineY, ls) {
+  const s = String(text || "");
+  if (!s) return;
+
+  if (!ls) {
+    ctx.fillText(s, centerX, baselineY);
+    return;
+  }
+
+  const totalW = measureWithLetterSpacing(ctx, s, ls);
+  let x = centerX - totalW / 2;
+
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    const cw = ctx.measureText(ch).width;
+    ctx.fillText(ch, x + cw / 2, baselineY);
+    x += cw + (i < s.length - 1 ? ls : 0);
+  }
+}
+
+async function buildGradientTextPng({
+  text,
+  widthPx,
+  heightPx,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeightUnit,
+  letterSpacingPx,
+  dpr,
+}) {
+  const W = Math.max(10, Math.floor(widthPx));
+  const H = Math.max(10, Math.floor(heightPx));
+
+  const ratio = clamp(dpr || 1, 1, 2);
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.floor(W * ratio);
+  canvas.height = Math.floor(H * ratio);
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return "";
+
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  // font
+  const fw = String(fontWeight || 900);
+  ctx.font = `${fw} ${Math.max(1, Math.floor(fontSize))}px ${fontFamily || FONT_FAMILY}`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
+
+  // gradient（CSSと同じ 135deg 相当：左上→右下）
+  const grad = ctx.createLinearGradient(0, 0, W, H);
+  grad.addColorStop(0, "rgba(199, 26, 46, 1)");
+  grad.addColorStop(0.55, "rgba(235, 66, 31, 0.98)");
+  grad.addColorStop(1, "rgba(255, 140, 41, 0.95)");
+  ctx.fillStyle = grad;
+
+  const ls = Number.isFinite(letterSpacingPx) ? letterSpacingPx : 0;
+  const lh = Math.max(1, (Number.isFinite(lineHeightUnit) ? lineHeightUnit : 1.1) * fontSize);
+
+  // wrap
+  const innerPad = Math.max(0, Math.floor(fontSize * 0.12)); // 軽い安全余白
+  const maxW = Math.max(10, W - innerPad * 2);
+  const lines = wrapTextByWidth(ctx, text, maxW, ls);
+
+  // 垂直中央寄せ
+  const textBlockH = lines.length * lh;
+  const topY = (H - textBlockH) / 2;
+
+  // ベースライン調整（だいたい fontSize*0.82 が見た目一致しやすい）
+  const base = fontSize * 0.82;
+
+  for (let i = 0; i < lines.length; i++) {
+    const y = topY + i * lh + base;
+    drawTextLineCentered(ctx, lines[i], W / 2, y, ls);
+  }
+
+  try {
+    return canvas.toDataURL("image/png");
+  } catch {
+    return "";
+  }
+}
+
 export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched, imageUrlByKey }) {
   const rootRef = useRef(null);
   const bodyRef = useRef(null);
@@ -226,21 +385,6 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     const bulletsRaw = Array.isArray(slide?.bullets) ? slide.bullets : [];
     return bulletsRaw.map(normalizeBulletString).filter(Boolean).slice(0, 5);
   }, [slide?.bullets]);
-
-  // export時に使うSVGグラデ文字（html-to-image対策）
-  const gradId = useMemo(() => {
-    const sid = String(slide?.id || `${pageNo}`);
-    return `ppGrad-${sid.replace(/[^a-zA-Z0-9_-]/g, "")}-${pageNo}`;
-  }, [slide?.id, pageNo]);
-
-  const bottomLines = useMemo(() => {
-    const t = String(bottomMessage || "").trim();
-    if (!t) return [];
-    return t
-      .split("\n")
-      .map((s) => String(s || "").trim())
-      .filter(Boolean);
-  }, [bottomMessage]);
 
   const [fit, setFit] = useState(() => ({
     scale: 1,
@@ -276,6 +420,10 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     bulletLH: BULLET_LH,
     bottomLH: BOTTOM_LH,
 
+    // measured widths/heights
+    contentW: 1200,
+    bottomTextH: 60,
+
     // image
     imgSize: 520,
     radius: 10,
@@ -285,6 +433,9 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     dotOpacity: 0.82,
     phColor: "rgba(0,0,0,0.55)",
   }));
+
+  // 下部グラデ文字の PNG（canvas）
+  const [bottomPng, setBottomPng] = useState("");
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -334,18 +485,19 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
       // Swift幅計算：bodyW ≒ (W - 2*hPad)
       const bodyW = Math.max(10, W - hPad * 2);
+      const contentW = bodyW;
+
       const imgRatio = 0.46;
       const leftW = Math.max(0, (bodyW - gap) * imgRatio);
       const rightW = Math.max(0, (bodyW - gap) - leftW);
       const imgColPx = Math.floor(leftW);
 
-      // ---- Header number tuning (ここが今回の本題) ----
+      // ---- Header number tuning ----
       const cjk = hasCJK(headerText);
-      const headerNoScale = cjk ? 1.18 : 1.06; // CJKはN.が小さく見えるので強め
+      const headerNoScale = cjk ? 1.18 : 1.06;
       const headerNoGap = Math.round((cjk ? 18 : 16) * scale);
 
       // ---- Header font ----
-      const contentW = bodyW;
       const headerFontTarget = 58 * scale;
       const maxHeaderTextH = Math.min(190 * scale, H * 0.22);
 
@@ -371,7 +523,6 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
       // ---- Bottom font ----
       const baseProblemsFont = problemsBaseFont(problems.length) * scale * 0.92;
-
       const bottomTarget = clamp(baseProblemsFont + 10 * scale, 52 * scale, 74 * scale);
       const maxBottomTextH = Math.min(140 * scale, H * 0.14);
 
@@ -391,6 +542,18 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
               });
               return hText <= maxBottomTextH;
             },
+          })
+        : 0;
+
+      const bottomTextH = bottomMessage
+        ? measureTextHeight(mBottomRef.current, {
+            text: bottomMessage,
+            width: contentW,
+            fontSize: bottomFont,
+            fontWeight: 900,
+            lineHeight: BOTTOM_LH,
+            letterSpacing: bottomLS,
+            textAlign: "center",
           })
         : 0;
 
@@ -418,6 +581,9 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         "--ppBottomFont": `${bottomFont}px`,
         "--ppBottomLS": `${bottomLS}px`,
         "--ppBottomLH": `${BOTTOM_LH}`,
+
+        "--ppContentW": `${Math.floor(contentW)}px`,
+        "--ppBottomTextH": `${Math.max(0, Math.floor(bottomTextH))}px`,
 
         "--ppRadius": `${radius}px`,
         "--ppTextColor": `${textColor}`,
@@ -491,6 +657,9 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
         bulletLH: BULLET_LH,
         bottomLH: BOTTOM_LH,
 
+        contentW,
+        bottomTextH,
+
         imgSize,
         radius,
 
@@ -521,6 +690,96 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     return () => ro.disconnect();
   }, [headerNo, headerText, bottomMessage, problems.join("\n"), isIntelMode]);
 
+  // bottomMessage（グラデ文字）を PNG 化（canvas）して bottomPng に入れる
+  useEffect(() => {
+    let cancelled = false;
+
+    async function run() {
+      if (!bottomMessage) {
+        if (!cancelled) setBottomPng("");
+        return;
+      }
+      if (!fit.bottomFont || fit.bottomFont <= 0) {
+        if (!cancelled) setBottomPng("");
+        return;
+      }
+
+      // フォント読み込み待ち（Safari/Chromeとも安定）
+      try {
+        if (document?.fonts?.ready) await document.fonts.ready;
+      } catch {}
+
+      // 余白ぶん安全に（scrollHeightとwrap差で欠けるのを避ける）
+      const safeH = Math.ceil((fit.bottomTextH || 0) + 6 * (fit.scale || 1));
+      const safeW = Math.ceil(fit.contentW || 1200);
+
+      const png = await buildGradientTextPng({
+        text: bottomMessage,
+        widthPx: safeW,
+        heightPx: Math.max(10, safeH),
+        fontFamily: FONT_FAMILY,
+        fontSize: fit.bottomFont,
+        fontWeight: 900,
+        lineHeightUnit: BOTTOM_LH,
+        letterSpacingPx: fit.bottomLS || 0,
+        dpr: typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1,
+      });
+
+      if (cancelled) return;
+      setBottomPng(png || "");
+    }
+
+    run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    bottomMessage,
+    fit.bottomFont,
+    fit.bottomLS,
+    fit.bottomTextH,
+    fit.contentW,
+    fit.scale,
+  ]);
+
+  const rootStyleVars = {
+    "--ppHPad": `${fit.hPad}px`,
+    "--ppHeaderTopPad": `${fit.headerTopPad}px`,
+    "--ppHeaderBottomPad": `${fit.headerBottomPad}px`,
+    "--ppHeaderFont": `${fit.headerFont}px`,
+    "--ppHeaderLS": `${fit.headerLS}px`,
+    "--ppHeaderLH": `${fit.headerLH}`,
+    "--ppHeaderNoScale": `${fit.headerNoScale}`,
+    "--ppHeaderNoGap": `${fit.headerNoGap}px`,
+
+    "--ppGap": `${fit.gap}px`,
+    "--ppImgColPx": `${fit.imgColPx}px`,
+
+    "--ppRowGap": `${fit.rowGap}px`,
+    "--ppBulletSize": `${fit.bulletSize}px`,
+    "--ppBulletToText": `${fit.bulletToText}px`,
+    "--ppTrailingPad": `${fit.trailingPad}px`,
+    "--ppBulletFont": `${fit.bulletFont}px`,
+    "--ppBulletLS": `${fit.bulletLS}px`,
+    "--ppBulletLH": `${fit.bulletLH}`,
+
+    "--ppBottomTopPad": `${Math.round(10 * fit.scale)}px`,
+    "--ppBottomBottomPad": `${Math.round(24 * fit.scale)}px`,
+    "--ppBottomFont": `${fit.bottomFont}px`,
+    "--ppBottomLS": `${fit.bottomLS}px`,
+    "--ppBottomLH": `${fit.bottomLH}`,
+
+    "--ppContentW": `${Math.floor(fit.contentW || 1200)}px`,
+    "--ppBottomTextH": `${Math.floor(Math.max(0, fit.bottomTextH || 0))}px`,
+
+    "--ppImgSize": `${fit.imgSize}px`,
+    "--ppRadius": `${fit.radius}px`,
+    "--ppTextColor": `${fit.textColor}`,
+    "--ppDotOpacity": `${fit.dotOpacity}`,
+    "--ppPhColor": `${fit.phColor}`,
+  };
+
   return (
     <SlidePageFrame
       pageNo={pageNo}
@@ -528,43 +787,7 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
       hasPrefetched={hasPrefetched}
       footerRight={cacheKey ? `image: ${cacheKey}` : ""}
     >
-      <div
-        ref={rootRef}
-        className="ppRoot ppProblemLikeSwift"
-        style={{
-          "--ppHPad": `${fit.hPad}px`,
-          "--ppHeaderTopPad": `${fit.headerTopPad}px`,
-          "--ppHeaderBottomPad": `${fit.headerBottomPad}px`,
-          "--ppHeaderFont": `${fit.headerFont}px`,
-          "--ppHeaderLS": `${fit.headerLS}px`,
-          "--ppHeaderLH": `${fit.headerLH}`,
-          "--ppHeaderNoScale": `${fit.headerNoScale}`,
-          "--ppHeaderNoGap": `${fit.headerNoGap}px`,
-
-          "--ppGap": `${fit.gap}px`,
-          "--ppImgColPx": `${fit.imgColPx}px`,
-
-          "--ppRowGap": `${fit.rowGap}px`,
-          "--ppBulletSize": `${fit.bulletSize}px`,
-          "--ppBulletToText": `${fit.bulletToText}px`,
-          "--ppTrailingPad": `${fit.trailingPad}px`,
-          "--ppBulletFont": `${fit.bulletFont}px`,
-          "--ppBulletLS": `${fit.bulletLS}px`,
-          "--ppBulletLH": `${fit.bulletLH}`,
-
-          "--ppBottomTopPad": `${Math.round(10 * fit.scale)}px`,
-          "--ppBottomBottomPad": `${Math.round(24 * fit.scale)}px`,
-          "--ppBottomFont": `${fit.bottomFont}px`,
-          "--ppBottomLS": `${fit.bottomLS}px`,
-          "--ppBottomLH": `${fit.bottomLH}`,
-
-          "--ppImgSize": `${fit.imgSize}px`,
-          "--ppRadius": `${fit.radius}px`,
-          "--ppTextColor": `${fit.textColor}`,
-          "--ppDotOpacity": `${fit.dotOpacity}`,
-          "--ppPhColor": `${fit.phColor}`,
-        }}
-      >
+      <div ref={rootRef} className="ppRoot ppProblemLikeSwift" style={rootStyleVars}>
         <div className="ppMain">
           <div className="ppHeader">
             <div className="ppTitle">
@@ -607,48 +830,17 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
           {bottomMessage ? (
             <div className="ppBottom">
-              {/* 通常表示（DOM描画）はCSSグラデ */}
-              <div className="ppBottomText">{bottomMessage}</div>
-
-              {/* export時（html-to-image対策）はSVGグラデに切替 */}
-              <svg
-                className="ppBottomSvg"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox={`0 0 1000 ${Math.max(1, bottomLines.length) * 120}`}
-                preserveAspectRatio="xMidYMid meet"
-                aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient
-                    id={gradId}
-                    gradientUnits="userSpaceOnUse"
-                    x1="0"
-                    y1={Math.max(1, bottomLines.length) * 120}
-                    x2="1000"
-                    y2="0"
-                  >
-                    <stop offset="0%" stopColor="rgba(199, 26, 46, 1)" />
-                    <stop offset="55%" stopColor="rgba(235, 66, 31, 0.98)" />
-                    <stop offset="100%" stopColor="rgba(255, 140, 41, 0.95)" />
-                  </linearGradient>
-                </defs>
-
-                {(bottomLines.length ? bottomLines : [" "]).map((line, i) => (
-                  <text
-                    key={`b-${i}`}
-                    x="500"
-                    y={90 + i * 120}
-                    textAnchor="middle"
-                    style={{ fontFamily: FONT_FAMILY }}
-                    fontSize={Math.max(1, Math.round(fit.bottomFont))}
-                    fontWeight="900"
-                    letterSpacing={Math.round((fit.bottomLS || 0) * 10) / 10}
-                    fill={`url(#${gradId})`}
-                  >
-                    {line}
-                  </text>
-                ))}
-              </svg>
+              {bottomPng ? (
+                <img
+                  className="ppBottomImg"
+                  src={bottomPng}
+                  alt=""
+                  aria-hidden="true"
+                />
+              ) : (
+                // 生成が間に合わない瞬間だけフォールバック（通常表示はすぐimg化される）
+                <div className="ppBottomText">{bottomMessage}</div>
+              )}
             </div>
           ) : (
             <div className="ppBottomEmpty" />
@@ -812,10 +1004,19 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            width: 100%;
           }
 
+          /* export/通常のどちらでも壊れない：PNG化したグラデ文字 */
+          .ppBottomImg {
+            width: var(--ppContentW);
+            height: var(--ppBottomTextH);
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+            image-rendering: auto;
+          }
+
+          /* 念のためフォールバック（生成間に合わない瞬間だけ） */
           .ppBottomText {
             font-size: var(--ppBottomFont);
             font-weight: 900;
@@ -835,19 +1036,6 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-          }
-
-          .ppBottomSvg {
-            display: none; /* 通常はCSS版 */
-            width: 100%;
-            height: auto;
-          }
-
-          :global(html.exporting) .ppBottomText {
-            display: none;
-          }
-          :global(html.exporting) .ppBottomSvg {
-            display: block;
           }
 
           .ppBottomEmpty {
