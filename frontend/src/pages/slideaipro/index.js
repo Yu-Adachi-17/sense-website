@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { toPng, getFontEmbedCSS } from "html-to-image";
+import { toPng } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
 import SlideEditModal from "../../components/slideaipro/SlideEditModal";
@@ -293,68 +293,6 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
   return out;
 }
 
-function getStableNodeSize(node) {
-  const sw = Math.round(node?.scrollWidth || 0);   // transform の影響を受けにくい
-  const sh = Math.round(node?.scrollHeight || 0);
-  const ow = Math.round(node?.offsetWidth || 0);
-  const oh = Math.round(node?.offsetHeight || 0);
-  const rect = node?.getBoundingClientRect?.() || { width: 0, height: 0 };
-  const bw = Math.round(rect.width || 0);
-  const bh = Math.round(rect.height || 0);
-
-  const w = sw || ow || bw || 1;
-  const h = sh || oh || bh || 1;
-  return { w: Math.max(1, w), h: Math.max(1, h) };
-}
-
-async function withExportingDOM(fn) {
-  const html = document.documentElement;
-  const prev = html.getAttribute("data-exporting");
-  html.setAttribute("data-exporting", "1");
-
-  // CSS適用を1フレーム待つ（これがないと“書き出し中CSS”が間に合わない）
-  await new Promise((r) => requestAnimationFrame(r));
-
-  try {
-    return await fn();
-  } finally {
-    if (prev == null) html.removeAttribute("data-exporting");
-    else html.setAttribute("data-exporting", prev);
-    await new Promise((r) => requestAnimationFrame(r));
-  }
-}
-
-async function captureSlidePng(node, { bg, pixelRatio = 2 }) {
-  const { w, h } = getStableNodeSize(node);
-
-  // WebFontを埋め込んでフォールバックを防ぐ（太さ/改行ズレの主要因を潰す）
-  let fontEmbedCSS = "";
-  try {
-    fontEmbedCSS = await getFontEmbedCSS(node);
-  } catch {}
-
-  const style = { width: `${w}px`, height: `${h}px` };
-
-  // もし node 自身に transform が載っていた場合だけ無効化（親のtransformは元々ここに出ない）
-  try {
-    const t = window.getComputedStyle(node).transform;
-    if (t && t !== "none") style.transform = "none";
-  } catch {}
-
-  const dataUrl = await toPng(node, {
-    cacheBust: true,
-    pixelRatio,
-    backgroundColor: bg,
-    width: w,
-    height: h,
-    style,
-    fontEmbedCSS: fontEmbedCSS || undefined,
-  });
-
-  return { dataUrl, w, h };
-}
-
-
 export default function SlideAIProHome() {
   const router = useRouter();
 
@@ -604,270 +542,112 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
-const handleExportPNG = async () => {
-  if (!canExport) return;
-  setIsExporting(true);
+  const handleExportPNG = async () => {
+    if (!canExport) return;
+    setIsExporting(true);
 
-  try {
-    const root = document.getElementById("slidesRoot");
-    if (!root) throw new Error("slidesRoot が見つかりません");
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
 
-    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
 
-    const bg = isIntelMode ? "#0b1220" : "#ffffff";
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
-    // 1枚ずつ offscreen で “scale無し” キャプチャ → そのまま保存
-    for (let i = 0; i < pages.length; i++) {
-      const { dataUrl } = await captureSlideAsPngDataUrl(pages[i], {
-        bg,
-        pixelRatio: 2,
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+      }
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      alert(`PNG書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
+  const handleExportPDF = async () => {
+    if (!canExport) return;
+    setIsExporting(true);
+
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
+
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
+
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+      const pngPages = [];
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+        pngPages.push(dataUrl);
+      }
+
+      const API_BASE = "https://sense-website-production.up.railway.app";
+      const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pages: pngPages }),
       });
 
-      downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+      if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
+
+      const ct = resp.headers.get("content-type") || "";
+      if (ct.includes("application/pdf")) {
+        const blob = await resp.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "slides.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        return;
+      }
+
+      const j = await resp.json();
+      const pdfDataUrl = j?.pdfDataUrl || "";
+      if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
+      downloadDataUrl(pdfDataUrl, "slides.pdf");
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      alert(`PDF書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
     }
-  } catch (e) {
-    console.error(e);
-    const msg = String(e?.message || e);
-    alert(`PNG書き出しに失敗しました: ${msg}`);
-  } finally {
-    setIsExporting(false);
-  }
-};
-
-
-function getUnscaledSize(el) {
-  if (!el) return { w: 1, h: 1 };
-
-  // offsetWidth/Height は transform の影響を受けない（重要）
-  const ow = Number(el.offsetWidth || 0);
-  const oh = Number(el.offsetHeight || 0);
-
-  if (ow > 0 && oh > 0) {
-    return { w: Math.max(1, Math.round(ow)), h: Math.max(1, Math.round(oh)) };
-  }
-
-  // 念のため fallback（最終手段）
-  const rect = el.getBoundingClientRect();
-  return { w: Math.max(1, Math.round(rect.width)), h: Math.max(1, Math.round(rect.height)) };
-}
-
-function createExportStage(originalNode, bg) {
-  const { w, h } = getUnscaledSize(originalNode);
-
-  const stage = document.createElement("div");
-  stage.setAttribute("data-export-stage", "true");
-  Object.assign(stage.style, {
-    position: "fixed",
-    left: "-100000px",
-    top: "0",
-    width: `${w}px`,
-    height: `${h}px`,
-    overflow: "hidden",
-    pointerEvents: "none",
-    zIndex: "-1",
-    background: bg,
-  });
-
-  // 画面表示と切り離すために clone を使う（レイアウトを固定）
-  const cloned = originalNode.cloneNode(true);
-
-  // ここが肝：export 時は transform/scale を殺して “元の幅” で描画させる
-  Object.assign(cloned.style, {
-    width: `${w}px`,
-    height: `${h}px`,
-    transform: "none",
-    transformOrigin: "top left",
-    margin: "0",
-  });
-
-  stage.appendChild(cloned);
-  document.body.appendChild(stage);
-
-  return {
-    stage,
-    cloned,
-    w,
-    h,
-    cleanup: () => {
-      try {
-        stage.remove();
-      } catch {}
-    },
   };
-}
-
-async function waitForStableLayout(rootEl) {
-  if (document?.fonts?.ready) {
-    try {
-      await document.fonts.ready;
-    } catch {}
-  }
-
-  await waitImagesIn(rootEl);
-
-  // レイアウト確定を 2フレーム待つ（これがないと微妙に折返しが揺れることがある）
-  await new Promise((r) => requestAnimationFrame(r));
-  await new Promise((r) => requestAnimationFrame(r));
-}
-
-async function captureSlideAsPngDataUrl(slideNode, { bg, pixelRatio }) {
-  const { stage, cloned, w, h, cleanup } = createExportStage(slideNode, bg);
-
-  try {
-    await waitForStableLayout(stage);
-
-    const dataUrl = await toPng(cloned, {
-      cacheBust: true,
-      pixelRatio: pixelRatio || 2,
-      backgroundColor: bg,
-      width: w,
-      height: h,
-
-      // clone後の “最終描画幅” をさらに固定（html-to-image 側のズレ抑止）
-      style: {
-        width: `${w}px`,
-        height: `${h}px`,
-        transform: "none",
-        transformOrigin: "top left",
-        margin: "0",
-      },
-    });
-
-    return { dataUrl, w, h };
-  } finally {
-    cleanup();
-  }
-}
-
-
-// 追加：dataUrl -> Uint8Array
-function dataUrlToU8(dataUrl) {
-  const s = String(dataUrl || "");
-  const i = s.indexOf(",");
-  const b64 = i >= 0 ? s.slice(i + 1) : s;
-  const bin = atob(b64);
-  const u8 = new Uint8Array(bin.length);
-  for (let k = 0; k < bin.length; k++) u8[k] = bin.charCodeAt(k);
-  return u8;
-}
-
-// 追加：Blob download
-function downloadBlob(blob, filename) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
-}
-
-const handleExportPDF = async () => {
-  if (!canExport) return;
-  setIsExporting(true);
-
-  try {
-    const root = document.getElementById("slidesRoot");
-    if (!root) throw new Error("slidesRoot が見つかりません（id='slidesRoot' が必要です）");
-
-    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
-
-    // 画像・フォントが未ロードだと「image loading...」等が混ざるので待つ
-    try {
-      if (document?.fonts?.ready) await document.fonts.ready;
-    } catch {}
-    await waitImagesIn(root);
-    await new Promise((r) => requestAnimationFrame(r));
-
-    const w = window.open("", "_blank", "noopener,noreferrer,width=1200,height=800");
-    if (!w) throw new Error("ポップアップがブロックされました（ブラウザ設定をご確認ください）");
-
-    // 現在ページの style / stylesheet を可能な範囲で引き継ぐ
-    const headStyles = Array.from(document.querySelectorAll("style, link[rel='stylesheet']"))
-      .map((el) => el.outerHTML)
-      .join("\n");
-
-    const paperBg = isIntelMode ? "#0b1220" : "#ffffff";
-
-    // 印刷用CSS：余白0 / 背景色含む / ページ区切り / transform無効化（崩れ対策）
-    const printCSS = `
-      <style>
-        @page { size: 13.333in 7.5in; margin: 0; } /* 16:9 */
-        html, body { margin: 0; padding: 0; background: ${paperBg}; }
-        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-        .__printWrap { width: 100%; }
-        [data-slide-page="true"] { break-after: page; page-break-after: always; }
-        [data-slide-page="true"], [data-slide-page="true"] * {
-          transform: none !important;
-          zoom: 1 !important;
-        }
-      </style>
-    `;
-
-    w.document.open();
-    w.document.write(`<!doctype html><html><head><meta charset="utf-8" />${headStyles}${printCSS}</head><body><div class="__printWrap"></div></body></html>`);
-    w.document.close();
-
-    const wrap = w.document.querySelector(".__printWrap");
-
-    // 表示中DOMをそのまま複製して印刷窓に貼る（再レイアウト事故を最小化）
-    pages.forEach((p) => {
-      const clone = p.cloneNode(true);
-      wrap.appendChild(clone);
-    });
-
-    // 印刷窓側でもフォント・画像のロードを待つ
-    await new Promise((resolve) => {
-      const tick = () => {
-        try {
-          const doc = w.document;
-          if (!doc || doc.readyState !== "complete") return setTimeout(tick, 50);
-
-          const fontsReady = doc.fonts ? doc.fonts.ready : Promise.resolve();
-
-          const imgs = Array.from(doc.images || []);
-          const imgPromises = imgs.map((img) => {
-            try { img.loading = "eager"; } catch {}
-            if (img.complete && img.naturalWidth > 0) return Promise.resolve();
-            return new Promise((res) => {
-              const done = () => res();
-              img.addEventListener("load", done, { once: true });
-              img.addEventListener("error", done, { once: true });
-            });
-          });
-
-          Promise.all([fontsReady, ...imgPromises]).then(() => {
-            w.requestAnimationFrame(() => w.requestAnimationFrame(resolve));
-          });
-        } catch {
-          resolve();
-        }
-      };
-      tick();
-    });
-
-    // 印刷ダイアログ -> 保存先で「PDFに保存」
-    w.focus();
-    w.print();
-
-    // 余計なタブを残したくなければ：印刷後に閉じる（環境差あるので try）
-    try {
-      w.onafterprint = () => {
-        try { w.close(); } catch {}
-      };
-    } catch {}
-  } catch (e) {
-    console.error(e);
-    const msg = String(e?.message || e);
-    alert(`PDF書き出しに失敗しました: ${msg}`);
-  } finally {
-    setIsExporting(false);
-  }
-};
-
 
   const requestExportPNGFromMenu = () => {
     if (!canExport) return;
@@ -1415,36 +1195,18 @@ const handleExportPDF = async () => {
           }
         `}</style>
 
-<style jsx global>{`
-  html,
-  body,
-  #__next {
-    height: 100%;
-  }
-  body {
-    margin: 0;
-    overflow-x: hidden;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  }
-
-  /* 文字の“太り”差を抑える（フォントが無い時の擬似ボールド等を抑制） */
-  [data-slide-page="true"] {
-    font-synthesis: none;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: geometricPrecision;
-  }
-
-  /* 書き出し中：余計なUI（Editボタン等）を消す＆動く要素を止める */
-  html[data-exporting="1"] [data-slide-page="true"] button {
-    visibility: hidden !important;
-  }
-  html[data-exporting="1"] * {
-    animation: none !important;
-    transition: none !important;
-    caret-color: transparent !important;
-  }
-`}</style>
-
+        <style jsx global>{`
+          html,
+          body,
+          #__next {
+            height: 100%;
+          }
+          body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+          }
+        `}</style>
       </div>
     </>
   );

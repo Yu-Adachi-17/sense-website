@@ -272,6 +272,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 22px;
           font-weight: 900;
           letter-spacing: 0.2px;
+          line-height: 1.10em; /* 恒久対策: unitless禁止 */
         }
 
         .slidesRoot .pageBottom {
@@ -296,12 +297,13 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 34px;
           font-weight: 900;
           letter-spacing: 0.2px;
-          line-height: 1.15;
+          line-height: 1.15em; /* 恒久対策: unitless禁止 */
         }
         .slidesRoot .coverSub {
           font-size: 14px;
           font-weight: 800;
           opacity: 0.72;
+          line-height: 1.25em; /* 恒久対策: 明示（行詰まり事故予防） */
         }
 
         .slidesRoot .msg {
@@ -310,7 +312,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           border-radius: 12px;
           font-size: 13px;
           font-weight: 700;
-          line-height: 1.45;
+          line-height: 1.45em; /* 恒久対策: unitless禁止 */
         }
         .slidesRoot[data-theme="dark"] .msg {
           background: rgba(255, 255, 255, 0.06);
@@ -341,7 +343,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           display: grid;
           gap: 8px;
           font-size: 14px;
-          line-height: 1.42;
+          line-height: 1.42em; /* 恒久対策: unitless禁止 */
           font-weight: 700;
           opacity: 0.92;
         }
@@ -381,6 +383,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           place-items: center;
           font-size: 12px;
           opacity: 0.6;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .imgKeySmall {
@@ -389,6 +392,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           word-break: break-all;
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
             monospace;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .twoBox {
@@ -419,6 +423,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           letter-spacing: 0.2px;
           opacity: 0.85;
           margin-bottom: 10px;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barMeta {
@@ -432,12 +437,14 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 13px;
           font-weight: 900;
           opacity: 0.9;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
         .slidesRoot .barAxisU {
           margin-left: 6px;
           font-size: 12px;
           opacity: 0.7;
           font-weight: 800;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barList {
@@ -457,6 +464,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 13px;
           font-weight: 800;
           opacity: 0.9;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barTrack {
@@ -490,6 +498,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           opacity: 0.9;
           font-variant-numeric: tabular-nums;
           white-space: nowrap;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .tableWrap {
@@ -515,6 +524,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           padding: 10px 12px;
           font-weight: 900;
           letter-spacing: 0.2px;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
         .slidesRoot[data-theme="dark"] .taskTable thead th {
           background: rgba(255, 255, 255, 0.06);
@@ -529,6 +539,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           padding: 10px 12px;
           font-weight: 700;
           opacity: 0.92;
+          line-height: 1.25em; /* 恒久対策: 明示 */
         }
         .slidesRoot[data-theme="dark"] .taskTable tbody td {
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
