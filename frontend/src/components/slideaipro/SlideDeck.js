@@ -8,10 +8,6 @@ import UnknownPage from "./slidePages/UnknownPage";
  * - #slidesRoot 配下は「Exportのキャプチャ対象DOM」
  * - Editボタンは #slidesRoot の外（兄弟要素）に置き、見た目だけ重ねることで export に写らないようにする
  *
- * 追加:
- * - export用に「固定サイズ(1920x1080)」の隠しステージを常設
- *   -> html-to-image のクローン再レイアウト差異を潰す
- *
  * props:
  * - slides, isIntelMode, hasPrefetched, imageUrlByKey (既存)
  * - onEditSlide?: (slide, index) => void （任意）
@@ -33,7 +29,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
 
     const stageRect = stageEl.getBoundingClientRect();
 
-    // SlidePageFrame 側で data-slide-page="true" を付けている前提
+    // SlidePageFrame 側で data-slide-page="true" を付けている前提（index.js の export 側も同条件で拾っている）
     const pages = Array.from(rootEl.querySelectorAll('[data-slide-page="true"]'));
 
     const next = pages.map((el) => {
@@ -46,6 +42,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
       };
     });
 
+    // 変化が小さい場合はsetStateしない（無限ループ/微振動防止）
     const same =
       next.length === pageRects.length &&
       next.every((a, i) => {
@@ -62,8 +59,9 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
     if (!same) setPageRects(next);
   };
 
-  // slidesが変わったら計測
+  // slidesが変わったら計測（初回/生成後）
   useEffect(() => {
+    // 1フレーム待ってから計測（画像やフォント適用後のレイアウト反映を拾いやすくする）
     const id = requestAnimationFrame(() => recomputeRects());
     return () => cancelAnimationFrame(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -85,9 +83,11 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
       if (rootRef.current) ro.observe(rootRef.current);
     }
 
+    // 画像ロードで高さが変わるケースへの保険
     const onLoadCapture = () => recomputeRects();
     window.addEventListener("load", onLoadCapture);
 
+    // 初回
     recomputeRects();
 
     return () => {
@@ -105,6 +105,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
       onEditSlide(s, idx);
       return;
     }
+    // noop（未接続でも落とさない）
   };
 
   // ボタン配置（スライド右上に固定）
@@ -135,7 +136,12 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
       {/* stage: relative。ここに「兄弟要素のoverlay」をabsoluteで重ねる */}
       <div ref={stageRef} className="slidesStage">
         {/* Export対象DOMはこの #slidesRoot 配下のみ */}
-        <div ref={rootRef} id="slidesRoot" className="slidesRoot" data-theme={theme}>
+        <div
+          ref={rootRef}
+          id="slidesRoot"
+          className="slidesRoot"
+          data-theme={theme}
+        >
           {safeSlides.map((s, idx) => {
             const kind = String(s?.kind || "");
             const Renderer = slidePageRenderers[kind] || UnknownPage;
@@ -153,30 +159,9 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           })}
         </div>
 
-        {/* Edit overlay: slidesRoot の“外（兄弟）”。exportに写らない */}
+        {/* Edit overlay: slidesRoot の“外（兄弟）”。これが(B)の肝で、exportに写らない */}
         <div className="editOverlay" aria-hidden="false">
           {editButtons}
-        </div>
-      </div>
-
-      {/* ===== Export専用: 固定サイズ(1920x1080)の隠しステージ ===== */}
-      <div className="exportStage" aria-hidden="true">
-        <div id="exportSlidesRoot" className="exportSlidesRoot" data-theme={theme}>
-          {safeSlides.map((s, idx) => {
-            const kind = String(s?.kind || "");
-            const Renderer = slidePageRenderers[kind] || UnknownPage;
-
-            return (
-              <Renderer
-                key={`export-${s?.id || `slide-${idx}`}`}
-                slide={s}
-                pageNo={idx + 1}
-                isIntelMode={isIntelMode}
-                hasPrefetched={hasPrefetched}
-                imageUrlByKey={imageUrlByKey}
-              />
-            );
-          })}
         </div>
       </div>
 
@@ -287,7 +272,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 22px;
           font-weight: 900;
           letter-spacing: 0.2px;
-          line-height: 1.10em;
+          line-height: 1.10em; /* 恒久対策: unitless禁止 */
         }
 
         .slidesRoot .pageBottom {
@@ -312,13 +297,13 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 34px;
           font-weight: 900;
           letter-spacing: 0.2px;
-          line-height: 1.15em;
+          line-height: 1.15em; /* 恒久対策: unitless禁止 */
         }
         .slidesRoot .coverSub {
           font-size: 14px;
           font-weight: 800;
           opacity: 0.72;
-          line-height: 1.25em;
+          line-height: 1.25em; /* 恒久対策: 明示（行詰まり事故予防） */
         }
 
         .slidesRoot .msg {
@@ -327,7 +312,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           border-radius: 12px;
           font-size: 13px;
           font-weight: 700;
-          line-height: 1.45em;
+          line-height: 1.45em; /* 恒久対策: unitless禁止 */
         }
         .slidesRoot[data-theme="dark"] .msg {
           background: rgba(255, 255, 255, 0.06);
@@ -358,7 +343,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           display: grid;
           gap: 8px;
           font-size: 14px;
-          line-height: 1.42em;
+          line-height: 1.42em; /* 恒久対策: unitless禁止 */
           font-weight: 700;
           opacity: 0.92;
         }
@@ -398,7 +383,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           place-items: center;
           font-size: 12px;
           opacity: 0.6;
-          line-height: 1.20em;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .imgKeySmall {
@@ -407,7 +392,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           word-break: break-all;
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
             monospace;
-          line-height: 1.20em;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .twoBox {
@@ -438,7 +423,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           letter-spacing: 0.2px;
           opacity: 0.85;
           margin-bottom: 10px;
-          line-height: 1.10em;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barMeta {
@@ -452,14 +437,14 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 13px;
           font-weight: 900;
           opacity: 0.9;
-          line-height: 1.10em;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
         .slidesRoot .barAxisU {
           margin-left: 6px;
           font-size: 12px;
           opacity: 0.7;
           font-weight: 800;
-          line-height: 1.10em;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barList {
@@ -479,7 +464,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 13px;
           font-weight: 800;
           opacity: 0.9;
-          line-height: 1.20em;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barTrack {
@@ -513,7 +498,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           opacity: 0.9;
           font-variant-numeric: tabular-nums;
           white-space: nowrap;
-          line-height: 1.10em;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .tableWrap {
@@ -539,7 +524,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           padding: 10px 12px;
           font-weight: 900;
           letter-spacing: 0.2px;
-          line-height: 1.10em;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
         .slidesRoot[data-theme="dark"] .taskTable thead th {
           background: rgba(255, 255, 255, 0.06);
@@ -554,7 +539,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           padding: 10px 12px;
           font-weight: 700;
           opacity: 0.92;
-          line-height: 1.25em;
+          line-height: 1.25em; /* 恒久対策: 明示 */
         }
         .slidesRoot[data-theme="dark"] .taskTable tbody td {
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -565,32 +550,6 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
 
         .slidesRoot .taskTable tbody tr:last-child td {
           border-bottom: none;
-        }
-
-        /* ===== Export Stage (fixed 1920x1080) ===== */
-        .exportStage {
-          position: fixed;
-          left: -10000px;
-          top: 0;
-          width: 1920px;
-          pointer-events: none;
-          opacity: 0;
-          z-index: -1;
-          contain: layout paint style;
-        }
-
-        .exportSlidesRoot {
-          display: grid;
-          gap: 0;
-        }
-
-        /* exportは1枚=1920x1080を確定させる（aspect-ratio差異を排除） */
-        .exportSlidesRoot .slidePage {
-          width: 1920px !important;
-          height: 1080px !important;
-          aspect-ratio: auto !important;
-          border-radius: 0 !important;
-          box-shadow: none !important;
         }
       `}</style>
     </section>

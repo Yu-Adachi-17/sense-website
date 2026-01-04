@@ -181,6 +181,31 @@ function waitImagesIn(node) {
   );
 }
 
+const EXPORT_W = 1920;
+const EXPORT_H = 1080;
+
+async function nextFrame() {
+  await new Promise((r) => requestAnimationFrame(r));
+}
+
+// 「書き出しのための安定レイアウト」を一時的に適用
+async function withExportMode(fn) {
+  const el = document.documentElement;
+  el.classList.add("exportMode");
+
+  // ResizeObserver / font描画 / レイアウト確定を待つ（ここが重要）
+  await nextFrame();
+  await nextFrame();
+
+  try {
+    return await fn();
+  } finally {
+    el.classList.remove("exportMode");
+    await nextFrame();
+  }
+}
+
+
 function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
   const a = Array.isArray(agenda) ? agenda : [];
 
@@ -291,19 +316,6 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
   }
 
   return out;
-}
-
-function getExportRootElement() {
-  // SlideDeck.js 側で隠しexportRootを常設している前提
-  const exportRoot = document.getElementById("exportSlidesRoot");
-  if (exportRoot) return exportRoot;
-  const previewRoot = document.getElementById("slidesRoot");
-  return previewRoot || null;
-}
-
-async function waitTwoFrames() {
-  await new Promise((r) => requestAnimationFrame(r));
-  await new Promise((r) => requestAnimationFrame(r));
 }
 
 export default function SlideAIProHome() {
@@ -555,26 +567,25 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
-  const handleExportPNG = async () => {
-    if (!canExport) return;
-    setIsExporting(true);
+const handleExportPNG = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
 
-    try {
-      const root = getExportRootElement();
-      if (!root) throw new Error("export root が見つかりません（exportSlidesRoot / slidesRoot）");
+  try {
+    await withExportMode(async () => {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
 
-      // フォント確定
       if (document?.fonts?.ready) {
         try {
           await document.fonts.ready;
         } catch {}
       }
 
-      // 画像ロード待ち（export用DOM側も含める）
+      // 画像待ち → レイアウト確定待ち
       await waitImagesIn(root);
-
-      // ResizeObserver/レイアウト反映を2フレーム待つ
-      await waitTwoFrames();
+      await nextFrame();
+      await nextFrame();
 
       const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
       if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
@@ -584,13 +595,16 @@ export default function SlideAIProHome() {
       for (let i = 0; i < pages.length; i++) {
         const node = pages[i];
 
-        // ここでnodeのサイズは exportStage 側なら 1920x1080 固定
+        // ★ここが「書き出し時のレイアウト固定」：クローン側に 1920x1080 を強制
         const dataUrl = await toPng(node, {
           cacheBust: true,
           pixelRatio: 2,
           backgroundColor: bg,
-          // 保険：クローン側のtransform等を強制安定化
+          width: EXPORT_W,
+          height: EXPORT_H,
           style: {
+            width: `${EXPORT_W}px`,
+            height: `${EXPORT_H}px`,
             transform: "none",
             transformOrigin: "top left",
           },
@@ -598,22 +612,25 @@ export default function SlideAIProHome() {
 
         downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
       }
-    } catch (e) {
-      console.error(e);
-      const msg = String(e?.message || e);
-      alert(`PNG書き出しに失敗しました: ${msg}`);
-    } finally {
-      setIsExporting(false);
-    }
-  };
+    });
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PNG書き出しに失敗しました: ${msg}`);
+  } finally {
+    setIsExporting(false);
+  }
+};
 
-  const handleExportPDF = async () => {
-    if (!canExport) return;
-    setIsExporting(true);
 
-    try {
-      const root = getExportRootElement();
-      if (!root) throw new Error("export root が見つかりません（exportSlidesRoot / slidesRoot）");
+const handleExportPDF = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
+
+  try {
+    const pngPages = await withExportMode(async () => {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
 
       if (document?.fonts?.ready) {
         try {
@@ -622,63 +639,73 @@ export default function SlideAIProHome() {
       }
 
       await waitImagesIn(root);
-      await waitTwoFrames();
+      await nextFrame();
+      await nextFrame();
 
       const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
       if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
       const bg = isIntelMode ? "#0b1220" : "#ffffff";
 
-      const pngPages = [];
+      const out = [];
       for (let i = 0; i < pages.length; i++) {
         const node = pages[i];
+
         const dataUrl = await toPng(node, {
           cacheBust: true,
           pixelRatio: 2,
           backgroundColor: bg,
+          width: EXPORT_W,
+          height: EXPORT_H,
           style: {
+            width: `${EXPORT_W}px`,
+            height: `${EXPORT_H}px`,
             transform: "none",
             transformOrigin: "top left",
           },
         });
-        pngPages.push(dataUrl);
+
+        out.push(dataUrl);
       }
+      return out;
+    });
 
-      const API_BASE = "https://sense-website-production.up.railway.app";
-      const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pages: pngPages }),
-      });
+    const API_BASE = "https://sense-website-production.up.railway.app";
+    const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pages: pngPages }),
+    });
 
-      if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
+    if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
 
-      const ct = resp.headers.get("content-type") || "";
-      if (ct.includes("application/pdf")) {
-        const blob = await resp.blob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "slides.pdf";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-        return;
-      }
-
-      const j = await resp.json();
-      const pdfDataUrl = j?.pdfDataUrl || "";
-      if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
-      downloadDataUrl(pdfDataUrl, "slides.pdf");
-    } catch (e) {
-      console.error(e);
-      const msg = String(e?.message || e);
-      alert(`PDF書き出しに失敗しました: ${msg}`);
-    } finally {
-      setIsExporting(false);
+    const ct = resp.headers.get("content-type") || "";
+    if (ct.includes("application/pdf")) {
+      const blob = await resp.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "slides.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      return;
     }
-  };
+
+    const j = await resp.json();
+    const pdfDataUrl = j?.pdfDataUrl || "";
+    if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
+    downloadDataUrl(pdfDataUrl, "slides.pdf");
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PDF書き出しに失敗しました: ${msg}`);
+  } finally {
+    setIsExporting(false);
+  }
+};
+
 
   const requestExportPNGFromMenu = () => {
     if (!canExport) return;
@@ -726,6 +753,7 @@ export default function SlideAIProHome() {
       <div
         className="page"
         onClick={() => {
+          // menu / edit open 中は blur を走らせない
           if (isMenuOpen || editOpen) return;
           try {
             document.activeElement?.blur?.();
@@ -884,6 +912,7 @@ export default function SlideAIProHome() {
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
 
+        {/* ★ここが本題：編集UIを“実際に使う” */}
         <SlideEditModal
           open={editOpen}
           slide={editSlide}
@@ -1224,18 +1253,54 @@ export default function SlideAIProHome() {
           }
         `}</style>
 
-        <style jsx global>{`
-          html,
-          body,
-          #__next {
-            height: 100%;
-          }
-          body {
-            margin: 0;
-            overflow-x: hidden;
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-          }
-        `}</style>
+<style jsx global>{`
+  html,
+  body,
+  #__next {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* =========================
+     Export 安定化（書き出し時だけ）
+     「直す」のではなく、崩れても見た目が破綻しない版に寄せる
+  ========================= */
+  html.exportMode {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* 書き出し中、スライド群を画面外に固定してレイアウトを安定させる */
+  html.exportMode #slidesRoot {
+    position: fixed !important;
+    left: -99999px !important;
+    top: 0 !important;
+    width: ${EXPORT_W}px !important;
+  }
+
+  /* 1枚のスライドを必ず 1920x1080 として扱う（クローン側の幅ズレ対策） */
+  html.exportMode [data-slide-page="true"] {
+    width: ${EXPORT_W}px !important;
+    height: ${EXPORT_H}px !important;
+    transform: none !important;
+    zoom: 1 !important;
+  }
+
+  /* あなたの崩れ方（右カラムが痩せて箇条書きが改行）への “書き出し時だけ” 緊急寄せ */
+  html.exportMode .ppProposalLikeSwift {
+    /* 右カラムを広げる（画像カラムとギャップを軽く縮める） */
+    --ppImgColPx: calc(var(--ppImgColPx) * 0.90);
+    --ppGap: calc(var(--ppGap) * 0.92);
+
+    /* 改行が発生しても破綻しないようにほんの少し締める */
+    --ppBulletFont: calc(var(--ppBulletFont) * 0.94);
+    --ppRowGap: calc(var(--ppRowGap) * 0.90);
+  }
+`}</style>
+
       </div>
     </>
   );
