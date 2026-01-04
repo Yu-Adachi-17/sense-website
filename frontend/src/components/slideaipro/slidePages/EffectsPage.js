@@ -1,5 +1,5 @@
 // src/components/slideaipro/slidePages/EffectsPage.js
-import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import SlidePageFrame from "./SlidePageFrame";
 
 const FONT_FAMILY =
@@ -239,7 +239,10 @@ function cappedHeightForLines(fontSize, lineHeight, maxLines) {
  * 行数は fit（フォント縮小）で保証し、rowHeight は実測値を採用する。
  * 端数ズレの安全マージンで +2px。
  */
-function measuredTextHeightCapped(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }) {
+function measuredTextHeightCapped(
+  node,
+  { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }
+) {
   const raw = measureTextHeight(node, {
     text,
     width,
@@ -250,7 +253,6 @@ function measuredTextHeightCapped(node, { text, width, fontSize, fontWeight, lin
     textAlign: "left",
   });
 
-  // maxLines は fit判定用。ここで切ると表示側が潰れて省略/欠けの原因になる。
   return Math.ceil(raw + 2);
 }
 
@@ -278,8 +280,7 @@ function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, 
 
   const cap = cappedHeightForLines(fontSize, lineHeight, maxLines);
 
-  // 安全側（行数超過を確実に検知）
-  return h <= (cap - 2);
+  return h <= cap - 2;
 }
 
 function unifiedBulletFontSize(node, texts, { base, min, width, maxLines, lineHeight, letterSpacing }) {
@@ -306,7 +307,12 @@ function unifiedBulletFontSize(node, texts, { base, min, width, maxLines, lineHe
   return Math.floor((Math.min(...perText) || base) * 0.975);
 }
 
-function effectsRowHeightsLayout(node, beforeTexts, afterTexts, { fontSize, beforeWidth, afterWidth, maxLines, lineHeight, letterSpacing }) {
+function effectsRowHeightsLayout(
+  node,
+  beforeTexts,
+  afterTexts,
+  { fontSize, beforeWidth, afterWidth, maxLines, lineHeight, letterSpacing }
+) {
   const b = (beforeTexts || []).map(normalizeBulletString);
   const a = (afterTexts || []).map(normalizeBulletString);
   const paired = Math.min(b.length, a.length);
@@ -382,21 +388,24 @@ function usedHeightPaired({ titleSize, gap, rowHeights }) {
   return titleH + gap + rowsH + gapsBetween;
 }
 
-function effectsFitSizer(node, {
-  boxHeight,
-  base,
-  titleSize,
-  bulletFont,
-  gap,
-  vInset,
-  beforeTexts,
-  afterTexts,
-  beforeTextWidth,
-  afterTextWidth,
-  maxLines,
-  lineHeight,
-  letterSpacing,
-}) {
+function effectsFitSizer(
+  node,
+  {
+    boxHeight,
+    base,
+    titleSize,
+    bulletFont,
+    gap,
+    vInset,
+    beforeTexts,
+    afterTexts,
+    beforeTextWidth,
+    afterTextWidth,
+    maxLines,
+    lineHeight,
+    letterSpacing,
+  }
+) {
   let t = Math.floor(titleSize);
   let b = Math.floor(bulletFont);
   let g = Math.floor(gap);
@@ -460,13 +469,201 @@ function effectsFitSizer(node, {
   };
 }
 
+/**
+ * ===== export崩れ対策：グラデ文字を canvas で PNG 化して <img> に差し替え =====
+ */
+function isBreakChar(ch) {
+  return ch === " " || ch === "\t" || ch === "、" || ch === "。" || ch === "," || ch === ".";
+}
+
+function measureWithLetterSpacing(ctx, s, ls) {
+  const t = String(s || "");
+  if (!t) return 0;
+  if (!ls) return ctx.measureText(t).width;
+
+  let w = 0;
+  for (let i = 0; i < t.length; i++) {
+    w += ctx.measureText(t[i]).width;
+    if (i < t.length - 1) w += ls;
+  }
+  return w;
+}
+
+function wrapTextByWidth(ctx, text, maxW, ls) {
+  const raw = String(text || "");
+  const paras = raw.split(/\n/);
+  const lines = [];
+
+  for (const p of paras) {
+    const s = String(p || "");
+    if (!s) {
+      lines.push("");
+      continue;
+    }
+
+    let line = "";
+    let lastBreakIndex = -1;
+
+    for (let i = 0; i < s.length; i++) {
+      const ch = s[i];
+      const next = line + ch;
+      const w = measureWithLetterSpacing(ctx, next, ls);
+
+      if (w <= maxW || !line) {
+        line = next;
+        if (isBreakChar(ch)) lastBreakIndex = line.length - 1;
+        continue;
+      }
+
+      if (lastBreakIndex >= 0) {
+        const head = line.slice(0, lastBreakIndex + 1).trimEnd();
+        const tail = (line.slice(lastBreakIndex + 1) + ch).trimStart();
+        lines.push(head);
+        line = tail;
+        lastBreakIndex = -1;
+        for (let k = 0; k < line.length; k++) {
+          if (isBreakChar(line[k])) lastBreakIndex = k;
+        }
+      } else {
+        lines.push(line.trimEnd());
+        line = ch.trimStart();
+        lastBreakIndex = isBreakChar(ch) ? 0 : -1;
+      }
+    }
+
+    lines.push(line);
+  }
+
+  while (lines.length > 1 && lines[lines.length - 1] === "" && lines[lines.length - 2] === "") {
+    lines.pop();
+  }
+  return lines;
+}
+
+function drawTextLineLeft(ctx, text, xLeft, baselineY, ls) {
+  const s = String(text || "");
+  if (!s) return;
+
+  if (!ls) {
+    ctx.textAlign = "left";
+    ctx.fillText(s, xLeft, baselineY);
+    return;
+  }
+
+  let x = xLeft;
+  ctx.textAlign = "left";
+
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    ctx.fillText(ch, x, baselineY);
+    x += ctx.measureText(ch).width + (i < s.length - 1 ? ls : 0);
+  }
+}
+
+function drawTextLineCentered(ctx, text, centerX, baselineY, ls) {
+  const s = String(text || "");
+  if (!s) return;
+
+  if (!ls) {
+    ctx.textAlign = "center";
+    ctx.fillText(s, centerX, baselineY);
+    return;
+  }
+
+  const totalW = measureWithLetterSpacing(ctx, s, ls);
+  let x = centerX - totalW / 2;
+
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    ctx.fillText(ch, x, baselineY);
+    x += ctx.measureText(ch).width + (i < s.length - 1 ? ls : 0);
+  }
+}
+
+async function buildGradientTextPng({
+  text,
+  widthPx,
+  heightPx,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeightUnit,
+  letterSpacingPx,
+  dpr,
+  gradientStops,
+  align = "left",
+}) {
+  if (typeof document === "undefined") return "";
+  const W = Math.max(10, Math.floor(widthPx));
+  const H = Math.max(10, Math.floor(heightPx));
+
+  const ratio = clamp(dpr || 1, 1, 2);
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.floor(W * ratio);
+  canvas.height = Math.floor(H * ratio);
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return "";
+
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  const fw = String(fontWeight || 900);
+  ctx.font = `${fw} ${Math.max(1, Math.floor(fontSize))}px ${fontFamily || FONT_FAMILY}`;
+  ctx.textBaseline = "alphabetic";
+
+  const grad = ctx.createLinearGradient(0, 0, W, H);
+  const stops =
+    Array.isArray(gradientStops) && gradientStops.length
+      ? gradientStops
+      : [
+          [0, "rgba(5, 71, 199, 1.0)"],
+          [0.55, "rgba(15, 122, 245, 0.98)"],
+          [1, "rgba(26, 199, 235, 0.96)"],
+        ];
+  for (const [pos, color] of stops) {
+    grad.addColorStop(clamp(Number(pos) || 0, 0, 1), String(color || "#000"));
+  }
+  ctx.fillStyle = grad;
+
+  const ls = Number.isFinite(letterSpacingPx) ? letterSpacingPx : 0;
+  const lh = Math.max(1, (Number.isFinite(lineHeightUnit) ? lineHeightUnit : 1.1) * fontSize);
+
+  const innerPadX = Math.max(0, Math.floor(fontSize * 0.06));
+  const innerPadY = Math.max(0, Math.floor(fontSize * 0.06));
+
+  const maxW = Math.max(10, W - innerPadX * 2);
+  const lines = wrapTextByWidth(ctx, text, maxW, ls);
+
+  const textBlockH = lines.length * lh;
+  const topY = (H - textBlockH) / 2 + innerPadY;
+
+  // baseline微調整（descender吸収）
+  const base = fontSize * 0.82;
+
+  for (let i = 0; i < lines.length; i++) {
+    const y = topY + i * lh + base;
+    if (align === "center") {
+      drawTextLineCentered(ctx, lines[i], W / 2, y, ls);
+    } else {
+      drawTextLineLeft(ctx, lines[i], innerPadX, y, ls);
+    }
+  }
+
+  try {
+    return canvas.toDataURL("image/png");
+  } catch {
+    return "";
+  }
+}
+
 export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched }) {
   const rootRef = useRef(null);
   const bodyRef = useRef(null);
 
   // measure nodes
   const mHeaderRef = useRef(null);
-  const mTextRef = useRef(null);  // bullets/box
+  const mTextRef = useRef(null); // bullets/box
   const mBottomRef = useRef(null);
 
   const headerNo = useMemo(() => `${pageNo}.`, [pageNo]);
@@ -509,6 +706,10 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
     bottomTopPad: 10,
     bottomBottomPad: 24,
 
+    // 実測（PNG化用）
+    contentW: 1200,
+    bottomTextH: 60,
+
     textColor: "#000000",
     phColor: "rgba(0,0,0,0.55)",
 
@@ -537,10 +738,18 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
     efBeforeTextW: 420,
     efAfterTextW: 420,
 
+    efMaxLines: 2,
+    efBulletLS: 0,
+
     // row heights (paired)
     efBeforeRowHeights: [],
     efAfterRowHeights: [],
   }));
+
+  // PNG（グラデ文字）
+  const [bottomPng, setBottomPng] = useState("");
+  const [afterTitlePng, setAfterTitlePng] = useState("");
+  const [afterTextPngs, setAfterTextPngs] = useState([]);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -624,6 +833,18 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           })
         : 0;
 
+      const bottomTextH = bottomMessage
+        ? measureTextHeight(mBottomRef.current, {
+            text: bottomMessage,
+            width: contentW,
+            fontSize: bottomFont,
+            fontWeight: 900,
+            lineHeight: BOTTOM_LH,
+            letterSpacing: bottomLS,
+            textAlign: "center",
+          })
+        : 0;
+
       // 先にCSS変数を仮適用 → body高さの実測
       const preVars = {
         "--ppHPad": `${hPad}px`,
@@ -685,30 +906,22 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
 
       const commonTextW = Math.min(efBeforeTextW, efAfterTextW);
 
-      const oneLineFont = unifiedBulletFontSize(
-        mTextRef.current,
-        [...beforeItems, ...afterItems],
-        {
-          base: base.bulletBaseSize,
-          min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
-          width: commonTextW,
-          maxLines: 1,
-          lineHeight: BULLET_LH,
-          letterSpacing: efBulletLS,
-        }
-      );
-      const twoLineFont = unifiedBulletFontSize(
-        mTextRef.current,
-        [...beforeItems, ...afterItems],
-        {
-          base: base.bulletBaseSize,
-          min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
-          width: commonTextW,
-          maxLines: 2,
-          lineHeight: BULLET_LH,
-          letterSpacing: efBulletLS,
-        }
-      );
+      const oneLineFont = unifiedBulletFontSize(mTextRef.current, [...beforeItems, ...afterItems], {
+        base: base.bulletBaseSize,
+        min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
+        width: commonTextW,
+        maxLines: 1,
+        lineHeight: BULLET_LH,
+        letterSpacing: efBulletLS,
+      });
+      const twoLineFont = unifiedBulletFontSize(mTextRef.current, [...beforeItems, ...afterItems], {
+        base: base.bulletBaseSize,
+        min: Math.max(20 * scale, base.bulletBaseSize * 0.64),
+        width: commonTextW,
+        maxLines: 2,
+        lineHeight: BULLET_LH,
+        letterSpacing: efBulletLS,
+      });
       const minOneLineFont = Math.max(22 * scale, base.bulletBaseSize * 0.52);
 
       const useOneLine = oneLineFont >= minOneLineFont;
@@ -754,6 +967,9 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
         bottomTopPad: Math.round(10 * scale),
         bottomBottomPad: Math.round(24 * scale),
 
+        contentW,
+        bottomTextH,
+
         textColor,
         phColor,
 
@@ -789,34 +1005,6 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
       };
 
       setFit((prev) => (nearlySameFit(prev, next) ? prev : next));
-
-      // CSS var 反映（state反映前でも安定）
-      rootEl.style.setProperty("--efBoxH", `${next.efBoxH}px`);
-      rootEl.style.setProperty("--efSideW", `${next.efSideW}px`);
-      rootEl.style.setProperty("--efColGap", `${next.efColGap}px`);
-      rootEl.style.setProperty("--efRightInset", `${next.efRightInset}px`);
-      rootEl.style.setProperty("--efSlant", `${next.efSlant}px`);
-      rootEl.style.setProperty("--efBleedLeft", `${next.efBleedLeft}px`);
-
-      rootEl.style.setProperty("--efTitleFont", `${next.efTitleFont}px`);
-      rootEl.style.setProperty("--efBulletFont", `${next.efBulletFont}px`);
-      rootEl.style.setProperty("--efRowGap", `${next.efRowGap}px`);
-      rootEl.style.setProperty("--efVInset", `${next.efVInset}px`);
-      rootEl.style.setProperty("--efLeadInset", `${next.efLeadInset}px`);
-      rootEl.style.setProperty("--efTrailInset", `${next.efTrailInset}px`);
-      rootEl.style.setProperty("--efIconGap", `${next.efIconGap}px`);
-
-      rootEl.style.setProperty("--efBeforeIcon", `${next.efBeforeIcon}px`);
-      rootEl.style.setProperty("--efAfterIcon", `${next.efAfterIcon}px`);
-
-      rootEl.style.setProperty("--efTopExtra", `${next.efTopExtra}px`);
-      rootEl.style.setProperty("--efBottomExtra", `${next.efBottomExtra}px`);
-
-      rootEl.style.setProperty("--efBeforeTextW", `${next.efBeforeTextW}px`);
-      rootEl.style.setProperty("--efAfterTextW", `${next.efAfterTextW}px`);
-
-      rootEl.style.setProperty("--efMaxLines", `${next.efMaxLines || 2}`);
-      rootEl.style.setProperty("--efBulletLS", `${next.efBulletLS || 0}px`);
     };
 
     const ro = new ResizeObserver(() => {
@@ -830,7 +1018,126 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
     }
 
     return () => ro.disconnect();
-  }, [headerNo, headerText, bottomMessage, beforeItems.join("\n"), afterItems.join("\n"), isIntelMode]);
+  }, [
+    headerNo,
+    headerText,
+    bottomMessage,
+    beforeItems.join("\n"),
+    afterItems.join("\n"),
+    isIntelMode,
+  ]);
+
+  // グラデ文字PNG生成（Afterタイトル / After本文 / Bottom）
+  useEffect(() => {
+    let cancelled = false;
+
+    async function run() {
+      if (typeof window === "undefined") return;
+
+      try {
+        if (document?.fonts?.ready) await document.fonts.ready;
+      } catch {}
+
+      const dpr = window.devicePixelRatio || 1;
+
+      // After title
+      const titleText = "After";
+      const titleH = Math.ceil(approxTitleLineHeightPx(fit.efTitleFont) + 6);
+      const titleW = Math.ceil(Math.max(10, (fit.efSideW || 0) - (fit.efLeadInset || 0) - (fit.efTrailInset || 0)));
+
+      const titlePng = await buildGradientTextPng({
+        text: titleText,
+        widthPx: titleW,
+        heightPx: Math.max(10, titleH),
+        fontFamily: FONT_FAMILY,
+        fontSize: fit.efTitleFont,
+        fontWeight: 900,
+        lineHeightUnit: 1.05,
+        letterSpacingPx: 0,
+        dpr,
+        gradientStops: [
+          [0, "rgba(5, 71, 199, 1.0)"],
+          [0.55, "rgba(15, 122, 245, 0.98)"],
+        ],
+        align: "left",
+      });
+
+      // After bullets
+      const rowHeights = Array.isArray(fit.efAfterRowHeights) ? fit.efAfterRowHeights : [];
+      const textW = Math.ceil(Math.max(10, fit.efAfterTextW || 0));
+
+      const bulletPngs = await Promise.all(
+        afterItems.map(async (t, i) => {
+          const h = Math.ceil(Math.max(10, (rowHeights[i] || 0) + 2));
+          return buildGradientTextPng({
+            text: t,
+            widthPx: textW,
+            heightPx: h,
+            fontFamily: FONT_FAMILY,
+            fontSize: fit.efBulletFont,
+            fontWeight: 900,
+            lineHeightUnit: BULLET_LH,
+            letterSpacingPx: fit.efBulletLS || 0,
+            dpr,
+            gradientStops: [
+              [0, "rgba(5, 71, 199, 1.0)"],
+              [0.55, "rgba(15, 122, 245, 0.98)"],
+            ],
+            align: "left",
+          });
+        })
+      );
+
+      // Bottom
+      let bottom = "";
+      if (bottomMessage && fit.bottomFont > 0) {
+        const safeW = Math.ceil(fit.contentW || 1200);
+        const safeH = Math.ceil((fit.bottomTextH || 0) + 8 * (fit.scale || 1));
+        bottom = await buildGradientTextPng({
+          text: bottomMessage,
+          widthPx: safeW,
+          heightPx: Math.max(10, safeH),
+          fontFamily: FONT_FAMILY,
+          fontSize: fit.bottomFont,
+          fontWeight: 900,
+          lineHeightUnit: BOTTOM_LH,
+          letterSpacingPx: fit.bottomLS || 0,
+          dpr,
+          gradientStops: [
+            [0, "rgba(5, 71, 199, 1.0)"],
+            [0.55, "rgba(15, 122, 245, 0.98)"],
+            [1, "rgba(26, 199, 235, 0.96)"],
+          ],
+          align: "center",
+        });
+      }
+
+      if (cancelled) return;
+
+      setAfterTitlePng(titlePng || "");
+      setAfterTextPngs(Array.isArray(bulletPngs) ? bulletPngs : []);
+      setBottomPng(bottom || "");
+    }
+
+    run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    afterItems.join("\n"),
+    bottomMessage,
+    fit.efTitleFont,
+    fit.efBulletFont,
+    fit.efBulletLS,
+    fit.efAfterTextW,
+    JSON.stringify(fit.efAfterRowHeights || []),
+    fit.bottomFont,
+    fit.bottomLS,
+    fit.bottomTextH,
+    fit.contentW,
+    fit.scale,
+  ]);
 
   const beforeRowHeights = fit.efBeforeRowHeights || [];
   const afterRowHeights = fit.efAfterRowHeights || [];
@@ -856,6 +1163,9 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           "--ppBottomLS": `${fit.bottomLS}px`,
           "--ppBottomLH": `${fit.bottomLH}`,
 
+          "--ppContentW": `${Math.floor(fit.contentW || 1200)}px`,
+          "--ppBottomTextH": `${Math.floor(Math.max(0, fit.bottomTextH || 0))}px`,
+
           "--ppTextColor": `${fit.textColor}`,
           "--ppPhColor": `${fit.phColor}`,
 
@@ -880,6 +1190,7 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           "--efTopExtra": `${fit.efTopExtra}px`,
           "--efBottomExtra": `${fit.efBottomExtra}px`,
 
+          "--efAfterTextW": `${fit.efAfterTextW}px`,
           "--efMaxLines": `${fit.efMaxLines || 2}`,
           "--efBulletLS": `${fit.efBulletLS || 0}px`,
         }}
@@ -918,7 +1229,13 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
 
               <div className="efCol efAfterCol">
                 <div className="efBoxInner efAfterInner">
-                  <div className="efBoxTitle efAfterTitle">After</div>
+                  <div className="efBoxTitle efAfterTitle">
+                    {afterTitlePng ? (
+                      <img className="efTitleImg" src={afterTitlePng} alt="" aria-hidden="true" />
+                    ) : (
+                      "After"
+                    )}
+                  </div>
 
                   <div className="efList">
                     {afterItems.map((t, i) => (
@@ -930,7 +1247,13 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
                         }}
                       >
                         <span className="efIcon efIconAfter" aria-hidden="true" />
-                        <span className="efBulletText efAfterText">{t}</span>
+                        <span className="efBulletText efAfterText">
+                          {afterTextPngs[i] ? (
+                            <img className="efAfterTextImg" src={afterTextPngs[i]} alt="" aria-hidden="true" />
+                          ) : (
+                            t
+                          )}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -943,7 +1266,11 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
 
           {bottomMessage ? (
             <div className="ppBottom">
-              <div className="ppBottomText efBottomText">{bottomMessage}</div>
+              {bottomPng ? (
+                <img className="ppBottomImg" src={bottomPng} alt="" aria-hidden="true" />
+              ) : (
+                <div className="ppBottomText efBottomText">{bottomMessage}</div>
+              )}
             </div>
           ) : (
             <div className="ppBottomEmpty" />
@@ -1013,10 +1340,6 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
-          }
-
-          /* Effects だけ overflow を見える化（外側はppRootが管理） */
-          .efBody {
             overflow: visible;
           }
 
@@ -1106,10 +1429,10 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
             font-weight: 900;
             line-height: 1.05;
             letter-spacing: 0px;
-
             white-space: nowrap;
             overflow: visible;
             text-overflow: clip;
+            display: block;
           }
 
           .efBeforeTitle {
@@ -1117,10 +1440,17 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           }
 
           .efAfterTitle {
+            /* fallback 用 */
             background: ${EFFECT_SUB_BLUE_GRADIENT};
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+          }
+
+          .efTitleImg {
+            display: block;
+            width: 100%;
+            height: auto;
           }
 
           .efList {
@@ -1193,11 +1523,6 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
             border-radius: 2px;
           }
 
-          /**
-           * ✅ 省略禁止：
-           * -webkit-line-clamp / overflow:hidden を撤去
-           * 折り返しは自然に行い、fit計算側で必ず領域内に収める。
-           */
           .efBulletText {
             font-size: var(--efBulletFont);
             font-weight: 900;
@@ -1219,10 +1544,20 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           }
 
           .efAfterText {
+            /* fallback 用 */
             background: ${EFFECT_SUB_BLUE_GRADIENT};
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+          }
+
+          /* After のグラデ本文（PNG） */
+          .efAfterTextImg {
+            display: block;
+            width: var(--efAfterTextW);
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
           }
 
           .ppBottom {
@@ -1233,7 +1568,16 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
             justify-content: center;
           }
 
-          /* ProposalPage と同じ領域・サイズのまま、グラデだけ Swift 定義へ */
+          .ppBottomImg {
+            width: var(--ppContentW);
+            height: var(--ppBottomTextH);
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+            image-rendering: auto;
+          }
+
+          /* fallback（PNG生成が間に合わない瞬間だけ） */
           .efBottomText {
             font-size: var(--ppBottomFont);
             font-weight: 900;

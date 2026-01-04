@@ -1,5 +1,5 @@
 // src/components/slideaipro/slidePages/ProposalPage.js
-import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { useLayoutEffect, useMemo, useRef, useState, useEffect } from "react";
 import SlidePageFrame from "./SlidePageFrame";
 import { resolveImageSrc } from "../utils/resolveImageSrc";
 
@@ -200,6 +200,169 @@ function hasCJK(s) {
   return /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(t);
 }
 
+/**
+ * ===== グラデ文字を canvas で PNG 化して <img> にする（export崩れ対策）=====
+ */
+function isBreakChar(ch) {
+  return ch === " " || ch === "\t" || ch === "、" || ch === "。" || ch === "," || ch === ".";
+}
+
+function measureWithLetterSpacing(ctx, s, ls) {
+  const t = String(s || "");
+  if (!t) return 0;
+  if (!ls) return ctx.measureText(t).width;
+
+  let w = 0;
+  for (let i = 0; i < t.length; i++) {
+    w += ctx.measureText(t[i]).width;
+    if (i < t.length - 1) w += ls;
+  }
+  return w;
+}
+
+function wrapTextByWidth(ctx, text, maxW, ls) {
+  const raw = String(text || "");
+  const paras = raw.split(/\n/);
+  const lines = [];
+
+  for (const p of paras) {
+    const s = String(p || "");
+    if (!s) {
+      lines.push("");
+      continue;
+    }
+
+    let line = "";
+    let lastBreakIndex = -1;
+
+    for (let i = 0; i < s.length; i++) {
+      const ch = s[i];
+      const next = line + ch;
+      const w = measureWithLetterSpacing(ctx, next, ls);
+
+      if (w <= maxW || !line) {
+        line = next;
+        if (isBreakChar(ch)) lastBreakIndex = line.length - 1;
+        continue;
+      }
+
+      if (lastBreakIndex >= 0) {
+        const head = line.slice(0, lastBreakIndex + 1).trimEnd();
+        const tail = (line.slice(lastBreakIndex + 1) + ch).trimStart();
+        lines.push(head);
+        line = tail;
+        lastBreakIndex = -1;
+        for (let k = 0; k < line.length; k++) {
+          if (isBreakChar(line[k])) lastBreakIndex = k;
+        }
+      } else {
+        lines.push(line.trimEnd());
+        line = ch.trimStart();
+        lastBreakIndex = isBreakChar(ch) ? 0 : -1;
+      }
+    }
+
+    lines.push(line);
+  }
+
+  while (lines.length > 1 && lines[lines.length - 1] === "" && lines[lines.length - 2] === "") {
+    lines.pop();
+  }
+  return lines;
+}
+
+function drawTextLineCentered(ctx, text, centerX, baselineY, ls) {
+  const s = String(text || "");
+  if (!s) return;
+
+  if (!ls) {
+    ctx.fillText(s, centerX, baselineY);
+    return;
+  }
+
+  const totalW = measureWithLetterSpacing(ctx, s, ls);
+  let x = centerX - totalW / 2;
+
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    const cw = ctx.measureText(ch).width;
+    ctx.fillText(ch, x + cw / 2, baselineY);
+    x += cw + (i < s.length - 1 ? ls : 0);
+  }
+}
+
+async function buildGradientTextPng({
+  text,
+  widthPx,
+  heightPx,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeightUnit,
+  letterSpacingPx,
+  dpr,
+  gradientStops,
+}) {
+  const W = Math.max(10, Math.floor(widthPx));
+  const H = Math.max(10, Math.floor(heightPx));
+
+  const ratio = clamp(dpr || 1, 1, 2);
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.floor(W * ratio);
+  canvas.height = Math.floor(H * ratio);
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return "";
+
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  // font
+  const fw = String(fontWeight || 900);
+  ctx.font = `${fw} ${Math.max(1, Math.floor(fontSize))}px ${fontFamily || FONT_FAMILY}`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
+
+  // gradient（CSSと同じ 135deg 相当：左上→右下）
+  const grad = ctx.createLinearGradient(0, 0, W, H);
+  const stops = Array.isArray(gradientStops) && gradientStops.length
+    ? gradientStops
+    : [
+        [0, "rgba(5, 71, 199, 1.0)"],
+        [0.55, "rgba(15, 122, 245, 0.98)"],
+        [1, "rgba(26, 199, 235, 0.96)"],
+      ];
+  for (const [pos, color] of stops) {
+    grad.addColorStop(clamp(Number(pos) || 0, 0, 1), String(color || "#000"));
+  }
+  ctx.fillStyle = grad;
+
+  const ls = Number.isFinite(letterSpacingPx) ? letterSpacingPx : 0;
+  const lh = Math.max(1, (Number.isFinite(lineHeightUnit) ? lineHeightUnit : 1.1) * fontSize);
+
+  // wrap
+  const innerPad = Math.max(0, Math.floor(fontSize * 0.12));
+  const maxW = Math.max(10, W - innerPad * 2);
+  const lines = wrapTextByWidth(ctx, text, maxW, ls);
+
+  // 垂直中央寄せ
+  const textBlockH = lines.length * lh;
+  const topY = (H - textBlockH) / 2;
+
+  const base = fontSize * 0.82;
+
+  for (let i = 0; i < lines.length; i++) {
+    const y = topY + i * lh + base;
+    drawTextLineCentered(ctx, lines[i], W / 2, y, ls);
+  }
+
+  try {
+    return canvas.toDataURL("image/png");
+  } catch {
+    return "";
+  }
+}
+
 export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched, imageUrlByKey }) {
   const rootRef = useRef(null);
   const bodyRef = useRef(null);
@@ -261,6 +424,10 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
     bulletLH: BULLET_LH,
     bottomLH: BOTTOM_LH,
 
+    // measured
+    contentW: 1200,
+    bottomTextH: 60,
+
     // image
     imgSize: 520,
     radius: 10,
@@ -270,6 +437,8 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
     dotOpacity: 0.82,
     phColor: "rgba(0,0,0,0.55)",
   }));
+
+  const [bottomPng, setBottomPng] = useState("");
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -319,6 +488,8 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
 
       // Swift幅計算：bodyW ≒ (W - 2*hPad)
       const bodyW = Math.max(10, W - hPad * 2);
+      const contentW = bodyW;
+
       const imgRatio = 0.46;
       const leftW = Math.max(0, (bodyW - gap) * imgRatio);
       const rightW = Math.max(0, (bodyW - gap) - leftW);
@@ -326,11 +497,10 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
 
       // ---- Header number tuning ----
       const cjk = hasCJK(headerText);
-      const headerNoScale = cjk ? 1.18 : 1.06; // CJKはN.が小さく見えるので強め
+      const headerNoScale = cjk ? 1.18 : 1.06;
       const headerNoGap = Math.round((cjk ? 18 : 16) * scale);
 
       // ---- Header font ----
-      const contentW = bodyW;
       const headerFontTarget = 58 * scale;
       const maxHeaderTextH = Math.min(190 * scale, H * 0.22);
 
@@ -379,6 +549,18 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
           })
         : 0;
 
+      const bottomTextH = bottomMessage
+        ? measureTextHeight(mBottomRef.current, {
+            text: bottomMessage,
+            width: contentW,
+            fontSize: bottomFont,
+            fontWeight: 900,
+            lineHeight: BOTTOM_LH,
+            letterSpacing: bottomLS,
+            textAlign: "center",
+          })
+        : 0;
+
       // 先にCSS変数を仮適用 → body高さの実測（grid計算を確定）
       const preVars = {
         "--ppHPad": `${hPad}px`,
@@ -404,6 +586,9 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
         "--ppBottomLS": `${bottomLS}px`,
         "--ppBottomLH": `${BOTTOM_LH}`,
 
+        "--ppContentW": `${Math.floor(contentW)}px`,
+        "--ppBottomTextH": `${Math.max(0, Math.floor(bottomTextH))}px`,
+
         "--ppRadius": `${radius}px`,
         "--ppTextColor": `${textColor}`,
         "--ppDotOpacity": `${dotOpacity}`,
@@ -412,7 +597,6 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
 
       for (const [k, v] of Object.entries(preVars)) rootEl.style.setProperty(k, v);
 
-      // reflowを強制
       rootEl.offsetHeight;
 
       const bodyRect = bodyEl.getBoundingClientRect();
@@ -476,6 +660,9 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
         bulletLH: BULLET_LH,
         bottomLH: BOTTOM_LH,
 
+        contentW,
+        bottomTextH,
+
         imgSize,
         radius,
 
@@ -486,7 +673,6 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
 
       setFit((prev) => (nearlySameFit(prev, next) ? prev : next));
 
-      // state反映前でも安定させる
       rootEl.style.setProperty("--ppBulletFont", `${bulletFont}px`);
       rootEl.style.setProperty("--ppBulletLS", `${bulletLS}px`);
       rootEl.style.setProperty("--ppBulletLH", `${BULLET_LH}`);
@@ -506,6 +692,99 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
     return () => ro.disconnect();
   }, [headerNo, headerText, bottomMessage, bullets.join("\n"), isIntelMode]);
 
+  // bottomMessage を canvas でPNG化
+  useEffect(() => {
+    let cancelled = false;
+
+    async function run() {
+      if (!bottomMessage) {
+        if (!cancelled) setBottomPng("");
+        return;
+      }
+      if (!fit.bottomFont || fit.bottomFont <= 0) {
+        if (!cancelled) setBottomPng("");
+        return;
+      }
+
+      try {
+        if (document?.fonts?.ready) await document.fonts.ready;
+      } catch {}
+
+      const safeH = Math.ceil((fit.bottomTextH || 0) + 6 * (fit.scale || 1));
+      const safeW = Math.ceil(fit.contentW || 1200);
+
+      const png = await buildGradientTextPng({
+        text: bottomMessage,
+        widthPx: safeW,
+        heightPx: Math.max(10, safeH),
+        fontFamily: FONT_FAMILY,
+        fontSize: fit.bottomFont,
+        fontWeight: 900,
+        lineHeightUnit: BOTTOM_LH,
+        letterSpacingPx: fit.bottomLS || 0,
+        dpr: typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1,
+        gradientStops: [
+          [0, "rgba(5, 71, 199, 1.0)"],
+          [0.55, "rgba(15, 122, 245, 0.98)"],
+          [1, "rgba(26, 199, 235, 0.96)"],
+        ],
+      });
+
+      if (cancelled) return;
+      setBottomPng(png || "");
+    }
+
+    run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    bottomMessage,
+    fit.bottomFont,
+    fit.bottomLS,
+    fit.bottomTextH,
+    fit.contentW,
+    fit.scale,
+  ]);
+
+  const rootStyleVars = {
+    "--ppHPad": `${fit.hPad}px`,
+    "--ppHeaderTopPad": `${fit.headerTopPad}px`,
+    "--ppHeaderBottomPad": `${fit.headerBottomPad}px`,
+    "--ppHeaderFont": `${fit.headerFont}px`,
+    "--ppHeaderLS": `${fit.headerLS}px`,
+    "--ppHeaderLH": `${fit.headerLH}`,
+    "--ppHeaderNoScale": `${fit.headerNoScale}`,
+    "--ppHeaderNoGap": `${fit.headerNoGap}px`,
+
+    "--ppGap": `${fit.gap}px`,
+    "--ppImgColPx": `${fit.imgColPx}px`,
+
+    "--ppRowGap": `${fit.rowGap}px`,
+    "--ppBulletSize": `${fit.bulletSize}px`,
+    "--ppBulletToText": `${fit.bulletToText}px`,
+    "--ppTrailingPad": `${fit.trailingPad}px`,
+    "--ppBulletFont": `${fit.bulletFont}px`,
+    "--ppBulletLS": `${fit.bulletLS}px`,
+    "--ppBulletLH": `${fit.bulletLH}`,
+
+    "--ppBottomTopPad": `${Math.round(10 * fit.scale)}px`,
+    "--ppBottomBottomPad": `${Math.round(24 * fit.scale)}px`,
+    "--ppBottomFont": `${fit.bottomFont}px`,
+    "--ppBottomLS": `${fit.bottomLS}px`,
+    "--ppBottomLH": `${fit.bottomLH}`,
+
+    "--ppContentW": `${Math.floor(fit.contentW || 1200)}px`,
+    "--ppBottomTextH": `${Math.floor(Math.max(0, fit.bottomTextH || 0))}px`,
+
+    "--ppImgSize": `${fit.imgSize}px`,
+    "--ppRadius": `${fit.radius}px`,
+    "--ppTextColor": `${fit.textColor}`,
+    "--ppDotOpacity": `${fit.dotOpacity}`,
+    "--ppPhColor": `${fit.phColor}`,
+  };
+
   return (
     <SlidePageFrame
       pageNo={pageNo}
@@ -513,43 +792,7 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
       hasPrefetched={hasPrefetched}
       footerRight={cacheKey ? `image: ${cacheKey}` : ""}
     >
-      <div
-        ref={rootRef}
-        className="ppRoot ppProposalLikeSwift"
-        style={{
-          "--ppHPad": `${fit.hPad}px`,
-          "--ppHeaderTopPad": `${fit.headerTopPad}px`,
-          "--ppHeaderBottomPad": `${fit.headerBottomPad}px`,
-          "--ppHeaderFont": `${fit.headerFont}px`,
-          "--ppHeaderLS": `${fit.headerLS}px`,
-          "--ppHeaderLH": `${fit.headerLH}`,
-          "--ppHeaderNoScale": `${fit.headerNoScale}`,
-          "--ppHeaderNoGap": `${fit.headerNoGap}px`,
-
-          "--ppGap": `${fit.gap}px`,
-          "--ppImgColPx": `${fit.imgColPx}px`,
-
-          "--ppRowGap": `${fit.rowGap}px`,
-          "--ppBulletSize": `${fit.bulletSize}px`,
-          "--ppBulletToText": `${fit.bulletToText}px`,
-          "--ppTrailingPad": `${fit.trailingPad}px`,
-          "--ppBulletFont": `${fit.bulletFont}px`,
-          "--ppBulletLS": `${fit.bulletLS}px`,
-          "--ppBulletLH": `${fit.bulletLH}`,
-
-          "--ppBottomTopPad": `${Math.round(10 * fit.scale)}px`,
-          "--ppBottomBottomPad": `${Math.round(24 * fit.scale)}px`,
-          "--ppBottomFont": `${fit.bottomFont}px`,
-          "--ppBottomLS": `${fit.bottomLS}px`,
-          "--ppBottomLH": `${fit.bottomLH}`,
-
-          "--ppImgSize": `${fit.imgSize}px`,
-          "--ppRadius": `${fit.radius}px`,
-          "--ppTextColor": `${fit.textColor}`,
-          "--ppDotOpacity": `${fit.dotOpacity}`,
-          "--ppPhColor": `${fit.phColor}`,
-        }}
-      >
+      <div ref={rootRef} className="ppRoot ppProposalLikeSwift" style={rootStyleVars}>
         <div className="ppMain">
           <div className="ppHeader">
             <div className="ppTitle">
@@ -592,7 +835,11 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
 
           {bottomMessage ? (
             <div className="ppBottom">
-              <div className="ppBottomText">{bottomMessage}</div>
+              {bottomPng ? (
+                <img className="ppBottomImg" src={bottomPng} alt="" aria-hidden="true" />
+              ) : (
+                <div className="ppBottomText">{bottomMessage}</div>
+              )}
             </div>
           ) : (
             <div className="ppBottomEmpty" />
@@ -758,6 +1005,17 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
             justify-content: center;
           }
 
+          /* export/通常のどちらでも壊れない：PNG化したグラデ文字 */
+          .ppBottomImg {
+            width: var(--ppContentW);
+            height: var(--ppBottomTextH);
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+            image-rendering: auto;
+          }
+
+          /* 念のためフォールバック（生成間に合わない瞬間だけ） */
           .ppBottomText {
             font-size: var(--ppBottomFont);
             font-weight: 900;
@@ -768,13 +1026,12 @@ export default function ProposalPage({ slide, pageNo, isIntelMode, hasPrefetched
             word-break: break-word;
             line-break: strict;
 
-background: linear-gradient(
-  135deg,
-  rgba(5, 71, 199, 1.0) 0%,
-  rgba(15, 122, 245, 0.98) 55%,
-  rgba(26, 199, 235, 0.96) 100%
-);
-
+            background: linear-gradient(
+              135deg,
+              rgba(5, 71, 199, 1.0) 0%,
+              rgba(15, 122, 245, 0.98) 55%,
+              rgba(26, 199, 235, 0.96) 100%
+            );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
