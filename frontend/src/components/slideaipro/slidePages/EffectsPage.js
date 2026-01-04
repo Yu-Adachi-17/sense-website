@@ -17,23 +17,22 @@ const HEADER_LS_BASE = -0.7;
 const BULLET_LS_BASE = -0.45;
 const BOTTOM_LS_BASE = -0.35;
 
-// Swift: effectBlueGradient 相当（下部メッセージ / Afterテキスト）
-const EFFECT_BLUE_GRADIENT = `linear-gradient(
-  135deg,
-  rgba(5, 71, 199, 1.0) 0%,
-  rgba(15, 122, 245, 0.98) 55%,
-  rgba(26, 199, 235, 0.96) 100%
-)`;
+// Swift: effectBlueGradient 相当（下部メッセージ）
+const EFFECT_BLUE_STOPS = [
+  [0, "rgba(5, 71, 199, 1.0)"],
+  [0.55, "rgba(15, 122, 245, 0.98)"],
+  [1, "rgba(26, 199, 235, 0.96)"],
+];
 
 // Swift: effectSubBlueGradient 相当（Afterのタイトル・本文）
-const EFFECT_SUB_BLUE_GRADIENT = `linear-gradient(
-  135deg,
-  rgba(5, 71, 199, 1.0) 0%,
-  rgba(15, 122, 245, 0.98) 55%
-)`;
+const EFFECT_SUB_BLUE_STOPS = [
+  [0, "rgba(5, 71, 199, 1.0)"],
+  [0.55, "rgba(15, 122, 245, 0.98)"],
+];
 
 // Swift: effectCheckGreen（=名前はGreenだが実体はブルー）
 const EFFECT_CHECK_COLOR = "rgba(5, 71, 199, 1.0)";
+const EFFECT_SOLID_BLUE_FALLBACK = "rgba(5, 71, 199, 1.0)";
 
 function normalizeBulletString(raw) {
   let s = String(raw || "");
@@ -70,10 +69,7 @@ function setupMeasureBase(node) {
   node.style.fontFamily = FONT_FAMILY;
 }
 
-function measureTextHeight(
-  node,
-  { text, width, fontSize, fontWeight, lineHeight, letterSpacing, textAlign }
-) {
+function measureTextHeight(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, textAlign }) {
   if (!node) return 0;
   setupMeasureBase(node);
 
@@ -113,18 +109,7 @@ function measureTextWidth(node, { text, fontSize, fontWeight, letterSpacing }) {
 // ヘッダーを「N.」と「タイトル」に分けた実レイアウトで計測
 function measureHeaderHeight(
   node,
-  {
-    noText,
-    titleText,
-    width,
-    fontSize,
-    fontWeight,
-    lineHeight,
-    letterSpacing,
-    textAlign,
-    noScale,
-    noGapPx,
-  }
+  { noText, titleText, width, fontSize, fontWeight, lineHeight, letterSpacing, textAlign, noScale, noGapPx }
 ) {
   if (!node) return 0;
   setupMeasureBase(node);
@@ -239,10 +224,7 @@ function cappedHeightForLines(fontSize, lineHeight, maxLines) {
  * 行数は fit（フォント縮小）で保証し、rowHeight は実測値を採用する。
  * 端数ズレの安全マージンで +2px。
  */
-function measuredTextHeightCapped(
-  node,
-  { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }
-) {
+function measuredTextHeightCapped(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }) {
   const raw = measureTextHeight(node, {
     text,
     width,
@@ -252,19 +234,12 @@ function measuredTextHeightCapped(
     letterSpacing,
     textAlign: "left",
   });
-
   return Math.ceil(raw + 2);
 }
 
 function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, letterSpacing, maxLines }) {
   if (maxLines === 1) {
-    const w = measureTextWidth(node, {
-      text,
-      fontSize,
-      fontWeight,
-      letterSpacing,
-    });
-
+    const w = measureTextWidth(node, { text, fontSize, fontWeight, letterSpacing });
     return w <= Math.max(0, width - 2) * 0.99;
   }
 
@@ -279,7 +254,6 @@ function fitsWithinLines(node, { text, width, fontSize, fontWeight, lineHeight, 
   });
 
   const cap = cappedHeightForLines(fontSize, lineHeight, maxLines);
-
   return h <= cap - 2;
 }
 
@@ -307,12 +281,7 @@ function unifiedBulletFontSize(node, texts, { base, min, width, maxLines, lineHe
   return Math.floor((Math.min(...perText) || base) * 0.975);
 }
 
-function effectsRowHeightsLayout(
-  node,
-  beforeTexts,
-  afterTexts,
-  { fontSize, beforeWidth, afterWidth, maxLines, lineHeight, letterSpacing }
-) {
+function effectsRowHeightsLayout(node, beforeTexts, afterTexts, { fontSize, beforeWidth, afterWidth, maxLines, lineHeight, letterSpacing }) {
   const b = (beforeTexts || []).map(normalizeBulletString);
   const a = (afterTexts || []).map(normalizeBulletString);
   const paired = Math.min(b.length, a.length);
@@ -470,8 +439,12 @@ function effectsFitSizer(
 }
 
 /**
- * ===== export崩れ対策：グラデ文字を canvas で PNG 化して <img> に差し替え =====
+ * ===== export崩れ対策（重要）=====
+ * CSSの「background-clip:text」グラデは html-to-image / PDFで “青い矩形” 化しやすい。
+ * なので EffectsPage のグラデ箇所はすべて canvas で PNG 化して <img> で描画する。
  */
+
+// ざっくり折返し用（単語境界 + CJK）
 function isBreakChar(ch) {
   return ch === " " || ch === "\t" || ch === "、" || ch === "。" || ch === "," || ch === ".";
 }
@@ -521,9 +494,7 @@ function wrapTextByWidth(ctx, text, maxW, ls) {
         lines.push(head);
         line = tail;
         lastBreakIndex = -1;
-        for (let k = 0; k < line.length; k++) {
-          if (isBreakChar(line[k])) lastBreakIndex = k;
-        }
+        for (let k = 0; k < line.length; k++) if (isBreakChar(line[k])) lastBreakIndex = k;
       } else {
         lines.push(line.trimEnd());
         line = ch.trimStart();
@@ -552,7 +523,6 @@ function drawTextLineLeft(ctx, text, xLeft, baselineY, ls) {
 
   let x = xLeft;
   ctx.textAlign = "left";
-
   for (let i = 0; i < s.length; i++) {
     const ch = s[i];
     ctx.fillText(ch, x, baselineY);
@@ -572,7 +542,6 @@ function drawTextLineCentered(ctx, text, centerX, baselineY, ls) {
 
   const totalW = measureWithLetterSpacing(ctx, s, ls);
   let x = centerX - totalW / 2;
-
   for (let i = 0; i < s.length; i++) {
     const ch = s[i];
     ctx.fillText(ch, x, baselineY);
@@ -580,7 +549,7 @@ function drawTextLineCentered(ctx, text, centerX, baselineY, ls) {
   }
 }
 
-async function buildGradientTextPng({
+function buildGradientTextPngSync({
   text,
   widthPx,
   heightPx,
@@ -613,17 +582,8 @@ async function buildGradientTextPng({
   ctx.textBaseline = "alphabetic";
 
   const grad = ctx.createLinearGradient(0, 0, W, H);
-  const stops =
-    Array.isArray(gradientStops) && gradientStops.length
-      ? gradientStops
-      : [
-          [0, "rgba(5, 71, 199, 1.0)"],
-          [0.55, "rgba(15, 122, 245, 0.98)"],
-          [1, "rgba(26, 199, 235, 0.96)"],
-        ];
-  for (const [pos, color] of stops) {
-    grad.addColorStop(clamp(Number(pos) || 0, 0, 1), String(color || "#000"));
-  }
+  const stops = Array.isArray(gradientStops) && gradientStops.length ? gradientStops : EFFECT_BLUE_STOPS;
+  for (const [pos, color] of stops) grad.addColorStop(clamp(Number(pos) || 0, 0, 1), String(color || "#000"));
   ctx.fillStyle = grad;
 
   const ls = Number.isFinite(letterSpacingPx) ? letterSpacingPx : 0;
@@ -638,16 +598,11 @@ async function buildGradientTextPng({
   const textBlockH = lines.length * lh;
   const topY = (H - textBlockH) / 2 + innerPadY;
 
-  // baseline微調整（descender吸収）
-  const base = fontSize * 0.82;
-
+  const base = fontSize * 0.82; // descender吸収
   for (let i = 0; i < lines.length; i++) {
     const y = topY + i * lh + base;
-    if (align === "center") {
-      drawTextLineCentered(ctx, lines[i], W / 2, y, ls);
-    } else {
-      drawTextLineLeft(ctx, lines[i], innerPadX, y, ls);
-    }
+    if (align === "center") drawTextLineCentered(ctx, lines[i], W / 2, y, ls);
+    else drawTextLineLeft(ctx, lines[i], innerPadX, y, ls);
   }
 
   try {
@@ -667,12 +622,7 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
   const mBottomRef = useRef(null);
 
   const headerNo = useMemo(() => `${pageNo}.`, [pageNo]);
-
-  const headerText = useMemo(() => {
-    const t = String(slide?.title || "").trim();
-    return t;
-  }, [slide?.title]);
-
+  const headerText = useMemo(() => String(slide?.title || "").trim(), [slide?.title]);
   const bottomMessage = useMemo(() => String(slide?.message || "").trim(), [slide?.message]);
 
   const beforeItems = useMemo(() => {
@@ -709,6 +659,8 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
     // 実測（PNG化用）
     contentW: 1200,
     bottomTextH: 60,
+    bottomPadTop: 10,
+    bottomPadBottom: 24,
 
     textColor: "#000000",
     phColor: "rgba(0,0,0,0.55)",
@@ -746,10 +698,12 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
     efAfterRowHeights: [],
   }));
 
-  // PNG（グラデ文字）
-  const [bottomPng, setBottomPng] = useState("");
+  // PNG（グラデ箇所はすべてここで管理）
   const [afterTitlePng, setAfterTitlePng] = useState("");
   const [afterTextPngs, setAfterTextPngs] = useState([]);
+  const [bottomPng, setBottomPng] = useState("");
+  const [bottomPngW, setBottomPngW] = useState(0);
+  const [bottomPngH, setBottomPngH] = useState(0);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -969,6 +923,8 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
 
         contentW,
         bottomTextH,
+        bottomPadTop: Math.round(10 * scale),
+        bottomPadBottom: Math.round(24 * scale),
 
         textColor,
         phColor,
@@ -1018,96 +974,79 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
     }
 
     return () => ro.disconnect();
-  }, [
-    headerNo,
-    headerText,
-    bottomMessage,
-    beforeItems.join("\n"),
-    afterItems.join("\n"),
-    isIntelMode,
-  ]);
+  }, [headerNo, headerText, bottomMessage, beforeItems.join("\n"), afterItems.join("\n"), isIntelMode]);
 
-  // グラデ文字PNG生成（Afterタイトル / After本文 / Bottom）
+  // ===== グラデPNG生成：Afterタイトル / After本文（Strings） / Bottom =====
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     let cancelled = false;
 
-    async function run() {
-      if (typeof window === "undefined") return;
-
-      try {
-        if (document?.fonts?.ready) await document.fonts.ready;
-      } catch {}
+    const run = () => {
+      if (cancelled) return;
 
       const dpr = window.devicePixelRatio || 1;
 
       // After title
-      const titleText = "After";
-      const titleH = Math.ceil(approxTitleLineHeightPx(fit.efTitleFont) + 6);
+      const afterTitleText = "After";
       const titleW = Math.ceil(Math.max(10, (fit.efSideW || 0) - (fit.efLeadInset || 0) - (fit.efTrailInset || 0)));
+      const titleH = Math.ceil(Math.max(10, approxTitleLineHeightPx(fit.efTitleFont) + 10));
 
-      const titlePng = await buildGradientTextPng({
-        text: titleText,
+      const titlePng = buildGradientTextPngSync({
+        text: afterTitleText,
         widthPx: titleW,
-        heightPx: Math.max(10, titleH),
+        heightPx: titleH,
         fontFamily: FONT_FAMILY,
         fontSize: fit.efTitleFont,
         fontWeight: 900,
         lineHeightUnit: 1.05,
         letterSpacingPx: 0,
         dpr,
-        gradientStops: [
-          [0, "rgba(5, 71, 199, 1.0)"],
-          [0.55, "rgba(15, 122, 245, 0.98)"],
-        ],
+        gradientStops: EFFECT_SUB_BLUE_STOPS,
         align: "left",
       });
 
-      // After bullets
+      // After bullets（Strings）
       const rowHeights = Array.isArray(fit.efAfterRowHeights) ? fit.efAfterRowHeights : [];
       const textW = Math.ceil(Math.max(10, fit.efAfterTextW || 0));
 
-      const bulletPngs = await Promise.all(
-        afterItems.map(async (t, i) => {
-          const h = Math.ceil(Math.max(10, (rowHeights[i] || 0) + 2));
-          return buildGradientTextPng({
-            text: t,
-            widthPx: textW,
-            heightPx: h,
-            fontFamily: FONT_FAMILY,
-            fontSize: fit.efBulletFont,
-            fontWeight: 900,
-            lineHeightUnit: BULLET_LH,
-            letterSpacingPx: fit.efBulletLS || 0,
-            dpr,
-            gradientStops: [
-              [0, "rgba(5, 71, 199, 1.0)"],
-              [0.55, "rgba(15, 122, 245, 0.98)"],
-            ],
-            align: "left",
-          });
-        })
-      );
+      const bulletPngs = afterItems.map((t, i) => {
+        const h = Math.ceil(Math.max(10, (rowHeights[i] || 0) + 2));
+        return buildGradientTextPngSync({
+          text: t,
+          widthPx: textW,
+          heightPx: h,
+          fontFamily: FONT_FAMILY,
+          fontSize: fit.efBulletFont,
+          fontWeight: 900,
+          lineHeightUnit: BULLET_LH,
+          letterSpacingPx: fit.efBulletLS || 0,
+          dpr,
+          gradientStops: EFFECT_SUB_BLUE_STOPS,
+          align: "left",
+        });
+      });
 
       // Bottom
       let bottom = "";
+      let bw = 0;
+      let bh = 0;
       if (bottomMessage && fit.bottomFont > 0) {
-        const safeW = Math.ceil(fit.contentW || 1200);
-        const safeH = Math.ceil((fit.bottomTextH || 0) + 8 * (fit.scale || 1));
-        bottom = await buildGradientTextPng({
+        bw = Math.ceil(Math.max(10, fit.contentW || 1200));
+        // パディング分も含めて “見た目の中心” を崩さない
+        bh = Math.ceil(Math.max(10, (fit.bottomTextH || 0) + 8 * (fit.scale || 1)));
+
+        bottom = buildGradientTextPngSync({
           text: bottomMessage,
-          widthPx: safeW,
-          heightPx: Math.max(10, safeH),
+          widthPx: bw,
+          heightPx: bh,
           fontFamily: FONT_FAMILY,
           fontSize: fit.bottomFont,
           fontWeight: 900,
           lineHeightUnit: BOTTOM_LH,
           letterSpacingPx: fit.bottomLS || 0,
           dpr,
-          gradientStops: [
-            [0, "rgba(5, 71, 199, 1.0)"],
-            [0.55, "rgba(15, 122, 245, 0.98)"],
-            [1, "rgba(26, 199, 235, 0.96)"],
-          ],
+          gradientStops: EFFECT_BLUE_STOPS,
           align: "center",
         });
       }
@@ -1117,9 +1056,17 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
       setAfterTitlePng(titlePng || "");
       setAfterTextPngs(Array.isArray(bulletPngs) ? bulletPngs : []);
       setBottomPng(bottom || "");
-    }
+      setBottomPngW(bw || 0);
+      setBottomPngH(bh || 0);
+    };
 
+    // 先に即実行、フォント準備後にもう一度（WebFont確定）
     run();
+    if (document?.fonts?.ready) {
+      Promise.resolve(document.fonts.ready)
+        .then(() => requestAnimationFrame(run))
+        .catch(() => {});
+    }
 
     return () => {
       cancelled = true;
@@ -1142,11 +1089,18 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
   const beforeRowHeights = fit.efBeforeRowHeights || [];
   const afterRowHeights = fit.efAfterRowHeights || [];
 
+  // export側が待てるように（任意）
+  const renderReady =
+    !!afterTitlePng &&
+    afterTextPngs.length === afterItems.length &&
+    (!!bottomMessage ? !!bottomPng : true);
+
   return (
     <SlidePageFrame pageNo={pageNo} isIntelMode={isIntelMode} hasPrefetched={hasPrefetched} footerRight="">
       <div
         ref={rootRef}
         className="ppRoot efRoot"
+        data-render-ready={renderReady ? "1" : "0"}
         style={{
           "--ppHPad": `${fit.hPad}px`,
           "--ppHeaderTopPad": `${fit.headerTopPad}px`,
@@ -1233,7 +1187,7 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
                     {afterTitlePng ? (
                       <img className="efTitleImg" src={afterTitlePng} alt="" aria-hidden="true" />
                     ) : (
-                      "After"
+                      <span className="efAfterFallbackTitle">After</span>
                     )}
                   </div>
 
@@ -1251,7 +1205,7 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
                           {afterTextPngs[i] ? (
                             <img className="efAfterTextImg" src={afterTextPngs[i]} alt="" aria-hidden="true" />
                           ) : (
-                            t
+                            <span className="efAfterFallbackText">{t}</span>
                           )}
                         </span>
                       </div>
@@ -1267,9 +1221,18 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           {bottomMessage ? (
             <div className="ppBottom">
               {bottomPng ? (
-                <img className="ppBottomImg" src={bottomPng} alt="" aria-hidden="true" />
+                <img
+                  className="ppBottomImg"
+                  src={bottomPng}
+                  alt=""
+                  aria-hidden="true"
+                  style={{
+                    width: bottomPngW ? `${bottomPngW}px` : "var(--ppContentW)",
+                    height: bottomPngH ? `${bottomPngH}px` : "auto",
+                  }}
+                />
               ) : (
-                <div className="ppBottomText efBottomText">{bottomMessage}</div>
+                <div className="ppBottomFallback">{bottomMessage}</div>
               )}
             </div>
           ) : (
@@ -1440,17 +1403,18 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           }
 
           .efAfterTitle {
-            /* fallback 用 */
-            background: ${EFFECT_SUB_BLUE_GRADIENT};
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            /* グラデはPNG化して<img>で描画（CSSグラデ禁止） */
+            color: ${EFFECT_SOLID_BLUE_FALLBACK};
           }
 
           .efTitleImg {
             display: block;
             width: 100%;
             height: auto;
+          }
+
+          .efAfterFallbackTitle {
+            color: ${EFFECT_SOLID_BLUE_FALLBACK};
           }
 
           .efList {
@@ -1544,20 +1508,21 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           }
 
           .efAfterText {
-            /* fallback 用 */
-            background: ${EFFECT_SUB_BLUE_GRADIENT};
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            /* CSSグラデ禁止（PNG化して<img>で描画） */
+            color: ${EFFECT_SOLID_BLUE_FALLBACK};
           }
 
-          /* After のグラデ本文（PNG） */
           .efAfterTextImg {
             display: block;
             width: var(--efAfterTextW);
             height: 100%;
             max-width: 100%;
             object-fit: contain;
+            image-rendering: auto;
+          }
+
+          .efAfterFallbackText {
+            color: ${EFFECT_SOLID_BLUE_FALLBACK};
           }
 
           .ppBottom {
@@ -1569,16 +1534,13 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
           }
 
           .ppBottomImg {
-            width: var(--ppContentW);
-            height: var(--ppBottomTextH);
             max-width: 100%;
             display: block;
             object-fit: contain;
             image-rendering: auto;
           }
 
-          /* fallback（PNG生成が間に合わない瞬間だけ） */
-          .efBottomText {
+          .ppBottomFallback {
             font-size: var(--ppBottomFont);
             font-weight: 900;
             line-height: var(--ppBottomLH);
@@ -1587,11 +1549,7 @@ export default function EffectsPage({ slide, pageNo, isIntelMode, hasPrefetched 
             white-space: pre-wrap;
             word-break: break-word;
             line-break: strict;
-
-            background: ${EFFECT_BLUE_GRADIENT};
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: ${EFFECT_SOLID_BLUE_FALLBACK};
           }
 
           .ppBottomEmpty {
