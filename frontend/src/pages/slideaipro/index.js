@@ -293,6 +293,19 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
   return out;
 }
 
+function getExportRootElement() {
+  // SlideDeck.js 側で隠しexportRootを常設している前提
+  const exportRoot = document.getElementById("exportSlidesRoot");
+  if (exportRoot) return exportRoot;
+  const previewRoot = document.getElementById("slidesRoot");
+  return previewRoot || null;
+}
+
+async function waitTwoFrames() {
+  await new Promise((r) => requestAnimationFrame(r));
+  await new Promise((r) => requestAnimationFrame(r));
+}
+
 export default function SlideAIProHome() {
   const router = useRouter();
 
@@ -547,16 +560,21 @@ export default function SlideAIProHome() {
     setIsExporting(true);
 
     try {
-      const root = document.getElementById("slidesRoot");
-      if (!root) throw new Error("slidesRoot が見つかりません");
+      const root = getExportRootElement();
+      if (!root) throw new Error("export root が見つかりません（exportSlidesRoot / slidesRoot）");
 
+      // フォント確定
       if (document?.fonts?.ready) {
         try {
           await document.fonts.ready;
         } catch {}
       }
+
+      // 画像ロード待ち（export用DOM側も含める）
       await waitImagesIn(root);
-      await new Promise((r) => requestAnimationFrame(r));
+
+      // ResizeObserver/レイアウト反映を2フレーム待つ
+      await waitTwoFrames();
 
       const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
       if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
@@ -565,11 +583,19 @@ export default function SlideAIProHome() {
 
       for (let i = 0; i < pages.length; i++) {
         const node = pages[i];
+
+        // ここでnodeのサイズは exportStage 側なら 1920x1080 固定
         const dataUrl = await toPng(node, {
           cacheBust: true,
           pixelRatio: 2,
           backgroundColor: bg,
+          // 保険：クローン側のtransform等を強制安定化
+          style: {
+            transform: "none",
+            transformOrigin: "top left",
+          },
         });
+
         downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
       }
     } catch (e) {
@@ -586,16 +612,17 @@ export default function SlideAIProHome() {
     setIsExporting(true);
 
     try {
-      const root = document.getElementById("slidesRoot");
-      if (!root) throw new Error("slidesRoot が見つかりません");
+      const root = getExportRootElement();
+      if (!root) throw new Error("export root が見つかりません（exportSlidesRoot / slidesRoot）");
 
       if (document?.fonts?.ready) {
         try {
           await document.fonts.ready;
         } catch {}
       }
+
       await waitImagesIn(root);
-      await new Promise((r) => requestAnimationFrame(r));
+      await waitTwoFrames();
 
       const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
       if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
@@ -609,6 +636,10 @@ export default function SlideAIProHome() {
           cacheBust: true,
           pixelRatio: 2,
           backgroundColor: bg,
+          style: {
+            transform: "none",
+            transformOrigin: "top left",
+          },
         });
         pngPages.push(dataUrl);
       }
@@ -695,7 +726,6 @@ export default function SlideAIProHome() {
       <div
         className="page"
         onClick={() => {
-          // menu / edit open 中は blur を走らせない
           if (isMenuOpen || editOpen) return;
           try {
             document.activeElement?.blur?.();
@@ -854,7 +884,6 @@ export default function SlideAIProHome() {
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
 
-        {/* ★ここが本題：編集UIを“実際に使う” */}
         <SlideEditModal
           open={editOpen}
           slide={editSlide}
