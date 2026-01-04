@@ -227,6 +227,21 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
     return bulletsRaw.map(normalizeBulletString).filter(Boolean).slice(0, 5);
   }, [slide?.bullets]);
 
+  // export時に使うSVGグラデ文字（html-to-image対策）
+  const gradId = useMemo(() => {
+    const sid = String(slide?.id || `${pageNo}`);
+    return `ppGrad-${sid.replace(/[^a-zA-Z0-9_-]/g, "")}-${pageNo}`;
+  }, [slide?.id, pageNo]);
+
+  const bottomLines = useMemo(() => {
+    const t = String(bottomMessage || "").trim();
+    if (!t) return [];
+    return t
+      .split("\n")
+      .map((s) => String(s || "").trim())
+      .filter(Boolean);
+  }, [bottomMessage]);
+
   const [fit, setFit] = useState(() => ({
     scale: 1,
 
@@ -592,7 +607,48 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
 
           {bottomMessage ? (
             <div className="ppBottom">
+              {/* 通常表示（DOM描画）はCSSグラデ */}
               <div className="ppBottomText">{bottomMessage}</div>
+
+              {/* export時（html-to-image対策）はSVGグラデに切替 */}
+              <svg
+                className="ppBottomSvg"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox={`0 0 1000 ${Math.max(1, bottomLines.length) * 120}`}
+                preserveAspectRatio="xMidYMid meet"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient
+                    id={gradId}
+                    gradientUnits="userSpaceOnUse"
+                    x1="0"
+                    y1={Math.max(1, bottomLines.length) * 120}
+                    x2="1000"
+                    y2="0"
+                  >
+                    <stop offset="0%" stopColor="rgba(199, 26, 46, 1)" />
+                    <stop offset="55%" stopColor="rgba(235, 66, 31, 0.98)" />
+                    <stop offset="100%" stopColor="rgba(255, 140, 41, 0.95)" />
+                  </linearGradient>
+                </defs>
+
+                {(bottomLines.length ? bottomLines : [" "]).map((line, i) => (
+                  <text
+                    key={`b-${i}`}
+                    x="500"
+                    y={90 + i * 120}
+                    textAnchor="middle"
+                    style={{ fontFamily: FONT_FAMILY }}
+                    fontSize={Math.max(1, Math.round(fit.bottomFont))}
+                    fontWeight="900"
+                    letterSpacing={Math.round((fit.bottomLS || 0) * 10) / 10}
+                    fill={`url(#${gradId})`}
+                  >
+                    {line}
+                  </text>
+                ))}
+              </svg>
             </div>
           ) : (
             <div className="ppBottomEmpty" />
@@ -756,6 +812,8 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            width: 100%;
           }
 
           .ppBottomText {
@@ -777,6 +835,19 @@ export default function ProblemPage({ slide, pageNo, isIntelMode, hasPrefetched,
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+          }
+
+          .ppBottomSvg {
+            display: none; /* 通常はCSS版 */
+            width: 100%;
+            height: auto;
+          }
+
+          :global(html.exporting) .ppBottomText {
+            display: none;
+          }
+          :global(html.exporting) .ppBottomSvg {
+            display: block;
           }
 
           .ppBottomEmpty {
