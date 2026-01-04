@@ -764,106 +764,109 @@ function downloadBlob(blob, filename) {
   URL.revokeObjectURL(url);
 }
 
-// そのまま見えているスライドDOMを、Chromeの印刷エンジンでPDF化する（最も崩れにくい）
-async function handleExportPDF() {
-  const root = slidesRootRef.current;
-  if (!root) return;
+const handleExportPDF = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
 
-  const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-  if (!pages.length) {
-    alert("スライドが見つかりませんでした。");
-    return;
-  }
-
-  // 画像・フォントが未ロードだと「image loading...」等が混ざるので、ここで待つ
-  await waitFontsReady();
-  await waitImagesIn(root);
-
-  // 新規ウィンドウ（同一オリジンなのでDOMコピー可能）
-  const w = window.open("", "_blank", "noopener,noreferrer,width=1200,height=800");
-  if (!w) {
-    alert("ポップアップがブロックされました。ブラウザ設定をご確認ください。");
-    return;
-  }
-
-  // 現在ページのスタイル（styleタグとCSSリンク）を可能な範囲で引き継ぐ
-  const headStyles = Array.from(document.querySelectorAll("style, link[rel='stylesheet']"))
-    .map((el) => el.outerHTML)
-    .join("\n");
-
-  // 印刷用の最低限CSS：余白0 / 背景色含む / ページ区切り
-  const printCSS = `
-    <style>
-      @page { size: 13.333in 7.5in; margin: 0; } /* 16:9 */
-      html, body { margin: 0; padding: 0; background: #000; }
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .__printWrap { width: 100%; }
-      [data-slide-page="true"] { break-after: page; page-break-after: always; }
-      /* export時に transform/zoom が絡むと崩れるので無効化 */
-      [data-slide-page="true"], [data-slide-page="true"] * {
-        transform: none !important;
-        zoom: 1 !important;
-      }
-    </style>
-  `;
-
-  w.document.open();
-  w.document.write(`<!doctype html><html><head><meta charset="utf-8" />${headStyles}${printCSS}</head><body><div class="__printWrap"></div></body></html>`);
-  w.document.close();
-
-  const wrap = w.document.querySelector(".__printWrap");
-
-  // ページDOMを複製して印刷窓に貼り付け
-  pages.forEach((p) => {
-    const clone = p.cloneNode(true);
-    wrap.appendChild(clone);
-  });
-
-  // 印刷窓側でもフォント・画像のロードを待ってから印刷
-  await new Promise((resolve) => {
-    const tick = () => {
-      try {
-        const doc = w.document;
-        if (!doc || doc.readyState !== "complete") return setTimeout(tick, 50);
-
-        const fontsReady = doc.fonts ? doc.fonts.ready : Promise.resolve();
-
-        const imgs = Array.from(doc.images || []);
-        const imgPromises = imgs.map((img) => {
-          // lazy が残っていると印刷時に未ロードが出るので強制eager
-          try { img.loading = "eager"; } catch {}
-          if (img.complete && img.naturalWidth > 0) return Promise.resolve();
-          return new Promise((res) => {
-            const done = () => res();
-            img.addEventListener("load", done, { once: true });
-            img.addEventListener("error", done, { once: true });
-          });
-        });
-
-        Promise.all([fontsReady, ...imgPromises]).then(() => {
-          // 2フレーム待ってレイアウト確定
-          w.requestAnimationFrame(() => w.requestAnimationFrame(resolve));
-        });
-      } catch {
-        resolve();
-      }
-    };
-    tick();
-  });
-
-  // 印刷ダイアログ -> 保存先で「PDFに保存」
-  w.focus();
-  w.print();
-}
-
-// 既存のやつがある前提。無いならこれも入れてください。
-async function waitFontsReady() {
   try {
-    if (document.fonts && document.fonts.ready) {
-      await document.fonts.ready;
-    }
-  } catch {}
-}
+    const root = document.getElementById("slidesRoot");
+    if (!root) throw new Error("slidesRoot が見つかりません（id='slidesRoot' が必要です）");
+
+    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+    // 画像・フォントが未ロードだと「image loading...」等が混ざるので待つ
+    try {
+      if (document?.fonts?.ready) await document.fonts.ready;
+    } catch {}
+    await waitImagesIn(root);
+    await new Promise((r) => requestAnimationFrame(r));
+
+    const w = window.open("", "_blank", "noopener,noreferrer,width=1200,height=800");
+    if (!w) throw new Error("ポップアップがブロックされました（ブラウザ設定をご確認ください）");
+
+    // 現在ページの style / stylesheet を可能な範囲で引き継ぐ
+    const headStyles = Array.from(document.querySelectorAll("style, link[rel='stylesheet']"))
+      .map((el) => el.outerHTML)
+      .join("\n");
+
+    const paperBg = isIntelMode ? "#0b1220" : "#ffffff";
+
+    // 印刷用CSS：余白0 / 背景色含む / ページ区切り / transform無効化（崩れ対策）
+    const printCSS = `
+      <style>
+        @page { size: 13.333in 7.5in; margin: 0; } /* 16:9 */
+        html, body { margin: 0; padding: 0; background: ${paperBg}; }
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .__printWrap { width: 100%; }
+        [data-slide-page="true"] { break-after: page; page-break-after: always; }
+        [data-slide-page="true"], [data-slide-page="true"] * {
+          transform: none !important;
+          zoom: 1 !important;
+        }
+      </style>
+    `;
+
+    w.document.open();
+    w.document.write(`<!doctype html><html><head><meta charset="utf-8" />${headStyles}${printCSS}</head><body><div class="__printWrap"></div></body></html>`);
+    w.document.close();
+
+    const wrap = w.document.querySelector(".__printWrap");
+
+    // 表示中DOMをそのまま複製して印刷窓に貼る（再レイアウト事故を最小化）
+    pages.forEach((p) => {
+      const clone = p.cloneNode(true);
+      wrap.appendChild(clone);
+    });
+
+    // 印刷窓側でもフォント・画像のロードを待つ
+    await new Promise((resolve) => {
+      const tick = () => {
+        try {
+          const doc = w.document;
+          if (!doc || doc.readyState !== "complete") return setTimeout(tick, 50);
+
+          const fontsReady = doc.fonts ? doc.fonts.ready : Promise.resolve();
+
+          const imgs = Array.from(doc.images || []);
+          const imgPromises = imgs.map((img) => {
+            try { img.loading = "eager"; } catch {}
+            if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+            return new Promise((res) => {
+              const done = () => res();
+              img.addEventListener("load", done, { once: true });
+              img.addEventListener("error", done, { once: true });
+            });
+          });
+
+          Promise.all([fontsReady, ...imgPromises]).then(() => {
+            w.requestAnimationFrame(() => w.requestAnimationFrame(resolve));
+          });
+        } catch {
+          resolve();
+        }
+      };
+      tick();
+    });
+
+    // 印刷ダイアログ -> 保存先で「PDFに保存」
+    w.focus();
+    w.print();
+
+    // 余計なタブを残したくなければ：印刷後に閉じる（環境差あるので try）
+    try {
+      w.onafterprint = () => {
+        try { w.close(); } catch {}
+      };
+    } catch {}
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PDF書き出しに失敗しました: ${msg}`);
+  } finally {
+    setIsExporting(false);
+  }
+};
 
 
   const requestExportPNGFromMenu = () => {
