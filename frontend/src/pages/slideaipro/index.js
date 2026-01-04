@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { toPng } from "html-to-image";
+import { toPng, getFontEmbedCSS } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
 import SlideEditModal from "../../components/slideaipro/SlideEditModal";
@@ -292,6 +292,63 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
 
   return out;
 }
+function freezeBodyForCapture() {
+  const prevOverflow = document.body.style.overflow;
+  const prevPaddingRight = document.body.style.paddingRight;
+
+  const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
+
+  document.body.style.overflow = "hidden";
+  if (scrollbarW > 0) document.body.style.paddingRight = `${scrollbarW}px`;
+
+  return () => {
+    document.body.style.overflow = prevOverflow;
+    document.body.style.paddingRight = prevPaddingRight;
+  };
+}
+
+async function nextFrame(times = 1) {
+  for (let i = 0; i < times; i++) {
+    // requestAnimationFrame 2回くらい待つと“閉じた直後のレイアウト揺れ”が落ち着く
+    await new Promise((r) => requestAnimationFrame(r));
+  }
+}
+
+async function buildFontEmbedCSSSafe(node) {
+  try {
+    // ここが効くと「プレビューとexportでフォントが違う」問題が激減する
+    return await getFontEmbedCSS(node);
+  } catch {
+    return "";
+  }
+}
+
+async function captureNodeToPngStable(node, { bg, pixelRatio, fontEmbedCSS }) {
+  const rect = node.getBoundingClientRect();
+
+  // clientWidth/Height じゃなく rect を採用（ズレの主因を潰す）
+  const width = Math.max(1, Math.round(rect.width));
+  const height = Math.max(1, Math.round(rect.height));
+
+  return await toPng(node, {
+    cacheBust: true,
+    pixelRatio: pixelRatio || 2,
+    backgroundColor: bg,
+
+    // ★ここが本命：キャプチャ時のレイアウト幅を固定
+    width,
+    height,
+    style: {
+      width: `${width}px`,
+      height: `${height}px`,
+      transform: "none",
+      transformOrigin: "top left",
+    },
+
+    // フォント埋め込み（取れなければ空文字でOK）
+    fontEmbedCSS: fontEmbedCSS || "",
+  });
+}
 
 export default function SlideAIProHome() {
   const router = useRouter();
@@ -542,112 +599,141 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
-  const handleExportPNG = async () => {
-    if (!canExport) return;
-    setIsExporting(true);
+const handleExportPNG = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
 
-    try {
-      const root = document.getElementById("slidesRoot");
-      if (!root) throw new Error("slidesRoot が見つかりません");
+  const unfreeze = typeof window !== "undefined" ? freezeBodyForCapture() : () => {};
 
-      if (document?.fonts?.ready) {
-        try {
-          await document.fonts.ready;
-        } catch {}
-      }
-      await waitImagesIn(root);
-      await new Promise((r) => requestAnimationFrame(r));
+  try {
+    const root = document.getElementById("slidesRoot");
+    if (!root) throw new Error("slidesRoot が見つかりません");
 
-      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
-
-      const bg = isIntelMode ? "#0b1220" : "#ffffff";
-
-      for (let i = 0; i < pages.length; i++) {
-        const node = pages[i];
-        const dataUrl = await toPng(node, {
-          cacheBust: true,
-          pixelRatio: 2,
-          backgroundColor: bg,
-        });
-        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
-      }
-    } catch (e) {
-      console.error(e);
-      const msg = String(e?.message || e);
-      alert(`PNG書き出しに失敗しました: ${msg}`);
-    } finally {
-      setIsExporting(false);
+    if (document?.fonts?.ready) {
+      try {
+        await document.fonts.ready;
+      } catch {}
     }
-  };
 
-  const handleExportPDF = async () => {
-    if (!canExport) return;
-    setIsExporting(true);
+    await waitImagesIn(root);
 
-    try {
-      const root = document.getElementById("slidesRoot");
-      if (!root) throw new Error("slidesRoot が見つかりません");
+    // メニューを閉じた直後の揺れ対策：最低2フレーム待つ
+    await nextFrame(2);
 
-      if (document?.fonts?.ready) {
-        try {
-          await document.fonts.ready;
-        } catch {}
-      }
-      await waitImagesIn(root);
-      await new Promise((r) => requestAnimationFrame(r));
+    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
-      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+    const bg = isIntelMode ? "#0b1220" : "#ffffff";
 
-      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+    // フォント埋め込みCSS（全ページ共通で1回だけ作る）
+    const fontEmbedCSS = await buildFontEmbedCSSSafe(root);
 
-      const pngPages = [];
-      for (let i = 0; i < pages.length; i++) {
-        const node = pages[i];
-        const dataUrl = await toPng(node, {
-          cacheBust: true,
-          pixelRatio: 2,
-          backgroundColor: bg,
-        });
-        pngPages.push(dataUrl);
-      }
+    for (let i = 0; i < pages.length; i++) {
+      const node = pages[i];
 
-      const API_BASE = "https://sense-website-production.up.railway.app";
-      const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pages: pngPages }),
+      // 各ページ内の画像待ち（root待ち済みでも保険で）
+      await waitImagesIn(node);
+      await nextFrame(1);
+
+      const dataUrl = await captureNodeToPngStable(node, {
+        bg,
+        pixelRatio: 2,
+        fontEmbedCSS,
       });
 
-      if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
-
-      const ct = resp.headers.get("content-type") || "";
-      if (ct.includes("application/pdf")) {
-        const blob = await resp.blob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "slides.pdf";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-        return;
-      }
-
-      const j = await resp.json();
-      const pdfDataUrl = j?.pdfDataUrl || "";
-      if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
-      downloadDataUrl(pdfDataUrl, "slides.pdf");
-    } catch (e) {
-      console.error(e);
-      const msg = String(e?.message || e);
-      alert(`PDF書き出しに失敗しました: ${msg}`);
-    } finally {
-      setIsExporting(false);
+      downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
     }
-  };
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PNG書き出しに失敗しました: ${msg}`);
+  } finally {
+    try {
+      unfreeze();
+    } catch {}
+    setIsExporting(false);
+  }
+};
+
+const handleExportPDF = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
+
+  const unfreeze = typeof window !== "undefined" ? freezeBodyForCapture() : () => {};
+
+  try {
+    const root = document.getElementById("slidesRoot");
+    if (!root) throw new Error("slidesRoot が見つかりません");
+
+    if (document?.fonts?.ready) {
+      try {
+        await document.fonts.ready;
+      } catch {}
+    }
+
+    await waitImagesIn(root);
+    await nextFrame(2);
+
+    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+    const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+    const fontEmbedCSS = await buildFontEmbedCSSSafe(root);
+
+    const pngPages = [];
+    for (let i = 0; i < pages.length; i++) {
+      const node = pages[i];
+      await waitImagesIn(node);
+      await nextFrame(1);
+
+      const dataUrl = await captureNodeToPngStable(node, {
+        bg,
+        pixelRatio: 2,
+        fontEmbedCSS,
+      });
+      pngPages.push(dataUrl);
+    }
+
+    const API_BASE = "https://sense-website-production.up.railway.app";
+    const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pages: pngPages }),
+    });
+
+    if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
+
+    const ct = resp.headers.get("content-type") || "";
+    if (ct.includes("application/pdf")) {
+      const blob = await resp.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "slides.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      return;
+    }
+
+    const j = await resp.json();
+    const pdfDataUrl = j?.pdfDataUrl || "";
+    if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
+    downloadDataUrl(pdfDataUrl, "slides.pdf");
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PDF書き出しに失敗しました: ${msg}`);
+  } finally {
+    try {
+      unfreeze();
+    } catch {}
+    setIsExporting(false);
+  }
+};
+
 
   const requestExportPNGFromMenu = () => {
     if (!canExport) return;
