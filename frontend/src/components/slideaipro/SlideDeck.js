@@ -1,29 +1,168 @@
 // src/components/slideaipro/SlideDeck.js
-import React from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { slidePageRenderers } from "./slidePages";
 import UnknownPage from "./slidePages/UnknownPage";
 
-export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrlByKey }) {
+/**
+ * SlideDeck
+ * - #slidesRoot 配下は「Exportのキャプチャ対象DOM」
+ * - Editボタンは #slidesRoot の外（兄弟要素）に置き、見た目だけ重ねることで export に写らないようにする
+ *
+ * props:
+ * - slides, isIntelMode, hasPrefetched, imageUrlByKey (既存)
+ * - onEditSlide?: (slide, index) => void （任意）
+ */
+export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrlByKey, onEditSlide }) {
   const safeSlides = Array.isArray(slides) ? slides : [];
+
+  const stageRef = useRef(null);
+  const rootRef = useRef(null);
+
+  const [pageRects, setPageRects] = useState([]);
+
+  const theme = isIntelMode ? "dark" : "light";
+
+  const recomputeRects = () => {
+    const stageEl = stageRef.current;
+    const rootEl = rootRef.current;
+    if (!stageEl || !rootEl) return;
+
+    const stageRect = stageEl.getBoundingClientRect();
+
+    // SlidePageFrame 側で data-slide-page="true" を付けている前提（index.js の export 側も同条件で拾っている）
+    const pages = Array.from(rootEl.querySelectorAll('[data-slide-page="true"]'));
+
+    const next = pages.map((el) => {
+      const r = el.getBoundingClientRect();
+      return {
+        top: r.top - stageRect.top,
+        left: r.left - stageRect.left,
+        width: r.width,
+        height: r.height,
+      };
+    });
+
+    // 変化が小さい場合はsetStateしない（無限ループ/微振動防止）
+    const same =
+      next.length === pageRects.length &&
+      next.every((a, i) => {
+        const b = pageRects[i];
+        if (!b) return false;
+        return (
+          Math.abs(a.top - b.top) < 0.5 &&
+          Math.abs(a.left - b.left) < 0.5 &&
+          Math.abs(a.width - b.width) < 0.5 &&
+          Math.abs(a.height - b.height) < 0.5
+        );
+      });
+
+    if (!same) setPageRects(next);
+  };
+
+  // slidesが変わったら計測（初回/生成後）
+  useEffect(() => {
+    // 1フレーム待ってから計測（画像やフォント適用後のレイアウト反映を拾いやすくする）
+    const id = requestAnimationFrame(() => recomputeRects());
+    return () => cancelAnimationFrame(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [safeSlides.length, theme]);
+
+  // リサイズ/レイアウト変化を追従
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const onResize = () => recomputeRects();
+    window.addEventListener("resize", onResize);
+
+    let ro = null;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => {
+        requestAnimationFrame(() => recomputeRects());
+      });
+      if (stageRef.current) ro.observe(stageRef.current);
+      if (rootRef.current) ro.observe(rootRef.current);
+    }
+
+    // 画像ロードで高さが変わるケースへの保険
+    const onLoadCapture = () => recomputeRects();
+    window.addEventListener("load", onLoadCapture);
+
+    // 初回
+    recomputeRects();
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", onLoadCapture);
+      if (ro) ro.disconnect();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleEdit = (idx) => {
+    const s = safeSlides[idx];
+    if (!s) return;
+    if (typeof onEditSlide === "function") {
+      onEditSlide(s, idx);
+      return;
+    }
+    // noop（未接続でも落とさない）
+  };
+
+  // ボタン配置（スライド右上に固定）
+  const editButtons = useMemo(() => {
+    const pad = 12;
+    return pageRects.map((r, idx) => {
+      const top = Math.max(0, r.top + pad);
+      const left = Math.max(0, r.left + r.width - pad);
+
+      return (
+        <button
+          key={`edit-${idx}`}
+          type="button"
+          className="editBtn"
+          style={{ top, left }}
+          onClick={() => handleEdit(idx)}
+          aria-label={`Edit slide ${idx + 1}`}
+        >
+          Edit
+        </button>
+      );
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageRects, safeSlides.length, theme]);
 
   return (
     <section className="slidesWrap" aria-label="Slides Preview">
-      <div id="slidesRoot" className="slidesRoot" data-theme={isIntelMode ? "dark" : "light"}>
-        {safeSlides.map((s, idx) => {
-          const kind = String(s?.kind || "");
-          const Renderer = slidePageRenderers[kind] || UnknownPage;
+      {/* stage: relative。ここに「兄弟要素のoverlay」をabsoluteで重ねる */}
+      <div ref={stageRef} className="slidesStage">
+        {/* Export対象DOMはこの #slidesRoot 配下のみ */}
+        <div
+          ref={rootRef}
+          id="slidesRoot"
+          className="slidesRoot"
+          data-theme={theme}
+        >
+          {safeSlides.map((s, idx) => {
+            const kind = String(s?.kind || "");
+            const Renderer = slidePageRenderers[kind] || UnknownPage;
 
-          return (
-            <Renderer
-              key={s?.id || `slide-${idx}`}
-              slide={s}
-              pageNo={idx + 1}
-              isIntelMode={isIntelMode}
-              hasPrefetched={hasPrefetched}
-              imageUrlByKey={imageUrlByKey}
-            />
-          );
-        })}
+            return (
+              <Renderer
+                key={s?.id || `slide-${idx}`}
+                slide={s}
+                pageNo={idx + 1}
+                isIntelMode={isIntelMode}
+                hasPrefetched={hasPrefetched}
+                imageUrlByKey={imageUrlByKey}
+              />
+            );
+          })}
+        </div>
+
+        {/* Edit overlay: slidesRoot の“外（兄弟）”。これが(B)の肝で、exportに写らない */}
+        <div className="editOverlay" aria-hidden="false">
+          {editButtons}
+        </div>
       </div>
 
       <style jsx global>{`
@@ -31,11 +170,54 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
         .slidesWrap {
           width: min(860px, calc(100vw - 36px));
         }
+
+        .slidesStage {
+          position: relative;
+        }
+
         .slidesRoot {
           display: grid;
           gap: 18px;
         }
 
+        /* ===== Edit overlay (sibling of slidesRoot) ===== */
+        .editOverlay {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 50;
+        }
+
+        .editBtn {
+          position: absolute;
+          transform: translateX(-100%);
+          pointer-events: auto;
+
+          border: 1px solid rgba(0, 0, 0, 0.12);
+          background: rgba(255, 255, 255, 0.92);
+          color: rgba(10, 15, 27, 0.92);
+          padding: 8px 12px;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 900;
+          cursor: pointer;
+          user-select: none;
+          box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+          backdrop-filter: blur(10px);
+        }
+
+        .slidesRoot[data-theme="dark"] ~ .editOverlay .editBtn {
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          background: rgba(0, 0, 0, 0.55);
+          color: rgba(255, 255, 255, 0.92);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .editBtn:active {
+          transform: translateX(-100%) scale(0.99);
+        }
+
+        /* ===== Existing slide styles ===== */
         .slidesRoot .slidePage {
           width: 100%;
           aspect-ratio: 16 / 9;
@@ -90,6 +272,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 22px;
           font-weight: 900;
           letter-spacing: 0.2px;
+          line-height: 1.10em; /* 恒久対策: unitless禁止 */
         }
 
         .slidesRoot .pageBottom {
@@ -114,12 +297,13 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 34px;
           font-weight: 900;
           letter-spacing: 0.2px;
-          line-height: 1.15;
+          line-height: 1.15em; /* 恒久対策: unitless禁止 */
         }
         .slidesRoot .coverSub {
           font-size: 14px;
           font-weight: 800;
           opacity: 0.72;
+          line-height: 1.25em; /* 恒久対策: 明示（行詰まり事故予防） */
         }
 
         .slidesRoot .msg {
@@ -128,7 +312,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           border-radius: 12px;
           font-size: 13px;
           font-weight: 700;
-          line-height: 1.45;
+          line-height: 1.45em; /* 恒久対策: unitless禁止 */
         }
         .slidesRoot[data-theme="dark"] .msg {
           background: rgba(255, 255, 255, 0.06);
@@ -159,7 +343,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           display: grid;
           gap: 8px;
           font-size: 14px;
-          line-height: 1.42;
+          line-height: 1.42em; /* 恒久対策: unitless禁止 */
           font-weight: 700;
           opacity: 0.92;
         }
@@ -199,6 +383,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           place-items: center;
           font-size: 12px;
           opacity: 0.6;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .imgKeySmall {
@@ -207,6 +392,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           word-break: break-all;
           font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
             monospace;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .twoBox {
@@ -237,6 +423,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           letter-spacing: 0.2px;
           opacity: 0.85;
           margin-bottom: 10px;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barMeta {
@@ -250,12 +437,14 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 13px;
           font-weight: 900;
           opacity: 0.9;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
         .slidesRoot .barAxisU {
           margin-left: 6px;
           font-size: 12px;
           opacity: 0.7;
           font-weight: 800;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barList {
@@ -275,6 +464,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           font-size: 13px;
           font-weight: 800;
           opacity: 0.9;
+          line-height: 1.20em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .barTrack {
@@ -308,6 +498,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           opacity: 0.9;
           font-variant-numeric: tabular-nums;
           white-space: nowrap;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
 
         .slidesRoot .tableWrap {
@@ -333,6 +524,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           padding: 10px 12px;
           font-weight: 900;
           letter-spacing: 0.2px;
+          line-height: 1.10em; /* 恒久対策: 明示 */
         }
         .slidesRoot[data-theme="dark"] .taskTable thead th {
           background: rgba(255, 255, 255, 0.06);
@@ -347,6 +539,7 @@ export default function SlideDeck({ slides, isIntelMode, hasPrefetched, imageUrl
           padding: 10px 12px;
           font-weight: 700;
           opacity: 0.92;
+          line-height: 1.25em; /* 恒久対策: 明示 */
         }
         .slidesRoot[data-theme="dark"] .taskTable tbody td {
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);

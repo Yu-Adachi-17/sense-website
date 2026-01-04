@@ -22,9 +22,11 @@
     "form-data": "^4.0.1",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
+    "jszip": "^3.10.1",
     "livekit-server-sdk": "^2.14.0",
     "multer": "^1.4.5-lts.1",
     "pdf-lib": "^1.17.1",
+    "puppeteer": "^24.34.0",
     "stripe": "^17.6.0"
   },
   "devDependencies": {
