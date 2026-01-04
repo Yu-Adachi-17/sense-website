@@ -18,6 +18,10 @@ function safeNum(x, d) {
   return Number.isFinite(n) ? n : d;
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function slideaiproScreenshotExport(req, res) {
   const format =
     safeStr(req.body?.format || "pdf").toLowerCase() === "png" ? "png" : "pdf";
@@ -36,18 +40,20 @@ async function slideaiproScreenshotExport(req, res) {
   let browser = null;
 
   try {
-browser = await puppeteer.launch({
-  headless: true,
-  args: [
-    "--no-sandbox",
-    "--disable-setuid-sandbox",
-    "--disable-dev-shm-usage",
-    "--disable-gpu",
-    "--no-zygote",
-    "--single-process",
-  ],
-});
+    const execPath = safeStr(process.env.PUPPETEER_EXECUTABLE_PATH || "");
 
+    browser = await puppeteer.launch({
+      headless: true,
+      executablePath: execPath || undefined,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-zygote",
+        "--single-process",
+      ],
+    });
 
     const page = await browser.newPage();
 
@@ -71,7 +77,8 @@ browser = await puppeteer.launch({
       } catch {}
     }, backgroundColor);
 
-    await page.waitForTimeout(120);
+    // page.waitForTimeout は puppeteer のバージョン差で存在しないことがあるため自前 sleep
+    await sleep(120);
 
     let nodes = await page.$$('[data-slide-page="true"]');
     if (!nodes.length) nodes = await page.$$(".slidePage");
@@ -122,7 +129,10 @@ browser = await puppeteer.launch({
     console.error(e);
     res
       .status(500)
-      .json({ error: "screenshot-export failed", message: String(e?.message || e) });
+      .json({
+        error: "screenshot-export failed",
+        message: String(e?.message || e),
+      });
   } finally {
     try {
       if (browser) await browser.close();
