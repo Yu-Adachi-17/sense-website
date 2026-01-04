@@ -612,27 +612,20 @@ const handleExportPNG = async () => {
     const root = document.getElementById("slidesRoot");
     if (!root) throw new Error("slidesRoot が見つかりません");
 
-    if (document?.fonts?.ready) {
-      try {
-        await document.fonts.ready;
-      } catch {}
-    }
-
-    await waitImagesIn(root);
-    await new Promise((r) => requestAnimationFrame(r));
-
     const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
     if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
     const bg = isIntelMode ? "#0b1220" : "#ffffff";
 
-    await withExportingDOM(async () => {
-      for (let i = 0; i < pages.length; i++) {
-        const node = pages[i];
-        const { dataUrl } = await captureSlidePng(node, { bg, pixelRatio: 2 });
-        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
-      }
-    });
+    // 1枚ずつ offscreen で “scale無し” キャプチャ → そのまま保存
+    for (let i = 0; i < pages.length; i++) {
+      const { dataUrl } = await captureSlideAsPngDataUrl(pages[i], {
+        bg,
+        pixelRatio: 2,
+      });
+
+      downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
+    }
   } catch (e) {
     console.error(e);
     const msg = String(e?.message || e);
@@ -641,6 +634,111 @@ const handleExportPNG = async () => {
     setIsExporting(false);
   }
 };
+
+
+function getUnscaledSize(el) {
+  if (!el) return { w: 1, h: 1 };
+
+  // offsetWidth/Height は transform の影響を受けない（重要）
+  const ow = Number(el.offsetWidth || 0);
+  const oh = Number(el.offsetHeight || 0);
+
+  if (ow > 0 && oh > 0) {
+    return { w: Math.max(1, Math.round(ow)), h: Math.max(1, Math.round(oh)) };
+  }
+
+  // 念のため fallback（最終手段）
+  const rect = el.getBoundingClientRect();
+  return { w: Math.max(1, Math.round(rect.width)), h: Math.max(1, Math.round(rect.height)) };
+}
+
+function createExportStage(originalNode, bg) {
+  const { w, h } = getUnscaledSize(originalNode);
+
+  const stage = document.createElement("div");
+  stage.setAttribute("data-export-stage", "true");
+  Object.assign(stage.style, {
+    position: "fixed",
+    left: "-100000px",
+    top: "0",
+    width: `${w}px`,
+    height: `${h}px`,
+    overflow: "hidden",
+    pointerEvents: "none",
+    zIndex: "-1",
+    background: bg,
+  });
+
+  // 画面表示と切り離すために clone を使う（レイアウトを固定）
+  const cloned = originalNode.cloneNode(true);
+
+  // ここが肝：export 時は transform/scale を殺して “元の幅” で描画させる
+  Object.assign(cloned.style, {
+    width: `${w}px`,
+    height: `${h}px`,
+    transform: "none",
+    transformOrigin: "top left",
+    margin: "0",
+  });
+
+  stage.appendChild(cloned);
+  document.body.appendChild(stage);
+
+  return {
+    stage,
+    cloned,
+    w,
+    h,
+    cleanup: () => {
+      try {
+        stage.remove();
+      } catch {}
+    },
+  };
+}
+
+async function waitForStableLayout(rootEl) {
+  if (document?.fonts?.ready) {
+    try {
+      await document.fonts.ready;
+    } catch {}
+  }
+
+  await waitImagesIn(rootEl);
+
+  // レイアウト確定を 2フレーム待つ（これがないと微妙に折返しが揺れることがある）
+  await new Promise((r) => requestAnimationFrame(r));
+  await new Promise((r) => requestAnimationFrame(r));
+}
+
+async function captureSlideAsPngDataUrl(slideNode, { bg, pixelRatio }) {
+  const { stage, cloned, w, h, cleanup } = createExportStage(slideNode, bg);
+
+  try {
+    await waitForStableLayout(stage);
+
+    const dataUrl = await toPng(cloned, {
+      cacheBust: true,
+      pixelRatio: pixelRatio || 2,
+      backgroundColor: bg,
+      width: w,
+      height: h,
+
+      // clone後の “最終描画幅” をさらに固定（html-to-image 側のズレ抑止）
+      style: {
+        width: `${w}px`,
+        height: `${h}px`,
+        transform: "none",
+        transformOrigin: "top left",
+        margin: "0",
+      },
+    });
+
+    return { dataUrl, w, h };
+  } finally {
+    cleanup();
+  }
+}
 
 
 // 追加：dataUrl -> Uint8Array
@@ -674,15 +772,6 @@ const handleExportPDF = async () => {
     const root = document.getElementById("slidesRoot");
     if (!root) throw new Error("slidesRoot が見つかりません");
 
-    if (document?.fonts?.ready) {
-      try {
-        await document.fonts.ready;
-      } catch {}
-    }
-
-    await waitImagesIn(root);
-    await new Promise((r) => requestAnimationFrame(r));
-
     const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
     if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
@@ -691,21 +780,25 @@ const handleExportPDF = async () => {
     const { PDFDocument } = await import("pdf-lib");
     const pdf = await PDFDocument.create();
 
-    await withExportingDOM(async () => {
-      for (let i = 0; i < pages.length; i++) {
-        const node = pages[i];
+    for (let i = 0; i < pages.length; i++) {
+      // PNG と同じ経路（offscreen + scale無し固定）で 1枚を確実にキャプチャ
+      const { dataUrl, w, h } = await captureSlideAsPngDataUrl(pages[i], {
+        bg,
+        pixelRatio: 2,
+      });
 
-        const { dataUrl, w, h } = await captureSlidePng(node, { bg, pixelRatio: 2 });
+      const pngBytes = dataUrlToU8(dataUrl);
+      const png = await pdf.embedPng(pngBytes);
 
-        const pngBytes = dataUrlToU8(dataUrl);
-        const png = await pdf.embedPng(pngBytes);
-
-        // ページサイズは“DOMの本来サイズ”に固定し、画像はそこに等倍で貼る
-        // （pixelRatio=2 の高解像度PNGを縮小貼り付けするので文字が綺麗で、レイアウトもズレない）
-        const page = pdf.addPage([w, h]);
-        page.drawImage(png, { x: 0, y: 0, width: w, height: h });
-      }
-    });
+      // PDFのページサイズは “CSSピクセルの元サイズ(w,h)” に揃える
+      const page = pdf.addPage([w, h]);
+      page.drawImage(png, {
+        x: 0,
+        y: 0,
+        width: w,
+        height: h,
+      });
+    }
 
     const pdfBytes = await pdf.save();
     downloadBlob(new Blob([pdfBytes], { type: "application/pdf" }), "slides.pdf");
@@ -717,8 +810,6 @@ const handleExportPDF = async () => {
     setIsExporting(false);
   }
 };
-
-
 
   const requestExportPNGFromMenu = () => {
     if (!canExport) return;
