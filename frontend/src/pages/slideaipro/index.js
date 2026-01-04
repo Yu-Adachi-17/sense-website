@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { toPng } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
 import SlideEditModal from "../../components/slideaipro/SlideEditModal";
@@ -155,15 +156,13 @@ async function runPool(items, limit, worker) {
   return results;
 }
 
-function downloadBlob(blob, filename) {
-  const url = URL.createObjectURL(blob);
+function downloadDataUrl(dataUrl, filename) {
   const a = document.createElement("a");
-  a.href = url;
+  a.href = dataUrl;
   a.download = filename;
   document.body.appendChild(a);
   a.click();
   a.remove();
-  URL.revokeObjectURL(url);
 }
 
 function waitImagesIn(node) {
@@ -180,35 +179,6 @@ function waitImagesIn(node) {
       });
     })
   );
-}
-
-function collectAllStyleText() {
-  // styled-jsx / global style / runtime injected styles をまとめて送る
-  const styles = Array.from(document.querySelectorAll("style"));
-  return styles.map((s) => String(s.textContent || "")).join("\n");
-}
-
-function buildExportHtml(slidesRootEl, backgroundColor) {
-  const stylesText = collectAllStyleText();
-
-  // Export専用の最小補強（余白ゼロ、背景固定）
-  const hardening = `
-    html, body { margin:0; padding:0; background:${backgroundColor}; }
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  `;
-
-  return `<!doctype html>
-<html>
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<style>${stylesText}</style>
-<style>${hardening}</style>
-</head>
-<body>
-${slidesRootEl.outerHTML}
-</body>
-</html>`;
 }
 
 function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
@@ -338,8 +308,10 @@ export default function SlideAIProHome() {
 
   const [isExporting, setIsExporting] = useState(false);
 
+  // slides state
   const [slidesState, setSlidesState] = useState([]);
 
+  // Edit Modal state（ここが“配線”）
   const [editOpen, setEditOpen] = useState(false);
   const [editIdx, setEditIdx] = useState(-1);
   const [editSlide, setEditSlide] = useState(null);
@@ -443,6 +415,7 @@ export default function SlideAIProHome() {
     });
   };
 
+  // SlideDeck からの edit 要求 → “モーダルを開く”
   const onRequestEditSlide = (slide, idx) => {
     let i = typeof idx === "number" ? idx : -1;
 
@@ -462,6 +435,7 @@ export default function SlideAIProHome() {
     setEditOpen(true);
   };
 
+  // SlideEditModal からの save → slidesState に反映
   const onSaveEditedSlide = (index, nextSlide) => {
     const i = Number(index);
     if (!Number.isFinite(i) || i < 0 || i >= (slidesState?.length || 0)) return;
@@ -493,6 +467,7 @@ export default function SlideAIProHome() {
     setImageUrlByKey({});
     setSlidesState([]);
 
+    // 生成中は編集も閉じる
     setEditOpen(false);
     setEditIdx(-1);
     setEditSlide(null);
@@ -567,10 +542,10 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
-  const exportByServerScreenshot = async (format) => {
+  const handleExportPNG = async () => {
     if (!canExport) return;
-
     setIsExporting(true);
+
     try {
       const root = document.getElementById("slidesRoot");
       if (!root) throw new Error("slidesRoot が見つかりません");
@@ -587,46 +562,92 @@ export default function SlideAIProHome() {
       if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
       const bg = isIntelMode ? "#0b1220" : "#ffffff";
-      const html = buildExportHtml(root, bg);
 
-      const API_BASE = "https://sense-website-production.up.railway.app";
-      const resp = await fetch(`${API_BASE}/api/slideaipro/screenshot-export`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          format: String(format || "pdf"),
-          html,
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
           backgroundColor: bg,
-          // ここは「見た目のまま」を狙うので 2 を推奨
-          deviceScaleFactor: 2,
-        }),
-      });
-
-      if (!resp.ok) throw new Error(`screenshot-export HTTP ${resp.status}`);
-
-      const ct = resp.headers.get("content-type") || "";
-      const blob = await resp.blob();
-
-      if (String(format) === "pdf") {
-        // application/pdf
-        downloadBlob(blob, "slides.pdf");
-        return;
+        });
+        downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
       }
-
-      // zip of PNGs
-      // application/zip
-      downloadBlob(blob, "slides_png.zip");
     } catch (e) {
       console.error(e);
       const msg = String(e?.message || e);
-      alert(`書き出しに失敗しました: ${msg}`);
+      alert(`PNG書き出しに失敗しました: ${msg}`);
     } finally {
       setIsExporting(false);
     }
   };
 
-  const handleExportPNG = async () => exportByServerScreenshot("png");
-  const handleExportPDF = async () => exportByServerScreenshot("pdf");
+  const handleExportPDF = async () => {
+    if (!canExport) return;
+    setIsExporting(true);
+
+    try {
+      const root = document.getElementById("slidesRoot");
+      if (!root) throw new Error("slidesRoot が見つかりません");
+
+      if (document?.fonts?.ready) {
+        try {
+          await document.fonts.ready;
+        } catch {}
+      }
+      await waitImagesIn(root);
+      await new Promise((r) => requestAnimationFrame(r));
+
+      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+
+      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+      const pngPages = [];
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
+        const dataUrl = await toPng(node, {
+          cacheBust: true,
+          pixelRatio: 2,
+          backgroundColor: bg,
+        });
+        pngPages.push(dataUrl);
+      }
+
+      const API_BASE = "https://sense-website-production.up.railway.app";
+      const resp = await fetch(`${API_BASE}/api/slideaipro/png-to-pdf`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pages: pngPages }),
+      });
+
+      if (!resp.ok) throw new Error(`png-to-pdf HTTP ${resp.status}`);
+
+      const ct = resp.headers.get("content-type") || "";
+      if (ct.includes("application/pdf")) {
+        const blob = await resp.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "slides.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        return;
+      }
+
+      const j = await resp.json();
+      const pdfDataUrl = j?.pdfDataUrl || "";
+      if (!pdfDataUrl.startsWith("data:application/pdf")) throw new Error("pdfDataUrl が不正です");
+      downloadDataUrl(pdfDataUrl, "slides.pdf");
+    } catch (e) {
+      console.error(e);
+      const msg = String(e?.message || e);
+      alert(`PDF書き出しに失敗しました: ${msg}`);
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
   const requestExportPNGFromMenu = () => {
     if (!canExport) return;
@@ -674,6 +695,7 @@ export default function SlideAIProHome() {
       <div
         className="page"
         onClick={() => {
+          // menu / edit open 中は blur を走らせない
           if (isMenuOpen || editOpen) return;
           try {
             document.activeElement?.blur?.();
@@ -832,6 +854,7 @@ export default function SlideAIProHome() {
 
         {(isSending || isExporting) && <ProgressOverlay progress={isExporting ? 88 : progress} />}
 
+        {/* ★ここが本題：編集UIを“実際に使う” */}
         <SlideEditModal
           open={editOpen}
           slide={editSlide}
@@ -1056,6 +1079,7 @@ export default function SlideAIProHome() {
             box-shadow: 0 12px 28px rgba(64, 110, 255, 0.12);
           }
 
+          /* ===== Side Menu ===== */
           .menuOverlay {
             position: fixed;
             inset: 0;

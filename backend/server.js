@@ -45,7 +45,7 @@ const recordingsRouter = require('./routes/recordings');
 const livekitRoomsRouter = require('./routes/livekitRooms');
 const formatsPromptRouter = require('./routes/formatsPrompt');
 
-const slideaiproScreenshotExportRouter = require("./routes/slideaiproScreenshotExport");
+
 const buildSlideaiproAgendaJsonRouter = require('./routes/slideaiproAgendaJson');
 const slideaiproImageLow = require("./routes/slideaiproImageLow");
 const slideaiproPngToPdfRouter = require("./routes/slideaiproPngToPdf");
@@ -306,7 +306,6 @@ const jsonParser2mb = express.json({
 // ★ png-to-pdf だけは巨大JSONなので、ここでは parse しない（ルータ側 80mb に任せる）
 app.use((req, res, next) => {
   if (req.originalUrl.startsWith("/api/slideaipro/png-to-pdf")) return next();
-  if (req.originalUrl.startsWith("/api/slideaipro/screenshot-export")) return next();
   return jsonParser2mb(req, res, next);
 });
 
@@ -345,7 +344,6 @@ app.use('/api', formatsPromptRouter);
 app.use('/api/slideaipro', buildSlideaiproAgendaJsonRouter({ callGemini, resolveLocale, logLong }));
 app.use("/api/slideaipro", slideaiproImageLow);
 app.use("/api/slideaipro", slideaiproPngToPdfRouter);
-app.use("/api/slideaipro", slideaiproScreenshotExportRouter);
 
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
