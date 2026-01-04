@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { toPng } from "html-to-image";
+import { toPng, getFontEmbedCSS } from "html-to-image";
 import { GiAtom, GiHamburgerMenu } from "react-icons/gi";
 import SlideDeck from "../../components/slideaipro/SlideDeck";
 import SlideEditModal from "../../components/slideaipro/SlideEditModal";
@@ -293,6 +293,68 @@ function buildSlidesFromAgenda({ brief, agenda, subtitleDate }) {
   return out;
 }
 
+function getStableNodeSize(node) {
+  const sw = Math.round(node?.scrollWidth || 0);   // transform の影響を受けにくい
+  const sh = Math.round(node?.scrollHeight || 0);
+  const ow = Math.round(node?.offsetWidth || 0);
+  const oh = Math.round(node?.offsetHeight || 0);
+  const rect = node?.getBoundingClientRect?.() || { width: 0, height: 0 };
+  const bw = Math.round(rect.width || 0);
+  const bh = Math.round(rect.height || 0);
+
+  const w = sw || ow || bw || 1;
+  const h = sh || oh || bh || 1;
+  return { w: Math.max(1, w), h: Math.max(1, h) };
+}
+
+async function withExportingDOM(fn) {
+  const html = document.documentElement;
+  const prev = html.getAttribute("data-exporting");
+  html.setAttribute("data-exporting", "1");
+
+  // CSS適用を1フレーム待つ（これがないと“書き出し中CSS”が間に合わない）
+  await new Promise((r) => requestAnimationFrame(r));
+
+  try {
+    return await fn();
+  } finally {
+    if (prev == null) html.removeAttribute("data-exporting");
+    else html.setAttribute("data-exporting", prev);
+    await new Promise((r) => requestAnimationFrame(r));
+  }
+}
+
+async function captureSlidePng(node, { bg, pixelRatio = 2 }) {
+  const { w, h } = getStableNodeSize(node);
+
+  // WebFontを埋め込んでフォールバックを防ぐ（太さ/改行ズレの主要因を潰す）
+  let fontEmbedCSS = "";
+  try {
+    fontEmbedCSS = await getFontEmbedCSS(node);
+  } catch {}
+
+  const style = { width: `${w}px`, height: `${h}px` };
+
+  // もし node 自身に transform が載っていた場合だけ無効化（親のtransformは元々ここに出ない）
+  try {
+    const t = window.getComputedStyle(node).transform;
+    if (t && t !== "none") style.transform = "none";
+  } catch {}
+
+  const dataUrl = await toPng(node, {
+    cacheBust: true,
+    pixelRatio,
+    backgroundColor: bg,
+    width: w,
+    height: h,
+    style,
+    fontEmbedCSS: fontEmbedCSS || undefined,
+  });
+
+  return { dataUrl, w, h };
+}
+
+
 export default function SlideAIProHome() {
   const router = useRouter();
 
@@ -542,44 +604,44 @@ export default function SlideAIProHome() {
   const hasPrefetched = Object.keys(imageUrlByKey || {}).length > 0;
   const canExport = (slidesState?.length || 0) > 0 && !isSending && !isExporting;
 
-  const handleExportPNG = async () => {
-    if (!canExport) return;
-    setIsExporting(true);
+const handleExportPNG = async () => {
+  if (!canExport) return;
+  setIsExporting(true);
 
-    try {
-      const root = document.getElementById("slidesRoot");
-      if (!root) throw new Error("slidesRoot が見つかりません");
+  try {
+    const root = document.getElementById("slidesRoot");
+    if (!root) throw new Error("slidesRoot が見つかりません");
 
-      if (document?.fonts?.ready) {
-        try {
-          await document.fonts.ready;
-        } catch {}
-      }
-      await waitImagesIn(root);
-      await new Promise((r) => requestAnimationFrame(r));
+    if (document?.fonts?.ready) {
+      try {
+        await document.fonts.ready;
+      } catch {}
+    }
 
-      const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
-      if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
+    await waitImagesIn(root);
+    await new Promise((r) => requestAnimationFrame(r));
 
-      const bg = isIntelMode ? "#0b1220" : "#ffffff";
+    const pages = Array.from(root.querySelectorAll('[data-slide-page="true"]'));
+    if (!pages.length) throw new Error("キャプチャ対象スライドが0枚です");
 
+    const bg = isIntelMode ? "#0b1220" : "#ffffff";
+
+    await withExportingDOM(async () => {
       for (let i = 0; i < pages.length; i++) {
         const node = pages[i];
-        const dataUrl = await toPng(node, {
-          cacheBust: true,
-          pixelRatio: 2,
-          backgroundColor: bg,
-        });
+        const { dataUrl } = await captureSlidePng(node, { bg, pixelRatio: 2 });
         downloadDataUrl(dataUrl, `slide-${String(i + 1).padStart(2, "0")}.png`);
       }
-    } catch (e) {
-      console.error(e);
-      const msg = String(e?.message || e);
-      alert(`PNG書き出しに失敗しました: ${msg}`);
-    } finally {
-      setIsExporting(false);
-    }
-  };
+    });
+  } catch (e) {
+    console.error(e);
+    const msg = String(e?.message || e);
+    alert(`PNG書き出しに失敗しました: ${msg}`);
+  } finally {
+    setIsExporting(false);
+  }
+};
+
 
 // 追加：dataUrl -> Uint8Array
 function dataUrlToU8(dataUrl) {
@@ -617,6 +679,7 @@ const handleExportPDF = async () => {
         await document.fonts.ready;
       } catch {}
     }
+
     await waitImagesIn(root);
     await new Promise((r) => requestAnimationFrame(r));
 
@@ -625,44 +688,24 @@ const handleExportPDF = async () => {
 
     const bg = isIntelMode ? "#0b1220" : "#ffffff";
 
-    // PDF生成をクライアント完結にする（= 変なfit/scaleを排除）
     const { PDFDocument } = await import("pdf-lib");
     const pdf = await PDFDocument.create();
 
-    for (let i = 0; i < pages.length; i++) {
-      const node = pages[i];
+    await withExportingDOM(async () => {
+      for (let i = 0; i < pages.length; i++) {
+        const node = pages[i];
 
-      // ★ここが重要：キャプチャ寸法を整数に固定（clone時の微妙な差で折返しが変わるのを抑える）
-      const rect = node.getBoundingClientRect();
-      const w = Math.max(1, Math.round(rect.width));
-      const h = Math.max(1, Math.round(rect.height));
+        const { dataUrl, w, h } = await captureSlidePng(node, { bg, pixelRatio: 2 });
 
-      const dataUrl = await toPng(node, {
-        cacheBust: true,
-        pixelRatio: 2,
-        backgroundColor: bg,
+        const pngBytes = dataUrlToU8(dataUrl);
+        const png = await pdf.embedPng(pngBytes);
 
-        // “cloneのwidth/height” を固定して、ありのままのレイアウトでレンダさせる
-        width: w,
-        height: h,
-        style: {
-          width: `${w}px`,
-          height: `${h}px`,
-        },
-      });
-
-      const pngBytes = dataUrlToU8(dataUrl);
-      const png = await pdf.embedPng(pngBytes);
-
-      // ★これが「ありのまま」：PDFページサイズ＝PNGの実サイズ、貼り付けも等倍
-      const page = pdf.addPage([png.width, png.height]);
-      page.drawImage(png, {
-        x: 0,
-        y: 0,
-        width: png.width,
-        height: png.height,
-      });
-    }
+        // ページサイズは“DOMの本来サイズ”に固定し、画像はそこに等倍で貼る
+        // （pixelRatio=2 の高解像度PNGを縮小貼り付けするので文字が綺麗で、レイアウトもズレない）
+        const page = pdf.addPage([w, h]);
+        page.drawImage(png, { x: 0, y: 0, width: w, height: h });
+      }
+    });
 
     const pdfBytes = await pdf.save();
     downloadBlob(new Blob([pdfBytes], { type: "application/pdf" }), "slides.pdf");
@@ -674,6 +717,7 @@ const handleExportPDF = async () => {
     setIsExporting(false);
   }
 };
+
 
 
   const requestExportPNGFromMenu = () => {
@@ -1222,18 +1266,36 @@ const handleExportPDF = async () => {
           }
         `}</style>
 
-        <style jsx global>{`
-          html,
-          body,
-          #__next {
-            height: 100%;
-          }
-          body {
-            margin: 0;
-            overflow-x: hidden;
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-          }
-        `}</style>
+<style jsx global>{`
+  html,
+  body,
+  #__next {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* 文字の“太り”差を抑える（フォントが無い時の擬似ボールド等を抑制） */
+  [data-slide-page="true"] {
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  /* 書き出し中：余計なUI（Editボタン等）を消す＆動く要素を止める */
+  html[data-exporting="1"] [data-slide-page="true"] button {
+    visibility: hidden !important;
+  }
+  html[data-exporting="1"] * {
+    animation: none !important;
+    transition: none !important;
+    caret-color: transparent !important;
+  }
+`}</style>
+
       </div>
     </>
   );
