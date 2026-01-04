@@ -323,32 +323,89 @@ async function buildFontEmbedCSSSafe(node) {
   }
 }
 
+function applyExportNoWrapForBullets(scopeEl) {
+  if (!scopeEl) return () => {};
+
+  const touched = [];
+
+  // 「箇条書きっぽい要素」を広めに拾う（li が無い実装でも効かせる）
+  const candidates = scopeEl.querySelectorAll(
+    "li, [role='listitem'], .bullets *, .bullet *, .bulletLine, .bulletItem"
+  );
+
+  candidates.forEach((el) => {
+    if (!el || el.nodeType !== 1) return;
+
+    const text = String(el.innerText || "").trim();
+    if (!text) return;
+
+    const isLikelyBullet =
+      el.tagName === "LI" ||
+      text.startsWith("•") ||
+      text.startsWith("・") ||
+      text.startsWith("●");
+
+    if (!isLikelyBullet) return;
+
+    touched.push([
+      el,
+      {
+        whiteSpace: el.style.whiteSpace,
+        wordBreak: el.style.wordBreak,
+        overflowWrap: el.style.overflowWrap,
+        lineBreak: el.style.lineBreak,
+      },
+    ]);
+
+    // ★本命：折り返し禁止
+    el.style.whiteSpace = "nowrap";
+    // 日本語の不自然な分割をさらに抑える
+    el.style.wordBreak = "keep-all";
+    el.style.overflowWrap = "normal";
+    el.style.lineBreak = "strict";
+  });
+
+  return () => {
+    touched.forEach(([el, prev]) => {
+      el.style.whiteSpace = prev.whiteSpace;
+      el.style.wordBreak = prev.wordBreak;
+      el.style.overflowWrap = prev.overflowWrap;
+      el.style.lineBreak = prev.lineBreak;
+    });
+  };
+}
+
+
 async function captureNodeToPngStable(node, { bg, pixelRatio, fontEmbedCSS }) {
   const rect = node.getBoundingClientRect();
-
-  // clientWidth/Height じゃなく rect を採用（ズレの主因を潰す）
   const width = Math.max(1, Math.round(rect.width));
   const height = Math.max(1, Math.round(rect.height));
 
-  return await toPng(node, {
-    cacheBust: true,
-    pixelRatio: pixelRatio || 2,
-    backgroundColor: bg,
+  // ★追加：キャプチャ直前に「箇条書き nowrap」を強制
+  const revert = applyExportNoWrapForBullets(node);
+  await nextFrame(1);
 
-    // ★ここが本命：キャプチャ時のレイアウト幅を固定
-    width,
-    height,
-    style: {
-      width: `${width}px`,
-      height: `${height}px`,
-      transform: "none",
-      transformOrigin: "top left",
-    },
-
-    // フォント埋め込み（取れなければ空文字でOK）
-    fontEmbedCSS: fontEmbedCSS || "",
-  });
+  try {
+    return await toPng(node, {
+      cacheBust: true,
+      pixelRatio: pixelRatio || 2,
+      backgroundColor: bg,
+      width,
+      height,
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
+        transform: "none",
+        transformOrigin: "top left",
+      },
+      fontEmbedCSS: fontEmbedCSS || "",
+    });
+  } finally {
+    // ★必ず元に戻す
+    revert();
+  }
 }
+
 
 export default function SlideAIProHome() {
   const router = useRouter();
