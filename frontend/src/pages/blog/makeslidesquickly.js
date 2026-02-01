@@ -142,6 +142,7 @@ export default function BlogSlideAIQuick({ canonicalPath = "/blog/makeslidesquic
     "/images/slideai/generated-slide-4.jpg",
     "/images/slideai/generated-slide-5.jpg",
     "/images/slideai/generated-slide-6.jpg",
+    "/images/slideai/generated-slide-7.jpg",
   ];
 
   return (
