@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Werelds snelste AI-app voor presentaties: SlideAIPro",
+    "description": "Maak professionele presentaties in minder dan 60 seconden. Voer een thema in en klaar. De toekomst van slide-design is hier op iOS.",
+    "ogTitle": "SlideAIPro: Van prompt naar presentatie in seconden",
+    "ogDescription": "Het tijdperk van handmatig formatteren is voorbij. Ervaar de snelste AI-presentatiegenerator ter world.",
+    "ld": {
+      "headline": "Hoe u direct presentatieslides genereert met AI",
+      "description": "Een gids voor het gebruik van SlideAIPro om hoogwaardige zakelijke slides te maken van eenvoudige tekst."
+    }
+  },
+  "aria": { "home": "Sense AI Home" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Wereldwijde lancering",
+    "h1": "De snelste AI-presentatie-app ter wereld.",
+    "tagline": "Besteed geen uren aan lay-outs. Typ je thema, druk op één knop en ontvang een professionele presentatie in minder dan een minuut. Snel, mooi en moeiteloos.",
+    "subtag": "Exclusief voor iOS. Creëer onderweg."
+  },
+  "step1": {
+    "h2": "Eén prompt. Eén tik.",
+    "p1": "SlideAIPro is ontworpen voor snelheid. Voer eenvoudig je thema in of plak je aantekeningen. Geen complexe instellingen nodig.",
+    "p2": "Zodra je op 'Creëren' drukt, begint onze AI tegelijkertijd je verhaal te structureren en de visuals te ontwerpen.",
+    "label": "Eenvoudige & intuïtieve UI"
+  },
+  "performance": {
+    "h2": "Kwaliteit ontmoet snelheid",
+    "p1": "Ervaar resultaten van hoge kwaliteit in minder dan 60 seconden. Elke slide is logisch gestructureerd met passende lay-outs en iconen.",
+    "note": "Gegenereerd in ca. 45 seconden."
+  },
+  "editing": {
+    "h2": "Eenvoudig aanpassen",
+    "p1": "De AI doet het zware werk, maar jij bepaalt. Elk woord en elke slide kan na generatie worden bewerkt."
+  },
+  "features": {
+    "h2": "Waarom professionals voor SlideAIPro kiezen",
+    "items": [
+      {
+        "title": "Directe structurering",
+        "desc": "AI analyseert je prompt en verdeelt deze automatisch in een logische flow van slides."
+      },
+      {
+        "title": "Prachtige lay-outs",
+        "desc": "Vergeet uitlijning. Onze engine past professionele ontwerpprincipes toe op elke deck."
+      },
+      {
+        "title": "Volledige flexibiliteitt",
+        "desc": "Exporteer je slides en maak op elk gewenst moment snelle bewerkingen in de mobiele app."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Begin met presenteren, stop met formatteren.",
+    "sub": "Download SlideAIPro en ervaar de magie van directe slide-creatie.",
+    "button": "Downloaden in de App Store"
+  },
+  "meta": { "published": "Gepubliceerd", "category": "App-release" }
+}

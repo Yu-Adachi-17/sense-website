@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "A világ leggyorsabb AI dia-készítő alkalmazása: SlideAIPro",
+    "description": "Készíts professzionális bemutatókat kevesebb mint 60 másodperc alatt. Csak adj meg egy témát és kész. A prezentációtervezés jövője iOS-en.",
+    "ogTitle": "SlideAIPro: Promptból prezentáció pillanatok alatt",
+    "ogDescription": "A manuális formázás kora lejárt. Próbáld ki a világ leggyorsabb AI diakészítőjét.",
+    "ld": {
+      "headline": "Hogyan generálj prezentációs diákat azonnal AI-val",
+      "description": "Útmutató a SlideAIPro használatához, amellyel kiváló minőségű üzleti diákat készíthetsz szövegből."
+    }
+  },
+  "aria": { "home": "Sense AI Kezdőlap" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Globális indulás",
+    "h1": "A világ leggyorsabb AI dia-appja.",
+    "tagline": "Ne tölts órákat az elrendezéssel. Írd be a témát, nyomj meg egy gombot, és kapsz egy profi diasort kevesebb mint egy perc alatt. Gyors, szép és egyszerű.",
+    "subtag": "Exkluzívan iOS-re. Alkosst útközben."
+  },
+  "step1": {
+    "h2": "Egy prompt. Egy érintés.",
+    "p1": "A SlideAIPro-t a sebességre terveztük. Csak írd be a témát vagy másold be a jegyzeteid. Nincsenek bonyolult beállítások.",
+    "p2": "Amint a 'Létrehozás' gombra kattintasz, az AI motorunk egyszerre építi fel a narratívát és tervezi meg a látványt.",
+    "label": "Egyszerű és intuitív felület"
+  },
+  "performance": {
+    "h2": "Minőség és sebesség",
+    "p1": "Kiváló minőségű eredmény kevesebb mint 60 másodperc alatt. Minden dia logikusan felépített, profi elrendezéssel és ikonokkal.",
+    "note": "Generálva kb. 45 másodperc alatt."
+  },
+  "editing": {
+    "h2": "Szerkesztés könnyedén",
+    "p1": "Az AI elvégzi a munkát, de a végső döntés a tiéd. Minden szó és dia szerkeszthető a generálás után."
+  },
+  "features": {
+    "h2": "Miért a SlideAIPro-t választják a profik?",
+    "items": [
+      {
+        "title": "Azonnali strukturálás",
+        "desc": "Az AI elemzi a promptodat és automatikusan logikus diákra bontja azt."
+      },
+      {
+        "title": "Lenyűgöző elrendezések",
+        "desc": "Felejtsd el az igazítást. Motorunk profi tervezési elveket alkalmaz minden prezentációnál."
+      },
+      {
+        "title": "Teljes rugalmasság",
+        "desc": "Exportáld a diáidat és végezz gyors módosításokat bárhol a mobilalkalmazásban."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Prezentálj többet, formázz kevesebbet.",
+    "sub": "Töltsd le a SlideAIPro-t és éld át az azonnali diakészítés varázsát.",
+    "button": "Letöltés az App Store-ból"
+  },
+  "meta": { "published": "Közzétéve", "category": "Alkalmazás kiadás" }
+}

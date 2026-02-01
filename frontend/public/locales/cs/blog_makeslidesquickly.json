@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Nejrychlejší AI aplikace na tvorbu prezentací: SlideAIPro",
+    "description": "Vytvořte profesionální prezentace za méně než 60 sekund. Stačí zadat téma a kliknout. Budoucnost designu prezentací je na iOS.",
+    "ogTitle": "SlideAIPro: Od zadání k prezentaci během pár sekund",
+    "ogDescription": "Éra ručního formátování končí. Vyzkoušejte nejrychlejší AI generátor prezentací na světě.",
+    "ld": {
+      "headline": "Jak okamžitě generovat prezentace pomocí AI",
+      "description": "Návod, jak používat SlideAIPro k tvorbě kvalitních byznys prezentací z jednoduchého textu."
+    }
+  },
+  "aria": { "home": "Sense AI Domů" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Globální spuštění",
+    "h1": "Nejrychlejší AI aplikace na prezentace.",
+    "tagline": "Neztrácejte hodiny s rozložením. Napište téma, stiskněte tlačítko a získejte profesionální prezentaci za méně než minutu. Rychle, krásně a bez námahy.",
+    "subtag": "Exkluzivně pro iOS. Tvořte na cestách."
+  },
+  "step1": {
+    "h2": "Jedno zadání. Jedno klepnutí.",
+    "p1": "SlideAIPro je navržen pro rychlost. Jednoduše zadejte téma nebo vložte poznámky. Žádné složité nastavování.",
+    "p2": "Jakmile stisknete tlačítko 'Vytvořit', naše AI začne současně strukturovat text i navrhovat vizuál.",
+    "label": "Jednoduché a intuitivní UI"
+  },
+  "performance": {
+    "h2": "Kvalita a rychlost",
+    "p1": "Špičkový výstup za méně než 60 sekund. Každý snímek má logickou strukturu, správné rozvržení, ikony a klíčové body.",
+    "note": "Vygenerováno za cca 45 sekund."
+  },
+  "editing": {
+    "h2": "Snadné úpravy",
+    "p1": "AI se postará o základ, ale poslední slovo máte vy. Každé slovo a snímek lze po vygenerování upravit."
+  },
+  "features": {
+    "h2": "Proč profesionálové volí SlideAIPro",
+    "items": [
+      {
+        "title": "Okamžitá struktura",
+        "desc": "AI analyzuje vaše zadání a automaticky ho rozdělí do logického toku snímků."
+      },
+      {
+        "title": "Skvělý design",
+        "desc": "Zapomeňte na zarovnávání. Náš engine aplikuje profesionální designové principy."
+      },
+      {
+        "title": "Plná flexibilita",
+        "desc": "Exportujte snímky a provádějte rychlé úpravy přímo v mobilní aplikaci."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Prezentujte, neformátujte.",
+    "sub": "Stáhněte si SlideAIPro a zažijte kouzlo okamžité tvorby prezentací.",
+    "button": "Stáhnout v App Store"
+  },
+  "meta": { "published": "Publikováno", "category": "Vydání aplikace" }
+}

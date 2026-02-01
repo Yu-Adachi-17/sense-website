@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Weltweit schnellste KI-App zur Folien-Erstellung: SlideAIPro",
+    "description": "Erstellen Sie professionelle Präsentationen in weniger als 60 Sekunden. Thema eingeben, auf Erstellen klicken – fertig. Die Zukunft des Designs auf iOS.",
+    "ogTitle": "SlideAIPro: Vom Prompt zur Präsentation in Sekunden",
+    "ogDescription": "Schluss mit manuellem Formatieren. Erleben Sie den schnellsten KI-Präsentationsgenerator der Welt.",
+    "ld": {
+      "headline": "So erstellen Sie Präsentationsfolien sofort mit KI",
+      "description": "Ein Leitfaden zur Nutzung von SlideAIPro, um hochwertige Business-Folien aus einfachen Texten zu generieren."
+    }
+  },
+  "aria": { "home": "Sense AI Startseite" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Globaler Launch",
+    "h1": "Die schnellste KI-Folien-App der Welt.",
+    "tagline": "Verschwenden Sie keine Stunden mit Layouts. Thema eingeben, Button drücken und in unter einer Minute ein professionelles Deck erhalten. Schnell, schön, mühelos.",
+    "subtag": "Exklusiv für iOS. Erstellen von überall."
+  },
+  "step1": {
+    "h2": "Ein Prompt. Ein Klick.",
+    "p1": "SlideAIPro ist auf Geschwindigkeit ausgelegt. Geben Sie einfach Ihr Thema ein oder kopieren Sie Notizen in das Feld. Keine komplexen Einstellungen nötig.",
+    "p2": "Sobald Sie 'Erstellen' klicken, strukturiert unsere KI Ihre Story und entwirft gleichzeitig das Design.",
+    "label": "Einfache & intuitive UI"
+  },
+  "performance": {
+    "h2": "Qualität trifft Speed",
+    "p1": "Hochwertige Ergebnisse in unter 60 Sekunden. Jede Folie ist logisch aufgebaut, inklusive passender Layouts, Icons und Fokus-Punkten.",
+    "note": "Erstellt in ca. 45 Sekunden."
+  },
+  "editing": {
+    "h2": "Mühelose Feinabstimmung",
+    "p1": "Die KI liefert die Basis, Sie haben das letzte Wort. Jedes Wort und jede Folie kann nach der Erstellung individuell angepasst werden."
+  },
+  "features": {
+    "h2": "Warum Profis SlideAIPro wählen",
+    "items": [
+      {
+        "title": "Sofortige Strukturierung",
+        "desc": "KI analysiert Ihren Prompt und erstellt automatisch einen logischen Folienfluss."
+      },
+      {
+        "title": "Beeindruckende Layouts",
+        "desc": "Vergessen Sie Ausrichtungs-Probleme. Unser System wendet Profi-Designprinzipien an."
+      },
+      {
+        "title": "Volle Flexibilität",
+        "desc": "Exportieren Sie Folien und bearbeiten Sie diese jederzeit direkt in der mobilen App."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Präsentieren statt Formatieren.",
+    "sub": "Laden Sie SlideAIPro und erleben Sie die Magie der sofortigen Folienerstellung.",
+    "button": "Im App Store laden"
+  },
+  "meta": { "published": "Veröffentlicht", "category": "App-Release" }
+}

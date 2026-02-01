@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "O App de IA para Criar Slides Mais Rápido do Mundo: SlideAIPro",
+    "description": "Crie apresentações profissionais em menos de 60 segundos. Basta inserir um tema e clicar. O futuro do design de slides chegou ao iOS.",
+    "ogTitle": "SlideAIPro: Do prompt à apresentação em segundos",
+    "ogDescription": "A era da formatação manual acabou. Conheça o gerador de slides de IA mais rápido do mundo.",
+    "ld": {
+      "headline": "Como gerar slides de apresentação instantaneamente com IA",
+      "description": "Um guia para usar o SlideAIPro e criar slides de negócios de alta qualidade a partir de textos simples."
+    }
+  },
+  "aria": { "home": "Sense AI Início" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Lançamento Global",
+    "h1": "O App de Slides com IA mais rápido do mundo.",
+    "tagline": "Não gaste horas com layouts. Digite seu tema, aperte um botão e receba uma apresentação profissional em menos de um minuto. Rápido, bonito e sem esforço.",
+    "subtag": "Exclusivo para iOS. Crie de onde estiver."
+  },
+  "step1": {
+    "h2": "Um prompt. Um toque.",
+    "p1": "O SlideAIPro foi feito para voar. Insira o tema ou cole suas anotações. Sem configurações complexas.",
+    "p2": "Ao clicar em 'Criar', nossa IA estrutura sua narrativa e desenha o visual ao mesmo tempo.",
+    "label": "Interface Simples e Intuitiva"
+  },
+  "performance": {
+    "h2": "Qualidade com Velocidade",
+    "p1": "Resultados de alta qualidade entregues em menos de 60 segundos. Cada slide é estruturado logicamente com layouts e ícones profissionais.",
+    "note": "Gerado em aprox. 45 segundos."
+  },
+  "editing": {
+    "h2": "Ajustes com Facilidade",
+    "p1": "A IA faz o grosso, mas você dá a última palavra. Cada palavra e slide pode ser editado após a geração."
+  },
+  "features": {
+    "h2": "Por que profissionais escolhem o SlideAIPro",
+    "items": [
+      {
+        "title": "Estruturação Instantânea",
+        "desc": "A IA analisa seu prompt e o divide em um fluxo lógico de slides automaticamente."
+      },
+      {
+        "title": "Layouts Incríveis",
+        "desc": "Esqueça o alinhamento. Nosso motor aplica princípios de design profissional a cada deck."
+      },
+      {
+        "title": "Flexibilidade Total",
+        "desc": "Exporte seus slides e faça edições rápidas direto no app mobile a qualquer hora."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Comece a apresentar, pare de formatar.",
+    "sub": "Baixe o SlideAIPro e experimente a magia da criação instantânea de slides.",
+    "button": "Baixar na App Store"
+  },
+  "meta": { "published": "Publicado", "category": "Lançamento de App" }
+}

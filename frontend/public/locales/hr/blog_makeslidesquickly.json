@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Najbrža AI aplikacija za izradu slajdova: SlideAIPro",
+    "description": "Izradite profesionalne prezentacije za manje od 60 sekundi. Unesite temu i započnite. Budućnost dizajna slajdova je na iOS-u.",
+    "ogTitle": "SlideAIPro: Od ideje do prezentacije u sekundi",
+    "ogDescription": "Era ručnog formatiranja je završena. Isprobajte najbrži AI generator slajdova na svijetu.",
+    "ld": {
+      "headline": "Kako trenutno generirati prezentacijske slajdove uz AI",
+      "description": "Vodič za korištenje SlideAIPro za izradu visokokvalitetnih poslovnih slajdova iz jednostavnog teksta."
+    }
+  },
+  "aria": { "home": "Sense AI Početna" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Globalno lansiranje",
+    "h1": "Najbrža AI aplikacija za slajdove na svijetu.",
+    "tagline": "Ne trošite sate na izgled. Upišite temu, pritisnite jedan gumb i dobijte profesionalnu prezentaciju za manje od minute. Brzo, lijepo i bez truda.",
+    "subtag": "Ekskluzivno za iOS. Stvarajte u pokretu."
+  },
+  "step1": {
+    "h2": "Jedan prompt. Jedan dodir.",
+    "p1": "SlideAIPro je dizajniran za brzinu. Jednostavno unesite temu ili zalijepite bilješke. Nema kompliciranih postavki.",
+    "p2": "Nakon što pritisnete 'Stvori', naš AI motor istovremeno strukturira vašu priču i dizajnira vizuale.",
+    "label": "Jednostavno i intuitivno sučelje"
+  },
+  "performance": {
+    "h2": "Kvaliteta i brzina",
+    "p1": "Vrhunski rezultati za manje od 60 sekundi. Svaki slajd je logično strukturiran s profesionalnim rasporedom i ikonama.",
+    "note": "Generirano za otprilike 45 sekundi."
+  },
+  "editing": {
+    "h2": "Lako uređivanje",
+    "p1": "AI obavlja teški posao, ali vi imate zadnju riječ. Svaka riječ i svaki slajd mogu se urediti nakon generiranja."
+  },
+  "features": {
+    "h2": "Zašto profesionalci biraju SlideAIPro",
+    "items": [
+      {
+        "title": "Instant strukturiranje",
+        "desc": "AI analizira vaš upit i automatski ga dijeli u logičan slijed slajdova."
+      },
+      {
+        "title": "Sjajni izgledi",
+        "desc": "Zaboravite na poravnavanje. Naš sustav primjenjuje profesionalna dizajnerska načela."
+      },
+      {
+        "title": "Potpuna fleksibilnost",
+        "desc": "Izvezite svoje slajdove i napravite brze izmjene izravno u mobilnoj aplikaciji."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Počnite izlagati, prestanite formatirati.",
+    "sub": "Preuzmite SlideAIPro i doživite magiju trenutne izrade slajdova.",
+    "button": "Preuzmite na App Storeu"
+  },
+  "meta": { "published": "Objavljeno", "category": "Lansiranje aplikacije" }
+}

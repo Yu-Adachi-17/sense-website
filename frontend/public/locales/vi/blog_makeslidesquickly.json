@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Ứng dụng tạo Slide bằng AI nhanh nhất thế giới: SlideAIPro",
+    "description": "Tạo bài thuyết trình chuyên nghiệp trong chưa đầy 60 giây. Chỉ cần nhập chủ đề và nhấn tạo. Tương lai của thiết kế slide đã có mặt trên iOS.",
+    "ogTitle": "SlideAIPro: Từ ý tưởng đến bài thuyết trình trong vài giây",
+    "ogDescription": "Thời đại định dạng thủ công đã kết thúc. Trải nghiệm trình tạo slide AI nhanh nhất thế giới.",
+    "ld": {
+      "headline": "Cách tạo slide thuyết trình ngay lập tức với AI",
+      "description": "Hướng dẫn sử dụng SlideAIPro để tạo các slide kinh doanh chất lượng cao từ văn bản đơn giản."
+    }
+  },
+  "aria": { "home": "Sense AI Trang chủ" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Ra mắt Toàn cầu",
+    "h1": "Ứng dụng Slide AI nhanh nhất thế giới.",
+    "tagline": "Đừng tốn hàng giờ cho bố cục. Nhập chủ đề, nhấn một nút và nhận ngay bộ slide chuyên nghiệp trong chưa đầy một phút. Nhanh, đẹp và không tốn sức.",
+    "subtag": "Dành riêng cho iOS. Sáng tạo mọi lúc mọi nơi."
+  },
+  "step1": {
+    "h2": "Một ý tưởng. Một lần chạm.",
+    "p1": "SlideAIPro được thiết kế cho tốc độ. Chỉ cần nhập chủ đề bạn muốn hoặc dán các ghi chú sơ sài. Không cần cài đặt phức tạp.",
+    "p2": "Ngay khi bạn nhấn nút 'Tạo', công cụ AI tiên tiến của chúng tôi sẽ bắt đầu xây dựng nội dung và thiết kế hình ảnh cùng lúc.",
+    "label": "Giao diện đơn giản & Trực quan"
+  },
+  "performance": {
+    "h2": "Chất lượng song hành cùng Tốc độ",
+    "p1": "Chứng kiến kết quả chất lượng cao trong chưa đầy 60 giây. Mỗi slide được cấu trúc logic với bố cục và biểu tượng phù hợp.",
+    "note": "Được tạo trong khoảng 45 giây."
+  },
+  "editing": {
+    "h2": "Tinh chỉnh dễ dàng",
+    "p1": "AI chuẩn bị nền tảng, nhưng bạn là người quyết định cuối cùng. Mọi từ ngữ và slide đều có thể chỉnh sửa sau khi tạo."
+  },
+  "features": {
+    "h2": "Tại sao các chuyên gia chọn SlideAIPro",
+    "items": [
+      {
+        "title": "Cấu trúc tức thì",
+        "desc": "AI phân tích ý tưởng của bạn và tự động chia thành luồng slide hợp lý."
+      },
+      {
+        "title": "Bố cục tuyệt đẹp",
+        "desc": "Quên đi việc căn chỉnh. Công cụ của chúng tôi áp dụng các nguyên tắc thiết kế chuyên nghiệp."
+      },
+      {
+        "title": "Linh hoạt tối đa",
+        "desc": "Xuất slide và chỉnh sửa nhanh trực tiếp trong ứng dụng di động bất cứ lúc nào."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Bắt đầu thuyết trình, ngưng làm định dạng.",
+    "sub": "Tải xuống SlideAIPro và trải nghiệm phép màu của việc tạo slide tức thì.",
+    "button": "Tải về trên App Store"
+  },
+  "meta": { "published": "Đã xuất bản", "category": "Ra mắt ứng dụng" }
+}

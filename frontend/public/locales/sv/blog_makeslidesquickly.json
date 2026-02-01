@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Världens snabbaste AI-app för presentationer: SlideAIPro",
+    "description": "Skapa professionella presentationer på under 60 sekunder. Ange ett tema och kör. Framtidens design är här på iOS.",
+    "ogTitle": "SlideAIPro: Från idé till presentation på sekunder",
+    "ogDescription": "Eran av manuell formatering är över. Upplev världens snabbaste AI-generator för slides.",
+    "ld": {
+      "headline": "Så här genererar du presentationer direkt med AI",
+      "description": "En guide till hur du använder SlideAIPro för att skapa högkvalitativa företagspresentationer från text."
+    }
+  },
+  "aria": { "home": "Sense AI Hem" },
+  "nav": { "blog": "Blogg", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Global lansering",
+    "h1": "Världens snabbaste AI-app för slides.",
+    "tagline": "Sluta lägga timmar på layout. Skriv in ditt tema, tryck på en knapp och få ett proffsigt bildspel på under en minut. Snabbt, snyggt och enkelt.",
+    "subtag": "Exklusivt för iOS. Skapa var du än är."
+  },
+  "step1": {
+    "h2": "En prompt. Ett tryck.",
+    "p1": "SlideAIPro är byggd för snabbhet. Ange bara ditt tema eller klistra in dina anteckningar. Inga krångliga inställningar.",
+    "p2": "När du trycker på 'Skapa' börjar vår AI-motor bygga strukturen och designa det visuella samtidigt.",
+    "label": "Enkelt och intuitivt gränssnitt"
+  },
+  "performance": {
+    "h2": "Kvalitet möter snabbhet",
+    "p1": "Se resultat av hög kvalitet på under 60 sekunder. Varje slide är logiskt strukturerad med proffsig layout och ikoner.",
+    "note": "Genererad på ca 45 sekunder."
+  },
+  "editing": {
+    "h2": "Smidig finjustering",
+    "p1": "AI:n gör jobbet, men du bestämmer. Varje ord och slide kan redigeras efter generering."
+  },
+  "features": {
+    "h2": "Varför proffsen väljer SlideAIPro",
+    "items": [
+      {
+        "title": "Omedelbar struktur",
+        "desc": "AI:n analyserar din prompt och delar upp den i ett logiskt flöde av slides."
+      },
+      {
+        "title": "Snygga layouter",
+        "desc": "Glöm allt om att flytta boxar. Vår motor applicerar proffsiga designprinciper."
+      },
+      {
+        "title": "Full flexibilitet",
+        "desc": "Exportera dina slides och gör snabba ändringar direkt i mobilappen."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Presentera mer, formatera mindre.",
+    "sub": "Ladda ner SlideAIPro och upplev magin med direktpresentationer.",
+    "button": "Hämta i App Store"
+  },
+  "meta": { "published": "Publicerad", "category": "App-släpp" }
+}

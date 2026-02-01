@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Najszybsza na świecie aplikacja AI do tworzenia slajdów: SlideAIPro",
+    "description": "Twórz profesjonalne prezentacje w mniej niż 60 sekund. Wpisz temat i gotowe. Przyszłość projektowania slajdów na iOS.",
+    "ogTitle": "SlideAIPro: Od pomysłu do prezentacji w kilka sekund",
+    "ogDescription": "Koniec z ręcznym formatowaniem. Poznaj najszybszy generator slajdów AI na świecie.",
+    "ld": {
+      "headline": "Jak błyskawicznie generować slajdy prezentacji za pomocą AI",
+      "description": "Przewodnik po SlideAIPro: twórz wysokiej jakości slajdy biznesowe z prostych tekstów."
+    }
+  },
+  "aria": { "home": "Sense AI Strona główna" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Globalna premiera",
+    "h1": "Najszybsza aplikacja do slajdów AI na świecie.",
+    "tagline": "Nie marnuj godzin na układanie treści. Wpisz temat, naciśnij jeden przycisk i otrzymaj profesjonalną prezentację w mniej niż minutę. Szybko, pięknie i bez wysiłku.",
+    "subtag": "Wyłącznie na iOS. Twórz w podróży."
+  },
+  "step1": {
+    "h2": "Jeden temat. Jedno kliknięcie.",
+    "p1": "SlideAIPro stawia na szybkość. Wpisz temat lub wklej notatki. Żadnych skomplikowanych ustawień.",
+    "p2": "Gdy klikniesz „Utwórz”, nasz silnik AI zacznie jednocześnie budować strukturę i projektować wizualizacje.",
+    "label": "Prosty i intuicyjny interfejs"
+  },
+  "performance": {
+    "h2": "Jakość i szybkość",
+    "p1": "Zobacz profesjonalne rezultaty w mniej niż 60 sekund. Każdy slajd jest logicznie ułożony, z odpowiednim układem i ikonami.",
+    "note": "Wygenerowano w ok. 45 sekund."
+  },
+  "editing": {
+    "h2": "Łatwa edycja",
+    "p1": "AI robi swoje, ale Ty decydujesz o finale. Każde słowo i slajd możesz edytować po wygenerowaniu."
+  },
+  "features": {
+    "h2": "Dlaczego profesjonaliści wybierają SlideAIPro",
+    "items": [
+      {
+        "title": "Błyskawiczna struktura",
+        "desc": "AI analizuje temat i automatycznie dzieli go na logiczny ciąg slajdów."
+      },
+      {
+        "title": "Świetne układy",
+        "desc": "Zapomnij o wyrównywaniu. Nasz silnik stosuje profesjonalne zasady projektowania."
+      },
+      {
+        "title": "Pełna elastyczność",
+        "desc": "Eksportuj slajdy i wprowadzaj szybkie poprawki bezpośrednio w aplikacji mobilnej."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Prezentuj, zamiast formatować.",
+    "sub": "Pobierz SlideAIPro i poczuj magię błyskawicznego tworzenia slajdów.",
+    "button": "Pobierz w App Store"
+  },
+  "meta": { "published": "Opublikowano", "category": "Premiera aplikacji" }
+}

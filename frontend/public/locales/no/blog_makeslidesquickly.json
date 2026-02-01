@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Verdens raskeste AI-app for presentasjoner: SlideAIPro",
+    "description": "Lag profesjonelle presentasjoner på under 60 sekunder. Skriv inn et tema og trykk på 'lag'. Fremtidens lysbilde-design er her på iOS.",
+    "ogTitle": "SlideAIPro: Fra idé til presentasjon på sekunder",
+    "ogDescription": "Tiden for manuell formatering er forbi. Opplev verdens raskeste AI-generator for presentasjoner.",
+    "ld": {
+      "headline": "Slik genererer du presentasjonsbilder umiddelbart med AI",
+      "description": "En guide til bruk av SlideAIPro for å lage forretningsslides av høy kvalitet fra enkel tekst."
+    }
+  },
+  "aria": { "home": "Sense AI Hjem" },
+  "nav": { "blog": "Blogg", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Global lansering",
+    "h1": "Verdens raskeste AI-app for presentasjoner.",
+    "tagline": "Ikke kast bort timer på oppsett. Skriv inn temaet ditt, trykk på én knapp, og få en profesjonell presentasjon på under ett minutt. Raskt, vakkert og uanstrengt.",
+    "subtag": "Eksklusivt for iOS. Lag ting på farten."
+  },
+  "step1": {
+    "h2": "Én prompt. Ett trykk.",
+    "p1": "SlideAIPro er bygget for hastighet. Bare skriv inn ønsket tema eller lim inn notatene dine. Ingen kompliserte innstillinger.",
+    "p2": "Med en gang du trykker på 'Lag', begynner AI-motoren vår å strukturere innholdet og designe det visuelle samtidig.",
+    "label": "Enkelt og intuitivt grensesnitt"
+  },
+  "performance": {
+    "h2": "Kvalitet og hastighet",
+    "p1": "Opplev resultater av høy kvalitet på under 60 sekunder. Hvert lysbilde er logisk strukturert med profesjonelle oppsett.",
+    "note": "Generert på ca. 45 sekunder."
+  },
+  "editing": {
+    "h2": "Enkel finjustering",
+    "p1": "AI-en gjør grovarbeidet, men du har det siste ordet. Hvert ord og hvert bilde kan redigeres etter generering."
+  },
+  "features": {
+    "h2": "Hvorfor profesjonelle velger SlideAIPro",
+    "items": [
+      {
+        "title": "Umiddelbar struktur",
+        "desc": "AI analyserer instruksen din og deler den automatisk opp i en logisk flyt av lysbilder."
+      },
+      {
+        "title": "Flotte oppsett",
+        "desc": "Glem alt om justering. Motoren vår bruker profesjonelle designprinsipper på hver presentasjon."
+      },
+      {
+        "title": "Full fleksibilitet",
+        "desc": "Eksporter lysbildene og gjør raske endringer direkte i mobilappen når som helst."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Begynn å presentere, slutt å formatere.",
+    "sub": "Last ned SlideAIPro og opplev magien med umiddelbar presentasjonsbygging.",
+    "button": "Last ned i App Store"
+  },
+  "meta": { "published": "Publisert", "category": "App-lansering" }
+}

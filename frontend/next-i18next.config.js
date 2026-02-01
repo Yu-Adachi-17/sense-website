@@ -44,7 +44,8 @@ module.exports = {
     'blog_meetinganalysis',
     'blog_slideaipro',
     'blog_androidformat' ,
-    'blog_bringinaudio' 
+    'blog_bringinaudio' ,
+    'blog_makeslidesquickly' ,
   ],
   defaultNS: 'common',
 

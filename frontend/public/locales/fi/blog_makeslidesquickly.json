@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Maailman nopein tekoälysovellus diojen luomiseen: SlideAIPro",
+    "description": "Luo ammattimaisia esityksiä alle 60 sekunnissa. Syötä aihe ja aloita. Diojen suunnittelun tulevaisuus on täällä iOS:llä.",
+    "ogTitle": "SlideAIPro: Kehotteesta esitykseksi sekunneissa",
+    "ogDescription": "Manuaalisen muotoilun aika on ohi. Koe maailman nopein tekoälypohjainen diatyökalu.",
+    "ld": {
+      "headline": "Miten luoda esityshioja välittömästi tekoälyllä",
+      "description": "Opas SlideAIPro-sovelluksen käyttöön korkealaatuisten bisnesdiojen luomiseksi tekstistä."
+    }
+  },
+  "aria": { "home": "Sense AI koti" },
+  "nav": { "blog": "Blogi", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Globaali julkaisu",
+    "h1": "Maailman nopein tekoälysovellus dioille.",
+    "tagline": "Älä tursaa tunteja asetteluun. Kirjoita aihe, paina nappia ja saat ammattimaisen esityksen alle minuutissa. Nopeaa, kaunista ja vaivatonta.",
+    "subtag": "Yksinoikeudella iOS:lle. Luo liikkeellä ollessasi."
+  },
+  "step1": {
+    "h2": "Yksi kehote. Yksi napautus.",
+    "p1": "SlideAIPro on suunniteltu nopeuteen. Syötä vain haluamasi aihe tai liitä muistiinpanosi. Ei monimutkaisia asetuksia.",
+    "p2": "Kun painat 'Luo'-painiketta, tekoälymoottorimme alkaa rakentaa sisältöä ja visuaalista ilmettä samanaikaisesti.",
+    "label": "Yksinkertainen ja intuitiivinen käyttöliittymä"
+  },
+  "performance": {
+    "h2": "Laatua ja nopeutta",
+    "p1": "Näe korkealaatuinen lopputulos alle 60 sekunnissa. Jokainen dia on loogisesti jäsennelty ammattimaisilla asetteluilla.",
+    "note": "Luotu n. 45 sekunnissa."
+  },
+  "editing": {
+    "h2": "Hienosäädä helposti",
+    "p1": "Tekoäly tekee pohjatyön, mutta sinä päätät lopullisesta muodosta. Kaikkea tekstiä ja dioja voi muokata luomisen jälkeen."
+  },
+  "features": {
+    "h2": "Miksi ammattilaiset valitsevat SlideAIPro:n",
+    "items": [
+      {
+        "title": "Välitön jäsentely",
+        "desc": "Tekoäly analysoi kehotteesi ja jakaa sen automaattisesti loogiseksi diavirraksi."
+      },
+      {
+        "title": "Upeat asettelut",
+        "desc": "Unohda tasaaminen. Moottorimme soveltaa ammattimaisia suunnitteluperiaatteita."
+      },
+      {
+        "title": "Täysi joustavuus",
+        "desc": "Vie diat ja tee nopeita muokkauksia suoraan mobiilisovelluksessa milloin vain."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Aloita esittäminen, lopeta muotoilu.",
+    "sub": "Lataa SlideAIPro ja koe välittömän diojen luomisen taika.",
+    "button": "Lataa App Storesta"
+  },
+  "meta": { "published": "Julkaistu", "category": "Sovellusjulkaisu" }
+}

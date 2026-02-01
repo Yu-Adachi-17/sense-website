@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Aplikasi Pembuat Slide AI Tercepat di Dunia: SlideAIPro",
+    "description": "Buat presentasi profesional dalam kurang dari 60 detik. Cukup masukkan tema dan klik buat. Masa depan desain slide hadir di iOS.",
+    "ogTitle": "SlideAIPro: Dari Prompt ke Presentasi dalam Hitungan Detik",
+    "ogDescription": "Era pemformatan manual telah berakhir. Rasakan generator slide AI tercepat di dunia.",
+    "ld": {
+      "headline": "Cara Membuat Slide Presentasi Instan dengan AI",
+      "description": "Panduan menggunakan SlideAIPro untuk membuat slide bisnis berkualitas tinggi dari teks sederhana."
+    }
+  },
+  "aria": { "home": "Sense AI Beranda" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Peluncuran Global",
+    "h1": "Aplikasi Slide AI Tercepat di Dunia.",
+    "tagline": "Jangan habiskan waktu berjam-jam untuk tata letak. Ketik tema Anda, tekan satu tombol, dan dapatkan deck slide profesional dalam waktu kurang dari satu menit.",
+    "subtag": "Eksklusif untuk iOS. Buat di mana saja."
+  },
+  "step1": {
+    "h2": "Satu Prompt. Satu Ketukan.",
+    "p1": "SlideAIPro dirancang untuk kecepatan. Cukup masukkan tema yang diinginkan atau tempel catatan kasar Anda. Tidak perlu pengaturan rumit.",
+    "p2": "Setelah Anda menekan tombol 'Buat', mesin AI canggih kami mulai menyusun narasi dan mendesain visual secara bersamaan.",
+    "label": "UI Sederhana & Intuitif"
+  },
+  "performance": {
+    "h2": "Kualitas Bertemu Kecepatan",
+    "p1": "Saksikan hasil berkualitas tinggi dalam kurang dari 60 detik. Setiap slide disusun secara logis dengan tata letak dan ikon yang sesuai.",
+    "note": "Dibuat dalam sekitar 45 detik."
+  },
+  "editing": {
+    "h2": "Edit dengan Mudah",
+    "p1": "AI menyiapkannya, tetapi Anda yang menentukan. Setiap kata dan slide dapat diedit setelah pembuatan untuk memastikan pesan Anda tersampaikan."
+  },
+  "features": {
+    "h2": "Mengapa Profesional Memilih SlideAIPro",
+    "items": [
+      {
+        "title": "Penstrukturan Instan",
+        "desc": "AI menganalisis prompt Anda dan membaginya ke dalam alur slide yang logis secara otomatis."
+      },
+      {
+        "title": "Tata Letak Menakjubkan",
+        "desc": "Lupakan soal perataan. Mesin kami menerapkan prinsip desain profesional pada setiap deck."
+      },
+      {
+        "title": "Fleksibilitas Penuh",
+        "desc": "Ekspor slide Anda dan lakukan pengeditan cepat langsung di aplikasi seluler kapan saja."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Mulai Presentasi, Berhenti Memformat.",
+    "sub": "Unduh SlideAIPro dan rasakan keajaiban pembuatan slide instan.",
+    "button": "Unduh di App Store"
+  },
+  "meta": { "published": "Diterbitkan", "category": "Rilis Aplikasi" }
+}

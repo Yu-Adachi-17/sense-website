@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Aplikasi Penciptaan Slaid AI Terpantas di Dunia: SlideAIPro",
+    "description": "Cipta pembentangan profesional dalam masa kurang 60 saat. Hanya masukkan tema dan mula. Masa depan reka bentuk slaid di iOS.",
+    "ogTitle": "SlideAIPro: Dari Prompt ke Pembentangan dalam Beberapa Saat",
+    "ogDescription": "Era pemformatan manual telah berakhir. Alami penjana slaid AI terpantas di dunia.",
+    "ld": {
+      "headline": "Cara Menjana Slaid Pembentangan Serta-merta dengan AI",
+      "description": "Panduan menggunakan SlideAIPro untuk mencipta slaid perniagaan berkualiti tinggi daripada teks mudah."
+    }
+  },
+  "aria": { "home": "Laman Utama Sense AI" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Pelancaran Global",
+    "h1": "Aplikasi Slaid AI Terpantas di Dunia.",
+    "tagline": "Jangan habiskan masa berjam-jam untuk susun atur. Taip tema anda, tekan satu butang, dan dapatkan set slaid profesional dalam kurang satu minit.",
+    "subtag": "Eksklusif untuk iOS. Cipta di mana sahaja."
+  },
+  "step1": {
+    "h2": "Satu Prompt. Satu Ketikan.",
+    "p1": "SlideAIPro direka untuk kelajuan. Hanya masukkan tema anda atau tampal nota ringkas. Tiada tetapan yang rumit.",
+    "p2": "Sebaik sahaja anda menekan butang 'Cipta', enjin AI kami mula menyusun naratif dan reka bentuk visual secara serentak.",
+    "label": "UI Mudah & Intuitif"
+  },
+  "performance": {
+    "h2": "Kualiti Menemui Kelajuan",
+    "p1": "Lihat hasil berkualiti tinggi dalam masa kurang 60 saat. Setiap slaid disusun secara logik dengan susun atur dan ikon yang sesuai.",
+    "note": "Dijana dalam masa kira-kira 45 saat."
+  },
+  "editing": {
+    "h2": "Sunting dengan Mudah",
+    "p1": "AI menyediakannya, tetapi anda yang membuat keputusan akhir. Setiap perkataan dan slaid boleh disunting selepas dijana."
+  },
+  "features": {
+    "h2": "Mengapa Profesional Memilih SlideAIPro",
+    "items": [
+      {
+        "title": "Penstrukturan Segera",
+        "desc": "AI menganalisis prompt anda dan membahagikannya kepada aliran slaid yang logik secara automatik."
+      },
+      {
+        "title": "Susun Atur Hebat",
+        "desc": "Lupakan tentang penjajaran. Enjin kami menggunakan prinsip reka bentuk profesional pada setiap set slaid."
+      },
+      {
+        "title": "Fleksibiliti Penuh",
+        "desc": "Eksport slaid anda dan buat suntingan pantas terus dalam aplikasi mudah alih bila-bila masa."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Mula Membentang, Berhenti Memformat.",
+    "sub": "Muat turun SlideAIPro dan alami keajaiban penciptaan slaid segera.",
+    "button": "Muat turun di App Store"
+  },
+  "meta": { "published": "Diterbitkan", "category": "Pelancaran Aplikasi" }
+}

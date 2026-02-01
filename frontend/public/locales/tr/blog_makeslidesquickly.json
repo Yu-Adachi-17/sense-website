@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Dünyanın En Hızlı AI Slayt Oluşturma Uygulaması: SlideAIPro",
+    "description": "60 saniyenin altında profesyonel sunumlar oluşturun. Temayı girin ve başlatın. Slayt tasarımının geleceği iOS'ta.",
+    "ogTitle": "SlideAIPro: Saniyeler İçinde Taslaktan Sunuma",
+    "ogDescription": "Manuel formatlama devri kapandı. Dünyanın en hızlı AI slayt oluşturucusuyla tanışın.",
+    "ld": {
+      "headline": "AI ile Anında Sunum Slaytları Nasıl Oluşturulur?",
+      "description": "Basit metinlerden yüksek kaliteli iş slaytları oluşturmak için SlideAIPro kullanım kılavuzu."
+    }
+  },
+  "aria": { "home": "Sense AI Ana Sayfa" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Global Lansman",
+    "h1": "Dünyanın En Hızlı AI Slayt Uygulaması.",
+    "tagline": "Mizanpaj için saatlerinizi harcamayın. Temanızı yazın, tek bir düğmeye basın ve bir dakikadan kısa sürede profesyonel bir slayt destesi alın. Hızlı, şık ve zahmetsiz.",
+    "subtag": "iOS'a özel. Hareket halindeyken oluşturun."
+  },
+  "step1": {
+    "h2": "Tek İstem. Tek Dokunuş.",
+    "p1": "SlideAIPro hız için tasarlandı. İstediğiniz temayı girin veya notlarınızı yapıştırın. Karmaşık ayarlara gerek yok.",
+    "p2": "'Oluştur' düğmesine bastığınız anda gelişmiş AI motorumuz anlatıyı yapılandırmaya ve görselleri tasarlamaya aynı anda başlar.",
+    "label": "Basit ve Sezgisel Arayüz"
+  },
+  "performance": {
+    "h2": "Kalite ve Hız Bir Arada",
+    "p1": "60 saniyenin altında yüksek kaliteli çıktıya tanık olun. Her slayt; uygun mizanpajlar, ikonlar ve odak noktalarıyla mantıksal olarak yapılandırılır.",
+    "note": "Yaklaşık 45 saniyede oluşturuldu."
+  },
+  "editing": {
+    "h2": "Kolayca İnce Ayar Yapın",
+    "p1": "AI temeli hazırlar ama son söz sizindir. Oluşturma sonrasında her kelime ve her slayt düzenlenebilir."
+  },
+  "features": {
+    "h2": "Profesyoneller Neden SlideAIPro'yu Seçiyor?",
+    "items": [
+      {
+        "title": "Anında Yapılandırma",
+        "desc": "AI isteminizi analiz eder ve otomatik olarak mantıklı bir slayt akışına böler."
+      },
+      {
+        "title": "Göz Alıcı Tasarımlar",
+        "desc": "Hizalama sorunlarını unutun. Motorumuz her desteye profesyonel tasarım ilkelerini uygular."
+      },
+      {
+        "title": "Tam Esneklik",
+        "desc": "Slaytlarınızı dışa aktarın ve istediğiniz zaman doğrudan mobil uygulama içinden hızlı düzenlemeler yapın."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Sunuma Başlayın, Formatlamayı Bırakın.",
+    "sub": "SlideAIPro'yu indirin ve anında slayt oluşturma sihrini deneyimleyin.",
+    "button": "App Store'dan İndir"
+  },
+  "meta": { "published": "Yayınlandı", "category": "Uygulama Yayını" }
+}

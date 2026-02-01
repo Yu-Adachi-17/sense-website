@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Verdens hurtigste AI-app til præsentationer: SlideAIPro",
+    "description": "Lav professionelle præsentationer på under 60 sekunder. Indtast et emne og tryk opret. Fremtidens præsentationsdesign er her på iOS.",
+    "ogTitle": "SlideAIPro: Fra idé til præsentation på få sekunder",
+    "ogDescription": "Slut med manuel formatering. Oplev verdens hurtigste AI-præsentationsgenerator.",
+    "ld": {
+      "headline": "Sådan genererer du præsentationer øjeblikkeligt med AI",
+      "description": "En guide til brug af SlideAIPro til at skabe business-slides i høj kvalitet fra simpel tekst."
+    }
+  },
+  "aria": { "home": "Sense AI Hjem" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Global lancering",
+    "h1": "Verdens hurtigste AI-præsentationsapp.",
+    "tagline": "Brug ikke timer på layout. Skriv dit emne, tryk på én knap, og få et professionelt slide-deck på under et minut. Hurtigt, smukt og ubesværet.",
+    "subtag": "Eksklusivt til iOS. Skab på farten."
+  },
+  "step1": {
+    "h2": "Ét emne. Ét tryk.",
+    "p1": "SlideAIPro er bygget til fart. Indtast dit emne eller indsæt dine noter. Ingen komplekse indstillinger påkrævet.",
+    "p2": "Når du trykker på 'Opret', begynder vores AI at strukturere din fortælling og designe det visuelle samtidigt.",
+    "label": "Enkel og intuitiv brugerflade"
+  },
+  "performance": {
+    "h2": "Kvalitet møder hastighed",
+    "p1": "Se resultater i høj kvalitet leveret på under 60 sekunder. Hvert slide er logisk struktureret med professionelle layouts og ikoner.",
+    "note": "Genereret på ca. 45 sekunder."
+  },
+  "editing": {
+    "h2": "Nem finjustering",
+    "p1": "AI'en gør det meste, men du har det sidste ord. Hvert ord og slide kan redigeres bagefter, så budskabet bliver dit eget."
+  },
+  "features": {
+    "h2": "Hvorfor professionelle vælger SlideAIPro",
+    "items": [
+      {
+        "title": "Øjeblikkelig struktur",
+        "desc": "AI analyserer dit emne og opdeler det automatisk i et logisk flow af slides."
+      },
+      {
+        "title": "Flotte layouts",
+        "desc": "Glem alt om justering. Vores motor anvender professionelle designprincipper på hvert deck."
+      },
+      {
+        "title": "Fuld fleksibilitet",
+        "desc": "Eksporter dine slides og lav hurtige rettelser direkte i mobilappen når som helst."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Præsentér mere, formatér mindre.",
+    "sub": "Download SlideAIPro og oplev magien ved øjeblikkelig slide-oprettelse.",
+    "button": "Hent i App Store"
+  },
+  "meta": { "published": "Udgivet", "category": "App-lancering" }
+}

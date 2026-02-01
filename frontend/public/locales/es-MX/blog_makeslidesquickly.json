@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "La app más rápida de IA para presentaciones: SlideAIPro",
+    "description": "Crea diapositivas profesionales en menos de 60 segundos. Solo escribe un tema y genera. El futuro del diseño llegó a iOS.",
+    "ogTitle": "SlideAIPro: De un texto a tu presentación en segundos",
+    "ogDescription": "Dile adiós al diseño manual. Prueba el generador de diapositivas con IA más rápido del mundo.",
+    "ld": {
+      "headline": "Cómo crear diapositivas al instante con Inteligencia Artificial",
+      "description": "Una guía para usar SlideAIPro y crear presentaciones de alta calidad con simples prompts."
+    }
+  },
+  "aria": { "home": "Inicio Sense AI" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Lanzamiento Global",
+    "h1": "La App de diapositivas con IA más rápida del mundo.",
+    "tagline": "No pases horas diseñando. Escribe tu tema, dale a un botón y obtén una presentación profesional en menos de un minuto. Rápido, lindo y fácil.",
+    "subtag": "Exclusivo para iOS. Crea donde sea."
+  },
+  "step1": {
+    "h2": "Un prompt. Un tap.",
+    "p1": "SlideAIPro se hizo para ir rápido. Escribe tu tema o pega tus notas. Así de simple, sin vueltas.",
+    "p2": "En cuanto das clic en 'Crear', nuestra IA organiza tu historia y diseña todo al mismo tiempo.",
+    "label": "Interfaz fácil de usar"
+  },
+  "performance": {
+    "h2": "Calidad a toda velocidad",
+    "p1": "Resultados de nivel profesional en menos de 60 segundos. Cada slide tiene orden lógico, iconos y un diseño impecable.",
+    "note": "Generado en unos 45 segundos."
+  },
+  "editing": {
+    "h2": "Edita sin complicaciones",
+    "p1": "La IA te da la base, pero tú mandas. Puedes cambiar cada palabra y cada slide después de generarlos para que queden perfectos."
+  },
+  "features": {
+    "h2": "¿Por qué elegir SlideAIPro?",
+    "items": [
+      {
+        "title": "Estructura al instante",
+        "desc": "La IA analiza tu idea y arma el orden de las diapositivas automáticamente."
+      },
+      {
+        "title": "Layouts increíbles",
+        "desc": "Ya no te preocupes por el alineado. Aplicamos diseño profesional a cada presentación."
+      },
+      {
+        "title": "Flexibilidad total",
+        "desc": "Exporta y edita rápido desde tu celular en cualquier momento."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Dedícate a presentar, no a diseñar.",
+    "sub": "Baja SlideAIPro y descubre la magia de crear slides al instante.",
+    "button": "Descargar en la App Store"
+  },
+  "meta": { "published": "Publicado", "category": "Lanzamiento" }
+}

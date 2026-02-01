@@ -1,1 +1,58 @@
-{}
+{
+  "seo": {
+    "title": "Cea mai rapidă aplicație AI de creat slide-uri: SlideAIPro",
+    "description": "Creează prezentări profesionale în mai puțin de 60 de secunde. Introdu tema și apasă butonul. Viitorul designului pe iOS.",
+    "ogTitle": "SlideAIPro: De la prompt la prezentare în câteva secunde",
+    "ogDescription": "Era formatării manuale a apus. Încearcă cel mai rapid generator de slide-uri AI din lume.",
+    "ld": {
+      "headline": "Cum să generezi instantaneu slide-uri de prezentare cu AI",
+      "description": "Ghid de utilizare SlideAIPro pentru a crea slide-uri business de calitate din texte simple."
+    }
+  },
+  "aria": { "home": "Sense AI Acasă" },
+  "nav": { "blog": "Blog", "current": "SlideAIPro" },
+  "hero": {
+    "kicker": "Lansare Globală",
+    "h1": "Cea mai rapidă aplicație AI de slide-uri.",
+    "tagline": "Nu mai pierde ore cu așezarea în pagină. Scrie tema, apasă un buton și ai o prezentare profesională în sub un minut. Rapid, estetic și simplu.",
+    "subtag": "Exclusiv pe iOS. Creează din mers."
+  },
+  "step1": {
+    "h2": "Un prompt. O atingere.",
+    "p1": "SlideAIPro este conceput pentru viteză. Introdu tema dorită sau lipește notițele tale. Fără setări complicate.",
+    "p2": "Odată ce apeși 'Creează', motorul nostru AI începe să structureze povestea și să creeze vizualul simultan.",
+    "label": "Interfață simplă și intuitivă"
+  },
+  "performance": {
+    "h2": "Calitate și Viteză",
+    "p1": "Rezultate de înaltă calitate livrate în sub 60 de secunde. Fiecare slide este structurat logic, cu layout-uri și iconițe potrivite.",
+    "note": "Generat în aprox. 45 secunde."
+  },
+  "editing": {
+    "h2": "Editare ușoară",
+    "p1": "AI-ul face baza, dar tu ai ultimul cuvânt. Orice cuvânt și slide pot fi editate după generare."
+  },
+  "features": {
+    "h2": "De ce aleg profesioniștii SlideAIPro",
+    "items": [
+      {
+        "title": "Structurare instantanee",
+        "desc": "AI-ul analizează promptul și îl împarte automat într-un flux logic de slide-uri."
+      },
+      {
+        "title": "Layout-uri superbe",
+        "desc": "Uită de aliniere. Motorul nostru aplică principii de design profesional."
+      },
+      {
+        "title": "Flexibilitate totală",
+        "desc": "Exportă slide-urile și fă modificări rapide direct în aplicația mobilă oricând."
+      }
+    ]
+  },
+  "cta": {
+    "h2": "Prezintă, nu mai formata.",
+    "sub": "Descarcă SlideAIPro și descoperă magia creării instantanee de slide-uri.",
+    "button": "Descarcă din App Store"
+  },
+  "meta": { "published": "Publicat", "category": "Lansare Aplicație" }
+}
