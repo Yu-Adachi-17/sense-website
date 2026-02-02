@@ -12,6 +12,9 @@ import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback (REVISED) ---------- */
@@ -219,6 +222,22 @@ function useTx(ns) {
   return { txs, txa };
 }
 
+/* ---------- markdown renderer (safe) ---------- */
+/* MarkdownをReact要素に変換（**太字** や *斜体* がそのまま表示されないようにする） */
+function Md({ text }) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        // react-markdownは通常 <p> を生成するので、呼び出し側のDOMを崩さないように潰す
+        p: ({ children }) => <>{children}</>,
+      }}
+    >
+      {String(text ?? "")}
+    </ReactMarkdown>
+  );
+}
+
 /* ---------- UI bits ---------- */
 function Kicker({ children }) {
   return (
@@ -339,7 +358,7 @@ export default function BlogRecommend() {
             <HomeIcon size={28} />
           </Link>
 
-        <nav className="mt-4 text-sm text-indigo-200/80">
+          <nav className="mt-4 text-sm text-indigo-200/80">
             <Link href="/blog" className="hover:underline">
               {txs("nav.blog")}
             </Link>
@@ -357,7 +376,9 @@ export default function BlogRecommend() {
                 {txs("hero.h1")}
               </span>
             </h1>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">{txs("hero.tagline")}</p>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">
+              <Md text={txs("hero.tagline")} />
+            </p>
           </div>
         </section>
 
@@ -365,7 +386,9 @@ export default function BlogRecommend() {
         <main className="mx-auto max-w-3xl px-6 pb-20">
           {/* Lead */}
           <SectionCard>
-            <p className="text-base leading-7 text-indigo-100/90">{txs("lead.p1")}</p>
+            <p className="text-base leading-7 text-indigo-100/90">
+              <Md text={txs("lead.p1")} />
+            </p>
           </SectionCard>
 
           {/* 5 Reasons */}
@@ -375,7 +398,9 @@ export default function BlogRecommend() {
             {/* Reason 1 */}
             <div className="mt-6 space-y-3">
               <h3 className="text-xl font-semibold">{reasons[0]?.t}</h3>
-              <p className="text-indigo-100/90">{reasons[0]?.p}</p>
+              <p className="text-indigo-100/90">
+                <Md text={reasons[0]?.p} />
+              </p>
               <div className="mt-3 rounded-2xl border border-white/10 bg-black/30 p-3">
                 <img
                   src="/images/mainscreen.png"
@@ -390,7 +415,9 @@ export default function BlogRecommend() {
             {/* Reason 2 */}
             <div className="mt-8 space-y-3">
               <h3 className="text-xl font-semibold">{reasons[1]?.t}</h3>
-              <p className="text-indigo-100/90">{reasons[1]?.p}</p>
+              <p className="text-indigo-100/90">
+                <Md text={reasons[1]?.p} />
+              </p>
               <div className="mt-3 rounded-2xl border border-white/10 bg-black/30 p-3">
                 <img
                   src="/images/minutesimage.png"
@@ -405,7 +432,9 @@ export default function BlogRecommend() {
             {/* Reason 3 */}
             <div className="mt-8 space-y-3">
               <h3 className="text-xl font-semibold">{reasons[2]?.t}</h3>
-              <p className="text-indigo-100/90">{reasons[2]?.p}</p>
+              <p className="text-indigo-100/90">
+                <Md text={reasons[2]?.p} />
+              </p>
               <div className="mt-3 rounded-2xl border border-white/10 bg-black/30 p-3">
                 <img
                   src="/images/formats.png"
@@ -420,7 +449,9 @@ export default function BlogRecommend() {
             {/* Reason 4 */}
             <div className="mt-8 space-y-3">
               <h3 className="text-xl font-semibold">{reasons[3]?.t}</h3>
-              <p className="text-indigo-100/90">{reasons[3]?.p}</p>
+              <p className="text-indigo-100/90">
+                <Md text={reasons[3]?.p} />
+              </p>
               <div className="mt-2 text-xs text-indigo-200/80">
                 <Link href="/blog/strategy" className="underline underline-offset-4 hover:no-underline">
                   {txs("strategy.linkText")}
@@ -431,7 +462,9 @@ export default function BlogRecommend() {
             {/* Reason 5 */}
             <div className="mt-8 space-y-3">
               <h3 className="text-xl font-semibold">{reasons[4]?.t}</h3>
-              <p className="text-indigo-100/90">{reasons[4]?.p}</p>
+              <p className="text-indigo-100/90">
+                <Md text={reasons[4]?.p} />
+              </p>
               <div className="mt-2 text-xs text-indigo-200/80">{reasons[4]?.note}</div>
             </div>
           </SectionCard>
@@ -439,7 +472,9 @@ export default function BlogRecommend() {
           {/* Strategy section */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("strategy.h2")}</h2>
-            <p className="mt-3 text-indigo-100/90">{txs("strategy.p1")}</p>
+            <p className="mt-3 text-indigo-100/90">
+              <Md text={txs("strategy.p1")} />
+            </p>
             <div className="mt-4">
               <Link href="/blog/strategy" className="rounded-xl bg-white/10 px-4 py-2 text-sm hover:bg-white/20">
                 {txs("strategy.linkText")}
@@ -450,10 +485,14 @@ export default function BlogRecommend() {
           {/* Pricing bullets */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pricing.h2")}</h2>
-            <p className="mt-3 text-indigo-100/90">{txs("pricing.lead")}</p>
+            <p className="mt-3 text-indigo-100/90">
+              <Md text={txs("pricing.lead")} />
+            </p>
             <ul className="mt-4 space-y-3 text-indigo-100/90 list-disc ml-5">
               {txa("pricing.bullets").map((b, i) => (
-                <li key={i} dangerouslySetInnerHTML={{ __html: b }} />
+                <li key={i}>
+                  <Md text={b} />
+                </li>
               ))}
             </ul>
             <p className="mt-3 text-xs text-indigo-200/70">{txs("pricing.tableNote")}</p>
@@ -500,7 +539,9 @@ export default function BlogRecommend() {
               {faq.map((f, i) => (
                 <div key={i}>
                   <h3 className="text-base font-semibold">{f.q}</h3>
-                  <p className="mt-1 text-indigo-100/90" dangerouslySetInnerHTML={{ __html: f.a }} />
+                  <p className="mt-1 text-indigo-100/90">
+                    <Md text={f.a} />
+                  </p>
                 </div>
               ))}
             </div>
