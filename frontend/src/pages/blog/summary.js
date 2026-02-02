@@ -9,6 +9,9 @@ import i18nConfig from "../../../next-i18next.config";
 import HomeIcon from "../homeIcon";
 import * as React from "react";
 
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 import { TbWorld } from "react-icons/tb";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
@@ -33,13 +36,24 @@ const formatMoney = (amountUSD, currency) => {
 const guessCurrency = () => {
   const lang = typeof navigator !== "undefined" ? navigator.language : "en-US";
   if (
-    lang.startsWith("de") || lang.startsWith("fr") || lang.startsWith("es") ||
-    lang.startsWith("it") || lang.startsWith("nl") || lang.startsWith("nb") ||
-    lang.startsWith("pt") || lang.startsWith("fi") || lang.startsWith("sv") ||
-    lang.startsWith("da") || lang.startsWith("pl") || lang.startsWith("cs") ||
-    lang.startsWith("sk") || lang.startsWith("hu") || lang.startsWith("ro") ||
+    lang.startsWith("de") ||
+    lang.startsWith("fr") ||
+    lang.startsWith("es") ||
+    lang.startsWith("it") ||
+    lang.startsWith("nl") ||
+    lang.startsWith("nb") ||
+    lang.startsWith("pt") ||
+    lang.startsWith("fi") ||
+    lang.startsWith("sv") ||
+    lang.startsWith("da") ||
+    lang.startsWith("pl") ||
+    lang.startsWith("cs") ||
+    lang.startsWith("sk") ||
+    lang.startsWith("hu") ||
+    lang.startsWith("ro") ||
     lang.startsWith("el")
-  ) return "EUR";
+  )
+    return "EUR";
   return "USD";
 };
 
@@ -47,7 +61,8 @@ const guessCurrency = () => {
 const EN_FALLBACK = {
   seo: {
     title: "The Ultimate AI Note Taker: Perfect Meeting Summaries Every Time | Minutes.AI",
-    description: "Tired of long meetings? Let Minutes.AI be your automated note taker. It captures every detail, generates concise summaries, and extracts action items so you can focus on the conversation.",
+    description:
+      "Tired of long meetings? Let Minutes.AI be your automated note taker. It captures every detail, generates concise summaries, and extracts action items so you can focus on the conversation.",
     ogTitle: "Stop Taking Notes. Start Collaborating. | Minutes.AI",
     ogDescription: "Discover how an AI note taker transforms 3-hour marathons into clear, actionable summaries.",
     ld: {
@@ -61,13 +76,15 @@ const EN_FALLBACK = {
   hero: {
     kicker: "Productivity",
     h1: "The Note Taker That Never Sleeps",
-    tagline: "Meetings can drag on for hours. Your focus might fade, but Minutes.AI stays sharp. Transform long discussions into crystal-clear summaries instantly.",
+    tagline:
+      "Meetings can drag on for hours. Your focus might fade, but Minutes.AI stays sharp. Transform long discussions into crystal-clear summaries instantly.",
     badges: ["Auto-Summary", "Action Extraction", "Focus on Talk"],
   },
 
   pain: {
     h2: "The Reality of Meeting Fatigue",
-    p1: "How long are your typical meetings? A quick 15-minute sync? A standard hour? Or do they stretch into 3-hour marathons? We've all been there.",
+    p1:
+      "How long are your typical meetings? A quick 15-minute sync? A standard hour? Or do they stretch into 3-hour marathons? We've all been there.",
     questions: [
       "**Can you truly stay focused** for hours on end?",
       "**Are you exhausted** by the time the call ends?",
@@ -78,8 +95,10 @@ const EN_FALLBACK = {
 
   solution: {
     h2: "Your New AI Secretary",
-    p1: "Meetings are a tool, not the destination. The real work happens *after* the call. That's why you need a dedicated **note taker** that doesn't get tired.",
-    p2: "Minutes.AI is built to withstand the longest sessions. It listens, processes, and delivers a structured **summary** with zero gaps.",
+    p1:
+      "Meetings are a tool, not the destination. The real work happens *after* the call. That's why you need a dedicated **note taker** that doesn't get tired.",
+    p2:
+      "Minutes.AI is built to withstand the longest sessions. It listens, processes, and delivers a structured **summary** with zero gaps.",
     features: [
       {
         title: "Focus on the conversation",
@@ -115,8 +134,7 @@ const EN_FALLBACK = {
 
 const getPath = (obj, path) =>
   path.split(".").reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
-const toArray = (v) =>
-  Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : [];
+const toArray = (v) => (Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : []);
 
 function useTx(ns) {
   const { t } = useTranslation(ns);
@@ -145,6 +163,24 @@ function useTx(ns) {
   return { txs, txa };
 }
 
+/* ---------- markdown renderer (safe) ---------- */
+function Md({ text, className = "" }) {
+  return (
+    <span className={className}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          p: ({ children }) => <>{children}</>,
+          strong: ({ children }) => <strong className="text-white font-semibold">{children}</strong>,
+          em: ({ children }) => <em className="text-indigo-50/95">{children}</em>,
+        }}
+      >
+        {String(text ?? "")}
+      </ReactMarkdown>
+    </span>
+  );
+}
+
 /* ---------- UI Components ---------- */
 function Kicker({ children }) {
   return (
@@ -169,11 +205,7 @@ function SectionCard({ children, className = "" }) {
   );
 }
 function Pill({ children }) {
-  return (
-    <span className="inline-block rounded-full bg-white/10 px-2.5 py-1 text-xs text-indigo-100/90">
-      {children}
-    </span>
-  );
+  return <span className="inline-block rounded-full bg-white/10 px-2.5 py-1 text-xs text-indigo-100/90">{children}</span>;
 }
 function Bullet({ children }) {
   return (
@@ -211,7 +243,6 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = `${siteUrl}${canonicalPath}`;
 
-  // Currency state for pricing section
   const [currency, setCurrency] = React.useState("USD");
   React.useEffect(() => {
     setCurrency(guessCurrency());
@@ -227,7 +258,7 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
         <meta property="og:title" content={txs("seo.ogTitle")} />
         <meta property="og:description" content={txs("seo.ogDescription")} />
         <meta property="og:url" content={canonical} />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -237,7 +268,11 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
               headline: txs("seo.ld.headline"),
               datePublished: new Date().toISOString(),
               author: { "@type": "Organization", name: "Minutes.AI" },
-              publisher: { "@type": "Organization", name: "Minutes.AI", logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` } },
+              publisher: {
+                "@type": "Organization",
+                name: "Minutes.AI",
+                logo: { "@type": "ImageObject", url: `${siteUrl}/icon-master.png` },
+              },
               description: txs("seo.ld.description"),
             }),
           }}
@@ -275,30 +310,40 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
                 {txs("hero.h1")}
               </span>
             </h1>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">{txs("hero.tagline")}</p>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90 max-w-2xl">
+              <Md text={txs("hero.tagline")} />
+            </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {txa("hero.badges").map((b, i) => <Pill key={i}>{b}</Pill>)}
+              {txa("hero.badges").map((b, i) => (
+                <Pill key={i}>{b}</Pill>
+              ))}
             </div>
-            
+
             <div className="mt-6 text-xs text-indigo-200/50">
-              Last updated: {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "long", day: "numeric" })}
+              Last updated:{" "}
+              {new Date(LAST_UPDATED_ISO).toLocaleDateString(router.locale || "en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </div>
           </div>
         </section>
 
         {/* Main Content */}
         <main className="mx-auto max-w-3xl px-6 pb-20">
-          
           {/* Pain Points */}
           <SectionCard>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("pain.h2")}</h2>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("pain.p1")}</p>
+            <p className="mt-4 text-base leading-7 text-indigo-100/90">
+              <Md text={txs("pain.p1")} />
+            </p>
+
             <ul className="mt-6 space-y-3">
               {txa("pain.questions").map((q, i) => (
                 <li key={i} className="flex items-start gap-3 text-indigo-50/90">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fuchsia-400" />
-                  {/* Handle markdown-style bolding simply */}
-                  <span dangerouslySetInnerHTML={{__html: q.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')}} />
+                  <Md text={q} />
                 </li>
               ))}
             </ul>
@@ -307,14 +352,26 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
           {/* Solution */}
           <SectionCard className="mt-8">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{txs("solution.h2")}</h2>
-            <p className="mt-4 text-base leading-7 text-indigo-100/90">{txs("solution.p1")}</p>
-            <p className="mt-2 text-base leading-7 text-indigo-100/90">{txs("solution.p2")}</p>
+
+            <p className="mt-4 text-base leading-7 text-indigo-100/90">
+              <Md text={txs("solution.p1")} />
+            </p>
+            <p className="mt-2 text-base leading-7 text-indigo-100/90">
+              <Md text={txs("solution.p2")} />
+            </p>
 
             <div className="mt-8 grid gap-6 sm:grid-cols-1">
               {txa("solution.features").map((f, i) => (
-                <div key={i} className="rounded-xl border border-white/10 bg-black/20 p-4 transition hover:bg-black/40">
-                  <h3 className="text-lg font-semibold text-white">{f.title}</h3>
-                  <p className="mt-2 text-sm text-indigo-200/80">{f.desc}</p>
+                <div
+                  key={i}
+                  className="rounded-xl border border-white/10 bg-black/20 p-4 transition hover:bg-black/40"
+                >
+                  <h3 className="text-lg font-semibold text-white">
+                    <Md text={f.title} />
+                  </h3>
+                  <p className="mt-2 text-sm text-indigo-200/80">
+                    <Md text={f.desc} />
+                  </p>
                 </div>
               ))}
             </div>
@@ -335,9 +392,12 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
               <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
                 <div className="text-xs text-indigo-300 uppercase font-semibold mb-1">One-Time Pack</div>
                 <div className="text-sm text-indigo-200/90">{txs("pricing.light.name")}</div>
-                <div className="mt-1 text-xl font-bold">{txs("pricing.light.detail")} / {formatMoney(11.99, currency)}</div>
+                <div className="mt-1 text-xl font-bold">
+                  {txs("pricing.light.detail")} / {formatMoney(11.99, currency)}
+                </div>
                 <p className="mt-1 text-xs text-indigo-200/60">{txs("pricing.light.foot")}</p>
               </div>
+
               {/* Subs */}
               <div className="rounded-2xl border border-indigo-500/30 bg-indigo-500/10 p-4">
                 <div className="text-xs text-indigo-300 uppercase font-semibold mb-1">Subscription</div>
@@ -348,10 +408,13 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
             </div>
 
             <div className="mt-4 rounded-xl bg-emerald-500/10 p-3 text-center border border-emerald-500/20">
-              <span className="text-xs font-bold text-emerald-200 uppercase tracking-wide mr-2">{txs("pricing.free.badge")}</span>
+              <span className="text-xs font-bold text-emerald-200 uppercase tracking-wide mr-2">
+                {txs("pricing.free.badge")}
+              </span>
               <span className="text-sm text-emerald-100/90">{txs("pricing.free.text")}</span>
             </div>
 
+            {/* NOTE: foot_pre は先頭に "*" があるので Markdown レンダリングはしない（意図せず斜体になるのを防ぐ） */}
             <p className="mt-4 text-[10px] text-center text-indigo-200/50">
               {txs("pricing.foot_pre", { currency })} {txs("pricing.foot_post")}
             </p>
@@ -359,7 +422,7 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-wrap gap-4 justify-center">
-             <Link
+            <Link
               href="/"
               className="group inline-flex items-center gap-2 rounded-full border border-indigo-300/40 bg-indigo-500/10 px-6 py-3 text-sm font-medium text-indigo-50/90 backdrop-blur shadow-[0_18px_50px_rgba(79,70,229,0.65)] transition hover:border-indigo-100/80 hover:bg-indigo-500/20 hover:text-white"
             >
@@ -381,9 +444,16 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
           {/* Meta Footer */}
           <div className="mt-12 border-t border-white/5 pt-6 text-center">
             <div className="flex flex-wrap justify-center gap-2 text-xs text-indigo-300/60">
-               <Pill>{txs("meta.published")}: {new Date().toLocaleDateString(router.locale || "en-US", { year: "numeric", month: "short", day: "numeric" })}</Pill>
-               <Pill>{txs("meta.type")}</Pill>
-               <Pill>{txs("meta.category")}</Pill>
+              <Pill>
+                {txs("meta.published")}:{" "}
+                {new Date().toLocaleDateString(router.locale || "en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </Pill>
+              <Pill>{txs("meta.type")}</Pill>
+              <Pill>{txs("meta.category")}</Pill>
             </div>
           </div>
         </main>
