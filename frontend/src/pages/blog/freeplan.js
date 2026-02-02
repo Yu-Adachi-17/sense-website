@@ -17,7 +17,7 @@ import { FaAppStore } from "react-icons/fa";
 
 // ★ 追加：日付を時間付きで固定し、ハイドレーションエラーを防止
 const PUBLISHED_DATE = "2025-11-20T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+const MODIFIED_DATE = "2026-01-10T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 

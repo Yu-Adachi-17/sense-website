@@ -16,7 +16,7 @@ import { FaAppStore } from "react-icons/fa";
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Constants ---------- */
-const LAST_UPDATED_ISO = "2025-11-12";
+const LAST_UPDATED_ISO = "2026-01-12";
 const FX = {
   // editable reference rates; checkout remains USD
   EUR_PER_USD: 0.92,
@@ -49,14 +49,14 @@ const guessCurrency = () => {
 const EN_FALLBACK = {
   seo: {
     title:
-      "Minutes.AI Pricing (2025) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR)",
+      "Minutes.AI Pricing (2026) — Simple, Flexible Plans, No-Expiry Packs & Truly Unlimited Subscriptions (USD/EUR)",
     description:
       "Explore four simple pricing options to match your meeting style. Choose a one-time pack (they never expire!) or go truly unlimited. Supports 100+ languages. Plus, you can try Minutes.AI free for 3 minutes every single day.",
-    ogTitle: "Minutes.AI Pricing (2025): Simple, Flexible Plans",
+    ogTitle: "Minutes.AI Pricing (2026): Simple, Flexible Plans",
     ogDescription:
       "Find the perfect plan: Time packs that never expire or truly unlimited subscriptions. Get 3 free minutes every day!",
     ld: {
-      headline: "Minutes.AI Pricing (2025)",
+      headline: "Minutes.AI Pricing (2026)",
       description:
         "Two no-expiry time packs (Trial/Light) and two unlimited subscriptions (Monthly/Annual). 100+ languages.",
     },
@@ -66,7 +66,7 @@ const EN_FALLBACK = {
 
   hero: {
     kicker: "Pricing",
-    h1: "Minutes.AI Pricing (2025)",
+    h1: "Minutes.AI Pricing (2026)",
     tagline:
       "Whether you have meetings daily or just occasionally, find a plan that fits. Choose from time packs that never expire or go fully unlimited. It's pricing that bends to *your* meeting rhythm.",
     subtag:
@@ -172,7 +172,7 @@ queryHub_p: "Whether you need a free daily plan or professional unlimited access
       },
     ],
     foot: "Sources: official pricing pages (Otter, Notta).",
-    lastUpdated: "Last updated: Nov 12, 2025",
+    lastUpdated: "Last updated: Jan 12, 2026",
   },
 
   faq: {

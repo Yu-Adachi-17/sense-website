@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Pod pokličkou: Modely AI pohánějící Zápisník AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Zjistěte, proč Zápisník AI poskytuje špičkové zápisy ze schůzek. Odhalujeme naši politiku nezávislosti na modelu a výkonné LLM, které používáme (aktuálně ChatGPT-5 a Gemini 2.5 Pro).",
+    "title": "Pod pokličkou: Modely AI pohánějící Zápisník AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Zjistěte, proč Zápisník AI poskytuje špičkové zápisy ze schůzek. Odhalujeme naši politiku nezávislosti na modelu a výkonné LLM, které používáme (aktuálně ChatGPT-5.2 a Gemini 2.5 Pro).",
     "ogTitle": "Kvalita nad náklady: Modely AI, které používáme v Zápisník AI",
-    "ogDescription": "Nespokojíme se s „dost dobrým“. Zápisník AI upřednostňuje kvalitu výstupu a používá nejlepší modely ve své třídě, jako jsou ChatGPT-5 a Gemini 2.5 Pro, aby zajistila profesionální výsledky.",
+    "ogDescription": "Nespokojíme se s „dost dobrým“. Zápisník AI upřednostňuje kvalitu výstupu a používá nejlepší modely ve své třídě, jako jsou ChatGPT-5.2 a Gemini 2.5 Pro, aby zajistila profesionální výsledky.",
     "ld": {
       "headline": "Modely AI pohánějící Zápisník AI",
       "description": "Přečtěte si o naší filozofii výběru modelů a o tom, proč je klíčová pro vytváření profesionálních zápisů ze schůzek zaměřených na akci."
@@ -56,7 +56,7 @@
     "p1": "Abychom zajistili, že vaše zápisy budou jasné, přesné a připravené k akci, v současné době využíváme hybridní přístup s těmito špičkovými modely:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Bezkonkurenční logické uvažování a přesné ovládání tónu. Je ideální pro složité diskuse, kde jsou klíčová rozhodnutí a odpovědnost."
       },
       {

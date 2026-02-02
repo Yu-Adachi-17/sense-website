@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Top 5 Công cụ AI Năng suất Bạn Cần trong Năm 2025",
-    "description": "Đừng loay hoay với các công cụ chung chung nữa. Dưới đây là 5 ứng dụng AI thiết yếu cho văn bản, nghiên cứu, thiết kế và cuộc họp sẽ thực sự giúp bạn tiết kiệm thời gian trong năm 2025.",
-    "ogTitle": "Top 5 Công cụ Năng suất AI (Phiên bản 2025)",
+    "title": "Top 5 Công cụ AI Năng suất Bạn Cần trong Năm 2026",
+    "description": "Đừng loay hoay với các công cụ chung chung nữa. Dưới đây là 5 ứng dụng AI thiết yếu cho văn bản, nghiên cứu, thiết kế và cuộc họp sẽ thực sự giúp bạn tiết kiệm thời gian trong năm 2026.",
+    "ogTitle": "Top 5 Công cụ Năng suất AI (Phiên bản 2026)",
     "ogDescription": "ChatGPT thôi là chưa đủ. Chúng tôi đã chọn ra bộ công cụ AI hoàn hảo cho việc viết lách, nghiên cứu, thiết kế và họp hành.",
     "ld": {
-      "headline": "Top 5 Công cụ AI Năng suất cho năm 2025",
+      "headline": "Top 5 Công cụ AI Năng suất cho năm 2026",
       "description": "Danh sách chọn lọc các công cụ AI tốt nhất bao gồm ChatGPT, Notion, Perplexity, Canva và Biên bản AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 Công cụ AI"
   },
   "hero": {
-    "kicker": "Bộ Công cụ Năng suất 2025",
-    "h1": "5 Công cụ AI Tốt nhất để Tự động hóa Ngày làm việc của Bạn (2025)",
+    "kicker": "Bộ Công cụ Năng suất 2026",
+    "h1": "5 Công cụ AI Tốt nhất để Tự động hóa Ngày làm việc của Bạn (2026)",
     "tagline": "Sử dụng AI không còn chỉ là ChatGPT. Để thực sự tăng năng suất, bạn cần chuyên gia phù hợp cho từng nhiệm vụ. Dưới đây là bộ công cụ tối ưu cho việc viết, nghiên cứu, thiết kế và—quan trọng nhất—các cuộc họp."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Tốt nhất cho: Ý tưởng & Soạn thảo",
       "desc": "Vua không ngai của văn bản tạo sinh. Cho dù bạn cần soạn thảo email, gỡ lỗi mã (debug) hay lên ý tưởng tiếp thị, ChatGPT vẫn là điểm khởi đầu linh hoạt nhất.",
       "icon": "bulb"

@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "De 5 beste AI-productiviteitstools voor 2025",
-    "description": "Stop met het jongleren met generieke tools. Hier zijn de 5 essentiële AI-apps voor tekst, onderzoek, ontwerp en vergaderingen die je in 2025 echt tijd besparen.",
-    "ogTitle": "De 5 beste AI-productiviteitstools (Editie 2025)",
+    "title": "De 5 beste AI-productiviteitstools voor 2026",
+    "description": "Stop met het jongleren met generieke tools. Hier zijn de 5 essentiële AI-apps voor tekst, onderzoek, ontwerp en vergaderingen die je in 2026 echt tijd besparen.",
+    "ogTitle": "De 5 beste AI-productiviteitstools (Editie 2026)",
     "ogDescription": "ChatGPT is niet genoeg. We hebben de perfecte AI-stack samengesteld voor schrijven, onderzoek, ontwerp en vergaderingen.",
     "ld": {
-      "headline": "De 5 beste AI-productiviteitstools voor 2025",
+      "headline": "De 5 beste AI-productiviteitstools voor 2026",
       "description": "Een samengestelde lijst van de beste AI-tools, waaronder ChatGPT, Notion, Perplexity, Canva en Notulen AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI Tools"
   },
   "hero": {
-    "kicker": "Productiviteits-stack 2025",
-    "h1": "De 5 beste AI-tools om je werkdag te automatiseren (2025)",
+    "kicker": "Productiviteits-stack 2026",
+    "h1": "De 5 beste AI-tools om je werkdag te automatiseren (2026)",
     "tagline": "AI gebruiken draait niet meer alleen om ChatGPT. Om de productiviteit echt te verhogen, heb je voor elke taak de juiste specialist nodig. Hier is de ultieme combinatie voor schrijven, onderzoeken, ontwerpen en – het belangrijkste – vergaderen."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Beste voor: Ideeën & Concepten",
       "desc": "De onbetwiste koning van generatieve tekst. Of je nu een e-mail moet opstellen, code moet debuggen of over marketinginvalshoeken moet brainstormen, ChatGPT blijft het meest veelzijdige startpunt.",
       "icon": "bulb"

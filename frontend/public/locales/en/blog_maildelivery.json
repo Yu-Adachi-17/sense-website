@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "New in 2025: Minutes.AI (iOS) Now Emails Your Minutes Automatically",
+    "title": "New in 2026: Minutes.AI (iOS) Now Emails Your Minutes Automatically",
     "description": "Tired of waiting for AI generation? With the new Automatic Email Delivery on iOS, you can close the app immediately after recording. We'll email the minutes to your team as soon as they're ready.",
     "ogTitle": "Stop Waiting: Minutes.AI (iOS) Now Emails Minutes Automatically",
     "ogDescription": "Record, stop, and close the app. We handle the rest. Learn about the new feature that removes the waiting time from your meeting workflow.",
@@ -17,7 +17,7 @@
     "maildelivery": "Auto Email Delivery (iOS)"
   },
   "hero": {
-    "kicker": "New iOS Feature 2025",
+    "kicker": "New iOS Feature 2026",
     "h1": "Record, Stop, Done. Your Minutes Are Sent Automatically.",
     "tagline": "If you've ever searched for an 'AI meeting app' hoping to save time, this update is for you. No more staring at a loading screen waiting for minutes to generate."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Freedom from the 'Quality vs. Speed' Trade-off",
-        "p": "Minutes.AI uses top-tier models like OpenAI Whisper, ChatGPT-5, and Gemini 3. High precision requires processing time—sometimes a few minutes for a long meeting. We know waiting is annoying. With this update, the processing time remains (to ensure quality), but **your waiting time drops to zero**. Put your phone in your pocket and move on to your next task."
+        "p": "Minutes.AI uses top-tier models like OpenAI Whisper, ChatGPT-5.2, and Gemini 3. High precision requires processing time—sometimes a few minutes for a long meeting. We know waiting is annoying. With this update, the processing time remains (to ensure quality), but **your waiting time drops to zero**. Put your phone in your pocket and move on to your next task."
       }
     ]
   },

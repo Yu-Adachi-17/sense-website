@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "議事録AI Strategy: ただの議事録から、実用的な洞察へ (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "議事録AIのStrategy機能は、会議メモを強力な「意思決定ツールキット」に変えます。ChatGPT-5とGemini 2.5 Proを使用し、Boost, Counter, Top Issue、そして3つの思考モードを生成し、ビジネスを前進させます。",
+    "title": "議事録AI Strategy: ただの議事録から、実用的な洞察へ (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "議事録AIのStrategy機能は、会議メモを強力な「意思決定ツールキット」に変えます。ChatGPT-5.2とGemini 2.5 Proを使用し、Boost, Counter, Top Issue、そして3つの思考モードを生成し、ビジネスを前進させます。",
     "ogTitle": "議事録AI Strategy: 議事録を「行動」に移す",
     "ogDescription": "会議を記録するだけではありません。戦略に変えましょう。Boost (長所), Counter (課題), Top Issue (核心的な問題), そして論理的・批判的・水平的思考モードを提供します。",
     "ld": {
       "headline": "議事録AI Strategy機能: ただのメモから、会議のパートナーへ",
-      "description": "Strategy機能は、高度なAI分析(ChatGPT-5 & Gemini 2.5 Pro)を用い、議事録を実用的な洞察を提供する意思決定サポートへと昇華させます。"
+      "description": "Strategy機能は、高度なAI分析(ChatGPT-5.2 & Gemini 2.5 Pro)を用い、議事録を実用的な洞察を提供する意思決定サポートへと昇華させます。"
     },
-    "keywords": "議事録AI, Minutes.AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, 意思決定サポート, 実用的な洞察, 論理的思考, 批判的思考, 水平的思考, Boost, Counter, Top Issue, 会議パートナー, ビジネス戦略"
+    "keywords": "議事録AI, Minutes.AI, Strategy, ChatGPT-5.2, Gemini 2.5 Pro, 意思決定サポート, 実用的な洞察, 論理的思考, 批判的思考, 水平的思考, Boost, Counter, Top Issue, 会議パートナー, ビジネス戦略"
   },
   "aria": {
     "home": "Minutes.AI ホーム"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "機能ディープダイブ",
     "h1": "議事録の、その先へ: Strategy機能",
-    "tagline": "メモを整理するだけでは終わりません。Strategy機能は、議事録AIをあなたの「会議パートナー」に変え、議論をインパクトのある行動へと転換します。ChatGPT-5とGemini 2.5 Proの力で。"
+    "tagline": "メモを整理するだけでは終わりません。Strategy機能は、議事録AIをあなたの「会議パートナー」に変え、議論をインパクトのある行動へと転換します。ChatGPT-5.2とGemini 2.5 Proの力で。"
   },
   "what": {
     "h2": "Strategy機能とは？",
@@ -39,7 +39,7 @@
     "h2": "機能の仕組み",
     "steps": [
       "通常通り、議事録を生成します (iOS, Android, またはWeb)。",
-      "「Strategy」ボタンをタップし、ChatGPT-5 & Gemini 2.5 Proで全内容を分析します。",
+      "「Strategy」ボタンをタップし、ChatGPT-5.2 & Gemini 2.5 Proで全内容を分析します。",
       "6つの分析結果（Boost, Counter, Top Issue, 3つの思考モード）を受け取ります。",
       "分析結果をタスク管理システムやレポートに共有・コピーします。"
     ],

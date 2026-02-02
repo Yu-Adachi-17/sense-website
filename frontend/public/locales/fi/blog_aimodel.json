@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Tekniikan takana: Pöytäkirja AI:n käyttämät tekoälymallit (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Tutustu, miksi Pöytäkirja AI tuottaa ylivoimaisia kokouspöytäkirjoja. Paljastamme malliriippumattoman käytäntömme ja tehokkaat LLM-mallit, joita käytämme (tällä hetkellä ChatGPT-5 ja Gemini 2.5 Pro).",
+    "title": "Tekniikan takana: Pöytäkirja AI:n käyttämät tekoälymallit (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Tutustu, miksi Pöytäkirja AI tuottaa ylivoimaisia kokouspöytäkirjoja. Paljastamme malliriippumattoman käytäntömme ja tehokkaat LLM-mallit, joita käytämme (tällä hetkellä ChatGPT-5.2 ja Gemini 2.5 Pro).",
     "ogTitle": "Laatu ennen kustannuksia: Tekoälymallit, joita käytämme Pöytäkirja AI:ssa",
-    "ogDescription": "Emme tyydy \"ihan hyvään\". Pöytäkirja AI asettaa tulosten laadun etusijalle ja käyttää luokkansa parhaita malleja, kuten ChatGPT-5 ja Gemini 2.5 Pro, varmistaakseen ammattimaiset tulokset.",
+    "ogDescription": "Emme tyydy \"ihan hyvään\". Pöytäkirja AI asettaa tulosten laadun etusijalle ja käyttää luokkansa parhaita malleja, kuten ChatGPT-5.2 ja Gemini 2.5 Pro, varmistaakseen ammattimaiset tulokset.",
     "ld": {
       "headline": "Tekoälymallit Pöytäkirja AI:n taustalla",
       "description": "Lue lisää mallinvalintafilosofiastamme ja siitä, miksi se on ratkaisevan tärkeää toimintalähtöisten, ammattimaisten kokouspöytäkirjojen luomisessa."
@@ -56,7 +56,7 @@
     "p1": "Varmistaaksemme, että pöytäkirjasi ovat selkeitä, tarkkoja ja toimintavalmiita, hyödynnämme tällä hetkellä hybridimallia näillä huippuluokan malleilla:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Vertaansa vailla oleva looginen päättelykyky ja tarkka sävyhallinta. Täydellinen monimutkaisiin keskusteluihin, joissa päätökset ja vastuullisuus ovat avainasemassa."
       },
       {

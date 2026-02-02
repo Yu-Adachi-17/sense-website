@@ -18,12 +18,12 @@ const inter = Inter({ subsets: ["latin"] });
 /* ---------- 改善された英語フォールバック (Improved EN Fallback) ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "Behind the Tech: The AI Models Powering Minutes.AI (ChatGPT-5, Gemini 2.5 Pro)",
+    title: "Behind the Tech: The AI Models Powering Minutes.AI (ChatGPT-5.2, Gemini 2.5 Pro)",
     description:
-      "Discover why Minutes.AI delivers superior meeting minutes. We reveal our model-agnostic policy and the powerful LLMs we use (currently ChatGPT-5 and Gemini 2.5 Pro).",
+      "Discover why Minutes.AI delivers superior meeting minutes. We reveal our model-agnostic policy and the powerful LLMs we use (currently ChatGPT-5.2 and Gemini 2.5 Pro).",
     ogTitle: "Quality Over Cost: The AI Models We Use at Minutes.AI",
     ogDescription:
-      "We don't settle for 'good enough.' Minutes.AI prioritizes output quality, using best-in-class models like ChatGPT-5 and Gemini 2.5 Pro to ensure professional results.",
+      "We don't settle for 'good enough.' Minutes.AI prioritizes output quality, using best-in-class models like ChatGPT-5.2 and Gemini 2.5 Pro to ensure professional results.",
     ld: {
       headline: "The AI Models Powering Minutes.AI",
       description:
@@ -82,7 +82,7 @@ const EN_FALLBACK = {
       "To ensure your minutes are clear, accurate, and ready for action, we currently leverage a hybrid approach with these top-tier models:",
     items: [
       {
-        h3: "ChatGPT-5 (OpenAI)",
+        h3: "ChatGPT-5.2 (OpenAI)",
         p:
           "Unmatched logical reasoning and precise tone control. It's perfect for complex discussions where decisions and accountability are key.",
       },

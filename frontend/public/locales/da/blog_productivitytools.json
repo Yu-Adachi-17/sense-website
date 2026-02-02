@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "De 5 bedste AI-produktivitetsværktøjer i 2025",
-    "description": "Stop med at bruge generiske værktøjer. Her er de 5 essentielle AI-apps til tekst, research, design og møder, der faktisk sparer dig tid i 2025.",
-    "ogTitle": "De 5 bedste AI-produktivitetsværktøjer (2025 Edition)",
+    "title": "De 5 bedste AI-produktivitetsværktøjer i 2026",
+    "description": "Stop med at bruge generiske værktøjer. Her er de 5 essentielle AI-apps til tekst, research, design og møder, der faktisk sparer dig tid i 2026.",
+    "ogTitle": "De 5 bedste AI-produktivitetsværktøjer (2026 Edition)",
     "ogDescription": "ChatGPT er ikke nok. Vi har sammensat den perfekte AI-pakke til skrivning, research, design og møder.",
     "ld": {
-      "headline": "De 5 bedste AI-produktivitetsværktøjer til 2025",
+      "headline": "De 5 bedste AI-produktivitetsværktøjer til 2026",
       "description": "En kurateret liste over de bedste AI-værktøjer inklusive ChatGPT, Notion, Perplexity, Canva og Referat AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI Værktøjer"
   },
   "hero": {
-    "kicker": "Produktivitets-stack 2025",
-    "h1": "De 5 bedste AI-værktøjer til at automatisere din arbejdsdag (2025)",
+    "kicker": "Produktivitets-stack 2026",
+    "h1": "De 5 bedste AI-værktøjer til at automatisere din arbejdsdag (2026)",
     "tagline": "Brug af AI handler ikke længere kun om ChatGPT. For virkelig at øge produktiviteten har du brug for den rette specialist til hver opgave. Her er den ultimative pakke til skrivning, research, design og – vigtigst af alt – møder."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Bedst til: Idéer & Udkast",
       "desc": "Den ubestridte konge af generativ tekst. Uanset om du skal skrive en e-mail, debugge kode eller brainstorme marketingsvinkler, forbliver ChatGPT det mest alsidige udgangspunkt.",
       "icon": "bulb"

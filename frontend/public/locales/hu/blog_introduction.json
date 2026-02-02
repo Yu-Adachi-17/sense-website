@@ -63,7 +63,7 @@
       "Riley (adatok)"
     ],
     "coreMessage": "Költse okosan — a világosság előzze meg a gyorsaságot. Vállaljuk, hogy „ki mit csinál, meddig”, és tartsuk a meetingeket 30 perc alatt.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Teendők",
       "attendees": "Résztvevők:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — A/B teszt indítása 2025-10-15-ig",
-          "Riley — CTR elemzés 2025-10-17-ig"
+          "Jordan — A/B teszt indítása 2026-10-15-ig",
+          "Riley — CTR elemzés 2026-10-17-ig"
         ],
         "concerns": [
           "Reklámfáradtság, ha nincs kreatív frissítés"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — szállító ETA/logisztika megerősítése 2025-10-14-ig"
+          "Sam — szállító ETA/logisztika megerősítése 2026-10-14-ig"
         ],
         "concerns": [
           "Átfutási idő kockázata, ha nő a backlog"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — kiadási ütemterv véglegesítése 2025-10-13-ig",
-          "Támogatás — FAQ közzététele 2025-10-16-ig",
-          "Marketing — Black Friday vázlat 2025-10-25-ig"
+          "Taylor — kiadási ütemterv véglegesítése 2026-10-13-ig",
+          "Támogatás — FAQ közzététele 2026-10-16-ig",
+          "Marketing — Black Friday vázlat 2026-10-25-ig"
         ],
         "decisions": [
-          "Q4 csomag bevezetésének jóváhagyása 2025-10-20-án"
+          "Q4 csomag bevezetésének jóváhagyása 2026-10-20-án"
         ],
         "discussion": [
           "v1.2 javítja az akkumulátor merülését ..."

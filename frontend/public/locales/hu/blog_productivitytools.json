@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Az 5 legjobb AI produktivitási eszköz 2025-ben",
-    "description": "Hagyja abba az általános eszközökkel való zsonglőrködést. Itt van az az 5 alapvető AI alkalmazás szöveghez, kutatáshoz, tervezéshez és megbeszélésekhez, amelyek 2025-ben valóban időt takarítanak meg.",
-    "ogTitle": "Az 5 legjobb AI produktivitási eszköz (2025-ös kiadás)",
+    "title": "Az 5 legjobb AI produktivitási eszköz 2026-ben",
+    "description": "Hagyja abba az általános eszközökkel való zsonglőrködést. Itt van az az 5 alapvető AI alkalmazás szöveghez, kutatáshoz, tervezéshez és megbeszélésekhez, amelyek 2026-ben valóban időt takarítanak meg.",
+    "ogTitle": "Az 5 legjobb AI produktivitási eszköz (2026-ös kiadás)",
     "ogDescription": "A ChatGPT nem elég. Összeállítottuk a tökéletes AI csomagot íráshoz, kutatáshoz, tervezéshez és megbeszélésekhez.",
     "ld": {
-      "headline": "Az 5 legjobb AI produktivitási eszköz 2025-ben",
+      "headline": "Az 5 legjobb AI produktivitási eszköz 2026-ben",
       "description": "A legjobb AI eszközök válogatott listája, beleértve a ChatGPT-t, a Notion-t, a Perplexity-t, a Canvát és a Jegyzőkönyv AI-t."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI Eszköz"
   },
   "hero": {
-    "kicker": "Produktivitási csomag 2025",
-    "h1": "Az 5 legjobb AI eszköz a munkanap automatizálásához (2025)",
+    "kicker": "Produktivitási csomag 2026",
+    "h1": "Az 5 legjobb AI eszköz a munkanap automatizálásához (2026)",
     "tagline": "Az AI használata már nem csak a ChatGPT-ről szól. A termelékenység valódi növeléséhez minden feladathoz a megfelelő specialistára van szüksége. Itt a végső csomag íráshoz, kutatáshoz, tervezéshez és – ami a legfontosabb – megbeszélésekhez."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Legjobb: Ötletelés és vázlatok",
       "desc": "A generatív szöveg vitathatatlan királya. Akár e-mailt kell írnia, kódot hibakeresnie, akár marketing szempontokat kell ötletelnie, a ChatGPT marad a legsokoldalúbb kiindulópont.",
       "icon": "bulb"

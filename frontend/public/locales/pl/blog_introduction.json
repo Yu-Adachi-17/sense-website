@@ -63,7 +63,7 @@
       "Riley (Dane)"
     ],
     "coreMessage": "Wydawajmy mądrze — klarowność ponad szybkość. Ustalmy „kto co robi i do kiedy” i trzymajmy spotkania w 30 minutach.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Zadania",
       "attendees": "Uczestnicy:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — uruchomić test A/B do 2025-10-15",
-          "Riley — dostarczyć analizę CTR do 2025-10-17"
+          "Jordan — uruchomić test A/B do 2026-10-15",
+          "Riley — dostarczyć analizę CTR do 2026-10-17"
         ],
         "concerns": [
           "Zmęczenie reklamami, jeśli kreacje nie będą odświeżane"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — potwierdzić ETA/logistykę od dostawcy do 2025-10-14"
+          "Sam — potwierdzić ETA/logistykę od dostawcy do 2026-10-14"
         ],
         "concerns": [
           "Ryzyko wydłużenia lead time przy wzroście backlogu"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — sfinalizować harmonogram wydania do 2025-10-13",
-          "Wsparcie — opublikować FAQ do 2025-10-16",
-          "Marketing — przygotować szkic planu na Black Friday do 2025-10-25"
+          "Taylor — sfinalizować harmonogram wydania do 2026-10-13",
+          "Wsparcie — opublikować FAQ do 2026-10-16",
+          "Marketing — przygotować szkic planu na Black Friday do 2026-10-25"
         ],
         "decisions": [
-          "Zatwierdzić uruchomienie pakietu Q4 w dniu 2025-10-20"
+          "Zatwierdzić uruchomienie pakietu Q4 w dniu 2026-10-20"
         ],
         "discussion": [
           "v1.2 naprawia drenaż baterii ..."

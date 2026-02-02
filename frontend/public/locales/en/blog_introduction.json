@@ -63,7 +63,7 @@
       "Riley (Data)"
     ],
     "coreMessage": "Let’s spend smart — clarity over speed. Commit to ‘who does what by when,’ and keep meetings within 30 minutes.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Action Items",
       "attendees": "Attendees:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — launch A/B test by 2025-10-15",
-          "Riley — deliver CTR analysis by 2025-10-17"
+          "Jordan — launch A/B test by 2026-10-15",
+          "Riley — deliver CTR analysis by 2026-10-17"
         ],
         "concerns": [
           "Ad fatigue if creatives are not refreshed"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — confirm supplier ETA/logistics by 2025-10-14"
+          "Sam — confirm supplier ETA/logistics by 2026-10-14"
         ],
         "concerns": [
           "Supplier lead-time risk if backlog increases"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — finalize release schedule by 2025-10-13",
-          "Support — publish FAQ by 2025-10-16",
-          "Marketing — prepare Black Friday draft plan by 2025-10-25"
+          "Taylor — finalize release schedule by 2026-10-13",
+          "Support — publish FAQ by 2026-10-16",
+          "Marketing — prepare Black Friday draft plan by 2026-10-25"
         ],
         "decisions": [
-          "Approve Q4 bundle launch on 2025-10-20"
+          "Approve Q4 bundle launch on 2026-10-20"
         ],
         "discussion": [
           "v1.2 fixes battery drain ..."

@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "I 5 migliori strumenti di IA per la produttività nel 2025",
-    "description": "Smetti di destreggiarti tra strumenti generici. Ecco le 5 app di IA essenziali per testo, ricerca, design e riunioni che ti faranno risparmiare tempo nel 2025.",
-    "ogTitle": "I 5 migliori strumenti di produttività IA (Edizione 2025)",
+    "title": "I 5 migliori strumenti di IA per la produttività nel 2026",
+    "description": "Smetti di destreggiarti tra strumenti generici. Ecco le 5 app di IA essenziali per testo, ricerca, design e riunioni che ti faranno risparmiare tempo nel 2026.",
+    "ogTitle": "I 5 migliori strumenti di produttività IA (Edizione 2026)",
     "ogDescription": "ChatGPT non basta. Abbiamo selezionato lo stack IA perfetto per scrittura, ricerca, design e riunioni.",
     "ld": {
-      "headline": "I 5 migliori strumenti di IA per la produttività del 2025",
+      "headline": "I 5 migliori strumenti di IA per la produttività del 2026",
       "description": "Una lista curata dei migliori strumenti IA tra cui ChatGPT, Notion, Perplexity, Canva e Verbali IA."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 Strumenti IA"
   },
   "hero": {
-    "kicker": "Stack Produttività 2025",
-    "h1": "I 5 migliori strumenti IA per automatizzare la tua giornata lavorativa (2025)",
+    "kicker": "Stack Produttività 2026",
+    "h1": "I 5 migliori strumenti IA per automatizzare la tua giornata lavorativa (2026)",
     "tagline": "Usare l'IA non significa più solo ChatGPT. Per aumentare davvero la produttività, hai bisogno dello specialista giusto per ogni compito. Ecco lo stack definitivo per scrivere, ricercare, progettare e, soprattutto, per le riunioni."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Migliore per: Idee & Bozze",
       "desc": "Il re indiscusso del testo generativo. Che tu debba redigere un'email, eseguire il debug di codice o fare brainstorming per il marketing, ChatGPT rimane il punto di partenza più versatile.",
       "icon": "bulb"

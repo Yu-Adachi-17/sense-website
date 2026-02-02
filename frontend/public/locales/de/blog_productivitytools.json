@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Die 5 besten KI-Produktivitätstools für 2025",
-    "description": "Schluss mit generischen Tools. Hier sind die 5 wichtigsten KI-Apps für Text, Recherche, Design und Meetings, die Ihnen 2025 wirklich Zeit sparen.",
-    "ogTitle": "Die 5 besten KI-Produktivitätstools (Edition 2025)",
+    "title": "Die 5 besten KI-Produktivitätstools für 2026",
+    "description": "Schluss mit generischen Tools. Hier sind die 5 wichtigsten KI-Apps für Text, Recherche, Design und Meetings, die Ihnen 2026 wirklich Zeit sparen.",
+    "ogTitle": "Die 5 besten KI-Produktivitätstools (Edition 2026)",
     "ogDescription": "ChatGPT reicht nicht aus. Wir haben den perfekten KI-Stack für Schreiben, Recherche, Design und Meetings zusammengestellt.",
     "ld": {
-      "headline": "Die 5 besten KI-Produktivitätstools für 2025",
+      "headline": "Die 5 besten KI-Produktivitätstools für 2026",
       "description": "Eine kuratierte Liste der besten KI-Tools, darunter ChatGPT, Notion, Perplexity, Canva und Protokoll KI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 KI-Tools"
   },
   "hero": {
-    "kicker": "Produktivitäts-Stack 2025",
-    "h1": "Die 5 besten KI-Tools für Ihren Arbeitsalltag (2025)",
+    "kicker": "Produktivitäts-Stack 2026",
+    "h1": "Die 5 besten KI-Tools für Ihren Arbeitsalltag (2026)",
     "tagline": "KI-Nutzung bedeutet nicht mehr nur ChatGPT. Um die Produktivität wirklich zu steigern, brauchen Sie den richtigen Spezialisten für jede Aufgabe. Hier ist der ultimative Stack für Schreiben, Recherchieren, Design und – am wichtigsten – Meetings."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Beste für: Ideen & Entwürfe",
       "desc": "Der unangefochtene König der Texterstellung. Egal, ob Sie eine E-Mail entwerfen, Code debuggen oder Marketingideen sammeln müssen, ChatGPT bleibt der vielseitigste Ausgangspunkt.",
       "icon": "bulb"

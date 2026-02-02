@@ -63,7 +63,7 @@
       "Romain (Analyste données)"
     ],
     "coreMessage": "Travailler intelligemment et privilégier la clarté à la vitesse. S’engager sur « qui fait quoi et pour quand », et limiter les réunions à 30 minutes.",
-    "date": "2025-10-11 10:00 CET",
+    "date": "2026-10-11 10:00 CET",
     "labels": {
       "actionItems": "Actions",
       "attendees": "Participants :",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Julien — lancer le test A/B avant 2025-10-15",
-          "Romain — livrer l’analyse CTR avant 2025-10-17"
+          "Julien — lancer le test A/B avant 2026-10-15",
+          "Romain — livrer l’analyse CTR avant 2026-10-17"
         ],
         "concerns": [
           "Risque de saturation publicitaire sans mise à jour créative"
@@ -98,7 +98,7 @@
       },
       {
         "actionItems": [
-          "Samuel — confirmer la livraison/logistique avant 2025-10-14"
+          "Samuel — confirmer la livraison/logistique avant 2026-10-14"
         ],
         "concerns": [
           "Retard possible si le fournisseur subit un afflux de commandes"
@@ -118,17 +118,17 @@
       },
       {
         "actionItems": [
-          "Thomas — finaliser le plan de sortie avant 2025-10-13",
-          "Support — publier la FAQ avant 2025-10-16",
-          "Marketing — préparer le plan Black Friday avant 2025-10-25"
+          "Thomas — finaliser le plan de sortie avant 2026-10-13",
+          "Support — publier la FAQ avant 2026-10-16",
+          "Marketing — préparer le plan Black Friday avant 2026-10-25"
         ],
         "decisions": [
-          "Approuver le lancement le 2025-10-20"
+          "Approuver le lancement le 2026-10-20"
         ],
         "discussion": [
           "v1.2 corrige la batterie et améliore la précision du podomètre",
           "Notes de version prêtes ; le support publiera la FAQ",
-          "Offre Q4 : Montre + Bracelet, −20 € à partir du 2025-10-20"
+          "Offre Q4 : Montre + Bracelet, −20 € à partir du 2026-10-20"
         ],
         "keyMessages": [
           "Associer les améliorations produit à des campagnes opportunes"
@@ -153,7 +153,7 @@
       "h3": "Exemple de sortie de Minutes.AI"
     },
     "transcript": {
-      "full": "Alexandre (Directeur marketing) : Merci à tous d’être là — Julien (E-commerce), Samuel (Opérations retail), Thomas (Chef de produit) et Romain (Données). Voyons les résultats de ventes du week-end dernier. Julien, à toi pour la partie en ligne.\n\nJulien (E-commerce) : Par rapport à la semaine précédente, les sessions ont augmenté de 18 %. Le taux de conversion est passé de 2,9 % à 3,2 %. Le chiffre d’affaires a progressé de 12 %. Ce pic vient principalement de la campagne influenceurs de samedi ; les dépenses publicitaires ont augmenté de 6 %.\n\nRomain (Données) : Le CAC reste stable autour de 2 400 ¥. Cependant, le CTR du retargeting est passé de 1,8 % à 1,2 %. Je recommande de rafraîchir les visuels et de lancer un test A/B avec un titre plus court. Je peux livrer une analyse rapide d’ici vendredi (2025-10-17).\n\nAlexandre : Très bien. Décision : augmenter le budget publicitaire en ligne de 15 % pour les deux prochaines semaines. Actions : Julien — lancer le test A/B sur le texte principal avant mercredi (2025-10-15). Romain — livrer le rapport d’analyse CTR avant vendredi (2025-10-17).\n\nSamuel (Retail) : En magasin, nous avons connu des ruptures de stock à Paris, Lyon et Marseille. Un réapprovisionnement de 500 unités est prévu pour lundi. La fréquentation a chuté de 4 % à cause de la tempête, mais le panier moyen est resté stable.\n\nAlexandre : Décision : procéder au réassort de 500 unités dans ces trois magasins. Action : Samuel — confirmer la date de livraison et la logistique avant mardi (2025-10-14). Risque : délai allongé si le fournisseur est surchargé.\n\nThomas (Chef de produit) : Le firmware v1.2 corrige le problème de batterie et améliore la précision du podomètre. Les notes de version sont prêtes. Je propose un lancement le 20 octobre avec une offre de Q4 — « Montre + Bracelet » avec une réduction de 20 €. Le support devra publier une FAQ.\n\nAlexandre : Décision : approuver le lancement de l’offre Q4 le 2025-10-20. Actions : Thomas — finaliser le planning de sortie avant lundi (2025-10-13). Support — publier la FAQ avant jeudi (2025-10-16). Marketing — préparer le plan Black Friday avant samedi (2025-10-25).\n\nAlexandre (message de clôture) : Travaillons intelligemment et restons clairs — la clarté avant la vitesse. Engageons-nous sur « qui fait quoi et pour quand », et gardons les réunions en dessous de 30 minutes.",
+      "full": "Alexandre (Directeur marketing) : Merci à tous d’être là — Julien (E-commerce), Samuel (Opérations retail), Thomas (Chef de produit) et Romain (Données). Voyons les résultats de ventes du week-end dernier. Julien, à toi pour la partie en ligne.\n\nJulien (E-commerce) : Par rapport à la semaine précédente, les sessions ont augmenté de 18 %. Le taux de conversion est passé de 2,9 % à 3,2 %. Le chiffre d’affaires a progressé de 12 %. Ce pic vient principalement de la campagne influenceurs de samedi ; les dépenses publicitaires ont augmenté de 6 %.\n\nRomain (Données) : Le CAC reste stable autour de 2 400 ¥. Cependant, le CTR du retargeting est passé de 1,8 % à 1,2 %. Je recommande de rafraîchir les visuels et de lancer un test A/B avec un titre plus court. Je peux livrer une analyse rapide d’ici vendredi (2026-10-17).\n\nAlexandre : Très bien. Décision : augmenter le budget publicitaire en ligne de 15 % pour les deux prochaines semaines. Actions : Julien — lancer le test A/B sur le texte principal avant mercredi (2026-10-15). Romain — livrer le rapport d’analyse CTR avant vendredi (2026-10-17).\n\nSamuel (Retail) : En magasin, nous avons connu des ruptures de stock à Paris, Lyon et Marseille. Un réapprovisionnement de 500 unités est prévu pour lundi. La fréquentation a chuté de 4 % à cause de la tempête, mais le panier moyen est resté stable.\n\nAlexandre : Décision : procéder au réassort de 500 unités dans ces trois magasins. Action : Samuel — confirmer la date de livraison et la logistique avant mardi (2026-10-14). Risque : délai allongé si le fournisseur est surchargé.\n\nThomas (Chef de produit) : Le firmware v1.2 corrige le problème de batterie et améliore la précision du podomètre. Les notes de version sont prêtes. Je propose un lancement le 20 octobre avec une offre de Q4 — « Montre + Bracelet » avec une réduction de 20 €. Le support devra publier une FAQ.\n\nAlexandre : Décision : approuver le lancement de l’offre Q4 le 2026-10-20. Actions : Thomas — finaliser le planning de sortie avant lundi (2026-10-13). Support — publier la FAQ avant jeudi (2026-10-16). Marketing — préparer le plan Black Friday avant samedi (2026-10-25).\n\nAlexandre (message de clôture) : Travaillons intelligemment et restons clairs — la clarté avant la vitesse. Engageons-nous sur « qui fait quoi et pour quand », et gardons les réunions en dessous de 30 minutes.",
       "preview": "Très bien, commençons la réunion. Tout d’abord, analysons les ventes de « montres connectées » du week-end dernier. Julien, peux-tu commencer par le rapport en ligne ?"
     }
   },

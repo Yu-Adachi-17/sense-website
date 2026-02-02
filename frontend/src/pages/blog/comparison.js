@@ -15,21 +15,21 @@ import { FaAppStore } from "react-icons/fa";
 // ★ 追加：記事の公開日・更新日を固定（SEO/ハイドレーションエラー対策）
 // 必要に応じて日付を変更してください
 const PUBLISHED_DATE = "2025-12-02T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+const MODIFIED_DATE = "2026-02-01T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback for blog_comparison ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "(2025 Review) Otter vs Notta vs Minutes.AI — Which AI Note Taker is Best for You?",
+    title: "(2026 Review) Otter vs Notta vs Minutes.AI — Which AI Note Taker is Best for You?",
     description:
-      "Otter, Notta, and Minutes.AI compared honestly. We look at real-world needs: language support, meeting types, and pricing. See why Minutes.AI is the most versatile choice for teams in 2025.",
-    ogTitle: "Otter vs Notta vs Minutes.AI — 2025 Honest Comparison",
+      "Otter, Notta, and Minutes.AI compared honestly. We look at real-world needs: language support, meeting types, and pricing. See why Minutes.AI is the most versatile choice for teams in 2026.",
+    ogTitle: "Otter vs Notta vs Minutes.AI — 2026 Honest Comparison",
     ogDescription:
       "Struggling to choose between Otter, Notta, and Minutes.AI? We break down the pros, cons, and best use cases. Find out why Minutes.AI is our top recommendation for productive teams.",
     ld: {
-      headline: "Otter vs Notta vs Minutes.AI — 2025 Comparison Guide",
+      headline: "Otter vs Notta vs Minutes.AI — 2026 Comparison Guide",
       description:
         "A practical comparison of AI note-taking tools. We analyze features, pricing, and use cases to help you decide. Spoiler: Minutes.AI is often the safest bet for business use.",
     },
@@ -39,7 +39,7 @@ const EN_FALLBACK = {
   nav: { blog: "Blog", comparison: "Otter vs Notta vs Minutes.AI" },
 
   hero: {
-    kicker: "2025 AI Note Taker Guide",
+    kicker: "2026 AI Note Taker Guide",
     h1: "Otter vs Notta vs Minutes.AI — Which Tool Fits Your Workflow?",
     tagline:
       // ★ 修正：「3万人・150カ国」の実績を反映
@@ -48,7 +48,7 @@ const EN_FALLBACK = {
 
   lead: {
     p1:
-      "Searching for 'Otter alternatives' or 'best AI minute taker'? You're likely tired of manually typing notes or fixing messy transcripts. In 2025, there are many AI tools, but few handle the reality of work: recurring syncs, sales calls, and messy brainstorms. Here is a problem-first comparison of Otter.ai, Notta, and Minutes.AI to help you stop searching and start recording.",
+      "Searching for 'Otter alternatives' or 'best AI minute taker'? You're likely tired of manually typing notes or fixing messy transcripts. In 2026, there are many AI tools, but few handle the reality of work: recurring syncs, sales calls, and messy brainstorms. Here is a problem-first comparison of Otter.ai, Notta, and Minutes.AI to help you stop searching and start recording.",
   },
 
   tools: {

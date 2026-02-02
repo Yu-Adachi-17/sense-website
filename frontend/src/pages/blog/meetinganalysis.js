@@ -14,19 +14,19 @@ import { FaAppStore } from "react-icons/fa";
 
 // ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
 const PUBLISHED_DATE = "2025-12-01T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+const MODIFIED_DATE = "2026-01-20T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English Fallback (TARGETING "ANALYSIS" INTENT) ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "AI Protocol Analysis: Turning Meeting Audio into Business Intelligence (2025)",
+    title: "AI Protocol Analysis: Turning Meeting Audio into Business Intelligence (2026)",
     description:
       "Stop just transcribing. Start analyzing. Trusted by 30,000 users, Minutes.AI transforms raw meeting audio into structured data, strategic insights, and decision-ready reports.",
     ogTitle: "From Scribe to Analyst: The Power of AI Meeting Analysis",
     ogDescription:
-      "Searching for 'AI protocol analysis'? See how Minutes.AI uses ChatGPT-5 & Gemini 2.5 Pro to extract trends, decisions, and counter-arguments from your meetings.",
+      "Searching for 'AI protocol analysis'? See how Minutes.AI uses ChatGPT-5.2 & Gemini 2.5 Pro to extract trends, decisions, and counter-arguments from your meetings.",
     ld: {
       headline: "AI Protocol Analysis: Beyond Simple Transcription",
       description:
@@ -78,7 +78,7 @@ const EN_FALLBACK = {
     // Sample data for the renderer
     sample: {
       meetingTitle: "Q4 Marketing Strategy & Budget Allocation",
-      date: "Nov 12, 2025",
+      date: "Nov 12, 2026",
       location: "Online / Teams",
       attendees: ["Sarah (CMO)", "James (Ads)", "Elena (Product)"],
       coreMessage: "Shift 30% of the TV budget to Influencer Marketing; focus on 'User Trust' campaign.",

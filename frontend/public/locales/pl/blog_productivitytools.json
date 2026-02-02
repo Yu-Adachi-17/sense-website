@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "5 najlepszych narzędzi AI do produktywności na 2025 rok",
-    "description": "Przestań żonglować ogólnymi narzędziami. Oto 5 niezbędnych aplikacji AI do tekstu, badań, projektowania i spotkań, które w 2025 roku naprawdę zaoszczędzą Twój czas.",
-    "ogTitle": "5 najlepszych narzędzi produktywności AI (Edycja 2025)",
+    "title": "5 najlepszych narzędzi AI do produktywności na 2026 rok",
+    "description": "Przestań żonglować ogólnymi narzędziami. Oto 5 niezbędnych aplikacji AI do tekstu, badań, projektowania i spotkań, które w 2026 roku naprawdę zaoszczędzą Twój czas.",
+    "ogTitle": "5 najlepszych narzędzi produktywności AI (Edycja 2026)",
     "ogDescription": "ChatGPT to za mało. Wybraliśmy idealny zestaw AI do pisania, badań, projektowania i spotkań.",
     "ld": {
-      "headline": "5 najlepszych narzędzi AI do produktywności na 2025 rok",
+      "headline": "5 najlepszych narzędzi AI do produktywności na 2026 rok",
       "description": "Wyselekcjonowana lista najlepszych narzędzi AI, w tym ChatGPT, Notion, Perplexity, Canva i Protokół AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 Narzędzi AI"
   },
   "hero": {
-    "kicker": "Pakiet produktywności 2025",
-    "h1": "5 najlepszych narzędzi AI do automatyzacji dnia pracy (2025)",
+    "kicker": "Pakiet produktywności 2026",
+    "h1": "5 najlepszych narzędzi AI do automatyzacji dnia pracy (2026)",
     "tagline": "Korzystanie z AI to już nie tylko ChatGPT. Aby naprawdę zwiększyć produktywność, potrzebujesz odpowiedniego specjalisty do każdego zadania. Oto ostateczny zestaw do pisania, wyszukiwania, projektowania i – co najważniejsze – spotkań."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Najlepsze do: Pomysłów i szkiców",
       "desc": "Niekwestionowany król generatywnego tekstu. Niezależnie od tego, czy musisz przygotować wersję roboczą e-maila, debugować kod czy przeprowadzić burzę mózgów marketingowych, ChatGPT pozostaje najbardziej wszechstronnym punktem wyjścia.",
       "icon": "bulb"

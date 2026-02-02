@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Top 5 instrumente AI de productivitate pentru 2025",
-    "description": "Nu mai jongla cu instrumente generice. Iată cele 5 aplicații AI esențiale pentru text, cercetare, design și ședințe care îți vor economisi cu adevărat timpul în 2025.",
-    "ogTitle": "Top 5 instrumente de productivitate AI (Ediția 2025)",
+    "title": "Top 5 instrumente AI de productivitate pentru 2026",
+    "description": "Nu mai jongla cu instrumente generice. Iată cele 5 aplicații AI esențiale pentru text, cercetare, design și ședințe care îți vor economisi cu adevărat timpul în 2026.",
+    "ogTitle": "Top 5 instrumente de productivitate AI (Ediția 2026)",
     "ogDescription": "ChatGPT nu este suficient. Am selectat stiva AI perfectă pentru scriere, cercetare, design și ședințe.",
     "ld": {
-      "headline": "Top 5 instrumente AI de productivitate pentru 2025",
+      "headline": "Top 5 instrumente AI de productivitate pentru 2026",
       "description": "O listă curatorială a celor mai bune instrumente AI, inclusiv ChatGPT, Notion, Perplexity, Canva și Proces-verbal AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 Instrumente AI"
   },
   "hero": {
-    "kicker": "Stiva de productivitate 2025",
-    "h1": "Cele mai bune 5 instrumente AI pentru automatizarea zilei de lucru (2025)",
+    "kicker": "Stiva de productivitate 2026",
+    "h1": "Cele mai bune 5 instrumente AI pentru automatizarea zilei de lucru (2026)",
     "tagline": "Folosirea AI nu mai este doar despre ChatGPT. Pentru a crește cu adevărat productivitatea, ai nevoie de specialistul potrivit pentru fiecare sarcină. Iată stiva supremă pentru scriere, cercetare, design și — cel mai important — ședințe."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Cel mai bun pentru: Idei & Ciorne",
       "desc": "Regele necontestat al textului generativ. Fie că trebuie să redactezi un e-mail, să depanezi cod sau să faci brainstorming pentru unghiuri de marketing, ChatGPT rămâne cel mai versatil punct de plecare.",
       "icon": "bulb"

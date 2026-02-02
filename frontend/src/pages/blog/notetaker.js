@@ -16,7 +16,7 @@ import { FaAppStore } from "react-icons/fa";
 
 // ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
 const PUBLISHED_DATE = "2025-11-28T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-03T10:00:00+09:00";
+const MODIFIED_DATE = "2026-01-03T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,10 +46,10 @@ const guessCurrency = () => {
 */
 const EN_FALLBACK = {
   seo: {
-    title: "(2025) The Best AI Note Taker: Pricing & Features Review | Minutes.AI",
+    title: "(2026) The Best AI Note Taker: Pricing & Features Review | Minutes.AI",
     description:
       "Searching for 'note taker pricing'? Trusted by 30,000 users, Minutes.AI offers the most structured notes and flexible costs. From $1.99 packs to unlimited plans.",
-    ogTitle: "The Best AI Note Taker (2025): Pricing & Features",
+    ogTitle: "The Best AI Note Taker (2026): Pricing & Features",
     ogDescription:
       "Don't overpay for subscriptions you don't use. Minutes.AI is the note taker that fits your schedule and budget. See full pricing.",
     ld: {
@@ -62,7 +62,7 @@ const EN_FALLBACK = {
   nav: { blog: "Blog", active: "Note Taker Guide" },
 
   hero: {
-    kicker: "2025 Note Taker Guide",
+    kicker: "2026 Note Taker Guide",
     h1: "The AI Meeting Note Taker That Actually Fits Your Budget",
     // ★ 修正：実績を追加
     tagline:

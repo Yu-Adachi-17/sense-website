@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Les 5 meilleurs outils IA de productivité pour 2025",
-    "description": "Arrêtez de jongler avec des outils génériques. Voici les 5 applications IA essentielles pour le texte, la recherche, le design et les réunions qui vous feront vraiment gagner du temps en 2025.",
-    "ogTitle": "Les 5 meilleurs outils de productivité IA (Édition 2025)",
+    "title": "Les 5 meilleurs outils IA de productivité pour 2026",
+    "description": "Arrêtez de jongler avec des outils génériques. Voici les 5 applications IA essentielles pour le texte, la recherche, le design et les réunions qui vous feront vraiment gagner du temps en 2026.",
+    "ogTitle": "Les 5 meilleurs outils de productivité IA (Édition 2026)",
     "ogDescription": "ChatGPT ne suffit pas. Nous avons sélectionné la suite IA parfaite pour la rédaction, la recherche, le design et les réunions.",
     "ld": {
-      "headline": "Les 5 meilleurs outils IA de productivité pour 2025",
+      "headline": "Les 5 meilleurs outils IA de productivité pour 2026",
       "description": "Une liste organisée des meilleurs outils d'IA incluant ChatGPT, Notion, Perplexity, Canva et Minutes.AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 Outils IA"
   },
   "hero": {
-    "kicker": "Pack Productivité 2025",
-    "h1": "Les 5 meilleurs outils IA pour automatiser votre journée (2025)",
+    "kicker": "Pack Productivité 2026",
+    "h1": "Les 5 meilleurs outils IA pour automatiser votre journée (2026)",
     "tagline": "L'utilisation de l'IA ne se limite plus à ChatGPT. Pour vraiment booster la productivité, vous avez besoin du bon spécialiste pour chaque tâche. Voici le pack ultime pour rédiger, rechercher, concevoir et – surtout – gérer vos réunions."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Idéal pour : Idées & Rédaction",
       "desc": "Le roi incontesté du texte génératif. Que vous ayez besoin de rédiger un e-mail, de déboguer du code ou de trouver des angles marketing, ChatGPT reste le point de départ le plus polyvalent.",
       "icon": "bulb"

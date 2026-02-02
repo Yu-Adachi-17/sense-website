@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Uutta 2025: Pöytäkirja AI (iOS) lähettää muistiot nyt automaattisesti sähköpostitse",
+    "title": "Uutta 2026: Pöytäkirja AI (iOS) lähettää muistiot nyt automaattisesti sähköpostitse",
     "description": "Kyllästynyt odottamaan tekoälyn generointia? Uuden iOS:n automaattisen sähköpostitoimituksen ansiosta voit sulkea sovelluksen heti nauhoituksen jälkeen. Lähetämme pöytäkirjan tiimillesi heti kun se on valmis.",
     "ogTitle": "Lopeta odottelu: Pöytäkirja AI (iOS) lähettää muistiot automaattisesti",
     "ogDescription": "Nauhoita, lopeta ja sulje sovellus. Me hoidamme loput. Lue uudesta ominaisuudesta, joka poistaa odotusajan kokoustesi työnkulusta.",
@@ -17,7 +17,7 @@
     "maildelivery": "Automaattinen toimitus (iOS)"
   },
   "hero": {
-    "kicker": "Uusi iOS-ominaisuus 2025",
+    "kicker": "Uusi iOS-ominaisuus 2026",
     "h1": "Nauhoita, lopeta, valmis. Muistiosi lähetetään automaattisesti.",
     "tagline": "Jos olet koskaan etsinyt 'AI-kokoussovellusta' säästääksesi aikaa, tämä päivitys on sinulle. Ei enää latausruudun tuijottamista muistion valmistumista odotellessa."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Vapaus 'Laatu vs. Nopeus' -kompromissista",
-        "p": "Pöytäkirja AI käyttää huippumalleja kuten OpenAI Whisper, ChatGPT-5 ja Gemini 3. Korkea tarkkuus vaatii prosessointiaikaa – joskus muutaman minuutin pitkälle kokoukselle. Tiedämme, että odottaminen on ärsyttävää. Tällä päivityksellä prosessointiaika pysyy (laadun takaamiseksi), mutta **sinun odotusaikasi putoaa nollaan**. Laita puhelin taskuun ja siirry seuraavaan tehtävään."
+        "p": "Pöytäkirja AI käyttää huippumalleja kuten OpenAI Whisper, ChatGPT-5.2 ja Gemini 3. Korkea tarkkuus vaatii prosessointiaikaa – joskus muutaman minuutin pitkälle kokoukselle. Tiedämme, että odottaminen on ärsyttävää. Tällä päivityksellä prosessointiaika pysyy (laadun takaamiseksi), mutta **sinun odotusaikasi putoaa nollaan**. Laita puhelin taskuun ja siirry seuraavaan tehtävään."
       }
     ]
   },

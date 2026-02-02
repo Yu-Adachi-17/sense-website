@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Notulen AI Strategie: Van notulen naar bruikbare inzichten (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "De 'Strategie'-functie van Notulen AI transformeert ruwe notulen in een krachtige toolkit voor besluitvorming. Met ChatGPT-5 en Gemini 2.5 Pro genereert het Boost, Tegengeluid, Topkwestie en drie unieke denkwijzen om uw bedrijf vooruit te helpen.",
+    "title": "Notulen AI Strategie: Van notulen naar bruikbare inzichten (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "De 'Strategie'-functie van Notulen AI transformeert ruwe notulen in een krachtige toolkit voor besluitvorming. Met ChatGPT-5.2 en Gemini 2.5 Pro genereert het Boost, Tegengeluid, Topkwestie en drie unieke denkwijzen om uw bedrijf vooruit te helpen.",
     "ogTitle": "Notulen AI Strategie: Zet notulen om in actie",
     "ogDescription": "Neem niet alleen vergaderingen op. Zet ze om in strategie. Krijg Boost (wat werkt), Tegengeluid (wat te repareren), Topkwestie (het kernprobleem) en Logische, Kritische & Laterale denkwijzen.",
     "ld": {
       "headline": "Notulen AI Strategie Functie: Van eenvoudige notities tot vergaderpartner",
-      "description": "De 'Strategie'-functie tilt notulen naar beslissingsondersteuning met geavanceerde AI-analyse (ChatGPT-5 en Gemini 2.5 Pro) om bruikbare inzichten te bieden."
+      "description": "De 'Strategie'-functie tilt notulen naar beslissingsondersteuning met geavanceerde AI-analyse (ChatGPT-5.2 en Gemini 2.5 Pro) om bruikbare inzichten te bieden."
     },
-    "keywords": "Notulen AI, AI notulen, Strategie, ChatGPT-5, Gemini 2.5 Pro, beslissingsondersteuning, bruikbare inzichten, Logisch denken, Kritisch denken, Lateraal denken, Boost, Tegengeluid, Topkwestie, vergaderpartner, bedrijfsstrategie"
+    "keywords": "Notulen AI, AI notulen, Strategie, ChatGPT-5.2, Gemini 2.5 Pro, beslissingsondersteuning, bruikbare inzichten, Logisch denken, Kritisch denken, Lateraal denken, Boost, Tegengeluid, Topkwestie, vergaderpartner, bedrijfsstrategie"
   },
   "aria": {
     "home": "Notulen AI Home"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Feature Deep Dive",
     "h1": "Voorbij de notulen: De Strategiefunctie",
-    "tagline": "Stop met het alleen maar organiseren van notities. De 'Strategie'-functie verandert Notulen AI in uw kernpartner voor vergaderingen, en zet discussies om in acties met hoge impact, allemaal aangedreven door ChatGPT-5 en Gemini 2.5 Pro."
+    "tagline": "Stop met het alleen maar organiseren van notities. De 'Strategie'-functie verandert Notulen AI in uw kernpartner voor vergaderingen, en zet discussies om in acties met hoge impact, allemaal aangedreven door ChatGPT-5.2 en Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Wat is de Strategiefunctie?",
@@ -39,7 +39,7 @@
     "h2": "Hoe het werkt",
     "steps": [
       "Genereer uw notulen zoals gewoonlijk (iOS, Android of Web).",
-      "Tik op de 'Strategie'-knop om het volledige transcript te analyseren met ChatGPT-5 & Gemini 2.5 Pro.",
+      "Tik op de 'Strategie'-knop om het volledige transcript te analyseren met ChatGPT-5.2 & Gemini 2.5 Pro.",
       "Ontvang uw 6-delige analyse: Boost, Tegengeluid, Topkwestie en de drie denkwijzen.",
       "Deel, kopieer of exporteer de inzichten rechtstreeks naar uw taakbeheersysteem of rapport."
     ],

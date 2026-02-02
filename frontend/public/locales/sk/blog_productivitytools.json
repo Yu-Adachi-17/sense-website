@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "5 najlepších AI nástrojov na produktivitu v roku 2025",
-    "description": "Prestaňte žonglovať s bežnými nástrojmi. Tu je 5 kľúčových AI aplikácií na text, výskum, dizajn a stretnutia, ktoré vám v roku 2025 skutočne ušetria čas.",
-    "ogTitle": "5 najlepších AI nástrojov na produktivitu (Edícia 2025)",
+    "title": "5 najlepších AI nástrojov na produktivitu v roku 2026",
+    "description": "Prestaňte žonglovať s bežnými nástrojmi. Tu je 5 kľúčových AI aplikácií na text, výskum, dizajn a stretnutia, ktoré vám v roku 2026 skutočne ušetria čas.",
+    "ogTitle": "5 najlepších AI nástrojov na produktivitu (Edícia 2026)",
     "ogDescription": "ChatGPT nestačí. Vybrali sme perfektnú sadu AI nástrojov na písanie, výskum, dizajn a stretnutia.",
     "ld": {
-      "headline": "5 najlepších AI nástrojov na produktivitu pre rok 2025",
+      "headline": "5 najlepších AI nástrojov na produktivitu pre rok 2026",
       "description": "Výber najlepších AI nástrojov vrátane ChatGPT, Notion, Perplexity, Canva a AI Zápisnica."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI nástrojov"
   },
   "hero": {
-    "kicker": "Balík produktivity 2025",
-    "h1": "5 najlepších AI nástrojov na automatizáciu vášho pracovného dňa (2025)",
+    "kicker": "Balík produktivity 2026",
+    "h1": "5 najlepších AI nástrojov na automatizáciu vášho pracovného dňa (2026)",
     "tagline": "Používanie AI už nie je len o ChatGPT. Aby ste skutočne zvýšili produktivitu, potrebujete na každú úlohu toho správneho špecialistu. Tu je ultimátny balík na písanie, výskum, dizajn a – čo je najdôležitejšie – stretnutia."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Najlepšie na: Nápady a koncepty",
       "desc": "Nesporný kráľ generatívneho textu. Či už potrebujete napísať e-mail, ladiť kód alebo brainstormovať marketingové uhly, ChatGPT zostáva najvšestrannejším východiskovým bodom.",
       "icon": "bulb"

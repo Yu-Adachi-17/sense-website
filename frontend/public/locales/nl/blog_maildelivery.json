@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Nieuw in 2025: Notulen AI (iOS) mailt uw notulen nu automatisch",
+    "title": "Nieuw in 2026: Notulen AI (iOS) mailt uw notulen nu automatisch",
     "description": "Moe van het wachten op AI-generatie? Met de nieuwe automatische e-mailbezorging op iOS kunt u de app direct na de opname sluiten. Wij mailen de notulen naar uw team zodra ze klaar zijn.",
     "ogTitle": "Stop met wachten: Notulen AI (iOS) verstuurt notulen nu automatisch",
     "ogDescription": "Opnemen, stoppen en de app sluiten. Wij regelen de rest. Lees over de nieuwe functie die wachttijd uit uw vergaderworkflow haalt.",
@@ -17,7 +17,7 @@
     "maildelivery": "Auto E-mailbezorging (iOS)"
   },
   "hero": {
-    "kicker": "Nieuwe iOS-functie 2025",
+    "kicker": "Nieuwe iOS-functie 2026",
     "h1": "Opnemen, Stoppen, Klaar. Uw notulen worden automatisch verzonden.",
     "tagline": "Als u ooit heeft gezocht naar een 'AI-vergaderapp' in de hoop tijd te besparen, is deze update voor u. Niet meer staren naar een laadscherm wachtend tot de notulen zijn gegenereerd."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Vrijheid van het 'Kwaliteit vs. Snelheid' compromis",
-        "p": "Notulen AI gebruikt topmodellen zoals OpenAI Whisper, ChatGPT-5 en Gemini 3. Hoge precisie vereist verwerkingstijd – soms een paar minuten voor een lange vergadering. We weten dat wachten vervelend is. Met deze update blijft de verwerkingstijd (om kwaliteit te garanderen), maar **uw wachttijd daalt naar nul**. Stop uw telefoon in uw zak en ga door naar uw volgende taak."
+        "p": "Notulen AI gebruikt topmodellen zoals OpenAI Whisper, ChatGPT-5.2 en Gemini 3. Hoge precisie vereist verwerkingstijd – soms een paar minuten voor een lange vergadering. We weten dat wachten vervelend is. Met deze update blijft de verwerkingstijd (om kwaliteit te garanderen), maar **uw wachttijd daalt naar nul**. Stop uw telefoon in uw zak en ga door naar uw volgende taak."
       }
     ]
   },

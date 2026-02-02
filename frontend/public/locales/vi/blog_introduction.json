@@ -63,7 +63,7 @@
       "Riley (Dữ liệu)"
     ],
     "coreMessage": "Chi tiêu thông minh — ưu tiên rõ ràng hơn tốc độ. Cam kết “ai làm gì, trước khi nào” và giữ cuộc họp trong 30 phút.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Hạng mục hành động",
       "attendees": "Người tham dự:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — khởi chạy A/B test trước 2025-10-15",
-          "Riley — gửi phân tích CTR trước 2025-10-17"
+          "Jordan — khởi chạy A/B test trước 2026-10-15",
+          "Riley — gửi phân tích CTR trước 2026-10-17"
         ],
         "concerns": [
           "Mệt mỏi quảng cáo nếu không làm mới creative"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — xác nhận ETA/lo-gistics từ nhà cung cấp trước 2025-10-14"
+          "Sam — xác nhận ETA/lo-gistics từ nhà cung cấp trước 2026-10-14"
         ],
         "concerns": [
           "Rủi ro lead-time nếu backlog tăng"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — chốt lịch phát hành trước 2025-10-13",
-          "Hỗ trợ — đăng FAQ trước 2025-10-16",
-          "Marketing — bản nháp Black Friday trước 2025-10-25"
+          "Taylor — chốt lịch phát hành trước 2026-10-13",
+          "Hỗ trợ — đăng FAQ trước 2026-10-16",
+          "Marketing — bản nháp Black Friday trước 2026-10-25"
         ],
         "decisions": [
-          "Phê duyệt ra mắt gói Q4 vào 2025-10-20"
+          "Phê duyệt ra mắt gói Q4 vào 2026-10-20"
         ],
         "discussion": [
           "v1.2 sửa lỗi hao pin ..."

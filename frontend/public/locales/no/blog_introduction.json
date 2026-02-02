@@ -63,13 +63,13 @@
       "Robin (Dataanalyse)"
     ],
     "coreMessage": "Arbeid smart, vær tydelig. Definer ‘hvem gjør hva når’, og hold møtet under 30 minutter.",
-    "date": "2025-10-11 10:00 CET",
+    "date": "2026-10-11 10:00 CET",
     "meetingTitle": "Ukentlig gjennomgang av smartklokkesalg",
     "topics": [
       {
         "actionItems": [
-          "Jonas — start A/B-test innen 2025-10-15",
-          "Robin — lever CTR-analyse innen 2025-10-17"
+          "Jonas — start A/B-test innen 2026-10-15",
+          "Robin — lever CTR-analyse innen 2026-10-17"
         ],
         "concerns": [
           "Risiko for annonsetretthet hvis kreativt materiale ikke oppdateres"
@@ -89,7 +89,7 @@
       },
       {
         "actionItems": [
-          "Sara — bekreft logistikk innen 2025-10-14"
+          "Sara — bekreft logistikk innen 2026-10-14"
         ],
         "concerns": [
           "Forsinkelsesrisiko ved høy leverandørbelastning"
@@ -109,17 +109,17 @@
       },
       {
         "actionItems": [
-          "Thomas — ferdigstill plan innen 2025-10-13",
-          "Support — publiser FAQ innen 2025-10-16",
-          "Markedsføring — lag Black Friday-plan innen 2025-10-25"
+          "Thomas — ferdigstill plan innen 2026-10-13",
+          "Support — publiser FAQ innen 2026-10-16",
+          "Markedsføring — lag Black Friday-plan innen 2026-10-25"
         ],
         "decisions": [
-          "Godkjenn lansering 2025-10-20"
+          "Godkjenn lansering 2026-10-20"
         ],
         "discussion": [
           "v1.2 løser batteriproblem; bedre skrittelling",
           "Utgivelsesnotater klare; support publiserer FAQ",
-          "Q4-pakke: Watch + Band, −200 kr fra 2025-10-20"
+          "Q4-pakke: Watch + Band, −200 kr fra 2026-10-20"
         ],
         "keyMessages": [
           "Kombiner produktforbedring med riktig lanseringstidspunkt"
@@ -153,7 +153,7 @@
       "h3": "Eksempel på Referat AI-resultat"
     },
     "transcript": {
-      "full": "Alex (Markedsføringsleder): Takk for at dere kom — Jonas (E-handel), Sara (Butikkdrift), Thomas (Prosjektleder) og Robin (Dataanalyse). La oss se på salget av smartklokken forrige helg. Jonas, du begynner med nettkanalen.\n\nJonas (E-handel): Uke for uke økte øktene med 18 %. Konverteringsraten gikk opp fra 2,9 % til 3,2 %. Inntektene økte med 12 %. Økningen kom hovedsakelig fra influencer-kampanjen på lørdag; annonsekostnadene steg med 6 %.\n\nRobin (Data): CAC er stabil rundt 2400 kr. Men klikkraten for retargeting falt fra 1,8 % til 1,2 %. Jeg anbefaler å fornye annonsene og teste kortere overskrifter (A/B-test). Jeg kan levere analysen innen fredag (2025-10-17).\n\nAlex: Flott. Beslutning: Øk budsjettet for nettreklame med 15 % de neste to ukene. Handlinger: Jonas — start A/B-test innen onsdag (2025-10-15). Robin — lever analysen innen fredag (2025-10-17).\n\nSara (Butikkdrift): I butikkene var det utsolgt i Oslo, Bergen og Trondheim. En ny levering på 500 enheter er planlagt til mandag. Kundebesøk falt med 4 % på grunn av uværet, men gjennomsnittlig handlekurv var stabil.\n\nAlex: Beslutning: Gjennomfør leveransen på 500 enheter til de tre butikkene. Handling: Sara — bekreft leveringstid og logistikk innen tirsdag (2025-10-14). Risiko: forsinkelser ved leverandørproblemer.\n\nThomas (Prosjektleder): Firmware v1.2 løser batteriproblemet og forbedrer skrittelling. Utgivelsesnotater er klare. Jeg foreslår lansering 20. oktober med en Q4-pakke — «Watch + Band» med 200 kr rabatt. Support må publisere en FAQ.\n\nAlex: Beslutning: Godkjenn Q4-lansering 2025-10-20. Handlinger: Thomas — ferdigstill lanseringsplan innen mandag (2025-10-13). Support — publiser FAQ innen torsdag (2025-10-16). Markedsføring — utarbeid Black Friday-plan innen lørdag (2025-10-25).\n\nAlex (avslutning): La oss jobbe smart og holde retningen tydelig – tydelighet foran hastighet. Sørg for «hvem gjør hva når», og hold møtene under 30 minutter.",
+      "full": "Alex (Markedsføringsleder): Takk for at dere kom — Jonas (E-handel), Sara (Butikkdrift), Thomas (Prosjektleder) og Robin (Dataanalyse). La oss se på salget av smartklokken forrige helg. Jonas, du begynner med nettkanalen.\n\nJonas (E-handel): Uke for uke økte øktene med 18 %. Konverteringsraten gikk opp fra 2,9 % til 3,2 %. Inntektene økte med 12 %. Økningen kom hovedsakelig fra influencer-kampanjen på lørdag; annonsekostnadene steg med 6 %.\n\nRobin (Data): CAC er stabil rundt 2400 kr. Men klikkraten for retargeting falt fra 1,8 % til 1,2 %. Jeg anbefaler å fornye annonsene og teste kortere overskrifter (A/B-test). Jeg kan levere analysen innen fredag (2026-10-17).\n\nAlex: Flott. Beslutning: Øk budsjettet for nettreklame med 15 % de neste to ukene. Handlinger: Jonas — start A/B-test innen onsdag (2026-10-15). Robin — lever analysen innen fredag (2026-10-17).\n\nSara (Butikkdrift): I butikkene var det utsolgt i Oslo, Bergen og Trondheim. En ny levering på 500 enheter er planlagt til mandag. Kundebesøk falt med 4 % på grunn av uværet, men gjennomsnittlig handlekurv var stabil.\n\nAlex: Beslutning: Gjennomfør leveransen på 500 enheter til de tre butikkene. Handling: Sara — bekreft leveringstid og logistikk innen tirsdag (2026-10-14). Risiko: forsinkelser ved leverandørproblemer.\n\nThomas (Prosjektleder): Firmware v1.2 løser batteriproblemet og forbedrer skrittelling. Utgivelsesnotater er klare. Jeg foreslår lansering 20. oktober med en Q4-pakke — «Watch + Band» med 200 kr rabatt. Support må publisere en FAQ.\n\nAlex: Beslutning: Godkjenn Q4-lansering 2026-10-20. Handlinger: Thomas — ferdigstill lanseringsplan innen mandag (2026-10-13). Support — publiser FAQ innen torsdag (2026-10-16). Markedsføring — utarbeid Black Friday-plan innen lørdag (2026-10-25).\n\nAlex (avslutning): La oss jobbe smart og holde retningen tydelig – tydelighet foran hastighet. Sørg for «hvem gjør hva når», og hold møtene under 30 minutter.",
       "preview": "Ok, la oss starte møtet. Først skal vi se på salgstallene for smartklokken fra forrige helg. Jonas, kan du begynne med nettkanalen?"
     }
   },

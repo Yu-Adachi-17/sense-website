@@ -63,7 +63,7 @@
       "Elif (Veri)"
     ],
     "coreMessage": "Netlik hızdan önemlidir. ‘Kim neyi ne zaman yapacak’ açık olmalı ve toplantılar kısa tutulmalı.",
-    "date": "2025-10-11 10:00 TRT",
+    "date": "2026-10-11 10:00 TRT",
     "labels": {
       "actionItems": "Eylemler",
       "attendees": "Katılımcılar:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Ayşe — A/B testini 2025-10-15’e kadar başlat",
-          "Elif — CTR analizini 2025-10-17’ye kadar teslim et"
+          "Ayşe — A/B testini 2026-10-15’e kadar başlat",
+          "Elif — CTR analizini 2026-10-17’ye kadar teslim et"
         ],
         "concerns": [
           "Kreatif yenilenmezse reklam yorgunluğu riski"
@@ -98,7 +98,7 @@
       },
       {
         "actionItems": [
-          "Mehmet — lojistik onayını 2025-10-14’e kadar tamamla"
+          "Mehmet — lojistik onayını 2026-10-14’e kadar tamamla"
         ],
         "concerns": [
           "Tedarik zinciri gecikme riski"
@@ -118,17 +118,17 @@
       },
       {
         "actionItems": [
-          "Cem — planı 2025-10-13’e kadar tamamla",
-          "Destek — SSS’yi 2025-10-16’ya kadar yayımla",
-          "Pazarlama — Black Friday planını 2025-10-25’e kadar hazırla"
+          "Cem — planı 2026-10-13’e kadar tamamla",
+          "Destek — SSS’yi 2026-10-16’ya kadar yayımla",
+          "Pazarlama — Black Friday planını 2026-10-25’e kadar hazırla"
         ],
         "decisions": [
-          "Lansman 2025-10-20 için onaylandı"
+          "Lansman 2026-10-20 için onaylandı"
         ],
         "discussion": [
           "v1.2 batarya sorununu çözüyor; adım sayımı geliştirildi",
           "Sürüm notları hazır; destek ekibi SSS yayımlayacak",
-          "Q4 kampanyası: Saat + Kayış, −₺200, lansman 2025-10-20"
+          "Q4 kampanyası: Saat + Kayış, −₺200, lansman 2026-10-20"
         ],
         "keyMessages": [
           "Ürün iyileştirmelerini doğru zamanlı pazarlama ile birleştirin"
@@ -153,7 +153,7 @@
       "h3": "Tutanakları AI Çıktı Örneği"
     },
     "transcript": {
-      "full": "Ahmet (Pazarlama Müdürü): Katıldığınız için teşekkürler — Ayşe (E-ticaret), Mehmet (Perakende), Cem (Proje Yöneticisi) ve Elif (Veri Analizi). Akıllı saat satışlarını gözden geçirelim. Ayşe, online sonuçlarla başla.\n\nAyşe (E-ticaret): Geçen haftaya göre oturumlar %18 arttı. Dönüşüm oranı %2,9’dan %3,2’ye çıktı. Gelir %12 yükseldi. Artışın çoğu cumartesi günü yapılan influencer kampanyasından kaynaklandı; reklam maliyeti %6 arttı.\n\nElif (Veri): Müşteri edinme maliyeti sabit kaldı (₺450). Ancak yeniden pazarlama tıklama oranı %1,8’den %1,2’ye düştü. Görsellerin yenilenmesini ve kısa başlıklarla A/B testi yapılmasını öneriyorum. Analizi cuma (2025-10-17) günü paylaşabilirim.\n\nAhmet: Harika. Karar: Önümüzdeki iki hafta için online reklam bütçesini %15 artırıyoruz. Eylemler: Ayşe — A/B testini 15 Ekim’e kadar başlat. Elif — CTR analizini 17 Ekim’e kadar teslim et.\n\nMehmet (Perakende): İstanbul, Ankara ve İzmir mağazalarında stok tükendi. Pazartesi günü 500 adetlik yenileme planlandı. Müşteri trafiği yağmur nedeniyle %4 azaldı, ancak ortalama sepet tutarı sabit kaldı.\n\nAhmet: Karar: Üç mağaza için 500 adetlik yeniden stoklama yapılacak. Eylem: Mehmet — lojistik onayını 14 Ekim’e kadar tamamla. Risk: Tedarik zincirinde gecikme olasılığı.\n\nCem (Proje Yöneticisi): Firmware v1.2 batarya sorununu çözüyor ve adım sayımını iyileştiriyor. Sürüm notları hazır. 20 Ekim’de “Saat + Kayış” Q4 kampanyasıyla birlikte lansman öneriyorum. Destek ekibi bir SSS yayımlamalı.\n\nAhmet: Karar: Q4 lansmanı 20 Ekim 2025’te onaylandı. Eylemler: Cem — planı 13 Ekim’e kadar tamamla. Destek — SSS’yi 16 Ekim’e kadar yayımla. Pazarlama — Black Friday planını 25 Ekim’e kadar hazırla.\n\nAhmet (Kapanış): Akıllı çalışın, net olun. ‘Kim neyi ne zaman yapacak’ açık olmalı. Toplantılar 30 dakikayı geçmemeli.",
+      "full": "Ahmet (Pazarlama Müdürü): Katıldığınız için teşekkürler — Ayşe (E-ticaret), Mehmet (Perakende), Cem (Proje Yöneticisi) ve Elif (Veri Analizi). Akıllı saat satışlarını gözden geçirelim. Ayşe, online sonuçlarla başla.\n\nAyşe (E-ticaret): Geçen haftaya göre oturumlar %18 arttı. Dönüşüm oranı %2,9’dan %3,2’ye çıktı. Gelir %12 yükseldi. Artışın çoğu cumartesi günü yapılan influencer kampanyasından kaynaklandı; reklam maliyeti %6 arttı.\n\nElif (Veri): Müşteri edinme maliyeti sabit kaldı (₺450). Ancak yeniden pazarlama tıklama oranı %1,8’den %1,2’ye düştü. Görsellerin yenilenmesini ve kısa başlıklarla A/B testi yapılmasını öneriyorum. Analizi cuma (2026-10-17) günü paylaşabilirim.\n\nAhmet: Harika. Karar: Önümüzdeki iki hafta için online reklam bütçesini %15 artırıyoruz. Eylemler: Ayşe — A/B testini 15 Ekim’e kadar başlat. Elif — CTR analizini 17 Ekim’e kadar teslim et.\n\nMehmet (Perakende): İstanbul, Ankara ve İzmir mağazalarında stok tükendi. Pazartesi günü 500 adetlik yenileme planlandı. Müşteri trafiği yağmur nedeniyle %4 azaldı, ancak ortalama sepet tutarı sabit kaldı.\n\nAhmet: Karar: Üç mağaza için 500 adetlik yeniden stoklama yapılacak. Eylem: Mehmet — lojistik onayını 14 Ekim’e kadar tamamla. Risk: Tedarik zincirinde gecikme olasılığı.\n\nCem (Proje Yöneticisi): Firmware v1.2 batarya sorununu çözüyor ve adım sayımını iyileştiriyor. Sürüm notları hazır. 20 Ekim’de “Saat + Kayış” Q4 kampanyasıyla birlikte lansman öneriyorum. Destek ekibi bir SSS yayımlamalı.\n\nAhmet: Karar: Q4 lansmanı 20 Ekim 2026’te onaylandı. Eylemler: Cem — planı 13 Ekim’e kadar tamamla. Destek — SSS’yi 16 Ekim’e kadar yayımla. Pazarlama — Black Friday planını 25 Ekim’e kadar hazırla.\n\nAhmet (Kapanış): Akıllı çalışın, net olun. ‘Kim neyi ne zaman yapacak’ açık olmalı. Toplantılar 30 dakikayı geçmemeli.",
       "preview": "Tamam, başlayalım. Önce akıllı saat satışlarını inceleyelim. Ayşe, online kanaldaki verilerle başlar mısın?"
     }
   },

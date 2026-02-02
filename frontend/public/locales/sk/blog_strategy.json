@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Stratégia AI Zápisnica: Od zápisníc k praktickým prehľadom (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "Funkcia 'Stratégia' v AI Zápisnica transformuje surové poznámky zo stretnutí na výkonný nástroj na rozhodovanie. Pomocou ChatGPT-5 a Gemini 2.5 Pro generuje Posilnenie, Protiargument, Hlavný Problém a tri unikátne režimy myslenia, ktoré posunú vaše podnikanie vpred.",
+    "title": "Stratégia AI Zápisnica: Od zápisníc k praktickým prehľadom (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "Funkcia 'Stratégia' v AI Zápisnica transformuje surové poznámky zo stretnutí na výkonný nástroj na rozhodovanie. Pomocou ChatGPT-5.2 a Gemini 2.5 Pro generuje Posilnenie, Protiargument, Hlavný Problém a tri unikátne režimy myslenia, ktoré posunú vaše podnikanie vpred.",
     "ogTitle": "Stratégia AI Zápisnica: Premeňte zápisnice na činy",
     "ogDescription": "Nezaznamenávajte len stretnutia. Premeňte ich na stratégiu. Získajte Posilnenie (čo funguje), Protiargument (čo napraviť), Hlavný Problém (jadro problému) a režimy logického, kritického a laterálneho myslenia.",
     "ld": {
       "headline": "Funkcia Stratégia AI Zápisnica: Od jednoduchých poznámok k partnerovi na stretnutia",
-      "description": "Funkcia 'Stratégia' povyšuje zápisnice na podporu rozhodovania pomocou pokročilej analýzy AI (ChatGPT-5 a Gemini 2.5 Pro) s cieľom poskytnúť praktické prehľady."
+      "description": "Funkcia 'Stratégia' povyšuje zápisnice na podporu rozhodovania pomocou pokročilej analýzy AI (ChatGPT-5.2 a Gemini 2.5 Pro) s cieľom poskytnúť praktické prehľady."
     },
-    "keywords": "AI Zápisnica, AI zápisnice zo stretnutí, Stratégia, ChatGPT-5, Gemini 2.5 Pro, podpora rozhodovania, praktické prehľady, Logické myslenie, Kritické myslenie, Laterálne myslenie, Posilnenie, Protiargument, Hlavný Problém, partner na stretnutia, obchodná stratégia"
+    "keywords": "AI Zápisnica, AI zápisnice zo stretnutí, Stratégia, ChatGPT-5.2, Gemini 2.5 Pro, podpora rozhodovania, praktické prehľady, Logické myslenie, Kritické myslenie, Laterálne myslenie, Posilnenie, Protiargument, Hlavný Problém, partner na stretnutia, obchodná stratégia"
   },
   "aria": {
     "home": "Domov AI Zápisnica"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Hĺbkový pohľad na funkciu",
     "h1": "Viac ako zápisnice: Funkcia Stratégia",
-    "tagline": "Prestaňte len organizovať poznámky. Funkcia 'Stratégia' premení AI Zápisnica na vášho kľúčového partnera na stretnutiach, ktorý premieňa diskusie na vysoko efektívne akcie, všetko poháňané ChatGPT-5 a Gemini 2.5 Pro."
+    "tagline": "Prestaňte len organizovať poznámky. Funkcia 'Stratégia' premení AI Zápisnica na vášho kľúčového partnera na stretnutiach, ktorý premieňa diskusie na vysoko efektívne akcie, všetko poháňané ChatGPT-5.2 a Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Čo je funkcia Stratégia?",
@@ -39,7 +39,7 @@
     "h2": "Ako to funguje",
     "steps": [
       "Vygenerujte si zápisnicu zo stretnutia ako zvyčajne (iOS, Android alebo Web).",
-      "Klepnite na tlačidlo 'Stratégia', aby ste analyzovali celý prepis pomocou ChatGPT-5 a Gemini 2.5 Pro.",
+      "Klepnite na tlačidlo 'Stratégia', aby ste analyzovali celý prepis pomocou ChatGPT-5.2 a Gemini 2.5 Pro.",
       "Dostanete svoju 6-dielnu analýzu: Posilnenie, Protiargument, Hlavný Problém a tri režimy myslenia.",
       "Zdieľajte, kopírujte alebo exportujte prehľady priamo do vášho systému na správu úloh alebo reportu."
     ],

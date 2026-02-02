@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "5 Alat AI Produktivitas Terbaik di 2025",
-    "description": "Berhenti berkutat dengan alat generik. Berikut adalah 5 aplikasi AI penting untuk teks, riset, desain, dan rapat yang benar-benar akan menghemat waktu Anda di 2025.",
-    "ogTitle": "5 Alat AI Produktivitas Terbaik (Edisi 2025)",
+    "title": "5 Alat AI Produktivitas Terbaik di 2026",
+    "description": "Berhenti berkutat dengan alat generik. Berikut adalah 5 aplikasi AI penting untuk teks, riset, desain, dan rapat yang benar-benar akan menghemat waktu Anda di 2026.",
+    "ogTitle": "5 Alat AI Produktivitas Terbaik (Edisi 2026)",
     "ogDescription": "ChatGPT saja tidak cukup. Kami telah menyusun stack AI yang sempurna untuk menulis, riset, desain, dan rapat.",
     "ld": {
-      "headline": "5 Alat AI Produktivitas Terbaik untuk 2025",
+      "headline": "5 Alat AI Produktivitas Terbaik untuk 2026",
       "description": "Daftar kurasi alat AI terbaik termasuk ChatGPT, Notion, Perplexity, Canva, dan Minutes AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 Alat AI"
   },
   "hero": {
-    "kicker": "Stack Produktivitas 2025",
-    "h1": "5 Alat AI Terbaik untuk Mengotomatiskan Hari Kerja Anda (2025)",
+    "kicker": "Stack Produktivitas 2026",
+    "h1": "5 Alat AI Terbaik untuk Mengotomatiskan Hari Kerja Anda (2026)",
     "tagline": "Menggunakan AI bukan lagi sekadar tentang ChatGPT. Untuk benar-benar meningkatkan produktivitas, Anda memerlukan spesialis yang tepat untuk setiap tugas. Berikut adalah stack terbaik untuk menulis, riset, mendesain, dan—yang paling penting—rapat."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Terbaik untuk: Ide & Drafting",
       "desc": "Raja teks generatif yang tak terbantahkan. Baik Anda perlu membuat draf email, debug kode, atau brainstorming sudut pandang pemasaran, ChatGPT tetap menjadi titik awal yang paling serbaguna.",
       "icon": "bulb"

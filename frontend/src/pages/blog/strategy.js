@@ -17,9 +17,9 @@ const inter = Inter({ subsets: ["latin"] });
 const EN_FALLBACK = {
   seo: {
     title:
-      "Minutes.AI Strategy: From Minutes to Actionable Insights (ChatGPT-5 & Gemini 2.5 Pro)",
+      "Minutes.AI Strategy: From Minutes to Actionable Insights (ChatGPT-5.2 & Gemini 2.5 Pro)",
     description:
-      "Minutes.AI’s Strategy feature transforms raw meeting notes into a powerful decision-making toolkit. Using ChatGPT-5 and Gemini 2.5 Pro, it generates Boost, Counter, Top Issue, and three unique thinking modes to drive your business forward.",
+      "Minutes.AI’s Strategy feature transforms raw meeting notes into a powerful decision-making toolkit. Using ChatGPT-5.2 and Gemini 2.5 Pro, it generates Boost, Counter, Top Issue, and three unique thinking modes to drive your business forward.",
     ogTitle: "Minutes.AI Strategy: Turn Minutes into Action",
     ogDescription:
       "Don't just record meetings. Turn them into strategy. Get Boost (what works), Counter (what to fix), Top Issue (the core problem), and Logical, Critical, & Lateral thinking modes.",
@@ -27,10 +27,10 @@ const EN_FALLBACK = {
       headline:
         "Minutes.AI Strategy Feature: From Simple Notes to Meeting Partner",
       description:
-        "The Strategy feature elevates minutes to decision support using advanced AI analysis (ChatGPT-5 and Gemini 2.5 Pro) to provide actionable insights.",
+        "The Strategy feature elevates minutes to decision support using advanced AI analysis (ChatGPT-5.2 and Gemini 2.5 Pro) to provide actionable insights.",
     },
     keywords:
-      "Minutes.AI, meeting minutes AI, Strategy, ChatGPT-5, Gemini 2.5 Pro, decision support, actionable insights, Logical Thinking, Critical Thinking, Lateral Thinking, Boost, Counter, Top Issue, meeting partner, business strategy",
+      "Minutes.AI, meeting minutes AI, Strategy, ChatGPT-5.2, Gemini 2.5 Pro, decision support, actionable insights, Logical Thinking, Critical Thinking, Lateral Thinking, Boost, Counter, Top Issue, meeting partner, business strategy",
   },
   aria: { home: "Minutes.AI Home" },
   nav: { blog: "Blog", strategy: "Strategy" },
@@ -38,7 +38,7 @@ const EN_FALLBACK = {
     kicker: "Feature Deep Dive",
     h1: "Beyond Minutes: The Strategy Function",
     tagline:
-      "Stop just organizing notes. The Strategy function turns Minutes.AI into your core meeting partner, converting discussions into high-impact actions, all powered by ChatGPT-5 and Gemini 2.5 Pro.",
+      "Stop just organizing notes. The Strategy function turns Minutes.AI into your core meeting partner, converting discussions into high-impact actions, all powered by ChatGPT-5.2 and Gemini 2.5 Pro.",
   },
   what: {
     h2: "What is the Strategy Function?",
@@ -57,7 +57,7 @@ const EN_FALLBACK = {
     h2: "How It Works",
     steps: [
       "Generate your meeting minutes as usual (iOS, Android, or Web).",
-      "Tap the 'Strategy' button to analyze the full transcript with ChatGPT-5 & Gemini 2.5 Pro.",
+      "Tap the 'Strategy' button to analyze the full transcript with ChatGPT-5.2 & Gemini 2.5 Pro.",
       "Receive your 6-part analysis: Boost, Counter, Top Issue, and the three thinking modes.",
       "Share, copy, or export the insights directly into your task management system or report.",
     ],

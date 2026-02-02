@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Strategia di Verbali IA: Dai verbali a insight azionabili (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "La funzione 'Strategia' di Verbali IA trasforma le note grezze delle riunioni in un potente strumento decisionale. Utilizzando ChatGPT-5 e Gemini 2.5 Pro, genera Spinta, Obiezione, Problema Chiave e tre modalità di pensiero uniche per far progredire la tua azienda.",
+    "title": "Strategia di Verbali IA: Dai verbali a insight azionabili (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "La funzione 'Strategia' di Verbali IA trasforma le note grezze delle riunioni in un potente strumento decisionale. Utilizzando ChatGPT-5.2 e Gemini 2.5 Pro, genera Spinta, Obiezione, Problema Chiave e tre modalità di pensiero uniche per far progredire la tua azienda.",
     "ogTitle": "Strategia di Verbali IA: Trasforma i verbali in azione",
     "ogDescription": "Non limitarti a registrare le riunioni. Trasformale in strategia. Ottieni Spinta (cosa funziona), Obiezione (cosa correggere), Problema Chiave (il problema centrale) e modalità di pensiero Logico, Critico e Laterale.",
     "ld": {
       "headline": "Funzione Strategia di Verbali IA: Da semplici note a partner per le riunioni",
-      "description": "La funzione 'Strategia' eleva i verbali a supporto decisionale utilizzando un'analisi AI avanzata (ChatGPT-5 e Gemini 2.5 Pro) per fornire insight azionabili."
+      "description": "La funzione 'Strategia' eleva i verbali a supporto decisionale utilizzando un'analisi AI avanzata (ChatGPT-5.2 e Gemini 2.5 Pro) per fornire insight azionabili."
     },
-    "keywords": "Verbali IA, verbali riunioni IA, Strategia, ChatGPT-5, Gemini 2.5 Pro, supporto decisionale, insight azionabili, Pensiero Logico, Pensiero Critico, Pensiero Laterale, Spinta, Obiezione, Problema Chiave, partner riunioni, strategia aziendale"
+    "keywords": "Verbali IA, verbali riunioni IA, Strategia, ChatGPT-5.2, Gemini 2.5 Pro, supporto decisionale, insight azionabili, Pensiero Logico, Pensiero Critico, Pensiero Laterale, Spinta, Obiezione, Problema Chiave, partner riunioni, strategia aziendale"
   },
   "aria": {
     "home": "Home di Verbali IA"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Approfondimento Funzionalità",
     "h1": "Oltre i verbali: La Funzione Strategia",
-    "tagline": "Smetti di organizzare solo appunti. La funzione 'Strategia' trasforma Verbali IA nel tuo partner principale per le riunioni, convertendo le discussioni in azioni ad alto impatto, tutto alimentato da ChatGPT-5 e Gemini 2.5 Pro."
+    "tagline": "Smetti di organizzare solo appunti. La funzione 'Strategia' trasforma Verbali IA nel tuo partner principale per le riunioni, convertendo le discussioni in azioni ad alto impatto, tutto alimentato da ChatGPT-5.2 e Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Cos'è la Funzione Strategia?",
@@ -39,7 +39,7 @@
     "h2": "Come funziona",
     "steps": [
       "Genera i verbali delle tue riunioni come al solito (iOS, Android o Web).",
-      "Tocca il pulsante 'Strategia' per analizzare la trascrizione completa con ChatGPT-5 e Gemini 2.5 Pro.",
+      "Tocca il pulsante 'Strategia' per analizzare la trascrizione completa con ChatGPT-5.2 e Gemini 2.5 Pro.",
       "Ricevi la tua analisi in 6 parti: Spinta, Obiezione, Problema Chiave e le tre modalità di pensiero.",
       "Condividi, copia o esporta gli insight direttamente nel tuo sistema di gestione delle attività o nel tuo report."
     ],

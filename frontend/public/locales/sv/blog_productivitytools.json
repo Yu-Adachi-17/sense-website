@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "De 5 bästa AI-verktygen för produktivitet 2025",
-    "description": "Sluta jonglera med generiska verktyg. Här är de 5 viktigaste AI-apparna för text, research, design och möten som faktiskt sparar tid åt dig under 2025.",
-    "ogTitle": "De 5 bästa AI-verktygen för produktivitet (2025 års upplaga)",
+    "title": "De 5 bästa AI-verktygen för produktivitet 2026",
+    "description": "Sluta jonglera med generiska verktyg. Här är de 5 viktigaste AI-apparna för text, research, design och möten som faktiskt sparar tid åt dig under 2026.",
+    "ogTitle": "De 5 bästa AI-verktygen för produktivitet (2026 års upplaga)",
     "ogDescription": "ChatGPT räcker inte. Vi har satt ihop den perfekta AI-stacken för skrivande, research, design och möten.",
     "ld": {
-      "headline": "De 5 bästa AI-verktygen för produktivitet 2025",
+      "headline": "De 5 bästa AI-verktygen för produktivitet 2026",
       "description": "En utvald lista över de bästa AI-verktygen inklusive ChatGPT, Notion, Perplexity, Canva och Protokoll AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Topp 5 AI-verktyg"
   },
   "hero": {
-    "kicker": "Produktivitets-stack 2025",
-    "h1": "De 5 bästa AI-verktygen för att automatisera din arbetsdag (2025)",
+    "kicker": "Produktivitets-stack 2026",
+    "h1": "De 5 bästa AI-verktygen för att automatisera din arbetsdag (2026)",
     "tagline": "Att använda AI handlar inte längre bara om ChatGPT. För att verkligen öka produktiviteten behöver du rätt specialist för varje uppgift. Här är den ultimata uppsättningen för att skriva, göra research, designa och – viktigast av allt – möten."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Bäst för: Idéer & Utkast",
       "desc": "Den obestridda kungen av generativ text. Oavsett om du behöver utforma ett e-postmeddelande, felsöka kod eller brainstorma marknadsföringsvinklar är ChatGPT fortfarande den mest mångsidiga utgångspunkten.",
       "icon": "bulb"

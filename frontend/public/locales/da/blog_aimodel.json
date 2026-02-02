@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Bag teknologien: AI-modellerne bag Referat AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Opdag, hvorfor Referat AI leverer overlegne mødereferater. Vi afslører vores model-agnostiske politik og de kraftfulde LLM'er, vi bruger (i øjeblikket ChatGPT-5 og Gemini 2.5 Pro).",
+    "title": "Bag teknologien: AI-modellerne bag Referat AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Opdag, hvorfor Referat AI leverer overlegne mødereferater. Vi afslører vores model-agnostiske politik og de kraftfulde LLM'er, vi bruger (i øjeblikket ChatGPT-5.2 og Gemini 2.5 Pro).",
     "ogTitle": "Kvalitet over omkostninger: De AI-modeller, vi bruger hos Referat AI",
-    "ogDescription": "Vi nøjes ikke med 'godt nok'. Referat AI prioriterer outputkvalitet og bruger de bedste modeller som ChatGPT-5 og Gemini 2.5 Pro for at sikre professionelle resultater.",
+    "ogDescription": "Vi nøjes ikke med 'godt nok'. Referat AI prioriterer outputkvalitet og bruger de bedste modeller som ChatGPT-5.2 og Gemini 2.5 Pro for at sikre professionelle resultater.",
     "ld": {
       "headline": "AI-modellerne, der driver Referat AI",
       "description": "Lær om vores filosofi for modelvalg, og hvorfor det er afgørende for at skabe handlingsorienterede, professionelle mødereferater."
@@ -56,7 +56,7 @@
     "p1": "For at sikre, at dine referater er klare, nøjagtige og klar til handling, bruger vi i øjeblikket en hybrid tilgang med disse topmodeller:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Uovertruffen logisk ræsonnement og præcis tonekontrol. Perfekt til komplekse diskussioner, hvor beslutninger og ansvarlighed er nøglen."
       },
       {

@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Újdonság 2025-ben: A Jegyzőkönyv AI (iOS) mostantól automatikusan elküldi a jegyzőkönyveket e-mailben",
+    "title": "Újdonság 2026-ben: A Jegyzőkönyv AI (iOS) mostantól automatikusan elküldi a jegyzőkönyveket e-mailben",
     "description": "Unja már az AI generálásra való várakozást? Az új iOS-es automatikus e-mail kézbesítéssel a felvétel után azonnal bezárhatja az alkalmazást. Mi elküldjük a jegyzőkönyvet a csapatának, amint elkészült.",
     "ogTitle": "Nincs több várakozás: A Jegyzőkönyv AI (iOS) automatikusan küldi a jegyzőkönyveket",
     "ogDescription": "Rögzítse, állítsa le és zárja be az alkalmazást. A többit mi intézzük. Ismerje meg az új funkciót, amely eltávolítja a várakozási időt a megbeszélések folyamatából.",
@@ -17,7 +17,7 @@
     "maildelivery": "Auto E-mail Kézbesítés (iOS)"
   },
   "hero": {
-    "kicker": "Új iOS funkció 2025",
+    "kicker": "Új iOS funkció 2026",
     "h1": "Felvétel, Leállítás, Kész. A jegyzőkönyvei automatikusan elküldésre kerülnek.",
     "tagline": "Ha keresett már „AI megbeszélés alkalmazást” abban a reményben, hogy időt spóroljon, ez a frissítés Önnek szól. Nincs több töltőképernyő bámulása a jegyzőkönyv generálására várva."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Szabadság a „Minőség vs. Sebesség” kompromisszumtól",
-        "p": "A Jegyzőkönyv AI olyan csúcsmodelleket használ, mint az OpenAI Whisper, ChatGPT-5 és Gemini 3. A nagy pontosság feldolgozási időt igényel – néha néhány percet egy hosszú megbeszélés esetén. Tudjuk, hogy a várakozás idegesítő. Ezzel a frissítéssel a feldolgozási idő megmarad (a minőség biztosítása érdekében), de **az Ön várakozási ideje nullára csökken**. Tegye a telefont a zsebébe, és folytassa a következő feladatával."
+        "p": "A Jegyzőkönyv AI olyan csúcsmodelleket használ, mint az OpenAI Whisper, ChatGPT-5.2 és Gemini 3. A nagy pontosság feldolgozási időt igényel – néha néhány percet egy hosszú megbeszélés esetén. Tudjuk, hogy a várakozás idegesítő. Ezzel a frissítéssel a feldolgozási idő megmarad (a minőség biztosítása érdekében), de **az Ön várakozási ideje nullára csökken**. Tegye a telefont a zsebébe, és folytassa a következő feladatával."
       }
     ]
   },

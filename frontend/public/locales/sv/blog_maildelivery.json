@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Nytt 2025: Protokoll AI (iOS) mailar nu dina protokoll automatiskt",
+    "title": "Nytt 2026: Protokoll AI (iOS) mailar nu dina protokoll automatiskt",
     "description": "Trött på att vänta på AI-generering? Med den nya automatiska e-postleveransen på iOS kan du stänga appen direkt efter inspelning. Vi skickar protokollet till ditt team så snart det är klart.",
     "ogTitle": "Sluta vänta: Protokoll AI (iOS) skickar nu protokoll automatiskt",
     "ogDescription": "Spela in, stoppa och stäng appen. Vi sköter resten. Läs om den nya funktionen som tar bort väntetiden från ditt mötesflöde.",
@@ -17,7 +17,7 @@
     "maildelivery": "Auto E-postleverans (iOS)"
   },
   "hero": {
-    "kicker": "Ny iOS-funktion 2025",
+    "kicker": "Ny iOS-funktion 2026",
     "h1": "Spela in, Stoppa, Klart. Dina protokoll skickas automatiskt.",
     "tagline": "Om du någonsin har sökt efter en 'AI-mötesapp' i hopp om att spara tid, är denna uppdatering för dig. Inget mer stirrande på en laddningsskärm i väntan på att protokollet ska genereras."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Frihet från kompromissen 'Kvalitet vs Hastighet'",
-        "p": "Protokoll AI använder toppmodeller som OpenAI Whisper, ChatGPT-5 och Gemini 3. Hög precision kräver bearbetningstid – ibland några minuter för ett långt möte. Vi vet att väntan är irriterande. Med denna uppdatering kvarstår bearbetningstiden (för att säkerställa kvalitet), men **din väntetid sjunker till noll**. Lägg telefonen i fickan och gå vidare till nästa uppgift."
+        "p": "Protokoll AI använder toppmodeller som OpenAI Whisper, ChatGPT-5.2 och Gemini 3. Hög precision kräver bearbetningstid – ibland några minuter för ett långt möte. Vi vet att väntan är irriterande. Med denna uppdatering kvarstår bearbetningstiden (för att säkerställa kvalitet), men **din väntetid sjunker till noll**. Lägg telefonen i fickan och gå vidare till nästa uppgift."
       }
     ]
   },

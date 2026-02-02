@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Novinka pro rok 2025: Zápisník AI (iOS) nyní automaticky odesílá zápisy e-mailem",
+    "title": "Novinka pro rok 2026: Zápisník AI (iOS) nyní automaticky odesílá zápisy e-mailem",
     "description": "Už vás nebaví čekat na generování AI? S novým automatickým doručováním e-mailů na iOS můžete aplikaci zavřít ihned po nahrávání. Zápis odešleme vašemu týmu, jakmile bude hotový.",
     "ogTitle": "Už žádné čekání: Zápisník AI (iOS) nyní odesílá zápisy automaticky",
     "ogDescription": "Nahrajte, zastavte a zavřete aplikaci. O zbytek se postaráme my. Přečtěte si o nové funkci, která odstraňuje čekání z vašeho pracovního postupu.",
@@ -17,7 +17,7 @@
     "maildelivery": "Automatické odesílání (iOS)"
   },
   "hero": {
-    "kicker": "Nová funkce pro iOS 2025",
+    "kicker": "Nová funkce pro iOS 2026",
     "h1": "Nahrát, zastavit, hotovo. Vaše zápisy se odešlou automaticky.",
     "tagline": "Pokud jste někdy hledali „AI aplikaci pro zápisy“, abyste ušetřili čas, tato aktualizace je pro vás. Už žádné zírání na obrazovku načítání a čekání na generování zápisu."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Konec kompromisu „Kvalita vs. Rychlost“",
-        "p": "Zápisník AI používá špičkové modely jako OpenAI Whisper, ChatGPT-5 a Gemini 3. Vysoká přesnost vyžaduje čas na zpracování – někdy i pár minut u dlouhé schůzky. Víme, že čekání je otravné. S touto aktualizací doba zpracování zůstává (pro zajištění kvality), ale **vaše čekací doba klesá na nulu**. Dejte si telefon do kapsy a přejděte k dalšímu úkolu."
+        "p": "Zápisník AI používá špičkové modely jako OpenAI Whisper, ChatGPT-5.2 a Gemini 3. Vysoká přesnost vyžaduje čas na zpracování – někdy i pár minut u dlouhé schůzky. Víme, že čekání je otravné. S touto aktualizací doba zpracování zůstává (pro zajištění kvality), ale **vaše čekací doba klesá na nulu**. Dejte si telefon do kapsy a přejděte k dalšímu úkolu."
       }
     ]
   },

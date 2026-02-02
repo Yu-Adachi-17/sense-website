@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Las 5 mejores herramientas de IA para productividad en 2025",
-    "description": "Deja de usar herramientas genéricas. Aquí tienes las 5 apps de IA esenciales para texto, investigación, diseño y reuniones que realmente te ahorrarán tiempo en 2025.",
-    "ogTitle": "Las 5 mejores herramientas de productividad con IA (Edición 2025)",
+    "title": "Las 5 mejores herramientas de IA para productividad en 2026",
+    "description": "Deja de usar herramientas genéricas. Aquí tienes las 5 apps de IA esenciales para texto, investigación, diseño y reuniones que realmente te ahorrarán tiempo en 2026.",
+    "ogTitle": "Las 5 mejores herramientas de productividad con IA (Edición 2026)",
     "ogDescription": "ChatGPT no es suficiente. Hemos seleccionado el stack de IA perfecto para redacción, investigación, diseño y reuniones.",
     "ld": {
-      "headline": "Las 5 mejores herramientas de IA para productividad de 2025",
+      "headline": "Las 5 mejores herramientas de IA para productividad de 2026",
       "description": "Una lista seleccionada de las mejores herramientas de IA, incluyendo ChatGPT, Notion, Perplexity, Canva y Actas IA."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 Herramientas IA"
   },
   "hero": {
-    "kicker": "Stack de Productividad 2025",
-    "h1": "Las 5 mejores herramientas de IA para automatizar tu día (2025)",
+    "kicker": "Stack de Productividad 2026",
+    "h1": "Las 5 mejores herramientas de IA para automatizar tu día (2026)",
     "tagline": "Usar IA ya no es solo cosa de ChatGPT. Para aumentar realmente la productividad, necesitas al especialista adecuado para cada tarea. Aquí tienes el stack definitivo para escribir, investigar, diseñar y, lo más importante, reuniones."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Mejor para: Ideas y Borradores",
       "desc": "El rey indiscutible del texto generativo. Ya sea que necesites redactar un correo, depurar código o hacer una lluvia de ideas de marketing, ChatGPT sigue siendo el punto de partida más versátil.",
       "icon": "bulb"

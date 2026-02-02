@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Bakom tekniken: AI-modellerna som driver Protokoll AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Upptäck varför Protokoll AI levererar överlägsna mötesprotokoll. Vi avslöjar vår modellagnostiska policy och de kraftfulla LLM:er vi använder (för närvarande ChatGPT-5 och Gemini 2.5 Pro).",
+    "title": "Bakom tekniken: AI-modellerna som driver Protokoll AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Upptäck varför Protokoll AI levererar överlägsna mötesprotokoll. Vi avslöjar vår modellagnostiska policy och de kraftfulla LLM:er vi använder (för närvarande ChatGPT-5.2 och Gemini 2.5 Pro).",
     "ogTitle": "Kvalitet före kostnad: AI-modellerna vi använder på Protokoll AI",
-    "ogDescription": "Vi nöjer oss inte med 'tillräckligt bra'. Protokoll AI prioriterar utdatakvalitet och använder klassens bästa modeller som ChatGPT-5 och Gemini 2.5 Pro för att säkerställa professionella resultat.",
+    "ogDescription": "Vi nöjer oss inte med 'tillräckligt bra'. Protokoll AI prioriterar utdatakvalitet och använder klassens bästa modeller som ChatGPT-5.2 och Gemini 2.5 Pro för att säkerställa professionella resultat.",
     "ld": {
       "headline": "AI-modellerna som driver Protokoll AI",
       "description": "Lär dig om vår filosofi kring modellval och varför det är avgörande för att skapa handlingsorienterade, professionella mötesprotokoll."
@@ -56,7 +56,7 @@
     "p1": "För att säkerställa att dina protokoll är tydliga, korrekta och redo för handling, använder vi för närvarande en hybridmetod med dessa toppmodeller:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Oöverträffat logiskt resonemang och exakt tonkontroll. Perfekt för komplexa diskussioner där beslut och ansvar är avgörande."
       },
       {

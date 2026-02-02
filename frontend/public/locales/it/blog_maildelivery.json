@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Novità 2025: Verbali IA (iOS) ora invia i verbali via email automaticamente",
+    "title": "Novità 2026: Verbali IA (iOS) ora invia i verbali via email automaticamente",
     "description": "Stanco di aspettare l'IA? Con la nuova Consegna Automatica Email su iOS, puoi chiudere l'app subito dopo la registrazione. Invieremo il verbale al tuo team non appena sarà pronto.",
     "ogTitle": "Basta attese: Verbali IA (iOS) invia i verbali automaticamente",
     "ogDescription": "Registra, ferma e chiudi l'app. Al resto pensiamo noi. Scopri la nuova funzione che elimina i tempi di attesa dal tuo flusso di lavoro.",
@@ -17,7 +17,7 @@
     "maildelivery": "Consegna Automatica Email (iOS)"
   },
   "hero": {
-    "kicker": "Nuova Funzionalità iOS 2025",
+    "kicker": "Nuova Funzionalità iOS 2026",
     "h1": "Registra, Ferma, Fatto. I tuoi verbali vengono inviati automaticamente.",
     "tagline": "Se hai mai cercato un'app per 'verbali con IA' sperando di risparmiare tempo, questo aggiornamento è per te. Niente più schermate di caricamento in attesa che il verbale venga generato."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Libertà dal compromesso 'Qualità vs Velocità'",
-        "p": "Verbali IA utilizza modelli di alto livello come OpenAI Whisper, ChatGPT-5 e Gemini 3. L'alta precisione richiede tempo di elaborazione, a volte alcuni minuti per una riunione lunga. Sappiamo che aspettare è fastidioso. Con questo aggiornamento, il tempo di elaborazione rimane (per garantire la qualità), ma **il tuo tempo di attesa scende a zero**. Metti il telefono in tasca e passa al tuo prossimo compito."
+        "p": "Verbali IA utilizza modelli di alto livello come OpenAI Whisper, ChatGPT-5.2 e Gemini 3. L'alta precisione richiede tempo di elaborazione, a volte alcuni minuti per una riunione lunga. Sappiamo che aspettare è fastidioso. Con questo aggiornamento, il tempo di elaborazione rimane (per garantire la qualità), ma **il tuo tempo di attesa scende a zero**. Metti il telefono in tasca e passa al tuo prossimo compito."
       }
     ]
   },

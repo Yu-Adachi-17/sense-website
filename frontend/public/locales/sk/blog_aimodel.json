@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Pod pokrievkou: Modely AI poháňajúce AI Zápisnica (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Objavte, prečo AI Zápisnica poskytuje vynikajúce zápisnice zo stretnutí. Odhaľujeme našu politiku nezávislosti od modelov a výkonné LLM, ktoré používame (momentálne ChatGPT-5 a Gemini 2.5 Pro).",
+    "title": "Pod pokrievkou: Modely AI poháňajúce AI Zápisnica (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Objavte, prečo AI Zápisnica poskytuje vynikajúce zápisnice zo stretnutí. Odhaľujeme našu politiku nezávislosti od modelov a výkonné LLM, ktoré používame (momentálne ChatGPT-5.2 a Gemini 2.5 Pro).",
     "ogTitle": "Kvalita nad náklady: Modely AI, ktoré používame v AI Zápisnica",
-    "ogDescription": "Neuspokojíme sa s „dosť dobrým“. AI Zápisnica uprednostňuje kvalitu výstupu a na zabezpečenie profesionálnych výsledkov používa najlepšie modely vo svojej triede, ako sú ChatGPT-5 a Gemini 2.5 Pro.",
+    "ogDescription": "Neuspokojíme sa s „dosť dobrým“. AI Zápisnica uprednostňuje kvalitu výstupu a na zabezpečenie profesionálnych výsledkov používa najlepšie modely vo svojej triede, ako sú ChatGPT-5.2 a Gemini 2.5 Pro.",
     "ld": {
       "headline": "Modely AI poháňajúce AI Zápisnica",
       "description": "Zistite viac o našej filozofii výberu modelov a prečo je kľúčová pre vytváranie profesionálnych zápisníc zo stretnutí zameraných na akciu."
@@ -56,7 +56,7 @@
     "p1": "Aby sme zabezpečili, že vaše zápisnice budú jasné, presné a pripravené na akciu, v súčasnosti využívame hybridný prístup s týmito špičkovými modelmi:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Neprekonateľné logické uvažovanie a presné ovládanie tónu. Je ideálny pre zložité diskusie, kde sú kľúčové rozhodnutia a zodpovednosť."
       },
       {

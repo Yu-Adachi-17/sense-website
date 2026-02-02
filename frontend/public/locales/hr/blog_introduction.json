@@ -63,7 +63,7 @@
       "Riley (podaci)"
     ],
     "coreMessage": "Trošimo pametno — jasnoća ispred brzine. Obvezujemo se na „tko što radi do kada” i držimo sastanke unutar 30 minuta.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Zadaci",
       "attendees": "Sudionici:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — pokrenuti A/B test do 2025-10-15",
-          "Riley — dostaviti CTR analizu do 2025-10-17"
+          "Jordan — pokrenuti A/B test do 2026-10-15",
+          "Riley — dostaviti CTR analizu do 2026-10-17"
         ],
         "concerns": [
           "Zamor oglašavanja ako se kreativni materijali ne osvježe"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — potvrditi ETA/logistiku dobavljača do 2025-10-14"
+          "Sam — potvrditi ETA/logistiku dobavljača do 2026-10-14"
         ],
         "concerns": [
           "Rizik duljih rokova isporuke ako se backlog poveća"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — finalizirati raspored izdanja do 2025-10-13",
-          "Podrška — objaviti FAQ do 2025-10-16",
-          "Marketing — pripremiti nacrt za Black Friday do 2025-10-25"
+          "Taylor — finalizirati raspored izdanja do 2026-10-13",
+          "Podrška — objaviti FAQ do 2026-10-16",
+          "Marketing — pripremiti nacrt za Black Friday do 2026-10-25"
         ],
         "decisions": [
-          "Odobriti lansiranje Q4 paketa 2025-10-20"
+          "Odobriti lansiranje Q4 paketa 2026-10-20"
         ],
         "discussion": [
           "v1.2 ispravlja pražnjenje baterije ..."

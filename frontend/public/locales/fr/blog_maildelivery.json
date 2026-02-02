@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Nouveau en 2025 : Minutes.AI (iOS) envoie désormais vos comptes-rendus par e-mail automatiquement",
+    "title": "Nouveau en 2026 : Minutes.AI (iOS) envoie désormais vos comptes-rendus par e-mail automatiquement",
     "description": "Fatigué d'attendre la génération par l'IA ? Avec la nouvelle livraison automatique d'e-mails sur iOS, vous pouvez fermer l'application immédiatement après l'enregistrement. Nous envoyons le compte-rendu à votre équipe dès qu'il est prêt.",
     "ogTitle": "Plus d'attente : Minutes.AI (iOS) envoie les comptes-rendus automatiquement",
     "ogDescription": "Enregistrez, arrêtez et fermez l'application. Nous nous occupons du reste. Découvrez la nouvelle fonctionnalité qui supprime le temps d'attente de votre flux de travail.",
@@ -17,7 +17,7 @@
     "maildelivery": "Envoi Automatique (iOS)"
   },
   "hero": {
-    "kicker": "Nouvelle fonctionnalité iOS 2025",
+    "kicker": "Nouvelle fonctionnalité iOS 2026",
     "h1": "Enregistrez, Arrêtez, C'est fait. Vos comptes-rendus sont envoyés automatiquement.",
     "tagline": "Si vous avez déjà cherché une « application de réunion IA » dans l'espoir de gagner du temps, cette mise à jour est pour vous. Fini de regarder un écran de chargement en attendant que le compte-rendu soit généré."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Libéré du compromis « Qualité vs Vitesse »",
-        "p": "Minutes.AI utilise des modèles de pointe comme OpenAI Whisper, ChatGPT-5 et Gemini 3. Une haute précision nécessite du temps de traitement — parfois quelques minutes pour une longue réunion. Nous savons que l'attente est ennuyeuse. Avec cette mise à jour, le temps de traitement reste (pour assurer la qualité), mais **votre temps d'attente tombe à zéro**. Mettez votre téléphone dans votre poche et passez à votre tâche suivante."
+        "p": "Minutes.AI utilise des modèles de pointe comme OpenAI Whisper, ChatGPT-5.2 et Gemini 3. Une haute précision nécessite du temps de traitement — parfois quelques minutes pour une longue réunion. Nous savons que l'attente est ennuyeuse. Avec cette mise à jour, le temps de traitement reste (pour assurer la qualité), mais **votre temps d'attente tombe à zéro**. Mettez votre téléphone dans votre poche et passez à votre tâche suivante."
       }
     ]
   },

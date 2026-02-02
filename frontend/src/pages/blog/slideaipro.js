@@ -14,7 +14,7 @@ import { FaAppStore, FaArrowRight, FaMagic } from "react-icons/fa";
 
 // ★ 公開日設定
 const PUBLISHED_DATE = "2025-12-10T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-10T10:00:00+09:00";
+const MODIFIED_DATE = "2026-01-11T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +28,7 @@ const EN_FALLBACK = {
     ogDescription:
       "Don't spend hours on PowerPoint. Just paste your text, and let AI design the deck. See the demo inside.",
     ld: {
-      headline: "How to Create Presentation Slides from Text with AI (2025)",
+      headline: "How to Create Presentation Slides from Text with AI (2026)",
       description:
         "A guide to using SlideAIPro to generate business presentations instantly using raw text prompts.",
     },
@@ -54,14 +54,14 @@ const EN_FALLBACK = {
     h2: "Seeing is Believing: A Real World Example",
     lead: "Let's put it to the test. Below is a raw, unstructured business plan. We pasted this exact text into the app.",
     inputLabel: "The Prompt (Input)",
-    inputText: `Sales Targets and Performance for 2025
-The sales targets for the first four months of 2025 were set at $50,000 per month. Actual sales were $45,000 in January, $32,000 in February, $52,000 in March, and $68,000 in April.
+    inputText: `Sales Targets and Performance for 2026
+The sales targets for the first four months of 2026 were set at $50,000 per month. Actual sales were $45,000 in January, $32,000 in February, $52,000 in March, and $68,000 in April.
 
-Category-wise Sales Analysis for 2025
+Category-wise Sales Analysis for 2026
 Sales analysis by category for the four months revealed that Product A accounted for 40%, Product B for 30%, and Product C for 20%.
 
-Sales Goal Trends for 2025
-The sales goals for 2025 are set as follows: $50,000 in January, $30,000 in February, $60,000 in March, and $70,000 in April.
+Sales Goal Trends for 2026
+The sales goals for 2026 are set as follows: $50,000 in January, $30,000 in February, $60,000 in March, and $70,000 in April.
 
 Strategies for Achieving Goals
 * January: Expansion of the customer base and strengthening of promotions.
@@ -95,7 +95,7 @@ Key Decisions:
 2. Allocate 15% of the budget to digital ads and influencer marketing.
 3. Enhance customer support and loyalty programs to improve retention.
 Background:
-These decisions are based on 2025 sales trends showing demand for premium products and customer interest in personalized experiences.`,
+These decisions are based on 2026 sales trends showing demand for premium products and customer interest in personalized experiences.`,
     outputLabel: "The Result (Output)",
     outputNote: "Generated in approx 15 seconds on iPhone 15 Pro.",
   },

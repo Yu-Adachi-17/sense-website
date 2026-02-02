@@ -16,7 +16,7 @@ import { FaAppStore } from "react-icons/fa";
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Constants ---------- */
-const LAST_UPDATED_ISO = "2025-12-02";
+const LAST_UPDATED_ISO = "2026-01-07";
 const FX = {
   EUR_PER_USD: 0.92,
 };
@@ -44,7 +44,7 @@ const guessCurrency = () => {
 /* ---------- English-first fallback ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "Best AI for Long Recordings (2025): Why Minutes.AI Beats Otter & Notta on Duration",
+    title: "Best AI for Long Recordings (2026): Why Minutes.AI Beats Otter & Notta on Duration",
     description: "Tired of the 90-minute limit on Otter or file limits on Notta? Discover why Minutes.AI is the best choice for recording long meetings, workshops, and interviews without interruption.",
     ogTitle: "Unlimited Recording AI: Minutes.AI vs Otter vs Notta",
     ogDescription: "Don't let your AI stop recording halfway through. See why Minutes.AI is the standard for long-form meeting minutes.",
@@ -76,7 +76,7 @@ const EN_FALLBACK = {
 
   comparison: {
     h2: "Duration Limits Compared",
-    note: "Data based on 'Pro/Standard' paid plans as of late 2025.",
+    note: "Data based on 'Pro/Standard' paid plans as of late 2026.",
     tableHead: ["Service", "Max Duration (Per Session)", "What happens when limit hits?"],
     rows: [
       {

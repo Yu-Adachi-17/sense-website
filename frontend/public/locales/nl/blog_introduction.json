@@ -63,7 +63,7 @@
       "Robin (Data)"
     ],
     "coreMessage": "Slim werken, helder blijven. Duidelijk ‘wie wat doet tegen wanneer’, en houd vergaderingen korter dan 30 minuten.",
-    "date": "2025-10-11 10:00 CET",
+    "date": "2026-10-11 10:00 CET",
     "labels": {
       "actionItems": "Actiepunten",
       "attendees": "Deelnemers:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jan — start A/B-test uiterlijk 2025-10-15",
-          "Robin — lever CTR-analyse uiterlijk 2025-10-17"
+          "Jan — start A/B-test uiterlijk 2026-10-15",
+          "Robin — lever CTR-analyse uiterlijk 2026-10-17"
         ],
         "concerns": [
           "Advertentiemoeheid als creatives niet vernieuwd worden"
@@ -98,7 +98,7 @@
       },
       {
         "actionItems": [
-          "Sam — bevestig logistiek uiterlijk 2025-10-14"
+          "Sam — bevestig logistiek uiterlijk 2026-10-14"
         ],
         "concerns": [
           "Leveringsvertraging bij toegenomen vraag"
@@ -118,17 +118,17 @@
       },
       {
         "actionItems": [
-          "Tim — bevestig planning vóór 2025-10-13",
-          "Support — publiceer FAQ vóór 2025-10-16",
-          "Marketing — maak Black Friday-plan vóór 2025-10-25"
+          "Tim — bevestig planning vóór 2026-10-13",
+          "Support — publiceer FAQ vóór 2026-10-16",
+          "Marketing — maak Black Friday-plan vóór 2026-10-25"
         ],
         "decisions": [
-          "Lancering goedgekeurd op 2025-10-20"
+          "Lancering goedgekeurd op 2026-10-20"
         ],
         "discussion": [
           "v1.2 lost batterijprobleem op; stappentelling verbeterd",
           "Releasenotes klaar; Support publiceert FAQ",
-          "Q4-bundel: Watch + Band, −€20 vanaf 2025-10-20"
+          "Q4-bundel: Watch + Band, −€20 vanaf 2026-10-20"
         ],
         "keyMessages": [
           "Combineer productverbetering met juiste marketingtiming"
@@ -153,7 +153,7 @@
       "h3": "Voorbeeld van Notulen AI-uitvoer"
     },
     "transcript": {
-      "full": "Alex (Marketingmanager): Bedankt voor jullie aanwezigheid — Jan (E-commerce), Sam (Retail), Tim (Projectmanager) en Robin (Data). Laten we de prestaties van de smartwatchverkoop van het weekend bekijken. Jan, jij eerst met de online cijfers.\n\nJan (E-commerce): Ten opzichte van vorige week zijn de sessies met 18% gestegen. De conversie verbeterde van 2,9% naar 3,2%. De omzet steeg met 12%. De piek kwam vooral door de influenceractie op zaterdag; de advertentiekosten stegen met 6%.\n\nRobin (Data): De CAC blijft stabiel rond €15. Echter, de CTR van remarketing daalde van 1,8% naar 1,2%. Ik raad aan om de creatives te vernieuwen en een A/B-test te doen met kortere koppen. Ik lever een analyse voor vrijdag (2025-10-17).\n\nAlex: Goed. Besluit: Verhoog het online advertentiebudget met 15% voor de komende twee weken. Acties: Jan — start de A/B-test op de accessoirecampagne voor woensdag (2025-10-15). Robin — lever de CTR-analyse op vrijdag (2025-10-17).\n\nSam (Retail): In fysieke winkels hadden we tekorten in Amsterdam, Rotterdam en Utrecht. Een herbevoorrading van 500 stuks is gepland voor maandag. De winkelbezoeken daalden met 4% door het slechte weer, maar de gemiddelde bestelwaarde bleef gelijk.\n\nAlex: Besluit: Herbevoorrading van 500 stuks in deze drie winkels. Actie: Sam — bevestig levertijd en logistiek voor dinsdag (2025-10-14). Let op: risico op vertraging bij drukke leveranciers.\n\nTim (Projectmanager): Firmware v1.2 lost het batterijprobleem op en verbetert de stappentelling. De releasenotes zijn klaar. Ik stel een lancering voor op 20 oktober met een Q4-bundel — “Watch + Band” met €20 korting. Support moet een FAQ publiceren.\n\nAlex: Besluit: Goedgekeurd. Q4-bundel lancering op 2025-10-20. Acties: Tim — bevestig planning voor maandag (2025-10-13). Support — publiceer FAQ voor donderdag (2025-10-16). Marketing — bereid een Black Friday-plan voor zaterdag (2025-10-25) voor.\n\nAlex (afsluiting): Laten we slim werken en duidelijk blijven — helderheid boven snelheid. Zorg dat iedereen weet ‘wie wat doet tegen wanneer’, en houd de vergadering binnen 30 minuten.",
+      "full": "Alex (Marketingmanager): Bedankt voor jullie aanwezigheid — Jan (E-commerce), Sam (Retail), Tim (Projectmanager) en Robin (Data). Laten we de prestaties van de smartwatchverkoop van het weekend bekijken. Jan, jij eerst met de online cijfers.\n\nJan (E-commerce): Ten opzichte van vorige week zijn de sessies met 18% gestegen. De conversie verbeterde van 2,9% naar 3,2%. De omzet steeg met 12%. De piek kwam vooral door de influenceractie op zaterdag; de advertentiekosten stegen met 6%.\n\nRobin (Data): De CAC blijft stabiel rond €15. Echter, de CTR van remarketing daalde van 1,8% naar 1,2%. Ik raad aan om de creatives te vernieuwen en een A/B-test te doen met kortere koppen. Ik lever een analyse voor vrijdag (2026-10-17).\n\nAlex: Goed. Besluit: Verhoog het online advertentiebudget met 15% voor de komende twee weken. Acties: Jan — start de A/B-test op de accessoirecampagne voor woensdag (2026-10-15). Robin — lever de CTR-analyse op vrijdag (2026-10-17).\n\nSam (Retail): In fysieke winkels hadden we tekorten in Amsterdam, Rotterdam en Utrecht. Een herbevoorrading van 500 stuks is gepland voor maandag. De winkelbezoeken daalden met 4% door het slechte weer, maar de gemiddelde bestelwaarde bleef gelijk.\n\nAlex: Besluit: Herbevoorrading van 500 stuks in deze drie winkels. Actie: Sam — bevestig levertijd en logistiek voor dinsdag (2026-10-14). Let op: risico op vertraging bij drukke leveranciers.\n\nTim (Projectmanager): Firmware v1.2 lost het batterijprobleem op en verbetert de stappentelling. De releasenotes zijn klaar. Ik stel een lancering voor op 20 oktober met een Q4-bundel — “Watch + Band” met €20 korting. Support moet een FAQ publiceren.\n\nAlex: Besluit: Goedgekeurd. Q4-bundel lancering op 2026-10-20. Acties: Tim — bevestig planning voor maandag (2026-10-13). Support — publiceer FAQ voor donderdag (2026-10-16). Marketing — bereid een Black Friday-plan voor zaterdag (2026-10-25) voor.\n\nAlex (afsluiting): Laten we slim werken en duidelijk blijven — helderheid boven snelheid. Zorg dat iedereen weet ‘wie wat doet tegen wanneer’, en houd de vergadering binnen 30 minuten.",
       "preview": "Oké, laten we beginnen. Eerst bekijken we de verkoop van de ‘smartwatch’ van het afgelopen weekend. Jan, kun jij beginnen met het online rapport?"
     }
   },

@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "Top 5 Productivity AI Tools You Need in 2025",
-    "description": "Stop juggling generic tools. Here are the 5 essential AI apps for text, research, design, and meetings that will actually save you time in 2025.",
-    "ogTitle": "The 5 Best Productivity AI Tools (2025 Edition)",
+    "title": "Top 5 Productivity AI Tools You Need in 2026",
+    "description": "Stop juggling generic tools. Here are the 5 essential AI apps for text, research, design, and meetings that will actually save you time in 2026.",
+    "ogTitle": "The 5 Best Productivity AI Tools (2026 Edition)",
     "ogDescription": "ChatGPT is not enough. We curated the perfect AI stack for writing, research, design, and meetings.",
     "ld": {
-      "headline": "Top 5 Productivity AI Tools for 2025",
+      "headline": "Top 5 Productivity AI Tools for 2026",
       "description": "A curated list of the best AI tools including ChatGPT, Notion, Perplexity, Canva, and Minutes.AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI Tools"
   },
   "hero": {
-    "kicker": "2025 Productivity Stack",
-    "h1": "The 5 Best AI Tools to Automate Your Workday (2025)",
+    "kicker": "2026 Productivity Stack",
+    "h1": "The 5 Best AI Tools to Automate Your Workday (2026)",
     "tagline": "Using AI isn't just about ChatGPT anymore. To truly boost productivity, you need the right specialist for each task. Here is the ultimate stack for writing, researching, designing, and—most importantly—meetings."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Best for: Ideation & Drafting",
       "desc": "The undisputed king of generative text. Whether you need to draft an email, debug code, or brainstorm marketing angles, ChatGPT remains the most versatile starting point.",
       "icon": "bulb",

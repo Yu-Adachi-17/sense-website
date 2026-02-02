@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "A színfalak mögött: A Jegyzőkönyv AI-t működtető MI modellek (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Fedezze fel, miért készít a Jegyzőkönyv AI kiváló minőségű értekezlet-jegyzőkönyveket. Bemutatjuk modellfüggetlen irányelvünket és az általunk használt nagy teljesítményű LLM-eket (jelenleg ChatGPT-5 és Gemini 2.5 Pro).",
+    "title": "A színfalak mögött: A Jegyzőkönyv AI-t működtető MI modellek (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Fedezze fel, miért készít a Jegyzőkönyv AI kiváló minőségű értekezlet-jegyzőkönyveket. Bemutatjuk modellfüggetlen irányelvünket és az általunk használt nagy teljesítményű LLM-eket (jelenleg ChatGPT-5.2 és Gemini 2.5 Pro).",
     "ogTitle": "Minőség a költségek felett: Az általunk használt MI modellek a Jegyzőkönyv AI-nál",
-    "ogDescription": "Nem elégszünk meg a „majdnem jóval”. A Jegyzőkönyv AI a kimeneti minőséget helyezi előtérbe, és kategóriájában a legjobb modelleket, például a ChatGPT-5-öt és a Gemini 2.5 Pro-t használja a professzionális eredmények biztosítása érdekében.",
+    "ogDescription": "Nem elégszünk meg a „majdnem jóval”. A Jegyzőkönyv AI a kimeneti minőséget helyezi előtérbe, és kategóriájában a legjobb modelleket, például a ChatGPT-5.2-öt és a Gemini 2.5 Pro-t használja a professzionális eredmények biztosítása érdekében.",
     "ld": {
       "headline": "A Jegyzőkönyv AI-t működtető MI modellek",
       "description": "Ismerje meg modellválasztási filozófiánkat, és hogy miért kulcsfontosságú a cselekvésorientált, professzionális értekezlet-jegyzőkönyvek készítéséhez."
@@ -56,7 +56,7 @@
     "p1": "Annak érdekében, hogy jegyzőkönyvei világosak, pontosak és cselekvésre készek legyenek, jelenleg egy hibrid megközelítést alkalmazunk ezekkel a csúcskategóriás modellekkel:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Páratlan logikai érvelés és pontos hangnemszabályozás. Tökéletes összetett megbeszélésekhez, ahol a döntések és az elszámoltathatóság kulcsfontosságú."
       },
       {

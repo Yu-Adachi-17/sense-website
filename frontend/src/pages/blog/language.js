@@ -15,9 +15,9 @@ import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
 // ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
-// 記事内の "Nov 2025" という記述に合わせて設定
+// 記事内の "Nov 2026" という記述に合わせて設定
 const PUBLISHED_DATE = "2025-11-15T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-05T10:00:00+09:00";
+const MODIFIED_DATE = "2026-01-05T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +28,7 @@ const inter = Inter({ subsets: ["latin"] });
  */
 const EN_FALLBACK = {
   seo: {
-    title: "Why Minutes.AI is the Global Choice: 100+ Languages & Whisper Integration (2025)",
+    title: "Why Minutes.AI is the Global Choice: 100+ Languages & Whisper Integration (2026)",
     description: "Need a meeting-minutes AI app that works globally? Minutes.AI leads with multilingual STT (Whisper), 100+ language support, flexible pricing, and clean summaries. See why 30K users in 153 countries trust it.",
     ogTitle: "The AI Scribe for Global Teams: Why Minutes.AI Just Works",
     ogDescription: "Powered by Whisper for 100+ languages, Minutes.AI delivers accurate transcripts and simple, readable minutes. Used in 153 countries.",
@@ -48,7 +48,7 @@ const EN_FALLBACK = {
   },
   intro: {
     h2: "Trusted by 30,000 Users in 153 Countries",
-    p1: "In just 15 months since launch, Minutes.AI has grown to support 30,000 users across 153 countries (based on iOS downloads, Nov 2025).",
+    p1: "In just 15 months since launch, Minutes.AI has grown to support 30,000 users across 153 countries (based on iOS downloads, Nov 2026).",
     p2: "Wondering if your language is supported? The answer lies in our STT (speech-to-text) engine: OpenAI's Whisper. With support for over 100 languages, Minutes.AI is built to work for everyone, everywhere."
   },
   stt: {

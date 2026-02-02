@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Por trás da tecnologia: Os modelos de IA que movem o Ata AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Descubra por que o Ata AI entrega atas de reunião superiores. Revelamos nossa política agnóstica de modelos e os poderosos LLMs que usamos (atualmente ChatGPT-5 e Gemini 2.5 Pro).",
+    "title": "Por trás da tecnologia: Os modelos de IA que movem o Ata AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Descubra por que o Ata AI entrega atas de reunião superiores. Revelamos nossa política agnóstica de modelos e os poderosos LLMs que usamos (atualmente ChatGPT-5.2 e Gemini 2.5 Pro).",
     "ogTitle": "Qualidade acima do custo: Os modelos de IA que usamos no Ata AI",
-    "ogDescription": "Não nos contentamos com o 'bom o suficiente'. O Ata AI prioriza a qualidade da saída, usando os melhores modelos da categoria, como ChatGPT-5 e Gemini 2.5 Pro, para garantir resultados profissionais.",
+    "ogDescription": "Não nos contentamos com o 'bom o suficiente'. O Ata AI prioriza a qualidade da saída, usando os melhores modelos da categoria, como ChatGPT-5.2 e Gemini 2.5 Pro, para garantir resultados profissionais.",
     "ld": {
       "headline": "Os modelos de IA que movem o Ata AI",
       "description": "Aprenda sobre nossa filosofia na seleção de modelos e por que ela é crucial para criar atas de reunião profissionais e orientadas para a ação."
@@ -56,7 +56,7 @@
     "p1": "Para garantir que suas atas sejam claras, precisas e prontas para a ação, atualmente aproveitamos uma abordagem híbrida com estes modelos de ponta:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Raciocínio lógico incomparável e controle preciso do tom. É perfeito para discussões complexas onde decisões e responsabilidades são cruciais."
       },
       {

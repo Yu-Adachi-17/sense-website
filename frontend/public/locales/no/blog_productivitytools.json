@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "De 5 beste AI-produktivitetsverktøyene i 2025",
-    "description": "Slutt å sjonglere med generiske verktøy. Her er de 5 viktigste AI-appene for tekst, research, design og møter som faktisk vil spare deg for tid i 2025.",
-    "ogTitle": "De 5 beste AI-produktivitetsverktøyene (2025-utgave)",
+    "title": "De 5 beste AI-produktivitetsverktøyene i 2026",
+    "description": "Slutt å sjonglere med generiske verktøy. Her er de 5 viktigste AI-appene for tekst, research, design og møter som faktisk vil spare deg for tid i 2026.",
+    "ogTitle": "De 5 beste AI-produktivitetsverktøyene (2026-utgave)",
     "ogDescription": "ChatGPT er ikke nok. Vi har satt sammen den perfekte AI-pakken for skriving, research, design og møter.",
     "ld": {
-      "headline": "De 5 beste AI-produktivitetsverktøyene for 2025",
+      "headline": "De 5 beste AI-produktivitetsverktøyene for 2026",
       "description": "En kuratert liste over de beste AI-verktøyene inkludert ChatGPT, Notion, Perplexity, Canva og Referat AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Topp 5 AI-verktøy"
   },
   "hero": {
-    "kicker": "Produktivitets-stack 2025",
-    "h1": "De 5 beste AI-verktøyene for å automatisere arbeidsdagen din (2025)",
+    "kicker": "Produktivitets-stack 2026",
+    "h1": "De 5 beste AI-verktøyene for å automatisere arbeidsdagen din (2026)",
     "tagline": "Bruk av AI handler ikke lenger bare om ChatGPT. For å virkelig øke produktiviteten trenger du den rette spesialisten for hver oppgave. Her er den ultimate pakken for skriving, undersøkelser, design og – viktigst av alt – møter."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Best for: Idéer og utkast",
       "desc": "Den ubestridte kongen av generativ tekst. Enten du trenger å lage et utkast til en e-post, feilsøke kode eller brainstorme markedsvinkler, er ChatGPT fortsatt det mest allsidige utgangspunktet.",
       "icon": "bulb"

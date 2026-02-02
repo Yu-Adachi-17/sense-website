@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "2025 İçin En İyi 5 Üretkenlik Yapay Zeka Aracı",
-    "description": "Sıradan araçlarla uğraşmayı bırakın. İşte 2025'te size gerçekten zaman kazandıracak metin, araştırma, tasarım ve toplantılar için 5 temel yapay zeka uygulaması.",
-    "ogTitle": "En İyi 5 Yapay Zeka Üretkenlik Aracı (2025 Sürümü)",
+    "title": "2026 İçin En İyi 5 Üretkenlik Yapay Zeka Aracı",
+    "description": "Sıradan araçlarla uğraşmayı bırakın. İşte 2026'te size gerçekten zaman kazandıracak metin, araştırma, tasarım ve toplantılar için 5 temel yapay zeka uygulaması.",
+    "ogTitle": "En İyi 5 Yapay Zeka Üretkenlik Aracı (2026 Sürümü)",
     "ogDescription": "ChatGPT yeterli değil. Yazma, araştırma, tasarım ve toplantılar için mükemmel yapay zeka setini seçtik.",
     "ld": {
-      "headline": "2025 İçin En İyi 5 Üretkenlik Yapay Zeka Aracı",
+      "headline": "2026 İçin En İyi 5 Üretkenlik Yapay Zeka Aracı",
       "description": "ChatGPT, Notion, Perplexity, Canva ve Tutanakları AI dahil olmak üzere en iyi yapay zeka araçlarının derlenmiş listesi."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 YZ Aracı"
   },
   "hero": {
-    "kicker": "2025 Üretkenlik Seti",
-    "h1": "İş Gününüzü Otomatikleştirecek En İyi 5 Yapay Zeka Aracı (2025)",
+    "kicker": "2026 Üretkenlik Seti",
+    "h1": "İş Gününüzü Otomatikleştirecek En İyi 5 Yapay Zeka Aracı (2026)",
     "tagline": "Yapay zeka kullanımı artık sadece ChatGPT'den ibaret değil. Üretkenliği gerçekten artırmak için her görev için doğru uzmana ihtiyacınız var. İşte yazma, araştırma, tasarım ve — en önemlisi — toplantılar için nihai set."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "En iyisi: Fikirler & Taslaklar",
       "desc": "Üretken metnin tartışmasız kralı. Bir e-posta taslağı hazırlamanız, kodu ayıklamanız veya pazarlama açıları üzerine beyin fırtınası yapmanız gerekse de, ChatGPT en çok yönlü başlangıç noktası olmaya devam ediyor.",
       "icon": "bulb"

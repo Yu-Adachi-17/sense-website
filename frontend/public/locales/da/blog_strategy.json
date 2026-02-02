@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Referat AI Strategi: Fra referater til handlingsorienterede indsigter (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "Referat AI's Strategi-funktion omdanner rå mødereferater til et stærkt beslutningsværktøj. Ved hjælp af ChatGPT-5 og Gemini 2.5 Pro genererer den Boost, Kontra, Topemne og tre unikke tænkemåder for at drive din virksomhed fremad.",
+    "title": "Referat AI Strategi: Fra referater til handlingsorienterede indsigter (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "Referat AI's Strategi-funktion omdanner rå mødereferater til et stærkt beslutningsværktøj. Ved hjælp af ChatGPT-5.2 og Gemini 2.5 Pro genererer den Boost, Kontra, Topemne og tre unikke tænkemåder for at drive din virksomhed fremad.",
     "ogTitle": "Referat AI Strategi: Omdan referater til handling",
     "ogDescription": "Du skal ikke bare optage møder. Omdan dem til strategi. Få Boost (hvad der virker), Kontra (hvad der skal rettes), Topemne (kerneproblemet) og tilstandene Logisk, Kritisk & Lateral tænkning.",
     "ld": {
       "headline": "Referat AI Strategi-funktion: Fra simple noter til mødepartner",
-      "description": "Strategi-funktionen løfter referater til beslutningsstøtte ved hjælp af avanceret AI-analyse (ChatGPT-5 og Gemini 2.5 Pro) for at give handlingsorienterede indsigter."
+      "description": "Strategi-funktionen løfter referater til beslutningsstøtte ved hjælp af avanceret AI-analyse (ChatGPT-5.2 og Gemini 2.5 Pro) for at give handlingsorienterede indsigter."
     },
-    "keywords": "Referat AI, AI mødereferater, Strategi, ChatGPT-5, Gemini 2.5 Pro, beslutningsstøtte, handlingsorienterede indsigter, Logisk tænkning, Kritisk tænkning, Lateral tænkning, Boost, Kontra, Topemne, mødepartner, forretningsstrategi"
+    "keywords": "Referat AI, AI mødereferater, Strategi, ChatGPT-5.2, Gemini 2.5 Pro, beslutningsstøtte, handlingsorienterede indsigter, Logisk tænkning, Kritisk tænkning, Lateral tænkning, Boost, Kontra, Topemne, mødepartner, forretningsstrategi"
   },
   "aria": {
     "home": "Referat AI Hjem"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Funktion: Dybdegående",
     "h1": "Mere end referater: Strategifunktionen",
-    "tagline": "Stop med blot at organisere noter. Strategifunktionen gør Referat AI til din kerne-mødepartner, der omdanner diskussioner til handlinger med høj effekt, alt sammen drevet af ChatGPT-5 og Gemini 2.5 Pro."
+    "tagline": "Stop med blot at organisere noter. Strategifunktionen gør Referat AI til din kerne-mødepartner, der omdanner diskussioner til handlinger med høj effekt, alt sammen drevet af ChatGPT-5.2 og Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Hvad er Strategifunktionen?",
@@ -39,7 +39,7 @@
     "h2": "Hvordan det virker",
     "steps": [
       "Generer dine mødereferater som normalt (iOS, Android eller Web).",
-      "Tryk på 'Strategi'-knappen for at analysere det fulde transskript med ChatGPT-5 & Gemini 2.5 Pro.",
+      "Tryk på 'Strategi'-knappen for at analysere det fulde transskript med ChatGPT-5.2 & Gemini 2.5 Pro.",
       "Modtag din 6-delte analyse: Boost, Kontra, Topemne og de tre tænkemåder.",
       "Del, kopier eller eksporter indsigterne direkte til dit opgavestyringssystem eller din rapport."
     ],

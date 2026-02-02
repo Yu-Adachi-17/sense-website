@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Jegyzőkönyv AI Stratégia: Feljegyzésekből hasznosítható elemzések (ChatGPT-5 és Gemini 2.5 Pro)",
-    "description": "A Jegyzőkönyv AI 'Stratégia' funkciója a nyers megbeszélés-jegyzeteket egy hatékony döntéshozatali eszköztárrá alakítja. A ChatGPT-5 és a Gemini 2.5 Pro segítségével Boost (erősítés), Counter (ellenpont), Top Issue (fő probléma) és három egyedi gondolkodási módot generál, hogy előremozdítsa vállalkozását.",
+    "title": "Jegyzőkönyv AI Stratégia: Feljegyzésekből hasznosítható elemzések (ChatGPT-5.2 és Gemini 2.5 Pro)",
+    "description": "A Jegyzőkönyv AI 'Stratégia' funkciója a nyers megbeszélés-jegyzeteket egy hatékony döntéshozatali eszköztárrá alakítja. A ChatGPT-5.2 és a Gemini 2.5 Pro segítségével Boost (erősítés), Counter (ellenpont), Top Issue (fő probléma) és három egyedi gondolkodási módot generál, hogy előremozdítsa vállalkozását.",
     "ogTitle": "Jegyzőkönyv AI Stratégia: Változtassa a feljegyzéseket cselekvéssé",
     "ogDescription": "Ne csak rögzítse a megbeszéléseket. Változtassa őket stratégiává. Kapjon Boost (mi működik), Counter (mit kell javítani), Top Issue (a központi probléma) és Logikus, Kritikus és Laterális gondolkodási módokat.",
     "ld": {
       "headline": "Jegyzőkönyv AI Stratégia Funkció: Egyszerű jegyzetekből meeting partner",
-      "description": "A 'Stratégia' funkció a feljegyzéseket döntéstámogatási szintre emeli fejlett AI-elemzés (ChatGPT-5 és Gemini 2.5 Pro) segítségével, hogy hasznosítható elemzéseket nyújtson."
+      "description": "A 'Stratégia' funkció a feljegyzéseket döntéstámogatási szintre emeli fejlett AI-elemzés (ChatGPT-5.2 és Gemini 2.5 Pro) segítségével, hogy hasznosítható elemzéseket nyújtson."
     },
-    "keywords": "Jegyzőkönyv AI, AI megbeszélés jegyzőkönyv, Stratégia, ChatGPT-5, Gemini 2.5 Pro, döntéstámogatás, hasznosítható elemzések, Logikus gondolkodás, Kritikus gondolkodás, Laterális gondolkodás, Boost, Counter, Top Issue, meeting partner, üzleti stratégia"
+    "keywords": "Jegyzőkönyv AI, AI megbeszélés jegyzőkönyv, Stratégia, ChatGPT-5.2, Gemini 2.5 Pro, döntéstámogatás, hasznosítható elemzések, Logikus gondolkodás, Kritikus gondolkodás, Laterális gondolkodás, Boost, Counter, Top Issue, meeting partner, üzleti stratégia"
   },
   "aria": {
     "home": "Jegyzőkönyv AI Kezdőlap"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Funkció Bemutató",
     "h1": "Túl a feljegyzéseken: A Stratégia Funkció",
-    "tagline": "Ne csak jegyzeteket rendszerezzen. A 'Stratégia' funkció a Jegyzőkönyv AI-t központi meeting partnerévé teszi, a megbeszéléseket nagy hatású cselekvésekké alakítva, mindezt a ChatGPT-5 és a Gemini 2.5 Pro erejével."
+    "tagline": "Ne csak jegyzeteket rendszerezzen. A 'Stratégia' funkció a Jegyzőkönyv AI-t központi meeting partnerévé teszi, a megbeszéléseket nagy hatású cselekvésekké alakítva, mindezt a ChatGPT-5.2 és a Gemini 2.5 Pro erejével."
   },
   "what": {
     "h2": "Mi az a Stratégia Funkció?",
@@ -39,7 +39,7 @@
     "h2": "Hogyan működik",
     "steps": [
       "Készítse el a megbeszélés jegyzőkönyvét a szokásos módon (iOS, Android vagy Web).",
-      "Koppintson a 'Stratégia' gombra a teljes átirat elemzéséhez a ChatGPT-5 és a Gemini 2.5 Pro segítségével.",
+      "Koppintson a 'Stratégia' gombra a teljes átirat elemzéséhez a ChatGPT-5.2 és a Gemini 2.5 Pro segítségével.",
       "Megkapja a 6 részes elemzést: Boost, Counter, Top Issue és a három gondolkodási mód.",
       "Ossza meg, másolja vagy exportálja az elemzéseket közvetlenül a feladatkezelő rendszerébe vagy jelentésébe."
     ],

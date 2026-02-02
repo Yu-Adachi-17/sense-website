@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Mới năm 2025: Biên bản AI (iOS) Hiện Tự Động Gửi Biên Bản Của Bạn Qua Email",
+    "title": "Mới năm 2026: Biên bản AI (iOS) Hiện Tự Động Gửi Biên Bản Của Bạn Qua Email",
     "description": "Mệt mỏi vì chờ đợi AI tạo nội dung? Với tính năng Gửi Email Tự Động mới trên iOS, bạn có thể đóng ứng dụng ngay sau khi ghi âm. Chúng tôi sẽ gửi biên bản cho nhóm của bạn ngay khi nó sẵn sàng.",
     "ogTitle": "Ngừng chờ đợi: Biên bản AI (iOS) Hiện Tự Động Gửi Biên Bản",
     "ogDescription": "Ghi âm, dừng và đóng ứng dụng. Chúng tôi sẽ lo phần còn lại. Tìm hiểu về tính năng mới giúp loại bỏ thời gian chờ đợi khỏi quy trình họp của bạn.",
@@ -17,7 +17,7 @@
     "maildelivery": "Gửi Email Tự Động (iOS)"
   },
   "hero": {
-    "kicker": "Tính năng iOS Mới 2025",
+    "kicker": "Tính năng iOS Mới 2026",
     "h1": "Ghi âm, Dừng, Xong. Biên bản của bạn được gửi tự động.",
     "tagline": "Nếu bạn đã từng tìm kiếm 'ứng dụng họp AI' với hy vọng tiết kiệm thời gian, bản cập nhật này là dành cho bạn. Không còn phải nhìn chằm chằm vào màn hình tải chờ đợi biên bản được tạo."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Thoát khỏi sự đánh đổi 'Chất lượng vs Tốc độ'",
-        "p": "Biên bản AI sử dụng các mô hình hàng đầu như OpenAI Whisper, ChatGPT-5 và Gemini 3. Độ chính xác cao đòi hỏi thời gian xử lý — đôi khi vài phút cho một cuộc họp dài. Chúng tôi biết chờ đợi rất phiền toái. Với bản cập nhật này, thời gian xử lý vẫn giữ nguyên (để đảm bảo chất lượng), nhưng **thời gian chờ đợi của bạn giảm xuống bằng không**. Hãy bỏ điện thoại vào túi và chuyển sang nhiệm vụ tiếp theo."
+        "p": "Biên bản AI sử dụng các mô hình hàng đầu như OpenAI Whisper, ChatGPT-5.2 và Gemini 3. Độ chính xác cao đòi hỏi thời gian xử lý — đôi khi vài phút cho một cuộc họp dài. Chúng tôi biết chờ đợi rất phiền toái. Với bản cập nhật này, thời gian xử lý vẫn giữ nguyên (để đảm bảo chất lượng), nhưng **thời gian chờ đợi của bạn giảm xuống bằng không**. Hãy bỏ điện thoại vào túi và chuyển sang nhiệm vụ tiếp theo."
       }
     ]
   },

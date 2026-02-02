@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "技术揭秘：驱动会议记录AI的AI模型 (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "探索会议记录AI为何能提供卓越的会议纪要。我们揭示了我们的模型无关策略以及我们使用的强大LLM（目前为 ChatGPT-5 和 Gemini 2.5 Pro）。",
+    "title": "技术揭秘：驱动会议记录AI的AI模型 (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "探索会议记录AI为何能提供卓越的会议纪要。我们揭示了我们的模型无关策略以及我们使用的强大LLM（目前为 ChatGPT-5.2 和 Gemini 2.5 Pro）。",
     "ogTitle": "质量优先于成本：会议记录AI所使用的AI模型",
-    "ogDescription": "我们不满足于“足够好”。会议记录AI优先考虑输出质量，使用像ChatGPT-5和Gemini 2.5 Pro这样的一流模型来确保专业成果。",
+    "ogDescription": "我们不满足于“足够好”。会议记录AI优先考虑输出质量，使用像ChatGPT-5.2和Gemini 2.5 Pro这样的一流模型来确保专业成果。",
     "ld": {
       "headline": "驱动会议记录AI的AI模型",
       "description": "了解我们的模型选择理念，以及为什么它对于创建面向行动的专业会议纪要至关重要。"
@@ -56,7 +56,7 @@
     "p1": "为确保您的会议纪要清晰、准确并可随时付诸行动，我们目前采用混合方法，配备了以下顶级模型：",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "无与伦比的逻辑推理和精确的语气控制。非常适合决策和责任是关键的复杂讨论。"
       },
       {

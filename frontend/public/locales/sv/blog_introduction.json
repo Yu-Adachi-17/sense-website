@@ -63,7 +63,7 @@
       "Robin (Data)"
     ],
     "coreMessage": "Arbeta smart och prioritera tydlighet. Definiera ”vem gör vad när” och håll möten inom 30 minuter.",
-    "date": "2025-10-11 10:00 CET",
+    "date": "2026-10-11 10:00 CET",
     "labels": {
       "actionItems": "Åtgärder",
       "attendees": "Deltagare:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Johan — starta A/B-test senast 2025-10-15",
-          "Robin — leverera CTR-analys senast 2025-10-17"
+          "Johan — starta A/B-test senast 2026-10-15",
+          "Robin — leverera CTR-analys senast 2026-10-17"
         ],
         "concerns": [
           "Annonströtthet om kreativa inte förnyas"
@@ -98,7 +98,7 @@
       },
       {
         "actionItems": [
-          "Sara — bekräfta logistik senast 2025-10-14"
+          "Sara — bekräfta logistik senast 2026-10-14"
         ],
         "concerns": [
           "Risk för försening vid hög efterfrågan"
@@ -118,17 +118,17 @@
       },
       {
         "actionItems": [
-          "Tim — färdigställ plan 2025-10-13",
-          "Support — publicera FAQ 2025-10-16",
-          "Marknad — Black Friday-plan 2025-10-25"
+          "Tim — färdigställ plan 2026-10-13",
+          "Support — publicera FAQ 2026-10-16",
+          "Marknad — Black Friday-plan 2026-10-25"
         ],
         "decisions": [
-          "Godkänn lansering 2025-10-20"
+          "Godkänn lansering 2026-10-20"
         ],
         "discussion": [
           "Fixar batteri; bättre stegräkning",
           "Release notes klara; Support publicerar FAQ",
-          "Q4-paket: Watch + Band, −¥2 000 från 2025-10-20"
+          "Q4-paket: Watch + Band, −¥2 000 från 2026-10-20"
         ],
         "keyMessages": [
           "Koppla produktförbättringar till rätt marknads-timing"
@@ -153,7 +153,7 @@
       "h3": "Exempel från Protokoll AI"
     },
     "transcript": {
-      "full": "Alex (Marknadsansvarig): Tack för att ni kom — Johan (E-handel), Sara (Butik), Tim (Produktchef) och Robin (Data). Låt oss se över helgens smartwatch-resultat. Johan, börja med online.\n\nJohan (E-handel): Vecka mot vecka upp 18 % i sessioner. Konvertering 2,9 % → 3,2 %. Intäkter +12 %. Spiken kom av influencer-kampanjen i lördags; annonskostnad +6 %.\n\nRobin (Data): CAC stabil runt ¥2 400. Retargeting-CTR sjönk från 1,8 % till 1,2 %. Rek. kreativ uppdatering och A/B-test med kortare rubriker. Jag kan leverera analysen senast fredag (2025-10-17).\n\nAlex: Bra. Beslut: Öka onlineannonsbudgeten med 15 % i två veckor. Åtgärder: Johan — starta A/B-test senast onsdag (2025-10-15). Robin — leverera CTR-analys senast fredag (2025-10-17).\n\nSara (Butik): Utsålt i Stockholm, Göteborg och Malmö. Påfyllning 500 enheter på måndag. Butikstrafik −4 % p.g.a. oväder, men snittköp stabilt.\n\nAlex: Beslut: Genomför påfyllning 500 enheter i tre butiker. Åtgärd: Sara — bekräfta leverans och logistik senast tisdag (2025-10-14). Risk: försening vid leverantörsbelastning.\n\nTim (Produkt): Firmware v1.2 löser batteriproblem och förbättrar stegräkning. Release notes klara. Föreslår lansering 20 okt med Q4-paket — ”Watch + Band” −¥2 000. Support behöver publicera FAQ.\n\nAlex: Beslut: Godkänn Q4-lansering 2025-10-20. Åtgärder: Tim — färdigställ plan senast måndag (2025-10-13). Support — publicera FAQ senast torsdag (2025-10-16). Marknad — förbered Black Friday-plan senast lördag (2025-10-25).\n\nAlex (avslut): Arbeta smart och håll kursen tydlig — tydlighet före hastighet. Säkerställ ”vem gör vad när” och håll möten under 30 min.",
+      "full": "Alex (Marknadsansvarig): Tack för att ni kom — Johan (E-handel), Sara (Butik), Tim (Produktchef) och Robin (Data). Låt oss se över helgens smartwatch-resultat. Johan, börja med online.\n\nJohan (E-handel): Vecka mot vecka upp 18 % i sessioner. Konvertering 2,9 % → 3,2 %. Intäkter +12 %. Spiken kom av influencer-kampanjen i lördags; annonskostnad +6 %.\n\nRobin (Data): CAC stabil runt ¥2 400. Retargeting-CTR sjönk från 1,8 % till 1,2 %. Rek. kreativ uppdatering och A/B-test med kortare rubriker. Jag kan leverera analysen senast fredag (2026-10-17).\n\nAlex: Bra. Beslut: Öka onlineannonsbudgeten med 15 % i två veckor. Åtgärder: Johan — starta A/B-test senast onsdag (2026-10-15). Robin — leverera CTR-analys senast fredag (2026-10-17).\n\nSara (Butik): Utsålt i Stockholm, Göteborg och Malmö. Påfyllning 500 enheter på måndag. Butikstrafik −4 % p.g.a. oväder, men snittköp stabilt.\n\nAlex: Beslut: Genomför påfyllning 500 enheter i tre butiker. Åtgärd: Sara — bekräfta leverans och logistik senast tisdag (2026-10-14). Risk: försening vid leverantörsbelastning.\n\nTim (Produkt): Firmware v1.2 löser batteriproblem och förbättrar stegräkning. Release notes klara. Föreslår lansering 20 okt med Q4-paket — ”Watch + Band” −¥2 000. Support behöver publicera FAQ.\n\nAlex: Beslut: Godkänn Q4-lansering 2026-10-20. Åtgärder: Tim — färdigställ plan senast måndag (2026-10-13). Support — publicera FAQ senast torsdag (2026-10-16). Marknad — förbered Black Friday-plan senast lördag (2026-10-25).\n\nAlex (avslut): Arbeta smart och håll kursen tydlig — tydlighet före hastighet. Säkerställ ”vem gör vad när” och håll möten under 30 min.",
       "preview": "Okej, låt oss börja mötet. Först går vi igenom försäljningen av ”smartwatch” från helgen. Johan, börja med onlinekanalen."
     }
   },

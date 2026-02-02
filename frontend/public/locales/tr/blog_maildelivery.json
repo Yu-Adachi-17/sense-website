@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "2025 Yeniliği: Tutanakları AI (iOS) Artık Tutanaklarınızı Otomatik Olarak E-postayla Gönderiyor",
+    "title": "2026 Yeniliği: Tutanakları AI (iOS) Artık Tutanaklarınızı Otomatik Olarak E-postayla Gönderiyor",
     "description": "Yapay zeka üretimini beklemekten yoruldunuz mu? iOS'taki yeni Otomatik E-posta Teslimatı ile kayıttan hemen sonra uygulamayı kapatabilirsiniz. Tutanak hazır olur olmaz ekibinize e-postayla göndereceğiz.",
     "ogTitle": "Beklemeyi Bırakın: Tutanakları AI (iOS) Artık Tutanakları Otomatik Gönderiyor",
     "ogDescription": "Kaydet, durdur ve uygulamayı kapat. Gerisini biz hallederiz. Toplantı iş akışınızdaki bekleme süresini ortadan kaldıran yeni özellik hakkında bilgi edinin.",
@@ -17,7 +17,7 @@
     "maildelivery": "Oto. E-posta Teslimatı (iOS)"
   },
   "hero": {
-    "kicker": "Yeni iOS Özelliği 2025",
+    "kicker": "Yeni iOS Özelliği 2026",
     "h1": "Kaydet, Durdur, Bitti. Tutanaklarınız Otomatik Olarak Gönderilir.",
     "tagline": "Zamandan tasarruf etmek umuduyla hiç 'AI toplantı uygulaması' aradıysanız, bu güncelleme tam size göre. Artık tutanakların oluşturulmasını beklerken yükleme ekranına bakmak yok."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. 'Kalite vs Hız' ödününden kurtuluş",
-        "p": "Tutanakları AI, OpenAI Whisper, ChatGPT-5 ve Gemini 3 gibi üst düzey modeller kullanır. Yüksek hassasiyet işlem süresi gerektirir; uzun bir toplantı için bazen birkaç dakika. Beklemenin can sıkıcı olduğunu biliyoruz. Bu güncellemeyle işlem süresi kalır (kaliteyi sağlamak için), ancak **sizin bekleme süreniz sıfıra düşer**. Telefonu cebinize koyun ve bir sonraki görevinize geçin."
+        "p": "Tutanakları AI, OpenAI Whisper, ChatGPT-5.2 ve Gemini 3 gibi üst düzey modeller kullanır. Yüksek hassasiyet işlem süresi gerektirir; uzun bir toplantı için bazen birkaç dakika. Beklemenin can sıkıcı olduğunu biliyoruz. Bu güncellemeyle işlem süresi kalır (kaliteyi sağlamak için), ancak **sizin bekleme süreniz sıfıra düşer**. Telefonu cebinize koyun ve bir sonraki görevinize geçin."
       }
     ]
   },

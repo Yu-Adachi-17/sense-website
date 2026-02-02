@@ -63,7 +63,7 @@
       "Rasmus (Dataanalyse)"
     ],
     "coreMessage": "Arbejd smart og hold fokus på klarhed frem for hastighed. Kend ‘hvem gør hvad hvornår’, og hold møderne korte og effektive.",
-    "date": "2025-10-11 10:00 CET",
+    "date": "2026-10-11 10:00 CET",
     "labels": {
       "actionItems": "Handlinger",
       "attendees": "Deltagere:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jonas — lancer A/B-test senest 2025-10-15",
-          "Rasmus — lever CTR-analyse senest 2025-10-17"
+          "Jonas — lancer A/B-test senest 2026-10-15",
+          "Rasmus — lever CTR-analyse senest 2026-10-17"
         ],
         "concerns": [
           "Risiko for annonce-træthed uden kreativ opdatering"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Signe — bekræft leveringstid senest 2025-10-14"
+          "Signe — bekræft leveringstid senest 2026-10-14"
         ],
         "concerns": [
           "Forsinkelse hvis leverandørens kapacitet er presset"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Tobias — færdiggør releaseskema 2025-10-13",
-          "Support — offentliggør FAQ 2025-10-16",
-          "Marketing — udarbejd Black Friday-plan 2025-10-25"
+          "Tobias — færdiggør releaseskema 2026-10-13",
+          "Support — offentliggør FAQ 2026-10-16",
+          "Marketing — udarbejd Black Friday-plan 2026-10-25"
         ],
         "decisions": [
-          "Godkend lancering 2025-10-20"
+          "Godkend lancering 2026-10-20"
         ],
         "discussion": [
           "v1.2 løser ..."

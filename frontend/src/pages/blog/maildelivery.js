@@ -13,9 +13,9 @@ import { BsGooglePlay } from "react-icons/bs";
 import { FaAppStore } from "react-icons/fa";
 
 // ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
-// 記事のタイトルが "New in 2025" なので、それに合わせた日付に設定
+// 記事のタイトルが "New in 2026" なので、それに合わせた日付に設定
 const PUBLISHED_DATE = "2025-12-05T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-08T10:00:00+09:00";
+const MODIFIED_DATE = "2026-01-08T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ const inter = Inter({ subsets: ["latin"] });
 const EN_FALLBACK = {
   seo: {
     title:
-      "New in 2025: Minutes.AI (iOS) Now Emails Your Minutes Automatically",
+      "New in 2026: Minutes.AI (iOS) Now Emails Your Minutes Automatically",
     description:
       "Tired of waiting for AI generation? Trusted by 30,000 users, the new Automatic Email Delivery lets you close the app immediately. We'll email the minutes as soon as they're ready.",
     ogTitle:
@@ -46,7 +46,7 @@ const EN_FALLBACK = {
   },
 
   hero: {
-    kicker: "New iOS Feature 2025",
+    kicker: "New iOS Feature 2026",
     h1: "Record, Stop, Done. Your Minutes Are Sent Automatically.",
     // ★ 修正：実績を追加
     tagline:
@@ -79,7 +79,7 @@ const EN_FALLBACK = {
       {
         t: "2. Freedom from the 'Quality vs. Speed' Trade-off",
         p:
-          "Minutes.AI uses top-tier models like OpenAI Whisper, ChatGPT-5, and Gemini 3. High precision requires processing time—sometimes a few minutes for a long meeting. We know waiting is annoying. With this update, the processing time remains (to ensure quality), but **your waiting time drops to zero**. Put your phone in your pocket and move on to your next task.",
+          "Minutes.AI uses top-tier models like OpenAI Whisper, ChatGPT-5.2, and Gemini 3. High precision requires processing time—sometimes a few minutes for a long meeting. We know waiting is annoying. With this update, the processing time remains (to ensure quality), but **your waiting time drops to zero**. Put your phone in your pocket and move on to your next task.",
       },
     ],
   },

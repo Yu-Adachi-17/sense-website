@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Hinter den Kulissen: Die KI-Modelle von Protokoll KI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Entdecken Sie, warum Protokoll KI überlegene Meeting-Protokolle liefert. Wir enthüllen unsere modellunabhängige Strategie und die leistungsstarken LLMs, die wir verwenden (derzeit ChatGPT-5 und Gemini 2.5 Pro).",
+    "title": "Hinter den Kulissen: Die KI-Modelle von Protokoll KI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Entdecken Sie, warum Protokoll KI überlegene Meeting-Protokolle liefert. Wir enthüllen unsere modellunabhängige Strategie und die leistungsstarken LLMs, die wir verwenden (derzeit ChatGPT-5.2 und Gemini 2.5 Pro).",
     "ogTitle": "Qualität vor Kosten: Die KI-Modelle, die wir bei Protokoll KI einsetzen",
-    "ogDescription": "Wir geben uns nicht mit „gut genug“ zufrieden. Protokoll KI priorisiert die Ausgabequalität und setzt erstklassige Modelle wie ChatGPT-5 und Gemini 2.5 Pro ein, um professionelle Ergebnisse zu gewährleisten.",
+    "ogDescription": "Wir geben uns nicht mit „gut genug“ zufrieden. Protokoll KI priorisiert die Ausgabequalität und setzt erstklassige Modelle wie ChatGPT-5.2 und Gemini 2.5 Pro ein, um professionelle Ergebnisse zu gewährleisten.",
     "ld": {
       "headline": "Die KI-Modelle, die Protokoll KI antreiben",
       "description": "Erfahren Sie mehr über unsere Philosophie bei der Modellauswahl und warum sie für die Erstellung handlungsorientierter, professioneller Meeting-Protokolle entscheidend ist."
@@ -56,7 +56,7 @@
     "p1": "Um sicherzustellen, dass Ihre Protokolle klar, genau und sofort umsetzbar sind, nutzen wir derzeit einen hybriden Ansatz mit diesen Spitzenmodellen:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Unübertroffenes logisches Denken und präzise Tonkontrolle. Perfekt für komplexe Diskussionen, bei denen Entscheidungen und Verantwortlichkeit entscheidend sind."
       },
       {

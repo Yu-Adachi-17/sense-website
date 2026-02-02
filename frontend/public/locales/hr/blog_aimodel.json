@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Iza tehnologije: AI modeli koji pokreću AI Zapisnik (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Otkrijte zašto AI Zapisnik pruža vrhunske zapisnike sa sastanaka. Otkrivamo našu politiku neovisnosti o modelima i moćne LLM-ove koje koristimo (trenutno ChatGPT-5 i Gemini 2.5 Pro).",
+    "title": "Iza tehnologije: AI modeli koji pokreću AI Zapisnik (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Otkrijte zašto AI Zapisnik pruža vrhunske zapisnike sa sastanaka. Otkrivamo našu politiku neovisnosti o modelima i moćne LLM-ove koje koristimo (trenutno ChatGPT-5.2 i Gemini 2.5 Pro).",
     "ogTitle": "Kvaliteta iznad cijene: AI modeli koje koristimo u AI Zapisnik",
-    "ogDescription": "Ne zadovoljavamo se s \"dovoljno dobrim\". AI Zapisnik daje prednost kvaliteti rezultata, koristeći najbolje modele u klasi poput ChatGPT-5 i Gemini 2.5 Pro kako bi osigurao profesionalne rezultate.",
+    "ogDescription": "Ne zadovoljavamo se s \"dovoljno dobrim\". AI Zapisnik daje prednost kvaliteti rezultata, koristeći najbolje modele u klasi poput ChatGPT-5.2 i Gemini 2.5 Pro kako bi osigurao profesionalne rezultate.",
     "ld": {
       "headline": "AI modeli koji pokreću AI Zapisnik",
       "description": "Saznajte više o našoj filozofiji odabira modela i zašto je ključna za stvaranje profesionalnih zapisnika sa sastanaka usmjerenih na akciju."
@@ -56,7 +56,7 @@
     "p1": "Kako bismo osigurali da su vaši zapisnici jasni, točni i spremni za akciju, trenutno koristimo hibridni pristup s ovim vrhunskim modelima:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Nenadmašno logičko zaključivanje i precizna kontrola tona. Savršeno za složene rasprave gdje su odluke i odgovornost ključni."
       },
       {

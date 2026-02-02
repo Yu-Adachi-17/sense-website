@@ -485,8 +485,8 @@ export default function Home() {
   const LINK_MAIN = SITE_URL;
   const LINK_IOS = "https://apps.apple.com/jp/app/%E8%AD%B2%E4%BA%8B%E9%8C%B2ai/id6504087901";
 
-  // 日付はロケール整形（例: 2025-10-01 JST）
-  const demoDateISO = "2025-10-01T00:00:00+09:00";
+  // 日付はロケール整形（例: 2026-10-01 JST）
+  const demoDateISO = "2026-10-01T00:00:00+09:00";
   const formattedDate = useMemo(() => {
     try {
       const dt = new Date(demoDateISO);
@@ -498,7 +498,7 @@ export default function Home() {
       });
       return fmt.format(dt);
     } catch {
-      return "Oct 1, 2025 (JST)";
+      return "Oct 1, 2026 (JST)";
     }
   }, [locale]);
 
@@ -640,7 +640,7 @@ export default function Home() {
               <article className="minutesWrap" ref={wrapRef}>
                 <h2 className="mtitle gradDevice">{t("AI Minutes Meeting — Product Launch Planning")}</h2>
                 <div className="mdate">
-                  <time dateTime="2025-10-01">{formattedDate}</time>
+                  <time dateTime="2026-10-01">{formattedDate}</time>
                 </div>
                 <div className="mhr" />
                 <div className="minutesFlow">
@@ -738,7 +738,7 @@ export default function Home() {
               </div>
 
               <p className="mapNote" aria-label="note">
-                {t("Estimated from iOS download counts as of Oct 2025.")}
+                {t("Estimated from iOS download counts as of Oct 2026.")}
               </p>
             </div>
           </section>

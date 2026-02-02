@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Sous le capot : Les modèles d'IA de Minutes.AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Découvrez pourquoi Minutes.AI fournit des comptes rendus de réunion de qualité supérieure. Nous révélons notre politique indépendante des modèles et les puissants LLM que nous utilisons (actuellement ChatGPT-5 et Gemini 2.5 Pro).",
+    "title": "Sous le capot : Les modèles d'IA de Minutes.AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Découvrez pourquoi Minutes.AI fournit des comptes rendus de réunion de qualité supérieure. Nous révélons notre politique indépendante des modèles et les puissants LLM que nous utilisons (actuellement ChatGPT-5.2 et Gemini 2.5 Pro).",
     "ogTitle": "La qualité avant le coût : Les modèles d'IA que nous utilisons chez Minutes.AI",
-    "ogDescription": "Nous ne nous contentons pas de \"suffisant\". Minutes.AI privilégie la qualité des résultats, en utilisant les meilleurs modèles de leur catégorie comme ChatGPT-5 et Gemini 2.5 Pro pour garantir des résultats professionnels.",
+    "ogDescription": "Nous ne nous contentons pas de \"suffisant\". Minutes.AI privilégie la qualité des résultats, en utilisant les meilleurs modèles de leur catégorie comme ChatGPT-5.2 et Gemini 2.5 Pro pour garantir des résultats professionnels.",
     "ld": {
       "headline": "Les modèles d'IA qui alimentent Minutes.AI",
       "description": "Découvrez notre philosophie de sélection des modèles et pourquoi elle est cruciale pour créer des comptes rendus de réunion professionnels et orientés vers l'action."
@@ -56,7 +56,7 @@
     "p1": "Pour garantir que vos comptes rendus soient clairs, précis et prêts à l'action, nous exploitons actuellement une approche hybride avec ces modèles de premier plan :",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Un raisonnement logique inégalé et un contrôle précis du ton. Parfait pour les discussions complexes où les décisions et la responsabilité sont clés."
       },
       {

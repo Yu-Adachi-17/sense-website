@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Kulisy technologii: Modele AI napędzające Protokół AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Odkryj, dlaczego Protokół AI dostarcza doskonałe protokoły ze spotkań. Ujawniamy naszą politykę agnostyczną wobec modeli oraz potężne LLM, których używamy (obecnie ChatGPT-5 i Gemini 2.5 Pro).",
+    "title": "Kulisy technologii: Modele AI napędzające Protokół AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Odkryj, dlaczego Protokół AI dostarcza doskonałe protokoły ze spotkań. Ujawniamy naszą politykę agnostyczną wobec modeli oraz potężne LLM, których używamy (obecnie ChatGPT-5.2 i Gemini 2.5 Pro).",
     "ogTitle": "Jakość ponad kosztami: Modele AI, których używamy w Protokół AI",
-    "ogDescription": "Nie zadowalamy się „wystarczająco dobrym”. Protokół AI priorytetowo traktuje jakość wyników, używając najlepszych w swojej klasie modeli, takich jak ChatGPT-5 i Gemini 2.5 Pro, aby zapewnić profesjonalne rezultaty.",
+    "ogDescription": "Nie zadowalamy się „wystarczająco dobrym”. Protokół AI priorytetowo traktuje jakość wyników, używając najlepszych w swojej klasie modeli, takich jak ChatGPT-5.2 i Gemini 2.5 Pro, aby zapewnić profesjonalne rezultaty.",
     "ld": {
       "headline": "Modele AI napędzające Protokół AI",
       "description": "Poznaj naszą filozofię doboru modeli i dowiedz się, dlaczego jest ona kluczowa dla tworzenia profesjonalnych protokołów ze spotkań zorientowanych na działanie."
@@ -56,7 +56,7 @@
     "p1": "Aby zapewnić, że Twoje protokoły są jasne, dokładne i gotowe do działania, obecnie wykorzystujemy podejście hybrydowe z tymi modelami najwyższej klasy:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Niezrównane logiczne rozumowanie i precyzyjna kontrola tonu. Idealne do złożonych dyskusji, w których kluczowe są decyzje i odpowiedzialność."
       },
       {

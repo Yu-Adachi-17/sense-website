@@ -44,14 +44,14 @@ const guessCurrency = () => {
 /* ---------- Content Strategy: Focus on ROI & Hidden Costs ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "Minutes.AI Cost Analysis (2025) — True ROI of AI Meeting Notes",
+    title: "Minutes.AI Cost Analysis (2026) — True ROI of AI Meeting Notes",
     description:
       "Is an AI note taker worth the cost? Trusted by 30,000 users, we break down the 'Cost Per Meeting' of Minutes.AI vs. human transcription and monthly subscriptions.",
-    ogTitle: "The Real Cost of Meeting Minutes: AI vs Human (2025 Guide)",
+    ogTitle: "The Real Cost of Meeting Minutes: AI vs Human (2026 Guide)",
     ogDescription:
       "Worried about the cost of AI tools? Join 30,000 users who save money with our 'Pay-as-you-go' model compared to rigid subscriptions.",
     ld: {
-      headline: "Minutes.AI Cost & ROI Guide (2025)",
+      headline: "Minutes.AI Cost & ROI Guide (2026)",
       description:
         "A breakdown of meeting minute costs. Comparison of Time Packs vs. Subscriptions vs. Human Transcription costs.",
     },

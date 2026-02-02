@@ -118,7 +118,7 @@ export default function Company() {
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">
                 <dt className="text-indigo-200/80">Established</dt>
-                <dd className="sm:col-span-2 font-medium">September 2025</dd>
+                <dd className="sm:col-span-2 font-medium">September 2026</dd>
               </div>
 
               <div className="grid grid-cols-1 gap-2 py-5 sm:grid-cols-3">

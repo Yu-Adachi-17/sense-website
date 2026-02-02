@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Di Balik Teknologi: Model AI yang Mendukung Minutes AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Temukan mengapa Minutes AI menghasilkan notulen rapat yang unggul. Kami mengungkapkan kebijakan agnostik model kami dan LLM kuat yang kami gunakan (saat ini ChatGPT-5 dan Gemini 2.5 Pro).",
+    "title": "Di Balik Teknologi: Model AI yang Mendukung Minutes AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Temukan mengapa Minutes AI menghasilkan notulen rapat yang unggul. Kami mengungkapkan kebijakan agnostik model kami dan LLM kuat yang kami gunakan (saat ini ChatGPT-5.2 dan Gemini 2.5 Pro).",
     "ogTitle": "Kualitas di Atas Biaya: Model AI yang Kami Gunakan di Minutes AI",
-    "ogDescription": "Kami tidak puas dengan 'cukup baik'. Minutes AI memprioritaskan kualitas hasil, menggunakan model terbaik di kelasnya seperti ChatGPT-5 dan Gemini 2.5 Pro untuk memastikan hasil profesional.",
+    "ogDescription": "Kami tidak puas dengan 'cukup baik'. Minutes AI memprioritaskan kualitas hasil, menggunakan model terbaik di kelasnya seperti ChatGPT-5.2 dan Gemini 2.5 Pro untuk memastikan hasil profesional.",
     "ld": {
       "headline": "Model AI yang Mendukung Minutes AI",
       "description": "Pelajari tentang filosofi kami dalam pemilihan model dan mengapa ini penting untuk membuat notulen rapat yang profesional dan berorientasi pada tindakan."
@@ -56,7 +56,7 @@
     "p1": "Untuk memastikan notulen Anda jelas, akurat, dan siap untuk ditindaklanjuti, kami saat ini memanfaatkan pendekatan hibrida dengan model-model papan atas ini:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Penalaran logis yang tak tertandingi dan kontrol nada yang presisi. Sempurna untuk diskusi kompleks di mana keputusan dan akuntabilitas adalah kunci."
       },
       {

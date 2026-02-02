@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Protokoll AI Strategi: Från protokoll till handlingsbara insikter (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "Protokoll AI:s 'Strategi'-funktion omvandlar råa mötesanteckningar till ett kraftfullt beslutsverktyg. Med ChatGPT-5 och Gemini 2.5 Pro genererar den Förstärkning, Motargument, Kärnfråga och tre unika tankelägen för att driva ditt företag framåt.",
+    "title": "Protokoll AI Strategi: Från protokoll till handlingsbara insikter (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "Protokoll AI:s 'Strategi'-funktion omvandlar råa mötesanteckningar till ett kraftfullt beslutsverktyg. Med ChatGPT-5.2 och Gemini 2.5 Pro genererar den Förstärkning, Motargument, Kärnfråga och tre unika tankelägen för att driva ditt företag framåt.",
     "ogTitle": "Protokoll AI Strategi: Omvandla protokoll till handling",
     "ogDescription": "Spela inte bara in möten. Omvandla dem till strategi. Få Förstärkning (vad som fungerar), Motargument (vad som behöver åtgärdas), Kärnfråga (kärnproblemet) och lägena Logiskt, Kritiskt & Lateralt tänkande.",
     "ld": {
       "headline": "Protokoll AI Strategifunktion: Från enkla anteckningar till mötespartner",
-      "description": "Strategi-funktionen lyfter protokoll till beslutsstöd med hjälp av avancerad AI-analys (ChatGPT-5 och Gemini 2.5 Pro) för att ge handlingsbara insikter."
+      "description": "Strategi-funktionen lyfter protokoll till beslutsstöd med hjälp av avancerad AI-analys (ChatGPT-5.2 och Gemini 2.5 Pro) för att ge handlingsbara insikter."
     },
-    "keywords": "Protokoll AI, AI-mötesprotokoll, Strategi, ChatGPT-5, Gemini 2.5 Pro, beslutsstöd, handlingsbara insikter, Logiskt tänkande, Kritiskt tänkande, Lateralt tänkande, Förstärkning, Motargument, Kärnfråga, mötespartner, affärsstrategi"
+    "keywords": "Protokoll AI, AI-mötesprotokoll, Strategi, ChatGPT-5.2, Gemini 2.5 Pro, beslutsstöd, handlingsbara insikter, Logiskt tänkande, Kritiskt tänkande, Lateralt tänkande, Förstärkning, Motargument, Kärnfråga, mötespartner, affärsstrategi"
   },
   "aria": {
     "home": "Protokoll AI Hem"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Djupdykning: Funktion",
     "h1": "Bortom protokollen: Strategifunktionen",
-    "tagline": "Sluta att bara organisera anteckningar. Strategi-funktionen förvandlar Protokoll AI till din kärnpartner för möten, och omvandlar diskussioner till kraftfulla åtgärder, allt drivet av ChatGPT-5 och Gemini 2.5 Pro."
+    "tagline": "Sluta att bara organisera anteckningar. Strategi-funktionen förvandlar Protokoll AI till din kärnpartner för möten, och omvandlar diskussioner till kraftfulla åtgärder, allt drivet av ChatGPT-5.2 och Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Vad är Strategifunktionen?",
@@ -39,7 +39,7 @@
     "h2": "Hur det fungerar",
     "steps": [
       "Generera dina mötesprotokoll som vanligt (iOS, Android eller Webb).",
-      "Tryck på 'Strategi'-knappen för att analysera hela transkriptionen med ChatGPT-5 & Gemini 2.5 Pro.",
+      "Tryck på 'Strategi'-knappen för att analysera hela transkriptionen med ChatGPT-5.2 & Gemini 2.5 Pro.",
       "Få din 6-delade analys: Förstärkning, Motargument, Kärnfråga och de tre tankelägena.",
       "Dela, kopiera eller exportera insikterna direkt till ditt uppgiftshanteringssystem eller din rapport."
     ],

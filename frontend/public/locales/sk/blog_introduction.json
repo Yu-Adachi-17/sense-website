@@ -63,7 +63,7 @@
       "Riley (dáta)"
     ],
     "coreMessage": "Míňajme rozumne — jasnosť pred rýchlosťou. Zaviažme sa k „kto čo urobí dokedy“ a držme stretnutia do 30 minút.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Úlohy",
       "attendees": "Účastníci:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — spustiť A/B test do 2025-10-15",
-          "Riley — dodať analýzu CTR do 2025-10-17"
+          "Jordan — spustiť A/B test do 2026-10-15",
+          "Riley — dodať analýzu CTR do 2026-10-17"
         ],
         "concerns": [
           "Únava z reklám, ak sa nekreatíva neobnoví"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — potvrdiť ETA/logistiku dodávateľa do 2025-10-14"
+          "Sam — potvrdiť ETA/logistiku dodávateľa do 2026-10-14"
         ],
         "concerns": [
           "Riziko predĺženia dodacích lehôt pri raste backlogu"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — dokončiť harmonogram vydania do 2025-10-13",
-          "Podpora — zverejniť FAQ do 2025-10-16",
-          "Marketing — pripraviť návrh na Black Friday do 2025-10-25"
+          "Taylor — dokončiť harmonogram vydania do 2026-10-13",
+          "Podpora — zverejniť FAQ do 2026-10-16",
+          "Marketing — pripraviť návrh na Black Friday do 2026-10-25"
         ],
         "decisions": [
-          "Schváliť spustenie Q4 balíka 2025-10-20"
+          "Schváliť spustenie Q4 balíka 2026-10-20"
         ],
         "discussion": [
           "v1.2 opravuje vybíjanie batérie ..."

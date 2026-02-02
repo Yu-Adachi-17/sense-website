@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Novidade em 2025: Ata AI (iOS) agora envia suas atas por e-mail automaticamente",
+    "title": "Novidade em 2026: Ata AI (iOS) agora envia suas atas por e-mail automaticamente",
     "description": "Cansado de esperar pela geração de IA? Com a nova Entrega Automática de E-mail no iOS, você pode fechar o aplicativo imediatamente após a gravação. Enviaremos a ata para sua equipe assim que estiver pronta.",
     "ogTitle": "Pare de Esperar: Ata AI (iOS) agora envia atas automaticamente",
     "ogDescription": "Grave, pare e feche o aplicativo. Nós cuidamos do resto. Saiba mais sobre o novo recurso que remove o tempo de espera do seu fluxo de trabalho de reuniões.",
@@ -17,7 +17,7 @@
     "maildelivery": "Entrega Automática de E-mail (iOS)"
   },
   "hero": {
-    "kicker": "Novo Recurso iOS 2025",
+    "kicker": "Novo Recurso iOS 2026",
     "h1": "Gravar, Parar, Pronto. Suas atas são enviadas automaticamente.",
     "tagline": "Se você já procurou por um 'aplicativo de reunião com IA' na esperança de economizar tempo, esta atualização é para você. Chega de encarar uma tela de carregamento esperando a ata ser gerada."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Liberdade do compromisso 'Qualidade vs Velocidade'",
-        "p": "O Ata AI usa modelos de ponta como OpenAI Whisper, ChatGPT-5 e Gemini 3. Alta precisão requer tempo de processamento — às vezes alguns minutos para uma reunião longa. Sabemos que esperar é chato. Com esta atualização, o tempo de processamento permanece (para garantir a qualidade), mas **seu tempo de espera cai para zero**. Coloque o telefone no bolso e siga para sua próxima tarefa."
+        "p": "O Ata AI usa modelos de ponta como OpenAI Whisper, ChatGPT-5.2 e Gemini 3. Alta precisão requer tempo de processamento — às vezes alguns minutos para uma reunião longa. Sabemos que esperar é chato. Com esta atualização, o tempo de processamento permanece (para garantir a qualidade), mas **seu tempo de espera cai para zero**. Coloque o telefone no bolso e siga para sua próxima tarefa."
       }
     ]
   },

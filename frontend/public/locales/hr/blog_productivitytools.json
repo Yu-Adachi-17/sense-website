@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "5 najboljih AI alata za produktivnost u 2025.",
-    "description": "Prestanite žonglirati generičkim alatima. Ovo je 5 ključnih AI aplikacija za tekst, istraživanje, dizajn i sastanke koje će vam stvarno uštedjeti vrijeme u 2025.",
-    "ogTitle": "5 najboljih AI alata za produktivnost (izdanje 2025.)",
+    "title": "5 najboljih AI alata za produktivnost u 2026.",
+    "description": "Prestanite žonglirati generičkim alatima. Ovo je 5 ključnih AI aplikacija za tekst, istraživanje, dizajn i sastanke koje će vam stvarno uštedjeti vrijeme u 2026.",
+    "ogTitle": "5 najboljih AI alata za produktivnost (izdanje 2026.)",
     "ogDescription": "ChatGPT nije dovoljan. Odabrali smo savršen AI paket za pisanje, istraživanje, dizajn i sastanke.",
     "ld": {
-      "headline": "5 najboljih AI alata za produktivnost u 2025.",
+      "headline": "5 najboljih AI alata za produktivnost u 2026.",
       "description": "Odabrani popis najboljih AI alata uključujući ChatGPT, Notion, Perplexity, Canva i AI Zapisnik."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI alata"
   },
   "hero": {
-    "kicker": "Paket produktivnosti 2025.",
-    "h1": "5 najboljih AI alata za automatizaciju vašeg radnog dana (2025.)",
+    "kicker": "Paket produktivnosti 2026.",
+    "h1": "5 najboljih AI alata za automatizaciju vašeg radnog dana (2026.)",
     "tagline": "Korištenje AI-a više nije samo ChatGPT. Da biste stvarno povećali produktivnost, trebate pravog stručnjaka za svaki zadatak. Ovo je ultimativni paket za pisanje, istraživanje, dizajn i – najvažnije – sastanke."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Najbolje za: Ideje i skiciranje",
       "desc": "Neosporni kralj generativnog teksta. Bilo da trebate napisati e-mail, ispraviti kod ili osmisliti marketinške ideje, ChatGPT ostaje najsvestranija početna točka.",
       "icon": "bulb"

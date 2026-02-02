@@ -63,7 +63,7 @@
       "Raúl (Datos)"
     ],
     "coreMessage": "Trabaja con inteligencia y prioriza la claridad sobre la velocidad. Compromiso con “quién hace qué y para cuándo” y reuniones de menos de 30 minutos.",
-    "date": "2025-10-11 10:00 CET",
+    "date": "2026-10-11 10:00 CET",
     "labels": {
       "actionItems": "Tareas",
       "attendees": "Asistentes:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordán — lanzar test A/B para 2025-10-15",
-          "Raúl — entregar análisis de CTR para 2025-10-17"
+          "Jordán — lanzar test A/B para 2026-10-15",
+          "Raúl — entregar análisis de CTR para 2026-10-17"
         ],
         "concerns": [
           "Fatiga publicitaria si no se renuevan creatividades"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Samuel — confirmar ETA/logística para 2025-10-14"
+          "Samuel — confirmar ETA/logística para 2026-10-14"
         ],
         "concerns": [
           "Riesgo de plazos si aumenta la carga del proveedor"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Tomás — cerrar plan de lanzamiento 2025-10-13",
-          "Soporte — publicar FAQ 2025-10-16",
-          "Marketing — preparar plan de Black Friday 2025-10-25"
+          "Tomás — cerrar plan de lanzamiento 2026-10-13",
+          "Soporte — publicar FAQ 2026-10-16",
+          "Marketing — preparar plan de Black Friday 2026-10-25"
         ],
         "decisions": [
-          "Aprobar lanzamiento el 2025-10-20"
+          "Aprobar lanzamiento el 2026-10-20"
         ],
         "discussion": [
           "v1.2 corrige batería ..."

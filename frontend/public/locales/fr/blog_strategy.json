@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Stratégie Minutes.AI : Des comptes rendus aux insights exploitables (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "La fonction 'Stratégie' de Minutes.AI transforme les notes de réunion brutes en une puissante boîte à outils décisionnelle. Utilisant ChatGPT-5 et Gemini 2.5 Pro, elle génère Boost, Contrepoint, Enjeu Principal et trois modes de pensée uniques pour faire avancer votre entreprise.",
+    "title": "Stratégie Minutes.AI : Des comptes rendus aux insights exploitables (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "La fonction 'Stratégie' de Minutes.AI transforme les notes de réunion brutes en une puissante boîte à outils décisionnelle. Utilisant ChatGPT-5.2 et Gemini 2.5 Pro, elle génère Boost, Contrepoint, Enjeu Principal et trois modes de pensée uniques pour faire avancer votre entreprise.",
     "ogTitle": "Stratégie Minutes.AI : Transformez les comptes rendus en action",
     "ogDescription": "Ne vous contentez pas d'enregistrer les réunions. Transformez-les en stratégie. Obtenez Boost (ce qui fonctionne), Contrepoint (ce qu'il faut corriger), Enjeu Principal (le problème central) et les modes de pensée Logique, Critique et Latéral.",
     "ld": {
       "headline": "Fonction Stratégie de Minutes.AI : De simples notes à un partenaire de réunion",
-      "description": "La fonction 'Stratégie' élève les comptes rendus au rang d'aide à la décision grâce à une analyse IA avancée (ChatGPT-5 et Gemini 2.5 Pro) pour fournir des insights exploitables."
+      "description": "La fonction 'Stratégie' élève les comptes rendus au rang d'aide à la décision grâce à une analyse IA avancée (ChatGPT-5.2 et Gemini 2.5 Pro) pour fournir des insights exploitables."
     },
-    "keywords": "Minutes.AI, IA comptes rendus de réunion, Stratégie, ChatGPT-5, Gemini 2.5 Pro, aide à la décision, insights exploitables, Pensée Logique, Pensée Critique, Pensée Latérale, Boost, Contrepoint, Enjeu Principal, partenaire de réunion, stratégie d'entreprise"
+    "keywords": "Minutes.AI, IA comptes rendus de réunion, Stratégie, ChatGPT-5.2, Gemini 2.5 Pro, aide à la décision, insights exploitables, Pensée Logique, Pensée Critique, Pensée Latérale, Boost, Contrepoint, Enjeu Principal, partenaire de réunion, stratégie d'entreprise"
   },
   "aria": {
     "home": "Accueil Minutes.AI"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Plongée dans la Fonctionnalité",
     "h1": "Au-delà des comptes rendus : La Fonction Stratégie",
-    "tagline": "Arrêtez de simplement organiser des notes. La fonction 'Stratégie' transforme Minutes.AI en votre partenaire de réunion principal, convertissant les discussions en actions à fort impact, le tout alimenté par ChatGPT-5 et Gemini 2.5 Pro."
+    "tagline": "Arrêtez de simplement organiser des notes. La fonction 'Stratégie' transforme Minutes.AI en votre partenaire de réunion principal, convertissant les discussions en actions à fort impact, le tout alimenté par ChatGPT-5.2 et Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Qu'est-ce que la Fonction Stratégie ?",
@@ -39,7 +39,7 @@
     "h2": "Comment ça marche",
     "steps": [
       "Générez vos comptes rendus de réunion comme d'habitude (iOS, Android ou Web).",
-      "Appuyez sur le bouton 'Stratégie' pour analyser la transcription complète avec ChatGPT-5 & Gemini 2.5 Pro.",
+      "Appuyez sur le bouton 'Stratégie' pour analyser la transcription complète avec ChatGPT-5.2 & Gemini 2.5 Pro.",
       "Recevez votre analyse en 6 parties : Boost, Contrepoint, Enjeu Principal et les trois modes de pensée.",
       "Partagez, copiez ou exportez les insights directement dans votre système de gestion des tâches ou votre rapport."
     ],

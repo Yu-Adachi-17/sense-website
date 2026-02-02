@@ -63,7 +63,7 @@
       "Riley (Dati)"
     ],
     "coreMessage": "Spendiamo con intelligenza — la chiarezza prima della velocità. Impegniamoci a «chi fa cosa entro quando» e manteniamo le riunioni entro 30 minuti.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Azioni",
       "attendees": "Partecipanti:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — avviare A/B test entro il 2025-10-15",
-          "Riley — consegnare analisi CTR entro il 2025-10-17"
+          "Jordan — avviare A/B test entro il 2026-10-15",
+          "Riley — consegnare analisi CTR entro il 2026-10-17"
         ],
         "concerns": [
           "Affaticamento annunci se i creativi non vengono aggiornati"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — confermare ETA/logistica fornitore entro il 2025-10-14"
+          "Sam — confermare ETA/logistica fornitore entro il 2026-10-14"
         ],
         "concerns": [
           "Rischio di lead time se cresce il backlog"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — finalizzare piano rilascio entro il 2025-10-13",
-          "Supporto — pubblicare FAQ entro il 2025-10-16",
-          "Marketing — bozza Black Friday entro il 2025-10-25"
+          "Taylor — finalizzare piano rilascio entro il 2026-10-13",
+          "Supporto — pubblicare FAQ entro il 2026-10-16",
+          "Marketing — bozza Black Friday entro il 2026-10-25"
         ],
         "decisions": [
-          "Approvare lancio bundle Q4 il 2025-10-20"
+          "Approvare lancio bundle Q4 il 2026-10-20"
         ],
         "discussion": [
           "v1.2 corregge consumo batteria ..."

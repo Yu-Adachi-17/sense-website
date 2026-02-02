@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Bên trong công nghệ: Các mô hình AI vận hành Biên bản AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Khám phá lý do tại sao Biên bản AI cung cấp biên bản cuộc họp vượt trội. Chúng tôi tiết lộ chính sách không phụ thuộc vào mô hình và các LLM mạnh mẽ mà chúng tôi sử dụng (hiện tại là ChatGPT-5 và Gemini 2.5 Pro).",
+    "title": "Bên trong công nghệ: Các mô hình AI vận hành Biên bản AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Khám phá lý do tại sao Biên bản AI cung cấp biên bản cuộc họp vượt trội. Chúng tôi tiết lộ chính sách không phụ thuộc vào mô hình và các LLM mạnh mẽ mà chúng tôi sử dụng (hiện tại là ChatGPT-5.2 và Gemini 2.5 Pro).",
     "ogTitle": "Chất lượng hơn chi phí: Các mô hình AI chúng tôi sử dụng tại Biên bản AI",
-    "ogDescription": "Chúng tôi không chấp nhận mức 'đủ tốt'. Biên bản AI ưu tiên chất lượng đầu ra, sử dụng các mô hình tốt nhất như ChatGPT-5 và Gemini 2.5 Pro để đảm bảo kết quả chuyên nghiệp.",
+    "ogDescription": "Chúng tôi không chấp nhận mức 'đủ tốt'. Biên bản AI ưu tiên chất lượng đầu ra, sử dụng các mô hình tốt nhất như ChatGPT-5.2 và Gemini 2.5 Pro để đảm bảo kết quả chuyên nghiệp.",
     "ld": {
       "headline": "Các mô hình AI vận hành Biên bản AI",
       "description": "Tìm hiểu về triết lý lựa chọn mô hình của chúng tôi và tại sao nó quan trọng để tạo ra các biên bản cuộc họp chuyên nghiệp, hướng đến hành động."
@@ -56,7 +56,7 @@
     "p1": "Để đảm bảo biên bản của bạn rõ ràng, chính xác và sẵn sàng để hành động, chúng tôi hiện đang tận dụng phương pháp tiếp cận kết hợp với các mô hình hàng đầu này:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Khả năng suy luận logic vô song và kiểm soát giọng điệu chính xác. Hoàn hảo cho các cuộc thảo luận phức tạp, nơi các quyết định và trách nhiệm giải trình là chìa khóa."
       },
       {

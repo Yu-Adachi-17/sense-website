@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Detrás de la tecnología: Los modelos de IA de Actas IA (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Descubra por qué Actas IA ofrece actas de reunión superiores. Revelamos nuestra política independiente del modelo y los potentes LLM que utilizamos (actualmente ChatGPT-5 y Gemini 2.5 Pro).",
+    "title": "Detrás de la tecnología: Los modelos de IA de Actas IA (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Descubra por qué Actas IA ofrece actas de reunión superiores. Revelamos nuestra política independiente del modelo y los potentes LLM que utilizamos (actualmente ChatGPT-5.2 y Gemini 2.5 Pro).",
     "ogTitle": "Calidad sobre coste: Los modelos de IA que usamos en Actas IA",
-    "ogDescription": "No nos conformamos con lo \"suficientemente bueno\". Actas IA prioriza la calidad del resultado, utilizando los mejores modelos de su clase como ChatGPT-5 y Gemini 2.5 Pro para garantizar resultados profesionales.",
+    "ogDescription": "No nos conformamos con lo \"suficientemente bueno\". Actas IA prioriza la calidad del resultado, utilizando los mejores modelos de su clase como ChatGPT-5.2 y Gemini 2.5 Pro para garantizar resultados profesionales.",
     "ld": {
       "headline": "Los modelos de IA que impulsan Actas IA",
       "description": "Conozca nuestra filosofía sobre la selección de modelos y por qué es crucial para crear actas de reunión profesionales y orientadas a la acción."
@@ -56,7 +56,7 @@
     "p1": "Para garantizar que sus actas sean claras, precisas y listas para la acción, actualmente aprovechamos un enfoque híbrido con estos modelos de primer nivel:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Razonamiento lógico inigualable y control preciso del tono. Es perfecto para debates complejos donde las decisiones y la responsabilidad son clave."
       },
       {

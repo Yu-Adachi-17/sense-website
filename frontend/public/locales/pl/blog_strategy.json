@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Strategia Protokół AI: Od protokołów do praktycznych wniosków (ChatGPT-5 i Gemini 2.5 Pro)",
-    "description": "Funkcja 'Strategia' w Protokół AI przekształca surowe notatki ze spotkań w potężny zestaw narzędzi do podejmowania decyzji. Używając ChatGPT-5 i Gemini 2.5 Pro, generuje Wzmocnienie, Kontrę, Główny Problem oraz trzy unikalne tryby myślenia, aby napędzać Twój biznes.",
+    "title": "Strategia Protokół AI: Od protokołów do praktycznych wniosków (ChatGPT-5.2 i Gemini 2.5 Pro)",
+    "description": "Funkcja 'Strategia' w Protokół AI przekształca surowe notatki ze spotkań w potężny zestaw narzędzi do podejmowania decyzji. Używając ChatGPT-5.2 i Gemini 2.5 Pro, generuje Wzmocnienie, Kontrę, Główny Problem oraz trzy unikalne tryby myślenia, aby napędzać Twój biznes.",
     "ogTitle": "Strategia Protokół AI: Zamień protokoły w działanie",
     "ogDescription": "Nie tylko nagrywaj spotkania. Zamieniaj je w strategię. Otrzymaj Wzmocnienie (co działa), Kontrę (co naprawić), Główny Problem (sedno sprawy) oraz tryby myślenia Logicznego, Krytycznego i Lateralnego.",
     "ld": {
       "headline": "Funkcja Strategii Protokół AI: Od prostych notatek do partnera spotkań",
-      "description": "Funkcja 'Strategia' podnosi protokoły do poziomu wsparcia decyzyjnego, wykorzystując zaawansowaną analizę AI (ChatGPT-5 i Gemini 2.5 Pro) do dostarczania praktycznych wniosków."
+      "description": "Funkcja 'Strategia' podnosi protokoły do poziomu wsparcia decyzyjnego, wykorzystując zaawansowaną analizę AI (ChatGPT-5.2 i Gemini 2.5 Pro) do dostarczania praktycznych wniosków."
     },
-    "keywords": "Protokół AI, protokoły ze spotkań AI, Strategia, ChatGPT-5, Gemini 2.5 Pro, wsparcie decyzyjne, praktyczne wnioski, Myślenie Logiczne, Myślenie Krytyczne, Myślenie Lateralne, Wzmocnienie, Kontra, Główny Problem, partner spotkań, strategia biznesowa"
+    "keywords": "Protokół AI, protokoły ze spotkań AI, Strategia, ChatGPT-5.2, Gemini 2.5 Pro, wsparcie decyzyjne, praktyczne wnioski, Myślenie Logiczne, Myślenie Krytyczne, Myślenie Lateralne, Wzmocnienie, Kontra, Główny Problem, partner spotkań, strategia biznesowa"
   },
   "aria": {
     "home": "Strona główna Protokół AI"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Kulisy Funkcji",
     "h1": "Więcej niż protokoły: Funkcja Strategii",
-    "tagline": "Przestań tylko organizować notatki. Funkcja 'Strategia' zamienia Protokół AI w Twojego kluczowego partnera spotkań, przekształcając dyskusje w działania o dużym wpływie, wszystko napędzane przez ChatGPT-5 i Gemini 2.5 Pro."
+    "tagline": "Przestań tylko organizować notatki. Funkcja 'Strategia' zamienia Protokół AI w Twojego kluczowego partnera spotkań, przekształcając dyskusje w działania o dużym wpływie, wszystko napędzane przez ChatGPT-5.2 i Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Czym jest Funkcja Strategii?",
@@ -39,7 +39,7 @@
     "h2": "Jak to działa",
     "steps": [
       "Wygeneruj protokół ze spotkania jak zwykle (iOS, Android lub Web).",
-      "Stuknij przycisk 'Strategia', aby przeanalizować pełny transkrypt za pomocą ChatGPT-5 i Gemini 2.5 Pro.",
+      "Stuknij przycisk 'Strategia', aby przeanalizować pełny transkrypt za pomocą ChatGPT-5.2 i Gemini 2.5 Pro.",
       "Otrzymaj swoją 6-częściową analizę: Wzmocnienie, Kontrę, Główny Problem i trzy tryby myślenia.",
       "Udostępnij, skopiuj lub wyeksportuj wnioski bezpośrednio do swojego systemu zarządzania zadaniami lub raportu."
     ],

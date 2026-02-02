@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Novinka v roku 2025: AI Zápisnica (iOS) teraz posiela zápisnice automaticky e-mailom",
+    "title": "Novinka v roku 2026: AI Zápisnica (iOS) teraz posiela zápisnice automaticky e-mailom",
     "description": "Už vás nebaví čakať na generovanie AI? S novým automatickým doručovaním e-mailov na iOS môžete aplikáciu zatvoriť ihneď po nahrávaní. Zápisnicu pošleme vášmu tímu, hneď ako bude hotová.",
     "ogTitle": "Už žiadne čakanie: AI Zápisnica (iOS) teraz posiela zápisnice automaticky",
     "ogDescription": "Nahrajte, zastavte a zatvorte aplikáciu. My sa postaráme o zvyšok. Prečítajte si o novej funkcii, ktorá odstraňuje čakanie z vášho pracovného postupu.",
@@ -17,7 +17,7 @@
     "maildelivery": "Automatické doručovanie (iOS)"
   },
   "hero": {
-    "kicker": "Nová funkcia pre iOS 2025",
+    "kicker": "Nová funkcia pre iOS 2026",
     "h1": "Nahrať, Zastaviť, Hotovo. Vaše zápisnice sa odošlú automaticky.",
     "tagline": "Ak ste niekedy hľadali „AI aplikáciu na porady“ v nádeji, že ušetríte čas, táto aktualizácia je pre vás. Už žiadne pozeranie na obrazovku načítania pri čakaní na vygenerovanie zápisnice."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Sloboda od kompromisu „Kvalita vs Rýchlosť“",
-        "p": "AI Zápisnica používa špičkové modely ako OpenAI Whisper, ChatGPT-5 a Gemini 3. Vysoká presnosť si vyžaduje čas na spracovanie – niekedy pár minút pri dlhej porade. Vieme, že čakanie je otravné. S touto aktualizáciou čas spracovania zostáva (na zabezpečenie kvality), ale **váš čas čakania klesá na nulu**. Dajte si telefón do vrecka a prejdite na ďalšiu úlohu."
+        "p": "AI Zápisnica používa špičkové modely ako OpenAI Whisper, ChatGPT-5.2 a Gemini 3. Vysoká presnosť si vyžaduje čas na spracovanie – niekedy pár minút pri dlhej porade. Vieme, že čakanie je otravné. S touto aktualizáciou čas spracovania zostáva (na zabezpečenie kvality), ale **váš čas čakania klesá na nulu**. Dajte si telefón do vrecka a prejdite na ďalšiu úlohu."
       }
     ]
   },

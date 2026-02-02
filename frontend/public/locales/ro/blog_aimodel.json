@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "În culisele tehnologiei: Modelele AI care stau la baza Proces-verbal AI (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Descoperiți de ce Proces-verbal AI livrează procese-verbale de ședință superioare. Dezvăluim politica noastră agnostică față de modele și LLM-urile puternice pe care le folosim (în prezent ChatGPT-5 și Gemini 2.5 Pro).",
+    "title": "În culisele tehnologiei: Modelele AI care stau la baza Proces-verbal AI (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Descoperiți de ce Proces-verbal AI livrează procese-verbale de ședință superioare. Dezvăluim politica noastră agnostică față de modele și LLM-urile puternice pe care le folosim (în prezent ChatGPT-5.2 și Gemini 2.5 Pro).",
     "ogTitle": "Calitatea în detrimentul costului: Modelele AI pe care le folosim la Proces-verbal AI",
-    "ogDescription": "Nu ne mulțumim cu „suficient de bun”. Proces-verbal AI prioritizează calitatea rezultatelor, folosind cele mai bune modele din clasă, cum ar fi ChatGPT-5 și Gemini 2.5 Pro, pentru a asigura rezultate profesionale.",
+    "ogDescription": "Nu ne mulțumim cu „suficient de bun”. Proces-verbal AI prioritizează calitatea rezultatelor, folosind cele mai bune modele din clasă, cum ar fi ChatGPT-5.2 și Gemini 2.5 Pro, pentru a asigura rezultate profesionale.",
     "ld": {
       "headline": "Modelele AI care stau la baza Proces-verbal AI",
       "description": "Aflați despre filozofia noastră privind selecția modelelor și de ce este crucială pentru crearea unor procese-verbale de ședință profesionale și orientate spre acțiune."
@@ -56,7 +56,7 @@
     "p1": "Pentru a ne asigura că procesele-verbale sunt clare, precise și gata de acțiune, în prezent mizăm pe o abordare hibridă cu aceste modele de top:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Raționament logic de neegalat și control precis al tonului. Este perfect pentru discuțiile complexe în care deciziile și responsabilitatea sunt cheia."
       },
       {

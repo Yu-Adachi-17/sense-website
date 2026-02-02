@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Nowość w 2025: Protokół AI (iOS) teraz automatycznie wysyła protokoły e-mailem",
+    "title": "Nowość w 2026: Protokół AI (iOS) teraz automatycznie wysyła protokoły e-mailem",
     "description": "Masz dość czekania na generowanie przez AI? Dzięki nowemu automatycznemu dostarczaniu e-maili na iOS możesz zamknąć aplikację natychmiast po nagraniu. Wyślemy protokół do Twojego zespołu, gdy tylko będzie gotowy.",
     "ogTitle": "Przestań czekać: Protokół AI (iOS) wysyła teraz protokoły automatycznie",
     "ogDescription": "Nagraj, zatrzymaj i zamknij aplikację. My zajmiemy się resztą. Dowiedz się o nowej funkcji, która usuwa czas oczekiwania z przepływu pracy Twoich spotkań.",
@@ -17,7 +17,7 @@
     "maildelivery": "Auto Wysyłka E-mail (iOS)"
   },
   "hero": {
-    "kicker": "Nowa funkcja iOS 2025",
+    "kicker": "Nowa funkcja iOS 2026",
     "h1": "Nagraj, Zatrzymaj, Gotowe. Twoje protokoły są wysyłane automatycznie.",
     "tagline": "Jeśli kiedykolwiek szukałeś „aplikacji AI do spotkań” z nadzieją na zaoszczędzenie czasu, ta aktualizacja jest dla Ciebie. Koniec z wpatrywaniem się w ekran ładowania w oczekiwaniu na wygenerowanie protokołu."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Wolność od kompromisu „Jakość vs Prędkość”",
-        "p": "Protokół AI używa najwyższej klasy modeli, takich jak OpenAI Whisper, ChatGPT-5 i Gemini 3. Wysoka precyzja wymaga czasu przetwarzania – czasami kilku minut dla długiego spotkania. Wiemy, że czekanie jest irytujące. Dzięki tej aktualizacji czas przetwarzania pozostaje (aby zapewnić jakość), ale **Twój czas oczekiwania spada do zera**. Włóż telefon do kieszeni i przejdź do następnego zadania."
+        "p": "Protokół AI używa najwyższej klasy modeli, takich jak OpenAI Whisper, ChatGPT-5.2 i Gemini 3. Wysoka precyzja wymaga czasu przetwarzania – czasami kilku minut dla długiego spotkania. Wiemy, że czekanie jest irytujące. Dzięki tej aktualizacji czas przetwarzania pozostaje (aby zapewnić jakość), ale **Twój czas oczekiwania spada do zera**. Włóż telefon do kieszeni i przejdź do następnego zadania."
       }
     ]
   },

@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Nyhed i 2025: Referat AI (iOS) sender nu dine referater automatisk",
+    "title": "Nyhed i 2026: Referat AI (iOS) sender nu dine referater automatisk",
     "description": "Træt af at vente på AI-generering? Med den nye automatiske e-mail-levering på iOS kan du lukke appen straks efter optagelse. Vi sender referatet til dit team, så snart det er klar.",
     "ogTitle": "Stop ventetiden: Referat AI (iOS) sender nu referater automatisk",
     "ogDescription": "Optag, stop og luk appen. Vi klarer resten. Læs om den nye funktion, der fjerner ventetiden fra dine møder.",
@@ -17,7 +17,7 @@
     "maildelivery": "Automatisk levering (iOS)"
   },
   "hero": {
-    "kicker": "Ny iOS-funktion 2025",
+    "kicker": "Ny iOS-funktion 2026",
     "h1": "Optag, stop, færdig. Dine referater sendes automatisk.",
     "tagline": "Hvis du nogensinde har søgt efter en 'AI-mødeapp' i håb om at spare tid, er denne opdatering til dig. Slut med at stirre på en indlæsningsskærm og vente på referatet."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Frihed fra kompromiset mellem 'Kvalitet og Hastighed'",
-        "p": "Referat AI bruger topmodeller som OpenAI Whisper, ChatGPT-5 og Gemini 3. Høj præcision kræver behandlingstid – nogle gange et par minutter for et langt møde. Vi ved, at ventetid er irriterende. Med denne opdatering forbliver behandlingstiden (for at sikre kvaliteten), men **din ventetid falder til nul**. Læg telefonen i lommen og gå videre til din næste opgave."
+        "p": "Referat AI bruger topmodeller som OpenAI Whisper, ChatGPT-5.2 og Gemini 3. Høj præcision kræver behandlingstid – nogle gange et par minutter for et langt møde. Vi ved, at ventetid er irriterende. Med denne opdatering forbliver behandlingstiden (for at sikre kvaliteten), men **din ventetid falder til nul**. Læg telefonen i lommen og gå videre til din næste opgave."
       }
     ]
   },

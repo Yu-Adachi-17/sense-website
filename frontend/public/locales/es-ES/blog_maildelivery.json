@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Novedad 2025: Actas IA (iOS) ahora envía tus actas por email automáticamente",
+    "title": "Novedad 2026: Actas IA (iOS) ahora envía tus actas por email automáticamente",
     "description": "¿Cansado de esperar a que la IA genere el texto? Con el nuevo Envío Automático de Email en iOS, puedes cerrar la app justo después de grabar. Enviaremos el acta a tu equipo en cuanto esté lista.",
     "ogTitle": "Deja de esperar: Actas IA (iOS) ahora envía actas automáticamente",
     "ogDescription": "Graba, para y cierra la app. Nosotros nos encargamos del resto. Descubre la nueva función que elimina los tiempos de espera de tu flujo de trabajo.",
@@ -17,7 +17,7 @@
     "maildelivery": "Envío Automático (iOS)"
   },
   "hero": {
-    "kicker": "Nueva Función iOS 2025",
+    "kicker": "Nueva Función iOS 2026",
     "h1": "Graba, Para, Listo. Tus actas se envían automáticamente.",
     "tagline": "Si alguna vez has buscado una 'app de actas IA' esperando ahorrar tiempo, esta actualización es para ti. Se acabó mirar una pantalla de carga esperando que se genere el acta."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Libertad del compromiso 'Calidad vs Velocidad'",
-        "p": "Actas IA usa modelos de primer nivel como OpenAI Whisper, ChatGPT-5 y Gemini 3. La alta precisión requiere tiempo de procesamiento, a veces unos minutos para una reunión larga. Sabemos que esperar es molesto. Con esta actualización, el tiempo de procesamiento se mantiene (para asegurar la calidad), pero **tu tiempo de espera baja a cero**. Guárdate el móvil en el bolsillo y pasa a tu siguiente tarea."
+        "p": "Actas IA usa modelos de primer nivel como OpenAI Whisper, ChatGPT-5.2 y Gemini 3. La alta precisión requiere tiempo de procesamiento, a veces unos minutos para una reunión larga. Sabemos que esperar es molesto. Con esta actualización, el tiempo de procesamiento se mantiene (para asegurar la calidad), pero **tu tiempo de espera baja a cero**. Guárdate el móvil en el bolsillo y pasa a tu siguiente tarea."
       }
     ]
   },

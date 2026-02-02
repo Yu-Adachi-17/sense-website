@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Pöytäkirja AI Strategia: Muistioista toiminnallisiksi oivalluksiksi (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "Pöytäkirja AI:n Strategia-ominaisuus muuttaa raa'at kokousmuistiinpanot tehokkaaksi päätöksenteon työkalupakiksi. Käyttäen ChatGPT-5:tä ja Gemini 2.5 Pro:ta, se luo Tehostus, Vastaväite, Ydinongelma ja kolme ainutlaatuista ajattelutilaa liiketoimintasi edistämiseksi.",
+    "title": "Pöytäkirja AI Strategia: Muistioista toiminnallisiksi oivalluksiksi (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "Pöytäkirja AI:n Strategia-ominaisuus muuttaa raa'at kokousmuistiinpanot tehokkaaksi päätöksenteon työkalupakiksi. Käyttäen ChatGPT-5.2:tä ja Gemini 2.5 Pro:ta, se luo Tehostus, Vastaväite, Ydinongelma ja kolme ainutlaatuista ajattelutilaa liiketoimintasi edistämiseksi.",
     "ogTitle": "Pöytäkirja AI Strategia: Muuta pöytäkirjat toiminnaksi",
     "ogDescription": "Älä vain tallenna kokouksia. Muuta ne strategiaksi. Hanki Tehostus (mikä toimii), Vastaväite (mitä korjata), Ydinongelma (ongelman ydin) sekä Loogisen, Kriittisen ja Lateraalisen ajattelun tilat.",
     "ld": {
       "headline": "Pöytäkirja AI Strategia-ominaisuus: Yksinkertaisista muistiinpanoista kokouskumppaniksi",
-      "description": "Strategia-ominaisuus nostaa pöytäkirjat päätöksenteon tueksi käyttämällä edistynyttä tekoälyanalyysiä (ChatGPT-5 ja Gemini 2.5 Pro) tuottaakseen toiminnallisia oivalluksia."
+      "description": "Strategia-ominaisuus nostaa pöytäkirjat päätöksenteon tueksi käyttämällä edistynyttä tekoälyanalyysiä (ChatGPT-5.2 ja Gemini 2.5 Pro) tuottaakseen toiminnallisia oivalluksia."
     },
-    "keywords": "Pöytäkirja AI, kokouspöytäkirja AI, Strategia, ChatGPT-5, Gemini 2.5 Pro, päätöksenteon tuki, toiminnalliset oivallukset, Looginen ajattelu, Kriittinen ajattelu, Lateraalinen ajattelu, Tehostus, Vastaväite, Ydinongelma, kokouskumppani, liiketoimintastrategia"
+    "keywords": "Pöytäkirja AI, kokouspöytäkirja AI, Strategia, ChatGPT-5.2, Gemini 2.5 Pro, päätöksenteon tuki, toiminnalliset oivallukset, Looginen ajattelu, Kriittinen ajattelu, Lateraalinen ajattelu, Tehostus, Vastaväite, Ydinongelma, kokouskumppani, liiketoimintastrategia"
   },
   "aria": {
     "home": "Pöytäkirja AI Koti"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Ominaisuuden syväluotaus",
     "h1": "Pöytäkirjojen tuolla puolen: Strategia-toiminto",
-    "tagline": "Älä tyydy vain järjestämään muistiinpanoja. Strategia-toiminto tekee Pöytäkirja AI:stä ydinkokouskumppanisi, joka muuttaa keskustelut vaikuttaviksi toimiksi – kaiken tämän takana ovat ChatGPT-5 ja Gemini 2.5 Pro."
+    "tagline": "Älä tyydy vain järjestämään muistiinpanoja. Strategia-toiminto tekee Pöytäkirja AI:stä ydinkokouskumppanisi, joka muuttaa keskustelut vaikuttaviksi toimiksi – kaiken tämän takana ovat ChatGPT-5.2 ja Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Mikä on Strategia-toiminto?",
@@ -39,7 +39,7 @@
     "h2": "Kuinka se toimii",
     "steps": [
       "Luo kokouspöytäkirjasi tavalliseen tapaan (iOS, Android tai Web).",
-      "Napauta 'Strategia'-painiketta analysoidaksesi koko transkription ChatGPT-5:llä ja Gemini 2.5 Pro:lla.",
+      "Napauta 'Strategia'-painiketta analysoidaksesi koko transkription ChatGPT-5.2:llä ja Gemini 2.5 Pro:lla.",
       "Saat 6-osaisen analyysisi: Tehostus, Vastaväite, Ydinongelma ja kolme ajattelutilaa.",
       "Jaa, kopioi tai vie oivallukset suoraan tehtävänhallintajärjestelmääsi tai raporttiisi."
     ],

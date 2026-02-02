@@ -63,7 +63,7 @@
       "Ralf (Datenanalyse)"
     ],
     "coreMessage": "Arbeite klug, nicht nur schnell. Klarheit vor Geschwindigkeit – wer macht was bis wann. Meetings sollten innerhalb von 30 Minuten abgeschlossen sein.",
-    "date": "2025-10-11 10:00 MEZ",
+    "date": "2026-10-11 10:00 MEZ",
     "labels": {
       "actionItems": "Maßnahmen",
       "attendees": "Teilnehmer:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jonas — starte A/B-Test bis 2025-10-15",
-          "Ralf — liefere CTR-Analyse bis 2025-10-17"
+          "Jonas — starte A/B-Test bis 2026-10-15",
+          "Ralf — liefere CTR-Analyse bis 2026-10-17"
         ],
         "concerns": [
           "Risiko von Anzeigenmüdigkeit ohne kreative Erneuerung"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sebastian — bestätige Lieferzeit bis 2025-10-14"
+          "Sebastian — bestätige Lieferzeit bis 2026-10-14"
         ],
         "concerns": [
           "Lieferverzögerung bei hoher Nachfrage möglich"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Tobias — Release-Plan bis 2025-10-13 fertigstellen",
-          "Support — FAQ bis 2025-10-16 veröffentlichen",
-          "Marketing — Black-Friday-Plan bis 2025-10-25 vorbereiten"
+          "Tobias — Release-Plan bis 2026-10-13 fertigstellen",
+          "Support — FAQ bis 2026-10-16 veröffentlichen",
+          "Marketing — Black-Friday-Plan bis 2026-10-25 vorbereiten"
         ],
         "decisions": [
-          "Launch am 2025-10-20 genehmigt"
+          "Launch am 2026-10-20 genehmigt"
         ],
         "discussion": [
           "v1.2 behebt ..."

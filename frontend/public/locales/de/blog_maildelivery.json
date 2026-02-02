@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Neu in 2025: Protokoll KI (iOS) versendet Protokolle jetzt automatisch per E-Mail",
+    "title": "Neu in 2026: Protokoll KI (iOS) versendet Protokolle jetzt automatisch per E-Mail",
     "description": "Müde vom Warten auf die KI-Generierung? Mit dem neuen automatischen E-Mail-Versand auf iOS können Sie die App sofort nach der Aufnahme schließen. Wir senden das Protokoll an Ihr Team, sobald es fertig ist.",
     "ogTitle": "Kein Warten mehr: Protokoll KI (iOS) versendet Protokolle automatisch",
     "ogDescription": "Aufnehmen, stoppen, App schließen. Wir erledigen den Rest. Erfahren Sie mehr über die neue Funktion, die Wartezeiten aus Ihrem Meeting-Workflow entfernt.",
@@ -17,7 +17,7 @@
     "maildelivery": "Autom. E-Mail-Versand (iOS)"
   },
   "hero": {
-    "kicker": "Neues iOS-Feature 2025",
+    "kicker": "Neues iOS-Feature 2026",
     "h1": "Aufnehmen, Stoppen, Fertig. Ihre Protokolle werden automatisch versendet.",
     "tagline": "Wenn Sie jemals nach einer 'KI-Meeting-App' gesucht haben, um Zeit zu sparen, ist dieses Update für Sie. Kein Starren mehr auf Ladebildschirme während das Protokoll generiert wird."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Freiheit vom Kompromiss 'Qualität vs. Geschwindigkeit'",
-        "p": "Protokoll KI verwendet Spitzenmodelle wie OpenAI Whisper, ChatGPT-5 und Gemini 3. Hohe Präzision erfordert Verarbeitungszeit – manchmal ein paar Minuten für ein langes Meeting. Wir wissen, dass Warten nervig ist. Mit diesem Update bleibt die Verarbeitungszeit (um Qualität zu gewährleisten), aber **Ihre Wartezeit sinkt auf Null**. Stecken Sie Ihr Handy in die Tasche und machen Sie mit Ihrer nächsten Aufgabe weiter."
+        "p": "Protokoll KI verwendet Spitzenmodelle wie OpenAI Whisper, ChatGPT-5.2 und Gemini 3. Hohe Präzision erfordert Verarbeitungszeit – manchmal ein paar Minuten für ein langes Meeting. Wir wissen, dass Warten nervig ist. Mit diesem Update bleibt die Verarbeitungszeit (um Qualität zu gewährleisten), aber **Ihre Wartezeit sinkt auf Null**. Stecken Sie Ihr Handy in die Tasche und machen Sie mit Ihrer nächsten Aufgabe weiter."
       }
     ]
   },

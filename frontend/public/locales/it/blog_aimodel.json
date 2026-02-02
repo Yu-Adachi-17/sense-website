@@ -1,9 +1,9 @@
 {
   "seo": {
-    "title": "Dietro le quinte: I modelli AI di Verbali IA (ChatGPT-5, Gemini 2.5 Pro)",
-    "description": "Scopri perché Verbali IA produce verbali di riunione di qualità superiore. Riveliamo la nostra policy indipendente dai modelli e i potenti LLM che utilizziamo (attualmente ChatGPT-5 e Gemini 2.5 Pro).",
+    "title": "Dietro le quinte: I modelli AI di Verbali IA (ChatGPT-5.2, Gemini 2.5 Pro)",
+    "description": "Scopri perché Verbali IA produce verbali di riunione di qualità superiore. Riveliamo la nostra policy indipendente dai modelli e i potenti LLM che utilizziamo (attualmente ChatGPT-5.2 e Gemini 2.5 Pro).",
     "ogTitle": "Qualità prima del costo: I modelli AI che usiamo in Verbali IA",
-    "ogDescription": "Non ci accontentiamo di \"abbastanza buono\". Verbali IA dà priorità alla qualità dell'output, utilizzando i migliori modelli della categoria come ChatGPT-5 e Gemini 2.5 Pro per garantire risultati professionali.",
+    "ogDescription": "Non ci accontentiamo di \"abbastanza buono\". Verbali IA dà priorità alla qualità dell'output, utilizzando i migliori modelli della categoria come ChatGPT-5.2 e Gemini 2.5 Pro per garantire risultati professionali.",
     "ld": {
       "headline": "I modelli AI che alimentano Verbali IA",
       "description": "Scopri la nostra filosofia sulla selezione dei modelli e perché è fondamentale per creare verbali di riunione professionali e orientati all'azione."
@@ -56,7 +56,7 @@
     "p1": "Per garantire che i tuoi verbali siano chiari, accurati e pronti per l'azione, attualmente sfruttiamo un approccio ibrido con questi modelli di alto livello:",
     "items": [
       {
-        "h3": "ChatGPT-5 (OpenAI)",
+        "h3": "ChatGPT-5.2 (OpenAI)",
         "p": "Ragionamento logico impareggiabile e controllo preciso del tono. Perfetto per discussioni complesse in cui decisioni e responsabilità sono fondamentali."
       },
       {

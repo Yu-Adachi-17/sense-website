@@ -63,13 +63,13 @@
       "Rafael (Dados)"
     ],
     "coreMessage": "Trabalhar com clareza é melhor do que correr. Defina ‘quem faz o quê e quando’, e mantenha reuniões curtas e objetivas.",
-    "date": "2025-10-11 10:00 BRT",
+    "date": "2026-10-11 10:00 BRT",
     "meetingTitle": "Revisão Semanal de Vendas do Smartwatch",
     "topics": [
       {
         "actionItems": [
-          "João — iniciar teste A/B até 2025-10-15",
-          "Rafael — entregar análise de CTR até 2025-10-17"
+          "João — iniciar teste A/B até 2026-10-15",
+          "Rafael — entregar análise de CTR até 2026-10-17"
         ],
         "concerns": [
           "Risco de fadiga de anúncios se os criativos não forem atualizados"
@@ -89,7 +89,7 @@
       },
       {
         "actionItems": [
-          "Sara — confirmar logística até 2025-10-14"
+          "Sara — confirmar logística até 2026-10-14"
         ],
         "concerns": [
           "Risco de atraso de fornecedores"
@@ -109,17 +109,17 @@
       },
       {
         "actionItems": [
-          "Thiago — finalizar cronograma até 2025-10-13",
-          "Suporte — publicar FAQ até 2025-10-16",
-          "Marketing — preparar plano Black Friday até 2025-10-25"
+          "Thiago — finalizar cronograma até 2026-10-13",
+          "Suporte — publicar FAQ até 2026-10-16",
+          "Marketing — preparar plano Black Friday até 2026-10-25"
         ],
         "decisions": [
-          "Lançamento aprovado para 2025-10-20"
+          "Lançamento aprovado para 2026-10-20"
         ],
         "discussion": [
           "v1.2 corrige problema de bateria e calibração de passos",
           "Notas de versão prontas; FAQ será publicado",
-          "Pacote Q4: Relógio + Pulseira, −R$200, lançamento 2025-10-20"
+          "Pacote Q4: Relógio + Pulseira, −R$200, lançamento 2026-10-20"
         ],
         "keyMessages": [
           "Unir melhorias de produto com ações de marketing oportunas"
@@ -153,7 +153,7 @@
       "h3": "Exemplo de Saída da Ata AI"
     },
     "transcript": {
-      "full": "Alex (Chefe de Marketing): Obrigado pela presença de todos — João (E-commerce), Sara (Operações de Loja), Thiago (Gerente de Produto) e Rafael (Análise de Dados). Vamos revisar o desempenho de vendas do smartwatch no último fim de semana. João, comece com os dados online.\n\nJoão (E-commerce): Semana a semana, o número de sessões aumentou 18%. A taxa de conversão subiu de 2,9% para 3,2%. A receita aumentou 12%. O pico foi causado pela campanha de influenciadores no sábado; os gastos com anúncios subiram 6%.\n\nRafael (Dados): O CAC permaneceu estável em torno de R$ 2.400. No entanto, a CTR de retargeting caiu de 1,8% para 1,2%. Recomendo atualizar os criativos e realizar um teste A/B com títulos mais curtos. Posso entregar a análise até sexta-feira (2025-10-17).\n\nAlex: Perfeito. Decisão: Aumentar o orçamento de anúncios online em 15% pelas próximas duas semanas. Ações: João — iniciar o teste A/B até quarta (2025-10-15). Rafael — entregar o relatório de análise de CTR até sexta (2025-10-17).\n\nSara (Loja): Nas lojas físicas, tivemos falta de estoque em São Paulo, Rio de Janeiro e Porto Alegre. O reabastecimento de 500 unidades está programado para segunda. O tráfego caiu 4% devido à chuva, mas o ticket médio permaneceu estável.\n\nAlex: Decisão: Prosseguir com o reabastecimento de 500 unidades nas três lojas. Ação: Sara — confirmar o prazo e logística do fornecedor até terça (2025-10-14). Risco: atrasos caso o fornecedor enfrente acúmulo de pedidos.\n\nThiago (Produto): O firmware v1.2 corrige o problema de bateria e melhora a calibração de passos. As notas de versão estão prontas. Proponho o lançamento em 20 de outubro com o pacote Q4 — “Relógio + Pulseira” com desconto de R$ 200. O time de suporte deve publicar um FAQ.\n\nAlex: Decisão: Aprovar o lançamento do pacote Q4 em 2025-10-20. Ações: Thiago — finalizar o cronograma até segunda (2025-10-13). Suporte — publicar o FAQ até quinta (2025-10-16). Marketing — preparar o plano de Black Friday até sábado (2025-10-25).\n\nAlex (mensagem final): Trabalhem com inteligência e mantenham a clareza — clareza antes da velocidade. Definam ‘quem faz o quê e quando’, e mantenham as reuniões com menos de 30 minutos.",
+      "full": "Alex (Chefe de Marketing): Obrigado pela presença de todos — João (E-commerce), Sara (Operações de Loja), Thiago (Gerente de Produto) e Rafael (Análise de Dados). Vamos revisar o desempenho de vendas do smartwatch no último fim de semana. João, comece com os dados online.\n\nJoão (E-commerce): Semana a semana, o número de sessões aumentou 18%. A taxa de conversão subiu de 2,9% para 3,2%. A receita aumentou 12%. O pico foi causado pela campanha de influenciadores no sábado; os gastos com anúncios subiram 6%.\n\nRafael (Dados): O CAC permaneceu estável em torno de R$ 2.400. No entanto, a CTR de retargeting caiu de 1,8% para 1,2%. Recomendo atualizar os criativos e realizar um teste A/B com títulos mais curtos. Posso entregar a análise até sexta-feira (2026-10-17).\n\nAlex: Perfeito. Decisão: Aumentar o orçamento de anúncios online em 15% pelas próximas duas semanas. Ações: João — iniciar o teste A/B até quarta (2026-10-15). Rafael — entregar o relatório de análise de CTR até sexta (2026-10-17).\n\nSara (Loja): Nas lojas físicas, tivemos falta de estoque em São Paulo, Rio de Janeiro e Porto Alegre. O reabastecimento de 500 unidades está programado para segunda. O tráfego caiu 4% devido à chuva, mas o ticket médio permaneceu estável.\n\nAlex: Decisão: Prosseguir com o reabastecimento de 500 unidades nas três lojas. Ação: Sara — confirmar o prazo e logística do fornecedor até terça (2026-10-14). Risco: atrasos caso o fornecedor enfrente acúmulo de pedidos.\n\nThiago (Produto): O firmware v1.2 corrige o problema de bateria e melhora a calibração de passos. As notas de versão estão prontas. Proponho o lançamento em 20 de outubro com o pacote Q4 — “Relógio + Pulseira” com desconto de R$ 200. O time de suporte deve publicar um FAQ.\n\nAlex: Decisão: Aprovar o lançamento do pacote Q4 em 2026-10-20. Ações: Thiago — finalizar o cronograma até segunda (2026-10-13). Suporte — publicar o FAQ até quinta (2026-10-16). Marketing — preparar o plano de Black Friday até sábado (2026-10-25).\n\nAlex (mensagem final): Trabalhem com inteligência e mantenham a clareza — clareza antes da velocidade. Definam ‘quem faz o quê e quando’, e mantenham as reuniões com menos de 30 minutos.",
       "preview": "Certo, vamos começar a reunião. Primeiro, revisemos o desempenho de vendas do 'smartwatch' do último fim de semana. João, comece com o relatório do canal online."
     }
   },

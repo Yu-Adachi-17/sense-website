@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "5 nejlepších AI nástrojů pro produktivitu v roce 2025",
-    "description": "Přestaňte žonglovat s obecnými nástroji. Zde je 5 klíčových AI aplikací pro text, výzkum, design a schůzky, které vám v roce 2025 skutečně ušetří čas.",
-    "ogTitle": "5 nejlepších AI nástrojů pro produktivitu (Edice 2025)",
+    "title": "5 nejlepších AI nástrojů pro produktivitu v roce 2026",
+    "description": "Přestaňte žonglovat s obecnými nástroji. Zde je 5 klíčových AI aplikací pro text, výzkum, design a schůzky, které vám v roce 2026 skutečně ušetří čas.",
+    "ogTitle": "5 nejlepších AI nástrojů pro produktivitu (Edice 2026)",
     "ogDescription": "ChatGPT nestačí. Vybrali jsme perfektní sadu AI nástrojů pro psaní, výzkum, design a schůzky.",
     "ld": {
-      "headline": "5 nejlepších AI nástrojů pro produktivitu pro rok 2025",
+      "headline": "5 nejlepších AI nástrojů pro produktivitu pro rok 2026",
       "description": "Výběr nejlepších AI nástrojů včetně ChatGPT, Notion, Perplexity, Canva a Zápisník AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI nástrojů"
   },
   "hero": {
-    "kicker": "Sada produktivity 2025",
-    "h1": "5 nejlepších AI nástrojů pro automatizaci vašeho pracovního dne (2025)",
+    "kicker": "Sada produktivity 2026",
+    "h1": "5 nejlepších AI nástrojů pro automatizaci vašeho pracovního dne (2026)",
     "tagline": "Používání AI už není jen o ChatGPT. Abyste skutečně zvýšili produktivitu, potřebujete pro každý úkol toho správného specialistu. Zde je ultimátní sada pro psaní, výzkum, design a – co je nejdůležitější – schůzky."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Nejlepší pro: Nápady a návrhy",
       "desc": "Nesporný král generativního textu. Ať už potřebujete napsat e-mail, ladit kód nebo brainstormovat marketingové úhly, ChatGPT zůstává nejvšestrannějším výchozím bodem.",
       "icon": "bulb"

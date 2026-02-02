@@ -354,7 +354,7 @@ export default function BlogIntroduction() {
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">{t("what.h2")}</h2>
             <div className="mt-4 space-y-4">
               <p className="text-base leading-7 text-indigo-100/90">{t("what.p1")}</p>
-              <StatFootnote>{t("what.footnote", { date: "October 2025" })}</StatFootnote>
+              <StatFootnote>{t("what.footnote", { date: "October 5" })}</StatFootnote>
               <p className="text-base leading-7 text-indigo-100/90">{t("what.p2")}</p>
             </div>
 

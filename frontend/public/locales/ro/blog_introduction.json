@@ -63,7 +63,7 @@
       "Riley (Date)"
     ],
     "coreMessage": "Cheltuim inteligent — claritatea înaintea vitezei. Ne angajăm la „cine face ce până când” și menținem ședințele la 30 de minute.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Acțiuni",
       "attendees": "Participanți:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — lansează test A/B până la 2025-10-15",
-          "Riley — livrează analiza CTR până la 2025-10-17"
+          "Jordan — lansează test A/B până la 2026-10-15",
+          "Riley — livrează analiza CTR până la 2026-10-17"
         ],
         "concerns": [
           "Oboseală la reclame dacă nu se reîmprospătează creativul"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — confirmă ETA/logistica furnizorului până la 2025-10-14"
+          "Sam — confirmă ETA/logistica furnizorului până la 2026-10-14"
         ],
         "concerns": [
           "Risc de timp de livrare dacă backlogul crește"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — finalizează programul de lansare până la 2025-10-13",
-          "Suport — publică FAQ până la 2025-10-16",
-          "Marketing — plan Black Friday până la 2025-10-25"
+          "Taylor — finalizează programul de lansare până la 2026-10-13",
+          "Suport — publică FAQ până la 2026-10-16",
+          "Marketing — plan Black Friday până la 2026-10-25"
         ],
         "decisions": [
-          "Aprobă lansarea pachetului Q4 pe 2025-10-20"
+          "Aprobă lansarea pachetului Q4 pe 2026-10-20"
         ],
         "discussion": [
           "v1.2 remediază consumul bateriei ..."

@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "5 parasta tekoälytyökalua tuottavuuteen vuonna 2025",
-    "description": "Lopeta yleisten työkalujen kanssa jonglööraus. Tässä ovat 5 välttämätöntä tekoälysovellusta tekstille, tutkimukselle, suunnittelulle ja kokouksille, jotka säästävät aikaasi vuonna 2025.",
-    "ogTitle": "5 parasta tekoälytyökalua tuottavuuteen (Vuoden 2025 painos)",
+    "title": "5 parasta tekoälytyökalua tuottavuuteen vuonna 2026",
+    "description": "Lopeta yleisten työkalujen kanssa jonglööraus. Tässä ovat 5 välttämätöntä tekoälysovellusta tekstille, tutkimukselle, suunnittelulle ja kokouksille, jotka säästävät aikaasi vuonna 2026.",
+    "ogTitle": "5 parasta tekoälytyökalua tuottavuuteen (Vuoden 2026 painos)",
     "ogDescription": "ChatGPT ei riitä. Olemme valinneet täydellisen tekoälykokonaisuuden kirjoittamiseen, tutkimukseen, suunnitteluun ja kokouksiin.",
     "ld": {
-      "headline": "Vuoden 2025 5 parasta tekoälytyökalua tuottavuuteen",
+      "headline": "Vuoden 2026 5 parasta tekoälytyökalua tuottavuuteen",
       "description": "Valikoitu lista parhaista tekoälytyökaluista, mukaan lukien ChatGPT, Notion, Perplexity, Canva ja Pöytäkirja AI."
     }
   },
@@ -17,8 +17,8 @@
     "current": "Top 5 AI-työkalut"
   },
   "hero": {
-    "kicker": "Tuottavuustyökalut 2025",
-    "h1": "5 parasta tekoälytyökalua työpäiväsi automatisointiin (2025)",
+    "kicker": "Tuottavuustyökalut 2026",
+    "h1": "5 parasta tekoälytyökalua työpäiväsi automatisointiin (2026)",
     "tagline": "Tekoälyn käyttö ei ole enää vain ChatGPT:tä. Tuottavuuden todelliseen tehostamiseen tarvitset oikean asiantuntijan jokaiseen tehtävään. Tässä on täydellinen setti kirjoittamiseen, tutkimiseen, suunnitteluun ja – mikä tärkeintä – kokouksiin."
   },
   "intro": {
@@ -26,7 +26,7 @@
   },
   "tools": [
     {
-      "name": "1. ChatGPT (o1/GPT-4o)",
+      "name": "1. ChatGPT (GPT-5.2)",
       "role": "Paras: Ideointi & Luonnostelu",
       "desc": "Generatiivisen tekstin kiistaton kuningas. Tarvitsitpa sähköpostiluonnosta, koodin virheenkorjausta tai markkinointikulmien ideointia, ChatGPT on monipuolisin lähtökohta.",
       "icon": "bulb"

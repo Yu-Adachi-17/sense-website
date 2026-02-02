@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Chiến lược Biên bản AI: Từ Biên bản đến Thông tin chi tiết hữu ích (ChatGPT-5 & Gemini 2.5 Pro)",
-    "description": "Tính năng 'Chiến lược' của Biên bản AI biến các ghi chú cuộc họp thô thành một bộ công cụ ra quyết định mạnh mẽ. Sử dụng ChatGPT-5 và Gemini 2.5 Pro, nó tạo ra Thúc đẩy, Phản biện, Vấn đề hàng đầu và ba chế độ tư duy độc đáo để thúc đẩy doanh nghiệp của bạn.",
+    "title": "Chiến lược Biên bản AI: Từ Biên bản đến Thông tin chi tiết hữu ích (ChatGPT-5.2 & Gemini 2.5 Pro)",
+    "description": "Tính năng 'Chiến lược' của Biên bản AI biến các ghi chú cuộc họp thô thành một bộ công cụ ra quyết định mạnh mẽ. Sử dụng ChatGPT-5.2 và Gemini 2.5 Pro, nó tạo ra Thúc đẩy, Phản biện, Vấn đề hàng đầu và ba chế độ tư duy độc đáo để thúc đẩy doanh nghiệp của bạn.",
     "ogTitle": "Chiến lược Biên bản AI: Biến Biên bản thành Hành động",
     "ogDescription": "Đừng chỉ ghi lại các cuộc họp. Hãy biến chúng thành chiến lược. Nhận Thúc đẩy (điều gì đang hoạt động tốt), Phản biện (điều gì cần khắc phục), Vấn đề hàng đầu (vấn đề cốt lõi) và các chế độ tư duy Logic, Phê phán & Đột phá.",
     "ld": {
       "headline": "Tính năng Chiến lược của Biên bản AI: Từ Ghi chú đơn giản đến Đối tác Cuộc họp",
-      "description": "Tính năng 'Chiến lược' nâng tầm biên bản lên mức hỗ trợ ra quyết định bằng cách sử dụng phân tích AI tiên tiến (ChatGPT-5 và Gemini 2.5 Pro) để cung cấp thông tin chi tiết hữu ích."
+      "description": "Tính năng 'Chiến lược' nâng tầm biên bản lên mức hỗ trợ ra quyết định bằng cách sử dụng phân tích AI tiên tiến (ChatGPT-5.2 và Gemini 2.5 Pro) để cung cấp thông tin chi tiết hữu ích."
     },
-    "keywords": "Biên bản AI, biên bản họp AI, Chiến lược, ChatGPT-5, Gemini 2.5 Pro, hỗ trợ ra quyết định, thông tin chi tiết hữu ích, Tư duy Logic, Tư duy Phê phán, Tư duy Đột phá, Thúc đẩy, Phản biện, Vấn đề hàng đầu, đối tác cuộc họp, chiến lược kinh doanh"
+    "keywords": "Biên bản AI, biên bản họp AI, Chiến lược, ChatGPT-5.2, Gemini 2.5 Pro, hỗ trợ ra quyết định, thông tin chi tiết hữu ích, Tư duy Logic, Tư duy Phê phán, Tư duy Đột phá, Thúc đẩy, Phản biện, Vấn đề hàng đầu, đối tác cuộc họp, chiến lược kinh doanh"
   },
   "aria": {
     "home": "Trang chủ Biên bản AI"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Tìm hiểu sâu về Tính năng",
     "h1": "Vượt xa Biên bản: Chức năng Chiến lược",
-    "tagline": "Ngừng việc chỉ tổ chức các ghi chú. Chức năng 'Chiến lược' biến Biên bản AI thành đối tác cuộc họp cốt lõi của bạn, chuyển đổi các cuộc thảo luận thành các hành động có tác động cao, tất cả đều được hỗ trợ bởi ChatGPT-5 và Gemini 2.5 Pro."
+    "tagline": "Ngừng việc chỉ tổ chức các ghi chú. Chức năng 'Chiến lược' biến Biên bản AI thành đối tác cuộc họp cốt lõi của bạn, chuyển đổi các cuộc thảo luận thành các hành động có tác động cao, tất cả đều được hỗ trợ bởi ChatGPT-5.2 và Gemini 2.5 Pro."
   },
   "what": {
     "h2": "Chức năng Chiến lược là gì?",
@@ -39,7 +39,7 @@
     "h2": "Cách thức hoạt động",
     "steps": [
       "Tạo biên bản cuộc họp của bạn như bình thường (iOS, Android hoặc Web).",
-      "Nhấn vào nút 'Chiến lược' để phân tích toàn bộ bản ghi với ChatGPT-5 & Gemini 2.5 Pro.",
+      "Nhấn vào nút 'Chiến lược' để phân tích toàn bộ bản ghi với ChatGPT-5.2 & Gemini 2.5 Pro.",
       "Nhận phân tích 6 phần của bạn: Thúc đẩy, Phản biện, Vấn đề hàng đầu và ba chế độ tư duy.",
       "Chia sẻ, sao chép hoặc xuất thông tin chi tiết trực tiếp vào hệ thống quản lý công việc hoặc báo cáo của bạn."
     ],

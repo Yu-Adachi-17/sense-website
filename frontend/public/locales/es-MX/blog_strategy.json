@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Estrategia de Actas IA: De actas a información procesable (ChatGPT-5 y Gemini 2.5 Pro)",
-    "description": "La función 'Estrategia' de Actas IA transforma las notas de reunión en bruto en un potente conjunto de herramientas para la toma de decisiones. Usando ChatGPT-5 y Gemini 2.5 Pro, genera Impulso, Contrapartida, Problema Principal y tres modos de pensamiento únicos para impulsar su negocio.",
+    "title": "Estrategia de Actas IA: De actas a información procesable (ChatGPT-5.2 y Gemini 2.5 Pro)",
+    "description": "La función 'Estrategia' de Actas IA transforma las notas de reunión en bruto en un potente conjunto de herramientas para la toma de decisiones. Usando ChatGPT-5.2 y Gemini 2.5 Pro, genera Impulso, Contrapartida, Problema Principal y tres modos de pensamiento únicos para impulsar su negocio.",
     "ogTitle": "Estrategia de Actas IA: Convierta las actas en acción",
     "ogDescription": "No se limite a grabar reuniones. Conviértalas en estrategia. Obtenga Impulso (lo que funciona), Contrapartida (qué arreglar), Problema Principal (el problema central) y modos de pensamiento Lógico, Crítico y Lateral.",
     "ld": {
       "headline": "Función de Estrategia de Actas IA: De simples notas a socio de reuniones",
-      "description": "La función 'Estrategia' eleva las actas a un nivel de soporte de decisiones utilizando análisis avanzado de IA (ChatGPT-5 y Gemini 2.5 Pro) para proporcionar información procesable."
+      "description": "La función 'Estrategia' eleva las actas a un nivel de soporte de decisiones utilizando análisis avanzado de IA (ChatGPT-5.2 y Gemini 2.5 Pro) para proporcionar información procesable."
     },
-    "keywords": "Actas IA, actas de reunión IA, Estrategia, ChatGPT-5, Gemini 2.5 Pro, soporte de decisiones, información procesable, Pensamiento Lógico, Pensamiento Crítico, Pensamiento Lateral, Impulso, Contrapartida, Problema Principal, socio de reuniones, estrategia empresarial"
+    "keywords": "Actas IA, actas de reunión IA, Estrategia, ChatGPT-5.2, Gemini 2.5 Pro, soporte de decisiones, información procesable, Pensamiento Lógico, Pensamiento Crítico, Pensamiento Lateral, Impulso, Contrapartida, Problema Principal, socio de reuniones, estrategia empresarial"
   },
   "aria": {
     "home": "Inicio de Actas IA"
@@ -20,7 +20,7 @@
   "hero": {
     "kicker": "Análisis de la Función",
     "h1": "Más allá de las actas: La Función de Estrategia",
-    "tagline": "Deje de organizar solo notas. La función 'Estrategia' convierte a Actas IA en su socio principal de reuniones, transformando las discusiones en acciones de alto impacto, todo impulsado por ChatGPT-5 y Gemini 2.5 Pro."
+    "tagline": "Deje de organizar solo notas. La función 'Estrategia' convierte a Actas IA en su socio principal de reuniones, transformando las discusiones en acciones de alto impacto, todo impulsado por ChatGPT-5.2 y Gemini 2.5 Pro."
   },
   "what": {
     "h2": "¿Qué es la Función de Estrategia?",
@@ -39,7 +39,7 @@
     "h2": "Cómo funciona",
     "steps": [
       "Genere las actas de su reunión como de costumbre (iOS, Android o Web).",
-      "Toque el botón 'Estrategia' para analizar la transcripción completa con ChatGPT-5 y Gemini 2.5 Pro.",
+      "Toque el botón 'Estrategia' para analizar la transcripción completa con ChatGPT-5.2 y Gemini 2.5 Pro.",
       "Reciba su análisis de 6 partes: Impulso, Contrapartida, Problema Principal y los tres modos de pensamiento.",
       "Comparta, copie o exporte la información directamente a su sistema de gestión de tareas o informe."
     ],

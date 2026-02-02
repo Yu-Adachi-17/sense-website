@@ -63,7 +63,7 @@
       "Riley (data)"
     ],
     "coreMessage": "Käytetään rahaa fiksusti — selkeys ennen nopeutta. Sitoudutaan siihen, kuka tekee mitä ja mihin mennessä, ja pidetään kokoukset 30 minuutissa.",
-    "date": "2025-10-11 10:00 JST",
+    "date": "2026-10-11 10:00 JST",
     "labels": {
       "actionItems": "Toimenpiteet",
       "attendees": "Osallistujat:",
@@ -77,8 +77,8 @@
     "topics": [
       {
         "actionItems": [
-          "Jordan — käynnistä A/B-testi 2025-10-15 mennessä",
-          "Riley — toimita CTR-analyysi 2025-10-17 mennessä"
+          "Jordan — käynnistä A/B-testi 2026-10-15 mennessä",
+          "Riley — toimita CTR-analyysi 2026-10-17 mennessä"
         ],
         "concerns": [
           "Mainosväsymys, ellei materiaalia päivitetä"
@@ -96,7 +96,7 @@
       },
       {
         "actionItems": [
-          "Sam — vahvista toimittajan ETA/logistiikka 2025-10-14 mennessä"
+          "Sam — vahvista toimittajan ETA/logistiikka 2026-10-14 mennessä"
         ],
         "concerns": [
           "Toimitusaikariski, jos jonot kasvavat"
@@ -114,12 +114,12 @@
       },
       {
         "actionItems": [
-          "Taylor — viimeistele julkaisuaikataulu 2025-10-13 mennessä",
-          "Tuki — julkaise UKK 2025-10-16 mennessä",
-          "Markkinointi — Black Friday -luonnos 2025-10-25 mennessä"
+          "Taylor — viimeistele julkaisuaikataulu 2026-10-13 mennessä",
+          "Tuki — julkaise UKK 2026-10-16 mennessä",
+          "Markkinointi — Black Friday -luonnos 2026-10-25 mennessä"
         ],
         "decisions": [
-          "Hyväksy Q4-paketin julkaisu 2025-10-20"
+          "Hyväksy Q4-paketin julkaisu 2026-10-20"
         ],
         "discussion": [
           "v1.2 korjaa akun kulumisen ..."

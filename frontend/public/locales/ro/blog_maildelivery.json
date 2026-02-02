@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Nou în 2025: Proces-verbal AI (iOS) trimite acum procesele-verbale automat pe email",
+    "title": "Nou în 2026: Proces-verbal AI (iOS) trimite acum procesele-verbale automat pe email",
     "description": "Te-ai săturat să aștepți generarea AI? Cu noua Livrare Automată prin Email pe iOS, poți închide aplicația imediat după înregistrare. Vom trimite procesul-verbal echipei tale de îndată ce este gata.",
     "ogTitle": "Nu mai aștepta: Proces-verbal AI (iOS) trimite acum procesele-verbale automat",
     "ogDescription": "Înregistrează, oprește și închide aplicația. Ne ocupăm noi de restul. Află despre noua funcție care elimină timpul de așteptare din fluxul tău de lucru.",
@@ -17,7 +17,7 @@
     "maildelivery": "Livrare Auto Email (iOS)"
   },
   "hero": {
-    "kicker": "Funcție nouă iOS 2025",
+    "kicker": "Funcție nouă iOS 2026",
     "h1": "Înregistrează, Oprește, Gata. Procesele-verbale sunt trimise automat.",
     "tagline": "Dacă ai căutat vreodată o „aplicație de ședințe AI” sperând să economisești timp, această actualizare este pentru tine. Nu mai trebuie să privești un ecran de încărcare așteptând generarea procesului-verbal."
   },
@@ -39,7 +39,7 @@
       },
       {
         "t": "2. Libertate de compromisul „Calitate vs Viteză”",
-        "p": "Proces-verbal AI folosește modele de top precum OpenAI Whisper, ChatGPT-5 și Gemini 3. Precizia ridicată necesită timp de procesare – uneori câteva minute pentru o ședință lungă. Știm că așteptarea este enervantă. Cu această actualizare, timpul de procesare rămâne (pentru a asigura calitatea), dar **timpul tău de așteptare scade la zero**. Pune telefonul în buzunar și treci la următoarea sarcină."
+        "p": "Proces-verbal AI folosește modele de top precum OpenAI Whisper, ChatGPT-5.2 și Gemini 3. Precizia ridicată necesită timp de procesare – uneori câteva minute pentru o ședință lungă. Știm că așteptarea este enervantă. Cu această actualizare, timpul de procesare rămâne (pentru a asigura calitatea), dar **timpul tău de așteptare scade la zero**. Pune telefonul în buzunar și treci la următoarea sarcină."
       }
     ]
   },
