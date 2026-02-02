@@ -74,7 +74,7 @@ const EN_FALLBACK = {
       {
         t: "4) Post-Meeting Actions Are Built-In",
         p:
-          "Minutes.AI doesn't just stop at recording. Hit “Project” to instantly see “who does what by when.” Hit “Strategy” to have the latest AI (ChatGPT-5.2.2 & Gemini 2.5 Pro) suggest concrete next steps based on your conversation.",
+          "Minutes.AI doesn't just stop at recording. Hit “Project” to instantly see “who does what by when.” Hit “Strategy” to have the latest AI (ChatGPT-5.2 & Gemini 2.5 Pro) suggest concrete next steps based on your conversation.",
         note: "Want a deeper dive on Strategy? See the article below.",
       },
       {
