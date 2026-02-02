@@ -14,21 +14,21 @@ import { FaAppStore } from "react-icons/fa";
 
 // ★ 追加：日付を固定（SEO/ハイドレーションエラー対策）
 const PUBLISHED_DATE = "2025-12-02T10:00:00+09:00";
-const MODIFIED_DATE = "2025-12-06T10:00:00+09:00";
+const MODIFIED_DATE = "2026-02-02T10:00:00+09:00";
 
 const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Inline English fallback ---------- */
 const EN_FALLBACK = {
   seo: {
-    title: "Top 5 Productivity AI Tools You Need in 2025",
+    title: "Top 5 Productivity AI Tools You Need in 2026",
     description:
-      "Stop juggling generic tools. Here are the 5 essential AI apps for text, research, design, and meetings that will actually save you time in 2025. Featuring Minutes.AI, trusted by 30,000 users.",
-    ogTitle: "The 5 Best Productivity AI Tools (2025 Edition)",
+      "Stop juggling generic tools. Here are the 5 essential AI apps for text, research, design, and meetings that will actually save you time in 2026. Featuring Minutes.AI, trusted by 30,000 users.",
+    ogTitle: "The 5 Best Productivity AI Tools (2026 Edition)",
     ogDescription:
       "ChatGPT is not enough. We curated the perfect AI stack: One for writing, one for research, one for design, and Minutes.AI for meetings.",
     ld: {
-      headline: "Top 5 Productivity AI Tools for 2025",
+      headline: "Top 5 Productivity AI Tools for 2026",
       description:
         "A curated list of the best AI tools including ChatGPT, Notion, Perplexity, Canva, and Minutes.AI.",
     },
@@ -37,8 +37,8 @@ const EN_FALLBACK = {
   nav: { blog: "Blog", current: "Top 5 AI Tools" },
 
   hero: {
-    kicker: "2025 Productivity Stack",
-    h1: "The 5 Best AI Tools to Automate Your Workday (2025)",
+    kicker: "2026 Productivity Stack",
+    h1: "The 5 Best AI Tools to Automate Your Workday (2026)",
     // ★ 修正：実績を追加
     tagline:
       "Using AI isn't just about ChatGPT anymore. To truly boost productivity, you need the right specialist for each task. Here is the ultimate stack for writing, researching, designing, and—most importantly—meetings (featuring Minutes.AI, trusted by 30,000 users).",
@@ -51,7 +51,7 @@ const EN_FALLBACK = {
   // The Big 4 Tools (General High-Volume Keywords)
   tools: [
     {
-      name: "1. ChatGPT (o1/GPT-4o)",
+      name: "1. ChatGPT (GPT-5.2)",
       role: "Best for: Ideation & Drafting",
       desc: "The undisputed king of generative text. Whether you need to draft an email, debug code, or brainstorm marketing angles, ChatGPT remains the most versatile starting point.",
       icon: "bulb",
