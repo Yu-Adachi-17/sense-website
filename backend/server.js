@@ -1,5 +1,13 @@
 // server.js
 
+// ---- Azure Storage SDK needs WebCrypto (globalThis.crypto) in some Node runtimes ----
+try {
+  if (typeof globalThis.crypto === 'undefined') {
+    const { webcrypto } = require('node:crypto');
+    if (webcrypto) globalThis.crypto = webcrypto;
+  }
+} catch {}
+
 require('dotenv').config();
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "Loaded" : "Not found");
 console.log("✅ STRIPE_PRICE_UNLIMITED:", process.env.STRIPE_PRICE_UNLIMITED ? "Loaded" : "Not found");
