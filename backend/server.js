@@ -73,6 +73,8 @@ const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const GEMINI_MODEL_NAME = "gemini-2.5-flash"; // 使用するモデル名
 const DEFAULT_THINKING_BUDGET = 2048
 
+const azureSpeechDiarizationRoute = require('./routes/azureSpeechDiarizationRoute');
+
 /**
  * ★ NEW: Helper function to call the Gemini API.
  */
@@ -346,7 +348,7 @@ app.use("/api/slideaipro", slideaiproImageLow);
 app.use("/api/slideaipro", slideaiproPngToPdfRouter);
 
 app.use('/googleSpeech', require('./routes/googleSpeechDiarizationRoute'));
-
+app.use('/azureSpeech', azureSpeechDiarizationRoute);
 
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
