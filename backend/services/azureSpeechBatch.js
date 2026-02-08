@@ -182,81 +182,117 @@ async function uploadFileToBlobAndGetSasUrl({
   return { blobName, sasUrl, expiresOn: expiresOn.toISOString() };
 }
 
-function normalizeAzureLocale(input, fallback = 'en-US') {
-  let s = String(input || '').trim().replace(/_/g, '-');
-  if (!s || s.toLowerCase() === 'und') return fallback;
+function isValidAzureLocale(s) {
+  return typeof s === 'string' && /^[a-z]{2,3}-[A-Z]{2}$/.test(s);
+}
 
-  // iOS 由来で多い: 言語だけ ("en", "ja" など) を Azure で通りやすい形に寄せる
-  const defaults = {
-    en: 'en-US',
-    ja: 'ja-JP',
-    ko: 'ko-KR',
-    de: 'de-DE',
-    fr: 'fr-FR',
-    es: 'es-ES',
-    it: 'it-IT',
-    nl: 'nl-NL',
-    pt: 'pt-BR',
-    sv: 'sv-SE',
-    da: 'da-DK',
-    fi: 'fi-FI',
-    he: 'he-IL',
-    ar: 'ar-SA',
-    nb: 'nb-NO',
-    nn: 'nn-NO',
-    zh: 'zh-CN'
+/**
+ * iOS/BCP-47/ICU っぽい表記を Azure batch が受けられる locale（xx-YY）に寄せる
+ * 例:
+ *  - "ja" -> "ja-JP"
+ *  - "en" -> "en-US"
+ *  - "en_US" -> "en-US"
+ *  - "zh-Hans" -> "zh-CN"
+ *  - "zh-Hant" -> "zh-TW"
+ *  - "zh-Hans-JP-u-ca-japanese" -> "zh-CN"（region未指定なら script優先）
+ */
+function normalizeAzureLocale(input, fallback = 'en-US') {
+  const raw = (input ?? '').toString().trim();
+  if (!raw) return fallback;
+
+  let s = raw.replace(/_/g, '-');
+
+  // ICU extension などを除去: "en-US@calendar=buddhist"
+  s = s.split('@')[0];
+
+  // Unicode / private use extension をざっくり切る（-u- / -x- 以降）
+  s = s.replace(/-u-.+$/i, '').replace(/-x-.+$/i, '');
+
+  const parts = s.split('-').filter(Boolean);
+  if (parts.length === 0) return fallback;
+
+  const lang = parts[0].toLowerCase();
+
+  let script = '';
+  let region = '';
+
+  for (let i = 1; i < parts.length; i++) {
+    const p = parts[i];
+
+    // Script: Hans / Hant etc (4 letters)
+    if (!script && /^[A-Za-z]{4}$/.test(p)) {
+      script = p;
+      continue;
+    }
+
+    // Region: US / JP etc (2 letters)
+    if (/^[A-Za-z]{2}$/.test(p)) {
+      region = p.toUpperCase();
+      break;
+    }
+  }
+
+  // 言語だけのときの既定リージョン
+  const DEFAULT_REGION = {
+    en: 'US',
+    ja: 'JP',
+    de: 'DE',
+    fr: 'FR',
+    es: 'ES',
+    it: 'IT',
+    nl: 'NL',
+    pt: 'BR',
+    sv: 'SE',
+    da: 'DK',
+    nb: 'NO',
+    no: 'NO',
+    fi: 'FI',
+    tr: 'TR',
+    ko: 'KR',
+    id: 'ID',
+    vi: 'VN',
+    th: 'TH',
+    hi: 'IN',
+    ar: 'SA',
+    he: 'IL',
+    pl: 'PL',
+    ro: 'RO',
+    ru: 'RU',
+    uk: 'UA',
+    cs: 'CZ',
+    sk: 'SK',
+    el: 'GR',
+    hr: 'HR',
+    hu: 'HU',
+    ms: 'MY',
+    zh: 'CN'
   };
 
-  // "nb" / "nn" だけ単独で来たら補完
-  const low = s.toLowerCase();
-  if (!s.includes('-') && defaults[low]) s = defaults[low];
-
-  // Chinese script fallback (iOS: zh-Hans / zh-Hant)
-  // - region が含まれてる場合は、それに寄せる
-  // - region が無いなら Hans=CN, Hant=TW をデフォルトにする
-  const parts = s.split('-').filter(Boolean);
-  const lang = (parts[0] || '').toLowerCase();
-  const scriptOrRegion2 = (parts[1] || '');
-  const script = scriptOrRegion2.length === 4 ? scriptOrRegion2 : '';
-  const region = parts.find(p => p.length === 2)?.toUpperCase() || '';
-
-  if (lang === 'zh' && script) {
-    const scriptLow = script.toLowerCase();
-    if (scriptLow === 'hans') {
-      if (region === 'SG') return 'zh-SG';
-      return 'zh-CN';
+  // Chinese: script優先で CN/TW に寄せる
+  if (lang === 'zh') {
+    if (region) {
+      const out = `zh-${region}`;
+      return isValidAzureLocale(out) ? out : fallback;
     }
-    if (scriptLow === 'hant') {
-      if (region === 'HK') return 'zh-HK';
-      if (region === 'MO') return 'zh-MO';
-      return 'zh-TW';
-    }
+    const sc = script.toLowerCase();
+    if (sc === 'hant') return 'zh-TW';
+    if (sc === 'hans') return 'zh-CN';
+    return 'zh-CN';
   }
 
-  // 表記の整形（Azure は基本大小文字に寛容だけど、統一しとく）
-  // - lang: lower
-  // - script: TitleCase
-  // - region: UPPER
-  const out = [];
-  for (let i = 0; i < parts.length; i++) {
-    const p = parts[i];
-    if (i === 0) {
-      out.push(p.toLowerCase());
-      continue;
-    }
-    if (p.length === 4) {
-      out.push(p.charAt(0).toUpperCase() + p.slice(1).toLowerCase());
-      continue;
-    }
-    if (p.length === 2) {
-      out.push(p.toUpperCase());
-      continue;
-    }
-    out.push(p);
+  if (region) {
+    const out = `${lang}-${region}`;
+    return isValidAzureLocale(out) ? out : fallback;
   }
 
-  const normalized = out.join('-');
-  return normalized || fallback;
+  const def = DEFAULT_REGION[lang];
+  if (def) {
+    const out = `${lang}-${def}`;
+    return isValidAzureLocale(out) ? out : fallback;
+  }
+
+  // 最後は fallback
+  return fallback;
 }
 
 
@@ -268,13 +304,15 @@ function normalizeCandidateLocales(locale, candidateLocales, mode) {
   const primary = normalizeAzureLocale(locale, 'en-US');
 
   const arr = Array.isArray(candidateLocales) ? candidateLocales : [];
-  const merged = [primary, ...arr]
-    .map(x => normalizeAzureLocale(x, ''))     // 空/und は '' にして落とす
-    .filter(Boolean);
+  const merged = [
+    primary,
+    ...arr.map(x => normalizeAzureLocale(x, '')) // 候補は不正なら捨てる（''）
+  ].filter(Boolean);
 
   const out = [];
   const seen = new Set();
   for (const x of merged) {
+    if (!isValidAzureLocale(x)) continue;
     if (seen.has(x)) continue;
     seen.add(x);
     out.push(x);
@@ -282,20 +320,9 @@ function normalizeCandidateLocales(locale, candidateLocales, mode) {
 
   const m = normalizeLanguageIdMode(mode);
   const cap = (m === 'Continuous') ? 10 : 15;
-
-  // 念のため primary が先頭に来るようにする（normalizeAzureLocale と重複除去で崩れる可能性を潰す）
-  if (out.length > 0 && out[0] !== primary) {
-    const idx = out.indexOf(primary);
-    if (idx >= 0) {
-      out.splice(idx, 1);
-      out.unshift(primary);
-    } else {
-      out.unshift(primary);
-    }
-  }
-
-  return { mode: m, locales: out.slice(0, cap) };
+  return { mode: m, locales: out.slice(0, cap), primary };
 }
+
 
 
 async function submitBatchTranscription({
@@ -309,23 +336,18 @@ async function submitBatchTranscription({
   minSpeakers,
   maxSpeakers,
   wordLevelTimestampsEnabled,
-
   candidateLocales,
   languageIdMode
 }) {
   const endpoint = buildSpeechEndpoint(speechRegion);
   const url = `${endpoint}/speechtotext/transcriptions:submit?api-version=${encodeURIComponent(apiVersion)}`;
 
-  // Azure constraint: properties.timeToLiveHours must be >= 6
   const ttlRaw = pickEnv('AZURE_SPEECH_TTL_HOURS');
   const ttlParsed = parseInt(ttlRaw || '24', 10);
   const timeToLiveHours = Number.isFinite(ttlParsed) ? Math.max(6, ttlParsed) : 24;
 
-  // ✅ locale / candidateLocales を正規化（iOS表記ゆれ吸収）
   const lid = normalizeCandidateLocales(locale, candidateLocales, languageIdMode);
-  const primaryLocale = (lid.locales && lid.locales.length > 0)
-    ? lid.locales[0]
-    : normalizeAzureLocale(locale, 'en-US');
+  const primaryLocale = lid.primary; // ← 正規化済み primary
 
   const properties = {
     timeToLiveHours,
@@ -339,17 +361,16 @@ async function submitBatchTranscription({
     wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled
   };
 
-  // ✅ languageIdentification（候補が2つ以上の時だけ付ける）
   if (Array.isArray(lid.locales) && lid.locales.length >= 2) {
     properties.languageIdentification = {
-      mode: lid.mode,                 // "Single" | "Continuous"
-      candidateLocales: lid.locales   // ["en-US","ja-JP",...]
+      mode: lid.mode,
+      candidateLocales: lid.locales
     };
   }
 
   const body = {
     displayName: displayName || `minutesai_${new Date().toISOString()}`,
-    locale: primaryLocale,           // ✅ トップレベル必須。正規化済み primary を入れる
+    locale: primaryLocale,          // ✅ 常に xx-YY へ
     contentUrls: [contentUrl],
     properties
   };
