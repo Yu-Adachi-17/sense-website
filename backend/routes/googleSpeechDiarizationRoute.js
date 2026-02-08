@@ -15,10 +15,10 @@ const router = express.Router();
  * Mounted at: app.use('/googleSpeech', router)
  *
  * Endpoints:
- *   GET  /googleSpeech/health
- *   POST /googleSpeech/diarize/start
- *   GET  /googleSpeech/diarize/operation?name=...
- *   GET  /googleSpeech/diarize/result?name=...
+ * GET  /googleSpeech/health
+ * POST /googleSpeech/diarize/start
+ * GET  /googleSpeech/diarize/operation?name=...
+ * GET  /googleSpeech/diarize/result?name=...
  */
 
 // ------------------------------
@@ -29,9 +29,9 @@ const GCP_PROJECT_ID =
   process.env.GOOGLE_CLOUD_PROJECT ||
   process.env.GCLOUD_PROJECT;
 
-// IMPORTANT: v2 Chirp 3 examples commonly use locations/global.
-// Keep env name for compatibility, but default to 'global'.
-const GCP_SPEECH_REGION = process.env.GCP_SPEECH_REGION || 'global';
+// IMPORTANT: chirp_3 is typically available in 'us-central1'.
+// If using chirp_3, avoid 'global'.
+const GCP_SPEECH_REGION = process.env.GCP_SPEECH_REGION || 'us-central1';
 const GCP_SPEECH_RECOGNIZER = process.env.GCP_SPEECH_RECOGNIZER || '_'; // implicit recognizer
 
 const GCP_GCS_BUCKET = process.env.GCP_GCS_BUCKET; // required
@@ -48,6 +48,19 @@ function requireEnv() {
   if (missing.length) {
     throw new Error(`Missing ENV: ${missing.join(', ')}`);
   }
+}
+
+// ------------------------------
+// Helper: Determine API Endpoint
+// ------------------------------
+// If region is global, use speech.googleapis.com
+// If region is us-central1, use us-central1-speech.googleapis.com
+function getSpeechV2Endpoint() {
+  const region = GCP_SPEECH_REGION.toLowerCase();
+  if (region === 'global') {
+    return 'speech.googleapis.com';
+  }
+  return `${region}-speech.googleapis.com`;
 }
 
 // ------------------------------
@@ -74,23 +87,23 @@ const upload = multer({
 // ------------------------------
 /**
  * opMetaStore:
- *   v2OperationName -> {
- *     createdAt,
- *     inputGsUri,
- *     outputPrefixGsUri,
- *     outputGsUri,         // resolved exact output object uri when available
- *     v2Model,
- *     v2TriedDiarization,  // true if we attempted diarizationConfig on v2
- *     v2HasSpeakerLabels,  // true if v2 output contains speakerLabel
- *     v1OperationName,     // set only when we run v1 fallback diarization
- *     v1Model,
- *   }
+ * v2OperationName -> {
+ * createdAt,
+ * inputGsUri,
+ * outputPrefixGsUri,
+ * outputGsUri,         // resolved exact output object uri when available
+ * v2Model,
+ * v2TriedDiarization,  // true if we attempted diarizationConfig on v2
+ * v2HasSpeakerLabels,  // true if v2 output contains speakerLabel
+ * v1OperationName,     // set only when we run v1 fallback diarization
+ * v1Model,
+ * }
  *
  * resultStore:
- *   v2OperationName -> { fullText, segments, raw, createdAt }
+ * v2OperationName -> { fullText, segments, raw, createdAt }
  *
  * inFlight:
- *   v2OperationName -> Promise that resolves to result (avoid double fetch)
+ * v2OperationName -> Promise that resolves to result (avoid double fetch)
  */
 const opMetaStore = new Map();
 const resultStore = new Map();
@@ -152,7 +165,7 @@ function isV2DiarizationUnsupportedErrorMessage(msg) {
 // Health
 // ------------------------------
 router.get('/health', (req, res) => {
-  return res.json({ ok: true });
+  return res.json({ ok: true, region: GCP_SPEECH_REGION, endpoint: getSpeechV2Endpoint() });
 });
 
 // ------------------------------
@@ -161,20 +174,20 @@ router.get('/health', (req, res) => {
 /**
  * POST /diarize/start
  * multipart:
- *   file: audio file
- *   languageCodes: "ja-JP,en-US" (optional)
- *   minSpeakerCount: "2" (optional)
- *   maxSpeakerCount: "5" (optional)
- *   enableWordTimeOffsets: "true" (optional; default true)
- *   model: "chirp_3" (optional; default chirp_3)
+ * file: audio file
+ * languageCodes: "ja-JP,en-US" (optional)
+ * minSpeakerCount: "2" (optional)
+ * maxSpeakerCount: "5" (optional)
+ * enableWordTimeOffsets: "true" (optional; default true)
+ * model: "chirp_3" (optional; default chirp_3)
  *
  * Flow:
- *  1) Upload audio to GCS -> inputGsUri
- *  2) Speech-to-Text v2 batchRecognize (model default: chirp_3)
- *     - First try with diarizationConfig
- *     - If v2 rejects diarizationConfig, retry v2 without diarizationConfig
- *       AND run v1 longrunningrecognize to get speaker tags
- *  3) Store meta so result endpoint can fetch later
+ * 1) Upload audio to GCS -> inputGsUri
+ * 2) Speech-to-Text v2 batchRecognize (model default: chirp_3)
+ * - First try with diarizationConfig
+ * - If v2 rejects diarizationConfig, retry v2 without diarizationConfig
+ * AND run v1 longrunningrecognize to get speaker tags
+ * 3) Store meta so result endpoint can fetch later
  */
 router.post('/diarize/start', upload.single('file'), async (req, res) => {
   sweepStores();
@@ -216,124 +229,7 @@ router.post('/diarize/start', upload.single('file'), async (req, res) => {
     const outputPrefixGsUri = `gs://${GCP_GCS_BUCKET}/${outputPrefixObject}`;
 
     // 3) v2 batchRecognize
-    const recognizer = `projects/${GCP_PROJECT_ID}/locations/${GCP_SPEECH_REGION}/recognizers/${GCP_SPEECH_RECOGNIZER}`;
-
-    let v2Op = null;
-    let v2OperationName = '';
-    let v2TriedDiarization = true;
-
-    // (A) First try: v2 with diarizationConfig
-    try {
-      v2Op = await callBatchRecognizeV2({
-        recognizer,
-        authorization,
-        inputGsUri,
-        outputPrefixGsUri,
-        languageCodes,
-        model: v2Model,
-        enableWordTimeOffsets,
-        minSpeakerCount,
-        maxSpeakerCount,
-        enableV2Diarization: true,
-      });
-    } catch (e) {
-      const msg = e?.message || String(e || '');
-      if (!isV2DiarizationUnsupportedErrorMessage(msg)) {
-        throw e;
-      }
-      // (B) Fallback: v2 without diarizationConfig
-      v2TriedDiarization = true;
-      v2Op = await callBatchRecognizeV2({
-        recognizer,
-        authorization,
-        inputGsUri,
-        outputPrefixGsUri,
-        languageCodes,
-        model: v2Model,
-        enableWordTimeOffsets,
-        minSpeakerCount,
-        maxSpeakerCount,
-        enableV2Diarization: false,
-      });
-    }
-
-    v2OperationName = String(v2Op?.name || '').trim();
-    if (!v2OperationName) {
-      return json(res, 502, { error: 'v2 batchRecognize returned no operation name', raw: v2Op });
-    }
-
-    // If v2 diarization was rejected, start v1 diarization operation in parallel
-    let v1OperationName = null;
-    let v1Model = null;
-
-    if (v2TriedDiarization && v2Op && !didWeActuallySendV2Diarization(v2Op)) {
-      // This path won't happen; we don't have request echo.
-      // We decide fallback to v1 by storing a flag below based on the retry case.
-    }
-
-    // If we reached here through the retry (enableV2Diarization=false), we should run v1 diarization.
-    // Detect by: the last v2 call was without diarizationConfig AND first attempt failed with diarization unsupported.
-    // We implement it by setting this boolean when the first attempt failed.
-    const shouldRunV1Diarization = (v2Op && v2TriedDiarization) && wasLastV2CallWithoutDiarization(req, v2Model);
-
-    // The above helper is trivial: we can’t detect from req reliably.
-    // So instead, we store the decision by catching first failure in a variable.
-    // Re-derive cleanly:
-    // - If we got here with v2TriedDiarization=true AND the first attempt was rejected -> run v1.
-    // We track it explicitly:
-    // (Implement explicit tracking)
-  } catch (e) {
-    console.error('[diarize/start] error (pre-final):', e?.message || e);
-    return json(res, 500, { error: e?.message || 'unknown error' });
-  } finally {
-    safeUnlink(filePath);
-  }
-});
-
-// The block above needs explicit tracking; implement start route again with explicit variables.
-// (Keep code readable by re-defining route with correct logic.)
-router.stack = router.stack.filter(r => !(r.route && r.route.path === '/diarize/start')); // remove previous handler
-
-router.post('/diarize/start', upload.single('file'), async (req, res) => {
-  sweepStores();
-
-  const filePath = req.file?.path;
-
-  try {
-    requireEnv();
-    if (!req.file) return json(res, 400, { error: 'file is required (field name: file)' });
-
-    const languageCodes = String(req.body.languageCodes || 'ja-JP,en-US')
-      .split(',')
-      .map(s => s.trim())
-      .filter(Boolean);
-
-    const minSpeakerCount = parseInt(String(req.body.minSpeakerCount || '2'), 10);
-    const maxSpeakerCount = parseInt(String(req.body.maxSpeakerCount || '5'), 10);
-
-    const enableWordTimeOffsets = String(req.body.enableWordTimeOffsets || 'true').toLowerCase() === 'true';
-    const v2Model = String(req.body.model || DEFAULT_V2_MODEL).trim() || DEFAULT_V2_MODEL;
-
-    const authorization = await getAuthorizationHeader();
-    if (!authorization) return json(res, 500, { error: 'failed to get authorization' });
-
-    // 1) upload input audio to GCS
-    const ct = req.file.mimetype || 'application/octet-stream';
-    const base = safeFileBase(req.file.originalname || req.file.filename);
-    const inputObject = `${GCS_PREFIX}/inputs/${Date.now()}_${base}`;
-    const inputGsUri = await uploadLocalFileToGcs({
-      filePath,
-      bucket: GCP_GCS_BUCKET,
-      objectName: inputObject,
-      contentType: ct,
-      authorization,
-    });
-
-    // 2) output prefix
-    const outputPrefixObject = `${GCS_PREFIX}/outputs/${Date.now()}_${base}/`;
-    const outputPrefixGsUri = `gs://${GCP_GCS_BUCKET}/${outputPrefixObject}`;
-
-    // 3) v2 batchRecognize
+    // Note: Implicit recognizer "_" must be called within the correct region endpoint
     const recognizer = `projects/${GCP_PROJECT_ID}/locations/${GCP_SPEECH_REGION}/recognizers/${GCP_SPEECH_RECOGNIZER}`;
 
     let v2Op = null;
@@ -454,7 +350,10 @@ router.get('/diarize/operation', async (req, res) => {
     const meta = opMetaStore.get(name) || null;
 
     // v2 Operations.get:
-    const url = `https://speech.googleapis.com/v2/${name}`;
+    // IMPORTANT: Use the correct regional endpoint
+    const endpoint = getSpeechV2Endpoint();
+    const url = `https://${endpoint}/v2/${name}`;
+    
     const r = await fetch(url, {
       method: 'GET',
       headers: {
@@ -720,7 +619,9 @@ async function callBatchRecognizeV2({
   maxSpeakerCount,
   enableV2Diarization,
 }) {
-  const url = `https://speech.googleapis.com/v2/${recognizer}:batchRecognize`;
+  // FIX: Dynamically construct the endpoint based on the region.
+  const endpoint = getSpeechV2Endpoint();
+  const url = `https://${endpoint}/v2/${recognizer}:batchRecognize`;
 
   const features = {
     enableWordTimeOffsets: !!enableWordTimeOffsets,
@@ -769,7 +670,10 @@ async function callBatchRecognizeV2({
 }
 
 async function fetchOperationObjectV2(operationName, authorization) {
-  const url = `https://speech.googleapis.com/v2/${operationName}`;
+  // FIX: Dynamically construct the endpoint based on the region.
+  const endpoint = getSpeechV2Endpoint();
+  const url = `https://${endpoint}/v2/${operationName}`;
+
   const r = await fetch(url, {
     method: 'GET',
     headers: {
@@ -796,6 +700,8 @@ async function callLongRunningRecognizeV1({
   minSpeakerCount,
   maxSpeakerCount,
 }) {
+  // v1 is typically available at the global endpoint, or regional endpoints too.
+  // Standard logic usually hits the global one.
   const url = 'https://speech.googleapis.com/v1/speech:longrunningrecognize';
 
   const body = {
@@ -1311,9 +1217,5 @@ function assignSpeakersByTime(v2Words, diarizationSegments) {
 
   return out;
 }
-
-// dummy helper (kept for completeness; not used after refactor)
-function didWeActuallySendV2Diarization() { return false; }
-function wasLastV2CallWithoutDiarization() { return false; }
 
 module.exports = router;
