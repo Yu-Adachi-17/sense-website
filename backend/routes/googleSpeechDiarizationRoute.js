@@ -453,8 +453,10 @@ router.get('/diarize/operation', async (req, res) => {
 
     const meta = opMetaStore.get(name) || null;
 
-    // v2 Operations.get:
-    const url = `https://speech.googleapis.com/v2/${name}`;
+    // ✅ v2 Operations.get は location に応じたホストへ
+    const baseUrl = speechV2BaseUrlForResourceName(name);
+    const url = `${baseUrl}/${name}`;
+
     const r = await fetch(url, {
       method: 'GET',
       headers: {
@@ -471,7 +473,7 @@ router.get('/diarize/operation', async (req, res) => {
     let opObj = null;
     try { opObj = JSON.parse(text); } catch {}
 
-    // Best-effort: if done, extract output gs:// uri from metadata and store
+    // doneなら output gs:// をメタに保存
     try {
       if (opObj && opObj.done === true) {
         const uris = extractGsUrisFromOperation(opObj);
@@ -484,7 +486,7 @@ router.get('/diarize/operation', async (req, res) => {
       }
     } catch {}
 
-    // Attach v1 status if we have it
+    // v1 status を付加（v1は speech.googleapis.com 固定でOK）
     if (opObj && meta && meta.v1OperationName) {
       try {
         const v1Op = await fetchV1OperationObject(meta.v1OperationName, authorization);
@@ -511,6 +513,7 @@ router.get('/diarize/operation', async (req, res) => {
     return json(res, 500, { error: e?.message || 'unknown error' });
   }
 });
+
 
 // ------------------------------
 // result
