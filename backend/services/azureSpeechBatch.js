@@ -186,11 +186,17 @@ async function submitBatchTranscription({
   const endpoint = buildSpeechEndpoint(speechRegion);
   const url = `${endpoint}/speechtotext/transcriptions:submit?api-version=${encodeURIComponent(apiVersion)}`;
 
+  // Azure constraint: properties.timeToLiveHours must be >= 6
+  const ttlRaw = pickEnv('AZURE_SPEECH_TTL_HOURS');
+  const ttlParsed = parseInt(ttlRaw || '24', 10);
+  const timeToLiveHours = Number.isFinite(ttlParsed) ? Math.max(6, ttlParsed) : 24;
+
   const body = {
     displayName: displayName || `minutesai_${new Date().toISOString()}`,
     locale,
     contentUrls: [contentUrl],
     properties: {
+      timeToLiveHours,
       diarization: diarizationEnabled
         ? {
             enabled: true,
@@ -236,8 +242,13 @@ async function submitBatchTranscription({
     throw new Error(`Azure submit succeeded but transcriptionId not found (location/self missing).`);
   }
 
-  return { transcriptionId, transcriptionUrl: transcriptionUrl || `${endpoint}/speechtotext/transcriptions/${transcriptionId}` };
+  return {
+    transcriptionId,
+    transcriptionUrl:
+      transcriptionUrl || `${endpoint}/speechtotext/transcriptions/${transcriptionId}`
+  };
 }
+
 
 async function getTranscription({
   speechKey,
