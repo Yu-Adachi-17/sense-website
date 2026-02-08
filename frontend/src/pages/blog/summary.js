@@ -135,7 +135,20 @@ const EN_FALLBACK = {
 const getPath = (obj, path) =>
   path.split(".").reduce((o, k) => (o && Object.prototype.hasOwnProperty.call(o, k) ? o[k] : undefined), obj);
 const toArray = (v) => (Array.isArray(v) ? v : v && typeof v === "object" && !Array.isArray(v) ? Object.values(v) : []);
-
+function Md({ text }) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        p: ({ children }) => <>{children}</>, // 余計な <p> を作らない
+        strong: ({ children }) => <strong className="text-white font-semibold">{children}</strong>,
+        em: ({ children }) => <em className="text-indigo-50/95">{children}</em>,
+      }}
+    >
+      {String(text ?? "")}
+    </ReactMarkdown>
+  );
+}
 function useTx(ns) {
   const { t } = useTranslation(ns);
   const txs = (key, options) => {
@@ -356,9 +369,10 @@ export default function BlogSummary({ canonicalPath = "/blog/summary" }) {
             <p className="mt-4 text-base leading-7 text-indigo-100/90">
               <Md text={txs("solution.p1")} />
             </p>
-            <p className="mt-2 text-base leading-7 text-indigo-100/90">
-              <Md text={txs("solution.p2")} />
-            </p>
+<p className="mt-2 text-base leading-7 text-indigo-100/90">
+  <Md text={txs("solution.p2")} />
+</p>
+
 
             <div className="mt-8 grid gap-6 sm:grid-cols-1">
               {txa("solution.features").map((f, i) => (

@@ -345,6 +345,9 @@ app.use('/api/slideaipro', buildSlideaiproAgendaJsonRouter({ callGemini, resolve
 app.use("/api/slideaipro", slideaiproImageLow);
 app.use("/api/slideaipro", slideaiproPngToPdfRouter);
 
+app.use('/googleSpeech', require('./routes/googleSpeechDiarizationRoute'));
+
+
 app.post('/api/_debug/echo', (req, res) => {
   res.set('Access-Control-Allow-Origin', req.headers.origin || '*');
   res.set('Access-Control-Allow-Credentials', 'true');
