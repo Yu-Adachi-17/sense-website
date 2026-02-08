@@ -415,15 +415,16 @@ async function startAzureDiarizationFromLocalFile({
     wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled
   });
 
-  return {
-    transcriptionId,
-    transcriptionUrl,
-    inputBlob: {
-      containerName,
-      blobName,
-      sasExpiresOn: expiresOn
-    }
-  };
+return {
+  transcriptionId,
+  transcriptionUrl: `${buildSpeechEndpoint(speechRegion)}/speechtotext/transcriptions/${encodeURIComponent(transcriptionId)}?api-version=${encodeURIComponent(apiVersion)}`,
+  inputBlob: {
+    containerName,
+    blobName,
+    sasExpiresOn: expiresOn
+  }
+};
+
 }
 
 async function getAzureDiarizationStatus({ transcriptionId }) {
