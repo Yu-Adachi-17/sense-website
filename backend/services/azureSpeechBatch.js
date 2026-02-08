@@ -69,9 +69,20 @@ async function readJsonOrText(res) {
 
 function extractTranscriptionIdFromUrl(u) {
   if (!u) return '';
-  const m = String(u).match(/\/speechtotext\/transcriptions\/([^\/\?\#]+)/i);
-  return m ? m[1] : '';
+  const s = String(u);
+
+  // New REST (2025-10-15): /speechtotext/transcriptions/{id}
+  // Legacy/alternate:      /speechtotext/v3.x/transcriptions/{id}
+  let m = s.match(/\/speechtotext(?:\/v[0-9.]+)?\/transcriptions\/([^\/\?\#]+)/i);
+  if (m && m[1]) return m[1];
+
+  // Fallback: any /transcriptions/{id}
+  m = s.match(/\/transcriptions\/([^\/\?\#]+)/i);
+  if (m && m[1]) return m[1];
+
+  return '';
 }
+
 
 function parseIsoDurationToMs(d) {
   if (!d || typeof d !== 'string') return null;
@@ -217,36 +228,63 @@ async function submitBatchTranscription({
     body: JSON.stringify(body)
   });
 
+  const location =
+    res.headers.get('location') ||
+    res.headers.get('operation-location') ||
+    res.headers.get('azure-asyncoperation') ||
+    '';
+
+  const { json, text } = await readJsonOrText(res);
+
   if (!res.ok) {
-    const { json, text } = await readJsonOrText(res);
     throw new Error(
       `Azure submit failed: ${res.status} ${res.statusText} ${text || JSON.stringify(json || {})}`
     );
   }
 
-  const location = res.headers.get('location') || res.headers.get('Location') || '';
-  const { json } = await readJsonOrText(res);
+  // Candidates that may contain the transcription URL
+  const candidates = [
+    location,
+    json?.self,
+    json?.links?.self,
+    json?.links?.files
+  ].filter(Boolean).map(String);
 
-  const transcriptionUrl =
-    location ||
-    json?.self ||
-    json?.links?.self ||
-    '';
+  let transcriptionUrl = candidates[0] || '';
+  let transcriptionId = '';
 
-  const transcriptionId =
-    extractTranscriptionIdFromUrl(transcriptionUrl) ||
-    json?.id ||
-    '';
-
-  if (!transcriptionId) {
-    throw new Error(`Azure submit succeeded but transcriptionId not found (location/self missing).`);
+  for (const c of candidates) {
+    const id = extractTranscriptionIdFromUrl(c);
+    if (id) {
+      transcriptionId = id;
+      transcriptionUrl = transcriptionUrl || c;
+      break;
+    }
   }
 
-  return {
-    transcriptionId,
-    transcriptionUrl:
-      transcriptionUrl || `${endpoint}/speechtotext/transcriptions/${transcriptionId}`
-  };
+  // Sometimes API returns an "id" field
+  if (!transcriptionId && json?.id) {
+    transcriptionId = String(json.id);
+  }
+
+  if (!transcriptionId) {
+    // Provide concrete debug info in error
+    const dbg = {
+      status: res.status,
+      hasLocationHeader: !!location,
+      contentType: res.headers.get('content-type') || '',
+      location: location || null,
+      jsonKeys: json && typeof json === 'object' ? Object.keys(json) : null
+    };
+    throw new Error(`Azure submit succeeded but transcriptionId not found. debug=${JSON.stringify(dbg)}`);
+  }
+
+  if (!transcriptionUrl) {
+    // Safe default (later GET calls include api-version anyway)
+    transcriptionUrl = `${endpoint}/speechtotext/transcriptions/${transcriptionId}`;
+  }
+
+  return { transcriptionId, transcriptionUrl };
 }
 
 
