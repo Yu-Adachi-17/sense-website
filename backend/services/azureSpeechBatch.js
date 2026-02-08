@@ -324,7 +324,6 @@ function normalizeCandidateLocales(locale, candidateLocales, mode) {
 }
 
 
-
 async function submitBatchTranscription({
   speechKey,
   speechRegion,
@@ -346,97 +345,154 @@ async function submitBatchTranscription({
   const ttlParsed = parseInt(ttlRaw || '24', 10);
   const timeToLiveHours = Number.isFinite(ttlParsed) ? Math.max(6, ttlParsed) : 24;
 
-  const lid = normalizeCandidateLocales(locale, candidateLocales, languageIdMode);
-  const primaryLocale = lid.primary; // ← 正規化済み primary
+  // まず「本命 locale」で LID 情報を作る（＝iOSの primary を正規化したもの）
+  const lidPrimary = normalizeCandidateLocales(locale, candidateLocales, languageIdMode);
+  const originalPrimaryLocale = lidPrimary.primary;
 
-  const properties = {
-    timeToLiveHours,
-    diarization: diarizationEnabled
-      ? {
-          enabled: true,
-          minSpeakers: typeof minSpeakers === 'number' ? minSpeakers : 1,
-          maxSpeakers: typeof maxSpeakers === 'number' ? maxSpeakers : 6
-        }
-      : { enabled: false },
-    wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled
-  };
+  function isOfflineLocaleUnsupported(status, payloadTextOrJson) {
+    const s = String(payloadTextOrJson || '').toLowerCase();
+    // あなたのログの文言に合わせて判定
+    return status === 400 && s.includes('does not support offline transcription');
+  }
 
-  if (Array.isArray(lid.locales) && lid.locales.length >= 2) {
-    properties.languageIdentification = {
-      mode: lid.mode,
-      candidateLocales: lid.locales
+  async function doSubmit({
+    localeToUse,
+    candidateLocalesToUse,
+    languageIdModeToUse,
+    forceLanguageId // true のときは candidateLocales が 2 以上になるよう補う
+  }) {
+    const lid = normalizeCandidateLocales(localeToUse, candidateLocalesToUse, languageIdModeToUse);
+    const primaryLocale = lid.primary;
+
+    const properties = {
+      timeToLiveHours,
+      diarization: diarizationEnabled
+        ? {
+            enabled: true,
+            minSpeakers: typeof minSpeakers === 'number' ? minSpeakers : 1,
+            maxSpeakers: typeof maxSpeakers === 'number' ? maxSpeakers : 6
+          }
+        : { enabled: false },
+      wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled
     };
-  }
 
-  const body = {
-    displayName: displayName || `minutesai_${new Date().toISOString()}`,
-    locale: primaryLocale,          // ✅ 常に xx-YY へ
-    contentUrls: [contentUrl],
-    properties
-  };
-
-  const res = await mustFetch(url, {
-    method: 'POST',
-    headers: {
-      'Ocp-Apim-Subscription-Key': speechKey,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  });
-
-  const location =
-    res.headers.get('location') ||
-    res.headers.get('operation-location') ||
-    res.headers.get('azure-asyncoperation') ||
-    '';
-
-  const { json, text } = await readJsonOrText(res);
-
-  if (!res.ok) {
-    throw new Error(
-      `Azure submit failed: ${res.status} ${res.statusText} ${text || JSON.stringify(json || {})}`
-    );
-  }
-
-  const candidates = [
-    location,
-    json?.self,
-    json?.links?.self,
-    json?.links?.files
-  ].filter(Boolean).map(String);
-
-  let transcriptionUrl = candidates[0] || '';
-  let transcriptionId = '';
-
-  for (const c of candidates) {
-    const id = extractTranscriptionIdFromUrl(c);
-    if (id) {
-      transcriptionId = id;
-      transcriptionUrl = transcriptionUrl || c;
-      break;
+    // forceLanguageId の場合、少なくとも2つ候補が必要
+    // （例: locale=en-US にして、候補に ja-JP を入れて LID させる）
+    const localesForLid = Array.isArray(lid.locales) ? lid.locales.slice() : [];
+    if (forceLanguageId) {
+      // normalizeCandidateLocales は primary を必ず先頭に入れるので、
+      // ここでは「本命言語（originalPrimaryLocale）」を候補に足して 2 個にする。
+      if (localesForLid.length < 2) {
+        const add = normalizeAzureLocale(originalPrimaryLocale, '');
+        if (add && !localesForLid.includes(add)) localesForLid.push(add);
+      }
     }
-  }
 
-  if (!transcriptionId && json?.id) {
-    transcriptionId = String(json.id);
-  }
+    if (localesForLid.length >= 2) {
+      properties.languageIdentification = {
+        mode: lid.mode,
+        candidateLocales: localesForLid.slice(0, (lid.mode === 'Continuous') ? 10 : 15)
+      };
+    }
 
-  if (!transcriptionId) {
-    const dbg = {
-      status: res.status,
-      hasLocationHeader: !!location,
-      contentType: res.headers.get('content-type') || '',
-      location: location || null,
-      jsonKeys: json && typeof json === 'object' ? Object.keys(json) : null
+    const body = {
+      displayName: displayName || `minutesai_${new Date().toISOString()}`,
+      locale: primaryLocale,
+      contentUrls: [contentUrl],
+      properties
     };
-    throw new Error(`Azure submit succeeded but transcriptionId not found. debug=${JSON.stringify(dbg)}`);
+
+    const res = await mustFetch(url, {
+      method: 'POST',
+      headers: {
+        'Ocp-Apim-Subscription-Key': speechKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    const location =
+      res.headers.get('location') ||
+      res.headers.get('operation-location') ||
+      res.headers.get('azure-asyncoperation') ||
+      '';
+
+    const { json, text } = await readJsonOrText(res);
+
+    if (!res.ok) {
+      const payloadStr = text || JSON.stringify(json || {});
+      const err = new Error(`Azure submit failed: ${res.status} ${res.statusText} ${payloadStr}`);
+      err._azure = { status: res.status, statusText: res.statusText, json, text, location };
+      throw err;
+    }
+
+    const candidates = [
+      location,
+      json?.self,
+      json?.links?.self,
+      json?.links?.files
+    ].filter(Boolean).map(String);
+
+    let transcriptionUrl = candidates[0] || '';
+    let transcriptionId = '';
+
+    for (const c of candidates) {
+      const id = extractTranscriptionIdFromUrl(c);
+      if (id) {
+        transcriptionId = id;
+        transcriptionUrl = transcriptionUrl || c;
+        break;
+      }
+    }
+
+    if (!transcriptionId && json?.id) {
+      transcriptionId = String(json.id);
+    }
+
+    if (!transcriptionId) {
+      const dbg = {
+        status: res.status,
+        hasLocationHeader: !!location,
+        contentType: res.headers.get('content-type') || '',
+        location: location || null,
+        jsonKeys: json && typeof json === 'object' ? Object.keys(json) : null
+      };
+      throw new Error(`Azure submit succeeded but transcriptionId not found. debug=${JSON.stringify(dbg)}`);
+    }
+
+    if (!transcriptionUrl) {
+      transcriptionUrl = `${endpoint}/speechtotext/transcriptions/${transcriptionId}`;
+    }
+
+    return { transcriptionId, transcriptionUrl, usedLocale: primaryLocale, usedLid: properties.languageIdentification || null };
   }
 
-  if (!transcriptionUrl) {
-    transcriptionUrl = `${endpoint}/speechtotext/transcriptions/${transcriptionId}`;
-  }
+  // ---- Attempt #1: iOS primary locale のまま ----
+  try {
+    return await doSubmit({
+      localeToUse: originalPrimaryLocale,
+      candidateLocalesToUse: candidateLocales,
+      languageIdModeToUse: languageIdMode,
+      forceLanguageId: false
+    });
+  } catch (e) {
+    const st = e?._azure?.status;
+    const payload = e?._azure?.text || JSON.stringify(e?._azure?.json || {});
+    if (!isOfflineLocaleUnsupported(st, payload)) throw e;
 
-  return { transcriptionId, transcriptionUrl };
+    // ---- Attempt #2: locale を en-US に固定して、LID で本命（originalPrimaryLocale）を選ばせる ----
+    // ここが「落ちない」ための実運用の要
+    const retryCandidates = Array.isArray(candidateLocales) ? candidateLocales.slice() : [];
+    // LID候補に本命を必ず含める（iOS側が送ってなくても救う）
+    if (!retryCandidates.includes(originalPrimaryLocale)) retryCandidates.unshift(originalPrimaryLocale);
+
+    return await doSubmit({
+      localeToUse: 'en-US',
+      candidateLocalesToUse: retryCandidates,
+      languageIdModeToUse: 'Continuous', // 迷うなら Continuous が無難（単一でも動く）
+      forceLanguageId: true
+    });
+  }
 }
 
 
