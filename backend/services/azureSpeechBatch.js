@@ -182,6 +182,122 @@ async function uploadFileToBlobAndGetSasUrl({
   return { blobName, sasUrl, expiresOn: expiresOn.toISOString() };
 }
 
+function normalizeAzureLocale(input, fallback = 'en-US') {
+  let s = String(input || '').trim().replace(/_/g, '-');
+  if (!s || s.toLowerCase() === 'und') return fallback;
+
+  // iOS 由来で多い: 言語だけ ("en", "ja" など) を Azure で通りやすい形に寄せる
+  const defaults = {
+    en: 'en-US',
+    ja: 'ja-JP',
+    ko: 'ko-KR',
+    de: 'de-DE',
+    fr: 'fr-FR',
+    es: 'es-ES',
+    it: 'it-IT',
+    nl: 'nl-NL',
+    pt: 'pt-BR',
+    sv: 'sv-SE',
+    da: 'da-DK',
+    fi: 'fi-FI',
+    he: 'he-IL',
+    ar: 'ar-SA',
+    nb: 'nb-NO',
+    nn: 'nn-NO',
+    zh: 'zh-CN'
+  };
+
+  // "nb" / "nn" だけ単独で来たら補完
+  const low = s.toLowerCase();
+  if (!s.includes('-') && defaults[low]) s = defaults[low];
+
+  // Chinese script fallback (iOS: zh-Hans / zh-Hant)
+  // - region が含まれてる場合は、それに寄せる
+  // - region が無いなら Hans=CN, Hant=TW をデフォルトにする
+  const parts = s.split('-').filter(Boolean);
+  const lang = (parts[0] || '').toLowerCase();
+  const scriptOrRegion2 = (parts[1] || '');
+  const script = scriptOrRegion2.length === 4 ? scriptOrRegion2 : '';
+  const region = parts.find(p => p.length === 2)?.toUpperCase() || '';
+
+  if (lang === 'zh' && script) {
+    const scriptLow = script.toLowerCase();
+    if (scriptLow === 'hans') {
+      if (region === 'SG') return 'zh-SG';
+      return 'zh-CN';
+    }
+    if (scriptLow === 'hant') {
+      if (region === 'HK') return 'zh-HK';
+      if (region === 'MO') return 'zh-MO';
+      return 'zh-TW';
+    }
+  }
+
+  // 表記の整形（Azure は基本大小文字に寛容だけど、統一しとく）
+  // - lang: lower
+  // - script: TitleCase
+  // - region: UPPER
+  const out = [];
+  for (let i = 0; i < parts.length; i++) {
+    const p = parts[i];
+    if (i === 0) {
+      out.push(p.toLowerCase());
+      continue;
+    }
+    if (p.length === 4) {
+      out.push(p.charAt(0).toUpperCase() + p.slice(1).toLowerCase());
+      continue;
+    }
+    if (p.length === 2) {
+      out.push(p.toUpperCase());
+      continue;
+    }
+    out.push(p);
+  }
+
+  const normalized = out.join('-');
+  return normalized || fallback;
+}
+
+
+function normalizeLanguageIdMode(mode) {
+  return String(mode || 'Single').toLowerCase() === 'continuous' ? 'Continuous' : 'Single';
+}
+
+function normalizeCandidateLocales(locale, candidateLocales, mode) {
+  const primary = normalizeAzureLocale(locale, 'en-US');
+
+  const arr = Array.isArray(candidateLocales) ? candidateLocales : [];
+  const merged = [primary, ...arr]
+    .map(x => normalizeAzureLocale(x, ''))     // 空/und は '' にして落とす
+    .filter(Boolean);
+
+  const out = [];
+  const seen = new Set();
+  for (const x of merged) {
+    if (seen.has(x)) continue;
+    seen.add(x);
+    out.push(x);
+  }
+
+  const m = normalizeLanguageIdMode(mode);
+  const cap = (m === 'Continuous') ? 10 : 15;
+
+  // 念のため primary が先頭に来るようにする（normalizeAzureLocale と重複除去で崩れる可能性を潰す）
+  if (out.length > 0 && out[0] !== primary) {
+    const idx = out.indexOf(primary);
+    if (idx >= 0) {
+      out.splice(idx, 1);
+      out.unshift(primary);
+    } else {
+      out.unshift(primary);
+    }
+  }
+
+  return { mode: m, locales: out.slice(0, cap) };
+}
+
+
 async function submitBatchTranscription({
   speechKey,
   speechRegion,
@@ -192,7 +308,10 @@ async function submitBatchTranscription({
   diarizationEnabled,
   minSpeakers,
   maxSpeakers,
-  wordLevelTimestampsEnabled
+  wordLevelTimestampsEnabled,
+
+  candidateLocales,
+  languageIdMode
 }) {
   const endpoint = buildSpeechEndpoint(speechRegion);
   const url = `${endpoint}/speechtotext/transcriptions:submit?api-version=${encodeURIComponent(apiVersion)}`;
@@ -202,21 +321,37 @@ async function submitBatchTranscription({
   const ttlParsed = parseInt(ttlRaw || '24', 10);
   const timeToLiveHours = Number.isFinite(ttlParsed) ? Math.max(6, ttlParsed) : 24;
 
+  // ✅ locale / candidateLocales を正規化（iOS表記ゆれ吸収）
+  const lid = normalizeCandidateLocales(locale, candidateLocales, languageIdMode);
+  const primaryLocale = (lid.locales && lid.locales.length > 0)
+    ? lid.locales[0]
+    : normalizeAzureLocale(locale, 'en-US');
+
+  const properties = {
+    timeToLiveHours,
+    diarization: diarizationEnabled
+      ? {
+          enabled: true,
+          minSpeakers: typeof minSpeakers === 'number' ? minSpeakers : 1,
+          maxSpeakers: typeof maxSpeakers === 'number' ? maxSpeakers : 6
+        }
+      : { enabled: false },
+    wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled
+  };
+
+  // ✅ languageIdentification（候補が2つ以上の時だけ付ける）
+  if (Array.isArray(lid.locales) && lid.locales.length >= 2) {
+    properties.languageIdentification = {
+      mode: lid.mode,                 // "Single" | "Continuous"
+      candidateLocales: lid.locales   // ["en-US","ja-JP",...]
+    };
+  }
+
   const body = {
     displayName: displayName || `minutesai_${new Date().toISOString()}`,
-    locale,
+    locale: primaryLocale,           // ✅ トップレベル必須。正規化済み primary を入れる
     contentUrls: [contentUrl],
-    properties: {
-      timeToLiveHours,
-      diarization: diarizationEnabled
-        ? {
-            enabled: true,
-            minSpeakers: typeof minSpeakers === 'number' ? minSpeakers : 1,
-            maxSpeakers: typeof maxSpeakers === 'number' ? maxSpeakers : 6
-          }
-        : { enabled: false },
-      wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled
-    }
+    properties
   };
 
   const res = await mustFetch(url, {
@@ -242,7 +377,6 @@ async function submitBatchTranscription({
     );
   }
 
-  // Candidates that may contain the transcription URL
   const candidates = [
     location,
     json?.self,
@@ -262,13 +396,11 @@ async function submitBatchTranscription({
     }
   }
 
-  // Sometimes API returns an "id" field
   if (!transcriptionId && json?.id) {
     transcriptionId = String(json.id);
   }
 
   if (!transcriptionId) {
-    // Provide concrete debug info in error
     const dbg = {
       status: res.status,
       hasLocationHeader: !!location,
@@ -280,7 +412,6 @@ async function submitBatchTranscription({
   }
 
   if (!transcriptionUrl) {
-    // Safe default (later GET calls include api-version anyway)
     transcriptionUrl = `${endpoint}/speechtotext/transcriptions/${transcriptionId}`;
   }
 
@@ -371,6 +502,8 @@ async function startAzureDiarizationFromLocalFile({
   originalName,
   contentType,
   locale,
+  candidateLocales,          // ✅ 追加
+  languageIdMode,            // ✅ 追加
   minSpeakers,
   maxSpeakers,
   wordLevelTimestampsEnabled
@@ -402,7 +535,7 @@ async function startAzureDiarizationFromLocalFile({
 
   const displayName = `minutesai_${Date.now()}_${(originalName || 'audio').toString().slice(0, 40)}`;
 
-  const { transcriptionId, transcriptionUrl } = await submitBatchTranscription({
+  const { transcriptionId } = await submitBatchTranscription({
     speechKey,
     speechRegion,
     apiVersion,
@@ -412,20 +545,24 @@ async function startAzureDiarizationFromLocalFile({
     diarizationEnabled: true,
     minSpeakers: typeof minSpeakers === 'number' ? minSpeakers : 1,
     maxSpeakers: typeof maxSpeakers === 'number' ? maxSpeakers : 6,
-    wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled
+    wordLevelTimestampsEnabled: !!wordLevelTimestampsEnabled,
+
+    // ✅ 追加
+    candidateLocales,
+    languageIdMode
   });
 
-return {
-  transcriptionId,
-  transcriptionUrl: `${buildSpeechEndpoint(speechRegion)}/speechtotext/transcriptions/${encodeURIComponent(transcriptionId)}?api-version=${encodeURIComponent(apiVersion)}`,
-  inputBlob: {
-    containerName,
-    blobName,
-    sasExpiresOn: expiresOn
-  }
-};
-
+  return {
+    transcriptionId,
+    transcriptionUrl: `${buildSpeechEndpoint(speechRegion)}/speechtotext/transcriptions/${encodeURIComponent(transcriptionId)}?api-version=${encodeURIComponent(apiVersion)}`,
+    inputBlob: {
+      containerName,
+      blobName,
+      sasExpiresOn: expiresOn
+    }
+  };
 }
+
 
 async function getAzureDiarizationStatus({ transcriptionId }) {
   const speechKey = requiredEnv('AZURE_SPEECH_KEY');
