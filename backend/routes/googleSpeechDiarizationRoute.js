@@ -29,10 +29,17 @@ const GCP_PROJECT_ID =
   process.env.GOOGLE_CLOUD_PROJECT ||
   process.env.GCLOUD_PROJECT;
 
-const GCP_SPEECH_REGION = process.env.GCP_SPEECH_REGION || 'us';
+// IMPORTANT: v2 Chirp 3 examples commonly use locations/global.
+// Keep env name for compatibility, but default to 'global'.
+const GCP_SPEECH_REGION = process.env.GCP_SPEECH_REGION || 'global';
 const GCP_SPEECH_RECOGNIZER = process.env.GCP_SPEECH_RECOGNIZER || '_'; // implicit recognizer
+
 const GCP_GCS_BUCKET = process.env.GCP_GCS_BUCKET; // required
-const GCS_PREFIX = (process.env.GCS_PREFIX || 'minutesai/googleSpeech').replace(/^\/+|\/+$/g, ''); // no leading/trailing '/'
+const GCS_PREFIX = (process.env.GCS_PREFIX || 'minutesai/googleSpeech').replace(/^\/+|\/+$/g, '');
+
+const DEFAULT_V2_MODEL = (process.env.GCP_SPEECH_MODEL_DEFAULT || 'chirp_3').trim() || 'chirp_3';
+// v1 is used ONLY as fallback diarization provider when v2 batchRecognize rejects diarizationConfig.
+const DEFAULT_V1_MODEL = (process.env.GCP_SPEECH_V1_MODEL_DEFAULT || 'latest_long').trim() || 'latest_long';
 
 function requireEnv() {
   const missing = [];
@@ -67,18 +74,23 @@ const upload = multer({
 // ------------------------------
 /**
  * opMetaStore:
- *   operationName -> {
+ *   v2OperationName -> {
  *     createdAt,
  *     inputGsUri,
  *     outputPrefixGsUri,
- *     outputGsUri   // (resolved exact output object uri when available)
+ *     outputGsUri,         // resolved exact output object uri when available
+ *     v2Model,
+ *     v2TriedDiarization,  // true if we attempted diarizationConfig on v2
+ *     v2HasSpeakerLabels,  // true if v2 output contains speakerLabel
+ *     v1OperationName,     // set only when we run v1 fallback diarization
+ *     v1Model,
  *   }
  *
  * resultStore:
- *   operationName -> { fullText, segments, raw, createdAt }
+ *   v2OperationName -> { fullText, segments, raw, createdAt }
  *
  * inFlight:
- *   operationName -> Promise that resolves to result (avoid double fetch)
+ *   v2OperationName -> Promise that resolves to result (avoid double fetch)
  */
 const opMetaStore = new Map();
 const resultStore = new Map();
@@ -124,6 +136,18 @@ function safeFileBase(name) {
   return s.slice(0, 80) || 'audio';
 }
 
+function isV2DiarizationUnsupportedErrorMessage(msg) {
+  const m = String(msg || '').toLowerCase();
+  // Match the exact style you are seeing:
+  // - "Config contains unsupported fields"
+  // - "features.diarization_config"
+  // - "Recognizer does not support feature: speaker_diarization"
+  if (m.includes('config contains unsupported fields')) return true;
+  if (m.includes('features.diarization_config')) return true;
+  if (m.includes('speaker_diarization')) return true;
+  return false;
+}
+
 // ------------------------------
 // Health
 // ------------------------------
@@ -139,15 +163,18 @@ router.get('/health', (req, res) => {
  * multipart:
  *   file: audio file
  *   languageCodes: "ja-JP,en-US" (optional)
- *   minSpeakerCount: "2" (optional; v2 may ignore but harmless)
- *   maxSpeakerCount: "5" (optional; v2 may ignore but harmless)
+ *   minSpeakerCount: "2" (optional)
+ *   maxSpeakerCount: "5" (optional)
  *   enableWordTimeOffsets: "true" (optional; default true)
- *   model: "latest_long" (optional)
+ *   model: "chirp_3" (optional; default chirp_3)
  *
  * Flow:
  *  1) Upload audio to GCS -> inputGsUri
- *  2) Speech-to-Text v2 batchRecognize -> operationName
- *  3) Store meta (outputPrefix) so result endpoint can fetch later
+ *  2) Speech-to-Text v2 batchRecognize (model default: chirp_3)
+ *     - First try with diarizationConfig
+ *     - If v2 rejects diarizationConfig, retry v2 without diarizationConfig
+ *       AND run v1 longrunningrecognize to get speaker tags
+ *  3) Store meta so result endpoint can fetch later
  */
 router.post('/diarize/start', upload.single('file'), async (req, res) => {
   sweepStores();
@@ -167,7 +194,7 @@ router.post('/diarize/start', upload.single('file'), async (req, res) => {
     const maxSpeakerCount = parseInt(String(req.body.maxSpeakerCount || '5'), 10);
 
     const enableWordTimeOffsets = String(req.body.enableWordTimeOffsets || 'true').toLowerCase() === 'true';
-    const model = String(req.body.model || 'latest_long').trim() || 'latest_long';
+    const v2Model = String(req.body.model || DEFAULT_V2_MODEL).trim() || DEFAULT_V2_MODEL;
 
     const authorization = await getAuthorizationHeader();
     if (!authorization) return json(res, 500, { error: 'failed to get authorization' });
@@ -185,40 +212,220 @@ router.post('/diarize/start', upload.single('file'), async (req, res) => {
     });
 
     // 2) output prefix
-    // NOTE: v2 outputConfig uri is "prefix". Use trailing '/' to avoid ambiguity.
     const outputPrefixObject = `${GCS_PREFIX}/outputs/${Date.now()}_${base}/`;
     const outputPrefixGsUri = `gs://${GCP_GCS_BUCKET}/${outputPrefixObject}`;
 
-    // 3) Speech v2 batchRecognize
+    // 3) v2 batchRecognize
     const recognizer = `projects/${GCP_PROJECT_ID}/locations/${GCP_SPEECH_REGION}/recognizers/${GCP_SPEECH_RECOGNIZER}`;
-    const op = await callBatchRecognize({
-      recognizer,
-      authorization,
-      inputGsUri,
-      outputPrefixGsUri,
-      languageCodes,
-      model,
-      enableWordTimeOffsets,
-      minSpeakerCount,
-      maxSpeakerCount,
-    });
 
-    const operationName = String(op?.name || '').trim();
-    if (!operationName) {
-      return json(res, 502, { error: 'batchRecognize returned no operation name', raw: op });
+    let v2Op = null;
+    let v2OperationName = '';
+    let v2TriedDiarization = true;
+
+    // (A) First try: v2 with diarizationConfig
+    try {
+      v2Op = await callBatchRecognizeV2({
+        recognizer,
+        authorization,
+        inputGsUri,
+        outputPrefixGsUri,
+        languageCodes,
+        model: v2Model,
+        enableWordTimeOffsets,
+        minSpeakerCount,
+        maxSpeakerCount,
+        enableV2Diarization: true,
+      });
+    } catch (e) {
+      const msg = e?.message || String(e || '');
+      if (!isV2DiarizationUnsupportedErrorMessage(msg)) {
+        throw e;
+      }
+      // (B) Fallback: v2 without diarizationConfig
+      v2TriedDiarization = true;
+      v2Op = await callBatchRecognizeV2({
+        recognizer,
+        authorization,
+        inputGsUri,
+        outputPrefixGsUri,
+        languageCodes,
+        model: v2Model,
+        enableWordTimeOffsets,
+        minSpeakerCount,
+        maxSpeakerCount,
+        enableV2Diarization: false,
+      });
     }
 
-    opMetaStore.set(operationName, {
+    v2OperationName = String(v2Op?.name || '').trim();
+    if (!v2OperationName) {
+      return json(res, 502, { error: 'v2 batchRecognize returned no operation name', raw: v2Op });
+    }
+
+    // If v2 diarization was rejected, start v1 diarization operation in parallel
+    let v1OperationName = null;
+    let v1Model = null;
+
+    if (v2TriedDiarization && v2Op && !didWeActuallySendV2Diarization(v2Op)) {
+      // This path won't happen; we don't have request echo.
+      // We decide fallback to v1 by storing a flag below based on the retry case.
+    }
+
+    // If we reached here through the retry (enableV2Diarization=false), we should run v1 diarization.
+    // Detect by: the last v2 call was without diarizationConfig AND first attempt failed with diarization unsupported.
+    // We implement it by setting this boolean when the first attempt failed.
+    const shouldRunV1Diarization = (v2Op && v2TriedDiarization) && wasLastV2CallWithoutDiarization(req, v2Model);
+
+    // The above helper is trivial: we can’t detect from req reliably.
+    // So instead, we store the decision by catching first failure in a variable.
+    // Re-derive cleanly:
+    // - If we got here with v2TriedDiarization=true AND the first attempt was rejected -> run v1.
+    // We track it explicitly:
+    // (Implement explicit tracking)
+  } catch (e) {
+    console.error('[diarize/start] error (pre-final):', e?.message || e);
+    return json(res, 500, { error: e?.message || 'unknown error' });
+  } finally {
+    safeUnlink(filePath);
+  }
+});
+
+// The block above needs explicit tracking; implement start route again with explicit variables.
+// (Keep code readable by re-defining route with correct logic.)
+router.stack = router.stack.filter(r => !(r.route && r.route.path === '/diarize/start')); // remove previous handler
+
+router.post('/diarize/start', upload.single('file'), async (req, res) => {
+  sweepStores();
+
+  const filePath = req.file?.path;
+
+  try {
+    requireEnv();
+    if (!req.file) return json(res, 400, { error: 'file is required (field name: file)' });
+
+    const languageCodes = String(req.body.languageCodes || 'ja-JP,en-US')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    const minSpeakerCount = parseInt(String(req.body.minSpeakerCount || '2'), 10);
+    const maxSpeakerCount = parseInt(String(req.body.maxSpeakerCount || '5'), 10);
+
+    const enableWordTimeOffsets = String(req.body.enableWordTimeOffsets || 'true').toLowerCase() === 'true';
+    const v2Model = String(req.body.model || DEFAULT_V2_MODEL).trim() || DEFAULT_V2_MODEL;
+
+    const authorization = await getAuthorizationHeader();
+    if (!authorization) return json(res, 500, { error: 'failed to get authorization' });
+
+    // 1) upload input audio to GCS
+    const ct = req.file.mimetype || 'application/octet-stream';
+    const base = safeFileBase(req.file.originalname || req.file.filename);
+    const inputObject = `${GCS_PREFIX}/inputs/${Date.now()}_${base}`;
+    const inputGsUri = await uploadLocalFileToGcs({
+      filePath,
+      bucket: GCP_GCS_BUCKET,
+      objectName: inputObject,
+      contentType: ct,
+      authorization,
+    });
+
+    // 2) output prefix
+    const outputPrefixObject = `${GCS_PREFIX}/outputs/${Date.now()}_${base}/`;
+    const outputPrefixGsUri = `gs://${GCP_GCS_BUCKET}/${outputPrefixObject}`;
+
+    // 3) v2 batchRecognize
+    const recognizer = `projects/${GCP_PROJECT_ID}/locations/${GCP_SPEECH_REGION}/recognizers/${GCP_SPEECH_RECOGNIZER}`;
+
+    let v2Op = null;
+    let v2TriedDiarization = true;
+    let v2DiarizationRejected = false;
+
+    try {
+      v2Op = await callBatchRecognizeV2({
+        recognizer,
+        authorization,
+        inputGsUri,
+        outputPrefixGsUri,
+        languageCodes,
+        model: v2Model,
+        enableWordTimeOffsets,
+        minSpeakerCount,
+        maxSpeakerCount,
+        enableV2Diarization: true,
+      });
+    } catch (e) {
+      const msg = e?.message || String(e || '');
+      if (!isV2DiarizationUnsupportedErrorMessage(msg)) {
+        throw e;
+      }
+      v2DiarizationRejected = true;
+      v2Op = await callBatchRecognizeV2({
+        recognizer,
+        authorization,
+        inputGsUri,
+        outputPrefixGsUri,
+        languageCodes,
+        model: v2Model,
+        enableWordTimeOffsets,
+        minSpeakerCount,
+        maxSpeakerCount,
+        enableV2Diarization: false,
+      });
+    }
+
+    const v2OperationName = String(v2Op?.name || '').trim();
+    if (!v2OperationName) {
+      return json(res, 502, { error: 'v2 batchRecognize returned no operation name', raw: v2Op });
+    }
+
+    // 4) If v2 rejected diarization, run v1 diarization in parallel
+    let v1OperationName = null;
+    let v1Model = null;
+
+    if (v2DiarizationRejected) {
+      v1Model = DEFAULT_V1_MODEL;
+
+      // v1 accepts only one languageCode; use the first
+      const v1LanguageCode = (Array.isArray(languageCodes) && languageCodes.length)
+        ? languageCodes[0]
+        : 'ja-JP';
+
+      const v1Op = await callLongRunningRecognizeV1({
+        authorization,
+        inputGsUri,
+        languageCode: v1LanguageCode,
+        model: v1Model,
+        enableWordTimeOffsets: true,
+        minSpeakerCount,
+        maxSpeakerCount,
+      });
+
+      v1OperationName = String(v1Op?.name || '').trim();
+      if (!v1OperationName) {
+        // We can still proceed with v2 transcript only, but diarization will be missing.
+        // Treat as hard error because your goal is diarization.
+        return json(res, 502, { error: 'v1 longrunningrecognize returned no operation name', raw: v1Op });
+      }
+    }
+
+    opMetaStore.set(v2OperationName, {
       createdAt: now(),
       inputGsUri,
       outputPrefixGsUri,
-      outputGsUri: null, // resolved later
+      outputGsUri: null,
+      v2Model,
+      v2TriedDiarization: !!v2TriedDiarization,
+      v2HasSpeakerLabels: false,
+      v1OperationName,
+      v1Model,
     });
 
     return json(res, 200, {
-      operationName,
+      operationName: v2OperationName,
       inputGsUri,
       outputPrefixGsUri,
+      v2: { model: v2Model, triedDiarization: true, diarizationRejected: v2DiarizationRejected },
+      v1: v1OperationName ? { operationName: v1OperationName, model: v1Model } : null,
     });
 
   } catch (e) {
@@ -230,7 +437,7 @@ router.post('/diarize/start', upload.single('file'), async (req, res) => {
 });
 
 // ------------------------------
-// operation polling (proxy + resolve output uri)
+// operation polling (v2 proxy + attach v1 status when exists)
 // ------------------------------
 router.get('/diarize/operation', async (req, res) => {
   sweepStores();
@@ -244,8 +451,9 @@ router.get('/diarize/operation', async (req, res) => {
     const authorization = await getAuthorizationHeader();
     if (!authorization) return json(res, 500, { error: 'failed to get authorization' });
 
-    // Speech-to-Text v2 Operations.get:
-    // GET https://speech.googleapis.com/v2/{name=projects/*/locations/*/operations/*}
+    const meta = opMetaStore.get(name) || null;
+
+    // v2 Operations.get:
     const url = `https://speech.googleapis.com/v2/${name}`;
     const r = await fetch(url, {
       method: 'GET',
@@ -260,24 +468,43 @@ router.get('/diarize/operation', async (req, res) => {
       return json(res, 502, { error: 'upstream returned html', upstreamStatus: r.status });
     }
 
+    let opObj = null;
+    try { opObj = JSON.parse(text); } catch {}
+
     // Best-effort: if done, extract output gs:// uri from metadata and store
     try {
-      const opObj = JSON.parse(text);
       if (opObj && opObj.done === true) {
         const uris = extractGsUrisFromOperation(opObj);
         const chosen = chooseBestOutputUri(uris);
         if (chosen) {
-          const meta = opMetaStore.get(name) || { createdAt: now() };
-          meta.outputGsUri = chosen;
-          // keep existing fields if any
-          opMetaStore.set(name, { ...meta });
+          const cur = opMetaStore.get(name) || { createdAt: now() };
+          cur.outputGsUri = chosen;
+          opMetaStore.set(name, { ...cur });
         }
       }
     } catch {}
 
+    // Attach v1 status if we have it
+    if (opObj && meta && meta.v1OperationName) {
+      try {
+        const v1Op = await fetchV1OperationObject(meta.v1OperationName, authorization);
+        opObj._v1 = {
+          name: meta.v1OperationName,
+          done: !!v1Op?.done,
+          error: v1Op?.error || null,
+        };
+      } catch (e) {
+        opObj._v1 = {
+          name: meta.v1OperationName,
+          done: false,
+          error: { message: e?.message || 'v1 operation fetch failed' },
+        };
+      }
+    }
+
     res.status(r.status);
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    return res.send(text);
+    return res.send(JSON.stringify(opObj || { raw: text }));
 
   } catch (e) {
     console.error('[diarize/operation] error:', e?.message || e);
@@ -288,20 +515,6 @@ router.get('/diarize/operation', async (req, res) => {
 // ------------------------------
 // result
 // ------------------------------
-/**
- * GET /diarize/result?name=operationName
- *
- * - Always returns JSON
- * - If cached -> return
- * - Else:
- *   - resolve outputGsUri (exact object) from:
- *       1) opMetaStore[name].outputGsUri
- *       2) operation metadata (fetch operation once)
- *       3) list objects by outputPrefix and pick a json/jsonl
- *   - download transcript json from GCS (alt=media)
- *   - parse -> segments/fullText
- *   - cache -> return
- */
 router.get('/diarize/result', async (req, res) => {
   sweepStores();
 
@@ -311,7 +524,6 @@ router.get('/diarize/result', async (req, res) => {
     const name = String(req.query.name || '').trim();
     if (!name) return json(res, 400, { error: 'query param "name" is required' });
 
-    // If cached result exists, return immediately
     const cached = resultStore.get(name);
     if (cached && cached.createdAt && !isExpired(cached.createdAt)) {
       return json(res, 200, {
@@ -323,7 +535,6 @@ router.get('/diarize/result', async (req, res) => {
       });
     }
 
-    // Deduplicate concurrent fetches
     if (inFlight.has(name)) {
       const v = await inFlight.get(name);
       return json(res, v.ok ? 200 : 404, v);
@@ -337,24 +548,19 @@ router.get('/diarize/result', async (req, res) => {
 
       const meta = opMetaStore.get(name) || null;
 
-      // 1) already resolved exact output uri?
       let outputGsUri = meta?.outputGsUri || null;
       let outputPrefixGsUri = meta?.outputPrefixGsUri || null;
 
-      // 2) try fetch operation metadata once to resolve output uri
+      // Resolve output file
       if (!outputGsUri) {
         try {
-          const opObj = await fetchOperationObject(name, authorization);
+          const opObj = await fetchOperationObjectV2(name, authorization);
           const uris = extractGsUrisFromOperation(opObj);
           const chosen = chooseBestOutputUri(uris);
           if (chosen) outputGsUri = chosen;
-
-          // If still not, maybe we can store outputPrefix from previous meta
-          // (no-op)
         } catch {}
       }
 
-      // 3) fallback: list objects by outputPrefix
       if (!outputGsUri) {
         if (!outputPrefixGsUri) {
           return {
@@ -363,8 +569,6 @@ router.get('/diarize/result', async (req, res) => {
             error: 'output not resolvable: missing outputPrefixGsUri in server store (did you call /start on this instance?)'
           };
         }
-
-        // Sometimes GCS write lags behind done=true slightly -> retry a few times
         const resolved = await resolveOutputUriFromPrefixWithRetry(outputPrefixGsUri, authorization);
         if (!resolved) {
           return {
@@ -377,20 +581,97 @@ router.get('/diarize/result', async (req, res) => {
         outputGsUri = resolved;
       }
 
-      // Persist meta (best-effort)
       opMetaStore.set(name, {
         ...(meta || { createdAt: now() }),
         outputPrefixGsUri: outputPrefixGsUri || meta?.outputPrefixGsUri || null,
         outputGsUri,
       });
 
+      // Download v2 transcript json/jsonl
       const transcriptText = await downloadGcsAltMedia(outputGsUri, authorization);
       if (looksLikeHtml(transcriptText)) {
         return { ok: false, name, error: 'gcs returned html (unexpected)', outputGsUri };
       }
 
-      const rawJson = parseJsonOrJsonl(transcriptText);
-      const { segments, fullText } = extractDiarization(rawJson);
+      const rawJsonV2 = parseJsonOrJsonl(transcriptText);
+
+      // 1) If v2 contains speakerLabel, use v2 diarization directly
+      const v2HasSpeakerLabels = detectV2HasSpeakerLabels(rawJsonV2);
+
+      if (v2HasSpeakerLabels) {
+        const { segments, fullText } = extractDiarizationFromWords(extractWordsWithSpeakerFromV2(rawJsonV2));
+
+        const payload = {
+          ok: true,
+          name,
+          outputGsUri,
+          fullText: fullText || '',
+          segments: Array.isArray(segments) ? segments : [],
+          raw: {
+            v2: { kind: Array.isArray(rawJsonV2) ? 'array' : typeof rawJsonV2, hasSpeakerLabels: true },
+            v1: null,
+          },
+        };
+
+        resultStore.set(name, { fullText: payload.fullText, segments: payload.segments, raw: payload.raw, createdAt: now() });
+        // persist flag
+        const cur = opMetaStore.get(name) || { createdAt: now() };
+        cur.v2HasSpeakerLabels = true;
+        opMetaStore.set(name, { ...cur });
+
+        return payload;
+      }
+
+      // 2) Otherwise, expect v1 diarization fallback
+      if (!meta || !meta.v1OperationName) {
+        return {
+          ok: false,
+          name,
+          error: 'v2 output has no speaker labels, and no v1 diarization op is registered for this name',
+          outputGsUri,
+        };
+      }
+
+      // Fetch v1 operation result (must be done)
+      const v1Op = await fetchV1OperationObject(meta.v1OperationName, authorization);
+      if (!v1Op || v1Op.done !== true) {
+        return {
+          ok: false,
+          name,
+          error: 'v1 diarization not finished yet (try again)',
+          v1OperationName: meta.v1OperationName,
+        };
+      }
+      if (v1Op.error) {
+        return {
+          ok: false,
+          name,
+          error: 'v1 diarization failed',
+          v1OperationName: meta.v1OperationName,
+          v1Error: v1Op.error,
+        };
+      }
+
+      const v1Response = v1Op.response || null;
+      if (!v1Response) {
+        return {
+          ok: false,
+          name,
+          error: 'v1 done but response missing',
+          v1OperationName: meta.v1OperationName,
+        };
+      }
+
+      // Build diarization segments from v1 (speakerTag + timestamps)
+      const diarizationSegments = buildSpeakerSegmentsFromRaw(v1Response);
+
+      // Extract v2 words (timestamps + word)
+      const v2Words = extractWordsNoSpeakerFromV2(rawJsonV2);
+
+      // Assign speakers by time
+      const mergedWords = assignSpeakersByTime(v2Words, diarizationSegments);
+
+      const { segments, fullText } = extractDiarizationFromWords(mergedWords);
 
       const payload = {
         ok: true,
@@ -399,18 +680,12 @@ router.get('/diarize/result', async (req, res) => {
         fullText: fullText || '',
         segments: Array.isArray(segments) ? segments : [],
         raw: {
-          // keep it small-ish
-          kind: Array.isArray(rawJson) ? 'array' : typeof rawJson,
-          hasResults: !!(rawJson && rawJson.results),
+          v2: { kind: Array.isArray(rawJsonV2) ? 'array' : typeof rawJsonV2, hasSpeakerLabels: false },
+          v1: { model: meta.v1Model || DEFAULT_V1_MODEL, diarizationSegments: diarizationSegments.length },
         },
       };
 
-      resultStore.set(name, {
-        fullText: payload.fullText,
-        segments: payload.segments,
-        raw: payload.raw,
-        createdAt: now(),
-      });
+      resultStore.set(name, { fullText: payload.fullText, segments: payload.segments, raw: payload.raw, createdAt: now() });
 
       return payload;
     })();
@@ -433,7 +708,7 @@ router.get('/diarize/result', async (req, res) => {
 // ------------------------------
 // Helpers: Speech v2 call
 // ------------------------------
-async function callBatchRecognize({
+async function callBatchRecognizeV2({
   recognizer,
   authorization,
   inputGsUri,
@@ -443,35 +718,32 @@ async function callBatchRecognize({
   enableWordTimeOffsets,
   minSpeakerCount,
   maxSpeakerCount,
+  enableV2Diarization,
 }) {
-  // Speech-to-Text v2 batchRecognize:
-  // POST https://speech.googleapis.com/v2/{recognizer=projects/*/locations/*/recognizers/*}:batchRecognize
   const url = `https://speech.googleapis.com/v2/${recognizer}:batchRecognize`;
+
+  const features = {
+    enableWordTimeOffsets: !!enableWordTimeOffsets,
+    enableAutomaticPunctuation: true,
+  };
+
+  if (enableV2Diarization) {
+    features.diarizationConfig = {
+      minSpeakerCount: Number.isFinite(minSpeakerCount) ? minSpeakerCount : 2,
+      maxSpeakerCount: Number.isFinite(maxSpeakerCount) ? maxSpeakerCount : 5,
+    };
+  }
 
   const body = {
     config: {
-      // union decodingConfig: set autoDecodingConfig to let backend infer encoding
       autoDecodingConfig: {},
       languageCodes: Array.isArray(languageCodes) && languageCodes.length ? languageCodes : ['ja-JP', 'en-US'],
-      model: model || 'latest_long',
-      features: {
-        enableWordTimeOffsets: !!enableWordTimeOffsets,
-        enableAutomaticPunctuation: true,
-        // diarizationConfig: enable diarization (SpeakerDiarizationConfig)
-        // v2 note: min/max may be ignored, but harmless.
-        diarizationConfig: {
-          minSpeakerCount: Number.isFinite(minSpeakerCount) ? minSpeakerCount : 2,
-          maxSpeakerCount: Number.isFinite(maxSpeakerCount) ? maxSpeakerCount : 5,
-        },
-      },
+      model: model || DEFAULT_V2_MODEL,
+      features,
     },
-    files: [
-      { uri: inputGsUri }
-    ],
+    files: [{ uri: inputGsUri }],
     recognitionOutputConfig: {
-      gcsOutputConfig: {
-        uri: outputPrefixGsUri
-      }
+      gcsOutputConfig: { uri: outputPrefixGsUri }
     }
   };
 
@@ -490,13 +762,13 @@ async function callBatchRecognize({
     throw new Error(`batchRecognize failed: ${r.status} ${text.slice(0, 800)}`);
   }
   if (looksLikeHtml(text)) {
-    throw new Error(`batchRecognize returned html (unexpected)`);
+    throw new Error('batchRecognize returned html (unexpected)');
   }
 
   return JSON.parse(text);
 }
 
-async function fetchOperationObject(operationName, authorization) {
+async function fetchOperationObjectV2(operationName, authorization) {
   const url = `https://speech.googleapis.com/v2/${operationName}`;
   const r = await fetch(url, {
     method: 'GET',
@@ -507,15 +779,95 @@ async function fetchOperationObject(operationName, authorization) {
   });
   const text = await r.text();
   if (!r.ok) {
-    throw new Error(`operation get failed: ${r.status} ${text.slice(0, 800)}`);
+    throw new Error(`v2 operation get failed: ${r.status} ${text.slice(0, 800)}`);
   }
   return JSON.parse(text);
 }
 
+// ------------------------------
+// Helpers: Speech v1 diarization (fallback)
+// ------------------------------
+async function callLongRunningRecognizeV1({
+  authorization,
+  inputGsUri,
+  languageCode,
+  model,
+  enableWordTimeOffsets,
+  minSpeakerCount,
+  maxSpeakerCount,
+}) {
+  const url = 'https://speech.googleapis.com/v1/speech:longrunningrecognize';
+
+  const body = {
+    config: {
+      languageCode: languageCode || 'ja-JP',
+      model: model || DEFAULT_V1_MODEL,
+      enableWordTimeOffsets: !!enableWordTimeOffsets,
+      enableAutomaticPunctuation: true,
+      diarizationConfig: {
+        enableSpeakerDiarization: true,
+        minSpeakerCount: Number.isFinite(minSpeakerCount) ? minSpeakerCount : 2,
+        maxSpeakerCount: Number.isFinite(maxSpeakerCount) ? maxSpeakerCount : 5,
+      }
+    },
+    audio: {
+      uri: inputGsUri
+    }
+  };
+
+  const r = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': authorization,
+      'Content-Type': 'application/json; charset=utf-8',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+
+  const text = await r.text();
+  if (!r.ok) {
+    throw new Error(`v1 longrunningrecognize failed: ${r.status} ${text.slice(0, 800)}`);
+  }
+  if (looksLikeHtml(text)) {
+    throw new Error('v1 longrunningrecognize returned html (unexpected)');
+  }
+  return JSON.parse(text);
+}
+
+async function fetchV1OperationObject(operationName, authorization) {
+  const name = String(operationName || '').trim();
+  if (!name) throw new Error('v1 operationName is empty');
+
+  // v1 op name is typically "operations/...."
+  const url = name.startsWith('operations/')
+    ? `https://speech.googleapis.com/v1/${name}`
+    : `https://speech.googleapis.com/v1/operations/${name}`;
+
+  const r = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Authorization': authorization,
+      'Accept': 'application/json',
+    },
+  });
+
+  const text = await r.text();
+  if (!r.ok) {
+    throw new Error(`v1 operation get failed: ${r.status} ${text.slice(0, 800)}`);
+  }
+  if (looksLikeHtml(text)) {
+    throw new Error('v1 operation get returned html (unexpected)');
+  }
+  return JSON.parse(text);
+}
+
+// ------------------------------
+// Helpers: Operation output uri extract
+// ------------------------------
 function extractGsUrisFromOperation(opObj) {
   const out = new Set();
 
-  // Typical: opObj.metadata.transcriptionMetadata is a map, values include { uri: "gs://..." }
   const tm = opObj?.metadata?.transcriptionMetadata;
   if (tm && typeof tm === 'object') {
     for (const k of Object.keys(tm)) {
@@ -528,7 +880,6 @@ function extractGsUrisFromOperation(opObj) {
     }
   }
 
-  // Fallback: deep scan any string "gs://..."
   (function scan(x) {
     if (!x) return;
     if (typeof x === 'string') {
@@ -550,11 +901,9 @@ function extractGsUrisFromOperation(opObj) {
 function chooseBestOutputUri(uris) {
   if (!Array.isArray(uris) || uris.length === 0) return null;
 
-  // Prefer json/jsonl
   const prefer = uris.find(u => /\.jsonl?(\?|$)/i.test(u));
   if (prefer) return prefer;
 
-  // Otherwise pick first gs:// that isn't obviously input audio
   const nonAudio = uris.find(u => !/\.(wav|mp3|m4a|flac)(\?|$)/i.test(u));
   return nonAudio || uris[0];
 }
@@ -577,7 +926,6 @@ async function uploadLocalFileToGcs({ filePath, bucket, objectName, contentType,
 
   const stream = fs.createReadStream(filePath);
 
-  // Node fetch (undici) needs duplex when streaming request body
   const r = await fetch(url, {
     method: 'POST',
     headers: {
@@ -601,7 +949,6 @@ async function downloadGcsAltMedia(gsUri, authorization) {
   const p = parseGsUri(gsUri);
   if (!p) throw new Error(`invalid gsUri: ${gsUri}`);
 
-  // encode object fully (slashes -> %2F)
   const encodedObject = encodeURIComponent(p.object);
   const url = `https://storage.googleapis.com/storage/v1/b/${p.bucket}/o/${encodedObject}?alt=media`;
 
@@ -625,7 +972,7 @@ async function listGcsObjectsByPrefix(gsPrefixGsUri, authorization) {
   if (!p) throw new Error(`invalid gsUri prefix: ${gsPrefixGsUri}`);
 
   const bucket = p.bucket;
-  const prefix = p.object; // may include trailing '/'
+  const prefix = p.object;
 
   const qs = new URLSearchParams({
     prefix,
@@ -652,7 +999,6 @@ async function listGcsObjectsByPrefix(gsPrefixGsUri, authorization) {
 }
 
 async function resolveOutputUriFromPrefixWithRetry(outputPrefixGsUri, authorization) {
-  // retry a few times (GCS write lag)
   for (let i = 0; i < 5; i++) {
     const names = await listGcsObjectsByPrefix(outputPrefixGsUri, authorization);
     const pick =
@@ -680,7 +1026,6 @@ function parseJsonOrJsonl(text) {
     return JSON.parse(t);
   } catch {}
 
-  // JSON Lines fallback
   const lines = t.split('\n').map(s => s.trim()).filter(Boolean);
   const arr = [];
   for (const line of lines) {
@@ -692,12 +1037,11 @@ function parseJsonOrJsonl(text) {
 }
 
 // ------------------------------
-// Helpers: diarization extraction
+// Helpers: diarization extraction + alignment
 // ------------------------------
 function durationToSec(v) {
   if (v == null) return null;
 
-  // "1.230s"
   if (typeof v === 'string') {
     const s = v.trim();
     if (s.endsWith('s')) {
@@ -708,7 +1052,6 @@ function durationToSec(v) {
     return Number.isFinite(n) ? n : null;
   }
 
-  // { seconds: "1", nanos: 230000000 }
   if (typeof v === 'object') {
     const sec = v.seconds != null ? Number(v.seconds) : 0;
     const nanos = v.nanos != null ? Number(v.nanos) : 0;
@@ -717,28 +1060,11 @@ function durationToSec(v) {
     }
   }
 
-  // number
   if (typeof v === 'number') {
     return Number.isFinite(v) ? v : null;
   }
 
   return null;
-}
-
-function normalizeSpeaker(wordInfo) {
-  // Speech v2 diarization: speakerLabel (string) or speakerTag (number)
-  if (!wordInfo || typeof wordInfo !== 'object') return 'Unknown';
-
-  const a = wordInfo.speakerLabel;
-  if (typeof a === 'string' && a.trim()) return a.trim();
-
-  const b = wordInfo.speakerTag;
-  if (typeof b === 'number' && Number.isFinite(b)) return `Speaker ${b}`;
-
-  const c = wordInfo.speaker;
-  if (typeof c === 'string' && c.trim()) return c.trim();
-
-  return 'Unknown';
 }
 
 function normalizeWord(wordInfo) {
@@ -753,11 +1079,11 @@ function normalizeWord(wordInfo) {
 function normalizeStartEnd(wordInfo) {
   if (!wordInfo || typeof wordInfo !== 'object') return { startSec: null, endSec: null };
 
-  // v2 word: startOffset/endOffset
+  // v2: startOffset/endOffset
   const s1 = durationToSec(wordInfo.startOffset);
   const e1 = durationToSec(wordInfo.endOffset);
 
-  // other variants
+  // v1/v2 variants: startTime/endTime
   const s2 = durationToSec(wordInfo.startTime);
   const e2 = durationToSec(wordInfo.endTime);
 
@@ -767,8 +1093,22 @@ function normalizeStartEnd(wordInfo) {
   };
 }
 
+function normalizeSpeaker(wordInfo) {
+  if (!wordInfo || typeof wordInfo !== 'object') return 'Unknown';
+
+  const a = wordInfo.speakerLabel;
+  if (typeof a === 'string' && a.trim()) return a.trim();
+
+  const b = wordInfo.speakerTag;
+  if (typeof b === 'number' && Number.isFinite(b)) return `Speaker ${b}`;
+
+  const c = wordInfo.speaker;
+  if (typeof c === 'string' && c.trim()) return c.trim();
+
+  return 'Unknown';
+}
+
 function collectResultsObjects(rawJson) {
-  // rawJson can be object OR array (jsonl)
   const out = [];
   if (!rawJson) return out;
 
@@ -787,10 +1127,29 @@ function collectResultsObjects(rawJson) {
   return out;
 }
 
-function extractDiarization(rawJson) {
-  const objs = collectResultsObjects(rawJson);
+function detectV2HasSpeakerLabels(rawJsonV2) {
+  const objs = collectResultsObjects(rawJsonV2);
+  for (const obj of objs) {
+    const results = Array.isArray(obj?.results) ? obj.results : null;
+    if (!results) continue;
+    for (const r of results) {
+      const alts = Array.isArray(r?.alternatives) ? r.alternatives : null;
+      if (!alts || alts.length === 0) continue;
+      const first = alts[0];
+      const wArr = Array.isArray(first?.words) ? first.words : null;
+      if (!wArr) continue;
+      for (const w of wArr) {
+        if (w && typeof w === 'object' && typeof w.speakerLabel === 'string' && w.speakerLabel.trim()) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
 
-  // Collect all word entries across all results
+function extractWordsWithSpeakerFromV2(rawJsonV2) {
+  const objs = collectResultsObjects(rawJsonV2);
   const words = [];
 
   for (const obj of objs) {
@@ -808,16 +1167,45 @@ function extractDiarization(rawJson) {
       for (const w of wArr) {
         const word = normalizeWord(w);
         if (!word) continue;
-
         const speaker = normalizeSpeaker(w);
         const { startSec, endSec } = normalizeStartEnd(w);
-
         words.push({ speaker, word, startSec, endSec });
       }
     }
   }
 
-  // Merge consecutive words by speaker into segments
+  return words;
+}
+
+function extractWordsNoSpeakerFromV2(rawJsonV2) {
+  const objs = collectResultsObjects(rawJsonV2);
+  const words = [];
+
+  for (const obj of objs) {
+    const results = Array.isArray(obj?.results) ? obj.results : null;
+    if (!results) continue;
+
+    for (const r of results) {
+      const alts = Array.isArray(r?.alternatives) ? r.alternatives : null;
+      if (!alts || alts.length === 0) continue;
+
+      const first = alts[0];
+      const wArr = Array.isArray(first?.words) ? first.words : null;
+      if (!wArr) continue;
+
+      for (const w of wArr) {
+        const word = normalizeWord(w);
+        if (!word) continue;
+        const { startSec, endSec } = normalizeStartEnd(w);
+        words.push({ speaker: 'Unknown', word, startSec, endSec });
+      }
+    }
+  }
+
+  return words;
+}
+
+function extractDiarizationFromWords(words) {
   const segments = [];
   let cur = null;
 
@@ -841,5 +1229,91 @@ function extractDiarization(rawJson) {
   const fullText = segments.map(s => `${s.speaker}: ${s.text}`).join('\n\n');
   return { segments, fullText };
 }
+
+function buildSpeakerSegmentsFromRaw(rawV1Response) {
+  // rawV1Response: LongRunningRecognizeResponse { results: [...] }
+  const results = Array.isArray(rawV1Response?.results) ? rawV1Response.results : [];
+  const words = [];
+
+  for (const r of results) {
+    const alts = Array.isArray(r?.alternatives) ? r.alternatives : null;
+    if (!alts || alts.length === 0) continue;
+    const first = alts[0];
+    const wArr = Array.isArray(first?.words) ? first.words : null;
+    if (!wArr) continue;
+
+    for (const w of wArr) {
+      const word = normalizeWord(w);
+      if (!word) continue;
+      const speaker = normalizeSpeaker(w);
+      const { startSec, endSec } = normalizeStartEnd(w);
+      words.push({ speaker, word, startSec, endSec });
+    }
+  }
+
+  // Merge consecutive diarization words by speaker into time segments
+  const segs = [];
+  let cur = null;
+  for (const w of words) {
+    if (!cur || cur.speaker !== w.speaker) {
+      if (cur) segs.push(cur);
+      cur = {
+        speaker: w.speaker,
+        startSec: w.startSec ?? null,
+        endSec: w.endSec ?? null,
+      };
+    } else {
+      if (cur.startSec == null && w.startSec != null) cur.startSec = w.startSec;
+      if (w.endSec != null) cur.endSec = w.endSec;
+    }
+  }
+  if (cur) segs.push(cur);
+
+  // Filter out segments without any time
+  return segs.filter(s => s.startSec != null || s.endSec != null);
+}
+
+function assignSpeakersByTime(v2Words, diarizationSegments) {
+  const out = [];
+  const segs = Array.isArray(diarizationSegments) ? diarizationSegments.slice() : [];
+  segs.sort((a, b) => (a.startSec ?? 0) - (b.startSec ?? 0));
+
+  let j = 0;
+  const tol = 0.20;
+
+  for (const w of v2Words) {
+    const t = w.startSec;
+    if (t == null || segs.length === 0) {
+      out.push({ ...w, speaker: 'Unknown' });
+      continue;
+    }
+
+    while (j < segs.length - 1) {
+      const cur = segs[j];
+      const end = cur.endSec;
+      if (end != null && t > end + tol) {
+        j++;
+      } else {
+        break;
+      }
+    }
+
+    const cur = segs[j];
+    const s = cur.startSec;
+    const e = cur.endSec;
+
+    const inside =
+      (s == null || t >= s - tol) &&
+      (e == null || t <= e + tol);
+
+    out.push({ ...w, speaker: inside ? cur.speaker : 'Unknown' });
+  }
+
+  return out;
+}
+
+// dummy helper (kept for completeness; not used after refactor)
+function didWeActuallySendV2Diarization() { return false; }
+function wasLastV2CallWithoutDiarization() { return false; }
 
 module.exports = router;
