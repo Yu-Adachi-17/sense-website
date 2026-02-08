@@ -176,23 +176,6 @@ function useTx(ns) {
   return { txs, txa };
 }
 
-/* ---------- markdown renderer (safe) ---------- */
-function Md({ text, className = "" }) {
-  return (
-    <span className={className}>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          p: ({ children }) => <>{children}</>,
-          strong: ({ children }) => <strong className="text-white font-semibold">{children}</strong>,
-          em: ({ children }) => <em className="text-indigo-50/95">{children}</em>,
-        }}
-      >
-        {String(text ?? "")}
-      </ReactMarkdown>
-    </span>
-  );
-}
 
 /* ---------- UI Components ---------- */
 function Kicker({ children }) {
