@@ -19,7 +19,7 @@
     "livekit-client": "^2.15.10",
     "next": "^16.0.8",
     "next-i18next": "15.4.2",
-    "next-mdx-remote": "5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "next-sitemap": "^4.2.3",
     "pdf-lib": "^1.17.1",
     "react": "^19.2.1",
