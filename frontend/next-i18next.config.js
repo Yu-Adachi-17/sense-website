@@ -19,7 +19,7 @@ module.exports = {
     'common',
     'home',
     'seo',
-    // ここからブログ9本
+    
     'blog_aimodel',
     'blog_businessnegotiation',
     'blog_introduction',
