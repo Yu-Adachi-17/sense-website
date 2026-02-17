@@ -1,11 +1,11 @@
 // src/pages/blog.js
 import Head from "next/head";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import HomeIcon from "./homeIcon";
+import HomeIcon from "./homeIcon"; // パスが同じ階層にある想定
 
 import fs from "fs";
 import path from "path";
@@ -13,388 +13,368 @@ import matter from "gray-matter";
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* ===================== i18n (軽量辞書) ===================== */
+/* ===================== i18n (UI翻訳) ===================== */
+// SlideAI用のキー (tabSlide等) を追加しています
+/* ===================== i18n (UI翻訳) ===================== */
 const I18N = {
-  en: {
-    title: "Minutes AI Blog",
-    desc:
-      "Learn how to run better meetings with AI. Workflows, updates, interviews, and articles from Minutes AI.",
-    heroP:
-      "Learn how to run better meetings with AI. New workflows, interviews, and product updates.",
-    allTags: "All Tags",
-    loadMore: "Load more",
-    noPosts: "No posts yet. Come back soon.",
-    backHome: "Back to Home",
-  },
-  ja: {
-    title: "議事録AI ブログ",
-    desc:
-      "AIでより良い会議を。ワークフロー、アップデート、インタビュー、解説記事をお届けします。",
-    heroP:
-      "AIで会議をもっと良く。新しいワークフロー、インタビュー、製品アップデート。",
-    allTags: "すべてのタグ",
-    loadMore: "もっと見る",
-    noPosts: "まだ記事がありません。後日またお越しください。",
-    backHome: "ホームへ戻る",
-  },
-  "zh-CN": {
-    title: "会议记录AI 博客",
-    desc: "用AI开好每一次会议。工作流程、更新、采访与文章。",
-    heroP: "用AI提升会议质量。新的工作流程、采访与产品更新。",
-    allTags: "全部标签",
-    loadMore: "加载更多",
-    noPosts: "暂无文章，敬请期待。",
-    backHome: "返回首页",
-  },
-
-  /* ----- Added & completed locales (all) ----- */
   ar: {
-    title: "مدوّنة ‎Minutes.AI",
-    desc:
-      "تعلّم كيف تدير اجتماعات أفضل بالذكاء الاصطناعي. سير عمل، تحديثات، مقابلات، ومقالات من ‎Minutes.AI.",
-    heroP:
-      "طوّر اجتماعاتك بالذكاء الاصطناعي. سير عمل جديدة، مقابلات، وتحديثات المنتج.",
+    title: "مدونة Sense AI",
+    desc: "تحديثات وسير عمل ومقالات حول Minutes.AI و SlideAI.",
+    heroP: "أتقن اجتماعاتك وعروضك التقديمية باستخدام الذكاء الاصطناعي.",
+    tabMinutes: "Minutes.AI",
+    tabSlide: "SlideAI",
     allTags: "كل الوسوم",
     loadMore: "اعرض المزيد",
     noPosts: "لا توجد مقالات بعد. عد لاحقًا.",
     backHome: "العودة إلى الصفحة الرئيسية",
   },
   cs: {
-    title: "Blog Zápisník AI",
-    desc:
-      "Naučte se vést lepší schůzky s pomocí AI. Postupy, novinky, rozhovory a články od Zápisník AI.",
-    heroP:
-      "Lepší schůzky s AI. Nové postupy, rozhovory a novinky o produktu.",
+    title: "Sense AI Blog",
+    desc: "Novinky, pracovní postupy a články pro Zápisník AI a SlideAI.",
+    heroP: "Ovládněte své schůzky a prezentace s AI.",
+    tabMinutes: "Zápisník AI",
+    tabSlide: "SlideAI",
     allTags: "Všechny štítky",
     loadMore: "Načíst další",
     noPosts: "Zatím žádné příspěvky. Vraťte se brzy.",
     backHome: "Zpět na domovskou stránku",
   },
   da: {
-    title: "Referat AI Blog",
-    desc:
-      "Lær at holde bedre møder med AI. Arbejdsgange, opdateringer, interviews og artikler fra Referat AI.",
-    heroP:
-      "Bliv bedre til møder med AI. Nye arbejdsgange, interviews og produktnyheder.",
+    title: "Sense AI Blog",
+    desc: "Opdateringer, arbejdsgange og artikler for Referat AI og SlideAI.",
+    heroP: "Mestrer dine møder og præsentationer med AI.",
+    tabMinutes: "Referat AI",
+    tabSlide: "SlideAI",
     allTags: "Alle tags",
     loadMore: "Indlæs mere",
     noPosts: "Ingen indlæg endnu. Kig forbi snart.",
     backHome: "Til forsiden",
   },
   de: {
-    title: "Protokoll KI Blog",
-    desc:
-      "Lernen Sie, bessere Meetings mit KI durchzuführen. Workflows, Updates, Interviews und Artikel von Protokoll KI.",
-    heroP:
-      "Bessere Meetings mit KI. Neue Workflows, Interviews und Produkt-Updates.",
+    title: "Sense AI Blog",
+    desc: "Updates, Workflows und Artikel für Protokoll KI und SlideAI.",
+    heroP: "Meistern Sie Ihre Meetings und Präsentationen mit KI.",
+    tabMinutes: "Protokoll KI",
+    tabSlide: "SlideAI",
     allTags: "Alle Tags",
     loadMore: "Mehr laden",
     noPosts: "Noch keine Beiträge. Schauen Sie bald wieder vorbei.",
     backHome: "Zur Startseite",
   },
   el: {
-    title: "Ιστολόγιο Πρακτικά AI",
-    desc:
-      "Μάθετε να διεξάγετε καλύτερες συναντήσεις με την AI. Ροές εργασίας, ενημερώσεις, συνεντεύξεις και άρθρα από το Πρακτικά AI.",
-    heroP:
-      "Βελτιώστε τις συναντήσεις σας με AI. Νέες ροές εργασίας, συνεντεύξεις και ενημερώσεις προϊόντος.",
+    title: "Ιστολόγιο Sense AI",
+    desc: "Ενημερώσεις, ροές εργασίας και άρθρα για το Πρακτικά AI και το SlideAI.",
+    heroP: "Τελειοποιήστε τις συναντήσεις και τις παρουσιάσεις σας με AI.",
+    tabMinutes: "Πρακτικά AI",
+    tabSlide: "SlideAI",
     allTags: "Όλες οι ετικέτες",
     loadMore: "Φόρτωση περισσότερων",
     noPosts: "Δεν υπάρχουν ακόμη άρθρα. Επιστρέψτε σύντομα.",
     backHome: "Πίσω στην αρχική",
   },
+  en: {
+    title: "Sense AI Blog",
+    desc: "Updates, workflows, and articles for Minutes.AI and SlideAI.",
+    heroP: "Master your meetings and presentations with AI.",
+    tabMinutes: "Minutes AI",
+    tabSlide: "SlideAI",
+    allTags: "All Tags",
+    loadMore: "Load more",
+    noPosts: "No posts yet. Come back soon.",
+    backHome: "Back to Home",
+  },
   "es-ES": {
-    title: "Blog de Actas IA",
-    desc:
-      "Aprende a dirigir mejores reuniones con IA. Flujos de trabajo, novedades, entrevistas y artículos de Actas IA.",
-    heroP:
-      "Reuniones mejores con IA. Nuevos flujos, entrevistas y actualizaciones del producto.",
+    title: "Blog de Sense AI",
+    desc: "Actualizaciones, flujos de trabajo y artículos para Actas IA y SlideAI.",
+    heroP: "Domina tus reuniones y presentaciones con IA.",
+    tabMinutes: "Actas IA",
+    tabSlide: "SlideAI",
     allTags: "Todas las etiquetas",
     loadMore: "Cargar más",
     noPosts: "Aún no hay artículos. Vuelve pronto.",
     backHome: "Volver al inicio",
   },
   "es-MX": {
-    title: "Blog de Actas IA",
-    desc:
-      "Aprende a llevar reuniones más efectivas con IA. Flujos de trabajo, actualizaciones, entrevistas y artículos de Actas IA.",
-    heroP:
-      "Mejora tus reuniones con IA. Nuevos flujos, entrevistas y novedades del producto.",
+    title: "Blog de Sense AI",
+    desc: "Actualizaciones, flujos de trabajo y artículos para Actas IA y SlideAI.",
+    heroP: "Domina tus reuniones y presentaciones con IA.",
+    tabMinutes: "Actas IA",
+    tabSlide: "SlideAI",
     allTags: "Todas las etiquetas",
     loadMore: "Cargar más",
     noPosts: "Todavía no hay artículos. Vuelve pronto.",
     backHome: "Volver al inicio",
   },
   fi: {
-    title: "Pöytäkirja AI -blogi",
-    desc:
-      "Opi pitämään parempia kokouksia tekoälyn avulla. Työnkulut, päivitykset, haastattelut ja artikkelit Pöytäkirja AI:lta.",
-    heroP:
-      "Parempia kokouksia AI:n avulla. Uusia työnkulkuja, haastatteluja ja tuotepäivityksiä.",
+    title: "Sense AI -blogi",
+    desc: "Päivityksiä, työnkulkuja ja artikkeleita Pöytäkirja AI:lle ja SlideAI:lle.",
+    heroP: "Hallitse kokouksiasi ja esityksiäsi tekoälyn avulla.",
+    tabMinutes: "Pöytäkirja AI",
+    tabSlide: "SlideAI",
     allTags: "Kaikki tunnisteet",
     loadMore: "Lataa lisää",
     noPosts: "Ei vielä artikkeleita. Palaa pian.",
     backHome: "Takaisin etusivulle",
   },
   fr: {
-    title: "Blog Minutes.AI",
-    desc:
-      "Apprenez à mieux conduire vos réunions avec l’IA. Parcours, mises à jour, interviews et articles de Minutes.AI.",
-    heroP:
-      "Améliorez vos réunions avec l’IA. Nouveaux parcours, interviews et mises à jour produit.",
+    title: "Blog Sense AI",
+    desc: "Mises à jour, flux de travail et articles pour Minutes.AI et SlideAI.",
+    heroP: "Maîtrisez vos réunions et vos présentations avec l'IA.",
+    tabMinutes: "Minutes.AI",
+    tabSlide: "SlideAI",
     allTags: "Toutes les étiquettes",
     loadMore: "Charger plus",
     noPosts: "Aucun article pour le moment. Revenez bientôt.",
     backHome: "Retour à l’accueil",
   },
   he: {
-    title: "הבלוג של ‎Minutes.AI",
-    desc:
-      "למדו לקיים פגישות טובות יותר עם בינה מלאכותית. תהליכי עבודה, עדכונים, ראיונות ומאמרים מ-Minutes.AI.",
-    heroP:
-      "שפרו את הפגישות עם AI. תהליכים חדשים, ראיונות ועדכוני מוצר.",
+    title: "הבלוג של Sense AI",
+    desc: "עדכונים, תהליכי עבודה ומאמרים עבור Minutes.AI ו-SlideAI.",
+    heroP: "שלטו בפגישות ובמצגות שלכם עם AI.",
+    tabMinutes: "Minutes.AI",
+    tabSlide: "SlideAI",
     allTags: "כל התגים",
     loadMore: "טען עוד",
     noPosts: "אין עדיין פוסטים. חזרו בקרוב.",
     backHome: "חזרה לדף הבית",
   },
   hi: {
-    title: "कार्यवृत्त AI ब्लॉग",
-    desc:
-      "AI के साथ बेहतर मीटिंग चलाना सीखें। वर्कफ़्लो, अपडेट, इंटरव्यू और लेख — कार्यवृत्त AI से।",
-    heroP:
-      "AI के साथ मीटिंग बेहतर बनाएं। नए वर्कफ़्लो, इंटरव्यू और प्रोडक्ट अपडेट।",
+    title: "Sense AI ब्लॉग",
+    desc: "कार्यवृत्त AI और SlideAI के लिए अपडेट, वर्कफ़्लो और लेख।",
+    heroP: "AI के साथ अपनी मीटिंग और प्रेजेंटेशन में महारत हासिल करें।",
+    tabMinutes: "कार्यवृत्त AI",
+    tabSlide: "SlideAI",
     allTags: "सभी टैग",
     loadMore: "और लोड करें",
     noPosts: "अभी कोई पोस्ट नहीं। जल्द लौटें।",
     backHome: "होम पर वापस",
   },
   hr: {
-    title: "AI Zapisnik Blog",
-    desc:
-      "Naučite voditi bolje sastanke uz AI. Tijekovi rada, novosti, intervjui i članci iz AI Zapisnik.",
-    heroP:
-      "Bolji sastanci uz AI. Novi tijekovi rada, intervjui i ažuriranja proizvoda.",
+    title: "Sense AI Blog",
+    desc: "Ažuriranja, tijekovi rada i članci za AI Zapisnik i SlideAI.",
+    heroP: "Usavršite svoje sastanke i prezentacije uz AI.",
+    tabMinutes: "AI Zapisnik",
+    tabSlide: "SlideAI",
     allTags: "Sve oznake",
     loadMore: "Učitaj još",
     noPosts: "Još nema objava. Navratite uskoro.",
     backHome: "Natrag na početnu",
   },
   hu: {
-    title: "Jegyzőkönyv AI Blog",
-    desc:
-      "Tanulja meg, hogyan tarthat jobb megbeszéléseket AI-val. Munkafolyamatok, frissítések, interjúk és cikkek a Jegyzőkönyv AI-tól.",
-    heroP:
-      "Jobb megbeszélések AI-val. Új munkafolyamatok, interjúk és termékfrissítések.",
+    title: "Sense AI Blog",
+    desc: "Frissítések, munkafolyamatok és cikkek a Jegyzőkönyv AI és SlideAI számára.",
+    heroP: "Tegye tökéletessé megbeszéléseit és prezentációit AI-val.",
+    tabMinutes: "Jegyzőkönyv AI",
+    tabSlide: "SlideAI",
     allTags: "Összes címke",
     loadMore: "Továbbiak betöltése",
     noPosts: "Még nincsenek bejegyzések. Nézzen vissza később.",
     backHome: "Vissza a kezdőlapra",
   },
   id: {
-    title: "Blog Minutes AI",
-    desc:
-      "Pelajari cara menjalankan rapat yang lebih baik dengan AI. Alur kerja, pembaruan, wawancara, dan artikel dari Minutes AI.",
-    heroP:
-      "Tingkatkan rapat Anda dengan AI. Alur baru, wawancara, dan pembaruan produk.",
+    title: "Blog Sense AI",
+    desc: "Pembaruan, alur kerja, dan artikel untuk Minutes AI dan SlideAI.",
+    heroP: "Kuasai rapat dan presentasi Anda dengan AI.",
+    tabMinutes: "Minutes AI",
+    tabSlide: "SlideAI",
     allTags: "Semua tag",
     loadMore: "Muat lebih banyak",
     noPosts: "Belum ada artikel. Kunjungi lagi nanti.",
     backHome: "Kembali ke Beranda",
   },
   it: {
-    title: "Blog di Verbali IA",
-    desc:
-      "Impara a gestire riunioni migliori con l’IA. Flussi di lavoro, aggiornamenti, interviste e articoli da Verbali IA.",
-    heroP:
-      "Riunioni migliori con l’IA. Nuovi flussi, interviste e aggiornamenti di prodotto.",
+    title: "Blog Sense AI",
+    desc: "Aggiornamenti, flussi di lavoro e articoli per Verbali IA e SlideAI.",
+    heroP: "Padroneggia riunioni e presentazioni con l'IA.",
+    tabMinutes: "Verbali IA",
+    tabSlide: "SlideAI",
     allTags: "Tutte le etichette",
     loadMore: "Carica altro",
     noPosts: "Non ci sono ancora articoli. Torna presto.",
     backHome: "Torna alla Home",
   },
+  ja: {
+    title: "Sense AI ブログ",
+    desc: "議事録AIとSlideAIの活用法、アップデート情報をお届けします。",
+    heroP: "AIで、会議もプレゼンも完璧に。",
+    tabMinutes: "議事録AI",
+    tabSlide: "SlideAI",
+    allTags: "すべてのタグ",
+    loadMore: "もっと見る",
+    noPosts: "まだ記事がありません。後日またお越しください。",
+    backHome: "ホームへ戻る",
+  },
   ko: {
-    title: "회의록AI 블로그",
-    desc:
-      "AI로 더 나은 회의를 운영하세요. 워크플로, 업데이트, 인터뷰, 그리고 회의록AI의 글을 제공합니다.",
-    heroP:
-      "AI로 회의를 더 좋게. 새로운 워크플로, 인터뷰, 제품 업데이트.",
+    title: "Sense AI 블로그",
+    desc: "회의록AI 및 SlideAI를 위한 업데이트, 워크플로 및 기사.",
+    heroP: "AI로 회의와 프레젠테이션을 완벽하게 마스터하세요.",
+    tabMinutes: "회의록AI",
+    tabSlide: "SlideAI",
     allTags: "모든 태그",
     loadMore: "더 보기",
     noPosts: "아직 게시물이 없습니다. 곧 다시 방문해 주세요.",
     backHome: "홈으로",
   },
   ms: {
-    title: "Blog Minit AI",
-    desc:
-      "Pelajari cara mengendalikan mesyuarat yang lebih baik dengan AI. Aliran kerja, kemas kini, temu bual dan artikel daripada Minit AI.",
-    heroP:
-      "Perbaiki mesyuarat anda dengan AI. Aliran baharu, temu bual dan kemas kini produk.",
+    title: "Blog Sense AI",
+    desc: "Kemas kini, aliran kerja dan artikel untuk Minit AI dan SlideAI.",
+    heroP: "Kuasai mesyuarat dan pembentangan anda dengan AI.",
+    tabMinutes: "Minit AI",
+    tabSlide: "SlideAI",
     allTags: "Semua tag",
     loadMore: "Muat lagi",
     noPosts: "Belum ada artikel. Datang semula nanti.",
     backHome: "Kembali ke Laman Utama",
   },
   nl: {
-    title: "Notulen AI Blog",
-    desc:
-      "Leer betere vergaderingen houden met AI. Workflows, updates, interviews en artikelen van Notulen AI.",
-    heroP:
-      "Betere vergaderingen met AI. Nieuwe workflows, interviews en productupdates.",
+    title: "Sense AI Blog",
+    desc: "Updates, workflows en artikelen voor Notulen AI en SlideAI.",
+    heroP: "Beheer uw vergaderingen en presentaties met AI.",
+    tabMinutes: "Notulen AI",
+    tabSlide: "SlideAI",
     allTags: "Alle tags",
     loadMore: "Meer laden",
     noPosts: "Nog geen artikelen. Kom later terug.",
     backHome: "Terug naar startpagina",
   },
-  nb: {
-    title: "Referat AI Blogg",
-    desc:
-      "Lær å holde bedre møter med AI. Arbeidsflyter, oppdateringer, intervjuer og artikler fra Referat AI.",
-    heroP:
-      "Bli bedre på møter med AI. Nye arbeidsflyter, intervjuer og produktoppdateringer.",
-    allTags: "Alle tagger",
-    loadMore: "Vis mer",
-    noPosts: "Ingen innlegg ennå. Kom tilbake snart.",
-    backHome: "Tilbake til forsiden",
-  },
   no: {
-    title: "Referat AI Blogg",
-    desc:
-      "Lær å holde bedre møter med AI. Arbeidsflyter, oppdateringer, intervjuer og artikler fra Referat AI.",
-    heroP:
-      "Bli bedre på møter med AI. Nye arbeidsflyter, intervjuer og produktoppdateringer.",
+    title: "Sense AI Blogg",
+    desc: "Oppdateringer, arbeidsflyter og artikler for Referat AI og SlideAI.",
+    heroP: "Mestre møter og presentasjoner med AI.",
+    tabMinutes: "Referat AI",
+    tabSlide: "SlideAI",
     allTags: "Alle tagger",
     loadMore: "Vis mer",
     noPosts: "Ingen innlegg ennå. Kom tilbake snart.",
     backHome: "Tilbake til forsiden",
   },
   pl: {
-    title: "Blog Protokół AI",
-    desc:
-      "Naucz się prowadzić lepsze spotkania z AI. Przepływy pracy, aktualizacje, wywiady i artykuły od Protokół AI.",
-    heroP:
-      "Lepsze spotkania z AI. Nowe przepływy pracy, wywiady i aktualizacje produktu.",
+    title: "Blog Sense AI",
+    desc: "Aktualizacje, przepływy pracy i artykuły dotyczące Protokół AI i SlideAI.",
+    heroP: "Opanuj swoje spotkania i prezentacje dzięki AI.",
+    tabMinutes: "Protokół AI",
+    tabSlide: "SlideAI",
     allTags: "Wszystkie tagi",
     loadMore: "Wczytaj więcej",
     noPosts: "Brak wpisów. Wróć wkrótce.",
     backHome: "Powrót do strony głównej",
   },
-  "pt-BR": {
-    title: "Blog do Ata AI",
-    desc:
-      "Aprenda a conduzir reuniões melhores com IA. Fluxos de trabalho, atualizações, entrevistas e artigos do Ata AI.",
-    heroP:
-      "Reuniões melhores com IA. Novos fluxos, entrevistas e atualizações do produto.",
-    allTags: "Todas as tags",
-    loadMore: "Carregar mais",
-    noPosts: "Ainda não há artigos. Volte em breve.",
-    backHome: "Voltar para a Página Inicial",
-  },
-  "pt-PT": {
-    title: "Blog do Ata AI",
-    desc:
-      "Aprenda a conduzir reuniões melhores com IA. Fluxos de trabalho, atualizações, entrevistas e artigos do Ata AI.",
-    heroP:
-      "Reuniões melhores com IA. Novos fluxos, entrevistas e novidades do produto.",
+  pt: {
+    title: "Blog Sense AI",
+    desc: "Atualizações, fluxos de trabalho e artigos para Ata AI e SlideAI.",
+    heroP: "Domine as suas reuniões e apresentações com IA.",
+    tabMinutes: "Ata AI",
+    tabSlide: "SlideAI",
     allTags: "Todas as etiquetas",
     loadMore: "Carregar mais",
     noPosts: "Ainda não há artigos. Volte em breve.",
     backHome: "Voltar à Página Inicial",
   },
   ro: {
-    title: "Blogul Proces-verbal AI",
-    desc:
-      "Învață să conduci ședințe mai bune cu AI. Fluxuri de lucru, actualizări, interviuri și articole de la Proces-verbal AI.",
-    heroP:
-      "Ședințe mai bune cu AI. Fluxuri noi, interviuri și actualizări de produs.",
+    title: "Blog Sense AI",
+    desc: "Actualizări, fluxuri de lucru și articole pentru Proces-verbal AI și SlideAI.",
+    heroP: "Stăpânește ședințele și prezentările cu AI.",
+    tabMinutes: "Proces-verbal AI",
+    tabSlide: "SlideAI",
     allTags: "Toate etichetele",
     loadMore: "Încarcă mai mult",
     noPosts: "Nu există articole încă. Revino curând.",
     backHome: "Înapoi la Acasă",
   },
   ru: {
-    title: "Блог «Протоколы АИ»",
-    desc:
-      "Узнайте, как проводить более эффективные встречи с ИИ. Рабочие процессы, обновления, интервью и статьи от «Протоколы АИ».",
-    heroP:
-      "Лучшие встречи с ИИ. Новые рабочие процессы, интервью и обновления продукта.",
+    title: "Блог Sense AI",
+    desc: "Обновления, рабочие процессы и статьи для «Протоколы АИ» и SlideAI.",
+    heroP: "Совершенствуйте встречи и презентации с помощью ИИ.",
+    tabMinutes: "Протоколы АИ",
+    tabSlide: "SlideAI",
     allTags: "Все теги",
     loadMore: "Загрузить ещё",
     noPosts: "Пока нет публикаций. Загляните позже.",
     backHome: "Назад на главную",
   },
   sk: {
-    title: "Blog AI Zápisnica",
-    desc:
-      "Naučte sa viesť lepšie stretnutia s AI. Postupy, novinky, rozhovory a články od AI Zápisnica.",
-    heroP:
-      "Lepšie stretnutia s AI. Nové postupy, rozhovory a aktualizácie produktu.",
+    title: "Blog Sense AI",
+    desc: "Aktualizácie, pracovné postupy a články pre AI Zápisnica a SlideAI.",
+    heroP: "Ovládnite svoje stretnutia a prezentácie pomocou AI.",
+    tabMinutes: "AI Zápisnica",
+    tabSlide: "SlideAI",
     allTags: "Všetky štítky",
     loadMore: "Načítať viac",
     noPosts: "Zatiaľ žiadne príspevky. Vráťte sa čoskoro.",
     backHome: "Späť na domov",
   },
   sv: {
-    title: "Protokoll AI Blogg",
-    desc:
-      "Lär dig hålla bättre möten med AI. Arbetsflöden, uppdateringar, intervjuer och artiklar från Protokoll AI.",
-    heroP:
-      "Bättre möten med AI. Nya arbetsflöden, intervjuer och produktuppdateringar.",
+    title: "Sense AI Blogg",
+    desc: "Uppdateringar, arbetsflöden och artiklar för Protokoll AI och SlideAI.",
+    heroP: "Bemästra dina möten och presentationer med AI.",
+    tabMinutes: "Protokoll AI",
+    tabSlide: "SlideAI",
     allTags: "Alla taggar",
     loadMore: "Ladda mer",
     noPosts: "Inga inlägg ännu. Kom tillbaka snart.",
     backHome: "Tillbaka till startsidan",
   },
   th: {
-    title: "บล็อก บันทึกการประชุม AI",
-    desc:
-      "เรียนรู้วิธีจัดการประชุมให้ดียิ่งขึ้นด้วย AI เวิร์กโฟลว์ อัปเดต บทสัมภาษณ์ และบทความจาก บันทึกการประชุม AI",
-    heroP:
-      "ยกระดับการประชุมด้วย AI เวิร์กโฟลว์ใหม่ บทสัมภาษณ์ และอัปเดตผลิตภัณฑ์",
+    title: "บล็อก Sense AI",
+    desc: "อัปเดต เวิร์กโฟลว์ และบทความสำหรับ บันทึกการประชุม AI และ SlideAI",
+    heroP: "ยกระดับการประชุมและการนำเสนอของคุณด้วย AI",
+    tabMinutes: "บันทึกการประชุม AI",
+    tabSlide: "SlideAI",
     allTags: "แท็กทั้งหมด",
     loadMore: "โหลดเพิ่มเติม",
     noPosts: "ยังไม่มีบทความ โปรดกลับมาใหม่เร็ว ๆ นี้",
     backHome: "กลับสู่หน้าแรก",
   },
   tr: {
-    title: "Tutanakları AI Blogu",
-    desc:
-      "Yapay zekâ ile daha iyi toplantılar yapın. İş akışları, güncellemeler, röportajlar ve Tutanakları AI’dan makaleler.",
-    heroP:
-      "Toplantılarınızı yapay zekâ ile geliştirin. Yeni iş akışları, röportajlar ve ürün güncellemeleri.",
+    title: "Sense AI Blogu",
+    desc: "Tutanakları AI ve SlideAI için güncellemeler, iş akışları ve makaleler.",
+    heroP: "Yapay zekâ ile toplantılarınıza ve sunumlarınıza hakim olun.",
+    tabMinutes: "Tutanakları AI",
+    tabSlide: "SlideAI",
     allTags: "Tüm etiketler",
     loadMore: "Daha fazlası",
     noPosts: "Henüz yazı yok. Yakında tekrar bakın.",
     backHome: "Ana sayfaya dön",
   },
   uk: {
-    title: "Блог «Протокол ШІ»",
-    desc:
-      "Дізнайтесь, як проводити ефективніші зустрічі з ШІ. Робочі процеси, оновлення, інтерв’ю та статті від «Протокол ШІ».",
-    heroP:
-      "Краще проводьте зустрічі з ШІ. Нові процеси, інтерв’ю та оновлення продукту.",
+    title: "Блог Sense AI",
+    desc: "Оновлення, робочі процеси та статті для «Протокол ШІ» та SlideAI.",
+    heroP: "Вдосконалюйте зустрічі та презентації за допомогою ШІ.",
+    tabMinutes: "Протокол ШІ",
+    tabSlide: "SlideAI",
     allTags: "Усі теги",
     loadMore: "Завантажити ще",
     noPosts: "Поки що немає публікацій. Завітайте згодом.",
     backHome: "Назад на головну",
   },
   vi: {
-    title: "Blog Biên bản AI",
-    desc:
-      "Học cách tổ chức cuộc họp hiệu quả hơn với AI. Quy trình làm việc, cập nhật, phỏng vấn và bài viết từ Biên bản AI.",
-    heroP:
-      "Nâng tầm cuộc họp với AI. Quy trình mới, phỏng vấn và cập nhật sản phẩm.",
+    title: "Blog Sense AI",
+    desc: "Cập nhật, quy trình làm việc và bài viết cho Biên bản AI và SlideAI.",
+    heroP: "Làm chủ các cuộc họp và bài thuyết trình của bạn với AI.",
+    tabMinutes: "Biên bản AI",
+    tabSlide: "SlideAI",
     allTags: "Tất cả thẻ",
     loadMore: "Tải thêm",
     noPosts: "Chưa có bài viết. Quay lại sau.",
     backHome: "Về Trang chủ",
   },
+  "zh-CN": {
+    title: "Sense AI 博客",
+    desc: "Minutes AI 和 SlideAI 的更新、工作流程与文章。",
+    heroP: "用 AI 掌控您的会议与演示。",
+    tabMinutes: "Minutes AI",
+    tabSlide: "SlideAI",
+    allTags: "全部标签",
+    loadMore: "加载更多",
+    noPosts: "暂无文章，敬请期待。",
+    backHome: "返回首页",
+  },
   "zh-TW": {
-    title: "會議紀錄AI 部落格",
-    desc:
-      "用 AI 讓每場會議更有效。工作流程、最新消息、訪談與文章。",
-    heroP:
-      "用 AI 提升會議品質。全新工作流程、訪談與產品更新。",
+    title: "Sense AI 部落格",
+    desc: "會議紀錄AI 與 SlideAI 的更新、工作流程與文章。",
+    heroP: "用 AI 掌握您的會議與簡報。",
+    tabMinutes: "會議紀錄AI",
+    tabSlide: "SlideAI",
     allTags: "全部標籤",
     loadMore: "載入更多",
     noPosts: "尚無文章，敬請期待。",
@@ -402,7 +382,8 @@ const I18N = {
   },
 };
 
-/* ===================== UI bits ===================== */
+/* ===================== UI Components ===================== */
+
 function Badge({ children, active = false, onClick }) {
   return (
     <button
@@ -418,10 +399,30 @@ function Badge({ children, active = false, onClick }) {
   );
 }
 
+// 新規追加: プロダクト切り替えタブ
+function ProductTab({ label, active, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold transition-all border ${
+        active
+          ? "bg-white text-indigo-900 border-white shadow-lg scale-105 ring-2 ring-indigo-400/50"
+          : "bg-white/5 text-indigo-200 border-white/10 hover:bg-white/10"
+      }`}
+    >
+      {/* 簡易的なアイコン表示 (SVG等を入れなくても動くように文字で表現) */}
+      <span className={`text-lg ${active ? "opacity-100" : "opacity-50"}`}>
+        {label === "SlideAI" ? "📊" : "🎙️"}
+      </span>
+      {label}
+    </button>
+  );
+}
+
 /* ===== Hydration-safe locale handling for dates ===== */
 function localeWithExtensions(loc) {
   if (!loc) return undefined;
-  const base = String(loc).replace(/-u-.*$/i, ""); // strip existing -u- extensions
+  const base = String(loc).replace(/-u-.*$/i, "");
   return `${base}-u-ca-gregory-nu-latn`;
 }
 
@@ -444,8 +445,11 @@ function Card({ post, locale }) {
   const safeHref =
     typeof post?.href === "string" ? post.href : `/blog/${post?.slug || ""}`;
 
-  // 画像フォールバック順：post.coverImage -> 既定
-  const FALLBACK_IMG = "/images/General03.jpeg";
+  // SlideAI用の画像フォールバックを分岐
+  const FALLBACK_IMG = post.product === 'slide' 
+    ? "/images/slideai/hero.jpg" // SlideAI用のデフォルト画像（なければ適当なパス）
+    : "/images/General03.jpeg";  // 議事録AI用のデフォルト
+  
   const coverSrc = post.coverImage || FALLBACK_IMG;
 
   return (
@@ -454,6 +458,8 @@ function Card({ post, locale }) {
       className="group relative block overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur transition-colors hover:bg-white/10"
     >
       <div className="relative aspect-[16/9] w-full overflow-hidden">
+        {/* Next/Imageの最適化 */}
+        <div className="absolute inset-0 bg-gray-800 animate-pulse" /> 
         <Image
           alt={post.title}
           src={coverSrc}
@@ -461,11 +467,21 @@ function Card({ post, locale }) {
           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           loading="lazy"
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          // 画像が見つからない場合のエラーハンドリングは省略(Next.js標準挙動)
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
       </div>
       <div className="absolute inset-x-0 bottom-0 p-5">
         <div className="mb-2 flex items-center gap-2 text-xs text-indigo-100/90">
+          {/* プロダクトラベルを表示（デバッグ兼ユーザーへの明示） */}
+          <span className={`rounded-full px-2 py-0.5 font-bold border border-white/10 ${
+            post.product === 'slide' 
+              ? 'bg-fuchsia-500/30 text-fuchsia-100' 
+              : 'bg-blue-500/30 text-blue-100'
+          }`}>
+            {post.product === 'slide' ? 'SlideAI' : 'Minutes'}
+          </span>
+
           {post.tags?.slice(0, 2).map((t) => (
             <span
               key={t}
@@ -491,47 +507,73 @@ function Card({ post, locale }) {
   );
 }
 
+/* ===================== Main Page Component ===================== */
+
 export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }) {
   const router = useRouter();
-  const L = I18N[locale] || I18N[router.locale] || I18N.en;
+  
+  // 辞書取得のフォールバック
+  const getTrans = (loc) => I18N[loc] || I18N["en"];
+  const L = getTrans(locale) || getTrans(router.locale);
 
+  // 翻訳キーがない場合の安全策
+  const t = {
+    ...I18N.en, // ベース
+    ...L,       // 上書き
+  };
+
+  // State: アクティブなプロダクト ('minutes' | 'slide')
+  const [activeProduct, setActiveProduct] = useState("minutes");
   const [activeTag, setActiveTag] = useState("All");
   const [limit, setLimit] = useState(12);
 
-  const tags = useMemo(() => {
-    const t = new Set(["All"]);
-    posts.forEach((p) => (p.tags || []).forEach((x) => t.add(x)));
-    return Array.from(t);
-  }, [posts]);
+  // プロダクト切り替え時にタグとリミットをリセット
+  const handleProductChange = (prod) => {
+    setActiveProduct(prod);
+    setActiveTag("All");
+    setLimit(12);
+  };
 
+  // 1. まずプロダクトでフィルタリング
+  const productPosts = useMemo(() => {
+    return posts.filter(p => p.product === activeProduct);
+  }, [posts, activeProduct]);
+
+  // 2. その中からタグリストを生成
+  const tags = useMemo(() => {
+    const tSet = new Set(["All"]);
+    productPosts.forEach((p) => (p.tags || []).forEach((x) => tSet.add(x)));
+    return Array.from(tSet);
+  }, [productPosts]);
+
+  // 3. タグでさらにフィルタリング
   const filtered = useMemo(() => {
     const arr =
-      activeTag === "All" ? posts : posts.filter((p) => p.tags?.includes(activeTag));
+      activeTag === "All"
+        ? productPosts
+        : productPosts.filter((p) => p.tags?.includes(activeTag));
     return arr.slice(0, limit);
-  }, [activeTag, limit, posts]);
+  }, [activeTag, limit, productPosts]);
 
-  // ローカライズされたcanonical
+  // SEO関連
   const base =
     locale && defaultLocale && locale !== defaultLocale
       ? `${siteUrl}/${locale}`
       : siteUrl;
   const canonical = `${base}/blog`;
-
-  // OG画像はサイト共通サムネに更新
   const OG_IMG = `${siteUrl}/images/General03.jpeg`;
 
   return (
     <>
       <Head>
-        <title>{L.title}</title>
-        <meta name="description" content={L.desc} />
+        <title>{t.title}</title>
+        <meta name="description" content={t.desc} />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={L.title} />
-        <meta property="og:description" content={L.heroP || L.desc} />
+        <meta property="og:title" content={t.title} />
+        <meta property="og:description" content={t.heroP || t.desc} />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={OG_IMG} />
-        {/* hreflang（最低限：現在と言語無し） */}
         <link rel="alternate" hrefLang="x-default" href={`${siteUrl}/blog`} />
         {locale && <link rel="alternate" hrefLang={locale} href={canonical} />}
       </Head>
@@ -545,41 +587,62 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
             href={
               locale && defaultLocale && locale !== defaultLocale ? `/${locale}` : "/"
             }
-            aria-label={L.backHome}
-            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg白/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+            aria-label={t.backHome}
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
           >
             <HomeIcon size={28} />
           </Link>
         </header>
 
-        {/* Hero */}
+        {/* Hero & Controls */}
         <section className="relative">
           <div className="mx-auto max-w-7xl px-6 pt-8 pb-10">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
-              {L.title}
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl mb-4">
+              {t.title}
             </h1>
-            <p className="mt-4 max-w-2xl text-indigo-100/90 text-lg">{L.heroP}</p>
+            <p className="mt-4 max-w-2xl text-indigo-100/90 text-lg mb-10">
+              {t.heroP}
+            </p>
+
+            {/* ★ Product Tabs */}
+            <div className="flex flex-wrap gap-4 mb-8">
+              <ProductTab 
+                label={t.tabMinutes || "Minutes AI"} 
+                active={activeProduct === "minutes"} 
+                onClick={() => handleProductChange("minutes")} 
+              />
+              <ProductTab 
+                label={t.tabSlide || "SlideAI"} 
+                active={activeProduct === "slide"} 
+                onClick={() => handleProductChange("slide")} 
+              />
+            </div>
 
             {/* Tags */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              {tags.map((t) => (
+            <div className="flex flex-wrap gap-3">
+              {tags.map((tg) => (
                 <Badge
-                  key={t}
-                  active={activeTag === t}
-                  onClick={() => setActiveTag(t)}
+                  key={tg}
+                  active={activeTag === tg}
+                  onClick={() => setActiveTag(tg)}
                 >
-                  {t === "All" ? L.allTags : t}
+                  {tg === "All" ? t.allTags : tg}
                 </Badge>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Grid */}
+        {/* Posts Grid */}
         <section>
           <div className="mx-auto max-w-7xl px-6 pb-16">
             {filtered.length === 0 ? (
-              <p className="text-indigo-100/80">{L.noPosts}</p>
+              <div className="py-10 text-center text-indigo-200/60 bg-white/5 rounded-3xl border border-white/5 border-dashed">
+                <p>{t.noPosts}</p>
+                {activeProduct === "slide" && (
+                  <p className="text-sm mt-2">Coming soon to the SlideAI blog!</p>
+                )}
+              </div>
             ) : (
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {filtered.map((post) => (
@@ -591,14 +654,14 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
             {/* Load more */}
             {limit <
               (activeTag === "All"
-                ? posts.length
-                : posts.filter((p) => p.tags?.includes(activeTag)).length) && (
+                ? productPosts.length
+                : productPosts.filter((p) => p.tags?.includes(activeTag)).length) && (
                 <div className="mt-10 flex justify-center">
                   <button
                     onClick={() => setLimit((v) => v + 9)}
                     className="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium text-white shadow hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
                   >
-                    {L.loadMore}
+                    {t.loadMore}
                   </button>
                 </div>
               )}
@@ -609,7 +672,7 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
   );
 }
 
-/* ===================== Build-time: read markdown from /content/blog ===================== */
+/* ===================== Data Fetching Logic (Backend) ===================== */
 
 function toISO(v, fallbackNow = false) {
   if (!v && fallbackNow) return new Date().toISOString();
@@ -623,10 +686,11 @@ function toISO(v, fallbackNow = false) {
 }
 
 /**
- * dirPath 内で i18n優先順にフロントマターを探す
- * 優先： currentLocale → defaultLocale → en
+ * ディレクトリ内のFrontmatterを探すヘルパー
  */
 function tryReadFrontFromDir(dirPath, currentLocale, defaultLocale) {
+  if (!fs.existsSync(dirPath)) return null;
+  
   const all = fs.readdirSync(dirPath);
   const uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));
   const candidates = uniq([
@@ -641,6 +705,7 @@ function tryReadFrontFromDir(dirPath, currentLocale, defaultLocale) {
   ]);
 
   for (const name of candidates) {
+    if (!name) continue;
     const p = path.join(dirPath, name);
     if (fs.existsSync(p)) {
       const raw = fs.readFileSync(p, "utf8");
@@ -651,7 +716,7 @@ function tryReadFrontFromDir(dirPath, currentLocale, defaultLocale) {
   return null;
 }
 
-/** JSON補完も current → default → en の順で探す */
+/** JSON補完のヘルパー */
 function readI18nJsonFallback(baseDir, currentLocale, defaultLocale, file) {
   const tryPaths = [
     path.join(baseDir, currentLocale, file),
@@ -672,12 +737,18 @@ export async function getStaticProps({ locale, defaultLocale }) {
   const contentDir = path.join(process.cwd(), "content", "blog");
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
+  
   const posts = [];
   const hrefSet = new Set();
-  const pushPost = (p) => {
+
+  // 重複防止＆リスト追加用ヘルパー
+  const pushPost = (p, productType) => {
     if (!p?.href) return;
     if (hrefSet.has(p.href)) return;
     hrefSet.add(p.href);
+    
+    // UI側でフィルタリングするために product タグを付与
+    p.product = productType; 
     posts.push(p);
   };
 
@@ -685,26 +756,26 @@ export async function getStaticProps({ locale, defaultLocale }) {
     ? fs.readdirSync(contentDir, { withFileTypes: true })
     : [];
 
-  /* 1) 直下の .md / .mdx */
+  /* ========================================================
+     1. 議事録AI (Minutes AI) の記事取得
+     (content/blog 直下のファイル & フォルダ、ただし slideai は除く)
+     ======================================================== */
+  
+  // 1-A) 直下のファイル (.md / .mdx)
   for (const ent of ents.filter((e) => e.isFile())) {
     if (!/\.(md|mdx)$/i.test(ent.name)) continue;
+    
     const filename = ent.name;
     const slug = filename.replace(/\.(md|mdx)$/i, "");
     const raw = fs.readFileSync(path.join(contentDir, filename), "utf8");
     const { data, content } = matter(raw);
 
     const title = (data.title || slug).toString();
-    const norm = title.toLowerCase().replace(/\s+/g, " ").replace(/[?？]/g, "");
-    const isIntroByTitle =
-      norm === "what is minutes.ai" || norm === "what is minutes ai";
-    const isIntroBySlug =
-      slug === "hello-minutes-ai" || slug === "what-is-minutes-ai";
-
+    const isIntro = slug === "hello-minutes-ai" || slug === "what-is-minutes-ai";
     const href =
       (typeof data.link === "string" && data.link.trim()) ||
-      (isIntroByTitle || isIntroBySlug ? "/blog/introduction" : `/blog/${slug}`);
+      (isIntro ? "/blog/introduction" : `/blog/${slug}`);
 
-    // cover または image のどちらかを採用
     const coverImage = data.cover || data.image || null;
 
     pushPost({
@@ -714,41 +785,38 @@ export async function getStaticProps({ locale, defaultLocale }) {
       updatedAt: toISO(data.updatedAt, false),
       excerpt: data.excerpt || (content ? content.slice(0, 180) : ""),
       coverImage,
-      tags:
-        Array.isArray(data.tags) && data.tags.length
-          ? data.tags
-          : ["Articles"],
+      tags: Array.isArray(data.tags) && data.tags.length ? data.tags : ["Articles"],
       href,
-    });
+    }, 'minutes'); // ★ minutes
   }
 
-  /* 2) サブディレクトリ（/businessnegotiation 等, ここに /aimodelも含まれる） */
+  // 1-B) 直下のディレクトリ (slideai以外)
   for (const ent of ents.filter((e) => e.isDirectory())) {
     const dir = ent.name;
-    const dirPath = path.join(contentDir, dir);
+    
+    // ★★★ 重要: SlideAIフォルダはここでは無視する ★★★
+    if (dir === 'slideai') continue;
 
+    const dirPath = path.join(contentDir, dir);
     const picked = tryReadFrontFromDir(dirPath, locale || "en", defaultLocale || "en");
     if (!picked) continue;
 
     let { data, content } = picked;
 
-    // Frontmatterが薄いときは i18n JSON（public/locales/<loc>/blog_<dir>.json）から補完
+    // JSONフォールバック
     const localesBase = path.join(process.cwd(), "public", "locales");
-    const j =
-      readI18nJsonFallback(
+    const j = readI18nJsonFallback(
         localesBase,
         locale || "en",
         defaultLocale || "en",
         `blog_${dir}.json`
       ) || {};
+    
     let title = (data?.title || j?.hero?.h1 || dir).toString().trim();
     let excerpt = (data?.excerpt || j?.hero?.tagline || "").toString().trim();
 
     const href = `/blog/${dir}`;
-
-    // cover -> image -> 既定の順で決定
-    const coverImage =
-      data?.cover || data?.image || "/images/General03.jpeg";
+    const coverImage = data?.cover || data?.image || "/images/General03.jpeg";
 
     pushPost({
       slug: dir,
@@ -757,15 +825,54 @@ export async function getStaticProps({ locale, defaultLocale }) {
       updatedAt: toISO(data?.updatedAt, false),
       excerpt: excerpt || (content ? content.slice(0, 180) : ""),
       coverImage,
-      tags:
-        Array.isArray(data?.tags) && data.tags.length
-          ? data.tags
-          : ["Articles"],
+      tags: Array.isArray(data?.tags) && data.tags.length ? data.tags : ["Articles"],
       href,
-    });
+    }, 'minutes'); // ★ minutes
   }
 
-  /* 3) onlinemeeting フォールバック（i18n補完込み） */
+  /* ========================================================
+     2. SlideAI の記事取得
+     (content/blog/slideai 配下のディレクトリ)
+     ======================================================== */
+  
+  const slideAiDir = path.join(contentDir, 'slideai');
+  if (fs.existsSync(slideAiDir)) {
+    const slideEnts = fs.readdirSync(slideAiDir, { withFileTypes: true });
+
+    for (const ent of slideEnts.filter(e => e.isDirectory())) {
+      const dir = ent.name; // pricing, how-to 等
+      const dirPath = path.join(slideAiDir, dir);
+
+      const picked = tryReadFrontFromDir(dirPath, locale || "en", defaultLocale || "en");
+      if (!picked) continue;
+
+      let { data, content } = picked;
+      
+      let title = (data?.title || dir).toString().trim();
+      let excerpt = (data?.excerpt || "").toString().trim();
+
+      // ★ URLは /blog/slideai/xxx になるように整形
+      const href = `/blog/slideai/${dir}`;
+      
+      // デフォルト画像はSlideAI専用のものがあればベスト
+      const coverImage = data?.cover || data?.image || null;
+
+      pushPost({
+        slug: `slideai/${dir}`,
+        title,
+        date: toISO(data?.date, true),
+        updatedAt: toISO(data?.updatedAt, false),
+        excerpt: excerpt || (content ? content.slice(0, 180) : ""),
+        coverImage,
+        tags: Array.isArray(data?.tags) && data.tags.length ? data.tags : ["SlideAI"],
+        href,
+      }, 'slide'); // ★ slide
+    }
+  }
+
+  /* ========================================================
+     3. その他ハードコード (Online Meeting) - 議事録AI扱い
+     ======================================================== */
   const hasOnlineMeeting = posts.some(
     (p) => p.slug === "onlinemeeting" || p.href === "/blog/onlinemeeting"
   );
@@ -792,10 +899,10 @@ export async function getStaticProps({ locale, defaultLocale }) {
       coverImage: "/images/LivekitMeeting.png",
       tags: ["Release", "Minutes.AI"],
       href: "/blog/onlinemeeting",
-    });
+    }, 'minutes'); // ★ minutes
   }
 
-  // 新しい順
+  // 最新順にソート
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return {

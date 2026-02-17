@@ -46,6 +46,9 @@ module.exports = {
     'blog_androidformat' ,
     'blog_bringinaudio' ,
     'blog_makeslidesquickly' ,
+    
+    // ★追加
+    'blog_slideai_pricing', 
   ],
   defaultNS: 'common',
 
