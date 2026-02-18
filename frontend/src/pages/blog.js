@@ -412,7 +412,7 @@ function ProductTab({ label, active, onClick }) {
     >
       {/* 簡易的なアイコン表示 (SVG等を入れなくても動くように文字で表現) */}
       <span className={`text-lg ${active ? "opacity-100" : "opacity-50"}`}>
-        {label === "SlideAI" ? "📊" : "🎙️"}
+        {label === "SlideAI" ? "" : ""}
       </span>
       {label}
     </button>
