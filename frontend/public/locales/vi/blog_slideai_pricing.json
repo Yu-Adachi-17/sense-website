@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Bảng giá SlideAI (2026) — Slide chuyên nghiệp không giới hạn từ một câu lệnh",
+    "description": "Biến ý tưởng thành bài thuyết trình chuyên nghiệp ngay lập tức. So sánh Vé 7 Ngày, gói Hàng tháng và Hàng năm của chúng tôi.",
+    "ogTitle": "Giá SlideAI: Tạo bài thuyết trình chuyên nghiệp ngay lập tức",
+    "ogDescription": "Slide không giới hạn, không tốn sức. Chọn gói phù hợp với quy trình làm việc của bạn."
+  },
+  "aria": { "home": "Trang chủ SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Bảng giá" },
+  "hero": {
+    "kicker": "Gói & Giá",
+    "h1": "Sáng tạo không giới hạn.<br>Một mức giá đơn giản.",
+    "tagline": "Quên đi 'tín dụng' hay chi phí trên mỗi slide. SlideAI cho bạn tự do chỉnh sửa đến khi hoàn hảo. Từ một câu lệnh đơn giản đến kiệt tác sẵn sàng cho phòng họp.",
+    "badges": [ "Tạo không giới hạn", "Không phí ẩn", "Bố cục chuyên nghiệp" ]
+  },
+  "intro": {
+    "h2": "Một câu lệnh, khả năng vô tận",
+    "p1": "Dù bạn đang giới thiệu thực đơn quán cà phê mới hay báo cáo quý, SlideAI sẽ lo phần việc nặng nhọc. Chỉ cần mô tả tầm nhìn của bạn và xem các slide chất lượng cao xuất hiện trong vài giây."
+  },
+  "plans": {
+    "h2": "Chọn tốc độ của bạn",
+    "p_desc": "Tất cả các gói trả phí đều cung cấp quyền truy cập đầy đủ vào công cụ AI của chúng tôi với **không giới hạn** số lượng bài thuyết trình bạn có thể tạo.",
+    "pass7": {
+      "name": "Vé 7 Ngày",
+      "price": "249.000 ₫",
+      "desc": "Hoàn hảo cho các dự án một lần. Tự động hết hạn sau 7 ngày."
+    },
+    "monthly": {
+      "name": "Hàng tháng",
+      "price": "379.000 ₫",
+      "desc": "Gói linh hoạt khi bạn cần. Hủy bất cứ lúc nào."
+    },
+    "yearly": {
+      "name": "Hàng năm",
+      "price": "3.790.000 ₫",
+      "desc": "Giá trị tốt nhất, lựa chọn của chuyên gia. Tự do không giới hạn trong cả năm.",
+      "save": "Tiết kiệm ~17%"
+    },
+    "features": [
+      "Tạo slide thực sự không giới hạn",
+      "Tạo toàn bộ bài thuyết trình từ 1 câu lệnh",
+      "Thẩm mỹ chuyên nghiệp",
+      "Xuất ra PDF & Hình ảnh",
+      "Quyền sử dụng thương mại"
+    ]
+  },
+  "faq": {
+    "h2": "Câu hỏi thường gặp",
+    "items": [
+      { "q": "'Không giới hạn' có thực sự là không giới hạn?", "a": "Đúng. Chúng tôi không tin vào việc giới hạn sự sáng tạo bằng token. Tạo bao nhiêu bản nháp tùy thích." },
+      { "q": "Điều gì xảy ra sau khi Vé 7 Ngày kết thúc?", "a": "Nó chỉ đơn giản là hết hạn. Không có phí định kỳ. Đây là bản 'dùng thử' tuyệt vời cho một dự án lớn." },
+      { "q": "Tôi có thể dùng SlideAI cho công việc thương mại không?", "a": "Chắc chắn rồi. Tất cả người đăng ký đều sở hữu quyền đối với các bài thuyết trình họ tạo ra." }
+    ]
+  },
+  "cta": { "download": "Tải xuống trên App Store" }
+}

@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Precios SlideAI (2026) — Diapositivas Pro Ilimitadas",
+    "description": "Transforma ideas en presentaciones profesionales al instante. Compara nuestros planes. Generación realmente ilimitada para profesionales.",
+    "ogTitle": "Precios SlideAI: Presentaciones Profesionales al Instante",
+    "ogDescription": "Diapositivas ilimitadas, cero esfuerzo. Elige el plan a tu medida."
+  },
+  "aria": { "home": "Inicio SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Precios" },
+  "hero": {
+    "kicker": "Planes y Precios",
+    "h1": "Creatividad Sin Límites.<br>Un Solo Precio.",
+    "tagline": "Olvídate de pagar por diapositiva. SlideAI te da la libertad de iterar hasta alcanzar la perfección. De un simple texto a una presentación ejecutiva.",
+    "badges": [ "Generación Ilimitada", "Sin Cargos Ocultos", "Diseños Profesionales" ]
+  },
+  "intro": {
+    "h2": "Un Prompt, Posibilidades Infinitas",
+    "p1": "Desde el menú de una cafetería hasta reportes trimestrales, SlideAI hace el trabajo difícil. Describe tu visión y obtén diapositivas de alta calidad en segundos."
+  },
+  "plans": {
+    "h2": "Elige tu plan",
+    "p_desc": "Todos los planes de pago incluyen acceso total a nuestra IA **sin límites** en la cantidad de presentaciones creadas.",
+    "pass7": {
+      "name": "Pase de 7 Días",
+      "price": ".99",
+      "desc": "Ideal para proyectos únicos. Expira automáticamente a los 7 días."
+    },
+    "monthly": {
+      "name": "Mensual",
+      "price": ".99",
+      "desc": "Plan flexible. Cancela en cualquier momento."
+    },
+    "yearly": {
+      "name": "Anual",
+      "price": ".99",
+      "desc": "La mejor opción para profesionales. Libertad ilimitada por un año.",
+      "save": "Ahorra ~17%"
+    },
+    "features": [
+      "Generación Realmente Ilimitada",
+      "Presentación Completa desde 1 Prompt",
+      "Estética Profesional",
+      "Exportar a PDF e Imágenes",
+      "Derechos Comerciales"
+    ]
+  },
+  "faq": {
+    "h2": "Preguntas Comunes",
+    "items": [
+      { "q": "¿Es realmente ilimitado?", "a": "Sí. Crea tantos borradores como necesites sin preocuparte por créditos o tokens." },
+      { "q": "¿Qué pasa al terminar el Pase de 7 Días?", "a": "Simplemente termina. No hay cargos automáticos. Es ideal para probar la app en un proyecto real." },
+      { "q": "¿Puedo usarlo para trabajos comerciales?", "a": "Claro que sí. Tú eres dueño de todo lo que generas." }
+    ]
+  },
+  "cta": { "download": "Descargar en App Store" }
+}

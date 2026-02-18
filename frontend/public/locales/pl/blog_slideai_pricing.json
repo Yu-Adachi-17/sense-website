@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Cennik SlideAI (2026) — Nielimitowane profesjonalne slajdy z jednego promptu",
+    "description": "Zamień pomysły w profesjonalne prezentacje natychmiast. Porównaj naszą przepustkę 7-dniową, plany miesięczne i roczne.",
+    "ogTitle": "Cennik SlideAI: Twórz profesjonalne prezentacje natychmiast",
+    "ogDescription": "Nielimitowane slajdy, zero wysiłku. Wybierz plan dopasowany do Twojej pracy."
+  },
+  "aria": { "home": "Strona główna SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Cennik" },
+  "hero": {
+    "kicker": "Plany i Ceny",
+    "h1": "Nieograniczona Kreatywność.<br>Jedna Prosta Cena.",
+    "tagline": "Zapomnij o 'kredytach' czy płaceniu za slajd. SlideAI daje Ci wolność poprawiania do perfekcji. Od jednego polecenia do arcydzieła gotowego na spotkanie zarządu.",
+    "badges": [ "Nielimitowane Generowanie", "Brak Ukrytych Opłat", "Profesjonalne Układy" ]
+  },
+  "intro": {
+    "h2": "Jeden prompt, nieskończone możliwości",
+    "p1": "Niezależnie od tego, czy prezentujesz nowe menu kawiarni, czy raport kwartalny, SlideAI wykona ciężką pracę. Po prostu opisz swoją wizję i zobacz, jak w kilka sekund pojawiają się wysokiej jakości slajdy."
+  },
+  "plans": {
+    "h2": "Wybierz swoją prędkość",
+    "p_desc": "Wszystkie płatne plany dają pełny dostęp do naszego silnika AI z **zerowymi limitami** liczby tworzonych prezentacji.",
+    "pass7": {
+      "name": "Przepustka 7-dniowa",
+      "price": "39,99 zł",
+      "desc": "Idealna do jednorazowych projektów. Wygasa automatycznie po 7 dniach."
+    },
+    "monthly": {
+      "name": "Miesięczny",
+      "price": "59,99 zł",
+      "desc": "Elastyczny plan, kiedy go potrzebujesz. Anuluj w dowolnym momencie."
+    },
+    "yearly": {
+      "name": "Roczny",
+      "price": "599,99 zł",
+      "desc": "Najlepsza wartość, wybór profesjonalistów. Nieograniczona wolność przez cały rok.",
+      "save": "Oszczędź ~17%"
+    },
+    "features": [
+      "Prawdziwie Nielimitowane Generowanie",
+      "Tworzenie Całej Prezentacji z 1 Promptu",
+      "Profesjonalna Estetyka",
+      "Eksport do PDF i Obrazów",
+      "Prawa do Użytku Komercyjnego"
+    ]
+  },
+  "faq": {
+    "h2": "Często Zadawane Pytania",
+    "items": [
+      { "q": "Czy 'Nielimitowane' jest naprawdę nielimitowane?", "a": "Tak. Nie wierzymy w ograniczanie kreatywności żetonami. Twórz tyle szkiców, ile potrzebujesz." },
+      { "q": "Co dzieje się po Przepustce 7-dniowej?", "a": "Po prostu wygasa. Brak cyklicznych opłat. To najlepsza 'jazda próbna' przed dużym projektem." },
+      { "q": "Czy mogę używać SlideAI do celów komercyjnych?", "a": "Absolutnie. Wszyscy subskrybenci posiadają prawa do wygenerowanych przez siebie prezentacji." }
+    ]
+  },
+  "cta": { "download": "Pobierz w App Store" }
+}

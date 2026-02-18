@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Tarifs SlideAI (2026) — Diapositives Pro Illimitées",
+    "description": "Transformez vos idées en présentations professionnelles instantanément. Comparez nos plans Pass 7 jours, Mensuel et Annuel.",
+    "ogTitle": "Tarifs SlideAI : Créez des présentations pro en un éclair",
+    "ogDescription": "Diapositives illimitées, zéro effort. Choisissez le plan adapté à votre flux de travail."
+  },
+  "aria": { "home": "Accueil SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Tarifs" },
+  "hero": {
+    "kicker": "Plans & Tarifs",
+    "h1": "Créativité Illimitée.<br>Un Prix Unique.",
+    "tagline": "Oubliez les \"crédits\" ou le coût par diapositive. SlideAI vous offre la liberté d'itérer jusqu'à la perfection. D'un simple prompt à un chef-d'œuvre prêt pour la salle de réunion.",
+    "badges": [ "Génération Illimitée", "Aucun frais caché", "Mises en page Pro" ]
+  },
+  "intro": {
+    "h2": "Un prompt, des possibilités infinies",
+    "p1": "Que vous présentiez le menu d'un nouveau café ou un rapport trimestriel, SlideAI fait le gros du travail. Décrivez votre vision et regardez des diapositives haute fidélité apparaître en quelques secondes."
+  },
+  "plans": {
+    "h2": "Choisissez votre vitesse",
+    "p_desc": "Tous les plans payants offrent un accès complet à notre IA avec **zéro limite** sur le nombre de présentations créées.",
+    "pass7": {
+      "name": "Pass 7 Jours",
+      "price": "9,99 €",
+      "desc": "Parfait pour les projets ponctuels. Expire automatiquement après 7 jours."
+    },
+    "monthly": {
+      "name": "Mensuel",
+      "price": "14,99 €",
+      "desc": "Flexible. Annulez à tout moment."
+    },
+    "yearly": {
+      "name": "Annuel",
+      "price": "149,99 €",
+      "desc": "Le meilleur choix pour les pros. Liberté illimitée pendant un an.",
+      "save": "Économisez ~17%"
+    },
+    "features": [
+      "Génération vraiment illimitée",
+      "Création complète depuis 1 prompt",
+      "Esthétique professionnelle",
+      "Export PDF & Images",
+      "Droits d'usage commercial"
+    ]
+  },
+  "faq": {
+    "h2": "Questions Fréquentes",
+    "items": [
+      { "q": "\"Illimité\" est-il vraiment illimité ?", "a": "Oui. Nous ne limitons pas la créativité avec des jetons. Créez autant de brouillons que nécessaire." },
+      { "q": "Que se passe-t-il après le Pass 7 jours ?", "a": "Il expire simplement. Pas de frais récurrents. C'est l'essai ultime pour un gros projet." },
+      { "q": "Puis-je utiliser SlideAI pour un usage commercial ?", "a": "Absolument. Vous possédez les droits de toutes les présentations générées." }
+    ]
+  },
+  "cta": { "download": "Télécharger sur l'App Store" }
+}

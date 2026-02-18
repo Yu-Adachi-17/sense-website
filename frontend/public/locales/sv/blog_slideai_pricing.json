@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Priser (2026) — Obegränsade Pro-slides från en prompt",
+    "description": "Förvandla idéer till professionella presentationer direkt. Jämför vårt 7-dagarspass, månads- och årsplaner.",
+    "ogTitle": "SlideAI Priser: Skapa proffsiga presentationer direkt",
+    "ogDescription": "Obegränsade slides, noll ansträngning. Välj planen som passar ditt arbetsflöde."
+  },
+  "aria": { "home": "SlideAI Hem" },
+  "nav": { "blog": "Blogg", "pricing": "Priser" },
+  "hero": {
+    "kicker": "Planer och Priser",
+    "h1": "Obegränsad Kreativitet.<br>Ett Enkelt Pris.",
+    "tagline": "Glöm 'krediter' eller kostnad per slide. SlideAI ger dig friheten att iterera tills det är perfekt. Från en enda prompt till ett mästerverk redo för styrelserummet.",
+    "badges": [ "Obegränsad Generering", "Inga Dolda Avgifter", "Professionella Layouter" ]
+  },
+  "intro": {
+    "h2": "En prompt, oändliga möjligheter",
+    "p1": "Oavsett om du presenterar en ny kafémeny eller en kvartalsrapport, gör SlideAI grovjobbet. Beskriv bara din vision och se högkvalitativa slides dyka upp på sekunder."
+  },
+  "plans": {
+    "h2": "Välj din hastighet",
+    "p_desc": "Alla betalda planer ger dig full tillgång till vår AI-motor med **noll gränser** för antalet presentationer du kan skapa.",
+    "pass7": {
+      "name": "7-Dagarspass",
+      "price": "119 kr",
+      "desc": "Perfekt för engångsprojekt. Löper ut automatiskt efter 7 dagar."
+    },
+    "monthly": {
+      "name": "Månadsvis",
+      "price": "169 kr",
+      "desc": "En flexibel plan när du behöver den. Avsluta när som helst."
+    },
+    "yearly": {
+      "name": "Årsvis",
+      "price": "1 695 kr",
+      "desc": "Bästa värdet, proffsens val. Obegränsad frihet i ett helt år.",
+      "save": "Spara ~17%"
+    },
+    "features": [
+      "Verkligen Obegränsad Generering",
+      "Skapa Hela Presentationen från 1 Prompt",
+      "Professionell Estetik",
+      "Export till PDF & Bilder",
+      "Kommersiella Rättigheter"
+    ]
+  },
+  "faq": {
+    "h2": "Vanliga Frågor",
+    "items": [
+      { "q": "Är 'Obegränsat' verkligen obegränsat?", "a": "Ja. Vi tror inte på att begränsa kreativitet med tokens. Skapa så många utkast du behöver." },
+      { "q": "Vad händer efter 7-dagarspasset?", "a": "Det löper bara ut. Inga återkommande debiteringar. Det är den ultimata 'provkörningen' för ett stort projekt." },
+      { "q": "Kan jag använda SlideAI för kommersiellt arbete?", "a": "Absolut. Alla prenumeranter äger rättigheterna till presentationerna de genererar." }
+    ]
+  },
+  "cta": { "download": "Hämta i App Store" }
+}

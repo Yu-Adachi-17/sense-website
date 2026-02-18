@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Fiyatlandırma (2026) — Tek Komutla Sınırsız Profesyonel Slaytlar",
+    "description": "Fikirleri anında profesyonel sunumlara dönüştürün. 7 Günlük Bilet, Aylık ve Yıllık planlarımızı karşılaştırın. Gerçekten sınırsız üretim.",
+    "ogTitle": "SlideAI Fiyatlandırma: Anında Profesyonel Sunumlar Oluşturun",
+    "ogDescription": "Sınırsız slayt, sıfır çaba. İş akışınıza uygun planı seçin."
+  },
+  "aria": { "home": "SlideAI Ana Sayfa" },
+  "nav": { "blog": "Blog", "pricing": "Fiyatlandırma" },
+  "hero": {
+    "kicker": "Planlar ve Fiyatlar",
+    "h1": "Sınırsız Yaratıcılık.<br>Tek Basit Fiyat.",
+    "tagline": "'Kredi' veya slayt başına ücretleri unutun. SlideAI, mükemmel olana kadar tekrar etme özgürlüğü verir. Tek bir komuttan toplantı odasına hazır bir başyapıta.",
+    "badges": [ "Sınırsız Üretim", "Gizli Ücret Yok", "Profesyonel Tasarımlar" ]
+  },
+  "intro": {
+    "h2": "Tek Komut, Sonsuz Olasılıklar",
+    "p1": "İster yeni bir kafe menüsü sunun ister üç aylık bir rapor, SlideAI zor işi üstlenir. Vizyonunuzu tanımlayın ve saniyeler içinde yüksek kaliteli slaytların belirmesini izleyin."
+  },
+  "plans": {
+    "h2": "Hızınızı Seçin",
+    "p_desc": "Tüm ücretli planlar, oluşturabileceğiniz sunum sayısında **sıfır sınırla** yapay zeka motorumuza tam erişim sağlar.",
+    "pass7": {
+      "name": "7 Günlük Bilet",
+      "price": "₺349",
+      "desc": "Tek seferlik projeler için mükemmel. 7 gün sonra otomatik olarak sona erer."
+    },
+    "monthly": {
+      "name": "Aylık",
+      "price": "₺499",
+      "desc": "İhtiyacınız olduğunda esnek bir plan. İstediğiniz zaman iptal edin."
+    },
+    "yearly": {
+      "name": "Yıllık",
+      "price": "₺4.999",
+      "desc": "En iyi değer, profesyonellerin tercihi. Tam bir yıl boyunca sınırsız özgürlük.",
+      "save": "~%17 Tasarruf Et"
+    },
+    "features": [
+      "Gerçekten Sınırsız Üretim",
+      "1 Komutla Tam Sunum Oluşturma",
+      "Profesyonel Estetik",
+      "PDF ve Görüntü Olarak Dışa Aktar",
+      "Ticari Kullanım Hakları"
+    ]
+  },
+  "faq": {
+    "h2": "Sıkça Sorulan Sorular",
+    "items": [
+      { "q": "'Sınırsız' gerçekten sınırsız mı?", "a": "Evet. Yaratıcılığı jetonlarla kısıtlamaya inanmıyoruz. Mükemmel sonucu elde etmek için ihtiyacınız olduğu kadar taslak oluşturun." },
+      { "q": "7 Günlük Bilet'ten sonra ne olur?", "a": "Sadece süresi dolar. Tekrarlayan ücret yok. Büyük bir proje için nihai 'deneme sürüşü'dür." },
+      { "q": "SlideAI'yı ticari işler için kullanabilir miyim?", "a": "Kesinlikle. Tüm aboneler ürettikleri sunumların haklarına sahiptir." }
+    ]
+  },
+  "cta": { "download": "App Store'dan İndir" }
+}

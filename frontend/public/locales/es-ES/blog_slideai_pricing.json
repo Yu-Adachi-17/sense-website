@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Precios SlideAI (2026) — Diapositivas Pro Ilimitadas con un Solo Prompt",
+    "description": "Transforma ideas en presentaciones profesionales al instante. Compara nuestro Pase de 7 Días y planes Mensuales/Anuales. Generación realmente ilimitada.",
+    "ogTitle": "Precios SlideAI: Crea Decks Profesionales al Instante",
+    "ogDescription": "Diapositivas ilimitadas, cero esfuerzo. Elige el plan que se adapte a tu flujo de trabajo."
+  },
+  "aria": { "home": "Inicio SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Precios" },
+  "hero": {
+    "kicker": "Planes y Precios",
+    "h1": "Creatividad Ilimitada.<br>Un Precio Único.",
+    "tagline": "Olvídate de los \"créditos\" o el coste por diapositiva. SlideAI te da la libertad de iterar hasta que sea perfecto. De un simple prompt a una obra maestra lista para la sala de juntas.",
+    "badges": [ "Generación Ilimitada", "Sin Costes Ocultos", "Diseños Profesionales" ]
+  },
+  "intro": {
+    "h2": "Un Prompt, Posibilidades Infinitas",
+    "p1": "Ya sea para presentar el menú de una nueva cafetería o un informe trimestral, SlideAI hace el trabajo pesado. Describe tu visión y observa cómo aparecen diapositivas de alta fidelidad en segundos."
+  },
+  "plans": {
+    "h2": "Elige tu velocidad",
+    "p_desc": "Todos los planes de pago te dan acceso total a nuestro motor de IA **sin límites** en la cantidad de presentaciones que puedes crear.",
+    "pass7": {
+      "name": "Pase de 7 Días",
+      "price": "9,99 €",
+      "desc": "Perfecto para proyectos puntuales. Caduca automáticamente a los 7 días."
+    },
+    "monthly": {
+      "name": "Mensual",
+      "price": "14,99 €",
+      "desc": "Un plan flexible para cuando lo necesites. Cancela cuando quieras."
+    },
+    "yearly": {
+      "name": "Anual",
+      "price": "149,99 €",
+      "desc": "El mejor valor, la elección de los profesionales. Libertad ilimitada durante un año.",
+      "save": "Ahorra ~17%"
+    },
+    "features": [
+      "Generación Realmente Ilimitada",
+      "Creación de Deck Completo con 1 Prompt",
+      "Estética Profesional",
+      "Exportación a PDF e Imágenes",
+      "Derechos de Uso Comercial"
+    ]
+  },
+  "faq": {
+    "h2": "Preguntas Frecuentes",
+    "items": [
+      { "q": "¿Es realmente \"Ilimitado\"?", "a": "Sí. No creemos en limitar la creatividad con tokens. Crea tantos borradores como necesites para obtener el resultado perfecto." },
+      { "q": "¿Qué pasa después del Pase de 7 Días?", "a": "Simplemente caduca. Sin cargos recurrentes. Es la prueba definitiva para un gran proyecto." },
+      { "q": "¿Puedo usar SlideAI para trabajo comercial?", "a": "Absolutamente. Todos los suscriptores poseen los derechos de las presentaciones que generan." }
+    ]
+  },
+  "cta": { "download": "Obtener SlideAI en App Store" }
+}

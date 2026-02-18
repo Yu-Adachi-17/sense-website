@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Hinnasto (2026) — Rajattomasti Pro-tason dioja",
+    "description": "Muuta ideat ammattimaisiksi esityksiksi hetkessä. Vertaa 7 päivän passia, kuukausi- ja vuositilauksia.",
+    "ogTitle": "SlideAI Hinnat: Luo ammattimaiset dekit hetkessä",
+    "ogDescription": "Rajattomat diat, nolla vaivaa. Valitse sinulle sopiva paketti."
+  },
+  "aria": { "home": "SlideAI Etusivu" },
+  "nav": { "blog": "Blogi", "pricing": "Hinnat" },
+  "hero": {
+    "kicker": "Paketit & Hinnat",
+    "h1": "Rajatonta luovuutta.<br>Yksi selkeä hinta.",
+    "tagline": "Unohda krediitit tai diakohtaiset maksut. SlideAI antaa vapauden hioa esitystäsi, kunnes se on täydellinen. Yhdestä kehotteesta neuvotteluhuoneen mestariteokseksi.",
+    "badges": [ "Rajaton generointi", "Ei piilokuluja", "Ammattimaiset asettelut" ]
+  },
+  "intro": {
+    "h2": "Yksi kehote, loputtomat mahdollisuudet",
+    "p1": "Olitpa ideoimassa uutta kahvilamenua tai esittelemässä neljännesvuosiraporttia, SlideAI hoitaa raskaan työn. Kuvaile visiosi, ja näe upeiden diojen ilmestyvän sekunneissa."
+  },
+  "plans": {
+    "h2": "Valitse nopeutesi",
+    "p_desc": "Kaikki maksulliset paketit tarjoavat täyden pääsyn tekoälyymme **ilman rajoituksia** luotujen esitysten määrässä.",
+    "pass7": {
+      "name": "7 Päivän Passi",
+      "price": "9,99 €",
+      "desc": "Täydellinen kertaluonteisiin projekteihin. Päättyy automaattisesti 7 päivän kuluttua."
+    },
+    "monthly": {
+      "name": "Kuukausi",
+      "price": "14,99 €",
+      "desc": "Joustava paketti tarpeen mukaan. Peruuta milloin tahansa."
+    },
+    "yearly": {
+      "name": "Vuosi",
+      "price": "149,99 €",
+      "desc": "Paras arvo ammattilaisille. Rajaton vapaus koko vuodeksi.",
+      "save": "Säästä ~17%"
+    },
+    "features": [
+      "Aidosti rajaton generointi",
+      "Koko esitys yhdestä kehotteesta",
+      "Ammattimainen estetiikka",
+      "Vienti PDF- ja kuvamuodossa",
+      "Kaupalliset käyttöoikeudet"
+    ]
+  },
+  "faq": {
+    "h2": "Usein kysytyt kysymykset",
+    "items": [
+      { "q": "Onko 'Rajaton' todella rajaton?", "a": "Kyllä. Emme usko luovuuden rajoittamiseen poleteilla. Luo niin monta luonnosta kuin tarvitset." },
+      { "q": "Mitä tapahtuu 7 päivän passin jälkeen?", "a": "Se vain päättyy. Ei toistuvia veloituksia. Se on täydellinen 'koeajo' isoa projektia varten." },
+      { "q": "Voinko käyttää SlideAI:ta kaupalliseen työhön?", "a": "Ehdottomasti. Kaikki tilaajat omistavat oikeudet generoimiinsa esityksiin." }
+    ]
+  },
+  "cta": { "download": "Lataa SlideAI App Storesta" }
+}

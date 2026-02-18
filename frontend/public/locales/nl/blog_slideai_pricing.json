@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Prijzen (2026) — Onbeperkte Pro Slides van één Prompt",
+    "description": "Zet ideeën direct om in professionele presentaties. Vergelijk onze 7-Dagen Pas, Maandelijkse en Jaarlijkse plannen. Echt onbeperkt genereren.",
+    "ogTitle": "SlideAI Prijzen: Maak direct professionele decks",
+    "ogDescription": "Onbeperkte slides, nul moeite. Kies het plan dat bij jouw workflow past."
+  },
+  "aria": { "home": "SlideAI Home" },
+  "nav": { "blog": "Blog", "pricing": "Prijzen" },
+  "hero": {
+    "kicker": "Plannen & Prijzen",
+    "h1": "Onbegrensde Creativiteit.<br>Één Simpele Prijs.",
+    "tagline": "Vergeet 'credits' of kosten per slide. SlideAI geeft je de vrijheid om te itereren tot het perfect is. Van één prompt naar een meesterwerk voor de vergaderzaal.",
+    "badges": [ "Onbeperkt Genereren", "Geen Verborgen Kosten", "Professionele Layouts" ]
+  },
+  "intro": {
+    "h2": "Één Prompt, Eindeloze Mogelijkheden",
+    "p1": "Of je nu een nieuw cafémenu pitcht of een kwartaalrapport presenteert, SlideAI doet het zware werk. Beschrijf je visie en zie hoe hoogwaardige slides in seconden verschijnen."
+  },
+  "plans": {
+    "h2": "Kies je snelheid",
+    "p_desc": "Alle betaalde plannen geven je volledige toegang tot onze AI-engine met **nul limieten** op het aantal presentaties dat je kunt maken.",
+    "pass7": {
+      "name": "7-Dagen Pas",
+      "price": "€ 9,99",
+      "desc": "Perfect voor eenmalige projecten. Verloopt automatisch na 7 dagen."
+    },
+    "monthly": {
+      "name": "Maandelijks",
+      "price": "€ 14,99",
+      "desc": "Een flexibel plan voor wanneer je het nodig hebt. Annuleer op elk moment."
+    },
+    "yearly": {
+      "name": "Jaarlijks",
+      "price": "€ 149,99",
+      "desc": "De beste waarde, gekozen door professionals. Onbeperkte vrijheid voor een heel jaar.",
+      "save": "Bespaar ~17%"
+    },
+    "features": [
+      "Echt Onbeperkt Genereren",
+      "Volledig Deck vanuit 1 Prompt",
+      "Professionele Esthetiek",
+      "Exporteren naar PDF & Afbeeldingen",
+      "Commerciële Gebruiksrechten"
+    ]
+  },
+  "faq": {
+    "h2": "Veelgestelde Vragen",
+    "items": [
+      { "q": "Is 'Onbeperkt' echt onbeperkt?", "a": "Ja. Wij geloven niet in het beperken van creativiteit met tokens. Maak zoveel concepten als je nodig hebt." },
+      { "q": "Wat gebeurt er na de 7-Dagen Pas?", "a": "Het verloopt gewoon. Geen terugkerende kosten. Het is de ultieme 'proefrit' voor een groot project." },
+      { "q": "Kan ik SlideAI gebruiken voor commercieel werk?", "a": "Absoluut. Alle abonnees bezitten de rechten op de presentaties die ze genereren." }
+    ]
+  },
+  "cta": { "download": "Download in de App Store" }
+}

@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Prețuri SlideAI (2026) — Slide-uri Pro Nelimitate dintr-un Singur Prompt",
+    "description": "Transformă ideile în prezentări profesionale instantaneu. Compară Abonamentul de 7 Zile, planurile Lunare și Anuale. Generare cu adevărat nelimitată.",
+    "ogTitle": "Prețuri SlideAI: Creează Prezentări Profesionale Instantaneu",
+    "ogDescription": "Slide-uri nelimitate, zero efort. Alege planul potrivit fluxului tău de lucru."
+  },
+  "aria": { "home": "Acasă SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Prețuri" },
+  "hero": {
+    "kicker": "Planuri și Prețuri",
+    "h1": "Creativitate Fără Limite.<br>Un Singur Preț Simplu.",
+    "tagline": "Uită de „credite” sau costuri per slide. SlideAI îți oferă libertatea de a itera până când totul este perfect. De la un simplu prompt la o capodoperă gata de sala de ședințe.",
+    "badges": [ "Generare Nelimitată", "Fără Taxe Ascunse", "Layout-uri Profesionale" ]
+  },
+  "intro": {
+    "h2": "Un Prompt, Posibilități Infinite",
+    "p1": "Fie că prezinți meniul unei noi cafenele sau un raport trimestrial, SlideAI se ocupă de munca grea. Descrie-ți viziunea și privește cum apar slide-uri de înaltă fidelitate în câteva secunde."
+  },
+  "plans": {
+    "h2": "Alege-ți viteza",
+    "p_desc": "Toate planurile plătite îți oferă acces complet la motorul nostru AI cu **zero limite** privind numărul de prezentări pe care le poți crea.",
+    "pass7": {
+      "name": "Abonament 7 Zile",
+      "price": "49 RON",
+      "desc": "Perfect pentru proiecte unice. Expiră automat după 7 zile."
+    },
+    "monthly": {
+      "name": "Lunar",
+      "price": "75 RON",
+      "desc": "Un plan flexibil pentru când ai nevoie. Anulează oricând."
+    },
+    "yearly": {
+      "name": "Anual",
+      "price": "750 RON",
+      "desc": "Cea mai bună valoare, alegerea profesioniștilor. Libertate nelimitată pentru un an întreg.",
+      "save": "Economisește ~17%"
+    },
+    "features": [
+      "Generare Cu Adevărat Nelimitată",
+      "Creare Pachet Complet din 1 Prompt",
+      "Estetică Profesională",
+      "Export în PDF și Imagini",
+      "Drepturi de Utilizare Comercială"
+    ]
+  },
+  "faq": {
+    "h2": "Întrebări Frecvente",
+    "items": [
+      { "q": "Este „Nelimitat” chiar nelimitat?", "a": "Da. Nu credem în limitarea creativității prin token-uri. Creează câte schițe ai nevoie." },
+      { "q": "Ce se întâmplă după Abonamentul de 7 Zile?", "a": "Pur și simplu expiră. Fără taxe recurente. Este „test drive-ul” suprem pentru un proiect mare." },
+      { "q": "Pot folosi SlideAI pentru muncă comercială?", "a": "Absolut. Toți abonații dețin drepturile asupra prezentărilor pe care le generează." }
+    ]
+  },
+  "cta": { "download": "Descarcă de pe App Store" }
+}

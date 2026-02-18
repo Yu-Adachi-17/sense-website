@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Ceník SlideAI (2026) — Neomezené profesionální prezentace z jediného příkazu",
+    "description": "Přeměňte nápady na profesionální prezentace okamžitě. Porovnejte náš 7denní pas, měsíční a roční plány. Skutečně neomezené generování pro profesionály.",
+    "ogTitle": "Ceník SlideAI: Vytvářejte profesionální balíčky okamžitě",
+    "ogDescription": "Neomezené snímky, nulové úsilí. Vyberte si plán, který vyhovuje vašemu pracovnímu postupu."
+  },
+  "aria": { "home": "SlideAI Domů" },
+  "nav": { "blog": "Blog", "pricing": "Ceník" },
+  "hero": {
+    "kicker": "Plány a Ceny",
+    "h1": "Neomezená kreativita.<br>Jedna jednoduchá cena.",
+    "tagline": "Zapomeňte na „kredity“ nebo platby za snímek. SlideAI vám dává svobodu iterovat, dokud není výsledek dokonalý. Od jediného příkazu k mistrovskému dílu připravenému do zasedačky.",
+    "badges": [ "Neomezené generování", "Žádné skryté poplatky", "Profesionální layouty" ]
+  },
+  "intro": {
+    "h2": "Jeden příkaz, nekonečné možnosti",
+    "p1": "Ať už navrhujete nové menu pro kavárnu nebo prezentujete čtvrtletní zprávu, SlideAI odvede těžkou práci za vás. Jednoduše popište svou vizi a sledujte, jak se během vteřin objeví špičkové snímky."
+  },
+  "plans": {
+    "h2": "Zvolte si svou rychlost",
+    "p_desc": "Všechny placené plány vám poskytují plný přístup k našemu AI enginu s **nulovými limity** na počet vytvořených prezentací.",
+    "pass7": {
+      "name": "7denní Pas",
+      "price": ".99",
+      "desc": "Perfektní pro jednorázové projekty. Automaticky vyprší za 7 dní."
+    },
+    "monthly": {
+      "name": "Měsíční",
+      "price": ".99",
+      "desc": "Flexibilní plán, když ho potřebujete. Kdykoliv zrušitelný."
+    },
+    "yearly": {
+      "name": "Roční",
+      "price": ".99",
+      "desc": "Nejvýhodnější plán, volba profesionálů. Neomezená svoboda na celý rok.",
+      "save": "Ušetřete ~17%"
+    },
+    "features": [
+      "Skutečně neomezené generování",
+      "Vytvoření celé prezentace jedním příkazem",
+      "Profesionální estetika",
+      "Export do PDF a obrázků",
+      "Komerční práva na použití"
+    ]
+  },
+  "faq": {
+    "h2": "Časté dotazy",
+    "items": [
+      { "q": "Je „Neomezené“ opravdu neomezené?", "a": "Ano. Nevěříme v omezování kreativity kredity. Vytvářejte tolik návrhů, kolik potřebujete, abyste dosáhli perfektního výsledku." },
+      { "q": "Co se stane po skončení 7denního pasu?", "a": "Jednoduše vyprší. Žádné opakované poplatky. Je to ultimátní „zkušební jízda“ pro velký projekt." },
+      { "q": "Mohu SlideAI používat pro komerční práci?", "a": "Rozhodně. Všichni předplatitelé vlastní práva na prezentace, které vygenerují." }
+    ]
+  },
+  "cta": { "download": "Stáhnout SlideAI na App Store" }
+}

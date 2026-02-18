@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Harga SlideAI (2026) — Slide Pro Tanpa Batas dari Satu Prompt",
+    "description": "Ubah ide menjadi presentasi profesional secara instan. Bandingkan Pas 7 Hari, paket Bulanan, dan Tahunan kami. Benar-benar tanpa batas.",
+    "ogTitle": "Harga SlideAI: Buat Presentasi Profesional Seketika",
+    "ogDescription": "Slide tanpa batas, nol usaha. Pilih paket yang sesuai dengan alur kerja Anda."
+  },
+  "aria": { "home": "Beranda SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Harga" },
+  "hero": {
+    "kicker": "Paket & Harga",
+    "h1": "Kreativitas Tanpa Batas.<br>Satu Harga Simpel.",
+    "tagline": "Lupakan 'kredit' atau biaya per slide. SlideAI memberi Anda kebebasan untuk mengulang sampai sempurna. Dari satu prompt menjadi mahakarya siap rapat.",
+    "badges": [ "Generasi Tanpa Batas", "Tanpa Biaya Tersembunyi", "Tata Letak Profesional" ]
+  },
+  "intro": {
+    "h2": "Satu Prompt, Kemungkinan Tak Terbatas",
+    "p1": "Baik Anda mempresentasikan menu kafe baru atau laporan kuartalan, SlideAI menangani pekerjaan beratnya. Cukup jelaskan visi Anda, dan saksikan slide berkualitas tinggi muncul dalam hitungan detik."
+  },
+  "plans": {
+    "h2": "Pilih Kecepatan Anda",
+    "p_desc": "Semua paket berbayar memberi Anda akses penuh ke mesin AI kami dengan **nol batasan** pada jumlah presentasi yang dapat Anda buat.",
+    "pass7": {
+      "name": "Pas 7 Hari",
+      "price": "Rp 159rb",
+      "desc": "Sempurna untuk proyek satu kali. Kedaluwarsa otomatis dalam 7 hari."
+    },
+    "monthly": {
+      "name": "Bulanan",
+      "price": "Rp 239rb",
+      "desc": "Paket fleksibel saat Anda membutuhkannya. Batalkan kapan saja."
+    },
+    "yearly": {
+      "name": "Tahunan",
+      "price": "Rp 2.39jt",
+      "desc": "Nilai terbaik, pilihan para profesional. Kebebasan tanpa batas selama satu tahun penuh.",
+      "save": "Hemat ~17%"
+    },
+    "features": [
+      "Generasi Benar-benar Tanpa Batas",
+      "Buat Full Deck dari 1 Prompt",
+      "Estetika Profesional",
+      "Ekspor ke PDF & Gambar",
+      "Hak Penggunaan Komersial"
+    ]
+  },
+  "faq": {
+    "h2": "Pertanyaan Umum",
+    "items": [
+      { "q": "Apakah 'Tanpa Batas' benar-benar tanpa batas?", "a": "Ya. Kami tidak percaya membatasi kreativitas dengan token. Buat draf sebanyak yang Anda butuhkan." },
+      { "q": "Apa yang terjadi setelah Pas 7 Hari?", "a": "Itu hanya berakhir. Tidak ada biaya berulang. Ini adalah 'uji coba' terbaik untuk proyek besar." },
+      { "q": "Bisakah saya menggunakan SlideAI untuk pekerjaan komersial?", "a": "Tentu saja. Semua pelanggan memiliki hak atas presentasi yang mereka buat." }
+    ]
+  },
+  "cta": { "download": "Dapatkan di App Store" }
+}

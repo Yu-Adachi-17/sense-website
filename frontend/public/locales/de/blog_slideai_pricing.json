@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Preise (2026) — Unbegrenzte Pro-Folien aus einem Prompt",
+    "description": "Verwandeln Sie Ideen sofort in professionelle Präsentationen. Vergleichen Sie unseren 7-Tage-Pass, Monats- und Jahrespläne. Echt unbegrenzte Generierung für Profis.",
+    "ogTitle": "SlideAI Preise: Professionelle Decks in Sekunden",
+    "ogDescription": "Unbegrenzte Folien, null Aufwand. Wählen Sie den Plan, der zu Ihrem Workflow passt."
+  },
+  "aria": { "home": "SlideAI Startseite" },
+  "nav": { "blog": "Blog", "pricing": "Preise" },
+  "hero": {
+    "kicker": "Preise & Pläne",
+    "h1": "Grenzenlose Kreativität.<br>Ein einfacher Preis.",
+    "tagline": "Vergessen Sie „Credits“ oder Kosten pro Folie. SlideAI gibt Ihnen die Freiheit, so lange zu iterieren, bis es perfekt ist. Von einem einzigen Prompt zum Meisterwerk für den Konferenzraum.",
+    "badges": [ "Unbegrenzte Generierung", "Keine versteckten Gebühren", "Professionelle Layouts" ]
+  },
+  "intro": {
+    "h2": "Ein Prompt, unendliche Möglichkeiten",
+    "p1": "Ob Sie ein neues Café-Menü pitchen oder einen Quartalsbericht präsentieren, SlideAI übernimmt die Schwerarbeit. Beschreiben Sie einfach Ihre Vision, und sehen Sie zu, wie hochwertige Folien in Sekunden erscheinen."
+  },
+  "plans": {
+    "h2": "Wählen Sie Ihren Weg zur Geschwindigkeit",
+    "p_desc": "Alle kostenpflichtigen Pläne gewähren Ihnen vollen Zugriff auf unsere KI-Engine ohne **jegliche Limits** für die Anzahl der erstellten Präsentationen.",
+    "pass7": {
+      "name": "7-Tage-Pass",
+      "price": ".99",
+      "desc": "Perfekt für einmalige Projekte oder kurze Nutzung. Läuft nach 7 Tagen automatisch ab."
+    },
+    "monthly": {
+      "name": "Monatlich",
+      "price": ".99",
+      "desc": "Ein flexibler Plan, wenn Sie ihn brauchen. Jederzeit kündbar."
+    },
+    "yearly": {
+      "name": "Jährlich",
+      "price": ".99",
+      "desc": "Der beste Wert, gewählt von Profis. Unbegrenzte Freiheit für ein ganzes Jahr.",
+      "save": "Sparen Sie ~17%"
+    },
+    "features": [
+      "Echt unbegrenzte Foliengenerierung",
+      "Erstellung ganzer Decks aus einem Prompt",
+      "Professionelle Ästhetik",
+      "Export als PDF & Bilder",
+      "Kommerzielle Nutzungsrechte"
+    ]
+  },
+  "faq": {
+    "h2": "Häufig gestellte Fragen",
+    "items": [
+      { "q": "Ist „Unbegrenzt“ wirklich unbegrenzt?", "a": "Ja. Wir glauben nicht daran, Kreativität mit Tokens einzuschränken. Erstellen Sie so viele Entwürfe, wie Sie benötigen, um das perfekte Ergebnis zu erzielen." },
+      { "q": "Was passiert nach dem 7-Tage-Pass?", "a": "Er läuft einfach ab. Keine wiederkehrenden Gebühren. Es ist die ultimative „Probefahrt“ für ein großes Projekt." },
+      { "q": "Kann ich SlideAI für kommerzielle Arbeit nutzen?", "a": "Absolut. Alle zahlenden Abonnenten besitzen die Rechte an den von ihnen generierten Präsentationen." }
+    ]
+  },
+  "cta": { "download": "SlideAI im App Store laden" }
+}

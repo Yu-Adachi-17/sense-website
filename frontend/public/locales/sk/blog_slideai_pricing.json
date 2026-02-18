@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Cenník SlideAI (2026) — Neobmedzené Pro slajdy z jedného promptu",
+    "description": "Premeňte nápady na profesionálne prezentácie okamžite. Porovnajte náš 7-dňový pas, mesačné a ročné plány.",
+    "ogTitle": "Cenník SlideAI: Vytvárajte profesionálne prezentácie okamžite",
+    "ogDescription": "Neobmedzené slajdy, nulové úsilie. Vyberte si plán, ktorý vyhovuje vášmu workflow."
+  },
+  "aria": { "home": "Domov SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Cenník" },
+  "hero": {
+    "kicker": "Plány a Ceny",
+    "h1": "Neobmedzená kreativita.<br>Jedna jednoduchá cena.",
+    "tagline": "Zabudnite na 'kredity' alebo platby za slajd. SlideAI vám dáva slobodu iterovať, kým to nebude dokonalé. Od jednoduchého promptu k majstrovskému dielu do zasadačky.",
+    "badges": [ "Neobmedzené generovanie", "Žiadne skryté poplatky", "Profesionálne rozloženia" ]
+  },
+  "intro": {
+    "h2": "Jeden prompt, nekonečné možnosti",
+    "p1": "Či už prezentujete nové menu kaviarne alebo štvrťročnú správu, SlideAI urobí ťažkú prácu. Stačí opísať vašu víziu a sledovať, ako sa v priebehu sekúnd objavia špičkové slajdy."
+  },
+  "plans": {
+    "h2": "Zvoľte si rýchlosť",
+    "p_desc": "Všetky platené plány vám dávajú plný prístup k nášmu AI enginu s **nulovými limitmi** na počet prezentácií, ktoré môžete vytvoriť.",
+    "pass7": {
+      "name": "7-Dňový Pas",
+      "price": "9,99 €",
+      "desc": "Perfektné pre jednorazové projekty. Automaticky vyprší po 7 dňoch."
+    },
+    "monthly": {
+      "name": "Mesačný",
+      "price": "14,99 €",
+      "desc": "Flexibilný plán, keď ho potrebujete. Zrušte kedykoľvek."
+    },
+    "yearly": {
+      "name": "Ročný",
+      "price": "149,99 €",
+      "desc": "Najlepšia hodnota, voľba profesionálov. Neobmedzená sloboda na celý rok.",
+      "save": "Ušetrite ~17%"
+    },
+    "features": [
+      "Skutočne neobmedzené generovanie",
+      "Vytvorenie celej prezentácie z 1 promptu",
+      "Profesionálna estetika",
+      "Export do PDF a obrázkov",
+      "Práva na komerčné použitie"
+    ]
+  },
+  "faq": {
+    "h2": "Časté otázky",
+    "items": [
+      { "q": "Je 'Neobmedzené' naozaj neobmedzené?", "a": "Áno. Neveríme v obmedzovanie kreativity tokenmi. Vytvorte toľko konceptov, koľko potrebujete." },
+      { "q": "Čo sa stane po skončení 7-dňového pasu?", "a": "Jednoducho vyprší. Žiadne opakujúce sa poplatky. Je to ultimátna 'skúšobná jazda' pre veľký projekt." },
+      { "q": "Môžem používať SlideAI na komerčnú prácu?", "a": "Absolútne. Všetci predplatitelia vlastnia práva na prezentácie, ktoré vygenerujú." }
+    ]
+  },
+  "cta": { "download": "Stiahnuť v App Store" }
+}

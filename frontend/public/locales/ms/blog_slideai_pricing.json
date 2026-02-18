@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "Harga SlideAI (2026) — Slaid Pro Tanpa Had daripada Satu Prom",
+    "description": "Ubah idea menjadi pembentangan profesional dengan serta-merta. Bandingkan Pas 7 Hari, pelan Bulanan dan Tahunan kami. Benar-benar tanpa had.",
+    "ogTitle": "Harga SlideAI: Cipta Dek Profesional Serta-merta",
+    "ogDescription": "Slaid tanpa had, usaha sifar. Pilih pelan yang sesuai dengan aliran kerja anda."
+  },
+  "aria": { "home": "Laman Utama SlideAI" },
+  "nav": { "blog": "Blog", "pricing": "Harga" },
+  "hero": {
+    "kicker": "Pelan & Harga",
+    "h1": "Kreativiti Tanpa Had.<br>Satu Harga Mudah.",
+    "tagline": "Lupakan tentang 'kredit' atau kos setiap slaid. SlideAI memberi anda kebebasan untuk mengulangi sehingga ia sempurna. Daripada satu prom kepada karya agung bilik mesyuarat.",
+    "badges": [ "Penjanaan Tanpa Had", "Tiada Yuran Tersembunyi", "Susun Atur Profesional" ]
+  },
+  "intro": {
+    "h2": "Satu Prom, Kemungkinan Tidak Terbatas",
+    "p1": "Sama ada anda membentangkan menu kafe baharu atau laporan suku tahunan, SlideAI mengendalikan kerja berat. Cuma terangkan visi anda, dan lihat slaid berkualiti tinggi muncul dalam beberapa saat."
+  },
+  "plans": {
+    "h2": "Pilih Kelajuan Anda",
+    "p_desc": "Semua pelan berbayar memberi anda akses penuh kepada enjin AI kami dengan **sifar had** pada bilangan pembentangan yang boleh anda cipta.",
+    "pass7": {
+      "name": "Pas 7 Hari",
+      "price": "RM 39.90",
+      "desc": "Sesuai untuk projek sekali sahaja. Tamat tempoh secara automatik dalam 7 hari."
+    },
+    "monthly": {
+      "name": "Bulanan",
+      "price": "RM 59.90",
+      "desc": "Pelan fleksibel apabila anda memerlukannya. Batalkan bila-bila masa."
+    },
+    "yearly": {
+      "name": "Tahunan",
+      "price": "RM 599.90",
+      "desc": "Nilai terbaik, pilihan profesional. Kebebasan tanpa had selama setahun penuh.",
+      "save": "Jimat ~17%"
+    },
+    "features": [
+      "Penjanaan Benar-benar Tanpa Had",
+      "Penciptaan Dek Penuh dari 1 Prom",
+      "Estetika Profesional",
+      "Eksport ke PDF & Imej",
+      "Hak Penggunaan Komersial"
+    ]
+  },
+  "faq": {
+    "h2": "Soalan Lazim",
+    "items": [
+      { "q": "Adakah 'Tanpa Had' benar-benar tanpa had?", "a": "Ya. Kami tidak percaya dalam menyekat kreativiti dengan token. Cipta seberapa banyak draf yang anda perlukan." },
+      { "q": "Apa yang berlaku selepas Pas 7 Hari?", "a": "Ia hanya tamat tempoh. Tiada caj berulang. Ia adalah 'percubaan' terbaik untuk projek besar." },
+      { "q": "Bolehkah saya menggunakan SlideAI untuk kerja komersial?", "a": "Sudah tentu. Semua pelanggan memiliki hak ke atas pembentangan yang mereka jana." }
+    ]
+  },
+  "cta": { "download": "Dapatkan di App Store" }
+}

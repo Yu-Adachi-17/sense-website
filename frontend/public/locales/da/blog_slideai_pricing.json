@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Priser (2026) — Ubegrænsede Pro Slides fra én prompt",
+    "description": "Omdan idéer til professionelle præsentationer øjeblikkeligt. Sammenlign vores 7-dages pas, måneds- og årsplaner. Ægte ubegrænset generering til professionelle.",
+    "ogTitle": "SlideAI Priser: Skab professionelle decks med det samme",
+    "ogDescription": "Ubegrænsede slides, nul besvær. Vælg den plan, der passer til dit workflow."
+  },
+  "aria": { "home": "SlideAI Hjem" },
+  "nav": { "blog": "Blog", "pricing": "Priser" },
+  "hero": {
+    "kicker": "Planer og Priser",
+    "h1": "Ubegrænset kreativitet.<br>Én enkel pris.",
+    "tagline": "Glem alt om 'kreditter' eller pris pr. slide. SlideAI giver dig friheden til at iterere, indtil det er perfekt. Fra en enkelt prompt til et mesterværk klar til bestyrelseslokalet.",
+    "badges": [ "Ubegrænset generering", "Ingen skjulte gebyrer", "Professionelle layouts" ]
+  },
+  "intro": {
+    "h2": "Én prompt, uendelige muligheder",
+    "p1": "Uanset om du pitcher en ny cafémenu eller præsenterer en kvartalsrapport, klarer SlideAI det tunge løft. Beskriv blot din vision, og se professionelle slides dukke op på sekunder."
+  },
+  "plans": {
+    "h2": "Vælg din vej til hastighed",
+    "p_desc": "Alle betalte planer giver dig fuld adgang til vores AI-motor med **nul begrænsninger** på, hvor mange præsentationer du kan skabe.",
+    "pass7": {
+      "name": "7-Dages Pas",
+      "price": ".99",
+      "desc": "Perfekt til engangsprojekter. Udløber automatisk efter 7 dage."
+    },
+    "monthly": {
+      "name": "Månedlig",
+      "price": ".99",
+      "desc": "En fleksibel plan, når du har brug for den. Afslut når som helst."
+    },
+    "yearly": {
+      "name": "Årlig",
+      "price": ".99",
+      "desc": "Den bedste værdi, valgt af professionelle. Ubegrænset frihed i et helt år.",
+      "save": "Spar ~17%"
+    },
+    "features": [
+      "Virkelig ubegrænset generering",
+      "Fuld deck-skabelse fra én prompt",
+      "Professionel æstetik",
+      "Eksport til PDF og billeder",
+      "Kommercielle rettigheder"
+    ]
+  },
+  "faq": {
+    "h2": "Ofte stillede spørgsmål",
+    "items": [
+      { "q": "Er 'Ubegrænset' virkelig ubegrænset?", "a": "Ja. Vi tror ikke på at kvæle kreativitet med tokens. Skab så mange kladder, du har brug for." },
+      { "q": "Hvad sker der efter 7-dages passet?", "a": "Det udløber bare. Ingen løbende opkrævninger. Det er den ultimative 'prøvetur' til et stort projekt." },
+      { "q": "Kan jeg bruge SlideAI til kommercielt arbejde?", "a": "Absolut. Alle betalende abonnenter ejer rettighederne til de præsentationer, de genererer." }
+    ]
+  },
+  "cta": { "download": "Hent SlideAI i App Store" }
+}

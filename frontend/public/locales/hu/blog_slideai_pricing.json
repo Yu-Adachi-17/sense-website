@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Árak (2026) — Korlátlan Pro diák egyetlen parancsból",
+    "description": "Alakítsa át ötleteit azonnal professzionális prezentációkká. Hasonlítsa össze 7 napos bérletünket, havi és éves terveinket.",
+    "ogTitle": "SlideAI Árak: Készítsen profi prezentációkat azonnal",
+    "ogDescription": "Korlátlan diák, nulla erőfeszítés. Válassza ki az Önnek megfelelő csomagot."
+  },
+  "aria": { "home": "SlideAI Kezdőlap" },
+  "nav": { "blog": "Blog", "pricing": "Árak" },
+  "hero": {
+    "kicker": "Csomagok és Árak",
+    "h1": "Határtalan kreativitás.<br>Egyetlen egyszerű ár.",
+    "tagline": "Felejtse el a krediteket vagy a diánkénti költségeket. A SlideAI szabadságot ad a tökéletesítéshez. Egyetlen parancstól a tárgyalótermi remekműig.",
+    "badges": [ "Korlátlan generálás", "Nincsenek rejtett díjak", "Profi elrendezések" ]
+  },
+  "intro": {
+    "h2": "Egy parancs, végtelen lehetőség",
+    "p1": "Legyen szó új kávézó menüjének bemutatásáról vagy negyedéves jelentésről, a SlideAI elvégzi a nehéz munkát. Csak írja le elképzelését, és nézze, ahogy másodpercek alatt megjelennek a diák."
+  },
+  "plans": {
+    "h2": "Válassza ki a tempót",
+    "p_desc": "Minden fizetős csomag teljes hozzáférést biztosít AI motorunkhoz, **nulla korlátozással** a létrehozható prezentációk számát illetően.",
+    "pass7": {
+      "name": "7 Napos Bérlet",
+      "price": "3 990 Ft",
+      "desc": "Tökéletes egyszeri projektekhez. 7 nap után automatikusan lejár."
+    },
+    "monthly": {
+      "name": "Havi",
+      "price": "5 990 Ft",
+      "desc": "Rugalmas terv, amikor szüksége van rá. Bármikor lemondható."
+    },
+    "yearly": {
+      "name": "Éves",
+      "price": "59 990 Ft",
+      "desc": "A legjobb ár-érték arány, a profik választása. Korlátlan szabadság egy egész évre.",
+      "save": "Megtakarítás ~17%"
+    },
+    "features": [
+      "Valóban korlátlan generálás",
+      "Teljes prezentáció 1 parancsból",
+      "Professzionális esztétika",
+      "Exportálás PDF-be és képekbe",
+      "Kereskedelmi felhasználási jogok"
+    ]
+  },
+  "faq": {
+    "h2": "Gyakori kérdések",
+    "items": [
+      { "q": "A 'Korlátlan' tényleg korlátlan?", "a": "Igen. Nem hiszünk a kreativitás korlátozásában tokenekkel. Készítsen annyi piszkozatot, amennyire szüksége van." },
+      { "q": "Mi történik a 7 napos bérlet után?", "a": "Egyszerűen lejár. Nincs ismétlődő díj. Ez a végső 'próbakör' egy nagy projekthez." },
+      { "q": "Használhatom a SlideAI-t kereskedelmi munkára?", "a": "Természetesen. Minden előfizető rendelkezik az általa generált prezentációk jogaival." }
+    ]
+  },
+  "cta": { "download": "Letöltés az App Store-ból" }
+}

@@ -1,0 +1,56 @@
+{
+  "seo": {
+    "title": "SlideAI Cjenik (2026) — Neograničeni Pro slajdovi iz jedne naredbe",
+    "description": "Pretvorite ideje u profesionalne prezentacije u trenu. Usporedite našu 7-dnevnu propusnicu, mjesečne i godišnje planove.",
+    "ogTitle": "SlideAI Cjenik: Izradite profesionalne prezentacije odmah",
+    "ogDescription": "Neograničeni slajdovi, nula truda. Odaberite plan koji vam odgovara."
+  },
+  "aria": { "home": "SlideAI Početna" },
+  "nav": { "blog": "Blog", "pricing": "Cijene" },
+  "hero": {
+    "kicker": "Planovi i Cijene",
+    "h1": "Neograničena kreativnost.<br>Jedna jednostavna cijena.",
+    "tagline": "Zaboravite na 'kredite' ili troškove po slajdu. SlideAI vam daje slobodu da iterirate dok ne bude savršeno. Od jedne naredbe do remek-djela spremnog za sastanak.",
+    "badges": [ "Neograničeno generiranje", "Bez skrivenih naknada", "Profesionalni dizajn" ]
+  },
+  "intro": {
+    "h2": "Jedna naredba, beskonačne mogućnosti",
+    "p1": "Bilo da predstavljate novi jelovnik kafića ili tromjesečno izvješće, SlideAI obavlja težak posao. Samo opišite svoju viziju i gledajte kako se vrhunski slajdovi pojavljuju u sekundama."
+  },
+  "plans": {
+    "h2": "Odaberite svoju brzinu",
+    "p_desc": "Svi plaćeni planovi daju vam puni pristup našem AI motoru s **nula ograničenja** na broj prezentacija koje možete izraditi.",
+    "pass7": {
+      "name": "7-Dnevna Propusnica",
+      "price": "9,99 €",
+      "desc": "Savršeno za jednokratne projekte. Istječe automatski nakon 7 dana."
+    },
+    "monthly": {
+      "name": "Mjesečni",
+      "price": "14,99 €",
+      "desc": "Fleksibilan plan kada vam zatreba. Otkažite bilo kada."
+    },
+    "yearly": {
+      "name": "Godišnji",
+      "price": "149,99 €",
+      "desc": "Najbolja vrijednost, izbor profesionalaca. Neograničena sloboda cijelu godinu.",
+      "save": "Uštedite ~17%"
+    },
+    "features": [
+      "Uistinu neograničeno generiranje",
+      "Izrada cijele prezentacije iz 1 naredbe",
+      "Profesionalna estetika",
+      "Izvoz u PDF i slike",
+      "Prava komercijalne uporabe"
+    ]
+  },
+  "faq": {
+    "h2": "Česta pitanja",
+    "items": [
+      { "q": "Je li 'Neograničeno' stvarno neograničeno?", "a": "Da. Ne vjerujemo u ograničavanje kreativnosti tokenima. Izradite onoliko skica koliko trebate." },
+      { "q": "Što se događa nakon 7-dnevne propusnice?", "a": "Jednostavno istječe. Nema ponavljajućih troškova. To je ultimativna 'probna vožnja' za veliki projekt." },
+      { "q": "Mogu li koristiti SlideAI za komercijalni rad?", "a": "Apsolutno. Svi pretplatnici posjeduju prava na prezentacije koje generiraju." }
+    ]
+  },
+  "cta": { "download": "Preuzmite na App Storeu" }
+}
