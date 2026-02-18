@@ -1,80 +1,56 @@
 {
   "seo": {
-    "title": "SlideAI Pricing (2026) — Unlimited Pro Slides from a Single Prompt",
-    "description": "Transform ideas into professional presentations instantly. Compare our 7-Day Pass, Monthly, and Yearly plans. Truly unlimited generations for professionals.",
-    "ogTitle": "SlideAI Pricing: Create Professional Decks Instantly",
-    "ogDescription": "Unlimited slides, zero effort. Choose the plan that fits your workflow. 7-Day Pass available for one-off projects.",
-    "ld": {
-      "headline": "SlideAI Pricing & Plans (2026)",
-      "description": "Simple pricing for professional presentation generation. Choose from a 7-Day Pass or Unlimited Subscriptions."
-    }
+    "title": "SlideAI Pricing (2026) — High-Impact Slides from a Single Prompt, No Limits",
+    "description": "Stop fighting with margins and alignment. Elevate your presentations instantly with SlideAI. Explore our 7-Day Pass, Monthly, and Yearly plans for truly unlimited creativity.",
+    "ogTitle": "SlideAI Pricing: Boardroom-Ready Decks in Seconds",
+    "ogDescription": "Unlimited AI-powered slides. Choose the plan that fits your ambition. No credit caps, no stress."
   },
-  "aria": {
-    "home": "SlideAI Home"
-  },
-  "nav": {
-    "blog": "Blog",
-    "pricing": "Pricing"
-  },
+  "aria": { "home": "SlideAI Home" },
+  "nav": { "blog": "Blog", "pricing": "Pricing" },
   "hero": {
     "kicker": "Plans & Pricing",
-    "h1": "Unlimited Creativity, One Simple Price.",
-    "tagline": "Forget about 'credits' or 'per-slide' costs. SlideAI gives you the freedom to iterate until it's perfect. From a single prompt to a boardroom-ready masterpiece.",
-    "badges": [
-      "Unlimited Generations",
-      "No Hidden Fees",
-      "Professional Layouts"
-    ]
+    "h1": "Unlimited Creativity. One Simple Price.",
+    "tagline": "Reclaim your time from the tedious grind of manual design. SlideAI instantly transforms your raw ideas into high-impact, professional masterpieces. Focus on the message, and let the AI handle the polish.",
+    "badges": [ "Truly Unlimited Generations", "Zero Hidden Costs", "Professional-Grade Polish" ]
   },
   "intro": {
-    "h2": "One Prompt, Infinite Possibilities",
-    "p1": "Whether you're pitching a new cafe menu or presenting a quarterly report, SlideAI handles the heavy lifting. Simply describe your vision, and watch as high-fidelity slides appear in seconds."
+    "h2": "One Prompt. Total Control.",
+    "p1": "Whether you're pitching a fresh cafe concept or a complex quarterly report, SlideAI bridges the gap between thought and visual perfection. Describe it once; see it rendered instantly."
   },
   "plans": {
-    "h2": "Choose Your Path to Speed",
-    "p_desc": "All paid plans grant you full access to our AI engine with **zero limits** on how many presentations you can create.",
+    "h2": "Simple Plans for Bold Ideas",
+    "p_desc": "Every paid tier unlocks the full power of our AI engine with **zero limits** on your output. Iterate as much as you need until every slide is perfect.",
     "pass7": {
       "name": "7-Day Pass",
       "price": "$9.99",
-      "desc": "Perfect for one-off projects or short-term use. Auto-expires in 7 days."
+      "desc": "Perfect for one-off projects. Get full access for a week with zero recurring commitments."
     },
     "monthly": {
       "name": "Monthly",
       "price": "$14.99",
-      "desc": "A flexible monthly plan for when you need it. Cancel anytime."
+      "desc": "Flexibility for the frequent presenter. Cancel anytime, but keep your workflow at peak speed."
     },
     "yearly": {
       "name": "Yearly",
       "price": "$149.99",
-      "desc": "The best value plan, chosen by professionals. Unlimited freedom for one year.",
+      "desc": "The ultimate professional value. A full year of unrestricted creative freedom.",
       "save": "Save ~17%"
     },
     "features": [
-      "Truly Unlimited Slide Generations",
-      "One-Prompt Full Deck Creation",
-      "Professional-Grade Aesthetics",
-      "Export to PDF & Images",
-      "Commercial Usage Rights"
+      "Truly Unlimited Generations",
+      "Full Deck Creation from One Prompt",
+      "Modern & Professional Aesthetics",
+      "Seamless PDF & Image Exports",
+      "Full Commercial Rights"
     ]
   },
   "faq": {
-    "h2": "Common Questions",
+    "h2": "Frequently Asked Questions",
     "items": [
-      {
-        "q": "Is 'Unlimited' really unlimited?",
-        "a": "Yes. We don't believe in stifling creativity with tokens. Create as many drafts as you need to get the perfect result."
-      },
-      {
-        "q": "What happens after the 7-Day Pass?",
-        "a": "It simply expires. No recurring charges. It's the ultimate 'trial' for a big project."
-      },
-      {
-        "q": "Can I use SlideAI for commercial work?",
-        "a": "Absolutely. All paid subscribers own the rights to the presentations they generate."
-      }
+      { "q": "Is 'Unlimited' actually unlimited?", "a": "Yes. We don't believe in credit caps. Create, draft, and iterate as many times as your creative process requires." },
+      { "q": "Does the 7-Day Pass renew automatically?", "a": "No. It's a single-purchase access. Once the 7 days are up, the pass expires naturally—no hidden subscription." },
+      { "q": "Can I use the slides for commercial work?", "a": "Absolutely. You own the full rights to any slide generated during your subscription." }
     ]
   },
-  "cta": {
-    "download": "Get SlideAI on App Store"
-  }
+  "cta": { "download": "Get SlideAI on the App Store" }
 }

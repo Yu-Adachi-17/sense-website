@@ -174,7 +174,13 @@ export default function SlideAIPricing() {
           {/* Pricing Grid */}
           <SectionCard className="mb-8 border-indigo-500/30 bg-indigo-500/5">
             <h2 className="text-2xl font-bold">{txs("plans.h2")}</h2>
-            <p className="mt-2 text-sm text-indigo-200/80">{txs("plans.p_desc")}</p>
+            <p className="mt-2 text-sm text-indigo-200/80">
+  {txs("plans.p_desc").split(/(\*\*.*?\*\*)/g).map((part, i) => 
+    part.startsWith("**") && part.endsWith("**") 
+      ? <strong key={i} className="text-white font-bold">{part.slice(2, -2)}</strong> 
+      : part
+  )}
+</p>
             
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <PricingCard icon={FaClock} name={txs("plans.pass7.name")} price={txs("plans.pass7.price")} desc={txs("plans.pass7.desc")} />
