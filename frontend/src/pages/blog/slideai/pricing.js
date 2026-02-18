@@ -213,26 +213,25 @@ export default function SlideAIPricing() {
             </div>
           </section>
 
-          {/* Intro & Gallery */}
+          {/* Intro & Gallery (Revised: 16:9 images stacked vertically) */}
           <SectionCard className="mb-12">
             <h2 className="text-2xl font-bold tracking-tight">{txs("intro.h2")}</h2>
             <p className="mt-4 text-indigo-100/90 leading-relaxed mb-8">{txs("intro.p1")}</p>
             
-            {/* 6枚の画像を美しく並べるグリッド */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {/* 1枚ずつ大きく縦に並べる（16:9） */}
+            <div className="space-y-8">
               {demoImages.map((src, i) => (
-                <div key={i} className="group relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10 bg-black/40 hover:border-indigo-400/50 transition-colors">
+                <div key={i} className="group relative w-full aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/50 shadow-2xl transition-all hover:border-indigo-500/30 hover:shadow-indigo-500/10">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={src} 
                     alt={`Slide Demo ${i + 1}`} 
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    className="h-full w-full object-cover" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               ))}
             </div>
-            <p className="mt-3 text-center text-xs text-indigo-300/50">Generated entirely by SlideAI</p>
+            <p className="mt-6 text-center text-xs text-indigo-300/50">Generated entirely by SlideAI</p>
           </SectionCard>
 
           {/* Pricing Grid */}
