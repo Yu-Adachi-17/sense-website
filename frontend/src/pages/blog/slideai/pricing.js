@@ -30,7 +30,7 @@ const EN_FALLBACK = {
   nav: { blog: "Blog", pricing: "Pricing" },
   hero: {
     kicker: "Plans & Pricing",
-    h1: "Unlimited Creativity, One Simple Price.",
+    h1: "Unlimited Creativity,<br>One Simple Price.",
     tagline: "Forget about 'credits' or 'per-slide' costs. SlideAI gives you the freedom to iterate until it's perfect. From a single prompt to a boardroom-ready masterpiece.",
     badges: ["Unlimited Generations", "No Hidden Fees", "Professional Layouts"],
   },
@@ -41,7 +41,6 @@ const EN_FALLBACK = {
   plans: {
     h2: "Choose Your Path to Speed",
     p_desc: "All paid plans grant you full access to our AI engine with **zero limits** on how many presentations you can create.",
-    
     pass7: {
       name: "7-Day Pass",
       price: "$9.99",
@@ -99,6 +98,39 @@ function useTx(ns) {
   return { txs, txa };
 }
 
+/* Helper to render text with <br> tags */
+function RenderHtmlText({ text, className }) {
+  if (!text) return null;
+  return (
+    <span className={className}>
+      {text.split("<br>").map((line, i) => (
+        <React.Fragment key={i}>
+          {line}
+          {i < text.split("<br>").length - 1 && <br />}
+        </React.Fragment>
+      ))}
+    </span>
+  );
+}
+
+/* Helper to render text with **markdown** bold */
+function RenderMarkdownText({ text }) {
+  if (!text) return null;
+  return (
+    <>
+      {text.split(/(\*\*.*?\*\*)/g).map((part, i) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={i} className="text-white font-bold bg-white/10 px-1 rounded mx-0.5">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 function SectionCard({ children, className = "" }) {
   return (
     <section className={"relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] p-6 sm:p-8 backdrop-blur shadow-[0_10px_40px_rgba(139,92,246,0.15)] " + className}>
@@ -110,8 +142,8 @@ function SectionCard({ children, className = "" }) {
 
 function PricingCard({ icon: Icon, name, price, desc, highlight = false, badge = "" }) {
   return (
-    <div className={`relative flex flex-col rounded-2xl border p-6 transition-all ${highlight ? "border-indigo-400 bg-indigo-500/10 scale-105 z-10" : "border-white/10 bg-black/30"}`}>
-      {badge && <span className="absolute -top-3 right-4 rounded-full bg-indigo-500 px-3 py-1 text-[10px] font-bold uppercase text-white">{badge}</span>}
+    <div className={`relative flex flex-col rounded-2xl border p-6 transition-all ${highlight ? "border-indigo-400 bg-indigo-500/10 scale-105 z-10 shadow-xl shadow-indigo-500/20" : "border-white/10 bg-black/30 hover:bg-white/5"}`}>
+      {badge && <span className="absolute -top-3 right-4 rounded-full bg-indigo-500 px-3 py-1 text-[10px] font-bold uppercase text-white shadow-lg">{badge}</span>}
       <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-indigo-300"><Icon size={24} /></div>
       <h3 className="text-lg font-bold">{name}</h3>
       <div className="mt-2 flex items-baseline gap-1">
@@ -128,6 +160,16 @@ export default function SlideAIPricing() {
   const { txs, txa } = useTx("blog_slideai_pricing");
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = `${siteUrl}/blog/slideai/pricing`;
+
+  // デモ画像のリスト（6枚）
+  const demoImages = [
+    "/images/slideai/demo-cafe-1.jpg",
+    "/images/slideai/demo-cafe-2.jpg",
+    "/images/slideai/demo-cafe-3.jpg",
+    "/images/slideai/demo-cafe-4.jpg",
+    "/images/slideai/demo-cafe-5.jpg",
+    "/images/slideai/demo-cafe-6.jpg",
+  ];
 
   return (
     <>
@@ -157,30 +199,48 @@ export default function SlideAIPricing() {
         <main className="mx-auto max-w-3xl px-6 pb-20 pt-10">
           
           {/* Hero */}
-          <section className="mb-12">
-            <span className="rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-200">{txs("hero.kicker")}</span>
-            <h1 className="mt-6 bg-gradient-to-r from-white via-indigo-100 to-fuchsia-100 bg-clip-text text-4xl font-extrabold text-transparent sm:text-6xl">{txs("hero.h1")}</h1>
-            <p className="mt-6 text-lg text-indigo-100/90 leading-relaxed">{txs("hero.tagline")}</p>
+          <section className="mb-16 text-center sm:text-left">
+            <span className="inline-block rounded-full border border-indigo-400/30 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-200 mb-6">{txs("hero.kicker")}</span>
+            <h1 className="bg-gradient-to-r from-white via-indigo-100 to-fuchsia-100 bg-clip-text text-4xl font-extrabold text-transparent sm:text-6xl leading-tight">
+              <RenderHtmlText text={txs("hero.h1")} />
+            </h1>
+            <p className="mt-6 text-lg text-indigo-100/90 leading-relaxed max-w-2xl">{txs("hero.tagline")}</p>
+            
+            <div className="mt-6 flex flex-wrap gap-2 justify-center sm:justify-start">
+              {txa("hero.badges").map((badge, i) => (
+                <span key={i} className="rounded-full bg-white/10 px-3 py-1 text-xs text-indigo-100 border border-white/5">{badge}</span>
+              ))}
+            </div>
           </section>
 
-          {/* Magic of One-Shot */}
-          
-          <SectionCard className="mb-8">
+          {/* Intro & Gallery */}
+          <SectionCard className="mb-12">
             <h2 className="text-2xl font-bold tracking-tight">{txs("intro.h2")}</h2>
-            <p className="mt-4 text-indigo-100/90 leading-relaxed">{txs("intro.p1")}</p>
+            <p className="mt-4 text-indigo-100/90 leading-relaxed mb-8">{txs("intro.p1")}</p>
+            
+            {/* 6枚の画像を美しく並べるグリッド */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {demoImages.map((src, i) => (
+                <div key={i} className="group relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10 bg-black/40 hover:border-indigo-400/50 transition-colors">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={src} 
+                    alt={`Slide Demo ${i + 1}`} 
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center text-xs text-indigo-300/50">Generated entirely by SlideAI</p>
           </SectionCard>
-          [Image showing the AI transformation process from text prompt to 6 beautiful slides]
 
           {/* Pricing Grid */}
-          <SectionCard className="mb-8 border-indigo-500/30 bg-indigo-500/5">
+          <SectionCard className="mb-12 border-indigo-500/30 bg-indigo-500/5">
             <h2 className="text-2xl font-bold">{txs("plans.h2")}</h2>
             <p className="mt-2 text-sm text-indigo-200/80">
-  {txs("plans.p_desc").split(/(\*\*.*?\*\*)/g).map((part, i) => 
-    part.startsWith("**") && part.endsWith("**") 
-      ? <strong key={i} className="text-white font-bold">{part.slice(2, -2)}</strong> 
-      : part
-  )}
-</p>
+              <RenderMarkdownText text={txs("plans.p_desc")} />
+            </p>
             
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
               <PricingCard icon={FaClock} name={txs("plans.pass7.name")} price={txs("plans.pass7.price")} desc={txs("plans.pass7.desc")} />
@@ -192,35 +252,46 @@ export default function SlideAIPricing() {
               <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {txa("plans.features").map((f, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-indigo-100/90">
-                    <FaCheckCircle className="text-indigo-400" /> {f}
+                    <FaCheckCircle className="text-indigo-400 shrink-0" /> <span>{f}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </SectionCard>
 
-          
-
           {/* FAQ */}
-          <SectionCard className="mb-8">
+          <SectionCard className="mb-12">
             <h2 className="text-2xl font-bold">{txs("faq.h2")}</h2>
             <div className="mt-6 space-y-4">
               {txa("faq.items").map((item, i) => (
-                <div key={i} className="rounded-xl border border-white/5 bg-black/20 p-4">
-                  <h4 className="font-bold text-white/90">Q: {item.q}</h4>
-                  <p className="mt-2 text-sm text-indigo-100/80 leading-relaxed">{item.a}</p>
+                <div key={i} className="rounded-xl border border-white/5 bg-black/20 p-5 hover:bg-white/5 transition-colors">
+                  <h4 className="font-bold text-white/90 text-sm sm:text-base flex items-start gap-2">
+                    <span className="text-indigo-400">Q.</span> {item.q}
+                  </h4>
+                  <p className="mt-2 text-sm text-indigo-100/80 leading-relaxed pl-5">{item.a}</p>
                 </div>
               ))}
             </div>
           </SectionCard>
 
           {/* CTA */}
-          <div className="mt-12 flex flex-col items-center gap-6">
-            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-full bg-white px-8 py-4 text-lg font-bold text-indigo-900 shadow-2xl transition-all hover:scale-105 active:scale-95">
-              <FaAppStore size={24} />
+          <div className="mt-16 mb-8 flex flex-col items-center gap-8">
+            <div className="text-center space-y-2">
+              <h3 className="text-2xl font-bold text-white">Ready to impress?</h3>
+              <p className="text-indigo-200/70 text-sm">Download now and create your first deck in seconds.</p>
+            </div>
+            
+            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="relative group flex items-center gap-3 rounded-full bg-white px-8 py-4 text-lg font-bold text-indigo-900 shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all hover:scale-105 active:scale-95 hover:shadow-[0_0_60px_rgba(255,255,255,0.5)]">
+              <FaAppStore size={28} />
               <span>{txs("cta.download")}</span>
+              
+              {/* Button Glow Effect */}
+              <div className="absolute inset-0 -z-10 rounded-full bg-white/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
-            <p className="text-xs text-indigo-300/60 tracking-widest uppercase">Last Updated: {LAST_UPDATED_ISO}</p>
+            
+            <p className="text-[10px] text-indigo-300/40 tracking-widest uppercase font-mono">
+              Last Updated: {LAST_UPDATED_ISO}
+            </p>
           </div>
 
         </main>
