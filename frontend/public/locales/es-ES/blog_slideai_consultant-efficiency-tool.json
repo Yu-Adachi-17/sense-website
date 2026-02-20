@@ -1,1 +1,11 @@
-{}
+{
+  "seo": {
+    "title": "Hack de creación de propuestas para consultores | SlideAI Pro",
+    "description": "Deja de perder tus fines de semana formateando presentaciones. Crea propuestas de alta fidelidad en 3 minutos con IA."
+  },
+  "hero": {
+    "h1": "Deja de hacer diapositivas.<br>Empieza a vender ideas.",
+    "tagline": "Tu tiempo es para pensar, no para ajustar cuadros de texto. SlideAI transforma tu visión en cubiertas profesionales al instante."
+  },
+  "cta": { "download": "Empieza a ahorrar tiempo" }
+}

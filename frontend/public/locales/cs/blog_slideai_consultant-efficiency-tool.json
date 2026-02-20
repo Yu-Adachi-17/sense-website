@@ -1,1 +1,50 @@
-{}
+{
+  "seo": {
+    "title": "Tvorba návrhů pro konzultanty a freelancery | SlideAI Pro",
+    "description": "Přestaňte trávit víkendy formátováním prezentací. Podívejte se, jak profíci tvoří špičkové návrhy za 3 minuty pomocí AI.",
+    "ogTitle": "Zrychlete tvorbu návrhů o 90 % se SlideAI Pro",
+    "ogDescription": "Zapomeňte na ruční formátování v PowerPointu. Proměňte svou strategii v hotové slajdy okamžitě. Skutečně neomezené generování."
+  },
+  "aria": { "home": "SlideAI Domů" },
+  "nav": { "blog": "Blog", "category": "Nástroje produktivity" },
+  "hero": {
+    "h1": "Přestaňte vyrábět slajdy.<br>Začněte prodávat nápady.",
+    "tagline": "Váš čas je určen pro strategické myšlení, ne pro posouvání textových polí. SlideAI okamžitě promění vaši vizi v profesionální prezentaci. Maximalizujte své fakturovatelné hodiny.",
+    "badges": ["Konzultantská úroveň vzhledu", "Automatizace návrhů", "Výstup připravený pro klienty"]
+  },
+  "demo": {
+    "h2": "Důkaz: Od zadání k plné prezentaci za 180 sekund",
+    "p1": "SlideAI kombinuje rychlost s profesionální precizností. Podívejte se, jak se z jednoho zadání vygeneruje komplexní návrh DX strategie.",
+    "prompt_label": "A. Jediný potřebný vstup (vaše zadání):",
+    "prompt_text": "\"Jste konzultant pro DX strategii. Vytvořte návrh pro středně velkého výrobního klienta na přechod z legacy systémů na produktivitu řízenou AI. Zahrňte problémy, vizi smart factory, roadmapu na 3 roky, ROI a další kroky.\"",
+    "output_label": "B. Výsledek (generováno za 3 minuty):",
+    "image_captions": [
+      "1. Titul a agenda",
+      "2. Analýza problémů",
+      "3. Cílový model (To-Be)",
+      "4. Strategická roadmapa",
+      "5. Projekce ROI",
+      "6. Okamžité další kroky"
+    ]
+  },
+  "benefits": {
+    "h2": "Proč profíci volí SlideAI",
+    "items": [
+      { "title": "Nulové tření v designu", "desc": "AI se postará o vizuální hierarchii a zarovnání. Vy se soustředíte pouze na logiku." },
+      { "title": "Neomezené iterace", "desc": "Upravujte a regenerujte, dokud není tok vyprávění dokonalý. Žádné limity kreditů." },
+      { "title": "Kupte si zpět svůj čas", "desc": "Proměňte 4 hodiny ruční práce v 10 minut kouzla AI. Získejte zpět své víkendy." }
+    ]
+  },
+  "plans": {
+    "h2": "Investice, která se okamžitě vrátí",
+    "p_desc": "Jakou hodnotu má jedna vaše fakturovatelná hodina? SlideAI Pro stojí méně než pracovní oběd, ale měsíčně vám ušetří desítky hodin. **Neomezené generování.**",
+    "pass7": { "name": "7denní pas", "price": "$9.99", "desc": "Ideální pro jednorázové důležité návrhy." },
+    "monthly": { "name": "Měsíční plán", "price": "$14.99", "desc": "Standardní volba pro aktivní konzultanty." },
+    "yearly": { "name": "Roční plán", "price": "$149.99", "desc": "Nejlepší hodnota pro dlouhodobý růst a efektivitu." }
+  },
+  "cta": {
+    "h3": "Ruční výroba slajdů je nyní zastaralá.",
+    "p": "Jakmile to zkusíte, už se nevrátíte. Zažijte ten rozdíl hned u prvního návrhu.",
+    "download": "Začněte šetřit čas hned"
+  }
+}
