@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Aplikasi iPhone Terbaik untuk Pembentangan: Bina Slide Pro dalam 3 Minit",
+    "description": "Era mencipta pembentangan di telefon pintar telah tiba. Gunakan aplikasi SlideAI iPhone untuk menjana slaid berkualiti tinggi semasa dalam perjalanan.",
+    "ogTitle": "SlideAI: Aplikasi iPhone Utama untuk Penciptaan Pembentangan Segera",
+    "ogDescription": "Ubah iPhone anda menjadi penjana slaid yang berkuasa. 3 minit, satu prompt, hasil yang menakjubkan."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Era Membina Slaid<br>pada iPhone Anda Kini Bermula.",
+    "tagline": "Semasa dalam perjalanan, di kafe, atau saat inspirasi datang. Hanya masukkan prompt pada iPhone anda dan lihat slaid profesional muncul dalam 3 minit. Tanpa PC.",
+    "badges": ["iOS & iPadOS", "Penjanaan 3-Minit", "Aplikasi Berkuasa AI"]
+  },
+  "demo": {
+    "h2": "Dek Profesional, Terus dari Poket Anda.",
+    "p1": "Lupakan tekanan membuka PowerPoint di depan skrin kosong. Dengan SlideAI, anda hanya perlu menerangkan apa yang anda mahukan, dan AI menguruskan selebihnya.",
+    "prompt_label": "Contoh Prompt yang Digunakan:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Hasil yang Dijana (Pratonton Mudah Alih):",
+    "image_captions": ["Slaid Tajuk Menarik untuk Jelajah Barcelona", "Sorotan Visual Tempat Pelancongan"]
+  },
+  "features": {
+    "items": [
+      { "title": "Sifar Reka Bentuk Manual", "desc": "AI menguruskan susun atur dan penjajaran. Tidak perlu bermula dari sifar lagi." },
+      { "title": "Produktiviti Mudah Alih Sebenar", "desc": "Siapkan pembentangan anda di dalam tren atau di antara mesyuarat." },
+      { "title": "Hierarki Visual Memukau", "desc": "Susun atur moden yang kelihatan profesional pada sebarang skrin." }
+    ]
+  },
+  "plans": {
+    "h2": "Mula dengan 'free' Hari Ini",
+    "p_desc": "Alami kepantasan AI. Malah pada **pelan free, anda boleh menjana sehingga 2 pembentangan sehari.**",
+    "pass7": { "name": "Pass 7-Hari", "price": ".99", "desc": "Untuk projek mendesak sekali guna." },
+    "monthly": { "name": "Bulanan", "price": ".99", "desc": "Pilihan paling popular untuk profesional aktif." },
+    "yearly": { "name": "Tahunan", "price": ".99", "desc": "Nilai terbaik untuk kecekapan jangka panjang." }
+  },
+  "cta": {
+    "h3": "Kuasai Pembentangan Anda di Mana Saja",
+    "p": "Muat turun SlideAI untuk iPhone dan ubah cara anda bekerja.",
+    "download": "Muat Turun di App Store"
+  }
+}

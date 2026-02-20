@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Aplikasi iPhone Terbaik untuk Presentasi: Buat Slide Pro dalam 3 Menit",
+    "description": "Era membuat presentasi di smartphone telah tiba. Berhenti mulai dari nol di PowerPoint. Gunakan aplikasi SlideAI iPhone untuk membuat slide berkualitas tinggi.",
+    "ogTitle": "SlideAI: Aplikasi iPhone Utama untuk Pembuatan Presentasi Instan",
+    "ogDescription": "Ubah iPhone Anda menjadi generator slide yang kuat. 3 menit, satu prompt, hasil luar biasa."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Era Membuat Slide<br>di iPhone Anda Telah Tiba.",
+    "tagline": "Saat di perjalanan, di kafe, atau saat inspirasi muncul. Cukup masukkan prompt di iPhone Anda dan lihat slide profesional muncul dalam 3 menit. Tanpa PC.",
+    "badges": ["iOS & iPadOS", "Generasi 3-Menit", "Aplikasi Bertenaga AI"]
+  },
+  "demo": {
+    "h2": "Dek Profesional, Langsung di Saku Anda.",
+    "p1": "Lupakan stres membuka PowerPoint di depan layar kosong. Dengan SlideAI, Anda cukup mendeskripsikan apa yang diinginkan, dan AI menangani desainnya.",
+    "prompt_label": "Contoh Prompt yang Digunakan:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Hasil yang Dihasilkan (Pratinjau Seluler):",
+    "image_captions": ["Slide Judul Menawan untuk Tur Barcelona", "Sorotan Visual Tempat Wisata"]
+  },
+  "features": {
+    "items": [
+      { "title": "Nol Desain Manual", "desc": "AI mengelola tata letak dan perataan. Tidak perlu mulai dari nol lagi." },
+      { "title": "Produktivitas Seluler Sejati", "desc": "Selesaikan presentasi Anda di kereta atau di antara rapat." },
+      { "title": "Hierarki Visual Memukau", "desc": "Tata letak modern yang terlihat profesional di layar mana pun." }
+    ]
+  },
+  "plans": {
+    "h2": "Mulai dengan 'free' Hari Ini",
+    "p_desc": "Rasakan kecepatan AI. Bahkan pada **paket free, Anda dapat membuat hingga 2 presentasi per hari.**",
+    "pass7": { "name": "Pass 7-Hari", "price": ".99", "desc": "Untuk proyek mendesak sekali pakai." },
+    "monthly": { "name": "Bulanan", "price": ".99", "desc": "Paling populer untuk profesional aktif." },
+    "yearly": { "name": "Tahunan", "price": ".99", "desc": "Nilai terbaik untuk efisiensi jangka panjang." }
+  },
+  "cta": {
+    "h3": "Kuasai Presentasi Anda di Mana Saja",
+    "p": "Unduh SlideAI untuk iPhone dan ubah cara Anda bekerja.",
+    "download": "Unduh di App Store"
+  }
+}

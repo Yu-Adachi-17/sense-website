@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Best iPhone App for Presentations: Create Pro Slides in 3 Minutes",
+    "description": "The era of creating presentations on smartphones is here. Stop starting from scratch in PowerPoint or Keynote. Use the SlideAI iPhone app to generate high-quality decks on the go.",
+    "ogTitle": "SlideAI: The Ultimate iPhone App for Instant Presentation Creation",
+    "ogDescription": "Turn your iPhone into a powerful slide generator. 3 minutes, one prompt, stunning results. Try it for free today."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "The Era of Building Slides<br>on Your iPhone is Here.",
+    "tagline": "On your commute, at a cafe, or the moment inspiration strikes. Simply enter a prompt on your iPhone and watch professional-grade slides appear in 3 minutes. No PC required.",
+    "badges": ["iOS & iPadOS", "3-Min Generation", "AI-Powered App"]
+  },
+  "demo": {
+    "h2": "Professional Decks, Right in Your Pocket.",
+    "p1": "Forget the stress of opening PowerPoint or Keynote to face a blank white screen. With SlideAI, you just describe what you want. The AI handles the structure, design, and image selection instantly.",
+    "prompt_label": "Example Prompt Used:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Generated Output (Mobile Preview):",
+    "image_captions": ["Stunning Title Slide for Barcelona Tour", "Visual-Rich Spot Highlights"]
+  },
+  "features": {
+    "items": [
+      { "title": "Zero Manual Design", "desc": "AI manages layouts, alignment, and visuals. You never have to start from a blank slide again." },
+      { "title": "True Mobile Productivity", "desc": "Finish your presentation on the train or between meetings. It's ready by the time you arrive." },
+      { "title": "Stunning Visual Hierarchy", "desc": "Optimized for beauty and clarity. Our AI ensures your slides look professional on any screen." }
+    ]
+  },
+  "plans": {
+    "h2": "Start for 'free' Today",
+    "p_desc": "Experience the speed of AI. Even on the **free plan, you can generate up to 2 presentations per day.** See for yourself why thousands are switching to mobile-first slide creation.",
+    "pass7": { "name": "7-Day Pass", "price": ".99", "desc": "For urgent, one-off projects." },
+    "monthly": { "name": "Monthly", "price": ".99", "desc": "Most popular for active professionals." },
+    "yearly": { "name": "Yearly", "price": ".99", "desc": "Best value for long-term efficiency." }
+  },
+  "cta": {
+    "h3": "Master Your Presentations Anywhere",
+    "p": "Download SlideAI for iPhone and transform how you work.",
+    "download": "Download on the App Store"
+  }
+}

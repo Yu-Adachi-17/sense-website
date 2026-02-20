@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Beste iPhone-App für Präsentationen: Profi-Slides in 3 Minuten",
+    "description": "Präsentationen werden jetzt am Smartphone erstellt. Kein PowerPoint mehr von Grund auf. Mit der SlideAI iPhone-App erstellen Sie hochwertige Decks von unterwegs.",
+    "ogTitle": "SlideAI: Die ultimative iPhone-App für Sofort-Präsentationen",
+    "ogDescription": "Verwandeln Sie Ihr iPhone in einen leistungsstarken Slide-Generator. 3 Minuten, ein Prompt, perfektes Ergebnis."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Folien erstellen wir jetzt<br>einfach am iPhone.",
+    "tagline": "Unterwegs, im Café oder wenn der Geistesblitz kommt. Geben Sie einen Prompt auf Ihrem iPhone ein und erhalten Sie in 3 Minuten Profi-Folien. Kein PC nötig.",
+    "badges": ["iOS & iPadOS", "3-Min. Generierung", "KI-App"]
+  },
+  "demo": {
+    "h2": "Profi-Decks direkt in Ihrer Tasche.",
+    "p1": "Vergessen Sie den Stress, PowerPoint vor einem leeren Bildschirm zu öffnen. Mit SlideAI beschreiben Sie einfach, was Sie wollen – die KI erledigt Design und Struktur.",
+    "prompt_label": "Beispiel-Prompt:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Ergebnis (Mobile Vorschau):",
+    "image_captions": ["Beeindruckende Titelfolie für Barcelona", "Visuell starke Highlights der Tour"]
+  },
+  "features": {
+    "items": [
+      { "title": "Kein manuelles Design", "desc": "KI übernimmt Layout und Ausrichtung. Nie wieder bei Null anfangen." },
+      { "title": "Mobile Produktivität", "desc": "Erstellen Sie Präsentationen in der Bahn oder zwischen Terminen." },
+      { "title": "Erstklassige Ästhetik", "desc": "Modernes Design, das auf jedem Bildschirm überzeugt." }
+    ]
+  },
+  "plans": {
+    "h2": "Heute 'free' starten",
+    "p_desc": "Erleben Sie den Speed von KI. Mit dem **free-Plan können Sie täglich 2 Präsentationen erstellen.** Testen Sie es jetzt.",
+    "pass7": { "name": "7-Tage-Pass", "price": ".99", "desc": "Für dringende Projekte." },
+    "monthly": { "name": "Monatlich", "price": ".99", "desc": "Beliebteste Wahl für Profis." },
+    "yearly": { "name": "Jährlich", "price": ".99", "desc": "Bester Wert für langfristige Effizienz." }
+  },
+  "cta": {
+    "h3": "Präsentationen überall meistern",
+    "p": "Laden Sie SlideAI für das iPhone und verändern Sie Ihren Workflow.",
+    "download": "Im App Store laden"
+  }
+}

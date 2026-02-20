@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Meilleure appli iPhone pour présentations : Des slides pro en 3 min",
+    "description": "L'ère de la création de présentations sur smartphone est là. Ne commencez plus de zéro sur PowerPoint. Utilisez SlideAI pour générer des slides de qualité partout.",
+    "ogTitle": "SlideAI : L'application iPhone ultime pour des présentations instantanées",
+    "ogDescription": "Transformez votre iPhone en générateur de slides puissant. 3 minutes, un prompt, un résultat bluffant."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Créer des présentations<br>sur iPhone est enfin possible.",
+    "tagline": "Dans les transports, au café ou dès qu'une idée surgit. Entrez simplement un prompt sur votre iPhone et créez des slides pro en 3 minutes. Plus besoin de PC.",
+    "badges": ["iOS & iPadOS", "Génération en 3 min", "App IA"]
+  },
+  "demo": {
+    "h2": "Des présentations pro, directement dans votre poche.",
+    "p1": "Oubliez le stress de la page blanche sur Keynote. Avec SlideAI, décrivez vos besoins et l'IA s'occupe de la structure, du design et des images instantanément.",
+    "prompt_label": "Exemple de prompt utilisé :",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Résultat généré (Aperçu mobile) :",
+    "image_captions": ["Slide de titre magnifique pour un tour de Barcelone", "Points forts visuels de la visite"]
+  },
+  "features": {
+    "items": [
+      { "title": "Zéro design manuel", "desc": "L'IA gère la mise en page et l'alignement automatiquement." },
+      { "title": "Productivité mobile réelle", "desc": "Terminez votre présentation dans le train ou entre deux rendez-vous." },
+      { "title": "Esthétique moderne", "desc": "Des mises en page pro qui impressionnent sur n'importe quel écran." }
+    ]
+  },
+  "plans": {
+    "h2": "Commencez 'free' dès aujourd'hui",
+    "p_desc": "Découvrez la puissance de l'IA. Avec le **plan free, générez jusqu'à 2 présentations par jour.**",
+    "pass7": { "name": "Pass 7 jours", "price": ".99", "desc": "Pour vos projets urgents et ponctuels." },
+    "monthly": { "name": "Mensuel", "price": ".99", "desc": "Le choix favori des professionnels actifs." },
+    "yearly": { "name": "Annuel", "price": ".99", "desc": "La meilleure offre pour une efficacité durable." }
+  },
+  "cta": {
+    "h3": "Maîtrisez vos présentations partout",
+    "p": "Téléchargez SlideAI pour iPhone et transformez votre façon de travailler.",
+    "download": "Télécharger sur l'App Store"
+  }
+}

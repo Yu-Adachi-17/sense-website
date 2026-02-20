@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Nejlepší iPhone aplikace pro prezentace: Profi slajdy za 3 minuty",
+    "description": "Éra vytváření prezentací na smartphonu je tady. Už žádné PowerPointy od nuly. S SlideAI pro iPhone vytvoříte profi podklady i na cestách.",
+    "ogTitle": "SlideAI: Revoluce v tvorbě prezentací na iPhone",
+    "ogDescription": "Proměňte svůj iPhone v generátor prezentací. 3 minuty, jeden prompt, úžasný výsledek."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Prezentace se nyní<br>tvoří na iPhone.",
+    "tagline": "Na cestách, v kavárně nebo když vás napadne skvělá myšlenka. Stačí zadat prompt a za 3 minuty máte hotovo. PC už nepotřebujete.",
+    "badges": ["iOS a iPadOS", "Tvorba za 3 min", "AI Aplikace"]
+  },
+  "demo": {
+    "h2": "Profi prezentace přímo ve vaší kapse.",
+    "p1": "Zapomeňte na stres z prázdné stránky v Keynote. SlideAI za vás vyřeší strukturu, design i výběr obrázků během okamžiku.",
+    "prompt_label": "Příklad zadání (Prompt):",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Výsledek (Náhled v mobilu):",
+    "image_captions": ["Úchvatný úvodní slajd o Barceloně", "Vizuálně bohatý přehled památek"]
+  },
+  "features": {
+    "items": [
+      { "title": "Nulové ruční formátování", "desc": "AI se postará o zarovnání a hierarchii designu." },
+      { "title": "Produktivita na cestách", "desc": "Dokončete prezentaci ve vlaku nebo mezi schůzkami." },
+      { "title": "Špičková estetika", "desc": "Moderní vzhled, který vypadá skvěle na každé obrazovce." }
+    ]
+  },
+  "plans": {
+    "h2": "Začněte dnes 'free'",
+    "p_desc": "V rámci **free tarifu můžete generovat 2 prezentace denně**. Vyzkoušejte si rychlost AI na vlastní kůži.",
+    "pass7": { "name": "7denní pas", "price": ".99", "desc": "Pro naléhavé projekty." },
+    "monthly": { "name": "Měsíční", "price": ".99", "desc": "Nejoblíbenější volba pro profesionály." },
+    "yearly": { "name": "Roční", "price": ".99", "desc": "Nejlepší hodnota pro dlouhodobou efektivitu." }
+  },
+  "cta": {
+    "h3": "Ovládněte prezentace odkudkoliv",
+    "p": "Stáhněte si SlideAI pro iPhone a změňte svůj styl práce.",
+    "download": "Stáhnout na App Store"
+  }
+}

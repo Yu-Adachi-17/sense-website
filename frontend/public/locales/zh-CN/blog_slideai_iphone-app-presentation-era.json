@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "iPhone 手机 PPT 制作神器：3 分钟生成专业演示文稿",
+    "description": "手机制作演示文稿的时代已经到来。告别在 PowerPoint 中从零开始。使用 SlideAI iPhone 应用，在通勤路上即可快速生成高质量幻灯片。",
+    "ogTitle": "SlideAI：让 iPhone 变身强大 PPT 生成器的黑科技应用",
+    "ogDescription": "只需 3 分钟，一个指令，即可获得精美演示文稿。现在就免费开始体验。"
+  },
+  "nav": { "blog": "博客", "category": "iPhone / 应用" },
+  "hero": {
+    "h1": "幻灯片制作，<br>进入手机办公新时代。",
+    "tagline": "无论是在通勤路上、咖啡馆，还是灵感闪现的瞬间。只需在 iPhone 上输入一句话，专业级幻灯片 3 分钟内即可完成。无需电脑。",
+    "badges": ["支持 iOS & iPadOS", "3 分钟极速生成", "AI 驱动应用"]
+  },
+  "demo": {
+    "h2": "专业演示文稿，尽在掌中。",
+    "p1": "再也不用面对 PowerPoint 的空白页发愁。有了 SlideAI，你只需描述需求，AI 会立即完成结构设计和配图。",
+    "prompt_label": "实际输入指令示例：",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "生成结果（手机端预览）：",
+    "image_captions": ["巴塞罗那旅游方案精美封面", "视觉冲击力十足的景点介绍"]
+  },
+  "features": {
+    "items": [
+      { "title": "零手动设计", "desc": "AI 自动处理排版和对齐。从此告别从零开始的繁琐过程。" },
+      { "title": "真正的移动办公", "desc": "在地铁上或会议间隙即可完成演示文稿制作。" },
+      { "title": "顶尖视觉审美", "desc": "现代感十足的布局，在任何屏幕上都极具专业感。" }
+    ]
+  },
+  "plans": {
+    "h2": "立即体验 'free' 方案",
+    "p_desc": "感受 AI 的速度。即使是 **free 方案，每天也可生成 2 份演示文稿。**",
+    "pass7": { "name": "7 天通行证", "price": ".99", "desc": "适合短期紧急项目。" },
+    "monthly": { "name": "月付方案", "price": ".99", "desc": "活跃专业人士的首选。" },
+    "yearly": { "name": "年付方案", "price": ".99", "desc": "长期高效工作的最佳性价比选择。" }
+  },
+  "cta": {
+    "h3": "随时随地掌控你的演示",
+    "p": "下载 iPhone 版 SlideAI，彻底变革你的工作方式。",
+    "download": "在 App Store 下载"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "iPhoneで資料作成ができる神アプリ：SlideAIで高品質スライドを3分生成",
+    "description": "プレゼン資料はスマホで作る時代へ。PowerPointをゼロからいじる必要はありません。SlideAIアプリなら、移動中にプロンプトを入力するだけで高品質なスライドが完成します。",
+    "ogTitle": "SlideAI：スマホ1つでプロ級の資料が完成する新時代の資料作成アプリ",
+    "ogDescription": "iPhoneを強力なスライド生成ツールに。3分、1プロンプトで美しい資料を。今すぐfreeでお試しください。"
+  },
+  "nav": { "blog": "ブログ", "category": "iPhone / アプリ" },
+  "hero": {
+    "h1": "資料作成は、<br>スマホで行う時代へ。",
+    "tagline": "移動中、カフェでの待ち時間、ふと思いついた瞬間に。iPhoneを開いてプロンプトを打ち込むだけで、プロ級のスライドが3分で完成します。もうPCを広げる必要はありません。",
+    "badges": ["iPhone/iPad対応", "最短3分生成", "AI資料作成アプリ"]
+  },
+  "demo": {
+    "h2": "iPhoneひとつで、ここまでできる。",
+    "p1": "パワポやKeynoteを立ち上げ、白紙の画面と格闘する時間はもう終わりです。SlideAIなら、アプリから「欲しい資料のテーマ」を入力するだけで、デザインから構成までAIが完結させます。",
+    "prompt_label": "実際の入力プロンプト例：",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "生成されたスライド（iPhoneでの閲覧イメージ）:",
+    "image_captions": ["バルセロナの魅力を伝える美しい表紙", "視覚的に訴えかける観光スポット紹介"]
+  },
+  "features": {
+    "items": [
+      { "title": "ゼロからの作成は不要", "desc": "スライドの構成、レイアウト、画像選定。すべてAIが行うため、PowerPointを操作するストレスがありません。" },
+      { "title": "移動中もサクサク", "desc": "電車での移動中やアポイントの合間に、iPhoneからプロンプトを送信。目的地に着く頃には資料が完成しています。" },
+      { "title": "圧倒的なビジュアル美", "desc": "「美しいビジュアル」を重視したAIが、相手を惹きつける高品質な資料を自動で作り上げます。" }
+    ]
+  },
+  "plans": {
+    "h2": "まずは「free」で体験してください",
+    "p_desc": "SlideAIは、**freeプランでも1日2回まで資料生成が可能**です。まずはそのスピードを体感してください。",
+    "pass7": { "name": "7日間パス", "price": ".99", "desc": "急な資料作成が必要な時に。" },
+    "monthly": { "name": "月額プラン", "price": ".99", "desc": "効率を追求するプロフェッショナルに一番人気。" },
+    "yearly": { "name": "年額プラン", "price": ".99", "desc": "年間通して最高のコストパフォーマンスを。" }
+  },
+  "cta": {
+    "h3": "今すぐ、その手の中で資料を完成させる",
+    "p": "iPhoneアプリ版SlideAIで、新しい資料作成の形を体験しましょう。",
+    "download": "App Storeからダウンロード"
+  }
+}

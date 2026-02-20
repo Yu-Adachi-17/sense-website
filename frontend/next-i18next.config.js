@@ -52,6 +52,7 @@ module.exports = {
     'blog_slideai_consultant-efficiency-tool',
     'blog_slideai_free-ai-slide-generator',
     'blog_slideai_recommended-presentation-ai',
+    'blog_slideai_iphone-app-presentation-era',
   ],
   defaultNS: 'common',
 

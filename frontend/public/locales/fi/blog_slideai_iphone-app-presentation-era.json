@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Paras iPhone-sovellus esityksiin: Ammattimaiset diat 3 minuutissa",
+    "description": "Esitysten tekeminen älypuhelimella on täällä. Älä aloita tyhjästä PowerPointissa. SlideAI-sovelluksella luot laadukkaat esitykset liikkeellä ollessasi.",
+    "ogTitle": "SlideAI: Ultimatiivinen iPhone-sovellus esitysten luomiseen",
+    "ogDescription": "Muuta iPhonesi tehokkaaksi diojen generaattoriksi. 3 minuuttia, yksi kehoite, upea lopputulos."
+  },
+  "nav": { "blog": "Blogi", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Esitysten rakentaminen<br>iPhonella on nyt totta.",
+    "tagline": "Työmatkalla, kahvilassa tai inspiraation iskiessä. Syötä kehoite iPhonellasi ja katso, kun ammattitasoiset diat valmistuvat 3 minuutissa. Tietokonetta ei tarvita.",
+    "badges": ["iOS & iPadOS", "3 min luonti", "AI-sovellus"]
+  },
+  "demo": {
+    "h2": "Ammattimaiset esitykset taskussasi.",
+    "p1": "Unohda tyhjän sivun kammo. SlideAI:n avulla kuvailet vain mitä haluat, ja tekoäly hoitaa rakenteen, suunnittelun ja kuvat välittömästi.",
+    "prompt_label": "Esimerkki käytetystä kehoitteesta:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Luotu lopputulos (Mobiilinäkymä):",
+    "image_captions": ["Upea otsikkodia Barcelonan kierrokselle", "Visuaalisesti näyttävät kohdekohdat"]
+  },
+  "features": {
+    "items": [
+      { "title": "Ei manuaalista suunnittelua", "desc": "Tekoäly hoitaa asettelun ja kuvituksen puolestasi." },
+      { "title": "Aitoa mobiilituottavuutta", "desc": "Viimeistele esityksesi junassa tai kokousten välissä." },
+      { "title": "Upea visuaalinen ilme", "desc": "Modernit asettelut, jotka näyttävät hyvältä millä tahansa näytöllä." }
+    ]
+  },
+  "plans": {
+    "h2": "Aloita 'free' tänään",
+    "p_desc": "Koe tekoälyn nopeus. **Free-tasolla voit luoda jopa 2 esitystä päivässä.**",
+    "pass7": { "name": "7 päivän passi", "price": ".99", "desc": "Kiireellisiin kertaprojekteihin." },
+    "monthly": { "name": "Kuukausijäsenyys", "price": ".99", "desc": "Suosituin vaihtoehto ammattilaisille." },
+    "yearly": { "name": "Vuosijäsenyys", "price": ".99", "desc": "Paras vastine pitkäaikaiseen käyttöön." }
+  },
+  "cta": {
+    "h3": "Hallitse esityksiä missä vain",
+    "p": "Lataa SlideAI iPhonelle ja mullista työtapasi.",
+    "download": "Lataa App Storesta"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Migliore app iPhone per presentazioni: Slide pro in 3 minuti",
+    "description": "L'era della creazione di presentazioni su smartphone è arrivata. Smetti di iniziare da zero su PowerPoint. Usa l'app SlideAI per iPhone.",
+    "ogTitle": "SlideAI: L'app iPhone definitiva per la creazione istantanea di presentazioni",
+    "ogDescription": "Trasforma il tuo iPhone in un potente generatore di slide. 3 minuti, un prompt, risultati incredibili."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "L'era della creazione slide<br>su iPhone è arrivata.",
+    "tagline": "In viaggio, al bar o quando arriva l'ispirazione. Inserisci un prompt sul tuo iPhone e guarda slide professionali apparire in 3 minuti. Niente PC.",
+    "badges": ["iOS e iPadOS", "Generazione in 3 min", "App basata su IA"]
+  },
+  "demo": {
+    "h2": "Presentazioni pro, direttamente in tasca.",
+    "p1": "Dimentica lo stress di PowerPoint davanti a uno schermo bianco. Con SlideAI, descrivi cosa desideri e l'IA gestisce struttura e design all'istante.",
+    "prompt_label": "Esempio di prompt utilizzato:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Risultato generato (Anteprima mobile):",
+    "image_captions": ["Slide del titolo stupenda per il tour di Barcellona", "Highlight visivi dei luoghi turistici"]
+  },
+  "features": {
+    "items": [
+      { "title": "Zero design manuale", "desc": "L'IA gestisce layout e allineamento. Mai più fogli bianchi." },
+      { "title": "Produttività mobile reale", "desc": "Finisci la tua presentazione in treno o tra una riunione e l'altra." },
+      { "title": "Estetica moderna", "desc": "Layout professionali che colpiscono su ogni schermo." }
+    ]
+  },
+  "plans": {
+    "h2": "Inizia 'free' oggi stesso",
+    "p_desc": "Prova la velocità dell'IA. Con il **piano free, puoi generare fino a 2 presentazioni al giorno.**",
+    "pass7": { "name": "Pass 7 giorni", "price": ".99", "desc": "Per progetti urgenti e una tantum." },
+    "monthly": { "name": "Mensile", "price": ".99", "desc": "La scelta più popolare per i professionisti." },
+    "yearly": { "name": "Annuale", "price": ".99", "desc": "Il miglior valore per un'efficienza a lungo termine." }
+  },
+  "cta": {
+    "h3": "Domina le tue presentazioni ovunque",
+    "p": "Scarica SlideAI per iPhone e trasforma il tuo modo di lavorare.",
+    "download": "Scarica su App Store"
+  }
+}

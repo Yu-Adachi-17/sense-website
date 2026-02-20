@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Ứng dụng iPhone tốt nhất để thuyết trình: Slide chuyên nghiệp trong 3 phút",
+    "description": "Kỷ nguyên tạo bài thuyết trình trên smartphone đã đến. Không cần bắt đầu từ con số 0 trong PowerPoint. Sử dụng SlideAI trên iPhone để tạo slide chất lượng cao.",
+    "ogTitle": "SlideAI: Ứng dụng iPhone tối thượng để tạo bài thuyết trình tức thì",
+    "ogDescription": "Biến iPhone của bạn thành công cụ tạo slide mạnh mẽ. 3 phút, một câu lệnh, kết quả tuyệt vời."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / Ứng dụng" },
+  "hero": {
+    "h1": "Kỷ nguyên tạo slide<br>trên iPhone đã bắt đầu.",
+    "tagline": "Khi đang di chuyển, tại quán cà phê hay khi ý tưởng nảy ra. Chỉ cần nhập câu lệnh trên iPhone và xem các slide chuyên nghiệp xuất hiện trong 3 phút. Không cần PC.",
+    "badges": ["Hỗ trợ iOS", "Tạo trong 3 phút", "Ứng dụng AI"]
+  },
+  "demo": {
+    "h2": "Bài thuyết trình chuyên nghiệp, ngay trong túi bạn.",
+    "p1": "Quên đi nỗi lo khi nhìn vào màn hình trắng của PowerPoint. Với SlideAI, bạn chỉ cần mô tả những gì mình muốn, AI sẽ lo phần cấu trúc, thiết kế và hình ảnh ngay lập tức.",
+    "prompt_label": "Ví dụ câu lệnh sử dụng:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Kết quả tạo ra (Xem trước trên di động):",
+    "image_captions": ["Slide tiêu đề ấn tượng cho tour Barcelona", "Hình ảnh trực quan về các điểm tham quan"]
+  },
+  "features": {
+    "items": [
+      { "title": "Không cần thiết kế thủ công", "desc": "AI tự động sắp xếp bố cục và căn chỉnh. Không bao giờ phải bắt đầu lại từ đầu." },
+      { "title": "Năng suất di động thực thụ", "desc": "Hoàn thành bài thuyết trình trên tàu hoặc giữa các cuộc họp." },
+      { "title": "Thẩm mỹ đỉnh cao", "desc": "Bố cục hiện đại, chuyên nghiệp trên mọi màn hình." }
+    ]
+  },
+  "plans": {
+    "h2": "Bắt đầu 'free' ngay hôm nay",
+    "p_desc": "Trải nghiệm tốc độ của AI. Ngay cả với **gói free, bạn có thể tạo tới 2 bài thuyết trình mỗi ngày.**",
+    "pass7": { "name": "Gói 7 ngày", "price": ".99", "desc": "Dành cho các dự án khẩn cấp, dùng một lần." },
+    "monthly": { "name": "Hàng tháng", "price": ".99", "desc": "Lựa chọn phổ biến nhất cho chuyên gia." },
+    "yearly": { "name": "Hàng năm", "price": ".99", "desc": "Giá trị tốt nhất cho hiệu quả lâu dài." }
+  },
+  "cta": {
+    "h3": "Làm chủ bài thuyết trình ở mọi nơi",
+    "p": "Tải SlideAI cho iPhone và thay đổi cách bạn làm việc.",
+    "download": "Tải trên App Store"
+  }
+}

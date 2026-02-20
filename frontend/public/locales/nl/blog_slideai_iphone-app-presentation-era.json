@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Beste iPhone-app voor presentaties: Maak profi-slides in 3 minuten",
+    "description": "Het tijdperk van presentaties maken op je smartphone is aangebroken. Stop met het handmatig knutselen in PowerPoint. Gebruik SlideAI op je iPhone.",
+    "ogTitle": "SlideAI: De ultieme iPhone-app voor directe presentaties",
+    "ogDescription": "Verander je iPhone in een krachtige slide-generator. 3 minuten, één prompt, verbluffend resultaat."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Slides bouwen op je iPhone<br>is nu de nieuwe standaard.",
+    "tagline": "Onderweg, in een café of op het moment dat je inspiratie krijgt. Voer een prompt in op je iPhone en zie hoe professionele slides in 3 minuten verschijnen. Geen pc nodig.",
+    "badges": ["iOS & iPadOS", "3-Min. Generatie", "AI-gestuurde App"]
+  },
+  "demo": {
+    "h2": "Professionele decks, gewoon in je broekzak.",
+    "p1": "Vergeet de stress van een leeg wit scherm in PowerPoint. Met SlideAI beschrijf je wat je wilt en de AI regelt de structuur, het design en de afbeeldingen direct.",
+    "prompt_label": "Voorbeeld van gebruikte prompt:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Gegenereerd resultaat (Mobiele preview):",
+    "image_captions": ["Prachtige titel-slide voor Barcelona Tour", "Visueel rijke hoogtepunten van de stad"]
+  },
+  "features": {
+    "items": [
+      { "title": "Geen handmatig design", "desc": "AI beheert lay-outs en uitlijning. Je hoeft nooit meer bij nul te beginnen." },
+      { "title": "Echte mobiele productiviteit", "desc": "Maak je presentatie af in de trein of tussen afspraken door." },
+      { "title": "Verbluffende visuele hiërarchie", "desc": "Moderne lay-outs die er op elk scherm professioneel uitzien." }
+    ]
+  },
+  "plans": {
+    "h2": "Start vandaag nog 'free'",
+    "p_desc": "Ervaar de snelheid van AI. Zelfs met het **free-abonnement kun je tot 2 presentaties per dag genereren.**",
+    "pass7": { "name": "7-Dagenpas", "price": ".99", "desc": "Voor dringende, eenmalige projecten." },
+    "monthly": { "name": "Maandelijks", "price": ".99", "desc": "Meest populair voor actieve professionals." },
+    "yearly": { "name": "Jaarlijks", "price": ".99", "desc": "Beste waarde voor efficiëntie op de lange termijn." }
+  },
+  "cta": {
+    "h3": "Beheers je presentaties overal",
+    "p": "Download SlideAI voor iPhone en transformeer je manier van werken.",
+    "download": "Download in de App Store"
+  }
+}

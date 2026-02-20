@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "A legjobb iPhone alkalmazás prezentációkhoz: Profi diák 3 perc alatt",
+    "description": "Megérkezett az okostelefonos prezentációkészítés korszaka. Ne kezdje a nulláról a PowerPointban. Használja a SlideAI iPhone alkalmazást a minőségi diákhoz.",
+    "ogTitle": "SlideAI: Az ultimátum iPhone app azonnali prezentációkészítéshez",
+    "ogDescription": "Változtassa iPhone-ját egy erőteljes diaggénerátorrá. 3 perc, egy prompt, lenyűgöző eredmények."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "A prezentációépítés korszaka<br>az iPhone-on elkezdődött.",
+    "tagline": "Útközben, kávézóban vagy amikor jön az ihlet. Csak írjon be egy promptot az iPhone-ján, és nézze, ahogy 3 perc alatt elkészülnek a profi diák. Nincs szükség PC-re.",
+    "badges": ["iOS és iPadOS", "3 perces generálás", "AI-alapú alkalmazás"]
+  },
+  "demo": {
+    "h2": "Profi prezentációk, közvetlenül a zsebében.",
+    "p1": "Felejtse el az üres fehér képernyő okozta stresszt. A SlideAI-val csak leírja, mit szeretne, és az AI azonnal kezeli a struktúrát, a designt és a képeket.",
+    "prompt_label": "Példa a használt promptra:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Generált eredmény (Mobil előnézet):",
+    "image_captions": ["Lenyűgöző címoldal a barcelonai túrához", "Vizuálisan gazdag látnivalók"]
+  },
+  "features": {
+    "items": [
+      { "title": "Zéró manuális tervezés", "desc": "Az AI kezeli az elrendezést és az igazítást. Soha többé ne kezdje a nulláról." },
+      { "title": "Valódi mobil produktivitás", "desc": "Fejezze be prezentációját a vonaton vagy a megbeszélések között." },
+      { "title": "Lenyűgöző vizuális hierarchia", "desc": "Modern elrendezések, amelyek minden képernyőn profin mutatnak." }
+    ]
+  },
+  "plans": {
+    "h2": "Kezdje 'free' csomaggal ma",
+    "p_desc": "Tapasztalja meg az AI sebességét. A **free csomagban naponta akár 2 prezentációt is generálhat.**",
+    "pass7": { "name": "7 napos bérlet", "price": ".99", "desc": "Sürgős, egyszeri projektekhez." },
+    "monthly": { "name": "Havi", "price": ".99", "desc": "A legnépszerűbb választás aktív szakembereknek." },
+    "yearly": { "name": "Éves", "price": ".99", "desc": "A legjobb érték a hosszú távú hatékonysághoz." }
+  },
+  "cta": {
+    "h3": "Mesteri prezentációk bárhol",
+    "p": "Töltse le a SlideAI-t iPhone-ra, és alakítsa át munkamódszerét.",
+    "download": "Letöltés az App Store-ból"
+  }
+}

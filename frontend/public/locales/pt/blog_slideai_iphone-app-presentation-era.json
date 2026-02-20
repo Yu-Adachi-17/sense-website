@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Melhor app de iPhone para apresentações: Slides pro em 3 minutos",
+    "description": "A era de criar apresentações no smartphone chegou. Pare de começar do zero no PowerPoint. Use o app SlideAI para gerar slides de alta qualidade.",
+    "ogTitle": "SlideAI: O app definitivo de iPhone para criação instantânea de slides",
+    "ogDescription": "Transforme seu iPhone num gerador de slides poderoso. 3 minutos, um prompt, resultados incríveis."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "A era de criar slides<br>no seu iPhone chegou.",
+    "tagline": "No trajeto, no café ou no momento em que a inspiração surgir. Basta digitar um prompt no seu iPhone e ver slides profissionais aparecerem em 3 minutos. Sem PC.",
+    "badges": ["iOS e iPadOS", "Geração em 3 min", "App com IA"]
+  },
+  "demo": {
+    "h2": "Apresentações profissionais no seu bolso.",
+    "p1": "Esqueça o stress de abrir o PowerPoint diante de uma tela em branco. Com o SlideAI, você apenas descreve o que quer e a IA cuida do design e estrutura instantaneamente.",
+    "prompt_label": "Exemplo de prompt utilizado:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Resultado gerado (Visualização móvel):",
+    "image_captions": ["Slide de título deslumbrante para tour em Barcelona", "Destaques visuais dos pontos turísticos"]
+  },
+  "features": {
+    "items": [
+      { "title": "Zero design manual", "desc": "A IA gere layouts e alinhamentos. Nunca mais comece do zero." },
+      { "title": "Produtividade móvel real", "desc": "Termine a sua apresentação no comboio ou entre reuniões." },
+      { "title": "Estética impressionante", "desc": "Layouts modernos que parecem profissionais em qualquer ecrã." }
+    ]
+  },
+  "plans": {
+    "h2": "Comece 'free' hoje mesmo",
+    "p_desc": "Experimente a velocidade da IA. No **plano free, pode gerar até 2 apresentações por dia.**",
+    "pass7": { "name": "Passe de 7 dias", "price": ".99", "desc": "Para projetos urgentes e pontuais." },
+    "monthly": { "name": "Mensal", "price": ".99", "desc": "A escolha mais popular para profissionais ativos." },
+    "yearly": { "name": "Anual", "price": ".99", "desc": "Melhor valor para eficiência a longo prazo." }
+  },
+  "cta": {
+    "h3": "Domine as suas apresentações em qualquer lugar",
+    "p": "Descarregue o SlideAI para iPhone e transforme a sua forma de trabalhar.",
+    "download": "Descarregar na App Store"
+  }
+}

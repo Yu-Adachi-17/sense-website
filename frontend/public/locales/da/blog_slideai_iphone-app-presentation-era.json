@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Bedste iPhone-app til præsentationer: Lav professionelle slides på 3 minutter",
+    "description": "Tiden for præsentationer på smartphones er kommet. Slut med PowerPoint fra bunden. Brug SlideAI-appen til at skabe dæk i høj kvalitet på farten.",
+    "ogTitle": "SlideAI: Den ultimative iPhone-app til lynhurtige præsentationer",
+    "ogDescription": "Gør din iPhone til en kraftfuld slide-generator. 3 minutter, ét prompt, flot resultat."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Nu kan du bygge slides<br>direkte på din iPhone.",
+    "tagline": "I toget, på caféen, eller når inspirationen rammer. Indtast et prompt på din iPhone og se professionelle slides blive til på 3 minutter. Ingen PC kræves.",
+    "badges": ["iOS & iPadOS", "3-min generation", "AI-drevet app"]
+  },
+  "demo": {
+    "h2": "Professionelle dæk, lige i lommen.",
+    "p1": "Glem alt om stressen ved at åbne PowerPoint til en tom skærm. Med SlideAI beskriver du bare, hvad du vil have, og AI'en klarer resten.",
+    "prompt_label": "Eksempel på brugt prompt:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Genereret output (Mobilvisning):",
+    "image_captions": ["Flot titelslide til Barcelona-tur", "Visuelt rige highlights af seværdigheder"]
+  },
+  "features": {
+    "items": [
+      { "title": "Ingen manuel design", "desc": "AI styrer layouts og grafik. Du starter aldrig forfra igen." },
+      { "title": "Produktivitet på farten", "desc": "Gør din præsentation færdig i bussen eller mellem møder." },
+      { "title": "Flot visuel stil", "desc": "Optimeret til klarhed. Dine slides ser professionelle ud overalt." }
+    ]
+  },
+  "plans": {
+    "h2": "Start 'free' i dag",
+    "p_desc": "Oplev hastigheden med AI. På vores **free-abonnement kan du generere op til 2 præsentationer om dagen.**",
+    "pass7": { "name": "7-dages pas", "price": ".99", "desc": "Til presserende projekter." },
+    "monthly": { "name": "Månedlig", "price": ".99", "desc": "Mest populær blandt professionelle." },
+    "yearly": { "name": "Årlig", "price": ".99", "desc": "Bedste værdi for langsigtet effektivitet." }
+  },
+  "cta": {
+    "h3": "Mestrer dine præsentationer overalt",
+    "p": "Download SlideAI til iPhone og transformér din arbejdsgang.",
+    "download": "Hent i App Store"
+  }
+}

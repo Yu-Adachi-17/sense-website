@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Cea mai bună aplicație iPhone pentru prezentări: Slide-uri pro în 3 min",
+    "description": "Era creării prezentărilor pe smartphone a sosit. Nu mai începe de la zero în PowerPoint. Folosește SlideAI pe iPhone-ul tău.",
+    "ogTitle": "SlideAI: Aplicația supremă de iPhone pentru crearea instantanee de prezentări",
+    "ogDescription": "Transformă-ți iPhone-ul într-un generator de slide-uri puternic. 3 minute, un prompt, rezultate uimitoare."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Era creării slide-urilor<br>pe iPhone-ul tău a sosit.",
+    "tagline": "În drum spre muncă, la cafea sau în momentul în care îți vine inspirația. Introdu un prompt pe iPhone și vezi cum apar slide-uri profesionale în 3 minute. Fără PC.",
+    "badges": ["iOS și iPadOS", "Generare în 3 min", "Aplicație AI"]
+  },
+  "demo": {
+    "h2": "Prezentări profesionale, direct în buzunarul tău.",
+    "p1": "Uită de stresul paginii albe în PowerPoint. Cu SlideAI, doar descrii ce îți dorești, iar AI-ul se ocupă de structură, design și imagini instantaneu.",
+    "prompt_label": "Exemplu de prompt utilizat:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Rezultat generat (Previzualizare mobilă):",
+    "image_captions": ["Slide de titlu uimitor pentru turul Barcelonei", "Repere vizuale ale punctelor turistice"]
+  },
+  "features": {
+    "items": [
+      { "title": "Zero design manual", "desc": "AI gestionează layout-ul și alinierea. Nu mai începe niciodată de la zero." },
+      { "title": "Productivitate mobilă reală", "desc": "Finalizează prezentarea în tren sau între întâlniri." },
+      { "title": "Estetică impresionantă", "desc": "Layout-uri moderne care arată profesional pe orice ecran." }
+    ]
+  },
+  "plans": {
+    "h2": "Începe 'free' astăzi",
+    "p_desc": "Experimentează viteza AI. În **planul free, poți genera până la 2 prezentări pe zi.**",
+    "pass7": { "name": "Pass 7 zile", "price": ".99", "desc": "Pentru proiecte urgente și unice." },
+    "monthly": { "name": "Lunar", "price": ".99", "desc": "Cea mai populară alegere pentru profesioniști." },
+    "yearly": { "name": "Anual", "price": ".99", "desc": "Cea mai bună valoare pentru eficiență pe termen lung." }
+  },
+  "cta": {
+    "h3": "Stăpânește prezentările oriunde",
+    "p": "Descarcă SlideAI pentru iPhone și transformă modul în care lucrezi.",
+    "download": "Descarcă din App Store"
+  }
+}

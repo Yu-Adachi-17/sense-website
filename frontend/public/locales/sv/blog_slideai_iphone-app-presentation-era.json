@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Bästa iPhone-appen för presentationer: Pro-slides på 3 minuter",
+    "description": "Eran för att skapa presentationer på mobilen är här. Sluta börja från noll i PowerPoint. Använd SlideAI-appen på din iPhone för högkvalitativa slides.",
+    "ogTitle": "SlideAI: Den ultimata iPhone-appen för omedelbara presentationer",
+    "ogDescription": "Förvandla din iPhone till en kraftfull slide-generator. 3 minuter, ett prompt, fantastiska resultat."
+  },
+  "nav": { "blog": "Blogg", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Eran för att bygga slides<br>på din iPhone är här.",
+    "tagline": "På pendeltåget, på ett café eller när inspirationen slår till. Skriv in ett prompt på din iPhone och se professionella slides skapas på 3 minuter. Ingen PC krävs.",
+    "badges": ["iOS & iPadOS", "3-min generering", "AI-driven App"]
+  },
+  "demo": {
+    "h2": "Proffsiga presentationer, direkt i fickan.",
+    "p1": "Glöm stressen med PowerPoint och en tom vit skärm. Med SlideAI beskriver du bara vad du vill ha, så sköter AI:n struktur, design och bilder direkt.",
+    "prompt_label": "Exempel på prompt som användes:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Genererat resultat (Mobil förhandsvisning):",
+    "image_captions": ["Snygg titelslide för Barcelona-tur", "Visuellt rika höjdpunkter av sevärdheter"]
+  },
+  "features": {
+    "items": [
+      { "title": "Noll manuell design", "desc": "AI hanterar layout och justering. Du behöver aldrig mer börja från noll." },
+      { "title": "Mobil produktivitet", "desc": "Slutför din presentation på tåget eller mellan möten." },
+      { "title": "Imponerande estetik", "desc": "Moderna layouter som ser professionella ut på alla skärmar." }
+    ]
+  },
+  "plans": {
+    "h2": "Börja 'free' idag",
+    "p_desc": "Upplev farten med AI. Med **free-planen kan du generera upp till 2 presentationer per dag.**",
+    "pass7": { "name": "7-dagarspass", "price": ".99", "desc": "För brådskande engångsprojekt." },
+    "monthly": { "name": "Månadsvis", "price": ".99", "desc": "Mest populär för aktiva yrkesverksamma." },
+    "yearly": { "name": "Årlig", "price": ".99", "desc": "Bästa värdet för långsiktig effektivitet." }
+  },
+  "cta": {
+    "h3": "Bemästra dina presentationer var som helst",
+    "p": "Ladda ner SlideAI för iPhone och förvandla ditt sätt att arbeta.",
+    "download": "Ladda ner i App Store"
+  }
+}

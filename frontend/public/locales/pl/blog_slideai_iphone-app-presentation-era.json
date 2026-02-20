@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Najlepsza aplikacja na iPhone'a do prezentacji: Slajdy pro w 3 minuty",
+    "description": "Era tworzenia prezentacji na smartfonie nadeszła. Przestań tworzyć od zera w PowerPoint. Użyj aplikacji SlideAI na iPhone'a.",
+    "ogTitle": "SlideAI: Najlepsza aplikacja na iPhone'a do błyskawicznych prezentacji",
+    "ogDescription": "Zmień swojego iPhone'a w potężny generator slajdów. 3 minuty, jeden prompt, niesamowite efekty."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / Aplikacja" },
+  "hero": {
+    "h1": "Tworzenie prezentacji<br>na iPhone stało się faktem.",
+    "tagline": "W drodze do pracy, w kawiarni lub gdy tylko wpadniesz na pomysł. Wpisz prompt na swoim iPhone i zobacz profesjonalne slajdy w 3 minuty. Bez komputera.",
+    "badges": ["iOS i iPadOS", "Generowanie w 3 min", "Aplikacja AI"]
+  },
+  "demo": {
+    "h2": "Profesjonalne slajdy prosto z Twojej kieszeni.",
+    "p1": "Zapomnij o stresie związanym z pustą stroną w PowerPoint. Dzięki SlideAI po prostu opisujesz to, czego potrzebujesz, a AI natychmiast zajmuje się strukturą i designem.",
+    "prompt_label": "Przykład użytego promptu:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Wygenerowany efekt (Podgląd mobilny):",
+    "image_captions": ["Zachwycający slajd tytułowy wycieczki do Barcelony", "Bogate wizualnie atrakcje turystyczne"]
+  },
+  "features": {
+    "items": [
+      { "title": "Zero ręcznego projektowania", "desc": "AI zarządza układem i wyrównaniem. Nigdy więcej nie zaczynaj od zera." },
+      { "title": "Mobilna produktywność", "desc": "Ukończ prezentację w pociągu lub między spotkaniami." },
+      { "title": "Imponująca estetyka", "desc": "Nowoczesne układy, które wyglądają profesjonalnie na każdym ekranie." }
+    ]
+  },
+  "plans": {
+    "h2": "Zacznij dzisiaj za 'free'",
+    "p_desc": "Poczuj szybkość AI. W planie **free możesz generować do 2 prezentacji dziennie.** Przekonaj się sam.",
+    "pass7": { "name": "Karnet 7-dniowy", "price": ".99", "desc": "Do pilnych, jednorazowych projektów." },
+    "monthly": { "name": "Miesięczny", "price": ".99", "desc": "Najpopularniejszy wybór dla aktywnych profesjonalistów." },
+    "yearly": { "name": "Roczny", "price": ".99", "desc": "Najlepsza wartość dla długofalowej efektywności." }
+  },
+  "cta": {
+    "h3": "Opanuj prezentacje w dowolnym miejscu",
+    "p": "Pobierz SlideAI na iPhone'a i odmień swój styl pracy.",
+    "download": "Pobierz w App Store"
+  }
+}

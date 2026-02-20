@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Sunumlar için En İyi iPhone Uygulaması: 3 Dakikada Profesyonel Slaytlar",
+    "description": "Akıllı telefonda sunum yapma dönemi başladı. PowerPoint'te sıfırdan başlamaya son. SlideAI iPhone uygulaması ile hareket halindeyken yüksek kaliteli sunumlar oluşturun.",
+    "ogTitle": "SlideAI: Anında Sunum Oluşturmak için En İyi iPhone Uygulaması",
+    "ogDescription": "iPhone'unuzu güçlü bir slayt oluşturucuya dönüştürün. 3 dakika, tek bir komut, muhteşem sonuçlar."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / Uygulama" },
+  "hero": {
+    "h1": "iPhone üzerinden sunum<br>oluşturma devri başladı.",
+    "tagline": "Yoldayken, kafede veya ilham geldiği anda. iPhone'unuzda bir komut girin ve 3 dakikada profesyonel slaytların oluşmasını izleyin. PC'ye gerek yok.",
+    "badges": ["iOS & iPadOS", "3 Dakikada Üretim", "Yapay Zeka Uygulaması"]
+  },
+  "demo": {
+    "h2": "Profesyonel Sunumlar Cebinizde.",
+    "p1": "Boş bir PowerPoint ekranına bakma stresini unutun. SlideAI ile sadece ne istediğinizi tarif edin, yapay zeka yapıyı, tasarımı ve görselleri anında halletsin.",
+    "prompt_label": "Kullanılan Örnek Komut:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Oluşturulan Çıktı (Mobil Önizleme):",
+    "image_captions": ["Barselona Turu için Harika Başlık Slaytı", "Görsel Açıdan Zengin Gezi Noktaları"]
+  },
+  "features": {
+    "items": [
+      { "title": "Sıfır Manuel Tasarım", "desc": "Yapay zeka düzeni ve hizalamayı yönetir. Bir daha asla sıfırdan başlamayın." },
+      { "title": "Mobil Üretkenlik", "desc": "Sunumunuzu trende veya toplantı aralarında bitirin." },
+      { "title": "Göz Alıcı Görsel Hiyerarşi", "desc": "Her ekranda profesyonel görünen modern düzenler." }
+    ]
+  },
+  "plans": {
+    "h2": "Bugün 'free' olarak başlayın",
+    "p_desc": "Yapay zekanın hızını deneyimleyin. **free planında bile günde 2 sunum oluşturabilirsiniz.**",
+    "pass7": { "name": "7 Günlük Paket", "price": ".99", "desc": "Acil ve tek seferlik projeler için." },
+    "monthly": { "name": "Aylık", "price": ".99", "desc": "Aktif profesyoneller için en popüler seçenek." },
+    "yearly": { "name": "Yıllık", "price": ".99", "desc": "Uzun vadeli verimlilik için en iyi değer." }
+  },
+  "cta": {
+    "h3": "Her Yerde Sunumlarınızın Hakimi Olun",
+    "p": "SlideAI'yı iPhone için indirin ve çalışma şeklinizi dönüştürün.",
+    "download": "App Store'dan İndir"
+  }
+}

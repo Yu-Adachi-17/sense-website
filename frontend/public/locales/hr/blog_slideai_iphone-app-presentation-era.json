@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Najbolja iPhone aplikacija za prezentacije: Pro slajdovi u 3 min",
+    "description": "Era izrade prezentacija na pametnim telefonima je stigla. Prestanite kretati ispočetka u PowerPointu. Koristite SlideAI aplikaciju za iPhone.",
+    "ogTitle": "SlideAI: Ultimativna iPhone aplikacija za trenutnu izradu prezentacija",
+    "ogDescription": "Pretvorite svoj iPhone u moćan generator slajdova. 3 minute, jedan prompt, vrhunski rezultati."
+  },
+  "nav": { "blog": "Blog", "category": "iPhone / App" },
+  "hero": {
+    "h1": "Vrijeme je za izradu<br>slajdova na vašem iPhoneu.",
+    "tagline": "U putu, u kafiću ili čim dobijete inspiraciju. Jednostavno unesite prompt na svom iPhoneu i gledajte kako profesionalni slajdovi nastaju u 3 minute. PC nije potreban.",
+    "badges": ["Podržava iOS", "Izrada u 3 min", "AI aplikacija"]
+  },
+  "demo": {
+    "h2": "Profesionalne prezentacije, izravno iz vašeg džepa.",
+    "p1": "Zaboravite stres praznog ekrana u Keynoteu. Uz SlideAI samo opišite što želite, a AI se trenutno brine za strukturu, dizajn i odabir slika.",
+    "prompt_label": "Primjer korištenog prompta:",
+    "prompt_text": "“Barcelona sightseeing tour proposal. With attractive visuals showcasing beautiful tourist spots and delicious local cuisine.”",
+    "output_label": "Generirani rezultat (Mobilni pregled):",
+    "image_captions": ["Prekrasan naslovni slajd za turu u Barceloni", "Vizualno bogat prikaz znamenitosti"]
+  },
+  "features": {
+    "items": [
+      { "title": "Bez ručnog dizajna", "desc": "AI upravlja izgledom i poravnanje. Nikad više ne krećite od nule." },
+      { "title": "Prava mobilna produktivnost", "desc": "Završite prezentaciju u vlaku ili između sastanaka." },
+      { "title": "Vrhunska estetika", "desc": "Moderni izgled koji djeluje profesionalno na svakom ekranu." }
+    ]
+  },
+  "plans": {
+    "h2": "Započnite 'free' danas",
+    "p_desc": "Doživite brzinu AI-a. U **free planu možete generirati do 2 prezentacije dnevno.**",
+    "pass7": { "name": "7-dnevna propusnica", "price": ".99", "desc": "Za hitne, jednokratne projekte." },
+    "monthly": { "name": "Mjesečno", "price": ".99", "desc": "Najpopularnije za aktivne profesionalce." },
+    "yearly": { "name": "Godišnje", "price": ".99", "desc": "Najbolja vrijednost za dugoročnu učinkovitost." }
+  },
+  "cta": {
+    "h3": "Ovladajte prezentacijama bilo gdje",
+    "p": "Preuzmite SlideAI za iPhone i transformirajte način na koji radite.",
+    "download": "Preuzmi u App Storeu"
+  }
+}
