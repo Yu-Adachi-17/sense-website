@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Seus slides de TCC e Seminário em 3 min",
+    "description": "Fazer design de slides é um saco. Seja para o seminário semanal ou seu TCC, deixe a IA cuidar de tudo. Teste o Passe de 7 dias, o favorito dos alunos."
+  },
+  "hero": {
+    "h1": "Pare de sofrer com slides.<br>Foque na sua pesquisa.",
+    "tagline": "Vamos ser sinceros: passar horas alinhando caixas no PowerPoint não é 'estudar'. O SlideAI transforma seu tema em uma apresentação limpa em 3 minutos."
+  },
+  "features": {
+    "items": [
+      { "title": "Nível Acadêmico", "desc": "A IA entende a lógica necessária para um TCC ou seminário universitário." },
+      { "title": "Recupere seu Sono", "desc": "Pronto no tempo de um café. Chega de madrugadas editando slides." },
+      { "title": "Aproveite o Fim de Semana", "desc": "Termine o trabalho cedo e curta seu tempo livre. A IA cuida da parte chata." }
+    ]
+  },
+  "plans": {
+    "h2": "Sem compromisso, só ajuda.",
+    "p_desc": "Sabemos que a grana de estudante é curta. Por isso o **Passe de 7 dias** é o mais escolhido na semana de provas."
+  }
+}

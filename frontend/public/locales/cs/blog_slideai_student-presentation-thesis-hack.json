@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Hotová prezentace k diplomce za 3 minuty",
+    "description": "Designování slidů je otrava. Ať už jde o seminárku nebo státnice, nechte AI, ať to vyřeší za vás. Zkuste náš 7denní pass pro náročné týdny."
+  },
+  "hero": {
+    "h1": "Vykašlete se na design slidů.<br>Radši se věnujte výzkumu.",
+    "tagline": "Buďme upřímní: hodiny strávené laděním PowerPointu nejsou 'studium'. SlideAI vytvoří profi prezentaci pro váš seminář nebo diplomku za 3 minuty."
+  },
+  "features": {
+    "items": [
+      { "title": "Skutečně akademické", "desc": "AI rozumí struktuře, kterou vyžaduje seminář nebo diplomová práce." },
+      { "title": "Vyspěte se", "desc": "Hotovo dřív, než dopijete kafe. Už žádné probdělé noci nad formátováním." },
+      { "title": "Užijte si volno", "desc": "Mějte hotovo dřív a užijte si víkend. AI se postará o tu nudnou část." }
+    ]
+  },
+  "plans": {
+    "h2": "Žádné závazky, jen pomoc.",
+    "p_desc": "Víme, že studenti šetří. Proto je náš **7denní Pass** nejoblíbenější volbou během zkouškového."
+  }
+}

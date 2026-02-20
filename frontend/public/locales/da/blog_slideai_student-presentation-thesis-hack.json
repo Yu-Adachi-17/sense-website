@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Gør dit speciale klar på 3 minutter",
+    "description": "At designe slides er kedeligt. Uanset om det er til dit ugentlige seminar eller dit speciale, så lad AI ordne det. Prøv vores 7-dages pas til de travle uger."
+  },
+  "hero": {
+    "h1": "Stop med at kæmpe med slides.<br>Fokusér på dit speciale.",
+    "tagline": "Lad os være ærlige: at bruge timer på PowerPoint-formatering er ikke 'at læse'. SlideAI gør dit emne til en skarp præsentation på kun 3 minutter."
+  },
+  "features": {
+    "items": [
+      { "title": "Akademisk kvalitet", "desc": "AI'en forstår den logik, der kræves til et speciale eller seminar." },
+      { "title": "Pas på din søvn", "desc": "Bliv færdig på den tid, det tager at brygge en kop kaffe. Slut med formatting-helvede." },
+      { "title": "Hold weekend", "desc": "Få overstået arbejdet tidligt og nyd din fritid. AI'en klarer det 'kedelige'." }
+    ]
+  },
+  "plans": {
+    "h2": "Ingen binding, bare hjælp.",
+    "p_desc": "Vi ved, at penge er små som studerende. Derfor er **7-dages passet** favoritten i eksamensperioden."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "seo": {
+    "title": "Finish Your Seminar & Thesis Slides in 3 Mins | SlideAI Pro",
+    "description": "Slide design is tedious. Whether it's for a weekly seminar or your final thesis presentation, let AI handle the formatting. Try the student-favorite 7-Day Pass."
+  },
+  "hero": {
+    "h1": "Slide design is tedious.<br>Focus on your research instead.",
+    "tagline": "Let’s be real: spending hours on PowerPoint alignment isn’t 'studying.' Whether it's for your weekly seminar or that final graduation thesis, SlideAI turns your topic into a clean deck in 3 minutes."
+  },
+  "features": {
+    "items": [
+      { "title": "Actually Academic", "desc": "The AI understands the logic needed for a Thesis or Seminar. It’s not just pretty—it makes sense." },
+      { "title": "Save Your Sleep", "desc": "Finish your slides in the time it takes to brew a cup of tea. No more 3 AM formatting hell." },
+      { "title": "Stay for the Fun", "desc": "Get your work done early and actually enjoy your weekend. The AI handles the 'boring' part." }
+    ]
+  },
+  "plans": {
+    "h2": "No commitment, just help.",
+    "p_desc": "We get it—you don't need another monthly bill. That’s why the **7-Day Pass** is our most popular choice for students during exam weeks.",
+    "pass7": { "name": "7-Day Pass", "price": ".99", "desc": "One-time payment for that one busy week. No 'surprise' renewals." }
+  }
+}

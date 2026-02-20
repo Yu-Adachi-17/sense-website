@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Tes slides de mémoire finis en 3 min",
+    "description": "Designer des slides est une corvée. Que ce soit pour un séminaire ou ton mémoire, laisse l'IA gérer. Teste le Pass 7 jours, le préféré des étudiants."
+  },
+  "hero": {
+    "h1": "Designer des slides est pénible.<br>Concentre-toi sur tes recherches.",
+    "tagline": "Soyons honnêtes : passer des heures sur PowerPoint n'est pas 'étudier'. SlideAI transforme ton sujet en une présentation propre en 3 minutes."
+  },
+  "features": {
+    "items": [
+      { "title": "Vraiment Académique", "desc": "L'IA comprend la logique nécessaire pour un mémoire ou une soutenance." },
+      { "title": "Sauve ton Sommeil", "desc": "Fini le temps de boire un café. Plus de nuits blanches à galérer sur la mise en page." },
+      { "title": "Profite du Weekend", "desc": "Termine ton travail tôt et profite de ton temps libre. L'IA gère le côté ennuyeux." }
+    ]
+  },
+  "plans": {
+    "h2": "Pas d'engagement, juste de l'aide.",
+    "p_desc": "On sait que le budget étudiant est serré. C'est pourquoi le **Pass 7 jours** est le choix n°1 pendant les examens."
+  }
+}

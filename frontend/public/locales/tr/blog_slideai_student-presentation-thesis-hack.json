@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Tez ve Seminer Slaytlarını 3 Dakikada Bitir",
+    "description": "Slayt tasarımıyla uğraşmak yorucu. İster haftalık seminer ister bitirme tezi olsun, formatı AI halletsin. Öğrencilerin favorisi 7 Günlük Pass'i dene."
+  },
+  "hero": {
+    "h1": "Slayt tasarlamayı bırak.<br>Araştırmana odaklan.",
+    "tagline": "Dürüst olalım: PowerPoint'te kutuları hizalamak için saatler harcamak 'çalışmak' değildir. SlideAI konunu 3 dakikada tertemiz bir sunuma dönüştürür."
+  },
+  "features": {
+    "items": [
+      { "title": "Akademik Seviye", "desc": "AI, bir tez veya seminer için gereken mantıksal yapıyı anlar." },
+      { "title": "Uykunu Koru", "desc": "Bir kahve içme süresinde biter. Artık formatlama için sabahlamana gerek yok." },
+      { "title": "Hafta Sonunun Tadını Çıkar", "desc": "İşini erken bitir ve boş vaktinin tadını çıkar. Sıkıcı kısmı AI halletsin." }
+    ]
+  },
+  "plans": {
+    "h2": "Bağlılık yok, sadece yardım.",
+    "p_desc": "Öğrenci bütçesinin kısıtlı olduğunu biliyoruz. Bu yüzden sınav haftalarında en çok **7 Günlük Pass** tercih ediliyor."
+  }
+}

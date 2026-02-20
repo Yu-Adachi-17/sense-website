@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Xong slide Luận văn & Hội thảo trong 3 phút",
+    "description": "Thiết kế slide rất mệt mỏi. Dù là hội thảo hàng tuần hay bảo vệ luận văn, hãy để AI lo phần trình bày. Thử ngay Gói 7 ngày dành cho sinh viên."
+  },
+  "hero": {
+    "h1": "Đừng tốn thời gian cho slide.<br>Hãy tập trung vào nghiên cứu.",
+    "tagline": "Thành thật mà nói: dành hàng giờ để căn chỉnh PowerPoint không phải là 'học'. SlideAI biến chủ đề của bạn thành một bài thuyết trình sạch đẹp trong 3 phút."
+  },
+  "features": {
+    "items": [
+      { "title": "Chuẩn học thuật", "desc": "AI hiểu cấu trúc logic cần thiết cho một bài luận văn hoặc hội thảo." },
+      { "title": "Tiết kiệm giấc ngủ", "desc": "Xong việc trong thời gian pha một tách cà phê. Không còn phải thức đêm để chỉnh sửa slide." },
+      { "title": "Tận hưởng cuối tuần", "desc": "Hoàn thành công việc sớm và tận hưởng thời gian rảnh. AI sẽ xử lý phần nhàm chán nhất." }
+    ]
+  },
+  "plans": {
+    "h2": "Không ràng buộc, chỉ hỗ trợ.",
+    "p_desc": "Chúng tôi biết ngân sách sinh viên rất hạn hẹp. Đó là lý do **Gói 7 ngày** luôn được yêu thích nhất trong mùa thi."
+  }
+}

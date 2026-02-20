@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Slajdy do pracy dyplomowej w 3 minuty",
+    "description": "Projektowanie slajdów jest męczące. Niezależnie od tego, czy to cotygodniowe seminarium, czy obrona pracy, niech AI zajmie się formatowaniem. Wypróbuj 7-dniowy karnet."
+  },
+  "hero": {
+    "h1": "Przestań walczyć ze slajdami.<br>Skup się na swojej pracy.",
+    "tagline": "Bądźmy szczerzy: spędzanie godzin na wyrównywaniu pól w PowerPoint to nie jest 'nauka'. SlideAI zamieni Twój temat w czystą prezentację w 3 minuty."
+  },
+  "features": {
+    "items": [
+      { "title": "Poziom Akademicki", "desc": "AI rozumie logikę wymaganą w pracy dyplomowej lub na seminarium." },
+      { "title": "Odzyskaj Sen", "desc": "Gotowe w czasie parzenia kawy. Koniec z zarywaniem nocy nad formatowaniem." },
+      { "title": "Ciesz się Weekendem", "desc": "Skończ pracę wcześniej i ciesz się wolnym czasem. AI zajmie się nudną częścią." }
+    ]
+  },
+  "plans": {
+    "h2": "Bez zobowiązań, tylko pomoc.",
+    "p_desc": "Wiemy, że studencki budżet jest napięty. Dlatego **7-dniowy Karnet** jest najczęstszym wyborem podczas sesji."
+  }
+}

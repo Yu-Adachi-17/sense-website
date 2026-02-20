@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Gata cu slide-urile pentru licență în 3 min",
+    "description": "Designul slide-urilor este obositor. Fie că e vorba de un seminar sau de lucrarea de licență, lasă AI-ul să se ocupe. Încearcă Pass-ul de 7 zile."
+  },
+  "hero": {
+    "h1": "Nu-ți mai pierde timpul cu slide-urile.<br>Concentrează-te pe cercetare.",
+    "tagline": "Să fim sinceri: orele pierdute în PowerPoint nu înseamnă 'studiu'. SlideAI transformă subiectul tău într-o prezentare curată în doar 3 minute."
+  },
+  "features": {
+    "items": [
+      { "title": "Nivel Academic", "desc": "AI-ul înțelege structura logică necesară pentru o licență sau un seminar." },
+      { "title": "Dormi Mai Mult", "desc": "Gata în timpul în care îți bei cafeaua. Fără nopți pierdute cu formatarea." },
+      { "title": "Bucură-te de Weekend", "desc": "Termină treaba rapid și profită de timpul tău liber. AI-ul face partea plictisitoare." }
+    ]
+  },
+  "plans": {
+    "h2": "Fără abonament, doar ajutor.",
+    "p_desc": "Știm că bugetul de student este limitat. De aceea, **Pass-ul de 7 zile** este cel mai popular în sesiune."
+  }
+}

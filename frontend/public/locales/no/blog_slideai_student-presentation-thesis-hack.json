@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Gjør ferdig Oppgave & Seminar slides på 3 min",
+    "description": "Å designe slides er kjedelig. Enten det er til et ukentlig seminar eller selve oppgaven, la AI fikse det. Prøv 7-dagers passet for de travle ukene."
+  },
+  "hero": {
+    "h1": "Slutt å slite med slides.<br>Fokuser på innholdet.",
+    "tagline": "La oss være ærlige: å bruke timer på PowerPoint-formatering er ikke 'å studere'. SlideAI gjør temaet ditt om til en ryddig presentasjon på 3 minutter."
+  },
+  "features": {
+    "items": [
+      { "title": "Akademisk Kvalitet", "desc": "AI-en forstår logikken som kreves for en oppgave eller et seminar." },
+      { "title": "Ta vare på søvnen", "desc": "Ferdig på tiden det tar å trakte kaffe. Slutt på nattarbeid med formatering." },
+      { "title": "Nyt helgen", "desc": "Bli ferdig tidlig og nyt fritiden. AI-en tar seg av den kjedelige delen." }
+    ]
+  },
+  "plans": {
+    "h2": "Ingen binding, bare hjelp.",
+    "p_desc": "Vi vet at studentbudsjettet er stramt. Derfor er **7-dagers passet** favoritten i eksamensperioden."
+  }
+}

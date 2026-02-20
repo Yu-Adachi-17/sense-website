@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Je Scriptie & Seminar slides in 3 min klaar",
+    "description": "Slides ontwerpen is saai. Of het nu voor een wekelijks seminar of je scriptie is, laat de AI het regelen. Probeer de 7-daagse pass voor drukke weken."
+  },
+  "hero": {
+    "h1": "Stop met prutsen aan slides.<br>Focus op je onderzoek.",
+    "tagline": "Laten we eerlijk zijn: urenlang PowerPoint-vakjes uitlijnen is geen 'studeren'. SlideAI maakt van jouw onderwerp in 3 minuten een strakke presentatie."
+  },
+  "features": {
+    "items": [
+      { "title": "Echt Academisch", "desc": "De AI begrijpt de logica die nodig is voor een scriptie of seminar." },
+      { "title": "Bespaar je Nachtrust", "desc": "Klaar in de tijd van een kop koffie. Geen nachtwerk meer voor de opmaak." },
+      { "title": "Geniet van je Weekend", "desc": "Krijg je werk sneller af en geniet van je vrije tijd. De AI doet het saaie werk." }
+    ]
+  },
+  "plans": {
+    "h2": "Geen abonnement, alleen hulp.",
+    "p_desc": "We weten dat studenten op hun budget letten. Daarom is de **7-daagse Pass** het populairst tijdens tentamenweken."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Klara din uppsats-presentation på 3 min",
+    "description": "Att designa slides är segt. Oavsett om det är för ett seminarium eller din uppsats, låt AI:n sköta det. Testa vårt 7-dagarspass för hektiska veckor."
+  },
+  "hero": {
+    "h1": "Sluta slösa tid på slides.<br>Fokusera på din forskning.",
+    "tagline": "Låt oss vara ärliga: att lägga timmar på PowerPoint-formatering är inte 'att plugga'. SlideAI gör ditt ämne till en snygg presentation på 3 minuter."
+  },
+  "features": {
+    "items": [
+      { "title": "Akademisk nivå", "desc": "AI:n förstår logiken som krävs för en uppsats eller ett seminarium." },
+      { "title": "Få mer sömn", "desc": "Klar på tiden det tar att brygga kaffe. Inget mer nattarbete med layout." },
+      { "title": "Njut av helgen", "desc": "Bli klar tidigare och njut av din fritid. AI:n sköter den tråkiga delen." }
+    ]
+  },
+  "plans": {
+    "h2": "Ingen bindning, bara hjälp.",
+    "p_desc": "Vi vet att studentbudgeten är stram. Därför är **7-dagarspasset** favoriten under tentaveckorna."
+  }
+}

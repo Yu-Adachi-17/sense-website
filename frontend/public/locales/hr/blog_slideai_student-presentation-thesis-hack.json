@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Završi prezentaciju za diplomski u 3 min",
+    "description": "Dizajniranje slajdova je naporno. Bilo da je riječ o seminaru ili diplomskom radu, prepusti to AI-u. Isprobaj 7-dnevni pass, omiljen među studentima."
+  },
+  "hero": {
+    "h1": "Prestani se mučiti sa slajdovima.<br>Fokusiraj se na istraživanje.",
+    "tagline": "Budimo realni: trošenje sati na slaganje okvira u PowerPointu nije 'učenje'. SlideAI pretvara tvoju temu u čistu prezentaciju za 3 minute."
+  },
+  "features": {
+    "items": [
+      { "title": "Akademska razina", "desc": "AI razumije logiku potrebnu za diplomski rad ili seminar." },
+      { "title": "Sačuvaj san", "desc": "Završi slajdove dok piješ kavu. Nema više neprospavanih noći zbog formatiranja." },
+      { "title": "Uživaj u vikendu", "desc": "Obavi posao ranije i uživaj u slobodnom vremenu. AI rješava onaj dosadni dio." }
+    ]
+  },
+  "plans": {
+    "h2": "Bez obveza, samo pomoć.",
+    "p_desc": "Znamo da su studenti na budžetu. Zato je **7-dnevni Pass** najpopularniji izbor tijekom kolokvija."
+  }
+}

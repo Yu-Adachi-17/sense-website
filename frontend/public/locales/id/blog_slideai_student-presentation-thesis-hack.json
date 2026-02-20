@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Selesaikan Slide Skripsi & Seminar dalam 3 Menit",
+    "description": "Desain slide itu melelahkan. Baik untuk seminar mingguan atau sidang skripsi, biarkan AI yang urus formatnya. Coba 7-Day Pass, favorit mahasiswa."
+  },
+  "hero": {
+    "h1": "Berhenti Ribet sama Slide.<br>Fokus saja ke Skripsimu.",
+    "tagline": "Jujur saja: menghabiskan waktu berjam-jam cuma buat rapihin PowerPoint itu bukan 'belajar'. SlideAI ubah topikmu jadi presentasi keren dalam 3 menit."
+  },
+  "features": {
+    "items": [
+      { "title": "Standar Akademik", "desc": "AI paham logika yang dibutuhkan untuk Skripsi atau Seminar kampus." },
+      { "title": "Simpan Tenagamu", "desc": "Selesai dalam waktu seduh kopi. Gak perlu lagi begadang cuma buat urusan desain." },
+      { "title": "Nikmati Akhir Pekan", "desc": "Selesaikan tugas lebih awal dan nikmati waktu luangmu. Biar AI yang urus bagian membosankan." }
+    ]
+  },
+  "plans": {
+    "h2": "Tanpa Komitmen, Cuma Membantu.",
+    "p_desc": "Kami tahu kantong mahasiswa itu terbatas. Makanya **7-Day Pass** jadi pilihan paling populer pas minggu ujian atau deadline skripsi."
+  }
+}

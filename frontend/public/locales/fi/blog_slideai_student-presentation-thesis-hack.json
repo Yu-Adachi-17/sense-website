@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Gradun ja seminaarin diat 3 minuutissa",
+    "description": "Diojen vääntäminen on uuvuttavaa. Anna tekoälyn hoitaa muotoilu, niin voit keskittyä itse tutkimukseen. Kokeile opiskelijoiden suosimaa 7 päivän passia."
+  },
+  "hero": {
+    "h1": "Lopeta diojen nysvääminen.<br>Keskity olennaiseen.",
+    "tagline": "Ollaan rehellisiä: tuntien tuhlailu PowerPointiin ei ole 'opiskelua'. SlideAI muuttaa aiheesi valmiiksi esitykseksi 3 minuutissa."
+  },
+  "features": {
+    "items": [
+      { "title": "Akateemista laatua", "desc": "Tekoäly ymmärtää gradun tai seminaarin vaatiman loogisen rakenteen." },
+      { "title": "Nuku enemmän", "desc": "Valmista siinä ajassa, kun keität kahvit. Ei enää yöllistä säätämistä asettelun kanssa." },
+      { "title": "Vapaa viikonloppu", "desc": "Saa hommat pakettiin ajoissa ja nauti vapaa-ajasta. AI hoitaa tylsät vaiheet." }
+    ]
+  },
+  "plans": {
+    "h2": "Ei sitoutumista, vain apua.",
+    "p_desc": "Me tiedämme, että opiskelijan budjetti on tiukka. Siksi **7 päivän passi** on suosituin valinta tenttiviikolla."
+  }
+}

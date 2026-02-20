@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Termina tus slides de Tesis en 3 min",
+    "description": "Diseñar diapositivas es tedioso. Ya sea para un seminario o tu tesis final, deja que la IA lo haga por ti. Prueba el pase de 7 días, el favorito de los estudiantes."
+  },
+  "hero": {
+    "h1": "Diseñar slides es pesado.<br>Mejor céntrate en tu tesis.",
+    "tagline": "Seamos realistas: pasar horas alineando cuadros en PowerPoint no es 'estudiar'. SlideAI convierte tu tema en una presentación limpia en solo 3 minutos."
+  },
+  "features": {
+    "items": [
+      { "title": "Nivel Académico", "desc": "La IA entiende la lógica que requiere una tesis o un seminario universitario." },
+      { "title": "Recupera tu Sueño", "desc": "Termina tus slides en lo que te tomas un café. Se acabaron las madrugadas formateando." },
+      { "title": "Disfruta el Finde", "desc": "Acaba rápido y disfruta de tu tiempo libre. La IA se encarga de lo aburrido." }
+    ]
+  },
+  "plans": {
+    "h2": "Sin compromisos, solo ayuda.",
+    "p_desc": "Sabemos que el presupuesto de estudiante es ajustado. Por eso el **Pase de 7 días** es el más buscado en semana de exámenes."
+  }
+}

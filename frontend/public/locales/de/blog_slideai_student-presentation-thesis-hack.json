@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Thesis- & Seminar-Slides in 3 Min fertig",
+    "description": "Slides designen nervt. Egal ob wöchentliches Seminar oder Abschlussarbeit – lass die KI das Formatieren übernehmen. Hol dir den 7-Tage-Pass für deine Abgabewoche."
+  },
+  "hero": {
+    "h1": "Hör auf, Slides zu basteln.<br>Konzentrier dich auf den Inhalt.",
+    "tagline": "Mal ehrlich: Stundenlang PowerPoint-Boxen zu verschieben ist kein 'Studieren'. SlideAI macht aus deinem Thema in 3 Minuten ein fertiges Deck."
+  },
+  "features": {
+    "items": [
+      { "title": "Echt akademisch", "desc": "Die KI versteht den Aufbau, den eine Thesis oder ein Seminar braucht." },
+      { "title": "Schlaf mehr", "desc": "Fertig in der Zeit, die ein Kaffee braucht. Keine Nachtschichten mehr wegen Layouts." },
+      { "title": "Mehr Freizeit", "desc": "Erledige die Arbeit schneller und genieß dein Wochenende. Die KI übernimmt den öden Part." }
+    ]
+  },
+  "plans": {
+    "h2": "Kein Abo-Zwang, nur Hilfe.",
+    "p_desc": "Wir wissen, dass das Budget knapp ist. Deshalb ist der **7-Tage-Pass** der Favorit für die Prüfungsphase."
+  }
+}

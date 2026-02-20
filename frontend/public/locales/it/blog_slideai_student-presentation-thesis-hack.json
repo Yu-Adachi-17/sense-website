@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Finisci i tuoi slide per la Tesi in 3 min",
+    "description": "Disegnare slide è noioso. Che sia per un seminario o per la tua tesi, lascia fare all'IA. Prova il Pass 7 giorni, il preferito dagli studenti."
+  },
+  "hero": {
+    "h1": "Basta lottare con i template.<br>Pensa alla tua ricerca.",
+    "tagline": "Siamo onesti: passare ore a allineare caselle su PowerPoint non è 'studiare'. SlideAI trasforma il tuo argomento in una presentazione pulita in 3 minuti."
+  },
+  "features": {
+    "items": [
+      { "title": "Livello Accademico", "desc": "L'IA comprende la logica necessaria per una tesi o un seminario universitario." },
+      { "title": "Recupera il Sonno", "desc": "Finito nel tempo di un caffè. Basta nottate in bianco a formattare slide." },
+      { "title": "Goditi il Weekend", "desc": "Finisci il lavoro prima e goditi il tempo libero. L'IA gestisce la parte noiosa." }
+    ]
+  },
+  "plans": {
+    "h2": "Nessun abbonamento, solo aiuto.",
+    "p_desc": "Sappiamo che il budget degli studenti è limitato. Ecco perché il **Pass 7 giorni** è la scelta n. 1 durante gli esami."
+  }
+}

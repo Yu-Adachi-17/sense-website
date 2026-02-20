@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Selesaikan Slaid Tesis & Seminar dalam 3 Minit",
+    "description": "Reka bentuk slaid sangat membosankan. Sama ada untuk seminar mingguan atau tesis akhir, biarkan AI uruskan. Cuba Pas 7 Hari, kegemaran pelajar."
+  },
+  "hero": {
+    "h1": "Berhenti Susah Payah Buat Slaid.<br>Fokus pada Kajian Anda.",
+    "tagline": "Jujur cakap: habiskan masa berjam-jam cuma untuk susun PowerPoint bukan 'belajar'. SlideAI ubah topik anda menjadi persembahan kemas dalam 3 minit."
+  },
+  "features": {
+    "items": [
+      { "title": "Tahap Akademik", "desc": "AI faham logik yang diperlukan untuk tesis atau seminar universiti." },
+      { "title": "Jaga Tidur Anda", "desc": "Siap dalam masa bancuh kopi. Tiada lagi berjaga malam hanya untuk format slaid." },
+      { "title": "Nikmati Hujung Minggu", "desc": "Siapkan kerja awal dan nikmati masa lapang. Biarkan AI urus bahagian yang bosan." }
+    ]
+  },
+  "plans": {
+    "h2": "Tanpa Komitmen, Hanya Bantuan.",
+    "p_desc": "Kami tahu bajet pelajar terhad. Sebab itu **Pas 7 Hari** menjadi pilihan utama masa minggu peperiksaan."
+  }
+}

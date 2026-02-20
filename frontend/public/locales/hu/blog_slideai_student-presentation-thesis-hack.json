@@ -1,0 +1,21 @@
+{
+  "seo": {
+    "title": "SlideAI Pro | Szakdolgozati prezentáció 3 perc alatt",
+    "description": "Diákat tervezni unalmas. Legyen szó szemináriumról vagy szakdolgozatról, hagyd, hogy az AI intézze. Próbáld ki a hallgatók kedvenc 7 napos bérletét."
+  },
+  "hero": {
+    "h1": "Ne pazarold az időd diákra.<br>Koncentrálj a kutatásodra.",
+    "tagline": "Legyünk őszinték: órákat tölteni PowerPoint formázással nem 'tanulás'. A SlideAI 3 perc alatt profi prezentációt varázsol a témádból."
+  },
+  "features": {
+    "items": [
+      { "title": "Valódi akadémiai szint", "desc": "Az AI érti a szakdolgozathoz vagy szemináriumhoz szükséges logikai felépítést." },
+      { "title": "Aludj többet", "desc": "Végezz a diákkal egy kávészünet alatt. Nincs több éjszakázás a formázás miatt." },
+      { "title": "Élvezd a hétvégét", "desc": "Tudd le a munkát korábban, és élvezd a szabadidőd. Az AI elvégzi a dögunalmas részt." }
+    ]
+  },
+  "plans": {
+    "h2": "Nincs elköteleződés, csak segítség.",
+    "p_desc": "Tudjuk, hogy a hallgatói költségvetés szűkös. Ezért a **7 napos bérlet** a legnépszerűbb választás a vizsgaidőszakban."
+  }
+}
