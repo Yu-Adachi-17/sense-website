@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Esitysten luominen ja ajansäästö konsulteille | SlideAI Pro",
+    "description": "Vieivätkö kalvosulkeiset viikonloppusi? Tutustu AI-tekniikkaan, jolla luot ehdotukset 3 minuutissa. Automaattiset esitykset yhdestä kehotteesta.",
+    "ogTitle": "Nopeuta esitysten luomista 90 %. Keskity olennaiseen SlideAI Pron avulla",
+    "ogDescription": "Lopeta PowerPoint-laatikoiden hienosäätö. Syötä strategiasi tekstinä ja saat valmiit kalvot heti. Rajoittamaton luominen tinkimättömällä laadulla."
+  },
+  "aria": {
+    "home": "SlideAI Etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "category": "Tuottavuustyökalut"
+  },
+  "hero": {
+    "h1": "Lopeta «kalvojen tekeminen»<br>ja ala «tuottaa arvoa».",
+    "tagline": "Aikasi on liian kallista PowerPointin viilaamiseen. SlideAI muuntaa ajatuksesi ammattimaiseksi materiaaliksi hetkessä. Maksimoi tuntiveloituksesi oikeilla työkaluilla.",
+    "badges": [
+      "Konsulttitason asettelut",
+      "Automatisoitu ehdotusten luonti",
+      "Valmis suoraan asiakastapaamiseen"
+    ]
+  },
+  "demo": {
+    "h2": "Todiste: Kehotteesta valmiiksi esitykseksi 3 minuutissa",
+    "p1": "SlideAI:n arvo on nopeuden ja tarkkuuden yhdistelmässä. Katso esimerkki DX-strategiasta, joka on luotu täysin ilman manuaalista muokkausta.",
+    "prompt_label": "A. Syötä vain tämä (kehote):",
+    "prompt_text": "「Olet DX-strategiakonsultti. Luo esitys keskisuurelle valmistavan teollisuuden yritykselle tuottavuuden parantamisesta tekoälyn avulla. Sisällytä haasteet, visio, 3 vuoden tiekartta ja ROI.」",
+    "output_label": "B. Tulos 180 sekunnin kuluttua:",
+    "image_captions": [
+      "1. Otsikko & Agenda: Ammattimainen ensivaikutelma",
+      "2. Nykytilan analyysi: Asiakkaan kipupisteiden rakenteellinen kuvaus",
+      "3. Tavoitetila: Visuaalinen esitys ideaalitilanteesta",
+      "4. Tiekartta: Uskottava aikataulu toteutukselle",
+      "5. ROI-ennuste: Arvoa tukevat graafit ja luvut",
+      "6. Seuraavat askeleet: Toimintaan kehottava lopetus"
+    ]
+  },
+  "benefits": {
+    "h2": "3 syytä, miksi ammattilaiset valitsevat SlideAI:n",
+    "items": [
+      {
+        "title": "Vapautus suunnittelutyöstä",
+        "desc": "Asettelu, välit ja visuaalinen hierarkia ovat tekoälyn optimoimia. Voit keskittyä vain logiikan hienosäätöön."
+      },
+      {
+        "title": "Rajoittamattomat versiot",
+        "desc": "Luonnoksesta valmiiksi – voit hioa esitystä tekoälyn kanssa niin monta kertaa kuin haluat."
+      },
+      {
+        "title": "Investointi omaan aikaasi",
+        "desc": "Kun 4 tunnin työ tiivistyy 10 minuuttiin, saat aikaa uusien asiakkaiden hankintaan tai vapaa-aikaan."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investoi kahvikupin hinta ja osta vapautesi.",
+    "p_desc": "Mitä yksi tunti ajastasi maksaa? SlideAI Pro tarjoaa **rajattoman kalvojen luonnin** edullisemmin kuin yhden ehdotuksen kirjoittaminen.",
+    "pass7": {
+      "name": "7 päivän passi",
+      "price": "9,99 $",
+      "desc": "Yksittäisiin tärkeisiin projekteihin tai kiireellisiin tarpeisiin."
+    },
+    "monthly": {
+      "name": "Kuukausitilaus",
+      "price": "14,99 $",
+      "desc": "Suosituin valinta aktiivisille ammattilaisille."
+    },
+    "yearly": {
+      "name": "Vuositilaus",
+      "price": "149,99 $",
+      "desc": "Paras arvo konsulteille, jotka haluavat jatkuvaa tehokkuutta."
+    }
+  },
+  "cta": {
+    "h3": "Lopeta esitysten manuaalinen rakentaminen tänään.",
+    "p": "Kun kokeilet tätä kerran, paluuta entiseen ei ole. Koe hyöty heti ensimmäisessä ehdotuksessasi.",
+    "download": "Aloita ajansäästö nyt"
+  }
+}

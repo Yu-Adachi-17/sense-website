@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Voorstellen maken & Tijdsbesparing voor Consultants | SlideAI Pro",
+    "description": "Stelen slides je weekenden? Ontdek de AI-methode die professionele consultants gebruiken om voorstellen in 3 minuten te maken. Genereer automatisch hoogwaardige decks.",
+    "ogTitle": "Versnel het maken van voorstellen met 90% met SlideAI Pro",
+    "ogDescription": "Stop met het handmatig tekenen van boxen in PowerPoint. Voer je strategie in als tekst en krijg direct presentatieklare slides."
+  },
+  "aria": {
+    "home": "SlideAI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Productiviteitstools"
+  },
+  "hero": {
+    "h1": "Stop met «slides maken»<br>en begin met «waarde leveren».",
+    "tagline": "Je tijd is te kostbaar voor PowerPoint-gefrunnik. SlideAI zet je gedachten direct om in professionele materialen. Maximaliseer je uurtarief met de juiste tools.",
+    "badges": [
+      "Layouts van consultantkwaliteit",
+      "Automatisering van voorstellen",
+      "Klaar voor de klant"
+    ]
+  },
+  "demo": {
+    "h2": "Bewijs: Van één prompt naar een volledige deck in 3 minuten",
+    "p1": "De waarde van SlideAI ligt in de combinatie van snelheid en precisie. Bekijk dit voorbeeld van een DX-strategie voorstel zonder handmatige aanpassingen.",
+    "prompt_label": "A. Je voert alleen dit in (Prompt):",
+    "prompt_text": "「Je bent een DX-strategieconsultant. Maak een voorstel voor een middelgroot productiebedrijf over het moderniseren van systemen en het verhogen van de productiviteit met AI. Inclusief uitdagingen, Smart Factory-visie, 3-jarige roadmap en ROI.」",
+    "output_label": "B. Het resultaat na 180 seconden:",
+    "image_captions": [
+      "1. Titel & Agenda: Een professionele eerste indruk",
+      "2. Situatieanalyse: Nauwkeurige structurering van klantproblemen",
+      "3. To-Be model: Visuele weergave van de ideale staat",
+      "4. Roadmap: Een tijdlijn die vertrouwen wekt",
+      "5. ROI-prognose: Grafieken die waarde onderbouwen met cijfers",
+      "6. Volgende stappen: Een afsluiting die aanzet tot actie"
+    ]
+  },
+  "benefits": {
+    "h2": "3 redenen waarom professionals voor SlideAI kiezen",
+    "items": [
+      {
+        "title": "Vrij van designwerk",
+        "desc": "Layout en visuele hiërarchie worden geoptimaliseerd door AI. Jij focust je volledig op de logica."
+      },
+      {
+        "title": "Onbeperkte iteraties",
+        "desc": "Van concept tot finale – verfijn zo vaak als je wilt. Gebruik de AI als sparringpartner voor je storytelling."
+      },
+      {
+        "title": "Investering in je eigen tijd",
+        "desc": "Wanneer 4 uur werk verandert in 10 minuten, win je tijd voor nieuwe klanten of vrije tijd."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investeer de prijs van een kop koffie en koop je vrijheid terug.",
+    "p_desc": "Wat is een uur van je tijd waard? SlideAI Pro biedt **onbeperkte slide-generatie** voor minder dan de kosten van één handmatig voorstel.",
+    "pass7": {
+      "name": "7-daagse pas",
+      "price": "$9.99",
+      "desc": "Voor eenmalige belangrijke projecten of spoedgevallen."
+    },
+    "monthly": {
+      "name": "Maandplan",
+      "price": "$14.99",
+      "desc": "De populairste keuze voor actieve professionals."
+    },
+    "yearly": {
+      "name": "Jaarplan",
+      "price": "$149.99",
+      "desc": "De beste deal voor consultants die van efficiëntie een gewoonte maken."
+    }
+  },
+  "cta": {
+    "h3": "Stop vandaag nog met het handmatig bouwen van slides.",
+    "p": "Als je het eenmaal probeert, wil je nooit meer terug. Voel de impact bij je allereerste voorstel.",
+    "download": "Begin nu met tijd besparen"
+  }
+}

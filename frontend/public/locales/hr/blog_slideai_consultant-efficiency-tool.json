@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Izrada prijedloga i ušteda vremena za konzultante | SlideAI Pro",
+    "description": "Kradu li vam prezentacije vikende? Otkrijte AI tehniku koju koriste profesionalni konzultanti za izradu prijedloga u 3 minute. Automatski generirajte visokokvalitetne slajdove.",
+    "ogTitle": "Ubrzajte izradu prijedloga za 90%. Fokusirajte se na vrijedan rad uz SlideAI Pro",
+    "ogDescription": "Zaboravite na crtanje okvira u PowerPointu. Unesite svoju strategiju kao tekst i odmah dobijte prezentaciju spremnu za klijenta."
+  },
+  "aria": {
+    "home": "SlideAI Početna"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Alati za produktivnost"
+  },
+  "hero": {
+    "h1": "Prestanite «izrađivati slajdove»<br>i počnite «isporučivati vrijednost».",
+    "tagline": "Vaše vrijeme je predragocjeno za dotjerivanje PowerPointa. SlideAI trenutno pretvara vaše misli u profesionalne materijale. Maksimizirajte svoju satnicu pravim alatima.",
+    "badges": [
+      "Layouti konzultantske kvalitete",
+      "Automatizacija prijedloga",
+      "Spremno za sastanak s klijentom"
+    ]
+  },
+  "demo": {
+    "h2": "Dokaz: Od jednog prompta do cijele prezentacije u 3 minute",
+    "p1": "Vrijednost SlideAI-ja leži u spoju brzine i preciznosti. Pogledajte primjer DX strategije generirane bez ikakvih ručnih izmjena.",
+    "prompt_label": "A. Sve što unosite je ovo (Prompt):",
+    "prompt_text": "「Vi ste konzultant za DX strategiju. Izradite prijedlog za srednje veliko proizvodno poduzeće o modernizaciji sustava i povećanju produktivnosti pomoću AI. Uključite izazove, viziju pametne tvornice, trogodišnji roadmap i očekivani ROI.」",
+    "output_label": "B. Rezultat nakon 180 sekundi:",
+    "image_captions": [
+      "1. Naslov i agenda: Profesionalan prvi dojam",
+      "2. Analiza situacije: Precizno strukturiranje problema klijenta",
+      "3. To-Be model: Vizualni prikaz idealnog stanja",
+      "4. Roadmap: Hodogram koji gradi povjerenje",
+      "5. ROI projekcija: Grafikoni koji brojkama podupiru vrijednost",
+      "6. Sljedeći koraci: Završetak koji potiče na akciju"
+    ]
+  },
+  "benefits": {
+    "h2": "3 razloga zašto profesionalci biraju SlideAI",
+    "items": [
+      {
+        "title": "Oslobođenje od dizajnerskog posla",
+        "desc": "Layout i vizualnu hijerarhiju optimizira AI. Vi se fokusirate isključivo na brušenje logike."
+      },
+      {
+        "title": "Neograničene iteracije",
+        "desc": "Od nacrta do finala – dorađujte koliko god želite. Koristite AI kao partnera za brainstorming."
+      },
+      {
+        "title": "Investicija u vaše vrijeme",
+        "desc": "Kada se 4 sata rada smanje na 10 minuta, dobivate vrijeme za nove klijente ili slobodno vrijeme."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investirajte cijenu kave i kupite svoju slobodu.",
+    "p_desc": "Koliko vrijedi jedan sat vašeg vremena? SlideAI Pro nudi **neograničeno generiranje slajdova** jeftinije od pisanja jednog prijedloga.",
+    "pass7": {
+      "name": "7-dnevna propusnica",
+      "price": "$9.99",
+      "desc": "Za jednokratne ključne projekte ili hitne ponude."
+    },
+    "monthly": {
+      "name": "Mjesečni plan",
+      "price": "$14.99",
+      "desc": "Najpopularniji izbor za aktivne profesionalce."
+    },
+    "yearly": {
+      "name": "Godišnji plan",
+      "price": "$149.99",
+      "desc": "Najbolja vrijednost za one kojima je učinkovitost navika."
+    }
+  },
+  "cta": {
+    "h3": "Prestanite ručno raditi prezentacije već danas.",
+    "p": "Jednom kada probate, nema povratka. Osjetite razliku već pri prvom prijedlogu.",
+    "download": "Počnite štedjeti vrijeme odmah"
+  }
+}

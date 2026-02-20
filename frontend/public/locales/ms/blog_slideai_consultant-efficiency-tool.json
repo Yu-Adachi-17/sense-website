@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Penyediaan Cadangan & Tip Jimat Masa untuk Konsultan | SlideAI Pro",
+    "description": "Adakah pembikinan slaid mencuri masa hujung minggu anda? Temui teknik AI untuk menyiapkan cadangan dalam 3 minit. Jana slaid berkualiti tinggi secara automatik.",
+    "ogTitle": "Percepatkan penyediaan cadangan sebanyak 90% dengan SlideAI Pro",
+    "ogDescription": "Lupakan kerja leceh mendesain PowerPoint. Masukkan strategi anda dalam bentuk teks dan dapatkan slaid yang sedia untuk pembentangan secara segera."
+  },
+  "aria": {
+    "home": "SlideAI Laman Utama"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Alat Produktiviti"
+  },
+  "hero": {
+    "h1": "Berhenti «Membuat Slaid»<br>dan Mula «Memberi Nilai».",
+    "tagline": "Masa anda terlalu berharga untuk sekadar menyusun kotak PowerPoint. SlideAI mengubah pemikiran anda menjadi bahan profesional sekelip mata. Maksimumkan kadar upah sejam anda.",
+    "badges": [
+      "Layout Taraf Konsultan",
+      "Automasasi Cadangan Projek",
+      "Sedia untuk Mesyuarat Klien"
+    ]
+  },
+  "demo": {
+    "h2": "Bukti: Dari Satu Prompt Menjadi Slaid Lengkap dalam 3 Minit",
+    "p1": "Nilai sebenar SlideAI adalah pada gabungan kelajuan dan ketepatan. Lihat contoh cadangan strategi DX yang dijana tanpa sebarang suntingan manual.",
+    "prompt_label": "A. Anda hanya perlu masukkan ini (Prompt):",
+    "prompt_text": "「Anda adalah konsultan strategi DX. Buat cadangan untuk syarikat pembuatan sederhana tentang pemodenan sistem dan peningkatan produktiviti menggunakan AI. Sertakan cabaran, visi smart factory, roadmap 3 tahun, dan ROI.」",
+    "output_label": "B. Hasilnya selepas 180 saat:",
+    "image_captions": [
+      "1. Tajuk & Agenda: Tanggapan pertama yang profesional",
+      "2. Analisis Situasi: Struktur masalah klien yang tepat",
+      "3. Model To-Be: Gambaran visual keadaan ideal",
+      "4. Roadmap: Jadual pelaksanaan yang membina keyakinan",
+      "5. Unjuran ROI: Graf yang membuktikan nilai dengan data",
+      "6. Langkah Seterusnya: Penutup yang mendorong tindakan segera"
+    ]
+  },
+  "benefits": {
+    "h2": "3 Sebab Profesional Memilih SlideAI",
+    "items": [
+      {
+        "title": "Bebas dari Kerja Desain",
+        "desc": "Layout dan hierarki visual dioptimumkan oleh AI. Anda hanya perlu fokus pada pemantapan logik perniagaan."
+      },
+      {
+        "title": "Iterasi Tanpa Had",
+        "desc": "Dari draf hingga final – baiki sebanyak mana yang anda mahu. Gunakan AI sebagai rakan perbincangan strategi anda."
+      },
+      {
+        "title": "Pelaburan untuk Membeli Masa",
+        "desc": "Apabila kerja 4 jam dipendekkan menjadi 10 minit, anda mendapat masa tambahan untuk mencari klien baru atau berehat."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Labur seharga secawan kopi, dapatkan kebebasan masa anda.",
+    "p_desc": "Berapakah nilai satu jam masa anda? SlideAI Pro menawarkan **penjanaan slaid tanpa had** lebih murah daripada kos menulis satu cadangan manual.",
+    "pass7": {
+      "name": "Pas 7 Hari",
+      "price": "$9.99",
+      "desc": "Untuk projek penting sekali guna atau keperluan segera."
+    },
+    "monthly": {
+      "name": "Pelan Bulanan",
+      "price": "$14.99",
+      "desc": "Pilihan paling popular untuk profesional aktif."
+    },
+    "yearly": {
+      "name": "Pelan Tahunan",
+      "price": "$149.99",
+      "desc": "Nilai terbaik untuk konsultan yang mengutamakan kecekapan."
+    }
+  },
+  "cta": {
+    "h3": "Berhenti membuat slaid secara manual hari ini.",
+    "p": "Selepas mencubanya, anda tidak akan kembali ke cara lama. Rasakan impaknya pada cadangan pertama anda.",
+    "download": "Mula Jimat Masa Sekarang"
+  }
+}

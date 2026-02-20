@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Präsentationserstellung für Berater & Freelancer | SlideAI Pro",
+    "description": "Rauben Ihnen Folien das Wochenende? Erfahren Sie, wie Profis mit KI in 3 Minuten Präsentationen erstellen. Automatisierte Folien aus nur einem Prompt.",
+    "ogTitle": "90% schnellere Präsentationserstellung mit SlideAI Pro",
+    "ogDescription": "Schluss mit dem Zeichnen von Boxen in PowerPoint. Strategie als Text eingeben und fertige Folien erhalten. Unbegrenzte Generierung für perfekte Ergebnisse."
+  },
+  "aria": {
+    "home": "SlideAI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Produktivitätstools"
+  },
+  "hero": {
+    "h1": "Hören Sie auf, „Folien zu basteln“,<br>und liefern Sie „echten Mehrwert“.",
+    "tagline": "Ihre Zeit ist zu wertvoll für PowerPoint-Feinschliff. SlideAI verwandelt Ihre Gedanken sofort in professionelle Unterlagen. Maximieren Sie Ihren Stundensatz mit dem Tool für Profis.",
+    "badges": [
+      "Layouts in Beraterqualität",
+      "Automatisierte Angebotserstellung",
+      "Sofort einsatzbereit"
+    ]
+  },
+  "demo": {
+    "h2": "Der Beweis: Vom Prompt zur Präsentation in 3 Minuten",
+    "p1": "Der wahre Wert von SlideAI liegt in der Kombination aus Effizienz und Präzision. Sehen Sie hier ein Beispiel für eine DX-Strategie ohne manuelle Korrekturen.",
+    "prompt_label": "A. Ihre Eingabe (Prompt):",
+    "prompt_text": "「Du bist ein DX-Berater. Erstelle eine Präsentation für ein mittelständisches Unternehmen zur Produktivitätssteigerung durch KI. Inhalt: Herausforderungen, Smart Factory Vision, 3-Jahres-Roadmap und ROI.」",
+    "output_label": "B. Das Ergebnis nach 180 Sekunden:",
+    "image_captions": [
+      "1. Titel & Agenda: Professioneller erster Eindruck",
+      "2. Ist-Analyse: Präzise Strukturierung der Probleme",
+      "3. Ziel-Modell: Visuelle Darstellung der Ideallösung",
+      "4. Roadmap: Realistischer Umsetzungsplan",
+      "5. ROI-Prognose: Grafiken, die den Wert belegen",
+      "6. Nächste Schritte: Abschluss mit Handlungsaufforderung"
+    ]
+  },
+  "benefits": {
+    "h2": "3 Gründe, warum Profis auf SlideAI setzen",
+    "items": [
+      {
+        "title": "Befreiung vom Design",
+        "desc": "Layout und visuelle Hierarchie werden von der KI optimiert. Konzentrieren Sie sich rein auf Ihre Strategie."
+      },
+      {
+        "title": "Unbegrenzte Iterationen",
+        "desc": "Vom Entwurf zum Finale – nutzen Sie die KI als Sparringspartner, bis Ihr Storytelling perfekt sitzt."
+      },
+      {
+        "title": "Investition in Ihre Zeit",
+        "desc": "Wenn 4 Stunden Arbeit zu 10 Minuten werden, gewinnen Sie wertvolle Zeit für Neukunden oder Freizeit."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investieren Sie den Preis eines Kaffees in Ihre Freiheit.",
+    "p_desc": "Was ist eine Stunde Ihrer Zeit wert? SlideAI Pro bietet **unbegrenzte Folien-Generierung** günstiger als die manuelle Erstellung eines Angebots.",
+    "pass7": {
+      "name": "7-Tage-Pass",
+      "price": "$9.99",
+      "desc": "Für wichtige Einzelprojekte oder Eilaufträge."
+    },
+    "monthly": {
+      "name": "Monatsplan",
+      "price": "$14.99",
+      "desc": "Ideal für aktive Berater mit hohem Projektaufkommen."
+    },
+    "yearly": {
+      "name": "Jahresplan",
+      "price": "$149.99",
+      "desc": "Die beste Wahl für maximale Effizienz das ganze Jahr über."
+    }
+  },
+  "cta": {
+    "h3": "Schluss mit der manuellen Folienerstellung.",
+    "p": "Wer es einmal nutzt, will nicht mehr zurück. Erleben Sie den Mehrwert bei Ihrer ersten Präsentation.",
+    "download": "Jetzt Zeit sparen"
+  }
+}

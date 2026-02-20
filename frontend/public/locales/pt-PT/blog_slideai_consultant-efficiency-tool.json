@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Criação de Propostas e Gestão de Tempo para Consultores | SlideAI Pro",
+    "description": "As apresentações roubam os seus fins de semana? Descubra a técnica de IA para criar propostas em 3 minutos. Gere slides profissionais automaticamente a partir de um único comando.",
+    "ogTitle": "Acelere a criação de propostas em 90% com o SlideAI Pro",
+    "ogDescription": "Diga adeus ao design manual no PowerPoint. Introduza a sua estratégia em texto e receba slides prontos para o cliente instantaneamente."
+  },
+  "aria": {
+    "home": "SlideAI Início"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Ferramentas de Produtividade"
+  },
+  "hero": {
+    "h1": "Deixe de «fazer slides»<br>e comece a «entregar valor».",
+    "tagline": "O seu tempo é demasiado valioso para ajustar caixas no PowerPoint. O SlideAI converte as suas ideias em apresentações profissionais num instante. Maximize o seu valor por hora.",
+    "badges": [
+      "Layouts de qualidade de consultoria",
+      "Automação de propostas",
+      "Pronto para reuniões com clientes"
+    ]
+  },
+  "demo": {
+    "h2": "Prova: De um único comando a uma apresentação em 3 minutos",
+    "p1": "O valor do SlideAI está na união entre rapidez e precisão. Veja este exemplo de proposta estratégica DX gerada sem qualquer edição manual.",
+    "prompt_label": "A. Só precisa de introduzir isto (Prompt):",
+    "prompt_text": "「É um consultor de estratégia DX. Crie uma proposta para uma empresa industrial média sobre a modernização de sistemas e aumento de produtividade com IA. Inclua desafios, visão Smart Factory, roadmap de 3 anos e ROI.」",
+    "output_label": "B. O resultado após 180 segundos:",
+    "image_captions": [
+      "1. Título & Agenda: Uma primeira impressão profissional",
+      "2. Análise da Situação: Estruturação precisa das dores do cliente",
+      "3. Modelo To-Be: Representação visual do estado ideal",
+      "4. Roadmap: Um cronograma que gera confiança",
+      "5. Projeção de ROI: Gráficos que provam o valor com dados",
+      "6. Próximos Passos: Um encerramento que incentiva à ação"
+    ]
+  },
+  "benefits": {
+    "h2": "3 razões pelas quais os profissionais escolhem o SlideAI",
+    "items": [
+      {
+        "title": "Livre de tarefas de design",
+        "desc": "O layout e a hierarquia visual são otimizados por IA. Concentre-se apenas em refinar a sua lógica de negócio."
+      },
+      {
+        "title": "Iterações ilimitadas",
+        "desc": "Do rascunho ao final – melhore as vezes que quiser. Use a IA como parceira de brainstorming para o seu storytelling."
+      },
+      {
+        "title": "Investimento no seu tempo",
+        "desc": "Quando 4 horas de trabalho se reduzem a 10 minutos, ganha tempo para conquistar novos clientes ou descansar."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Invista o preço de um café e recupere a sua liberdade.",
+    "p_desc": "Quanto vale uma hora do seu tempo? O SlideAI Pro oferece **geração ilimitada de slides** por menos do que custa redigir uma única proposta manual.",
+    "pass7": {
+      "name": "Passe de 7 dias",
+      "price": "$9.99",
+      "desc": "Para projetos pontuais estratégicos ou propostas urgentes."
+    },
+    "monthly": {
+      "name": "Plano Mensal",
+      "price": "$14.99",
+      "desc": "A escolha favorita de profissionais ativos."
+    },
+    "yearly": {
+      "name": "Plano Anual",
+      "price": "$149.99",
+      "desc": "O melhor valor para consultores que fazem da eficiência um hábito."
+    }
+  },
+  "cta": {
+    "h3": "Deixe de criar slides manualmente hoje mesmo.",
+    "p": "Depois de experimentar, não vai querer outra coisa. Sinta o impacto logo na primeira proposta.",
+    "download": "Comece a poupar tempo agora"
+  }
+}

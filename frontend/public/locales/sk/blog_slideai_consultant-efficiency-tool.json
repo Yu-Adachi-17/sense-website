@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Tvorba návrhov a úspora času pre konzultantov | SlideAI Pro",
+    "description": "Kradnú vám prezentácie víkendy? Objavte techniku AI, ktorú používajú profesionáli na tvorbu návrhov za 3 minúty. Automaticky generujte vysokokvalitné slajdy.",
+    "ogTitle": "Zrýchlite tvorbu návrhov o 90 % so SlideAI Pro",
+    "ogDescription": "Zabudnite na kreslenie boxov v PowerPointe. Zadajte svoju stratégiu ako text a okamžite získajte slajdy pripravené na stretnutie s klientom."
+  },
+  "aria": {
+    "home": "SlideAI Domov"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Nástroje produktivity"
+  },
+  "hero": {
+    "h1": "Prestaňte «vyrábať slajdy»<br>a začnite «doručovať hodnotu».",
+    "tagline": "Váš čas je príliš vzácny na ladenie PowerPointu. SlideAI okamžite premení vaše myšlienky na profesionálne materiály. Maximalizujte svoju hodinovú sadzbu správnymi nástrojmi.",
+    "badges": [
+      "Layouty v kvalite konzultantov",
+      "Automatizácia návrhov",
+      "Pripravené na klientske stretnutie"
+    ]
+  },
+  "demo": {
+    "h2": "Dôkaz: Od jedného promptu k prezentácii za 3 minúty",
+    "p1": "Hodnota SlideAI spočíva v spojení rýchlosti a precíznosti. Pozrite si príklad DX stratégie vygenerovanej bez akýchkoľvek manuálnych úprav.",
+    "prompt_label": "A. Zadávate iba toto (Prompt):",
+    "prompt_text": "「Ste konzultant pre DX stratégiu. Vytvorte návrh pre stredne veľkú firmu o modernizácii systémov a zvýšení produktivity pomocou AI. Zahrňte výzvy, víziu smart factory, 3-ročný roadmap a ROI.」",
+    "output_label": "B. Výsledok po 180 sekundách:",
+    "image_captions": [
+      "1. Titul a agenda: Profesionálny prvý dojem",
+      "2. Analýza situácie: Presné štruktúrovanie problémov klienta",
+      "3. To-Be model: Vizuálna prezentácia ideálneho stavu",
+      "4. Roadmap: Harmonogram, ktorý buduje dôveru",
+      "5. Predikcia ROI: Grafy podložené číslami",
+      "6. Ďalšie kroky: Záver, ktorý podnecuje k akcii"
+    ]
+  },
+  "benefits": {
+    "h2": "3 dôvody, prečo profesionáli volia SlideAI",
+    "items": [
+      {
+        "title": "Koniec trápenia s dizajnom",
+        "desc": "Layout a vizuálna hierarchia sú optimalizované AI. Vy sa sústredíte výhradne na brúsenie logiky."
+      },
+      {
+        "title": "Neobmedzené iterácie",
+        "desc": "Od konceptu po finále – upravujte toľkokrát, koľkokrát chcete. AI je váš partner na brainstorming."
+      },
+      {
+        "title": "Investícia do vášho času",
+        "desc": "Keď sa 4 hodiny práce skrátia na 10 minút, získate čas na nových klientov alebo voľno."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investujte cenu jednej kávy a kúpte si slobodu.",
+    "p_desc": "Akú hodnotu má hodina vášho času? SlideAI Pro ponúka **neobmedzené generovanie slajdov** lacnejšie než tvorba jedného manuálneho návrhu.",
+    "pass7": {
+      "name": "7-dňový pas",
+      "price": "$9.99",
+      "desc": "Pre jednorazové dôležité projekty alebo urgentné ponuky."
+    },
+    "monthly": {
+      "name": "Mesačný plán",
+      "price": "$14.99",
+      "desc": "Najpopulárnejšia voľba pre aktívnych konzultantov."
+    },
+    "yearly": {
+      "name": "Ročný plán",
+      "price": "$149.99",
+      "desc": "Najlepšia hodnota pre tých, ktorí chcú pracovať efektívne."
+    }
+  },
+  "cta": {
+    "h3": "Skončite s ručnou tvorbou slajdov už dnes.",
+    "p": "Keď to raz vyskúšate, nebudete sa chcieť vrátiť. Pocíťte ten rozdiel pri svojom prvom návrhu.",
+    "download": "Začnite šetriť čas teraz"
+  }
+}

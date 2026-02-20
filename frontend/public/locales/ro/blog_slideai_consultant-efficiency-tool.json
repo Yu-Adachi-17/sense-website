@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Creare propuneri și economisire timp pentru consultanți | SlideAI Pro",
+    "description": "Prezentările îți fură weekendurile? Descoperă tehnica AI pentru a crea propuneri în 3 minute. Generează automat slide-uri profesionale dintr-un singur prompt.",
+    "ogTitle": "Accelerază crearea propunerilor cu 90% folosind SlideAI Pro",
+    "ogDescription": "Uită de desenatul casetelor în PowerPoint. Introdu strategia ta ca text și obține instant slide-uri gata pentru întâlnirea cu clientul."
+  },
+  "aria": {
+    "home": "SlideAI Acasă"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Instrumente de productivitate"
+  },
+  "hero": {
+    "h1": "Nu mai «face slide-uri»<br>și începe să «oferi valoare».",
+    "tagline": "Timpul tău este prea prețios pentru a aranja elemente în PowerPoint. SlideAI transformă gândurile tale în materiale profesionale instantaneu. Maximizează-ți tariful orar.",
+    "badges": [
+      "Layout-uri de calitate consultativă",
+      "Automatizarea propunerilor",
+      "Gata pentru prezentarea la client"
+    ]
+  },
+  "demo": {
+    "h2": "Dovada: De la un singur prompt la o prezentare completă în 3 minute",
+    "p1": "Valoarea SlideAI constă în combinația de viteză și precizie. Vezi un exemplu de propunere strategică DX generată fără nicio modificare manuală.",
+    "prompt_label": "A. Introduci doar atât (Prompt):",
+    "prompt_text": "「Ești un consultant de strategie DX. Creează o propunere pentru o companie industrială medie privind modernizarea sistemelor și creșterea productivității prin AI. Include provocări, viziunea Smart Factory, roadmap pe 3 ani și ROI.」",
+    "output_label": "B. Rezultatul după 180 de secunde:",
+    "image_captions": [
+      "1. Titlu & Agendă: O primă impresie profesională",
+      "2. Analiza situației: Structurarea precisă a problemelor clientului",
+      "3. Modelul To-Be: Reprezentarea vizuală a stării ideale",
+      "4. Roadmap: Un calendar care inspiră încredere",
+      "5. Proiecție ROI: Grafice care susțin valoarea cu cifre",
+      "6. Pașii următori: Încheiere care îndeamnă la acțiune imediată"
+    ]
+  },
+  "benefits": {
+    "h2": "3 motive pentru care profesioniștii aleg SlideAI",
+    "items": [
+      {
+        "title": "Liber de sarcinile de design",
+        "desc": "Layout-ul și ierarhia vizuală sunt optimizate de AI. Tu te concentrezi doar pe rafinarea logicii de business."
+      },
+      {
+        "title": "Iterații nelimitate",
+        "desc": "De la schiță la final – îmbunătățește de câte ori vrei. Folosește AI-ul ca partener de brainstorming."
+      },
+      {
+        "title": "Investiție în propriul timp",
+        "desc": "Când 4 ore de muncă se reduc la 10 minute, câștigi timp pentru clienți noi sau pentru tine."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investește prețul unei cafele și cumpără-ți libertatea.",
+    "p_desc": "Cât valorează o oră din timpul tău? SlideAI Pro oferă **generare nelimitată de slide-uri** mai ieftin decât redactarea unei singure propuneri manuale.",
+    "pass7": {
+      "name": "Pass 7 zile",
+      "price": "$9.99",
+      "desc": "Pentru proiecte cheie unice sau urgențe."
+    },
+    "monthly": {
+      "name": "Plan lunar",
+      "price": "$14.99",
+      "desc": "Alegerea preferată a profesioniștilor activi."
+    },
+    "yearly": {
+      "name": "Plan anual",
+      "price": "$149.99",
+      "desc": "Cea mai bună valoare pentru consultanții care fac din eficiență un obicei."
+    }
+  },
+  "cta": {
+    "h3": "Nu mai construi slide-uri manual de astăzi.",
+    "p": "Odată ce încerci, nu te mai întorci. Simte diferența la prima ta propunere.",
+    "download": "Începe să economisești timp acum"
+  }
+}

@@ -1,50 +1,80 @@
 {
   "seo": {
-    "title": "Proposal Creation Hacks for Consultants & Freelancers | SlideAI Pro",
-    "description": "Stop wasting weekends on deck formatting. Learn how professional consultants use AI to create high-fidelity proposals in 3 minutes from a single prompt.",
-    "ogTitle": "Boost Proposal Speed by 90% with SlideAI Pro",
-    "ogDescription": "Forget manual PowerPoint formatting. Turn your strategy text into boardroom-ready slides instantly. Truly unlimited generations."
+    "title": "Proposal Writing & Time-Saving Hacks for Consultants | SlideAI Pro",
+    "description": "Are slides stealing your weekends? Discover AI-powered proposal techniques used by pro consultants to finish in 3 minutes. Auto-generate high-quality decks from a single prompt.",
+    "ogTitle": "Speed up proposal creation by 90%. Focus on high-value work with SlideAI Pro",
+    "ogDescription": "Say goodbye to 'pixel-pushing' in PowerPoint. Enter your strategy as text and get client-ready slides instantly. Unlimited generation for uncompromising quality."
   },
-  "aria": { "home": "SlideAI Home" },
-  "nav": { "blog": "Blog", "category": "Productivity Tools" },
+  "aria": {
+    "home": "SlideAI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Productivity Tools"
+  },
   "hero": {
-    "h1": "Stop Building Slides.<br>Start Selling Strategy.",
-    "tagline": "Your time is for strategic thinking, not nudging text boxes. SlideAI transforms your vision into professional decks instantly. Maximize your billable hours with the tool built for experts.",
-    "badges": ["Consultant-Grade Layouts", "Proposal Automation", "Client-Ready Output"]
+    "h1": "Stop 'Making Slides',<br>Start 'Delivering Value'.",
+    "tagline": "Your time should be spent on strategy, not tweaking PowerPoint boxes. SlideAI instantly converts your thoughts into professional decks. Own the tool that maximizes your billable rate.",
+    "badges": [
+      "Consultant-Grade Layouts",
+      "Automated Proposal Creation",
+      "Client-Ready Outputs"
+    ]
   },
   "demo": {
-    "h2": "The Proof: From Prompt to Full Deck in 180 Seconds",
-    "p1": "SlideAI combines speed with professional precision. See how a complex DX strategy proposal is generated from a single prompt with zero manual adjustments.",
-    "prompt_label": "A. The Only Input (Your Prompt):",
-    "prompt_text": "\"You are a DX strategy consultant. Create a proposal for a mid-sized manufacturing client to shift from legacy systems to AI-driven productivity. Include issues, smart factory vision, a 3-year roadmap, ROI, and next steps.\"",
-    "output_label": "B. The Result (Generated in 3 Minutes):",
+    "h2": "Proof: From One Prompt to a Full Deck in 3 Minutes",
+    "p1": "The true value of SlideAI lies in the synergy of speed and precision. See this example of a DX strategy proposal generated with zero manual edits.",
+    "prompt_label": "A. All you enter is this (Prompt):",
+    "prompt_text": "「You are a DX strategy consultant. Create a proposal for a mid-sized manufacturer to move away from legacy systems and improve productivity using AI. Include current challenges, the Smart Factory vision, a 3-year roadmap, expected ROI, and next steps. Make it logical and persuasive.」",
+    "output_label": "B. The result 180 seconds later:",
     "image_captions": [
-      "1. Title & Agenda",
-      "2. Issue Analysis",
-      "3. To-Be Model",
-      "4. Strategic Roadmap",
-      "5. ROI Projection",
-      "6. Immediate Next Steps"
+      "1. Title & Agenda: A professional first impression",
+      "2. Situation Analysis: Precisely structuring client pain points",
+      "3. To-Be Model: A visual representation of the ideal state",
+      "4. Implementation Roadmap: A timeline that builds confidence",
+      "5. ROI Projection: Graphs backing value with hard numbers",
+      "6. Next Steps: A closing that drives immediate action"
     ]
   },
   "benefits": {
-    "h2": "Why Pros Choose SlideAI",
+    "h2": "3 Reasons Pros Can't Live Without SlideAI",
     "items": [
-      { "title": "Zero Design Friction", "desc": "AI handles visual hierarchy and alignment. You focus entirely on the logic." },
-      { "title": "Unlimited Iterations", "desc": "Draft and refine until the narrative is perfect. No credit limits to hold you back." },
-      { "title": "Buy Back Your Time", "desc": "Turn 4 hours of manual labor into 10 minutes of AI magic. Reclaim your weekends." }
+      {
+        "title": "Freedom from Design Work",
+        "desc": "Layouts, white space, and visual hierarchy are AI-optimized. You focus entirely on refining the logic."
+      },
+      {
+        "title": "Unlimited Iterations",
+        "desc": "From draft to final version—refine as many times as you like. Use the AI as a sparring partner for your storytelling."
+      },
+      {
+        "title": "An Investment to Buy Back Your Time",
+        "desc": "When 4 hours of work shrinks to 10 minutes, you gain the freedom to win new clients or simply enjoy your life."
+      }
     ]
   },
   "plans": {
-    "h2": "An Investment That Pays for Itself Instantly",
-    "p_desc": "What is one billable hour worth to you? SlideAI Pro costs less than a client lunch but saves you dozens of hours monthly. **Unlimited generations.**",
-    "pass7": { "name": "7-Day Pass", "price": "$9.99", "desc": "Perfect for one-off high-stakes proposals." },
-    "monthly": { "name": "Monthly", "price": "$14.99", "desc": "The standard choice for active consultants." },
-    "yearly": { "name": "Yearly", "price": "$149.99", "desc": "The best value for long-term growth and efficiency." }
+    "h2": "Invest the price of a coffee, gain hours of freedom.",
+    "p_desc": "What is an hour of your time worth? SlideAI Pro offers **unlimited slide generation** for less than the cost of writing a single proposal manually.",
+    "pass7": {
+      "name": "7-Day Pass",
+      "price": "$9.99",
+      "desc": "For one-off key projects or urgent proposals."
+    },
+    "monthly": {
+      "name": "Monthly Plan",
+      "price": "$14.99",
+      "desc": "The top choice for active pros managing multiple projects."
+    },
+    "yearly": {
+      "name": "Yearly Plan",
+      "price": "$149.99",
+      "desc": "The best value for consultants making efficiency a habit."
+    }
   },
   "cta": {
-    "h3": "Manual slide building is now obsolete.",
-    "p": "Once you try it, you won't go back. Experience the difference in your very first proposal.",
+    "h3": "Stop building slides manually today.",
+    "p": "Once you try it, there’s no going back. Feel the impact with your very first proposal.",
     "download": "Start Saving Time Now"
   }
 }

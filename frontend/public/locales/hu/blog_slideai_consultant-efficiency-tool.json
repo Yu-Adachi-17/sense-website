@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Ajánlatkészítés és időmegtakarítás tanácsadóknak | SlideAI Pro",
+    "description": "A prezentációk ellopják a hétvégéit? Ismerje meg az AI-módszert, amellyel 3 perc alatt készíthet ajánlatokat. Professzionális diák automatikus generálása.",
+    "ogTitle": "Gyorsítsa fel az ajánlatkészítést 90%-kal. Koncentráljon az értékteremtésre a SlideAI Pro-val",
+    "ogDescription": "Felejtse el a PowerPoint dobozok rajzolgatását. Írja be a stratégiáját szövegként, és kapjon azonnal prezentációkész diáksort."
+  },
+  "aria": {
+    "home": "SlideAI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Produktivitási eszközök"
+  },
+  "hero": {
+    "h1": "Hagyja abba a «diák gyártását»<br>és kezdjen el «értéket adni».",
+    "tagline": "Az Ön ideje túl drága a PowerPoint finomhangolásához. A SlideAI azonnal professzionális anyaggá alakítja gondolatait. Maximalizálja óradíját a megfelelő eszközökkel.",
+    "badges": [
+      "Tanácsadói minőségű elrendezések",
+      "Automatizált ajánlatkészítés",
+      "Azonnal prezentálható kimenet"
+    ]
+  },
+  "demo": {
+    "h2": "Bizonyíték: Egyetlen promptból kész prezentáció 3 perc alatt",
+    "p1": "A SlideAI értéke a sebesség és a precizitás ötvözetében rejlik. Nézzen meg egy példát egy manuális módosítás nélkül készült DX stratégiai ajánlatra.",
+    "prompt_label": "A. Csak ennyit kell beírnia (Prompt):",
+    "prompt_text": "「Ön egy DX stratégiai tanácsadó. Készítsen ajánlatot egy középvállalatnak a termelékenység AI segítségével történő növelésére. Tartalmazza a kihívásokat, a Smart Factory jövőképet, a 3 éves ütemtervet és a megtérülést (ROI).」",
+    "output_label": "B. Az eredmény 180 másodperc múlva:",
+    "image_captions": [
+      "1. Cím és agenda: Professzionális első benyomás",
+      "2. Helyzetelemzés: Az ügyfél problémáinak pontos strukturálása",
+      "3. To-Be modell: Az ideális állapot vizuális bemutatása",
+      "4. Ütemterv: Bizalmat építő megvalósítási terv",
+      "5. ROI előrejelzés: Az értéket számokkal alátámasztó grafikonok",
+      "6. Következő lépések: Azonnali cselekvésre ösztönző lezárás"
+    ]
+  },
+  "benefits": {
+    "h2": "3 ok, amiért a profik a SlideAI-t választják",
+    "items": [
+      {
+        "title": "Szabadulás a designtól",
+        "desc": "Az elrendezést és a vizuális hierarchiát az AI optimalizálja. Önnek csak a logikával kell foglalkoznia."
+      },
+      {
+        "title": "Végtelen javítási lehetőség",
+        "desc": "A vázlattól a véglegesig – annyiszor csiszolhatja az anyagot, ahányszor csak akarja."
+      },
+      {
+        "title": "Befektetés az Ön idejébe",
+        "desc": "Ha 4 óra munka 10 percre rövidül, időt nyer új ügyfelek szerzésére vagy pihenésre."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Fektessen be egy kávé árába és vegye vissza a szabadságát.",
+    "p_desc": "Mennyit ér egy órája? A SlideAI Pro **korlátlan diágenerálást** kínál olcsóbban, mint egyetlen manuális ajánlat elkészítése.",
+    "pass7": {
+      "name": "7 napos bérlet",
+      "price": "$9.99",
+      "desc": "Egyszeri fontos projektekhez vagy sürgős ajánlatokhoz."
+    },
+    "monthly": {
+      "name": "Havi terv",
+      "price": "$14.99",
+      "desc": "A legnépszerűbb választás aktív tanácsadóknak."
+    },
+    "yearly": {
+      "name": "Éves terv",
+      "price": "$149.99",
+      "desc": "A legjobb érték azoknak, akik a hatékonyságot alapvetésnek tartják."
+    }
+  },
+  "cta": {
+    "h3": "Hagyja abba a diák manuális építését még ma.",
+    "p": "Ha egyszer kipróbálja, nem akar majd visszatérni. Érezze a különbséget már az első ajánlatánál.",
+    "download": "Kezdjen el időt megtakarítani most"
+  }
+}

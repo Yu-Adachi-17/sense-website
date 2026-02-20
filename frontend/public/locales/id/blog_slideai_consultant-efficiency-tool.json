@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Pembuatan Proposal & Tip Hemat Waktu untuk Konsultan | SlideAI Pro",
+    "description": "Apakah pembuatan slide menyita waktu akhir pekan Anda? Temukan teknik AI untuk membuat proposal dalam 3 menit. Hasilkan slide berkualitas tinggi secara otomatis.",
+    "ogTitle": "Percepat pembuatan proposal hingga 90% dengan SlideAI Pro",
+    "ogDescription": "Lupakan kerumitan mendesain di PowerPoint. Masukkan strategi Anda sebagai teks dan dapatkan slide yang siap untuk presentasi klien secara instan."
+  },
+  "aria": {
+    "home": "SlideAI Beranda"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Alat Produktivitas"
+  },
+  "hero": {
+    "h1": "Berhenti «Membuat Slide»<br>dan Mulai «Memberikan Nilai».",
+    "tagline": "Waktu Anda terlalu berharga untuk sekadar merapikan PowerPoint. SlideAI mengubah pemikiran Anda menjadi materi profesional dalam sekejap. Maksimalkan tarif per jam Anda.",
+    "badges": [
+      "Layout Standar Konsultan",
+      "Otomatisasi Pembuatan Proposal",
+      "Siap untuk Pertemuan Klien"
+    ]
+  },
+  "demo": {
+    "h2": "Bukti: Dari Satu Prompt Menjadi Slide Lengkap dalam 3 Menit",
+    "p1": "Nilai utama SlideAI adalah kombinasi antara kecepatan dan presisi. Lihat contoh proposal strategi DX yang dihasilkan tanpa revisi manual sedikit pun.",
+    "prompt_label": "A. Anda hanya perlu memasukkan ini (Prompt):",
+    "prompt_text": "「Anda adalah konsultan strategi DX. Buat proposal untuk perusahaan manufaktur menengah tentang modernisasi sistem dan peningkatan produktivitas menggunakan AI. Masukkan tantangan, visi smart factory, roadmap 3 tahun, dan ROI.」",
+    "output_label": "B. Hasilnya setelah 180 detik:",
+    "image_captions": [
+      "1. Judul & Agenda: Kesan pertama yang profesional",
+      "2. Analisis Situasi: Struktur masalah klien yang akurat",
+      "3. Model To-Be: Representasi visual dari kondisi ideal",
+      "4. Roadmap: Jadwal pelaksanaan yang membangun kepercayaan",
+      "5. Proyeksi ROI: Grafik yang membuktikan nilai dengan data",
+      "6. Langkah Selanjutnya: Penutup yang mendorong tindakan segera"
+    ]
+  },
+  "benefits": {
+    "h2": "3 Alasan Profesional Memilih SlideAI",
+    "items": [
+      {
+        "title": "Bebas dari Tugas Desain",
+        "desc": "Layout dan hierarki visual dioptimalkan oleh AI. Anda cukup fokus mematangkan logika bisnis Anda."
+      },
+      {
+        "title": "Iterasi Tanpa Batas",
+        "desc": "Dari draf hingga final – sempurnakan sebanyak yang Anda mau. Gunakan AI sebagai rekan diskusi strategi Anda."
+      },
+      {
+        "title": "Investasi untuk Membeli Waktu",
+        "desc": "Saat pekerjaan 4 jam dipangkas menjadi 10 menit, Anda punya waktu lebih untuk mencari klien baru atau beristirahat."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investasikan seharga secangkir kopi, dapatkan kebebasan Anda.",
+    "p_desc": "Berapa nilai satu jam waktu Anda? SlideAI Pro menawarkan **generasi slide tanpa batas** lebih murah daripada biaya menulis satu proposal manual.",
+    "pass7": {
+      "name": "Pas 7 Hari",
+      "price": "$9.99",
+      "desc": "Untuk proyek penting sekali pakai atau kebutuhan mendesak."
+    },
+    "monthly": {
+      "name": "Paket Bulanan",
+      "price": "$14.99",
+      "desc": "Pilihan terpopuler bagi profesional aktif."
+    },
+    "yearly": {
+      "name": "Paket Tahunan",
+      "price": "$149.99",
+      "desc": "Nilai terbaik bagi konsultan yang mengutamakan efisiensi."
+    }
+  },
+  "cta": {
+    "h3": "Berhenti membuat slide secara manual hari ini.",
+    "p": "Setelah mencoba, Anda tidak akan menoleh ke belakang. Rasakan dampaknya pada proposal pertama Anda.",
+    "download": "Mulai Hemat Waktu Sekarang"
+  }
+}

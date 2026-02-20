@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Danışmanlar İçin Teklif Hazırlama ve Zaman Tasarrufu | SlideAI Pro",
+    "description": "Slayt hazırlamak hafta sonlarınızı mı çalıyor? Profesyonel danışmanların 3 dakikada teklif hazırlamak için kullandığı AI tekniğini keşfedin. Otomatik slayt oluşturma.",
+    "ogTitle": "SlideAI Pro ile Teklif Hazırlama Sürecini %90 Hızlandırın",
+    "ogDescription": "PowerPoint'te kutularla uğraşmaya son. Stratejinizi metin olarak girin ve anında sunuma hazır slaytlar alın."
+  },
+  "aria": {
+    "home": "SlideAI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Verimlilik Araçları"
+  },
+  "hero": {
+    "h1": "«Slayt Yapmayı» Bırakın,<br>«Değer Sunmaya» Odaklanın.",
+    "tagline": "Zamanınız PowerPoint düzenlemek için çok değerli. SlideAI düşüncelerinizi anında profesyonel materyallere dönüştürür. Saatlik kazancınızı maksimize edin.",
+    "badges": [
+      "Danışmanlık Kalitesinde Düzenler",
+      "Otomatik Teklif Oluşturma",
+      "Müşteri Toplantısına Hazır"
+    ]
+  },
+  "demo": {
+    "h2": "Kanıt: Bir Prompt'tan 3 Dakikada Tam Sunuma",
+    "p1": "SlideAI'nın değeri hız ve hassasiyetin birleşimidir. Manuel düzenleme yapılmadan oluşturulan bu DX stratejisi teklifi örneğine göz atın.",
+    "prompt_label": "A. Sadece bunu girersiniz (Prompt):",
+    "prompt_text": "「Sen bir DX strateji danışmanısın. Orta ölçekli bir üretim firması için AI kullanarak verimliliği artırma projesi teklifi hazırla. Mevcut zorlukları, akıllı fabrika vizyonunu, 3 yıllık yol haritasını ve ROI'yi dahil et.」",
+    "output_label": "B. 180 saniye sonraki sonuç:",
+    "image_captions": [
+      "1. Başlık & Ajanda: Profesyonel bir ilk izlenim",
+      "2. Mevcut Durum Analizi: Müşteri sorunlarının net yapısı",
+      "3. Hedef Model: İdeal durumun görsel sunumu",
+      "4. Yol Haritası: Güven veren uygulama takvimi",
+      "5. ROI Tahmini: Değeri rakamlarla destekleyen grafikler",
+      "6. Sonraki Adımlar: Hemen aksiyon almayı teşvik eden kapanış"
+    ]
+  },
+  "benefits": {
+    "h2": "Profesyonellerin SlideAI'yı Seçmesi İçin 3 Neden",
+    "items": [
+      {
+        "title": "Tasarım Yükünden Kurtuluş",
+        "desc": "Düzen ve görsel hiyerarşi AI tarafından optimize edilir. Siz sadece işin mantığına odaklanırsınız."
+      },
+      {
+        "title": "Sınırsız Deneme",
+        "desc": "Taslaktan finale kadar dilediğiniz kadar revize edin. AI'yı stratejik bir partner olarak kullanın."
+      },
+      {
+        "title": "Zaman Satın Almak",
+        "desc": "4 saatlik iş 10 dakikaya indiğinde, yeni müşteriler kazanmak veya dinlenmek için vaktiniz kalır."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Bir kahve fiyatına özgürlüğünüzü satın alın.",
+    "p_desc": "Zamanınızın bir saati ne kadar değerli? SlideAI Pro, tek bir manuel teklif maliyetinden daha ucuza **sınırsız slayt üretimi** sunar.",
+    "pass7": {
+      "name": "7 Günlük Giriş",
+      "price": "$9.99",
+      "desc": "Önemli tek seferlik projeler veya acil teklifler için."
+    },
+    "monthly": {
+      "name": "Aylık Plan",
+      "price": "$14.99",
+      "desc": "Aktif çalışan profesyoneller için en popüler seçenek."
+    },
+    "yearly": {
+      "name": "Yıllık Plan",
+      "price": "$149.99",
+      "desc": "Verimliliği alışkanlık haline getiren danışmanlar için en iyi fiyat."
+    }
+  },
+  "cta": {
+    "h3": "Bugün slaytları manuel yapmayı bırakın.",
+    "p": "Bir kez denediğinizde asla geri dönmeyeceksiniz. İlk teklifinizde farkı hissedin.",
+    "download": "Hemen Zaman Tasarrufuna Başla"
+  }
+}

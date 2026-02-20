@@ -1,50 +1,80 @@
 {
   "seo": {
-    "title": "Tvorba návrhů pro konzultanty a freelancery | SlideAI Pro",
-    "description": "Přestaňte trávit víkendy formátováním prezentací. Podívejte se, jak profíci tvoří špičkové návrhy za 3 minuty pomocí AI.",
-    "ogTitle": "Zrychlete tvorbu návrhů o 90 % se SlideAI Pro",
-    "ogDescription": "Zapomeňte na ruční formátování v PowerPointu. Proměňte svou strategii v hotové slajdy okamžitě. Skutečně neomezené generování."
+    "title": "Tvorba prezentací pro konzultanty a freelancery | SlideAI Pro",
+    "description": "Kradou vám prezentace víkendy? Objevte techniky tvorby návrhů s AI za 3 minuty. Automatické generování profesionálních slidů z jediného promptu.",
+    "ogTitle": "Zrychlete tvorbu prezentací o 90 %. Soustřeďte se na podstatnou práci s SlideAI Pro",
+    "ogDescription": "Už žádné zdlouhavé kreslení v PowerPointu. Stačí zadat strategii textem a získáte slidy připravené k jednání. Neomezené generování pro dokonalé výsledky."
   },
-  "aria": { "home": "SlideAI Domů" },
-  "nav": { "blog": "Blog", "category": "Nástroje produktivity" },
+  "aria": {
+    "home": "SlideAI Domů"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Nástroje produktivity"
+  },
   "hero": {
-    "h1": "Přestaňte vyrábět slajdy.<br>Začněte prodávat nápady.",
-    "tagline": "Váš čas je určen pro strategické myšlení, ne pro posouvání textových polí. SlideAI okamžitě promění vaši vizi v profesionální prezentaci. Maximalizujte své fakturovatelné hodiny.",
-    "badges": ["Konzultantská úroveň vzhledu", "Automatizace návrhů", "Výstup připravený pro klienty"]
+    "h1": "Přestaňte „vyrábět slidy“<br>a začněte „přinášet hodnotu“.",
+    "tagline": "Váš čas je příliš drahý na ladění PowerPointu. SlideAI okamžitě přemění vaše myšlenky na profesionální materiály. Maximalizujte svou hodinovou sazbu s nástrojem pro profesionály.",
+    "badges": [
+      "Layout v kvalitě top konzultantů",
+      "Automatizace tvorby návrhů",
+      "Okamžitě připraveno pro klienta"
+    ]
   },
   "demo": {
-    "h2": "Důkaz: Od zadání k plné prezentaci za 180 sekund",
-    "p1": "SlideAI kombinuje rychlost s profesionální precizností. Podívejte se, jak se z jednoho zadání vygeneruje komplexní návrh DX strategie.",
-    "prompt_label": "A. Jediný potřebný vstup (vaše zadání):",
-    "prompt_text": "\"Jste konzultant pro DX strategii. Vytvořte návrh pro středně velkého výrobního klienta na přechod z legacy systémů na produktivitu řízenou AI. Zahrňte problémy, vizi smart factory, roadmapu na 3 roky, ROI a další kroky.\"",
-    "output_label": "B. Výsledek (generováno za 3 minuty):",
+    "h2": "Důkaz: Od jednoho promptu k prezentaci za 3 minuty",
+    "p1": "Skutečná hodnota SlideAI spočívá v kombinaci rychlosti a přesnosti. Podívejte se na příklad návrhu DX strategie vytvořené bez jakýchkoliv manuálních úprav.",
+    "prompt_label": "A. Vy zadáte pouze toto (prompt):",
+    "prompt_text": "「Jste konzultant pro digitální transformaci. Vytvořte prezentaci pro středně velkou výrobní firmu s návrhem na modernizaci systémů a zvýšení produktivity pomocí AI. Obsah: výzvy, vize smart factory, 3letý roadmap a ROI.」",
+    "output_label": "B. Výsledek po 180 sekundách:",
     "image_captions": [
-      "1. Titul a agenda",
-      "2. Analýza problémů",
-      "3. Cílový model (To-Be)",
-      "4. Strategická roadmapa",
-      "5. Projekce ROI",
-      "6. Okamžité další kroky"
+      "1. Titul a agenda: Profesionální první dojem",
+      "2. Analýza stavu: Přesné strukturování problémů klienta",
+      "3. Cílový model: Vizuální prezentace ideálního stavu",
+      "4. Roadmap: Harmonogram vzbuzující důvěru v realizaci",
+      "5. Predikce ROI: Grafy podložené tvrdými daty",
+      "6. Další kroky: Závěr vybízející k okamžité akci"
     ]
   },
   "benefits": {
-    "h2": "Proč profíci volí SlideAI",
+    "h2": "3 důvody, proč profesionálové volí SlideAI",
     "items": [
-      { "title": "Nulové tření v designu", "desc": "AI se postará o vizuální hierarchii a zarovnání. Vy se soustředíte pouze na logiku." },
-      { "title": "Neomezené iterace", "desc": "Upravujte a regenerujte, dokud není tok vyprávění dokonalý. Žádné limity kreditů." },
-      { "title": "Kupte si zpět svůj čas", "desc": "Proměňte 4 hodiny ruční práce v 10 minut kouzla AI. Získejte zpět své víkendy." }
+      {
+        "title": "Konec trápení s designem",
+        "desc": "Layout a vizuální hierarchie jsou optimalizovány AI. Vy se soustředíte pouze na pilování logiky a strategie."
+      },
+      {
+        "title": "Generování bez omezení",
+        "desc": "Od konceptu po finále – laďte svůj příběh s AI, dokud není výsledek stoprocentně přesvědčivý."
+      },
+      {
+        "title": "Investice do vašeho času",
+        "desc": "Zkraťte 4 hodiny práce na 10 minut. Získaný čas využijte pro strategický rozvoj nebo nové zakázky."
+      }
     ]
   },
   "plans": {
-    "h2": "Investice, která se okamžitě vrátí",
-    "p_desc": "Jakou hodnotu má jedna vaše fakturovatelná hodina? SlideAI Pro stojí méně než pracovní oběd, ale měsíčně vám ušetří desítky hodin. **Neomezené generování.**",
-    "pass7": { "name": "7denní pas", "price": "$9.99", "desc": "Ideální pro jednorázové důležité návrhy." },
-    "monthly": { "name": "Měsíční plán", "price": "$14.99", "desc": "Standardní volba pro aktivní konzultanty." },
-    "yearly": { "name": "Roční plán", "price": "$149.99", "desc": "Nejlepší hodnota pro dlouhodobý růst a efektivitu." }
+    "h2": "Investujte cenu jedné kávy a získejte svobodu.",
+    "p_desc": "Jakou hodnotu má vaše hodina? SlideAI Pro nabízí **neomezené generování** levněji, než kolik stojí tvorba jednoho manuálního návrhu.",
+    "pass7": {
+      "name": "7denní pas",
+      "price": "$9.99",
+      "desc": "Pro jednorázové klíčové projekty nebo urgentní zakázky."
+    },
+    "monthly": {
+      "name": "Měsíční plán",
+      "price": "$14.99",
+      "desc": "Nejoblíbenější volba pro aktivní freelancery."
+    },
+    "yearly": {
+      "name": "Roční plán",
+      "price": "$149.99",
+      "desc": "Nejvýhodnější pro experty, kteří chtějí pracovat efektivně."
+    }
   },
   "cta": {
-    "h3": "Ruční výroba slajdů je nyní zastaralá.",
-    "p": "Jakmile to zkusíte, už se nevrátíte. Zažijte ten rozdíl hned u prvního návrhu.",
-    "download": "Začněte šetřit čas hned"
+    "h3": "Skončete s ruční tvorbou prezentací jednou provždy.",
+    "p": "Jakmile to zkusíte, už se nevrátíte zpět. Poznejte rozdíl hned u své první prezentace.",
+    "download": "Začněte šetřit čas hned teď"
   }
 }

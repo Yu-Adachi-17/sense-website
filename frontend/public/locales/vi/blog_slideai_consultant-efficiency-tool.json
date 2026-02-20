@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Viết Đề Xuất & Mẹo Tiết Kiệm Thời Gian cho Tư Vấn Viên | SlideAI Pro",
+    "description": "Việc làm slide đang chiếm mất cuối tuần của bạn? Khám phá kỹ thuật AI giúp hoàn thành đề xuất trong 3 phút. Tự động tạo slide chất lượng cao từ một prompt duy nhất.",
+    "ogTitle": "Tăng tốc tạo đề xuất lên 90% với SlideAI Pro. Tập trung vào công việc giá trị.",
+    "ogDescription": "Tạm biệt việc chỉnh sửa PowerPoint thủ công. Chỉ cần nhập chiến lược bằng văn bản và nhận ngay các slide sẵn sàng cho buổi họp."
+  },
+  "aria": {
+    "home": "SlideAI Trang chủ"
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Công cụ Năng suất"
+  },
+  "hero": {
+    "h1": "Ngừng «Làm Slide»<br>và bắt đầu «Trao Giá Trị».",
+    "tagline": "Thời gian của bạn là để dành cho chiến lược, không phải để căn chỉnh PowerPoint. SlideAI chuyển đổi suy nghĩ của bạn thành tài liệu chuyên nghiệp ngay lập tức. Tối ưu hóa thu nhập theo giờ của bạn.",
+    "badges": [
+      "Bố cục chuẩn Tư vấn viên",
+      "Tự động hóa viết đề xuất",
+      "Sẵn sàng cho cuộc họp khách hàng"
+    ]
+  },
+  "demo": {
+    "h2": "Minh chứng: Từ một Prompt đến bản slide đầy đủ trong 3 phút",
+    "p1": "Giá trị thực sự của SlideAI nằm ở sự kết hợp giữa tốc độ và độ chính xác. Hãy xem ví dụ về đề xuất chiến lược DX được tạo ra mà không cần chỉnh sửa thủ công.",
+    "prompt_label": "A. Tất cả những gì bạn nhập (Prompt):",
+    "prompt_text": "「Bạn là chuyên gia tư vấn chiến lược DX. Hãy lập đề xuất cho một doanh nghiệp sản xuất quy mô vừa về việc chuyển đổi hệ thống cũ và nâng cao năng suất bằng AI. Bao gồm các thách thức, tầm nhìn Smart Factory, lộ trình 3 năm và ROI.」",
+    "output_label": "B. Kết quả sau 180 giây:",
+    "image_captions": [
+      "1. Tiêu đề & Nội dung: Ấn tượng chuyên nghiệp đầu tiên",
+      "2. Phân tích hiện trạng: Cấu trúc chính xác nỗi đau của khách hàng",
+      "3. Mô hình To-Be: Trình bày trực quan về trạng thái lý tưởng",
+      "4. Lộ trình thực hiện: Thời gian biểu tạo dựng niềm tin",
+      "5. Dự báo ROI: Biểu đồ chứng minh giá trị bằng con số",
+      "6. Bước tiếp theo: Kết luận thúc đẩy hành động ngay lập tức"
+    ]
+  },
+  "benefits": {
+    "h2": "3 Lý do chuyên gia không thể bỏ qua SlideAI",
+    "items": [
+      {
+        "title": "Tự do khỏi công việc thiết kế",
+        "desc": "Bố cục và phân cấp thị giác được AI tối ưu hóa. Bạn chỉ cần tập trung vào việc mài giũa tính logic."
+      },
+      {
+        "title": "Tạo lại không giới hạn",
+        "desc": "Từ bản nháp đến bản cuối – tinh chỉnh bao nhiêu lần tùy thích. Hãy dùng AI như một người cộng sự để thảo luận chiến lược."
+      },
+      {
+        "title": "Đầu tư để mua lại thời gian",
+        "desc": "Khi công việc 4 giờ rút ngắn còn 10 phút, bạn có thêm thời gian để tìm kiếm khách hàng mới hoặc nghỉ ngơi."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Đầu tư bằng giá một ly cà phê, nhận lại sự tự do.",
+    "p_desc": "Một giờ của bạn đáng giá bao nhiêu? SlideAI Pro cung cấp **khả năng tạo slide không giới hạn** với chi phí thấp hơn việc viết một đề xuất thủ công.",
+    "pass7": {
+      "name": "Gói 7 ngày",
+      "price": "$9.99",
+      "desc": "Dành cho các dự án quan trọng ngắn hạn hoặc đề xuất khẩn cấp."
+    },
+    "monthly": {
+      "name": "Gói tháng",
+      "price": "$14.99",
+      "desc": "Lựa chọn phổ biến nhất cho các chuyên gia bận rộn."
+    },
+    "yearly": {
+      "name": "Gói năm",
+      "price": "$149.99",
+      "desc": "Giá trị tốt nhất cho những ai muốn biến hiệu quả thành thói quen."
+    }
+  },
+  "cta": {
+    "h3": "Ngừng làm slide thủ công ngay hôm nay.",
+    "p": "Một khi đã thử, bạn sẽ không bao giờ quay lại cách cũ. Hãy cảm nhận giá trị ngay từ bản đề xuất đầu tiên.",
+    "download": "Bắt đầu tiết kiệm thời gian ngay"
+  }
+}

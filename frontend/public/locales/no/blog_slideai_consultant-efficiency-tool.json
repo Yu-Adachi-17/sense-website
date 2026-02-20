@@ -1,1 +1,80 @@
-{}
+{
+  "seo": {
+    "title": "Forslagsskriving & Tidsbesparing for Konsulenter | SlideAI Pro",
+    "description": "Stjeler presentasjoner helgene dine? Oppdag AI-teknikken profesjonelle konsulenter bruker for å lage forslag på 3 minutter. Generer slides automatisk.",
+    "ogTitle": "90% raskere forslagsskriving med SlideAI Pro",
+    "ogDescription": "Slutt å tegne bokser i PowerPoint. Skriv inn strategien din som tekst og få ferdige slides til kundemøtet umiddelbart."
+  },
+  "aria": {
+    "home": "SlideAI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "category": "Produktivitetsverktøy"
+  },
+  "hero": {
+    "h1": "Slutt å «lage slides»<br>og start med «verdiskaping».",
+    "tagline": "Tiden din er for verdifull til å finjustere PowerPoint. SlideAI forvandler tankene dine til profesjonelt materiale på et blunk. Maksimer timeprisen din.",
+    "badges": [
+      "Layout i toppkonsulent-kvalitet",
+      "Automatisert forslagsskriving",
+      "Klar for kundemøter"
+    ]
+  },
+  "demo": {
+    "h2": "Bevis: Fra ett prompt til ferdig presentasjon på 3 minutter",
+    "p1": "Verdien av SlideAI ligger i kombinasjonen av hastighet og presisjon. Se eksempel på et DX-strategiforslag generert uten manuelle endringer.",
+    "prompt_label": "A. Alt du skriver inn er dette (Prompt):",
+    "prompt_text": "「Du er en DX-strategikonsulent. Lag et forslag til en mellomstor produksjonsbedrift om modernisering og økt produktivitet med AI. Inkluder utfordringer, visjon, 3-års veikart og ROI.」",
+    "output_label": "B. Resultatet etter 180 sekunder:",
+    "image_captions": [
+      "1. Tittel & Agenda: Et profesjonelt førsteinnntrykk",
+      "2. Situasjonsanalyse: Presis strukturering av kundens problemer",
+      "3. To-Be modell: Visuell fremstilling av den ideelle tilstanden",
+      "4. Veikart: En tidsplan som bygger tillit",
+      "5. ROI-prognose: Grafer som underbygger verdien med tall",
+      "6. Neste steg: En avslutning som oppfordrer til handling"
+    ]
+  },
+  "benefits": {
+    "h2": "3 grunner til at profesjonelle elsker SlideAI",
+    "items": [
+      {
+        "title": "Fri fra designarbeid",
+        "desc": "Layout og visuelt hierarki optimaliseres av AI. Du fokuserer kun på å slipe logikken din."
+      },
+      {
+        "title": "Ubegrensede iterasjoner",
+        "desc": "Fra utkast til finale – finpuss så mange ganger du vil. Bruk AI som din sparringspartner."
+      },
+      {
+        "title": "En investering i fritiden din",
+        "desc": "Når 4 timers jobb blir til 10 minutter, får du tid til nye kunder eller mer fritid."
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Invester prisen av en kaffe og kjøp friheten din.",
+    "p_desc": "Hva er en time av din tid verdt? SlideAI Pro tilbyr **ubegrenset slide-generering** billigere enn kostnaden ved å skrive ett manuelt forslag.",
+    "pass7": {
+      "name": "7-dagers pass",
+      "price": "$9.99",
+      "desc": "For viktige enkeltprosjekter eller hasteoppdrag."
+    },
+    "monthly": {
+      "name": "Månedsplan",
+      "price": "$14.99",
+      "desc": "Det mest populære valget for aktive konsulenter."
+    },
+    "yearly": {
+      "name": "Årsplan",
+      "price": "$149.99",
+      "desc": "Beste verdi for de som gjør effektivitet til en vane."
+    }
+  },
+  "cta": {
+    "h3": "Slutt å bygge slides manuelt i dag.",
+    "p": "Når du har prøvd det, går du aldri tilbake. Opplev verdien med ditt aller første forslag.",
+    "download": "Begynn å spare tid nå"
+  }
+}
