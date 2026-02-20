@@ -248,21 +248,28 @@ export default function SlideAIIPhoneAppBlogEN() {
                     <span className="bg-fuchsia-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs">B</span> {txs("demo.output_label")}
                 </h3>
                 
-                {/* Simplified Image Gallery:
-                  Removed simulated bezel. Added rounded corners and subtle shadow.
-                  PC: Side-by-side (2 cols), Mobile: Vertical (1 col).
+                {/* 修正：固定アスペクト比を排除し、元の画像の縮尺を維持
+                  - md:grid-cols-2 でPC横並び、スマホ縦並びを維持
+                  - h-auto w-full で画像の縦横比をそのまま表示
+                  - 4隅の角丸（rounded-3xl）を適用
                 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto items-start">
                 {demoImages.map((src, i) => (
-                    <div key={i} className="group relative rounded-2xl border border-white/10 bg-black/20 overflow-hidden shadow-2xl transition-all hover:scale-[1.02]">
-                        <div className="aspect-[9/16] w-full relative">
+                    <div key={i} className="group relative transition-all hover:scale-[1.02]">
+                        <div className="overflow-hidden rounded-[2.5rem] border border-white/10 bg-black/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={src} alt={`SlideAI generated slide ${i+1}`} className="absolute inset-0 h-full w-full object-cover" />
+                            <img 
+                              src={src} 
+                              alt={`SlideAI sequential PDF view ${i+1}`} 
+                              className="w-full h-auto block" 
+                            />
                         </div>
                         
-                        {/* Pagination Overlay - Small and clean */}
-                        <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-white/90 border border-white/10">
-                           Slide {i + 1} / 2
+                        {/* ページネーションバッジ：画像の外側に配置し、内容を一切隠さないように変更 */}
+                        <div className="mt-4 flex justify-center">
+                           <span className="bg-white/5 backdrop-blur px-4 py-1.5 rounded-full text-xs font-bold text-indigo-200 border border-white/10">
+                              Slide {i + 1} / 2
+                           </span>
                         </div>
                     </div>
                 ))}
