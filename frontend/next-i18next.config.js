@@ -49,6 +49,7 @@ module.exports = {
     
     // ★追加
     'blog_slideai_pricing', 
+    'blog_slideai_consultant-efficiency-tool',
   ],
   defaultNS: 'common',
 
