@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Gratis AI-lysbildefremviser | 2 proff-dekk daglig gratis",
+    "description": "Effektiviser presentasjonene dine gratis. Med SlideAI genererer du 2 profesjonelle dekk daglig. Se vårt 'Guilty Burger'-eksempel. AI-redigering er også inkludert gratis.",
+    "ogTitle": "SlideAI: Proff kvalitet gratis. Den ultimate AI-løsningen for dine slides",
+    "ogDescription": "AI trenger ikke være dyrt. SlideAI gir deg 2 gratis genereringer hver dag med full AI-redigering."
+  },
+  "aria": { "home": "SlideAI Hjem" },
+  "nav": { "blog": "Blogg", "category": "Gratis verktøy" },
+  "hero": {
+    "h1": "Full kraft «Gratis».<br>Redefiner dine presentasjoner.",
+    "tagline": "Tror du AI-slides er dyre? SlideAI lar alle lage 2 profesjonelle dekk daglig helt gratis. Design, struktur og AI-redigering—opplev alt uten kostnad.",
+    "badges": ["Daglig nullstilling", "AI-redigeringsmodus inkludert", "Ingen kredittkort kreves"]
+  },
+  "demo": {
+    "h2": "Visuell effekt: 'Guilty Burger'-pitchen",
+    "p1": "Vi utfordret SlideAI til å lage en pitch for McDonald's nye 'Guilty Burger'. Se hvordan AI-en forvandlet dette dristige konseptet til en visuell realitet helt gratis.",
+    "prompt_label": "Prompt brukt [prøv selv]:",
+    "prompt_text": "“Lag et markedsføringsforslag for McDonald's nye 'Guilty Burger'-serie. Konseptet er 'motstykket til sunne menyer—ren nytelse'. Inkluder målgruppeanalyse, visuell beskrivelse av en burger med smeltet ost og bacon, og en 'Cheat Day' sosiale medier-strategi.”",
+    "output_label": "Generert resultat [Laget med gratis-planen]:"
+  },
+  "features": {
+    "h2": "Fantastiske funksjoner i gratis-planen",
+    "items": [
+      { "title": "2 dekk hver dag", "desc": "Ikke bare en engangsprøve. Grensen nullstilles hver 24. time." },
+      { "title": "Gratis AI-redigering", "desc": "Be AI-en om å 'gjøre det mer profesjonelt' eller 'legge til et lysbilde' helt gratis." },
+      { "title": "Premium Design", "desc": "Gratisbrukere får samme avanserte designmotor for perfekte resultater." }
+    ]
+  },
+  "plans": {
+    "h2": "Klar for å fjerne alle grenser?",
+    "p_desc": "**SlideAI Pro** låser opp ubegrenset generering med tankens hastighet. Valget for ekte profesjonelle.",
+    "pass7": { "name": "7-dagers pass", "price": "kr 99", "desc": "For intensive kortsiktige prosjekter." },
+    "monthly": { "name": "Månedlig", "price": "kr 149", "desc": "Den mest populære måten å øke daglig effektivitet." },
+    "yearly": { "name": "Årlig", "price": "kr 1490", "desc": "Best verdi for ubegrenset bruk over tid." }
+  },
+  "cta": {
+    "h3": "Lag ditt første dekk gratis nå.",
+    "p": "Se 'Guilty Burger'-effekten med egne øyne. Last ned i App Store.",
+    "download": "Start gratis"
+  }
+}

@@ -1,1 +1,51 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - AI generátor prezentací zdarma | 2 profi prezentace denně",
+    "description": "Zefektivněte tvorbu prezentací zdarma. SlideAI vytvoří 2 profi prezentace denně pomocí AI. Podívejte se na náš návrh pro 'Guilty Burger'. AI editace je také zdarma.",
+    "ogTitle": "SlideAI: Profi kvalita zdarma. Definitivní řešení pro AI prezentace",
+    "ogDescription": "Už žádné drahé AI. SlideAI vám dává 2 prezentace denně a svobodu editace s AI zdarma."
+  },
+  "aria": { "home": "SlideAI Domů" },
+  "nav": { "blog": "Blog", "category": "Nástroje zdarma" },
+  "hero": {
+    "h1": "Dokonalost «Zdarma».<br>Změňte způsob, jakým tvoříte.",
+    "tagline": "Myslíte si, že AI prezentace jsou drahé? SlideAI umožňuje každému vytvořit 2 profi prezentace denně zcela zdarma. Design, struktura i AI editace – zažijte vše bez placení.",
+    "badges": ["Denní reset limitu", "AI editační mód", "Bez kreditní karty"]
+  },
+  "demo": {
+    "h2": "Vizuální dopad: Návrh pro 'Guilty Burger'",
+    "p1": "Vyzvali jsme SlideAI, aby vytvořilo prezentaci pro nový 'Guilty Burger' od McDonald's. Úplný opak zdravé stravy, čistý požitek. Podívejte se, jak AI zvládlo tento odvážný koncept zdarma.",
+    "prompt_label": "Použitý prompt (zkuste to sami):",
+    "prompt_text": "„Vytvoř úderný marketingový návrh pro novou sérii 'Guilty Burger' od McDonald's. Koncept je 'protiklad ke zdravému menu, maximální požitek a úleva od stresu'. Zahrň analýzu cílové skupiny, vizuální popis burgeru s rozteklým sýrem a slaninou a strategii pro sociální sítě 'Cheat Day'.“",
+    "output_label": "Výsledek (vytvořeno ve verzi zdarma):"
+  },
+  "features": {
+    "h2": "Úžasné funkce v bezplatném plánu",
+    "items": [
+      { 
+        "title": "2 prezentace každý den", 
+        "desc": "Žádná jednorázová zkouška. Limit se resetuje každých 24 hodin. Ideální pro studenty i freelancery." 
+      },
+      { 
+        "title": "AI editace zdarma", 
+        "desc": "Generováním to nekončí. Řekněte AI 'udělej to profesionálněji' nebo 'přidej slide' – vše v rámci free verze." 
+      },
+      { 
+        "title": "Prémiový design", 
+        "desc": "U kvality neděláme kompromisy. I verze zdarma používá náš špičkový designový engine pro úžasné výsledky." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Jste připraveni na neomezenou tvorbu?",
+    "p_desc": "Free verze je skvělá, ale **SlideAI Pro** vám umožní tvořit neomezeně rychlostí vašich myšlenek. Volba pro skutečné profesionály.",
+    "pass7": { "name": "7denní pas", "price": "250 Kč", "desc": "Pro intenzivní práci na důležitém projektu." },
+    "monthly": { "name": "Měsíční tarif", "price": "380 Kč", "desc": "Nejoblíbenější volba pro každodenní efektivitu." },
+    "yearly": { "name": "Roční tarif", "price": "3800 Kč", "desc": "Nejlepší hodnota pro neomezené používání." }
+  },
+  "cta": {
+    "h3": "Vytvořte svou první prezentaci zdarma.",
+    "p": "Zažijte dopad 'Guilty Burger' na vlastní oči. Stahujte v App Store.",
+    "download": "Začít zdarma"
+  }
+}

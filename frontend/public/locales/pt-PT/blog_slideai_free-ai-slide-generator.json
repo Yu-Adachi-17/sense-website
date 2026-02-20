@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Gerador de slides IA gratuito | 2 apresentações pro por dia grátis",
+    "description": "Revolucione sua criação de apresentações gratuitamente. Com o SlideAI, gere 2 apresentações profissionais diariamente. Veja nosso exemplo 'Guilty Burger'. Edição por IA inclusa grátis.",
+    "ogTitle": "SlideAI: Qualidade profissional grátis. A solução definitiva de IA para seus slides",
+    "ogDescription": "A IA não precisa ser cara. O SlideAI oferece 2 gerações diárias com edição completa por IA totalmente grátis."
+  },
+  "aria": { "home": "SlideAI Início" },
+  "nav": { "blog": "Blog", "category": "Ferramentas Grátis" },
+  "hero": {
+    "h1": "Poder total «Grátis».<br>Redefina suas apresentações.",
+    "tagline": "Acha que slides de IA são caros? O SlideAI permite que todos criem 2 apresentações profissionais por dia totalmente grátis. Design, estrutura e edição por IA—experimente tudo sem custo.",
+    "badges": ["Reinício Diário", "Modo Edição IA Incluso", "Sem Cartão de Crédito"]
+  },
+  "demo": {
+    "h2": "Impacto Visual: O projeto 'Guilty Burger'",
+    "p1": "Desafiamos o SlideAI a criar uma proposta para o novo 'Guilty Burger' do McDonald's. Veja como a IA transformou este conceito ousado em uma realidade visual incrível gratuitamente.",
+    "prompt_label": "Prompt utilizado [tente você mesmo]:",
+    "prompt_text": "«Crie uma proposta de marketing de alto impacto para la nueva série 'Guilty Burger' do McDonald's. O conceito é 'o oposto dos menus saudáveis—puro prazer'. Inclua análise de público, descrição visual do hambúrguer e estratégia de 'Cheat Day'.»",
+    "output_label": "Resultado Gerado [Criado no plano grátis]:"
+  },
+  "features": {
+    "h2": "Recursos Incríveis no Plano Grátis",
+    "items": [
+      { "title": "2 apresentações por dia", "desc": "O limite reinicia a cada 24 horas." },
+      { "title": "Edição IA Grátis", "desc": "Peça à IA para 'tornar mais profissional' sem custo algum." },
+      { "title": "Design Premium", "desc": "Usuários grátis têm acesso ao mesmo motor de design avançado." }
+    ]
+  },
+  "plans": {
+    "h2": "Pronto para remover todos os limites?",
+    "p_desc": "O plano grátis é potente, mas o **SlideAI Pro** desbloqueia gerações ilimitadas.",
+    "pass7": { "name": "Passe de 7 dias", "price": "R$ 49", "desc": "Para necessidades intensas de curto prazo." },
+    "monthly": { "name": "Plano Mensal", "price": "R$ 79", "desc": "A escolha mais popular para produtividade diária." },
+    "yearly": { "name": "Plan Anual", "price": "R$ 790", "desc": "O melhor valor para uso ilimitado a longo prazo." }
+  },
+  "cta": {
+    "h3": "Crie sua primeira apresentação grátis agora.",
+    "p": "Veja o impacto do 'Guilty Burger' com seus próprios olhos. Baixe na App Store.",
+    "download": "Começar Grátis"
+  }
+}

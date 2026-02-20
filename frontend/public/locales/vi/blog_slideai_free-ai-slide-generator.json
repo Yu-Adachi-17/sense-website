@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Trình tạo slide AI miễn phí | 2 bản thuyết trình chuyên nghiệp mỗi ngày",
+    "description": "Cách mạng hóa việc tạo thuyết trình miễn phí. Với SlideAI, tạo 2 bản thuyết trình chuyên nghiệp hàng ngày. Xem ví dụ 'Guilty Burger'. Chỉnh sửa AI cũng miễn phí.",
+    "ogTitle": "SlideAI: Chất lượng Pro miễn phí. Giải pháp AI tối ưu cho slide của bạn",
+    "ogDescription": "AI không nhất thiết phải đắt tiền. SlideAI cung cấp 2 lượt tạo miễn phí mỗi ngày với đầy đủ tính năng chỉnh sửa AI."
+  },
+  "aria": { "home": "SlideAI Trang chủ" },
+  "nav": { "blog": "Blog", "category": "Công cụ miễn phí" },
+  "hero": {
+    "h1": "Sức mạnh tối đa «Miễn phí».<br>Tái định nghĩa bài thuyết trình của bạn.",
+    "tagline": "Bạn nghĩ slide AI đắt tiền? SlideAI cho phép mọi người tạo 2 bản thuyết trình chuyên nghiệp mỗi ngày hoàn toàn miễn phí. Thiết kế, cấu trúc và chỉnh sửa AI—trải nghiệm tất cả không tốn phí.",
+    "badges": ["Đặt lại hàng ngày", "Bao gồm chế độ chỉnh sửa AI", "Không cần thẻ tín dụng"]
+  },
+  "demo": {
+    "h2": "Tác động thị giác: Dự án 'Guilty Burger'",
+    "p1": "Chúng tôi đã thử thách SlideAI tạo một bài thuyết trình cho 'Guilty Burger' mới của McDonald's. Xem cách AI biến ý tưởng táo bạo này thành hiện thực hình ảnh tuyệt vời miễn phí.",
+    "prompt_label": "Prompt đã sử dụng [tự mình thử nghiệm]:",
+    "prompt_text": "“Tạo một đề xuất marketing tác động cao cho dòng 'Guilty Burger' mới của McDonald's. Khái niệm là 'đối lập với thực đơn lành mạnh—sự tận hưởng thuần túy'. Bao gồm phân tích khán giả, mô tả hình ảnh burger với phô mai tan chảy và chiến lược 'Cheat Day' trên mạng xã hội.”",
+    "output_label": "Kết quả tạo ra [Được tạo trên gói Miễn phí]:"
+  },
+  "features": {
+    "h2": "Các tính năng tuyệt vời trong gói miễn phí",
+    "items": [
+      { "title": "2 bản thuyết trình mỗi ngày", "desc": "Không chỉ là thử nghiệm một lần. Hạn mức được đặt lại sau mỗi 24 giờ." },
+      { "title": "Chỉnh sửa AI miễn phí", "desc": "Yêu cầu AI 'làm cho chuyên nghiệp hơn' hoặc 'thêm slide' hoàn toàn miễn phí." },
+      { "title": "Thiết kế Premium", "desc": "Người dùng miễn phí nhận được cùng một công cụ thiết kế cao cấp cho kết quả hoàn hảo." }
+    ]
+  },
+  "plans": {
+    "h2": "Sẵn sàng xóa bỏ mọi giới hạn?",
+    "p_desc": "**SlideAI Pro** mở khóa khả năng tạo không giới hạn với tốc độ tư duy của bạn. Lựa chọn của những chuyên gia thực thụ.",
+    "pass7": { "name": "Thẻ 7 ngày", "price": "250.000₫", "desc": "Cho nhu cầu dự án chuyên sâu ngắn hạn." },
+    "monthly": { "name": "Gói hàng tháng", "price": "380.000₫", "desc": "Cách phổ biến nhất để tăng hiệu quả hàng ngày." },
+    "yearly": { "name": "Gói hàng năm", "price": "3.800.000₫", "desc": "Giá trị tốt nhất để sử dụng không giới hạn lâu dài." }
+  },
+  "cta": {
+    "h3": "Tạo bản thuyết trình đầu tiên miễn phí ngay bây giờ.",
+    "p": "Tải xuống trên App Store.",
+    "download": "Bắt đầu miễn phí"
+  }
+}

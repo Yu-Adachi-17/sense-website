@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Ücretsiz Yapay Zeka Slayt Oluşturucu | Günde 2 Profesyonel Sunum",
+    "description": "Sunum oluşturmayı ücretsiz olarak devrimleştirin. SlideAI ile her gün 2 profesyonel sunum oluşturun. 'Guilty Burger' örneğimize göz atın. Yapay zeka ile düzenleme ücretsiz.",
+    "ogTitle": "SlideAI: Ücretsiz Profesyonel Kalite. Slaytlarınız için En İyi Yapay Zeka Çözümü",
+    "ogDescription": "Yapay zeka pahalı olmak zorunda değil. SlideAI size her gün 2 ücretsiz üretim ve tam yapay zeka düzenleme sunar."
+  },
+  "aria": { "home": "SlideAI Ana Sayfa" },
+  "nav": { "blog": "Blog", "category": "Ücretsiz Araçlar" },
+  "hero": {
+    "h1": "Tam Güç «Ücretsiz».<br>Sunumlarınızı Yeniden Tanımlayın.",
+    "tagline": "Yapay zeka slaytlarının pahalı olduğunu mu düşünüyorsunuz? SlideAI, herkesin her gün 2 profesyonel sunumu tamamen ücretsiz oluşturmasına olanak tanır. Tasarım, yapı ve yapay zeka düzenleme—hepsini ücretsiz deneyimleyin.",
+    "badges": ["Günlük Sıfırlama", "Yapay Zeka Düzenleme Dahil", "Kredi Kartı Gerekmez"]
+  },
+  "demo": {
+    "h2": "Görsel Etki: 'Guilty Burger' Sunumu",
+    "p1": "SlideAI'yı McDonald's'ın yeni 'Guilty Burger'ı için bir sunum oluşturmaya zorladık. Sağlıklı yaşamın zıttı, saf keyif. Yapay zekanın bu cesur konsepti ücretsiz olarak nasıl gerçeğe dönüştürdüğünü görün.",
+    "prompt_label": "Kullanılan Komut [kendiniz deneyin]:",
+    "prompt_text": "“McDonald's'ın yeni 'Guilty Burger' serisi için yüksek etkili bir pazarlama teklifi oluştur. Konsept: 'sağlıklı menülerin zıttı—saf keyif ve stres atma'. Hedef kitle analizi, erimiş peynirli ve pastırmalı görsel açıklamalar ve sosyal medya stratejisi ekle.”",
+    "output_label": "Üretilen Sonuç [Ücretsiz Planla Oluşturuldu]:"
+  },
+  "features": {
+    "h2": "Ücretsiz Planda Harika Özellikler",
+    "items": [
+      { "title": "Her Gün 2 Sunum", "desc": "Sadece bir seferlik deneme değil. Kota her 24 saatte bir sıfırlanır." },
+      { "title": "Ücretsiz Yapay Zeka Düzenleme", "desc": "Yapay zekadan 'bunu daha profesyonel yap' veya 'bir slayt ekle' demesini ücretsiz isteyin." },
+      { "title": "Premium Tasarım", "desc": "Ücretsiz kullanıcılar, kusursuz sonuçlar için aynı gelişmiş tasarım motoruna erişir." }
+    ]
+  },
+  "plans": {
+    "h2": "Tüm Sınırları Kaldırmaya Hazır mısınız?",
+    "p_desc": "**SlideAI Pro**, düşünce hızınızda sınırsız üretim yapmanızı sağlar. Gerçek profesyonellerin seçimi.",
+    "pass7": { "name": "7 Günlük Kart", "price": "₺349", "desc": "Yoğun kısa vadeli projeler için." },
+    "monthly": { "name": "Aylık Plan", "price": "₺499", "desc": "Günlük verimliliği artırmanın en popüler yolu." },
+    "yearly": { "name": "Yıllık Plan", "price": "₺4.990", "desc": "Sınırsız kullanım için en iyi değer." }
+  },
+  "cta": {
+    "h3": "İlk Sunumunuzu Şimdi Ücretsiz Oluşturun.",
+    "p": "App Store'dan indirin.",
+    "download": "Ücretsiz Başla"
+  }
+}

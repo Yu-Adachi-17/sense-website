@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Pembuat Slide AI Gratis | 2 Dek Profesional Gratis Setiap Hari",
+    "description": "Revolusi pembuatan presentasi secara gratis. Dengan SlideAI, buat 2 dek profesional setiap hari. Lihat contoh proposal 'Guilty Burger' kami. Mode Edit AI juga tersedia gratis.",
+    "ogTitle": "SlideAI: Kualitas Pro Gratis. Solusi AI Terbaik untuk Slide Anda",
+    "ogDescription": "AI tidak harus mahal. SlideAI memberikan 2 generasi gratis setiap hari dengan fitur edit bertenaga AI penuh."
+  },
+  "aria": { "home": "SlideAI Beranda" },
+  "nav": { "blog": "Blog", "category": "Alat Gratis" },
+  "hero": {
+    "h1": "Kekuatan Penuh «Gratis».<br>Definisikan Ulang Presentasi Anda.",
+    "tagline": "Pikir slide AI itu mahal? SlideAI memungkinkan semua orang membuat 2 dek profesional setiap hari secara gratis. Desain, struktur, dan edit AI—rasakan semuanya tanpa biaya.",
+    "badges": ["Reset Setiap Hari", "Termasuk Mode Edit AI", "Tanpa Kartu Kredit"]
+  },
+  "demo": {
+    "h2": "Dampak Visual: Proposal 'Guilty Burger'",
+    "p1": "Kami menantang SlideAI untuk membuat proposal 'Guilty Burger' baru McDonald's—lawan dari makanan sehat. Lihat bagaimana AI mengubah konsep berani ini menjadi realitas visual yang luar biasa secara gratis.",
+    "prompt_label": "Prompt yang digunakan (coba sendiri):",
+    "prompt_text": "“Buat proposal pemasaran berdampak tinggi untuk seri 'Guilty Burger' baru McDonald's. Konsepnya adalah 'kebalikan dari menu sehat—kenikmatan murni dan pereda stres.' Sertakan analisis audiens, deskripsi visual burger dengan keju leleh dan bacon, serta strategi medsos 'Cheat Day'.”",
+    "output_label": "Hasil Generasi (Dibuat di Paket Gratis):"
+  },
+  "features": {
+    "h2": "Fitur Luar Biasao di Paket Gratis",
+    "items": [
+      { "title": "2 Dek Setiap Hari", "desc": "Bukan sekadar uji coba sekali. Kuota direset setiap 24 jam." },
+      { "title": "Edit AI Gratis", "desc": "Minta AI untuk 'buat lebih profesional' atau 'tambah slide' secara gratis." },
+      { "title": "Desain Premium", "desc": "Pengguna gratis mendapatkan mesin desain canggih yang sama untuk hasil sempurna." }
+    ]
+  },
+  "plans": {
+    "h2": "Siap Menghapus Semua Batasan?",
+    "p_desc": "Paket gratis sudah hebat, tapi **SlideAI Pro** membuka pembuatan tak terbatas secepat pikiran Anda.",
+    "pass7": { "name": "7-Day Pass", "price": "Rp 150rb", "desc": "Untuk kebutuhan proyek intensif jangka pendek." },
+    "monthly": { "name": "Paket Bulanan", "price": "Rp 230rb", "desc": "Cara terpopuler untuk meningkatkan efisiensi harian." },
+    "yearly": { "name": "Paket Tahunan", "price": "Rp 2,3jt", "desc": "Nilai terbaik untuk penggunaan tak terbatas jangka panjang." }
+  },
+  "cta": {
+    "h3": "Buat Dek Pertama Anda Gratis Sekarang.",
+    "p": "Lihat dampak 'Guilty Burger' dengan mata kepala sendiri. Unduh di App Store.",
+    "download": "Mulai Gratis"
+  }
+}

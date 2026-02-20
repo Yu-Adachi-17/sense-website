@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Penjana Slaid AI Percuma | 2 Dek Pro Setiap Hari Percuma",
+    "description": "Revolusikan penciptaan pembentangan secara percuma. Dengan SlideAI, jana 2 dek profesional setiap hari. Lihat contoh cadangan 'Guilty Burger' kami. Mod Edit AI juga tersedia secara percuma.",
+    "ogTitle": "SlideAI: Kualiti Pro Secara Percuma. Penyelesaian AI Terbaik untuk Slaid Anda",
+    "ogDescription": "AI tidak semestinya mahal. SlideAI memberi anda 2 generasi percuma setiap hari dengan ciri suntingan AI penuh."
+  },
+  "aria": { "home": "SlideAI Laman Utama" },
+  "nav": { "blog": "Blog", "category": "Alat Percuma" },
+  "hero": {
+    "h1": "Kuasa Penuh «Percuma».<br>Takrifkan Semula Pembentangan Anda.",
+    "tagline": "Fikir slaid AI mahal? SlideAI membolehkan semua orang mencipta 2 dek profesional setiap hari secara percuma. Reka bentuk, struktur, dan suntingan AI—alami semuanya tanpa kos.",
+    "badges": ["Tetapan Semula Setiap Hari", "Termasuk Mod Edit AI", "Tiada Kad Kredit Diperlukan"]
+  },
+  "demo": {
+    "h2": "Impak Visual: Cadangan 'Guilty Burger'",
+    "p1": "Kami mencabar SlideAI untuk mencipta cadangan untuk 'Guilty Burger' baru McDonald's—lawan kepada makanan sihat. Lihat bagaimana AI mengubah konsep berani ini menjadi realiti visual yang hebat secara percuma.",
+    "prompt_label": "Prompt yang digunakan [cuba sendiri]:",
+    "prompt_text": "“Bina cadangan pemasaran impak tinggi untuk siri 'Guilty Burger' baru McDonald's. Konsepnya adalah 'bertentangan dengan menu sihat—kenikmatan murni dan kelegaan stres.' Sertakan analisis audiens, deskripsi visual burger dengan keju cair dan bacon, serta strategi medsos 'Cheat Day'.”",
+    "output_label": "Hasil Generasi [Dicipta pada Pelan Percuma]:"
+  },
+  "features": {
+    "h2": "Ciri Menarik dalam Pelan Percuma",
+    "items": [
+      { "title": "2 Dek Setiap Hari", "desc": "Bukan sekadar cubaan sekali. Had ditetapkan semula setiap 24 jam. Sesuai untuk pelajar dan penceramah bebas." },
+      { "title": "Suntingan AI Percuma", "desc": "Minta AI untuk 'jadikan lebih profesional' atau 'tambah slaid' secara percuma." },
+      { "title": "Reka Bentuk Premium", "desc": "Pengguna percuma mendapat enjin reka bentuk yang sama untuk hasil yang sempurna." }
+    ]
+  },
+  "plans": {
+    "h2": "Bersedia untuk Menghapuskan Semua Had?",
+    "p_desc": "Pelan percuma sudah hebat, tetapi **SlideAI Pro** membuka kunci penciptaan tanpa had sepantas fikiran anda.",
+    "pass7": { "name": "Pas 7-Hari", "price": "$9.99", "desc": "Untuk keperluan projek intensif jangka pendek." },
+    "monthly": { "name": "Pelan Bulanan", "price": "$14.99", "desc": "Cara paling popular untuk meningkatkan kecekapan harian." },
+    "yearly": { "name": "Pelan Tahunan", "price": "$149.99", "desc": "Nilai terbaik untuk kegunaan tanpa had jangka panjang." }
+  },
+  "cta": {
+    "h3": "Cipta Dek Pertama Anda Secara Percuma Sekarang.",
+    "p": "Lihat impak 'Guilty Burger' dengan mata sendiri. Muat turun di App Store.",
+    "download": "Mula Secara Percuma"
+  }
+}

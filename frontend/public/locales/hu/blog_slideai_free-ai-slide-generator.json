@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Ingyenes AI dia-generátor | Napi 2 profi bemutató ingyen",
+    "description": "Hatékonyabb prezentációkészítés ingyen. A SlideAI-val napi 2 profi bemutatót készíthet. Nézze meg a 'Guilty Burger' projektünket. Az AI szerkesztés is ingyenes.",
+    "ogTitle": "SlideAI: Profi minőség ingyen. A végső AI megoldás diákhoz",
+    "ogDescription": "Az AI nem kell, hogy drága legyen. A SlideAI napi 2 ingyenes generálást és teljes AI szerkesztést kínál."
+  },
+  "aria": { "home": "SlideAI Főoldal" },
+  "nav": { "blog": "Blog", "category": "Ingyenes eszközök" },
+  "hero": {
+    "h1": "Teljes erővel «Ingyen».<br>Gondolja újra a prezentációit.",
+    "tagline": "Azt hiszi, az AI diák drágák? A SlideAI napi 2 profi bemutatót kínál mindenkinek teljesen ingyen. Dizájn, felépítés és AI szerkesztés – tapasztalja meg költségek nélkül.",
+    "badges": ["Napi limit frissülés", "AI szerkesztő mód", "Bankkártya nem szükséges"]
+  },
+  "demo": {
+    "h2": "Vizuális hatás: A 'Guilty Burger' kampány",
+    "p1": "Kihívás elé állítottuk a SlideAI-t: készítsen prezentációt a McDonald's új 'Guilty Burger'-éhez. Az egészséges ételek ellentéte, tiszta élvezet. Nézze meg, hogyan valósította meg az AI ingyen.",
+    "prompt_label": "Használt prompt (próbálja ki Ön is):",
+    "prompt_text": "„Készíts ütős marketingjavaslatot a McDonald's új 'Guilty Burger' sorozatához. A koncepció: 'az egészséges menü ellentéte, tiszta élvezet és stresszoldás'. Tartalmazzon célcsoport-elemzést, vizuális leírást az olvadó sajtos-szalonnás burgerről és egy 'Cheat Day' közösségi média stratégiát.”",
+    "output_label": "Eredmény (ingyenes verzióval készült):"
+  },
+  "features": {
+    "h2": "Lenyűgöző funkciók az ingyenes tervben",
+    "items": [
+      { "title": "Napi 2 bemutató", "desc": "Nem csak egyszeri próba. A limit 24 óránként frissül." },
+      { "title": "Ingyenes AI szerkesztés", "desc": "Kérje az AI-t, hogy 'legyen profibb' vagy 'adjon hozzá diát' ingyen." },
+      { "title": "Prémium dizájn", "desc": "Ingyenes felhasználóink is ugyanazt a csúcskategóriás dizájnmotort használhatják." }
+    ]
+  },
+  "plans": {
+    "h2": "Készen áll a korlátok lebontására?",
+    "p_desc": "Az ingyenes terv erős, de a **SlideAI Pro** korlátlan lehetőségeket nyit meg a gondolatai sebességével.",
+    "pass7": { "name": "7 napos bérlet", "price": "3 900 Ft", "desc": "Intenzív projektmunkához." },
+    "monthly": { "name": "Havi terv", "price": "5 900 Ft", "desc": "A legnépszerűbb választás a napi hatákonysághoz." },
+    "yearly": { "name": "Éves terv", "price": "59 000 Ft", "desc": "A legjobb érték korlátlan használathoz." }
+  },
+  "cta": {
+    "h3": "Készítse el első prezentációját ingyen.",
+    "p": "Nézze meg a 'Guilty Burger' hatását saját szemével. Töltse le az App Store-ból.",
+    "download": "Kezdés ingyen"
+  }
+}

@@ -1,1 +1,51 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Kostenloser KI-Folien-Generator | 2 Profi-Decks täglich gratis",
+    "description": "Präsentationen kostenlos erstellen. Mit SlideAI generieren Sie 2 Profi-Decks täglich. Sehen Sie unser 'Guilty Burger' Beispiel. KI-Editierung ist ebenfalls gratis enthalten.",
+    "ogTitle": "SlideAI: Profi-Qualität kostenlos. Die ultimative KI-Lösung für Folien",
+    "ogDescription": "KI muss nicht teuer sein. SlideAI bietet 2 Decks täglich und volle KI-Bearbeitung völlig kostenlos."
+  },
+  "aria": { "home": "SlideAI Home" },
+  "nav": { "blog": "Blog", "category": "Kostenlose Tools" },
+  "hero": {
+    "h1": "Volle Power «Kostenlos».<br>Präsentationen neu gedacht.",
+    "tagline": "Glauben Sie, KI-Präsentationen sind teuer? SlideAI ermöglicht es jedem, 2 Profi-Decks pro Tag völlig kostenlos zu erstellen. Design, Struktur und KI-Editierung – erleben Sie alles gratis.",
+    "badges": ["Täglicher Reset", "KI-Editiermodus inklusive", "Keine Kreditkarte nötig"]
+  },
+  "demo": {
+    "h2": "Visueller Impact: Das 'Guilty Burger' Projekt",
+    "p1": "Wir haben SlideAI herausgefordert, einen Pitch für den neuen 'Guilty Burger' von McDonald's zu erstellen. Das pure Gegenteil von gesundem Essen, purer Genuss. Sehen Sie, wie die KI dieses mutige Konzept kostenlos umgesetzt hat.",
+    "prompt_label": "Verwendeter Prompt (zum Ausprobieren):",
+    "prompt_text": "„Erstelle einen wirkungsvollen Marketing-Vorschlag für die neue 'Guilty Burger'-Serie von McDonald's. Das Konzept ist das 'Gegenteil der gesunden Menüs, purer Genuss und Stressabbau'. Inkludiere Zielgruppenanalyse, visuelle Beschreibung eines Burgers mit schmelzendem Käse und Bacon sowie eine Social-Media-Strategie für 'Cheat Days'.“",
+    "output_label": "Ergebnis (kostenlos generiert):"
+  },
+  "features": {
+    "h2": "Starke Features im Gratis-Plan",
+    "items": [
+      { 
+        "title": "2 Decks jeden Tag", 
+        "desc": "Kein einmaliger Test. Das Kontingent wird alle 24 Stunden zurückgesetzt. Ideal für Studenten und Freelancer." 
+      },
+      { 
+        "title": "KI-Editierung inklusive", 
+        "desc": "Nach dem Erstellen ist nicht Schluss. Sagen Sie der KI 'Mach es professioneller' oder 'Füge eine Folie hinzu' – völlig kostenlos." 
+      },
+      { 
+        "title": "Premium Design", 
+        "desc": "Keine Kompromisse bei der Qualität. Auch Gratis-Nutzer erhalten Zugriff auf unsere High-End Design-Engine." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Bereit für grenzenlose Produktivität?",
+    "p_desc": "Der Gratis-Plan ist stark, aber **SlideAI Pro** bietet Ihnen unbegrenzte Freiheit für professionelle Workflows. Die Wahl für echte Experten.",
+    "pass7": { "name": "7-Tage-Pass", "price": "9,99 €", "desc": "Für intensive Projektphasen." },
+    "monthly": { "name": "Monatlich", "price": "14,99 €", "desc": "Der beliebteste Weg zu täglicher Effizienz." },
+    "yearly": { "name": "Jährlich", "price": "149,99 €", "desc": "Bestes Preis-Leistungs-Verhältnis für unbegrenzte Nutzung." }
+  },
+  "cta": {
+    "h3": "Erstellen Sie Ihr erstes Deck jetzt kostenlos.",
+    "p": "Erleben Sie den 'Guilty Burger' Effekt mit eigenen Augen. Jetzt im App Store laden.",
+    "download": "Kostenlos starten"
+  }
+}

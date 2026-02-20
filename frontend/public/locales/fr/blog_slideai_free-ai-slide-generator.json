@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Générateur de slides IA gratuit | 2 decks pro par jour",
+    "description": "Optimisez vos présentations gratuitement. Avec SlideAI, générez 2 decks professionnels par jour. Découvrez notre exemple 'Guilty Burger'. Édition par IA incluse gratuitement.",
+    "ogTitle": "SlideAI : Qualité pro gratuite. La solution IA ultime pour vos slides",
+    "ogDescription": "L'IA n'a pas besoin d'être chère. SlideAI vous offre 2 decks par jour et une édition IA complète gratuitement."
+  },
+  "aria": { "home": "SlideAI Accueil" },
+  "nav": { "blog": "Blog", "category": "Outils gratuits" },
+  "hero": {
+    "h1": "Pleine puissance «Gratuite».<br>Redéfinissez vos présentations.",
+    "tagline": "¿Vous pensez que les slides IA coûtent cher ? SlideAI permet à chacun de créer 2 decks pro par jour tout à fait gratuitement.",
+    "badges": ["Réinitialisation quotidienne", "Mode édition IA", "Pas de carte requise"]
+  },
+  "demo": {
+    "h2": "Impact visuel : Le projet 'Guilty Burger'",
+    "p1": "Nous avons défié SlideAI de créer un pitch pour le nouveau 'Guilty Burger' de McDonald's. Voyez comment l'IA a concrétisé ce concept audacieux gratuitement.",
+    "prompt_label": "Prompt utilisé :",
+    "prompt_text": "« Crée une proposition marketing percutante pour la nouvelle série 'Guilty Burger' de McDonald's. Le concept est 'l'opposé des menus sains : indulgence pure et anti-stress'. »",
+    "output_label": "Résultat (généré avec l'offre gratuite) :"
+  },
+  "features": {
+    "h2": "Des fonctionnalités incroyables en version gratuite",
+    "items": [
+      { "title": "2 decks chaque jour", "desc": "La limite se réinitialise toutes les 24h." },
+      { "title": "Édition IA gratuite", "desc": "Demandez à l'IA de 'rendre cela plus pro' gratuitement." },
+      { "title": "Design Premium", "desc": "Les utilisateurs gratuits accèdent au même moteur de design avancé." }
+    ]
+  },
+  "plans": {
+    "h2": "Prêt à lever toutes les limites ?",
+    "p_desc": "**SlideAI Pro** débloque des générations illimitées.",
+    "pass7": { "name": "Pass 7 jours", "price": "9,99 €", "desc": "Pour des besoins intenses." },
+    "monthly": { "name": "Mensuel", "price": "14,99 €", "desc": "La solution la plus populaire." },
+    "yearly": { "name": "Annuel", "price": "149,99 €", "desc": "Meilleur rapport qualité-prix." }
+  },
+  "cta": {
+    "h3": "Créez votre premier deck gratuitement.",
+    "p": "Téléchargez sur l'App Store.",
+    "download": "Commencer gratuitement"
+  }
+}

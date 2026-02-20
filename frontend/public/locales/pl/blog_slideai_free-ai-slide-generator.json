@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Darmowy generator slajdów AI | 2 profesjonalne prezentacje dziennie",
+    "description": "Zrewolucjonizuj tworzenie prezentacji za darmo. Z SlideAI generuj 2 profesjonalne prezentacje dziennie. Zobacz nasz przykład 'Guilty Burger'. Edycja AI jest również dostępna za darmo.",
+    "ogTitle": "SlideAI: Profesjonalna jakość za darmo. Najlepsze rozwiązanie AI dla Twoich slajdów",
+    "ogDescription": "AI nie musi być drogie. SlideAI daje Ci 2 darmowe generacje każdego dnia z pełną edycją AI."
+  },
+  "aria": { "home": "SlideAI Strona główna" },
+  "nav": { "blog": "Blog", "category": "Darmowe narzędzia" },
+  "hero": {
+    "h1": "Pełna moc «Za darmo».<br>Zmień sposób tworzenia slajdów.",
+    "tagline": "Myślisz, że slajdy AI są drogie? SlideAI pozwala każdemu tworzyć 2 profesjonalne prezentacje dziennie całkowicie za darmo. Design, struktura i edycja AI—wszystko bez kosztów.",
+    "badges": ["Codzienny reset", "Tryb edycji AI w pakiecie", "Karta nie jest wymagana"]
+  },
+  "demo": {
+    "h2": "Wizualny efekt: Projekt 'Guilty Burger'",
+    "p1": "Wyzwaliśmy SlideAI do stworzenia prezentacji dla nowego 'Guilty Burger' od McDonald's. Zobacz, jak AI zmieniło ten odważny koncept w wizualną rzeczywistość całkowicie za darmo.",
+    "prompt_label": "Użyty prompt [wypróbuj sam]:",
+    "prompt_text": "„Stwórz efektowną propozycję marketingową dla nowej serii 'Guilty Burger' w McDonald's. Koncept to 'przeciwieństwo zdrowego menu—czysta przyjemność i redukcja stresu'. Uwzględnij analizę grupy docelowej, wizualny opis burgera z topionym serem i boczkiem oraz strategię 'Cheat Day' w social mediach.”",
+    "output_label": "Wynik generowania [Utworzono w planie darmowym]:"
+  },
+  "features": {
+    "h2": "Niesamowite funkcje w planie darmowym",
+    "items": [
+      { "title": "2 prezentacje każdego dnia", "desc": "To nie jest tylko jednorazowa próba. Limit odnawia się co 24 godziny." },
+      { "title": "Darmowa edycja AI", "desc": "Poproś AI, aby 'uczyniło to bardziej profesjonalnym' lub 'dodało slajd' całkowicie za darmo." },
+      { "title": "Design Premium", "desc": "Darmowi użytkownicy otrzymują ten sam zaawansowany silnik projektowy dla idealnych efektów." }
+    ]
+  },
+  "plans": {
+    "h2": "Gotowy na usunięcie wszystkich limitów?",
+    "p_desc": "**SlideAI Pro** odblokowuje nielimitowane generowanie z prędkością Twoich myśli. Wybór dla prawdziwych profesjonalistów.",
+    "pass7": { "name": "Karnet 7-dniowy", "price": "39 zł", "desc": "Dla intensywnych potrzeb projektowych." },
+    "monthly": { "name": "Plan miesięczny", "price": "59 zł", "desc": "Najpopularniejszy sposób na zwiększenie codziennej wydajności." },
+    "yearly": { "name": "Plan roczny", "price": "590 zł", "desc": "Najlepsza wartość przy długoterminowym użytkowaniu." }
+  },
+  "cta": {
+    "h3": "Stwórz swoją pierwszą prezentację za darmo.",
+    "p": "Zobacz efekt 'Guilty Burger' na vlastné oči. Pobierz w App Store.",
+    "download": "Zacznij za darmo"
+  }
+}

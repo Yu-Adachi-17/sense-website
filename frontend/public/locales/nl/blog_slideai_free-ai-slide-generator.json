@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Gratis AI-presentatie-generator | Dagelijks 2 pro decks gratis",
+    "description": "Optimaliseer uw presentaties gratis. Met SlideAI genereert u dagelijks 2 professionele decks. Bekijk ons 'Guilty Burger' voorbeeld. AI-bewerking is ook gratis inbegrepen.",
+    "ogTitle": "SlideAI: Pro-kwaliteit gratis. De ultieme AI-oplossing voor uw slides",
+    "ogDescription": "AI hoeft niet duur te zijn. SlideAI geeft u dagelijks 2 gratis generaties met volledige AI-bewerking."
+  },
+  "aria": { "home": "SlideAI Home" },
+  "nav": { "blog": "Blog", "category": "Gratis Tools" },
+  "hero": {
+    "h1": "Volledige kracht «Gratis».<br>Herdefinieer uw presentaties.",
+    "tagline": "Denkt u dat AI-slides duur zijn? SlideAI laat iedereen dagelijks 2 professionele decks maken, volledig gratis. Ontwerp, structuur en AI-bewerking—ervaar het zonder kosten.",
+    "badges": ["Dagelijkse reset", "Inclusief AI-bewerkingsmodus", "Geen creditcard nodig"]
+  },
+  "demo": {
+    "h2": "Visuele Impact: De 'Guilty Burger' Pitch",
+    "p1": "We daagden SlideAI uit om een pitch te maken voor de nieuwe 'Guilty Burger' van McDonald's. Zie hoe de AI dit gewaagde concept gratis omzette in een indrukwekkende visuele realiteit.",
+    "prompt_label": "Gebruikte prompt [probeer het zelf]:",
+    "prompt_text": "“Maak een high-impact marketingvoorstel voor de nieuwe 'Guilty Burger'-serie van McDonald's. Het concept is 'het tegenovergestelde van gezonde menu's—pure verwennerij'. Inclusief doelgroepanalyse, visuele beschrijving van een burger met gesmolten kaas en bacon, en een 'Cheat Day' social media strategie.”",
+    "output_label": "Gegenereerd resultaat [Gemaakt met het gratis plan]:"
+  },
+  "features": {
+    "h2": "Geweldige functies in het gratis plan",
+    "items": [
+      { "title": "2 Decks elke dag", "desc": "Niet zomaar een eenmalige proefperiode. De limiet wordt elke 24 uur gereset." },
+      { "title": "Gratis AI-bewerking", "desc": "Vraag de AI om het 'professioneler te maken' of 'een slide toe te voegen' zonder kosten." },
+      { "title": "Premium Ontwerp", "desc": "Gratis gebruikers krijgen dezelfde high-end design engine voor perfecte resultaten." }
+    ]
+  },
+  "plans": {
+    "h2": "Klaar om alle limieten te verwijderen?",
+    "p_desc": "Het gratis plan is krachtig, maar **SlideAI Pro** ontgrendelt onbeperkte generaties met de snelheid van uw gedachten.",
+    "pass7": { "name": "7-Dagenpas", "price": "€9,99", "desc": "Voor intensieve kortlopende projecten." },
+    "monthly": { "name": "Maandelijks", "price": "€14,99", "desc": "De populairste keuze voor dagelijkse efficiëntie." },
+    "yearly": { "name": "Jaarlijks", "price": "€149,99", "desc": "Beste waarde voor onbeperkt langdurig gebruik." }
+  },
+  "cta": {
+    "h3": "Maak nu gratis uw eerste deck.",
+    "p": "Ervaar de impact van de 'Guilty Burger' met eigen ogen. Download in de App Store.",
+    "download": "Gratis beginnen"
+  }
+}

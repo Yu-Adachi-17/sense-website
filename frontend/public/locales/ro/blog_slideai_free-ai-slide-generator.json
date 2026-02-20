@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Generator de diapozitive AI gratuit | 2 prezentări pro pe zi gratuit",
+    "description": "Revoluționează crearea prezentărilor gratuit. Cu SlideAI, generează 2 prezentări profesionale zilnic. Vezi exemplul nostru 'Guilty Burger'. Editarea cu AI este inclusă gratuit.",
+    "ogTitle": "SlideAI: Calitate profesională gratuită. Soluția AI supremă pentru slide-uri",
+    "ogDescription": "AI nu trebuie să fie scump. SlideAI îți oferă 2 generări gratuite zilnic cu editare completă prin AI."
+  },
+  "aria": { "home": "SlideAI Acasă" },
+  "nav": { "blog": "Blog", "category": "Instrumente gratuite" },
+  "hero": {
+    "h1": "Putere deplină «Gratuit».<br>Redefinește-ți prezentările.",
+    "tagline": "Crezi că slide-urile AI sunt scumpe? SlideAI permite tuturor să creeze 2 prezentări profesionale pe zi total gratuit. Design, structură și editare AI—experimentează totul fără costuri.",
+    "badges": ["Resetare zilnică", "Mod editare AI inclus", "Fără card necesar"]
+  },
+  "demo": {
+    "h2": "Impact vizual: Proiectul 'Guilty Burger'",
+    "p1": "Am provocat SlideAI să creeze o propunere pentru noul 'Guilty Burger' de la McDonald's. Vezi cum AI a transformat acest concept îndrăzneț într-o realitate vizuală incredibilă gratuit.",
+    "prompt_label": "Prompt utilizat [încearcă și tu]:",
+    "prompt_text": "„Creează o propunere de marketing cu impact ridicat pentru noua serie 'Guilty Burger' de la McDonald's. Conceptul este 'opusul meniurilor sănătoase'. Include analiza publicului și strategia 'Cheat Day' pentru social media.”",
+    "output_label": "Rezultat generat [Creat cu planul gratuit]:"
+  },
+  "features": {
+    "h2": "Funcții uimitoare în planul gratuit",
+    "items": [
+      { "title": "2 prezentări în fiecare zi", "desc": "Limita se resetează la fiecare 24 de ore." },
+      { "title": "Editare AI gratuită", "desc": "Cere-i AI-ului să o facă 'mai profesională' fără costuri." },
+      { "title": "Design Premium", "desc": "Utilizatorii gratuiti au acces la același motor de design avansat." }
+    ]
+  },
+  "plans": {
+    "h2": "Ești gata să elimini toate limitele?",
+    "p_desc": "**SlideAI Pro** deblochează generări nelimitate la viteza gândului tău.",
+    "pass7": { "name": "Pass 7 zile", "price": "45 lei", "desc": "Pentru nevoi intense de proiect pe termen scurt." },
+    "monthly": { "name": "Plan lunar", "price": "69 lei", "desc": "Cea mai populară cale de a crește eficiența zilnică." },
+    "yearly": { "name": "Plan anual", "price": "690 lei", "desc": "Cea mai bună valoare pentru utilizare nelimitată." }
+  },
+  "cta": {
+    "h3": "Creează prima ta prezentare gratuit acum.",
+    "p": "Descarcă din App Store.",
+    "download": "Începe gratuit"
+  }
+}

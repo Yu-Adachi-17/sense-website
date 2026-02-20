@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Besplatni AI generator prezentacija | 2 profi prezentacije dnevno",
+    "description": "Zefektivnite izradu prezentacija besplatno. Uz SlideAI generirajte 2 profesionalne prezentacije dnevno. Pogledajte naš 'Guilty Burger' prijedlog. AI uređivanje je također besplatno.",
+    "ogTitle": "SlideAI: Profesionalna kvaliteta besplatno. AI rješenje za vaše slajdove",
+    "ogDescription": "AI ne mora biti skup. SlideAI vam nudi 2 besplatne generacije dnevno uz potpuno AI uređivanje."
+  },
+  "aria": { "home": "SlideAI Početna" },
+  "nav": { "blog": "Blog", "category": "Besplatni alati" },
+  "hero": {
+    "h1": "Puna snaga «Besplatno».<br>Promijenite način izrade slajdova.",
+    "tagline": "Mislite da su AI prezentacije skupe? SlideAI omogućuje svima izradu 2 profesionalne prezentacije dnevno potpuno besplatno. Dizajn, struktura i AI uređivanje – doživite sve bez troškova.",
+    "badges": ["Dnevno resetiranje", "AI način uređivanja", "Bez kreditne kartice"]
+  },
+  "demo": {
+    "h2": "Vizualni učinak: Prijedlog za 'Guilty Burger'",
+    "p1": "Izazvali smo SlideAI da izradi prezentaciju za McDonald'sov novi 'Guilty Burger' – potpunu suprotnost zdravoj hrani. Pogledajte kako je AI pretvorio ovaj hrabri koncept u vizualnu stvarnost besplatno.",
+    "prompt_label": "Korišteni prompt (isprobajte sami):",
+    "prompt_text": "„Izradi upečatljiv marketinški prijedlog za novu seriju 'Guilty Burger' u McDonald'su. Koncept je 'suprotnost zdravom meniju – čisto uživanje i oslobađanje od stresa'. Uključi analizu publike, opis burgera s topljenim sirom i slaninom te strategiju za društvene mreže 'Cheat Day'.“",
+    "output_label": "Rezultat (izrađeno u besplatnom paketu):"
+  },
+  "features": {
+    "h2": "Sjajne značajke u besplatnom planu",
+    "items": [
+      { "title": "2 prezentacije svaki dan", "desc": "Nije samo jednokratna proba. Kvota se resetira svaka 24 sata." },
+      { "title": "Besplatno AI uređivanje", "desc": "Tražite od AI-a da 'učini ovo profesionalnijim' ili 'doda slajd' potpuno besplatno." },
+      { "title": "Premium dizajn", "desc": "Besplatni korisnici dobivaju isti vrhunski dizajn za besprijekorne rezultate." }
+    ]
+  },
+  "plans": {
+    "h2": "Spremni za uklanjanje svih ograničenja?",
+    "p_desc": "Besplatni plan je moćan, ali **SlideAI Pro** omogućuje neograničeno stvaranje brzinom vaših misli.",
+    "pass7": { "name": "7-dnevna propusnica", "price": "9,99 €", "desc": "Za intenzivan rad na projektu." },
+    "monthly": { "name": "Mjesečni plan", "price": "14,99 €", "desc": "Najpopularniji izbor za svakodnevnu učinkovitost." },
+    "yearly": { "name": "Godišnji plan", "price": "149,99 €", "desc": "Najbolja vrijednost za neograničeno korištenje." }
+  },
+  "cta": {
+    "h3": "Izradite svoju prvu prezentaciju besplatno.",
+    "p": "Doživite učinak 'Guilty Burgera' vlastitim očima. Preuzmite u App Storeu.",
+    "download": "Započnite besplatno"
+  }
+}

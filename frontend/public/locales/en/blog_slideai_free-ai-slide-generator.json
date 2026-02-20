@@ -1,1 +1,51 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Free AI Slide Generator | 2 Pro Decks Daily for Free",
+    "description": "Revolutionize your workflow for free. Generate 2 professional presentation decks daily with SlideAI. Check out our 'Guilty Burger' pitch. AI Edit mode is also available for free.",
+    "ogTitle": "SlideAI: Professional Quality for Free. The Ultimate AI Slide Tool",
+    "ogDescription": "Stop paying for expensive AI. SlideAI gives you 2 free generations every day with full AI-powered editing features."
+  },
+  "aria": { "home": "SlideAI Home" },
+  "nav": { "blog": "Blog", "category": "Free Tools" },
+  "hero": {
+    "h1": "Full Power for «Free».<br>Redefine Your Presentations.",
+    "tagline": "Think AI slides are expensive? SlideAI lets everyone create 2 professional decks daily completely free. Design, structure, and AI editing—experience it all without the cost.",
+    "badges": ["Daily Reset", "AI Edit Mode Included", "No Credit Card Required"]
+  },
+  "demo": {
+    "h2": "Visual Impact: The 'Guilty Burger' Pitch",
+    "p1": "We challenged SlideAI to create a pitch for McDonald's new 'Guilty Burger'—the ultimate antithesis to healthy eating. See how the AI turned this bold concept into a high-impact visual reality for free.",
+    "prompt_label": "The Prompt Used (Try it yourself):",
+    "prompt_text": "“Create a high-impact marketing proposal for McDonald's new 'Guilty Burger' series. The concept is 'the polar opposite of healthy menus—pure indulgence and stress relief.' Include target audience analysis, visual descriptions of a triple-patty burger with melting cheese, and a 'Cheat Day' social media strategy.”",
+    "output_label": "Generated Result (Created on Free Tier):"
+  },
+  "features": {
+    "h2": "Stunning Features in the Free Plan",
+    "items": [
+      { 
+        "title": "2 Decks Every Day", 
+        "desc": "Not just a one-time trial. The limit resets every 24 hours. Perfect for students, freelancers, and quick business pitches." 
+      },
+      { 
+        "title": "Free AI Editing", 
+        "desc": "Creation is just the start. Tell the AI to 'make it more professional' or 'add a slide'—all within the free tier." 
+      },
+      { 
+        "title": "Premium Design", 
+        "desc": "We don't compromise on quality. Free users get the same high-end design engine for flawless, boardroom-ready output." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Ready to Remove All Limits?",
+    "p_desc": "The free plan is powerful, but **SlideAI Pro** unlocks unlimited daily generations at the speed of your thoughts. The choice for true professionals.",
+    "pass7": { "name": "7-Day Pass", "price": "$9.99", "desc": "For intensive, short-term project needs." },
+    "monthly": { "name": "Monthly Plan", "price": "$14.99", "desc": "The most popular way to boost daily efficiency." },
+    "yearly": { "name": "Yearly Plan", "price": "$149.99", "desc": "Best value for long-term unlimited usage." }
+  },
+  "cta": {
+    "h3": "Create Your First Deck for Free Now.",
+    "p": "Experience the 'Guilty Burger' impact with your own eyes. Download on the App Store.",
+    "download": "Start for Free"
+  }
+}

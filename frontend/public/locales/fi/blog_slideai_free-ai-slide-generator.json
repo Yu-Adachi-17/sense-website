@@ -1,1 +1,42 @@
-{}
+{
+  "seo": {
+    "title": "SlideAI - Ilmainen tekoäly-esitysgeneraattori | 2 profi-esitystä päivässä",
+    "description": "Tehosta esitysten luomista ilmaiseksi. SlideAI:lla luot 2 ammattimaista esitystä päivittäin. Katso 'Guilty Burger' -esimerkkimme. Tekoälymuokkaus sisältyy ilmaiseksi.",
+    "ogTitle": "SlideAI: Ammattilaatua ilmaiseksi. Lopullinen tekoälyratkaisu dioille",
+    "ogDescription": "Tekoälyn ei tarvitse olla kallista. SlideAI tarjoaa 2 esitystä päivässä ja täyden tekoälymuokkauksen ilmaiseksi."
+  },
+  "aria": { "home": "SlideAI Koti" },
+  "nav": { "blog": "Blogi", "category": "Ilmaiset työkalut" },
+  "hero": {
+    "h1": "Täysi teho «Ilmaiseksi».<br>Määrittele esityksesi uudelleen.",
+    "tagline": "Luuletko, että tekoälydiat ovat kalliita? SlideAI antaa kaikkien luoda 2 ammattimaista esitystä päivässä täysin ilmaiseksi.",
+    "badges": ["Päivittäinen nollaus", "Tekoälymuokkaus mukana", "Ei luottokorttia"]
+  },
+  "demo": {
+    "h2": "Visuaalinen vaikutus: 'Guilty Burger' -projekti",
+    "p1": "Pyysimme SlideAI:ta luomaan myyntipuheen McDonald'sin uudelle 'Guilty Burgerille'. Katso, miten tekoäly toteutti tämän rohkean konseptin ilmaiseksi.",
+    "prompt_label": "Käytetty kehote:",
+    "prompt_text": "“Luo vaikuttava markkinointiehdotus McDonald'sin uudelle 'Guilty Burger' -sarjalle. Konsepti on 'terveellisten valintojen vastakohta – puhdasta nautintoa ja stressinlievitystä.' Sisällytä kohderyhmäanalyysi ja 'Cheat Day' -some-strategia.”",
+    "output_label": "Tulos (luotu ilmaisversiolla):"
+  },
+  "features": {
+    "h2": "Mahtavat ominaisuudet ilmaisessa tilauksessa",
+    "items": [
+      { "title": "2 esitystä joka päivä", "desc": "Raja nollautuu 24 tunnin välein." },
+      { "title": "Ilmainen tekoälymuokkaus", "desc": "Pyydä tekoälyä 'tekemään tästä ammattimaisempi' täysin ilmaiseksi." },
+      { "title": "Premium-muotoilu", "desc": "Ilmaiskäyttäjät saavat saman huippuluokan muotoilun." }
+    ]
+  },
+  "plans": {
+    "h2": "Valmis poistamaan kaikki rajoitukset?",
+    "p_desc": "**SlideAI Pro** vapauttaa rajattoman luovuuden.",
+    "pass7": { "name": "7 päivän passi", "price": "9,99 €", "desc": "Intensiiviseen projektiin." },
+    "monthly": { "name": "Kuukausitilaus", "price": "14,99 €", "desc": "Suosituin tapa tehostaa työtä." },
+    "yearly": { "name": "Vuositilaus", "price": "149,99 €", "desc": "Paras arvo rajattomaan käyttöön." }
+  },
+  "cta": {
+    "h3": "Luo ensimmäinen esityksesi ilmaiseksi.",
+    "p": "Lataa App Storesta.",
+    "download": "Aloita ilmaiseksi"
+  }
+}
