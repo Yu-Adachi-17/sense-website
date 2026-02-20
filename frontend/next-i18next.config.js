@@ -53,7 +53,7 @@ module.exports = {
     'blog_slideai_free-ai-slide-generator',
     'blog_slideai_recommended-presentation-ai', 
     'blog_slideai_iphone-app-presentation-era',
-    'blog_slideai_student-presentation-thesis-hack',
+    'blog_slideai_student-thesis-seminar-hack',
   ],
   defaultNS: 'common',
 
