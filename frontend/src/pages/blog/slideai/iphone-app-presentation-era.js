@@ -248,15 +248,20 @@ export default function SlideAIIPhoneAppBlogEN() {
                     <span className="bg-fuchsia-500 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs">B</span> {txs("demo.output_label")}
                 </h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                {/* Simplified Image Gallery:
+                  Removed simulated bezel. Added rounded corners and subtle shadow.
+                  PC: Side-by-side (2 cols), Mobile: Vertical (1 col).
+                */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {demoImages.map((src, i) => (
-                    <div key={i} className="relative mx-auto w-full max-w-[280px] aspect-[9/19] rounded-[3rem] border-[8px] border-zinc-800 bg-zinc-900 shadow-2xl overflow-hidden">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-zinc-800 rounded-b-2xl z-20"></div>
-                        <div className="h-full w-full bg-white relative">
+                    <div key={i} className="group relative rounded-2xl border border-white/10 bg-black/20 overflow-hidden shadow-2xl transition-all hover:scale-[1.02]">
+                        <div className="aspect-[9/16] w-full relative">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={src} alt="Barcelona Slide" className="h-full w-full object-cover" />
+                            <img src={src} alt={`SlideAI generated slide ${i+1}`} className="absolute inset-0 h-full w-full object-cover" />
                         </div>
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur px-3 py-1 rounded-full text-[10px] text-white/90">
+                        
+                        {/* Pagination Overlay - Small and clean */}
+                        <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-white/90 border border-white/10">
                            Slide {i + 1} / 2
                         </div>
                     </div>
