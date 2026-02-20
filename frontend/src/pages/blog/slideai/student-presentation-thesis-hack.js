@@ -1,4 +1,4 @@
-// src/pages/blog/slideai/student-presentation-thesis-hack.js
+// src/pages/blog/slideai/student-thesis-seminar-hack.js
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -16,6 +16,8 @@ const inter = Inter({ subsets: ["latin"] });
 /* ---------- Constants ---------- */
 const LAST_UPDATED_ISO = "2026-02-20";
 const APP_STORE_URL = "https://apps.apple.com/jp/app/slideai-pro/id6739415399";
+// 統一した名前空間
+const I18N_NAMESPACE = "blog_slideai_student-thesis-seminar-hack";
 
 /* ---------- English Fallback Content (Relaxed & Flat Tone) ---------- */
 const EN_FALLBACK = {
@@ -157,9 +159,9 @@ function PricingCard({ icon: Icon, name, price, desc, highlight = false }) {
 /* ---------- Page Component ---------- */
 export default function SlideAIStudentThesisBlogEN() {
   const router = useRouter();
-  const { txs, txa } = useTx("blog_slideai_student-presentation-thesis-hack");
+  const { txs, txa } = useTx(I18N_NAMESPACE);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
-  const canonical = `${siteUrl}/blog/slideai/student-presentation-thesis-hack`;
+  const canonical = `${siteUrl}/blog/slideai/student-thesis-seminar-hack`;
 
   const demoImages = [
     "/images/slideai/un-history-slide-1.jpg",
@@ -305,7 +307,7 @@ export default function SlideAIStudentThesisBlogEN() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "en", ["common", "blog_slideai_student-presentation-thesis-hack"], i18nConfig)),
+      ...(await serverSideTranslations(locale ?? "en", ["common", I18N_NAMESPACE], i18nConfig)),
     },
   };
 }
