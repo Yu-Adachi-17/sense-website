@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Nytt i 2026! Derfor er SlideAI Pro den beste AI-en for presentasjoner [3 minutter]",
+    "description": "Leter du etter den beste presentasjons-AI-en? Finn ut hvorfor SlideAI Pro slår Gamma og Beautiful.ai. Profesjonelle slides på bare 3 minutter.",
+    "ogTitle": "Beste anbefalte presentasjons-AI | SlideAI Pro",
+    "ogDescription": "Hvorfor SlideAI Pro utkonkurrerer Gamma. Opplev kraften i AI med 2 gratis genereringer hver dag."
+  },
+  "nav": {
+    "blog": "Blogg",
+    "category": "Anbefalte AI-verktøy"
+  },
+  "hero": {
+    "h1": "Hvorfor SlideAI Pro er nr. 1-valget<br>for dine presentasjoner",
+    "tagline": "Slutt å kaste bort timer på layout. Blant alternativer som Gamma eller Beautiful.ai, forklarer vi hvorfor SlideAI Pro er det beste valget for lynrask levering og profesjonell finish.",
+    "badges": ["Anbefalt nr. 1", "3 min. generering", "2 gratis daglig"]
+  },
+  "demo": {
+    "h2": "Bevis: En imponerende presentasjon på bare 3 minutter",
+    "p1": "For å bevise styrken til SlideAI Pro, testet vi den med et visuelt krevende prompt. Selv for forslag som krever høy estetisk sans, leverer SlideAI Pro på under 180 sekunder.",
+    "prompt_label": "Innmatet prompt (eksempel):",
+    "prompt_text": "“Lag et forretningsforslag for 'Flora Central', en ny luksuriøs sesongbasert blomsterbutikk i Central Park, NY. Fokus på high-end visuals og design som harmonerer med parkens natur.”",
+    "output_label": "B. Resultat (ferdig på 3 minutter):",
+    "image_captions": [
+      "1. Visjon og merkevarekonsept",
+      "2. Beliggenhetsfordeler i Central Park",
+      "3. Sesongbaserte blomsterkolleksjoner",
+      "4. Design i harmoni med naturen",
+      "5. Målgruppe og opplevelsesverdi",
+      "6. Lønnsomhet og vekstplan"
+    ]
+  },
+  "benefits": {
+    "h2": "3 grunner til å velge SlideAI Pro fremfor andre",
+    "items": [
+      { 
+        "title": "Raskere enn Gamma", 
+        "desc": "Gamma og Beautiful.ai er gode, men SlideAI Pro dominerer på ren hastighet. Fra prompt til ferdig presentasjon på 3 minutter – det er konkurransefortrinnet du trenger." 
+      },
+      { 
+        "title": "2 gratis genereringer hver dag", 
+        "desc": "Vi mener alle bør dra nytte av AI. Du kan teste kvaliteten selv med 2 gratis daglige genereringer før du bestemmer deg." 
+      },
+      { 
+        "title": "Proff-design uten designer", 
+        "desc": "AI-en forstår den estetiske konteksten, noe som sikrer en profesjonell finish på linje med et byrå, uten behov for ekstern hjelp." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "En enkel investering som lønner seg med en gang",
+    "p_desc": "SlideAI Pro er for profesjonelle som verdsetter tid. Med **ubegrenset generering**, slipp kreativiteten løs for en pris som er lavere enn én times overtid.",
+    "pass7": { "name": "7-dagers pass", "price": "$9.99", "desc": "Perfekt for å lykkes med en viktig presentasjon nå." },
+    "monthly": { "name": "Månedsplan", "price": "$14.99", "desc": "Det mest anbefalte valget for regelmessig bruk." },
+    "yearly": { "name": "Årsplan", "price": "$149.99", "desc": "Beste pris for langsiktig effektivitet." }
+  },
+  "cta": {
+    "h3": "Prøv den anbefalte AI-opplevelsen nå.",
+    "p": "Start med dine 2 gratis daglige genereringer. SlideAI Pro vil endre måten du jobber på.",
+    "download": "Kom i gang gratis"
+  }
+}

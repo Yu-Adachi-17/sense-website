@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "2026-os frissítés! Miért a SlideAI Pro a legjobb AI prezentációkhoz [3 perc alatt]",
+    "description": "A legjobb prezentációs AI-t keresi? Tudja meg, miért jobb a SlideAI Pro, mint a Gamma vagy a Beautiful.ai. Profi diák mindössze 3 perc alatt.",
+    "ogTitle": "A legajánlottabb prezentációs AI | SlideAI Pro",
+    "ogDescription": "Miért körözi le a SlideAI Pro a versenytársakat? Tapasztalja meg az AI erejét napi 2 ingyenes generálással."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Ajánlott AI eszközök"
+  },
+  "hero": {
+    "h1": "Miért a SlideAI Pro az 1. számú<br>választás a prezentációihoz",
+    "tagline": "Elege van a diák rendezgetéséből? A Gamma és a Beautiful.ai mellett elmondjuk, miért a SlideAI Pro a legjobb választás a sebesség és a profi dizájn szerelmeseinek.",
+    "badges": ["1. számú ajánlás", "3 perces generálás", "Napi 2 ingyenes"]
+  },
+  "demo": {
+    "h2": "Bizonyíték: Lenyűgöző prezentáció 3 perc alatt",
+    "p1": "Hogy bebizonyítsuk a SlideAI Pro erejét, egy nehéz vizuális prompttal teszteltük. Még a kifinomult ízlést igénylő terveket is 180 másodpercen belül elkészíti.",
+    "prompt_label": "Bevitt parancs (példa):",
+    "prompt_text": "“Készítsen üzleti tervet a 'Flora Central' luxus virágüzletnek a New York-i Central Parkba. Koncentráljon a prémium látványra és a természettel harmonizáló dizájnra.”",
+    "output_label": "B. Eredmény (3 perc alatt kész):",
+    "image_captions": [
+      "1. Vízió és márkakoncepció",
+      "2. Lokációs előnyök a Central Parkban",
+      "3. Szezonális virágkollekciók",
+      "4. Természettel harmonizáló építészet",
+      "5. Célközönség és élményérték",
+      "6. Jövedelmezőség és növekedési terv"
+    ]
+  },
+  "benefits": {
+    "h2": "3 ok, amiért a SlideAI Pro a legjobb választás",
+    "items": [
+      { 
+        "title": "Gyorsabb, mint a Gamma", 
+        "desc": "A Gamma és a Beautiful.ai remek eszközök, de a SlideAI Pro sebességben verhetetlen. 3 perc alatt a parancstól a kész prezentációig – ez az üzleti előny." 
+      },
+      { 
+        "title": "Napi 2 „Free” generálás", 
+        "desc": "Szeretnénk, ha mindenki élvezné az AI előnyeit. Napi 2 ingyenes generálással saját maga is tesztelheti a minőséget a döntés előtt." 
+      },
+      { 
+        "title": "Profi esztétika dizájner nélkül", 
+        "desc": "Az AI érti a vizuális kontextust, így ügynökségi szintű végeredményt garantál grafikus bevonása nélkül is." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Befektetés, amely azonnal megtérül",
+    "p_desc": "A SlideAI Pro profiknak készült. A **korlátlan generálással** szabadjára engedheti kreativitását, kevesebbért, mint egy óra túlóra ára.",
+    "pass7": { "name": "7 napos bérlet", "price": "$9.99", "desc": "Sürgős prezentációk sikeres lebonyolításához." },
+    "monthly": { "name": "Havi terv", "price": "$14.99", "desc": "Rendszeres használóknak a legjobb választás." },
+    "yearly": { "name": "Éves terv", "price": "$149.99", "desc": "A legjobb ár a hosszú távú hatékonysághoz." }
+  },
+  "cta": {
+    "h3": "Próbálja ki az ajánlott AI élményt most.",
+    "p": "Kezdje a napi 2 ingyenes generálással. A SlideAI Pro megváltoztatja a munkáját.",
+    "download": "Kezdés ingyen"
+  }
+}

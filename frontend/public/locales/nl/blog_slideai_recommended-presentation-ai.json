@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Update 2026! Waarom SlideAI Pro de beste AI is voor presentaties [In 3 minuten]",
+    "description": "Op zoek naar de beste presentatie-AI? Ontdek waarom SlideAI Pro Gamma en Beautiful.ai verslaat. Professionele slides in slechts 3 minuten.",
+    "ogTitle": "Beste AI voor presentaties | SlideAI Pro",
+    "ogDescription": "Waarom SlideAI Pro concurrenten zoals Gamma overtreft. Ervaar de kracht van AI met 2 gratis generaties per dag."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Aanbevolen AI-tools"
+  },
+  "hero": {
+    "h1": "Waarom SlideAI Pro de nr. 1 keuze is<br>voor uw presentaties",
+    "tagline": "Stop met het verspillen van uren aan de lay-out van uw slides. Te midden van opties zoals Gamma of Beautiful.ai, leggen wij uit waarom SlideAI Pro de beste keuze is voor snelheid en een professionele afwerking.",
+    "badges": ["Aanbeveling nr. 1", "3 min. generatie", "2x per dag gratis"]
+  },
+  "demo": {
+    "h2": "Het bewijs: Een indrukwekkende presentatie in slechts 3 minuten",
+    "p1": "Om de kracht van SlideAI Pro te bewijzen, hebben we het getest met een complexe visuele prompt. Zelfs voor voorstellen die veel gevoel voor design vereisen, levert SlideAI Pro resultaat binnen 180 seconden.",
+    "prompt_label": "Ingevoerde prompt (voorbeeld):",
+    "prompt_text": "“Maak een businessvoorstel voor 'Flora Central', een nieuwe luxe seizoensgebonden bloemenwinkel in Central Park, NY. Focus op high-end visuals en een ontwerp dat harmonieert met de natuur van het park.”",
+    "output_label": "B. Resultaat (klaar in 3 minuten):",
+    "image_captions": [
+      "1. Visie en merkconcept",
+      "2. Locatievoordelen in Central Park",
+      "3. Seizoensgebonden bloemencollecties",
+      "4. Ontwerp in harmonie met de natuur",
+      "5. Doelgroep en belevingswaarde",
+      "6. Rendement en groeipad"
+    ]
+  },
+  "benefits": {
+    "h2": "3 redenen om voor SlideAI Pro te kiezen",
+    "items": [
+      { 
+        "title": "Sneller dan Gamma", 
+        "desc": "Gamma en Beautiful.ai zijn geweldig, maar SlideAI Pro domineert op pure snelheid. Van prompt naar presentatie in 3 minuten – dat is de voorsprong die u nodig heeft." 
+      },
+      { 
+        "title": "Dagelijks 2 generaties GRATIS", 
+        "desc": "Wij vinden dat iedereen van AI moet kunnen profiteren. Test de kwaliteit zelf met 2 gratis dagelijkse generaties voordat u een besluit neemt." 
+      },
+      { 
+        "title": "Professionele esthetiek zonder designer", 
+        "desc": "De AI begrijpt de context van het ontwerp en garandeert een resultaat op bureau-niveau zonder dat er een grafisch ontwerper aan te pas komt." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Een slimme investering die zichzelf direct terugverdiendt",
+    "p_desc": "SlideAI Pro is voor professionals die hun tijd waarderen. Met **onbeperkte generatie** krijgt uw creativiteit de vrije loop voor minder dan de prijs van een uur overwerk.",
+    "pass7": { "name": "7-dagen pas", "price": "$9.99", "desc": "Voor direct succes met een dringende presentatie." },
+    "monthly": { "name": "Maandelijks plan", "price": "$14.99", "desc": "De meest aanbevolen keuze voor regelmatig gebruik." },
+    "yearly": { "name": "Jaarlijks plan", "price": "$149.99", "desc": "De beste prijs voor efficiëntie op de lange termijn." }
+  },
+  "cta": {
+    "h3": "Ervaar nu de aanbevolen AI-ervaring.",
+    "p": "Begin met uw 2 gratis dagelijkse generaties. SlideAI Pro zal uw manier van werken veranderen.",
+    "download": "Gratis aan de slag"
+  }
+}

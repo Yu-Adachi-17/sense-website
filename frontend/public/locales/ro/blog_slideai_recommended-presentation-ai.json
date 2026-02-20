@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Noutate 2026! De ce SlideAI Pro este cea mai bună AI pentru prezentări [În 3 minute]",
+    "description": "Cauți cea mai bună AI pentru prezentări? Descoperă de ce SlideAI Pro depășește Gamma și Beautiful.ai. Slide-uri profesionale în doar 3 minute.",
+    "ogTitle": "Top AI Recomandat pentru Prezentări | SlideAI Pro",
+    "ogDescription": "De ce SlideAI Pro este superior concurenței? Experimentează puterea AI cu 2 generări gratuite în fiecare zi."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Instrumente AI Recomandate"
+  },
+  "hero": {
+    "h1": "De ce SlideAI Pro este alegerea nr. 1<br>pentru prezentările tale",
+    "tagline": "Nu mai pierde ore întregi cu designul slide-urilor. Printre opțiuni precum Gamma sau Beautiful.ai, îți explicăm de ce SlideAI Pro este alegerea de top pentru viteză și finisaj profesional.",
+    "badges": ["Recomandat nr. 1", "Generare în 3 min", "2 gratuite zilnic"]
+  },
+  "demo": {
+    "h2": "Dovada performanței: Prezentare pro în doar 3 minute",
+    "p1": "Pentru a demonstra puterea SlideAI Pro, l-am testat cu un prompt vizual complex. Chiar și pentru propuneri care necesită un simț estetic ridicat, SlideAI Pro livrează în mai puțin de 180 de secunde.",
+    "prompt_label": "Prompt utilizat (exemplu real):",
+    "prompt_text": "“Creează o propunere de afaceri pentru 'Flora Central', o nouă florărie de lux în Central Park, NY. Axează-te pe vizualuri premium și un design în armonie cu natura parcului.”",
+    "output_label": "B. Rezultat (gata în 3 minute):",
+    "image_captions": [
+      "1. Viziune și concept de brand",
+      "2. Avantajul locației în Central Park",
+      "3. Colecții florale de sezon",
+      "4. Design armonizat cu natura",
+      "5. Publicul țintă și valoarea experienței",
+      "6. Profitabilitate și plan de creștere"
+    ]
+  },
+  "benefits": {
+    "h2": "3 motive să alegi SlideAI Pro în locul altor instrumente",
+    "items": [
+      { 
+        "title": "Mai rapid decât Gamma", 
+        "desc": "Gamma și Beautiful.ai sunt instrumente bune, dar SlideAI Pro domină prin viteza pură. De la prompt la prezentare gata în 3 minute – acesta este avantajul competitiv de care ai nevoie." 
+      },
+      { 
+        "title": "2 generări GRATUITE în fiecare zi", 
+        "desc": "Credem că toată lumea ar trebui să beneficieze de AI. Poți testa calitatea cu 2 generări zilnice gratuite înainte de a te decide." 
+      },
+      { 
+        "title": "Estetică pro fără designer", 
+        "desc": "AI-ul înțelege contextul estetic, garantând un rezultat de nivelul unei agenții profesionale, fără ajutor extern." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "O investiție simplă care se amortizează imediat",
+    "p_desc": "SlideAI Pro este o investiție pentru profesioniștii care prețuiesc timpul. Cu **generare nelimitată**, eliberează-ți creativitatea la un preț mai mic decât o oră de ore suplimentare.",
+    "pass7": { "name": "Abonament 7 zile", "price": "$9.99", "desc": "Pentru succesul unei prezentări urgente." },
+    "monthly": { "name": "Plan Lunar", "price": "$14.99", "desc": "Cea mai recomandată alegere pentru utilizare regulată." },
+    "yearly": { "name": "Plan Anual", "price": "$149.99", "desc": "Cel mai bun preț pentru eficiență pe termen lung." }
+  },
+  "cta": {
+    "h3": "Încearcă acum experiența AI recomandată.",
+    "p": "Începe cu cele 2 generări gratuite pe zi. SlideAI Pro va schimba modul în care lucrezi.",
+    "download": "Începe gratuit"
+  }
+}

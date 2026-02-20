@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "2026 Güncel! Neden SlideAI Pro En İyi Sunum AI Aracıdır [3 Dakikada]",
+    "description": "En iyi sunum yapay zekasını mı arıyorsunuz? SlideAI Pro'nun neden Gamma ve Beautiful.ai'yı geride bıraktığını keşfedin. Sadece 3 dakikada profesyonel slaytlar.",
+    "ogTitle": "En Çok Önerilen Sunum AI | SlideAI Pro",
+    "ogDescription": "SlideAI Pro neden rakiplerinden daha iyi? Her gün 2 ücretsiz üretim hakkıyla yapay zekanın gücünü deneyimleyin."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Önerilen AI Araçları"
+  },
+  "hero": {
+    "h1": "Sunumlarınız İçin Neden 1 Numaralı<br>Tercih SlideAI Pro",
+    "tagline": "Slayt düzeniyle saatlerce uğraşmaya son verin. Gamma veya Beautiful.ai gibi seçenekler arasında, hız ve profesyonel sonuç arayanlar için SlideAI Pro neden en iyisi, açıklıyoruz.",
+    "badges": ["1 Numara Öneri", "3 Dakikada Üretim", "Her Gün 2 Ücretsiz"]
+  },
+  "demo": {
+    "h2": "Kanıt: Sadece 3 Dakikada Göz Alıcı Sunumlar",
+    "p1": "SlideAI Pro'nun gücünü kanıtlamak için onu zorlu bir görsel komutla test ettik. Tasarım estetiği gerektiren projelerde bile SlideAI Pro 180 saniyeden kısa sürede sonuç verir.",
+    "prompt_label": "Girilen komut (örnek):",
+    "prompt_text": "“NY Central Park'ta açılacak lüks bir çiçekçi olan 'Flora Central' için bir iş teklifi hazırlayın. Üst düzey görsellere ve doğayla uyumlu tasarıma odaklanın.”",
+    "output_label": "B. Sonuç (3 dakikada hazır):",
+    "image_captions": [
+      "1. Vizyon ve Marka Konsepti",
+      "2. Central Park Konum Avantajı",
+      "3. Mevsimsel Çiçek Koleksiyonları",
+      "4. Doğayla Uyumlu Tasarım",
+      "5. Hedef Kitle ve Deneyim Değeri",
+      "6. Karlılık ve Büyüme Yol Haritası"
+    ]
+  },
+  "benefits": {
+    "h2": "SlideAI Pro'yu Seçmeniz İçin 3 Neden",
+    "items": [
+      { 
+        "title": "Gamma'dan Daha Hızlı", 
+        "desc": "Gamma ve Beautiful.ai iyi araçlardır ancak SlideAI Pro saf hızda rakipsizdir. Komuttan sunuma 3 dakikada geçiş; iş dünyasında ihtiyacınız olan avantaj budur." 
+      },
+      { 
+        "title": "Her Gün 2 Üretim ÜCRETSİZ (Free)", 
+        "desc": "Yapay zekadan herkesin yararlanmasını istiyoruz. Kaliteyi kendiniz test etmeniz için her gün 2 ücretsiz üretim hakkı sunuyoruz." 
+      },
+      { 
+        "title": "Tasarımcıya Gerek Duymayan Estetik", 
+        "desc": "AI tasarım bağlamını anlar ve grafik tasarımcıya ihtiyaç duymadan ajans düzeyinde profesyonel bir sonuç garanti eder." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Kendini Anında Amorti Eden Bir Yatırım",
+    "p_desc": "SlideAI Pro profesyoneller için bir yatırımdır. **Sınırsız üretim** ile yaratıcılığınızı özgür bırakın. Zamanınızı bir saatlik fazla mesai ücretinden daha ucuza geri kazanın.",
+    "pass7": { "name": "7 Günlük Paket", "price": "$9.99", "desc": "Acil sunumlarda başarıyı yakalamak için." },
+    "monthly": { "name": "Aylık Plan", "price": "$14.99", "desc": "Düzenli kullanıcılar için en çok önerilen seçenek." },
+    "yearly": { "name": "Yıllık Plan", "price": "$149.99", "desc": "Uzun vadeli verimlilik için en iyi fiyat." }
+  },
+  "cta": {
+    "h3": "Önerilen AI Deneyimini Şimdi Yaşayın.",
+    "p": "Günlük 2 ücretsiz hakkınızla başlayın. SlideAI Pro çalışma şeklinizi değiştirecek.",
+    "download": "Ücretsiz Başla"
+  }
+}

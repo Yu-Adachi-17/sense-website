@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Novità 2026! Perché SlideAI Pro è la migliore IA per presentazioni [In 3 minuti]",
+    "description": "Cerchi la migliore IA per le tue slide? Scopri perché SlideAI Pro supera Gamma e Beautiful.ai. Presentazioni professionali in soli 3 minuti.",
+    "ogTitle": "L'IA consigliata per presentazioni | SlideAI Pro",
+    "ogDescription": "Perché SlideAI Pro batte la concorrenza? Prova la potenza dell'IA con 2 generazioni gratuite ogni giorno."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Strumenti IA Consigliati"
+  },
+  "hero": {
+    "h1": "Perché SlideAI Pro è la scelta n. 1<br>per le tue presentazioni",
+    "tagline": "Stanco di perdere ore sul layout? Tra opzioni come Gamma o Beautiful.ai, ti spieghiamo perché SlideAI Pro è la scelta migliore per chi cerca velocità e finitura professionale.",
+    "badges": ["Consigliato n. 1", "Generazione in 3 min", "2 gratis al giorno"]
+  },
+  "demo": {
+    "h2": "Prova di forza: Slide professionali in soli 3 minuti",
+    "p1": "Per dimostrare la potenza di SlideAI Pro, lo abbiamo testato con un prompt visivo complesso. Anche per proposte che richiedono grande gusto estetico, SlideAI Pro consegna in meno di 180 secondi.",
+    "prompt_label": "Prompt inserito (esempio):",
+    "prompt_text": "“Crea una proposta commerciale per 'Flora Central', un nuovo fioraio di lusso a Central Park, NY. Focus su visual di alto livello e design in armonia con la natura del parco.”",
+    "output_label": "B. Risultato (pronto in 3 minuti):",
+    "image_captions": [
+      "1. Vision e Concetto del Brand",
+      "2. Vantaggi della location a Central Park",
+      "3. Collezioni floreali stagionali",
+      "4. Design armonizzato con la natura",
+      "5. Target e valore dell'esperienza",
+      "6. Redditività e piano di crescita"
+    ]
+  },
+  "benefits": {
+    "h2": "3 motivi per scegliere SlideAI Pro rispetto agli altri",
+    "items": [
+      { 
+        "title": "Più veloce di Gamma", 
+        "desc": "Gamma e Beautiful.ai sono ottimi, ma SlideAI Pro domina nella velocità pura. Dal prompt alla slide finita in 3 minuti: questo è il vantaggio che serve al tuo business." 
+      },
+      { 
+        "title": "2 generazioni GRATUITE ogni giorno", 
+        "desc": "Vogliamo che tutti usufruiscano dell'IA. Puoi testare la qualità tu stesso con 2 prove gratuite giornaliere prima di decidere." 
+      },
+      { 
+        "title": "Estetica pro senza designer", 
+        "desc": "L'IA comprende il contesto estetico, garantendo un risultato degno di un'agenzia professionale senza bisogno di un grafico esterno." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Un investimento che si ripaga subito",
+    "p_desc": "SlideAI Pro è un investimento per professionisti. Con la **generazione illimitata**, libera la tua creatività per un costo inferiore a un'ora di straordinario.",
+    "pass7": { "name": "Pass 7 giorni", "price": "$9.99", "desc": "Ideale per il successo di una presentazione urgente." },
+    "monthly": { "name": "Piano Mensile", "price": "$14.99", "desc": "La scelta più consigliata per uso regolare." },
+    "yearly": { "name": "Piano Annuale", "price": "$149.99", "desc": "Il miglior prezzo per l'efficienza a lungo termine." }
+  },
+  "cta": {
+    "h3": "Prova subito l'esperienza IA consigliata.",
+    "p": "Inizia con le tue 2 generazioni gratis al giorno. SlideAI Pro cambierà il tuo modo di lavorare.",
+    "download": "Inizia gratuitamente"
+  }
+}

@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Novinka 2026! Proč je SlideAI Pro nejlepší volbou pro tvorbu prezentací pomocí AI [Bleskově za 3 minuty]",
+    "description": "Hledáte nejlepší AI pro tvorbu prezentací? Zjistěte, proč SlideAI Pro vítězí nad Gamma nebo Beautiful.ai. Profesionální výsledky za 3 minuty na příkladu návrhu pro Central Park.",
+    "ogTitle": "Nejlepší AI pro prezentace je SlideAI Pro | Profi slajdy za 3 minuty",
+    "ogDescription": "Proč SlideAI Pro překonává konkurenty jako Gamma či Beautiful.ai? Vyzkoušejte neuvěřitelný výkon se 2 generováními denně zdarma."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Doporučené AI nástroje"
+  },
+  "hero": {
+    "h1": "Proč je SlideAI Pro nejlepší volbou<br>pro tvorbu vašich prezentací",
+    "tagline": "Už vás nebaví ztrácet čas laděním rozvržení snímků? V záplavě nástrojů jako Gamma nebo Beautiful.ai vám ukážeme, proč je SlideAI Pro nejlepší volbou pro ty, kteří vyžadují bleskovou rychlost a profesionální design.",
+    "badges": ["Doporučení č. 1", "Generování za 3 minuty", "2x denně zdarma"]
+  },
+  "demo": {
+    "h2": "Důkaz místo slibů: Působivá prezentace hotová za 3 minuty",
+    "p1": "Abychom dokázali sílu SlideAI Pro, otestovali jsme jej s vizuálně náročným zadáním. I u návrhů, které vyžadují vytříbený vkus, doručí SlideAI Pro výsledek do 180 sekund.",
+    "prompt_label": "Zadaný prompt (reálný příklad):",
+    "prompt_text": "„Vytvořte obchodní návrh pro nový luxusní sezónní květinářství 'Flora Central' v newyorském Central Parku. Zaměřte se na prémiový vizuál, strategii sezónní rotace a architekturu harmonizující s přírodou parku. Atmosféra má být sofistikovaná a organická.“",
+    "output_label": "B. Výsledek generování (hotovo za 3 minuty):",
+    "image_captions": [
+      "1. Vize a koncept značky",
+      "2. Strategická poloha v Central Parku",
+      "3. Sezónní květinové kolekce",
+      "4. Návrh designu v souladu s přírodou",
+      "5. Cílová skupina a zážitková hodnota",
+      "6. Profitabilita a roadmapa růstu"
+    ]
+  },
+  "benefits": {
+    "h2": "3 důvody, proč zvolit SlideAI Pro místo ostatních",
+    "items": [
+      { 
+        "title": "Rychlost, která poráží Gammu", 
+        "desc": "Gamma i Beautiful.ai jsou skvělé, ale SlideAI Pro je drtí čistou rychlostí. Od zadání po hotovou prezentaci za 3 minuty – to je rozdíl, který vyhrává zakázky." 
+      },
+      { 
+        "title": "Každý den 2 generování „Free“", 
+        "desc": "Chceme, aby výhody AI mohl využívat každý. Díky možnosti generovat 2x denně zdarma si můžete kvalitu vyzkoušet na vlastní kůži dříve, než se rozhodnete." 
+      },
+      { 
+        "title": "Estetika i bez designéra", 
+        "desc": "Nejde jen o skládání informací. Jak ukazuje příklad s květinářstvím, SlideAI Pro chápe kontext designu a zaručuje výsledek na profesionální úrovni." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investice, která se vám okamžitě vrátí",
+    "p_desc": "SlideAI Pro je investice pro profesionály, kteří mění čas v aktiva. S **neomezeným generováním** nebude vaše kreativita ničím omezena. Získejte svobodu za cenu nižší než hodina přesčasu.",
+    "pass7": { "name": "7denní pas", "price": "$9.99", "desc": "Pro ty, kteří potřebují okamžitě uspět s prezentací." },
+    "monthly": { "name": "Měsíční plán", "price": "$14.99", "desc": "Nejlepší volba pro pravidelné tvůrce obsahu." },
+    "yearly": { "name": "Roční plán", "price": "$149.99", "desc": "Nejvýhodnější cena pro dlouhodobé zefektivnění práce." }
+  },
+  "cta": {
+    "h3": "Vyzkoušejte nejlepší AI zážitek ještě dnes.",
+    "p": "Začněte se dvěma bezplatnými generováními denně. SlideAI Pro změní váš pohled na tvorbu dokumentů.",
+    "download": "Začít zdarma"
+  }
+}

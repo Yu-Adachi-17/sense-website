@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Kemas Kini 2026! Mengapa SlideAI Pro Pilihan Terbaik untuk AI Pembentangan [3 Minit]",
+    "description": "Mencari AI pembentangan terbaik? Ketahui mengapa SlideAI Pro mengatasi Gamma dan Beautiful.ai. Slaid profesional siap dalam masa 3 minit sahaja.",
+    "ogTitle": "AI Pembentangan Paling Disyorkan | SlideAI Pro",
+    "ogDescription": "Mengapa SlideAI Pro lebih baik daripada Gamma? Alami kuasa AI dengan 2 penghasilan percuma setiap hari."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Alat AI Disyorkan"
+  },
+  "hero": {
+    "h1": "Mengapa SlideAI Pro Adalah Pilihan No. 1<br>untuk Pembentangan Anda",
+    "tagline": "Bosan membuang masa mengatur susun atur slaid? Di antara pilihan seperti Gamma atau Beautiful.ai, inilah sebabnya SlideAI Pro adalah pilihan utama untuk kepantasan kilat dan hasil profesional.",
+    "badges": ["Syor No. 1", "Siap 3 Minit", "2x Percuma Setiap Hari"]
+  },
+  "demo": {
+    "h2": "Bukti Kehebatan: Slaid Memukau Siap dalam 3 Minit",
+    "p1": "Untuk membuktikan kehebatan SlideAI Pro, kami mengujinya dengan arahan visual yang mencabar. Walaupun untuk cadangan yang memerlukan citarasa tinggi, SlideAI Pro menyiapkannya dalam kurang 180 saat.",
+    "prompt_label": "Arahan yang dimasukkan (contoh):",
+    "prompt_text": "“Bina cadangan perniagaan untuk 'Flora Central', kedai bunga bermusim mewah di Central Park, NY. Fokus pada visual mewah dan reka bentuk yang harmoni dengan alam semula jadi taman.”",
+    "output_label": "B. Hasil Generasi (Siap dalam 3 minit):",
+    "image_captions": [
+      "1. Visi & Konsep Jenama",
+      "2. Kelebihan Lokasi di Central Park",
+      "3. Koleksi Bunga Bermusim",
+      "4. Reka Bentuk Harmoni dengan Alam",
+      "5. Sasaran Audiens & Nilai Pengalaman",
+      "6. Keuntungan & Pelan Pertumbuhan"
+    ]
+  },
+  "benefits": {
+    "h2": "3 Sebab Memilih SlideAI Pro Berbanding Yang Lain",
+    "items": [
+      { 
+        "title": "Lebih Pantas daripada Gamma", 
+        "desc": "Gamma dan Beautiful.ai adalah alat yang hebat, tetapi SlideAI Pro mendominasi dalam kelajuan murni. Dari arahan hingga siap dalam 3 minit – itulah kelebihan perniagaan anda." 
+      },
+      { 
+        "title": "2x Generasi 'Free' Setiap Hari", 
+        "desc": "Kami mahu semua orang mendapat manfaat AI. Anda boleh menguji kualiti sendiri dengan 2 percubaan percuma setiap hari sebelum melanggan." 
+      },
+      { 
+        "title": "Estetika Pro Tanpa Pereka", 
+        "desc": "AI memahami konteks reka bentuk, memastikan hasil akhir bertaraf agensi profesional tanpa memerlukan pereka grafik luar." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Pelaburan Mudah yang Memberi Pulangan Serta-merta",
+    "p_desc": "SlideAI Pro adalah pelaburan untuk profesional. Dengan **generasi tanpa had**, bebaskan kreativiti anda dengan kos yang lebih rendah daripada satu jam kerja lebih masa.",
+    "pass7": { "name": "Pas 7-Hari", "price": "$9.99", "desc": "Sesuai untuk menjayakan pembentangan mendesak." },
+    "monthly": { "name": "Pelan Bulanan", "price": "$14.99", "desc": "Pilihan paling disyorkan untuk kegunaan tetap." },
+    "yearly": { "name": "Pelan Tahunan", "price": "$149.99", "desc": "Harga terbaik untuk kecekapan jangka panjang." }
+  },
+  "cta": {
+    "h3": "Cuba Pengalaman AI Disyorkan Sekarang.",
+    "p": "Mulakan dengan 2 generasi percuma setiap hari. SlideAI Pro akan mengubah cara anda bekerja.",
+    "download": "Mula Secara Percuma"
+  }
+}

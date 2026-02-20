@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Nyhed 2026! Derfor er SlideAI Pro det bedste valg til AI-præsentationer [Lynhurtigt på 3 min]",
+    "description": "Leder du efter den bedste AI til præsentationer? Se hvorfor SlideAI Pro vælges frem for Gamma og Beautiful.ai. Få professionelle slides på kun 3 minutter.",
+    "ogTitle": "Bedste AI til præsentationer er SlideAI Pro | Prof-slides på 3 minutter",
+    "ogDescription": "Hvad gør SlideAI Pro bedre end Gamma og Beautiful.ai? Oplev den utrolige hastighed med 2 gratis genereringer hver dag."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Anbefalede AI-værktøjer"
+  },
+  "hero": {
+    "h1": "Hvorfor SlideAI Pro er det bedste valg<br>til dine præsentationer",
+    "tagline": "Er du træt af at bruge timer på layout? Blandt mange muligheder som Gamma og Beautiful.ai, forklarer vi her, hvorfor SlideAI Pro er den ultimative løsning for dig, der vil have lynhurtig eksekvering og professionel finish.",
+    "badges": ["Anbefalet No. 1", "3 min. generering", "2 gratis dagligt"]
+  },
+  "demo": {
+    "h2": "Beviset: En imponerende præsentation på kun 3 minutter",
+    "p1": "For at demonstrere styrken ved SlideAI Pro testede vi den med et visuelt krævende prompt. Selv ved komplekse forretningsforslag leverer SlideAI Pro et resultat på under 180 sekunder.",
+    "prompt_label": "Indtastet prompt (eksempel):",
+    "prompt_text": "“Lav et forretningsforslag til 'Flora Central', en ny luksuriøs sæsonbestemt blomsterbutik i Central Park, New York. Fokusér på high-end visuals, sæsonbestemt rotation og et design, der harmonerer med parkens natur. Stemningen skal være sofistikeret og organisk.”",
+    "output_label": "B. Resultat (færdigt på 3 minutter):",
+    "image_captions": [
+      "1. Vision og brandkoncept",
+      "2. Beliggenhedsfordele i Central Park",
+      "3. Sæsonens blomsterkollektioner",
+      "4. Butiksdesign i harmoni med naturen",
+      "5. Målgruppe og oplevelsesværdi",
+      "6. Lønsomhed og vækstplan"
+    ]
+  },
+  "benefits": {
+    "h2": "3 grunde til at vælge SlideAI Pro frem for andre",
+    "items": [
+      { 
+        "title": "Hurtigere end Gamma", 
+        "desc": "Gamma og Beautiful.ai er gode, men SlideAI Pro vinder på ren hastighed. Fra prompt til færdige slides på 3 minutter – det er den forskel, der vinder ordrerne." 
+      },
+      { 
+        "title": "2 gratis genereringer hver dag", 
+        "desc": "Vi mener, at alle skal have glæde af AI. Med 2 daglige gratis genereringer kan du teste kvaliteten grundigt, før du beslutter dig." 
+      },
+      { 
+        "title": "Professionelt look uden designer", 
+        "desc": "Det handler ikke kun om tekstplacering. Som vist med blomsterbutikken i Central Park, forstår AI'en designkonteksten og sikrer en professionel finish hver gang." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "En enkel investering, der tjener sig selv hjem",
+    "p_desc": "SlideAI Pro er en investering for professionelle, der vil gøre tid til penge. Med **ubegrænset generering** er der ingen grænser for din kreativitet. Få din frihed tilbage til en pris, der er lavere end én times overarbejde.",
+    "pass7": { "name": "7-dages pas", "price": "$9.99", "desc": "Til dig, der skal have succes med en vigtig præsentation nu." },
+    "monthly": { "name": "Månedsabonnement", "price": "$14.99", "desc": "Det mest populære valg til regelmæssig brug." },
+    "yearly": { "name": "Årsabonnement", "price": "$149.99", "desc": "Den bedste pris til langsigtet effektivisering." }
+  },
+  "cta": {
+    "h3": "Prøv den anbefalede AI-oplevelse nu.",
+    "p": "Start med 2 gratis genereringer om dagen. SlideAI Pro vil ændre måden, du laver præsentationer på.",
+    "download": "Kom i gang gratis"
+  }
+}

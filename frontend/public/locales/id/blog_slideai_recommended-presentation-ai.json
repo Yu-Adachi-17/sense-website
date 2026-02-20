@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Terbaru 2026! Alasan SlideAI Pro Menjadi AI Presentasi Terbaik [Hanya 3 Menit]",
+    "description": "Cari AI presentasi terbaik? Temukan mengapa SlideAI Pro unggul dibanding Gamma dan Beautiful.ai. Slide profesional selesai dalam 3 menit saja.",
+    "ogTitle": "Rekomendasi AI Presentasi No. 1 | SlideAI Pro",
+    "ogDescription": "Mengapa SlideAI Pro mengalahkan kompetitor seperti Gamma? Rasakan kekuatan AI dengan 2 kali pembuatan gratis setiap hari."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Alat AI Rekomendasi"
+  },
+  "hero": {
+    "h1": "Mengapa SlideAI Pro Pilihan No. 1<br>untuk Presentasi Anda",
+    "tagline": "Bosan membuang waktu mengatur layout slide? Di antara pilihan seperti Gamma atau Beautiful.ai, inilah alasan SlideAI Pro menjadi pilihan utama bagi mereka yang butuh kecepatan kilat dan hasil profesional.",
+    "badges": ["Rekomendasi No. 1", "Selesai dalam 3 Menit", "2x Gratis Setiap Hari"]
+  },
+  "demo": {
+    "h2": "Bukti Nyata: Presentasi Memukau Selesai dalam 3 Menit",
+    "p1": "Untuk membuktikan kekuatan SlideAI Pro, kami mengujinya dengan prompt visual tingkat tinggi. Bahkan untuk proposal yang butuh selera desain tinggi, SlideAI Pro menyelesaikannya dalam kurang dari 180 detik.",
+    "prompt_label": "Prompt yang dimasukkan (contoh):",
+    "prompt_text": "“Buat proposal bisnis untuk 'Flora Central', toko bunga mewah musiman baru di Central Park, NY. Fokus pada visual high-end dan desain yang menyatu dengan alam taman.”",
+    "output_label": "B. Hasil Generasi (Selesai dalam 3 menit):",
+    "image_captions": [
+      "1. Visi & Konsep Brand",
+      "2. Keunggulan Lokasi di Central Park",
+      "3. Koleksi Bunga Musiman",
+      "4. Desain yang Harmonis dengan Alam",
+      "5. Target Audiens & Pengalaman Pelanggan",
+      "6. Profitabilitas & Roadmap Pertumbuhan"
+    ]
+  },
+  "benefits": {
+    "h2": "3 Alasan Memilih SlideAI Pro Dibanding yang Lain",
+    "items": [
+      { 
+        "title": "Lebih Cepat dari Gamma", 
+        "desc": "Gamma dan Beautiful.ai memang bagus, tapi SlideAI Pro menang telak dalam hal kecepatan. Dari prompt hingga jadi dalam 3 menit – inilah keunggulan kompetitif Anda." 
+      },
+      { 
+        "title": "Gratis (Free) 2x Setiap Hari", 
+        "desc": "Kami ingin semua orang merasakan manfaat AI. Anda bisa mencoba kualitasnya sendiri dengan 2 generasi gratis setiap hari sebelum memutuskan berlangganan." 
+      },
+      { 
+        "title": "Estetika Pro Tanpa Desainer", 
+        "desc": "AI memahami konteks desain, memastikan hasil akhir sekelas agensi profesional tanpa perlu bantuan desainer grafis eksternal." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Investasi Cerdas yang Langsung Balik Modal",
+    "p_desc": "SlideAI Pro adalah investasi bagi profesional. Dengan **generasi tak terbatas**, bebaskan kreativitas Anda dengan harga yang lebih murah dari satu jam lembur.",
+    "pass7": { "name": "7-Day Pass", "price": "$9.99", "desc": "Cocok untuk mensukseskan presentasi mendesak." },
+    "monthly": { "name": "Paket Bulanan", "price": "$14.99", "desc": "Pilihan paling direkomendasikan untuk penggunaan rutin." },
+    "yearly": { "name": "Paket Tahunan", "price": "$149.99", "desc": "Harga terbaik untuk efisiensi jangka panjang." }
+  },
+  "cta": {
+    "h3": "Coba Pengalaman AI Rekomendasi Sekarang.",
+    "p": "Mulai dengan 2 generasi gratis per hari. SlideAI Pro akan mengubah cara Anda bekerja.",
+    "download": "Mulai Secara Gratis"
+  }
+}

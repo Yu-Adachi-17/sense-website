@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Cập nhật 2026! Tại sao SlideAI Pro là AI tạo bài thuyết trình tốt nhất [Chỉ 3 phút]",
+    "description": "Bạn đang tìm AI tạo slide tốt nhất? Khám phá lý do SlideAI Pro vượt mặt Gamma và Beautiful.ai. Slide chuyên nghiệp chỉ trong 3 phút.",
+    "ogTitle": "AI tạo slide được khuyên dùng số 1 | SlideAI Pro",
+    "ogDescription": "Tại sao SlideAI Pro vượt trội hơn các đối thủ? Trải nghiệm sức mạnh AI với 2 lần tạo miễn phí mỗi ngày."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Công cụ AI khuyên dùng"
+  },
+  "hero": {
+    "h1": "Tại sao SlideAI Pro là lựa chọn số 1<br>cho bài thuyết trình của bạn",
+    "tagline": "Đừng lãng phí hàng giờ để sắp xếp bố cục slide. Giữa các lựa chọn như Gamma hay Beautiful.ai, đây là lý do SlideAI Pro là lựa chọn hàng đầu cho tốc độ và chất lượng chuyên nghiệp.",
+    "badges": ["Khuyên dùng số 1", "Tạo trong 3 phút", "2 lần miễn phí mỗi ngày"]
+  },
+  "demo": {
+    "h2": "Bằng chứng: Slide ấn tượng chỉ trong 3 phút",
+    "p1": "Để chứng minh sức mạnh của SlideAI Pro, chúng tôi đã thử nghiệm với một prompt hình ảnh khó. Ngay cả với các dự án cần tính thẩm mỹ cao, SlideAI Pro vẫn hoàn thành dưới 180 giây.",
+    "prompt_label": "Prompt đầu vào (ví dụ thực tế):",
+    "prompt_text": "“Tạo bản kế hoạch kinh doanh cho 'Flora Central', một cửa hàng hoa cao cấp tại Central Park, NY. Tập trung vào hình ảnh sang trọng và thiết kế hòa hợp với thiên nhiên của công viên.”",
+    "output_label": "B. Kết quả (Hoàn thành trong 3 phút):",
+    "image_captions": [
+      "1. Tầm nhìn và Concept thương hiệu",
+      "2. Lợi thế vị trí tại Central Park",
+      "3. Bộ sưu tập hoa theo mùa",
+      "4. Thiết kế cửa hàng hòa hợp thiên nhiên",
+      "5. Đối tượng khách hàng & giá trị trải nghiệm",
+      "6. Khả năng sinh lời & lộ trình phát triển"
+    ]
+  },
+  "benefits": {
+    "h2": "3 lý do nên chọn SlideAI Pro thay vì các công cụ khác",
+    "items": [
+      { 
+        "title": "Nhanh hơn cả Gamma", 
+        "desc": "Gamma và Beautiful.ai là những công cụ tốt, nhưng SlideAI Pro thống trị về tốc độ. Từ prompt đến slide hoàn chỉnh trong 3 phút – đó là lợi thế kinh doanh bạn cần." 
+      },
+      { 
+        "title": "2 lần tạo MIỄN PHÍ mỗi ngày", 
+        "desc": "Chúng tôi tin rằng mọi người đều nên hưởng lợi từ AI. Bạn có thể tự kiểm tra chất lượng với 2 lần tạo miễn phí hàng ngày trước khi quyết định nâng cấp." 
+      },
+      { 
+        "title": "Thẩm mỹ chuyên nghiệp không cần designer", 
+        "desc": "AI hiểu ngữ cảnh thiết kế, đảm bảo kết quả đạt chuẩn agency chuyên nghiệp mà không cần kiến thức đồ họa." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Khoản đầu tư thông minh, sinh lời tức thì",
+    "p_desc": "SlideAI Pro là khoản đầu tư cho những người chuyên nghiệp. Với **tạo không giới hạn**, hãy giải phóng sự sáng tạo của bạn với mức giá thấp hơn một giờ làm thêm.",
+    "pass7": { "name": "Gói 7 ngày", "price": "$9.99", "desc": "Dành cho những bài thuyết trình khẩn cấp." },
+    "monthly": { "name": "Gói tháng", "price": "$14.99", "desc": "Lựa chọn tốt nhất cho người dùng thường xuyên." },
+    "yearly": { "name": "Gói năm", "price": "$149.99", "desc": "Giá tốt nhất cho hiệu quả lâu dài." }
+  },
+  "cta": {
+    "h3": "Trải nghiệm AI được khuyên dùng ngay bây giờ.",
+    "p": "Bắt đầu với 2 lần tạo miễn phí mỗi ngày. SlideAI Pro sẽ thay đổi cách bạn làm việc.",
+    "download": "Bắt đầu miễn phí"
+  }
+}

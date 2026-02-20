@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Nouveauté 2026 ! Pourquoi SlideAI Pro est la meilleure IA de présentation [3 min]",
+    "description": "Vous cherchez la meilleure IA pour vos slides ? Découvrez pourquoi SlideAI Pro surpasse Gamma et Beautiful.ai. Des présentations pros en 3 min chrono.",
+    "ogTitle": "L'IA de présentation recommandée | SlideAI Pro",
+    "ogDescription": "Pourquoi SlideAI Pro bat Gamma ou Beautiful.ai. Testez la puissance de l'IA avec 2 générations gratuites par jour."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Outils IA Recommandés"
+  },
+  "hero": {
+    "h1": "Pourquoi SlideAI Pro est le choix n°1<br>pour vos présentations",
+    "tagline": "Marre de perdre des heures sur la mise en page ? Face à Gamma ou Beautiful.ai, voici pourquoi SlideAI Pro est l'outil ultime pour allier vitesse et finition pro.",
+    "badges": ["Recommandé n°1", "Génération en 3 min", "2 gratuits par jour"]
+  },
+  "demo": {
+    "h2": "Preuve à l'appui : Des slides pro en seulement 3 minutes",
+    "p1": "Pour prouver l'efficacité de SlideAI Pro, nous l'avons testé avec un prompt visuel complexe. Même pour des projets exigeants, le résultat tombe en moins de 180 secondes.",
+    "prompt_label": "Prompt utilisé (exemple réel) :",
+    "prompt_text": "“Créez une proposition commerciale pour 'Flora Central', un nouveau fleuriste de luxe à Central Park, NY. Focus sur des visuels haut de gamme, une stratégie saisonnière et un design en harmonie avec la nature. Ambiance sophistiquée et organique.”",
+    "output_label": "B. Résultat (fini en 3 min) :",
+    "image_captions": [
+      "1. Vision et Concept de Marque",
+      "2. Atouts de l'emplacement à Central Park",
+      "3. Collections florales saisonnières",
+      "4. Design harmonisé avec la nature",
+      "5. Cible et valeur d'expérience",
+      "6. Rentabilité et plan de croissance"
+    ]
+  },
+  "benefits": {
+    "h2": "3 raisons de préférer SlideAI Pro aux autres",
+    "items": [
+      { 
+        "title": "Plus rapide que Gamma", 
+        "desc": "Gamma et Beautiful.ai sont bons, mais SlideAI Pro domine par sa vitesse pure. Du prompt au résultat en 3 minutes : c'est l'avantage compétitif qu'il vous faut." 
+      },
+      { 
+        "title": "2 générations GRATUITES chaque jour", 
+        "desc": "Nous voulons que l'IA profite à tous. Testez la qualité par vous-même avec 2 essais gratuits quotidiens avant de vous lancer." 
+      },
+      { 
+        "title": "L'esthétique sans designer", 
+        "desc": "L'IA comprend le contexte esthétique, comme pour l'exemple de Central Park, garantissant un rendu digne d'une agence pro." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Un investissement rentable immédiatement",
+    "p_desc": "SlideAI Pro est un investissement pour les pros. Avec la **génération illimitée**, libérez votre créativité. Gagnez du temps pour moins cher qu'une heure sup'.",
+    "pass7": { "name": "Pass 7 jours", "price": "$9.99", "desc": "Idéal pour réussir une présentation urgente." },
+    "monthly": { "name": "Plan Mensuel", "price": "$14.99", "desc": "Le choix recommandé pour une utilisation régulière." },
+    "yearly": { "name": "Plan Annuel", "price": "$149.99", "desc": "Le meilleur prix pour une efficacité durable." }
+  },
+  "cta": {
+    "h3": "Testez l'expérience IA recommandée dès maintenant.",
+    "p": "Commencez avec vos 2 essais gratuits par jour. SlideAI Pro va changer votre façon de travailler.",
+    "download": "Commencer gratuitement"
+  }
+}

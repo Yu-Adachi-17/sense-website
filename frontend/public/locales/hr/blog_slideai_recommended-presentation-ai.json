@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Novo za 2026.! Zašto je SlideAI Pro najbolji izbor za AI prezentacije [Samo 3 min]",
+    "description": "Tražite najbolji AI za prezentacije? Saznajte zašto SlideAI Pro pobjeđuje Gamma i Beautiful.ai. Profesionalni slajdovi u samo 3 minute.",
+    "ogTitle": "Najbolji AI za prezentacije | SlideAI Pro",
+    "ogDescription": "Zašto SlideAI Pro nadmašuje konkurenciju? Isprobajte snagu AI-ja uz 2 besplatna generiranja dnevno."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Preporučeni AI alati"
+  },
+  "hero": {
+    "h1": "Zašto je SlideAI Pro izbor br. 1<br>za vaše prezentacije",
+    "tagline": "Dosta vam je gubljenja vremena na izgled slajdova? U svijetu opcija kao što su Gamma ili Beautiful.ai, otkrivamo zašto je SlideAI Pro najbolji za brzinu i profesionalni dizajn.",
+    "badges": ["Preporuka br. 1", "Generiranje u 3 min", "2 besplatna dnevno"]
+  },
+  "demo": {
+    "h2": "Dokaz snage: Vrhunska prezentacija u samo 3 minute",
+    "p1": "Kako bismo dokazali snagu SlideAI Pro-a, testirali smo ga sa zahtjevnim vizualnim promptom. Čak i za estetski osjetljive prijedloge, SlideAI Pro isporučuje rezultat u manje od 180 sekundi.",
+    "prompt_label": "Uneseni prompt (primjer):",
+    "prompt_text": "“Izradite poslovni prijedlog za 'Flora Central', novu luksuznu sezonsku cvjećarnicu u Central Parku, NY. Fokusirajte se na vrhunske vizuale i dizajn usklađen s prirodom parka.”",
+    "output_label": "B. Rezultat generiranja (gotovo za 3 min):",
+    "image_captions": [
+      "1. Vizija i koncept brenda",
+      "2. Prednosti lokacije u Central Parku",
+      "3. Sezonske kolekcije cvijeća",
+      "4. Dizajn usklađen s prirodom",
+      "5. Ciljana publika i vrijednost iskustva",
+      "6. Profitabilnost i plan rasta"
+    ]
+  },
+  "benefits": {
+    "h2": "3 razloga zašto odabrati SlideAI Pro",
+    "items": [
+      { 
+        "title": "Brži od Gamme", 
+        "desc": "Gamma i Beautiful.ai su dobri, ali SlideAI Pro dominira čistom brzinom. Od prompta do gotovih slajdova u 3 minute – to je prednost koja donosi posao." 
+      },
+      { 
+        "title": "2 besplatna (Free) generiranja dnevno", 
+        "desc": "Vjerujemo da bi svi trebali imati koristi od AI-ja. Kvalitetu možete testirati besplatno dva puta dnevno prije odluke." 
+      },
+      { 
+        "title": "Profesionalna estetika bez dizajnera", 
+        "desc": "AI razumije vizualni kontekst, osiguravajući profesionalni završetak na razini agencije, bez potrebe za vanjskim dizajnerom." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Jednostavna investicija koja se odmah isplati",
+    "p_desc": "SlideAI Pro je investicija za profesionalce. Uz **neograničeno generiranje**, oslobodite svoju kreativnost za cijenu manju od jednog sata prekovremenog rada.",
+    "pass7": { "name": "7-dnevna propusnica", "price": "$9.99", "desc": "Za brz uspjeh s hitnom prezentacijom." },
+    "monthly": { "name": "Mjesečni plan", "price": "$14.99", "desc": "Najbolji izbor za redovite korisnike." },
+    "yearly": { "name": "Godišnji plan", "price": "$149.99", "desc": "Najbolja cijena za dugoročnu učinkovitost." }
+  },
+  "cta": {
+    "h3": "Isprobajte preporučeni AI doživljaj odmah.",
+    "p": "Započnite s 2 besplatna generiranja dnevno. SlideAI Pro će promijeniti način na koji radite.",
+    "download": "Započnite besplatno"
+  }
+}

@@ -1,1 +1,61 @@
-{}
+{
+  "seo": {
+    "title": "Neu 2026! Warum SlideAI Pro die beste Wahl für KI-Präsentationen ist [In 3 Min.]",
+    "description": "Suchen Sie die beste KI für Präsentationen? Erfahren Sie, warum SlideAI Pro Gamma und Beautiful.ai übertrifft. Profi-Slides in nur 3 Minuten am Beispiel Central Park.",
+    "ogTitle": "Beste Präsentations-KI ist SlideAI Pro | Profi-Slides in 3 Minuten",
+    "ogDescription": "Warum SlideAI Pro Wettbewerber wie Gamma oder Beautiful.ai schlägt. Erleben Sie die Power mit 2 kostenlosen Generationen pro Tag."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Empfohlene KI-Tools"
+  },
+  "hero": {
+    "h1": "Warum SlideAI Pro die Nummer 1<br>für Ihre Präsentationen ist",
+    "tagline": "Haben Sie genug davon, Stunden mit dem Layout zu verschwenden? Inmitten von Optionen wie Gamma oder Beautiful.ai zeigen wir Ihnen, warum SlideAI Pro für alle, die Speed und Professionalität suchen, die beste Wahl ist.",
+    "badges": ["Empfehlung Nr. 1", "3-Minuten-Erstellung", "Täglich 2x Gratis"]
+  },
+  "demo": {
+    "h2": "Der Beweis: Beeindruckende Unterlagen in nur 3 Minuten",
+    "p1": "Um die Stärke von SlideAI Pro zu beweisen, haben wir das Tool mit einem anspruchsvollen Prompt getestet. Selbst bei Design-sensiblen Projekten liefert die KI in unter 180 Sekunden ab.",
+    "prompt_label": "Eingegebener Prompt (Beispiel):",
+    "prompt_text": "„Erstellen Sie ein Business Proposal für 'Flora Central', einen neuen luxuriösen saisonalen Blumenladen im Central Park, New York. Fokus auf High-End-Visuals, saisonale Strategien und ein Design, das mit der Natur des Parks harmoniert. Die Atmosphäre soll anspruchsvoll und organisch sein.“",
+    "output_label": "B. Ergebnis (fertig in 3 Minuten):",
+    "image_captions": [
+      "1. Vision und Markenkonzept",
+      "2. Standortvorteile im Central Park",
+      "3. Saisonale Kollektionen",
+      "4. Design im Einklang mit der Natur",
+      "5. Zielgruppe und Erlebniswert",
+      "6. Profitabilität und Roadmap"
+    ]
+  },
+  "benefits": {
+    "h2": "3 Gründe, warum SlideAI Pro die Konkurrenz schlägt",
+    "items": [
+      { 
+        "title": "Schneller als Gamma", 
+        "desc": "Gamma und Beautiful.ai sind gute Tools, aber SlideAI Pro gewinnt durch pure Geschwindigkeit. Vom Prompt zum fertigen Deck in 3 Minuten – dieser Vorsprung entscheidet im Business." 
+      },
+      { 
+        "title": "Täglich 2 Generationen „Free“", 
+        "desc": "Wir möchten, dass jeder von KI profitiert. Mit 2 kostenlosen Versuchen pro Tag können Sie die Qualität in Ruhe testen, bevor Sie sich festlegen." 
+      },
+      { 
+        "title": "Design-Expertise ohne Designer", 
+        "desc": "Es geht nicht nur um Daten. Wie unser Central-Park-Beispiel zeigt, versteht die KI den ästhetischen Kontext und liefert Ergebnisse auf Agentur-Niveau." 
+      }
+    ]
+  },
+  "plans": {
+    "h2": "Ein Investment, das sich sofort auszahlt",
+    "p_desc": "SlideAI Pro ist das Investment für Profis, die Zeit als Kapital betrachten. Mit **unbegrenzter Erstellung** sind Ihrer Kreativität keine Grenzen gesetzt. Holen Sie sich Ihre Freizeit zurück.",
+    "pass7": { "name": "7-Tage-Pass", "price": "$9.99", "desc": "Für den schnellen Erfolg bei wichtigen Präsentationen." },
+    "monthly": { "name": "Monatsplan", "price": "$14.99", "desc": "Die beste Wahl für regelmäßige Nutzer." },
+    "yearly": { "name": "Jahresplan", "price": "$149.99", "desc": "Der Bestpreis für langfristige Effizienzsteigerung." }
+  },
+  "cta": {
+    "h3": "Erleben Sie jetzt die beste KI-Lösung.",
+    "p": "Starten Sie mit 2 kostenlosen Generationen pro Tag. SlideAI Pro definiert Ihre Arbeit neu.",
+    "download": "Kostenlos starten"
+  }
+}
