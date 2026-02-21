@@ -54,6 +54,7 @@ module.exports = {
     'blog_slideai_recommended-presentation-ai', 
     'blog_slideai_iphone-app-presentation-era',
     'blog_slideai_student-thesis-seminar-hack',
+    'blog_slideai_roi',
   ],
   defaultNS: 'common',
 
