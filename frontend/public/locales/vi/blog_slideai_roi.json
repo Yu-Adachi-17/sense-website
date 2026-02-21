@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI của SlideAI Pro | Tiết kiệm 100 giờ mỗi năm với .99 | SlideAI",
+    "description": "Đừng lãng phí hàng giờ để làm slide thủ công. Tìm hiểu lý do gói tháng .99 của SlideAI Pro là khoản đầu tư sinh lời cao nhất cho chuyên gia.",
+    "ogTitle": "Mua lại 100 giờ trong năm của bạn chỉ với .99",
+    "ogDescription": "Biến 5 giờ làm việc cực nhọc thành 3 phút kỳ diệu với AI. Trải nghiệm ROI khổng lồ từ SlideAI Pro."
+  },
+  "nav": { "blog": "Blog", "category": "Năng suất & ROI" },
+  "hero": {
+    "h1": "Giảm 'Công sức', <br>Tạo 'Giá trị'",
+    "tagline": "Khoản đầu tư .99/tháng không phải là chi phí—đó là tài sản tạo ra thời gian. Biến hàng giờ làm việc thủ công thành 3 phút sáng tạo chuyên nghiệp.",
+    "badges": ["ROI cao nhất", "Tiết kiệm thời gian cực lớn", "Chất lượng Pro"]
+  },
+  "analysis": {
+    "h2": "Toán học về Hiệu quả",
+    "items": [
+      {
+        "title": "Làm thủ công",
+        "time": "Hơn 5 giờ",
+        "desc": "Tiêu tốn hàng giờ cho cấu trúc và căn chỉnh. Chi phí nhân công khoảng  dựa trên mức lương chuyên gia trung bình."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Chỉ 3 phút",
+        "desc": "Nhập ý tưởng và để AI làm phần còn lại. Nhận được **sự tự do không giới hạn** với giá chỉ bằng vài ly cà phê."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Trực quan hóa thành công: Deck phân tích ROI",
+    "p1": "Đây là mẫu deck 'Tăng trưởng kinh doanh & ROI' được tạo bởi SlideAI Pro trong chưa đầy 180 giây.",
+    "image_captions": ["1. Tóm tắt dự án: Tổng quan ROI", "2. Cơ hội thị trường & Tăng trưởng", "3. So sánh tốc độ", "4. Phân tích tác động hiệu quả", "5. Dự báo tài chính 5 năm", "6. Lộ trình chiến lược"]
+  },
+  "plans": {
+    "h2": "Lấy lại 100 giờ dư thừa của bạn",
+    "p_desc": "Chọn gói phù hợp với quy trình làm việc của bạn. **Monthly Pro** là lựa chọn hàng đầu cho các chuyên gia coi trọng thời gian.",
+    "pass7": { "name": "Gói 7 ngày", "price": ".99", "desc": "Cho một buổi thuyết trình hoặc dự án quan trọng duy nhất." },
+    "monthly": { "name": "Gói tháng", "price": ".99", "desc": "Lựa chọn được đề xuất nhiều nhất. Sáng tạo không giới hạn." },
+    "yearly": { "name": "Gói năm", "price": ".99", "desc": "Giá trị tốt nhất cho người dùng lâu dài." }
+  },
+  "cta": {
+    "h3": "Giành lại thời gian của bạn ngay hôm nay.",
+    "p": "Đừng hy sinh cuối tuần cho PowerPoint. Bắt đầu miễn phí ngay hôm nay.",
+    "download": "Tạo ra thời gian cùng SlideAI Pro"
+  }
+}

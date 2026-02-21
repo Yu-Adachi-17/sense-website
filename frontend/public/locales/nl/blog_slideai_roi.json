@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI van SlideAI Pro | Bespaar 100 uur per jaar voor ,99 | SlideAI",
+    "description": "Stop met het verspillen van uren aan handmatige slides. Leer waarom het maandelijkse plan van ,99 van SlideAI Pro de beste investering is voor professionals.",
+    "ogTitle": "Koop 100 uur van je jaar terug voor slechts ,99",
+    "ogDescription": "Verander 5 uur handmatig werk in 3 minuten AI-magie. Visualiseer de enorme ROI van SlideAI Pro."
+  },
+  "nav": { "blog": "Blog", "category": "Productiviteit & ROI" },
+  "hero": {
+    "h1": "Minder 'Werk', <br>Meer 'Waarde'",
+    "tagline": "Een investering van ,99/maand is geen uitgave—het is een tijdbesparend middel. Verander uren handmatig werk in 3 minuten professionele creatie.",
+    "badges": ["Hoogste ROI", "Enorme tijdbesparing", "Pro-kwaliteit"]
+  },
+  "analysis": {
+    "h2": "De Wiskunde van Efficiëntie",
+    "items": [
+      {
+        "title": "Handmatige Creatie",
+        "time": "5+ Uur",
+        "desc": "Eindeloze uren besteed aan structuur en uitlijning. Arbeidskosten van ca.  op basis van gemiddelde professionele tarieven."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Slechts 3 Min",
+        "desc": "Voer je idee in en laat AI de rest doen. Krijg **onbeperkte vrijheid** voor de prijs van een paar koppen koffie."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Succes Visualiseren: ROI-analyse Deck",
+    "p1": "Hier is een voorbeeld van een 'Business Growth & ROI' deck gegenereerd door SlideAI Pro in minder dan 180 seconden.",
+    "image_captions": ["1. Management Samenvatting: ROI-overzicht", "2. Marktkansen & Groei", "3. Snelheidsvergelijking", "4. Impactanalyse van Efficiëntie", "5. Financiële Projecties voor 5 Jaar", "6. Strategische Roadmap"]
+  },
+  "plans": {
+    "h2": "Claim je Overschot van 100 Uur",
+    "p_desc": "Kies het plan dat je workflow optimaliseert. **Monthly Pro** is de favoriete keuze voor professionals.",
+    "pass7": { "name": "7-Dagen Pas", "price": ".99", "desc": "Voor een eenmalige high-impact pitch of project." },
+    "monthly": { "name": "Maandelijks Plan", "price": ".99", "desc": "Onze meest aanbevolen keuze. Onbeperkte creatie." },
+    "yearly": { "name": "Jaarlijks Plan", "price": ".99", "desc": "De beste waarde voor langdurige power-users." }
+  },
+  "cta": {
+    "h3": "Krijg je Tijd Vandaag Terug.",
+    "p": "Offer je weekenden niet op aan PowerPoint. Begin vandaag gratis.",
+    "download": "Creëer Tijd met SlideAI Pro"
+  }
+}

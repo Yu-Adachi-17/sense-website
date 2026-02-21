@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI di SlideAI Pro | Risparmia 100 ore all'anno con 14,99 $ | SlideAI",
+    "description": "Smetti di sprecare ore su slide manuali. Scopri perché il piano mensile da 14,99 $ di SlideAI Pro è l'investimento più redditizio per i professionisti.",
+    "ogTitle": "Riacquista 100 ore del tuo anno per soli 14,99 $",
+    "ogDescription": "Trasforma 5 ore di fatica in 3 minuti di magia AI. Visualizza il ROI massiccio di SlideAI Pro."
+  },
+  "nav": { "blog": "Blog", "category": "Produttività & ROI" },
+  "hero": {
+    "h1": "Riduci la 'Fatica', <br>Crea 'Valore'",
+    "tagline": "Un investimento di 14,99 $/mese non è una spesa: è un asset che genera tempo. Trasforma ore di lavoro manuale in 3 minuti di creazione professionale.",
+    "badges": ["Massimo ROI", "Risparmio di tempo enorme", "Qualità Pro"]
+  },
+  "analysis": {
+    "h2": "La Matematica dell'Efficienza",
+    "items": [
+      {
+        "title": "Creazione Manuale",
+        "time": "5+ Ore",
+        "desc": "Ore infinite spese per struttura e allineamento. Un costo del lavoro di circa 150 $ basato sulle tariffe professionali medie."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Solo 3 Minuti",
+        "desc": "Inserisci la tua idea e lascia che l'IA faccia il resto. Ottieni **libertà illimitata** al costo di pochi caffè."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Visualizzare il Successo: Deck Analisi ROI",
+    "p1": "Ecco un esempio di deck 'Business Growth & ROI' generato da SlideAI Pro in meno di 180 secondi.",
+    "image_captions": ["1. Sintesi Esecutiva: Panoramica ROI", "2. Opportunità di Mercato & Crescita", "3. Confronto di Velocità", "4. Analisi dell'Impatto sull'Efficienza", "5. Proiezioni Finanziarie a 5 Anni", "6. Roadmap Strategica"]
+  },
+  "plans": {
+    "h2": "Rivendica il tuo Surplus di 100 Ore",
+    "p_desc": "Scegli il piano che massimizza il tuo flusso di lavoro. **Monthly Pro** è la scelta preferita dai professionisti.",
+    "pass7": { "name": "Pass 7 Giorni", "price": ".99", "desc": "Per un singolo pitch o progetto ad alto impatto." },
+    "monthly": { "name": "Piano Mensile", "price": ".99", "desc": "La nostra scelta più consigliata. Creazione illimitata." },
+    "yearly": { "name": "Piano Annuale", "price": ".99", "desc": "Il miglior valore per utenti esperti a lungo termine." }
+  },
+  "cta": {
+    "h3": "Riprenditi il tuo Tempo Oggi.",
+    "p": "Non sacrificare i tuoi weekend a PowerPoint. Inizia oggi gratuitamente.",
+    "download": "Genera Tempo con SlideAI Pro"
+  }
+}

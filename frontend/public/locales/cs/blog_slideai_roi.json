@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "ROI SlideAI Pro | Ušetřete 100 hodin ročně za 14,99 $ | SlideAI",
+    "description": "Přestaňte ztrácet čas ruční tvorbou prezentací. Zjistěte, proč je měsíční plán SlideAI Pro za 14,99 $ nejlepší investicí pro profesionály.",
+    "ogTitle": "Kupte si zpět 100 hodin svého času za pouhých 14,99 $",
+    "ogDescription": "Změňte 5 hodin dřiny na 3 minuty AI magie. Vizualizujte si masivní ROI SlideAI Pro."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Produktivita a ROI"
+  },
+  "hero": {
+    "h1": "Méně „práce“, <br>více „hodnoty“",
+    "tagline": "Investice 14,99 $ měsíčně není výdaj – je to aktivum generující čas. Proměňte hodiny ruční práce ve 3 minuty profesionální tvorby.",
+    "badges": [
+      "Nejvyšší ROI",
+      "Obrovská úspora času",
+      "Profi kvalita"
+    ]
+  },
+  "analysis": {
+    "h2": "Matematika efektivity",
+    "items": [
+      {
+        "title": "Ruční tvorba",
+        "time": "5+ hodin",
+        "desc": "Nekonečné hodiny strávené nad strukturou a zarovnáváním. Náklady na práci cca 3 500 Kč při průměrných sazbách."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Jen 3 minuty",
+        "desc": "Zadejte svůj nápad a nechte AI pracovat. Získejte **neomezenou svobodu** a profesionální design."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Vizualizace úspěchu: ROI analýza",
+    "p1": "Zde je ukázka prezentace „Business Growth & ROI“ vygenerovaná SlideAI Pro za méně než 180 sekund.",
+    "image_captions": [
+      "1. Shrnutí: Přehled ROI",
+      "2. Tržní příležitosti a růst",
+      "3. Srovnání rychlosti: Staré vs. nové",
+      "4. Analýza dopadu efektivity",
+      "5. Finanční projekce na 5 let",
+      "6. Strategický plán implementace"
+    ]
+  },
+  "plans": {
+    "h2": "Získejte 100 hodin navíc",
+    "p_desc": "Vyberte si plán, který vyhovuje vašemu workflow. **Monthly Pro** je preferovanou volbou pro profesionály.",
+    "pass7": {
+      "name": "7denní pas",
+      "price": ".99",
+      "desc": "Pro jednorázový, vysoce důležitý projekt."
+    },
+    "monthly": {
+      "name": "Měsíční plán",
+      "price": ".99",
+      "desc": "Naše nejdoporučovanější volba. Neomezená tvorba a naprostá svoboda."
+    },
+    "yearly": {
+      "name": "Roční plán",
+      "price": ".99",
+      "desc": "Nejlepší hodnota pro dlouhodobé uživatele."
+    }
+  },
+  "cta": {
+    "h3": "Získejte svůj čas zpět.",
+    "p": "Neobětujte své víkendy PowerPointu. Začněte dnes zdarma.",
+    "download": "Šetřete čas se SlideAI Pro"
+  }
+}

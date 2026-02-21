@@ -1,0 +1,72 @@
+{
+  "seo": {
+    "title": "Zeitersparnis ROI | Mit 14,99 $ monatlich 100 Stunden pro Jahr sparen | SlideAI",
+    "description": "Schluss mit dem mühsamen Erstellen von Folien. Warum SlideAI Pro für 14,99 $ die beste Investition für Profis ist. Sparen Sie über 100 Stunden jährlich.",
+    "ogTitle": "Kaufen Sie sich 100 Stunden Freizeit zurück für nur 14,99 $",
+    "ogDescription": "5 Stunden Arbeit vs. 3 Minuten KI. Visualisieren Sie den massiven ROI von SlideAI Pro."
+  },
+  "nav": {
+    "blog": "Blog",
+    "category": "Produktivität & ROI"
+  },
+  "hero": {
+    "h1": "Weniger „Arbeit“, <br>mehr Wertschöpfung",
+    "tagline": "14,99 $ pro Monat sind keine Kosten – es ist eine Investition in Ihre Zeit. Verwandeln Sie Stunden manueller Arbeit in 3 Minuten professionelle Magie.",
+    "badges": [
+      "Höchster ROI",
+      "Enorme Zeitersparnis",
+      "Profi-Qualität"
+    ]
+  },
+  "analysis": {
+    "h2": "Die Mathematik der Effizienz",
+    "items": [
+      {
+        "title": "Manuelle Erstellung",
+        "time": "5+ Stunden",
+        "desc": "Endlose Stunden für Struktur, Bildsuche und Layout. Lohnkosten von ca. 150 € bei durchschnittlichen Sätzen."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Nur 3 Min.",
+        "desc": "Geben Sie Ihre Idee ein und lassen Sie die KI arbeiten. **Unbegrenzte Freiheit** zum Preis von ein paar Tassen Kaffee."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Ergebnisse visualisieren: ROI-Analyse-Deck",
+    "p1": "Hier ist ein Beispiel für ein „Business Growth & ROI“-Deck, das von SlideAI Pro in weniger als 180 Sekunden erstellt wurde.",
+    "image_captions": [
+      "1. Executive Summary: ROI-Überblick",
+      "2. Marktchancen & Wachstum",
+      "3. Geschwindigkeitsvergleich",
+      "4. Analyse der Effizienzsteigerung",
+      "5. 5-Jahres-Finanzprognose",
+      "6. Strategische Roadmap"
+    ]
+  },
+  "plans": {
+    "h2": "Holen Sie sich 100 Stunden Puffer",
+    "p_desc": "Wählen Sie den Plan, der zu Ihrem Workflow passt. **Monthly Pro** ist die erste Wahl für Profis.",
+    "pass7": {
+      "name": "7-Tage-Pass",
+      "price": ".99",
+      "desc": "Für ein einzelnes, wichtiges Projekt."
+    },
+    "monthly": {
+      "name": "Monatlicher Plan",
+      "price": ".99",
+      "desc": "Unsere Empfehlung. Unbegrenzte Freiheit für Ihre Kreativität."
+    },
+    "yearly": {
+      "name": "Jahresplan",
+      "price": ".99",
+      "desc": "Der beste Wert für langfristige Power-User."
+    }
+  },
+  "cta": {
+    "h3": "Holen Sie sich Ihre Zeit zurück.",
+    "p": "Opfern Sie Ihr Wochenende nicht PowerPoint. Starten Sie heute kostenlos.",
+    "download": "Zeit gewinnen mit SlideAI Pro"
+  }
+}

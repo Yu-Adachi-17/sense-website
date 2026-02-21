@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "SlideAI Pro ROI | 14,99 $'a Yılda 100 Saat Tasarruf Edin | SlideAI",
+    "description": "Manuel slaytlarla vakit kaybetmeyi bırakın. SlideAI Pro'nun 14,99 $'lık aylık planının neden profesyoneller için en yüksek getirili yatırım olduğunu öğrenin.",
+    "ogTitle": "Yılınızın 100 Saatini Sadece 14,99 $'a Geri Satın Alın",
+    "ogDescription": "5 saatlik manuel çalışmayı 3 dakikalık yapay zeka büyüsüne dönüştürün. SlideAI Pro'nun muazzam ROI'sini görün."
+  },
+  "nav": { "blog": "Blog", "category": "Verimlilik & ROI" },
+  "hero": {
+    "h1": "Daha Az 'Çaba', <br>Daha Fazla 'Değer'",
+    "tagline": "Aylık 14,99 $'lık yatırım bir gider değil, zaman üreten bir varlıktır. Saatlerce süren manuel işi 3 dakikalık profesyonel tasarıma dönüştürün.",
+    "badges": ["En Yüksek ROI", "Muazzam Zaman Tasarrufu", "Profesyonel Kalite"]
+  },
+  "analysis": {
+    "h2": "Verimlilik Matematiği",
+    "items": [
+      {
+        "title": "Manuel Oluşturma",
+        "time": "5+ Saat",
+        "desc": "Yapı ve hizalama için harcanan bitmek bilmeyen saatler. Ortalama profesyonel ücretlere göre yaklaşık 150 $ işçilik maliyeti."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Sadece 3 Dakika",
+        "desc": "Fikrinizi girin ve gerisini yapay zekaya bırakın. Birkaç kahve fiyatına **sınırsız özgürlük** ve profesyonel tasarım elde edin."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Başarıyı Görselleştirme: ROI Analiz Sunumu",
+    "p1": "İşte SlideAI Pro tarafından 180 saniyeden kısa sürede oluşturulan bir 'İş Büyümesi ve ROI' sunumu örneği.",
+    "image_captions": ["1. Yönetici Özeti: ROI Genel Bakış", "2. Pazar Fırsatları ve Büyüme", "3. Hız Karşılaştırması", "4. Verimlilik Etki Analizi", "5. 5 Yıllık Finansal Öngörüler", "6. Stratejik Yol Haritası"]
+  },
+  "plans": {
+    "h2": "100 Saatlik Zaman Fazlanızı Geri Alın",
+    "p_desc": "İş akışınızı maksimize eden planı seçin. **Monthly Pro**, zamanına değer veren profesyonellerin tercihidir.",
+    "pass7": { "name": "7 Günlük Geçiş", "price": ".99", "desc": "Tek seferlik yüksek etkili bir sunum veya proje için." },
+    "monthly": { "name": "Aylık Plan", "price": ".99", "desc": "En çok önerilen seçeneğimiz. Sınırsız oluşturma." },
+    "yearly": { "name": "Yıllık Plan", "price": ".99", "desc": "Uzun vadeli kullanıcılar için en iyi değer." }
+  },
+  "cta": {
+    "h3": "Zamanınızı Bugün Geri Kazanın.",
+    "p": "Hafta sonlarınızı PowerPoint'e feda etmeyi bırakın. Bugün ücretsiz başlayın.",
+    "download": "SlideAI Pro ile Zaman Kazanın"
+  }
+}

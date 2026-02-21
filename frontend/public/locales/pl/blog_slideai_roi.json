@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI SlideAI Pro | Zaoszczędź 100h rocznie za 14,99 $ | SlideAI",
+    "description": "Przestań marnować czas na ręczne tworzenie slajdów. Dowiedz się, dlaczego plan miesięczny SlideAI Pro za 14,99 $ to najlepsza inwestycja dla profesjonalistów.",
+    "ogTitle": "Odzyskaj 100 godzin swojego roku za jedyne 14,99 $",
+    "ogDescription": "Zamień 5 godzin żmudnej pracy w 3 minuty magii AI. Zobacz ogromny ROI SlideAI Pro."
+  },
+  "nav": { "blog": "Blog", "category": "Produktywność i ROI" },
+  "hero": {
+    "h1": "Mniej „pracy”, <br>więcej „wartości”",
+    "tagline": "Inwestycja 14,99 $/mies. to nie wydatek – to aktywo generujące czas. Zamień godziny ręcznej pracy w 3 minuty profesjonalnego tworzenia.",
+    "badges": ["Najwyższy ROI", "Ogromna oszczędność czasu", "Jakość Pro"]
+  },
+  "analysis": {
+    "h2": "Matematyka wydajności",
+    "items": [
+      {
+        "title": "Ręczne tworzenie",
+        "time": "5+ godzin",
+        "desc": "Nieskończone godziny spędzone na strukturze i wyrównywaniu. Koszt pracy ok. 600 zł przy średnich stawkach profesjonalnych."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Tylko 3 min",
+        "desc": "Wprowadź swój pomysł i pozwól AI zająć się resztą. Zyskaj **nieograniczoną wolność** w cenie kilku kaw."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Wizualizacja sukcesu: Deck analizy ROI",
+    "p1": "Oto przykład prezentacji „Business Growth & ROI” wygenerowanej przez SlideAI Pro w mniej niż 180 sekund.",
+    "image_captions": ["1. Podsumowanie: Przegląd ROI", "2. Możliwości rynkowe i wzrost", "3. Porównanie szybkości", "4. Analiza wpływu na wydajność", "5. Prognozy finansowe na 5 lat", "6. Strategiczna mapa drogowa"]
+  },
+  "plans": {
+    "h2": "Odbierz swoje 100 godzin nadwyżki",
+    "p_desc": "Wybierz plan, który zoptymalizuje Twój przepływ pracy. **Monthly Pro** to preferowany wybór dla profesjonalistów ceniących swój czas.",
+    "pass7": { "name": "7-dniowy karnet", "price": ".99", "desc": "Na pojedynczy, ważny projekt lub pitch." },
+    "monthly": { "name": "Plan miesięczny", "price": ".99", "desc": "Nasz najbardziej polecany wybór. Nieograniczone tworzenie." },
+    "yearly": { "name": "Plan roczny", "price": ".99", "desc": "Najlepsza wartość dla stałych użytkowników." }
+  },
+  "cta": {
+    "h3": "Odzyskaj swój czas już dziś.",
+    "p": "Nie poświęcaj weekendów na PowerPoint. Zacznij za darmo już dziś.",
+    "download": "Generuj czas ze SlideAI Pro"
+  }
+}

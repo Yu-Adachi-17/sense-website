@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "SlideAI Pro ROI | Säästä 100 tuntia vuodessa 14,99 dollarilla | SlideAI",
+    "description": "Lopeta tuntien tuhlaaminen diojen tekemiseen. Lue, miksi SlideAI Pron 14,99 dollarin kuukausihinta on paras sijoitus ammattilaiselle.",
+    "ogTitle": "Osta 100 tuntia vuodestasi takaisin vain 14,99 dollarilla",
+    "ogDescription": "Muuta 5 tunnin työ 3 minuutin tekoälymagiaksi. Visualisoi SlideAI Pron valtava ROI."
+  },
+  "nav": { "blog": "Blogi", "category": "Tuottavuus ja ROI" },
+  "hero": {
+    "h1": "Vähennä \"suorittamista\", <br>luo \"arvoa\"",
+    "tagline": "14,99 $/kk sijoitus ei ole kulu – se on aikaa tuottava pääoma. Muuta manuaalinen puurtaminen 3 minuutin ammattimaiseksi luomiseksi.",
+    "badges": ["Korkein ROI", "Valtava ajansäästö", "Pro-laatu"]
+  },
+  "analysis": {
+    "h2": "Tehokkuuden matematiikka",
+    "items": [
+      {
+        "title": "Manuaalinen työ",
+        "time": "5+ tuntia",
+        "desc": "Loputon säätäminen rakenteen ja asettelun kanssa. Työkustannus n. 150 $ ammattilaisen tuntihinnalla."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Vain 3 min",
+        "desc": "Syötä ideasi ja anna tekoälyn hoitaa loput. Saat **rajattoman vapauden** muutaman kahvikupillisen hinnalla."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Menestyksen visualisointi: ROI-analyysi",
+    "p1": "Tässä on SlideAI Pron alle 180 sekunnissa luoma esitys yrityksen kasvusta ja ROI:sta.",
+    "image_captions": ["1. Yhteenveto: ROI", "2. Markkinamahdollisuudet", "3. Nopeusvertailu", "4. Tehokkuusvaikutus", "5. Talousennusteet", "6. Strateginen tiekartta"]
+  },
+  "plans": {
+    "h2": "Lunasta 100 tunnin aikabonus",
+    "p_desc": "Valitse työnkulkuusi sopiva tilaus. **Monthly Pro** on ammattilaisten suosikki.",
+    "pass7": { "name": "7 päivän passi", "price": ".99", "desc": "Yksittäiseen tärkeään projektiin." },
+    "monthly": { "name": "Kuukausitilaus", "price": ".99", "desc": "Suositeltu valinta. Rajaton vapaus." },
+    "yearly": { "name": "Vuositilaus", "price": ".99", "desc": "Paras arvo pitkäaikaiselle tehokäyttäjälle." }
+  },
+  "cta": {
+    "h3": "Ota aikasi takaisin tänään.",
+    "p": "Älä uhraa viikonloppujasi PowerPointille. Aloita ilmaiseksi tänään.",
+    "download": "Luo aikaa SlideAI Prolla"
+  }
+}

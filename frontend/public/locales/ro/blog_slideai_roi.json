@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI SlideAI Pro | Economisește 100h pe an pentru ,99 | SlideAI",
+    "description": "Nu mai pierde ore întregi cu slide-urile manuale. Află de ce planul lunar de ,99 este cea mai bună investiție pentru profesioniști.",
+    "ogTitle": "Cumpără înapoi 100 de ore din anul tău cu doar ,99",
+    "ogDescription": "Transformă 5 ore de muncă manuală în 3 minute de magie AI. Vizualizează ROI-ul masiv."
+  },
+  "nav": { "blog": "Blog", "category": "Productivitate și ROI" },
+  "hero": {
+    "h1": "Redu 'Munca', <br>Creează 'Valoare'",
+    "tagline": "O investiție de ,99/lună nu este o cheltuială – este un activ care generează timp. Transformă orele de muncă manuală în 3 minute de creație profesională.",
+    "badges": ["Cel mai mare ROI", "Economie masivă de timp", "Calitate Pro"]
+  },
+  "analysis": {
+    "h2": "Matematica Eficienței",
+    "items": [
+      {
+        "title": "Creare Manuală",
+        "time": "5+ Ore",
+        "desc": "Ore nesfârșite pierdute cu structura și alinierea. Un cost al forței de muncă de ~ la tarife profesionale medii."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Doar 3 min",
+        "desc": "Introdu ideea ta și lasă AI-ul să facă restul. Obține **libertate nelimitată** la prețul a câtorva cafele."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Vizualizarea succesului: Deck Analiză ROI",
+    "p1": "Iată un exemplu de deck „Business Growth & ROI” generat de SlideAI Pro în mai puțin de 180 de secunde.",
+    "image_captions": ["1. Rezumat Executiv: Vedere ROI", "2. Oportunități de piață", "3. Compararea vitezei", "4. Analiza impactului eficienței", "5. Proiecții financiare pe 5 ani", "6. Roadmap strategic"]
+  },
+  "plans": {
+    "h2": "Recuperează-ți surplusul de 100 de ore",
+    "p_desc": "Alege planul care îți maximizează fluxul de lucru. **Monthly Pro** este alegerea preferată a profesioniștilor.",
+    "pass7": { "name": "Pass 7 zile", "price": ".99", "desc": "Pentru un singur proiect sau pitch important." },
+    "monthly": { "name": "Plan Lunar", "price": ".99", "desc": "Cea mai recomandată alegere. Creație nelimitată." },
+    "yearly": { "name": "Plan Anual", "price": ".99", "desc": "Cea mai bună valoare pe termen lung." }
+  },
+  "cta": {
+    "h3": "Recuperează-ți timpul astăzi.",
+    "p": "Nu-ți sacrifica weekend-urile pentru PowerPoint. Începe gratuit astăzi.",
+    "download": "Generează timp cu SlideAI Pro"
+  }
+}

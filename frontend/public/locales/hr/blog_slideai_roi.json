@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI SlideAI Pro | Uštedite 100 sati godišnje za 14,99 $ | SlideAI",
+    "description": "Prestanite trošiti sate na ručnu izradu prezentacija. Saznajte zašto je mjesečni plan od 14,99 $ najbolja investicija za profesionalce.",
+    "ogTitle": "Kupite natrag 100 sati svoje godine za samo 14,99 $",
+    "ogDescription": "Pretvorite 5 sati rada u 3 minute AI magije. Vizualizirajte masivni ROI SlideAI Pro-a."
+  },
+  "nav": { "blog": "Blog", "category": "Produktivnost i ROI" },
+  "hero": {
+    "h1": "Smanjite \"rad\", <br>stvorite \"vrijednost\"",
+    "tagline": "Investicija od 14,99 $/mj nije trošak – to je imovina koja stvara vrijeme. Pretvorite sate ručnog rada u 3 minute profesionalnog stvaranja.",
+    "badges": ["Najviši ROI", "Velika ušteda vremena", "Pro kvaliteta"]
+  },
+  "analysis": {
+    "h2": "Matematika učinkovitosti",
+    "items": [
+      {
+        "title": "Ručna izrada",
+        "time": "5+ sati",
+        "desc": "Beskrajni sati utrošeni na strukturu i poravnanje. Trošak rada od oko 150 $ prema prosječnim cijenama."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Samo 3 min",
+        "desc": "Unesite svoju ideju i pustite AI da odradi ostalo. Ostvarite **neograničenu slobodu** i profesionalni dizajn."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Vizualizacija uspjeha: ROI analiza",
+    "p1": "Evo primjera prezentacije generirane SlideAI Pro-om u manje od 180 sekundi.",
+    "image_captions": ["1. Sažetak: Pregled ROI-a", "2. Tržišne prilike", "3. Usporedba brzine", "4. Analiza učinkovitosti", "5. Financijske projekcije", "6. Strateški plan"]
+  },
+  "plans": {
+    "h2": "Vratite svojih 100 sati viška",
+    "p_desc": "Odaberite plan koji najbolje odgovara vašem poslu. **Monthly Pro** je prvi izbor profesionalaca.",
+    "pass7": { "name": "7-dnevna propusnica", "price": ".99", "desc": "Za jedan važan projekt." },
+    "monthly": { "name": "Mjesečni plan", "price": ".99", "desc": "Naša preporuka. Neograničeno stvaranje." },
+    "yearly": { "name": "Godišnji plan", "price": ".99", "desc": "Najbolja vrijednost za dugoročne korisnike." }
+  },
+  "cta": {
+    "h3": "Vratite svoje vrijeme već danas.",
+    "p": "Ne žrtvujte svoje vikende za PowerPoint. Započnite besplatno danas.",
+    "download": "Stvorite vrijeme uz SlideAI Pro"
+  }
+}

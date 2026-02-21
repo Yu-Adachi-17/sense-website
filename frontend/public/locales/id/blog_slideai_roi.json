@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI SlideAI Pro | Hemat 100 Jam Setahun dengan .99 | SlideAI",
+    "description": "Berhenti membuang waktu membuat slide secara manual. Pelajari mengapa paket bulanan .99 SlideAI Pro adalah investasi terbaik bagi para profesional.",
+    "ogTitle": "Beli Kembali 100 Jam Waktu Anda Hanya dengan .99",
+    "ogDescription": "Ubah 5 jam kerja manual menjadi 3 menit keajaiban AI. Visualisasikan ROI masif SlideAI Pro."
+  },
+  "nav": { "blog": "Blog", "category": "Produktivitas & ROI" },
+  "hero": {
+    "h1": "Kurangi 'Kerja Keras', <br>Mulai 'Kerja Cerdas'",
+    "tagline": "Investasi .99/bulan bukanlah pengeluaran—ini adalah aset penghasil waktu. Ubah jam kerja manual menjadi 3 menit kreasi profesional.",
+    "badges": ["ROI Tertinggi", "Penghemat Waktu Masif", "Kualitas Pro"]
+  },
+  "analysis": {
+    "h2": "Matematika Efisiensi",
+    "items": [
+      {
+        "title": "Pembuatan Manual",
+        "time": "5+ Jam",
+        "desc": "Waktu tak terbatas habis untuk struktur dan penyelarasan. Biaya tenaga kerja sekitar ~ berdasarkan tarif profesional rata-rata."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Hanya 3 Menit",
+        "desc": "Masukkan ide Anda dan biarkan AI melakukan sisanya. Dapatkan **kebebasan tak terbatas** dengan harga beberapa cangkir kopi."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Visualisasi Kesuksesan: Dek Analisis ROI",
+    "p1": "Berikut adalah contoh dek 'Pertumbuhan Bisnis & ROI' yang dihasilkan oleh SlideAI Pro dalam waktu kurang dari 180 detik.",
+    "image_captions": ["1. Ringkasan Eksekutif: Ikhtisar ROI", "2. Peluang Pasar & Pertumbuhan", "3. Perbandingan Kecepatan", "4. Analisis Dampak Efisiensi", "5. Proyeksi Keuangan 5 Tahun", "6. Roadmap Strategis"]
+  },
+  "plans": {
+    "h2": "Klaim Surplus 100 Jam Anda",
+    "p_desc": "Pilih paket yang memaksimalkan alur kerja Anda. **Monthly Pro** adalah pilihan utama bagi profesional yang menghargai waktu mereka.",
+    "pass7": { "name": "Akses 7 Hari", "price": ".99", "desc": "Untuk satu proyek atau pitch penting." },
+    "monthly": { "name": "Paket Bulanan", "price": ".99", "desc": "Pilihan paling direkomendasikan. Kreasi tanpa batas." },
+    "yearly": { "name": "Paket Tahunan", "price": ".99", "desc": "Nilai terbaik untuk pengguna jangka panjang." }
+  },
+  "cta": {
+    "h3": "Ambil Kembali Waktu Anda Hari Ini.",
+    "p": "Jangan korbankan akhir pekan Anda untuk PowerPoint. Mulai 2 slide pertama Anda secara gratis hari ini.",
+    "download": "Hasilkan Waktu dengan SlideAI Pro"
+  }
+}

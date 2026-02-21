@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI för SlideAI Pro | Spara 100h per år för 14,99 $ | SlideAI",
+    "description": "Sluta slösa timmar på manuella slides. Lär dig varför SlideAI Pros månadsplan för 14,99 $ är den bästa investeringen för professionella.",
+    "ogTitle": "Köp tillbaka 100 timmar av ditt år för bara 14,99 $",
+    "ogDescription": "Förvandla 5 timmars slit till 3 minuter AI-magi. Visualisera det massiva ROI:et med SlideAI Pro."
+  },
+  "nav": { "blog": "Blogg", "category": "Produktivitet & ROI" },
+  "hero": {
+    "h1": "Minska 'arbetet', <br>skapa 'värde'",
+    "tagline": "En investering på 14,99 $/mån är inte en kostnad – det är en tidsgenererande tillgång. Förvandla timmar av manuellt arbete till 3 minuters professionellt skapande.",
+    "badges": ["Högsta ROI", "Massiv tidsbesparing", "Pro-kvalitet"]
+  },
+  "analysis": {
+    "h2": "Effektivitetens matematik",
+    "items": [
+      {
+        "title": "Manuell skapelse",
+        "time": "5+ timmar",
+        "desc": "Oändliga timmar på struktur och justering. En arbetskostnad på ca 1 500 kr baserat på genomsnittliga arvoden."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Bara 3 min",
+        "desc": "Skriv in din idé och låt AI göra resten. Få **obegränsad frihet** till priset av några koppar kaffe."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Visualisera framgång: ROI-analys",
+    "p1": "Här är ett exempel på ett 'Business Growth & ROI'-deck skapat av SlideAI Pro på under 180 sekunder.",
+    "image_captions": ["1. Executive Summary: ROI-översikt", "2. Marknadsmöjligheter & tillväxt", "3. Hastighetsjämförelse", "4. Analys av effektivitetseffekt", "5. 5-åriga finansiella prognoser", "6. Strategisk roadmap"]
+  },
+  "plans": {
+    "h2": "Hämta ut ditt överskott på 100 timmar",
+    "p_desc": "Välj den plan som maximerar ditt arbetsflöde. **Monthly Pro** är det föredragna valet för proffs.",
+    "pass7": { "name": "7-dagars pass", "price": ".99", "desc": "För ett enstaka viktigt projekt." },
+    "monthly": { "name": "Månadsplan", "price": ".99", "desc": "Vårt mest rekommenderade val. Obegränsat skapande." },
+    "yearly": { "name": "Årsplan", "price": ".99", "desc": "Bästa värdet för långsiktiga användare." }
+  },
+  "cta": {
+    "h3": "Ta tillbaka din tid idag.",
+    "p": "Offra inte dina helger för PowerPoint. Börja gratis idag.",
+    "download": "Skapa tid med SlideAI Pro"
+  }
+}

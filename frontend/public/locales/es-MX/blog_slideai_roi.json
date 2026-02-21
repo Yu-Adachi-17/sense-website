@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "ROI de SlideAI Pro | Ahorra 100 horas al año por 14,99 $ | SlideAI",
+    "description": "Deja de perder tiempo en diapositivas manuales. Descubre por qué el plan de 14,99 $ es la mejor inversión para profesionales.",
+    "ogTitle": "Recupera 100 horas de tu año por solo 14,99 $",
+    "ogDescription": "Convierte 5 horas de trabajo manual en 3 minutos de magia con IA. Visualiza el ROI masivo."
+  },
+  "nav": { "blog": "Blog", "category": "Productividad y ROI" },
+  "hero": {
+    "h1": "Reduce el \"Trabajo\", <br>Crea \"Valor\"",
+    "tagline": "Una inversión de 14,99 $/mes no es un gasto: es un activo que genera tiempo. Transforma horas de trabajo manual en 3 minutos de creación profesional.",
+    "badges": ["Máximo ROI", "Gran ahorro de tiempo", "Calidad Pro"]
+  },
+  "analysis": {
+    "h2": "Las matemáticas de la eficiencia",
+    "items": [
+      {
+        "title": "Creación Manual",
+        "time": "5+ Horas",
+        "desc": "Horas interminables en estructura y alineación. Un coste laboral de ~150 $ basado en tarifas profesionales medias."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Solo 3 Min",
+        "desc": "Introduce tu idea y deja que la IA haga el resto. Obtén **libertad ilimitada** y diseño profesional."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Visualizando el éxito: Presentación de ROI",
+    "p1": "Ejemplo de una presentación de \"Crecimiento y ROI\" generada por SlideAI Pro en menos de 180 segundos.",
+    "image_captions": ["1. Resumen Ejecutivo", "2. Oportunidades de Mercado", "3. Comparativa de Velocidad", "4. Impacto en Eficiencia", "5. Proyecciones Financieras", "6. Hoja de Ruta Estratégica"]
+  },
+  "plans": {
+    "h2": "Reclama tu excedente de 100 horas",
+    "p_desc": "Elige el plan que maximice tu flujo de trabajo. **Monthly Pro** es la opción preferida por los profesionales.",
+    "pass7": { "name": "Pase de 7 días", "price": "$9.99", "desc": "Para un proyecto puntual de alto impacto." },
+    "monthly": { "name": "Plan Mensual", "price": "$14.99", "desc": "Nuestra opción más recomendada. Libertad total." },
+    "yearly": { "name": "Plan Anual", "price": "$149.99", "desc": "El mejor valor para usuarios avanzados." }
+  },
+  "cta": {
+    "h3": "Recupera tus fines de semana.",
+    "p": "No sacrifiques tu tiempo por PowerPoint. Empieza gratis hoy mismo.",
+    "download": "Genera tiempo con SlideAI Pro"
+  }
+}

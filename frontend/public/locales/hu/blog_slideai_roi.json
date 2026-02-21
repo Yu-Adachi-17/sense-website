@@ -1,0 +1,46 @@
+{
+  "seo": {
+    "title": "SlideAI Pro ROI | Spóroljon évi 100 órát 14,99 dollárért | SlideAI",
+    "description": "Hagyja abba az időpazarlást a kézi diakészítéssel. Tudja meg, miért a 14,99 dolláros havi terv a legjobb befektetés szakembereknek.",
+    "ogTitle": "Vásároljon vissza évi 100 órát mindössze 14,99 dollárért",
+    "ogDescription": "Változtasson 5 óra munkát 3 perc AI varázslattá. Lássa a SlideAI Pro hatalmas ROI-ját."
+  },
+  "nav": { "blog": "Blog", "category": "Produktivitás és ROI" },
+  "hero": {
+    "h1": "Kevesebb \"munka\", <br>több \"érték\"",
+    "tagline": "Havi 14,99 dollár nem költség, hanem időt termelő befektetés. Alakítsa át a kézi munka óráit 3 perc professzionális alkotássá.",
+    "badges": ["Legmagasabb ROI", "Hatalmas időmegtakarítás", "Pro minőség"]
+  },
+  "analysis": {
+    "h2": "A hatékonyság matematikája",
+    "items": [
+      {
+        "title": "Kézi készítés",
+        "time": "5+ óra",
+        "desc": "Végtelen órák a szerkezettel és igazítással. Kb. 150 dolláros munkaköltség átlagos árakon."
+      },
+      {
+        "title": "SlideAI Pro",
+        "time": "Csak 3 perc",
+        "desc": "Írja be az ötletét, és hagyja, hogy az AI dolgozzon. Kapjon **korlátlan szabadságot** pár kávé áráért."
+      }
+    ]
+  },
+  "demo": {
+    "h2": "Siker vizualizálása: ROI elemzés",
+    "p1": "Íme egy példa a SlideAI Pro által kevesebb mint 180 másodperc alatt készített ROI prezentációra.",
+    "image_captions": ["1. Vezetői összefoglaló", "2. Piaci lehetőségek", "3. Sebesség összehasonlítás", "4. Hatékonysági hatás", "5. Pénzügyi előrejelzések", "6. Stratégiai útmutató"]
+  },
+  "plans": {
+    "h2": "Igényeljen 100 óra pluszt",
+    "p_desc": "Válassza a munkafolyamatához illő tervet. A **Monthly Pro** a profik kedvenc választása.",
+    "pass7": { "name": "7 napos bérlet", "price": ".99", "desc": "Egyetlen fontos projekthez." },
+    "monthly": { "name": "Havi terv", "price": ".99", "desc": "A leginkább ajánlott választásunk." },
+    "yearly": { "name": "Éves terv", "price": ".99", "desc": "A legjobb érték hosszú távú felhasználóknak." }
+  },
+  "cta": {
+    "h3": "Szerezze vissza az idejét.",
+    "p": "Ne áldozza fel a hétvégéit a PowerPointnak. Kezdje el ingyen ma.",
+    "download": "Takarítson meg időt a SlideAI Pro-val"
+  }
+}
