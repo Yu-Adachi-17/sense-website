@@ -16,7 +16,6 @@ const inter = Inter({ subsets: ["latin"] });
 /* ---------- Constants ---------- */
 const LAST_UPDATED_ISO = "2026-02-20";
 const APP_STORE_URL = "https://apps.apple.com/jp/app/slideai-pro/id6739415399";
-// 統一した名前空間
 const I18N_NAMESPACE = "blog_slideai_student-thesis-seminar-hack";
 
 /* ---------- English Fallback Content (Relaxed & Flat Tone) ---------- */
@@ -138,7 +137,11 @@ function SectionCard({ children, className = "", glow = "indigo" }) {
   );
 }
 
+// 価格表示部分を修正：不正な文字列（".99"など）が来た場合に、明示的に "$9.99" となるよう安全なレンダリングを行います。
 function PricingCard({ icon: Icon, name, price, desc, highlight = false }) {
+  // 価格文字列が欠落している（.99 になっている）場合への応急処置
+  const displayPrice = price && price === ".99" ? "$9.99" : price;
+
   return (
     <div className={`relative flex flex-col rounded-2xl border p-6 transition-all ${highlight ? "border-indigo-400 bg-indigo-500/10 scale-105 z-10 shadow-xl shadow-indigo-500/20" : "border-white/10 bg-black/30 hover:bg-white/5"}`}>
       {highlight && (
@@ -149,7 +152,8 @@ function PricingCard({ icon: Icon, name, price, desc, highlight = false }) {
       <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-indigo-300"><Icon size={24} /></div>
       <h3 className="text-lg font-bold">{name}</h3>
       <div className="mt-2 flex items-baseline gap-1">
-        <span className="text-3xl font-bold text-white">{price}</span>
+        {/* displayPrice を使用 */}
+        <span className="text-3xl font-bold text-white">{displayPrice}</span>
       </div>
       <p className="mt-3 text-sm text-indigo-200/80 leading-relaxed">{desc}</p>
     </div>
@@ -275,9 +279,10 @@ export default function SlideAIStudentThesisBlogEN() {
             </div>
             
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 items-center">
-              <PricingCard icon={FaCalendarDay} name={txs("plans.pass7.name")} price={txs("plans.pass7.price")} desc={txs("plans.pass7.desc")} highlight={true} />
-              <PricingCard icon={FaBolt} name={txs("plans.monthly.name")} price={txs("plans.monthly.price")} desc={txs("plans.monthly.desc")} />
-              <PricingCard icon={FaCheckCircle} name={txs("plans.yearly.name")} price={txs("plans.yearly.price")} desc={txs("plans.yearly.desc")} />
+              {/* 明示的に "$9.99" となるようフォールバックが働くはずです */}
+              <PricingCard icon={FaCalendarDay} name={txs("plans.pass7.name")} price={txs("plans.pass7.price") || "$9.99"} desc={txs("plans.pass7.desc")} highlight={true} />
+              <PricingCard icon={FaBolt} name={txs("plans.monthly.name")} price={txs("plans.monthly.price") || "$14.99"} desc={txs("plans.monthly.desc")} />
+              <PricingCard icon={FaCheckCircle} name={txs("plans.yearly.name")} price={txs("plans.yearly.price") || "$149.99"} desc={txs("plans.yearly.desc")} />
             </div>
           </SectionCard>
 
