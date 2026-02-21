@@ -1,4 +1,3 @@
-// src/pages/blog/slideai/roi.js
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -17,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 const LAST_UPDATED_ISO = "2026-02-21";
 const APP_STORE_URL = "https://apps.apple.com/jp/app/slideai-pro/id6739415399";
 
-/* ---------- English Fallback Content (SEO Optimized for ROI/Pricing) ---------- */
+/* ---------- English Fallback Content ---------- */
 const EN_FALLBACK = {
   seo: {
     title: "Is Your Time Worth $14.99? The ROI of SlideAI Pro in 2026",
@@ -34,19 +33,16 @@ const EN_FALLBACK = {
   },
   analysis: {
     h2: "The Math of Efficiency",
-    p1: "If you value your time at $30/hour, a single 5-hour presentation costs you $150 in labor. With SlideAI Pro, that cost drops to less than $10.",
     items: [
       { 
-        title: "Manual Creation", 
-        time: "5-8 Hours", 
-        cost: "High Stress", 
-        icon: "clock" 
+        title: "The Old Way", 
+        time: "5+ Hours", 
+        desc: "Spending precious hours on formatting, alignment, and searching for icons. Labor cost: ~$150+."
       },
       { 
-        title: "SlideAI Pro", 
+        title: "The SlideAI Way", 
         time: "3 Minutes", 
-        cost: "Instant Polish", 
-        icon: "bolt" 
+        desc: "Input your idea, and let AI handle the rest. Cost: $14.99/mo for **unlimited** freedom." 
       }
     ]
   },
@@ -135,14 +131,12 @@ function PricingCard({ icon: Icon, name, price, desc, highlight = false }) {
   );
 }
 
-/* ---------- Page Component ---------- */
 export default function SlideAIROI() {
   const router = useRouter();
   const { txs, txa } = useTx("blog_slideai_roi");
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sense-ai.world";
   const canonical = `${siteUrl}/blog/slideai/roi`;
 
-  // ROIサンプルの画像スロット（6枚）
   const demoImages = [
     "/images/slideai/roi-sample-1.jpg",
     "/images/slideai/roi-sample-2.jpg",
@@ -152,6 +146,7 @@ export default function SlideAIROI() {
     "/images/slideai/roi-sample-6.jpg",
   ];
   const imageCaptions = txa("demo.image_captions");
+  const analysisItems = txa("analysis.items");
 
   return (
     <>
@@ -166,7 +161,6 @@ export default function SlideAIROI() {
 
       <div className={`${inter.className} min-h-screen bg-[#05071c] text-white [background:radial-gradient(1200px_800px_at_10%_-20%,rgba(16,185,129,0.1),transparent),radial-gradient(800px_600px_at_90%_10%,rgba(99,102,241,0.15),transparent)]`}>
         
-        {/* Header */}
         <header className="mx-auto max-w-7xl px-6 pt-10 relative z-10">
           <Link href="/home" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 text-white/90 backdrop-blur transition hover:bg-white/10">
             <HomeIcon size={28} />
@@ -180,7 +174,6 @@ export default function SlideAIROI() {
 
         <main className="mx-auto max-w-4xl px-6 pb-20 pt-10 relative z-10">
           
-          {/* Hero Section */}
           <section className="mb-20 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-200 mb-6 mx-auto">
               <FaChartLine size={12} className="text-emerald-400" /> <span>Maximize Your Productivity ROI</span>
@@ -197,23 +190,18 @@ export default function SlideAIROI() {
             </div>
           </section>
 
-          {/* ROI Calculation Section */}
+          {/* ROI Calculation Section - Updated to use Dynamic Data */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur">
-              <FaHourglassHalf className="text-red-400 mb-4" size={32} />
-              <h3 className="text-xl font-bold mb-2">The Old Way</h3>
-              <p className="text-3xl font-bold text-white mb-4">5+ Hours</p>
-              <p className="text-sm text-indigo-200/60">Spending precious hours on formatting, alignment, and searching for icons. Labor cost: ~$150+.</p>
-            </div>
-            <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-8 backdrop-blur ring-1 ring-emerald-500/20">
-              <FaRocket className="text-emerald-400 mb-4" size={32} />
-              <h3 className="text-xl font-bold mb-2">The SlideAI Way</h3>
-              <p className="text-3xl font-bold text-emerald-400 mb-4">3 Minutes</p>
-              <p className="text-sm text-emerald-200/60">Input your idea, and let AI handle the rest. Cost: $14.99/mo for **unlimited** freedom.</p>
-            </div>
+            {analysisItems.map((item, i) => (
+              <div key={i} className={`rounded-2xl border p-8 backdrop-blur ${i === 1 ? "border-emerald-500/30 bg-emerald-500/5 ring-1 ring-emerald-500/20" : "border-white/10 bg-white/5"}`}>
+                {i === 0 ? <FaHourglassHalf className="text-red-400 mb-4" size={32} /> : <FaRocket className="text-emerald-400 mb-4" size={32} />}
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className={`text-3xl font-bold mb-4 ${i === 1 ? "text-emerald-400" : "text-white"}`}>{item.time}</p>
+                <p className={`text-sm leading-relaxed ${i === 1 ? "text-emerald-200/70" : "text-indigo-200/60"}`}>{item.desc}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Visual Demo Section (The 6 Slides) */}
           <SectionCard className="mb-16" glow="fuchsia">
             <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold tracking-tight mb-4">{txs("demo.h2")}</h2>
@@ -224,7 +212,7 @@ export default function SlideAIROI() {
             {demoImages.map((src, i) => (
                 <div key={i} className="group relative rounded-2xl border border-white/10 bg-black/50 shadow-2xl transition-all hover:border-emerald-500/40 hover:scale-[1.02] overflow-hidden">
                     <div className="aspect-video w-full bg-white/5 relative">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={src} alt={`SlideAI ROI Sample: ${imageCaptions[i]}`} className="absolute inset-0 h-full w-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                     </div>
                     <div className="p-3 bg-white/5 border-t border-white/5 flex items-center justify-between">
@@ -236,7 +224,6 @@ export default function SlideAIROI() {
             </div>
           </SectionCard>
 
-          {/* Pricing Section */}
           <SectionCard className="mb-16 border-emerald-500/20 bg-emerald-500/5" glow="emerald">
             <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold">{txs("plans.h2")}</h2>
@@ -250,7 +237,6 @@ export default function SlideAIROI() {
             </div>
           </SectionCard>
 
-          {/* CTA Section */}
           <div className="flex flex-col items-center gap-8 text-center py-10">
             <div className="space-y-3">
               <h3 className="text-4xl font-extrabold text-white">{txs("cta.h3")}</h3>
