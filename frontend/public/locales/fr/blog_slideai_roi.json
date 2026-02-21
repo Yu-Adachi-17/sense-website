@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Récupérez votre surplus de 100 heures",
     "p_desc": "Choisissez le plan qui maximise votre flux. Le **Monthly Pro** est le choix préféré des créateurs exigeants.",
-    "pass7": { "name": "Pass 7 jours", "price": ".99", "desc": "Pour un projet ponctuel à fort impact." },
-    "monthly": { "name": "Plan mensuel", "price": ".99", "desc": "Notre recommandation. Création illimitée." },
-    "yearly": { "name": "Plan annuel", "price": ".99", "desc": "La meilleure valeur à long terme." }
+    "pass7": { "name": "Pass 7 jours", "price": "$9.99", "desc": "Pour un projet ponctuel à fort impact." },
+    "monthly": { "name": "Plan mensuel", "price": "$9.99", "desc": "Notre recommandation. Création illimitée." },
+    "yearly": { "name": "Plan annuel", "price": "$14.99", "desc": "La meilleure valeur à long terme." }
   },
   "cta": {
     "h3": "Reprenez le contrôle de votre temps.",

@@ -50,17 +50,17 @@
     "p_desc": "Vælg den plan, der passer til din arbejdsgang. **Monthly Pro** er det foretrukne valg for professionelle.",
     "pass7": {
       "name": "7-dages pas",
-      "price": ".99",
+      "price": "$9.99",
       "desc": "Til et enkelt, vigtigt pitch eller projekt."
     },
     "monthly": {
       "name": "Månedlig plan",
-      "price": ".99",
+      "price": "$14.99",
       "desc": "Vores mest anbefalede valg. Ubegrænset skabelse og total frihed."
     },
     "yearly": {
       "name": "Årlig plan",
-      "price": ".99",
+      "price": "$149.99",
       "desc": "Den bedste værdi for langsigtede brugere."
     }
   },

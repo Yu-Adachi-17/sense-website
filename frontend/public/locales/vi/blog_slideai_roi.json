@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Lấy lại 100 giờ dư thừa của bạn",
     "p_desc": "Chọn gói phù hợp với quy trình làm việc của bạn. **Monthly Pro** là lựa chọn hàng đầu cho các chuyên gia coi trọng thời gian.",
-    "pass7": { "name": "Gói 7 ngày", "price": ".99", "desc": "Cho một buổi thuyết trình hoặc dự án quan trọng duy nhất." },
-    "monthly": { "name": "Gói tháng", "price": ".99", "desc": "Lựa chọn được đề xuất nhiều nhất. Sáng tạo không giới hạn." },
-    "yearly": { "name": "Gói năm", "price": ".99", "desc": "Giá trị tốt nhất cho người dùng lâu dài." }
+    "pass7": { "name": "Gói 7 ngày", "price": "$9.99", "desc": "Cho một buổi thuyết trình hoặc dự án quan trọng duy nhất." },
+    "monthly": { "name": "Gói tháng", "price": "$9.99", "desc": "Lựa chọn được đề xuất nhiều nhất. Sáng tạo không giới hạn." },
+    "yearly": { "name": "Gói năm", "price": "$14.99", "desc": "Giá trị tốt nhất cho người dùng lâu dài." }
   },
   "cta": {
     "h3": "Giành lại thời gian của bạn ngay hôm nay.",

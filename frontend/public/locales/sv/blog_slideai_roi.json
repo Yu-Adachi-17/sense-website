@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Hämta ut ditt överskott på 100 timmar",
     "p_desc": "Välj den plan som maximerar ditt arbetsflöde. **Monthly Pro** är det föredragna valet för proffs.",
-    "pass7": { "name": "7-dagars pass", "price": ".99", "desc": "För ett enstaka viktigt projekt." },
-    "monthly": { "name": "Månadsplan", "price": ".99", "desc": "Vårt mest rekommenderade val. Obegränsat skapande." },
-    "yearly": { "name": "Årsplan", "price": ".99", "desc": "Bästa värdet för långsiktiga användare." }
+    "pass7": { "name": "7-dagars pass", "price": "$9.99", "desc": "För ett enstaka viktigt projekt." },
+    "monthly": { "name": "Månadsplan", "price": "$9.99", "desc": "Vårt mest rekommenderade val. Obegränsat skapande." },
+    "yearly": { "name": "Årsplan", "price": "$14.99", "desc": "Bästa värdet för långsiktiga användare." }
   },
   "cta": {
     "h3": "Ta tillbaka din tid idag.",

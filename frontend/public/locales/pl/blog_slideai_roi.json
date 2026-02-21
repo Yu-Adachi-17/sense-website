@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Odbierz swoje 100 godzin nadwyżki",
     "p_desc": "Wybierz plan, który zoptymalizuje Twój przepływ pracy. **Monthly Pro** to preferowany wybór dla profesjonalistów ceniących swój czas.",
-    "pass7": { "name": "7-dniowy karnet", "price": ".99", "desc": "Na pojedynczy, ważny projekt lub pitch." },
-    "monthly": { "name": "Plan miesięczny", "price": ".99", "desc": "Nasz najbardziej polecany wybór. Nieograniczone tworzenie." },
-    "yearly": { "name": "Plan roczny", "price": ".99", "desc": "Najlepsza wartość dla stałych użytkowników." }
+    "pass7": { "name": "7-dniowy karnet", "price": "$9.99", "desc": "Na pojedynczy, ważny projekt lub pitch." },
+    "monthly": { "name": "Plan miesięczny", "price": "$9.99", "desc": "Nasz najbardziej polecany wybór. Nieograniczone tworzenie." },
+    "yearly": { "name": "Plan roczny", "price": "$14.99", "desc": "Najlepsza wartość dla stałych użytkowników." }
   },
   "cta": {
     "h3": "Odzyskaj swój czas już dziś.",

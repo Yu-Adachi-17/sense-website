@@ -1,3 +1,4 @@
+// src/pages/blog/slideai/roi.js
 import Head from "next/head";
 import Link from "next/link";
 import { Inter } from "next/font/google";
@@ -190,7 +191,6 @@ export default function SlideAIROI() {
             </div>
           </section>
 
-          {/* ROI Calculation Section - Updated to use Dynamic Data */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
             {analysisItems.map((item, i) => (
               <div key={i} className={`rounded-2xl border p-8 backdrop-blur ${i === 1 ? "border-emerald-500/30 bg-emerald-500/5 ring-1 ring-emerald-500/20" : "border-white/10 bg-white/5"}`}>

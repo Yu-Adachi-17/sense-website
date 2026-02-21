@@ -50,17 +50,17 @@
     "p_desc": "Vyberte si plán, který vyhovuje vašemu workflow. **Monthly Pro** je preferovanou volbou pro profesionály.",
     "pass7": {
       "name": "7denní pas",
-      "price": ".99",
+      "price": "$9.99",
       "desc": "Pro jednorázový, vysoce důležitý projekt."
     },
     "monthly": {
       "name": "Měsíční plán",
-      "price": ".99",
+      "price": "$14.99",
       "desc": "Naše nejdoporučovanější volba. Neomezená tvorba a naprostá svoboda."
     },
     "yearly": {
       "name": "Roční plán",
-      "price": ".99",
+      "price": "$149.99",
       "desc": "Nejlepší hodnota pro dlouhodobé uživatele."
     }
   },

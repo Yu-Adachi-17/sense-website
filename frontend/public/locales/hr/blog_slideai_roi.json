@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Vratite svojih 100 sati viška",
     "p_desc": "Odaberite plan koji najbolje odgovara vašem poslu. **Monthly Pro** je prvi izbor profesionalaca.",
-    "pass7": { "name": "7-dnevna propusnica", "price": ".99", "desc": "Za jedan važan projekt." },
-    "monthly": { "name": "Mjesečni plan", "price": ".99", "desc": "Naša preporuka. Neograničeno stvaranje." },
-    "yearly": { "name": "Godišnji plan", "price": ".99", "desc": "Najbolja vrijednost za dugoročne korisnike." }
+    "pass7": { "name": "7-dnevna propusnica", "price": "$9.99", "desc": "Za jedan važan projekt." },
+    "monthly": { "name": "Mjesečni plan", "price": "$9.99", "desc": "Naša preporuka. Neograničeno stvaranje." },
+    "yearly": { "name": "Godišnji plan", "price": "$14.99", "desc": "Najbolja vrijednost za dugoročne korisnike." }
   },
   "cta": {
     "h3": "Vratite svoje vrijeme već danas.",

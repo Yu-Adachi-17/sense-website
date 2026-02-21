@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Klaim Surplus 100 Jam Anda",
     "p_desc": "Pilih paket yang memaksimalkan alur kerja Anda. **Monthly Pro** adalah pilihan utama bagi profesional yang menghargai waktu mereka.",
-    "pass7": { "name": "Akses 7 Hari", "price": ".99", "desc": "Untuk satu proyek atau pitch penting." },
-    "monthly": { "name": "Paket Bulanan", "price": ".99", "desc": "Pilihan paling direkomendasikan. Kreasi tanpa batas." },
-    "yearly": { "name": "Paket Tahunan", "price": ".99", "desc": "Nilai terbaik untuk pengguna jangka panjang." }
+    "pass7": { "name": "Akses 7 Hari", "price": "$9.99", "desc": "Untuk satu proyek atau pitch penting." },
+    "monthly": { "name": "Paket Bulanan", "price": "$9.99", "desc": "Pilihan paling direkomendasikan. Kreasi tanpa batas." },
+    "yearly": { "name": "Paket Tahunan", "price": "$14.99", "desc": "Nilai terbaik untuk pengguna jangka panjang." }
   },
   "cta": {
     "h3": "Ambil Kembali Waktu Anda Hari Ini.",

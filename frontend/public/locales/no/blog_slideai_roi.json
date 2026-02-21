@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Hent ut dine 100 ekstra timer",
     "p_desc": "Velg planen som maksimerer arbeidsflyten din. **Monthly Pro** er det foretrukne valget for profesjonelle.",
-    "pass7": { "name": "7-dagers pass", "price": ".99", "desc": "For en enkelt pitch eller prosjekt med høy effekt." },
-    "monthly": { "name": "Månedlig plan", "price": ".99", "desc": "Vårt mest anbefalte valg. Ubegrenset skapelse." },
-    "yearly": { "name": "Årlig plan", "price": ".99", "desc": "Beste verdi for langsiktige superbrukere." }
+    "pass7": { "name": "7-dagers pass", "price": "$9.99", "desc": "For en enkelt pitch eller prosjekt med høy effekt." },
+    "monthly": { "name": "Månedlig plan", "price": "$9.99", "desc": "Vårt mest anbefalte valg. Ubegrenset skapelse." },
+    "yearly": { "name": "Årlig plan", "price": "$14.99", "desc": "Beste verdi for langsiktige superbrukere." }
   },
   "cta": {
     "h3": "Ta tiden din tilbake i dag.",

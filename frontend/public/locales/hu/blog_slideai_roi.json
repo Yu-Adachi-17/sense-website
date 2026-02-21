@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Igényeljen 100 óra pluszt",
     "p_desc": "Válassza a munkafolyamatához illő tervet. A **Monthly Pro** a profik kedvenc választása.",
-    "pass7": { "name": "7 napos bérlet", "price": ".99", "desc": "Egyetlen fontos projekthez." },
-    "monthly": { "name": "Havi terv", "price": ".99", "desc": "A leginkább ajánlott választásunk." },
-    "yearly": { "name": "Éves terv", "price": ".99", "desc": "A legjobb érték hosszú távú felhasználóknak." }
+    "pass7": { "name": "7 napos bérlet", "price": "$9.99", "desc": "Egyetlen fontos projekthez." },
+    "monthly": { "name": "Havi terv", "price": "$9.99", "desc": "A leginkább ajánlott választásunk." },
+    "yearly": { "name": "Éves terv", "price": "$14.99", "desc": "A legjobb érték hosszú távú felhasználóknak." }
   },
   "cta": {
     "h3": "Szerezze vissza az idejét.",

@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Recuperează-ți surplusul de 100 de ore",
     "p_desc": "Alege planul care îți maximizează fluxul de lucru. **Monthly Pro** este alegerea preferată a profesioniștilor.",
-    "pass7": { "name": "Pass 7 zile", "price": ".99", "desc": "Pentru un singur proiect sau pitch important." },
-    "monthly": { "name": "Plan Lunar", "price": ".99", "desc": "Cea mai recomandată alegere. Creație nelimitată." },
-    "yearly": { "name": "Plan Anual", "price": ".99", "desc": "Cea mai bună valoare pe termen lung." }
+    "pass7": { "name": "Pass 7 zile", "price": "$9.99", "desc": "Pentru un singur proiect sau pitch important." },
+    "monthly": { "name": "Plan Lunar", "price": "$9.99", "desc": "Cea mai recomandată alegere. Creație nelimitată." },
+    "yearly": { "name": "Plan Anual", "price": "$14.99", "desc": "Cea mai bună valoare pe termen lung." }
   },
   "cta": {
     "h3": "Recuperează-ți timpul astăzi.",

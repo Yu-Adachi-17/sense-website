@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Tuntut Lebihan 100 Jam Anda",
     "p_desc": "Pilih pelan yang memaksimumkan aliran kerja anda. **Monthly Pro** ialah pilihan utama untuk profesional yang menghargai masa mereka.",
-    "pass7": { "name": "Pas 7 Hari", "price": ".99", "desc": "Untuk satu pitch atau projek berimpak tinggi." },
-    "monthly": { "name": "Pelan Bulanan", "price": ".99", "desc": "Pilihan paling disyorkan. Ciptaan tanpa had." },
-    "yearly": { "name": "Pelan Tahunan", "price": ".99", "desc": "Nilai terbaik untuk pengguna jangka panjang." }
+    "pass7": { "name": "Pas 7 Hari", "price": "$9.99", "desc": "Untuk satu pitch atau projek berimpak tinggi." },
+    "monthly": { "name": "Pelan Bulanan", "price": "$9.99", "desc": "Pilihan paling disyorkan. Ciptaan tanpa had." },
+    "yearly": { "name": "Pelan Tahunan", "price": "$14.99", "desc": "Nilai terbaik untuk pengguna jangka panjang." }
   },
   "cta": {
     "h3": "Ambil Semula Masa Anda Hari Ini.",

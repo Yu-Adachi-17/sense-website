@@ -34,9 +34,9 @@
   "plans": {
     "h2": "100 Saatlik Zaman Fazlanızı Geri Alın",
     "p_desc": "İş akışınızı maksimize eden planı seçin. **Monthly Pro**, zamanına değer veren profesyonellerin tercihidir.",
-    "pass7": { "name": "7 Günlük Geçiş", "price": ".99", "desc": "Tek seferlik yüksek etkili bir sunum veya proje için." },
-    "monthly": { "name": "Aylık Plan", "price": ".99", "desc": "En çok önerilen seçeneğimiz. Sınırsız oluşturma." },
-    "yearly": { "name": "Yıllık Plan", "price": ".99", "desc": "Uzun vadeli kullanıcılar için en iyi değer." }
+    "pass7": { "name": "7 Günlük Geçiş", "price": "$9.99", "desc": "Tek seferlik yüksek etkili bir sunum veya proje için." },
+    "monthly": { "name": "Aylık Plan", "price": "$9.99", "desc": "En çok önerilen seçeneğimiz. Sınırsız oluşturma." },
+    "yearly": { "name": "Yıllık Plan", "price": "$14.99", "desc": "Uzun vadeli kullanıcılar için en iyi değer." }
   },
   "cta": {
     "h3": "Zamanınızı Bugün Geri Kazanın.",

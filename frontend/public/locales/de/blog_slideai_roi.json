@@ -50,17 +50,17 @@
     "p_desc": "Wählen Sie den Plan, der zu Ihrem Workflow passt. **Monthly Pro** ist die erste Wahl für Profis.",
     "pass7": {
       "name": "7-Tage-Pass",
-      "price": ".99",
+      "price": "$9.99",
       "desc": "Für ein einzelnes, wichtiges Projekt."
     },
     "monthly": {
       "name": "Monatlicher Plan",
-      "price": ".99",
+      "price": "$14.99",
       "desc": "Unsere Empfehlung. Unbegrenzte Freiheit für Ihre Kreativität."
     },
     "yearly": {
       "name": "Jahresplan",
-      "price": ".99",
+      "price": "$149.99",
       "desc": "Der beste Wert für langfristige Power-User."
     }
   },

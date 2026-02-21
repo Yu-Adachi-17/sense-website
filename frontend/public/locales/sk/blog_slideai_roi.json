@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Získajte 100 hodín navyše",
     "p_desc": "Vyberte si plán, ktorý vyhovuje vášmu workflow. **Monthly Pro** je preferovanou voľbou pre profesionálov.",
-    "pass7": { "name": "7-dňový pas", "price": ".99", "desc": "Pre jednorazový, dôležitý projekt." },
-    "monthly": { "name": "Mesačný plán", "price": ".99", "desc": "Naša najodporúčanejšia voľba. Neobmedzená tvorba." },
-    "yearly": { "name": "Ročný plán", "price": ".99", "desc": "Najlepšia hodnota pre dlhodobých užívateľov." }
+    "pass7": { "name": "7-dňový pas", "price": "$9.99", "desc": "Pre jednorazový, dôležitý projekt." },
+    "monthly": { "name": "Mesačný plán", "price": "$9.99", "desc": "Naša najodporúčanejšia voľba. Neobmedzená tvorba." },
+    "yearly": { "name": "Ročný plán", "price": "$14.99", "desc": "Najlepšia hodnota pre dlhodobých užívateľov." }
   },
   "cta": {
     "h3": "Získajte svoj čas späť.",

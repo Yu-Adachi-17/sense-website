@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Claim je Overschot van 100 Uur",
     "p_desc": "Kies het plan dat je workflow optimaliseert. **Monthly Pro** is de favoriete keuze voor professionals.",
-    "pass7": { "name": "7-Dagen Pas", "price": ".99", "desc": "Voor een eenmalige high-impact pitch of project." },
-    "monthly": { "name": "Maandelijks Plan", "price": ".99", "desc": "Onze meest aanbevolen keuze. Onbeperkte creatie." },
-    "yearly": { "name": "Jaarlijks Plan", "price": ".99", "desc": "De beste waarde voor langdurige power-users." }
+    "pass7": { "name": "7-Dagen Pas", "price": "$9.99", "desc": "Voor een eenmalige high-impact pitch of project." },
+    "monthly": { "name": "Maandelijks Plan", "price": "$9.99", "desc": "Onze meest aanbevolen keuze. Onbeperkte creatie." },
+    "yearly": { "name": "Jaarlijks Plan", "price": "$14.99", "desc": "De beste waarde voor langdurige power-users." }
   },
   "cta": {
     "h3": "Krijg je Tijd Vandaag Terug.",

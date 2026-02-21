@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Rivendica il tuo Surplus di 100 Ore",
     "p_desc": "Scegli il piano che massimizza il tuo flusso di lavoro. **Monthly Pro** è la scelta preferita dai professionisti.",
-    "pass7": { "name": "Pass 7 Giorni", "price": ".99", "desc": "Per un singolo pitch o progetto ad alto impatto." },
-    "monthly": { "name": "Piano Mensile", "price": ".99", "desc": "La nostra scelta più consigliata. Creazione illimitata." },
-    "yearly": { "name": "Piano Annuale", "price": ".99", "desc": "Il miglior valore per utenti esperti a lungo termine." }
+    "pass7": { "name": "Pass 7 Giorni", "price": "$9.99", "desc": "Per un singolo pitch o progetto ad alto impatto." },
+    "monthly": { "name": "Piano Mensile", "price": "$9.99", "desc": "La nostra scelta più consigliata. Creazione illimitata." },
+    "yearly": { "name": "Piano Annuale", "price": "$14.99", "desc": "Il miglior valore per utenti esperti a lungo termine." }
   },
   "cta": {
     "h3": "Riprenditi il tuo Tempo Oggi.",

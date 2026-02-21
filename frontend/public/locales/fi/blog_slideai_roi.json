@@ -34,9 +34,9 @@
   "plans": {
     "h2": "Lunasta 100 tunnin aikabonus",
     "p_desc": "Valitse työnkulkuusi sopiva tilaus. **Monthly Pro** on ammattilaisten suosikki.",
-    "pass7": { "name": "7 päivän passi", "price": ".99", "desc": "Yksittäiseen tärkeään projektiin." },
-    "monthly": { "name": "Kuukausitilaus", "price": ".99", "desc": "Suositeltu valinta. Rajaton vapaus." },
-    "yearly": { "name": "Vuositilaus", "price": ".99", "desc": "Paras arvo pitkäaikaiselle tehokäyttäjälle." }
+    "pass7": { "name": "7 päivän passi", "price": "$9.99", "desc": "Yksittäiseen tärkeään projektiin." },
+    "monthly": { "name": "Kuukausitilaus", "price": "$9.99", "desc": "Suositeltu valinta. Rajaton vapaus." },
+    "yearly": { "name": "Vuositilaus", "price": "$14.99", "desc": "Paras arvo pitkäaikaiselle tehokäyttäjälle." }
   },
   "cta": {
     "h3": "Ota aikasi takaisin tänään.",
