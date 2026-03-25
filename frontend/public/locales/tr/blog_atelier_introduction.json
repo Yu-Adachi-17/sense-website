@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: AI Web Sitesi Oluşturucu — iPhone'unuzdan Muhteşem Bir Site Oluşturun",
+    "description": "Atelier basit bir açıklamayı dakikalar içinde profesyonel, canlı bir web sitesine dönüştürür. Kod yok, bilgisayar gerekmez. Portfolyolar, iş sayfaları, rezervasyon siteleri ve daha fazlasını oluşturun — hepsi telefonunuzdan.",
+    "ogTitle": "Atelier: AI ile Dakikalar İçinde Güzel Bir Web Sitesi Başlatın",
+    "ogDescription": "Fikirden canlı siteye dakikalar içinde. Atelier, telefonunuz için tasarlanmış AI web sitesi oluşturucudur — kodsuz oluşturun, düzenleyin ve yayınlayın."
+  },
+  "aria": { "home": "Atelier Ana Sayfa" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "iOS'ta Şimdi Mevcut",
+    "h1": "Bir Sonraki Web Siteniz<br>Tek Bir Cümleyle Başlıyor.",
+    "tagline": "Atelier, basit bir açıklamayı profesyonel, canlı bir web sitesine dönüştüren AI web sitesi oluşturucudur — hepsi iPhone'unuzdan. Kod yok, tasarım araçları yok, baş ağrısı yok. Sadece ne istediğinizi anlatın ve yayınlayın.",
+    "badges": ["AI Destekli", "Mobil Öncelikli", "Anında Yayınla"]
+  },
+  "demo": {
+    "h2": "Açıklamadan Yayına — Dakikalar İçinde",
+    "p1": "Atelier'den New York Central Park yakınında açılan yeni bir kafe için güzel, ilkbahar temalı bir tasarımla web sitesi oluşturmasını istedik. İşte iPhone'da tek bir açıklamadan anında oluşturduğu sonuç.",
+    "prompt_label": "Prompt (Kendiniz deneyin):",
+    "prompt_text": "\"Central Park yakınında, New York'ta açılan yeni bir kafe için bir ana sayfa oluştur. Yumuşak pastel renkler, kiraz çiçekleri ve davetkar bir atmosferle güzel bir ilkbahar temalı tasarım kullan. Karşılama bölümü, menü öne çıkanları, konum bilgisi ve rezervasyon butonu ekle.\"",
+    "output_label": "Oluşturulan Web Sitesi (Anında Oluşturuldu):"
+  },
+  "features": {
+    "h2": "İhtiyacınız Olan Her Şey, İhtiyacınız Olmayan Hiçbir Şey",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Açıklamadan Oluştur",
+        "desc": "İşletmenizi, portfolyonuzu veya fikrinizi anlatın — Atelier temiz düzenler ve gerçek içerikle eksiksiz, çok bölümlü bir web sitesi oluşturur."
+      },
+      {
+        "icon": "edit",
+        "title": "Kodsuz Düzenle",
+        "desc": "Metin değiştirmek, bölümleri yeniden düzenlemek, görselleri güncellemek ve tasarımınızı iyileştirmek için dokunun. Tam yaratıcı kontrol, sıfır teknik bilgi gerekli."
+      },
+      {
+        "icon": "globe",
+        "title": "Anında Yayınla",
+        "desc": "Tek bir dokunuşla benzersiz bir Atelier URL'sinde yayına geçin. Siteniz anında dünyanın her yerinden herkes tarafından erişilebilir."
+      },
+      {
+        "icon": "mobile",
+        "title": "Mobil İçin Tasarlandı",
+        "desc": "Tüm süreç — oluşturmadan yayınlamaya — telefonunuz için tasarlanmıştır. Sitenizi her yerden, her zaman güncelleyin."
+      },
+      {
+        "icon": "bolt",
+        "title": "Her Kullanım İçin Mükemmel",
+        "desc": "Kuaförler, restoranlar, portfolyolar, rezervasyon sayfaları, link sayfaları, kişisel markalar — Atelier vizyonunuza uyum sağlar."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "İçerik Üreticileri, Girişimciler ve Küçük İşletmeler İçin",
+    "items": [
+      "Portfolyo ve kişisel marka siteleri",
+      "Yerel işletmeler — kafeler, kuaförler, restoranlar",
+      "Freelancer ve içerik üreticisi açılış sayfaları",
+      "Rezervasyon ve randevu sayfaları",
+      "Link-in-bio ve sosyal medya hub sayfaları",
+      "Etkinlik ve lansman sayfaları"
+    ]
+  },
+  "cta": {
+    "h3": "Web Siteniz Tek Bir Cümle Uzağınızda",
+    "p": "Atelier'i ücretsiz indirin ve sitenizi bugün başlatın.",
+    "download": "App Store'dan İndir"
+  },
+  "legal": {
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları"
+  }
+}

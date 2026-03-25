@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Kreator stron AI — Stwórz oszałamiającą stronę z iPhone'a",
+    "description": "Atelier zamienia prosty opis w profesjonalną, działającą stronę internetową w kilka minut. Bez kodowania, bez komputera. Twórz portfolio, strony firmowe, strony rezerwacji i więcej — wszystko z telefonu.",
+    "ogTitle": "Atelier: Uruchom piękną stronę internetową w minuty dzięki AI",
+    "ogDescription": "Od pomysłu do działającej strony w minuty. Atelier to kreator stron AI zaprojektowany na twój telefon — twórz, edytuj i publikuj bez kodu."
+  },
+  "aria": { "home": "Strona główna Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Już dostępne na iOS",
+    "h1": "Twoja następna strona<br>zaczyna się od jednego zdania.",
+    "tagline": "Atelier to kreator stron AI, który zamienia prosty opis w profesjonalną, działającą stronę internetową — wszystko z iPhone'a. Bez kodowania, bez narzędzi do projektowania, bez komplikacji. Po prostu opisz czego chcesz i publikuj.",
+    "badges": ["Napędzane AI", "Mobile-first", "Natychmiastowa publikacja"]
+  },
+  "demo": {
+    "h2": "Od opisu do publikacji — w minuty",
+    "p1": "Poprosiliśmy Atelier o stworzenie strony internetowej dla nowej kawiarni otwierającej się w pobliżu Central Parku w Nowym Jorku — z pięknym wiosennym designem. Oto co stworzył natychmiast z jednego opisu na iPhone.",
+    "prompt_label": "Prompt (Spróbuj sam):",
+    "prompt_text": "\"Stwórz stronę główną dla nowej kawiarni otwierającej się w pobliżu Central Parku, Nowy Jork. Użyj pięknego wiosennego designu z delikatnymi pastelami, kwiatami wiśni i zapraszającą atmosferą. Dodaj sekcję powitalną, wyróżnione pozycje z menu, informacje o lokalizacji i przycisk rezerwacji.\"",
+    "output_label": "Wygenerowana strona (Stworzona natychmiast):"
+  },
+  "features": {
+    "h2": "Wszystko czego potrzebujesz, nic zbędnego",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generuj z opisu",
+        "desc": "Opisz swój biznes, portfolio lub pomysł — Atelier tworzy kompletną, wielosekcyjną stronę z czystymi układami i prawdziwą treścią."
+      },
+      {
+        "icon": "edit",
+        "title": "Edytuj bez kodu",
+        "desc": "Dotknij, aby zmienić tekst, przestawić sekcje, zaktualizować obrazy i dopracować design. Pełna kontrola kreatywna, zero wiedzy technicznej."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikuj natychmiast",
+        "desc": "Uruchom stronę na unikalnym adresie URL Atelier jednym dotknięciem. Twoja strona jest natychmiast dostępna dla każdego, gdziekolwiek na świecie."
+      },
+      {
+        "icon": "mobile",
+        "title": "Stworzone na telefon",
+        "desc": "Cały proces — od tworzenia po publikację — jest zaprojektowany na twój telefon. Aktualizuj swoją stronę z dowolnego miejsca, o dowolnej porze."
+      },
+      {
+        "icon": "bolt",
+        "title": "Idealne do każdego zastosowania",
+        "desc": "Salony, restauracje, portfolio, strony rezerwacji, strony z linkami, marki osobiste — Atelier dostosowuje się do twojej wizji."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Stworzone dla twórców, przedsiębiorców i małych firm",
+    "items": [
+      "Strony portfolio i personal branding",
+      "Lokalne firmy — kawiarnie, salony, restauracje",
+      "Strony docelowe dla freelancerów i twórców",
+      "Strony rezerwacji i zapisów",
+      "Strony link-in-bio i social hub",
+      "Strony wydarzeń i premier"
+    ]
+  },
+  "cta": {
+    "h3": "Twoja strona jest jedno zdanie stąd",
+    "p": "Pobierz Atelier za darmo i uruchom swoją stronę już dziś.",
+    "download": "Pobierz z App Store"
+  },
+  "legal": {
+    "privacy": "Polityka prywatności",
+    "terms": "Warunki korzystania"
+  }
+}

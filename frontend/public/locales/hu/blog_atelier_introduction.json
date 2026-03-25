@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: AI weboldal-készítő — Készíts lenyűgöző weboldalt iPhone-odról",
+    "description": "Az Atelier egy egyszerű leírásból percek alatt professzionális, élő weboldalt készít. Kódolás és számítógép nélkül. Készíts portfóliókat, üzleti oldalakat, foglalási oldalakat és még többet — mindezt a telefonodról.",
+    "ogTitle": "Atelier: Indíts el egy gyönyörű weboldalt percek alatt AI-val",
+    "ogDescription": "Ötlettől az élő oldalig percek alatt. Az Atelier a telefonodra tervezett AI weboldal-készítő — kódolás nélkül készíts, szerkessz és publikálj."
+  },
+  "aria": { "home": "Atelier Kezdőlap" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Mostantól elérhető iOS-en",
+    "h1": "A következő weboldalad<br>egyetlen mondattal kezdődik.",
+    "tagline": "Az Atelier egy AI weboldal-készítő, amely egy egyszerű leírásból professzionális, élő weboldalt készít — mindezt az iPhone-odról. Kódolás nélkül, tervezőeszközök nélkül, bonyodalmak nélkül. Csak írd le, mit szeretnél, és publikálj.",
+    "badges": ["AI-vezérelt", "Mobilra tervezve", "Azonnali publikálás"]
+  },
+  "demo": {
+    "h2": "Leírástól a publikálásig — percek alatt",
+    "p1": "Megkértük az Atelier-t, hogy készítsen egy weboldalt egy új kávézónak a New York-i Central Park közelében — gyönyörű, tavasz ihlette dizájnnal. Íme, amit azonnal létrehozott egyetlen leírásból egy iPhone-on.",
+    "prompt_label": "A prompt (Próbáld ki magad):",
+    "prompt_text": "\"Készíts egy kezdőlapot egy új kávézónak a Central Park közelében, New York. Használj szép, tavasz ihlette dizájnt lágy pasztellszínekkel, cseresznyevirágokkal és meghívó hangulattal. Tartalmazzon üdvözlő részt, menü kiemeléseket, helyszín információt és foglalás gombot.\"",
+    "output_label": "Generált weboldal (Azonnal létrehozva):"
+  },
+  "features": {
+    "h2": "Minden, amire szükséged van, semmi, amire nem",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generálj leírásból",
+        "desc": "Írd le a vállalkozásod, portfóliód vagy ötleted — az Atelier teljes, többszekciós weboldalt készít tiszta elrendezésekkel és valódi tartalommal."
+      },
+      {
+        "icon": "edit",
+        "title": "Szerkessz kód nélkül",
+        "desc": "Koppints a szöveg módosításához, szekciók átrendezéséhez, képek frissítéséhez és a dizájn finomításához. Teljes kreatív kontroll, nulla technikai tudás szükséges."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikálj azonnal",
+        "desc": "Lépj élőbe egyedi Atelier URL-en egyetlen koppintással. A weboldalad azonnal elérhető bárki számára, a világ bármely pontján."
+      },
+      {
+        "icon": "mobile",
+        "title": "Mobilra tervezve",
+        "desc": "A teljes munkafolyamat — a létrehozástól a publikálásig — a telefonodra van tervezve. Frissítsd a weboldalad bárhonnan, bármikor."
+      },
+      {
+        "icon": "bolt",
+        "title": "Tökéletes bármilyen célra",
+        "desc": "Szalonok, éttermek, portfóliók, foglalási oldalak, link oldalak, személyes márkák — az Atelier alkalmazkodik a víziódhoz."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Alkotóknak, vállalkozóknak és kisvállalkozásoknak",
+    "items": [
+      "Portfólió és személyes márkaépítő oldalak",
+      "Helyi vállalkozások — kávézók, szalonok, éttermek",
+      "Szabadúszó és alkotó landing oldalak",
+      "Foglalási és időpontfoglaló oldalak",
+      "Link-in-bio és közösségi média hub oldalak",
+      "Esemény és indító oldalak"
+    ]
+  },
+  "cta": {
+    "h3": "A weboldalad egyetlen mondat távolságra van",
+    "p": "Töltsd le az Atelier-t ingyen és indítsd el a weboldalad még ma.",
+    "download": "Letöltés az App Store-ból"
+  },
+  "legal": {
+    "privacy": "Adatvédelmi irányelvek",
+    "terms": "Felhasználási feltételek"
+  }
+}

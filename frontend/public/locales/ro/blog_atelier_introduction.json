@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Creator de site-uri web cu AI — Creează un site uimitor de pe iPhone",
+    "description": "Atelier transformă o simplă descriere într-un site web profesional și live în câteva minute. Fără cod, fără calculator. Creează portofolii, pagini de afaceri, site-uri de rezervări și mai mult — totul de pe telefon.",
+    "ogTitle": "Atelier: Lansează un site web frumos în câteva minute cu AI",
+    "ogDescription": "De la idee la site live în minute. Atelier este creatorul de site-uri web cu AI conceput pentru telefonul tău — creează, editează și publică fără cod."
+  },
+  "aria": { "home": "Pagina principală Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Disponibil acum pe iOS",
+    "h1": "Următorul tău site web<br>începe cu o propoziție.",
+    "tagline": "Atelier este un creator de site-uri web cu AI care transformă o simplă descriere într-un site web profesional și live — totul de pe iPhone-ul tău. Fără cod, fără instrumente de design, fără bătăi de cap. Descrie pur și simplu ce vrei și publică.",
+    "badges": ["Cu AI", "Mobile-First", "Publicare instantanee"]
+  },
+  "demo": {
+    "h2": "De la descriere la publicare — în câteva minute",
+    "p1": "Am cerut Atelier să creeze un site web pentru o cafenea nouă care se deschide lângă Central Park, New York — cu un design frumos inspirat de primăvară. Iată ce a creat instantaneu, dintr-o singură descriere pe iPhone.",
+    "prompt_label": "Prompt-ul (Încearcă singur):",
+    "prompt_text": "\"Creează o pagină principală pentru o cafenea nouă care se deschide lângă Central Park, New York. Folosește un design frumos inspirat de primăvară cu pasteluri delicate, flori de cireș și o atmosferă primitoare. Include o secțiune de bun venit, preparate recomandate din meniu, informații despre locație și un buton de rezervare.\"",
+    "output_label": "Site web generat (Creat instantaneu):"
+  },
+  "features": {
+    "h2": "Tot ce ai nevoie, nimic ce nu ai nevoie",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generează dintr-o descriere",
+        "desc": "Descrie afacerea, portofoliul sau ideea ta — Atelier construiește un site complet cu secțiuni multiple, layout-uri curate și conținut real."
+      },
+      {
+        "icon": "edit",
+        "title": "Editează fără cod",
+        "desc": "Atinge pentru a schimba textul, rearanja secțiunile, actualiza imaginile și rafina designul. Control creativ total, zero cunoștințe tehnice necesare."
+      },
+      {
+        "icon": "globe",
+        "title": "Publică instantaneu",
+        "desc": "Fii live pe un URL Atelier unic cu o singură atingere. Site-ul tău este imediat accesibil oricui, oriunde în lume."
+      },
+      {
+        "icon": "mobile",
+        "title": "Creat pentru mobil",
+        "desc": "Întregul flux de lucru — de la creare la publicare — este conceput pentru telefonul tău. Actualizează site-ul de oriunde, oricând."
+      },
+      {
+        "icon": "bolt",
+        "title": "Perfect pentru orice utilizare",
+        "desc": "Saloane, restaurante, portofolii, pagini de rezervări, pagini de linkuri, branduri personale — Atelier se adaptează viziunii tale."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Creat pentru creatori, antreprenori și afaceri mici",
+    "items": [
+      "Site-uri de portofoliu și personal branding",
+      "Afaceri locale — cafenele, saloane, restaurante",
+      "Landing pages pentru freelanceri și creatori",
+      "Pagini de rezervări și programări",
+      "Pagini link-in-bio și social hub",
+      "Pagini de evenimente și lansări"
+    ]
+  },
+  "cta": {
+    "h3": "Site-ul tău e la o propoziție distanță",
+    "p": "Descarcă Atelier gratuit și lansează site-ul tău astăzi.",
+    "download": "Descarcă din App Store"
+  },
+  "legal": {
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termeni și condiții"
+  }
+}

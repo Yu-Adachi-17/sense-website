@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: AI tvorca webových stránok — Vytvorte úžasný web z iPhonu",
+    "description": "Atelier premení jednoduchý popis na profesionálny, živý web za pár minút. Bez programovania, bez počítača. Vytvárajte portfóliá, firemné stránky, rezervačné weby a viac — všetko z telefónu.",
+    "ogTitle": "Atelier: Spustite krásny web za pár minút vďaka AI",
+    "ogDescription": "Od nápadu k živému webu za minúty. Atelier je AI tvorca webov navrhnutý pre váš telefón — tvorte, upravujte a publikujte bez kódu."
+  },
+  "aria": { "home": "Atelier Domov" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Teraz dostupné na iOS",
+    "h1": "Váš ďalší web<br>začína jednou vetou.",
+    "tagline": "Atelier je AI tvorca webov, ktorý premení jednoduchý popis na profesionálny, živý web — všetko z vášho iPhonu. Bez programovania, bez dizajnových nástrojov, bez komplikácií. Stačí opísať, čo chcete, a publikovať.",
+    "badges": ["Poháňané AI", "Mobilný prístup", "Okamžitá publikácia"]
+  },
+  "demo": {
+    "h2": "Od popisu po publikáciu — za pár minút",
+    "p1": "Požiadali sme Atelier, aby vytvoril web pre novú kaviareň otvárajúcu sa pri Central Parku v New Yorku — s krásnym jarným dizajnom. Tu je to, čo vytvoril okamžite z jedného popisu na iPhone.",
+    "prompt_label": "Zadanie (Vyskúšajte sami):",
+    "prompt_text": "\"Vytvor domovskú stránku pre novú kaviareň otvárajúcu sa pri Central Parku, New York. Použi krásny jarný dizajn s jemnými pastelovými farbami, čerešňovými kvetmi a príjemnou atmosférou. Zahrň uvítaciu sekciu, výber z jedálneho lístka, informácie o polohe a tlačidlo rezervácie.\"",
+    "output_label": "Vygenerovaný web (Vytvorený okamžite):"
+  },
+  "features": {
+    "h2": "Všetko, čo potrebujete, nič zbytočné",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Vygenerujte z popisu",
+        "desc": "Opíšte svoj biznis, portfólio alebo nápad — Atelier vytvorí kompletný web s viacerými sekciami, čistým rozložením a reálnym obsahom."
+      },
+      {
+        "icon": "edit",
+        "title": "Upravujte bez kódu",
+        "desc": "Ťuknutím meňte texty, presúvajte sekcie, aktualizujte obrázky a vylepšujte dizajn. Plná kreatívna kontrola, nulové technické znalosti."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikujte okamžite",
+        "desc": "Spustite web na unikátnej Atelier URL jedným ťuknutím. Váš web je okamžite dostupný komukoľvek, kdekoľvek na svete."
+      },
+      {
+        "icon": "mobile",
+        "title": "Navrhnuté pre mobil",
+        "desc": "Celý proces — od vytvorenia po publikáciu — je navrhnutý pre váš telefón. Aktualizujte svoj web odkiaľkoľvek a kedykoľvek."
+      },
+      {
+        "icon": "bolt",
+        "title": "Ideálne pre akékoľvek využitie",
+        "desc": "Salóny, reštaurácie, portfóliá, rezervačné stránky, linkové stránky, osobné značky — Atelier sa prispôsobí vašej vízii."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Pre tvorcov, podnikateľov a malé firmy",
+    "items": [
+      "Portfóliá a osobné brandingové weby",
+      "Miestne podniky — kaviarne, salóny, reštaurácie",
+      "Landing page pre freelancerov a tvorcov",
+      "Rezervačné stránky",
+      "Link-in-bio a sociálne hub stránky",
+      "Eventové a launch stránky"
+    ]
+  },
+  "cta": {
+    "h3": "Váš web je na jednu vetu ďaleko",
+    "p": "Stiahnite si Atelier zadarmo a spustite svoj web ešte dnes.",
+    "download": "Stiahnuť na App Store"
+  },
+  "legal": {
+    "privacy": "Zásady ochrany osobných údajov",
+    "terms": "Podmienky používania"
+  }
+}
