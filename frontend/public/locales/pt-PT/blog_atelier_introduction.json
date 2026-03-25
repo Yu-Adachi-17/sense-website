@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Criador de Sites com IA — Crie um Site Deslumbrante do Seu iPhone",
+    "description": "O Atelier transforma uma simples descrição num site profissional e publicado em minutos. Sem código, sem computador. Crie portfolios, páginas de negócio, sites de reservas e mais — tudo do seu telemóvel.",
+    "ogTitle": "Atelier: Lance um Site Bonito em Minutos com IA",
+    "ogDescription": "Da ideia ao site publicado em minutos. O Atelier é o criador de sites com IA desenhado para o seu telemóvel — crie, edite e publique sem código."
+  },
+  "aria": { "home": "Início Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Já Disponível no iOS",
+    "h1": "O seu próximo site<br>começa com uma frase.",
+    "tagline": "O Atelier é um criador de sites com IA que transforma uma simples descrição num site profissional e publicado — tudo do seu iPhone. Sem código, sem ferramentas de design, sem complicações. Descreva o que pretende e publique.",
+    "badges": ["Com IA", "Mobile-First", "Publicação Instantânea"]
+  },
+  "demo": {
+    "h2": "Da Descrição à Publicação — em Minutos",
+    "p1": "Pedimos ao Atelier para criar um site para um novo café junto ao Central Park, Nova Iorque — com um belo design inspirado na primavera. Eis o que criou instantaneamente, a partir de uma única descrição no iPhone.",
+    "prompt_label": "O Prompt (Experimente você mesmo):",
+    "prompt_text": "\"Cria uma página inicial para um novo café junto ao Central Park, Nova Iorque. Utiliza um belo design primaveril com tons pastel suaves, flores de cerejeira e uma atmosfera acolhedora. Inclui uma secção de boas-vindas, destaques da ementa, informação de localização e um botão de reserva.\"",
+    "output_label": "Site Gerado (Criado Instantaneamente):"
+  },
+  "features": {
+    "h2": "Tudo o Que Precisa, Nada Que Não Precisa",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Gere a Partir de uma Descrição",
+        "desc": "Descreva o seu negócio, portfolio ou ideia — o Atelier cria um site completo com múltiplas secções, layouts limpos e conteúdo real."
+      },
+      {
+        "icon": "edit",
+        "title": "Edite Sem Código",
+        "desc": "Toque para alterar texto, reorganizar secções, actualizar imagens e refinar o seu design. Controlo criativo total, zero conhecimentos técnicos necessários."
+      },
+      {
+        "icon": "globe",
+        "title": "Publique Instantaneamente",
+        "desc": "Fique online num URL Atelier único com um toque. O seu site fica imediatamente acessível a qualquer pessoa, em qualquer parte do mundo."
+      },
+      {
+        "icon": "mobile",
+        "title": "Feito para Telemóvel",
+        "desc": "Todo o fluxo de trabalho — da criação à publicação — foi desenhado para o seu telemóvel. Actualize o seu site de qualquer lugar, a qualquer hora."
+      },
+      {
+        "icon": "bolt",
+        "title": "Perfeito para Qualquer Utilização",
+        "desc": "Cabeleireiros, restaurantes, portfolios, páginas de reserva, páginas de ligações, marcas pessoais — o Atelier adapta-se à sua visão."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Feito para Criadores, Empreendedores e Pequenos Negócios",
+    "items": [
+      "Sites de portfolio e marca pessoal",
+      "Negócios locais — cafés, cabeleireiros, restaurantes",
+      "Landing pages para freelancers e criadores",
+      "Páginas de reservas e marcações",
+      "Páginas link-in-bio e hub social",
+      "Páginas de eventos e lançamentos"
+    ]
+  },
+  "cta": {
+    "h3": "O Seu Site Está a Uma Frase de Distância",
+    "p": "Descarregue o Atelier gratuitamente e lance o seu site hoje.",
+    "download": "Descarregar na App Store"
+  },
+  "legal": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Utilização"
+  }
+}

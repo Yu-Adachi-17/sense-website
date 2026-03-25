@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Pembuat Website AI — Buat Situs Menakjubkan dari iPhone Anda",
+    "description": "Atelier mengubah deskripsi sederhana menjadi website profesional dan live dalam hitungan menit. Tanpa coding, tanpa komputer. Buat portfolio, halaman bisnis, situs booking, dan lainnya — semua dari ponsel Anda.",
+    "ogTitle": "Atelier: Luncurkan Website Cantik dalam Menit dengan AI",
+    "ogDescription": "Dari ide ke situs live dalam menit. Atelier adalah pembuat website AI yang dirancang untuk ponsel Anda — buat, edit, dan publikasikan tanpa kode."
+  },
+  "aria": { "home": "Beranda Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Tersedia Sekarang di iOS",
+    "h1": "Website Anda Selanjutnya<br>Dimulai dengan Satu Kalimat.",
+    "tagline": "Atelier adalah pembuat website AI yang mengubah deskripsi sederhana menjadi website profesional dan live — semua dari iPhone Anda. Tanpa coding, tanpa alat desain, tanpa ribet. Cukup deskripsikan yang Anda inginkan dan publikasikan.",
+    "badges": ["Didukung AI", "Mobile-First", "Publikasi Instan"]
+  },
+  "demo": {
+    "h2": "Dari Deskripsi ke Publikasi — dalam Menit",
+    "p1": "Kami meminta Atelier membuat website untuk kafe baru yang buka dekat Central Park, New York — dengan desain cantik bertema musim semi. Inilah yang dibuatnya secara instan, dari satu prompt di iPhone.",
+    "prompt_label": "Prompt-nya (Coba sendiri):",
+    "prompt_text": "\"Buat halaman utama untuk kafe baru yang buka dekat Central Park, New York. Gunakan desain cantik bertema musim semi dengan warna pastel lembut, bunga sakura, dan suasana yang mengundang. Sertakan bagian sambutan, menu unggulan, info lokasi, dan tombol reservasi.\"",
+    "output_label": "Website yang Dihasilkan (Dibuat Secara Instan):"
+  },
+  "features": {
+    "h2": "Semua yang Anda Butuhkan, Tanpa yang Tidak",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generate dari Deskripsi",
+        "desc": "Deskripsikan bisnis, portfolio, atau ide Anda — Atelier membangun website lengkap multi-seksi dengan tata letak bersih dan konten nyata."
+      },
+      {
+        "icon": "edit",
+        "title": "Edit Tanpa Kode",
+        "desc": "Ketuk untuk mengubah teks, mengatur ulang seksi, memperbarui gambar, dan menyempurnakan desain Anda. Kontrol kreatif penuh, tanpa pengetahuan teknis."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikasi Instan",
+        "desc": "Go live di URL Atelier unik dengan satu ketukan. Website Anda langsung dapat diakses siapa saja, di mana saja di dunia."
+      },
+      {
+        "icon": "mobile",
+        "title": "Dibuat untuk Mobile",
+        "desc": "Seluruh alur kerja — dari pembuatan hingga publikasi — dirancang untuk ponsel Anda. Perbarui situs Anda dari mana saja, kapan saja."
+      },
+      {
+        "icon": "bolt",
+        "title": "Cocok untuk Segala Kebutuhan",
+        "desc": "Salon, restoran, portfolio, halaman booking, halaman link, brand pribadi — Atelier menyesuaikan dengan visi Anda."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Dibuat untuk Kreator, Pengusaha & Bisnis Kecil",
+    "items": [
+      "Situs portfolio & personal branding",
+      "Bisnis lokal — kafe, salon, restoran",
+      "Landing page untuk freelancer & kreator",
+      "Halaman booking & reservasi",
+      "Halaman link-in-bio & social hub",
+      "Halaman event & peluncuran"
+    ]
+  },
+  "cta": {
+    "h3": "Website Anda Hanya Satu Kalimat Lagi",
+    "p": "Download Atelier gratis dan luncurkan situs Anda hari ini.",
+    "download": "Download di App Store"
+  },
+  "legal": {
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Penggunaan"
+  }
+}

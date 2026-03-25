@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: KI-Website-Baukasten — Erstelle eine beeindruckende Website vom iPhone",
+    "description": "Atelier verwandelt eine einfache Beschreibung in eine professionelle, live Website in Minuten. Keine Programmierung, kein Desktop nötig. Erstelle Portfolios, Geschäftsseiten, Buchungsseiten und mehr — alles vom Handy.",
+    "ogTitle": "Atelier: Starte eine schöne Website in Minuten mit KI",
+    "ogDescription": "Von der Idee zur Live-Website in Minuten. Atelier ist der KI-Website-Baukasten für dein Handy — erstelle, bearbeite und veröffentliche ohne Code."
+  },
+  "aria": { "home": "Atelier Startseite" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Jetzt verfügbar für iOS",
+    "h1": "Deine nächste Website<br>beginnt mit einem Satz.",
+    "tagline": "Atelier ist ein KI-Website-Baukasten, der eine einfache Beschreibung in eine professionelle, live Website verwandelt — alles von deinem iPhone. Keine Programmierung, keine Design-Tools, kein Aufwand. Beschreibe einfach, was du willst, und veröffentliche.",
+    "badges": ["KI-gestützt", "Mobile-First", "Sofort veröffentlichen"]
+  },
+  "demo": {
+    "h2": "Von der Beschreibung zur Veröffentlichung — in Minuten",
+    "p1": "Wir haben Atelier gebeten, eine Website für ein neues Café in der Nähe des Central Parks in New York zu erstellen — mit einem wunderschönen, frühlingsinspirierten Design. Hier ist, was es sofort aus einer einzigen Beschreibung auf dem iPhone erstellt hat.",
+    "prompt_label": "Der Prompt (Probier es selbst):",
+    "prompt_text": "\"Erstelle eine Homepage für ein neues Café in der Nähe des Central Parks, New York. Verwende ein schönes, frühlingsinspiriertes Design mit sanften Pastelltönen, Kirschblüten und einer einladenden Atmosphäre. Füge einen Willkommensbereich, Menü-Highlights, Standortinfos und einen Reservierungsbutton hinzu.\"",
+    "output_label": "Generierte Website (Sofort erstellt):"
+  },
+  "features": {
+    "h2": "Alles was du brauchst, nichts was du nicht brauchst",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generiere aus einer Beschreibung",
+        "desc": "Beschreibe dein Unternehmen, Portfolio oder deine Idee — Atelier erstellt eine vollständige, mehrteilige Website mit klaren Layouts und echten Inhalten."
+      },
+      {
+        "icon": "edit",
+        "title": "Bearbeite ohne Code",
+        "desc": "Tippe, um Texte zu ändern, Abschnitte umzuordnen, Bilder zu aktualisieren und dein Design zu verfeinern. Volle kreative Kontrolle, null technisches Wissen nötig."
+      },
+      {
+        "icon": "globe",
+        "title": "Sofort veröffentlichen",
+        "desc": "Gehe mit einem Tipp auf einer einzigartigen Atelier-URL live. Deine Website ist sofort für jeden, überall auf der Welt, erreichbar."
+      },
+      {
+        "icon": "mobile",
+        "title": "Für Mobilgeräte gebaut",
+        "desc": "Der gesamte Workflow — von der Erstellung bis zur Veröffentlichung — ist für dein Handy konzipiert. Aktualisiere deine Website von überall, jederzeit."
+      },
+      {
+        "icon": "bolt",
+        "title": "Perfekt für jeden Anwendungsfall",
+        "desc": "Salons, Restaurants, Portfolios, Buchungsseiten, Link-Seiten, Personal Brands — Atelier passt sich deiner Vision an."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Gemacht für Kreative, Unternehmer und kleine Betriebe",
+    "items": [
+      "Portfolio- und Personal-Branding-Websites",
+      "Lokale Unternehmen — Cafés, Salons, Restaurants",
+      "Freelancer- und Creator-Landingpages",
+      "Buchungs- und Reservierungsseiten",
+      "Link-in-Bio- und Social-Hub-Seiten",
+      "Event- und Launch-Seiten"
+    ]
+  },
+  "cta": {
+    "h3": "Deine Website ist nur einen Satz entfernt",
+    "p": "Lade Atelier kostenlos herunter und starte deine Website noch heute.",
+    "download": "Im App Store laden"
+  },
+  "legal": {
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Creador de sitios web con IA — Crea un sitio impresionante desde tu iPhone",
+    "description": "Atelier convierte una simple descripción en un sitio web profesional y publicado en minutos. Sin programar, sin computadora. Crea portfolios, páginas de negocios, sitios de reservas y más — todo desde tu teléfono.",
+    "ogTitle": "Atelier: Lanza un sitio web hermoso en minutos con IA",
+    "ogDescription": "De la idea al sitio en vivo en minutos. Atelier es el creador de sitios web con IA diseñado para tu teléfono — crea, edita y publica sin código."
+  },
+  "aria": { "home": "Inicio de Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Ya disponible en iOS",
+    "h1": "Tu próximo sitio web<br>comienza con una frase.",
+    "tagline": "Atelier es un creador de sitios web con IA que convierte una simple descripción en un sitio web profesional y publicado — todo desde tu iPhone. Sin programar, sin herramientas de diseño, sin complicaciones. Solo describe lo que quieres y publica.",
+    "badges": ["Impulsado por IA", "Diseño móvil", "Publicación instantánea"]
+  },
+  "demo": {
+    "h2": "De la descripción a la publicación — en minutos",
+    "p1": "Le pedimos a Atelier que creara un sitio web para una nueva cafetería que abre cerca de Central Park, Nueva York — con un hermoso diseño inspirado en la primavera. Esto es lo que creó al instante, desde un solo prompt en un iPhone.",
+    "prompt_label": "El Prompt (Pruébalo tú mismo):",
+    "prompt_text": "\"Crea una página de inicio para una nueva cafetería que abre cerca de Central Park, Nueva York. Usa un hermoso diseño primaveral con pasteles suaves, flores de cerezo y una atmósfera acogedora. Incluye una sección de bienvenida, destacados del menú, información de ubicación y un botón de reserva.\"",
+    "output_label": "Sitio web generado (Creado al instante):"
+  },
+  "features": {
+    "h2": "Todo lo que necesitas, nada que no",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Genera desde una descripción",
+        "desc": "Describe tu negocio, portfolio o idea — Atelier construye un sitio web completo con múltiples secciones, diseños limpios y contenido real."
+      },
+      {
+        "icon": "edit",
+        "title": "Edita sin código",
+        "desc": "Toca para cambiar textos, reorganizar secciones, actualizar imágenes y perfeccionar tu diseño. Control creativo total, cero conocimientos técnicos necesarios."
+      },
+      {
+        "icon": "globe",
+        "title": "Publica al instante",
+        "desc": "Publica en una URL única de Atelier con un solo toque. Tu sitio es accesible inmediatamente para cualquier persona, en cualquier parte del mundo."
+      },
+      {
+        "icon": "mobile",
+        "title": "Hecho para móvil",
+        "desc": "Todo el flujo — desde la creación hasta la publicación — está diseñado para tu teléfono. Actualiza tu sitio desde cualquier lugar, en cualquier momento."
+      },
+      {
+        "icon": "bolt",
+        "title": "Perfecto para cualquier uso",
+        "desc": "Salones, restaurantes, portfolios, páginas de reservas, páginas de enlaces, marcas personales — Atelier se adapta a tu visión."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Hecho para creadores, emprendedores y pequeños negocios",
+    "items": [
+      "Sitios de portfolio y marca personal",
+      "Negocios locales — cafeterías, salones, restaurantes",
+      "Landing pages para freelancers y creadores",
+      "Páginas de reservas y citas",
+      "Páginas de link-in-bio y redes sociales",
+      "Páginas de eventos y lanzamientos"
+    ]
+  },
+  "cta": {
+    "h3": "Tu sitio web está a una frase de distancia",
+    "p": "Descarga Atelier gratis y lanza tu sitio hoy.",
+    "download": "Descargar en el App Store"
+  },
+  "legal": {
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Uso"
+  }
+}

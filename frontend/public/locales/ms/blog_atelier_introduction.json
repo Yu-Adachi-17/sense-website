@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Pembina Laman Web AI — Bina Laman Web Menakjubkan dari iPhone Anda",
+    "description": "Atelier menukar penerangan ringkas menjadi laman web profesional dan langsung dalam beberapa minit. Tanpa pengekodan, tanpa komputer. Bina portfolio, halaman perniagaan, laman tempahan dan banyak lagi — semua dari telefon anda.",
+    "ogTitle": "Atelier: Lancarkan Laman Web Cantik dalam Beberapa Minit dengan AI",
+    "ogDescription": "Dari idea ke laman web langsung dalam beberapa minit. Atelier ialah pembina laman web AI yang direka untuk telefon anda — cipta, sunting dan terbitkan tanpa kod."
+  },
+  "aria": { "home": "Laman Utama Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Kini Tersedia di iOS",
+    "h1": "Laman Web Seterusnya<br>Bermula dengan Satu Ayat.",
+    "tagline": "Atelier ialah pembina laman web AI yang menukar penerangan ringkas menjadi laman web profesional dan langsung — semua dari iPhone anda. Tanpa pengekodan, tanpa alat reka bentuk, tanpa kerumitan. Hanya terangkan apa yang anda mahu dan terbitkan.",
+    "badges": ["Dikuasai AI", "Utamakan Mudah Alih", "Terbit Serta-merta"]
+  },
+  "demo": {
+    "h2": "Dari Penerangan ke Penerbitan — dalam Beberapa Minit",
+    "p1": "Kami meminta Atelier membina laman web untuk kafe baharu yang dibuka berhampiran Central Park, New York — dengan reka bentuk indah bertemakan musim bunga. Inilah yang dihasilkan serta-merta, daripada satu prompt di iPhone.",
+    "prompt_label": "Prompt (Cuba sendiri):",
+    "prompt_text": "\"Bina halaman utama untuk kafe baharu yang dibuka berhampiran Central Park, New York. Gunakan reka bentuk musim bunga yang cantik dengan warna pastel lembut, bunga sakura dan suasana yang mengalu-alukan. Sertakan bahagian alu-aluan, menu pilihan, maklumat lokasi dan butang tempahan.\"",
+    "output_label": "Laman Web Dihasilkan (Dicipta Serta-merta):"
+  },
+  "features": {
+    "h2": "Semua yang Anda Perlukan, Tiada yang Tidak",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Jana dari Penerangan",
+        "desc": "Terangkan perniagaan, portfolio atau idea anda — Atelier membina laman web lengkap pelbagai bahagian dengan susun atur kemas dan kandungan sebenar."
+      },
+      {
+        "icon": "edit",
+        "title": "Sunting Tanpa Kod",
+        "desc": "Ketik untuk menukar teks, susun semula bahagian, kemas kini imej dan halusi reka bentuk anda. Kawalan kreatif penuh, sifar pengetahuan teknikal diperlukan."
+      },
+      {
+        "icon": "globe",
+        "title": "Terbit Serta-merta",
+        "desc": "Pergi langsung di URL Atelier unik dengan satu ketikan. Laman web anda boleh diakses serta-merta oleh sesiapa sahaja, di mana-mana di dunia."
+      },
+      {
+        "icon": "mobile",
+        "title": "Dibina untuk Mudah Alih",
+        "desc": "Seluruh aliran kerja — dari penciptaan hingga penerbitan — direka untuk telefon anda. Kemas kini laman web anda dari mana-mana, bila-bila masa."
+      },
+      {
+        "icon": "bolt",
+        "title": "Sempurna untuk Sebarang Kegunaan",
+        "desc": "Salon, restoran, portfolio, halaman tempahan, halaman pautan, jenama peribadi — Atelier menyesuaikan dengan visi anda."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Dibina untuk Pencipta, Usahawan & Perniagaan Kecil",
+    "items": [
+      "Laman portfolio & penjenamaan peribadi",
+      "Perniagaan tempatan — kafe, salon, restoran",
+      "Halaman pendaratan untuk pekerja bebas & pencipta",
+      "Halaman tempahan & reservasi",
+      "Halaman link-in-bio & hab sosial",
+      "Halaman acara & pelancaran"
+    ]
+  },
+  "cta": {
+    "h3": "Laman Web Anda Hanya Satu Ayat Sahaja",
+    "p": "Muat turun Atelier secara percuma dan lancarkan laman web anda hari ini.",
+    "download": "Muat Turun di App Store"
+  },
+  "legal": {
+    "privacy": "Dasar Privasi",
+    "terms": "Terma Penggunaan"
+  }
+}

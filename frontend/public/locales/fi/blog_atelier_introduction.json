@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Tekoälyllä toimiva verkkosivujen luoja — Luo upea sivusto iPhonellasi",
+    "description": "Atelier muuttaa yksinkertaisen kuvauksen ammattimaiseksi, julkaistuksi verkkosivustoksi minuuteissa. Ei koodausta, ei tietokonetta. Luo portfolioita, yrityssivuja, varaussivustoja ja paljon muuta — kaikki puhelimellasi.",
+    "ogTitle": "Atelier: Julkaise kaunis verkkosivusto minuuteissa tekoälyn avulla",
+    "ogDescription": "Ideasta julkaistuun sivustoon minuuteissa. Atelier on tekoälypohjainen verkkosivujen luoja puhelimellesi — luo, muokkaa ja julkaise ilman koodausta."
+  },
+  "aria": { "home": "Atelier Etusivu" },
+  "nav": { "blog": "Blogi", "category": "Atelier" },
+  "hero": {
+    "kicker": "Nyt saatavilla iOS:lle",
+    "h1": "Seuraava verkkosivustosi<br>alkaa yhdellä lauseella.",
+    "tagline": "Atelier on tekoälypohjainen verkkosivujen luoja, joka muuttaa yksinkertaisen kuvauksen ammattimaiseksi, julkaistuksi verkkosivustoksi — kaikki iPhonellasi. Ei koodausta, ei suunnittelutyökaluja, ei ongelmia. Kuvaile mitä haluat ja julkaise.",
+    "badges": ["Tekoälyllä toimiva", "Mobiili ensin", "Välitön julkaisu"]
+  },
+  "demo": {
+    "h2": "Kuvauksesta julkaisuun — minuuteissa",
+    "p1": "Pyysimme Atelieria luomaan verkkosivuston uudelle kahvilalle Central Parkin lähellä New Yorkissa — kauniilla kevät-henkisellä muotoilulla. Tässä on mitä se loi hetkessä yhdestä kuvauksesta iPhonella.",
+    "prompt_label": "Kehote (Kokeile itse):",
+    "prompt_text": "\"Luo etusivu uudelle kahvilalle Central Parkin lähellä, New York. Käytä kaunista kevät-henkistä muotoilua pehmeillä pastelli­väreillä, kirsikankukilla ja kutsuvan tunnelmallista ilmettä. Sisällytä tervetuloa-osio, menukohokohtia, sijaintitiedot ja varausnappi.\"",
+    "output_label": "Luotu verkkosivusto (Luotu hetkessä):"
+  },
+  "features": {
+    "h2": "Kaikki mitä tarvitset, ei mitään turhaa",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Luo kuvauksesta",
+        "desc": "Kuvaile yrityksesi, portfoliosi tai ideasi — Atelier rakentaa täydellisen, moniosioisen verkkosivuston selkeillä asetteluilla ja aidolla sisällöllä."
+      },
+      {
+        "icon": "edit",
+        "title": "Muokkaa ilman koodia",
+        "desc": "Napauta muuttaaksesi tekstiä, järjestääksesi osioita, päivittääksesi kuvia ja hioaksesi muotoiluasi. Täysi luova hallinta, nolla teknistä osaamista vaaditaan."
+      },
+      {
+        "icon": "globe",
+        "title": "Julkaise heti",
+        "desc": "Mene livenä ainutlaatuisessa Atelier-URL:ssa yhdellä napautuksella. Sivustosi on heti kaikkien saavutettavissa, kaikkialla maailmassa."
+      },
+      {
+        "icon": "mobile",
+        "title": "Tehty mobiilille",
+        "desc": "Koko työnkulku — luomisesta julkaisuun — on suunniteltu puhelimellesi. Päivitä sivustoasi mistä tahansa, milloin tahansa."
+      },
+      {
+        "icon": "bolt",
+        "title": "Sopii kaikkeen",
+        "desc": "Kampaamot, ravintolat, portfoliot, varaussivut, linkkisivut, henkilöbrändit — Atelier mukautuu visioosi."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Tehty luojille, yrittäjille ja pienyrityksille",
+    "items": [
+      "Portfolio- ja henkilöbrändisivustot",
+      "Paikalliset yritykset — kahvilat, kampaamot, ravintolat",
+      "Freelancereiden ja luojien laskeutumissivut",
+      "Varaus- ja ajanvaraussivut",
+      "Link-in-bio- ja sosiaalisen median hub-sivut",
+      "Tapahtuma- ja lanseeraussivut"
+    ]
+  },
+  "cta": {
+    "h3": "Verkkosivustosi on yhden lauseen päässä",
+    "p": "Lataa Atelier ilmaiseksi ja julkaise sivustosi tänään.",
+    "download": "Lataa App Storesta"
+  },
+  "legal": {
+    "privacy": "Tietosuojakäytäntö",
+    "terms": "Käyttöehdot"
+  }
+}

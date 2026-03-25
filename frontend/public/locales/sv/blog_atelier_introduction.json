@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: AI-webbplatsbyggare — Skapa en fantastisk sajt från din iPhone",
+    "description": "Atelier förvandlar en enkel beskrivning till en professionell, live webbplats på minuter. Ingen kodning, ingen dator behövs. Skapa portfolios, företagssidor, bokningssajter och mer — allt från din telefon.",
+    "ogTitle": "Atelier: Lansera en vacker webbplats på minuter med AI",
+    "ogDescription": "Från idé till live sajt på minuter. Atelier är AI-webbplatsbyggaren designad för din telefon — skapa, redigera och publicera utan kod."
+  },
+  "aria": { "home": "Atelier Hem" },
+  "nav": { "blog": "Blogg", "category": "Atelier" },
+  "hero": {
+    "kicker": "Nu tillgänglig på iOS",
+    "h1": "Din nästa webbplats<br>börjar med en mening.",
+    "tagline": "Atelier är en AI-webbplatsbyggare som förvandlar en enkel beskrivning till en professionell, live webbplats — allt från din iPhone. Ingen kodning, inga designverktyg, inga krångel. Beskriv bara vad du vill ha och publicera.",
+    "badges": ["AI-driven", "Mobil först", "Omedelbar publicering"]
+  },
+  "demo": {
+    "h2": "Från beskrivning till publicerad — på minuter",
+    "p1": "Vi bad Atelier att bygga en webbplats för ett nytt café nära Central Park, New York — med en vacker vårinspirerad design. Här är vad det skapade direkt, från en enda beskrivning på en iPhone.",
+    "prompt_label": "Prompten (Testa själv):",
+    "prompt_text": "\"Bygg en startsida för ett nytt café nära Central Park, New York. Använd en vacker vårinspirerad design med mjuka pasteller, körsbärsblommor och en inbjudande atmosfär. Inkludera en välkomstsektion, menyhöjdpunkter, platsinformation och en bokningsknapp.\"",
+    "output_label": "Genererad webbplats (Skapad direkt):"
+  },
+  "features": {
+    "h2": "Allt du behöver, inget du inte behöver",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generera från en beskrivning",
+        "desc": "Beskriv ditt företag, portfolio eller idé — Atelier bygger en komplett webbplats med flera sektioner, rena layouter och riktigt innehåll."
+      },
+      {
+        "icon": "edit",
+        "title": "Redigera utan kod",
+        "desc": "Tryck för att ändra text, flytta sektioner, uppdatera bilder och förfina din design. Full kreativ kontroll, noll teknisk kunskap krävs."
+      },
+      {
+        "icon": "globe",
+        "title": "Publicera direkt",
+        "desc": "Gå live på en unik Atelier URL med ett tryck. Din webbplats är omedelbart tillgänglig för alla, var som helst i världen."
+      },
+      {
+        "icon": "mobile",
+        "title": "Byggd för mobilen",
+        "desc": "Hela arbetsflödet — från skapande till publicering — är designat för din telefon. Uppdatera din sajt var som helst, när som helst."
+      },
+      {
+        "icon": "bolt",
+        "title": "Perfekt för alla ändamål",
+        "desc": "Salonger, restauranger, portfolios, bokningssidor, länksidor, personliga varumärken — Atelier anpassar sig efter din vision."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Byggd för kreatörer, entreprenörer och småföretag",
+    "items": [
+      "Portfolio- och personliga varumärkessajter",
+      "Lokala företag — kaféer, salonger, restauranger",
+      "Landningssidor för frilansare och kreatörer",
+      "Boknings- och reservationssidor",
+      "Link-in-bio och sociala hubb-sidor",
+      "Event- och lanseringssidor"
+    ]
+  },
+  "cta": {
+    "h3": "Din webbplats är bara en mening bort",
+    "p": "Ladda ner Atelier gratis och lansera din sajt idag.",
+    "download": "Ladda ner på App Store"
+  },
+  "legal": {
+    "privacy": "Integritetspolicy",
+    "terms": "Användarvillkor"
+  }
+}

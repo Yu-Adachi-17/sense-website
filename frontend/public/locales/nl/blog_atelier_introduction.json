@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: AI Website Builder — Maak een prachtige site vanaf je iPhone",
+    "description": "Atelier verandert een simpele beschrijving in een professionele, live website in minuten. Geen codering, geen computer nodig. Maak portfolio's, bedrijfspagina's, boekingssites en meer — allemaal vanaf je telefoon.",
+    "ogTitle": "Atelier: Lanceer een prachtige website in minuten met AI",
+    "ogDescription": "Van idee naar live site in minuten. Atelier is de AI website builder ontworpen voor je telefoon — maak, bewerk en publiceer zonder code."
+  },
+  "aria": { "home": "Atelier Home" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Nu beschikbaar op iOS",
+    "h1": "Je volgende website<br>begint met één zin.",
+    "tagline": "Atelier is een AI website builder die een simpele beschrijving verandert in een professionele, live website — allemaal vanaf je iPhone. Geen codering, geen designtools, geen gedoe. Beschrijf gewoon wat je wilt en publiceer.",
+    "badges": ["AI-aangedreven", "Mobile-first", "Direct publiceren"]
+  },
+  "demo": {
+    "h2": "Van beschrijving tot gepubliceerd — in minuten",
+    "p1": "We vroegen Atelier een website te maken voor een nieuw café bij Central Park, New York — met een prachtig lente-geïnspireerd ontwerp. Dit is wat het direct creëerde vanuit één enkele beschrijving op een iPhone.",
+    "prompt_label": "De Prompt (Probeer het zelf):",
+    "prompt_text": "\"Maak een homepage voor een nieuw café bij Central Park, New York. Gebruik een prachtig lente-geïnspireerd ontwerp met zachte pasteltinten, kersenbloesem en een uitnodigende sfeer. Voeg een welkomstsectie, menu-highlights, locatie-info en een reserveerknop toe.\"",
+    "output_label": "Gegenereerde website (Direct gemaakt):"
+  },
+  "features": {
+    "h2": "Alles wat je nodig hebt, niets wat je niet nodig hebt",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Genereer vanuit een beschrijving",
+        "desc": "Beschrijf je bedrijf, portfolio of idee — Atelier bouwt een complete website met meerdere secties, strakke layouts en echte content."
+      },
+      {
+        "icon": "edit",
+        "title": "Bewerk zonder code",
+        "desc": "Tik om tekst te wijzigen, secties te verplaatsen, afbeeldingen bij te werken en je ontwerp te verfijnen. Volledige creatieve controle, nul technische kennis vereist."
+      },
+      {
+        "icon": "globe",
+        "title": "Direct publiceren",
+        "desc": "Ga live op een unieke Atelier URL met één tik. Je website is direct toegankelijk voor iedereen, overal ter wereld."
+      },
+      {
+        "icon": "mobile",
+        "title": "Gebouwd voor mobiel",
+        "desc": "De hele workflow — van creatie tot publicatie — is ontworpen voor je telefoon. Werk je site bij vanaf elke plek, op elk moment."
+      },
+      {
+        "icon": "bolt",
+        "title": "Perfect voor elk doel",
+        "desc": "Salons, restaurants, portfolio's, boekingspagina's, linkpagina's, persoonlijke merken — Atelier past zich aan jouw visie aan."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Gemaakt voor creators, ondernemers en kleine bedrijven",
+    "items": [
+      "Portfolio- en personal branding-sites",
+      "Lokale bedrijven — cafés, salons, restaurants",
+      "Landingspagina's voor freelancers en creators",
+      "Boekings- en reserveringspagina's",
+      "Link-in-bio en social hub pagina's",
+      "Evenement- en lanceringspagina's"
+    ]
+  },
+  "cta": {
+    "h3": "Je website is slechts één zin verwijderd",
+    "p": "Download Atelier gratis en lanceer je website vandaag.",
+    "download": "Download in de App Store"
+  },
+  "legal": {
+    "privacy": "Privacybeleid",
+    "terms": "Gebruiksvoorwaarden"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier : Créateur de sites web IA — Créez un site magnifique depuis votre iPhone",
+    "description": "Atelier transforme une simple description en un site web professionnel et en ligne en quelques minutes. Sans code, sans ordinateur. Créez des portfolios, des pages d'entreprise, des sites de réservation et plus — le tout depuis votre téléphone.",
+    "ogTitle": "Atelier : Lancez un beau site web en minutes grâce à l'IA",
+    "ogDescription": "De l'idée au site en ligne en minutes. Atelier est le créateur de sites web IA conçu pour votre téléphone — créez, modifiez et publiez sans code."
+  },
+  "aria": { "home": "Accueil Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Disponible maintenant sur iOS",
+    "h1": "Votre prochain site web<br>commence par une phrase.",
+    "tagline": "Atelier est un créateur de sites web IA qui transforme une simple description en un site web professionnel et en ligne — le tout depuis votre iPhone. Sans code, sans outils de design, sans prise de tête. Décrivez simplement ce que vous voulez et publiez.",
+    "badges": ["Propulsé par l'IA", "Conçu pour mobile", "Publication instantanée"]
+  },
+  "demo": {
+    "h2": "De la description à la publication — en minutes",
+    "p1": "Nous avons demandé à Atelier de créer un site web pour un nouveau café ouvrant près de Central Park, New York — avec un magnifique design printanier. Voici ce qu'il a créé instantanément, à partir d'une seule description sur un iPhone.",
+    "prompt_label": "Le Prompt (Essayez vous-même) :",
+    "prompt_text": "\"Crée une page d'accueil pour un nouveau café ouvrant près de Central Park, New York. Utilise un beau design printanier avec des pastels doux, des fleurs de cerisier et une atmosphère accueillante. Inclus une section de bienvenue, les plats phares du menu, les informations de localisation et un bouton de réservation.\"",
+    "output_label": "Site web généré (Créé instantanément) :"
+  },
+  "features": {
+    "h2": "Tout ce dont vous avez besoin, rien de superflu",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Générez à partir d'une description",
+        "desc": "Décrivez votre entreprise, portfolio ou idée — Atelier crée un site complet multi-sections avec des mises en page soignées et du contenu réel."
+      },
+      {
+        "icon": "edit",
+        "title": "Modifiez sans code",
+        "desc": "Touchez pour modifier le texte, réorganiser les sections, mettre à jour les images et affiner votre design. Contrôle créatif total, zéro compétence technique requise."
+      },
+      {
+        "icon": "globe",
+        "title": "Publiez instantanément",
+        "desc": "Mettez en ligne sur une URL Atelier unique en un seul toucher. Votre site est immédiatement accessible à tous, partout dans le monde."
+      },
+      {
+        "icon": "mobile",
+        "title": "Conçu pour le mobile",
+        "desc": "L'ensemble du processus — de la création à la publication — est conçu pour votre téléphone. Mettez à jour votre site de n'importe où, à tout moment."
+      },
+      {
+        "icon": "bolt",
+        "title": "Parfait pour tout usage",
+        "desc": "Salons, restaurants, portfolios, pages de réservation, pages de liens, marques personnelles — Atelier s'adapte à votre vision."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Conçu pour les créateurs, entrepreneurs et petites entreprises",
+    "items": [
+      "Sites portfolio et personal branding",
+      "Commerces locaux — cafés, salons, restaurants",
+      "Pages d'atterrissage pour freelances et créateurs",
+      "Pages de réservation et de rendez-vous",
+      "Pages link-in-bio et hub de réseaux sociaux",
+      "Pages d'événements et de lancement"
+    ]
+  },
+  "cta": {
+    "h3": "Votre site web est à une phrase de distance",
+    "p": "Téléchargez Atelier gratuitement et lancez votre site aujourd'hui.",
+    "download": "Télécharger sur l'App Store"
+  },
+  "legal": {
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation"
+  }
+}

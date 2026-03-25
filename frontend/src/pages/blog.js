@@ -23,6 +23,7 @@ const I18N = {
     heroP: "أتقن اجتماعاتك وعروضك التقديمية باستخدام الذكاء الاصطناعي.",
     tabMinutes: "Minutes.AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "كل الوسوم",
     loadMore: "اعرض المزيد",
     noPosts: "لا توجد مقالات بعد. عد لاحقًا.",
@@ -34,6 +35,7 @@ const I18N = {
     heroP: "Ovládněte své schůzky a prezentace s AI.",
     tabMinutes: "Zápisník AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Všechny štítky",
     loadMore: "Načíst další",
     noPosts: "Zatím žádné příspěvky. Vraťte se brzy.",
@@ -45,6 +47,7 @@ const I18N = {
     heroP: "Mestrer dine møder og præsentationer med AI.",
     tabMinutes: "Referat AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Alle tags",
     loadMore: "Indlæs mere",
     noPosts: "Ingen indlæg endnu. Kig forbi snart.",
@@ -56,6 +59,7 @@ const I18N = {
     heroP: "Meistern Sie Ihre Meetings und Präsentationen mit KI.",
     tabMinutes: "Protokoll KI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Alle Tags",
     loadMore: "Mehr laden",
     noPosts: "Noch keine Beiträge. Schauen Sie bald wieder vorbei.",
@@ -67,6 +71,7 @@ const I18N = {
     heroP: "Τελειοποιήστε τις συναντήσεις και τις παρουσιάσεις σας με AI.",
     tabMinutes: "Πρακτικά AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Όλες οι ετικέτες",
     loadMore: "Φόρτωση περισσότερων",
     noPosts: "Δεν υπάρχουν ακόμη άρθρα. Επιστρέψτε σύντομα.",
@@ -74,10 +79,11 @@ const I18N = {
   },
   en: {
     title: "Sense AI Blog",
-    desc: "Updates, workflows, and articles for Minutes.AI and SlideAI.",
-    heroP: "Master your meetings and presentations with AI.",
+    desc: "Updates, workflows, and articles for Minutes.AI, SlideAI, and Atelier.",
+    heroP: "Master your meetings, presentations, and websites with AI.",
     tabMinutes: "Minutes AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "All Tags",
     loadMore: "Load more",
     noPosts: "No posts yet. Come back soon.",
@@ -89,6 +95,7 @@ const I18N = {
     heroP: "Domina tus reuniones y presentaciones con IA.",
     tabMinutes: "Actas IA",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Todas las etiquetas",
     loadMore: "Cargar más",
     noPosts: "Aún no hay artículos. Vuelve pronto.",
@@ -100,6 +107,7 @@ const I18N = {
     heroP: "Domina tus reuniones y presentaciones con IA.",
     tabMinutes: "Actas IA",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Todas las etiquetas",
     loadMore: "Cargar más",
     noPosts: "Todavía no hay artículos. Vuelve pronto.",
@@ -111,6 +119,7 @@ const I18N = {
     heroP: "Hallitse kokouksiasi ja esityksiäsi tekoälyn avulla.",
     tabMinutes: "Pöytäkirja AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Kaikki tunnisteet",
     loadMore: "Lataa lisää",
     noPosts: "Ei vielä artikkeleita. Palaa pian.",
@@ -122,6 +131,7 @@ const I18N = {
     heroP: "Maîtrisez vos réunions et vos présentations avec l'IA.",
     tabMinutes: "Minutes.AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Toutes les étiquettes",
     loadMore: "Charger plus",
     noPosts: "Aucun article pour le moment. Revenez bientôt.",
@@ -133,6 +143,7 @@ const I18N = {
     heroP: "שלטו בפגישות ובמצגות שלכם עם AI.",
     tabMinutes: "Minutes.AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "כל התגים",
     loadMore: "טען עוד",
     noPosts: "אין עדיין פוסטים. חזרו בקרוב.",
@@ -144,6 +155,7 @@ const I18N = {
     heroP: "AI के साथ अपनी मीटिंग और प्रेजेंटेशन में महारत हासिल करें।",
     tabMinutes: "कार्यवृत्त AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "सभी टैग",
     loadMore: "और लोड करें",
     noPosts: "अभी कोई पोस्ट नहीं। जल्द लौटें।",
@@ -155,6 +167,7 @@ const I18N = {
     heroP: "Usavršite svoje sastanke i prezentacije uz AI.",
     tabMinutes: "AI Zapisnik",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Sve oznake",
     loadMore: "Učitaj još",
     noPosts: "Još nema objava. Navratite uskoro.",
@@ -166,6 +179,7 @@ const I18N = {
     heroP: "Tegye tökéletessé megbeszéléseit és prezentációit AI-val.",
     tabMinutes: "Jegyzőkönyv AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Összes címke",
     loadMore: "Továbbiak betöltése",
     noPosts: "Még nincsenek bejegyzések. Nézzen vissza később.",
@@ -177,6 +191,7 @@ const I18N = {
     heroP: "Kuasai rapat dan presentasi Anda dengan AI.",
     tabMinutes: "Minutes AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Semua tag",
     loadMore: "Muat lebih banyak",
     noPosts: "Belum ada artikel. Kunjungi lagi nanti.",
@@ -188,6 +203,7 @@ const I18N = {
     heroP: "Padroneggia riunioni e presentazioni con l'IA.",
     tabMinutes: "Verbali IA",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Tutte le etichette",
     loadMore: "Carica altro",
     noPosts: "Non ci sono ancora articoli. Torna presto.",
@@ -199,6 +215,7 @@ const I18N = {
     heroP: "AIで、会議もプレゼンも完璧に。",
     tabMinutes: "議事録AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "すべてのタグ",
     loadMore: "もっと見る",
     noPosts: "まだ記事がありません。後日またお越しください。",
@@ -210,6 +227,7 @@ const I18N = {
     heroP: "AI로 회의와 프레젠테이션을 완벽하게 마스터하세요.",
     tabMinutes: "회의록AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "모든 태그",
     loadMore: "더 보기",
     noPosts: "아직 게시물이 없습니다. 곧 다시 방문해 주세요.",
@@ -221,6 +239,7 @@ const I18N = {
     heroP: "Kuasai mesyuarat dan pembentangan anda dengan AI.",
     tabMinutes: "Minit AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Semua tag",
     loadMore: "Muat lagi",
     noPosts: "Belum ada artikel. Datang semula nanti.",
@@ -232,6 +251,7 @@ const I18N = {
     heroP: "Beheer uw vergaderingen en presentaties met AI.",
     tabMinutes: "Notulen AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Alle tags",
     loadMore: "Meer laden",
     noPosts: "Nog geen artikelen. Kom later terug.",
@@ -243,6 +263,7 @@ const I18N = {
     heroP: "Mestre møter og presentasjoner med AI.",
     tabMinutes: "Referat AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Alle tagger",
     loadMore: "Vis mer",
     noPosts: "Ingen innlegg ennå. Kom tilbake snart.",
@@ -254,6 +275,7 @@ const I18N = {
     heroP: "Opanuj swoje spotkania i prezentacje dzięki AI.",
     tabMinutes: "Protokół AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Wszystkie tagi",
     loadMore: "Wczytaj więcej",
     noPosts: "Brak wpisów. Wróć wkrótce.",
@@ -265,6 +287,7 @@ const I18N = {
     heroP: "Domine as suas reuniões e apresentações com IA.",
     tabMinutes: "Ata AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Todas as etiquetas",
     loadMore: "Carregar mais",
     noPosts: "Ainda não há artigos. Volte em breve.",
@@ -276,6 +299,7 @@ const I18N = {
     heroP: "Stăpânește ședințele și prezentările cu AI.",
     tabMinutes: "Proces-verbal AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Toate etichetele",
     loadMore: "Încarcă mai mult",
     noPosts: "Nu există articole încă. Revino curând.",
@@ -287,6 +311,7 @@ const I18N = {
     heroP: "Совершенствуйте встречи и презентации с помощью ИИ.",
     tabMinutes: "Протоколы АИ",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Все теги",
     loadMore: "Загрузить ещё",
     noPosts: "Пока нет публикаций. Загляните позже.",
@@ -298,6 +323,7 @@ const I18N = {
     heroP: "Ovládnite svoje stretnutia a prezentácie pomocou AI.",
     tabMinutes: "AI Zápisnica",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Všetky štítky",
     loadMore: "Načítať viac",
     noPosts: "Zatiaľ žiadne príspevky. Vráťte sa čoskoro.",
@@ -309,6 +335,7 @@ const I18N = {
     heroP: "Bemästra dina möten och presentationer med AI.",
     tabMinutes: "Protokoll AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Alla taggar",
     loadMore: "Ladda mer",
     noPosts: "Inga inlägg ännu. Kom tillbaka snart.",
@@ -320,6 +347,7 @@ const I18N = {
     heroP: "ยกระดับการประชุมและการนำเสนอของคุณด้วย AI",
     tabMinutes: "บันทึกการประชุม AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "แท็กทั้งหมด",
     loadMore: "โหลดเพิ่มเติม",
     noPosts: "ยังไม่มีบทความ โปรดกลับมาใหม่เร็ว ๆ นี้",
@@ -331,6 +359,7 @@ const I18N = {
     heroP: "Yapay zekâ ile toplantılarınıza ve sunumlarınıza hakim olun.",
     tabMinutes: "Tutanakları AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Tüm etiketler",
     loadMore: "Daha fazlası",
     noPosts: "Henüz yazı yok. Yakında tekrar bakın.",
@@ -342,6 +371,7 @@ const I18N = {
     heroP: "Вдосконалюйте зустрічі та презентації за допомогою ШІ.",
     tabMinutes: "Протокол ШІ",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Усі теги",
     loadMore: "Завантажити ще",
     noPosts: "Поки що немає публікацій. Завітайте згодом.",
@@ -353,6 +383,7 @@ const I18N = {
     heroP: "Làm chủ các cuộc họp và bài thuyết trình của bạn với AI.",
     tabMinutes: "Biên bản AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "Tất cả thẻ",
     loadMore: "Tải thêm",
     noPosts: "Chưa có bài viết. Quay lại sau.",
@@ -364,6 +395,7 @@ const I18N = {
     heroP: "用 AI 掌控您的会议与演示。",
     tabMinutes: "Minutes AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "全部标签",
     loadMore: "加载更多",
     noPosts: "暂无文章，敬请期待。",
@@ -375,6 +407,7 @@ const I18N = {
     heroP: "用 AI 掌握您的會議與簡報。",
     tabMinutes: "會議紀錄AI",
     tabSlide: "SlideAI",
+    tabAtelier: "Atelier",
     allTags: "全部標籤",
     loadMore: "載入更多",
     noPosts: "尚無文章，敬請期待。",
@@ -412,7 +445,7 @@ function ProductTab({ label, active, onClick }) {
     >
       {/* 簡易的なアイコン表示 (SVG等を入れなくても動くように文字で表現) */}
       <span className={`text-lg ${active ? "opacity-100" : "opacity-50"}`}>
-        {label === "SlideAI" ? "" : ""}
+        {label === "SlideAI" ? "" : label === "Atelier" ? "" : ""}
       </span>
       {label}
     </button>
@@ -445,10 +478,12 @@ function Card({ post, locale }) {
   const safeHref =
     typeof post?.href === "string" ? post.href : `/blog/${post?.slug || ""}`;
 
-  // SlideAI用の画像フォールバックを分岐
-  const FALLBACK_IMG = post.product === 'slide' 
-    ? "/images/slideai/hero.jpg" // SlideAI用のデフォルト画像（なければ適当なパス）
-    : "/images/General03.jpeg";  // 議事録AI用のデフォルト
+  // プロダクト別の画像フォールバック
+  const FALLBACK_IMG = post.product === 'slide'
+    ? "/images/slideai/hero.jpg"
+    : post.product === 'atelier'
+    ? "/images/atelierintroduction3.jpeg"
+    : "/images/General03.jpeg";
   
   const coverSrc = post.coverImage || FALLBACK_IMG;
 
@@ -475,11 +510,13 @@ function Card({ post, locale }) {
         <div className="mb-2 flex items-center gap-2 text-xs text-indigo-100/90">
           {/* プロダクトラベルを表示（デバッグ兼ユーザーへの明示） */}
           <span className={`rounded-full px-2 py-0.5 font-bold border border-white/10 ${
-            post.product === 'slide' 
-              ? 'bg-fuchsia-500/30 text-fuchsia-100' 
+            post.product === 'slide'
+              ? 'bg-fuchsia-500/30 text-fuchsia-100'
+              : post.product === 'atelier'
+              ? 'bg-rose-500/30 text-rose-100'
               : 'bg-blue-500/30 text-blue-100'
           }`}>
-            {post.product === 'slide' ? 'SlideAI' : 'Minutes'}
+            {post.product === 'slide' ? 'SlideAI' : post.product === 'atelier' ? 'Atelier' : 'Minutes'}
           </span>
 
           {post.tags?.slice(0, 2).map((t) => (
@@ -611,10 +648,15 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
                 active={activeProduct === "minutes"} 
                 onClick={() => handleProductChange("minutes")} 
               />
-              <ProductTab 
-                label={t.tabSlide || "SlideAI"} 
-                active={activeProduct === "slide"} 
-                onClick={() => handleProductChange("slide")} 
+              <ProductTab
+                label={t.tabSlide || "SlideAI"}
+                active={activeProduct === "slide"}
+                onClick={() => handleProductChange("slide")}
+              />
+              <ProductTab
+                label={t.tabAtelier || "Atelier"}
+                active={activeProduct === "atelier"}
+                onClick={() => handleProductChange("atelier")}
               />
             </div>
 
@@ -641,6 +683,9 @@ export default function BlogIndex({ posts = [], siteUrl, locale, defaultLocale }
                 <p>{t.noPosts}</p>
                 {activeProduct === "slide" && (
                   <p className="text-sm mt-2">Coming soon to the SlideAI blog!</p>
+                )}
+                {activeProduct === "atelier" && (
+                  <p className="text-sm mt-2">Coming soon to the Atelier blog!</p>
                 )}
               </div>
             ) : (
@@ -794,8 +839,8 @@ export async function getStaticProps({ locale, defaultLocale }) {
   for (const ent of ents.filter((e) => e.isDirectory())) {
     const dir = ent.name;
     
-    // ★★★ 重要: SlideAIフォルダはここでは無視する ★★★
-    if (dir === 'slideai') continue;
+    // ★★★ 重要: SlideAI/Atelierフォルダはここでは無視する ★★★
+    if (dir === 'slideai' || dir === 'atelier') continue;
 
     const dirPath = path.join(contentDir, dir);
     const picked = tryReadFrontFromDir(dirPath, locale || "en", defaultLocale || "en");
@@ -871,7 +916,44 @@ export async function getStaticProps({ locale, defaultLocale }) {
   }
 
   /* ========================================================
-     3. その他ハードコード (Online Meeting) - 議事録AI扱い
+     3. Atelier の記事取得
+     (content/blog/atelier 配下のディレクトリ)
+     ======================================================== */
+
+  const atelierDir = path.join(contentDir, 'atelier');
+  if (fs.existsSync(atelierDir)) {
+    const atelierEnts = fs.readdirSync(atelierDir, { withFileTypes: true });
+
+    for (const ent of atelierEnts.filter(e => e.isDirectory())) {
+      const dir = ent.name;
+      const dirPath = path.join(atelierDir, dir);
+
+      const picked = tryReadFrontFromDir(dirPath, locale || "en", defaultLocale || "en");
+      if (!picked) continue;
+
+      let { data, content } = picked;
+
+      let title = (data?.title || dir).toString().trim();
+      let excerpt = (data?.excerpt || data?.description || "").toString().trim();
+
+      const href = `/blog/atelier/${dir}`;
+      const coverImage = data?.cover || data?.image || "/images/atelierintroduction3.jpeg";
+
+      pushPost({
+        slug: `atelier/${dir}`,
+        title,
+        date: toISO(data?.date, true),
+        updatedAt: toISO(data?.updatedAt, false),
+        excerpt: excerpt || (content ? content.slice(0, 180) : ""),
+        coverImage,
+        tags: Array.isArray(data?.tags) && data.tags.length ? data.tags : ["Atelier"],
+        href,
+      }, 'atelier');
+    }
+  }
+
+  /* ========================================================
+     4. その他ハードコード (Online Meeting) - 議事録AI扱い
      ======================================================== */
   const hasOnlineMeeting = posts.some(
     (p) => p.slug === "onlinemeeting" || p.href === "/blog/onlinemeeting"

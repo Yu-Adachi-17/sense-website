@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: AI Website Builder — Build a Stunning Site from Your iPhone",
+    "description": "Atelier turns a simple prompt into a polished, live website in minutes. No coding, no desktop required. Build portfolios, business pages, booking sites and more — all from your phone.",
+    "ogTitle": "Atelier: Launch a Beautiful Website in Minutes with AI",
+    "ogDescription": "From idea to live site in minutes. Atelier is the AI website builder designed for your phone — create, edit, and publish without code."
+  },
+  "aria": { "home": "Atelier Home" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Now Available on iOS",
+    "h1": "Your Next Website<br>Starts with a Sentence.",
+    "tagline": "Atelier is an AI website builder that turns a simple prompt into a polished, live website — all from your iPhone. No coding, no design tools, no setup headaches. Just describe what you want and publish.",
+    "badges": ["AI-Powered", "Mobile-First", "Instant Publish"]
+  },
+  "demo": {
+    "h2": "From Prompt to Published — In Minutes",
+    "p1": "We asked Atelier to build a website for a brand-new café opening near Central Park, New York — with a beautiful spring-inspired design. Here is what it created, instantly, from a single prompt on an iPhone.",
+    "prompt_label": "The Prompt (Try this yourself):",
+    "prompt_text": "\"Build a homepage for a new café opening near Central Park, New York. Use a beautiful spring-inspired design with soft pastels, cherry blossoms, and an inviting atmosphere. Include a welcome section, menu highlights, location info, and a reservation button.\"",
+    "output_label": "Generated Website (Created Instantly):"
+  },
+  "features": {
+    "h2": "Everything You Need, Nothing You Don't",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generate from a Prompt",
+        "desc": "Describe your business, portfolio, or idea — Atelier builds a complete, multi-section website with clean layouts and real content."
+      },
+      {
+        "icon": "edit",
+        "title": "Edit Without Code",
+        "desc": "Tap to change text, rearrange sections, update images, and refine your design. Full creative control, zero technical knowledge required."
+      },
+      {
+        "icon": "globe",
+        "title": "Publish Instantly",
+        "desc": "Go live on a unique Atelier URL with one tap. Your site is immediately accessible to anyone, anywhere in the world."
+      },
+      {
+        "icon": "mobile",
+        "title": "Built for Mobile",
+        "desc": "The entire workflow — from creation to publishing — is designed for your phone. Update your site from anywhere, anytime."
+      },
+      {
+        "icon": "bolt",
+        "title": "Perfect for Any Use Case",
+        "desc": "Salons, restaurants, portfolios, booking pages, link pages, personal brands — Atelier adapts to your vision."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Built for Creators, Entrepreneurs & Small Businesses",
+    "items": [
+      "Portfolio & personal branding sites",
+      "Local businesses — cafés, salons, restaurants",
+      "Freelancer & creator landing pages",
+      "Booking & reservation pages",
+      "Link-in-bio & social hub pages",
+      "Event & launch pages"
+    ]
+  },
+  "cta": {
+    "h3": "Your Website Is One Prompt Away",
+    "p": "Download Atelier for free and launch your site today.",
+    "download": "Download on the App Store"
+  },
+  "legal": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  }
+}

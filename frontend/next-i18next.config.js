@@ -55,6 +55,9 @@ module.exports = {
     'blog_slideai_iphone-app-presentation-era',
     'blog_slideai_student-thesis-seminar-hack',
     'blog_slideai_roi',
+
+    // ★ Atelier
+    'blog_atelier_introduction',
   ],
   defaultNS: 'common',
 

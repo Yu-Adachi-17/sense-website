@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: Công cụ tạo website bằng AI — Tạo trang web tuyệt đẹp từ iPhone",
+    "description": "Atelier biến một mô tả đơn giản thành một trang web chuyên nghiệp và hoạt động trong vài phút. Không cần lập trình, không cần máy tính. Tạo portfolio, trang doanh nghiệp, trang đặt lịch và nhiều hơn — tất cả từ điện thoại của bạn.",
+    "ogTitle": "Atelier: Ra mắt trang web đẹp trong vài phút với AI",
+    "ogDescription": "Từ ý tưởng đến trang web hoạt động trong vài phút. Atelier là công cụ tạo website bằng AI được thiết kế cho điện thoại — tạo, chỉnh sửa và xuất bản không cần code."
+  },
+  "aria": { "home": "Trang chủ Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Đã có trên iOS",
+    "h1": "Trang web tiếp theo của bạn<br>bắt đầu bằng một câu.",
+    "tagline": "Atelier là công cụ tạo website bằng AI biến một mô tả đơn giản thành trang web chuyên nghiệp và hoạt động — tất cả từ iPhone của bạn. Không cần lập trình, không cần công cụ thiết kế, không rắc rối. Chỉ cần mô tả điều bạn muốn và xuất bản.",
+    "badges": ["Hỗ trợ AI", "Ưu tiên di động", "Xuất bản tức thì"]
+  },
+  "demo": {
+    "h2": "Từ mô tả đến xuất bản — trong vài phút",
+    "p1": "Chúng tôi đã yêu cầu Atelier tạo trang web cho một quán cà phê mới gần Central Park, New York — với thiết kế đẹp lấy cảm hứng từ mùa xuân. Đây là kết quả được tạo ngay lập tức từ một prompt duy nhất trên iPhone.",
+    "prompt_label": "Prompt (Hãy thử ngay):",
+    "prompt_text": "\"Tạo trang chủ cho một quán cà phê mới gần Central Park, New York. Sử dụng thiết kế mùa xuân tuyệt đẹp với tông màu pastel nhẹ nhàng, hoa anh đào và bầu không khí ấm cúng. Bao gồm phần chào đón, điểm nổi bật của menu, thông tin vị trí và nút đặt bàn.\"",
+    "output_label": "Trang web được tạo (Tạo tức thì):"
+  },
+  "features": {
+    "h2": "Mọi thứ bạn cần, không gì thừa",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Tạo từ mô tả",
+        "desc": "Mô tả doanh nghiệp, portfolio hoặc ý tưởng của bạn — Atelier xây dựng trang web hoàn chỉnh nhiều phần với bố cục gọn gàng và nội dung thực."
+      },
+      {
+        "icon": "edit",
+        "title": "Chỉnh sửa không cần code",
+        "desc": "Chạm để thay đổi văn bản, sắp xếp lại các phần, cập nhật hình ảnh và tinh chỉnh thiết kế. Kiểm soát sáng tạo hoàn toàn, không cần kiến thức kỹ thuật."
+      },
+      {
+        "icon": "globe",
+        "title": "Xuất bản tức thì",
+        "desc": "Lên sóng trên URL Atelier riêng chỉ với một chạm. Trang web của bạn có thể truy cập ngay lập tức bởi bất kỳ ai, ở bất kỳ đâu trên thế giới."
+      },
+      {
+        "icon": "mobile",
+        "title": "Xây dựng cho di động",
+        "desc": "Toàn bộ quy trình — từ tạo đến xuất bản — được thiết kế cho điện thoại của bạn. Cập nhật trang web từ bất kỳ đâu, bất kỳ lúc nào."
+      },
+      {
+        "icon": "bolt",
+        "title": "Hoàn hảo cho mọi nhu cầu",
+        "desc": "Salon, nhà hàng, portfolio, trang đặt lịch, trang liên kết, thương hiệu cá nhân — Atelier thích ứng với tầm nhìn của bạn."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Xây dựng cho nhà sáng tạo, doanh nhân và doanh nghiệp nhỏ",
+    "items": [
+      "Trang portfolio và thương hiệu cá nhân",
+      "Doanh nghiệp địa phương — quán cà phê, salon, nhà hàng",
+      "Landing page cho freelancer và nhà sáng tạo",
+      "Trang đặt lịch và đặt chỗ",
+      "Trang link-in-bio và social hub",
+      "Trang sự kiện và ra mắt"
+    ]
+  },
+  "cta": {
+    "h3": "Trang web của bạn chỉ cách một câu",
+    "p": "Tải Atelier miễn phí và ra mắt trang web của bạn hôm nay.",
+    "download": "Tải trên App Store"
+  },
+  "legal": {
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng"
+  }
+}

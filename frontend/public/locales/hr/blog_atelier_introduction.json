@@ -1,0 +1,73 @@
+{
+  "seo": {
+    "title": "Atelier: AI kreator web stranica — Izradite zadivljujuću stranicu s iPhonea",
+    "description": "Atelier pretvara jednostavan opis u profesionalnu, živu web stranicu u minutama. Bez programiranja, bez računala. Izradite portfolije, poslovne stranice, stranice za rezervacije i više — sve s telefona.",
+    "ogTitle": "Atelier: Pokrenite prekrasnu web stranicu u minutama pomoću AI-ja",
+    "ogDescription": "Od ideje do žive stranice u minutama. Atelier je AI kreator web stranica dizajniran za vaš telefon — kreirajte, uređujte i objavite bez koda."
+  },
+  "aria": { "home": "Atelier Početna" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Sada dostupno na iOS-u",
+    "h1": "Vaša sljedeća web stranica<br>počinje jednom rečenicom.",
+    "tagline": "Atelier je AI kreator web stranica koji pretvara jednostavan opis u profesionalnu, živu web stranicu — sve s vašeg iPhonea. Bez programiranja, bez dizajnerskih alata, bez komplikacija. Samo opišite što želite i objavite.",
+    "badges": ["Pokreće AI", "Mobilni pristup", "Trenutna objava"]
+  },
+  "demo": {
+    "h2": "Od opisa do objave — u minutama",
+    "p1": "Zamolili smo Atelier da izradi web stranicu za novi kafić koji se otvara blizu Central Parka u New Yorku — s prekrasnim proljetnim dizajnom. Evo što je trenutno stvorio iz jednog opisa na iPhoneu.",
+    "prompt_label": "Upit (Isprobajte sami):",
+    "prompt_text": "\"Izradi početnu stranicu za novi kafić koji se otvara blizu Central Parka, New York. Koristi prekrasan proljetni dizajn s nježnim pastelnim bojama, trešnjinim cvjetovima i ugodnom atmosferom. Uključi sekciju dobrodošlice, istaknute stavke jelovnika, informacije o lokaciji i gumb za rezervaciju.\"",
+    "output_label": "Generirana web stranica (Izrađena trenutno):"
+  },
+  "features": {
+    "h2": "Sve što trebate, ništa što ne trebate",
+    "items": [
+      {
+        "icon": "magic",
+        "title": "Generirajte iz opisa",
+        "desc": "Opišite svoj posao, portfolio ili ideju — Atelier izrađuje kompletnu web stranicu s više sekcija, čistim rasporedom i stvarnim sadržajem."
+      },
+      {
+        "icon": "edit",
+        "title": "Uređujte bez koda",
+        "desc": "Dodirnite za promjenu teksta, preuređivanje sekcija, ažuriranje slika i doradu dizajna. Puna kreativna kontrola, nula tehničkog znanja."
+      },
+      {
+        "icon": "globe",
+        "title": "Objavite trenutno",
+        "desc": "Pokrenite stranicu na jedinstvenom Atelier URL-u jednim dodirom. Vaša stranica je odmah dostupna svima, bilo gdje u svijetu."
+      },
+      {
+        "icon": "mobile",
+        "title": "Napravljeno za mobitel",
+        "desc": "Cijeli radni tijek — od izrade do objave — dizajniran je za vaš telefon. Ažurirajte stranicu bilo gdje, bilo kada."
+      },
+      {
+        "icon": "bolt",
+        "title": "Savršeno za svaku namjenu",
+        "desc": "Saloni, restorani, portfoliji, stranice za rezervacije, link stranice, osobni brendovi — Atelier se prilagođava vašoj viziji."
+      }
+    ]
+  },
+  "useCases": {
+    "h2": "Za kreativce, poduzetnike i male tvrtke",
+    "items": [
+      "Portfolio i osobne branding stranice",
+      "Lokalni poslovi — kafići, saloni, restorani",
+      "Landing stranice za freelancere i kreativce",
+      "Stranice za rezervacije i termine",
+      "Link-in-bio i društvene hub stranice",
+      "Stranice za događaje i lansiranja"
+    ]
+  },
+  "cta": {
+    "h3": "Vaša web stranica je samo jednu rečenicu daleko",
+    "p": "Preuzmite Atelier besplatno i pokrenite svoju stranicu danas.",
+    "download": "Preuzmite na App Storeu"
+  },
+  "legal": {
+    "privacy": "Pravila privatnosti",
+    "terms": "Uvjeti korištenja"
+  }
+}
