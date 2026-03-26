@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Harga Atelier — $99/tahun untuk pembinaan laman web AI tanpa had",
+    "description": "Bina sehingga 10 laman web profesional dengan hanya $99/tahun. Pembina AI Atelier membolehkan anda mencipta, mengedit dan menerbitkan dari iPhone anda — tanpa kerumitan Wix atau WordPress.",
+    "ogTitle": "Harga Atelier: $99/tahun — Bina sehingga 10 laman web berkuasa AI",
+    "ogDescription": "Penciptaan laman web AI tanpa had untuk $99/tahun. Edit di mana sahaja dari iPhone anda, urus sehingga 10 laman, dan langkau kerumitan pembina tradisional."
+  },
+  "aria": { "home": "Laman utama Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Harga mudah dan telus",
+    "h1": "Satu pelan.<br>Kreativiti tanpa had.",
+    "tagline": "Semua yang anda perlukan untuk membina, mengedit dan menerbitkan laman web yang menakjubkan — lebih murah daripada kos makan malam di luar sekali setahun."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/tahun",
+    "perMonth": "Hanya $8.25/bulan",
+    "badge": "Nilai terbaik"
+  },
+  "heroImage": {
+    "alt": "Harga Atelier — bina laman web AI yang cantik dari iPhone anda"
+  },
+  "value": {
+    "h2": "Mengapa $99/tahun adalah pilihan bijak",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Edit bila-bila masa, di mana sahaja — terus dari iPhone anda",
+        "desc": "Studio laman web anda ada dalam poket. Kemas kini teks, tukar gambar, susun semula bahagian dan terbitkan perubahan semasa bergerak — dari kereta api, kafe, atau sofa pada tengah malam. Tidak perlu laptop, selama-lamanya."
+      },
+      {
+        "icon": "magic",
+        "title": "100% dikuasakan AI — tiada masalah seret dan lepas",
+        "desc": "Pembina tradisional seperti Wix dan WordPress memaksa anda melalui editor yang rumit, templat yang tiada penghujung dan mimpi ngeri plugin. Atelier melangkau semua itu. Huraikan apa yang anda mahu dalam bahasa biasa dan AI membinanya — cantik, serta-merta dan dioptimumkan untuk enjin carian dari awal."
+      },
+      {
+        "icon": "globe",
+        "title": "Sehingga 10 laman web dalam satu pelan",
+        "desc": "Menguruskan salon dan blog peribadi? Restoran dan halaman tempahan? Dengan Atelier, anda boleh mencipta dan mengurus sehingga 10 laman web yang bebas sepenuhnya — semuanya dari satu langganan $99/tahun."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Bagaimana Atelier dibandingkan",
+    "headers": ["Ciri", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Kos tahunan", "$99/tahun", "$197+/tahun", "$300+/tahun"],
+      ["Penjanaan laman web AI", "AI penuh — dari huraian ke laman", "Ciri AI terhad", "Memerlukan plugin"],
+      ["Pengeditan mudah alih", "Natif pada iPhone, bila-bila masa", "Tertumpu pada desktop", "Tertumpu pada desktop"],
+      ["Pengoptimuman SEO", "Terbina dalam, automatik", "Memerlukan persediaan manual", "Memerlukan plugin dan kepakaran"],
+      ["Bilangan laman", "Sehingga 10", "1 setiap pelan", "1 setiap hosting"],
+      ["Keluk pembelajaran", "Sifar — hanya taip", "Berjam-jam tutorial", "Berminggu-minggu persediaan"]
+    ]
+  },
+  "seoSection": {
+    "h2": "SEO terbina dalam yang benar-benar berkesan",
+    "p": "Dengan Wix atau WordPress, untuk mendapatkan kedudukan laman anda di Google bermakna bergelut dengan plugin SEO, editor tag meta, penjana peta laman dan konfigurasi teknikal yang kebanyakan orang tidak pernah selesaikan. Atelier mengendalikan semuanya secara automatik — struktur HTML yang bersih, metadata yang dioptimumkan, pemuatan pantas dan reka bentuk mobile-first yang digemari enjin carian. Laman anda dilahirkan sedia untuk mendapat kedudukan.",
+    "items": [
+      "HTML bersih dan semantik untuk crawler enjin carian",
+      "Tajuk meta dan penerangan yang dijana secara automatik",
+      "Reka bentuk mobile-first — faktor penarafan utama Google",
+      "Masa pemuatan sepantas kilat tanpa plugin yang membengkak",
+      "Tiada plugin SEO atau konfigurasi manual diperlukan"
+    ]
+  },
+  "cta": {
+    "h3": "Mula membina dengan $99/tahun",
+    "p": "Muat turun Atelier dan lancarkan laman web pertama anda hari ini.",
+    "download": "Muat turun di App Store"
+  },
+  "legal": {
+    "privacy": "Dasar Privasi",
+    "terms": "Terma Penggunaan"
+  }
+}

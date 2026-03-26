@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Preços do Atelier — $99/ano para criação ilimitada de websites com IA",
+    "description": "Crie até 10 websites profissionais por apenas $99/ano. O construtor de IA do Atelier permite-lhe criar, editar e publicar a partir do seu iPhone — sem a complexidade do Wix ou WordPress.",
+    "ogTitle": "Preços do Atelier: $99/ano — Crie até 10 websites com IA",
+    "ogDescription": "Criação ilimitada de websites com IA por $99/ano. Edite em qualquer lugar a partir do iPhone, gira até 10 sites e evite a complexidade dos construtores tradicionais."
+  },
+  "aria": { "home": "Início do Atelier" },
+  "nav": { "blog": "Blogue", "category": "Atelier" },
+  "hero": {
+    "kicker": "Preços simples e transparentes",
+    "h1": "Um único plano.<br>Criatividade ilimitada.",
+    "tagline": "Tudo o que precisa para criar, editar e publicar websites deslumbrantes — por menos do que o custo de um jantar fora por ano."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/ano",
+    "perMonth": "São apenas $8.25/mês",
+    "badge": "Melhor relação qualidade-preço"
+  },
+  "heroImage": {
+    "alt": "Preços do Atelier — crie belos websites com IA a partir do seu iPhone"
+  },
+  "value": {
+    "h2": "Porque é que $99/ano é uma escolha óbvia",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Edite a qualquer hora, em qualquer lugar — diretamente do seu iPhone",
+        "desc": "O seu estúdio de websites está no seu bolso. Atualize textos, troque imagens, reorganize secções e publique alterações em movimento — do comboio, do café ou do sofá à meia-noite. Sem necessidade de portátil, nunca."
+      },
+      {
+        "icon": "magic",
+        "title": "100% com IA — sem dores de cabeça de arrastar e largar",
+        "desc": "Construtores tradicionais como Wix e WordPress obrigam-no a usar editores desajeitados, templates intermináveis e pesadelos de plugins. O Atelier salta tudo isso. Descreva o que quer em linguagem simples e a IA constrói — de forma elegante, instantânea e otimizada para motores de busca desde o início."
+      },
+      {
+        "icon": "globe",
+        "title": "Até 10 websites num único plano",
+        "desc": "Gere um salão e um blogue pessoal? Um restaurante e uma página de reservas? Com o Atelier, pode criar e gerir até 10 websites completamente independentes — tudo com uma única subscrição de $99/ano."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Como o Atelier se compara",
+    "headers": ["Funcionalidade", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Custo anual", "$99/ano", "$197+/ano", "$300+/ano"],
+      ["Geração de websites com IA", "IA completa — do texto ao site", "Funcionalidades de IA limitadas", "Requer plugins"],
+      ["Edição móvel", "Nativo no iPhone, a qualquer hora", "Focado no desktop", "Focado no desktop"],
+      ["Otimização SEO", "Integrada, automática", "Requer configuração manual", "Requer plugins e experiência"],
+      ["Número de sites", "Até 10", "1 por plano", "1 por alojamento"],
+      ["Curva de aprendizagem", "Zero — basta escrever", "Horas de tutoriais", "Semanas de configuração"]
+    ]
+  },
+  "seoSection": {
+    "h2": "SEO integrado que realmente funciona",
+    "p": "Com Wix ou WordPress, conseguir que o seu site apareça no Google significa lutar com plugins de SEO, editores de meta tags, geradores de sitemap e configurações técnicas que a maioria das pessoas nunca conclui. O Atelier trata de tudo automaticamente — estrutura HTML limpa, metadados otimizados, carregamento rápido e design mobile-first que os motores de busca adoram. O seu site nasce pronto para posicionar-se.",
+    "items": [
+      "HTML limpo e semântico para crawlers de motores de busca",
+      "Meta títulos e descrições gerados automaticamente",
+      "Design mobile-first — um fator-chave de posicionamento no Google",
+      "Tempos de carregamento ultrarrápidos sem plugins pesados",
+      "Sem necessidade de plugins de SEO ou configuração manual"
+    ]
+  },
+  "cta": {
+    "h3": "Comece a criar por $99/ano",
+    "p": "Descarregue o Atelier e lance o seu primeiro website hoje.",
+    "download": "Descarregar na App Store"
+  },
+  "legal": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Utilização"
+  }
+}

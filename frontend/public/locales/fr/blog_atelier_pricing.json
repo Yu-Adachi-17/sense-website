@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Tarifs Atelier — $99/an pour une création de sites web illimitée par IA",
+    "description": "Créez jusqu'à 10 sites web professionnels pour seulement $99/an. Le créateur IA d'Atelier vous permet de créer, modifier et publier depuis votre iPhone — sans la complexité de Wix ou WordPress.",
+    "ogTitle": "Tarifs Atelier : $99/an — Créez jusqu'à 10 sites web propulsés par l'IA",
+    "ogDescription": "Création illimitée de sites web par IA pour $99/an. Modifiez n'importe où depuis votre iPhone, gérez jusqu'à 10 sites et évitez la complexité des outils traditionnels."
+  },
+  "aria": { "home": "Accueil Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Des tarifs simples et transparents",
+    "h1": "Une formule.<br>Une créativité illimitée.",
+    "tagline": "Tout ce dont vous avez besoin pour créer, modifier et publier des sites web époustouflants — pour moins cher qu'un seul dîner au restaurant par an."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/an",
+    "perMonth": "Soit seulement $8.25/mois",
+    "badge": "Meilleur rapport qualité-prix"
+  },
+  "heroImage": {
+    "alt": "Tarifs Atelier — créez de beaux sites web IA depuis votre iPhone"
+  },
+  "value": {
+    "h2": "Pourquoi $99/an est une évidence",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Modifiez à tout moment, n'importe où — directement depuis votre iPhone",
+        "desc": "Votre studio web tient dans votre poche. Mettez à jour les textes, changez les images, réorganisez les sections et publiez vos modifications en déplacement — dans le train, au café ou depuis votre canapé à minuit. Aucun ordinateur portable nécessaire, jamais."
+      },
+      {
+        "icon": "magic",
+        "title": "100% propulsé par l'IA — fini les galères du glisser-déposer",
+        "desc": "Les outils traditionnels comme Wix et WordPress vous imposent des éditeurs maladroits, des modèles à n'en plus finir et des cauchemars de plugins. Atelier passe outre tout cela. Décrivez ce que vous voulez en langage courant et l'IA le construit — magnifiquement, instantanément et optimisé pour les moteurs de recherche dès le départ."
+      },
+      {
+        "icon": "globe",
+        "title": "Jusqu'à 10 sites web avec une seule formule",
+        "desc": "Vous gérez un salon et un blog personnel ? Un restaurant et une page de réservation ? Avec Atelier, vous pouvez créer et gérer jusqu'à 10 sites web totalement indépendants — le tout avec un seul abonnement à $99/an."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Comment Atelier se compare",
+    "headers": ["Fonctionnalité", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Coût annuel", "$99/an", "$197+/an", "$300+/an"],
+      ["Génération de site par IA", "IA complète — du texte au site", "Fonctionnalités IA limitées", "Nécessite des plugins"],
+      ["Modification mobile", "Native sur iPhone, à tout moment", "Axé sur le bureau", "Axé sur le bureau"],
+      ["Optimisation SEO", "Intégrée, automatique", "Configuration manuelle requise", "Nécessite plugins et expertise"],
+      ["Nombre de sites", "Jusqu'à 10", "1 par formule", "1 par hébergement"],
+      ["Courbe d'apprentissage", "Zéro — tapez, c'est tout", "Des heures de tutoriels", "Des semaines de configuration"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Un SEO intégré qui fonctionne vraiment",
+    "p": "Avec Wix ou WordPress, faire apparaître votre site dans Google signifie se battre avec des plugins SEO, des éditeurs de balises meta, des générateurs de sitemap et des configurations techniques que la plupart des gens n'achèvent jamais. Atelier gère tout automatiquement — structure HTML propre, métadonnées optimisées, chargement rapide et design mobile-first que les moteurs de recherche adorent. Votre site est prêt à se classer dès sa création.",
+    "items": [
+      "HTML propre et sémantique pour les robots des moteurs de recherche",
+      "Méta-titres et descriptions générés automatiquement",
+      "Design mobile-first — un facteur clé de classement Google",
+      "Temps de chargement ultra-rapides sans plugins lourds",
+      "Aucun plugin SEO ni configuration manuelle nécessaire"
+    ]
+  },
+  "cta": {
+    "h3": "Commencez à créer pour $99/an",
+    "p": "Téléchargez Atelier et lancez votre premier site web dès aujourd'hui.",
+    "download": "Télécharger sur l'App Store"
+  },
+  "legal": {
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation"
+  }
+}

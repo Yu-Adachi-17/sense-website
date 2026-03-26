@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Bảng giá Atelier — $99/năm cho việc xây dựng website AI không giới hạn",
+    "description": "Tạo tới 10 website chuyên nghiệp chỉ với $99/năm. Công cụ xây dựng AI của Atelier cho phép bạn tạo, chỉnh sửa và xuất bản từ iPhone — không cần sự phức tạp của Wix hay WordPress.",
+    "ogTitle": "Bảng giá Atelier: $99/năm — Tạo tới 10 website hỗ trợ AI",
+    "ogDescription": "Tạo website AI không giới hạn với $99/năm. Chỉnh sửa mọi nơi từ iPhone, quản lý tới 10 trang web và bỏ qua sự phức tạp của các công cụ truyền thống."
+  },
+  "aria": { "home": "Trang chủ Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Bảng giá đơn giản, minh bạch",
+    "h1": "Một gói duy nhất.<br>Sáng tạo không giới hạn.",
+    "tagline": "Tất cả những gì bạn cần để xây dựng, chỉnh sửa và xuất bản các website ấn tượng — rẻ hơn chi phí một bữa tối bên ngoài mỗi năm."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/năm",
+    "perMonth": "Chỉ $8.25/tháng",
+    "badge": "Giá trị tốt nhất"
+  },
+  "heroImage": {
+    "alt": "Bảng giá Atelier — tạo website AI đẹp từ iPhone của bạn"
+  },
+  "value": {
+    "h2": "Tại sao $99/năm là lựa chọn hiển nhiên",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Chỉnh sửa mọi lúc, mọi nơi — ngay từ iPhone của bạn",
+        "desc": "Studio website của bạn nằm trong túi. Cập nhật văn bản, thay đổi hình ảnh, sắp xếp lại các phần và xuất bản thay đổi khi di chuyển — từ tàu, quán cà phê, hay trên sofa lúc nửa đêm. Không bao giờ cần laptop."
+      },
+      {
+        "icon": "magic",
+        "title": "100% hỗ trợ AI — không đau đầu kéo thả",
+        "desc": "Các công cụ truyền thống như Wix và WordPress buộc bạn sử dụng trình biên tập khó dùng, template vô tận và ác mộng plugin. Atelier bỏ qua tất cả. Mô tả những gì bạn muốn bằng ngôn ngữ thông thường và AI sẽ xây dựng — đẹp, tức thì và được tối ưu hóa cho công cụ tìm kiếm ngay từ đầu."
+      },
+      {
+        "icon": "globe",
+        "title": "Tới 10 website trong một gói duy nhất",
+        "desc": "Bạn điều hành tiệm làm đẹp và blog cá nhân? Nhà hàng và trang đặt chỗ? Với Atelier, bạn có thể tạo và quản lý tới 10 website hoàn toàn độc lập — tất cả từ một gói đăng ký $99/năm."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "So sánh Atelier với đối thủ",
+    "headers": ["Tính năng", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Chi phí hàng năm", "$99/năm", "$197+/năm", "$300+/năm"],
+      ["Tạo website bằng AI", "AI đầy đủ — từ mô tả đến trang web", "Tính năng AI hạn chế", "Cần plugin"],
+      ["Chỉnh sửa trên di động", "Gốc trên iPhone, mọi lúc", "Tập trung desktop", "Tập trung desktop"],
+      ["Tối ưu SEO", "Tích hợp sẵn, tự động", "Cần thiết lập thủ công", "Cần plugin và chuyên môn"],
+      ["Số lượng trang web", "Tới 10", "1 mỗi gói", "1 mỗi hosting"],
+      ["Đường cong học tập", "Bằng không — chỉ cần gõ", "Hàng giờ hướng dẫn", "Hàng tuần thiết lập"]
+    ]
+  },
+  "seoSection": {
+    "h2": "SEO tích hợp thực sự hiệu quả",
+    "p": "Với Wix hoặc WordPress, để trang web của bạn xếp hạng trên Google đồng nghĩa với việc vật lộn với plugin SEO, trình chỉnh sửa thẻ meta, trình tạo sitemap và cấu hình kỹ thuật mà hầu hết mọi người không bao giờ hoàn thành. Atelier xử lý tất cả tự động — cấu trúc HTML sạch, metadata được tối ưu, tải nhanh và thiết kế mobile-first mà công cụ tìm kiếm yêu thích. Trang web của bạn sinh ra đã sẵn sàng xếp hạng.",
+    "items": [
+      "HTML sạch, ngữ nghĩa cho crawler công cụ tìm kiếm",
+      "Tự động tạo meta title và mô tả",
+      "Thiết kế mobile-first — yếu tố xếp hạng quan trọng của Google",
+      "Thời gian tải nhanh như chớp không plugin cồng kềnh",
+      "Không cần plugin SEO hay cấu hình thủ công"
+    ]
+  },
+  "cta": {
+    "h3": "Bắt đầu xây dựng với $99/năm",
+    "p": "Tải Atelier và ra mắt website đầu tiên của bạn ngay hôm nay.",
+    "download": "Tải trên App Store"
+  },
+  "legal": {
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng"
+  }
+}

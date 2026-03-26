@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier árak — $99/év korlátlan AI weboldal-építéshez",
+    "description": "Készítsen akár 10 professzionális weboldalt mindössze $99/év áron. Az Atelier AI-alapú építője lehetővé teszi a létrehozást, szerkesztést és közzétételt közvetlenül iPhone-ról — a Wix vagy WordPress bonyolultsága nélkül.",
+    "ogTitle": "Atelier árak: $99/év — Építsen akár 10 AI-alapú weboldalt",
+    "ogDescription": "Korlátlan AI weboldal-készítés $99/év áron. Szerkesszen bárhonnan iPhone-ról, kezeljen akár 10 oldalt, és kerülje el a hagyományos eszközök bonyolultságát."
+  },
+  "aria": { "home": "Atelier kezdőlap" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Egyszerű, átlátható árazás",
+    "h1": "Egy csomag.<br>Korlátlan kreativitás.",
+    "tagline": "Minden, amire szüksége van lenyűgöző weboldalak építéséhez, szerkesztéséhez és közzétételéhez — kevesebbe kerül, mint egyetlen vacsora egy étteremben évente."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/év",
+    "perMonth": "Ez mindössze $8.25/hónap",
+    "badge": "Legjobb ár-érték arány"
+  },
+  "heroImage": {
+    "alt": "Atelier árak — készítsen gyönyörű AI weboldalakat iPhone-ról"
+  },
+  "value": {
+    "h2": "Miért magától értetődő a $99/év",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Szerkesszen bármikor, bárhol — közvetlenül iPhone-ról",
+        "desc": "Weboldal-stúdiója a zsebében van. Frissítsen szövegeket, cseréljen képeket, rendezze át a szekciókat és tegye közzé a változtatásokat útközben — a vonatról, a kávézóból vagy a kanapéról éjfélkor. Laptopra soha nincs szükség."
+      },
+      {
+        "icon": "magic",
+        "title": "100% AI-alapú — nincsenek húzd-és-ejtsd fejfájások",
+        "desc": "A hagyományos eszközök, mint a Wix és a WordPress ügyetlen szerkesztőkön, végtelen sablonokon és bővítmény-rémálmokon vezetik végig. Az Atelier mindezt átugorja. Írja le egyszerű nyelven, mit szeretne, és az AI megépíti — gyönyörűen, azonnal, keresőmotorra optimalizáltan."
+      },
+      {
+        "icon": "globe",
+        "title": "Akár 10 weboldal egyetlen csomagban",
+        "desc": "Szalont és személyes blogot üzemeltet? Éttermet és foglalási oldalt? Az Atelierrel akár 10 teljesen független weboldalt hozhat létre és kezelhet — mindezt egyetlen $99/év előfizetéssel."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Hogyan áll az Atelier az összehasonlításban",
+    "headers": ["Funkció", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Éves költség", "$99/év", "$197+/év", "$300+/év"],
+      ["AI weboldal-generálás", "Teljes AI — leírásból weboldal", "Korlátozott AI funkciók", "Bővítményeket igényel"],
+      ["Mobil szerkesztés", "iPhone-natív, bármikor", "Asztali gépre fókuszált", "Asztali gépre fókuszált"],
+      ["SEO optimalizálás", "Beépített, automatikus", "Kézi beállítás szükséges", "Bővítményeket és szakértelmet igényel"],
+      ["Oldalak száma", "Akár 10", "1 csomagonként", "1 tárhelyenként"],
+      ["Tanulási görbe", "Nulla — csak írjon", "Órák tananyag", "Hetek beállítás"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Beépített SEO, ami tényleg működik",
+    "p": "A Wix vagy WordPress esetében az oldalának Google-rangsorolása SEO bővítményekkel, meta-címke szerkesztőkkel, webhelytérkép-generátorokkal és technikai konfigurációkkal való küzdelmet jelent, amelyeket a legtöbben sosem fejeznek be. Az Atelier mindezt automatikusan kezeli — tiszta HTML struktúra, optimalizált metaadatok, gyors betöltés és mobilbarát dizájn, amit a keresőmotorok szeretnek. Weboldala rangsorolásra készen születik.",
+    "items": [
+      "Tiszta, szemantikus HTML keresőmotor-robotoknak",
+      "Automatikusan generált meta címek és leírások",
+      "Mobilbarát dizájn — kulcsfontosságú Google rangsorolási tényező",
+      "Villámgyors betöltési idő felduzzadt bővítmények nélkül",
+      "Nincs szükség SEO bővítményekre vagy kézi konfigurációra"
+    ]
+  },
+  "cta": {
+    "h3": "Kezdjen el építeni $99/év áron",
+    "p": "Töltse le az Ateliert és indítsa el első weboldalát még ma.",
+    "download": "Letöltés az App Store-ból"
+  },
+  "legal": {
+    "privacy": "Adatvédelmi irányelvek",
+    "terms": "Felhasználási feltételek"
+  }
+}

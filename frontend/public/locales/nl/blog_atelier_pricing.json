@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier prijzen — $99/jaar voor onbeperkt AI-websites bouwen",
+    "description": "Maak tot 10 professionele websites voor slechts $99/jaar. De AI-websitebouwer van Atelier laat je creëren, bewerken en publiceren vanaf je iPhone — zonder de complexiteit van Wix of WordPress.",
+    "ogTitle": "Atelier prijzen: $99/jaar — Bouw tot 10 AI-websites",
+    "ogDescription": "Onbeperkt AI-websites maken voor $99/jaar. Bewerk overal vanaf je iPhone, beheer tot 10 sites en sla de complexiteit van traditionele bouwers over."
+  },
+  "aria": { "home": "Atelier startpagina" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Eenvoudige, transparante prijzen",
+    "h1": "Eén abonnement.<br>Onbeperkte creativiteit.",
+    "tagline": "Alles wat je nodig hebt om prachtige websites te bouwen, bewerken en publiceren — voor minder dan de kosten van één etentje per jaar."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/jaar",
+    "perMonth": "Dat is slechts $8.25/maand",
+    "badge": "Beste waarde"
+  },
+  "heroImage": {
+    "alt": "Atelier prijzen — bouw mooie AI-websites vanaf je iPhone"
+  },
+  "value": {
+    "h2": "Waarom $99/jaar een no-brainer is",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Bewerk altijd en overal — rechtstreeks vanaf je iPhone",
+        "desc": "Je websitestudio zit in je broekzak. Werk teksten bij, wissel afbeeldingen, herschik secties en publiceer wijzigingen onderweg — vanuit de trein, het café of je bank om middernacht. Geen laptop nodig, ooit."
+      },
+      {
+        "icon": "magic",
+        "title": "100% AI-aangedreven — geen drag-and-drop-gedoe",
+        "desc": "Traditionele bouwers zoals Wix en WordPress dwingen je door onhandige editors, eindeloze templates en plugin-nachtmerries. Atelier slaat dat allemaal over. Beschrijf wat je wilt in gewone taal en AI bouwt het — prachtig, direct en geoptimaliseerd voor zoekmachines."
+      },
+      {
+        "icon": "globe",
+        "title": "Tot 10 websites onder één abonnement",
+        "desc": "Heb je een salon en een persoonlijk blog? Een restaurant en een boekingspagina? Met Atelier kun je tot 10 volledig onafhankelijke websites maken en beheren — allemaal met één $99/jaar-abonnement."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Hoe Atelier zich verhoudt",
+    "headers": ["Functie", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Jaarlijkse kosten", "$99/jaar", "$197+/jaar", "$300+/jaar"],
+      ["AI-websitegeneratie", "Volledige AI — van beschrijving naar site", "Beperkte AI-functies", "Vereist plugins"],
+      ["Mobiel bewerken", "iPhone-native, altijd", "Desktop-gericht", "Desktop-gericht"],
+      ["SEO-optimalisatie", "Ingebouwd, automatisch", "Handmatige setup vereist", "Vereist plugins en expertise"],
+      ["Aantal websites", "Tot 10", "1 per abonnement", "1 per hosting"],
+      ["Leercurve", "Nul — gewoon typen", "Uren aan tutorials", "Weken aan setup"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Ingebouwde SEO die echt werkt",
+    "p": "Met Wix of WordPress betekent je site laten ranken op Google worstelen met SEO-plugins, meta-tag-editors, sitemap-generators en technische configuraties die de meeste mensen nooit afmaken. Atelier regelt dit allemaal automatisch — schone HTML-structuur, geoptimaliseerde metadata, snelle laadtijden en mobile-first-design waar zoekmachines van houden. Je site is vanaf het begin klaar om te ranken.",
+    "items": [
+      "Schone, semantische HTML voor zoekmachine-crawlers",
+      "Automatisch gegenereerde metatitels en -beschrijvingen",
+      "Mobile-first-design — een belangrijke Google-rankingfactor",
+      "Razendsnelle laadtijden zonder opgeblazen plugins",
+      "Geen SEO-plugins of handmatige configuratie nodig"
+    ]
+  },
+  "cta": {
+    "h3": "Begin met bouwen voor $99/jaar",
+    "p": "Download Atelier en lanceer vandaag nog je eerste website.",
+    "download": "Download in de App Store"
+  },
+  "legal": {
+    "privacy": "Privacybeleid",
+    "terms": "Gebruiksvoorwaarden"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier hinnoittelu — $99/vuosi rajattomaan tekoälyllä luotuun verkkosivujen rakentamiseen",
+    "description": "Luo jopa 10 ammattimaista verkkosivustoa vain $99/vuosi. Atelierin tekoälykäyttöinen työkalu mahdollistaa luomisen, muokkaamisen ja julkaisemisen suoraan iPhonesta — ilman Wixin tai WordPressin monimutkaisuutta.",
+    "ogTitle": "Atelier hinnoittelu: $99/vuosi — Luo jopa 10 tekoälykäyttöistä verkkosivustoa",
+    "ogDescription": "Rajaton tekoälyverkkosivujen luonti $99/vuosi. Muokkaa missä tahansa iPhonella, hallitse jopa 10 sivustoa ja ohita perinteisten työkalujen monimutkaisuus."
+  },
+  "aria": { "home": "Atelier etusivu" },
+  "nav": { "blog": "Blogi", "category": "Atelier" },
+  "hero": {
+    "kicker": "Yksinkertainen, läpinäkyvä hinnoittelu",
+    "h1": "Yksi paketti.<br>Rajaton luovuus.",
+    "tagline": "Kaikki mitä tarvitset upeita verkkosivuja varten — vähemmällä kuin yksi illallinen ulkona vuodessa."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/vuosi",
+    "perMonth": "Vain $8.25/kuukausi",
+    "badge": "Paras arvo"
+  },
+  "heroImage": {
+    "alt": "Atelier hinnoittelu — luo kauniita tekoälyverkkosivuja iPhonellasi"
+  },
+  "value": {
+    "h2": "Miksi $99/vuosi on itsestään selvä valinta",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Muokkaa milloin tahansa, missä tahansa — suoraan iPhonesta",
+        "desc": "Verkkosivustudiosi on taskussasi. Päivitä tekstejä, vaihda kuvia, järjestele osioita ja julkaise muutoksia liikkeellä — junasta, kahvilasta tai sohvalta keskiyöllä. Ei kannettavaa tarvita, koskaan."
+      },
+      {
+        "icon": "magic",
+        "title": "100% tekoälykäyttöinen — ei vedä ja pudota -päänsärkyä",
+        "desc": "Perinteiset työkalut kuten Wix ja WordPress pakottavat sinut kömpelöihin editoreihin, loputtomiin malleihin ja lisäosa-painajaisiin. Atelier ohittaa kaiken tämän. Kuvaile mitä haluat arkikielellä ja tekoäly rakentaa sen — kauniisti, välittömästi ja hakukoneoptimoidusti."
+      },
+      {
+        "icon": "globe",
+        "title": "Jopa 10 verkkosivustoa yhdellä paketilla",
+        "desc": "Pyöritätkö kampaamoa ja henkilökohtaista blogia? Ravintolaa ja varaussivua? Atelierilla voit luoda ja hallita jopa 10 täysin itsenäistä verkkosivustoa — kaikki yhdellä $99/vuosi-tilauksella."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Miten Atelier pärjää vertailussa",
+    "headers": ["Ominaisuus", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Vuosikustannus", "$99/vuosi", "$197+/vuosi", "$300+/vuosi"],
+      ["Tekoälyverkkosivujen luonti", "Täysi tekoäly — kuvauksesta sivustoksi", "Rajoitetut tekoälyominaisuudet", "Vaatii lisäosia"],
+      ["Mobiilimuokkaus", "iPhone-natiivi, milloin tahansa", "Työpöytäkeskeinen", "Työpöytäkeskeinen"],
+      ["SEO-optimointi", "Sisäänrakennettu, automaattinen", "Vaatii manuaalisen asennuksen", "Vaatii lisäosia ja asiantuntemusta"],
+      ["Sivustojen määrä", "Jopa 10", "1 per paketti", "1 per hosting"],
+      ["Oppimiskäyrä", "Nolla — vain kirjoita", "Tunteja oppaita", "Viikkoja asennusta"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Sisäänrakennettu SEO, joka todella toimii",
+    "p": "Wixin tai WordPressin kanssa sivustosi sijoittaminen Googlessa tarkoittaa kamppailua SEO-lisäosien, meta-tagien editorien, sivukarttageneraattorien ja teknisten konfiguraatioiden kanssa, joita useimmat eivät koskaan viimeistele. Atelier hoitaa kaiken automaattisesti — siisti HTML-rakenne, optimoidut metatiedot, nopea lataus ja mobiili-ensin-suunnittelu, jota hakukoneet rakastavat. Sivustosi syntyy valmiina sijoittumaan.",
+    "items": [
+      "Siisti, semanttinen HTML hakukoneroboteille",
+      "Automaattisesti luodut meta-otsikot ja -kuvaukset",
+      "Mobiili-ensin-suunnittelu — tärkeä Google-sijoitustekijä",
+      "Salamannopeat latausajat ilman raskaita lisäosia",
+      "Ei SEO-lisäosia tai manuaalista konfigurointia"
+    ]
+  },
+  "cta": {
+    "h3": "Aloita rakentaminen $99/vuosi",
+    "p": "Lataa Atelier ja julkaise ensimmäinen verkkosivustosi tänään.",
+    "download": "Lataa App Storesta"
+  },
+  "legal": {
+    "privacy": "Tietosuojakäytäntö",
+    "terms": "Käyttöehdot"
+  }
+}

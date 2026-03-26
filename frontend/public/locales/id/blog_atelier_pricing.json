@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Harga Atelier — $99/tahun untuk pembuatan website AI tanpa batas",
+    "description": "Buat hingga 10 website profesional hanya dengan $99/tahun. Pembuat website AI Atelier memungkinkan Anda membuat, mengedit, dan mempublikasikan dari iPhone — tanpa kerumitan Wix atau WordPress.",
+    "ogTitle": "Harga Atelier: $99/tahun — Buat hingga 10 website berbasis AI",
+    "ogDescription": "Pembuatan website AI tanpa batas seharga $99/tahun. Edit dari mana saja lewat iPhone, kelola hingga 10 situs, dan lewati kerumitan pembuat website tradisional."
+  },
+  "aria": { "home": "Beranda Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Harga sederhana dan transparan",
+    "h1": "Satu paket.<br>Kreativitas tanpa batas.",
+    "tagline": "Semua yang Anda butuhkan untuk membuat, mengedit, dan mempublikasikan website menakjubkan — lebih murah dari biaya makan malam di luar sekali setahun."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/tahun",
+    "perMonth": "Hanya $8.25/bulan",
+    "badge": "Nilai terbaik"
+  },
+  "heroImage": {
+    "alt": "Harga Atelier — buat website AI yang indah dari iPhone Anda"
+  },
+  "value": {
+    "h2": "Mengapa $99/tahun adalah pilihan yang jelas",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Edit kapan saja, di mana saja — langsung dari iPhone Anda",
+        "desc": "Studio website Anda ada di saku. Perbarui teks, ganti gambar, atur ulang bagian, dan publikasikan perubahan saat bepergian — dari kereta, kafe, atau sofa Anda tengah malam. Tidak perlu laptop, selamanya."
+      },
+      {
+        "icon": "magic",
+        "title": "100% berbasis AI — tanpa pusing drag-and-drop",
+        "desc": "Pembuat tradisional seperti Wix dan WordPress memaksa Anda melalui editor yang rumit, template tak berujung, dan mimpi buruk plugin. Atelier melewati semua itu. Jelaskan apa yang Anda inginkan dalam bahasa sehari-hari dan AI membuatnya — indah, instan, dan dioptimalkan untuk mesin pencari sejak awal."
+      },
+      {
+        "icon": "globe",
+        "title": "Hingga 10 website dalam satu paket",
+        "desc": "Mengelola salon dan blog pribadi? Restoran dan halaman pemesanan? Dengan Atelier, Anda bisa membuat dan mengelola hingga 10 website yang sepenuhnya independen — semuanya dari satu langganan $99/tahun."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Perbandingan Atelier dengan yang lain",
+    "headers": ["Fitur", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Biaya tahunan", "$99/tahun", "$197+/tahun", "$300+/tahun"],
+      ["Pembuatan website AI", "AI penuh — dari deskripsi ke situs", "Fitur AI terbatas", "Memerlukan plugin"],
+      ["Pengeditan mobile", "Native di iPhone, kapan saja", "Berfokus desktop", "Berfokus desktop"],
+      ["Optimasi SEO", "Bawaan, otomatis", "Perlu pengaturan manual", "Memerlukan plugin dan keahlian"],
+      ["Jumlah situs", "Hingga 10", "1 per paket", "1 per hosting"],
+      ["Kurva belajar", "Nol — cukup ketik", "Berjam-jam tutorial", "Berminggu-minggu pengaturan"]
+    ]
+  },
+  "seoSection": {
+    "h2": "SEO bawaan yang benar-benar bekerja",
+    "p": "Dengan Wix atau WordPress, membuat situs Anda muncul di Google berarti bergulat dengan plugin SEO, editor meta tag, generator sitemap, dan konfigurasi teknis yang kebanyakan orang tidak pernah selesaikan. Atelier menangani semuanya secara otomatis — struktur HTML bersih, metadata teroptimasi, loading cepat, dan desain mobile-first yang disukai mesin pencari. Situs Anda lahir siap untuk ranking.",
+    "items": [
+      "HTML bersih dan semantik untuk crawler mesin pencari",
+      "Meta title dan deskripsi yang dihasilkan otomatis",
+      "Desain mobile-first — faktor ranking utama Google",
+      "Waktu loading secepat kilat tanpa plugin yang membengkak",
+      "Tidak perlu plugin SEO atau konfigurasi manual"
+    ]
+  },
+  "cta": {
+    "h3": "Mulai membuat dengan $99/tahun",
+    "p": "Unduh Atelier dan luncurkan website pertama Anda hari ini.",
+    "download": "Unduh di App Store"
+  },
+  "legal": {
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Penggunaan"
+  }
+}
