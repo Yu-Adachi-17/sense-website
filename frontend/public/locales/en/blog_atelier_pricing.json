@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier Pricing — $99/Year for Unlimited AI Website Building",
+    "description": "Build up to 10 professional websites for just $99/year. Atelier's AI-powered builder lets you create, edit, and publish from your iPhone — no Wix or WordPress complexity needed.",
+    "ogTitle": "Atelier Pricing: $99/Year — Build Up to 10 AI-Powered Websites",
+    "ogDescription": "Unlimited AI website creation for $99/year. Edit anywhere from your iPhone, manage up to 10 sites, and skip the complexity of traditional builders."
+  },
+  "aria": { "home": "Atelier Home" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Simple, Transparent Pricing",
+    "h1": "One Plan.<br>Unlimited Creativity.",
+    "tagline": "Everything you need to build, edit, and publish stunning websites — for less than the cost of a single dinner out per year."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/year",
+    "perMonth": "That's just $8.25/month",
+    "badge": "Best Value"
+  },
+  "heroImage": {
+    "alt": "Atelier pricing — build beautiful AI websites from your iPhone"
+  },
+  "value": {
+    "h2": "Why $99/Year Is a No-Brainer",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Edit Anytime, Anywhere — Right from Your iPhone",
+        "desc": "Your website studio lives in your pocket. Update text, swap images, rearrange sections, and publish changes on the go — from the train, the café, or your couch at midnight. No laptop required, ever."
+      },
+      {
+        "icon": "magic",
+        "title": "100% AI-Powered — No Drag-and-Drop Headaches",
+        "desc": "Traditional builders like Wix and WordPress force you through clunky editors, endless templates, and plugin nightmares. Atelier skips all of that. Describe what you want in plain language and AI builds it — beautifully, instantly, and optimized for search engines out of the box."
+      },
+      {
+        "icon": "globe",
+        "title": "Up to 10 Websites Under One Plan",
+        "desc": "Run a salon and a personal blog? A restaurant and a booking page? With Atelier, you can create and manage up to 10 completely independent websites — all from a single $99/year subscription."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "How Atelier Stacks Up",
+    "headers": ["Feature", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Annual Cost", "$99/year", "$197+/year", "$300+/year"],
+      ["AI Website Generation", "Full AI — prompt to site", "Limited AI features", "Requires plugins"],
+      ["Mobile Editing", "iPhone-native, anytime", "Desktop-focused", "Desktop-focused"],
+      ["SEO Optimization", "Built-in, automatic", "Manual setup required", "Requires plugins & expertise"],
+      ["Number of Sites", "Up to 10", "1 per plan", "1 per hosting"],
+      ["Learning Curve", "Zero — just type", "Hours of tutorials", "Weeks of setup"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Built-In SEO That Actually Works",
+    "p": "With Wix or WordPress, getting your site to rank on Google means wrestling with SEO plugins, meta tag editors, sitemap generators, and technical configurations most people never finish. Atelier handles it all automatically — clean HTML structure, optimized metadata, fast loading, and mobile-first design that search engines love. Your site is born ready to rank.",
+    "items": [
+      "Clean, semantic HTML for search engine crawlers",
+      "Auto-generated meta titles and descriptions",
+      "Mobile-first design — a key Google ranking factor",
+      "Lightning-fast load times with no bloated plugins",
+      "No SEO plugins or manual configuration needed"
+    ]
+  },
+  "cta": {
+    "h3": "Start Building for $99/Year",
+    "p": "Download Atelier and launch your first website today.",
+    "download": "Download on the App Store"
+  },
+  "legal": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  }
+}
