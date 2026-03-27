@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI Makes Your Website — Why Hand-Coding Is Already Obsolete",
+    "description": "Stop spending weeks building a website by hand. Atelier uses AI to generate a complete, professional site in under 60 seconds — right from your iPhone. The future of web creation is here.",
+    "ogTitle": "AI Makes Your Website in Under 60 Seconds",
+    "ogDescription": "Describe your idea, and AI builds your website instantly. No coding, no templates, no designers. Atelier turns a single sentence into a live, stunning site."
+  },
+  "aria": { "home": "Atelier Home" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "The Future of Website Creation",
+    "h1": "Your Website.<br>Built by AI in 60 Seconds.",
+    "tagline": "Forget hiring designers. Forget drag-and-drop builders. Forget spending weeks on a website. Just describe what you want — and Atelier's AI creates a polished, live website before you finish your coffee.",
+    "badges": ["AI-Generated", "Under 60 Seconds", "No Code Required"]
+  },
+  "opening": {
+    "h2": "The Era of Hand-Built Websites Is Over",
+    "p1": "Think about it. You need a website for your business, portfolio, or side project. What used to happen? You'd spend days researching builders, hours watching tutorials, and weeks tweaking templates that never quite looked right.",
+    "p2": "That entire process is now obsolete. AI doesn't just assist with web design — it replaces the entire workflow. From layout to copy, from color palette to responsive design, one prompt produces a complete website that's ready to publish."
+  },
+  "demo": {
+    "h2": "See It Happen — One Prompt, One Website",
+    "p": "We typed a single sentence into Atelier and watched AI build a fully designed, multi-section website in seconds. No templates. No drag-and-drop. No revisions. Just instant creation.",
+    "prompt_label": "The Prompt:",
+    "prompt_text": "\"Create a website for an organic skincare brand based in Brooklyn. Modern, minimal, with product highlights, an about section, and a shop link.\"",
+    "output_label": "What AI Created:"
+  },
+  "whyAI": {
+    "h2": "Why AI Beats Everything Else",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 Seconds vs. 60 Days",
+        "desc": "A traditional website takes weeks to plan, design, and launch. With AI, the entire process collapses into a single minute. Describe your vision, and it's live."
+      },
+      {
+        "icon": "magic",
+        "title": "No Skills Required — Seriously",
+        "desc": "You don't need to know HTML, CSS, design principles, or how hosting works. You don't even need a computer. If you can type a sentence, you can build a website."
+      },
+      {
+        "icon": "edit",
+        "title": "AI Writes Your Content Too",
+        "desc": "Not sure what to put on your site? AI generates compelling headlines, descriptions, and section content tailored to your business — no copywriter needed."
+      },
+      {
+        "icon": "mobile",
+        "title": "Build and Edit from Your Phone",
+        "desc": "Atelier runs entirely on your iPhone. Create a website on the train, update it at lunch, publish it before dinner. Your website studio fits in your pocket."
+      },
+      {
+        "icon": "globe",
+        "title": "Publish Instantly — No Setup",
+        "desc": "No domain configuration, no hosting accounts, no FTP uploads. One tap and your site is live on a unique URL, accessible to anyone in the world."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "The Old Way vs. The AI Way",
+    "old_title": "Building a Website the Old Way",
+    "old_items": [
+      "Research website builders for hours",
+      "Watch tutorials to learn the interface",
+      "Pick a template (that 10,000 others are using)",
+      "Manually drag, drop, and resize every element",
+      "Write all your own content from scratch",
+      "Struggle with mobile responsiveness",
+      "Figure out hosting and domain setup",
+      "Launch after weeks of frustration"
+    ],
+    "new_title": "Building a Website with AI",
+    "new_items": [
+      "Open Atelier on your iPhone",
+      "Type one sentence describing your site",
+      "AI generates a complete, beautiful website",
+      "Tap to publish — you're live"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Who Is This For?",
+    "p": "If you've ever Googled \"how to make a website\" or \"best website builder\" — this is for you.",
+    "items": [
+      {
+        "title": "First-Time Website Creators",
+        "desc": "You've never built a site before, and the thought of learning a website builder feels overwhelming. With AI, there's nothing to learn."
+      },
+      {
+        "title": "Small Business Owners",
+        "desc": "You need a professional web presence but can't afford a designer or the time to DIY. AI gives you a polished site in minutes."
+      },
+      {
+        "title": "Freelancers & Creators",
+        "desc": "You want a portfolio or landing page that actually looks good — without spending your creative energy on web design tools."
+      },
+      {
+        "title": "Anyone Comparing Services",
+        "desc": "You're researching Wix, WordPress, Squarespace, and others. Before you commit to weeks of learning, try AI — your site will be done before you finish reading their pricing page."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Your Website Is One Sentence Away",
+    "p": "Download Atelier for free. Type what you want. Watch AI build it.",
+    "download": "Download on the App Store"
+  },
+  "legal": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  }
+}
