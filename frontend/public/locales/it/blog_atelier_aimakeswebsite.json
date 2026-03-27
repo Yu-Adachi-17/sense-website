@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "L'AI crea il tuo sito web — perché programmare a mano è già obsoleto",
+    "description": "Smetti di passare settimane a costruire un sito web a mano. Atelier usa l'AI per generare un sito professionale completo in meno di 60 secondi — direttamente dal tuo iPhone. Il futuro della creazione web è qui.",
+    "ogTitle": "L'AI crea il tuo sito web in meno di 60 secondi",
+    "ogDescription": "Descrivi la tua idea e l'AI costruisce il tuo sito istantaneamente. Niente codice, niente template, niente designer. Atelier trasforma una sola frase in un sito web straordinario e pronto per la pubblicazione."
+  },
+  "aria": { "home": "Home Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Il futuro della creazione di siti web",
+    "h1": "Il tuo sito web.<br>Creato dall'AI in 60 secondi.",
+    "tagline": "Dimentica i designer. Dimentica gli editor drag-and-drop. Dimentica settimane di lavoro su un sito web. Descrivi semplicemente cosa vuoi — e l'AI di Atelier crea un sito elegante e online prima che tu finisca il caffè.",
+    "badges": ["Generato dall'AI", "Meno di 60 secondi", "Nessun codice"]
+  },
+  "opening": {
+    "h2": "L'era dei siti web fatti a mano è finita",
+    "p1": "Pensaci. Hai bisogno di un sito web per la tua attività, portfolio o progetto secondario. Cosa succedeva prima? Passavi giorni a cercare strumenti, ore a guardare tutorial e settimane a modificare template che non sembravano mai giusti.",
+    "p2": "L'intero processo è ora obsoleto. L'AI non si limita ad assistere nel web design — sostituisce l'intero flusso di lavoro. Dal layout al testo, dalla palette colori al design responsive, un singolo prompt produce un sito completo pronto per la pubblicazione."
+  },
+  "demo": {
+    "h2": "Guardalo accadere — un prompt, un sito web",
+    "p": "Abbiamo digitato una sola frase in Atelier e abbiamo visto l'AI costruire un sito web completamente progettato, con più sezioni, in pochi secondi. Niente template. Niente drag-and-drop. Niente revisioni. Solo creazione istantanea.",
+    "prompt_label": "Il Prompt:",
+    "prompt_text": "\"Crea un sito web per un brand di skincare biologico con sede a Brooklyn. Moderno, minimale, con prodotti in evidenza, una sezione chi siamo e un link allo shop.\"",
+    "output_label": "Cosa ha creato l'AI:"
+  },
+  "whyAI": {
+    "h2": "Perché l'AI batte qualsiasi alternativa",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 secondi anziché 60 giorni",
+        "desc": "Un sito web tradizionale richiede settimane di pianificazione, progettazione e lancio. Con l'AI, l'intero processo si riduce a un singolo minuto. Descrivi la tua visione ed è online."
+      },
+      {
+        "icon": "magic",
+        "title": "Nessuna competenza necessaria — davvero",
+        "desc": "Non devi conoscere HTML, CSS, principi di design o come funziona l'hosting. Non hai nemmeno bisogno di un computer. Se sai scrivere una frase, puoi creare un sito web."
+      },
+      {
+        "icon": "edit",
+        "title": "L'AI scrive anche i tuoi contenuti",
+        "desc": "Non sai cosa mettere sul tuo sito? L'AI genera titoli coinvolgenti, descrizioni e contenuti delle sezioni su misura per la tua attività — senza copywriter."
+      },
+      {
+        "icon": "mobile",
+        "title": "Crea e modifica dal tuo telefono",
+        "desc": "Atelier funziona interamente sul tuo iPhone. Crea un sito in treno, aggiornalo a pranzo, pubblicalo prima di cena. Il tuo studio web sta in tasca."
+      },
+      {
+        "icon": "globe",
+        "title": "Pubblica all'istante — nessuna configurazione",
+        "desc": "Niente configurazione dominio, niente account hosting, niente upload FTP. Un tocco e il tuo sito è online con un URL unico, accessibile a chiunque nel mondo."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Il vecchio modo vs. il modo AI",
+    "old_title": "Creare un sito web alla vecchia maniera",
+    "old_items": [
+      "Cercare strumenti per la creazione di siti per ore",
+      "Guardare tutorial per imparare l'interfaccia",
+      "Scegliere un template (usato da altri 10.000)",
+      "Trascinare, rilasciare e ridimensionare manualmente ogni elemento",
+      "Scrivere tutti i contenuti da zero",
+      "Lottare con la responsività mobile",
+      "Capire hosting e configurazione dominio",
+      "Lanciare dopo settimane di frustrazione"
+    ],
+    "new_title": "Creare un sito web con l'AI",
+    "new_items": [
+      "Apri Atelier sul tuo iPhone",
+      "Scrivi una frase che descrive il tuo sito",
+      "L'AI genera un sito completo e bellissimo",
+      "Tocca per pubblicare — sei online"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Per chi è?",
+    "p": "Se hai mai cercato su Google \"come creare un sito web\" o \"miglior creatore di siti web\" — questo è per te.",
+    "items": [
+      {
+        "title": "Chi crea un sito per la prima volta",
+        "desc": "Non hai mai creato un sito e l'idea di imparare uno strumento ti sembra scoraggiante. Con l'AI, non c'è nulla da imparare."
+      },
+      {
+        "title": "Piccoli imprenditori",
+        "desc": "Hai bisogno di una presenza web professionale ma non puoi permetterti un designer né il tempo per farlo da solo. L'AI ti dà un sito elegante in pochi minuti."
+      },
+      {
+        "title": "Freelancer e creativi",
+        "desc": "Vuoi un portfolio o una landing page che abbia davvero un bell'aspetto — senza sprecare la tua energia creativa su strumenti di web design."
+      },
+      {
+        "title": "Chiunque confronti servizi",
+        "desc": "Stai valutando Wix, WordPress, Squarespace e altri. Prima di impegnarti in settimane di apprendimento, prova l'AI — il tuo sito sarà pronto prima che tu finisca di leggere la loro pagina dei prezzi."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Il tuo sito web è a una frase di distanza",
+    "p": "Scarica Atelier gratis. Scrivi cosa vuoi. Guarda l'AI costruirlo.",
+    "download": "Scarica sull'App Store"
+  },
+  "legal": {
+    "privacy": "Informativa sulla Privacy",
+    "terms": "Termini di Utilizzo"
+  }
+}

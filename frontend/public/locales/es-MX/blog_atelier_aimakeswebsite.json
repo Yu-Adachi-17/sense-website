@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "La IA crea tu sitio web — por qué programar a mano ya es obsoleto",
+    "description": "Deja de pasar semanas armando un sitio web a mano. Atelier usa IA para generar un sitio profesional y completo en menos de 60 segundos — directo desde tu iPhone. El futuro de la creación web está aquí.",
+    "ogTitle": "La IA crea tu sitio web en menos de 60 segundos",
+    "ogDescription": "Describe tu idea y la IA construye tu sitio al instante. Sin código, sin plantillas, sin diseñadores. Atelier convierte una sola frase en un sitio web increíble y listo para publicar."
+  },
+  "aria": { "home": "Inicio de Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "El futuro de la creación de sitios web",
+    "h1": "Tu sitio web.<br>Creado por IA en 60 segundos.",
+    "tagline": "Olvídate de contratar diseñadores. Olvídate de los editores de arrastrar y soltar. Olvídate de pasar semanas en un sitio web. Solo describe lo que quieres — y la IA de Atelier crea un sitio web pulido y listo antes de que te acabes el café.",
+    "badges": ["Generado por IA", "En menos de 60 segundos", "Sin código"]
+  },
+  "opening": {
+    "h2": "La era de los sitios web hechos a mano terminó",
+    "p1": "Piénsalo. Necesitas un sitio web para tu negocio, portafolio o proyecto personal. ¿Qué pasaba antes? Te la pasabas días investigando plataformas, horas viendo tutoriales y semanas ajustando plantillas que nunca quedaban bien.",
+    "p2": "Todo ese proceso ya es obsoleto. La IA no solo ayuda con el diseño web — reemplaza todo el flujo de trabajo. Desde el layout hasta el contenido, desde la paleta de colores hasta el diseño responsivo, un solo prompt produce un sitio completo listo para publicar."
+  },
+  "demo": {
+    "h2": "Míralo en acción — un prompt, un sitio web",
+    "p": "Escribimos una sola frase en Atelier y vimos cómo la IA armó un sitio completamente diseñado con múltiples secciones en segundos. Sin plantillas. Sin arrastrar y soltar. Sin revisiones. Creación instantánea.",
+    "prompt_label": "El Prompt:",
+    "prompt_text": "\"Crea un sitio web para una marca de skincare orgánico con sede en Brooklyn. Moderno, minimalista, con productos destacados, una sección de nosotros y un enlace a la tienda.\"",
+    "output_label": "Lo que creó la IA:"
+  },
+  "whyAI": {
+    "h2": "Por qué la IA le gana a todo lo demás",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 segundos vs. 60 días",
+        "desc": "Un sitio web tradicional toma semanas de planeación, diseño y lanzamiento. Con IA, todo el proceso se reduce a un solo minuto. Describe tu visión y listo, está en línea."
+      },
+      {
+        "icon": "magic",
+        "title": "No necesitas saber nada — en serio",
+        "desc": "No necesitas saber HTML, CSS, principios de diseño ni cómo funciona el hosting. Ni siquiera necesitas una computadora. Si puedes escribir una frase, puedes crear un sitio web."
+      },
+      {
+        "icon": "edit",
+        "title": "La IA también escribe tu contenido",
+        "desc": "¿No sabes qué poner en tu sitio? La IA genera títulos llamativos, descripciones y contenido de secciones adaptado a tu negocio — sin necesidad de copywriter."
+      },
+      {
+        "icon": "mobile",
+        "title": "Crea y edita desde tu celular",
+        "desc": "Atelier funciona completamente en tu iPhone. Crea un sitio en el camión, actualízalo a la hora de la comida, publícalo antes de cenar. Tu estudio web cabe en tu bolsillo."
+      },
+      {
+        "icon": "globe",
+        "title": "Publica al instante — sin configuración",
+        "desc": "Sin configurar dominios, sin cuentas de hosting, sin subir archivos por FTP. Un toque y tu sitio está en línea con una URL única, accesible para cualquier persona en el mundo."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "La forma vieja vs. la forma con IA",
+    "old_title": "Crear un sitio web a la antigüita",
+    "old_items": [
+      "Investigar plataformas de sitios web por horas",
+      "Ver tutoriales para aprender la interfaz",
+      "Elegir una plantilla (que otros 10,000 ya usan)",
+      "Arrastrar, soltar y redimensionar cada elemento a mano",
+      "Escribir todo tu contenido desde cero",
+      "Batallar con que se vea bien en el celular",
+      "Resolver el hosting y la configuración del dominio",
+      "Lanzar después de semanas de frustración"
+    ],
+    "new_title": "Crear un sitio web con IA",
+    "new_items": [
+      "Abre Atelier en tu iPhone",
+      "Escribe una frase describiendo tu sitio",
+      "La IA genera un sitio completo y bonito",
+      "Toca publicar — ya estás en línea"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "¿Para quién es esto?",
+    "p": "Si alguna vez buscaste en Google \"cómo hacer un sitio web\" o \"mejor plataforma para hacer páginas web\" — esto es para ti.",
+    "items": [
+      {
+        "title": "Quienes crean su primer sitio web",
+        "desc": "Nunca has armado un sitio y la idea de aprender una plataforma te parece demasiado. Con IA, no hay nada que aprender."
+      },
+      {
+        "title": "Dueños de pequeños negocios",
+        "desc": "Necesitas presencia profesional en internet pero no puedes pagar un diseñador ni tienes tiempo para hacerlo tú. La IA te da un sitio profesional en minutos."
+      },
+      {
+        "title": "Freelancers y creadores",
+        "desc": "Quieres un portafolio o landing page que de verdad se vea bien — sin gastar tu energía creativa en herramientas de diseño web."
+      },
+      {
+        "title": "Cualquiera comparando servicios",
+        "desc": "Estás checando Wix, WordPress, Squarespace y otros. Antes de comprometerte a semanas de aprendizaje, prueba la IA — tu sitio estará listo antes de que termines de leer su página de precios."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Tu sitio web está a una frase de distancia",
+    "p": "Descarga Atelier gratis. Escribe lo que quieres. Mira cómo la IA lo crea.",
+    "download": "Descargar en el App Store"
+  },
+  "legal": {
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Uso"
+  }
+}

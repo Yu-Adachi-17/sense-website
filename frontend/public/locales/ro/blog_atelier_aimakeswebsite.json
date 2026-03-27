@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI-ul îți creează site-ul — de ce codarea manuală este deja depășită",
+    "description": "Nu mai pierde săptămâni construind un site web manual. Atelier folosește AI pentru a genera un site profesional complet în mai puțin de 60 de secunde — direct de pe iPhone-ul tău. Viitorul creării de site-uri web este aici.",
+    "ogTitle": "AI-ul îți creează site-ul în mai puțin de 60 de secunde",
+    "ogDescription": "Descrie-ți ideea, iar AI-ul construiește site-ul instantaneu. Fără cod, fără template-uri, fără designeri. Atelier transformă o singură propoziție într-un site web impresionant, gata de publicare."
+  },
+  "aria": { "home": "Pagina principală Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Viitorul creării de site-uri web",
+    "h1": "Site-ul tău.<br>Construit de AI în 60 de secunde.",
+    "tagline": "Uită de angajarea designerilor. Uită de editoarele drag-and-drop. Uită de săptămânile petrecute pe un site. Descrie doar ce vrei — iar AI-ul Atelier creează un site elegant și funcțional înainte să-ți termini cafeaua.",
+    "badges": ["Generat de AI", "Sub 60 de secunde", "Fără cod"]
+  },
+  "opening": {
+    "h2": "Era site-urilor construite manual s-a încheiat",
+    "p1": "Gândește-te. Ai nevoie de un site pentru afacerea ta, portofoliu sau un proiect secundar. Ce se întâmpla înainte? Petreceai zile cercetând creatoare de site-uri, ore urmărind tutoriale și săptămâni modificând template-uri care nu arătau niciodată cum trebuie.",
+    "p2": "Întregul proces este acum depășit. AI-ul nu doar asistă la designul web — înlocuiește întregul flux de lucru. De la layout la text, de la paleta de culori la designul responsive, o singură comandă produce un site complet gata de publicare."
+  },
+  "demo": {
+    "h2": "Vezi cum se întâmplă — o comandă, un site",
+    "p": "Am scris o singură propoziție în Atelier și am văzut AI-ul construind un site complet proiectat, cu mai multe secțiuni, în câteva secunde. Fără template-uri. Fără drag-and-drop. Fără revizuiri. Doar creație instantanee.",
+    "prompt_label": "Comanda:",
+    "prompt_text": "\"Creează un site pentru un brand de cosmetice organice din Brooklyn. Modern, minimalist, cu produse evidențiate, o secțiune despre noi și un link către magazin.\"",
+    "output_label": "Ce a creat AI-ul:"
+  },
+  "whyAI": {
+    "h2": "De ce AI-ul depășește orice altceva",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 de secunde vs. 60 de zile",
+        "desc": "Un site tradițional necesită săptămâni de planificare, design și lansare. Cu AI, întregul proces se comprimă într-un singur minut. Descrie-ți viziunea și este deja online."
+      },
+      {
+        "icon": "magic",
+        "title": "Nu sunt necesare competențe — serios",
+        "desc": "Nu trebuie să știi HTML, CSS, principii de design sau cum funcționează găzduirea. Nici măcar nu ai nevoie de computer. Dacă poți scrie o propoziție, poți crea un site."
+      },
+      {
+        "icon": "edit",
+        "title": "AI-ul scrie și conținutul tău",
+        "desc": "Nu știi ce să pui pe site? AI-ul generează titluri convingătoare, descrieri și conținut de secțiuni adaptat afacerii tale — fără copywriter."
+      },
+      {
+        "icon": "mobile",
+        "title": "Creează și editează de pe telefon",
+        "desc": "Atelier funcționează în totalitate pe iPhone-ul tău. Creează un site în tren, actualizează-l la prânz, publică-l înainte de cină. Studioul tău web încape în buzunar."
+      },
+      {
+        "icon": "globe",
+        "title": "Publică instantaneu — fără configurare",
+        "desc": "Fără configurare de domeniu, fără conturi de găzduire, fără încărcare FTP. O singură atingere și site-ul tău este online la un URL unic, accesibil oricui din lume."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Metoda veche vs. metoda AI",
+    "old_title": "Crearea unui site pe metoda veche",
+    "old_items": [
+      "Cercetarea creatoarelor de site-uri ore întregi",
+      "Vizionarea tutorialelor pentru a învăța interfața",
+      "Alegerea unui template (pe care îl folosesc alți 10.000)",
+      "Tragerea, plasarea și redimensionarea manuală a fiecărui element",
+      "Scrierea întregului conținut de la zero",
+      "Lupta cu responsivitatea pe mobil",
+      "Descoperirea găzduirii și configurării domeniului",
+      "Lansarea după săptămâni de frustrare"
+    ],
+    "new_title": "Crearea unui site cu AI",
+    "new_items": [
+      "Deschide Atelier pe iPhone-ul tău",
+      "Scrie o propoziție care descrie site-ul tău",
+      "AI-ul generează un site complet și frumos",
+      "Atinge pentru a publica — ești online"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Pentru cine este?",
+    "p": "Dacă ai căutat vreodată pe Google \u201ecum să fac un site web\u201c sau \u201ecel mai bun creator de site-uri\u201c — asta e pentru tine.",
+    "items": [
+      {
+        "title": "Creatori de site-uri pentru prima dată",
+        "desc": "Nu ai construit niciodată un site, iar gândul de a învăța un creator de site-uri pare copleșitor. Cu AI, nu ai ce să înveți."
+      },
+      {
+        "title": "Proprietari de afaceri mici",
+        "desc": "Ai nevoie de o prezență web profesională, dar nu îți permiți un designer sau timpul pentru a o face singur. AI-ul îți oferă un site elegant în câteva minute."
+      },
+      {
+        "title": "Freelanceri și creatori",
+        "desc": "Vrei un portofoliu sau o pagină de destinație care chiar arată bine — fără să-ți consumi energia creativă pe instrumente de web design."
+      },
+      {
+        "title": "Oricine compară servicii",
+        "desc": "Cercetezi Wix, WordPress, Squarespace și altele. Înainte să te angajezi la săptămâni de învățare, încearcă AI — site-ul tău va fi gata înainte să termini de citit pagina lor de prețuri."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Site-ul tău este la o propoziție distanță",
+    "p": "Descarcă Atelier gratuit. Scrie ce vrei. Privește cum AI-ul îl creează.",
+    "download": "Descarcă din App Store"
+  },
+  "legal": {
+    "privacy": "Politica de Confidențialitate",
+    "terms": "Termeni de Utilizare"
+  }
+}

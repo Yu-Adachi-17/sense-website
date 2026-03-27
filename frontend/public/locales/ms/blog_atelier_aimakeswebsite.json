@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI Membina Laman Web Anda — Mengapa Pengekodan Manual Sudah Lapuk",
+    "description": "Berhenti menghabiskan berminggu-minggu membina laman web secara manual. Atelier menggunakan AI untuk menjana laman web profesional lengkap dalam masa kurang 60 saat — terus dari iPhone anda. Masa depan pembinaan web ada di sini.",
+    "ogTitle": "AI Membina Laman Web Anda dalam Kurang 60 Saat",
+    "ogDescription": "Huraikan idea anda, dan AI membina laman web anda serta-merta. Tanpa pengekodan, tanpa templat, tanpa pereka. Atelier menukar satu ayat menjadi laman web yang menakjubkan dan sedia untuk dilawati."
+  },
+  "aria": { "home": "Laman Utama Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Masa Depan Pembinaan Laman Web",
+    "h1": "Laman Web Anda.<br>Dibina oleh AI dalam 60 Saat.",
+    "tagline": "Lupakan mengupah pereka. Lupakan pembina seret dan lepas. Lupakan berminggu-minggu mengerjakan laman web. Huraikan sahaja apa yang anda mahu — dan AI Atelier mencipta laman web yang kemas dan sedia sebelum kopi anda habis.",
+    "badges": ["Dijana AI", "Kurang 60 Saat", "Tanpa Kod"]
+  },
+  "opening": {
+    "h2": "Era Laman Web Buatan Tangan Sudah Berakhir",
+    "p1": "Fikirkan sejenak. Anda perlukan laman web untuk perniagaan, portfolio, atau projek sampingan anda. Apa yang biasa berlaku? Anda menghabiskan berhari-hari menyelidik pembina laman web, berjam-jam menonton tutorial, dan berminggu-minggu mengubahsuai templat yang tidak pernah kelihatan betul.",
+    "p2": "Seluruh proses itu kini sudah lapuk. AI bukan sekadar membantu reka bentuk web — ia menggantikan keseluruhan aliran kerja. Daripada susun atur hingga salinan, daripada palet warna hingga reka bentuk responsif, satu arahan menghasilkan laman web lengkap yang sedia untuk diterbitkan."
+  },
+  "demo": {
+    "h2": "Lihat Sendiri — Satu Arahan, Satu Laman Web",
+    "p": "Kami menaip satu ayat ke dalam Atelier dan melihat AI membina laman web yang direka sepenuhnya dengan beberapa bahagian dalam beberapa saat. Tanpa templat. Tanpa seret dan lepas. Tanpa semakan. Hanya penciptaan segera.",
+    "prompt_label": "Arahan:",
+    "prompt_text": "\"Cipta laman web untuk jenama penjagaan kulit organik yang berpusat di Brooklyn. Moden, minimalis, dengan sorotan produk, bahagian tentang kami, dan pautan ke kedai.\"",
+    "output_label": "Apa yang AI Cipta:"
+  },
+  "whyAI": {
+    "h2": "Mengapa AI Mengatasi Segala-galanya",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 Saat vs. 60 Hari",
+        "desc": "Laman web tradisional mengambil berminggu-minggu untuk dirancang, direka bentuk, dan dilancarkan. Dengan AI, keseluruhan proses dimampatkan menjadi satu minit. Huraikan visi anda, dan ia sudah aktif."
+      },
+      {
+        "icon": "magic",
+        "title": "Tidak Perlu Kemahiran — Betul-betul",
+        "desc": "Anda tidak perlu tahu HTML, CSS, prinsip reka bentuk, atau cara hosting berfungsi. Anda tidak pun perlukan komputer. Jika anda boleh menaip satu ayat, anda boleh membina laman web."
+      },
+      {
+        "icon": "edit",
+        "title": "AI Juga Menulis Kandungan Anda",
+        "desc": "Tidak pasti apa yang perlu diletakkan di laman web anda? AI menghasilkan tajuk yang menarik, penerangan, dan kandungan bahagian yang disesuaikan untuk perniagaan anda — tanpa penulis salinan."
+      },
+      {
+        "icon": "mobile",
+        "title": "Bina dan Edit dari Telefon Anda",
+        "desc": "Atelier berjalan sepenuhnya di iPhone anda. Cipta laman web dalam kereta api, kemas kini semasa makan tengah hari, terbitkan sebelum makan malam. Studio laman web anda muat dalam poket."
+      },
+      {
+        "icon": "globe",
+        "title": "Terbitkan Segera — Tanpa Persediaan",
+        "desc": "Tanpa konfigurasi domain, tanpa akaun hosting, tanpa muat naik FTP. Satu ketukan dan laman web anda aktif di URL unik, boleh diakses sesiapa di dunia."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Cara Lama vs. Cara AI",
+    "old_title": "Membina Laman Web dengan Cara Lama",
+    "old_items": [
+      "Menyelidik pembina laman web berjam-jam",
+      "Menonton tutorial untuk mempelajari antaramuka",
+      "Memilih templat (yang 10,000 orang lain juga guna)",
+      "Seret, lepas, dan ubah saiz setiap elemen secara manual",
+      "Menulis semua kandungan sendiri dari awal",
+      "Bergelut dengan responsif mudah alih",
+      "Memikirkan hosting dan persediaan domain",
+      "Melancarkan selepas berminggu-minggu kekecewaan"
+    ],
+    "new_title": "Membina Laman Web dengan AI",
+    "new_items": [
+      "Buka Atelier di iPhone anda",
+      "Taip satu ayat yang menghuraikan laman web anda",
+      "AI menghasilkan laman web yang lengkap dan cantik",
+      "Ketuk untuk terbitkan — anda sudah aktif"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Untuk Siapa Ini?",
+    "p": "Jika anda pernah mencari di Google \"cara membuat laman web\" atau \"pembina laman web terbaik\" — ini untuk anda.",
+    "items": [
+      {
+        "title": "Pembina Laman Web Kali Pertama",
+        "desc": "Anda tidak pernah membina laman web sebelum ini, dan fikiran untuk belajar pembina laman web terasa membebankan. Dengan AI, tiada apa yang perlu dipelajari."
+      },
+      {
+        "title": "Pemilik Perniagaan Kecil",
+        "desc": "Anda perlukan kehadiran web profesional tetapi tidak mampu mengupah pereka atau masa untuk DIY. AI memberikan anda laman web yang kemas dalam beberapa minit."
+      },
+      {
+        "title": "Pekerja Bebas & Pencipta",
+        "desc": "Anda mahukan portfolio atau halaman pendaratan yang benar-benar kelihatan bagus — tanpa menghabiskan tenaga kreatif pada alat reka bentuk web."
+      },
+      {
+        "title": "Sesiapa yang Membandingkan Perkhidmatan",
+        "desc": "Anda sedang menyelidik Wix, WordPress, Squarespace, dan lain-lain. Sebelum anda komited berminggu-minggu belajar, cuba AI — laman web anda akan siap sebelum anda habis membaca halaman harga mereka."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Laman Web Anda Hanya Satu Ayat Sahaja",
+    "p": "Muat turun Atelier secara percuma. Taip apa yang anda mahu. Lihat AI membuatnya.",
+    "download": "Muat Turun di App Store"
+  },
+  "legal": {
+    "privacy": "Dasar Privasi",
+    "terms": "Terma Penggunaan"
+  }
+}

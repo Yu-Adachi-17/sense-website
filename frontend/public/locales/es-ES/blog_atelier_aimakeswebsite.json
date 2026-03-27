@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "La IA crea tu página web — por qué programar a mano ya es cosa del pasado",
+    "description": "Deja de pasar semanas creando una web a mano. Atelier usa IA para generar una página web completa y profesional en menos de 60 segundos — directamente desde tu iPhone. El futuro de la creación web está aquí.",
+    "ogTitle": "La IA crea tu página web en menos de 60 segundos",
+    "ogDescription": "Describe tu idea y la IA construye tu web al instante. Sin código, sin plantillas, sin diseñadores. Atelier convierte una sola frase en una web espectacular y lista para publicar."
+  },
+  "aria": { "home": "Inicio de Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "El futuro de la creación de páginas web",
+    "h1": "Tu página web.<br>Creada por IA en 60 segundos.",
+    "tagline": "Olvídate de contratar diseñadores. Olvídate de los editores drag-and-drop. Olvídate de pasar semanas con una web. Solo describe lo que quieres — y la IA de Atelier crea una web elegante y lista antes de que te termines el café.",
+    "badges": ["Generada por IA", "En menos de 60 segundos", "Sin código"]
+  },
+  "opening": {
+    "h2": "La era de las webs hechas a mano ha terminado",
+    "p1": "Piénsalo. Necesitas una web para tu negocio, portfolio o proyecto personal. ¿Qué pasaba antes? Pasabas días investigando creadores de webs, horas viendo tutoriales y semanas ajustando plantillas que nunca quedaban del todo bien.",
+    "p2": "Todo ese proceso es ahora obsoleto. La IA no solo ayuda con el diseño web — reemplaza todo el flujo de trabajo. Desde el diseño hasta el contenido, desde la paleta de colores hasta el diseño responsive, un solo prompt produce una web completa lista para publicar."
+  },
+  "demo": {
+    "h2": "Míralo en acción — un prompt, una web",
+    "p": "Escribimos una sola frase en Atelier y vimos cómo la IA construyó una web completamente diseñada y con múltiples secciones en segundos. Sin plantillas. Sin arrastrar y soltar. Sin revisiones. Creación instantánea.",
+    "prompt_label": "El Prompt:",
+    "prompt_text": "\"Crea una página web para una marca de cosmética orgánica con sede en Brooklyn. Moderna, minimalista, con productos destacados, una sección sobre nosotros y un enlace a la tienda.\"",
+    "output_label": "Lo que creó la IA:"
+  },
+  "whyAI": {
+    "h2": "Por qué la IA supera a todo lo demás",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 segundos frente a 60 días",
+        "desc": "Una web tradicional requiere semanas de planificación, diseño y lanzamiento. Con IA, todo el proceso se reduce a un solo minuto. Describe tu visión y estará lista."
+      },
+      {
+        "icon": "magic",
+        "title": "No se necesitan conocimientos — en serio",
+        "desc": "No necesitas saber HTML, CSS, principios de diseño ni cómo funciona el alojamiento. Ni siquiera necesitas un ordenador. Si puedes escribir una frase, puedes crear una web."
+      },
+      {
+        "icon": "edit",
+        "title": "La IA también escribe tu contenido",
+        "desc": "¿No sabes qué poner en tu web? La IA genera titulares atractivos, descripciones y contenido de secciones adaptado a tu negocio — sin necesidad de redactor."
+      },
+      {
+        "icon": "mobile",
+        "title": "Crea y edita desde tu móvil",
+        "desc": "Atelier funciona íntegramente en tu iPhone. Crea una web en el tren, actualízala a la hora de comer, publícala antes de cenar. Tu estudio web cabe en el bolsillo."
+      },
+      {
+        "icon": "globe",
+        "title": "Publica al instante — sin configuración",
+        "desc": "Sin configurar dominios, sin cuentas de alojamiento, sin subidas FTP. Un toque y tu web está activa en una URL única, accesible para cualquier persona en el mundo."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "La forma antigua vs. la forma con IA",
+    "old_title": "Crear una web a la antigua",
+    "old_items": [
+      "Investigar creadores de webs durante horas",
+      "Ver tutoriales para aprender la interfaz",
+      "Elegir una plantilla (que usan otros 10.000)",
+      "Arrastrar, soltar y redimensionar cada elemento manualmente",
+      "Escribir todo el contenido desde cero",
+      "Luchar con la adaptación a móviles",
+      "Resolver el alojamiento y la configuración del dominio",
+      "Lanzar después de semanas de frustración"
+    ],
+    "new_title": "Crear una web con IA",
+    "new_items": [
+      "Abre Atelier en tu iPhone",
+      "Escribe una frase describiendo tu web",
+      "La IA genera una web completa y bonita",
+      "Toca publicar — estás en línea"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "¿Para quién es esto?",
+    "p": "Si alguna vez has buscado en Google «cómo crear una página web» o «mejor creador de webs» — esto es para ti.",
+    "items": [
+      {
+        "title": "Creadores de webs primerizos",
+        "desc": "Nunca has creado una web y la idea de aprender un creador de webs te resulta abrumadora. Con IA, no hay nada que aprender."
+      },
+      {
+        "title": "Propietarios de pequeñas empresas",
+        "desc": "Necesitas una presencia web profesional pero no puedes permitirte un diseñador ni el tiempo para hacerlo tú. La IA te da una web elegante en minutos."
+      },
+      {
+        "title": "Autónomos y creadores",
+        "desc": "Quieres un portfolio o página de aterrizaje que realmente tenga buena pinta — sin gastar tu energía creativa en herramientas de diseño web."
+      },
+      {
+        "title": "Cualquiera que compare servicios",
+        "desc": "Estás investigando Wix, WordPress, Squarespace y otros. Antes de comprometerte con semanas de aprendizaje, prueba la IA — tu web estará lista antes de que termines de leer su página de precios."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Tu web está a una frase de distancia",
+    "p": "Descarga Atelier gratis. Escribe lo que quieres. Mira cómo la IA lo crea.",
+    "download": "Descargar en el App Store"
+  },
+  "legal": {
+    "privacy": "Política de Privacidad",
+    "terms": "Condiciones de Uso"
+  }
+}

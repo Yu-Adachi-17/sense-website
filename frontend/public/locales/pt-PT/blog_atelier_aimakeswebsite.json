@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "A IA cria o seu site — porque é que programar manualmente já é obsoleto",
+    "description": "Pare de gastar semanas a construir um website à mão. O Atelier utiliza IA para gerar um website profissional completo em menos de 60 segundos — diretamente do seu iPhone. O futuro da criação web está aqui.",
+    "ogTitle": "A IA cria o seu website em menos de 60 segundos",
+    "ogDescription": "Descreva a sua ideia e a IA constrói o seu website instantaneamente. Sem código, sem templates, sem designers. O Atelier transforma uma frase num website deslumbrante e pronto a publicar."
+  },
+  "aria": { "home": "Início do Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "O futuro da criação de websites",
+    "h1": "O seu website.<br>Criado por IA em 60 segundos.",
+    "tagline": "Esqueça contratar designers. Esqueça editores de arrastar e largar. Esqueça semanas a trabalhar num website. Descreva apenas o que pretende — e a IA do Atelier cria um website elegante e pronto antes de acabar o seu café.",
+    "badges": ["Gerado por IA", "Menos de 60 segundos", "Sem código"]
+  },
+  "opening": {
+    "h2": "A era dos websites feitos à mão terminou",
+    "p1": "Pense nisso. Precisa de um website para o seu negócio, portfólio ou projeto paralelo. O que acontecia antes? Passava dias a pesquisar criadores de websites, horas a ver tutoriais e semanas a ajustar templates que nunca ficavam bem.",
+    "p2": "Todo esse processo é agora obsoleto. A IA não se limita a auxiliar no design web — substitui todo o fluxo de trabalho. Do layout ao texto, da paleta de cores ao design responsivo, um único prompt produz um website completo pronto a publicar."
+  },
+  "demo": {
+    "h2": "Veja acontecer — um prompt, um website",
+    "p": "Escrevemos uma única frase no Atelier e vimos a IA construir um website totalmente concebido, com várias secções, em segundos. Sem templates. Sem arrastar e largar. Sem revisões. Apenas criação instantânea.",
+    "prompt_label": "O Prompt:",
+    "prompt_text": "\"Cria um website para uma marca de cosmética biológica sediada no Brooklyn. Moderno, minimalista, com destaques de produtos, uma secção sobre nós e um link para a loja.\"",
+    "output_label": "O que a IA criou:"
+  },
+  "whyAI": {
+    "h2": "Porque é que a IA supera tudo o resto",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 segundos em vez de 60 dias",
+        "desc": "Um website tradicional demora semanas a planear, desenhar e lançar. Com IA, o processo inteiro resume-se a um minuto. Descreva a sua visão e está publicado."
+      },
+      {
+        "icon": "magic",
+        "title": "Sem competências necessárias — a sério",
+        "desc": "Não precisa de saber HTML, CSS, princípios de design ou como funciona o alojamento. Nem sequer precisa de um computador. Se consegue escrever uma frase, consegue criar um website."
+      },
+      {
+        "icon": "edit",
+        "title": "A IA também escreve o seu conteúdo",
+        "desc": "Não sabe o que colocar no seu site? A IA gera títulos apelativos, descrições e conteúdo de secções adequado ao seu negócio — sem copywriter."
+      },
+      {
+        "icon": "mobile",
+        "title": "Crie e edite a partir do telemóvel",
+        "desc": "O Atelier funciona inteiramente no seu iPhone. Crie um website no comboio, atualize-o ao almoço, publique-o antes do jantar. O seu estúdio web cabe no bolso."
+      },
+      {
+        "icon": "globe",
+        "title": "Publique instantaneamente — sem configuração",
+        "desc": "Sem configuração de domínio, sem contas de alojamento, sem uploads FTP. Um toque e o seu site está ativo num URL exclusivo, acessível a qualquer pessoa no mundo."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "A forma antiga vs. a forma com IA",
+    "old_title": "Criar um website à moda antiga",
+    "old_items": [
+      "Pesquisar criadores de websites durante horas",
+      "Ver tutoriais para aprender a interface",
+      "Escolher um template (que outros 10.000 também usam)",
+      "Arrastar, largar e redimensionar cada elemento manualmente",
+      "Escrever todo o conteúdo de raiz",
+      "Lutar com a responsividade móvel",
+      "Descobrir alojamento e configuração de domínio",
+      "Lançar após semanas de frustração"
+    ],
+    "new_title": "Criar um website com IA",
+    "new_items": [
+      "Abra o Atelier no seu iPhone",
+      "Escreva uma frase a descrever o seu site",
+      "A IA gera um website completo e bonito",
+      "Toque para publicar — está online"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Para quem é isto?",
+    "p": "Se alguma vez pesquisou no Google \"como fazer um website\" ou \"melhor criador de websites\" — isto é para si.",
+    "items": [
+      {
+        "title": "Criadores de websites pela primeira vez",
+        "desc": "Nunca criou um site e a ideia de aprender um criador de websites parece avassaladora. Com IA, não há nada para aprender."
+      },
+      {
+        "title": "Proprietários de pequenos negócios",
+        "desc": "Precisa de uma presença web profissional mas não pode pagar a um designer nem tem tempo para fazer sozinho. A IA dá-lhe um site elegante em minutos."
+      },
+      {
+        "title": "Freelancers e criadores",
+        "desc": "Quer um portfólio ou página de destino que realmente tenha boa aparência — sem gastar a sua energia criativa em ferramentas de web design."
+      },
+      {
+        "title": "Qualquer pessoa a comparar serviços",
+        "desc": "Está a pesquisar Wix, WordPress, Squarespace e outros. Antes de se comprometer com semanas de aprendizagem, experimente a IA — o seu site estará pronto antes de acabar de ler a página de preços."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "O seu website está a uma frase de distância",
+    "p": "Descarregue o Atelier gratuitamente. Escreva o que pretende. Veja a IA criá-lo.",
+    "download": "Descarregar na App Store"
+  },
+  "legal": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Utilização"
+  }
+}

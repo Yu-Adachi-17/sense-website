@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "L'IA crée votre site web — pourquoi coder à la main est déjà obsolète",
+    "description": "Arrêtez de passer des semaines à créer un site web à la main. Atelier utilise l'IA pour générer un site professionnel complet en moins de 60 secondes — directement depuis votre iPhone. L'avenir de la création web est là.",
+    "ogTitle": "L'IA crée votre site web en moins de 60 secondes",
+    "ogDescription": "Décrivez votre idée et l'IA construit votre site instantanément. Pas de code, pas de templates, pas de designers. Atelier transforme une seule phrase en un site magnifique et prêt à publier."
+  },
+  "aria": { "home": "Accueil Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "L'avenir de la création de sites web",
+    "h1": "Votre site web.<br>Créé par l'IA en 60 secondes.",
+    "tagline": "Oubliez les designers. Oubliez les éditeurs glisser-déposer. Oubliez les semaines passées sur un site web. Décrivez simplement ce que vous voulez — et l'IA d'Atelier crée un site élégant et en ligne avant que vous n'ayez fini votre café.",
+    "badges": ["Généré par IA", "Moins de 60 secondes", "Sans code"]
+  },
+  "opening": {
+    "h2": "L'ère des sites web faits main est révolue",
+    "p1": "Réfléchissez. Vous avez besoin d'un site web pour votre entreprise, portfolio ou projet personnel. Que se passait-il avant ? Vous passiez des jours à chercher des créateurs de sites, des heures à regarder des tutoriels et des semaines à ajuster des templates qui n'étaient jamais tout à fait bien.",
+    "p2": "Tout ce processus est désormais obsolète. L'IA ne se contente pas d'aider au design web — elle remplace l'ensemble du workflow. De la mise en page au contenu, de la palette de couleurs au design responsive, un seul prompt produit un site complet prêt à être publié."
+  },
+  "demo": {
+    "h2": "Voyez-le en action — un prompt, un site web",
+    "p": "Nous avons tapé une seule phrase dans Atelier et regardé l'IA construire un site entièrement conçu, avec plusieurs sections, en quelques secondes. Pas de templates. Pas de glisser-déposer. Pas de révisions. Juste une création instantanée.",
+    "prompt_label": "Le Prompt :",
+    "prompt_text": "\"Crée un site web pour une marque de cosmétiques bio basée à Brooklyn. Moderne, minimaliste, avec des produits phares, une section à propos et un lien vers la boutique.\"",
+    "output_label": "Ce que l'IA a créé :"
+  },
+  "whyAI": {
+    "h2": "Pourquoi l'IA surpasse tout le reste",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 secondes au lieu de 60 jours",
+        "desc": "Un site web traditionnel prend des semaines à planifier, concevoir et lancer. Avec l'IA, tout le processus se réduit à une seule minute. Décrivez votre vision et c'est en ligne."
+      },
+      {
+        "icon": "magic",
+        "title": "Aucune compétence requise — vraiment",
+        "desc": "Pas besoin de connaître HTML, CSS, les principes du design ou le fonctionnement de l'hébergement. Vous n'avez même pas besoin d'un ordinateur. Si vous savez écrire une phrase, vous pouvez créer un site web."
+      },
+      {
+        "icon": "edit",
+        "title": "L'IA rédige aussi votre contenu",
+        "desc": "Vous ne savez pas quoi mettre sur votre site ? L'IA génère des titres accrocheurs, des descriptions et du contenu de sections adapté à votre activité — sans rédacteur."
+      },
+      {
+        "icon": "mobile",
+        "title": "Créez et modifiez depuis votre téléphone",
+        "desc": "Atelier fonctionne entièrement sur votre iPhone. Créez un site dans le métro, mettez-le à jour au déjeuner, publiez-le avant le dîner. Votre studio web tient dans votre poche."
+      },
+      {
+        "icon": "globe",
+        "title": "Publiez instantanément — sans configuration",
+        "desc": "Pas de configuration de domaine, pas de compte d'hébergement, pas de téléchargement FTP. Un seul appui et votre site est en ligne sur une URL unique, accessible à tous dans le monde."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "L'ancienne méthode vs. la méthode IA",
+    "old_title": "Créer un site web à l'ancienne",
+    "old_items": [
+      "Rechercher des créateurs de sites pendant des heures",
+      "Regarder des tutoriels pour apprendre l'interface",
+      "Choisir un template (que 10 000 autres utilisent)",
+      "Glisser, déposer et redimensionner chaque élément manuellement",
+      "Rédiger tout votre contenu à partir de zéro",
+      "Lutter avec l'adaptation mobile",
+      "Comprendre l'hébergement et la configuration du domaine",
+      "Lancer après des semaines de frustration"
+    ],
+    "new_title": "Créer un site web avec l'IA",
+    "new_items": [
+      "Ouvrez Atelier sur votre iPhone",
+      "Tapez une phrase décrivant votre site",
+      "L'IA génère un site complet et magnifique",
+      "Appuyez pour publier — vous êtes en ligne"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "À qui s'adresse cette solution ?",
+    "p": "Si vous avez déjà cherché sur Google « comment créer un site web » ou « meilleur créateur de sites » — c'est pour vous.",
+    "items": [
+      {
+        "title": "Créateurs de sites débutants",
+        "desc": "Vous n'avez jamais créé de site et l'idée d'apprendre un outil de création web vous semble accablante. Avec l'IA, il n'y a rien à apprendre."
+      },
+      {
+        "title": "Propriétaires de petites entreprises",
+        "desc": "Vous avez besoin d'une présence web professionnelle mais ne pouvez pas vous offrir un designer ni le temps de le faire vous-même. L'IA vous donne un site élégant en quelques minutes."
+      },
+      {
+        "title": "Freelances et créateurs",
+        "desc": "Vous voulez un portfolio ou une page d'atterrissage qui a vraiment de l'allure — sans dépenser votre énergie créative sur des outils de design web."
+      },
+      {
+        "title": "Tous ceux qui comparent les services",
+        "desc": "Vous étudiez Wix, WordPress, Squarespace et d'autres. Avant de vous engager dans des semaines d'apprentissage, essayez l'IA — votre site sera prêt avant que vous n'ayez fini de lire leur page de tarifs."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Votre site web n'est qu'à une phrase",
+    "p": "Téléchargez Atelier gratuitement. Tapez ce que vous voulez. Regardez l'IA le créer.",
+    "download": "Télécharger sur l'App Store"
+  },
+  "legal": {
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
+  }
+}

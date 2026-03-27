@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "Yapay Zeka Web Sitenizi Oluşturuyor — Elle Kodlama Neden Artık Modası Geçmiş",
+    "description": "Elle web sitesi oluşturmak için haftalarca vakit harcamayı bırakın. Atelier, yapay zeka kullanarak 60 saniyenin altında eksiksiz, profesyonel bir web sitesi üretir — doğrudan iPhone'unuzdan. Web oluşturmanın geleceği burada.",
+    "ogTitle": "Yapay Zeka 60 Saniyenin Altında Web Sitenizi Oluşturur",
+    "ogDescription": "Fikrinizi anlatın, yapay zeka web sitenizi anında oluştursun. Kodlama yok, şablon yok, tasarımcı yok. Atelier, tek bir cümleyi canlı, etkileyici bir web sitesine dönüştürür."
+  },
+  "aria": { "home": "Atelier Ana Sayfa" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Web Sitesi Oluşturmanın Geleceği",
+    "h1": "Web siteniz.<br>Yapay zeka ile 60 saniyede hazır.",
+    "tagline": "Tasarımcı tutmayı unutun. Sürükle-bırak editörlerini unutun. Web sitesine haftalarca zaman harcamayı unutun. Sadece ne istediğinizi anlatın — Atelier'in yapay zekası kahveniz bitmeden şık, canlı bir web sitesi oluşturur.",
+    "badges": ["Yapay Zeka Üretimi", "60 Saniyenin Altında", "Kod Gerektirmez"]
+  },
+  "opening": {
+    "h2": "Elle Yapılan Web Siteleri Dönemi Bitti",
+    "p1": "Bir düşünün. İşiniz, portföyünüz veya yan projeniz için bir web sitesine ihtiyacınız var. Önceden ne oluyordu? Web sitesi oluşturucularını araştırmak için günler, arayüzü öğrenmek için saatler ve asla tam istediğiniz gibi görünmeyen şablonları düzenlemek için haftalar harcardınız.",
+    "p2": "Tüm bu süreç artık geçmişte kaldı. Yapay zeka web tasarımına sadece yardımcı olmuyor — tüm iş akışının yerini alıyor. Düzenden metne, renk paletinden duyarlı tasarıma kadar, tek bir komut yayınlanmaya hazır eksiksiz bir web sitesi üretiyor."
+  },
+  "demo": {
+    "h2": "Gözlerinizle Görün — Bir Komut, Bir Web Sitesi",
+    "p": "Atelier'e tek bir cümle yazdık ve yapay zekanın saniyeler içinde tam tasarlanmış, çok bölümlü bir web sitesi oluşturduğunu izledik. Şablon yok. Sürükle-bırak yok. Revizyon yok. Sadece anlık oluşturma.",
+    "prompt_label": "Komut:",
+    "prompt_text": "\"Brooklyn merkezli organik bir cilt bakım markası için web sitesi oluştur. Modern, minimal, ürün öne çıkanları, hakkımızda bölümü ve mağaza bağlantısı ile.\"",
+    "output_label": "Yapay Zekanın Oluşturduğu:"
+  },
+  "whyAI": {
+    "h2": "Yapay Zeka Neden Her Şeyi Geride Bırakıyor",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 Saniye vs. 60 Gün",
+        "desc": "Geleneksel bir web sitesi planlamak, tasarlamak ve yayınlamak haftalar alır. Yapay zeka ile tüm süreç tek bir dakikaya sığar. Vizyonunuzu anlatın, yayında."
+      },
+      {
+        "icon": "magic",
+        "title": "Hiçbir Beceri Gerekmiyor — Cidden",
+        "desc": "HTML, CSS, tasarım ilkeleri veya hosting nasıl çalışır bilmenize gerek yok. Bilgisayara bile ihtiyacınız yok. Bir cümle yazabiliyorsanız, web sitesi oluşturabilirsiniz."
+      },
+      {
+        "icon": "edit",
+        "title": "Yapay Zeka İçeriğinizi de Yazar",
+        "desc": "Sitenize ne koyacağınızı bilmiyor musunuz? Yapay zeka, işinize özel etkileyici başlıklar, açıklamalar ve bölüm içerikleri üretir — metin yazarına gerek yok."
+      },
+      {
+        "icon": "mobile",
+        "title": "Telefonunuzdan Oluşturun ve Düzenleyin",
+        "desc": "Atelier tamamen iPhone'unuzda çalışır. Trende web sitesi oluşturun, öğle yemeğinde güncelleyin, akşam yemeğinden önce yayınlayın. Web sitesi stüdyonuz cebinize sığar."
+      },
+      {
+        "icon": "globe",
+        "title": "Anında Yayınlayın — Kurulum Yok",
+        "desc": "Alan adı yapılandırması yok, hosting hesabı yok, FTP yüklemesi yok. Tek dokunuşla siteniz benzersiz bir URL'de yayında, dünyanın her yerinden erişilebilir."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Eski Yol vs. Yapay Zeka Yolu",
+    "old_title": "Eski Yöntemle Web Sitesi Oluşturmak",
+    "old_items": [
+      "Saatlerce web sitesi oluşturucuları araştırmak",
+      "Arayüzü öğrenmek için videolar izlemek",
+      "Bir şablon seçmek (10.000 kişinin daha kullandığı)",
+      "Her öğeyi elle sürüklemek, bırakmak ve yeniden boyutlandırmak",
+      "Tüm içeriği sıfırdan yazmak",
+      "Mobil uyumlulukla boğuşmak",
+      "Hosting ve alan adı kurulumunu çözmek",
+      "Haftalarca süren hayal kırıklığının ardından yayına almak"
+    ],
+    "new_title": "Yapay Zeka ile Web Sitesi Oluşturmak",
+    "new_items": [
+      "iPhone'unuzda Atelier'i açın",
+      "Sitenizi anlatan bir cümle yazın",
+      "Yapay zeka eksiksiz, güzel bir web sitesi üretir",
+      "Yayınlamak için dokunun — yayındasınız"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Bu Kimin İçin?",
+    "p": "Google'da \"web sitesi nasıl yapılır\" veya \"en iyi web sitesi oluşturucu\" diye aradıysanız — bu sizin için.",
+    "items": [
+      {
+        "title": "İlk Kez Web Sitesi Oluşturanlar",
+        "desc": "Hiç web sitesi oluşturmadınız ve bir web sitesi aracı öğrenmek bunaltıcı geliyor. Yapay zeka ile öğrenecek bir şey yok."
+      },
+      {
+        "title": "Küçük İşletme Sahipleri",
+        "desc": "Profesyonel bir web varlığına ihtiyacınız var ama tasarımcı tutacak bütçeniz veya kendiniz yapmaya zamanınız yok. Yapay zeka size dakikalar içinde şık bir site sunar."
+      },
+      {
+        "title": "Serbest Çalışanlar ve İçerik Üreticileri",
+        "desc": "Gerçekten iyi görünen bir portföy veya açılış sayfası istiyorsunuz — yaratıcı enerjinizi web tasarım araçlarına harcamadan."
+      },
+      {
+        "title": "Hizmetleri Karşılaştıran Herkes",
+        "desc": "Wix, WordPress, Squarespace ve diğerlerini araştırıyorsunuz. Haftalarca öğrenmeye başlamadan önce yapay zekayı deneyin — fiyat sayfalarını okumayı bitirmeden siteniz hazır olacak."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Web Siteniz Tek Bir Cümle Uzağınızda",
+    "p": "Atelier'i ücretsiz indirin. Ne istediğinizi yazın. Yapay zekanın oluşturmasını izleyin.",
+    "download": "App Store'dan İndirin"
+  },
+  "legal": {
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları"
+  }
+}

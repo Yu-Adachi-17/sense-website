@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI izrađuje vašu web stranicu — zašto je ručno kodiranje već zastarjelo",
+    "description": "Prestanite trošiti tjedne na ručnu izradu web stranice. Atelier koristi AI za generiranje potpune, profesionalne stranice u manje od 60 sekundi — izravno s vašeg iPhone uređaja. Budućnost izrade web stranica je ovdje.",
+    "ogTitle": "AI izrađuje vašu web stranicu za manje od 60 sekundi",
+    "ogDescription": "Opišite svoju ideju i AI odmah gradi vašu stranicu. Bez kodiranja, bez predložaka, bez dizajnera. Atelier pretvara jednu rečenicu u živu, prekrasnu web stranicu."
+  },
+  "aria": { "home": "Atelier Početna" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Budućnost izrade web stranica",
+    "h1": "Vaša web stranica.<br>Izrađena AI-jem u 60 sekundi.",
+    "tagline": "Zaboravite na angažiranje dizajnera. Zaboravite na drag-and-drop alate. Zaboravite na tjedne rada na web stranici. Samo opišite što želite — i Atelier AI stvara elegantnu, živu web stranicu prije nego popijete kavu.",
+    "badges": ["Generirano AI-jem", "Manje od 60 sekundi", "Bez koda"]
+  },
+  "opening": {
+    "h2": "Era ručno građenih web stranica je gotova",
+    "p1": "Razmislite o tome. Trebate web stranicu za posao, portfolio ili sporedni projekt. Što se prije događalo? Trošili ste dane na istraživanje alata, sate na gledanje tutoriala i tjedne na podešavanje predložaka koji nikad nisu izgledali kako treba.",
+    "p2": "Cijeli taj proces je sada zastario. AI ne samo da pomaže u web dizajnu — zamjenjuje cijeli tijek rada. Od rasporeda do teksta, od palete boja do responzivnog dizajna, jedan prompt proizvodi potpunu web stranicu spremnu za objavu."
+  },
+  "demo": {
+    "h2": "Pogledajte — jedan prompt, jedna web stranica",
+    "p": "Upisali smo jednu rečenicu u Atelier i gledali kako AI gradi potpuno dizajniranu web stranicu s više sekcija u sekundama. Bez predložaka. Bez povlačenja i ispuštanja. Bez revizija. Samo trenutačna izrada.",
+    "prompt_label": "Prompt:",
+    "prompt_text": "\"Izradi web stranicu za brand organske njege kože sa sjedištem u Brooklynu. Moderan, minimalan, s istaknutim proizvodima, sekcijom o nama i linkom na trgovinu.\"",
+    "output_label": "Što je AI izradio:"
+  },
+  "whyAI": {
+    "h2": "Zašto AI nadmašuje sve ostalo",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 sekundi umjesto 60 dana",
+        "desc": "Tradicionalna web stranica zahtijeva tjedne planiranja, dizajniranja i pokretanja. S AI-jem, cijeli proces se svodi na jednu minutu. Opišite svoju viziju i ona je online."
+      },
+      {
+        "icon": "magic",
+        "title": "Nisu potrebne vještine — ozbiljno",
+        "desc": "Ne trebate znati HTML, CSS, principe dizajna ili kako funkcionira hosting. Ne trebate čak ni računalo. Ako možete napisati rečenicu, možete izraditi web stranicu."
+      },
+      {
+        "icon": "edit",
+        "title": "AI piše i vaš sadržaj",
+        "desc": "Niste sigurni što staviti na stranicu? AI generira uvjerljive naslove, opise i sadržaj sekcija prilagođen vašem poslovanju — bez copywritera."
+      },
+      {
+        "icon": "mobile",
+        "title": "Izradite i uređujte s telefona",
+        "desc": "Atelier radi u potpunosti na vašem iPhone uređaju. Izradite stranicu u vlaku, ažurirajte je za ručak, objavite je prije večere. Vaš web studio stane u džep."
+      },
+      {
+        "icon": "globe",
+        "title": "Objavite odmah — bez postavljanja",
+        "desc": "Bez konfiguracije domene, bez hosting računa, bez FTP uploada. Jedan dodir i vaša stranica je online na jedinstvenoj URL adresi, dostupna svima na svijetu."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Stari način vs. AI način",
+    "old_title": "Izrada web stranice na stari način",
+    "old_items": [
+      "Satima istraživati alate za izradu web stranica",
+      "Gledati tutoriale za učenje sučelja",
+      "Odabrati predložak (koji koristi još 10.000 ljudi)",
+      "Ručno povlačiti, ispuštati i mijenjati veličinu svakog elementa",
+      "Pisati sav sadržaj od nule",
+      "Mučiti se s mobilnom responzivnošću",
+      "Riješiti hosting i postavljanje domene",
+      "Pokrenuti nakon tjedana frustracije"
+    ],
+    "new_title": "Izrada web stranice s AI-jem",
+    "new_items": [
+      "Otvorite Atelier na svom iPhone uređaju",
+      "Upišite jednu rečenicu koja opisuje vašu stranicu",
+      "AI generira potpunu, prekrasnu web stranicu",
+      "Dodirnite za objavu — online ste"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Za koga je ovo?",
+    "p": "Ako ste ikada na Google tražili \u201ekako napraviti web stranicu\u201c ili \u201enajbolji alat za izradu web stranica\u201c — ovo je za vas.",
+    "items": [
+      {
+        "title": "Oni koji prvi put izrađuju web stranicu",
+        "desc": "Nikad niste izradili stranicu, a sama pomisao na učenje alata za izradu djeluje zastrašujuće. S AI-jem, nema što učiti."
+      },
+      {
+        "title": "Vlasnici malih poduzeća",
+        "desc": "Trebate profesionalnu web prisutnost, ali si ne možete priuštiti dizajnera ili vrijeme za samostalnu izradu. AI vam daje elegantnu stranicu u minutama."
+      },
+      {
+        "title": "Freelanceri i kreativci",
+        "desc": "Želite portfolio ili odredišnu stranicu koja stvarno izgleda dobro — bez trošenja kreativne energije na alate za web dizajn."
+      },
+      {
+        "title": "Svi koji uspoređuju usluge",
+        "desc": "Istražujete Wix, WordPress, Squarespace i druge. Prije nego se obvežete na tjedne učenja, isprobajte AI — vaša stranica će biti gotova prije nego pročitate njihovu stranicu s cijenama."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Vaša web stranica je jednu rečenicu daleko",
+    "p": "Preuzmite Atelier besplatno. Upišite što želite. Gledajte kako AI to izrađuje.",
+    "download": "Preuzmi na App Storeu"
+  },
+  "legal": {
+    "privacy": "Pravila o privatnosti",
+    "terms": "Uvjeti korištenja"
+  }
+}

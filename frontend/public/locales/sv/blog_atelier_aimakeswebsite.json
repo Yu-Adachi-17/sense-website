@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI skapar din webbplats — varför handkodning redan är föråldrat",
+    "description": "Sluta spendera veckor på att bygga en webbplats för hand. Atelier använder AI för att generera en komplett, professionell webbplats på under 60 sekunder — direkt från din iPhone. Framtiden för webbskapande är här.",
+    "ogTitle": "AI skapar din webbplats på under 60 sekunder",
+    "ogDescription": "Beskriv din idé och AI bygger din webbplats omedelbart. Ingen kod, inga mallar, inga designers. Atelier förvandlar en enda mening till en fantastisk, live webbplats."
+  },
+  "aria": { "home": "Atelier Hem" },
+  "nav": { "blog": "Blogg", "category": "Atelier" },
+  "hero": {
+    "kicker": "Framtiden för webbskapande",
+    "h1": "Din webbplats.<br>Byggd av AI på 60 sekunder.",
+    "tagline": "Glöm att anlita designers. Glöm dra-och-släpp-verktyg. Glöm att spendera veckor på en webbplats. Beskriv bara vad du vill — och Atelier AI skapar en polerad, live webbplats innan du hinner dricka upp ditt kaffe.",
+    "badges": ["AI-genererad", "Under 60 sekunder", "Ingen kod behövs"]
+  },
+  "opening": {
+    "h2": "Eran av handbyggda webbplatser är över",
+    "p1": "Tänk på det. Du behöver en webbplats för ditt företag, din portfolio eller ett sidoprojekt. Vad hände förut? Du spenderade dagar på att undersöka webbplatsbyggare, timmar på att titta på tutorials och veckor på att justera mallar som aldrig såg riktigt rätt ut.",
+    "p2": "Hela den processen är nu föråldrad. AI hjälper inte bara med webbdesign — det ersätter hela arbetsflödet. Från layout till text, från färgpalett till responsiv design, en enda prompt producerar en komplett webbplats redo att publiceras."
+  },
+  "demo": {
+    "h2": "Se det hända — en prompt, en webbplats",
+    "p": "Vi skrev en enda mening i Atelier och såg AI bygga en fullt designad webbplats med flera sektioner på sekunder. Inga mallar. Ingen dra-och-släpp. Inga revisioner. Bara omedelbart skapande.",
+    "prompt_label": "Prompten:",
+    "prompt_text": "\"Skapa en webbplats för ett ekologiskt hudvårdsmärke baserat i Brooklyn. Modernt, minimalt, med produkthöjdpunkter, en om oss-sektion och en länk till butiken.\"",
+    "output_label": "Vad AI skapade:"
+  },
+  "whyAI": {
+    "h2": "Varför AI slår allt annat",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 sekunder istället för 60 dagar",
+        "desc": "En traditionell webbplats tar veckor att planera, designa och lansera. Med AI krymper hela processen till en enda minut. Beskriv din vision och den är live."
+      },
+      {
+        "icon": "magic",
+        "title": "Inga kunskaper krävs — på riktigt",
+        "desc": "Du behöver inte kunna HTML, CSS, designprinciper eller hur hosting fungerar. Du behöver inte ens en dator. Kan du skriva en mening kan du bygga en webbplats."
+      },
+      {
+        "icon": "edit",
+        "title": "AI skriver ditt innehåll också",
+        "desc": "Osäker på vad du ska ha på din webbplats? AI genererar övertygande rubriker, beskrivningar och sektionsinnehåll anpassat till ditt företag — ingen copywriter behövs."
+      },
+      {
+        "icon": "mobile",
+        "title": "Bygg och redigera från din telefon",
+        "desc": "Atelier körs helt på din iPhone. Skapa en webbplats på tåget, uppdatera den på lunchen, publicera den före middagen. Din webbplatsstudio ryms i fickan."
+      },
+      {
+        "icon": "globe",
+        "title": "Publicera direkt — ingen setup",
+        "desc": "Ingen domänkonfiguration, inga hostingkonton, inga FTP-uppladdningar. Ett tryck och din webbplats är live på en unik URL, tillgänglig för alla i världen."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Det gamla sättet vs. AI-sättet",
+    "old_title": "Bygga en webbplats på det gamla sättet",
+    "old_items": [
+      "Undersöka webbplatsbyggare i timmar",
+      "Titta på tutorials för att lära sig gränssnittet",
+      "Välja en mall (som 10 000 andra använder)",
+      "Manuellt dra, släppa och ändra storlek på varje element",
+      "Skriva allt innehåll från grunden",
+      "Kämpa med mobilanpassning",
+      "Lista ut hosting och domänkonfiguration",
+      "Lansera efter veckor av frustration"
+    ],
+    "new_title": "Bygga en webbplats med AI",
+    "new_items": [
+      "Öppna Atelier på din iPhone",
+      "Skriv en mening som beskriver din webbplats",
+      "AI genererar en komplett, vacker webbplats",
+      "Tryck för att publicera — du är live"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Vem är det här för?",
+    "p": "Om du någonsin har googlat \"hur skapar man en webbplats\" eller \"bästa webbplatsbyggaren\" — är det här för dig.",
+    "items": [
+      {
+        "title": "Förstagångsskapare av webbplatser",
+        "desc": "Du har aldrig byggt en webbplats och tanken på att lära sig ett webbplatsverktyg känns överväldigande. Med AI finns det inget att lära sig."
+      },
+      {
+        "title": "Småföretagare",
+        "desc": "Du behöver en professionell webbnärvaro men har inte råd med en designer eller tiden att göra det själv. AI ger dig en polerad webbplats på minuter."
+      },
+      {
+        "title": "Frilansare och skapare",
+        "desc": "Du vill ha en portfolio eller landningssida som faktiskt ser bra ut — utan att spendera din kreativa energi på webbdesignverktyg."
+      },
+      {
+        "title": "Alla som jämför tjänster",
+        "desc": "Du undersöker Wix, WordPress, Squarespace och andra. Innan du förbinder dig till veckor av lärande, prova AI — din webbplats kommer vara klar innan du läst klart deras prissida."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Din webbplats är bara en mening bort",
+    "p": "Ladda ner Atelier gratis. Skriv vad du vill. Se AI bygga det.",
+    "download": "Ladda ner på App Store"
+  },
+  "legal": {
+    "privacy": "Integritetspolicy",
+    "terms": "Användarvillkor"
+  }
+}

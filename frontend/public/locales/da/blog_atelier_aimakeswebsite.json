@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI laver din hjemmeside — hvorfor manuel kodning allerede er forældet",
+    "description": "Stop med at bruge uger på at bygge en hjemmeside manuelt. Atelier bruger AI til at generere en komplet, professionel hjemmeside på under 60 sekunder — direkte fra din iPhone. Fremtiden for webskabelse er her.",
+    "ogTitle": "AI laver din hjemmeside på under 60 sekunder",
+    "ogDescription": "Beskriv din idé, og AI bygger din hjemmeside med det samme. Ingen kodning, ingen skabeloner, ingen designere. Atelier forvandler én sætning til en live, flot hjemmeside."
+  },
+  "aria": { "home": "Atelier Hjem" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Fremtiden for hjemmesideskabelse",
+    "h1": "Din hjemmeside.<br>Bygget af AI på 60 sekunder.",
+    "tagline": "Glem at hyre designere. Glem drag-and-drop-værktøjer. Glem at bruge uger på en hjemmeside. Beskriv bare hvad du vil — og Atelier's AI skaber en poleret, live hjemmeside før du når at drikke din kaffe.",
+    "badges": ["AI-genereret", "Under 60 sekunder", "Ingen kode påkrævet"]
+  },
+  "opening": {
+    "h2": "Æraen med håndbyggede hjemmesider er forbi",
+    "p1": "Tænk over det. Du har brug for en hjemmeside til din virksomhed, portfolio eller sideprojekt. Hvad skete der før? Du brugte dage på at undersøge værktøjer, timer på at se tutorials og uger på at tilpasse skabeloner, der aldrig helt så rigtige ud.",
+    "p2": "Hele den proces er nu forældet. AI hjælper ikke bare med webdesign — den erstatter hele arbejdsgangen. Fra layout til tekst, fra farvepalet til responsivt design, én prompt producerer en komplet hjemmeside klar til publicering."
+  },
+  "demo": {
+    "h2": "Se det ske — én prompt, én hjemmeside",
+    "p": "Vi skrev én sætning i Atelier og så AI bygge en fuldt designet hjemmeside med flere sektioner på sekunder. Ingen skabeloner. Ingen drag-and-drop. Ingen revisioner. Bare øjeblikkelig skabelse.",
+    "prompt_label": "Prompten:",
+    "prompt_text": "\"Lav en hjemmeside for et økologisk hudplejebrand baseret i Brooklyn. Moderne, minimalt, med produkthøjdepunkter, en om-sektion og et link til shoppen.\"",
+    "output_label": "Hvad AI skabte:"
+  },
+  "whyAI": {
+    "h2": "Hvorfor AI slår alt andet",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 sekunder vs. 60 dage",
+        "desc": "En traditionel hjemmeside tager uger at planlægge, designe og lancere. Med AI kollapser hele processen til ét minut. Beskriv din vision, og den er live."
+      },
+      {
+        "icon": "magic",
+        "title": "Ingen færdigheder påkrævet — seriøst",
+        "desc": "Du behøver ikke kende HTML, CSS, designprincipper eller hvordan hosting fungerer. Du behøver ikke engang en computer. Kan du skrive en sætning, kan du bygge en hjemmeside."
+      },
+      {
+        "icon": "edit",
+        "title": "AI skriver også dit indhold",
+        "desc": "Ikke sikker på hvad du skal skrive på din side? AI genererer overbevisende overskrifter, beskrivelser og sektionsindhold tilpasset din virksomhed — ingen tekstforfatter nødvendig."
+      },
+      {
+        "icon": "mobile",
+        "title": "Byg og rediger fra din telefon",
+        "desc": "Atelier kører udelukkende på din iPhone. Lav en hjemmeside i toget, opdater den til frokost, publicer den inden aftensmad. Dit hjemmesidestudio er i din lomme."
+      },
+      {
+        "icon": "globe",
+        "title": "Publicer med det samme — ingen opsætning",
+        "desc": "Ingen domænekonfiguration, ingen hostingkonti, ingen FTP-uploads. Ét tryk og din side er live på en unik URL, tilgængelig for alle i verden."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Den gamle måde vs. AI-måden",
+    "old_title": "At bygge en hjemmeside på den gamle måde",
+    "old_items": [
+      "Undersøg hjemmesideværktøjer i timevis",
+      "Se tutorials for at lære interfacet",
+      "Vælg en skabelon (som 10.000 andre bruger)",
+      "Træk, slip og tilpas hvert element manuelt",
+      "Skriv alt dit indhold fra bunden",
+      "Kæmp med mobilresponsivitet",
+      "Find ud af hosting og domæneopsætning",
+      "Lancering efter ugers frustration"
+    ],
+    "new_title": "At bygge en hjemmeside med AI",
+    "new_items": [
+      "Åbn Atelier på din iPhone",
+      "Skriv én sætning der beskriver din side",
+      "AI genererer en komplet, smuk hjemmeside",
+      "Tryk for at publicere — du er live"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Hvem er dette for?",
+    "p": "Hvis du nogensinde har søgt på Google efter \"hvordan laver man en hjemmeside\" eller \"bedste hjemmesideværktøj\" — er dette for dig.",
+    "items": [
+      {
+        "title": "Førstegangs-hjemmesideskabere",
+        "desc": "Du har aldrig bygget en side før, og tanken om at lære et hjemmesideværktøj virker overvældende. Med AI er der intet at lære."
+      },
+      {
+        "title": "Små virksomhedsejere",
+        "desc": "Du har brug for en professionel webtilstedeværelse, men har ikke råd til en designer eller tid til at gøre det selv. AI giver dig en poleret side på minutter."
+      },
+      {
+        "title": "Freelancere og kreative",
+        "desc": "Du vil have en portfolio eller landingsside, der faktisk ser godt ud — uden at bruge din kreative energi på webdesignværktøjer."
+      },
+      {
+        "title": "Alle der sammenligner tjenester",
+        "desc": "Du undersøger Wix, WordPress, Squarespace og andre. Før du forpligter dig til ugers læring, prøv AI — din side er færdig, før du når at læse deres prisside."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Din hjemmeside er én sætning væk",
+    "p": "Download Atelier gratis. Skriv hvad du vil. Se AI bygge det.",
+    "download": "Download på App Store"
+  },
+  "legal": {
+    "privacy": "Privatlivspolitik",
+    "terms": "Vilkår for brug"
+  }
+}

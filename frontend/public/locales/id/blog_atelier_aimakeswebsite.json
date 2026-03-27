@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI Membuat Website Anda — Mengapa Coding Manual Sudah Usang",
+    "description": "Berhenti menghabiskan berminggu-minggu membangun website secara manual. Atelier menggunakan AI untuk menghasilkan website profesional lengkap dalam waktu kurang dari 60 detik — langsung dari iPhone Anda. Masa depan pembuatan website ada di sini.",
+    "ogTitle": "AI Membuat Website Anda dalam Waktu Kurang dari 60 Detik",
+    "ogDescription": "Deskripsikan ide Anda, dan AI membangun website Anda secara instan. Tanpa coding, tanpa template, tanpa desainer. Atelier mengubah satu kalimat menjadi website menakjubkan yang siap tayang."
+  },
+  "aria": { "home": "Beranda Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Masa Depan Pembuatan Website",
+    "h1": "Website Anda.<br>Dibangun oleh AI dalam 60 Detik.",
+    "tagline": "Lupakan menyewa desainer. Lupakan builder drag-and-drop. Lupakan berminggu-minggu mengerjakan website. Cukup deskripsikan yang Anda inginkan — dan AI Atelier membuat website yang rapi dan siap tayang sebelum kopi Anda habis.",
+    "badges": ["Dibuat AI", "Kurang dari 60 Detik", "Tanpa Kode"]
+  },
+  "opening": {
+    "h2": "Era Website Buatan Tangan Sudah Berakhir",
+    "p1": "Coba pikirkan. Anda butuh website untuk bisnis, portofolio, atau proyek sampingan. Apa yang biasa terjadi? Anda menghabiskan berhari-hari meneliti website builder, berjam-jam menonton tutorial, dan berminggu-minggu mengutak-atik template yang tidak pernah terlihat pas.",
+    "p2": "Seluruh proses itu sekarang sudah usang. AI tidak hanya membantu desain web — ia menggantikan seluruh alur kerja. Dari tata letak hingga konten, dari palet warna hingga desain responsif, satu prompt menghasilkan website lengkap yang siap dipublikasikan."
+  },
+  "demo": {
+    "h2": "Lihat Langsung — Satu Prompt, Satu Website",
+    "p": "Kami mengetik satu kalimat ke Atelier dan menyaksikan AI membangun website yang sepenuhnya dirancang dengan beberapa bagian dalam hitungan detik. Tanpa template. Tanpa drag-and-drop. Tanpa revisi. Hanya pembuatan instan.",
+    "prompt_label": "Prompt-nya:",
+    "prompt_text": "\"Buat website untuk brand skincare organik yang berbasis di Brooklyn. Modern, minimal, dengan highlight produk, bagian tentang kami, dan link ke toko.\"",
+    "output_label": "Yang Dibuat AI:"
+  },
+  "whyAI": {
+    "h2": "Mengapa AI Mengalahkan Segalanya",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 Detik vs. 60 Hari",
+        "desc": "Website tradisional butuh berminggu-minggu untuk direncanakan, dirancang, dan diluncurkan. Dengan AI, seluruh proses menciut menjadi satu menit. Deskripsikan visi Anda, dan langsung tayang."
+      },
+      {
+        "icon": "magic",
+        "title": "Tidak Perlu Keahlian — Serius",
+        "desc": "Anda tidak perlu tahu HTML, CSS, prinsip desain, atau cara kerja hosting. Anda bahkan tidak perlu komputer. Jika Anda bisa mengetik satu kalimat, Anda bisa membuat website."
+      },
+      {
+        "icon": "edit",
+        "title": "AI Juga Menulis Konten Anda",
+        "desc": "Tidak yakin apa yang harus dimasukkan ke website? AI menghasilkan headline menarik, deskripsi, dan konten bagian yang disesuaikan dengan bisnis Anda — tanpa copywriter."
+      },
+      {
+        "icon": "mobile",
+        "title": "Buat dan Edit dari HP Anda",
+        "desc": "Atelier berjalan sepenuhnya di iPhone Anda. Buat website di kereta, perbarui saat makan siang, publikasikan sebelum makan malam. Studio website Anda ada di saku."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikasikan Langsung — Tanpa Setup",
+        "desc": "Tanpa konfigurasi domain, tanpa akun hosting, tanpa upload FTP. Satu ketukan dan website Anda tayang di URL unik, bisa diakses siapa saja di dunia."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Cara Lama vs. Cara AI",
+    "old_title": "Membuat Website dengan Cara Lama",
+    "old_items": [
+      "Riset website builder berjam-jam",
+      "Nonton tutorial untuk belajar antarmukanya",
+      "Pilih template (yang dipakai 10.000 orang lain)",
+      "Drag, drop, dan resize setiap elemen secara manual",
+      "Tulis semua konten sendiri dari awal",
+      "Pusing dengan responsivitas mobile",
+      "Cari tahu soal hosting dan setup domain",
+      "Launching setelah berminggu-minggu frustrasi"
+    ],
+    "new_title": "Membuat Website dengan AI",
+    "new_items": [
+      "Buka Atelier di iPhone Anda",
+      "Ketik satu kalimat yang mendeskripsikan website Anda",
+      "AI menghasilkan website lengkap dan indah",
+      "Ketuk untuk publikasi — Anda sudah tayang"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Untuk Siapa Ini?",
+    "p": "Jika Anda pernah mencari di Google \"cara membuat website\" atau \"website builder terbaik\" — ini untuk Anda.",
+    "items": [
+      {
+        "title": "Pembuat Website Pertama Kali",
+        "desc": "Anda belum pernah membuat website, dan memikirkan belajar website builder terasa overwhelming. Dengan AI, tidak ada yang perlu dipelajari."
+      },
+      {
+        "title": "Pemilik Usaha Kecil",
+        "desc": "Anda butuh kehadiran web profesional tapi tidak mampu bayar desainer atau punya waktu untuk DIY. AI memberikan website yang rapi dalam hitungan menit."
+      },
+      {
+        "title": "Freelancer & Kreator",
+        "desc": "Anda ingin portofolio atau landing page yang benar-benar terlihat bagus — tanpa menghabiskan energi kreatif untuk tools desain web."
+      },
+      {
+        "title": "Siapa Saja yang Membandingkan Layanan",
+        "desc": "Anda sedang riset Wix, WordPress, Squarespace, dan lainnya. Sebelum berkomitmen berminggu-minggu belajar, coba AI — website Anda akan selesai sebelum Anda selesai membaca halaman harga mereka."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Website Anda Tinggal Satu Kalimat",
+    "p": "Download Atelier gratis. Ketik yang Anda mau. Lihat AI membuatnya.",
+    "download": "Download di App Store"
+  },
+  "legal": {
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Penggunaan"
+  }
+}

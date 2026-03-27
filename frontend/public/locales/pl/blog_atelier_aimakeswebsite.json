@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI tworzy Twoją stronę — dlaczego ręczne kodowanie jest już przestarzałe",
+    "description": "Przestań tracić tygodnie na ręczne tworzenie strony internetowej. Atelier wykorzystuje AI do wygenerowania kompletnej, profesjonalnej strony w mniej niż 60 sekund — prosto z Twojego iPhone'a. Przyszłość tworzenia stron jest tutaj.",
+    "ogTitle": "AI tworzy Twoją stronę w mniej niż 60 sekund",
+    "ogDescription": "Opisz swój pomysł, a AI natychmiast zbuduje Twoją stronę. Bez kodowania, bez szablonów, bez projektantów. Atelier zamienia jedno zdanie w piękną, gotową stronę internetową."
+  },
+  "aria": { "home": "Strona główna Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Przyszłość tworzenia stron internetowych",
+    "h1": "Twoja strona.<br>Zbudowana przez AI w 60 sekund.",
+    "tagline": "Zapomnij o wynajmowaniu projektantów. Zapomnij o edytorach typu przeciągnij i upuść. Zapomnij o tygodniach pracy nad stroną. Po prostu opisz, czego chcesz — a AI Atelier stworzy elegancką, gotową stronę, zanim wypijesz kawę.",
+    "badges": ["Wygenerowane przez AI", "Poniżej 60 sekund", "Bez kodu"]
+  },
+  "opening": {
+    "h2": "Era ręcznie budowanych stron dobiegła końca",
+    "p1": "Pomyśl o tym. Potrzebujesz strony internetowej dla swojego biznesu, portfolio lub projektu pobocznego. Co się wcześniej działo? Spędzałeś dni na szukaniu kreatorów stron, godziny na oglądaniu poradników i tygodnie na dostosowywaniu szablonów, które nigdy nie wyglądały do końca dobrze.",
+    "p2": "Cały ten proces jest teraz przestarzały. AI nie tylko pomaga w projektowaniu stron — zastępuje cały przepływ pracy. Od układu po tekst, od palety kolorów po responsywny design, jeden prompt tworzy kompletną stronę gotową do publikacji."
+  },
+  "demo": {
+    "h2": "Zobacz na żywo — jeden prompt, jedna strona",
+    "p": "Wpisaliśmy jedno zdanie w Atelier i obserwowaliśmy, jak AI w kilka sekund zbudowało w pełni zaprojektowaną, wielosekcyjną stronę. Bez szablonów. Bez przeciągania i upuszczania. Bez poprawek. Po prostu natychmiastowe tworzenie.",
+    "prompt_label": "Prompt:",
+    "prompt_text": "\"Stwórz stronę dla marki naturalnych kosmetyków z Brooklynu. Nowoczesna, minimalistyczna, z wyróżnionymi produktami, sekcją o nas i linkiem do sklepu.\"",
+    "output_label": "Co stworzyło AI:"
+  },
+  "whyAI": {
+    "h2": "Dlaczego AI pokonuje wszystko inne",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 sekund zamiast 60 dni",
+        "desc": "Tradycyjna strona wymaga tygodni planowania, projektowania i uruchomienia. Z AI cały proces zamyka się w jednej minucie. Opisz swoją wizję, a strona jest gotowa."
+      },
+      {
+        "icon": "magic",
+        "title": "Żadne umiejętności nie są potrzebne — serio",
+        "desc": "Nie musisz znać HTML, CSS, zasad projektowania ani sposobu działania hostingu. Nie potrzebujesz nawet komputera. Jeśli potrafisz napisać zdanie, możesz zbudować stronę."
+      },
+      {
+        "icon": "edit",
+        "title": "AI pisze też Twoje treści",
+        "desc": "Nie wiesz, co umieścić na stronie? AI generuje przekonujące nagłówki, opisy i treści sekcji dostosowane do Twojego biznesu — bez copywritera."
+      },
+      {
+        "icon": "mobile",
+        "title": "Twórz i edytuj z telefonu",
+        "desc": "Atelier działa w całości na Twoim iPhone. Stwórz stronę w pociągu, zaktualizuj ją w porze obiadowej, opublikuj przed kolacją. Twoje studio stron mieści się w kieszeni."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikuj natychmiast — bez konfiguracji",
+        "desc": "Bez konfiguracji domeny, bez kont hostingowych, bez przesyłania FTP. Jedno dotknięcie i Twoja strona jest online pod unikalnym adresem URL, dostępna dla każdego na świecie."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Stary sposób vs. sposób z AI",
+    "old_title": "Tworzenie strony po staremu",
+    "old_items": [
+      "Godziny badania kreatorów stron",
+      "Oglądanie poradników, by nauczyć się interfejsu",
+      "Wybór szablonu (którego używa 10 000 innych osób)",
+      "Ręczne przeciąganie, upuszczanie i zmiana rozmiaru każdego elementu",
+      "Pisanie wszystkich treści od zera",
+      "Walka z responsywnością mobilną",
+      "Rozgryzanie hostingu i konfiguracji domeny",
+      "Uruchomienie po tygodniach frustracji"
+    ],
+    "new_title": "Tworzenie strony z AI",
+    "new_items": [
+      "Otwórz Atelier na swoim iPhone",
+      "Wpisz jedno zdanie opisujące Twoją stronę",
+      "AI generuje kompletną, piękną stronę",
+      "Dotknij, by opublikować — jesteś online"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Dla kogo to jest?",
+    "p": "Jeśli kiedykolwiek szukałeś w Google \u201ejak zrobić stronę internetową\u201c lub \u201enajlepszy kreator stron\u201c — to jest dla Ciebie.",
+    "items": [
+      {
+        "title": "Osoby tworzące stronę po raz pierwszy",
+        "desc": "Nigdy nie budowałeś strony, a myśl o nauce kreatora stron wydaje się przytłaczająca. Z AI nie ma czego się uczyć."
+      },
+      {
+        "title": "Właściciele małych firm",
+        "desc": "Potrzebujesz profesjonalnej obecności w sieci, ale nie stać Cię na projektanta ani na czas na samodzielną pracę. AI daje Ci elegancką stronę w kilka minut."
+      },
+      {
+        "title": "Freelancerzy i twórcy",
+        "desc": "Chcesz portfolio lub stronę docelową, która naprawdę dobrze wygląda — bez marnowania kreatywnej energii na narzędzia do projektowania stron."
+      },
+      {
+        "title": "Każdy, kto porównuje usługi",
+        "desc": "Badasz Wix, WordPress, Squarespace i inne. Zanim zobowiążesz się do tygodni nauki, wypróbuj AI — Twoja strona będzie gotowa, zanim skończysz czytać ich stronę cenową."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Twoja strona jest o jedno zdanie stąd",
+    "p": "Pobierz Atelier za darmo. Wpisz, czego chcesz. Patrz, jak AI to tworzy.",
+    "download": "Pobierz z App Store"
+  },
+  "legal": {
+    "privacy": "Polityka prywatności",
+    "terms": "Warunki użytkowania"
+  }
+}

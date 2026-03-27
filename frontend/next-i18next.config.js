@@ -59,6 +59,7 @@ module.exports = {
     // ★ Atelier
     'blog_atelier_introduction',
     'blog_atelier_pricing',
+    'blog_atelier_aimakeswebsite',
   ],
   defaultNS: 'common',
 
