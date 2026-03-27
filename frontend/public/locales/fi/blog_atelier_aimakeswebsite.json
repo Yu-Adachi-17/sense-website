@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "Tekoäly tekee verkkosivustosi — miksi käsin koodaaminen on jo vanhanaikaista",
+    "description": "Lopeta viikkojen käyttäminen verkkosivuston rakentamiseen käsin. Atelier käyttää tekoälyä luodakseen täydellisen, ammattimaisen sivuston alle 60 sekunnissa — suoraan iPhoneltasi. Verkkosivujen luonnin tulevaisuus on täällä.",
+    "ogTitle": "Tekoäly tekee verkkosivustosi alle 60 sekunnissa",
+    "ogDescription": "Kuvaile ideasi, ja tekoäly rakentaa verkkosivustosi välittömästi. Ei koodausta, ei malleja, ei suunnittelijoita. Atelier muuttaa yhden lauseen upeaksi, valmiiksi verkkosivustoksi."
+  },
+  "aria": { "home": "Atelier Etusivu" },
+  "nav": { "blog": "Blogi", "category": "Atelier" },
+  "hero": {
+    "kicker": "Verkkosivujen luonnin tulevaisuus",
+    "h1": "Verkkosivustosi.<br>Tekoälyn rakentama 60 sekunnissa.",
+    "tagline": "Unohda suunnittelijoiden palkkaaminen. Unohda vedä ja pudota -työkalut. Unohda viikkojen käyttäminen verkkosivustoon. Kuvaile vain mitä haluat — ja Atelier-tekoäly luo tyylikkään, valmiin sivuston ennen kuin kahvisi jäähtyy.",
+    "badges": ["Tekoälyn luoma", "Alle 60 sekuntia", "Ei koodia tarvita"]
+  },
+  "opening": {
+    "h2": "Käsin rakennettujen verkkosivujen aikakausi on ohi",
+    "p1": "Mieti asiaa. Tarvitset verkkosivuston yrityksellesi, portfoliollesi tai sivuprojektillesi. Mitä ennen tapahtui? Käytit päiviä sivustonrakentajien tutkimiseen, tunteja tutoriaalien katsomiseen ja viikkoja mallien säätämiseen, jotka eivät koskaan näyttäneet ihan oikeilta.",
+    "p2": "Koko se prosessi on nyt vanhentunut. Tekoäly ei vain avusta verkkosuunnittelussa — se korvaa koko työnkulun. Asettelusta tekstiin, väripaletista responsiiviseen suunnitteluun, yksi kehotus tuottaa valmiin verkkosivuston julkaisua varten."
+  },
+  "demo": {
+    "h2": "Katso miten se tapahtuu — yksi kehotus, yksi sivusto",
+    "p": "Kirjoitimme yhden lauseen Atelieriin ja katsoimme tekoälyn rakentavan täysin suunnitellun, moniosioisen verkkosivuston sekunneissa. Ei malleja. Ei vedä ja pudota -toimintoa. Ei muokkauksia. Vain välitöntä luomista.",
+    "prompt_label": "Kehotus:",
+    "prompt_text": "\"Luo verkkosivusto brooklynilaiselle luonnonkosmetiikkamerkille. Moderni, minimalistinen, tuote-esittelyillä, tietoa meistä -osiolla ja linkillä kauppaan.\"",
+    "output_label": "Mitä tekoäly loi:"
+  },
+  "whyAI": {
+    "h2": "Miksi tekoäly voittaa kaiken muun",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 sekuntia vs. 60 päivää",
+        "desc": "Perinteisen verkkosivuston suunnittelu, toteutus ja julkaisu kestää viikkoja. Tekoälyllä koko prosessi tiivistyy yhteen minuuttiin. Kuvaile visiosi, ja se on valmis."
+      },
+      {
+        "icon": "magic",
+        "title": "Ei tarvita taitoja — tosissaan",
+        "desc": "Sinun ei tarvitse osata HTML:ää, CSS:ää, suunnitteluperiaatteita tai miten webhosting toimii. Et edes tarvitse tietokonetta. Jos osaat kirjoittaa lauseen, voit rakentaa verkkosivuston."
+      },
+      {
+        "icon": "edit",
+        "title": "Tekoäly kirjoittaa myös sisältösi",
+        "desc": "Etkö tiedä mitä sivustollesi laittaisit? Tekoäly luo vakuuttavat otsikot, kuvaukset ja osioiden sisällön liiketoimintaasi räätälöitynä — ilman copywriteria."
+      },
+      {
+        "icon": "mobile",
+        "title": "Rakenna ja muokkaa puhelimellasi",
+        "desc": "Atelier toimii kokonaan iPhonellasi. Luo sivusto junassa, päivitä se lounaalla, julkaise ennen illallista. Verkkosivustostudiosi mahtuu taskuusi."
+      },
+      {
+        "icon": "globe",
+        "title": "Julkaise heti — ei asetuksia",
+        "desc": "Ei verkkotunnuksen määritystä, ei hosting-tilejä, ei FTP-latauksia. Yksi napautus ja sivustosi on julkaistu ainutlaatuisessa URL-osoitteessa, kaikkien saavutettavissa."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Vanha tapa vs. tekoälytapa",
+    "old_title": "Verkkosivuston rakentaminen vanhalla tavalla",
+    "old_items": [
+      "Sivustonrakentajien tutkiminen tuntikausia",
+      "Tutoriaalien katsominen käyttöliittymän oppimiseksi",
+      "Mallin valitseminen (jota 10 000 muuta käyttää)",
+      "Jokaisen elementin vetäminen, pudottaminen ja koon muuttaminen käsin",
+      "Kaiken sisällön kirjoittaminen alusta asti",
+      "Mobiiliresponsiivisuuden kanssa kamppailu",
+      "Hostingin ja verkkotunnuksen asetuksien selvittäminen",
+      "Julkaisu viikkojen turhautumisen jälkeen"
+    ],
+    "new_title": "Verkkosivuston rakentaminen tekoälyllä",
+    "new_items": [
+      "Avaa Atelier iPhonellasi",
+      "Kirjoita yksi lause, joka kuvaa sivustoasi",
+      "Tekoäly luo täydellisen, kauniin verkkosivuston",
+      "Napauta julkaistaksesi — olet verkossa"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Kenelle tämä on?",
+    "p": "Jos olet koskaan hakenut Googlesta \"miten tehdä verkkosivusto\" tai \"paras sivustonrakentaja\" — tämä on sinulle.",
+    "items": [
+      {
+        "title": "Ensimmäistä kertaa sivustoa tekevät",
+        "desc": "Et ole koskaan rakentanut sivustoa, ja ajatus sivustonrakentajan opettelemisesta tuntuu ylivoimaiselta. Tekoälyllä ei ole mitään opeteltavaa."
+      },
+      {
+        "title": "Pienyrittäjät",
+        "desc": "Tarvitset ammattimaisen verkkopresenssin, mutta sinulla ei ole varaa suunnittelijaan tai aikaa tehdä itse. Tekoäly antaa sinulle tyylikkään sivuston minuuteissa."
+      },
+      {
+        "title": "Freelancerit ja luovat tekijät",
+        "desc": "Haluat portfolion tai laskeutumissivun, joka näyttää oikeasti hyvältä — käyttämättä luovaa energiaasi verkkosuunnittelutyökaluihin."
+      },
+      {
+        "title": "Kaikki palveluja vertailevat",
+        "desc": "Tutkit Wixiä, WordPressiä, Squarespacea ja muita. Ennen kuin sitoudut viikkojen opetteluun, kokeile tekoälyä — sivustosi on valmis ennen kuin ehdit lukea heidän hinnastonsa."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Verkkosivustosi on yhden lauseen päässä",
+    "p": "Lataa Atelier ilmaiseksi. Kirjoita mitä haluat. Katso tekoälyn rakentavan sen.",
+    "download": "Lataa App Storesta"
+  },
+  "legal": {
+    "privacy": "Tietosuojakäytäntö",
+    "terms": "Käyttöehdot"
+  }
+}

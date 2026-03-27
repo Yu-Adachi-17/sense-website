@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI vytvorí vašu webstránku — prečo je ručné kódovanie už zastarané",
+    "description": "Prestaňte tráviť týždne ručným vytváraním webstránky. Atelier využíva AI na vygenerovanie kompletnej, profesionálnej stránky za menej ako 60 sekúnd — priamo z vášho iPhone. Budúcnosť tvorby webov je tu.",
+    "ogTitle": "AI vytvorí vašu webstránku za menej ako 60 sekúnd",
+    "ogDescription": "Opíšte svoj nápad a AI okamžite vytvorí vašu stránku. Bez kódovania, bez šablón, bez dizajnérov. Atelier premení jednu vetu na živú, úžasnú webstránku."
+  },
+  "aria": { "home": "Domovská stránka Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Budúcnosť tvorby webstránok",
+    "h1": "Vaša webstránka.<br>Vytvorená AI za 60 sekúnd.",
+    "tagline": "Zabudnite na najímanie dizajnérov. Zabudnite na drag-and-drop editory. Zabudnite na týždne práce na webe. Jednoducho opíšte, čo chcete — a AI od Atelier vytvorí elegantnú, živú stránku skôr, než dopijete kávu.",
+    "badges": ["Generované AI", "Za menej ako 60 sekúnd", "Bez kódu"]
+  },
+  "opening": {
+    "h2": "Éra ručne tvorených webstránok sa skončila",
+    "p1": "Zamyslite sa. Potrebujete web pre svoju firmu, portfólio alebo vedľajší projekt. Čo sa dialo predtým? Trávili ste dni skúmaním nástrojov, hodiny sledovaním tutoriálov a týždne úpravou šablón, ktoré nikdy nevyzerali správne.",
+    "p2": "Celý tento proces je teraz zastaraný. AI nepomáha len s webdizajnom — nahrádza celý pracovný postup. Od rozloženia po texty, od farebnej palety po responzívny dizajn, jeden príkaz vytvorí kompletnú webstránku pripravenú na publikáciu."
+  },
+  "demo": {
+    "h2": "Pozrite sa — jeden príkaz, jedna webstránka",
+    "p": "Napísali sme jednu vetu do Atelier a sledovali, ako AI vytvorila plne navrhnutú, viacsekciovú webstránku za pár sekúnd. Žiadne šablóny. Žiadne ťahanie a púšťanie. Žiadne revízie. Len okamžité vytvorenie.",
+    "prompt_label": "Príkaz:",
+    "prompt_text": "\"Vytvor web pre značku organickej kozmetiky so sídlom v Brooklyne. Moderný, minimalistický, s prehľadom produktov, sekciou o nás a odkazom na obchod.\"",
+    "output_label": "Čo AI vytvorila:"
+  },
+  "whyAI": {
+    "h2": "Prečo AI prekonáva všetko ostatné",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 sekúnd namiesto 60 dní",
+        "desc": "Tradičná webstránka vyžaduje týždne plánovania, dizajnovania a spustenia. S AI sa celý proces skráti na jednu minútu. Opíšte svoju víziu a stránka je živá."
+      },
+      {
+        "icon": "magic",
+        "title": "Žiadne zručnosti nie sú potrebné — naozaj",
+        "desc": "Nemusíte poznať HTML, CSS, princípy dizajnu ani ako funguje hosting. Nepotrebujete ani počítač. Ak viete napísať vetu, viete vytvoriť web."
+      },
+      {
+        "icon": "edit",
+        "title": "AI napíše aj váš obsah",
+        "desc": "Neviete, čo na web dať? AI vygeneruje presvedčivé nadpisy, popisy a obsah sekcií prispôsobený vášmu podnikaniu — bez copywritera."
+      },
+      {
+        "icon": "mobile",
+        "title": "Tvorte a upravujte z telefónu",
+        "desc": "Atelier beží celý na vašom iPhone. Vytvorte web vo vlaku, aktualizujte ho na obed, publikujte pred večerou. Vaše webové štúdio sa zmestí do vrecka."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikujte okamžite — bez nastavovania",
+        "desc": "Žiadna konfigurácia domény, žiadne hostingové účty, žiadne FTP nahrávanie. Jedno klepnutie a váš web je živý na jedinečnej URL, prístupný komukoľvek na svete."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Starý spôsob vs. spôsob s AI",
+    "old_title": "Tvorba webu starým spôsobom",
+    "old_items": [
+      "Hodiny skúmania nástrojov na tvorbu webov",
+      "Sledovanie tutoriálov na naučenie rozhrania",
+      "Výber šablóny (ktorú používa ďalších 10 000 ľudí)",
+      "Ručné ťahanie, púšťanie a zmena veľkosti každého prvku",
+      "Písanie celého obsahu od nuly",
+      "Problémy s mobilnou responzivitou",
+      "Riešenie hostingu a nastavenia domény",
+      "Spustenie po týždňoch frustrácie"
+    ],
+    "new_title": "Tvorba webu s AI",
+    "new_items": [
+      "Otvorte Atelier na svojom iPhone",
+      "Napíšte jednu vetu popisujúcu váš web",
+      "AI vygeneruje kompletný, krásny web",
+      "Klepnite na publikovanie — ste online"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Pre koho je to určené?",
+    "p": "Ak ste niekedy hľadali na Google \u201eako vytvoriť webstránku\u201c alebo \u201enajlepší nástroj na tvorbu webu\u201c — je to pre vás.",
+    "items": [
+      {
+        "title": "Začiatočníci v tvorbe webov",
+        "desc": "Nikdy ste web nevytvárali a predstava učiť sa nástroj na tvorbu webu vás desí. S AI sa nie je čo učiť."
+      },
+      {
+        "title": "Majitelia malých podnikov",
+        "desc": "Potrebujete profesionálnu webovú prítomnosť, ale nemôžete si dovoliť dizajnéra alebo čas na vlastnú tvorbu. AI vám dá elegantný web za pár minút."
+      },
+      {
+        "title": "Freelanceri a tvorcovia",
+        "desc": "Chcete portfólio alebo landing page, ktoré naozaj vyzerá dobre — bez plytvania kreatívnej energie na nástroje webdizajnu."
+      },
+      {
+        "title": "Ktokoľvek porovnávajúci služby",
+        "desc": "Skúmate Wix, WordPress, Squarespace a ďalšie. Pred tým, než sa zaviažete k týždňom učenia, vyskúšajte AI — váš web bude hotový skôr, než dočítate ich cenník."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Váš web je na jednu vetu ďaleko",
+    "p": "Stiahnite si Atelier zadarmo. Napíšte, čo chcete. Sledujte, ako to AI vytvorí.",
+    "download": "Stiahnuť na App Store"
+  },
+  "legal": {
+    "privacy": "Zásady ochrany osobných údajov",
+    "terms": "Podmienky používania"
+  }
+}

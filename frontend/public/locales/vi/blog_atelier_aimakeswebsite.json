@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI tạo website cho bạn — Tại sao viết code thủ công đã lỗi thời",
+    "description": "Đừng mất hàng tuần để xây dựng website thủ công nữa. Atelier sử dụng AI để tạo một website chuyên nghiệp hoàn chỉnh trong chưa đầy 60 giây — ngay từ iPhone của bạn. Tương lai của việc tạo website đã đến.",
+    "ogTitle": "AI tạo website cho bạn trong chưa đầy 60 giây",
+    "ogDescription": "Mô tả ý tưởng của bạn, và AI xây dựng website ngay lập tức. Không cần code, không cần template, không cần designer. Atelier biến một câu thành website tuyệt đẹp, sẵn sàng hoạt động."
+  },
+  "aria": { "home": "Trang chủ Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Tương lai của việc tạo website",
+    "h1": "Website của bạn.<br>Được AI xây dựng trong 60 giây.",
+    "tagline": "Quên việc thuê designer đi. Quên các công cụ kéo thả đi. Quên việc mất hàng tuần cho website đi. Chỉ cần mô tả bạn muốn gì — và AI của Atelier tạo ra website đẹp mắt, sẵn sàng trước khi bạn uống xong ly cà phê.",
+    "badges": ["Tạo bởi AI", "Dưới 60 giây", "Không cần code"]
+  },
+  "opening": {
+    "h2": "Thời đại website làm thủ công đã kết thúc",
+    "p1": "Hãy nghĩ xem. Bạn cần một website cho doanh nghiệp, portfolio hoặc dự án phụ. Trước đây chuyện gì xảy ra? Bạn mất hàng ngày tìm hiểu các công cụ tạo web, hàng giờ xem tutorial, và hàng tuần chỉnh sửa template mà không bao giờ ưng ý.",
+    "p2": "Toàn bộ quy trình đó giờ đã lỗi thời. AI không chỉ hỗ trợ thiết kế web — nó thay thế toàn bộ quy trình làm việc. Từ bố cục đến nội dung, từ bảng màu đến thiết kế responsive, một câu lệnh tạo ra website hoàn chỉnh sẵn sàng xuất bản."
+  },
+  "demo": {
+    "h2": "Xem tận mắt — Một câu lệnh, một website",
+    "p": "Chúng tôi gõ một câu vào Atelier và xem AI xây dựng website được thiết kế hoàn chỉnh với nhiều phần trong vài giây. Không template. Không kéo thả. Không chỉnh sửa. Chỉ là tạo ngay lập tức.",
+    "prompt_label": "Câu lệnh:",
+    "prompt_text": "\"Tạo website cho thương hiệu chăm sóc da hữu cơ có trụ sở tại Brooklyn. Hiện đại, tối giản, với sản phẩm nổi bật, phần giới thiệu và liên kết đến cửa hàng.\"",
+    "output_label": "AI đã tạo ra:"
+  },
+  "whyAI": {
+    "h2": "Tại sao AI vượt trội hơn mọi thứ khác",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 giây thay vì 60 ngày",
+        "desc": "Website truyền thống mất hàng tuần để lên kế hoạch, thiết kế và ra mắt. Với AI, toàn bộ quy trình rút gọn còn một phút. Mô tả tầm nhìn của bạn, và nó đã hoạt động."
+      },
+      {
+        "icon": "magic",
+        "title": "Không cần kỹ năng — Thật đấy",
+        "desc": "Bạn không cần biết HTML, CSS, nguyên tắc thiết kế hay cách hosting hoạt động. Thậm chí không cần máy tính. Nếu bạn gõ được một câu, bạn có thể tạo website."
+      },
+      {
+        "icon": "edit",
+        "title": "AI cũng viết nội dung cho bạn",
+        "desc": "Không biết đặt gì trên website? AI tạo ra tiêu đề hấp dẫn, mô tả và nội dung các phần phù hợp với doanh nghiệp của bạn — không cần copywriter."
+      },
+      {
+        "icon": "mobile",
+        "title": "Tạo và chỉnh sửa từ điện thoại",
+        "desc": "Atelier chạy hoàn toàn trên iPhone của bạn. Tạo website trên tàu, cập nhật lúc ăn trưa, xuất bản trước bữa tối. Studio website của bạn nằm gọn trong túi."
+      },
+      {
+        "icon": "globe",
+        "title": "Xuất bản ngay — Không cần thiết lập",
+        "desc": "Không cần cấu hình tên miền, không cần tài khoản hosting, không cần upload FTP. Một chạm và website của bạn hoạt động trên URL duy nhất, ai cũng có thể truy cập."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Cách cũ so với cách AI",
+    "old_title": "Tạo website theo cách cũ",
+    "old_items": [
+      "Nghiên cứu các công cụ tạo web hàng giờ",
+      "Xem tutorial để học giao diện",
+      "Chọn template (mà 10.000 người khác cũng dùng)",
+      "Kéo, thả và chỉnh kích thước từng phần tử thủ công",
+      "Viết tất cả nội dung từ đầu",
+      "Vật lộn với responsive trên di động",
+      "Tìm hiểu hosting và thiết lập tên miền",
+      "Ra mắt sau hàng tuần thất vọng"
+    ],
+    "new_title": "Tạo website với AI",
+    "new_items": [
+      "Mở Atelier trên iPhone",
+      "Gõ một câu mô tả website của bạn",
+      "AI tạo ra website hoàn chỉnh và đẹp mắt",
+      "Chạm để xuất bản — bạn đã online"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Dành cho ai?",
+    "p": "Nếu bạn từng tìm trên Google \"cách tạo website\" hoặc \"công cụ tạo web tốt nhất\" — đây là dành cho bạn.",
+    "items": [
+      {
+        "title": "Người lần đầu tạo website",
+        "desc": "Bạn chưa bao giờ tạo website, và nghĩ đến việc học một công cụ tạo web đã thấy choáng ngợp. Với AI, không có gì phải học."
+      },
+      {
+        "title": "Chủ doanh nghiệp nhỏ",
+        "desc": "Bạn cần sự hiện diện chuyên nghiệp trên web nhưng không đủ chi phí thuê designer hay thời gian tự làm. AI cho bạn website đẹp trong vài phút."
+      },
+      {
+        "title": "Freelancer & người sáng tạo",
+        "desc": "Bạn muốn portfolio hoặc landing page thực sự đẹp — mà không phải tốn năng lượng sáng tạo vào các công cụ thiết kế web."
+      },
+      {
+        "title": "Bất kỳ ai đang so sánh dịch vụ",
+        "desc": "Bạn đang tìm hiểu Wix, WordPress, Squarespace và các dịch vụ khác. Trước khi cam kết hàng tuần học hỏi, hãy thử AI — website của bạn sẽ xong trước khi bạn đọc hết trang giá của họ."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Website của bạn chỉ cách một câu",
+    "p": "Tải Atelier miễn phí. Gõ những gì bạn muốn. Xem AI tạo ra nó.",
+    "download": "Tải trên App Store"
+  },
+  "legal": {
+    "privacy": "Chính sách Bảo mật",
+    "terms": "Điều khoản Sử dụng"
+  }
+}

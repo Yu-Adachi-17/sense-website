@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "KI erstellt deine Website — warum manuelles Programmieren bereits überholt ist",
+    "description": "Hör auf, wochenlang eine Website von Hand zu bauen. Atelier nutzt KI, um eine komplette, professionelle Website in unter 60 Sekunden zu erstellen — direkt von deinem iPhone. Die Zukunft der Web-Erstellung ist da.",
+    "ogTitle": "KI erstellt deine Website in unter 60 Sekunden",
+    "ogDescription": "Beschreibe deine Idee und KI baut deine Website sofort. Kein Programmieren, keine Templates, keine Designer. Atelier verwandelt einen einzigen Satz in eine live, beeindruckende Website."
+  },
+  "aria": { "home": "Atelier Startseite" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Die Zukunft der Website-Erstellung",
+    "h1": "Deine Website.<br>Von KI in 60 Sekunden gebaut.",
+    "tagline": "Vergiss Designer engagieren. Vergiss Drag-and-Drop-Baukästen. Vergiss wochenlange Website-Arbeit. Beschreibe einfach, was du willst — und Atelier's KI erstellt eine elegante, live Website, bevor du deinen Kaffee ausgetrunken hast.",
+    "badges": ["KI-generiert", "Unter 60 Sekunden", "Kein Code nötig"]
+  },
+  "opening": {
+    "h2": "Die Ära der handgebauten Websites ist vorbei",
+    "p1": "Denk mal drüber nach. Du brauchst eine Website für dein Unternehmen, Portfolio oder Nebenprojekt. Was passierte früher? Du hast tagelang Website-Baukästen recherchiert, stundenlang Tutorials geschaut und wochenlang an Templates herumgebastelt, die nie ganz richtig aussahen.",
+    "p2": "Dieser gesamte Prozess ist jetzt überholt. KI unterstützt nicht nur beim Webdesign — sie ersetzt den kompletten Workflow. Vom Layout bis zum Text, von der Farbpalette bis zum responsiven Design — ein einziger Prompt erzeugt eine komplette Website, die bereit zur Veröffentlichung ist."
+  },
+  "demo": {
+    "h2": "Sieh es in Aktion — ein Prompt, eine Website",
+    "p": "Wir haben einen einzigen Satz in Atelier eingegeben und zugesehen, wie KI eine vollständig gestaltete, mehrteilige Website in Sekunden erstellt hat. Keine Templates. Kein Drag-and-Drop. Keine Überarbeitungen. Einfach sofortige Erstellung.",
+    "prompt_label": "Der Prompt:",
+    "prompt_text": "\"Erstelle eine Website für eine Bio-Hautpflegemarke aus Brooklyn. Modern, minimalistisch, mit Produkt-Highlights, einem Über-uns-Bereich und einem Shop-Link.\"",
+    "output_label": "Was die KI erstellt hat:"
+  },
+  "whyAI": {
+    "h2": "Warum KI alles andere schlägt",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 Sekunden statt 60 Tage",
+        "desc": "Eine traditionelle Website braucht Wochen zum Planen, Gestalten und Starten. Mit KI schrumpft der gesamte Prozess auf eine einzige Minute. Beschreibe deine Vision und sie ist live."
+      },
+      {
+        "icon": "magic",
+        "title": "Keine Vorkenntnisse nötig — wirklich",
+        "desc": "Du musst kein HTML, CSS, Designprinzipien oder Hosting verstehen. Du brauchst nicht mal einen Computer. Wenn du einen Satz schreiben kannst, kannst du eine Website bauen."
+      },
+      {
+        "icon": "edit",
+        "title": "KI schreibt auch deinen Content",
+        "desc": "Nicht sicher, was auf deine Seite soll? KI generiert überzeugende Überschriften, Beschreibungen und Abschnittsinhalte, die auf dein Unternehmen zugeschnitten sind — kein Texter nötig."
+      },
+      {
+        "icon": "mobile",
+        "title": "Erstelle und bearbeite vom Handy aus",
+        "desc": "Atelier läuft komplett auf deinem iPhone. Erstelle eine Website in der Bahn, aktualisiere sie in der Mittagspause, veröffentliche sie vor dem Abendessen. Dein Website-Studio passt in die Hosentasche."
+      },
+      {
+        "icon": "globe",
+        "title": "Sofort veröffentlichen — kein Setup",
+        "desc": "Keine Domain-Konfiguration, keine Hosting-Accounts, keine FTP-Uploads. Ein Tipp und deine Seite ist live unter einer einzigartigen URL, zugänglich für jeden auf der Welt."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "Der alte Weg vs. der KI-Weg",
+    "old_title": "Eine Website auf die alte Art bauen",
+    "old_items": [
+      "Stundenlang Website-Baukästen recherchieren",
+      "Tutorials anschauen, um die Oberfläche zu lernen",
+      "Ein Template auswählen (das 10.000 andere auch nutzen)",
+      "Jedes Element manuell ziehen, ablegen und anpassen",
+      "Den gesamten Content selbst von Grund auf schreiben",
+      "Mit mobiler Responsivität kämpfen",
+      "Hosting und Domain-Setup herausfinden",
+      "Nach Wochen voller Frustration endlich starten"
+    ],
+    "new_title": "Eine Website mit KI bauen",
+    "new_items": [
+      "Öffne Atelier auf deinem iPhone",
+      "Tippe einen Satz, der deine Seite beschreibt",
+      "KI generiert eine komplette, schöne Website",
+      "Tippe auf Veröffentlichen — du bist live"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Für wen ist das?",
+    "p": "Wenn du jemals bei Google nach \u201ewie erstelle ich eine Website\u201c oder \u201ebester Website-Baukasten\u201c gesucht hast — ist das für dich.",
+    "items": [
+      {
+        "title": "Erstmalige Website-Ersteller",
+        "desc": "Du hast noch nie eine Website gebaut, und der Gedanke, einen Website-Baukasten zu lernen, fühlt sich überwältigend an. Mit KI gibt es nichts zu lernen."
+      },
+      {
+        "title": "Kleinunternehmer",
+        "desc": "Du brauchst eine professionelle Web-Präsenz, kannst dir aber keinen Designer leisten oder hast keine Zeit für Eigenarbeit. KI gibt dir eine elegante Seite in Minuten."
+      },
+      {
+        "title": "Freelancer & Kreative",
+        "desc": "Du willst ein Portfolio oder eine Landing Page, die wirklich gut aussieht — ohne deine kreative Energie für Webdesign-Tools aufzuwenden."
+      },
+      {
+        "title": "Alle, die Dienste vergleichen",
+        "desc": "Du recherchierst Wix, WordPress, Squarespace und andere. Bevor du dich zu wochenlangem Lernen verpflichtest, probiere KI — deine Seite ist fertig, bevor du deren Preisseite gelesen hast."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Deine Website ist nur einen Satz entfernt",
+    "p": "Lade Atelier kostenlos herunter. Tippe, was du willst. Sieh zu, wie KI es baut.",
+    "download": "Im App Store laden"
+  },
+  "legal": {
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen"
+  }
+}

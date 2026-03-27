@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "A mesterséges intelligencia készíti el a weboldaladat — miért elavult már a kézi kódolás",
+    "description": "Ne tölts heteket egy weboldal kézi építésével. Az Atelier AI-t használ egy komplett, professzionális weboldal létrehozásához kevesebb mint 60 másodperc alatt — közvetlenül az iPhone-odról. A weboldalépítés jövője itt van.",
+    "ogTitle": "A mesterséges intelligencia 60 másodperc alatt elkészíti a weboldaladat",
+    "ogDescription": "Írd le az ötletedet, és az AI azonnal felépíti a weboldalad. Kódolás, sablonok és tervezők nélkül. Az Atelier egyetlen mondatból élő, lenyűgöző weboldalt hoz létre."
+  },
+  "aria": { "home": "Atelier Kezdőlap" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "A weboldalkészítés jövője",
+    "h1": "A weboldalad.<br>AI által építve 60 másodperc alatt.",
+    "tagline": "Felejtsd el a tervezők felbérlését. Felejtsd el a drag-and-drop szerkesztőket. Felejtsd el a hetekig tartó weboldalépítést. Csak írd le, mit szeretnél — és az Atelier AI-ja egy csiszolt, élő weboldalt hoz létre, mielőtt meginnád a kávédat.",
+    "badges": ["AI-generált", "60 másodperc alatt", "Kód nélkül"]
+  },
+  "opening": {
+    "h2": "A kézzel épített weboldalak korszaka véget ért",
+    "p1": "Gondolj bele. Szükséged van egy weboldalra a vállalkozásodhoz, portfóliódhoz vagy mellékprojektedhez. Mi történt régen? Napokat töltöttél weboldalépítők kutatásával, órákat tutorialok nézésével, és heteket sablonok módosításával, amelyek sosem néztek ki igazán jól.",
+    "p2": "Ez az egész folyamat most elavult. Az AI nem csak segít a webdesignban — az egész munkafolyamatot felváltja. Az elrendezéstől a szövegig, a színpalettától a reszponzív designig, egyetlen prompt egy teljes, publikálásra kész weboldalt hoz létre."
+  },
+  "demo": {
+    "h2": "Nézd meg — egy prompt, egy weboldal",
+    "p": "Beírtunk egyetlen mondatot az Atelierbe, és figyeltük, ahogy az AI másodpercek alatt felépített egy teljesen megtervezett, többszekciós weboldalt. Sablonok nélkül. Húzd és ejtsd nélkül. Módosítások nélkül. Csak azonnali alkotás.",
+    "prompt_label": "A Prompt:",
+    "prompt_text": "\"Készíts egy weboldalt egy brooklyni organikus bőrápoló márkának. Modern, minimalista, termékkiemelésekkel, rólunk szekcióval és bolt linkkel.\"",
+    "output_label": "Amit az AI létrehozott:"
+  },
+  "whyAI": {
+    "h2": "Miért veri az AI az összes többi megoldást",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 másodperc a 60 nap helyett",
+        "desc": "Egy hagyományos weboldal hetekig tart megtervezni, megalkotni és elindítani. AI-val az egész folyamat egyetlen percre zsugorodik. Írd le a víziód, és már él is."
+      },
+      {
+        "icon": "magic",
+        "title": "Nem kellenek képességek — komolyan",
+        "desc": "Nem kell ismerned a HTML-t, CSS-t, designelveket, vagy hogyan működik a tárhelyszolgáltatás. Még számítógép sem kell. Ha tudsz egy mondatot írni, tudsz weboldalt építeni."
+      },
+      {
+        "icon": "edit",
+        "title": "Az AI a tartalmadat is megírja",
+        "desc": "Nem tudod, mit tegyél a weboldaladra? Az AI meggyőző címsorokat, leírásokat és szekciótartalmakat generál a vállalkozásodra szabva — szövegíró nélkül."
+      },
+      {
+        "icon": "mobile",
+        "title": "Építs és szerkessz a telefonodról",
+        "desc": "Az Atelier teljes egészében az iPhone-odon fut. Készíts weboldalt a vonaton, frissítsd ebédnél, publikáld vacsora előtt. A weboldalstúdiód elfér a zsebedben."
+      },
+      {
+        "icon": "globe",
+        "title": "Publikálj azonnal — beállítás nélkül",
+        "desc": "Nincs domainkonfiguráció, nincs tárhelyfiók, nincs FTP-feltöltés. Egyetlen érintés, és a weboldalad él egy egyedi URL-en, a világ bármely pontjáról elérhető."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "A régi módszer vs. az AI módszer",
+    "old_title": "Weboldal építése a régi módon",
+    "old_items": [
+      "Órákig weboldalépítők kutatása",
+      "Tutorialok nézése a felület megtanulásához",
+      "Sablon kiválasztása (amit még 10 000 másik ember használ)",
+      "Minden elem kézi húzása, ejtése és átméretezése",
+      "Az összes tartalom megírása a nulláról",
+      "Küzdelem a mobil reszponzivitással",
+      "Tárhely és domain beállításának kiderítése",
+      "Indítás hetek frusztrációja után"
+    ],
+    "new_title": "Weboldal építése AI-val",
+    "new_items": [
+      "Nyisd meg az Ateliert az iPhone-odon",
+      "Írj be egy mondatot, ami leírja a weboldalad",
+      "Az AI létrehoz egy komplett, gyönyörű weboldalt",
+      "Érintsd meg a publikálást — máris élsz"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Kinek szól ez?",
+    "p": "Ha valaha is rákerestél a Google-ban arra, hogy \u201ehogyan készítsek weboldalt\u201c vagy \u201elegjobb weboldalépítő\u201c — ez neked szól.",
+    "items": [
+      {
+        "title": "Első weboldalkészítők",
+        "desc": "Még sosem készítettél weboldalt, és már az is nyomasztó, hogy meg kellene tanulni egy weboldalépítőt. AI-val nincs mit tanulni."
+      },
+      {
+        "title": "Kisvállalkozók",
+        "desc": "Szükséged van professzionális webes jelenlétre, de nem engedheted meg magadnak a tervezőt vagy az idejét a saját készítésnek. Az AI percek alatt ad egy elegáns weboldalt."
+      },
+      {
+        "title": "Szabadúszók és alkotók",
+        "desc": "Szeretnél egy portfóliót vagy landing oldalt, ami tényleg jól néz ki — anélkül, hogy a kreatív energiádat webdesign eszközökre pazarolnád."
+      },
+      {
+        "title": "Bárki, aki szolgáltatásokat hasonlít össze",
+        "desc": "Kutatod a Wix-et, WordPress-t, Squarespace-t és másokat. Mielőtt hetekre elköteleznéd magad a tanulás mellett, próbáld ki az AI-t — a weboldalad kész lesz, mielőtt végigolvasnád az árazási oldalukat."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "A weboldalad egyetlen mondat távolságra van",
+    "p": "Töltsd le az Ateliert ingyen. Írd be, mit szeretnél. Nézd, ahogy az AI felépíti.",
+    "download": "Letöltés az App Store-ból"
+  },
+  "legal": {
+    "privacy": "Adatvédelmi irányelvek",
+    "terms": "Felhasználási feltételek"
+  }
+}

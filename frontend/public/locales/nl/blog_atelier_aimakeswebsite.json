@@ -1,0 +1,110 @@
+{
+  "seo": {
+    "title": "AI maakt je website — waarom handmatig coderen al achterhaald is",
+    "description": "Stop met wekenlang handmatig een website bouwen. Atelier gebruikt AI om een complete, professionele website te genereren in minder dan 60 seconden — direct vanaf je iPhone. De toekomst van websitecreatie is hier.",
+    "ogTitle": "AI maakt je website in minder dan 60 seconden",
+    "ogDescription": "Beschrijf je idee en AI bouwt je website direct. Geen code, geen templates, geen ontwerpers. Atelier verandert één zin in een prachtige, live website."
+  },
+  "aria": { "home": "Atelier Home" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "De toekomst van websitecreatie",
+    "h1": "Jouw website.<br>Gebouwd door AI in 60 seconden.",
+    "tagline": "Vergeet ontwerpers inhuren. Vergeet drag-and-drop-bouwers. Vergeet wekenlang aan een website werken. Beschrijf gewoon wat je wilt — en Atelier's AI maakt een strakke, live website voordat je je koffie op hebt.",
+    "badges": ["AI-gegenereerd", "Onder 60 seconden", "Geen code nodig"]
+  },
+  "opening": {
+    "h2": "Het tijdperk van handgebouwde websites is voorbij",
+    "p1": "Denk er eens over na. Je hebt een website nodig voor je bedrijf, portfolio of zijproject. Wat gebeurde er vroeger? Je besteedde dagen aan het onderzoeken van websitebouwers, uren aan het kijken van tutorials en weken aan het aanpassen van templates die nooit helemaal goed leken.",
+    "p2": "Dat hele proces is nu achterhaald. AI helpt niet alleen bij webdesign — het vervangt de hele workflow. Van layout tot tekst, van kleurenpalet tot responsief ontwerp, één prompt produceert een complete website die klaar is om te publiceren."
+  },
+  "demo": {
+    "h2": "Zie het gebeuren — één prompt, één website",
+    "p": "We typten één zin in Atelier en zagen AI een volledig ontworpen website met meerdere secties bouwen in seconden. Geen templates. Geen drag-and-drop. Geen revisies. Gewoon directe creatie.",
+    "prompt_label": "De Prompt:",
+    "prompt_text": "\"Maak een website voor een biologisch huidverzorgingsmerk uit Brooklyn. Modern, minimalistisch, met producthighlights, een over ons-sectie en een shoplink.\"",
+    "output_label": "Wat AI maakte:"
+  },
+  "whyAI": {
+    "h2": "Waarom AI alles overtreft",
+    "items": [
+      {
+        "icon": "bolt",
+        "title": "60 seconden vs. 60 dagen",
+        "desc": "Een traditionele website kost weken om te plannen, ontwerpen en lanceren. Met AI krimpt het hele proces tot één minuut. Beschrijf je visie en het is live."
+      },
+      {
+        "icon": "magic",
+        "title": "Geen vaardigheden nodig — echt niet",
+        "desc": "Je hoeft geen HTML, CSS, ontwerpprincipes of hosting te kennen. Je hebt niet eens een computer nodig. Als je een zin kunt typen, kun je een website bouwen."
+      },
+      {
+        "icon": "edit",
+        "title": "AI schrijft ook je content",
+        "desc": "Weet je niet wat je op je site moet zetten? AI genereert overtuigende koppen, beschrijvingen en sectie-inhoud afgestemd op je bedrijf — geen copywriter nodig."
+      },
+      {
+        "icon": "mobile",
+        "title": "Bouw en bewerk vanaf je telefoon",
+        "desc": "Atelier draait volledig op je iPhone. Maak een website in de trein, update hem tijdens de lunch, publiceer hem voor het avondeten. Je websitestudio past in je zak."
+      },
+      {
+        "icon": "globe",
+        "title": "Publiceer direct — geen setup",
+        "desc": "Geen domeinconfiguratie, geen hostingaccounts, geen FTP-uploads. Eén tik en je site is live op een unieke URL, toegankelijk voor iedereen ter wereld."
+      }
+    ]
+  },
+  "oldWay": {
+    "h2": "De oude manier vs. de AI-manier",
+    "old_title": "Een website bouwen op de oude manier",
+    "old_items": [
+      "Urenlang websitebouwers onderzoeken",
+      "Tutorials kijken om de interface te leren",
+      "Een template kiezen (die 10.000 anderen ook gebruiken)",
+      "Elk element handmatig slepen, neerzetten en aanpassen",
+      "Alle content zelf helemaal opnieuw schrijven",
+      "Worstelen met mobiele responsiviteit",
+      "Hosting en domeininstellingen uitzoeken",
+      "Lanceren na weken van frustratie"
+    ],
+    "new_title": "Een website bouwen met AI",
+    "new_items": [
+      "Open Atelier op je iPhone",
+      "Typ één zin die je site beschrijft",
+      "AI genereert een complete, mooie website",
+      "Tik om te publiceren — je bent live"
+    ]
+  },
+  "whoIsThisFor": {
+    "h2": "Voor wie is dit?",
+    "p": "Als je ooit op Google hebt gezocht naar \"hoe maak ik een website\" of \"beste websitebouwer\" — dan is dit voor jou.",
+    "items": [
+      {
+        "title": "Eerste websitemakers",
+        "desc": "Je hebt nog nooit een site gebouwd en het idee om een websitebouwer te leren voelt overweldigend. Met AI is er niets te leren."
+      },
+      {
+        "title": "Eigenaren van kleine bedrijven",
+        "desc": "Je hebt een professionele webpresentie nodig maar kunt je geen ontwerper of de tijd om het zelf te doen veroorloven. AI geeft je een strakke site in minuten."
+      },
+      {
+        "title": "Freelancers & creatieven",
+        "desc": "Je wilt een portfolio of landingspagina die er echt goed uitziet — zonder je creatieve energie aan webdesigntools te besteden."
+      },
+      {
+        "title": "Iedereen die diensten vergelijkt",
+        "desc": "Je onderzoekt Wix, WordPress, Squarespace en anderen. Voordat je je vastlegt op weken leren, probeer AI — je site is af voordat je hun prijspagina hebt uitgelezen."
+      }
+    ]
+  },
+  "cta": {
+    "h3": "Je website is maar één zin verwijderd",
+    "p": "Download Atelier gratis. Typ wat je wilt. Kijk hoe AI het bouwt.",
+    "download": "Download in de App Store"
+  },
+  "legal": {
+    "privacy": "Privacybeleid",
+    "terms": "Gebruiksvoorwaarden"
+  }
+}
