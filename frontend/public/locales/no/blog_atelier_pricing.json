@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier priser — $99/år for ubegrenset AI-nettsidebygging",
+    "description": "Bygg opptil 10 profesjonelle nettsider for bare $99/år. Ateliers AI-drevne bygger lar deg lage, redigere og publisere fra din iPhone — uten kompleksiteten til Wix eller WordPress.",
+    "ogTitle": "Atelier priser: $99/år — Bygg opptil 10 AI-drevne nettsider",
+    "ogDescription": "Ubegrenset AI-nettsideopprettelse for $99/år. Rediger hvor som helst fra din iPhone, administrer opptil 10 nettsider, og hopp over kompleksiteten til tradisjonelle verktøy."
+  },
+  "aria": { "home": "Atelier hjem" },
+  "nav": { "blog": "Blogg", "category": "Atelier" },
+  "hero": {
+    "kicker": "Enkel, gjennomsiktig prising",
+    "h1": "Én plan.<br>Ubegrenset kreativitet.",
+    "tagline": "Alt du trenger for å bygge, redigere og publisere fantastiske nettsider — for mindre enn én middag ute per år."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/år",
+    "perMonth": "Det er bare $8.25/måned",
+    "badge": "Beste verdi"
+  },
+  "heroImage": {
+    "alt": "Atelier priser — bygg vakre AI-nettsider fra din iPhone"
+  },
+  "value": {
+    "h2": "Hvorfor $99/år er et opplagt valg",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Rediger når som helst, hvor som helst — rett fra din iPhone",
+        "desc": "Nettsidestudioet ditt er i lommen. Oppdater tekst, bytt bilder, omorganiser seksjoner og publiser endringer på farten — fra toget, kafeen eller sofaen ved midnatt. Ingen bærbar PC nødvendig, noensinne."
+      },
+      {
+        "icon": "magic",
+        "title": "100% AI-drevet — ingen dra-og-slipp-hodepine",
+        "desc": "Tradisjonelle verktøy som Wix og WordPress tvinger deg gjennom klønete editorer, uendelige maler og tilleggsmareritter. Atelier hopper over alt dette. Beskriv hva du vil ha på vanlig språk, og AI bygger det — vakkert, umiddelbart og optimalisert for søkemotorer fra starten."
+      },
+      {
+        "icon": "globe",
+        "title": "Opptil 10 nettsider under én plan",
+        "desc": "Driver du en salong og en personlig blogg? En restaurant og en bookingside? Med Atelier kan du opprette og administrere opptil 10 helt uavhengige nettsider — alt fra ett enkelt $99/år-abonnement."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Slik sammenligner Atelier seg",
+    "headers": ["Funksjon", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Årlig kostnad", "$99/år", "$197+/år", "$300+/år"],
+      ["AI-nettsidegenerering", "Full AI — fra beskrivelse til nettside", "Begrensede AI-funksjoner", "Krever tillegg"],
+      ["Mobilredigering", "iPhone-nativ, når som helst", "Skrivebordsfokusert", "Skrivebordsfokusert"],
+      ["SEO-optimalisering", "Innebygd, automatisk", "Krever manuelt oppsett", "Krever tillegg og ekspertise"],
+      ["Antall nettsider", "Opptil 10", "1 per plan", "1 per hosting"],
+      ["Læringskurve", "Null — bare skriv", "Timer med veiledninger", "Uker med oppsett"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Innebygd SEO som virkelig fungerer",
+    "p": "Med Wix eller WordPress betyr det å få nettsiden din til å rangere på Google å kjempe med SEO-tillegg, meta-tag-editorer, nettstedskart-generatorer og tekniske konfigurasjoner som de fleste aldri fullfører. Atelier håndterer alt dette automatisk — ren HTML-struktur, optimaliserte metadata, rask lasting og mobil-først-design som søkemotorer elsker. Nettsiden din er født klar til å rangere.",
+    "items": [
+      "Ren, semantisk HTML for søkemotorroboter",
+      "Automatisk genererte metatitler og -beskrivelser",
+      "Mobil-først-design — en viktig Google-rangeringsfaktor",
+      "Lynraske lastetider uten oppblåste tillegg",
+      "Ingen SEO-tillegg eller manuell konfigurasjon nødvendig"
+    ]
+  },
+  "cta": {
+    "h3": "Begynn å bygge for $99/år",
+    "p": "Last ned Atelier og lanser din første nettside i dag.",
+    "download": "Last ned fra App Store"
+  },
+  "legal": {
+    "privacy": "Personvernregler",
+    "terms": "Bruksvilkår"
+  }
+}

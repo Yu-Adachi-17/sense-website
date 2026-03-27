@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier Preise — $99/Jahr für unbegrenzten KI-Website-Bau",
+    "description": "Erstellen Sie bis zu 10 professionelle Websites für nur $99/Jahr. Der KI-gestützte Website-Builder von Atelier ermöglicht es Ihnen, direkt vom iPhone aus zu erstellen, zu bearbeiten und zu veröffentlichen — ohne die Komplexität von Wix oder WordPress.",
+    "ogTitle": "Atelier Preise: $99/Jahr — Erstellen Sie bis zu 10 KI-gestützte Websites",
+    "ogDescription": "Unbegrenzte KI-Website-Erstellung für $99/Jahr. Bearbeiten Sie überall von Ihrem iPhone aus, verwalten Sie bis zu 10 Seiten und umgehen Sie die Komplexität herkömmlicher Builder."
+  },
+  "aria": { "home": "Atelier Startseite" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Einfache, transparente Preise",
+    "h1": "Ein Tarif.<br>Unbegrenzte Kreativität.",
+    "tagline": "Alles, was Sie brauchen, um beeindruckende Websites zu erstellen, zu bearbeiten und zu veröffentlichen — für weniger als ein einziges Abendessen pro Jahr."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/Jahr",
+    "perMonth": "Das sind nur $8.25/Monat",
+    "badge": "Bestes Preis-Leistungs-Verhältnis"
+  },
+  "heroImage": {
+    "alt": "Atelier Preise — erstellen Sie schöne KI-Websites direkt vom iPhone"
+  },
+  "value": {
+    "h2": "Warum $99/Jahr ein Selbstläufer ist",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Jederzeit und überall bearbeiten — direkt vom iPhone",
+        "desc": "Ihr Website-Studio steckt in Ihrer Tasche. Aktualisieren Sie Texte, tauschen Sie Bilder, ordnen Sie Abschnitte um und veröffentlichen Sie Änderungen unterwegs — aus dem Zug, dem Café oder von der Couch um Mitternacht. Kein Laptop erforderlich, niemals."
+      },
+      {
+        "icon": "magic",
+        "title": "100% KI-gestützt — keine Drag-and-Drop-Kopfschmerzen",
+        "desc": "Traditionelle Builder wie Wix und WordPress zwingen Sie durch umständliche Editoren, endlose Templates und Plugin-Albträume. Atelier überspringt all das. Beschreiben Sie in einfacher Sprache, was Sie möchten, und die KI erstellt es — schön, sofort und für Suchmaschinen optimiert."
+      },
+      {
+        "icon": "globe",
+        "title": "Bis zu 10 Websites in einem Tarif",
+        "desc": "Betreiben Sie einen Salon und einen persönlichen Blog? Ein Restaurant und eine Buchungsseite? Mit Atelier können Sie bis zu 10 völlig unabhängige Websites erstellen und verwalten — alles mit einem einzigen $99/Jahr-Abonnement."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "So schneidet Atelier im Vergleich ab",
+    "headers": ["Funktion", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Jährliche Kosten", "$99/Jahr", "$197+/Jahr", "$300+/Jahr"],
+      ["KI-Website-Generierung", "Volle KI — vom Prompt zur Website", "Eingeschränkte KI-Funktionen", "Erfordert Plugins"],
+      ["Mobile Bearbeitung", "iPhone-nativ, jederzeit", "Desktop-orientiert", "Desktop-orientiert"],
+      ["SEO-Optimierung", "Integriert, automatisch", "Manuelle Einrichtung erforderlich", "Erfordert Plugins und Expertise"],
+      ["Anzahl der Websites", "Bis zu 10", "1 pro Tarif", "1 pro Hosting"],
+      ["Lernkurve", "Null — einfach tippen", "Stunden an Tutorials", "Wochen der Einrichtung"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Integriertes SEO, das wirklich funktioniert",
+    "p": "Bei Wix oder WordPress bedeutet es, Ihre Seite bei Google zu platzieren, dass Sie sich mit SEO-Plugins, Meta-Tag-Editoren, Sitemap-Generatoren und technischen Konfigurationen herumschlagen müssen, die die meisten Menschen nie abschließen. Atelier erledigt das alles automatisch — saubere HTML-Struktur, optimierte Metadaten, schnelle Ladezeiten und ein Mobile-First-Design, das Suchmaschinen lieben. Ihre Website ist von Anfang an bereit, zu ranken.",
+    "items": [
+      "Sauberes, semantisches HTML für Suchmaschinen-Crawler",
+      "Automatisch generierte Meta-Titel und -Beschreibungen",
+      "Mobile-First-Design — ein wichtiger Google-Rankingfaktor",
+      "Blitzschnelle Ladezeiten ohne aufgeblähte Plugins",
+      "Keine SEO-Plugins oder manuelle Konfiguration nötig"
+    ]
+  },
+  "cta": {
+    "h3": "Starten Sie für $99/Jahr",
+    "p": "Laden Sie Atelier herunter und starten Sie noch heute Ihre erste Website.",
+    "download": "Im App Store laden"
+  },
+  "legal": {
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Preços do Atelier — $99/ano para criação ilimitada de sites com IA",
+    "description": "Crie até 10 sites profissionais por apenas $99/ano. O construtor de IA do Atelier permite criar, editar e publicar direto do seu iPhone — sem a complexidade do Wix ou WordPress.",
+    "ogTitle": "Preços do Atelier: $99/ano — Crie até 10 sites com IA",
+    "ogDescription": "Criação ilimitada de sites com IA por $99/ano. Edite de qualquer lugar pelo iPhone, gerencie até 10 sites e pule a complexidade dos construtores tradicionais."
+  },
+  "aria": { "home": "Início do Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Preços simples e transparentes",
+    "h1": "Um único plano.<br>Criatividade ilimitada.",
+    "tagline": "Tudo que você precisa para criar, editar e publicar sites incríveis — por menos que o custo de um jantar fora por ano."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/ano",
+    "perMonth": "São apenas $8.25/mês",
+    "badge": "Melhor custo-benefício"
+  },
+  "heroImage": {
+    "alt": "Preços do Atelier — crie sites lindos com IA direto do seu iPhone"
+  },
+  "value": {
+    "h2": "Por que $99/ano é uma escolha óbvia",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Edite a qualquer hora, em qualquer lugar — direto do seu iPhone",
+        "desc": "Seu estúdio de sites está no seu bolso. Atualize textos, troque imagens, reorganize seções e publique alterações em movimento — do metrô, do café ou do sofá à meia-noite. Sem precisar de notebook, nunca."
+      },
+      {
+        "icon": "magic",
+        "title": "100% com IA — sem dor de cabeça com arrastar e soltar",
+        "desc": "Construtores tradicionais como Wix e WordPress te forçam a usar editores complicados, templates infinitos e pesadelos com plugins. O Atelier pula tudo isso. Descreva o que você quer em linguagem simples e a IA constrói — bonito, instantâneo e otimizado para mecanismos de busca desde o início."
+      },
+      {
+        "icon": "globe",
+        "title": "Até 10 sites em um único plano",
+        "desc": "Tem um salão e um blog pessoal? Um restaurante e uma página de agendamento? Com o Atelier, você pode criar e gerenciar até 10 sites completamente independentes — tudo com uma única assinatura de $99/ano."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Como o Atelier se compara",
+    "headers": ["Recurso", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Custo anual", "$99/ano", "$197+/ano", "$300+/ano"],
+      ["Geração de sites com IA", "IA completa — do texto ao site", "Recursos de IA limitados", "Requer plugins"],
+      ["Edição mobile", "Nativo no iPhone, a qualquer hora", "Focado em desktop", "Focado em desktop"],
+      ["Otimização SEO", "Integrada, automática", "Requer configuração manual", "Requer plugins e experiência"],
+      ["Número de sites", "Até 10", "1 por plano", "1 por hospedagem"],
+      ["Curva de aprendizado", "Zero — só digitar", "Horas de tutoriais", "Semanas de configuração"]
+    ]
+  },
+  "seoSection": {
+    "h2": "SEO integrado que realmente funciona",
+    "p": "Com Wix ou WordPress, fazer seu site aparecer no Google significa lidar com plugins de SEO, editores de meta tags, geradores de sitemap e configurações técnicas que a maioria das pessoas nunca termina. O Atelier cuida de tudo automaticamente — estrutura HTML limpa, metadados otimizados, carregamento rápido e design mobile-first que os mecanismos de busca adoram. Seu site já nasce pronto para ranquear.",
+    "items": [
+      "HTML limpo e semântico para rastreadores de mecanismos de busca",
+      "Meta títulos e descrições gerados automaticamente",
+      "Design mobile-first — um fator-chave de ranqueamento no Google",
+      "Tempos de carregamento ultrarrápidos sem plugins pesados",
+      "Sem necessidade de plugins de SEO ou configuração manual"
+    ]
+  },
+  "cta": {
+    "h3": "Comece a criar por $99/ano",
+    "p": "Baixe o Atelier e lance seu primeiro site hoje.",
+    "download": "Baixar na App Store"
+  },
+  "legal": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso"
+  }
+}

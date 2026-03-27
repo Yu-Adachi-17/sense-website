@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Prețuri Atelier — $99/an pentru creare nelimitată de site-uri web cu AI",
+    "description": "Creați până la 10 site-uri web profesionale pentru doar $99/an. Constructorul AI al Atelier vă permite să creați, editați și publicați de pe iPhone — fără complexitatea Wix sau WordPress.",
+    "ogTitle": "Prețuri Atelier: $99/an — Creați până la 10 site-uri web cu AI",
+    "ogDescription": "Creare nelimitată de site-uri web cu AI pentru $99/an. Editați de oriunde de pe iPhone, gestionați până la 10 site-uri și evitați complexitatea constructorilor tradiționali."
+  },
+  "aria": { "home": "Pagina principală Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Prețuri simple și transparente",
+    "h1": "Un singur plan.<br>Creativitate nelimitată.",
+    "tagline": "Tot ce aveți nevoie pentru a crea, edita și publica site-uri web uimitoare — la un preț mai mic decât o singură cină în oraș pe an."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/an",
+    "perMonth": "Adică doar $8.25/lună",
+    "badge": "Cea mai bună valoare"
+  },
+  "heroImage": {
+    "alt": "Prețuri Atelier — creați site-uri web AI frumoase de pe iPhone"
+  },
+  "value": {
+    "h2": "De ce $99/an este o alegere evidentă",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Editați oricând, oriunde — direct de pe iPhone",
+        "desc": "Studioul dvs. web este în buzunar. Actualizați texte, schimbați imagini, rearanjați secțiuni și publicați modificări din mers — din tren, din cafenea sau de pe canapea la miezul nopții. Nu aveți nevoie de laptop, niciodată."
+      },
+      {
+        "icon": "magic",
+        "title": "100% alimentat de AI — fără bătăi de cap cu drag-and-drop",
+        "desc": "Constructorii tradiționali precum Wix și WordPress vă forțează prin editoare greoaie, șabloane nesfârșite și coșmaruri cu plugin-uri. Atelier sare peste toate acestea. Descrieți ce doriți în limbaj simplu și AI-ul construiește — frumos, instant și optimizat pentru motoarele de căutare de la bun început."
+      },
+      {
+        "icon": "globe",
+        "title": "Până la 10 site-uri web într-un singur plan",
+        "desc": "Aveți un salon și un blog personal? Un restaurant și o pagină de rezervări? Cu Atelier, puteți crea și gestiona până la 10 site-uri web complet independente — totul dintr-un singur abonament de $99/an."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Cum se compară Atelier",
+    "headers": ["Funcționalitate", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Cost anual", "$99/an", "$197+/an", "$300+/an"],
+      ["Generare site cu AI", "AI complet — de la descriere la site", "Funcții AI limitate", "Necesită plugin-uri"],
+      ["Editare mobilă", "Nativ pe iPhone, oricând", "Focalizat pe desktop", "Focalizat pe desktop"],
+      ["Optimizare SEO", "Încorporată, automată", "Necesită configurare manuală", "Necesită plugin-uri și expertiză"],
+      ["Număr de site-uri", "Până la 10", "1 per plan", "1 per găzduire"],
+      ["Curba de învățare", "Zero — doar scrieți", "Ore de tutoriale", "Săptămâni de configurare"]
+    ]
+  },
+  "seoSection": {
+    "h2": "SEO încorporat care chiar funcționează",
+    "p": "Cu Wix sau WordPress, a face site-ul să apară în Google înseamnă să vă luptați cu plugin-uri SEO, editoare de meta tag-uri, generatoare de sitemap și configurații tehnice pe care majoritatea oamenilor nu le finalizează niciodată. Atelier se ocupă de tot automat — structură HTML curată, metadate optimizate, încărcare rapidă și design mobile-first pe care motoarele de căutare îl adoră. Site-ul dvs. se naște pregătit pentru clasament.",
+    "items": [
+      "HTML curat și semantic pentru crawlerele motoarelor de căutare",
+      "Meta titluri și descrieri generate automat",
+      "Design mobile-first — un factor cheie de clasament Google",
+      "Timpi de încărcare fulgerători fără plugin-uri supradimensionate",
+      "Fără plugin-uri SEO sau configurare manuală necesară"
+    ]
+  },
+  "cta": {
+    "h3": "Începeți să creați pentru $99/an",
+    "p": "Descărcați Atelier și lansați primul dvs. site web astăzi.",
+    "download": "Descărcați din App Store"
+  },
+  "legal": {
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termeni de utilizare"
+  }
+}

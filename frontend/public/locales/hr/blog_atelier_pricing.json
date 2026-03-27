@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier cijene — $99/godišnje za neograničenu izradu web stranica s AI-jem",
+    "description": "Izradite do 10 profesionalnih web stranica za samo $99/godišnje. Atelierov AI alat omogućuje vam stvaranje, uređivanje i objavljivanje s vašeg iPhonea — bez složenosti Wixa ili WordPressa.",
+    "ogTitle": "Atelier cijene: $99/godišnje — Izradite do 10 AI web stranica",
+    "ogDescription": "Neograničena izrada web stranica s AI-jem za $99/godišnje. Uređujte bilo gdje s iPhonea, upravljajte s do 10 stranica i izbjegnite složenost tradicionalnih alata."
+  },
+  "aria": { "home": "Atelier početna" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Jednostavne, transparentne cijene",
+    "h1": "Jedan plan.<br>Neograničena kreativnost.",
+    "tagline": "Sve što trebate za izradu, uređivanje i objavljivanje zadivljujućih web stranica — za manje od cijene jedne večere vani godišnje."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/godišnje",
+    "perMonth": "To je samo $8.25/mjesečno",
+    "badge": "Najbolja vrijednost"
+  },
+  "heroImage": {
+    "alt": "Atelier cijene — izradite prekrasne AI web stranice s vašeg iPhonea"
+  },
+  "value": {
+    "h2": "Zašto je $99/godišnje očit izbor",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Uređujte bilo kad, bilo gdje — izravno s iPhonea",
+        "desc": "Vaš web studio je u vašem džepu. Ažurirajte tekst, zamijenite slike, preuredite sekcije i objavite promjene u hodu — iz vlaka, kafića ili s kauča u ponoć. Laptop nikad nije potreban."
+      },
+      {
+        "icon": "magic",
+        "title": "100% pokreće AI — bez muka s povuci-i-ispusti",
+        "desc": "Tradicionalni alati poput Wixa i WordPressa prisiljavaju vas na nespretne editore, beskonačne predloške i noćne more s dodacima. Atelier preskače sve to. Opišite što želite jednostavnim jezikom i AI to izradi — prekrasno, trenutno i optimizirano za tražilice od samog početka."
+      },
+      {
+        "icon": "globe",
+        "title": "Do 10 web stranica u jednom planu",
+        "desc": "Vodite salon i osobni blog? Restoran i stranicu za rezervacije? S Atelierom možete izraditi i upravljati s do 10 potpuno neovisnih web stranica — sve iz jedne pretplate od $99/godišnje."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Kako se Atelier uspoređuje",
+    "headers": ["Značajka", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Godišnji trošak", "$99/godišnje", "$197+/godišnje", "$300+/godišnje"],
+      ["AI generiranje stranica", "Potpuni AI — od opisa do stranice", "Ograničene AI značajke", "Zahtijeva dodatke"],
+      ["Mobilno uređivanje", "Nativno na iPhoneu, bilo kad", "Fokusirano na desktop", "Fokusirano na desktop"],
+      ["SEO optimizacija", "Ugrađena, automatska", "Zahtijeva ručno postavljanje", "Zahtijeva dodatke i stručnost"],
+      ["Broj stranica", "Do 10", "1 po planu", "1 po hostingu"],
+      ["Krivulja učenja", "Nula — samo tipkajte", "Sati uputa", "Tjedni postavljanja"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Ugrađeni SEO koji stvarno funkcionira",
+    "p": "S Wixom ili WordPressom, rangiranje vaše stranice na Googleu znači borbu sa SEO dodacima, uređivačima meta oznaka, generatorima mapa stranica i tehničkim konfiguracijama koje većina ljudi nikad ne dovrši. Atelier sve to rješava automatski — čista HTML struktura, optimizirani metapodaci, brzo učitavanje i mobile-first dizajn koji tražilice vole. Vaša stranica je od početka spremna za rangiranje.",
+    "items": [
+      "Čist, semantički HTML za crawlere tražilica",
+      "Automatski generirani meta naslovi i opisi",
+      "Mobile-first dizajn — ključni čimbenik rangiranja na Googleu",
+      "Munjevito brzo učitavanje bez opterećujućih dodataka",
+      "Bez SEO dodataka ili ručne konfiguracije"
+    ]
+  },
+  "cta": {
+    "h3": "Počnite izrađivati za $99/godišnje",
+    "p": "Preuzmite Atelier i pokrenite svoju prvu web stranicu danas.",
+    "download": "Preuzmite na App Storeu"
+  },
+  "legal": {
+    "privacy": "Pravila privatnosti",
+    "terms": "Uvjeti korištenja"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Cennik Atelier — $99/rok za nieograniczone tworzenie stron z AI",
+    "description": "Stwórz do 10 profesjonalnych stron za jedyne $99/rok. Kreator AI Atelier pozwala tworzyć, edytować i publikować z iPhone'a — bez złożoności Wix czy WordPress.",
+    "ogTitle": "Cennik Atelier: $99/rok — Stwórz do 10 stron z AI",
+    "ogDescription": "Nieograniczone tworzenie stron z AI za $99/rok. Edytuj z dowolnego miejsca na iPhonie, zarządzaj do 10 stronami i omiń złożoność tradycyjnych kreatorów."
+  },
+  "aria": { "home": "Strona główna Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Prosty, przejrzysty cennik",
+    "h1": "Jeden plan.<br>Nieograniczona kreatywność.",
+    "tagline": "Wszystko, czego potrzebujesz do budowania, edytowania i publikowania oszałamiających stron — za mniej niż jedna kolacja na mieście rocznie."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/rok",
+    "perMonth": "To tylko $8.25/miesiąc",
+    "badge": "Najlepsza wartość"
+  },
+  "heroImage": {
+    "alt": "Cennik Atelier — twórz piękne strony AI z iPhone'a"
+  },
+  "value": {
+    "h2": "Dlaczego $99/rok to oczywisty wybór",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Edytuj zawsze i wszędzie — prosto z iPhone'a",
+        "desc": "Twoje studio stron internetowych mieści się w kieszeni. Aktualizuj teksty, zmieniaj zdjęcia, przeorganizuj sekcje i publikuj zmiany w ruchu — z pociągu, kawiarni czy kanapy o północy. Laptop nigdy nie jest potrzebny."
+      },
+      {
+        "icon": "magic",
+        "title": "100% napędzane AI — bez problemów z przeciągnij i upuść",
+        "desc": "Tradycyjne kreatory jak Wix i WordPress zmuszają do korzystania z nieporęcznych edytorów, nieskończonych szablonów i koszmarów z wtyczkami. Atelier pomija to wszystko. Opisz, czego chcesz, zwykłym językiem, a AI to zbuduje — pięknie, natychmiast i zoptymalizowane pod wyszukiwarki od razu."
+      },
+      {
+        "icon": "globe",
+        "title": "Do 10 stron w jednym planie",
+        "desc": "Prowadzisz salon i osobistego bloga? Restaurację i stronę rezerwacji? Z Atelier możesz stworzyć i zarządzać do 10 całkowicie niezależnych stron — wszystko z jednej subskrypcji za $99/rok."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Jak Atelier wypada na tle konkurencji",
+    "headers": ["Funkcja", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Roczny koszt", "$99/rok", "$197+/rok", "$300+/rok"],
+      ["Generowanie stron AI", "Pełne AI — od opisu do strony", "Ograniczone funkcje AI", "Wymaga wtyczek"],
+      ["Edycja mobilna", "Natywna na iPhonie, zawsze", "Skupiona na desktopie", "Skupiona na desktopie"],
+      ["Optymalizacja SEO", "Wbudowana, automatyczna", "Wymaga ręcznej konfiguracji", "Wymaga wtyczek i wiedzy"],
+      ["Liczba stron", "Do 10", "1 na plan", "1 na hosting"],
+      ["Krzywa uczenia się", "Zerowa — po prostu pisz", "Godziny poradników", "Tygodnie konfiguracji"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Wbudowane SEO, które naprawdę działa",
+    "p": "Z Wix lub WordPress uzyskanie pozycji w Google oznacza zmaganie się z wtyczkami SEO, edytorami metatagów, generatorami map witryn i konfiguracjami technicznymi, których większość ludzi nigdy nie kończy. Atelier obsługuje to wszystko automatycznie — czysta struktura HTML, zoptymalizowane metadane, szybkie ładowanie i design mobile-first, który kochają wyszukiwarki. Twoja strona rodzi się gotowa do rankingu.",
+    "items": [
+      "Czysty, semantyczny HTML dla robotów wyszukiwarek",
+      "Automatycznie generowane metatytuły i opisy",
+      "Design mobile-first — kluczowy czynnik rankingowy Google",
+      "Błyskawiczne czasy ładowania bez rozdętych wtyczek",
+      "Bez wtyczek SEO i ręcznej konfiguracji"
+    ]
+  },
+  "cta": {
+    "h3": "Zacznij tworzyć za $99/rok",
+    "p": "Pobierz Atelier i uruchom swoją pierwszą stronę już dziś.",
+    "download": "Pobierz w App Store"
+  },
+  "legal": {
+    "privacy": "Polityka prywatności",
+    "terms": "Warunki użytkowania"
+  }
+}

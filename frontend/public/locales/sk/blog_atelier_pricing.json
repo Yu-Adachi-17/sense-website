@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Cenník Atelier — $99/rok za neobmedzené vytváranie webov s AI",
+    "description": "Vytvorte až 10 profesionálnych webov za iba $99/rok. AI nástroj Atelier vám umožní vytvárať, upravovať a publikovať priamo z iPhone — bez zložitostí Wix alebo WordPress.",
+    "ogTitle": "Cenník Atelier: $99/rok — Vytvorte až 10 AI webov",
+    "ogDescription": "Neobmedzené vytváranie webov s AI za $99/rok. Upravujte odkiaľkoľvek z iPhone, spravujte až 10 webov a vyhnite sa zložitostiam tradičných nástrojov."
+  },
+  "aria": { "home": "Domovská stránka Atelier" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Jednoduchý a transparentný cenník",
+    "h1": "Jeden plán.<br>Neobmedzená kreativita.",
+    "tagline": "Všetko, čo potrebujete na vytváranie, úpravu a publikovanie úžasných webov — za menej, než stojí jedna večera v reštaurácii ročne."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/rok",
+    "perMonth": "To je len $8.25/mesiac",
+    "badge": "Najlepšia hodnota"
+  },
+  "heroImage": {
+    "alt": "Cenník Atelier — vytvárajte krásne AI weby priamo z iPhone"
+  },
+  "value": {
+    "h2": "Prečo je $99/rok jasná voľba",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Upravujte kedykoľvek a kdekoľvek — priamo z iPhone",
+        "desc": "Vaše webové štúdio máte vo vrecku. Aktualizujte texty, vymeňte obrázky, preusporiadajte sekcie a publikujte zmeny na cestách — z vlaku, kaviarne alebo z gauča o polnoci. Notebook nepotrebujete nikdy."
+      },
+      {
+        "icon": "magic",
+        "title": "100% poháňané AI — žiadne trápenie s ťahaním a púšťaním",
+        "desc": "Tradičné nástroje ako Wix a WordPress vás nútia prechádzať neohrabanými editormi, nekonečnými šablónami a nočnou morou pluginov. Atelier toto všetko preskočí. Opíšte, čo chcete, bežným jazykom a AI to vytvorí — krásne, okamžite a s optimalizáciou pre vyhľadávače."
+      },
+      {
+        "icon": "globe",
+        "title": "Až 10 webov v jednom pláne",
+        "desc": "Prevádzkujete salón a osobný blog? Reštauráciu a rezervačnú stránku? S Atelier môžete vytvoriť a spravovať až 10 úplne nezávislých webov — všetko v rámci jedného predplatného za $99/rok."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Ako si Atelier stojí v porovnaní",
+    "headers": ["Funkcia", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Ročné náklady", "$99/rok", "$197+/rok", "$300+/rok"],
+      ["Generovanie webu s AI", "Plná AI — od popisu k webu", "Obmedzené AI funkcie", "Vyžaduje pluginy"],
+      ["Mobilná úprava", "Natívne na iPhone, kedykoľvek", "Zamerané na desktop", "Zamerané na desktop"],
+      ["Optimalizácia SEO", "Vstavaná, automatická", "Vyžaduje ručné nastavenie", "Vyžaduje pluginy a odbornosť"],
+      ["Počet webov", "Až 10", "1 na plán", "1 na hosting"],
+      ["Krivka učenia", "Nulová — stačí písať", "Hodiny tutoriálov", "Týždne nastavovania"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Vstavané SEO, ktoré skutočne funguje",
+    "p": "S Wix alebo WordPress znamená dostať sa na popredné pozície v Google boj so SEO pluginmi, editormi meta tagov, generátormi sitemap a technickými konfiguráciami, ktoré väčšina ľudí nikdy nedokončí. Atelier to všetko rieši automaticky — čistá HTML štruktúra, optimalizované metadáta, rýchle načítanie a dizajn zameraný na mobily, ktorý vyhľadávače milujú. Váš web sa rodí pripravený na popredné pozície.",
+    "items": [
+      "Čisté, sémantické HTML pre crawlery vyhľadávačov",
+      "Automaticky generované meta titulky a popisy",
+      "Dizajn zameraný na mobily — kľúčový faktor hodnotenia Google",
+      "Bleskovo rýchle načítanie bez nafúknutých pluginov",
+      "Žiadne SEO pluginy ani ručná konfigurácia"
+    ]
+  },
+  "cta": {
+    "h3": "Začnite tvoriť za $99/rok",
+    "p": "Stiahnite si Atelier a spustite svoj prvý web ešte dnes.",
+    "download": "Stiahnuť na App Store"
+  },
+  "legal": {
+    "privacy": "Zásady ochrany osobných údajov",
+    "terms": "Podmienky používania"
+  }
+}

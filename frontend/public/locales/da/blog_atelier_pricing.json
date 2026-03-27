@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier priser — $99/år for ubegrænset AI-webstedsopbygning",
+    "description": "Byg op til 10 professionelle websteder for kun $99/år. Ateliers AI-drevne bygger lader dig oprette, redigere og udgive fra din iPhone — ingen Wix- eller WordPress-kompleksitet nødvendig.",
+    "ogTitle": "Atelier priser: $99/år — Byg op til 10 AI-drevne websteder",
+    "ogDescription": "Ubegrænset AI-webstedsoprettelse for $99/år. Rediger hvor som helst fra din iPhone, administrer op til 10 sider, og spring kompleksiteten ved traditionelle byggere over."
+  },
+  "aria": { "home": "Atelier startside" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Enkel, gennemsigtig prissætning",
+    "h1": "Ét abonnement.<br>Ubegrænset kreativitet.",
+    "tagline": "Alt hvad du behøver for at bygge, redigere og udgive fantastiske websteder — for mindre end prisen på en enkelt middag ude om året."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/år",
+    "perMonth": "Det er kun $8.25/måned",
+    "badge": "Bedste værdi"
+  },
+  "heroImage": {
+    "alt": "Atelier priser — byg smukke AI-websteder fra din iPhone"
+  },
+  "value": {
+    "h2": "Hvorfor $99/år er et oplagt valg",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Rediger når som helst, hvor som helst — direkte fra din iPhone",
+        "desc": "Dit websteds-studie ligger i din lomme. Opdater tekst, skift billeder, omarranger sektioner og udgiv ændringer på farten — fra toget, caféen eller sofaen klokken midnat. Ingen bærbar computer nødvendig, nogensinde."
+      },
+      {
+        "icon": "magic",
+        "title": "100% AI-drevet — ingen træk-og-slip-frustrationer",
+        "desc": "Traditionelle byggere som Wix og WordPress tvinger dig igennem kluntede editorer, endeløse skabeloner og plugin-mareridt. Atelier springer det hele over. Beskriv hvad du vil have i daglig tale, og AI bygger det — smukt, øjeblikkeligt og optimeret til søgemaskiner fra starten."
+      },
+      {
+        "icon": "globe",
+        "title": "Op til 10 websteder under ét abonnement",
+        "desc": "Driver du en salon og en personlig blog? En restaurant og en bookingside? Med Atelier kan du oprette og administrere op til 10 helt uafhængige websteder — alt sammen fra et enkelt $99/år-abonnement."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Sådan klarer Atelier sig i sammenligning",
+    "headers": ["Funktion", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Årlig pris", "$99/år", "$197+/år", "$300+/år"],
+      ["AI-webstedsgenerering", "Fuld AI — fra beskrivelse til site", "Begrænsede AI-funktioner", "Kræver plugins"],
+      ["Mobilredigering", "iPhone-native, når som helst", "Desktop-fokuseret", "Desktop-fokuseret"],
+      ["SEO-optimering", "Indbygget, automatisk", "Kræver manuel opsætning", "Kræver plugins og ekspertise"],
+      ["Antal websteder", "Op til 10", "1 pr. abonnement", "1 pr. hosting"],
+      ["Læringskurve", "Nul — bare skriv", "Timer med vejledninger", "Uger med opsætning"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Indbygget SEO der virkelig virker",
+    "p": "Med Wix eller WordPress betyder det at få dit site til at rangere på Google, at du skal kæmpe med SEO-plugins, meta-tag-editorer, sitemap-generatorer og tekniske konfigurationer, som de fleste aldrig bliver færdige med. Atelier håndterer det hele automatisk — ren HTML-struktur, optimeret metadata, hurtig indlæsning og mobil-først-design som søgemaskiner elsker. Dit site er født klar til at rangere.",
+    "items": [
+      "Ren, semantisk HTML til søgemaskine-crawlere",
+      "Autogenererede metatitler og -beskrivelser",
+      "Mobil-først-design — en vigtig Google-rangeringsfaktor",
+      "Lynhurtige indlæsningstider uden oppustede plugins",
+      "Ingen SEO-plugins eller manuel konfiguration nødvendig"
+    ]
+  },
+  "cta": {
+    "h3": "Begynd at bygge for $99/år",
+    "p": "Download Atelier og lancér dit første websted i dag.",
+    "download": "Download på App Store"
+  },
+  "legal": {
+    "privacy": "Privatlivspolitik",
+    "terms": "Brugsvilkår"
+  }
+}

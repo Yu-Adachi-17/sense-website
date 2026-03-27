@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier priser — $99/år för obegränsat AI-webbplatsbyggande",
+    "description": "Bygg upp till 10 professionella webbplatser för bara $99/år. Ateliers AI-drivna byggare låter dig skapa, redigera och publicera från din iPhone — utan komplexiteten hos Wix eller WordPress.",
+    "ogTitle": "Atelier priser: $99/år — Bygg upp till 10 AI-drivna webbplatser",
+    "ogDescription": "Obegränsad AI-webbplatsskapande för $99/år. Redigera var som helst från din iPhone, hantera upp till 10 webbplatser och hoppa över komplexiteten hos traditionella verktyg."
+  },
+  "aria": { "home": "Atelier startsida" },
+  "nav": { "blog": "Blogg", "category": "Atelier" },
+  "hero": {
+    "kicker": "Enkel, transparent prissättning",
+    "h1": "En plan.<br>Obegränsad kreativitet.",
+    "tagline": "Allt du behöver för att bygga, redigera och publicera fantastiska webbplatser — för mindre än en middag ute per år."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/år",
+    "perMonth": "Det är bara $8.25/månad",
+    "badge": "Bästa värdet"
+  },
+  "heroImage": {
+    "alt": "Atelier priser — bygg vackra AI-webbplatser från din iPhone"
+  },
+  "value": {
+    "h2": "Varför $99/år är ett självklart val",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Redigera när som helst, var som helst — direkt från din iPhone",
+        "desc": "Din webbplatsstudio finns i fickan. Uppdatera texter, byt bilder, omorganisera sektioner och publicera ändringar i farten — från tåget, kaféet eller soffan vid midnatt. Ingen bärbar dator behövs, någonsin."
+      },
+      {
+        "icon": "magic",
+        "title": "100% AI-drivet — inga dra-och-släpp-problem",
+        "desc": "Traditionella verktyg som Wix och WordPress tvingar dig genom klumpiga redigerare, oändliga mallar och tilläggs-mardrömmar. Atelier hoppar över allt det. Beskriv vad du vill ha på vanligt språk och AI bygger det — vackert, omedelbart och optimerat för sökmotorer från start."
+      },
+      {
+        "icon": "globe",
+        "title": "Upp till 10 webbplatser under en plan",
+        "desc": "Driver du en salong och en personlig blogg? En restaurang och en bokningssida? Med Atelier kan du skapa och hantera upp till 10 helt oberoende webbplatser — allt från en enda $99/år-prenumeration."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Så står sig Atelier i jämförelse",
+    "headers": ["Funktion", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Årlig kostnad", "$99/år", "$197+/år", "$300+/år"],
+      ["AI-webbplatsgenerering", "Full AI — från beskrivning till sajt", "Begränsade AI-funktioner", "Kräver tillägg"],
+      ["Mobilredigering", "iPhone-native, när som helst", "Skrivbordsfokuserat", "Skrivbordsfokuserat"],
+      ["SEO-optimering", "Inbyggd, automatisk", "Kräver manuell inställning", "Kräver tillägg och expertis"],
+      ["Antal webbplatser", "Upp till 10", "1 per plan", "1 per hosting"],
+      ["Inlärningskurva", "Noll — bara skriv", "Timmar av handledningar", "Veckor av inställning"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Inbyggd SEO som verkligen fungerar",
+    "p": "Med Wix eller WordPress innebär att få din sajt att ranka på Google att kämpa med SEO-tillägg, meta-tag-redigerare, sitemap-generatorer och tekniska konfigurationer som de flesta aldrig slutför. Atelier hanterar allt automatiskt — ren HTML-struktur, optimerad metadata, snabb laddning och mobilförst-design som sökmotorer älskar. Din sajt föds redo att ranka.",
+    "items": [
+      "Ren, semantisk HTML för sökmotorrobotar",
+      "Automatiskt genererade metatitlar och -beskrivningar",
+      "Mobilförst-design — en viktig Google-rankingfaktor",
+      "Blixtsnabba laddningstider utan uppblåsta tillägg",
+      "Inga SEO-tillägg eller manuell konfiguration behövs"
+    ]
+  },
+  "cta": {
+    "h3": "Börja bygga för $99/år",
+    "p": "Ladda ner Atelier och lansera din första webbplats idag.",
+    "download": "Ladda ner på App Store"
+  },
+  "legal": {
+    "privacy": "Integritetspolicy",
+    "terms": "Användarvillkor"
+  }
+}

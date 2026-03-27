@@ -1,0 +1,76 @@
+{
+  "seo": {
+    "title": "Atelier Fiyatlandırma — Sınırsız AI Web Sitesi Oluşturma için $99/Yıl",
+    "description": "Sadece $99/yıl ile 10 profesyonel web sitesi oluşturun. Atelier'in AI destekli oluşturucusu, iPhone'unuzdan oluşturmanıza, düzenlemenize ve yayınlamanıza olanak tanır — Wix veya WordPress karmaşıklığı olmadan.",
+    "ogTitle": "Atelier Fiyatları: $99/Yıl — 10 AI Destekli Web Sitesi Oluşturun",
+    "ogDescription": "$99/yıl ile sınırsız AI web sitesi oluşturma. iPhone'dan her yerden düzenleyin, 10 siteye kadar yönetin ve geleneksel araçların karmaşıklığından kurtulun."
+  },
+  "aria": { "home": "Atelier Ana Sayfa" },
+  "nav": { "blog": "Blog", "category": "Atelier" },
+  "hero": {
+    "kicker": "Basit, şeffaf fiyatlandırma",
+    "h1": "Tek plan.<br>Sınırsız yaratıcılık.",
+    "tagline": "Etkileyici web siteleri oluşturmak, düzenlemek ve yayınlamak için ihtiyacınız olan her şey — yılda bir kez dışarıda yemek yeme maliyetinden daha ucuza."
+  },
+  "price": {
+    "amount": "$99",
+    "period": "/yıl",
+    "perMonth": "Aylık sadece $8.25",
+    "badge": "En iyi değer"
+  },
+  "heroImage": {
+    "alt": "Atelier fiyatlandırma — iPhone'unuzdan güzel AI web siteleri oluşturun"
+  },
+  "value": {
+    "h2": "$99/Yıl neden açık bir tercih",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Her zaman, her yerde düzenleyin — doğrudan iPhone'unuzdan",
+        "desc": "Web sitesi stüdyonuz cebinizde. Metinleri güncelleyin, görselleri değiştirin, bölümleri yeniden düzenleyin ve değişiklikleri anında yayınlayın — trenden, kafeden veya gece yarısı kanepeden. Dizüstü bilgisayar hiçbir zaman gerekmez."
+      },
+      {
+        "icon": "magic",
+        "title": "100% AI destekli — sürükle bırak baş ağrısı yok",
+        "desc": "Wix ve WordPress gibi geleneksel araçlar sizi hantal düzenleyicilere, sonsuz şablonlara ve eklenti kabuslara zorlar. Atelier bunların hepsini atlar. İstediğinizi günlük dilde anlatın ve AI onu oluştursun — güzel, anında ve arama motorları için optimize edilmiş şekilde."
+      },
+      {
+        "icon": "globe",
+        "title": "Tek planda 10'a kadar web sitesi",
+        "desc": "Bir kuaför salonu ve kişisel blog mu yönetiyorsunuz? Bir restoran ve rezervasyon sayfası mı? Atelier ile tamamen bağımsız 10'a kadar web sitesi oluşturup yönetebilirsiniz — hepsi tek bir $99/yıl abonelikle."
+      }
+    ]
+  },
+  "comparison": {
+    "h2": "Atelier nasıl karşılaştırılır",
+    "headers": ["Özellik", "Atelier", "Wix", "WordPress"],
+    "rows": [
+      ["Yıllık maliyet", "$99/yıl", "$197+/yıl", "$300+/yıl"],
+      ["AI web sitesi oluşturma", "Tam AI — açıklamadan siteye", "Sınırlı AI özellikleri", "Eklenti gerektirir"],
+      ["Mobil düzenleme", "iPhone'a özgü, her zaman", "Masaüstü odaklı", "Masaüstü odaklı"],
+      ["SEO optimizasyonu", "Yerleşik, otomatik", "Manuel kurulum gerektirir", "Eklenti ve uzmanlık gerektirir"],
+      ["Site sayısı", "10'a kadar", "Plan başına 1", "Hosting başına 1"],
+      ["Öğrenme eğrisi", "Sıfır — sadece yazın", "Saatlerce eğitim", "Haftalarca kurulum"]
+    ]
+  },
+  "seoSection": {
+    "h2": "Gerçekten işe yarayan yerleşik SEO",
+    "p": "Wix veya WordPress ile sitenizi Google'da sıralamak, SEO eklentileri, meta etiket düzenleyicileri, site haritası oluşturucuları ve çoğu insanın hiç bitirmediği teknik yapılandırmalarla uğraşmak demektir. Atelier bunların hepsini otomatik olarak halleder — temiz HTML yapısı, optimize edilmiş meta veriler, hızlı yükleme ve arama motorlarının sevdiği mobil öncelikli tasarım. Siteniz sıralanmaya hazır doğar.",
+    "items": [
+      "Arama motoru tarayıcıları için temiz, anlamsal HTML",
+      "Otomatik oluşturulan meta başlıklar ve açıklamalar",
+      "Mobil öncelikli tasarım — önemli bir Google sıralama faktörü",
+      "Şişirilmiş eklentiler olmadan yıldırım hızında yükleme",
+      "SEO eklentisi veya manuel yapılandırma gerekmez"
+    ]
+  },
+  "cta": {
+    "h3": "$99/Yıl ile oluşturmaya başlayın",
+    "p": "Atelier'i indirin ve ilk web sitenizi bugün başlatın.",
+    "download": "App Store'dan indirin"
+  },
+  "legal": {
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları"
+  }
+}
